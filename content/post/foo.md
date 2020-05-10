@@ -44,3 +44,23 @@ iostat由Red Hat Enterprise Linux AS发布。同时iostat也是Sysstat的一部�
 vmstat
 
 vmstat提供了processes, memory, paging, block I/O, traps和CPU的活动状况
+
+sar
+
+sar是Red Hat Enterprise Linux AS发行的一个工具，同时也是Sysstat工具集的命令之一，可以从以下网址下载：[http://perso.wanadoo.fr/sebastien.godard/](http://perso.wanadoo.fr/sebastien.godard/ "http://perso.wanadoo.fr/sebastien.godard/")
+
+  
+
+sar用于收集、报告或者保存系统活动信息。sar由三个应用组成：sar显示数据、sar1和sar2用于收集和保存数据。
+
+  
+
+使用sar1和sar2，系统能够配置成自动抓取信息和日志，以备分析使用。配置举例：在/etc/crontab中添加如下几行内容
+
+  
+
+同样的，你也可以在命令行方式下使用sar运行实时报告。如图所示：
+
+  
+
+从收集的信息中，可以得到详细的CPU使用情况(%user, %nice, %system, %idle)、内存页面调度、网络I/O、进程活动、块设备活动、以及interrupts/second
