@@ -64,3 +64,17 @@ sar用于收集、报告或者保存系统活动信息。sar由三个应用组�
   
 
 从收集的信息中，可以得到详细的CPU使用情况(%user, %nice, %system, %idle)、内存页面调度、网络I/O、进程活动、块设备活动、以及interrupts/second
+
+KDE System Guard
+
+KDE System Guard (KSysguard) 是KDE图形方式的任务管理和性能监视工具。监视本地及远程客户端/服务器架构体系的中的主机。
+
+8、free
+
+/bin/free命令显示所有空闲的和使用的内存数量，包括swap。同时也包含内核使用的缓存。
+
+Traffic-vis
+
+Traffic-vis是一套测定哪些主机在IP网进行通信、通信的目标主机以及传输的数据量。并输出纯文本、HTML或者GIF格式的报告。
+
+注：Traffic-vis仅仅适用于SUSE LINUX ENTERPRISE SERVER。
