@@ -78,3 +78,7 @@ Traffic-vis
 Traffic-vis是一套测定哪些主机在IP网进行通信、通信的目标主机以及传输的数据量。并输出纯文本、HTML或者GIF格式的报告。
 
 注：Traffic-vis仅仅适用于SUSE LINUX ENTERPRISE SERVER。
+
+pmap
+
+pmap可以报告某个或多个进程的内存使用情况。使用pmap判断主机中哪个进程因占用过多内存导致内存瓶颈。
