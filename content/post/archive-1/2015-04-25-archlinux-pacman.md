@@ -1,0 +1,290 @@
+---
+title: pacman
+author: wiloon
+type: post
+date: 2015-04-25T03:37:27+00:00
+url: /?p=7501
+categories:
+  - Uncategorized
+tags:
+  - linux
+
+---
+### Enabling multilib
+
+To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
+
+<pre><code class="line-numbers">/etc/pacman.conf
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+</code></pre>
+
+### config pacman mirror
+
+编辑 /etc/pacman.d/mirrorlist，修改为。
+
+<pre><code class="language-bash line-numbers">Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+Server = http://mirrors.neusoft.edu.cn/archlinux/
+Server = http://mirrors.lug.mtu.edu/archlinux/
+Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
+
+# for downgrade
+#Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
+</code></pre>
+
+<pre><code class="language-bash line-numbers">--noconfirm
+Bypass any and all “Are you sure?” messages. It’s not a good idea to do this unless you want to run pacman from a script.
+</code></pre>
+
+### archlinux key could not be looked up remotely
+
+<pre><code class="language-bash line-numbers">sudo pacman -S archlinux-keyring && sudo pacman -Syu
+
+# 要删除软件包，但是不删除依赖这个软件包的其他程序：
+pacman -Rdd package_name
+
+</code></pre>
+
+### Fix “unable to lock database”
+
+sudo rm /var/lib/pacman/db.lck
+
+#升级系统中所有已安装的包
+  
+pacman -Su
+
+#升级系统和同步仓库数据
+  
+pacman -Syu
+
+#忽略/排除指定包
+  
+pacman -Su &#8211;ignore postgresql &#8211;ignore libpqxx
+
+查看软件包依赖
+  
+yaourt -S pkgtools
+  
+whoneeds package-name
+
+sudo pacman -S pacman-contrib
+  
+pactree -r package-name
+
+pacman -Sy abc #和源同步后安装名为abc的包
+  
+pacman -S abc #从本地数据库中得到abc的信息，下载安装abc包
+  
+pacman -Sf abc #强制安装包abc
+  
+pacman -Ss abc #搜索有关abc信息的包
+  
+pacman -Si abc #从数据库中搜索包abc的信息
+  
+pacman -Q # 列出已经安装的软件包
+  
+pacman -Qe # 列出已经安装的软件包
+  
+pacman -Q abc # 检查 abc 软件包是否已经安装
+  
+pacman -Qi abc #列出已安装的包abc的详细信息
+  
+pacman -Ql abc # 列出abc软件包的所有文件
+  
+pacman -Qo /path/to/abc # 列出abc文件所属的软件包
+  
+pacman -Syu #同步源，并更新系统
+  
+pacman -Sy #仅同步源
+  
+pacman -Su #更新系统
+  
+pacman -R abc #删除abc包
+  
+pacman -Rd abc #强制删除被依赖的包
+  
+pacman -Rc abc #删除abc包和依赖abc的包
+  
+pacman -Rsc abc #删除abc包和abc依赖的包
+  
+pacman -Sc #清理/var/cache/pacman/pkg目录下的旧包
+  
+pacman -Scc #清除所有下载的包和数据库
+  
+pacman -U abc #安装下载的abs包，或新编译的abc包
+  
+pacman -Sd abc #忽略依赖性问题，安装包abc
+  
+pacman -Su –ignore foo #升级时不升级包foo
+  
+pacman -Sg abc #查询abc这个包组包含的软件包
+
+限速
+  
+由于办公室装修，临时借宿到另一个兄弟公司干活。不过这兄弟可不够厚道，分配给我们的网络做了非常不人道的限制，每个网卡限速20k，于是乎瞬间回退到小猫时代。在这样的环境下，如果有时需要安装一些东西，就会由于pacman把带宽全部抢占而导致网页打不开、MSN断线等一系列严重后果。
+
+不过还好，虽然pacman并没有提供限速的功能，但是它提供了比较灵活的接口来使用其他下载程序。我使用的是wget，只要在/etc/pacman.conf中将XferCommand设置为如下配置即可实现限速10k的目的了。
+
+XferCommand = /usr/bin/wget –passive-ftp –limit-rate=10k -c -O %o %u
+
+查询包数据库
+  
+Pacman可以在包数据库中查询软件包，查询位置包含了包的名字和描述：
+
+Pacman包管理器是ArchLinux的一大亮点。它汲取了其他Linux版本软件管理的优点，譬如Debian的APT机制、Redhat的Yum机制、 Suse的Yast等，对于安装软件提供了无与伦比的方便。另外由于ArchLinux是一个针对i686架构优化的发行版，因此对于软件的效率提高也有一定的帮助。pacman可以说是ArchLinux的基础，因为ArchLinux默认安装非常少的软件，其他软件都是使用pacman通过网络来安装的。它将一个简单的二进制包格式和易用的构建系统结合了起来。Pacman使得简单的管理与自定义软件包成为了可能，而不论他们来自于官方的Arch软件库或是用户自己创建的。Pacman可以通过和主服务器同步包列表来进行系统更新，这使得注重安全的系统管理员的维护工作成为轻而易举的事情。
+
+下面是偶总结的Pacman命令参数：
+
+安装软件包
+  
+安装或者升级单个软件包，或者一列软件包（包含依赖包），使用如下命令：
+
+pacman -S package\_name1 package\_name2
+  
+有时候在不同的软件仓库中，一个软件包有多个版本（比如extra和testing）。你可以选择一个来安装：
+
+编辑/etc/pacman.d/mirrorlist，重新选择一个源。再pacman -Suy更新系统，或pacman -Syy更新软件库。
+
+pacman -S extra/package_name
+  
+pacman -S testing/package_name
+  
+删除软件包
+  
+删除单个软件包，保留其全部已经安装的依赖关系
+
+pacman -R package_name
+  
+删除指定软件包，及其所有没有被其他已安装软件包使用的依赖关系：
+
+pacman -Rs package_name
+  
+缺省的，pacman会备份被删除程序的配置文件，将它们加上*.pacsave扩展名。如果你在删除软件包时要同时删除相应的配置文件（这种行为在基于Debian的系统中称为清除purging），你可是使用命令：
+
+pacman -Rn package_name
+  
+当然，它也可以加上-s参数来删除当前无用的依赖。这样的话，真正删除一个软件包、它的配置文件以及所有不再需要的依赖的命令如下：
+
+pacman -Rsn package_name
+  
+注意！Pacman不会删除软件包安装后才创建的配置文件。你可以从你的home文件夹中手动删除它们。
+
+pacman -Ss package
+  
+要查询已安装的软件包：
+
+pacman -Qs package
+  
+一旦你得到了软件包的完整名字，你可以获取关于它的更为详尽的信息：
+
+pacman -Si package
+  
+pacman -Qi package
+  
+要获取已安装软件包所包含文件的列表：
+
+pacman -Ql package
+  
+你也可以通过查询数据库获知目前你的文件系统中某个文件是属于哪个软件包。
+
+pacman -Qo /path/to/a/file
+  
+要罗列所有不再作为依赖的软件包(孤立orphans)：
+
+pacman -Qdt
+  
+Pacman使用-Q参数来查询本地软件包数据库。参见：
+
+pacman -Q –help
+  
+…而使用-S参数来查询远程同步的数据库。参见：
+
+pacman -S –help
+  
+详情可参见pacman man。
+
+其它用法
+  
+Pacman是个非常广泛的包管理工具，这里只是它的一些其它主要特性。
+
+下载包而不安装它：
+  
+pacman -Sw package_name
+  
+安装一个’本地’包（不从源里）：
+  
+pacman -U /path/to/package/package_name-version.pkg.tar.gz
+  
+安装一个’远程’包（不从源里）：
+  
+pacman -U http://url/package_name-version.pkg.tar.gz
+  
+清理当前未被安装软件包的缓存(/var/cache/pacman/pkg):
+  
+pacman -Sc
+  
+完全清理包缓存：
+  
+pacman -Scc
+  
+Warning: 关于pacman -Scc，仅在你确定不需要做任何软件包降级工作时才这样做。pacman -Scc会从缓存中删除所有软件包。
+  
+要删除孤立软件包（递归的，要小心)：
+  
+pacman -Rs $(pacman -Qtdq)
+  
+重新安装你系统中所有的软件包（仓库中已有的）：
+  
+pacman -S $(pacman -Qq | grep -v “$(pacman -Qmq)”)
+  
+获取本地软件包和它们大小的一个已排序清单列表：
+  
+LANG=C pacman -Qi | sed -n ‘/^Name[^:]*: (._)/{s//1 /;x};/^Installed[^:]_: (.*)/{s//1/;H;x;s/n//;p}’ | sort -nk2
+  
+要了解更详细的参数开关可以pacman –help或者man pacman。
+
+配置
+  
+Pacman的配置文件位于/etc/pacman.conf。关于配置文件的进一步信息可以用man pacman.conf查看。
+
+常用选项
+  
+常用选项都在[options]段。阅读man手册或者查看缺省的pacman.conf可以获得有关信息和用途。
+
+**忽略/排除升级软件包**
+  
+如果由于某种原因，你不希望升级某个软件包，可以加入内容如下：
+  
+IgnorePkg = 软件包名
+  
+多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 &#8211;ignore 选项。
+
+忽略了的软件包可通过 pacman -S 升级。
+
+和软件包一样，你也可以象这样跳过升级某个软件包组：
+
+IgnoreGroup = gnome
+  
+附注：
+  
+ArchLinux的版本库里面包括：
+  
+core-核心软件包
+  
+extra-其他常用软件
+  
+community-社区软件包，譬如Mysql等。
+  
+testing-正在测试阶段，还没有正式加入源的软件包。通常软件版本比较新，但是不是非常稳定
+  
+release-已经发布的软件包
+  
+unstable-非正式的软件包，可能包括以前版本的软件或者测试软件
+
+因为Pacman的软件都是从源里面更新，因此在/etc/pacman.d里面配置这些软件源的地址。
+  
+在/etc/pacman.d目录里面分别有上面几种软件类型对应的文件名，可以自己手工配置这些软件源的地址。
+
+http://jsome.net/blog/2010/01/18/tips-for-pacman
+  
+http://blog.chinaunix.net/uid-20728322-id-2454942.html

@@ -1,0 +1,240 @@
+---
+title: Eclipse WTP 入门
+author: wiloon
+type: post
+date: 2013-10-20T04:55:30+00:00
+url: /?p=5850
+categories:
+  - Uncategorized
+tags:
+  - Java
+
+---
+<div>
+  WTP (Web Tools Platform) 是一个开发J2EE Web应用程序的工具集
+</div>
+
+<div>
+  用了太长时间的MyEclipse难免想换换口味，这几天下来一堆插件，待有时间把使用心得一个一个写出来
+</div>
+
+<div>
+  引用一段官方的介绍:
+</div>
+
+<div>
+  The Eclipse Web Tools Platform (WTP) project extends the Eclipse platform with tools for developing Web and Java EE applications. It includes source and graphical editors for a variety of languages, wizards and built-in applications to simplify development, and tools and APIs to support deploying, running, and testing apps.
+</div>
+
+<div>
+  更多使用文档：<a href="http://www.eclipse.org/webtools/documentation/">http://www.eclipse.org/webtools/documentation/</a>
+</div>
+
+<div>
+  下载地址：<a href="http://download.eclipse.org/webtools/downloads/">http://download.eclipse.org/webtools/downloads/</a>
+</div>
+
+<div>
+</div>
+
+<div>
+  我的环境配置：
+</div>
+
+<div>
+  Eclipse版本 eclipse-SDK-3.3.2-win32
+</div>
+
+<div>
+  WTP版本 wtp-sdk-M-2.0.3
+</div>
+
+<div>
+  EMF版本 emf-sdo-xsd-SDK-2.3.2  (WTP依赖)
+</div>
+
+<div>
+  GEF版本 GEF-SDK-3.3.2 (WTP依赖)
+</div>
+
+<div>
+  其他插件略
+</div>
+
+<div>
+</div>
+
+<div>
+  <strong>1.</strong><strong>安装WTP </strong><strong>插件 </strong><strong>略</strong>
+</div>
+
+<div>
+  <strong>2.</strong><strong>配置Web Server</strong>
+</div>
+
+<div>
+  window->preferences->Server->Instaled Runtimes ->Add 添加一个Web Server 例如Tomcat6
+</div>
+
+<div>
+  <strong>3.</strong><strong>新建WTP</strong><strong>工程</strong>
+</div>
+
+<div>
+  File->Web->Dynamic Web Project->添写Project name->勾选java和Dynamic Web Module->填写context信息->finish->建立一个测试用的jsp文件,最好在写个java类在jsp中进行调用，以便测试单步跟踪。
+</div>
+
+<div>
+  <strong>4.</strong><strong>发布应用</strong>
+</div>
+
+<div>
+  window->show view->other->server->servers在servers视图中右键->new->Server->选择在第二步中配置的Web Server->next>选择第三步创建的WTP工程->finish
+</div>
+
+<div>
+  在servers视图会显示刚才创建的Web Server 右键->publish->start或debug->打开浏览器测试吧，再做个断点测试debug,完全没问题，基本热部署也都没问题。
+</div>
+
+<div>
+  <strong>5.</strong><strong>了解WTP</strong><strong>部署原理</strong>
+</div>
+
+<div>
+  本以为WTP发布应用时将文件copy到tomcat下面，结果经查看不是这样的，后来又怀疑动态指定了conf/Catalina/localhost，经查看也没有，
+</div>
+
+<div>
+  那么它是如何发布的呢，在jsp写段代码测试下
+</div>
+
+<div>
+  <%=com.syj.TestWTP.class.getClassLoader().getResource(&#8220;&#8221;) %>
+</div>
+
+<div>
+  结果如下
+</div>
+
+<div>
+  file:/D:/SYJ.WORK/SYJ.WORKSPACE/ws1/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Test11/WEB-INF/classes/
+</div>
+
+<div>
+  原来把文件同步到了工作区下的.metadata下面。
+</div>
+
+<div>
+  D:/SYJ.WORK/SYJ.WORKSPACE/ws1/是我的工作区Test11是我这次用于测试的项目
+</div>
+
+<div>
+  看来WTP没有使用tomcat 的启动批处理而是直接调用了tomcat的bootstrap.jar
+</div>
+
+<div>
+  删除tomcat/bin目录下的所有文件，只保留下面5个jar文件，WTP照样工作。
+</div>
+
+<div>
+  bootstrap.jar
+</div>
+
+<div>
+  tomcat-native.tar.gz
+</div>
+
+<div>
+  tomcat-juli.jar
+</div>
+
+<div>
+  jsvc.tar.gz
+</div>
+
+<div>
+  commons-daemon.jar
+</div>
+
+<div>
+  <strong>6.</strong><strong>将一个已经存在的项目转换成WTP </strong><strong>的Web</strong><strong>项目</strong>
+</div>
+
+<div>
+  通过文件比较以及一系列尝试终于摸索出如下简单方法
+</div>
+
+<div>
+  修改.project文件(修改后刷新项目或重启eclipse)
+</div>
+
+<div>
+  在<natures></natures>中加入
+</div>
+
+<div>
+                <nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+</div>
+
+<div>
+                <nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+</div>
+
+<div>
+                <nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
+</div>
+
+<div>
+  在<buildSpec></buildSpec>中加入
+</div>
+
+<div>
+                <buildCommand>
+</div>
+
+<div>
+                       <name>org.eclipse.wst.common.project.facet.core.builder</name>
+</div>
+
+<div>
+                       <arguments>
+</div>
+
+<div>
+                       </arguments>
+</div>
+
+<div>
+                </buildCommand>
+</div>
+
+<div>
+                <buildCommand>
+</div>
+
+<div>
+                       <name>org.eclipse.wst.validation.validationbuilder</name>
+</div>
+
+<div>
+                       <arguments>
+</div>
+
+<div>
+                       </arguments>
+</div>
+
+<div>
+                </buildCommand>
+</div>
+
+<div>
+  右键刷新项目后->项目->右键->Properties->Project Facets->Modify Project在弹出的面板中，选择Java和Dynamic Web Module 下一步是配置Context Root 和Content Directory 以及源码路径->finish.
+</div>
+
+<div>
+</div>
+
+<div>
+  <a href="http://blog.csdn.net/sunyujia/article/details/2614073">http://blog.csdn.net/sunyujia/article/details/2614073</a>
+</div>

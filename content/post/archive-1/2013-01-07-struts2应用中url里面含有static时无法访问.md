@@ -1,0 +1,198 @@
+---
+title: git svn
+author: wiloon
+type: post
+date: 2013-01-07T14:37:06+00:00
+url: /?p=4986
+categories:
+  - Java
+  - Web
+
+---
+### Password for &#8216;user0&#8217;: Can&#8217;t locate Term/ReadKey.pm
+
+git requires perl-term-readkey when it asks for user input
+
+Found when trying to enter a password for a `git svn dcommit`
+
+Password for &#8216;user0&#8217;: Can&#8217;t locate Term/ReadKey.pm in @INC (you may need to install the Term::ReadKey module) (@INC contains: /usr/share/perl5/site\_perl /usr/lib/perl5/site\_perl /usr/lib/perl5/vendor\_perl /usr/share/perl5/vendor\_perl /usr/lib/perl5/core\_perl /usr/share/perl5/core\_perl .) at /usr/share/perl5/vendor_perl/Git.pm line 565.
+
+Installing the perl-term-readkey package fixes this
+
+<pre><code class="language-bash line-numbers">sudo pacman -S perl-term-readkey
+</code></pre>
+
+* * *
+
+### The name org.freedesktop.secrets was not provided by any .service file
+
+insall gnome-keyring, pacman -S gnome-keyring
+  
+or disable password stores at the subversion config file ~/.subversion/config
+  
+password-stores =
+
+https://bbs.archlinux.org/viewtopic.php?id=239198
+
+* * *
+
+<pre><code class="language-bash line-numbers"># init
+mkdir -p /path/to/project-foo/
+git svn init https://url.to.svn.repo
+git svn fetch -r 1342:HEAD
+
+# checkout 所有数据， 相当于 init + fetch
+git svn clone https://path/to/svn/root -T https://path/to/trunk -b https://path/to/branches/root/branches -t https://path/to/tag/root
+
+# create a branch
+git svn branch -n  -m "comments_0" branch_name_0
+
+# creat a tag
+git svn branch -n --tag -m "comments_0" tag_name_0
+git svn branch --tag -m "comments_0" tag_name_0
+
+# -n, --dry-run, 返回将要执行的动作， 不实际执行。
+
+git svn tag
+git svn branch -n  -m "Branch for authentication bug" auth_bug
+
+
+# archlinux
+sudo pacman -S git subversion perl-term-readkey
+
+# centos
+sudo yum install git
+sudo yum install git-svn
+
+
+
+# add project to remote git repo
+touch README.md
+git add README.md
+git commit -m "first git commit"
+
+# create git repo
+git remote add origin https://url/to/git/repo.git
+git svn dcommit
+git push -u origin master
+
+# for merge exception
+git branch --set-upstream-to=origin/master
+git pull --allow-unrelated-histories
+
+git push -u origin master -f
+
+git svn rebase
+git commit -a -m “”
+git svn dcommit
+</code></pre>
+
+git-svn 解决冲突
+  
+⼿动打开冲突的⽂文件 找到冲突的地⽅方修改完成后保存
+  
+执⾏行 git add 冲突⽂文件
+  
+git rebase &#8211;continue
+  
+git svn dcommit
+
+git与SVN协同的工作流程
+  
+git可以和SVN服务器一起使用，即，中央服务器采用svn，本地代码库使用git。这样的好处是，可以兼容以前的项目，同时本地有一套完整的版本控制系统，可以随时查看代码修改历史，随时提交，不需要网络。合适的时候再提交到SVN服务器。git-svn的工作流程也有很多，我们推荐使用下面这种方式。
+   
+git-svn初始化
+  
+git svn init SVNREMOTEURL
+  
+-s 参数是表面使用的是svn标准命名方法,即 trunk,tags,branches,这个参数有时很重要,建议使用,命 令后面还可以加个文件夹名字作为clone后的目录
+   
+git svn fetch
+  
+可能碰到只想从某个版本开始进行fetch,那么请需要 –r 参数。 例如:</li> 
+
+$ git svn fetch -r 1342:HEAD
+
+$ git remote add origin GITREMOTEURL 初始化远程git 地址
+
+这⼀一步可以省略 如果没必要提交到远程git 服务器中
+
+#set current branch as remote master
+  
+git push &#8211;set-upstream origin master
+   
+git-svn基本⽤用法
+  
+本地修改代码后提交
+  
+git commit -a -m “”
+  
+同步远程svn 服务器
+
+git svn rebase
+  
+推送到远程svn服务器
+
+git svn dcommit
+
+推送到远程git 服务器
+  
+git push
+  
+从SVN服务器获取代码
+   
+git svn clone 相当于运行了两条命令git svn init和 git svn fetch.
+  
+$ git svn clone http://svnserver/project/trunk
+  
+创建一个本地分支
+
+为了方便合并，减少不必要的麻烦，最好保持主分支master不变，在一个新的分支进行日常工作
+
+git branch workA
+  
+日常修改和提交
+
+与git的工作流程完全一样
+
+$ git checkout -b work
+  
+$ git commit -a
+  
+切回master从SVN获取最新代码
+
+$ git checkout master
+  
+$ git svn rebase
+  
+master同步后，与工作分支合并
+
+$ git checkout work
+  
+$ git rebase master ## 手工解决可能的冲突
+  
+合并主分支
+
+$ git checkout master $ git merge work
+  
+git-svn 解决冲突
+
+⼿动打开冲突的⽂文件 找到冲突的地⽅方修改完成后保存
+
+执⾏行 git add 冲突⽂文件
+
+git rebase &#8211;continue
+
+git svn dcommit
+
+https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion
+  
+https://git-scm.com/docs/git-svn
+  
+http://hufeng825.github.io/2013/09/03/git9/
+  
+https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion
+  
+https://hanckmann.com/2012/12/28/blog.html
+
+https://bugs.archlinux.org/task/43303

@@ -1,0 +1,83 @@
+---
+title: 解决JQuery.trim()函数ie下报错的问题
+author: wiloon
+type: post
+date: 2013-08-10T10:34:07+00:00
+url: /?p=5769
+categories:
+  - Web
+
+---
+经常碰到JQuery里的trim()函数在firefox支持，但是在IE里不支持
+  
+其主要原因是写法不对，下面是错误的写法
+
+<div id="">
+  <div>
+    <div>
+      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
+    </div>
+  </div>
+  
+  <ol start="1">
+    <li>
+      var content = $(&#8216;#content&#8217;).val();
+    </li>
+    <li>
+      if(content.trim() == &#8221;)
+    </li>
+    <li>
+         alert(&#8216;空&#8217;);
+    </li>
+  </ol>
+</div>
+
+上面的写法在firefox下不会报错，但在ie下确会报错
+  
+正确的写法应该为
+
+<div id="">
+  <div>
+    <div>
+      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
+    </div>
+  </div>
+  
+  <ol start="1">
+    <li>
+      var content = $(&#8216;#content&#8217;).val();
+    </li>
+    <li>
+      if($.trim(content) == &#8221;)
+    </li>
+    <li>
+        alert(&#8216;空&#8217;);
+    </li>
+  </ol>
+</div>
+
+或者为:
+
+<div id="">
+  <div>
+    <div>
+      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
+    </div>
+  </div>
+  
+  <ol start="1">
+    <li>
+      var content = $(&#8216;#content&#8217;).val();
+    </li>
+    <li>
+      if(jQuery.trim(content) == &#8221;)
+    </li>
+    <li>
+       alert(&#8216;空&#8217;);
+    </li>
+  </ol>
+  
+  <p>
+    <a href="http://vsp.iteye.com/blog/1262441">http://vsp.iteye.com/blog/1262441</a>
+  </p>
+</div>
