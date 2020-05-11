@@ -4,7 +4,8 @@ git:
 before_install:
   - sudo apt-get update -qq
 install: 
-  - sudo apt-get install hugo
+  - curl -O https://github.com/gohugoio/hugo/releases/download/v0.70.0/hugo_0.70.0_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
 script:
   - hugo version
   - hugo -v
