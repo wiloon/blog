@@ -1,5 +1,4 @@
 dist: bionic
-language: go
 git:
   depth: 1
 install: 
