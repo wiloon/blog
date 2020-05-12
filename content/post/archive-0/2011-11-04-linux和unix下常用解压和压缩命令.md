@@ -28,17 +28,12 @@ tags:
 
 ### .gz
 
-<pre><code class="language-bash line-numbers"># 解压1
-gunzip FileName.gz
-
-# 解压2
-
-gzip -d FileName.gz
-
-# 压缩
-
-gzip FileName
-</code></pre>
+    # 解压1
+    gunzip FileName.gz
+    # 解压2
+    gzip -d FileName.gz
+    # 压缩
+    gzip FileName
 
 ### .7z
 
