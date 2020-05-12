@@ -1,21 +1,23 @@
-name: blog
+name: github pages
 
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
+      - uses: actions/checkout@v1  # v2 does not have submodules option now
+        with:
+          submodules: true
 
-    - name: Hugo Actions
-      uses: srt32/hugo-action@v0.0.3
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.62.2'
+          # extended: true
 
-    - name: Build
-      run: hugo -v
-
+      - name: Build
+        run: hugo --minify
