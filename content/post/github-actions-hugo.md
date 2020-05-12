@@ -1,8 +1,44 @@
 +++
 date = 2020-05-12T15:03:55Z
-title = "github actions, hugo"
+title = "hugo, envoy, github actions"
 
 +++
+### hugo pages, nginx server
+
+    podman run -d \
+    --name hugo   \
+    --ip=10.88.0.10   \
+    -v /opt/hugo/public:/usr/share/nginx/html   \
+    -v /etc/localtime:/etc/localtime   \
+    nginx:alpine
+    
+    podman run -d \
+    --name hugo   \
+    --ip=10.88.0.10   \
+    -v /home/blog/public:/usr/share/nginx/html   \
+    -v /etc/localtime:/etc/localtime   \
+    nginx:alpine
+
+### hugo-envoy
+
+    podman run -d \
+    --name hugo-envoy   \
+    -v /opt/hugo/service-envoy.yaml:/etc/envoy/envoy.yaml   \
+    -v /etc/localtime:/etc/localtime   \
+    --net=container:hugo \
+    envoyproxy/envoy-alpine:v1.14.1
+
+### front-envoy
+
+    podman run -d \
+    --name front-envoy \
+    --add-host=hugo:10.88.0.10 \
+    -v /opt/hugo/front-envoy.yaml:/etc/envoy/envoy.yaml \
+    -v /etc/localtime:/etc/localtime \
+    -v /root/.acme.sh/yangcs.net:/root/.acme.sh/yangcs.net \
+    --net host \
+    envoyproxy/envoy-alpine:v1.14.1
+
 [https://blog.humblepg.com/post/2020/02/log-hugo-github-actions.html](https://blog.humblepg.com/post/2020/02/log-hugo-github-actions.html "https://blog.humblepg.com/post/2020/02/log-hugo-github-actions.html")
 
 一、设置密钥
@@ -10,7 +46,6 @@ title = "github actions, hugo"
 生成密钥
 
     ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
-    
 
 得到 `gh-pages` 和 `gh-pages.pub` 两个文件
 
@@ -54,7 +89,6 @@ title = "github actions, hugo"
             with:
               deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
               publish_dir: ./public
-    
 
 这个 Workflow 一目了然
 
