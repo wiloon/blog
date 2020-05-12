@@ -7,3 +7,8 @@ install:
 script:
   - hugo version
   - hugo -v
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: master
