@@ -31,9 +31,9 @@ jobs:
       
       # Deploy to vm
       - name: Deploy to vm
-        uses: easingthemes/ssh-deploy@v2.0.7
+        uses: easingthemes/ssh-deploy@v2.1.2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
           REMOTE_HOST: "wiloon.com"
