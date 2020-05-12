@@ -35,7 +35,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           ARGS: "-avz --delete"
-          SOURCE: "[Current File Dir]"
+          SOURCE: "public/"
           REMOTE_HOST: "wiloon.com"
           REMOTE_USER: "blog"
           TARGET: "/home/blog/"
