@@ -38,4 +38,4 @@ jobs:
           SOURCE: "public/"
           REMOTE_HOST: "wiloon.com"
           REMOTE_USER: "blog"
-          TARGET: "/home/blog/"
+          TARGET: "/home/blog/public/"
