@@ -19,3 +19,4 @@ fields:
   default: now
 pages:
 - content/post/foo.md
+- content/post/github-actions-hugo.md
