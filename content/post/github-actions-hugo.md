@@ -1,6 +1,5 @@
 +++
 date = 2020-05-12T15:03:55Z
-draft = true
 title = "github actions, hugo"
 
 +++
