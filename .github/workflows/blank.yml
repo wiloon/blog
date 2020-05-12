@@ -17,5 +17,5 @@ jobs:
       uses: srt32/hugo-action@v0.0.3
 
     - name: Build
-      run: hugo --minify
+      run: hugo -v
 
