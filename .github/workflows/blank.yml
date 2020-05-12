@@ -20,9 +20,22 @@ jobs:
           # extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify -v
+      
+      # deploy to github pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./public
+      
+      # Deploy to vm
+      - name: Deploy to vm
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          ARGS: "-avz --delete"
+          SOURCE: "[Current File Dir]"
+          REMOTE_HOST: "wiloon.com"
+          REMOTE_USER: "blog"
+          TARGET: "/home/blog/"
