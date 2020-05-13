@@ -27,6 +27,7 @@ jobs:
         run: hugo --minify -v
       
       - run: yarn global add hugo-algolia
+      - run: yarn global dir
       - run: hugo-algolia -s
       
       # deploy to github pages
