@@ -8,6 +8,6 @@ theme: "even"
 metaDataFormat: "yaml"
 algolia:
   index: "blog"
-  key: ${{ secrets.algolia_key }}
-  appID: ${{ secrets.algolia_appid }}
+  key: "80354553d20ec190d1f464bdfa5d7b10"
+  appID: "O3JRVALQW1"
 ---
