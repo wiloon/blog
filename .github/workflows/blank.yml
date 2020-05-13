@@ -28,7 +28,7 @@ jobs:
       
       - run: yarn global add hugo-algolia
       - run: yarn global dir
-      - run: hugo-algolia -s
+      - run: /home/runner/.yarn/bin/hugo-algolia -s
       
       # deploy to github pages
       #- name: Deploy
