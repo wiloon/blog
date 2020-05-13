@@ -219,3 +219,17 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 #  section = ["HTML", "RSS"]
 #  taxonomy = ["HTML", "RSS"]
 #  taxonomyTerm = ["HTML"]
+
+[outputs]
+    home = ["HTML", "RSS", "Algolia"]
+    
+[outputFormats.Algolia]
+  baseName = "algolia"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+  
+[params.algolia]
+  appId = "O3JRVALQW1"
+  indexName = "blog"
+  searchOnlyKey = "9504c5ebcb87a316e7fdad1298304590"
