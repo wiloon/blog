@@ -195,6 +195,11 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     n-gitlab = "http://localhost:1313"
     o-bilibili = "http://localhost:1313"
 
+[params.algolia]
+  appId = "O3JRVALQW1"
+  indexName = "blog"
+  searchOnlyKey = "9504c5ebcb87a316e7fdad1298304590"
+  
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
   [privacy.googleAnalytics]
@@ -219,17 +224,15 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 #  section = ["HTML", "RSS"]
 #  taxonomy = ["HTML", "RSS"]
 #  taxonomyTerm = ["HTML"]
-
-[outputs]
-    home = ["HTML", "RSS", "Algolia"]
-    
 [outputFormats.Algolia]
   baseName = "algolia"
   isPlainText = true
   mediaType = "application/json"
   notAlternative = true
   
-[params.algolia]
-  appId = "O3JRVALQW1"
-  indexName = "blog"
-  searchOnlyKey = "9504c5ebcb87a316e7fdad1298304590"
+[outputs]
+    home = ["HTML", "RSS", "Algolia"]
+    
+
+  
+
