@@ -20,3 +20,4 @@ fields:
 pages:
 - content/post/foo.md
 - content/post/github-actions-hugo.md
+- content/post/hugo-搜索.md
