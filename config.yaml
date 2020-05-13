@@ -3,11 +3,11 @@ baseurl: "/"
 DefaultContentLanguage: "zh-cn"
 hasCJKLanguage: true
 languageCode: "zh-cn"
-title: "w1100n blog"
+title: "w1100n"
 theme: "even"
 metaDataFormat: "yaml"
 algolia:
   index: "blog"
-  key: "key0"
-  appID: "appid0"
+  key: ${{ secrets.algolia_key }}
+  appID: ${{ secrets.algolia_appid }}
 ---
