@@ -41,10 +41,9 @@ ctrl+6
 
 ### 安装fcitx
 
-<pre><code class="language-bash line-numbers">sudo pacman -S fcitx
-
-\#图形界面的配置程序：KDE 中的 kcm-fcitx
-sudo pacman -S  kcm-fcitx
+    sudo pacman -S fcitx
+    #图形界面的配置程序：KDE 中的 kcm-fcitx
+    sudo pacman -S  kcm-fcitx
 
 # gtk3 config tool
 
@@ -120,7 +119,7 @@ https://github.com/countstarlight/deepin-wine-tim-arch/issues/5
 
 https://github.com/countstarlight/deepin-wine-wechat-arch/issues/13
 
-### deepin版微信输入中文 
+### deepin版微信输入中文
 
 /opt/deepinwine/apps/Deepin-WeChat/run.sh
 
