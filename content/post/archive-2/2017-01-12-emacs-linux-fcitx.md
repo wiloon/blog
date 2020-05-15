@@ -45,8 +45,7 @@ ctrl+6
 sudo pacman -S fcitx-configtool
 ```
 # 输入法模块
-
-sudo pacman -S fcitx-im
+    sudo pacman -S fcitx-im
 
 ### 五笔
 
