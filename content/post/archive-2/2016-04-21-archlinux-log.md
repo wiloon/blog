@@ -15,15 +15,13 @@ categories:
 ### config pacman mirror
 
 <https://blog.wiloon.com/?p=7501>
-
-<pre><code class="language-bash line-numbers">pacman -Syu
-</code></pre>
+pacman -Syu
 
 ### create user and set password
 
 <http://blog.wiloon.com/?p=911>
 
-<pre><code class="language-bash line-numbers">pacman -S sudo emacs
+pacman -S sudo emacs
 chmod u+w /etc/sudoers
 
 emacs /etc/sudoers
@@ -67,7 +65,7 @@ sudo pacman -S wqy-microhei
 #font for terminal
 sudo pacman -S ttf-inconsolata
 sudo pacman -S chromium
-</code></pre>
+
 
 ##### 登录shell后自动启动xfce4
 

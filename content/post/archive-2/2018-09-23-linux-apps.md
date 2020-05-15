@@ -68,7 +68,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | v2ray                 |                                        |
 | nethogs               |                                        |
 
-### pacman &#8211; dev
+### pacman, dev
 
 | name                            | comments         |
 |:------------------------------- |:---------------- |
@@ -82,7 +82,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | git                             |                  |
 | rust                            | rust-lang        |
 
-### AUR &#8211; yay:
+### AUR, yay:
 
 | name                                  | comments                                                                                                 |
 |:------------------------------------- |:-------------------------------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | eclipse-mat                           | Eclipse Memory Analyzer (MAT)                                                                            |
 | dingtalk                              | 钉钉                                                                                                       |
 | menulibre                             | xfce的系统菜单管理工具                                                                                            |
-| deepin-wine-wechat                    | 微信, https://github.com/countstarlight/deepin-wine-wechat-arch, /opt/deepinwine/apps/Deepin-WeChat/run.sh |
+| deepin-wine-wechat                    | 微信, https://github.com/countstarlight/deepin-wine-wechat-arch                   |
 | ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                                                                                    |
 | goland                                |                                                                                                          |
 | zoom                                  |                                                                                                          |
