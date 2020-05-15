@@ -20,11 +20,11 @@ categories:
 入法两个字,可以用左右方向键的增加或减少词组中的字数。
 
 1. 自动组词:将需要造的词按单字连续输入后,再按它的组词规则连续输入编码 ,
-程序会提示用户这个新词。如果此时按空格或它前面的序号则将这个新词输入到用
-户程序中,您可以设置这个新词是否进入词库。如果不想录入该词,继续进行下一
-次输入即可(fcitx 只能记录最近 2048 个输入的字)。
-如果想删除词库中的词,先让该词显示中输入条上,按 CTRL_7,并按提示操作即可;
-或是当程序提示有该词组时,按 CTRL_DEL 删除。
+   程序会提示用户这个新词。如果此时按空格或它前面的序号则将这个新词输入到用
+   户程序中,您可以设置这个新词是否进入词库。如果不想录入该词,继续进行下一
+   次输入即可(fcitx 只能记录最近 2048 个输入的字)。
+   如果想删除词库中的词,先让该词显示中输入条上,按 CTRL_7,并按提示操作即可;
+   或是当程序提示有该词组时,按 CTRL_DEL 删除。
 
 ### 调整词顺序
 
@@ -40,16 +40,19 @@ ctrl+6
     #图形界面的配置程序：KDE 中的 kcm-fcitx
     sudo pacman -S  kcm-fcitx
 
-# gtk3 config tool
+### gtk3 config tool
+
 ```bash
 sudo pacman -S fcitx-configtool
 ```
-# 输入法模块
+
+### 输入法模块
+
     sudo pacman -S fcitx-im
 
 ### 五笔
 
-# 可能需要重启
+##### 可能需要重启
 
 sudo pacman -S fcitx-table-extra
 
@@ -61,7 +64,7 @@ export XMODIFIERS=@im=fcitx
 \#start fcitx
 fcitx
 
-# 解决 emacs 中文输入问题
+### 解决 emacs 中文输入问题
 
 sudo rm /usr/bin/emacs.raw
 sudo mv /usr/bin/emacs /usr/bin/emacs.raw
@@ -78,7 +81,7 @@ export LC_CTYPE=zh_CN.utf-8;
 
 ### .zshrc
 
-<pre><code class="language-bash line-numbers">vim .zshrc
+vim .zshrc
 
 export XIM="fcitx"
 export XIM_PROGRAM="fcitx"
@@ -86,9 +89,8 @@ export XMODIFIERS="@im=fcitx"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export LC_CTYPE=zh_CN.UTF-8
-</code></pre>
 
-## Fcitx 配置工具
+### Fcitx 配置工具
 
 <pre><code class="language-bash line-numbers">fcitx-configtool
 </code></pre>
@@ -105,15 +107,9 @@ Input Method Configuration -> Addon -> Simplified Chinese To Traditional Chinese
 
 ctrl-7
 
-### fcitx 微信
-
-https://github.com/countstarlight/deepin-wine-wechat-arch/issues/12
-
-https://github.com/countstarlight/deepin-wine-tim-arch/issues/5
-
-https://github.com/countstarlight/deepin-wine-wechat-arch/issues/13
-
 ### deepin版微信输入中文
+
+[https://beekc.top/2019/01/26/deepin-wine-input-chinese/](https://beekc.top/2019/01/26/deepin-wine-input-chinese/ "https://beekc.top/2019/01/26/deepin-wine-input-chinese/")
 
 /opt/deepinwine/apps/Deepin-WeChat/run.sh
 
