@@ -17,10 +17,19 @@ fields:
     time_format: 
     display_utc: false
   default: now
+- name: author
+  type: text
+  config:
+    required: false
+  label: AUTHOR
+  default: w1100n
 pages:
 - content/post/foo.md
 - content/post/github-actions-hugo.md
 - content/post/hugo-搜索.md
 - content/post/jul-slf4j-log4j2.md
+- content/post/lerna.md
 - content/post/okhttp.md
+- content/post/tree-command.md
+- content/post/vim.md
 - content/post/vue3.md
