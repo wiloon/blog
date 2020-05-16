@@ -9,46 +9,25 @@ categories:
 
 ---
 ## install angular
-
 ### install nodejs
-
-#### archlinux
-
-<pre><code class="language-bash line-numbers">pacman -S nodejs
-</code></pre>
-
-#### debian
-
-<pre><code class="language-bash line-numbers">sudo apt install nodejs
-
-curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-</code></pre>
-
-https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-debian-9
-
+@see nodejs basic
 ### install yarn
 
-<blockquote class="wp-embedded-content" data-secret="unR6OIow3j">
-  <p>
-    <a href="http://blog.wiloon.com/?p=11228">yarn basic</a>
-  </p>
-</blockquote>
+    http://blog.wiloon.com/?p=11228
+    yarn basic
 
 <iframe title="&#8220;yarn basic&#8221; &#8212; w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=11228&#038;embed=true#?secret=unR6OIow3j" data-secret="unR6OIow3j" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
-<pre><code class="language-bash line-numbers"># install angular cli
+# install angular cli
 yarn global add @angular/cli
 yarn add angular-in-memory-web-api --dev
 
 ng config -g cli.packageManager yarn
 add yarn global bin to $PATH
 
-</code></pre>
-
 ### angular command
 
-<pre><code class="language-bash line-numbers"># 创建工作区
+# 创建工作区
 ng new project0
 # 创建组件
 ng generate component heroes
@@ -66,7 +45,6 @@ ng build --prod --build-optimizer
 ng generate module app-routing --flat --module=app
 # --flat 把这个文件放进了 src/app 中，而不是单独的目录中。
 # --module=app 告诉 CLI 把它注册到 AppModule 的 imports 数组中。
-</code></pre>
 
 https://github.com/aralroca/helloworld-angular-with-golang
 

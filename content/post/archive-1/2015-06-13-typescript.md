@@ -24,12 +24,11 @@ tsc test.ts
 
 注：不要将TypeScript看作是一门新的语言，它只是为了提升JavaScript代码质量的一个工具，最终TypeScript仍然要编译成JavaScript。
 
-<pre><code class="language-bash line-numbers">yarn global add typescript
-</code></pre>
+yarn global add typescript
 
 ### greeter.ts
 
-<pre><code class="language-typescript line-numbers">function greeter(person) {
+function greeter(person) {
     return "Hello, " + person;
 }
 

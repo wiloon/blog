@@ -34,7 +34,7 @@ git checkout master
 
 ### git reset
 
-<pre><code class="language-bash line-numbers">git reset ** file0
+git reset ** file0
 
 # 彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
 
@@ -46,12 +46,11 @@ git reset -hard file0
 
 ### git log
 
-<pre><code class="language-bash line-numbers">git log file0
+git log file0
 git log -3 file0
+git log --oneline
 
-</code></pre>
-
-<pre><code class="language-bash line-numbers">echo "# project name" >> README.md
+echo "# project name" >> README.md
 
 # 初始化的 Git 仓库
 
