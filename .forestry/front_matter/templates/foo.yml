@@ -17,6 +17,12 @@ fields:
     time_format: 
     display_utc: false
   default: now
+- name: author
+  type: text
+  config:
+    required: false
+  label: AUTHOR
+  default: w1100n
 pages:
 - content/post/foo.md
 - content/post/github-actions-hugo.md
