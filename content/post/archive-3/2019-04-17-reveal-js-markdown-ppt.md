@@ -30,7 +30,7 @@ vi导航键: h, j, k, l
 
 reveal.js的markdown支持4种字号#，##，###，####
 
-<pre><code class="language-bash line-numbers"># 安装nodejs
+# 安装nodejs
 sudo pacman -S nodejs
 # 安装npm
 sudo pacman -S npm
