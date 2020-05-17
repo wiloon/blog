@@ -24,6 +24,7 @@ fields:
   label: AUTHOR
   default: w1100n
 pages:
+- content/post/babel.md
 - content/post/foo.md
 - content/post/github-actions-hugo.md
 - content/post/hugo-搜索.md
@@ -32,4 +33,5 @@ pages:
 - content/post/okhttp.md
 - content/post/tree-command.md
 - content/post/vim.md
+- content/post/vue2.md
 - content/post/vue3.md
