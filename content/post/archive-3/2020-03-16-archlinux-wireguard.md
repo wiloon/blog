@@ -11,26 +11,22 @@ categories:
 ### install
 
 #### arch
-
-<pre><code class="language-bash line-numbers">pacman -Syu
+pacman -Syu
 pacman -S wireguard-tools
 pacman -S wireguard-arch
 
 lsmod | grep wireguard
 sudo modprobe wireguard
-</code></pre>
 
 #### debian
-
-<pre><code class="language-bash line-numbers">echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/unstable-wireguard.list
+echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/unstable-wireguard.list
 printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' | sudo tee /etc/apt/preferences.d/limit-unstable
 apt update
 apt install wireguard
-</code></pre>
 
 ### peer A
 
-<pre><code class="language-bash line-numbers">umask 077
+umask 077
 wg genkey &gt; privatekey
 wg pubkey &lt; privatekey &gt; publickey
 wg genpsk &gt; preshared
@@ -44,11 +40,10 @@ sudo wg set wg0 peer &lt;PEER_B_PUBLIC_KEY&gt; persistent-keepalive 25 allowed-i
 # 做为服务端使用时，peer B的ip 和端口一般是动态的，不配置endpoint
 sudo wg set wg0 peer &lt;PEER_B_PUBLIC_KEY&gt; persistent-keepalive 25 allowed-ips 192.168.53.2/32
 ip link set wg0 up
-</code></pre>
 
 ### peer B
 
-<pre><code class="language-bash line-numbers">sudo ip link add dev wg0 type wireguard
+sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.2/24 dev wg0
 sudo wg set wg0 private-key ./privatekey
 # 配置监听端口，监听peer A发起的连接 请求，仅作为客户端使用时，可以不配置监听
@@ -57,17 +52,15 @@ sudo wg set wg0 listen-port 9000
 sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
 ip link set wg0 up
 
-</code></pre>
 
 ### remove peer
 
-<pre><code class="language-bash line-numbers">wg set wg0 peer PEER_A_PUBLIC_KEY remove
+wg set wg0 peer PEER_A_PUBLIC_KEY remove
 </code></pre>
 
 ### 保存配置到文件
 
-<pre><code class="language-bash line-numbers">wg showconf wg0 &gt; /etc/wireguard/wg0.conf
-</code></pre>
+g showconf wg0 &gt; /etc/wireguard/wg0.conf
 
 ### chromeos>crostini
 
@@ -75,18 +68,17 @@ crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard
   
 <https://tunsafe.com/user-guide/linux>
 
-<pre><code class="language-bash line-numbers">git clone https://github.com/TunSafe/TunSafe.git
+git clone https://github.com/TunSafe/TunSafe.git
 cd TunSafe
 sudo apt-get install clang-6.0
 make
 sudo make install
 sudo tunsafe start  TunSafe.conf
 sudo tunsafe start -d TunSafe.conf
-</code></pre>
 
 #### tunsafe 配置文件
 
-<pre><code class="language-bash line-numbers">[Interface]
+[Interface]
 PrivateKey = &lt;private_key&gt;
 DNS = 192.168.50.1
 BlockDNS = true
@@ -100,26 +92,20 @@ AllowedIPs = 192.168.53.1/24
 AllowedIPs = 0.0.0.0/0
 Endpoint = &lt;server_ip0:server_port0&gt;
 PersistentKeepalive = 25
-</code></pre>
 
 ### systemd-networkd
 
 systemd-networkd-wait-online.service
-  
 systemd-resolvconf
-  
 openresolv
 
 ### iptables
 
-<pre><code class="language-bash line-numbers">iptables -A FORWARD -i wg0 -j ACCEPT
+iptables -A FORWARD -i wg0 -j ACCEPT
 iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
-</code></pre>
 
 https://www.wireguard.com/install/
-  
 https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/
-  
 https://blog.mozcp.com/wireguard-usage/
 
 <blockquote class="wp-embedded-content" data-secret="3eFM6gPGdn">

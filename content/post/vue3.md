@@ -10,12 +10,15 @@ title = "vue3"
 
 [https://juejin.im/post/5dd3d4dae51d453d493092da](https://juejin.im/post/5dd3d4dae51d453d493092da "https://juejin.im/post/5dd3d4dae51d453d493092da")
 
+```bash
 install nodejs
-
 install yarn
-
 yarn global add lerna
-
 yarn global add typescript
-
 yarn global add @vue/cli
+
+vue create my-app
+yarn run serve
+```
+
+https://www.jianshu.com/p/7de5d4f612d7

@@ -56,7 +56,6 @@ https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 ### list version 
   node -v
 
-
 作者：合肥懒皮
 链接：https://www.jianshu.com/p/857ef827fbd4
 来源：简书
