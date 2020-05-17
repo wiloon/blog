@@ -11,17 +11,11 @@ categories:
 ### 快捷键
 
 全屏 f , 退出全屏 Esc
-  
 上一页 p, 下一页 n/空格
-  
 首页 Home, 末页 End
-  
 缩略图 Esc 或 o
-  
 黑屏 b
-  
 演讲提示模式 s
-  
 vi导航键: h, j, k, l
   
 帮助页面: ?
@@ -42,7 +36,6 @@ mv index.html index.html.bak
 ln -s scrum/index.html index.html
 npm start
 npm start -- --port=8001
-</code></pre><pre data-language=XML>
 
     <code class="language-markup line-numbers">&lt;section data-markdown="example.md" data-separator-notes="^Note:" data-charset="UTF-8"&gt;
     &lt;/section&gt;
