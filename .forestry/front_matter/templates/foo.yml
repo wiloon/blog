@@ -28,6 +28,7 @@ pages:
 - content/post/foo.md
 - content/post/github-actions-hugo.md
 - content/post/hugo-搜索.md
+- content/post/java-ascii.md
 - content/post/jul-slf4j-log4j2.md
 - content/post/lerna.md
 - content/post/okhttp.md
