@@ -16,10 +16,11 @@ git svn fetch -r 1342:HEAD
 ```
 
 ### 从中心服务器的svn repository获取最新更新
+
 这个操作可以通过"git-svn rebase"完成。注意这里用的是rebase，而不是update。update命令对于通过git-svn检出的svn repostory的git版本库是不可用的。
-```
-git svn rebase
-```
+
+    git svn rebase
+
 git commit -a -m “”
 git svn dcommit
 
@@ -35,7 +36,6 @@ Installing the perl-term-readkey package fixes this
 
 sudo pacman -S perl-term-readkey
 
-
 ### The name org.freedesktop.secrets was not provided by any .service file
 
 insall gnome-keyring, pacman -S gnome-keyring
@@ -46,11 +46,10 @@ password-stores =
 
 https://bbs.archlinux.org/viewtopic.php?id=239198
 
-
 ### checkout 所有数据， 相当于 init + fetch
-```
-git svn clone https://path/to/svn/root -T https://path/to/trunk -b https://path/to/branches/root/branches -t https://path/to/tag/root
-```
+
+    git svn clone https://path/to/svn/root -T https://path/to/trunk -b https://path/to/branches/root/branches -t https://path/to/tag/root
+
 # create a branch
 
 git svn branch -n  -m "comments_0" branch_name_0
@@ -70,6 +69,7 @@ git svn branch -n  -m "Branch for authentication bug" auth_bug
 sudo pacman -S git subversion perl-term-readkey
 
 # centos
+
 sudo yum install git
 sudo yum install git-svn
 
@@ -86,12 +86,11 @@ git svn dcommit
 git push -u origin master
 
 # for merge exception
+
 git branch --set-upstream-to=origin/master
 git pull --allow-unrelated-histories
 
 git push -u origin master -f
-
-
 
 ### git-svn 解决冲突
 
@@ -110,7 +109,7 @@ git-svn初始化
 
 git svn init SVNREMOTEURL
 
--s 参数是表面使用的是svn标准命名方法,即 trunk,tags,branches,这个参数有时很重要,建议使用,命 令后面还可以加个文件夹名字作为clone后的目录
+\-s 参数是表面使用的是svn标准命名方法,即 trunk,tags,branches,这个参数有时很重要,建议使用,命 令后面还可以加个文件夹名字作为clone后的目录
 
 git svn fetch
 
@@ -122,7 +121,7 @@ $ git remote add origin GITREMOTEURL 初始化远程git 地址
 
 这⼀一步可以省略 如果没必要提交到远程git 服务器中
 
-#set current branch as remote master
+\#set current branch as remote master
 
 git push –set-upstream origin master
 
@@ -201,3 +200,5 @@ https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F
 https://hanckmann.com/2012/12/28/blog.html
 
 https://bugs.archlinux.org/task/43303
+
+[https://tonybai.com/2011/01/20/try-git-svn/](https://tonybai.com/2011/01/20/try-git-svn/ "https://tonybai.com/2011/01/20/try-git-svn/")
