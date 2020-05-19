@@ -10,7 +10,7 @@ title = "mysql 显示行号，以及分组排序"
     code varchar(255) DEFAULT NULL,
     PRIMARY KEY (id)
     ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
+    
     INSERT INTO `my_tb` (  `parent_code`, `code`) VALUES ('01', '001');
     INSERT INTO `my_tb` (  `parent_code`, `code`) VALUES ('01', '002');
     INSERT INTO `my_tb` (  `parent_code`, `code`) VALUES ('02', '001');
@@ -33,5 +33,17 @@ title = "mysql 显示行号，以及分组排序"
     
       from  my_tb a ,( select @group_row:=1, @parent_code:='') as b
      ORDER BY   a.parent_code , a.code
+
+### 查询结果 
+
+    "groupRow"	"parent_code"	"code"
+    "1"	"01"	"001"
+    "2"	"01"	"002"
+    "3"	"01"	"003"
+    "1"	"02"	"001"
+    "2"	"02"	"002"
+    "1"	"03"	"001"
+    "1"	"04"	"001"
+    
 
 https://blog.csdn.net/kxjrzyk/article/details/58588000
