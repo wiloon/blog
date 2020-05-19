@@ -10,62 +10,62 @@ categories:
 ---
 ### float > int
 
-<pre><code class="language-go line-numbers">//float64 转成转成int64
+//float64 转成转成int64
 var x float64 = 5.7
 var y int = int64(x)
 
 //
 int(math.Floor(f + 0.5))
-</code></pre>
+
 
 ### base64 > hex
 
-<pre><code class="language-go line-numbers">p, err := base64.StdEncoding.DecodeString("QVJWSU4=")
+p, err := base64.StdEncoding.DecodeString("QVJWSU4=")
 if err != nil {
     // handle error
 }
 h := hex.EncodeToString(p)
 fmt.Println(h) // prints 415256494e
-</code></pre>
+
 
 ### bytes > hex
 
-<pre><code class="language-go line-numbers">hex.EncodeToString(foo))
-</code></pre>
+hex.EncodeToString(foo))
+
 
 ### string, float：
 
-<pre><code class="language-go line-numbers">s := "3.1415926535"
+s := "3.1415926535"
 v1, err := strconv.ParseFloat(v, 32)
 v2, err := strconv.ParseFloat(v, 64)
 
 // float64 &gt; string
 valueStr = strconv.FormatFloat(v, 'f', 3, 64)
-</code></pre>
+
 
 ### int > float
 
-<pre><code class="language-go line-numbers">i:=5
+i:=5
 f:=float32(i)
 
-</code></pre>
+
 
 ### bytes > int
 
-<pre><code class="language-go line-numbers">var ba = []byte{ 56, 66, 73, 77 }
+var ba = []byte{ 56, 66, 73, 77 }
 var value int32
 value |= int32(ba[0])
 value |= int32(ba[1]) &lt;&lt; 8
 value |= int32(ba[2]) &lt;&lt; 16
 value |= int32(ba[3]) &lt;&lt; 24
 reverse the indexing order to switch between big and little endian.
-</code></pre>
+
 
 ### int8>byte
 
 因为两者间的类型及取值范围这些都不相同，不能直接进行转换。int8取值范围为：-128~127，如果要转化的话需要使用bytevalue=256+int8value
 
-<pre><code class="language-go line-numbers">var r byte
+var r byte
 var v int8
 v = -70
 if v &lt; 0 {
@@ -73,19 +73,19 @@ if v &lt; 0 {
 } else {
     r = byte(v)
 }
-</code></pre>
+
 
 但是，实际上我们可以直接使用byte进行强制转换，因为byte会自动检测v原有类型，然后进行转换的。
 
-<pre><code class="language-go line-numbers">var r byte
+var r byte
 var v int8
 v = -70
 r = byte(v)
-</code></pre>
+
 
 ### string, bool
 
-<pre><code class="language-go line-numbers">strconv.ParseBool("false")
+strconv.ParseBool("false")
 
 // 将布尔值转换为字符串 true 或 false
 func FormatBool(b bool) string
@@ -95,11 +95,11 @@ func FormatBool(b bool) string
 // 它接受假值：0, f, F, FALSE, false, False
 // 其它任何值都返回一个错误。
 func ParseBool(str string) (bool, error)
-</code></pre>
+
 
 ### int, string
 
-<pre><code class="language-go line-numbers">// string到int
+// string到int
 int,err:=strconv.Atoi(string)
 // string到int64
 int64, err := strconv.ParseInt(string, 10, 64)
@@ -120,34 +120,34 @@ fmt.Print(string(s))
 
 // uint64 &gt; string
 str := strconv.FormatUint(myNumber, 10)
-</code></pre>
+
 
 https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang
 
 ### int32 > uint16
 
-<pre><code class="language-go line-numbers">var i int
+var i int
 u := uint16(i)
-</code></pre>
+
 
 ### string > []byte
 
-<pre><code class="language-go line-numbers">dataByte:=[]byte(dataStr)
-</code></pre>
+dataByte:=[]byte(dataStr)
+
 
 ### Golang Time互转秒、毫秒
 
-<pre><code class="language-go line-numbers">    fmt.Println(time.Now().Unix()) //获取当前秒
+    fmt.Println(time.Now().Unix()) //获取当前秒
     fmt.Println(time.Now().UnixNano())//获取当前纳秒
     fmt.Println(time.Now().UnixNano()/1e6)//将纳秒转换为毫秒
     fmt.Println(time.Now().UnixNano()/1e9)//将纳秒转换为秒
     c := time.Unix(time.Now().UnixNano()/1e9,0) //将秒转换为 time 类型
     fmt.Println(c.String()) //输出当前英文时间戳格式
-</code></pre>
+
 
 ### 字符串毫秒转时间格式
 
-<pre><code class="language-go line-numbers">package main
+package main
 
 import (
     "fmt"
@@ -172,11 +172,11 @@ func msToTime(ms string) (time.Time, error) {
     return tm, nil
 }
 
-</code></pre>
+
 
 ### byte > binary string
 
-<pre><code class="language-go line-numbers">&lt;br />package main
+&lt;br />package main
 
 import "fmt"
 
@@ -187,11 +187,11 @@ func main() {
     }
 }
 
-</code></pre>
+
 
 ### hex string > []byte
 
-<pre><code class="language-go line-numbers">import "hex"
+import "hex"
 // 省略部分代码....
 
 hexStr := "fee9ecaadafeee72d2eb66a0bd344cdd"
@@ -201,11 +201,11 @@ if err != nil {
 }
 
 // continue handling data
-</code></pre>
+
 
 ### []byte > hex string
 
-<pre><code class="language-go line-numbers">import (
+import (
 "fmt"
 "crypto/md5"
 )
@@ -217,11 +217,11 @@ h := md5.Sum([]byte(data))
 // with "%x" format byte array into hex string
 hexStr := fmt.Sprintf("%x", h)
 
-</code></pre>
+
 
 ### int, byte
 
-<pre><code class="language-go line-numbers">// int64 &gt; bytes
+// int64 &gt; bytes
 func Int64ToBytes(i int64) []byte {
     var buf = make([]byte, 8)
     binary.BigEndian.PutUint64(buf, uint64(i))
@@ -244,7 +244,7 @@ func Uint32ToBytes(i uint32) []byte {
     return buf
 }
 
-</code></pre>
+
 
 http://blog.csdn.net/pkueecser/article/details/50433460
   
