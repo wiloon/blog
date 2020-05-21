@@ -32,6 +32,7 @@ pages:
 - content/post/java-ascii.md
 - content/post/jul-slf4j-log4j2.md
 - content/post/lerna.md
+- content/post/lodash.md
 - content/post/mustache.md
 - content/post/mysql.md
 - content/post/okhttp.md
