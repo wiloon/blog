@@ -10,7 +10,7 @@ categories:
 ---
 ### 使用通配符 (wildcard)
 
-<pre><code class="language-bash line-numbers">vim .ssh/config
+vim .ssh/config
 
 host 10.60.*
     user root
