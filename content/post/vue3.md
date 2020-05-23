@@ -62,3 +62,7 @@ Pug，Babel (with ES2015 modules)，和 Stylus。
 ### 跨域
 
 [https://juejin.im/post/5d1cc073f265da1bcb4f486d](https://juejin.im/post/5d1cc073f265da1bcb4f486d "https://juejin.im/post/5d1cc073f265da1bcb4f486d")
+
+### JWT
+
+[https://segmentfault.com/a/1190000010444825](https://segmentfault.com/a/1190000010444825 "https://segmentfault.com/a/1190000010444825")
