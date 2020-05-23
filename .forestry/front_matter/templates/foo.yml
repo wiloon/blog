@@ -24,6 +24,7 @@ fields:
   label: AUTHOR
   default: w1100n
 pages:
+- content/post/api.md
 - content/post/babel.md
 - content/post/chrome-http-https.md
 - content/post/foo.md
