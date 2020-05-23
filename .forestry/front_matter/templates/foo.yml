@@ -33,6 +33,7 @@ pages:
 - content/post/hugo-搜索.md
 - content/post/java-ascii.md
 - content/post/jul-slf4j-log4j2.md
+- content/post/jwt-session.md
 - content/post/lerna.md
 - content/post/lodash.md
 - content/post/mustache.md
