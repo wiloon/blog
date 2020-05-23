@@ -4,9 +4,37 @@ date = 2020-05-23T05:42:35Z
 title = "JWT, session"
 
 +++
+背景知识：
+
+### Authentication和Authorization的区别：
+
+Authentication：用户认证，指的是验证用户的身份，例如你希望以小A的身份登录，那么应用程序需要通过用户名和密码确认你真的是小A。
+
+Authorization：授权，指的是确认你的身份之后提供给你权限，例如用户小A可以修改数据，而用户小B只能阅读数据。
+
+由于http协议是无状态的，每一次请求都无状态。当一个用户通过用户名和密码登录了之后，他的下一个请求不会携带任何状态，应用程序无法知道他的身份，那就必须重新认证。因此我们希望用户登录成功之后的每一次http请求，都能够保存他的登录状态。
+
+目前主流的用户认证方法有基于token和基于session两种方式。
+
 JWT和session ID也会暴露于未经防范的重放攻击
 
 将JWT发布到特定的IP地址并使用浏览器指纹。
+
+Local Storage
+
+无状态 JWT（Stateless JWT）：包含 Session 数据的 JWT Token。Session 数据将被直接编码进 Token 内。
+
+有状态 JWT（Stateful JWT）：包含 Session 引用或其 ID 的 JWT Token。Session 数据存储在服务端。
+
+Session token（又称 Session cookie）：标准的、可被签名的 Session ID，例如各类 Web 框架（译者注：包括 Laravel）内已经使用了很久的 Session 机制。Session 数据同样存储在服务端。
+
+————————————————
+
+原文作者：Wi1dcard
+
+转自链接：[https://learnku.com/articles/22616](https://learnku.com/articles/22616 "https://learnku.com/articles/22616")
+
+版权声明：著作权归作者所有。商业转载请联系作者获得授权，非商业转载请保留以上作者信息和原文链接。
 
 [https://juejin.im/post/5a437441f265da43294e54c3](https://juejin.im/post/5a437441f265da43294e54c3 "https://juejin.im/post/5a437441f265da43294e54c3")
 
