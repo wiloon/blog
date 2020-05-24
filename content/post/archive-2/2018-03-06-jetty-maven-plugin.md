@@ -28,7 +28,7 @@ categories:
         &lt;/httpConnector&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;
-</code></pre> 
+``` 
 
 ### webdefault.xml
 
@@ -42,10 +42,10 @@ jetty-webapp-9.4.20.v20190813\org\eclipse\jetty\webapp
 
 ### run
 
-<pre><code class="language-bash line-numbers">mvn jetty:run
+```bashmvn jetty:run
 mvnDebug jetty:run
 # 默认调试端口8000
-</code></pre>
+```
 
 ## debug &#8211; mvnDebug
 

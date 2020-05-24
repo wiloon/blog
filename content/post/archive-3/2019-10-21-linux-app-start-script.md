@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">#! /usr/bin/env bash
+```bash#! /usr/bin/env bash
 
 APP_HOME=/data/server/app0
 APP_NAME=app0
@@ -39,4 +39,4 @@ case $1 in
         echo "usage: wrapper {start|stop|restart}" ;;
 esac
 exit 0
-</code></pre>
+```

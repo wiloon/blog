@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">############### rdb ###############
+```bash############### rdb ###############
 save 600 1
 save 300 20000
 save 60 80000
@@ -18,7 +18,7 @@ rdbchecksum yes
 dbfilename dump_7000.rdb
 # redis不会自动 创建此目录
 dir /data/redisdata
-</code></pre>
+```
 
 关于Redis说点什么，目前都是使用Redis作为数据缓存，缓存的目标主要是那些需要经常访问的数据，或计算复杂而耗时的数据。缓存的效果就是减少了数据库读的次数，减少了复杂数据的计算次数，从而提高了服务器的性能。
 

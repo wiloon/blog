@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```bashiptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o eth0 -j MASQUERADE
-</code></pre>
+```
 
 nat表需要的三个链：
   

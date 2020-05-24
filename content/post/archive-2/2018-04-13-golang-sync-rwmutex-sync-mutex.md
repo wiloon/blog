@@ -53,7 +53,7 @@ func main() {
     defer l.Unlock()  
     fmt.Println("1")  
 }
-</code></pre>
+```
 
 结果输出: 1
 
@@ -73,7 +73,7 @@ func main() {
     fmt.Println("1")  
     l.Lock()  
 }
-</code></pre>
+```
 
 运行结果： panic: sync: unlock of unlocked mutex
 
@@ -93,7 +93,7 @@ func main() {
     fmt.Println("1")  
     l.Lock()  
 }
-</code></pre>
+```
 
 运行结果: 1
 
@@ -119,7 +119,7 @@ func main() {
     fmt.Println("1")  
     l.Lock()  
 }
-</code></pre>
+```
 
 运行结果：panic: sync: unlock of unlocked mutex
       
@@ -141,7 +141,7 @@ func main() {
     fmt.Println("1")  
     l.RLock()                
 }  
-</code></pre>
+```
 
 运行结果：１
   
@@ -166,7 +166,7 @@ func main() {
         raceEnable()  
     }  
 }  
-</code></pre>
+```
 
 当RUnlock多于RLock多个时，便会报错，进入死锁．实例如下：
 
@@ -188,7 +188,7 @@ func main() {
     fmt.Println("1")  
     l.RLock()  
 }
-</code></pre>
+```
 
 运行结果：
   

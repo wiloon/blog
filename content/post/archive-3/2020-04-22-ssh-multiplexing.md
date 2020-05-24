@@ -10,14 +10,14 @@ categories:
 ---
 #### Session Multiplexing
 
-<pre><code class="language-bash line-numbers">emacs /etc/ssh/ssh_config
+```bashemacs /etc/ssh/ssh_config
 emacs ~/.ssh/config
 #---
 Host *
 ControlMaster auto
 ControlPath   ~/.ssh/master-%r@%h:%p
 ControlPersist 10m
-</code></pre>
+```
 
 http://schin.space/ops/OPS-openssh-multiplexing/
 

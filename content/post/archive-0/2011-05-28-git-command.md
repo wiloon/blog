@@ -42,7 +42,7 @@ git reset -hard file0
 
 1\.git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
 2\.git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
-</code></pre>
+```
 
 ### git log
 
@@ -59,11 +59,11 @@ git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:wiloon/go-angular-x.git
 git push -u origin master
-</code></pre>
+```
 
 ### tag
 
-<pre><code class="language-bash line-numbers">#list tags
+```bash#list tags
 git tag
 
 # add a tag
@@ -82,18 +82,18 @@ git tag -d 1.0.0
 
 git push origin :refs/tags/1.0.0
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">git rm
+```bashgit rm
 git rm -f
-</code></pre>
+```
 
 放弃本地未提交的修改
 
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
 
-<pre><code class="language-bash line-numbers">git reset --hard
-</code></pre>
+```bashgit reset --hard
+```
 
 git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。
 
@@ -105,7 +105,7 @@ $ git fetch <远程主机名> <分支名>
 
 $ git fetch origin master
 
-<pre><code class="language-bash line-numbers"># 查看远程仓库地址
+```bash# 查看远程仓库地址
 git remote -v
 
 man git-fetch
@@ -159,9 +159,9 @@ git ls-files -d
 
 git ls-files -d | xargs git checkout --
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">#checkout tag
+```bash#checkout tag
 git clone --branch <tag_name> <repo_url>
 
 git clean -fd
@@ -201,7 +201,7 @@ git push origin master
 恢复一个文件"hello.rb",
 $ git checkout -- hello.rb
 git log master..origin/master
-</code></pre>
+```
 
 git am –show-current-patch
 

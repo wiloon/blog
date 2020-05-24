@@ -14,11 +14,11 @@ categories:
 }{
     User: user,
 })
-</code></pre>
+```
 
 <pre><code class="language-go line-numbers">json.Marshal()
 json.Unmarshal()
-</code></pre>
+```
 
 ### gjson
 

@@ -10,8 +10,8 @@ tags:
   - Windows
 
 ---
-<pre><code class="language-bash line-numbers">route print
-</code></pre>
+```bashroute print
+```
 
 1.具体功能
          

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># Do not run, just test the configuration file.
+```bash# Do not run, just test the configuration file.
 sudo nginx -t
 
 nginx -s signal
@@ -17,9 +17,9 @@ nginx -s signal
 # quit — graceful shutdown
 # reload — reloading the configuration file
 # reopen — reopening the log files
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># install
+```bash# install
 # docker
 docker run -d \
 --name nginx \
@@ -57,4 +57,4 @@ kill -HUP pid
 
 #stop
 kill -s QUIT 1628
-</code></pre>
+```

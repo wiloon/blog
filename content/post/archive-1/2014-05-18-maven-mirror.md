@@ -111,7 +111,7 @@ PS：Maven仓库示意图
 &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;
 &lt;url&gt;http://mirrors.ibiblio.org/pub/mirrors/maven2/&lt;/url&gt;
 &lt;/mirror&gt;
-</code></pre> 
+``` 
 
 另外转自其它出处的：<pre data-language=XML>
 
@@ -146,7 +146,7 @@ PS：Maven仓库示意图
       &lt;name&gt;JBoss Public Repository Group&lt;/name&gt;  
      &lt;url&gt;http://repository.jboss.org/nexus/content/groups/public&lt;/url&gt;  
     &lt;/mirror&gt;
-</code></pre> 
+``` 
 
 ### 一个setting.xml示例<pre data-language=XML>
 
@@ -187,6 +187,6 @@ PS：Maven仓库示意图
         &lt;/profile&gt;
   &lt;/profiles&gt;
 &lt;/settings&gt;
-</code></pre> 
+``` 
 
 http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html

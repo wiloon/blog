@@ -16,7 +16,7 @@ categories:
         setUrl("&lt;MAVEN REPO URL&gt;")
     }
 }
-</code></pre>
+```
 
 http://www.yrom.net/blog/2015/02/07/change-gradle-maven-repo-url/
 

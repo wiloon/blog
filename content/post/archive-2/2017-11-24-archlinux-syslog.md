@@ -22,7 +22,7 @@ journal config
   
 SystemMaxUse=1024M
 
-<pre><code class="language-bash line-numbers"># 最近一次重新引导后收集到的日志
+```bash# 最近一次重新引导后收集到的日志
 journalctl -b
 
 # 查看系统上全部来自Nginx单元的日志
@@ -67,7 +67,7 @@ sudo journalctl --vacuum-size=1G
 # 指定日志文件保存多久
 $ sudo journalctl --vacuum-time=1years
 
-</code></pre>
+```
 
 大家可以配置自己的服务器以限定journal所能占用的最高容量。要实现这一点，我们需要编辑/etc/systemd/journald.conf文件。
 

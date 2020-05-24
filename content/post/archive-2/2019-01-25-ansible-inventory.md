@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">ansible_user=root
-</code></pre>
+```bashansible_user=root
+```

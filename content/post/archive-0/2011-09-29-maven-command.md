@@ -22,7 +22,7 @@ tags:
 
 ### 生成项目
 
-<pre><code class="language-bash line-numbers"># common project
+```bash# common project
 # mvn archetype:generate 会自动创建项目目录mvntest
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -34,15 +34,15 @@ mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 #web project
 mvn archetype:generate -DgroupId=com.wiloon.mail.web -DartifactId=mailTestWeb \
 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -q
+```bashmvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -q
 
 #-U,--update-snapshots                  Forces a check for missing                                        releases and updated snapshots on
 mvn clean compile -U
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># upload jar to nexus
+```bash# upload jar to nexus
 mvn deploy:deploy-file -Dfile=xxx.pom -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=pom -DrepositoryId=repo0 -Durl=https://maven.wiloon.com/repository/snapshot/
 
 mvn deploy:deploy-file -Dfile=xxx.jar -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=jar -DrepositoryId=repo0 -Durl=https://maven.wiloon.net/repository/snapshot/
@@ -66,19 +66,19 @@ mvn install -Dmaven.test.skip=true
 
 #wrapper
 mvn package appassembler:assemble
-</code></pre>
+```
 
 查看mvn 参数
 
-<pre><code class="language-bash line-numbers">mvn --help
+```bashmvn --help
 mvn install 指定 pom.xml
 mvn -f trunk\mvntest\pom.xml install
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">mvn archetype:generate
+```bashmvn archetype:generate
 #390 maven-archetype-webapp
 #387 maven-archetype-quickstart
-</code></pre>
+```
 
 mvn clean install
   

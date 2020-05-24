@@ -22,7 +22,7 @@ var dataChan &lt;-chan []byte
 
 // channel 初始化
 dataChan = make(&lt;-chan []byte)
-</code></pre>
+```
 
 就像 map 和 slice 数据类型一样, channel必须先创建再使用
 
@@ -31,14 +31,14 @@ ch := make(chan int)
 
 // 使用make初始化Channel,并且可以设置容量:
 make(chan int, 100)
-</code></pre>
+```
 
 ### for 可以处理channel
 
 <pre><code class="language-go line-numbers">for i := range c {
         fmt.Println(i)
     }
-</code></pre>
+```
 
 receive 操作符
   

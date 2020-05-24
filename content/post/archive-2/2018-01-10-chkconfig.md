@@ -18,7 +18,7 @@ chkconfig mysqld on
 
 # 取消 postfix 的自动启动
 chkconfig postfix off
-</code></pre>
+```
 
 https://www.cnblogs.com/panjun-Donet/archive/2010/08/10/1796873.html
 

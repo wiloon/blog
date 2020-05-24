@@ -10,7 +10,7 @@ categories:
 ---
 https://www.linuxidc.com/Linux/2017-12/149050.htm
 
-<pre><code class="language-bash line-numbers">apt update
+```bashapt update
 
 apt upgrade
 编辑源列表文件。
@@ -21,4 +21,4 @@ sudo nano /etc/apt/sources.list
 apt update
 
 apt upgrade
-</code></pre>
+```

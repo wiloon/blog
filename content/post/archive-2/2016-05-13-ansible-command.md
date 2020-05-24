@@ -10,20 +10,20 @@ categories:
 ---
 ### verbos
 
-<pre><code class="language-bash line-numbers">ansible -vvvv
-</code></pre>
+```bashansible -vvvv
+```
 
 ### debug
 
 <pre><code class="language-yml line-numbers">    - name: Display all variables/facts known for a host
       debug:
         msg: "archlinux init"
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">ansible -m setup host0
-</code></pre>
+```bashansible -m setup host0
+```
 
-<pre><code class="language-bash line-numbers"># 忽略指定的ip
+```bash# 忽略指定的ip
 ansible 'group0:!192.168.1.1' -m ping
 
 ansible-playbook playbook.yml --start-at-task="install packages"
@@ -64,7 +64,7 @@ sudo ansible 192.168.1.11 -m copy -a 'src=/home/roy/xxx/x.jar dest=/home/ansible
 ansible 192.168.1.11 -m fetch -a 'src=/data/logs/xxx/debug.log dest=./' --sudo
 
 ansible group0 -a "/etc/init.d/app0 restart" -f 10 \\重启testhosts组的所有机器，每次重启10台
-</code></pre>
+```
 
 -m后面接调用module的名字
   

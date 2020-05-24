@@ -19,8 +19,8 @@ Password for &#8216;user0&#8217;: Can&#8217;t locate Term/ReadKey.pm in @INC (yo
 
 Installing the perl-term-readkey package fixes this
 
-<pre><code class="language-bash line-numbers">sudo pacman -S perl-term-readkey
-</code></pre>
+```bashsudo pacman -S perl-term-readkey
+```
 
 * * *
 
@@ -36,7 +36,7 @@ https://bbs.archlinux.org/viewtopic.php?id=239198
 
 * * *
 
-<pre><code class="language-bash line-numbers"># init
+```bash# init
 mkdir -p /path/to/project-foo/
 git svn init https://url.to.svn.repo
 git svn fetch -r 1342:HEAD
@@ -85,7 +85,7 @@ git push -u origin master -f
 git svn rebase
 git commit -a -m “”
 git svn dcommit
-</code></pre>
+```
 
 git-svn 解决冲突
   

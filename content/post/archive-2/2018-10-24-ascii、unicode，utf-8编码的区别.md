@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">【
+```bash【
 unicode
 0x30103011
 
@@ -20,7 +20,7 @@ utf-8
 11100011
 10000000
 10010000
-</code></pre>
+```
 
 https://www.jianshu.com/p/1a39be00f5b8
 

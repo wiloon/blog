@@ -46,14 +46,14 @@ mtime 最后一次内容修改时间, 如 vi 保存后等, 修改时间发生改
   
 [acm]min 计量单位是分钟
 
-<pre><code class="language-bash line-numbers"># 20天内修改过的
+```bash# 20天内修改过的
 find . -mtime -20 -type f -name "*.zip"
 find ./ -mtime 0  #查找一天内修改的文件
 find ./ -mtime -2 #查找2天内修改的文件，多了一个减号
 find ./ -mmin  -10  #查找距离现在10分钟内修改的文件
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">&lt;br />&lt;br />find pathname -options
+```bash&lt;br />&lt;br />find pathname -options
 
 # -name 按文件名查找文件
 find . -name t.sql
@@ -70,7 +70,7 @@ find . -maxdepth 1 -mtime -1
 
 # 查3分钟前修改的文件
 find . -mmin +3
-</code></pre>
+```
 
 ### 正则表达式
 
@@ -80,9 +80,9 @@ find . -mmin +3
   
 针对上面的那个查找c代码的问题，可以这么写：
 
-<pre><code class="language-bash line-numbers">find . -regex ".*/[0-9]*/.c" -print
+```bashfind . -regex ".*/[0-9]*/.c" -print
 ./2234.c
-</code></pre>
+```
 
 还有一个设置项(option)&#8217;-regextype&#8217;，可以让你根据自己的喜好选择使用的正则表达式类型，大家可以试试。
 

@@ -22,7 +22,7 @@ len(sl)
 cap(sl)
 
 通过内置函数append(slice []Type,elems …Type)追加元素
-</code></pre>
+```
 
 ### 清空slice
 
@@ -39,7 +39,7 @@ cap(sl)
  */
 func SliceClear2(s *[]interface{}) {
 *s = (*s)[0:0]
-</code></pre>
+```
 
 ### 数组
 
@@ -65,13 +65,13 @@ foo:= [5] int {1,2,3,4,5}
 长度为5的数组，key:value,其元素值依次为：0，0，1，2，3。在初始化时指定了2，3，4索引中对应的值：1，2，3
 [...] int {2:1,4:3} 
 长度为5的数组，起元素值依次为：0，0，1，0，3。由于指定了最大索引4对应的值3，根据初始化的元素个数确定其长度为5
-</code></pre>
+```
 
 <pre><code class="language-go line-numbers">&lt;br />// 遍历
 for i, sliceV := range v {
     log.Printf("%v %v : %v", k, i, sliceV)
 }
-</code></pre>
+```
 
 引言
   

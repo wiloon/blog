@@ -39,11 +39,11 @@ npm start -- --port=8001
 
     <code class="language-markup line-numbers">&lt;section data-markdown="example.md" data-separator-notes="^Note:" data-charset="UTF-8"&gt;
     &lt;/section&gt;
-</code></pre> 
+``` 
 
 ### 内容左对齐
 
-<pre><code class="language-bash line-numbers">&lt;style&gt;
+```bash&lt;style&gt;
     .reveal .slides {
         text-align: left;
     }
@@ -52,19 +52,19 @@ npm start -- --port=8001
         margin-right: 0;
     }
 &lt;/style&gt;
-</code></pre>
+```
 
 ### 插入图片并控制样式
 
 路径是相对于index.html的路径
 
-<pre><code class="language-bash line-numbers">![An image](scrum/scrum.png)  &lt;!-- .element height="50%" width="50%" --&gt;
-</code></pre>
+```bash![An image](scrum/scrum.png)  &lt;!-- .element height="50%" width="50%" --&gt;
+```
 
 ### 设备字号
 
 <pre><code class="line-numbers">&lt;!-- .element: style="font-size:80%;" --&gt; &lt;br&gt;
-</code></pre>
+```
 
 https://github.com/hakimel/reveal.js/issues/1349
 

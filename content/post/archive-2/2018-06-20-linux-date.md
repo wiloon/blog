@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600
+```bash# output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600
 date -R
 
 # 设置时间和日期
@@ -20,7 +20,7 @@ date -s 11/03/2009
 
 # 将系统时间设定成下午5点55分55秒的命令
 date -s 17:55:55
-</code></pre>
+```
 
 http://jerrybear.blog.51cto.com/629421/393097
   

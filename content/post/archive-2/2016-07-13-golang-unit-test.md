@@ -47,7 +47,7 @@ func Test_Division_1(t *testing.T) {
 func Test_Division_2(t *testing.T) {
     t.Error("就是不通过")
 }
-</code></pre>
+```
 
 如何编写压力测试
   
@@ -93,10 +93,10 @@ Division(4, 5)
   
 }
 
-<pre><code class="language-bash line-numbers">go test -test.bench=".*"
+```bashgo test -test.bench=".*"
 #使用-count可以指定执行多少次
 go test -test.bench=".*" -count=5
-</code></pre>
+```
 
 作者：Carrism
   

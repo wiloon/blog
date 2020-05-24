@@ -137,7 +137,7 @@ SELECT * FROM ref_table,other_table
 SELECT * FROM ref_table,other_table
   WHERE ref_table.key_column_part1=other_table.column
   AND ref_table.key_column_part2=1;
-</code></pre>
+```
 
   * eq\_ref: 出现在要连接过个表的查询计划中，驱动表只返回一行数据，且这行数据是第二个表的主键或者唯一索引，且必须为not null，唯一索引和主键是多列时，只有所有的列都用作比较时才会出现eq\_ref
   * const：使用唯一索引或者主键，返回记录一定是1行记录的等值where条件时，通常type是const。其他数据库也叫做唯一索引扫描

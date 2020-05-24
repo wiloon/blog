@@ -10,7 +10,7 @@ categories:
 ---
 <pre><code class="language-java line-numbers">char c="abc".charAt(1);
 
-</code></pre>
+```
 
 <pre><code class="language-java line-numbers">/**
 * 将元数据前补零，补后的总长度为指定的长度，以字符串的形式返回
@@ -29,4 +29,4 @@ String newString = String.format("%0"+formatLength+"d", sourceDate);
 return newString;
 }
 
-</code></pre>
+```

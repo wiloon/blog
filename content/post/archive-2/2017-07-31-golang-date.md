@@ -21,29 +21,29 @@ categories:
         //处理逻辑
         fmt.Println("true")
     }
-</code></pre>
+```
 
 ### layout
 
-<pre><code class="language-bash line-numbers"># 时区
+```bash# 时区
 2006-01-02T15:04:05Z07:00
 Mon, 2 Jan 2006 15:04:05 MST
 20060102150405.000
 # 毫秒
 2006-02-01 15:04:05.000
-</code></pre>
+```
 
 ### unix nano > time
 
 <pre><code class="language-go line-numbers">unixnano:=int64(1570603226000000000)
 t:=time.Unix(0,unixnano)
 fmt.Println(t)
-</code></pre>
+```
 
 ### 毫秒, get microsecond, mill second
 
 <pre><code class="language-go line-numbers">time.Now().UnixNano() / int64(time.Millisecond)
-</code></pre>
+```
 
 <pre><code class="language-go line-numbers">func main() {
     fmt.Printf("时间戳（秒）：%v;\n", time.Now().Unix())
@@ -51,7 +51,7 @@ fmt.Println(t)
     fmt.Printf("时间戳（毫秒）：%v;\n",time.Now().UnixNano() / 1e6)
     fmt.Printf("时间戳（纳秒转换为秒）：%v;\n",time.Now().UnixNano() / 1e9)
 }
-</code></pre>
+```
 
 ### days between two dates
 
@@ -66,13 +66,13 @@ fmt.Println(t)
 func Date(year, month, day int) time.Time {
     return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
 }
-</code></pre>
+```
 
 ### date > string
 
 <pre><code class="language-go line-numbers">// 格式化日期 - RFC3339
 time.Now().Format("2006-01-02T15:04:05Z07:00")
-</code></pre>
+```
 
 <pre><code class="language-go line-numbers">    format:="2006-01-02 15:04:05"
     fmt.Println(time.Now().Format(format))
@@ -81,7 +81,7 @@ time.Now().Format("2006-01-02T15:04:05Z07:00")
     d, _ := time.ParseDuration("-24h")
     d1 := now.Add(d)
     fmt.Println(d1)
-</code></pre>
+```
 
 ### string > date
 
@@ -91,7 +91,7 @@ time.Now().Format("2006-01-02T15:04:05Z07:00")
 
 <pre><code class="language-go line-numbers">tm2, _ := time.Parse("01/02/2006", "02/08/2015")
 localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:02", time.Local)
-</code></pre>
+```
 
 ### 时区
 
@@ -116,7 +116,7 @@ localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:
     //2016-12-04 07:39:06.270473069 +0000 UTC
     //2016-12-04 15:39:06.270473069 +0800 CST
     //2016-12-03 23:39:06.270473069 -0800 PST
-</code></pre>
+```
 
 https://github.com/jemygraw/TechDoc/blob/master/Go%E7%A4%BA%E4%BE%8B%E5%AD%A6/Go%20%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90.markdown
 

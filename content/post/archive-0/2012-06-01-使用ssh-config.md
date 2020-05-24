@@ -10,12 +10,12 @@ categories:
 ---
 ### 使用通配符 (wildcard)
 
-<pre><code class="language-bash line-numbers">vim .ssh/config
+```bashvim .ssh/config
 
 host 10.60.*
     user root
 
-</code></pre>
+```
 
 SSH 参数配置有3个层次：
 
@@ -47,19 +47,19 @@ ssh配置项参数值可以使用通配符：*代表0～n个非空白字符，?�
   
 我们可以在系统配置文件中看到一个匹配所有host的默认配置区段：
 
-<pre><code class="language-bash line-numbers">$ cat /etc/ssh/ssh_config | grep '^Host'
-</code></pre>
+```bash$ cat /etc/ssh/ssh_config | grep '^Host'
+```
 
 Host *
   
 这里有一些默认配置项，我们可以在用户配置文件中覆盖这些默认配置。
 
-<pre><code class="language-bash line-numbers">Host router
+```bashHost router
      HostName 192.168.1.1
      Port 22
      User root
      IdentityFile ~/.ssh/id_rsa
-</code></pre>
+```
 
 使用ssh的配置文件可以在很大程度上方便各种操作，特别适应于有多个ssh帐号、使用非标准端口或者写脚本等情况。
 

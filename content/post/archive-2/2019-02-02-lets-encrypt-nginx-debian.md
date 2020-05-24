@@ -11,7 +11,7 @@ categories:
 <pre><code class="line-numbers">sudo apt-get install certbot python-certbot-nginx -t stretch-backports
 sudo certbot --nginx
 
-</code></pre>
+```
 
 https://certbot.eff.org/lets-encrypt/debianstretch-nginx
   

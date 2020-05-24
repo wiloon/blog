@@ -10,7 +10,7 @@ categories:
 ---
 为了允许添加数据，防止更改或者删除等，文件和文件夹可以设定了特定的控制属性。例如，你可以在关键的系统文件或者文件夹中启用属性，然后没有任何用户，包括root，可以删除或者修改它，比如不允许使用像dump这样的命令等备份工具去备份一个特定的文件或者文件夹，等等。这些属性只可以在ext2，ext3或者ext4文件系统中的文件和文件夹上设定。
 
-<pre><code class="language-bash line-numbers">&lt;br /># 使用‘i’属性使文件不可更改
+```bash&lt;br /># 使用‘i’属性使文件不可更改
 chattr +i /etc/passwd /etc/shadow /etc/group /etc/gshadow
 # 查看文件属性
 lsattr /etc/passwd
@@ -22,7 +22,7 @@ chattr -i /etc/passwd /etc/shadow /etc/group /etc/gshadow
 lsattr /etc/passwd
 # ---------------- /etc/passwd
 
-</code></pre>
+```
 
 现在试着删除或者修改文件
   
@@ -35,7 +35,7 @@ rm: cannot remove &#8216;dummy_data&#8217;: Operation not permitted
 -bash: dummy_data: Permission denied
 
 <pre><code class="language-shell line-numbers">chattr -ai /etc/passed
-</code></pre>
+```
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
   <p>

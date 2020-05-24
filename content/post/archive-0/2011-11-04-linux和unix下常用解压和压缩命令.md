@@ -37,17 +37,17 @@ tags:
 
 ### .7z
 
-<pre><code class="language-bash line-numbers">yum install p7zip
+```bashyum install p7zip
 pacman -S p7zip
 
 7z x filename.7z
-</code></pre>
+```
 
 ### .zip
 
 #### 压缩
 
-<pre><code class="language-bash line-numbers"># 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
+```bash# 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
 zip -s SIZE origin.zip --out new.zip
 
 # SIZE为分卷的大小4m,4g,4t等
@@ -55,11 +55,11 @@ zip -s SIZE origin.zip --out new.zip
 # 解压的时候需要先将它合并才能正常解压
 
 zip spiltfile.zip -s=0 --out single.zip
-</code></pre>
+```
 
 ### 解压
 
-<pre><code class="language-bash line-numbers">pacman -S zip unzip
+```bashpacman -S zip unzip
 zip all.zip *.jpg
 
 # 压缩的是个文件夹, -r 表示调用递归压缩
@@ -80,11 +80,11 @@ ls *.zip | xargs -n1 unzip -o
 # 解压最近4天的zip文件
 
 find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
-</code></pre>
+```
 
 ### Zstandard, zstd
 
-<pre><code class="language-bash line-numbers"># zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
+```bash# zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
 
 # tar从1.30.90 之后开始支持zstd
 
@@ -120,7 +120,7 @@ zstd -T0 foo.txt
 
 # --rm 压缩后删除原文件
 
-</code></pre>
+```
 
 ### .tar
 
@@ -128,7 +128,7 @@ Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是
 
 **(注：tar只是打包，不是压缩！)**
 
-<pre><code class="language-bash line-numbers"># 打包:
+```bash# 打包:
 tar cvf FileName.tar DirName
 
 # 解包:
@@ -142,7 +142,7 @@ tar cjf - logs/ |split -b 1m - logs.tar.bz2.
 # 合并文件
 
 cat logs.tar.bz2.a* | tar xj
-</code></pre>
+```
 
 ### .tar.gz
 
@@ -150,7 +150,7 @@ cat logs.tar.bz2.a* | tar xj
 
 默认tar打包和系统默认的压缩工具是单线程的，pigz是gzip的多线程实现,默认用当前逻辑cpu个数来并发压缩，无法检测个数的话，则并发8个线程
 
-<pre><code class="language-bash line-numbers">#压缩
+```bash#压缩
 tar -zcvf all.tar.gz *.jpg
 
 \#设置压缩级别
@@ -169,14 +169,14 @@ tar --use-compress-program=pigz -xvpf package.tgz -C ./package
 \#c表示create创建 x表示extract解压 v表示verbose详细 f表示指定压缩文件 C表示指定目录
 \#-cvpf package.tgz ./ 表示将./package目录打包为package.tgz
 \#-xvpf package.tgz -C ./表示将package.tgz解压到./package目录下
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">-c, --create #建立新的存档
+```bash-c, --create #建立新的存档
 \-v, --verbose #详细显示处理的文件
 \-f, --file \[HOSTNAME:\]F #指定存档或设备 (缺省为 /dev/rmt0)
 \-z, --gzip, --ungzip #用 gzip 对存档压缩或解压
 \-x, --extract, --get #从存档展开文件
-</code></pre>
+```
 
 ### .tar.bz2
 
@@ -201,7 +201,7 @@ tar -czf log.tar.gz *.zip -N 2016/04/20
 tar -xf all.tar
 
 unrar x /media/data/homes-backup.rar homes-backup/
-</code></pre>
+```
 
 一.tar命令
 

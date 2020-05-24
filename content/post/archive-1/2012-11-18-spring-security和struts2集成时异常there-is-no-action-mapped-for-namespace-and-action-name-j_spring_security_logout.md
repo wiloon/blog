@@ -132,7 +132,7 @@ func main() {
     b.Set("sina")
     fmt.Println(b.Get())
 }
-</code></pre>
+```
 
 例子中，在Base类型定义了get()和set()两个方法，而Derived类型继承了Base类，并改写了Get()方法，在Derived对象调用Set()方法，会加载基类对应的方法；而调用Get()方法时，加载派生类改写的方法。
 

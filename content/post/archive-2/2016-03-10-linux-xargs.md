@@ -20,9 +20,9 @@ xargs可以将输入内容（通常通过命令行管道传递），转成后续
   * -t 在执行前回显各个command
   * -n 参数分组
 
-<pre><code class="language-bash line-numbers">ls *.js | xargs -t -n2 ls -al
+```bashls *.js | xargs -t -n2 ls -al
 # 输出如下，-n2表示，将参数以2个为一组，传给后面的命令。
-</code></pre>
+```
 
 例子：参数分组
   
@@ -30,18 +30,18 @@ xargs可以将输入内容（通常通过命令行管道传递），转成后续
 
 首先，创建4个文件用来做实验。
 
-<pre><code class="language-bash line-numbers">touch a.js b.js c.js d.js
-</code></pre>
+```bashtouch a.js b.js c.js d.js
+```
 
 然后运行如下命令：
 
-<pre><code class="language-bash line-numbers">ls -al a.js b.js
+```bashls -al a.js b.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 a.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 b.js
 ls -al c.js d.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 c.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 d.js
-</code></pre>
+```
 
 http://blog.chinaunix.net/uid-128922-id-289992.html
   

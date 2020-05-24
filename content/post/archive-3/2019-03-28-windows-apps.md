@@ -10,9 +10,9 @@ categories:
 ---
 ### choco
 
-<pre><code class="language-bash line-numbers">choco install keepassxc
+```bashchoco install keepassxc
 choco upgrade keepassxc
-</code></pre>
+```
 
 <https://blog.wiloon.com/?p=8340>
   

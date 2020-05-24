@@ -45,7 +45,7 @@ categories:
     Since you are using m2eclipse, the .project file in your project contains
   </p>
   
-  <pre><code>&lt;buildCommand&gt; &lt;name&gt;org.maven.ide.eclipse.maven2Builder&lt;/name&gt; &lt;arguments&gt; &lt;/arguments&gt; &lt;/buildCommand&gt; </code></pre>
+  <pre><code>&lt;buildCommand&gt; &lt;name&gt;org.maven.ide.eclipse.maven2Builder&lt;/name&gt; &lt;arguments&gt; &lt;/arguments&gt; &lt;/buildCommand&gt; ```
   
   <p>
     This is overriding the Java builder, and copying the folders in /src/main/resources into the /target/classes directory.

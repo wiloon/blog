@@ -10,12 +10,12 @@ categories:
 ---
 https://github.com/wangyuheng/ddl2plantuml
 
-<pre><code class="language-bash line-numbers">java -jar ~/apps/ddl2plantuml.jar foo.sql er.puml
-</code></pre>
+```bashjava -jar ~/apps/ddl2plantuml.jar foo.sql er.puml
+```
 
-<pre><code class="language-bash line-numbers">docker run \
+```bashdocker run \
 -e DDL='/mnt/data/ddl.sql' \
 -e PLANTUML='/mnt/data/er_by_docker.puml' \
 -v ddl2plantuml-data:'/mnt/data' \
 wangyuheng/ddl2plantuml:latest
-</code></pre>
+```

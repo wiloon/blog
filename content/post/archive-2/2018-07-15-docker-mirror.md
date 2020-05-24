@@ -16,7 +16,7 @@ https://www.docker-cn.com/registry-mirror
 
 永久性保留更改，您可以修改 /etc/docker/daemon.json 文件并添加上 registry-mirrors 键值。
 
-<pre><code class="language-bash line-numbers">vim /etc/docker/daemon.json #(create it if it does not exist)
+```bashvim /etc/docker/daemon.json #(create it if it does not exist)
 
 {
   "registry-mirrors": ["https://registry.docker-cn.com"],
@@ -32,4 +32,4 @@ sudo systemctl restart docker.service
 
 ### 查看
 sudo docker info
-</code></pre>
+```

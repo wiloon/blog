@@ -20,13 +20,13 @@ download redis rpm from https://pkgs.org/download/redis
 
 下载地址：https://pkgs.org/centos-6/atomic-x86\_64/jemalloc-3.6.0-1.el6.art.x86\_64.rpm.html
 
-<pre><code class="language-bash line-numbers">rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
+```bashrpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
 rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
-</code></pre>
+```
 
 ### docker
 
-<pre><code class="language-bash line-numbers">docker run \
+```bashdocker run \
 -d \
 --name redis \
 -p 6379:6379 \
@@ -36,10 +36,10 @@ redis
 
 docker run -it --rm redis redis-cli -h redis.wiloon.com
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">redis-server --version
-</code></pre>
+```bashredis-server --version
+```
 
 ### delete key
 
@@ -81,7 +81,7 @@ TTL key
 
 O(N) where N is the number of keys that will be removed. When a key to remove holds a value other than a string, the individual complexity for this key is O(M) where M is the number of elements in the list, set, sorted set or hash. Removing a single key that holds a string value is O(1).
 
-<pre><code class="language-bash line-numbers">redis-cli -h 127.0.0.1 -p 6379
+```bashredis-cli -h 127.0.0.1 -p 6379
 
 #cluster
 redis-cli -c -h 127.0.0.1 -p 6379
@@ -118,11 +118,11 @@ flushdb
 
 #info
 # http://redisdoc.com/server/info.html
-</code></pre>
+```
 
 ### cluster
 
-<pre><code class="language-bash line-numbers">创建集群主节点
+```bash创建集群主节点
 
 redis-cli --cluster create 192.168.163.132:6379 192.168.163.132:6380 192.168.163.132:6381
 创建集群主从节点
@@ -150,7 +150,7 @@ redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster
 redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b80409106cb36be3c7ba41f3b603ff
 说明：指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
 
-</code></pre>
+```
 
 http://blog.csdn.net/rockstar541/article/details/30245493
   

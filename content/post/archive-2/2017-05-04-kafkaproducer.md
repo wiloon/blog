@@ -43,7 +43,7 @@ batching机制——“分批发送“机制。每个批次(batch)中包含了�
      producer.send(new ProducerRecord&lt;String, String&gt;("my-topic", Integer.toString(i), Integer.toString(i)));
 
  producer.close();
-</code></pre>
+```
 
 batch.size: 该参数对于调优producer至关重要。新版producer(o.a.k.clients.producer.KafkaProducer)采用分批发送机制，该参数即控制一个batch的大小。默认是16KB
 

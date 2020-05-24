@@ -10,7 +10,7 @@ categories:
 ---
 https://wiki.archlinux.org/index.php/MAC\_address\_spoofing
 
-<pre><code class="language-bash line-numbers">vim /etc/systemd/network/00-default.link
+```bashvim /etc/systemd/network/00-default.link
 
 [Match]
 MACAddress=old mac address
@@ -18,7 +18,7 @@ MACAddress=old mac address
 [Link]
 MACAddress=new mac address
 NamePolicy=kernel database onboard slot path
-</code></pre>
+```
 
 NamePolicy
   

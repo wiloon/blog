@@ -60,7 +60,7 @@ Gateway= 网关地址.
 
 如果需要指定多个 DNS, Address 或者 Gateway, 你可以多次指定相应的键值对. (也就是说, 多写几行 DNS=xxx, DNS=yyy…)
 
-<pre><code class="language-bash line-numbers">pacman -S wpa_supplicant
+```bashpacman -S wpa_supplicant
 
 # start systemd-networkd and systemd-resolved service
 systemctl enable systemd-networkd
@@ -98,12 +98,12 @@ Name=ens3
 Address=192.168.1.87/24
 Gateway=192.168.1.254
 DNS=192.168.1.254
-</code></pre>
+```
 
 ### check network config
 
 <pre><code class="language-shell line-numbers">networkctl status -a
-</code></pre>
+```
 
 <blockquote class="wp-embedded-content" data-secret="GLctgxboIR">
   <p>

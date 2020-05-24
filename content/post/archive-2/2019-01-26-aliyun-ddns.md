@@ -12,7 +12,7 @@ https://github.com/honwen/aliyun-ddns-cli
   
 https://github.com/chenhw2/aliyun-ddns-cli
 
-<pre><code class="language-bash line-numbers">aliyun-ddns-cli --access-key-id=ak0 --access-key-secret=sk0  auto-update --domain=domain0.wiloon.com --redo=600
+```bashaliyun-ddns-cli --access-key-id=ak0 --access-key-secret=sk0  auto-update --domain=domain0.wiloon.com --redo=600
 
 docker run -d \
     -e "AKID=[ALIYUN's AccessKey-ID]" \
@@ -21,4 +21,4 @@ docker run -d \
     -e "REDO=600" \
     chenhw2/aliyun-ddns-cli
 
-</code></pre>
+```

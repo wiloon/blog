@@ -15,7 +15,7 @@ categories:
 
 #从系统粘贴板粘贴
 "+p
-</code></pre>
+```
 
 https://blog.csdn.net/dadoneo/article/details/6003415
 

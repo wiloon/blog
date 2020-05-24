@@ -10,11 +10,11 @@ categories:
 ---
 ### 开启数据包转发
 
-<pre><code class="language-bash line-numbers">vim /etc/sysctl.d/30-ipforward.conf
+```bashvim /etc/sysctl.d/30-ipforward.conf
 net.ipv4.ip_forward=1
 net.ipv6.conf.default.forwarding=1
 net.ipv6.conf.all.forwarding=1
-</code></pre>
+```
 
 ### 配置nftables的转发规则
 

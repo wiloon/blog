@@ -17,7 +17,7 @@ unmappable character for encoding GBK
 <pre class="default prettyprint prettyprinted"><code>&lt;span class="tag">&lt;properties&gt;&lt;/span>
     &lt;span class="tag">&lt;project.build.sourceEncoding&gt;&lt;/span>&lt;span class="pln">UTF-8&lt;/span>&lt;span class="tag">&lt;/project.build.sourceEncoding&gt;&lt;/span>
     &lt;span class="tag">&lt;project.reporting.outputEncoding&gt;&lt;/span>&lt;span class="pln">UTF-8&lt;/span>&lt;span class="tag">&lt;/project.reporting.outputEncoding&gt;&lt;/span>
-&lt;span class="tag">&lt;/properties&gt;&lt;/span></code></pre>
+&lt;span class="tag">&lt;/properties&gt;&lt;/span>```
 
 &nbsp;
 

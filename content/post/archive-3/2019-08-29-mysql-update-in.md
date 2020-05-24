@@ -20,7 +20,7 @@ FROM table0 w1
 WHERE w1.field0 IS NULL AND  w1.key2=0
 LIMIT 10) AS a  );
 
-</code></pre>
+```
 
 <pre><code class="language-sql line-numbers">EXPLAIN
 UPDATE table0 w0
@@ -29,4 +29,4 @@ ON w0.key0=w2.key0 AND w0.key1=w2.key1 AND w0.key2=w2.key2
 SET w0.field0='foo'
 
 
-</code></pre>
+```

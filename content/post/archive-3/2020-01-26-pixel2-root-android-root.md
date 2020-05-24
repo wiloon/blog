@@ -40,8 +40,8 @@ Download MagiskManager apk 并安装 到手机
   
 刷入打好补丁的 boot.img
 
-<pre><code class="language-bash line-numbers">fastboot flash boot patched_boot.img
+```bashfastboot flash boot patched_boot.img
 fastboot reboot
-</code></pre>
+```
 
 重启后系统已经root成功了。

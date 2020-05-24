@@ -26,7 +26,7 @@ component Comp3
 component [Last\ncomponent] as Comp4
 
 @enduml
-</code></pre>
+```
 
 ### vs code 快捷键
 

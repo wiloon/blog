@@ -16,7 +16,7 @@ var y int = int64(x)
 
 //
 int(math.Floor(f + 0.5))
-</code></pre>
+```
 
 ### base64 > hex
 
@@ -26,12 +26,12 @@ if err != nil {
 }
 h := hex.EncodeToString(p)
 fmt.Println(h) // prints 415256494e
-</code></pre>
+```
 
 ### bytes > hex
 
 <pre><code class="language-go line-numbers">hex.EncodeToString(foo))
-</code></pre>
+```
 
 ### string, float：
 
@@ -41,14 +41,14 @@ v2, err := strconv.ParseFloat(v, 64)
 
 // float64 &gt; string
 valueStr = strconv.FormatFloat(v, 'f', 3, 64)
-</code></pre>
+```
 
 ### int > float
 
 <pre><code class="language-go line-numbers">i:=5
 f:=float32(i)
 
-</code></pre>
+```
 
 ### bytes > int
 
@@ -59,7 +59,7 @@ value |= int32(ba[1]) &lt;&lt; 8
 value |= int32(ba[2]) &lt;&lt; 16
 value |= int32(ba[3]) &lt;&lt; 24
 reverse the indexing order to switch between big and little endian.
-</code></pre>
+```
 
 ### int8>byte
 
@@ -73,7 +73,7 @@ if v &lt; 0 {
 } else {
     r = byte(v)
 }
-</code></pre>
+```
 
 但是，实际上我们可以直接使用byte进行强制转换，因为byte会自动检测v原有类型，然后进行转换的。
 
@@ -81,7 +81,7 @@ if v &lt; 0 {
 var v int8
 v = -70
 r = byte(v)
-</code></pre>
+```
 
 ### string, bool
 
@@ -95,7 +95,7 @@ func FormatBool(b bool) string
 // 它接受假值：0, f, F, FALSE, false, False
 // 其它任何值都返回一个错误。
 func ParseBool(str string) (bool, error)
-</code></pre>
+```
 
 ### int, string
 
@@ -120,7 +120,7 @@ fmt.Print(string(s))
 
 // uint64 &gt; string
 str := strconv.FormatUint(myNumber, 10)
-</code></pre>
+```
 
 https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang
 
@@ -128,12 +128,12 @@ https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang
 
 <pre><code class="language-go line-numbers">var i int
 u := uint16(i)
-</code></pre>
+```
 
 ### string > []byte
 
 <pre><code class="language-go line-numbers">dataByte:=[]byte(dataStr)
-</code></pre>
+```
 
 ### Golang Time互转秒、毫秒
 
@@ -143,7 +143,7 @@ u := uint16(i)
     fmt.Println(time.Now().UnixNano()/1e9)//将纳秒转换为秒
     c := time.Unix(time.Now().UnixNano()/1e9,0) //将秒转换为 time 类型
     fmt.Println(c.String()) //输出当前英文时间戳格式
-</code></pre>
+```
 
 ### 字符串毫秒转时间格式
 
@@ -172,7 +172,7 @@ func msToTime(ms string) (time.Time, error) {
     return tm, nil
 }
 
-</code></pre>
+```
 
 ### byte > binary string
 
@@ -187,7 +187,7 @@ func main() {
     }
 }
 
-</code></pre>
+```
 
 ### hex string > []byte
 
@@ -201,7 +201,7 @@ if err != nil {
 }
 
 // continue handling data
-</code></pre>
+```
 
 ### []byte > hex string
 
@@ -217,7 +217,7 @@ h := md5.Sum([]byte(data))
 // with "%x" format byte array into hex string
 hexStr := fmt.Sprintf("%x", h)
 
-</code></pre>
+```
 
 ### int, byte
 
@@ -244,7 +244,7 @@ func Uint32ToBytes(i uint32) []byte {
     return buf
 }
 
-</code></pre>
+```
 
 http://blog.csdn.net/pkueecser/article/details/50433460
   

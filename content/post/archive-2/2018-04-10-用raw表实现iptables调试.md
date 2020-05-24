@@ -10,12 +10,12 @@ categories:
 ---
 ### 启用iptables的日志
 
-<pre><code class="language-bash line-numbers">iptables -t nat -A POSTROUTING -p icmp  -s 192.168.50.215 -j LOG --log-prefix 'iptable-log: '
+```bashiptables -t nat -A POSTROUTING -p icmp  -s 192.168.50.215 -j LOG --log-prefix 'iptable-log: '
 iptables -t nat -I PREROUTING -p tcp -s 192.168.50.115 --dport 80 -j LOG --log-prefix 'iptable-log: '
 
 #配置日志级别
 iptables -t raw -I OUTPUT -d 10.254.51.153 -j LOG --log-level 7 --log-prefix "raw out: "
-</code></pre>
+```
 
 iptables有5个链: PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING，4个表: filter, nat, mangle, raw
 
@@ -25,15 +25,15 @@ raw表使用PREROUTING和OUTPUT两个链，因此raw可以覆盖所有包。在r
   
 假设需要对ipv4的ICMP包进行跟踪调试，抓取所有流经本机的ICMP包
 
-<pre><code class="language-bash line-numbers">iptables -t raw -A OUTPUT -p icmp -j TRACE
+```bashiptables -t raw -A OUTPUT -p icmp -j TRACE
 iptables -t raw -A PREROUTING -p icmp -j TRACE
-</code></pre>
+```
 
 加载对应内核模块
 
-<pre><code class="language-bash line-numbers">modprobe ipt_LOG
+```bashmodprobe ipt_LOG
 modprobe xt_LOG
-</code></pre>
+```
 
 日志输出在journalctl 里查看， 用journalctl -f 查看调试日志。
 
@@ -49,14 +49,14 @@ policy 会跟用户定义的rule放在一起排序，如果用户定义了6条�
 
 for openwrt > iptables
 
-<pre><code class="language-bash line-numbers"># install raw table for iptables
+```bash# install raw table for iptables
 opkg install kmod-ipt-raw
 
 #build kmod-ipt-debug as module which provides the iptables TRACE target
 
 iptables -t raw -j TRACE -p tcp -d 216.58.193.196 -I PREROUTING 1
 iptables -t raw -I PREROUTING 1 -p tcp -d 216.58.193.196 -j TRACE
-</code></pre>
+```
 
 调试
   

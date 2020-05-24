@@ -22,13 +22,13 @@ Remember to rebuild the initramfs for these changes to take effect.
   
 run mkinitcpio -p linux to rebuild the initramfs
 
-<pre><code class="language-bash line-numbers">&lt;br />mkinitcpio -p linux
-</code></pre>
+```bash&lt;br />mkinitcpio -p linux
+```
 
-<pre><code class="language-bash line-numbers">vim /boot/loader/entries/arch.conf
+```bashvim /boot/loader/entries/arch.conf
 # add line
 options resume=UUID=edf3ac02-8e07-4625-a831-a6d19dab9c3c
-</code></pre>
+```
 
 edit /boot/syslinux/syslinux.cfg
 
@@ -36,7 +36,7 @@ Required kernel parameters
   
 resume=_swap_partition_
 
-<pre><code class="language-bash line-numbers">&lt;br />LABEL arch
+```bash&lt;br />LABEL arch
 TEXT HELP
 Boot Arch Linux
 ENDTEXT
@@ -47,7 +47,7 @@ INITRD /boot/intel-ucode.img,/boot/initramfs-linux.img
 
 
 systemctl hibernate
-</code></pre>
+```
 
 hibernate and re start the system.
 

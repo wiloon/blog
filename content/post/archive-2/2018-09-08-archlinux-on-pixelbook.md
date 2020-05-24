@@ -16,15 +16,15 @@ Settings > Linux > Enable
 
 ### Delete the Debian container (optional)
 
-<pre><code class="language-bash line-numbers">vmc destroy termina
+```bashvmc destroy termina
 vmc start termina
-</code></pre>
+```
 
 ### Install an Arch linux container
 
 Open a new terminal in Chrome (Ctrl + Alt + T)
 
-<pre><code class="language-bash line-numbers">vmc container termina arch https://us.images.linuxcontainers.org archlinux/current
+```bashvmc container termina arch https://us.images.linuxcontainers.org archlinux/current
 vsh termina
 lxc list
 lxc exec arch -- bash
@@ -68,25 +68,25 @@ lxc stop --force penguin
 lxc rename penguin debian
 lxc rename arch penguin
 lxc start penguin
-</code></pre>
+```
 
 https://tedyin.com/posts/archlinux-on-pixelbook/
 
-<pre><code class="language-bash line-numbers">lxc profile set default security.syscalls.blacklist "keyctl errno 38"
+```bashlxc profile set default security.syscalls.blacklist "keyctl errno 38"
 run_container.sh --container_name archlinux --user ymf --lxd_image archlinux/current --lxd_remote https://us.images.linuxcontainers.org/
 
 lxc exec archlinux -- bash
-</code></pre>
+```
 
 ### crosh
 
-<pre><code class="language-bash line-numbers">vmc list
+```bashvmc list
 vmc start termina
-</code></pre>
+```
 
 ### openvpn in crostini
 
-<pre><code class="language-bash line-numbers"># 进入crosh环境
+```bash# 进入crosh环境
 ctrl+t
 # 在crosh中执行以下命令
 vmc stop termina
@@ -96,18 +96,18 @@ lxc config device add penguin tun unix-char path=/dev/net/tun
 sudo pacman -Syu
 sudo pacman -S openvpn
 # openvpn 可以正常使用了
-</code></pre>
+```
 
 ### 显示问题， 找不到图形环境问题
 
-<pre><code class="language-bash line-numbers"># in crostini
+```bash# in crostini
 export WAYLAND_DISPLAY=wayland-0
 # &lt;user id&gt;替换成 当前用户的id
 export XDG_RUNTIME_DIR=/run/user/&lt;user id&gt;
 /opt/google/cros-containers/bin/sommelier -X command0
 sommelier -X --x-display=1 --scale=2 bash -c 'echo Xft.dpi: 192 | xrdb -merge; firefox'
 --dpi=
-</code></pre>
+```
 
 https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/
   

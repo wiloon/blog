@@ -35,10 +35,10 @@ function greeter(person) {
 let user = "Jane User";
 
 document.body.textContent = greeter(user);
-</code></pre>
+```
 
 <pre><code class="language-shell line-numbers">tsc greeter.ts
-</code></pre><pre data-language=HTML>
+```<pre data-language=HTML>
 
 <code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -47,7 +47,7 @@ document.body.textContent = greeter(user);
         &lt;script src="greeter.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre> 
+``` 
 
 let num: number = 100.001;
   
@@ -58,4 +58,4 @@ const是对let的一个增强，它能阻止对一个变量再次赋值。
 ### 数组
 
 <pre><code class="language-typescript line-numbers">let fibonacci: number[] = [1, 1, 2, 3, 5];
-</code></pre>
+```

@@ -9,7 +9,7 @@ categories:
 
 ---
 <pre data-language=HTML><code class="language-markup line-numbers">&lt;input type="value0"&gt;
-</code></pre> 
+``` 
 
 hidden 定义隐藏的输入字段。
   

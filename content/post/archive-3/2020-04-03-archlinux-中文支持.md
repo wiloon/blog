@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">vim /etc/locale.gen
+```bashvim /etc/locale.gen
 en_US.UTF-8 UTF-8
 zh_CN.UTF-8 UTF-8
 
@@ -22,4 +22,4 @@ sudo pacman -S wqy-microhei
 
 locale -a 来显示当前Linux系统支持的所有的语言环境。
 
-</code></pre>
+```

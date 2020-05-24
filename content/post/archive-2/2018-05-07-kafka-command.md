@@ -97,20 +97,20 @@ zookeeper.connect=localhost:2181
 
 ### producer
 
-<pre><code class="language-bash line-numbers">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
-</code></pre>
+```bashbin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
+```
 
 ### consume
 
-<pre><code class="language-bash line-numbers">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092   
+```bashbin/kafka-console-consumer.sh --bootstrap-server localhost:9092   
 \--topic topic0   
 \--from-beginning   
 \--property "parse.key=true"   
 \--property "key.separator=:"
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># 删除topic
+```bash# 删除topic
 bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
 \#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
@@ -122,9 +122,9 @@ bin/kafka-server-start.sh -daemon config/server.properties
 
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">./bin/kafka-server-start.sh config/server.properties
+```bash./bin/kafka-server-start.sh config/server.properties
 
 查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
 bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
@@ -135,11 +135,11 @@ bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --
 # 会只消费 N 条数据，如果配合 --from-beginning，就会消费最早 N 条数据。
 
 bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
-</code></pre>
+```
 
 ### 调整 ReplicationFactor
 
-<pre><code class="language-bash line-numbers">cat increase-replication-factor.json
+```bashcat increase-replication-factor.json
 
 {"version":1,
 "partitions":\[{"topic":"connect-configs","partition":0,"replicas":\[0,1,2\]}\]
@@ -147,12 +147,12 @@ bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --
 
 bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
 
-</code></pre>
+```
 
 ### consumer
 
-<pre><code class="language-bash line-numbers">/opt/cloudera/parcels/KAFKA/bin/kafka-console-consumer --bootstrap-server 192.168.0.1:9092,192.168.0.2:9092,192.168.0.3:9092 --topic topic0
-</code></pre>
+```bash/opt/cloudera/parcels/KAFKA/bin/kafka-console-consumer --bootstrap-server 192.168.0.1:9092,192.168.0.2:9092,192.168.0.3:9092 --topic topic0
+```
 
 ### install
 
@@ -164,7 +164,7 @@ download http://kafka.apache.org/downloads.html
 
 #### docker
 
-<pre><code class="language-bash line-numbers">docker run  -d --name kafka   
+```bashdocker run  -d --name kafka   
 \-p 9092:9092   
 \-e KAFKA_BROKER_ID=0   
 \-e KAFKA_ZOOKEEPER_CONNECT=192.168.50.115:2181   
@@ -174,7 +174,7 @@ download http://kafka.apache.org/downloads.html
 \-e KAFKA_AUTO_CREATE_TOPICS_ENABLE=false   
 \-v kafka-data:/kafka   
 \-t wurstmeister/kafka
-</code></pre>
+```
 
 ### server.properties
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">pacman -Syu
+```bashpacman -Syu
 pacman -S qemu
 pacman -S qemu-launcher
 qemu-img create -f raw gentoo.img 20G
@@ -36,7 +36,7 @@ mkdir /mnt/gentoo/boot
 mount /dev/sda2 /mnt/gentoo/boot
 chmod 1777 /mnt/gentoo/tmp
 #Downloading the stage tarball
-</code></pre>
+```
 
 https://bbs.archlinux.org/viewtopic.php?id=164461
   

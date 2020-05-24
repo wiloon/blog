@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># 安装 btrfs 的用户空间工具
+```bash# 安装 btrfs 的用户空间工具
 pacman -S btrfs-progs
 
 # 像 df 这样的用户空间工具可能不会准确的计算剩余空间 (因为并没有分别计算文件和元数据的使用情况) 。推荐使用 btrfs filesystem usage 来查看使用情况
@@ -19,4 +19,4 @@ btrfs subvolume list -p path
 
 # 碎片整理
 btrfs filesystem defragment -r /
-</code></pre>
+```

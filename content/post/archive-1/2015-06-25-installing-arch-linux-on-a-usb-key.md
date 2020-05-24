@@ -18,12 +18,12 @@ download iso
   
 <http://mirrors.163.com/archlinux/iso/>
 
-<pre><code class="language-bash line-numbers"># 创建USB启动盘
+```bash# 创建USB启动盘
 #dd archlinux iso to usb
 sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && sync
 
 # boot with usb stick
-</code></pre>
+```
 
 ### 设置网络
 
@@ -33,7 +33,7 @@ or
   
 <https://blog.wiloon.com/?p=9881>
 
-<pre><code class="language-bash line-numbers"># 给root设置密码
+```bash# 给root设置密码
 passwd
 
 # 启动sshd
@@ -46,7 +46,7 @@ systemctl start sshd
 # 查看当前的引导模式，uefi or bios
  ls /sys/firmware/efi/efivars
  # 如果提示文件不存在， 那么当前系统就不是efi引用的， 可能 是bios或CSM
-</code></pre>
+```
 
 ### config pacman mirror
 
@@ -54,8 +54,8 @@ systemctl start sshd
 
 # pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 
-<pre><code class="language-bash line-numbers">pacman -Sy
-</code></pre>
+```bashpacman -Sy
+```
 
 ## 分区并格式化硬盘
 
@@ -67,7 +67,7 @@ systemctl start sshd
 
 <http://blog.wiloon.com/?p=7609>
 
-<pre><code class="language-bash line-numbers"># Mount the partitions
+```bash# Mount the partitions
 mkdir /mnt/tmp
 mount /dev/sdx3 /mnt/tmp
 mkdir /mnt/tmp/boot
@@ -78,15 +78,15 @@ pacstrap /mnt/tmp base linux linux-firmware
 
 # 建议使用UUID方式生成fstab和启动管理器配置
 genfstab -p -U /mnt/tmp &gt;&gt; /mnt/tmp/etc/fstab
-</code></pre>
+```
 
 ### 把网络配置文件复制到新系统
 
-<pre><code class="language-bash line-numbers">cp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
+```bashcp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">arch-chroot /mnt/tmp
+```basharch-chroot /mnt/tmp
 
 echo hostname0 &gt; /etc/hostname
 
@@ -112,11 +112,11 @@ passwd
 
 # install wpa_supplicant
 pacman -S wpa_supplicant
-</code></pre>
+```
 
 ### boot with UEFI
 
-<pre><code class="language-bash line-numbers"># boot with uefi
+```bash# boot with uefi
 bootctl install
 cd /boot/loader
 pacman -S vim emacs
@@ -139,13 +139,13 @@ options root=PARTUUID=xxx rw
 
 :r !blkid
 # uefi boot end
-</code></pre>
+```
 
 ### boot with grub
 
 <https://blog.wiloon.com/?p=15345>
 
-<pre><code class="language-bash line-numbers">useradd -m -s /bin/bash wiloon
+```bashuseradd -m -s /bin/bash wiloon
 passwd wiloon
 
 pacman -S openssh sudo
@@ -168,7 +168,7 @@ arch-chroot /mnt/tmp
 systemctl enable wpa_supplicant@wlanx
 exit
  poweroff
-</code></pre>
+```
 
 ### 拔掉U盘开机
 
@@ -215,4 +215,4 @@ LABEL Arch
 
 ＃umount the usb disk and reboot
 
-</code></pre>
+```

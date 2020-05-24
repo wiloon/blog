@@ -28,7 +28,7 @@ f int
 }
 var v6 *int   // 指针
 var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为int类型
-</code></pre>
+```
 
 变量声明语句不需要使用分号作为结束符。与C语言相比,Go语言摒弃了语句必须以分号作为语句结束标记的习惯。
   
@@ -39,7 +39,7 @@ var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为
 <pre><code class="language-go line-numbers">var v1 int = 10 // 正确的使用方式1
 var v2 = 10 // 正确的使用方式2,编译器可以自动推导出v2的类型
 v3 := 10 // 正确的使用方式3,编译器可以自动推导出v3的类型
-</code></pre>
+```
 
 以上三种用法的效果是完全一样的。与第一种用法相比,第三种用法需要输入的字符数大大减少,是懒程序员和聪明程序员的最佳选择。这里Go语言也引入了另一个C和C++中没有的符号 (冒号和等号的组合:=),用于明确表达同时进行变量声明和初始化的工作 。
   
@@ -82,7 +82,7 @@ c0 = iota // iota被重设为0 // c0 == 0
 c1 = iota // c1 == 1
 c2 = iota // c2 == 2
 ）
-</code></pre>
+```
 
 在Go语言中,常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整型、浮点型和复数类型)、布尔类型、字符串类型等 。
   
@@ -175,4 +175,4 @@ c = 1 << iota // c == 4
     JAVAHOME = os.Getenv("JAVA_HOME")
     fmt.Println(JAVAHOME)
 }
-</code></pre>
+```

@@ -10,10 +10,10 @@ categories:
 ---
 ### 执行shell脚本
 
-<pre><code class="language-bash line-numbers">vim /usr/lib/systemd/system/foo.service
-</code></pre>
+```bashvim /usr/lib/systemd/system/foo.service
+```
 
-<pre><code class="language-bash line-numbers">[Unit]
+```bash[Unit]
 Description=description0
 AssertPathIsDirectory=/mnt/drive_wiloon
 After=docker.service
@@ -27,9 +27,9 @@ RestartSec=10
 
 [Install]
 WantedBy=default.target
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">vim /usr/lib/systemd/system/foo.service
+```bashvim /usr/lib/systemd/system/foo.service
 
 # ---
 
@@ -56,11 +56,11 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 
-</code></pre>
+```
 
 zookeeper
 
-<pre><code class="language-bash line-numbers">[Unit]
+```bash[Unit]
 Description=zookeeper
 After=syslog.target network.target
 
@@ -72,7 +72,7 @@ ExecStop=/data/server/zookeeper/zookeeper-3.4.12/bin/zkServer.sh stop
 
 [Install]
 WantedBy=multi-user.target
-</code></pre>
+```
 
 编写systemd下服务脚本
   

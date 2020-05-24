@@ -17,33 +17,33 @@ To enable multilib repository, uncomment the [multilib] section in /etc/pacman.c
 <pre><code class="line-numbers">/etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
-</code></pre>
+```
 
 ### config pacman mirror
 
 编辑 /etc/pacman.d/mirrorlist，修改为。
 
-<pre><code class="language-bash line-numbers">Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+```bashServer = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 Server = http://mirrors.neusoft.edu.cn/archlinux/
 Server = http://mirrors.lug.mtu.edu/archlinux/
 Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 
 # for downgrade
 #Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">--noconfirm
+```bash--noconfirm
 Bypass any and all “Are you sure?” messages. It’s not a good idea to do this unless you want to run pacman from a script.
-</code></pre>
+```
 
 ### archlinux key could not be looked up remotely
 
-<pre><code class="language-bash line-numbers">sudo pacman -S archlinux-keyring && sudo pacman -Syu
+```bashsudo pacman -S archlinux-keyring && sudo pacman -Syu
 
 # 要删除软件包，但是不删除依赖这个软件包的其他程序：
 pacman -Rdd package_name
 
-</code></pre>
+```
 
 ### Fix “unable to lock database”
 

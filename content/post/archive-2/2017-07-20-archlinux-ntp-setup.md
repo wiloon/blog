@@ -10,7 +10,7 @@ categories:
 ---
 ### chrony
 
-<pre><code class="language-bash line-numbers"># install chrony - arch
+```bash# install chrony - arch
 sudo pacman -S chrony
 
 # for centos
@@ -62,7 +62,7 @@ clients - 在客户端报告已访问到服务器
 delete - 手动移除NTP服务器或对等服务器
 settime - 手动设置守护进程时间
 
-</code></pre>
+```
 
 <blockquote class="wp-embedded-content" data-secret="M7IADqld6f">
   <p>
@@ -87,12 +87,12 @@ server time.roiland.com iburst
 #check ntp status
 ntpq -p
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># 查看ntp状态
+```bash# 查看ntp状态
 ntpq -p
 ntpq -4p
-</code></pre>
+```
 
 chrony的优势
   

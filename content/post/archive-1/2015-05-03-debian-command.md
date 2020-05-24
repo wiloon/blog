@@ -10,7 +10,7 @@ tags:
   - linux
 
 ---
-<pre><code class="language-bash line-numbers"># list installed package
+```bash# list installed package
 dpkg --list
 
 # remove package
@@ -20,6 +20,6 @@ apt-get remove foo
 apt-get install inetutils-ping
 
 
-</code></pre>
+```
 
 dpkg-reconfigure tzdata

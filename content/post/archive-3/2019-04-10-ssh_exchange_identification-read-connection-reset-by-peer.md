@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">/etc/hosts.deny
-</code></pre>
+```bash/etc/hosts.deny
+```

@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">installing xorgproto (2019.2-2) breaks dependency 'dmxproto' required by libdmx
+```bashinstalling xorgproto (2019.2-2) breaks dependency 'dmxproto' required by libdmx
 installing xorgproto (2019.2-2) breaks dependency 'xf86dgaproto' required by libxxf86dga
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
-</code></pre>
+```bashsudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
+```

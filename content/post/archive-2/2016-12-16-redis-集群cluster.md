@@ -8,12 +8,12 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">#centos
+```bash#centos
 sudo yum install epel-release
 yum install redis
 
 
-</code></pre>
+```
 
 mkdir redis-cluster
   
@@ -43,8 +43,8 @@ cd 7000
 
 通过使用 Redis 集群命令行工具 redis-trib ， 编写节点配置文件的工作可以非常容易地完成： redis-trib 位于 Redis 源码的 src 文件夹中， 它是一个 Ruby 程序， 这个程序通过向实例发送特殊命令来完成创建新集群， 检查集群， 或者对集群进行重新分片（reshared）等工作。
 
-<pre><code class="language-bash line-numbers">./redis-trib.rb create --replicas 1 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005
-</code></pre>
+```bash./redis-trib.rb create --replicas 1 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005
+```
 
 redis requires Ruby version >= 2.2.2
   

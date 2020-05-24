@@ -14,7 +14,7 @@ How to get time.Tick to tick immediately
 for ; true; &lt;-ticker.C {
     ...
 }
-</code></pre>
+```
 
 https://stackoverflow.com/questions/32705582/how-to-get-time-tick-to-tick-immediately/47448177#47448177
   

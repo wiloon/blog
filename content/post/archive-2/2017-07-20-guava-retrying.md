@@ -50,7 +50,7 @@ private boolean doSomething(String phone, String content)
 {  
 
 }  
-</code></pre>
+```
 
 这段代码有什么问题呢？看起来很丑，为了实现重试逻辑，各种if-else，各种try-catch。重试逻辑太简单，只是控制了重试次数，并没有控制2次重试之间的时间间隔。因为重试代码与业务代码耦合在一起，所以看起来很复杂。
 
@@ -78,7 +78,7 @@ private boolean doSomething(String phone, String content)
         return false;  
     }  
 }  
-</code></pre>
+```
 
 这2个项目github地址是：
 

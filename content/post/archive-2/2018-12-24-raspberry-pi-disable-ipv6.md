@@ -8,12 +8,12 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">/etc/modprobe.d/ipv6.conf
+```bash/etc/modprobe.d/ipv6.conf
 alias net-pf-10 off
 alias ipv6 off
 options ipv6 disable_ipv6=1
 blacklist ipv6
-</code></pre>
+```
 
 <blockquote class="wp-embedded-content" data-secret="RVErZNYd3W">
   <p>

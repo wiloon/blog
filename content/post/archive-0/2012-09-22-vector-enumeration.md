@@ -20,12 +20,12 @@ System.out.println("s1 == s2：" + (s1 == s2)); //true
 System.out.println("s1.equals(s2)：" + (s1.equals(s2))); //true
 System.out.println("s1 == ss1：" + (s1 == ss1)); //false
 System.out.println("s1.equals(ss1)：" + (s1.equals(ss1))); //false
-</code></pre>
+```
 
 <pre><code class="language-java line-numbers">// 字符串 &gt; 枚举
 Blah val = Blah.valueOf("A")
 package com.ljq.test;
-</code></pre>
+```
 
 ### 普通枚举
 
@@ -41,7 +41,7 @@ package com.ljq.test;
 {
 MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
-</code></pre>
+```
 
 <pre><code class="language-java line-numbers">public enum ColorEnum {
     red, green, yellow, blue;
@@ -63,7 +63,7 @@ else
 return winter;
 }
 }
-</code></pre>
+```
 
 ### 有构造器的枚举
 
@@ -83,7 +83,7 @@ public String getValue() {
 return value;
 }
 }
-</code></pre>
+```
 
 ### 有抽象方法的枚举
 
@@ -161,7 +161,7 @@ System.out.println(order.getName());
 
 }
 
-</code></pre>
+```
 
 2、下面的定义也是合法的：
 
@@ -179,7 +179,7 @@ public enum Day
 {
 MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 }
-</code></pre>
+```
 
 但是当枚举类型有其他定义时，则分号;是必须的 3、声明、使用一个枚举类型： （1）在同一个包中：
 
@@ -191,7 +191,7 @@ Day today  =  Day.SATURDAY;
 System.out.println( " Today is  "   +  today.toString().toLowerCase());
 }
 }
-</code></pre>
+```
 
 （2）在不同包中：
 
@@ -204,7 +204,7 @@ Day today  =  Day.SATURDAY;
 System.out.println( " Today is  "   +  today.toString().toLowerCase());
 }
 }
-</code></pre>
+```
 
 4、枚举类型的性质：（摘自o&#8217;relly 出版的 Java in A Nutshell 5th)
   
@@ -274,7 +274,7 @@ System.out.println("sum=" + sum);
 }
 }
 
-</code></pre>
+```
 
 Enumeration接口
   
@@ -353,7 +353,7 @@ data[3]=”three”;
 Enumeration getEnum() {
 return new MyEnumeration(0,data.length,data);
 ｝
-</code></pre>
+```
 
 程序的运行结果为:
   
@@ -390,7 +390,7 @@ return state;
 return null;
 }
 }
-</code></pre>
+```
 
 DK1.5引入了新的类型——枚举。在 Java 中它虽然算个“小”功能，却给我的开发带来了“大”方便。
   
@@ -402,7 +402,7 @@ DK1.5引入了新的类型——枚举。在 Java 中它虽然算个“小”功
 RED, GREEN, BLANK, YELLOW
 }
 
-</code></pre>
+```
 
 2.2 Equality
 
@@ -413,7 +413,7 @@ return this==other;
 public final int hashCode() {
 return super.hashCode();
 }
-</code></pre>
+```
 
 从以上代码中可以看出，对于枚举值的相等性判断，只需要判断引用是否相等即可。需要注意的是，这是在充分考虑了反射、对象克隆和序列化等诸多因素之后作出的决定。
 
@@ -440,7 +440,7 @@ break;
 }
 }
 }
-</code></pre>
+```
 
 用法三：向枚举中添加新方法
   
@@ -480,7 +480,7 @@ public void setIndex(int index) {
 this.index = index;
 }
 }
-</code></pre>
+```
 
 用法四：覆盖枚举的方法
   
@@ -502,7 +502,7 @@ public String toString() {
 return this.index+”_”+this.name;
 }
 }
-</code></pre>
+```
 
 用法五：实现接口
   
@@ -533,7 +533,7 @@ public void print() {
 System.out.println(this.index+”:”+this.name);
 }
 }
-</code></pre>
+```
 
 用法六：使用接口组织枚举
 
@@ -545,7 +545,7 @@ enum Dessert implements Food{
 FRUIT, CAKE, GELATO
 }
 }
-</code></pre>
+```
 
 用法七：关于枚举集合的使用
   

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">列出所有的容器 ID
+```bash列出所有的容器 ID
 docker ps -aq
 停止所有的容器
 docker stop $(docker ps -aq)
@@ -23,7 +23,7 @@ docker rmi $(docker images -q)
 2
 docker cp mycontainer:/opt/file.txt /opt/local/
 docker cp /opt/local/file.txt mycontainer:/opt/
-</code></pre>
+```
 
 ### docker port
 
@@ -45,7 +45,7 @@ docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]
 
 ### image
 
-<pre><code class="language-bash line-numbers"># 列出本机的所有 image 文件
+```bash# 列出本机的所有 image 文件
 docker image ls
 #显示包括中间层镜像在内的所有镜像
 docker image ls -a
@@ -61,14 +61,14 @@ docker image prune
 docker rmi f8ab12e03d53
 Error response from daemon: conflict: unable to delete f8ab12e03d53 (must be forced) - image is referenced in multiple repositories
 docker rmi 192.168.0.1/you/tom:1.0.8
-</code></pre>
+```
 
 ### install
 
-<pre><code class="language-bash line-numbers">docker ps -s
-</code></pre>
+```bashdocker ps -s
+```
 
-<pre><code class="language-bash line-numbers">sudo pacman -S docker
+```bashsudo pacman -S docker
 
 # docker
 docker run \
@@ -78,49 +78,49 @@ docker run \
 -v /etc/localtime:/etc/localtime:ro \
 --restart=always \
 redis
-</code></pre>
+```
 
 ### network
 
-<pre><code class="language-bash line-numbers">docker network ls
+```bashdocker network ls
 docker network inspect 网络ID
 
-</code></pre>
+```
 
 ### volume
 
-<pre><code class="language-bash line-numbers">docker volume ls
+```bashdocker volume ls
 docker volume create --name influxdb-config
 docker volume rm influxdb-config
-</code></pre>
+```
 
 容器创建后不能再新增volume, 可以先commit到镜像， 再创建新的容器。
 
 ### 时区问题
 
-<pre><code class="language-bash line-numbers">-v /etc/localtime:/etc/localtime:ro
-</code></pre>
+```bash-v /etc/localtime:/etc/localtime:ro
+```
 
 ### 监控
 
-<pre><code class="language-bash line-numbers">docker stats
-</code></pre>
+```bashdocker stats
+```
 
 <https://www.cnblogs.com/sparkdev/p/7821376.html>
 
 ### logs
 
-<pre><code class="language-bash line-numbers">docker logs --since 10s -f influxdb
-</code></pre>
+```bashdocker logs --since 10s -f influxdb
+```
 
-<pre><code class="language-bash line-numbers">docker inspect xxx
+```bashdocker inspect xxx
 docker container update --restart=no &lt;containername&gt;
 docker container update --restart=always &lt;containername&gt;
-</code></pre>
+```
 
 ### docker build
 
-<pre><code class="language-bash line-numbers"># 构建镜像
+```bash# 构建镜像
 # docker build [选项] &lt;上下文路径/URL/-&gt;
 # --tag, -t: 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。
 
@@ -134,7 +134,7 @@ docker build https://github.com/twang2218/gitlab-ce-zh.git#:11.1
 
 # -f 指定Dockerfile路径
 docker build -f /path/to/Dockerfile .
-</code></pre>
+```
 
 ## docker run
 
@@ -142,7 +142,7 @@ docker build -f /path/to/Dockerfile .
   
 docker run \[OPTIONS] IMAGE [COMMAND\] \[ARG&#8230;\]
 
-<pre><code class="language-bash line-numbers">docker run -it --rm ubuntu bash
+```bashdocker run -it --rm ubuntu bash
 # -i, --interactive=false   打开STDIN，用于控制台交互
 # -t, --tty=false           分配tty设备，该可以支持终端登录，默认为false
 # -t -a stdout              Outputs the container logs on the standard output
@@ -171,9 +171,9 @@ docker run \
 --restart=always \
 image0_name
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># 进入容器
+```bash# 进入容器
 docker exec -it webserver bash
 docker exec -it --user=root foo bash
 
@@ -235,7 +235,7 @@ docker container rm
 docker container prune
 docker run -dit -p 5000:5000 ubuntu
 docker network create -d bridge my-net
-</code></pre>
+```
 
 default volumn path /var/lib/docker/volumes/
 

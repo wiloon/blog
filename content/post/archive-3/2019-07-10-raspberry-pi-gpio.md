@@ -20,7 +20,7 @@ categories:
 
 https://www.kidscoding8.com/47249.html
 
-<pre><code class="language-bash line-numbers">#使GPIO17从内核空间暴露到用户空间中
+```bash#使GPIO17从内核空间暴露到用户空间中
 sudo echo 17 &gt; /sys/class/gpio/export
 #设置GPIO17为输出模式
 sudo echo out &gt; /sys/class/gpio/gpio17/direction
@@ -30,9 +30,9 @@ sudo echo 1 &gt; /sys/class/gpio/gpio17/value
 sudo echo 0 &gt; /sys/class/gpio/gpio17/value
 #注销GPIO17接口
 sudo echo 17 &gt; /sys/class/gpio/unexport
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">sudo vim ledonoff.sh
+```bashsudo vim ledonoff.sh
 echo $1 &gt; /sys/class/gpio/export
 echo out &gt; /sys/class/gpio/gpio$1/direction
 echo 1 &gt; /sys/class/gpio/gpio$1/value
@@ -41,7 +41,7 @@ echo 0 &gt; /sys/class/gpio/gpio$1/value
 echo $1 &gt; /sys/class/gpio/unexport
 
 sudo ./ledonoff.sh 17
-</code></pre>
+```
 
 https://zhuanlan.zhihu.com/p/40594358
   

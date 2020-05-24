@@ -12,21 +12,21 @@ tags:
 ---
 ### 判断指定文件中是否包含指定的字符串
 
-<pre><code class="language-bash line-numbers">grep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
+```bashgrep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
 if [ $? -eq 0 ]; then
     echo "Found!"
 else
     echo "Not found!"
 fi
-</code></pre>
+```
 
 ### 判断字符串是否相等
 
-<pre><code class="language-bash line-numbers">#判断字符串是否相等
+```bash#判断字符串是否相等
 if [ "$A" = "$B" ];then
 echo "[ = ]"
 fi
-</code></pre>
+```
 
 1.并且
   
@@ -110,21 +110,21 @@ grep操作的返回值：
 
 https://www.shellscript.sh/functions.html
 
-<pre><code class="language-bash line-numbers"># check if directory is exist
+```bash# check if directory is exist
 if [ ! -d "$DIRECTORY" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
 fi
 
-</code></pre>
+```
 
 shell变量
 
-<pre><code class="language-bash line-numbers">$var
+```bash$var
 ${var}
 ${var:start_index}
 ${var:-newstring}
 
-</code></pre>
+```
 
 <http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html>{.wp-editor-md-post-content-link}
 
@@ -135,7 +135,7 @@ if/else
 <pre><code class="language-shell line-numbers">if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
-</code></pre>
+```
 
 其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0（表示真），则执行then后面的子命令，如果Exit Status非0（表示假），则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例：
 

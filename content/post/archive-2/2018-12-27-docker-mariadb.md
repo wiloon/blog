@@ -8,8 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">mkdir -p /data/mariadb
+```bashmkdir -p /data/mariadb
 docker run -d --name mariadb -P -v /data/mariadb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password0 mariadb
-</code></pre>
+```
 
 https://www.jianshu.com/p/32542630c2bd

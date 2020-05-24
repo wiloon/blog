@@ -16,19 +16,19 @@ categories:
   
 chown的用途很多，还可以直接修改用户组的名称。如果要将目录下的所有子目录或文件同时更改文件拥有者的话，直接加上-R的参数即可。下面我们来看看语法与范例。
 
-<pre><code class="language-bash line-numbers">chown [-R] 账户名称 文件或目录
+```bashchown [-R] 账户名称 文件或目录
 chown [-R] 账户名称:用户组名称 文件或目录
-</code></pre>
+```
 
 参数：-R ：进行递归的持续更改，即将同子目录下的所有文件、目录都更新问这个用户组。通常用在更改某一目录的情况。
   
 范例：
 
-<pre><code class="language-bash line-numbers">chown  root:root  install.log
+```bashchown  root:root  install.log
 
 # 按UID改owner
 chown -R 200:200 /root/foo
-</code></pre>
+```
 
 我们知道如何改变文件的用户组与拥有者了，那么什么时候要使用chown或chgrp呢？或许你你会觉得奇怪，但是，确实有时候需要更改文件的拥有者。最常见的例子就是将文件复制给其他人，我们使用最简单的cp来进行说明：
    

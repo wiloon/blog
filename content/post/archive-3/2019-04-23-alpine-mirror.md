@@ -16,7 +16,7 @@ http://mirrors.ustc.edu.cn/
 
 ### alpine install telnet
 
-<pre><code class="language-bash line-numbers">apk update
+```bashapk update
 apk add busybox-extras
 busybox-extras telnet localhost 6900
-</code></pre>
+```

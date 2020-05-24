@@ -10,7 +10,7 @@ categories:
 ---
 ### 找到super block 备份
 
-<pre><code class="language-bash line-numbers">#查看文件系统备份Superblock
+```bash#查看文件系统备份Superblock
 mke2fs -n /dev/sdb
 #查看文件系统备份Superblock
 dumpe2fs /dev/sdb1 | grep --before-context=1 superblock
@@ -32,13 +32,13 @@ Group 5: (Blocks 163840-196607) csum 0x57e3 [INODE_UNINIT, ITABLE_ZEROED]
 Group 7: (Blocks 229376-262143) csum 0xcfeb [INODE_UNINIT, ITABLE_ZEROED]
   Backup superblock at 229376, Group descriptors at 229377-229414
 ...
-</code></pre>
+```
 
 从上面操作可以看出，在第1、3、4、7、9这几个Block Group上存放有superblock备份
 
-<pre><code class="language-bash line-numbers">fsck -b 8193 /dev/sdb1
+```bashfsck -b 8193 /dev/sdb1
 e2fsck -b 214990848 -y /dev/sdb
-</code></pre>
+```
 
 当你的系统出现superblock corrupt而无法启动时：
   

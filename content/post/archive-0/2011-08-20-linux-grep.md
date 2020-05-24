@@ -12,7 +12,7 @@ categories:
 ---
 grep, Global Regular Expression Print
 
-<pre><code class="language-bash line-numbers">grep xxx -A5
+```bashgrep xxx -A5
 grep xxx -B1
 grep -C 5 foo file 显示file文件里匹配foo字串那行以及上下5行
 
@@ -25,7 +25,7 @@ grep "foo\|bar" foo.txt
 
 # 统计某个字符串出现的次数
 grep -o objStr  filename|wc -l
-</code></pre>
+```
 
   * -A, –after-context=NUM print NUM lines of trailing context
   * -B <显示行数> &#8211;before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。

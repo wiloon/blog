@@ -22,7 +22,7 @@ hold the Esc, Refresh, and power button for a little while and the laptop reboot
 
 https://github.com/dnschneid/crouton
 
-<pre><code class="language-bash line-numbers">sudo crouton -r list
+```bashsudo crouton -r list
 sudo cronton -t list
 sudo crouton -t xfce
 # ubuntu 16.4
@@ -30,7 +30,7 @@ sudo crouton -r xenial -t xfce
 sudo startxfce4
 sudo enter-chroot startxfce4
 sudo delete-chroot -a
-</code></pre>
+```
 
 ### chromeos ubuntu 切换
 
@@ -46,14 +46,14 @@ enable legacy boot
   
 sudo crossystem dev\_boot\_usb=1 dev\_boot\_legacy=1
 
-<pre><code class="language-bash line-numbers">sudo enter-chroot
-</code></pre>
+```bashsudo enter-chroot
+```
 
 ### shell
 
-<pre><code class="language-bash line-numbers">ctrl+alt+t
+```bashctrl+alt+t
 shell
 sudo -s
-</code></pre>
+```
 
 https://gist.github.com/daemonp/ecead946317b175e3b54731a513efe94

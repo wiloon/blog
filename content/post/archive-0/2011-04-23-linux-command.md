@@ -14,7 +14,7 @@ tags:
   - linux
 
 ---
-<pre><code class="language-bash line-numbers"># 替换字符串
+```bash# 替换字符串
 foo=foo-bar
 bar=${foo/-/_}
 echo $bar
@@ -32,7 +32,7 @@ yum install lrzsz
 lsblk
 
 ls -l /dev/disk/by-uuid/
-</code></pre>
+```
 
 查看挂载的USB设备
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">#zkCli.sh
+```bash#zkCli.sh
 #连接zookeeper
 bin/zkCli.sh -server localhost:2181
 
@@ -35,7 +35,7 @@ get /test
 
 #删除节点
 delete /test
-</code></pre>
+```
 
 zookeeper提供了很多方便的功能，方便我们查看服务器的状态，增加，修改，删除数据（入口是zkServer.sh和zkCli.sh）。
   

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">#查看索引
+```bash#查看索引
 GET /_cat/indices?pretty
 curl -X GET "localhost:9200/_cat/indices?v"
 
@@ -26,13 +26,13 @@ curl -X GET "localhost:9200/_cluster/allocation/explain?pretty" -H 'Content-Type
 }
 '
 
-</code></pre>
+```
 
 unassigned_shards: 没有被分配到节点的分片
   
 unassigned\_shards 在elasticsearch 重启后会逐渐减少，如果最终unassigned\_shards不为0,则需要手动处理。
 
-<pre><code class="language-bash line-numbers"># 找出未分配到结点的分片
+```bash# 找出未分配到结点的分片
 curl -s "http://localhost:9200/_cat/shards" | grep UNASSIGNED
 
 curl 'localhost:9200/_cat/master?v'
@@ -70,4 +70,4 @@ curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/_doc/_bulk?
 curl "localhost:9200/_cat/indices?v"
 
 
-</code></pre>
+```

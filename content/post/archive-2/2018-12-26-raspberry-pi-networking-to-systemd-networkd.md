@@ -10,7 +10,7 @@ categories:
 ---
 https://raspberrypi.stackexchange.com/questions/78787/howto-migrate-from-networking-to-systemd-networkd-with-dynamic-failover
 
-<pre><code class="language-bash line-numbers">vim /etc/resolvconf.conf
+```bashvim /etc/resolvconf.conf
 # Set to NO to disable resolvconf from running any subscribers. Defaults to YES.
 resolvconf=NO
 systemctl disable networking
@@ -34,4 +34,4 @@ apt --autoremove purge isc-dhcp-client isc-dhcp-common
 apt --autoremove purge $(deborphan)
 apt --autoremove purge $(deborphan) #two times
 
-</code></pre>
+```

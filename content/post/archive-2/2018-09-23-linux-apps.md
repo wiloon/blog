@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># apps
+```bash# apps
 sudo pacman -S code go jdk-openjdk openjdk-src \
 maven gradle openvpn nftables zstd chromium \
 git jdk8-openjdk openjdk8-src kotlin docker
@@ -18,7 +18,7 @@ sudo pacman -S wine rdesktop pulseaudio
 
 # kde
 sudo pacman -S powerdevil kmix kscreen ark
-</code></pre>
+```
 
 ### pacman:
 

@@ -10,7 +10,7 @@ categories:
 ---
 ### json格式化
 
-<pre><code class="language-bash line-numbers">echo '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}'|jq .
+```bashecho '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}'|jq .
 {
   "kind": "Service",
   "apiVersion": "v1",
@@ -23,4 +23,4 @@ categories:
 链接：https://www.zhihu.com/question/20057446/answer/489588448
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-</code></pre>
+```

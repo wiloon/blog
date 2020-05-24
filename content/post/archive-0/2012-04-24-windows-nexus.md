@@ -10,7 +10,7 @@ categories:
 ---
 ### docker
 
-<pre><code class="language-bash line-numbers">podman run \
+```bashpodman run \
 -d \
 --name nexus \
 -p 8081:8081 \
@@ -19,7 +19,7 @@ categories:
 -v /data/nexus-data:/nexus-data \
 sonatype/nexus3
 
-</code></pre>
+```
 
 ### config
 

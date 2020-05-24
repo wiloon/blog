@@ -11,7 +11,7 @@ tags:
 
 ---
 <pre><code class="language-java line-numbers">flag.String("port", ":8080", "http listen port")
-</code></pre>
+```
 
 像flag.Int、flag.Bool、flag.String这样的函数格式都是一样的，第一个参数表示参数名称，第二个参数表示默认值，第三个参数表示使用说明和描述。flag.StringVar这样的函数第一个参数换成了变量地址，后面的参数和flag.String是一样的。
 
@@ -21,11 +21,11 @@ flag.Parse()
 
 使用flag来操作命令行参数，支持的格式如下：
 
-<pre><code class="language-bash line-numbers">-id=1
+```bash-id=1
 --id=1
 -id 1
 --id 1
-</code></pre>
+```
 
 <pre><code class="language-go line-numbers">package main
 import (
@@ -47,7 +47,7 @@ fmt.Println("id:", *id)
 fmt.Println("port:", *port)
 fmt.Println("name:", name)
 }
-</code></pre>
+```
 
 还是非常方便的。
 

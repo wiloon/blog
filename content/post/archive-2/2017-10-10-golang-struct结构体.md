@@ -15,7 +15,7 @@ type Student struct {
     address string
     age     int
 }
-</code></pre>
+```
 
 https://github.com/jemygraw/TechDoc/blob/master/Go%E8%BD%BB%E6%9D%BE%E5%AD%A6/go\_tutorial\_8\_struct\_interface.md
   

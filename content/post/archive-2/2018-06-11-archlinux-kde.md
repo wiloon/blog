@@ -19,7 +19,7 @@ sudo pacman -S kdeplasma-addons
 
 sudo pacman -S kwalletmanager
 # start kwalletmanager and disactive kwallet
-</code></pre>
+```
 
 ### 登录后启动kde
 
@@ -28,7 +28,7 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
 
-</code></pre>
+```
 
 [https://wiki.archlinux.org/index.php/Xinit#Autostart\_X\_at_login][1]{.wp-editor-md-post-content-link}
 

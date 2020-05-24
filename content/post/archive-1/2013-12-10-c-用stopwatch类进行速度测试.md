@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">#系统的平均负载
+```bash#系统的平均负载
 uptime
 # 每个 CPU 的使用情况
 mpstat
@@ -16,7 +16,7 @@ mpstat
 pidstat
 
 stress
-</code></pre>
+```
 
   * stress <https://www.hi-linux.com/posts/59095.html>
   

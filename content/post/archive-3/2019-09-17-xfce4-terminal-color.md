@@ -12,11 +12,11 @@ https://github.com/sgerrand/xfce4-terminal-colors-solarized
   
 /home/user0/.config/xfce4/terminal/terminalrc
 
-<pre><code class="language-bash line-numbers">ColorCursor=#93a1a1
+```bashColorCursor=#93a1a1
 ColorForeground=#839496
 ColorBackground=#002b36
 ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#002b36;#cb4b16;#586e75;#657b83;#839496;#6c71c4;#93a1a1;#fdf6e3
-</code></pre>
+```
 
 https://ethanschoonover.com/solarized/
   

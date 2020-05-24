@@ -22,7 +22,7 @@ categories:
 
 配置文件内容
 
-<pre><code class="language-bash line-numbers">vim /etc/logrotate.d/ansiblelog
+```bashvim /etc/logrotate.d/ansiblelog
 
 /var/log/ansible.log {
     daily
@@ -50,9 +50,9 @@ categories:
         fi
     endscript
 }
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># logrotate status
+```bash# logrotate status
 cat /var/lib/logrotate/logrotate.status
 
 # 启用debug模式
@@ -67,7 +67,7 @@ logrotate --force /etc/logrotate.d/nginx
 # -f,--force
 
 
-</code></pre>
+```
 
 日志实在是太有用了，它记录了程序运行时各种信息。通过日志可以分析用户行为，记录运行轨迹，查找程序问题。可惜磁盘的空间是有限的，就像飞机里的黑匣子，记录的信息再重要也只能记录最后一段时间发生的事。为了节省空间和整理方便，日志文件经常需要按时间或大小等维度分成多份，删除时间久远的日志文件。这就是通常说的日志滚动(log rotation)。
 
@@ -83,7 +83,7 @@ if [ $EXITVALUE != 0 ]; then
     /usr/bin/logger -t logrotate "ALERT exited abnormally with [$EXITVALUE]"
 fi
 exit 0
-</code></pre>
+```
 
 可以看到这个脚本主要做的事就是以/etc/logrotate.conf为配置文件执行了logrotate。就是这样实现了每天执行一次logrotate。
 

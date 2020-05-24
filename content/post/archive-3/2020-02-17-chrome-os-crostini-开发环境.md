@@ -20,9 +20,9 @@ crostini默认的terminal在使用oh my zsh时，光标显示不正常。
   
 安装tilix,从chromeos启动tilix使用terminal
 
-<pre><code class="language-bash line-numbers">sudo pacman -S tilix
+```bashsudo pacman -S tilix
 # 在chromeos中启动tilix使用shell
-</code></pre>
+```
 
 ### 或者使用Secure Shell App
 

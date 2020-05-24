@@ -10,12 +10,12 @@ tags:
   - linux
 
 ---
-<pre><code class="language-bash line-numbers">sudo mkfs.msdos -F 32 /dev/sdx1
+```bashsudo mkfs.msdos -F 32 /dev/sdx1
 mkfs.ntfs -Q -L diskLabel /dev/sdXY
 
 #查看文件系统备份Superblock
 mke2fs -n /dev/sdb
-</code></pre>
+```
 
 mkfs 命令  linux格式化磁盘命令
 

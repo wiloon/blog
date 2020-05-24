@@ -10,17 +10,17 @@ categories:
 ---
 ### aliyun
 
-<pre><code class="language-bash line-numbers">https://maven.aliyun.com/mvn/view
+```bashhttps://maven.aliyun.com/mvn/view
 https://maven.aliyun.com/repository/public
-</code></pre>
+```
 
 ### repo1
 
-<pre><code class="language-bash line-numbers">https://repo1.maven.org/maven2/
-</code></pre>
+```bashhttps://repo1.maven.org/maven2/
+```
 
-<pre><code class="language-bash line-numbers">maven { url 'http://repo.grails.org/grails/repo' }
+```bashmaven { url 'http://repo.grails.org/grails/repo' }
 maven { url 'http://repo.grails.org/grails/plugins' }
 http://maven.aliyun.com/nexus/content/groups/public/
 
-</code></pre>
+```

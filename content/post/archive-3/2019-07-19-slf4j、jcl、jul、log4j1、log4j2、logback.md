@@ -29,7 +29,7 @@ log4j-over-slf4j
     &lt;artifactId&gt;log4j-over-slf4j&lt;/artifactId&gt;
     &lt;version&gt;1.7.28&lt;/version&gt;
 &lt;/dependency&gt;
-</code></pre> 
+``` 
 
 ### common logging/jcl > slf4j
 

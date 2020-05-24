@@ -10,7 +10,7 @@ categories:
 ---
 place the certificate to be trusted (in PEM format) in /etc/pki/ca-trust/source/anchors/
 
-<pre><code class="language-bash line-numbers">cp xxx.pem /etc/pki/ca-trust/source/anchors/
+```bashcp xxx.pem /etc/pki/ca-trust/source/anchors/
 update-ca-trust enable
 sudo update-ca-trust
-</code></pre>
+```

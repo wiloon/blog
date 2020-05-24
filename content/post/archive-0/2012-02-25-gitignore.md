@@ -12,8 +12,8 @@ tags:
 ---
 忽略子目录下所有某后缀的文件
 
-<pre><code class="language-bash line-numbers">**/*.iml
-</code></pre>
+```bash**/*.iml
+```
 
 具体使用请看 man gitignore
 

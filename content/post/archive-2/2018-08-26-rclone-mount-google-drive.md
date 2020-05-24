@@ -10,20 +10,20 @@ categories:
 ---
 ### install rclone
 
-<pre><code class="language-bash line-numbers"># install rclone
+```bash# install rclone
 sudo pacman -S rclone
 sudo pacman -S fuse
-</code></pre>
+```
 
 ### config fuse
 
-<pre><code class="language-bash line-numbers">sudo vim /etc/fuse.conf
+```bashsudo vim /etc/fuse.conf
 # uncomment  user_allow_other
-</code></pre>
+```
 
 ### google drive
 
-<pre><code class="language-bash line-numbers"># config rclone
+```bash# config rclone
 rclone config
 # n, new config
 # name? name-foo, a name
@@ -39,9 +39,9 @@ rclone config
 # y) Yes this is OK, y
 # q) Quit config, q
 rclone mount name-foo:path/to/files /path/to/local/mount --allow-other --vfs-cache-mode writes
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">rclone lsl foo:
+```bashrclone lsl foo:
 rclone dedupe --dedupe-mode newest $name
 
 # linux mount google drive
@@ -52,11 +52,11 @@ rclone.exe mount foo:/ x: --cache-dir C:\path\to\cache\dir --vfs-cache-mode writ
 # foo: google drive rclone name
 # x: 挂载到的系统盘符
 # --cache-dir C:\path\to\cache\dir, 缓存目录
-</code></pre>
+```
 
 ### mount webdav
 
-<pre><code class="language-bash line-numbers">rclone config
+```bashrclone config
 n
 name0 # enter name
 24 #webdav, see help at https://rclone.org/webdav/
@@ -65,13 +65,13 @@ name0 # enter name
 #列出目录内容
 # 注意： rclone 挂载点名字后面有冒号
 rclone lsl
-</code></pre>
+```
 
 ### mount via systemd
 
 uid=1000, gid=2000
 
-<pre><code class="language-bash line-numbers">sudo vim /etc/systemd/system/rclone.service
+```bashsudo vim /etc/systemd/system/rclone.service
 
 [Unit]
 Description=keepass@foo
@@ -107,7 +107,7 @@ RestartSec=10
 
 [Install]
 WantedBy=default.target
-</code></pre>
+```
 
 https://rclone.org/webdav/
 
@@ -147,13 +147,13 @@ if Flag then
     Set WS = Wscript.CreateObject("Wscript.Shell")
     WS.Run "rclone.exe mount foo:/ x: --cache-dir C:\path\to\cache\dir --vfs-cache-mode writes", 0
 end if
-</code></pre>
+```
 
 ### linux mount onedrive
 
 <https://rclone.org/onedrive/>
 
-<pre><code class="language-bash line-numbers">rclone config
+```bashrclone config
 storage&gt; 23
 client_id&gt; ""
 client_secret&gt; ""
@@ -163,18 +163,18 @@ Choose a number from below, or type in an existing value: 1 / OneDrive Personal 
 Found 1 drives, please select the one you want to use: 0
 Is that okay? y
 y) Yes this is OK (default)
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">sudo -i
+```bashsudo -i
 rclone config
 # ...
 rclone mount onedrive-keepassxc-db:/keepassxc /mnt/ms-one-drive --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
 rclone mount onedrive: /mnt/ms-one-drive --allow-other
-</code></pre>
+```
 
 #### systemd config
 
-<pre><code class="language-bash line-numbers">sudo vim  /etc/systemd/system/rclone-onedrive.service
+```bashsudo vim  /etc/systemd/system/rclone-onedrive.service
 
 [Unit]
 Description=keepass@onedrive
@@ -193,7 +193,7 @@ RestartSec=10
 [Install]
 WantedBy=default.target
 
-</code></pre>
+```
 
 https://blog.rhilip.info/archives/874/
   

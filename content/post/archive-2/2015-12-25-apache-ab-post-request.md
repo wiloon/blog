@@ -12,18 +12,18 @@ ApacheBench
 
 ### install
 
-<pre><code class="language-bash line-numbers">yay -S apache-tools
+```bashyay -S apache-tools
 sudo yum -y install httpd-tools
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">格式：ab [options] [http://]hostname[:port]/path
+```bash格式：ab [options] [http://]hostname[:port]/path
 
 # get 请求， 不带 -p参数时  发get请求
 ab -n 1 -c 1   -T 'application/x-www-form-urlencoded' "http://127.0.0.1:7000/"
 #post 请求
 ab -n 1 -c 1 -p abpost.txt -T 'application/x-www-form-urlencoded' "http://127.0.0.1:7000/"
 ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
-</code></pre>
+```
 
 参数：
   

@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># 新建 angular项目后， 在项目目录下执行
+```bash# 新建 angular项目后， 在项目目录下执行
 yarn add echarts
 yarn add ngx-echarts
 yarn add @types/echarts -D
-</code></pre>
+```
 
 ### src/app/app.module.ts
 
@@ -24,7 +24,7 @@ yarn add @types/echarts -D
   ],
 })
 export class AppModule { }
-</code></pre>
+```
 
 ### angular.json
 
@@ -39,7 +39,7 @@ export class AppModule { }
             "scripts": [
               "node_modules/echarts/dist/echarts.min.js"
             ],
-</code></pre>
+```
 
 ### app.component.ts
 
@@ -121,19 +121,19 @@ export class AppComponent {
 
 }
 
-</code></pre>
+```
 
 ### app.component.html<pre data-language=HTML>
 
 <code class="language-markup line-numbers">&lt;div echarts [options]="chartOption" class="chart"&gt;&lt;/div&gt;
-</code></pre> 
+``` 
 
 ### app.component.css
 
 <pre><code class="line-numbers">.chart {
     height: 400px;
 }
-</code></pre>
+```
 
 https://xieziyu.github.io/ngx-echarts/#/home
   

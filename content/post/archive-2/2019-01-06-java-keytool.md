@@ -8,12 +8,12 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">keytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
+```bashkeytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
 
 sudo /usr/lib/jvm/java-8-openjdk/bin/keytool -importcert -keystore /usr/lib/jvm/java-8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt  -file xxx.crt -alias "xxx.crt"
 
 keytool.exe -importcert -keystore "C:\Program Files\Java\jdk1.8.0_201\jre\lib\security\cacerts" -storepass changeit -noprompt  -file E:\xxx.cer -alias "xxx"
-</code></pre>
+```
 
 Keytool 是一个Java 数据证书的管理工具 ,Keytool 将密钥（key）和证书（certificates）存在一个称为keystore的文件中 在keystore里，包含两种数据：
   

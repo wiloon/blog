@@ -14,7 +14,7 @@ tags:
   - Gradle
 
 ---
-<pre><code class="language-bash line-numbers"># 更新依赖包
+```bash# 更新依赖包
 gradle build --refresh-dependencies
 
 # publish to maven
@@ -50,13 +50,13 @@ gradle cleanEclipse
 gradle cleanIdea 
 #skip test gradle build -x test 
 #load local jars compile files('libs/jfx-2.3.8.jar') 
-</code></pre>
+```
 
 <pre><code class="line-numbers">// project dependency
 dependencies {
     compile project(":project-name")
 }
-</code></pre>
+```
 
 // 设置 maven 库地址
   

@@ -10,7 +10,7 @@ categories:
 ---
 http://www.embeddedlinux.org.cn/emb-linux/entry-level/201703/18-6294.html
 
-<pre><code class="language-bash line-numbers">sudo -i
+```bashsudo -i
 apt-get install dnsmasq hostapd
 vim /etc/dhcpcd.conf
 # 并在文件的最后一行添加以下内容
@@ -33,9 +33,9 @@ Address=192.168.55.1/24
 
 systemctl start systemd-networkd
 systemctl enable systemd-networkd
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">vim /etc/hostapd/hostapd.conf
+```bashvim /etc/hostapd/hostapd.conf
 interface=wlan0
 ssid=ssid0
 hw_mode=g
@@ -50,15 +50,15 @@ wpa_passphrase=password0
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">vim /etc/default/hostapd
+```bashvim /etc/default/hostapd
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
-</code></pre>
+```
 
 systemctl restart hostapd
 
-<pre><code class="language-bash line-numbers">sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+```bashsudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 sudo vim /etc/dnsmasq.conf
 interface=wlan0                                     # Use interface wlan0
 listen-address=192.168.55.1                         # Explicitly specify the address to listen on
@@ -67,7 +67,7 @@ server=223.5.5.5                                    # Forward DNS requests to Go
 domain-needed                                       # Don't forward short names
 bogus-priv                                          # Never forward addresses in the non-routed address spaces.
 dhcp-range=192.168.55.10,192.168.55.20,12h          # Assign IP addresses between $1 and $2 with a 12 hour lease time
-</code></pre>
+```
 
 vim /etc/sysctl.conf
   
@@ -75,17 +75,17 @@ net.ipv4.ip_forward=1
   
 重启后生效
 
-<pre><code class="language-bash line-numbers">sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```bashsudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">iptables-save &gt; /etc/iptables.ipv4.nat
+```bashiptables-save &gt; /etc/iptables.ipv4.nat
 vim /etc/rc.local
 # 在这个文件的exit 0这行的上面加入下面的内容：
 
 iptables-restore &lt; /etc/iptables.ipv4.nat
-</code></pre>
+```
 
 https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md
   

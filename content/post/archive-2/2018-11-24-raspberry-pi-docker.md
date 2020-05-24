@@ -9,6 +9,6 @@ categories:
 
 ---
 <pre><code class="language-shell line-numbers">curl -sSL https://get.docker.com | sh
-</code></pre>
+```
 
 <https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/>

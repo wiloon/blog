@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">docker run \
+```bashdocker run \
     --name dnsmasq \
     -d \
     -p 30053:53/udp \
@@ -19,15 +19,15 @@ categories:
     -e "HTTP_PASS=bar" \
     --restart always \
     jpillora/dnsmasq
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">mkdir /etc/dnsmasq.d
+```bashmkdir /etc/dnsmasq.d
 echo 'conf-dir=/etc/dnsmasq.d' &gt;&gt; /etc/dnsmasq.conf
-</code></pre>
+```
 
 ### docker
 
-<pre><code class="language-bash line-numbers">docker run \
+```bashdocker run \
 -d \
 --name dnsmasq \
 --cap-add=NET_ADMIN \
@@ -37,7 +37,7 @@ echo 'conf-dir=/etc/dnsmasq.d' &gt;&gt; /etc/dnsmasq.conf
 --restart=always \
 andyshinn/dnsmasq
 
-</code></pre>
+```
 
 http://debugo.com/dnsmasq/
 
@@ -47,7 +47,7 @@ dhcp服务
   
 其中一些关键的配置如下,配置文件/etc/dnsmasq.conf 中的注释已经给出了非常详细的解释。
 
-<pre><code class="language-bash line-numbers">vim /etc/dnsmasq.conf
+```bashvim /etc/dnsmasq.conf
 
 # 配置上游服务器地址
 # resolv-file配置Dnsmasq额外的上游的DNS服务器，如果不开启就使用Linux主机默认的/etc/resolv.conf里的nameserver。
@@ -79,12 +79,12 @@ dhcp-range=192.168.97.10,192.168.97.20,48h
 # dhcp-host=00:0C:29:5E:F2:6F,192.168.1.201,infinite    无限租期
 dhcp-host=00:0C:29:5E:F2:6F,192.168.97.201,os02
 dhcp-host=00:0C:29:15:63:CF,192.168.97.202,os03
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">vim /etc/resolv.dnsmasq.conf
+```bashvim /etc/resolv.dnsmasq.conf
 nameserver 223.5.5.5
 nameserver 223.6.6.6
-</code></pre>
+```
 
 https://www.hi-linux.com/posts/30947.html#%E9%85%8D%E7%BD%AE%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80
   

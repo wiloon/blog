@@ -18,7 +18,7 @@ mysql&gt; select time_format(now(),'%H-%i-%S');
 -- 连接字符串, CONCAT
 select CONCAT('My', 'S', 'QL');
 
-</code></pre>
+```
 
 ### Oracle
 

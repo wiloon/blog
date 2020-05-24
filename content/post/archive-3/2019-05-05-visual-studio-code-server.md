@@ -10,7 +10,7 @@ categories:
 ---
 https://github.com/cdr/code-server
 
-<pre><code class="language-bash line-numbers">docker run \
+```bashdocker run \
 -d \
 --name vscode-server \
 -p 8443:8443 \
@@ -21,4 +21,4 @@ codercom/code-server \
 --allow-http \
 --no-auth
 
-</code></pre>
+```

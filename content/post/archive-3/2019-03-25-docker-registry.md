@@ -10,7 +10,7 @@ categories:
 ---
 curl -XGET https://registry.docker-cn.com/v2/nextcloud/tags/list
 
-<pre><code class="language-bash line-numbers">podman run -d \
+```bashpodman run -d \
 -p 5000:5000 \
 --name registry \
 -v docker-registry:/var/lib/registry \
@@ -19,7 +19,7 @@ registry:latest
 
 docker push registry.wiloon.com/foo:v0.0.1
 docker pull registry.wiloon.com/foo:v0.0.1
-</code></pre>
+```
 
 ### nginx config
 
@@ -81,6 +81,6 @@ server {
       proxy_read_timeout                  900;
     }
 }
-</code></pre>
+```
 
 https://docs.docker.com/registry/recipes/nginx/

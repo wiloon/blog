@@ -32,7 +32,7 @@ systemctl start sshd
 systemctl enable sshd
 
 #connect to new system with user0 via ssh
-</code></pre>
+```
 
 ### install apps
 
@@ -52,7 +52,7 @@ install and switch to zsh &#8212; oh-my-zsh
 
 #### xfce4
 
-<pre><code class="language-bash line-numbers"># install xfce4
+```bash# install xfce4
 sudo pacman -S xorg
 sudo pacman -S xorg-server
 sudo pacman -S xf86-video-intel xf86-video-vesa

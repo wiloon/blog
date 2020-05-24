@@ -10,7 +10,7 @@ tags:
   - Raspberry Pi
 
 ---
-<pre><code class="language-bash line-numbers">sudo apt-get install omxplayer
+```bashsudo apt-get install omxplayer
 sudo apt-get install fonts-wqy-zenhei
 sudo apt-get install ttf-freefont
 
@@ -21,7 +21,7 @@ La.Leggenda.Del.Pianista.Sull.Oceano.1998.BluRay.1080p.2Audio.DTS-HD.MA.5.1.x264
 omxplayer -r -o hdmi --subtitles The.Legend.of.1900.1998.BDRip.X264-BMDruCHinYaN.chs.srt \
 --font /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc \
 La.Leggenda.Del.Pianista.Sull.Oceano.1998.BluRay.1080p.2Audio.DTS-HD.MA.5.1.x264-beAst.mkv
-</code></pre>
+```
 
 #-r 全屏播放
   

@@ -12,7 +12,7 @@ categories:
 ---
 ### svn merge
 
-<pre><code class="language-bash line-numbers"># 分支合到主干 cd trunk
+```bash# 分支合到主干 cd trunk
 svn merge -r &lt;revision where branch was cut&gt;:&lt;revision of trunk&gt; svn://branch/path
 
 # 分支当前版本为4847，想把4825到4847间的改动merge到主干
@@ -32,27 +32,27 @@ svn mergeinfo svn://branch/path
 # cd trunk
 # 查看Branch中那些改动还未合并
 svn merginfo svn://branch/path --show-revs eligible
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">svn cat -- 显示特定版本的某文件内容。
+```bashsvn cat -- 显示特定版本的某文件内容。
 
 svn list -- 显示一个目录或某一版本存在的文件列表。
 svn list -v http://svn.test.com/svn  #查看详细的目录的信息(修订人,版本号,文件大小等)。
 svn log -- 显示svn 的版本log，含作者、日期、路径等。
 
 svn diff -- 显示特定修改的行级详细信息。
-</code></pre>
+```
 
 ### resolve
 
-<pre><code class="language-bash line-numbers">svn resolve --accept working 1.txt
+```bashsvn resolve --accept working 1.txt
 svn resolve --accept theirs-full 1.txt 使用1.txt.rNew作为最后提交的版本
 svn resolve --accept mine-full 1.txt 使用1.txt.mine作为最后提交的版本
 svn resolve --accept mine-conflict 1.txt 使用1.txt.mine的冲突部分作为最后提交的版本
 svn resolve --accept theirs-conflict 1.txt 使用1.txt.rNew的冲突部分作为最后提交的版本
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># 查看远程地址
+```bash# 查看远程地址
 svn info
 
 # checkout
@@ -93,7 +93,7 @@ svn propset svn:ignore dirname .
 
 None of the environment variables SVN_EDITOR,
 export SVN_EDITOR=vim
-</code></pre>
+```
 
 cd /home/wiloon/tmp
   

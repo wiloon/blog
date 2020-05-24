@@ -10,12 +10,12 @@ categories:
 ---
 ### 向zookeeper 发送 stat命令 查询zookeeper版本
 
-<pre><code class="language-bash line-numbers">echo stat | socat - TCP:192.168.1.xxx:2181
-</code></pre>
+```bashecho stat | socat - TCP:192.168.1.xxx:2181
+```
 
 # server
 
-<pre><code class="language-bash line-numbers"># docker
+```bash# docker
 docker run \
 --name zookeeper \
 -p 2181:2181 \
@@ -41,9 +41,9 @@ zookeeper
 # client
 docker run -it --rm zookeeper zkCli.sh -server 127.0.0.1
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">#zkCli.sh
+```bash#zkCli.sh
 #连接zookeeper
 bin/zkCli.sh -server localhost:2181
 
@@ -52,7 +52,7 @@ create /k0 v0
 
 # 删除一个节点
 delete /k0
-</code></pre>
+```
 
 download zookeeper
 
@@ -96,12 +96,12 @@ http://www.importnew.com/23237.html
   
 http://blog.51cto.com/nileader/932156
 
-<pre><code class="language-bash line-numbers">export ZOOKEEPER_HOME=~/sw/zookeeper-x.y.z
+```bashexport ZOOKEEPER_HOME=~/sw/zookeeper-x.y.z
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
 cd /home/xxx/apps/zookeeper-3.4.9/conf
 mv zoo_sample.cfg zoo.cfg
 mkdir /data/zookeeper
-</code></pre>
+```
 
 **修改配置文件zoo.cfg**
   
@@ -113,7 +113,7 @@ clientPort：clientPort是zookeeper监听客户端连接的端口，默认是218
 
 <pre><code class="language-shell line-numbers">#start zookeeper
 zkServer.sh start
-</code></pre>
+```
 
 集群模式
   

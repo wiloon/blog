@@ -12,7 +12,7 @@ https://docs.docker.com/install/linux/docker-ce/centos/
   
 https://yq.aliyun.com/articles/110806
 
-<pre><code class="language-bash line-numbers"># centos
+```bash# centos
 
 # uninstall old version
 sudo yum remove docker \
@@ -41,6 +41,6 @@ sudo yum install docker-ce docker-ce-cli containerd.io
 
 sudo systemctl start docker
 sudo systemctl enable docker
-</code></pre>
+```
 
 https://yq.aliyun.com/articles/110806

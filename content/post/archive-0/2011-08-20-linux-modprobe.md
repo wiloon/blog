@@ -47,6 +47,6 @@ modprobe --show-depends
 或者:
 
 # rmmod module_name
-</code></pre>
+```
 
 https://wiki.archlinux.org/index.php/Kernel\_modules\_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)

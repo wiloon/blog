@@ -28,7 +28,7 @@ COPY --from=build /go/src/xxx.com/xxx/xxx .
 ADD configs/xxx.json .
 CMD ["./xxx"]
 
-</code></pre>
+```
 
 ### ENV
 

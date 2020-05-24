@@ -84,4 +84,4 @@ public class HttpClientGetServerCertificate {
         }
     }
 }
-</code></pre>
+```

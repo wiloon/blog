@@ -18,7 +18,7 @@ tags:
 
 <pre><code class="language-sql line-numbers">show create table table0;
 SHOW CREATE TABLE table0 \G;
-</code></pre>
+```
 
 ### 查看版本
 
@@ -27,11 +27,11 @@ SHOW CREATE TABLE table0 \G;
 
 SELECT @@GLOBAL.sql_mode;
 SELECT @@SESSION.sql_mode;
-</code></pre>
+```
 
 ### docker server
 
-<pre><code class="language-bash line-numbers">podman run \
+```bashpodman run \
 --name mariadb \
 -p 3306:3306 \
 -v /etc/localtime:/etc/localtime:ro \
@@ -47,22 +47,22 @@ mariadb:latest \
 podman run -it \
 --network some-network \
 --rm mariadb mysql -h host0 -u user0 -p
-</code></pre>
+```
 
 ### mysql client
 
-<pre><code class="language-bash line-numbers">sudo pacman -S mariadb-clients
+```bashsudo pacman -S mariadb-clients
 mysql -u user0 -ppassword0 -h 127.0.0.1 -P 3306 -D mydb
 mariadb -u user0 -h 127.0.0.1 -P 3306 -D database0 -ppassword0
 # add yum repo https://dev.mysql.com/doc/mysql-repo-excerpt/5.6/en/linux-installation-yum-repo.html
 yum install mysql-community-client
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">sudo pacman -S mariadb
+```bashsudo pacman -S mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl start mariadb.service
 mysql -u root -p
-</code></pre>
+```
 
 <pre><code class="language-sql line-numbers"># 查 表字段名
 select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name' and table_schema = 'your_db_name';
@@ -106,7 +106,7 @@ show status like ‘Threads%’;
 
 -- length
 select length(xxx) from txxx;
-</code></pre>
+```
 
 +——————-+——-+
   

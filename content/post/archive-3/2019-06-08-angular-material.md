@@ -8,8 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">yarn add @angular/material @angular/cdk @angular/animations
-</code></pre>
+```bashyarn add @angular/material @angular/cdk @angular/animations
+```
 
 app.module.ts
 

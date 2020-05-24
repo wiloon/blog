@@ -50,4 +50,4 @@ r !blkid
 
 reboot
 
-</code></pre>
+```

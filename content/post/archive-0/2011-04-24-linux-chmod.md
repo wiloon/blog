@@ -12,9 +12,9 @@ categories:
   - Linux
 
 ---
-<pre><code class="language-bash line-numbers">chmod a+x 1.sh
+```bashchmod a+x 1.sh
 chmod og+rwx 1.sh
-</code></pre>
+```
 
 格式: \[ugoa&#8230;\]\[+-=\]\[rwxX&#8230;\]\[,&#8230;\]
   

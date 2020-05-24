@@ -10,7 +10,7 @@ categories:
 ---
 ### dnf
 
-<pre><code class="language-bash line-numbers">sudo tee  /etc/yum.repos.d/influxdb.repo&lt;&lt;EOF
+```bashsudo tee  /etc/yum.repos.d/influxdb.repo&lt;&lt;EOF
 [influxdb]
 name = InfluxDB Repository
 baseurl = https://repos.influxdata.com/rhel/7/x86_64/stable/
@@ -22,9 +22,9 @@ dnf install influxdb
 vim /etc/influxdb/influxdb.conf
 systemctl enable influxdb
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># install
+```bash# install
 # archlinux
 yaourt -S influxdb
 
@@ -39,7 +39,7 @@ rsync -r /path/to/influxdb-1.2.4-1/ /
 
 #edit config file
 emacs /etc/influxdb/influxdb.conf
-</code></pre>
+```
 
 #reporting-disabled = false
 
@@ -103,4 +103,4 @@ influx -precision rfc3339
 
 
 
-</code></pre>
+```

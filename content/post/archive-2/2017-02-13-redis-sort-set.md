@@ -18,8 +18,8 @@ Sorted-Sets和Sets类型极为相似，它们都是字符串的集合，都不�
 
 ### 添加, ZADD
 
-<pre><code class="language-bash line-numbers">ZADD key score member [score] [member]
-</code></pre>
+```bashZADD key score member [score] [member]
+```
 
 将一个或多个member元素及其score值加入到有序集key当中。
 

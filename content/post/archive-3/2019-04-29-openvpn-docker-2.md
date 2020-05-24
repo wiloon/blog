@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">export  OVPN_DATA="ovpn-data"
+```bashexport  OVPN_DATA="ovpn-data"
 docker volume create --name $OVPN_DATA
 docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u udp://home.wiloon.com
 docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn ovpn_initpki
@@ -21,9 +21,9 @@ docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/rpi-openvpn ovpn_getclient 
 
 docker run -v $OVPN_DATA:/etc/openvpn -p 1194:1194/udp --privileged -e DEBUG=1 kylemanna/rpi-openvpn
 
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">server 192.168.255.0 255.255.255.0
+```bashserver 192.168.255.0 255.255.255.0
 verb 3
 key /etc/openvpn/pki/private/xxxx.key
 ca /etc/openvpn/pki/ca.crt
@@ -54,4 +54,4 @@ push "dhcp-option DNS 192.168.50.1"
 push "comp-lzo no"
 
 push "redirect-gateway def1 bypass-dhcp"
-</code></pre>
+```

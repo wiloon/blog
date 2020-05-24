@@ -10,7 +10,7 @@ categories:
 ---
 ## socat
 
-<pre><code class="language-bash line-numbers"># test tcp port
+```bash# test tcp port
 socat - TCP4:192.168.1.15:22,connect-timeout=2
 
 # test udp port
@@ -19,24 +19,24 @@ socat UDP-RECV:48772 STDOUT
 
 # test udp port
 socat - UDP:localhost:48772
-</code></pre>
+```
 
 ## shell
 
-<pre><code class="language-bash line-numbers">echo &gt;/dev/tcp/192.168.1.15/22
+```bashecho &gt;/dev/tcp/192.168.1.15/22
 
-</code></pre>
+```
 
 ## nc
 
 telnet 只能测试 tcp端口， 测试udp端口需要用nc
 
-<pre><code class="language-bash line-numbers"># centos
+```bash# centos
 yum install nc
 
 nc -lvu 0.0.0.0  124
 nc -vuz host 124
-</code></pre>
+```
 
 http://www.oschina.net/news/48357/socat-1-7-2-3
 

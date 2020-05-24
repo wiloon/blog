@@ -12,11 +12,11 @@ categories:
 
 yarn global add whistle
 
-<pre><code class="language-bash line-numbers">w2 help
+```bashw2 help
 w2 start
 w2 stop
 
-</code></pre>
+```
 
 把代理指向127.0.0.1:8899
 

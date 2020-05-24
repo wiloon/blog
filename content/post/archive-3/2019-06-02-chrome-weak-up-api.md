@@ -41,7 +41,7 @@ function updateStatus(wakeLock) {
   console.log(wakeLock);
 }
 
-</code></pre>
+```
 
 https://developers.google.com/web/updates/2018/12/wakelock
   

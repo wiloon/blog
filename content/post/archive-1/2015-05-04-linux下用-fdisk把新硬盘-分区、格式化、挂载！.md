@@ -10,7 +10,7 @@ tags:
   - linux
 
 ---
-<pre><code class="language-bash line-numbers">&lt;br />sudo fdisk -l
+```bash&lt;br />sudo fdisk -l
 
 sudo fdisk /dev/sdb
 p (print the partition table)
@@ -34,7 +34,7 @@ sudo mkfs.msdos -F 32 /dev/sdx1
 sudo mkfs.ntfs /dev/sdx1
 sudo mkfs.ext4 /dev/sdx3
 sudo mkswap /dev/sda2
-</code></pre>
+```
 
 http://blog.csdn.net/zhangkekf/article/details/10417203
 

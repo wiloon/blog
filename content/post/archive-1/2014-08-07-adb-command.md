@@ -10,7 +10,7 @@ categories:
 ---
 在手机上打开USB调试
 
-<pre><code class="language-bash line-numbers">adb help
+```bashadb help
 adb kill-server
 sudo adb start-server
 adb devices
@@ -20,7 +20,7 @@ adb shell
 
 # adb push &lt;本地路径&gt; &lt;远程路径&gt;
 adb push &lt;本地路径&gt; &lt;远程路径&gt;
-</code></pre>
+```
 
 查看设备 –查看当前连接的设备, 连接到计算机的android设备或者模拟器将会列出显示
 

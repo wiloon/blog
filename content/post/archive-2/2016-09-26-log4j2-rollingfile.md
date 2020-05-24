@@ -11,7 +11,7 @@ categories:
 简单使用可以这样
 
 <pre><code class="language-java line-numbers">BasicConfigurator.configure();
-</code></pre>
+```
 
 不需要配置文件
 
@@ -41,4 +41,4 @@ filePattern="${sys:log.path}/${sys:project.name}/${sys:log.level}-%d{yyyyMMdd}-%
 &lt;/Delete&gt;
 &lt;/DefaultRolloverStrategy&gt;
 &lt;/RollingFile&gt;
-</code></pre>
+```

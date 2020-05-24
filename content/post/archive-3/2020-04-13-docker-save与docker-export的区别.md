@@ -20,5 +20,5 @@ docker load用来载入镜像包，docker import用来载入容器包，但两�
   
 docker load不能对载入的镜像重命名，而docker import可以为镜像指定新名称。
 
-<pre><code class="language-bash line-numbers">docker save -o images.tar postgres:9.6
-</code></pre>
+```bashdocker save -o images.tar postgres:9.6
+```

@@ -10,8 +10,8 @@ tags:
   - Sqlite
 
 ---
-<pre><code class="language-bash line-numbers">sudo pacman -S sqlite
-</code></pre>
+```bashsudo pacman -S sqlite
+```
 
 在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如：
 

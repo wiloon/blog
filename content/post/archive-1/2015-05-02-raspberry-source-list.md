@@ -10,8 +10,8 @@ categories:
 ---
 vi /etc/apt/sources.list
 
-<pre><code class="language-bash line-numbers">deb https://mirrors.aliyun.com/raspbian/raspbian stretch main contrib non-free rpi
-</code></pre>
+```bashdeb https://mirrors.aliyun.com/raspbian/raspbian stretch main contrib non-free rpi
+```
 
 http://blog.csdn.net/loveaborn/article/details/12224841
   

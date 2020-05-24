@@ -12,8 +12,8 @@ debug1: expecting SSH2\_MSG\_KEX\_ECDH\_REPLY
 
 设置网卡接口的MTU值，改成：1200
 
-<pre><code class="language-bash line-numbers">sudo ip link set dev eth0 mtu 1200
-</code></pre>
+```bashsudo ip link set dev eth0 mtu 1200
+```
 
 /etc/systemd/network/en0s25.network
 

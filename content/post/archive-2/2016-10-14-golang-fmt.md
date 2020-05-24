@@ -9,7 +9,7 @@ categories:
 
 ---
 <pre><code class="language-go line-numbers">fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
-</code></pre>
+```
 
 fmt包实现了格式化的I/O函数，这点类似Ｃ语言中的printf和scanf，但是更加简单．
   
@@ -212,7 +212,7 @@ a := 123
 fmt.Printf("%+10d\n", a)  //+123
 fmt.Printf("%+010d\n", a) //+000000123，利用０来补齐位数，而不是空格, 补零
 }
-</code></pre>
+```
 
 对于每一个 Printf 类的函数，都有一个 Print 函数，该函数不接受任何格式化，它等价于对每一个操作数都应用 %v。另一个变参函数 Println 会在操作数之间插入空白，并在末尾追加一个换行符
 

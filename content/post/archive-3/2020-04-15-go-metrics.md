@@ -29,4 +29,4 @@ categories:
 meter := metrics.GetOrRegisterMeter("foo", nil)
 meter.Mark(1)
 
-</code></pre>
+```

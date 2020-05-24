@@ -56,7 +56,7 @@ ip link set wg0 up
 ### remove peer
 
 wg set wg0 peer PEER_A_PUBLIC_KEY remove
-</code></pre>
+```
 
 ### 保存配置到文件
 

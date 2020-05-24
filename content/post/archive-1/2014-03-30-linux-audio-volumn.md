@@ -10,13 +10,13 @@ tags:
   - linux
 
 ---
-<pre><code class="language-bash line-numbers"># archlinux+kde 不需要手动修改默认静音设置，安装alsa-utils, plasma-pa后重启即可。
+```bash# archlinux+kde 不需要手动修改默认静音设置，安装alsa-utils, plasma-pa后重启即可。
 sudo pacman -S alsa-utils
 #kde
 sudo pacman -S plasma-pa
 # gnome
 sudo pacman -S gnome-alsamixer
-</code></pre>
+```
 
 调音量
 

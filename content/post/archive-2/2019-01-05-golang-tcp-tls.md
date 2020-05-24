@@ -70,7 +70,7 @@ func handleConn(conn net.Conn) {
     }
 }
 
-</code></pre>
+```
 
 #### client
 
@@ -105,4 +105,4 @@ func main() {
     println(string(buf[:n]))
 }
 
-</code></pre>
+```

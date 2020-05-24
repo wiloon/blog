@@ -25,7 +25,7 @@ public static final Singleton getInstance() {
 return SingletonHolder.INSTANCE;
 }
 }
-</code></pre>
+```
 
 单例模式（Singleton）
   
@@ -125,7 +125,7 @@ public static Singleton getInstance() {
 }
 //在加载singleton时并不加载它的内部类SingletonHolder，而在调用getInstance（）时调用SingletonHolder时才加载SingletonHolder，
 //从而调用singleton的构造函数，实例化singleton，从而达到lazy loading的效果。
-</code></pre>
+```
 
 golang
   

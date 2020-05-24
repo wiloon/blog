@@ -19,12 +19,12 @@ import "fmt"
 func main() {
 fmt.Println("hello world")
 }
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">go run hello-world.go
+```bashgo run hello-world.go
 go build hello-world.go
 ./hello-world
-</code></pre>
+```
 
 http://studygolang.com/articles/1941
   

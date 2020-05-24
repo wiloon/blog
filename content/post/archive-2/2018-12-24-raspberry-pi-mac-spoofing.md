@@ -8,8 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">vim cmdline.txt
+```bashvim cmdline.txt
 smsc95xx.macaddr=XX:XX:XX:XX:XX:XX
-</code></pre>
+```
 
 https://pimylifeup.com/raspberry-pi-mac-address-spoofing/

@@ -18,7 +18,7 @@ tags:
 <pre><code class="language-java line-numbers">public interface Runnable{
 public void run();
 }
-</code></pre>
+```
 
 例子：
 
@@ -33,7 +33,7 @@ System.out.println("线程开始："+this.name+",i="+i);
 }
 }
 };
-</code></pre>
+```
 
 但是在使用Runnable定义的子类中没有start()方法，只有Thread类中才有。此时观察Thread类，有一个构造方法：public Thread(Runnable targer)此构造方法接受Runnable的子类实例，也就是说可以通过Thread类来启动Runnable实现的多线程。（start()可以协调系统的资源）:
 

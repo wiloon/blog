@@ -27,7 +27,7 @@ curator4 默认依赖zookeeper 3.5
         &lt;/exclusion&gt;
     &lt;/exclusions&gt;
 &lt;/dependency&gt;
-</code></pre> 
+``` 
 
 leader latch/leader election
   
@@ -80,7 +80,7 @@ LeaderLatch用户必须考虑导致leadershi丢失的连接问题。 强烈推�
                 &lt;/exclusion&gt;
             &lt;/exclusions&gt;
         &lt;/dependency&gt;
-</code></pre> 
+``` 
 
 <pre><code class="language-java line-numbers">RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3)
 CuratorFramework client = CuratorFrameworkFactory.newClient(zookeeperConnectionString, retryPolicy);
@@ -89,7 +89,7 @@ client.start();
 
         leaderLatch = new LeaderLatch(client, zkLatchPath, leaderId);
         leaderLatch.start();
-</code></pre>
+```
 
 http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/
 

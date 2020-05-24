@@ -26,7 +26,7 @@ message Msg0 {
         type1 = 1;
     }
 }
-</code></pre>
+```
 
 download protoc
   
@@ -39,9 +39,9 @@ https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.
             &lt;artifactId&gt;protobuf-java&lt;/artifactId&gt;
             &lt;version&gt;3.10.0&lt;/version&gt;
         &lt;/dependency&gt;
-</code></pre> 
+``` 
 
-<pre><code class="language-bash line-numbers">export SRC_DIR=/pathToSrcDir
+```bashexport SRC_DIR=/pathToSrcDir
 export DST_DIR=/pathToSrcDir
 
 # Java, generate java code
@@ -53,14 +53,14 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 # generate golang code
 protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/proto0.proto
-</code></pre>
+```
 
 ### protobuf > json
 
 <pre><code class="language-go line-numbers">import  "github.com/golang/protobuf/jsonpb"
     marshaler := jsonpb.Marshaler{}
     str, _ := marshaler.MarshalToString(protobufObj0)
-</code></pre>
+```
 
 rotobuf是google提供的一个开源序列化框架，类似于XML，JSON这样的数据表示语言，其最大的特点是基于二进制，因此比传统的XML表示高效短小得多。虽然是二进制数据格式，但并没有因此变得复杂，开发人员通过按照一定的语法定义结构化的消息格式，然后送给命令行工具，工具将自动生成相关的类，可以支持java、c++、python等语言环境。通过将这些类包含在项目中，可以很轻松的调用相关方法来完成业务消息的序列化与反序列化工作。
 

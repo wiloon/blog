@@ -8,16 +8,16 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">docker run \
+```bashdocker run \
 --name memcache \
 -d \
 -p 11211:11211 \
 -v /etc/localtime:/etc/localtime:ro \
 --restart=always \
 memcached -m 16
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># connect
+```bash# connect
 telnet HOST PORT
 
 set foo 0 0 3
@@ -51,7 +51,7 @@ stats cachedump &lt;slab_id&gt; &lt;limit_num&gt;
 stats slabs
 
 
-</code></pre>
+```
 
 Memcached 连接
   

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">#启动时由systemd自动创建tap0
+```bash#启动时由systemd自动创建tap0
 sudo vim /etc/systemd/network/90-tap0.netdev
 [NetDev]
 Description=description0
@@ -20,9 +20,9 @@ sudo vim /etc/systemd/network/tap.network
 Name=tap0
 [Link]
 MACAddress=5a:70:70:48:7f:50
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers"># 手动创建tap0
+```bash# 手动创建tap0
 sudo ip tuntap add dev tap0 mode tap
 # set ip
 sudo ip addr add 192.168.60.1/24 dev tap0
@@ -32,7 +32,7 @@ sudo ip link set tap0 up
 # ---
 # delete ip from tap0
 sudo ip addr del 192.168.60.1/24 dev tap0
-</code></pre>
+```
 
 https://www.freedesktop.org/software/systemd/man/systemd.netdev.html
   

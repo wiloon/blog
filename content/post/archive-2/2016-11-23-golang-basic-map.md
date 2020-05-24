@@ -28,14 +28,14 @@ golang set: https://studygolang.com/articles/8231
 
 <pre><code class="language-go line-numbers"># create map
 serials:= make(map[string]uint8)
-</code></pre>
+```
 
 check if a map contains a key
 
 <pre><code class="language-go line-numbers">if val, ok := dict["foo"]; ok {
     //do something here
 }
-</code></pre>
+```
 
 <pre><code class="language-go line-numbers">&lt;br />package main
 
@@ -51,14 +51,14 @@ fmt.Println(x["key"][0])
 fmt.Println(x["key"][1])
 }
 
-</code></pre>
+```
 
 遍历
 
 <pre><code class="language-go line-numbers">for k, v := range m { 
  fmt.Printf("k=%v, v=%v\n", k, v) 
  } 
-</code></pre>
+```
 
 基本语法
   
@@ -155,7 +155,7 @@ func main() {
         keys = append(keys, k)
     }
 }
-</code></pre>
+```
 
 文／icexin（简书作者）
   

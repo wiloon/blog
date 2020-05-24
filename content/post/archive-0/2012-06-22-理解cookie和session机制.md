@@ -48,7 +48,7 @@ session机制是一种服务器端的机制，服务器使用一种类似于散�
 <code class="language-markup line-numbers">&lt;form name=”testform” action=”/xxx”&gt;
 &lt;input type=”text”&gt;
 &lt;/form&gt;
-</code></pre> 
+``` 
 
 在被传递给客户端之前将被改写成<pre data-language=HTML>
 
@@ -56,7 +56,7 @@ session机制是一种服务器端的机制，服务器使用一种类似于散�
 &lt;input type=”hidden” name=”jsessionid” value=”ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764″&gt;
 &lt;input type=”text”&gt;
 &lt;/form&gt;
-</code></pre> 
+``` 
 
 这种技术现在已较少应用，笔者接触过的很古老的iPlanet6(SunONE应用服务器的前身)就使用了这种技术。
   

@@ -8,13 +8,13 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># 启用swap分区：
+```bash# 启用swap分区：
 swapon /dev/sda2
 # 验证状态：
 swapon -s
 # add swap to /etc/fstab
 UUID=&lt;UUID&gt; none swap defaults 0 0
-</code></pre>
+```
 
 <http://coolnull.com/3699.html>
 

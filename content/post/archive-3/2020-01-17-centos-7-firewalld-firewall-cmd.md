@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># 查看版本
+```bash# 查看版本
 [root@osboxes java]# firewall-cmd --version
 0.3.9
 # 查看状态
@@ -52,4 +52,4 @@ firewall-cmd --permanent --zone=public --remove-port=8080/udp
 # 阻止某个IP（123.57.22.204）连接：
 
 firewall-cmd --permanent --add-rich-rule="rule family=ipv4 source address=123.57.22.204 reject"
-</code></pre>
+```

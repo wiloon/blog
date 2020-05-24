@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">df -h
+```bashdf -h
 df -t ext4 -h
-</code></pre>
+```
 
 df命令可以获取硬盘被占用了多少空间，目前还剩下多少空间等信息，它也可以显示所有文件系统对i节点和磁盘块的使用情况。
 

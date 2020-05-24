@@ -26,6 +26,6 @@ auth sufficient /usr/lib/security/pam\_yubico.so mode=challenge-response debug c
   
 auth sufficient /usr/lib/security/pam\_yubico.so mode=challenge-response chalresp\_path=/data/yubikey
 
-<pre><code class="language-bash line-numbers">pacman -S yubico-pam
+```bashpacman -S yubico-pam
 pacman -S yubikey-manager
-</code></pre>
+```

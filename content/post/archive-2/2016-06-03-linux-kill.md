@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">kill -HUP xxx
+```bashkill -HUP xxx
 ps -A | grep httpd | grep -v grep | awk '{ print $1; }' | xargs -L 1 sudo kill -HUP 
-</code></pre>
+```
 
 kill 命令
 

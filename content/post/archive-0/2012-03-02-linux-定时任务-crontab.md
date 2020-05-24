@@ -8,10 +8,10 @@ categories:
   - Linux
 
 ---
-<pre><code class="language-bash line-numbers">yum install cronie
-</code></pre>
+```bashyum install cronie
+```
 
-<pre><code class="language-bash line-numbers"># Use the hash sign to prefix a comment
+```bash# Use the hash sign to prefix a comment
 # +—————- minute (0 – 59)
 # |  +————- hour (0 – 23)
 # |  |  +———- day of month (1 – 31)
@@ -19,7 +19,7 @@ categories:
 # |  |  |  |  +—- day of week (0 – 7) (Sunday=0 or 7)
 # |  |  |  |  |
 # *  *  *  *  *  command to be executed
-</code></pre>
+```
 
 0 5 \* \* * /root/bin/backup.sh //每天早上5点运行
 
@@ -33,7 +33,7 @@ run-parts
   
 42 4 1 \* \* root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
 
-<pre><code class="language-bash line-numbers">yum list installed |grep cron
+```bashyum list installed |grep cron
 yum install vixie-cron
 
 # check status
@@ -48,11 +48,11 @@ crontab -e #编辑某个用户的cron服务
 crontab -u #设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
 crontab -r #删除没个用户的cron服务
 
-</code></pre>
+```
 
 ### crontab log
 
-<pre><code class="language-bash line-numbers">#centos
+```bash#centos
 tail /var/log/cron
 
 #debian
@@ -62,13 +62,13 @@ cron.*                                /var/log/cron.log
 
 # 重启日志服务：
 systemctl restart rsyslog
-</code></pre>
+```
 
 ### crontab 执行shell脚本
 
-<pre><code class="language-bash line-numbers">crontab -e
+```bashcrontab -e
 0 1 * * * /path/to/shell/foo.sh &gt;&gt; /var/log/foo/foo.log
-</code></pre>
+```
 
 * * *
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># check systemd-resolved status
+```bash# check systemd-resolved status
 resolvectl status
 
 # disable dns on 53 port
@@ -18,4 +18,4 @@ DNSStubListener=no
 
 #disable LLMNR
 LLMNR=false
-</code></pre>
+```

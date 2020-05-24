@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">export  OVPN_DATA="ovpn-data"
+```bashexport  OVPN_DATA="ovpn-data"
 docker volume create --name $OVPN_DATA
 # volume默认位置：/var/lib/docker/volumes/ovpn-data
 
@@ -29,7 +29,7 @@ docker run -v $OVPN_DATA:/etc/openvpn --rm mjenz/rpi-openvpn ovpn_getclient clie
 
 docker run -v $OVPN_DATA:/etc/openvpn -p 1194:1194/udp --privileged -e DEBUG=1 mjenz/rpi-openvpn
 
-</code></pre>
+```
 
 https://github.com/mje-nz/rpi-docker-openvpn
   

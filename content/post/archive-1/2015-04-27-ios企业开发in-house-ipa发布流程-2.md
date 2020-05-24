@@ -11,7 +11,7 @@ categories:
 ### 常量
 
 <pre><code class="language-go line-numbers">const ROOT_PATH = "/"
-</code></pre>
+```
 
 ### Boolean
 
@@ -24,7 +24,7 @@ categories:
         valid := false      // 简短声明
         available = true    // 赋值操作
     }
-</code></pre>
+```
 
 ## 数值类型
 
@@ -133,7 +133,7 @@ fmt.Printf(&#8220;%s\n&#8221;, s2)
 ### sgring > []byte
 
 <pre><code class="language-go line-numbers">[]byte("Here is a string....")
-</code></pre>
+```
 
 byte和rune特殊类型是别名
 

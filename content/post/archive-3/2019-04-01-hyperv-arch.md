@@ -16,12 +16,12 @@ Xorg
   
 xf86-video-fbdev
 
-<pre><code class="language-bash line-numbers">/boot/loader/entries/arch.conf
+```bash/boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options video=hyperv_fb:1920x1080 root=PARTUUID=xxxx-xxxx rw
-</code></pre>
+```
 
 Enhanced Session Mod
   

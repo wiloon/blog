@@ -52,4 +52,4 @@ publishing {
         }
     }
 }
-</code></pre>
+```

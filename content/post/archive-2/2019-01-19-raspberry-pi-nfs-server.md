@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">#安装 NFS 服务器
+```bash#安装 NFS 服务器
 sudo apt install nfs-kernel-server
 
 vim /etc/exports
@@ -21,11 +21,11 @@ systemctl restart  nfs-kernel-server
 # 在另一台linux 上挂载
 sudo mkdir /nas/data
 sudo mount -t nfs &lt;raspberry-pi-hostname-or-ip&gt;:/nas/data /nas/data
-</code></pre>
+```
 
 ### autofs
 
-<pre><code class="language-bash line-numbers">pacman -S autofs
+```bashpacman -S autofs
 pacman -S nfs-utils
 sudo systemctl start rpcbind
 sudo systemctl enable rpcbind
@@ -43,7 +43,7 @@ sudo systemctl enable autofs
 sudo apt-get install acl
 setfacl -R -m u:1000:rwx /nas/data
 
-</code></pre>
+```
 
 共享目录权限问题
   

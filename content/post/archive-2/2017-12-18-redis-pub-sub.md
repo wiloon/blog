@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">redis-cli -h redis.wiloon.com
+```bashredis-cli -h redis.wiloon.com
 SUBSCRIBE channel0
 publish channel0 message0
-</code></pre>
+```
 
 http://redisbook.readthedocs.io/en/latest/feature/pubsub.html

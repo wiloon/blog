@@ -12,7 +12,7 @@ categories:
   
 -Djavax.net.debug=SSL
 
-<pre><code class="language-bash line-numbers">#生成服务端密钥对和证书仓库
+```bash#生成服务端密钥对和证书仓库
 keytool -genkey -alias tlsServer -keysize 2048 -validity 365 -keyalg RSA \
 -dname "CN=wiloon" -keypass password0 -storepass password0 -keystore server.jks
 
@@ -29,7 +29,7 @@ keytool -export -alias tlsClient -keystore client.jks -storepass password0 -file
 #将服务端的证书导入到客户端的证书仓库中：
 keytool -import -trustcacerts -alias tlsServer -file server.cer -storepass password0 -keystore serverTrust.jks
 keytool -import -trustcacerts -alias tlsClient -file client.cer -storepass password0 -keystore clientTrust.jks
-</code></pre>
+```
 
 http://www.infoq.com/cn/articles/netty-security
   

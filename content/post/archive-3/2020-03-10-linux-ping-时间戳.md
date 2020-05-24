@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">ping 192.168.2.1 -c 10 | awk '{ print $0"\t" strftime("%H:%M:%S",systime()) } '
-</code></pre>
+```bashping 192.168.2.1 -c 10 | awk '{ print $0"\t" strftime("%H:%M:%S",systime()) } '
+```

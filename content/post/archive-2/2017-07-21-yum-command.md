@@ -10,7 +10,7 @@ categories:
 ---
 ### 按版本安装
 
-<pre><code class="language-bash line-numbers">yum list|grep filebeat
+```bashyum list|grep filebeat
 
 # 回显
 filebeat.x86_64                         7.2.0-1                         @elastic
@@ -19,9 +19,9 @@ filebeat.x86_64                         7.2.1-1                         elastic
 
 # 安装 指定版本7.2.0-1
 yum install filebeat-7.2.0-1
-</code></pre>
+```
 
-<pre><code class="language-bash line-numbers">#search
+```bash#search
 yum search iostat
 
 #search
@@ -65,7 +65,7 @@ yum -y remove httpd
 #Yum更新中排除特定的包
 yum update --exclude=kernel* --exclude=php*
 https://www.howtoing.com/exclude-packages-from-yum-update
-</code></pre>
+```
 
 https://my.oschina.net/andyfeng/blog/601291
   

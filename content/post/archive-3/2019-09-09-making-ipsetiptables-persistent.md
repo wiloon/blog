@@ -8,12 +8,12 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">ipset save &gt; /etc/ipset.conf
+```bashipset save &gt; /etc/ipset.conf
 systemctl enable ipset.service
 
 iptables-save -f /etc/iptables/iptables.rules
 systemctl enable iptables.service
-</code></pre>
+```
 
 https://wiki.archlinux.org/index.php/Ipset
   

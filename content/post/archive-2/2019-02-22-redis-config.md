@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">bind 0.0.0.0
+```bashbind 0.0.0.0
 #参数是为了禁止外网访问redis，如果启用了，则只能够通过lookback ip（127.0.0.1）访问Redis
 protected-mode no
 port 6379
@@ -183,6 +183,6 @@ client-output-buffer-limit slave 256mb 64mb 60
 client-output-buffer-limit pubsub 32mb 8mb 60
 hz 10
 aof-rewrite-incremental-fsync yes
-</code></pre>
+```
 
 https://blog.csdn.net/pengjunlee/article/details/81269596

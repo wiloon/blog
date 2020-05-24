@@ -8,10 +8,10 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># goproxy.io 有遇到过connection reset by peer, 换goproxy.cn
+```bash# goproxy.io 有遇到过connection reset by peer, 换goproxy.cn
 export GOPROXY=https://goproxy.io
 export GOPROXY=https://goproxy.cn
-</code></pre>
+```
 
 ### athens
 

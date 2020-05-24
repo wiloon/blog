@@ -40,7 +40,7 @@ func main() {
     close(channels)
     wg.Wait()
 }
-</code></pre>
+```
 
 <pre><code class="language-go line-numbers">package pool
 
@@ -73,6 +73,6 @@ func (p *Pool) Process(payload interface{}) {
     p.Channels &lt;- payload
 }
 
-</code></pre>
+```
 
 http://legendtkl.com/2016/09/06/go-pool/

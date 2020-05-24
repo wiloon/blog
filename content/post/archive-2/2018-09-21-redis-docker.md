@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">podman run \
+```bashpodman run \
 -d \
 --name redis \
 -p 6379:6379 \
@@ -24,6 +24,6 @@ sudo docker run --name redis-x -p 6379:6379 -d redis
 sudo docker start redis-x
 
 sudo docker exec -it redis-x redis-cli
-</code></pre>
+```
 
 http://www.runoob.com/docker/docker-install-redis.html

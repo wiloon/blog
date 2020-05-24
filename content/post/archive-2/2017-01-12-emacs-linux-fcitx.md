@@ -77,7 +77,7 @@ sudo vi /usr/bin/emacs
 export LC_CTYPE=zh_CN.utf-8;
 /usr/bin/emacs.raw "$@"
 
-</code></pre>
+```
 
 ### .zshrc
 
@@ -92,8 +92,8 @@ export LC_CTYPE=zh_CN.UTF-8
 
 ### Fcitx 配置工具
 
-<pre><code class="language-bash line-numbers">fcitx-configtool
-</code></pre>
+```bashfcitx-configtool
+```
 
 ### 修改剪贴板快捷键
 

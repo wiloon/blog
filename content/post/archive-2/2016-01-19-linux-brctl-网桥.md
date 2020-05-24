@@ -20,7 +20,7 @@ categories:
 
 <http://blog.wiloon.com/?p=13281>
 
-<pre><code class="language-bash line-numbers"># nftables nat
+```bash# nftables nat
 sudo nft add table ip nat
 sudo nft add chain ip nat post \{ type nat hook postrouting priority 0 \; \}
 sudo nft add chain ip nat pre \{ type nat hook prerouting priority 0 \; \}
@@ -30,14 +30,14 @@ sudo nft add rule nat post ip saddr 192.168.60.0/24 oif wlp3s0 masquerade
 sudo nft add rule nat pre iif wlp3s0 tcp dport \{ 3389,9999 \} dnat 192.168.60.2
 
 #sudo nft add rule nat post ip saddr 192.168.3.0/24 oif wlp3s0 snat 192.168.x.xxx
-</code></pre>
+```
 
 ### save your ruleset to /etc/nftables.conf which is loaded by nftables.service
 
-<pre><code class="language-bash line-numbers">sudo -s
+```bashsudo -s
 nft list ruleset &gt; /etc/nftables.conf
 
-</code></pre>
+```
 
 [http://wiki.nftables.org/wiki-nftables/index.php/Performing\_Network\_Address\_Translation\_(NAT)][1]
 
@@ -48,13 +48,13 @@ sudo brctl addif br0 tap1
 sudo ip link set tap1 up
 sudo ip tuntap
 sudo ip addr add 192.168.3.1/24 dev br0
-</code></pre>
+```
 
 <pre><code class="language-shell line-numbers"># iptables
 sudo ip tuntap add dev tap0 mode tap
 sudo ip addr add 192.168.3.1/24 dev tap0
 sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
-</code></pre>
+```
 
 linux下brctl配置网桥
   

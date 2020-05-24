@@ -21,4 +21,4 @@ categories:
     return out.String()
 }
 
-</code></pre>
+```

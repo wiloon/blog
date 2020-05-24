@@ -146,6 +146,6 @@ reader</span><span class="pun">.</span><span class="pln">close</span><span class
      
 inputStream</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
   
-<span class="pun">}</span></code></pre>
+<span class="pun">}</span>```
   
 [/java]

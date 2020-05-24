@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># install ipset
+```bash# install ipset
 pacman -S ipset
 apt-get install ipset
 
@@ -29,7 +29,7 @@ ipset destroy             # 销毁所有集合
 ipset save &gt; /etc/ipset.up.rules                # 输出所有集合内容到标准输出
 ipset restore -! &lt; /etc/ipset.up.rules             # 根据输入内容恢复集合内容
 
-</code></pre>
+```
 
 ### 启动时创建ipset
 

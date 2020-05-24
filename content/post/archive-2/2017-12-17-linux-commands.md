@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># 查看系统启动时间和运行时间
+```bash# 查看系统启动时间和运行时间
 uptime
 who -b
 who -r
@@ -27,6 +27,6 @@ pidof
 #kill pid
 pidof fcitx | xargs kill
 
-</code></pre>
+```
 
 http://man.linuxde.net/host

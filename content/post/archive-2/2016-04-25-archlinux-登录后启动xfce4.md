@@ -10,11 +10,11 @@ categories:
 ---
 https://wiki.archlinux.org/index.php/xinitrc
 
-<pre><code class="language-bash line-numbers">vim  ~/.xinitrc
+```bashvim  ~/.xinitrc
 exec startxfce4
 
 vim .bashrc
 # change the last line to
 # add as last line in .bashrc
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
-</code></pre>
+```

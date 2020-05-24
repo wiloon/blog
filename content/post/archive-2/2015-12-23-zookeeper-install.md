@@ -10,8 +10,8 @@ categories:
 ---
   1. jps 获取Java进程的PID。
 
-<pre><code class="language-bash line-numbers">jcmd -l
-</code></pre>
+```bashjcmd -l
+```
 
 <ol start="2">
   <li>
@@ -19,10 +19,10 @@ categories:
   </li>
 </ol>
 
-<pre><code class="language-bash line-numbers">jstack &lt;PID&gt; stack.txt
+```bashjstack &lt;PID&gt; stack.txt
 # 或
 jcmd &lt;PID&gt; Thread.print &gt;&gt; stack.txt
-</code></pre>
+```
 
 <ol start="3">
   <li>
@@ -30,9 +30,9 @@ jcmd &lt;PID&gt; Thread.print &gt;&gt; stack.txt
   </li>
 </ol>
 
-<pre><code class="language-bash line-numbers">top -H -p &lt;PID&gt;
+```bashtop -H -p &lt;PID&gt;
 ps -mp &lt;PID&gt; -o THREAD,tid,time | sort -rn | head -n 10
-</code></pre>
+```
 
 <ol start="4">
   <li>
@@ -40,9 +40,9 @@ ps -mp &lt;PID&gt; -o THREAD,tid,time | sort -rn | head -n 10
   </li>
 </ol>
 
-<pre><code class="language-bash line-numbers">echo "obase=16; PID" | bc
+```bashecho "obase=16; PID" | bc
 printf "%x\n" 73658
-</code></pre>
+```
 
 <ol start="5">
   <li>

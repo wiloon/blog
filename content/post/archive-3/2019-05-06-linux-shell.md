@@ -10,16 +10,16 @@ categories:
 ---
 ### 查看当前使用的shell
 
-<pre><code class="language-bash line-numbers">echo $SHELL
+```bashecho $SHELL
 ps |  grep $$  |  awk '{print $4}'
-</code></pre>
+```
 
 命令行式shell（Command Line Interface shell ，即CLI shell）
   
 也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe（命令提示字符）和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh／zsh等 一般情况下，习惯把命令行shell（CLI shell）直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
 
-<pre><code class="language-bash line-numbers">cat /etc/shells
-</code></pre>
+```bashcat /etc/shells
+```
 
 3.1、bash
   

@@ -8,8 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers">ng build --aot
-</code></pre>
+```bashng build --aot
+```
 
 &#8220;\`
   

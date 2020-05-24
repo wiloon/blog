@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-bash line-numbers"># install dig
+```bash# install dig
 ## archlinux
 sudo pacman -S ldns
 
@@ -23,7 +23,7 @@ dig +trace wiloon.com
 dirll -T wiloon.com
 
 drill wiloon.com @192.168.50.1
-</code></pre>
+```
 
 dig，其实是一个缩写，即Domain Information Groper。
 

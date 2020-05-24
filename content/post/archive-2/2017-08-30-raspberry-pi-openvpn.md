@@ -18,7 +18,7 @@ apt-get install openvpn unzip easy-rsa
 gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz &gt; /etc/openvpn/server/server.conf
 
 vim /etc/openvpn/server/server.conf
-</code></pre>
+```
 
 > Make the following changes to the server.conf file
     
@@ -187,7 +187,7 @@ Consider setting up fail2ban for open VPN (this will ban IPs that try to connect
 -------
 
 
-</code></pre>
+```
 
 https://www.raspberrypi.org/forums/viewtopic.php?t=81657
 
@@ -202,4 +202,4 @@ iptables -A FORWARD -i wlan0 -o tun+ -m state --state RELATED,ESTABLISHED -j ACC
 service openvpn restart
 
 
-</code></pre>
+```

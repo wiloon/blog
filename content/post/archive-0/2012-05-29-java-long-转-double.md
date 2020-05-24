@@ -10,53 +10,53 @@ categories:
 ---
 ### hex > int
 
-<pre><code class="language-bash line-numbers">// 默认hex 大端字节序
+```bash// 默认hex 大端字节序
 int decimal = Integer.parseInt(hexNumber, 16);
-</code></pre>
+```
 
 ### list > array>set
 
 <pre><code class="language-java line-numbers">Set&lt;T&gt; mySet = new HashSet&lt;&gt;(Arrays.asList(someArray));
-</code></pre>
+```
 
 ### array > set, jdk 9+
 
 <pre><code class="language-java line-numbers">Set&lt;T&gt; mySet = Set.of(someArray);
-</code></pre>
+```
 
 ### array > set, jdk 10+
 
 <pre><code class="language-java line-numbers">var mySet = Set.of(someArray);
-</code></pre>
+```
 
 ### int > double
 
 <pre><code class="language-java line-numbers">Double d = new Double(i)
-</code></pre>
+```
 
 ### double > int
 
 <pre><code class="language-java line-numbers">int i = d.intValue();
-</code></pre>
+```
 
 ### byte to binary string
 
 <pre><code class="language-java line-numbers">byte b1 = (byte) 129;
 String s1 = String.format("%8s", Integer.toBinaryString(b1 & 0xFF)).replace(' ', '0');
 System.out.println(s1); // 10000001
-</code></pre>
+```
 
 ### date localdatetime
 
 <pre><code class="language-java line-numbers">Instant instant = date.toInstant();
 ZoneId zoneId = ZoneId.systemDefault();
 instant.atZone(zoneId).toLocalDateTime();
-</code></pre>
+```
 
 ### int > bytes
 
 <pre><code class="language-java line-numbers">byte[] bytes = ByteBuffer.allocate(4).putInt(i).array();
-</code></pre>
+```
 
 ### LocalDateTime > mills
 
@@ -64,7 +64,7 @@ instant.atZone(zoneId).toLocalDateTime();
         ZonedDateTime zdt = localDateTime.atZone(ZoneId.systemDefault());
         return zdt.toInstant().toEpochMilli();
     }
-</code></pre>
+```
 
 long   l=10;
   

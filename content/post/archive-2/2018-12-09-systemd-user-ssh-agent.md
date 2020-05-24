@@ -21,12 +21,12 @@ ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
 
 [Install]
 WantedBy=default.target
-</code></pre>
+```
 
 <pre><code class="language-shell line-numbers">vim  ~/.pam_environment
 SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
-</code></pre>
+```
 
 <pre><code class="language-shell line-numbers"># Then enable or start the service.
 systemctl --user enable ssh-agent
@@ -34,7 +34,7 @@ systemctl --user start ssh-agent
 # 检查环境变量 SSH_AUTH_SOCK
 env | fgrep SSH_
 # 如果看不到SSH_AUTH_SOCK ， 重启再试一下 
-</code></pre>
+```
 
 https://wiki.archlinux.org/index.php/Systemd/User
   
