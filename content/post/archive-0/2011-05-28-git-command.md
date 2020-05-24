@@ -26,11 +26,10 @@ git checkout master
     #设置电子邮件地址
     git config --global user.email "email@example.com"
     git config --local user.email "email@example.com"
+    git config --local user.name "name0"
     #确认在 Git 中正确设置了电子邮件地址
     git config --global user.email
     git config --local  user.email
-
-
 
 ### git reset
 

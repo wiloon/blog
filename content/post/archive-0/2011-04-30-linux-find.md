@@ -46,7 +46,8 @@ mtime 最后一次内容修改时间, 如 vi 保存后等, 修改时间发生改
   
 [acm]min 计量单位是分钟
 
-```bash# 20天内修改过的
+```bash
+# 20天内修改过的
 find . -mtime -20 -type f -name "*.zip"
 find ./ -mtime 0  #查找一天内修改的文件
 find ./ -mtime -2 #查找2天内修改的文件，多了一个减号

@@ -8,10 +8,27 @@ categories:
   - Linux
 
 ---
-```bashyum install cronie
+
+```bash
+yum install cronie
 ```
 
-```bash# Use the hash sign to prefix a comment
+```bash
+# Use the hash sign to prefix a comment
+### 配置自动生效
+cron will then examine the modification time on all crontabs and reload those which have changed. Thus cron need not be restarted whenever a crontab file is modified
+
+```
+# 每周一，三，五，13:55分
+55 13 * * 1,3,5 metting-notification.sh
+```
+
+```
+yum install cronie
+```
+
+```
+# Use the hash sign to prefix a comment
 # +—————- minute (0 – 59)
 # |  +————- hour (0 – 23)
 # |  |  +———- day of month (1 – 31)
@@ -33,7 +50,8 @@ run-parts
   
 42 4 1 \* \* root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
 
-```bashyum list installed |grep cron
+```bash
+yum list installed |grep cron
 yum install vixie-cron
 
 # check status
@@ -50,9 +68,9 @@ crontab -r #删除没个用户的cron服务
 
 ```
 
-### crontab log
 
-```bash#centos
+```bash
+#centos
 tail /var/log/cron
 
 #debian

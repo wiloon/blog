@@ -9,8 +9,12 @@ categories:
 ---
 ### group
 
-    bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list 
-    bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+    # list all group
+    bin/kafka-consumer-groups.sh \
+    --bootstrap-server localhost:9092 --list 
+    
+    bin/kafka-consumer-groups.sh \
+    --bootstrap-server localhost:9092 \
     --describe \
     --group my-group
     
@@ -28,11 +32,15 @@ categories:
 
 ### list topic
 
-    bin/kafka-topics.sh --list --zookeeper localhost:2181
+    bin/kafka-topics.sh --list \
+    --zookeeper localhost:2181
 
 ### 查看topic详细信息
 
-bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic topic0 --describe
+    bin/kafka-topics.sh \
+    --zookeeper 127.0.0.1:2181 \
+    --topic topic0 \
+    --describe
 
 replication-factor: 副本数, partitions: 分区数
 
@@ -53,13 +61,16 @@ topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, 
     bin/kafka-topics.sh --create \
     --zookeeper test-zookeeper-1,test-zookeeper-2,test-zookeeper-3 \
     --replication-factor 3 --partitions 5 --topic topic0
-    
 
 [https://cloud.tencent.com/developer/article/1436988](https://cloud.tencent.com/developer/article/1436988 "https://cloud.tencent.com/developer/article/1436988")
 
 ### 调整分区数
 
-bin/kafka-topics.sh --zookeeper ip0:2181 --alter --topic topic0 --partitions 5
+    bin/kafka-topics.sh \
+    --zookeeper ip0:2181 \
+    --alter \
+    --topic topic0 \
+    --partitions 5
 
 ### 重置offset
 
@@ -77,7 +88,6 @@ bin/kafka-topics.sh --zookeeper ip0:2181 --alter --topic topic0 --partitions 5
     bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
     --group test-group --reset-offsets --all-topics \
     --to-datetime 2017-08-04T14:30:00.000
-    
 
 ### 查看kafka版本
 
@@ -97,20 +107,20 @@ zookeeper.connect=localhost:2181
 
 ### producer
 
-```bashbin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
-```
+    bin/kafka-console-producer.sh \
+    --broker-list localhost:9092 \
+    --topic topic0
 
 ### consume
 
-```bashbin/kafka-console-consumer.sh --bootstrap-server localhost:9092   
-\--topic topic0   
-\--from-beginning   
-\--property "parse.key=true"   
-\--property "key.separator=:"
+    bin/kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic topic0 \
+    --from-beginning \
+    --property "parse.key=true" \
+    --property "key.separator=:"
 
-```
-
-```bash# 删除topic
+\# 删除topic
 bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
 \#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
@@ -122,9 +132,8 @@ bin/kafka-server-start.sh -daemon config/server.properties
 
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
-```
 
-```bash./bin/kafka-server-start.sh config/server.properties
+./bin/kafka-server-start.sh config/server.properties
 
 查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
 bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
@@ -164,15 +173,15 @@ download http://kafka.apache.org/downloads.html
 
 #### docker
 
-```bashdocker run  -d --name kafka   
-\-p 9092:9092   
-\-e KAFKA_BROKER_ID=0   
-\-e KAFKA_ZOOKEEPER_CONNECT=192.168.50.115:2181   
-\-e KAFKA_ADVERTISED_HOST_NAME=192.168.50.115   
-\-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.50.115:9092   
-\-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092   
-\-e KAFKA_AUTO_CREATE_TOPICS_ENABLE=false   
-\-v kafka-data:/kafka   
+<pre><code class="language-bash line-numbers">docker run  -d --name kafka  
+\-p 9092:9092  
+\-e KAFKA_BROKER_ID=0  
+\-e KAFKA_ZOOKEEPER_CONNECT=192.168.50.115:2181  
+\-e KAFKA_ADVERTISED_HOST_NAME=192.168.50.115  
+\-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.50.115:9092  
+\-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092  
+\-e KAFKA_AUTO_CREATE_TOPICS_ENABLE=false  
+\-v kafka-data:/kafka  
 \-t wurstmeister/kafka
 ```
 

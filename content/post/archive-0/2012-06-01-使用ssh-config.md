@@ -10,7 +10,8 @@ categories:
 ---
 ### 使用通配符 (wildcard)
 
-```bashvim .ssh/config
+```bash
+vim .ssh/config
 
 host 10.60.*
     user root
