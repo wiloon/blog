@@ -22,19 +22,23 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 
 下面是根据上面的地址需要配置的proxy对象
 
-    devServer : {
-            proxy : {
-                '/index' : {
-                    target : 'http://localhost/index',
-                    // ws : true,
-                    changeOrigin : true,
-                    pathRewrite : {
-                        '^/index' : ''
-                    }
-                }
+    module.exports = {
+      devServer: {
+        proxy: {
+          '/api': {
+            target: 'http://192.168.80.2:38081',
+            ws: true,
+            changeOrigin: true,
+            pathRewrite: {
+              '^/api': ''
             }
+          }
         }
-    复制代码
+      }
+    }
+
+    # main.ts
+    axios.defaults.baseURL = '/api'
 
 大部分教程到这里就停止了，但是我在这里做一个扩展，为了让读者理解这里的配置是如何起作用的（以下内容整理自`http-proxy-middleware`的[npm描述](https://github.com/chimurai/http-proxy-middleware#context-matching)里，`http-proxy-middleware`是一个npm模块，是proxy的底层原理实现）。
 
@@ -58,7 +62,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 
     npm install axios vue-axios
     复制代码
-
+    
     import axios from 'axios';
     import VueAxios from 'vue-axios';
     Vue.use(VueAxios,axios);
@@ -81,17 +85,31 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 * 或者看看axios，有没有使用正确姿势？
 * 还有一点，或许你看到返回的response里的url依然显示的是本地主机，但是数据已经正常返回，这是正常的，因为我们访问的本来就是本地主机，只不过proxy转发了这个请求到一个新的地址。
 
-## 后续
+###  生产环境部署用nginx解决
 
-本篇只解决了开发环境下的跨域问题，实际线上还不能跨域，目前这里有一些方案：
+    server {
+            listen 80;
+            server_name foo.wiloon.com;
+    	    rewrite ^/(.*)$ https://$host/;
+    }
+    server {
+            listen 443 ssl;
+            server_name foo.wiloon.com;
+    
+            include /etc/nginx/ssl.conf;
+            include /etc/nginx/error-pages.conf;
+    
+            location /api {
+                    proxy_pass http://192.168.50.xxx:38081/;
+            }
+            location / {
+                    proxy_pass http://192.168.50.xxx:38080/;
+            }
+    }
+    
 
-* Nginx反向代理跨域
-* JSONP
-* CORS
+[https://segmentfault.com/a/1190000010792260](https://segmentfault.com/a/1190000010792260 "https://segmentfault.com/a/1190000010792260")
 
-下一次讨论这个跨域问题，尝试解决。
-
-  
 作者：熊饲  
 链接：[https://juejin.im/post/5d1cc073f265da1bcb4f486d](https://juejin.im/post/5d1cc073f265da1bcb4f486d "https://juejin.im/post/5d1cc073f265da1bcb4f486d")  
 来源：掘金  
