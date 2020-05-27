@@ -10,7 +10,7 @@ categories:
 ---
 How to get time.Tick to tick immediately
 
-<pre><code class="language-go line-numbers">ticker := time.NewTicker(period)
+```golang ticker := time.NewTicker(period)
 for ; true; &lt;-ticker.C {
     ...
 }

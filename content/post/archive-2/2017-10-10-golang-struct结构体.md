@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-go line-numbers">//定义一个struct
+```golang //定义一个struct
 type Student struct {
     id      int
     name    string

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-go line-numbers">json.Marshal(struct {
+```golang json.Marshal(struct {
     *User
     Password bool `json:"password,omitempty"`
 }{
@@ -16,7 +16,7 @@ categories:
 })
 ```
 
-<pre><code class="language-go line-numbers">json.Marshal()
+```golang json.Marshal()
 json.Unmarshal()
 ```
 

@@ -14,7 +14,7 @@ slice是一个引用类型，是一个动态的指向数组切片的指针。
   
 slice是一个不定长的，总是指向底层的数组array的数据结构。
 
-<pre><code class="language-go line-numbers">var al []int     //创建slice,并初始化
+```golang var al []int     //创建slice,并初始化
 sl := make([]int,10)  //创建有10个元素的slice
 sl:=[]int{1,2,3} //创建有初始化元素的slice
 
@@ -26,7 +26,7 @@ cap(sl)
 
 ### 清空slice
 
-<pre><code class="language-go line-numbers">&lt;br />func SliceClear(s *[]interface{}) {
+```golang &lt;br />func SliceClear(s *[]interface{}) {
     *s = append([]interface{}{})
 }
 
@@ -53,7 +53,7 @@ golang array 特点：
   
 &#8211; array的长度也是Type的一部分，这样就说明[10]int和[20]int是不一样的。
 
-<pre><code class="language-go line-numbers">var a [2]string
+```golang var a [2]string
 
 foo:= [5] int {1,2,3,4,5}
 长度为5的数组，其元素值依次为：1，2，3，4，5
@@ -67,7 +67,7 @@ foo:= [5] int {1,2,3,4,5}
 长度为5的数组，起元素值依次为：0，0，1，0，3。由于指定了最大索引4对应的值3，根据初始化的元素个数确定其长度为5
 ```
 
-<pre><code class="language-go line-numbers">&lt;br />// 遍历
+```golang &lt;br />// 遍历
 for i, sliceV := range v {
     log.Printf("%v %v : %v", k, i, sliceV)
 }

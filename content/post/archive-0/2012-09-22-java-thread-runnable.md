@@ -15,14 +15,14 @@ tags:
 
 在实际开发中一个多线程的操作很少使用Thread类，而是通过Runnable接口完成。
 
-<pre><code class="language-java line-numbers">public interface Runnable{
+```javapublic interface Runnable{
 public void run();
 }
 ```
 
 例子：
 
-<pre><code class="language-java line-numbers">class MyThread implements Runnable{
+```javaclass MyThread implements Runnable{
 private String name;
 public MyThread(String name) {
 this.name = name;

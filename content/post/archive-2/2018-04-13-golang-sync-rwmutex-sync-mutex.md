@@ -39,7 +39,7 @@ func (m *Mutex) Unlock()用于解锁m，如果在使用Unlock()前未加锁，�
 
 正常运行例子：
 
-<pre><code class="language-go line-numbers">package main  
+```golang package main  
 
 import (  
     "fmt"  
@@ -59,7 +59,7 @@ func main() {
 
 当Unlock()在Lock()之前使用时，便会报错
 
-<pre><code class="language-go line-numbers">package main  
+```golang package main  
 
 import (  
     "fmt"  
@@ -79,7 +79,7 @@ func main() {
 
 当在解锁之前再次进行加锁，便会死锁状态
 
-<pre><code class="language-go line-numbers">package main  
+```golang package main  
 
 import (  
     "fmt"  
@@ -105,7 +105,7 @@ func (rw *RWMutex) Lock()　　写锁，如果在添加写锁之前已经有其�
     
 func (rw *RWMutex) Unlock()　写锁解锁，如果没有进行写锁定，则就会引起一个运行时错误．
 
-<pre><code class="language-go line-numbers">package main  
+```golang package main  
 
 import (  
     "fmt"  
@@ -127,7 +127,7 @@ func (rw *RWMutex) RLock() 读锁，当有写锁时，无法加载读锁，当�
 
 func (rw *RWMutex)RUnlock()　读锁解锁，RUnlock 撤销单次 RLock 调用，它对于其它同时存在的读取器则没有效果。若 rw 并没有为读取而锁定，调用 RUnlock 就会引发一个运行时错误(注：这种说法在go1.3版本中是不对的，例如下面这个例子)。
 
-<pre><code class="language-go line-numbers">package main  
+```golang package main  
 
 import (  
     "fmt"  
@@ -149,7 +149,7 @@ func main() {
 
 分析：go1.3版本中出现这种情况的原因分析，通过阅读源码可以很清晰的得到结果
 
-<pre><code class="language-go line-numbers">func (rw *RWMutex) RUnlock() {  
+```golang func (rw *RWMutex) RUnlock() {  
     if raceenabled {  
         _ = rw.w.state  
         raceReleaseMerge(unsafe.Pointer(&rw.writerSem))  
@@ -170,7 +170,7 @@ func main() {
 
 当RUnlock多于RLock多个时，便会报错，进入死锁．实例如下：
 
-<pre><code class="language-go line-numbers">package main  
+```golang package main  
 
 import (  
     "fmt"  

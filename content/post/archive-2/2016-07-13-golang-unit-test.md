@@ -30,7 +30,7 @@ fibonacci_test.go
   
 函数中通过调用testing.T 的Error，Errorf，FailNow,Fatal,FatalIf方法，说明测试不通过，调用Log方法来记录测试信息
 
-<pre><code class="language-go line-numbers">package gotest
+```golang package gotest
 
 import (
     "testing"

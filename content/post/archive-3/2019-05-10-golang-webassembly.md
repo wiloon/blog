@@ -12,7 +12,7 @@ https://github.com/golang/go/wiki/WebAssembly
   
 https://tutorialedge.net/golang/go-webassembly-tutorial/
 
-<pre><code class="language-go line-numbers">package main
+```golang package main
 
 import "fmt"
 

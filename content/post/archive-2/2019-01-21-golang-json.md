@@ -10,7 +10,7 @@ categories:
 ---
 https://colobu.com/2017/06/21/json-tricks-in-Go/
 
-<pre><code class="language-go line-numbers">type Result struct {
+```golang type Result struct {
     Count int `json:"count"`
 }
 

@@ -8,6 +8,12 @@ categories:
   - Java
 
 ---
+### String > Double
+```java
+String str="122.202";
+double dnum = Double.parseDouble(str);
+```
+
 ### hex > int
 
 ```bash// 默认hex 大端字节序
@@ -16,51 +22,60 @@ int decimal = Integer.parseInt(hexNumber, 16);
 
 ### list > array>set
 
-<pre><code class="language-java line-numbers">Set&lt;T&gt; mySet = new HashSet&lt;&gt;(Arrays.asList(someArray));
+```java
+Set&lt;T&gt; mySet = new HashSet&lt;&gt;(Arrays.asList(someArray));
 ```
 
 ### array > set, jdk 9+
 
-<pre><code class="language-java line-numbers">Set&lt;T&gt; mySet = Set.of(someArray);
+```java
+Set&lt;T&gt; mySet = Set.of(someArray);
 ```
 
 ### array > set, jdk 10+
 
-<pre><code class="language-java line-numbers">var mySet = Set.of(someArray);
+```java
+var mySet = Set.of(someArray);
 ```
 
 ### int > double
 
-<pre><code class="language-java line-numbers">Double d = new Double(i)
+```java
+Double d = new Double(i)
 ```
 
 ### double > int
 
-<pre><code class="language-java line-numbers">int i = d.intValue();
+```java
+int i = d.intValue();
 ```
 
 ### byte to binary string
 
-<pre><code class="language-java line-numbers">byte b1 = (byte) 129;
+```java
+byte b1 = (byte) 129;
 String s1 = String.format("%8s", Integer.toBinaryString(b1 & 0xFF)).replace(' ', '0');
 System.out.println(s1); // 10000001
 ```
 
 ### date localdatetime
 
-<pre><code class="language-java line-numbers">Instant instant = date.toInstant();
+```java
+Instant instant = date.toInstant();
 ZoneId zoneId = ZoneId.systemDefault();
 instant.atZone(zoneId).toLocalDateTime();
 ```
 
 ### int > bytes
 
-<pre><code class="language-java line-numbers">byte[] bytes = ByteBuffer.allocate(4).putInt(i).array();
+```java
+byte[] bytes = ByteBuffer.allocate(4).putInt(i).array();
 ```
 
 ### LocalDateTime > mills
 
-<pre><code class="language-java line-numbers">    public static long localDateTimeToMills(LocalDateTime localDateTime) {
+```java 
+   public static long localDateTimeToMills(LocalDateTime localDateTime) {
         ZonedDateTime zdt = localDateTime.atZone(ZoneId.systemDefault());
         return zdt.toInstant().toEpochMilli();
     }

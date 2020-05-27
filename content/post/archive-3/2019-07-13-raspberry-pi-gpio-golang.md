@@ -10,7 +10,7 @@ categories:
 ---
 https://github.com/stianeikeland/go-rpio
 
-<pre><code class="language-go line-numbers">package main
+```golang package main
 
 import (
     "fmt"

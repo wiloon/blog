@@ -26,18 +26,20 @@ https://github.com/emirpasic/gods#hashset
   
 golang set: https://studygolang.com/articles/8231
 
-<pre><code class="language-go line-numbers"># create map
+```golang 
+# create map
 serials:= make(map[string]uint8)
 ```
 
 check if a map contains a key
 
-<pre><code class="language-go line-numbers">if val, ok := dict["foo"]; ok {
+```golang 
+if val, ok := dict["foo"]; ok {
     //do something here
 }
 ```
 
-<pre><code class="language-go line-numbers">&lt;br />package main
+```golang &lt;br />package main
 
 import "fmt"
 
@@ -55,7 +57,7 @@ fmt.Println(x["key"][1])
 
 遍历
 
-<pre><code class="language-go line-numbers">for k, v := range m { 
+```golang for k, v := range m { 
  fmt.Printf("k=%v, v=%v\n", k, v) 
  } 
 ```
@@ -146,7 +148,7 @@ https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map
   
 there is not a simpler/nicer way.
 
-<pre><code class="language-go line-numbers">package main
+```golang package main
 
 func main() {
     mymap := make(map[int]string)

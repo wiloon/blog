@@ -16,11 +16,10 @@ docker stop $(docker ps -aq)
 1
 docker rm $(docker ps -aq)
 删除所有的镜像
-1
+
 docker rmi $(docker images -q)
 复制文件
-1
-2
+
 docker cp mycontainer:/opt/file.txt /opt/local/
 docker cp /opt/local/file.txt mycontainer:/opt/
 ```
@@ -123,6 +122,7 @@ docker container update --restart=always &lt;containername&gt;
 ```bash# 构建镜像
 # docker build [选项] &lt;上下文路径/URL/-&gt;
 # --tag, -t: 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。
+# --add-host=foo.wiloon.com:192.168.xx.xxx
 
 docker build -t dnsmasq:v1.0.0 .
 docker tag dnsmasq:v1.0.0 swr.cn-south-1.myhuaweicloud.com/{组织名称}/dnsmasq:v1.0.0

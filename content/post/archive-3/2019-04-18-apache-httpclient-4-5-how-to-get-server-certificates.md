@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-java line-numbers">package com.memorynotfound.httpclient;
+```javapackage com.memorynotfound.httpclient;
 
 import org.apache.http.HttpResponseInterceptor;
 import org.apache.http.client.methods.HttpGet;

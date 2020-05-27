@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-go line-numbers">type worker struct {
+```golang type worker struct {
     Func func()
 }
 
@@ -42,7 +42,7 @@ func main() {
 }
 ```
 
-<pre><code class="language-go line-numbers">package pool
+```golang package pool
 
 type PayloadProcessor func(payload interface{})
 

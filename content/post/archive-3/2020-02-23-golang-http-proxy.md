@@ -10,7 +10,7 @@ categories:
 ---
 https://www.flysnow.org/2016/12/24/golang-http-proxy.html
 
-<pre><code class="language-go line-numbers">package main
+```golang package main
 
 import (
     "bytes"

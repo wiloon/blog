@@ -57,7 +57,7 @@ protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/proto0.proto
 
 ### protobuf > json
 
-<pre><code class="language-go line-numbers">import  "github.com/golang/protobuf/jsonpb"
+```golang import  "github.com/golang/protobuf/jsonpb"
     marshaler := jsonpb.Marshaler{}
     str, _ := marshaler.MarshalToString(protobufObj0)
 ```

@@ -82,7 +82,7 @@ LeaderLatch用户必须考虑导致leadershi丢失的连接问题。 强烈推�
         &lt;/dependency&gt;
 ``` 
 
-<pre><code class="language-java line-numbers">RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3)
+```javaRetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3)
 CuratorFramework client = CuratorFrameworkFactory.newClient(zookeeperConnectionString, retryPolicy);
 client.getConnectionStateListenable().addListener(connectionStateListener);
 client.start();

@@ -10,14 +10,14 @@ categories:
 ---
 ### 常量
 
-<pre><code class="language-go line-numbers">const ROOT_PATH = "/"
+```golang const ROOT_PATH = "/"
 ```
 
 ### Boolean
 
 布尔值的类型为bool，true或false，默认false
 
-<pre><code class="language-go line-numbers">    var isActive bool  // 全局变量声明
+```golang     var isActive bool  // 全局变量声明
     var enabled, disabled = true, false  // 忽略类型的声明
     func test() {
         var available bool  // 一般声明
@@ -132,7 +132,7 @@ fmt.Printf(&#8220;%s\n&#8221;, s2)
 
 ### sgring > []byte
 
-<pre><code class="language-go line-numbers">[]byte("Here is a string....")
+```golang []byte("Here is a string....")
 ```
 
 byte和rune特殊类型是别名

@@ -12,7 +12,7 @@ Java 5.0 引入了枚举类型,语法参见 JLS 8.9
 
 ### 枚举比较
 
-<pre><code class="language-java line-numbers">// 枚举可以用 "==" 和 equals 比较
+```java// 枚举可以用 "==" 和 equals 比较
 GameEnum s1 = GameEnum.BIG;
 GameEnum s2 = GameEnum.BIG;
 GameEnum ss1 = GameEnum.SMALL;
@@ -22,7 +22,7 @@ System.out.println("s1 == ss1：" + (s1 == ss1)); //false
 System.out.println("s1.equals(ss1)：" + (s1.equals(ss1))); //false
 ```
 
-<pre><code class="language-java line-numbers">// 字符串 &gt; 枚举
+```java// 字符串 &gt; 枚举
 Blah val = Blah.valueOf("A")
 package com.ljq.test;
 ```
@@ -37,13 +37,13 @@ package com.ljq.test;
   
 每一个枚举常量被隐式的声明成Day的一个public、static成员，而且其类型为Day，亦就是说这些常量是self-typed的
 
-<pre><code class="language-java line-numbers">public   enum  Day
+```javapublic   enum  Day
 {
 MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
 ```
 
-<pre><code class="language-java line-numbers">public enum ColorEnum {
+```javapublic enum ColorEnum {
     red, green, yellow, blue;
 }
 
@@ -67,7 +67,7 @@ return winter;
 
 ### 有构造器的枚举
 
-<pre><code class="language-java line-numbers">public enum Gender{
+```javapublic enum Gender{
 //通过括号赋值,而且必须带有一个参构造器和一个属性跟方法，否则编译出错
 //赋值必须都赋值或都不赋值，不能一部分赋值一部分不赋值；如果不赋值则不能写构造器，赋值编译也出错
 MAN("MAN"), WOMEN("WOMEN");
@@ -87,7 +87,7 @@ return value;
 
 ### 有抽象方法的枚举
 
-<pre><code class="language-java line-numbers">public enum OrderState {
+```javapublic enum OrderState {
     /** 已取消 */
     CANCEL {public String getName(){return "已取消";}},
     /** 待审核 */
@@ -165,7 +165,7 @@ System.out.println(order.getName());
 
 2、下面的定义也是合法的：
 
-<pre><code class="language-java line-numbers">public enum Day
+```javapublic enum Day
 {
 MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY,
 }
@@ -183,7 +183,7 @@ MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 
 但是当枚举类型有其他定义时，则分号;是必须的 3、声明、使用一个枚举类型： （1）在同一个包中：
 
-<pre><code class="language-java line-numbers">public   class  BasicMainClass
+```javapublic   class  BasicMainClass
 {
 public   static   void  main(String args[])
 {
@@ -195,7 +195,7 @@ System.out.println( " Today is  "   +  today.toString().toLowerCase());
 
 （2）在不同包中：
 
-<pre><code class="language-java line-numbers">import  basic.Day;
+```javaimport  basic.Day;
 public   class  OtherMainClass
 {
 public   static   void  main(String [] args)
@@ -244,7 +244,7 @@ It is not possible to extend an enumerated type. Enumerated types are effectivel
   
 Like classes, enumerated types may implement one or more interfaces.
 
-<pre><code class="language-java line-numbers">public class VectorTest {
+```javapublic class VectorTest {
 public static void main(String[] args) {
 Vector vector = new Vector();
 System.out.println("enter your number:");
@@ -300,7 +300,7 @@ System.out.println(o);
   
 如果Bnumeration枚举对象还含有元素，该方法得到对象中的下一个元素。
 
-<pre><code class="language-java line-numbers">/*
+```java/*
 * @(#)DemoEnumeration.java
 * 演示Enumeration接口的使用
 * /
@@ -365,7 +365,7 @@ two
   
 three
 
-<pre><code class="language-java line-numbers">public enum State {
+```javapublic enum State {
 CREATED(0),
 UPDATED(1),
 RESOLVED(2);&lt;/code&gt;
@@ -398,7 +398,7 @@ DK1.5引入了新的类型——枚举。在 Java 中它虽然算个“小”功
   
 在JDK1.5 之前，我们定义常量都是： public static fianl…. 。现在好了，有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。
 
-<pre><code class="language-java line-numbers">public enum Color {
+```javapublic enum Color {
 RED, GREEN, BLANK, YELLOW
 }
 
@@ -406,7 +406,7 @@ RED, GREEN, BLANK, YELLOW
 
 2.2 Equality
 
-<pre><code class="language-java line-numbers">public final boolean equals(Object other) {
+```javapublic final boolean equals(Object other) {
 return this==other;
 }
 
@@ -421,7 +421,7 @@ return super.hashCode();
   
 JDK1.6之前的switch语句只支持int,char,enum类型，使用枚举，能让我们的代码可读性更强。
 
-<pre><code class="language-java line-numbers">enum Signal {
+```javaenum Signal {
 GREEN, YELLOW, RED
 }
 public class TrafficLight {
@@ -446,7 +446,7 @@ break;
   
 如果打算自定义自己的方法，那么必须在enum实例序列的最后添加一个分号。而且 Java 要求必须先定义 enum 实例。
 
-<pre><code class="language-java line-numbers">Java代码 收藏代码
+```javaJava代码 收藏代码
 public enum Color {
 RED(“红色”, 1), GREEN(“绿色”, 2), BLANK(“白色”, 3), YELLO(“黄色”, 4);
 // 成员变量
@@ -486,7 +486,7 @@ this.index = index;
   
 下面给出一个toString()方法覆盖的例子。
 
-<pre><code class="language-java line-numbers">public enum Color {
+```javapublic enum Color {
 RED(“红色”, 1), GREEN(“绿色”, 2), BLANK(“白色”, 3), YELLO(“黄色”, 4);
 // 成员变量
 private String name;
@@ -508,7 +508,7 @@ return this.index+”_”+this.name;
   
 所有的枚举都继承自java.lang.Enum类。由于Java 不支持多继承，所以枚举对象不能再继承其他类。
 
-<pre><code class="language-java line-numbers">public interface Behaviour {
+```javapublic interface Behaviour {
 void print();
 String getInfo();
 }
@@ -537,7 +537,7 @@ System.out.println(this.index+”:”+this.name);
 
 用法六：使用接口组织枚举
 
-<pre><code class="language-java line-numbers">public interface Food {
+```javapublic interface Food {
 enum Coffee implements Food{
 BLACK_COFFEE,DECAF_COFFEE,LATTE,CAPPUCCINO
 }

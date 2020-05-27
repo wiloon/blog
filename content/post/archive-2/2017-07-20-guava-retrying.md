@@ -14,7 +14,7 @@ https://github.com/rholder/guava-retrying
 
 对于开发过网络应用程序的程序员来说，重试并不陌生，由于网络的拥堵和波动，此刻不能访问服务的请求，也许过一小段时间就可以正常访问了。比如下面这段给某个手机号发SMS的伪代码：
 
-<pre><code class="language-java line-numbers">// 发送SMS  
+```java// 发送SMS  
 public boolean sendSMS(String phone, String content)  
 {  
     int retryTimes = 3;  
@@ -58,7 +58,7 @@ private boolean doSomething(String phone, String content)
 
 最近遇到2个开源项目，都是将重试代码封装成专门的工具，方便使用，比如guava-retrying和spring-retry。后面的文章，会介绍下如何使用guava-retrying。下面这段代码使用的是guava-retrying，明显可以感到代码变简单了。
 
-<pre><code class="language-java line-numbers">public boolean sendSMS(final String phone, final String content)  
+```javapublic boolean sendSMS(final String phone, final String content)  
 {  
     Retryer&lt;Boolean&gt; retryer = RetryerBuilder.&lt;Boolean&gt;newBuilder()  
             .retryIfResult(Predicates.equalTo(false)) // 返回false时重试  

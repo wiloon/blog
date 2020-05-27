@@ -16,7 +16,7 @@ https://colobu.com/2016/06/07/simple-golang-tls-examples/
 
 #### server
 
-<pre><code class="language-go line-numbers">package main
+```golang package main
 
 import (
     "bufio"
@@ -74,7 +74,7 @@ func handleConn(conn net.Conn) {
 
 #### client
 
-<pre><code class="language-go line-numbers">package main
+```golang package main
 
 import (
     "crypto/tls"

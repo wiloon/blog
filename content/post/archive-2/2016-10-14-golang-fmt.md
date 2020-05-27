@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-go line-numbers">fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
+```golang fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
 ```
 
 fmt包实现了格式化的I/O函数，这点类似Ｃ语言中的printf和scanf，但是更加简单．
@@ -207,7 +207,7 @@ fmt.Printf(“%_._s\n”, 1, 2, c) //as，利用’*’支持宽度和精度的�
   
     0 填充前导的0而非空格；对于数字，这会将填充移到正负号之后
 
-<pre><code class="language-go line-numbers">func main() {
+```golang func main() {
 a := 123
 fmt.Printf("%+10d\n", a)  //+123
 fmt.Printf("%+010d\n", a) //+000000123，利用０来补齐位数，而不是空格, 补零

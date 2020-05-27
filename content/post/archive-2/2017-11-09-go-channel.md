@@ -12,7 +12,7 @@ http://colobu.com/2016/04/14/Golang-Channels/
 
 Channel是Go中的一个核心类型，你可以把它看成一个管道，通过它并发核心单元就可以发送或者接收数据进行通讯(communication)。
 
-<pre><code class="language-go line-numbers">&lt;-          // 它的操作符是箭头
+```golang &lt;-          // 它的操作符是箭头
 ch &lt;- v     // 发送值v到Channel ch中
 v := &lt;-ch   // 从Channel ch中接收数据，并将数据赋值给v
 // (箭头的指向就是数据的流向)
@@ -26,7 +26,7 @@ dataChan = make(&lt;-chan []byte)
 
 就像 map 和 slice 数据类型一样, channel必须先创建再使用
 
-<pre><code class="language-go line-numbers">// 创建 channel
+```golang // 创建 channel
 ch := make(chan int)
 
 // 使用make初始化Channel,并且可以设置容量:
@@ -35,7 +35,7 @@ make(chan int, 100)
 
 ### for 可以处理channel
 
-<pre><code class="language-go line-numbers">for i := range c {
+```golang for i := range c {
         fmt.Println(i)
     }
 ```

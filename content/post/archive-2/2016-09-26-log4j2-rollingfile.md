@@ -10,7 +10,7 @@ categories:
 ---
 简单使用可以这样
 
-<pre><code class="language-java line-numbers">BasicConfigurator.configure();
+```javaBasicConfigurator.configure();
 ```
 
 不需要配置文件
