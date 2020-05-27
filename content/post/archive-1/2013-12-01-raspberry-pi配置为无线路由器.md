@@ -1,28 +1,23 @@
 ---
 title: Raspberry Pi配置为无线路由器
 author: wiloon
-type: post
-date: 2013-12-01T11:55:37+00:00
-url: /?p=5999
+date: 2013-12-01T11:55:37.000+00:00
+url: "/?p=5999"
 categories:
-  - Uncategorized
+- Uncategorized
 tags:
-  - linux
-  - Network
-  - Raspberry Pi
+- linux
+- Network
+- Raspberry Pi
 
 ---
-<http://www.cnblogs.com/DaochenShi/p/3152981.html>
+[http://www.cnblogs.com/DaochenShi/p/3152981.html](http://www.cnblogs.com/DaochenShi/p/3152981.html)
 
-<div>
-  <div id="cnblogs_post_body">
-    <p>
-      本文参考自,Source: http://elinux.org/RPI-Wireless-Hotspot
-    </p>
+ 
+
     
-    <p>
       因为自己有个RPi，但是之前用的8188CUS芯片的无线网卡不支持，虽然当时买的时候是为了让笔记本连双WiFi的，因此只挑了个最便宜的。后来发现没法在RPi上面做AP，于是就又重新买了个。国内也有树梅派的论坛讨论过哪些无线网卡的支持，发现Ralink的芯片可以，因此就再花了34块钱买了个腾达的W331M，使用最新的Raspbian内核来进行操作（非最新的话可能需要自己编译驱动）。
-    </p>
+    
     
     <p>
       以下是结合上面的参考链接给出的如何将RPi搭建为一个路由器：
@@ -85,10 +80,11 @@ tags:
     
     <div>
       <pre>pi@raspberrypi ~ $ lsusb
+
 ...
 Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. <strong>RT5370</strong> Wireless Adapter</pre>
-    </div>
-    
+</div>
+
     <p>
       呼……一大波前提说完了，下面要干正事了！
     </p>
@@ -127,6 +123,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. <strong>RT5370</strong
           </div>
           
           <pre>start 192.168.42.2 # This is the range of IPs that the hostspot will give to client devices.
+
 end 192.168.42.20
 interface wlan0 # The device uDHCP listens on.
 remaining yes
@@ -134,7 +131,7 @@ opt dns 8.8.8.8 4.2.2.2 # The DNS servers client devices will use.
 opt subnet 255.255.255.0
 opt router 192.168.42.1 # The Pi's IP address on wlan0 which we will set up shortly.
 opt lease 864000 # 10 day DHCP lease time in seconds</pre>
-          
+
           <div>
             <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
           </div>
@@ -154,10 +151,11 @@ opt lease 864000 # 10 day DHCP lease time in seconds</pre>
         
         <div>
           <pre>iface wlan0 inet static
-  address 192.168.42.1
-  netmask 255.255.255.0</pre>
-        </div>
-        
+
+address 192.168.42.1
+netmask 255.255.255.0</pre>
+</div>
+
         <p>
           如果原来有“iface wlan0 inet dhcp”之类的那么就删除，“wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf”什么的也删除。
         </p>
@@ -198,12 +196,13 @@ opt lease 864000 # 10 day DHCP lease time in seconds</pre>
               </div>
               
               <pre>pi@raspberrypi ~ $ wpa_passphrase Daochen_AP DaochenShi
+
 network={
-        ssid="Daochen_AP"
-        #psk="DaochenShi"
-        psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+ssid="Daochen_AP"
+\#psk="DaochenShi"
+psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 }</pre>
-              
+
               <div>
                 <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
               </div>
@@ -223,12 +222,13 @@ network={
               </div>
               
               <pre>interface=wlan0
+
 ssid=Daochen_AP
 hw_mode=g
 channel=6
 auth_algs=1
 wmm_enabled=0</pre>
-              
+
               <div>
                 <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
               </div>
@@ -260,10 +260,11 @@ wmm_enabled=0</pre>
                 
                 <div>
                   <pre>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
-                </div>
-                
+</div>
+
                 <p>
                   为了以后重启之后可以自动加载，因此运行命令来保存为一个文件：
                 </p>
@@ -286,18 +287,20 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
                   <li>
                     启动服务，看看你的无线是否搭建好了？运行一下命令： <div>
                       <pre>sudo service hostapd start
+
 sudo service udhcpd start</pre>
-                    </div>
-                    
+</div>
+
                     <p>
                       如果你想开机启动的话，那么就这么做：
                     </p>
                     
                     <div>
                       <pre>sudo update-rc.d hostapd enable
+
 sudo update-rc.d udhcpd enable</pre>
-                    </div>
-                    
+</div>
+
                     <p>
                       &nbsp;</li> </ol> 
                       
@@ -323,13 +326,14 @@ sudo update-rc.d udhcpd enable</pre>
                       
                       <div>
                         <pre>pi@raspberrypi /etc/hostapd $ sudo ifup wlan0
-ip6tables-restore v1.4.14: Couldn't load match `icmp':No such file or directory
+
+ip6tables-restore v1.4.14: Couldn't load match \`icmp':No such file or directory
 
 Error occurred at line: 17
-Try `ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
+Try \`ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
 Failed to bring up wlan0.</pre>
-                      </div>
-                      
+</div>
+
                       <p>
                         因为我也设置了ip6tables，而wlan0目前没有设置ipv6，所以就出错了，解决方法也很简单，把错的那一行删了就可以了。如果你也觉得udhcpd启动不了，可以使用
                       </p>
