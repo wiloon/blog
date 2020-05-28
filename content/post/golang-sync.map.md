@@ -6,6 +6,26 @@ title = "golang sync.Map"
 +++
 [https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD](https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD "https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD")
 
+```golang
+func main() {
+	m := sync.Map{}
+	m.Store(1,1)
+	go do(m)
+	go do(m)
+
+	time.Sleep(1*time.Second)
+	fmt.Println(m.Load(1))
+}
+
+func do (m sync.Map) {
+	i := 0
+	for i < 10000 {
+		m.Store(1,1)
+		i++
+	}
+}
+```
+
 在Go 1.6之前， 内置的map类型是部分goroutine安全的，并发的读没有问题，并发的写可能有问题。自go 1.6之后， 并发地读写map会报错，这在一些知名的开源库中都存在这个问题，所以go 1.9之前的解决方案是额外绑定一个锁，封装成一个新的struct或者单独使用锁都可以。
 
 本文带你深入到`sync.Map`的具体实现中，看看为了增加一个功能，代码是如何变的复杂的,以及作者在实现`sync.Map`的一些思想。
@@ -180,3 +200,5 @@ Go 1.9源代码中提供了性能的测试： [map_bench_test.go](https://github
 `sync.Map`没有`Len`方法，并且目前没有迹象要加上 ([issue#20680](https://github.com/golang/go/issues/20680)),所以如果想得到当前Map中有效的entries的数量，需要使用`Range`方法遍历一次， 比较X疼。
 
 `LoadOrStore`方法如果提供的key存在，则返回已存在的值(Load)，否则保存提供的键值(Store)。
+
+https://juejin.im/post/5d36a7cbf265da1bb47da444
