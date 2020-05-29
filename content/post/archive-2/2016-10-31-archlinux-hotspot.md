@@ -8,23 +8,15 @@ categories:
   - Uncategorized
 
 ---
-[shell]
-  
+```bash
 sudo ip addr add 192.168.49.1/24 dev wlp3s0
-  
 sudo ip link set wlp3s0 up
-  
 sudo systemctl start dnsmasq.service
-  
 sudo nft add rule nat post ip saddr 192.168.49.0/24 oif enp2s0 snat 172.16.xxx.xxx
-  
 sudo hostapd /etc/hostapd/hostapd.conf
-  
 sudo hostapd -B /etc/hostapd/hostapd.conf
-  
 sudo systemctl start hostapd.service 
-
-[/shell]
+```
 
 https://wiki.archlinux.org/index.php/software\_access\_point#Wi-Fi\_device\_must\_support\_AP_mode
   

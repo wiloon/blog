@@ -15,6 +15,8 @@ sudo -i
 apt-get install dnsmasq hostapd
 vim /etc/dhcpcd.conf
 # 并在文件的最后一行添加以下内容
+#Disable the dhcp client daemon config (denyinterfaces)
+#This is important because otherwise it will be requesting an address from itself and it will also end up having two IP addresses; not the end of the world but also not very tidy. So sudo nano /etc/#dhcpcd.conf and append the following line:
 denyinterfaces wlan0
 
 systemctl stop networking.service
