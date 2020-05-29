@@ -1,5 +1,5 @@
 ---
-title: zookeeper install
+title: zookeeper basic
 author: wiloon
 type: post
 date: 2015-01-14T09:32:00+00:00
@@ -10,12 +10,14 @@ categories:
 ---
 ### 向zookeeper 发送 stat命令 查询zookeeper版本
 
-```bashecho stat | socat - TCP:192.168.1.xxx:2181
+```bash
+echo stat | socat - TCP:192.168.1.xxx:2181
 ```
 
 # server
 
-```bash# docker
+```bash
+# docker
 docker run \
 --name zookeeper \
 -p 2181:2181 \

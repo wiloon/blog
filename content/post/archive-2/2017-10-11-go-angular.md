@@ -14,9 +14,6 @@ categories:
 ### install yarn
 
     http://blog.wiloon.com/?p=11228
-    yarn basic
-
-<iframe title="&#8220;yarn basic&#8221; &#8212; w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=11228&#038;embed=true#?secret=unR6OIow3j" data-secret="unR6OIow3j" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 # install angular cli
 yarn global add @angular/cli
@@ -47,16 +44,6 @@ ng generate module app-routing --flat --module=app
 # --module=app 告诉 CLI 把它注册到 AppModule 的 imports 数组中。
 
 https://github.com/aralroca/helloworld-angular-with-golang
-
-yarn:
-
-<blockquote class="wp-embedded-content" data-secret="hZsn0JuLwj">
-  <p>
-    <a href="http://blog.wiloon.com/?p=11228">yarn basic</a>
-  </p>
-</blockquote>
-
-<iframe title="&#8220;yarn basic&#8221; &#8212; w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=11228&#038;embed=true#?secret=hZsn0JuLwj" data-secret="hZsn0JuLwj" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 ### 修改angular编译输出目录
 

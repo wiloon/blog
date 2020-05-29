@@ -29,7 +29,6 @@ categories:
     --state
 
 ## topic
-
 ### list topic
 
     bin/kafka-topics.sh --list \
@@ -173,18 +172,20 @@ download http://kafka.apache.org/downloads.html
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 
 #### docker
-
-<pre><code class="language-bash line-numbers">docker run  -d --name kafka  
-\-p 9092:9092  
-\-e KAFKA_BROKER_ID=0  
-\-e KAFKA_ZOOKEEPER_CONNECT=192.168.50.115:2181  
-\-e KAFKA_ADVERTISED_HOST_NAME=192.168.50.115  
-\-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.50.115:9092  
-\-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092  
-\-e KAFKA_AUTO_CREATE_TOPICS_ENABLE=false  
-\-v kafka-data:/kafka  
-\-t wurstmeister/kafka
-
+```bash
+docker run  -d --name kafka \
+-p 9092:9092 \
+--net docker_net1 \
+--ip 192.168.xxx.xxx \
+-e KAFKA_BROKER_ID=0 \
+-e KAFKA_ZOOKEEPER_CONNECT=192.168.xxx.xxx:2181 \
+-e KAFKA_ADVERTISED_HOST_NAME=192.168.xxx.xxx \
+-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.xxx.xxx:9092 \
+-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \
+-e KAFKA_AUTO_CREATE_TOPICS_ENABLE=false \
+-v kafka-data:/kafka \
+-t wurstmeister/kafka
+```
     
     ### server.properties
     

@@ -8,17 +8,18 @@ categories:
   - Uncategorized
 
 ---
-```bash列出所有的容器 ID
+```bash
+# 列出所有的容器 ID
 docker ps -aq
-停止所有的容器
+# 停止所有的容器
 docker stop $(docker ps -aq)
-删除所有的容器
-1
+# 删除所有的容器
+docker image ls
 docker rm $(docker ps -aq)
-删除所有的镜像
+# 删除所有的镜像
 
 docker rmi $(docker images -q)
-复制文件
+# 复制文件
 
 docker cp mycontainer:/opt/file.txt /opt/local/
 docker cp /opt/local/file.txt mycontainer:/opt/
@@ -33,9 +34,7 @@ docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]
 ### docker pod log
 
 /var/log/containers/
-  
 /var/log/pods/<container id>/container-0
-  
 /var/lib/docker/containers/<container id>
 
 ### install
@@ -44,7 +43,8 @@ docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]
 
 ### image
 
-```bash# 列出本机的所有 image 文件
+```bash
+# 列出本机的所有 image 文件
 docker image ls
 #显示包括中间层镜像在内的所有镜像
 docker image ls -a
@@ -64,10 +64,12 @@ docker rmi 192.168.0.1/you/tom:1.0.8
 
 ### install
 
-```bashdocker ps -s
+```bash
+docker ps -s
 ```
 
-```bashsudo pacman -S docker
+```bash
+sudo pacman -S docker
 
 # docker
 docker run \
@@ -81,14 +83,16 @@ redis
 
 ### network
 
-```bashdocker network ls
+```bash
+docker network ls
 docker network inspect 网络ID
 
 ```
 
 ### volume
 
-```bashdocker volume ls
+```bash
+docker volume ls
 docker volume create --name influxdb-config
 docker volume rm influxdb-config
 ```
@@ -97,29 +101,34 @@ docker volume rm influxdb-config
 
 ### 时区问题
 
-```bash-v /etc/localtime:/etc/localtime:ro
+```bash
+-v /etc/localtime:/etc/localtime:ro
 ```
 
 ### 监控
 
-```bashdocker stats
+```bash
+docker stats
 ```
 
 <https://www.cnblogs.com/sparkdev/p/7821376.html>
 
 ### logs
 
-```bashdocker logs --since 10s -f influxdb
+```bash
+docker logs --since 10s -f influxdb
 ```
 
-```bashdocker inspect xxx
+```bash
+docker inspect xxx
 docker container update --restart=no &lt;containername&gt;
 docker container update --restart=always &lt;containername&gt;
 ```
 
 ### docker build
 
-```bash# 构建镜像
+```bash
+# 构建镜像
 # docker build [选项] &lt;上下文路径/URL/-&gt;
 # --tag, -t: 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。
 # --add-host=foo.wiloon.com:192.168.xx.xxx
@@ -142,7 +151,8 @@ docker build -f /path/to/Dockerfile .
   
 docker run \[OPTIONS] IMAGE [COMMAND\] \[ARG&#8230;\]
 
-```bashdocker run -it --rm ubuntu bash
+```bash
+docker run -it --rm ubuntu bash
 # -i, --interactive=false   打开STDIN，用于控制台交互
 # -t, --tty=false           分配tty设备，该可以支持终端登录，默认为false
 # -t -a stdout              Outputs the container logs on the standard output
@@ -173,7 +183,8 @@ image0_name
 
 ```
 
-```bash# 进入容器
+```bash
+# 进入容器
 docker exec -it webserver bash
 docker exec -it --user=root foo bash
 
