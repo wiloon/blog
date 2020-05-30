@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+
 system: archlinux
 interface: eth*2, wlan*1
 
@@ -78,6 +79,7 @@ rts_threshold=-1
 fragm_threshold=-1
 macaddr_acl=0
 auth_algs=1
+# 1: hide ssid, 0: default
 ignore_broadcast_ssid=0
 wmm_enabled=1
 wmm_ac_bk_cwmin=4
@@ -110,6 +112,10 @@ wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ssid=test2
 
+```
+#### start hostapd on boot
+```bash
+systemctl enable hostapd
 ```
 
 ### dnsmasq
