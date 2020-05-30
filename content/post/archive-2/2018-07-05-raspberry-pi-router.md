@@ -56,7 +56,8 @@ wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ```
 
-```bashvim /etc/default/hostapd
+```bas
+hvim /etc/default/hostapd
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
 
