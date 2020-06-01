@@ -15,6 +15,12 @@ https://classic.yarnpkg.com/zh-Hans/docs/migrating-from-npm/
 npm install
 yarn install
 
+npm install --save algoliasearch/lite
+yarn add npm algoliasearch/lite 
+
+npm install --save-dev
+yarn add -dev
+
 npm install packagename --save-dev 或 -D
 yarn add [package] --dev
 

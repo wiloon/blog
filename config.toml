@@ -224,15 +224,16 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 #  section = ["HTML", "RSS"]
 #  taxonomy = ["HTML", "RSS"]
 #  taxonomyTerm = ["HTML"]
-[outputFormats.Algolia]
-  baseName = "algolia"
-  isPlainText = true
-  mediaType = "application/json"
-  notAlternative = true
-  
+
 [outputs]
-    home = ["HTML", "RSS", "Algolia"]
-    
+home = ["HTML", "RSS", "Bonsai"]
 
-  
+[outputFormats.Bonsai]
+baseName = "bonsai"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
 
+[params.bonsai]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"]
