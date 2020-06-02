@@ -12,7 +12,7 @@ categories:
 ```bash
 # save & load
 docker save f1905dce9659 > kafka.tar
-# 另外一种语法
+# 另外一种save语法
 docker save -o images.tar postgres:9.6
 docker load < kafka.tar
 # docker load 之后repository和tag都是none,重新打一下tag

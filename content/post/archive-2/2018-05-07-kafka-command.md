@@ -1,5 +1,5 @@
 ---
-title: kafka command
+title: kafka basic,command
 author: wiloon
 date: 2018-05-07T08:44:53.000+00:00
 url: "/?p=12205"
@@ -13,6 +13,7 @@ categories:
     bin/kafka-consumer-groups.sh \
     --bootstrap-server localhost:9092 --list 
     
+    # list group detail
     bin/kafka-consumer-groups.sh \
     --bootstrap-server localhost:9092 \
     --describe \
@@ -186,7 +187,10 @@ docker run  -d --name kafka \
 -v kafka-data:/kafka \
 -t wurstmeister/kafka
 ```
-    
+
+```bash
+
+```
     ### server.properties
     
     advertised.host.name：是注册到zookeeper，client要访问的broker地址。（可能producer也是拿这个值，没有验证）
