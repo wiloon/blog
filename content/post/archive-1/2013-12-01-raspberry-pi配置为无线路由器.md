@@ -12,9 +12,6 @@ tags:
 
 ---
 [http://www.cnblogs.com/DaochenShi/p/3152981.html](http://www.cnblogs.com/DaochenShi/p/3152981.html)
-
- 
-
     
       因为自己有个RPi，但是之前用的8188CUS芯片的无线网卡不支持，虽然当时买的时候是为了让笔记本连双WiFi的，因此只挑了个最便宜的。后来发现没法在RPi上面做AP，于是就又重新买了个。国内也有树梅派的论坛讨论过哪些无线网卡的支持，发现Ralink的芯片可以，因此就再花了34块钱买了个腾达的W331M，使用最新的Raspbian内核来进行操作（非最新的话可能需要自己编译驱动）。
     

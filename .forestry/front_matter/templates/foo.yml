@@ -27,6 +27,7 @@ pages:
 - content/post/api.md
 - content/post/babel.md
 - content/post/chrome-http-https.md
+- content/post/dkms.md
 - content/post/foo.md
 - content/post/github-actions-hugo.md
 - content/post/golang-sync.map.md
@@ -45,7 +46,7 @@ pages:
 - content/post/vim.md
 - content/post/vue-router.md
 - content/post/vue.md
-- content/post/vue2.md
 - content/post/vue3.md
 - content/post/内联样式.md
 - content/post/敏捷开发-瀑布开发.md
+- content/post/渐进式框架.md

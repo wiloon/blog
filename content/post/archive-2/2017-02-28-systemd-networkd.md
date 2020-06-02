@@ -8,6 +8,9 @@ categories:
   - Uncategorized
 
 ---
+### dhcp
+networkd内置了dhcp client。如果需要更新resolv.conf，则需要启动resolved：
+
 在吃掉 udev 和谋划收编 dbus 后, systemd 又将它的魔爪伸向了网络管理方面. 虽然这已经是 systemd 209 时候的旧闻, 不过因为整个功能太过不完善 (被吐槽有超多 bug, 以及各种基本功能缺失) 以及没有文档, 上游一直没有大力推广.
 
 本文仅就最为简单普通的有线网络连接介绍 systemd-networkd 的打开方式. (wifi 呀, ppp 呀, vpn 呀之类的复杂配置现在都不支持哦) (大部分信息翻译自 ArchWiki)

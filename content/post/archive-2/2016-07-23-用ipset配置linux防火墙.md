@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# install ipset
+```bash
+# install ipset
 pacman -S ipset
 apt-get install ipset
 
@@ -26,13 +27,39 @@ ipset flush yoda          # 清空 yoda 集合
 ipset flush               # 清空所有集合
 ipset destroy yoda        # 销毁 yoda 集合
 ipset destroy             # 销毁所有集合
-ipset save &gt; /etc/ipset.up.rules                # 输出所有集合内容到标准输出
-ipset restore -! &lt; /etc/ipset.up.rules             # 根据输入内容恢复集合内容
+ipset save > /etc/ipset.up.rules                # 输出所有集合内容到标准输出
+ipset restore -! < /etc/ipset.up.rules             # 根据输入内容恢复集合内容
 
 ```
 
 ### 启动时创建ipset
+```bash
+vim /etc/systemd/system/ipset-persistent.service
 
+[Unit]
+Description=ipset persistancy service
+DefaultDependencies=no
+Requires=netfilter-persistent.service
+Requires=ufw.service
+Before=network.target
+Before=netfilter-persistent.service
+Before=ufw.service
+ConditionFileNotEmpty=/etc/ipsets.conf
+ 
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/ipset restore -f -! /etc/ipsets.conf
+ 
+# save on service stop, system shutdown etc.
+ExecStop=/sbin/ipset save blacklist -f /etc/ipsets.conf
+ 
+[Install]
+WantedBy=multi-user.target
+ 
+RequiredBy=netfilter-persistent.service
+RequiredBy=ufw.service
+```
 https://confluence.jaytaala.com/pages/viewpage.action?pageId=11763750#UsingipsettoblockIPaddresses-firewall-Settingipsettobepersistent(notloselistsonreboot)
 
 https://fixatom.com/block-ip-with-ipset/
