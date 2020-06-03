@@ -10,7 +10,8 @@ categories:
 ---
 ### 开启数据包转发
 
-```bashvim /etc/sysctl.d/30-ipforward.conf
+```bash
+vim /etc/sysctl.d/30-ipforward.conf
 net.ipv4.ip_forward=1
 net.ipv6.conf.default.forwarding=1
 net.ipv6.conf.all.forwarding=1

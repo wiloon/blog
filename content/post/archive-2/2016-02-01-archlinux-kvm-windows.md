@@ -8,9 +8,14 @@ categories:
   - Uncategorized
 
 ---
-### check if cpu suport kvm
 
-```bashegrep --color=auto 'vmx|svm|0xc0f' /proc/cpuinfo
+- 创建虚拟磁盘
+- 安装windows虚拟机
+- 配置网络
+
+### check if cpu suport kvm
+```bash
+egrep --color=auto 'vmx|svm|0xc0f' /proc/cpuinfo
 zgrep CONFIG_KVM /proc/config.gz
 zgrep VIRTIO /proc/config.gz
 lsmod | grep kvm
@@ -19,39 +24,25 @@ lsmod | grep virtio
 
 ### install qemu
 
-```bashsudo pacman -S qemu libvirt
+```bash
+sudo pacman -Sy
+sudo pacman -S qemu libvirt
 
 # 可选项
 sudo pacman -S samba
-
-#如果磁盘文件所在分区为btrfs文件系统，在创建磁盘文件之前先在外层目录禁用COW。
-chattr +C /path/to/qemu-img/
-qemu-img create -f raw win10.raw 30G
+### 安装virtio
 yay -S virtio-win
 ```
 
-### 配置网络
+### 创建磁盘文件
+    qemu-img create -f raw win10.raw 30G
 
-#### ip forward
-
-<https://blog.wiloon.com/?p=13701>
-
-#### tap
-
-<https://blog.wiloon.com/?p=13281>
-
-#### config nat, nftables 实现， 跟下面的iptables实现二选一。
-
-<https://blog.wiloon.com/?p=8681>
-
-#### 用 iptables 实现的 nat
-
-```bashsudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
-```
+    # 如果磁盘文件所在分区为btrfs文件系统，在创建磁盘文件之前先在外层目录禁用COW。
+    chattr +C /path/to/qemu-img/
 
 ### 安装 win10
-
-```bashqemu-system-x86_64 \
+```bash
+qemu-system-x86_64 \
 -enable-kvm \
 -cpu host \
 -m 2048 \
@@ -61,18 +52,36 @@ yay -S virtio-win
 -fda /usr/share/virtio/virtio-win_x86_64.vfd
 ```
 
-### 如果遇到 -fda read-only 的问题， 去修改一下权限
 
+### 配置网络
+#### ip forward
+<https://blog.wiloon.com/?p=13701>
+
+#### 创建tap
+<https://blog.wiloon.com/?p=13281>
+
+#### config nat, nftables 实现， 跟下面的iptables实现二选一。
+<https://blog.wiloon.com/?p=8681>
+
+#### 用 iptables 实现的 nat
+```bash
+sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
+```
+
+
+
+### 如果遇到 -fda read-only 的问题， 去修改一下权限
 qemu-system-x86_64: Initialization of device isa-fdc failed: Block node is read-only
 
-```bashchmod 777 /usr/share/virtio/virtio-win_x86_64.vfd
+```bash
+chmod 777 /usr/share/virtio/virtio-win_x86_64.vfd
 ```
 
 ### start win10
-
 第一次启动要挂载virtio-win\_x86\_64.vfd，启动之后到win里面安装网上驱动。
 
-```bash#start kvm with virtio net (install eth)
+```bash
+#start kvm with virtio net (install eth)
 qemu-system-x86_64 \
  -enable-kvm \
  -cpu host \
@@ -84,7 +93,8 @@ qemu-system-x86_64 \
  -device virtio-net,netdev=hostnet0,id=net0,mac=52:54:3e:a5:fb:68 \
 ```
 
-```bash#User-mode networking
+```bash
+#User-mode networking
 #port forward, net device driver, specified mac addr
 qemu-system-x86_64 \
 -enable-kvm \
