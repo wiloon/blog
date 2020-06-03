@@ -10,7 +10,8 @@ categories:
 ---
 ### 安装 nftables
 
-```bashsudo pacman -S nftables
+```bash
+sudo pacman -S nftables
 sudo systemctl start nftables
 sudo systemctl enable nftables
 ```

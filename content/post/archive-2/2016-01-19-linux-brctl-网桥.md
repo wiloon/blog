@@ -9,7 +9,6 @@ categories:
 
 ---
 ### nft command
-
 <https://blog.wiloon.com/?p=12735>
 
 #### ip forward
@@ -17,10 +16,10 @@ categories:
 <https://blog.wiloon.com/?p=13701>
 
 ### 配置TAP
-
 <http://blog.wiloon.com/?p=13281>
 
-```bash# nftables nat
+```bash
+# nftables nat
 sudo nft add table ip nat
 sudo nft add chain ip nat post \{ type nat hook postrouting priority 0 \; \}
 sudo nft add chain ip nat pre \{ type nat hook prerouting priority 0 \; \}

@@ -72,11 +72,6 @@ for amd 64 system download from link here ftp://ftp.mozilla.org/pub/firefox/rele
 #Tomcat
    
 #Apache Tomcat mod_jk
-   
-#KVM
-   
-#skype, download deb
-
 http://calibre-ebook.com/
    
 Adblock Plus for Google Chrome™ (Beta)

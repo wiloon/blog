@@ -17,15 +17,13 @@ categories:
       * /home/wiloon/.config/fcitx/table/*.mb
   * idea.dic
   * ~/bin
+  * Emacs configuration file: ~/.emacs
+  * IDEA settings.
 
 ### wiloon.com
-
   * enx.war
   * enx db
-  * wordpress db
-  * /var/www/wordpress
-  * wordpress theme
 
 ### router
-
   * /etc/hosts
+ 

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashpacman -Syu
+```bash
+pacman -Syu
 pacman -S qemu
 pacman -S qemu-launcher
 qemu-img create -f raw gentoo.img 20G

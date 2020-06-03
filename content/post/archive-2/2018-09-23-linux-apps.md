@@ -87,8 +87,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | name                                  | comments                                                                                                 |
 |:------------------------------------- |:-------------------------------------------------------------------------------------------------------- |
 | redis-desktop-manager                 | rdm                                                                                                      |
-| wps-office                            | 依赖                                                                                                       |
-| ttf-wps-fonts                         | wps字体                                                                                                    |
+| wps-office                            | 依赖    |
+| ttf-wps-fonts                         | wps字体|
 | heidisql                              |                                                                                                          |
 | nixnote2-git                          | evernote linux 客户端                                                                                       |
 | gitkraken                             | git clinet, Free for non-commercial use                                                                  |
@@ -122,6 +122,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | netspeed widget    | 网络监控       |
 | resources monitor  | CPU, 内存 监控 |
 | Plasma Week Number | 显示周数       |
+| RSIBrea            |蕃茄钟          |
 
 ## ubuntu
 
