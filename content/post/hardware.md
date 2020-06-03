@@ -5,7 +5,6 @@ title = "hardware"
 
 +++
 ### PC:
-
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
 
 ### Pixelbook
@@ -16,6 +15,8 @@ Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
 
 Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz  
 ### board
+cpu: Intel(R) Celeron(R) CPU 1037U @ 1.80GHz
+MEM: DDR3
 wlan: BCM94313HMG2L
     Full IEEE 802.11a/b/g/n legacy compatibility with enhanced performance
     Single spatial stream up to a 72 Mbps data rate
