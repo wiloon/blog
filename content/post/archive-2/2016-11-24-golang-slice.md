@@ -11,12 +11,11 @@ categories:
 ### 切片/slice
 
 slice是一个引用类型，是一个动态的指向数组切片的指针。
-  
 slice是一个不定长的，总是指向底层的数组array的数据结构。
-
-```golang var al []int     //创建slice,并初始化
+```golang
+var al []int          //创建slice,并初始化
 sl := make([]int,10)  //创建有10个元素的slice
-sl:=[]int{1,2,3} //创建有初始化元素的slice
+sl:=[]int{1,2,3}      //创建有初始化元素的slice
 
 len(sl)
 cap(sl)
@@ -44,16 +43,13 @@ func SliceClear2(s *[]interface{}) {
 ### 数组
 
 array是固定长度的数组，使用前必须确定数组长度
-  
 golang array 特点：
-  
-&#8211; golang中的数组是值类型,也就是说，如果你将一个数组赋值给另外一个数组，那么，实际上就是整个数组拷贝了一份
-  
-&#8211; 如果golang中的数组作为函数的参数，那么实际传递的参数是一份数组的拷贝，而不是数组的指针
-  
-&#8211; array的长度也是Type的一部分，这样就说明[10]int和[20]int是不一样的。
+- golang中的数组是值类型,也就是说，如果你将一个数组赋值给另外一个数组，那么，实际上就是整个数组拷贝了一份 
+- 如果golang中的数组作为函数的参数，那么实际传递的参数是一份数组的拷贝，而不是数组的指针
+- array的长度也是Type的一部分，这样就说明[10]int和[20]int是不一样的。
 
-```golang var a [2]string
+```golang
+ var a [2]string
 
 foo:= [5] int {1,2,3,4,5}
 长度为5的数组，其元素值依次为：1，2，3，4，5

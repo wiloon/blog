@@ -1,5 +1,5 @@
 ---
-title: redis command
+title: redis basic,command
 author: wiloon
 type: post
 date: 2015-09-24T08:09:01+00:00
@@ -13,20 +13,21 @@ tags:
 ### install
 
 #### rpm
-
 download redis rpm from https://pkgs.org/download/redis
   
 下载Redis的依赖包：libjemalloc
 
 下载地址：https://pkgs.org/centos-6/atomic-x86\_64/jemalloc-3.6.0-1.el6.art.x86\_64.rpm.html
 
-```bashrpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
+```bash
+rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
 rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ```
 
 ### docker
 
-```bashdocker run \
+```bash
+docker run \
 -d \
 --name redis \
 -p 6379:6379 \
@@ -38,11 +39,11 @@ docker run -it --rm redis redis-cli -h redis.wiloon.com
 
 ```
 
-```bashredis-server --version
+```bash
+redis-server --version
 ```
 
 ### delete key
-
 del key1 key2
 
 ### 判断key是否存在
