@@ -22,8 +22,8 @@ sudo pacman -S kwalletmanager
 ```
 
 ### 登录后启动kde
-
-<pre><code class="language-shell line-numbers">vim /home/wiloon/.zshrc
+```bash
+vim /home/wiloon/.zshrc
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
@@ -37,3 +37,24 @@ sddm
 https://wiki.archlinux.org/index.php/Display\_manager#Loading\_the\_display\_manager
 
  [1]: https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login "https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login"
+
+ ### 锁屏界面的日期时间格式
+ https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html
+ ```bash
+vim  /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml
+找到这一行：
+
+text: Qt.formatTime(timeSource.data["Local"]["DateTime"])
+并将其更改为
+
+text: Qt.formatTime(timeSource.data["Local"]["DateTime"], "hh:mm:ss")
+对于ISO日期更改，请找到以下行：
+
+text: Qt.formatDate(timeSource.data["Local"]["DateTime"], Qt.DefaultLocaleLongDate);
+并将其更改为
+
+text: Qt.formatDate(timeSource.data["Local"]["DateTime"], "yyyy-MM-dd");
+保存更改。
+
+就是这样！你甚至不需要注销，更不用说重启了。按Ctrl + Alt + L锁定屏幕并立即查看更改。
+ ```

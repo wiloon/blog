@@ -52,6 +52,13 @@ qemu-system-x86_64 \
 -fda /usr/share/virtio/virtio-win_x86_64.vfd
 ```
 
+### 如果遇到 -fda read-only 的问题， 去修改一下权限
+qemu-system-x86_64: Initialization of device isa-fdc failed: Could not reopen file: Permission denied
+qemu-system-x86_64: Initialization of device isa-fdc failed: Block node is read-only
+
+```bash
+chmod 777 /usr/share/virtio/virtio-win_x86_64.vfd
+```
 
 ### 配置网络
 #### ip forward
@@ -70,15 +77,8 @@ sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
 
 
 
-### 如果遇到 -fda read-only 的问题， 去修改一下权限
-qemu-system-x86_64: Initialization of device isa-fdc failed: Block node is read-only
-
-```bash
-chmod 777 /usr/share/virtio/virtio-win_x86_64.vfd
-```
-
 ### start win10
-第一次启动要挂载virtio-win\_x86\_64.vfd，启动之后到win里面安装网上驱动。
+第一次启动要挂载virtio-win\_x86\_64.vfd，启动之后到win里面安装网卡驱动。
 
 ```bash
 #start kvm with virtio net (install eth)

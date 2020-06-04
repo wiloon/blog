@@ -8,16 +8,17 @@ categories:
   - Uncategorized
 
 ---
-```bash# 查看版本
-[root@osboxes java]# firewall-cmd --version
+```bash
+# 查看版本
+firewall-cmd --version
 0.3.9
 # 查看状态
-[root@osboxes java]# systemctl status firewalld.service
+systemctl status firewalld.service
 OR
-[root@osboxes java]# firewall-cmd --state
+firewall-cmd --state
 running
 # 获取启用的zone
-[root@osboxes java]# firewall-cmd --get-active-zones
+firewall-cmd --get-active-zones
 public
   interfaces: eno16777984
 

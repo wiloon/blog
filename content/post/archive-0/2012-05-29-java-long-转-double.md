@@ -16,7 +16,8 @@ double dnum = Double.parseDouble(str);
 
 ### hex > int
 
-```bash// 默认hex 大端字节序
+```bash
+// 默认hex 大端字节序
 int decimal = Integer.parseInt(hexNumber, 16);
 ```
 

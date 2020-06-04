@@ -33,14 +33,15 @@ sudo nft add rule nat pre iif wlp3s0 tcp dport \{ 3389,9999 \} dnat 192.168.60.2
 
 ### save your ruleset to /etc/nftables.conf which is loaded by nftables.service
 
-```bashsudo -s
-nft list ruleset &gt; /etc/nftables.conf
+```bash
+sudo -s
+nft list ruleset > /etc/nftables.conf
 
 ```
 
 [http://wiki.nftables.org/wiki-nftables/index.php/Performing\_Network\_Address\_Translation\_(NAT)][1]
-
-<pre><code class="language-shell line-numbers">sudo brctl addbr br0
+```bash
+sudo brctl addbr br0
 sudo brctl show
 sudo ip tuntap add dev tap1 mode tap
 sudo brctl addif br0 tap1
@@ -49,7 +50,8 @@ sudo ip tuntap
 sudo ip addr add 192.168.3.1/24 dev br0
 ```
 
-<pre><code class="language-shell line-numbers"># iptables
+```bash
+# iptables
 sudo ip tuntap add dev tap0 mode tap
 sudo ip addr add 192.168.3.1/24 dev tap0
 sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE

@@ -10,7 +10,8 @@ categories:
 ---
 Start ssh-agent with systemd user
 
-<pre><code class="language-shell line-numbers">vim ~/.config/systemd/user/ssh-agent.service
+```bash
+vim ~/.config/systemd/user/ssh-agent.service
 [Unit]
 Description=SSH key agent
 
@@ -23,12 +24,14 @@ ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
 WantedBy=default.target
 ```
 
-<pre><code class="language-shell line-numbers">vim  ~/.pam_environment
+```bash
+vim  ~/.pam_environment
 SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 ```
 
-<pre><code class="language-shell line-numbers"># Then enable or start the service.
+```bash
+# Then enable or start the service.
 systemctl --user enable ssh-agent
 systemctl --user start ssh-agent
 # 检查环境变量 SSH_AUTH_SOCK
@@ -37,5 +40,4 @@ env | fgrep SSH_
 ```
 
 https://wiki.archlinux.org/index.php/Systemd/User
-  
 https://wiki.archlinux.org/index.php/SSH_keys

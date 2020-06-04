@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# Do not run, just test the configuration file.
+```bash
+# Do not run, just test the configuration file.
 sudo nginx -t
 
 nginx -s signal

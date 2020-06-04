@@ -42,8 +42,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | pulseaudio            |                                        |
 | hexyl                 | 彩色hex编辑器                               |
 | nftables              |                                        |
-| google-chrome-dev     |                                        |
-| google-chrome-beta    |                                        |
 | zeitgeist             |                                        |
 | catfish               |                                        |
 | thunar-archive-plugin | thunar 右键解压文件                          |
@@ -55,7 +53,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | kotlin                |                                        |
 | docker                |                                        |
 | hdparm                | 磁盘参数查看工具                               |
-| Deluge                | bt client &#8211; docker               |
+| Deluge                | bt client docker               |
 | aria2                 | 下载工具                                   |
 | axel                  | 下载工具                                   |
 | inetutils             | telnet client                          |
@@ -63,11 +61,10 @@ sudo pacman -S powerdevil kmix kscreen ark
 | wireshark-qt          | Wireshark                              |
 | lsof                  |                                        |
 | playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序 |
-| xfce4-screenshooter   | xfce的截图工具                              |
 | podman                |                                        |
 | v2ray                 |                                        |
 | nethogs               |                                        |
-
+|flameshot|截图工具|
 ### pacman, dev
 
 | name                            | comments         |
@@ -84,26 +81,30 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 ### AUR, yay:
 
-| name                                  | comments                                                                                                 |
-|:------------------------------------- |:-------------------------------------------------------------------------------------------------------- |
-| redis-desktop-manager                 | rdm                                                                                                      |
+| name                                  | comments     |
+|:------------------------------------- |-------- |
+| deepin-wine-wechat                    | 微信|
+| google-chrome-beta                    |     |
+| redis-desktop-manager                 | rdm     |
 | wps-office                            | 依赖    |
 | ttf-wps-fonts                         | wps字体|
-| heidisql                              |                                                                                                          |
-| nixnote2-git                          | evernote linux 客户端                                                                                       |
-| gitkraken                             | git clinet, Free for non-commercial use                                                                  |
-| github-desktop-bin                    | MIT Linense                                                                                              |
-| heidisql                              | mysql客户端                                                                                                 |
-| jd-gui-bin                            | java反编译                                                                                                  |
-| eclipse-mat                           | Eclipse Memory Analyzer (MAT)                                                                            |
-| dingtalk                              | 钉钉                                                                                                       |
-| menulibre                             | xfce的系统菜单管理工具                                                                                            |
-| deepin-wine-wechat                    | 微信, https://github.com/countstarlight/deepin-wine-wechat-arch                   |
-| ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                                                                                    |
-| goland                                |                                                                                                          |
-| zoom                                  |                                                                                                          |
-| shutter                               |                                                                                                          |
-| perl-goo-canvas                       | shutter 的画线插件                                                                                            |
+| heidisql                              |        |
+| nixnote2-git                          | evernote linux 客户端  |
+| gitkraken                             | git clinet, Free for non-commercial use |
+| github-desktop-bin                    | MIT Linense  |
+| heidisql                              | mysql客户端     |
+| jd-gui-bin                            | java反编译      |
+| eclipse-mat                           | Eclipse Memory Analyzer (MAT)           |
+| dingtalk                              | 钉钉           |
+| menulibre                             | xfce的系统菜单管理工具       |
+
+| ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                   |
+| goland                                |              |
+| zoom                                  |              |
+| shutter                               |              |
+| perl-goo-canvas                       | shutter 的画线插件       |
+| google-chrome-dev     |                                        |
+
 
 ### KDE
 

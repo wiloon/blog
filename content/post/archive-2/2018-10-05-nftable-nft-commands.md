@@ -42,7 +42,8 @@ nft insert rule nat post ip protocol icmp icmp type echo-request accept
 
 ### 查
 
-```bashnft list ruleset # 列出所有规则
+```bash
+nft list ruleset # 列出所有规则
 nft list tables # 列出所有表
 # 列出每个族的表
 nft list tables ip
@@ -57,7 +58,8 @@ nft list table filter -n -a
 
 ### 删
 
-```bash#清空整个规则集
+```bash
+#清空整个规则集
 nft flush ruleset
 # 删除表中所有的规则
 nft flush table ip foo
