@@ -19,12 +19,14 @@ https://unix.stackexchange.com/questions/210930/completions-stopped-working-afte
 
 https://www.jianshu.com/p/aea390c1c8ef
 
-```bashgit clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+```bash
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 vim .zshrc
 plugins=(git zsh-autosuggestions)
 ```
 
-```bashsudo pacman -S git zsh
+```bash
+sudo pacman -S git zsh
 
 chsh -l
 chsh -s /bin/zsh
