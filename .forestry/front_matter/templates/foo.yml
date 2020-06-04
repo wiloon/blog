@@ -38,6 +38,7 @@ pages:
 - content/post/jwt-session.md
 - content/post/legendary.md
 - content/post/lerna.md
+- content/post/letsencrypt.md
 - content/post/lodash.md
 - content/post/mustache.md
 - content/post/mysql.md
