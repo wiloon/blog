@@ -55,16 +55,17 @@ sudo pacman -S powerdevil kmix kscreen ark
 | hdparm                | 磁盘参数查看工具                               |
 | Deluge                | bt client docker               |
 | aria2                 | 下载工具                                   |
-| axel                  | 下载工具                                   |
-| inetutils             | telnet client                          |
-| zeal                  | 离线文档                                   |
-| wireshark-qt          | Wireshark                              |
-| lsof                  |                                        |
+| axel                  | 下载工具                                                      |
+| inetutils             | telnet client                                                 |
+| zeal                  | 离线文档                                                      |
+| wireshark-qt          | Wireshark                                                     |
+| lsof                  |                                                               |
 | playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序 |
 | podman                |                                        |
 | v2ray                 |                                        |
 | nethogs               |                                        |
 |flameshot|截图工具|
+|ttf-jetbrains-mono|jetbrain的mono字体|
 ### pacman, dev
 
 | name                            | comments         |

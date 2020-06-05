@@ -8,18 +8,16 @@ categories:
   - Uncategorized
 
 ---
-<blockquote class="wp-embedded-content" data-secret="cEd7rLTTHt">
-  <p>
-    <a href="http://openwares.net/2014/03/10/kvm_nographic_display/">KVM的-nographic与-display选项</a>
-  </p>
-</blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://openwares.net/2014/03/10/kvm_nographic_display/embed/#?secret=cEd7rLTTHt" data-secret="cEd7rLTTHt" width="600" height="338" title="&#8220;KVM的-nographic与-display选项&#8221; &#8212; openwares.net" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+KVM的-nographic与-display选项
+http://openwares.net/2014/03/10/kvm_nographic_display/
+
+KVM的-nographic与-display选项&
+http://openwares.net/2014/03/10/kvm_nographic_display/embed/#?secret=cEd7rLTTHt
+
 
 KVM客户机正常运行时是不需要在主机上显示图形界面的,以前都是使用-nographic和-daemoniz选项来使客户机后台运行。
-  
 但是从qemu-kvm 1.4开始,这招不灵了，会有这样的错误提示:
-
 -nographic can not be used with -daemonize
   
 这提示过于简单的,新版本的kvm不再允许-nographic和-daemonize一起使用了,应该使用-display none参数来代替-nographic,这样:
