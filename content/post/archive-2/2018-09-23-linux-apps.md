@@ -66,6 +66,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | nethogs               |                                        |
 |flameshot|截图工具|
 |ttf-jetbrains-mono|jetbrain的mono字体|
+|gpick|颜色拾取工具|
+
 ### pacman, dev
 
 | name                            | comments         |
@@ -116,6 +118,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | kmix       | 音量调节      |
 | ark        | 压缩包管理器    |
 | gwenview   | 图片查看      |
+|kscreen     |kde 多显示器管理工具|
 
 ### KDE widget
 

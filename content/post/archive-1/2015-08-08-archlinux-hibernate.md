@@ -10,7 +10,7 @@ tags:
   - Arch Linux
 
 ---
-edit config file  /etc/mkinitcpio.conf
+### edit config file  /etc/mkinitcpio.conf add resume field
 
 Configure the initramfs
 
@@ -22,21 +22,27 @@ Remember to rebuild the initramfs for these changes to take effect.
   
 run mkinitcpio -p linux to rebuild the initramfs
 
-```bash&lt;br />mkinitcpio -p linux
+### rebuild initramfs
+```bash
+sudo mkinitcpio -p linux
 ```
 
-```bashvim /boot/loader/entries/arch.conf
+### for uefi
+```bash
+vim /boot/loader/entries/arch.conf
 # add line
-options resume=UUID=edf3ac02-8e07-4625-a831-a6d19dab9c3c
+options resume=UUID=ed325732-b768-4680-a4ff-24dd0da24509
 ```
 
+### for syslinux
 edit /boot/syslinux/syslinux.cfg
 
 Required kernel parameters
   
 resume=_swap_partition_
 
-```bash&lt;br />LABEL arch
+```bash
+&lt;br />LABEL arch
 TEXT HELP
 Boot Arch Linux
 ENDTEXT
@@ -51,4 +57,4 @@ systemctl hibernate
 
 hibernate and re start the system.
 
-https://wiki.archlinux.org/index.php/Power\_management/Suspend\_and_hibernate
+https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate
