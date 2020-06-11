@@ -10,7 +10,8 @@ categories:
 ---
 #### Session Multiplexing
 
-```bashemacs /etc/ssh/ssh_config
+```bash
+emacs /etc/ssh/ssh_config
 emacs ~/.ssh/config
 #---
 Host *

@@ -11,13 +11,14 @@ tags:
 
 ---
 ### edit config file  /etc/mkinitcpio.conf add resume field
-
+```bash
+sudo vim /etc/mkinitcpio.conf
+HOOKS=(base udev resume autodetect modconf block filesystems keyboard fsck)
+```
 Configure the initramfs
 
 When an initramfs with the base hook is used, which is the default, the resume hook is required in /etc/mkinitcpio.conf. Whether by label or by UUID, the swap partition is referred to with a udev device node, so the resume hook must go after the udev hook. This example was made starting from the default hook configuration:
-  
-HOOKS=&#8221;base udev resume autodetect modconf block filesystems keyboard fsck&#8221;
-  
+
 Remember to rebuild the initramfs for these changes to take effect.
   
 run mkinitcpio -p linux to rebuild the initramfs

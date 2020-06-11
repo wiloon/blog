@@ -18,7 +18,8 @@ download iso
   
 <http://mirrors.163.com/archlinux/iso/>
 
-```bash# 创建USB启动盘
+```bash
+# 创建USB启动盘
 #dd archlinux iso to usb
 sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && sync
 

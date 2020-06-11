@@ -118,7 +118,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | kmix       | 音量调节      |
 | ark        | 压缩包管理器    |
 | gwenview   | 图片查看      |
-|kscreen     |kde 多显示器管理工具|
+| kscreen     |kde 多显示器管理工具|
 
 ### KDE widget
 
@@ -127,7 +127,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | netspeed widget    | 网络监控       |
 | resources monitor  | CPU, 内存 监控 |
 | Plasma Week Number | 显示周数       |
-| RSIBrea            |蕃茄钟          |
+| rsibreak           |蕃茄钟, install via pacman |
 
 ## ubuntu
 

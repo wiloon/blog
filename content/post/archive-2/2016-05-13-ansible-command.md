@@ -8,22 +8,30 @@ categories:
   - Uncategorized
 
 ---
+
+### hibernate
+    ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
+    
 ### verbos
 
-```bashansible -vvvv
+```bash
+ansible -vvvv
 ```
 
 ### debug
 
-<pre><code class="language-yml line-numbers">    - name: Display all variables/facts known for a host
+```yaml
+   - name: Display all variables/facts known for a host
       debug:
         msg: "archlinux init"
 ```
 
-```bashansible -m setup host0
+```bash
+ansible -m setup host0
 ```
 
-```bash# 忽略指定的ip
+```bash
+# 忽略指定的ip
 ansible 'group0:!192.168.1.1' -m ping
 
 ansible-playbook playbook.yml --start-at-task="install packages"
@@ -79,3 +87,5 @@ command比较安全有可预知性，最好用command， 需要用到shell特性
 # http://www.wiloon.com/wordpress/?p=9403
 
 http://liumissyou.blog.51cto.com/4828343/1616462
+
+
