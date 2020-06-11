@@ -20,7 +20,8 @@ categories:
 
 https://www.kidscoding8.com/47249.html
 
-```bash#使GPIO17从内核空间暴露到用户空间中
+```bash
+#使GPIO17从内核空间暴露到用户空间中
 sudo echo 17 &gt; /sys/class/gpio/export
 #设置GPIO17为输出模式
 sudo echo out &gt; /sys/class/gpio/gpio17/direction

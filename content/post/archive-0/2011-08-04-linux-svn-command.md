@@ -12,7 +12,8 @@ categories:
 ---
 ### svn merge
 
-```bash# 分支合到主干 cd trunk
+```bash
+# 分支合到主干 cd trunk
 svn merge -r &lt;revision where branch was cut&gt;:&lt;revision of trunk&gt; svn://branch/path
 
 # 分支当前版本为4847，想把4825到4847间的改动merge到主干
@@ -52,7 +53,8 @@ svn resolve --accept mine-conflict 1.txt 使用1.txt.mine的冲突部分作为�
 svn resolve --accept theirs-conflict 1.txt 使用1.txt.rNew的冲突部分作为最后提交的版本
 ```
 
-```bash# 查看远程地址
+```bash
+# 查看远程地址
 svn info
 
 # checkout

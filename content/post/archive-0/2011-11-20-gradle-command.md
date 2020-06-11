@@ -14,7 +14,8 @@ tags:
   - Gradle
 
 ---
-```bash# 更新依赖包
+```bash
+# 更新依赖包
 gradle build --refresh-dependencies
 
 # publish to maven

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#! /usr/bin/env bash
+```bash
+#! /usr/bin/env bash
 
 APP_HOME=/data/server/app0
 APP_NAME=app0

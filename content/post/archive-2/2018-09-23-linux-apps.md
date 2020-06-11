@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# apps
+```bash
+# apps
 sudo pacman -S code go jdk-openjdk openjdk-src \
 maven gradle openvpn nftables zstd chromium \
 git jdk8-openjdk openjdk8-src kotlin docker

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# 查看系统启动时间和运行时间
+```bash
+# 查看系统启动时间和运行时间
 uptime
 who -b
 who -r

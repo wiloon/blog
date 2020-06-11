@@ -10,7 +10,8 @@ tags:
   - linux
 
 ---
-```bash# list installed package
+```bash
+# list installed package
 dpkg --list
 
 # remove package

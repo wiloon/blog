@@ -20,7 +20,8 @@ nginx -s signal
 # reopen — reopening the log files
 ```
 
-```bash# install
+```bash
+# install
 # docker
 docker run -d \
 --name nginx \

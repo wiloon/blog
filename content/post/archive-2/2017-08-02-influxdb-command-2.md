@@ -10,7 +10,8 @@ categories:
 ---
 ### http api
 
-```bash# http api
+```bash
+# http api
 curl -G 'http://localhost:8086/query?pretty=true'  --data-urlencode "q=show databases"
 curl -i -XPOST http://10.60.0.62:8086/query --data-urlencode "db=mydb" --data-urlencode "q=CREATE DATABASE db0"
 
@@ -18,7 +19,8 @@ curl -i -XPOST http://10.60.0.62:8086/query --data-urlencode "db=mydb" --data-ur
 
 ### database management
 
-```bash#show db
+```bash
+#show db
 dhow databases
 
 # 创建数据库，同时配置retention policy

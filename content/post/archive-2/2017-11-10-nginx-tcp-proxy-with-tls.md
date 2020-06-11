@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#check tls version
+```bash
+#check tls version
 openssl s_client -connect 127.0.0.1:443
 ```
 

@@ -47,7 +47,8 @@ pacman -S p7zip
 
 #### 压缩
 
-```bash# 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
+```bash
+# 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
 zip -s SIZE origin.zip --out new.zip
 
 # SIZE为分卷的大小4m,4g,4t等
@@ -84,7 +85,8 @@ find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 
 ### Zstandard, zstd
 
-```bash# zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
+```bash
+# zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
 
 # tar从1.30.90 之后开始支持zstd
 
@@ -128,7 +130,8 @@ Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是
 
 **(注：tar只是打包，不是压缩！)**
 
-```bash# 打包:
+```bash
+# 打包:
 tar cvf FileName.tar DirName
 
 # 解包:
@@ -150,7 +153,8 @@ cat logs.tar.bz2.a* | tar xj
 
 默认tar打包和系统默认的压缩工具是单线程的，pigz是gzip的多线程实现,默认用当前逻辑cpu个数来并发压缩，无法检测个数的话，则并发8个线程
 
-```bash#压缩
+```bash
+#压缩
 tar -zcvf all.tar.gz *.jpg
 
 \#设置压缩级别

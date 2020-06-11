@@ -22,7 +22,8 @@ tags:
 
 ### 生成项目
 
-```bash# common project
+```bash
+# common project
 # mvn archetype:generate 会自动创建项目目录mvntest
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -42,7 +43,8 @@ mvn archetype:generate -DgroupId=com.wiloon.mail.web -DartifactId=mailTestWeb \
 mvn clean compile -U
 ```
 
-```bash# upload jar to nexus
+```bash
+# upload jar to nexus
 mvn deploy:deploy-file -Dfile=xxx.pom -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=pom -DrepositoryId=repo0 -Durl=https://maven.wiloon.com/repository/snapshot/
 
 mvn deploy:deploy-file -Dfile=xxx.jar -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=jar -DrepositoryId=repo0 -Durl=https://maven.wiloon.net/repository/snapshot/

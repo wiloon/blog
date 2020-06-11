@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#centos
+```bash
+#centos
 sudo yum install epel-release
 yum install redis
 

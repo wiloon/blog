@@ -10,7 +10,8 @@ categories:
 ---
 ## socat
 
-```bash# test tcp port
+```bash
+# test tcp port
 socat - TCP4:192.168.1.15:22,connect-timeout=2
 
 # test udp port
@@ -31,7 +32,8 @@ socat - UDP:localhost:48772
 
 telnet 只能测试 tcp端口， 测试udp端口需要用nc
 
-```bash# centos
+```bash
+# centos
 yum install nc
 
 nc -lvu 0.0.0.0  124

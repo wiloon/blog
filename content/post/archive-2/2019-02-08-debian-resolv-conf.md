@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash### check status
+```bash
+### check status
 resolvectl status
 ### 测试 域名解析
 resolvectl query baidu.com

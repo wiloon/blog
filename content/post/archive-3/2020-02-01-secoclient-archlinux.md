@@ -10,7 +10,8 @@ categories:
 ---
 官方只提供了ubuntu版本，用以下方式可以在archlinux上使用。
 
-```bash# seco client 依赖ubuntu的arch命令， 模拟arch命令返回x86_64
+```bash
+# seco client 依赖ubuntu的arch命令， 模拟arch命令返回x86_64
 echo "echo x86_64" &gt; /usr/bin/arch
 chmod u+x /usr/bin/arch
 

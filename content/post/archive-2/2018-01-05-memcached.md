@@ -17,7 +17,8 @@ categories:
 memcached -m 16
 ```
 
-```bash# connect
+```bash
+# connect
 telnet HOST PORT
 
 set foo 0 0 3

@@ -21,7 +21,8 @@ filebeat.x86_64                         7.2.1-1                         elastic
 yum install filebeat-7.2.0-1
 ```
 
-```bash#search
+```bash
+#search
 yum search iostat
 
 #search

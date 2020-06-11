@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#zkCli.sh
+```bash
+#zkCli.sh
 #连接zookeeper
 bin/zkCli.sh -server localhost:2181
 

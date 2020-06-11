@@ -22,7 +22,8 @@ journal config
   
 SystemMaxUse=1024M
 
-```bash# 最近一次重新引导后收集到的日志
+```bash
+# 最近一次重新引导后收集到的日志
 journalctl -b
 
 # 查看系统上全部来自Nginx单元的日志

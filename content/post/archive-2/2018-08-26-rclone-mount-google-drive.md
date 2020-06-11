@@ -10,7 +10,8 @@ categories:
 ---
 ### install rclone
 
-```bash# install rclone
+```bash
+# install rclone
 sudo pacman -S rclone
 sudo pacman -S fuse
 ```
@@ -23,7 +24,8 @@ sudo pacman -S fuse
 
 ### google drive
 
-```bash# config rclone
+```bash
+# config rclone
 rclone config
 # n, new config
 # name? name-foo, a name

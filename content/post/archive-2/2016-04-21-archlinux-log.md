@@ -52,7 +52,8 @@ install and switch to zsh &#8212; oh-my-zsh
 
 #### xfce4
 
-```bash# install xfce4
+```bash
+# install xfce4
 sudo pacman -S xorg
 sudo pacman -S xorg-server
 sudo pacman -S xf86-video-intel xf86-video-vesa

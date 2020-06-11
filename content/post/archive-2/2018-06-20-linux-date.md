@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600
+```bash
+# output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600
 date -R
 
 # 设置时间和日期

@@ -86,7 +86,8 @@ vmc start termina
 
 ### openvpn in crostini
 
-```bash# 进入crosh环境
+```bash
+# 进入crosh环境
 ctrl+t
 # 在crosh中执行以下命令
 vmc stop termina
@@ -100,7 +101,8 @@ sudo pacman -S openvpn
 
 ### 显示问题， 找不到图形环境问题
 
-```bash# in crostini
+```bash
+# in crostini
 export WAYLAND_DISPLAY=wayland-0
 # &lt;user id&gt;替换成 当前用户的id
 export XDG_RUNTIME_DIR=/run/user/&lt;user id&gt;
