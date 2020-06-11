@@ -100,13 +100,13 @@ sudo pacman -S powerdevil kmix kscreen ark
 | eclipse-mat                           | Eclipse Memory Analyzer (MAT)           |
 | dingtalk                              | 钉钉           |
 | menulibre                             | xfce的系统菜单管理工具       |
-
 | ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                   |
 | goland                                |              |
 | zoom                                  |              |
 | shutter                               |              |
 | perl-goo-canvas                       | shutter 的画线插件       |
 | google-chrome-dev     |                                        |
+|intellij-idea-community-edition-jre|idea with jre|
 
 
 ### KDE
