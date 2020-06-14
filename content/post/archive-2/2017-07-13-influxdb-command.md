@@ -24,7 +24,8 @@ systemctl enable influxdb
 
 ```
 
-```bash# install
+```bash
+# install
 # archlinux
 yaourt -S influxdb
 

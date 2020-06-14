@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# 新建 angular项目后， 在项目目录下执行
+```bash
+# 新建 angular项目后， 在项目目录下执行
 yarn add echarts
 yarn add ngx-echarts
 yarn add @types/echarts -D

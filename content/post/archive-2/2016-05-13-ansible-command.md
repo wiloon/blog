@@ -23,7 +23,8 @@ categories:
 ```bashansible -m setup host0
 ```
 
-```bash# 忽略指定的ip
+```bash
+# 忽略指定的ip
 ansible 'group0:!192.168.1.1' -m ping
 
 ansible-playbook playbook.yml --start-at-task="install packages"

@@ -18,7 +18,8 @@ download iso
   
 <http://mirrors.163.com/archlinux/iso/>
 
-```bash# 创建USB启动盘
+```bash
+# 创建USB启动盘
 #dd archlinux iso to usb
 sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && sync
 
@@ -33,7 +34,8 @@ or
   
 <https://blog.wiloon.com/?p=9881>
 
-```bash# 给root设置密码
+```bash
+# 给root设置密码
 passwd
 
 # 启动sshd
@@ -67,7 +69,8 @@ systemctl start sshd
 
 <http://blog.wiloon.com/?p=7609>
 
-```bash# Mount the partitions
+```bash
+# Mount the partitions
 mkdir /mnt/tmp
 mount /dev/sdx3 /mnt/tmp
 mkdir /mnt/tmp/boot
@@ -116,7 +119,8 @@ pacman -S wpa_supplicant
 
 ### boot with UEFI
 
-```bash# boot with uefi
+```bash
+# boot with uefi
 bootctl install
 cd /boot/loader
 pacman -S vim emacs

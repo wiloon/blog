@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# 启用swap分区：
+```bash
+# 启用swap分区：
 swapon /dev/sda2
 # 验证状态：
 swapon -s

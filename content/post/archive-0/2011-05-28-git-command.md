@@ -62,7 +62,8 @@ git push -u origin master
 
 ### tag
 
-```bash#list tags
+```bash
+#list tags
 git tag
 
 # add a tag
@@ -104,7 +105,8 @@ $ git fetch <远程主机名> <分支名>
 
 $ git fetch origin master
 
-```bash# 查看远程仓库地址
+```bash
+# 查看远程仓库地址
 git remote -v
 
 man git-fetch
@@ -160,7 +162,8 @@ git ls-files -d | xargs git checkout --
 
 ```
 
-```bash#checkout tag
+```bash
+#checkout tag
 git clone --branch <tag_name> <repo_url>
 
 git clean -fd

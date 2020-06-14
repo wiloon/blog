@@ -16,7 +16,8 @@ replace顾名思义，就是用新的package去替换另一个package，他们�
   
 go mod replace 必须带版本号, 不带版本号的replace只能用于replace到本地目录
 
-```bash# old是要被替换的package，new就是用于替换的package。
+```bash
+# old是要被替换的package，new就是用于替换的package。
 go mod edit -replace=old[@v]=new[@v]
 
 # replace golang sys

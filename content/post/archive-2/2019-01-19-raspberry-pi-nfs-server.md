@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#安装 NFS 服务器
+```bash
+#安装 NFS 服务器
 sudo apt install nfs-kernel-server
 
 vim /etc/exports

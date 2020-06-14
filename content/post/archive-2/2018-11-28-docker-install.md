@@ -12,7 +12,8 @@ https://docs.docker.com/install/linux/docker-ce/centos/
   
 https://yq.aliyun.com/articles/110806
 
-```bash# centos
+```bash
+# centos
 
 # uninstall old version
 sudo yum remove docker \

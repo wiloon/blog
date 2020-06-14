@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash############### rdb ###############
+```bash
+############### rdb ###############
 save 600 1
 save 300 20000
 save 60 80000

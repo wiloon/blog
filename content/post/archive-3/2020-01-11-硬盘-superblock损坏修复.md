@@ -10,7 +10,8 @@ categories:
 ---
 ### 找到super block 备份
 
-```bash#查看文件系统备份Superblock
+```bash
+#查看文件系统备份Superblock
 mke2fs -n /dev/sdb
 #查看文件系统备份Superblock
 dumpe2fs /dev/sdb1 | grep --before-context=1 superblock

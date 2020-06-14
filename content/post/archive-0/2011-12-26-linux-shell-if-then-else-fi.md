@@ -22,7 +22,8 @@ fi
 
 ### 判断字符串是否相等
 
-```bash#判断字符串是否相等
+```bash
+#判断字符串是否相等
 if [ "$A" = "$B" ];then
 echo "[ = ]"
 fi
@@ -110,7 +111,8 @@ grep操作的返回值：
 
 https://www.shellscript.sh/functions.html
 
-```bash# check if directory is exist
+```bash
+# check if directory is exist
 if [ ! -d "$DIRECTORY" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
 fi

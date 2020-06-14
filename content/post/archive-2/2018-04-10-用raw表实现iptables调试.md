@@ -49,7 +49,8 @@ policy 会跟用户定义的rule放在一起排序，如果用户定义了6条�
 
 for openwrt > iptables
 
-```bash# install raw table for iptables
+```bash
+# install raw table for iptables
 opkg install kmod-ipt-raw
 
 #build kmod-ipt-debug as module which provides the iptables TRACE target

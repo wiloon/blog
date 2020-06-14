@@ -45,7 +45,8 @@ docker run -it --rm zookeeper zkCli.sh -server 127.0.0.1
 
 ```
 
-```bash#zkCli.sh
+```bash
+#zkCli.sh
 #连接zookeeper
 bin/zkCli.sh -server localhost:2181
 

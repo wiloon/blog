@@ -14,7 +14,8 @@ tags:
   - linux
 
 ---
-```bash# 替换字符串
+```bash
+# 替换字符串
 foo=foo-bar
 bar=${foo/-/_}
 echo $bar

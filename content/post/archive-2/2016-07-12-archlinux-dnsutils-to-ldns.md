@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# install dig
+```bash
+# install dig
 ## archlinux
 sudo pacman -S ldns
 

@@ -8,7 +8,8 @@ categories:
   - Linux
 
 ---
-```bash#安装samba
+```bash
+#安装samba
 sudo pacman -S --noconfirm samba
 
 #创建共享目录
@@ -32,7 +33,8 @@ printable = no
 create mask = 0644
 ```
 
-```bash# 创建用户，使用已有用户的话，可以跳过
+```bash
+# 创建用户，使用已有用户的话，可以跳过
 sudo pdbedit -a user0
 # set password for user，设置密码，使用系统现有的用户时，也要设置密码，samba可以跟linux系统共享用户名，但是密码是独立的。
 smbpasswd -a user0

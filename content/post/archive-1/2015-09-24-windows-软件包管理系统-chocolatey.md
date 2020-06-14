@@ -31,7 +31,8 @@ https://chocolatey.org/install
   
 choco install keepassxc
 
-```bash# 以管理员身份启动power shell,windows terminal
+```bash
+# 以管理员身份启动power shell,windows terminal
 choco install keepassxc
 choco upgrade keepassxc
 choco upgrade all

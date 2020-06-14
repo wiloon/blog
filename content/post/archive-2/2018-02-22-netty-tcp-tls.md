@@ -12,7 +12,8 @@ categories:
   
 -Djavax.net.debug=SSL
 
-```bash#生成服务端密钥对和证书仓库
+```bash
+#生成服务端密钥对和证书仓库
 keytool -genkey -alias tlsServer -keysize 2048 -validity 365 -keyalg RSA \
 -dname "CN=wiloon" -keypass password0 -storepass password0 -keystore server.jks
 

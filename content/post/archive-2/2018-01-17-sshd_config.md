@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-.ssh/authorized_keys
+vim .ssh/authorized_keys
 
 ClientAliveInterval
   

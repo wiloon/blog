@@ -10,7 +10,8 @@ categories:
 ---
 https://www.archlinux.org/news/ca-certificates-update/
 
-```bash# xxx.crt should export from sub ca
+```bash
+# xxx.crt should export from sub ca
 sudo cp xxx.crt /etc/ssl/certs/
 sudo cp xxx.crt /etc/ca-certificates/trust-source/anchors/
 sudo trust extract-compat

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# check systemd-resolved status
+```bash
+# check systemd-resolved status
 resolvectl status
 
 # disable dns on 53 port

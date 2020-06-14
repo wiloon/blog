@@ -1,5 +1,5 @@
 ---
-title: chrony, ntp
+title: ntp, chrony
 author: wiloon
 type: post
 date: 2017-07-20T00:57:34+00:00
@@ -10,7 +10,8 @@ categories:
 ---
 ### chrony
 
-```bash# install chrony - arch
+```bash
+# install chrony - arch
 sudo pacman -S chrony
 
 # for centos
@@ -89,7 +90,8 @@ ntpq -p
 
 ```
 
-```bash# 查看ntp状态
+```bash
+# 查看ntp状态
 ntpq -p
 ntpq -4p
 ```

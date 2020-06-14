@@ -52,7 +52,8 @@ categories:
 }
 ```
 
-```bash# logrotate status
+```bash
+# logrotate status
 cat /var/lib/logrotate/logrotate.status
 
 # 启用debug模式
