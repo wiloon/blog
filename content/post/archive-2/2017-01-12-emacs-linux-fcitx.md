@@ -8,17 +8,11 @@ categories:
 
 ---
 ### 在线造词
-
 (词组最长为10个汉字)
-
 在中文输入方式下按CTRL+8，则利用将刚刚输入的内容造词，默认为最近输入法两个字，可以用左右方向键的增加或减少词组中的字数,回车确认。
-
 输入法提供了两种在线造词方法(词组最长为 10 个汉字):
-
 1. 在中文输入方式下按 CTRL_8,则利用将刚刚输入的内容造词,默认为最近输
-
 入法两个字,可以用左右方向键的增加或减少词组中的字数。
-
 1. 自动组词:将需要造的词按单字连续输入后,再按它的组词规则连续输入编码 ,
    程序会提示用户这个新词。如果此时按空格或它前面的序号则将这个新词输入到用
    户程序中,您可以设置这个新词是否进入词库。如果不想录入该词,继续进行下一
@@ -27,62 +21,53 @@ categories:
    或是当程序提示有该词组时,按 CTRL_DEL 删除。
 
 ### 调整词顺序
-
 ctrl+6
 
 ### 五笔词库位置
-
 /home/user0/.config/fcitx/table/wbx.mb
 
 ### 安装fcitx
-
     sudo pacman -S fcitx
     #图形界面的配置程序：KDE 中的 kcm-fcitx
     sudo pacman -S  kcm-fcitx
 
 ### gtk3 config tool
-
 ```bash
 sudo pacman -S fcitx-configtool
 ```
 
 ### 输入法模块
-
     sudo pacman -S fcitx-im
 
 ### 五笔
-
 ##### 可能需要重启
 
-sudo pacman -S fcitx-table-extra
+        sudo pacman -S fcitx-table-extra
 
-\#edit .zshrc
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+        #edit .zshrc
+        export GTK_IM_MODULE=fcitx
+        export QT_IM_MODULE=fcitx
+        export XMODIFIERS=@im=fcitx
 
-\#start fcitx
-fcitx
+        #start fcitx
+        fcitx
 
 ### 解决 emacs 中文输入问题
 
-sudo rm /usr/bin/emacs.raw
-sudo mv /usr/bin/emacs /usr/bin/emacs.raw
+        sudo rm /usr/bin/emacs.raw
+        sudo mv /usr/bin/emacs /usr/bin/emacs.raw
 
-\#since emacs is unavailabe now
-sudo vi /usr/bin/emacs
+        #since emacs is unavailabe now
+        sudo vi /usr/bin/emacs
 
-\#new /usr/bin/emacs file content
-\#! /bin/bash
-export LC_CTYPE=zh_CN.utf-8;
-/usr/bin/emacs.raw "$@"
+        #new /usr/bin/emacs file content
+        #! /bin/bash
+        export LC_CTYPE=zh_CN.utf-8;
+        /usr/bin/emacs.raw "$@"
 
-```
 
 ### .zshrc
-
 vim .zshrc
-
 export XIM="fcitx"
 export XIM_PROGRAM="fcitx"
 export XMODIFIERS="@im=fcitx"
@@ -92,7 +77,8 @@ export LC_CTYPE=zh_CN.UTF-8
 
 ### Fcitx 配置工具
 
-```bashfcitx-configtool
+```bash
+fcitx-configtool
 ```
 
 ### 修改剪贴板快捷键

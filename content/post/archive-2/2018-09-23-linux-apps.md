@@ -67,6 +67,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | nethogs               |                                        |
 |flameshot|截图工具|
 |ttf-jetbrains-mono|jetbrain的mono字体|
+|gpick|颜色拾取工具|
+
 ### pacman, dev
 
 | name                            | comments         |
@@ -99,13 +101,13 @@ sudo pacman -S powerdevil kmix kscreen ark
 | eclipse-mat                           | Eclipse Memory Analyzer (MAT)           |
 | dingtalk                              | 钉钉           |
 | menulibre                             | xfce的系统菜单管理工具       |
-
 | ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                   |
 | goland                                |              |
 | zoom                                  |              |
 | shutter                               |              |
 | perl-goo-canvas                       | shutter 的画线插件       |
 | google-chrome-dev     |                                        |
+|intellij-idea-community-edition-jre|idea with jre|
 
 
 ### KDE
@@ -117,6 +119,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | kmix       | 音量调节      |
 | ark        | 压缩包管理器    |
 | gwenview   | 图片查看      |
+| kscreen     |kde 多显示器管理工具|
 
 ### KDE widget
 
@@ -125,7 +128,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | netspeed widget    | 网络监控       |
 | resources monitor  | CPU, 内存 监控 |
 | Plasma Week Number | 显示周数       |
-| RSIBrea            |蕃茄钟          |
+| rsibreak           |蕃茄钟, install via pacman |
 
 ## ubuntu
 

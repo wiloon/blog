@@ -56,7 +56,8 @@ systemctl start sshd
 
 # pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 
-```bashpacman -Sy
+```bash
+pacman -Sy
 ```
 
 ## 分区并格式化硬盘
@@ -80,16 +81,18 @@ pacstrap /mnt/tmp base linux linux-firmware
 # if command not found, see http://www.wiloon.com/wordpress/?p=8443
 
 # 建议使用UUID方式生成fstab和启动管理器配置
-genfstab -p -U /mnt/tmp &gt;&gt; /mnt/tmp/etc/fstab
+genfstab -p -U /mnt/tmp >> /mnt/tmp/etc/fstab
 ```
 
 ### 把网络配置文件复制到新系统
 
-```bashcp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
+```bash
+cp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
 
 ```
 
-```basharch-chroot /mnt/tmp
+```bash
+arch-chroot /mnt/tmp
 
 echo hostname0 &gt; /etc/hostname
 

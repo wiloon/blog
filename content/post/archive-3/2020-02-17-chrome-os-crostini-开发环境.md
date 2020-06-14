@@ -20,7 +20,8 @@ crostini默认的terminal在使用oh my zsh时，光标显示不正常。
   
 安装tilix,从chromeos启动tilix使用terminal
 
-```bashsudo pacman -S tilix
+```bash
+sudo pacman -S tilix
 # 在chromeos中启动tilix使用shell
 ```
 
@@ -30,17 +31,12 @@ crostini默认的terminal在使用oh my zsh时，光标显示不正常。
 
 File->Settings->Plugins.
   
-Click marketplace, search for "Choose Runtime&#8221;
-  
+Click marketplace, search for "Choose Runtime"
 Install official Choose Runtime addon from JetBrains
-  
 Wait for install and click to restart IDE.
-  
 Once back in project, press shift twice to open the search window
-  
-Search for Runtime. Select "Choose Runtime&#8221;
-  
-Change to "jbrsdk-8u-232-linux-x64-b1638.6.tar.gz&#8221;, which should be the very last one at the bottom of the list.
+Search for Runtime. Select "Choose Runtime"
+Change to "jbrsdk-8u-232-linux-x64-b1638.6.tar.gz", which should be the very last one at the bottom of the list.
   
 Click install, restart IDE, enjoy!
 

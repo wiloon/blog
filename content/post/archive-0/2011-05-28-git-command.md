@@ -1,5 +1,5 @@
 ---
-title: git command
+title: git basic, command
 author: wiloon
 date: 2011-05-28T13:01:51.000+00:00
 url: "/?p=202"
@@ -163,7 +163,8 @@ git ls-files -d | xargs git checkout --
 ```
 
 ```bash
-#checkout tag
+#checkout tag/branch
+git clone -b v1.30.0 https://github.com/grpc/grpc-java
 git clone --branch <tag_name> <repo_url>
 
 git clean -fd
