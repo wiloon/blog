@@ -163,7 +163,7 @@ OK，让我们开始行动吧，出发指令就是：“java AppMain”，包包
   
 接着，Java虚拟机定位到方法区中AppMain类的Main()方法的字节码，开始执行它的指令。这个main()方法的第一条语句就是：
   
-Sample test1=new Sample(&#8220;测试1&#8221;);
+Sample test1=new Sample("测试1&#8221;);
   
 语句很简单啦，就是让java虚拟机创建一个Sample实例，并且呢，使引用变量test1引用这个实例。貌似小case一桩哦，就让我们来跟踪一下Java虚拟机，看看它究竟是怎么来执行这个任务的：
   
@@ -219,9 +219,9 @@ stack：是自动分配变量，以及函数调用的时候所使用的一些空
   
 4.每个JVM的线程都有自己的私有的栈空间，随线程创建而创建，java的stack存放的是frames ，java的stack和c的不同，只是存放本地变量，返回值和调用方法，不允许直接push和pop frames ，因为frames 可能是有heap分配的，所以j为ava的stack分配的内存不需要是连续的。java的heap是所有线程共享的，堆存放所有 runtime data ，里面是所有的对象实例和数组，heap是JVM启动时创建。
   
-　　5. String是一个特殊的包装类数据。即可以用String str = new String(&#8220;abc&#8221;);的形式来创建，也可以用String str = &#8220;abc&#8221;；的形式来创建(作为对比，在JDK 5.0之前，你从未见过Integer i = 3;的表达式，因为类与字面值是不能通用的，除了String。而在JDK 5.0中，这种表达式是可以的！因为编译器在后台进行Integer i = new Integer(3)的转换)。前者是规范的类的创建过程，即在Java中，一切都是对象，而对象是类的实例，全部通过new()的形式来创建。Java 中的有些类，如DateFormat类，可以通过该类的getInstance()方法来返回一个新创建的类，似乎违反了此原则。其实不然。该类运用了单例模式来返回类的实例，只不过这个实例是在该类内部通过new()来创建的，而getInstance()向外部隐藏了此细节。那为什么在String str = &#8220;abc&#8221;；中，并没有通过new()来创建实例，是不是违反了上述原则？其实没有。
+　　5. String是一个特殊的包装类数据。即可以用String str = new String("abc&#8221;);的形式来创建，也可以用String str = "abc&#8221;；的形式来创建(作为对比，在JDK 5.0之前，你从未见过Integer i = 3;的表达式，因为类与字面值是不能通用的，除了String。而在JDK 5.0中，这种表达式是可以的！因为编译器在后台进行Integer i = new Integer(3)的转换)。前者是规范的类的创建过程，即在Java中，一切都是对象，而对象是类的实例，全部通过new()的形式来创建。Java 中的有些类，如DateFormat类，可以通过该类的getInstance()方法来返回一个新创建的类，似乎违反了此原则。其实不然。该类运用了单例模式来返回类的实例，只不过这个实例是在该类内部通过new()来创建的，而getInstance()向外部隐藏了此细节。那为什么在String str = "abc&#8221;；中，并没有通过new()来创建实例，是不是违反了上述原则？其实没有。
   
-　　5. 关于String str = &#8220;abc&#8221;的内部工作。Java内部将此语句转化为以下几个步骤：
+　　5. 关于String str = "abc&#8221;的内部工作。Java内部将此语句转化为以下几个步骤：
   
 　　(1)先定义一个名为str的对String类的对象引用变量：String str；
   
@@ -229,13 +229,13 @@ stack：是自动分配变量，以及函数调用的时候所使用的一些空
   
 　　(3)将str指向对象o的地址。
   
-　　值得注意的是，一般String类中字符串值都是直接存值的。但像String str = &#8220;abc&#8221;；这种场合下，其字符串值却是保存了一个指向存在栈中数据的引用！
+　　值得注意的是，一般String类中字符串值都是直接存值的。但像String str = "abc&#8221;；这种场合下，其字符串值却是保存了一个指向存在栈中数据的引用！
   
 为了更好地说明这个问题，我们可以通过以下的几个代码进行验证。
   
-　　String str1 = &#8220;abc&#8221;;
+　　String str1 = "abc&#8221;;
   
-　　String str2 = &#8220;abc&#8221;;
+　　String str2 = "abc&#8221;;
   
 　　System.out.println(str1==str2); //true
   
@@ -245,13 +245,13 @@ stack：是自动分配变量，以及函数调用的时候所使用的一些空
   
 　　我们再来更进一步，将以上代码改成：
   
-　　String str1 = &#8220;abc&#8221;;
+　　String str1 = "abc&#8221;;
   
-　　String str2 = &#8220;abc&#8221;;
+　　String str2 = "abc&#8221;;
   
-　　str1 = &#8220;bcd&#8221;;
+　　str1 = "bcd&#8221;;
   
-　　System.out.println(str1 + &#8220;,&#8221; + str2); //bcd, abc
+　　System.out.println(str1 + ",&#8221; + str2); //bcd, abc
   
 　　System.out.println(str1==str2); //false
   
@@ -261,17 +261,17 @@ stack：是自动分配变量，以及函数调用的时候所使用的一些空
   
 　　再修改原来代码：
   
-　　String str1 = &#8220;abc&#8221;;
+　　String str1 = "abc&#8221;;
   
-　　String str2 = &#8220;abc&#8221;;
+　　String str2 = "abc&#8221;;
   
-　　str1 = &#8220;bcd&#8221;;
+　　str1 = "bcd&#8221;;
   
 　　String str3 = str1;
   
 　　System.out.println(str3); //bcd
   
-　　String str4 = &#8220;bcd&#8221;;
+　　String str4 = "bcd&#8221;;
   
 　　System.out.println(str1 == str4); //true
   
@@ -279,17 +279,17 @@ stack：是自动分配变量，以及函数调用的时候所使用的一些空
   
 　　我们再接着看以下的代码。
   
-　　String str1 = new String(&#8220;abc&#8221;);
+　　String str1 = new String("abc&#8221;);
   
-　　String str2 = &#8220;abc&#8221;;
+　　String str2 = "abc&#8221;;
   
 　　System.out.println(str1==str2); //false
   
 　　创建了两个引用。创建了两个对象。两个引用分别指向不同的两个对象。
   
-　　String str1 = &#8220;abc&#8221;;
+　　String str1 = "abc&#8221;;
   
-　　String str2 = new String(&#8220;abc&#8221;);
+　　String str2 = new String("abc&#8221;);
   
 　　System.out.println(str1==str2); //false
   
@@ -301,9 +301,9 @@ stack：是自动分配变量，以及函数调用的时候所使用的一些空
   
 　　7. 结论与建议：
   
-　　(1)我们在使用诸如String str = &#8220;abc&#8221;；的格式定义类时，总是想当然地认为，我们创建了String类的对象str。担心陷阱！对象可能并没有被创建！唯一可以肯定的是，指向 String类的引用被创建了。至于这个引用到底是否指向了一个新的对象，必须根据上下文来考虑，除非你通过new()方法来显要地创建一个新的对象。因此，更为准确的说法是，我们创建了一个指向String类的对象的引用变量str，这个对象引用变量指向了某个值为&#8221;abc&#8221;的String类。清醒地认识到这一点对排除程序中难以发现的bug是很有帮助的。
+　　(1)我们在使用诸如String str = "abc&#8221;；的格式定义类时，总是想当然地认为，我们创建了String类的对象str。担心陷阱！对象可能并没有被创建！唯一可以肯定的是，指向 String类的引用被创建了。至于这个引用到底是否指向了一个新的对象，必须根据上下文来考虑，除非你通过new()方法来显要地创建一个新的对象。因此，更为准确的说法是，我们创建了一个指向String类的对象的引用变量str，这个对象引用变量指向了某个值为&#8221;abc&#8221;的String类。清醒地认识到这一点对排除程序中难以发现的bug是很有帮助的。
   
-　　(2)使用String str = &#8220;abc&#8221;；的方式，可以在一定程度上提高程序的运行速度，因为JVM会自动根据栈中数据的实际情况来决定是否有必要创建新对象。而对于String str = new String(&#8220;abc&#8221;)；的代码，则一概在堆中创建新对象，而不管其字符串值是否相等，是否有必要创建新对象，从而加重了程序的负担。这个思想应该是享元模式的思想，但JDK的内部在这里实现是否应用了这个模式，不得而知。
+　　(2)使用String str = "abc&#8221;；的方式，可以在一定程度上提高程序的运行速度，因为JVM会自动根据栈中数据的实际情况来决定是否有必要创建新对象。而对于String str = new String("abc&#8221;)；的代码，则一概在堆中创建新对象，而不管其字符串值是否相等，是否有必要创建新对象，从而加重了程序的负担。这个思想应该是享元模式的思想，但JDK的内部在这里实现是否应用了这个模式，不得而知。
   
 　　(3)当比较包装类里面的数值是否相等时，用equals()方法；当测试两个包装类的引用是否指向同一个对象时，用==。
   

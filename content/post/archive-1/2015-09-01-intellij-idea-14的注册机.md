@@ -104,7 +104,7 @@ if (i > 0)
   
 {
   
-sb.append(&#8220;-&#8220;);
+sb.append("-");
   
 }
   
@@ -224,9 +224,9 @@ bkey[10] = (byte) (w & 255);
   
 bkey[11] = (byte) ((w >> 8) & 255);
   
-BigInteger pow = new BigInteger(&#8220;89126272330128007543578052027888001981&#8221;, 10);
+BigInteger pow = new BigInteger("89126272330128007543578052027888001981&#8221;, 10);
   
-BigInteger mod = new BigInteger(&#8220;86f71688cdd2612ca117d1f54bdae029&#8221;, 16);
+BigInteger mod = new BigInteger("86f71688cdd2612ca117d1f54bdae029&#8221;, 16);
   
 BigInteger k0 = new BigInteger(bkey);
   
@@ -234,7 +234,7 @@ BigInteger k1 = k0.modPow(pow, mod);
   
 String s0 = Integer.toString(id);
   
-String sz = &#8220;0&#8221;;
+String sz = "0&#8221;;
   
 while (s0.length() != 5)
   
@@ -244,7 +244,7 @@ s0 = sz.concat(s0);
   
 }
   
-s0 = s0.concat(&#8220;-&#8220;);
+s0 = s0.concat("-");
   
 String s1 = encodeGroups(k1);
   
@@ -262,7 +262,7 @@ if (args.length == 0)
   
 {
   
-System.err.printf(&#8220;\*** Usage: %s name%n&#8221;, keygen.class.getCanonicalName());
+System.err.printf("\*** Usage: %s name%n&#8221;, keygen.class.getCanonicalName());
   
 System.exit(1);
   

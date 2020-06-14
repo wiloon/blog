@@ -162,4 +162,3 @@ Enterprise Console提供了一个小型的客户端，用于管理Pentaho Data I
   </tr>
 </table>
 
-&nbsp;

@@ -22,7 +22,7 @@ http://www.cnblogs.com/brainy/archive/2012/08/29/2662295.html
 
 添加事务处理，把5000条插入作为一个事务
 
-&nbsp;
+
 
 我们使用SQLite的事务进行控制：
 
@@ -74,9 +74,9 @@ try
   
 {
   
-db.execSQL(&#8220;update person set amount=amount-10 where personid=?&#8221;, new Object[]{1});
+db.execSQL("update person set amount=amount-10 where personid=?&#8221;, new Object[]{1});
   
-db.execSQL(&#8220;update person set amount=amount+10 where personid=?&#8221;, new Object[]{2});
+db.execSQL("update person set amount=amount+10 where personid=?&#8221;, new Object[]{2});
   
 //设置事务标志为成功，当结束事务时就会提交事务
   

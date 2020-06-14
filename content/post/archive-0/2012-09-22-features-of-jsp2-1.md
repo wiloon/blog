@@ -10,13 +10,13 @@ categories:
 ---
 <http://www.roseindia.net/jsp/FeaturesOfJsp2.1.shtml>
 
-&nbsp;
 
-&nbsp;
+
+
 
 The main purpose of Java Platform, Enterprise Edition (Java EE) 5 is to ease development. Now the Jsp2.1 includes theJava Standard Tag Library(JSTL) and JavaServerFaces technology.
 
-&nbsp;
+
 
 This version has new expression language (EL ) syntax that allows deferred evaluation of expressions. It now enables using the expression to both get and set data and to invoke methods, and facilitates customizing the resolution of a variable or property referenced by an expression.
 
@@ -24,9 +24,9 @@ It supports resource injection through annotations to simplify configuring acces
 
 It has complete alignment of JSF technology tags and JSP software code. Earlier the version 1.0 of jsf technology depended on jsp 1.2 technology. The reason is that the Jsp 1.2 was already available at the time, and the intension was to make the Jsf 1.0 interface more accessible to a broader audience. As jsp1.2 does not have an integrated expression language and because the Jsp 2.0 EL does not meet all of the needs of Jsf, therefore jsp2.1 was developed to enhance the expression language to meet the needs of Jsf technology.
 
-Qualified functions now take precedence over the ternary operator when the &#8220;.&#8221; operator in use or we can say that ability to redefine the behavior of the &#8220;.&#8221;operator through a Property ResolverAPI.
+Qualified functions now take precedence over the ternary operator when the ".&#8221; operator in use or we can say that ability to redefine the behavior of the ".&#8221;operator through a Property ResolverAPI.
 
-EL now supports &#8220;literal expressions&#8221;. The expression which were previously considered to be non-EL value text must now be considered an EL expression.
+EL now supports "literal expressions&#8221;. The expression which were previously considered to be non-EL value text must now be considered an EL expression.
 
 EL now supports Java 5.0 enumerations.
 
@@ -36,18 +36,18 @@ Ability to express references to bean methods using the expression language and 
 
 This version requires these jars:
 
-&nbsp;
+
 
 1) ant-1.6.5.jar
 
-&nbsp;
+
 
 2) core-3.1.1.jar
 
-&nbsp;
+
 
 3 jsp-2.1.jar
 
-&nbsp;
+
 
 4) jsp-api-2.1.jar

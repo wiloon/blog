@@ -10,7 +10,7 @@ categories:
 ---
 http://www.cnblogs.com/alipayhutu/archive/2013/04/18/3029171.html
 
-&nbsp;
+
 
 如何理解PreparedStatementCache，以及如何使用
 
@@ -24,7 +24,7 @@ http://agapple.iteye.com/blog/838286
 
 http://singleant.iteye.com/blog/1298837
 
-&nbsp;
+
 
 使用：
 
@@ -32,7 +32,7 @@ http://singleant.iteye.com/blog/1298837
 
 sql里用？占位，等待被替换。例如，select * from table1 where user_name = ? and age > ?
 
-&nbsp;
+
 
 2. 启用pscache。
 
@@ -42,7 +42,7 @@ sql里用？占位，等待被替换。例如，select * from table1 where user_
   
 <property name=&#8221;poolPreparedStatements&#8221; value=&#8221;true&#8221; />
   
-<property name=&#8221;maxOpenPreparedStatements&#8221; value=&#8221;10&#8243; />
+<property name=&#8221;maxOpenPreparedStatements&#8221; value=&#8221;10" />
   
 &#8230;.
   

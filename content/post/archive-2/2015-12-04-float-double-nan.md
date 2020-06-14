@@ -14,7 +14,7 @@ http://blog.csdn.net/naruto_ahu/article/details/8805808
 
 (注意，double中的NaN类似)
 
-&nbsp;
+
 
 在帮助文档中，NaN是这样解释的（double的，和float差不多）：
 

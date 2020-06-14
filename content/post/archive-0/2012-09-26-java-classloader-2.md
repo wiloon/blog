@@ -16,13 +16,13 @@ JDK默认ClassLoader
   
 JDK 默认提供了如下几种ClassLoader
 
-&nbsp;
+
 
 Bootstrp loader
   
 Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA\_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA\_HOME%/jre/classes中的类。
 
-&nbsp;
+
 
 ExtClassLoader
   
@@ -164,9 +164,9 @@ Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比�
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
-&nbsp;
 
-&nbsp;
+
+
 
 http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1
 
@@ -497,7 +497,7 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
 
 https://my.oschina.net/aminqiao/blog/262601
 
-&nbsp;
+
 
 [java]
 

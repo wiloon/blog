@@ -114,7 +114,7 @@ categories:
   </p>
   
   <p>
-    (3) TCP包的输出信息<br /> 用TCPDUMP捕获的TCP包的一般输出信息是：<br /> src > dst: flags data-seqno ack window urgent options<br /> src > dst:表明从源地址到目的地址, flags是TCP包中的标志信息,S 是SYN标志, F (F<br /> IN), P (PUSH) , R (RST) &#8220;.&#8221; (没有标记); data-seqno是数据包中的数据的顺序号, ack是<br /> 下次期望的顺序号, window是接收缓存的窗口大小, urgent表明数据包中是否有紧急指针.<br /> Options是选项.
+    (3) TCP包的输出信息<br /> 用TCPDUMP捕获的TCP包的一般输出信息是：<br /> src > dst: flags data-seqno ack window urgent options<br /> src > dst:表明从源地址到目的地址, flags是TCP包中的标志信息,S 是SYN标志, F (F<br /> IN), P (PUSH) , R (RST) ".&#8221; (没有标记); data-seqno是数据包中的数据的顺序号, ack是<br /> 下次期望的顺序号, window是接收缓存的窗口大小, urgent表明数据包中是否有紧急指针.<br /> Options是选项.
   </p>
   
   <p>
@@ -134,7 +134,7 @@ categories:
   </p>
   
   <p>
-    // 监听接口eth0上的UDP端口为1234的流量<br /> # tshark -f &#8220;udp port 1234&#8221; -i 1
+    // 监听接口eth0上的UDP端口为1234的流量<br /> # tshark -f "udp port 1234&#8221; -i 1
   </p>
   
   <p>
@@ -142,11 +142,11 @@ categories:
   </p>
   
   <p>
-    // 监听接口eth0上目标端口为80的http流量，并将http请求头的host和location打印<br /> # tshark -f &#8220;dst port 80&#8221; -T fields -e http.host -e http.location -i 1<br /> 其中 -f 参数指定过滤表达式（即等同tcpdump的 filter_expression）<br /> -T fields 指定屏幕输出信息类型为指定的协议字段（用-e添加指定字段），仅在wireshark的0.99.6以后的版本支持。<br /> -i 1为指定监听的网络接口为1号
+    // 监听接口eth0上目标端口为80的http流量，并将http请求头的host和location打印<br /> # tshark -f "dst port 80&#8221; -T fields -e http.host -e http.location -i 1<br /> 其中 -f 参数指定过滤表达式（即等同tcpdump的 filter_expression）<br /> -T fields 指定屏幕输出信息类型为指定的协议字段（用-e添加指定字段），仅在wireshark的0.99.6以后的版本支持。<br /> -i 1为指定监听的网络接口为1号
   </p>
   
   <p>
-    // 监听http流量，仅过滤GET请求, 监听10秒钟，打印出HTTP HOST和URL<br /> c:Program FilesWiresharktshark.exe -i 4 -n -f &#8220;tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420&#8221; -T fields -e http.host -e http.request.uri -a duration:10
+    // 监听http流量，仅过滤GET请求, 监听10秒钟，打印出HTTP HOST和URL<br /> c:Program FilesWiresharktshark.exe -i 4 -n -f "tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420&#8221; -T fields -e http.host -e http.request.uri -a duration:10
   </p>
   
   <p>

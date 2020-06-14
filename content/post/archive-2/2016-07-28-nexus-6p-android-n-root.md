@@ -31,7 +31,7 @@ provided you&#8217;ve already unlocked your bootloader,
 
   6. reboot to TWRP by powering your phone off, then pressing and holding the volume down and power keys for five seconds.
 
-  7. When TWRP boots up, tap &#8220;Install,&#8221; then navigate to the Download folder and select the SuperSU ZIP without the extra delay. Then, swipe to confirm the installation, and when that&#8217;s finished, tap on Reboot System and wait for Android to boot up (it might take a couple of minutes for the first boot with root).
+  7. When TWRP boots up, tap "Install,&#8221; then navigate to the Download folder and select the SuperSU ZIP without the extra delay. Then, swipe to confirm the installation, and when that&#8217;s finished, tap on Reboot System and wait for Android to boot up (it might take a couple of minutes for the first boot with root).
 
   8. install ss apk
 

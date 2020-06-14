@@ -14,6 +14,6 @@ categories:
 
 MarketInfo(Symbol(), MODE_POINT);
 
-&nbsp;
+
 
 http://hance66.blog.163.com/blog/static/34583613201051911265533/

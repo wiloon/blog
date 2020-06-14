@@ -26,17 +26,17 @@ FeedFetcher fetcher = new HttpURLFeedFetcher();
   
 SyndFeed feed = fetcher.retrieveFeed(feedUrl);
   
-System.out.println(feedUrl + &#8221; has a title: &#8221; + new String(feed.getTitle().getBytes(&#8220;iso8859-1&#8221;), &#8220;utf-8&#8243;) + &#8221; and contains &#8221; + feed.getEntries().size() + &#8221; entries.&#8221;);
+System.out.println(feedUrl + &#8221; has a title: &#8221; + new String(feed.getTitle().getBytes("iso8859-1&#8221;), "utf-8") + &#8221; and contains &#8221; + feed.getEntries().size() + &#8221; entries.&#8221;);
   
 for (Iterator iter = feed.getEntries().iterator(); iter.hasNext(); ) {
   
 SyndEntry entry = (SyndEntry) iter.next();
   
-System.out.println(&#8220;<a href=&#8221; + entry.getLink() + &#8220;>&#8221; + entry.getTitle() + &#8220;</a>[&#8221; + entry.getPublishedDate() + &#8220;]&#8221;);
+System.out.println("<a href=&#8221; + entry.getLink() + ">&#8221; + entry.getTitle() + "</a>[&#8221; + entry.getPublishedDate() + "]&#8221;);
   
 }
 
-为什么用 new String(feed.getTitle().getBytes(&#8220;iso8859-1&#8221;), &#8220;utf-8&#8221;) 进行转码，是因为Rome来解析 新浪新闻 RSS的时候试图从 URLConnection 的 header 中得到编码信息，否则总是用 iso8859-1。而新浪的RSS response header 中不包含编码信息，所以要做一番转码。另外还有就是 entry.getPubDate() 也将返回null，因为Rome 用多种pattern 去试图解析时间信息，新浪的时间格式还是符合RFC822的，但是Rome 使用SimpleDateFormat 来解析时间，它忘记了一点，就是 SimpleDateFormat的解析是关联于 Locale 的，所以由于我本地locale是China，SimpleDateFormat的parse方法解析不出英文的时间字符。以上代码前加 Locale.setDefault(Locale.Englisth) 可以搞定，但总觉得不爽。
+为什么用 new String(feed.getTitle().getBytes("iso8859-1&#8221;), "utf-8&#8221;) 进行转码，是因为Rome来解析 新浪新闻 RSS的时候试图从 URLConnection 的 header 中得到编码信息，否则总是用 iso8859-1。而新浪的RSS response header 中不包含编码信息，所以要做一番转码。另外还有就是 entry.getPubDate() 也将返回null，因为Rome 用多种pattern 去试图解析时间信息，新浪的时间格式还是符合RFC822的，但是Rome 使用SimpleDateFormat 来解析时间，它忘记了一点，就是 SimpleDateFormat的解析是关联于 Locale 的，所以由于我本地locale是China，SimpleDateFormat的parse方法解析不出英文的时间字符。以上代码前加 Locale.setDefault(Locale.Englisth) 可以搞定，但总觉得不爽。
 
 如果也不想转码的话，Rome 还提供了一个 XmlReader 的类，通过分析 header 和 xml 内容推断 encoding，修改 HttpURLFeedFetcher 的源码 :
 
@@ -66,7 +66,7 @@ for (Iterator iter = rss.getChannel().getItems().iterator(); iter.hasNext();) {
   
 Item item = (Item)iter.next();
   
-System.out.println(&#8220;<a href=&#8221; + item.getLink() + &#8220;</a>&#8221; + item.getTitle() + &#8221; &#8221; + item.getPubDate());
+System.out.println("<a href=&#8221; + item.getLink() + "</a>&#8221; + item.getTitle() + &#8221; &#8221; + item.getPubDate());
   
 }
 

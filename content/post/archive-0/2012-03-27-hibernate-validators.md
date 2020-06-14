@@ -181,7 +181,7 @@ public @interface Capitalized {
 
 CapitalizeType type() default Capitalize.FIRST;
 
-String message() default &#8220;has incorrect capitalization&#8221;
+String message() default "has incorrect capitalization&#8221;
 
 }
 
@@ -201,7 +201,7 @@ public @interface Capitalized {
 
 CapitalizeType type() default Capitalize.FIRST;
 
-String message() default &#8220;{validator.capitalized}&#8221;;
+String message() default "{validator.capitalized}&#8221;;
 
 }
 
@@ -483,7 +483,7 @@ Hibernate 验证器可被应用到代码的任何地方
 
 ClassValidator personValidator = new ClassValidator( Person.class );
 
-ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle(&#8220;messages&#8221;, Locale.ENGLISH) );
+ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages&#8221;, Locale.ENGLISH) );
 
 InvalidValue[] validationMessages = addressValidator.getInvalidValues(address);
 
@@ -493,19 +493,19 @@ InvalidValue[] validationMessages = addressValidator.getInvalidValues(address);
 
 你也可以检查一个属性而非整个bean 这对属性对属性的用户交互是有用的。
 
-ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle(&#8220;messages&#8221;, Locale.ENGLISH) );
+ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages&#8221;, Locale.ENGLISH) );
 
 //only get city property invalid values
 
-InvalidValue[] validationMessages = addressValidator.getInvalidValues(address, &#8220;city&#8221;);
+InvalidValue[] validationMessages = addressValidator.getInvalidValues(address, "city&#8221;);
 
 //only get potential city property invalid values
 
-InvalidValue[] validationMessages = addressValidator.getPotentialInvalidValues(&#8220;city&#8221;, &#8221;
+InvalidValue[] validationMessages = addressValidator.getPotentialInvalidValues("city&#8221;, &#8221;
   
 Paris
   
-&#8220;)
+")
 
 2.4 表示层验证
 

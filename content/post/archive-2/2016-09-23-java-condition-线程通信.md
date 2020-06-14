@@ -228,7 +228,7 @@ myMonitorObject.notify();
 
 public class MyWaitNotify{
 
-String myMonitorObject = &#8220;&#8221;;
+String myMonitorObject = "&#8221;;
     
 boolean wasSignalled = false;
 

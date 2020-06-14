@@ -168,7 +168,7 @@ The SC CREATE command perFORMs the operations of the CreateService API function.
   
 下面这个例子在计算机上建立叫“mirror”的服务建立的一个注册表登记,是自动运行服务,从属于TDI组和NetBios服务。
   
-C:WINDOWSsystem32>sc create mirror binPath= &#8220;D:Ftp新建文件夹mirror.exe&#8221; type= own start= auto
+C:WINDOWSsystem32>sc create mirror binPath= "D:Ftp新建文件夹mirror.exe&#8221; type= own start= auto
   
 [SC] CreateService SUCCESS
   
@@ -176,7 +176,7 @@ C:WINDOWSsystem32>sc create mirror binPath= &#8220;D:Ftp新建文件夹mirror.ex
   
 例子2 删除Mirror服务
   
-C:WINDOWSsystem32>sc delete mirror binPath= &#8220;D:Ftp新建文件夹mirror.exe&#8221; type= own start= auto
+C:WINDOWSsystem32>sc delete mirror binPath= "D:Ftp新建文件夹mirror.exe&#8221; type= own start= auto
   
 [SC] DeleteService SUCCESS
   

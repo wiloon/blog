@@ -22,7 +22,7 @@ java.exe
   
 java.exe is a Win32 console application. This is provided as a helper so that, instead of using jvm.dll we can execute java classes. As it is a Win32 console application, obviously it is associated with a console and it launches it when executed.
 
-&nbsp;
+
 
 javaw.exe
   
@@ -34,11 +34,11 @@ public class HelloWorldSwing {
   
 private static void createAndShowGUI() {
   
-JFrame jFrame = new JFrame(&#8220;HelloWorld Swing&#8221;);
+JFrame jFrame = new JFrame("HelloWorld Swing&#8221;);
   
 jFrame.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);
   
-JLabel helloLabel = new JLabel(&#8220;Hello World!&#8221;);
+JLabel helloLabel = new JLabel("Hello World!&#8221;);
   
 jFrame.getContentPane().add(helloLabel);
   

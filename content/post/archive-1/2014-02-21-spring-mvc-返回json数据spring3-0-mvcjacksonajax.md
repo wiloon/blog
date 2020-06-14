@@ -90,7 +90,7 @@ jackson-mapper-asl-1.9.2.jar
     <li>
     </li>
     <li>
-          @RequestMapping(&#8220;/type&#8221;)
+          @RequestMapping("/type&#8221;)
     </li>
     <li>
           @ResponseBody
@@ -121,7 +121,7 @@ jackson-mapper-asl-1.9.2.jar
 
 用上面的controller，访问：http://localhost:8080/demo/type.htm，报406错如下：
   
-**Failed to load resource: the server responded with a status of 406 (Not Acceptable) ： The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request &#8220;accept&#8221; headers () **
+**Failed to load resource: the server responded with a status of 406 (Not Acceptable) ： The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept&#8221; headers () **
 
 查资料表明，不是JAR的版本问题，网友解答描述：
 

@@ -48,21 +48,21 @@ Setting System Properties in Code
 
 Add the following lines in your Java code so that JVM uses the proxy to make HTTP calls. This would, of course, require you to recompile your Java source. (The other methods do not require any recompilation.):
 
-System.getProperties().put(&#8220;http.proxyHost&#8221;, &#8220;someProxyURL&#8221;);
+System.getProperties().put("http.proxyHost&#8221;, "someProxyURL&#8221;);
   
-System.getProperties().put(&#8220;http.proxyPort&#8221;, &#8220;someProxyPort&#8221;);
+System.getProperties().put("http.proxyPort&#8221;, "someProxyPort&#8221;);
   
-System.getProperties().put(&#8220;http.proxyUser&#8221;, &#8220;someUserName&#8221;);
+System.getProperties().put("http.proxyUser&#8221;, "someUserName&#8221;);
   
-System.getProperties().put(&#8220;http.proxyPassword&#8221;, &#8220;somePassword&#8221;);
+System.getProperties().put("http.proxyPassword&#8221;, "somePassword&#8221;);
   
 Don’t hardcode the proxy settings in your source. Read these settings from a configurable text file, so your users can configure them. You might also need to set this property:
 
-System.getProperties().put(&#8220;proxySet&#8221;, &#8220;true&#8221;);
+System.getProperties().put("proxySet&#8221;, "true&#8221;);
   
 Or
 
-System.getProperties().put(&#8220;http.proxySet&#8221;, &#8220;true&#8221;);
+System.getProperties().put("http.proxySet&#8221;, "true&#8221;);
   
 Tomcat Settings: catalina.properties
 

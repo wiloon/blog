@@ -49,7 +49,7 @@ zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 z
   
 dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
   
-echo &#8220;dt=${dt}&#8221;
+echo "dt=${dt}&#8221;
   
 Shell 变量
   
@@ -67,15 +67,15 @@ ABC=&#8221;tom&#8221;
   
 echo $ABC #使用变量前面加$美元符号
   
-echo &#8220;ABC=$ABC&#8221; #可以直接在字符串里面引用
+echo "ABC=$ABC&#8221; #可以直接在字符串里面引用
   
-echo &#8220;ABC=${ABC}&#8221; #但是建议把变量名字用{}包起来
+echo "ABC=${ABC}&#8221; #但是建议把变量名字用{}包起来
   
 只读变量
 
 ABC=&#8221;tom&#8221;
   
-echo &#8220;ABC=${ABC}&#8221;
+echo "ABC=${ABC}&#8221;
   
 readOnly ABC #设置只读
   
@@ -85,13 +85,13 @@ ABC=&#8221;CAT&#8221; #会报错，因为设置了只读，不能修改
 
 ABC=&#8221;tom&#8221;
   
-echo &#8220;ABC=${ABC}&#8221;
+echo "ABC=${ABC}&#8221;
   
 unset ABC #删除
   
-echo &#8220;ABC=$ABC&#8221;
+echo "ABC=$ABC&#8221;
   
-echo &#8220;ABC=${ABC}&#8221;
+echo "ABC=${ABC}&#8221;
 
 Shell 的字符串
   

@@ -90,7 +90,7 @@ su - user1</pre>
 
 <pre>### try to send email from gmail to user1@wiloon.com</pre>
 
-&nbsp;
+
 
 dovecot
 
@@ -151,7 +151,7 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh</pre>
 
 `/etc/init.d/dovecot restart`
 
-&nbsp;
+
 
 大功告成！
 
@@ -291,4 +291,3 @@ broken_sasl_auth_clients = yes</pre>
 
 <http://myworkrecord.blog.51cto.com/3407230/649209>
 
-&nbsp;

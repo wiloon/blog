@@ -12,7 +12,7 @@ tags:
 ---
 http://www.cnblogs.com/lanxuezaipiao/p/3369962.html
 
-&nbsp;
+
 
 我们都知道一个对象只要实现了Serilizable接口，这个对象就可以被序列化，java的这种序列化模式为开发者提供了很多便利，我们可以不必关系具体序列化的过程，只要这个类实现了Serilizable接口，这个类的所有属性和方法都会自动序列化。
 
@@ -30,4 +30,3 @@ http://www.cnblogs.com/lanxuezaipiao/p/3369962.html
 
 我们知道在Java中，对象的序列化可以通过实现两种接口来实现，若实现的是Serializable接口，则所有的序列化将会自动进行，若实现的是Externalizable接口，则没有任何东西可以自动序列化，需要在writeExternal方法中进行手工指定所要序列化的变量，这与是否被transient修饰无关。因此第二个例子输出的是变量content初始化的内容，而不是null。
 
-&nbsp;

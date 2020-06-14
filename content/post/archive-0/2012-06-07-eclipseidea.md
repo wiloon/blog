@@ -14,7 +14,7 @@ outline &#8211; structure, Ctrl+F12
 
 本文转自：<http://gagi.iteye.com/blog/633778>
 
-&nbsp;
+
 
 1、比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下：
 
@@ -125,7 +125,7 @@ outline &#8211; structure, Ctrl+F12
       在IDEA中，你需要做以下设置, 这样被修改的文件会以*号标识出来，你可以及时保存相关的文件。
     </li>
     <li>
-      &#8220;Mark modifyied tabs with asterisk&#8221;
+      "Mark modifyied tabs with asterisk&#8221;
     </li>
   </ol>
 </div>
@@ -240,7 +240,7 @@ outline &#8211; structure, Ctrl+F12
   </ol>
 </div>
 
-&nbsp;
+
 
 11、一些有用的快捷键
 

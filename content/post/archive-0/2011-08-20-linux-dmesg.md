@@ -16,7 +16,7 @@ dmesg[1] &#8211; print or control the kernel ring buffer
   
 dmesg用于检测和控制内核环缓冲。程序用来帮助用户了解系统的启动信息
 
-&nbsp;
+
   
 [shell]
   

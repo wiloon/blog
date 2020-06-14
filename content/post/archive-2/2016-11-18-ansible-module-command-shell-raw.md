@@ -104,7 +104,7 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
 
 配置文件里有个选项，改成我们需要的端口就OK了，修改后对全局有效
 
-lixc@ansible:~$ grep &#8220;remote_port&#8221; /etc/ansible/ansible.cfg
+lixc@ansible:~$ grep "remote_port&#8221; /etc/ansible/ansible.cfg
   
 remote_port    = 22
   
@@ -210,7 +210,7 @@ OK，搞得好像流水帐一样，好吧，下面搞搞ansible的命令行模�
 
 ansible命令行，默认使用的模块就是command了。
 
-lixc@ansible:~$ grep  -n &#8220;module_name&#8221; /etc/ansible/ansible.cfg
+lixc@ansible:~$ grep  -n "module_name&#8221; /etc/ansible/ansible.cfg
   
 59:#module_name = command
   
@@ -282,11 +282,11 @@ SSH password:
   
 10.240.162.250 | FAILED >> {
   
-&#8220;failed&#8221;: true,
+"failed&#8221;: true,
   
-&#8220;msg&#8221;: &#8220;/bin/sh: /usr/bin/python: not found\r\n&#8221;,
+"msg&#8221;: "/bin/sh: /usr/bin/python: not found\r\n&#8221;,
   
-&#8220;parsed&#8221;: false
+"parsed&#8221;: false
   
 }
 
@@ -296,11 +296,11 @@ SSH password:
   
 10.240.162.250 | FAILED >> {
   
-&#8220;failed&#8221;: true,
+"failed&#8221;: true,
   
-&#8220;msg&#8221;: &#8220;/bin/sh: /usr/bin/python: not found\r\n&#8221;,
+"msg&#8221;: "/bin/sh: /usr/bin/python: not found\r\n&#8221;,
   
-&#8220;parsed&#8221;: false
+"parsed&#8221;: false
   
 }
 
@@ -360,27 +360,27 @@ lixc@ansible:~$ ansible salt-master -m copy -a &#8216;src=/etc/sudoers de
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: false,
+"changed&#8221;: false,
   
-&#8220;dest&#8221;: &#8220;/etc/sudoers&#8221;,
+"dest&#8221;: "/etc/sudoers&#8221;,
   
-&#8220;gid&#8221;: 0,
+"gid&#8221;: 0,
   
-&#8220;group&#8221;: &#8220;root&#8221;,
+"group&#8221;: "root&#8221;,
   
-&#8220;md5sum&#8221;: &#8220;5f82d8684e43943bec2f07c0d1823352&#8221;,
+"md5sum&#8221;: "5f82d8684e43943bec2f07c0d1823352&#8221;,
   
-&#8220;mode&#8221;: &#8220;0440&#8221;,
+"mode&#8221;: "0440&#8221;,
   
-&#8220;owner&#8221;: &#8220;root&#8221;,
+"owner&#8221;: "root&#8221;,
   
-&#8220;path&#8221;: &#8220;/etc/sudoers&#8221;,
+"path&#8221;: "/etc/sudoers&#8221;,
   
-&#8220;size&#8221;: 1742,
+"size&#8221;: 1742,
   
-&#8220;state&#8221;: &#8220;file&#8221;,
+"state&#8221;: "file&#8221;,
   
-&#8220;uid&#8221;: 0
+"uid&#8221;: 0
   
 }
   
@@ -402,25 +402,25 @@ lixc@ansible:~$ ansible  salt-master -m file -a &#8216;src=/etc/sudoers 
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: false,
+"changed&#8221;: false,
   
-&#8220;dest&#8221;: &#8220;/tmp/sudoers&#8221;,
+"dest&#8221;: "/tmp/sudoers&#8221;,
   
-&#8220;gid&#8221;: 1000,
+"gid&#8221;: 1000,
   
-&#8220;group&#8221;: &#8220;lixc&#8221;,
+"group&#8221;: "lixc&#8221;,
   
-&#8220;mode&#8221;: &#8220;0777&#8221;,
+"mode&#8221;: "0777&#8221;,
   
-&#8220;owner&#8221;: &#8220;lixc&#8221;,
+"owner&#8221;: "lixc&#8221;,
   
-&#8220;size&#8221;: 12,
+"size&#8221;: 12,
   
-&#8220;src&#8221;: &#8220;/etc/sudoers&#8221;,
+"src&#8221;: "/etc/sudoers&#8221;,
   
-&#8220;state&#8221;: &#8220;link&#8221;,
+"state&#8221;: "link&#8221;,
   
-&#8220;uid&#8221;: 1000
+"uid&#8221;: 1000
   
 }
 
@@ -436,23 +436,23 @@ lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/tmp/lixc.log 
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: true,
+"changed&#8221;: true,
   
-&#8220;dest&#8221;: &#8220;/tmp/lixc.log&#8221;,
+"dest&#8221;: "/tmp/lixc.log&#8221;,
   
-&#8220;gid&#8221;: 1000,
+"gid&#8221;: 1000,
   
-&#8220;group&#8221;: &#8220;lixc&#8221;,
+"group&#8221;: "lixc&#8221;,
   
-&#8220;mode&#8221;: &#8220;0644&#8221;,
+"mode&#8221;: "0644&#8221;,
   
-&#8220;owner&#8221;: &#8220;lixc&#8221;,
+"owner&#8221;: "lixc&#8221;,
   
-&#8220;size&#8221;: 0,
+"size&#8221;: 0,
   
-&#8220;state&#8221;: &#8220;file&#8221;,
+"state&#8221;: "file&#8221;,
   
-&#8220;uid&#8221;: 1000
+"uid&#8221;: 1000
   
 }
 
@@ -468,23 +468,23 @@ lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/tmp/a/b/c  o
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: true,
+"changed&#8221;: true,
   
-&#8220;gid&#8221;: 1000,
+"gid&#8221;: 1000,
   
-&#8220;group&#8221;: &#8220;lixc&#8221;,
+"group&#8221;: "lixc&#8221;,
   
-&#8220;mode&#8221;: &#8220;0755&#8221;,
+"mode&#8221;: "0755&#8221;,
   
-&#8220;owner&#8221;: &#8220;lixc&#8221;,
+"owner&#8221;: "lixc&#8221;,
   
-&#8220;path&#8221;: &#8220;/tmp/a/b/c&#8221;,
+"path&#8221;: "/tmp/a/b/c&#8221;,
   
-&#8220;size&#8221;: 4096,
+"size&#8221;: 4096,
   
-&#8220;state&#8221;: &#8220;directory&#8221;,
+"state&#8221;: "directory&#8221;,
   
-&#8220;uid&#8221;: 1000
+"uid&#8221;: 1000
   
 }
   
@@ -504,11 +504,11 @@ lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/tmp/a/   st
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: true,
+"changed&#8221;: true,
   
-&#8220;path&#8221;: &#8220;/tmp/a/&#8221;,
+"path&#8221;: "/tmp/a/&#8221;,
   
-&#8220;state&#8221;: &#8220;absent&#8221;
+"state&#8221;: "absent&#8221;
   
 }
   
@@ -528,25 +528,25 @@ lixc@ansible:~$ ansible salt-master -m user -a &#8216;name=mysql shell=/s
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: true,
+"changed&#8221;: true,
   
-&#8220;comment&#8221;: &#8220;&#8221;,
+"comment&#8221;: "&#8221;,
   
-&#8220;createhome&#8221;: false,
+"createhome&#8221;: false,
   
-&#8220;group&#8221;: 1002,
+"group&#8221;: 1002,
   
-&#8220;home&#8221;: &#8220;/home/mysql&#8221;,
+"home&#8221;: "/home/mysql&#8221;,
   
-&#8220;name&#8221;: &#8220;mysql&#8221;,
+"name&#8221;: "mysql&#8221;,
   
-&#8220;shell&#8221;: &#8220;/sbin/nologin&#8221;,
+"shell&#8221;: "/sbin/nologin&#8221;,
   
-&#8220;state&#8221;: &#8220;present&#8221;,
+"state&#8221;: "present&#8221;,
   
-&#8220;system&#8221;: false,
+"system&#8221;: false,
   
-&#8220;uid&#8221;: 1002
+"uid&#8221;: 1002
   
 }
   
@@ -562,23 +562,23 @@ lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/etc/mysql mod
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: true,
+"changed&#8221;: true,
   
-&#8220;gid&#8221;: 1002,
+"gid&#8221;: 1002,
   
-&#8220;group&#8221;: &#8220;mysql&#8221;,
+"group&#8221;: "mysql&#8221;,
   
-&#8220;mode&#8221;: &#8220;0644&#8221;,
+"mode&#8221;: "0644&#8221;,
   
-&#8220;owner&#8221;: &#8220;mysql&#8221;,
+"owner&#8221;: "mysql&#8221;,
   
-&#8220;path&#8221;: &#8220;/etc/mysql&#8221;,
+"path&#8221;: "/etc/mysql&#8221;,
   
-&#8220;size&#8221;: 4096,
+"size&#8221;: 4096,
   
-&#8220;state&#8221;: &#8220;directory&#8221;,
+"state&#8221;: "directory&#8221;,
   
-&#8220;uid&#8221;: 1002
+"uid&#8221;: 1002
   
 }
   
@@ -588,11 +588,11 @@ lixc@ansible:~$ ansible salt-master -m service -a &#8216;name=mysql state
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: false,
+"changed&#8221;: false,
   
-&#8220;name&#8221;: &#8220;mysql&#8221;,
+"name&#8221;: "mysql&#8221;,
   
-&#8220;state&#8221;: &#8220;started&#8221;
+"state&#8221;: "started&#8221;
   
 }
   
@@ -604,11 +604,11 @@ lixc@ansible:~$ ansible salt-master -m service -a &#8216;name=mysql state
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: true,
+"changed&#8221;: true,
   
-&#8220;name&#8221;: &#8220;mysql&#8221;,
+"name&#8221;: "mysql&#8221;,
   
-&#8220;state&#8221;: &#8220;stopped&#8221;
+"state&#8221;: "stopped&#8221;
   
 }
   
@@ -624,15 +624,15 @@ lixc@ansible:~$ ansible salt-master -m user -a &#8216;name=mysql state=ab
   
 salt-master | success >> {
   
-&#8220;changed&#8221;: true,
+"changed&#8221;: true,
   
-&#8220;force&#8221;: false,
+"force&#8221;: false,
   
-&#8220;name&#8221;: &#8220;mysql&#8221;,
+"name&#8221;: "mysql&#8221;,
   
-&#8220;remove&#8221;: false,
+"remove&#8221;: false,
   
-&#8220;state&#8221;: &#8220;absent&#8221;
+"state&#8221;: "absent&#8221;
   
 }
   

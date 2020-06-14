@@ -12,7 +12,7 @@ The following signatures couldn&#8217;t be verified because the public key is no
 
 ## Solution
 
-&nbsp;
+
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C962022012520A0
     

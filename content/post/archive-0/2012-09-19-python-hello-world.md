@@ -36,7 +36,7 @@ categories:
   </p>
   
   <p>
-    $ python<br /> Python 2.4.3 (#1, Jul 26 2006, 16:42:40)<br /> [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2<br /> Type &#8220;help&#8221;, &#8220;copyright&#8221;, &#8220;credits&#8221; or &#8220;license&#8221; for more information.<br /> >>> print &#8216;hello world&#8217;<br /> hello world<br /> >>>
+    $ python<br /> Python 2.4.3 (#1, Jul 26 2006, 16:42:40)<br /> [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2<br /> Type "help&#8221;, "copyright&#8221;, "credits&#8221; or "license&#8221; for more information.<br /> >>> print &#8216;hello world&#8217;<br /> hello world<br /> >>>
   </p>
   
   <p>
@@ -156,7 +156,7 @@ categories:
   </p>
   
   <p>
-    $ env PYTHONDOCS=/usr/share/doc/python-docs-2.4.3/html/python<br /> Python 2.3.4 (#1, Jul 26 2006, 16:42:40)<br /> [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2<br /> Type &#8220;help&#8221;, &#8220;copyright&#8221;, &#8220;credits&#8221; or &#8220;license&#8221; for more information.<br /> >>> help(&#8216;print&#8217;)
+    $ env PYTHONDOCS=/usr/share/doc/python-docs-2.4.3/html/python<br /> Python 2.3.4 (#1, Jul 26 2006, 16:42:40)<br /> [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2<br /> Type "help&#8221;, "copyright&#8221;, "credits&#8221; or "license&#8221; for more information.<br /> >>> help(&#8216;print&#8217;)
   </p>
   
   <p>
@@ -168,6 +168,6 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
 </div>

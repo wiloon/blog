@@ -11,7 +11,7 @@ categories:
 ```bashng build --aot
 ```
 
-&#8220;\`
+"\`
   
 server {
           
@@ -36,6 +36,6 @@ try_files $uri $uri/ /index.html; // 注意此句，一定要加上。否则配�
     }
     
 
-&#8220;
+"
 
 https://www.cnblogs.com/kingkangstudy/p/8085642.html

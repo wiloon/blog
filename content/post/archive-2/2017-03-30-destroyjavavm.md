@@ -13,7 +13,7 @@ categories:
   3. Finalizer threads pull objects from the finalization queue and calls it finalize method.
   4. Reference Handler is a high-priority thread to enqueue pending <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ref/Reference.html" rel="noreferrer">References</a>. Its defined in java.lang.ref.References.java
 
-&nbsp;
+
 
 This happens because most applications are run in threads.
 
@@ -23,6 +23,6 @@ An app with a GUI, however, normally runs as a number of threads. One for watchi
 
 As a result, any app that creates threads and relies solely on their functionality will allways have a `DestroyJavaVM` thread waiting for it to finish. Since all it is doing is `join`ing all other running threads it does not consume any resources.
 
-&nbsp;
+
 
 http://stackoverflow.com/questions/5766026/default-threads-like-destroyjavavm-reference-handler-signal-dispatcherhttp://stackoverflow.com/questions/34433267/destroyjavavm-thread-always-running

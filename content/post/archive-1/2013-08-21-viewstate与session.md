@@ -29,7 +29,7 @@ categories:
 好, 以上说的这些你可能会觉得: 这与session有什么关系? 这个viewstate不是由asp.net自动去维护吗? 是的, 如果仅仅是保存控件的状态, 你可以感觉不到它与session有什么瓜葛( 呵呵,其实它们就没有瓜葛),不过,接下来,我们看看这种使用方法: 在后台aspx.cs代码里:
 
 <div>
-  private void Page_Load(object sender, System.EventArgs e) { ViewState[&#8220;myvalue&#8221;] = &#8220;viewstatevalue&#8221;; //&#8230;.. }
+  private void Page_Load(object sender, System.EventArgs e) { ViewState["myvalue&#8221;] = "viewstatevalue&#8221;; //&#8230;.. }
 </div>
 
 呵呵, 可以在页面后台直接给viewstate集合赋值, 现在你是不是觉得和session的使用方法差不多了呢? 对,这一点就是几乎所有初学asp.net的人的疑惑. 会认为asp.net也像session那样把这个值保存到服务器内存里面, 其实不是!
@@ -44,7 +44,7 @@ categories:
 
 其实,对于viewstate的安全性问题,asp.net还给我们提供了更多的选择.一般如果要保护viewstate有两种方式: 一种是防篡改,一种是加密. 一说到防篡改,我们就想起了使用散列代码. 没错, 我们可以在页面顶部加入如下代码:Page EnableViewStateMAC=true
 
-这样asp.net就会自动的在viewstate中追加一个散列码,在页面回传时,服务器根据回传的viewstate生成一个散列码,再与回传的散列码相比较,如果不对,则丢弃该viewstate,同时控件将恢复初试状态. (默认情况下asp.net是通过SHA1算法而不是md5算法来生成散列,不过这个可以在machine.config里面配置machineKey validation=&#8221;MD5&#8243;即可)
+这样asp.net就会自动的在viewstate中追加一个散列码,在页面回传时,服务器根据回传的viewstate生成一个散列码,再与回传的散列码相比较,如果不对,则丢弃该viewstate,同时控件将恢复初试状态. (默认情况下asp.net是通过SHA1算法而不是md5算法来生成散列,不过这个可以在machine.config里面配置machineKey validation=&#8221;MD5"即可)
 
 而viewstate加密就更简单了, 只要在machine.config里设置一下machineKey validation=&#8221;3DES&#8221;即可实现用des加密viewstate了.
 

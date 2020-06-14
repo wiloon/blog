@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-&nbsp;
+
 
 <div>
   <strong>https://www.oschina.net/news/77354/http-get-post-differenthttp://blog.csdn.net/gideal_wang/article/details/4316691</strong>
@@ -228,7 +228,7 @@ categories:
   </p>
   
   <p>
-    <?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?><br /> <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3&#8243;><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </objPlaceOrderResponse>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </objPlaceOrderResponse>
   </p>
   
   <p>
@@ -256,7 +256,7 @@ categories:
   </p>
   
   <p>
-    <?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?><br /> <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3&#8243;><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </objPlaceOrderResponse>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </objPlaceOrderResponse>
   </p>
   
   <p>
@@ -272,7 +272,7 @@ categories:
   </p>
   
   <p>
-    <?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?><br /> <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;><br /> <soap12:Body><br /> <CancelOrder xmlns=&#8221;https://api.efxnow.com/webservices2.3&#8243;><br /> <UserID>string</UserID><br /> <PWD>string</PWD><br /> <OrderConfirmation>string</OrderConfirmation><br /> </CancelOrder><br /> </soap12:Body><br /> </soap12:Envelope>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;><br /> <soap12:Body><br /> <CancelOrder xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <UserID>string</UserID><br /> <PWD>string</PWD><br /> <OrderConfirmation>string</OrderConfirmation><br /> </CancelOrder><br /> </soap12:Body><br /> </soap12:Envelope>
   </p>
   
   <p>
@@ -284,23 +284,23 @@ categories:
   </p>
   
   <p>
-    <?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?><br /> <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;><br /> <soap12:Body><br /> <CancelOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3&#8243;><br /> <CancelOrderResult><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </CancelOrderResult><br /> </CancelOrderResponse><br /> </soap12:Body><br /> </soap12:Envelope>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;><br /> <soap12:Body><br /> <CancelOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <CancelOrderResult><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </CancelOrderResult><br /> </CancelOrderResponse><br /> </soap12:Body><br /> </soap12:Envelope>
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <div id="intro">
@@ -643,7 +643,7 @@ name1=value1&name2=value2
               </table>
               
               <p>
-                &nbsp;
+                
               </p>
               
               <p>

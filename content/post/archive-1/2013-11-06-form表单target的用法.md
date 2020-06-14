@@ -44,10 +44,10 @@ categories:
   
   <ol start="1">
     <li>
-      String script = &#8220;<script>alert(&#8216;ok!&#8217;);</script>&#8221;;
+      String script = "<script>alert(&#8216;ok!&#8217;);</script>&#8221;;
     </li>
     <li>
-              response.getOutputStream().write(script.getBytes(&#8220;utf-8&#8221;));
+              response.getOutputStream().write(script.getBytes("utf-8&#8221;));
     </li>
   </ol>
 </div>

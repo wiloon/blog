@@ -10,57 +10,57 @@ categories:
 ---
 http://blog.itpub.net/17203031/viewspace-717042/
 
-&nbsp;
+
 
 在Oracle中，我们没有MYSQL和SQL Server可以使用的自增数据类型。大部分场景下，如果我们需要生成业务无关的（Business-Independent）主键列，序列Sequence对象是我们最方便的选择。
 
-&nbsp;
+
 
 定义Sequence是很简单的，如果最大程度利用默认值的话，我们只需要定义sequence对象的名字即可。在序列Sequence对象的定义中，Cache是一个可选择的参数。默认的Sequence对象是有cache选项的，默认取值为20。
 
-&nbsp;
+
 
 那么，这个Cache参数对Sequence的使用带来什么好处？如果不设置，会有什么问题。本篇我们就一起来探讨这个问题。
 
-&nbsp;
+
 
 1、Sequence Cache简析
 
-&nbsp;
+
 
 简单的说，Cache就是Oracle每次向Sequence进行请求时，分配出的独立数字数量。例如，当我们使用<seq_name>.nextval获取一个独立值时，Oracle需要将sequence对象的数据字典信息更新。如果我们设置cache为10，那么第一次请求nextval的时候，就更新数据字典信息增加10，取出的10个号放在Oracle服务器的缓存中。
 
-&nbsp;
+
 
 在以后每次请求nextval的时候，Oracle就从服务器缓存中去获取序列值。而不需要更新数据字典信息。只有在分配到缓存的10个数字都已经分配完，或者因为缓存刷新操作剩余数字被清理的情况下，才会再次调用sequence分配机制，再次分出cache个数字。
 
-&nbsp;
+
 
 在cache问题上，我们经常会疑惑为什么我们sequence生成的数字序列会“跳号”。这种跳号现象实际上就是因为cache的数字在缓存中因为各种原因被flush出，这样才导致生成的数字序列不连续。
 
-&nbsp;
+
 
 注意：在有cache的情况下，sequence只能保证每次获取到的数字都是唯一、递增的，从来没有保证过数字的连续性。
 
-&nbsp;
+
 
 如果我们不设置cache，也就是不启用序列数字缓存机制，有什么缺点呢？
 
-&nbsp;
+
 
 2、过多的Redo Log生成
 
-&nbsp;
+
 
 我们首先从Redo的统计情况入手，看看cache在这个过程中的影响。我们选择Oracle 10g作为实验环境。
 
-&nbsp;
 
-&nbsp;
+
+
 
 SQL> select * from v$version;
 
-&nbsp;
+
 
 BANNER
 
@@ -72,47 +72,47 @@ PL/SQL Release 10.2.0.1.0 &#8211; Production
 
 CORE    10.2.0.1.0    Production
 
-&nbsp;
+
 
 TNS for 32-bit Windows: Version 10.2.0.1.0 &#8211; Production
 
 NLSRTL Version 10.2.0.1.0 &#8211; Production
 
-&nbsp;
 
-&nbsp;
+
+
 
 分别创建两个sequence实验对象。
 
-&nbsp;
 
-&nbsp;
+
+
 
 SQL> create sequence seq_nocache nocache;
 
 Sequence created
 
-&nbsp;
+
 
 SQL> create sequence seq_cache cache 3;
 
 Sequence created
 
-&nbsp;
 
-&nbsp;
+
+
 
 我们先对nocache对象进行实验。我们选择autotrace工具，进行三次调用操作，来观察各种资源使用情况。
 
-&nbsp;
 
-&nbsp;
+
+
 
 &#8211;第一次调用；
 
 SQL> select seq_nocache.nextval from dual;
 
-&nbsp;
+
 
 NEXTVAL
 
@@ -120,11 +120,11 @@ NEXTVAL
 
 1
 
-&nbsp;
+
 
 已用时间:  00: 00: 00.01
 
-&nbsp;
+
 
 执行计划
 
@@ -132,7 +132,7 @@ NEXTVAL
 
 Plan hash value: 3078288422
 
-&nbsp;
+
 
 &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
 
@@ -148,9 +148,9 @@ Plan hash value: 3078288422
 
 &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
 
-&nbsp;
 
-&nbsp;
+
+
 
 统计信息
 
@@ -178,13 +178,13 @@ Plan hash value: 3078288422
 
 1  rows processed
 
-&nbsp;
+
 
 &#8211;第二次调用（篇幅原因，执行计划和部分统计量省略）
 
 SQL> select seq_nocache.nextval from dual;
 
-&nbsp;
+
 
 NEXTVAL
 
@@ -192,11 +192,11 @@ NEXTVAL
 
 2
 
-&nbsp;
+
 
 已用时间:  00: 00: 00.01
 
-&nbsp;
+
 
 统计信息
 
@@ -224,13 +224,13 @@ NEXTVAL
 
 1  rows processed
 
-&nbsp;
+
 
 &#8211;第三次调用
 
 SQL> select seq_nocache.nextval from dual;
 
-&nbsp;
+
 
 NEXTVAL
 
@@ -238,11 +238,11 @@ NEXTVAL
 
 3
 
-&nbsp;
+
 
 已用时间:  00: 00: 00.01
 
-&nbsp;
+
 
 统计信息
 
@@ -270,23 +270,23 @@ NEXTVAL
 
 1  rows processed
 
-&nbsp;
 
-&nbsp;
+
+
 
 篇幅原因，本文只表现部分结果。从结果统计量中，可以发现：虽然我们对sequence对象是采用select操作。但是对nocache的序列对象而言，每次操作都会有600左右的redo log生成。
 
-&nbsp;
+
 
 那么，对于开启了cache的sequence对象而言，有什么不同呢？
 
-&nbsp;
 
-&nbsp;
+
+
 
 SQL> select seq_cache.nextval from dual;
 
-&nbsp;
+
 
 NEXTVAL
 
@@ -294,11 +294,11 @@ NEXTVAL
 
 1
 
-&nbsp;
+
 
 已用时间:  00: 00: 00.03
 
-&nbsp;
+
 
 执行计划
 
@@ -306,7 +306,7 @@ NEXTVAL
 
 Plan hash value: 2754437009
 
-&nbsp;
+
 
 &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
 
@@ -322,9 +322,9 @@ Plan hash value: 2754437009
 
 &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
 
-&nbsp;
 
-&nbsp;
+
+
 
 统计信息
 
@@ -352,11 +352,11 @@ Plan hash value: 2754437009
 
 1  rows processed
 
-&nbsp;
+
 
 SQL> select seq_cache.nextval from dual;
 
-&nbsp;
+
 
 NEXTVAL
 
@@ -364,11 +364,11 @@ NEXTVAL
 
 2
 
-&nbsp;
+
 
 已用时间:  00: 00: 00.00
 
-&nbsp;
+
 
 统计信息
 
@@ -396,11 +396,11 @@ NEXTVAL
 
 1  rows processed
 
-&nbsp;
+
 
 SQL> select seq_cache.nextval from dual;
 
-&nbsp;
+
 
 NEXTVAL
 
@@ -408,11 +408,11 @@ NEXTVAL
 
 3
 
-&nbsp;
+
 
 已用时间:  00: 00: 00.01
 
-&nbsp;
+
 
 统计信息
 
@@ -440,13 +440,13 @@ NEXTVAL
 
 1  rows processed
 
-&nbsp;
+
 
 &#8211;第四次调用，获取新的cache值。
 
 SQL> select seq_cache.nextval from dual;
 
-&nbsp;
+
 
 NEXTVAL
 
@@ -454,7 +454,7 @@ NEXTVAL
 
 4
 
-&nbsp;
+
 
 统计信息
 
@@ -482,43 +482,43 @@ NEXTVAL
 
 1  rows processed
 
-&nbsp;
 
-&nbsp;
+
+
 
 对cache的sequence对象而言，redo size生成的频率显然是低得多。从上面的四次调用中，只有第一次和第四次调用的时候，才生成了redo log记录。这个显然同我们设置的cache=3相对应。
 
-&nbsp;
+
 
 设置cache之后，Oracle似乎不用为每次的nextval进行数据字典修改，生成redo log记录。只有cache在内存中使用结束之后，才会进行获取。
 
-&nbsp;
+
 
 在实际的生产环境中，我们对redo size无必要的生成是要尽力避免的。首先，过多的redo log生成，容易造成online redo log的写入量增加，切换频繁。第二，redo size和nocache的使用，可能是伴随着频繁的commit动作，进而是频繁的log buffer写入online log file的过程。同时归档量增加。同时，在进行恢复的时候，也要消耗更多的时间。
 
-&nbsp;
+
 
 所以，设置cache可以有效减少redo log的大小。
 
-&nbsp;
+
 
 从redo size动作，我们猜测在nextval的时候存在数据字典的频繁更新风险。
 
-&nbsp;
+
 
 3、潜在的行锁争用（row lock contention）
 
-&nbsp;
+
 
 我们猜测在nextval的时候，Oracle做了些什么。于是，我们选择10046事件，跟踪设置cache和不设置cache的两种sequence，在底层递归调用的行为。
 
-&nbsp;
+
 
 我们本次使用oradebug进行事件跟踪。
 
-&nbsp;
 
-&nbsp;
+
+
 
 SQL> oradebug setmypid;
 
@@ -540,7 +540,7 @@ NEXTVAL
 
 9
 
-&nbsp;
+
 
 SQL> select scott.seq_nocache.nextval from dual;
 
@@ -550,7 +550,7 @@ NEXTVAL
 
 10
 
-&nbsp;
+
 
 SQL> select scott.seq_nocache.nextval from dual;
 
@@ -560,7 +560,7 @@ NEXTVAL
 
 11
 
-&nbsp;
+
 
 SQL> select scott.seq_cache.nextval from dual;
 
@@ -570,7 +570,7 @@ NEXTVAL
 
 9
 
-&nbsp;
+
 
 SQL> select scott.seq_cache.nextval from dual;
 
@@ -580,7 +580,7 @@ NEXTVAL
 
 10
 
-&nbsp;
+
 
 SQL> select scott.seq_cache.nextval from dual;
 
@@ -590,25 +590,25 @@ NEXTVAL
 
 11
 
-&nbsp;
+
 
 SQL> oradebug event 10046 trace name context off;
 
 已处理的语句
 
-&nbsp;
+
 
 SQL> oradebug tracefile_name
 
 c:\tool\oracle\oracle\product\10.2.0\admin\ots\udump\ots\_ora\_5932.trc
 
-&nbsp;
 
-&nbsp;
+
+
 
 打开跟踪文件，我们首先分析nocache的几次调用片段。
 
-&nbsp;
+
 
 &#8211;篇幅原因，本部分有省略；
 
@@ -744,7 +744,7 @@ value=113487
 
 （有省略……）
 
-&nbsp;
+
 
 =====================
 
@@ -818,7 +818,7 @@ kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113487
 
-&nbsp;
+
 
 =====================
 
@@ -842,7 +842,7 @@ BINDS #2:
 
 kkscoacd
 
-&nbsp;
+
 
 Bind#6
 
@@ -884,23 +884,23 @@ kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113487
 
-&nbsp;
 
-&nbsp;
+
+
 
 注意三次调用过程中的几个标注红色的部分。三次调用nextval，之后都存在一个递归调用更新seq$基表的过程。Seq$基表显然是记录系统sequence的数据字典表。更新信息虽然包括了所有字段，但是bind#6和bind#9需要额外注意。
 
-&nbsp;
+
 
 Bind#6在undate语句中对应字段highwater，显然是表示当前sequence对象达到的最大数值，也就是更新之后的修改值。Bind#9表示的obj#编号，应该对应的11387就是我们的nocache实验sequence编号。
 
-&nbsp;
 
-&nbsp;
+
+
 
 SQL> select object\_type, object\_id from dba\_objects where wner=&#8217;SCOTT&#8217; and object\_name=&#8217;SEQ_NOCACHE&#8217;;
 
-&nbsp;
+
 
 OBJECT\_TYPE          OBJECT\_ID
 
@@ -908,19 +908,19 @@ OBJECT\_TYPE          OBJECT\_ID
 
 SEQUENCE                113487
 
-&nbsp;
 
-&nbsp;
+
+
 
 说明，在没有cache的情况下，每次调用nextval都会促使Oracle去更新且commit数据字典seq$记录。
 
-&nbsp;
+
 
 那么，对cache的sequence而言，又是如何呢？
 
-&nbsp;
 
-&nbsp;
+
+
 
 PARSING IN CURSOR #2 len=40 dep=0 uid=0 ct=3 lid=0 tim=16156274459 hv=1095976807 ad=&#8217;24882bec&#8217;
 
@@ -1080,7 +1080,7 @@ kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113488
 
-&nbsp;
+
 
 =====================
 
@@ -1114,28 +1114,28 @@ STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p=&#8217;SEQUENCE  SEQ_CACHE (cr=0 pr=
 
 STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p=&#8217;FAST DUAL  (cr=0 pr=0 pw=0 time=10 us)&#8217;
 
-&nbsp;
 
-&nbsp;
+
+
 
 在三次调用中，只更新了一次seq$数据字典表。而且，更新的bind#6为13，实际上就是一次更新，多取出三个取值。以后的几次调用中，就不需要在更新该数据记录了。
 
-&nbsp;
+
 
 由此，我们可以得到结论，无论对于cache还是nocache序列对象，都是存在更新数据字典表seq$的动作的。区别就是在于更新bind#6 highwater的频度和一次更新步长。
 
-&nbsp;
+
 
 进一步想，如果我们处在一个高并发的情况下，系统频繁的多会话请求sequence取值。如果我们的sequence没有设置cache，那么每次都要更新数据字典，都要进行commit操作。多个会话还会出现该sequence记录的争用，出现等待事件row lock contention。
 
-&nbsp;
+
 
 所以，一般情况下，我们建议设置一个较大的cache值，用于进行性能的优化。
 
-&nbsp;
+
 
 4、写在后面的话
 
-&nbsp;
+
 
 本篇解析了在单实例环境下，cache对于sequence的重要性。在RAC环境下，cache和noorder选项的作用更大。在RAC中，多个实例争用情况会让sequence设计的不合理效果放大。所以，在没有特殊情况下，还是设置合理的cache值，减少系统潜在性能瓶颈。

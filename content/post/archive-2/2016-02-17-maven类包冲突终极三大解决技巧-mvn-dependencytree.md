@@ -198,11 +198,11 @@ public class ClassLocationUtils {
   
 public static String where(final Class cls) {
   
-if (cls == null)throw new IllegalArgumentException(&#8220;null input: cls&#8221;);
+if (cls == null)throw new IllegalArgumentException("null input: cls&#8221;);
   
 URL result = null;
   
-final String clsAsResource = cls.getName().replace(&#8216;.&#8217;, &#8216;/&#8217;).concat(&#8220;.class&#8221;);
+final String clsAsResource = cls.getName().replace(&#8216;.&#8217;, &#8216;/&#8217;).concat(".class&#8221;);
   
 final ProtectionDomain pd = cls.getProtectionDomain();
   
@@ -214,17 +214,17 @@ if (cs != null) result = cs.getLocation();
   
 if (result != null) {
   
-if (&#8220;file&#8221;.equals(result.getProtocol())) {
+if ("file&#8221;.equals(result.getProtocol())) {
   
 try {
   
-if (result.toExternalForm().endsWith(&#8220;.jar&#8221;) ||
+if (result.toExternalForm().endsWith(".jar&#8221;) ||
   
-result.toExternalForm().endsWith(&#8220;.zip&#8221;))
+result.toExternalForm().endsWith(".zip&#8221;))
   
-result = new URL(&#8220;jar:&#8221;.concat(result.toExternalForm())
+result = new URL("jar:&#8221;.concat(result.toExternalForm())
   
-.concat(&#8220;!/&#8221;).concat(clsAsResource));
+.concat("!/&#8221;).concat(clsAsResource));
   
 else if (new File(result.getFile()).isDirectory())
   

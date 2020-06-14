@@ -10,7 +10,7 @@ categories:
 ---
 http://www.51testing.com/html/55/383255-847895.html
 
-&nbsp;
+
 
 我将使用3台linux测试机部署jmeter,部署方法也是非常简单,打包后放在指定的目录就ok了,
   

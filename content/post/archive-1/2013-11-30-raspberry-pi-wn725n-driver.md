@@ -20,7 +20,7 @@ for 3.6.11+ #524, #528 or #532 use 8188eu-20130815.tar.gz
   
 for 3.6.11+ #371 up to #520 use 8188eu-20130209.tar.gz
 
-&nbsp;
+
 
     sudo install -p -m 644 8188eu.ko /lib/modules/`uname -r`/kernel/drivers/net/wireless
     sudo depmod -a

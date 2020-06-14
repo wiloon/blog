@@ -30,7 +30,7 @@ Class c1 = x.getClass();
       
 2、使用Class类的中静态forName()方法获得与字符串对应的Class对象。例如：
       
-Class c2=Class.forName(&#8220;MyObject&#8221;),Employee必须是接口或者类的名字。
+Class c2=Class.forName("MyObject&#8221;),Employee必须是接口或者类的名字。
       
 3、获取Class类型对象的第三个方法非常简单。如果T是一个Java类型，那么T.class就代表了匹配的类对象。例如
       
@@ -92,11 +92,11 @@ if(e.getClass() == Employee.class)&#8230;
   
 Java代码
   
-String str = &#8220;abc&#8221; ;
+String str = "abc&#8221; ;
   
 Class c1 = str.getClass() ;
   
-System.out.println(&#8220;c1 type name = &#8220;+c1.getName()) ;
+System.out.println("c1 type name = "+c1.getName()) ;
 
 //注意用int = i 不行，这里需要对象，而不是原生的数据类型
   
@@ -104,7 +104,7 @@ Integer i = new Integer(3000) ;
   
 Class c2 = i.getClass() ;
   
-System.out.println(&#8220;c2 type name =&#8221;+c2.getName()) ;
+System.out.println("c2 type name =&#8221;+c2.getName()) ;
 
 输出的结果分别是java.lang.String java.lang.Integer
 
@@ -114,13 +114,13 @@ System.out.println(&#8220;c2 type name =&#8221;+c2.getName()) ;
   
 Java代码
   
-String str2 = &#8220;abc&#8221; ;
+String str2 = "abc&#8221; ;
   
 Class c3 = str2.getClass() ;
   
 Class c4 = c3.getSuperclass() ;
   
-System.out.println(&#8220;c4 type name = &#8220;+c4.getName()) ;
+System.out.println("c4 type name = "+c4.getName()) ;
 
 结果为java.lang.Object
 
@@ -128,7 +128,7 @@ System.out.println(&#8220;c4 type name = &#8220;+c4.getName()) ;
   
 在JDBC中我们经常使用Class.forName(DBDRIVER)来获得驱动，这种用法比较常见
   
-其他的象Class.forName(&#8220;java.lang.String&#8221;)也是一样的用法
+其他的象Class.forName("java.lang.String&#8221;)也是一样的用法
 
 4.通过.class来获得
   
@@ -146,13 +146,13 @@ Class c7 = int[].class ;
   
 Class c8 = Integer.class ;
   
-System.out.println(&#8220;c5 type name = &#8220;+c5.getName()) ;
+System.out.println("c5 type name = "+c5.getName()) ;
   
-System.out.println(&#8220;c6 type name = &#8220;+c6.getName()) ;
+System.out.println("c6 type name = "+c6.getName()) ;
   
-System.out.println(&#8220;c7 type name = &#8220;+c7.getName()) ;
+System.out.println("c7 type name = "+c7.getName()) ;
   
-System.out.println(&#8220;c8 type name = &#8220;+c8.getName()) ;
+System.out.println("c8 type name = "+c8.getName()) ;
 
 输出的结果也分别是相应的类型，这里int属于原生数据类型，是可以用.class这种方法类取得Class类型的，而int[]也属于一种对象，其本身也具有适用.class这种方法取得Class的能力
 
@@ -168,11 +168,11 @@ Class c10 = Byte.TYPE ;
   
 Class c11 = Character.TYPE ;
   
-System.out.println(&#8220;c9 type name = &#8220;+c9.getName()) ;
+System.out.println("c9 type name = "+c9.getName()) ;
   
-System.out.println(&#8220;c10 type name = &#8220;+c10.getName()) ;
+System.out.println("c10 type name = "+c10.getName()) ;
   
-System.out.println(&#8220;c11 type name = &#8220;+c11.getName()) ;
+System.out.println("c11 type name = "+c11.getName()) ;
 
 输出的结果分别是：
   

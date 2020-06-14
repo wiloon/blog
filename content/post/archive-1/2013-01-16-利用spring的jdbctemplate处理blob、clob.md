@@ -119,7 +119,7 @@ lazy-init=&#8221;true&#8221; />
 
 public List getAttachs(final int userId){
   
-String sql = &#8220;SELECT post\_id,post\_attach FROM t\_post where user\_id =? and post_attach is not null&#8221;;
+String sql = "SELECT post\_id,post\_attach FROM t\_post where user\_id =? and post_attach is not null&#8221;;
   
 return getJdbcTemplate().query(
   

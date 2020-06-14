@@ -40,7 +40,7 @@ import org.springframework.stereotype.Controller;
   
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping(&#8220;/admin/images&#8221;)
+@RequestMapping("/admin/images&#8221;)
   
 @Controller
   
@@ -48,7 +48,7 @@ public class ImageAdminController {
 
 private String imageDir;
   
-@Value(&#8220;#{settings[&#8216;test.abc&#8217;]}&#8221;)
+@Value("#{settings[&#8216;test.abc&#8217;]}&#8221;)
   
 public void setImageDir(String val) {
   

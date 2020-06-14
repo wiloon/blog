@@ -15,7 +15,7 @@ tags:
 
 在看所有的细节之前，可以看一篇相当专业的《缓存算法》，世界真宽阔，算法真奇妙。
 
-&nbsp;
+
 
 1. LRU
   
@@ -51,7 +51,7 @@ Guava Cache同样做了一个双向的Queue，见LocalCache中的AccessQueue类�
 
 后来，根据@刘少壮同学的提示，JBoss的InfiniSpan里还实现了比LRU更高级的LIRS算法，可以避免一些冷数据因为某个原因被大量访问后，把热数据挤占掉。
 
-&nbsp;
+
 
 2. 过期键删除
   

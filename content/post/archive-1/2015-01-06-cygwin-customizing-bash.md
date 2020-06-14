@@ -20,6 +20,6 @@ copy files to %HOME% path
 
 .profile
 
-&nbsp;
 
-config java hoem in .bashrc, e.g.  export JAVA\_HOME=&#8221;/cygdrive/d/program files/java/jdk1.6.0\_35&#8243;
+
+config java hoem in .bashrc, e.g.  export JAVA\_HOME=&#8221;/cygdrive/d/program files/java/jdk1.6.0\_35"

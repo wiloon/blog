@@ -13,7 +13,7 @@ tags:
 ---
 <http://foxty.iteye.com/blog/39332>
 
-&nbsp;
+
 
 Servlet和filter是J2EE开发中常用的技术，使用方便，配置简单，老少皆宜。估计大多数朋友都是直接配置用，也没有关心过具体的细节，今天遇到一个问题，上网查了servlet的规范才发现，servlet和filter中的url-pattern还是有一些文章在里面的，总结了一些东西，放出来供大家参考，以免遇到问题又要浪费时间。<o:p></o:p>
 

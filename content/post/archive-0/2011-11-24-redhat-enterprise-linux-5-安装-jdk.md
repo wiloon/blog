@@ -41,7 +41,7 @@ tags:
 
 找到export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE INPUTRC，在该语句的**上面**添加以下语句：
 
-set  JAVA\_HOME=&#8221;/usr/java/jdk1.5.0\_17&#8243;
+set  JAVA\_HOME=&#8221;/usr/java/jdk1.5.0\_17"
 
 export   JAVA_HOME
 

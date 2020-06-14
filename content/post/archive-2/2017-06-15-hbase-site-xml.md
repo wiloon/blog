@@ -385,7 +385,7 @@ HMaster server验证登录使用的kerberos keytab 文件路径。(译者注：H
   
 hbase.master.kerberos.principal
   
-例如. &#8220;hbase/\_HOST@EXAMPLE.COM&#8221;. HMaster运行需要使用 kerberos principal name. principal name 可以在: user/hostname@DOMAIN 中获取. 如果 &#8220;\_HOST&#8221; 被用做hostname portion，需要使用实际运行的hostname来替代它。
+例如. "hbase/\_HOST@EXAMPLE.COM&#8221;. HMaster运行需要使用 kerberos principal name. principal name 可以在: user/hostname@DOMAIN 中获取. 如果 "\_HOST&#8221; 被用做hostname portion，需要使用实际运行的hostname来替代它。
   
 默认:
   
@@ -397,7 +397,7 @@ HRegionServer验证登录使用的kerberos keytab 文件路径。
   
 hbase.regionserver.kerberos.principal
   
-例如. &#8220;hbase/\_HOST@EXAMPLE.COM&#8221;. HRegionServer运行需要使用 kerberos principal name. principal name 可以在: user/hostname@DOMAIN 中获取. 如果 &#8220;\_HOST&#8221; 被用做hostname portion，需要使用实际运行的hostname来替代它。在这个文件中必须要有一个entry来描述 hbase.regionserver.keytab.file
+例如. "hbase/\_HOST@EXAMPLE.COM&#8221;. HRegionServer运行需要使用 kerberos principal name. principal name 可以在: user/hostname@DOMAIN 中获取. 如果 "\_HOST&#8221; 被用做hostname portion，需要使用实际运行的hostname来替代它。在这个文件中必须要有一个entry来描述 hbase.regionserver.keytab.file
   
 默认:
   
@@ -419,7 +419,7 @@ Hbase security开启后，认证token下发后的生存周期，默认是6048000
 
 zookeeper.session.timeout
   
-ZooKeeper 会话超时.HBase把这个值传递改zk集群，向他推荐一个会话的最大超时时间。详见http://hadoop.apache.org/zookeeper/docs/current/zookeeperProgrammers.html#ch_zkSessions &#8220;The client sends a requested timeout, the server responds with the timeout that it can give the client. &#8220;。 单位是毫秒
+ZooKeeper 会话超时.HBase把这个值传递改zk集群，向他推荐一个会话的最大超时时间。详见http://hadoop.apache.org/zookeeper/docs/current/zookeeperProgrammers.html#ch_zkSessions "The client sends a requested timeout, the server responds with the timeout that it can give the client. "。 单位是毫秒
   
 默认: 180000
   
@@ -515,7 +515,7 @@ hbase.rest.readonly
   
 hbase.defaults.for.version.skip
   
-Set to true to skip the &#8216;hbase.defaults.for.version&#8217; check. Setting this to true can be useful in contexts other than the other side of a maven generation; i.e. running in an ide. You&#8217;ll want to set this boolean to true to avoid seeing the RuntimException complaint: &#8220;hbase-default.xml file seems to be for and old version of HBase (${hbase.version}), this version is X.X.X-SNAPSHOT&#8221;
+Set to true to skip the &#8216;hbase.defaults.for.version&#8217; check. Setting this to true can be useful in contexts other than the other side of a maven generation; i.e. running in an ide. You&#8217;ll want to set this boolean to true to avoid seeing the RuntimException complaint: "hbase-default.xml file seems to be for and old version of HBase (${hbase.version}), this version is X.X.X-SNAPSHOT&#8221;
   
 Default: false
   
@@ -553,7 +553,7 @@ Default: true
   
 hbase.thrift.minWorkerThreads
   
-The &#8220;core size&#8221; of the thread pool. New threads are created on every connection until this many threads are created.
+The "core size&#8221; of the thread pool. New threads are created on every connection until this many threads are created.
   
 Default: 16
   
@@ -601,7 +601,7 @@ Default: 000
   
 hbase.metrics.showTableName
   
-Whether to include the prefix &#8220;tbl.tablename&#8221; in per-column family metrics. If true, for each metric M, per-cf metrics will be reported for tbl.T.cf.CF.M, if false, per-cf metrics will be aggregated by column-family across tables, and reported for cf.CF.M. In both cases, the aggregated metric M across tables and cfs will be reported.
+Whether to include the prefix "tbl.tablename&#8221; in per-column family metrics. If true, for each metric M, per-cf metrics will be reported for tbl.T.cf.CF.M, if false, per-cf metrics will be aggregated by column-family across tables, and reported for cf.CF.M. In both cases, the aggregated metric M across tables and cfs will be reported.
   
 Default: true
   

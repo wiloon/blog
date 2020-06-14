@@ -84,7 +84,7 @@ my.cnf中配置sql-mode
   
 #sql-mode=&#8221;modes&#8230;&#8221;
   
-sql-mode = &#8220;STRICT\_TRANS\_TABLES,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITUTION&#8221;
+sql-mode = "STRICT\_TRANS\_TABLES,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITUTION&#8221;
   
 sql_mode常用值
   

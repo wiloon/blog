@@ -12,7 +12,7 @@ http://www.oschina.net/p/juds/similar_projects?lang=0&sort=view
 
 Java Unix Domain Sockets (JUDS) 提供了 Java 的方法用来访问 Unix domain sockets 套接字。
 
-&nbsp;
+
 
 <pre>&lt;dependency&gt;
    &lt;groupId&gt;uk.co.caprica&lt;/groupId&gt;
@@ -21,9 +21,9 @@ Java Unix Domain Sockets (JUDS) 提供了 Java 的方法用来访问 Unix domain
 &lt;/dependency&gt;
 </pre>
 
-&nbsp;
 
-&nbsp;
+
+
 
 示例代码：
 

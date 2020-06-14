@@ -139,7 +139,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
-除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( &#8220;binding&#8221;)：
+除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( "binding&#8221;)：
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg16.jpg" alt="" width="474" height="430" border="0" />
 

@@ -61,7 +61,7 @@ categories:
   </div>
   
   <div>
-    E:test>mvn -versionE:test>set MAVEN_OPTS= -Xms128m -Xmx512m<br /> Maven version: 2.0.9<br /> Java version: 1.6.0_07<br /> OS name: &#8220;windows 2003&#8221; version: &#8220;5.2&#8221; arch: &#8220;x86&#8221; Family: &#8220;windows&#8221;</p>
+    E:test>mvn -versionE:test>set MAVEN_OPTS= -Xms128m -Xmx512m<br /> Maven version: 2.0.9<br /> Java version: 1.6.0_07<br /> OS name: "windows 2003&#8221; version: "5.2&#8221; arch: "x86&#8221; Family: "windows&#8221;</p>
   </div>
   
   <p>

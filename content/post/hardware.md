@@ -21,3 +21,15 @@ wlan: BCM94313HMG2L
     Full IEEE 802.11a/b/g/n legacy compatibility with enhanced performance
     Single spatial stream up to a 72 Mbps data rate
     https://www.broadcom.cn/products/wireless/wireless-lan-bluetooth/bcm43013
+
+
+### R7800
+802.11ac
+2.4G 800Mbps
+5G 1733Mbps
+128MB闪存
+512MB内存
+Qualcomm Atheros IPQ8065 arm 32bit
+5G QCA9984
+2.4G QCA9984
+有线网络 QCA8337

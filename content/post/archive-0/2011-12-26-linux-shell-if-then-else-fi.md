@@ -143,33 +143,33 @@ fi
   
 if [ -f /bin/bash ]
   
-then echo &#8220;/bin/bash is a file&#8221;
+then echo "/bin/bash is a file&#8221;
   
-else echo &#8220;/bin/bash is NOT a file&#8221;
+else echo "/bin/bash is NOT a file&#8221;
   
 fi
   
-if :; then echo &#8220;always true&#8221;; fi
+if :; then echo "always true&#8221;; fi
   
 :是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子：
 
 #! /bin/sh
 
-echo &#8220;Is it morning? Please answer yes or no.&#8221;
+echo "Is it morning? Please answer yes or no.&#8221;
   
 read YES\_OR\_NO
   
-if [ &#8220;$YES\_OR\_NO&#8221; = &#8220;yes&#8221; ]; then
+if [ "$YES\_OR\_NO&#8221; = "yes&#8221; ]; then
     
-echo &#8220;Good morning!&#8221;
+echo "Good morning!&#8221;
   
-elif [ &#8220;$YES\_OR\_NO&#8221; = &#8220;no&#8221; ]; then
+elif [ "$YES\_OR\_NO&#8221; = "no&#8221; ]; then
     
-echo &#8220;Good afternoon!&#8221;
+echo "Good afternoon!&#8221;
   
 else
     
-echo &#8220;Sorry, $YES\_OR\_NO not recognized. Enter yes or no.&#8221;
+echo "Sorry, $YES\_OR\_NO not recognized. Enter yes or no.&#8221;
     
 exit 1
   
@@ -181,7 +181,7 @@ exit 0
 
 此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样：
 
-test &#8220;$(whoami)&#8221; != &#8216;root&#8217; && (echo you are using a non-privileged account; exit 1)
+test "$(whoami)&#8221; != &#8216;root&#8217; && (echo you are using a non-privileged account; exit 1)
   
 &&相当于“if…then…”，而||相当于“if not…then…”。&&和||用于连接两个命令，而上面讲的-a和-o仅用于在测试表达式中连接两个测试条件，要注意它们的区别，例如，
 
@@ -233,13 +233,13 @@ filename1 -ot filename2 如果 filename1 比 filename2 旧，则为真 [ /boot/b
   
 字符串比较运算符 （请注意引号的使用，这是防止空格扰乱代码的好方法）
   
--z string 如果 string 长度为零，则为真 [ -z &#8220;$myvar&#8221; ]
+-z string 如果 string 长度为零，则为真 [ -z "$myvar&#8221; ]
   
--n string 如果 string 长度非零，则为真 [ -n &#8220;$myvar&#8221; ]
+-n string 如果 string 长度非零，则为真 [ -n "$myvar&#8221; ]
   
-string1 = string2 如果 string1 与 string2 相同，则为真 [ &#8220;$myvar&#8221; = &#8220;one two three&#8221; ]
+string1 = string2 如果 string1 与 string2 相同，则为真 [ "$myvar&#8221; = "one two three&#8221; ]
   
-string1 != string2 如果 string1 与 string2 不同，则为真 [ &#8220;$myvar&#8221; != &#8220;one two three&#8221; ]
+string1 != string2 如果 string1 与 string2 不同，则为真 [ "$myvar&#8221; != "one two three&#8221; ]
   
 算术比较运算符
   
@@ -383,23 +383,23 @@ Bash Shell可以进行变量的条件替换,既只有某种条件发生时才进
 
 #!/bin/bash
 
-var1=&#8221;1&#8243;
+var1=&#8221;1"
   
-var2=&#8221;2&#8243;
+var2=&#8221;2"
 
 下面是“与”运算符-a，另外注意，用一个test命令就可以了，还有if条件后面的分号
 
-if test $var1 = &#8220;1&#8221;-a $var2 = &#8220;2&#8221; ; then
+if test $var1 = "1&#8221;-a $var2 = "2&#8221; ; then
      
-echo &#8220;equal&#8221;
+echo "equal&#8221;
   
 fi
 
 下面是“或”运算符 -o，有一个为真就可以
 
-if test $var1 != &#8220;1&#8221; -o $var2 != &#8220;3&#8221; ; then
+if test $var1 != "1&#8221; -o $var2 != "3&#8221; ; then
      
-echo &#8220;not equal&#8221;
+echo "not equal&#8221;
   
 fi
 
@@ -407,9 +407,9 @@ fi
   
 if条件是为真的时候执行，如果使用！运算符，那么原表达式必须为false
 
-if ! test $var1 != &#8220;1&#8221;; then
+if ! test $var1 != "1&#8221;; then
      
-echo &#8220;not 1&#8243;
+echo "not 1"
   
 fi
 
@@ -423,33 +423,33 @@ fi
 
 aa=&#8221;August 15, 2012&#8221;
   
-bb=&#8221;August 15, 20122&#8243;
+bb=&#8221;August 15, 20122"
   
-cc=&#8221;123&#8243;
+cc=&#8221;123"
   
-dd=&#8221;123&#8243;
+dd=&#8221;123"
 
 # -o
 
-if [ &#8220;$aa&#8221; = &#8220;$bb&#8221; -o &#8220;$cc&#8221; = &#8220;$dd&#8221; ]; then
+if [ "$aa&#8221; = "$bb&#8221; -o "$cc&#8221; = "$dd&#8221; ]; then
       
-echo &#8220;yes&#8221;
+echo "yes&#8221;
   
 else
       
-echo &#8220;no&#8221;
+echo "no&#8221;
   
 fi
 
 # -a and !
 
-if [ &#8220;$aa&#8221; != &#8220;$bb&#8221; -a &#8220;$cc&#8221; = &#8220;$dd&#8221; ]; then
+if [ "$aa&#8221; != "$bb&#8221; -a "$cc&#8221; = "$dd&#8221; ]; then
       
-echo &#8220;yes&#8221;
+echo "yes&#8221;
   
 else
       
-echo &#8220;no&#8221;
+echo "no&#8221;
   
 fi
   
@@ -465,26 +465,26 @@ shell字符串比较、判断是否为数字
 
 1 整数比较
 
--eq 等于,如:if [ &#8220;$a&#8221; -eq &#8220;$b&#8221; ]
+-eq 等于,如:if [ "$a&#8221; -eq "$b&#8221; ]
 
--ne 不等于,如:if [ &#8220;$a&#8221; -ne &#8220;$b&#8221; ]
+-ne 不等于,如:if [ "$a&#8221; -ne "$b&#8221; ]
 
--gt 大于,如:if [ &#8220;$a&#8221; -gt &#8220;$b&#8221; ]
+-gt 大于,如:if [ "$a&#8221; -gt "$b&#8221; ]
 
--ge 大于等于,如:if [ &#8220;$a&#8221; -ge &#8220;$b&#8221; ]
+-ge 大于等于,如:if [ "$a&#8221; -ge "$b&#8221; ]
 
--lt 小于,如:if [ &#8220;$a&#8221; -lt &#8220;$b&#8221; ]
+-lt 小于,如:if [ "$a&#8221; -lt "$b&#8221; ]
 
--le 小于等于,如:if [ &#8220;$a&#8221; -le &#8220;$b&#8221; ]
+-le 小于等于,如:if [ "$a&#8221; -le "$b&#8221; ]
 
-< 小于(需要双括号),如:((&#8220;$a&#8221; < &#8220;$b&#8221;))
+< 小于(需要双括号),如:(("$a&#8221; < "$b&#8221;))
 
-<= 小于等于(需要双括号),如:((&#8220;$a&#8221; <= &#8220;$b&#8221;))
+<= 小于等于(需要双括号),如:(("$a&#8221; <= "$b&#8221;))
 
 >       大于(需要双括号),如:(("$a" > "$b"))
 >     
 > 
-> = 大于等于(需要双括号),如:((&#8220;$a&#8221; >= &#8220;$b&#8221;)) 
+> = 大于等于(需要双括号),如:(("$a&#8221; >= "$b&#8221;)) 
 
 整数比较实例
 
@@ -498,61 +498,61 @@ fileSize=`ls -l folder_url_top24/url_usa_top24_0 | awk -F '[" "]' '{print $5}'`
   
 FILESIZE=1000
   
-#while [ ! -f $file -o &#8220;$fileSize&#8221; -lt &#8220;$FILESIZE&#8221; ]
+#while [ ! -f $file -o "$fileSize&#8221; -lt "$FILESIZE&#8221; ]
   
-#while [ ! -f $file -o &#8220;$fileSize&#8221; -lt 1000 ]
+#while [ ! -f $file -o "$fileSize&#8221; -lt 1000 ]
   
-while ((&#8220;$fileSize&#8221; < 1000))
+while (("$fileSize&#8221; < 1000))
   
 do
       
-echo &#8220;down again&#8230;&#8221;
+echo "down again&#8230;&#8221;
   
 done
   
 其中，下面三种整数比较都成立：
   
-1） while [ ! -f $file -o &#8220;$fileSize&#8221; -lt &#8220;$FILESIZE&#8221; ]
+1） while [ ! -f $file -o "$fileSize&#8221; -lt "$FILESIZE&#8221; ]
 
-2） while [ ! -f $file -o &#8220;$fileSize&#8221; -lt 1000 ]
+2） while [ ! -f $file -o "$fileSize&#8221; -lt 1000 ]
 
-3） ((&#8220;$fileSize&#8221; < 1000))
+3） (("$fileSize&#8221; < 1000))
 
 推荐使用第一种
 
 2 字符串比较
   
-= 等于,如:if [ &#8220;$a&#8221; = &#8220;$b&#8221; ]
+= 等于,如:if [ "$a&#8221; = "$b&#8221; ]
 
-== 等于,如:if [ &#8220;$a&#8221; == &#8220;$b&#8221; ],与=等价
+== 等于,如:if [ "$a&#8221; == "$b&#8221; ],与=等价
          
 注意:==的功能在[[]]和[]中的行为是不同的,如下:
          
 1 [[ $a == z* ]] # 如果$a以&#8221;z&#8221;开头(模式匹配)那么将为true
          
-2 [[ $a == &#8220;z_&#8221; ]] # 如果$a等于z_(字符匹配),那么结果为true
+2 [[ $a == "z_&#8221; ]] # 如果$a等于z_(字符匹配),那么结果为true
          
 3
          
 4 [ $a == z* ] # File globbing 和word splitting将会发生
          
-5 [ &#8220;$a&#8221; == &#8220;z_&#8221; ] # 如果$a等于z_(字符匹配),那么结果为true
+5 [ "$a&#8221; == "z_&#8221; ] # 如果$a等于z_(字符匹配),那么结果为true
          
 一点解释,关于File globbing是一种关于文件的速记法,比如&#8221;*.c&#8221;就是,再如~也是.
          
 但是file globbing并不是严格的正则表达式,虽然绝大多数情况下结构比较像.
 
-!= 不等于,如:if [ &#8220;$a&#8221; != &#8220;$b&#8221; ]
+!= 不等于,如:if [ "$a&#8221; != "$b&#8221; ]
          
 这个操作符将在[[]]结构中使用模式匹配.
 
 < 小于,在ASCII字母顺序下.如:
          
-if [[ &#8220;$a&#8221; < &#8220;$b&#8221; ]]
+if [[ "$a&#8221; < "$b&#8221; ]]
          
-if [ &#8220;$a&#8221; \< &#8220;$b&#8221; ]
+if [ "$a&#8221; \< "$b&#8221; ]
          
-注意:在[]结构中&#8221;<&#8220;需要被转义.
+注意:在[]结构中&#8221;<"需要被转义.
 
 >       大于,在ASCII字母顺序下.如:
 >        if [[ "$a" > "$b" ]]
@@ -579,13 +579,13 @@ port=$1 # 获取指定端口号
   
 fi
 
-echo &#8220;redis port: $port&#8221;
+echo "redis port: $port&#8221;
   
 redis-cli -h 172.1628.10.114 -p $port
 
 字符串比较实例：
 
-if [ &#8220;$var1&#8221; = &#8220;$var2&#8243; ]
+if [ "$var1&#8221; = "$var2" ]
 
 代码：
 
@@ -595,15 +595,15 @@ if [ &#8220;$var1&#8221; = &#8220;$var2&#8243; ]
 
 aa=&#8221;August 15, 2012&#8221;
   
-bb=&#8221;August 15, 2012&#8243;
+bb=&#8221;August 15, 2012"
 
-if [ &#8220;$aa&#8221; = &#8220;$bb&#8221; ]; then
+if [ "$aa&#8221; = "$bb&#8221; ]; then
       
-echo &#8220;yes&#8221;
+echo "yes&#8221;
   
 else
       
-echo &#8220;no&#8221;
+echo "no&#8221;
   
 fi
 
@@ -619,23 +619,23 @@ a2=&#8221;ithomer.net&#8221;
   
 a3=&#8221;blog.ithomer.net&#8221;
 
-if [[ &#8220;$a3&#8221; =~ &#8220;$a1&#8221; ]]; then
+if [[ "$a3&#8221; =~ "$a1&#8221; ]]; then
            
-echo &#8220;$a1是$a3的子串！&#8221;
+echo "$a1是$a3的子串！&#8221;
   
 else
            
-echo &#8220;$a1不是$a3的子串！&#8221;
+echo "$a1不是$a3的子串！&#8221;
   
 fi
 
-if [[ &#8220;$a3&#8221; =~ &#8220;$a2&#8221; ]];then
+if [[ "$a3&#8221; =~ "$a2&#8221; ]];then
            
-echo &#8220;$a2是$a3的子串！&#8221;
+echo "$a2是$a3的子串！&#8221;
   
 else
            
-echo &#8220;$a2不是$a3的子串！&#8221;
+echo "$a2不是$a3的子串！&#8221;
   
 fi
 

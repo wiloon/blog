@@ -14,7 +14,7 @@ public void persist(Object entity)
   
 persist 方法可以将实例转换为 managed( 托管 ) 状态。在调用 flush() 方法或提交事物后，实例将会被插入到数据库中。
 
-&nbsp;
+
 
 对不同状态下的实例 A ， persist 会产生以下操作 :
 
@@ -30,7 +30,7 @@ public void merge(Object entity)
   
 merge 方法的主要作用是将用户对一个 detached 状态实体的修改进行归档，归档后将产生一个新的 managed 状态对象。
 
-&nbsp;
+
 
 对不同状态下的实例 A ， merge 会产生以下操作 :
 
@@ -46,7 +46,7 @@ public void refresh(Object entity)
   
 refresh 方法可以保证当前的实例与数据库中的实例的内容一致。
 
-&nbsp;
+
 
 对不同状态下的实例 A ， refresh 会产生以下操作 :
 
@@ -62,7 +62,7 @@ public void remove(Object entity)
   
 remove 方法可以将实体转换为 removed 状态，并且在调用 flush() 方法或提交事物后删除数据库中的数据。
 
-&nbsp;
+
 
 对不同状态下的实例 A ， remove 会产生以下操作 :
 
@@ -74,6 +74,6 @@ remove 方法可以将实体转换为 removed 状态，并且在调用 flush() �
 
 4. 如果 A 是一个 detached 状态的实体，该方法将会抛出异常。
 
-&nbsp;
+
 
 http://yanchao90.blog.163.com/blog/static/1794602520112126051348/

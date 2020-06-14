@@ -120,7 +120,7 @@ return blRtn;
 
 [/java]
 
-&nbsp;
+
 
 CRCChecker.java
 
@@ -216,4 +216,3 @@ return lngRtn;
 
 [/java]
 
-&nbsp;

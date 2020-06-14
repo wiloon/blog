@@ -20,7 +20,7 @@ http://www.it165.net/pro/html/201303/5237.html
 
 首先您必须到 CodePlex 下载 Visio 2010 的 Addin 程序，安装完毕之后开启 Visio 2010 就会看到多一个 Forward Engineer 的功能选单。
 
-&nbsp;
+
 
 步骤二、新增数据库模型图
 
@@ -28,21 +28,21 @@ http://www.it165.net/pro/html/201303/5237.html
 
 于数据库模型图中建立使用者数据表（Users）及角色数据表（Roles）两个实体，并建立由使用者数据表的 RoleId 数据行参考到角色数据表的  RoleId 数据行。
 
-&nbsp;
+
 
 步骤三、Forward Engineer
 
 点选【Forward Engineer】功能区块，您会看到两个按钮，其中【Validate Data Model】是用来验证您的数据库模型是否正确无误。
 
-&nbsp;
+
 
 验证如果没问题您将看到如下图的画面：
 
-&nbsp;
+
 
 【Forward Engineer】 则是用来产生模型的相对应的数据库对象指令码。
 
-&nbsp;
+
 
 在进行正向工程时必须在 Forward Engineer to SQL Server 窗口设定下列信息： www.it165.net
 
@@ -60,15 +60,15 @@ http://www.it165.net/pro/html/201303/5237.html
 
 下图的设定为为笔者示范之用，您可以依照您的实际需求设定选项内容。
 
-&nbsp;
+
 
 输入相关信息后按 Ok，若您的 *.sql 指令码档案预设是以 SSMS 开启，您应该在产生指令码成功后，会直接开启 SSMS 要求输入连接到数据库的服务器名称及验证信息（如下图）。
 
-&nbsp;
+
 
 此时只要按下【F5】即可将 Visio 画好的数据库模型部署到您指定的 SQL Server 之中，执行完毕之后透过数据库图表来查看数据表的关联是否和数据库模型相同，结果如下：
 
-&nbsp;
+
 
 【结论】
 

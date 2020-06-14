@@ -48,7 +48,7 @@ intent是跳转到service的intent，如 Intent intent = new Intent(); intent.se
   
 conn则是一个代表与service连接状态的类，当我们连接service成功或失败时，会主动触发其内部的onServiceConnected或onServiceDisconnected方法。如果我们想要访问service中的数据，可以在onServiceConnected()方法中进行实现，
 
-&nbsp;
+
 
 使用service的步骤：
   
@@ -120,7 +120,7 @@ service的活动生命周期是在onStart()之后，这个方法会处理通过s
 
 onCreate()方法和onDestroy()方法是针对所有的services，无论它们是否启动，通过Context.startService()和Context.bindService()方法都可以访问执行。然而，只有通过startService()方法启动service服务时才会调用onStart()方法。
 
-&nbsp;
+
 
 如果一个service允许别人绑定，那么需要实现以下额外的方法：
 
@@ -204,7 +204,7 @@ CountService.class);
   
 startService(intent);
 
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;start Service&#8221;);
+Log.v("MainStadyServics&#8221;, "start Service&#8221;);
   
 }
   
@@ -226,7 +226,7 @@ CountService.class);
   
 stopService(intent);
   
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;shutDown serveice&#8221;);
+Log.v("MainStadyServics&#8221;, "shutDown serveice&#8221;);
   
 }
   
@@ -244,7 +244,7 @@ Intent intent = new Intent(MainActivity.this, UseBrider.class);
   
 startActivity(intent);
   
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;start Binder Service&#8221;);
+Log.v("MainStadyServics&#8221;, "start Binder Service&#8221;);
   
 }
   
@@ -320,7 +320,7 @@ Thread.sleep(1000);
   
 count++;
   
-Log.v(&#8220;CountService&#8221;, &#8220;Count is&#8221; + count);
+Log.v("CountService&#8221;, "Count is&#8221; + count);
   
 }
   
@@ -440,7 +440,7 @@ super.onDestroy();
   
 this.unbindService(conn);
   
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;out&#8221;);
+Log.v("MainStadyServics&#8221;, "out&#8221;);
   
 }
   
@@ -464,13 +464,13 @@ public IBinder onBind(Intent intent) {
   
 // TODO Auto-generated method stub
   
-System.out.println(&#8220;onBind&#8230;..&#8221;);
+System.out.println("onBind&#8230;..&#8221;);
   
 IBinder result = null;
   
 if ( null == result ) result = new MyBinder() ;
   
-Toast.makeText(this, &#8220;onBind&#8221;,Toast.LENGTH_LONG);
+Toast.makeText(this, "onBind&#8221;,Toast.LENGTH_LONG);
   
 return result;
   
@@ -478,7 +478,7 @@ return result;
   
 复制代码
 
-&nbsp;
+
 
 至于startservice和bindservice的使用场景，有网友这么说：
 
@@ -490,7 +490,7 @@ return result;
   
 一旦调用者挂掉了.service也会跟着挂掉 .
 
-&nbsp;
+
 
 示例下载地址：http://pan.baidu.com/share/link?shareid=1614272126&uk=1428765741
 

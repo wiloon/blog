@@ -26,7 +26,7 @@ With create-drop, the database schema will be dropped when the SessionFactory is
   
 eg. validate | update | create | create-drop
 
-&nbsp;
+
   
 其实这个hibernate.hbm2ddl.auto参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value=&#8221;none&#8221;。
   
@@ -84,7 +84,7 @@ update                 加载hibernate自动更新数据库结�
 
 以上4个属性对同一配置文件下所用有的映射表都起作用
 
-&nbsp;
+
 
 总结：
 
@@ -92,6 +92,6 @@ update                 加载hibernate自动更新数据库结�
 
 2.如果发现数据库表丢失，请检查hibernate.hbm2ddl.auto的配置
 
-&nbsp;
+
 
 本文来自CSDN博客，转载请标明出处：http://blog.csdn.net/lgq_0714/archive/2009/11/16/4814693.aspx

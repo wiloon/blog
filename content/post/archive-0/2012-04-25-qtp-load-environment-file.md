@@ -108,13 +108,13 @@ Price float32
 
 st := &Student {
       
-&#8220;Xiao Ming&#8221;,
+"Xiao Ming&#8221;,
       
 16,
       
 true,
       
-[]string{&#8220;Math&#8221;, &#8220;English&#8221;, &#8220;Chinese&#8221;},
+[]string{"Math&#8221;, "English&#8221;, "Chinese&#8221;},
        
 9.99,
   
@@ -146,9 +146,9 @@ $ cat gojson.go
    
 3 import (
    
-4 &#8220;fmt&#8221;
+4 "fmt&#8221;
    
-5 &#8220;encoding/json&#8221;
+5 "encoding/json&#8221;
    
 6 )
    
@@ -172,25 +172,25 @@ $ cat gojson.go
   
 16 func (s * Student)ShowStu() {
   
-17 fmt.Println(&#8220;show Student :&#8221;)
+17 fmt.Println("show Student :&#8221;)
   
-18 fmt.Println(&#8220;\tName\t:&#8221;, s.Name)
+18 fmt.Println("\tName\t:&#8221;, s.Name)
   
-19 fmt.Println(&#8220;\tAge\t:&#8221;, s.Age)
+19 fmt.Println("\tAge\t:&#8221;, s.Age)
   
-20 fmt.Println(&#8220;\tGuake\t:&#8221;, s.Guake)
+20 fmt.Println("\tGuake\t:&#8221;, s.Guake)
   
-21 fmt.Println(&#8220;\tPrice\t:&#8221;, s.Price)
+21 fmt.Println("\tPrice\t:&#8221;, s.Price)
   
-22 fmt.Printf(&#8220;\tClasses\t: &#8220;)
+22 fmt.Printf("\tClasses\t: ")
   
 23 for _, a := range s.Classes {
   
-24 fmt.Printf(&#8220;%s &#8220;, a)
+24 fmt.Printf("%s ", a)
   
 25 }
   
-26 fmt.Println(&#8220;&#8221;)
+26 fmt.Println("&#8221;)
   
 27 }
   
@@ -200,19 +200,19 @@ $ cat gojson.go
   
 30 st := &Student {
   
-31 &#8220;Xiao Ming&#8221;,
+31 "Xiao Ming&#8221;,
   
 32 16,
   
 33 true,
   
-34 []string{&#8220;Math&#8221;, &#8220;English&#8221;, &#8220;Chinese&#8221;},
+34 []string{"Math&#8221;, "English&#8221;, "Chinese&#8221;},
   
 35 9.99,
   
 36 }
   
-37 fmt.Println(&#8220;before JSON encoding :&#8221;)
+37 fmt.Println("before JSON encoding :&#8221;)
   
 38 st.ShowStu()
   
@@ -222,11 +222,11 @@ $ cat gojson.go
   
 41 if err != nil {
   
-42 fmt.Println(&#8220;encoding faild&#8221;)
+42 fmt.Println("encoding faild&#8221;)
   
 43 } else {
   
-44 fmt.Println(&#8220;encoded data : &#8220;)
+44 fmt.Println("encoded data : ")
   
 45 fmt.Println(b)
   
@@ -244,7 +244,7 @@ $ cat gojson.go
   
 52 strData := <-ch
   
-53 fmt.Println(&#8220;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;&#8220;)
+53 fmt.Println("&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;")
   
 54 stb := &Student{}
   
@@ -254,11 +254,11 @@ $ cat gojson.go
   
 57 if err != nil {
   
-58 fmt.Println(&#8220;Unmarshal faild&#8221;)
+58 fmt.Println("Unmarshal faild&#8221;)
   
 59 } else {
   
-60 fmt.Println(&#8220;Unmarshal success&#8221;)
+60 fmt.Println("Unmarshal success&#8221;)
   
 61 stb.ShowStu()
   
@@ -292,7 +292,7 @@ encoded data :
   
 [123 34 78 97 109 101 34 58 34 88 105 97 111 32 77 105 110 103 34 44 34 65 103 101 34 58 49 54 44 34 71 117 97 107 101 34 58 116 114 117 101 44 34 67 108 97 115 115 101 115 34 58 91 34 77 97 116 104 34 44 34 69 110 103 108 105 115 104 34 44 34 67 104 105 110 101 115 101 34 93 44 34 80 114 105 99 101 34 58 57 46 57 57 125]
 
-## {&#8220;Name&#8221;:&#8221;Xiao Ming&#8221;,&#8221;Age&#8221;:16,&#8221;Guake&#8221;:true,&#8221;Classes&#8221;:[&#8220;Math&#8221;,&#8221;English&#8221;,&#8221;Chinese&#8221;],&#8221;Price&#8221;:9.99}
+## {"Name&#8221;:&#8221;Xiao Ming&#8221;,&#8221;Age&#8221;:16,&#8221;Guake&#8221;:true,&#8221;Classes&#8221;:["Math&#8221;,&#8221;English&#8221;,&#8221;Chinese&#8221;],&#8221;Price&#8221;:9.99}
 
 show Student :
       

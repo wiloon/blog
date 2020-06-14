@@ -19,7 +19,7 @@ tags:
   
 <script src="images/jquery.blockUI.js" type="text/javascript"></script>
 
-&nbsp;
+
 
 $(function(){
   

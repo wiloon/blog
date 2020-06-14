@@ -60,7 +60,7 @@ password=&#8221;&#8221;
   
 driveClassName=&#8221;oracle.jdbc.driver.OracleDriver&#8221;
   
-url=&#8221;&#8221; maxActive=&#8221;45&#8243; maxIdle=&#8221;25&#8243;/>
+url=&#8221;&#8221; maxActive=&#8221;45" maxIdle=&#8221;25"/>
   
 jndi也可以配置在server.xml，context.xml中
   
@@ -78,7 +78,7 @@ type=&#8221;javax.transaction.UserTransaction&#8221;
   
 factory=&#8221;org.objectweb.jotm.UserTransactionFactory&#8221;
   
-jotm.timeout=&#8221;60&#8243;/>
+jotm.timeout=&#8221;60"/>
   
 然后在 项目名.xml 文件的context节点下加：
   
@@ -116,7 +116,7 @@ LocalContainerEntityManagerFactoryBean会根据persistence.xml创造一个Persis
 
 Persistence.xml配置：
 
-<persistence xmlns=&#8221;http://java.sun.com/xml/ns/persistence&#8221; version=&#8221;1.0&#8243;>
+<persistence xmlns=&#8221;http://java.sun.com/xml/ns/persistence&#8221; version=&#8221;1.0">
   
 <persistence-unit name=&#8221;myUnit&#8221; transaction-type=&#8221;RESOURCE_LOCAL&#8221;>
   
@@ -174,7 +174,7 @@ Persistence.xml配置：
   
 dataSources中的key是persistence.xml中配置的datasource名字，value-ref是spring管理的数据源。
 
-&nbsp;
+
 
 另外：
 
@@ -200,7 +200,7 @@ EntityManager em = this.emf.createEntityManager();
   
 try {
   
-Query query = em.createQuery(&#8220;from Product as p where p.category = ?1&#8221;);
+Query query = em.createQuery("from Product as p where p.category = ?1&#8221;);
   
 query.setParameter(1, category);
   
@@ -226,7 +226,7 @@ em.close();
   
 这样使用有个最大问题就是每次都要创建一个新的entityManager。那么该怎么办？
 
-你可以通过@PersistenceContext获取一个transactional EntityManager(&#8220;shared EntityManager&#8221;)。为什么称它为transactional？因为它是一个共享的以及线程安全的当前的transactional EntityManager的一个代理。
+你可以通过@PersistenceContext获取一个transactional EntityManager("shared EntityManager&#8221;)。为什么称它为transactional？因为它是一个共享的以及线程安全的当前的transactional EntityManager的一个代理。
 
 复制代码
   
@@ -238,9 +238,9 @@ private EntityManager em;
   
 public Collection loadProductsByCategory(String category) {
   
-Query query = em.createQuery(&#8220;from Product as p where p.category = :category&#8221;);
+Query query = em.createQuery("from Product as p where p.category = :category&#8221;);
   
-query.setParameter(&#8220;category&#8221;, category);
+query.setParameter("category&#8221;, category);
   
 return query.getResultList();
   

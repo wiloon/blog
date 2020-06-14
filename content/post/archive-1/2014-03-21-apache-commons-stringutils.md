@@ -30,7 +30,7 @@ Java代码 收藏代码
 
 public void doStuffWithString(String stringParam) {
 
-if(stringParam.equals(&#8220;MyStringValue&#8221;)) {
+if(stringParam.equals("MyStringValue&#8221;)) {
 
 // do stuff }
 
@@ -44,7 +44,7 @@ public void safeDoStuffWithString1(String stringParam) {
 
 if(stringParam != null &&
 
-stringParam.equals(&#8220;MyStringValue&#8221;)) {
+stringParam.equals("MyStringValue&#8221;)) {
 
 // do stuff
 
@@ -54,7 +54,7 @@ stringParam.equals(&#8220;MyStringValue&#8221;)) {
 
 public void safeDoStuffWithString2(String stringParm) {
 
-if(&#8220;MyStringValue&#8221;.equals(stringParam))
+if("MyStringValue&#8221;.equals(stringParam))
 
 {
 
@@ -122,9 +122,9 @@ Java代码 收藏代码
 
 public void possiblyNotWhatYouWant() {
 
-String contrivedExampleString = &#8220;one.two.three.four&#8221;;
+String contrivedExampleString = "one.two.three.four&#8221;;
 
-String[] result = contrivedExampleString.split(&#8220;.&#8221;);
+String[] result = contrivedExampleString.split(".&#8221;);
 
 System.out.println(result.length); // 0
 
@@ -140,9 +140,9 @@ System.out.println(result.length); // 0
 
 Java代码 收藏代码
 
-String[] numbers = {&#8220;one&#8221;, &#8220;two&#8221;, &#8220;three&#8221;};
+String[] numbers = {"one&#8221;, "two&#8221;, "three&#8221;};
 
-StringUtils.join(numbers,&#8221;,&#8221;); // returns &#8220;one,two,three&#8221;
+StringUtils.join(numbers,&#8221;,&#8221;); // returns "one,two,three&#8221;
 
 当然你可以传递一个数字或者迭代序列iterators.
 

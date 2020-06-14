@@ -18,7 +18,7 @@ folder &#8216;res&#8217;
 
 folder &#8216;src&#8217;
 
-&nbsp;
+
 
 edit build.gradle
 
@@ -28,14 +28,13 @@ remove my.xml
 
 remove MyActivity.java
 
-&nbsp;
+
 
 cd project root run gradle build
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+

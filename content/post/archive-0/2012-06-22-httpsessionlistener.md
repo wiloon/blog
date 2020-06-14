@@ -17,7 +17,7 @@ categories:
   这个接口也只包含两个方法，分别对应于Session的创建和失效：<br /> # public void sessionCreated(HttpSessionEvent se);<br /> # public void sessionDestroyed(HttpSessionEvent se);</p> 
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
@@ -25,7 +25,7 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
@@ -64,7 +64,7 @@ categories:
               ServletContext ctx = event.getSession( ).getServletContext( );
       </li>
       <li>
-                Integer numSessions = (Integer) ctx.getAttribute(&#8220;numSessions&#8221;);
+                Integer numSessions = (Integer) ctx.getAttribute("numSessions&#8221;);
       </li>
       <li>
                 if (numSessions == null) {
@@ -88,7 +88,7 @@ categories:
                 }
       </li>
       <li>
-                ctx.setAttribute(&#8220;numSessions&#8221;, numSessions);
+                ctx.setAttribute("numSessions&#8221;, numSessions);
       </li>
       <li>
         }
@@ -103,7 +103,7 @@ categories:
          ServletContext ctx=se.getSession().getServletContext();
       </li>
       <li>
-         Integer numSessions = (Integer)ctx.getAttribute(&#8220;numSessions&#8221;);
+         Integer numSessions = (Integer)ctx.getAttribute("numSessions&#8221;);
       </li>
       <li>
         <span class=&#8221;oblog_text&#8221;>        if(numSessions == null)
@@ -127,7 +127,7 @@ categories:
                 }
       </li>
       <li>
-                ctx.setAttribute(&#8220;numSessions&#8221;, numSessions);</span>
+                ctx.setAttribute("numSessions&#8221;, numSessions);</span>
       </li>
       <li>
       </li>
@@ -196,7 +196,7 @@ categories:
             // 成功
       </li>
       <li>
-            response.sendRedirect(&#8220;index.jsp&#8221;);
+            response.sendRedirect("index.jsp&#8221;);
       </li>
       <li>
         }
@@ -205,7 +205,7 @@ categories:
   </div>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
@@ -233,7 +233,7 @@ categories:
   </div>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
@@ -241,7 +241,7 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
@@ -253,7 +253,7 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <div id="">
@@ -284,7 +284,7 @@ categories:
                 String sessionid = se.getSession().getId();
       </li>
       <li>
-                EopSite site  =(EopSite)ThreadContextHolder.getSessionContext().getAttribute(&#8220;site_key&#8221;);
+                EopSite site  =(EopSite)ThreadContextHolder.getSessionContext().getAttribute("site_key&#8221;);
       </li>
       <li>
       </li>
@@ -292,7 +292,7 @@ categories:
                 if(site!=null){
       </li>
       <li>
-                ICartManager cartManager = SpringContextHolder.getBean(&#8220;cartManager&#8221;);
+                ICartManager cartManager = SpringContextHolder.getBean("cartManager&#8221;);
       </li>
       <li>
                 cartManager.clean(sessionid,site.getUserid(),site.getId());
@@ -310,7 +310,7 @@ categories:
   </div>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
@@ -330,6 +330,6 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
 </div>

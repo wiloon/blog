@@ -118,6 +118,6 @@ let twoM : Array<Array<string>>;
   
 let twoM : string[][]
   
-twoM.push([&#8220;abc&#8221;])
+twoM.push(["abc&#8221;])
 
 https://www.jianshu.com/p/be871ff2fee4

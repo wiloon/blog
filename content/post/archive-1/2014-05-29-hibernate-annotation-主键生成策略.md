@@ -24,7 +24,7 @@ Hibernate 默认总共支持 13 种生成策略 :
   
 10. assigned 11. select 12. foreign 13. sequence-identity
 
-&nbsp;
+
 
 下面介绍几个较为常用的策略 :
   
@@ -38,11 +38,11 @@ Hibernate 默认总共支持 13 种生成策略 :
 
 @Id
 
-@GenericGenerator(name = &#8220;idGenerator&#8221;, strategy = &#8220;identity&#8221;)
+@GenericGenerator(name = "idGenerator&#8221;, strategy = "identity&#8221;)
 
-@GeneratedValue(generator = &#8220;idGenerator&#8221;)
+@GeneratedValue(generator = "idGenerator&#8221;)
 
-&nbsp;
+
 
 ② sequence [ 序列 ]
 
@@ -54,17 +54,17 @@ Hibernate 默认总共支持 13 种生成策略 :
 
 @Id
 
-@GenericGenerator(name = &#8220;idGenerator&#8221;, strategy = &#8220;sequence&#8221;,
+@GenericGenerator(name = "idGenerator&#8221;, strategy = "sequence&#8221;,
 
-parameters = {@Parameter(name = &#8220;sequence&#8221;,value=&#8221;seq_name&#8221;)})
+parameters = {@Parameter(name = "sequence&#8221;,value=&#8221;seq_name&#8221;)})
 
-@GeneratedValue(generator = &#8220;idGenerator&#8221;)
+@GeneratedValue(generator = "idGenerator&#8221;)
 
 注意 : 该策略要求设定序列名，否则 hibernate 将无法找到，这将引致抛出异常 :
 
 org.hibernate.exception.SQLGrammarException: could not get next sequence value
 
-&nbsp;
+
 
 ③ native
 
@@ -74,11 +74,11 @@ org.hibernate.exception.SQLGrammarException: could not get next sequence value
 
 @Id
 
-@GenericGenerator(name = &#8220;idGenerator&#8221;, strategy = &#8220;native&#8221;)
+@GenericGenerator(name = "idGenerator&#8221;, strategy = "native&#8221;)
 
-@GeneratedValue(generator = &#8220;idGenerator&#8221;)
+@GeneratedValue(generator = "idGenerator&#8221;)
 
-&nbsp;
+
 
 ④ increment [ 自然递增 ]
 
@@ -92,11 +92,11 @@ org.hibernate.exception.SQLGrammarException: could not get next sequence value
 
 @Id
 
-@GenericGenerator(name = &#8220;idGenerator&#8221;, strategy = &#8220;increment&#8221;)
+@GenericGenerator(name = "idGenerator&#8221;, strategy = "increment&#8221;)
 
-@GeneratedValue(generator = &#8220;idGenerator&#8221;)
+@GeneratedValue(generator = "idGenerator&#8221;)
 
-&nbsp;
+
 
 ⑤ uuid [ 32位16进制数的字符串 ]
 
@@ -110,11 +110,11 @@ uuid 最终被编码成一个32位16进制数的字符串，
 
 @Id
 
-@GenericGenerator(name = &#8220;idGenerator&#8221;, strategy = &#8220;uuid&#8221;)
+@GenericGenerator(name = "idGenerator&#8221;, strategy = "uuid&#8221;)
 
-@GeneratedValue(generator = &#8220;idGenerator&#8221;)
+@GeneratedValue(generator = "idGenerator&#8221;)
 
-&nbsp;
+
 
 ⑤ assigned [ 手工分配主键ID值 ]
 
@@ -126,12 +126,12 @@ uuid 最终被编码成一个32位16进制数的字符串，
 
 @Id
 
-@GenericGenerator(name = &#8220;idGenerator&#8221;, strategy = &#8220;assigned&#8221;)
+@GenericGenerator(name = "idGenerator&#8221;, strategy = "assigned&#8221;)
 
-@GeneratedValue(generator = &#8220;idGenerator&#8221;)
+@GeneratedValue(generator = "idGenerator&#8221;)
 
-&nbsp;
 
-&nbsp;
+
+
 
 [ 随笔均原创，转载请注明出处：http://www.blogjava.net/fancydeepin ]

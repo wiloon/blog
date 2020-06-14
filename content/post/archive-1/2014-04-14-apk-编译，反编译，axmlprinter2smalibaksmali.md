@@ -56,7 +56,7 @@ view plaincopy
 
 view plaincopy
 
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?>
+<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
 
 <LinearLayout xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
 
@@ -100,7 +100,7 @@ view plaincopy
 
 .super Landroid/app/Activity;
 
-.source &#8220;ApkInstaller.java&#8221;
+.source "ApkInstaller.java&#8221;
 
 \# instance fields
 
@@ -128,7 +128,7 @@ return-void
 
 .registers 5
 
-.parameter &#8220;savedInstanceState&#8221;
+.parameter "savedInstanceState&#8221;
 
 .prologue
 
@@ -172,7 +172,7 @@ invoke-virtual {v1, v2}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
 
 .line 19
 
-const-string v0, &#8220;http://frankiewei.net/apk/demos/main/index.html#home&#8221;
+const-string v0, "http://frankiewei.net/apk/demos/main/index.html#home&#8221;
 
 .line 20
 
@@ -222,7 +222,7 @@ WebSettings webSettings = apkWeb.getSettings();
 
 webSettings.setJavaScriptEnabled(true);
 
-String apkUrl = &#8220;http://frankiewei.net/apk/demos/main/index.html#home&#8221;;
+String apkUrl = "http://frankiewei.net/apk/demos/main/index.html#home&#8221;;
 
 apkWeb.loadUrl(apkUrl);
 

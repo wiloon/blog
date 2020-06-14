@@ -12,7 +12,7 @@ tags:
 ---
 tasklist
 
-&nbsp;
+
 
 1、查看进程对应哪服务 tasklist -svc
   
@@ -20,7 +20,7 @@ tasklist
   
 3、查看调用某一Dll的所有进程 tasklist -m MSVCP60.DLL，有时候不得以需要删除文件夹，老是提示dll文件受保护，不能删除文件夹，找到进程结束掉，regsvr32 -u *.dll注销dll文件，删除。这样应该可以了。
   
-4、查看进程详细信息 tasklist -v：&#8221;进程名&#8221;,&#8221;PID&#8221;,&#8221;会话名 &#8220;,&#8221;会话#&#8221;,&#8221;内存使用 &#8220;,&#8221;状态  &#8220;,&#8221;用户名&#8221;,&#8221;CPU 时间&#8221;,&#8221;窗口标题 &#8221;
+4、查看进程详细信息 tasklist -v：&#8221;进程名&#8221;,&#8221;PID&#8221;,&#8221;会话名 ",&#8221;会话#&#8221;,&#8221;内存使用 ",&#8221;状态  ",&#8221;用户名&#8221;,&#8221;CPU 时间&#8221;,&#8221;窗口标题 &#8221;
   
 5、筛选器查找进程
 
@@ -49,7 +49,7 @@ tasklist
 </div>
 
 <div>
-  tasklist -fi &#8220;username ne NT authority\system&#8221; -fi &#8220;status eq running&#8221; 列出系统中正在运行的非SYSTEM状态的所有进程
+  tasklist -fi "username ne NT authority\system&#8221; -fi "status eq running&#8221; 列出系统中正在运行的非SYSTEM状态的所有进程
 </div>
 
 <div>
@@ -57,27 +57,27 @@ tasklist
 
 <div>
   <div>
-    tasklist -fi &#8220;username ne NT authority\system&#8221; -fi &#8220;status eq running&#8221; 列出系统中正在运行的非SYSTEM状态的所有进程
+    tasklist -fi "username ne NT authority\system&#8221; -fi "status eq running&#8221; 列出系统中正在运行的非SYSTEM状态的所有进程
   </div>
   
   <div>
-    tasklist -fi &#8220;pid eq 2860&#8221; -svc列出pid是2860的这个进程中的服务 （有问题的进程调用哪些服务）
+    tasklist -fi "pid eq 2860&#8221; -svc列出pid是2860的这个进程中的服务 （有问题的进程调用哪些服务）
   </div>
   
   <div>
-    tasklist -fi &#8220;pid eq 2860&#8221; -m列出pid是2860的这个进程加载的dll模块（有问题的进程调用哪些DLL文件）
+    tasklist -fi "pid eq 2860&#8221; -m列出pid是2860的这个进程加载的dll模块（有问题的进程调用哪些DLL文件）
   </div>
   
   <div>
-    tasklist -fi &#8220;pid eq 2860&#8221; -v列出pid是2860的这个进程的详细信息
+    tasklist -fi "pid eq 2860&#8221; -v列出pid是2860的这个进程的详细信息
   </div>
   
   <div>
-    tasklist -fi &#8220;servicers eq spooler&#8221;列出对应服务是spooler的进程（哪些进程在使用这个有问题的服务）
+    tasklist -fi "servicers eq spooler&#8221;列出对应服务是spooler的进程（哪些进程在使用这个有问题的服务）
   </div>
   
   <div>
-    tasklist -fi &#8220;modules eq MSVCP60.DLL&#8221;列出调用MSVCP60.DLL的进程（哪些进程在使用这个有问题的DLL）
+    tasklist -fi "modules eq MSVCP60.DLL&#8221;列出调用MSVCP60.DLL的进程（哪些进程在使用这个有问题的DLL）
   </div>
 </div>
 

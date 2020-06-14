@@ -38,33 +38,33 @@ Scan()
 
 import (
   
-&#8220;database/sql&#8221;
+"database/sql&#8221;
   
-_ &#8220;github.com/go-sql-driver/mysql&#8221;
+_ "github.com/go-sql-driver/mysql&#8221;
   
 )
   
-注意我们导入github.com/go-sql-driver/mysql 前面用了一个&#8221;_&#8220;,_操作其实是引入该包，而不直接使用包里面的函数，而是调用了该包里面的init函数,import的时候其实是执行了该包里面的init函数，初始化了里面的变量，_操作只是说该包引入了，我只初始化里面的 init函数和一些变量，但是往往这些init函数里面是注册自己包里面的引擎，让外部可以方便的使用，就很多实现database/sql的包，在 init函数里面都是调用了sql.Register(name string, driver driver.Driver)注册自己，然后外部就可以使用了。
+注意我们导入github.com/go-sql-driver/mysql 前面用了一个&#8221;_",_操作其实是引入该包，而不直接使用包里面的函数，而是调用了该包里面的init函数,import的时候其实是执行了该包里面的init函数，初始化了里面的变量，_操作只是说该包引入了，我只初始化里面的 init函数和一些变量，但是往往这些init函数里面是注册自己包里面的引擎，让外部可以方便的使用，就很多实现database/sql的包，在 init函数里面都是调用了sql.Register(name string, driver driver.Driver)注册自己，然后外部就可以使用了。
   
 我们用Open()函数来打开一个database handle
 
-db, err := sql.Open(&#8220;mysql&#8221;, &#8220;user:password@tcp(ip:port)/database&#8221;)
+db, err := sql.Open("mysql&#8221;, "user:password@tcp(ip:port)/database&#8221;)
   
 写一个完整的：
 
 import (
   
-&#8220;database/sql&#8221;
+"database/sql&#8221;
   
-_ &#8220;github.com/go-sql-driver/mysql&#8221;
+_ "github.com/go-sql-driver/mysql&#8221;
   
-&#8220;log&#8221;
+"log&#8221;
   
 )
   
 func main() {
   
-db, err := sql.Open(&#8220;mysql&#8221;, &#8220;user:password@tcp(ip:port)/database&#8221;)
+db, err := sql.Open("mysql&#8221;, "user:password@tcp(ip:port)/database&#8221;)
   
 if err != nil {
   
@@ -96,7 +96,7 @@ log.Println(err)
   
 Exec()方法一般用于增删改操作，这里以增加为例:
 
-stmt, err := db.Prepare(&#8220;insert into user(name,age)values(?,?)&#8221;)
+stmt, err := db.Prepare("insert into user(name,age)values(?,?)&#8221;)
   
 if err != nil {
   
@@ -104,7 +104,7 @@ log.Println(err)
   
 }
 
-rs, err := stmt.Exec(&#8220;go-test&#8221;, 12)
+rs, err := stmt.Exec("go-test&#8221;, 12)
   
 if err != nil {
   
@@ -128,7 +128,7 @@ var name string
   
 var age int
   
-rows, err := db.Query(&#8220;select name,age from user where id = ? &#8220;, 1)
+rows, err := db.Query("select name,age from user where id = ? ", 1)
   
 if err != nil {
   
@@ -158,7 +158,7 @@ fmt.Println(err)
   
 }
 
-fmt.Println(&#8220;name:&#8221;, url, &#8220;age:&#8221;, description)
+fmt.Println("name:&#8221;, url, "age:&#8221;, description)
   
 我们应该养成关闭rows的习惯，在任何时候，都不要忘记rows.Close().哪怕这个rows在确实循环完之后，已经自动关闭掉了，我们定义rows.Close()也是对我们没有坏处的，因为我们无法保证，rows是否会正常的循环完。
 
@@ -168,7 +168,7 @@ fmt.Println(&#8220;name:&#8221;, url, &#8220;age:&#8221;, description)
 
 var name string
   
-err = db.QueryRow(&#8220;select name from user where id = ?&#8221;, 222).Scan(&name)
+err = db.QueryRow("select name from user where id = ?&#8221;, 222).Scan(&name)
   
 没有结果的时候会返回err
 
@@ -178,7 +178,7 @@ err = db.QueryRow(&#8220;select name from user where id = ?&#8221;, 222).Scan(&n
 
 var name NullString
   
-err := db.QueryRow(&#8220;SELECT name FROM names WHERE id = ?&#8221;, id).Scan(&name)
+err := db.QueryRow("SELECT name FROM names WHERE id = ?&#8221;, id).Scan(&name)
   
 &#8230;
   
@@ -220,11 +220,11 @@ package main
 
 import (
   
-&#8220;database/sql&#8221;
+"database/sql&#8221;
   
-&#8220;fmt&#8221;
+"fmt&#8221;
   
-_ &#8220;github.com/go-sql-driver/mysql&#8221;
+_ "github.com/go-sql-driver/mysql&#8221;
   
 )
 
@@ -232,7 +232,7 @@ func main() {
   
 // Open database connection
   
-db, err := sql.Open(&#8220;mysql&#8221;, &#8220;user:password@/dbname&#8221;)
+db, err := sql.Open("mysql&#8221;, "user:password@/dbname&#8221;)
   
 if err != nil {
   
@@ -244,7 +244,7 @@ defer db.Close()
 
 // Execute the query
   
-rows, err := db.Query(&#8220;SELECT * FROM table&#8221;)
+rows, err := db.Query("SELECT * FROM table&#8221;)
   
 if err != nil {
   
@@ -306,7 +306,7 @@ for i, col := range values {
   
 if col == nil {
   
-value = &#8220;NULL&#8221;
+value = "NULL&#8221;
   
 } else {
   
@@ -314,11 +314,11 @@ value = string(col)
   
 }
   
-fmt.Println(columns[i], &#8220;: &#8220;, value)
+fmt.Println(columns[i], ": ", value)
   
 }
   
-fmt.Println(&#8220;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;&#8220;)
+fmt.Println("&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;")
   
 }
   
@@ -370,17 +370,17 @@ warming up
 
 import (
       
-&#8220;database/sql&#8221;
+"database/sql&#8221;
       
-&#8220;log&#8221;
+"log&#8221;
       
-_ &#8220;github.com/go-sql-driver/mysql&#8221;
+_ "github.com/go-sql-driver/mysql&#8221;
   
 )
 
 func main() {
       
-db, err := sql.Open(&#8220;mysql&#8221;, &#8220;root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
+db, err := sql.Open("mysql&#8221;, "root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
       
 if err != nil{
           
@@ -398,7 +398,7 @@ defer db.Close()
 
 func main() {
       
-db, err := sql.Open(&#8220;mysql&#8221;, &#8220;root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
+db, err := sql.Open("mysql&#8221;, "root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
       
 if err != nil{
           
@@ -420,7 +420,7 @@ defer db.Close()
 
 func main() {
       
-db, err := sql.Open(&#8220;mysql&#8221;, &#8220;root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
+db, err := sql.Open("mysql&#8221;, "root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
 
     ...
     
@@ -443,7 +443,7 @@ db, err := sql.Open(&#8220;mysql&#8221;, &#8220;root:@tcp(127.0.0.1:3306)/test?p
 
 func main() {
       
-db, err := sql.Open(&#8220;mysql&#8221;, &#8220;root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
+db, err := sql.Open("mysql&#8221;, "root:@tcp(127.0.0.1:3306)/test?parseTime=true&#8221;)
 
     ... 
     
@@ -497,7 +497,7 @@ db.Begin() 调用完毕后将连接传递给sql.Tx类型对象，当.Commit()或
   
 因为每一个连接都是惰性创建的，如何验证sql.Open调用之后，sql.DB对象可用呢？通常使用db.Ping()方法初始化：
 
-db, err := sql.Open(&#8220;driverName&#8221;, &#8220;dataSourceName&#8221;)
+db, err := sql.Open("driverName&#8221;, "dataSourceName&#8221;)
   
 if err != nil{
       

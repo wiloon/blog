@@ -220,7 +220,7 @@ org.eclipse.platform
   
 让GC可以更快的执行。
 
-&nbsp;
+
 
 下载了新的Eclipse Indigo(3.7)，却无法启动，报错“Failed to create the Java Virtual Machine”，如图：
 

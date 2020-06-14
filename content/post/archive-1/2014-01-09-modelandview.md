@@ -158,12 +158,12 @@ ModelAndView
     <li>
     </li>
     <li>
-      ModelAndView mav = new ModelAndView(&#8220;hello&#8221;);//实例化一个VIew的ModelAndView实例
+      ModelAndView mav = new ModelAndView("hello&#8221;);//实例化一个VIew的ModelAndView实例
     </li>
     <li>
     </li>
     <li>
-      mav.addObject(&#8220;message&#8221;, &#8220;Hello World!&#8221;);//添加一个带名的model对象
+      mav.addObject("message&#8221;, "Hello World!&#8221;);//添加一个带名的model对象
     </li>
     <li>
     </li>

@@ -10,7 +10,7 @@ categories:
 ---
 <http://www.faqs.org/docs/abs/HTML/string-manipulation.html>
 
-&nbsp;
+
 
 连接字符串
 
@@ -44,10 +44,10 @@ expr index $string $substring
     
     **ength of Matching Substring at Beginning of String**
     
-    expr match &#8220;$string&#8221; &#8216;$substring&#8217;
+    expr match "$string&#8221; &#8216;$substring&#8217;
     :   <tt><em>$substring</em></tt> is a [regular expression][1].
     
-    expr &#8220;$string&#8221; : &#8216;$substring&#8217;
+    expr "$string&#8221; : &#8216;$substring&#8217;
     :   <tt><em>$substring</em></tt> is a regular expression.</p> 
         
         <table width="90%" border="0" bgcolor="#E0E0E0">

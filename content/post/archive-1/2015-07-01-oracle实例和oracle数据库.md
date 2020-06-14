@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/leshami/article/details/5529239
 
-&nbsp;
+
 
 Oracle实例和Oracle数据库(Oracle体系结构)
   
@@ -34,7 +34,7 @@ oracle数据库sql server服务器server系统监控
 
 述Oracle下的实例及数据库。
 
-&nbsp;
+
 
 一、SQL server中的实例与数据库
 
@@ -82,7 +82,7 @@ PGA包含单个服务器进程或单个后台进程的数据和控制信息,与�
 
 只被一个进程使用的区域，PGA 在创建进程时分配在终止进程时回收。即由服务器进程产生。
 
-&nbsp;
+
 
 1.SGA
 
@@ -96,7 +96,7 @@ PGA包含单个服务器进程或单个后台进程的数据和控制信息,与�
 
 因为实例内存的分配是在数据库启动时进行的，所以要让修改生效，要重启数据库。
 
-&nbsp;
+
 
 ORACLE 10G 引入了ASMM（自动共享内存管理），DBA只需设置SGA＿TARGET，ORACLE就会
 
@@ -104,7 +104,7 @@ ORACLE 10G 引入了ASMM（自动共享内存管理），DBA只需设置SGA＿TA
 
 sga_target设为。
 
-&nbsp;
+
 
 数据缓冲区(Database buffer cache):存储从数据文件中获得的数据块的镜像
 
@@ -114,13 +114,13 @@ sga_target设为。
 
 设置：alter system set db\_cache\_size=800M;
 
-&nbsp;
+
 
 重做日志缓冲区(Redo log buffer):对数据库的任何修改都按顺序被记录在该缓冲，然后由LGWR进程将
 
 它写入磁盘,大小由LOG＿BUFFER决定
 
-&nbsp;
+
 
 共享池(Shared pool):是SGA中最关键的内存片段,共享池主要由库缓存(共享SQL区和PL/SQL区)和数据
 
@@ -134,7 +134,7 @@ sga_target设为。
 
 修改：alter system set shared\_pool\_size=120m;
 
-&nbsp;
+
 
 数据字典缓存：
 
@@ -142,19 +142,19 @@ sga_target设为。
 
 大小由shared\_pool\_size 决定，不能单独指定
 
-&nbsp;
+
 
 大池(Large pool):是一个可选的区域，用于一些大型的进程如Oracle的备份恢复操作、IO服务器进程等
 
-&nbsp;
+
 
 Java 池：该程序缓冲区就是为Java 程序保留的。如果不用Java程序没有必要改变该缓冲区的默认大小
 
-&nbsp;
+
 
 流池(Stream pool)：被Oracle流所使用
 
-&nbsp;
+
 
 2.PGA
 
@@ -174,7 +174,7 @@ PGA包括了以下几个结构：
 
 由参数：pga\_aggregate\_target 决定
 
-&nbsp;
+
 
 3.几类进程：用户进程，服务器进程，后台进程，其它可选进程
 
@@ -200,7 +200,7 @@ Server Process主要是通过他和user process进行联系和沟通，并由他
 
 ORACLE.EXE的进程，但是通过另外的工具，就可以看到包含在这里进程中的线程。
 
-&nbsp;
+
 
 必须要有的后台进程
 
@@ -214,7 +214,7 @@ LGWr       &#8211;>日志写进程
 
 CKPT       &#8211;>检查点进程
 
-&nbsp;
+
 
 可选进程：
 
@@ -226,7 +226,7 @@ Snnn
 
 pnnn
 
-&nbsp;
+
 
 DBWn(数据库写进程)
 
@@ -254,9 +254,9 @@ DBWn(数据库写进程)
 
 alter system set db\_writer\_processes=3 scope=spfile;
 
-&nbsp;
 
-&nbsp;
+
+
 
 PMON(程序监控进程)
 
@@ -272,7 +272,7 @@ PMON(程序监控进程)
 
 释放其他资源
 
-&nbsp;
+
 
 SMON(系统监控进程)
 
@@ -288,7 +288,7 @@ SMON(系统监控进程)
 
 使回滚段脱机
 
-&nbsp;
+
 
 LGWr(日志写进程)
 
@@ -310,7 +310,7 @@ DBWR需要写入的数据的SCN号大于LGWR 记录的SCN号，DBWR 触发LGWR�
 
 在dbwr进程些之前写日志
 
-&nbsp;
+
 
 CKPT(检查点进程)
 
@@ -330,7 +330,7 @@ CKPT会更新数据文件/控制文件的头信息
 
 用户触发
 
-&nbsp;
+
 
 ARCN(归档进程)
 
@@ -340,7 +340,7 @@ ARCN(归档进程)
 
 数据库以归档方式运行的时候
 
-&nbsp;
+
 
 RECO
 
@@ -348,7 +348,7 @@ RECO
 
 RECO进程试图建立与远程服务器的通信，当故障消除后，RECO进程自动解决所有悬而未决的会话。
 
-&nbsp;
+
 
 Server Process(服务进程)
 
@@ -356,7 +356,7 @@ Server Process(服务进程)
 
 专用服务进程：一个服务进程对应多个用户进程，轮流为用户进程服务。
 
-&nbsp;
+
 
 用户进程(User Process)、服务进程(Server Process)、后台进程(Background Processes)的启动
 
@@ -366,7 +366,7 @@ Server Process(服务进程)
 
 后台进程：当Oracle实例被启动时，启动相关的后台进程
 
-&nbsp;
+
 
 三、Oracle 数据库
 
@@ -384,7 +384,7 @@ Server Process(服务进程)
 
 备份信息等
 
-&nbsp;
+
 
 2.数据文件(datafile)
 
@@ -392,9 +392,9 @@ Server Process(服务进程)
 
 &#8211;查看数据文件信息
 
-&nbsp;
 
-&nbsp;
+
+
 
 3.联机日志文件
 
@@ -402,7 +402,7 @@ Server Process(服务进程)
 
 日志组中的多个日志成员是互为镜相关系
 
-&nbsp;
+
 
 4.归档日志文件
 
@@ -412,7 +412,7 @@ Oracle可以运行在两种模式之中，归档模式和非归档模式。在�
 
 用户恢复意外情况出现的数据丢失、异常等。
 
-&nbsp;
+
 
 5.参数文件(pfile和spfile)
 
@@ -420,7 +420,7 @@ initSID.ora或init.ora文件,通常位于：$ORACLE_BASE/admin/<SID>/pfile
 
 初始化文件记载了许多数据库的启动参数，如内存，控制文件，进程数等，在数据库启动的时候加载(Nomount时加载)
 
-&nbsp;
+
 
 6.其他文件
 
@@ -430,7 +430,7 @@ initSID.ora或init.ora文件,通常位于：$ORACLE_BASE/admin/<SID>/pfile
 
 查看路径：select value from v$PARAMETER where name =‘background\_dump\_dest’;
 
-&nbsp;
+
 
 7.数据库逻辑组织结构
 
@@ -452,9 +452,9 @@ initSID.ora或init.ora文件,通常位于：$ORACLE_BASE/admin/<SID>/pfile
 
 一个Oracle 块由一个或多个操作系统块组成，一个操作系统块是一个Oracle块的一部分
 
-&nbsp;
 
-&nbsp;
+
+
 
 四、Oracle实例和Oracle数据库的关系
 
@@ -464,30 +464,30 @@ initSID.ora或init.ora文件,通常位于：$ORACLE_BASE/admin/<SID>/pfile
 
 3.实例与数据库的对应关系是一对一或多对一的关系
 
-&nbsp;
+
 
 五、更多   */
 
-&nbsp;
+
 
 SQL/PLSQL 基础
 
-&nbsp;
+
 
 Oralce 10g 使用DBCA创建数据库
 
-&nbsp;
+
 
 使用Uniread实现SQLplus翻页功能
 
-&nbsp;
+
 
 Linux (RHEL 5.4)下安装Oracle 10g R2
 
-&nbsp;
+
 
 VmWare6.5.2下安装RHEL 5.4（配置Oracle安装环境）
 
-&nbsp;
+
 
 Oracle相关

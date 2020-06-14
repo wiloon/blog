@@ -18,7 +18,7 @@ SELENIUM 家族成员有：SELENIUM， SELENIUM RC， SELENIUM IDE， SELENIUM C
 
 GOOGLE 每天都要在他的**TESTING** FARM上跑几万个SELENIUM测试CASE,现在也些会更多，你如果想学习SELENIUM， 可以从这里开始 http://selenium.seleniumhq.org/
 
-&nbsp;
+
 
 **tellurium **
 

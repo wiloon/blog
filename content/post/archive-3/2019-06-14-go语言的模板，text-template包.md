@@ -16,17 +16,17 @@ package main
 
 import (
       
-&#8220;os&#8221;
+"os&#8221;
       
-&#8220;text/template&#8221;
+"text/template&#8221;
   
 )
 
 func main() {
       
-name := &#8220;waynehu&#8221;
+name := "waynehu&#8221;
       
-tmpl, err := template.New(&#8220;test&#8221;).Parse(&#8220;hello, {{.}}&#8221;) //建立一个模板，内容是&#8221;hello, {{.}}&#8221;
+tmpl, err := template.New("test&#8221;).Parse("hello, {{.}}&#8221;) //建立一个模板，内容是&#8221;hello, {{.}}&#8221;
       
 if err != nil {
               
@@ -52,13 +52,13 @@ panic(err)
 
 //这句
   
-tmpl, err := template.New(&#8220;test&#8221;).Parse(&#8220;hello, {{.}}&#8221;)
+tmpl, err := template.New("test&#8221;).Parse("hello, {{.}}&#8221;)
   
 //等于下面的两句
   
-muban := &#8220;hello, {{.}}&#8221;
+muban := "hello, {{.}}&#8221;
   
-tmpl, err := template.New(&#8220;test&#8221;).Parse(muban)
+tmpl, err := template.New("test&#8221;).Parse(muban)
   
 //之后的例子都用两句的方式表达
   
@@ -68,9 +68,9 @@ package main
 
 import (
       
-&#8220;os&#8221;
+"os&#8221;
       
-&#8220;text/template&#8221;
+"text/template&#8221;
   
 )
 
@@ -84,11 +84,11 @@ Count uint
 
 func main() {
       
-sweaters := Inventory{&#8220;wool&#8221;, 17}
+sweaters := Inventory{"wool&#8221;, 17}
       
-muban := &#8220;{{.Count}} items are made of {{.Material}}&#8221;
+muban := "{{.Count}} items are made of {{.Material}}&#8221;
       
-tmpl, err := template.New(&#8220;test&#8221;).Parse(muban) //建立一个模板
+tmpl, err := template.New("test&#8221;).Parse(muban) //建立一个模板
       
 if err != nil {
               
@@ -112,39 +112,39 @@ panic(err)
 
 //一个模板可以有多种，以Name来区分
   
-muban_eng := &#8220;{{.Count}} items are made of {{.Material}}&#8221;
+muban_eng := "{{.Count}} items are made of {{.Material}}&#8221;
   
-muban_chn := &#8220;{{.Material}}做了{{.Count}}个项目&#8221;
+muban_chn := "{{.Material}}做了{{.Count}}个项目&#8221;
   
 //建立一个模板的名称是china，模板的内容是muban_chn字符串
   
-tmpl, err := template.New(&#8220;china&#8221;)
+tmpl, err := template.New("china&#8221;)
   
 tmpl, err = tmpl.Parse(muban_chn)
   
 //建立一个模板的名称是english，模板的内容是muban_eng字符串
   
-tmpl, err = tmpl.New(&#8220;english&#8221;)
+tmpl, err = tmpl.New("english&#8221;)
   
 tmpl, err = tmpl.Parse(muban_eng)
   
 //将struct与模板合成，用名字是china的模板进行合成，结果放到os.Stdout里，内容为“wool做了17个项目”
   
-err = tmpl.ExecuteTemplate(os.Stdout, &#8220;china&#8221;, sweaters)
+err = tmpl.ExecuteTemplate(os.Stdout, "china&#8221;, sweaters)
   
 //将struct与模板合成，用名字是china的模板进行合成，结果放到os.Stdout里，内容为“17 items are made of wool”
   
-err = tmpl.ExecuteTemplate(os.Stdout, &#8220;english&#8221;, sweaters)
+err = tmpl.ExecuteTemplate(os.Stdout, "english&#8221;, sweaters)
 
-tmpl, err = template.New(&#8220;english&#8221;)
+tmpl, err = template.New("english&#8221;)
   
 fmt.Println(tmpl.Name()) //打印出english
   
-tmpl, err = tmpl.New(&#8220;china&#8221;)
+tmpl, err = tmpl.New("china&#8221;)
   
 fmt.Println(tmpl.Name()) //打印出china
   
-tmpl=tmpl.Lookup(&#8220;english&#8221;)//必须要有返回，否则不生效
+tmpl=tmpl.Lookup("english&#8221;)//必须要有返回，否则不生效
   
 fmt.Println(tmpl.Name()) //打印出english
   
@@ -152,7 +152,7 @@ fmt.Println(tmpl.Name()) //打印出english
 
 //模板可以是一行
   
-muban := &#8220;{{.Count}} items are made of {{.Material}}&#8221;
+muban := "{{.Count}} items are made of {{.Material}}&#8221;
   
 //也可以是多行
   
@@ -171,13 +171,13 @@ $cat mb.txt
 
 那么下面2行
   
-muban := &#8220;{{.Count}} items are made of {{.Material}}&#8221;
+muban := "{{.Count}} items are made of {{.Material}}&#8221;
   
-tmpl, err := template.New(&#8220;test&#8221;).Parse(muban) //建立一个模板
+tmpl, err := template.New("test&#8221;).Parse(muban) //建立一个模板
 
 等价于
   
-tmpl, err := template.ParseFiles(&#8220;mb.txt&#8221;) //建立一个模板，这里不需要new(&#8220;name&#8221;)的方式，因为name自动为文件名
+tmpl, err := template.ParseFiles("mb.txt&#8221;) //建立一个模板，这里不需要new("name&#8221;)的方式，因为name自动为文件名
   
 ##文件模板，介绍ParseGlob
 
@@ -189,7 +189,7 @@ ParseGlob也差不多，是用正则的方式匹配多个文件
   
 用ParseFiles需要写3行对应3个文件，如果有一万个文件呢？
   
-而用ParseGlob只要写成template.ParseGlob(&#8220;*.txt&#8221;) 即可
+而用ParseGlob只要写成template.ParseGlob("*.txt&#8221;) 即可
   
 ##模板的输出，介绍ExecuteTemplate和Execute
 
@@ -197,7 +197,7 @@ ParseGlob也差不多，是用正则的方式匹配多个文件
   
 可以使用Name的方式查看当前模板
 
-err = tmpl.ExecuteTemplate(os.Stdout, &#8220;english&#8221;, sweaters) //指定模板名，这次为english
+err = tmpl.ExecuteTemplate(os.Stdout, "english&#8221;, sweaters) //指定模板名，这次为english
   
 err = tmpl.Execute(os.Stdout, sweaters) //模板名省略，打印的是当前模板
   
@@ -206,15 +206,15 @@ err = tmpl.Execute(os.Stdout, sweaters) //模板名省略，打印的是当前�
 muban1 := `hi, {{template "M2"}},<br />
 hi, {{template "M3"}}`
   
-muban2 := &#8220;我是模板2，{{template &#8220;M3&#8243;}}&#8221;
+muban2 := "我是模板2，{{template "M3"}}&#8221;
   
-muban3 := &#8220;ha我是模板3ha!&#8221;
+muban3 := "ha我是模板3ha!&#8221;
 
-tmpl, err := template.New(&#8220;M1&#8221;).Parse(muban1)
+tmpl, err := template.New("M1&#8221;).Parse(muban1)
   
-tmpl.New(&#8220;M2&#8221;).Parse(muban2)
+tmpl.New("M2&#8221;).Parse(muban2)
   
-tmpl.New(&#8220;M3&#8221;).Parse(muban3)
+tmpl.New("M3&#8221;).Parse(muban3)
   
 err = tmpl.Execute(os.Stdout, nil)
   
@@ -224,9 +224,9 @@ package main
 
 import (
       
-&#8220;os&#8221;
+"os&#8221;
       
-&#8220;text/template&#8221;
+"text/template&#8221;
   
 )
 
@@ -237,7 +237,7 @@ hi, {{template "M3"}}`
       
 muban2 := `我是模板2，{{template "M3"}}`
       
-muban3 := &#8220;ha我是模板3ha!&#8221;
+muban3 := "ha我是模板3ha!&#8221;
 
     tmpl, err := template.New("M1").Parse(muban1)
     if err != nil {
@@ -289,7 +289,7 @@ Josie
 
 Dear某某某的Dear应该是在第一行，所以在D前面不能有回车，否则Dear会跑到第2行去
   
-所以Dear要紧贴&#8220;\`
+所以Dear要紧贴"\`
   
 信件的称唿和正文有一行空行，最好显式的打出一行，而标准库里的回车是包在if里，成为正文的一部分，这样排版容易出错
   

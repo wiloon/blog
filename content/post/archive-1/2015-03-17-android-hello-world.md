@@ -14,4 +14,3 @@ Android Studio
 
 Android SDK
 
-&nbsp;

@@ -28,6 +28,6 @@ select coalesce(1,&#8221;carrot&#8221;,&#8221;apple&#8221;)
 
 这些语句可以直接在mysql里运行。
 
-&nbsp;
+
 
 http://hi.baidu.com/luoganet/item/7ec497dec10c88e2795daa1f

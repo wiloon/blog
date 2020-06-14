@@ -124,7 +124,7 @@ Goroutine是Golang中轻量级线程的实现，由Go Runtime管理。Golang在�
 
 四、go中的Goroutine
 
-go中的Goroutine， 普遍认为是协程的go语言实现。《Go语言编程》中说goroutine是轻量级线程(即协程coroutine, 原书90页). 在第九章进阶话题中, 作者又一次提到, &#8220;从根本上来说, goroutine就是一种go语言版本的协程(coroutine)&#8221; (原书204页). 但作者Rob Pike并不这么说。
+go中的Goroutine， 普遍认为是协程的go语言实现。《Go语言编程》中说goroutine是轻量级线程(即协程coroutine, 原书90页). 在第九章进阶话题中, 作者又一次提到, "从根本上来说, goroutine就是一种go语言版本的协程(coroutine)&#8221; (原书204页). 但作者Rob Pike并不这么说。
 
 “一个Goroutine是一个与其他goroutines 并发运行在同一地址空间的Go函数或方法。一个运行的程序由一个或更多个goroutine组成。它与线程、协程、进程等不同。它是一个goroutine。”
 

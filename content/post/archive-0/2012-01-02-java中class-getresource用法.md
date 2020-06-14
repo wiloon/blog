@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-用JAVA获取文件，听似简单，但对于很多像我这样的新人来说，还是掌握颇浅，用起来感觉颇深，大常最经常用的，就是用JAVA的File类，如要取得c:/test.txt文件，就会这样用File file = new File(&#8220;c:/test.txt&#8221;);这样用有什么问题，相信大家都知道，就是路径硬编码，对于JAVA精神来说，应用应该一次成型，到处可用，并且从现实应用来讲，最终生成的应用也会部署到Windows外的操作系统中，对于linux来说，在应用中用了c:/这样的字样，就是失败，所以，我们应该尽量避免使用硬编码，即直接使用绝对路径。
+用JAVA获取文件，听似简单，但对于很多像我这样的新人来说，还是掌握颇浅，用起来感觉颇深，大常最经常用的，就是用JAVA的File类，如要取得c:/test.txt文件，就会这样用File file = new File("c:/test.txt&#8221;);这样用有什么问题，相信大家都知道，就是路径硬编码，对于JAVA精神来说，应用应该一次成型，到处可用，并且从现实应用来讲，最终生成的应用也会部署到Windows外的操作系统中，对于linux来说，在应用中用了c:/这样的字样，就是失败，所以，我们应该尽量避免使用硬编码，即直接使用绝对路径。
 
 在Servlet应用中，有一个getRealPath(String str)的方法，这个方法尽管也可以动态地获得文件的路径，不秘直接手写绝对路径，但这也是一个不被建议使用的方法，那么，我们有什么方法可以更好地获得文件呢?
 
@@ -50,17 +50,17 @@ file1.txt file2.txt file3.txt file4.txt这四个文件呢？
   
 file3.txt:
   
-方法一：File file3 = new File(Test.class.getResource(&#8220;file3.txt&#8221;).getFile());
+方法一：File file3 = new File(Test.class.getResource("file3.txt&#8221;).getFile());
   
-方法二：File file3 = new File(Test.class.getResource(&#8220;/javaapplication/file3.txt&#8221;).getFile());
+方法二：File file3 = new File(Test.class.getResource("/javaapplication/file3.txt&#8221;).getFile());
   
-方法三：File file3 = new File(Test.class.getClassLoader().getResource(&#8220;javaapplication/file3.txt&#8221;).getFile());
+方法三：File file3 = new File(Test.class.getClassLoader().getResource("javaapplication/file3.txt&#8221;).getFile());
 
 file4.txt:
   
-方法一：File file4 = new File(Test.class.getResource(&#8220;/file4.txt&#8221;).getFile());
+方法一：File file4 = new File(Test.class.getResource("/file4.txt&#8221;).getFile());
   
-方法二：File file4 = new File(Test.class.getClassLoader().getResource(&#8220;file4.txt&#8221;).getFile());
+方法二：File file4 = new File(Test.class.getClassLoader().getResource("file4.txt&#8221;).getFile());
 
 很好，我们可以有多种方法选择，但是file1与file2文件呢？如何获得？
   
@@ -70,13 +70,13 @@ file4.txt:
   
 file1.txt
   
-方法一：File file1 = new File(&#8220;c:/project/src/javaapplication/file1.txt&#8221;);
+方法一：File file1 = new File("c:/project/src/javaapplication/file1.txt&#8221;);
   
 方法二：。。。没有
 
 file2.txt
   
-方法一：File file2 = new File(&#8220;c:/project/src/file2.txt&#8221;);
+方法一：File file2 = new File("c:/project/src/file2.txt&#8221;);
   
 方法二：。。。也没有
 

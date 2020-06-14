@@ -36,7 +36,7 @@ System.out.println(uuid);
 
 c++中生成uuid：
 
-#pragma comment(lib, &#8220;rpcrt4.lib&#8221;)
+#pragma comment(lib, "rpcrt4.lib&#8221;)
   
 #include <windows.h>
   
@@ -76,9 +76,9 @@ package main
 
 import (
       
-&#8220;fmt&#8221;
+"fmt&#8221;
       
-&#8220;github.com/satori/go.uuid&#8221;
+"github.com/satori/go.uuid&#8221;
   
 )
 
@@ -88,7 +88,7 @@ func main() {
       
 u1 := uuid.NewV4()
       
-fmt.Printf(&#8220;UUIDv4: %s\n&#8221;, u1)
+fmt.Printf("UUIDv4: %s\n&#8221;, u1)
 
     // 解析
     u2, err := uuid.FromString("f5394eef-e576-4709-9e4b-a7c231bd34a4")

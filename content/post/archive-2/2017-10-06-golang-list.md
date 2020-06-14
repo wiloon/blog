@@ -67,9 +67,9 @@ package main
 
 import (
       
-&#8220;container/list&#8221;
+"container/list&#8221;
       
-&#8220;fmt&#8221;
+"fmt&#8221;
   
 )
 
@@ -89,7 +89,7 @@ fmt.Print(e.Value) //输出list的值,01234
       
 }
       
-fmt.Println(&#8220;&#8221;)
+fmt.Println("&#8221;)
       
 fmt.Println(l.Front().Value) //输出首部元素的值,0
       
@@ -103,7 +103,7 @@ fmt.Print(e.Value) //输出list的值,061234
       
 }
       
-fmt.Println(&#8220;&#8221;)
+fmt.Println("&#8221;)
       
 l.MoveBefore(l.Front().Next(), l.Front()) //首部两个元素位置互换
       
@@ -113,7 +113,7 @@ fmt.Print(e.Value) //输出list的值,601234
       
 }
       
-fmt.Println(&#8220;&#8221;)
+fmt.Println("&#8221;)
       
 l.MoveToFront(l.Back()) //将尾部元素移动到首部
       
@@ -123,7 +123,7 @@ fmt.Print(e.Value) //输出list的值,460123
       
 }
       
-fmt.Println(&#8220;&#8221;)
+fmt.Println("&#8221;)
       
 l2 := list.New()
       
@@ -135,7 +135,7 @@ fmt.Print(e.Value) //输出l2的值,460123
       
 }
       
-fmt.Println(&#8220;&#8221;)
+fmt.Println("&#8221;)
       
 <span style="color:#FF0000;">l.Init() //清空l</span>
       

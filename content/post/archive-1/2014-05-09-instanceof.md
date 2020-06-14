@@ -14,7 +14,7 @@ Java中的instanceof关键字
 
 instanceof是Java的一个二元操作符，和==，>，<是同一类东东。由于它是由字母组成的，所以也是Java的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回boolean类型的数据。举个例子：
 
-String s = &#8220;I AM an Object!&#8221;;
+String s = "I AM an Object!&#8221;;
   
 boolean isObject = s instanceof Object;
 
@@ -66,7 +66,7 @@ public double calculate(GasBill bill) {
 
 所以，使用instanceof在绝大多数情况下并不是推荐的做法，应当好好利用多态。
 
-&nbsp;
+
 
 http://rodney.cnblogs.com/archive/2005/08/18/instanceof.html
 

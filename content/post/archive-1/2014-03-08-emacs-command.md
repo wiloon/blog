@@ -12,7 +12,7 @@ tags:
 ---
 跳转到行
   
-(define-key global-map &#8220;\C-c\C-g&#8221; &#8216;goto-line)
+(define-key global-map "\C-c\C-g&#8221; &#8216;goto-line)
 
 `C-x C-f 文件名’ — 打开文件`C-x C-s’ — 保存文件
   

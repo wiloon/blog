@@ -46,7 +46,7 @@ public static void main(String args[]) {
           
 assert true;
           
-System.out.println(&#8220;断言1没有问题，Go！&#8221;);
+System.out.println("断言1没有问题，Go！&#8221;);
 
         System.out.println("\n-----------------\n");
     
@@ -82,7 +82,7 @@ C:>java -ea AssertFoo
 
 * * *
 
-Exception in thread &#8220;main&#8221; java.lang.AssertionError: 断言失败，此表达式的信息将
+Exception in thread "main&#8221; java.lang.AssertionError: 断言失败，此表达式的信息将
   
 会在抛出异常的时候输出！
           

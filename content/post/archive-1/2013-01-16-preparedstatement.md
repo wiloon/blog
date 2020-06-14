@@ -12,7 +12,7 @@ categories:
   
 <span style="color: #000000;">通过使用java.sql.<strong>preparedstatement</strong>，这个问题可以自动解决。一个<strong>preparedstatement</strong>是从java.sql.connection对象和所提供的sql字符串得到的，sql字符串中包含问号（?），这些问号标明变量的位置，然后提供变量的值，最后执行语句，例如： </span>
   
-<span style="color: #000000;">stringsql = &#8220;select * from people p where p.id = ? and p.name = ?&#8221;;</span>
+<span style="color: #000000;">stringsql = "select * from people p where p.id = ? and p.name = ?&#8221;;</span>
   
 <span style="color: #000000;"><strong>preparedstatement</strong> ps = connection.preparestatement(sql);</span>
   
@@ -24,7 +24,7 @@ categories:
   
 <span style="color: #000000;">使用<strong>preparedstatement</strong>的另一个优点是字符串不是动态创建的。下面是一个动态创建字符串的例子： </span>
   
-<span style="color: #000000;">stringsql = &#8220;select * from people p where p.i = &#8220;+id; </span>
+<span style="color: #000000;">stringsql = "select * from people p where p.i = "+id; </span>
 
 <span style="color: #000000;">这允许jvm（javavirtual machine，java虚拟机）和驱动/数据库缓存语句和字符串并提高性能。</span>
   

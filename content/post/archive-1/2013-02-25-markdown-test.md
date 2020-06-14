@@ -44,4 +44,4 @@ hghg
 
 # !ruby
 
-class Foo < Bar def hello puts &#8220;Hello World!&#8221; end end
+class Foo < Bar def hello puts "Hello World!&#8221; end end

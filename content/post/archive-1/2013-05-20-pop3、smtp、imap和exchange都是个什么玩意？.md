@@ -22,7 +22,7 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>

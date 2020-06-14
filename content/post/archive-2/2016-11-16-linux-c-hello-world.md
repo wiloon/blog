@@ -24,7 +24,7 @@ return 0;
 
 [/c]
 
-&nbsp;
+
 
 [shell]
 
@@ -34,8 +34,7 @@ gcc main.c
 
 [/shell]
 
-&nbsp;
+
 
 http://world77.blog.51cto.com/414605/328263
 
-&nbsp;

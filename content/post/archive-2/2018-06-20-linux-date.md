@@ -81,7 +81,7 @@ date &#8211;date=&#8217;1970-01-01 00:00:01&#8242; +%s
   
 1
   
-If you&#8217;re sorting or graphing dated data, your raw date values may be represented as seconds since the epoch. But few people can look at the date \`946684800&#8242; and casually note &#8220;Oh, that&#8217;s the first second of the year 2000.&#8221;
+If you&#8217;re sorting or graphing dated data, your raw date values may be represented as seconds since the epoch. But few people can look at the date \`946684800&#8242; and casually note "Oh, that&#8217;s the first second of the year 2000.&#8221;
   
 date &#8211;date=&#8217;2000-01-01 UTC&#8217; +%s
   

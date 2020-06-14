@@ -166,7 +166,7 @@ public Cake(int id) {
   
 this.id = id;
   
-System.out.println(&#8220;Cake Object &#8221; + id + &#8220;is created&#8221;);
+System.out.println("Cake Object &#8221; + id + "is created&#8221;);
   
 }
 
@@ -174,7 +174,7 @@ protected void finalize() throws java.lang.Throwable {
   
 super.finalize();
   
-System.out.println(&#8220;Cake Object &#8221; + id + &#8220;is disposed&#8221;);
+System.out.println("Cake Object &#8221; + id + "is disposed&#8221;);
   
 }
   
@@ -196,19 +196,19 @@ Cake Object 3is disposed
   
 Cake Object 2is disposed
   
-&nbsp;
+
 
 final
 
 修饰符（关键字）如果一个类被声明为final，意味着它不能再派生出新的子类，不能作为父类被继承。因此一个类不能既被声明为 abstract的，又被声明为final的。将变量或方法声明为final，可以保证它们在使用中不被改变。被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改。被声明为final的方法也同样只能使用，不能重载。
 
-&nbsp;
+
 
 finally
 
 异常处理时提供 finally 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 catch 子句就会执行，然后控制就会进入 finally 块（如果有的话）。一般异常处理块需要。
 
-&nbsp;
+
 
 finalize
 

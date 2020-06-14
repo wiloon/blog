@@ -26,7 +26,7 @@ JSR-250规范定义的注解
 
 @Resource @Resource的作用相当于@Autowired，只不过@Autowired按byType自动注入，而@Resource默认按 byName自动注入
 
-&nbsp;
+
 
 http://www.chinasb.org/archives/2011/06/2443.shtml
 

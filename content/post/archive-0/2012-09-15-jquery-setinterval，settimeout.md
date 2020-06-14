@@ -36,7 +36,7 @@ categories:
   </p>
   
   <p>
-    <em>$.extend({<br /> show:function(){<br /> alert(&#8220;ready&#8221;);<br /> }<br /> });<br /> setInterval(&#8220;$.show()&#8221;,3000);<br /> });</em>
+    <em>$.extend({<br /> show:function(){<br /> alert("ready&#8221;);<br /> }<br /> });<br /> setInterval("$.show()&#8221;,3000);<br /> });</em>
   </p>
   
   <p>
@@ -44,7 +44,7 @@ categories:
   </p>
   
   <p>
-    <em>function show(){<br /> alert(&#8220;ready&#8221;);<br /> }<br /> setInterval(<strong>show</strong>,3000);// 注意函数名没有引号和括弧！</em>
+    <em>function show(){<br /> alert("ready&#8221;);<br /> }<br /> setInterval(<strong>show</strong>,3000);// 注意函数名没有引号和括弧！</em>
   </p>
   
   <p>
@@ -84,7 +84,7 @@ categories:
   </p>
   
   <p>
-    setTimeout(&#8220;i+=1;alert(i)&#8221;,1000);
+    setTimeout("i+=1;alert(i)&#8221;,1000);
   </p>
   
   <p>
@@ -169,7 +169,7 @@ setTimeout(test,1000);</code>
   </p>
   
   <p>
-    setInterval(&#8220;a()&#8221;,1000)
+    setInterval("a()&#8221;,1000)
   </p>
   
   <p>
@@ -264,7 +264,7 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
   </p>
   
   <p>
-    话说回来，虽然我们知道setTimeout(&#8220;this.count()&#8221;,1000) 中的this指的是window对象，但还是不明白为什么会是
+    话说回来，虽然我们知道setTimeout("this.count()&#8221;,1000) 中的this指的是window对象，但还是不明白为什么会是
   </p>
   
   <p>

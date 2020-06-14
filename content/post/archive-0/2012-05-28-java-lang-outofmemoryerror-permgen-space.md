@@ -58,7 +58,7 @@ PermGen space进行清理，所以如果你的应用中有很多CLASS的话,就�
 
 修改TOMCAT_HOME/bin/catalina.sh
   
-在“echo &#8220;Using CATALINA\_BASE: $CATALINA\_BASE&#8221;”上面加入以下行：
+在“echo "Using CATALINA\_BASE: $CATALINA\_BASE&#8221;”上面加入以下行：
   
 JAVA_OPTS=&#8221;-server -XX:PermSize=64M -XX:MaxPermSize=128m
   
@@ -82,7 +82,7 @@ JVM堆的设置是指java程序运行过程中JVM可以调配使用的内存空�
   
 修改TOMCAT_HOME/bin/catalina.sh
   
-在“echo &#8220;Using CATALINA\_BASE: $CATALINA\_BASE&#8221;”上面加入以下行：
+在“echo "Using CATALINA\_BASE: $CATALINA\_BASE&#8221;”上面加入以下行：
   
 JAVA_OPTS=&#8221;-server -Xms800m -Xmx800m -XX:MaxNewSize=256m&#8221;
 

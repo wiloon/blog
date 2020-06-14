@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-&nbsp;
+
 
 建表的时候，如果是浮点数，一般设置为 number(m,n )[m为精度，n为小数位数，所以整数为m-n位],  整数设置为integer;
 
@@ -68,11 +68,11 @@ select  LOG(256,10)*126   from dual
 
 效率测试下来：simple\_integer>pls\_integer>binary_integer>integer;
 
-&nbsp;
+
 
 ### SIMPLE\_INTEGER Subtype of PLS\_INTEGER {#autoId14}
 
-<a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in[&#8220;NOT NULL Constraint&#8221;][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
+<a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint&#8221;][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
 
 If you know that a variable will never have the value `NULL` or need overflow checking, declare it as `SIMPLE_INTEGER` rather than `PLS_INTEGER`. Without the overhead of checking for nullness and overflow, `SIMPLE_INTEGER` performs significantly better than `PLS_INTEGER`.
 

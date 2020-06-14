@@ -44,7 +44,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
 // action 名称
   
-String SMS\_RECEIVED = &#8220;android.provider.Telephony.SMS\_RECEIVED&#8221; ;
+String SMS\_RECEIVED = "android.provider.Telephony.SMS\_RECEIVED&#8221; ;
 
 public void onReceive(Context context, Intent intent) {
 
@@ -60,9 +60,9 @@ if (intent.getAction().equals( SMS_RECEIVED )) {
   
 系统注册：在 AndroidManifest.xml 中注册
   
-< receiver android:name = &#8220;.MyBroadcastReceiver&#8221; >
+< receiver android:name = ".MyBroadcastReceiver&#8221; >
   
-< intent-filter android:priority = &#8220;1000&#8221; >
+< intent-filter android:priority = "1000&#8221; >
 
 < action android:name = &#8221; android.provider.Telephony.SMS_RECEIVED&#8221; />
   
@@ -70,9 +70,9 @@ if (intent.getAction().equals( SMS_RECEIVED )) {
   
 </ receiver > 当然了需要权限 ：
 
-< uses-permission android:name = &#8220;android.permission.RECEIVE_SMS&#8221; />
+< uses-permission android:name = "android.permission.RECEIVE_SMS&#8221; />
   
-< uses-permission android:name = &#8220;android.permission.SEND_SMS&#8221; />
+< uses-permission android:name = "android.permission.SEND_SMS&#8221; />
 
 第二种方式：
 
@@ -92,7 +92,7 @@ public void onReceive(Context context, Intent intent) {
 
 代码中注册：
   
-IntentFilter intentFilter = new IntentFilter( &#8220;android.provider.Telephony.SMS_RECEIVED &#8221; );
+IntentFilter intentFilter = new IntentFilter( "android.provider.Telephony.SMS_RECEIVED &#8221; );
   
 registerReceiver( mBatteryInfoReceiver , intentFilter);
 

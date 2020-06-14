@@ -79,7 +79,7 @@ yarn config set registry &#8216;https://registry.npm.taobao.org&#8217;
 
 # -> yarn config v0.15.0
 
-# -> success Set &#8220;registry&#8221; to &#8220;https://registry.npm.taobao.org&#8221;.
+# -> success Set "registry&#8221; to "https://registry.npm.taobao.org&#8221;.
 
 # -> Done in 0.04s.
 

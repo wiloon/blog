@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-##click the icon &#8220;open this note in a new window
+##click the icon "open this note in a new window
 
 #tuo.. terminal icon to the task bar
 
@@ -58,11 +58,11 @@ sudo apt-get install xfonts-wqy
 
 sudo apt-get install xfonts-intl-chinese wqy*
 
-#set chrome&#8217;s font as wqy micro hei, size 16, set font &#8220;fix width&#8221; with micro hei mono, set encoding as utf8, restart the chrome
+#set chrome&#8217;s font as wqy micro hei, size 16, set font "fix width&#8221; with micro hei mono, set encoding as utf8, restart the chrome
 
 #restart chrome,
 
-&nbsp;
+
 
 #######################input method
 
@@ -75,7 +75,7 @@ sudo apt-get install xfonts-intl-chinese wqy*
 #install wubi input method
 
 <div>
-  #search &#8220;wubi&#8221; in software center
+  #search "wubi&#8221; in software center
 </div>
 
 <div>
@@ -97,7 +97,7 @@ sudo apt-get install xfonts-intl-chinese wqy*
 #start ibus, goto System>Preferences>IBUS&#8230; ,,, maybe need restart the system to enable the wubi and pinyin&#8230;
 
 <div>
-  #there will be a alert, &#8220;if can not use ibus add follow lines to .bashrc
+  #there will be a alert, "if can not use ibus add follow lines to .bashrc
 </div>
 
 <div>
@@ -162,4 +162,3 @@ http://ubuntu.cn99.com/.help/debian.html
 
 #restart the system and install wordpress
 
-&nbsp;

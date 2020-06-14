@@ -20,15 +20,15 @@ strace常用来跟踪进程执行时的系统调用和所接收的信号。 在L
 
 $strace cat /dev/null
   
-execve(&#8220;/bin/cat&#8221;, [&#8220;cat&#8221;, &#8220;/dev/null&#8221;], [/\* 22 vars \*/]) = 0
+execve("/bin/cat&#8221;, ["cat&#8221;, "/dev/null&#8221;], [/\* 22 vars \*/]) = 0
   
 brk(0) = 0xab1000
   
-access(&#8220;/etc/ld.so.nohwcap&#8221;, F_OK) = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.nohwcap&#8221;, F_OK) = -1 ENOENT (No such file or directory)
   
 mmap(NULL, 8192, PROT\_READ|PROT\_WRITE, MAP\_PRIVATE|MAP\_ANONYMOUS, -1, 0) = 0x7f29379a7000
   
-access(&#8220;/etc/ld.so.preload&#8221;, R_OK) = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.preload&#8221;, R_OK) = -1 ENOENT (No such file or directory)
   
 &#8230;
   

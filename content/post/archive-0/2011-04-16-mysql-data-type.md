@@ -612,6 +612,6 @@ Extra：查询中每一步实现的额外细节信息，主要会是以下内容
   　　 原因是:innodb是将primary key index和相关的行数据共同放在B+树的叶节点；innodb一定会有一个primary key，secondary index查找的时候，也是通过找到对应的primary，再找对应的数据行；
 </p>
 
-&nbsp;
+
 
 http://www.cnblogs.com/wyeat/p/job_interview2.html

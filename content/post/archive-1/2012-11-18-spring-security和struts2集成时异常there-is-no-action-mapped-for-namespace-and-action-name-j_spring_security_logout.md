@@ -70,7 +70,7 @@ var a Integer = 1
       
 a.Add(3)
       
-fmt.Println(&#8220;a =&#8221;, a) // a = 4
+fmt.Println("a =&#8221;, a) // a = 4
   
 }
   
@@ -325,7 +325,7 @@ var a interface{}
       
 var i int = 5
       
-s := &#8220;Hello world&#8221;
+s := "Hello world&#8221;
       
 // a可以存储任意类型的数值
       
@@ -357,7 +357,7 @@ age int
   
 func (p Person) String() string {
       
-return &#8220;(name: &#8221; + p.name + &#8221; &#8211; age: &#8220;+strconv.Itoa(p.age)+ &#8221; years)&#8221;
+return "(name: &#8221; + p.name + &#8221; &#8211; age: "+strconv.Itoa(p.age)+ &#8221; years)&#8221;
   
 }
 
@@ -367,9 +367,9 @@ list := make(List, 3)
       
 list[0] = 1 //an int
       
-list[1] = &#8220;Hello&#8221; //a string
+list[1] = "Hello&#8221; //a string
       
-list[2] = Person{&#8220;Dennis&#8221;, 70}
+list[2] = Person{"Dennis&#8221;, 70}
 
     for index, element := range list{
         switch value := element.(type) {
@@ -399,9 +399,9 @@ list := make(List, 3)
       
 list[0] = 1 // an int
       
-list[1] = &#8220;Hello&#8221; // a string
+list[1] = "Hello&#8221; // a string
       
-list[2] = Person{&#8220;Dennis&#8221;, 70}
+list[2] = Person{"Dennis&#8221;, 70}
 
     for index, element := range list {
         if value, ok := element.(int); ok {
@@ -448,11 +448,11 @@ var x float64 = 3.4
   
 v := reflect.ValueOf(x)
   
-fmt.Println(&#8220;type:&#8221;, v.Type())
+fmt.Println("type:&#8221;, v.Type())
   
-fmt.Println(&#8220;kind is float64:&#8221;, v.Kind() == reflect.Float64)
+fmt.Println("kind is float64:&#8221;, v.Kind() == reflect.Float64)
   
-fmt.Println(&#8220;value:&#8221;, v.Float())
+fmt.Println("value:&#8221;, v.Float())
 
 最后，反射的话，那么反射的字段必须是可修改的，我们前面学习过传值和传引用，这个里面也是一样的道理。反射的字段必须是可读写的意思是，如果下面这样写，那么会发生错误
 

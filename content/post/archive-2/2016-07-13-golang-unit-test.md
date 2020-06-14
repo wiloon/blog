@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-测试文件用 &#8220;_test&#8221; 结尾，测试的函数用Test开头
+测试文件用 "_test&#8221; 结尾，测试的函数用Test开头
 
 fibonacci.go
   
@@ -142,7 +142,7 @@ package lib
 
 import (
   
-&#8220;testing&#8221;
+"testing&#8221;
   
 )
 
@@ -152,7 +152,7 @@ r := Fibonacci(10)
   
 if r != 55 {
   
-t.Errorf(&#8220;Fibonacci(10) failed. Got %d, expected 55.&#8221;, r)
+t.Errorf("Fibonacci(10) failed. Got %d, expected 55.&#8221;, r)
   
 }
   
@@ -166,7 +166,7 @@ ok lib 0.008s
   
 如果提示找不到包，则将该代码路径加入环境变量GOPATH就可以了。
 
-can&#8217;t load package: package lib: cannot find package &#8220;lib&#8221; in any of:
+can&#8217;t load package: package lib: cannot find package "lib&#8221; in any of:
   
 性能测试
   

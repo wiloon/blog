@@ -22,7 +22,7 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>
@@ -30,6 +30,6 @@ categories:
   </p>
   
   <p>
-    &nbsp;
+    
   </p>
 </div>

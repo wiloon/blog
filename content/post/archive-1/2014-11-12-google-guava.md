@@ -58,7 +58,7 @@ com.google.common.util.concurrent：多线程工具包。
   
 3. 常见的对象方法： 简化了Object常用方法的实现， 如 hashCode() 和 toString()。
   
-4. 排序： Guava 强大的 &#8220;fluent Comparator&#8221;比较器， 提供多关键字排序。
+4. 排序： Guava 强大的 "fluent Comparator&#8221;比较器， 提供多关键字排序。
   
 5. Throwable类： 简化了异常检查和错误传播。
 

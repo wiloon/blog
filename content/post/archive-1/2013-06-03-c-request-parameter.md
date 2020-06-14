@@ -240,7 +240,7 @@ static {
         
 try {
           
-valueOffset = unsafe.objectFieldOffset(AtomicInteger.class.getDeclaredField(&#8220;value&#8221;));
+valueOffset = unsafe.objectFieldOffset(AtomicInteger.class.getDeclaredField("value&#8221;));
         
 } catch (Exception ex) {
            
@@ -484,11 +484,11 @@ System.out.println("已经改回为原始值！");
 
 而类：AtomicMarkableReference和AtomicStampedReference功能差不多，有点区别的是：它描述更加简单的是与否的关系，通常ABA问题只有两种状态，而AtomicStampedReference是多种状态，那么为什么还要有AtomicMarkableReference呢，因为它在处理是与否上面更加具有可读性，而AtomicStampedReference过于随意定义状态，并不便于阅读大量的是和否的关系，它可以被认为是一个计数器或状态列表等信息，java提倡通过类名知道其意义，所以这个类的存在也是必要的，它的定义就是将数据变换为true|false如下：
 
-public final static AtomicMarkableReference <String>ATOMIC\_MARKABLE\_REFERENCE = new AtomicMarkableReference<String>(&#8220;abc&#8221; , false);
+public final static AtomicMarkableReference <String>ATOMIC\_MARKABLE\_REFERENCE = new AtomicMarkableReference<String>("abc&#8221; , false);
 
 操作时使用：
   
-ATOMIC\_MARKABLE\_REFERENCE.compareAndSet(&#8220;abc&#8221;, &#8220;abc2&#8221;, false, true);
+ATOMIC\_MARKABLE\_REFERENCE.compareAndSet("abc&#8221;, "abc2&#8221;, false, true);
 
 好了，reference的三个类的种类都介绍了，我们下面要开始说Atomic的数组用法，因为我们开始说到的都是一些简单变量和基本数据，操作数组呢？如果你来设计会怎么设计，Atomic的数组要求不允许修改长度等，不像集合类那么丰富的操作，不过它可以让你的数组上每个元素的操作绝对安全的，也就是它细化的力度还是到数组上的元素，为你做了二次包装，所以如果你来设计，就是在原有的操作上增加一个下标访问即可，我们来模拟一个Integer类型的数组，即：AtomicIntegerArray
 
@@ -626,7 +626,7 @@ private long rawIndex(int i) {
       
 if (i < 0 || i >= array.length)
           
-throw new IndexOutOfBoundsException(&#8220;index &#8221; + i);
+throw new IndexOutOfBoundsException("index &#8221; + i);
       
 return base + (long) i * scale;
   
@@ -740,11 +740,11 @@ AtomicReferenceFieldUpdater方法较少，主要是compareAndSet以及getAndSet�
 
 static class A {
       
-volatile String stringValue = &#8220;abc&#8221;;
+volatile String stringValue = "abc&#8221;;
   
 }
 
-AtomicReferenceFieldUpdater <A ,String>ATOMIC\_REFERENCE\_FIELD_UPDATER = AtomicReferenceFieldUpdater.newUpdater(A.class, String.class, &#8220;stringValue&#8221;);
+AtomicReferenceFieldUpdater <A ,String>ATOMIC\_REFERENCE\_FIELD_UPDATER = AtomicReferenceFieldUpdater.newUpdater(A.class, String.class, "stringValue&#8221;);
 
 可以看到，这里传递的参数增加了一个属性的类型，因为引用的是一个对象，对象本身也有一个类型。
 

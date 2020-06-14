@@ -12,7 +12,7 @@ java.util.Comparator 接口。要实现里面的函数
   
 int compare(Object o1, Object o2) 返回一个基本类型的整型，返回负数表示o1 小于o2，返回0 表示o1和o2相等，返回正数表示o1大于o2。
 
-&#8220;\`java
+"\`java
   
 class User {
 
@@ -130,7 +130,7 @@ System.out.println(user\_temp.getAge()+”,”+user\_temp.getName());
   
 //首先年龄排序，如果年龄相同，则按名字排序
   
-&#8220;\`java
+"\`java
 
 结果:
   

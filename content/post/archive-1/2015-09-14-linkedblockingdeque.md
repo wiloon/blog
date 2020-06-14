@@ -50,11 +50,11 @@ for (int i = 0; i < 30; i++) {
   
 bDeque.putFirst(i);
   
-System.out.println(&#8220;向阻塞栈中添加了元素:&#8221; + i);
+System.out.println("向阻塞栈中添加了元素:&#8221; + i);
   
 }
   
-System.out.println(&#8220;程序到此运行结束，即将退出&#8212;-&#8220;);
+System.out.println("程序到此运行结束，即将退出&#8212;-");
   
 }
   

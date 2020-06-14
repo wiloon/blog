@@ -98,7 +98,7 @@ sudo make install
         </p>
         
         <p>
-          &nbsp;
+          
         </p>
         
         <p>

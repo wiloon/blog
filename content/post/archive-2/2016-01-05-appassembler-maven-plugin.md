@@ -14,7 +14,7 @@ categories:
   * [appassembler:create-repository][2] Creates an appassembler repository.
   * [appassembler:generate-daemons][3] Generates JSW based daemon wrappers.
 
-&nbsp;
+
 
 maven 自动生成运行脚本插件appassembler-maven-plugin
   
@@ -26,7 +26,7 @@ appassembler的配置比较简单，在pom.xml的配置文件加入插件配置�
 
 比如说不同的启动脚本，可以如下配置
 
-&nbsp;
+
 
 Xml代码
   
@@ -86,13 +86,13 @@ Xml代码
 
 就可以自动生成整个的依赖文件，配置文件和运行脚本了。
 
-&nbsp;
+
 
 一些配置说明
 
-&nbsp;
 
-&nbsp;
+
+
 
 configurationDirectory：生成配置文件路径
 
@@ -110,15 +110,15 @@ repositoryName：依赖包目录，默认repo
 
 programs：这个必须参数，启动的主class
 
-&nbsp;
 
-&nbsp;
+
+
 
 生成jsw也是一个简单的配置
 
 eg：
 
-&nbsp;
+
 
 Xml代码
   
@@ -274,7 +274,7 @@ Xml代码
   
 </plugin>
 
-&nbsp;
+
 
 http://lavafree.iteye.com/blog/1502594
 

@@ -84,7 +84,7 @@ $ rsync -azP source dest
   
 $ rsync -azP source dest
   
-Share the post &#8220;使用rsync命令同步本地目录和远程主机目录&#8221;
+Share the post "使用rsync命令同步本地目录和远程主机目录&#8221;
 
 <blockquote class="wp-embedded-content" data-secret="S2qcdaISDp">
   <p>

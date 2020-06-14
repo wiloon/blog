@@ -43,11 +43,11 @@ for {
 
 func main() {
       
-l, err := net.Listen(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+l, err := net.Listen("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-fmt.Println(&#8220;listen error:&#8221;, err)
+fmt.Println("listen error:&#8221;, err)
           
 return
       
@@ -75,7 +75,7 @@ return
 
 阻塞Dial：
 
-conn, err := net.Dial(&#8220;tcp&#8221;, &#8220;google.com:80&#8221;)
+conn, err := net.Dial("tcp&#8221;, "google.com:80&#8221;)
   
 if err != nil {
       
@@ -87,7 +87,7 @@ if err != nil {
   
 或是带上超时机制的Dial：
 
-conn, err := net.DialTimeout(&#8220;tcp&#8221;, &#8220;:8080&#8221;, 2 * time.Second)
+conn, err := net.DialTimeout("tcp&#8221;, ":8080&#8221;, 2 * time.Second)
   
 if err != nil {
       
@@ -109,13 +109,13 @@ if err != nil {
   
 func main() {
       
-log.Println(&#8220;begin dial&#8230;&#8221;)
+log.Println("begin dial&#8230;&#8221;)
       
-conn, err := net.Dial(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-log.Println(&#8220;dial error:&#8221;, err)
+log.Println("dial error:&#8221;, err)
           
 return
       
@@ -123,7 +123,7 @@ return
       
 defer conn.Close()
       
-log.Println(&#8220;dial ok&#8221;)
+log.Println("dial ok&#8221;)
   
 }
   
@@ -147,11 +147,11 @@ $go run client1.go
   
 func main() {
       
-l, err := net.Listen(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+l, err := net.Listen("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-log.Println(&#8220;error listen:&#8221;, err)
+log.Println("error listen:&#8221;, err)
           
 return
       
@@ -159,7 +159,7 @@ return
       
 defer l.Close()
       
-log.Println(&#8220;listen ok&#8221;)
+log.Println("listen ok&#8221;)
 
     var i int
     for {
@@ -183,17 +183,17 @@ log.Println(&#8220;listen ok&#8221;)
   
 func establishConn(i int) net.Conn {
       
-conn, err := net.Dial(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-log.Printf(&#8220;%d: dial error: %s&#8221;, i, err)
+log.Printf("%d: dial error: %s&#8221;, i, err)
           
 return nil
       
 }
       
-log.Println(i, &#8220;:connect to server ok&#8221;)
+log.Println(i, ":connect to server ok&#8221;)
       
 return conn
   
@@ -284,13 +284,13 @@ kern.ipc.somaxconn: 128
   
 func main() {
       
-log.Println(&#8220;begin dial&#8230;&#8221;)
+log.Println("begin dial&#8230;&#8221;)
       
-conn, err := net.DialTimeout(&#8220;tcp&#8221;, &#8220;104.236.176.96:80&#8221;, 2*time.Second)
+conn, err := net.DialTimeout("tcp&#8221;, "104.236.176.96:80&#8221;, 2*time.Second)
       
 if err != nil {
           
-log.Println(&#8220;dial error:&#8221;, err)
+log.Println("dial error:&#8221;, err)
           
 return
       
@@ -298,7 +298,7 @@ return
       
 defer conn.Close()
       
-log.Println(&#8220;dial ok&#8221;)
+log.Println("dial ok&#8221;)
   
 }
 
@@ -350,7 +350,7 @@ n, err := c.fd.Read(b)
       
 if err != nil && err != io.EOF {
           
-err = &OpError{Op: &#8220;read&#8221;, Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
+err = &OpError{Op: "read&#8221;, Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
       
 }
       
@@ -372,7 +372,7 @@ n, err := c.fd.Write(b)
       
 if err != nil {
           
-err = &OpError{Op: &#8220;write&#8221;, Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
+err = &OpError{Op: "write&#8221;, Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
       
 }
       
@@ -402,19 +402,19 @@ func main() {
       
 if len(os.Args) <= 1 {
           
-fmt.Println(&#8220;usage: go run client2.go YOUR_CONTENT&#8221;)
+fmt.Println("usage: go run client2.go YOUR_CONTENT&#8221;)
           
 return
       
 }
       
-log.Println(&#8220;begin dial&#8230;&#8221;)
+log.Println("begin dial&#8230;&#8221;)
       
-conn, err := net.Dial(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-log.Println(&#8220;dial error:&#8221;, err)
+log.Println("dial error:&#8221;, err)
           
 return
       
@@ -422,7 +422,7 @@ return
       
 defer conn.Close()
       
-log.Println(&#8220;dial ok&#8221;)
+log.Println("dial ok&#8221;)
 
     time.Sleep(time.Second * 2)
     data := os.Args[1]
@@ -449,19 +449,19 @@ for {
           
 var buf = make([]byte, 10)
           
-log.Println(&#8220;start to read from conn&#8221;)
+log.Println("start to read from conn&#8221;)
           
 n, err := c.Read(buf)
           
 if err != nil {
               
-log.Println(&#8220;conn read error:&#8221;, err)
+log.Println("conn read error:&#8221;, err)
               
 return
           
 }
           
-log.Printf(&#8220;read %d bytes, content is %s\n&#8221;, n, string(buf[:n]))
+log.Printf("read %d bytes, content is %s\n&#8221;, n, string(buf[:n]))
       
 }
   
@@ -555,13 +555,13 @@ $go run server3.go
   
 func main() {
       
-log.Println(&#8220;begin dial&#8230;&#8221;)
+log.Println("begin dial&#8230;&#8221;)
       
-conn, err := net.Dial(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-log.Println(&#8220;dial error:&#8221;, err)
+log.Println("dial error:&#8221;, err)
           
 return
       
@@ -569,7 +569,7 @@ return
       
 defer conn.Close()
       
-log.Println(&#8220;dial ok&#8221;)
+log.Println("dial ok&#8221;)
 
     data := make([]byte, 65536)
     conn.Write(data)
@@ -595,7 +595,7 @@ time.Sleep(10 * time.Second)
           
 var buf = make([]byte, 65536)
           
-log.Println(&#8220;start to read from conn&#8221;)
+log.Println("start to read from conn&#8221;)
           
 c.SetReadDeadline(time.Now().Add(time.Microsecond * 10))
           
@@ -603,7 +603,7 @@ n, err := c.Read(buf)
           
 if err != nil {
               
-log.Printf(&#8220;conn read %d bytes, error: %s&#8221;, n, err)
+log.Printf("conn read %d bytes, error: %s&#8221;, n, err)
               
 if nerr, ok := err.(net.Error); ok && nerr.Timeout() {
                   
@@ -615,7 +615,7 @@ return
           
 }
           
-log.Printf(&#8220;read %d bytes, content is %s\n&#8221;, n, string(buf[:n]))
+log.Printf("read %d bytes, content is %s\n&#8221;, n, string(buf[:n]))
       
 }
   
@@ -653,13 +653,13 @@ TCP连接通信两端的OS都会为该连接保留数据缓冲，一端调用Wri
   
 func main() {
       
-log.Println(&#8220;begin dial&#8230;&#8221;)
+log.Println("begin dial&#8230;&#8221;)
       
-conn, err := net.Dial(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-log.Println(&#8220;dial error:&#8221;, err)
+log.Println("dial error:&#8221;, err)
           
 return
       
@@ -667,7 +667,7 @@ return
       
 defer conn.Close()
       
-log.Println(&#8220;dial ok&#8221;)
+log.Println("dial ok&#8221;)
 
     data := make([]byte, 65536)
     var total int
@@ -706,13 +706,13 @@ time.Sleep(5 * time.Second)
           
 var buf = make([]byte, 60000)
           
-log.Println(&#8220;start to read from conn&#8221;)
+log.Println("start to read from conn&#8221;)
           
 n, err := c.Read(buf)
           
 if err != nil {
               
-log.Printf(&#8220;conn read %d bytes, error: %s&#8221;, n, err)
+log.Printf("conn read %d bytes, error: %s&#8221;, n, err)
               
 if nerr, ok := err.(net.Error); ok && nerr.Timeout() {
                   
@@ -921,7 +921,7 @@ break
       
 if _, ok := err.(syscall.Errno); ok {
           
-err = os.NewSyscallError(&#8220;read&#8221;, err)
+err = os.NewSyscallError("read&#8221;, err)
       
 }
       
@@ -991,7 +991,7 @@ break
       
 if _, ok := err.(syscall.Errno); ok {
           
-err = os.NewSyscallError(&#8220;write&#8221;, err)
+err = os.NewSyscallError("write&#8221;, err)
       
 }
       
@@ -1043,13 +1043,13 @@ tcpConn.SetNoDelay(true)
   
 func main() {
       
-log.Println(&#8220;begin dial&#8230;&#8221;)
+log.Println("begin dial&#8230;&#8221;)
       
-conn, err := net.Dial(&#8220;tcp&#8221;, &#8220;:8888&#8221;)
+conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
       
 if err != nil {
           
-log.Println(&#8220;dial error:&#8221;, err)
+log.Println("dial error:&#8221;, err)
           
 return
       
@@ -1057,7 +1057,7 @@ return
       
 conn.Close()
       
-log.Println(&#8220;close ok&#8221;)
+log.Println("close ok&#8221;)
 
     var buf = make([]byte, 32)
     n, err := conn.Read(buf)

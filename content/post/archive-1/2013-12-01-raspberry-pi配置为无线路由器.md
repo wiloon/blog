@@ -158,7 +158,7 @@ netmask 255.255.255.0</pre>
         </p>
         
         <p>
-          &nbsp;</li> 
+          </li> 
           
           <li>
             配置hostapd。在这一部你就可以创建一个无线网络，可以选加密或者不加密模式。建议选择WPA2加密，那么你需要编辑/etc/hostapd/hostapd.conf文件（若不存在则需要手动创建） <div>
@@ -167,7 +167,7 @@ netmask 255.255.255.0</pre>
               </div>
               
               <p>
-                &nbsp;
+                
               </p>
               
               <div>
@@ -244,7 +244,7 @@ wmm_enabled=0</pre>
             </div>
             
             <p>
-              &nbsp;</li> 
+              </li> 
               
               <li>
                 配置NAT，也就是路由了首先编辑/etc/sysctl.conf文件，主要是打开ipv4的转发功能。 <div>
@@ -279,7 +279,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
                 </div>
                 
                 <p>
-                  &nbsp;</li> 
+                  </li> 
                   
                   <li>
                     启动服务，看看你的无线是否搭建好了？运行一下命令： <div>
@@ -299,7 +299,7 @@ sudo update-rc.d udhcpd enable</pre>
 </div>
 
                     <p>
-                      &nbsp;</li> </ol> 
+                      </li> </ol> 
                       
                       <p>
                         当然，最开始用8188CUS的时候参考的是 http://sirlagz.net/2012/08/09/how-to-use-the-raspberry-pi-as-a-wireless-access-pointrouter-part-1/
@@ -348,7 +348,7 @@ Failed to bring up wlan0.</pre>
                       </p>
                       
                       <p>
-                        &nbsp;
+                        
                       </p>
                       
                       <p>

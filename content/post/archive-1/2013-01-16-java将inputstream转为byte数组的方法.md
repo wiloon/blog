@@ -58,7 +58,7 @@ public static void main(String[] args) {
       
 try {
           
-File file = new File(&#8220;C:&#92;ceshi.txt&#8221;);
+File file = new File("C:&#92;ceshi.txt&#8221;);
           
 FileInputStream fin = new FileInputStream(file);
           
@@ -158,9 +158,9 @@ byte[] bt = StreamTool.readStream(ips);
                   
 String str = new String(bt);
                   
-System.out.println(&#8220;主机收到信息：&#8221; + str);
+System.out.println("主机收到信息：&#8221; + str);
                   
-String restr = &#8220;你好，主机已经收到信息！&#8221;;
+String restr = "你好，主机已经收到信息！&#8221;;
                   
 ops.write(restr.getBytes());
                   
@@ -192,7 +192,7 @@ public static void main(String[] args) {
           
 try {
               
-File file = new File(&#8220;C:&#92;ceshi.txt&#8221;);
+File file = new File("C:&#92;ceshi.txt&#8221;);
               
 FileInputStream fin = new FileInputStream(file);
               
@@ -264,7 +264,7 @@ public static void main(String[] args) {
           
 try {
               
-Socket socket = new Socket(&#8220;127.0.0.1&#8221;, 8001);
+Socket socket = new Socket("127.0.0.1&#8221;, 8001);
               
 // 开启保持活动状态的套接字
               
@@ -276,7 +276,7 @@ socket.setSoTimeout(30 * 1000);
               
 OutputStream ops = socket.getOutputStream();
               
-String mess = &#8220;你好，我是崔素强！&#8221;;
+String mess = "你好，我是崔素强！&#8221;;
               
 ops.write(mess.getBytes());
               
@@ -286,7 +286,7 @@ byte[] rebyte = StreamTool.readStream(ips);
               
 String remess = new String(rebyte);
               
-System.out.println(&#8220;收到主机消息：&#8221; + remess);
+System.out.println("收到主机消息：&#8221; + remess);
               
 socket.close();
           

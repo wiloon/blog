@@ -55,3 +55,13 @@ https://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
     <a href="https://www.reddit.com/r/openwrt/comments/74mgvd/need_help_to_build_custom_dnsmasq_package_for/?ref_source=embed&ref=share">Need Help to Build Custom "DNSmasq" Package for Chaos Calmer</a> from <a href="https://www.reddit.com/r/openwrt/">openwrt</a>
   </p>
 </blockquote>
+
+https://wikidevi.com/wiki/Netgear_R7800
+http://www.right.com.cn/forum/thread-144853-1-1.html
+http://www.expreview.com/47447-2.html
+https://forum.openwrt.org/viewtopic.php?id=68795
+https://blog.wanjie.info/2016/12/openwrt-or-lede-image-builder/
+https://wikidevi.com/wiki/Netgear_R7000
+https://openwrt.org/meta/infobox/broadcom_wifi
+https://openwrt.org/inbox/unsupported_features
+https://downloads.openwrt.org/releases/17.01.4/targets/bcm53xx/generic/

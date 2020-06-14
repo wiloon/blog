@@ -70,4 +70,4 @@ exit
   
 fi
 
-##判断相等&#8221;==&#8221; , 两侧一定要有空格 T_T, 否则会报&#8221;unary operator expected &#8220;
+##判断相等&#8221;==&#8221; , 两侧一定要有空格 T_T, 否则会报&#8221;unary operator expected "

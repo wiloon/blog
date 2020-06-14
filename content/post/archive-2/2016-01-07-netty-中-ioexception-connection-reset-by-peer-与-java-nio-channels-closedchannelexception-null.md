@@ -10,7 +10,7 @@ categories:
 ---
 http://www.cnblogs.com/zemliu/p/3864131.html
 
-&nbsp;
+
 
 最近发现系统中出现了很多 IOException: Connection reset by peer 与 ClosedChannelException: null
 
@@ -143,7 +143,7 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
   </div>
 </div>
 
-&nbsp;
+
 
 这种情况之所以能触发 connection reset by peer 异常, 是因为 connect 成功以后, client 段先会触发 connect 成功的 listener, 这个时候 server 段虽然断开了 channel, 也触发 channel 断开的事件 (它会触发一个客户端 read 事件, 但是这个 read 会返回 -1, -1 代表 channel 关闭, client 的 channelInactive 跟 channel  active 状态的改变都是在这时发生的), 但是这个事件是在 connect 成功的 listener 之后执行, 所以这个时候 listener 里的 channel 并不知道自己已经断开, 它还是会继续进行 write 跟 flush 操作, 在调用 flush 后, eventloop 会进入 OP_READ 事件里, 这时候 unsafe.read() 就会抛出 connection reset 异常. eventloop 代码如下
 
@@ -247,7 +247,7 @@ client 1, 主动关闭 channel
   </div>
 </div>
 
-&nbsp;
+
 
 只要在 write 之前主动调用了 close, 那么 write 必然会知道 close 是 close 状态, 最后 write 就会失败, 并且 future 里的 cause 就是 ClosedChannelException
 

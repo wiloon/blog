@@ -11,7 +11,7 @@ categories:
   - Web
 
 ---
-download &#8220;Eclipse IDE for Java EE Developers&#8221; include WTP.
+download "Eclipse IDE for Java EE Developers&#8221; include WTP.
   
 download tomcat
 
@@ -21,7 +21,7 @@ goto window> preference >server> runtime environment
   
 add tomcat
 
-goto &#8220;project explorer&#8221; or &#8220;navigator&#8221;
+goto "project explorer&#8221; or "navigator&#8221;
   
 new > other > server> server
 

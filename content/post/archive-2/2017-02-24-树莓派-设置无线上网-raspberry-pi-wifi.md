@@ -138,11 +138,11 @@ network={
 
 network={
   
-ssid=&#8221;1234&#8243;
+ssid=&#8221;1234"
   
 key_mgmt=WPA-PSK
   
-psk=&#8221;MTIzNA1234&#8243;
+psk=&#8221;MTIzNA1234"
   
 }
   

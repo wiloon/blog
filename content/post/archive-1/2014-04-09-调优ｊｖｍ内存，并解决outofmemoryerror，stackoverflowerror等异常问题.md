@@ -68,7 +68,7 @@ return getInt(i++);
   
 跑完之后，结果如下：
 
-Exception in thread &#8220;main&#8221; java.lang.StackOverflowError
+Exception in thread "main&#8221; java.lang.StackOverflowError
   
 确实如此。
 
@@ -88,7 +88,7 @@ map.put(i, i);
   
 输出结果为：
 
-Exception in thread &#8220;main&#8221; java.lang.OutOfMemoryError: Java heap space
+Exception in thread "main&#8221; java.lang.OutOfMemoryError: Java heap space
   
 和预期一致
 

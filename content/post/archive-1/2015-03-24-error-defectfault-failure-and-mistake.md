@@ -43,5 +43,5 @@ tags:
 </p>
 
 <p class="list_answer">
-  now you have to go to delhi it means you have to turn the stearing to the right, but by mistake you turn the stearing to the left, from that position that is called as &#8220;Error&#8221; because human intraction is there. and now Fault is there till you will not reach the mumbai, but when you reach mumbai that is a final stage which is called &#8220;Failure&#8221; becoz you had to reach delhi but now you are in Mumbai.
+  now you have to go to delhi it means you have to turn the stearing to the right, but by mistake you turn the stearing to the left, from that position that is called as "Error&#8221; because human intraction is there. and now Fault is there till you will not reach the mumbai, but when you reach mumbai that is a final stage which is called "Failure&#8221; becoz you had to reach delhi but now you are in Mumbai.
 </p>

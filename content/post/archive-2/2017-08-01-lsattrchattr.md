@@ -30,7 +30,7 @@ lsattr /etc/passwd
   
 rm: cannot remove &#8216;dummy_data&#8217;: Operation not permitted
   
-[root@linuxtechi ~]# echo &#8220;test&#8221; >> dummy_data
+[root@linuxtechi ~]# echo "test&#8221; >> dummy_data
   
 -bash: dummy_data: Permission denied
 

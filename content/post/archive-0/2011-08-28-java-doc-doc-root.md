@@ -16,6 +16,6 @@ categories:
   
 *see the <a href={@docroot}/copyright.html>copyright</a>
   
-&#8220;*/
+"*/
   
 假定生成文档的根目录是doc，上面注释所在的文件最后生成的文件是docutilityutl.html，那么&#8221;copyright&#8221;的链接会指向..copyright.html。

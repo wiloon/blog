@@ -22,7 +22,7 @@ KVM
 
 KVM是linux内核的模块，它需要CPU的支持，采用硬件辅助虚拟化技术Intel-VT，AMD-V，内存的相关如Intel的EPT和AMD的RVI技术，Guest OS的CPU指令不用再经过Qemu转译，直接运行，大大提高了速度，KVM通过/dev/kvm暴露接口，用户态程序可以通过ioctl函数来访问这个接口。见如下伪代码：
 
-open(&#8220;/dev/kvm&#8221;)
+open("/dev/kvm&#8221;)
   
 ioctl(KVM\_CREATE\_VM)
   
