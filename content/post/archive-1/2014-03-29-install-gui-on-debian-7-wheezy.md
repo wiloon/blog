@@ -58,9 +58,9 @@ Compiz
 
 Compiz is truly one of the original compositing window managers for the X Window System which is capable to make use of OpenGL-acceleration. The integration enables it to run compositing effects in window management, for example a minimization effect and a cube workspace. Compiz conforms to the ICCCM standard together with replacement for the main Metacity in GNOME or KWin in KDE.
 
-\# echo &#8220;deb http://ftp.us.debian.org/debian/ sid main non-free contrib&#8221; >> /etc/apt/sources.list
+\# echo "deb http://ftp.us.debian.org/debian/ sid main non-free contrib&#8221; >> /etc/apt/sources.list
 
-\# echo &#8216;APT::Default-Release &#8220;testing&#8221;;&#8217; >> /etc/apt/apt.conf
+\# echo &#8216;APT::Default-Release "testing&#8221;;&#8217; >> /etc/apt/apt.conf
 
 \# apt-get update
 
@@ -118,7 +118,7 @@ After that change /etc/apt/apt.conf.d/80mintupdate-debian
 
 To
 
-Acquire::Check-Valid-Until &#8220;false&#8221;;
+Acquire::Check-Valid-Until "false&#8221;;
 
 Finally we can install cinnamon on debian 7 wheezy now
 
@@ -206,7 +206,7 @@ $ nano .bashrc
 
 add these code to the end of the .bashrc file
 
-if [ &#8220;$(tty)&#8221; = &#8220;/dev/tty1&#8221; -o &#8220;$(tty)&#8221; = &#8220;/dev/vc/1&#8221; ] ; then
+if [ "$(tty)&#8221; = "/dev/tty1&#8221; -o "$(tty)&#8221; = "/dev/vc/1&#8221; ] ; then
 
 startxfce4
 

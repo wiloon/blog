@@ -48,13 +48,13 @@ defg
   
 /home/lee#typeset -Z15 var=&#8221;abc ddd&#8221;
   
-/home/lee#echo &#8220;$var&#8221;
+/home/lee#echo "$var&#8221;
   
 ^^^^^^^^abc ddd #^为空白
   
-/home/lee#typeset -LZ15 var=&#8221;abc 123&#8243;
+/home/lee#typeset -LZ15 var=&#8221;abc 123"
   
-/home/lee#echo &#8220;$var$var&#8221;
+/home/lee#echo "$var$var&#8221;
   
 abc 123 abc 123
 

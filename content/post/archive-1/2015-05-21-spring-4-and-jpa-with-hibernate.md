@@ -151,7 +151,7 @@ LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFacto
   
 em.setDataSource(dataSource());
   
-em.setPackagesToScan(new String[] { &#8220;org.baeldung.persistence.model&#8221; });
+em.setPackagesToScan(new String[] { "org.baeldung.persistence.model&#8221; });
 
 JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
   
@@ -169,13 +169,13 @@ public DataSource dataSource(){
   
 DriverManagerDataSource dataSource = new DriverManagerDataSource();
   
-dataSource.setDriverClassName(&#8220;com.mysql.jdbc.Driver&#8221;);
+dataSource.setDriverClassName("com.mysql.jdbc.Driver&#8221;);
   
-dataSource.setUrl(&#8220;jdbc:mysql://localhost:3306/spring_jpa&#8221;);
+dataSource.setUrl("jdbc:mysql://localhost:3306/spring_jpa&#8221;);
   
-dataSource.setUsername( &#8220;tutorialuser&#8221; );
+dataSource.setUsername( "tutorialuser&#8221; );
   
-dataSource.setPassword( &#8220;tutorialmy5ql&#8221; );
+dataSource.setPassword( "tutorialmy5ql&#8221; );
   
 return dataSource;
   
@@ -205,9 +205,9 @@ Properties additionalProperties() {
   
 Properties properties = new Properties();
   
-properties.setProperty(&#8220;hibernate.hbm2ddl.auto&#8221;, &#8220;create-drop&#8221;);
+properties.setProperty("hibernate.hbm2ddl.auto&#8221;, "create-drop&#8221;);
   
-properties.setProperty(&#8220;hibernate.dialect&#8221;, &#8220;org.hibernate.dialect.MySQL5Dialect&#8221;);
+properties.setProperty("hibernate.dialect&#8221;, "org.hibernate.dialect.MySQL5Dialect&#8221;);
   
 return properties;
   
@@ -303,7 +303,7 @@ The same Spring Configuration with XML:
   
 40
   
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?>
+<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
   
 <beans xmlns=&#8221;http://www.springframework.org/schema/beans&#8221;
   

@@ -80,7 +80,7 @@ categories:
   </p>
   
   <p>
-    king= &#8220;output&#8221; 表示编译的class输出的路径。
+    king= "output&#8221; 表示编译的class输出的路径。
   </p>
   
   <p>

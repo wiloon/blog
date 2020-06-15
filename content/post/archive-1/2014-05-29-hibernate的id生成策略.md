@@ -50,9 +50,9 @@ name=&#8221;EMP_GEN&#8221;,
   
 table=&#8221;GENERATOR_TABLE&#8221;,
   
-pkColumnName = &#8220;key&#8221;,
+pkColumnName = "key&#8221;,
   
-valueColumnName = &#8220;hi&#8221;
+valueColumnName = "hi&#8221;
   
 pkColumnValue=&#8221;EMP&#8221;,
   
@@ -70,7 +70,7 @@ sequenceName=&#8221;my_sequence&#8221;
   
 package org.hibernate.test.metadata;
 
-如果在org.hibernate.test.metadata包下面的 package-info.java文件用于初始化EJB配置, 那么该文件中定义的 EMP\_GEN 和SEQ\_GEN都是应用级的生成器. EMP\_GEN定义了一个使用hilo算法 (max\_lo为20)的id生成器(该生成器将id的信息存在数据库的某个表中.). id的hi值保存在GENERATOR_TABLE中. 在该表中 pkColumnName&#8221;key&#8221;等价于 pkColumnValue &#8220;EMP&#8221;, 而valueColumnName &#8220;hi&#8221;中存储的是下一个要使用的最大值.
+如果在org.hibernate.test.metadata包下面的 package-info.java文件用于初始化EJB配置, 那么该文件中定义的 EMP\_GEN 和SEQ\_GEN都是应用级的生成器. EMP\_GEN定义了一个使用hilo算法 (max\_lo为20)的id生成器(该生成器将id的信息存在数据库的某个表中.). id的hi值保存在GENERATOR_TABLE中. 在该表中 pkColumnName&#8221;key&#8221;等价于 pkColumnValue "EMP&#8221;, 而valueColumnName "hi&#8221;中存储的是下一个要使用的最大值.
 
 SEQ\_GEN则定义了一个sequence 生成器, 其对应的sequence名为 my\_sequence. 注意目前Hibernate Annotations还不支持sequence 生成器中的 initialValue和 allocationSize参数.
 

@@ -44,9 +44,9 @@ this.setScrollBarStyle(SCROLLBARS\_OUTSIDE\_OVERLAY);
   
 4)             设置WevView要显示的网页：
   
-互联网用：webView.loadUrl(&#8220;http://www.google.com&#8221;);
+互联网用：webView.loadUrl("http://www.google.com&#8221;);
   
-本地文件用：webView.loadUrl(&#8220;file:///android_asset/XX.html&#8221;);    本地文件存放在：assets文件中
+本地文件用：webView.loadUrl("file:///android_asset/XX.html&#8221;);    本地文件存放在：assets文件中
   
 5)             如果希望点击链接由自己处理，而不是新开Android的系统browser中响应该链接。给WebView添加一个事件监听对象（WebViewClient)并重写其中的一些方法：
   
@@ -56,7 +56,7 @@ shouldOverrideUrlLoading ：对网页中超链接按钮的响应。当按下某�
   
 public boolean shouldOverrideUrlLoading(WebView view,String url){
 
-if(url.indexOf(&#8220;tel:&#8221;)<0){//页面上有数字会导致连接电话
+if(url.indexOf("tel:&#8221;)<0){//页面上有数字会导致连接电话
 
 view.loadUrl(url);
 
@@ -118,11 +118,11 @@ Webview与js的双向交互才是android的webview强大所在，也是马甲精
 
 首先，webview可以定义一个在其内嵌页面中可以触发的事件
 
-&nbsp;
+
 
 [java] view plaincopy
   
-wv.addJavascriptInterface(new DemoJavaScriptInterface(), &#8220;demo&#8221;);
+wv.addJavascriptInterface(new DemoJavaScriptInterface(), "demo&#8221;);
 
 rivate final class DemoJavaScriptInterface
 
@@ -138,9 +138,9 @@ mHandler.post(newRunnable(){
   
 public void run(){
   
-jsonText=&#8221;{&#8220;name&#8221;:&#8221;&#8221;+order+&#8221;&#8221;}&#8221;;
+jsonText=&#8221;{"name&#8221;:&#8221;&#8221;+order+&#8221;&#8221;}&#8221;;
   
-wv.loadUrl(&#8220;javascript:wave(&#8220;+jsonText+&#8221;)&#8221;);
+wv.loadUrl("javascript:wave("+jsonText+&#8221;)&#8221;);
   
 }
   
@@ -148,19 +148,19 @@ wv.loadUrl(&#8220;javascript:wave(&#8220;+jsonText+&#8221;)&#8221;);
   
 }
 
-&nbsp;
+
 
 通过以上代码，即可实现在其内嵌网页中触发window.demo.clickOnAndroid(str)事件并传参数str给webview。Webview接收到str之后，可以通过以上代码触发其内嵌页面中的js函数wave(str)。这样就可以实现网页触发webview的事件并传参数，webview接收参数并调用js函数。
 
 下面看我的Html脚本：
 
-<!DOCTYPE html PUBLIC &#8220;-//W3C//DTD HTML 4.01 Transitional//EN&#8221;&#8221;http://www.w3.org/TR/html4/loose.dtd&#8221;>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN&#8221;&#8221;http://www.w3.org/TR/html4/loose.dtd&#8221;>
 
 <html>
 
 <head>
 
-<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=UTF-8&#8243;>
+<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=UTF-8">
 
 <title>Insert title here</title>
 
@@ -172,21 +172,21 @@ function toclient()
 
 {
 
-var order=$(&#8220;#val&#8221;).val();
+var order=$("#val&#8221;).val();
 
 window.demo.clickonAndroid(order);
 
-&nbsp;
+
 
 }
 
-&nbsp;
+
 
 function wave(str){
 
 //alert(str.name);
 
-$(&#8220;#fromclient&#8221;).text(str.name);
+$("#fromclient&#8221;).text(str.name);
 
 }
 
@@ -214,11 +214,11 @@ onclick=&#8221;toclient();&#8221;/>
 
 </html>
 
-&nbsp;
+
 
 通过脚本看到wave（str）函数是负责将原来传给webview的数据重新拿回页面，效果图如下：
 
-&nbsp;
+
   
 另外，如果你想获取页面的一些处理数据并交给webview客户端处理，可在wave函数里将数据alert，然后webview中重写WebChromeClient的onJsAlert函数，具体代码如下
 

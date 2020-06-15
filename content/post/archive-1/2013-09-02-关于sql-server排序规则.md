@@ -12,7 +12,7 @@ categories:
 
 但旧的数据使用的是中文版, 使用的排序规则是 Chinese\_PRC\_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
 
-Cannot resolve the collation conflict between &#8220;SQL\_Latin1\_General\_CP1\_CI\_AS&#8221; and &#8220;Chinese\_PRC\_CI\_AS&#8221; in the equal to operation.
+Cannot resolve the collation conflict between "SQL\_Latin1\_General\_CP1\_CI\_AS&#8221; and "Chinese\_PRC\_CI\_AS&#8221; in the equal to operation.
 
 <wbr />
 
@@ -42,7 +42,7 @@ CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRI
 
 ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medium;">Chinese_PRC_CI_AS</span>**
 
-&nbsp;
+
 
 一、排序规则简介：
 
@@ -182,9 +182,9 @@ id          name
   
 */
 
-&nbsp;
 
-&nbsp;
+
+
 
 三、常见问题处理：
 
@@ -268,6 +268,6 @@ WHERE GreekCol = LatinCol COLLATE greek\_ci\_as
 
 还需注意的是，尽管 LatinCol 通常有一个区分大小写的排序规则，但表达式不区分大小写的排序规则会将其覆盖，从而使“A”的大写和小写被视为等同。
 
-&nbsp;
+
 
 <http://blog.sina.com.cn/s/blog_539c0c040100zxsn.html>

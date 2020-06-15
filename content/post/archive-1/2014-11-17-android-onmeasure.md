@@ -26,12 +26,12 @@ Android中View的绘制过程
 
 在measure pass的最后，每一个View都存储好了自己的measurements，即测量结果。
 
-&nbsp;
+
 
 第二个是布局过程（layout pass），它发生在 layout(int, int, int, int)中，仍然是从上到下进行（top-down）。
 
 在这一遍中，每一个parent都会负责用测量过程中得到的尺寸，把自己的所有孩子放在正确的地方。
 
-&nbsp;
+
 
 http://www.cnblogs.com/mengdd/p/3332882.html

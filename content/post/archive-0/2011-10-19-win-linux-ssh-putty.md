@@ -24,4 +24,3 @@ chmod g-r authorized_keys
 
 win: 运行pageant, 添加私钥
 
-&nbsp;

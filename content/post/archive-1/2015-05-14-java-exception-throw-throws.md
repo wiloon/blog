@@ -12,7 +12,7 @@ tags:
 ---
 1. 区别
 
-&nbsp;
+
 
 throws是用来声明一个方法可能抛出的所有异常信息，而throw则是指抛出的一个具体的异常类型。此外throws是将异常声明但是不处理，而是将异常往上传，谁调用我就交给谁处理。
 
@@ -22,9 +22,9 @@ throws：用于声明异常，例如，如果一个方法里面不想有任何�
 
 格式是：方法名（参数）throws 异常类1，异常类2，&#8230;..
 
-&nbsp;
 
-&nbsp;
+
+
 
 Java代码
   
@@ -46,7 +46,7 @@ public static void main(String args[]) throws Exception{
   
 Math m=new Math();
   
-System.out.println(&#8220;出发操作：&#8221;+m.div(10,2));
+System.out.println("出发操作：&#8221;+m.div(10,2));
   
 }
   
@@ -54,7 +54,7 @@ System.out.println(&#8220;出发操作：&#8221;+m.div(10,2));
   
 throw：就是自己进行异常处理，处理的时候有两种方式，要么自己捕获异常（也就是try catch进行捕捉），要么声明抛出一个异常（就是throws 异常~~）。注意：throw一旦进入被执行，程序立即会转入异常处理阶段，后面的语句就不再执行，而且所在的方法不再返回有意义的值！
 
-&nbsp;
+
 
 Java代码
   
@@ -106,7 +106,7 @@ if (a > 0)
   
 //该代码必须处于try块里，或处于带throws声明的方法中
   
-throw new Exception(&#8220;a的值大于0，不符合要求&#8221;);
+throw new Exception("a的值大于0，不符合要求&#8221;);
   
 }
   
@@ -124,7 +124,7 @@ if (a > 0)
   
 //也可完全不理会该异常，把该异常交给该方法调用者处理
   
-throw new RuntimeException(&#8220;a的值大于0，不符合要求&#8221;);
+throw new RuntimeException("a的值大于0，不符合要求&#8221;);
   
 }
   

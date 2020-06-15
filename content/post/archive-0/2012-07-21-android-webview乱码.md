@@ -11,10 +11,10 @@ categories:
 ### 
 
 <div id="article_content">
-   1.<strong>网页说明编码格式 </strong><meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html;charset=gb2312&#8243;></p> 
+   1.<strong>网页说明编码格式 </strong><meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html;charset=gb2312"></p> 
   
   <p dir="ltr">
-    <strong> 2.设置WebView编码<br /> </strong>     httpview.getSettings().setDefaultTextEncodingName(&#8220;gbk&#8221;);<br /> 注意为gb2312或gbk
+    <strong> 2.设置WebView编码<br /> </strong>     httpview.getSettings().setDefaultTextEncodingName("gbk&#8221;);<br /> 注意为gb2312或gbk
   </p>
   
   <p dir="ltr">

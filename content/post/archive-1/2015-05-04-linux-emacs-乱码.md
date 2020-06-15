@@ -14,7 +14,7 @@ tags:
 
 在<a title="Ubuntu" href="http://www.linuxidc.com/topicnews.aspx?tid=2" target="_blank">Ubuntu</a>下用Emacs打开的时候看到的也是乱码，不过好解决，在~/.emacs.d/init.el文件中添加一行设置：
 
-(set-language-environment &#8220;Chinese-GB&#8221;)
+(set-language-environment "Chinese-GB&#8221;)
 
 重新启动Emacs，打开文件，中文正确显示了。
 
@@ -26,7 +26,7 @@ set-language-environment
 
 然后输入Chinese-GB，最后刷新缓冲区即可。
 
-&nbsp;
+
 
 alt + x
 

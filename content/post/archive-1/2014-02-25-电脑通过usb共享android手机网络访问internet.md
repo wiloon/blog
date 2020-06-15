@@ -28,7 +28,7 @@ categories:
   
 7.在 Windows XP 安装完用于 Android USB 以太网/RNDIS 的软件后，点击完成。
 
-&nbsp;
+
 
 http://blog.sina.com.cn/s/blog_570343830101ezix.html
 

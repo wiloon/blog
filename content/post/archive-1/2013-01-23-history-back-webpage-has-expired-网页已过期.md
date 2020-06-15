@@ -70,7 +70,7 @@ http://blog.sina.com.cn/s/blog_4b3c4bfa0100vz7h.html
 </div>
 
 <div>
-  1.修改cache-control设置, 并将Expires 设为-1. 看上面的总结一中的博文. jsp可以用response.setHeader(&#8220;cache-control&#8221;,&#8221;private&#8221;); 配合response.setHeader(&#8220;Expires&#8221;,&#8221;-1&#8243;); 其他语言类似.
+  1.修改cache-control设置, 并将Expires 设为-1. 看上面的总结一中的博文. jsp可以用response.setHeader("cache-control&#8221;,&#8221;private&#8221;); 配合response.setHeader("Expires&#8221;,&#8221;-1"); 其他语言类似.
 </div>
 
 <div>

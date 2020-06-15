@@ -12,7 +12,7 @@ categories:
 
 eg：输入abcde  xxxBcyyy，输出 2。
 
-&nbsp;
+
 
 完整Java代码：
   
@@ -46,7 +46,7 @@ maxStr=str2; minStr=str1;
   
 int max=maxStr.length();
   
-int min=minStr.length();//System.out.println(maxStr+&#8221; &#8220;+minStr+&#8221; &#8220;+max+&#8221; &#8220;+min);
+int min=minStr.length();//System.out.println(maxStr+&#8221; "+minStr+&#8221; "+max+&#8221; "+min);
   
 int result=0;
   
@@ -60,7 +60,7 @@ for(int j=0;j<=min-l;j++){
   
 if(maxStr.regionMatches(true, i, minStr, j, l)){
   
-result=l;//System.out.println(l+&#8221; &#8220;+i+&#8221; &#8220;+j);
+result=l;//System.out.println(l+&#8221; "+i+&#8221; "+j);
   
 break OK;
   
@@ -82,7 +82,7 @@ System.out.println(result);
 
 学习点二：灵活使用String.regionMatches方法，来判断两个字符串的子串区域是否相等，具体可参考Java API文档如下。
 
-&nbsp;
+
 
 regionMatches
   

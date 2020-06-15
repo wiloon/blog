@@ -134,7 +134,7 @@ areaname varchar2(30) default &#8216; &#8216; NOT NULL);
   
 SQL> alter session set constraints deferred.
 
-&nbsp;
+
 
 7. 由实体关系图到创建表的例子 s_dept
   

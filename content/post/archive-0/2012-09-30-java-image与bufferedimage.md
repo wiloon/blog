@@ -23,7 +23,7 @@ categories:
     
     <ol start="1">
       <li>
-        String imgPath = &#8220;C://demo.jpg&#8221;;
+        String imgPath = "C://demo.jpg&#8221;;
       </li>
       <li>
         BufferedImage image = ImageIO.read(new FileInputStream(imgPath));
@@ -48,7 +48,7 @@ categories:
     
     <ol start="1">
       <li>
-        String imgPath = &#8220;C://demo.jpg&#8221;;
+        String imgPath = "C://demo.jpg&#8221;;
       </li>
       <li>
         Image imageToolkit.getDefaultToolkit().getImage(imgPath)；

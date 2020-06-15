@@ -90,10 +90,10 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
       {
     </li>
     <li>
-          response.setHeader(&#8220;Content-Disposition&#8221;, //$NON-NLS-1$
+          response.setHeader("Content-Disposition&#8221;, //$NON-NLS-1$
     </li>
     <li>
-              &#8220;attachment; filename=&#8221;&#8221; + filename + &#8220;&#8221;&#8221;); //$NON-NLS-1$ //$NON-NLS-2$
+              "attachment; filename=&#8221;&#8221; + filename + "&#8221;&#8221;); //$NON-NLS-1$ //$NON-NLS-2$
     </li>
     <li>
       }

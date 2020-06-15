@@ -30,9 +30,9 @@ Intent bintent = new Intent(A.this, B.class);
   
 //设置 bintent的Bundle的一个值
   
-String bsay = &#8220;Hello, this is B speaking&#8221;;
+String bsay = "Hello, this is B speaking&#8221;;
   
-bintent.putExtra(&#8220;listenB&#8221;, bsay)
+bintent.putExtra("listenB&#8221;, bsay)
   
 startActivityForResult(bintent,0); // 参数(Intent intent, Int requestCode) 的 requestCode 对应下面回收Bundle时识别用的
   
@@ -48,7 +48,7 @@ case RESULT_OK:
   
 Bundle b=data.getExtras(); //data为B中回传的Intent
   
-String str=b.getString(&#8220;ListenB&#8221;);//str即为回传的值&#8221;Hello, this is B speaking&#8221;
+String str=b.getString("ListenB&#8221;);//str即为回传的值&#8221;Hello, this is B speaking&#8221;
   
 /\* 得到B回传的数据后做什么&#8230; 略 \*/
   

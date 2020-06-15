@@ -10,9 +10,9 @@ tags:
   - Java
 
 ---
-&nbsp;
 
-&nbsp;
+
+
 
 一. UDP协议定义
 
@@ -85,9 +85,9 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
   * 通过socket服务发送 （send()方法）
   * 关闭资源
 
-&nbsp;
 
-&nbsp;
+
+
 
 <div class="highlighter dp-highlighter">
   <ol class="highlighter-j" start="1">
@@ -145,7 +145,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
               String recvStr = <span class="keyword">new</span> String(recvPacket.getData() , <span class="number"></span> , recvPacket.getLength());
     </li>
     <li class="alt">
-              System.out.println(<span class="string">&#8220;Hello World!&#8221;</span> + recvStr);
+              System.out.println(<span class="string">"Hello World!&#8221;</span> + recvStr);
     </li>
     <li>
     </li>
@@ -156,7 +156,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
               InetAddress addr = recvPacket.getAddress();
     </li>
     <li class="alt">
-              String sendStr = <span class="string">&#8220;Hello ! I&#8217;m Server&#8221;</span>;
+              String sendStr = <span class="string">"Hello ! I&#8217;m Server&#8221;</span>;
     </li>
     <li>
               <span class="keyword">byte</span>[] sendBuf;
@@ -191,7 +191,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
   </ol>
 </div>
 
-&nbsp;
+
 
 <div class="highlighter dp-highlighter">
   <ol class="highlighter-j" start="1">
@@ -230,7 +230,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
     <li class="alt">
     </li>
     <li>
-              String sendStr = <span class="string">&#8220;Hello! I&#8217;m Client&#8221;</span>;
+              String sendStr = <span class="string">"Hello! I&#8217;m Client&#8221;</span>;
     </li>
     <li class="alt">
               <span class="keyword">byte</span>[] sendBuf;
@@ -239,7 +239,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
               sendBuf = sendStr.getBytes();
     </li>
     <li class="alt">
-              InetAddress addr = InetAddress.getByName(<span class="string">&#8220;127.0.0.1&#8221;</span>);
+              InetAddress addr = InetAddress.getByName(<span class="string">"127.0.0.1&#8221;</span>);
     </li>
     <li>
               <span class="keyword">int</span> port = <span class="number">5050</span>;
@@ -273,7 +273,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
               String recvStr = <span class="keyword">new</span> String(recvPacket.getData() , <span class="number"></span> ,recvPacket.getLength());
     </li>
     <li class="alt">
-              System.out.println(<span class="string">&#8220;收到:&#8221;</span> + recvStr);
+              System.out.println(<span class="string">"收到:&#8221;</span> + recvStr);
     </li>
     <li>
     </li>
@@ -289,7 +289,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
   </ol>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>

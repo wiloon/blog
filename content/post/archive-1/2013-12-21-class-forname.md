@@ -16,7 +16,7 @@ Class.forName(xxx.xx.xx) 返回的是一个类
 
 至于什么时候用，你可以考虑一下这个问题，给你一个字符串变量，它代表一个类的包名和类名，你怎么实例化它？只有你提到的这个方法了，不过要再加一点。
   
-A a = (A)Class.forName(&#8220;pacage.A&#8221;).newInstance();
+A a = (A)Class.forName("pacage.A&#8221;).newInstance();
   
 这和你
   
@@ -50,7 +50,7 @@ factory = (ExampleInterface)c.newInstance();
 
 其中ExampleInterface是Example的接口，可以写成如下形式：
   
-String className = &#8220;Example&#8221;;
+String className = "Example&#8221;;
   
 class c = Class.forName(className);
   
@@ -122,7 +122,7 @@ public static void main(String[] args) throws Exception
 
 System.out.println(A.class);//通过类.class获得Class对象
 
-&nbsp;
+
 
 A a = new A();
 
@@ -168,7 +168,7 @@ demo.A@61de33
 
 2)Class cl=对象引用o.getClass();返回引用o运行时真正所指的对象(因为:儿子对象的引用可能会赋给父对象的引用变量中)所属的类的Class的对象
 
-3)Class.forName(&#8220;类名&#8221;); JAVA人都知道.装入类A,并做类的初始化
+3)Class.forName("类名&#8221;); JAVA人都知道.装入类A,并做类的初始化
 
 附：
 
@@ -182,49 +182,49 @@ newInstance: 弱类型。低效率。只能调用无参构造。
 
 new: 强类型。相对高效。能调用任何public构造。
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
 
 Class.forName（String driverClassName）加载JDBC驱动程序时，底层都做了些什么？？？
 
 实质是：
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
 
 Class.forName（“com.mysql.jdbc.Driver”）是 强制JVM将com.mysql.jdbc.Driver这个类加载入内存，并将其注册到DriverManager类，然后根据DriverManager.getConnection（url，user,pwd）中的url找到相应的驱动类，最后调用该该驱动类的connect(url, info)来获得connection对象。
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
 
 JDBC的驱动管理机制的 具体底层代码分析如下：
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
+
+
 
 1. 分析JDBC的驱动程序管理部分的实现代码：
 
-&nbsp;
+
 
 在 JDBC的层次上，sun主要定义了1个接口Driver和两个类：DirverManager和DriverInfo。每个JDBC驱动程序必须实现 Driver接口（在MySql的Connector/J驱动中，这个叫做com.mysql.jdbc.Driver）。而DriverManager 则负责管理所有的Driver对象，包含注册Driver；选择合适的Driver来建立到某个数据库的连接；以及进行一些Driver的信息管理等。 DriverInfo非常简单，用于保存Driver的信息，只有3个成员变量，Driver，DriverClass和 DriverClassName，意义非常明显。
 
-&nbsp;
+
 
 先看一下在DriverManager.java中的关键代码：
 
@@ -232,13 +232,13 @@ private static java.util.Vector drivers = new java.util.Vector();
 
 所有的Driver对象保存在一个Vector数组中。
 
-&nbsp;
+
 
 注册Driver的函数叫registerDriver，将需要注册的Driver对象传入即可：
 
-&nbsp;
 
-&nbsp;
+
+
 
 复制代码
 
@@ -262,25 +262,25 @@ di.driverClassName = di.driverClass.getName();
 
 drivers.addElement(di); //将DriverInfo对象添加到数组中
 
-println(&#8220;registerDriver: &#8221; + di);
+println("registerDriver: &#8221; + di);
 
 }
 
 复制代码
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
+
 
 在一个类加载入内存的时候，类中的静态初始化过程会执行，这样就完成了驱动程序的注册过程。然后重点看一下建立数据库连接的代码，在getConnection函数中，省略了一些非关键代码：
 
-&nbsp;
 
-&nbsp;
+
+
 
 复制代码
 
@@ -288,7 +288,7 @@ private static synchronized Connection getConnection(
 
 String url, java.util.Properties info, ClassLoader callerCL) throws SQLException {
 
-&nbsp;
+
 
 SQLException reason = null;
 
@@ -308,7 +308,7 @@ if (result != null) {
 
 // Success!
 
-println(&#8220;getConnection returning &#8221; +&bsp;di);
+println("getConnection returning &#8221; +&bsp;di);
 
 return (result); //一旦成功连接，直接返回Connection对象，然后推出
 
@@ -324,31 +324,31 @@ return (result); //一旦成功连接，直接返回Connection对象，然后推
 
 //这就是经常看到的出错信息－－找不到合适的驱动程序。
 
-println(&#8220;getConnection: no suitable driver&#8221;);
+println("getConnection: no suitable driver&#8221;);
 
-throw new SQLException(&#8220;No suitable driver&#8221;, &#8220;08001&#8221;);
+throw new SQLException("No suitable driver&#8221;, "08001&#8221;);
 
 }
 
 复制代码
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
 
 由 上面的getConnection函数可以看到，真正实现数据库连接的是Driver对象的connect函数。而且可以看到，由于 DriverManager.getConnection使用的是一种轮询的方式，注册的驱动程序越多，连接速度会越慢。JDBC连接数据库的速度很慢， 是不是和这种实现方式有关联呢？怀着这个问题，本人下载了MySql的Connector/J驱动包，开始分析其connect函数的实现。
 
-&nbsp;
+
 
 2. 分析MySql的注册和建立连接部分的代码：
 
 打开MySql的源码包，首先分析其Driver类的实现。发现Driver类的实现非常简单，
 
-&nbsp;
 
-&nbsp;
+
+
 
 复制代码
 
@@ -362,7 +362,7 @@ java.sql.DriverManager.registerDriver(new Driver());
 
 } catch (SQLException E) {
 
-throw new RuntimeException(&#8220;Can&#8217;t register driver!&#8221;);
+throw new RuntimeException("Can&#8217;t register driver!&#8221;);
 
 }
 
@@ -376,35 +376,35 @@ public Driver() throws SQLException {
 
 复制代码
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
 
 可 以看到，有一段static代码，调用了DriverManager的registerDriver方法。这其实就解释了 Class.forName（“com.mysql.jdbc.Driver”）能够完成MySql驱动注册的问题。因为forName会导致这段 static代码被调用，从而间接调用了registerDriver，完成注册过程。
 
-&nbsp;
+
 
 com.mysql.jdbc.Driver 从com.mysql.jdbc.NonRegisteringDriver继承而来，实际上是NonReisteringDriver完成了 java.sql.Driver接口的实现工作。转移目标，分析NonRegisteringDriver的connect函数。
 
-&nbsp;
+
 
 NonRegisteringDriver.connect的实现也比较简单，正合我意：
 
-&nbsp;
+
 
 public java.sql.Connection connect(String url, Properties info)
 
 throws SQLException {
 
-&nbsp;
+
 
 //1. 分析传入的连接字符串.
 
-&nbsp;
 
-&nbsp;
+
+
 
 复制代码
 
@@ -424,25 +424,25 @@ port(props), props, database(props), url, this);
 
 return newConn;
 
-&nbsp;
+
 
 }
 
 复制代码
 
-&nbsp;
 
-&nbsp;
+
+
 
 非 常简单，先parseURL，然后使用Connection去建立连接。parseURL只是简单的字符串分析，主要是分析传入的连接字符串是否满足 “jdbc:mysql://host:port/database“的格式，如果不满足，直接返回null，然后由DriverManager去试验下 一个Driver。如果满足，则建立一个Connection对象建立实际的数据库连接，这不是本人关注的问题，源码分析就此打住。
 
-&nbsp;
+
 
 由此可见1中的问题答案是：DriverManager的轮询查询注册的Driver对象的工作方式所带来的性能代价并不是很大，主工作量只是parseURL函数。
 
-&nbsp;
 
-&nbsp;
+
+
 
 博客园：www.cnblogs.com/liuxianan
 

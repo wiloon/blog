@@ -10,7 +10,7 @@ categories:
 ---
 http://database.51cto.com/art/201010/231193.htm
 
-&nbsp;
+
 
 [sql]
 

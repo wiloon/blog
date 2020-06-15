@@ -26,7 +26,7 @@ B.在 ScriptManager  内添加 EnablePartialRendering=&#8221;false&#8221; 显�
   
 如下：
   
-<asp:ScriptManager ID=&#8221;ScriptManager1&#8243; runat=&#8221;server&#8221; EnablePartialRendering=&#8221;false&#8221;/>
+<asp:ScriptManager ID=&#8221;ScriptManager1" runat=&#8221;server&#8221; EnablePartialRendering=&#8221;false&#8221;/>
 
 一般的原因都是页面存在潜在的危险字符  在 页首加入 ValidateRequest=&#8221;false&#8221;
   
@@ -42,7 +42,7 @@ google搜的结果前两页，不管中文英文都看过了，依然解决不�
 
 我的代码出现这个错误，是因为又做了一个接口，最后实在没办法，就把做接口前的代码，拿出来，之后，又把接口的类填上，代码和原来一样，然后就可以了。就这。。。。，很奇怪，想不通，记录下来吧。
 
-&nbsp;
+
 
 二、
   
@@ -52,7 +52,7 @@ Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred w
 
 在web.config中的<system.web>下增加如下节点，即可解决
   
-<httpRuntime maxRequestLength=&#8221;8192&#8243; />
+<httpRuntime maxRequestLength=&#8221;8192" />
   
 ys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12019
   

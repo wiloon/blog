@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-&nbsp;
+
 
 <div id="article_content">
   <p>

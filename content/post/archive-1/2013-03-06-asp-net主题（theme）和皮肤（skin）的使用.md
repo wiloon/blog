@@ -120,17 +120,17 @@ Integer i5 = new Integer(40);
   
 Integer i6 = new Integer(0);
 
-System.out.println(&#8220;i1=i2 &#8221; + (i1 == i2));
+System.out.println("i1=i2 &#8221; + (i1 == i2));
   
-System.out.println(&#8220;i1=i2+i3 &#8221; + (i1 == i2 + i3));
+System.out.println("i1=i2+i3 &#8221; + (i1 == i2 + i3));
   
-System.out.println(&#8220;i1=i4 &#8221; + (i1 == i4));
+System.out.println("i1=i4 &#8221; + (i1 == i4));
   
-System.out.println(&#8220;i4=i5 &#8221; + (i4 == i5));
+System.out.println("i4=i5 &#8221; + (i4 == i5));
   
-System.out.println(&#8220;i4=i5+i6 &#8221; + (i4 == i5 + i6));
+System.out.println("i4=i5+i6 &#8221; + (i4 == i5 + i6));
   
-System.out.println(&#8220;40=i5+i6 &#8221; + (40 == i5 + i6));
+System.out.println("40=i5+i6 &#8221; + (40 == i5 + i6));
   
 i1=i2 true
   
@@ -152,9 +152,9 @@ Java中的自动装箱与拆箱
 
 String对象创建方式
 
-String str1 = &#8220;abcd&#8221;;
+String str1 = "abcd&#8221;;
     
-String str2 = new String(&#8220;abcd&#8221;);
+String str2 = new String("abcd&#8221;);
     
 System.out.println(str1==str2);//false
   
@@ -168,17 +168,17 @@ System.out.println(str1==str2);//false
   
 （2）对于所有包含new方式新建对象（包括null）的“+”连接表达式，它所产生的新对象都不会被加入字符串池中。
 
-String str1 = &#8220;str&#8221;;
+String str1 = "str&#8221;;
   
-String str2 = &#8220;ing&#8221;;
+String str2 = "ing&#8221;;
 
-String str3 = &#8220;str&#8221; + &#8220;ing&#8221;;
+String str3 = "str&#8221; + "ing&#8221;;
   
 String str4 = str1 + str2;
   
 System.out.println(str3 == str4);//false
 
-String str5 = &#8220;string&#8221;;
+String str5 = "string&#8221;;
   
 System.out.println(str3 == str5);//true
   
@@ -186,23 +186,23 @@ java基础：字符串的拼接
 
 特例1
   
-public static final String A = &#8220;ab&#8221;; // 常量A
+public static final String A = "ab&#8221;; // 常量A
   
-public static final String B = &#8220;cd&#8221;; // 常量B
+public static final String B = "cd&#8221;; // 常量B
   
 public static void main(String[] args) {
   
 String s = A + B; // 将两个常量用+连接对s进行初始化
   
-String t = &#8220;abcd&#8221;;
+String t = "abcd&#8221;;
   
 if (s == t) {
       
-System.out.println(&#8220;s等于t，它们是同一个对象&#8221;);
+System.out.println("s等于t，它们是同一个对象&#8221;);
   
 } else {
       
-System.out.println(&#8220;s不等于t，它们不是同一个对象&#8221;);
+System.out.println("s不等于t，它们不是同一个对象&#8221;);
   
 }
   
@@ -220,9 +220,9 @@ public static final String B; // 常量B
   
 static {
   
-A = &#8220;ab&#8221;;
+A = "ab&#8221;;
   
-B = &#8220;cd&#8221;;
+B = "cd&#8221;;
   
 }
   
@@ -232,15 +232,15 @@ public static void main(String[] args) {
   
 String s = A + B;
   
-String t = &#8220;abcd&#8221;;
+String t = "abcd&#8221;;
   
 if (s == t) {
       
-System.out.println(&#8220;s等于t，它们是同一个对象&#8221;);
+System.out.println("s等于t，它们是同一个对象&#8221;);
   
 } else {
       
-System.out.println(&#8220;s不等于t，它们不是同一个对象&#8221;);
+System.out.println("s不等于t，它们不是同一个对象&#8221;);
   
 }
   
@@ -250,7 +250,7 @@ s不等于t，它们不是同一个对象
   
 A和B虽然被定义为常量，但是它们都没有马上被赋值。在运算出s的值之前，他们何时被赋值，以及被赋予什么样的值，都是个变数。因此A和B在被赋值之前，性质类似于一个变量。那么s就不能在编译期被确定，而只能在运行时被创建了。
   
-String s1 = new String(&#8220;xyz&#8221;); 创建了几个对象？
+String s1 = new String("xyz&#8221;); 创建了几个对象？
   
 考虑类加载阶段和实际执行时。
   
@@ -268,15 +268,15 @@ String的intern()方法会查找在常量池中是否存在一份equal相等的�
 
 public static void main(String[] args) {
      
-String s1 = new String(&#8220;计算机&#8221;);
+String s1 = new String("计算机&#8221;);
      
 String s2 = s1.intern();
      
-String s3 = &#8220;计算机&#8221;;
+String s3 = "计算机&#8221;;
      
-System.out.println(&#8220;s1 == s2? &#8221; + (s1 == s2));
+System.out.println("s1 == s2? &#8221; + (s1 == s2));
      
-System.out.println(&#8220;s3 == s2? &#8221; + (s3 == s2));
+System.out.println("s3 == s2? &#8221; + (s3 == s2));
   
 }
   
@@ -290,29 +290,29 @@ public class Test {
   
 public static void main(String[] args) {
      
-String hello = &#8220;Hello&#8221;, lo = &#8220;lo&#8221;;
+String hello = "Hello&#8221;, lo = "lo&#8221;;
      
-System.out.println((hello == &#8220;Hello&#8221;) + &#8221; &#8220;);
+System.out.println((hello == "Hello&#8221;) + &#8221; ");
      
-System.out.println((Other.hello == hello) + &#8221; &#8220;);
+System.out.println((Other.hello == hello) + &#8221; ");
      
-System.out.println((other.Other.hello == hello) + &#8221; &#8220;);
+System.out.println((other.Other.hello == hello) + &#8221; ");
      
-System.out.println((hello == (&#8220;Hel&#8221;+&#8221;lo&#8221;)) + &#8221; &#8220;);
+System.out.println((hello == ("Hel&#8221;+&#8221;lo&#8221;)) + &#8221; ");
      
-System.out.println((hello == (&#8220;Hel&#8221;+lo)) + &#8221; &#8220;);
+System.out.println((hello == ("Hel&#8221;+lo)) + &#8221; ");
      
-System.out.println(hello == (&#8220;Hel&#8221;+lo).intern());
+System.out.println(hello == ("Hel&#8221;+lo).intern());
   
 }
   
 }
   
-class Other { static String hello = &#8220;Hello&#8221;; }
+class Other { static String hello = "Hello&#8221;; }
   
 package other;
   
-public class Other { public static String hello = &#8220;Hello&#8221;; }
+public class Other { public static String hello = "Hello&#8221;; }
   
 true true true true false true
   

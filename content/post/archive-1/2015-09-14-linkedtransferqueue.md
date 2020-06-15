@@ -116,6 +116,6 @@ http://rdc.taobao.com/team/jm/archives/1719 这两文章。做JAVA，如果想�
   </p>
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/java-transfer-queue/embed/#?secret=3afyjw9a6J" data-secret="3afyjw9a6J" width="600" height="338" title="&#8220;Java 7中的TransferQueue&#8221; &#8212; 并发编程网 - ifeve.com" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/java-transfer-queue/embed/#?secret=3afyjw9a6J" data-secret="3afyjw9a6J" width="600" height="338" title=""Java 7中的TransferQueue&#8221; &#8212; 并发编程网 - ifeve.com" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 http://guojuanjun.blog.51cto.com/277646/948298

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-.ssh/authorized_keys
+vim .ssh/authorized_keys
 
 ClientAliveInterval
   
@@ -16,7 +16,7 @@ Port 22
 port用来设置sshd监听的端口，为了安全起见，建议更改默认的22端口为5位以上陌生端口
 
 AddressFamily
-指定 sshd(8) 应当使用哪种地址族。取值范围是：&#8221;any&#8221;(默认)、&#8221;inet&#8221;(仅IPv4)、&#8221;inet6&#8243;(仅IPv6)。
+指定 sshd(8) 应当使用哪种地址族。取值范围是：&#8221;any&#8221;(默认)、&#8221;inet&#8221;(仅IPv4)、&#8221;inet6"(仅IPv6)。
   
 #ListenAddress 0.0.0.0
   
@@ -26,7 +26,7 @@ Protocol
                
 指定 sshd(8) 支持的SSH协议的版本号。
                
-&#8216;1&#8217;和&#8217;2&#8217;表示仅仅支持SSH-1和SSH-2协议。&#8221;2,1&#8243;表示同时支持SSH-1和SSH-2协议。
+&#8216;1&#8217;和&#8217;2&#8217;表示仅仅支持SSH-1和SSH-2协议。&#8221;2,1"表示同时支持SSH-1和SSH-2协议。
 
 HostKey
                
@@ -36,17 +36,17 @@ SSH-1默认是 /etc/ssh/ssh\_host\_key 。
                
 SSH-2默认是 /etc/ssh/ssh\_host\_rsa\_key 和 /etc/ssh/ssh\_host\_dsa\_key 。
                
-一台主机可以拥有多个不同的私钥。&#8221;rsa1&#8243;仅用于SSH-1，&#8221;dsa&#8221;和&#8221;rsa&#8221;仅用于SSH-2。
+一台主机可以拥有多个不同的私钥。&#8221;rsa1"仅用于SSH-1，&#8221;dsa&#8221;和&#8221;rsa&#8221;仅用于SSH-2。
 
 PermitRootLogin
   
 是否允许 root 登录。可用值如下：
   
-&#8220;yes&#8221;(默认) 表示允许。&#8221;no&#8221;表示禁止。
+"yes&#8221;(默认) 表示允许。&#8221;no&#8221;表示禁止。
   
-&#8220;without-password&#8221;表示禁止使用密码认证登录。
+"without-password&#8221;表示禁止使用密码认证登录。
   
-&#8220;forced-commands-only&#8221;表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
+"forced-commands-only&#8221;表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
 
 AuthorizedKeysFile
   

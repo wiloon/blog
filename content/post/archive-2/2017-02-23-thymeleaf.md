@@ -10,7 +10,7 @@ categories:
 ---
 https://www.tianmaying.com/tutorial/using-thymeleaf
 
-&nbsp;
+
 
 Thymeleaf是一款用于渲染XML/XHTML/HTML5内容的模板引擎。类似JSP，Velocity，FreeMaker等，它也可以轻易的与Spring MVC等Web框架进行集成作为Web应用的模板引擎。与其它模板引擎相比，Thymeleaf最大的特点是能够直接在浏览器中打开并正确显示模板页面，而不需要启动整个Web应用。
 
@@ -18,7 +18,7 @@ Thymeleaf初探
   
 相比于其他的模板引擎，Thymeleaf最大的特点是通过HTML的标签属性渲染标签内容，以下是一个Thymeleaf模板例子：
 
-<!DOCTYPE html SYSTEM &#8220;http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd&#8221;>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd&#8221;>
 
 <html xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221;
   
@@ -28,7 +28,7 @@ xmlns:th=&#8221;http://www.thymeleaf.org&#8221;>
   
 <title>Good Thymes Virtual Grocery</title>
   
-<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=UTF-8&#8243; />
+<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=UTF-8" />
   
 <link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; media=&#8221;all&#8221;
   
@@ -112,7 +112,7 @@ th:with=&#8221;isEven=(${prodStat.count} % 2 == 0)&#8221;
 
 逻辑运算符>, <, <=,>=，==,!=都可以使用，唯一需要注意的是使用<,>时需要用它的HTML转义符：
 
-th:if=&#8221;${prodStat.count} > 1&#8243;
+th:if=&#8221;${prodStat.count} > 1"
   
 th:text=&#8221;&#8216;Execution mode is &#8216; + ( (${execMode} == &#8216;dev&#8217;)? &#8216;Development&#8217; : &#8216;Production&#8217;)&#8221;
 

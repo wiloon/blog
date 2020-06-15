@@ -14,9 +14,9 @@ https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs
   
 (defun rename-file-and-buffer (new-name)
     
-&#8220;Renames both current buffer and file it&#8217;s visiting to NEW-NAME.&#8221;
+"Renames both current buffer and file it&#8217;s visiting to NEW-NAME.&#8221;
     
-(interactive &#8220;sNew name: &#8220;)
+(interactive "sNew name: ")
     
 (let ((name (buffer-name))
           
@@ -24,11 +24,11 @@ https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs
       
 (if (not filename)
           
-(message &#8220;Buffer &#8216;%s&#8217; is not visiting a file!&#8221; name)
+(message "Buffer &#8216;%s&#8217; is not visiting a file!&#8221; name)
         
 (if (get-buffer new-name)
             
-(message &#8220;A buffer named &#8216;%s&#8217; already exists!&#8221; new-name)
+(message "A buffer named &#8216;%s&#8217; already exists!&#8221; new-name)
           
 (progn
             

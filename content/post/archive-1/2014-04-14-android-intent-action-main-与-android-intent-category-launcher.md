@@ -28,7 +28,7 @@ MAIN 与 LAUNCHER 并不是单纯的各管各的事情；
 
 <activity android:name=&#8221;.Life_CyclesActivity&#8221;
 
-android:label=&#8221;Lift_cycles 01&#8243;>
+android:label=&#8221;Lift_cycles 01">
 
 <intent-filter>
 
@@ -40,9 +40,9 @@ android:label=&#8221;Lift_cycles 01&#8243;>
 
 </activity>
 
-<activity android:name=&#8221;Life_CyclesActivity02&#8243;
+<activity android:name=&#8221;Life_CyclesActivity02"
 
-android:label=&#8221;Lift_cycles 02&#8243;>
+android:label=&#8221;Lift_cycles 02">
 
 <intent-filter>
 
@@ -54,4 +54,3 @@ android:label=&#8221;Lift_cycles 02&#8243;>
 
 </activity>
 
-&nbsp;

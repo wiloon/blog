@@ -18,9 +18,9 @@ DetachedCriteria可以解决这个问题，即在web层，程序员使用Detache
 示例代码片段如下：
 
   1. DetachedCriteria <span style="color: #ff0000;">detachedCriteria</span> = <span style="color: #0000ff;">DetachedCriteria</span>.forClass(Department.class);
-  2. detachedCriteria.add(Restrictions.eq(&#8220;name&#8221;, &#8220;department&#8221;)).
+  2. detachedCriteria.add(Restrictions.eq("name&#8221;, "department&#8221;)).
   
-    createAlias(&#8220;employees&#8221;, &#8220;e&#8221;).add(Restrictions.gt((&#8220;e.age&#8221;), new Integer(20)));
+    createAlias("employees&#8221;, "e&#8221;).add(Restrictions.gt(("e.age&#8221;), new Integer(20)));
 
 Department和Employee是一对多关联，查询条件为：名称是“department”开发部门；部门里面的雇员年龄大于20岁；
 
@@ -41,9 +41,9 @@ Spring的HibernateTemplate提供了Hibernate的完美封装，即通过匿名类
 回调方法提供了session作为参数，有了session，就可以自由的使用Hibernate API编程了。使用了spring的之后，代码修改如下：
 
   1. DetachedCriteria <span style="color: #ff0000;">detachedCriteria</span> = <span style="color: #0000ff;">DetachedCriteria</span>.forClass(Department.class);
-  2. detachedCriteria.createAlias(&#8220;employees&#8221;, &#8220;e&#8221;).
+  2. detachedCriteria.createAlias("employees&#8221;, "e&#8221;).
   
-    add(Restrictions.eq(&#8220;name&#8221;, &#8220;department&#8221;)).
+    add(Restrictions.eq("name&#8221;, "department&#8221;)).
   
-    add(Restrictions.gt((&#8220;e.age&#8221;), new Integer(20)));
+    add(Restrictions.gt(("e.age&#8221;), new Integer(20)));
   3. departmentManager.findByCriteria(detachedCriteria);

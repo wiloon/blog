@@ -91,7 +91,7 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    public void run() {<br /> // 删除超时在线用户<br /> log.info(&#8220;删除在线的超时用户&#8230;.&#8221;);
+    public void run() {<br /> // 删除超时在线用户<br /> log.info("删除在线的超时用户&#8230;.&#8221;);
   </p>
   
   <p>
@@ -131,7 +131,7 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    log.info(&#8220;initial context&#8230;.&#8221;);
+    log.info("initial context&#8230;.&#8221;);
   </p>
   
   <p>
@@ -147,7 +147,7 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    log.info(&#8220;destory context&#8230;.&#8221;);
+    log.info("destory context&#8230;.&#8221;);
   </p>
   
   <p>

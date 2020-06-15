@@ -12,7 +12,7 @@ categories:
 
 原文如下：
 
-&nbsp;
+
 
 **I will laugh at the world.**
 
@@ -98,7 +98,7 @@ I will be the greatest salesman the world has ever known.
 
 我要成为世上最伟大的推销员。
 
-&nbsp;
+
 
 [http://smilejay.com/i\_will\_laugh\_at\_the_world/][1]
 

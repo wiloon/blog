@@ -40,7 +40,7 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
 
 <span style="font-size: small;">@Autowired 与@Resource的区别：</span>
 
-&nbsp;
+
 
 <span style="font-size: small;">1、 @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。</span>
 

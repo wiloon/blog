@@ -12,11 +12,11 @@ http://redmine.ossxp.com/redmine/documents/8
 
 Redmine默认使用Textile作为wiki的文本格式过滤器, 当然你也可以下载其他文本格式过滤器插件(Markdown, reST等). 以下介绍的语法都是基于Textile的语法.
 
-&nbsp;
+
 
 ## 链接
 
-&nbsp;
+
 
 ### Redmine链接
 
@@ -26,7 +26,7 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
   * 链接到变更集：r758 (显示 r758)
   * 使用非数字的哈希值链接到变更集： commit:c6f4d0fd(显示c6f4d0fd)。该特征出现在主线 1236。
 
-&nbsp;
+
 
 ### wiki链接
 
@@ -34,7 +34,7 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
   * [[Guide|Use manual]] 显示指向同一页面的链接，链接显示的文本是：Use manual
   * [[Guide#Use-guide|Use guide]] 显示指向同一页面头的链接，链接显示的文本是：Use guide
 
-&nbsp;
+
 
 ### 可以加入指向其它项目wiki页面的链接
 
@@ -43,7 +43,7 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
 
 如果Wiki还不存在，则连接将显示为红色，例如： Nonexistent page.
 
-&nbsp;
+
 
 ### 链接到其他资源：
 
@@ -56,8 +56,8 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
 **版本：**
 
   * vesion#3 (链接到ID为3的版本)
-  * vesion:1.0.0 (链接到名称为&#8221;1.0.0&#8243;的版本)
-  * vesion:&#8221;1.0 beta 2&#8243; (当版本名称含有空格时需要使用双引号)
+  * vesion:1.0.0 (链接到名称为&#8221;1.0.0"的版本)
+  * vesion:&#8221;1.0 beta 2" (当版本名称含有空格时需要使用双引号)
 
 **附件:**
 
@@ -70,14 +70,14 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
   * souce:some/file@52 链接到项目版本库 /some/file 文件的第52版本
   * souce:some/file#L120 链接到项目版本库 /some/file 文件的第120行
   * souce:some/file@52#L120 链接到项目版本库 /some/file 文件的第52版本的第120行
-  * souce:&#8221;some file@52#L120&#8243; 如果URL中有空格，需要使用双引号来。链接到项目版本库 some file 文件的第52版本的第120行
+  * souce:&#8221;some file@52#L120" 如果URL中有空格，需要使用双引号来。链接到项目版本库 some file 文件的第52版本的第120行
   * expot:some/file 强制显示该文件的下载链接
 
 **转意字符:**
 
 如果您不希望Redmine将上述标记解释为链接，可以在它们前面添加一个感叹号：!
 
-&nbsp;
+
 
 ### 外部链接
 
@@ -93,7 +93,7 @@ HTTP URLs和邮件地址将自动转换为可点击的链接:
 
 显示为: 群英汇
 
-&nbsp;
+
 
 ## 文本格式:
 
@@ -101,7 +101,7 @@ HTTP URLs和邮件地址将自动转换为可点击的链接:
 
 下面列出一些例子, 但是Textile引擎可以做的更多.
 
-&nbsp;
+
 
 ### 字体样式:
 
@@ -119,7 +119,7 @@ HTTP URLs和邮件地址将自动转换为可点击的链接:
   * <ins>underline</ins>
   * <del>strike-through</del>
 
-&nbsp;
+
 
 ### 内嵌图片:
 
@@ -129,7 +129,7 @@ HTTP URLs和邮件地址将自动转换为可点击的链接:
 
 如果你的wiki页面有图片附件,你可以使用文件名:!attached_image.png!显示它
 
-&nbsp;
+
 
 ### 标题
 
@@ -137,14 +137,14 @@ HTTP URLs和邮件地址将自动转换为可点击的链接:
 h2. 二级标题
 h3. 三级标题</pre>
 
-&nbsp;
+
 
 ### 段落
 
 <pre>p&gt;. 右对齐
 p=. 居中</pre>
 
-&nbsp;
+
 
 ### 块引用
 
@@ -155,7 +155,7 @@ bq. 这是块引用的示例</pre>
 
 > 这是块引用的示例
 
-&nbsp;
+
 
 ### 无序列表
 
@@ -173,7 +173,7 @@ bq. 这是块引用的示例</pre>
       * Item 22
   * Item 3
 
-&nbsp;
+
 
 ### 有序列表
 
@@ -191,7 +191,7 @@ bq. 这是块引用的示例</pre>
       1. Item 3.1
       2. Item 3.2
 
-&nbsp;
+
 
 ### 表格
 
@@ -263,7 +263,7 @@ bq. 这是块引用的示例</pre>
   </tr>
 </table>
 
-&nbsp;
+
 
 ### 内容列表
 
@@ -272,7 +272,7 @@ bq. 这是块引用的示例</pre>
 
 具体参考 内容列表演示
 
-&nbsp;
+
 
 ### 宏(Macros)
 

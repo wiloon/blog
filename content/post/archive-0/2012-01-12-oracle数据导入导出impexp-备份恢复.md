@@ -26,11 +26,11 @@ imp/exp [username[/password[@service]]]
   
 如：exp admin/123@192.168.3.186/orcl(这里没有写端口号，默认是1521)
 
-&nbsp;
+
 
 exp scott/123456@192.168.xxx.144/orcl file=d:xxx.dmp
 
-&nbsp;
+
 
 exp system/manager@orclA file=d:is.dmp owner=(wiloon)
 
@@ -64,7 +64,7 @@ exp system/manager@TEST file=d：daochu.dmp owner=（system，sys）
 
 exp system/manager@TEST file=d：daochu.dmp tables=（table1，table2）
 
-4 将数据库中的表table1中的字段filed1以&#8221;00&#8243;打头的数据导出
+4 将数据库中的表table1中的字段filed1以&#8221;00"打头的数据导出
 
 exp system/manager@TEST file=d：daochu.dmp tables=（table1） query=&#8221; where filed1 like &#8216;00%'&#8221;
 
@@ -92,7 +92,7 @@ imp system/manager@TEST  file=d：daochu.dmp  tables=（table1）
 
 数据库时可以连上的。可以用tnsping TEST 来获得数据库TEST能否连上。
 
-&nbsp;
+
 
 Oracle数据库有三种标准的备份方法，它们分别是导出／导入（EXP/IMP）、热备份和冷备份。导出备件是一种逻辑备份，冷备份和热备份是物理备份。一、 导出／导入（Export／Import）利用Export可将数据从数据库中提取出来，利用Import则可将提取出来的数据送回到Oracle数据库中去。１、 简单导出数据（Export）和导入数据（Import）
 
@@ -116,7 +116,7 @@ Oracle支持三种方式类型的输出：
 
 即备份三个数据库，比如：
 
-&nbsp;
+
 
 exp system/manager inctype=complete file=040731.dmp
   
@@ -124,7 +124,7 @@ exp system/manager inctype=complete file=040731.dmp
 
 备份上一次备份后改变的数据，比如：
 
-&nbsp;
+
 
 exp system/manager inctype=incremental file=040731.dmp
   
@@ -132,7 +132,7 @@ exp system/manager inctype=incremental file=040731.dmp
 
 累计型导出方式是导出自上次“完全”导出之后数据库中变化了的信息。比如：
 
-&nbsp;
+
 
 exp system/manager inctype=cumulative file=040731.dmp
   
@@ -162,25 +162,25 @@ exp system/manager inctype=cumulative file=040731.dmp
 
 第三步：完全增量导入A：
 
-&nbsp;
+
 
 imp system/manager inctype=RESTORE FULL=y FILE=A
   
 第四步：累计增量导入E：
 
-&nbsp;
+
 
 imp system/manager inctype=RESTORE FULL=Y FILE=E
   
 第五步：最近增量导入F：
 
-&nbsp;
+
 
 imp system/manager inctype=RESTORE FULL=Y FILE=F
   
-&nbsp;
 
-&nbsp;
+
+
 
 二、 冷备份
 
@@ -222,7 +222,7 @@ imp system/manager inctype=RESTORE FULL=Y FILE=F
 
 （1） 关闭数据库
 
-&nbsp;
+
 
 sqlplus /nolog
   
@@ -232,13 +232,13 @@ sql>;shutdown normal;
   
 （2） 用拷贝命令备份全部的时间文件、重做日志文件、控制文件、初始化参数文件
 
-&nbsp;
+
 
 sql>;cp <file>; <backup directory>;
   
 （3） 重启Oracle数据库
 
-&nbsp;
+
 
 sql>;startup
   
@@ -286,7 +286,7 @@ sql>;startup
 
 3． 因难于维护，所以要特别仔细小心，不允许“以失败告终”。
 
-&nbsp;
+
 
 export 有四种备份方式：完全，表空间，用户，表
 
@@ -294,9 +294,9 @@ exp [user]/[passwd]@[servername] file=文件路径 log=日志路径
 
 例如：exp system/manager@10g file=d:\expdata.dmp log=d:\expdata.log full=y
 
-&nbsp;
 
-&nbsp;
+
+
 
 如何查看oracle用户权限
 
@@ -312,11 +312,11 @@ select * from dba\_tab\_privs;
   
 select * from dba\_role\_privs;
 
-&nbsp;
+
 
 Oracle怎样进行远程备份
 
-&nbsp;
+
 
 今天我找到了一个用doc命令的备份方法，简单记录如下：
   
@@ -332,7 +332,7 @@ imp 用户名/密码@还原的数据库名称 file=文件路径+文件名称
   
 事例： imp hom1/hom1@192.168.5.14/qa full=y file=D:/aa1.dmp ignore=y
 
-&nbsp;
+
 
 http://2342615.blog.51cto.com/2332615/803497
   

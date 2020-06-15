@@ -42,7 +42,7 @@ force-reload
   
 大多数的情况下，你会使用start,stop,restart选项。例如，如果你想关闭网络，你可以使用如下形式的命令：
 
-&nbsp;
+
 
 /etc/init.d/networking stop
 
@@ -52,7 +52,7 @@ force-reload
 
 init.d目录下常用初始化脚本有：
 
-&nbsp;
+
 
 networking
   
@@ -78,7 +78,7 @@ rc.local也是我经常使用的一个脚本。该脚本是在系统初始化级
 
 这样就成功的解决了samba服务异常的问题。
 
-&nbsp;
+
 
 三、总结
 

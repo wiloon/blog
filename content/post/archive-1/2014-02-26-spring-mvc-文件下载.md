@@ -40,7 +40,7 @@ http://mayday85.iteye.com/blog/1622445
 
 Java代码 收藏代码
 
-@RequestMapping(&#8220;download&#8221;)
+@RequestMapping("download&#8221;)
 
 public void download(HttpServletResponse res) throws IOException {
 
@@ -50,9 +50,9 @@ try {
 
 res.reset();
 
-res.setHeader(&#8220;Content-Disposition&#8221;, &#8220;attachment; filename=dict.txt&#8221;);
+res.setHeader("Content-Disposition&#8221;, "attachment; filename=dict.txt&#8221;);
 
-res.setContentType(&#8220;application/octet-stream; charset=utf-8&#8221;);
+res.setContentType("application/octet-stream; charset=utf-8&#8221;);
 
 os.write(FileUtils.readFileToByteArray(getDictionaryFile()));
 
@@ -80,7 +80,7 @@ os.close();
 
 Java代码 收藏代码
 
-@RequestMapping(&#8220;download&#8221;)
+@RequestMapping("download&#8221;)
 
 public ResponseEntity<byte[]> download() throws IOException {
 
@@ -88,7 +88,7 @@ HttpHeaders headers = new HttpHeaders();
 
 headers.setContentType(MediaType.APPLICATION\_OCTET\_STREAM);
 
-headers.setContentDispositionFormData(&#8220;attachment&#8221;, &#8220;dict.txt&#8221;);
+headers.setContentDispositionFormData("attachment&#8221;, "dict.txt&#8221;);
 
 return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(getDictionaryFile()),
 
@@ -102,7 +102,7 @@ headers, HttpStatus.CREATED);
 
 Java代码 收藏代码
 
-&#8220;YWEJMQ0KdnYJMg0KaGgJMw==&#8221;
+"YWEJMQ0KdnYJMg0KaGgJMw==&#8221;
 
 正确内容为
 
@@ -124,7 +124,7 @@ ResponseEntity<String>
 
 Java代码 收藏代码
 
-&#8220;aa 1\n\tvv 2\n\thh 3&#8221;
+"aa 1\n\tvv 2\n\thh 3&#8221;
 
 相信很多人看到这已经知道了发生了什么
 
@@ -136,7 +136,7 @@ Java代码 收藏代码
 
 public ByteArrayHttpMessageConverter() {
 
-super(new MediaType(&#8220;application&#8221;, &#8220;octet-stream&#8221;), MediaType.ALL);
+super(new MediaType("application&#8221;, "octet-stream&#8221;), MediaType.ALL);
 
 }
 
@@ -200,7 +200,7 @@ Java代码 收藏代码
 
 <bean id=&#8221;jsonHttpMessageConverter&#8221; class=&#8221;org.springframework.http.converter.json.MappingJacksonHttpMessageConverter&#8221; >
 
-<property name = &#8220;supportedMediaTypes&#8221;>
+<property name = "supportedMediaTypes&#8221;>
 
 <list>
 

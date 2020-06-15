@@ -16,4 +16,4 @@ sudo apt-get install bison
 
 ./tools
 
-wine &#8220;Frozen Throne.exe&#8221; -opengl
+wine "Frozen Throne.exe&#8221; -opengl

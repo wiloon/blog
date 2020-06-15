@@ -218,7 +218,7 @@ List<Person> persons = new ArrayList<Person> ();
   
 while( 1>0){
   
-persons.add( new Person(&#8220;fakeperson&#8221;,&#8221;male&#8221;,25));
+persons.add( new Person("fakeperson&#8221;,&#8221;male&#8221;,25));
   
 }
   
@@ -240,9 +240,9 @@ persons.add( new Person(&#8220;fakeperson&#8221;,&#8221;male&#8221;,25));
 
 为了解决这个问题，我们要看下Shallow Size和Retained Size各是什么？
 
-&nbsp;
 
-&nbsp;
+
+
 
 知识补充：
 
@@ -498,9 +498,9 @@ List<CompanyPerson> companyPersons = new ArrayList<CompanyPerson> ();
   
 while( 1>0){
   
-Person person = new Person(&#8220;fackperson&#8221;,&#8221;male&#8221;,25);
+Person person = new Person("fackperson&#8221;,&#8221;male&#8221;,25);
   
-CompanyPerson cp = new CompanyPerson(person,&#8221;emp123&#8243;,20000L,&#8221;SSE&#8221;);
+CompanyPerson cp = new CompanyPerson(person,&#8221;emp123",20000L,&#8221;SSE&#8221;);
   
 companyPersons.add( cp);
   
@@ -550,7 +550,7 @@ public static void makeOutOfMemory3(){
   
 while( 1>0){
   
-Person person = new Person(&#8220;fackperson&#8221;,&#8221;male&#8221;,25);
+Person person = new Person("fackperson&#8221;,&#8221;male&#8221;,25);
   
 }
   

@@ -10,7 +10,7 @@ categories:
 ---
 http://wenku.baidu.com/view/9c73c0d349649b6648d747fc.html
 
-&nbsp;
+
 
 oracle中TIMESTAMP与DATE比较
   
@@ -72,8 +72,8 @@ SYSTIMESTAMP
   
 当使用date和timestamp类型的时候，选择是很清楚的。你可以随意处置date和timestamp类型。当你试图转换到更强大的timestamp的时候，需要注意，它们既有类似的地方，更有不同的地方，而足以造成破坏。两者在简洁和间隔尺寸方面各有优势，请合理选择。另外，date类型一般很少用，建议大家在产品里面所有的date数据类型全部改为timestamp。
 
-&nbsp;
 
-&nbsp;
+
+
 
 http://www.cnblogs.com/linximf/archive/2011/11/21/2257036.html

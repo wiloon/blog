@@ -28,6 +28,7 @@ pages:
 - content/post/babel.md
 - content/post/chrome-http-https.md
 - content/post/dkms.md
+- content/post/etcd.md
 - content/post/foo.md
 - content/post/github-actions-hugo.md
 - content/post/golang-sync.map.md

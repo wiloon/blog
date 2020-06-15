@@ -41,7 +41,7 @@ modprobe xt_LOG
 
 TRACE This target marks packes so that the kernel will log every rule which match the packets as those traverse the tables, chains, rules. (The ipt\_LOG or ip6t\_LOG module is required for the logging.) The packets are logged with the string prefix:
 
-&#8220;TRACE: tablename:chainname:type:rulenum &#8221; where type can be &#8220;rule&#8221; for plain rule, &#8220;return&#8221; for implicit rule at the end of a user defined chain and &#8220;policy&#8221; for the policy of the built in chains. It can only be used in the raw table.
+"TRACE: tablename:chainname:type:rulenum &#8221; where type can be "rule&#8221; for plain rule, "return&#8221; for implicit rule at the end of a user defined chain and "policy&#8221; for the policy of the built in chains. It can only be used in the raw table.
 
 policy 是指iptables内置的规则如：accept
   
@@ -163,7 +163,7 @@ https://www.howtoing.com/enable-logging-in-iptables-on-linux
   </p>
 </blockquote>
 
-<iframe title="&#8220;iptables debugging&#8221; &#8212; 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""iptables debugging&#8221; &#8212; 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 http://blog.51cto.com/flymanhi/1276331
   

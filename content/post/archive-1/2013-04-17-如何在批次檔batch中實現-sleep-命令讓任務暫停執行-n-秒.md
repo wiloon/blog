@@ -28,7 +28,7 @@ CHOICE 命令在 Windows XP 中找不到，但在 Windows Server 2003 或 Vista 
   <pre>@CHOICE /C YN /N /T 5 /D y &gt; nul</pre>
 </div>
 
-&nbsp;
+
 
 **3. 安裝 **<a href="http://www.microsoft.com/Downloads/details.aspx?FamilyID=9d467a69-57ff-4ae7-96ee-b18c4790cffd&displaylang=en" target="_blank" rel="nofollow"><strong>Windows Server 2003 Resource Kit Tools</strong></a>** 即可獲得 sleep.exe 工具**
 

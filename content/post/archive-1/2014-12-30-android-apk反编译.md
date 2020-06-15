@@ -10,13 +10,13 @@ categories:
 ---
 http://blog.csdn.net/ithomer/article/details/6727581
 
-&nbsp;
+
 
 这段时间在学Android应用开发，在想既然是用Java开发的应该很好反编译从而得到源代码吧，google了一下，确实很简单，以下是我的实践过程。
 
 在此郑重声明，贴出来的目的不是为了去破解人家的软件，完全是一种学习的态度，不过好像通过这种方式也可以去汉化一些外国软件。
 
-&nbsp;
+
   
 本文Android反编译教程，测试环境：
 
@@ -56,7 +56,7 @@ classes_dex2jar.jar
 
 HelloAndroid源码在反编译前后的对照如下：
 
-&nbsp;
+
 
 二、apk反编译生成程序的源代码和图片、XML配置、语言资源等文件
 
@@ -74,7 +74,7 @@ apktool（google code）
   
 在命令行下定位到apktool.bat文件夹，输入以下命令：apktool.bat  d  -f   abc123.apk   abc123，如下图：
 
-&nbsp;
+
 
 上图中，apktool.bat 命令行解释：apktool.bat   d  -f    [apk文件 ]   [输出文件夹]
   
@@ -82,7 +82,7 @@ apktool（google code）
 
 将反编译完的文件重新打包成apk，很简单，输入apktool.bat   b    abc123（你编译出来文件夹）即可，命令如下：
 
-&nbsp;
+
 
 打包apk后的文件在目录C:\HelloAndroid下，生成了两个文件夹：
 

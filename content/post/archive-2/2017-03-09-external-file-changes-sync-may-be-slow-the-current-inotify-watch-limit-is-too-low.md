@@ -22,6 +22,6 @@ sudo sysctl -p --system
 
 More information about this can be found in <a href="https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit" target="_blank" rel="noopener noreferrer">here</a> and in <a href="https://bbs.archlinux.org/viewtopic.php?id=193020" target="_blank" rel="noopener noreferrer">here</a>.
 
-&nbsp;
+
 
 https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit

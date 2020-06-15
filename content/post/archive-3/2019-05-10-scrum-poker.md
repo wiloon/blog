@@ -16,4 +16,4 @@ android,ios: Scrum Poker Cards (Agile)
   </p>
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://artarmin.com/embed/#?secret=jkb2vbmib7" data-secret="jkb2vbmib7" width="600" height="338" title="&#8220;Home&#8221; &#8212; artArmin" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://artarmin.com/embed/#?secret=jkb2vbmib7" data-secret="jkb2vbmib7" width="600" height="338" title=""Home&#8221; &#8212; artArmin" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

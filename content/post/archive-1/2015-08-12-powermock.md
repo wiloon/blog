@@ -14,17 +14,17 @@ categories:
 
 http://stackoverflow.com/questions/20400574/powermock-linkageerror-mockclassloader-javax-management-mbeanserver
 
-&nbsp;
+
 
 @RunWith(PowerMockRunner.class)
   
-@PowerMockIgnore({&#8220;javax.management.*&#8221;})
+@PowerMockIgnore({"javax.management.*&#8221;})
   
 @PrepareForTest(ClassName.class)
 
-&nbsp;
 
-&nbsp;
+
+
 
 http://blog.csdn.net/jackiehff/article/details/14000779
 

@@ -10,7 +10,7 @@ categories:
 ---
 http://eleme.io/blog/2014/goroutine-1/
 
-&nbsp;
+
 
 goroutine
 
@@ -74,10 +74,10 @@ main函数退出地太快了，我们要想办法阻止它过早地退出，一�
 
 这次确实输出了两趟，目的达到了。
 
-&nbsp;
+
 
 同步并发的原理是利用进程或者线程，由操作系统调度；异步并发的原理是DMA，即不经过CPU直接把IO的某一快copy到memory上或者反之
 
-&nbsp;
+
 
 https://www.zhihu.com/question/20862617

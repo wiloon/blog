@@ -14,7 +14,7 @@ ot be in the same tree as the source application directory (D:appsjenkinsHomejob
   
 workspacexxxxxx.metaproj]
 
-&nbsp;
+
 
 modify the slution file xxx.sln
 

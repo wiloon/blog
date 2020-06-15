@@ -120,4 +120,3 @@ tags:
 
 ２、在<Beans>中不能够设置default-autowire=&#8221;byName&#8221;的属性，否则后台会报org.springframework.beans.factory.BeanCreationException错误，这样就不能通过Bean名称自动注入，必须通过明确引用注入
 
-&nbsp;

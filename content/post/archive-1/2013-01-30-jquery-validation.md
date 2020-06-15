@@ -19,13 +19,13 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
     </li>
     <li>
-          fruit: &#8220;required&#8221;
+          fruit: "required&#8221;
     </li>
     <li>
         }
@@ -47,7 +47,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -56,7 +56,7 @@ categories:
           details: {
     </li>
     <li>
-            required: &#8220;#other:checked&#8221;
+            required: "#other:checked&#8221;
     </li>
     <li>
           }
@@ -68,10 +68,10 @@ categories:
       });
     </li>
     <li>
-      $(&#8220;#other&#8221;).click(function() {
+      $("#other&#8221;).click(function() {
     </li>
     <li>
-         $(&#8220;#details&#8221;).valid();
+         $("#details&#8221;).valid();
     </li>
     <li>
       });
@@ -90,7 +90,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -114,7 +114,7 @@ categories:
             required: function(element) {
     </li>
     <li>
-              return $(&#8220;#age&#8221;).val() < 13;
+              return $("#age&#8221;).val() < 13;
     </li>
     <li>
             }
@@ -129,10 +129,10 @@ categories:
       });
     </li>
     <li>
-      $(&#8220;#age&#8221;).blur(function() {
+      $("#age&#8221;).blur(function() {
     </li>
     <li>
-          $(&#8220;#parent&#8221;).valid();
+          $("#parent&#8221;).valid();
     </li>
     <li>
       });
@@ -151,7 +151,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -166,7 +166,7 @@ categories:
             email: true,
     </li>
     <li>
-            remote: &#8220;check-email.php&#8221;
+            remote: "check-email.php&#8221;
     </li>
     <li>
           }
@@ -191,7 +191,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -228,7 +228,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -265,7 +265,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -302,7 +302,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -339,7 +339,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -376,7 +376,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -413,7 +413,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -450,7 +450,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -487,7 +487,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -530,7 +530,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -570,7 +570,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -607,7 +607,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -644,7 +644,7 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
@@ -656,7 +656,7 @@ categories:
             required: true,
     </li>
     <li>
-            accept: &#8220;xls|csv&#8221;
+            accept: "xls|csv&#8221;
     </li>
     <li>
           }
@@ -681,19 +681,19 @@ categories:
   
   <ol>
     <li>
-      $(&#8220;#myform&#8221;).validate({
+      $("#myform&#8221;).validate({
     </li>
     <li>
         rules: {
     </li>
     <li>
-          password: &#8220;required&#8221;,
+          password: "required&#8221;,
     </li>
     <li>
           password_again: {
     </li>
     <li>
-            equalTo: &#8220;#password&#8221;
+            equalTo: "#password&#8221;
     </li>
     <li>
           }
@@ -707,17 +707,17 @@ categories:
   </ol>
 </div>
 
-$(&#8220;#aspnetForm&#8221;).validate({ ignore: &#8220;&#8221;,  
+$("#aspnetForm&#8221;).validate({ ignore: "&#8221;,  
 rules: {
 
 check the fields which attr display is none.
 
 // 验证值小数位数不能超过两位
   
-jQuery.validator.addMethod(&#8220;decimal&#8221;, function(value, element) {
+jQuery.validator.addMethod("decimal&#8221;, function(value, element) {
   
 var decimal = /^-?d+(&#46;d{1,2})?$/;
   
 return this.optional(element) || (decimal.test(value));
   
-}, $.validator.format(&#8220;小数位数不能超过两位!&#8221;));
+}, $.validator.format("小数位数不能超过两位!&#8221;));

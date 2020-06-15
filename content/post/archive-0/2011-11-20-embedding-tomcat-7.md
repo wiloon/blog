@@ -55,15 +55,15 @@ server.join();
 </div>
 
 <div>
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile &#8220;org.apache.tomcat:tomcat-catalina:7.0.22&#8221;</span>
+  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat:tomcat-catalina:7.0.22&#8221;</span>
 </div>
 
 <div>
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile &#8220;org.apache.tomcat.embed:tomcat-embed-core:7.0.22&#8221;</span>
+  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat.embed:tomcat-embed-core:7.0.22&#8221;</span>
 </div>
 
 <div>
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile &#8220;org.apache.tomcat:tomcat-jasper:7.0.22&#8221;</span>
+  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat:tomcat-jasper:7.0.22&#8221;</span>
 </div>
 
 <div>

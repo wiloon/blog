@@ -68,7 +68,7 @@ ForwardAgent yes
       
 ForwardX11 yes
   
-XiaoleideMacBook-Pro:ssh professor$ echo &#8220;$SSH\_AUTH\_SOCK&#8221;
+XiaoleideMacBook-Pro:ssh professor$ echo "$SSH\_AUTH\_SOCK&#8221;
   
 /private/tmp/com.apple.launchd.xkodPCHoTj/Listeners
   
@@ -80,7 +80,7 @@ XiaoleideMacBook-Pro:ssh professor$ echo &#8220;$SSH\_AUTH\_SOCK&#8221;
   
 Mac特有的一个问题，要注意
   
-On Mac OS X, ssh-agent will &#8220;forget&#8221; this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+On Mac OS X, ssh-agent will "forget&#8221; this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
 
 XiaoleideMacBook-Pro:ssh professor$ ssh-add -L
   

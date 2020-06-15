@@ -68,11 +68,11 @@ test.html
   
 $(document).ready(function(){
   
-test(&#8220;a basic test example&#8221;, function() {
+test("a basic test example&#8221;, function() {
   
 var sum = add (1 + 1);
   
-equal( sum, &#8220;2&#8221;, &#8220;We expect value to be 2&#8243; );
+equal( sum, "2&#8221;, "We expect value to be 2" );
   
 });
   

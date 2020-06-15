@@ -14,7 +14,7 @@ https://segmentfault.com/a/1190000007560884
 
 根据 Wiki 对 Zero-copy 的定义:
 
-&#8220;Zero-copy&#8221; describes computer operations in which the CPU does not perform the task of copying data from one memory area to another. This is frequently used to save CPU cycles and memory bandwidth when transmitting a file over a network.
+"Zero-copy&#8221; describes computer operations in which the CPU does not perform the task of copying data from one memory area to another. This is frequently used to save CPU cycles and memory bandwidth when transmitting a file over a network.
 
 即所谓的 Zero-copy, 就是在操作数据时, 不需要将数据 buffer 从一个内存区域拷贝到另一个内存区域. 因为少了一次内存的拷贝, 因此 CPU 的效率就得到的提升.
 
@@ -188,7 +188,7 @@ out.write(temp, 0, length);
 
 public static void copyFileWithFileChannel(String srcFileName, String destFileName) throws Exception {
       
-RandomAccessFile srcFile = new RandomAccessFile(srcFileName, &#8220;r&#8221;);
+RandomAccessFile srcFile = new RandomAccessFile(srcFileName, "r&#8221;);
       
 FileChannel srcFileChannel = srcFile.getChannel();
 
@@ -219,13 +219,13 @@ try {
           
 // 1. 通过 RandomAccessFile 打开一个文件.
           
-raf = new RandomAccessFile(msg, &#8220;r&#8221;);
+raf = new RandomAccessFile(msg, "r&#8221;);
           
 length = raf.length();
       
 } catch (Exception e) {
           
-ctx.writeAndFlush(&#8220;ERR: &#8221; + e.getClass().getSimpleName() + &#8220;: &#8221; + e.getMessage() + &#8216;\n&#8217;);
+ctx.writeAndFlush("ERR: &#8221; + e.getClass().getSimpleName() + ": &#8221; + e.getMessage() + &#8216;\n&#8217;);
           
 return;
       

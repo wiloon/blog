@@ -71,7 +71,7 @@ public static void main(String[] args) {
           
 //可以通过I/O操作或配置项获得包名
           
-String pkgName = &#8220;com.company&#8221;;
+String pkgName = "com.company&#8221;;
           
 Package pkg = Package.getPackage(pkgName);
           
@@ -85,7 +85,7 @@ for(Annotation an:annotations){
               
 if(an instanceof PkgAnnotation){
                   
-System.out.println(&#8220;Hi,I&#8217;m the PkgAnnotation ,which is be placed on package!&#8221;);
+System.out.println("Hi,I&#8217;m the PkgAnnotation ,which is be placed on package!&#8221;);
                   
 /*
                    

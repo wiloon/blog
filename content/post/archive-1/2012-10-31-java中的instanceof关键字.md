@@ -12,7 +12,7 @@ categories:
 # 
 
 <div id="cnblogs_post_body">
-  instanceof是Java的一个二元操作符，和==，>，<是同一类东东。由于它是由字母组成的，所以也是Java的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回boolean类型的数据。举个例子：String s = &#8220;I AM an Object!&#8221;;<br /> boolean isObject = s instanceof Object;</p> 
+  instanceof是Java的一个二元操作符，和==，>，<是同一类东东。由于它是由字母组成的，所以也是Java的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回boolean类型的数据。举个例子：String s = "I AM an Object!&#8221;;<br /> boolean isObject = s instanceof Object;</p> 
   
   <p>
     我们声明了一个String对象引用，指向一个String对象，然后用instancof来测试它所指向的对象是否是Object类的一个实例，显然，这是真的，所以返回true，也就是isObject的值为True。<br /> instanceof有一些用处。比如我们写了一个处理账单的系统，其中有这样三个类：

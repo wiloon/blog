@@ -32,13 +32,13 @@ public Subscriber() {
 
 public void onMessage(String channel, String message) {
   
-System.out.println(String.format(&#8220;receive redis published message, channel %s, message %s&#8221;, channel, message));
+System.out.println(String.format("receive redis published message, channel %s, message %s&#8221;, channel, message));
   
 }
 
 public void onSubscribe(String channel, int subscribedChannels) {
   
-System.out.println(String.format(&#8220;subscribe redis channel success, channel %s, subscribedChannels %d&#8221;,
+System.out.println(String.format("subscribe redis channel success, channel %s, subscribedChannels %d&#8221;,
   
 channel, subscribedChannels));
   
@@ -46,7 +46,7 @@ channel, subscribedChannels));
 
 public void onUnsubscribe(String channel, int subscribedChannels) {
   
-System.out.println(String.format(&#8220;unsubscribe redis channel, channel %s, subscribedChannels %d&#8221;,
+System.out.println(String.format("unsubscribe redis channel, channel %s, subscribedChannels %d&#8221;,
   
 channel, subscribedChannels));
 
@@ -158,11 +158,11 @@ private final JedisPool jedisPool;
   
 private final Subscriber subscriber = new Subscriber();
 
-private final String channel = &#8220;mychannel&#8221;;
+private final String channel = "mychannel&#8221;;
 
 public SubThread(JedisPool jedisPool) {
   
-super(&#8220;SubThread&#8221;);
+super("SubThread&#8221;);
   
 this.jedisPool = jedisPool;
   
@@ -172,7 +172,7 @@ this.jedisPool = jedisPool;
   
 public void run() {
   
-System.out.println(String.format(&#8220;subscribe redis, channel %s, thread will be blocked&#8221;, channel));
+System.out.println(String.format("subscribe redis, channel %s, thread will be blocked&#8221;, channel));
   
 Jedis jedis = null;
   
@@ -184,7 +184,7 @@ jedis.subscribe(subscriber, channel);
   
 } catch (Exception e) {
   
-System.out.println(String.format(&#8220;subsrcibe channel error, %s&#8221;, e));
+System.out.println(String.format("subsrcibe channel error, %s&#8221;, e));
   
 } finally {
   
@@ -376,7 +376,7 @@ line = reader.readLine();
   
 if (!&#8221;quit&#8221;.equals(line)) {
   
-jedis.publish(&#8220;mychannel&#8221;, line);
+jedis.publish("mychannel&#8221;, line);
   
 } else {
   
@@ -544,13 +544,13 @@ public static void main( String[] args )
   
 // 替换成你的reids地址和端口
   
-String redisIp = &#8220;192.168.229.154&#8221;;
+String redisIp = "192.168.229.154&#8221;;
   
 int reidsPort = 6379;
   
 JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), redisIp, reidsPort);
   
-System.out.println(String.format(&#8220;redis pool is starting, redis ip %s, redis port %d&#8221;, redisIp, reidsPort));
+System.out.println(String.format("redis pool is starting, redis ip %s, redis port %d&#8221;, redisIp, reidsPort));
 
 SubThread subThread = new SubThread(jedisPool);
   

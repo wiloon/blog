@@ -22,7 +22,7 @@ tags:
   
 检查方法 element() peek() 不可用 不可用
 
-抛出异常：是指当阻塞队列满时候，再往队列里插入元素，会抛出IllegalStateException(&#8220;Queue full&#8221;)异常。当队列为空时，从队列里获取元素时会抛出NoSuchElementException异常 。
+抛出异常：是指当阻塞队列满时候，再往队列里插入元素，会抛出IllegalStateException("Queue full&#8221;)异常。当队列为空时，从队列里获取元素时会抛出NoSuchElementException异常 。
   
 返回特殊值：插入方法会返回是否成功，成功则返回true。移除方法，则是从队列里拿出一个元素，如果没有则返回null
   

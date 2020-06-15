@@ -52,7 +52,7 @@ VisualVM监控线程
 
 1：新建一个jstatd.all.policy文件，在里面添加以下内容来保证jstatd服务启动的时候不报异常：
 
-grant codebase &#8220;file:${java.home}/../lib/tools.jar&#8221; {
+grant codebase "file:${java.home}/../lib/tools.jar&#8221; {
   
 permission java.security.AllPermission;
   
@@ -74,7 +74,7 @@ rmiregistry 2020 & jstatd -J-Djava.security.policy=jstatd.all.policy -p 20
 
 I：将jmxremote.access、jmxremote.password.template权限调整为读写：
 
-grant codebase &#8220;file:${java.home}/../lib/tools.jar&#8221; {
+grant codebase "file:${java.home}/../lib/tools.jar&#8221; {
   
 permission java.security.AllPermission;
   

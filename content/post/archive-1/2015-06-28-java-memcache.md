@@ -22,7 +22,7 @@ Memcache是danga的一个项目，最早是LiveJournal 服务的，最初为了�
 
 Memcached是以守护程序方式运行于一个或多个服务器中，随时会接收客户端的连接和操作
 
-&nbsp;
+
 
 为什么会有Memcache和memcached两种名称
 
@@ -98,7 +98,7 @@ make
   
 make install
 
-&nbsp;
+
 
 1)安装Memcache服务端
 
@@ -136,7 +136,7 @@ memcached -d -m 128 -p 11111 -u root
   
 -h 显示帮助
 
-&nbsp;
+
 
 查看是否建立成功
 
@@ -208,7 +208,7 @@ Java代码
   
 static {
   
-String[] serverlist = { &#8220;server1.com:port&#8221;, &#8220;server2.com:port&#8221; };
+String[] serverlist = { "server1.com:port&#8221;, "server2.com:port&#8221; };
 
 SockIOPool pool = SockIOPool.getInstance();
   
@@ -230,7 +230,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = &#8220;cacheKey1&#8221;;
+String key = "cacheKey1&#8221;;
   
 Object value = SomeClass.getObject();
   
@@ -242,7 +242,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = &#8220;cacheKey1&#8221;;
+String key = "cacheKey1&#8221;;
   
 mc.delete(key);
 
@@ -252,7 +252,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = &#8220;key&#8221;;
+String key = "key&#8221;;
   
 Object value = mc.get(key);
 
@@ -262,7 +262,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String[] keys = { &#8220;key&#8221;, &#8220;key1&#8221;, &#8220;key2&#8221; };
+String[] keys = { "key&#8221;, "key1&#8221;, "key2&#8221; };
   
 Map<Object> values = mc.getMulti(keys);
 
@@ -320,7 +320,7 @@ magent采用的是：Consistent Hashing原理，Consistent Hashing如下所示�
 
 Java开发中的Memcache原理及实现（四）原理与部署
 
-&nbsp;
+
 
 3. 搭建memcache集群服务
 
@@ -380,7 +380,7 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 [root@odb ~]# telnet 127.0.0.1 11211
 
@@ -402,7 +402,7 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 [root@odb ~]# telnet 127.0.0.1 11212
 
@@ -438,7 +438,7 @@ root     25919  0.0  0.0  2176  484 ?        Ss   12:00   0:0
 
 root     25925  0.0  0.0  3004  484 ?        Ss   12:00   0:00 magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11211
 
-&nbsp;
+
 
 [root@odb ~]# telnet 127.0.0.1 10000
 
@@ -458,7 +458,7 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 [root@odb ~]# telnet 127.0.0.1 11000
 
@@ -506,7 +506,7 @@ quit                             <—退出11000端�
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 [root@odb ~]# telnet 127.0.0.1 10000
 
@@ -544,7 +544,7 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 [root@odb ~]# telnet 127.0.0.1 11000
 
@@ -596,7 +596,7 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 [root@odb ~]# telnet 127.0.0.1 11000
 
@@ -618,7 +618,7 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 5. Down机模拟测试2
   
@@ -646,7 +646,7 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
+
 
 2)      重启11000端口的magent
 
@@ -714,13 +714,13 @@ XMemcached也使用得比较广泛，而且有较详细的中文API文档，具�
 
 package temp;
 
-&nbsp;
+
 
 import com.danga.MemCached.*;
 
 import org.apache.log4j.*;
 
-&nbsp;
+
 
 public class CacheTest {
 
@@ -732,7 +732,7 @@ public static void main(String[] args) {
 
 \* \*/
 
-String[] servers = { &#8220;10.11.15.222:10000&#8221; };
+String[] servers = { "10.11.15.222:10000&#8221; };
 
 SockIOPool pool = SockIOPool.getInstance();
 
@@ -756,7 +756,7 @@ pool.setAliveCheck(true);
 
 pool.initialize();
 
-&nbsp;
+
 
 /**
 
@@ -774,7 +774,7 @@ for (int i = 0; i < 1000; i++) {
 
 \* \*/
 
-boolean success = memCachedClient.set(&#8220;&#8221; + i, &#8220;Hello!&#8221;);
+boolean success = memCachedClient.set("&#8221; + i, "Hello!&#8221;);
 
 /**
 
@@ -782,11 +782,11 @@ boolean success = memCachedClient.set(&#8220;&#8221; + i, &#8220;Hello!&#8221;);
 
 \* \*/
 
-String result = (String) memCachedClient.get(&#8220;&#8221; + i);
+String result = (String) memCachedClient.get("&#8221; + i);
 
-System.out.println(String.format(&#8220;set( %d ): %s&#8221;, i, success));
+System.out.println(String.format("set( %d ): %s&#8221;, i, success));
 
-System.out.println(String.format(&#8220;get( %d ): %s&#8221;, i, result));
+System.out.println(String.format("get( %d ): %s&#8221;, i, result));
 
 }
 
@@ -802,17 +802,17 @@ spymemcached当前版本是2.5版本，官方网址是：http://code.google.com/
 
 package temp;
 
-&nbsp;
+
 
 import java.net.InetSocketAddress;
 
 import java.util.concurrent.Future;
 
-&nbsp;
+
 
 import net.spy.memcached.MemcachedClient;
 
-&nbsp;
+
 
 public class TestSpyMemcache {
 
@@ -824,13 +824,13 @@ try {
 
 /\* 建立MemcachedClient 实例，并指定memcached服务的IP地址和端口号 \*/
 
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress(&#8220;10.11.15.222&#8221;, 10000));
+MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222&#8221;, 10000));
 
 Future<Boolean> b = null;
 
 /\* 将key值，过期时间(秒)和要缓存的对象set到memcached中 \*/
 
-b = mc.set(&#8220;neea:testDaF:ksIdno&#8221;, 900, &#8220;someObject&#8221;);
+b = mc.set("neea:testDaF:ksIdno&#8221;, 900, "someObject&#8221;);
 
 if (b.get().booleanValue() == true) {
 
@@ -850,11 +850,11 @@ try {
 
 /\* 建立MemcachedClient 实例，并指定memcached服务的IP地址和端口号 \*/
 
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress(&#8220;10.11.15.222&#8221;, 10000));
+MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222&#8221;, 10000));
 
 /\* 按照key值从memcached中查找缓存，不存在则返回null \*/
 
-Object b = mc.get(&#8220;neea:testDaF:ksIdno&#8221;);
+Object b = mc.get("neea:testDaF:ksIdno&#8221;);
 
 System.out.println(b.toString());
 
@@ -878,13 +878,13 @@ Xmemcached的官方网址是：http://code.google.com/p/xmemcached/，可以从�
 
 package temp;
 
-&nbsp;
+
 
 import java.io.IOException;
 
 import java.util.concurrent.TimeoutException;
 
-&nbsp;
+
 
 import net.rubyeye.xmemcached.utils.AddrUtil;
 
@@ -896,7 +896,7 @@ import net.rubyeye.xmemcached.XMemcachedClientBuilder;
 
 import net.rubyeye.xmemcached.exception.MemcachedException;
 
-&nbsp;
+
 
 public class TestXMemcache {
 
@@ -904,7 +904,7 @@ public static void main(String[] args) {
 
 MemcachedClientBuilder builder = new XMemcachedClientBuilder(AddrUtil
 
-.getAddresses(&#8220;10.11.15.222:10000&#8221;));
+.getAddresses("10.11.15.222:10000&#8221;));
 
 MemcachedClient memcachedClient;
 
@@ -912,19 +912,19 @@ try {
 
 memcachedClient = builder.build();
 
-&nbsp;
 
-memcachedClient.set(&#8220;hello&#8221;, 0, &#8220;Hello,xmemcached&#8221;);
 
-String value = memcachedClient.get(&#8220;hello&#8221;);
+memcachedClient.set("hello&#8221;, 0, "Hello,xmemcached&#8221;);
 
-System.out.println(&#8220;hello=&#8221; + value);
+String value = memcachedClient.get("hello&#8221;);
 
-memcachedClient.delete(&#8220;hello&#8221;);
+System.out.println("hello=&#8221; + value);
 
-value = memcachedClient.get(&#8220;hello&#8221;);
+memcachedClient.delete("hello&#8221;);
 
-System.out.println(&#8220;hello=&#8221; + value);
+value = memcachedClient.get("hello&#8221;);
+
+System.out.println("hello=&#8221; + value);
 
 // close memcached client
 
@@ -932,13 +932,13 @@ memcachedClient.shutdown();
 
 } catch (MemcachedException e) {
 
-System.err.println(&#8220;MemcachedClient operation fail&#8221;);
+System.err.println("MemcachedClient operation fail&#8221;);
 
 e.printStackTrace();
 
 } catch (TimeoutException e) {
 
-System.err.println(&#8220;MemcachedClient operation timeout&#8221;);
+System.err.println("MemcachedClient operation timeout&#8221;);
 
 e.printStackTrace();
 
@@ -948,7 +948,7 @@ e.printStackTrace();
 
 }catch (IOException e) {
 
-System.err.println(&#8220;Shutdown MemcachedClient fail&#8221;);
+System.err.println("Shutdown MemcachedClient fail&#8221;);
 
 e.printStackTrace();
 
@@ -1236,9 +1236,9 @@ pidfile=&#8221;$basedir/${prog}.pid&#8221;
 
 # 设置memcached启动参数
   
-ipaddr=&#8221;192.168.1.201&#8243;    # 绑定侦听的IP地址
+ipaddr=&#8221;192.168.1.201"    # 绑定侦听的IP地址
   
-port=&#8221;11211&#8243;                    # 服务端口
+port=&#8221;11211"                    # 服务端口
   
 username=&#8221;root&#8221;                 # 运行程序的用户身份
   
@@ -1282,7 +1282,7 @@ for pid in $pidlist
   
 do
   
-#           echo &#8220;pid=$pid&#8221;
+#           echo "pid=$pid&#8221;
   
 kill -9 $pid
   
@@ -1304,7 +1304,7 @@ echo
 
 # See how we were called.
   
-case &#8220;$1&#8221; in
+case "$1&#8221; in
   
 start)
   
@@ -1352,7 +1352,7 @@ status memcached
   
 *)
   
-echo &#8220;Usage: $0 {start|stop|restart|status}&#8221;
+echo "Usage: $0 {start|stop|restart|status}&#8221;
   
 exit 1
   

@@ -392,7 +392,7 @@ InterfaceWithDefaultMethod i = (o) -> {};
           
 i.apply(null);
           
-i.say(&#8220;default method&#8221;);
+i.say("default method&#8221;);
       
 }
   

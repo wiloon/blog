@@ -25,7 +25,7 @@ sudo tee /etc/docker/daemon.json <<-&#8216;EOF&#8217;
   
 {
     
-&#8220;registry-mirrors&#8221;: [&#8220;https://xxxxxx.mirror.aliyuncs.com&#8221;]
+"registry-mirrors&#8221;: ["https://xxxxxx.mirror.aliyuncs.com&#8221;]
   
 }
   

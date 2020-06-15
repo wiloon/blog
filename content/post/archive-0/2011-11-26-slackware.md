@@ -57,7 +57,7 @@ categories:
   </div>
   
   <p>
-    在早期的发布版本中，发行版本带有三个用户帐号： &#8220;<strong>satan</strong>&#8220;, &#8220;<strong>gonzo</strong>&#8221; 和 &#8220;<strong>snake</strong>&#8220;。它们是作为示例被提供，但是后来的版本中去除了这些帐号，因为它们有潜在的安全漏洞。
+    在早期的发布版本中，发行版本带有三个用户帐号： "<strong>satan</strong>", "<strong>gonzo</strong>&#8221; 和 "<strong>snake</strong>"。它们是作为示例被提供，但是后来的版本中去除了这些帐号，因为它们有潜在的安全漏洞。
   </p>
   
   <div>
@@ -569,4 +569,4 @@ categories:
   </div>
   
   <p>
-    正是由于上述的原因，从Slackware入手学习Linux，虽然门槛稍为有点高，但是更容易接触到Linux系统的本质。在Slackware社区，最经常被引用的一句话就是：<strong>&#8220;When you know Slackware you know Linux. When you know Red Hat, all you know is Red Hat.”</strong></div>
+    正是由于上述的原因，从Slackware入手学习Linux，虽然门槛稍为有点高，但是更容易接触到Linux系统的本质。在Slackware社区，最经常被引用的一句话就是：<strong>"When you know Slackware you know Linux. When you know Red Hat, all you know is Red Hat.”</strong></div>

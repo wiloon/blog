@@ -73,7 +73,7 @@ class CustomThread1 extends Thread {
       
 public CustomThread1() {
           
-super(&#8220;[CustomThread1] Thread&#8221;);
+super("[CustomThread1] Thread&#8221;);
       
 };
       
@@ -97,7 +97,7 @@ System.out.println(threadName + &#8221; end.&#8221;);
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from &#8221; + threadName + &#8220;.run&#8221;);
+System.out.println("Exception from &#8221; + threadName + ".run&#8221;);
           
 }
       
@@ -111,7 +111,7 @@ CustomThread1 t1;
       
 public CustomThread(CustomThread1 t1) {
           
-super(&#8220;[CustomThread] Thread&#8221;);
+super("[CustomThread] Thread&#8221;);
           
 this.t1 = t1;
       
@@ -131,7 +131,7 @@ System.out.println(threadName + &#8221; end.&#8221;);
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from &#8221; + threadName + &#8220;.run&#8221;);
+System.out.println("Exception from &#8221; + threadName + ".run&#8221;);
           
 }
       
@@ -163,7 +163,7 @@ t.join();//在代碼2里，將此處注釋掉
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from main&#8221;);
+System.out.println("Exception from main&#8221;);
           
 }
           
@@ -225,7 +225,7 @@ t.start();
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from main&#8221;);
+System.out.println("Exception from main&#8221;);
           
 }
           
@@ -303,7 +303,7 @@ long now = 0;
   
 if (millis < 0) {
              
-throw new IllegalArgumentException(&#8220;timeout value is negative&#8221;);
+throw new IllegalArgumentException("timeout value is negative&#8221;);
   
 }
   

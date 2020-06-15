@@ -30,19 +30,19 @@ package main
 
 import (
       
-&#8220;fmt&#8221;
+"fmt&#8221;
       
-&#8220;runtime&#8221;
+"runtime&#8221;
   
 )
 
 func main() {
       
-fmt.Println(&#8220;cpus:&#8221;, runtime.NumCPU())
+fmt.Println("cpus:&#8221;, runtime.NumCPU())
       
-fmt.Println(&#8220;goroot:&#8221;, runtime.GOROOT())
+fmt.Println("goroot:&#8221;, runtime.GOROOT())
       
-fmt.Println(&#8220;archive:&#8221;, runtime.GOOS)
+fmt.Println("archive:&#8221;, runtime.GOOS)
   
 }
   
@@ -56,9 +56,9 @@ package main
 
 import (
       
-&#8220;fmt&#8221;
+"fmt&#8221;
       
-&#8220;runtime&#8221;
+"runtime&#8221;
   
 )
 
@@ -82,9 +82,9 @@ package main
 
 import (
       
-&#8220;fmt&#8221;
+"fmt&#8221;
       
-&#8220;runtime&#8221;
+"runtime&#8221;
   
 )
 
@@ -104,7 +104,7 @@ defer close(exit)
           
 go func() {
               
-fmt.Println(&#8220;b&#8221;)
+fmt.Println("b&#8221;)
           
 }()
       
@@ -130,9 +130,9 @@ package main
 
 import (
       
-&#8220;fmt&#8221;
+"fmt&#8221;
       
-&#8220;runtime&#8221;
+"runtime&#8221;
   
 )
 
@@ -152,7 +152,7 @@ defer close(exit)
           
 go func() {
               
-fmt.Println(&#8220;b&#8221;)
+fmt.Println("b&#8221;)
           
 }()
       

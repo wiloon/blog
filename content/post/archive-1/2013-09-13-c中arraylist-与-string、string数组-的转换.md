@@ -204,7 +204,7 @@ __ cmp(G3\_scratch, SafepointSynchronize::\_not_synchronized);
 
 [java] view plain copy
   
-&#8220;If the calling process tries to access memory in a manner that violates the protection, then the kernel generates a SIGSEGV
+"If the calling process tries to access memory in a manner that violates the protection, then the kernel generates a SIGSEGV
   
 signal for the process.&#8221;
 

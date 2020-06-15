@@ -14,4 +14,3 @@ adb shell
 
 adb root
 
-&nbsp;

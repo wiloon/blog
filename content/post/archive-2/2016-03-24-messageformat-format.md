@@ -24,7 +24,7 @@ Java里从来少不了字符串拼接的活，Java程序员也肯定用到过Str
 
 String[] tdArr=&#8230;;
   
-String result=MessageFormat.format(&#8220;<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>&#8221;, tdArr);
+String result=MessageFormat.format("<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>&#8221;, tdArr);
 
 这段代码将把数组tdArr中的四个元素分别插入到{0}，{1}，{2}，{3}的位置。
 
@@ -40,25 +40,25 @@ public int insertToTest_tb(String createTime,String datefrom,String dateto,Strin
   
 StringBuilder sb=new StringBuilder();
   
-sb.append(&#8221;    insert into test_tb (&#8220;);
+sb.append(&#8221;    insert into test_tb (");
   
-sb.append(&#8221;        createTime, &#8220;);
+sb.append(&#8221;        createTime, ");
   
-sb.append(&#8221;        datefrom, &#8220;);
+sb.append(&#8221;        datefrom, ");
   
-sb.append(&#8221;        dateto, &#8220;);
+sb.append(&#8221;        dateto, ");
   
-sb.append(&#8221;        name, &#8220;);
+sb.append(&#8221;        name, ");
   
-sb.append(&#8221;        intranetid, &#8220;);
+sb.append(&#8221;        intranetid, ");
   
-sb.append(&#8221;        actualhour, &#8220;);
+sb.append(&#8221;        actualhour, ");
   
-sb.append(&#8221;        planhour, &#8220;);
+sb.append(&#8221;        planhour, ");
   
 sb.append(&#8221;        status&#8221;);
   
-sb.append(&#8221;    ) values (&#8220;);
+sb.append(&#8221;    ) values (");
   
 sb.append(&#8221;        &#8221;{0}&#8221;,&#8221;);
   
@@ -88,4 +88,3 @@ return this.getJdbcTemplate().update(sql);
   
 }
 
-&nbsp;

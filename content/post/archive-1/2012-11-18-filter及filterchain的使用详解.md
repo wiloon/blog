@@ -119,7 +119,7 @@ ServletContext context = **this**.config.getServletContext();
 
 **long** before = System._currentTimeMillis_();
 
-System._out_.println(&#8220;开始过滤&#8230; &#8220;);
+System._out_.println("开始过滤&#8230; ");
 
 // 将请求转换成HttpServletRequest 请求
 
@@ -127,7 +127,7 @@ HttpServletRequest hrequest = (HttpServletRequest) request;
 
 // 记录日志
 
-context.log(&#8220;Filter已经截获到用户的请求的地址: &#8221; + hrequest.getServletPath());
+context.log("Filter已经截获到用户的请求的地址: &#8221; + hrequest.getServletPath());
 
 **try** {
 
@@ -145,13 +145,13 @@ e.printStackTrace();
 
 // 记录日志
 
-context.log(&#8220;过滤结束&#8221;);
+context.log("过滤结束&#8221;);
 
 // 再次记录日志
 
 context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request).getRequestURI()
 
-+ &#8220;所花的时间为: &#8221; + (after &#8211; before));
++ "所花的时间为: &#8221; + (after &#8211; before));
 
 }
 
@@ -292,7 +292,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 </p>
 
 <p align="left">
-           context.log(&#8220;开始设置编码格式&#8221;);
+           context.log("开始设置编码格式&#8221;);
 </p>
 
 <p align="left">
@@ -304,7 +304,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 </p>
 
 <p align="left">
-               encoding = &#8220;gb2312&#8221;;
+               encoding = "gb2312&#8221;;
 </p>
 
 <p align="left">
@@ -324,7 +324,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 </p>
 
 <p align="left">
-           context.log(&#8220;成功设置了编码格式&#8221;);
+           context.log("成功设置了编码格式&#8221;);
 </p>
 
 <p align="left">
@@ -344,7 +344,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 </p>
 
 <p align="left">
-          <strong>this</strong>.encoding = filterConfig.getInitParameter(&#8220;encoding&#8221;);
+          <strong>this</strong>.encoding = filterConfig.getInitParameter("encoding&#8221;);
 </p>
 
 <p align="left">
@@ -522,11 +522,11 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 </p>
 
 <p align="left">
-          <strong>if</strong> (session.getAttribute(&#8220;username&#8221;) != <strong>null</strong>) {
+          <strong>if</strong> (session.getAttribute("username&#8221;) != <strong>null</strong>) {
 </p>
 
 <p align="left">
-              context.log(&#8220;身份认证通过，进入下一步处理 &#8220;);
+              context.log("身份认证通过，进入下一步处理 ");
 </p>
 
 <p align="left">
@@ -538,11 +538,11 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 </p>
 
 <p align="left">
-              context.log(&#8220;身份认证失败，直接返回&#8221;);
+              context.log("身份认证失败，直接返回&#8221;);
 </p>
 
 <p align="left">
-              res.sendRedirect(&#8220;../failure.jsp&#8221;);
+              res.sendRedirect("../failure.jsp&#8221;);
 </p>
 
 <p align="left">

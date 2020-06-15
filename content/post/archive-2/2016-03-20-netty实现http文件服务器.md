@@ -40,23 +40,23 @@ boot.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
   
 protected void initChannel(SocketChannel ch) throws Exception {
   
-ch.pipeline().addLast(&#8220;http-decoder&#8221;, new HttpRequestDecoder());
+ch.pipeline().addLast("http-decoder&#8221;, new HttpRequestDecoder());
   
-ch.pipeline().addLast(&#8220;http-aggregator&#8221;, new HttpObjectAggregator(65536));
+ch.pipeline().addLast("http-aggregator&#8221;, new HttpObjectAggregator(65536));
   
-ch.pipeline().addLast(&#8220;http-encoder&#8221;, new HttpResponseEncoder());
+ch.pipeline().addLast("http-encoder&#8221;, new HttpResponseEncoder());
   
-ch.pipeline().addLast(&#8220;http-chunked&#8221;, new ChunkedWriteHandler());
+ch.pipeline().addLast("http-chunked&#8221;, new ChunkedWriteHandler());
   
-ch.pipeline().addLast(&#8220;fileServerHandler&#8221;, new HttpFileServerHandler(url));
+ch.pipeline().addLast("fileServerHandler&#8221;, new HttpFileServerHandler(url));
   
 }
 
 });
   
-ChannelFuture cf =boot.bind(&#8220;127.0.0.1&#8221;,port).sync();
+ChannelFuture cf =boot.bind("127.0.0.1&#8221;,port).sync();
   
-System.out.println(&#8220;Http文件目录服务器启动：http://127.0.0.1:&#8221;+port+url);
+System.out.println("Http文件目录服务器启动：http://127.0.0.1:&#8221;+port+url);
   
 cf.channel().closeFuture().sync();
 
@@ -84,13 +84,13 @@ new HttpFileServer().run(8080, url);
 
 public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
-HttpMethod GET = new HttpMethod(&#8220;GET&#8221;);
+HttpMethod GET = new HttpMethod("GET&#8221;);
 
 private String url;
 
-private final Pattern ALLOWED\_FILE\_NAME = Pattern.compile(&#8220;\[A-Za-z0-9\]\[-_A-Za-z0-9\\.\]*&#8221;);
+private final Pattern ALLOWED\_FILE\_NAME = Pattern.compile("\[A-Za-z0-9\]\[-_A-Za-z0-9\\.\]*&#8221;);
 
-private final Pattern INSECURE_URI = Pattern.compile(&#8220;.\*[<>&\&#8221;].\*&#8221;);
+private final Pattern INSECURE_URI = Pattern.compile(".\*[<>&\&#8221;].\*&#8221;);
 
 public HttpFileServerHandler(String url) {
   
@@ -142,7 +142,7 @@ return;
 
 if (file.isDirectory()) {
   
-if (uri.endsWith(&#8220;/&#8221;)) {
+if (uri.endsWith("/&#8221;)) {
   
 sendList(ctx, file);
   
@@ -168,7 +168,7 @@ RandomAccessFile randomAccessFile = null;
 
 try {
   
-randomAccessFile = new RandomAccessFile(file, &#8220;r&#8221;);
+randomAccessFile = new RandomAccessFile(file, "r&#8221;);
   
 } catch (FileNotFoundException e) {
   
@@ -256,9 +256,9 @@ private void sendError(ChannelHandlerContext ctx, HttpResponseStatus status) {
   
 FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP\_1\_1, status, Unpooled.copiedBuffer(
   
-&#8220;Failure :&#8221; + status + &#8220;\r\n&#8221;, CharsetUtil.UTF_8));
+"Failure :&#8221; + status + "\r\n&#8221;, CharsetUtil.UTF_8));
   
-response.headers().set(HttpHeaders.Names.CONTENT_TYPE, &#8220;text/plain; charset=UTF-8&#8221;);
+response.headers().set(HttpHeaders.Names.CONTENT_TYPE, "text/plain; charset=UTF-8&#8221;);
   
 ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
   
@@ -270,7 +270,7 @@ public String sanitizeUri(String uri) {
   
 try {
   
-uri = URLDecoder.decode(uri, &#8220;UTF-8&#8221;);
+uri = URLDecoder.decode(uri, "UTF-8&#8221;);
   
 } catch (UnsupportedEncodingException e) {
   
@@ -302,7 +302,7 @@ return null;
 
 // Convert to absolute path.
   
-return System.getProperty(&#8220;user.dir&#8221;) + File.separator + uri;
+return System.getProperty("user.dir&#8221;) + File.separator + uri;
   
 }
 
@@ -310,31 +310,31 @@ public final void sendList(ChannelHandlerContext ctx, File file) {
   
 FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP\_1\_1, HttpResponseStatus.OK);
   
-response.headers().set(HttpHeaders.Names.CONTENT_TYPE, &#8220;text/html; charset=UTF-8&#8221;);
+response.headers().set(HttpHeaders.Names.CONTENT_TYPE, "text/html; charset=UTF-8&#8221;);
   
 StringBuilder sb = new StringBuilder();
 
 String dirPath = file.getPath();
 
-sb.append(&#8220;<!DOCTYPE html>\r\n&#8221;);
+sb.append("<!DOCTYPE html>\r\n&#8221;);
   
-sb.append(&#8220;<html><head><title>&#8221;);
+sb.append("<html><head><title>&#8221;);
   
 sb.append(dirPath);
   
-sb.append(&#8220;目录：&#8221;);
+sb.append("目录：&#8221;);
   
-sb.append(&#8220;</title></head><body>\r\n&#8221;);
+sb.append("</title></head><body>\r\n&#8221;);
   
-sb.append(&#8220;<h3>&#8221;);
+sb.append("<h3>&#8221;);
   
-sb.append(dirPath).append(&#8220;目录：&#8221;);
+sb.append(dirPath).append("目录：&#8221;);
   
-sb.append(&#8220;</h3>\r\n&#8221;);
+sb.append("</h3>\r\n&#8221;);
 
-sb.append(&#8220;<ul>&#8221;);
+sb.append("<ul>&#8221;);
   
-sb.append(&#8220;<li><a href=\&#8221;../\&#8221;>..</a></li>\r\n&#8221;);
+sb.append("<li><a href=\&#8221;../\&#8221;>..</a></li>\r\n&#8221;);
 
 for (File f : file.listFiles()) {
   
@@ -352,19 +352,19 @@ continue;
   
 }
 
-sb.append(&#8220;<li><a href=\&#8221;&#8221;);
+sb.append("<li><a href=\&#8221;&#8221;);
   
 sb.append(name);
   
-sb.append(&#8220;\&#8221;>&#8221;);
+sb.append("\&#8221;>&#8221;);
   
 sb.append(name);
   
-sb.append(&#8220;</a></li>\r\n&#8221;);
+sb.append("</a></li>\r\n&#8221;);
 
 }
 
-sb.append(&#8220;</ul></body></html>\r\n&#8221;);
+sb.append("</ul></body></html>\r\n&#8221;);
 
 ByteBuf buffer = Unpooled.copiedBuffer(sb, CharsetUtil.UTF_8);
   

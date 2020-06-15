@@ -20,7 +20,7 @@ String string = null;
       
 if (num == 1) {
           
-string = &#8220;String&#8221;;
+string = "String&#8221;;
       
 }
       

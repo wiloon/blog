@@ -128,7 +128,7 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
     <li>
     </li>
     <li>
-          @RequestMapping(&#8220;/register&#8221;)
+          @RequestMapping("/register&#8221;)
     </li>
     <li>
           public ModelAndView register(String email, String password) {
@@ -137,7 +137,7 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
               // 在这里调用具体的业务逻辑代码
     </li>
     <li>
-              return new ModelAndView(&#8220;register-success&#8221;);
+              return new ModelAndView("register-success&#8221;);
     </li>
     <li>
           }
@@ -182,7 +182,7 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
               // 在这里调用具体的业务逻辑代码
     </li>
     <li>
-              return &#8220;register-success&#8221;;
+              return "register-success&#8221;;
     </li>
     <li>
           }
@@ -256,10 +256,10 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
       <form t:type=&#8221;form&#8221; t:id=&#8221;form&#8221;>
     </li>
     <li>
-      <t:label for=&#8221;email&#8221;/>:<input t:type=&#8221;TextField&#8221; t:id=&#8221;email&#8221; t:validate=&#8221;required,minlength=3&#8243; size=&#8221;30&#8243;/>
+      <t:label for=&#8221;email&#8221;/>:<input t:type=&#8221;TextField&#8221; t:id=&#8221;email&#8221; t:validate=&#8221;required,minlength=3" size=&#8221;30"/>
     </li>
     <li>
-      <t:label for=&#8221;password&#8221;/>:<input t:type=&#8221;PasswordField&#8221; t:id=&#8221;password&#8221; t:validate=&#8221;required,minlength=3&#8243; size=&#8221;30&#8243;/>
+      <t:label for=&#8221;password&#8221;/>:<input t:type=&#8221;PasswordField&#8221; t:id=&#8221;password&#8221; t:validate=&#8221;required,minlength=3" size=&#8221;30"/>
     </li>
     <li>
       <input type=&#8221;submit&#8221; value=&#8221;Login&#8221;/>
@@ -298,7 +298,7 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
     <li>
     </li>
     <li>
-          @Component(id = &#8220;password&#8221;)
+          @Component(id = "password&#8221;)
     </li>
     <li>
           private PasswordField passwordField;
@@ -319,7 +319,7 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
     <li>
     </li>
     <li>
-              return &#8220;PostRegister&#8221;;
+              return "PostRegister&#8221;;
     </li>
     <li>
           }
@@ -336,7 +336,7 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
 
 **1. 框架通过对HTML进行行为扩展来干预和控制浏览器与服务器的交互过程。**
 
-_我们可以发现，Tapestry5的请求页面被加入了更多的HTML扩展，这些扩展包括对HTML标签的扩展以及HTML标签中属性的扩展。而这些扩展中，有不少直接干预了浏览器与服务器的交互。例如，上面例子中的t:validate=&#8221;required,minlength=3&#8243;扩展实际上就会被自动映射到服务器端程序中带有@Component(id=&#8221;password&#8221;)标注的PasswordField组件上，并在提交时自动进行组件化校验。而当页面上的提交按钮被点击触发时，默认在服务器端的onSuccess方法会形成响应并调用其内部逻辑。_
+_我们可以发现，Tapestry5的请求页面被加入了更多的HTML扩展，这些扩展包括对HTML标签的扩展以及HTML标签中属性的扩展。而这些扩展中，有不少直接干预了浏览器与服务器的交互。例如，上面例子中的t:validate=&#8221;required,minlength=3"扩展实际上就会被自动映射到服务器端程序中带有@Component(id=&#8221;password&#8221;)标注的PasswordField组件上，并在提交时自动进行组件化校验。而当页面上的提交按钮被点击触发时，默认在服务器端的onSuccess方法会形成响应并调用其内部逻辑。_
 
 **2. 页面组件的实现是整个组件模型的绝对核心**
 
@@ -457,7 +457,7 @@ MVC模型发展到了这里，我们可以看到响应方法中的“返回值�
               // 这里加入业务逻辑代码
     </li>
     <li>
-              return &#8220;success&#8221;;
+              return "success&#8221;;
     </li>
     <li>
           }
@@ -514,7 +514,7 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
     <li>
     </li>
     <li>
-          @RequestMapping(&#8220;/register&#8221;)
+          @RequestMapping("/register&#8221;)
     </li>
     <li>
           public ModelAndView register(String email, String password) {
@@ -523,7 +523,7 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
               // 在这里调用具体的业务逻辑代码
     </li>
     <li>
-              return new ModelAndView(&#8220;register-success&#8221;);
+              return new ModelAndView("register-success&#8221;);
     </li>
     <li>
           }

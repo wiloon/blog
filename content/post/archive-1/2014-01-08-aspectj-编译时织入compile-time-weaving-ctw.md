@@ -45,7 +45,7 @@ mvn archetype:generate
 
 然后，修改 pom.xml，增加 aspectj 相关内容，如下
 
-<project xmlns=&#8221;http://maven.apache.org/POM/4.0.0&#8243; xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
+<project xmlns=&#8221;http://maven.apache.org/POM/4.0.0" xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
 
 xsi:schemaLocation=&#8221;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#8221;>
 
@@ -269,7 +269,7 @@ return x + y;
 
 public String getPassword(String username) {
 
-return &#8220;password&#8221;;
+return "password&#8221;;
 
 }
 
@@ -295,7 +295,7 @@ Object around(): serviceAddMethods(){
 
 Object oldValue = proceed();
 
-System.out.println(&#8220;原值是：&#8221; + oldValue);
+System.out.println("原值是：&#8221; + oldValue);
 
 return Integer.MIN_VALUE;
 
@@ -313,7 +313,7 @@ before(): serviceAuthCheckAnnotatedMethods(){
 
 if(1==1){//权限检查代码
 
-throw new IllegalStateException(&#8220;权限不足&#8221;);
+throw new IllegalStateException("权限不足&#8221;);
 
 }
 
@@ -333,7 +333,7 @@ MethodSignature methodSignature = (MethodSignature) thisJoinPoint.getSignature()
 
 Method method = methodSignature.getMethod();
 
-System.out.println(&#8220;[LOG] 方法被调用了: &#8221; + method);
+System.out.println("[LOG] 方法被调用了: &#8221; + method);
 
 }
 

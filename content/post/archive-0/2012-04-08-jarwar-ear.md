@@ -36,7 +36,7 @@ jar <war <ear
 
 JAR: Software developers generally use .jar files to distribute Java applications or libraries, in the form. of classes and associated metadata and resources (text, images, etc.) JAR files build on the ZIP file format.
   
-WAR: In computing, a WAR file (which stands for &#8220;web application archive&#8221; ) is a JAR file used to distribute a collection of JavaServer Pages, servlets, Java classes, XML files, tag libraries and static Web pages (HTML and related files) that together constitute a Web application.
+WAR: In computing, a WAR file (which stands for "web application archive&#8221; ) is a JAR file used to distribute a collection of JavaServer Pages, servlets, Java classes, XML files, tag libraries and static Web pages (HTML and related files) that together constitute a Web application.
   
 EAR: An Enterprise Archive, or EAR, is a file format used by Java EE for packaging one or more modules into a single archive so that the deployment of the various modules onto an application server happens simultaneously and coherently. It also contains XML files called deployment descriptors which describe how to deploy the modules. Maven or Ant can be used to build EAR files.
   
@@ -116,7 +116,7 @@ Now we have a structure that support JavaServer Pages and servlets. And, by the 
 
 Here we can upgrade the structure of the WAR file, and maintain a more complex conglomeration of things. And, the configuration information that a java server (container) would need to run it.
 
-Then someone said, &#8220;Here lets keep the deployment stuff in there, and the application can self-deploy!&#8221;
+Then someone said, "Here lets keep the deployment stuff in there, and the application can self-deploy!&#8221;
 
 technology came along, the need arose to package additional application objects such as JSPs, servlets, and HTML and XML files. Also, Java Web applications require more complex configuration information.
 
@@ -136,7 +136,7 @@ Now we can have Enterprise Java Beans, in the archive as well. Plus, we can stil
 
 No wonder, the java community loves ANT.
 
-&nbsp;
+
 
 <span style="font-family: Calibri;">一、java</span>的打包<span style="font-family: Calibri;">jar,war,ear</span>包的作用，区别，打包方式<span style="font-family: Calibri;">.</span>
 
@@ -164,7 +164,7 @@ No wonder, the java community loves ANT.
 <div align="center">
   <div>
     <div align="left">
-      package test;<br /> public class A{<br /> public static void main(String args[]){<br /> System.out.println(&#8220;test java&#8221;);<br /> }<br /> }
+      package test;<br /> public class A{<br /> public static void main(String args[]){<br /> System.out.println("test java&#8221;);<br /> }<br /> }
     </div>
   </div>
 </div>
@@ -199,7 +199,7 @@ jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当�
 
 方法四：ant
 
-&nbsp;
+
 
 http://www.blogjava.net/junky/archive/2006/05/21/47284.aspx
 

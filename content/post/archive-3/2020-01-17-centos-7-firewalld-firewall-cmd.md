@@ -1,5 +1,5 @@
 ---
-title: 'CentOS 7  firewalld,  firewall-cmd'
+title: 'CentOS firewalld, firewall-cmd'
 author: wiloon
 type: post
 date: 2020-01-17T08:34:39+00:00
@@ -11,12 +11,10 @@ categories:
 ```bash
 # 查看版本
 firewall-cmd --version
-0.3.9
 # 查看状态
 systemctl status firewalld.service
 OR
 firewall-cmd --state
-running
 # 获取启用的zone
 firewall-cmd --get-active-zones
 public

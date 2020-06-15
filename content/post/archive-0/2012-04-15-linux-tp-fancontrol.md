@@ -44,7 +44,7 @@ sudo modprobe -r thinkpad\_acpi && sudo modprobe thinkpad\_acpi
 
 第292行报错, 被我改成了
 
-#echo &#8220;watchdog $WATCHDOG\_DELAY&#8221; > $IBM\_ACPI/fan
+#echo "watchdog $WATCHDOG\_DELAY&#8221; > $IBM\_ACPI/fan
   
 echo watchdog $WATCHDOG\_DELAY | sudo tee $IBM\_ACPI/fan
 

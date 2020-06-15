@@ -317,11 +317,11 @@ tags:
   </p>
   
   <p>
-    1. XDM<br /> 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行：<br /> 代码: ttyv8 &#8220;/usr/X11R6/bin/xdm -nodaemon&#8221; xterm off secure 中的off改为on。<br /> 代码: ttyv8 &#8220;/usr/X11R6/bin/xdm -nodaemon&#8221; xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。<br /> XDM确实够丑的，相信没有人想多看两眼的。裁判，换人！
+    1. XDM<br /> 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行：<br /> 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm off secure 中的off改为on。<br /> 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。<br /> XDM确实够丑的，相信没有人想多看两眼的。裁判，换人！
   </p>
   
   <p>
-    2. KDM<br /> 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为：<br /> 代码: ttyv8 &#8220;/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件“/usr/X11R6/lib/X11/xdm/Xsession”。把中间的这段文字，
+    2. KDM<br /> 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为：<br /> 代码: ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件“/usr/X11R6/lib/X11/xdm/Xsession”。把中间的这段文字，
   </p>
   
   <div id="">
@@ -529,11 +529,11 @@ tags:
   </div>
   
   <p>
-    第五点，现在该给老三让位了。用gdm替换kdm，这又要改“/etc/ttys”中的<br /> ttyv8 &#8220;/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 为：<br /> ttyv8 &#8220;/usr/X11R6/bin/gdm -nodaemon&#8221; xterm on secure<br /> 做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。<br /> 辛劳的工作，由漂亮的DM开始，心情真好！
+    第五点，现在该给老三让位了。用gdm替换kdm，这又要改“/etc/ttys”中的<br /> ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 为：<br /> ttyv8 "/usr/X11R6/bin/gdm -nodaemon&#8221; xterm on secure<br /> 做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。<br /> 辛劳的工作，由漂亮的DM开始，心情真好！
   </p>
 </div>
 
-&nbsp;
+
 
 <div id="bottoms">
 </div>

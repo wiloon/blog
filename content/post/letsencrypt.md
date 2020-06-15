@@ -1,7 +1,7 @@
 +++
 author = "w1100n"
 date = 2020-06-04T08:55:49Z
-title = "letsencrypt"
+title = "encletsrypt"
 
 +++
 **acme.sh** 实现了 `acme` 协议, 可以从 letsencrypt 生成免费的证书.

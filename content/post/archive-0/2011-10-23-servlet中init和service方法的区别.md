@@ -80,13 +80,13 @@ GetServletConfig()方法返回一个 ServletConfig 对象，该对象用来返�
 
 GetServletInfo()方法是一个可选的方法，它提供有关servlet 的信息，如作者、版本、版权。
 
-当服务器调用sevlet 的Service()、doGet()和doPost()这三个方法时，均需要 &#8220;请求&#8221;和&#8221;响应&#8221;对象作为参数。&#8221;请求&#8221;对象提供有关请求的信息，而&#8221;响应&#8221;对象提供了一个将响应信息返回给浏览器的一个通信途径。
+当服务器调用sevlet 的Service()、doGet()和doPost()这三个方法时，均需要 "请求&#8221;和&#8221;响应&#8221;对象作为参数。&#8221;请求&#8221;对象提供有关请求的信息，而&#8221;响应&#8221;对象提供了一个将响应信息返回给浏览器的一个通信途径。
 
 javax.servlet 软件包中的相关类为ServletResponse和ServletRequest，而javax.servlet.http 软件包中的相关类为HttpServletRequest 和 HttpServletResponse。
 
 Servlet 通过这些对象与服务器通信并最终与客户机通信。Servlet 能通过调用&#8221;请求&#8221;对象的方法获知客户机环境，服务器环境的信息和所有由客户机提供的信息。Servlet 可以调用&#8221;响应&#8221;对象的方法发送响应，该响应是准备发回客户机的。
 
-&nbsp;
+
   
 log4j-init
   
@@ -94,8 +94,8 @@ com.neusoft.ehr.common.Log4jInit
 
 log4j-init-file /WEB-INF/classes/property/log4j.properties
 
-&nbsp;
 
-&nbsp;
+
+
 
 <http://hi.baidu.com/abo123456789/blog/item/f9d0721179fb9af0c2ce7936.html>

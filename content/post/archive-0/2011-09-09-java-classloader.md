@@ -22,7 +22,7 @@ JDK 默认提供了如下几种ClassLoader
 
 **Bootstrap Class Loader,引导类装载器**
   
-虚拟机的内置类加载器（称为 &#8220;bootstrap class loader&#8221;）本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。
+虚拟机的内置类加载器（称为 "bootstrap class loader&#8221;）本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。
   
 Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA\_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA\_HOME%/jre/classes中的类。
   
@@ -194,9 +194,9 @@ Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比�
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
-&nbsp;
 
-&nbsp;
+
+
 
 http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1
 
@@ -226,7 +226,7 @@ So when are classes loaded? There are exactly two cases: when the new bytecode i
 
 A non-primordial class loader
   
-&#8220;So what?&#8221; you might ask.
+"So what?&#8221; you might ask.
 
 The Java virtual machine has hooks in it to allow a user-defined class loader to be used in place of the primordial one. Furthermore, since the user class loader gets first crack at the class name, the user is able to implement any number of interesting class repositories, not the least of which is HTTP servers &#8212; which got Java off the ground in the first place.
 
@@ -242,7 +242,7 @@ Verify class name.
   
 Check to see if the class requested has already been loaded.
   
-Check to see if the class is a &#8220;system&#8221; class.
+Check to see if the class is a "system&#8221; class.
   
 Attempt to fetch the class from this class loader&#8217;s repository.
   
@@ -318,7 +318,7 @@ throw new ClassNotFoundException();
   
 [/java]
 
-After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory &#8220;store&#8221; to the class name and appends the extension &#8220;.impl&#8221;. I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
+After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory "store&#8221; to the class name and appends the extension ".impl&#8221;. I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
 
 http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html
 

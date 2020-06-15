@@ -38,7 +38,7 @@ C++代码 收藏代码
   
 inline const char* PSOldGen::select_name() {
     
-return UseParallelOldGC ? &#8220;ParOldGen&#8221; : &#8220;PSOldGen&#8221;;
+return UseParallelOldGC ? "ParOldGen&#8221; : "PSOldGen&#8221;;
   
 }
 

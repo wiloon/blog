@@ -32,7 +32,7 @@ categories:
       </p>
       
       <p>
-        <wbr> <wbr> <wbr> <wbr> 而hibernate悲观锁的具体实现如下：<br /> <wbr> <wbr> <wbr> <wbr> String sql=&#8221;查询语句&#8221;;<br /> <wbr> <wbr> <wbr> <wbr> Query query=session.createQuery(sql);<br /> <wbr> <wbr> <wbr> <wbr> query.setLockMode(&#8220;对象&#8221;，LockModel.UPGRADE);
+        <wbr> <wbr> <wbr> <wbr> 而hibernate悲观锁的具体实现如下：<br /> <wbr> <wbr> <wbr> <wbr> String sql=&#8221;查询语句&#8221;;<br /> <wbr> <wbr> <wbr> <wbr> Query query=session.createQuery(sql);<br /> <wbr> <wbr> <wbr> <wbr> query.setLockMode("对象&#8221;，LockModel.UPGRADE);
       </p>
       
       <p>

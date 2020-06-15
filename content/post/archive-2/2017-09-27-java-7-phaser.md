@@ -108,7 +108,7 @@ Line 29: 任务列表当作参数传递给 runTasks 方法
 
 runTasks 方法实际使用了一个 Phaser 用于同步任务，使得每个任务在并行执行之前必须先到达屏障(Barrier)。列表中的任务执行了两次，执行情况如下图所示：
 
-注意: &#8220;party&#8221; 是 Phaser 中的一个术语，相当于是线程的意思，当一个 party 到达，就是线程到达意思就是线程到了同步的屏障(Barrier)。
+注意: "party&#8221; 是 Phaser 中的一个术语，相当于是线程的意思，当一个 party 到达，就是线程到达意思就是线程到了同步的屏障(Barrier)。
   
 Line 35: create a Phaser that has one registered party (this means: at this time phaser expects one thread=party to arrive before it can start the execution cycle)
   

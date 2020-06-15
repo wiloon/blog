@@ -19,7 +19,7 @@ download HBase 0.94.14
 
 http://mirrors.cnnic.cn/apache/hbase/stable/hbase-0.98.9-hadoop2-bin.tar.gz
 
-&nbsp;
+
 
 config java_home in .bashrc
 
@@ -90,7 +90,7 @@ http://hbase.apache.org/cygwin.html</pre>
 
 start HBase
 
-&nbsp;
+
 
 http://wiki.apache.org/nutch/NutchTutorial
 

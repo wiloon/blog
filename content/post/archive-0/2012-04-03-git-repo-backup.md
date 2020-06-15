@@ -30,7 +30,7 @@ $ git tag -f lastbundle HEAD
 
 $ git bundle create newbundle HEAD ^lastbundle
 
-&nbsp;
+
 
 <http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/ch06.html>
 

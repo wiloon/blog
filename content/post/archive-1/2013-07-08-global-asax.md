@@ -16,7 +16,7 @@ protected void Application_BeginRequest(Object sender, EventArgs e)
   
 {
   
-Application[&#8220;StartTime&#8221;] = System.DateTime.Now;
+Application["StartTime&#8221;] = System.DateTime.Now;
   
 }
 
@@ -26,13 +26,13 @@ private void Page_Load(object sender, System.EventArgs e)
   
 {
   
-System.DateTime startTime = (System.DateTime)Application[&#8220;StartTime&#8221;];
+System.DateTime startTime = (System.DateTime)Application["StartTime&#8221;];
   
 System.DateTime endTime = System.DateTime.Now;
   
 System.TimeSpan ts = endTime &#8211; startTime;
   
-Response.Write(&#8220;页面执行时间:&#8221;+ ts.Milliseconds +&#8221; 毫秒&#8221;);
+Response.Write("页面执行时间:&#8221;+ ts.Milliseconds +&#8221; 毫秒&#8221;);
   
 }
 

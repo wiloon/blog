@@ -30,79 +30,79 @@ setup模块用于收集远程主机的一些基本信息。
   
 211.127.129.182 | success >> {
       
-&#8220;ansible_facts&#8221;: {
+"ansible_facts&#8221;: {
           
-&#8220;ansible\_all\_ipv4_addresses&#8221;: [
+"ansible\_all\_ipv4_addresses&#8221;: [
               
-&#8220;211.127.129.182&#8221;
+"211.127.129.182&#8221;
           
 ],
           
-&#8220;ansible\_all\_ipv6_addresses&#8221;: [],
+"ansible\_all\_ipv6_addresses&#8221;: [],
           
-&#8220;ansible\_architecture&#8221;: &#8220;x86\_64&#8221;,
+"ansible\_architecture&#8221;: "x86\_64&#8221;,
           
-&#8220;ansible\_bios\_date&#8221;: &#8220;09/21/2014&#8221;,
+"ansible\_bios\_date&#8221;: "09/21/2014&#8221;,
           
-&#8220;ansible\_bios\_version&#8221;: &#8220;6.00&#8221;,
+"ansible\_bios\_version&#8221;: "6.00&#8221;,
           
-&#8220;ansible_cmdline&#8221;: {
+"ansible_cmdline&#8221;: {
               
-&#8220;KEYBOARDTYPE&#8221;: &#8220;pc&#8221;,
+"KEYBOARDTYPE&#8221;: "pc&#8221;,
               
-&#8220;KEYTABLE&#8221;: &#8220;us&#8221;,
+"KEYTABLE&#8221;: "us&#8221;,
               
-&#8220;LANG&#8221;: &#8220;en_US.UTF-8&#8221;,
+"LANG&#8221;: "en_US.UTF-8&#8221;,
   
 OUTPUT OMITTED.
   
 因显示篇幅过长，这列只列举一些常用项目
 
-&#8220;ansible\_all\_ipv4_addresses&#8221;: [
+"ansible\_all\_ipv4_addresses&#8221;: [
               
-&#8220;211.97.148.137&#8221;,
+"211.97.148.137&#8221;,
               
-&#8220;10.6.7.24&#8221;
+"10.6.7.24&#8221;
           
 ],
   
 #@这里列出了所有IPv4地址
   
-&#8220;ansible\_architecture&#8221;: &#8220;x86\_64&#8221;,
+"ansible\_architecture&#8221;: "x86\_64&#8221;,
   
 #@操作系统架构
   
-&#8220;ansible_distribution&#8221;: &#8220;RedHat&#8221;,
+"ansible_distribution&#8221;: "RedHat&#8221;,
   
-&#8220;ansible\_distribution\_major_version&#8221;: &#8220;5&#8221;,
+"ansible\_distribution\_major_version&#8221;: "5&#8221;,
   
-&#8220;ansible\_distribution\_release&#8221;: &#8220;Tikanga&#8221;,
+"ansible\_distribution\_release&#8221;: "Tikanga&#8221;,
   
-&#8220;ansible\_distribution\_version&#8221;: &#8220;5.8&#8221;,
+"ansible\_distribution\_version&#8221;: "5.8&#8221;,
   
 #@操作系统版本信息
   
-&#8220;ansible_eth0&#8221;: {
+"ansible_eth0&#8221;: {
               
-&#8220;active&#8221;: true,
+"active&#8221;: true,
               
-&#8220;device&#8221;: &#8220;eth0&#8221;,
+"device&#8221;: "eth0&#8221;,
               
-&#8220;ipv4&#8221;: {
+"ipv4&#8221;: {
                   
-&#8220;address&#8221;: &#8220;10.6.7.24&#8221;,
+"address&#8221;: "10.6.7.24&#8221;,
                   
-&#8220;netmask&#8221;: &#8220;255.255.255.0&#8221;,
+"netmask&#8221;: "255.255.255.0&#8221;,
                   
-&#8220;network&#8221;: &#8220;10.6.7.0&#8221;
+"network&#8221;: "10.6.7.0&#8221;
               
 },
               
-&#8220;macaddress&#8221;: &#8220;52:54:00:89:ba:15&#8221;,
+"macaddress&#8221;: "52:54:00:89:ba:15&#8221;,
   
 #@网卡eth0的信息
   
-&#8220;ansible_kernel&#8221;: &#8220;2.6.18-308.el5&#8221;,
+"ansible_kernel&#8221;: "2.6.18-308.el5&#8221;,
   
 #@内核版本
   
@@ -114,25 +114,25 @@ OUTPUT OMITTED.
 
 所以我们收集了两个操作系统相关的参数如下：
 
-&#8220;ansible_distribution&#8221;: &#8220;RedHat&#8221;,
+"ansible_distribution&#8221;: "RedHat&#8221;,
   
-&#8220;ansible\_distribution\_major_version&#8221;: &#8220;5&#8221;,
+"ansible\_distribution\_major_version&#8221;: "5&#8221;,
   
-&#8220;ansible\_distribution\_release&#8221;: &#8220;Tikanga&#8221;,
+"ansible\_distribution\_release&#8221;: "Tikanga&#8221;,
   
-&#8220;ansible\_distribution\_version&#8221;: &#8220;5.8&#8221;,
+"ansible\_distribution\_version&#8221;: "5.8&#8221;,
   
-&#8220;ansible\_os\_family&#8221;: &#8220;RedHat&#8221;,
+"ansible\_os\_family&#8221;: "RedHat&#8221;,
   
-&#8220;ansible_distribution&#8221;: &#8220;CentOS&#8221;,
+"ansible_distribution&#8221;: "CentOS&#8221;,
   
-&#8220;ansible\_distribution\_major_version&#8221;: &#8220;6&#8221;,
+"ansible\_distribution\_major_version&#8221;: "6&#8221;,
   
-&#8220;ansible\_distribution\_release&#8221;: &#8220;Final&#8221;,
+"ansible\_distribution\_release&#8221;: "Final&#8221;,
   
-&#8220;ansible\_distribution\_version&#8221;: &#8220;6.4&#8221;,
+"ansible\_distribution\_version&#8221;: "6.4&#8221;,
   
-&#8220;ansible\_os\_family&#8221;: &#8220;RedHat&#8221;,
+"ansible\_os\_family&#8221;: "RedHat&#8221;,
   
 接下来我们就可以编写playbook
 
@@ -151,20 +151,20 @@ OUTPUT OMITTED.
   
         lineinfile: dest=/etc/rsyslog.conf line=&#8221;_._ @{{ logserver }}&#8221;
   
-        when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == &#8220;6&#8221;
+        when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == "6&#8221;
       * name: restart syslog @CentOS6
   
-        when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == &#8220;6&#8221;
+        when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == "6&#8221;
   
         service: name=rsyslog state=restarted
       * name: add conf to config files to RedHat 5
   
         lineinfile: dest=/etc/syslog.conf line=&#8221;_._ @{{ logserver }}&#8221;
   
-        when: ansible\_distribution == &#8216;RedHat&#8217; and ansible\_distribution\_major\_version == &#8220;5&#8221;
+        when: ansible\_distribution == &#8216;RedHat&#8217; and ansible\_distribution\_major\_version == "5&#8221;
       * name: restart syslog @RedHat 5
   
-        when: ansible\_distribution == &#8216;RedHat&#8217; and ansible\_distribution\_major\_version == &#8220;5&#8221;
+        when: ansible\_distribution == &#8216;RedHat&#8217; and ansible\_distribution\_major\_version == "5&#8221;
   
         service: name=syslog state=restarted
   
@@ -180,7 +180,7 @@ OUTPUT OMITTED.
 
   * name: restart syslog @CentOS6
   
-    when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == &#8220;6&#8221;
+    when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == "6&#8221;
   
     lineinfile: dest=/etc/rsyslog.conf line=&#8221;_._ @{{ logserver }}&#8221;
   

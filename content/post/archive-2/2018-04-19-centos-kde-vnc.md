@@ -22,7 +22,7 @@ yum grouplist
   
 如果系统有“KDE Plasma Workspaces”，说明可以安装KDE图形化界面，然后执行一键安装命令：
   
-yum groupinstall &#8220;KDE Plasma Workspaces&#8221;
+yum groupinstall "KDE Plasma Workspaces&#8221;
   
 直到安装完成。
 
@@ -54,7 +54,7 @@ Type=forking &#8211;》 需要改为simple才会启动成功
 
 ExecStartPre=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
   
-ExecStart=/sbin/runuser -l 改为root不带括号 -c &#8220;/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
+ExecStart=/sbin/runuser -l 改为root不带括号 -c "/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
   
 PIDFile=/home/改为root不带括号/.vnc/%H%i.pid
   
@@ -70,7 +70,7 @@ Type=simple
 
 ExecStartPre=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
   
-ExecStart=/sbin/runuser -l root -c &#8220;/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
+ExecStart=/sbin/runuser -l root -c "/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
   
 PIDFile=/home/root/.vnc/%H%i.pid
   

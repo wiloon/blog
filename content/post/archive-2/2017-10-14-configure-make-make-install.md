@@ -98,7 +98,7 @@ cc和gcc又是什么？我在rh7.3用./configure时，它老说我没有cc，无
   
 cc是gcc的连接.gcc是编译器.你安装的时候大概是没有选择开发工具.你自己到光盘上找一下gcc* 吧.装上就行了.
   
-或者yum -y groupinstall &#8220;Development Tools&#8221; 自动安装基本开发工具
+或者yum -y groupinstall "Development Tools&#8221; 自动安装基本开发工具
   
 CC是makefile里用来定义编译器的,是为了方便代码移植而设定,因为不同的平台可能用到不同的编译器
   

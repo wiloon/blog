@@ -14,7 +14,7 @@ Posted on 2012-05-24 12:27 CN.programmer.Luxh 阅读(7217) 评论(0) 编辑 收�
   
 persistence.xml文件必须定义在classpath路径下的META-INF文件夹中。
 
-&nbsp;
+
 
 我们看看基于Hibernate提供的一个比较完整的JPA2.0的persistence.xml文件。
 
@@ -22,9 +22,9 @@ persistence.xml:
 
 复制代码
   
-1 <?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?>
+1 <?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
   
-2 <persistence version=&#8221;2.0&#8243; xmlns=&#8221;http://java.sun.com/xml/ns/persistence&#8221;
+2 <persistence version=&#8221;2.0" xmlns=&#8221;http://java.sun.com/xml/ns/persistence&#8221;
   
 3 xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
   
@@ -90,11 +90,11 @@ persistence.xml:
   
 34 <!&#8211;配置数据库url &#8211;>
   
-35 <property name=&#8221;hibernate.connection.url&#8221; value=&#8221;jdbc:mysql://localhost:3306/jpa?useUnicode=true&characterEncoding=UTF-8&#8243; />
+35 <property name=&#8221;hibernate.connection.url&#8221; value=&#8221;jdbc:mysql://localhost:3306/jpa?useUnicode=true&characterEncoding=UTF-8" />
   
 36 <!&#8211;设置外连接抓取树的最大深度 &#8211;>
   
-37 <property name=&#8221;hibernate.max\_fetch\_depth&#8221; value=&#8221;3&#8243; />
+37 <property name=&#8221;hibernate.max\_fetch\_depth&#8221; value=&#8221;3" />
   
 38 <!&#8211;自动输出schema创建DDL语句 &#8211;>
   
@@ -116,7 +116,7 @@ xsi:schemaLocation=&#8221;http://java.sun.com/xml/ns/persistence http://java.sun
 
 name
 
-JPA2.0规范要求每一个持久化单元必须有一个名字，不能为空。即persistence-unit name=&#8221;manager1&#8243;的name不能为空。
+JPA2.0规范要求每一个持久化单元必须有一个名字，不能为空。即persistence-unit name=&#8221;manager1"的name不能为空。
 
 transaction-type
 

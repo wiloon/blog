@@ -90,6 +90,6 @@ verbosely list files processed
   
 -f, &#8211;file [HOSTNAME:]F
                 
-use archive file or device F (default &#8220;-&#8220;, meaning stdin/stdout)
+use archive file or device F (default "-", meaning stdin/stdout)
   
 -j, &#8211;bzip2

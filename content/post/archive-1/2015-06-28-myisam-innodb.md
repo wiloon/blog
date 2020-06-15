@@ -561,11 +561,11 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
   4. Merge：允许MySQL DBA或开发人员将一系列等同的MyISAM表以逻辑方式组合在一起，并作为1个对象引用它们。对于诸如数据仓储等VLDB环境十分适合。
   5. 
 
-&nbsp;
 
-&nbsp;
 
-&nbsp;
+
+
+
 
 建表的时候会选择数据库引擎，常用的有MyISAM和InnoDB，到底选哪个呢？
 
@@ -712,7 +712,7 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
 
 InnoDB的设计目标是处理大容量数据库系统，它的CPU利用率是其它基于磁盘的关系数据库引擎所不能比的。
 
-&nbsp;
+
 
 http://boweihe.me/?p=1500
 

@@ -166,7 +166,7 @@ select now() from dual;
 
 set password
 
-SET PASSWORD FOR wordpressuser@localhost= PASSWORD(&#8220;password&#8221;);
+SET PASSWORD FOR wordpressuser@localhost= PASSWORD("password&#8221;);
   
 #注意后面这句话 “COLLATE utf8\_general\_ci”,大致意思是在排序时根据utf8变码格式来排序
 

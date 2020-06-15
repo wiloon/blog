@@ -14,21 +14,21 @@ http://www.cnblogs.com/ganzhijie/archive/2010/08/21/1805573.html
 
 Android permission 访问权限大全
 
-&nbsp;
+
 
 <manifest xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
   
 package=&#8221;com.example.testbutton&#8221;
   
-android:versionCode=&#8221;1&#8243;
+android:versionCode=&#8221;1"
   
-android:versionName=&#8221;1.0&#8243; >
+android:versionName=&#8221;1.0" >
 
 <uses-sdk
   
-android:minSdkVersion=&#8221;7&#8243;
+android:minSdkVersion=&#8221;7"
   
-android:targetSdkVersion=&#8221;15&#8243; />
+android:targetSdkVersion=&#8221;15" />
   
 <!&#8211; 声明权限 &#8211;>
   
@@ -42,9 +42,9 @@ android:label=&#8221;@string/app_name&#8221;
 
 &#8230;&#8230;
 
-&nbsp;
 
-&nbsp;
+
+
 
 程序执行需要读取到安全敏感项必需在androidmanifest.xml中声明相关权限请求, 完整列表如下:
 

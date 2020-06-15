@@ -18,17 +18,17 @@ categories:
   
 ###NewBufferString
   
-还可以用bytes.NewBufferString(&#8220;hello&#8221;)来建立一个内容是hello的缓冲器
+还可以用bytes.NewBufferString("hello&#8221;)来建立一个内容是hello的缓冲器
 
-buf1:=bytes.NewBufferString(&#8220;hello&#8221;)
+buf1:=bytes.NewBufferString("hello&#8221;)
   
-buf2:=bytes.NewBuffer([]byte(&#8220;hello&#8221;))
+buf2:=bytes.NewBuffer([]byte("hello&#8221;))
   
-buf3:=bytes.NewBuffer([]byte{&#8220;h&#8221;,&#8221;e&#8221;,&#8221;l&#8221;,&#8221;l&#8221;,&#8221;o&#8221;})
+buf3:=bytes.NewBuffer([]byte{"h&#8221;,&#8221;e&#8221;,&#8221;l&#8221;,&#8221;l&#8221;,&#8221;o&#8221;})
   
 以上三者等效
   
-buf4:=bytes.NewBufferString(&#8220;&#8221;)
+buf4:=bytes.NewBufferString("&#8221;)
   
 buf5:=bytes.NewBuffer([]byte{})
   

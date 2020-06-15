@@ -36,7 +36,7 @@ Edit standalone.xml ([jboss installation]/standalone/configuration/standalone.xm
 
 Add datasource definitions to the datasources subsystem element (change JDBC connection information as appropriate for your environment)
 
-<subsystem xmlns=&#8221;urn:jboss:domain:datasources:1.0&#8243;>
+<subsystem xmlns=&#8221;urn:jboss:domain:datasources:1.0">
 
 <datasources>
 
@@ -98,7 +98,7 @@ Edit standalone.xml
 
 Add a driver definition to the datasources subsystem element
 
-<subsystem xmlns=&#8221;urn:jboss:domain:datasources:1.0&#8243;>
+<subsystem xmlns=&#8221;urn:jboss:domain:datasources:1.0">
 
 <datasources>
 
@@ -124,13 +124,13 @@ Install the driver jar file
 
 Create a new directory structure for your driver in your JBoss installation ([jboss installation]/modules/com/mysql/jdbc/main)
 
-Copy your JDBC driver jar into the &#8220;main&#8221; directory you just created
+Copy your JDBC driver jar into the "main&#8221; directory you just created
 
-Create a module.xml file in the &#8220;main&#8221; directory. Here are its contents:
+Create a module.xml file in the "main&#8221; directory. Here are its contents:
 
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?>
+<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
 
-<module xmlns=&#8221;urn:jboss:module:1.0&#8243; name=&#8221;com.mysql.jdbc&#8221;>
+<module xmlns=&#8221;urn:jboss:module:1.0" name=&#8221;com.mysql.jdbc&#8221;>
 
 <resources>
 
@@ -162,11 +162,11 @@ Edit standalone.xml
 
 Add a secure connector to the web subsystem element
 
-<subsystem xmlns=&#8221;urn:jboss:domain:web:1.1&#8243; native=&#8221;false&#8221; default-virtual-server=&#8221;default-host&#8221;>
+<subsystem xmlns=&#8221;urn:jboss:domain:web:1.1" native=&#8221;false&#8221; default-virtual-server=&#8221;default-host&#8221;>
 
 &#8230;
 
-<connector name=&#8221;https&#8221; protocol=&#8221;HTTP/1.1&#8243; scheme=&#8221;https&#8221; socket-binding=&#8221;https&#8221; secure=&#8221;true&#8221;>
+<connector name=&#8221;https&#8221; protocol=&#8221;HTTP/1.1" scheme=&#8221;https&#8221; socket-binding=&#8221;https&#8221; secure=&#8221;true&#8221;>
 
 <ssl name=&#8221;https&#8221; password=&#8221;broadleaf&#8221; certificate-key-file=&#8221;../standalone/configuration/blc-example.keystore&#8221;/>
 
@@ -220,7 +220,7 @@ Create a file called jboss-deployment-structure.xml at
 
 The contents of the file are:
 
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?>
+<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
 
 <jboss-deployment-structure>
 
@@ -294,7 +294,7 @@ WARN \[org.jboss.as.ee\] (MSC service thread 1-1) JBAS011006: Not installing opt
 
 This warning is innocuous and can be ignored. This will likely be resolved in a future version of the Spring framework.
 
-&nbsp;
+
 
 Jboss side change  in standlone.xml
 

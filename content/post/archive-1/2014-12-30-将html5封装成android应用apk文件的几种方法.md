@@ -18,9 +18,9 @@ http://mobile.51cto.com/android-386448.htm
   
 2.调用WebView的loadUrl()方法，设置WevView要显示的网页：
   
-互联网用：webView.loadUrl(&#8220;http://www.31358.com&#8221;);
+互联网用：webView.loadUrl("http://www.31358.com&#8221;);
   
-本地文件用：webView.loadUrl(&#8220;file:///android_asset/XX.html&#8221;); 本地文件存放在：assets 文件中
+本地文件用：webView.loadUrl("file:///android_asset/XX.html&#8221;); 本地文件存放在：assets 文件中
   
 3.调用Activity的setContentView( )方法来显示网页视图
   
@@ -66,7 +66,7 @@ webview.getSettings().setJavaScriptEnabled(true);
   
 //加载需要显示的网页
   
-webview.loadUrl(&#8220;http://www.31358.cn/&#8221;);
+webview.loadUrl("http://www.31358.cn/&#8221;);
   
 //设置Web视图
   
@@ -96,17 +96,17 @@ return false;
   
 在AndroidManifest.xml文件中添加权限
 
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?>
+<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
   
 <manifest xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
   
 package=&#8221;com.android.webview.activity&#8221;
   
-android:versionCode=&#8221;1&#8243;
+android:versionCode=&#8221;1"
   
-android:versionName=&#8221;1.0&#8243;>
+android:versionName=&#8221;1.0">
   
-<uses-sdk android:minSdkVersion=&#8221;10&#8243; />
+<uses-sdk android:minSdkVersion=&#8221;10" />
   
 <application android:icon=&#8221;@drawable/icon&#8221; android:label=&#8221;@string/app_name&#8221;>
   

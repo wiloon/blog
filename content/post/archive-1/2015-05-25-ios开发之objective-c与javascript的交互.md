@@ -160,7 +160,7 @@ _counter = 0 ;
   
 status = pthread\_mutex\_unlock(_mutex) ;
   
-assert_status(status == 0, status, &#8220;invariant&#8221;) ;
+assert_status(status == 0, status, "invariant&#8221;) ;
   
 OrderAccess::fence();
   
@@ -172,7 +172,7 @@ int s, status ;
     
 status = pthread\_mutex\_lock(_mutex);
     
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant&#8221;) ;
     
 s = _counter;
     
@@ -184,21 +184,21 @@ if (WorkAroundNPTLTimedWaitHang) {
           
 status = pthread\_cond\_signal (_cond) ;
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant&#8221;) ;
           
 status = pthread\_mutex\_unlock(_mutex);
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant&#8221;) ;
        
 } else {
           
 status = pthread\_mutex\_unlock(_mutex);
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant&#8221;) ;
           
 status = pthread\_cond\_signal (_cond) ;
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant&#8221;) ;
        
 }
     
@@ -206,7 +206,7 @@ assert (status == 0, &#8220;invariant&#8221;) ;
       
 pthread\_mutex\_unlock(_mutex);
       
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant&#8221;) ;
     
 }
   
@@ -262,7 +262,7 @@ Parker * volatile Parker::FreeList = NULL ;
 
 Parker \* Parker::Allocate (JavaThread \* t) {
     
-guarantee (t != NULL, &#8220;invariant&#8221;) ;
+guarantee (t != NULL, "invariant&#8221;) ;
     
 Parker * p ;
 
@@ -315,7 +315,7 @@ continue ;
 
 if (p != NULL) {
       
-guarantee (p->AssociatedWith == NULL, &#8220;invariant&#8221;) ;
+guarantee (p->AssociatedWith == NULL, "invariant&#8221;) ;
     
 } else {
       
@@ -361,9 +361,9 @@ void Parker::Release (Parker * p) {
     
 if (p == NULL) return ;
     
-guarantee (p->AssociatedWith != NULL, &#8220;invariant&#8221;) ;
+guarantee (p->AssociatedWith != NULL, "invariant&#8221;) ;
     
-guarantee (p->FreeNext == NULL , &#8220;invariant&#8221;) ;
+guarantee (p->FreeNext == NULL , "invariant&#8221;) ;
     
 p->AssociatedWith = NULL ;
     

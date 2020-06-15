@@ -24,4 +24,3 @@ System.in.read();
 
 [/shell]
 
-&nbsp;

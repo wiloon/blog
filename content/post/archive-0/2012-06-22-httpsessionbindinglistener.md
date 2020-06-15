@@ -41,9 +41,9 @@ public   class   SessionListener   implements   HttpSessionBindingListener
   
 {
 
-public   String   privateInfo= &#8221; &#8220;;                 //生成监听器的初始化参数字符串
+public   String   privateInfo= &#8221; ";                 //生成监听器的初始化参数字符串
   
-private   String   logString= &#8221; &#8220;;                 //日志记录字符串
+private   String   logString= &#8221; ";                 //日志记录字符串
   
 private   int   count=0;                 //登录人数计数器
 
@@ -65,7 +65,7 @@ public   void   valueBound(HttpSessionBindingEvent   event)
   
 count++;
   
-if   (privateInfo.equals( &#8220;count &#8220;))
+if   (privateInfo.equals( "count "))
   
 {
   
@@ -77,13 +77,13 @@ try{
   
 Calendar   calendar=new   GregorianCalendar();
   
-System.out.println( &#8220;LOGIN: &#8220;+privateInfo+ &#8221;   TIME: &#8220;+calendar.getTime());
+System.out.println( "LOGIN: "+privateInfo+ &#8221;   TIME: "+calendar.getTime());
   
-logString= &#8220;nLOGIN: &#8220;+privateInfo+ &#8221;   TIME: &#8220;+calendar.getTime()+ &#8220;n &#8220;;
+logString= "nLOGIN: "+privateInfo+ &#8221;   TIME: "+calendar.getTime()+ "n ";
   
 for(int   i=1;i <1000;i++){
   
-File   file=new   File( &#8220;yeeyoo.log &#8220;+i);
+File   file=new   File( "yeeyoo.log "+i);
   
 if(!(file.exists()))
   
@@ -93,7 +93,7 @@ if(file.length()> 1048576)   //如果文件大于1M，重新创建一个文件
   
 continue;
   
-FileOutputStream   foo=new   FileOutputStream( &#8220;yeeyoo.log &#8220;+i,true);//以append方式打开创建文件
+FileOutputStream   foo=new   FileOutputStream( "yeeyoo.log "+i,true);//以append方式打开创建文件
   
 foo.write(logString.getBytes(),0,logString.length());   //写入日志字符串
   
@@ -115,7 +115,7 @@ public   void   valueUnbound(HttpSessionBindingEvent   event)
   
 count&#8211;;
   
-if   (privateInfo.equals( &#8220;count &#8220;))
+if   (privateInfo.equals( "count "))
   
 {
   
@@ -127,13 +127,13 @@ try{
   
 Calendar   calendar=new   GregorianCalendar();
   
-System.out.println( &#8220;LOGOUT: &#8220;+privateInfo+ &#8221;   TIME: &#8220;+calendar.getTime());
+System.out.println( "LOGOUT: "+privateInfo+ &#8221;   TIME: "+calendar.getTime());
   
-logString= &#8220;nLOGOUT: &#8220;+privateInfo+ &#8221;   TIME: &#8220;+calendar.getTime()+ &#8220;n &#8220;;
+logString= "nLOGOUT: "+privateInfo+ &#8221;   TIME: "+calendar.getTime()+ "n ";
   
 for(int   i=1;i <1000;i++){
   
-File   file=new   File( &#8220;yeeyoo.log &#8220;+i);
+File   file=new   File( "yeeyoo.log "+i);
   
 if(!(file.exists()))
   
@@ -143,7 +143,7 @@ if(file.length()> 1048576)   //如果文件大于1M，重新创建一个文件
   
 continue;
   
-FileOutputStream   foo=new   FileOutputStream( &#8220;yeeyoo.log &#8220;+i,true);//以append方式打开创建文件
+FileOutputStream   foo=new   FileOutputStream( "yeeyoo.log "+i,true);//以append方式打开创建文件
   
 foo.write(logString.getBytes(),0,logString.length());   //写入日志字符串
   
@@ -173,9 +173,9 @@ HttpSession   session   =   req.getSession   (true);
   
 ///////////////////////////////////////////////////////////////////////
   
-SessionListener   sessionListener=new   SessionListener( &#8221;   IP: &#8220;+req.getRemoteAddr());     //对于每一个会话过程均启动一个监听器
+SessionListener   sessionListener=new   SessionListener( &#8221;   IP: "+req.getRemoteAddr());     //对于每一个会话过程均启动一个监听器
   
-session.setAttribute( &#8220;listener &#8220;,sessionListener);     //将监听器植入HttpSession，这将激发监听器调用valueBound方法，从而记录日志文件。
+session.setAttribute( "listener ",sessionListener);     //将监听器植入HttpSession，这将激发监听器调用valueBound方法，从而记录日志文件。
   
 ///////////////////////////////////////////////////////////////////////
   
@@ -185,20 +185,20 @@ session.setAttribute( &#8220;listener &#8220;,sessionListener);     //将监�
   
 ServletContext   session1=getServletConfig().getServletContext();//取得ServletContext对象实例
   
-if((SessionListener)session1.getAttribute( &#8220;listener1 &#8220;)==null)
+if((SessionListener)session1.getAttribute( "listener1 ")==null)
   
 {
   
-SessionListener   sessionListener1=new   SessionListener( &#8220;count &#8220;);//只设置一次，不同于上面日志文件的记录每次会话均设置。即当第一个客户连接到服务器时启动一个全局变量，此后所有的客户将使用相同的上下文。
+SessionListener   sessionListener1=new   SessionListener( "count ");//只设置一次，不同于上面日志文件的记录每次会话均设置。即当第一个客户连接到服务器时启动一个全局变量，此后所有的客户将使用相同的上下文。
   
-session1.setAttribute( &#8220;listener1 &#8220;,sessionListener1);//将监听器对象设置成ServletContext的属性，具有全局范围有效性，即所有的客户均可以取得它的实例。
+session1.setAttribute( "listener1 ",sessionListener1);//将监听器对象设置成ServletContext的属性，具有全局范围有效性，即所有的客户均可以取得它的实例。
   
 }
   
-session.setAttribute( &#8220;listener1 &#8220;,(SessionListener)session1.getAttribute( &#8220;listener1 &#8220;));//取出此全局对象，并且将此对象绑定到某个会话中，此举将促使监听器调用valueBound，计数器加一。
+session.setAttribute( "listener1 ",(SessionListener)session1.getAttribute( "listener1 "));//取出此全局对象，并且将此对象绑定到某个会话中，此举将促使监听器调用valueBound，计数器加一。
   
 在此后的程序中随时可以用以下代码取得当前的登录人数：
   
-((SessionListener)session.getAttribute( &#8220;listener1 &#8220;)).getCount()
+((SessionListener)session.getAttribute( "listener1 ")).getCount()
   
 getCount()是监听器的一个方法，即取得当前计数器的值也就是登录人数了。

@@ -30,7 +30,7 @@ Code:
 
 Setting TextArea Size
   
-The text area size is determined using the attributes &#8220;rows&#8221; and &#8220;cols&#8221;. You can change the size of text area by changing the values of rows and cols.
+The text area size is determined using the attributes "rows&#8221; and "cols&#8221;. You can change the size of text area by changing the values of rows and cols.
 
 Example Code:
 

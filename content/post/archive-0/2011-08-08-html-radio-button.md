@@ -12,7 +12,7 @@ categories:
   - Uncategorized
 
 ---
-set objElement = objPage.WebElement(&#8220;html tag:=TD&#8221;,&#8221;innertext:=xxxxxx&#8221;, &#8220;index:=1&#8221;).object
+set objElement = objPage.WebElement("html tag:=TD&#8221;,&#8221;innertext:=xxxxxx&#8221;, "index:=1&#8221;).object
   
 logger(objElement.outerHtml)
   

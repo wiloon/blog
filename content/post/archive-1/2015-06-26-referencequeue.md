@@ -12,7 +12,7 @@ tags:
 ---
 http://www.iflym.com/index.php/java-programe/201407140001.html
 
-&nbsp;
+
 
 1 何为ReferenceQueue
 
@@ -36,7 +36,7 @@ Ref ref = new Ref(obj);
 
 一个简单的例子，通过往map中放入10000个对象，每个对象大小为1M字节数组。使用引用队列监控被放入的key的回收情况。代码如下所示：
 
-&nbsp;
+
 
 1
   
@@ -68,7 +68,7 @@ map.put(weakReference, value);
   
 }
   
-System.out.println(&#8220;map.size->&#8221; + map.size());
+System.out.println("map.size->&#8221; + map.size());
   
 这里使用了weakReference对象，即当值不再被引用时，相应的数据被回收。另外使用一个线程不断地从队列中获取被gc的数据，代码如下：
 
@@ -108,7 +108,7 @@ WeakReference<byte[]> k;
   
 while((k = (WeakReference) referenceQueue.remove()) != null) {
   
-System.out.println((cnt++) + &#8220;回收了:&#8221; + k);
+System.out.println((cnt++) + "回收了:&#8221; + k);
   
 }
   
@@ -306,7 +306,7 @@ WeakR k;
   
 while((k = (WeakR) referenceQueue.remove()) != null) {
   
-System.out.println((cnt++) + &#8220;回收了:&#8221; + k);
+System.out.println((cnt++) + "回收了:&#8221; + k);
   
 //触发反向hash remove
   

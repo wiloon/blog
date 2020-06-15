@@ -10,7 +10,7 @@ categories:
 ---
 mysqlslap -uuser0 -ppassword0 &#8211;concurrency=1 &#8211;iterations=1 &#8211;engine=innodb &#8211;number-of-queries=20000 &#8211;debug-info &#8211;query=&#8221;INSERT INTO xxxxxx&#8221;
 
-&nbsp;
+
 
 MySQL数据库基准压力测试工具之MySQLSlap使用实例 2013-05-20 19:04:09
   

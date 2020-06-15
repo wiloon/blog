@@ -22,7 +22,7 @@ alter table MemailNodeDefine add action varchar(50) CHARACTER SET utf8 COLLATE u
 
 给一个字段赋值
   
-UPDATE &#8220;表格名&#8221; SET &#8220;栏位1&#8221; = [新值] WHERE {条件}
+UPDATE "表格名&#8221; SET "栏位1&#8221; = [新值] WHERE {条件}
 
 UPDATE wap\_lenovo\_bookmark set type = &#8216;other&#8217;
 

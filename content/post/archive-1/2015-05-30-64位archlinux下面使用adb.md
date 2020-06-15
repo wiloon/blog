@@ -61,7 +61,7 @@ kdesdk-kmtrace
   
 4.9.1-1
   
-A KDE tool to assist with malloc debugging using glibc´s &#8220;mtrace&#8221; functionality
+A KDE tool to assist with malloc debugging using glibc´s "mtrace&#8221; functionality
   
 2012-09-05
 

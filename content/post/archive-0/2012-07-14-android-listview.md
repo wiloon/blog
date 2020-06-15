@@ -110,10 +110,10 @@ main.xml代码如下，很简单，也不需要多做解释了：
               HashMap<String, String> map = new HashMap<String, String>();
     </li>
     <li>
-              map.put(&#8220;ItemTitle&#8221;, &#8220;This is Title&#8230;..&#8221;);
+              map.put("ItemTitle&#8221;, "This is Title&#8230;..&#8221;);
     </li>
     <li>
-              map.put(&#8220;ItemText&#8221;, &#8220;This is text&#8230;..&#8221;);
+              map.put("ItemText&#8221;, "This is text&#8230;..&#8221;);
     </li>
     <li>
               mylist.add(map);
@@ -137,7 +137,7 @@ main.xml代码如下，很简单，也不需要多做解释了：
                                                       //动态数组与ListItem对应的子项
     </li>
     <li>
-                                                      new String[] {&#8220;ItemTitle&#8221;, &#8220;ItemText&#8221;},
+                                                      new String[] {"ItemTitle&#8221;, "ItemText&#8221;},
     </li>
     <li>
                                                       //ListItem的XML文件里面的两个TextView ID
@@ -157,7 +157,7 @@ main.xml代码如下，很简单，也不需要多做解释了：
   </ol>
   
   <p>
-    &nbsp;
+    
   </p>
   
   <p>

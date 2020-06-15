@@ -361,7 +361,7 @@ JVM 在发生内存溢出时自动的生成堆内存快照。有了这个参数�
 
 -verbose.gc开关可显示GC的操作内容。打开它，可以显示最忙和最空闲收集行为发生的时间、收集前后的内存大小、收集需要的时间等。
   
--verbose:gc &#8211; Same as &#8220;-XX:+PrintGC&#8221;.
+-verbose:gc &#8211; Same as "-XX:+PrintGC&#8221;.
   
 -verbose:gc -Xloggc:$CATALINA_HOME/logs/gc.log
   
@@ -527,7 +527,7 @@ JAVA_OPTS=&#8221;-server -Xms2000m -Xmx2000m -Xmn800m -XX:PermSize=64m -XX:MaxPe
   
 -Dsun.rmi.dgc.server.gcInterval=600000 -Dsun.rmi.dgc.client.gcInterval=600000
   
--XX:+UseConcMarkSweepGC -XX:MaxTenuringThreshold=15&#8243;
+-XX:+UseConcMarkSweepGC -XX:MaxTenuringThreshold=15"
 
 -XX:SurvivorRatio=4
   

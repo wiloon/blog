@@ -30,7 +30,7 @@ exit命令用于退出当前shell，在shell脚本中可以终止当前脚本执
   
 上一个命令的退出码。
 
-格式：trap &#8220;commands&#8221; EXIT
+格式：trap "commands&#8221; EXIT
   
 退出时执行commands指定的命令。（ A trap on EXIT is executed before the shell terminates.）
 
@@ -128,9 +128,9 @@ cd $(dirname $0) || exit 1
   
 Bash代码
   
-if [ &#8220;$#&#8221; -ne &#8220;2&#8221; ]; then
+if [ "$#&#8221; -ne "2&#8221; ]; then
       
-echo &#8220;usage: $0 
+echo "usage: $0 
 
 <area />
 <hours>&#8221;
@@ -144,7 +144,7 @@ fi</p>
   
 Bash代码
   
-trap &#8220;rm -f tmpfile; echo Bye.&#8221; EXIT
+trap "rm -f tmpfile; echo Bye.&#8221; EXIT
 
 示例五 检查上一命令的退出码
   
@@ -154,8 +154,8 @@ Bash代码
   
 EXCODE=$?
   
-if [ &#8220;$EXCODE&#8221; == &#8220;0&#8221; ]; then
+if [ "$EXCODE&#8221; == "0&#8221; ]; then
       
-echo &#8220;O.K&#8221;
+echo "O.K&#8221;
   
 fi

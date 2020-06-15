@@ -14,17 +14,17 @@ Oracle10g所在目录大概是:
 
 E:/oracle/product/10.2.0/db_1/NETWORK/ADMIN/tnsnames.ora
 
-&nbsp;
+
 
 Oracle9i所在目录大概是:
 
 D:/oracle/ora90/network/admin/tnsnames.ora
 
-&nbsp;
+
 
 配置该文件,诸如:
 
-&nbsp;
+
 
 \# TNSNAMES.ORA Network Configuration File: D:/oracle/ora90/network/admin/tnsnames.ora
   
@@ -170,26 +170,26 @@ APP_10.10.141.200 =
   
 )
 
-&nbsp;
+
 
 之后在plsql developer登陆时就有以上下拉选择框了.
 
-&nbsp;
+
 
 &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
 
-&nbsp;
+
 
 关于9i换成10g后,使用plsql developer登陆报错的问题.
 
-&nbsp;
+
 
 原因:还在找老版本的tnsnames.ora.
 
-&nbsp;
+
 
 解决方案,重新安装plsql developer,自动找新安装的数据库10g.
 
-&nbsp;
+
 
  [1]: http://hrservice/

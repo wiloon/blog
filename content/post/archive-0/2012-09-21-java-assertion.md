@@ -340,7 +340,7 @@ class Derived
       </tr>
     </table>
     
-    &nbsp;
+    
     
     <table width="60%" border="1">
       <tr>
@@ -492,7 +492,7 @@ class Derived
             
             assertion为开发人员提供了一种灵活地调试和测试机制，它的使用也非常简单、方便。但是，如何规范、系统地使用assertion(特别是在Java语言中)仍然是一个亟待研究的问题。
             
-            &nbsp;
+            
             
             <a name="resources"></a>参考资料
             

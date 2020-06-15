@@ -26,7 +26,7 @@ Windows7的引导程序能够引导vhd格式的虚拟硬盘，而VirtualBox创�
 
 VirtualBox提供了VBoxManager.exe用来转换格式。
 
-&nbsp;
+
 
 <div>
 </div>

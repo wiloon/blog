@@ -162,7 +162,7 @@ _\_alloc\_pages\_nodemask分配内存 -> 发现内存不足(或低于low memory)
   
 /**
    
-* out\_of\_memory &#8211; kill the &#8220;best&#8221; process when we run out of memory
+* out\_of\_memory &#8211; kill the "best&#8221; process when we run out of memory
    
 */
   

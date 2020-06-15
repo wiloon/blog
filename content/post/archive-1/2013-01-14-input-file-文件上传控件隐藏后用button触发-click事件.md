@@ -74,7 +74,7 @@ categories:
 
 
 <p>
-  &nbsp;
+  
 </p>
 
 

@@ -14,19 +14,19 @@ categories:
 ---
 var a=new Date();
   
-var y = a.getFullYear()+ &#8220;- &#8220;;
+var y = a.getFullYear()+ "- ";
   
-var m = a.getMonth()+ &#8220;- &#8220;;
+var m = a.getMonth()+ "- ";
   
-var d = a.getDate()+ &#8220;- &#8220;;
+var d = a.getDate()+ "- ";
   
-var h = a.getHours()+ &#8220;- &#8220;;
+var h = a.getHours()+ "- ";
   
-var x = a.getMinutes()+ &#8220;- &#8220;;
+var x = a.getMinutes()+ "- ";
   
-var s = a.getSeconds()+ &#8220;- &#8220;;
+var s = a.getSeconds()+ "- ";
   
-var ms=a.getMilliseconds()+ &#8220;- &#8220;;
+var ms=a.getMilliseconds()+ "- ";
   
 var mssss= getTime();
 

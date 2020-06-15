@@ -347,7 +347,7 @@ adb shell
 </p>
 
 <p style="color: #4b4b4b;">
-  Enter &#8220;.help&#8221; for instructions
+  Enter ".help&#8221; for instructions
 </p>
 
 <p style="color: #4b4b4b;">

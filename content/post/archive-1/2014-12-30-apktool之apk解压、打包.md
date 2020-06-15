@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/caszhao/article/details/6030425
 
-&nbsp;
+
 
 博客分类： java
   
@@ -76,7 +76,7 @@ Try to use framework files tagged by <tag>.
   
 Use if there was an error and some resources were dropped, e.g.:
   
-&#8220;Invalid config flags detected. Dropping resources&#8221;, but you
+"Invalid config flags detected. Dropping resources&#8221;, but you
   
 want to decode them anyway, even with errors. You will have to
   

@@ -32,7 +32,7 @@ select * from tag;
 
 .header on
 
-&nbsp;
+
 
 查看sqlite3表结构的命令
   
@@ -48,7 +48,7 @@ select * from sqlite_master where type=&#8221;table&#8221;;
   
 可以看到类似：
 
-&nbsp;
+
 
 默认情况下，不会出现红框中的表头，需要之前设置，命令为：
 
@@ -64,8 +64,8 @@ sqlite> .schema emperors
   
 CREATE TABLE emperors( id integer primary key autoincrement, name text,dynasty text,start_year text);
 
-&nbsp;
 
-&nbsp;
+
+
 
 http://marshal.easymorse.com/index.html%3Fp=2981.html

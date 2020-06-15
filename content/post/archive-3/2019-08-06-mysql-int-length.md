@@ -8,23 +8,23 @@ categories:
   - Uncategorized
 
 ---
-&#8220;浮点型&#8221;的长度是用来限制数字存储范围的. 比如 float(3,2) 只能够写入 0.00~999.99.
+"浮点型&#8221;的长度是用来限制数字存储范围的. 比如 float(3,2) 只能够写入 0.00~999.99.
   
-&#8220;整型&#8221;的长度并不会限制存储的数字范围. 比如, int 和 int(3) 的存储范围都是 -2147483648 ~ 2147483647, int unsigned 和 int(3) unsigned 的存储范围都是0 ~ 4294967295.
+"整型&#8221;的长度并不会限制存储的数字范围. 比如, int 和 int(3) 的存储范围都是 -2147483648 ~ 2147483647, int unsigned 和 int(3) unsigned 的存储范围都是0 ~ 4294967295.
   
-&#8220;整型&#8221;的长度实际上可以理解为&#8221;显示长度&#8221;, 如果该字段开启 &#8220;Zerofill/补零&#8221;就能很明显地知道它的作用.
+"整型&#8221;的长度实际上可以理解为&#8221;显示长度&#8221;, 如果该字段开启 "Zerofill/补零&#8221;就能很明显地知道它的作用.
 
 参考
   
-&#8220;高性能MySQL&#8221; 的说明
+"高性能MySQL&#8221; 的说明
   
-&#8220;高性能MySQL&#8221; 书中在&#8221;4.1 选择优化的数据类型&#8221;中提到:
+"高性能MySQL&#8221; 书中在&#8221;4.1 选择优化的数据类型&#8221;中提到:
 
 MySQL 可以为整数类型指定宽度, 例如 INT(11), 对大多数应用这是没有意义的: 它不会限制值的合法范围, 只是规定了 MySQL 的一些交互工具(例如 MySQL 命令行客户端)用来显示字符的个数. 对于存储和计算来说, INT(1) 和 INT(20) 是相同的
   
-&#8220;MySQL 手册&#8221;的说明
+"MySQL 手册&#8221;的说明
   
-MySQL 5.7 手册 &#8220;12.2.5 Numeric Type Attributes&#8221;:
+MySQL 5.7 手册 "12.2.5 Numeric Type Attributes&#8221;:
 
 MySQL supports an extension for optionally specifying the display width of integer data types in parentheses following the base keyword for the type. For example, INT(4) specifies an INT with a display width of four digits. This optional display width may be used by applications to display integer values having a width less than the width specified for the column by left-padding them with spaces. (That is, this width is present in the metadata returned with result sets. Whether it is used or not is up to the application.)
 

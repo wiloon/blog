@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/liangxanhai/article/details/7767430
 
-&nbsp;
+
 
 pthread_create函数的详细讲解(包括向线程函数传递参数详解)
   
@@ -76,7 +76,7 @@ pid = getpid();
   
 tid = pthread_self();
   
-printf(&#8220;%s pid %u tid %u (0x%x)\n&#8221;, s,
+printf("%s pid %u tid %u (0x%x)\n&#8221;, s,
   
 (unsigned int)pid, (unsigned int)tid, (unsigned int)tid);
   
@@ -84,7 +84,7 @@ printf(&#8220;%s pid %u tid %u (0x%x)\n&#8221;, s,
   
 {
   
-printids(&#8220;new thread: &#8220;);
+printids("new thread: ");
   
 return((void *)0);
   
@@ -100,9 +100,9 @@ err = pthread\_create(&ntid, NULL, thr\_fn, NULL);
   
 if (err != 0)
   
-printf(&#8220;can&#8217;t create thread: %s\n&#8221;, strerror(err));
+printf("can&#8217;t create thread: %s\n&#8221;, strerror(err));
   
-printids(&#8220;main thread:&#8221;);
+printids("main thread:&#8221;);
   
 sleep(1);
   
@@ -136,7 +136,7 @@ void fn(void *arg)
   
 int i = \*(int \*)arg;
   
-cout<<&#8220;i = &#8220;<<i<<endl;
+cout<<"i = "<<i<<endl;
   
 return ((void *)0);
   
@@ -180,7 +180,7 @@ int count;
 
 struct parameter arg;
 
-&nbsp;
+
 
 通过如下的方式来调用函数：
   
@@ -194,13 +194,13 @@ void fn(void *arg)
   
 int i = \*(int \*)arg;
   
-cout<<&#8220;i = &#8220;<<i<<endl;
+cout<<"i = "<<i<<endl;
   
 return ((void *)0);
   
 }
 
-&nbsp;
+
 
 void thr_fn(void *arg)
   

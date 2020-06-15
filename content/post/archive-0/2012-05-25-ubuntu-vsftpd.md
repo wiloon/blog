@@ -506,7 +506,7 @@ setsebool ftpd\_disable\_trans 1 是停用SELinux 對ftpd 的保護，這樣，f
   
 setsebool 是設定selinux布尔函數的命令，值有0和1。
 
-&nbsp;
+
 
 <http://wiki.ubuntu.org.cn/Vsftpd>
 

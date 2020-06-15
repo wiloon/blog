@@ -36,15 +36,15 @@ assign() 方法可加载一个新的文档。效果与location.href相当。</pr
 
 replace() 方法不会在 History 对象中生成一个新的记录。当使用该方法时，新的 URL 将覆盖 History 对象中的当前记录。
 
-&nbsp;
 
-&nbsp;
+
+
 
 http://jun1986.iteye.com/blog/1176909
 
 一、最外层top跳转页面，适合用于iframe框架集
 
-top.window.location.href(&#8220;${pageContext.request.contextPath}/Login_goBack&#8221;);
+top.window.location.href("${pageContext.request.contextPath}/Login_goBack&#8221;);
 
 ============================================================================================
 
@@ -96,13 +96,13 @@ window.parent.close()是parent属性是当前窗口或框架的框架组
   
 <head>
   
-<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=utf-8&#8243; />
+<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=utf-8" />
   
 <title>navigate</title>
   
 <script language=&#8221;javascript&#8221;>
   
-setTimeout(&#8216;window.navigate(&#8220;top.html&#8221;);&#8217;,2000);
+setTimeout(&#8216;window.navigate("top.html&#8221;);&#8217;,2000);
   
 setTimeout(&#8216;window.document.location.href=&#8221;top.html&#8221;;&#8217;,2000);
   
@@ -118,7 +118,7 @@ setTimeout(&#8216;document.location=&#8221;top.html&#8221;;&#8217;,2000);
   
 setTimeout(&#8216;location.href=&#8221;top.html&#8221;;&#8217;,2000);
   
-setTimeout(&#8216;location.replace(&#8220;top.html&#8221;)&#8217;,2000);
+setTimeout(&#8216;location.replace("top.html&#8221;)&#8217;,2000);
   
 //window对象
   
@@ -182,6 +182,6 @@ location.protocol   =   http:
   
 可见href是location的属性，类别是string。
 
-&nbsp;
+
 
 http://shawnfree.iteye.com/blog/390374

@@ -24,9 +24,9 @@ TreeSet 是使用一个树结构（算法书籍上的红黑树）来实现的。
 
 LinkedHashSet介于HashSet与TreeSet之间。它由一个执行hash表的链表实现，因此，它提供顺序插入。基本方法的时间复杂度为O(1)。
 
-&nbsp;
 
-&nbsp;
+
+
 
 HashMap和HashSet的区别是Java面试中最常被问到的问题。如果没有涉及到Collection框架以及多线程的面试，可以说是不完整。而Collection框架的问题不涉及到HashSet和HashMap，也可以说是不完整。HashMap和HashSet都是collection框架的一部分，它们让我们能够使用对象的集合。collection框架有自己的接口和实现，主要分为Set接口，List接口和Queue接口。它们有各自的特点，Set的集合里不允许对象有重复的值，List允许有重复，它对集合中的对象进行索引，Queue的工作原理是FCFS算法(First Come, First Serve)。
 
@@ -108,11 +108,11 @@ public Object put(Object Key,Object value)方法用来将元素添加到map中�
       HashSet较HashMap来说比较慢</p> 
       
       <p>
-        &nbsp;
+        
       </p>
       
       <p>
-        &nbsp;</td> </tr> </tbody> </table> 
+        </td> </tr> </tbody> </table> 
         
         <p>
           http://blog.csdn.net/cynthia9023/article/details/17503023

@@ -166,7 +166,7 @@ NCHAR根据所选字符集来定义存放字符的占用字节数，一般都为
   
 CHAR(2)    和 NCHAR(1)
 
-&nbsp;
+
 
 [http://winie.iteye.com/blog/540340http://blog.sina.com.cn/s/blog_5fe8502601016bu7.html][1]
 

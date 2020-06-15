@@ -108,11 +108,11 @@ try {
   
 LinkedBlockingQueue<String> queue=new LinkedBlockingQueue(2);
 
-queue.add(&#8220;hello&#8221;);
+queue.add("hello&#8221;);
   
-queue.add(&#8220;world&#8221;);
+queue.add("world&#8221;);
   
-queue.add(&#8220;yes&#8221;);
+queue.add("yes&#8221;);
   
 } catch (Exception e) {
   

@@ -55,7 +55,7 @@ tags:
   </div>
   
   <p>
-    <?xml version=&#8221;1.0&#8243; encoding=&#8221;ISO-8859-1&#8243;?>
+    <?xml version=&#8221;1.0" encoding=&#8221;ISO-8859-1"?>
   </p>
   
   <div>
@@ -69,14 +69,14 @@ tags:
   </div>
   
   <p>
-    PUBLIC &#8220;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&#8221;
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&#8221;
   </p>
   
   <div>
   </div>
   
   <p>
-    &#8220;http://java.sun.com/dtd/web-app_2_3.dtd&#8221;>
+    "http://java.sun.com/dtd/web-app_2_3.dtd&#8221;>
   </p>
   
   <div>

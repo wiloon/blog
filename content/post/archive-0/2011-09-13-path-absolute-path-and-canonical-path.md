@@ -42,15 +42,15 @@ public static void main(String[] args) throws IOException {
 
 String[] fileArray = {
 				  
-&#8220;C:\projects\workspace\testing\f1\f2\f3\file5.txt&#8221;,
+"C:\projects\workspace\testing\f1\f2\f3\file5.txt&#8221;,
 				  
-&#8220;folder/file3.txt&#8221;,
+"folder/file3.txt&#8221;,
 				  
-&#8220;../testing/file1.txt&#8221;,
+"../testing/file1.txt&#8221;,
 				  
-&#8220;../testing&#8221;,
+"../testing&#8221;,
 				  
-&#8220;f1/f2&#8221;
+"f1/f2&#8221;
 		  
 };
 
@@ -66,7 +66,7 @@ public static void displayInfo(String f) throws IOException {
 		  
 File file = new File(f);
 		  
-System.out.println(&#8220;========================================&#8221;);
+System.out.println("========================================&#8221;);
 		  
 System.out.println(&#8221; name:&#8221; + file.getName());
 		  
@@ -80,9 +80,9 @@ System.out.println(&#8221; absolute file:&#8221; + file.getAbsoluteFile());
 		  
 System.out.println(&#8221; absolute path:&#8221; + file.getAbsolutePath());
 		  
-System.out.println(&#8220;canonical file:&#8221; + file.getCanonicalFile());
+System.out.println("canonical file:&#8221; + file.getCanonicalFile());
 		  
-System.out.println(&#8220;canonical path:&#8221; + file.getCanonicalPath());
+System.out.println("canonical path:&#8221; + file.getCanonicalPath());
 	  
 }
 
@@ -182,13 +182,13 @@ canonical path:C:projectsworkspacetestingf1f2
   
 Looking at the output tells us about path, absolute file, absolute path, canonical file, and canonical path. First off, you probably noticed that getAbsoluteFile() returns the same result as getAbsolutePath(), and getCanonicalFile() returns the same result as getCanonicalPath().
 
-Next, you should notice that getPath() returns the file path that we used when we instantiated the File object with the String file path, but with the current system&#8217;s path separation character. Since I&#8217;m on Windows XP, this is a backslash. If this path is relative, getPath() returns the relative path, whereas if we specified a full path when instantiating the File object, the full path is returned by getPath(). The getPath() method also returns &#8220;.&#8221; and &#8220;..&#8221; if we used them in specifying the relative path.
+Next, you should notice that getPath() returns the file path that we used when we instantiated the File object with the String file path, but with the current system&#8217;s path separation character. Since I&#8217;m on Windows XP, this is a backslash. If this path is relative, getPath() returns the relative path, whereas if we specified a full path when instantiating the File object, the full path is returned by getPath(). The getPath() method also returns ".&#8221; and "..&#8221; if we used them in specifying the relative path.
 
-Next, notice that getAbsolutePath() returns an absolute path, but that this path can contain things like &#8220;.&#8221; and &#8220;..&#8221;. The getCanonicalPath() method, on the other hand, returns an absolute path, but it removes unnecessary parts of the path, such as &#8220;.&#8221; and &#8220;..&#8221; and any other unnecessary directories involved in the &#8220;.&#8221; or &#8220;..&#8221; path. This is shown clearly in the file1.txt example above.
+Next, notice that getAbsolutePath() returns an absolute path, but that this path can contain things like ".&#8221; and "..&#8221;. The getCanonicalPath() method, on the other hand, returns an absolute path, but it removes unnecessary parts of the path, such as ".&#8221; and "..&#8221; and any other unnecessary directories involved in the ".&#8221; or "..&#8221; path. This is shown clearly in the file1.txt example above.
 
 On Windows systems, the getCanonicalPath() method will also uppercase the drive letter. As an example, if we passed the following file string with a lowercase drive letter to displayInfo()
 
-&#8220;c:\projects\workspace\testing\f1\f2\f3\file5.txt&#8221;
+"c:\projects\workspace\testing\f1\f2\f3\file5.txt&#8221;
   
 we would see the following result:
 

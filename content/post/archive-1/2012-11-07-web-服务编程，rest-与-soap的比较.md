@@ -100,7 +100,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
   </tr>
 </table>
 
-&nbsp;
+
 
 客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <strong><link>http://localhost:8182/v1/users/tester</link></strong> `) 获得具体的某个 USER Resource。
 
@@ -197,7 +197,7 @@ private static void printUserByURI(String uri) {
   </tr>
 </table>
 
-&nbsp;
+
 
 <a name="4.4.服务器端实现|outline"></a>服务器端实现
 
@@ -274,7 +274,7 @@ private Document createDocument(User user) {
   </tr>
 </table>
 
-&nbsp;
+
 
 UserResource 类是对用户资源类的抽象，包括了对该资源的创建修改（put 方法），读取（handleGet 方法 ）和删除（delete 方法），被创建出来的 UserResource 类实例被 Restlet 框架所托管，所有操纵资源的方法会在相应的 HTTP 请求到达后被自动回调。
 
@@ -316,7 +316,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   </tr>
 </table>
 
-&nbsp;
+
 
 客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI，SOAP SERVER 收到该 HTTP POST 请求，通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用，返回如下的响应：
   
@@ -343,7 +343,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   </tr>
 </table>
 
-&nbsp;
+
 
 <a name="5.3.获得某一具体用户信息|outline"></a>获得某一具体用户信息
   
@@ -365,7 +365,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   </tr>
 </table>
 
-&nbsp;
+
 
 同样地，客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI，SOAP SERVER 处理后返回的 Response 如下：
   
@@ -391,7 +391,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   </tr>
 </table>
 
-&nbsp;
+
 
 实际上，创建新的用户，过程也比较类似，在这里，就不一一列出，因为这两个例子对于本文在选定的点上对比 REST 与 SOAP 已经足够了。
 

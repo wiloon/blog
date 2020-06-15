@@ -376,9 +376,9 @@ ByteBuffer buffer=ByteBuffer.wrap(byteArray);
 
 如果要将一个字符串存入ByteBuffer,可以如下操作:
   
-String sendString=&#8221;你好,服务器. &#8220;;
+String sendString=&#8221;你好,服务器. ";
   
-ByteBuffer sendBuffer=ByteBuffer.wrap(sendString.getBytes(&#8220;UTF-16&#8221;));
+ByteBuffer sendBuffer=ByteBuffer.wrap(sendString.getBytes("UTF-16&#8221;));
 
 2.回绕缓冲区
   
@@ -408,7 +408,7 @@ ByteBuffer俗称缓冲器， 是将数据移进移出通道的唯一方式，并
 
 private byte[] getBytes (char[] chars) {//将字符转为字节(编码)
   
-Charset cs = Charset.forName (&#8220;UTF-8&#8221;);
+Charset cs = Charset.forName ("UTF-8&#8221;);
   
 CharBuffer cb = CharBuffer.allocate (chars.length);
   
@@ -424,7 +424,7 @@ return bb.array();
 
 private char[] getChars (byte[] bytes) {//将字节转为字符(解码)
   
-Charset cs = Charset.forName (&#8220;UTF-8&#8221;);
+Charset cs = Charset.forName ("UTF-8&#8221;);
   
 ByteBuffer bb = ByteBuffer.allocate (bytes.length);
   
@@ -446,7 +446,7 @@ return cb.array();
 
 ByteBuffer buff = ByteBuffer.allocate(BSIZE);
 
-a)  buff  =  ByteBuffer.wrap(&#8220;askjfasjkf&#8221;.getBytes())注意：wrap方法是静态函数且只能接收byte类型的数据，任何其他类型的数据想通过这种方式传递，需要进行类型的转换。
+a)  buff  =  ByteBuffer.wrap("askjfasjkf&#8221;.getBytes())注意：wrap方法是静态函数且只能接收byte类型的数据，任何其他类型的数据想通过这种方式传递，需要进行类型的转换。
 
 b)  buff.put();可以根据数据类型做相应调整，如buff.putChar(chars),buff.putDouble(double)等
 
@@ -472,11 +472,11 @@ fc.flip();
 
 四、呈现给用户（三种方式）
 
-1)String encoding = System.getProperty(&#8220;file.encoding&#8221;);
+1)String encoding = System.getProperty("file.encoding&#8221;);
 
-System.out.println(&#8220;Decoded using &#8221; + encoding + &#8220;: &#8221;  + Charset.forName(encoding).decode(buff));
+System.out.println("Decoded using &#8221; + encoding + ": &#8221;  + Charset.forName(encoding).decode(buff));
 
-2)System.out.println(buff.asCharBuffer());//这种输出时，需要在输入时就进行编码getBytes(&#8220;UTF-8&#8221;)
+2)System.out.println(buff.asCharBuffer());//这种输出时，需要在输入时就进行编码getBytes("UTF-8&#8221;)
 
 3) System.out.println(buff.asCharBuffer());//通过CharBuffer向ByteBuffer输入 buff.asCharBuffer().put。
 

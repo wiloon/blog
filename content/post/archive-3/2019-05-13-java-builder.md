@@ -68,7 +68,7 @@ private String sex;
 
 class Person:
       
-def **init**(self, name, age = 0, sex = &#8220;unknown&#8221;):
+def **init**(self, name, age = 0, sex = "unknown&#8221;):
           
 self.name = name
           
@@ -80,11 +80,11 @@ self.sex = sex
 
 当我们创建 Person 对象时，可以有以下几种写法：
 
-Tom = Person(&#8220;Tom&#8221;, age=18)
+Tom = Person("Tom&#8221;, age=18)
   
-John = Person(&#8220;John&#8221;, sex=&#8221;male&#8221;)
+John = Person("John&#8221;, sex=&#8221;male&#8221;)
   
-Lily = Person(&#8220;Lily&#8221;, age=20, sex=&#8221;female&#8221;)
+Lily = Person("Lily&#8221;, age=20, sex=&#8221;female&#8221;)
   
 Python 在语言层面已经有了很优雅的解决方法，而 Java 语言层面只有重载的方式，在上面的分析中，我们已经看到了这种方式的弊端。
 
@@ -151,11 +151,11 @@ private String sex;
   
 创建 Person 对象：
 
-Person person = new Person.Builder(&#8220;John&#8221;)
+Person person = new Person.Builder("John&#8221;)
           
 .age(20)
           
-.sex(&#8220;male&#8221;)
+.sex("male&#8221;)
           
 .build();
   
@@ -223,13 +223,13 @@ private String intro;
   
 我们给 Customer 类增加了四个成员变量，也在 Customer.Builder 当中进行了相应的扩展，但是，当我们尝试调用参数设置方法时就会发现问题：
 
-Customer customer = new Customer.Builder(&#8220;Tom&#8221;, 13999999999L, &#8220;北京市XXX&#8221;)
+Customer customer = new Customer.Builder("Tom&#8221;, 13999999999L, "北京市XXX&#8221;)
           
 .age(20) //此处返回类型为 Person.Builder
           
-.alias(&#8220;用户昵称&#8221;) //错误，不存在该方法
+.alias("用户昵称&#8221;) //错误，不存在该方法
           
-.intro(&#8220;用户自我介绍&#8221;);
+.intro("用户自我介绍&#8221;);
   
 我们发现，这么继承父类 Builder 是有问题的。Java 不存在“自身类型”这个概念，也就是说，当一个子类继承了父类之后，原先父类中返回值为父类类型的方法，仍旧返回父类类型，并不会变成子类类型。
 

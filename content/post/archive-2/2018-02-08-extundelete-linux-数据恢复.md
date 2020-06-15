@@ -166,7 +166,7 @@ extundelete \[options\] \[action\] device-file
   
 [root@cloud1 ~]# mkdir /data/test
   
-[root@cloud1 ~]# echo &#8220;extundelete test&#8221; > /data/test/mytest.txt
+[root@cloud1 ~]# echo "extundelete test&#8221; > /data/test/mytest.txt
   
 [root@cloud1 ~]#cd /data
   

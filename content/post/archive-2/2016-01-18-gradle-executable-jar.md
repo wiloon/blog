@@ -16,11 +16,11 @@ apply plugin: &#8216;application&#8217;
   
 application {
       
-applicationDefaultJvmArgs = [&#8220;-Xms512m&#8221;, &#8220;-Xmx1600m&#8221;]
+applicationDefaultJvmArgs = ["-Xms512m&#8221;, "-Xmx1600m&#8221;]
   
 }
   
-mainClassName = &#8220;org.gradle.sample.Main&#8221;
+mainClassName = "org.gradle.sample.Main&#8221;
 
 gradle distZip
 

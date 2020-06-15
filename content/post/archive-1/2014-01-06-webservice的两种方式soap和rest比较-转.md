@@ -112,7 +112,7 @@ http://api.flickr.com/services/rest/?method=flickr.test.echo&name=value
   
 正确处理返回
   
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243; ?>
+<?xml version=&#8221;1.0" encoding=&#8221;utf-8" ?>
   
 <rsp stat=&#8221;ok&#8221;>
   
@@ -122,7 +122,7 @@ http://api.flickr.com/services/rest/?method=flickr.test.echo&name=value
   
 错误处理返回
   
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243; ?>
+<?xml version=&#8221;1.0" encoding=&#8221;utf-8" ?>
   
 <rsp stat=&#8221;fail&#8221;>
   
@@ -154,7 +154,7 @@ Yahoo Maps：
   
 返回消息：
   
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?>
+<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
   
 <ResultSet xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
   
@@ -192,7 +192,7 @@ YouTube：
   
 返回消息：
   
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?>
+<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
   
 <ut_response status=&#8221;ok&#8221;>
   
@@ -270,6 +270,6 @@ ASF要集成REST就现在来看有两种比较合适的方法。
   
 有了需求去做才不会陷入为了技术而技术，毕竟技术是由商业价值驱动的，同样社会上充斥着各种技术的鼓吹，如果稍不留神就会陷入跟风的潮流中。
 
-&nbsp;
+
 
 <http://stevenjohn.iteye.com/blog/1442776>
