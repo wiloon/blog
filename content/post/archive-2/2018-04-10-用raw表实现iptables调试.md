@@ -10,7 +10,8 @@ categories:
 ---
 ### 启用iptables的日志
 
-```bashiptables -t nat -A POSTROUTING -p icmp  -s 192.168.50.215 -j LOG --log-prefix 'iptable-log: '
+```bash
+iptables -t nat -A POSTROUTING -p icmp  -s 192.168.50.215 -j LOG --log-prefix 'iptable-log: '
 iptables -t nat -I PREROUTING -p tcp -s 192.168.50.115 --dport 80 -j LOG --log-prefix 'iptable-log: '
 
 #配置日志级别
@@ -25,13 +26,15 @@ raw表使用PREROUTING和OUTPUT两个链，因此raw可以覆盖所有包。在r
   
 假设需要对ipv4的ICMP包进行跟踪调试，抓取所有流经本机的ICMP包
 
-```bashiptables -t raw -A OUTPUT -p icmp -j TRACE
+```bash
+iptables -t raw -A OUTPUT -p icmp -j TRACE
 iptables -t raw -A PREROUTING -p icmp -j TRACE
 ```
 
 加载对应内核模块
 
-```bashmodprobe ipt_LOG
+```bash
+modprobe ipt_LOG
 modprobe xt_LOG
 ```
 

@@ -12,7 +12,8 @@ categories:
 
 local_action 需要sudo密码
 
-```bashexport ANSIBLE_ASK_SUDO_PASS=true
+```bash
+export ANSIBLE_ASK_SUDO_PASS=true
 --extra-vars "ansible_sudo_pass=xxx"
 ```
 
@@ -43,7 +44,8 @@ local_action 需要sudo密码
 
 用于改变一个文件的一行。如果想要改变文件中相似的多行，可以使用replace模块
 
-```bashansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state=present"
+```bash
+ansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state=present"
 
 
 ```

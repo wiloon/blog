@@ -10,7 +10,8 @@ categories:
 ---
 https://www.linuxidc.com/Linux/2017-12/149050.htm
 
-```bashapt update
+```bash
+apt update
 
 apt upgrade
 编辑源列表文件。

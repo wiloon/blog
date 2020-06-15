@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashcommand -v foo
+```bash
+command -v foo
 ```
 
 避免使用which, 相对于hash、type、command等内置命令,which是一个没有明显的功能优势的外部命令。

@@ -10,7 +10,8 @@ categories:
 ---
 ### dnf
 
-```bashsudo tee  /etc/yum.repos.d/influxdb.repo&lt;&lt;EOF
+```bash
+sudo tee  /etc/yum.repos.d/influxdb.repo&lt;&lt;EOF
 [influxdb]
 name = InfluxDB Repository
 baseurl = https://repos.influxdata.com/rhel/7/x86_64/stable/

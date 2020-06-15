@@ -24,7 +24,8 @@ socat - UDP:localhost:48772
 
 ## shell
 
-```bashecho &gt;/dev/tcp/192.168.1.15/22
+```bash
+echo &gt;/dev/tcp/192.168.1.15/22
 
 ```
 

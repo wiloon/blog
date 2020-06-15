@@ -150,7 +150,8 @@ bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --
     
     ### 调整 ReplicationFactor
     
-    ```bashcat increase-replication-factor.json
+    ```bash
+cat increase-replication-factor.json
     
     {"version":1,
     "partitions":\[{"topic":"connect-configs","partition":0,"replicas":\[0,1,2\]}\]

@@ -12,7 +12,8 @@ ApacheBench
 
 ### install
 
-```bashyay -S apache-tools
+```bash
+yay -S apache-tools
 sudo yum -y install httpd-tools
 ```
 

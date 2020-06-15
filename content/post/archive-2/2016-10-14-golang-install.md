@@ -12,10 +12,12 @@ china mainland download
   
 https://golang.google.cn/
 
-```bashcurl -O https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz
+```bash
+curl -O https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz
 ```
 
-```bashexport GOROOT=/root/go
+```bash
+export GOROOT=/root/go
 export GOPATH=/root/gopath
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 export GOBIN=/path/to/go/bin

@@ -10,7 +10,8 @@ categories:
 ---
 https://github.com/cdr/code-server
 
-```bashdocker run \
+```bash
+docker run \
 -d \
 --name vscode-server \
 -p 8443:8443 \

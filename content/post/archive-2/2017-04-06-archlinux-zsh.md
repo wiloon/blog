@@ -10,7 +10,8 @@ categories:
 ---
 ### 不能自动补全
 
-```bashrm ~/.zcompdump*
+```bash
+rm ~/.zcompdump*
 ```
 
 https://unix.stackexchange.com/questions/210930/completions-stopped-working-after-upgrading-zsh/210931#210931
@@ -53,7 +54,8 @@ export SAVEHIST=10000
 
 使用random模式时经常会随机到系统不支持的主题， 使用ZSH\_THEME\_RANDOM_CANDIDATES 配置， 可以把随机主题控制在一定范围内。
 
-```bashZSH_THEME_RANDOM_CANDIDATES=(
+```bash
+zSH_THEME_RANDOM_CANDIDATES=(
   "robbyrussell"
   "agnoster"
 )

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashkeytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
+```bash
+keytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
 
 sudo /usr/lib/jvm/java-8-openjdk/bin/keytool -importcert -keystore /usr/lib/jvm/java-8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt  -file xxx.crt -alias "xxx.crt"
 

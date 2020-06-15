@@ -14,7 +14,8 @@ categories:
 ---
 ### mount iso
 
-```bashsudo mkdir /mnt/iso
+```bash
+sudo mkdir /mnt/iso
 sudo mount -o loop /path/to/my-iso-image.iso /mnt/iso
 ls -l /mnt/iso/
 sudo umount /mnt/iso/
@@ -24,7 +25,8 @@ mount 和 umount 命令
   
 现在，文件系统已经创建成功，您应该挂载分区了。挂载文件系统的命令是 mount，其语法是：
 
-```bashmount [选项]  [-o 挂载选项]
+```bash
+mount [选项]  [-o 挂载选项]
 ```
 
 在本例中，我们首先会将分区临时挂载在 /mnt (或您选择的任何其它挂载点：请记住，挂载点必须已经存在)。挂载我们新创建的分区的命令是：

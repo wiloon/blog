@@ -19,7 +19,8 @@ categories:
         - vim
 ```
 
-```bashansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1" --list-hosts --list-tasks
+```bash
+ansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1" --list-hosts --list-tasks
 --skip-tags
 --start-at-task
 --step # one-step-at-a-time: confirm each task before running

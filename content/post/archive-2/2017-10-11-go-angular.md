@@ -47,7 +47,8 @@ https://github.com/aralroca/helloworld-angular-with-golang
 
 ### 修改angular编译输出目录
 
-```bashvim angular.json
+```bash
+vim angular.json
 ...builder/outputPath
 ```
 

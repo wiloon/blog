@@ -16,7 +16,8 @@ categories:
 
 -Xmx, 最大堆大小,默认物理内存的1/4(<1GB),
 
-```bashjava -XX:MaxHeapSize=2g app0
+```bash
+java -XX:MaxHeapSize=2g app0
 ```
 
 ### -XX:MaxNewSize
@@ -39,7 +40,8 @@ categories:
 
 显示出VM初始化完毕后所有跟最初的默认值不同的参数及它们的值。 （JDK5以上支持）
 
-```bashjava -XX:+PrintCommandLineFlags -version
+```bash
+java -XX:+PrintCommandLineFlags -version
 ```
 
 ### -XX:+PrintFlagsInitial
@@ -50,7 +52,8 @@ displays what options were provided to HotSpot initially, before HotSpot has mad
 
 displays what options HotSpot ended up using for running Java code
 
-```bashjava -XX:+PrintFlagsFinal -version| grep GC
+```bash
+java -XX:+PrintFlagsFinal -version| grep GC
 ```
 
 ### -XX:CICompilerCount

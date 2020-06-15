@@ -18,7 +18,8 @@ sudo pacman -S fuse
 
 ### config fuse
 
-```bashsudo vim /etc/fuse.conf
+```bash
+sudo vim /etc/fuse.conf
 # uncomment  user_allow_other
 ```
 
@@ -43,7 +44,8 @@ rclone config
 rclone mount name-foo:path/to/files /path/to/local/mount --allow-other --vfs-cache-mode writes
 ```
 
-```bashrclone lsl foo:
+```bash
+rclone lsl foo:
 rclone dedupe --dedupe-mode newest $name
 
 # linux mount google drive
@@ -58,7 +60,8 @@ rclone.exe mount foo:/ x: --cache-dir C:\path\to\cache\dir --vfs-cache-mode writ
 
 ### mount webdav
 
-```bashrclone config
+```bash
+rclone config
 n
 name0 # enter name
 24 #webdav, see help at https://rclone.org/webdav/
@@ -73,7 +76,8 @@ rclone lsl
 
 uid=1000, gid=2000
 
-```bashsudo vim /etc/systemd/system/rclone.service
+```bash
+sudo vim /etc/systemd/system/rclone.service
 
 [Unit]
 Description=keepass@foo
@@ -155,7 +159,8 @@ end if
 
 <https://rclone.org/onedrive/>
 
-```bashrclone config
+```bash
+rclone config
 storage&gt; 23
 client_id&gt; ""
 client_secret&gt; ""
@@ -167,7 +172,8 @@ Is that okay? y
 y) Yes this is OK (default)
 ```
 
-```bashsudo -i
+```bash
+sudo -i
 rclone config
 # ...
 rclone mount onedrive-keepassxc-db:/keepassxc /mnt/ms-one-drive --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
@@ -176,7 +182,8 @@ rclone mount onedrive: /mnt/ms-one-drive --allow-other
 
 #### systemd config
 
-```bashsudo vim  /etc/systemd/system/rclone-onedrive.service
+```bash
+sudo vim  /etc/systemd/system/rclone-onedrive.service
 
 [Unit]
 Description=keepass@onedrive

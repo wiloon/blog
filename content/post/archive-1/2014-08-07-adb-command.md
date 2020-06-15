@@ -10,7 +10,8 @@ categories:
 ---
 在手机上打开USB调试
 
-```bashadb help
+```bash
+adb help
 adb kill-server
 sudo adb start-server
 adb devices

@@ -37,7 +37,8 @@ mvn archetype:generate -DgroupId=com.wiloon.mail.web -DartifactId=mailTestWeb \
 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ```
 
-```bashmvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -q
+```bash
+mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -q
 
 #-U,--update-snapshots                  Forces a check for missing                                        releases and updated snapshots on
 mvn clean compile -U
@@ -72,12 +73,14 @@ mvn package appassembler:assemble
 
 查看mvn 参数
 
-```bashmvn --help
+```bash
+mvn --help
 mvn install 指定 pom.xml
 mvn -f trunk\mvntest\pom.xml install
 ```
 
-```bashmvn archetype:generate
+```bash
+mvn archetype:generate
 #390 maven-archetype-webapp
 #387 maven-archetype-quickstart
 ```

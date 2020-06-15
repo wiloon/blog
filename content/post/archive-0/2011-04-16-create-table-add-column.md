@@ -31,7 +31,8 @@ SELECT @@SESSION.sql_mode;
 
 ### docker server
 
-```bashpodman run \
+```bash
+podman run \
 --name mariadb \
 -p 3306:3306 \
 -v /etc/localtime:/etc/localtime:ro \
@@ -51,14 +52,16 @@ podman run -it \
 
 ### mysql client
 
-```bashsudo pacman -S mariadb-clients
+```bash
+sudo pacman -S mariadb-clients
 mysql -u user0 -ppassword0 -h 127.0.0.1 -P 3306 -D mydb
 mariadb -u user0 -h 127.0.0.1 -P 3306 -D database0 -ppassword0
 # add yum repo https://dev.mysql.com/doc/mysql-repo-excerpt/5.6/en/linux-installation-yum-repo.html
 yum install mysql-community-client
 ```
 
-```bashsudo pacman -S mariadb
+```bash
+sudo pacman -S mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl start mariadb.service
 mysql -u root -p

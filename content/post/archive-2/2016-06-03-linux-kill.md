@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashkill -HUP xxx
+```bash
+kill -HUP xxx
 ps -A | grep httpd | grep -v grep | awk '{ print $1; }' | xargs -L 1 sudo kill -HUP 
 ```
 

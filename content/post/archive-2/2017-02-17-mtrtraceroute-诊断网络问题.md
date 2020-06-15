@@ -32,14 +32,16 @@ MTR 是传统 traceroute 命令的进化版，并且可以提供强大的数据�
 
 在 Debian 和 Ubuntu 系统中，使用如下命令更新系统，然后安装 MTR：
 
-```bashapt-get update
+```bash
+apt-get update
 apt-get upgrade
 apt-get install mtr-tiny
 ```
 
 ### 使用
 
-```bashmtr 39.156.69.79
+```bash
+mtr 39.156.69.79
 ```
 
 在 CentOS 和 Fedora 系统中，使用如下命令更新系统，并安装 MTR：

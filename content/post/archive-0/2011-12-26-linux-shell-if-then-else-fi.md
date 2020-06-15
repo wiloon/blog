@@ -12,7 +12,8 @@ tags:
 ---
 ### 判断指定文件中是否包含指定的字符串
 
-```bashgrep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
+```bash
+grep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
 if [ $? -eq 0 ]; then
     echo "Found!"
 else

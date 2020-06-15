@@ -18,7 +18,8 @@ systemd-journal: Suppressed 6735 messages from /system.slice/
 
 在 journald 中, 有如下两个参数跟此问题相关:
 
-```bashvim /etc/systemd/journald.conf
+```bash
+vim /etc/systemd/journald.conf
 ```
 
 RateLimitInterval

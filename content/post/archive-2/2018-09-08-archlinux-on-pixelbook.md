@@ -16,7 +16,8 @@ Settings > Linux > Enable
 
 ### Delete the Debian container (optional)
 
-```bashvmc destroy termina
+```bash
+vmc destroy termina
 vmc start termina
 ```
 
@@ -24,7 +25,8 @@ vmc start termina
 
 Open a new terminal in Chrome (Ctrl + Alt + T)
 
-```bashvmc container termina arch https://us.images.linuxcontainers.org archlinux/current
+```bash
+vmc container termina arch https://us.images.linuxcontainers.org archlinux/current
 vsh termina
 lxc list
 lxc exec arch -- bash
@@ -72,7 +74,8 @@ lxc start penguin
 
 https://tedyin.com/posts/archlinux-on-pixelbook/
 
-```bashlxc profile set default security.syscalls.blacklist "keyctl errno 38"
+```bash
+lxc profile set default security.syscalls.blacklist "keyctl errno 38"
 run_container.sh --container_name archlinux --user ymf --lxd_image archlinux/current --lxd_remote https://us.images.linuxcontainers.org/
 
 lxc exec archlinux -- bash
@@ -80,7 +83,8 @@ lxc exec archlinux -- bash
 
 ### crosh
 
-```bashvmc list
+```bash
+vmc list
 vmc start termina
 ```
 

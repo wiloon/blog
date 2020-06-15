@@ -40,7 +40,8 @@ Download MagiskManager apk 并安装 到手机
   
 刷入打好补丁的 boot.img
 
-```bashfastboot flash boot patched_boot.img
+```bash
+fastboot flash boot patched_boot.img
 fastboot reboot
 ```
 

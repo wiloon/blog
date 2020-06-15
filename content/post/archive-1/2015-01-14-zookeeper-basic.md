@@ -56,37 +56,23 @@ create /k0 v0
 # 删除一个节点
 delete /k0
 ```
-
+### install
 download zookeeper
-
 cp zoo_sample.cfg zoo.cfg
 
-zoo.cfg
-  
+vim zoo.cfg
 tickTime=2000
-  
 ##Zookeeper最小时间单元，单位毫秒(ms)，默认值为2000
-
 initLimit=5
-  
 ##Leader服务器等待Follower启动并完成数据同步的时间，默认值10，表示tickTime的10倍
-
 dataDir=/data/server/zookeeper/data
-  
 ##Zookeeper服务器存储快照文件的目录，必须配置
-
 dataLogDir=/data/logs/zookeeper
-  
 ##Zookeeper服务器存储事务日志的目录，默认为dataDir
-
 clientPort=2181
-  
 ##服务器对外服务端口，一般设置为2181
-
 syncLimit=2
-  
 ##Leader服务器和Follower之间进行心跳检测的最大延时时间，默认值5，表示tickTime的5倍
-
 autopurge.purgeInterval=1
   
 从3.4.0开始，zookeeper提供了自动清理snapshot和事务日志的功能，通过配置 autopurge.snapRetainCount 和 autopurge.purgeInterval 这两个参数能够实现定时清理了。这两个参数都是在zoo.cfg中配置的：
@@ -99,7 +85,8 @@ http://www.importnew.com/23237.html
   
 http://blog.51cto.com/nileader/932156
 
-```bashexport ZOOKEEPER_HOME=~/sw/zookeeper-x.y.z
+```bash
+export ZOOKEEPER_HOME=~/sw/zookeeper-x.y.z
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
 cd /home/xxx/apps/zookeeper-3.4.9/conf
 mv zoo_sample.cfg zoo.cfg
@@ -118,8 +105,7 @@ clientPort：clientPort是zookeeper监听客户端连接的端口，默认是218
 zkServer.sh start
 ```
 
-集群模式
-  
+### 集群模式
 Zookeeper 不仅可以单机提供服务，同时也支持多机组成集群来提供服务。实际上 Zookeeper 还支持另外一种伪集群的方式，也就是可以在一台物理机上运行多个 Zookeeper 实例，下面将介绍集群模式的安装和配置。
   
 Zookeeper 的集群模式的安装和配置也不是很复杂，所要做的就是增加几个配置项。集群模式除了上面的三个配置项还要增加下面几个配置项：

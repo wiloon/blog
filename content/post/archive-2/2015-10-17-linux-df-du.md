@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashdf -h
+```bash
+df -h
 df -t ext4 -h
 ```
 

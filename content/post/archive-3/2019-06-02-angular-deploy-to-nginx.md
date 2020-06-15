@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashng build --aot
+```bash
+ng build --aot
 ```
 
 "\`

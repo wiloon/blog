@@ -37,7 +37,8 @@ tags:
 
 ### .7z
 
-```bashyum install p7zip
+```bash
+yum install p7zip
 pacman -S p7zip
 
 7z x filename.7z
@@ -60,7 +61,8 @@ zip spiltfile.zip -s=0 --out single.zip
 
 ### 解压
 
-```bashpacman -S zip unzip
+```bash
+pacman -S zip unzip
 zip all.zip *.jpg
 
 # 压缩的是个文件夹, -r 表示调用递归压缩

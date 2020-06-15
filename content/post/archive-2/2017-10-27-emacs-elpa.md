@@ -10,7 +10,8 @@ categories:
 ---
 https://elpa.emacs-china.org/index-en.html
 
-```bashemacs ~/.emacs
+```bash
+emacs ~/.emacs
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 

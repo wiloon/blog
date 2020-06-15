@@ -10,7 +10,8 @@ categories:
 ---
 https://www.cyberciti.biz/faq/linux-command-to-find-sata-harddisk-link-speed/
 
-```bashsudo pacman -S smartmontools
+```bash
+sudo pacman -S smartmontools
 
 sudo smartctl -a /dev/DEVICE-NAME-HERE
 sudo smartctl -i /dev/DEVICE-NAME-HERE

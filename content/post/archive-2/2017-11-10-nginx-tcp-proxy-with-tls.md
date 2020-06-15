@@ -24,7 +24,8 @@ enabled=1
 
 https://www.nginx.com/resources/admin-guide/tcp-load-balancing/
 
-```bashstream {
+```bash
+stream {
     server {
         listen 9000 ssl;
         proxy_pass stream_backend;

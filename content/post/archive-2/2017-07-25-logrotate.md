@@ -22,7 +22,8 @@ categories:
 
 配置文件内容
 
-```bashvim /etc/logrotate.d/ansiblelog
+```bash
+vim /etc/logrotate.d/ansiblelog
 
 /var/log/ansible.log {
     daily

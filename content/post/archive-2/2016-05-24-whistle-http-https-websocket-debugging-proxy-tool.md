@@ -12,7 +12,8 @@ categories:
 
 yarn global add whistle
 
-```bashw2 help
+```bash
+w2 help
 w2 start
 w2 stop
 

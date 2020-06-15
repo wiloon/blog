@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashdocker run -d \
+```bash
+docker run -d \
 --name code-server \
 -p 38443:8443 \
 -v "code-server-project:/home/coder/project" \

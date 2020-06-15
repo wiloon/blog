@@ -26,7 +26,8 @@ sudo mount -t nfs &lt;raspberry-pi-hostname-or-ip&gt;:/nas/data /nas/data
 
 ### autofs
 
-```bashpacman -S autofs
+```bash
+pacman -S autofs
 pacman -S nfs-utils
 sudo systemctl start rpcbind
 sudo systemctl enable rpcbind

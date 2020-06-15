@@ -37,7 +37,8 @@ Group 7: (Blocks 229376-262143) csum 0xcfeb [INODE_UNINIT, ITABLE_ZEROED]
 
 从上面操作可以看出，在第1、3、4、7、9这几个Block Group上存放有superblock备份
 
-```bashfsck -b 8193 /dev/sdb1
+```bash
+fsck -b 8193 /dev/sdb1
 e2fsck -b 214990848 -y /dev/sdb
 ```
 

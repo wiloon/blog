@@ -59,7 +59,8 @@ INSERT measurement0,tag0=tag_value0 field0=1,field1=field_value1 157061160000000
 
 ### docker
 
-```bashdocker run -d \
+```bash
+docker run -d \
 --name influxdb \
 -p 8086:8086 \
 -p 8083:8083 \
@@ -85,7 +86,8 @@ docker run -it --rm influxdb influx -host influxdb.wiloon.com
 
 ### retention policies
 
-```bashshow retention policies
+```bash
+show retention policies
 show retention policies on db0
 CREATE RETENTION POLICY "default" ON db0 DURATION 30d REPLICATION 1 SHARD DURATION 1d DEFAULT
 ALTER  RETENTION POLICY "default" ON db0 DURATION 3h REPLICATION 1 SHARD DURATION 1h DEFAULT
@@ -150,6 +152,7 @@ select f0,f1  from s0 where t0=~ /xxx.*/
 
 ### select
 
-```bashSELECT mean(m1) * 10 FROM metric0."default".m0 WHERE time &gt;= now() - 10m  AND host='host0'  GROUP BY time(10s), host
+```bash
+sELECT mean(m1) * 10 FROM metric0."default".m0 WHERE time &gt;= now() - 10m  AND host='host0'  GROUP BY time(10s), host
 
 ```

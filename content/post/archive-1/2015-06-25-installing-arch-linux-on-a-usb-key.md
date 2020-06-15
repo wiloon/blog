@@ -152,7 +152,8 @@ options root=PARTUUID=xxx rw
 
 <https://blog.wiloon.com/?p=15345>
 
-```bashuseradd -m -s /bin/bash wiloon
+```bash
+useradd -m -s /bin/bash wiloon
 passwd wiloon
 
 pacman -S openssh sudo

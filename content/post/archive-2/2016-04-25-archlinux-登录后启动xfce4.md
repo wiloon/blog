@@ -10,7 +10,8 @@ categories:
 ---
 https://wiki.archlinux.org/index.php/xinitrc
 
-```bashvim  ~/.xinitrc
+```bash
+vim  ~/.xinitrc
 exec startxfce4
 
 vim .bashrc

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashexport  OVPN_DATA="ovpn-data"
+```bash
+export  OVPN_DATA="ovpn-data"
 docker volume create --name $OVPN_DATA
 # volume默认位置：/var/lib/docker/volumes/ovpn-data
 

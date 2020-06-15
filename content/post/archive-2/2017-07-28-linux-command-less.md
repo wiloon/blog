@@ -10,7 +10,8 @@ categories:
 ---
 ### make Vim behave like “tail -f”?
 
-```bashless +F
+```bash
+less +F
 ```
 
 https://unix.stackexchange.com/questions/82058/how-do-i-make-vim-behave-like-tail-f

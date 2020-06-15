@@ -10,7 +10,8 @@ categories:
 ---
 ### 按版本安装
 
-```bashyum list|grep filebeat
+```bash
+yum list|grep filebeat
 
 # 回显
 filebeat.x86_64                         7.2.0-1                         @elastic
