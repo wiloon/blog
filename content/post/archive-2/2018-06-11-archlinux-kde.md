@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-shell line-numbers">sudo pacman -S xorg xorg-xinit
+```bash
+sudo pacman -S xorg xorg-xinit
 echo "exec startplasma-x11" &gt; ~/.xinitrc
 sudo pacman -S plasma-desktop
 sudo pacman -S konsole dolphin kate
@@ -56,5 +57,5 @@ text: Qt.formatDate(timeSource.data["Local"]["DateTime"], Qt.DefaultLocaleLongDa
 text: Qt.formatDate(timeSource.data["Local"]["DateTime"], "yyyy-MM-dd");
 保存更改。
 
-就是这样！你甚至不需要注销，更不用说重启了。按Ctrl + Alt + L锁定屏幕并立即查看更改。
+按Ctrl + Alt + L锁定屏幕并立即查看更改。
  ```
