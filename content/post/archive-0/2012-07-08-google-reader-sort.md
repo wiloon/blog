@@ -10,7 +10,7 @@ categories:
 ---
 <http://stackoverflow.com/questions/4428117/google-reader-api-sortid-and-firstitemmsec>
 
-When a user subscribes to a feed, the most recent 10 items in it (or items in the past 30 days, whichever results in fewer items) are considered unread for that user. The timestamp (in milliseconds since epoch) of the oldest item that should be considered unread is stored in firstotemmsec. When requesting unread items from a feed, Reader passes in max(now &#8211; 30 days, firstitemmsec) as the "ot&#8221; (oldest timestamp acceptable) parameter, so that the backend doesn&#8217;t look any further than that for older items.
+When a user subscribes to a feed, the most recent 10 items in it (or items in the past 30 days, whichever results in fewer items) are considered unread for that user. The timestamp (in milliseconds since epoch) of the oldest item that should be considered unread is stored in firstotemmsec. When requesting unread items from a feed, Reader passes in max(now - 30 days, firstitemmsec) as the "ot&#8221; (oldest timestamp acceptable) parameter, so that the backend doesn&#8217;t look any further than that for older items.
 
 sortid is used to maintain custom subscription/folder ordering. In the<a href="http://www.google.com/reader/api/0/preference/stream/list" rel="nofollow">http://www.google.com/reader/api/0/preference/stream/list</a> API response there is an "ordering&#8221; pref, which is composed of concatenated sortids of the items in that folder (items that are in that folder but don&#8217;t appear in the "ordering&#8221; list are appended to the end).
 

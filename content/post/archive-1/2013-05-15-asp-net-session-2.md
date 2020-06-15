@@ -426,7 +426,7 @@ for (; ; ) {
                   
 int lastCount = getState();
                   
-int newCount = lastCount &#8211; reduceCount;
+int newCount = lastCount - reduceCount;
                   
 if (newCount < 0 || compareAndSetState(lastCount, newCount)) {
                       
@@ -1866,7 +1866,7 @@ return true;
               
 // 判断是否超时，如果超时就返回
               
-nanosTimeout = deadline &#8211; System.nanoTime();
+nanosTimeout = deadline - System.nanoTime();
               
 if (nanosTimeout <= 0 L)
                   

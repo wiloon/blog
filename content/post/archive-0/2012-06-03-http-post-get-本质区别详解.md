@@ -232,7 +232,7 @@ categories:
  ＜title＞Wrox Homepage＜/title＞
  ＜/head＞
  ＜body＞
- ＜!&#8211; body goes here &#8211;＞
+ ＜!- body goes here &#8211;＞
  ＜/body＞
  ＜/html＞
  2．最常用的状态码有：
@@ -438,10 +438,10 @@ categories:
     
     <ul>
       <li>
-        <em>GET</em> &#8211; 从指定的资源请求数据。
+        <em>GET</em> - 从指定的资源请求数据。
       </li>
       <li>
-        <em>POST</em> &#8211; 向指定的资源提交要被处理的数据
+        <em>POST</em> - 向指定的资源提交要被处理的数据
       </li>
     </ul>
   

@@ -580,7 +580,7 @@ int len = list.size();
    
 if (len > 0) {
    
-int index = list.get(len &#8211; 1).getIndex();
+int index = list.get(len - 1).getIndex();
    
 tmpNode = getChild(name, index);
    

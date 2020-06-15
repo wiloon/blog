@@ -109,17 +109,17 @@ Apr 1811:50:23 openstack-network kernel: [1038991.870985] TRACE: nat:quantum-l3-
   
 :POSTROUTING ACCEPT [26:13022]
   
-:quantum-l3-agent-OUTPUT &#8211; [0:0]
+:quantum-l3-agent-OUTPUT - [0:0]
   
-:quantum-l3-agent-POSTROUTING &#8211; [0:0]
+:quantum-l3-agent-POSTROUTING - [0:0]
   
-:quantum-l3-agent-PREROUTING &#8211; [0:0]
+:quantum-l3-agent-PREROUTING - [0:0]
   
-:quantum-l3-agent-float-snat &#8211; [0:0]
+:quantum-l3-agent-float-snat - [0:0]
   
-:quantum-l3-agent-snat &#8211; [0:0]
+:quantum-l3-agent-snat - [0:0]
   
-:quantum-postrouting-bottom &#8211; [0:0]-A PREROUTING -j quantum-l3-agent-PREROUTING
+:quantum-postrouting-bottom - [0:0]-A PREROUTING -j quantum-l3-agent-PREROUTING
   
 -A OUTPUT -j quantum-l3-agent-OUTPUT
   

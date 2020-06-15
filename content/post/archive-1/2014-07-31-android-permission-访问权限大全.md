@@ -30,7 +30,7 @@ android:minSdkVersion=&#8221;7"
   
 android:targetSdkVersion=&#8221;15" />
   
-<!&#8211; 声明权限 &#8211;>
+<!- 声明权限 &#8211;>
   
 <permission android:name=&#8221;com.example.testbutton.RECEIVE&#8221; />
 

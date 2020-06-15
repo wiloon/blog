@@ -118,15 +118,15 @@ Character.toUpperCase(other.charAt(ooffset+k))
   
 参数：
   
-ignoreCase &#8211; 如果为 true，则比较字符时忽略大小写。
+ignoreCase - 如果为 true，则比较字符时忽略大小写。
   
-toffset &#8211; 此字符串中子区域的起始偏移量。
+toffset - 此字符串中子区域的起始偏移量。
   
-other &#8211; 字符串参数。
+other - 字符串参数。
   
-toffset &#8211; 字符串参数中子区域的起始偏移量。
+toffset - 字符串参数中子区域的起始偏移量。
   
-len &#8211; 要比较的字符数。
+len - 要比较的字符数。
   
 返回：
   

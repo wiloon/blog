@@ -75,15 +75,15 @@ categories:
     
     
     
-      1、Server.Transfer &#8211; 用于把处理的控制权从一个页面转移到另一个页面，在转移的过程中，没有离开服务器，内部控件（如：request, session 等）的保存的信息不变，因此，你能从页面 A 跳到页面 B 而不会丢失页面 A 中收集的用户提交信息。此外，在转移的过程中，浏览器的 URL 栏不变。
+      1、Server.Transfer - 用于把处理的控制权从一个页面转移到另一个页面，在转移的过程中，没有离开服务器，内部控件（如：request, session 等）的保存的信息不变，因此，你能从页面 A 跳到页面 B 而不会丢失页面 A 中收集的用户提交信息。此外，在转移的过程中，浏览器的 URL 栏不变。
     
     
     
-      2、Response.Redirect &#8211; 发送一个 HTTP 响应到客户端，告诉客户端跳转到一个新的页面，客户端再发送跳转请求到服务器。使用此方法时，将无法保存所有的内部控件数据，页面 A 跳转到页面 B，页面 B 将无法访问页面 A 中 Form 提交的数据。
+      2、Response.Redirect - 发送一个 HTTP 响应到客户端，告诉客户端跳转到一个新的页面，客户端再发送跳转请求到服务器。使用此方法时，将无法保存所有的内部控件数据，页面 A 跳转到页面 B，页面 B 将无法访问页面 A 中 Form 提交的数据。
     
     
     
-      3、Page.Navigate &#8211; Page.Navigate 实现的功能和 Response.Redirect 差不多，它实际上包括三个步骤：首先调用 Response.Redirect，其次依次卸载所有的控件，最后调用 Response.End。
+      3、Page.Navigate - Page.Navigate 实现的功能和 Response.Redirect 差不多，它实际上包括三个步骤：首先调用 Response.Redirect，其次依次卸载所有的控件，最后调用 Response.End。
     
     
     

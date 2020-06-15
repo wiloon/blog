@@ -500,7 +500,7 @@ bp = index;
       
 this.ch = ch = buf[bp];
       
-strVal = symbolTable.addSymbol(buf, start, index &#8211; start &#8211; 1, hash);
+strVal = symbolTable.addSymbol(buf, start, index - start - 1, hash);
       
 break;
   

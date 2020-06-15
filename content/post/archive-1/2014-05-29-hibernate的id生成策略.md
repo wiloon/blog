@@ -20,13 +20,13 @@ hibernate的ID生成策略（annotation方式@GeneratedValue）
 
 标准的annotation方式的主键生成策略如下：
 
-AUTO &#8211; 可以是identity column类型,或者sequence类型或者table类型,取决于不同的底层数据库.
+AUTO - 可以是identity column类型,或者sequence类型或者table类型,取决于不同的底层数据库.
   
-TABLE &#8211; 使用表保存id值（也就是会为应用的表创建一张专门保存Id的表，记录对应的表的对应最大的ID值,如下图）
+TABLE - 使用表保存id值（也就是会为应用的表创建一张专门保存Id的表，记录对应的表的对应最大的ID值,如下图）
   
 CPU7@71(TD68TSQ(FD@D}MM
 
-IDENTITY &#8211; identity column
+IDENTITY - identity column
   
 SEQUENCE – sequence
 

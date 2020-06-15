@@ -364,7 +364,7 @@ int readCount = 0; // 已经成功读取的字节的个数
   
 while (readCount < count) {
       
-readCount += inStream.read(b, readCount, count &#8211; readCount);
+readCount += inStream.read(b, readCount, count - readCount);
   
 }
    

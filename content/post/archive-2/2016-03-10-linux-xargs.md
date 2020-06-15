@@ -159,9 +159,9 @@ $ file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | xargs -t -n2 ls -ltr
 
 ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 738 Aug 10 19:18 dba102\_cjq0\_14493.trc
+-rw-r&#8212;- 1 oracle dba 738 Aug 10 19:18 dba102\_cjq0\_14493.trc
 
--rw-r&#8211;r&#8211; 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
+-rw-r&#8211;r- 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
 
  
 
@@ -169,9 +169,9 @@ ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
 
 ls -ltr dba102\_mmnl\_14497.trc dba102\_reco\_14491.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 5386163 Aug 10 17:55 dba102\_mmnl\_14497.trc
+-rw-r&#8212;- 1 oracle dba 5386163 Aug 10 17:55 dba102\_mmnl\_14497.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 6808 Aug 13 05:21 dba102\_reco\_14491.trc
+-rw-r&#8212;- 1 oracle dba 6808 Aug 13 05:21 dba102\_reco\_14491.trc
 
  
 
@@ -179,6 +179,6 @@ ls -ltr dba102\_mmnl\_14497.trc dba102\_reco\_14491.trc
 
 ls -ltr dba102\_rvwr\_14518.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 2087 Aug 10 04:30 dba102\_rvwr\_14518.trc
+-rw-r&#8212;- 1 oracle dba 2087 Aug 10 04:30 dba102\_rvwr\_14518.trc
 
 使用该方法，您可以快速重命名目录中的文件。

@@ -16,15 +16,15 @@ Golang操作数据库
   
 Open() – creates a DB
   
-Close() &#8211; closes the DB
+Close() - closes the DB
   
-Query() &#8211; 查询
+Query() - 查询
   
 QueryRow() -查询行
   
 Exec() -执行操作，update，insert，delete
   
-Row &#8211; A row is not a hash map, but an abstraction of a cursor
+Row - A row is not a hash map, but an abstraction of a cursor
   
 Next()
   

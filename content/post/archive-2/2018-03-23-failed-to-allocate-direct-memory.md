@@ -20,13 +20,13 @@ System.setProperty("io.netty.maxDirectMemory&#8221;, "0&#8221;);
           
 //
           
-// * < 0 &#8211; Don&#8217;t use cleaner, and inherit max direct memory from java. In this case the
+// * < 0 - Don&#8217;t use cleaner, and inherit max direct memory from java. In this case the
           
 // "practical max direct memory&#8221; would be 2 * max memory as defined by the JDK.
           
-// * == 0 &#8211; Use cleaner, Netty will not enforce max memory, and instead will defer to JDK.
+// * == 0 - Use cleaner, Netty will not enforce max memory, and instead will defer to JDK.
           
-// * > 0 &#8211; Don&#8217;t use cleaner. This will limit Netty&#8217;s total direct memory
+// * > 0 - Don&#8217;t use cleaner. This will limit Netty&#8217;s total direct memory
           
 // (note: that JDK&#8217;s direct memory limit is independent of this).
           

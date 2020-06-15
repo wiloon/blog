@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-定义变量 &#8211; 列表
+定义变量 - 列表
 
 <pre><code class="language-yaml line-numbers">- hosts: localhost
   become: true

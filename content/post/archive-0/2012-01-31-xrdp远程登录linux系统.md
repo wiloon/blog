@@ -188,25 +188,25 @@ Test xrdp Remote Connectivity
   
 Now take RDP from any windows machine using Remote Desktop Connection. Enter the ip address of Linux server in the computer field and then click on connect.
 
-Install xrdp on CentOS 7 &#8211; Enter IP Address in Remote Desktop Connecton Window
+Install xrdp on CentOS 7 - Enter IP Address in Remote Desktop Connecton Window
   
 Install xrdp on CentOS 7 – Enter IP Address in Remote Desktop Connection Window
   
 You may need to ignore the warning of RDP certificate name mismatch.
 
-Install xrdp on CentOS 7 &#8211; Accept the Certificate
+Install xrdp on CentOS 7 - Accept the Certificate
   
 Install xrdp on CentOS 7 – Accept the Certificate
   
 You would be asked to enter the username and password. You can either use root or any user that you have it on the system. Make sure you use module “Xvnc“.
 
-Install xrdp on CentOS 7 &#8211; xrdp Login Page
+Install xrdp on CentOS 7 - xrdp Login Page
   
 Install xrdp on CentOS 7 – xrdp Login Page
   
 If you click ok, you will see the processing. In less than a half minute, you will get a desktop.
 
-Install xrdp on CentOS 7 &#8211; xrdp CentOS Desktop
+Install xrdp on CentOS 7 - xrdp CentOS Desktop
   
 Install xrdp on CentOS 7 – xrdp CentOS Desktop
   

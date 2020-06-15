@@ -47,7 +47,7 @@ mvnDebug jetty:run
 # 默认调试端口8000
 ```
 
-## debug &#8211; mvnDebug
+## debug - mvnDebug
 
 <https://blog.wiloon.com/?p=15212>
 

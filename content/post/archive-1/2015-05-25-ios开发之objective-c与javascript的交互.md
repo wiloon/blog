@@ -431,7 +431,7 @@ long start = System.currentTimeMillis();
                   
 long end = 0;
 
-while ((end &#8211; start) <= 1000) {
+while ((end - start) <= 1000) {
                       
 count++;
                       

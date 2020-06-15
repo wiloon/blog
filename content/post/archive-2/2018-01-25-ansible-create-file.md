@@ -10,7 +10,7 @@ categories:
 ---
 [code lang=shell]
   
-&#8211; name: ensure file exists
+- name: ensure file exists
     
 copy:
       

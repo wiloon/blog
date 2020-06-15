@@ -40,7 +40,7 @@ mount 和 umount 命令
 
 现在，您已经挂载了您的新分区，现在该将整个 /usr 目录复制到新分区了：
 
-$ (cd /usr && tar cf &#8211; .) | (cd /mnt && tar xpvf -)
+$ (cd /usr && tar cf - .) | (cd /mnt && tar xpvf -)
   
 文件都已经复制完了，现在可以卸下分区了。要卸下分区，请使用 umount 命令。语法很简单：
 
@@ -70,7 +70,7 @@ umount -l
   
 /dev/hda6 swap swap defaults 0 0
   
-none /mnt/cdrom supermount dev=/dev/scd0,fs=udf:iso9660,ro,&#8211; 0 0
+none /mnt/cdrom supermount dev=/dev/scd0,fs=udf:iso9660,ro,- 0 0
   
 none /mnt/floppy supermount dev=/dev/fd0,fs=ext2:vfat,&#8211;,sync,umask=0 0 0
   

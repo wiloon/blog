@@ -28,7 +28,7 @@ In this article, we&#8217;ll get to know Tomcat&#8217;s core component, from the
 
 ## <a name="name"></a>How Did Catalina Get Its Name?
 
-There&#8217;s nothing like an Apache product name to raise an eyebrow &#8211; the Apache volunteers have a knack for turning out oddly named technologies that&#8217;s only rivaled by Ubuntu&#8217;s "adjective-animal&#8221; naming format.
+There&#8217;s nothing like an Apache product name to raise an eyebrow - the Apache volunteers have a knack for turning out oddly named technologies that&#8217;s only rivaled by Ubuntu&#8217;s "adjective-animal&#8221; naming format.
 
 The name "Catalina,&#8221; according to Craig McClanahan, who designed the original architecture of the servlet container, can be attributed to three things: his love for Catalina Island (despite never having visited it), his cat&#8217;s habit of hanging around the computer while he was writing the code, and the consideration, at an early stage of development, of building Tomcat on a server framework called Avalon, which is the name of a town on Catalina island.
 

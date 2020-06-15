@@ -319,7 +319,7 @@ wait(0);//阻塞
       
 while (isAlive()) {
       
-long delay = millis &#8211; now;
+long delay = millis - now;
       
 if (delay <= 0) {
           
@@ -329,7 +329,7 @@ break;
       
 wait(delay);
       
-now = System.currentTimeMillis() &#8211; base;
+now = System.currentTimeMillis() - base;
       
 }
   

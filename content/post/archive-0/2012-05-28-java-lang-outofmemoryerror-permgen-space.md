@@ -112,7 +112,7 @@ apache+Tomcat负载平衡设置详解
 
 http://www.wujianrong.com/archives/2006/11/apachetomcat.html
   
-java &#8211; the Java application launcher
+java - the Java application launcher
 
 http://java.sun.com/j2se/1.3/docs/tooldocs/linux/java.html
 

@@ -32,7 +32,7 @@ tags:
         
         
         
-          Step 1 &#8211; Update your system
+          Step 1 - Update your system
         
         
         <pre class="plaincode">sudo apt-get update
@@ -40,7 +40,7 @@ sudo apt-get install git-core curl build-essential openssl libssl-dev
 </pre>
         
         
-          Step 2 &#8211; Install Node.js
+          Step 2 - Install Node.js
         
         
         
@@ -76,7 +76,7 @@ sudo make install
 </pre>
         
         
-          Step 3 &#8211; Install <span class="caps">NPM</span>
+          Step 3 - Install <span class="caps">NPM</span>
         
         
         

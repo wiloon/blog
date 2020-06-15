@@ -357,11 +357,11 @@ rw space 12288K, 46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
 
 -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath
   
-JVM 在发生内存溢出时自动的生成堆内存快照。有了这个参数，当我们不得不面对内存溢出异常的时候会节约大量的时间。默认情况下，堆内存快照会保存在 JVM 的启动目录下名为 java_pid.hprof 的文件里（在这里 就是 JVM 进程的进程号）。也可以通过设置 &#8211; XX:HeapDumpPath= 来改变默认的堆内存快照生成路径， 可以是相对或者绝对路径。
+JVM 在发生内存溢出时自动的生成堆内存快照。有了这个参数，当我们不得不面对内存溢出异常的时候会节约大量的时间。默认情况下，堆内存快照会保存在 JVM 的启动目录下名为 java_pid.hprof 的文件里（在这里 就是 JVM 进程的进程号）。也可以通过设置 - XX:HeapDumpPath= 来改变默认的堆内存快照生成路径， 可以是相对或者绝对路径。
 
 -verbose.gc开关可显示GC的操作内容。打开它，可以显示最忙和最空闲收集行为发生的时间、收集前后的内存大小、收集需要的时间等。
   
--verbose:gc &#8211; Same as "-XX:+PrintGC&#8221;.
+-verbose:gc - Same as "-XX:+PrintGC&#8221;.
   
 -verbose:gc -Xloggc:$CATALINA_HOME/logs/gc.log
   
@@ -371,15 +371,15 @@ JVM 在发生内存溢出时自动的生成堆内存快照。有了这个参数�
   
 只要设置-XX:+PrintGCDetails 就会自动带上-verbose:gc和-XX:+PrintGC
   
--XX:+PrintGC &#8211; Print a shot message after each garbage collection is done.
+-XX:+PrintGC - Print a shot message after each garbage collection is done.
 
--XX:+PrintGCDetails &#8211; Print a long message with more details after each garbage collection is done.
+-XX:+PrintGCDetails - Print a long message with more details after each garbage collection is done.
   
--XX:+PrintGCTimeStamps &#8211; Print a timestamp relative to the JVM start time when a garbage collection occurs.
+-XX:+PrintGCTimeStamps - Print a timestamp relative to the JVM start time when a garbage collection occurs.
   
--XX:+PrintGCDateStamps &#8211; Print a calendar data and timestamp when a garbage collection occurs.
+-XX:+PrintGCDateStamps - Print a calendar data and timestamp when a garbage collection occurs.
   
--Xloggc:/path/gc.log &#8211; Force garbage collection message to be logged into a file instead of the console.
+-Xloggc:/path/gc.log - Force garbage collection message to be logged into a file instead of the console.
 
 -XX:+UseGCLogFileRotation 启用GC日志文件的自动转储 (Since Java)
   
@@ -499,7 +499,7 @@ JVMARGS=&#8221;$JVMARGS $GCARGS $FIX_DNS&#8221;
   
 最大堆大小，默认(MaxHeapFreeRatio参数可以调整)空余堆内存大于70%时，JVM会减少堆直到 -Xms的最小限制
   
--Xms 和 &#8211; Xmx 是 &#8211; XX:InitialHeapSize 和 &#8211; XX:MaxHeapSize 的缩写
+-Xms 和 - Xmx 是 - XX:InitialHeapSize 和 - XX:MaxHeapSize 的缩写
 
 -Xmn：新生代的内存空间大小，注意：此处的大小是（eden+ 2 survivor space)。与jmap -heap中显示的New gen是不同的。整个堆大小=新生代大小 + 老生代大小 + 永久代大小。在保证堆大小不变的情况下，增大新生代后,将会减小老生代大小。此值对系统性能影响较大,Sun官方推荐配置为整个堆的3/8。
   
@@ -711,11 +711,11 @@ jprofiler,jmap dump出来用MAT分析
 
 -XX:InitialCodeCacheSize and -XX:ReservedCodeCacheSize
 
-JVM 一个有趣的，但往往被忽视的内存区域是 “代码缓存”，它是用来存储已编译方法生成的本地代码。代码缓存确实很少引起性能问题，但是一旦发生其影响可能是毁灭性的。如果代码缓存被占满，JVM 会打印出一条警告消息，并切换到 interpreted-only 模式：JIT 编译器被停用，字节码将不再会被编译成机器码。因此，应用程序将继续运行，但运行速度会降低一个数量级，直到有人注意到这个问题。就像其他内存区域一样，我们可以自定义代码缓存的大小。相关的参数是 &#8211; XX:InitialCodeCacheSize 和 &#8211; XX:ReservedCodeCacheSize，它们的参数和上面介绍的参数一样，都是字节值。
+JVM 一个有趣的，但往往被忽视的内存区域是 “代码缓存”，它是用来存储已编译方法生成的本地代码。代码缓存确实很少引起性能问题，但是一旦发生其影响可能是毁灭性的。如果代码缓存被占满，JVM 会打印出一条警告消息，并切换到 interpreted-only 模式：JIT 编译器被停用，字节码将不再会被编译成机器码。因此，应用程序将继续运行，但运行速度会降低一个数量级，直到有人注意到这个问题。就像其他内存区域一样，我们可以自定义代码缓存的大小。相关的参数是 - XX:InitialCodeCacheSize 和 - XX:ReservedCodeCacheSize，它们的参数和上面介绍的参数一样，都是字节值。
   
 -XX:+UseCodeCacheFlushing
 
-如果代码缓存不断增长，例如，因为热部署引起的内存泄漏，那么提高代码的缓存大小只会延缓其发生溢出。为了避免这种情况的发生，我们可以尝试一个有趣的新参数：当代码缓存被填满时让 JVM 放弃一些编译代码。通过使用 &#8211; XX:+UseCodeCacheFlushing 这个参数，我们至少可以避免当代码缓存被填满的时候 JVM 切换到 interpreted-only 模式。不过，我仍建议尽快解决代码缓存问题发生的根本原因，如找出内存泄漏并修复它。
+如果代码缓存不断增长，例如，因为热部署引起的内存泄漏，那么提高代码的缓存大小只会延缓其发生溢出。为了避免这种情况的发生，我们可以尝试一个有趣的新参数：当代码缓存被填满时让 JVM 放弃一些编译代码。通过使用 - XX:+UseCodeCacheFlushing 这个参数，我们至少可以避免当代码缓存被填满的时候 JVM 切换到 interpreted-only 模式。不过，我仍建议尽快解决代码缓存问题发生的根本原因，如找出内存泄漏并修复它。
 
 GC日志
   

@@ -88,7 +88,7 @@ sudo useradd -m -s /bin/bash git
   
 sudo passwd user0
   
-su &#8211; git
+su - git
   
 cd /home/git
   

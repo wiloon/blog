@@ -123,7 +123,7 @@ KILLALL
   
 NAME (名称)
   
-killall &#8211; 以名字方式来linux杀死进程
+killall - 以名字方式来linux杀死进程
   
 SYNOPSIS (总览)
   

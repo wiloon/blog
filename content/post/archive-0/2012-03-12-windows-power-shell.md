@@ -100,7 +100,7 @@ PowerShell脚本十个基本概念
   
 Get-ExecutionPolicy 你可以选择使用的执行策略有：
   
-Restricted &#8211; 脚本不能运行。 RemoteSigned &#8211; 本地创建的脚本可以运行，但从网上下载的脚本不能运行（除非它们拥有由受信任的发布者签署的数字签名）。 AllSigned – 仅当脚本由受信任的发布者签名才能运行。 Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。
+Restricted - 脚本不能运行。 RemoteSigned - 本地创建的脚本可以运行，但从网上下载的脚本不能运行（除非它们拥有由受信任的发布者签署的数字签名）。 AllSigned – 仅当脚本由受信任的发布者签名才能运行。 Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。
   
 你可以使用下面的cmdlet命令设置PowerShell的执行策略：
   

@@ -142,7 +142,7 @@ Fragmentation (数据分片)
 
 在IPv6中，如果数据包超限制，路由会直接丢弃数据包并且向发送源回传 ICMP6 的数据帧超长报告信息。源和目标两端会基于这个特性来进行路径 MTU 发现，以此寻找两端之间最大传输单元（maximum transfer unit）所在的路由。找到 MTU 路由后，仅当上层数据包的最小 payload 确实超过了 MTU，IPv6 才会进行分片传输。对于 IPv6 下的 TCP 来说，这不会造成什么问题。
 
-TCP &#8211; 传输控制协议 (Trasnmission Control Protocol)
+TCP - 传输控制协议 (Trasnmission Control Protocol)
   
 TCP 层位于 IP 层之上，是最受欢迎的因特网通讯协议之一，人们通常用 TCP/IP 来泛指整个因特网协议族。
 
@@ -472,7 +472,7 @@ Apple 服务器响应的状态码是 200，这是标准的表示 HTTP 请求成�
 
 服务器同时还告知响应媒体类型是 text/html；字符集 charset=UTF-8；内容长度 Content-Length：12342，代表了 body 信息的大小。
 
-HTTPS &#8211; 安全的 HTTP
+HTTPS - 安全的 HTTP
   
 Transport Layer Security (安全传输层协议，TLS) 是一种基于 TCP 的加密协议。它支持两件事：传输的两端可以互相验证对方的身份，以及加密所传输的数据。基于 TLS 的 HTTP 请求就是 HTTPS。
 

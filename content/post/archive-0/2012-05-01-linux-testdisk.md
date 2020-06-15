@@ -45,8 +45,8 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   
   
     Select a media (use Arrow keys, then press Enter):
- Disk /dev/sda &#8211; 160 GB / 149 GiB &#8211; ATA HITACHI HTS54251
- Disk /dev/sdb &#8211; 3272 MB / 3121 MiB &#8211; SM324BC USB DISK
+ Disk /dev/sda - 160 GB / 149 GiB - ATA HITACHI HTS54251
+ Disk /dev/sdb - 3272 MB / 3121 MiB - SM324BC USB DISK
      3.选择testdisk修复的平台,我们是Intel的，所以选择他
   
   
@@ -99,9 +99,9 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   
   
   
-    Disk /dev/sda &#8211; 160 GB / 149 GiB &#8211; CHS 19457 255 63
+    Disk /dev/sda - 160 GB / 149 GiB - CHS 19457 255 63
  Partition               Start        End    Size in sectors
- * HPFS &#8211; NTFS              0   1  1  1567 254 63   25189857
+ * HPFS - NTFS              0   1  1  1567 254 63   25189857
  L FAT32 LBA             1568   2  1  5097 254 63   56709324 [NO NAME]
  L Linux Swap            5098   1  1  5221 254 63    1991997
  L Linux                 5222   1  1  7298 254 63   33366942

@@ -38,6 +38,6 @@ chown -R 200:200 /root/foo
   
 [root@linux ~]#ls –al .bashrc*
   
--rw-r&#8211;r&#8211; 1 root root 24343 Jun 23 08:33 .bashrc
+-rw-r&#8211;r- 1 root root 24343 Jun 23 08:33 .bashrc
   
--rw-r&#8211;r&#8211; 1 root root 24343 Jun 23 08:33 .bashrc\_test 怎么办？.bashrc\_test还是属于root所有，即使将文件拿给bin用户了，他仍然无法修改，所以必须修改这个文件的拥有者与用户组
+-rw-r&#8211;r- 1 root root 24343 Jun 23 08:33 .bashrc\_test 怎么办？.bashrc\_test还是属于root所有，即使将文件拿给bin用户了，他仍然无法修改，所以必须修改这个文件的拥有者与用户组

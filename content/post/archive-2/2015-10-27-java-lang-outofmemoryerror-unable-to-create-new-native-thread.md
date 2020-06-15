@@ -20,7 +20,7 @@ java.lang.OutOfMemoryError: unable to create new native thread
 
 搜罗了一下在网上找到了一个计算公式：
 
-(MaxProcessMemory &#8211; JVMMemory – ReservedOsMemory) / (ThreadStackSize) = Number of threads
+(MaxProcessMemory - JVMMemory – ReservedOsMemory) / (ThreadStackSize) = Number of threads
 
 MaxProcessMemory：进程最大的寻址空间，但我想这个值应该也不会超过虚拟内存和物理内存的总和吧。关于不同系统的进程可寻址的最大空间，可参考下面表格：
 

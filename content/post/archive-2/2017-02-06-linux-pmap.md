@@ -180,7 +180,7 @@ Device: 设备名 (major:minor)
 
 <blockquote data-secret="6JpvbnR0q0" class="wp-embedded-content">
   
-    <a href="https://linoxide.com/linux-command/pmap-command/">Linux Pmap Command &#8211; Find How Much Memory Process Use</a>
+    <a href="https://linoxide.com/linux-command/pmap-command/">Linux Pmap Command - Find How Much Memory Process Use</a>
   
 </blockquote>
 

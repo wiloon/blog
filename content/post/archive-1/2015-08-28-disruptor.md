@@ -24,13 +24,13 @@ Disruptor是一个线程间通信的框架，即在多线程间共享数据。�
 
 图1
 
-在最简单的情况下，disruptor可以用来替代图1架构里的队列，也就是线程间通过disruptor来传递数据。在disruptor里保存消息的数据结构是环状缓冲区（RingBuffer &#8211; 后面都用RingBuffer这个术语）。生产线程stage1将消息放到RingBuffer里，然后消费线程stage2从RingBuffer里读取消息，如图2。
+在最简单的情况下，disruptor可以用来替代图1架构里的队列，也就是线程间通过disruptor来传递数据。在disruptor里保存消息的数据结构是环状缓冲区（RingBuffer - 后面都用RingBuffer这个术语）。生产线程stage1将消息放到RingBuffer里，然后消费线程stage2从RingBuffer里读取消息，如图2。
 
 图2
 
 从图2里可以看到，RingBuffer里的每一个元素都有一个序列号（sequence number）来索引，RingBuffer维护当前最新放置的元素的序列号，这个序列号一直递增，（通过求余来得到元素在RingBuffer下面的数组下标）。
 
-Disruptor的关键特性是无锁编程，这个是通过单一写线程的方式实现的 &#8211; 即一块数据永远只有一个线程写入。通过遵循这个编程原则来避免使用昂贵的同步锁或CAS操作，这就是为什么Disruptor这么快的原因。
+Disruptor的关键特性是无锁编程，这个是通过单一写线程的方式实现的 - 即一块数据永远只有一个线程写入。通过遵循这个编程原则来避免使用昂贵的同步锁或CAS操作，这就是为什么Disruptor这么快的原因。
 
 因为RingBuffer规避了锁，而且每个EventProcessor维护自己的序列号。
 
@@ -46,7 +46,7 @@ RingBuffer维护了最后一次写入的序列号（图3里的18号），因此�
 
 图4
 
-当生产线程拿到了下一个序利号之后，它从RingBuffer里拿到槽里保存的对象并执行任何操作。这个过程中，因为RingBuffer的最新序列号依然是18，因此其它线程无法读取19号槽里面的事件 &#8211; 生产线程还在处理它。
+当生产线程拿到了下一个序利号之后，它从RingBuffer里拿到槽里保存的对象并执行任何操作。这个过程中，因为RingBuffer的最新序列号依然是18，因此其它线程无法读取19号槽里面的事件 - 生产线程还在处理它。
 
 图5
 
@@ -54,7 +54,7 @@ RingBuffer维护了最后一次写入的序列号（图3里的18号），因此�
 
 从RingBuffer里读取信息
 
-Disruptor框架里提供了一个叫做BatchEventProcessor来从RingBuffer里读取数据。当生产线程向RingBuffer要求下一个可写入的空闲槽的序列号时，同时一个EventProcessor（类似消费者，但其并消费RingBuffer里的元素 &#8211; 即不从RingBuffer里移除任何元素）也会维护其最后所处理的数据的序列号，并要求下一个可处理的数据的序列号。
+Disruptor框架里提供了一个叫做BatchEventProcessor来从RingBuffer里读取数据。当生产线程向RingBuffer要求下一个可写入的空闲槽的序列号时，同时一个EventProcessor（类似消费者，但其并消费RingBuffer里的元素 - 即不从RingBuffer里移除任何元素）也会维护其最后所处理的数据的序列号，并要求下一个可处理的数据的序列号。
 
 图6演示了EventProcessor等待处理下一个可读取数据序利号的过程。
 
@@ -70,7 +70,7 @@ EventProcessor不是直接从RingBuffer里获取下一个可读取数据的序�
 
 处理系统组件之间的依赖关系
 
-Disruptor处理系统内部多组件的依赖关系，而不引入任何线程竞争的做法很有意思。Disruptor遵循的是单线程写入，多线程读取的做法。Disruptor的原始设计是支持几步具有特定顺序的串行流水线操作 &#8211; 这种操作在企业级的系统里很常见。图8演了一个标准的三步流水线操作：
+Disruptor处理系统内部多组件的依赖关系，而不引入任何线程竞争的做法很有意思。Disruptor遵循的是单线程写入，多线程读取的做法。Disruptor的原始设计是支持几步具有特定顺序的串行流水线操作 - 这种操作在企业级的系统里很常见。图8演了一个标准的三步流水线操作：
 
 图8
 
@@ -96,6 +96,6 @@ Disruptor也支持，但是本文没有说如何支持，放在后面写。
 
 结论
 
-虽然disruptor的原理已经比较熟悉了，但是其API还不是很了解，我写了一个实验性的代码，来完善我的理解 &#8211; 不过随着理解的深入，代码会不断更新：
+虽然disruptor的原理已经比较熟悉了，但是其API还不是很了解，我写了一个实验性的代码，来完善我的理解 - 不过随着理解的深入，代码会不断更新：
 
 https://github.com/shiyimin/12306ngpm/blob/8be9178d318618f905aaed45fa6025df09371c31/trunk/tpms/src/test/java/org/ng12306/tpms/DisruptorConceptProofTest.java

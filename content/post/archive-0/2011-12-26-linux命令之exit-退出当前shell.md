@@ -36,9 +36,9 @@ exit命令用于退出当前shell，在shell脚本中可以终止当前脚本执
 
 退出码（exit status，或exit code）的约定：
   
-0表示成功（Zero &#8211; Success）
+0表示成功（Zero - Success）
   
-非0表示失败（Non-Zero &#8211; Failure）
+非0表示失败（Non-Zero - Failure）
   
 2表示用法不当（Incorrect Usage）
   

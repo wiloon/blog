@@ -104,11 +104,11 @@ This article was previously published under Q288367
       Close the applications, including VBA.
     </li>
     <li>
-      Click Start, click Run, and then type <kbd>DCOMCNFG</kbd>. Select the application that you want to automate. The application names are listed below:Microsoft Access 97/2002 &#8211; Microsoft Access Database
- Microsoft Access 2003 &#8211; Microsoft Office Access Application
- Microsoft Excel 97/2000/2002/2003 &#8211; Microsoft Excel Application
- Microsoft Word 97 &#8211; Microsoft Word Basic
- Microsoft Word 2000/2002/2003 &#8211; Microsoft Word Document 
+      Click Start, click Run, and then type <kbd>DCOMCNFG</kbd>. Select the application that you want to automate. The application names are listed below:Microsoft Access 97/2002 - Microsoft Access Database
+ Microsoft Access 2003 - Microsoft Office Access Application
+ Microsoft Excel 97/2000/2002/2003 - Microsoft Excel Application
+ Microsoft Word 97 - Microsoft Word Basic
+ Microsoft Word 2000/2002/2003 - Microsoft Word Document 
         Click Properties to open the property dialog box for this application.</li> 
         
         <li>

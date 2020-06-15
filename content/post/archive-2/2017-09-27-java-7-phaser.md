@@ -42,7 +42,7 @@ for (int i = 0; i < 2000000000; i++) {
         
 a = a + b;
         
-b = a &#8211; b;
+b = a - b;
        
 }
       
@@ -124,25 +124,25 @@ Line 51: Just for demonstration purposes, this line delays execution. The origin
   
 Line 52: two tasks are registered, in total three parties are registered.
   
-Line 54: deregister one party. This results in two registered parties and two arrived parties. This causes the threads waiting (Line 46) to execute the first cycle. (in fact the third party arrived while three were registered &#8211; but it does not make a difference)
+Line 54: deregister one party. This results in two registered parties and two arrived parties. This causes the threads waiting (Line 46) to execute the first cycle. (in fact the third party arrived while three were registered - but it does not make a difference)
 
 原始的代码 存放在 Git 仓库中，执行的结果如下：
   
-After phaser init -> Registered: 1 &#8211; Unarrived: 1 &#8211; Arrived: 0 &#8211; Phase: 0
+After phaser init -> Registered: 1 - Unarrived: 1 - Arrived: 0 - Phase: 0
   
-After register -> Registered: 2 &#8211; Unarrived: 2 &#8211; Arrived: 0 &#8211; Phase: 0
+After register -> Registered: 2 - Unarrived: 2 - Arrived: 0 - Phase: 0
   
-After arrival -> Registered: 2 &#8211; Unarrived: 1 &#8211; Arrived: 1 &#8211; Phase: 0
+After arrival -> Registered: 2 - Unarrived: 1 - Arrived: 1 - Phase: 0
   
-After register -> Registered: 3 &#8211; Unarrived: 2 &#8211; Arrived: 1 &#8211; Phase: 0
+After register -> Registered: 3 - Unarrived: 2 - Arrived: 1 - Phase: 0
   
-After arrival -> Registered: 3 &#8211; Unarrived: 1 &#8211; Arrived: 2 &#8211; Phase: 0
+After arrival -> Registered: 3 - Unarrived: 1 - Arrived: 2 - Phase: 0
   
-Before main thread arrives and deregisters -> Registered: 3 &#8211; Unarrived: 1 &#8211; Arrived: 2 &#8211; Phase: 0
+Before main thread arrives and deregisters -> Registered: 3 - Unarrived: 1 - Arrived: 2 - Phase: 0
   
-On advance -> Registered: 2 &#8211; Unarrived: 0 &#8211; Arrived: 2 &#8211; Phase: 0
+On advance -> Registered: 2 - Unarrived: 0 - Arrived: 2 - Phase: 0
   
-After main thread arrived and deregistered -> Registered: 2 &#8211; Unarrived: 2 &#8211; Arrived: 0 &#8211; Phase: 1
+After main thread arrived and deregistered -> Registered: 2 - Unarrived: 2 - Arrived: 0 - Phase: 1
   
 Main thread will terminate &#8230;
   
@@ -154,7 +154,7 @@ Thread-0:done:Wed Dec 28 16:09:20 CET 2011
   
 Thread-1:done:Wed Dec 28 16:09:20 CET 2011
   
-On advance -> Registered: 2 &#8211; Unarrived: 0 &#8211; Arrived: 2 &#8211; Phase: 1
+On advance -> Registered: 2 - Unarrived: 0 - Arrived: 2 - Phase: 1
   
 Thread-0:go :Wed Dec 28 16:09:20 CET 2011
   

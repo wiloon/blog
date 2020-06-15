@@ -58,11 +58,11 @@ conn则是一个代表与service连接状态的类，当我们连接service成�
   
 第二步：在androidManifest.xml中进行注册，如：
   
-<!&#8211; service配置开始 &#8211;>
+<!- service配置开始 &#8211;>
   
 <service android:name=&#8221;MyService&#8221;></service>
   
-<!&#8211; service配置结束&#8211;>
+<!- service配置结束&#8211;>
   
 第三步：在activity中进行启动、绑定、解绑或者停止service。
   

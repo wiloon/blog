@@ -28,13 +28,13 @@ VirtualBox提供了端口转发的功能，可以将主机中的端口转发至�
   
 1、命令
   
-netsh interface portproxy add v4tov4 &#8211; 添加通过 IPv4 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy add v4tov4 - 添加通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy add v4tov6 &#8211; 添加通过 IPv6 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy add v4tov6 - 添加通过 IPv6 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy add v6tov4 &#8211; 添加通过 IPv4 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy add v6tov4 - 添加通过 IPv4 的 IPv6 和代理连接到的侦听项目。
   
-netsh interface portproxy add v6tov6 &#8211; 添加通过 IPv6 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy add v6tov6 - 添加通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
 2、命令语法
   
@@ -54,15 +54,15 @@ netsh interface portproxy add v4tov4 [listenport=]<integer>|<servicename>
   
 标记            值
   
-listenport      &#8211; IPv4 侦听端口。
+listenport      - IPv4 侦听端口。
   
-connectaddress  &#8211; IPv4 连接地址。
+connectaddress  - IPv4 连接地址。
   
-connectport     &#8211; IPv4 连接端口。
+connectport     - IPv4 连接端口。
   
-listenaddress   &#8211; IPv4 侦听地址。
+listenaddress   - IPv4 侦听地址。
   
-protocol        &#8211; 使用的协议。现在只支持 TCP。
+protocol        - 使用的协议。现在只支持 TCP。
   
 说明: 添加通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
@@ -80,15 +80,15 @@ netsh interface portproxy add v4tov4 listenport=9090 connectaddress=192.168.56.1
   
 1、命令
   
-netsh interface portproxy show all &#8211; 显示所有端口代理参数。
+netsh interface portproxy show all - 显示所有端口代理参数。
   
-netsh interface portproxy show v4tov4 &#8211; 显示 IPv4 代理连接到另一个 IPv4 端口的参数。
+netsh interface portproxy show v4tov4 - 显示 IPv4 代理连接到另一个 IPv4 端口的参数。
   
-netsh interface portproxy show v4tov6 &#8211; 显示 IPv4 代理连接到 IPv6 的参数。
+netsh interface portproxy show v4tov6 - 显示 IPv4 代理连接到 IPv6 的参数。
   
-netsh interface portproxy show v6tov4 &#8211; 显示 IPv6 代理连接到 IPv4 的参数。
+netsh interface portproxy show v6tov4 - 显示 IPv6 代理连接到 IPv4 的参数。
   
-netsh interface portproxy show v6tov6 &#8211; 显示 IPv6 代理连接到另一个 IPv6 端口的参数。
+netsh interface portproxy show v6tov6 - 显示 IPv6 代理连接到另一个 IPv6 端口的参数。
 
 2、使用示例
   
@@ -110,13 +110,13 @@ netsh interface portproxy show all
   
 1、命令
   
-netsh interface portproxy set v4tov4     &#8211; 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy set v4tov4     - 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy set v4tov6     &#8211; 更新通过 IPv6 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy set v4tov6     - 更新通过 IPv6 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy set v6tov4     &#8211; 更新通过 IPv4 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy set v6tov4     - 更新通过 IPv4 的 IPv6 和代理连接到的侦听项目。
   
-netsh interface portproxy set v6tov6     &#8211; 更新通过 IPv6 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy set v6tov6     - 更新通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
 2、命令语法
   
@@ -136,15 +136,15 @@ netsh interface portproxy set v4tov4 [listenport=]<integer>|<servicename>
   
 标记            值
   
-listenport      &#8211; IPv4 侦听端口。
+listenport      - IPv4 侦听端口。
   
-connectaddress  &#8211; IPv4 连接地址。
+connectaddress  - IPv4 连接地址。
   
-connectport     &#8211; IPv4 连接端口。
+connectport     - IPv4 连接端口。
   
-listenaddress   &#8211; IPv4 侦听地址。
+listenaddress   - IPv4 侦听地址。
   
-protocol        &#8211; 使用的协议。现在只支持 TCP。
+protocol        - 使用的协议。现在只支持 TCP。
   
 说明: 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
@@ -158,13 +158,13 @@ netsh interface portproxy set v4tov4 listenport=9090 connectaddress=192.168.56.1
   
 1、命令
   
-netsh interface portproxy delete v4tov4  &#8211; 删除通过 IPv4 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy delete v4tov4  - 删除通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy delete v4tov6  &#8211; 删除通过 IPv6 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy delete v4tov6  - 删除通过 IPv6 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy delete v6tov4  &#8211; 删除通过 IPv4 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy delete v6tov4  - 删除通过 IPv4 的 IPv6 和代理连接到的侦听项目。
   
-netsh interface portproxy delete v6tov6  &#8211; 删除通过 IPv6 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy delete v6tov6  - 删除通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
 2、命令语法
   
@@ -180,11 +180,11 @@ netsh interface portproxy delete v4tov4 [listenport=]<integer>|<servicename>
   
 标记             值
   
-listenport     &#8211; 要侦听的 IPv4 端口。
+listenport     - 要侦听的 IPv4 端口。
   
-listenport     &#8211; 要侦听的 IPv4 地址。
+listenport     - 要侦听的 IPv4 地址。
   
-protocol       &#8211; 要使用的协议。当前仅支持 TCP。
+protocol       - 要使用的协议。当前仅支持 TCP。
   
 注释: 删除要侦听的 IPv4 的项并通过 Ipv4 代理连接。
   

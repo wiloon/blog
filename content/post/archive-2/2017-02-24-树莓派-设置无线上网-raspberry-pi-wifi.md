@@ -34,7 +34,7 @@ apt-cache search realtek
   
 看到下面信息：
 
-firmware-realtek &#8211; Binary firmware for Realtek wired and wireless network adapters
+firmware-realtek - Binary firmware for Realtek wired and wireless network adapters
   
 安装Realtek驱动：
 

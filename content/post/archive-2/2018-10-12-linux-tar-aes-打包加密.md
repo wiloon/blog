@@ -10,7 +10,7 @@ categories:
 ---
 [code lang=shell]
   
-tar -cvf &#8211; foo | openssl enc -e -aes256 -k password -out foo.tar
+tar -cvf - foo | openssl enc -e -aes256 -k password -out foo.tar
   
 openssl enc -d -aes256 -in foo.tar -k password | tar xv
   

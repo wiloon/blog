@@ -62,7 +62,7 @@ crc32.update(i >> 16);
   
 crc32.update(i >> 24);
   
-for (int k = 0; k < bytes.length &#8211; 2; k++)
+for (int k = 0; k < bytes.length - 2; k++)
   
 {
   
@@ -152,7 +152,7 @@ else
   
 {
   
-c = (char) ((65 + k) &#8211; 10);
+c = (char) ((65 + k) - 10);
   
 }
   

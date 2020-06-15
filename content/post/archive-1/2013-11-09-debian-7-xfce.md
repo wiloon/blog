@@ -46,7 +46,7 @@ Its easy, just run the following commands
 
 \# aptitude search shimmer
 
-p shimmer-themes-greybird &#8211; Greybird Theme from the Shimmer Project
+p shimmer-themes-greybird - Greybird Theme from the Shimmer Project
 
 \# apt-get install shimmer-themes-greybird
 

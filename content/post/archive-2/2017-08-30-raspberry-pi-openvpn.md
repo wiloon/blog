@@ -26,11 +26,11 @@ vim /etc/openvpn/server/server.conf
     
 > Allow web traffic pass though to client by uncommenting push “redirect-gateway def1 bypass-dhcp” by removing the semi colon at the start of the line
     
-> Prevent DNS leak by overriding the default DNS &#8211; Uncomment push “dhcp-option DNS 208.67.222.222” and push "dhcp-option DNS 208.67.220.220&#8221;
+> Prevent DNS leak by overriding the default DNS - Uncomment push “dhcp-option DNS 208.67.222.222” and push "dhcp-option DNS 208.67.220.220&#8221;
     
-> Lower OpenVPNs run time auth &#8211; Uncomment user nobody and group nogroup
+> Lower OpenVPNs run time auth - Uncomment user nobody and group nogroup
     
-> Change the port OpenVPN runs on it should current by port 1194 &#8211; choose something obscure and above 1024 e.g. port 50000 &#8211; leave it as UDP
+> Change the port OpenVPN runs on it should current by port 1194 - choose something obscure and above 1024 e.g. port 50000 - leave it as UDP
     
 > Now save your changes and exit. 
 

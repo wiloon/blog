@@ -68,7 +68,7 @@ public boolean isOk() {
 
 // 超时0.1秒为失败
 
-if (getRocketEndTime() &#8211; getRocketStartTime() >= 100) {
+if (getRocketEndTime() - getRocketStartTime() >= 100) {
 
 delegate.sendDidFail();
 

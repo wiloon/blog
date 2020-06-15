@@ -10,7 +10,7 @@ tags:
   - IDEA
 
 ---
-outline &#8211; structure, Ctrl+F12
+outline - structure, Ctrl+F12
 
 本文转自：<http://gagi.iteye.com/blog/633778>
 

@@ -14,7 +14,7 @@ http://blog.51cto.com/janephp/1318705
 
 减少碎片：
   
-合适的query\_cache\_min\_res\_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query\_cache\_size &#8211; Qcache\_free\_memory）除以Qcache\_queries\_in_cache计算平均缓存大小。
+合适的query\_cache\_min\_res\_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query\_cache\_size - Qcache\_free\_memory）除以Qcache\_queries\_in_cache计算平均缓存大小。
   
 可以通过Qcache\_free\_blocks来观察碎片，这个值反应了剩余的空闲块，如果这个值很多，但是
   
@@ -176,7 +176,7 @@ Qcache\_queries\_in_cache 查询缓存区当前缓存着多少条查询命令的
 
 关于query\_cache\_min\_res\_unit大小的调优，书中给出了一个计算公式，可以供调优设置参考：
 
-query\_cache\_min\_res\_unit = (query\_cache\_size &#8211; Qcache\_free\_memory) /Qcache\_queries\_in_cache
+query\_cache\_min\_res\_unit = (query\_cache\_size - Qcache\_free\_memory) /Qcache\_queries\_in_cache
   
 1
   
@@ -244,4 +244,4 @@ SELECT id FROM article ORDER BY created DESC LIMIT 10000, 10
   
 此时，建立复合索引”created, id”（只要建立created索引就可以吧，Innodb是会在辅助索引里面存储主键值的），就可以在子查询里利用上Covering Index，快速定位id，查询效率嗷嗷的
 
-注：本文是参考《Mysql性能优化案例 &#8211; 覆盖索引》 的一篇文章借题发挥，参考了原文的知识点，自己做了一点的发挥和研究，原文被多次转载，不知作者何许人也，也不知出处在哪个，如需原文请自行搜索。
+注：本文是参考《Mysql性能优化案例 - 覆盖索引》 的一篇文章借题发挥，参考了原文的知识点，自己做了一点的发挥和研究，原文被多次转载，不知作者何许人也，也不知出处在哪个，如需原文请自行搜索。

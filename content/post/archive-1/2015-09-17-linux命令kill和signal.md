@@ -80,7 +80,7 @@ root      3370  2822  0 16:21 pts/0    00:00:00 grep vim
   
 [root@new55 ~]# kill 3368
   
--bash: kill: (3368) &#8211; 没有那个进程
+-bash: kill: (3368) - 没有那个进程
 
 2）init进程是不可杀的。
 
