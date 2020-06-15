@@ -14,7 +14,7 @@ provided you&#8217;ve already unlocked your bootloader,
 
   1. Download the TWRP Recovery
   
-    <https://dl.twrp.me/angler/></p> 
+    <https://dl.twrp.me/angler/> 
   2. Download the SuperSU and push the zip to your device.
   
     <http://www.supersu.com/download>

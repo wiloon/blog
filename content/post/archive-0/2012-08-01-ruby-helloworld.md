@@ -60,43 +60,42 @@ $ sudo apt-get install ruby
 
 You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
 
-<div>
+
   [shell]
  $ ruby helloworld.rb
  Hello World!
- [/shell]</p> 
+ [/shell] 
   
-  <p>
+  
     ( or )
  [shell]
  $ chmod u+x helloworld.rb
-  </p>
   
-  <p>
+  
+  
     $ ./helloworld.rb
  Hello World!
  [/shell]
-  </p>
   
-  <p>
-    <strong>Note:</strong> As Ruby is an interpreted language, you don’t have the compilation step similar to the C program.
-  </p>
   
-  <h3>
+  
+    Note: As Ruby is an interpreted language, you don’t have the compilation step similar to the C program.
+  
+  
+  
     Executing Ruby one liner
-  </h3>
   
-  <p>
+  
+  
     You can also execute Ruby from the command line as shown below. This will print Hello World!.
-  </p>
   
-  <p>
+  
+  
     [shell]
  $ ruby -e &#8216;puts "Hello World!n"&#8217;
  [/shell]
-  </p>
   
-  <p>
+  
+  
     <a href="http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/">http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/</a>
-  </p>
-</div>
+  

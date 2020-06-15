@@ -105,19 +105,19 @@ public Object put(Object Key,Object value)方法用来将元素添加到map中�
     </td>
     
     <td>
-      HashSet较HashMap来说比较慢</p> 
+      HashSet较HashMap来说比较慢 
       
-      <p>
+      
         
-      </p>
       
-      <p>
+      
+      
         </td> </tr> </tbody> </table> 
         
-        <p>
-          http://blog.csdn.net/cynthia9023/article/details/17503023
-        </p>
         
-        <p>
+          http://blog.csdn.net/cynthia9023/article/details/17503023
+        
+        
+        
           http://www.importnew.com/6931.html
-        </p>
+        

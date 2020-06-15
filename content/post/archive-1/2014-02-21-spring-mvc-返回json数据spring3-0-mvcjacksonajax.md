@@ -27,11 +27,11 @@ jackson-mapper-asl-1.9.2.jar
 **2、spring-servlet.xml中加入：**
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -59,7 +59,7 @@ jackson-mapper-asl-1.9.2.jar
       </bean>
     </li>
   </ol>
-</div>
+
 
 我们在SPRING的配置中加入了一个新的适配器：AnnotationMethodHandlerAdapter，通过这个适配器，我们配置了一个属性，messageConverters，其中mappingJacksonHttpMessageConverter这个Bean，它就是用来处理json数据转换的。
   
@@ -68,11 +68,11 @@ jackson-mapper-asl-1.9.2.jar
 **3、Controller中的使用**
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -111,7 +111,7 @@ jackson-mapper-asl-1.9.2.jar
       }
     </li>
   </ol>
-</div>
+
 
 在SpringMVC中可以在Controller的某个方法上加**@ResponseBody**注解，表示该方法的返回结果直接写入HTTP response body中。
 

@@ -65,7 +65,7 @@ javac -source 1.4 test.java
   
     -ea和-da的全名为-enableassertions和-disenableassertions，全名和缩写名有同样的功能。
   
-    下面表格表示了参数及其含义，并有例子说明如何使用。</p> <table width="60%" border="1">
+    下面表格表示了参数及其含义，并有例子说明如何使用。 <table width="60%" border="1">
       <tr>
         <td>
           参数
@@ -277,8 +277,8 @@ javac -source 1.4 test.java
   
     clearAssertionStatus：用于关闭assertion功能</li> </ol> 
     
-    <div>
-    </div>
+    
+    
     
     [回页首][1]
     
@@ -292,8 +292,8 @@ javac -source 1.4 test.java
     
     另外，我们注意到AssertionError作为Error的一个子类，而不是RuntimeException。关于这一点，专家组也进行了长期的讨论。Error代表一些异常的错误，通常是不可以恢复的，而RuntimeException强调该错误在运行时才发生的特点。AssertionError通常为非常关键的错误，这些错误往往是不容易恢复的，而且assertion机制也不鼓励程序员对这种错误进行恢复。因此，为了强调assertion的含义，Java专家小组选择了让AssertError为Error的子类。
     
-    <div>
-    </div>
+    
+    
     
     [回页首][1]
     
@@ -430,8 +430,8 @@ class Derived
     
     从这个例子我们可以看出，父类的assert语句将只有在父类的assert开启才起作用，如果仅仅开启子类的assert，父类的assert仍然不运行。例如，我们执行java -ea:Derived Derived的时候，Base类的assert语句并不执行。因此，我们可以认为，assert语句不具有继承功能。
     
-    <div>
-    </div>
+    
+    
     
     [回页首][1]
     
@@ -483,8 +483,8 @@ class Derived
             
             在这个系统中，在一些可能影响这种平衡关系的方法的前后，我们都可以加上assert验证： `assert isBalance():"balance is destoried";`</li> </ol> 
             
-            <div>
-            </div>
+            
+            
             
             [回页首][1]
             
@@ -503,18 +503,18 @@ class Derived
             
             <a name="author"></a>作者简介
             
-            <div>
-              <div>
-                <p>
-                  <a name="author1"></a>欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 <a href="mailto:yeekee@sina.com?cc=yeekee@sina.com">yeekee@sina.com</a>
-                </p>
-              </div>
+            
               
-              <div>
-                <p>
+                
+                  <a name="author1"></a>欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 <a href="mailto:yeekee@sina.com?cc=yeekee@sina.com">yeekee@sina.com</a>
+                
+              
+              
+              
+                
                   <a name="author2"></a>周欣，北京大学计算机系在读博士生，主要研究方向：程序理解、逆向工程及软件度量，联系方式 <a href="mailto:zhouxin@sei.pku.edu.cn?cc=zhouxin@sei.pku.edu.cn">zhouxin@sei.pku.edu.cn</a>。
-                </p>
-              </div>
-            </div>
+                
+              
+            
 
  [1]: http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html#ibm-pcon

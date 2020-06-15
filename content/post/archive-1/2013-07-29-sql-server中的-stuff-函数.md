@@ -14,7 +14,7 @@ categories:
 
 ##### 语法
 
-`<span style="color: #ffffff;">STUFF</span> <strong>( </strong><em>character_expression </em><strong>,</strong> <em>start </em><strong>,</strong> <em>length </em><strong>,</strong> <em>character_expression </em><strong>)</strong>`
+`<span style="color: #ffffff;">STUFF</span> ( <em>character_expression </em>, <em>start </em>, <em>length </em>, <em>character_expression </em>)`
 
 ##### 参数
 

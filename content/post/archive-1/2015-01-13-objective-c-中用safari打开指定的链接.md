@@ -50,7 +50,7 @@ customThread.join();
 
 1.CustomThread 类
 
-  1. CustomThread1类</p> 
+  1. CustomThread1类 
   2. JoinTestDemo 类，main方法所在的类。
 
 代码1：

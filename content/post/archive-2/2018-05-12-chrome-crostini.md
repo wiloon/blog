@@ -31,9 +31,9 @@ Launch a container run\_container.sh &#8211;container\_name=stretch &#8211;user=
 <https://www.youtube.com/watch?v=s9mrR2tqVbQ>
 
 <blockquote class="reddit-card" >
-  <p>
+  
     <a href="https://www.reddit.com/r/Crostini/comments/89q1cu/crostini_101/?ref_source=embed&ref=share">Crostini 101</a> from <a href="https://www.reddit.com/r/Crostini/">Crostini</a>
-  </p>
+  
 </blockquote>
 
 

@@ -10,12 +10,12 @@ categories:
 ---
 ### 
 
-<div>
+
   <div id="main-content">
-    <div>
-      <p>
+    
+      
         Follow the steps outlined below to move the SQL Server Data File(s):
-      </p>
+      
       
       <ol>
         <li>
@@ -45,7 +45,7 @@ categories:
         </li>
         
         <li>
-          Now, copy the data files and the log files from the correct location to the new location. <p>
+          Now, copy the data files and the log files from the correct location to the new location. 
             <b>NOTE:</b> If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step.</li> 
             
             <li>
@@ -65,19 +65,19 @@ categories:
               </ul>
             </li></ol> 
             
-            <p>
+            
               See, Microsoft knowledge base article for further information on how to Detach and Attach databases in SQL Server.
  参考：
-            </p>
             
-            <p>
+            
+            
               <a href="http://support.microsoft.com/kb/965095/en-us">http://support.microsoft.com/kb/965095/en-us</a>
-            </p>
             
-            <p>
+            
+            
               <a href="http://server.chinabyte.com/216/11420716.shtml">http://server.chinabyte.com/216/11420716.shtml</a>
-            </p>
             
-            <p>
+            
+            
               <a href="http://support.microsoft.com/?scid=kb;zh-cn;224071&spid=2852&sid=521">http://support.microsoft.com/?scid=kb;zh-cn;224071&spid=2852&sid=521</a>
-            </p></div> </div> </div>
+              

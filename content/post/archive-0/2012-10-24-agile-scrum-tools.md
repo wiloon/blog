@@ -47,30 +47,30 @@ Mingle后台存储采用数据库方式，目前仅支持mysql和Postgres两种�
   * 丰富的card properties，使需求驱动的管理流程更加清晰；
   * 支持card和源代码之间的link；.
 
-<div>
-  <strong>agilefant</strong>
-</div>
 
-<div>
-</div>
+  agilefant
 
-<div>
-  <p>
-    <strong>XPlanner</strong>
-  </p>
+
+
+
+
+
   
-  <p>
+    XPlanner
+  
+  
+  
     最牛的祖父级的开源工具，完全免费，业界使用率排名第四，真的是穷人的项目管理工具！
-  </p>
   
-  <p>
+  
+  
     作为一个基于Web的XP团队计划和跟踪工具，要求 Apace Tomcat。
-  </p>
   
-  <p>
+  
+  
     XP 独特的开发概念如iteration、user stories等，XPlanner都提供了相对应的的管理工具，XPlanner支持XP开发流程，并解决利用XP思想来开发项目所碰到的问题。 XPlanner特点包括：简单的模型规划，虚拟笔记卡(Virtual note cards),iterations、user stories与工作记录的追踪，未完成stories将自动迭代，工作时间追踪，生成团队效率，个人工时报表，SOAP界面支持。.
-  </p>
-</div>
+  
+
 
 **白板**
 

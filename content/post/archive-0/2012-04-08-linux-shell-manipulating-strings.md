@@ -25,7 +25,7 @@ echo $a$b
 [/shell]
 
 expr index $string $substring
-:   Numerical position in $string of first character in $substring that matches.</p> 
+:   Numerical position in $string of first character in $substring that matches. 
     
     <table width="90%" border="0" bgcolor="#E0E0E0">
       <tr>
@@ -48,7 +48,7 @@ expr index $string $substring
     :   <tt><em>$substring</em></tt> is a [regular expression][1].
     
     expr "$string&#8221; : &#8216;$substring&#8217;
-    :   <tt><em>$substring</em></tt> is a regular expression.</p> 
+    :   <tt><em>$substring</em></tt> is a regular expression. 
         
         <table width="90%" border="0" bgcolor="#E0E0E0">
           <tr>

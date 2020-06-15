@@ -136,12 +136,12 @@ ModelAndView
 
 完整的例子
 
-<div>
-  <div>
-    <div>
+
+  
+    
       Java代码
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -183,4 +183,3 @@ ModelAndView
       </span>
     </li>
   </ol>
-</div>

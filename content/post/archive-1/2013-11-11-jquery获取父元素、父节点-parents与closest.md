@@ -16,11 +16,11 @@ tags:
 
 <ul class=&#8221;box&#8221; name=&#8221;a&#8221;>
 
-<li name=&#8221;b&#8221; class=&#8221;li_moito&#8221;><p><a href=&#8221;#&#8221; class=&#8221;moto&#8221;>Hello Moto*</a></p></li>
+<li name=&#8221;b&#8221; class=&#8221;li_moito&#8221;><a href=&#8221;#&#8221; class=&#8221;moto&#8221;>Hello Moto*</a></li>
 
-<li><p><a href=&#8221;#&#8221; class=&#8221;kitty&#8221;>Hello Kitty*</a></p></li>
+<li><a href=&#8221;#&#8221; class=&#8221;kitty&#8221;>Hello Kitty*</a></li>
 
-<li><p><a href=&#8221;#&#8221; class=&#8221;world&#8221;>Hello World*</a></p></li>
+<li><a href=&#8221;#&#8221; class=&#8221;world&#8221;>Hello World*</a></li>
 
 </ul>
 

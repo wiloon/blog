@@ -11,9 +11,9 @@ categories:
 继电器: 树莓派的GPIO口是3.3V的，你需要把它转化成5V才能进行控制
 
 <blockquote class="wp-embedded-content" data-secret="57KOUtczxY">
-  <p>
+  
     <a href="http://blog.oa25.org/?p=472">Raspberry Pi 的GPIO接口电路</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《Raspberry Pi 的GPIO接口电路》—oa25开源日记" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.oa25.org/?p=472&#038;embed=true#?secret=57KOUtczxY" data-secret="57KOUtczxY" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

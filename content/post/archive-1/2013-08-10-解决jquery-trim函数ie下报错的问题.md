@@ -13,11 +13,11 @@ categories:
 其主要原因是写法不对，下面是错误的写法
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -30,18 +30,18 @@ categories:
          alert(&#8216;空&#8217;);
     </li>
   </ol>
-</div>
+
 
 上面的写法在firefox下不会报错，但在ie下确会报错
   
 正确的写法应该为
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -54,16 +54,16 @@ categories:
         alert(&#8216;空&#8217;);
     </li>
   </ol>
-</div>
+
 
 或者为:
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -77,7 +77,6 @@ categories:
     </li>
   </ol>
   
-  <p>
+  
     <a href="http://vsp.iteye.com/blog/1262441">http://vsp.iteye.com/blog/1262441</a>
-  </p>
-</div>
+  

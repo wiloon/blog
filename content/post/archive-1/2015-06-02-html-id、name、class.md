@@ -50,7 +50,7 @@ name的用途
 
 2）HTML元素Input type=&#8217;radio&#8217;分组，我们知道radio button控件在同一个分组类，check操作是mutex的，同一时间只能选中一个radio，这个分组就是根据相同的name属性来实现的。
 
-3）建立页面中的锚点，我们知道<a href=&#8221;URL&#8221;>link</a>是获得一个页面超级链接，如果不用href属性，而改用name，如：<a name=&#8221;PageBottom&#8221;></a>，我们就获得了一个页面锚点，如<strong><a name=&#8221;1" id=&#8221;1"></a>Experience (XP)</strong>，详见 示例
+3）建立页面中的锚点，我们知道<a href=&#8221;URL&#8221;>link</a>是获得一个页面超级链接，如果不用href属性，而改用name，如：<a name=&#8221;PageBottom&#8221;></a>，我们就获得了一个页面锚点，如<a name=&#8221;1" id=&#8221;1"></a>Experience (XP)，详见 示例
 
 4）作为对象的Identity，如Applet、Object、Embed等元素。比如在Applet对象实例中，我们将使用其name来引用该对象。
 
@@ -108,7 +108,7 @@ CSS 中 id、class属性的区别
 
 1）class是设置标签的类，用于指定元素属于何种样式的类。在CSS样式中以小写的“点”及“.”来命名，在html页面里则以class=&#8221;css5" 来选择调用，命名好的CSS又叫css选择器。
   
-如： .css5{属性：属性值;} 选择器在html调用为“<div class=&#8221;css5">我是class例子</div>
+如： .css5{属性：属性值;} 选择器在html调用为“<div class=&#8221;css5">我是class例子
   
 .baobao { color: lime; background: #ff80c0 }
   
@@ -132,7 +132,7 @@ id是一个标签，用于区分不同的结构和内容，就象你的名字，
 
 调用ID ：
 
-<div id=&#8221;css5">我是ID例子</div>
+<div id=&#8221;css5">我是ID例子
   
 class是一个样式，可以套在任何结构和内容上，就象一件衣服。
 

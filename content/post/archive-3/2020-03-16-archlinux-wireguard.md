@@ -109,9 +109,9 @@ https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/
 https://blog.mozcp.com/wireguard-usage/
 
 <blockquote class="wp-embedded-content" data-secret="3eFM6gPGdn">
-  <p>
+  
     <a href="https://mine260309.me/archives/1697">自己搭建WireGuard给Android用</a>
-  </p>
+  
 </blockquote>
 
 <iframe title=""自己搭建WireGuard给Android用&#8221; &#8212; This is Mine" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://mine260309.me/archives/1697/embed#?secret=3eFM6gPGdn" data-secret="3eFM6gPGdn" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

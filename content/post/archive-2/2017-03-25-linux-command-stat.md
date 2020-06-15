@@ -94,9 +94,9 @@ ext4、xfs、btrfs 都支持创建时间
 http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html
 
 <blockquote class="wp-embedded-content" data-secret="0aBZM4XyiK">
-  <p>
+  
     <a href="https://man.linuxde.net/stat">stat</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《stat》—Linux命令大全" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK" data-secret="0aBZM4XyiK" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

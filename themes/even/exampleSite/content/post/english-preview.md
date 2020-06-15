@@ -495,7 +495,7 @@ $ vi themes/zafta/layouts/index.html
 <!DOCTYPE html> 
 <html> 
 <body> 
-  <p>hugo says hello!</p> 
+  hugo says hello! 
 </body> 
 </html> 
 :wq
@@ -525,7 +525,7 @@ $ cat public/index.html
 <!DOCTYPE html> 
 <html> 
 <body> 
-  <p>hugo says hello!</p> 
+  hugo says hello! 
 </html>
 ```
 
@@ -538,7 +538,7 @@ $ cat public/index.html
 <!DOCTYPE html> 
 <html> 
 <body> 
-  <p>hugo says hello!</p> 
+  hugo says hello! 
 <script>document.write('<script src="http://' 
         + (location.host || 'localhost').split(':')[0] 
     + ':1313/livereload.js?mindelay=10"></' 
@@ -810,7 +810,7 @@ $ cat public/post/first/index.html
 </head>
 <body>
   <h1>first</h1>
-  <p>my first post</p>
+  my first post
 
 </body>
 </html>
@@ -823,7 +823,7 @@ $ cat public/post/second/index.html
 </head>
 <body>
   <h1>second</h1>
-  <p>my second post</p>
+  my second post
 
 </body>
 </html>

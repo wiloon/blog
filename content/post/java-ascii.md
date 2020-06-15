@@ -54,7 +54,7 @@ public class EscapeTest {
     System.out.println("-------------------------------------------------------------");
     //除了html4还有html3等格式
     System.out.println("转义/反转义Html字符串");
-    String htmlString = "<strong>加粗字符</strong>";
+    String htmlString = "加粗字符";
     System.out.println(StringEscapeUtils.escapeHtml4(htmlString));
     System.out.println(StringEscapeUtils.unescapeHtml4(StringEscapeUtils.escapeHtml4(htmlString)));
     System.out.println("-------------------------------------------------------------");
@@ -90,7 +90,7 @@ public class EscapeTest {
 -------------------------------------------------------------
 转义/反转义Html字符串
 &lt;strong&gt;加粗字符&lt;/strong&gt;
-<strong>加粗字符</strong>
+加粗字符
 -------------------------------------------------------------
 转义/反转义xml字符串
 &lt;xml&gt;&quot;xml字符串&quot;&lt;/xml&gt;

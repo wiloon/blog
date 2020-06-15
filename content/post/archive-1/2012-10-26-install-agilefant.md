@@ -15,16 +15,15 @@ categories:
   * <span style="line-height: 13px;">deply agilefant in tomcat</span>
   * <span style="line-height: 13px;">fix utf8 encoding(tomcat server.xml, mysql character-set)</span>
 
-<div>
-  <p>
+
+  
     EL: Effort left
-  </p>
   
-  <p>
+  
+  
     OE: Original estimate
-  </p>
   
-  <p>
+  
+  
     ES: Effort spent
-  </p>
-</div>
+  

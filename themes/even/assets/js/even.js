@@ -150,12 +150,12 @@ Even.highlight = function() {
 
     let codeLineHtml = '';
     for (let i = 0; i < lineLength; i++) {
-      codeLineHtml += `<div class="line">${i + 1}</div>`;
+      codeLineHtml += `<div class="line">${i + 1}`;
     }
 
     let codeHtml = '';
     for (let i = 0; i < lineLength; i++) {
-      codeHtml += `<div class="line">${lineCodes[i]}</div>`;
+      codeHtml += `<div class="line">${lineCodes[i]}`;
     }
 
     block.className += ' highlight';

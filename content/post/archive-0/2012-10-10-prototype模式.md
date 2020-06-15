@@ -26,7 +26,7 @@ Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模�
 
 <div id="tf_edit_html_title">
   Prototype模式的应用场景：
-</div>
+
 
 &#8211; 在创建对象的时候，我们不只是希望被创建的对象继承其基类的基本结构，还希望继承原型对象的数据。
   
@@ -40,7 +40,7 @@ Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模�
 
 <div id="tf_edit_html_title">
   Prototype模式的模型定义：
-</div>
+
 
 Prototype {
   
@@ -52,7 +52,7 @@ Prototype {
 
 <div id="tf_edit_html_title">
   Prototype模式的实现范例
-</div>
+
 
 下面我们使用Prototype模式来实现细胞（Cell）的自身复制过程。
   
@@ -60,8 +60,8 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
   
 这里我们也通过实现Cloneable接口来说明Prototype模式。
 
-<div>
-  <div>
+
+  
     <ol>
       <li>
         public   class  Cell  implements  Cloneable {
@@ -168,7 +168,7 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
         }
       </li>
     </ol>
-  </div>
-</div>
+  
+
 
 这里使用了一个简单的例子说明了Prototype模式的对象创建过程与方法。里面省略了某些无关紧要的代码。

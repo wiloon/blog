@@ -29,11 +29,11 @@ MySQL的大小写敏感性 lower\_case\_table_names
 <table id="table5" border="1" cellpadding="0">
   <tr>
     <td>
-      <strong>值</strong>
+      值
     </td>
     
     <td>
-      <strong>含义</strong>
+      含义
     </td>
   </tr>
   
@@ -62,7 +62,7 @@ MySQL的大小写敏感性 lower\_case\_table_names
     </td>
     
     <td>
-      表名和数据库名在硬盘上使用CREATE TABLE或CREATE DATABASE语句指定的大小写进行保存，但MySQL将它们转换为小写以便查找。名称比较对大小写敏感。<strong>注释：</strong> 只 在对大小写不敏感的文件系统上适用! InnoDB表名以小写保存，例如lower_case_tables_name=1。
+      表名和数据库名在硬盘上使用CREATE TABLE或CREATE DATABASE语句指定的大小写进行保存，但MySQL将它们转换为小写以便查找。名称比较对大小写敏感。注释： 只 在对大小写不敏感的文件系统上适用! InnoDB表名以小写保存，例如lower_case_tables_name=1。
     </td>
   </tr>
 </table>

@@ -24,38 +24,38 @@ ListView是一个经常用到的控件，ListView里面的每个子项Item可以
 
 main.xml代码如下，很简单，也不需要多做解释了：
 
-<div>
-  <div>
-    <p>
-      [xml]</div>
- <div><?xml version="1.0" encoding="utf-8"?></div>
- <div><LinearLayout</div>
- <div>android:id="@+id/LinearLayout01"
+
+  
+    
+      [xml]
+ <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+ android:id="@+id/LinearLayout01"
  android:layout_width="fill_parent"
  android:layout_height="fill_parent"
  xmlns:android="http://schemas.android.com/apk/res/android">
-    </p>
     
-    <p>
+    
+    
       <ListView android:layout_width="wrap_content"
  android:layout_height="wrap_content"
  android:id="@+id/MyListView">
  </ListView>
  </LinearLayout>
- <div>[/xml]
-    </p>
-  </div>
-</div>
+ [/xml]
+    
+  
 
-<div>
-  my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item：</p> 
+
+
+  my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item： 
   
-  <p>
-    [xml]</div>
- <div>
-  </p>
   
-  <p>
+    [xml]
+ 
+  
+  
+  
     <?xml version="1.0" encoding="utf-8"?>
  <LinearLayout
  android:layout_width="fill_parent"
@@ -77,13 +77,13 @@ main.xml代码如下，很简单，也不需要多做解释了：
  android:id="@+id/ItemText">
  </TextView>
  </LinearLayout>
-  </p>
   
-  <p>
-    </div>
- <div>[/xml]
-  </p>
-</div>
+  
+  
+    
+ [/xml]
+  
+
 
 解释一下，里面用到的一些属性：
 
@@ -95,21 +95,21 @@ main.xml代码如下，很简单，也不需要多做解释了：
 
 最后就是JAVA的源代码：
 
-<div>
-  <div>
-    <div>
-      <p>
+
+  
+    
+      
         [java][/java]
-      </p>
       
-      <p>
+      
+      
         <a title="view plain" href="http://blog.csdn.net/hellogv/article/details/4542668#">view plain</a><a title="copy" href="http://blog.csdn.net/hellogv/article/details/4542668#">copy</a><a title="print" href="http://blog.csdn.net/hellogv/article/details/4542668#">print</a><a title="?" href="http://blog.csdn.net/hellogv/article/details/4542668#">?</a>
-      </p>
       
-      <div>
-      </div>
-    </div>
-  </div>
+      
+      
+      
+    
+  
   
   <ol start="1">
     <li>
@@ -189,15 +189,14 @@ main.xml代码如下，很简单，也不需要多做解释了：
     </li>
   </ol>
   
-  <p>
+  
     
-  </p>
   
-  <p>
+  
+  
     <a href="http://www.vogella.com/articles/AndroidListView/article.html">http://www.vogella.com/articles/AndroidListView/article.html</a>
-  </p>
   
-  <p>
+  
+  
     http://www.iteye.com/topic/540423
-  </p>
-</div>
+  

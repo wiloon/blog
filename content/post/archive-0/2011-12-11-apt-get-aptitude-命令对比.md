@@ -18,16 +18,16 @@ categories:
 
 <div id="bodyContent">
   <div id="contentSub">
-  </div>
+  
   
   <table border="1" cellpadding="4">
     <tr>
       <td>
-        <strong>Apt-get commands</strong>
+        Apt-get commands
       </td>
       
       <td>
-        <strong>Aptitude commands</strong>
+        Aptitude commands
       </td>
       
       <td>
@@ -224,6 +224,6 @@ categories:
       </td>
     </tr>
   </table>
-</div>
+
 
  [1]: http://wiki.guoshuang.com/Apt-get_%E5%92%8C_aptitude_%E5%91%BD%E4%BB%A4%E5%AF%B9%E6%AF%94%E5%8F%82%E8%80%83

@@ -106,7 +106,7 @@ webApp: maven-archetype-webapp
   
 -Dmvn install -Dmaven.test.skip=true  <del>编译时跳过Test</del>
 
--Dmaven.test.failure.ignore=true <del> Set this to <code>true</code> to ignore a failure during testing. Its use is <strong>NOT RECOMMENDED</strong>, but quite convenient on occasion.</del>
+-Dmaven.test.failure.ignore=true <del> Set this to <code>true</code> to ignore a failure during testing. Its use is NOT RECOMMENDED, but quite convenient on occasion.</del>
 
 mvn install -rf  :MODULENAME
 
@@ -161,7 +161,7 @@ mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2
   * src 
       * main
   
-        -java 源文件</p> 
+        -java 源文件 
           * resources 资源文件
           * filters 资源过滤文件
           * config 配置文件

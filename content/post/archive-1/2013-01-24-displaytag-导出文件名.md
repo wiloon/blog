@@ -19,11 +19,11 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
 配一下导出文件名
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://magicgod.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -39,16 +39,16 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
       export.xml.filename=export.xml
     </li>
   </ol>
-</div>
+
 
 但可惜的是不能用动态文件名，看了一下源码是这样写的：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://magicgod.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -64,18 +64,18 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
       }
     </li>
   </ol>
-</div>
+
 
 没戏了，根据导出类型从属性里取一个静态的文件名。
 
 是这样应用的：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://magicgod.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -99,6 +99,6 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
       }
     </li>
   </ol>
-</div>
+
 
 彻底没指望了，直接拿出来就放在header里了。算了，凑和吧。

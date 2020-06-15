@@ -610,12 +610,12 @@ grep ‘5\[[:upper:]\]\[[:upper:\]]’ data.doc #查询以5开头以两个大写
  -w，–word-regexp
  如果被引用，就把表达式做为一个单词搜索。
  -V，–version
- 显示软件版本信息。</p>
+ 显示软件版本信息。
   </li>
   <li>
-    <p>
+    
       grep简介
-    </p>
+    
   </li>
 </ol>
 
@@ -668,10 +668,10 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  ()
  分组符号，如：love(able|rs)ov+匹配loveable或lovers，匹配一个或多个ov。
  x,x,x
- 作用同x,x,x</p>
+ 作用同x,x,x
   </li>
   <li>
-    <p>
+    
       POSIX字符类
  为了在不同国家的字符编码中保持一至，POSIX(The Portable Operating System Interface)增加了特殊的字符类，如[:alnum:]是A-Za-z0-9的另一个写法。要把它们放到[]号内才能成为正则表达式，如[A- Za-z0-9]或[[:alnum:]]。在Linux下的grep除fgrep外，都支持POSIX的字符类。
  [:alnum:]
@@ -696,11 +696,11 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  大写字符
  [:xdigit:]
  十六进制数字（0-9，a-f，A-F）
-    </p>
+    
   </li>
   
   <li>
-    <p>
+    
       实例
  要用好grep这个工具，其实就是要写好正则表达式，所以这里不对grep的所有功能进行实例讲解，只列几个例子，讲解一个正则表达式的写法。
  $ ls -l | grep ‘^a’
@@ -713,7 +713,7 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  显示所有包含每个字符串至少有5个连续小写字符的字符串的行。
  $ grep ‘w(es)t.<em>’ aa
  如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符（.</em>），这些字符后面紧跟着另外一个es（），找到就显示该行。如果用egrep或grep -E，就不用””号进行转义，直接写成’w(es)t.*’就可以了。
-    </p>
+    
   </li>
 </ol>
 

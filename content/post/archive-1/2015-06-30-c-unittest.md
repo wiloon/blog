@@ -341,9 +341,9 @@ http://www.iteye.com/topic/1119957
 https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503
 
 <blockquote data-secret="1A90iIEGUv" class="wp-embedded-content">
-  <p>
+  
     <a href="http://www.wiloon.com/wordpress/?p=2057">Linux系统日志–syslog</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=2057&#038;embed=true#?secret=1A90iIEGUv" data-secret="1A90iIEGUv" width="600" height="338" title=""Linux系统日志–syslog&#8221; &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

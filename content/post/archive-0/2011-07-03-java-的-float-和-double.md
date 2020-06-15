@@ -32,7 +32,7 @@ decimal dd=345.545454879&#8230;..//可以支持28位，对最后一位四舍五�
 
 由于对float或double 的使用不当，可能会出现精度丢失的问题。问题大概情况可以通过如下代码理解:
 
-<div>
+
   <ol>
     <li>
       public class FloatDoubleTest {
@@ -65,7 +65,7 @@ decimal dd=345.545454879&#8230;..//可以支持28位，对最后一位四舍五�
       }
     </li>
   </ol>
-</div>
+
 
 
 
@@ -107,7 +107,7 @@ double(64位):
 
 以下程序可以得出 20014999 在 double 和 float 下的二进制表示方式。
 
-<div>
+
   <ol>
     <li>
       public class FloatDoubleTest3 {
@@ -140,7 +140,7 @@ double(64位):
       }
     </li>
   </ol>
-</div>
+
 
 
 

@@ -37,29 +37,28 @@ antisamy-ebay.xml
   
 众所周知，eBay (http://www.ebay.com/)是当下最流行的在线拍卖网站之一。它是一个面向公众的站点，因此它允许任何人发布一系列富HTML的内容。
   
-我们对eBay成为一些复杂XSS攻击的目标，并对攻击者充满吸引力丝毫不感到奇怪。由于eBay允许输入的内容列表包含了比Slashdot更多的富文本内容，所以它的受攻击面也要大得多。下面的标签看起来是eBay允许的（eBay没有公开标签的验证规则）:<a>,&#8230;</p> 
+我们对eBay成为一些复杂XSS攻击的目标，并对攻击者充满吸引力丝毫不感到奇怪。由于eBay允许输入的内容列表包含了比Slashdot更多的富文本内容，所以它的受攻击面也要大得多。下面的标签看起来是eBay允许的（eBay没有公开标签的验证规则）:<a>,&#8230; 
 
-<p>
+
   antisamy-myspace.xml
  MySpace (http://www.myspace.com/)是最流行的一个社交网站之一。用户允许提交几乎所有的他们想用的HTML和CSS，只要不包含JavaScript。
  MySpace现在用一个黑名单来验证用户输入的HTML，这就是为什么它曾受到Samy蠕虫攻击(http://namb.la/)的原因。Samy蠕虫攻击利用了一个本应该列入黑名单的单词(eval)来进行组合碎片攻击的，其实这也是AntiSamy立项的原因。
-</p>
 
-<p>
+
+
   antisamy-anythinggoes.xml
-</p>
+
 
 <h2>
   我也很难说出一个用这个策略文件的用例。如果你想允许所有有效的HTML和CSS元素输入（但能拒绝JavaScript或跟CSS相关的网络钓鱼攻击），你可以使用这个策略文件。其实即使MySpace也没有这么疯狂。然而，它确实提供了一个很好的参考，因为它包含了对于每个元素的基本规则，所以你在裁剪其它策略文件的时候可以把它作为一个知识库。
 </h2>
 
-<p>
+
   作者：系统信息
  来源：CSDN
  原文：https://blog.csdn.net/softwave/article/details/53761796
  版权声明：本文为博主原创文章，转载请附上博文链接
-</p>
 
-<p>
+
+
   https://www.cnblogs.com/Kidezyq/p/9862547.html
-</p>

@@ -24,7 +24,7 @@ categories:
   
 首先我们来介绍跟该特性有关的几个参数(包括隐含参数）：
 
-<div>
+
   <table>
     <tr>
       <td>
@@ -56,7 +56,7 @@ result_cache_remote_expiration          INTEGER     0</pre>
       </td>
     </tr>
   </table>
-</div>
+
 
 几个重要的参数：
 
@@ -68,7 +68,7 @@ manual是默认属性，也就是说我们要启用该特性，那么必须通�
   
 是无法认知的，那么是什么hint呢？ 如下：
 
-<div>
+
   <table>
     <tr>
       <td>
@@ -77,9 +77,9 @@ manual是默认属性，也就是说我们要启用该特性，那么必须通�
       </td>
     </tr>
   </table>
-</div>
 
-<div>
+
+
   <table>
     <tr>
       <td>
@@ -90,7 +90,7 @@ NO_RESULT_CACHE                          11.1.0.6</pre>
       </td>
     </tr>
   </table>
-</div>
+
 
 当设置为force时，oracle 优化就能自动识别了，不需要使用hint，相反，如果当设置为force时，同时
   

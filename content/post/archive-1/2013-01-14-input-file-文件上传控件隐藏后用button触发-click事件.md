@@ -25,13 +25,13 @@ categories:
 
  <div id="div1">
 
- <div id="file1text" ></div><input id="file1" name="myfile" type="file" onchange="showText(this)" style="position:absolute;filter:alpha(opacity=50);width:30px;opacity: 0.5;" hidefocus>
+ <div id="file1text" ><input id="file1" name="myfile" type="file" onchange="showText(this)" style="position:absolute;filter:alpha(opacity=50);width:30px;opacity: 0.5;" hidefocus>
 
- </div>
+ 
 
- </div>
+ 
 
- </p>
+ 
 
  <input type="button" onclick="alert($('tt').innerHTML)" value="showHTML">
 
@@ -79,7 +79,7 @@ categories:
 
  //直接追加innerHTML(innerHTML+=)会清空原来file中的内容
 
- $("div"+(fileNum-1)).insertAdjacentHTML('AfterEnd','<div id="div'+fileNum+'"><div id="file'+fileNum+'text" ></div><input id="file'+fileNum+'" name="myfile" type="file" onchange="showText(this)" style="position:absolute;filter:alpha(opacity=0);width:30px;"hidefocus></div>');
+ $("div"+(fileNum-1)).insertAdjacentHTML('AfterEnd','<div id="div'+fileNum+'"><div id="file'+fileNum+'text" ><input id="file'+fileNum+'" name="myfile" type="file" onchange="showText(this)" style="position:absolute;filter:alpha(opacity=0);width:30px;"hidefocus>');
 
  }
 
@@ -91,36 +91,35 @@ categories:
 
  $("div"+id).style.display="none";
 
- }</p>
+ }
 
 
-<p>
+
   </SCRIPT>
-</p>
 
 
-<p>
+
+
   [/html]
-</p>
 
 
-<p>
+
+
   IE 使用 'filter:alpha(opacity=50);' 通过 Filter 的 alpha 通道滤镜使元素半透明，但元素必须触发 hasLayout 特性。
 
   非 IE 浏览器使用 'opacity:0.5;' 这个 CSS3 草案中的 'opacity' 特性使元素半透明。
-</p>
 
 
-<p>
+
+
   所以同时使用 'filter:alpha(opacity=50);' opacity:0.5; 即可保证在所有浏览器中呈现出半透明效果。
-</p>
 
 
-<p>
+
+
   
-</p>
 
 
-<p>
+
+
   http://www.w3help.org/zh-cn/causes/BT9011
-</p>

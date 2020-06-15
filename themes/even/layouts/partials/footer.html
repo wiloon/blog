@@ -10,7 +10,7 @@
   {{- else -}}
     <a href="{{ .Site.RSSLink }}" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
   {{- end }}
-</div>
+
 
 <div class="copyright">
   <span class="power-by">
@@ -34,7 +34,7 @@
       {{ $valueSpan := printf `<span id="busuanzi_value_site_uv"><img src="%s" alt="spinner.svg"/></span>` $spinner -}}
       <span id="busuanzi_container_site_uv"> {{ printf (T "siteUV") $valueSpan | safeHTML }} </span>
     {{- end }}
-  </div>
+  
   {{- end }}
 
   <span class="copyright-year">
@@ -49,4 +49,3 @@
     </span>
     <span class="author">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
   </span>
-</div>

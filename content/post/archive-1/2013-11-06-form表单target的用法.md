@@ -11,11 +11,11 @@ categories:
 偶然有一机会发现form表单的target的用法，可以实现当前页表单提交而不进行跳转刷新。代码如下，首页在页面里准备一form表单和一iframe
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -31,16 +31,16 @@ categories:
       <iframe name=&#8221;theID&#8221; style=&#8221;display: none;&#8221;></iframe>
     </li>
   </ol>
-</div>
+
 
 提交到action后，action返回一串javascript语句
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -50,7 +50,7 @@ categories:
               response.getOutputStream().write(script.getBytes("utf-8&#8221;));
     </li>
   </ol>
-</div>
+
 
 alert(&#8216;ok&#8217;)将在当前页执行。原理是form提交后的结果在target指定的iframe里执行
   

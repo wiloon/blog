@@ -126,24 +126,24 @@ aronschatz@asetest2:~$
   
 With the partition made in the previous step, you know need to put a filesystem on it. The command mkdosfs is pretty easy to figure out.
 
-<div>
+
   <h4>
     Code
   </h4>
   
-  <p>
+  
     [shell]
  aronschatz@asetest2:~$ sudo mkdosfs -I /dev/sdb1
  mkdosfs 2.11 (12 Mar 2005)
  aronschatz@asetest2:~$
  [/shell]
-  </p>
   
-  <p>
-    <strong>Step 4: Edit .dosemurc </strong>
+  
+  
+    Step 4: Edit .dosemurc 
  You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc&#8221; in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
-  </p>
-</div>
+  
+
 
 [shell]
   
@@ -203,12 +203,12 @@ aronschatz@asetest2:~$ sudo dosemu
 
 This command should bring up another prompt that is basically FreeDOS. In this new window, type the series of commands&#8230;
 
-<div>
+
   <h4>
     Code
   </h4>
   
-  <p>
+  
     [shell]
  C:> z:
  Z:> sys f:
@@ -229,57 +229,56 @@ This command should bring up another prompt that is basically FreeDOS. In this n
  System transferred.
  Z:>exitemu
  [/shell]
-  </p>
   
-  <p>
+  
+  
     First you type "Z:&#8221; to get into the Z drive which holds all the FreeDOS tools and binaries. Then the command "sys f:&#8221; tells it to make the F: drive a system drive by copying kernerl.sys and command.com. Once that is completed, "exitemu&#8221; exits out of the dosemu program.
-  </p>
   
-  <p>
+  
+  
     
-  </p>
   
-  <p>
+  
+  
     Step 6: install mbr
  [shell]
  #install-mbr -v -p [boot partition #] /dev/<usb device>
  # Note: no partition, root device only
  sudo install-mbr -v -p 1 /dev/sdb
  [/shell]
-  </p>
   
-  <p>
+  
+  
     Step 7: smartdrv.exe, himemx.exe, JEMM386.EXE
  download freefos iso from http://www.freedos.org/, and extract HIMEMX.EXE, JEMM386.EXE to the usb drive
  Create file CONFIG.SYS on /dev/sdb1 , add two lines:
  DEVICE=HIMEMX.EXE
  DEVICE=JEMM386.EXE
-  </p>
   
-  <p>
+  
+  
     download and copy smartdrv.exe to /dev/sdb1
-  </p>
   
-  <p>
-    <strong>Step 8: Copy your own utilities to the drive and boot</strong>
-  </p>
   
-  <p>
+  
+    Step 8: Copy your own utilities to the drive and boot
+  
+  
+  
     Now the drive is usable for booting. You can now copy files onto the FAT16 partition. This is a pure DOS boot, so you can include any sort of DOS utilities. Once you are finished loading the drive up, restart the computer and force the BIOS to boot off the USB flash drive. With any luck, you will see a FreeDOS screen telling you to input the date and time. Just press enter and you now have a working DOS system off of your flash drive.
-  </p>
   
-  <p>
-    <strong>Conclusion:</strong>
-  </p>
   
-  <p>
+  
+    Conclusion:
+  
+  
+  
     With a working DOS USB flash drive, you can perform a number of useful tasks including flashing ROMs and using other DOS utilities. FreeDOS is an example of free and open source software. When using bootdisks that contain MS-DOS, you are not licensed to use it since you didn&#8217;t pay for it. Stay tuned to find out why I needed a DOS USB bootable drive in the first place. Buy a flash drive!
-  </p>
   
-  <p>
+  
+  
     http://wiki.gentoo.org/wiki/Bootable_DOS_USB_stick
  http://www.dosemu.org/docs/README/1.2/config.html
  https://jeremy.visser.name/2007/09/create-a-bootable-freedos-usb-flash-drive-in-linux/
  http://www.ilikelinux.com/tips-and-howtos/creating-a-knoppix-or-freedos-usb-stick-in-linux
-  </p>
-</div>
+  

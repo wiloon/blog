@@ -87,17 +87,17 @@ Telnet有“标准输入文件结束符(standard input EOF)”问题，
 *对Telnet应答，可选
 
 <blockquote class="wp-embedded-content" data-secret="xAPNTA4aj2">
-  <p>
+  
     <a href="http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/">Use Netcat &#8211; not Telnet &#8211; to test network connectivity</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2" data-secret="xAPNTA4aj2" width="600" height="338" title=""Use Netcat &#8211; not Telnet &#8211; to test network connectivity&#8221; &#8212; Terminal Inflection" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="mR1NgJH6y2">
-  <p>
+  
     <a href="https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/">Stop using telnet and start using netcat</a>
-  </p>
+  
 </blockquote>
 
 <iframe title=""Stop using telnet and start using netcat&#8221; &#8212; scottlinux.com | Linux Blog" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2" data-secret="mR1NgJH6y2" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

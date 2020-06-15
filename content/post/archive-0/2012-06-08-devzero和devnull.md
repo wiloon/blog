@@ -8,28 +8,28 @@ categories:
   - Linux
 
 ---
-<div>
-  <span style="font-size: small;"><strong>
- </strong></span>
-</div>
+
+  <span style="font-size: small;">
+ </span>
+
 
 <div id="blog_content">
-  <p>
+  
     /dev/zero,是一个输入设备，你可你用它来初始化文件。
  /dev/zero&#8212;&#8212;该设备无穷尽地提供0(是ASCII 0 就是NULL)，可以使用任何你需要的数目——设备提供的要多的多。他可以用于向设备或文件写入NULL。
  使用/dev/zero
  像/dev/null一样, /dev/zero也是一个伪文件, 但它实际上产生连续不断的null的流（二进制的零流，而不是ASCII型的）. 写入它的输出会丢失不见, 而从/dev/zero读出一连串的null也比较困难, 虽然这也能通过od或一个十六进制编辑器来做到. /dev/zero主要的用处是用来创建一个指定长度用于初始化的空文件，就像临时交换文件.
-  </p>
   
-  <p>
+  
+  
     关于 /dev/zero 的另一个应用是为特定的目的而用零去填充一个指定大小的文件, 如挂载一个文件系统到环回设备 （loopback device） 或&#8221;安全地&#8221; 删除一个文件
-  </p>
   
-  <p>
+  
+  
     
-  </p>
   
-  <p>
+  
+  
     /dev/null，外号叫无底洞，你可以向它输出任何数据，它通吃，并且不会撑着！
  /dev/null&#8212;&#8212;它是空设备，也称为位桶（bit bucket）。任何写入它的输出都会被抛弃。如果不想让消息以标准输出显示或写入文件，那么可以将消息重定向到位桶。
  使用/dev/null
@@ -44,9 +44,8 @@ categories:
  Deleting contents of a file, but preserving the file itself, with all attendant permissions :
  cat /dev/null > /var/log/messages       &#8211;> /var/log/messages   有同样的效果, 但不会产生新的进程.
  cat /dev/null > /var/log/wtmp     &#8212; 自动清空日志文件的内容 (适合处理由Web站点发送的讨厌的&#8221;cookies&#8221;)
-  </p>
   
-  <p>
+  
+  
     
-  </p>
-</div>
+  

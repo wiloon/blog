@@ -25,9 +25,9 @@ categories:
 CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作（如get/contains）并发的瓶颈，但是它为了做到这点，在修改操作中做了很多工作和修改可见性规则。 此外，修改操作还会锁住整个List，因此这也是一个并发瓶颈。所以从理论上来说，CopyOnWriteArrayList并不算是一个通用的并发List。
 
 <blockquote data-secret="zLAPktQzUL" class="wp-embedded-content">
-  <p>
+  
     <a href="http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/">为什么java.util.concurrent 包里没有并发的ArrayList实现？</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/embed/#?secret=zLAPktQzUL" data-secret="zLAPktQzUL" width="600" height="338" title=""为什么java.util.concurrent 包里没有并发的ArrayList实现？&#8221; &#8212; 并发编程网 - ifeve.com" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

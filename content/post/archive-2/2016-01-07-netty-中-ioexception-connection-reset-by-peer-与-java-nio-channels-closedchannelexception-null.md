@@ -22,7 +22,7 @@ AbstractChannel
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
-  </div>
+  
   
   <pre>static final ClosedChannelException CLOSED_CHANNEL_EXCEPTION = new ClosedChannelException();
 
@@ -53,8 +53,8 @@ AbstractChannel
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
-</div>
+  
+
 
 在代码的许多部分, 都会有这个 ClosedChannelException, 大概的意思是说在 channel close 以后, 如果还调用了 write 方法, 则会将 write 的 future 设置为 failure, 并将 cause 设置为 ClosedChannelException, 同样 SSLHandler 中也类似
 
@@ -67,7 +67,7 @@ client
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
+  
   
   <pre>    public static void main(String[] args) throws IOException, InterruptedException {
         Bootstrap b = new Bootstrap();
@@ -90,15 +90,15 @@ client
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
-</div>
+  
+
 
 server
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
+  
   
   <pre>public class SimpleServer {
 
@@ -140,8 +140,8 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
-</div>
+  
+
 
 
 
@@ -152,7 +152,7 @@ NioEventLoop
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
+  
   
   <pre>private static void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
         final NioUnsafe unsafe = ch.unsafe();
@@ -167,8 +167,8 @@ NioEventLoop
             // Also check for readOps of 0 to workaround possible JDK bug which may otherwise lead
             // to a spin loop
             if ((readyOps & (SelectionKey.OP_READ | SelectionKey.OP_ACCEPT)) != 0 || readyOps == 0) {
-                <strong>unsafe.read();
-                </strong>if (!ch.isOpen()) {
+                unsafe.read();
+                if (!ch.isOpen()) {
                     // Connection already closed - no need to handle write.
                     return;
                 }
@@ -193,8 +193,8 @@ NioEventLoop
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
-</div>
+  
+
 
 这就是 connection reset by peer 产生的原因
 
@@ -207,7 +207,7 @@ client 1, 主动关闭 channel
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
+  
   
   <pre>public class SimpleClient {
 
@@ -226,7 +226,7 @@ client 1, 主动关闭 channel
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
-                   <strong> future.channel().close();</strong>
+                    future.channel().close();
                     future.channel().write(Unpooled.buffer().writeBytes("123".getBytes())).addListener(new ChannelFutureListener() {
                         @Override
                         public void operationComplete(ChannelFuture future) throws Exception {
@@ -244,8 +244,8 @@ client 1, 主动关闭 channel
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
-</div>
+  
+
 
 
 
@@ -258,7 +258,7 @@ client 2. 由服务端造成的 ClosedChannelException
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
+  
   
   <pre>public class SimpleClient {
 
@@ -288,15 +288,15 @@ client 2. 由服务端造成的 ClosedChannelException
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
-</div>
+  
+
 
 服务端
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
+  
   
   <pre>public class SimpleServer {
 
@@ -320,7 +320,7 @@ client 2. 由服务端造成的 ClosedChannelException
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
-  </div>
-</div>
+  
+
 
 这种情况下,  服务端将 channel 关闭, 客户端先 sleep, 这期间 client 的 eventLoop 会处理客户端关闭的时间, 也就是 eventLoop 的 processKey 方法会进入 OP_READ, 然后 read 出来一个 -1, 最后触发 client channelInactive 事件, 当 sleep 醒来以后, 客户端调用 writeAndFlush, 这时候客户端 channel 的状态已经变为了 inactive, 所以 write 失败, cause 为 ClosedChannelException

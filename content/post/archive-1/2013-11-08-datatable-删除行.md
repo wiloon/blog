@@ -10,12 +10,12 @@ categories:
 ---
 先列出正确的写法，如果你只想马上改错就先复制吧，
 
-<div>
-  <div>
-    <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
-  </div>
+
   
-  <div>
+    <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+  
+  
+  
         protected void deleteDataRow(int RowID,DataTable dt)
  {
  for (int i = dt.Rows.Count &#8211; 1; i >= 0; i&#8211;)
@@ -24,12 +24,12 @@ categories:
  dt.Rows.RemoveAt(i);
  }
  }
-  </div>
   
-  <div>
+  
+  
     <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
-  </div>
-</div>
+  
+
 
 
 
@@ -41,15 +41,15 @@ categories:
 
 3.循环彻底删除就要用.Rows.RemoveAt(int index)方法，所以如果你是foreach的爱好者，在此请你换换口味，还有如果你是for的i++的忠实fans也希望你能换个思维。先看一下上面程序的正向写法（错误的，不可用）
 
-<div>
-  <div>
+
+  
             for (int i = 0, j = dt.Rows.Count; i < j; i++)
  {
  if (Convert.ToInt32(dt.Rows[i]["RowID&#8221;]) == RowID)
  dt.Rows.RemoveAt(i);
  }
-  </div>
-</div>
+  
+
 
 
 

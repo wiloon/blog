@@ -749,9 +749,9 @@ AtomicReferenceFieldUpdater <A ,String>ATOMIC\_REFERENCE\_FIELD_UPDATER = Atomic
 可以看到，这里传递的参数增加了一个属性的类型，因为引用的是一个对象，对象本身也有一个类型。
 
 <blockquote data-secret="O4fzlyLgRv" class="wp-embedded-content">
-  <p>
+  
     <a href="http://ifeve.com/java-atomic/">Java中的Atomic包使用指南</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/java-atomic/embed/#?secret=O4fzlyLgRv" data-secret="O4fzlyLgRv" width="600" height="338" title="《Java中的Atomic包使用指南》—并发编程网 - ifeve.com" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

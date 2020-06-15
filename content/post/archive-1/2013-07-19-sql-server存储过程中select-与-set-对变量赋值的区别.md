@@ -26,11 +26,11 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
     </td>
     
     <td>
-      <strong>set</strong>
+      set
     </td>
     
     <td>
-      <strong>select</strong>
+      select
     </td>
   </tr>
   

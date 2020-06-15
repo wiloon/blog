@@ -17,39 +17,39 @@ web.xml的配置中<context-param>配置作用
   
 **1. 启动一个WEB项目的时候,容器(如:Tomcat)会去读它的配置文件web.xml.读两个节点: <listener></listener> 和 <context-param></context-param>**
 
-<div>
-  <strong>2.紧接着,容器创建一个ServletContext(上下文),这个WEB项目所有部分都将共享这个上下文.</strong>
-</div>
 
-<div>
-  <strong>3.容器将<context-param></context-param>转化为键值对,并交给ServletContext.</strong>
-</div>
+  2.紧接着,容器创建一个ServletContext(上下文),这个WEB项目所有部分都将共享这个上下文.
 
-<div>
-  <strong>4.容器创建<listener></listener>中的类实例,即创建监听.</strong>
-</div>
 
-<div>
-  <strong>5.在监听中会有contextInitialized(ServletContextEvent args)初始化方法,在这个方法中获得ServletContext = ServletContextEvent.getServletContext();</strong>
+
+  3.容器将<context-param></context-param>转化为键值对,并交给ServletContext.
+
+
+
+  4.容器创建<listener></listener>中的类实例,即创建监听.
+
+
+
+  5.在监听中会有contextInitialized(ServletContextEvent args)初始化方法,在这个方法中获得ServletContext = ServletContextEvent.getServletContext();
  context-param的值 = ServletContext.getInitParameter("context-param的键&#8221;);
-</div>
 
-<div>
+
+
   6.得到这个context-param的值之后,你就可以做一些操作了.注意,这个时候你的WEB项目还没有完全启动完成.这个动作会比所有的Servlet都要早.
  换句话说,这个时候,你对<context-param>中的键值做的操作,将在你的WEB项目完全启动之前被执行.
-</div>
 
-<div>
+
+
   7.举例.你可能想在项目启动之前就打开数据库.
  那么这里就可以在<context-param>中设置数据库的连接方式,在监听类中初始化数据库的连接.
-</div>
 
-<div>
+
+
   8.这个监听是自己写的一个类,除了初始化方法,它还有销毁方法.用于关闭应用前释放资源.比如说数据库连接的关闭.
-</div>
 
-<div>
-</div>
+
+
+
 
 web.xml里面可以定义两种参数：
 

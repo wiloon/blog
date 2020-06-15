@@ -11,7 +11,7 @@ categories:
 
 
 <div id="article_content">
-  <p>
+  
     jdk1.5 static import
  static import
  static import就是允许在代码中直接引用别的类的static变量和方法（当然，在权限许可范围内），我们可以简单的把它当成import的延续。
@@ -24,35 +24,35 @@ categories:
  [code]
  //StaticImportTest.java
  import static java.lang.Math.*;
-  </p>
   
-  <p>
+  
+  
     public class StaticImportTest{
-  </p>
   
-  <p>
+  
+  
     public static void main(String arsg[]){
  System.out.println("1 ＋ 1 ="+(1+1));
  System.out.println("abs(-1)="+abs(-1));
  System.out.println("exp(1.5)="+exp(1.5));
  System.out.println("Pi = "+PI);
  System.out.println("E = "+E);
-  </p>
   
-  <p>
+  
+  
     }
-  </p>
   
-  <p>
+  
+  
     }
  [/code]
-  </p>
   
-  <p>
+  
+  
     这样的代码不仅省却了Programmer的劳动，在可读性上也是有所增强。
-  </p>
   
-  <p>
+  
+  
     static import的限制和import也基本一样，就是不能出现二义性。
  另外，static import不支持先import类，然后import static 类.*(不加package)的形式
  如
@@ -61,39 +61,38 @@ categories:
  import static Calendar.*;
  &#8230;&#8230;
  [/code]
-  </p>
   
-  <p>
+  
+  
     就算在同一个包也是如此。
-  </p>
   
-  <p>
+  
+  
     值得注意的是，过多的static import也许可能影响程序的可读性，如：
  [code]
  //StaticImportTest2.java
  import static java.lang.Integer.parseInt;
  import static java.lang.Double.*;
-  </p>
   
-  <p>
+  
+  
     public class StaticImportTest{
-  </p>
   
-  <p>
+  
+  
     public static void main(String arsg[]){
  String iv = "1239";
  String dv = "123.3456";
  System.out.println(iv+":"+parseInt(iv));
  System.out.println(dv+":"+parseDouble(dv));
  System.out.println("Double&#8217;s MaxValue is:"+MAX_VALUE );
-  </p>
   
-  <p>
+  
+  
     }
  [/code]
-  </p>
   
-  <p>
+  
+  
     虽然能编译通过，但是却很容易混绕读者视线。
-  </p>
-</div>
+  

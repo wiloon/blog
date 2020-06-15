@@ -22,9 +22,9 @@ Tomcat is actually composed of a number of components, including a [Tomcat JSP]
 
 In this article, we&#8217;ll get to know Tomcat&#8217;s core component, from the [origins of the name "Catalina&#8221;][3], to an overview of [how Catalina is configured][4].  We&#8217;ll also look at some Catalina-related tips and tricks, such as how to get the most out of [Catalina&#8217;s built-in logging][5] functionality, and how to [manage the Catalina class as an MBean][6] using JMX.
 
-<div>
+
   Tired of wading through hundreds of lines of XML just to make a simple change to your Tomcat configuration?  <a href="http://www.mulesoft.com/misc/lbox-form.php" rel="lightframe[|width:700px;height:500px; scrolling: auto;]">Tcat</a> makes Tomcat configuration simple.  Create optimized configuration profiles, save them, and apply them to groups of servers with a single click.
-</div>
+
 
 ## <a name="name"></a>How Did Catalina Get Its Name?
 

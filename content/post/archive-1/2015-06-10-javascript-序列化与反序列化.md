@@ -10,15 +10,15 @@ tags:
   - JavaScript
 
 ---
-<pre>http://blog.csdn.net/zhangquanok/article/details/13002771</p>
+<pre>http://blog.csdn.net/zhangquanok/article/details/13002771
 
 
-<p>
+
   [javascript]
-</p>
 
 
-<p>
+
+
   var objP = {};
 
   objP.id = 1;
@@ -30,9 +30,8 @@ tags:
   JSON.stringify(objP)//序列化
 
   JSON.parse(e); //JSON.parse(e)反序列化
-</p>
 
 
-<p>
+
+
   [/javascript]
-</p>

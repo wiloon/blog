@@ -660,258 +660,258 @@ Js代码
 
 <p align="left">
   1.     /**
-</p>
+
 
 <p align="left">
   2.     fromid:源list的id.
-</p>
+
 
 <p align="left">
   3.     toid:目标list的id.
-</p>
+
 
 <p align="left">
   4.     moveOrAppend参数("move&#8221;或者是&#8221;append&#8221;):
-</p>
+
 
 <p align="left">
   5.     move &#8212; 源list中选中的option会删除.源list中选中的option移动到目标list中,若目标list中已存在则该option不添加.
-</p>
+
 
 <p align="left">
   6.     append &#8212; 源list中选中的option不会删除.源list中选中的option添加到目标list的后面,若目标list中已存在则该option不添加.
-</p>
+
 
 <p align="left">
   7.
-</p>
+
 
 <p align="left">
   8.     isAll参数(true或者false):是否全部移动或添加
-</p>
+
 
 <p align="left">
   9.     */
-</p>
+
 
 <p align="left">
   10. jQuery.listTolist = function(fromid,toid,moveOrAppend,isAll) {
-</p>
+
 
 <p align="left">
   11.     if(moveOrAppend.toLowerCase() == "move&#8221;) {  //移动
-</p>
+
 
 <p align="left">
   12.         if(isAll == true) { //全部移动
-</p>
+
 
 <p align="left">
   13.             $("#&#8221;+fromid+&#8221; option&#8221;).each(function() {
-</p>
+
 
 <p align="left">
   14.                 //将源list中的option添加到目标list,当目标list中已有该option时不做任何操作.
-</p>
+
 
 <p align="left">
   15.                 $(this).appendTo($("#&#8221;+toid+&#8221;:not(:has(option[value=&#8221;+$(this).val()+&#8221;]))&#8221;));
-</p>
+
 
 <p align="left">
   16.             });
-</p>
+
 
 <p align="left">
   17.             $("#&#8221;+fromid).empty();  //清空源list
-</p>
+
 
 <p align="left">
   18.         }
-</p>
+
 
 <p align="left">
   19.         else if(isAll == false) {
-</p>
+
 
 <p align="left">
   20.             $("#&#8221;+fromid+&#8221; option:selected&#8221;).each(function() {
-</p>
+
 
 <p align="left">
   21.                 //将源list中的option添加到目标list,当目标list中已有该option时不做任何操作.
-</p>
+
 
 <p align="left">
   22.                 $(this).appendTo($("#&#8221;+toid+&#8221;:not(:has(option[value=&#8221;+$(this).val()+&#8221;]))&#8221;));
-</p>
+
 
 <p align="left">
   23.                 //目标list中已经存在的option并没有移动,仍旧在源list中,将其清空.
-</p>
+
 
 <p align="left">
   24.                 if($("#&#8221;+fromid+&#8221; option[value=&#8221;+$(this).val()+&#8221;]&#8221;).length > 0) {
-</p>
+
 
 <p align="left">
   25.                     $("#&#8221;+fromid).get(0)
-</p>
+
 
 <p align="left">
   26.                     .removeChild($("#&#8221;+fromid+&#8221; option[value=&#8221;+$(this).val()+&#8221;]&#8221;).get(0));
-</p>
+
 
 <p align="left">
   27.                 }
-</p>
+
 
 <p align="left">
   28.             });
-</p>
+
 
 <p align="left">
   29.         }
-</p>
+
 
 <p align="left">
   30.     }
-</p>
+
 
 <p align="left">
   31.     else if(moveOrAppend.toLowerCase() == "append&#8221;) {
-</p>
+
 
 <p align="left">
   32.         if(isAll == true) {
-</p>
+
 
 <p align="left">
   33.             $("#&#8221;+fromid+&#8221; option&#8221;).each(function() {
-</p>
+
 
 <p align="left">
   34.                 $("<option></option>&#8221;)
-</p>
+
 
 <p align="left">
   35.                 .val($(this).val())
-</p>
+
 
 <p align="left">
   36.                 .text($(this).text())
-</p>
+
 
 <p align="left">
   37.                 .appendTo($("#&#8221;+toid+&#8221;:not(:has(option[value=&#8221;+$(this).val()+&#8221;]))&#8221;));
-</p>
+
 
 <p align="left">
   38.             });
-</p>
+
 
 <p align="left">
   39.         }
-</p>
+
 
 <p align="left">
   40.         else if(isAll == false) {
-</p>
+
 
 <p align="left">
   41.             $("#&#8221;+fromid+&#8221; option:selected&#8221;).each(function() {
-</p>
+
 
 <p align="left">
   42.                 $("<option></option>&#8221;)
-</p>
+
 
 <p align="left">
   43.                 .val($(this).val())
-</p>
+
 
 <p align="left">
   44.                 .text($(this).text())
-</p>
+
 
 <p align="left">
   45.                 .appendTo($("#&#8221;+toid+&#8221;:not(:has(option[value=&#8221;+$(this).val()+&#8221;]))&#8221;));
-</p>
+
 
 <p align="left">
   46.             });
-</p>
+
 
 <p align="left">
   47.         }
-</p>
+
 
 <p align="left">
   48.     }
-</p>
+
 
 <p align="left">
   49. };   /**
-</p>
+
 
 <p align="left">
   50. 功能大体同上("move&#8221;).
-</p>
+
 
 <p align="left">
   51. 不同之处在于当源list中的选中option在目标list中存在时,源list中的option不会删除.
-</p>
+
 
 <p align="left">
   52. isAll参数(true或者false):是否全部移动或添加
-</p>
+
 
 <p align="left">
   53. jQuery.list2list = function(fromid,toid,isAll) {
-</p>
+
 
 <p align="left">
   54.     if(isAll == true) {
-</p>
+
 
 <p align="left">
   55.         $("#&#8221;+fromid+&#8221; option&#8221;).each(function() {
-</p>
+
 
 <p align="left">
   56.             $(this).appendTo($("#&#8221;+toid+&#8221;:not(:has(option[value=&#8221;+$(this).val()+&#8221;]))&#8221;));
-</p>
+
 
 <p align="left">
   57.         });
-</p>
+
 
 <p align="left">
   58.     }
-</p>
+
 
 <p align="left">
   59.     else if(isAll == false) {
-</p>
+
 
 <p align="left">
   60.         $("#&#8221;+fromid+&#8221; option:selected&#8221;).each(function() {
-</p>
+
 
 <p align="left">
   61.             $(this).appendTo($("#&#8221;+toid+&#8221;:not(:has(option[value=&#8221;+$(this).val()+&#8221;]))&#8221;));
-</p>
+
 
 <p align="left">
   62.         });
-</p>
+
 
 <p align="left">
   63.     }
-</p>
+
 
 <p align="left">
   64. };
-</p>
+
 
 <pre>isAllif(isAll == true) { //$("#"+fromid+" option").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });     $("#"+fromid).empty(); //}    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));      //if($("#"+fromid+" option[value="+$(this).val()+"]").length &gt; 0) {       $("#"+fromid).get(0)       .removeChild($("#"+fromid+" option[value="+$(this).val()+"]").get(0));      }     });    }  }  else if(moveOrAppend.toLowerCase() == "append") {    if(isAll == true) {     $("#"+fromid+" option").each(function() {      $("&lt;option&gt;&lt;/option&gt;")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      $("&lt;option&gt;&lt;/option&gt;")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }  } }; /** isAll$("#"+fromid+" option").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  }  else if(isAll == false) {    $("#"+fromid+" option:selected").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  } };</pre>

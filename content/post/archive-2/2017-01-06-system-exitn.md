@@ -26,13 +26,13 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
   
 * code indicates abnormal termination.
   
-* <p>
+* 
   
 * This method calls the <code>exit</code> method in class
   
 * <code>Runtime</code>. This method never returns normally.
   
-* <p>
+* 
   
 * The call <code>System.exit(n)</code> is effectively equivalent to
   

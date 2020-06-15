@@ -26,9 +26,9 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           {{ block "content" . }}{{ end }}
-        </div>
+        
         {{ partial "comments.html" . }}
-      </div>
+      
     </main>
 
     {{ if not .Params.hideHeaderAndFooter -}}
@@ -39,8 +39,8 @@
 
     <div class="back-to-top" id="back-to-top">
       <i class="iconfont icon-up"></i>
-    </div>
-  </div>
+    
+  
   {{ partial "scripts.html" . }}
 </body>
 </html>

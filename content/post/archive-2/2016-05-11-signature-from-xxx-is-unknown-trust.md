@@ -14,4 +14,3 @@ set up in pacman.conf
 
 <div class="codebox">
   <pre><code>SigLevel = Optional TrustAll```
-</div>

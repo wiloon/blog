@@ -68,7 +68,7 @@ div#page>div.logo+ul#navigation>li*5>a
 
 <div id=&#8221;page&#8221;>
 
-<div class=&#8221;logo&#8221;></div>
+<div class=&#8221;logo&#8221;>
 
 <ul id=&#8221;navigation&#8221;>
 
@@ -84,6 +84,6 @@ div#page>div.logo+ul#navigation>li*5>a
 
 </ul>
 
-</div>
+
 
 目前 Zen Coding 已经更名为 Emmet。[1] 更名之后，据说 Emmet 开始团队模式，增加CSS3和HTML5许多新特性。项目地址从 code.google 移 github.[2]

@@ -81,9 +81,9 @@ http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html
 http://man.linuxde.net/vmstat
 
 <blockquote data-secret="w2eizeWWHO" class="wp-embedded-content">
-  <p>
+  
     <a href="http://linuxperf.com/?p=32">free命令显示的buffers与cached的区别</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://linuxperf.com/?p=32&#038;embed=true#?secret=w2eizeWWHO" data-secret="w2eizeWWHO" width="600" height="338" title="《free命令显示的buffers与cached的区别》—Linux Performance" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

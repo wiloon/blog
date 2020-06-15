@@ -158,7 +158,7 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh</pre>
 
 使用telnet检测110(POP3)和143(IMAP)端口
 
-<div>
+
   <ol title="Double click to hide line number.">
     <li>
       telnet 127.0.0.1 110
@@ -203,9 +203,9 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh</pre>
     </li>
   </ol>
   
-  <p>
+  
     9、给postfix加上如下配置
-  </p>
+  
   
   <pre>smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
@@ -213,10 +213,10 @@ smtpd_sasl_auth_enable = yes
 smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, permit
 broken_sasl_auth_clients = yes</pre>
   
-  <p>
+  
     ################&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
-  </p>
-</div>
+  
+
 
 <span style="color: #000000;">#默认情况下，dovecot是不允许plaintext类型的认证的，打开 </span>
 

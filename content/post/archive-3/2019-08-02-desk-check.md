@@ -9,9 +9,9 @@ categories:
 
 ---
 <blockquote class="wp-embedded-content" data-secret="5PpVVMPtJf">
-  <p>
+  
     <a href="http://insights.thoughtworkers.org/desk-check/">敏捷实践之Desk Check</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《敏捷实践之Desk Check》—ThoughtWorks洞见" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://insights.thoughtworkers.org/desk-check/embed/#?secret=5PpVVMPtJf" data-secret="5PpVVMPtJf" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

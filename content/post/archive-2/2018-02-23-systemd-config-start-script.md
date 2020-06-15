@@ -296,9 +296,9 @@ http://www.jinbuguo.com/systemd/systemd.service.html
 https://blog.csdn.net/fu_wayne/article/details/38018825
 
 <blockquote class="wp-embedded-content" data-secret="rpemgAP8dW">
-  <p>
+  
     <a href="https://www.pocketdigi.com/20180131/1593.html">systemctl开机启动zookeeper</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW" data-secret="rpemgAP8dW" width="600" height="338" title="《systemctl开机启动zookeeper》—应用开发笔记" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

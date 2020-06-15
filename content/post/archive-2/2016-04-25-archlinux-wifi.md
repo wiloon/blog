@@ -9,21 +9,21 @@ categories:
 
 ---
 <div class="article_title">
-</div>
+
 
 <div class="article_manage clearfix">
-</div>
+
 
 <div id="article_content" class="article_content">
-  <p>
+  
     # Essay Address: http://blog.csdn.net/sunnypotter/article/details/23201339
-  </p>
   
-  <p>
+  
+  
     
-  </p>
   
-  <p>
+  
+  
     # 如果之前systemctl enable dhcpcd.service
  systemctl dhcpcd.service
  systemctl disable dhcpcd.service
@@ -52,18 +52,17 @@ categories:
  systemctl &#8211;failed
  systemctl list-unit-files
  systemctl daemon-reload
-  </p>
   
-  <p>
+  
+  
     ip link
  ifconfig wlp8s0 up  # start wireless adapter
  ifconfig eno1 up # start wire adapter
-  </p>
   
-  <p>
+  
+  
     # dhcpcd network-adapter 动态分配IP
  dhcpcd eno1
  dhcpcd wlp8s0
  )
-  </p>
-</div>
+  

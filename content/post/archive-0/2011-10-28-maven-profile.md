@@ -52,7 +52,7 @@ tags:
       </profiles>
     </li>
   </ol>
-</div>
+
 
 这个 profile 的意思是，当机器上的 JDK 为1.6的时候，构建 simple-script 这个子模块，如果是1.5或者1.4，那就不构建，这个 profile 是由环境自动激活的。
 
@@ -63,11 +63,11 @@ tags:
 如前一个例子，当 JDK 为1.6的时候，Maven 就会自动构建 simple-script 模块。除了 JDK 之外，我们还可以根据操作系统参数和 Maven 属性等来自动激活 profile，如：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Xml代码
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -137,7 +137,7 @@ tags:
       </profile>
     </li>
   </ol>
-</div>
+
 
 2. 通过命令行参数激活。
 
@@ -148,11 +148,11 @@ tags:
 方法很简单，在配置 profile 的时候加上一条属性就可以了，如：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Xml代码  <a title="收藏这段代码" href="http://juvenshun.iteye.com/blog/208714"><img src="http://juvenshun.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -177,7 +177,7 @@ tags:
       </profile>
     </li>
   </ol>
-</div>
+
 
 在一个特殊的环境下，配置默认自动激活的 profile 覆盖默认的 POM 配置，非常简单有效。
 
@@ -186,11 +186,11 @@ tags:
 settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为服务，也可以在 M2_HOME/conf 目录下，为整台机器的所有用户服务。而前者的配置会覆盖后者。同理，由 settings.xml 激活的 profile 意在为用户或者整个机器提供特定环境配置，比如，你可以在某台机器上配置一个指向本地数据库 URL 的 profile，然后使用该机器的 settings.xml 激活它。激活方式如下：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Xml代码
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -212,7 +212,7 @@ settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为
       </settings>
     </li>
   </ol>
-</div>
+
 
 Maven 提供的 profile 功能非常强大和灵活，用得好的话，可以有效的隔离很多特殊的配置，使得整个项目能在不同环境中顺利的构建。但是，强大和灵活带来得问题是相对难掌握，希望本文能对 Maven 使用者有帮助。
 

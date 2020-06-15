@@ -15,7 +15,7 @@ tags:
 
 <p title="Interface WebApplicationInitializer">
   WebApplicationInitializer
-</p>
+
 
 <pre>public class MyWebAppInitializer implements WebApplicationInitializer {
 

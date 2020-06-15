@@ -38,9 +38,9 @@ rm: cannot remove &#8216;dummy_data&#8217;: Operation not permitted
 ```
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
-  <p>
+  
     <a href="http://www.ha97.com/5172.html">（总结）Linux的chattr与lsattr命令详解</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk" data-secret="D3gPzD1nWk" width="600" height="338" title="《（总结）Linux的chattr与lsattr命令详解》—服务器运维架构|深度学习" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
@@ -101,9 +101,9 @@ chattr命令的用法：chattr \[ -RVf \] \[ -v version \] [ mode ] files…
 https://linux.cn/article-5590-1.html
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
-  <p>
+  
     <a href="http://www.ha97.com/5172.html">（总结）Linux的chattr与lsattr命令详解</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk" data-secret="D3gPzD1nWk" width="600" height="338" title="《（总结）Linux的chattr与lsattr命令详解》—服务器运维架构|深度学习" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

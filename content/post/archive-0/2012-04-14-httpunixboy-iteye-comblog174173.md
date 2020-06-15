@@ -635,7 +635,7 @@ ParNew: 表示对年轻代进行的GC，使用ParNew收集器
   
 <starting occupancy3> JVM Heap 在GC前占用的内存
   
-<ending occupancy3> JVM Heap 在GC后占用的内存 <pause time3> GC过程中jvm暂停处理的总时间</p> 
+<ending occupancy3> JVM Heap 在GC后占用的内存 <pause time3> GC过程中jvm暂停处理的总时间 
 
 GCHisto
   

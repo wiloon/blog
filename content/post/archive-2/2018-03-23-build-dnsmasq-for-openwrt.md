@@ -51,9 +51,9 @@ https://wiki.openwrt.org/doc/howto/buildroot.exigence
 https://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
 
 <blockquote class="reddit-card" >
-  <p>
+  
     <a href="https://www.reddit.com/r/openwrt/comments/74mgvd/need_help_to_build_custom_dnsmasq_package_for/?ref_source=embed&ref=share">Need Help to Build Custom "DNSmasq" Package for Chaos Calmer</a> from <a href="https://www.reddit.com/r/openwrt/">openwrt</a>
-  </p>
+  
 </blockquote>
 
 https://wikidevi.com/wiki/Netgear_R7800

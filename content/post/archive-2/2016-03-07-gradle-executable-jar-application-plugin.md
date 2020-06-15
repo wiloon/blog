@@ -8,13 +8,12 @@ categories:
   - Uncategorized
 
 ---
-<pre>apply plugin: 'application'</p>
+<pre>apply plugin: 'application'
 
 
-<p>
+
   [shell]
 
   gradle installApp
 
   [/shell]
-</p>

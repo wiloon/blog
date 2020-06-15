@@ -14,7 +14,7 @@ telnet: TCP/IP终端仿真协议（TCP/IP Terminal Emulation Protocol)：通过T
 
 在终端使用者的电脑上使用telnet程序，用它连接到服务器。终端使用者可以在telnet程序中输入命令，这些命令会在服务器上运行，就像直接在服务器的控制台上输入一样。可以在本地就能控制服务器。要开始一个telnet会话，必须输入用户名和密码来登录服务器。Telnet是常用的远程控制 Web服务器的方法。
 
-目传统telnet连线会话所传输的资料并未加密，这代表所输入及显示的资料，包括帐号名称及密码等隐密资料，可能会遭<a href="javascript.:;" target="_self"><span style="text-decoration: underline;"><strong><span style="color: #000000;">其他</span></strong></span></a>人窃听，因此有许多服务器会将telnet服务关闭，改用更为安全的SSH。
+目传统telnet连线会话所传输的资料并未加密，这代表所输入及显示的资料，包括帐号名称及密码等隐密资料，可能会遭<a href="javascript.:;" target="_self"><span style="text-decoration: underline;"><span style="color: #000000;">其他</span></span></a>人窃听，因此有许多服务器会将telnet服务关闭，改用更为安全的SSH。
 
 SSH：安装外壳协议（SSH：Secure Shell Protocol）
 

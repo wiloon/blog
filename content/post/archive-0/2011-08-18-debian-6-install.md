@@ -40,9 +40,9 @@ http://wiki.debian.org/BootUsb
 
 http://www.debian.org/CD/faq/#write-usb
 
-<div>
+
   !!!!!!!!!!!!!!!!!!!!!以下方法作废!!!!!!!!!!!!!!!!!
-</div>
+
 
 **方法1：**
 

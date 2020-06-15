@@ -312,7 +312,7 @@ O(1)
   
     redis 127.0.0.1:6379> lrange mykey 0 0
   
-    1) “e”</p> 
+    1) “e” 
   2. LPOP/LLEN:
   
     redis 127.0.0.1:6379> lpush mykey a b c d

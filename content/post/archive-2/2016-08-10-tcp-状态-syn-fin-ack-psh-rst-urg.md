@@ -93,9 +93,9 @@ http://www.voidcn.com/blog/chenyujin1314520/article/p-5999167.html
 https://github.com/chemdemo/chemdemo.github.io/blob/master/issues/tcp_notes.md
 
 <blockquote data-secret="OGYapZpScH" class="wp-embedded-content">
-  <p>
+  
     <a href="http://www.jellythink.com/archives/705">简析TCP的三次握手与四次分手</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.jellythink.com/archives/705/embed#?secret=OGYapZpScH" data-secret="OGYapZpScH" width="600" height="338" title="《简析TCP的三次握手与四次分手》—果冻想" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

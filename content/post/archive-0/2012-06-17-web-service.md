@@ -11,11 +11,11 @@ categories:
 ---
 <p align="center">
   <a href="http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html">http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html</a>
-</p>
+
 
 <p align="center">
   第一章           设计一个简单的web service接口
-</p>
+
 
 本章主要内容： 你将学会如何设计一个简单的web service接口
 
@@ -79,27 +79,27 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 当有人调用这个operation(操作)，他会向你发送一个<concatRequest>元素作为input message，如下：
 
-<div>
-  <div>
-    <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
-  </div>
+
   
-  <div>
-    <foo:concatRequest xmlns:foo=&#8221;http:    ttdev.com/ss&#8221;><s1>abc</s1></p> 
+    <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
+  
+  
+  
+    <foo:concatRequest xmlns:foo=&#8221;http:    ttdev.com/ss&#8221;><s1>abc</s1> 
     
-    <p>
+    
       <s2>123</s2>
-    </p>
     
-    <p>
+    
+    
       </foo:concatRequest>
-    </p>
-  </div>
+    
   
-  <div>
+  
+  
     <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
-  </div>
-</div>
+  
+
 
 对于output message也类似，可以指定其仅仅包含一个part，这个part是一个<concatResponse> 元素：
 
@@ -203,5 +203,4 @@ web service,每一个port、binding、port type和operation都有一个QName用�
 
 有两种类型的URI：URL 和URN. URN的格式为：urn:<NID>:<NSS>.可以使用两种形式中的任何一种作为XML的命名空间。唯一不同的是URL被建议用过对象的地址而URN只是单纯的用于对象标识。
 
-<div>
-</div>
+

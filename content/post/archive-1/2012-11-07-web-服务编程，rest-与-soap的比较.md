@@ -38,8 +38,8 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 如图 1 所示，客户端 1（Client1）与客户端 2（Client2）对于信息的存取具有不同的权限，客户端 1 可以执行所有的操作，而客户端 2 只被允许执行用户查询（Query User）与用户列表查询（Query User List）。关于这一点，我们在对 REST Web 服务与 SOAP Web 服务安全控制对比时会具体谈到。下面我们将分别向您介绍如何使用 REST 和 SOAP 架构实现 Web 服务。
 
-<div>
-</div>
+
+
 
 <a name="4.使用 REST 实现 Web 服务|outline"></a>使用 REST 实现 Web 服务
 
@@ -102,7 +102,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 
 
-客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <strong><link>http://localhost:8182/v1/users/tester</link></strong> `) 获得具体的某个 USER Resource。
+客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <link>http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
 
 <a name="OLE_LINK1"></a>
 
@@ -280,9 +280,9 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 另外，在服务端，还需要实现代表用户列表资源的资源类 UserListResource，它的实现与 UserResource 类似，响应 HTTP GET 请求，读取当前系统内的所有用户信息，形成如清单 1 所示的用户列表资源 Representation，然后返回该结果给客户端。具体的实现请读者参见本文所附的代码示例。
 
-<div>
+
   使用 SOAP 实现 Web 服务
-</div>
+
 
 本文对于 SOAP 实现，就不再像 REST 那样，具体到代码级别的实现。本节将主要通过 URI,HTTP 和 XML 来宏观上表述 SOAP Web 服务实现的技术本质，为下一节 REST Web 服务与 SOAP Web 服务的对比做铺垫。
 
@@ -395,8 +395,8 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 实际上，创建新的用户，过程也比较类似，在这里，就不一一列出，因为这两个例子对于本文在选定的点上对比 REST 与 SOAP 已经足够了。
 
-<div>
-</div>
+
+
 
 [回页首][1]
 
@@ -486,8 +486,8 @@ getUserList SOAP 消息获得所有的用户列表后，仍然无法通过既有
 
 而对于 REST，情况是完全不同的：通过 `http://localhost:8182/v1/users` URI 获得用户列表，然后再通过用户列表中所提供的 LINK 属性，例如 `<link>http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式，非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面，并不依赖任何第三方的信息。
 
-<div>
-</div>
+
+
 
 <a name="7.总结|outline"></a>总结
 

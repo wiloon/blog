@@ -158,9 +158,9 @@ COMMIT
 https://www.howtoing.com/enable-logging-in-iptables-on-linux
 
 <blockquote class="wp-embedded-content" data-secret="GkDsoEKKiO">
-  <p>
+  
     <a href="https://backreference.org/2010/06/11/iptables-debugging/">iptables debugging</a>
-  </p>
+  
 </blockquote>
 
 <iframe title=""iptables debugging&#8221; &#8212; 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

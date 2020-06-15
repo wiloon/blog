@@ -38,7 +38,7 @@ FirstName **COLLATE DATABASE_DEFAULT**, <wbr /> MiddleName **COLLATE DATABAS
 
 CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**<span>Chinese_PRC_CI_AS</span>**)
 
-<span style="color: #000000;"><strong>3. 使用以下语句更改,但不适用于临时表</strong></span>
+<span style="color: #000000;">3. 使用以下语句更改,但不适用于临时表</span>
 
 ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medium;">Chinese_PRC_CI_AS</span>**
 

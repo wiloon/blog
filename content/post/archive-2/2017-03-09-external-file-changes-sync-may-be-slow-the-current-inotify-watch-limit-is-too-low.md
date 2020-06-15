@@ -18,7 +18,7 @@ Here are the commands necessary to fix the issue on ArchLinux:
   <pre class="highlight"><code>sudo &lt;span class="nb">echo&lt;/span> &lt;span class="s1">'fs.inotify.max_user_watches = 524288'&lt;/span> &gt;&gt;/usr/lib/sysctl.d/50-default.conf
 sudo sysctl -p --system
 ```
-</div>
+
 
 More information about this can be found in <a href="https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit" target="_blank" rel="noopener noreferrer">here</a> and in <a href="https://bbs.archlinux.org/viewtopic.php?id=193020" target="_blank" rel="noopener noreferrer">here</a>.
 

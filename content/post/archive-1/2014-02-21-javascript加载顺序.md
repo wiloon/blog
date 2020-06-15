@@ -16,7 +16,7 @@ http://www.benben.cc/blog/?p=9
 
 先看html部分的代码：
 
-<div>
+
   <table>
     <tr>
       <td>
@@ -60,11 +60,11 @@ http://www.benben.cc/blog/?p=9
       </td>
     </tr>
   </table>
-</div>
+
 
 再看header.js中的代码：
 
-<div>
+
   <table>
     <tr>
       <td>
@@ -76,11 +76,11 @@ http://www.benben.cc/blog/?p=9
       </td>
     </tr>
   </table>
-</div>
+
 
 接着是outer.js中的代码：
 
-<div>
+
   <table>
     <tr>
       <td>
@@ -98,11 +98,11 @@ document.write('&lt;/script&gt;');</pre>
       </td>
     </tr>
   </table>
-</div>
+
 
 最后是body.js中的代码
 
-<div>
+
   <table>
     <tr>
       <td>
@@ -114,12 +114,12 @@ document.write('&lt;/script&gt;');</pre>
       </td>
     </tr>
   </table>
-</div>
+
 
 代码的输出顺序如下：
 
-<div>
-  <div>
+
+  
     <pre>alert("我是html根节点之外的内部脚本");
 alert("我是头部header里的内部脚本");
 alert("我是header中src外部引用的脚本");
@@ -128,8 +128,8 @@ alert("我是页面body里的内部脚本");
 alert("我是body中src外部引用的脚本");
 alert("我是html根节点之外的内部脚本");
 最后只有点击按钮才会触发alert('我是body中的按钮，这是我自己绑定的事件');</pre>
-  </div>
-</div>
+  
+
 
 刚开始看完代码后你觉得加载顺序如何呢？其实很简单，浏览器加载的时候完全是按照自上而下顺序加载的，遇到外部引用就暂时跳出到外部js中执行，执行完毕后返回跳出的位置继续向下执行，而且经测试可以看到，按钮是在body.js执行完毕后才显示在页面中的，这也证实了浏览器是顺序加载的。
 

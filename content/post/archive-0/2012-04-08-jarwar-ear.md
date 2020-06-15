@@ -44,7 +44,7 @@ RAR: A Resource Adapter is an archive file format defined in the J2EE Connector 
 
 EJB: Enterprise JavaBeans (EJB) is a managed, server-side component architecture for modular construction of enterprise applications. The EJB specification is one of several Java APIs in the Java EE. EJB is a server-side model that encapsulates the business logic of an application.
   
-<span style="text-decoration: underline;"><strong>JavaBean</strong></span>: JavaBeans are reusable software components for Java that can be manipulated visually in a builder tool. Practically, they are classes written in the Java programming language conforming to a particular convention. They are used to encapsulate many objects into a single object (the bean), so that they can be passed around as a single bean object instead of as multiple individual objects. A JavaBean is a Java Object that is serializable, has a nullary constructor, and allows access to properties using getter and setter methods.
+<span style="text-decoration: underline;">JavaBean</span>: JavaBeans are reusable software components for Java that can be manipulated visually in a builder tool. Practically, they are classes written in the Java programming language conforming to a particular convention. They are used to encapsulate many objects into a single object (the bean), so that they can be passed around as a single bean object instead of as multiple individual objects. A JavaBean is a Java Object that is serializable, has a nullary constructor, and allows access to properties using getter and setter methods.
   
 Metadata: Metadata is a means to describe the data files.It provides information about a certain item&#8217;s content, such as: means of creation, purpose of the data, time and date of creation, creator or author of data, placement on a network (electronic form) where the data was created, what standards used (ISO9000), etc.
 
@@ -162,7 +162,7 @@ No wonder, the java community loves ANT.
 道理虽然简单，但是在这过程中还是有很多细节需要注意的，哪一个细节注意不到，操作都不会成功。
 
 <div align="center">
-  <div>
+  
     <div align="left">
       package test;
  public class A{
@@ -170,9 +170,9 @@ No wonder, the java community loves ANT.
  System.out.println("test java&#8221;);
  }
  }
-    </div>
-  </div>
-</div>
+    
+  
+
 
 写好后，保存为A.java，存在D:Javajdk1.6test\_jartest目录下面，打开cmd，进入这个目录，即D:Javajdk1.6test\_jartest然后用javac命令编译，会生成一个A.class文件，此时类的编写工作已经完成。
 

@@ -405,12 +405,11 @@ sudo visudo
   
 加上一行
 
-<div>
-  <strong>代码:</strong>
-</div>
 
-<div>
+  代码:
+
+
+
   [shell]
  arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *
- [/shell]</p>
-</div>
+ [/shell]

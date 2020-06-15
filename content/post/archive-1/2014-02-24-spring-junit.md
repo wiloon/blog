@@ -162,4 +162,3 @@ public class UserAssignServiceTest extends BaseJunit4Test{
       }
     </li>
   </ol>
-</div>

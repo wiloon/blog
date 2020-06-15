@@ -74,49 +74,49 @@ sudo apt-get install xfonts-intl-chinese wqy*
 
 #install wubi input method
 
-<div>
+
   #search "wubi&#8221; in software center
-</div>
 
-<div>
+
+
   #install wubi input method base on table engine of ibus
-</div>
 
-<div>
+
+
   #right click the ibus icon and select restart, restart the ibus
-</div>
 
-<div>
+
+
   #select wubi in ibus&#8230;
-</div>
 
-<div>
+
+
   #install pinyin engine for ibus
-</div>
+
 
 #start ibus, goto System>Preferences>IBUS&#8230; ,,, maybe need restart the system to enable the wubi and pinyin&#8230;
 
-<div>
+
   #there will be a alert, "if can not use ibus add follow lines to .bashrc
-</div>
 
-<div>
+
+
   #export GTK_IM_MODULE=ibus
-</div>
 
-<div>
+
+
   #export XMODIFIERS=@im=ibus
-</div>
 
-<div>
+
+
   #export QT_IM_MODULE=ibus
-</div>
 
-<div>
-</div>
 
-<div>
-</div>
+
+
+
+
+
 
 #######################system monitor
 

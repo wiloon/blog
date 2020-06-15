@@ -146,7 +146,7 @@ OUTPUT OMITTED.
   
     gather_facts: True
   
-    tasks:</p> 
+    tasks: 
       * name: add conf to config files to CentOS6
   
         lineinfile: dest=/etc/rsyslog.conf line=&#8221;_._ @{{ logserver }}&#8221;

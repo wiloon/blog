@@ -18,70 +18,70 @@ Data Integration Server是一个专用的ETL Server，它的主要功能有：
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>功能</strong>
-      </p>
+        功能
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
-        <strong>描述</strong>
-      </p>
+        描述
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>执行</strong>
-      </p>
+        执行
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         通过Pentaho Data Integration引擎执行ETL的作业或转换
-      </p>
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>安全性</strong>
-      </p>
+        安全性
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         管理用户、角色或集成的安全性
-      </p>
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>内容管理</strong>
-      </p>
+        内容管理
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         提供一个集中的资源库，用来管理ETL的作业和转换。资源库包含所有内容和特征的历史版本。
-      </p>
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>时序安排</strong>
-      </p>
+        时序安排
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         在spoon设计者环境中提供管理Data Integration Server上的活动的时序和监控的服务
-      </p>
+      
     </td>
   </tr>
 </table>
@@ -94,70 +94,70 @@ Enterprise Console提供了一个小型的客户端，用于管理Pentaho Data I
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>名称</strong>
-      </p>
+        名称
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
-        <strong>描述</strong>
-      </p>
+        描述
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>Spoon</strong>
-      </p>
+        Spoon
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         通过图形接口，用于编辑作业和转换的桌面应用。
-      </p>
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>Pan</strong>
-      </p>
+        Pan
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         一个独立的命令行程序，用于执行由Spoon编辑的转换和作业。
-      </p>
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>Kitchen</strong>
-      </p>
+        Kitchen
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         一个独立的命令行程序，用于执行由Spoon编辑的作业。
-      </p>
+      
     </td>
   </tr>
   
   <tr>
     <td valign="top" width="92">
       <p class="a0">
-        <strong>Carte</strong>
-      </p>
+        Carte
+      
     </td>
     
     <td valign="top" width="476">
       <p class="a0">
         Carte是一个轻量级的Web容器，用于建立专用、远程的ETL Server。
-      </p>
+      
     </td>
   </tr>
 </table>

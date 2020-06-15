@@ -15,27 +15,27 @@ categories:
 PropertyPlaceholderConfigurer，允许在spring的配置文件中加入properties文件，可以将一些动态参数移到properties中．
 
 <div id="">
-  <p>
+  
     [java]</pre>
- </div>
- <div><bean id="propertyConfigurer"
+ 
+ <bean id="propertyConfigurer"
  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
  <property name="location" value="classpath:config/jdoserver.properties"/>
- </bean></div>
- <div>[/java]
-  </p>
-</div>
+ </bean>
+ [/java]
+  
+
 
 但是好像在属性文件定义中却不支持多个属性文件的定义，比如不能这样用config/*.properties。
 
 经过查看源码，发现可以使用locations属性定义多个配置文件：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -57,16 +57,16 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
       </property>
     </li>
   </ol>
-</div>
+
 
 使用外部属性后如下：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -82,16 +82,16 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
           </bean>
     </li>
   </ol>
-</div>
+
 
 PropertyOverrideConfigurer：在spring所有的bean初使化以后，将bean的值强行改变
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Xml代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -130,7 +130,7 @@ PropertyOverrideConfigurer：在spring所有的bean初使化以后，将bean的�
            </bean>
     </li>
   </ol>
-</div>
+
 
 定义HelloBean,注入word的值为hello.
 

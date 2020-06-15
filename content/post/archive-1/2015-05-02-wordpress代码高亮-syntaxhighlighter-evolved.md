@@ -37,7 +37,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -51,7 +51,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -65,7 +65,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -79,7 +79,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -93,7 +93,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -107,7 +107,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -121,7 +121,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -135,7 +135,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -149,7 +149,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -163,7 +163,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -177,7 +177,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -191,7 +191,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -205,7 +205,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -219,7 +219,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -233,7 +233,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -247,7 +247,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -261,7 +261,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt2">
         <table>
@@ -275,7 +275,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
+      
       
       <div class="line alt1">
         <table>
@@ -289,13 +289,13 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
           </tr>
         </table>
-      </div>
-    </div>
-  </div>
+      
+    
   
-  <p>
+  
+  
     PS:一些简码示例(用时请去掉@)
-  </p>
+  
   
   <ul class="ul-disc">
     <li>
@@ -311,4 +311,3 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
       <code>[@sourcecode language="plain"]这里写你的代码[/sourcecode]</code>
     </li>
   </ul>
-</div>

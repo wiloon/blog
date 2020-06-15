@@ -47,33 +47,33 @@ http_load以并行复用的方式运行，用以测试web服务器的吞吐量�
 准备URL文件：urllist.txt，文件格式是每行一个URL，URL最好超过50－100个测试效果比较好.文件格式如下：
 
 <blockquote class="wp-embedded-content" data-secret="iAUiVVmnMv">
-  <p>
+  
     <a href="https://www.vpser.net/other/choose-vps.html">VPS服务器的选择</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《VPS服务器的选择》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv" data-secret="iAUiVVmnMv" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="cLrZu8rncf">
-  <p>
+  
     <a href="https://www.vpser.net/vps-cp/hypervm-tutorial.html">HyperVM使用教程/手册</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《HyperVM使用教程/手册》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf" data-secret="cLrZu8rncf" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="aK3vT9Oj6d">
-  <p>
+  
     <a href="https://www.vpser.net/coupons/diavps-april-coupons.html">DiaVPS 4月最新优惠</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《DiaVPS 4月最新优惠》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d" data-secret="aK3vT9Oj6d" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="GisBcCy5FH">
-  <p>
+  
     <a href="https://www.vpser.net/security/vps-backup-web-mysql.html">VPS主机上备份网站和数据库</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《VPS主机上备份网站和数据库》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/security/vps-backup-web-mysql.html/embed#?secret=GisBcCy5FH" data-secret="GisBcCy5FH" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
@@ -258,15 +258,15 @@ table 这里 >.
 
 -attributes
   
-设置</p> 
+设置 
 
 属性的字符串.
   
--z </p>-attributes
+-z -attributes
   
-设置</p> 
+设置 
 
-属性的字符串.</p> 
+属性的字符串. 
 
 缺陷
   
@@ -477,9 +477,9 @@ Longest transaction: 29.04 //每次传输所花最长时间
 Shortest transaction: 0.00 //每次传输所花最短时间
 
 <blockquote class="wp-embedded-content" data-secret="No65LHIzR5">
-  <p>
+  
     <a href="https://coolshell.cn/articles/2589.html">十个免费的Web压力测试工具</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《十个免费的Web压力测试工具》—酷 壳 - CoolShell" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5" data-secret="No65LHIzR5" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

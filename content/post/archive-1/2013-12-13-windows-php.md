@@ -8,28 +8,28 @@ categories:
   - Uncategorized
 
 ---
-<div>
-  <p>
+
+  
     apache软件no_ssl和openssl两种类型的区别
-  </p>
-</div>
+  
+
 
 <div id="content">
-  <p>
+  
     apache软件同一版本有两种类型：no_ssl和openssl:
-  </p>
   
-  <p>
+  
+  
     openssl多了个ssl安全认证模式，它的协议是HTTPS而不是HTTP，这就是带有SSL的服务器与一般网页服务器的区别了。
-  </p>
   
-  <p>
+  
+  
     一般情况下，我们下载no_ssl版本的就ok了。
-  </p>
   
-  <h3>
+  
+  
     Apache HTTP 服务器
-  </h3>
+  
   
   <ol>
     <li>
@@ -44,16 +44,16 @@ categories:
     <li>
       要检查安装是否成功，请运行浏览器，然后输入以下 URL： <pre>  http://localhost/</pre>
       
-      <p>
+      
         Apache 欢迎测试页面打开：</li> </ol> 
         
         <h4>
           疑难解答
         </h4>
         
-        <p>
+        
           默认情况下，Apache 服务器监听端口 80。此端口可能已被其他服务所使用，如 Skype。要解决此问题，请更改服务器监听的端口：
-        </p>
+        
         
         <ol>
           <li>
@@ -70,14 +70,14 @@ categories:
           </li>
         </ol>
         
-        <p>
+        
           您还可以停止可能监听端口 80 的进程。在任务管理器中，选择相关文件名称，并单击“结束进程”。
-        </p>
         
-        <p>
+        
+        
           <a href="http://blog.csdn.net/maxracer/article/details/7298737">http://blog.csdn.net/maxracer/article/details/7298737</a>
-        </p>
         
-        <p>
+        
+        
           <a href="https://netbeans.org/kb/docs/php/configure-php-environment-windows_zh_CN.html">https://netbeans.org/kb/docs/php/configure-php-environment-windows_zh_CN.html</a>
-        </p></div>
+        

@@ -8,46 +8,45 @@ categories:
   - Java
 
 ---
-<div>
-  <h3>
-    http://www.oecp.cn/hi/hailang/blog/146
-  </h3>
-  
-  <h3>
-  </h3>
-</div>
 
-<div>
-  <p>
+  
+    http://www.oecp.cn/hi/hailang/blog/146
+  
+  
+  
+  
+
+
+
+  
     一、 FreeMarker简介
  FreeMarker是一个用Java语言编写的模板引擎，它基于模板来生成文本输出。
  所谓模板，就是一份已经写好了基本内容，有着固定格式的文档，其中空出或者用占位符标识的内容，由使用者来填充，不同的使用者给出的数据是不同的。在模板中的占位符，在模板运行时，由模板引擎来解析模板，并采用动态数据替换占位符部分的内容。
  FreeMarker与Web容器无关，即在Web运行时，它并不知道Servlet或HTTP。它不仅可以用作表现层的实现技术，而且还可以用于生成XML，JSP或Java 文等。
- 二、 <strong>FreeMarker的优点和缺点
- </strong>(一) <strong>FreeMarker的优点</strong>
- 1.使用<strong>FreeMarker的优点</strong>之一，可以彻底的分离表现层和业务逻辑。
+ 二、 FreeMarker的优点和缺点
+ (一) FreeMarker的优点
+ 1.使用FreeMarker的优点之一，可以彻底的分离表现层和业务逻辑。
  使用JSP 开发过程中在页面中大量的存在业务逻辑的代码，使得页面内容凌乱，在后期大量的修改维护过程中就变得非常困难。
  FreeMarker根本不支持Java脚本代码。
  FreeMarker的原理就是：模板+数据模型=输出 ，模板只负责数据在页面中的表现，不涉及任何的逻辑代码，而所有的逻辑都是由数据模型来处理的。用户最终看到的输出是模板和数据模型合并后创建的。
-  </p>
   
-  <p>
-    2.使用<strong>FreeMarker的优点</strong>之二，可以提高开发效率。
+  
+  
+    2.使用FreeMarker的优点之二，可以提高开发效率。
  在我们以往的开发中，使用的都是JSP 页面来展示数据的，即所谓的表现层。我们都知道，JSP在第一次执行的时候需要转换成Servlet类，开发阶段进行功能调适时，需要频繁的修改JSP，每次修改都要编译和转换，那么试想一天中我们浪费在程序编译的时间有多少。相对于JSP来说，FreeMarker模板技术不存在编译和转换的问题，所以就不会存在上述问题。而且开发过程中，我们在不必在等待界面设计开发人员完成页面原形后，我们再来开发程序。
-  </p>
   
-  <p>
-    3.使用<strong>FreeMarker的优点</strong>之三，使得开发过程中的人员分工更加明确。
+  
+  
+    3.使用FreeMarker的优点之三，使得开发过程中的人员分工更加明确。
  以往用<a href="http://www.po-soft.com/blog/single/125.html">JSP</a>展现数据时，作为程序员的我们，并不熟悉界面设计技术，反之界面开发人员，也并不熟悉程序语言。对两者而言，交替性的工作本身就有难度。有时候稍有不慎，可能会将某个页面元素删除或去掉了某个程序符号，使得页面走样或程序错误，这样就需要双方相互沟通协作，解决出现的问题。有时候因为项目中的时间，任务量等因素的存在，可能这个工作就由一个人来完成，这样就可能加大某一方开发人员的工作量。
  使用FreeMarker后，作为界面开发人员，只专心创建HTML文件、图像以及Web页面的其他可视化方面，不用理会数据；而程序开发人员则专注于系统实现，负责为页面准备要显示的数据。
- (二)<strong>FreeMarker的缺点
- </strong>1.使用<strong>FreeMarker的缺点</strong>之一，应用FreeMarker模板技术，在修改模板后，可能会看到已经过期的数据。如：生成静态的HTML页面后，如果一旦模板改变，而没有及时更新模板生成的HTML页面的话，用户看到的就是过期的数据。
- 2.使用<strong>FreeMarker的缺点</strong>之二，FreeMarker模板技术在应用过程中，FreeMarker中的变量必须要赋值，如果不赋值，那么就会抛出异常。想避免错误就要应用if/elseif/else 指令进行判段，如果对每一个变量都判断的话，那么则反而增加了编程的麻烦。
- 3.使用<strong>FreeMarker的缺点</strong>之三，FreeMarker的map限定key必须是string，其他数据类型无法操作
- 4.使用<strong>FreeMarker的缺点</strong>之四，FreeMarker不支持集群应用。为了编成的方便性，把序列化的东西都放到了Session中，如<a href="http://www.po-soft.com/blog/wm2395/57.html">Session</a>，request等，在开发的过程中确实方便，但如果将应用放到集群中，就会出现错误。
-  </p>
+ (二)FreeMarker的缺点
+ 1.使用FreeMarker的缺点之一，应用FreeMarker模板技术，在修改模板后，可能会看到已经过期的数据。如：生成静态的HTML页面后，如果一旦模板改变，而没有及时更新模板生成的HTML页面的话，用户看到的就是过期的数据。
+ 2.使用FreeMarker的缺点之二，FreeMarker模板技术在应用过程中，FreeMarker中的变量必须要赋值，如果不赋值，那么就会抛出异常。想避免错误就要应用if/elseif/else 指令进行判段，如果对每一个变量都判断的话，那么则反而增加了编程的麻烦。
+ 3.使用FreeMarker的缺点之三，FreeMarker的map限定key必须是string，其他数据类型无法操作
+ 4.使用FreeMarker的缺点之四，FreeMarker不支持集群应用。为了编成的方便性，把序列化的东西都放到了Session中，如<a href="http://www.po-soft.com/blog/wm2395/57.html">Session</a>，request等，在开发的过程中确实方便，但如果将应用放到集群中，就会出现错误。
   
-  <p>
+  
+  
     通过以上的阐述，希望可以令您清晰FreeMarker的优点和缺点，旨在抛砖引玉。有什么问题可以留下您的宝贵留言，我非常愿意与大家讨论。
-  </p>
-</div>
+  

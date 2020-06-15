@@ -36,7 +36,7 @@ Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分�
 
 
 
-<pre class="odb_java geshifilter-odb_java"><strong><span class="sy1">@</span><span class="kw11">Column</span></strong></pre>
+<pre class="odb_java geshifilter-odb_java"><span class="sy1">@</span><span class="kw11">Column</span></pre>
 
 <pre class="odb_java geshifilter-odb_java"><span class="sy1">@</span><span class="kw11">Column</span><span class="br0">(</span>name<span class="sy0">=</span><span class="st0">"DESC"</span>, <span class="kw12">nullable</span><span class="sy0">=</span><span class="kw2">false</span>, <span class="kw12">length</span><span class="sy0">=</span><span class="nu0">512</span><span class="br0">)</span></pre>
 

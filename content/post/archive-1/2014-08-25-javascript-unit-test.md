@@ -88,12 +88,12 @@ equal( sum, "2&#8221;, "We expect value to be 2" );
   
 <h2 id=&#8221;qunit-banner&#8221;></h2>
   
-<div id=&#8221;qunit-testrunner-toolbar&#8221;></div>
+<div id=&#8221;qunit-testrunner-toolbar&#8221;>
   
 <h2 id=&#8221;qunit-userAgent&#8221;></h2>
   
 <ol id=&#8221;qunit-tests&#8221;></ol>
   
-<div id=&#8221;qunit-fixture&#8221;>test markup, will be hidden</div>
+<div id=&#8221;qunit-fixture&#8221;>test markup, will be hidden
   
 </

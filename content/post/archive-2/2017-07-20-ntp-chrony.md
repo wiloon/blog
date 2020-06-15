@@ -66,9 +66,9 @@ settime - 手动设置守护进程时间
 ```
 
 <blockquote class="wp-embedded-content" data-secret="M7IADqld6f">
-  <p>
+  
     <a href="http://www.361way.com/rhel7-chrony/4778.html">RH254小结（九）rhel7新的ntp对时服务Chrony</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《RH254小结（九）rhel7新的ntp对时服务Chrony》—运维之路" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.361way.com/rhel7-chrony/4778.html/embed#?secret=M7IADqld6f" data-secret="M7IADqld6f" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

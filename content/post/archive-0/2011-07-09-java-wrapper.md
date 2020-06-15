@@ -150,131 +150,131 @@ false？没错，它就是false，自动装箱时，对于值从-128-127之间�
   <tr>
     <td>
       <div id="blog_text">
-        <p>
+        
           java是一种面向对象语言,java中的类把方法与数据连接在一起,并构成了自包含式的处理单元.但在java中不能定义基本类型(primitive type),为了能将基本类型视为对象来处理,并能连接相关的方法,java为每个基本类型都提供了包装类,这样,我们便可以把这些基本类型转化为对象来处理了.这些包装类有:Boolean,Byte,Short,Character,Integer,Long,Float,Double,Void共9个(注意：Date不是，无其基本类型).
-        </p>
         
-        <p>
-          <strong>一、 包装类(Wrapper Class)共同的方法</strong>
-        </p>
         
-        <p>
+        
+          一、 包装类(Wrapper Class)共同的方法
+        
+        
+        
           值得说明的是,java是可以直接处理基本类型的,但是在有些情况下我们需要将其作为对象来处理,这时就需要将其转化为包装类了.所有的包装类(Wrapper Class)都有共同的方法,他们是:
-        </p>
         
-        <p>
+        
+        
           (1)带有基本值参数并创建包装类对象的构造函数.如可以利用Integer包装类创建对象,Integer obj=new Integer(145);
-        </p>
         
-        <p>
+        
+        
           (2)带有字符串参数并创建包装类对象的构造函数.如new Integer("-45.36&#8221;);
-        </p>
         
-        <p>
+        
+        
           (3)可生成对象基本值的typeValue方法,如obj.intValue();
-        </p>
         
-        <p>
+        
+        
           (4)将字符串转换为基本值的 parseType方法,如Integer.parseInt(args[0]);
-        </p>
         
-        <p>
+        
+        
           (5)生成哈稀表代码的hashCode方法,如obj.hasCode();
-        </p>
         
-        <p>
+        
+        
           (6)对同一个类的两个对象进行比较的equals()方法,如obj1.eauqls(obj2);
-        </p>
         
-        <p>
+        
+        
           (7)生成字符串表示法的toString()方法,如obj.toString().
-        </p>
         
-        <p>
+        
+        
           
-        </p>
         
-        <p>
-          <strong><span style="color: #0000ff;">转换关系：</span></strong>
-        </p>
         
-        <p>
+        
+          <span style="color: #0000ff;">转换关系：</span>
+        
+        
+        
           <span style="color: #0000ff;">基本类型&#8212;&#8212;>包装器类</span>
  Integer obj=new Integer(145);
-        </p>
         
-        <p>
+        
+        
           <span style="color: #0000ff;">包装器类&#8212;&#8212;>基本类型</span>
  int num=obj.intValue();
-        </p>
         
-        <p>
+        
+        
           <span style="color: #0000ff;">字符串&#8212;&#8212;>包装器类</span>
  Integer obj=new Integer("-45.36&#8221;);
-        </p>
         
-        <p>
+        
+        
           <span style="color: #0000ff;">包装器类&#8212;&#8212;>字符串包装器类</span>
-        </p>
         
-        <p>
+        
+        
           <span style="color: #000000;">String str=obj.toString();</span>
-        </p>
         
-        <p>
+        
+        
           <span style="color: #0000ff;">字符串&#8212;&#8212;>基本类型</span>
  int num=Integer.parseInt("-45.36&#8221;);
-        </p>
         
-        <p>
+        
+        
           <span style="color: #0000ff;">基本类型&#8212;&#8212;>字符串包装器类</span>
-        </p>
         
-        <p>
+        
+        
           <span style="color: #000000;">String str=String.valueOf(5);</span>
  在一定的场合,运用java包装类来解决问题,能大大提高编程效率.
-        </p>
         
-        <p>
+        
+        
           
-        </p>
         
-        <p>
-          <strong>二、JDK1.5的新特性：自动装箱/拆<strong>箱</strong>(Autoboxing/unboxing)</strong>
-        </p>
         
-        <p>
+        
+          二、JDK1.5的新特性：自动装箱/拆箱(Autoboxing/unboxing)
+        
+        
+        
           自动装箱/拆箱大大方便了基本类型数据和它们包装类地使用。
-        </p>
         
-        <p>
+        
+        
           自动装箱：基本类型自动转为包装类.(int　>>　Integer)
-        </p>
         
-        <p>
+        
+        
           自动拆箱：包装类自动转为基本类型.(Integer　>>　int)
-        </p>
         
-        <p>
+        
+        
           在JDK1.5之前，我们总是对集合不能存放基本类型而耿耿于怀，现在自动转换机制
  解决了我们的问题。
-        </p>
         
-        <p>
+        
+        
           int　a　=　3;
  Collection　c　=　new　ArrayList();
  c.add(a);//自动转换成Integer.
-        </p>
         
-        <p>
+        
+        
           Integer　b　=　new　Integer(2);
  c.add(b　+　2);
-        </p>
         
-        <p>
+        
+        
           这里Integer先自动转换为int进行加法运算，然后int再次转换为Integer.
-        </p>
-      </div>
+        
+      
     </td>
   </tr>
 </table>

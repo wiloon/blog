@@ -9,13 +9,13 @@ categories:
   - Web
 
 ---
-<div>
-  <a href="http://www.yining.org" rel="cc:attributionURL">Zhang Yining</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">CC BY-NC-SA 3.0</a>
-</div>
 
-<div>
+  <a href="http://www.yining.org" rel="cc:attributionURL">Zhang Yining</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">CC BY-NC-SA 3.0</a>
+
+
+
   <a href="http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/">http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/</a>
-</div>
+
 
 在推特上[抱怨面试时问HTTP GETE和POST的区别得到回答都不满意][1]，有人不清楚，当时只回复了看 RFC2616。趁有空说说
 

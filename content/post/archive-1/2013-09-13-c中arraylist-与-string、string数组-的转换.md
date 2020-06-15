@@ -136,7 +136,7 @@ safepoint机制可以stop the world，不仅仅是在GC的时候用，有很多�
 
 可以看到JVM在阻塞全部Java线程之前，Java线程可能处在不同的状态，这篇聊聊JVM（五）从JVM角度理解线程 说了JVM里面定义的线程所有的状态。
 
-  1. 当线程在解释模式下执行的时候，让JVM发出请求之后，解释器会把指令跳转到检查safepoint的状态，比如检查某个内存页位置，从而让线程阻塞</p> 
+  1. 当线程在解释模式下执行的时候，让JVM发出请求之后，解释器会把指令跳转到检查safepoint的状态，比如检查某个内存页位置，从而让线程阻塞 
   2. 当Java线程正在执行native code的时候，这种情况最复杂，篇幅也写的最多。当VM thread看到一个Java线程在执行native code，它不需要等待这个Java线程进入阻塞状态，因为当Java线程从执行native code返回的时候，Java线程会去检查safepoint看是否要block(When returning from the native code, a Java thread must check the safepoint _state to see if we must block)
 
 后面说了一大堆关于如何让读写safepoint state和thread state按照严格顺序执行(serialized)，主要用两种做法，一种是加内存屏障(Memeory barrier)，一种是调用mprotected系统调用去强制Java的写操作按顺序执行（The VM thread performs a sequence of mprotect OS calls which forces all previous writes from all Java threads to be serialized. This is done in the os::serialize\_thread\_states() call）
@@ -193,7 +193,7 @@ __ cmp(G3\_scratch, SafepointSynchronize::\_not_synchronized);
 
 关于serialation page具体的实现可以看这篇 关于memory\_serialize\_page的一些疑问 我看了之后的理解是相比与内存屏障每次写一个内存位置就要刷新CPU缓存的方式，serialization page采用了一个内存页的方式，每个线程顺序写一个位置，算法要保证多个线程不会写到同一个位置。然后VM thread把这个内存页设置为只读，把线程的状态刷新到相应的内存位置，然后再设置为可写。这样一是避免了刷新CPU缓存的操作，另外是一次可以批量处理多个线程。
 
-  1. 当JVM以JIT编译模式运行的时候，就是最初说的在编译后代码插入一个检查全局的safepoint polling page，VM thread把它设置为不可读，让Java线程挂起</p> 
+  1. 当JVM以JIT编译模式运行的时候，就是最初说的在编译后代码插入一个检查全局的safepoint polling page，VM thread把它设置为不可读，让Java线程挂起 
   2. 当线程本来就是阻塞状态的时候，采用了safe region的方式，处于safe region的代码只有等到被允许的时候才能离开safe region，看这篇聊聊JVM（六）理解JVM的safepoint
 
   3. 当线程处在状态转化的时候，线程会去检查safepoint状态，如果要阻塞，就自己阻塞了

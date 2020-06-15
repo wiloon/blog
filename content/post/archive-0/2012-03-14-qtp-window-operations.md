@@ -86,7 +86,7 @@ IP 主机名 用户名 HBase 地位 启动后进程
 
   1. 安装 jdk 1.8.0
   
-    安装 jdk 1.8.0 至 /usr/local/jdk1.8.0_60 ，具体请参考 “安装 jdk1.8.0”</p> 
+    安装 jdk 1.8.0 至 /usr/local/jdk1.8.0_60 ，具体请参考 “安装 jdk1.8.0” 
   2. 配置免密 ssh 登陆
   
     具体请参考：Centos6.5下SSH免密码登陆配置
@@ -511,13 +511,13 @@ vim hbase-site.xml
   
 44
   
-更多配置请参考 ：HBase 默认配置</p> 
+更多配置请参考 ：HBase 默认配置 
 
 3.4 hbase-site.xml 配置参数解析
 
   1. hbase.rootdir
   
-    这个目录是 RegionServer 的共享目录，用来持久化 HBase。特别注意的是 hbase.rootdir 里面的 HDFS 地址是要跟 Hadoop 的 core-site.xml 里面的 fs.defaultFS 的 HDFS 的 IP 地址或者域名、端口必须一致。</p> 
+    这个目录是 RegionServer 的共享目录，用来持久化 HBase。特别注意的是 hbase.rootdir 里面的 HDFS 地址是要跟 Hadoop 的 core-site.xml 里面的 fs.defaultFS 的 HDFS 的 IP 地址或者域名、端口必须一致。 
   2. hbase.cluster.distributed
   
     HBase 的运行模式。为 false 表示单机模式，为 true 表示分布式模式。若为 false，HBase 和 ZooKeeper 会运行在同一个 JVM 中
@@ -534,7 +534,7 @@ vim hbase-site.xml
 
   1. hbase.zookeeper.quorum
   
-    对于 ZooKeeper 的配置。至少要在 hbase.zookeeper.quorum 参数中列出全部的 ZooKeeper 的主机，用逗号隔开。该属性值的默认值为 localhost，这个值显然不能用于分布式应用中。</p> 
+    对于 ZooKeeper 的配置。至少要在 hbase.zookeeper.quorum 参数中列出全部的 ZooKeeper 的主机，用逗号隔开。该属性值的默认值为 localhost，这个值显然不能用于分布式应用中。 
   2. hbase.zookeeper.property.dataDir
   
     这个参数用户设置 ZooKeeper 快照的存储位置，默认值为 /tmp，显然在重启的时候会清空。因为笔者的 ZooKeeper 是独立安装的，所以这里路径是指向了 $ZOOKEEPER_HOME/conf/zoo.cfg 中 dataDir 所设定的位置。

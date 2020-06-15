@@ -24,15 +24,15 @@ tags:
       <div class="bar">
         <div class="tools" style="font-weight: bold;">
           Java代码  <a style="color: #108ac6;" title="收藏这段代码"><img class="star" src="http://yeak2001.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-        </div>
-      </div>
+        
+      
       
       <ol class="dp-j" style="color: #2b91af;" start="1">
         <li>
           <span style="color: black;"><span class="annotation" style="color: #646464;">@RequestMapping</span>(value = <span class="string" style="color: blue;">"form/{id}/apply&#8221;</span>, method = {RequestMethod.PUT, RequestMethod.POST})  </span>
         </li>
       </ol>
-    </div>
+    
     
     <br style="color: #000000;" /><br style="color: #000000;" /><span style="color: #000000;">{id}在这个请求的URL里就是个变量，可以使用@PathVariable来获取 </span><br style="color: #000000;" /><span style="color: #000000;">@PathVariable和@RequestParam的区别就在于：@RequestParam用来获得静态的URL请求入参</span>
     
@@ -46,21 +46,21 @@ tags:
     
     <wbr />
     
-    <div>
-      <div>
+    
+      
         <div style="color: silver;">
-          <p>
+          
             [java][/java]
-          </p>
           
-          <p>
+          
+          
             <wbr /><a style="color: #3e73a0;" title="view plain" href="http://blog.csdn.net/walkerjong/article/details/7946109#">view plain</a><a style="color: #3e73a0;" title="copy" href="http://blog.csdn.net/walkerjong/article/details/7946109#">copy</a>
-          </p>
           
-          <div>
-          </div>
-        </div>
-      </div>
+          
+          
+          
+        
+      
       
       <ol style="color: #5c5c5c;" start="1">
         <li style="color: inherit;">
@@ -91,7 +91,7 @@ tags:
           <span style="color: black;">} <wbr /> <wbr /></span>
         </li>
       </ol>
-    </div>
+    
     
     上面代码把URI template 中变量 ownerId的值和petId的值，绑定到方法的参数上。若方法参数名称和需要绑定的uri template中变量名称不一致，需要在@PathVariable("name&#8221;)指定uri template中的名称。
     

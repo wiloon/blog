@@ -9,8 +9,8 @@ categories:
 
 ---
 <p style="color: #000000;" align="justify">
-  <strong>http://www.cnblogs.com/feisky/archive/2010/01/16/1649081.html</strong>
-</p>
+  http://www.cnblogs.com/feisky/archive/2010/01/16/1649081.html
+
 
 Activity
 

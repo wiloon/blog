@@ -38,13 +38,13 @@ href=&#8221;../../css/gtvg.css&#8221; th:href=&#8221;@{/css/gtvg.css}&#8221; />
 
 <body>
 
-<p th:text=&#8221;#{home.welcome}&#8221;>Welcome to our grocery store!</p>
+<p th:text=&#8221;#{home.welcome}&#8221;>Welcome to our grocery store!
 
 </body>
 
 </html>
 
-这是一段标准的HTML代码，这也就意味着通过浏览器直接打开它是可以正确解析它的结构并看到页面的样子。相比去其他的模板引擎在指定的位置通过${}等表达式进行渲染，Thymeleaf则是一种针对HTML/XML定制的模板语言（当然它可以被扩展），它通过标签中的th:text属性来填充该标签的一段内容。上例中，<p th:text=&#8221;#{home.welcome}&#8221;>Welcome to our grocery store!</p>意味着<p>标签中的内容会被表达式#{home.welcome}的值所替代，无论模板中它的内容是什么，之所以在模板中“多此一举“地填充它的内容，完全是为了它能够作为原型在浏览器中直接显示出来。
+这是一段标准的HTML代码，这也就意味着通过浏览器直接打开它是可以正确解析它的结构并看到页面的样子。相比去其他的模板引擎在指定的位置通过${}等表达式进行渲染，Thymeleaf则是一种针对HTML/XML定制的模板语言（当然它可以被扩展），它通过标签中的th:text属性来填充该标签的一段内容。上例中，<p th:text=&#8221;#{home.welcome}&#8221;>Welcome to our grocery store!意味着标签中的内容会被表达式#{home.welcome}的值所替代，无论模板中它的内容是什么，之所以在模板中“多此一举“地填充它的内容，完全是为了它能够作为原型在浏览器中直接显示出来。
 
 标准表达式语法
   
@@ -52,9 +52,9 @@ href=&#8221;../../css/gtvg.css&#8221; th:href=&#8221;@{/css/gtvg.css}&#8221; />
   
 Thymeleaf模板引擎在进行模板渲染时，还会附带一个Context存放进行模板渲染的变量，在模板中定义的表达式本质上就是从Context中获取对应的变量的值：
 
-<p>Today is: <span th:text=&#8221;${today}&#8221;>13 february 2011</span>.</p>
+Today is: <span th:text=&#8221;${today}&#8221;>13 february 2011</span>.
 
-假设today的值为2015年8月14日，那么渲染结果为：<p>Today is: 2015年8月14日.</p>。可见Thymeleaf的基本变量和JSP一样，都使用${.}表示获取变量的值。
+假设today的值为2015年8月14日，那么渲染结果为：Today is: 2015年8月14日.。可见Thymeleaf的基本变量和JSP一样，都使用${.}表示获取变量的值。
 
 URL
   
@@ -148,11 +148,11 @@ th:text=&#8221;&#8216;Execution mode is &#8216; + ( (${execMode} == &#8216;dev&#
   
 </table>
 
-<p>
+
   
 <a href=&#8221;../home.html&#8221; th:href=&#8221;@{/}&#8221;>Return to home</a>
   
-</p>
+
   
 </body>
 
@@ -174,23 +174,23 @@ Thymeleaf同样支持多路选择Switch结构：
 
 <div th:switch=&#8221;${user.role}&#8221;>
   
-<p th:case=&#8221;&#8216;admin'&#8221;>User is an administrator</p>
+<p th:case=&#8221;&#8216;admin'&#8221;>User is an administrator
   
-<p th:case=&#8221;#{roles.manager}&#8221;>User is a manager</p>
+<p th:case=&#8221;#{roles.manager}&#8221;>User is a manager
   
-</div>
+
 
 默认属性default可以用*表示：
 
 <div th:switch=&#8221;${user.role}&#8221;>
   
-<p th:case=&#8221;&#8216;admin'&#8221;>User is an administrator</p>
+<p th:case=&#8221;&#8216;admin'&#8221;>User is an administrator
   
-<p th:case=&#8221;#{roles.manager}&#8221;>User is a manager</p>
+<p th:case=&#8221;#{roles.manager}&#8221;>User is a manager
   
-<p th:case=&#8221;*&#8221;>User is some other thing</p>
+<p th:case=&#8221;*&#8221;>User is some other thing
   
-</div>
+
 
 Utilities
   
