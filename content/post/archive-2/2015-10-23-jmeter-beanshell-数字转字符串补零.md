@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre>http://localhost:7000/?id=${__counter(FALSE,eIndex)}&p=prefix${__BeanShell(333+${eIndex})}sufix</pre>
+http://localhost:7000/?id=${__counter(FALSE,eIndex)}&p=prefix${__BeanShell(333+${eIndex})}sufix
 
 [shell]
 

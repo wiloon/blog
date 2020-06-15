@@ -14,7 +14,7 @@ tcp\_syn\_retries
   
 tcp\_synack\_retries
 
-<pre><code class="language-shell line-numbers">sysctl -a | grep tcp_synack_retries
+```bashsysctl -a | grep tcp_synack_retries
 ```
 
 http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html

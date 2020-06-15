@@ -38,4 +38,4 @@ break;
 
 case4: System.out.println("hehe");
 
-}</pre>
+}

@@ -37,7 +37,7 @@ tags:
         
         <pre class="plaincode">sudo apt-get update
 sudo apt-get install git-core curl build-essential openssl libssl-dev
-</pre>
+
         
         
           Step 2 - Install Node.js
@@ -49,7 +49,7 @@ sudo apt-get install git-core curl build-essential openssl libssl-dev
         
         <pre class="plaincode">git clone https://github.com/joyent/node.git
 cd node
-</pre>
+
         
         
           Now, if you require a specific version of Node:
@@ -57,7 +57,7 @@ cd node
         
         <pre class="plaincode">git tag # Gives you a list of released versions
 git checkout v0.4.12
-</pre>
+
         
         
           Then compile and install Node like this:
@@ -66,14 +66,14 @@ git checkout v0.4.12
         <pre class="plaincode">./configure
 make
 sudo make install
-</pre>
+
         
         
           Then, check if node was installed correctly:
         
         
         <pre class="plaincode">node -v
-</pre>
+
         
         
           Step 3 - Install <span class="caps">NPM</span>
@@ -84,14 +84,14 @@ sudo make install
         
         
         <pre class="plaincode">curl https://npmjs.org/install.sh | sudo sh
-</pre>
+
         
         
           And then check it works:
         
         
         <pre class="plaincode">npm -v
-</pre>
+
         
         
           That’s all.

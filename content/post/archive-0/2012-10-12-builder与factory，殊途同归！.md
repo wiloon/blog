@@ -104,7 +104,7 @@ tags:
       <img src="http://images.cnblogs.com/cnblogs_com/shenfx318/builder_2.gif" alt="" width="358" height="192" border="0" />
     
     
-    <pre></pre>
+    
     
     
       客户端调用代码

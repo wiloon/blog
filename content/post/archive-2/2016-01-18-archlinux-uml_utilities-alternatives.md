@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<pre>ip tuntap
+ip tuntap
 
 
-</pre>
+
 
 https://lists.archlinux.org/pipermail/aur-general/2013-May/023611.html

@@ -564,7 +564,7 @@ tags:
     
     
       }
- <pre>
+ 
  [/java]
     
   
@@ -581,7 +581,7 @@ tags:
   
   
   
-    [java]</pre>
+    [java]
  package org.colimas.main; 
     
     
@@ -874,7 +874,7 @@ tags:
     
     
       }
- <pre>
+ 
  [/java]
     
   

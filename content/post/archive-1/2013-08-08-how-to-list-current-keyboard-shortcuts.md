@@ -64,7 +64,7 @@ categories:
           
           <div dir="ltr" id="CodeSnippetContainerCode_5caf603c-61bf-4bff-b2e9-fbb55e05b63f">
             
-              <pre>Sub GetAllCommands()
+              Sub GetAllCommands()
 
     Dim cmd As Command
     Dim ow As OutputWindow = DTE.Windows.Item(Constants.vsWindowKindOutput).Object
@@ -119,7 +119,7 @@ categories:
     Array.Sort(sArray)
     owp.OutputString(String.Join(vbCrLf, sArray))
 
-End Sub</pre>
+End Sub
             
           
         

@@ -126,7 +126,7 @@ ref can be used for indexed columns that are compared using the = or <=> operato
 
 在对已经建立索引列进行=或者<=>操作的时候，ref会被使用到。与eq_ref不同的是匹配到了多行
 
-<pre><code class="language-sql line-numbers">-- 根据索引（非主键，非唯一索引），匹配到多行
+<code class="language-sql line-numbers">-- 根据索引（非主键，非唯一索引），匹配到多行
 SELECT * FROM ref_table WHERE key_column=expr;
 
 -- 多表关联查询，单个索引，多行匹配

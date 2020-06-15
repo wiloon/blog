@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-shell line-numbers">---                         #任何playbook文件(其实就是yaml文件)都要以这个开头
+```bash---                         #任何playbook文件(其实就是yaml文件)都要以这个开头
 - hosts: '{{ hosts }}'      #可以是主机组或IP
   become: root
   gather_facts: true
@@ -75,7 +75,7 @@ categories:
 
 ansible playbook 传参数
 
-<pre><code class="language-shell line-numbers">ansible-playbook foo.yml -e h=192.168.0.2
+```bashansible-playbook foo.yml -e h=192.168.0.2
 
 # 传多个参数时, 参数列表加引号, 参数之前用空格分隔，
 ansible-playbook foo.yml -e "host=192.168.0.2 app=foo"
@@ -85,7 +85,8 @@ ansible的playbook就如同salt的state，一个playbook就是一个YAML文件�
   
 一个playbook文件由一个或多个play组成，每个play定义了在一个或多个远程主机上执行的一系列的task，其中每个task一般就是调用一个ansible的模块，如调用copy模块复制文件到远程主机或调用shell模块执行命令。
 
-<pre><code class="language-shell line-numbers">#指定host
+```bash
+#指定host
 # file: user.yml  (playbook)
 ---
 - hosts: '{{ target }}'

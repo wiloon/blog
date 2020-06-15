@@ -20,7 +20,7 @@ SUBSYSTEM==&#8221;usb&#8221;, SYSFS{idVendor}==&#8221;0bb4", MODE=&#8221;0666"
 
 save file, then.
 
-<pre>sudo adb kill-server
+sudo adb kill-server
 sudo adb start-server
 sudo adb devices
-sudo adb install ....apk</pre>
+sudo adb install ....apk

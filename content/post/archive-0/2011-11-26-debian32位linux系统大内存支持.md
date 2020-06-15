@@ -21,7 +21,7 @@ categories:
   
   
     
-      <pre>$sudo apt-get update</pre>
+      $sudo apt-get update
     
   
   
@@ -31,7 +31,7 @@ categories:
   
   
     
-      <pre>$uname -a</pre>
+      $uname -a
     
   
   
@@ -41,7 +41,7 @@ categories:
   
   
     
-      <pre>$sudo apt-cache search linux image bigmem</pre>
+      $sudo apt-cache search linux image bigmem
     
   
   
@@ -62,8 +62,8 @@ categories:
   
   
     
-      <pre>$sudo apt-get install linux-image-2.6.18-6-686-bigmem
-$sudo apt-get install linux-headers-2.6.18-6-686-bigmem</pre>
+      $sudo apt-get install linux-image-2.6.18-6-686-bigmem
+$sudo apt-get install linux-headers-2.6.18-6-686-bigmem
     
   
   
@@ -73,7 +73,7 @@ $sudo apt-get install linux-headers-2.6.18-6-686-bigmem</pre>
   
   
     
-      <pre>sudo reboot</pre>
+      sudo reboot
     
   
   

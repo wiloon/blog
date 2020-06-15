@@ -26,7 +26,7 @@ docker pull registry.wiloon.com/foo:v0.0.1
 
 自签证书
 
-<pre><code class="line-numbers">upstream docker-registry {
+<code class="line-numbers">upstream docker-registry {
     server 192.168.50.220:5000;
  }
 

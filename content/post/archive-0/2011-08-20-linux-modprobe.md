@@ -32,7 +32,7 @@ lsmod 以美观的方式列出/proc/modules的内容。
       
 Module(模块名) Size(模块大小) Used by(被&#8230;使用)
 
-<pre><code class="language-shell line-numbers">modinfo module_name
+```bashmodinfo module_name
 systool -v -m module_name
 
 modprobe --show-depends

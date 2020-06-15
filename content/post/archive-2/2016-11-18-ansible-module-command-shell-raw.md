@@ -17,7 +17,7 @@ export ANSIBLE_ASK_SUDO_PASS=true
 --extra-vars "ansible_sudo_pass=xxx"
 ```
 
-<pre><code class="language-yaml line-numbers">- name: "Create an empty directory (locally)"
+<code class="language-yaml line-numbers">- name: "Create an empty directory (locally)"
   local_action:
     module: file
     path: "/tmp/empty"
@@ -27,7 +27,7 @@ export ANSIBLE_ASK_SUDO_PASS=true
 
 ### 批量删除文件
 
-<pre><code class="language-yaml line-numbers">  - name: Ansible delete file glob
+<code class="language-yaml line-numbers">  - name: Ansible delete file glob
     find:
       paths: /etc/Ansible
       patterns: *.txt

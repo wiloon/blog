@@ -33,7 +33,7 @@ Here is the "mywebapp&#8221; project&#8217;s original pom.xml file.
 
 ### original pom.xml
 
-<pre>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;groupId&gt;com.maventest&lt;/groupId&gt;
@@ -53,13 +53,13 @@ Here is the "mywebapp&#8221; project&#8217;s original pom.xml file.
   &lt;build&gt;
     &lt;finalName&gt;mywebapp&lt;/finalName&gt;
   &lt;/build&gt;
-&lt;/project&gt;</pre>
+&lt;/project&gt;
 
 I&#8217;ll update the "mywebapp&#8221; project&#8217;s pom.xml file to include a plugin reference to the maven-eclipse-plugin. I add a configuration section that specifies that the "org.eclipse.jdt.launching.JRE\_CONTAINER&#8221; and "org.eclipse.jdt.USER\_LIBRARY/TOMCAT\_6.0.14\_LIBRARY&#8221; classpath containers will be added to the classpath when eclipse:eclipse is executed. The JRE\_CONTAINER is specified since it is there already. Notice the format in which the Tomcat user library is specified (it begins with "org.eclipse.jdt.USER\_LIBRARY/&#8221;).
 
 ### updated pom.xml
 
-<pre>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
 	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 	&lt;groupId&gt;com.maventest&lt;/groupId&gt;
@@ -92,7 +92,7 @@ I&#8217;ll update the "mywebapp&#8221; project&#8217;s pom.xml file to include a
 			&lt;/plugin&gt;
 		&lt;/plugins&gt;
 	&lt;/build&gt;
-&lt;/project&gt;</pre>
+&lt;/project&gt;
 
 Now, I&#8217;ll run "mvn eclipse:eclipse&#8221; on the "mywebapp&#8221; project via an Eclipse external tool configuration.
 
@@ -100,24 +100,24 @@ Before running eclipse:eclipse, the "mywebapp&#8221; .classpath file looked like
 
 ### .classpath file before pom.xml update
 
-<pre>&lt;classpath&gt;
+&lt;classpath&gt;
   &lt;classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/&gt;
   &lt;classpathentry kind="output" path="target/classes"/&gt;
   &lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/&gt;
   &lt;classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/&gt;
-&lt;/classpath&gt;</pre>
+&lt;/classpath&gt;
 
 After running eclipse:eclipse, the "mywebapp&#8221; .classpath file was updated to look like this:
 
 ### .classpath file after pom.xml update
 
-<pre>&lt;classpath&gt;
+&lt;classpath&gt;
   &lt;classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/&gt;
   &lt;classpathentry kind="output" path="target/classes"/&gt;
   &lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/&gt;
   &lt;classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/TOMCAT_6.0.14_LIBRARY"/&gt;
   &lt;classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/&gt;
-&lt;/classpath&gt;</pre>
+&lt;/classpath&gt;
 
 The "mywebapp&#8221; project now has the TOMCAT\_6.0.14\_LIBRARY user library included in its classpath!
 
@@ -125,7 +125,7 @@ So, let&#8217;s get started. First of all, I need to add a Context entry to my T
 
 I&#8217;ll add the following Context element to my Tomcat server.xml file. The docBase attribute specifies my web context directory (ie, web, public_html, webapp, etc..) for my project. The path attribute specifies the path that is used to hit the project via a web browser (ie, http://localhost:8080/mywebapp).
 
-<pre>&lt;Context docBase="C:devworkspacemywebappsrcmainwebapp" path="/mywebapp" reloadable="true"/&gt;</pre>
+&lt;Context docBase="C:devworkspacemywebappsrcmainwebapp" path="/mywebapp" reloadable="true"/&gt;
 
 The server.xml file is shown below. Notice that the <Context> element is within the <Host> element.
 

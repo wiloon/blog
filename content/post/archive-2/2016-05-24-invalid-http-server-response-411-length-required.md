@@ -22,4 +22,4 @@ Reason - The remote WSEndpoint did not like the HTTP Chunking feature activated.
 
 netty
 
-<pre>HttpPostRequestEncoder bodyRequestEncoder = new HttpPostRequestEncoder(factory, request, false);</pre>
+HttpPostRequestEncoder bodyRequestEncoder = new HttpPostRequestEncoder(factory, request, false);

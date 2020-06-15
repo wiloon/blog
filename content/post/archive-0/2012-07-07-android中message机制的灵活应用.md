@@ -128,7 +128,7 @@ msg.recycle();
 
 [/java]
 
-</pre> 
+ 
 
 
 

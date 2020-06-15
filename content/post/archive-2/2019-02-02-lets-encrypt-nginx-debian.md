@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="line-numbers">sudo apt-get install certbot python-certbot-nginx -t stretch-backports
+<code class="line-numbers">sudo apt-get install certbot python-certbot-nginx -t stretch-backports
 sudo certbot --nginx
 
 ```

@@ -28,13 +28,13 @@ install yaourt
 
 [shell]pacman -Syu yaourt[/shell]
 
-<pre>install flash plugin 
+install flash plugin 
 
-</pre>
+
 
 [shell]yaourt -S chromium-pepper-flash[/shell]
 
-<pre>Enable the plugin in <code>chrome://plugins</code>.</pre>
+Enable the plugin in <code>chrome://plugins</code>.
 
 https://wiki.archlinux.org/index.php/Yaourt_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
 

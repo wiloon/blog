@@ -10,7 +10,7 @@ tags:
   - MyBatis
 
 ---
-[xml]</pre>
+[xml]
   
 <update id="updateAuthorIfNecessary">
   
@@ -32,6 +32,6 @@ where id=#{id}
   
 </update>
   
-<pre>[/xml]
+[/xml]
 
-http://mybatis.github.io/mybatis-3/zh/dynamic-sql.html</pre>
+http://mybatis.github.io/mybatis-3/zh/dynamic-sql.html

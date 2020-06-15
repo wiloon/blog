@@ -20,10 +20,10 @@ This method has a couple benefits. One is scripts can be compiled to a stand alo
 
 To remap the Caps Lock key to Ctrl save the following to a file named <tt><em>script</em>.ahk</tt>. Then execute the script with [AutoHotKey][2] by double clicking it. See the [AHK2EXE][3]documentation to learn how to make scripts into stand alone executables.
 
-<pre>#IfWinActive emacs  ; if in emacs
+#IfWinActive emacs  ; if in emacs
     +Capslock::Capslock ; make shift+Caps-Lock the Caps Lock toggle
     Capslock::Control   ; make Caps Lock the control button
-    #IfWinActive        ; end if in emacs</pre>
+    #IfWinActive        ; end if in emacs
 
 The original Caps Lock behavior is here mapped to Shift + Caps Lock.
 

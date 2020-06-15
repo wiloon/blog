@@ -14,7 +14,7 @@ tags:
 
 To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
 
-<pre><code class="line-numbers">/etc/pacman.conf
+<code class="line-numbers">/etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```

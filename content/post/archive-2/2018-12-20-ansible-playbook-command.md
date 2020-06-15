@@ -10,7 +10,7 @@ categories:
 ---
 定义变量 - 列表
 
-<pre><code class="language-yaml line-numbers">- hosts: localhost
+<code class="language-yaml line-numbers">- hosts: localhost
   become: true
   vars:
     app_list:

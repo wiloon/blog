@@ -15,7 +15,7 @@ in+年/月/季节/世纪（较大范围），另外固定结构：in the morning
 on+具体某日/星期几（要具体到某一天）
 如： on October 1st在十月一日， on Sunday 在星期日
 at+具体点钟，另外固定结构：at night ，at noon
-如： at ten o'clock在十点钟，  at half past four 在四点半</pre>
+如： at ten o'clock在十点钟，  at half past four 在四点半
 
 <pre id="answer-content-730248919" class="answer-text mb-10">1. at指时间表示： 
 （1）时间的一点、时刻等。如：
@@ -35,4 +35,4 @@ He will arrive after two o’clock.
 （1）具体的时日和一个特定的时间，如某日、某节日、星期几等。如： 
 On Christmas Day（On May 4th）, there will be a celebration. 
 （2）在某个特定的早晨、下午或晚上。如： 
-He arrived at 10 o’clock on the night of the 5th.</pre>
+He arrived at 10 o’clock on the night of the 5th.

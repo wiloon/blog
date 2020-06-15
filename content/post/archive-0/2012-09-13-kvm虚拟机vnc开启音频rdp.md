@@ -32,7 +32,7 @@ If the sound pass-through is diabled, then the volume slider will not stick. You
 
 
 
-<pre>rdesktop -r sound -r sound host.domain.com</pre>
+rdesktop -r sound -r sound host.domain.com
 
 
 

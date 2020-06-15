@@ -194,7 +194,8 @@ bzip2 -d foo.tar.bz2
 
 解压: xz -d foo.xz
 
-<pre><code class="language-shell line-numbers"># .tgz 或 .tar.gz
+```bash
+# .tgz 或 .tar.gz
 tar zxzf all.tar.gz
 tar zxzf all.tgz
 

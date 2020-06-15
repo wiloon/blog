@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre>apply plugin: 'application'
+apply plugin: 'application'
 
 
 

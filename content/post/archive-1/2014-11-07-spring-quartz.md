@@ -20,7 +20,7 @@ tags:
            &lt;/list&gt;  
        &lt;/property&gt;  
        &lt;property name="autoStartup" value="true"/&gt;  
-&lt;/bean&gt;</pre>
+&lt;/bean&gt;
 
 说明：Scheduler包含一个Trigger列表，每个Trigger表示一个作业。
 
@@ -29,7 +29,7 @@ tags:
 <pre class="XML">&lt;bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean"&gt;  
        &lt;property name="jobDetail" ref="testJobDetail"/&gt;  
        &lt;property name="cronExpression" value="*/1 * * * * ?"/&gt;&lt;!-- 每隔1秒钟触发一次 --&gt;  
-&lt;/bean&gt;</pre>
+&lt;/bean&gt;
 
 说明：
 
@@ -92,7 +92,7 @@ tags:
         &lt;property name="targetMethod" value="execute"/&gt;  
         &lt;property name="concurrent" value="false"/&gt;
         &lt;!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 --&gt;  
-&lt;/bean&gt;</pre>
+&lt;/bean&gt;
 
 **4、业务类的配置**
 
@@ -108,7 +108,7 @@ tags:
              ex.printStackTrace();  
          }  
      }  
-}</pre>
+}
 
 说明：业务类不需要继承任何父类，也不需要实现任何接口，只是一个普通的java类。
 

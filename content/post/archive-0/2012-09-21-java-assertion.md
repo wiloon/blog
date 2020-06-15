@@ -306,7 +306,7 @@ javac -source 1.4 test.java
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td>
-          <pre>class Base
+          class Base
 {
   public void baseMethod()
   {
@@ -335,7 +335,7 @@ class Derived
       System.out.println(ae);
     }
   }
-}</pre>
+}
         </td>
       </tr>
     </table>
@@ -444,12 +444,12 @@ class Derived
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td>
-              <pre>	switch (x)
+              	switch (x)
  	{ case 1: …;
           case 2: …;
           case 3: …
 	  default: assert false:"x value is invalid: "+x;
-}</pre>
+}
             </td>
           </tr>
         </table>
@@ -462,7 +462,7 @@ class Derived
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td>
-              <pre>assert  value&gt;=0:"Value should be bigger than 0:"+value;</pre>
+              assert  value&gt;=0:"Value should be bigger than 0:"+value;
             </td>
           </tr>
         </table>
@@ -474,9 +474,9 @@ class Derived
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td>
-                  <pre>      private boolean isBalance() {
+                        private boolean isBalance() {
            ……
-         }</pre>
+         }
                 </td>
               </tr>
             </table>

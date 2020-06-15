@@ -33,6 +33,14 @@ podman run \
 --name zookeeper \
 -p 2181:2181 \
 -v /etc/localtime:/etc/localtime:ro \
+-e ZOO_4LW_COMMANDS_WHITELIST=*  \
+-d \
+zookeeper
+
+podman run \
+--name zookeeper \
+-p 2181:2181 \
+-v /etc/localtime:/etc/localtime:ro \
 -v zookeeper-conf:/conf \
 -v zookeeper-data:/data \
 -v zookeeper-datalog:/datalog \
@@ -101,7 +109,8 @@ dataDir：datadir是zookeeper持久化数据存放的目录， 默认情况下�
   
 clientPort：clientPort是zookeeper监听客户端连接的端口，默认是2181.
 
-<pre><code class="language-shell line-numbers">#start zookeeper
+```bash
+#start zookeeper
 zkServer.sh start
 ```
 

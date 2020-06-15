@@ -95,5 +95,5 @@ nft list ruleset> /etc/nftables.conf
 
 ### 从文件加载规则
 
-<pre><code class="language-shell line-numbers">nft -f /etc/nftables.conf
+```bashnft -f /etc/nftables.conf
 ```

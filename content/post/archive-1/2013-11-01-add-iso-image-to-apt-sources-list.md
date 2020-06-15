@@ -14,22 +14,22 @@ Here is a way how to include Debian/Ubuntu ISO image into your /etc/apt/sources.
   
 Let&#8217;s assume that we have a Debian ISO image downloaded at the location: /mnt/storage/iSO/debian-i386-DVD-1.iso. As a first step we need to create a mount point to where this ISO image will be mounted to:
 
-<pre>mkdir /mnt/debian-dvd</pre>
+mkdir /mnt/debian-dvd
 
 Now we need to add a /etc/fstab entry so the ISO image will be mounted every time we boot the system. Open up /etc/fstab and add a following line:
 
-<pre>/mnt/storage/iSO/debian-i386-DVD-1.iso /mnt/debian-dvd/ udf,iso9660 loop 0 0</pre>
+/mnt/storage/iSO/debian-i386-DVD-1.iso /mnt/debian-dvd/ udf,iso9660 loop 0 0
 
 Once done we can include this local repository into /etc/apt/sources.list. Open up /etc/apt/sources.list file and add:
 
 **NOTE: **change wheezy with your version.
 
-<pre>deb file:/mnt/debian-dvd/ wheezy main contrib</pre>
+deb file:/mnt/debian-dvd/ wheezy main contrib
 
 All done. What remains is to mount the actual image:
 
-<pre># mount /mnt/debian-dvd/</pre>
+# mount /mnt/debian-dvd/
 
 and update apt&#8217;s depository:
 
-<pre># apt-get update</pre>
+# apt-get update

@@ -66,7 +66,7 @@ myhostname = mail.wiloon.com
 
 用下面的命令测试,其实就是测试25端口是否打开
 
-<pre>telnet localhost 25
+telnet localhost 25
 Postfix将在终端中显示如下提示，这样你就可以用来键入SMTP命令.
 Trying 127.0.0.1...
 Connected to mail.fossedu.org.
@@ -84,11 +84,11 @@ Hi, Are you there? regards, Admin
 
 quit 检查刚才创建的<code>fmaster</code>用户的收件箱
 
-su - user1</pre>
+su - user1
 
-<pre>cd /home/user1/Maildir/new</pre>
+cd /home/user1/Maildir/new
 
-<pre>### try to send email from gmail to user1@wiloon.com</pre>
+### try to send email from gmail to user1@wiloon.com
 
 
 
@@ -103,29 +103,29 @@ sudo apt-get install dovecot-imapd dovecot-pop3d<span style="color: #000000; 
 
 `vi /etc/dovecot/dovecot.conf`
 
-<pre># uncomment on this line:
+# uncomment on this line:
 protocols = imap pop3
-listen = *</pre>
+listen = *
 
 ### 配置认证方式
 
 `vi /etc/dovecot/conf.d/10-auth.conf`
 
-<pre># change on these line:
+# change on these line:
 disable_plaintext_auth = no
-auth_mechanisms = plain login</pre>
+auth_mechanisms = plain login
 
 ### 设置邮箱文件夹
 
 `vi /etc/dovecot/conf.d/10-mail.conf`
 
-<pre>mail_location = maildir:~/Maildir</pre>
+mail_location = maildir:~/Maildir
 
 ### 配置认证
 
 `vi /etc/dovecot/conf.d/10-master.conf`
 
-<pre># commented on these line:
+# commented on these line:
 #unix_listener auth-userdb {
     #mode = 0600
     #user =
@@ -138,15 +138,15 @@ auth_mechanisms = plain login</pre>
     mode = 0666
     user = postfix
     group = postfix
-  }</pre>
+  }
 
 ### 配置pop3
 
 `vi /etc/dovecot/conf.d/20-pop3.conf`
 
-<pre># uncomment on these line:
+# uncomment on these line:
 pop3_uidl_format = %08Xu%08Xv
-pop3_client_workarounds = outlook-no-nuls oe-ns-eoh</pre>
+pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
 
 ### 重启dovecot
 
@@ -207,11 +207,11 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh</pre>
     9、给postfix加上如下配置
   
   
-  <pre>smtpd_sasl_type = dovecot
+  smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, permit
-broken_sasl_auth_clients = yes</pre>
+broken_sasl_auth_clients = yes
   
   
     ################&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
@@ -264,11 +264,11 @@ broken_sasl_auth_clients = yes</pre>
 
 <span style="color: #000000;">9、给postfix加上如下配置 </span>
 
-<pre>smtpd_sasl_type = dovecot
+smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, permit
-broken_sasl_auth_clients = yes</pre>
+broken_sasl_auth_clients = yes
 
 <span style="color: #000000;">10、重起postfix（sudo service postfix restart）和dovecot（sudo service dovecot restart）。不出意外的话，已经可以通过foxmail正常收发邮件了 </span>
 

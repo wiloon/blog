@@ -11,12 +11,12 @@ tags:
 
 ---
 <div class="line number1 index0 alt2">
-  <pre>location.href，可以点击浏览器的后退按钮返回本页。
+  location.href，可以点击浏览器的后退按钮返回本页。
 
 location.assign(URL)
-assign() 方法可加载一个新的文档。效果与location.href相当。</pre>
+assign() 方法可加载一个新的文档。效果与location.href相当。
   
-  <pre>location.reload(force)</pre>
+  location.reload(force)
   
   
     如果该方法没有规定参数，或者参数是 false，它就会用 HTTP 头 If-Modified-Since 来检测服务器上的文档是否已改变。如果文档已改变，reload() 会再次下载该文档。如果文档未改变，则该方法将从缓存中装载文档。这与用户单击浏览器的刷新按钮的效果是完全一样的。
@@ -26,8 +26,8 @@ assign() 方法可加载一个新的文档。效果与location.href相当。</pr
     如果把该方法的参数设置为 true，那么无论文档的最后修改日期是什么，它都会绕过缓存，从服务器上重新下载该文档。这与用户在单击浏览器的刷新按钮时按住 Shift 健的效果是完全一样。
   
   
-  <pre>location.replace(newURL)
-不能点击浏览区的后退按钮返回本页。</pre>
+  location.replace(newURL)
+不能点击浏览区的后退按钮返回本页。
 
 
 将地址替换成新url，该方法通过指定URL替换当前缓存在历史里（客户端）的项目，

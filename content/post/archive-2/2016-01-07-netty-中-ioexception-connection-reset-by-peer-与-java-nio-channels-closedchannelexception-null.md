@@ -24,7 +24,7 @@ AbstractChannel
   <div class="cnblogs_code_toolbar">
   
   
-  <pre>static final ClosedChannelException CLOSED_CHANNEL_EXCEPTION = new ClosedChannelException();
+  static final ClosedChannelException CLOSED_CHANNEL_EXCEPTION = new ClosedChannelException();
 
 ...
 
@@ -49,7 +49,7 @@ AbstractChannel
                 return;
             }
             outboundBuffer.addMessage(msg, promise);
-        }</pre>
+        }
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
@@ -69,7 +69,7 @@ client
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
   
   
-  <pre>    public static void main(String[] args) throws IOException, InterruptedException {
+      public static void main(String[] args) throws IOException, InterruptedException {
         Bootstrap b = new Bootstrap();
         b.group(new NioEventLoopGroup())
                 .channel(NioSocketChannel.class)
@@ -86,7 +86,7 @@ client
                     future.channel().flush();
                 }
             }
-        });</pre>
+        });
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
@@ -100,7 +100,7 @@ server
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
   
   
-  <pre>public class SimpleServer {
+  public class SimpleServer {
 
     public static void main(String[] args) throws Exception {
 
@@ -136,7 +136,7 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("inactive");
     }
-}</pre>
+}
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
@@ -154,7 +154,7 @@ NioEventLoop
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
   
   
-  <pre>private static void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
+  private static void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
         final NioUnsafe unsafe = ch.unsafe();
         if (!k.isValid()) {
             // close the channel if the key is not valid anymore
@@ -189,7 +189,7 @@ NioEventLoop
         } catch (CancelledKeyException e) {
             unsafe.close(unsafe.voidPromise());
         }
-    }</pre>
+    }
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
@@ -209,7 +209,7 @@ client 1, 主动关闭 channel
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
   
   
-  <pre>public class SimpleClient {
+  public class SimpleClient {
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleClient.class);
 
@@ -240,7 +240,7 @@ client 1, 主动关闭 channel
             }
         });
     }
-}</pre>
+}
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
@@ -260,7 +260,7 @@ client 2. 由服务端造成的 ClosedChannelException
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
   
   
-  <pre>public class SimpleClient {
+  public class SimpleClient {
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleClient.class);
 
@@ -284,7 +284,7 @@ client 2. 由服务端造成的 ClosedChannelException
             }
         });
     }
-}</pre>
+}
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
@@ -298,7 +298,7 @@ client 2. 由服务端造成的 ClosedChannelException
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
   
   
-  <pre>public class SimpleServer {
+  public class SimpleServer {
 
     public static void main(String[] args) throws Exception {
 
@@ -316,7 +316,7 @@ client 2. 由服务端造成的 ClosedChannelException
                 });
         b.bind(8090).sync().channel().closeFuture().sync();
     }
-}</pre>
+}
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>

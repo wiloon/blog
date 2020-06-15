@@ -18,7 +18,7 @@ vim foo.md
 
 ### content
 
-<pre><code class="language-puml line-numbers">@startuml
+<code class="language-puml line-numbers">@startuml
 
 [First component]
 [Another component] as Comp2  

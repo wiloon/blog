@@ -10,11 +10,11 @@ categories:
 ---
   * rubyinstaller
 
-<pre>SET RUBY_HOME=D:/ruby
+SET RUBY_HOME=D:/ruby
     SET PATH=%PATH%;%RUBY_HOME%/bin
     SET RUBYOPT=rubygems
 
 
-</pre>
+
 
   * install ruby gem

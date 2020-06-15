@@ -37,7 +37,7 @@ let user = "Jane User";
 document.body.textContent = greeter(user);
 ```
 
-<pre><code class="language-shell line-numbers">tsc greeter.ts
+```bashtsc greeter.ts
 ```<pre data-language=HTML>
 
 <code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
@@ -57,5 +57,5 @@ const是对let的一个增强，它能阻止对一个变量再次赋值。
 
 ### 数组
 
-<pre><code class="language-typescript line-numbers">let fibonacci: number[] = [1, 1, 2, 3, 5];
+<code class="language-typescript line-numbers">let fibonacci: number[] = [1, 1, 2, 3, 5];
 ```

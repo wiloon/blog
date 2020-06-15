@@ -15,7 +15,7 @@ categories:
 
 在/etc/network/interfaces 中增加wlan0配置
 
-<pre>auto wlan0
+auto wlan0
 iface wlan0 inet dhcp
 	wpa-ssid "xxxx"
-	wpa-psk "xxxxxx"</pre>
+	wpa-psk "xxxxxx"

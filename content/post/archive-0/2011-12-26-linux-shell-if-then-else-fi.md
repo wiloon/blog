@@ -135,7 +135,7 @@ if/else
   
 和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如
 
-<pre><code class="language-shell line-numbers">if [ -f ~/.bashrc ]; then
+```bashif [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 ```

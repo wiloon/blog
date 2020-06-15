@@ -376,7 +376,7 @@ view plaincopy
 
 view plaincopy
 
-</pre><pre name=&#8221;code&#8221; class=&#8221;java&#8221; style=&#8221;text-align: left; font-family: Monaco, &#8216;DejaVu Sans Mono&#8217;, &#8216;Bitstream Vera Sans Mono&#8217;, Consolas, &#8216;Courier New&#8217;, monospace; line-height: 18px; ">public class JsonActivity extends Activity {
+<pre name=&#8221;code&#8221; class=&#8221;java&#8221; style=&#8221;text-align: left; font-family: Monaco, &#8216;DejaVu Sans Mono&#8217;, &#8216;Bitstream Vera Sans Mono&#8217;, Consolas, &#8216;Courier New&#8217;, monospace; line-height: 18px; ">public class JsonActivity extends Activity {
 
 /*\* Called when the activity is first created. \*/
 

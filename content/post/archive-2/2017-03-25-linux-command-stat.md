@@ -24,7 +24,7 @@ categories:
   
 先用下面的命令来建立一个文件
 
-<pre><code class="language-shell line-numbers">date && echo "this is file be used test time of file" &gt;filetime.txt && ll --full-time filetime.txt
+```bashdate && echo "this is file be used test time of file" &gt;filetime.txt && ll --full-time filetime.txt
 ```
 
 Tue Aug 4 15:13:44 HKT 2009

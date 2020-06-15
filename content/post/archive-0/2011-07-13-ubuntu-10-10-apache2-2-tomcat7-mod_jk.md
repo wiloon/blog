@@ -140,4 +140,4 @@ JkMount /xxx worker1
   
 JkMount /xxx/* worker1
   
-JkMountCopy All</pre>
+JkMountCopy All

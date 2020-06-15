@@ -197,7 +197,7 @@ String 是final类,即不能被继承.
   
   
     [java]
- <pre>String tempstr = "abcdefghijklmnopqrstuvwxyz";
+ String tempstr = "abcdefghijklmnopqrstuvwxyz";
  int times = 5000;
  long lstart2 = System.currentTimeMillis();
  String str = "";
@@ -208,7 +208,7 @@ String 是final类,即不能被继承.
  }
  long lend2 = System.currentTimeMillis();
  long time2 = (lend2 - lstart2);
- System.out.println("time=" + time2);</pre>
+ System.out.println("time=" + time2);
  [/java]
   
   

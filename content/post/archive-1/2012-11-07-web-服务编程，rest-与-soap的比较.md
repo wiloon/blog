@@ -66,7 +66,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;users&gt;
 	&lt;user&gt;
@@ -77,7 +77,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 			&lt;name&gt;tester1&lt;/name&gt;
 			&lt;link&gt;http://localhost:8182/v1/users/tester1&lt;/link&gt;
 	&lt;/user&gt;
-&lt;/users&gt;</pre>
+&lt;/users&gt;
     </td>
   </tr>
 </table>
@@ -87,7 +87,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;user&gt;
 	&lt;name&gt;tester&lt;/name&gt;
@@ -95,7 +95,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 	&lt;company&gt;IBM&lt;/company&gt;
 	&lt;email&gt;tester@cn.ibm.com&lt;/email&gt;
 	&lt;description&gt;testing!&lt;/description&gt;
-&lt;/user&gt;</pre>
+&lt;/user&gt;
     </td>
   </tr>
 </table>
@@ -127,7 +127,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 public class UserRestHelper {
 //The root URI of our ROA implementation.
 public static final tring <em>APPLICATION_URI</em> = "http://localhost:8182/v1";
@@ -192,7 +192,7 @@ private static void printUserByURI(String uri) {
  		System.<em>out</em>.println("unexpected status:"+ getResponse.getStatus());
  	}
 }
-}</pre>
+}
     </td>
   </tr>
 </table>
@@ -208,7 +208,7 @@ private static void printUserByURI(String uri) {
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 public class UserResource extends Resource {
 private User _user;
 private String _userName;
@@ -269,7 +269,7 @@ private Document createDocument(User user) {
 }
 //The remaining methods here
 ……
-}</pre>
+}
     </td>
   </tr>
 </table>
@@ -305,13 +305,13 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
 	&lt;soap:Body&gt;
 		&lt;p:getUserList xmlns:p="http://www.exmaple.com"/&gt;
 	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+&lt;/soap:Envelope&gt;
     </td>
   </tr>
 </table>
@@ -325,7 +325,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
 	&lt;soap:Body&gt;
@@ -338,7 +338,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 				&lt;/Users&gt;
 				&lt;p: getUserListResponse &gt;
 	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+&lt;/soap:Envelope&gt;
     </td>
   </tr>
 </table>
@@ -352,7 +352,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
 	&lt;soap:Body&gt;
@@ -360,7 +360,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 				&lt;username&gt;tester&lt;/username&gt;
 				&lt;/p:getUserByName &gt;
 	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+&lt;/soap:Envelope&gt;
     </td>
   </tr>
 </table>
@@ -374,7 +374,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
 &lt;soap:Body&gt;
@@ -386,7 +386,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 			&lt;description&gt;testing!&lt;/description&gt;
 	&lt;/p:getUserByNameResponse&gt;
 &lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+&lt;/soap:Envelope&gt;
     </td>
   </tr>
 </table>

@@ -16,7 +16,7 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
 
 <div id="">
   
-    [java]</pre>
+    [java]
  
  <bean id="propertyConfigurer"
  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
