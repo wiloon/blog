@@ -50,7 +50,7 @@ for (int i = 0; i < 30; i++) {
   
 bDeque.putFirst(i);
   
-System.out.println("向阻塞栈中添加了元素:&#8221; + i);
+System.out.println("向阻塞栈中添加了元素:" + i);
   
 }
   

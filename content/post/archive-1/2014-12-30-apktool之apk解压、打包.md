@@ -76,7 +76,7 @@ Try to use framework files tagged by <tag>.
   
 Use if there was an error and some resources were dropped, e.g.:
   
-"Invalid config flags detected. Dropping resources&#8221;, but you
+"Invalid config flags detected. Dropping resources", but you
   
 want to decode them anyway, even with errors. You will have to
   

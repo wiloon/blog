@@ -80,7 +80,7 @@ mListener = (OnArticleSelectedListener) activity;
   
 } catch (ClassCastException e) {
   
-throw new ClassCastException(activity.toString() + &#8221; must implement OnArticleSelectedListener&#8221;);
+throw new ClassCastException(activity.toString() + " must implement OnArticleSelectedListener");
   
 }
   

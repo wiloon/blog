@@ -139,7 +139,7 @@ categories:
  &#8216;Tom&#8217;,&#8217;Clancy&#8217;, 200
  <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" />在用指定的参数执行存储过程时，对Authors表的插入失败了，因为佣金费率值无效。我们的约束检查发现了该无效值，我们可以看到如下错误信息：
  <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ContractedBlock.gif" width="11" height="16" /><img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedBlockStart.gif" width="11" height="16" />Code
- <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" />Msg 547, Level 16, State 0, Procedure P_Insert_New_BookTitle, Line 23 The INSERT statement conflicted with the CHECK constraint "CHK_ValidateCommissionRating&#8221;. The conflict occurred in database "Adventureworks2005&#8221;, table "dbo.Authors&#8221;, column &#8216;CommissionRating&#8217;. The statement has been terminated.
+ <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" />Msg 547, Level 16, State 0, Procedure P_Insert_New_BookTitle, Line 23 The INSERT statement conflicted with the CHECK constraint "CHK_ValidateCommissionRating". The conflict occurred in database "Adventureworks2005", table "dbo.Authors", column &#8216;CommissionRating&#8217;. The statement has been terminated.
  <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" />这里的问题是我们不能阻止这些消息被送到客户端。所以判断哪里出错的重担就放到了客户端的头上。令人遗憾的是，在有些情况下，这样的结果对于一些不使用约束限制的应用程序可能足够了。　　我们再来试一次，这次我们使用TRY……CATCH代码块。
   
   

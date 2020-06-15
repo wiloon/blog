@@ -28,16 +28,16 @@ categories:
       
       
       
-        &#8212;-<a href=&#8221;${pageContext.request.contextPath}/listuser/1" style=&#8221;font-size:13px;&#8221;>首页</a>
+        &#8212;-<a href="${pageContext.request.contextPath}/listuser/1" style="font-size:13px;">首页</a>
       
       
       
         为了解决不同部署方式的差别，在所有非struts标签的路径前加${pageContext.request.contextPath}，如原路径为：
- "/images/title.gif&#8221;，改为
+ "/images/title.gif"，改为
       
       
       
-        "${pageContext.request.contextPath}/images/title.gif&#8221;
+        "${pageContext.request.contextPath}/images/title.gif"
  代码” ${pageContext.request.contextPath}”的作用是取出部署的应用程序名，这样不管如何部署，所用路径都是正确的。
  缺点：
  操作不便，其他工具无法正确解释${pageContext.request.contextPath}

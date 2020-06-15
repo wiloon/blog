@@ -145,7 +145,7 @@ ModelAndView
   
   <ol start="1">
     <li>
-      <span style=&#8221;font-size: small;&#8221;>public ModelAndView handleRequestInternal(
+      <span style="font-size: small;">public ModelAndView handleRequestInternal(
     </li>
     <li>
               HttpServletRequest request,
@@ -158,12 +158,12 @@ ModelAndView
     <li>
     </li>
     <li>
-      ModelAndView mav = new ModelAndView("hello&#8221;);//实例化一个VIew的ModelAndView实例
+      ModelAndView mav = new ModelAndView("hello");//实例化一个VIew的ModelAndView实例
     </li>
     <li>
     </li>
     <li>
-      mav.addObject("message&#8221;, "Hello World!&#8221;);//添加一个带名的model对象
+      mav.addObject("message", "Hello World!");//添加一个带名的model对象
     </li>
     <li>
     </li>

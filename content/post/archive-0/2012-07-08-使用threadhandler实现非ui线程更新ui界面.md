@@ -164,7 +164,7 @@ public void run() {//run()在新的线程中运行
 
 HttpClient hc = new DefaultHttpClient();
 
-HttpGet hg = new HttpGet("http://csdnimg.cn/www/images/csdnindex_logo.gif&#8221;);//获取csdn的logo
+HttpGet hg = new HttpGet("http://csdnimg.cn/www/images/csdnindex_logo.gif");//获取csdn的logo
 
 final Bitmap bm;
 
@@ -220,19 +220,19 @@ main.xml布局文件：
 
 \[html\]\[/html\] view plaincopy
 
-<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-android:orientation=&#8221;vertical&#8221; android:layout\_width=&#8221;fill\_parent&#8221;
+android:orientation="vertical" android:layout\_width="fill\_parent"
 
-android:layout\_height=&#8221;fill\_parent&#8221;>
+android:layout\_height="fill\_parent">
 
-<Button android:id=&#8221;@+id/button&#8221; android:text=&#8221;@string/button\_name&#8221; android:layout\_width=&#8221;wrap\_content&#8221; android:layout\_height=&#8221;wrap_content&#8221;></Button>
+<Button android:id="@+id/button" android:text="@string/button\_name" android:layout\_width="wrap\_content" android:layout\_height="wrap_content"></Button>
 
-<ImageView android:id=&#8221;@+id/imageView&#8221; android:layout\_height=&#8221;wrap\_content&#8221;
+<ImageView android:id="@+id/imageView" android:layout\_height="wrap\_content"
 
-android:layout\_width=&#8221;wrap\_content&#8221; />
+android:layout\_width="wrap\_content" />
 
 </LinearLayout>
 
@@ -246,19 +246,19 @@ strings.xml
 
 \[html\]\[/html\] view plaincopy
 
-<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-android:orientation=&#8221;vertical&#8221; android:layout\_width=&#8221;fill\_parent&#8221;
+android:orientation="vertical" android:layout\_width="fill\_parent"
 
-android:layout\_height=&#8221;fill\_parent&#8221;>
+android:layout\_height="fill\_parent">
 
-<Button android:id=&#8221;@+id/button&#8221; android:text=&#8221;@string/button\_name&#8221; android:layout\_width=&#8221;wrap\_content&#8221; android:layout\_height=&#8221;wrap_content&#8221;></Button>
+<Button android:id="@+id/button" android:text="@string/button\_name" android:layout\_width="wrap\_content" android:layout\_height="wrap_content"></Button>
 
-<ImageView android:id=&#8221;@+id/imageView&#8221; android:layout\_height=&#8221;wrap\_content&#8221;
+<ImageView android:id="@+id/imageView" android:layout\_height="wrap\_content"
 
-android:layout\_width=&#8221;wrap\_content&#8221; />
+android:layout\_width="wrap\_content" />
 
 </LinearLayout>
 
@@ -274,33 +274,33 @@ Manifest.xml:
 
 \[html\]\[/html\] view plaincopy
 
-<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<manifest xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-package=&#8221;com.zhuozhuo&#8221;
+package="com.zhuozhuo"
 
-android:versionCode=&#8221;1"
+android:versionCode="1"
 
-android:versionName=&#8221;1.0">
+android:versionName="1.0">
 
-<uses-sdk android:minSdkVersion=&#8221;9" />
+<uses-sdk android:minSdkVersion="9" />
 
-<uses-permission android:name=&#8221;android.permission.INTERNET&#8221;></uses-permission><!&#8211;不要忘记设置网络访问权限&#8211;>
+<uses-permission android:name="android.permission.INTERNET"></uses-permission><!&#8211;不要忘记设置网络访问权限&#8211;>
 
 
 
-<application android:icon=&#8221;@drawable/icon&#8221; android:label=&#8221;@string/app_name&#8221;>
+<application android:icon="@drawable/icon" android:label="@string/app_name">
 
-<activity android:name=&#8221;.ThreadHandlerActivity&#8221;
+<activity android:name=".ThreadHandlerActivity"
 
-android:label=&#8221;@string/app_name&#8221;>
+android:label="@string/app_name">
 
 <intent-filter>
 
-<action android:name=&#8221;android.intent.action.MAIN&#8221; />
+<action android:name="android.intent.action.MAIN" />
 
-<category android:name=&#8221;android.intent.category.LAUNCHER&#8221; />
+<category android:name="android.intent.category.LAUNCHER" />
 
 </intent-filter>
 

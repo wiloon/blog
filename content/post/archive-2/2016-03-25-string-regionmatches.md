@@ -46,7 +46,7 @@ maxStr=str2; minStr=str1;
   
 int max=maxStr.length();
   
-int min=minStr.length();//System.out.println(maxStr+&#8221; "+minStr+&#8221; "+max+&#8221; "+min);
+int min=minStr.length();//System.out.println(maxStr+" "+minStr+" "+max+" "+min);
   
 int result=0;
   
@@ -60,7 +60,7 @@ for(int j=0;j<=min-l;j++){
   
 if(maxStr.regionMatches(true, i, minStr, j, l)){
   
-result=l;//System.out.println(l+&#8221; "+i+&#8221; "+j);
+result=l;//System.out.println(l+" "+i+" "+j);
   
 break OK;
   

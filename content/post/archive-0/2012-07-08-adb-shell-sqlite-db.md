@@ -44,7 +44,7 @@ select * from tag;
   
 如果想查看这些表的结构：
 
-select * from sqlite_master where type=&#8221;table&#8221;;
+select * from sqlite_master where type="table";
   
 可以看到类似：
 
@@ -56,7 +56,7 @@ select * from sqlite_master where type=&#8221;table&#8221;;
   
 如果只想查看具体一张表的表结构，比如查看emperors表，命令为：
 
-select * from sqlite_master where type=&#8221;table&#8221; and name=&#8221;emperors&#8221;;
+select * from sqlite_master where type="table" and name="emperors";
   
 另外，也可以这样：
 

@@ -159,4 +159,4 @@ tcp_dsack ：BOOLEAN
   
 缺省值为1
   
-允许TCP发送&#8221;两个完全相同&#8221;的SACK。
+允许TCP发送"两个完全相同"的SACK。

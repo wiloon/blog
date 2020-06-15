@@ -41,9 +41,9 @@ public   class   SessionListener   implements   HttpSessionBindingListener
   
 {
 
-public   String   privateInfo= &#8221; ";                 //生成监听器的初始化参数字符串
+public   String   privateInfo= " ";                 //生成监听器的初始化参数字符串
   
-private   String   logString= &#8221; ";                 //日志记录字符串
+private   String   logString= " ";                 //日志记录字符串
   
 private   int   count=0;                 //登录人数计数器
 
@@ -77,9 +77,9 @@ try{
   
 Calendar   calendar=new   GregorianCalendar();
   
-System.out.println( "LOGIN: "+privateInfo+ &#8221;   TIME: "+calendar.getTime());
+System.out.println( "LOGIN: "+privateInfo+ "   TIME: "+calendar.getTime());
   
-logString= "nLOGIN: "+privateInfo+ &#8221;   TIME: "+calendar.getTime()+ "n ";
+logString= "nLOGIN: "+privateInfo+ "   TIME: "+calendar.getTime()+ "n ";
   
 for(int   i=1;i <1000;i++){
   
@@ -127,9 +127,9 @@ try{
   
 Calendar   calendar=new   GregorianCalendar();
   
-System.out.println( "LOGOUT: "+privateInfo+ &#8221;   TIME: "+calendar.getTime());
+System.out.println( "LOGOUT: "+privateInfo+ "   TIME: "+calendar.getTime());
   
-logString= "nLOGOUT: "+privateInfo+ &#8221;   TIME: "+calendar.getTime()+ "n ";
+logString= "nLOGOUT: "+privateInfo+ "   TIME: "+calendar.getTime()+ "n ";
   
 for(int   i=1;i <1000;i++){
   
@@ -173,7 +173,7 @@ HttpSession   session   =   req.getSession   (true);
   
 ///////////////////////////////////////////////////////////////////////
   
-SessionListener   sessionListener=new   SessionListener( &#8221;   IP: "+req.getRemoteAddr());     //对于每一个会话过程均启动一个监听器
+SessionListener   sessionListener=new   SessionListener( "   IP: "+req.getRemoteAddr());     //对于每一个会话过程均启动一个监听器
   
 session.setAttribute( "listener ",sessionListener);     //将监听器植入HttpSession，这将激发监听器调用valueBound方法，从而记录日志文件。
   

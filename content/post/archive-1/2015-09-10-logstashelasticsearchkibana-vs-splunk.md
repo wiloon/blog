@@ -16,7 +16,7 @@ http://blog.csdn.net/firefoxbug/article/details/8018377
 
 Logstash
   
-is very useful and versatile. It&#8217;s made of JRuby (Java+Ruby). You can specify inputs and outputs as well as filters. It supports various input types. One of them is "Linux Syslog&#8221;. Which means, you do not have to install logging agent on every server increasing the overall load of the server. Your default rsyslog client will do just fine. Then comes the filtering part, after taking input, you can filter out logs within Logstash itself. It&#8217;s awesome but it didn&#8217;t serve any purpose for me as I wanted to index every log. Next is the output part, Logstash can output logs on standard output (why would anyone want that). But as with input, it supports multiple output types too. One of them is Elasticsearch.
+is very useful and versatile. It&#8217;s made of JRuby (Java+Ruby). You can specify inputs and outputs as well as filters. It supports various input types. One of them is "Linux Syslog". Which means, you do not have to install logging agent on every server increasing the overall load of the server. Your default rsyslog client will do just fine. Then comes the filtering part, after taking input, you can filter out logs within Logstash itself. It&#8217;s awesome but it didn&#8217;t serve any purpose for me as I wanted to index every log. Next is the output part, Logstash can output logs on standard output (why would anyone want that). But as with input, it supports multiple output types too. One of them is Elasticsearch.
 
 Elasticsearch
   

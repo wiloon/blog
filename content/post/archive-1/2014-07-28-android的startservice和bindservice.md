@@ -60,7 +60,7 @@ conn则是一个代表与service连接状态的类，当我们连接service成�
   
 <!&#8211; service配置开始 &#8211;>
   
-<service android:name=&#8221;MyService&#8221;></service>
+<service android:name="MyService"></service>
   
 <!&#8211; service配置结束&#8211;>
   
@@ -204,7 +204,7 @@ CountService.class);
   
 startService(intent);
 
-Log.v("MainStadyServics&#8221;, "start Service&#8221;);
+Log.v("MainStadyServics", "start Service");
   
 }
   
@@ -226,7 +226,7 @@ CountService.class);
   
 stopService(intent);
   
-Log.v("MainStadyServics&#8221;, "shutDown serveice&#8221;);
+Log.v("MainStadyServics", "shutDown serveice");
   
 }
   
@@ -244,7 +244,7 @@ Intent intent = new Intent(MainActivity.this, UseBrider.class);
   
 startActivity(intent);
   
-Log.v("MainStadyServics&#8221;, "start Binder Service&#8221;);
+Log.v("MainStadyServics", "start Binder Service");
   
 }
   
@@ -320,7 +320,7 @@ Thread.sleep(1000);
   
 count++;
   
-Log.v("CountService&#8221;, "Count is&#8221; + count);
+Log.v("CountService", "Count is" + count);
   
 }
   
@@ -440,7 +440,7 @@ super.onDestroy();
   
 this.unbindService(conn);
   
-Log.v("MainStadyServics&#8221;, "out&#8221;);
+Log.v("MainStadyServics", "out");
   
 }
   
@@ -464,13 +464,13 @@ public IBinder onBind(Intent intent) {
   
 // TODO Auto-generated method stub
   
-System.out.println("onBind&#8230;..&#8221;);
+System.out.println("onBind&#8230;..");
   
 IBinder result = null;
   
 if ( null == result ) result = new MyBinder() ;
   
-Toast.makeText(this, "onBind&#8221;,Toast.LENGTH_LONG);
+Toast.makeText(this, "onBind",Toast.LENGTH_LONG);
   
 return result;
   

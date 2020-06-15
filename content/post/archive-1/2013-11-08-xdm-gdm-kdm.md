@@ -89,7 +89,7 @@ tags:
   
   
   
-    X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行&#8221;X&#8221;启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm(X Display Manager)/gdm(GNOME Display Manager)/kdm(KDE Display Manager)启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出X Window Manager，你可以xterm中执行init 3离开。
+    X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行"X"启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm(X Display Manager)/gdm(GNOME Display Manager)/kdm(KDE Display Manager)启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出X Window Manager，你可以xterm中执行init 3离开。
   
   
   
@@ -97,7 +97,7 @@ tags:
   
   
   
-    这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和&#8221;X&#8221;并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的xterm而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了：
+    这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和"X"并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的xterm而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了：
   
   
   
@@ -117,7 +117,7 @@ tags:
   
   
   
-    5)X server建立一个属于它自己的根视窗(Root windows)，并设置视窗的背景与执行所指定的应用程序，显示一个大的&#8221;X&#8221;光标，便完成启动了。
+    5)X server建立一个属于它自己的根视窗(Root windows)，并设置视窗的背景与执行所指定的应用程序，显示一个大的"X"光标，便完成启动了。
   
   
   
@@ -328,15 +328,15 @@ tags:
   
     1. XDM
  前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行：
- 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm off secure 中的off改为on。
- 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。
+ 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon" xterm off secure 中的off改为on。
+ 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon" xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。
  XDM确实够丑的，相信没有人想多看两眼的。裁判，换人！
   
   
   
     2. KDM
  为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为：
- 代码: ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件“/usr/X11R6/lib/X11/xdm/Xsession”。把中间的这段文字，
+ 代码: ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件“/usr/X11R6/lib/X11/xdm/Xsession”。把中间的这段文字，
   
   
   <div id="">
@@ -555,8 +555,8 @@ tags:
   
   
     第五点，现在该给老三让位了。用gdm替换kdm，这又要改“/etc/ttys”中的
- ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 为：
- ttyv8 "/usr/X11R6/bin/gdm -nodaemon&#8221; xterm on secure
+ ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 为：
+ ttyv8 "/usr/X11R6/bin/gdm -nodaemon" xterm on secure
  做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。
  辛劳的工作，由漂亮的DM开始，心情真好！
   

@@ -24,7 +24,7 @@ ESC 意指Escape键
   
 TAB 意指Tab键
 
-像 "C-M-&#8221; (or "M-C&#8221;) 这样连在一起的意味着同时按住 Control 和 Meta 键不放.
+像 "C-M-" (or "M-C") 这样连在一起的意味着同时按住 Control 和 Meta 键不放.
 
 C-x C-h                     列出全部命令
   

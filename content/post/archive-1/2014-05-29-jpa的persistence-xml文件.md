@@ -22,21 +22,21 @@ persistence.xml:
 
 复制代码
   
-1 <?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
+1 <?xml version="1.0" encoding="UTF-8"?>
   
-2 <persistence version=&#8221;2.0" xmlns=&#8221;http://java.sun.com/xml/ns/persistence&#8221;
+2 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
   
-3 xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
+3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   
-4 xsi:schemaLocation=&#8221;http://java.sun.com/xml/ns/persistence
+4 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
   
-5 http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd&#8221;>
+5 http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd">
   
 6
   
 7 <!&#8211;必须要有name属性，不能为空 &#8211;>
   
-8 <persistence-unit name=&#8221;jpaPU&#8221; transaction-type=&#8221;RESOURCE_LOCAL&#8221;>
+8 <persistence-unit name="jpaPU" transaction-type="RESOURCE_LOCAL">
   
 9 <!&#8211;可选 &#8211;>
   
@@ -74,31 +74,31 @@ persistence.xml:
   
 26 <!&#8211;配置Hibernate方言 &#8211;>
   
-27 <property name=&#8221;hibernate.dialect&#8221; value=&#8221;org.hibernate.dialect.MySQL5Dialect&#8221; />
+27 <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
   
 28 <!&#8211;配置数据库驱动 &#8211;>
   
-29 <property name=&#8221;hibernate.connection.driver_class&#8221; value=&#8221;com.mysql.jdbc.Driver&#8221; />
+29 <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
   
 30 <!&#8211;配置数据库用户名 &#8211;>
   
-31 <property name=&#8221;hibernate.connection.username&#8221; value=&#8221;root&#8221; />
+31 <property name="hibernate.connection.username" value="root" />
   
 32 <!&#8211;配置数据库密码 &#8211;>
   
-33 <property name=&#8221;hibernate.connection.password&#8221; value=&#8221;root&#8221; />
+33 <property name="hibernate.connection.password" value="root" />
   
 34 <!&#8211;配置数据库url &#8211;>
   
-35 <property name=&#8221;hibernate.connection.url&#8221; value=&#8221;jdbc:mysql://localhost:3306/jpa?useUnicode=true&characterEncoding=UTF-8" />
+35 <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jpa?useUnicode=true&characterEncoding=UTF-8" />
   
 36 <!&#8211;设置外连接抓取树的最大深度 &#8211;>
   
-37 <property name=&#8221;hibernate.max\_fetch\_depth&#8221; value=&#8221;3" />
+37 <property name="hibernate.max\_fetch\_depth" value="3" />
   
 38 <!&#8211;自动输出schema创建DDL语句 &#8211;>
   
-39 <property name=&#8221;hibernate.hbm2ddl.auto&#8221; value=&#8221;update&#8221; />
+39 <property name="hibernate.hbm2ddl.auto" value="update" />
   
 40 </properties>
   
@@ -110,13 +110,13 @@ persistence.xml:
   
 复制代码
 
-xsi:schemaLocation=&#8221;http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd&#8221;
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd"
 
 要注意使用的是2.0规范
 
 name
 
-JPA2.0规范要求每一个持久化单元必须有一个名字，不能为空。即persistence-unit name=&#8221;manager1"的name不能为空。
+JPA2.0规范要求每一个持久化单元必须有一个名字，不能为空。即persistence-unit name="manager1"的name不能为空。
 
 transaction-type
 

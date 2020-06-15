@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-mvn exec:java -Dexec.mainClass=&#8221;org.ts.main.App&#8221;
+mvn exec:java -Dexec.mainClass="org.ts.main.App"
 
 
 

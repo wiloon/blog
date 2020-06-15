@@ -30,7 +30,7 @@ python调用shell命令的方法有许多
 
 
 
-2.1   subprocess.call(["some\_command&#8221;,&#8221;some\_argument&#8221;,&#8221;another\_argument\_or_path&#8221;])
+2.1   subprocess.call(["some\_command","some\_argument","another\_argument\_or_path"])
 
 subprocess.call(command,shell=True)
 

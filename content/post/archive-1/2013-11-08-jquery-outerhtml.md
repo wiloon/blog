@@ -18,7 +18,7 @@ prop(&#8216;outerHTML&#8217;)
   
   
   
-    var elemstr = $("#&#8221; + name)[0].outerHTML;
+    var elemstr = $("#" + name)[0].outerHTML;
   
   
   
@@ -34,7 +34,7 @@ prop(&#8216;outerHTML&#8217;)
   
   
   
-    var elemstr = $("#&#8221; + name).parent().html();
+    var elemstr = $("#" + name).parent().html();
   
   
   

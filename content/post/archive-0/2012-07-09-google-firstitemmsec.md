@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-Get subscription list. Each subscription contains a "category&#8221; if the user had created folders. It also has a field called `firstitemmsec` that denotes in milliseconds the time from which entries for that feed should be picked up.
+Get subscription list. Each subscription contains a "category" if the user had created folders. It also has a field called `firstitemmsec` that denotes in milliseconds the time from which entries for that feed should be picked up.
 
 `firstitemmsec` initially stumped me until I added a new subscription. I noticed that Google Reader has entries for a feed spanning back to a month (probably -infinity). So the reader has to know to show you articles _only from the time you subscribed to a feed_.
 
@@ -16,7 +16,7 @@ Get subscription list. Each subscription contains a "category&#8221; if the user
 
 
 
-{"subscriptions&#8221;:[{"id&#8221;:&#8221;feed/供稿地址&#8221;,&#8221;title&#8221;:&#8221;供稿名&#8221;,&#8221;categories&#8221;:[{"id&#8221;:&#8221;user/Google Reader用户ID/label/分类名&#8221;,&#8221;label&#8221;:&#8221;分类名&#8221;}],&#8221;sortid&#8221;:&#8221;不知道啥玩意&#8221;,&#8221;firstitemmsec&#8221;:&#8221;第一个条目的时间戳&#8221;,&#8221;htmlUrl&#8221;:&#8221;供稿的网站地址&#8221;},&#8230;(其他供稿的信息)]}
+{"subscriptions":[{"id":"feed/供稿地址","title":"供稿名","categories":[{"id":"user/Google Reader用户ID/label/分类名","label":"分类名"}],"sortid":"不知道啥玩意","firstitemmsec":"第一个条目的时间戳","htmlUrl":"供稿的网站地址"},&#8230;(其他供稿的信息)]}
 
 
 

@@ -96,7 +96,7 @@ tags:
 
 **4、业务类的配置**
 
-<bean id=&#8221;testJob&#8221; class=&#8221;com.cjm.web.service.quartz.TestJob&#8221;/>
+<bean id="testJob" class="com.cjm.web.service.quartz.TestJob"/>
 
 **5、业务类源代码**
 
@@ -116,7 +116,7 @@ tags:
 
 在Spring配置和Quartz集成内容时，有两点需要注意
 
-１、在<Beans>中不能够设置default-lazy-init=&#8221;true&#8221;,否则定时任务不触发，如果不明确指明default-lazy-init的值，默认是false。
+１、在<Beans>中不能够设置default-lazy-init="true",否则定时任务不触发，如果不明确指明default-lazy-init的值，默认是false。
 
-２、在<Beans>中不能够设置default-autowire=&#8221;byName&#8221;的属性，否则后台会报org.springframework.beans.factory.BeanCreationException错误，这样就不能通过Bean名称自动注入，必须通过明确引用注入
+２、在<Beans>中不能够设置default-autowire="byName"的属性，否则后台会报org.springframework.beans.factory.BeanCreationException错误，这样就不能通过Bean名称自动注入，必须通过明确引用注入
 

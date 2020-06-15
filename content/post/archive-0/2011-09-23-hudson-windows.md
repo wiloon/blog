@@ -24,7 +24,7 @@ add path D:programUnxUtilsusrlocalwbin to system evn PATH
   
 copy tomcat to D:programapache-tomcat-7.0.21
   
-update file D:programapache-tomcat-7.0.21confserver.xml, add URIEncoding=&#8221;UTF-8" in section ..connector port&#8230; as a attribute.
+update file D:programapache-tomcat-7.0.21confserver.xml, add URIEncoding="UTF-8" in section ..connector port&#8230; as a attribute.
   
 put hudson-2.1.1.war into D:programapache-tomcat-7.0.21webapps
   

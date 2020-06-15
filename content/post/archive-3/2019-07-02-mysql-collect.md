@@ -22,7 +22,7 @@ COLLATE通常是和数据编码（CHARSET）相关的，一般来说每种CHARSE
   
 这里顺便讲个题外话，mysql中有utf8和utf8mb4两种编码，在mysql中请大家忘记**utf8**，永远使用**utf8mb4**。这是mysql的一个遗留问题，mysql中的utf8最多只能支持3bytes长度的字符编码，对于一些需要占据4bytes的文字，mysql的utf8就不支持了，要使用utf8mb4才行。
   
-很多COLLATE都带有\_ci字样，这是Case Insensitive的缩写，即大小写无关，也就是说&#8221;A&#8221;和&#8221;a&#8221;在排序和比较的时候是一视同仁的。selection * from table1 where field1=&#8221;a&#8221;同样可以把field1为&#8221;A&#8221;的值选出来。与此同时，对于那些\_cs后缀的COLLATE，则是Case Sensitive，即大小写敏感的。
+很多COLLATE都带有\_ci字样，这是Case Insensitive的缩写，即大小写无关，也就是说"A"和"a"在排序和比较的时候是一视同仁的。selection * from table1 where field1="a"同样可以把field1为"A"的值选出来。与此同时，对于那些\_cs后缀的COLLATE，则是Case Sensitive，即大小写敏感的。
   
 在mysql中使用show collation指令可以查看到mysql所支持的所有COLLATE
 

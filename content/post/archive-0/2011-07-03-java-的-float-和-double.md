@@ -50,13 +50,13 @@ decimal dd=345.545454879&#8230;..//可以支持28位，对最后一位四舍五�
       double d2 = 20014999;
     </li>
     <li>
-      System.out.println("f=&#8221; + f);
+      System.out.println("f=" + f);
     </li>
     <li>
-      System.out.println("d=&#8221; + d);
+      System.out.println("d=" + d);
     </li>
     <li>
-      System.out.println("d2=&#8221; + d2);
+      System.out.println("d2=" + d2);
     </li>
     <li>
       }

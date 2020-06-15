@@ -49,7 +49,7 @@ zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 z
   
 dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
   
-echo "dt=${dt}&#8221;
+echo "dt=${dt}"
   
 Shell 变量
   
@@ -57,53 +57,53 @@ shell的使用比较简单，就像这样，并且没有数据类型的概念，
 
 #!/bin/bash
   
-myName=&#8221;tom&#8221;
+myName="tom"
   
-youName=&#8221;cat&#8221;
+youName="cat"
 
 使用变量
 
-ABC=&#8221;tom&#8221;
+ABC="tom"
   
 echo $ABC #使用变量前面加$美元符号
   
-echo "ABC=$ABC&#8221; #可以直接在字符串里面引用
+echo "ABC=$ABC" #可以直接在字符串里面引用
   
-echo "ABC=${ABC}&#8221; #但是建议把变量名字用{}包起来
+echo "ABC=${ABC}" #但是建议把变量名字用{}包起来
   
 只读变量
 
-ABC=&#8221;tom&#8221;
+ABC="tom"
   
-echo "ABC=${ABC}&#8221;
+echo "ABC=${ABC}"
   
 readOnly ABC #设置只读
   
-ABC=&#8221;CAT&#8221; #会报错，因为设置了只读，不能修改
+ABC="CAT" #会报错，因为设置了只读，不能修改
 
 删除变量
 
-ABC=&#8221;tom&#8221;
+ABC="tom"
   
-echo "ABC=${ABC}&#8221;
+echo "ABC=${ABC}"
   
 unset ABC #删除
   
-echo "ABC=$ABC&#8221;
+echo "ABC=$ABC"
   
-echo "ABC=${ABC}&#8221;
+echo "ABC=${ABC}"
 
 Shell 的字符串
   
 使用字符串
 
-NAME=&#8221;tom&#8221;
+NAME="tom"
   
 A=my #你甚至可以不用引号，但是字符串当中不能有空格，这种方式也不推荐
   
 B=&#8217;my name is ${NAME}&#8217; #变量不会被解析
   
-C=&#8221;my name is ${NAME}&#8221; #变量会解析
+C="my name is ${NAME}" #变量会解析
   
 echo $A
   

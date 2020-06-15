@@ -68,7 +68,7 @@ map.put(weakReference, value);
   
 }
   
-System.out.println("map.size->&#8221; + map.size());
+System.out.println("map.size->" + map.size());
   
 这里使用了weakReference对象，即当值不再被引用时，相应的数据被回收。另外使用一个线程不断地从队列中获取被gc的数据，代码如下：
 
@@ -108,7 +108,7 @@ WeakReference<byte[]> k;
   
 while((k = (WeakReference) referenceQueue.remove()) != null) {
   
-System.out.println((cnt++) + "回收了:&#8221; + k);
+System.out.println((cnt++) + "回收了:" + k);
   
 }
   
@@ -306,7 +306,7 @@ WeakR k;
   
 while((k = (WeakR) referenceQueue.remove()) != null) {
   
-System.out.println((cnt++) + "回收了:&#8221; + k);
+System.out.println((cnt++) + "回收了:" + k);
   
 //触发反向hash remove
   

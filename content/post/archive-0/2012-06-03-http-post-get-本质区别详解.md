@@ -275,8 +275,8 @@ categories:
   
   
   
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
- <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+    <?xml version="1.0" encoding="utf-8"?>
+ <objPlaceOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
  <Success>boolean</Success>
  <ErrorDescription>string</ErrorDescription>
  <ErrorNumber>int</ErrorNumber>
@@ -316,8 +316,8 @@ categories:
   
   
   
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
- <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+    <?xml version="1.0" encoding="utf-8"?>
+ <objPlaceOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
  <Success>boolean</Success>
  <ErrorDescription>string</ErrorDescription>
  <ErrorNumber>int</ErrorNumber>
@@ -343,10 +343,10 @@ categories:
   
   
   
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
- <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;>
+    <?xml version="1.0" encoding="utf-8"?>
+ <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
  <soap12:Body>
- <CancelOrder xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+ <CancelOrder xmlns="https://api.efxnow.com/webservices2.3">
  <UserID>string</UserID>
  <PWD>string</PWD>
  <OrderConfirmation>string</OrderConfirmation>
@@ -366,10 +366,10 @@ categories:
   
   
   
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
- <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;>
+    <?xml version="1.0" encoding="utf-8"?>
+ <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
  <soap12:Body>
- <CancelOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+ <CancelOrderResponse xmlns="https://api.efxnow.com/webservices2.3">
  <CancelOrderResult>
  <Success>boolean</Success>
  <ErrorDescription>string</ErrorDescription>

@@ -143,11 +143,11 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 
 ### statu
 
-由服务器返回的 HTTP 状态代码，如 200 表示成功，而 404 表示 "Not Found&#8221; 错误。当 readyState 小于 3 的时候读取这一属性会导致一个异常。
+由服务器返回的 HTTP 状态代码，如 200 表示成功，而 404 表示 "Not Found" 错误。当 readyState 小于 3 的时候读取这一属性会导致一个异常。
 
 ### statusText
 
-这个属性用名称而不是数字指定了请求的 HTTP 的状态代码。也就是说，当状态为 200 的时候它是 "OK&#8221;，当状态为 404 的时候它是 "Not Found&#8221;。和 status 属性一样，当 readyState 小于 3 的时候读取这一属性会导致一个异常。
+这个属性用名称而不是数字指定了请求的 HTTP 的状态代码。也就是说，当状态为 200 的时候它是 "OK"，当状态为 404 的时候它是 "Not Found"。和 status 属性一样，当 readyState 小于 3 的时候读取这一属性会导致一个异常。
 
 **onreadystatechange：**
 

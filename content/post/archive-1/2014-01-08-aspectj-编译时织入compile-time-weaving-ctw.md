@@ -45,9 +45,9 @@ mvn archetype:generate
 
 然后，修改 pom.xml，增加 aspectj 相关内容，如下
 
-<project xmlns=&#8221;http://maven.apache.org/POM/4.0.0" xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
-xsi:schemaLocation=&#8221;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#8221;>
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 <modelVersion>4.0.0</modelVersion>
 
@@ -269,7 +269,7 @@ return x + y;
 
 public String getPassword(String username) {
 
-return "password&#8221;;
+return "password";
 
 }
 
@@ -295,7 +295,7 @@ Object around(): serviceAddMethods(){
 
 Object oldValue = proceed();
 
-System.out.println("原值是：&#8221; + oldValue);
+System.out.println("原值是：" + oldValue);
 
 return Integer.MIN_VALUE;
 
@@ -313,7 +313,7 @@ before(): serviceAuthCheckAnnotatedMethods(){
 
 if(1==1){//权限检查代码
 
-throw new IllegalStateException("权限不足&#8221;);
+throw new IllegalStateException("权限不足");
 
 }
 
@@ -333,7 +333,7 @@ MethodSignature methodSignature = (MethodSignature) thisJoinPoint.getSignature()
 
 Method method = methodSignature.getMethod();
 
-System.out.println("[LOG] 方法被调用了: &#8221; + method);
+System.out.println("[LOG] 方法被调用了: " + method);
 
 }
 

@@ -53,7 +53,7 @@ tags:
     </td>
     
     <td>
-      x===5 为 true；x===&#8221;5" 为 false
+      x===5 为 true；x==="5" 为 false
     </td>
   </tr>
   

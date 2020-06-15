@@ -75,7 +75,7 @@ property (date 或 calendar)
   
 检查是否日期在将来
 
-@Pattern(regex=&#8221;regexp&#8221;, flag=) or @Patterns( {@Pattern(&#8230;)} )
+@Pattern(regex="regexp", flag=) or @Patterns( {@Pattern(&#8230;)} )
   
 property (字符串)
   
@@ -181,7 +181,7 @@ public @interface Capitalized {
 
 CapitalizeType type() default Capitalize.FIRST;
 
-String message() default "has incorrect capitalization&#8221;
+String message() default "has incorrect capitalization"
 
 }
 
@@ -201,7 +201,7 @@ public @interface Capitalized {
 
 CapitalizeType type() default Capitalize.FIRST;
 
-String message() default "{validator.capitalized}&#8221;;
+String message() default "{validator.capitalized}";
 
 }
 
@@ -355,9 +355,9 @@ return state;
 
 //be searched in the resource bundle at key &#8216;long&#8217;
 
-@Length(max=5, message=&#8221;{long}&#8221;)
+@Length(max=5, message="{long}")
 
-@Pattern(regex=&#8221;[0-9]+&#8221;)
+@Pattern(regex="[0-9]+")
 
 @NotNull
 
@@ -483,7 +483,7 @@ Hibernate 验证器可被应用到代码的任何地方
 
 ClassValidator personValidator = new ClassValidator( Person.class );
 
-ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages&#8221;, Locale.ENGLISH) );
+ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages", Locale.ENGLISH) );
 
 InvalidValue[] validationMessages = addressValidator.getInvalidValues(address);
 
@@ -493,15 +493,15 @@ InvalidValue[] validationMessages = addressValidator.getInvalidValues(address);
 
 你也可以检查一个属性而非整个bean 这对属性对属性的用户交互是有用的。
 
-ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages&#8221;, Locale.ENGLISH) );
+ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages", Locale.ENGLISH) );
 
 //only get city property invalid values
 
-InvalidValue[] validationMessages = addressValidator.getInvalidValues(address, "city&#8221;);
+InvalidValue[] validationMessages = addressValidator.getInvalidValues(address, "city");
 
 //only get potential city property invalid values
 
-InvalidValue[] validationMessages = addressValidator.getPotentialInvalidValues("city&#8221;, &#8221;
+InvalidValue[] validationMessages = addressValidator.getPotentialInvalidValues("city", "
   
 Paris
   

@@ -84,7 +84,7 @@ public class ReadFileDemo {
    
 public static void main(String[] args) {
    
-String path = "c:/boot.ini&#8221;;
+String path = "c:/boot.ini";
    
 File file = new File(path);
 
@@ -98,7 +98,7 @@ is = new FileInputStream(file);
    
 } catch (FileNotFoundException e) {
    
-System.err.println("文件 &#8221; + path + &#8221; 不存在。&#8221;);
+System.err.println("文件 " + path + " 不存在。");
    
 return;
    
@@ -126,7 +126,7 @@ eachTime = is.read(buffer); // 继续读取
    
 } catch (IOException e) {
    
-System.err.println("读取文件内容失败。&#8221;);
+System.err.println("读取文件内容失败。");
    
 e.printStackTrace();
    
@@ -206,13 +206,13 @@ public class SaveFileDemo {
 
 public static void main(String[] args) throws IOException {
    
-String path = "c:/now.txt&#8221;;
+String path = "c:/now.txt";
 
 File file = new File(path);
    
 if (!file.exists() && !file.createNewFile()) {
    
-System.err.println("无法创建文件。&#8221;);
+System.err.println("无法创建文件。");
    
 return;
    
@@ -224,7 +224,7 @@ os.write(new Date().toString().getBytes()); // 将当前时间写入文件
    
 os.close(); // 必须关闭流，内容才会写入文件。
    
-System.out.println("文件写入完成。&#8221;);
+System.out.println("文件写入完成。");
    
 }
   
@@ -262,7 +262,7 @@ try {
               
 System.out.print("输入字符: ");
               
-System.out.println("输入字符十进制表示: &#8221; +
+System.out.println("输入字符十进制表示: " +
                                       
 System.in.read());
           
@@ -326,9 +326,9 @@ new FileOutputStream(new File(args[1]));
               
 // available()可取得未读取的数据长度
               
-System.out.println("复制文件：&#8221; +
+System.out.println("复制文件：" +
                       
-fileInputStream.available() + "字节&#8221;);
+fileInputStream.available() + "字节");
 
             while(true) {
                 if(fileInputStream.available() < 1024) {
@@ -426,9 +426,9 @@ new BufferedOutputStream(
                            
 new FileOutputStream(desFile));
               
-System.out.println("复制文件：&#8221; +
+System.out.println("复制文件：" +
                                
-srcFile.length() + "字节&#8221;);
+srcFile.length() + "字节");
               
 while(bufferedInputStream.read(data) != -1) {
                   

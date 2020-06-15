@@ -16,9 +16,9 @@ pathmunge是linux系统redhat系列版本系统变量/etc/profile中的函数，
 
 pathmunge{
 
-if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)&#8221;;then
+if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)";then
 
-if["$2"=&#8221;after&#8221;];then
+if["$2"="after"];then
 
 PATH=$PATH:$1
 
@@ -40,7 +40,7 @@ pathmunge大致的作用是：判断当前系统的PATH中是否有该命令的�
 
 
 
-echo "PATH&#8221; 输出PATH变量的内容以供egrep查询，
+echo "PATH" 输出PATH变量的内容以供egrep查询，
 
 grep是利用正则表达式来搜索文本的工具，egrep用的是扩展的正则表达式
 

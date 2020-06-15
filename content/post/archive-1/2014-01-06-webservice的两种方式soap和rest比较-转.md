@@ -112,9 +112,9 @@ http://api.flickr.com/services/rest/?method=flickr.test.echo&name=value
   
 正确处理返回
   
-<?xml version=&#8221;1.0" encoding=&#8221;utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
   
-<rsp stat=&#8221;ok&#8221;>
+<rsp stat="ok">
   
 [xml-payload-here]
   
@@ -122,11 +122,11 @@ http://api.flickr.com/services/rest/?method=flickr.test.echo&name=value
   
 错误处理返回
   
-<?xml version=&#8221;1.0" encoding=&#8221;utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
   
-<rsp stat=&#8221;fail&#8221;>
+<rsp stat="fail">
   
-<err code=&#8221;[error-code]&#8221; msg=&#8221;[error-message]&#8221; />
+<err code="[error-code]" msg="[error-message]" />
   
 </rsp>
   
@@ -154,15 +154,15 @@ Yahoo Maps：
   
 返回消息：
   
-<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
   
-<ResultSet xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
+<ResultSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   
-xmlns=&#8221;urn:yahoo:maps&#8221;
+xmlns="urn:yahoo:maps"
   
-xsi:schemaLocation=&#8221;urn:yahoo:maps http://local.yahooapis.com/MapsService/V1/GeocodeResponse.xsd&#8221;>
+xsi:schemaLocation="urn:yahoo:maps http://local.yahooapis.com/MapsService/V1/GeocodeResponse.xsd">
   
-<Result precision=&#8221;address&#8221;>
+<Result precision="address">
   
 <Latitude>37.416384</Latitude>
   
@@ -192,9 +192,9 @@ YouTube：
   
 返回消息：
   
-<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
   
-<ut_response status=&#8221;ok&#8221;>
+<ut_response status="ok">
   
 <user_profile>
   

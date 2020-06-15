@@ -164,7 +164,7 @@ webbench -c 5000 -t 120 http://www.163.com
   
 -d
   
-不显示&#8221;percentage served within XX [ms] table&#8221;的消息(为以前的版本提供支持)。
+不显示"percentage served within XX [ms] table"的消息(为以前的版本提供支持)。
   
 -e csv-file
   
@@ -180,7 +180,7 @@ webbench -c 5000 -t 120 http://www.163.com
   
 -H custom-header
   
-对请求附加额外的头信息。 此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对 (如, "Accept-Encoding: zip/zop;8bit&#8221;).
+对请求附加额外的头信息。 此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对 (如, "Accept-Encoding: zip/zop;8bit").
   
 -i
   

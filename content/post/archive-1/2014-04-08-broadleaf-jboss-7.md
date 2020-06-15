@@ -36,13 +36,13 @@ Edit standalone.xml ([jboss installation]/standalone/configuration/standalone.xm
 
 Add datasource definitions to the datasources subsystem element (change JDBC connection information as appropriate for your environment)
 
-<subsystem xmlns=&#8221;urn:jboss:domain:datasources:1.0">
+<subsystem xmlns="urn:jboss:domain:datasources:1.0">
 
 <datasources>
 
 &#8230;
 
-<datasource jndi-name=&#8221;java:/jdbc/web&#8221; pool-name=&#8221;webDS&#8221; enabled=&#8221;true&#8221; use-java-context=&#8221;true&#8221;>
+<datasource jndi-name="java:/jdbc/web" pool-name="webDS" enabled="true" use-java-context="true">
 
 <connection-url>jdbc:mysql://localhost:3306/broadleaf</connection-url>
 
@@ -58,7 +58,7 @@ Add datasource definitions to the datasources subsystem element (change JDBC con
 
 </datasource>
 
-<datasource jndi-name=&#8221;java:/jdbc/storage&#8221; pool-name=&#8221;storageDS&#8221; enabled=&#8221;true&#8221; use-java-context=&#8221;true&#8221;>
+<datasource jndi-name="java:/jdbc/storage" pool-name="storageDS" enabled="true" use-java-context="true">
 
 <connection-url>jdbc:mysql://localhost:3306/broadleaf</connection-url>
 
@@ -74,7 +74,7 @@ Add datasource definitions to the datasources subsystem element (change JDBC con
 
 </datasource>
 
-<datasource jndi-name=&#8221;java:/jdbc/secure&#8221; pool-name=&#8221;secureDS&#8221; enabled=&#8221;true&#8221; use-java-context=&#8221;true&#8221;>
+<datasource jndi-name="java:/jdbc/secure" pool-name="secureDS" enabled="true" use-java-context="true">
 
 <connection-url>jdbc:mysql://localhost:3306/broadleaf</connection-url>
 
@@ -98,7 +98,7 @@ Edit standalone.xml
 
 Add a driver definition to the datasources subsystem element
 
-<subsystem xmlns=&#8221;urn:jboss:domain:datasources:1.0">
+<subsystem xmlns="urn:jboss:domain:datasources:1.0">
 
 <datasources>
 
@@ -108,7 +108,7 @@ Add a driver definition to the datasources subsystem element
 
 &#8230;
 
-<driver name=&#8221;mysql&#8221; module=&#8221;com.mysql.jdbc&#8221;>
+<driver name="mysql" module="com.mysql.jdbc">
 
 <driver-class>com.mysql.jdbc.Driver</driver-class>
 
@@ -124,17 +124,17 @@ Install the driver jar file
 
 Create a new directory structure for your driver in your JBoss installation ([jboss installation]/modules/com/mysql/jdbc/main)
 
-Copy your JDBC driver jar into the "main&#8221; directory you just created
+Copy your JDBC driver jar into the "main" directory you just created
 
-Create a module.xml file in the "main&#8221; directory. Here are its contents:
+Create a module.xml file in the "main" directory. Here are its contents:
 
-<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<module xmlns=&#8221;urn:jboss:module:1.0" name=&#8221;com.mysql.jdbc&#8221;>
+<module xmlns="urn:jboss:module:1.0" name="com.mysql.jdbc">
 
 <resources>
 
-<resource-root path=&#8221;mysql-connector-java-5.1.25.jar&#8221;/>
+<resource-root path="mysql-connector-java-5.1.25.jar"/>
 
 <!&#8211; Insert resources here &#8211;>
 
@@ -142,9 +142,9 @@ Create a module.xml file in the "main&#8221; directory. Here are its contents:
 
 <dependencies>
 
-<module name=&#8221;javax.api&#8221;/>
+<module name="javax.api"/>
 
-<module name=&#8221;javax.transaction.api&#8221;/>
+<module name="javax.transaction.api"/>
 
 </dependencies>
 
@@ -162,13 +162,13 @@ Edit standalone.xml
 
 Add a secure connector to the web subsystem element
 
-<subsystem xmlns=&#8221;urn:jboss:domain:web:1.1" native=&#8221;false&#8221; default-virtual-server=&#8221;default-host&#8221;>
+<subsystem xmlns="urn:jboss:domain:web:1.1" native="false" default-virtual-server="default-host">
 
 &#8230;
 
-<connector name=&#8221;https&#8221; protocol=&#8221;HTTP/1.1" scheme=&#8221;https&#8221; socket-binding=&#8221;https&#8221; secure=&#8221;true&#8221;>
+<connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="https" secure="true">
 
-<ssl name=&#8221;https&#8221; password=&#8221;broadleaf&#8221; certificate-key-file=&#8221;../standalone/configuration/blc-example.keystore&#8221;/>
+<ssl name="https" password="broadleaf" certificate-key-file="../standalone/configuration/blc-example.keystore"/>
 
 </connector>
 
@@ -186,9 +186,9 @@ If it&#8217;s not done already, rename this file persistence-core.xml
 
 Change any spring application context elements pointing to this file to persistence-core.xml (see this example)
 
-<bean id=&#8221;blMergedPersistenceXmlLocations&#8221; class=&#8221;org.springframework.beans.factory.config.ListFactoryBean&#8221;>
+<bean id="blMergedPersistenceXmlLocations" class="org.springframework.beans.factory.config.ListFactoryBean">
 
-<property name=&#8221;sourceList&#8221;>
+<property name="sourceList">
 
 <list>
 
@@ -220,7 +220,7 @@ Create a file called jboss-deployment-structure.xml at
 
 The contents of the file are:
 
-<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <jboss-deployment-structure>
 
@@ -228,17 +228,17 @@ The contents of the file are:
 
 <exclusions>
 
-<module name=&#8221;org.hibernate&#8221;/>
+<module name="org.hibernate"/>
 
-<module name=&#8221;org.javassist&#8221;/>
+<module name="org.javassist"/>
 
-<module name=&#8221;org.apache.log4j&#8221; />
+<module name="org.apache.log4j" />
 
 </exclusions>
 
 <dependencies>
 
-<module name=&#8221;org.jboss.ironjacamar.jdbcadapters&#8221; slot=&#8221;main&#8221;/>
+<module name="org.jboss.ironjacamar.jdbcadapters" slot="main"/>
 
 </dependencies>
 
@@ -266,7 +266,7 @@ Edit standalone.xml
 
 Change the enable-welcome-root param to false
 
-<virtual-server name=&#8221;default-host&#8221; enable-welcome-root=&#8221;false&#8221;>
+<virtual-server name="default-host" enable-welcome-root="false">
 
 Change site&#8217;s generated war file name
 

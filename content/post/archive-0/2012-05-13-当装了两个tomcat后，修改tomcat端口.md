@@ -33,13 +33,13 @@ tags:
   
   
     其次：在文件中找到如下文本：
- <Connector port=&#8221;8080" protocol=&#8221;HTTP/1.1"
- maxThreads=&#8221;150" connectionTimeout=&#8221;20000"
- redirectPort=&#8221;8443" />
+ <Connector port="8080" protocol="HTTP/1.1"
+ maxThreads="150" connectionTimeout="20000"
+ redirectPort="8443" />
  也有可能是这样的：
- <Connector port=&#8221;8080" maxThreads=&#8221;150" minSpareThreads=&#8221;25" maxSpareThreads=&#8221;75" enableLookups=&#8221;false&#8221; redirectPort=&#8221;8443" acceptCount=&#8221;100" debug=&#8221;0" connectionTimeout=&#8221;20000"
- disableUploadTimeout=&#8221;true&#8221; />等等；
- 最后：将port=&#8221;8080"改为其它的就可以了。如port=&#8221;8081"等。
+ <Connector port="8080" maxThreads="150" minSpareThreads="25" maxSpareThreads="75" enableLookups="false" redirectPort="8443" acceptCount="100" debug="0" connectionTimeout="20000"
+ disableUploadTimeout="true" />等等；
+ 最后：将port="8080"改为其它的就可以了。如port="8081"等。
  保存server.xml文件，重新启动Tomcat服务器，Tomcat就可以使用8081端口了。
   
   
@@ -49,12 +49,12 @@ tags:
   
   
     修改了上面的以后，还要修改两处：
- （1）将 <Connector port=&#8221;8009" enableLookups=&#8221;false&#8221; redirectPort=&#8221;8443" debug=&#8221;0"
- protocol=&#8221;AJP/1.3" />的8009改为其它的端口。
+ （1）将 <Connector port="8009" enableLookups="false" redirectPort="8443" debug="0"
+ protocol="AJP/1.3" />的8009改为其它的端口。
   
   
   
-    （2） 继续将<Server port=&#8221;8005" shutdown=&#8221;SHUTDOWN&#8221; debug=&#8221;0">的8005改为其它的端口。
+    （2） 继续将<Server port="8005" shutdown="SHUTDOWN" debug="0">的8005改为其它的端口。
  经过以上3个修改，应该就可以了。
   
   

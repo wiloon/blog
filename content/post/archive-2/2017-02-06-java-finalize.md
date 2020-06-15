@@ -166,7 +166,7 @@ public Cake(int id) {
   
 this.id = id;
   
-System.out.println("Cake Object &#8221; + id + "is created&#8221;);
+System.out.println("Cake Object " + id + "is created");
   
 }
 
@@ -174,7 +174,7 @@ protected void finalize() throws java.lang.Throwable {
   
 super.finalize();
   
-System.out.println("Cake Object &#8221; + id + "is disposed&#8221;);
+System.out.println("Cake Object " + id + "is disposed");
   
 }
   

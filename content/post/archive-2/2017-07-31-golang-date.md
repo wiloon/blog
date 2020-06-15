@@ -127,9 +127,9 @@ Go使用模式匹配的方式来支持日期格式化和解析。
 
 package main
 
-import "fmt&#8221;
+import "fmt"
   
-import "time&#8221;
+import "time"
 
 func main() {
       
@@ -189,7 +189,7 @@ Mon Mar 3 22:39:31 2014
   
 0000-01-01 20:41:00 +0000 UTC
   
-parsing time "8:41PM&#8221; as "Mon Jan _2 15:04:05 2006&#8221;: cannot parse "8:41PM&#8221; as "Mon&#8221;
+parsing time "8:41PM" as "Mon Jan _2 15:04:05 2006": cannot parse "8:41PM" as "Mon"
   
 10:39PM
 

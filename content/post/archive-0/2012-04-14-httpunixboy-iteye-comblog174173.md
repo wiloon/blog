@@ -361,7 +361,7 @@ JVM 在发生内存溢出时自动的生成堆内存快照。有了这个参数�
 
 -verbose.gc开关可显示GC的操作内容。打开它，可以显示最忙和最空闲收集行为发生的时间、收集前后的内存大小、收集需要的时间等。
   
--verbose:gc &#8211; Same as "-XX:+PrintGC&#8221;.
+-verbose:gc &#8211; Same as "-XX:+PrintGC".
   
 -verbose:gc -Xloggc:$CATALINA_HOME/logs/gc.log
   
@@ -467,9 +467,9 @@ Opentsdb打开Gc参数
 
 # http://opentsdb.net/docs/build/html/user_guide/cli/index.html
 
-GCARGS=&#8221;-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps\
+GCARGS="-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps\
   
--XX:+PrintTenuringDistribution -Xloggc:/tmp/tsd-gc-`date +%s`.log&#8221;
+-XX:+PrintTenuringDistribution -Xloggc:/tmp/tsd-gc-`date +%s`.log"
   
 if test -t 0; then # if stdin is a tty, don&#8217;t turn on GC logging.
   
@@ -485,7 +485,7 @@ fi
 
 FIX_DNS=&#8217;-Dsun.net.inetaddr.ttl=600&#8242;
   
-JVMARGS=&#8221;$JVMARGS $GCARGS $FIX_DNS&#8221;
+JVMARGS="$JVMARGS $GCARGS $FIX_DNS"
   
 常用JVM参数
   
@@ -505,7 +505,7 @@ JVMARGS=&#8221;$JVMARGS $GCARGS $FIX_DNS&#8221;
   
 -XX:SurvivorRatio：新生代中Eden区域与Survivor区域的容量比值，默认值为8。两个Survivor区与一个Eden区的比值为2:8,一个Survivor区占整个年轻代的1/10。
   
--Xss：每个线程的堆栈大小。JDK5.0以后每个线程堆栈大小为1M,以前每个线程堆栈大小为256K。应根据应用的线程所需内存大小进行适当调整。在相同物理内存下,减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在3000~5000左右。一般小的应用， 如果栈不是很深， 应该是128k够用的，大的应用建议使用256k。这个选项对性能影响比较大，需要严格的测试。和threadstacksize选项解释很类似,官方文档似乎没有解释,在论坛中有这样一句话:&#8221;-Xss is translated in a VM flag named ThreadStackSize”一般设置这个值就可以了。
+-Xss：每个线程的堆栈大小。JDK5.0以后每个线程堆栈大小为1M,以前每个线程堆栈大小为256K。应根据应用的线程所需内存大小进行适当调整。在相同物理内存下,减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在3000~5000左右。一般小的应用， 如果栈不是很深， 应该是128k够用的，大的应用建议使用256k。这个选项对性能影响比较大，需要严格的测试。和threadstacksize选项解释很类似,官方文档似乎没有解释,在论坛中有这样一句话:"-Xss is translated in a VM flag named ThreadStackSize”一般设置这个值就可以了。
 
 -XX:PermSize
   
@@ -519,7 +519,7 @@ JVMARGS=&#8221;$JVMARGS $GCARGS $FIX_DNS&#8221;
   
 下面对如下的参数进行分析：
 
-JAVA_OPTS=&#8221;-server -Xms2000m -Xmx2000m -Xmn800m -XX:PermSize=64m -XX:MaxPermSize=256m -XX:SurvivorRatio=4
+JAVA_OPTS="-server -Xms2000m -Xmx2000m -Xmn800m -XX:PermSize=64m -XX:MaxPermSize=256m -XX:SurvivorRatio=4
 
 -Djava.awt.headless=true
   

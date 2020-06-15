@@ -232,21 +232,21 @@ contained is overwritten unless the \`-a&#8217; option is used.）
 
 示例三 使用tee命令把标准错误输出也保存到文件
 
-[root@web ~]# ls "*&#8221;
+[root@web ~]# ls "*"
   
 ls: *: 没有那个文件或目录
   
-[root@web ~]# ls "*&#8221; | tee &#8211;
+[root@web ~]# ls "*" | tee &#8211;
   
 ls: *: 没有那个文件或目录
   
-[root@web ~]# ls "*&#8221; | tee ls.txt
+[root@web ~]# ls "*" | tee ls.txt
   
 ls: *: 没有那个文件或目录
   
 [root@web ~]# cat ls.txt
   
-[root@web ~]# ls "*&#8221; 2>&1 | tee ls.txt
+[root@web ~]# ls "*" 2>&1 | tee ls.txt
   
 ls: *: 没有那个文件或目录
   

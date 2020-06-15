@@ -95,7 +95,7 @@ outline &#8211; structure, Ctrl+F12
       取消“Synchronize file on frame activation”和“Save files on framedeactivation”的选择
     </li>
     <li>
-      同时我们选择&#8221;Save files automatically&#8221;, 并将其设置为30秒，这样IDEA依然可以自动保持文件,所以在每次切换时，你需要按下Ctrl+S保存文件
+      同时我们选择"Save files automatically", 并将其设置为30秒，这样IDEA依然可以自动保持文件,所以在每次切换时，你需要按下Ctrl+S保存文件
     </li>
     <li>
     </li>
@@ -125,7 +125,7 @@ outline &#8211; structure, Ctrl+F12
       在IDEA中，你需要做以下设置, 这样被修改的文件会以*号标识出来，你可以及时保存相关的文件。
     </li>
     <li>
-      "Mark modifyied tabs with asterisk&#8221;
+      "Mark modifyied tabs with asterisk"
     </li>
   </ol>
 

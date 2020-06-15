@@ -16,8 +16,8 @@ tags:
 
 ~A desk is a table, frame, or case, usually with sloping top, but often with flat top, for the use writers and readers. It often has a drawer or repository underneath.
 
-Note on "bench&#8221; &#8211; it can also refer to something used as a table, with the similarity being that it is long. Eg. workbench.
+Note on "bench" &#8211; it can also refer to something used as a table, with the similarity being that it is long. Eg. workbench.
 
-"Bench&#8221; as a seat seems a more American usage.
+"Bench" as a seat seems a more American usage.
 
-"Table&#8221; is the basic structure: a flat surface on legs. It&#8217;s called a "desk&#8221; if it is designed or used primarily for work (eg. with drawers etc).
+"Table" is the basic structure: a flat surface on legs. It&#8217;s called a "desk" if it is designed or used primarily for work (eg. with drawers etc).

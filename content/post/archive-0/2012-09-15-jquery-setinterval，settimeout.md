@@ -38,10 +38,10 @@ categories:
   
     <em>$.extend({
  show:function(){
- alert("ready&#8221;);
+ alert("ready");
  }
  });
- setInterval("$.show()&#8221;,3000);
+ setInterval("$.show()",3000);
  });</em>
   
   
@@ -51,7 +51,7 @@ categories:
   
   
     <em>function show(){
- alert("ready&#8221;);
+ alert("ready");
  }
  setInterval(show,3000);// 注意函数名没有引号和括弧！</em>
   
@@ -93,7 +93,7 @@ categories:
   
   
   
-    setTimeout("i+=1;alert(i)&#8221;,1000);
+    setTimeout("i+=1;alert(i)",1000);
   
   
   
@@ -160,7 +160,7 @@ setTimeout(test,1000);</code>
   
   
   
-    注意&#8221;函数&#8221;的意义,是一个表达式,而不是一个语句.
+    注意"函数"的意义,是一个表达式,而不是一个语句.
   
   
   
@@ -178,7 +178,7 @@ setTimeout(test,1000);</code>
   
   
   
-    setInterval("a()&#8221;,1000)
+    setInterval("a()",1000)
   
   
   
@@ -274,7 +274,7 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
   
   
   
-    话说回来，虽然我们知道setTimeout("this.count()&#8221;,1000) 中的this指的是window对象，但还是不明白为什么会是
+    话说回来，虽然我们知道setTimeout("this.count()",1000) 中的this指的是window对象，但还是不明白为什么会是
   
   
   

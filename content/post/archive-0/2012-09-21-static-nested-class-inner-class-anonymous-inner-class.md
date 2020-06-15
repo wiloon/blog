@@ -45,7 +45,7 @@ categories:
 <span style="font-size: medium;"><span style="font-family: 'Times New Roman';">f.addMouseMotionListener(new MouseMotionAdapter(){ //</span>匿名类开始</span>
   
 <span style="font-size: medium;">　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">public void mouseDragged(MouseEvent e){
- </span>　　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">String s=&#8221;Mouse dragging: x=&#8221;+e.getX()+&#8221;Y=&#8221;+e.getY();
+ </span>　　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">String s="Mouse dragging: x="+e.getX()+"Y="+e.getY();
  </span>　　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">tf.setText(s); }
  </span>　　　　　　<span style="font-family: 'Times New Roman';">} ); //</span>匿名类结束</span>
 

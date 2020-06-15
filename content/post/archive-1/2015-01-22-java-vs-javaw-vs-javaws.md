@@ -34,11 +34,11 @@ public class HelloWorldSwing {
   
 private static void createAndShowGUI() {
   
-JFrame jFrame = new JFrame("HelloWorld Swing&#8221;);
+JFrame jFrame = new JFrame("HelloWorld Swing");
   
 jFrame.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);
   
-JLabel helloLabel = new JLabel("Hello World!&#8221;);
+JLabel helloLabel = new JLabel("Hello World!");
   
 jFrame.getContentPane().add(helloLabel);
   

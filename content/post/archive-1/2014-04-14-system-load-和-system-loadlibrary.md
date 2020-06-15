@@ -24,7 +24,7 @@ System.load 和 System.loadLibrary详解
 
 例如你可以这样载入一个windows平台下JNI库文件：
 
-System.load("C://Documents and Settings//TestJNI.dll&#8221;);。
+System.load("C://Documents and Settings//TestJNI.dll");。
 
 
 
@@ -32,7 +32,7 @@ System.load("C://Documents and Settings//TestJNI.dll&#8221;);。
 
 例如你可以这样载入一个windows平台下JNI库文件
 
-System. loadLibrary ("TestJNI&#8221;);
+System. loadLibrary ("TestJNI");
 
 
 
@@ -40,7 +40,7 @@ System. loadLibrary ("TestJNI&#8221;);
 
 可以通过如下方法来获得该变量的值：
 
-System.getProperty("java.library.path&#8221;);
+System.getProperty("java.library.path");
 
 默认情况下，在Windows平台下，该值包含如下位置：
 
@@ -60,16 +60,16 @@ System.getProperty("java.library.path&#8221;);
 
 1）如果你选择
 
-System.load("C://Documents and Settings// TestJNI.dll&#8221;);
+System.load("C://Documents and Settings// TestJNI.dll");
 
 那么即使你把dependency.dll同样放在C://Documents and Settings//下，load还是会因为找不到依赖的dll而失败。因为jvm在载入TestJNI.dll会先去载入TestJNI.dll所依赖的库文件dependency.dll，而dependency.dll并不位于java.library.path所指定的目录下，所以jvm找不到dependency.dll。
 
 你有两个方法解决这个问题：一是把C://Documents and Settings//加入到java.library.path的路径中，例如加入到系统的path中。二是先调用
 
-System.load("C://Documents and Settings// dependency.dll&#8221;); 让jvm先载入dependency.dll，然后再调用System.load("C://Documents and Settings// TestJNI.dll&#8221;);
+System.load("C://Documents and Settings// dependency.dll"); 让jvm先载入dependency.dll，然后再调用System.load("C://Documents and Settings// TestJNI.dll");
 
 2）如果你选择
 
-System. loadLibrary ("TestJNI&#8221;);
+System. loadLibrary ("TestJNI");
 
 那么你只要把dependency.dll放在任何java.library.path包含的路径中即可，当然也包括和TestJNI.dll相同的目录。

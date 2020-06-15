@@ -11,11 +11,11 @@ categories:
 ### 
 
 <div id="article_content">
-   1.网页说明编码格式 <meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html;charset=gb2312"> 
+   1.网页说明编码格式 <meta http-equiv="Content-Type" content="text/html;charset=gb2312"> 
   
   <p dir="ltr">
      2.设置WebView编码
-      httpview.getSettings().setDefaultTextEncodingName("gbk&#8221;);
+      httpview.getSettings().setDefaultTextEncodingName("gbk");
  注意为gb2312或gbk
   
   

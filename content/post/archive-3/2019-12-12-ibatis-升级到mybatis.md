@@ -225,7 +225,7 @@ public interface DataDao {
       
 void insertBackupLog(BackupLog log);
       
-int deleteBackupLog(@Param("bookId&#8221;) long bookId, @Param("id&#8221;) long id);
+int deleteBackupLog(@Param("bookId") long bookId, @Param("id") long id);
       
 void insertRestoreLog(RestoreLog log);
       
@@ -353,7 +353,7 @@ where FID = #id:INTEGER#
 
 <update id="resetSyncLabel" parameterClass="java.util.Map">
     
-update t\_sync\_label set FLabel = "&#8221;, FTimestamp = 0 ,fmirror = null
+update t\_sync\_label set FLabel = "", FTimestamp = 0 ,fmirror = null
     
 <dynamic prepend="WHERE">
      
@@ -671,7 +671,7 @@ where FID = #{id,jdbcType=INTEGER}
    
 <update id="resetSyncLabel" parameterType="java.util.Map">
     
-update t\_sync\_label set FLabel = "&#8221;, FTimestamp = 0 ,fmirror = null
+update t\_sync\_label set FLabel = "", FTimestamp = 0 ,fmirror = null
     
 <where>
      

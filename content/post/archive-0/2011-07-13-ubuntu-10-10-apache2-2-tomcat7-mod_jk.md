@@ -78,7 +78,7 @@ JkMountCopy All
   
 &#8212;
   
-Note: replace "xxx&#8221; with your app name/path in tomcat
+Note: replace "xxx" with your app name/path in tomcat
 
 3. create workers file
 

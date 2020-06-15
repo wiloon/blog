@@ -50,7 +50,7 @@ https://www.online-toolz.com/tools/text-unicode-entities-convertor.php
 
 利用ALT+X组合键可以在字符和UNICODE 之间切换，例如输入字符“李”，按ALT+X组合键，就会出现674E ，即李的UNICODE编码；或者输入 十六进制的674E,然后按下ALT+X组合键也可以出现“李”。
 
-利用这个同样可以查询ASCII编码。输入字符“a&#8221;,按下ALT+X出现”0061“，后面两位十六进制61就是a的ASCII编码；或者输入61（或者0061），按下ALT+X也可以出现a。
+利用这个同样可以查询ASCII编码。输入字符“a",按下ALT+X出现”0061“，后面两位十六进制61就是a的ASCII编码；或者输入61（或者0061），按下ALT+X也可以出现a。
   
 ————————————————
   

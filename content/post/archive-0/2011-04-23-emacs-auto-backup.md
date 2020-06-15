@@ -10,7 +10,7 @@ categories:
   - Emacs
 
 ---
-(setq backup-directory-alist &#8216;(("&#8221; . "~/backup/emacs/backup&#8221;)))
+(setq backup-directory-alist &#8216;(("" . "~/backup/emacs/backup")))
   
 (setq-default make-backup-file t)
   

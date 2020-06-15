@@ -12,7 +12,7 @@ tags:
 ---
 Java Decompiler
 
-"Java Decompiler&#8221;, 由 Pavel Kouznetsov开发，目前最新版本为0.2.5. 它由 C++开发，并且官方可以下载windows、linux和苹果Mac Os三个平台的可执行程序。
+"Java Decompiler", 由 Pavel Kouznetsov开发，目前最新版本为0.2.5. 它由 C++开发，并且官方可以下载windows、linux和苹果Mac Os三个平台的可执行程序。
 
 http://jd.benow.ca/
 

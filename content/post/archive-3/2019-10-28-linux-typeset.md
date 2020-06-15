@@ -46,15 +46,15 @@ defg
 
 6:typeset的-Z选项把串变成一个空填充,占15个字符位的串,冒号用来保护空白符
   
-/home/lee#typeset -Z15 var=&#8221;abc ddd&#8221;
+/home/lee#typeset -Z15 var="abc ddd"
   
-/home/lee#echo "$var&#8221;
+/home/lee#echo "$var"
   
 ^^^^^^^^abc ddd #^为空白
   
-/home/lee#typeset -LZ15 var=&#8221;abc 123"
+/home/lee#typeset -LZ15 var="abc 123"
   
-/home/lee#echo "$var$var&#8221;
+/home/lee#echo "$var$var"
   
 abc 123 abc 123
 

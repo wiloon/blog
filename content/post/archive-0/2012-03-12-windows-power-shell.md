@@ -82,7 +82,7 @@ Windows PowerShell 将交互式环境和脚本环境组合在一起，从而允�
   
 使用Set-Location和Get-ChildItem浏览数据 Set-Location用于改变当前目录，以及选择当前的provider，而Get-ChildItem用于获取当前目录或者指定目录下的子对象： 例子： set-location hkcu:software get-childitem 例子2： GCI -path HKLM:software
   
-有两种连接WMI服务的方法：l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，“WbemScripting.SWbemLocator”，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数：用户名，密码，语言代码，验证方法（Kerberos, NTLM等），标志（超时值）。下例中，我们使用New-Object命令，创建了一个“WbemScripting.SWbemLocator”的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间（rootcimv2），ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf（）方法，返回了一系列WMI的CLASS： $strComputer = ".&#8221; $wmiNS = "rootcimv2" $strUsr =&#8221;&#8221; #Blank for current security. DomainUsername $strPWD = "&#8221; #Blank for current security. $strLocl = "MS\_409&#8221; #US English. Can leave blank for current language $strAuth = "&#8221; #if specify domain in strUsr this must be blank $iFlag = "0&#8221; #only two values allowed: 0 and 128. $objLocator = New-Object -comobject "WbemScripting.SWbemLocator&#8221; $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host "There are: &#8221; $colItems.count &#8221; classes in $wmiNS&#8221; foreach ($objItem In $colItems) { $objItem.path\_.class }　新脚本语言　由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言：
+有两种连接WMI服务的方法：l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，“WbemScripting.SWbemLocator”，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数：用户名，密码，语言代码，验证方法（Kerberos, NTLM等），标志（超时值）。下例中，我们使用New-Object命令，创建了一个“WbemScripting.SWbemLocator”的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间（rootcimv2），ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf（）方法，返回了一系列WMI的CLASS： $strComputer = "." $wmiNS = "rootcimv2" $strUsr ="" #Blank for current security. DomainUsername $strPWD = "" #Blank for current security. $strLocl = "MS\_409" #US English. Can leave blank for current language $strAuth = "" #if specify domain in strUsr this must be blank $iFlag = "0" #only two values allowed: 0 and 128. $objLocator = New-Object -comobject "WbemScripting.SWbemLocator" $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host "There are: " $colItems.count " classes in $wmiNS" foreach ($objItem In $colItems) { $objItem.path\_.class }　新脚本语言　由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言：
   
 Windows PowerShell 需要用于管理.NET 对象的语言。该语言需要为使用cmdlet 提供一致的环境。该语言需要支持复杂的任务，而不会使简单的任务变得更复杂。 · 该语言需要与在.NET 编程中使用的高级语言（如C#）一致
   
@@ -132,7 +132,7 @@ $a = Get-Process 在这里，变量被命名为$a，如果你想使用这个变�
   
 $a = (Get-Process | Sort-Object ID) 6、@符号
   
-通过使用@符号，你可以将列表内容转换成一个数组，例如，下面的代码创建了一个名为$Procs的变量，它包含多行文本内容（一个数组）：$procs = @{name=&#8221;explorer&#8221;,&#8221;svchost&#8221;}
+通过使用@符号，你可以将列表内容转换成一个数组，例如，下面的代码创建了一个名为$Procs的变量，它包含多行文本内容（一个数组）：$procs = @{name="explorer","svchost"}
   
 使用变量时你也可以使用@符号，为了确保它作为数组而不是单个值处理，例如，下面的代码将在我前面定义的变量上运行Get-Process cmdlet命令：
   
@@ -142,13 +142,13 @@ Get-Process @procs Windows将显示Windows资源管理器和Svchost使用的所�
   
 Split操作符根据你指定的字符拆分一个文本字符串，例如，假设你想将一个句子拆分成一个单词组成的一个数组，你可以使用下面的命令做到：
   
-"This is a test&#8221; -split &#8221; &#8221; 拆分后的结果如下：
+"This is a test" -split " " 拆分后的结果如下：
   
 This is a test 8、Join
   
 就像Split可以将一个文本字符串拆分成多块一样，Join的操作则是逆向的，将多个独立的块连接成一个整体，例如，下面这行代码将会创建一个文本字符串，由我的名字和姓氏组成：
   
-"Brien&#8221;,&#8221;Posey&#8221; -join &#8221; &#8221; 命令末尾双引号之间的空格告诉Windows在两个文本字符串之间插入一个空格。
+"Brien","Posey" -join " " 命令末尾双引号之间的空格告诉Windows在两个文本字符串之间插入一个空格。
   
 9、断点
   

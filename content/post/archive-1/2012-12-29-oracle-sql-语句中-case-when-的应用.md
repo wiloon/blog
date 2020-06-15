@@ -16,7 +16,7 @@ http://blog.csdn.net/zm1313/article/details/875700
 
 // 如果column\_4 = &#8216;ST\_CLERK&#8217; 那么 输出 1.15 * column_4
 
-// 否则 输出 column\_3 使用别名 "REVISED\_SALARY&#8221;
+// 否则 输出 column\_3 使用别名 "REVISED\_SALARY"
 
 SELECT column\_1,column\_2,column_3
 
@@ -28,7 +28,7 @@ WHEN &#8216;ST\_CLERK&#8217; THEN 1.15*column\_3
 
 WHEN &#8216;SA\_REP&#8217; THEN 1.20*column\_3
 
-ELSE column\_3 END "REVISED\_SALARY&#8221;
+ELSE column\_3 END "REVISED\_SALARY"
 
 FROM table_name;
 

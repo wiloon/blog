@@ -17,8 +17,8 @@ categories:
 XML standalone 定义了外部定义的 DTD 文件的存在性. standalone element 有效值是 yes 和 no. 如下是一个例子:
 
 
-  <?xml version=&#8221;1.0" encoding=&#8221;UTF-8" standalone=&#8221;no&#8221;?>
- <!DOCTYPE s1 PUBLIC "http://www.ibm.com/example.dtd&#8221; "example.dtd&#8221;>
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ <!DOCTYPE s1 PUBLIC "http://www.ibm.com/example.dtd" "example.dtd">
  <s1>&#8230;&#8230;&#8230;</s1>
 
 

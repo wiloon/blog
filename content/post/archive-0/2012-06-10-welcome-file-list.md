@@ -55,7 +55,7 @@ tags:
   
   
   
-    <?xml version=&#8221;1.0" encoding=&#8221;ISO-8859-1"?>
+    <?xml version="1.0" encoding="ISO-8859-1"?>
   
   
   
@@ -69,14 +69,14 @@ tags:
   
   
   
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&#8221;
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
   
   
   
   
   
   
-    "http://java.sun.com/dtd/web-app_2_3.dtd&#8221;>
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
   
   
   

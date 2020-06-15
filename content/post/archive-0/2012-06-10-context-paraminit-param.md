@@ -31,7 +31,7 @@ web.xml的配置中<context-param>配置作用
 
 
   5.在监听中会有contextInitialized(ServletContextEvent args)初始化方法,在这个方法中获得ServletContext = ServletContextEvent.getServletContext();
- context-param的值 = ServletContext.getInitParameter("context-param的键&#8221;);
+ context-param的值 = ServletContext.getInitParameter("context-param的键");
 
 
 
@@ -137,9 +137,9 @@ System.out.println(getServletContext().getInitParameter("context/param"));
 
 [/java]
 
-第一种参数在servlet里面可以通过getServletContext().getInitParameter("context/param&#8221;)得到
+第一种参数在servlet里面可以通过getServletContext().getInitParameter("context/param")得到
 
-第二种参数只能在servlet的init()方法中通过this.getInitParameter("param1&#8221;)取得
+第二种参数只能在servlet的init()方法中通过this.getInitParameter("param1")取得
 
 理解能力有些问题，才弄明白他们之间的关系。
 

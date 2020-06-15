@@ -22,4 +22,4 @@ copy files to %HOME% path
 
 
 
-config java hoem in .bashrc, e.g.  export JAVA\_HOME=&#8221;/cygdrive/d/program files/java/jdk1.6.0\_35"
+config java hoem in .bashrc, e.g.  export JAVA\_HOME="/cygdrive/d/program files/java/jdk1.6.0\_35"

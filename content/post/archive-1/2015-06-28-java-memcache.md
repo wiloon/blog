@@ -208,7 +208,7 @@ Java代码
   
 static {
   
-String[] serverlist = { "server1.com:port&#8221;, "server2.com:port&#8221; };
+String[] serverlist = { "server1.com:port", "server2.com:port" };
 
 SockIOPool pool = SockIOPool.getInstance();
   
@@ -230,7 +230,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = "cacheKey1&#8221;;
+String key = "cacheKey1";
   
 Object value = SomeClass.getObject();
   
@@ -242,7 +242,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = "cacheKey1&#8221;;
+String key = "cacheKey1";
   
 mc.delete(key);
 
@@ -252,7 +252,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = "key&#8221;;
+String key = "key";
   
 Object value = mc.get(key);
 
@@ -262,7 +262,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String[] keys = { "key&#8221;, "key1&#8221;, "key2&#8221; };
+String[] keys = { "key", "key1", "key2" };
   
 Map<Object> values = mc.getMulti(keys);
 
@@ -732,7 +732,7 @@ public static void main(String[] args) {
 
 \* \*/
 
-String[] servers = { "10.11.15.222:10000&#8221; };
+String[] servers = { "10.11.15.222:10000" };
 
 SockIOPool pool = SockIOPool.getInstance();
 
@@ -774,7 +774,7 @@ for (int i = 0; i < 1000; i++) {
 
 \* \*/
 
-boolean success = memCachedClient.set("&#8221; + i, "Hello!&#8221;);
+boolean success = memCachedClient.set("" + i, "Hello!");
 
 /**
 
@@ -782,11 +782,11 @@ boolean success = memCachedClient.set("&#8221; + i, "Hello!&#8221;);
 
 \* \*/
 
-String result = (String) memCachedClient.get("&#8221; + i);
+String result = (String) memCachedClient.get("" + i);
 
-System.out.println(String.format("set( %d ): %s&#8221;, i, success));
+System.out.println(String.format("set( %d ): %s", i, success));
 
-System.out.println(String.format("get( %d ): %s&#8221;, i, result));
+System.out.println(String.format("get( %d ): %s", i, result));
 
 }
 
@@ -824,13 +824,13 @@ try {
 
 /\* 建立MemcachedClient 实例，并指定memcached服务的IP地址和端口号 \*/
 
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222&#8221;, 10000));
+MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
 
 Future<Boolean> b = null;
 
 /\* 将key值，过期时间(秒)和要缓存的对象set到memcached中 \*/
 
-b = mc.set("neea:testDaF:ksIdno&#8221;, 900, "someObject&#8221;);
+b = mc.set("neea:testDaF:ksIdno", 900, "someObject");
 
 if (b.get().booleanValue() == true) {
 
@@ -850,11 +850,11 @@ try {
 
 /\* 建立MemcachedClient 实例，并指定memcached服务的IP地址和端口号 \*/
 
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222&#8221;, 10000));
+MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
 
 /\* 按照key值从memcached中查找缓存，不存在则返回null \*/
 
-Object b = mc.get("neea:testDaF:ksIdno&#8221;);
+Object b = mc.get("neea:testDaF:ksIdno");
 
 System.out.println(b.toString());
 
@@ -904,7 +904,7 @@ public static void main(String[] args) {
 
 MemcachedClientBuilder builder = new XMemcachedClientBuilder(AddrUtil
 
-.getAddresses("10.11.15.222:10000&#8221;));
+.getAddresses("10.11.15.222:10000"));
 
 MemcachedClient memcachedClient;
 
@@ -914,17 +914,17 @@ memcachedClient = builder.build();
 
 
 
-memcachedClient.set("hello&#8221;, 0, "Hello,xmemcached&#8221;);
+memcachedClient.set("hello", 0, "Hello,xmemcached");
 
-String value = memcachedClient.get("hello&#8221;);
+String value = memcachedClient.get("hello");
 
-System.out.println("hello=&#8221; + value);
+System.out.println("hello=" + value);
 
-memcachedClient.delete("hello&#8221;);
+memcachedClient.delete("hello");
 
-value = memcachedClient.get("hello&#8221;);
+value = memcachedClient.get("hello");
 
-System.out.println("hello=&#8221; + value);
+System.out.println("hello=" + value);
 
 // close memcached client
 
@@ -932,13 +932,13 @@ memcachedClient.shutdown();
 
 } catch (MemcachedException e) {
 
-System.err.println("MemcachedClient operation fail&#8221;);
+System.err.println("MemcachedClient operation fail");
 
 e.printStackTrace();
 
 } catch (TimeoutException e) {
 
-System.err.println("MemcachedClient operation timeout&#8221;);
+System.err.println("MemcachedClient operation timeout");
 
 e.printStackTrace();
 
@@ -948,7 +948,7 @@ e.printStackTrace();
 
 }catch (IOException e) {
 
-System.err.println("Shutdown MemcachedClient fail&#8221;);
+System.err.println("Shutdown MemcachedClient fail");
 
 e.printStackTrace();
 
@@ -1138,9 +1138,9 @@ Memcache的默认启动时的参数可能不满足实际生产环境的需要，
 
 打开注册表，找到：HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\memcached Server
 
-其中的ImagePath项的值为： c:\memcached\memcached.exe&#8221; -d runservice
+其中的ImagePath项的值为： c:\memcached\memcached.exe" -d runservice
 
-改成：c:\memcached\memcached.exe&#8221; -p 12345 -m 128 -d runservice
+改成：c:\memcached\memcached.exe" -p 12345 -m 128 -d runservice
 
 其中，-p就是端口，-m就是缓存大小，以M为单位。
 
@@ -1224,23 +1224,23 @@ view plain   copy
 
 RETVAL=0
 
-prog=&#8221;memcached&#8221;
+prog="memcached"
   
 basedir=/etc/memcached
   
 cmd=${basedir}/bin/memcached
   
-pidfile=&#8221;$basedir/${prog}.pid&#8221;
+pidfile="$basedir/${prog}.pid"
   
-#logfile=&#8221;$basedir/memcached_log.txt&#8221;
+#logfile="$basedir/memcached_log.txt"
 
 # 设置memcached启动参数
   
-ipaddr=&#8221;192.168.1.201"    # 绑定侦听的IP地址
+ipaddr="192.168.1.201"    # 绑定侦听的IP地址
   
-port=&#8221;11211"                    # 服务端口
+port="11211"                    # 服务端口
   
-username=&#8221;root&#8221;                 # 运行程序的用户身份
+username="root"                 # 运行程序的用户身份
   
 max_memory=64                   # default: 64M | 最大使用内存
   
@@ -1252,13 +1252,13 @@ max\_simul\_conn=1024             # default: 1024 | 最大同�
   
 #thread_num=6                   # default: 4
   
-#verbose=&#8221;-vv&#8221;                  # 查看详细启动信息
+#verbose="-vv"                  # 查看详细启动信息
   
 #bind_protocol=binary           # ascii, binary, or auto (default)
 
 start() {
   
-echo -n $&#8221;Starting service: $prog&#8221;
+echo -n $"Starting service: $prog"
   
 $cmd -d -m $max\_memory -u $username -l $ipaddr -p $port -c $max\_simul_conn -P $pidfile
   
@@ -1272,7 +1272,7 @@ echo
 
 stop() {
   
-echo -n $&#8221;Stopping service: $prog  &#8221;
+echo -n $"Stopping service: $prog  "
   
 run_user=\`whoami\`
   
@@ -1282,7 +1282,7 @@ for pid in $pidlist
   
 do
   
-#           echo "pid=$pid&#8221;
+#           echo "pid=$pid"
   
 kill -9 $pid
   
@@ -1304,7 +1304,7 @@ echo
 
 # See how we were called.
   
-case "$1&#8221; in
+case "$1" in
   
 start)
   
@@ -1352,7 +1352,7 @@ status memcached
   
 *)
   
-echo "Usage: $0 {start|stop|restart|status}&#8221;
+echo "Usage: $0 {start|stop|restart|status}"
   
 exit 1
   

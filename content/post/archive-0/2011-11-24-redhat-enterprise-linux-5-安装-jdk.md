@@ -41,13 +41,13 @@ tags:
 
 找到export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE INPUTRC，在该语句的**上面**添加以下语句：
 
-set  JAVA\_HOME=&#8221;/usr/java/jdk1.5.0\_17"
+set  JAVA\_HOME="/usr/java/jdk1.5.0\_17"
 
 export   JAVA_HOME
 
 [注意：“=”两侧不能有空格]
 
-export  CLASSPATH=&#8221;/usr/java/jdk1.5.0\_17/lib:/usr/java/jdk1.5.0\_17/jre/lib&#8221;
+export  CLASSPATH="/usr/java/jdk1.5.0\_17/lib:/usr/java/jdk1.5.0\_17/jre/lib"
 
 [注意：“=”两侧不能有空格；“:”是冒号，同样不要有空格出现]
 

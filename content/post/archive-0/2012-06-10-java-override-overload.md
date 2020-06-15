@@ -184,7 +184,7 @@ public void introduce(){
 
 
 
-System.out.println("我是动物！&#8221;);
+System.out.println("我是动物！");
 
 }
 
@@ -206,7 +206,7 @@ public class Cat extends Animal {
 
 public void introduce(){
 
-System.out.println("我是一只猫！&#8221;);
+System.out.println("我是一只猫！");
 
 }
 
@@ -216,7 +216,7 @@ System.out.println("我是一只猫！&#8221;);
 
 public void introduce(String name){
 
-System.out.println("我是一只猫, 我的名字叫：&#8221; + name);
+System.out.println("我是一只猫, 我的名字叫：" + name);
 
 }
 
@@ -238,7 +238,7 @@ public class Dog extends Animal {
 
 public void introduce(){
 
-System.out.println("我是一只狗！&#8221;);
+System.out.println("我是一只狗！");
 
 }
 
@@ -248,7 +248,7 @@ System.out.println("我是一只狗！&#8221;);
 
 public void introduce(String name){
 
-System.out.println("我是一只狗, 我的名字叫：&#8221; + name);
+System.out.println("我是一只狗, 我的名字叫：" + name);
 
 }
 
@@ -294,7 +294,7 @@ Cat cat = new Cat();
 
 cat.introduce();
 
-cat.introduce("JACK&#8221;);
+cat.introduce("JACK");
 
 }
 

@@ -11,7 +11,7 @@ tags:
 
 ---
   * 参数处理（明确指定参数 匹配 自动转换类型） 
-    >>普通属性和对象及属性：@RequestParam("id&#8221;)注解，所以它将和id的URL参数绑定</li> 
+    >>普通属性和对象及属性：@RequestParam("id")注解，所以它将和id的URL参数绑定</li> 
     
       * 
       * **@RequestBody** 将HTTP请求正文转换为适合的HttpMessageConverter对象。
@@ -29,7 +29,7 @@ tags:
       
       <ol class="dp-j" style="color: #2b91af;" start="1">
         <li>
-          <span style="color: black;"><span class="annotation" style="color: #646464;">@RequestMapping</span>(value = <span class="string" style="color: blue;">"form/{id}/apply&#8221;</span>, method = {RequestMethod.PUT, RequestMethod.POST})  </span>
+          <span style="color: black;"><span class="annotation" style="color: #646464;">@RequestMapping</span>(value = <span class="string" style="color: blue;">"form/{id}/apply"</span>, method = {RequestMethod.PUT, RequestMethod.POST})  </span>
         </li>
       </ol>
     
@@ -67,7 +67,7 @@ tags:
           <span style="color: black;"><span style="color: #646464;">@Controller</span> <wbr /> <wbr /></span>
         </li>
         <li>
-          <span style="color: black;"><span style="color: #646464;">@RequestMapping</span>(<span style="color: blue;">"/owners/{ownerId}&#8221;</span>) <wbr /> <wbr /></span>
+          <span style="color: black;"><span style="color: #646464;">@RequestMapping</span>(<span style="color: blue;">"/owners/{ownerId}"</span>) <wbr /> <wbr /></span>
         </li>
         <li style="color: inherit;">
           <span style="color: black;"><span style="font-weight: bold; color: #006699;">public</span> <wbr /><span style="font-weight: bold; color: #006699;">class</span> <wbr />RelativePathUriTemplateC<wbr />ontroller <wbr />{ <wbr /> <wbr /></span>
@@ -76,7 +76,7 @@ tags:
           <span style="color: black;"> <wbr /> <wbr /></span>
         </li>
         <li style="color: inherit;">
-          <span style="color: black;"> <wbr /> <wbr /><span style="color: #646464;">@RequestMapping</span>(<span style="color: blue;">"/pets/{petId}&#8221;</span>) <wbr /> <wbr /></span>
+          <span style="color: black;"> <wbr /> <wbr /><span style="color: #646464;">@RequestMapping</span>(<span style="color: blue;">"/pets/{petId}"</span>) <wbr /> <wbr /></span>
         </li>
         <li>
           <span style="color: black;"> <wbr /> <wbr /><span style="font-weight: bold; color: #006699;">public</span> <wbr /><span style="font-weight: bold; color: #006699;">void</span> <wbr />findPet(<span style="color: #646464;">@PathVariable</span> <wbr />String <wbr />ownerId, <wbr /><span style="color: #646464;">@PathVariable</span> <wbr />String <wbr />petId, <wbr />Model <wbr />model) <wbr />{ <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /></span>
@@ -93,7 +93,7 @@ tags:
       </ol>
     
     
-    上面代码把URI template 中变量 ownerId的值和petId的值，绑定到方法的参数上。若方法参数名称和需要绑定的uri template中变量名称不一致，需要在@PathVariable("name&#8221;)指定uri template中的名称。
+    上面代码把URI template 中变量 ownerId的值和petId的值，绑定到方法的参数上。若方法参数名称和需要绑定的uri template中变量名称不一致，需要在@PathVariable("name")指定uri template中的名称。
     
     http://blog.csdn.net/zshake/article/details/9716849
     

@@ -44,7 +44,7 @@ ENV <key1>=<value1> <key2>=<value2>&#8230;
 
 ENV VERSION=1.0 DEBUG=on \
       
-NAME=&#8221;Happy Feet&#8221;
+NAME="Happy Feet"
 
 FROM 指定基础镜像
   

@@ -62,7 +62,7 @@ yema Bhanv edu network //传递参数所组成的字符串
   
 4 //参数个数
 
-if [ $1 == &#8221; ]; then
+if [ $1 == " ]; then
   
 echo -e &#8216;E[31;40mNo Parameter?&#8217;; tput sgr0
   
@@ -70,4 +70,4 @@ exit
   
 fi
 
-##判断相等&#8221;==&#8221; , 两侧一定要有空格 T_T, 否则会报&#8221;unary operator expected "
+##判断相等"==" , 两侧一定要有空格 T_T, 否则会报"unary operator expected "

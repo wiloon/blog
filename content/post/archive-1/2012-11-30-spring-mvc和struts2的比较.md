@@ -237,23 +237,23 @@ Jsp当然是入门，如果这个都不懂，谈学习成本也毫无意义，�
         
         
         
-          @RequestMapping(value=&#8221;/whitelists&#8221;)
+          @RequestMapping(value="/whitelists")
  public String index(ModelMap map) {
  Account account = accountManager.getByDigitId(SecurityContextHolder.get().getDigitId());
  List<Group> groupList = groupManager.findAllGroup(account.getId());
- map.put("account&#8221;, account);
- map.put("groupList&#8221;, groupList);
- return "/group/group-index&#8221;;
+ map.put("account", account);
+ map.put("groupList", groupList);
+ return "/group/group-index";
  }
         
         
         
           // @ResponseBody ajax响应，处理Ajax请求也很方便
- @RequestMapping(value=&#8221;/whitelist/{whiteListId}/del&#8221;)
+ @RequestMapping(value="/whitelist/{whiteListId}/del")
  @ResponseBody
  public String delete(@PathVariable Integer whiteListId) {
  whiteListManager.deleteWhiteList(whiteListId);
- return "success&#8221;;
+ return "success";
  }
         
 

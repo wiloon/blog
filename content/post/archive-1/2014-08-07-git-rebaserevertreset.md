@@ -26,7 +26,7 @@ git revert 5962845b0059f9e7702b73066e6a35aea1efaa49
 
 git log
   
-Revert "Change version to 0.2&#8221;
+Revert "Change version to 0.2"
   
 This reverts commit 5962845b0059f9e7702b73066e6a35aea1efaa49.
 

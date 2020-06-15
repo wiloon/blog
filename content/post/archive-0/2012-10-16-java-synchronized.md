@@ -168,7 +168,7 @@ public class LoggingWidget extends Widget {
       
 public synchronized void doSomething() {
           
-System.out.println(toString() + ": calling doSomething&#8221;);
+System.out.println(toString() + ": calling doSomething");
           
 super.doSomething();//若内置锁是不可重入的，则发生死锁
       
@@ -186,7 +186,7 @@ http://stackoverflow.com/questions/5787957/reentrant-synchronization-behavior-wi
 
 1、LoggingWidget 的对象调用doSomething方法时，锁对象为LoggingWidget对象 super.doSomething()调用是锁对象是LoggingWidget对象运行程序，查看thread dump发现：调用super.doSomething()时锁对象依然是LoggingWidget对象。
 
-"线程#1&#8221; prio=6 tid=0x0bd60400 nid=0x16f8 waiting on condition [0x0bf8f000..0x0bf8fd68]
+"线程#1" prio=6 tid=0x0bd60400 nid=0x16f8 waiting on condition [0x0bf8f000..0x0bf8fd68]
   
 java.lang.Thread.State: TIMED_WAITING (sleeping)
   
@@ -254,9 +254,9 @@ ReentrantLock在内存上的语义于synchronize相同, 但是它提供了额外
 
 Map syncMap = Collections.synchronizedMap(new HashMap());
   
-if(!map.containsKey("a&#8221;)){
+if(!map.containsKey("a")){
       
-map.put("a&#8221;,value);
+map.put("a",value);
   
 }
   
@@ -302,7 +302,7 @@ Java所有变量都存储在主内存中
   
 可见性：一个线程对共享变量的修改，更够及时的被其他线程看到
   
-原子性：即不可再分了，不能分为多步操作。比如赋值或者return。比如&#8221;a = 1;&#8221;和 "return a;&#8221;这样的操作都具有原子性。类似&#8221;a += b&#8221;这样的操作不具有原子性，在某些JVM中&#8221;a += b&#8221;可能要经过这样三个步骤：
+原子性：即不可再分了，不能分为多步操作。比如赋值或者return。比如"a = 1;"和 "return a;"这样的操作都具有原子性。类似"a += b"这样的操作不具有原子性，在某些JVM中"a += b"可能要经过这样三个步骤：
   
 ①　取出a和b
   

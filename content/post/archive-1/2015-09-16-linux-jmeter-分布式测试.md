@@ -20,7 +20,7 @@ http://www.51testing.com/html/55/383255-847895.html
   
 首先在bin目录下 启动B C 服务器 jmeter的jmeter-server服务器,如果启动报错请根据报错内容检查对应的环境配置,我这边报错的原因是hosts没有指定地址,
   
-jmeter-server正常启动会提示&#8221;创建远程服务&#8221;
+jmeter-server正常启动会提示"创建远程服务"
   
 接下来是准备测试脚本,可以在windows环境下先创建jmx文件,主意最好不要添加监听器,应为命令行启动的话监听器可能会占用资源而且有没有任何视图效果.
   
@@ -48,21 +48,21 @@ jmeter-server正常启动会提示&#8221;创建远程服务&#8221;
 
 </elementProp>
   
-<stringProp name=&#8221;ThreadGroup.num_threads&#8221;>5</stringProp>
+<stringProp name="ThreadGroup.num_threads">5</stringProp>
   
-<stringProp name=&#8221;ThreadGroup.ramp_time&#8221;>5</stringProp>
+<stringProp name="ThreadGroup.ramp_time">5</stringProp>
   
-<longProp name=&#8221;ThreadGroup.start_time&#8221;>1281132211000</longProp>
+<longProp name="ThreadGroup.start_time">1281132211000</longProp>
   
-<longProp name=&#8221;ThreadGroup.end_time&#8221;>1281132211000</longProp>
+<longProp name="ThreadGroup.end_time">1281132211000</longProp>
   
-<boolProp name=&#8221;ThreadGroup.scheduler&#8221;>true</boolProp>
+<boolProp name="ThreadGroup.scheduler">true</boolProp>
   
-<stringProp name=&#8221;ThreadGroup.on\_sample\_error&#8221;>continue</stringProp>
+<stringProp name="ThreadGroup.on\_sample\_error">continue</stringProp>
   
-<stringProp name=&#8221;ThreadGroup.duration&#8221;>60</stringProp>
+<stringProp name="ThreadGroup.duration">60</stringProp>
   
-<stringProp name=&#8221;ThreadGroup.delay&#8221;>5</stringProp>
+<stringProp name="ThreadGroup.delay">5</stringProp>
   
 </ThreadGroup>
 

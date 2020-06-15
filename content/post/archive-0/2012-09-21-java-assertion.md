@@ -38,8 +38,8 @@ assertion(断言)在软件开发中是一种常用的调试方式，很多开发
 下面是一些Assert的例子。
 
   1. assert　　0 < value;
-  2. assert　　0 < value:&#8221;value=&#8221;+value;
-  3. assert　　ref != null:&#8221;ref doesn&#8217;t equal null&#8221;;
+  2. assert　　0 < value:"value="+value;
+  3. assert　　ref != null:"ref doesn&#8217;t equal null";
   4. assert　　isBalanced();
 
 <a name="N1009B"></a>1．4) 编译

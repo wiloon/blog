@@ -26,9 +26,9 @@ forward 发生在服务器内部, 在浏览器完全不知情的情况下发给�
 
 请求转发时如果要传递参数可以这样用：
 
-request.setAttribute("name&#8221;,&#8221;Michael&#8221;);
+request.setAttribute("name","Michael");
 
-request.getAttribute("name&#8221;);
+request.getAttribute("name");
 
 2.sendRedirect(url)重定向到指定URL，会新建request对象。
 

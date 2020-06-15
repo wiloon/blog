@@ -20,7 +20,7 @@ androidjavaactivityonSaveInstanceStateBundle
 
 Java代码
   
-<span style=&#8221;font-size: small;&#8221;>public class MainActivity extends Activity {
+<span style="font-size: small;">public class MainActivity extends Activity {
   
 public static final int SECOND_ACTIVITY = 0;
   
@@ -36,9 +36,9 @@ super.onCreate(savedInstanceState);
   
 if (savedInstanceState != null) {
   
-temp = savedInstanceState.getString("temp&#8221;);
+temp = savedInstanceState.getString("temp");
   
-System.out.println("onCreate: temp = &#8221; + temp);
+System.out.println("onCreate: temp = " + temp);
   
 }
   
@@ -48,9 +48,9 @@ public void onResume() {
   
 super.onResume();
   
-temp = "xing&#8221;;
+temp = "xing";
   
-System.out.println("onResume: temp = &#8221; + temp);
+System.out.println("onResume: temp = " + temp);
   
 // 切换屏幕方向会导致activity的摧毁和重建
   
@@ -58,7 +58,7 @@ if (getRequestedOrientation() == ActivityInfo.SCREEN\_ORIENTATION\_UNSPECIFIE
   
 setRequestedOrientation(ActivityInfo.SCREEN\_ORIENTATION\_LANDSCAPE);
   
-System.out.println("屏幕切换&#8221;);
+System.out.println("屏幕切换");
   
 }
   
@@ -72,7 +72,7 @@ protected void onSaveInstanceState(Bundle outState) {
   
 super.onSaveInstanceState(outState);
   
-outState.putString("temp&#8221;, temp);
+outState.putString("temp", temp);
   
 }
   

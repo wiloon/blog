@@ -32,7 +32,7 @@ bin/mysqldump –p Meet\_A\_Geek Orders >MeetAGeek_Orders.txt
 
 这个非常的灵活，您甚至可以使用WHERE从句来选择您需要的记录导出到文件中。要达到这样的目的，可以使用类似于下面的命令：
 
-bin/mysqldump –p –where=&#8221;Order\_ID > 2000" Meet\_A\_Geek Orders > Special\_Dump.txt
+bin/mysqldump –p –where="Order\_ID > 2000" Meet\_A\_Geek Orders > Special\_Dump.txt
 
 mysqldump工具有大量的选项，部分选项如下表：
 
@@ -74,13 +74,13 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 -T path or -tab = path 这个选项将会创建两个文件，一个文件包含DDL语句或者表创建语句，另一个文件包含数据。DDL文件被命名为table\_name.sql,数据文件被命名为table\_name.txt.路径名是存放这两个文件的目录。目录必须已经存在，并且命令的使用者有对文件的特权。
 
--w "WHERE Clause&#8221; or -where = "Where clause &#8221;
+-w "WHERE Clause" or -where = "Where clause "
 
 如前面所讲的，您可以使用这一选项来过筛选将要放到 导出文件的数据。
 
 假定您需要为一个表单中要用到的帐号建立一个文件，经理要看今年（2004年）所有的订单（Orders），它们并不对DDL感兴趣，并且需要文件有逗号分隔，因为这样就很容易导入到Excel中。 为了完成这个人物，您可以使用下面的句子：
 
-bin/mysqldump –p –where "Order_Date >=&#8217;2000-01-01&#8242;&#8221;
+bin/mysqldump –p –where "Order_Date >=&#8217;2000-01-01&#8242;"
   
 –tab = /home/mark –no-create-info –fields-terminated-by=, Meet\_A\_Geek Orders
 
@@ -130,15 +130,15 @@ USE Meet\_A\_Geek;
   
 INSERT INTO Customers (Customer\_ID, Last\_Name, First_Name)
   
-VALUES (NULL, "Kinnard&#8221;, "Vicky&#8221;);
+VALUES (NULL, "Kinnard", "Vicky");
   
 INSERT INTO Customers (Customer\_ID, Last\_Name, First_Name)
   
-VALUES (NULL, "Kinnard&#8221;, "Steven&#8221;);
+VALUES (NULL, "Kinnard", "Steven");
   
 INSERT INTO Customers (Customer\_ID, Last\_Name, First_Name)
   
-VALUES (NULL, "Brown&#8221;, "Sam&#8221;);
+VALUES (NULL, "Brown", "Sam");
   
 SELECT Last_Name INTO OUTFILE &#8216;/home/mark/Report.rpt&#8217;
   

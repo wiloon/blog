@@ -12,7 +12,7 @@ tags:
 ---
 omxplayer.bin: SubtitleRenderer.cpp:154: SubtitleRenderer::load\_glyph(SubtitleRenderer::InternalChar)::<lambda(FT\_Face, VGFont, bool)>: Assertion \`!vgGetError()&#8217; failed.
   
-/usr/bin/omxplayer: line 67: 5199 Aborted LD\_LIBRARY\_PATH=&#8221;$OMXPLAYER\_LIBS${LD\_LIBRARY\_PATH:+:$LD\_LIBRARY\_PATH}&#8221; $OMXPLAYER\_BIN "$@&#8221;
+/usr/bin/omxplayer: line 67: 5199 Aborted LD\_LIBRARY\_PATH="$OMXPLAYER\_LIBS${LD\_LIBRARY\_PATH:+:$LD\_LIBRARY\_PATH}" $OMXPLAYER\_BIN "$@"
 
 
 

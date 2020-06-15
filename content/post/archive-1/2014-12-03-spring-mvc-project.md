@@ -20,17 +20,17 @@ apply plugin: &#8216;war&#8217;
 
 **gradle dependencies:**
 
-compile("org.springframework:spring-core:$versionSpring&#8221;,
+compile("org.springframework:spring-core:$versionSpring",
   
-"org.springframework:spring-context:$versionSpring&#8221;,
+"org.springframework:spring-context:$versionSpring",
   
-"org.springframework:spring-web:$versionSpring&#8221;,
+"org.springframework:spring-web:$versionSpring",
   
-"org.springframework:spring-webmvc:$versionSpring&#8221;,
+"org.springframework:spring-webmvc:$versionSpring",
   
-"org.springframework:spring-jdbc:$versionSpring&#8221;,
+"org.springframework:spring-jdbc:$versionSpring",
   
-"org.springframework:spring-orm:$versionSpring&#8221;
+"org.springframework:spring-orm:$versionSpring"
   
 )
 

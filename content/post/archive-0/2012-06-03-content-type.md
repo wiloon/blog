@@ -856,7 +856,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      "basic&#8221;audio &#8211; 8-bit u-law PCM
+      "basic"audio &#8211; 8-bit u-law PCM
     </td>
     
     <td>
@@ -2135,7 +2135,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      WAIS "sources&#8221;
+      WAIS "sources"
     </td>
     
     <td>

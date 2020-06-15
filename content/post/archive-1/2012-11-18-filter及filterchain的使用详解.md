@@ -15,7 +15,7 @@ categories:
 
 什么是过滤器？
 
-与Servlet相似，过滤器是一些web应用程序组件，可以绑定到一个web应用程序中。但是与其他web应用程序组件不同的是，过滤器是&#8221;链&#8221;在容器的处理过程中的。这就意味着它们会在servlet处理器之前访问一个进入的请求，并且在外发响应信息返回到客户前访问这些响应信息。这种访问使得过滤器可以检查并修改请求和响应的内容。
+与Servlet相似，过滤器是一些web应用程序组件，可以绑定到一个web应用程序中。但是与其他web应用程序组件不同的是，过滤器是"链"在容器的处理过程中的。这就意味着它们会在servlet处理器之前访问一个进入的请求，并且在外发响应信息返回到客户前访问这些响应信息。这种访问使得过滤器可以检查并修改请求和响应的内容。
 
 过滤器适用于那些地方？
 
@@ -127,7 +127,7 @@ HttpServletRequest hrequest = (HttpServletRequest) request;
 
 // 记录日志
 
-context.log("Filter已经截获到用户的请求的地址: &#8221; + hrequest.getServletPath());
+context.log("Filter已经截获到用户的请求的地址: " + hrequest.getServletPath());
 
 **try** {
 
@@ -145,13 +145,13 @@ e.printStackTrace();
 
 // 记录日志
 
-context.log("过滤结束&#8221;);
+context.log("过滤结束");
 
 // 再次记录日志
 
-context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request).getRequestURI()
+context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestURI()
 
-+ "所花的时间为: &#8221; + (after &#8211; before));
++ "所花的时间为: " + (after &#8211; before));
 
 }
 
@@ -292,7 +292,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 
 <p align="left">
-           context.log("开始设置编码格式&#8221;);
+           context.log("开始设置编码格式");
 
 
 <p align="left">
@@ -304,7 +304,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 
 <p align="left">
-               encoding = "gb2312&#8221;;
+               encoding = "gb2312";
 
 
 <p align="left">
@@ -324,7 +324,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 
 <p align="left">
-           context.log("成功设置了编码格式&#8221;);
+           context.log("成功设置了编码格式");
 
 
 <p align="left">
@@ -344,7 +344,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 
 <p align="left">
-          this.encoding = filterConfig.getInitParameter("encoding&#8221;);
+          this.encoding = filterConfig.getInitParameter("encoding");
 
 
 <p align="left">
@@ -522,7 +522,7 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 
 <p align="left">
-          if (session.getAttribute("username&#8221;) != null) {
+          if (session.getAttribute("username") != null) {
 
 
 <p align="left">
@@ -538,11 +538,11 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 
 <p align="left">
-              context.log("身份认证失败，直接返回&#8221;);
+              context.log("身份认证失败，直接返回");
 
 
 <p align="left">
-              res.sendRedirect("../failure.jsp&#8221;);
+              res.sendRedirect("../failure.jsp");
 
 
 <p align="left">

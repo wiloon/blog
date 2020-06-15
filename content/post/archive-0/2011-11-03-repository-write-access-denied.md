@@ -21,4 +21,4 @@ manually add public key to /home/git/.ssh/authorized_keys
 
 start with :
 
-command=&#8221;python /home/www/indefero/scripts/gitserve.py USER&#8221;,no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa\***\***
+command="python /home/www/indefero/scripts/gitserve.py USER",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa\***\***

@@ -31,7 +31,7 @@ public class Test {
       
 public void test(){
           
-System.out.println("普通代码块&#8221;);
+System.out.println("普通代码块");
       
 }
   
@@ -46,7 +46,7 @@ public class Test {
       
 static{
           
-System.out.println("静态代码块&#8221;);
+System.out.println("静态代码块");
       
 }
   
@@ -74,7 +74,7 @@ public class Test {
       
 {
           
-System.out.println("执行构造代码块&#8230;&#8221;);
+System.out.println("执行构造代码块&#8230;");
       
 }
 
@@ -112,9 +112,9 @@ public class Test {
       
 public Test(){
           
-System.out.println("执行构造代码块&#8230;&#8221;);
+System.out.println("执行构造代码块&#8230;");
           
-System.out.println("执行无参构造函数&#8230;&#8221;);
+System.out.println("执行无参构造函数&#8230;");
       
 }
 
@@ -142,7 +142,7 @@ new Test();
           
 System.out.println("&#8212;&#8212;&#8212;&#8212;&#8212;-");
           
-new Test("1&#8221;);
+new Test("1");
 
 ## }
 
@@ -194,7 +194,7 @@ public class Test {
       
 static{
           
-System.out.println("执行静态代码块&#8230;&#8221;);
+System.out.println("执行静态代码块&#8230;");
       
 }
 

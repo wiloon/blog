@@ -57,7 +57,7 @@ To print the current full month name and the day of the month:
   
 date &#8216;+%B %d&#8217;
   
-But this may not be what you want because for the first nine days of the month, the `%d' expands to a zero-padded two-digit field, for example`date -d 1may &#8216;+%B %d&#8221; will print `May 01'.
+But this may not be what you want because for the first nine days of the month, the `%d' expands to a zero-padded two-digit field, for example`date -d 1may &#8216;+%B %d" will print `May 01'.
 
 To print a date without the leading zero for one-digit days of the month, you can use the (GNU extension) - modifier to suppress the padding altogether.
 
@@ -89,7 +89,7 @@ date &#8211;date=&#8217;1970-01-01 00:00:01&#8242; +%s
   
 1
   
-If you&#8217;re sorting or graphing dated data, your raw date values may be represented as seconds since the epoch. But few people can look at the date \`946684800&#8242; and casually note "Oh, that&#8217;s the first second of the year 2000.&#8221;
+If you&#8217;re sorting or graphing dated data, your raw date values may be represented as seconds since the epoch. But few people can look at the date \`946684800&#8242; and casually note "Oh, that&#8217;s the first second of the year 2000."
   
 date &#8211;date=&#8217;2000-01-01 UTC&#8217; +%s
   
@@ -97,6 +97,6 @@ date &#8211;date=&#8217;2000-01-01 UTC&#8217; +%s
   
 To convert such an unwieldy number of seconds back to a more readable form, use a command like this:
   
-date -d &#8216;1970-01-01 946684800 sec&#8217; +&#8221;%Y-%m-%d %T %z&#8221;
+date -d &#8216;1970-01-01 946684800 sec&#8217; +"%Y-%m-%d %T %z"
   
 2000-01-01 00:00:00 +0000

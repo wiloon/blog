@@ -60,7 +60,7 @@ qi.add(3);
 
 while (!qi.isEmpty()){
   
-System.out.print(qi.poll() + ",&#8221;);
+System.out.print(qi.poll() + ",");
   
 }
   
@@ -92,7 +92,7 @@ q2.add(1);
   
 while (!q2.isEmpty()){
   
-System.out.print(q2.poll() + ",&#8221;);
+System.out.print(q2.poll() + ",");
   
 }
 

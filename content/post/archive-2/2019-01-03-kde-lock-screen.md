@@ -10,7 +10,7 @@ categories:
 ---
 ### shortcut
 
-  1. Go to "System Settings&#8221; (KDE menu).
+  1. Go to "System Settings" (KDE menu).
   2. Workspace>Workspace Behavior>Screen Locking>Activation>Keyboard shortcut
 
 ### config

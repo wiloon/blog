@@ -50,7 +50,7 @@ alias /www/root/html/new_t/;
   
 注意：
 
-  1. 使用alias时，目录名后面一定要加&#8221;/&#8221;。
+  1. 使用alias时，目录名后面一定要加"/"。
   2. alias在使用正则匹配时，必须捕捉要匹配的内容并在指定的内容处使用。
 
 ## 4. alias只能位于location块中。（root可以不放在location中）

@@ -16,7 +16,7 @@ categories:
 
   <div id="cnblogs_post_body">
     
-      window.onload = function(){ alert("welcome&#8221;); }
+      window.onload = function(){ alert("welcome"); }
  这样的写法，是希望在页面加载完，自动执行定义好的 js代码（function）。
     
     

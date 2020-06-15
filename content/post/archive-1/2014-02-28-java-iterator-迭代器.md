@@ -32,9 +32,9 @@ http://jnotnull.iteye.com/blog/262379
 
 <span style="font-family: Arial;">迭代器应用：
  list l = new ArrayList();
- l.add("aa&#8221;);
- l.add("bb&#8221;);
- l.add("cc&#8221;);
+ l.add("aa");
+ l.add("bb");
+ l.add("cc");
  for (Iterator iter = l.iterator(); iter.hasNext();) {
  String str = (String)iter.next();
  System.out.println(str);

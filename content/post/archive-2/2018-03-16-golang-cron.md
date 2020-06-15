@@ -68,9 +68,9 @@ package main
 
 import (
       
-"github.com/robfig/cron&#8221;
+"github.com/robfig/cron"
       
-"log&#8221;
+"log"
   
 )
 
@@ -80,13 +80,13 @@ i := 0
       
 c := cron.New()
       
-spec := "\*/5 \* \* \* * ?&#8221;
+spec := "\*/5 \* \* \* * ?"
       
 c.AddFunc(spec, func() {
           
 i++
           
-log.Println("cron running:&#8221;, i)
+log.Println("cron running:", i)
       
 })
       
@@ -117,11 +117,11 @@ package main
 
 import (
       
-"github.com/robfig/cron&#8221;
+"github.com/robfig/cron"
       
-"log&#8221;
+"log"
       
-"fmt&#8221;
+"fmt"
   
 )
 
@@ -131,7 +131,7 @@ type TestJob struct {
 
 func (this TestJob)Run() {
       
-fmt.Println("testJob1&#8230;&#8221;)
+fmt.Println("testJob1&#8230;")
   
 }
 
@@ -141,7 +141,7 @@ type Test2Job struct {
 
 func (this Test2Job)Run() {
       
-fmt.Println("testJob2&#8230;&#8221;)
+fmt.Println("testJob2&#8230;")
   
 }
 

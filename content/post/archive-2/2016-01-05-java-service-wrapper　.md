@@ -118,7 +118,7 @@ wrapper.ntservice.starttype=AUTO_START
 
 \# 配置内存溢出则重启服务
   
-wrapper.filter.trigger.1001=Exception in thread "*&#8221; java.lang.OutOfMemoryError
+wrapper.filter.trigger.1001=Exception in thread "*" java.lang.OutOfMemoryError
   
 wrapper.filter.allow_wildcards.1001=TRUE
   

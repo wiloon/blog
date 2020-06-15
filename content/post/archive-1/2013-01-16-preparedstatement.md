@@ -12,7 +12,7 @@ categories:
   
 <span style="color: #000000;">通过使用java.sql.preparedstatement，这个问题可以自动解决。一个preparedstatement是从java.sql.connection对象和所提供的sql字符串得到的，sql字符串中包含问号（?），这些问号标明变量的位置，然后提供变量的值，最后执行语句，例如： </span>
   
-<span style="color: #000000;">stringsql = "select * from people p where p.id = ? and p.name = ?&#8221;;</span>
+<span style="color: #000000;">stringsql = "select * from people p where p.id = ? and p.name = ?";</span>
   
 <span style="color: #000000;">preparedstatement ps = connection.preparestatement(sql);</span>
   

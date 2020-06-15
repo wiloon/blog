@@ -14,7 +14,7 @@ categories:
   
 if (window.event.keyCode == 27) {
 		  
-$("#english&#8221;).val(&#8221;);
+$("#english").val(");
 	  
 }
 

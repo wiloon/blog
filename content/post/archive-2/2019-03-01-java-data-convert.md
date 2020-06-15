@@ -8,6 +8,6 @@ categories:
   - Uncategorized
 
 ---
-NumberFormat formatter = new DecimalFormat("#0.00&#8221;);
+NumberFormat formatter = new DecimalFormat("#0.00");
   
 System.out.println(formatter.format(4.0));

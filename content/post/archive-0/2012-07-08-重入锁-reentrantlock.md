@@ -44,7 +44,7 @@ int nextc = c + acquires;
                   
 if (nextc < 0) // overflow
               
-throw new Error("Maximum lock count exceeded&#8221;);
+throw new Error("Maximum lock count exceeded");
           
 setState(nextc);
           
@@ -114,7 +114,7 @@ if (nextc < 0)
   
 12
               
-throw new Error("Maximum lock count exceeded&#8221;);
+throw new Error("Maximum lock count exceeded");
   
 13
           
@@ -218,7 +218,7 @@ public void fair() {
   
 07
           
-System.out.println("fair version&#8221;);
+System.out.println("fair version");
   
 08
           
@@ -230,7 +230,7 @@ Thread thread = new Thread(new Job(fairLock));
   
 10
               
-thread.setName("&#8221; + i);
+thread.setName("" + i);
   
 11
               
@@ -278,7 +278,7 @@ public void unfair() {
   
 23
           
-System.out.println("unfair version&#8221;);
+System.out.println("unfair version");
   
 24
           
@@ -290,7 +290,7 @@ Thread thread = new Thread(new Job(unfairLock));
   
 26
               
-thread.setName("&#8221; + i);
+thread.setName("" + i);
   
 27
               
@@ -372,7 +372,7 @@ try {
   
 48
                       
-System.out.println("Lock by:&#8221;
+System.out.println("Lock by:"
   
 49
                               
@@ -490,7 +490,7 @@ public void fair() {
   
 06
           
-System.out.println("fair version&#8221;);
+System.out.println("fair version");
   
 07
           
@@ -518,7 +518,7 @@ return getName();
   
 13
               
-thread.setName("&#8221; + i);
+thread.setName("" + i);
   
 14
               
@@ -548,7 +548,7 @@ public void unfair() {
   
 21
           
-System.out.println("unfair version&#8221;);
+System.out.println("unfair version");
   
 22
           
@@ -576,7 +576,7 @@ return getName();
   
 28
               
-thread.setName("&#8221; + i);
+thread.setName("" + i);
   
 29
               
@@ -642,11 +642,11 @@ try {
   
 46
                       
-System.out.println("Lock by:&#8221;
+System.out.println("Lock by:"
   
 47
                               
-+ Thread.currentThread().getName() + &#8221; and &#8221;
++ Thread.currentThread().getName() + " and "
   
 48
                               
@@ -654,7 +654,7 @@ System.out.println("Lock by:&#8221;
   
 49
                               
-+ &#8221; waits.&#8221;);
++ " waits.");
   
 50
                   

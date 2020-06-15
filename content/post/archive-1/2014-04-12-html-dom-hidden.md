@@ -22,7 +22,7 @@ tags:
   
   
   
-    在 HTML 表单中 <input type=&#8221;hidden&#8221;> 标签每出现一次，一个 Hidden 对象就会被创建。
+    在 HTML 表单中 <input type="hidden"> 标签每出现一次，一个 Hidden 对象就会被创建。
   
   
   

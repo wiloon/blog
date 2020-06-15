@@ -226,7 +226,7 @@ Web service到底是什么；在什么情况下你应该使用Web service。
 
 
 
-许多商用程序还面临另一个问题，那就是与其他程序的<a href="http://baike.baidu.com/view/1490165.htm" target="_blank">互操作性</a>。如果所有的应用程序都是使用COM或.NET语言写的，并且都运行在Windows平台上，那就天下太平了。然而，事实上大多数商业数据仍然在大型主机上以非关系文件(VSAM)的形式存放，并由COBOL语言编写的大型机程序访问。而且，目前还有很多商用程序继续在使用C++、Java、Visual Basic和其他各种各样的语言编写。现在，除了最简单的程序之外，所有的应用程序都需要与运行在其他异构平台上的应用程序集成并进行数据交换。这样的任务通常都是由特殊的方法，如<a href="http://baike.baidu.com/view/543341.htm" target="_blank">文件传输</a>和分析，<a href="http://baike.baidu.com/view/262473.htm" target="_blank">消息队列</a>，还有仅适用于某些情况的的API，如IBM的&#8221;高级程序到程序交流(APPC)&#8221;等来完成的。在以前，没有一个应用程序通信标准，是独立于平台、组建模型和<a href="http://baike.baidu.com/view/552871.htm" target="_blank">编程语言</a>的。只有通过Web Service，客户端和服务器才能够自由的用HTTP进行通信，不论两个程序的平台和编程语言是什么。
+许多商用程序还面临另一个问题，那就是与其他程序的<a href="http://baike.baidu.com/view/1490165.htm" target="_blank">互操作性</a>。如果所有的应用程序都是使用COM或.NET语言写的，并且都运行在Windows平台上，那就天下太平了。然而，事实上大多数商业数据仍然在大型主机上以非关系文件(VSAM)的形式存放，并由COBOL语言编写的大型机程序访问。而且，目前还有很多商用程序继续在使用C++、Java、Visual Basic和其他各种各样的语言编写。现在，除了最简单的程序之外，所有的应用程序都需要与运行在其他异构平台上的应用程序集成并进行数据交换。这样的任务通常都是由特殊的方法，如<a href="http://baike.baidu.com/view/543341.htm" target="_blank">文件传输</a>和分析，<a href="http://baike.baidu.com/view/262473.htm" target="_blank">消息队列</a>，还有仅适用于某些情况的的API，如IBM的"高级程序到程序交流(APPC)"等来完成的。在以前，没有一个应用程序通信标准，是独立于平台、组建模型和<a href="http://baike.baidu.com/view/552871.htm" target="_blank">编程语言</a>的。只有通过Web Service，客户端和服务器才能够自由的用HTTP进行通信，不论两个程序的平台和编程语言是什么。
 
 
 

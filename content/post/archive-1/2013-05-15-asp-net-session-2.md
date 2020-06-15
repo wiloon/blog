@@ -238,7 +238,7 @@ for (int j = 0; j < 100000; j++) {
                           
 if (j % 20000 == 0) {
                               
-System.out.println("Thread-&#8221; + index + ": j =&#8221; + j);
+System.out.println("Thread-" + index + ": j =" + j);
                           
 }
                       
@@ -292,7 +292,7 @@ for (int j = 0; j < 100000; j++) {
                               
 if (j % 20000 == 0) {
                                   
-System.out.println("Thread-&#8221; + index + ": j =&#8221; + j);
+System.out.println("Thread-" + index + ": j =" + j);
                               
 }
                           
@@ -404,7 +404,7 @@ public Sync(int resourceCount) {
               
 if (resourceCount <= 0) {
                   
-throw new IllegalArgumentException("resourceCount must be larger than zero.&#8221;);
+throw new IllegalArgumentException("resourceCount must be larger than zero.");
               
 }
               
@@ -672,7 +672,7 @@ static {
           
 try {
               
-offset = unsafe.objectFieldOffset(CASIntTest.class.getDeclaredField("count&#8221;));
+offset = unsafe.objectFieldOffset(CASIntTest.class.getDeclaredField("count"));
           
 } catch (NoSuchFieldException e) {
               
@@ -690,7 +690,7 @@ Unsafe unsafe = null;
           
 try {
               
-Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe&#8221;);
+Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
               
 theUnsafe.setAccessible(true);
               
@@ -804,7 +804,7 @@ Unsafe unsafe = null;
           
 try {
               
-Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe&#8221;);
+Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
               
 theUnsafe.setAccessible(true);
               
@@ -830,7 +830,7 @@ static {
           
 try {
               
-offset = unsafe.objectFieldOffset(CASCounter.class.getDeclaredField("counter&#8221;));
+offset = unsafe.objectFieldOffset(CASCounter.class.getDeclaredField("counter"));
           
 } catch (NoSuchFieldException e) {
               
@@ -898,7 +898,7 @@ threads[i].join();
           
 }
           
-System.out.printf("CASCounter is %d \nintCounter is %d\n&#8221;, casCounter.getCounter(), intCounter);
+System.out.printf("CASCounter is %d \nintCounter is %d\n", casCounter.getCounter(), intCounter);
       
 }
   
@@ -912,7 +912,7 @@ static {
       
 try {
           
-waitStatusOffset = unsafe.objectFieldOffset(Node.class.getDeclaredField("waitStatus&#8221;));
+waitStatusOffset = unsafe.objectFieldOffset(Node.class.getDeclaredField("waitStatus"));
       
 } catch (Exception ex) {
           

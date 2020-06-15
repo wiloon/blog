@@ -10,13 +10,13 @@ categories:
 ---
 
 
-概念上，Emacs在两个方面有别于一般程序。首先，“窗口&#8221;的概念不同。其次，Emacs的“缓冲区”是脱离窗口或框架独立存在的。
+概念上，Emacs在两个方面有别于一般程序。首先，“窗口"的概念不同。其次，Emacs的“缓冲区”是脱离窗口或框架独立存在的。
 
 (Emacs里的frame相当于Microsoft Windows的window概念。A frame can show several windows, each showing a buffer.)
 
 1 窗口与框架
 
-我们所看到的Emacs“窗口”并非Emacs的窗口，而是Emacs的图形窗口框架(GUI windows frames)。理解这个概念是必须的，因为在未有图形化窗口之前，Emacs已经可以在“终端”运行了，用Windows的术语来说，就是“控制台&#8221;程序。看看下面的图，就明白了。
+我们所看到的Emacs“窗口”并非Emacs的窗口，而是Emacs的图形窗口框架(GUI windows frames)。理解这个概念是必须的，因为在未有图形化窗口之前，Emacs已经可以在“终端”运行了，用Windows的术语来说，就是“控制台"程序。看看下面的图，就明白了。
 
 
 

@@ -181,7 +181,7 @@ for ( int i = 0 ; i < threads.length; i ++ )
 
 threads[i].join();
 
-System.out.println( &#8221; n= &#8221; + JoinThread.n);
+System.out.println( " n= " + JoinThread.n);
 
 }
 
@@ -261,7 +261,7 @@ for ( int i = 0 ; i < threads.length; i ++ )
 
 threads[i].join();
 
-System.out.println( &#8221; n= &#8221; + JoinThread.n);
+System.out.println( " n= " + JoinThread.n);
 
 }
 

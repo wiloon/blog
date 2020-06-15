@@ -40,7 +40,7 @@ static InetAddress getLocalHost()
 
 在这些静态方法中，最为常用的应该是getByName(String host)方法，只需要传入目标主机的名字，InetAddress会尝试做连接DNS服务器，并且获取IP地址的操作。代码片段如下，注意我们假设以下的代码，都是默认导入了java.net中的包，在程序的开头加上import java.net.*，否则需要指定类的全名java.net.InetAddress。
 
-InetAddress address=InetAddress.getByName("www.baidu.com&#8221;);
+InetAddress address=InetAddress.getByName("www.baidu.com");
 
 注意到这些方法可能会抛出的异常。如果安全管理器不允许访问DNS服务器或禁止网络连接，SecurityException会抛出，如果找不到对应主机的IP地址，或者发生其他网络I/O错误，这些方法会抛出UnknowHostException。所以需要写如下的代码：
 
@@ -48,7 +48,7 @@ try
 
 {
 
-InetAddress address=InetAddress.getByName("www.baidu.com&#8221;);
+InetAddress address=InetAddress.getByName("www.baidu.com");
 
 System.out.println(address);
 
@@ -84,13 +84,13 @@ public static void main(String args[])throws Exception
 
 {
 
-InetAddress address=InetAddress.getByName("www.baidu.com&#8221;);
+InetAddress address=InetAddress.getByName("www.baidu.com");
 
 System.out.println(address);
 
 System.out.println("&#8212;&#8211;");
 
-InetAddress[] addresses=InetAddress.getAllByName("www.baidu.com&#8221;);
+InetAddress[] addresses=InetAddress.getAllByName("www.baidu.com");
 
 for(InetAddress addr:addresses)
 
@@ -114,7 +114,7 @@ www.baidu.com/119.75.213.61
 
 www.baidu.com/119.75.216.30
 
-在这个例子中，我们使用到了getByName()以及getAllByName()两个方法，前者通过&#8221;www.baidu.com&#8221;来获取InetAddress的对象，并且输出到控制台。System.out.println(address); 默认调用了InetAddress.toString()方法，在结果中可以看到&#8221;www.baidu.com/119.75.213.61"的输出结果，其中119.75.213.61为百度网站的IP地址。
+在这个例子中，我们使用到了getByName()以及getAllByName()两个方法，前者通过"www.baidu.com"来获取InetAddress的对象，并且输出到控制台。System.out.println(address); 默认调用了InetAddress.toString()方法，在结果中可以看到"www.baidu.com/119.75.213.61"的输出结果，其中119.75.213.61为百度网站的IP地址。
 
 getAllByName()方法是根据主机名返回其可能的所有InetAddress对象，保存在一个数组中。在这个例子中，输出的结果中，www.baidu.com有两个ip地址分别为119.75.213.61以及119.75.216.30。
 

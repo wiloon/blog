@@ -22,7 +22,7 @@ http://www.cnblogs.com/xcj26/archive/2013/04/08/3006023.html
 
 当我们在写c#代码，焦头烂额，无从下手的时候，至少我们还是可以厚着脸皮在老板的面前，敲出华丽的 class \***{}，是的，没错，就这几个字符。殊不知这这几个字符体现出来的境界。说浅些，我会敲键盘写代码，说深些，我有可能理解了面向对象的编程，至少我会定义一个类。是这样的，c#中定义一个类是用class。
 
-有一天，老板变态了，让我用Javascript来定义一个类，我无从下手呀，我平时都是用(".&#8221;)，("#&#8221;)的人物呀，思考良久，我还模糊的记的document.getElementById("&#8221;)这个东西，但是好像与Javascript的类扯不上关系呀。怎么办？问了google问百度啊，最后在一个角落，找到了定义Javascript类的E文。仔细一阅，难道这是一个坑吗？明明用function定义了一个方法，活生生的把它说成一个类，反复几次Google百度后，有点怀疑了，难道Javascript中定义一个类，真的是用function？其实没错，在Javascript中，定义一个类是用fucntion() \*\\*\*{}。不管是在学校的菜鸟，还是国外的顶级程序员，在这件事上是平等的，想定义一个Javascript的类，就必须得先敲下function \*\**(){}。
+有一天，老板变态了，让我用Javascript来定义一个类，我无从下手呀，我平时都是用(".")，("#")的人物呀，思考良久，我还模糊的记的document.getElementById("")这个东西，但是好像与Javascript的类扯不上关系呀。怎么办？问了google问百度啊，最后在一个角落，找到了定义Javascript类的E文。仔细一阅，难道这是一个坑吗？明明用function定义了一个方法，活生生的把它说成一个类，反复几次Google百度后，有点怀疑了，难道Javascript中定义一个类，真的是用function？其实没错，在Javascript中，定义一个类是用fucntion() \*\\*\*{}。不管是在学校的菜鸟，还是国外的顶级程序员，在这件事上是平等的，想定义一个Javascript的类，就必须得先敲下function \*\**(){}。
 
 在定义Javascript类上，表现形势上大家虽然是平等的，都是用function \***(){}。但实质上，确是蕴含着大量的学问。也许有些朋友到目前为止，是不是感觉我说的太简单了，那我们就在这个function上玩点花样。
 
@@ -70,7 +70,7 @@ alert(dog02.Category);</pre>
 
 当我们修改Dog.prototype.Category的时候，dog01,dog02的属性都跟着神奇的变了。是不是有点类似于C#中的static。
 
-当你已经耐心的看到这儿的时候，我相信对朝九晚五的写(".&#8221;)，("#&#8221;)的朋友指明了一个方向。如果我写的这些你已经知道了，你可以去看看阮一峰写的 Javascript定义类的几种方法：[http://www.ruanyifeng.com/blog/2012/07/three\_ways\_to\_define\_a\_javascript\_class.html][1]
+当你已经耐心的看到这儿的时候，我相信对朝九晚五的写(".")，("#")的朋友指明了一个方向。如果我写的这些你已经知道了，你可以去看看阮一峰写的 Javascript定义类的几种方法：[http://www.ruanyifeng.com/blog/2012/07/three\_ways\_to\_define\_a\_javascript\_class.html][1]
 
 <http://www.cnblogs.com/v10258/archive/2013/05/20/3065247.html>
 

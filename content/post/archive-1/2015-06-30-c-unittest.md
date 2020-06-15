@@ -204,7 +204,7 @@ Java Monitor
   
 下面这个线程在等待这个锁 0x00000000fe7e3b50，等待进入临界区：
   
-"RMI TCP Connection(64896)-172.16.52.118&#8221; daemon prio=10 tid=0x00000000405a6000 nid=0x68fe waiting for monitor entry [0x00007f2be65a3000]
+"RMI TCP Connection(64896)-172.16.52.118" daemon prio=10 tid=0x00000000405a6000 nid=0x68fe waiting for monitor entry [0x00007f2be65a3000]
      
 java.lang.Thread.State: BLOCKED (on object monitor)
   
@@ -216,7 +216,7 @@ at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(Go
   
 是另一个先调用了 findChanellGoodsCountWithCache 函数的线程：
   
-"RMI TCP Connection(64878)-172.16.52.117&#8221; daemon prio=10 tid=0x0000000040822000 nid=0x6841 runnable [0x00007f2be76b3000]
+"RMI TCP Connection(64878)-172.16.52.117" daemon prio=10 tid=0x0000000040822000 nid=0x6841 runnable [0x00007f2be76b3000]
      
 java.lang.Thread.State: RUNNABLE
   
@@ -272,7 +272,7 @@ at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(Go
   
 等待另一个条件发生来将自己唤醒：
   
-"RMI TCP Connection(idle)&#8221; daemon prio=10 tid=0x00007fd50834e800 nid=0x56b2 waiting on condition [0x00007fd4f1a59000]
+"RMI TCP Connection(idle)" daemon prio=10 tid=0x00007fd50834e800 nid=0x56b2 waiting on condition [0x00007fd4f1a59000]
      
 java.lang.Thread.State: TIMED_WAITING (parking)
   
@@ -300,7 +300,7 @@ at java.lang.Thread.run(Thread.java:662)
 
 示范三：
   
-"RMI RenewClean-[172.16.50.182:4888]&#8221; daemon prio=10 tid=0x0000000040d2c800 nid=0x97e in Object.wait() [0x00007f9ccafd0000]
+"RMI RenewClean-[172.16.50.182:4888]" daemon prio=10 tid=0x0000000040d2c800 nid=0x97e in Object.wait() [0x00007f9ccafd0000]
      
 java.lang.Thread.State: TIMED_WAITING (on object monitor)
   
@@ -346,6 +346,6 @@ https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=2057&#038;embed=true#?secret=1A90iIEGUv" data-secret="1A90iIEGUv" width="600" height="338" title=""Linux系统日志–syslog&#8221; &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=2057&#038;embed=true#?secret=1A90iIEGUv" data-secret="1A90iIEGUv" width="600" height="338" title=""Linux系统日志–syslog" &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
  [1]: http://orwbur8sk.bkt.clouddn.com/javaSE_%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E6%96%B9%E6%B3%95%E4%B8%8E%E7%8A%B6%E6%80%81%E5%85%B3%E7%B3%BB%E7%A4%BA%E6%84%8F%E5%9B%BE.png

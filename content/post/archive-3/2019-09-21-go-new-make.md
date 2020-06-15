@@ -112,23 +112,23 @@ s[0] = 1
 
 s2 := make([]int, 3)
   
-fmt.Printf("%#v&#8221;, s2) //[]int{0, 0, 0}
+fmt.Printf("%#v", s2) //[]int{0, 0, 0}
   
 modifySlice(s2)
   
-fmt.Printf("%#v&#8221;, s2) //[]int{1, 0, 0}
+fmt.Printf("%#v", s2) //[]int{1, 0, 0}
   
 这说明 make(T, args) 返回的是引用类型，在函数内部可以直接更改原始值，对 map 和 channel 也是如此。
 
 func modifyMap(m map[int]string) {
       
-m[0] = "string&#8221;
+m[0] = "string"
   
 }
 
 func modifyChan(c chan string) {
       
-c <- "string&#8221;
+c <- "string"
   
 }
 
@@ -146,7 +146,7 @@ fmt.Printf("m2 is not nill &#8211;> %#v \n ", m2) //map[int]string{}
 
 modifyMap(m2)
   
-fmt.Printf("m2 is not nill &#8211;> %#v \n ", m2) // map[int]string{0:&#8221;string&#8221;}
+fmt.Printf("m2 is not nill &#8211;> %#v \n ", m2) // map[int]string{0:"string"}
 
 c2 := make(chan string)
   
@@ -162,7 +162,7 @@ fmt.Printf("c2 is not nill &#8211;> %#v \n ", c2)
 
 go modifyChan(c2)
   
-fmt.Printf("c2 is not nill &#8211;> %#v ", <-c2) //&#8221;string&#8221;
+fmt.Printf("c2 is not nill &#8211;> %#v ", <-c2) //"string"
   
 很少需要使用 new
   
@@ -180,7 +180,7 @@ age int
   
 var foo1 Foo
   
-fmt.Printf("foo1 &#8211;> %#v\n ", foo1) //main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo1 &#8211;> %#v\n ", foo1) //main.Foo{age:0, name:""}
   
 foo1.age = 1
   
@@ -190,7 +190,7 @@ fmt.Println(foo1.age)
   
 foo2 := Foo{}
   
-fmt.Printf("foo2 &#8211;> %#v\n ", foo2) //main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo2 &#8211;> %#v\n ", foo2) //main.Foo{age:0, name:""}
   
 foo2.age = 2
   
@@ -200,7 +200,7 @@ fmt.Println(foo2.age)
   
 foo3 := &Foo{}
   
-fmt.Printf("foo3 &#8211;> %#v\n ", foo3) //&main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo3 &#8211;> %#v\n ", foo3) //&main.Foo{age:0, name:""}
   
 foo3.age = 3
   
@@ -210,7 +210,7 @@ fmt.Println(foo3.age)
   
 foo4 := new(Foo)
   
-fmt.Printf("foo4 &#8211;> %#v\n ", foo4) //&main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo4 &#8211;> %#v\n ", foo4) //&main.Foo{age:0, name:""}
   
 foo4.age = 4
   
@@ -220,7 +220,7 @@ fmt.Println(foo4.age)
   
 var foo5 _Foo = new(Foo)
   
-fmt.Printf("foo5 &#8211;> %#v\n ", foo5) //&main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo5 &#8211;> %#v\n ", foo5) //&main.Foo{age:0, name:""}
   
 foo5.age = 5
   

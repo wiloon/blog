@@ -614,7 +614,7 @@ IF v\_CurrentStudents + 1 > v\_MaxStudents THEN
 
 
 
-RAISE\_APPLICATION\_ERROR(-20000, &#8216;Can&#8221;t add more students to &#8216; ||
+RAISE\_APPLICATION\_ERROR(-20000, &#8216;Can"t add more students to &#8216; ||
 
 
 
@@ -662,7 +662,7 @@ RAISE\_APPLICATION\_ERROR(-20001, p\_Department || &#8216; &#8216; || p\_Course 
 
 
 
-&#8216; doesn&#8221;t exist!&#8217;);
+&#8216; doesn"t exist!&#8217;);
 
 
 

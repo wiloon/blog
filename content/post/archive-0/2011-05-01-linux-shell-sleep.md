@@ -60,7 +60,7 @@ source ~/.bashrc
 
 fun(){
       
-echo "fun is begin.timeNum:$timeNum&#8221;
+echo "fun is begin.timeNum:$timeNum"
       
 local timeNum=$1
       
@@ -79,7 +79,7 @@ fun 20 &
 
 wait #如果fun里面没有wait，则整个脚本立刻退出，不会等待fun里面的sleep
   
-echo "all is ending&#8221;
+echo "all is ending"
   
 输出结果为：
 

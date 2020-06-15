@@ -83,7 +83,7 @@ categories:
     E:test>mvn -versionE:test>set MAVEN_OPTS= -Xms128m -Xmx512m
  Maven version: 2.0.9
  Java version: 1.6.0_07
- OS name: "windows 2003&#8221; version: "5.2&#8221; arch: "x86&#8221; Family: "windows&#8221;
+ OS name: "windows 2003" version: "5.2" arch: "x86" Family: "windows"
   
   
   
@@ -115,7 +115,7 @@ categories:
   
   
   
-    好在Hudson也给为我们提供了配置点，在Hudson的项目配置页面中，有一块Build区域，这里我们已经设置了Root Pom和Goals。注意该区域的右下角有一个&#8221;Advanced&#8230;&#8221;按钮，点击会看到JVM Options输入框，这里输入&#8221;-Xmx1024m&#8221;就OK了。
+    好在Hudson也给为我们提供了配置点，在Hudson的项目配置页面中，有一块Build区域，这里我们已经设置了Root Pom和Goals。注意该区域的右下角有一个"Advanced&#8230;"按钮，点击会看到JVM Options输入框，这里输入"-Xmx1024m"就OK了。
   
   
   <h2>

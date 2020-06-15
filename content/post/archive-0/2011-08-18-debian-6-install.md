@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-The current released versions of Debian Install images and Debian Live images are built using isohybrid techniques, which means using them with a USB key is simple and easy, using "dd&#8221;. Older Debian images were not so easy to use with USB keys and needed a lot of instructions. Those instructions are no longer helpful, so have been removed from this page.
+The current released versions of Debian Install images and Debian Live images are built using isohybrid techniques, which means using them with a USB key is simple and easy, using "dd". Older Debian images were not so easy to use with USB keys and needed a lot of instructions. Those instructions are no longer helpful, so have been removed from this page.
 
 Several of the Debian CD and Debian Live images are created using _isohybrid_ technology, which means that they may be used in two different ways:
 

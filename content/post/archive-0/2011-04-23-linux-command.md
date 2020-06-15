@@ -61,7 +61,7 @@ ps -ef
   
 -A 显示所有程序。
   
--e 此参数的效果和指定&#8221;A&#8221;参数相同。
+-e 此参数的效果和指定"A"参数相同。
   
 -f 用ASCII字符显示树状结构，表达程序间的相互关系。
 
@@ -75,7 +75,7 @@ md5sum : compute and check MD5 message digest
 
 <span style="font-family: 宋体; font-size: medium;">统计某文件夹下<span style="color: #ff0000;">目录</span>的个数</span>
 
-<span style="font-family: 宋体; font-size: medium;">ls -l |grep "^ｄ&#8221;|wc -l</span>
+<span style="font-family: 宋体; font-size: medium;">ls -l |grep "^ｄ"|wc -l</span>
 
 <span style="font-family: 宋体; font-size: medium;">统计文件夹下文件的个数，包括子文件夹里的。</span>
 
@@ -83,7 +83,7 @@ md5sum : compute and check MD5 message digest
 
 <span style="font-family: 宋体; font-size: medium;">统计文件夹下目录的个数，包括子文件夹里的。</span>
 
-<span style="font-family: 宋体; font-size: medium;">ls -lR|grep "^d&#8221;|wc -l</span>
+<span style="font-family: 宋体; font-size: medium;">ls -lR|grep "^d"|wc -l</span>
 
 <span style="color: #006666; font-family: 宋体; font-size: medium;">说明：</span>
 

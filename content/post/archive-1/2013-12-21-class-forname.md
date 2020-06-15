@@ -16,7 +16,7 @@ Class.forName(xxx.xx.xx) 返回的是一个类
 
 至于什么时候用，你可以考虑一下这个问题，给你一个字符串变量，它代表一个类的包名和类名，你怎么实例化它？只有你提到的这个方法了，不过要再加一点。
   
-A a = (A)Class.forName("pacage.A&#8221;).newInstance();
+A a = (A)Class.forName("pacage.A").newInstance();
   
 这和你
   
@@ -50,7 +50,7 @@ factory = (ExampleInterface)c.newInstance();
 
 其中ExampleInterface是Example的接口，可以写成如下形式：
   
-String className = "Example&#8221;;
+String className = "Example";
   
 class c = Class.forName(className);
   
@@ -168,7 +168,7 @@ demo.A@61de33
 
 2)Class cl=对象引用o.getClass();返回引用o运行时真正所指的对象(因为:儿子对象的引用可能会赋给父对象的引用变量中)所属的类的Class的对象
 
-3)Class.forName("类名&#8221;); JAVA人都知道.装入类A,并做类的初始化
+3)Class.forName("类名"); JAVA人都知道.装入类A,并做类的初始化
 
 附：
 
@@ -262,7 +262,7 @@ di.driverClassName = di.driverClass.getName();
 
 drivers.addElement(di); //将DriverInfo对象添加到数组中
 
-println("registerDriver: &#8221; + di);
+println("registerDriver: " + di);
 
 }
 
@@ -308,7 +308,7 @@ if (result != null) {
 
 // Success!
 
-println("getConnection returning &#8221; +&bsp;di);
+println("getConnection returning " +&bsp;di);
 
 return (result); //一旦成功连接，直接返回Connection对象，然后推出
 
@@ -324,9 +324,9 @@ return (result); //一旦成功连接，直接返回Connection对象，然后推
 
 //这就是经常看到的出错信息－－找不到合适的驱动程序。
 
-println("getConnection: no suitable driver&#8221;);
+println("getConnection: no suitable driver");
 
-throw new SQLException("No suitable driver&#8221;, "08001&#8221;);
+throw new SQLException("No suitable driver", "08001");
 
 }
 
@@ -362,7 +362,7 @@ java.sql.DriverManager.registerDriver(new Driver());
 
 } catch (SQLException E) {
 
-throw new RuntimeException("Can&#8217;t register driver!&#8221;);
+throw new RuntimeException("Can&#8217;t register driver!");
 
 }
 

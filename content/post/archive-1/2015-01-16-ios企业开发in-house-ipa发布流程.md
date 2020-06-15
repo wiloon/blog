@@ -166,7 +166,7 @@ func (b *Reader) Reset(r io.Reader)
   
 func main() {
       
-sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&#8221;)
+sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
       
 buf := bufio.NewReaderSize(sr, 0)
       
@@ -199,7 +199,7 @@ b := make([]byte, 10)
   
 func main() {
       
-sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ\n1234567890&#8221;)
+sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ\n1234567890")
       
 buf := bufio.NewReaderSize(sr, 0)
 
@@ -247,7 +247,7 @@ func main() {
       
 // 尾部有换行标记
       
-buf := bufio.NewReaderSize(strings.NewReader("ABCDEFG\n&#8221;), 0)
+buf := bufio.NewReaderSize(strings.NewReader("ABCDEFG\n"), 0)
 
     for line, err := []byte{0}, error(nil); len(line) > 0 && err == nil; {
         line, err = buf.ReadSlice('\n')
@@ -471,7 +471,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 // ScanRunes 是一个“匹配函数”，用来找出 data 中单个 UTF8 字符的编码。如果 UTF8 编
   
-// 码错误，则 token 会返回 "\xef\xbf\xbd&#8221;（即：U+FFFD），但只消耗 data 中的一个字节。
+// 码错误，则 token 会返回 "\xef\xbf\xbd"（即：U+FFFD），但只消耗 data 中的一个字节。
   
 // 这使得调用者无法区分“真正的U+FFFD字符”和“解码错误的返回值”。
   
@@ -497,7 +497,7 @@ func main() {
       
 // 逗号分隔的字符串，最后一项为空
       
-const input = "1,2,3,4,&#8221;
+const input = "1,2,3,4,"
       
 scanner := bufio.NewScanner(strings.NewReader(input))
       
@@ -547,7 +547,7 @@ fmt.Printf("%q ", scanner.Text())
       
 if err := scanner.Err(); err != nil {
           
-fmt.Fprintln(os.Stderr, "reading input:&#8221;, err)
+fmt.Fprintln(os.Stderr, "reading input:", err)
       
 }
   
@@ -559,7 +559,7 @@ fmt.Fprintln(os.Stderr, "reading input:&#8221;, err)
   
 func main() {
       
-const input = "1234 5678 1234567901234567890 90&#8221;
+const input = "1234 5678 1234567901234567890 90"
       
 scanner := bufio.NewScanner(strings.NewReader(input))
       
@@ -593,13 +593,13 @@ scanner.Split(split)
       
 for scanner.Scan() {
           
-fmt.Printf("%s\n&#8221;, scanner.Text())
+fmt.Printf("%s\n", scanner.Text())
       
 }
       
 if err := scanner.Err(); err != nil {
           
-fmt.Printf("Invalid input: %s&#8221;, err)
+fmt.Printf("Invalid input: %s", err)
       
 }
   

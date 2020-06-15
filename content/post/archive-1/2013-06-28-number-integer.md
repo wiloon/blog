@@ -72,7 +72,7 @@ select  LOG(256,10)*126   from dual
 
 ### SIMPLE\_INTEGER Subtype of PLS\_INTEGER {#autoId14}
 
-<a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint&#8221;][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
+<a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint"][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
 
 If you know that a variable will never have the value `NULL` or need overflow checking, declare it as `SIMPLE_INTEGER` rather than `PLS_INTEGER`. Without the overhead of checking for nullness and overflow, `SIMPLE_INTEGER` performs significantly better than `PLS_INTEGER`.
 

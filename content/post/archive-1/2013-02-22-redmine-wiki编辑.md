@@ -38,7 +38,7 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
 
 ### 可以加入指向其它项目wiki页面的链接
 
-  * [[sandbox:some page]] 显示一个指向Sandbox项目名称为“Some page&#8221;的wiki页面的链接。
+  * [[sandbox:some page]] 显示一个指向Sandbox项目名称为“Some page"的wiki页面的链接。
   * [[sandbox:]] 显示一个指向Sandbox项目Wiki主页面的链接。
 
 如果Wiki还不存在，则连接将显示为红色，例如： Nonexistent page.
@@ -50,14 +50,14 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
 **文档：**
 
   * document#17 (链接到ID为17的文档）
-  * document:Geetings (链接到标题为”Geetings&#8221;的文档）
-  * document:&#8221;Some document&#8221; (当文档标题含有空格时需要使用双引号）
+  * document:Geetings (链接到标题为”Geetings"的文档）
+  * document:"Some document" (当文档标题含有空格时需要使用双引号）
 
 **版本：**
 
   * vesion#3 (链接到ID为3的版本)
-  * vesion:1.0.0 (链接到名称为&#8221;1.0.0"的版本)
-  * vesion:&#8221;1.0 beta 2" (当版本名称含有空格时需要使用双引号)
+  * vesion:1.0.0 (链接到名称为"1.0.0"的版本)
+  * vesion:"1.0 beta 2" (当版本名称含有空格时需要使用双引号)
 
 **附件:**
 
@@ -70,7 +70,7 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
   * souce:some/file@52 链接到项目版本库 /some/file 文件的第52版本
   * souce:some/file#L120 链接到项目版本库 /some/file 文件的第120行
   * souce:some/file@52#L120 链接到项目版本库 /some/file 文件的第52版本的第120行
-  * souce:&#8221;some file@52#L120" 如果URL中有空格，需要使用双引号来。链接到项目版本库 some file 文件的第52版本的第120行
+  * souce:"some file@52#L120" 如果URL中有空格，需要使用双引号来。链接到项目版本库 some file 文件的第52版本的第120行
   * expot:some/file 强制显示该文件的下载链接
 
 **转意字符:**

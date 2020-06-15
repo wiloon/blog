@@ -135,7 +135,7 @@ opt lease 864000 # 10 day DHCP lease time in seconds</pre>
         
         
         
-          将/etc/default/udhcpd 当中的这一行 DHCPD_ENABLED=&#8221;no&#8221;  变为
+          将/etc/default/udhcpd 当中的这一行 DHCPD_ENABLED="no"  变为
         
         
         
@@ -236,7 +236,7 @@ wmm_enabled=0</pre>
             
             
             
-              把原来的DAEMON_CONF=&#8221;/etc/hostapd/hostapd.conf&#8221; 变为：
+              把原来的DAEMON_CONF="/etc/hostapd/hostapd.conf" 变为：
             
             
             

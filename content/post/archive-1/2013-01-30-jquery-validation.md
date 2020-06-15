@@ -19,13 +19,13 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
     </li>
     <li>
-          fruit: "required&#8221;
+          fruit: "required"
     </li>
     <li>
         }
@@ -47,7 +47,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -56,7 +56,7 @@ categories:
           details: {
     </li>
     <li>
-            required: "#other:checked&#8221;
+            required: "#other:checked"
     </li>
     <li>
           }
@@ -68,10 +68,10 @@ categories:
       });
     </li>
     <li>
-      $("#other&#8221;).click(function() {
+      $("#other").click(function() {
     </li>
     <li>
-         $("#details&#8221;).valid();
+         $("#details").valid();
     </li>
     <li>
       });
@@ -90,7 +90,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -114,7 +114,7 @@ categories:
             required: function(element) {
     </li>
     <li>
-              return $("#age&#8221;).val() < 13;
+              return $("#age").val() < 13;
     </li>
     <li>
             }
@@ -129,10 +129,10 @@ categories:
       });
     </li>
     <li>
-      $("#age&#8221;).blur(function() {
+      $("#age").blur(function() {
     </li>
     <li>
-          $("#parent&#8221;).valid();
+          $("#parent").valid();
     </li>
     <li>
       });
@@ -151,7 +151,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -166,7 +166,7 @@ categories:
             email: true,
     </li>
     <li>
-            remote: "check-email.php&#8221;
+            remote: "check-email.php"
     </li>
     <li>
           }
@@ -191,7 +191,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -228,7 +228,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -265,7 +265,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -302,7 +302,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -339,7 +339,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -376,7 +376,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -413,7 +413,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -450,7 +450,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -487,7 +487,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -530,7 +530,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -570,7 +570,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -607,7 +607,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -633,7 +633,7 @@ categories:
   </ol>
 
 
-**[17]  accept( [extension] ) **      返回：Boolean 参数 extension(Optional)     类型：String    允许的文件后缀名，用&#8221;|&#8221;或&#8221;,&#8221;分割。默认为&#8221;png|jpe?g|gif&#8221; 说明：确保表单元素接收给定的文件后缀名的文件。如果没有指定参数，则只有图片是允许的(png,jpeg,gif)。
+**[17]  accept( [extension] ) **      返回：Boolean 参数 extension(Optional)     类型：String    允许的文件后缀名，用"|"或","分割。默认为"png|jpe?g|gif" 说明：确保表单元素接收给定的文件后缀名的文件。如果没有指定参数，则只有图片是允许的(png,jpeg,gif)。
 
 
   
@@ -644,7 +644,7 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
@@ -656,7 +656,7 @@ categories:
             required: true,
     </li>
     <li>
-            accept: "xls|csv&#8221;
+            accept: "xls|csv"
     </li>
     <li>
           }
@@ -681,19 +681,19 @@ categories:
   
   <ol>
     <li>
-      $("#myform&#8221;).validate({
+      $("#myform").validate({
     </li>
     <li>
         rules: {
     </li>
     <li>
-          password: "required&#8221;,
+          password: "required",
     </li>
     <li>
           password_again: {
     </li>
     <li>
-            equalTo: "#password&#8221;
+            equalTo: "#password"
     </li>
     <li>
           }
@@ -707,17 +707,17 @@ categories:
   </ol>
 
 
-$("#aspnetForm&#8221;).validate({ ignore: "&#8221;,  
+$("#aspnetForm").validate({ ignore: "",  
 rules: {
 
 check the fields which attr display is none.
 
 // 验证值小数位数不能超过两位
   
-jQuery.validator.addMethod("decimal&#8221;, function(value, element) {
+jQuery.validator.addMethod("decimal", function(value, element) {
   
 var decimal = /^-?d+(&#46;d{1,2})?$/;
   
 return this.optional(element) || (decimal.test(value));
   
-}, $.validator.format("小数位数不能超过两位!&#8221;));
+}, $.validator.format("小数位数不能超过两位!"));

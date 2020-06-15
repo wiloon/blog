@@ -17,6 +17,6 @@ window>preferences>java>installed jres
   
 select a installed jres
   
-cleck "edit&#8221;
+cleck "edit"
   
 input -Xmx1024m in Default VM Arguments:

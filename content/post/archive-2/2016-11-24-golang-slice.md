@@ -97,11 +97,11 @@ Go的数组是值语义。一个数组变量表示整个数组，它不是指向
 
 数组的字面值像这样：
   
-b := [2]string{"Penn&#8221;, "Teller&#8221;}
+b := [2]string{"Penn", "Teller"}
 
 当然，也可以让编译器统计数组字面值中元素的数目：
   
-b := [&#8230;]string{"Penn&#8221;, "Teller&#8221;}
+b := [&#8230;]string{"Penn", "Teller"}
   
 这两种写法， b 都是对应 [2]string 类型。
 
@@ -143,7 +143,7 @@ s :=make([]int,len,cap)
   
 赋值与使用
 
-切片是引用类型，在使用时需要注意其操作。查看示例代码 ，在线运行示例代码 切片可以通过内置函数append(slice []Type,elems &#8230;Type)追加元素，elems可以是一排type类型的数据，也可以是slice,因为追加的一个一个的元素，因此如果将一个slice追加到另一个slice中需要带上&#8221;&#8230;&#8221;，这样才能表示是将slice中的元素依次追加到另一个slice中。另外在通过下标访问元素时下标不能超过len大小，如同数组的下标不能超出len范围一样。
+切片是引用类型，在使用时需要注意其操作。查看示例代码 ，在线运行示例代码 切片可以通过内置函数append(slice []Type,elems &#8230;Type)追加元素，elems可以是一排type类型的数据，也可以是slice,因为追加的一个一个的元素，因此如果将一个slice追加到另一个slice中需要带上"&#8230;"，这样才能表示是将slice中的元素依次追加到另一个slice中。另外在通过下标访问元素时下标不能超过len大小，如同数组的下标不能超出len范围一样。
 
 s :=append(s,1,2,3,4)
   
@@ -157,7 +157,7 @@ s :=append(s,s1&#8230;)
   
 切片类型的写法是 []T ， T 是切片元素的类型。和数组不同的是，切片类型并没有给定固定的长度。
   
-切片的字面值和数组字面值很像，不过切片没有指定元素个数：letters := []string{"a&#8221;, "b&#8221;, "c&#8221;, "d&#8221;}
+切片的字面值和数组字面值很像，不过切片没有指定元素个数：letters := []string{"a", "b", "c", "d"}
   
 切片可以使用内置函数 make 创建，函数签名为：func make([]T, len, cap) []T
   
@@ -199,7 +199,7 @@ b := []byte{&#8216;g&#8217;, &#8216;o&#8217;, &#8216;l&#8217;, &#8216;a&#8217;, 
   
 下面语法也是基于数组创建一个切片：
 
-x := [3]string{"Лайка&#8221;, "Белка&#8221;, "Стрелка&#8221;}
+x := [3]string{"Лайка", "Белка", "Стрелка"}
   
 s := x[:] // a slice referencing the storage of x
 
@@ -315,13 +315,13 @@ a = append(a, 1, 2, 3)
   
 如果是要将一个切片追加到另一个切片尾部，需要使用 &#8230; 语法将第2个参数展开为参数列表。
 
-a := []string{"John&#8221;, "Paul&#8221;}
+a := []string{"John", "Paul"}
   
-b := []string{"George&#8221;, "Ringo&#8221;, "Pete&#8221;}
+b := []string{"George", "Ringo", "Pete"}
   
-a = append(a, b&#8230;) // equivalent to "append(a, b[0], b[1], b[2])&#8221;
+a = append(a, b&#8230;) // equivalent to "append(a, b[0], b[1], b[2])"
   
-// a == []string{"John&#8221;, "Paul&#8221;, "George&#8221;, "Ringo&#8221;, "Pete&#8221;}
+// a == []string{"John", "Paul", "George", "Ringo", "Pete"}
   
 由于切片的零值 nil 用起来就像一个长度为零的切片，我们可以声明一个切片变量然后在循环 中向它追加数据：
 
@@ -353,7 +353,7 @@ return p
 
 例如， FindDigits 函数加载整个文件到内存，然后搜索第一个连续的数字，最后结果以切片方式返回。
 
-var digitRegexp = regexp.MustCompile("[0-9]+&#8221;)
+var digitRegexp = regexp.MustCompile("[0-9]+")
 
 func FindDigits(filename string) []byte {
       

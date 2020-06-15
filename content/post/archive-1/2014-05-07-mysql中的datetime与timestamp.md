@@ -54,7 +54,7 @@ datetime
 
 1.null 是否为空
 
-timestamp 默认允许为 “非空”（not null by default）， 如果你在定义“ts TIMESTAMP DEFAULT NULL” 是非法的。 可以指定为空 null ，“ts TIMESTAMP NULL&#8221; ,这时可以在添加语句改变默认值。
+timestamp 默认允许为 “非空”（not null by default）， 如果你在定义“ts TIMESTAMP DEFAULT NULL” 是非法的。 可以指定为空 null ，“ts TIMESTAMP NULL" ,这时可以在添加语句改变默认值。
 
 ts2 TIMESTAMP NULL DEFAULT 0,
   

@@ -36,7 +36,7 @@ step3：
 
 step4：
 
-删除kafka存储目录（server.properties文件log.dirs配置，默认为&#8221;/data/kafka-logs&#8221;）相关topic的数据目录。
+删除kafka存储目录（server.properties文件log.dirs配置，默认为"/data/kafka-logs"）相关topic的数据目录。
 
 注意：如果kafka 有多个 broker，且每个broker 配置了多个数据盘（比如 /data/kafka-logs,/data1/kafka-logs &#8230;），且topic也有多个分区和replica，则需要对所有broker的所有数据盘进行扫描，删除该topic的所有分区数据。
 

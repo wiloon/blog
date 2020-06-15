@@ -29,7 +29,7 @@ categories:
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg1.jpg" alt="" width="552" height="346" border="0" />
 
-然而，你希望为你的每一个web service 操作提供全球唯一标识，这样别人也可以拥有名称为“concat”的操作。如何实现呢？很简单，你可以在名称“concat&#8221;前面声明一个”namespace“( 命名空间，比如http: ttdev.com/ss). namespace( 命名空间)的作用同java 中包的作用非常类似，只是表示形式不用而已，包的表示形式为 com.ttdev.foo。全球唯一标识是由namespace和操作名称组成的。Operation(操作)的名称,比如”concat”被称为local name( 本地名称)。全球唯一标识被称为QName( qualified name)。
+然而，你希望为你的每一个web service 操作提供全球唯一标识，这样别人也可以拥有名称为“concat”的操作。如何实现呢？很简单，你可以在名称“concat"前面声明一个”namespace“( 命名空间，比如http: ttdev.com/ss). namespace( 命名空间)的作用同java 中包的作用非常类似，只是表示形式不用而已，包的表示形式为 com.ttdev.foo。全球唯一标识是由namespace和操作名称组成的。Operation(操作)的名称,比如”concat”被称为local name( 本地名称)。全球唯一标识被称为QName( qualified name)。
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg2.jpg" alt="" width="541" height="313" border="0" />
 
@@ -85,7 +85,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
   
   
   
-    <foo:concatRequest xmlns:foo=&#8221;http:    ttdev.com/ss&#8221;><s1>abc</s1> 
+    <foo:concatRequest xmlns:foo="http:    ttdev.com/ss"><s1>abc</s1> 
     
     
       <s2>123</s2>
@@ -105,7 +105,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg11.jpg" alt="" width="567" height="514" border="0" />
 
-这种类型的web service 被称为&#8221;文档类型”的web service。文档类型的特点是，input message(输入消息)仅仅包含一个部分( part)，并且这个部分( part)是在schema中良好定义的。
+这种类型的web service 被称为"文档类型”的web service。文档类型的特点是，input message(输入消息)仅仅包含一个部分( part)，并且这个部分( part)是在schema中良好定义的。
 
 对于output message( 输出消息)也一样。
 
@@ -119,7 +119,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg13.jpg" alt="" width="564" height="239" border="0" />
 
-没有太大不同，对吧？最明显的不同是RPC类型的不能通过schema进行验证，而文档类型( Document style)却可以。因此，文档类型的web service 是主要的应用方式在实践中。依据“WS-I&#8221;的要求，我们应该只使用文档类型的web services。 注： WS-I 指的是 web service interoperability organization( web服务互操作组织)。
+没有太大不同，对吧？最明显的不同是RPC类型的不能通过schema进行验证，而文档类型( Document style)却可以。因此，文档类型的web service 是主要的应用方式在实践中。依据“WS-I"的要求，我们应该只使用文档类型的web services。 注： WS-I 指的是 web service interoperability organization( web服务互操作组织)。
 
 4.确定文档类型的web service的操作( operation)
 
@@ -139,7 +139,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
-除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( "binding&#8221;)：
+除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( "binding")：
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg16.jpg" alt="" width="474" height="430" border="0" />
 
@@ -159,7 +159,7 @@ concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
 8.目标命名空间( Target namespace)
 
-你已经对operation的名称，port type的名称等使用了相同的namespace(命名空间)在这个web service中。它们是不是必须使用相同的命名空间呢？默认情况下，一个web service使用同一个命名空间。这就是所谓的&#8221;target namespace&#8221;目标命名空间。
+你已经对operation的名称，port type的名称等使用了相同的namespace(命名空间)在这个web service中。它们是不是必须使用相同的命名空间呢？默认情况下，一个web service使用同一个命名空间。这就是所谓的"target namespace"目标命名空间。
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg19.jpg" alt="" width="506" height="388" border="0" />
 
@@ -183,7 +183,7 @@ concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg21.jpg" alt="" width="519" height="387" border="0" />
 
-上图全面描述了你的web service。这个描述语言被称为“wsdl( web services Description Language)&#8221;.
+上图全面描述了你的web service。这个描述语言被称为“wsdl( web services Description Language)".
 
 10.本章总结
 

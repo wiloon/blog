@@ -44,7 +44,7 @@ http://jun1986.iteye.com/blog/1176909
 
 一、最外层top跳转页面，适合用于iframe框架集
 
-top.window.location.href("${pageContext.request.contextPath}/Login_goBack&#8221;);
+top.window.location.href("${pageContext.request.contextPath}/Login_goBack");
 
 ============================================================================================
 
@@ -96,29 +96,29 @@ window.parent.close()是parent属性是当前窗口或框架的框架组
   
 <head>
   
-<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   
 <title>navigate</title>
   
-<script language=&#8221;javascript&#8221;>
+<script language="javascript">
   
-setTimeout(&#8216;window.navigate("top.html&#8221;);&#8217;,2000);
+setTimeout(&#8216;window.navigate("top.html");&#8217;,2000);
   
-setTimeout(&#8216;window.document.location.href=&#8221;top.html&#8221;;&#8217;,2000);
+setTimeout(&#8216;window.document.location.href="top.html";&#8217;,2000);
   
-setTimeout(&#8216;window.document.location=&#8221;top.html&#8221;;&#8217;,2000);
+setTimeout(&#8216;window.document.location="top.html";&#8217;,2000);
   
-setTimeout(&#8216;window.location.href=&#8221;top.html&#8221;;&#8217;,2000);
+setTimeout(&#8216;window.location.href="top.html";&#8217;,2000);
   
-setTimeout(&#8216;window.location=&#8221;top.html&#8221;;&#8217;,2000);
+setTimeout(&#8216;window.location="top.html";&#8217;,2000);
   
-setTimeout(&#8216;document.location.href=&#8221;top.html&#8221;;&#8217;,2000);
+setTimeout(&#8216;document.location.href="top.html";&#8217;,2000);
   
-setTimeout(&#8216;document.location=&#8221;top.html&#8221;;&#8217;,2000);
+setTimeout(&#8216;document.location="top.html";&#8217;,2000);
   
-setTimeout(&#8216;location.href=&#8221;top.html&#8221;;&#8217;,2000);
+setTimeout(&#8216;location.href="top.html";&#8217;,2000);
   
-setTimeout(&#8216;location.replace("top.html&#8221;)&#8217;,2000);
+setTimeout(&#8216;location.replace("top.html")&#8217;,2000);
   
 //window对象
   

@@ -18,21 +18,21 @@ GetROProperty:Returns the current value of the test object property from the obj
 
 举个例子:
 
-假设在库中有一个对象&#8221;窗口A&#8221;,用于识别该对象的属性有2个,
+假设在库中有一个对象"窗口A",用于识别该对象的属性有2个,
 
-一个属性是&#8221;text&#8221;,在库中记录的值是&#8221;QQQQ&#8221;.
+一个属性是"text",在库中记录的值是"QQQQ".
 
-另一个属性是&#8221;name&#8221;,记录的值是&#8221;MM&#8221;
+另一个属性是"name",记录的值是"MM"
 
-在实际运行脚本时属性&#8221;text&#8221;的值是&#8221;PPPP&#8221;而不是&#8221;QQQQ&#8221;
+在实际运行脚本时属性"text"的值是"PPPP"而不是"QQQQ"
 
 那么:
 
-Window("窗口A&#8221;).GetToProperty("text&#8221;)返回的是:&#8221;QQQQ&#8221;
+Window("窗口A").GetToProperty("text")返回的是:"QQQQ"
 
-Window("窗口A&#8221;).GetRoProperty("text&#8221;)返回的是:&#8221;PPPP&#8221;
+Window("窗口A").GetRoProperty("text")返回的是:"PPPP"
 
-Window("窗口A&#8221;).GetToProperties("text&#8221;)返回的是用于识别&#8221;窗口A&#8221;的两个属性和值的集合
+Window("窗口A").GetToProperties("text")返回的是用于识别"窗口A"的两个属性和值的集合
 
 
 

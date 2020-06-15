@@ -12,9 +12,9 @@ hibernate.cfg.xml 中hibernate.hbm2ddl.auto配置节点如下：
   
 <properties>
   
-<property name=&#8221;hibernate.show_sql&#8221; value=&#8221;true&#8221; />
+<property name="hibernate.show_sql" value="true" />
   
-<property name=&#8221;hibernate.hbm2ddl.auto&#8221; value=&#8221;create&#8221; />
+<property name="hibernate.hbm2ddl.auto" value="create" />
   
 </properties>
 
@@ -28,7 +28,7 @@ eg. validate | update | create | create-drop
 
 
   
-其实这个hibernate.hbm2ddl.auto参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value=&#8221;none&#8221;。
+其实这个hibernate.hbm2ddl.auto参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value="none"。
   
 create：
   
@@ -60,9 +60,9 @@ validate ：
 
 <properties>
   
-<property name=&#8221;hibernate.show_sql&#8221; value=&#8221;true&#8221; />
+<property name="hibernate.show_sql" value="true" />
   
-<property name=&#8221;hibernate.hbm2ddl.auto&#8221; value=&#8221;create&#8221; />
+<property name="hibernate.hbm2ddl.auto" value="create" />
   
 </properties>
   
@@ -70,7 +70,7 @@ validate ：
 
 hibernate.hbm2ddl.auto Automatically validate or export schema DDL to the database when the SessionFactory is created. With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly. eg. validate | update | create | create-drop
 
-其实这个参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value=&#8221;none&#8221;.
+其实这个参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value="none".
 
 其它几个参数的意思，我解释一下：
 

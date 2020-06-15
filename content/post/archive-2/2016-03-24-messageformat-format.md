@@ -24,7 +24,7 @@ Java里从来少不了字符串拼接的活，Java程序员也肯定用到过Str
 
 String[] tdArr=&#8230;;
   
-String result=MessageFormat.format("<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>&#8221;, tdArr);
+String result=MessageFormat.format("<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>", tdArr);
 
 这段代码将把数组tdArr中的四个元素分别插入到{0}，{1}，{2}，{3}的位置。
 
@@ -34,49 +34,49 @@ String result=MessageFormat.format("<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><
 
 补记：
 
-如果字符串需要输出单引号&#8217;,可以用两个单引号&#8221;进行转义，下面代码请参考：
+如果字符串需要输出单引号&#8217;,可以用两个单引号"进行转义，下面代码请参考：
 
 public int insertToTest_tb(String createTime,String datefrom,String dateto,String name,String intranetid,String actualhour,String planhour,String status) throws Exception{
   
 StringBuilder sb=new StringBuilder();
   
-sb.append(&#8221;    insert into test_tb (");
+sb.append("    insert into test_tb (");
   
-sb.append(&#8221;        createTime, ");
+sb.append("        createTime, ");
   
-sb.append(&#8221;        datefrom, ");
+sb.append("        datefrom, ");
   
-sb.append(&#8221;        dateto, ");
+sb.append("        dateto, ");
   
-sb.append(&#8221;        name, ");
+sb.append("        name, ");
   
-sb.append(&#8221;        intranetid, ");
+sb.append("        intranetid, ");
   
-sb.append(&#8221;        actualhour, ");
+sb.append("        actualhour, ");
   
-sb.append(&#8221;        planhour, ");
+sb.append("        planhour, ");
   
-sb.append(&#8221;        status&#8221;);
+sb.append("        status");
   
-sb.append(&#8221;    ) values (");
+sb.append("    ) values (");
   
-sb.append(&#8221;        &#8221;{0}&#8221;,&#8221;);
+sb.append("        "{0}",");
   
-sb.append(&#8221;        &#8221;{1}&#8221;,&#8221;);
+sb.append("        "{1}",");
   
-sb.append(&#8221;        &#8221;{2}&#8221;,&#8221;);
+sb.append("        "{2}",");
   
-sb.append(&#8221;        &#8221;{3}&#8221;,&#8221;);
+sb.append("        "{3}",");
   
-sb.append(&#8221;        &#8221;{4}&#8221;,&#8221;);
+sb.append("        "{4}",");
   
-sb.append(&#8221;        &#8221;{5}&#8221;,&#8221;);
+sb.append("        "{5}",");
   
-sb.append(&#8221;        &#8221;{6}&#8221;,&#8221;);
+sb.append("        "{6}",");
   
-sb.append(&#8221;        &#8221;{7}&#8221;&#8221;);
+sb.append("        "{7}"");
   
-sb.append(&#8221;    )&#8221;);
+sb.append("    )");
   
 String result=sb.toString();
 

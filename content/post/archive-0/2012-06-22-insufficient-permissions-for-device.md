@@ -16,7 +16,7 @@ add lines below:
 
 #HTC     0bb4
   
-SUBSYSTEM==&#8221;usb&#8221;, SYSFS{idVendor}==&#8221;0bb4", MODE=&#8221;0666"
+SUBSYSTEM=="usb", SYSFS{idVendor}=="0bb4", MODE="0666"
 
 save file, then.
 

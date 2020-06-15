@@ -16,29 +16,29 @@ Android permission 访问权限大全
 
 
 
-<manifest xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   
-package=&#8221;com.example.testbutton&#8221;
+package="com.example.testbutton"
   
-android:versionCode=&#8221;1"
+android:versionCode="1"
   
-android:versionName=&#8221;1.0" >
+android:versionName="1.0" >
 
 <uses-sdk
   
-android:minSdkVersion=&#8221;7"
+android:minSdkVersion="7"
   
-android:targetSdkVersion=&#8221;15" />
+android:targetSdkVersion="15" />
   
 <!&#8211; 声明权限 &#8211;>
   
-<permission android:name=&#8221;com.example.testbutton.RECEIVE&#8221; />
+<permission android:name="com.example.testbutton.RECEIVE" />
 
 <application
   
-android:icon=&#8221;@drawable/ic_launcher&#8221;
+android:icon="@drawable/ic_launcher"
   
-android:label=&#8221;@string/app_name&#8221;
+android:label="@string/app_name"
 
 &#8230;&#8230;
 

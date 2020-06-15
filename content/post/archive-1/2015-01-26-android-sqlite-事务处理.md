@@ -74,9 +74,9 @@ try
   
 {
   
-db.execSQL("update person set amount=amount-10 where personid=?&#8221;, new Object[]{1});
+db.execSQL("update person set amount=amount-10 where personid=?", new Object[]{1});
   
-db.execSQL("update person set amount=amount+10 where personid=?&#8221;, new Object[]{2});
+db.execSQL("update person set amount=amount+10 where personid=?", new Object[]{2});
   
 //设置事务标志为成功，当结束事务时就会提交事务
   

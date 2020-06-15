@@ -156,7 +156,7 @@ NCHAR根据所选字符集来定义存放字符的占用字节数，一般都为
 
 5.共同特性
   
-当执行insert的时候，插入的值为&#8221;，则转变成null，即insert &#8230; values(&#8221;) <=> insert &#8230; values(null)
+当执行insert的时候，插入的值为"，则转变成null，即insert &#8230; values(") <=> insert &#8230; values(null)
   
 搜索的条件须用where xx is null
 

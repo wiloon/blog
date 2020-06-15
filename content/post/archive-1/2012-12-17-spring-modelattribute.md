@@ -27,13 +27,13 @@ controller的代码如下：
 
 @Controller
 
-@SessionAttributes("currentUser&#8221;)
+@SessionAttributes("currentUser")
 
 public class GreetingController{
 
 @RequestMapping
 
-public void hello(@ModelAttribute("currentUser&#8221;) User user){
+public void hello(@ModelAttribute("currentUser") User user){
 
 //user.sayHello()
 
@@ -43,4 +43,4 @@ public void hello(@ModelAttribute("currentUser&#8221;) User user){
 
 
 
-使用这种方案，还需要在 SpringMVC 配置文件的 ViewResolver 定义处，加上 p:allowSessionOverride=&#8221;true&#8221;，这样如果你对 User 对象做了修改，SpringMVC 就会在渲染 View 的同时覆写 Session 中的相关属性。
+使用这种方案，还需要在 SpringMVC 配置文件的 ViewResolver 定义处，加上 p:allowSessionOverride="true"，这样如果你对 User 对象做了修改，SpringMVC 就会在渲染 View 的同时覆写 Session 中的相关属性。

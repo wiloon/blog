@@ -41,7 +41,7 @@ categories:
     $ python
  Python 2.4.3 (#1, Jul 26 2006, 16:42:40)
  [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2
- Type "help&#8221;, "copyright&#8221;, "credits&#8221; or "license&#8221; for more information.
+ Type "help", "copyright", "credits" or "license" for more information.
  >>> print &#8216;hello world&#8217;
  hello world
  >>>
@@ -184,7 +184,7 @@ categories:
     $ env PYTHONDOCS=/usr/share/doc/python-docs-2.4.3/html/python
  Python 2.3.4 (#1, Jul 26 2006, 16:42:40)
  [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2
- Type "help&#8221;, "copyright&#8221;, "credits&#8221; or "license&#8221; for more information.
+ Type "help", "copyright", "credits" or "license" for more information.
  >>> help(&#8216;print&#8217;)
   
   

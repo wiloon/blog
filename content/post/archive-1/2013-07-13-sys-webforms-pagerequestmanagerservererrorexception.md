@@ -18,21 +18,21 @@ A.在Web.Config
   
 <system.web>
   
-<pages enableEventValidation=&#8221;false&#8221;/>
+<pages enableEventValidation="false"/>
   
 </system.web>
 
-B.在 ScriptManager  内添加 EnablePartialRendering=&#8221;false&#8221; 显示详细的错误信息。
+B.在 ScriptManager  内添加 EnablePartialRendering="false" 显示详细的错误信息。
   
 如下：
   
-<asp:ScriptManager ID=&#8221;ScriptManager1" runat=&#8221;server&#8221; EnablePartialRendering=&#8221;false&#8221;/>
+<asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="false"/>
 
-一般的原因都是页面存在潜在的危险字符  在 页首加入 ValidateRequest=&#8221;false&#8221;
+一般的原因都是页面存在潜在的危险字符  在 页首加入 ValidateRequest="false"
   
 如下：
   
-<%@ Page Language=&#8221;C#&#8221; MasterPageFile=&#8221;~/MasterPages/CompanyManage.master&#8221; AutoEventWireup=&#8221;true&#8221; CodeFile=&#8221;CompanyIntroEdit.aspx.cs&#8221; Inherits=&#8221;CompanyIntroEdit&#8221; Title=&#8221;Untitled Page&#8221; ValidateRequest=&#8221;false&#8221; %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/CompanyManage.master" AutoEventWireup="true" CodeFile="CompanyIntroEdit.aspx.cs" Inherits="CompanyIntroEdit" Title="Untitled Page" ValidateRequest="false" %>
 
 C、去掉updatepanel，看是否有代码错误。代码错误改正，再重新添加。
 
@@ -53,7 +53,7 @@ Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred w
 
 在web.config中的<system.web>下增加如下节点，即可解决
   
-<httpRuntime maxRequestLength=&#8221;8192" />
+<httpRuntime maxRequestLength="8192" />
   
 ys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12019
   
@@ -75,6 +75,6 @@ Please refer to this: <a href="http://support.microsoft.com/kb/193625" rel="nof
 
 解决方法为打开 InetpubSolarWindsOrionMasterPage.master ，找到
   
-<form runat=&#8221;server&#8221; method=&#8221;post&#8221; action=&#8221;#&#8221; id=&#8221;aspnetForm&#8221;>
+<form runat="server" method="post" action="#" id="aspnetForm">
   
-改为 <form runat=&#8221;server&#8221; method=&#8221;post&#8221; id=&#8221;aspnetForm&#8221;> 。
+改为 <form runat="server" method="post" id="aspnetForm"> 。

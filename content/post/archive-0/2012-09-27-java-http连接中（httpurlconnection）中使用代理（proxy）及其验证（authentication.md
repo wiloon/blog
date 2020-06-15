@@ -33,7 +33,7 @@ System.setProperty("http.proxyPort", "8080");
   
   
     
-      [c language=&#8221;-sharp&#8221;][/c]
+      [c language="-sharp"][/c]
     
   
   
@@ -53,7 +53,7 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [c language=&#8221;-sharp&#8221;][/c]
+          [c language="-sharp"][/c]
         
         
         
@@ -262,13 +262,13 @@ System.setProperty("http.proxyPort", "8080");
         //格式如下：
       </li>
       <li>
-        "Proxy-Authorization&#8221;= "Basic Base64.encode(user:password)&#8221;
+        "Proxy-Authorization"= "Basic Base64.encode(user:password)"
       </li>
       <li>
-        String headerKey = "Proxy-Authorization&#8221;;
+        String headerKey = "Proxy-Authorization";
       </li>
       <li>
-        String headerValue = "Basic &#8221; + Base64.encode(user+&#8221;:&#8221;+password);
+        String headerValue = "Basic " + Base64.encode(user+":"+password);
       </li>
       <li>
         conn.setRequestProperty(headerKey, headerValue);

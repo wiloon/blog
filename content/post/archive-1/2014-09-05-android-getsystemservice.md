@@ -52,63 +52,63 @@ TELEPHONY_SERVICE TeleponyManager 电话服务
   
 Currently available names are:
   
-WINDOW_SERVICE ("window&#8221;)
+WINDOW_SERVICE ("window")
   
 The top-level window manager in which you can place custom windows. The returned object is a WindowManager.
 
-LAYOUT\_INFLATER\_SERVICE ("layout_inflater&#8221;)
+LAYOUT\_INFLATER\_SERVICE ("layout_inflater")
   
 A LayoutInflater for inflating layout resources in this context.
 
-ACTIVITY_SERVICE ("activity&#8221;)
+ACTIVITY_SERVICE ("activity")
   
 A ActivityManager for interacting with the global activity state of the system.
 
-POWER_SERVICE ("power&#8221;)
+POWER_SERVICE ("power")
   
 A PowerManager for controlling power management.
 
-ALARM_SERVICE ("alarm&#8221;)
+ALARM_SERVICE ("alarm")
   
 A AlarmManager for receiving intents at the time of your choosing.
 
-NOTIFICATION_SERVICE ("notification&#8221;)
+NOTIFICATION_SERVICE ("notification")
   
 A NotificationManager for informing the user of background events.
 
-KEYGUARD_SERVICE ("keyguard&#8221;)
+KEYGUARD_SERVICE ("keyguard")
   
 A KeyguardManager for controlling keyguard.
 
-LOCATION_SERVICE ("location&#8221;)
+LOCATION_SERVICE ("location")
   
 A LocationManager for controlling location (e.g., GPS) updates.
 
-SEARCH_SERVICE ("search&#8221;)
+SEARCH_SERVICE ("search")
   
 A SearchManager for handling search.
 
-VIBRATOR_SERVICE ("vibrator&#8221;)
+VIBRATOR_SERVICE ("vibrator")
   
 A Vibrator for interacting with the vibrator hardware.
 
-CONNECTIVITY_SERVICE ("connection&#8221;)
+CONNECTIVITY_SERVICE ("connection")
   
 A ConnectivityManager for handling management of network connections.
 
-WIFI_SERVICE ("wifi&#8221;)
+WIFI_SERVICE ("wifi")
   
 A WifiManager for management of Wi-Fi connectivity.
 
-INPUT\_METHOD\_SERVICE ("input_method&#8221;)
+INPUT\_METHOD\_SERVICE ("input_method")
   
 An InputMethodManager for management of input methods.
 
-UI\_MODE\_SERVICE ("uimode&#8221;)
+UI\_MODE\_SERVICE ("uimode")
   
 An UiModeManager for controlling UI modes.
 
-DOWNLOAD_SERVICE ("download&#8221;)
+DOWNLOAD_SERVICE ("download")
   
 A DownloadManager for requesting HTTP downloads
 
@@ -132,15 +132,15 @@ StringBuffer inf = new StringBuffer();
   
 switch(tm.getSimState()){ //getSimState()取得sim的状态 有下面6中状态
   
-case TelephonyManager.SIM\_STATE\_ABSENT :inf.append("无卡&#8221;);return inf.toString();
+case TelephonyManager.SIM\_STATE\_ABSENT :inf.append("无卡");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_UNKNOWN :inf.append("未知状态&#8221;);return inf.toString();
+case TelephonyManager.SIM\_STATE\_UNKNOWN :inf.append("未知状态");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_NETWORK_LOCKED :inf.append("需要NetworkPIN解锁&#8221;);return inf.toString();
+case TelephonyManager.SIM\_STATE\_NETWORK_LOCKED :inf.append("需要NetworkPIN解锁");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_PIN_REQUIRED :inf.append("需要PIN解锁&#8221;);return inf.toString();
+case TelephonyManager.SIM\_STATE\_PIN_REQUIRED :inf.append("需要PIN解锁");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_PUK_REQUIRED :inf.append("需要PUK解锁&#8221;);return inf.toString();
+case TelephonyManager.SIM\_STATE\_PUK_REQUIRED :inf.append("需要PUK解锁");return inf.toString();
   
 case TelephonyManager.SIM\_STATE\_READY :break;
   

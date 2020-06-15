@@ -24,15 +24,15 @@ categories:
 
 <div id="art_content">
   Response.Redirect 简单地发送一条消息到浏览器，告诉浏览器定位到另一个页面。你可以使用下面的代码将用户引导到另一个页面：
- Response.Redirect("WebForm2.aspx&#8221;)
+ Response.Redirect("WebForm2.aspx")
  或者
- Response.Redirect("http://www.cnnas.com/&#8221;)
- Server.Transfer 也是通过一条语句将用户引导到另一页面，比如：Server.Transfer("WebForm2.aspx&#8221;)。不过，这条语句有一系列独特的优缺点。
+ Response.Redirect("http://www.cnnas.com/")
+ Server.Transfer 也是通过一条语句将用户引导到另一页面，比如：Server.Transfer("WebForm2.aspx")。不过，这条语句有一系列独特的优缺点。
  首先，通过 Server.Transfer 引导到另一页面保留服务器资源，通过更改服务器端“焦点”和传输请求来代替告诉浏览器重定向，这就意味着你不会占用较多的 HTTP 请求，因此这可以减轻服务器的压力，使你的服务器运行更快。
- 不过，请注意，由于 "transfer&#8221; 只能在同一服务器端的同一站点间运行，所以你不能用 Server.Transfer 将用户重定向到另一服务器上的站点。要重定向到服务器以外的站点，只有 Response.Redirect 能办到。
+ 不过，请注意，由于 "transfer" 只能在同一服务器端的同一站点间运行，所以你不能用 Server.Transfer 将用户重定向到另一服务器上的站点。要重定向到服务器以外的站点，只有 Response.Redirect 能办到。
  其次，Server.Transfer 保留浏览器端的 URL 地址。这对流线型的数据输入很有帮助，不过这也增加了调试的复杂度。
- 还有：Server.Transfer 方法还有另一个参数——&#8221;preserveForm&#8221;。如果你设置这个参数为 True，比如：Server.Transfer("WebForm2.aspx&#8221;, True), 那么 query string 和任何 form 变量都会同时传递到你定位的页面。
- 例：WebForm1.aspx 有一个文本框名为 TextBox1，你利用 preserveForm 为 True 传递到 WebForm2.aspx，你仍然可以用 Request.Form("TextBox1&#8221;) 来取得文本框的值。
+ 还有：Server.Transfer 方法还有另一个参数——"preserveForm"。如果你设置这个参数为 True，比如：Server.Transfer("WebForm2.aspx", True), 那么 query string 和任何 form 变量都会同时传递到你定位的页面。
+ 例：WebForm1.aspx 有一个文本框名为 TextBox1，你利用 preserveForm 为 True 传递到 WebForm2.aspx，你仍然可以用 Request.Form("TextBox1") 来取得文本框的值。
  这种技术对向导式的多页面输入很有用，不过这里有一个你必须注意的问题是，当你使用 preserveForm 参数时，ASP.NET 有一个 bug，通常情况下，当试图传递 form 或 query string 值时会发生错误。请参见：http://support.microsoft.com/default.aspx?id=kb;en-us;Q316920
  非官方的解决办法是在你要传递的目的页面中设置 enableViewStateMac 属性为 True，然后再将其设置回 False。这说明你需要使用 enableViewStateMac 的 False 值才能解决这个问题。
  总结：Response.Redirect 简单地告诉浏览器访问另一个页面。Server.Transfer 有利于减少服务器请求，保持地址栏 URL 不变，允许你将 query string 和 form 变量传递到另一个页面（有一点小小的缺陷）。
@@ -54,8 +54,8 @@ categories:
     
     
     
-      Context.RewritePath("AA.Aspx&#8221;,&#8221;&#8221;,&#8221;OKOK=3333");
- Context.Server.Transfer("Test2.Aspx&#8221;);
+      Context.RewritePath("AA.Aspx","","OKOK=3333");
+ Context.Server.Transfer("Test2.Aspx");
     
     
     
@@ -93,7 +93,7 @@ categories:
   
   
     (1)Server.Transfer方法:
- Server.Transfer("m2.aspx&#8221;);//页面转向(服务器上执行).
+ Server.Transfer("m2.aspx");//页面转向(服务器上执行).
  服务器停止解析本页,保存此页转向前的数据后,再使页面转向到m2.aspx,
  并将转向前数据加上m2.aspx页结果返回给浏览器.
  <img title="点击图片可在新窗口打开" src="http://www.jb51.net/upload/2009-11/20091114002305895.jpg" alt="" border="0" />
@@ -101,7 +101,7 @@ categories:
   
   
     (2)Server.Execute方法:
- Server.Execute("m2.aspx&#8221;);
+ Server.Execute("m2.aspx");
  服务器保存此页转向前的数据后,使页面转向到m2.aspx执行,
  再返回本页继续执行.再将三者结果合并后返回给浏览器.
   

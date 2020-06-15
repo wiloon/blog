@@ -69,7 +69,7 @@ repositories {
 
 exclude jar
   
-compile("comxxx:xxx:xxx&#8221;) {
+compile("comxxx:xxx:xxx") {
       
 exclude group: &#8216;ch.qos.logback&#8217;, module: &#8216;logback-classic&#8217;
   

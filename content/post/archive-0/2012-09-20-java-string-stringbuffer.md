@@ -55,7 +55,7 @@ String 是final类,即不能被继承.
  Java.lang.StringBuffer线程安全的可变字符序列。一个类似于 String 的字符串缓冲区，但不能修改。虽然在任意时间点上它都包含某种特定的字符序列，但通过某些方法调用可以改变该序列的长度和内容。
  可将字符串缓冲区安全地用于多个线程。可以在必要时对这些方法进行同步，因此任意特定实例上的所有操作就好像是以串行顺序发生的，该顺序与所涉及的每个线程进行的方法调用顺序一致。
  StringBuffer 上的主要操作是 append 和 insert 方法，可重载这些方法，以接受任意类型的数据。每个方法都能有效地将给定的数据转换成字符串，然后将该字符串的字符追加或插入到字符串缓冲区中。append 方法始终将这些字符添加到缓冲区的末端；而 insert 方法则在指定的点添加字符。
- 例如，如果 z 引用一个当前内容是“start”的字符串缓冲区对象，则此方法调用 z.append("le&#8221;) 会使字符串缓冲区包含“startle”，而 z.insert(4, "le&#8221;) 将更改字符串缓冲区，使之包含“starlet”。
+ 例如，如果 z 引用一个当前内容是“start”的字符串缓冲区对象，则此方法调用 z.append("le") 会使字符串缓冲区包含“startle”，而 z.insert(4, "le") 将更改字符串缓冲区，使之包含“starlet”。
  <span style="color: #ff0000;">在大部分情况下 StringBuilder > StringBuffer</span></span>
 
 
@@ -81,9 +81,9 @@ String 是final类,即不能被继承.
  是一个可变对象,当对他进行修改的时候不会像String那样重新建立对象它只能通过构造函数来建立,
  StringBuffer sb = new StringBuffer();
  note:不能通过赋值符号对他进行赋值.
- sb = "welcome to here!&#8221;;//error
+ sb = "welcome to here!";//error
  对象被建立以后,在内存中就会分配内存空间,并初始保存一个null.向StringBuffer中付值的时候可以通过它的append方法.
- sb.append("hello&#8221;);
+ sb.append("hello");
   
   
   
@@ -92,7 +92,7 @@ String 是final类,即不能被继承.
   
   
     String str = new String("welcome to ");
- str += "here&#8221;;
+ str += "here";
  的处理步骤实际上是通过建立一个StringBuffer,然后调用append(),最后再将StringBuffer toSting();
  这样的话String的连接操作就比StringBuffer多出了一些附加操作,当然效率上要打折扣.
   
@@ -170,13 +170,13 @@ String 是final类,即不能被继承.
   
   
   
-    str += "here&#8221;;
+    str += "here";
  的处理步骤实际上是通过建立一个StringBuffer,让侯调用append(),最后
  再将StringBuffer toSting();
   
   
   
-    所以str += "here&#8221;;可以等同于
+    所以str += "here";可以等同于
   
   
   
@@ -184,7 +184,7 @@ String 是final类,即不能被继承.
   
   
   
-    sb.append("here&#8221;);
+    sb.append("here");
   
   
   
@@ -192,7 +192,7 @@ String 是final类,即不能被继承.
   
   
   
-    所以上面直接利用&#8221;+&#8221;来连接String的代码可以基本等同于以下代码
+    所以上面直接利用"+"来连接String的代码可以基本等同于以下代码
   
   
   

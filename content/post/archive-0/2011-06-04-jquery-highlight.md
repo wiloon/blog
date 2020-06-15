@@ -12,7 +12,7 @@ categories:
 ---
 var options = {};
 	  
-$("#status&#8221;).effect("highlight&#8221;, options, 500, callback);
+$("#status").effect("highlight", options, 500, callback);
 
 function callback() {
   

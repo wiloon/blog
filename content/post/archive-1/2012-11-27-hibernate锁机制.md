@@ -27,7 +27,7 @@ categories:
       
       
         <wbr> <wbr> <wbr> <wbr> 基于jdbc实现的数据库加锁如下：
- <wbr> <wbr> <wbr> <wbr> select * from account where name=&#8221;Erica&#8221; for update.在更新的过程中，数据库处于加锁状
+ <wbr> <wbr> <wbr> <wbr> select * from account where name="Erica" for update.在更新的过程中，数据库处于加锁状
       
       
       
@@ -36,9 +36,9 @@ categories:
       
       
         <wbr> <wbr> <wbr> <wbr> 而hibernate悲观锁的具体实现如下：
- <wbr> <wbr> <wbr> <wbr> String sql=&#8221;查询语句&#8221;;
+ <wbr> <wbr> <wbr> <wbr> String sql="查询语句";
  <wbr> <wbr> <wbr> <wbr> Query query=session.createQuery(sql);
- <wbr> <wbr> <wbr> <wbr> query.setLockMode("对象&#8221;，LockModel.UPGRADE);
+ <wbr> <wbr> <wbr> <wbr> query.setLockMode("对象"，LockModel.UPGRADE);
       
       
       
@@ -179,11 +179,11 @@ categories:
       
       
       
-        <wbr> <wbr> <wbr> <wbr> <wbr> <class name=&#8221;onlyfun.caterpillar.Account&#8221; talble=&#8221;ACCOUNT&#8221;
+        <wbr> <wbr> <wbr> <wbr> <wbr> <class name="onlyfun.caterpillar.Account" talble="ACCOUNT"
       
       
       
-        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> optimistic-lock=&#8221;version&#8221;>
+        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> optimistic-lock="version">
       
       
       
@@ -191,7 +191,7 @@ categories:
       
       
       
-        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <version name=&#8221;version&#8221; column=&#8221;VERSION&#8221;/>
+        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <version name="version" column="VERSION"/>
       
       
       

@@ -67,7 +67,7 @@ categories:
               ServletContext ctx = event.getSession( ).getServletContext( );
       </li>
       <li>
-                Integer numSessions = (Integer) ctx.getAttribute("numSessions&#8221;);
+                Integer numSessions = (Integer) ctx.getAttribute("numSessions");
       </li>
       <li>
                 if (numSessions == null) {
@@ -91,7 +91,7 @@ categories:
                 }
       </li>
       <li>
-                ctx.setAttribute("numSessions&#8221;, numSessions);
+                ctx.setAttribute("numSessions", numSessions);
       </li>
       <li>
         }
@@ -106,10 +106,10 @@ categories:
          ServletContext ctx=se.getSession().getServletContext();
       </li>
       <li>
-         Integer numSessions = (Integer)ctx.getAttribute("numSessions&#8221;);
+         Integer numSessions = (Integer)ctx.getAttribute("numSessions");
       </li>
       <li>
-        <span class=&#8221;oblog_text&#8221;>        if(numSessions == null)
+        <span class="oblog_text">        if(numSessions == null)
       </li>
       <li>
                     numSessions = new Integer(0);
@@ -130,7 +130,7 @@ categories:
                 }
       </li>
       <li>
-                ctx.setAttribute("numSessions&#8221;, numSessions);</span>
+                ctx.setAttribute("numSessions", numSessions);</span>
       </li>
       <li>
       </li>
@@ -201,7 +201,7 @@ categories:
             // 成功
       </li>
       <li>
-            response.sendRedirect("index.jsp&#8221;);
+            response.sendRedirect("index.jsp");
       </li>
       <li>
         }
@@ -291,7 +291,7 @@ categories:
                 String sessionid = se.getSession().getId();
       </li>
       <li>
-                EopSite site  =(EopSite)ThreadContextHolder.getSessionContext().getAttribute("site_key&#8221;);
+                EopSite site  =(EopSite)ThreadContextHolder.getSessionContext().getAttribute("site_key");
       </li>
       <li>
       </li>
@@ -299,7 +299,7 @@ categories:
                 if(site!=null){
       </li>
       <li>
-                ICartManager cartManager = SpringContextHolder.getBean("cartManager&#8221;);
+                ICartManager cartManager = SpringContextHolder.getBean("cartManager");
       </li>
       <li>
                 cartManager.clean(sessionid,site.getUserid(),site.getId());

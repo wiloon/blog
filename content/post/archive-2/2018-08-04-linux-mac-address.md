@@ -22,31 +22,31 @@ NamePolicy=kernel database onboard slot path
 
 NamePolicy
   
-应该如何设置网卡的名称， 仅在未使用 "net.ifnames=0&#8221; 内核引导选项时有意义。 接受一个空格分隔的策略列表， 顺序尝试每个策略，并以第一个成功的策略为准。 所得的名字将被用于设置网卡的 "ID\_NET\_NAME&#8221; 属性。 注意，默认的udev规则会用 "ID\_NET\_NAME&#8221; 的值设置 "NAME&#8221; 属性(也就是网卡的名称)。 如果网卡已经被空户空间命名，那么将不会进行任何重命名操作。 可用的策略如下：
+应该如何设置网卡的名称， 仅在未使用 "net.ifnames=0" 内核引导选项时有意义。 接受一个空格分隔的策略列表， 顺序尝试每个策略，并以第一个成功的策略为准。 所得的名字将被用于设置网卡的 "ID\_NET\_NAME" 属性。 注意，默认的udev规则会用 "ID\_NET\_NAME" 的值设置 "NAME" 属性(也就是网卡的名称)。 如果网卡已经被空户空间命名，那么将不会进行任何重命名操作。 可用的策略如下：
   
-"kernel&#8221;
+"kernel"
   
 如果内核已经为此网卡设置了固定的可预测名称， 那么不进行任何重命名操作。
   
-"database&#8221;
+"database"
   
-基于网卡的 "ID\_NET\_NAME\_FROM\_DATABASE&#8221; 属性值(来自于udev硬件数据库)设置网卡的名称。
+基于网卡的 "ID\_NET\_NAME\_FROM\_DATABASE" 属性值(来自于udev硬件数据库)设置网卡的名称。
   
-"onboard&#8221;
+"onboard"
   
-基于网卡的 "ID\_NET\_NAME_ONBOARD&#8221; 属性值(来自于板载网卡固件)设置网卡的名称。
+基于网卡的 "ID\_NET\_NAME_ONBOARD" 属性值(来自于板载网卡固件)设置网卡的名称。
   
-"slot&#8221;
+"slot"
   
-基于网卡的 "ID\_NET\_NAME_SLOT&#8221; 属性值(来自于可插拔网卡固件)设置网卡的名称。
+基于网卡的 "ID\_NET\_NAME_SLOT" 属性值(来自于可插拔网卡固件)设置网卡的名称。
   
-"path&#8221;
+"path"
   
-基于网卡的 "ID\_NET\_NAME_PATH&#8221; 属性值(来自于网卡的总线位置)设置网卡的名称。
+基于网卡的 "ID\_NET\_NAME_PATH" 属性值(来自于网卡的总线位置)设置网卡的名称。
   
-"mac&#8221;
+"mac"
   
-基于网卡的 "ID\_NET\_NAME_MAC&#8221; 属性值(来自于网卡的固定MAC地址)设置网卡的名称。
+基于网卡的 "ID\_NET\_NAME_MAC" 属性值(来自于网卡的固定MAC地址)设置网卡的名称。
 
 https://wiki.archlinux.org/index.php/MAC\_address\_spoofing_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
   

@@ -20,7 +20,7 @@ Project Preview
 
 Project Setup
   
-In the download that accompanies this tutorial, you&#8217;ll find folders entitled "Initial Build&#8221; and "Final Build&#8221;. Rather than showing all the steps necessary to setup the initial project, you should simply download the attachment and follow along using the project from the "Initial Build&#8221; folder.
+In the download that accompanies this tutorial, you&#8217;ll find folders entitled "Initial Build" and "Final Build". Rather than showing all the steps necessary to setup the initial project, you should simply download the attachment and follow along using the project from the "Initial Build" folder.
 
 With the initial project open, go to the ViewController.m file and locate the forloop within the viewDidLoad method. The code snippets from the tips below should be placed within this loop.
 
@@ -84,7 +84,7 @@ nil];
   
 [btn.layer insertSublayer:btnGradient atIndex:0];
   
-Starting on line 4 above, an NSArray is created with the initial and target gradient colors. Note that the corresponding RGB values must be divided by 255 before being supplied to the colorWithRed:green:blue:alpha: message and that an alpha value of 1.0 represents fully opaque while an alpha value of 0.0 represents fully transparent. Unfortunately, a full explanation of the "magic&#8221; above is beyond the scope of this tutorial, but the important thing to remember is to that you simply need to replace the RGB values with the begin/end values you want to use in your own custom gradient.
+Starting on line 4 above, an NSArray is created with the initial and target gradient colors. Note that the corresponding RGB values must be divided by 255 before being supplied to the colorWithRed:green:blue:alpha: message and that an alpha value of 1.0 represents fully opaque while an alpha value of 0.0 represents fully transparent. Unfortunately, a full explanation of the "magic" above is beyond the scope of this tutorial, but the important thing to remember is to that you simply need to replace the RGB values with the begin/end values you want to use in your own custom gradient.
 
 If all went well, your menu should now look something like this:
   
@@ -136,11 +136,11 @@ Tip #4: Use a Custom Font
   
 Now let&#8217;s try a more noteworthy tweak. The default system font just isn&#8217;t cutting it. The game menu we&#8217;re building needs a font that can match the visual aesthetic of the game. A quick search on Google Fonts reveals just a font called Knewave by Tyler Finck that should do the trick. Download Knewave now.
 
-After downloading the Knewave-Regular.ttf file, you&#8217;ll need to drag it into the Project Navigator pane in Xcode to add it to your project. Next, open up theInfo.plist file. Add a new property list row and type in "Fonts provided by application&#8221;. An array should be created automatically. Set the string associated with Item 0 to "Knewave-Regular.ttf&#8221;. Double check the name because the value is case sensitive. Save the file.
+After downloading the Knewave-Regular.ttf file, you&#8217;ll need to drag it into the Project Navigator pane in Xcode to add it to your project. Next, open up theInfo.plist file. Add a new property list row and type in "Fonts provided by application". An array should be created automatically. Set the string associated with Item 0 to "Knewave-Regular.ttf". Double check the name because the value is case sensitive. Save the file.
 
 After making the above modification, your Info.plist file should now look like this:
   
-Next, you&#8217;ll need to add the Knewave-Regular.ttf file to your project&#8217;s bundled resources. Select "SleekButtons&#8221; from the Project Navigator and then click the "Build Phases&#8221; tab. Expand the "Copy Bundle Resources&#8221; drop down and then click the plus sign.
+Next, you&#8217;ll need to add the Knewave-Regular.ttf file to your project&#8217;s bundled resources. Select "SleekButtons" from the Project Navigator and then click the "Build Phases" tab. Expand the "Copy Bundle Resources" drop down and then click the plus sign.
   
 At this point, you should be able to begin using the Knewave font in your project! Let&#8217;s test that out by jumping back to the ViewController.m file and modifying theviewDidLoad method to set a custom font:
 
@@ -172,7 +172,7 @@ At this point, you should be able to begin using the Knewave font in your projec
 
 // Add Custom Font
   
-[[btn titleLabel] setFont:[UIFont fontWithName:@&#8221;Knewave&#8221; size:18.0f]];
+[[btn titleLabel] setFont:[UIFont fontWithName:@"Knewave" size:18.0f]];
 
 // Draw a custom gradient
   
@@ -180,7 +180,7 @@ CAGradientLayer *btnGradient = [CAGradientLayer layer];
   
 btnGradient.frame = btn.bounds;
   
-Notice that the fontWithName value is specified as "Knewave&#8221;, not "Knewave-Regular&#8221; as you might expect. This is because there is a difference between the font&#8217;s filename and the font&#8217;s given name. You&#8217;ll need to be sure you use the given name when working with your own fonts.
+Notice that the fontWithName value is specified as "Knewave", not "Knewave-Regular" as you might expect. This is because there is a difference between the font&#8217;s filename and the font&#8217;s given name. You&#8217;ll need to be sure you use the given name when working with your own fonts.
 
 With the above code in place, the game menu should be complete! Build and run now and you should see something like the following:
   
@@ -228,9 +228,9 @@ Implementing UIButton-Glossy in your own project is simple. After you&#8217;vedo
   
 2
   
-#import "ViewController.h&#8221;
+#import "ViewController.h"
   
-#import "UIButton+Glossy.h&#8221;
+#import "UIButton+Glossy.h"
   
 Now you can instantly apply a cool glossy effect on your buttons with just one line of code: [btn makeGlossy];.
 
@@ -282,7 +282,7 @@ for(UIButton *btn in buttons)
 
 // Add Custom Font
   
-[[btn titleLabel] setFont:[UIFont fontWithName:@&#8221;Knewave&#8221; size:18.0f]];
+[[btn titleLabel] setFont:[UIFont fontWithName:@"Knewave" size:18.0f]];
 
 // Make glossy
   

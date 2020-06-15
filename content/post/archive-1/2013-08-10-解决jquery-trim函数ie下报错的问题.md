@@ -24,7 +24,7 @@ categories:
       var content = $(&#8216;#content&#8217;).val();
     </li>
     <li>
-      if(content.trim() == &#8221;)
+      if(content.trim() == ")
     </li>
     <li>
          alert(&#8216;空&#8217;);
@@ -48,7 +48,7 @@ categories:
       var content = $(&#8216;#content&#8217;).val();
     </li>
     <li>
-      if($.trim(content) == &#8221;)
+      if($.trim(content) == ")
     </li>
     <li>
         alert(&#8216;空&#8217;);
@@ -70,7 +70,7 @@ categories:
       var content = $(&#8216;#content&#8217;).val();
     </li>
     <li>
-      if(jQuery.trim(content) == &#8221;)
+      if(jQuery.trim(content) == ")
     </li>
     <li>
        alert(&#8216;空&#8217;);

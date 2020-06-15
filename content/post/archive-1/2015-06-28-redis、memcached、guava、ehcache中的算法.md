@@ -21,7 +21,7 @@ tags:
   
 简单粗暴的Redis
   
-今天看Redis3.0的发行通告里说，LRU算法大幅提升了，就翻开源码来八卦一下，结果哭笑不得，这旧版的&#8221;近似LRU&#8221;算法，实在太简单，太偷懒，太Redis了。
+今天看Redis3.0的发行通告里说，LRU算法大幅提升了，就翻开源码来八卦一下，结果哭笑不得，这旧版的"近似LRU"算法，实在太简单，太偷懒，太Redis了。
 
 在Github的Redis项目里搜索lru，找到代码在redis.c的freeMemoryIfNeeded()函数里。
 

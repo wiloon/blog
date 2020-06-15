@@ -106,7 +106,7 @@ TimerTask task = new TimerTask(){
   
 public void run() {
   
-setTitle("hear me?&#8221;);
+setTitle("hear me?");
   
 }
   
@@ -144,7 +144,7 @@ switch (msg.what) {
   
 case 1:
   
-setTitle("hear me?&#8221;);
+setTitle("hear me?");
   
 break;
   
@@ -204,7 +204,7 @@ count++;
   
 }
   
-tvCounter.setText("Count: &#8221; + count);
+tvCounter.setText("Count: " + count);
 
 }
   

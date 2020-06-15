@@ -16,7 +16,7 @@ protected void Application_BeginRequest(Object sender, EventArgs e)
   
 {
   
-Application["StartTime&#8221;] = System.DateTime.Now;
+Application["StartTime"] = System.DateTime.Now;
   
 }
 
@@ -26,17 +26,17 @@ private void Page_Load(object sender, System.EventArgs e)
   
 {
   
-System.DateTime startTime = (System.DateTime)Application["StartTime&#8221;];
+System.DateTime startTime = (System.DateTime)Application["StartTime"];
   
 System.DateTime endTime = System.DateTime.Now;
   
 System.TimeSpan ts = endTime &#8211; startTime;
   
-Response.Write("页面执行时间:&#8221;+ ts.Milliseconds +&#8221; 毫秒&#8221;);
+Response.Write("页面执行时间:"+ ts.Milliseconds +" 毫秒");
   
 }
 
-如果是０５版本中，就要手动添加了，自己在App_Code中添加Global.asax.cs，然后设置Global.asax的属性Inherits=&#8221;Global&#8221;或CodeBehind=&#8221;Global.asax.cs&#8221;即可<%@ Application Language=&#8221;C#&#8221; Codebehind=&#8221;Global.asax.cs&#8221; %>
+如果是０５版本中，就要手动添加了，自己在App_Code中添加Global.asax.cs，然后设置Global.asax的属性Inherits="Global"或CodeBehind="Global.asax.cs"即可<%@ Application Language="C#" Codebehind="Global.asax.cs" %>
 
 以上测试在０３／０５均通过．
 
@@ -48,7 +48,7 @@ Response.Write("页面执行时间:&#8221;+ ts.Milliseconds +&#8221; 毫秒&#822
 
 2 Global.asax文件的创建
 
-点击Web站点>>添加新建项>>全局应用程序类，即可添加Global.asax文件。在.Net2003里，直接右击Global.asax文件查看代码就可以编辑Global.asax.cs文件，但是在.Net2005中，没有这个选项，因此需要自己在App_Code中添加Global.asax.cs，然后设置Global.asax的属性Inherits=&#8221;Global&#8221;或CodeBehind=&#8221;Global.asax.cs&#8221;即可。不可知道还有没有其他更好的方法。
+点击Web站点>>添加新建项>>全局应用程序类，即可添加Global.asax文件。在.Net2003里，直接右击Global.asax文件查看代码就可以编辑Global.asax.cs文件，但是在.Net2005中，没有这个选项，因此需要自己在App_Code中添加Global.asax.cs，然后设置Global.asax的属性Inherits="Global"或CodeBehind="Global.asax.cs"即可。不可知道还有没有其他更好的方法。
 
 3 Global.asax文件的执行
 

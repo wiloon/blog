@@ -87,11 +87,11 @@ main.xml代码如下，很简单，也不需要多做解释了：
 
 解释一下，里面用到的一些属性：
 
-1.paddingBottom=&#8221;3dip&#8221;，Layout往底部留出3个像素的空白区域
+1.paddingBottom="3dip"，Layout往底部留出3个像素的空白区域
 
-2.paddingLeft=&#8221;10dip&#8221;，Layout往左边留出10个像素的空白区域
+2.paddingLeft="10dip"，Layout往左边留出10个像素的空白区域
 
-3.textSize=&#8221;30dip&#8221;，TextView的字体为30个像素那么大。
+3.textSize="30dip"，TextView的字体为30个像素那么大。
 
 最后就是JAVA的源代码：
 
@@ -143,10 +143,10 @@ main.xml代码如下，很简单，也不需要多做解释了：
               HashMap<String, String> map = new HashMap<String, String>();
     </li>
     <li>
-              map.put("ItemTitle&#8221;, "This is Title&#8230;..&#8221;);
+              map.put("ItemTitle", "This is Title&#8230;..");
     </li>
     <li>
-              map.put("ItemText&#8221;, "This is text&#8230;..&#8221;);
+              map.put("ItemText", "This is text&#8230;..");
     </li>
     <li>
               mylist.add(map);
@@ -170,7 +170,7 @@ main.xml代码如下，很简单，也不需要多做解释了：
                                                       //动态数组与ListItem对应的子项
     </li>
     <li>
-                                                      new String[] {"ItemTitle&#8221;, "ItemText&#8221;},
+                                                      new String[] {"ItemTitle", "ItemText"},
     </li>
     <li>
                                                       //ListItem的XML文件里面的两个TextView ID

@@ -145,11 +145,11 @@ categories:
           
           
           <p align="left">
-            public String privateInfo=&#8221;&#8221;; //生成监听器的初始化参数字符串
+            public String privateInfo=""; //生成监听器的初始化参数字符串
           
           
           <p align="left">
-            private String logString=&#8221;&#8221;; //日志记录字符串
+            private String logString=""; //日志记录字符串
           
           
           <p align="left">
@@ -193,7 +193,7 @@ categories:
           
           
           <p align="left">
-            if (privateInfo.equals("count&#8221;))
+            if (privateInfo.equals("count"))
           
           
           <p align="left">
@@ -217,11 +217,11 @@ categories:
           
           
           <p align="left">
-            System.out.println("LOGIN:&#8221;+privateInfo+&#8221; TIME:&#8221;+calendar.getTime());
+            System.out.println("LOGIN:"+privateInfo+" TIME:"+calendar.getTime());
           
           
           <p align="left">
-            logString=&#8221;nLOGIN:&#8221;+privateInfo+&#8221; TIME:&#8221;+calendar.getTime()+&#8221;n&#8221;;
+            logString="nLOGIN:"+privateInfo+" TIME:"+calendar.getTime()+"n";
           
           
           <p align="left">
@@ -229,7 +229,7 @@ categories:
           
           
           <p align="left">
-            File file=new File("yeeyoo.log&#8221;+i);
+            File file=new File("yeeyoo.log"+i);
           
           
           <p align="left">
@@ -249,7 +249,7 @@ categories:
           
           
           <p align="left">
-            FileOutputStream foo=new FileOutputStream("yeeyoo.log&#8221;+i,true);
+            FileOutputStream foo=new FileOutputStream("yeeyoo.log"+i,true);
           
           
           <p align="left">
@@ -297,7 +297,7 @@ categories:
           
           
           <p align="left">
-            if (privateInfo.equals("count&#8221;))
+            if (privateInfo.equals("count"))
           
           
           <p align="left">
@@ -321,11 +321,11 @@ categories:
           
           
           <p align="left">
-            System.out.println("LOGOUT:&#8221;+privateInfo+&#8221; TIME:&#8221;+calendar.getTime());
+            System.out.println("LOGOUT:"+privateInfo+" TIME:"+calendar.getTime());
           
           
           <p align="left">
-            logString=&#8221;nLOGOUT:&#8221;+privateInfo+&#8221; TIME:&#8221;+calendar.getTime()+&#8221;n&#8221;;
+            logString="nLOGOUT:"+privateInfo+" TIME:"+calendar.getTime()+"n";
           
           
           <p align="left">
@@ -333,7 +333,7 @@ categories:
           
           
           <p align="left">
-            File file=new File("yeeyoo.log&#8221;+i);
+            File file=new File("yeeyoo.log"+i);
           
           
           <p align="left">
@@ -353,7 +353,7 @@ categories:
           
           
           <p align="left">
-            FileOutputStream foo=new FileOutputStream("yeeyoo.log&#8221;+i,true);
+            FileOutputStream foo=new FileOutputStream("yeeyoo.log"+i,true);
           
           
           <p align="left">
@@ -426,7 +426,7 @@ categories:
           
           
           <p align="left">
-               new SessionListener("IP:&#8221;+req.getRemoteAddr());
+               new SessionListener("IP:"+req.getRemoteAddr());
           
           
           <p align="left">
@@ -434,7 +434,7 @@ categories:
           
           
           <p align="left">
-            session.setAttribute("listener&#8221;,sessionListener);
+            session.setAttribute("listener",sessionListener);
           
           
           <p align="left">
@@ -472,7 +472,7 @@ categories:
           
           
           <p align="left">
-            if((SessionListener)session1.getAttribute("listener1&#8221;)==null)
+            if((SessionListener)session1.getAttribute("listener1")==null)
           
           
           <p align="left">
@@ -480,7 +480,7 @@ categories:
           
           
           <p align="left">
-            SessionListener sessionListener1=new SessionListener("count&#8221;);
+            SessionListener sessionListener1=new SessionListener("count");
           
           
           <p align="left">
@@ -496,7 +496,7 @@ categories:
           
           
           <p align="left">
-            session1.setAttribute("listener1&#8221;,sessionListener1);
+            session1.setAttribute("listener1",sessionListener1);
           
           
           <p align="left">
@@ -512,11 +512,11 @@ categories:
           
           
           <p align="left">
-            session.setAttribute("listener1&#8221;,(SessionListener)session1.
+            session.setAttribute("listener1",(SessionListener)session1.
           
           
           <p align="left">
-            getAttribute("listener1&#8221;));
+            getAttribute("listener1"));
           
           
           <p align="left">
@@ -540,7 +540,7 @@ categories:
       <tr>
         <td>
           <p align="left">
-            ((SessionListener)session.getAttribute("listener1&#8221;)).getCount()
+            ((SessionListener)session.getAttribute("listener1")).getCount()
           
         </td>
       </tr>

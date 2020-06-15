@@ -36,13 +36,13 @@ sql里用？占位，等待被替换。例如，select * from table1 where user_
 
 2. 启用pscache。
 
-<bean id=&#8221;dataSource&#8221; class=&#8221;org.apache.commons.dbcp.BasicDataSource&#8221; destroy-method=&#8221;close&#8221;>
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
   
 &#8230;.
   
-<property name=&#8221;poolPreparedStatements&#8221; value=&#8221;true&#8221; />
+<property name="poolPreparedStatements" value="true" />
   
-<property name=&#8221;maxOpenPreparedStatements&#8221; value=&#8221;10" />
+<property name="maxOpenPreparedStatements" value="10" />
   
 &#8230;.
   

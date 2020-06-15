@@ -63,7 +63,7 @@ $git status
 
 # Untracked files:
 
-# (use "git add &#8230;&#8221; to include in what will be committed)
+# (use "git add &#8230;" to include in what will be committed)
 
 #
 

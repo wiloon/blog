@@ -20,9 +20,9 @@ http://blog.csdn.net/mengweiqi33/article/details/7679467
 
 Intent intent= new Intent();
   
-intent.setAction("android.intent.action.VIEW&#8221;);
+intent.setAction("android.intent.action.VIEW");
   
-Uri content_url = Uri.parse("http://www.cnblogs.com&#8221;);
+Uri content_url = Uri.parse("http://www.cnblogs.com");
   
 intent.setData(content_url);
   
@@ -40,13 +40,13 @@ startActivity(intent);
   
 Intent intent= new Intent();
   
-intent.setAction("android.intent.action.VIEW&#8221;);
+intent.setAction("android.intent.action.VIEW");
   
-Uri content_url = Uri.parse("http://www.cnblogs.com&#8221;);
+Uri content_url = Uri.parse("http://www.cnblogs.com");
   
 intent.setData(content_url);
   
-intent.setClassName("com.android.browser&#8221;,&#8221;com.android.browser.BrowserActivity&#8221;);
+intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
   
 startActivity(intent);
 
@@ -56,13 +56,13 @@ startActivity(intent);
 
 
 
-intent.setClassName("com.android.browser&#8221;,&#8221;com.android.browser.BrowserActivity&#8221;);
+intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
 
-uc浏览器&#8221;：&#8221;com.uc.browser&#8221;, "com.uc.browser.ActivityUpdate“
+uc浏览器"："com.uc.browser", "com.uc.browser.ActivityUpdate“
 
-opera    ：&#8221;com.opera.mini.android&#8221;, "com.opera.mini.android.Browser&#8221;
+opera    ："com.opera.mini.android", "com.opera.mini.android.Browser"
   
-qq浏览器：&#8221;com.tencent.mtt&#8221;, "com.tencent.mtt.MainActivity&#8221;
+qq浏览器："com.tencent.mtt", "com.tencent.mtt.MainActivity"
 
 
 
@@ -74,13 +74,13 @@ qq浏览器：&#8221;com.tencent.mtt&#8221;, "com.tencent.mtt.MainActivity&#8221
 
 Intent intent= new Intent();
   
-intent.setAction("android.intent.action.VIEW&#8221;);
+intent.setAction("android.intent.action.VIEW");
   
-Uri content_url = Uri.parse("content://com.android.htmlfileprovider/sdcard/help.html&#8221;);
+Uri content_url = Uri.parse("content://com.android.htmlfileprovider/sdcard/help.html");
   
 intent.setData(content_url);
   
-intent.setClassName("com.android.browser&#8221;,&#8221;com.android.browser.BrowserActivity&#8221;);
+intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
   
 startActivity(intent);
   
@@ -96,13 +96,13 @@ startActivity(intent);
 
 <intent-filter>
   
-<action android:name=&#8221;android.intent.action.VIEW&#8221; />
+<action android:name="android.intent.action.VIEW" />
   
-<category android:name=&#8221;android.intent.category.DEFAULT&#8221; />
+<category android:name="android.intent.category.DEFAULT" />
   
-<category android:name=&#8221;android.intent.category.BROWSABLE&#8221; />
+<category android:name="android.intent.category.BROWSABLE" />
   
-<data android:scheme=&#8221;file&#8221; />
+<data android:scheme="file" />
   
 </intent-filter>
   

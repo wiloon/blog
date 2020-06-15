@@ -18,9 +18,9 @@ http://mobile.51cto.com/android-386448.htm
   
 2.调用WebView的loadUrl()方法，设置WevView要显示的网页：
   
-互联网用：webView.loadUrl("http://www.31358.com&#8221;);
+互联网用：webView.loadUrl("http://www.31358.com");
   
-本地文件用：webView.loadUrl("file:///android_asset/XX.html&#8221;); 本地文件存放在：assets 文件中
+本地文件用：webView.loadUrl("file:///android_asset/XX.html"); 本地文件存放在：assets 文件中
   
 3.调用Activity的setContentView( )方法来显示网页视图
   
@@ -28,7 +28,7 @@ http://mobile.51cto.com/android-386448.htm
   
 5.需要在AndroidManifest.xml文件中添加权限，否则会出现Web page not available错误。
 
-<uses-permission android:name=&#8221;android.permission.INTERNET&#8221; />
+<uses-permission android:name="android.permission.INTERNET" />
 
 缺点：如果是载入的是普通网页，没有什么问题，但如果是html5,封装后，在android2.3以上才能正常访问，android2.2及以下，SDK中的WebView还没完全支持HTML5
 
@@ -66,7 +66,7 @@ webview.getSettings().setJavaScriptEnabled(true);
   
 //加载需要显示的网页
   
-webview.loadUrl("http://www.31358.cn/&#8221;);
+webview.loadUrl("http://www.31358.cn/");
   
 //设置Web视图
   
@@ -96,29 +96,29 @@ return false;
   
 在AndroidManifest.xml文件中添加权限
 
-<?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
   
-<manifest xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   
-package=&#8221;com.android.webview.activity&#8221;
+package="com.android.webview.activity"
   
-android:versionCode=&#8221;1"
+android:versionCode="1"
   
-android:versionName=&#8221;1.0">
+android:versionName="1.0">
   
-<uses-sdk android:minSdkVersion=&#8221;10" />
+<uses-sdk android:minSdkVersion="10" />
   
-<application android:icon=&#8221;@drawable/icon&#8221; android:label=&#8221;@string/app_name&#8221;>
+<application android:icon="@drawable/icon" android:label="@string/app_name">
   
-<activity android:name=&#8221;.MainActivity&#8221;
+<activity android:name=".MainActivity"
   
-android:label=&#8221;@string/app_name&#8221;>
+android:label="@string/app_name">
   
 <intent-filter>
   
-<action android:name=&#8221;android.intent.action.MAIN&#8221; />
+<action android:name="android.intent.action.MAIN" />
   
-<category android:name=&#8221;android.intent.category.LAUNCHER&#8221; />
+<category android:name="android.intent.category.LAUNCHER" />
   
 </intent-filter>
   
@@ -126,7 +126,7 @@ android:label=&#8221;@string/app_name&#8221;>
   
 </application>
   
-<uses-permission android:name=&#8221;android.permission.INTERNET&#8221;/>
+<uses-permission android:name="android.permission.INTERNET"/>
   
 </manifest>
   

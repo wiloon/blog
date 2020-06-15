@@ -44,7 +44,7 @@ With the following lines:
   
 URL=&#8217;http://localhost:8080/hudson/job/xxx/build&#8217;
 
-echo "Run Hudson build at $URL&#8221;
+echo "Run Hudson build at $URL"
   
 wget $URL > /dev/null 2>&1
 

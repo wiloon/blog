@@ -20,7 +20,7 @@ categories:
  {
  for (int i = dt.Rows.Count &#8211; 1; i >= 0; i&#8211;)
  {
- if (Convert.ToInt32(dt.Rows[i]["RowID&#8221;]) == RowID)
+ if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
  dt.Rows.RemoveAt(i);
  }
  }
@@ -45,7 +45,7 @@ categories:
   
             for (int i = 0, j = dt.Rows.Count; i < j; i++)
  {
- if (Convert.ToInt32(dt.Rows[i]["RowID&#8221;]) == RowID)
+ if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
  dt.Rows.RemoveAt(i);
  }
   
@@ -53,7 +53,7 @@ categories:
 
 
 
-这个的错误在于datatable的RemoveAt()会在删除后更新dataTable的index，所以你要删除的index可能已经不是你的符合Convert.ToInt32(dt.Rows\[i\]\["RowID&#8221;\]) == RowID的index了，甚者还会抛出异常，说你访问的index不存在。
+这个的错误在于datatable的RemoveAt()会在删除后更新dataTable的index，所以你要删除的index可能已经不是你的符合Convert.ToInt32(dt.Rows\[i\]\["RowID"\]) == RowID的index了，甚者还会抛出异常，说你访问的index不存在。
 
 所以要从DataTable的下面网上查找删除，这样即使这行符合条件被删除了，上面的行依旧不受影响。
 

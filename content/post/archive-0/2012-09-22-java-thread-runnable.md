@@ -45,9 +45,9 @@ public class ThreadDemo01 {
   
 public static void main(String[] args) {
   
-MyThread mt1=new MyThread("线程a&#8221;);
+MyThread mt1=new MyThread("线程a");
   
-MyThread mt2=new MyThread("线程b&#8221;);
+MyThread mt2=new MyThread("线程b");
   
 new Thread(mt1).start();
   
@@ -83,7 +83,7 @@ for(int i=0;i<20;i++){
 
 if(this.ticket>0){
 
-System.out.println("卖票：ticket&#8221;+this.ticket&#8211;);
+System.out.println("卖票：ticket"+this.ticket&#8211;);
 
 }
 
@@ -131,7 +131,7 @@ for(int i=0;i<20;i++){
 
 if(this.ticket>0){
 
-System.out.println("卖票：ticket&#8221;+this.ticket&#8211;);
+System.out.println("卖票：ticket"+this.ticket&#8211;);
 
 }
 
@@ -203,11 +203,11 @@ Thread t1 = new Thread();
    
 Thread t2 = new Thread();
 
-t1.word = "a&#8221;
+t1.word = "a"
    
 t1.time = 1000
 
-t2.Word = "b&#8221;
+t2.Word = "b"
    
 t2.time = 2000
 
@@ -223,7 +223,7 @@ t2.start();
 
 class T implements Runnable{
    
-String s = "&#8221;;
+String s = "";
    
 int time = 0;
    
@@ -257,11 +257,11 @@ T t1 = new T();
    
 T t2 = new T();
    
-t1.s = "a&#8221;;
+t1.s = "a";
    
 t1.time = 100;
    
-t2.s = "b&#8221;;
+t2.s = "b";
    
 t2.time = 200;
    
@@ -298,4 +298,4 @@ http://blog.csdn.net/ghsau/article/details/7481142
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=9968&#038;embed=true#?secret=Y65uz4t1vN" data-secret="Y65uz4t1vN" width="600" height="338" title=""多线程的代价及上下文切换&#8221; &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=9968&#038;embed=true#?secret=Y65uz4t1vN" data-secret="Y65uz4t1vN" width="600" height="338" title=""多线程的代价及上下文切换" &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

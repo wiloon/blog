@@ -76,7 +76,7 @@ pid = getpid();
   
 tid = pthread_self();
   
-printf("%s pid %u tid %u (0x%x)\n&#8221;, s,
+printf("%s pid %u tid %u (0x%x)\n", s,
   
 (unsigned int)pid, (unsigned int)tid, (unsigned int)tid);
   
@@ -100,9 +100,9 @@ err = pthread\_create(&ntid, NULL, thr\_fn, NULL);
   
 if (err != 0)
   
-printf("can&#8217;t create thread: %s\n&#8221;, strerror(err));
+printf("can&#8217;t create thread: %s\n", strerror(err));
   
-printids("main thread:&#8221;);
+printids("main thread:");
   
 sleep(1);
   

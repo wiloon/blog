@@ -206,7 +206,7 @@ __ cmp(G3\_scratch, SafepointSynchronize::\_not_synchronized);
   
 "If the calling process tries to access memory in a manner that violates the protection, then the kernel generates a SIGSEGV
   
-signal for the process.&#8221;
+signal for the process."
 
 再看一下JVM如何处理SIGSEGV信号的 hotspot/src/os\_cpu/linux\_x86/vm/os\_linux\_x86.cpp
   

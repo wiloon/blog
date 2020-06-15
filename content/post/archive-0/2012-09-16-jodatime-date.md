@@ -10,7 +10,7 @@ categories:
 ---
 function currentTime(){
   
-var d = new Date(),str = &#8221;;
+var d = new Date(),str = ";
   
 str += d.getFullYear()+&#8217;年&#8217;;
   

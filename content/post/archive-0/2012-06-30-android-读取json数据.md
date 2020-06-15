@@ -20,22 +20,22 @@ categories:
 
 
       public String getJson(){
- String jsonString = "{"FLAG&#8221;:&#8221;flag&#8221;,&#8221;MESSAGE&#8221;:&#8221;SUCCESS&#8221;,&#8221;name&#8221;:[{"name&#8221;:&#8221;jack&#8221;},{"name&#8221;:&#8221;lucy&#8221;}]}&#8221;;//json字符串
+ String jsonString = "{"FLAG":"flag","MESSAGE":"SUCCESS","name":[{"name":"jack"},{"name":"lucy"}]}";//json字符串
  try {
  JSONObject result = new JSONObject(jsonstring);//转换为JSONObject
  int num = result.length();
- JSONArray nameList = result.getJSONArray("name&#8221;);//获取JSONArray
+ JSONArray nameList = result.getJSONArray("name");//获取JSONArray
  int length = nameList.length();
- String aa = "&#8221;;
+ String aa = "";
  for(int i = 0; i < length; i++){//遍历JSONArray
- Log.d("debugTest&#8221;,Integer.toString(i));
+ Log.d("debugTest",Integer.toString(i));
  JSONObject oj = nameList.getJSONObject(i);
- aa = aa + oj.getString("name&#8221;)+&#8221;|&#8221;; 
+ aa = aa + oj.getString("name")+"|"; 
   
   
     }
  Iterator<?> it = result.keys();
- String aa2 = "&#8221;;
+ String aa2 = "";
  String bb2 = null;
  while(it.hasNext()){//遍历JSONObject
  bb2 = (String) it.next().toString();

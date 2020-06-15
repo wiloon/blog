@@ -38,7 +38,7 @@ Emacs平台很强大，已经不只是一个编辑器这么简单了，它被移
 
 下面就进入关键步骤了，打开 C:Users<username>AppDataRoaming.emacs 配置文件，修改内容为
 
-(load-file "D:/apps/emacs-24.5/.emacs&#8221;)
+(load-file "D:/apps/emacs-24.5/.emacs")
 
 复制代码
 
@@ -48,13 +48,13 @@ Emacs平台很强大，已经不只是一个编辑器这么简单了，它被移
 
 上一步，我们把emacs的配置文件用 (load-file &#8230;) 配置已经指向到 D:/emacs-23.2/.emacs 了，那两个就拷贝一个 .emacs 文件放到 D:/emacs-23.2/ 里吧（Windows下好像不能建立以 . 开头的文件吧）。然后，打开D:/emacs-23.2/.emacs，在开头添加如下配置：
 
-(setenv "HOME&#8221; "D:/emacs-23.2&#8221;)
+(setenv "HOME" "D:/emacs-23.2")
 
-(setenv "PATH&#8221; "D:/emacs-23.2&#8221;)
+(setenv "PATH" "D:/emacs-23.2")
 
 ;;set the default file path
 
-(setq default-directory "~/&#8221;)
+(setq default-directory "~/")
 
 
 
@@ -64,7 +64,7 @@ Emacs平台很强大，已经不只是一个编辑器这么简单了，它被移
 
 好了，现在就可以了把 D:/emacs-23.2 当成emacs的 HOME了，配置可以参考这个帖子：http://club.topsage.com/thread-2252500-1-1.html，里面用的两个简单的扩展，由于指定了 load-path 为 ~/.emacs.d/elisp
 
-(setq load-path (cons "~/.emacs.d/elisp&#8221; load-path))
+(setq load-path (cons "~/.emacs.d/elisp" load-path))
 
 
 

@@ -30,7 +30,7 @@ Class c1 = x.getClass();
       
 2、使用Class类的中静态forName()方法获得与字符串对应的Class对象。例如：
       
-Class c2=Class.forName("MyObject&#8221;),Employee必须是接口或者类的名字。
+Class c2=Class.forName("MyObject"),Employee必须是接口或者类的名字。
       
 3、获取Class类型对象的第三个方法非常简单。如果T是一个Java类型，那么T.class就代表了匹配的类对象。例如
       
@@ -92,7 +92,7 @@ if(e.getClass() == Employee.class)&#8230;
   
 Java代码
   
-String str = "abc&#8221; ;
+String str = "abc" ;
   
 Class c1 = str.getClass() ;
   
@@ -104,7 +104,7 @@ Integer i = new Integer(3000) ;
   
 Class c2 = i.getClass() ;
   
-System.out.println("c2 type name =&#8221;+c2.getName()) ;
+System.out.println("c2 type name ="+c2.getName()) ;
 
 输出的结果分别是java.lang.String java.lang.Integer
 
@@ -114,7 +114,7 @@ System.out.println("c2 type name =&#8221;+c2.getName()) ;
   
 Java代码
   
-String str2 = "abc&#8221; ;
+String str2 = "abc" ;
   
 Class c3 = str2.getClass() ;
   
@@ -128,7 +128,7 @@ System.out.println("c4 type name = "+c4.getName()) ;
   
 在JDBC中我们经常使用Class.forName(DBDRIVER)来获得驱动，这种用法比较常见
   
-其他的象Class.forName("java.lang.String&#8221;)也是一样的用法
+其他的象Class.forName("java.lang.String")也是一样的用法
 
 4.通过.class来获得
   

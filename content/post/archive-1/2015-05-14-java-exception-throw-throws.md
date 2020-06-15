@@ -46,7 +46,7 @@ public static void main(String args[]) throws Exception{
   
 Math m=new Math();
   
-System.out.println("出发操作：&#8221;+m.div(10,2));
+System.out.println("出发操作："+m.div(10,2));
   
 }
   
@@ -106,7 +106,7 @@ if (a > 0)
   
 //该代码必须处于try块里，或处于带throws声明的方法中
   
-throw new Exception("a的值大于0，不符合要求&#8221;);
+throw new Exception("a的值大于0，不符合要求");
   
 }
   
@@ -124,7 +124,7 @@ if (a > 0)
   
 //也可完全不理会该异常，把该异常交给该方法调用者处理
   
-throw new RuntimeException("a的值大于0，不符合要求&#8221;);
+throw new RuntimeException("a的值大于0，不符合要求");
   
 }
   

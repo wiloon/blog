@@ -16,15 +16,15 @@ MessageFormatMessageFormat.format
   
 MessageFormat用来格式化一个消息，通常是一个字符串，比如：
 
-String str = "I&#8217;m not a {0}, age is {1,number,short}&#8221;, height is {2,number,#.#};
+String str = "I&#8217;m not a {0}, age is {1,number,short}", height is {2,number,#.#};
 
 
 
 而MessageFormat可以格式化这样的消息，然后将格式化后的字符串插入到模式中的适当位置，比如：
 
-将str中的{0}用&#8221;pig&#8221;替换，{1,number,short}用数字8替换，{2,number,#.#}用数字1.2替换。
+将str中的{0}用"pig"替换，{1,number,short}用数字8替换，{2,number,#.#}用数字1.2替换。
 
-那么最终用户得到的是一个格式化好的字符串&#8221;I&#8217;m not a pig, age is 8, height is 1.2"。
+那么最终用户得到的是一个格式化好的字符串"I&#8217;m not a pig, age is 8, height is 1.2"。
 
 
 
@@ -98,9 +98,9 @@ SubformatPattern（子模式）
 
 Java代码
   
-String pig = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}&#8221;;
+String pig = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}";
 
-Object[] array = new Object[]{"A&#8221;,&#8221;B&#8221;,&#8221;C&#8221;,&#8221;D&#8221;,&#8221;E&#8221;,&#8221;F&#8221;,&#8221;G&#8221;,&#8221;H&#8221;,&#8221;I&#8221;,&#8221;J&#8221;,&#8221;K&#8221;,&#8221;L&#8221;,&#8221;M&#8221;,&#8221;N&#8221;,&#8221;O&#8221;,&#8221;P&#8221;,&#8221;Q&#8221;};
+Object[] array = new Object[]{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q"};
 
 String value = MessageFormat.format(message, array);
 
@@ -114,9 +114,9 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, {0} is &#8216;a&#8217; pig&#8221;;
+String message = "oh, {0} is &#8216;a&#8217; pig";
 
-Object[] array = new Object[]{"ZhangSan&#8221;};
+Object[] array = new Object[]{"ZhangSan"};
 
 String value = MessageFormat.format(message, array);
 
@@ -130,9 +130,9 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, {0} is &#8221;a&#8221; pig&#8221;;
+String message = "oh, {0} is "a" pig";
 
-Object[] array = new Object[]{"ZhangSan&#8221;};
+Object[] array = new Object[]{"ZhangSan"};
 
 String value = MessageFormat.format(message, array);
 
@@ -148,9 +148,9 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, &#8216;{0}&#8217; is a pig&#8221;;
+String message = "oh, &#8216;{0}&#8217; is a pig";
 
-Object[] array = new Object[]{"ZhangSan&#8221;};
+Object[] array = new Object[]{"ZhangSan"};
 
 String value = MessageFormat.format(message, array);
 
@@ -164,7 +164,7 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, &#8216;{0,number,#.#} is a pig&#8221;;
+String message = "oh, &#8216;{0,number,#.#} is a pig";
 
 Object[] array = new Object[]{new Double(3.1415)};
 
@@ -180,7 +180,7 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, {0,number,#.#} is a pig&#8221;;
+String message = "oh, {0,number,#.#} is a pig";
 
 Object[] array = new Object[]{new Double(3.1415)};
 
@@ -196,9 +196,9 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, { is a pig&#8221;;
+String message = "oh, { is a pig";
 
-Object[] array = new Object[]{"ZhangSan&#8221;};
+Object[] array = new Object[]{"ZhangSan"};
 
 String value = MessageFormat.format(message, array);
 
@@ -212,9 +212,9 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, } is a pig&#8221;;
+String message = "oh, } is a pig";
 
-Object[] array = new Object[]{"ZhangSan&#8221;};
+Object[] array = new Object[]{"ZhangSan"};
 
 String value = MessageFormat.format(message, array);
 
@@ -246,11 +246,11 @@ return temp.format(arguments);
 
 Java代码
   
-String message = "oh, {0} is a pig&#8221;;
+String message = "oh, {0} is a pig";
 
 MessageFormat messageFormat = new MessageFormat(message);
 
-Object[] array = new Object[]{"ZhangSan&#8221;};
+Object[] array = new Object[]{"ZhangSan"};
 
 String value = messageFormat.format(array);
 

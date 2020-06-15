@@ -17,7 +17,7 @@ categories:
   
   
   <div align="left">
-    <bean id=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; scope=&#8221;singleton&#8221;/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
   
   
   <div align="left">
@@ -41,7 +41,7 @@ categories:
   
   
   <div align="left">
-    <bean id=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; scope=&#8221;singleton&#8221;/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
   
   
   <div align="left">
@@ -49,7 +49,7 @@ categories:
   
   
   <div align="left">
-    <bean id=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; singleton=&#8221;true&#8221;/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" singleton="true"/>
   
   
   
@@ -65,7 +65,7 @@ categories:
   
   
   <div align="left">
-    <bean id=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; scope=&#8221;prototype&#8221;/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="prototype"/>
   
   
   <div align="left">
@@ -73,7 +73,7 @@ categories:
   
   
   <div align="left">
-    <beanid=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; singleton=&#8221;false&#8221;/>
+    <beanid="role" class="spring.chapter2.maryGame.Role" singleton="false"/>
   
   
   <div align="left">
@@ -133,7 +133,7 @@ categories:
   
   
   <div align="left">
-    <bean id=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; scope=&#8221;request&#8221;/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="request"/>
   
   
   
@@ -153,7 +153,7 @@ categories:
   
   
   <div align="left">
-    <bean id=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; scope=&#8221;session&#8221;/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="session"/>
   
   
   
@@ -173,7 +173,7 @@ categories:
   
   
   <div align="left">
-    <bean id=&#8221;role&#8221; class=&#8221;spring.chapter2.maryGame.Role&#8221; scope=&#8221;global session&#8221;/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="global session"/>
   
   
   

@@ -56,7 +56,7 @@ def url = repo.url.toString()
   
 if (url.startsWith(&#8216;https://repo1.maven.org/maven2&#8217;) || url.startsWith(&#8216;https://jcenter.bintray.com/&#8217;)) {
   
-project.logger.lifecycle "Repository ${repo.url} replaced by $REPOSITORY_URL.&#8221;
+project.logger.lifecycle "Repository ${repo.url} replaced by $REPOSITORY_URL."
   
 remove repo
   

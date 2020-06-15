@@ -18,7 +18,7 @@ http://stackoverflow.com/questions/20400574/powermock-linkageerror-mockclassload
 
 @RunWith(PowerMockRunner.class)
   
-@PowerMockIgnore({"javax.management.*&#8221;})
+@PowerMockIgnore({"javax.management.*"})
   
 @PrepareForTest(ClassName.class)
 

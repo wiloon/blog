@@ -82,9 +82,9 @@ my.cnf中配置sql-mode
   
 #set the SQL mode to strict
   
-#sql-mode=&#8221;modes&#8230;&#8221;
+#sql-mode="modes&#8230;"
   
-sql-mode = "STRICT\_TRANS\_TABLES,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITUTION&#8221;
+sql-mode = "STRICT\_TRANS\_TABLES,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITUTION"
   
 sql_mode常用值
   
@@ -122,7 +122,7 @@ NO\_ENGINE\_SUBSTITUTION：
 
 PIPES\_AS\_CONCAT：
   
-将&#8221;||&#8221;视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样的，也和字符串的拼接函数Concat相类似
+将"||"视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样的，也和字符串的拼接函数Concat相类似
   
 ANSI_QUOTES：
   

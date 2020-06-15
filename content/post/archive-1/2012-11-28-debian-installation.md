@@ -58,7 +58,7 @@ sudo apt-get install xfonts-wqy
 
 sudo apt-get install xfonts-intl-chinese wqy*
 
-#set chrome&#8217;s font as wqy micro hei, size 16, set font "fix width&#8221; with micro hei mono, set encoding as utf8, restart the chrome
+#set chrome&#8217;s font as wqy micro hei, size 16, set font "fix width" with micro hei mono, set encoding as utf8, restart the chrome
 
 #restart chrome,
 
@@ -75,7 +75,7 @@ sudo apt-get install xfonts-intl-chinese wqy*
 #install wubi input method
 
 
-  #search "wubi&#8221; in software center
+  #search "wubi" in software center
 
 
 

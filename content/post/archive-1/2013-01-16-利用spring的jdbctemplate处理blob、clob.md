@@ -35,9 +35,9 @@ this.lobHandler = lobHandler;
   
 public void addPost(final Post post) {
   
-String sql = &#8221; INSERT INTO t\_post(post\_id,user\_id,post\_text,post_attach)&#8221;
+String sql = " INSERT INTO t\_post(post\_id,user\_id,post\_text,post_attach)"
   
-+ &#8221; VALUES(?,?,?,?)&#8221;;
++ " VALUES(?,?,?,?)";
   
 getJdbcTemplate().execute(
   
@@ -69,49 +69,49 @@ lobCreator.setBlobAsBytes(ps, 4, post.getPostAttach());
 
 设置相对应的配置文件(Oracle 9i版本),Oracle的数据库最喜欢搞搞特别的东西啦：
 
-<bean id=&#8221;nativeJdbcExtractor&#8221;
+<bean id="nativeJdbcExtractor"
 
-lazy-init=&#8221;true&#8221; />
+lazy-init="true" />
   
-<bean id=&#8221;oracleLobHandler&#8221;
+<bean id="oracleLobHandler"
 
-lazy-init=&#8221;true&#8221;>
+lazy-init="true">
   
-<property name=&#8221;nativeJdbcExtractor&#8221; ref=&#8221;nativeJdbcExtractor&#8221; />
+<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor" />
   
 </bean>
   
-<bean id=&#8221;dao&#8221; abstract=&#8221;true&#8221;>
+<bean id="dao" abstract="true">
   
-<property name=&#8221;jdbcTemplate&#8221; ref=&#8221;jdbcTemplate&#8221; />
+<property name="jdbcTemplate" ref="jdbcTemplate" />
   
 </bean>
   
-<bean id=&#8221;postDao&#8221; parent=&#8221;dao&#8221;
+<bean id="postDao" parent="dao"
   
 >
   
-<property name=&#8221;lobHandler&#8221; ref=&#8221;oracleLobHandler&#8221; />
+<property name="lobHandler" ref="oracleLobHandler" />
   
 </bean>
 
 Oracle 10g或其他数据库如下设置：
 
-<bean id=&#8221;defaultLobHandler&#8221;
+<bean id="defaultLobHandler"
 
-lazy-init=&#8221;true&#8221; />
+lazy-init="true" />
   
-<bean id=&#8221;dao&#8221; abstract=&#8221;true&#8221;>
+<bean id="dao" abstract="true">
   
-<property name=&#8221;jdbcTemplate&#8221; ref=&#8221;jdbcTemplate&#8221; />
+<property name="jdbcTemplate" ref="jdbcTemplate" />
   
 </bean>
   
-<bean id=&#8221;postDao&#8221; parent=&#8221;dao&#8221;
+<bean id="postDao" parent="dao"
   
 >
   
-<property name=&#8221;lobHandler&#8221; ref=&#8221;defaultLobHandler&#8221; />
+<property name="lobHandler" ref="defaultLobHandler" />
   
 </bean>
 
@@ -119,7 +119,7 @@ lazy-init=&#8221;true&#8221; />
 
 public List getAttachs(final int userId){
   
-String sql = "SELECT post\_id,post\_attach FROM t\_post where user\_id =? and post_attach is not null&#8221;;
+String sql = "SELECT post\_id,post\_attach FROM t\_post where user\_id =? and post_attach is not null";
   
 return getJdbcTemplate().query(
   

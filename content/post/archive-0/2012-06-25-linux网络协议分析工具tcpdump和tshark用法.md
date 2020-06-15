@@ -154,7 +154,7 @@ categories:
  48.2 , dst net 202.0.0.0 指明目的网络地址是202.0.0.0 。如果没有指明方向关键字，则
  缺省是src or dst关键字。
  第三种是协议的关键字，主要包括fddi,ip ,arp,rarp,tcp,udp等类型。Fddi指明是在
- FDDI(分布式光纤数据接口网络)上的特定的网络协议，实际上它是&#8221;ether&#8221;的别名，fddi和e
+ FDDI(分布式光纤数据接口网络)上的特定的网络协议，实际上它是"ether"的别名，fddi和e
  ther具有类似的源地址和目的地址，所以可以将fddi协议包当作ether的包进行处理和分析。
  其他的几个关键字就是指明了监听的包的协议内容。如果没有指定任何协议，则tcpdump将会
  监听所有协议的信息包。
@@ -211,7 +211,7 @@ categories:
  用TCPDUMP捕获的TCP包的一般输出信息是：
  src > dst: flags data-seqno ack window urgent options
  src > dst:表明从源地址到目的地址, flags是TCP包中的标志信息,S 是SYN标志, F (F
- IN), P (PUSH) , R (RST) ".&#8221; (没有标记); data-seqno是数据包中的数据的顺序号, ack是
+ IN), P (PUSH) , R (RST) "." (没有标记); data-seqno是数据包中的数据的顺序号, ack是
  下次期望的顺序号, window是接收缓存的窗口大小, urgent表明数据包中是否有紧急指针.
  Options是选项.
   
@@ -238,7 +238,7 @@ categories:
   
   
     // 监听接口eth0上的UDP端口为1234的流量
- # tshark -f "udp port 1234&#8221; -i 1
+ # tshark -f "udp port 1234" -i 1
   
   
   
@@ -247,7 +247,7 @@ categories:
   
   
     // 监听接口eth0上目标端口为80的http流量，并将http请求头的host和location打印
- # tshark -f "dst port 80&#8221; -T fields -e http.host -e http.location -i 1
+ # tshark -f "dst port 80" -T fields -e http.host -e http.location -i 1
  其中 -f 参数指定过滤表达式（即等同tcpdump的 filter_expression）
  -T fields 指定屏幕输出信息类型为指定的协议字段（用-e添加指定字段），仅在wireshark的0.99.6以后的版本支持。
  -i 1为指定监听的网络接口为1号
@@ -255,7 +255,7 @@ categories:
   
   
     // 监听http流量，仅过滤GET请求, 监听10秒钟，打印出HTTP HOST和URL
- c:Program FilesWiresharktshark.exe -i 4 -n -f "tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420&#8221; -T fields -e http.host -e http.request.uri -a duration:10
+ c:Program FilesWiresharktshark.exe -i 4 -n -f "tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420" -T fields -e http.host -e http.request.uri -a duration:10
   
   
   

@@ -64,9 +64,9 @@ exp system/manager@TEST file=d：daochu.dmp owner=（system，sys）
 
 exp system/manager@TEST file=d：daochu.dmp tables=（table1，table2）
 
-4 将数据库中的表table1中的字段filed1以&#8221;00"打头的数据导出
+4 将数据库中的表table1中的字段filed1以"00"打头的数据导出
 
-exp system/manager@TEST file=d：daochu.dmp tables=（table1） query=&#8221; where filed1 like &#8216;00%'&#8221;
+exp system/manager@TEST file=d：daochu.dmp tables=（table1） query=" where filed1 like &#8216;00%'"
 
 上面是常用的导出，对于压缩我不太在意，用winzip把dmp文件可以很好的压缩。
 

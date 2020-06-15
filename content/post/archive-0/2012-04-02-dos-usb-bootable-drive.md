@@ -30,11 +30,11 @@ Page 1: USB Boot
 
 Intro:
   
-Flash drives are really ubiquitous. If you look around your computer desk, you will probably find a few USB mass storage devices near your work area. They are a boon for taking documents from one computer to the next and are fast and simple to use. They replaced the floppy that the ZIP disk could not supplant. The one area that USB flash drives are lacking is the ability to boot. Even though many computer motherboards support USB booting, it is difficult to get the right combination. Using this guide, you will be able to make a bootable USB "hard drive.&#8221;
+Flash drives are really ubiquitous. If you look around your computer desk, you will probably find a few USB mass storage devices near your work area. They are a boon for taking documents from one computer to the next and are fast and simple to use. They replaced the floppy that the ZIP disk could not supplant. The one area that USB flash drives are lacking is the ability to boot. Even though many computer motherboards support USB booting, it is difficult to get the right combination. Using this guide, you will be able to make a bootable USB "hard drive."
 
 Hard Drive:
   
-There are a few ways to boot USB devices today. The first way (and the one we will be using in this guide) is to make the USB flash drive look like a regular hard drive. Most flash drives are already setup this way. What does a regular hard drive "look&#8221; like? It has a master boot record as well as individual partitions on the drive each with their own boot sector. The other type of bootable USB is known as the supperfloppy type. This makes a flash drive act as one huge floppy disk. A floppy disk is the partition. There is no master boot record. There is only a boot sector. If you have a flash drive formated this way, it won&#8217;t show any partitions in Linux. Instead it will look like /dev/sdb whereas a normal drive with a partition would be /dev/sdb1. Motherboard support is getting better for booting USB, but some of my motherboards still refuse to boot using this guide. Once I find a way to do the super-floppy method, I will make an additional guide. If you know how to do this, please email me.
+There are a few ways to boot USB devices today. The first way (and the one we will be using in this guide) is to make the USB flash drive look like a regular hard drive. Most flash drives are already setup this way. What does a regular hard drive "look" like? It has a master boot record as well as individual partitions on the drive each with their own boot sector. The other type of bootable USB is known as the supperfloppy type. This makes a flash drive act as one huge floppy disk. A floppy disk is the partition. There is no master boot record. There is only a boot sector. If you have a flash drive formated this way, it won&#8217;t show any partitions in Linux. Instead it will look like /dev/sdb whereas a normal drive with a partition would be /dev/sdb1. Motherboard support is getting better for booting USB, but some of my motherboards still refuse to boot using this guide. Once I find a way to do the super-floppy method, I will make an additional guide. If you know how to do this, please email me.
 
 Why DOS?:
   
@@ -42,7 +42,7 @@ You may be asking why I&#8217;m going to boot into DOS. The simple reason is tha
 
 System Setup:
   
-This guide will demonstrate how to make a DOS USB boot drive using FreeDOS. We are going to use Ubuntu 7.10 which you can download for free at http://www.ubuntu.com. You can use the Live CD to follow this guide if you are still using Windows. The only software that you will need to install is the package called "dosemu&#8221; which is very simple to install from Synaptic or the console.
+This guide will demonstrate how to make a DOS USB boot drive using FreeDOS. We are going to use Ubuntu 7.10 which you can download for free at http://www.ubuntu.com. You can use the Live CD to follow this guide if you are still using Windows. The only software that you will need to install is the package called "dosemu" which is very simple to install from Synaptic or the console.
 
 Open up Applications -> Accessories &#8211; > Terminal.
 
@@ -98,15 +98,15 @@ aronschatz@asetest2:~$ sudo cfdisk /dev/sdb
   
 [/shell]
 
-The flash drive is ready to be partitioned. We want to add a "New&#8221; partition.
+The flash drive is ready to be partitioned. We want to add a "New" partition.
   
-You are adding a new "Primary&#8221; partition. Then it will ask for the size and such, just accept the defaults and press enter until you get to the main screen.
+You are adding a new "Primary" partition. Then it will ask for the size and such, just accept the defaults and press enter until you get to the main screen.
   
-You want to mark the partition as "Bootable.&#8221;
+You want to mark the partition as "Bootable."
   
-Now you need to change the "Type&#8221; of the partition to a FAT16. It would be 06 for FAT16.
+Now you need to change the "Type" of the partition to a FAT16. It would be 06 for FAT16.
   
-Once you are back to the make screen, you need to "Write&#8221; the changes to the disk and accept any prompts that come up. Then you can "Quit&#8221; cfdisk and return which will show this&#8230;
+Once you are back to the make screen, you need to "Write" the changes to the disk and accept any prompts that come up. Then you can "Quit" cfdisk and return which will show this&#8230;
 
 [shell]
   
@@ -141,7 +141,7 @@ With the partition made in the previous step, you know need to put a filesystem 
   
   
     Step 4: Edit .dosemurc 
- You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc&#8221; in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
+ You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc" in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
   
 
 
@@ -232,7 +232,7 @@ This command should bring up another prompt that is basically FreeDOS. In this n
   
   
   
-    First you type "Z:&#8221; to get into the Z drive which holds all the FreeDOS tools and binaries. Then the command "sys f:&#8221; tells it to make the F: drive a system drive by copying kernerl.sys and command.com. Once that is completed, "exitemu&#8221; exits out of the dosemu program.
+    First you type "Z:" to get into the Z drive which holds all the FreeDOS tools and binaries. Then the command "sys f:" tells it to make the F: drive a system drive by copying kernerl.sys and command.com. Once that is completed, "exitemu" exits out of the dosemu program.
   
   
   

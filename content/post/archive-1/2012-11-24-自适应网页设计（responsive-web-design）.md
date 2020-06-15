@@ -22,11 +22,11 @@ categories:
 
 很多网站的解决方法，是为不同的设备提供不同的网页，比如专门提供一个mobile版本，或者iPhone / iPad版本。这样做固然保证了效果，但是比较麻烦，同时要维护好几个版本，而且如果一个网站有多个portal（入口），会大大增加架构设计的复杂度。
 
-于是，很早就有人设想，能不能&#8221;一次设计，普遍适用&#8221;，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局（layout）？
+于是，很早就有人设想，能不能"一次设计，普遍适用"，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局（layout）？
 
-**一、&#8221;自适应网页设计&#8221;的概念**
+**一、"自适应网页设计"的概念**
 
-2010年，Ethan Marcotte提出了<a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">"自适应网页设计&#8221;</a>（Responsive Web Design）这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。
+2010年，Ethan Marcotte提出了<a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">"自适应网页设计"</a>（Responsive Web Design）这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。
 
 
 

@@ -28,9 +28,9 @@ Java中提供了一套API 用来访问某个属性的getter/setter方法，通�
   
 public static void demo1() throws Exception {
       
-User user = new User("zhangsan&#8221;, 21);
+User user = new User("zhangsan", 21);
       
-String propertyName = "name&#8221;;
+String propertyName = "name";
       
 // 直接指定要访问的属性
       
@@ -44,13 +44,13 @@ Method readMethod = pd.getReadMethod();
       
 Object invoke = readMethod.invoke(user, null);
       
-System.out.println("名字：&#8221; + invoke);
+System.out.println("名字：" + invoke);
       
-pd.getWriteMethod().invoke(user, "lisi&#8221;);
+pd.getWriteMethod().invoke(user, "lisi");
       
 invoke = readMethod.invoke(user, null);
       
-System.out.println("名字：&#8221; + invoke);
+System.out.println("名字：" + invoke);
       
 }
   

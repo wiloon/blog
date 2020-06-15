@@ -80,7 +80,7 @@ wl@wl-MS-7673:/home/python$ echo $?
   
 wl@wl-MS-7673:/home/python$ date %t
   
-date: 无效的日期&#8221;%t&#8221;
+date: 无效的日期"%t"
   
 wl@wl-MS-7673:/home/python$ echo $?
   

@@ -8,9 +8,9 @@ categories:
   - Linux
 
 ---
-IPC(Inter-Process Communication)是共享&#8221;命名管道&#8221;的资源，它是为了让进程间通信而开放的命名管道，通过提供可信任的用户名和口令，连接双方可以建立安全的通道并以此通道进行加密数据的交换，从而实现对远程计算机的访问。
+IPC(Inter-Process Communication)是共享"命名管道"的资源，它是为了让进程间通信而开放的命名管道，通过提供可信任的用户名和口令，连接双方可以建立安全的通道并以此通道进行加密数据的交换，从而实现对远程计算机的访问。
   
-System V， 曾经也被称为 AT&T System V，是Unix操作系统众多版本中的一支。它最初由 AT&T 开发，在1983年第一次发布。一共发行了4个 System V 的主要版本：版本1、2、3 和 4。System V Release 4，或者称为SVR4，是最成功的版本，成为一些UNIX共同特性的源头，例如 ”SysV 初始化脚本“ （/etc/init.d），用来控制系统启动和关闭，System V Interface Definition (SVID) 是一个System V 如何工作的标准定义。 　　AT&T 出售运行System V的专有硬件，但许多（或许是大多数）客户在其上运行一个转售的版本，这个版本基于 AT&T 的实现说明。流行的SysV 衍生版本包括 Dell SVR4 和 Bull SVR4。当今广泛使用的 System V 版本是 SCO OpenServer，基于 System V Release 3，以及SUN Solaris 和 SCO UnixWare，都基于 System V Release 4。 　　System V 是 AT&T 的第一个商业UNIX版本（UNIX System III）的加强。传统上，System V 被看作是两种UNIX&#8221;风味&#8221;之一（另一个是 BSD）。然而，随着一些并不基于这两者代码的UNIX实现的出现，例如 Linux 和 QNX， 这一归纳不再准确，但不论如何，像POSIX这样的标准化努力一直在试图减少各种实现之间的不同。
+System V， 曾经也被称为 AT&T System V，是Unix操作系统众多版本中的一支。它最初由 AT&T 开发，在1983年第一次发布。一共发行了4个 System V 的主要版本：版本1、2、3 和 4。System V Release 4，或者称为SVR4，是最成功的版本，成为一些UNIX共同特性的源头，例如 ”SysV 初始化脚本“ （/etc/init.d），用来控制系统启动和关闭，System V Interface Definition (SVID) 是一个System V 如何工作的标准定义。 　　AT&T 出售运行System V的专有硬件，但许多（或许是大多数）客户在其上运行一个转售的版本，这个版本基于 AT&T 的实现说明。流行的SysV 衍生版本包括 Dell SVR4 和 Bull SVR4。当今广泛使用的 System V 版本是 SCO OpenServer，基于 System V Release 3，以及SUN Solaris 和 SCO UnixWare，都基于 System V Release 4。 　　System V 是 AT&T 的第一个商业UNIX版本（UNIX System III）的加强。传统上，System V 被看作是两种UNIX"风味"之一（另一个是 BSD）。然而，随着一些并不基于这两者代码的UNIX实现的出现，例如 Linux 和 QNX， 这一归纳不再准确，但不论如何，像POSIX这样的标准化努力一直在试图减少各种实现之间的不同。
 
 7.3 System V 的IPC机制
 
@@ -116,7 +116,7 @@ int nsops; /\* 操作的个数 \*/
 
 (4)几个主要数据结构之间的关系
 
-从7.3图可以看出，semid\_ds结构的sem\_base指向一个信号量数组，允许操作这些信号量集合的进程可以利用系统调用执行操作。注意，信号量 信号量集合的区别，从上面可以看出，信号量用“sem” 结构描述，而信量集合用“semid_ds&#8221;结构描述，实际上，在后面的讨论中，我们以信号量集合为讨论的主要对象。下面我们给出这几个结构之间的关系， 如图7.3所示。
+从7.3图可以看出，semid\_ds结构的sem\_base指向一个信号量数组，允许操作这些信号量集合的进程可以利用系统调用执行操作。注意，信号量 信号量集合的区别，从上面可以看出，信号量用“sem” 结构描述，而信量集合用“semid_ds"结构描述，实际上，在后面的讨论中，我们以信号量集合为讨论的主要对象。下面我们给出这几个结构之间的关系， 如图7.3所示。
 
 Linux对信号量的这种实现机制，是为了与消息和共享内存的实现机制保持一致，但信号量是这三者中最难理解的，因此我们将结合系统调用做进一步的介绍，通过对系统调用的深入分析，我们可以较清楚地了解内核对信号量的实现机制。
 

@@ -212,11 +212,11 @@ l_query VARCHAR2(32767);
   
 CURSOR l\_query\_cur(c_table VARCHAR2) IS
   
-SELECT &#8216;decode(&#8216;||column_name||&#8217;,null,&#8221;null&#8221;,&#8217;||
+SELECT &#8216;decode(&#8216;||column_name||&#8217;,null,"null",&#8217;||
   
-decode(data\_type,&#8217;VARCHAR2&#8242;,&#8221;&#8221;&#8221;&#8221;&#8217;||&#8217;||column\_name ||&#8217;||&#8221;&#8221;&#8221;&#8221;&#8217;
+decode(data\_type,&#8217;VARCHAR2&#8242;,""""&#8217;||&#8217;||column\_name ||&#8217;||""""&#8217;
   
-,&#8217;DATE&#8217;,&#8221;&#8221;&#8221;&#8221;&#8217;||to\_char(&#8216;||column\_name||&#8217;,&#8221;YYYY-MM-DD HH24:MI:SS&#8221;)||&#8221;&#8221;&#8221;&#8221;&#8217;
+,&#8217;DATE&#8217;,""""&#8217;||to\_char(&#8216;||column\_name||&#8217;,"YYYY-MM-DD HH24:MI:SS")||""""&#8217;
   
 ,column_name
   
@@ -236,7 +236,7 @@ FOR rec IN l\_query\_cur(p_table)
   
 LOOP
   
-l\_query := l\_query || rec.column_query || &#8216;||&#8221;,&#8221;||&#8217;;
+l\_query := l\_query || rec.column_query || &#8216;||","||&#8217;;
   
 END LOOP;
   

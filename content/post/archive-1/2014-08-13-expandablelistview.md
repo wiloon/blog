@@ -22,37 +22,37 @@ http://www.cnblogs.com/eyu8874521/archive/2012/08/16/2642605.html
 
 main.xml的布局很简单啦，只是一个ExpandableListView 就OK了
 
-但值得简单说下的是 android:cacheColorHint=&#8221;#00000000"，这个设置可以去除拖动view时背景变成黑色的效果
+但值得简单说下的是 android:cacheColorHint="#00000000"，这个设置可以去除拖动view时背景变成黑色的效果
 
-android:listSelector=&#8221;#00000000" ，可以去除选中时的黄色底色
+android:listSelector="#00000000" ，可以去除选中时的黄色底色
 
 
 
 复制代码
   
-1 <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+1 <?xml version="1.0" encoding="utf-8"?>
   
-2 <LinearLayout xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+2 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   
-3 android:layout\_width=&#8221;fill\_parent&#8221;
+3 android:layout\_width="fill\_parent"
   
-4 android:layout\_height=&#8221;fill\_parent&#8221;
+4 android:layout\_height="fill\_parent"
   
-5 android:orientation=&#8221;vertical&#8221; >
+5 android:orientation="vertical" >
   
 6 <ExpandableListView
   
-7 android:id=&#8221;@+id/list&#8221;
+7 android:id="@+id/list"
   
-8 android:layout\_width=&#8221;fill\_parent&#8221;
+8 android:layout\_width="fill\_parent"
   
-9 android:layout\_height=&#8221;fill\_parent&#8221;
+9 android:layout\_height="fill\_parent"
   
-10 android:background=&#8221;#ffffff&#8221;
+10 android:background="#ffffff"
   
-11 android:cacheColorHint=&#8221;#00000000"
+11 android:cacheColorHint="#00000000"
   
-12 android:listSelector=&#8221;#00000000"
+12 android:listSelector="#00000000"
   
 13 >
   
@@ -126,17 +126,17 @@ int[] logos = new int[] { R.drawable.wei, R.drawable.shu,R.drawable.wu};
   
 //设置组视图的显示文字
   
-private String[] generalsTypes = new String[] { "魏&#8221;, "蜀&#8221;, "吴&#8221; };
+private String[] generalsTypes = new String[] { "魏", "蜀", "吴" };
   
 //子视图显示文字
   
 private String\[][] generals = new String[\]\[\] {
   
-{ "夏侯惇&#8221;, "甄姬&#8221;, "许褚&#8221;, "郭嘉&#8221;, "司马懿&#8221;, "杨修&#8221; },
+{ "夏侯惇", "甄姬", "许褚", "郭嘉", "司马懿", "杨修" },
   
-{ "马超&#8221;, "张飞&#8221;, "刘备&#8221;, "诸葛亮&#8221;, "黄月英&#8221;, "赵云&#8221; },
+{ "马超", "张飞", "刘备", "诸葛亮", "黄月英", "赵云" },
   
-{ "吕蒙&#8221;, "陆逊&#8221;, "孙权&#8221;, "周瑜&#8221;, "孙尚香&#8221; }
+{ "吕蒙", "陆逊", "孙权", "周瑜", "孙尚香" }
 
 };
   
@@ -360,7 +360,7 @@ Toast.makeText(
   
 ExpandableList.this,
   
-"你点击了&#8221; + adapter.getChild(groupPosition, childPosition),
+"你点击了" + adapter.getChild(groupPosition, childPosition),
   
 Toast.LENGTH_SHORT).show();
 

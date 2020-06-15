@@ -82,11 +82,11 @@ package main
 
 import (
       
-"fmt&#8221;
+"fmt"
       
-"math/rand&#8221;
+"math/rand"
       
-"time&#8221;
+"time"
   
 )
 
@@ -142,11 +142,11 @@ package main
 
 import (
       
-"fmt&#8221;
+"fmt"
       
-"math/rand&#8221;
+"math/rand"
       
-"time&#8221;
+"time"
   
 )
 

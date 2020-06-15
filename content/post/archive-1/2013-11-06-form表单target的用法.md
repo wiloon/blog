@@ -19,7 +19,7 @@ categories:
   
   <ol start="1">
     <li>
-      <form action=&#8221;提交的action&#8221; method=&#8221;post&#8221; target=&#8221;theID&#8221;>
+      <form action="提交的action" method="post" target="theID">
     </li>
     <li>
       &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
@@ -28,7 +28,7 @@ categories:
       </form>
     </li>
     <li>
-      <iframe name=&#8221;theID&#8221; style=&#8221;display: none;&#8221;></iframe>
+      <iframe name="theID" style="display: none;"></iframe>
     </li>
   </ol>
 
@@ -44,10 +44,10 @@ categories:
   
   <ol start="1">
     <li>
-      String script = "<script>alert(&#8216;ok!&#8217;);</script>&#8221;;
+      String script = "<script>alert(&#8216;ok!&#8217;);</script>";
     </li>
     <li>
-              response.getOutputStream().write(script.getBytes("utf-8&#8221;));
+              response.getOutputStream().write(script.getBytes("utf-8"));
     </li>
   </ol>
 

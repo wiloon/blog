@@ -108,7 +108,7 @@ err.printStackTrace();
               
 }
               
-System.out.println("in thread t&#8221;);
+System.out.println("in thread t");
           
 }
       
@@ -211,7 +211,7 @@ File[] allFiles = f.listFiles();
           
 if(Thread.interrupted()) {
               
-throw new InterruptedException("文件扫描任务被中断&#8221;);
+throw new InterruptedException("文件扫描任务被中断");
           
 }
           

@@ -97,13 +97,13 @@ studentScore.CourseId=1001+i;
               
 studentScore.score=100-i;
               
-scoreMultimap.put("peida&#8221;,studentScore);
+scoreMultimap.put("peida",studentScore);
           
 }
           
-System.out.println("scoreMultimap:&#8221;+scoreMultimap.size());
+System.out.println("scoreMultimap:"+scoreMultimap.size());
           
-System.out.println("scoreMultimap:&#8221;+scoreMultimap.keys());
+System.out.println("scoreMultimap:"+scoreMultimap.keys());
       
 }
   
@@ -127,13 +127,13 @@ studentScore.CourseId=1001+i;
               
 studentScore.score=100-i;
               
-scoreMultimap.put("peida&#8221;,studentScore);
+scoreMultimap.put("peida",studentScore);
           
 }
           
-System.out.println("scoreMultimap:&#8221;+scoreMultimap.size());
+System.out.println("scoreMultimap:"+scoreMultimap.size());
           
-System.out.println("scoreMultimap:&#8221;+scoreMultimap.keys());
+System.out.println("scoreMultimap:"+scoreMultimap.keys());
 
         Collection<StudentScore> studentScore = scoreMultimap.get("peida");
         studentScore.clear();
@@ -189,13 +189,13 @@ studentScore.CourseId=1001+i;
               
 studentScore.score=100-i;
               
-scoreMultimap.put("peida&#8221;,studentScore);
+scoreMultimap.put("peida",studentScore);
           
 }
           
-System.out.println("scoreMultimap:&#8221;+scoreMultimap.size());
+System.out.println("scoreMultimap:"+scoreMultimap.size());
           
-System.out.println("scoreMultimap:&#8221;+scoreMultimap.keys());
+System.out.println("scoreMultimap:"+scoreMultimap.keys());
 
         Collection<StudentScore> studentScore = scoreMultimap.get("peida");
         StudentScore studentScore1=new StudentScore();

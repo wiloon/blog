@@ -92,11 +92,11 @@ BeanFactory并不能及时察觉，必须等待第一次获取bean的实例时�
 
 
 
-Resource res = new FileSystemResource("applicationContext.xml&#8221;);
+Resource res = new FileSystemResource("applicationContext.xml");
   
 BeanFactory factory = new XmlBeanFactory(res);
 
-Resource  resClasspath = new ClassPathResource("applicationContext.xml.xml&#8221;);
+Resource  resClasspath = new ClassPathResource("applicationContext.xml.xml");
   
 BeanFactory factory2 = new XmlBeanFactory(resClasspath);
   
@@ -104,7 +104,7 @@ BeanFactory factory2 = new XmlBeanFactory(resClasspath);
 
 
 
-User u=(User)u.getBean("user&#8221;);
+User u=(User)u.getBean("user");
 
 当获得对象实例时 方可抛出异常
 
@@ -114,6 +114,6 @@ User u=(User)u.getBean("user&#8221;);
 
 
 
-ApplicationContext  context=new ClassPathXmlApplicationContext("applicationContext.xml&#8221;);
+ApplicationContext  context=new ClassPathXmlApplicationContext("applicationContext.xml");
 
 就能直接抛出异常

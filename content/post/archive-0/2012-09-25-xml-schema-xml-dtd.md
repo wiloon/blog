@@ -18,7 +18,7 @@ XML DTD(XML的文档类型定义)是近几年来XML技术领域所使用的最�
 
 XML模式与XML格式
 
-XML模式是指用来描述XML结构、约束等因素的语言，例如XML Schema、XML DTD、XDR，SOX等等。XML格式则是XML文档本身所具有的格式。本文以XML Schema来代表W3C所推荐的XML Schema模式标准，而以&#8221;XML模式&#8221;来代表所有的XML模式描述语言。
+XML模式是指用来描述XML结构、约束等因素的语言，例如XML Schema、XML DTD、XDR，SOX等等。XML格式则是XML文档本身所具有的格式。本文以XML Schema来代表W3C所推荐的XML Schema模式标准，而以"XML模式"来代表所有的XML模式描述语言。
 
 从模式的描述语言来说，XML Schema和XML DTD都属于语法模式。与概念模式不同，语法模式在对同一事物描述时，可以采用不同的语法，例如在对关系模式描述时，无论是使用XML Schema还是XML DTD，都既可以用元素也可以用属性来描述关系模式的列。
 

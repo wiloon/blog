@@ -12,7 +12,7 @@ categories:
 
 但旧的数据使用的是中文版, 使用的排序规则是 Chinese\_PRC\_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
 
-Cannot resolve the collation conflict between "SQL\_Latin1\_General\_CP1\_CI\_AS&#8221; and "Chinese\_PRC\_CI\_AS&#8221; in the equal to operation.
+Cannot resolve the collation conflict between "SQL\_Latin1\_General\_CP1\_CI\_AS" and "Chinese\_PRC\_CI\_AS" in the equal to operation.
 
 <wbr />
 
@@ -46,11 +46,11 @@ ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medi
 
 一、排序规则简介：
 
-什么叫排序规则呢？MS是这样描述的：&#8221;在 Microsoft SQL Server  中，
+什么叫排序规则呢？MS是这样描述的："在 Microsoft SQL Server  中，
   
 字符串的物理存储由排序规则控制。排序规则指定表示每个字符的位模式以及存
   
-储和比较字符所使用的规则。&#8221;
+储和比较字符所使用的规则。"
   
 在查询分析器内执行下面语句，可以得到SQL　SERVER支持的所有排序规则。
   

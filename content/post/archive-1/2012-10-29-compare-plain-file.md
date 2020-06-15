@@ -30,7 +30,7 @@ Const ForReading = 1
   
 Dim fso, txtFile1, strLine1, txtFile2, strLine2
 
-Set fso = CreateObject("Scripting.FileSystemObject&#8221;)
+Set fso = CreateObject("Scripting.FileSystemObject")
   
 Set txtFile1 = fso.OpenTextFile(cFile1, ForReading)
   

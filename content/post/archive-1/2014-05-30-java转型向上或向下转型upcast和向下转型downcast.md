@@ -22,7 +22,7 @@ public class A {
 
 public void a1() {
 
-System.out.println("Superclass&#8221;);
+System.out.println("Superclass");
 
 }
 
@@ -36,7 +36,7 @@ public class B extends A {
 
 public void a1() {
 
-System.out.println("Childrenclass&#8221;); //覆盖父类方法
+System.out.println("Childrenclass"); //覆盖父类方法
 
 }
 
@@ -86,13 +86,13 @@ public class LCDMonitor extends Monitor {
 
 public void displayText() {
 
-System.out.println("LCD display text&#8221;);
+System.out.println("LCD display text");
 
 }
 
 public void displayGraphics() {
 
-System.out.println("LCD display graphics&#8221;);
+System.out.println("LCD display graphics");
 
 }
 
@@ -106,13 +106,13 @@ public class CRTMonitor extends Monitor {
 
 public void displayText() {
 
-System.out.println("CRT display text&#8221;);
+System.out.println("CRT display text");
 
 }
 
 public void displayGraphics() {
 
-System.out.println("CRT display graphics&#8221;);
+System.out.println("CRT display graphics");
 
 }
 
@@ -126,13 +126,13 @@ public class PlasmaMonitor extends Monitor {
 
 public void displayText() {
 
-System.out.println("Plasma display text&#8221;);
+System.out.println("Plasma display text");
 
 }
 
 public void displayGraphics() {
 
-System.out.println("Plasma display graphics&#8221;);
+System.out.println("Plasma display graphics");
 
 }
 
@@ -226,13 +226,13 @@ public class LCDMonitor implements Monitor {
 
 public void displayText() {
 
-System.out.println("LCD display text&#8221;);
+System.out.println("LCD display text");
 
 }
 
 public void displayGraphics() {
 
-System.out.println("LCD display graphics&#8221;);
+System.out.println("LCD display graphics");
 
 }
 
@@ -254,7 +254,7 @@ public class A {
 
 void aMthod() {
 
-System.out.println("A method&#8221;);
+System.out.println("A method");
 
 }
 
@@ -268,13 +268,13 @@ public class B extends A {
 
 void bMethod1() {
 
-System.out.println("B method 1&#8221;);
+System.out.println("B method 1");
 
 }
 
 void bMethod2() {
 
-System.out.println("B method 2&#8221;);
+System.out.println("B method 2");
 
 }
 
@@ -316,7 +316,7 @@ b2.bMethod2();
 
 从上面的代码我们可以得出这样一个结论：向下转型需要使用强制转换。运行C程序，控制台将输出：
   
-Exception in thread "main&#8221; java.lang.ClassCastException: a.b.A cannot be cast to a.b.B at
+Exception in thread "main" java.lang.ClassCastException: a.b.A cannot be cast to a.b.B at
   
 a.b.C.main(C.java:14)
 

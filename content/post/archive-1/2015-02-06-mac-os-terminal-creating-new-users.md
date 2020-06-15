@@ -28,7 +28,7 @@ dscl . create /Users/corybohon UserShell /bin/bash
   
 Next, we’ll add some user credentials, and set the user’s full name:
 
-dscl . create /Users/corybohon RealName "Cory Bohon&#8221;
+dscl . create /Users/corybohon RealName "Cory Bohon"
   
 Now, we’ll create and set a unique ID for the user. Pick whatever works for you here, ensuring that it hasn’t been used by previous users:
 

@@ -151,7 +151,7 @@ LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFacto
   
 em.setDataSource(dataSource());
   
-em.setPackagesToScan(new String[] { "org.baeldung.persistence.model&#8221; });
+em.setPackagesToScan(new String[] { "org.baeldung.persistence.model" });
 
 JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
   
@@ -169,13 +169,13 @@ public DataSource dataSource(){
   
 DriverManagerDataSource dataSource = new DriverManagerDataSource();
   
-dataSource.setDriverClassName("com.mysql.jdbc.Driver&#8221;);
+dataSource.setDriverClassName("com.mysql.jdbc.Driver");
   
-dataSource.setUrl("jdbc:mysql://localhost:3306/spring_jpa&#8221;);
+dataSource.setUrl("jdbc:mysql://localhost:3306/spring_jpa");
   
-dataSource.setUsername( "tutorialuser&#8221; );
+dataSource.setUsername( "tutorialuser" );
   
-dataSource.setPassword( "tutorialmy5ql&#8221; );
+dataSource.setPassword( "tutorialmy5ql" );
   
 return dataSource;
   
@@ -205,9 +205,9 @@ Properties additionalProperties() {
   
 Properties properties = new Properties();
   
-properties.setProperty("hibernate.hbm2ddl.auto&#8221;, "create-drop&#8221;);
+properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
   
-properties.setProperty("hibernate.dialect&#8221;, "org.hibernate.dialect.MySQL5Dialect&#8221;);
+properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
   
 return properties;
   
@@ -303,15 +303,15 @@ The same Spring Configuration with XML:
   
 40
   
-<?xml version=&#8221;1.0" encoding=&#8221;UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
   
-<beans xmlns=&#8221;http://www.springframework.org/schema/beans&#8221;
+<beans xmlns="http://www.springframework.org/schema/beans"
   
-xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   
-xmlns:tx=&#8221;http://www.springframework.org/schema/tx&#8221;
+xmlns:tx="http://www.springframework.org/schema/tx"
   
-xsi:schemaLocation=&#8221;
+xsi:schemaLocation="
   
 http://www.springframework.org/schema/beans
   
@@ -319,27 +319,27 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
   
 http://www.springframework.org/schema/tx
   
-http://www.springframework.org/schema/tx/spring-tx-3.2.xsd&#8221;>
+http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
-<bean id=&#8221;myEmf&#8221; class=&#8221;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&#8221;>
+<bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
   
-<property name=&#8221;dataSource&#8221; ref=&#8221;dataSource&#8221; />
+<property name="dataSource" ref="dataSource" />
   
-<property name=&#8221;packagesToScan&#8221; value=&#8221;org.baeldung.persistence.model&#8221; />
+<property name="packagesToScan" value="org.baeldung.persistence.model" />
   
-<property name=&#8221;jpaVendorAdapter&#8221;>
+<property name="jpaVendorAdapter">
   
-<bean class=&#8221;org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter&#8221; />
+<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
   
 </property>
   
-<property name=&#8221;jpaProperties&#8221;>
+<property name="jpaProperties">
   
 <props>
   
-<prop key=&#8221;hibernate.hbm2ddl.auto&#8221;>create-drop</prop>
+<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
   
-<prop key=&#8221;hibernate.dialect&#8221;>org.hibernate.dialect.MySQL5Dialect</prop>
+<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
   
 </props>
   
@@ -347,29 +347,29 @@ http://www.springframework.org/schema/tx/spring-tx-3.2.xsd&#8221;>
   
 </bean>
 
-<bean id=&#8221;dataSource&#8221; class=&#8221;org.springframework.jdbc.datasource.DriverManagerDataSource&#8221;>
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
   
-<property name=&#8221;driverClassName&#8221; value=&#8221;com.mysql.jdbc.Driver&#8221; />
+<property name="driverClassName" value="com.mysql.jdbc.Driver" />
   
-<property name=&#8221;url&#8221; value=&#8221;jdbc:mysql://localhost:3306/spring_jpa&#8221; />
+<property name="url" value="jdbc:mysql://localhost:3306/spring_jpa" />
   
-<property name=&#8221;username&#8221; value=&#8221;tutorialuser&#8221; />
+<property name="username" value="tutorialuser" />
   
-<property name=&#8221;password&#8221; value=&#8221;tutorialmy5ql&#8221; />
+<property name="password" value="tutorialmy5ql" />
   
 </bean>
 
-<bean id=&#8221;transactionManager&#8221; class=&#8221;org.springframework.orm.jpa.JpaTransactionManager&#8221;>
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
   
-<property name=&#8221;entityManagerFactory&#8221; ref=&#8221;myEmf&#8221; />
+<property name="entityManagerFactory" ref="myEmf" />
   
 </bean>
   
 <tx:annotation-driven />
 
-<bean id=&#8221;persistenceExceptionTranslationPostProcessor&#8221;
+<bean id="persistenceExceptionTranslationPostProcessor"
   
-class=&#8221;org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor&#8221; />
+class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 </beans>
   

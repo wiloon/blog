@@ -24,9 +24,9 @@ Tomcat 7.0.xx：http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.xx/bin/apac
 
 然后再配置环境变量；添加三个系统变量：
 
-JAVA_HOME=&#8221;/opt/jvm/jdk1.7.0"
+JAVA_HOME="/opt/jvm/jdk1.7.0"
   
-TOMCAT_HOME=&#8221;/home/wiloon/program/apache-tomcat-7.0.xx&#8221;
+TOMCAT_HOME="/home/wiloon/program/apache-tomcat-7.0.xx"
   
 CLASSPATH: %JAVA\_HOME%/lib;%TOMCAT\_HOME%/lib
 

@@ -14,23 +14,23 @@ tags:
 
 
 
-<ul class=&#8221;box&#8221; name=&#8221;a&#8221;>
+<ul class="box" name="a">
 
-<li name=&#8221;b&#8221; class=&#8221;li_moito&#8221;><a href=&#8221;#&#8221; class=&#8221;moto&#8221;>Hello Moto*</a></li>
+<li name="b" class="li_moito"><a href="#" class="moto">Hello Moto*</a></li>
 
-<li><a href=&#8221;#&#8221; class=&#8221;kitty&#8221;>Hello Kitty*</a></li>
+<li><a href="#" class="kitty">Hello Kitty*</a></li>
 
-<li><a href=&#8221;#&#8221; class=&#8221;world&#8221;>Hello World*</a></li>
+<li><a href="#" class="world">Hello World*</a></li>
 
 </ul>
 
 
 
-如果要获取class=&#8221;moto&#8221;的父级元素LI，或许我们最先想到的一种方法就是用
+如果要获取class="moto"的父级元素LI，或许我们最先想到的一种方法就是用
 
 
 
-$(".moto&#8221;).parent().parent()。不错，这样写可以达到效果，却也显得有些烦琐了。其
+$(".moto").parent().parent()。不错，这样写可以达到效果，却也显得有些烦琐了。其
 
 
 
@@ -48,11 +48,11 @@ parents()，我想这个大家再熟悉不过了，它是取得所有符合条�
 
 这里，我们可以：
 
-$(".moto&#8221;).parents("li[name=&#8217;b&#8217;]&#8221;);
+$(".moto").parents("li[name=&#8217;b&#8217;]");
 
 或者
 
-$(".moto&#8221;).parents(".li_moito&#8221;);
+$(".moto").parents(".li_moito");
 
 
 
@@ -70,11 +70,11 @@ closest()，这个方法呢就是向上检查元素并逐级匹配。首先，�
 
 可以这样写：
 
-$(".moto&#8221;).closest("li[name=&#8217;b&#8217;]&#8221;);
+$(".moto").closest("li[name=&#8217;b&#8217;]");
 
 或者
 
-$(".moto&#8221;).closest(".li_moito&#8221;);
+$(".moto").closest(".li_moito");
 
 
 

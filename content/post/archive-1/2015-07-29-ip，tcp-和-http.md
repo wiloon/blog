@@ -10,7 +10,7 @@ tags:
   - Network
 
 ---
-172.16.128.0/24 经常看到这类IP地址&#8221;/24"表示什么意思？
+172.16.128.0/24 经常看到这类IP地址"/24"表示什么意思？
 
 子网掩码, 代表多少个1
   
@@ -348,7 +348,7 @@ Accept-Encoding: gzip, deflate
   
 Connection: keep-alive
   
-If-None-Match: "a54907f38b306fe3ae4f32c003ddd507&#8221;
+If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
   
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8
   
@@ -384,7 +384,7 @@ Accept-Encoding: gzip, deflate
 
 If-Modified-Since: Mon, 10 Feb 2014 18:08:48 GMT
   
-If-None-Match: "a54907f38b306fe3ae4f32c003ddd507&#8221;
+If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
 
 这两行信息表明 Safari 已经对请求结果做过缓存。如果服务器上的待请求内容在 2 月 10 号以后发生过变化或者是 ETag 与a54907f38b306fe3ae4f32c003ddd507 不匹配，这就表示请求结果与当前缓存信息不一致，需要服务器返回最新的请求结果。
 
@@ -460,11 +460,11 @@ Connection: keep-alive
 
 <!DOCTYPE html>
   
-<html xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221; xml:lang=&#8221;en-US&#8221; lang=&#8221;en-US&#8221;>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
   
 <head>
   
-<meta charset=&#8221;utf-8" />
+<meta charset="utf-8" />
 
 后面还会有一些，现在收到的响应里 body 中包含了 HTML 文档信息。
 
@@ -590,7 +590,7 @@ RFC 2616 指明，在与同一个服务器通讯的时候，如果启用了 HTTP
   
 看看第一个例子中发送的这段 header 信息：
 
-If-None-Match: "a54907f38b306fe3ae4f32c003ddd507&#8221;
+If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
 
 这表示客户端本地已经针对所请求的资源做过缓存了，如果服务器上的资源有过更新，需要将最新的资源返回给客户端，否则不需要返回。如果自己构建客户端和服务器的数据通信，建议充分利用这个机制。这种机制叫做 HTTP ETag，如果使用得当，会对通讯的速度有明显的优化。
 

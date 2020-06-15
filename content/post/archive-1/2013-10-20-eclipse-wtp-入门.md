@@ -109,7 +109,7 @@ tags:
 
 
 
-  <%=com.syj.TestWTP.class.getClassLoader().getResource("&#8221;) %>
+  <%=com.syj.TestWTP.class.getClassLoader().getResource("") %>
 
 
 

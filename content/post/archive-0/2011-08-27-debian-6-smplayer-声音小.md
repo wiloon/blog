@@ -14,6 +14,6 @@ categories:
 ---
 Options > preferences > audio > output driver
   
-select "alsa&#8221;
+select "alsa"
 
 <http://www.wiloon.com/wordpress/?p=2850>

@@ -30,4 +30,4 @@ http://hi.baidu.com/starhuo/blog/item/cddb59eeec8cd7f7b3fb955f.html
 
 5、在项目上点右键，进入属性（properties）
 
-6、在左侧列表项目中点击选择“Project Facets”，在右侧选择“Dynamic Web Module”和&#8221;Java&#8221;，点击OK保存即可。
+6、在左侧列表项目中点击选择“Project Facets”，在右侧选择“Dynamic Web Module”和"Java"，点击OK保存即可。

@@ -22,7 +22,7 @@ categories:
   
   
   
-    关于 /dev/zero 的另一个应用是为特定的目的而用零去填充一个指定大小的文件, 如挂载一个文件系统到环回设备 （loopback device） 或&#8221;安全地&#8221; 删除一个文件
+    关于 /dev/zero 的另一个应用是为特定的目的而用零去填充一个指定大小的文件, 如挂载一个文件系统到环回设备 （loopback device） 或"安全地" 删除一个文件
   
   
   
@@ -33,17 +33,17 @@ categories:
     /dev/null，外号叫无底洞，你可以向它输出任何数据，它通吃，并且不会撑着！
  /dev/null&#8212;&#8212;它是空设备，也称为位桶（bit bucket）。任何写入它的输出都会被抛弃。如果不想让消息以标准输出显示或写入文件，那么可以将消息重定向到位桶。
  使用/dev/null
- 把/dev/null看作&#8221;黑洞&#8221;. 它非常等价于一个只写文件. 所有写入它的内容都会永远丢失. 而尝试从它那儿读取内容则什么也读不到. 然而, /dev/null对命令行和脚本都非常的有用.
+ 把/dev/null看作"黑洞". 它非常等价于一个只写文件. 所有写入它的内容都会永远丢失. 而尝试从它那儿读取内容则什么也读不到. 然而, /dev/null对命令行和脚本都非常的有用.
  禁止标准输出.    cat $filename >/dev/null                &#8211;文件内容丢失，而不会输出到标准输出.
  禁止标准错误   rm $badname 2>/dev/null              &#8211;这样错误信息[标准错误]就被丢到太平洋去了.
  禁止标准输出和标准错误的输出.    1 cat $filename 2>/dev/null >/dev/null
- &#8211;如果&#8221;$filename&#8221;不存在，将不会有任何错误信息提示.
- &#8212; 如果&#8221;$filename&#8221;存在, 文件的内容不会打印到标准输出.
+ &#8211;如果"$filename"不存在，将不会有任何错误信息提示.
+ &#8212; 如果"$filename"存在, 文件的内容不会打印到标准输出.
  &#8211;因此Therefore, 上面的代码根本不会输出任何信息.
  &#8211;当只想测试命令的退出码而不想有任何输出时非常有用。
  Deleting contents of a file, but preserving the file itself, with all attendant permissions :
  cat /dev/null > /var/log/messages       &#8211;> /var/log/messages   有同样的效果, 但不会产生新的进程.
- cat /dev/null > /var/log/wtmp     &#8212; 自动清空日志文件的内容 (适合处理由Web站点发送的讨厌的&#8221;cookies&#8221;)
+ cat /dev/null > /var/log/wtmp     &#8212; 自动清空日志文件的内容 (适合处理由Web站点发送的讨厌的"cookies")
   
   
   

@@ -14,7 +14,7 @@ tags:
 
 http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html
 
-"数据透视表&#8221; 英文是 Pivot Table ，直接翻译是轴向旋转表 ，什么意思呢？ 及把我们的数据分成多个维度来进行统计，可以理解为我们平时说的简单报表。
+"数据透视表" 英文是 Pivot Table ，直接翻译是轴向旋转表 ，什么意思呢？ 及把我们的数据分成多个维度来进行统计，可以理解为我们平时说的简单报表。
 
 (透视表？当初是那个白痴汉化的？)。举个例子来说明。
 
@@ -24,7 +24,7 @@ http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html
 
 可以看到销售员和产品列有许多重复的字段，那么如果我们想得到两个统计信息：每名销售员每种产品的销售额情况和每种产品的销售额，我们应该怎么使用“透视表”得到呢？
 
-在当前表菜单上“插入”->&#8221;数据透视表&#8221;，英文版为 “Insert”-> "Pivot Table”。
+在当前表菜单上“插入”->"数据透视表"，英文版为 “Insert”-> "Pivot Table”。
 
 图2
 
@@ -70,7 +70,7 @@ http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html
 
 
 
-那么每种产品的销售情况怎么做？ 只要在图3 的界面中 把“产品名称”拖拽到 Row labels, "销售数量&#8221;拖拽到Values 即可。读者自行实践即可。
+那么每种产品的销售情况怎么做？ 只要在图3 的界面中 把“产品名称”拖拽到 Row labels, "销售数量"拖拽到Values 即可。读者自行实践即可。
 
 
 
@@ -86,7 +86,7 @@ http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html
 
 
 
-注意一点，源数据更新后，透视表数据并不会自动更新，需要右键->Refresh 一下。还可以在每次打开数据透视表时自动更新其中的数据。右键单击任意单元格 “Pivot Table Option” > "Data&#8221; .选中 &#8221; Refersh the data when open file&#8221;.
+注意一点，源数据更新后，透视表数据并不会自动更新，需要右键->Refresh 一下。还可以在每次打开数据透视表时自动更新其中的数据。右键单击任意单元格 “Pivot Table Option” > "Data" .选中 " Refersh the data when open file".
 
 
 
@@ -98,7 +98,7 @@ http://www.cnblogs.com/waitrabbit/archive/2010/06/29/1767702.html
 
 
 
-另外，数据统计默认是求和，如果是求最大值等等，右键单击任意单元格->&#8221;Value Filed Setting&#8221; ,可以设置其他统计方式，如下图：
+另外，数据统计默认是求和，如果是求最大值等等，右键单击任意单元格->"Value Filed Setting" ,可以设置其他统计方式，如下图：
 
 
 

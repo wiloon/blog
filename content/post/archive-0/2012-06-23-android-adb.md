@@ -360,7 +360,7 @@ adb shell
 
 
 <p style="color: #4b4b4b;">
-  Enter ".help&#8221; for instructions
+  Enter ".help" for instructions
 
 
 <p style="color: #4b4b4b;">

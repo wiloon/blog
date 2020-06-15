@@ -18,7 +18,7 @@ telnet: TCP/IP终端仿真协议（TCP/IP Terminal Emulation Protocol)：通过T
 
 SSH：安装外壳协议（SSH：Secure Shell Protocol）
 
-ＳＳＨ是一种在不安全网络上提供安全远程登陆及其他安全网络服务的协议.SSH是指Secure shell,SSH协议族由IETF(internet engineering task force)的network working group制定,SSH协议的内容SSH协议是建立在应用层和传输层基础上的安全协议.传统的网络服务程序,如FTP,POP和TELNET其本质上都是不安全的;因为它们在网络上用明文传送数据,用户帐号和用户口令,很容易受到中间人(man-in-the-middle)攻击方式的攻击.就是存在另一个人或者一台机器冒充真正的服务器接收用户传给服务器的数据,然后在冒充用户把数据传给真正的服务器.SSH是目前比较可靠的远程登录会话和其他网络服务提供安全性的协议.利用SSH协议可以有效防止远程管理过程中的信息泄露问题.通过SSH,可以把所有传输的数据进行加密,也能够防止DNS欺骗和IP欺骗.SSH,还有一个额外的好处就是传输的数据是经过压缩的,所以加以加快传输的速度.SSH有很多功能,它既可以代替TELNET,又可能为FTP,POPPPP提供一个安全的&#8221;通道&#8221;.
+ＳＳＨ是一种在不安全网络上提供安全远程登陆及其他安全网络服务的协议.SSH是指Secure shell,SSH协议族由IETF(internet engineering task force)的network working group制定,SSH协议的内容SSH协议是建立在应用层和传输层基础上的安全协议.传统的网络服务程序,如FTP,POP和TELNET其本质上都是不安全的;因为它们在网络上用明文传送数据,用户帐号和用户口令,很容易受到中间人(man-in-the-middle)攻击方式的攻击.就是存在另一个人或者一台机器冒充真正的服务器接收用户传给服务器的数据,然后在冒充用户把数据传给真正的服务器.SSH是目前比较可靠的远程登录会话和其他网络服务提供安全性的协议.利用SSH协议可以有效防止远程管理过程中的信息泄露问题.通过SSH,可以把所有传输的数据进行加密,也能够防止DNS欺骗和IP欺骗.SSH,还有一个额外的好处就是传输的数据是经过压缩的,所以加以加快传输的速度.SSH有很多功能,它既可以代替TELNET,又可能为FTP,POPPPP提供一个安全的"通道".
 
 配置：
 

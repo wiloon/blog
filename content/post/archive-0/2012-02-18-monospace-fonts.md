@@ -10,7 +10,7 @@ categories:
 ---
 <http://www.lowing.org/fonts/>
 
-Monospace fonts (Such as Courier or LetterGothic), or "fixed pitch&#8221; fonts, contain characters that all have the same character width, producing text that can be used to create forms, tabular material or documents that require exact text line lengths. An example of a fixed pitch font is Courier 12 pitch, which is a 10 point font that will print at exactly 12 characters per inch.
+Monospace fonts (Such as Courier or LetterGothic), or "fixed pitch" fonts, contain characters that all have the same character width, producing text that can be used to create forms, tabular material or documents that require exact text line lengths. An example of a fixed pitch font is Courier 12 pitch, which is a 10 point font that will print at exactly 12 characters per inch.
 
 <table summary="Resume information" cellspacing="1" cellpadding="2">
   <tr>

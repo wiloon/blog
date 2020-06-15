@@ -38,7 +38,7 @@ create TABLE usertest (
   
 id int(9) unsigned NOT NULL auto_increment,
   
-username varchar(30) NOT NULL default &#8221;,
+username varchar(30) NOT NULL default ",
   
 primary key (id)
   
@@ -72,7 +72,7 @@ insert into usertest (username) VALUES(&#8216;唐&#8217;);
 
 1.在create的时候就使用binary，而不是在query的时候加。
 
-username varchar(30) BINARY NOT NULL default &#8221;, 如果表已经建好了，使用：
+username varchar(30) BINARY NOT NULL default ", 如果表已经建好了，使用：
 
 alter table usertest modify username varchar(32) binary; 来就该表的属性。
 

@@ -144,7 +144,7 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
                 Cell cell = new  Cell();
       </li>
       <li>
-                cell.setCellWall("cell wall 1&#8221; );
+                cell.setCellWall("cell wall 1" );
       </li>
       <li>
                 &#8230;
