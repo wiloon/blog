@@ -132,11 +132,16 @@ With the partition made in the previous step, you know need to put a filesystem 
   </h4>
   
   <p>
-    [shell]<br /> aronschatz@asetest2:~$ sudo mkdosfs -I /dev/sdb1<br /> mkdosfs 2.11 (12 Mar 2005)<br /> aronschatz@asetest2:~$<br /> [/shell]
+    [shell]
+ aronschatz@asetest2:~$ sudo mkdosfs -I /dev/sdb1
+ mkdosfs 2.11 (12 Mar 2005)
+ aronschatz@asetest2:~$
+ [/shell]
   </p>
   
   <p>
-    <strong>Step 4: Edit .dosemurc </strong><br /> You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc&#8221; in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
+    <strong>Step 4: Edit .dosemurc </strong>
+ You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc&#8221; in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
   </p>
 </div>
 
@@ -204,7 +209,26 @@ This command should bring up another prompt that is basically FreeDOS. In this n
   </h4>
   
   <p>
-    [shell]<br /> C:> z:<br /> Z:> sys f:<br /> FreeDOS System Installer v3.2, Aug 18 2006Processing boot sector&#8230;<br /> Reading old bootsector from drive F:<br /> FAT type: FAT16<br /> Old boot sector values: sectors/track: 62, heads: 4, hidden: 62<br /> Default and new boot sector values: sectors/track: 62, heads: 4, hidden: 62<br /> Root dir entries = 512<br /> FAT starts at sector (62 + 1)<br /> Root directory starts at sector (PREVIOUS + 245 * 2)<br /> Boot sector kernel name set to KERNEL SYS<br /> Boot sector load segment set to 60h<br /> writing new bootsector to drive F:Copying KERNEL.SYS&#8230;<br /> 45341 Bytes transferred<br /> Copying COMMAND.COM&#8230;<br /> 66945 Bytes transferred<br /> System transferred.<br /> Z:>exitemu<br /> [/shell]
+    [shell]
+ C:> z:
+ Z:> sys f:
+ FreeDOS System Installer v3.2, Aug 18 2006Processing boot sector&#8230;
+ Reading old bootsector from drive F:
+ FAT type: FAT16
+ Old boot sector values: sectors/track: 62, heads: 4, hidden: 62
+ Default and new boot sector values: sectors/track: 62, heads: 4, hidden: 62
+ Root dir entries = 512
+ FAT starts at sector (62 + 1)
+ Root directory starts at sector (PREVIOUS + 245 * 2)
+ Boot sector kernel name set to KERNEL SYS
+ Boot sector load segment set to 60h
+ writing new bootsector to drive F:Copying KERNEL.SYS&#8230;
+ 45341 Bytes transferred
+ Copying COMMAND.COM&#8230;
+ 66945 Bytes transferred
+ System transferred.
+ Z:>exitemu
+ [/shell]
   </p>
   
   <p>
@@ -216,11 +240,20 @@ This command should bring up another prompt that is basically FreeDOS. In this n
   </p>
   
   <p>
-    Step 6: install mbr<br /> [shell]<br /> #install-mbr -v -p [boot partition #] /dev/<usb device><br /> # Note: no partition, root device only<br /> sudo install-mbr -v -p 1 /dev/sdb<br /> [/shell]
+    Step 6: install mbr
+ [shell]
+ #install-mbr -v -p [boot partition #] /dev/<usb device>
+ # Note: no partition, root device only
+ sudo install-mbr -v -p 1 /dev/sdb
+ [/shell]
   </p>
   
   <p>
-    Step 7: smartdrv.exe, himemx.exe, JEMM386.EXE<br /> download freefos iso from http://www.freedos.org/, and extract HIMEMX.EXE, JEMM386.EXE to the usb drive<br /> Create file CONFIG.SYS on /dev/sdb1 , add two lines:<br /> DEVICE=HIMEMX.EXE<br /> DEVICE=JEMM386.EXE
+    Step 7: smartdrv.exe, himemx.exe, JEMM386.EXE
+ download freefos iso from http://www.freedos.org/, and extract HIMEMX.EXE, JEMM386.EXE to the usb drive
+ Create file CONFIG.SYS on /dev/sdb1 , add two lines:
+ DEVICE=HIMEMX.EXE
+ DEVICE=JEMM386.EXE
   </p>
   
   <p>
@@ -244,6 +277,9 @@ This command should bring up another prompt that is basically FreeDOS. In this n
   </p>
   
   <p>
-    http://wiki.gentoo.org/wiki/Bootable_DOS_USB_stick<br /> http://www.dosemu.org/docs/README/1.2/config.html<br /> https://jeremy.visser.name/2007/09/create-a-bootable-freedos-usb-flash-drive-in-linux/<br /> http://www.ilikelinux.com/tips-and-howtos/creating-a-knoppix-or-freedos-usb-stick-in-linux
+    http://wiki.gentoo.org/wiki/Bootable_DOS_USB_stick
+ http://www.dosemu.org/docs/README/1.2/config.html
+ https://jeremy.visser.name/2007/09/create-a-bootable-freedos-usb-flash-drive-in-linux/
+ http://www.ilikelinux.com/tips-and-howtos/creating-a-knoppix-or-freedos-usb-stick-in-linux
   </p>
 </div>

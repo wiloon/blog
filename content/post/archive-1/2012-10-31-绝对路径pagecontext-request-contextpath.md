@@ -32,11 +32,15 @@ categories:
       </p>
       
       <p>
-        为了解决不同部署方式的差别，在所有非struts标签的路径前加${pageContext.request.contextPath}，如原路径为：<br /> "/images/title.gif&#8221;，改为
+        为了解决不同部署方式的差别，在所有非struts标签的路径前加${pageContext.request.contextPath}，如原路径为：
+ "/images/title.gif&#8221;，改为
       </p>
       
       <p>
-        "${pageContext.request.contextPath}/images/title.gif&#8221;<br /> 代码” ${pageContext.request.contextPath}”的作用是取出部署的应用程序名，这样不管如何部署，所用路径都是正确的。<br /> 缺点：<br /> 操作不便，其他工具无法正确解释${pageContext.request.contextPath}
+        "${pageContext.request.contextPath}/images/title.gif&#8221;
+ 代码” ${pageContext.request.contextPath}”的作用是取出部署的应用程序名，这样不管如何部署，所用路径都是正确的。
+ 缺点：
+ 操作不便，其他工具无法正确解释${pageContext.request.contextPath}
       </p>
       
       <div>

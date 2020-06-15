@@ -156,7 +156,8 @@ muban := "{{.Count}} items are made of {{.Material}}&#8221;
   
 //也可以是多行
   
-muban := `items number is {{.Count}}<br />
+muban := `items number is {{.Count}}
+
 there made of {{.Material}}`
   
 把模板的内容发在一个文本文件里，用的时候将文本文件里的所有内容赋值给muban这个变量即可
@@ -203,7 +204,8 @@ err = tmpl.Execute(os.Stdout, sweaters) //模板名省略，打印的是当前�
   
 ##模板的复用 模板里可以套模板，以达到复用目的，用template关键字
 
-muban1 := `hi, {{template "M2"}},<br />
+muban1 := `hi, {{template "M2"}},
+
 hi, {{template "M3"}}`
   
 muban2 := "我是模板2，{{template "M3"}}&#8221;
@@ -232,7 +234,8 @@ import (
 
 func main() {
       
-muban1 := `hi, {{template "M2"}},<br />
+muban1 := `hi, {{template "M2"}},
+
 hi, {{template "M3"}}`
       
 muban2 := `我是模板2，{{template "M3"}}`

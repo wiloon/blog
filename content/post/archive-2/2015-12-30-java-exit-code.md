@@ -25,15 +25,20 @@ categories:
     </p>
     
     <p>
-      bash$ cat “SOME_FILE_THAT_DOES_NOT_EXIST”<br /> bash$ echo $?<br /> and your result should be 1.
+      bash$ cat “SOME_FILE_THAT_DOES_NOT_EXIST”
+ bash$ echo $?
+ and your result should be 1.
     </p>
     
     <p>
-      bash$ cat “SOME_FILE_THAT_DOES_EXIST”<br /> bash$ echo $?<br /> and your result should be 0.
+      bash$ cat “SOME_FILE_THAT_DOES_EXIST”
+ bash$ echo $?
+ and your result should be 0.
     </p>
     
     <p>
-      hope this helps,<br /> cludwin
+      hope this helps,
+ cludwin
     </p>
   </div>
 </div>

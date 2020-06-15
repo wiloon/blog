@@ -12,7 +12,9 @@ categories:
 </div>
 
 <div id="blog_content">
-  Image是一个抽象列，BufferedImage是Image的实现。<br /> Image和BufferedImage的主要作用就是将一副图片加载到内存中。<br /> Java将一副图片加载到内存中的方法是：</p> 
+  Image是一个抽象列，BufferedImage是Image的实现。
+ Image和BufferedImage的主要作用就是将一副图片加载到内存中。
+ Java将一副图片加载到内存中的方法是：</p> 
   
   <div id="">
     <div>

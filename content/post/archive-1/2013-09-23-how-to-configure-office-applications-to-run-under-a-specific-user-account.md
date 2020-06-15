@@ -104,7 +104,11 @@ This article was previously published under Q288367
       Close the applications, including VBA.
     </li>
     <li>
-      Click <strong>Start</strong>, click <strong>Run</strong>, and then type <kbd>DCOMCNFG</kbd>. Select the application that you want to automate. The application names are listed below:Microsoft Access 97/2002 &#8211; Microsoft Access Database<br /> Microsoft Access 2003 &#8211; Microsoft Office Access Application<br /> Microsoft Excel 97/2000/2002/2003 &#8211; Microsoft Excel Application<br /> Microsoft Word 97 &#8211; Microsoft Word Basic<br /> Microsoft Word 2000/2002/2003 &#8211; Microsoft Word Document</p> <p>
+      Click <strong>Start</strong>, click <strong>Run</strong>, and then type <kbd>DCOMCNFG</kbd>. Select the application that you want to automate. The application names are listed below:Microsoft Access 97/2002 &#8211; Microsoft Access Database
+ Microsoft Access 2003 &#8211; Microsoft Office Access Application
+ Microsoft Excel 97/2000/2002/2003 &#8211; Microsoft Excel Application
+ Microsoft Word 97 &#8211; Microsoft Word Basic
+ Microsoft Word 2000/2002/2003 &#8211; Microsoft Word Document</p> <p>
         Click <strong>Properties</strong> to open the property dialog box for this application.</li> 
         
         <li>
@@ -120,14 +124,26 @@ This article was previously published under Q288367
           In the DCOM Configuration dialog box, click the <strong>Default Security</strong> tab.
         </li>
         <li>
-          Click <strong>Edit Defaults</strong> for access permissions. Verify that the following users are listed in the access permissions, or add the users if they are not listed:SYSTEM<br /> INTERACTIVE<br /> Everyone<br /> Administrators<br /> OfficeAutomationUser<br /> IUSR_<machinename><strong>*</strong><br /> IWAM_<machinename><strong>*</strong></p> <p>
+          Click <strong>Edit Defaults</strong> for access permissions. Verify that the following users are listed in the access permissions, or add the users if they are not listed:SYSTEM
+ INTERACTIVE
+ Everyone
+ Administrators
+ OfficeAutomationUser
+ IUSR_<machinename><strong>*</strong>
+ IWAM_<machinename><strong>*</strong></p> <p>
             <strong>*</strong> These accounts exist only if Internet Information Server (IIS) is installed on the computer.</li> 
             
             <li>
               Make sure that each user is allowed access, and then click <strong>OK</strong>.
             </li>
             <li>
-              Click <strong>Edit Defaults</strong> for launch permissions. Verify that the following users are listed in the launch permissions, or add the users if they are not listed:SYSTEM<br /> INTERACTIVE<br /> Everyone<br /> Administrators<br /> OfficeAutomationUser<br /> IUSR_<machinename><strong>*</strong><br /> IWAM_<machinename><strong>*</strong></p> <p>
+              Click <strong>Edit Defaults</strong> for launch permissions. Verify that the following users are listed in the launch permissions, or add the users if they are not listed:SYSTEM
+ INTERACTIVE
+ Everyone
+ Administrators
+ OfficeAutomationUser
+ IUSR_<machinename><strong>*</strong>
+ IWAM_<machinename><strong>*</strong></p> <p>
                 <strong>*</strong> These accounts exist only if IIS is installed on the computer.</li> 
                 
                 <li>
@@ -137,16 +153,24 @@ This article was previously published under Q288367
                   Click <strong>OK</strong> to close DCOMCNFG.
                 </li>
                 <li>
-                  Start <strong>REGEDIT</strong> and then verify that the following keys and string values exist for the Office application that you want to automate:<strong>Microsoft Access 2000/2002/2003:</strong><br /> Key: HKEY_CLASSES_ROOTAppIDMSACCESS.EXE<br /> AppID: {73A4C9C1-D68D-11D0-98BF-00A0C90DC8D9}</p> <p>
-                    <strong>Microsoft Access 97:</strong><br /> Key: HKEY_CLASSES_ROOTAppIDMSACCESS.EXE<br /> AppID: {8CC49940-3146-11CF-97A1-00AA00424A9F}
+                  Start <strong>REGEDIT</strong> and then verify that the following keys and string values exist for the Office application that you want to automate:<strong>Microsoft Access 2000/2002/2003:</strong>
+ Key: HKEY_CLASSES_ROOTAppIDMSACCESS.EXE
+ AppID: {73A4C9C1-D68D-11D0-98BF-00A0C90DC8D9}</p> <p>
+                    <strong>Microsoft Access 97:</strong>
+ Key: HKEY_CLASSES_ROOTAppIDMSACCESS.EXE
+ AppID: {8CC49940-3146-11CF-97A1-00AA00424A9F}
                   </p>
                   
                   <p>
-                    <strong>Microsoft Excel 97/2000/2002/2003:</strong><br /> Key: HKEY_CLASSES_ROOTAppIDEXCEL.EXE<br /> AppID: {00020812-0000-0000-C000-000000000046}
+                    <strong>Microsoft Excel 97/2000/2002/2003:</strong>
+ Key: HKEY_CLASSES_ROOTAppIDEXCEL.EXE
+ AppID: {00020812-0000-0000-C000-000000000046}
                   </p>
                   
                   <p>
-                    <strong>Microsoft Word 97/2000/2002/2003:</strong><br /> Key: HKEY_CLASSES_ROOTAppIDWINWORD.EXE<br /> AppID: {00020906-0000-0000-C000-000000000046}
+                    <strong>Microsoft Word 97/2000/2002/2003:</strong>
+ Key: HKEY_CLASSES_ROOTAppIDWINWORD.EXE
+ AppID: {00020906-0000-0000-C000-000000000046}
                   </p>
                   
                   <p>
@@ -172,7 +196,8 @@ This article was previously published under Q288367
                 </li>
                 
                 <li>
-                  To avoid registry conflicts, install and run an NT service. Set the identity of the service to run as <strong>OfficeAutomationUser</strong>, and select <strong>Automatic</strong> as the startup type. For more information on creating a sample Visual C++ NT Service, see the following Microsoft Developer Network (MSDN) Web site:Creating a Simple Win32 Service in C++<br /> <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp" target="_top">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp</a>
+                  To avoid registry conflicts, install and run an NT service. Set the identity of the service to run as <strong>OfficeAutomationUser</strong>, and select <strong>Automatic</strong> as the startup type. For more information on creating a sample Visual C++ NT Service, see the following Microsoft Developer Network (MSDN) Web site:Creating a Simple Win32 Service in C++
+ <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp" target="_top">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp</a>
                 </li>
                 <li>
                   Restart the system. This is required.
@@ -196,7 +221,8 @@ This article was previously published under Q288367
                   </p>
                   
                   <p>
-                    For more information about automation from Internet scripts, visit the following Microsoft Web site:Office Automation With Internet Scripting<br /> <a href="http://support.microsoft.com/default.aspx?scid=%2fsupport%2fofficedev%2fInetASP.asp" target="_top">http://support.microsoft.com/support/officedev/InetASP.asp</a>
+                    For more information about automation from Internet scripts, visit the following Microsoft Web site:Office Automation With Internet Scripting
+ <a href="http://support.microsoft.com/default.aspx?scid=%2fsupport%2fofficedev%2fInetASP.asp" target="_top">http://support.microsoft.com/support/officedev/InetASP.asp</a>
                   </p>
                   
                   <p>

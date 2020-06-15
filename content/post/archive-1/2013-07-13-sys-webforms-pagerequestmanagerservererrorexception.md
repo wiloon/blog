@@ -46,7 +46,8 @@ google搜的结果前两页，不管中文英文都看过了，依然解决不�
 
 二、
   
-Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : <span style="color: #ff0000;">12031<br /> </span>原因是查询出的数据超出web.config中的最大大小（默认4MB）
+Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : <span style="color: #ff0000;">12031
+ </span>原因是查询出的数据超出web.config中的最大大小（默认4MB）
   
 解决办法
 

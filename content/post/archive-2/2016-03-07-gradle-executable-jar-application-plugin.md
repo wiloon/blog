@@ -12,7 +12,9 @@ categories:
 
 
 <p>
-  [shell]<br />
-  gradle installApp<br />
+  [shell]
+
+  gradle installApp
+
   [/shell]
 </p>

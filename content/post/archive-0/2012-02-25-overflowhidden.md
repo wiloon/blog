@@ -26,7 +26,9 @@ tags:
   </p>
   
   <p>
-    <div id=&#8221;wai&#8221;><br /> <div id=&#8221;nei&#8221;></div><br /> </div>
+    <div id=&#8221;wai&#8221;>
+ <div id=&#8221;nei&#8221;></div>
+ </div>
   </p>
   
   <p>

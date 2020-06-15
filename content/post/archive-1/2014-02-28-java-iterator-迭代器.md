@@ -30,4 +30,19 @@ http://jnotnull.iteye.com/blog/262379
 
 <span style="font-family: Arial;">　　Iterator是Java迭代器最简单的实现，为List设计的ListIterator具有更多的功能，它可以从两个方向遍历List，也可以从List中插入和删除元素。</span>
 
-<span style="font-family: Arial;">迭代器应用：<br /> list l = new ArrayList();<br /> l.add("aa&#8221;);<br /> l.add("bb&#8221;);<br /> l.add("cc&#8221;);<br /> for (Iterator iter = l.iterator(); iter.hasNext();) {<br /> String str = (String)iter.next();<br /> System.out.println(str);<br /> }<br /> /*迭代器用于while循环<br /> Iterator iter = l.iterator();<br /> while(iter.hasNext()){<br /> String str = (String) iter.next();<br /> System.out.println(str);<br /> }<br /> */</span>
+<span style="font-family: Arial;">迭代器应用：
+ list l = new ArrayList();
+ l.add("aa&#8221;);
+ l.add("bb&#8221;);
+ l.add("cc&#8221;);
+ for (Iterator iter = l.iterator(); iter.hasNext();) {
+ String str = (String)iter.next();
+ System.out.println(str);
+ }
+ /*迭代器用于while循环
+ Iterator iter = l.iterator();
+ while(iter.hasNext()){
+ String str = (String) iter.next();
+ System.out.println(str);
+ }
+ */</span>

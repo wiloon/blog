@@ -41,7 +41,32 @@ categories:
   </p>
   
   <p>
-    <strong>HttpSessionBindingEvent</strong><strong>类</strong><br /> 定义<br /> public class HttpSessionBindingEvent extends EventObject<br /> 这个事件是在监听到HttpSession发生绑定和取消绑定的情况时连通HttpSessionBindingListener的。这可能是一个session被终止或被认定无效的结果。<br /> 事件源是HttpSession.putValue或HttpSession.removeValue。<br /> 构造函数<br /> public HttpSessionBindingEvent(HttpSession session, String name);<br /> 通过引起这个事件的Session和发生绑定或取消绑定的对象名构造一个新的HttpSessionBindingEvent。<br /> 方法<br /> 1、getName<br /> public String getName();<br /> 返回发生绑定和取消绑定的对象的名字。<br /> 2、getSession<br /> public HttpSession getSession();<br /> 返回发生绑定和取消绑定的session的名字。<br /> HttpSessionBindingListener接口<br /> 定义<br /> <strong>public interface HttpSessionBindingListener<br /> </strong>      这个对象被加入到HTTP的session中，执行这个接口会通告有没有什么对象被绑定到这个HTTP session中或被从这个HTTP session中取消绑定。<br /> 方法<br /> 1、valueBound<br /> public void valueBound(HttpSessionBindingEvent event);<br /> 当一个对象被绑定到session中，调用此方法。HttpSession.putValue方法被调用时，Servlet引擎应该调用此方法。<br /> 2、valueUnbound<br /> public void valueUnbound(HttpSessionBindingEvent event);<br /> 当一个对象被从session中取消绑定，调用此方法。HttpSession.removeValue方法被调用时，Servlet引擎应该调用此方法。
+    <strong>HttpSessionBindingEvent</strong><strong>类</strong>
+ 定义
+ public class HttpSessionBindingEvent extends EventObject
+ 这个事件是在监听到HttpSession发生绑定和取消绑定的情况时连通HttpSessionBindingListener的。这可能是一个session被终止或被认定无效的结果。
+ 事件源是HttpSession.putValue或HttpSession.removeValue。
+ 构造函数
+ public HttpSessionBindingEvent(HttpSession session, String name);
+ 通过引起这个事件的Session和发生绑定或取消绑定的对象名构造一个新的HttpSessionBindingEvent。
+ 方法
+ 1、getName
+ public String getName();
+ 返回发生绑定和取消绑定的对象的名字。
+ 2、getSession
+ public HttpSession getSession();
+ 返回发生绑定和取消绑定的session的名字。
+ HttpSessionBindingListener接口
+ 定义
+ <strong>public interface HttpSessionBindingListener
+ </strong>      这个对象被加入到HTTP的session中，执行这个接口会通告有没有什么对象被绑定到这个HTTP session中或被从这个HTTP session中取消绑定。
+ 方法
+ 1、valueBound
+ public void valueBound(HttpSessionBindingEvent event);
+ 当一个对象被绑定到session中，调用此方法。HttpSession.putValue方法被调用时，Servlet引擎应该调用此方法。
+ 2、valueUnbound
+ public void valueUnbound(HttpSessionBindingEvent event);
+ 当一个对象被从session中取消绑定，调用此方法。HttpSession.removeValue方法被调用时，Servlet引擎应该调用此方法。
   </p>
   
   <p>
@@ -77,7 +102,14 @@ categories:
   </p>
   
   <p>
-    捕获Servlet Session事件的意义：<br /> 1、 记录网站的客户登录日志（登录，退出信息等）<br /> 2、 统计在线人数<br /> 3、 等等还有很多，呵呵，自己想吧……总之挺重要的。<br /> Session代表客户的会话过程，客户登录时，往Session中传入一个对象，即可跟踪客户的会话。在Servlet中，传入Session的对象如果是一个实现HttpSessionBindingListener接口的对象（方便起见，此对象称为监听器），则在传入的时候（即调用HttpSession对象的setAttribute方法的时候）和移去的时候（即调用HttpSession对象的removeAttribute方法的时候或Session Time out的时候）Session对象会自动调用监听器的valueBound和valueUnbound方法（这是HttpSessionBindingListener接口中的方法）。由此可知，登录日志也就不难实现了。<br /> 另外一个问题是，如何统计在线人数，这个问题跟实现登录日志稍微有点不同，统计在线人数（及其信息），就是统计现在有多少个Session实例存在，我们可以增加一个计数器（如果想存储更多的信息，可以用一个对象来做计数器，随后给出的实例中，简单起见，用一个整数变量作为计数器），通过在valueBound方法中给计数器加1，valueUnbound方法中计数器减1，即可实现在线人数的统计。当然，这里面要利用到ServletContext的全局特性。(有关ServletContext的叙述请参考Servlet规范)，新建一个监听器，并将其实例存入ServletContext的属性中，以保证此监听器实例的唯一性，当客户登录时，先判断ServletContext的这个属性是否为空，如果不为空，证明已经创建，直接将此属性取出放入Session中，计数器加1；如果为空则创建一个新的监听器，并存入ServletContext的属性中。<br /> 举例说明：<br /> <strong>实现一个监听器：</strong>
+    捕获Servlet Session事件的意义：
+ 1、 记录网站的客户登录日志（登录，退出信息等）
+ 2、 统计在线人数
+ 3、 等等还有很多，呵呵，自己想吧……总之挺重要的。
+ Session代表客户的会话过程，客户登录时，往Session中传入一个对象，即可跟踪客户的会话。在Servlet中，传入Session的对象如果是一个实现HttpSessionBindingListener接口的对象（方便起见，此对象称为监听器），则在传入的时候（即调用HttpSession对象的setAttribute方法的时候）和移去的时候（即调用HttpSession对象的removeAttribute方法的时候或Session Time out的时候）Session对象会自动调用监听器的valueBound和valueUnbound方法（这是HttpSessionBindingListener接口中的方法）。由此可知，登录日志也就不难实现了。
+ 另外一个问题是，如何统计在线人数，这个问题跟实现登录日志稍微有点不同，统计在线人数（及其信息），就是统计现在有多少个Session实例存在，我们可以增加一个计数器（如果想存储更多的信息，可以用一个对象来做计数器，随后给出的实例中，简单起见，用一个整数变量作为计数器），通过在valueBound方法中给计数器加1，valueUnbound方法中计数器减1，即可实现在线人数的统计。当然，这里面要利用到ServletContext的全局特性。(有关ServletContext的叙述请参考Servlet规范)，新建一个监听器，并将其实例存入ServletContext的属性中，以保证此监听器实例的唯一性，当客户登录时，先判断ServletContext的这个属性是否为空，如果不为空，证明已经创建，直接将此属性取出放入Session中，计数器加1；如果为空则创建一个新的监听器，并存入ServletContext的属性中。
+ 举例说明：
+ <strong>实现一个监听器：</strong>
   </p>
   
   <div align="center">
@@ -365,7 +397,8 @@ categories:
   </div>
   
   <p align="left">
-    <strong>登录日志的实现：</strong><br /> 下面再来看看我们的登录Servlet中使用这个监听器的部分源代码：
+    <strong>登录日志的实现：</strong>
+ 下面再来看看我们的登录Servlet中使用这个监听器的部分源代码：
   </p>
   
   <div align="center">
@@ -421,7 +454,9 @@ categories:
   </div>
   
   <p align="left">
-    当系统退出登录时，只需简单地调用session.removeAttribute(“listener”);<br /> 即可自动调用监听器的valueUnbound方法。或者，当Session Time Out的时候也会调用此方法。<br /> <strong>登录人数的统计：</strong>
+    当系统退出登录时，只需简单地调用session.removeAttribute(“listener”);
+ 即可自动调用监听器的valueUnbound方法。或者，当Session Time Out的时候也会调用此方法。
+ <strong>登录人数的统计：</strong>
   </p>
   
   <div align="center">

@@ -189,7 +189,8 @@ bug不常见，笔者碰到过一次，分享如下：
 </p>
 
 <p align="left">
-  <strong>4</strong><strong>，</strong><strong>问了</strong><strong>innodb</strong><strong>的事务与日志的实现方式。</strong><strong><br /> </strong>
+  <strong>4</strong><strong>，</strong><strong>问了</strong><strong>innodb</strong><strong>的事务与日志的实现方式。</strong><strong>
+ </strong>
 </p>
 
 <p align="left">
@@ -229,7 +230,8 @@ bug不常见，笔者碰到过一次，分享如下：
 </p>
 
 <p align="left">
-  <strong>5</strong><strong>，</strong><strong>问了</strong><strong>mysql binlog</strong><strong>的几种日志录入格式以及区别</strong><strong><br /> </strong>
+  <strong>5</strong><strong>，</strong><strong>问了</strong><strong>mysql binlog</strong><strong>的几种日志录入格式以及区别</strong><strong>
+ </strong>
 </p>
 
 <p align="left">
@@ -309,7 +311,8 @@ bug不常见，笔者碰到过一次，分享如下：
 </p>
 
 <p align="left">
-  <strong>7</strong><strong>，</strong><strong> sql</strong><strong>优化。</strong><strong><br /> </strong>
+  <strong>7</strong><strong>，</strong><strong> sql</strong><strong>优化。</strong><strong>
+ </strong>
 </p>
 
 <p align="left">
@@ -381,7 +384,8 @@ Extra：查询中每一步实现的额外细节信息，主要会是以下内容
 </p>
 
 <p align="left">
-  <strong>8,  </strong><strong>备份计划，</strong><strong>mysqldump</strong><strong>以及</strong><strong>xtranbackup</strong><strong>的实现原理，</strong><strong><br /> </strong>
+  <strong>8,  </strong><strong>备份计划，</strong><strong>mysqldump</strong><strong>以及</strong><strong>xtranbackup</strong><strong>的实现原理，</strong><strong>
+ </strong>
 </p>
 
 <p align="left">

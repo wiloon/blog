@@ -410,5 +410,7 @@ sudo visudo
 </div>
 
 <div>
-  [shell]<br /> arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *<br /> [/shell]</p>
+  [shell]
+ arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *
+ [/shell]</p>
 </div>

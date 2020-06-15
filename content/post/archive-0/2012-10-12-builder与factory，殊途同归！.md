@@ -31,11 +31,49 @@ tags:
     </p>
     
     <p>
-      先来看看Builder模式，Builder模式的一般设计及实现<br /> <img src="http://images.cnblogs.com/cnblogs_com/shenfx318/builder_1.gif" alt="" width="455" height="179" border="0" />
+      先来看看Builder模式，Builder模式的一般设计及实现
+ <img src="http://images.cnblogs.com/cnblogs_com/shenfx318/builder_1.gif" alt="" width="455" height="179" border="0" />
     </p>
     
     <div>
-      [java]<br /> public interface IBuilder<br /> {<br /> void BuildPart1();<br /> void BuildPart2();<br /> Product GetResult();<br /> }<br /> //ConcreteBuilderA<br /> public class BuilderA : IBuilder<br /> {<br /> private Product product;<br /> public void BuildPart1()<br /> {<br /> product = new Product();<br /> product.Add("Part1 build by builderA");<br /> }<br /> public void BuildPart2()<br /> {<br /> product.Add("Part2 build by builderA");<br /> }<br /> public Product GetResult()<br /> {<br /> return product;<br /> }<br /> }<br /> }<br /> //ConcreteBuilderB<br /> public class BuilderB : IBuilder<br /> //Director<br /> public class Director<br /> {<br /> public void Construct(IBuilder builder)<br /> {<br /> builder.BuildPart1();<br /> builder.BuildPart2();<br /> }<br /> }<br /> [/java]</p>
+      [java]
+ public interface IBuilder
+ {
+ void BuildPart1();
+ void BuildPart2();
+ Product GetResult();
+ }
+ //ConcreteBuilderA
+ public class BuilderA : IBuilder
+ {
+ private Product product;
+ public void BuildPart1()
+ {
+ product = new Product();
+ product.Add("Part1 build by builderA");
+ }
+ public void BuildPart2()
+ {
+ product.Add("Part2 build by builderA");
+ }
+ public Product GetResult()
+ {
+ return product;
+ }
+ }
+ }
+ //ConcreteBuilderB
+ public class BuilderB : IBuilder
+ //Director
+ public class Director
+ {
+ public void Construct(IBuilder builder)
+ {
+ builder.BuildPart1();
+ builder.BuildPart2();
+ }
+ }
+ [/java]</p>
     </div>
     
     <p>
@@ -43,7 +81,19 @@ tags:
     </p>
     
     <p>
-      [java]<br /> public class Client<br /> {<br /> public void Run()<br /> {<br /> Director director = new Director();<br /> IBuilder builder = new BuilderB();<br /> director.Construct(builder);<br /> Product product = builder.GetResult();<br /> product.Show();<br /> }<br /> }<br /> [/java]
+      [java]
+ public class Client
+ {
+ public void Run()
+ {
+ Director director = new Director();
+ IBuilder builder = new BuilderB();
+ director.Construct(builder);
+ Product product = builder.GetResult();
+ product.Show();
+ }
+ }
+ [/java]
     </p>
     
     <p>
@@ -61,11 +111,20 @@ tags:
     </p>
     
     <p>
-      [java]<br /> public class Client<br /> {<br /> public void Run()<br /> {<br /> IBuilder builder = new BuilderB();<br /> builder.Construct(); //Attention here!
+      [java]
+ public class Client
+ {
+ public void Run()
+ {
+ IBuilder builder = new BuilderB();
+ builder.Construct(); //Attention here!
     </p>
     
     <p>
-      Product product = builder.GetResult();<br /> product.Show();<br /> }<br /> }
+      Product product = builder.GetResult();
+ product.Show();
+ }
+ }
     </p>
     
     <p>
@@ -77,23 +136,39 @@ tags:
     </p>
     
     <p>
-      [java]<br /> public class BuilderA : IBuilder<br /> {<br /> private Product product;
+      [java]
+ public class BuilderA : IBuilder
+ {
+ private Product product;
     </p>
     
     <p>
-      private void BuildPart1()<br /> {<br /> product = new Product();<br /> product.Add("Part1 build by builderA");<br /> }
+      private void BuildPart1()
+ {
+ product = new Product();
+ product.Add("Part1 build by builderA");
+ }
     </p>
     
     <p>
-      private void BuildPart2()<br /> {<br /> product.Add("Part2 build by builderA");<br /> }
+      private void BuildPart2()
+ {
+ product.Add("Part2 build by builderA");
+ }
     </p>
     
     <p>
-      public Product GetResult()<br /> {<br /> //Construct here!<br /> BuildPart1();<br /> BuildPart2();
+      public Product GetResult()
+ {
+ //Construct here!
+ BuildPart1();
+ BuildPart2();
     </p>
     
     <p>
-      return product;<br /> }<br /> }
+      return product;
+ }
+ }
     </p>
     
     <p>
@@ -113,11 +188,17 @@ tags:
     </p>
     
     <p>
-      [java]<br /> //Create method in Buider<br /> public Product Create()<br /> {<br /> BuildPart1(); // Initail part1 of product<br /> BuildPart2(); // Initail part2 of product
+      [java]
+ //Create method in Buider
+ public Product Create()
+ {
+ BuildPart1(); // Initail part1 of product
+ BuildPart2(); // Initail part2 of product
     </p>
     
     <p>
-      return product;<br /> }
+      return product;
+ }
     </p>
     
     <p>
@@ -129,11 +210,25 @@ tags:
     </p>
     
     <p>
-      [java]<br /> //Create method in Buider<br /> public Product Create()<br /> {<br /> return product;<br /> }<br /> //Build job move to the product class<br /> public class Product<br /> {<br /> ArrayList parts = new ArrayList();
+      [java]
+ //Create method in Buider
+ public Product Create()
+ {
+ return product;
+ }
+ //Build job move to the product class
+ public class Product
+ {
+ ArrayList parts = new ArrayList();
     </p>
     
     <p>
-      public Product()<br /> {<br /> InitalPart1(); // Same as BuildPart1()<br /> InitalPart2(); // Same as BuildPart2()<br /> }<br /> }
+      public Product()
+ {
+ InitalPart1(); // Same as BuildPart1()
+ InitalPart2(); // Same as BuildPart2()
+ }
+ }
     </p>
     
     <p>
@@ -200,15 +295,28 @@ tags:
   </p>
   
   <p>
-    [java]<br /> public class NewBuilder : IBuilder<br /> {<br /> private Product product;<br /> #region IBuilder Members
+    [java]
+ public class NewBuilder : IBuilder
+ {
+ private Product product;
+ #region IBuilder Members
   </p>
   
   <p>
-    public void BuildPart1()<br /> {<br /> //With new part1.<br /> product = new Product();<br /> product.Add("NewPart1 build by builderA");<br /> }
+    public void BuildPart1()
+ {
+ //With new part1.
+ product = new Product();
+ product.Add("NewPart1 build by builderA");
+ }
   </p>
   
   <p>
-    public void BuildPart2()<br /> {<br /> //Nothing changed.<br /> product.Add("Part2 build by builderA");<br /> }
+    public void BuildPart2()
+ {
+ //Nothing changed.
+ product.Add("Part2 build by builderA");
+ }
   </p>
   
   <p>
@@ -216,19 +324,36 @@ tags:
   </p>
   
   <p>
-    public Product GetResult()<br /> {<br /> return product;<br /> }<br /> }<br /> //恩，上面的场景对于Builder模式的使用，还算比较恰当。<br /> //如果我们要换成Factory呢？一样可以通过扩展来应对变化。
+    public Product GetResult()
+ {
+ return product;
+ }
+ }
+ //恩，上面的场景对于Builder模式的使用，还算比较恰当。
+ //如果我们要换成Factory呢？一样可以通过扩展来应对变化。
   </p>
   
   <p>
-    public class NewFactory : Factory<br /> {<br /> Product product = null;
+    public class NewFactory : Factory
+ {
+ Product product = null;
   </p>
   
   <p>
-    public Product Create()<br /> {<br /> //With new part1.<br /> product = new Product();<br /> product.Add("NewPart1 build by builderA");
+    public Product Create()
+ {
+ //With new part1.
+ product = new Product();
+ product.Add("NewPart1 build by builderA");
   </p>
   
   <p>
-    //Nothing changed.<br /> product.Add("Part2 build by builderA");<br /> return product;<br /> }<br /> }<br /> [/java]
+    //Nothing changed.
+ product.Add("Part2 build by builderA");
+ return product;
+ }
+ }
+ [/java]
   </p>
 </div>
 

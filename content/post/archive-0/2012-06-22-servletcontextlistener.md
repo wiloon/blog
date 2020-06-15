@@ -59,19 +59,25 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    Listener,译为监听者.顾名思义,它会监听Servlet容器,当应用开始的时候它会调用contextInitialized()方法;<br /> 当应用关闭的时候,它同样会调用contextDestroyed()方法.
+    Listener,译为监听者.顾名思义,它会监听Servlet容器,当应用开始的时候它会调用contextInitialized()方法;
+ 当应用关闭的时候,它同样会调用contextDestroyed()方法.
   </p>
   
   <p>
-    我们可以利用这个特性初始化一些信息,当然我们也可以利用Servlet类init()方法,并在配置文件中让它启动应用的时候<br /> 就执行,并且在关闭的时候执行destroy()方法.但是继承此接口应该更符合容器的应用.
+    我们可以利用这个特性初始化一些信息,当然我们也可以利用Servlet类init()方法,并在配置文件中让它启动应用的时候
+ 就执行,并且在关闭的时候执行destroy()方法.但是继承此接口应该更符合容器的应用.
   </p>
   
   <p>
-    举个简单的例子:在一些论坛,社区及聊天室当中,删除在线的超时用户就可以利用这个接口来实现.<br /> 可以利用JAVA的TimerTask及Timer类来实现每隔一定的时间进行自动检测.<br /> 实例代码如下:
+    举个简单的例子:在一些论坛,社区及聊天室当中,删除在线的超时用户就可以利用这个接口来实现.
+ 可以利用JAVA的TimerTask及Timer类来实现每隔一定的时间进行自动检测.
+ 实例代码如下:
   </p>
   
   <p>
-    UserOnlineTimerTask.java<br /> &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;<br /> package com.bcxy.servlet;
+    UserOnlineTimerTask.java
+ &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+ package com.bcxy.servlet;
   </p>
   
   <p>
@@ -79,7 +85,8 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    import org.apache.commons.logging.Log;<br /> import org.apache.commons.logging.LogFactory;
+    import org.apache.commons.logging.Log;
+ import org.apache.commons.logging.LogFactory;
   </p>
   
   <p>
@@ -91,7 +98,9 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    public void run() {<br /> // 删除超时在线用户<br /> log.info("删除在线的超时用户&#8230;.&#8221;);
+    public void run() {
+ // 删除超时在线用户
+ log.info("删除在线的超时用户&#8230;.&#8221;);
   </p>
   
   <p>
@@ -99,31 +108,49 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    }<br /> &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br /> &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br /> SysListener.java<br /> &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;<br /> package com.bcxy.servlet;
+    }
+ &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ SysListener.java
+ &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+ package com.bcxy.servlet;
   </p>
   
   <p>
-    import java.io.IOException;<br /> import java.util.Timer;
+    import java.io.IOException;
+ import java.util.Timer;
   </p>
   
   <p>
-    import javax.servlet.ServletContextEvent;<br /> import javax.servlet.ServletContextListener;<br /> import javax.servlet.ServletException;<br /> import javax.servlet.ServletRequest;<br /> import javax.servlet.ServletResponse;<br /> import javax.servlet.http.HttpServlet;
+    import javax.servlet.ServletContextEvent;
+ import javax.servlet.ServletContextListener;
+ import javax.servlet.ServletException;
+ import javax.servlet.ServletRequest;
+ import javax.servlet.ServletResponse;
+ import javax.servlet.http.HttpServlet;
   </p>
   
   <p>
-    import org.apache.commons.logging.Log;<br /> import org.apache.commons.logging.LogFactory;
+    import org.apache.commons.logging.Log;
+ import org.apache.commons.logging.LogFactory;
   </p>
   
   <p>
-    public class SysListener<br /> extends HttpServlet<br /> implements ServletContextListener {
+    public class SysListener
+ extends HttpServlet
+ implements ServletContextListener {
   </p>
   
   <p>
-    Log log = LogFactory.getLog(SysListener.class);<br /> Timer timer = new Timer();
+    Log log = LogFactory.getLog(SysListener.class);
+ Timer timer = new Timer();
   </p>
   
   <p>
-    public void service(ServletRequest request, ServletResponse response)<br /> throws ServletException, IOException {<br /> //<br /> }
+    public void service(ServletRequest request, ServletResponse response)
+ throws ServletException, IOException {
+ //
+ }
   </p>
   
   <p>
@@ -151,11 +178,13 @@ public	class MyListener implements ServletContextListener {
   </p>
   
   <p>
-    timer.cancel();<br /> }
+    timer.cancel();
+ }
   </p>
   
   <p>
-    }<br /> &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+    }
+ &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
   </p>
   
   <p>

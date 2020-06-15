@@ -61,14 +61,21 @@ $ sudo apt-get install ruby
 You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
 
 <div>
-  [shell]<br /> $ ruby helloworld.rb<br /> Hello World!<br /> [/shell]</p> 
+  [shell]
+ $ ruby helloworld.rb
+ Hello World!
+ [/shell]</p> 
   
   <p>
-    ( or )<br /> [shell]<br /> $ chmod u+x helloworld.rb
+    ( or )
+ [shell]
+ $ chmod u+x helloworld.rb
   </p>
   
   <p>
-    $ ./helloworld.rb<br /> Hello World!<br /> [/shell]
+    $ ./helloworld.rb
+ Hello World!
+ [/shell]
   </p>
   
   <p>
@@ -84,7 +91,9 @@ You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
   </p>
   
   <p>
-    [shell]<br /> $ ruby -e &#8216;puts "Hello World!n"&#8217;<br /> [/shell]
+    [shell]
+ $ ruby -e &#8216;puts "Hello World!n"&#8217;
+ [/shell]
   </p>
   
   <p>

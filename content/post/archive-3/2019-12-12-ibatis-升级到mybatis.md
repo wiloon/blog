@@ -311,9 +311,25 @@ SELECT LAST\_INSERT\_ID() as value
    
 </insert>
 
-<select id="listSyncLabel" parameterClass="java.util.Map" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> <dynamic prepend="WHERE"><br /> <isNotEmpty property="appName" prepend="AND"><br /> FAppName = #appName#<br /> </isNotEmpty><br /> <isNotEmpty property="udid" prepend="AND"><br /> FUDID = #udid#<br /> </isNotEmpty><br /> <isNotEmpty property="bookId" prepend="AND"><br /> FBookId = #bookId#<br /> </isNotEmpty><br /> </dynamic><br /> </select>
+<select id="listSyncLabel" parameterClass="java.util.Map" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ <dynamic prepend="WHERE">
+ <isNotEmpty property="appName" prepend="AND">
+ FAppName = #appName#
+ </isNotEmpty>
+ <isNotEmpty property="udid" prepend="AND">
+ FUDID = #udid#
+ </isNotEmpty>
+ <isNotEmpty property="bookId" prepend="AND">
+ FBookId = #bookId#
+ </isNotEmpty>
+ </dynamic>
+ </select>
 
-<select id="getSyncLabelByLabel" parameterClass="String" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> where FLabel = #label# limit 0,1<br /> </select>
+<select id="getSyncLabelByLabel" parameterClass="String" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ where FLabel = #label# limit 0,1
+ </select>
 
 <update id="modifySyncLabel" parameterClass="syncLabelClass">
     
@@ -613,9 +629,25 @@ SELECT LAST\_INSERT\_ID() as value
    
 </insert>
 
-<select id="listSyncLabel" parameterType="java.util.Map" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> <where><br /> <if test="appName != null and appName != ''"><br /> FAppName = #{appName}<br /> </if><br /> <if test="udid != null and udid != ''"><br /> and FUDID = #{udid}<br /> </if><br /> <if test="bookId != null and bookId != ''"><br /> and FBookId = #{bookId}<br /> </if><br /> </where><br /> </select>
+<select id="listSyncLabel" parameterType="java.util.Map" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ <where>
+ <if test="appName != null and appName != ''">
+ FAppName = #{appName}
+ </if>
+ <if test="udid != null and udid != ''">
+ and FUDID = #{udid}
+ </if>
+ <if test="bookId != null and bookId != ''">
+ and FBookId = #{bookId}
+ </if>
+ </where>
+ </select>
 
-<select id="getSyncLabelByLabel" parameterType="String" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> where FLabel = #{label} limit 0,1<br /> </select>
+<select id="getSyncLabelByLabel" parameterType="String" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ where FLabel = #{label} limit 0,1
+ </select>
 
 <update id="modifySyncLabel" parameterType="SyncLabel">
     

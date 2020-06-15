@@ -52,7 +52,10 @@ categories:
   </p>
   
   <div>
-    　　<strong>幂等 </strong>（idempotent、idempotence）是一个数学或计算机学概念，常见于抽象代数中。<br /> 幂等有以下几种定义：<br /> 对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。比如绝对值运算就是一个例子，在实数集中，有abs(a) =abs(abs(a)) 。<br /> 对于双目运算，则要求当参与运算的两个值是等值的情况下，如果满足运算结果与参与运算的两个值相等，则称该运算幂等，如求两个数的最大值的函数，有在在实数集中幂等，即max(x,x)  =  x 。
+    　　<strong>幂等 </strong>（idempotent、idempotence）是一个数学或计算机学概念，常见于抽象代数中。
+ 幂等有以下几种定义：
+ 对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。比如绝对值运算就是一个例子，在实数集中，有abs(a) =abs(abs(a)) 。
+ 对于双目运算，则要求当参与运算的两个值是等值的情况下，如果满足运算结果与参与运算的两个值相等，则称该运算幂等，如求两个数的最大值的函数，有在在实数集中幂等，即max(x,x)  =  x 。
   </div>
   
   <p>
@@ -128,11 +131,24 @@ categories:
   </p>
   
   <p>
-    GET与POST方法实例：<br /> GET /books/?sex=man&name=Professional HTTP/1.1<br /> Host: www.wrox.com<br /> User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)<br /> Gecko/20050225 Firefox/1.0.1<br /> Connection: Keep-Alive
+    GET与POST方法实例：
+ GET /books/?sex=man&name=Professional HTTP/1.1
+ Host: www.wrox.com
+ User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
+ Gecko/20050225 Firefox/1.0.1
+ Connection: Keep-Alive
   </p>
   
   <p>
-    POST / HTTP/1.1<br /> Host: www.wrox.com<br /> User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)<br /> Gecko/20050225 Firefox/1.0.1<br /> Content-Type: application/x-www-form-urlencoded<br /> Content-Length: 40<br /> Connection: Keep-Alive<br /> （&#8212;-此处空一行&#8212;-）<br /> name=Professional%20Ajax&publisher=Wiley
+    POST / HTTP/1.1
+ Host: www.wrox.com
+ User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
+ Gecko/20050225 Firefox/1.0.1
+ Content-Type: application/x-www-form-urlencoded
+ Content-Length: 40
+ Connection: Keep-Alive
+ （&#8212;-此处空一行&#8212;-）
+ name=Professional%20Ajax&publisher=Wiley
   </p>
   
   <p>
@@ -180,11 +196,22 @@ categories:
   </p>
   
   <p>
-    （4）Http get,post,soap协议都是在http上运行的<br /> 1）get：请求参数是作为一个key/value对的序列（查询字符串）附加到URL上的<br /> 查询字符串的长度受到web浏览器和web服务器的限制（如IE最多支持2048个字符），不适合传输大型数据集同时，它很不安全<br /> 2）post：请求参数是在http标题的一个不同部分（名为entity body）传输的，这一部分用来传输表单信息，因此必须将Content-type设置为:application/x-www-form-urlencoded。post设计用来支持web窗体上的用户字段，其参数也是作为key/value对传输。<br /> 但是：它不支持复杂数据类型，因为post没有定义传输数据结构的语义和规则。<br /> 3）soap：是http post的一个专用版本，遵循一种特殊的xml消息格式<br /> Content-type设置为: text/xml   任何数据都可以xml化
+    （4）Http get,post,soap协议都是在http上运行的
+ 1）get：请求参数是作为一个key/value对的序列（查询字符串）附加到URL上的
+ 查询字符串的长度受到web浏览器和web服务器的限制（如IE最多支持2048个字符），不适合传输大型数据集同时，它很不安全
+ 2）post：请求参数是在http标题的一个不同部分（名为entity body）传输的，这一部分用来传输表单信息，因此必须将Content-type设置为:application/x-www-form-urlencoded。post设计用来支持web窗体上的用户字段，其参数也是作为key/value对传输。
+ 但是：它不支持复杂数据类型，因为post没有定义传输数据结构的语义和规则。
+ 3）soap：是http post的一个专用版本，遵循一种特殊的xml消息格式
+ Content-type设置为: text/xml   任何数据都可以xml化
   </p>
   
   <p>
-    <strong>三 HTTP响应 </strong><br /> 1．HTTP响应格式：<br /> <status line><br /> <headers><br /> <blank line><br /> [<response-body>]
+    <strong>三 HTTP响应 </strong>
+ 1．HTTP响应格式：
+ <status line>
+ <headers>
+ <blank line>
+ [<response-body>]
   </p>
   
   <p>
@@ -196,11 +223,27 @@ categories:
   </p>
   
   <p>
-    HTTP/1.1 200 OK<br /> Date: Sat, 31 Dec 2005 23:59:59 GMT<br /> Content-Type: text/html;charset=ISO-8859-1<br /> Content-Length: 122<br /> ＜html＞<br /> ＜head＞<br /> ＜title＞Wrox Homepage＜/title＞<br /> ＜/head＞<br /> ＜body＞<br /> ＜!&#8211; body goes here &#8211;＞<br /> ＜/body＞<br /> ＜/html＞<br /> 2．最常用的状态码有：
+    HTTP/1.1 200 OK
+ Date: Sat, 31 Dec 2005 23:59:59 GMT
+ Content-Type: text/html;charset=ISO-8859-1
+ Content-Length: 122
+ ＜html＞
+ ＜head＞
+ ＜title＞Wrox Homepage＜/title＞
+ ＜/head＞
+ ＜body＞
+ ＜!&#8211; body goes here &#8211;＞
+ ＜/body＞
+ ＜/html＞
+ 2．最常用的状态码有：
   </p>
   
   <p>
-    ◆200 (OK): 找到了该资源，并且一切正常。<br /> ◆304 (NOT MODIFIED): 该资源在上次请求之后没有任何修改。这通常用于浏览器的缓存机制。<br /> ◆401 (UNAUTHORIZED): 客户端无权访问该资源。这通常会使得浏览器要求用户输入用户名和密码，以登录到服务器。<br /> ◆403 (FORBIDDEN): 客户端未能获得授权。这通常是在401之后输入了不正确的用户名或密码。<br /> ◆404 (NOT FOUND): 在指定的位置不存在所申请的资源。
+    ◆200 (OK): 找到了该资源，并且一切正常。
+ ◆304 (NOT MODIFIED): 该资源在上次请求之后没有任何修改。这通常用于浏览器的缓存机制。
+ ◆401 (UNAUTHORIZED): 客户端无权访问该资源。这通常会使得浏览器要求用户输入用户名和密码，以登录到服务器。
+ ◆403 (FORBIDDEN): 客户端未能获得授权。这通常是在401之后输入了不正确的用户名或密码。
+ ◆404 (NOT FOUND): 在指定的位置不存在所申请的资源。
   </p>
   
   <p>
@@ -208,7 +251,8 @@ categories:
   </p>
   
   <p>
-    例子：<br /> <strong>HTTP GET</strong>
+    例子：
+ <strong>HTTP GET</strong>
   </p>
   
   <p>
@@ -216,7 +260,8 @@ categories:
   </p>
   
   <p>
-    GET /DEMOWebServices2.8/Service.asmx/CancelOrder?UserID=string&PWD=string&OrderConfirmation=string HTTP/1.1<br /> Host: api.efxnow.com
+    GET /DEMOWebServices2.8/Service.asmx/CancelOrder?UserID=string&PWD=string&OrderConfirmation=string HTTP/1.1
+ Host: api.efxnow.com
   </p>
   
   <p>
@@ -224,11 +269,21 @@ categories:
   </p>
   
   <p>
-    HTTP/1.1 200 OK<br /> Content-Type: text/xml; charset=utf-8<br /> Content-Length: length
+    HTTP/1.1 200 OK
+ Content-Type: text/xml; charset=utf-8
+ Content-Length: length
   </p>
   
   <p>
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </objPlaceOrderResponse>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+ <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+ <Success>boolean</Success>
+ <ErrorDescription>string</ErrorDescription>
+ <ErrorNumber>int</ErrorNumber>
+ <CustomerOrderReference>long</CustomerOrderReference>
+ <OrderConfirmation>string</OrderConfirmation>
+ <CustomerDealRef>string</CustomerDealRef>
+ </objPlaceOrderResponse>
   </p>
   
   <p>
@@ -240,7 +295,10 @@ categories:
   </p>
   
   <p>
-    POST /DEMOWebServices2.8/Service.asmx/CancelOrder HTTP/1.1<br /> Host: api.efxnow.com<br /> Content-Type: application/x-www-form-urlencoded<br /> Content-Length: length
+    POST /DEMOWebServices2.8/Service.asmx/CancelOrder HTTP/1.1
+ Host: api.efxnow.com
+ Content-Type: application/x-www-form-urlencoded
+ Content-Length: length
   </p>
   
   <p>
@@ -252,11 +310,21 @@ categories:
   </p>
   
   <p>
-    HTTP/1.1 200 OK<br /> Content-Type: text/xml; charset=utf-8<br /> Content-Length: length
+    HTTP/1.1 200 OK
+ Content-Type: text/xml; charset=utf-8
+ Content-Length: length
   </p>
   
   <p>
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </objPlaceOrderResponse>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+ <objPlaceOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+ <Success>boolean</Success>
+ <ErrorDescription>string</ErrorDescription>
+ <ErrorNumber>int</ErrorNumber>
+ <CustomerOrderReference>long</CustomerOrderReference>
+ <OrderConfirmation>string</OrderConfirmation>
+ <CustomerDealRef>string</CustomerDealRef>
+ </objPlaceOrderResponse>
   </p>
   
   <p>
@@ -268,11 +336,23 @@ categories:
   </p>
   
   <p>
-    POST /DEMOWebServices2.8/Service.asmx HTTP/1.1<br /> Host: api.efxnow.com<br /> Content-Type: application/soap+xml; charset=utf-8<br /> Content-Length: length
+    POST /DEMOWebServices2.8/Service.asmx HTTP/1.1
+ Host: api.efxnow.com
+ Content-Type: application/soap+xml; charset=utf-8
+ Content-Length: length
   </p>
   
   <p>
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;><br /> <soap12:Body><br /> <CancelOrder xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <UserID>string</UserID><br /> <PWD>string</PWD><br /> <OrderConfirmation>string</OrderConfirmation><br /> </CancelOrder><br /> </soap12:Body><br /> </soap12:Envelope>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+ <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;>
+ <soap12:Body>
+ <CancelOrder xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+ <UserID>string</UserID>
+ <PWD>string</PWD>
+ <OrderConfirmation>string</OrderConfirmation>
+ </CancelOrder>
+ </soap12:Body>
+ </soap12:Envelope>
   </p>
   
   <p>
@@ -280,11 +360,27 @@ categories:
   </p>
   
   <p>
-    HTTP/1.1 200 OK<br /> Content-Type: application/soap+xml; charset=utf-8<br /> Content-Length: length
+    HTTP/1.1 200 OK
+ Content-Type: application/soap+xml; charset=utf-8
+ Content-Length: length
   </p>
   
   <p>
-    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?><br /> <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;><br /> <soap12:Body><br /> <CancelOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3"><br /> <CancelOrderResult><br /> <Success>boolean</Success><br /> <ErrorDescription>string</ErrorDescription><br /> <ErrorNumber>int</ErrorNumber><br /> <CustomerOrderReference>long</CustomerOrderReference><br /> <OrderConfirmation>string</OrderConfirmation><br /> <CustomerDealRef>string</CustomerDealRef><br /> </CancelOrderResult><br /> </CancelOrderResponse><br /> </soap12:Body><br /> </soap12:Envelope>
+    <?xml version=&#8221;1.0" encoding=&#8221;utf-8"?>
+ <soap12:Envelope xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221; xmlns:xsd=&#8221;http://www.w3.org/2001/XMLSchema&#8221; xmlns:soap12=&#8221;http://www.w3.org/2003/05/soap-envelope&#8221;>
+ <soap12:Body>
+ <CancelOrderResponse xmlns=&#8221;https://api.efxnow.com/webservices2.3">
+ <CancelOrderResult>
+ <Success>boolean</Success>
+ <ErrorDescription>string</ErrorDescription>
+ <ErrorNumber>int</ErrorNumber>
+ <CustomerOrderReference>long</CustomerOrderReference>
+ <OrderConfirmation>string</OrderConfirmation>
+ <CustomerDealRef>string</CustomerDealRef>
+ </CancelOrderResult>
+ </CancelOrderResponse>
+ </soap12:Body>
+ </soap12:Envelope>
   </p>
   
   <p>

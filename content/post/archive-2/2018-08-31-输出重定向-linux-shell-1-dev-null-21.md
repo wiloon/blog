@@ -140,7 +140,11 @@ dup2(1,2)
 
 <ol start="2">
   <li>
-    command 2>&1 >file<br /> 这个命令中实现重定向的关键系统调用序列是：<br /> dup2(1,2)<br /> open(file) == 3<br /> dup2(3,1)
+    command 2>&1 >file
+ 这个命令中实现重定向的关键系统调用序列是：
+ dup2(1,2)
+ open(file) == 3
+ dup2(3,1)
   </li>
 </ol>
 

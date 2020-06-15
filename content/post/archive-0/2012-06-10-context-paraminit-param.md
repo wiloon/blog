@@ -30,15 +30,18 @@ web.xml的配置中<context-param>配置作用
 </div>
 
 <div>
-  <strong>5.在监听中会有contextInitialized(ServletContextEvent args)初始化方法,在这个方法中获得ServletContext = ServletContextEvent.getServletContext();</strong><br /> context-param的值 = ServletContext.getInitParameter("context-param的键&#8221;);
+  <strong>5.在监听中会有contextInitialized(ServletContextEvent args)初始化方法,在这个方法中获得ServletContext = ServletContextEvent.getServletContext();</strong>
+ context-param的值 = ServletContext.getInitParameter("context-param的键&#8221;);
 </div>
 
 <div>
-  6.得到这个context-param的值之后,你就可以做一些操作了.注意,这个时候你的WEB项目还没有完全启动完成.这个动作会比所有的Servlet都要早.<br /> 换句话说,这个时候,你对<context-param>中的键值做的操作,将在你的WEB项目完全启动之前被执行.
+  6.得到这个context-param的值之后,你就可以做一些操作了.注意,这个时候你的WEB项目还没有完全启动完成.这个动作会比所有的Servlet都要早.
+ 换句话说,这个时候,你对<context-param>中的键值做的操作,将在你的WEB项目完全启动之前被执行.
 </div>
 
 <div>
-  7.举例.你可能想在项目启动之前就打开数据库.<br /> 那么这里就可以在<context-param>中设置数据库的连接方式,在监听类中初始化数据库的连接.
+  7.举例.你可能想在项目启动之前就打开数据库.
+ 那么这里就可以在<context-param>中设置数据库的连接方式,在监听类中初始化数据库的连接.
 </div>
 
 <div>

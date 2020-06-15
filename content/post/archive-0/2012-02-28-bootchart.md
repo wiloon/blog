@@ -29,7 +29,9 @@ categories:
   
   <blockquote>
     <p>
-      General setup —><br /> [*] BSD Process Accounting<br /> [*] BSD Process Accounting version 3 file format
+      General setup —>
+ [*] BSD Process Accounting
+ [*] BSD Process Accounting version 3 file format
     </p>
   </blockquote>
   

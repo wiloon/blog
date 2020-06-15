@@ -19,13 +19,35 @@ categories:
 </div>
 
 <div>
-      public String getJson(){<br /> String jsonString = "{"FLAG&#8221;:&#8221;flag&#8221;,&#8221;MESSAGE&#8221;:&#8221;SUCCESS&#8221;,&#8221;name&#8221;:[{"name&#8221;:&#8221;jack&#8221;},{"name&#8221;:&#8221;lucy&#8221;}]}&#8221;;//json字符串<br /> try {<br /> JSONObject result = new JSONObject(jsonstring);//转换为JSONObject<br /> int num = result.length();<br /> JSONArray nameList = result.getJSONArray("name&#8221;);//获取JSONArray<br /> int length = nameList.length();<br /> String aa = "&#8221;;<br /> for(int i = 0; i < length; i++){//遍历JSONArray<br /> Log.d("debugTest&#8221;,Integer.toString(i));<br /> JSONObject oj = nameList.getJSONObject(i);<br /> aa = aa + oj.getString("name&#8221;)+&#8221;|&#8221;;</p> 
+      public String getJson(){
+ String jsonString = "{"FLAG&#8221;:&#8221;flag&#8221;,&#8221;MESSAGE&#8221;:&#8221;SUCCESS&#8221;,&#8221;name&#8221;:[{"name&#8221;:&#8221;jack&#8221;},{"name&#8221;:&#8221;lucy&#8221;}]}&#8221;;//json字符串
+ try {
+ JSONObject result = new JSONObject(jsonstring);//转换为JSONObject
+ int num = result.length();
+ JSONArray nameList = result.getJSONArray("name&#8221;);//获取JSONArray
+ int length = nameList.length();
+ String aa = "&#8221;;
+ for(int i = 0; i < length; i++){//遍历JSONArray
+ Log.d("debugTest&#8221;,Integer.toString(i));
+ JSONObject oj = nameList.getJSONObject(i);
+ aa = aa + oj.getString("name&#8221;)+&#8221;|&#8221;;</p> 
   
   <p>
-    }<br /> Iterator<?> it = result.keys();<br /> String aa2 = "&#8221;;<br /> String bb2 = null;<br /> while(it.hasNext()){//遍历JSONObject<br /> bb2 = (String) it.next().toString();<br /> aa2 = aa2 + result.getString(bb2);
+    }
+ Iterator<?> it = result.keys();
+ String aa2 = "&#8221;;
+ String bb2 = null;
+ while(it.hasNext()){//遍历JSONObject
+ bb2 = (String) it.next().toString();
+ aa2 = aa2 + result.getString(bb2);
   </p>
   
   <p>
-    }<br /> return aa;<br /> } catch (JSONException e) {<br /> throw new RuntimeException(e);<br /> }<br /> }
+    }
+ return aa;
+ } catch (JSONException e) {
+ throw new RuntimeException(e);
+ }
+ }
   </p>
 </div>

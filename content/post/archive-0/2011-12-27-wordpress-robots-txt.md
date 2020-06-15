@@ -37,7 +37,29 @@ categories:
   
   <blockquote>
     <p>
-      User-agent: *<br /> Disallow: /cgi-bin<br /> Disallow: /wp-*<br /> Allow: /wp-content/uploads/<br /> Disallow: /feed/<br /> Disallow: /comments/feed<br /> Disallow: /trackback<br /> Disallow:/tag/<br /> Disallow:/page/*<br /> Disallow: /comments<br /> Disallow: /category/*/page/*<br /> Disallow: /category/*<br /> Disallow:/duam/<br /> Disallow:/date/<br /> Disallow: /*.php$<br /> Disallow: /*.inc$<br /> Disallow: /*.js$<br /> Disallow: /*.css$<br /> Disallow: /*?*<br /> Disallow: /*?<br /> Disallow: /?s=<br /> Sitemap: http://dudo.org/sitemap.xml<br /> Sitemap: http://dudo.org/sitemap.xml.gz
+      User-agent: *
+ Disallow: /cgi-bin
+ Disallow: /wp-*
+ Allow: /wp-content/uploads/
+ Disallow: /feed/
+ Disallow: /comments/feed
+ Disallow: /trackback
+ Disallow:/tag/
+ Disallow:/page/*
+ Disallow: /comments
+ Disallow: /category/*/page/*
+ Disallow: /category/*
+ Disallow:/duam/
+ Disallow:/date/
+ Disallow: /*.php$
+ Disallow: /*.inc$
+ Disallow: /*.js$
+ Disallow: /*.css$
+ Disallow: /*?*
+ Disallow: /*?
+ Disallow: /?s=
+ Sitemap: http://dudo.org/sitemap.xml
+ Sitemap: http://dudo.org/sitemap.xml.gz
     </p>
   </blockquote>
   

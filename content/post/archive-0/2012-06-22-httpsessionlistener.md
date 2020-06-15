@@ -14,7 +14,9 @@ categories:
 </div>
 
 <div id="blog_content">
-  这个接口也只包含两个方法，分别对应于Session的创建和失效：<br /> # public void sessionCreated(HttpSessionEvent se);<br /> # public void sessionDestroyed(HttpSessionEvent se);</p> 
+  这个接口也只包含两个方法，分别对应于Session的创建和失效：
+ # public void sessionCreated(HttpSessionEvent se);
+ # public void sessionDestroyed(HttpSessionEvent se);</p> 
   
   <p>
     
@@ -29,7 +31,8 @@ categories:
   </p>
   
   <p>
-    在网站中经常需要进行在线人数的统计。过去的一般做法是结合登录和退出功能，即当用户输入用户名密码进行登录的时候计数器加1，然后当用户点击退出按钮退出系统的时候计数器减1。这种处理方式存在一些缺点，例如：用户正常登录后，可能会忘记点击退出按钮，而直接关闭浏览器，导致计数器减1的操作没有及时执行；网站上还经常有一些内容是不需要登录就可以访问的，在这种情况下也无法使用上面的方法进行在线人数统计。<br /> 我们可以利用Servlet规范中定义的事件监听器（Listener）来解决这个问题，实现更准确的在线人数统计功能。对每一个正在访问的用户，J2EE应用服务器会为其建立一个对应的HttpSession对象。当一个浏览器第一次访问网站的时候，J2EE应用服务器会新建一个HttpSession对象 ，并触发 HttpSession创建事件 ，如果注册了HttpSessionListener事件监听器，则会调用HttpSessionListener事件监听器的sessionCreated方法。相反，当这个浏览器访问结束超时的时候，J2EE应用服务器会销毁相应的HttpSession对象，触发 HttpSession销毁事件，同时调用所注册HttpSessionListener事件监听器的sessionDestroyed方法。
+    在网站中经常需要进行在线人数的统计。过去的一般做法是结合登录和退出功能，即当用户输入用户名密码进行登录的时候计数器加1，然后当用户点击退出按钮退出系统的时候计数器减1。这种处理方式存在一些缺点，例如：用户正常登录后，可能会忘记点击退出按钮，而直接关闭浏览器，导致计数器减1的操作没有及时执行；网站上还经常有一些内容是不需要登录就可以访问的，在这种情况下也无法使用上面的方法进行在线人数统计。
+ 我们可以利用Servlet规范中定义的事件监听器（Listener）来解决这个问题，实现更准确的在线人数统计功能。对每一个正在访问的用户，J2EE应用服务器会为其建立一个对应的HttpSession对象。当一个浏览器第一次访问网站的时候，J2EE应用服务器会新建一个HttpSession对象 ，并触发 HttpSession创建事件 ，如果注册了HttpSessionListener事件监听器，则会调用HttpSessionListener事件监听器的sessionCreated方法。相反，当这个浏览器访问结束超时的时候，J2EE应用服务器会销毁相应的HttpSession对象，触发 HttpSession销毁事件，同时调用所注册HttpSessionListener事件监听器的sessionDestroyed方法。
   </p>
   
   <div id="">
@@ -169,7 +172,9 @@ categories:
   </div>
   
   <p>
-    以下两种情况下就会发生sessionDestoryed（会话销毁）事件：<br /> 1.执行session.invalidate()方法时 。<br /> 既然LogoutServlet.java中执行session.invalidate()时，会触发sessionDestory()从在线用户 列表中清除当前用户，我们就不必在LogoutServlet.java中对在线列表进行操作了，所以LogoutServlet.java的内容现在是 这样。
+    以下两种情况下就会发生sessionDestoryed（会话销毁）事件：
+ 1.执行session.invalidate()方法时 。
+ 既然LogoutServlet.java中执行session.invalidate()时，会触发sessionDestory()从在线用户 列表中清除当前用户，我们就不必在LogoutServlet.java中对在线列表进行操作了，所以LogoutServlet.java的内容现在是 这样。
   </p>
   
   <div id="">
@@ -209,7 +214,9 @@ categories:
   </p>
   
   <p>
-    2.<br /> 如果用户长时间没有访问服务器，超过了会话最大超时时间 ，服务器就会自动销毁超时的session。<br /> 会话超时时间可以在web.xml中进行设置，为了容易看到超时效果，我们将超时时间设置为最小值。
+    2.
+ 如果用户长时间没有访问服务器，超过了会话最大超时时间 ，服务器就会自动销毁超时的session。
+ 会话超时时间可以在web.xml中进行设置，为了容易看到超时效果，我们将超时时间设置为最小值。
   </p>
   
   <div id="">

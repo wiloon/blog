@@ -16,11 +16,15 @@ tags:
    将常用的或很复杂的工作，预先用SQL语句写好并用一个指定的名称存储起来, 那么以后要叫数据库提供与已定义好的存储过程的功能相同的服务时,只需调用execute,即可自动完成命令。<span style="color: #ff0000; font-size: large;">                  存储过程的优点</span></p> 
   
   <p>
-    <span style="color: #ff0000; font-size: large;"><span style="font-size: small;"><span style="color: #000000;">    1.存储过程只在创造时进行编译，以后每次执行存储过程都不需再重新编译，而一般SQL语句每执行一次就编译一次,所以使用存储过程可提高数据库执行速度。<br /> 2.当对数据库进行复杂操作时(如对多个表进行Update,Insert,Query,Delete时），可将此复杂操作用存储过程封装起来与数据库提供的事务处理结合一起使用。<br /> 3.存储过程可以重复使用,可减少数据库开发人员的工作量<br /> 4.安全性高,可设定只有某此用户才具有对指定存储过程的使用权</span></span></span>
+    <span style="color: #ff0000; font-size: large;"><span style="font-size: small;"><span style="color: #000000;">    1.存储过程只在创造时进行编译，以后每次执行存储过程都不需再重新编译，而一般SQL语句每执行一次就编译一次,所以使用存储过程可提高数据库执行速度。
+ 2.当对数据库进行复杂操作时(如对多个表进行Update,Insert,Query,Delete时），可将此复杂操作用存储过程封装起来与数据库提供的事务处理结合一起使用。
+ 3.存储过程可以重复使用,可减少数据库开发人员的工作量
+ 4.安全性高,可设定只有某此用户才具有对指定存储过程的使用权</span></span></span>
   </p>
   
   <p>
-    <span style="color: #ff0000; font-size: large;"><span style="font-size: small;"><span style="color: #000000;">                      </span><span style="color: #ff0000; font-size: large;"> 创建存储过程<br /> *************************************************</span></span></span>
+    <span style="color: #ff0000; font-size: large;"><span style="font-size: small;"><span style="color: #000000;">                      </span><span style="color: #ff0000; font-size: large;"> 创建存储过程
+ *************************************************</span></span></span>
   </p>
   
   <h5>
@@ -28,10 +32,14 @@ tags:
   </h5>
   
   <h5>
-    <span style="color: #000000;">CREATE PROC[ EDURE ] [ <em>owner</em><strong>.</strong> ] <em>procedure_name </em>[ <strong>; </strong><em>number </em>]<br /> [ { @<em>parameter data_type </em>}</span><span style="color: #000000;"><em><br /> </em>[ VARYING ] [ <strong>= </strong><em>default </em>] [ OUTPUT ] </span><strong><br /> <span style="color: #000000;">    </span></strong><span style="color: #000000;">] [ <strong>,</strong>&#8230;<em>n </em>]</p> 
+    <span style="color: #000000;">CREATE PROC[ EDURE ] [ <em>owner</em><strong>.</strong> ] <em>procedure_name </em>[ <strong>; </strong><em>number </em>]
+ [ { @<em>parameter data_type </em>}</span><span style="color: #000000;"><em>
+ </em>[ VARYING ] [ <strong>= </strong><em>default </em>] [ OUTPUT ] </span><strong>
+ <span style="color: #000000;">    </span></strong><span style="color: #000000;">] [ <strong>,</strong>&#8230;<em>n </em>]</p> 
     
     <p>
-      [ WITH<br /> { RECOMPILE | ENCRYPTION | RECOMPILE <strong>,</strong> ENCRYPTION } ]
+      [ WITH
+ { RECOMPILE | ENCRYPTION | RECOMPILE <strong>,</strong> ENCRYPTION } ]
     </p>
     
     <p>

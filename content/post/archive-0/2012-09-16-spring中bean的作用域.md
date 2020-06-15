@@ -95,7 +95,14 @@ categories:
     如果你使用的是Servlet 2.4及以上的web容器，那么你仅需要在web应用的XML声明文件web.xml中增加下述ContextListener即可：</p> 
     
     <div>
-      <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <web-app><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  &#8230;<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  <listener><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /><listener-class>org.springframework.web.context.request.RequestContextListener</listener-class><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  </listener><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  &#8230;<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /></web-app><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
+      <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <web-app>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  &#8230;
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  <listener>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /><listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  </listener>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  &#8230;
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /></web-app>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
     </div>
     
     <p>
@@ -105,7 +112,19 @@ categories:
   
   <div>
     <div>
-      <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /><web-app><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> ..<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter-mapping><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <url-pattern>/*</url-pattern><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter-mapping><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  &#8230;<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /></web-app><br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
+      <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /><web-app>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> ..
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter-mapping>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <url-pattern>/*</url-pattern>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter-mapping>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  &#8230;
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /></web-app>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
     </div>
     
     <p>
@@ -169,7 +188,33 @@ categories:
     我们建立一个线程的scope，该scope在表示一个线程中有效，代码如下：</p> 
     
     <div>
-      <img id="_37_848_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" />publicclass MyScope implements Scope {<br /> <img id="_102_199_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     privatefinal ThreadLocal threadScope = new ThreadLocal() {<br /> <img id="_146_192_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />          protected Object initialValue() {<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />            returnnew HashMap();<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />          }<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    };<br /> <img id="_268_510_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object get(String name, ObjectFactory objectFactory) {<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Object object = scope.get(name);<br /> <img id="_384_478_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />        if(object==null) {<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          object = objectFactory.getObject();<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          scope.put(name, object);<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />        }<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return object;<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }<br /> <img id="_552_642_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object remove(String name) {<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return scope.remove(name);<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }<br /> <img id="_720_728_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     publicvoid registerDestructionCallback(String name, Runnable callback) {<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }<br /> <img id="_768_835_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />    public String getConversationId() {<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       // TODO Auto-generated method stub<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       returnnull;<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    }<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />          }<br /> <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
+      <img id="_37_848_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" />publicclass MyScope implements Scope {
+ <img id="_102_199_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     privatefinal ThreadLocal threadScope = new ThreadLocal() {
+ <img id="_146_192_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />          protected Object initialValue() {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />            returnnew HashMap();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />          }
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    };
+ <img id="_268_510_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object get(String name, ObjectFactory objectFactory) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Object object = scope.get(name);
+ <img id="_384_478_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />        if(object==null) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          object = objectFactory.getObject();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          scope.put(name, object);
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />        }
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return object;
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
+ <img id="_552_642_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object remove(String name) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return scope.remove(name);
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
+ <img id="_720_728_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     publicvoid registerDestructionCallback(String name, Runnable callback) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
+ <img id="_768_835_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />    public String getConversationId() {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       // TODO Auto-generated method stub
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       returnnull;
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    }
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />          }
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
     </div>
   </div>
 </div>

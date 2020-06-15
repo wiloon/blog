@@ -27,11 +27,22 @@ main.xml代码如下，很简单，也不需要多做解释了：
 <div>
   <div>
     <p>
-      [xml]</div><br /> <div><?xml version="1.0" encoding="utf-8"?></div><br /> <div><LinearLayout</div><br /> <div>android:id="@+id/LinearLayout01"<br /> android:layout_width="fill_parent"<br /> android:layout_height="fill_parent"<br /> xmlns:android="http://schemas.android.com/apk/res/android">
+      [xml]</div>
+ <div><?xml version="1.0" encoding="utf-8"?></div>
+ <div><LinearLayout</div>
+ <div>android:id="@+id/LinearLayout01"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ xmlns:android="http://schemas.android.com/apk/res/android">
     </p>
     
     <p>
-      <ListView android:layout_width="wrap_content"<br /> android:layout_height="wrap_content"<br /> android:id="@+id/MyListView"><br /> </ListView><br /> </LinearLayout><br /> <div>[/xml]
+      <ListView android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:id="@+id/MyListView">
+ </ListView>
+ </LinearLayout>
+ <div>[/xml]
     </p>
   </div>
 </div>
@@ -40,15 +51,37 @@ main.xml代码如下，很简单，也不需要多做解释了：
   my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item：</p> 
   
   <p>
-    [xml]</div><br /> <div>
+    [xml]</div>
+ <div>
   </p>
   
   <p>
-    <?xml version="1.0" encoding="utf-8"?><br /> <LinearLayout<br /> android:layout_width="fill_parent"<br /> xmlns:android="http://schemas.android.com/apk/res/android"<br /> android:orientation="vertical"<br /> android:layout_height="wrap_content"<br /> android:id="@+id/MyListItem"<br /> android:paddingBottom="3dip"<br /> android:paddingLeft="10dip"><br /> <TextView<br /> android:layout_height="wrap_content"<br /> android:layout_width="fill_parent"<br /> android:id="@+id/ItemTitle"<br /> android:textSize="30dip"><br /> </TextView><br /> <TextView<br /> android:layout_height="wrap_content"<br /> android:layout_width="fill_parent"<br /> android:id="@+id/ItemText"><br /> </TextView><br /> </LinearLayout>
+    <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+ android:layout_width="fill_parent"
+ xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:layout_height="wrap_content"
+ android:id="@+id/MyListItem"
+ android:paddingBottom="3dip"
+ android:paddingLeft="10dip">
+ <TextView
+ android:layout_height="wrap_content"
+ android:layout_width="fill_parent"
+ android:id="@+id/ItemTitle"
+ android:textSize="30dip">
+ </TextView>
+ <TextView
+ android:layout_height="wrap_content"
+ android:layout_width="fill_parent"
+ android:id="@+id/ItemText">
+ </TextView>
+ </LinearLayout>
   </p>
   
   <p>
-    </div><br /> <div>[/xml]
+    </div>
+ <div>[/xml]
   </p>
 </div>
 

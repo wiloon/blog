@@ -12,11 +12,17 @@ categories:
 
 <div id="article_content">
   <p>
-    Linux内核版本有两种：稳定版和开发版 ，Linux内核版本号由3组数字组成：<strong>第一个组数字.第二组数字.第三组数字</strong><br /> 第一个组数字：目前发布的内核主版本。<br /> 第二个组数字：偶数表示稳定版本；奇数表示开发中版本。<br /> 第三个组数字：错误修补的次数。
+    Linux内核版本有两种：稳定版和开发版 ，Linux内核版本号由3组数字组成：<strong>第一个组数字.第二组数字.第三组数字</strong>
+ 第一个组数字：目前发布的内核主版本。
+ 第二个组数字：偶数表示稳定版本；奇数表示开发中版本。
+ 第三个组数字：错误修补的次数。
   </p>
   
   <p>
-    例1： 2.6.18-128.ELsmp ,<br /> 第一个组数字: 2 , 主版本号<br /> 第二个组数字: 6 , 次版本号，表示稳定版本(因为有偶数)<br /> 第三个组数字 18 , 修订版本号 ， 表示修改的次数，头两个数字合在一齐可以描述内核系列。如稳定版的2.6.0，它是2.6版内核系列。128: 表示这个当前版本的第128次微调patch ， 而ELsmp指出了当前内核是为ELsmp特别调校的 EL : Enterprise Linux ； smp : 表示支持多处理器 ， 表示该内核版本支持多处理器
+    例1： 2.6.18-128.ELsmp ,
+ 第一个组数字: 2 , 主版本号
+ 第二个组数字: 6 , 次版本号，表示稳定版本(因为有偶数)
+ 第三个组数字 18 , 修订版本号 ， 表示修改的次数，头两个数字合在一齐可以描述内核系列。如稳定版的2.6.0，它是2.6版内核系列。128: 表示这个当前版本的第128次微调patch ， 而ELsmp指出了当前内核是为ELsmp特别调校的 EL : Enterprise Linux ； smp : 表示支持多处理器 ， 表示该内核版本支持多处理器
   </p>
   
   <h4 id="linux内核下里的ELsmp与EL与smp">
@@ -24,7 +30,13 @@ categories:
   </h4>
   
   <p>
-    在linux下ELsmp指出了当前内核是为ELsmp特别调校的 EL : Enterprise Linux ； smp : 表示支持多处理器 ， 表示该内核版本支持多处理器<br /> 例2:Red Hat Linux开机的时候，GRUB的启动菜单会有两个选项，分别是<br /> Red Hat Enterprise Linux ES (版本号.ELsmp)<br /> Red Hat Enterprise Linux ES-up (版本号.EL)<br /> 其实这个就是系统开机时由GRUB引导启动 － 单处理器与对称多处理器启动核心文件的区别。<br /> Red Hat Enterprise Linux ES (版本号.ELsmp) multiple processor (symmetric multiprocessing )<br /> Red Hat Enterprise Linux ES-up (版本号.EL) uniprocessor
+    在linux下ELsmp指出了当前内核是为ELsmp特别调校的 EL : Enterprise Linux ； smp : 表示支持多处理器 ， 表示该内核版本支持多处理器
+ 例2:Red Hat Linux开机的时候，GRUB的启动菜单会有两个选项，分别是
+ Red Hat Enterprise Linux ES (版本号.ELsmp)
+ Red Hat Enterprise Linux ES-up (版本号.EL)
+ 其实这个就是系统开机时由GRUB引导启动 － 单处理器与对称多处理器启动核心文件的区别。
+ Red Hat Enterprise Linux ES (版本号.ELsmp) multiple processor (symmetric multiprocessing )
+ Red Hat Enterprise Linux ES-up (版本号.EL) uniprocessor
   </p>
   
   <h4 id="linux位数">

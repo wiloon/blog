@@ -237,11 +237,24 @@ Jsp当然是入门，如果这个都不懂，谈学习成本也毫无意义，�
         </p>
         
         <p>
-          @RequestMapping(value=&#8221;/whitelists&#8221;)<br /> public String index(ModelMap map) {<br /> Account account = accountManager.getByDigitId(SecurityContextHolder.get().getDigitId());<br /> List<Group> groupList = groupManager.findAllGroup(account.getId());<br /> map.put("account&#8221;, account);<br /> map.put("groupList&#8221;, groupList);<br /> return "/group/group-index&#8221;;<br /> }
+          @RequestMapping(value=&#8221;/whitelists&#8221;)
+ public String index(ModelMap map) {
+ Account account = accountManager.getByDigitId(SecurityContextHolder.get().getDigitId());
+ List<Group> groupList = groupManager.findAllGroup(account.getId());
+ map.put("account&#8221;, account);
+ map.put("groupList&#8221;, groupList);
+ return "/group/group-index&#8221;;
+ }
         </p>
         
         <p>
-          // @ResponseBody ajax响应，处理Ajax请求也很方便<br /> @RequestMapping(value=&#8221;/whitelist/{whiteListId}/del&#8221;)<br /> @ResponseBody<br /> public String delete(@PathVariable Integer whiteListId) {<br /> whiteListManager.deleteWhiteList(whiteListId);<br /> return "success&#8221;;<br /> }
+          // @ResponseBody ajax响应，处理Ajax请求也很方便
+ @RequestMapping(value=&#8221;/whitelist/{whiteListId}/del&#8221;)
+ @ResponseBody
+ public String delete(@PathVariable Integer whiteListId) {
+ whiteListManager.deleteWhiteList(whiteListId);
+ return "success&#8221;;
+ }
         </p>
 
  [1]: http://blog.csdn.net/stubbornpotatoes/article/details/8679523

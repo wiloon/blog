@@ -16,7 +16,14 @@ categories:
   </div>
   
   <div>
-        protected void deleteDataRow(int RowID,DataTable dt)<br /> {<br /> for (int i = dt.Rows.Count &#8211; 1; i >= 0; i&#8211;)<br /> {<br /> if (Convert.ToInt32(dt.Rows[i]["RowID&#8221;]) == RowID)<br /> dt.Rows.RemoveAt(i);<br /> }<br /> }
+        protected void deleteDataRow(int RowID,DataTable dt)
+ {
+ for (int i = dt.Rows.Count &#8211; 1; i >= 0; i&#8211;)
+ {
+ if (Convert.ToInt32(dt.Rows[i]["RowID&#8221;]) == RowID)
+ dt.Rows.RemoveAt(i);
+ }
+ }
   </div>
   
   <div>
@@ -36,7 +43,11 @@ categories:
 
 <div>
   <div>
-            for (int i = 0, j = dt.Rows.Count; i < j; i++)<br /> {<br /> if (Convert.ToInt32(dt.Rows[i]["RowID&#8221;]) == RowID)<br /> dt.Rows.RemoveAt(i);<br /> }
+            for (int i = 0, j = dt.Rows.Count; i < j; i++)
+ {
+ if (Convert.ToInt32(dt.Rows[i]["RowID&#8221;]) == RowID)
+ dt.Rows.RemoveAt(i);
+ }
   </div>
 </div>
 

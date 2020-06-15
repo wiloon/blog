@@ -36,7 +36,13 @@ categories:
   </p>
   
   <p>
-    <em>$.extend({<br /> show:function(){<br /> alert("ready&#8221;);<br /> }<br /> });<br /> setInterval("$.show()&#8221;,3000);<br /> });</em>
+    <em>$.extend({
+ show:function(){
+ alert("ready&#8221;);
+ }
+ });
+ setInterval("$.show()&#8221;,3000);
+ });</em>
   </p>
   
   <p>
@@ -44,7 +50,10 @@ categories:
   </p>
   
   <p>
-    <em>function show(){<br /> alert("ready&#8221;);<br /> }<br /> setInterval(<strong>show</strong>,3000);// 注意函数名没有引号和括弧！</em>
+    <em>function show(){
+ alert("ready&#8221;);
+ }
+ setInterval(<strong>show</strong>,3000);// 注意函数名没有引号和括弧！</em>
   </p>
   
   <p>
@@ -244,7 +253,8 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
   </p>
   
   <p>
-    var x=new xilou();<br /> x.count();
+    var x=new xilou();
+ x.count();
   </p>
   
   <p>

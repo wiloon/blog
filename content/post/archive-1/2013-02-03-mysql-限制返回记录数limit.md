@@ -34,7 +34,13 @@ tags:
 
 <div>
   <div>
-    //为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：<br /> <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />mysql> SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last.<br /> <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /><br /> <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />//如果只给定一个参数，它表示返回最大的记录行数目：<br /> <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />mysql> SELECT * FROM table LIMIT 5;     //检索前 5 个记录行<br /> <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /><br /> <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />//换句话说，LIMIT n 等价于 LIMIT 0,n。
+    //为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
+ <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />mysql> SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last.
+ <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
+ <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />//如果只给定一个参数，它表示返回最大的记录行数目：
+ <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />mysql> SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
+ <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
+ <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />//换句话说，LIMIT n 等价于 LIMIT 0,n。
   </div>
   
   <div>

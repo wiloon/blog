@@ -40,7 +40,9 @@ categories:
   </p>
   
   <p>
-    集合框架引入了迭代器，用于遍历一个列表或者其他集合，从而优化了对一个集合中的元素进行迭代的过程。然而，在 <code>java.util</code> 集合类中实现的迭代器极易崩溃，也就是说，如果在一个线程正在通过一个 <code>Iterator</code> 遍历集合时，另一个线程也来修改这个集合，那么接下来的 <code>Iterator.hasNext()</code> 或 <code>Iterator.next()</code> 调用将抛出 <code>ConcurrentModificationException</code> 异常。就拿刚才这个例子来讲，如果想要防止出现 <code>ConcurrentModificationException</code> 异常，那么当您正在进行迭代时，您必须使用一个在 <code>List l</code> 上同步的 <code>synchronized</code> 块将该 <code>List</code> 包装起来，从而锁住整个 <code>List</code> 。（或者，您也可以调用 <code>List.toArray()</code> ，在不同步的情况下对数组进行迭代，但是如果列表比较大的话这样做代价很高）。<br /> <a name="listing1"></a><strong>清单 1. 同步的map中的公用竞争条件</strong><br /> <code>&lt;br />
+    集合框架引入了迭代器，用于遍历一个列表或者其他集合，从而优化了对一个集合中的元素进行迭代的过程。然而，在 <code>java.util</code> 集合类中实现的迭代器极易崩溃，也就是说，如果在一个线程正在通过一个 <code>Iterator</code> 遍历集合时，另一个线程也来修改这个集合，那么接下来的 <code>Iterator.hasNext()</code> 或 <code>Iterator.next()</code> 调用将抛出 <code>ConcurrentModificationException</code> 异常。就拿刚才这个例子来讲，如果想要防止出现 <code>ConcurrentModificationException</code> 异常，那么当您正在进行迭代时，您必须使用一个在 <code>List l</code> 上同步的 <code>synchronized</code> 块将该 <code>List</code> 包装起来，从而锁住整个 <code>List</code> 。（或者，您也可以调用 <code>List.toArray()</code> ，在不同步的情况下对数组进行迭代，但是如果列表比较大的话这样做代价很高）。
+ <a name="listing1"></a><strong>清单 1. 同步的map中的公用竞争条件</strong>
+ <code>&lt;br />
 Map m = Collections.synchronizedMap(new HashMap());&lt;br />
 List l = Collections.synchronizedList(new ArrayList());&lt;/p>
 &lt;p>// put-if-absent idiom -- contains a race condition&lt;br />
@@ -57,11 +59,13 @@ doSomething(list.get(i));&lt;br />
 for (Iterator i=list.iterator(); i.hasNext(); ) {&lt;br />
 doSomething(i.next());&lt;br />
 }&lt;br />
-</code><br /> <a name="N10141"></a><strong>信任的错觉</strong>
+</code>
+ <a name="N10141"></a><strong>信任的错觉</strong>
   </p>
   
   <p>
-    <code>synchronizedList</code> 和 <code>synchronizedMap</code> 提供的有条件的线程安全性也带来了一个隐患 <code>――</code> 开发者会假设，因为这些集合都是同步的，所以它们都是线程安全的，这样一来他们对于正确地同步混合操作这件事就会疏忽。其结果是尽管表面上这些程序在负载较轻的时候能够正常工作，但是一旦负载较重，它们就会开始抛出 <code>NullPointerException</code> 或 <code>ConcurrentModificationException</code> <code>。</code><br /> <a name="2"></a><strong>可伸缩性问题</strong>
+    <code>synchronizedList</code> 和 <code>synchronizedMap</code> 提供的有条件的线程安全性也带来了一个隐患 <code>――</code> 开发者会假设，因为这些集合都是同步的，所以它们都是线程安全的，这样一来他们对于正确地同步混合操作这件事就会疏忽。其结果是尽管表面上这些程序在负载较轻的时候能够正常工作，但是一旦负载较重，它们就会开始抛出 <code>NullPointerException</code> 或 <code>ConcurrentModificationException</code> <code>。</code>
+ <a name="2"></a><strong>可伸缩性问题</strong>
   </p>
   
   <p>
@@ -133,7 +137,8 @@ doSomething(i.next());&lt;br />
   </p>
   
   <p>
-    <strong>线程数</strong> <strong>ConcurrentHashMap</strong> <strong>Hashtable</strong> 1 1.00 1.03 2 2.59 32.40 4 5.58 78.23 8 13.21 163.48 16 27.58 341.21 32 57.27 778.41<br /> <a name="4"></a><strong>CopyOnWriteArrayList</strong>
+    <strong>线程数</strong> <strong>ConcurrentHashMap</strong> <strong>Hashtable</strong> 1 1.00 1.03 2 2.59 32.40 4 5.58 78.23 8 13.21 163.48 16 27.58 341.21 32 57.27 778.41
+ <a name="4"></a><strong>CopyOnWriteArrayList</strong>
   </p>
   
   <p>

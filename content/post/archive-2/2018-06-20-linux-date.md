@@ -57,13 +57,20 @@ To print the current full month name and the day of the month:
   
 date &#8216;+%B %d&#8217;
   
-But this may not be what you want because for the first nine days of the month, the `%d' expands to a zero-padded two-digit field, for example`date -d 1may &#8216;+%B %d&#8221; will print `May 01'.<br />
-To print a date without the leading zero for one-digit days of the month, you can use the (GNU extension) - modifier to suppress the padding altogether.<br />
-date -d=1may '+%B %-d'<br />
-To print the current date and time in the format required by many non-GNU versions of date when setting the system clock:<br />
-date +%m%d%H%M%Y.%S<br />
-To set the system clock forward by two minutes:<br />
-date --set='+2 minutes'<br />
+But this may not be what you want because for the first nine days of the month, the `%d' expands to a zero-padded two-digit field, for example`date -d 1may &#8216;+%B %d&#8221; will print `May 01'.
+
+To print a date without the leading zero for one-digit days of the month, you can use the (GNU extension) - modifier to suppress the padding altogether.
+
+date -d=1may '+%B %-d'
+
+To print the current date and time in the format required by many non-GNU versions of date when setting the system clock:
+
+date +%m%d%H%M%Y.%S
+
+To set the system clock forward by two minutes:
+
+date --set='+2 minutes'
+
 To print the date in the format specified by RFC-822, use`date &#8211;rfc&#8217;. I just did and saw this:
   
 Mon, 25 Mar 1996 23:34:17 -0600

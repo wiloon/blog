@@ -47,7 +47,9 @@ adb shell
 </p>
 
 <p style="color: #4b4b4b;">
-  （1）快速更新设备或手机模拟器中的代码，如应用或Android系统升级；<br /> （2）在设备上运行Shell命令；<br /> （3）管理设备或手机模拟器上的预定端口；
+  （1）快速更新设备或手机模拟器中的代码，如应用或Android系统升级；
+ （2）在设备上运行Shell命令；
+ （3）管理设备或手机模拟器上的预定端口；
 </p>
 
 <p style="color: #4b4b4b;">
@@ -71,7 +73,8 @@ adb shell
 </p>
 
 <p style="color: #4b4b4b;">
-  2.<strong>安装应用到模拟器</strong><br /> adb install [-l] [-r] <file>。
+  2.<strong>安装应用到模拟器</strong>
+ adb install [-l] [-r] <file>。
 </p>
 
 <p style="color: #4b4b4b;">
@@ -95,11 +98,18 @@ adb shell
 </p>
 
 <p style="color: #4b4b4b;">
-  （2）手动删除。<br /> adb shell<br /> cd /data/app<br /> rm app.apk
+  （2）手动删除。
+ adb shell
+ cd /data/app
+ rm app.apk
 </p>
 
 <p style="color: #4b4b4b;">
-  4.<strong>进入设备或模拟器的</strong><strong>S</strong><strong>hell</strong><br /> adb shell<br /> 通过上面的命令，就可以进入设备或模拟器的Shell环境中，在这个Linux Shell中，可以执行各种Linux 的命令，另外如果只想执行一条Shell命令，可以采用以下的方式：<br /> adb shell [command]<br /> 如：
+  4.<strong>进入设备或模拟器的</strong><strong>S</strong><strong>hell</strong>
+ adb shell
+ 通过上面的命令，就可以进入设备或模拟器的Shell环境中，在这个Linux Shell中，可以执行各种Linux 的命令，另外如果只想执行一条Shell命令，可以采用以下的方式：
+ adb shell [command]
+ 如：
 </p>
 
 <p style="color: #4b4b4b;">
@@ -183,7 +193,8 @@ adb shell
 </p>
 
 <p style="color: #4b4b4b;">
-  7.<strong>搜索模拟器</strong><strong>/</strong><strong>设备的实例</strong><br /> 取得当前运行的模拟器/设备的实例的列表及每个实例的状态，如：
+  7.<strong>搜索模拟器</strong><strong>/</strong><strong>设备的实例</strong>
+ 取得当前运行的模拟器/设备的实例的列表及每个实例的状态，如：
 </p>
 
 <p style="color: #4b4b4b;">
@@ -255,7 +266,8 @@ adb shell
 </p>
 
 <p style="color: #4b4b4b;">
-  9.<strong>记录无线通讯日志</strong><br /> 一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录：
+  9.<strong>记录无线通讯日志</strong>
+ 一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录：
 </p>
 
 <p style="color: #4b4b4b;">
@@ -307,7 +319,8 @@ adb shell
 </p>
 
 <p style="color: #4b4b4b;">
-  10.<strong>获取设备的</strong><strong>ID</strong><strong>和序列号</strong><br /> adb get-product
+  10.<strong>获取设备的</strong><strong>ID</strong><strong>和序列号</strong>
+ adb get-product
 </p>
 
 <p style="color: #4b4b4b;">
@@ -578,7 +591,9 @@ adb shell
     
     <td style="color: #454545;">
       <p class="TableContents">
-        可以用 forward jdwp:<pid>端口映射信息来连接指定的JDWP进程，例如：<br /> adb forward tcp:8000 jdwp:472<br /> jdb -attach localhost:8000
+        可以用 forward jdwp:<pid>端口映射信息来连接指定的JDWP进程，例如：
+ adb forward tcp:8000 jdwp:472
+ jdb -attach localhost:8000
       </p>
     </td>
   </tr>

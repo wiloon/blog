@@ -26,15 +26,28 @@ categories:
   </p>
   
   <p>
-    int hash = key.hashCode();<br /> int index = (hash & 0x7FFFFFFF) % tab.length;<br /> //而HashMap重新计算hash值，而且用与代替求模：<br /> int hash = hash(k);<br /> int i = indexFor(hash, table.length);
+    int hash = key.hashCode();
+ int index = (hash & 0x7FFFFFFF) % tab.length;
+ //而HashMap重新计算hash值，而且用与代替求模：
+ int hash = hash(k);
+ int i = indexFor(hash, table.length);
   </p>
   
   <p>
-    static int hash(Object x) {<br /> int h = x.hashCode();
+    static int hash(Object x) {
+ int h = x.hashCode();
   </p>
   
   <p>
-    h += ~(h << 9);<br /> h ^= (h >>> 14);<br /> h += (h << 4);<br /> h ^= (h >>> 10);<br /> return h;<br /> }<br /> static int indexFor(int h, int length) {<br /> return h & (length-1);<br /> }
+    h += ~(h << 9);
+ h ^= (h >>> 14);
+ h += (h << 4);
+ h ^= (h >>> 10);
+ return h;
+ }
+ static int indexFor(int h, int length) {
+ return h & (length-1);
+ }
   </p>
   
   <p>
@@ -42,7 +55,8 @@ categories:
   </p>
   
   <p>
-    以上只是一些比较突出的区别，当然他们的实现上还是有很多不同的，比如<br /> HashMap对null的操作
+    以上只是一些比较突出的区别，当然他们的实现上还是有很多不同的，比如
+ HashMap对null的操作
   </p>
 </div>
 
@@ -60,7 +74,9 @@ categories:
   </p>
   
   <p>
-    return map.put(o, PRESENT)==null;<br /> }<br /> HashMap为散列映射,它是基于hash table的一个实现,它可在常量时间内安插元素,或找出一组key-value pair.HashSet为散列集,它把查找时间看的很重要,其中所有元素必须要有hashCode()
+    return map.put(o, PRESENT)==null;
+ }
+ HashMap为散列映射,它是基于hash table的一个实现,它可在常量时间内安插元素,或找出一组key-value pair.HashSet为散列集,它把查找时间看的很重要,其中所有元素必须要有hashCode()
   </p>
   
   <p>

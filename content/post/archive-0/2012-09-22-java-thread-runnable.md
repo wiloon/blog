@@ -288,7 +288,8 @@ locl condition
 http://blog.csdn.net/ghsau/article/details/7481142
 
 <p id="java">
-  创建和启动线程的三种方式<br /> https://jisonami.github.io/2016/09/04/JavaThread1/
+  创建和启动线程的三种方式
+ https://jisonami.github.io/2016/09/04/JavaThread1/
 </p>
 
 <blockquote data-secret="Y65uz4t1vN" class="wp-embedded-content">

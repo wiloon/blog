@@ -53,7 +53,8 @@ e2fsck -b 214990848 -y /dev/sdb
 
 <ol start="5">
   <li>
-    在手册页里称这种方法为last-ditch recovery method,就是说这是最后的恢复方法，只有当你已经尝试了其他的方法,都没有能恢复你的数据的情况下才用,因为这需要冒一定的风险.<br /> 把你的硬盘挂在一台好的linux box上，运行：#mke2fs -S /dev/hda2(如果你的数据在hda2里）这条命令只重建superblock，而不碰inode表，不过这仍有一定的风险。good luck to you all.当时也有人建议我如果实在不行的话就重装系统（不动分区也不格式化），这也可能有效，但你也应该清楚这种方法就像mke2fs -S /dev/hd*一样是有风险的。
+    在手册页里称这种方法为last-ditch recovery method,就是说这是最后的恢复方法，只有当你已经尝试了其他的方法,都没有能恢复你的数据的情况下才用,因为这需要冒一定的风险.
+ 把你的硬盘挂在一台好的linux box上，运行：#mke2fs -S /dev/hda2(如果你的数据在hda2里）这条命令只重建superblock，而不碰inode表，不过这仍有一定的风险。good luck to you all.当时也有人建议我如果实在不行的话就重装系统（不动分区也不格式化），这也可能有效，但你也应该清楚这种方法就像mke2fs -S /dev/hd*一样是有风险的。
   </li>
 </ol>
 

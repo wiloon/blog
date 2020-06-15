@@ -46,7 +46,14 @@ categories:
   </div>
   
   <p>
-    本人的服务器显示如下：<br /> linux-headers-2.6.24-etchnhalf.1-686-bigmem – Header files for Linux 2.6.24 on PPro/Celeron/PII/PIII/P4<br /> linux-image-2.6.24-etchnhalf.1-686-bigmem – Linux 2.6.24 image on PPro/Celeron/PII/PIII/P4<br /> linux-headers-2.6.18-6-686-bigmem – Header files for Linux 2.6.18 on PPro/Celeron/PII/PIII/P4<br /> linux-image-2.6.18-6-686-bigmem – Linux 2.6.18 image on PPro/Celeron/PII/PIII/P4<br /> linux-image-2.6-686-bigmem-etchnhalf – Linux 2.6-etchnhalf image on PPro/Celeron/PII/PIII/P4<br /> linux-image-2.6-686-bigmem – Linux kernel 2.6 image on PPro/Celeron/PII/PIII/P4<br /> linux-image-686-bigmem – Linux kernel image on PPro/Celeron/PII/PIII/P4
+    本人的服务器显示如下：
+ linux-headers-2.6.24-etchnhalf.1-686-bigmem – Header files for Linux 2.6.24 on PPro/Celeron/PII/PIII/P4
+ linux-image-2.6.24-etchnhalf.1-686-bigmem – Linux 2.6.24 image on PPro/Celeron/PII/PIII/P4
+ linux-headers-2.6.18-6-686-bigmem – Header files for Linux 2.6.18 on PPro/Celeron/PII/PIII/P4
+ linux-image-2.6.18-6-686-bigmem – Linux 2.6.18 image on PPro/Celeron/PII/PIII/P4
+ linux-image-2.6-686-bigmem-etchnhalf – Linux 2.6-etchnhalf image on PPro/Celeron/PII/PIII/P4
+ linux-image-2.6-686-bigmem – Linux kernel 2.6 image on PPro/Celeron/PII/PIII/P4
+ linux-image-686-bigmem – Linux kernel image on PPro/Celeron/PII/PIII/P4
   </p>
   
   <p>

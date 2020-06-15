@@ -33,7 +33,10 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   </p>
   
   <p>
-    Use arrow keys to select, then press Enter key:<br /> [ Create ]  Create a new log file<br /> [ Append ]  Append information to log file<br /> [ No Log ]  Don&#8217;t record anything
+    Use arrow keys to select, then press Enter key:
+ [ Create ]  Create a new log file
+ [ Append ]  Append information to log file
+ [ No Log ]  Don&#8217;t record anything
   </p>
   
   <p>
@@ -41,11 +44,21 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   </p>
   
   <p>
-    Select a media (use Arrow keys, then press Enter):<br /> Disk /dev/sda &#8211; 160 GB / 149 GiB &#8211; ATA HITACHI HTS54251<br /> Disk /dev/sdb &#8211; 3272 MB / 3121 MiB &#8211; SM324BC USB DISK<br /> <strong>    3.选择testdisk修复的平台,我们是Intel的，所以选择他</strong>
+    Select a media (use Arrow keys, then press Enter):
+ Disk /dev/sda &#8211; 160 GB / 149 GiB &#8211; ATA HITACHI HTS54251
+ Disk /dev/sdb &#8211; 3272 MB / 3121 MiB &#8211; SM324BC USB DISK
+ <strong>    3.选择testdisk修复的平台,我们是Intel的，所以选择他</strong>
   </p>
   
   <p>
-    Please select the partition table type, press Enter when done.<br /> [Intel  ]  Intel/PC partition<br /> [EFI GPT]  EFI GPT partition map (Mac i386, some x86_64&#8230;)<br /> [Mac    ]  Apple partition map<br /> [None   ]  Non partitioned media<br /> [Sun    ]  Sun Solaris partition<br /> [XBox   ]  XBox partition<br /> [Return ]  Return to disk selection
+    Please select the partition table type, press Enter when done.
+ [Intel  ]  Intel/PC partition
+ [EFI GPT]  EFI GPT partition map (Mac i386, some x86_64&#8230;)
+ [Mac    ]  Apple partition map
+ [None   ]  Non partitioned media
+ [Sun    ]  Sun Solaris partition
+ [XBox   ]  XBox partition
+ [Return ]  Return to disk selection
   </p>
   
   <p>
@@ -53,7 +66,13 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   </p>
   
   <p>
-    [ Analyse  ]  Analyse current partition structure and search for lost partitions<br /> [ Advanced ]  Filesystem Utils<br /> [ Geometry ]  Change disk geometry<br /> [ Options  ]  Modify options<br /> [ MBR Code ]  Write TestDisk MBR code to first sector<br /> [ Delete   ]  Delete all data in the partition table<br /> [ Quit     ]  Return to disk selection
+    [ Analyse  ]  Analyse current partition structure and search for lost partitions
+ [ Advanced ]  Filesystem Utils
+ [ Geometry ]  Change disk geometry
+ [ Options  ]  Modify options
+ [ MBR Code ]  Write TestDisk MBR code to first sector
+ [ Delete   ]  Delete all data in the partition table
+ [ Quit     ]  Return to disk selection
   </p>
   
   <p>
@@ -61,7 +80,8 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   </p>
   
   <p>
-    *=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted<br /> [Quick Search]  [ Backup ]
+    *=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted
+ [Quick Search]  [ Backup ]
   </p>
   
   <p>
@@ -69,7 +89,9 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   </p>
   
   <p>
-    Should TestDisk search for partition created under Vista ? [Y/N] (answer Yes if<br /> unsure)<br /> N
+    Should TestDisk search for partition created under Vista ? [Y/N] (answer Yes if
+ unsure)
+ N
   </p>
   
   <p>
@@ -77,11 +99,23 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   </p>
   
   <p>
-    Disk /dev/sda &#8211; 160 GB / 149 GiB &#8211; CHS 19457 255 63<br /> Partition               Start        End    Size in sectors<br /> * HPFS &#8211; NTFS              0   1  1  1567 254 63   25189857<br /> L FAT32 LBA             1568   2  1  5097 254 63   56709324 [NO NAME]<br /> L Linux Swap            5098   1  1  5221 254 63    1991997<br /> L Linux                 5222   1  1  7298 254 63   33366942<br /> L Linux                 7299   1  1 19456 254 63  195318207
+    Disk /dev/sda &#8211; 160 GB / 149 GiB &#8211; CHS 19457 255 63
+ Partition               Start        End    Size in sectors
+ * HPFS &#8211; NTFS              0   1  1  1567 254 63   25189857
+ L FAT32 LBA             1568   2  1  5097 254 63   56709324 [NO NAME]
+ L Linux Swap            5098   1  1  5221 254 63    1991997
+ L Linux                 5222   1  1  7298 254 63   33366942
+ L Linux                 7299   1  1 19456 254 63  195318207
   </p>
   
   <p>
-    Structure: Ok.  Use Up/Down Arrow keys to select partition.<br /> Use Left/Right Arrow keys to CHANGE partition characteristics:<br /> *=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted<br /> Keys A: add partition, L: load backup, T: change type, P: list files,<br /> Enter: to continue<br /> NTFS, 12 GB / 12 GiB<br /> 你还可以按p进入一下，看看文件是不是你想要的那些，然后下面会显示文件系统多大,什么系统.
+    Structure: Ok.  Use Up/Down Arrow keys to select partition.
+ Use Left/Right Arrow keys to CHANGE partition characteristics:
+ *=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted
+ Keys A: add partition, L: load backup, T: change type, P: list files,
+ Enter: to continue
+ NTFS, 12 GB / 12 GiB
+ 你还可以按p进入一下，看看文件是不是你想要的那些，然后下面会显示文件系统多大,什么系统.
   </p>
   
   <p>

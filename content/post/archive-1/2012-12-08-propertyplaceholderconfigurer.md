@@ -16,7 +16,13 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
 
 <div id="">
   <p>
-    [java]</pre><br /> </div><br /> <div><bean id="propertyConfigurer"<br /> class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"><br /> <property name="location" value="classpath:config/jdoserver.properties"/><br /> </bean></div><br /> <div>[/java]
+    [java]</pre>
+ </div>
+ <div><bean id="propertyConfigurer"
+ class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+ <property name="location" value="classpath:config/jdoserver.properties"/>
+ </bean></div>
+ <div>[/java]
   </p>
 </div>
 

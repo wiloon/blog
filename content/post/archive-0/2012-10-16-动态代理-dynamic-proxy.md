@@ -56,7 +56,8 @@ tags:
   </div>
   
   <div>
-    [java]<br /> package org.colimas.servlet;</p> 
+    [java]
+ package org.colimas.servlet;</p> 
     
     <p>
       import javax.servlet.Servlet;
@@ -179,7 +180,9 @@ tags:
     </p>
     
     <p>
-      }<br /> }<br /> 然后实现InvocationHandler
+      }
+ }
+ 然后实现InvocationHandler
     </p>
     
     <p>
@@ -195,7 +198,8 @@ tags:
     </p>
     
     <p>
-      import javax.servlet.Servlet;<br /> public class ServletHandler implements InvocationHandler {
+      import javax.servlet.Servlet;
+ public class ServletHandler implements InvocationHandler {
     </p>
     
     <p>
@@ -559,7 +563,9 @@ tags:
     </p>
     
     <p>
-      }<br /> <pre><br /> [/java]
+      }
+ <pre>
+ [/java]
     </p>
   </div>
   
@@ -575,7 +581,8 @@ tags:
   </div>
   
   <div>
-    [java]</pre><br /> package org.colimas.main;</p> 
+    [java]</pre>
+ package org.colimas.main;</p> 
     
     <p>
       
@@ -866,7 +873,9 @@ tags:
     </p>
     
     <p>
-      }<br /> <pre><br /> [/java]
+      }
+ <pre>
+ [/java]
     </p>
   </div>
   

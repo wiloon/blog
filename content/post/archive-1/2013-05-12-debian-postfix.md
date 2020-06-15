@@ -96,7 +96,8 @@ dovecot
 
 安装POP3和IMAP支持
 
-sudo apt-get install dovecot-imapd dovecot-pop3d<span style="color: #000000; font-size: 13px; line-height: 19px;"><br /> </span>
+sudo apt-get install dovecot-imapd dovecot-pop3d<span style="color: #000000; font-size: 13px; line-height: 19px;">
+ </span>
 
 ### dovecot配置
 

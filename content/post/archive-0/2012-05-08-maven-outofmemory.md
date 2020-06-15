@@ -23,7 +23,26 @@ categories:
   </div>
   
   <div>
-    [INFO] Building jar: /home/dl9pf/svn/mindquarry/mindquarry-jcr/mindquarry-jcr-changes/target/mindquarry-migration-with-dependencies.jar<br /> [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br /> [ERROR] FATAL ERROR<br /> [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br /> [INFO] Java heap space<br /> [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br /> [INFO] Trace<br /> java.lang.OutOfMemoryError: Java heap space<br /> at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:99)<br /> at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:518)<br /> &#8230;<br /> at org.codehaus.classworlds.Launcher.launchEnhanced(Launcher.java:315)<br /> at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)<br /> at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)<br /> at org.codehaus.classworlds.Launcher.main(Launcher.java:375)<br /> [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br /> [INFO] Total time: 7 minutes 14 seconds<br /> [INFO] Finished at: Wed Sep 05 07:44:55 CEST 2007<br /> [INFO] Final Memory: 37M/63M<br /> [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+    [INFO] Building jar: /home/dl9pf/svn/mindquarry/mindquarry-jcr/mindquarry-jcr-changes/target/mindquarry-migration-with-dependencies.jar
+ [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [ERROR] FATAL ERROR
+ [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] Java heap space
+ [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] Trace
+ java.lang.OutOfMemoryError: Java heap space
+ at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:99)
+ at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:518)
+ &#8230;
+ at org.codehaus.classworlds.Launcher.launchEnhanced(Launcher.java:315)
+ at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)
+ at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)
+ at org.codehaus.classworlds.Launcher.main(Launcher.java:375)
+ [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] Total time: 7 minutes 14 seconds
+ [INFO] Finished at: Wed Sep 05 07:44:55 CEST 2007
+ [INFO] Final Memory: 37M/63M
+ [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
   </div>
   
   <p>
@@ -61,7 +80,10 @@ categories:
   </div>
   
   <div>
-    E:test>mvn -versionE:test>set MAVEN_OPTS= -Xms128m -Xmx512m<br /> Maven version: 2.0.9<br /> Java version: 1.6.0_07<br /> OS name: "windows 2003&#8221; version: "5.2&#8221; arch: "x86&#8221; Family: "windows&#8221;</p>
+    E:test>mvn -versionE:test>set MAVEN_OPTS= -Xms128m -Xmx512m
+ Maven version: 2.0.9
+ Java version: 1.6.0_07
+ OS name: "windows 2003&#8221; version: "5.2&#8221; arch: "x86&#8221; Family: "windows&#8221;</p>
   </div>
   
   <p>
@@ -80,7 +102,8 @@ categories:
   </div>
   
   <div>
-    MAVEN_OPTS=-Xmx512m<br /> export JAVA_HOME MAVEN_HOME MAVEN_OPTS JAVA_BIN PATH CLASSPATH
+    MAVEN_OPTS=-Xmx512m
+ export JAVA_HOME MAVEN_HOME MAVEN_OPTS JAVA_BIN PATH CLASSPATH
   </div>
   
   <h2>

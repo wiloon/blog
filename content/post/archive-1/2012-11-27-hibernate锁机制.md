@@ -13,7 +13,9 @@ categories:
      <wbr></p> 
     
     <div>
-      hibernate锁机制包括悲观锁和乐观锁<br /> <strong>1.悲观锁：</strong><br /> <wbr> <wbr> <wbr> <wbr> 它指的是对数据被外界修改持保守态度。假定任何时刻存取数据时，都可能有另一个客户也正在</p> 
+      hibernate锁机制包括悲观锁和乐观锁
+ <strong>1.悲观锁：</strong>
+ <wbr> <wbr> <wbr> <wbr> 它指的是对数据被外界修改持保守态度。假定任何时刻存取数据时，都可能有另一个客户也正在</p> 
       
       <p>
         存取同一笔数据，为了保持数据被操作的一致性，于是对数据采取了数据库层次的锁定状态，依靠数
@@ -24,7 +26,8 @@ categories:
       </p>
       
       <p>
-        <wbr> <wbr> <wbr> <wbr> 基于jdbc实现的数据库加锁如下：<br /> <wbr> <wbr> <wbr> <wbr> select * from account where name=&#8221;Erica&#8221; for update.在更新的过程中，数据库处于加锁状
+        <wbr> <wbr> <wbr> <wbr> 基于jdbc实现的数据库加锁如下：
+ <wbr> <wbr> <wbr> <wbr> select * from account where name=&#8221;Erica&#8221; for update.在更新的过程中，数据库处于加锁状
       </p>
       
       <p>
@@ -32,11 +35,20 @@ categories:
       </p>
       
       <p>
-        <wbr> <wbr> <wbr> <wbr> 而hibernate悲观锁的具体实现如下：<br /> <wbr> <wbr> <wbr> <wbr> String sql=&#8221;查询语句&#8221;;<br /> <wbr> <wbr> <wbr> <wbr> Query query=session.createQuery(sql);<br /> <wbr> <wbr> <wbr> <wbr> query.setLockMode("对象&#8221;，LockModel.UPGRADE);
+        <wbr> <wbr> <wbr> <wbr> 而hibernate悲观锁的具体实现如下：
+ <wbr> <wbr> <wbr> <wbr> String sql=&#8221;查询语句&#8221;;
+ <wbr> <wbr> <wbr> <wbr> Query query=session.createQuery(sql);
+ <wbr> <wbr> <wbr> <wbr> query.setLockMode("对象&#8221;，LockModel.UPGRADE);
       </p>
       
       <p>
-        <wbr> <wbr> <wbr> <wbr> 说到这里，就提到了hiernate的加锁模式：<br /> <wbr> <wbr> <wbr> <wbr> LockMode.NONE ： 无锁机制。<br /> <wbr> <wbr> <wbr> <wbr> LockMode.WRITE ：Hibernate在Insert和Update记录的时候会自动获取。<br /> <wbr> <wbr> <wbr> <wbr> LockMode.READ ： Hibernate在读取记录的时候会自动获取。<br /> <wbr> <wbr> <wbr> <wbr> 这三种加锁模式是供hibernate内部使用的，与数据库加锁无关<br /> <wbr> <wbr> <wbr> <wbr> LockMode.UPGRADE：利用数据库的for update字句加锁。<br /> <wbr> <wbr> <wbr> <wbr> 在这里我们要注意的是：只有在查询开始之前（也就是hiernate生成sql语句之前）加锁，才会真
+        <wbr> <wbr> <wbr> <wbr> 说到这里，就提到了hiernate的加锁模式：
+ <wbr> <wbr> <wbr> <wbr> LockMode.NONE ： 无锁机制。
+ <wbr> <wbr> <wbr> <wbr> LockMode.WRITE ：Hibernate在Insert和Update记录的时候会自动获取。
+ <wbr> <wbr> <wbr> <wbr> LockMode.READ ： Hibernate在读取记录的时候会自动获取。
+ <wbr> <wbr> <wbr> <wbr> 这三种加锁模式是供hibernate内部使用的，与数据库加锁无关
+ <wbr> <wbr> <wbr> <wbr> LockMode.UPGRADE：利用数据库的for update字句加锁。
+ <wbr> <wbr> <wbr> <wbr> 在这里我们要注意的是：只有在查询开始之前（也就是hiernate生成sql语句之前）加锁，才会真
       </p>
       
       <p>
@@ -56,11 +68,14 @@ categories:
       </p>
       
       <p>
-        等到数据库解锁我们再进行下面的操作，我们浪费的资源是多少？&#8211;这也就导致了乐观锁的产生。<br /> <strong> <wbr> <wbr> <wbr> 2.乐观锁：<br /> </wbr></wbr></wbr></strong>　乐观锁定（optimistic locking）则乐观的认为资料的存取很少发生同时存取的问题，因而不作数
+        等到数据库解锁我们再进行下面的操作，我们浪费的资源是多少？&#8211;这也就导致了乐观锁的产生。
+ <strong> <wbr> <wbr> <wbr> 2.乐观锁：
+ </wbr></wbr></wbr></strong>　乐观锁定（optimistic locking）则乐观的认为资料的存取很少发生同时存取的问题，因而不作数
       </p>
       
       <p>
-        据库层次上的锁定，为了维护正确的数据，乐观锁定采用应用程序上的逻辑实现版本控制的方法。<br /> 例如若有两个客户端，A客户先读取了账户余额100元，之后B客户也读取了账户余额100元的数据，
+        据库层次上的锁定，为了维护正确的数据，乐观锁定采用应用程序上的逻辑实现版本控制的方法。
+ 例如若有两个客户端，A客户先读取了账户余额100元，之后B客户也读取了账户余额100元的数据，
       </p>
       
       <p>
@@ -68,7 +83,8 @@ categories:
       </p>
       
       <p>
-        取得的资料，100-30将为70余额，若此时再对数据库进行变更，最后的余额就会不正确。<br /> 在不实行悲观锁定策略的情况下，数据不一致的情况一但发生，有几个解决的方法，一种是先更新
+        取得的资料，100-30将为70余额，若此时再对数据库进行变更，最后的余额就会不正确。
+ 在不实行悲观锁定策略的情况下，数据不一致的情况一但发生，有几个解决的方法，一种是先更新
       </p>
       
       <p>
@@ -76,7 +92,8 @@ categories:
       </p>
       
       <p>
-        乐观锁定。<br /> Hibernate 中透过版本号检查来实现后更新为主，这也是Hibernate所推荐的方式，在数据库中加
+        乐观锁定。
+ Hibernate 中透过版本号检查来实现后更新为主，这也是Hibernate所推荐的方式，在数据库中加
       </p>
       
       <p>
@@ -84,7 +101,8 @@ categories:
       </p>
       
       <p>
-        本号与数据库中的版本号，如果大于数据库中的版本号则予以更新，否则就回报错误。<br /> 以刚才的例子，A客户读取账户余额1000元，并连带读取版本号为5的话，B客户此时也读取账号余
+        本号与数据库中的版本号，如果大于数据库中的版本号则予以更新，否则就回报错误。
+ 以刚才的例子，A客户读取账户余额1000元，并连带读取版本号为5的话，B客户此时也读取账号余
       </p>
       
       <p>
@@ -100,7 +118,8 @@ categories:
       </p>
       
       <p>
-        中新的数据并重新进行业务流程才变更数据库。<br /> 以Hibernate实现版本号控制锁定的话，我们的对象中增加一个version属性，例如：
+        中新的数据并重新进行业务流程才变更数据库。
+ 以Hibernate实现版本号控制锁定的话，我们的对象中增加一个version属性，例如：
       </p>
       
       <p>
@@ -204,7 +223,8 @@ categories:
       </p>
       
       <p>
-        让您的客户知道。<br /> <wbr> <wbr> <wbr> <wbr> 但是乐观锁也有不能解决的问题存在：上面已经提到过乐观锁机制的实现往往基于系统中的数据
+        让您的客户知道。
+ <wbr> <wbr> <wbr> <wbr> 但是乐观锁也有不能解决的问题存在：上面已经提到过乐观锁机制的实现往往基于系统中的数据
       </p>
       
       <p>
@@ -220,7 +240,8 @@ categories:
       </p>
       
       <p>
-        也可以在使用Session的load()或是lock()时指定锁定模式以进行锁定。<br /> 如果数据库不支持所指定的锁定模式，Hibernate会选择一个合适的锁定替换，而不是丢出一个例外</wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></div> 
+        也可以在使用Session的load()或是lock()时指定锁定模式以进行锁定。
+ 如果数据库不支持所指定的锁定模式，Hibernate会选择一个合适的锁定替换，而不是丢出一个例外</wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></wbr></div> 
         
         <p>
           </wbr></div> </div>

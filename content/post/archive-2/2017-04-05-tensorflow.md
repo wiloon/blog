@@ -14,7 +14,8 @@ build tensorflow
 
 [code lang=shell]
   
-<br />git clone https://github.com/tensorflow/tensorflow
+
+git clone https://github.com/tensorflow/tensorflow
   
 sudo pacman -S bazel
   

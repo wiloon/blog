@@ -21,7 +21,19 @@ categories:
 <span style="font-size: medium;">内部类被继承<span style="font-family: 'Times New Roman';">,</span>由于内部类有一个指向外围类对象的秘密引用，所以在继承内部类的时候，该秘密引用必须被初始化。解决方法是<span style="font-family: 'Times New Roman';">enclosingClassReference.super();</span>语法，看一下代码：</span>
 
 <p align="left">
-  class Outer<br /> {<br /> class Inner<br /> {<br /> }<br /> }<br /> class AnoClass extends Outer.Inner<br /> {<br /> AnoClass (Outer wi)<br /> {<br /> wi.super();<br /> }<br /> }
+  class Outer
+ {
+ class Inner
+ {
+ }
+ }
+ class AnoClass extends Outer.Inner
+ {
+ AnoClass (Outer wi)
+ {
+ wi.super();
+ }
+ }
 </p>
 
 <span style="font-size: medium;">匿名类（<span style="font-family: 'Times New Roman';">Anonymous Class</span>）</span>
@@ -32,9 +44,13 @@ categories:
 
 <span style="font-size: medium;"><span style="font-family: 'Times New Roman';">f.addMouseMotionListener(new MouseMotionAdapter(){ //</span>匿名类开始</span>
   
-<span style="font-size: medium;">　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">public void mouseDragged(MouseEvent e){<br /> </span>　　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">String s=&#8221;Mouse dragging: x=&#8221;+e.getX()+&#8221;Y=&#8221;+e.getY();<br /> </span>　　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">tf.setText(s); }<br /> </span>　　　　　　<span style="font-family: 'Times New Roman';">} ); //</span>匿名类结束</span>
+<span style="font-size: medium;">　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">public void mouseDragged(MouseEvent e){
+ </span>　　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">String s=&#8221;Mouse dragging: x=&#8221;+e.getX()+&#8221;Y=&#8221;+e.getY();
+ </span>　　　　　　　　</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">tf.setText(s); }
+ </span>　　　　　　<span style="font-family: 'Times New Roman';">} ); //</span>匿名类结束</span>
 
-<span style="font-size: medium;">　　存在它的原因是</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">:<br /> </span>　　<span style="font-family: 'Times New Roman';">1.</span>一个内部类的对象能够访问创建它的对象的实现，包括私有数据。即内部类实例对包含它的哪个类的实例来说，是特权的。</span>
+<span style="font-size: medium;">　　存在它的原因是</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">:
+ </span>　　<span style="font-family: 'Times New Roman';">1.</span>一个内部类的对象能够访问创建它的对象的实现，包括私有数据。即内部类实例对包含它的哪个类的实例来说，是特权的。</span>
   
 <span style="font-size: medium;">　　<span style="font-family: 'Times New Roman';">2.</span>对于同一个包中的其他类来说<span style="font-family: 'Times New Roman';">,</span>内部类能够隐藏起来<span style="font-family: 'Times New Roman';">,</span>换句话说，内部类不管方法的可见性如何，那怕是<span style="font-family: 'Times New Roman';">public</span>，除了包容类，其他类都无法使用它。</span>
   
@@ -44,7 +60,13 @@ categories:
   
 <span style="font-size: medium;">其实它真正的目的仅仅为了定义回调－－进一步就是事件驱动。</span>
 
-<span style="font-size: medium;">　在使用匿名内部类时，要记住以下几个原则：</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';"><br /> </span>　　<span style="font-family: 'Times New Roman';">·</span>匿名内部类不能有构造方法。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';"><br /> </span>　　<span style="font-family: 'Times New Roman';">·</span>匿名内部类不能定义任何静态成员、方法和类。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';"><br /> </span>　　<span style="font-family: 'Times New Roman';">·</span>匿名内部类不能是<span style="font-family: 'Times New Roman';">public,protected,private,static</span>。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';"><br /> </span>　　<span style="font-family: 'Times New Roman';">·</span>只能创建匿名内部类的一个实例。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';"><br /> ·</span>一个匿名内部类一定是在<span style="font-family: 'Times New Roman';">new</span>的后面，用其隐含实现一个接口或实现一个类。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';"><br /> </span>　　<span style="font-family: 'Times New Roman';">·</span>因匿名内部类为局部内部类，所以局部内部类的所有限制都对其生效。<span style="font-family: 'Times New Roman';">  </span></span>
+<span style="font-size: medium;">　在使用匿名内部类时，要记住以下几个原则：</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">
+ </span>　　<span style="font-family: 'Times New Roman';">·</span>匿名内部类不能有构造方法。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">
+ </span>　　<span style="font-family: 'Times New Roman';">·</span>匿名内部类不能定义任何静态成员、方法和类。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">
+ </span>　　<span style="font-family: 'Times New Roman';">·</span>匿名内部类不能是<span style="font-family: 'Times New Roman';">public,protected,private,static</span>。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">
+ </span>　　<span style="font-family: 'Times New Roman';">·</span>只能创建匿名内部类的一个实例。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">
+ ·</span>一个匿名内部类一定是在<span style="font-family: 'Times New Roman';">new</span>的后面，用其隐含实现一个接口或实现一个类。</span><span style="font-size: medium;"><span style="font-family: 'Times New Roman';">
+ </span>　　<span style="font-family: 'Times New Roman';">·</span>因匿名内部类为局部内部类，所以局部内部类的所有限制都对其生效。<span style="font-family: 'Times New Roman';">  </span></span>
 
 <span style="font-size: medium;">匿名类和内部类中的中的<span style="font-family: 'Times New Roman';">this :</span></span>
   

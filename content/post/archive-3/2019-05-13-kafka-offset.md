@@ -64,7 +64,8 @@ There is a side benefit of this decision. A consumer can deliberately rewind bac
 
 <ol start="2">
   <li>
-    auto.commit.enable（例如true，表示offset自动提交到Zookeeper）<br /> If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer. This committed offset will be used when the process fails as the position from which the new consumer will begin
+    auto.commit.enable（例如true，表示offset自动提交到Zookeeper）
+ If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer. This committed offset will be used when the process fails as the position from which the new consumer will begin
   </li>
 </ol>
 
@@ -72,7 +73,8 @@ There is a side benefit of this decision. A consumer can deliberately rewind bac
 
 <ol start="3">
   <li>
-    auto.commit.interval.ms(例如60000,每隔1分钟offset提交到Zookeeper)<br /> The frequency in ms that the consumer offsets are committed to zookeeper.
+    auto.commit.interval.ms(例如60000,每隔1分钟offset提交到Zookeeper)
+ The frequency in ms that the consumer offsets are committed to zookeeper.
   </li>
 </ol>
 
@@ -90,7 +92,8 @@ Select where offsets should be stored (zookeeper or kafka).默认是Zookeeper
 
 <ol start="5">
   <li>
-    基于offset的重复读<br /> The Kafka consumer works by issuing "fetch&#8221; requests to the brokers leading the partitions it wants to consume. The consumer specifies its offset in the log with each request and receives back a chunk of log beginning from that position. The consumer thus has significant control over this position and can rewind it to re-consume data if need be.
+    基于offset的重复读
+ The Kafka consumer works by issuing "fetch&#8221; requests to the brokers leading the partitions it wants to consume. The consumer specifies its offset in the log with each request and receives back a chunk of log beginning from that position. The consumer thus has significant control over this position and can rewind it to re-consume data if need be.
   </li>
 </ol>
 

@@ -57,11 +57,13 @@ categories:
     </p>
     
     <p>
-      <span style="font-family: Verdana;">二、 truncate是DDL語言.<br /> delete是DML語言</span>
+      <span style="font-family: Verdana;">二、 truncate是DDL語言.
+ delete是DML語言</span>
     </p>
     
     <p>
-      DDL語言是自動提交的.<br /> 命令完成就不可回滾.
+      DDL語言是自動提交的.
+ 命令完成就不可回滾.
     </p>
     
     <p>
@@ -81,7 +83,9 @@ categories:
     </p>
     
     <p>
-      <span style="font-family: Verdana;">当你不再需要该表时， 用 drop;<br /> 当你仍要保留该表，但要删除所有记录时， 用 truncate;<br /> 当你要删除部分记录时（always with a WHERE clause), 用 delete.</span>
+      <span style="font-family: Verdana;">当你不再需要该表时， 用 drop;
+ 当你仍要保留该表，但要删除所有记录时， 用 truncate;
+ 当你要删除部分记录时（always with a WHERE clause), 用 delete.</span>
     </p>
   </div>
 </div>

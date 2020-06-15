@@ -8,19 +8,28 @@ categories:
   - Uncategorized
 
 ---
-<pre><span style="color: #ff0000;"> ServletContext context = getServletContext();</span><br />
-<span style="color: #ff0000;"> context.setAttribute("attrName", "attrValue");</span><br />
+<pre><span style="color: #ff0000;"> ServletContext context = getServletContext();</span>
+
+<span style="color: #ff0000;"> context.setAttribute("attrName", "attrValue");</span>
+
 [java]</p>
 
 
 <p>
-  import javax.servlet.ServletContext;<br />
-  import javax.servlet.ServletException;<br />
-  import javax.servlet.http.HttpServlet;<br />
-  import javax.servlet.http.HttpServletRequest;<br />
-  import javax.servlet.http.HttpServletResponse;<br />
-  import java.io.IOException;<br />
-  import java.io.PrintWriter;<br />
+  import javax.servlet.ServletContext;
+
+  import javax.servlet.ServletException;
+
+  import javax.servlet.http.HttpServlet;
+
+  import javax.servlet.http.HttpServletRequest;
+
+  import javax.servlet.http.HttpServletResponse;
+
+  import java.io.IOException;
+
+  import java.io.PrintWriter;
+
   import java.util.Enumeration;
 </p>
 
@@ -36,103 +45,130 @@ categories:
 
 
 <p>
-  public HelloWorld() {<br />
-   System.out.println("servlet.helloWorld.constructor");<br />
+  public HelloWorld() {
+
+   System.out.println("servlet.helloWorld.constructor");
+
    }
 </p>
 
 
 <p>
-  public void init() {<br />
-   System.out.println("servlet.helloWorld.init.");<br />
+  public void init() {
+
+   System.out.println("servlet.helloWorld.init.");
+
    }
 </p>
 
 
 <p>
-  public void destroy() {<br />
-   System.out.println("servlet.helloWorld.destroy.");<br />
+  public void destroy() {
+
+   System.out.println("servlet.helloWorld.destroy.");
+
    }
 </p>
 
 
 <p>
-  public void doGet(HttpServletRequest request, HttpServletResponse response)<br />
-   throws ServletException, IOException {<br />
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+
+   throws ServletException, IOException {
+
    System.out.println("servlet.helloWorld.doGet.start");
 </p>
 
 
 <p>
-  // get, query string<br />
+  // get, query string
+
    String queryString = request.getQueryString();
 </p>
 
 
 <p>
-  // header name<br />
+  // header name
+
    printHeaderName(request);
 </p>
 
 
 <p>
-  // get parameter<br />
+  // get parameter
+
    System.out.println("parameter.foo= " + request.getParameter("foo"));
 </p>
 
 
 <p>
-  // query string<br />
+  // query string
+
    System.out.println("query string: " + queryString);
 </p>
 
 
 <p>
-  // character encoding<br />
+  // character encoding
+
    System.out.println("encoding: " + request.getCharacterEncoding());
 </p>
 
 
 <p>
-  //init param<br />
+  //init param
+
    System.out.println("init param: " + getInitParameter("ipn"));
 </p>
 
 
 <p>
-  //set context attribute<br />
-   ServletContext context = getServletContext();<br />
+  //set context attribute
+
+   ServletContext context = getServletContext();
+
    context.setAttribute("attrName", "attrValue");
 </p>
 
 
 <p>
-  response.setContentType("text/html");<br />
-   PrintWriter out = response.getWriter();<br />
-   out.println("<html><head><title>");<br />
-   out.println("This is my first Servlet");<br />
-   out.println("</title></head><body>");<br />
-   out.println("<h1>Hello,World!, Servlet!</h1>");<br />
+  response.setContentType("text/html");
+
+   PrintWriter out = response.getWriter();
+
+   out.println("<html><head><title>");
+
+   out.println("This is my first Servlet");
+
+   out.println("</title></head><body>");
+
+   out.println("<h1>Hello,World!, Servlet!</h1>");
+
    out.println("</body></html>");
 </p>
 
 
 <p>
-  System.out.println("servlet.helloWorld.doGet.end");<br />
+  System.out.println("servlet.helloWorld.doGet.end");
+
    }
 </p>
 
 
 <p>
-  private void printHeaderName(HttpServletRequest request) {<br />
+  private void printHeaderName(HttpServletRequest request) {
+
    Enumeration enumstr = request.getHeaderNames();
 </p>
 
 
 <p>
-  while (enumstr.hasMoreElements()) {<br />
-   String name = (String) enumstr.nextElement();<br />
-   System.out.println("header: " + name + " = "<br />
+  while (enumstr.hasMoreElements()) {
+
+   String name = (String) enumstr.nextElement();
+
+   System.out.println("header: " + name + " = "
+
    + request.getHeader(name));
 </p>
 
@@ -148,11 +184,16 @@ categories:
 
 
 <p>
-  public void doPost(HttpServletRequest request, HttpServletResponse response)<br />
-   throws ServletException, IOException {<br />
-   // post, request form<br />
-   // String form = request.get;<br />
-   }<br />
+  public void doPost(HttpServletRequest request, HttpServletResponse response)
+
+   throws ServletException, IOException {
+
+   // post, request form
+
+   // String form = request.get;
+
+   }
+
   }
 </p>
 

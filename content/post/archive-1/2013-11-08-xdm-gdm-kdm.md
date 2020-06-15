@@ -11,7 +11,9 @@ tags:
 
 ---
 <div id="blog_content">
-     gdm &#8212; GNOME Display Manager<br /> kdm &#8212; KDE Display Manager<br /> xdm &#8211; X Display Manager</p> 
+     gdm &#8212; GNOME Display Manager
+ kdm &#8212; KDE Display Manager
+ xdm &#8211; X Display Manager</p> 
   
   <p>
     1、我们先不讨论xdm/gdm/kdm这些东西。而是先看看启动X最直接的方式。首先来认识两个重要的文件，一个是X视窗启动文件&#8211;xinitrc，另外一个就是X视窗资源文件&#8211;Xdefaults.
@@ -22,7 +24,9 @@ tags:
   </p>
   
   <p>
-    事实上，我们一般执行startx来启动X Window System，其中startx就是xinit的前端界面[front-end].倘若我们以startx或xinit启动X，这指令会启动X server并且会执行$HOME/.xinitrc文件内的所设置的指令。倘若 $HOME没有这个文件，则系统会使用内定的的配置文件/etc/X11/xinit/xinitrc。而事实上xinitrc文件一般只包含有启动X时所要执行clients的shell script,里面定义一些指令和shell script，让X启动时，可以遵照里面的shell script来启动必要的应用程序。<br /> 例如我的简单而又实用的的$HOME/.xinitrc的内容如下：<br /> 代码:
+    事实上，我们一般执行startx来启动X Window System，其中startx就是xinit的前端界面[front-end].倘若我们以startx或xinit启动X，这指令会启动X server并且会执行$HOME/.xinitrc文件内的所设置的指令。倘若 $HOME没有这个文件，则系统会使用内定的的配置文件/etc/X11/xinit/xinitrc。而事实上xinitrc文件一般只包含有启动X时所要执行clients的shell script,里面定义一些指令和shell script，让X启动时，可以遵照里面的shell script来启动必要的应用程序。
+ 例如我的简单而又实用的的$HOME/.xinitrc的内容如下：
+ 代码:
   </p>
   
   <div id="">
@@ -71,11 +75,13 @@ tags:
   </p>
   
   <p>
-    [2]X视窗资源文件&#8211;Xdefaults<br /> 在X的文献中，resources有两种意义。第一种是指被server管理或建立桌面应用程序使用的东西，例如：视窗、光标、字体等均属于这种意义。另外的一种又是指一种可以传递预设置值、参数和其它值给应用程序的方法，比如，可以定义视窗的大小、前景颜色、显示字体、快捷键等。而在X Window System的操作应用过程中，泛指的resources的意义也局限于第二种，主要是采用resources功能。在X Window System 的资源文件Xdefaults中，主要是设置合适自己喜欢的应用程序的操作操控环境或界面。一般会执行X后，会自动读取$ HOME/.Xdefaults.
+    [2]X视窗资源文件&#8211;Xdefaults
+ 在X的文献中，resources有两种意义。第一种是指被server管理或建立桌面应用程序使用的东西，例如：视窗、光标、字体等均属于这种意义。另外的一种又是指一种可以传递预设置值、参数和其它值给应用程序的方法，比如，可以定义视窗的大小、前景颜色、显示字体、快捷键等。而在X Window System的操作应用过程中，泛指的resources的意义也局限于第二种，主要是采用resources功能。在X Window System 的资源文件Xdefaults中，主要是设置合适自己喜欢的应用程序的操作操控环境或界面。一般会执行X后，会自动读取$ HOME/.Xdefaults.
   </p>
   
   <p>
-    呵呵，在xterm视窗中按有一个小技巧：你按住Ctrl+鼠标右键会跳出一些字体等设置的东西，按住Ctrl+鼠标左键会跳出显示xterm应用程序的主菜单。另外，除了.Xdefaults资源可用处，还有一些应用程序会自己产生的的资源文件，一般放在<br /> /usr/XR116/lib/X11/app-defaults中，并以这些程序名称的大写文件名命名。比如，Xclok时钟程序的资源文件就是Xclock。其它的你自己看一下就会明白了。你可以直接修改这些应用程序的的资源文件，作为系统内定的应用程序的样式。不一定都要非得修改. Xdefaults来完成。因为.Xdefaults通常是个人爱好而使用环境来设置的东西。
+    呵呵，在xterm视窗中按有一个小技巧：你按住Ctrl+鼠标右键会跳出一些字体等设置的东西，按住Ctrl+鼠标左键会跳出显示xterm应用程序的主菜单。另外，除了.Xdefaults资源可用处，还有一些应用程序会自己产生的的资源文件，一般放在
+ /usr/XR116/lib/X11/app-defaults中，并以这些程序名称的大写文件名命名。比如，Xclok时钟程序的资源文件就是Xclock。其它的你自己看一下就会明白了。你可以直接修改这些应用程序的的资源文件，作为系统内定的应用程序的样式。不一定都要非得修改. Xdefaults来完成。因为.Xdefaults通常是个人爱好而使用环境来设置的东西。
   </p>
   
   <p>
@@ -297,7 +303,8 @@ tags:
   </p>
   
   <p>
-    这个大家都会了吧。最简单的就是选择X Window Manager中的exit或logout或相关的就可以了。<br /> 呵呵，还记前面介绍的个#HOME/.xinitrc文件吧，是就在结束.xinitrc文件吧，执行了一个叫exec kde3的程序，这样的好处就是结束X Window Manager的时候，会连同x-server一起结束。另外的就是按CRTL+ALT+Backspace来结束你的X Window Manager吧，它就是把中断信号送给X-server结束X回到console terminal。
+    这个大家都会了吧。最简单的就是选择X Window Manager中的exit或logout或相关的就可以了。
+ 呵呵，还记前面介绍的个#HOME/.xinitrc文件吧，是就在结束.xinitrc文件吧，执行了一个叫exec kde3的程序，这样的好处就是结束X Window Manager的时候，会连同x-server一起结束。另外的就是按CRTL+ALT+Backspace来结束你的X Window Manager吧，它就是把中断信号送给X-server结束X回到console terminal。
   </p>
   
   <p>
@@ -313,15 +320,23 @@ tags:
   </p>
   
   <p>
-    0. 前言<br /> 我拿到了FreeBSD 5.1后，就赶紧安装了起来。5.1版本的兼容性和硬件支持确实不错，在我的计算机上很顺利地就安装好了。<br /> 由于我是预备把FreeBSD用作开发工作站，图形化的界面自然会比较轻易使用一些。我安装X-Window底层支持，和KDE、GNOME这两大窗口管理器。通过设置“.xinitrc”文件，也能够在KDE和GNOME之间换来换去。但是总感觉不那么自然和彻底。看过了Linux发行版的窗口界面，知 道了Display Manager，这才开始熟悉了DM三兄弟。假如你已经安装了X-Server、KDE和GNOME，它们就已经在你的系统里了。没有的话，…。
+    0. 前言
+ 我拿到了FreeBSD 5.1后，就赶紧安装了起来。5.1版本的兼容性和硬件支持确实不错，在我的计算机上很顺利地就安装好了。
+ 由于我是预备把FreeBSD用作开发工作站，图形化的界面自然会比较轻易使用一些。我安装X-Window底层支持，和KDE、GNOME这两大窗口管理器。通过设置“.xinitrc”文件，也能够在KDE和GNOME之间换来换去。但是总感觉不那么自然和彻底。看过了Linux发行版的窗口界面，知 道了Display Manager，这才开始熟悉了DM三兄弟。假如你已经安装了X-Server、KDE和GNOME，它们就已经在你的系统里了。没有的话，…。
   </p>
   
   <p>
-    1. XDM<br /> 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行：<br /> 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm off secure 中的off改为on。<br /> 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。<br /> XDM确实够丑的，相信没有人想多看两眼的。裁判，换人！
+    1. XDM
+ 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行：
+ 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm off secure 中的off改为on。
+ 代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon&#8221; xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。
+ XDM确实够丑的，相信没有人想多看两眼的。裁判，换人！
   </p>
   
   <p>
-    2. KDM<br /> 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为：<br /> 代码: ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件“/usr/X11R6/lib/X11/xdm/Xsession”。把中间的这段文字，
+    2. KDM
+ 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为：
+ 代码: ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件“/usr/X11R6/lib/X11/xdm/Xsession”。把中间的这段文字，
   </p>
   
   <div id="">
@@ -417,11 +432,15 @@ tags:
   </div>
   
   <p>
-    如此目标识别已加载，让我们重新开始吧。<br /> 慢点，还有一个地方需要修改一下。用root进入KDE中，找到“Login Manager”，在“Sessions”页下的“New Type”中，“kde”项已经有了，只要增加“gnome”，顺便再调整一下顺序吧。<br /> 好了，现在再次重起系统，感觉如何？KDM还是很能干的。
+    如此目标识别已加载，让我们重新开始吧。
+ 慢点，还有一个地方需要修改一下。用root进入KDE中，找到“Login Manager”，在“Sessions”页下的“New Type”中，“kde”项已经有了，只要增加“gnome”，顺便再调整一下顺序吧。
+ 好了，现在再次重起系统，感觉如何？KDM还是很能干的。
   </p>
   
   <p>
-    3. GDM<br /> 老三GDM的大名，早有耳闻，在Linux家里也见到过，但把它请到咱FreeBSD家里来，我可是花了三个晚上，敲了无数次的门，才让它露出了真容。下面就是它提出来的条件。<br /> 第一点，GDM好贱，需要一个特定的系统的账户，据说是为了安全。
+    3. GDM
+ 老三GDM的大名，早有耳闻，在Linux家里也见到过，但把它请到咱FreeBSD家里来，我可是花了三个晚上，敲了无数次的门，才让它露出了真容。下面就是它提出来的条件。
+ 第一点，GDM好贱，需要一个特定的系统的账户，据说是为了安全。
   </p>
   
   <div id="">
@@ -442,7 +461,8 @@ tags:
   </div>
   
   <p>
-    如此，新建了一个gdm的Group，GID是42，一个gdm的User，UID是42。GID和UID，必须是没有被系统中其它账号占用，假如已被占 用，改用其它小于1000的。<br /> 第二点，GDM需要一个有安全门的单间，还得过户到它的名下。
+    如此，新建了一个gdm的Group，GID是42，一个gdm的User，UID是42。GID和UID，必须是没有被系统中其它账号占用，假如已被占 用，改用其它小于1000的。
+ 第二点，GDM需要一个有安全门的单间，还得过户到它的名下。
   </p>
   
   <div id="">
@@ -466,7 +486,12 @@ tags:
   </div>
   
   <p>
-    第三点，拉拉关系，搞好配置。这得修改 “/usr/X11R6/share/gnome/gdm/gdm.conf”才行，<br /> ServAuthDir=/usr/X11R6/share/gnome/gdm 改为：<br /> ServAuthDir=/var/gdm<br /> 再改Greeter=/usr/X11R6/bin/gdmlogin 为：<br /> Greeter=/usr/X11R6/bin/gdmgreeter<br /> 另外，下面的这三行，是true还是改成false，随便你了。
+    第三点，拉拉关系，搞好配置。这得修改 “/usr/X11R6/share/gnome/gdm/gdm.conf”才行，
+ ServAuthDir=/usr/X11R6/share/gnome/gdm 改为：
+ ServAuthDir=/var/gdm
+ 再改Greeter=/usr/X11R6/bin/gdmlogin 为：
+ Greeter=/usr/X11R6/bin/gdmgreeter
+ 另外，下面的这三行，是true还是改成false，随便你了。
   </p>
   
   <div id="">
@@ -529,7 +554,11 @@ tags:
   </div>
   
   <p>
-    第五点，现在该给老三让位了。用gdm替换kdm，这又要改“/etc/ttys”中的<br /> ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 为：<br /> ttyv8 "/usr/X11R6/bin/gdm -nodaemon&#8221; xterm on secure<br /> 做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。<br /> 辛劳的工作，由漂亮的DM开始，心情真好！
+    第五点，现在该给老三让位了。用gdm替换kdm，这又要改“/etc/ttys”中的
+ ttyv8 "/usr/local/bin/kdm -nodaemon&#8221; xterm on secure 为：
+ ttyv8 "/usr/X11R6/bin/gdm -nodaemon&#8221; xterm on secure
+ 做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。
+ 辛劳的工作，由漂亮的DM开始，心情真好！
   </p>
 </div>
 

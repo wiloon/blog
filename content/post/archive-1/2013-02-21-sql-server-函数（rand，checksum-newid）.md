@@ -62,11 +62,13 @@ tags:
   <pre>语法：CHECKSUM <b>(</b> * | <i>expression </i>[ <b>,</b>...<i>n</i> ] <b>)</b></pre>
   
   <p>
-    *<br /> 指定对表的所有列进行计算。如果有任一列是非可比数据类型，则 CHECKSUM 返回错误。非可比数据类型有 text、ntext、image、XML 和 cursor，还包括以上述任一类型作为基类型的 sql_variant。
+    *
+ 指定对表的所有列进行计算。如果有任一列是非可比数据类型，则 CHECKSUM 返回错误。非可比数据类型有 text、ntext、image、XML 和 cursor，还包括以上述任一类型作为基类型的 sql_variant。
   </p>
   
   <p>
-    expression<br /> 除非可比数据类型之外的任何类型的表达式。
+    expression
+ 除非可比数据类型之外的任何类型的表达式。
   </p>
   
   <p>
@@ -120,7 +122,8 @@ tags:
   </p>
   
   <p>
-    SELECT TOP 10 * FROM Customers<br /> ORDER BY RAND()*CHECKSUM(NEWID())
+    SELECT TOP 10 * FROM Customers
+ ORDER BY RAND()*CHECKSUM(NEWID())
   </p>
   
   <p>
