@@ -42,7 +42,7 @@ ALTER TABLE testalter_tbl DROP PRIMARY KEY;
   
 ALTER TABLE testalter_tbl DROP INDEX c;
   
-[/code]
+```
 
 SHOW INDEX FROM table_name;
   

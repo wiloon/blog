@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 sudo pacman -Syu
   
@@ -24,6 +24,6 @@ lsmod | grep tun
   
 tun 28672 0
   
-[/code]
+```
 
 https://bbs.archlinux.org/viewtopic.php?id=184992

@@ -23,7 +23,8 @@ docker run -v $OVPN_DATA:/etc/openvpn -p 1194:1194/udp --privileged -e DEBUG=1 k
 
 ```
 
-```bashserver 192.168.255.0 255.255.255.0
+```bash
+server 192.168.255.0 255.255.255.0
 verb 3
 key /etc/openvpn/pki/private/xxxx.key
 ca /etc/openvpn/pki/ca.crt

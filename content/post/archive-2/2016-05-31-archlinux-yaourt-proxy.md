@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 rsync -azP source dest
   
-[/code]
+```
 
 -z选项，压缩传输的文件：
   
@@ -26,7 +26,7 @@ Rsync，代表“remote sync”，它是本地和远程主机文件同步工具�
 
 我们创建两个测试目录和一些文件：
 
-[code lang=shell]
+```bash
   
 mkdir d1
   
@@ -44,7 +44,7 @@ rsync -anv dir1/ dir2
 
 \# 注意上面的dir1/中的“／”不能少，它代表同步目录下文件， 如果没有“/” 代表同步这个目录。
 
-[/code]
+```
 
 和远程主机进行同步目录
 

@@ -14,7 +14,8 @@ categories:
 ---
 ### mount iso
 
-```bashsudo mkdir /mnt/iso
+```bash
+sudo mkdir /mnt/iso
 sudo mount -o loop /path/to/my-iso-image.iso /mnt/iso
 ls -l /mnt/iso/
 sudo umount /mnt/iso/

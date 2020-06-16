@@ -225,7 +225,10 @@ categories:
   
   
     Tshark
-  
+```bash
+sudo pacman -S wireshark-cli
+#安装后可以使用 tshark 命令
+```
   
   
     详细参数参见tshark的<a href="http://www.wireshark.org/docs/man-pages/tshark.html" target="_blank">manpage</a>。

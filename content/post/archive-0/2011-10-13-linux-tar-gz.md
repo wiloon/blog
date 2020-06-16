@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-[code lang=shell]
+```bash
   
 解包：tar xvf FileName.tar
   
@@ -20,7 +20,7 @@ categories:
   
 \# 注：tar是打包，不是压缩！
 
-[/code]
+```
 
 必要参数有如下：
   

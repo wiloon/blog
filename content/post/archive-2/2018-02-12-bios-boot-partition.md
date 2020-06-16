@@ -10,7 +10,7 @@ categories:
 ---
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks/zh-cn
 
-[code lang=shell]
+```bash
   
 (parted)mkpart primary 1 3
   
@@ -20,7 +20,7 @@ https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks/zh-cn
   
 (parted)print
   
-[/code]
+```
 
 https://www.cnblogs.com/f-ck-need-u/p/7084627.html
   

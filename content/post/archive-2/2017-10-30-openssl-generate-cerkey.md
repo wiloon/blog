@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 \# openssl 解密
   
@@ -26,7 +26,7 @@ openssl genrsa -out pri2048.key 2048
   
 openssl rsa -inform PEM -outform PEM -in pri2048.key -out pub2048.key -pubout
   
-[/code]
+```
 
 https://github.com/denji/golang-tls
 

@@ -10,7 +10,8 @@ tags:
   - Raspberry Pi
 
 ---
-```bashsudo apt-get install omxplayer
+```bash
+sudo apt-get install omxplayer
 sudo apt-get install fonts-wqy-zenhei
 sudo apt-get install ttf-freefont
 

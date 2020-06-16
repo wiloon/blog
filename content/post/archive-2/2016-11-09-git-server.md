@@ -82,7 +82,7 @@ warning: You appear to have cloned an empty repository.
   
 要像SVN那样变态地控制权限，用Gitolite。
 
-[code lang=shell]
+```bash
   
 sudo useradd -m -s /bin/bash git
   
@@ -100,6 +100,6 @@ git init &#8211;bare sample.git
   
 git clone git@localhost:/path/to/sample.git
   
-[/code]
+```
 
 http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000

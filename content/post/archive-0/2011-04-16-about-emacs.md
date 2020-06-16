@@ -26,7 +26,7 @@ Xft.hintstyle: hintfull
 
 之后在~/.emacs下面加入
 
-[code lang=shell]
+```bash
   
 (custom-set-variables
    
@@ -178,7 +178,7 @@ version-control t) ;多次备份
   
 (setq column-number-mode t) 
 
-[/code]
+```
 
 http://murphytalk.github.io/posts/2005/03/03/gai-bian-emacschuang-kou-biao-ti-ge-shi/#.WJpliCFNzWU
   

@@ -30,7 +30,8 @@ xargs可以将输入内容（通常通过命令行管道传递），转成后续
 
 首先，创建4个文件用来做实验。
 
-```bashtouch a.js b.js c.js d.js
+```bash
+touch a.js b.js c.js d.js
 ```
 
 然后运行如下命令：

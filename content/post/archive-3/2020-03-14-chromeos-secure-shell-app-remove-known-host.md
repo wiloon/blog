@@ -16,5 +16,6 @@ https://medium.com/code-kings/secure-shell-removing-known-host-by-index-when-cha
   
 在Console中执行
 
-```bashterm_.command.removeKnownHostByIndex(YOUR_INDEX_NUMBER_HERE);
+```bash
+term_.command.removeKnownHostByIndex(YOUR_INDEX_NUMBER_HERE);
 ```

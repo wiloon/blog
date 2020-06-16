@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 git init
   
@@ -24,7 +24,7 @@ git remote add origin https://github.com/superRaytin/alipay-app-ui.git
   
 git push -u origin master -f
   
-[/code]
+```
 
 http://leonshi.com/2016/02/01/add-existing-project-to-github/
   

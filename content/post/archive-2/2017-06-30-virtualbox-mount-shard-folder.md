@@ -10,7 +10,7 @@ categories:
 ---
 https://wiki.archlinux.org/index.php/VirtualBox#Shared\_Folders\_as\_Arch\_Linux_Guest
 
-[code lang=shell]
+```bash
   
 #manual
   
@@ -22,4 +22,4 @@ mount -t vboxsf xxx /mnt/xxx/
   
 sharedFolderName /path/to/mntPtOnGuestMachine vboxsf uid=user,gid=group,rw,dmode=700,fmode=600,comment=systemd.automount 0 0
   
-[/code]
+```

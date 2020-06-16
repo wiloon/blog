@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db
   
@@ -76,7 +76,7 @@ sudo ip addr add 192.168.1.11/24 broadcast 192.168.1.255 dev enp0s31f6
 
 tftp -v -m binary 192.168.1.1 -c put lede-17.01.4-ipq806x-R7800-squashfs-factory.img
 
-[/code]
+```
 
 https://forum.lede-project.org/t/netgear-r7800-only-19mb-flash-available/1115
   
@@ -86,8 +86,8 @@ https://kb.netgear.com/22688/How-to-upload-firmware-to-a-NETGEAR-router-using-TF
 
 http://www.right.com.cn/forum/thread-144853-1-1.html
 
-[code lang=shell]
+```bash
   
 cat /proc/mtd
   
-[/code]
+```

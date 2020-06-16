@@ -10,7 +10,8 @@ tags:
   - linux
 
 ---
-```bashsudo mkfs.msdos -F 32 /dev/sdx1
+```bash
+sudo mkfs.msdos -F 32 /dev/sdx1
 mkfs.ntfs -Q -L diskLabel /dev/sdXY
 
 #查看文件系统备份Superblock

@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 mount tmpfs /tmp -t tmpfs -o size=1024m
   
-[/code]
+```
 
 把内存当硬盘，提速你的linux系统
 

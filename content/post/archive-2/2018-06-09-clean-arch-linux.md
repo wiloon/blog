@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 sudo pacman -R $(pacman -Qtdq)
 
@@ -22,6 +22,6 @@ sudo pacman -S ncdu
   
 sudo pacman -S filelight
   
-[/code]
+```
 
 https://www.youtube.com/watch?v=3OoMvyHYWDY

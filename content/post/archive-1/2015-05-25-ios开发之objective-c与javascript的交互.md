@@ -465,7 +465,7 @@ System.out.println("main over");
   
 }
 
-[/code]
+```
 
 最终线程会打印出thread over.true。这说明线程如果因为调用park而阻塞的话，能够响应中断请求(中断状态被设置成true)，但是不会抛出InterruptedException。
 

@@ -8,10 +8,10 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 time dd if=/dev/zero of=test.dbf bs=8k count=300000 oflag=direct
   
-[/code]
+```
 
 http://blog.csdn.net/zqtsx/article/details/25487185

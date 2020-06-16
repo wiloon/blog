@@ -16,7 +16,7 @@ mysql> SELECT CONCAT(’My’, ‘S’, ‘QL’);
   
 -> ‘MySQL’
   
-[/code]
+```
 
 mysql CONCAT（）函数用于将多个字符串连接成一个字符串
 

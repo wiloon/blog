@@ -8,13 +8,13 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 vmc start dev
   
 run\_container.sh &#8211;container\_name=stretch &#8211;user=wiloon &#8211;shell
   
-[/code]
+```
 
 switch to dev channel, chrome os version >=67
   

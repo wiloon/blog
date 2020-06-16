@@ -132,7 +132,7 @@ lock.unlock();
   
 }
   
-[/code]
+```
 
 在Condition中，用await()替换wait()，用signal()替换notify()，用signalAll()替换notifyAll()，传统线程的通信方式，Condition都可以实现，这里注意，Condition是被绑定到Lock上的，要创建一个Lock的Condition必须用newCondition()方法。
 
@@ -208,7 +208,7 @@ lock.unlock();
    
 }
   
-[/code]
+```
 
 这是一个处于多线程工作环境下的缓存区，缓存区提供了两个方法，put和take，put是存数据，take是取数据，内部有个缓存队列，具体变量和方法说明见代码，这个缓存区类实现的功能：有多个线程往里面存数据和从里面取数据，其缓存队列(先进先出后进后出)能缓存的最大数值是100，多个线程间是互斥的，当缓存队列中存储的值达到100时，将写线程阻塞，并唤醒读线程，当缓存队列中存储的值为0时，将读线程阻塞，并唤醒写线程，这也是ArrayBlockingQueue的内部实现。下面分析一下代码的执行过程：
           
@@ -301,7 +301,7 @@ thread1.start();
   
 }
   
-[/code]
+```
 
 运行后，结果如下：
 

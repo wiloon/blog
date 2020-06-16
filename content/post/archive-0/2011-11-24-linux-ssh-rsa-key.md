@@ -14,7 +14,8 @@ categories:
 ---
 在~/.ssh目录下生产私匙id\_rsa和公匙id\_rsa.pub文件
 
-```bashssh-keygen -t rsa
+```bash
+ssh-keygen -t rsa
 ssh-keygen -t rsa -b 4096
 # -t type 指定要创建的密钥类型。可以使用："rsa1"(SSH-1) "rsa"(SSH-2) "dsa"(SSH-2)
 

@@ -10,7 +10,7 @@ categories:
 ---
 https://www.cyberciti.biz/faq/ping-test-a-specific-port-of-machine-ip-address-using-linux-unix/
 
-[code lang=shell]
+```bash
   
 \# check for tcp port ##
   
@@ -26,4 +26,4 @@ echo >/dev/tcp/{host}/{port}
   
 (echo >/dev/tcp/www.cyberciti.biz/443) &>/dev/null && echo "Open 443" || echo "Close 443"
 
-[/code]
+```

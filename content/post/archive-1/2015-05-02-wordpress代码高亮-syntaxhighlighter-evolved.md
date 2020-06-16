@@ -305,7 +305,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
       <code>[@css autolinks="false" classname="myclass" collapse="false" firstline="1" gutter="true" highlight="1-3,6,9" htmlscript="false" light="false" padlinenumbers="false" smarttabs="true" tabsize="4" toolbar="true" title="example-filename.php"]这里写你的代码[/css]</code>
     </li>
     <li>
-      <code>[@code lang="js"]这里写你的代码[/code]</code>
+      <code>[@code lang="js"]这里写你的代码```</code>
     </li>
     <li>
       <code>[@sourcecode language="plain"]这里写你的代码[/sourcecode]</code>

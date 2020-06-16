@@ -33,7 +33,8 @@ sudo echo 0 &gt; /sys/class/gpio/gpio17/value
 sudo echo 17 &gt; /sys/class/gpio/unexport
 ```
 
-```bashsudo vim ledonoff.sh
+```bash
+sudo vim ledonoff.sh
 echo $1 &gt; /sys/class/gpio/export
 echo out &gt; /sys/class/gpio/gpio$1/direction
 echo 1 &gt; /sys/class/gpio/gpio$1/value

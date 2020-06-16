@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-[code lang=shell]
+```bash
   
 #查看命令别名
   
@@ -18,7 +18,7 @@ type ll
   
 unalias ll
 
-[/code]
+```
 
 我们在使用linux过程中，每个命令后都要跟一些参数，可是对于常用的参数假如每次都是手动的添加就是显得麻烦些了。linux 可能通过命令别名的功能来减少您的输入，请下面操作就明白了。
   

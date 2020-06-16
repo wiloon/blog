@@ -23,7 +23,8 @@ Include = /etc/pacman.d/mirrorlist
 
 编辑 /etc/pacman.d/mirrorlist，修改为。
 
-```bashServer = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+```bash
+server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 Server = http://mirrors.neusoft.edu.cn/archlinux/
 Server = http://mirrors.lug.mtu.edu/archlinux/
 Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
@@ -39,7 +40,8 @@ Bypass any and all “Are you sure?” messages. It’s not a good idea to do th
 
 ### archlinux key could not be looked up remotely
 
-```bashsudo pacman -S archlinux-keyring && sudo pacman -Syu
+```bash
+sudo pacman -S archlinux-keyring && sudo pacman -Syu
 
 # 要删除软件包，但是不删除依赖这个软件包的其他程序：
 pacman -Rdd package_name

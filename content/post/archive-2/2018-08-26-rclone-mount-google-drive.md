@@ -18,7 +18,8 @@ sudo pacman -S fuse
 
 ### config fuse
 
-```bashsudo vim /etc/fuse.conf
+```bash
+sudo vim /etc/fuse.conf
 # uncomment  user_allow_other
 ```
 
@@ -73,7 +74,8 @@ rclone lsl
 
 uid=1000, gid=2000
 
-```bashsudo vim /etc/systemd/system/rclone.service
+```bash
+sudo vim /etc/systemd/system/rclone.service
 
 [Unit]
 Description=keepass@foo
@@ -167,7 +169,8 @@ Is that okay? y
 y) Yes this is OK (default)
 ```
 
-```bashsudo -i
+```bash
+sudo -i
 rclone config
 # ...
 rclone mount onedrive-keepassxc-db:/keepassxc /mnt/ms-one-drive --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
@@ -176,7 +179,8 @@ rclone mount onedrive: /mnt/ms-one-drive --allow-other
 
 #### systemd config
 
-```bashsudo vim  /etc/systemd/system/rclone-onedrive.service
+```bash
+sudo vim  /etc/systemd/system/rclone-onedrive.service
 
 [Unit]
 Description=keepass@onedrive

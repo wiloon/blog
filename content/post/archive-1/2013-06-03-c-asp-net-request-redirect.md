@@ -52,7 +52,7 @@ serviceNum.compareAndSet(myTicket, next);
   
 }
   
-[/code]
+```
 
 缺点
   

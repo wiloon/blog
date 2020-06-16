@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 $ awk -F, 'NR>1{arr[$1]++}END{for (a in arr) print a, arr[a]}' file.txt
   
-[/code]
+```
 
 joe 1
   

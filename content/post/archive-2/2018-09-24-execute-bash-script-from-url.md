@@ -8,13 +8,13 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 bash <(curl -s http://mywebsite.com/myscript.txt)
   
 curl -s https://myurl.com/script.sh | bash /dev/stdin param1 param2
   
-[/code]
+```
 
 Directly run bash scripts in Github Gists locally in Terminal.
 

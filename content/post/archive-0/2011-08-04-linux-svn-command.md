@@ -35,7 +35,8 @@ svn mergeinfo svn://branch/path
 svn merginfo svn://branch/path --show-revs eligible
 ```
 
-```bashsvn cat -- 显示特定版本的某文件内容。
+```bash
+svn cat -- 显示特定版本的某文件内容。
 
 svn list -- 显示一个目录或某一版本存在的文件列表。
 svn list -v http://svn.test.com/svn  #查看详细的目录的信息(修订人,版本号,文件大小等)。
@@ -46,7 +47,8 @@ svn diff -- 显示特定修改的行级详细信息。
 
 ### resolve
 
-```bashsvn resolve --accept working 1.txt
+```bash
+svn resolve --accept working 1.txt
 svn resolve --accept theirs-full 1.txt 使用1.txt.rNew作为最后提交的版本
 svn resolve --accept mine-full 1.txt 使用1.txt.mine作为最后提交的版本
 svn resolve --accept mine-conflict 1.txt 使用1.txt.mine的冲突部分作为最后提交的版本

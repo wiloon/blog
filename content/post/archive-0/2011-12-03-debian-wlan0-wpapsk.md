@@ -23,7 +23,7 @@ apt-get install wpasupplicant
    
 http://wiki.debian.org/WiFi/HowToUse#wpa_supplicant
    
-[/code]
+```
 
 2.修改/etc/network/interfaces项，如下：
 
@@ -45,7 +45,7 @@ wpa-key-mgmt WPA-PSK
   
 wpa-psk fcb3717c5f66e893d9010a6872436b34686618a3e8fa2833d56bb98b41be5c8d
   
-[/code]
+```
 
 3.最关键的WPA－PSK项，之前一直无法连接，经google，原来此处不能写入明文密码，需要通过wpa-passphrase转换的，如下：
 
@@ -53,7 +53,7 @@ wpa-psk fcb3717c5f66e893d9010a6872436b34686618a3e8fa2833d56bb98b41be5c8d
   
 wpa\_passphrase <your\_essid> <your\_assic\_key>
   
-[/code]
+```
 
 例如:
 

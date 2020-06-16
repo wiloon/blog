@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 unset key
 
-[/code]
+```
 
 不知道你有没有遇到过这样的场景，当你需要设置一个环境变量，或者运行一个程序设置你的shell或桌面环境，但是不知道在哪里是最方便设置的位置。
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 ansible all -m yum -a 'name=audit state=present'
   
@@ -16,4 +16,4 @@ ansible all -m yum -a 'name=audit-libs state=present'
   
 ansible all -m service -a 'name=auditd state=restarted'
 
-[/code]
+```

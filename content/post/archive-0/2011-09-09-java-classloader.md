@@ -62,7 +62,7 @@ System.out.println("ext class loader > parent:" + bootClassLoader);
   
 }
   
-[/code]
+```
 
 **委托模型 (双亲委托模型)**
   

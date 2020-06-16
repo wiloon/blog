@@ -22,7 +22,8 @@ hold the Esc, Refresh, and power button for a little while and the laptop reboot
 
 https://github.com/dnschneid/crouton
 
-```bashsudo crouton -r list
+```bash
+sudo crouton -r list
 sudo cronton -t list
 sudo crouton -t xfce
 # ubuntu 16.4
@@ -46,7 +47,8 @@ enable legacy boot
   
 sudo crossystem dev\_boot\_usb=1 dev\_boot\_legacy=1
 
-```bashsudo enter-chroot
+```bash
+sudo enter-chroot
 ```
 
 ### shell

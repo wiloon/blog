@@ -20,4 +20,4 @@ CloseableHttpClient httpclient = HttpClients.custom()
   
 .setProxy(proxy).build()).build();
   
-[/code]
+```

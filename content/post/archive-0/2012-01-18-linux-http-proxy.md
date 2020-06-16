@@ -9,7 +9,7 @@ categories:
   - Network
 
 ---
-[code lang=shell]
+```bash
   
 export http_proxy=http://localhost:8118/
 
@@ -19,7 +19,7 @@ unset https_proxy
   
 unset ftp_proxy
   
-[/code]
+```
 
 在Linux的命令行底下，一般的程序都是使用http\_proxy和ftp\_proxy这两个环境变量来获得代理设置的。
 

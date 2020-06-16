@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/peterxiaoq/article/details/72912862
 
-[code lang=shell]
+```bash
   
 hostnamectl
   
@@ -24,4 +24,4 @@ hostnamectl &#8211;pretty
   
 sudo hostnamectl set-hostname new-host-name
 
-[/code]
+```
