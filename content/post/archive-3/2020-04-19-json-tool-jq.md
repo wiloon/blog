@@ -10,7 +10,8 @@ categories:
 ---
 ### json格式化
 
-```bashecho '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}'|jq .
+```bash
+echo '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}'|jq .
 {
   "kind": "Service",
   "apiVersion": "v1",

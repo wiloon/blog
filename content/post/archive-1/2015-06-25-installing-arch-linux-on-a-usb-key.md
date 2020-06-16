@@ -152,7 +152,8 @@ options root=PARTUUID=xxx rw
 
 <https://blog.wiloon.com/?p=15345>
 
-```bashuseradd -m -s /bin/bash wiloon
+```bash
+useradd -m -s /bin/bash wiloon
 passwd wiloon
 
 pacman -S openssh sudo
@@ -201,7 +202,8 @@ https://wiki.archlinux.org/index.php/syslinux#Installation\_on\_BIOS
 
 * * *
 
-<pre><code class="language-shell line-numbers">#uefi 可以直接启动archlinux, 不需要 bootloader
+```bash
+#uefi 可以直接启动archlinux, 不需要 bootloader
 #Install a boot loader, e.g.syslinux
 #check whather using mbr or gpt
 blkid -s PTTYPE -o value /dev/sdx

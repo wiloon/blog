@@ -70,17 +70,17 @@ Context相关URL——/static/css/style.css
   
 另外，如果需要Thymeleaf对URL进行渲染，那么务必使用th:href，th:src等属性，下面是一个例子
 
-<!&#8211; Will produce &#8216;http://localhost:8080/gtvg/order/details?orderId=3&#8217; (plus rewriting) &#8211;>
+<!- Will produce &#8216;http://localhost:8080/gtvg/order/details?orderId=3&#8217; (plus rewriting) &#8211;>
   
 <a href="details.html"
   
 th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
 
-<!&#8211; Will produce &#8216;/gtvg/order/details?orderId=3&#8217; (plus rewriting) &#8211;>
+<!- Will produce &#8216;/gtvg/order/details?orderId=3&#8217; (plus rewriting) &#8211;>
   
 <a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>
 
-<!&#8211; Will produce &#8216;/gtvg/order/3/details&#8217; (plus rewriting) &#8211;>
+<!- Will produce &#8216;/gtvg/order/3/details&#8217; (plus rewriting) &#8211;>
   
 <a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
 

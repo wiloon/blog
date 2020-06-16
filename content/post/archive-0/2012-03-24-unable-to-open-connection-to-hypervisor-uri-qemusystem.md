@@ -19,7 +19,7 @@ After I finished the install of the “kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-
 > 
 > Verify that:
   
-> &#8211; The ‘libvirtd’ daemon has been started
+> - The ‘libvirtd’ daemon has been started
 > 
 > And more details:
 > 

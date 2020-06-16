@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashkill -HUP xxx
+```bash
+kill -HUP xxx
 ps -A | grep httpd | grep -v grep | awk '{ print $1; }' | xargs -L 1 sudo kill -HUP 
 ```
 
@@ -123,7 +124,7 @@ KILLALL
   
 NAME (名称)
   
-killall &#8211; 以名字方式来linux杀死进程
+killall - 以名字方式来linux杀死进程
   
 SYNOPSIS (总览)
   

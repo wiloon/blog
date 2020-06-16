@@ -14,12 +14,12 @@ Java Unix Domain Sockets (JUDS) 提供了 Java 的方法用来访问 Unix domain
 
 
 
-<pre>&lt;dependency&gt;
+&lt;dependency&gt;
    &lt;groupId&gt;uk.co.caprica&lt;/groupId&gt;
    &lt;artifactId&gt;juds&lt;/artifactId&gt;
    &lt;version&gt;0.94.1&lt;/version&gt;
 &lt;/dependency&gt;
-</pre>
+
 
 
 
@@ -27,7 +27,7 @@ Java Unix Domain Sockets (JUDS) 提供了 Java 的方法用来访问 Unix domain
 
 示例代码：
 
-<pre>package com.google.code.juds.test;
+package com.google.code.juds.test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -112,4 +112,3 @@ public class TestUnixDomainSocket {
 }
 
 
-</pre>

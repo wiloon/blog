@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-shell line-numbers">chkconfig --list
+```bashchkconfig --list
 
 # 如果这个服务尚未被添加到 chkconfig 列表中，则现需要使用 –-add 参数将其添加进去
 chkconfig –-add postfix

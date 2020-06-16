@@ -76,7 +76,7 @@ if (intent.getAction().equals( SMS_RECEIVED )) {
 
 第二种方式：
 
-// 广播接收者 &#8211; 广播的接收
+// 广播接收者 - 广播的接收
   
 private BroadcastReceiver myBroadcastReceiver = new BroadcastReceiver() {
 

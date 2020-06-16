@@ -20,7 +20,8 @@ xargs可以将输入内容（通常通过命令行管道传递），转成后续
   * -t 在执行前回显各个command
   * -n 参数分组
 
-```bashls *.js | xargs -t -n2 ls -al
+```bash
+ls *.js | xargs -t -n2 ls -al
 # 输出如下，-n2表示，将参数以2个为一组，传给后面的命令。
 ```
 
@@ -36,7 +37,8 @@ touch a.js b.js c.js d.js
 
 然后运行如下命令：
 
-```bashls -al a.js b.js
+```bash
+ls -al a.js b.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 a.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 b.js
 ls -al c.js d.js
@@ -160,9 +162,9 @@ $ file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | xargs -t -n2 ls -ltr
 
 ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 738 Aug 10 19:18 dba102\_cjq0\_14493.trc
+-rw-r&#8212;- 1 oracle dba 738 Aug 10 19:18 dba102\_cjq0\_14493.trc
 
--rw-r&#8211;r&#8211; 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
+-rw-r&#8211;r- 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
 
  
 
@@ -170,9 +172,9 @@ ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
 
 ls -ltr dba102\_mmnl\_14497.trc dba102\_reco\_14491.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 5386163 Aug 10 17:55 dba102\_mmnl\_14497.trc
+-rw-r&#8212;- 1 oracle dba 5386163 Aug 10 17:55 dba102\_mmnl\_14497.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 6808 Aug 13 05:21 dba102\_reco\_14491.trc
+-rw-r&#8212;- 1 oracle dba 6808 Aug 13 05:21 dba102\_reco\_14491.trc
 
  
 
@@ -180,6 +182,6 @@ ls -ltr dba102\_mmnl\_14497.trc dba102\_reco\_14491.trc
 
 ls -ltr dba102\_rvwr\_14518.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 2087 Aug 10 04:30 dba102\_rvwr\_14518.trc
+-rw-r&#8212;- 1 oracle dba 2087 Aug 10 04:30 dba102\_rvwr\_14518.trc
 
 使用该方法，您可以快速重命名目录中的文件。

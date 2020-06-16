@@ -13,7 +13,7 @@ tags:
 <div id="blog_content">
      gdm &#8212; GNOME Display Manager
  kdm &#8212; KDE Display Manager
- xdm &#8211; X Display Manager 
+ xdm - X Display Manager 
   
   
     1、我们先不讨论xdm/gdm/kdm这些东西。而是先看看启动X最直接的方式。首先来认识两个重要的文件，一个是X视窗启动文件&#8211;xinitrc，另外一个就是X视窗资源文件&#8211;Xdefaults.

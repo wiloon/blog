@@ -16,4 +16,4 @@ Your container doesn&#8217;t use UTF-8 to decode URLs. If you use non-ASCII char
 
 Some versions of Tomcat (such as 5.0.28) uses iso-8859-1 to decode URLs, which is in a clear violation of the relevant RFCs. To fix this problem, add the following URIEncoding attribute to the connector definition in $TOMCAT_HOME/conf/server.xml.
 
-<pre>&lt;Connector port="8080"  URIEncoding="UTF-8"/&gt;</pre>
+&lt;Connector port="8080"  URIEncoding="UTF-8"/&gt;

@@ -53,7 +53,8 @@ sudo enter-chroot
 
 ### shell
 
-```bashctrl+alt+t
+```bash
+ctrl+alt+t
 shell
 sudo -s
 ```

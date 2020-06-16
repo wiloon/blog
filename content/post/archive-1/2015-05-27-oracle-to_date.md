@@ -80,27 +80,27 @@ WW 年中的第几个星期  1.日期时间间隔操作
   
 当前时间减去7分钟的时间
   
-select sysdate,sysdate &#8211; interval ’7’ MINUTE from dual
+select sysdate,sysdate - interval ’7’ MINUTE from dual
   
 当前时间减去7小时的时间
   
-select sysdate &#8211; interval ’7’ hour from dual
+select sysdate - interval ’7’ hour from dual
   
 当前时间减去7天的时间
   
-select sysdate &#8211; interval ’7’ day from dual
+select sysdate - interval ’7’ day from dual
   
 当前时间减去7月的时间
   
-select sysdate,sysdate &#8211; interval ’7’ month from dual
+select sysdate,sysdate - interval ’7’ month from dual
   
 当前时间减去7年的时间
   
-select sysdate,sysdate &#8211; interval ’7’ year from dual
+select sysdate,sysdate - interval ’7’ year from dual
   
 时间间隔乘以一个数字
   
-select sysdate,sysdate &#8211; 8 *interval ’2’ hour from dual
+select sysdate,sysdate - 8 *interval ’2’ hour from dual
 
 2.日期到字符操作
 

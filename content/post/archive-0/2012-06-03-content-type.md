@@ -102,7 +102,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Richtext (obsolete &#8211; replaced by text/enriched)
+      Richtext (obsolete - replaced by text/enriched)
     </td>
     
     <td>
@@ -2033,7 +2033,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      DOS/PC &#8211; Pkzipped archive
+      DOS/PC - Pkzipped archive
     </td>
     
     <td>
@@ -2330,7 +2330,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Slate documents &#8211; executable enclosures (<em>BBN</em>)
+      Slate documents - executable enclosures (<em>BBN</em>)
     </td>
     
     <td>
@@ -2751,7 +2751,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      CALS (U.S. D.O.D data format &#8211; RFC 1895)
+      CALS (U.S. D.O.D data format - RFC 1895)
     </td>
     
     <td>
@@ -2959,7 +2959,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Net Install &#8211; software install (<em>20/20 Software</em>)
+      Net Install - software install (<em>20/20 Software</em>)
     </td>
     
     <td>
@@ -2976,7 +2976,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Carbon Copy &#8211; remote control/access (<em>Microcom</em>)
+      Carbon Copy - remote control/access (<em>Microcom</em>)
     </td>
     
     <td>
@@ -3295,7 +3295,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Infinite multiparts &#8211; See Chapter 9 (<em>Netscape</em>)
+      Infinite multiparts - See Chapter 9 (<em>Netscape</em>)
     </td>
     
     <td>
@@ -3466,7 +3466,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      WIRL &#8211; VRML data (<em>VREAM</em>)
+      WIRL - VRML data (<em>VREAM</em>)
     </td>
     
     <td>

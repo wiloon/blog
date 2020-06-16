@@ -17,7 +17,7 @@ tags:
 每壹台電腦都有 PING 執行檔，這個最好用啦!
 
 
-  <pre>@ping 127.0.0.1 -n 5 -w 1000 &gt; nul</pre>
+  @ping 127.0.0.1 -n 5 -w 1000 &gt; nul
 
 
 **2. 利用 CHOICE 指令**
@@ -25,7 +25,7 @@ tags:
 CHOICE 命令在 Windows XP 中找不到，但在 Windows Server 2003 或 Vista 都有內建。
 
 
-  <pre>@CHOICE /C YN /N /T 5 /D y &gt; nul</pre>
+  @CHOICE /C YN /N /T 5 /D y &gt; nul
 
 
 
@@ -35,7 +35,7 @@ CHOICE 命令在 Windows XP 中找不到，但在 Windows Server 2003 或 Vista 
 預設安裝路徑在 **C:Program FilesWindows Resource KitsTools** 目錄下會有個 sleep.exe 執行檔
 
 
-  <pre>sleep 5</pre>
+  sleep 5
 
 
 **4. 利用 TIMEOUT 指令**
@@ -43,5 +43,5 @@ CHOICE 命令在 Windows XP 中找不到，但在 Windows Server 2003 或 Vista 
 TIMEOUT 命令在 Windows Server 2003 或 Vista 之後都有內建。
 
 
-  <pre>timeout /t 5
-<a href="http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx">http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx</a></pre>
+  timeout /t 5
+<a href="http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx">http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx</a>

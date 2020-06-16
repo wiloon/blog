@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-<pre>编码GBK的不可映射字符
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'</pre>
+编码GBK的不可映射字符
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashpodman run \
+```bash
+podman run \
 -d \
 --name redis \
 -p 6379:6379 \

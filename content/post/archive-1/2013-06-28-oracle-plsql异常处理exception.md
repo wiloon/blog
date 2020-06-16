@@ -744,7 +744,7 @@ EXCEPTION
 
 
 
-/* e_UserDefinedException is out of scope here &#8211; can only be
+/* e_UserDefinedException is out of scope here - can only be
 
 
 

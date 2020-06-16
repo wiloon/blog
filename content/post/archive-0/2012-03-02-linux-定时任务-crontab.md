@@ -84,7 +84,8 @@ systemctl restart rsyslog
 
 ### crontab 执行shell脚本
 
-```bashcrontab -e
+```bash
+crontab -e
 0 1 * * * /path/to/shell/foo.sh &gt;&gt; /var/log/foo/foo.log
 ```
 

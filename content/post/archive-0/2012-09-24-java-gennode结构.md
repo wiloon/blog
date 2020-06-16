@@ -580,7 +580,7 @@ int len = list.size();
    
 if (len > 0) {
    
-int index = list.get(len &#8211; 1).getIndex();
+int index = list.get(len - 1).getIndex();
    
 tmpNode = getChild(name, index);
    
@@ -746,7 +746,7 @@ return elements;
   
 NodePath.java
   
-[java]</pre>
+[java]
   
 package com.http;
 
@@ -836,11 +836,11 @@ this.index = index;
 
 }
   
-<pre>[/java]
+[/java]
   
 NodeUtil.java
   
-[java]</pre>
+[java]
   
 package com.http;
 
@@ -1054,11 +1054,11 @@ return path;
 
 }
   
-<pre>[/java]
+[/java]
   
 GenNodeHandler.java
   
-[java]</pre>
+[java]
   
 package com.http;
 
@@ -1220,11 +1220,11 @@ node.setValue(value);
 
 }
   
-<pre>[/java]
+[/java]
   
 XMLParser.java
   
-[java]</pre>
+[java]
   
 package com.http;
 
@@ -1290,4 +1290,4 @@ return node;
   
 }
   
-<pre>[/java]
+[/java]

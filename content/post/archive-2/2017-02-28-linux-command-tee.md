@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-我使用过的Linux命令之tee &#8211; 重定向输出到多个文件
+我使用过的Linux命令之tee - 重定向输出到多个文件
   
 本文链接：http://codingstandards.iteye.com/blog/833695   （转载请注明链接）
 
@@ -184,7 +184,7 @@ contained is overwritten unless the \`-a&#8217; option is used.）
   
 12345
   
-[root@web ~]# echo 12345 | tee &#8211; &#8211;
+[root@web ~]# echo 12345 | tee - &#8211;
   
 12345
   
@@ -192,7 +192,7 @@ contained is overwritten unless the \`-a&#8217; option is used.）
   
 12345
   
-[root@web ~]# echo 12345 | tee &#8211; &#8211; &#8211;
+[root@web ~]# echo 12345 | tee - - &#8211;
   
 12345
   
@@ -202,7 +202,7 @@ contained is overwritten unless the \`-a&#8217; option is used.）
   
 12345
   
-[root@web ~]# echo 12345 | tee &#8211; &#8211; &#8211; &#8211;
+[root@web ~]# echo 12345 | tee - - - &#8211;
   
 12345
   
@@ -220,11 +220,11 @@ contained is overwritten unless the \`-a&#8217; option is used.）
 
 12345[root@web ~]# echo -n 12345 | tee &#8211;
   
-1234512345[root@web ~]# echo -n 12345 | tee &#8211; &#8211;
+1234512345[root@web ~]# echo -n 12345 | tee - &#8211;
   
-123451234512345[root@web ~]# echo -n 12345 | tee &#8211; &#8211; &#8211;
+123451234512345[root@web ~]# echo -n 12345 | tee - - &#8211;
   
-12345123451234512345[root@web ~]# echo -n 12345 | tee &#8211; &#8211; &#8211; &#8211;
+12345123451234512345[root@web ~]# echo -n 12345 | tee - - - &#8211;
   
 1234512345123451234512345[root@web ~]#
 

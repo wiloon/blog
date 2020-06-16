@@ -10,7 +10,8 @@ categories:
 ---
 ### docker
 
-```bashpodman run \
+```bash
+podman run \
 -d \
 --name nexus \
 -p 8081:8081 \

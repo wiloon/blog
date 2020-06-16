@@ -12,14 +12,14 @@ categories:
   - Emacs
 
 ---
-<pre>download nXML from <a href="http://www.thaiopensource.com/nxml-mode/">http://www.thaiopensource.com/nxml-mode/</a></pre>
+download nXML from <a href="http://www.thaiopensource.com/nxml-mode/">http://www.thaiopensource.com/nxml-mode/</a>
 
-<pre>To get things automatically loaded each time you start Emacs, add
-(load "~/nxml-mode-200YMMDD/rng-auto.el")</pre>
+To get things automatically loaded each time you start Emacs, add
+(load "~/nxml-mode-200YMMDD/rng-auto.el")
 
-<pre>To use nxml-mode automatically for files with an extension of xml,</pre>
+To use nxml-mode automatically for files with an extension of xml,
 
-<pre>xsl, rng or xhtml, add
+xsl, rng or xhtml, add
 (setq auto-mode-alist
         (cons '("\.\(xml\|xsl\|rng\|xhtml\)\'" . nxml-mode)
-	      auto-mode-alist))</pre>
+	      auto-mode-alist))

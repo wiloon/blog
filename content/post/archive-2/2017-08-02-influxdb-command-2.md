@@ -37,7 +37,7 @@ drop database db0
 
 ### insert
 
-<pre><code class="language-sql line-numbers">-- float value
+<code class="language-sql line-numbers">-- float value
 INSERT measurement0,tag0=tag_value0 field0=1,field1=field_value1
 -- int value
 INSERT measurement0,tag0=tag_value0 field0=1i,field1=field_value1
@@ -47,19 +47,20 @@ INSERT measurement0,tag0=tag_value0 field0=1,field1=field_value1 157061160000000
 
 ### delete
 
-<pre><code class="language-sql line-numbers">DELETE FROM measurement0 WHERE tag0=tag_value0
+<code class="language-sql line-numbers">DELETE FROM measurement0 WHERE tag0=tag_value0
 ```
 
 ### 导出
 
-<pre><code class="language-sql line-numbers">influx -database 'db0' -execute "select field0,\"field1\" from measurement0 where tag-name0='tag-value0' and time&gt;'2018-05-05 02:00:00' and time&lt;'2018-05-07 11:00:00' order by time tz('Etc/GMT-8')" -format 'csv' -precision 'rfc3339' &gt; xxx.csv
+<code class="language-sql line-numbers">influx -database 'db0' -execute "select field0,\"field1\" from measurement0 where tag-name0='tag-value0' and time&gt;'2018-05-05 02:00:00' and time&lt;'2018-05-07 11:00:00' order by time tz('Etc/GMT-8')" -format 'csv' -precision 'rfc3339' &gt; xxx.csv
 
 # 使用 tz('Etc/GMT-8') 后,过滤条件中的time&gt;'xxx' 填写东8区时间.
 ```
 
 ### docker
 
-```bashdocker run -d \
+```bash
+docker run -d \
 --name influxdb \
 -p 8086:8086 \
 -p 8083:8083 \
@@ -101,17 +102,17 @@ ALTER  RETENTION POLICY "default" ON db0 DURATION 3h REPLICATION 1 SHARD DURATIO
 
 #### list shard id
 
-<pre><code class="language-sql line-numbers">show shards
+<code class="language-sql line-numbers">show shards
 DROP SHARD &lt;shard_id_number&gt;
 ```
 
 ### measurement
 
-<pre><code class="language-sql line-numbers">show measurements
+<code class="language-sql line-numbers">show measurements
 DROP MEASUREMENT &lt;measurement_name&gt;
 ```
 
-<pre><code class="language-sql line-numbers">select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time&gt;now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq&gt;0
+<code class="language-sql line-numbers">select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time&gt;now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq&gt;0
 ```
 
 ```bash&lt;br />&lt;br /># show tag keys

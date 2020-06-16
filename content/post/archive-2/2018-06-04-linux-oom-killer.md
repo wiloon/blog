@@ -162,7 +162,7 @@ _\_alloc\_pages\_nodemask分配内存 -> 发现内存不足(或低于low memory)
   
 /**
    
-* out\_of\_memory &#8211; kill the "best&#8221; process when we run out of memory
+* out\_of\_memory - kill the "best&#8221; process when we run out of memory
    
 */
   
@@ -233,7 +233,7 @@ out:
   
 /**
    
-* oom_badness &#8211; heuristic function to determine which candidate task to kill
+* oom_badness - heuristic function to determine which candidate task to kill
    
 *
    

@@ -232,7 +232,7 @@ categories:
  ＜title＞Wrox Homepage＜/title＞
  ＜/head＞
  ＜body＞
- ＜!&#8211; body goes here &#8211;＞
+ ＜!- body goes here &#8211;＞
  ＜/body＞
  ＜/html＞
  2．最常用的状态码有：
@@ -438,10 +438,10 @@ categories:
     
     <ul>
       <li>
-        <em>GET</em> &#8211; 从指定的资源请求数据。
+        <em>GET</em> - 从指定的资源请求数据。
       </li>
       <li>
-        <em>POST</em> &#8211; 向指定的资源提交要被处理的数据
+        <em>POST</em> - 向指定的资源提交要被处理的数据
       </li>
     </ul>
   
@@ -455,7 +455,7 @@ categories:
       请注意，查询字符串（名称/值对）是在 GET 请求的 URL 中发送的：
     
     
-    <pre>/test/demo_form.asp?name1=value1&name2=value2</pre>
+    /test/demo_form.asp?name1=value1&name2=value2
     
     
       有关 GET 请求的其他一些注释：
@@ -492,10 +492,10 @@ categories:
       请注意，查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的：
     
     
-    <pre>POST /test/demo_form.asp HTTP/1.1
+    POST /test/demo_form.asp HTTP/1.1
 Host: w3schools.com
 name1=value1&name2=value2
-</pre>
+
     
     
       有关 POST 请求的其他一些注释：

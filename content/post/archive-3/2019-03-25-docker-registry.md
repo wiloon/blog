@@ -10,7 +10,8 @@ categories:
 ---
 curl -XGET https://registry.docker-cn.com/v2/nextcloud/tags/list
 
-```bashpodman run -d \
+```bash
+podman run -d \
 -p 5000:5000 \
 --name registry \
 -v docker-registry:/var/lib/registry \
@@ -25,7 +26,7 @@ docker pull registry.wiloon.com/foo:v0.0.1
 
 自签证书
 
-<pre><code class="line-numbers">upstream docker-registry {
+<code class="line-numbers">upstream docker-registry {
     server 192.168.50.220:5000;
  }
 

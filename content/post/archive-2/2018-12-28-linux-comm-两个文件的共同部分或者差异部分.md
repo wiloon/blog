@@ -19,7 +19,7 @@ categories:
 
 NAME
          
-comm &#8211; compare two sorted files line by line
+comm - compare two sorted files line by line
 
 SYNOPSIS
          
@@ -70,11 +70,11 @@ Compare sorted files FILE1 and FILE2 line by line.
   
 例子
   
-comm &#8211; 12 就只显示在两个文件中都存在的行；
+comm - 12 就只显示在两个文件中都存在的行；
   
-comm &#8211; 23 只显示在第一个文件中出现而未在第二个文件中出现的行；
+comm - 23 只显示在第一个文件中出现而未在第二个文件中出现的行；
   
-comm &#8211; 123 则什么也不显示。
+comm - 123 则什么也不显示。
 
 例如：找出a.txt文件有而b.txt文件中没有的放在c.txt文件中(注意：一定要是先排序，即sort)
 

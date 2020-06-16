@@ -66,17 +66,17 @@ BANNER
 
 &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
 
-Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 &#8211; Prod
+Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod
 
-PL/SQL Release 10.2.0.1.0 &#8211; Production
+PL/SQL Release 10.2.0.1.0 - Production
 
 CORE    10.2.0.1.0    Production
 
 
 
-TNS for 32-bit Windows: Version 10.2.0.1.0 &#8211; Production
+TNS for 32-bit Windows: Version 10.2.0.1.0 - Production
 
-NLSRTL Version 10.2.0.1.0 &#8211; Production
+NLSRTL Version 10.2.0.1.0 - Production
 
 
 

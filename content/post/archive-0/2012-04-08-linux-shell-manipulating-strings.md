@@ -30,12 +30,12 @@ expr index $string $substring
     <table width="90%" border="0" bgcolor="#E0E0E0">
       <tr>
         <td>
-          <pre>   1 stringZ=abcABC123ABCabc
+             1 stringZ=abcABC123ABCabc
    2 echo `expr index "$stringZ" C12`             # 6
    3                                              # C position.
    4 
    5 echo `expr index "$stringZ" 1c`              # 3
-   6 # 'c' (in #3 position) matches before '1'.</pre>
+   6 # 'c' (in #3 position) matches before '1'.
         </td>
       </tr>
     </table>
@@ -53,11 +53,11 @@ expr index $string $substring
         <table width="90%" border="0" bgcolor="#E0E0E0">
           <tr>
             <td>
-              <pre>   1 stringZ=abcABC123ABCabc
+                 1 stringZ=abcABC123ABCabc
    2 #       |------|
    3 
    4 echo `expr match "$stringZ" 'abc[A-Z]*.2'`   # 8
-   5 echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8</pre>
+   5 echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8
             </td>
           </tr>
         </table>

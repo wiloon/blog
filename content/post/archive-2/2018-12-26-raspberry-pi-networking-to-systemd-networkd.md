@@ -10,7 +10,8 @@ categories:
 ---
 https://raspberrypi.stackexchange.com/questions/78787/howto-migrate-from-networking-to-systemd-networkd-with-dynamic-failover
 
-```bashvim /etc/resolvconf.conf
+```bash
+vim /etc/resolvconf.conf
 # Set to NO to disable resolvconf from running any subscribers. Defaults to YES.
 resolvconf=NO
 systemctl disable networking

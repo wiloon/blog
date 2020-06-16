@@ -12,11 +12,12 @@ categories:
 
 local_action 需要sudo密码
 
-```bashexport ANSIBLE_ASK_SUDO_PASS=true
+```bash
+export ANSIBLE_ASK_SUDO_PASS=true
 --extra-vars "ansible_sudo_pass=xxx"
 ```
 
-<pre><code class="language-yaml line-numbers">- name: "Create an empty directory (locally)"
+<code class="language-yaml line-numbers">- name: "Create an empty directory (locally)"
   local_action:
     module: file
     path: "/tmp/empty"
@@ -26,7 +27,7 @@ local_action 需要sudo密码
 
 ### 批量删除文件
 
-<pre><code class="language-yaml line-numbers">  - name: Ansible delete file glob
+<code class="language-yaml line-numbers">  - name: Ansible delete file glob
     find:
       paths: /etc/Ansible
       patterns: *.txt
@@ -43,7 +44,8 @@ local_action 需要sudo密码
 
 用于改变一个文件的一行。如果想要改变文件中相似的多行，可以使用replace模块
 
-```bashansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state=present"
+```bash
+ansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state=present"
 
 
 ```

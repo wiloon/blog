@@ -11,13 +11,13 @@ tags:
   - Spring
 
 ---
-<pre>spring api</pre>
+spring api
 
 <p title="Interface WebApplicationInitializer">
   WebApplicationInitializer
 
 
-<pre>public class MyWebAppInitializer implements WebApplicationInitializer {
+public class MyWebAppInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext container) {
@@ -49,4 +49,4 @@ http://hitmit1314.iteye.com/blog/1315816
 http://www.it165.net/pro/html/201210/3930.html
 http://septem.iteye.com/blog/1117445
 http://septem.iteye.com/blog/740301
-http://septem.iteye.com/blog/753593</pre>
+http://septem.iteye.com/blog/753593

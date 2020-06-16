@@ -81,7 +81,8 @@ find . -mmin +3
   
 针对上面的那个查找c代码的问题，可以这么写：
 
-```bashfind . -regex ".*/[0-9]*/.c" -print
+```bash
+find . -regex ".*/[0-9]*/.c" -print
 ./2234.c
 ```
 

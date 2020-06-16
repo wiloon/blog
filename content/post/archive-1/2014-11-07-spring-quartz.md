@@ -20,7 +20,7 @@ tags:
            &lt;/list&gt;  
        &lt;/property&gt;  
        &lt;property name="autoStartup" value="true"/&gt;  
-&lt;/bean&gt;</pre>
+&lt;/bean&gt;
 
 说明：Scheduler包含一个Trigger列表，每个Trigger表示一个作业。
 
@@ -29,7 +29,7 @@ tags:
 <pre class="XML">&lt;bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean"&gt;  
        &lt;property name="jobDetail" ref="testJobDetail"/&gt;  
        &lt;property name="cronExpression" value="*/1 * * * * ?"/&gt;&lt;!-- 每隔1秒钟触发一次 --&gt;  
-&lt;/bean&gt;</pre>
+&lt;/bean&gt;
 
 说明：
 
@@ -37,19 +37,19 @@ tags:
 
 字段名                 允许的值                        允许的特殊字符
 
-秒                         0-59                               , &#8211; * /
+秒                         0-59                               , - * /
 
-分                         0-59                               , &#8211; * /
+分                         0-59                               , - * /
 
-小时                   0-23                               , &#8211; * /
+小时                   0-23                               , - * /
 
-日                         1-31                               , &#8211; * ? / L W C
+日                         1-31                               , - * ? / L W C
 
-月                         1-12 or JAN-DEC          , &#8211; * /
+月                         1-12 or JAN-DEC          , - * /
 
-周几                     1-7 or SUN-SAT            , &#8211; * ? / L C #
+周几                     1-7 or SUN-SAT            , - * ? / L C #
 
-年 (可选字段)     empty, 1970-2099      , &#8211; * /
+年 (可选字段)     empty, 1970-2099      , - * /
 
 “?”字符：表示不确定的值
 
@@ -92,7 +92,7 @@ tags:
         &lt;property name="targetMethod" value="execute"/&gt;  
         &lt;property name="concurrent" value="false"/&gt;
         &lt;!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 --&gt;  
-&lt;/bean&gt;</pre>
+&lt;/bean&gt;
 
 **4、业务类的配置**
 
@@ -108,7 +108,7 @@ tags:
              ex.printStackTrace();  
          }  
      }  
-}</pre>
+}
 
 说明：业务类不需要继承任何父类，也不需要实现任何接口，只是一个普通的java类。
 

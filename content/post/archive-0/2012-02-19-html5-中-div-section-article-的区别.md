@@ -38,7 +38,7 @@ section 应用的典型场景有文章的章节、标签对话框中的标签页
 
 section 不仅仅是一个普通的容器标签。当一个标签只是为了样式化或者方便脚本使用时，应该使用 div 。一般来说，当元素内容明确地出现在文档大纲中时，section 就是适用的。
 
-<pre>&lt;article&gt;
+&lt;article&gt;
  &lt;hgroup&gt;
   &lt;h1&gt;Apples&lt;/h1&gt;
   &lt;h2&gt;Tasty, delicious fruit!&lt;/h2&gt;
@@ -54,7 +54,7 @@ section 不仅仅是一个普通的容器标签。当一个标签只是为了样
   &lt;p&gt;These juicy, green apples make a great filling for
   apple pies.&lt;/p&gt;
  &lt;/section&gt;
-&lt;/article&gt;</pre>
+&lt;/article&gt;
 
 ## article {#toc_1.3}
 
@@ -70,7 +70,7 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 “This could b
 
 例子：
 
-<pre>&lt;article&gt;
+&lt;article&gt;
  &lt;header&gt;
   &lt;h1&gt;The Very First Rule of Life&lt;/h1&gt;
   &lt;p&gt;&lt;time pubdate datetime="2009-10-09T14:28-08:00"&gt;&lt;/time&gt;&lt;/p&gt;
@@ -107,7 +107,7 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 “This could b
    &lt;p&gt;Hey, you have the same first name as me.&lt;/p&gt;
   &lt;/article&gt;
  &lt;/section&gt;
-&lt;/article&gt;</pre>
+&lt;/article&gt;
 
 ## 总结 {#toc_1.4}
 

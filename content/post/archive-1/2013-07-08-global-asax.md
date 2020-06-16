@@ -30,7 +30,7 @@ System.DateTime startTime = (System.DateTime)Application["StartTime"];
   
 System.DateTime endTime = System.DateTime.Now;
   
-System.TimeSpan ts = endTime &#8211; startTime;
+System.TimeSpan ts = endTime - startTime;
   
 Response.Write("页面执行时间:"+ ts.Milliseconds +" 毫秒");
   

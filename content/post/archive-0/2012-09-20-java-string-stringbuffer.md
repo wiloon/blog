@@ -121,7 +121,7 @@ String 是final类,即不能被继承.
  str += tempstr;
  }
  long lend1 = System.currentTimeMillis();
- long time = (lend1 &#8211; lstart1);
+ long time = (lend1 - lstart1);
  System.out.println("time="+time);
   
   
@@ -148,7 +148,7 @@ String 是final类,即不能被继承.
  sb.append(tempstr);
  }
  long lend2 = System.currentTimeMillis();
- long time2 = (lend2 &#8211; lstart2);
+ long time2 = (lend2 - lstart2);
  System.out.println("time=" + time2);
   
   
@@ -197,7 +197,7 @@ String 是final类,即不能被继承.
   
   
     [java]
- <pre>String tempstr = "abcdefghijklmnopqrstuvwxyz";
+ String tempstr = "abcdefghijklmnopqrstuvwxyz";
  int times = 5000;
  long lstart2 = System.currentTimeMillis();
  String str = "";
@@ -207,8 +207,8 @@ String 是final类,即不能被继承.
  str = sb.toString();
  }
  long lend2 = System.currentTimeMillis();
- long time2 = (lend2 &#8211; lstart2);
- System.out.println("time=" + time2);</pre>
+ long time2 = (lend2 - lstart2);
+ System.out.println("time=" + time2);
  [/java]
   
   

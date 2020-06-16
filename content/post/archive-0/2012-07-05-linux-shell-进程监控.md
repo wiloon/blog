@@ -12,7 +12,7 @@ http://www.ibm.com/developerworks/cn/linux/l-cn-shell-monitoring/index.html?ca=d
 
 [shell]
   
-<pre> function GetPID #User #Name
+ function GetPID #User #Name
    
 {
       
@@ -26,7 +26,7 @@ pid=\`ps -u $PsUser|grep $PsName|grep -v grep|grep -v vi|grep -v dbxn
       
 echo $pid
    
-}</pre>
+}
   
 [/shell]
   
@@ -58,7 +58,7 @@ fi
   
 [shell]
   
-<pre>function GetCpu
+function GetCpu
     
 {
      
@@ -66,13 +66,13 @@ CpuValue=\`ps -p $pid -o pcpu |grep -v CPU | awk &#8216;{print $1}&#8217; | awk 
           
 echo $CpuValue
       
-}</pre>
+}
   
 [/shell]
   
 [shell]
   
-<pre> function GetMem
+ function GetMem
       
 {
           
@@ -82,7 +82,7 @@ MEMUsage=\`ps -o vsz -p $1|grep -v VSZ\`
           
 echo $MEMUsage
       
-}</pre>
+}
   
 [/shell]
 
@@ -92,7 +92,7 @@ echo $MEMUsage
 
 [shell]
   
-<pre>function GetDes
+function GetDes
       
 {
           
@@ -100,7 +100,7 @@ DES=\`ls /proc/$1/fd | wc -l\`
           
 echo $DES
       
-}</pre>
+}
   
 [/shell]查看某个 TCP 或 UDP 端口是否在监听
 
@@ -152,7 +152,7 @@ fi
 
 [shell]
   
-<pre> function GetSysCPU
+ function GetSysCPU
    
 {
      
@@ -164,7 +164,7 @@ CpuNum=\`echo "100-$CpuIdle" | bc\`
      
 echo $CpuNum
    
-}</pre>
+}
   
 [/shell]
 
@@ -174,7 +174,7 @@ echo $CpuNum
 
 [shell]
   
-<pre>function GetDiskSpc
+function GetDiskSpc
    
 {
       
@@ -192,7 +192,7 @@ DiskSpace=\`df -k |grep $Folder |awk &#8216;{print $5}&#8217; |awk -F% &#8216;{p
       
 echo $DiskSpace
    
-}</pre>
+}
   
 [/shell]
   

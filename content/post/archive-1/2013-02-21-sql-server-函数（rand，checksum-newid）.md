@@ -27,7 +27,7 @@ tags:
     返回从 0 到 1 之间的随机 <b>float</b> 值。
   
   
-  <pre>语法: RAND <b>(</b> [ <i>seed </i>] <b>)</b></pre>
+  语法: RAND <b>(</b> [ <i>seed </i>] <b>)</b>
   
   <dl>
     <dt>
@@ -59,7 +59,7 @@ tags:
     返回按照表的某一行或一组表达式计算出来的校验和值。CHECKSUM 用于生成哈希索引。
   
   
-  <pre>语法：CHECKSUM <b>(</b> * | <i>expression </i>[ <b>,</b>...<i>n</i> ] <b>)</b></pre>
+  语法：CHECKSUM <b>(</b> * | <i>expression </i>[ <b>,</b>...<i>n</i> ] <b>)</b>
   
   
     *
@@ -107,7 +107,7 @@ tags:
     语法：
   
   
-  <pre>NEWID <b>(</b> <b>)</b></pre>
+  NEWID <b>(</b> <b>)</b>
   
   
     这个函数总是能返回一个新的GUID号码，它永远不会重复，而且毫无规律

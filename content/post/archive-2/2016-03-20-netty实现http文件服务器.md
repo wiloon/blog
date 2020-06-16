@@ -294,7 +294,7 @@ uri = uri.replace(&#8216;/&#8217;, File.separatorChar);
   
 if (uri.contains(File.separator + &#8216;.&#8217;) || uri.contains(&#8216;.&#8217; + File.separator) || uri.charAt(0) == &#8216;.&#8217;
   
-|| uri.charAt(uri.length() &#8211; 1) == &#8216;.&#8217; || INSECURE_URI.matcher(uri).matches()) {
+|| uri.charAt(uri.length() - 1) == &#8216;.&#8217; || INSECURE_URI.matcher(uri).matches()) {
   
 return null;
   

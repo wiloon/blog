@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="line-numbers">vim  /etc/telegraf/telegraf.conf
+<code class="line-numbers">vim  /etc/telegraf/telegraf.conf
 [[outputs.influxdb]]
   urls = ["http://influxdb.wiloon.com"]
   database = "database0"

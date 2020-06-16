@@ -10,7 +10,8 @@ categories:
 ---
 ### 执行shell脚本
 
-```bashvim /usr/lib/systemd/system/foo.service
+```bash
+vim /usr/lib/systemd/system/foo.service
 ```
 
 ```bash[Unit]
@@ -29,7 +30,8 @@ RestartSec=10
 WantedBy=default.target
 ```
 
-```bashvim /usr/lib/systemd/system/foo.service
+```bash
+vim /usr/lib/systemd/system/foo.service
 
 # ---
 

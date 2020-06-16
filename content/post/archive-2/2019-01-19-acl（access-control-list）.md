@@ -116,7 +116,7 @@ other::rwx /其它者权限
 
 user::rwx
   
-user:handsome:r&#8211; //handsome的权限为r
+user:handsome:r- //handsome的权限为r
   
 group::rwx
   
@@ -126,7 +126,7 @@ other::rwx
 
 通过handsome用户验证一下：
   
-[root@localhost test]# su &#8211; handsome
+[root@localhost test]# su - handsome
   
 [handsome@localhost ~]$ cat /test/test.txt
   

@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-<pre>http://bbs.csdn.net/topics/320156312
+http://bbs.csdn.net/topics/320156312
 
 [html]
 

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashdocker run -d \
+```bash
+docker run -d \
 --name nextcloud \
 -p 2000:80 \
 -v /etc/localtime:/etc/localtime:ro \

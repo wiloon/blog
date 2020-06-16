@@ -94,21 +94,21 @@ system，const，eq\_ref，ref，fulltext，ref\_or\_null，index\_merge, unique
   
 除了all之外，其他的type都可以使用到索引，除了index_merge之外，其他的type只可以用到一个索引
   
-&#8211; ALL: 这个就是全表扫描数据文件，然后再在server层进行过滤返回符合要求的记录。
+- ALL: 这个就是全表扫描数据文件，然后再在server层进行过滤返回符合要求的记录。
   
-&#8211; index: 索引全表扫描，把索引从头到尾扫一遍，常见于使用索引列就可以处理不需要读取数据文件的查询、可以使用索引排序或者分组的查询。
+- index: 索引全表扫描，把索引从头到尾扫一遍，常见于使用索引列就可以处理不需要读取数据文件的查询、可以使用索引排序或者分组的查询。
   
-&#8211; index\_merge：表示查询使用了两个以上的索引，最后取交集或者并集，常见and ，or的条件使用了不同的索引，官方排序这个在ref\_or_null之后，但是实际上由于要读取所个索引，性能可能大部分时间都不如range
+- index\_merge：表示查询使用了两个以上的索引，最后取交集或者并集，常见and ，or的条件使用了不同的索引，官方排序这个在ref\_or_null之后，但是实际上由于要读取所个索引，性能可能大部分时间都不如range
   
-&#8211; range: 索引范围扫描，常见于使用>,<,is null,between ,in ,like等运算符的查询中。只检索给定范围的行，使用一个索引来选择行
+- range: 索引范围扫描，常见于使用>,<,is null,between ,in ,like等运算符的查询中。只检索给定范围的行，使用一个索引来选择行
   
-&#8211; index_subquery：用于in形式子查询使用到了辅助索引或者in常数列表，子查询可能返回重复值，可以使用索引将子查询去重。
+- index_subquery：用于in形式子查询使用到了辅助索引或者in常数列表，子查询可能返回重复值，可以使用索引将子查询去重。
   
-&#8211; unique_subquery：用于where中的in形式子查询，子查询返回不重复值唯一值
+- unique_subquery：用于where中的in形式子查询，子查询返回不重复值唯一值
   
-&#8211; ref\_or\_null：与ref方法类似，只是增加了null值的比较。实际用的不多。
+- ref\_or\_null：与ref方法类似，只是增加了null值的比较。实际用的不多。
   
-&#8211; fulltext：全文索引检索，要注意，全文索引的优先级很高，若全文索引和普通索引同时存在时，mysql不管代价，优先选择使用全文索引
+- fulltext：全文索引检索，要注意，全文索引的优先级很高，若全文索引和普通索引同时存在时，mysql不管代价，优先选择使用全文索引
 
 #### ref
 
@@ -126,7 +126,7 @@ ref can be used for indexed columns that are compared using the = or <=> operato
 
 在对已经建立索引列进行=或者<=>操作的时候，ref会被使用到。与eq_ref不同的是匹配到了多行
 
-<pre><code class="language-sql line-numbers">-- 根据索引（非主键，非唯一索引），匹配到多行
+<code class="language-sql line-numbers">-- 根据索引（非主键，非唯一索引），匹配到多行
 SELECT * FROM ref_table WHERE key_column=expr;
 
 -- 多表关联查询，单个索引，多行匹配
@@ -198,17 +198,17 @@ constants,常量
 
 该列包含MySQL解决查询的详细信息,有以下几种情况：
   
-&#8211; Using where: 列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的，这发生在对表的全部的请求列都是同一个索引的部分的时候，表示mysql服务器将在存储引擎检索行后再进行过滤
+- Using where: 列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的，这发生在对表的全部的请求列都是同一个索引的部分的时候，表示mysql服务器将在存储引擎检索行后再进行过滤
   
-&#8211; Using temporary：表示MySQL需要使用临时表来存储结果集，常见于排序和分组查询
+- Using temporary：表示MySQL需要使用临时表来存储结果集，常见于排序和分组查询
   
-&#8211; Using filesort：MySQL中无法利用索引完成的排序操作称为“文件排序”
+- Using filesort：MySQL中无法利用索引完成的排序操作称为“文件排序”
   
-&#8211; Using join buffer：改值强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那应该注意，根据查询的具体情况可能需要添加索引来改进能。
+- Using join buffer：改值强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那应该注意，根据查询的具体情况可能需要添加索引来改进能。
   
-&#8211; Impossible where：这个值强调了where语句会导致没有符合条件的行。
+- Impossible where：这个值强调了where语句会导致没有符合条件的行。
   
-&#8211; Select tables optimized away：这个值意味着仅通过使用索引，优化器可能仅从聚合函数结果中返回一行
+- Select tables optimized away：这个值意味着仅通过使用索引，优化器可能仅从聚合函数结果中返回一行
 
 ### 总结：
 

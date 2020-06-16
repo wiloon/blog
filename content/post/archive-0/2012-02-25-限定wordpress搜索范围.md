@@ -10,13 +10,13 @@ categories:
 ---
 打开主题的 _functions.php_文件并粘贴下面的代码：
 
-<pre>function SearchFilter($query) {
+function SearchFilter($query) {
 if ($query-&gt;is_search) {
 $query-&gt;set('post_type', 'post');
 }
 return $query;
 }
 
-add_filter('pre_get_posts','SearchFilter');</pre>
+add_filter('pre_get_posts','SearchFilter');
 
 通过设置 post_type来限定搜索范围为“Post”.

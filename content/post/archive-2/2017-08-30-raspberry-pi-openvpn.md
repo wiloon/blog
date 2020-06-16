@@ -10,7 +10,7 @@ categories:
 ---
 https://community.home-assistant.io/t/how-to-install-openvpn-on-raspberry-pi-with-home-assistant/59002
 
-<pre><code class="language-shell line-numbers">sudo -s  #  **rest of the instructions assume you've already done this
+```bashsudo -s  #  **rest of the instructions assume you've already done this
 apt-get update
 apt-get upgrade
 
@@ -26,17 +26,17 @@ vim /etc/openvpn/server/server.conf
     
 > Allow web traffic pass though to client by uncommenting push “redirect-gateway def1 bypass-dhcp” by removing the semi colon at the start of the line
     
-> Prevent DNS leak by overriding the default DNS &#8211; Uncomment push “dhcp-option DNS 208.67.222.222” and push "dhcp-option DNS 208.67.220.220&#8221;
+> Prevent DNS leak by overriding the default DNS - Uncomment push “dhcp-option DNS 208.67.222.222” and push "dhcp-option DNS 208.67.220.220&#8221;
     
-> Lower OpenVPNs run time auth &#8211; Uncomment user nobody and group nogroup
+> Lower OpenVPNs run time auth - Uncomment user nobody and group nogroup
     
-> Change the port OpenVPN runs on it should current by port 1194 &#8211; choose something obscure and above 1024 e.g. port 50000 &#8211; leave it as UDP
+> Change the port OpenVPN runs on it should current by port 1194 - choose something obscure and above 1024 e.g. port 50000 - leave it as UDP
     
 > Now save your changes and exit. 
 
 Enable Packet Forwarding
 
-<pre><code class="language-shell line-numbers">bash -c 'echo 1 &gt; /proc/sys/net/ipv4/ip_forward'
+```bashbash -c 'echo 1 &gt; /proc/sys/net/ipv4/ip_forward'
 
 # Make this change perminant by un-commenting net.ipv4.ip_forward=1
 vim /etc/sysctl.conf
@@ -191,7 +191,7 @@ Consider setting up fail2ban for open VPN (this will ban IPs that try to connect
 
 https://www.raspberrypi.org/forums/viewtopic.php?t=81657
 
-<pre><code class="language-shell line-numbers">&lt;br />iptables -A INPUT -i tun+ -j ACCEPT
+```bash&lt;br />iptables -A INPUT -i tun+ -j ACCEPT
 iptables -A OUTPUT -o tun+ -j ACCEPT
 iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o wlan0 -j MASQUERADE
 iptables -I FORWARD -i tun0 -o wlan0 -s 10.8.0.0/24 -d 192.168.1.0/24 -m conntrack --ctstate NEW -j ACCEPT

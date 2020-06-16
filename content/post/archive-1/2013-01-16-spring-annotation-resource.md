@@ -117,7 +117,7 @@ Resource 注释类位于 Spring 发布包的 lib/j2ee/common-annotations.jar 类
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 package com.baobaotao;
 
 import javax.annotation.Resource;
@@ -130,7 +130,7 @@ public class Boss {
     // 自动注入 bean 名称为 office 的 Bean
     @Resource(name = "office")
     private Office office;
-}</pre>
+}
     </td>
   </tr>
 </table>
@@ -142,8 +142,8 @@ public class Boss {
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>&lt;bean
- /&gt;</pre>
+      &lt;bean
+ /&gt;
     </td>
   </tr>
 </table>
@@ -161,7 +161,7 @@ JSR-250 为初始化之后/销毁之前方法的指定定义了两个注释类�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 package com.baobaotao;
 
 import javax.annotation.Resource;
@@ -185,7 +185,7 @@ public class Boss {
         System.out.println("preDestroy1");
     }
     …
-}</pre>
+}
     </td>
   </tr>
 </table>
@@ -201,7 +201,7 @@ public class Boss {
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 package com.baobaotao;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -216,7 +216,7 @@ public class AnnoIoCTest {
         System.out.println(boss);
         ctx.destroy();// 关闭 Spring 容器，以触发 Bean 销毁方法的执行
     }
-}</pre>
+}
     </td>
   </tr>
 </table>

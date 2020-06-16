@@ -63,7 +63,7 @@ npm start -- --port=8001
 
 ### 设备字号
 
-<pre><code class="line-numbers">&lt;!-- .element: style="font-size:80%;" --&gt; &lt;br&gt;
+<code class="line-numbers">&lt;!-- .element: style="font-size:80%;" --&gt; &lt;br&gt;
 ```
 
 https://github.com/hakimel/reveal.js/issues/1349

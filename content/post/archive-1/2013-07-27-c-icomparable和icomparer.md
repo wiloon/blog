@@ -16,23 +16,23 @@ http://blog.csdn.net/iter_zc/article/details/41843595
 
 Class hierarchy
    
-&#8211; Thread
+- Thread
      
-&#8211; NamedThread
+- NamedThread
        
-&#8211; VMThread
+- VMThread
        
-&#8211; ConcurrentGCThread
+- ConcurrentGCThread
        
-&#8211; WorkerThread
+- WorkerThread
          
-&#8211; GangWorker
+- GangWorker
          
-&#8211; GCTaskThread
+- GCTaskThread
      
-&#8211; JavaThread
+- JavaThread
      
-&#8211; WatcherThread
+- WatcherThread
   
 另外还有一个重要的类OSThread不在这个继承关系里，它以组合的方式被Thread类所使用
 

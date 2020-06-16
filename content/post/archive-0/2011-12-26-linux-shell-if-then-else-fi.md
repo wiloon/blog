@@ -12,7 +12,8 @@ tags:
 ---
 ### 判断指定文件中是否包含指定的字符串
 
-```bashgrep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
+```bash
+grep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
 if [ $? -eq 0 ]; then
     echo "Found!"
 else
@@ -134,7 +135,7 @@ if/else
   
 和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如
 
-<pre><code class="language-shell line-numbers">if [ -f ~/.bashrc ]; then
+```bashif [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 ```
@@ -259,7 +260,7 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 
 算术运算符
   
-+ &#8211; * / % 表示加减乘除和取余运算
++ - * / % 表示加减乘除和取余运算
   
 += -= *= /= 同 C 语言中的含义
 

@@ -20,7 +20,7 @@ http://www.benben.cc/blog/?p=9
   <table>
     <tr>
       <td>
-        <pre>1
+        1
 2
 3
 4
@@ -36,11 +36,11 @@ http://www.benben.cc/blog/?p=9
 14
 15
 16
-17</pre>
+17
       </td>
       
       <td>
-        <pre>&lt;script&gt;alert("我是html根节点之外的内部脚本");&lt;/script&gt;
+        &lt;script&gt;alert("我是html根节点之外的内部脚本");&lt;/script&gt;
 &lt;html&gt;
 &lt;head&gt;
 	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
@@ -56,7 +56,7 @@ http://www.benben.cc/blog/?p=9
 	&lt;input type="button" value="绑定事件" onclick="javascript:alert('我是body中的按钮，这是我自己绑定的事件');"&gt;&lt;/input&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-&lt;script&gt;alert("我是html根节点之外的内部脚本");&lt;/script&gt;</pre>
+&lt;script&gt;alert("我是html根节点之外的内部脚本");&lt;/script&gt;
       </td>
     </tr>
   </table>
@@ -68,11 +68,11 @@ http://www.benben.cc/blog/?p=9
   <table>
     <tr>
       <td>
-        <pre>1</pre>
+        1
       </td>
       
       <td>
-        <pre>alert("我是header中src外部引用的脚本");</pre>
+        alert("我是header中src外部引用的脚本");
       </td>
     </tr>
   </table>
@@ -84,17 +84,17 @@ http://www.benben.cc/blog/?p=9
   <table>
     <tr>
       <td>
-        <pre>1
+        1
 2
 3
-4</pre>
+4
       </td>
       
       <td>
-        <pre>document.write('&lt;script type="text/javascript"&gt;');
+        document.write('&lt;script type="text/javascript"&gt;');
 document.write('alert("我是header中通过外部通过document.write生成的脚本")');
 //document.write('&lt;script src="outerouter.js"&gt;&lt;/script&gt;');
-document.write('&lt;/script&gt;');</pre>
+document.write('&lt;/script&gt;');
       </td>
     </tr>
   </table>
@@ -106,11 +106,11 @@ document.write('&lt;/script&gt;');</pre>
   <table>
     <tr>
       <td>
-        <pre>1</pre>
+        1
       </td>
       
       <td>
-        <pre>alert("我是body中src外部引用的脚本");</pre>
+        alert("我是body中src外部引用的脚本");
       </td>
     </tr>
   </table>
@@ -120,14 +120,14 @@ document.write('&lt;/script&gt;');</pre>
 
 
   
-    <pre>alert("我是html根节点之外的内部脚本");
+    alert("我是html根节点之外的内部脚本");
 alert("我是头部header里的内部脚本");
 alert("我是header中src外部引用的脚本");
 alert("我是header中通过外部通过document.write生成的脚本");
 alert("我是页面body里的内部脚本");
 alert("我是body中src外部引用的脚本");
 alert("我是html根节点之外的内部脚本");
-最后只有点击按钮才会触发alert('我是body中的按钮，这是我自己绑定的事件');</pre>
+最后只有点击按钮才会触发alert('我是body中的按钮，这是我自己绑定的事件');
   
 
 

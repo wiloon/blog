@@ -12,7 +12,8 @@ categories:
 ---
 grep, Global Regular Expression Print
 
-```bashgrep xxx -A5
+```bash
+grep xxx -A5
 grep xxx -B1
 grep -C 5 foo file 显示file文件里匹配foo字串那行以及上下5行
 

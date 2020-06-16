@@ -31,7 +31,7 @@ To unlock your device
   
 1. cd to platform-tools
   
-2. Reboot to the bootloader &#8211; adb reboot bootloader
+2. Reboot to the bootloader - adb reboot bootloader
   
 3. Unlock your device* &#8211;
   

@@ -10,7 +10,8 @@ categories:
 ---
 https://wiki.archlinux.org/index.php/MAC\_address\_spoofing
 
-```bashvim /etc/systemd/network/00-default.link
+```bash
+vim /etc/systemd/network/00-default.link
 
 [Match]
 MACAddress=old mac address

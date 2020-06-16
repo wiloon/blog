@@ -136,7 +136,7 @@ Create a module.xml file in the "main" directory. Here are its contents:
 
 <resource-root path="mysql-connector-java-5.1.25.jar"/>
 
-<!&#8211; Insert resources here &#8211;>
+<!- Insert resources here &#8211;>
 
 </resources>
 

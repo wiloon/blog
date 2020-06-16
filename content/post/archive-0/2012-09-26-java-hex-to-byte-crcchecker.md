@@ -20,7 +20,7 @@ for (int n = 0; n < btSrc.length; n++) {
    
 String stmp = "00" + Integer.toHexString(btSrc[n] & 0XFF);
    
-stmp = stmp.substring(stmp.length() &#8211; 2);
+stmp = stmp.substring(stmp.length() - 2);
    
 sbuffer.append(stmp.toUpperCase());
    

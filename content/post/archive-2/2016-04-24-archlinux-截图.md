@@ -8,13 +8,13 @@ categories:
   - Uncategorized
 
 ---
-<pre>scrot</pre>
+scrot
 
-<pre>pacman -S scrot
+pacman -S scrot
 
-</pre>
+
 
   * 抓取区域：
 
-<pre>scrot -s rectangle.png
-https://wiki.archlinux.org/index.php/Taking_a_screenshot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</pre>
+scrot -s rectangle.png
+https://wiki.archlinux.org/index.php/Taking_a_screenshot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)

@@ -68,7 +68,7 @@ jndi也可以配置在server.xml，context.xml中
   
 在server.xml文件GlobalNamingResources节点下配置如下：
   
-<!&#8211; Resource configuration for UserTransaction
+<!- Resource configuration for UserTransaction
   
 use JOTM &#8211;>
   
@@ -158,7 +158,7 @@ Persistence.xml配置：
   
 </property>
   
-<!&#8211; if no datasource is specified, use this one &#8211;>
+<!- if no datasource is specified, use this one &#8211;>
   
 <property name="defaultDataSource" ref="remoteDataSource"/>
   

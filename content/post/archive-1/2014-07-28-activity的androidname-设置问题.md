@@ -9,7 +9,7 @@ categories:
 
 ---
 <div class="cnblogs_code" style="color: #000000;">
-  <pre>&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+  &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" 
 <span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">package</span>="com.example.android.apis"&gt; 
 <span style="color: #008080;"> 3</span> 
 <span style="color: #008080;"> 4</span> 
@@ -27,7 +27,7 @@ categories:
 <span style="color: #008080;">16</span>                 &lt;action android:name="android.intent.action.MAIN" /&gt; 
 <span style="color: #008080;">17</span>                 &lt;category android:name="android.intent.category.SAMPLE_CODE" /&gt; 
 <span style="color: #008080;">18</span>             &lt;/intent-filter&gt; 
-<span style="color: #008080;">19</span> &lt;/activity&gt;</pre>
+<span style="color: #008080;">19</span> &lt;/activity&gt;
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><a style="color: #4371a6;" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a></span>

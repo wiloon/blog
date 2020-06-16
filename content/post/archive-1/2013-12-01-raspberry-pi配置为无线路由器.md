@@ -76,10 +76,10 @@ tags:
     
     
     
-      <pre>pi@raspberrypi ~ $ lsusb
+      pi@raspberrypi ~ $ lsusb
 
 ...
-Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapter</pre>
+Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapter
 
 
     
@@ -109,7 +109,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
     <ol>
       <li>
         安装软件 
-          <pre>sudo apt-get install hostapd udhcpd</pre>
+          sudo apt-get install hostapd udhcpd
         
       </li>
       
@@ -119,7 +119,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
             <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
           
           
-          <pre>start 192.168.42.2 # This is the range of IPs that the hostspot will give to client devices.
+          start 192.168.42.2 # This is the range of IPs that the hostspot will give to client devices.
 
 end 192.168.42.20
 interface wlan0 # The device uDHCP listens on.
@@ -127,7 +127,7 @@ remaining yes
 opt dns 8.8.8.8 4.2.2.2 # The DNS servers client devices will use.
 opt subnet 255.255.255.0
 opt router 192.168.42.1 # The Pi's IP address on wlan0 which we will set up shortly.
-opt lease 864000 # 10 day DHCP lease time in seconds</pre>
+opt lease 864000 # 10 day DHCP lease time in seconds
 
           
             <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
@@ -139,7 +139,7 @@ opt lease 864000 # 10 day DHCP lease time in seconds</pre>
         
         
         
-          <pre>#DHCPD_ENABLED="no"</pre>
+          #DHCPD_ENABLED="no"
         
         
         
@@ -147,10 +147,10 @@ opt lease 864000 # 10 day DHCP lease time in seconds</pre>
         
         
         
-          <pre>iface wlan0 inet static
+          iface wlan0 inet static
 
 address 192.168.42.1
-netmask 255.255.255.0</pre>
+netmask 255.255.255.0
 
 
         
@@ -180,7 +180,7 @@ netmask 255.255.255.0</pre>
             
             
             
-              <pre>wpa_passphrase &lt;ssid&gt; [明文密码]</pre>
+              wpa_passphrase &lt;ssid&gt; [明文密码]
             
             
             
@@ -192,13 +192,13 @@ netmask 255.255.255.0</pre>
                 <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
               
               
-              <pre>pi@raspberrypi ~ $ wpa_passphrase Daochen_AP DaochenShi
+              pi@raspberrypi ~ $ wpa_passphrase Daochen_AP DaochenShi
 
 network={
 ssid="Daochen_AP"
 \#psk="DaochenShi"
 psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
-}</pre>
+}
 
               
                 <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
@@ -218,13 +218,13 @@ psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
                 <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
               
               
-              <pre>interface=wlan0
+              interface=wlan0
 
 ssid=Daochen_AP
 hw_mode=g
 channel=6
 auth_algs=1
-wmm_enabled=0</pre>
+wmm_enabled=0
 
               
                 <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
@@ -240,7 +240,7 @@ wmm_enabled=0</pre>
             
             
             
-              <pre>DAEMON_CONF="/etc/hostapd/hostapd.conf"</pre>
+              DAEMON_CONF="/etc/hostapd/hostapd.conf"
             
             
             
@@ -248,7 +248,7 @@ wmm_enabled=0</pre>
               
               <li>
                 配置NAT，也就是路由了首先编辑/etc/sysctl.conf文件，主要是打开ipv4的转发功能。 
-                  <pre>net.ipv4.ip_forward=1</pre>
+                  net.ipv4.ip_forward=1
                 
                 
                 
@@ -256,10 +256,10 @@ wmm_enabled=0</pre>
                 
                 
                 
-                  <pre>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+                  sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
+sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
 
                 
@@ -267,7 +267,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
                 
                 
                 
-                  <pre>sudo sh -c "iptables-save &gt; /etc/iptables.ipv4.nat"</pre>
+                  sudo sh -c "iptables-save &gt; /etc/iptables.ipv4.nat"
                 
                 
                 
@@ -275,7 +275,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
                 
                 
                 
-                  <pre>up iptables-restore &lt; /etc/iptables.ipv4.nat</pre>
+                  up iptables-restore &lt; /etc/iptables.ipv4.nat
                 
                 
                 
@@ -283,9 +283,9 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
                   
                   <li>
                     启动服务，看看你的无线是否搭建好了？运行一下命令： 
-                      <pre>sudo service hostapd start
+                      sudo service hostapd start
 
-sudo service udhcpd start</pre>
+sudo service udhcpd start
 
 
                     
@@ -293,9 +293,9 @@ sudo service udhcpd start</pre>
                     
                     
                     
-                      <pre>sudo update-rc.d hostapd enable
+                      sudo update-rc.d hostapd enable
 
-sudo update-rc.d udhcpd enable</pre>
+sudo update-rc.d udhcpd enable
 
 
                     
@@ -322,13 +322,13 @@ sudo update-rc.d udhcpd enable</pre>
                       
                       
                       
-                        <pre>pi@raspberrypi /etc/hostapd $ sudo ifup wlan0
+                        pi@raspberrypi /etc/hostapd $ sudo ifup wlan0
 
 ip6tables-restore v1.4.14: Couldn't load match \`icmp':No such file or directory
 
 Error occurred at line: 17
 Try \`ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
-Failed to bring up wlan0.</pre>
+Failed to bring up wlan0.
 
 
                       
@@ -336,7 +336,7 @@ Failed to bring up wlan0.</pre>
                       
                       
                       
-                        <pre>sudo udhcpd -f</pre>
+                        sudo udhcpd -f
                       
                       
                       

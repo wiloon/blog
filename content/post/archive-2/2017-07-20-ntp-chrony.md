@@ -77,7 +77,7 @@ https://www.zfl9.com/chrony.html
 
 ### ntp
 
-<pre><code class="language-shell line-numbers">sudo pacman -S ntp
+```bashsudo pacman -S ntp
 
 sudo systemctl start ntpd.service
 sudo systemctl enable ntpd.service

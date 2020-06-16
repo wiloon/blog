@@ -10,7 +10,7 @@ categories:
 ---
 ```bash
   
-&#8211; name: ensure file exists
+- name: ensure file exists
     
 copy:
       

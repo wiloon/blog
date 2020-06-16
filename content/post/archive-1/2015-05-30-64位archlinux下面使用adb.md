@@ -10,7 +10,8 @@ tags:
   - Arch Linux
 
 ---
-```bashpacman -S android-tools
+```bash
+pacman -S android-tools
 ```
 
 装了个64位的Archlinux，发现adb用不了，运行adb提示没有这个文件或目录，进入到sdk的platform-tools目录下去运行还是不行。

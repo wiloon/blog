@@ -50,7 +50,7 @@ CASE WHEN SUM(f\_this\_price) = 0 OR SUM(f\_last\_price) = 0
 
 THEN 0
 
-ELSE SUM(f\_this\_price &#8211; f\_last\_price)
+ELSE SUM(f\_this\_price - f\_last\_price)
 
 END f\_markup\_price
 

@@ -49,11 +49,11 @@ drwx&#8212;&#8212; 51 root root 4096 2010-12-11 12:44 ..
   
 drwxr-xr-x 8 root root 4096 2010-12-11 12:44 .git
   
--rw-r&#8211;r&#8211; 1 root root 39 2010-12-11 12:44 .gitignore
+-rw-r&#8211;r- 1 root root 39 2010-12-11 12:44 .gitignore
   
 drwxr-xr-x 3 root root 4096 2010-08-19 20:01 .metadata
   
--rw-r&#8211;r&#8211; 1 root root 52 2010-12-11 12:41 test.txt
+-rw-r&#8211;r- 1 root root 52 2010-12-11 12:41 test.txt
 
 如果没有添加该文件，git status会报有这些文件没有track。
   

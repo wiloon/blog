@@ -146,7 +146,7 @@ protected final boolean tryRelease(int releases) {
   
 02
       
-int c = getState() &#8211; releases;
+int c = getState() - releases;
   
 03
       

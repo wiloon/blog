@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-shell line-numbers">#download  image
+```bash
+#download  image
 http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2018-11-15/2018-11-13-raspbian-stretch-lite.zip
 
 # unzip image

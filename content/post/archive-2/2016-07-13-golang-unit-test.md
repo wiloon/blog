@@ -93,7 +93,8 @@ Division(4, 5)
   
 }
 
-```bashgo test -test.bench=".*"
+```bash
+go test -test.bench=".*"
 #使用-count可以指定执行多少次
 go test -test.bench=".*" -count=5
 ```

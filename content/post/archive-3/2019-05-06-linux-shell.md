@@ -10,7 +10,8 @@ categories:
 ---
 ### 查看当前使用的shell
 
-```bashecho $SHELL
+```bash
+echo $SHELL
 ps |  grep $$  |  awk '{print $4}'
 ```
 
@@ -18,7 +19,8 @@ ps |  grep $$  |  awk '{print $4}'
   
 也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe（命令提示字符）和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh／zsh等 一般情况下，习惯把命令行shell（CLI shell）直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
 
-```bashcat /etc/shells
+```bash
+cat /etc/shells
 ```
 
 3.1、bash

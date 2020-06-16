@@ -44,7 +44,7 @@ System Setup:
   
 This guide will demonstrate how to make a DOS USB boot drive using FreeDOS. We are going to use Ubuntu 7.10 which you can download for free at http://www.ubuntu.com. You can use the Live CD to follow this guide if you are still using Windows. The only software that you will need to install is the package called "dosemu" which is very simple to install from Synaptic or the console.
 
-Open up Applications -> Accessories &#8211; > Terminal.
+Open up Applications -> Accessories - > Terminal.
 
 That prompt you see will look something like this&#8230;
 

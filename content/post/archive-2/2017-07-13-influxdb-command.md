@@ -91,7 +91,8 @@ STDERR=/data/logs/influxdb/influxdb.log
   
 /etc/logrotate.d/influxdb
 
-<pre><code class="language-shell line-numbers"># chown
+```bash
+# chown
 chown influxdb:influxdb /data/influxdb/
 chown influxdb:influxdb /data/logs/influxdb/
 

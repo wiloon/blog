@@ -12,7 +12,8 @@ ApacheBench
 
 ### install
 
-```bashyay -S apache-tools
+```bash
+yay -S apache-tools
 sudo yum -y install httpd-tools
 ```
 
@@ -125,7 +126,7 @@ ApacheBench用法详解：
 
 使用ab发送post请求
 
-<pre>ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant</pre>
+ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant
 
 解释：-p:包含post请求的参数文件。文件内容类似：sk=1babb55a0b4b4dd2a&apitype=restaurant&p=tJoLaT4mon
 

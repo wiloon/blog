@@ -10,7 +10,8 @@ categories:
 ---
 watch可以周期性的执行一个程序，并显示执行结果。
 
-```bashwatch -n 3 -d netstat -ant
+```bash
+watch -n 3 -d netstat -ant
 ```
 
 ### 命令参数：

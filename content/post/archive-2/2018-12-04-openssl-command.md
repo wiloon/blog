@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashopenssl s_client -connect 127.0.0.1:443
+```bash
+openssl s_client -connect 127.0.0.1:443
 
 # add password
 openssl rsa -in [foo.key] -aes256 -passout pass:xxxxxx -out out.key

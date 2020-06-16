@@ -30,9 +30,9 @@ drwxr-xr-x  10 root  wheel         512 Mar 25 17:49 cvs
 -rw-r--r--   1 root  wheel         387 Mar 25 16:40 cvs-supfile
 -rw-r--r--   1 root  wheel  5208381440 Mar 25 21:18 cvs.tar
 -rw-r--r--   1 root  wheel   898476333 Mar 25 21:03 cvs.tar.bz2
--rw-r--r--   1 root  wheel  1162675369 Mar 25 21:13 cvs.tar.gz</pre>
+-rw-r--r--   1 root  wheel  1162675369 Mar 25 21:13 cvs.tar.gz
     
-    <pre dir="ltr"></pre>
+    <pre dir="ltr">
     
-    <pre dir="ltr"><a href="http://www.jiarun.org/thread2600.html">http://www.jiarun.org/thread2600.html</a></pre>
+    <pre dir="ltr"><a href="http://www.jiarun.org/thread2600.html">http://www.jiarun.org/thread2600.html</a>
   

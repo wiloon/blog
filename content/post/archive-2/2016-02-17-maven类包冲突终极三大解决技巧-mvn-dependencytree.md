@@ -102,9 +102,9 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 [INFO] +- cglib:cglib:jar:2.1_3:compile
   
-[INFO] | \- (asm:asm:jar:1.5.3:compile &#8211; omitted for conflict with 3.2)
+[INFO] | \- (asm:asm:jar:1.5.3:compile - omitted for conflict with 3.2)
   
-[INFO] \- (asm:asm:jar:1.5.3:compile &#8211; omitted for conflict with 3.2)
+[INFO] \- (asm:asm:jar:1.5.3:compile - omitted for conflict with 3.2)
   
 [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
 
@@ -132,7 +132,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 </exclusion>
   
-<!&#8211; 这个就是我们要加的片断 &#8211;>
+<!- 这个就是我们要加的片断 &#8211;>
   
 <exclusion>
   

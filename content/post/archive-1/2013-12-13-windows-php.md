@@ -42,7 +42,7 @@ categories:
       安装完成后，重新启动 Apache 服务器。
     </li>
     <li>
-      要检查安装是否成功，请运行浏览器，然后输入以下 URL： <pre>  http://localhost/</pre>
+      要检查安装是否成功，请运行浏览器，然后输入以下 URL：   http://localhost/
       
       
         Apache 欢迎测试页面打开：</li> </ol> 

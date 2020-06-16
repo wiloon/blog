@@ -42,12 +42,13 @@ jetty-webapp-9.4.20.v20190813\org\eclipse\jetty\webapp
 
 ### run
 
-```bashmvn jetty:run
+```bash
+mvn jetty:run
 mvnDebug jetty:run
 # 默认调试端口8000
 ```
 
-## debug &#8211; mvnDebug
+## debug - mvnDebug
 
 <https://blog.wiloon.com/?p=15212>
 

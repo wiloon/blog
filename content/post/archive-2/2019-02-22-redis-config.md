@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashbind 0.0.0.0
+```bash
+bind 0.0.0.0
 #参数是为了禁止外网访问redis，如果启用了，则只能够通过lookback ip（127.0.0.1）访问Redis
 protected-mode no
 port 6379

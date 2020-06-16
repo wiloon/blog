@@ -104,11 +104,11 @@ This article was previously published under Q288367
       Close the applications, including VBA.
     </li>
     <li>
-      Click Start, click Run, and then type <kbd>DCOMCNFG</kbd>. Select the application that you want to automate. The application names are listed below:Microsoft Access 97/2002 &#8211; Microsoft Access Database
- Microsoft Access 2003 &#8211; Microsoft Office Access Application
- Microsoft Excel 97/2000/2002/2003 &#8211; Microsoft Excel Application
- Microsoft Word 97 &#8211; Microsoft Word Basic
- Microsoft Word 2000/2002/2003 &#8211; Microsoft Word Document 
+      Click Start, click Run, and then type <kbd>DCOMCNFG</kbd>. Select the application that you want to automate. The application names are listed below:Microsoft Access 97/2002 - Microsoft Access Database
+ Microsoft Access 2003 - Microsoft Office Access Application
+ Microsoft Excel 97/2000/2002/2003 - Microsoft Excel Application
+ Microsoft Word 97 - Microsoft Word Basic
+ Microsoft Word 2000/2002/2003 - Microsoft Word Document 
         Click Properties to open the property dialog box for this application.</li> 
         
         <li>
@@ -177,7 +177,7 @@ This article was previously published under Q288367
                     If these keys do not exist, you can create them by running the following .reg file on your system:
                   
                   
-                  <pre>REGEDIT4
+                  REGEDIT4
 
 [HKEY_CLASSES_ROOTAppIDWINWORD.EXE]
 "AppID"="{00020906-0000-0000-C000-000000000046}"
@@ -186,13 +186,13 @@ This article was previously published under Q288367
 "AppID"="{00020812-0000-0000-C000-000000000046}"
 
 [HKEY_CLASSES_ROOTAppIDMSACCESS.EXE]
-"AppID"="{73A4C9C1-D68D-11D0-98BF-00A0C90DC8D9}"</pre>
+"AppID"="{73A4C9C1-D68D-11D0-98BF-00A0C90DC8D9}"
                   
                   
                     Note The sample .reg file is for Access 2000, Access 2002, or Office Access 2003. If you are using Access 97, change the AppID key to:
                   
                   
-                  <pre>"AppID"="{8CC49940-3146-11CF-97A1-00AA00424A9F}"</pre>
+                  "AppID"="{8CC49940-3146-11CF-97A1-00AA00424A9F}"
                 </li>
                 
                 <li>

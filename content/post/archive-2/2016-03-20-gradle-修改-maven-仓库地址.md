@@ -10,7 +10,7 @@ categories:
 ---
 ### gradle kotlin
 
-<pre><code class="language-kotlin line-numbers">repositories {
+<code class="language-kotlin line-numbers">repositories {
     mavenCentral()
     maven {
         setUrl("&lt;MAVEN REPO URL&gt;")

@@ -19,11 +19,11 @@ tags:
     wifi-menu -o
     
 
-<pre>netctl start <i>profile</i></pre>
+netctl start <i>profile</i>
 
-<pre>netctl enable <i>profile</i></pre>
+netctl enable <i>profile</i>
 
-<pre> netctl start wlp0s26f7u5-w1100n</pre>
+ netctl start wlp0s26f7u5-w1100n
 
-<pre>------deleted
-sudo wpa_supplicant -i wlp0s26f7u5 -c /etc/wpa_supplicant/wpa_supplicant.conf -d sudo dhcpcd wlp0s26f7u5</pre>
+------deleted
+sudo wpa_supplicant -i wlp0s26f7u5 -c /etc/wpa_supplicant/wpa_supplicant.conf -d sudo dhcpcd wlp0s26f7u5

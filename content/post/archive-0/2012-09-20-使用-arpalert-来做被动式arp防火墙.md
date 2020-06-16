@@ -203,17 +203,17 @@ interface = eth0
   
 \# parameters are:
   
-#  &#8211; "mac adress of requestor"
+#  - "mac adress of requestor"
   
-#  &#8211; "ip of requestor"
+#  - "ip of requestor"
   
-#  &#8211; "supp. parm."
+#  - "supp. parm."
   
-#  &#8211; "ethernet device listening on"
+#  - "ethernet device listening on"
   
-#  &#8211; "type of alert"
+#  - "type of alert"
   
-#  &#8211; optional : "ethernet vendor"
+#  - optional : "ethernet vendor"
   
 \# type of alert:
   

@@ -21,7 +21,8 @@ fmt.Println("hello world")
 }
 ```
 
-```bashgo run hello-world.go
+```bash
+go run hello-world.go
 go build hello-world.go
 ./hello-world
 ```

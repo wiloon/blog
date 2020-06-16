@@ -55,7 +55,8 @@ Host *
   
 这里有一些默认配置项，我们可以在用户配置文件中覆盖这些默认配置。
 
-```bashHost router
+```bash
+host router
      HostName 192.168.1.1
      Port 22
      User root

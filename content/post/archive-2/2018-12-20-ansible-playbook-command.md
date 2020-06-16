@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-定义变量 &#8211; 列表
+定义变量 - 列表
 
-<pre><code class="language-yaml line-numbers">- hosts: localhost
+<code class="language-yaml line-numbers">- hosts: localhost
   become: true
   vars:
     app_list:
@@ -19,7 +19,8 @@ categories:
         - vim
 ```
 
-```bashansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1" --list-hosts --list-tasks
+```bash
+ansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1" --list-hosts --list-tasks
 --skip-tags
 --start-at-task
 --step # one-step-at-a-time: confirm each task before running

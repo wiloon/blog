@@ -318,7 +318,7 @@ return true;
    
 } catch (Exception e) {
    
-// Context creation failed &#8211; authentication did not succeed
+// Context creation failed - authentication did not succeed
    
 logger.error("Login failed for userDn-&#8216;" + userDn + "&#8217;",
    

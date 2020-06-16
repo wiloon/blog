@@ -44,7 +44,8 @@ rclone config
 rclone mount name-foo:path/to/files /path/to/local/mount --allow-other --vfs-cache-mode writes
 ```
 
-```bashrclone lsl foo:
+```bash
+rclone lsl foo:
 rclone dedupe --dedupe-mode newest $name
 
 # linux mount google drive
@@ -59,7 +60,8 @@ rclone.exe mount foo:/ x: --cache-dir C:\path\to\cache\dir --vfs-cache-mode writ
 
 ### mount webdav
 
-```bashrclone config
+```bash
+rclone config
 n
 name0 # enter name
 24 #webdav, see help at https://rclone.org/webdav/
@@ -129,7 +131,7 @@ for windows, install winfsp <https://github.com/billziss-gh/winfsp> first
   
 windows vbs脚本后台挂载
 
-<pre><code class="language-shell line-numbers">著作权归作者所有。
+```bash著作权归作者所有。
 商业转载请联系作者获得授权，非商业转载请注明出处。
 作者：Rhilip
 链接：https://blog.rhilip.info/archives/874/
@@ -157,7 +159,8 @@ end if
 
 <https://rclone.org/onedrive/>
 
-```bashrclone config
+```bash
+rclone config
 storage&gt; 23
 client_id&gt; ""
 client_secret&gt; ""

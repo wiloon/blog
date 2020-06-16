@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="line-numbers">FROM golang:1.12.4 AS build
+<code class="line-numbers">FROM golang:1.12.4 AS build
 
 ENV GO111MODULE on
 WORKDIR /go/src/xxx.com/xxx

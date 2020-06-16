@@ -401,7 +401,7 @@ func NewScanner(r io.Reader) *Scanner
   
 // 固定不可调。Buffer 必须在第一次 Scan 之前设置，否则会引发 panic。
   
-// 默认情况下，Scanner 会使用一个 4096 &#8211; bufio.MaxScanTokenSize 大小的内部缓存。
+// 默认情况下，Scanner 会使用一个 4096 - bufio.MaxScanTokenSize 大小的内部缓存。
   
 func (s *Scanner) Buffer(buf []byte, max int)
 

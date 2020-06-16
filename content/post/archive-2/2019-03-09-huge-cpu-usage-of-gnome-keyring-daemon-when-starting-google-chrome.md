@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashgoogle-chrome --password-store:basic
+```bash
+google-chrome --password-store:basic
 ```
 
 <blockquote class="wp-embedded-content" data-secret="NSkQcrRM22">

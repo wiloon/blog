@@ -84,7 +84,8 @@ git push origin :refs/tags/1.0.0
 
 ```
 
-```bashgit rm
+```bash
+git rm
 git rm -f
 ```
 
@@ -92,7 +93,8 @@ git rm -f
 
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
 
-```bashgit reset --hard
+```bash
+git reset --hard
 ```
 
 git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。

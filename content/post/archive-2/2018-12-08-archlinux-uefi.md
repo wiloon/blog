@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-shell line-numbers"># boot with iso-usb
+```bash
+# boot with iso-usb
 ls /sys/firmware/efi
 dmesg |grep sdx
 lsblk

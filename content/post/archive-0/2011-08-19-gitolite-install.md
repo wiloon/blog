@@ -41,8 +41,8 @@ At work we recently switched from subversion to Git for our version control.
     Nice and easy this part, on the server:
   
   
-  <pre>server&gt; sudo apt-get update
-server&gt; sudo apt-get install gitolite</pre>
+  server&gt; sudo apt-get update
+server&gt; sudo apt-get install gitolite
   
   <h4>
     Creating a Public/Private key pair
@@ -52,7 +52,7 @@ server&gt; sudo apt-get install gitolite</pre>
     If you already have one, send the public halve over to the server and skip this part. Otherwise, take a look at ssh key based authentication, then create your key pair on your client machine:
   
   
-  <pre>client&gt; ssh-keygen
+  client&gt; ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/davem/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -72,13 +72,13 @@ The key's randomart image is:
 |          . E.Bo=|
 |             =o*+|
 |            ...o*|
-+-----------------+</pre>
++-----------------+
   
   
     Once created, send the public halve to the gitolite server. Be sure to use the name you provided when creating the key. In this example, I’ve called the key davem.pub on the target machine, so I can differentiate between myself and other developers.
   
   
-  <pre>client&gt; scp ~/.ssh/id_rsa.pub server:davem.pub</pre>
+  client&gt; scp ~/.ssh/id_rsa.pub server:davem.pub
   
   <h4>
     Configure gitolite
@@ -88,30 +88,30 @@ The key's randomart image is:
     On the server, copy the public halve to a convenient location and run the gl-setup tool.
   
   
-  <pre>server&gt; mv davem.pub /tmp/davem.pub
+  server&gt; mv davem.pub /tmp/davem.pub
 server&gt; chmod 666 /tmp/davem.pub
 server&gt; sudo su gitolite
 server&gt; gl-setup /tmp/davem.pub
-...</pre>
+...
   
   
     That’s gitolite setup, we now need to go back to the client machine to fully configure it. First edit your <tt>.ssh/config</tt> file, so that ssh knows how to connect to the server. Again, be careful to use the correct name for your key pair:
   
   
-  <pre>Host servername
-IdentityFile ~/.ssh/id_rsa</pre>
+  Host servername
+IdentityFile ~/.ssh/id_rsa
   
   
     Now we can clone the git repository that is used to configure gitolite:
   
   
-  <pre>client&gt; git clone gitolite@server:gitolite-admin
+  client&gt; git clone gitolite@server:gitolite-admin
 Initialized empty Git repository in /home/davem/gitolite-admin/.git/
 remote: Counting objects: 6, done.
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 6 (delta 0), reused 0 (delta 0)
 Receiving objects: 100% (6/6), done.
-client&gt; cd gitolite-admin</pre>
+client&gt; cd gitolite-admin
   
   <h4>
     Adding repositories
@@ -121,21 +121,21 @@ client&gt; cd gitolite-admin</pre>
     The gitolite admin contains two folders. The first, <tt>conf</tt> contains a single config file. Open that and create a new repository by adding:
   
   
-  <pre>        repo    mytest
-                  RW+     =   @all</pre>
+          repo    mytest
+                  RW+     =   @all
   
   
     You then need to commit the changes and push them to the gitolite server:
   
   
-  <pre>client&gt; git commit -m "Added mytest repo" conf/gitolite.conf
-client&gt; git push</pre>
+  client&gt; git commit -m "Added mytest repo" conf/gitolite.conf
+client&gt; git push
   
   
     We then should be able to clone our new repository:
   
   
-  <pre>client&gt; git clone gitolite@server:mytest</pre>
+  client&gt; git clone gitolite@server:mytest
   
   <h4>
     Adding users
@@ -145,11 +145,11 @@ client&gt; git push</pre>
     To add a new user, simply add their public key halve to your clone of the <tt>gitolite-admin</tt> repo, add, commit and push.
   
   
-  <pre>client&gt; cd gitolite-admin
+  client&gt; cd gitolite-admin
 client&gt; cp ~/Downloads/another.pub keydir/
 client&gt; git add keydir/another.pub
 client&gt; git commit -m "Added another as a user" keydir/another.pub
-client&gt; git push</pre>
+client&gt; git push
   
   
     I wont go any further than that, you can configure fine grain access control and other things in the<tt>conf/gitolite.conf</tt> file, check out the documentation. Hope it’s been helpful, comments (especially corrections) are appreciated.

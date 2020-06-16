@@ -88,7 +88,7 @@ Thread state for a waiting thread.A thread is in the waiting state due to callin
   
 {@link LockSupport#park() LockSupport.park}
 
-Blocked vs. Waiting &#8211; Blocked是syncronized阻塞的，或者一个线程进入了sychronized,然后调用了wait,则进入等待状态，其他线程进入了同步块调用了Notify，等待进程被唤起，然后，重新等待synchronized的对象锁，这个时候也是Blocked的状态。也就是临界点阻塞或者回到临界点阻塞都是Blocked.
+Blocked vs. Waiting - Blocked是syncronized阻塞的，或者一个线程进入了sychronized,然后调用了wait,则进入等待状态，其他线程进入了同步块调用了Notify，等待进程被唤起，然后，重新等待synchronized的对象锁，这个时候也是Blocked的状态。也就是临界点阻塞或者回到临界点阻塞都是Blocked.
   
 sleep, wait, wait(long), park, join等等都是等待waiting状态。
 
@@ -210,7 +210,7 @@ java.lang.Thread.State: BLOCKED (on object monitor)
   
 at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(GoodsServiceImpl.java:1734)
   
-&#8211; waiting to lock <0x00000000fe7e3b50> (a java.lang.String)
+- waiting to lock <0x00000000fe7e3b50> (a java.lang.String)
 
 那么谁持有这个锁呢？
   
@@ -230,7 +230,7 @@ at java.io.BufferedInputStream.read1(BufferedInputStream.java:258)
   
 at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
   
-&#8211; locked <0x00000000af4ed638> (a java.io.BufferedInputStream)
+- locked <0x00000000af4ed638> (a java.io.BufferedInputStream)
   
 at org.bson.io.Bits.readFully(Bits.java:35)
   
@@ -240,11 +240,11 @@ at com.mongodb.Response.<init>(Response.java:35)
   
 at com.mongodb.DBPort.go(DBPort.java:110)
   
-&#8211; locked <0x00000000af442d48> (a com.mongodb.DBPort)
+- locked <0x00000000af442d48> (a com.mongodb.DBPort)
   
 at com.mongodb.DBPort.go(DBPort.java:75)
   
-&#8211; locked <0x00000000af442d48> (a com.mongodb.DBPort)
+- locked <0x00000000af442d48> (a com.mongodb.DBPort)
   
 at com.mongodb.DBPort.call(DBPort.java:65)
   
@@ -266,7 +266,7 @@ at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCount(GoodsServic
   
 at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(GoodsServiceImpl.java:1739)
   
-&#8211; locked <0x00000000fe7e3b50> (a java.lang.String)
+- locked <0x00000000fe7e3b50> (a java.lang.String)
   
 示范二：
   
@@ -278,7 +278,7 @@ java.lang.Thread.State: TIMED_WAITING (parking)
   
 at sun.misc.Unsafe.park(Native Method)
   
-&#8211; parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)
+- parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)
   
 at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
   
@@ -306,11 +306,11 @@ java.lang.Thread.State: TIMED_WAITING (on object monitor)
   
 at java.lang.Object.wait(Native Method)
   
-&#8211; waiting on <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
+- waiting on <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
   
 at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:118)
   
-&#8211; locked <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
+- locked <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
   
 at sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread.run(DGCClient.java:516)
   

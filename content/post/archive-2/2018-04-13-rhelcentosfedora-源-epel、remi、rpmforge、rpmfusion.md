@@ -116,7 +116,7 @@ priority=N （N为1到99的正整数，数值越小越优先）
 
 [base]
 
-name=CentOS-$releasever &#8211; Base
+name=CentOS-$releasever - Base
 
 mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
 

@@ -148,7 +148,7 @@ public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 
 float velocityY) {
 
-if (e1.getX() &#8211; e2.getX() > FLING\_MIN\_DISTANCE) {
+if (e1.getX() - e2.getX() > FLING\_MIN\_DISTANCE) {
 
 //设置View进入和退出的动画效果
 
@@ -166,7 +166,7 @@ return true;
 
 }
 
-if (e1.getX() &#8211; e2.getX() < -FLING\_MIN\_DISTANCE) {
+if (e1.getX() - e2.getX() < -FLING\_MIN\_DISTANCE) {
 
 this.flipper.setInAnimation(AnimationUtils.loadAnimation(this,
 

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashvim cmdline.txt
+```bash
+vim cmdline.txt
 smsc95xx.macaddr=XX:XX:XX:XX:XX:XX
 ```
 

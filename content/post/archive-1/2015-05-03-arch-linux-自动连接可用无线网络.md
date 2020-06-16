@@ -52,7 +52,7 @@ $ sudo systemctl start netctl-auto@wlan0.service
   
 $ systemctl status netctl-auto@wlan0.service
   
-● netctl-auto@wlan0.service &#8211; Automatic wireless network connection using netctl profiles
+● netctl-auto@wlan0.service - Automatic wireless network connection using netctl profiles
   
 Loaded: loaded (/usr/lib/systemd/system/netctl-auto@.service; enabled)
   

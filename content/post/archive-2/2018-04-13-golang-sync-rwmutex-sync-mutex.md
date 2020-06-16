@@ -97,7 +97,7 @@ func main() {
 
 运行结果: 1
 
-fatal error: all goroutines are asleep &#8211; deadlock!
+fatal error: all goroutines are asleep - deadlock!
   
 RWMutex是一个读写锁，该锁可以加多个读锁或者一个写锁，其经常用于读次数远远多于写次数的场景．
 
@@ -194,7 +194,7 @@ func main() {
   
 1
 
-fatal error: all goroutines are asleep &#8211; deadlock!
+fatal error: all goroutines are asleep - deadlock!
   
 总结：
 

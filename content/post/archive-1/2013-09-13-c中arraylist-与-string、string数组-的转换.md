@@ -20,7 +20,7 @@ http://blog.csdn.net/iter_zc/article/details/41892567
                                          
 ;_invokeinterface size
                                          
-; &#8211; Client1::main@113 (line 23)
+; - Client1::main@113 (line 23)
                                          
 ; {virtual_call}
    
@@ -28,7 +28,7 @@ http://blog.csdn.net/iter_zc/article/details/41892567
                                          
 ;_if_icmplt
                                          
-; &#8211; Client1::main@118 (line 23)
+; - Client1::main@118 (line 23)
    
 0x01b6d62d: test %eax,0x160100 ; {poll}
    

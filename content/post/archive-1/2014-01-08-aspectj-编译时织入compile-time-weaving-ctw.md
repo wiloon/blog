@@ -153,7 +153,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <complianceLevel>1.5</complianceLevel>
 
-<!&#8211; <encoding>UTF-8</encoding> &#8211;>
+<!- <encoding>UTF-8</encoding> &#8211;>
 
 <verbose>false</verbose>
 
@@ -161,7 +161,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <aspectLibraries>
 
-<!&#8211; 此处定义外部的aspect包，例如spring的事务aspect包 。这里引用的包必须在依赖中声明 &#8211;>
+<!- 此处定义外部的aspect包，例如spring的事务aspect包 。这里引用的包必须在依赖中声明 &#8211;>
 
 <!&#8211;
 
@@ -185,9 +185,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <goals>
 
-<goal>compile</goal><!&#8211; use this goal to weave all your main classes &#8211;>
+<goal>compile</goal><!- use this goal to weave all your main classes &#8211;>
 
-<!&#8211; <goal>test-compile</goal> &#8211;>
+<!- <goal>test-compile</goal> &#8211;>
 
 </goals>
 

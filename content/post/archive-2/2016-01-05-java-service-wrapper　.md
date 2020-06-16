@@ -36,41 +36,41 @@ JavaServiceWrapper以守护进程或windows服务的方式运行java程序。JSW
 
 /
   
-|&#8211; bin，wrapper控制windows服务的bat文件
+|- bin，wrapper控制windows服务的bat文件
   
-|&#8211; conf，wrapper配置文件
+|- conf，wrapper配置文件
   
-|&#8211; doc，教程
+|- doc，教程
   
-|&#8211; lib，wrapper的依赖包
+|- lib，wrapper的依赖包
   
-|&#8211; logs，日志
+|- logs，日志
   
-|&#8211; src，模板
+|- src，模板
   
-|&#8211; conf
+|- conf
   
-|&#8211; bin
+|- bin
 
 步骤2：搭建项目结构：新建项目发布目录（假设为agent），然后将src下的conf和bin复制到agent下，并且将conf和bin下的文件重命名，去掉\`.in\`后缀。然后将bin/wrapper.exe复制到agent/bin/下，再将lib复制到agent下，得到目录结构如下
 
 agent
   
-|&#8211; lib
+|- lib
   
-|&#8211; wrapper.dll
+|- wrapper.dll
   
-|&#8211; wrapper.jar
+|- wrapper.jar
   
-|&#8211; conf
+|- conf
   
-|&#8211; wrapper.conf
+|- wrapper.conf
   
-|&#8211; bin
+|- bin
   
-|&#8211; wrapper.exe
+|- wrapper.exe
   
-|&#8211; 一堆bat文件
+|- 一堆bat文件
   
 最后将原有项目的文件复制到bin目录下。
 

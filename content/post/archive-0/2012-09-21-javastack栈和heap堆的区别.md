@@ -30,9 +30,9 @@ Chapter 2. The Structure of the Java Virtual Machine
   
 JEP 122: Remove the Permanent Generation
 
-Stack &#8211; 栈
+Stack - 栈
   
-Heap &#8211; 堆
+Heap - 堆
 
 在中文里，Stack可以翻译为“堆栈”，所以我直接查找了计算机术语里面堆和栈开头的词语：
   
@@ -67,7 +67,7 @@ Stack(栈)：内存指令区，存储数据：基本数据类型, 指令代码,�
 
 “栈的优势是，存取速度比堆要快，仅次于寄存器，栈数据可以共享。但缺点是，存在栈中的数据大小与生存期必须是确定的，缺乏灵活性。栈中主要存放一些基本类型的变量（,int, short, long, byte, float, double, boolean, char）和对象句柄。 ”
 
-可见，垃圾回收GC是针对堆Heap的，而栈因为本身是FILO &#8211; first in, last out. 先进后出，能够自动释放。 这样就能明白到new创建的，都是放到堆Heap！
+可见，垃圾回收GC是针对堆Heap的，而栈因为本身是FILO - first in, last out. 先进后出，能够自动释放。 这样就能明白到new创建的，都是放到堆Heap！
 
 * * *
 

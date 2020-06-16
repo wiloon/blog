@@ -36,7 +36,7 @@ D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool
   
 Java代码 收藏代码
   
-Apktool v1.4.3 &#8211; a tool for reengineering Android apk files
+Apktool v1.4.3 - a tool for reengineering Android apk files
   
 Copyright 2010 Ryszard Wi?niewski <brut.alll@gmail.com>
   

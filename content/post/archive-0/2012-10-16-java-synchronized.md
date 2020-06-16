@@ -194,17 +194,17 @@ at java.lang.Thread.sleep(Native Method)
   
 at Widget.doSomething(Widget.java:4)
   
-&#8211; locked <0x03fbc150> (a LoggingWidget)
+- locked <0x03fbc150> (a LoggingWidget)
   
 at LoggingWidget.doSomething(LoggingWidget.java:5)
   
-&#8211; locked <0x03fbc150> (a LoggingWidget)
+- locked <0x03fbc150> (a LoggingWidget)
   
 at LoggingWidget$1.run(LoggingWidget.java:15)
      
 Locked ownable synchronizers:
   
-&#8211; None
+- None
 
 super.doSomething();子类会去get Widget的monitorlock，此时就会取到lock，如果monitorlock不可重入，就需要再次拿LoggingWidget的lock，but，此时LoggingWidget的lock已经被占用了，所以会发生deadlock。
 

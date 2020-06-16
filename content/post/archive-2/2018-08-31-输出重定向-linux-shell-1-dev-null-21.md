@@ -12,7 +12,8 @@ https://blog.csdn.net/sunboy_2050/article/details/9288353
   
 shell中可能经常能看到：
 
-```bashecho log &gt; /dev/null 2&gt;&1
+```bash
+echo log &gt; /dev/null 2&gt;&1
 ```
 
 命令的结果可以通过%>的形式来定义输出
@@ -21,7 +22,8 @@ shell中可能经常能看到：
   
 > ：代表重定向到哪里，例如：
 
-```bashecho "123" &gt; /home/123.txt
+```bash
+echo "123" &gt; /home/123.txt
 ```
 
 1 ：表示stdout标准输出，系统默认值是1，所以&#8221;>/dev/null&#8221;等同于&#8221;1>/dev/null&#8221;

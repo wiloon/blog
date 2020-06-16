@@ -26,17 +26,17 @@ mac osx Lerpard 中, 使用内置的pptp client端拨号成功后,
   
 在windows下,我需要设置如下3条静态路由(首条0.0.0.0为default)
 
-<pre>route -p add 0.0.0.0      mask 0.0.0.0       10.13.31.1   (我的校园网网关是这个)
+route -p add 0.0.0.0      mask 0.0.0.0       10.13.31.1   (我的校园网网关是这个)
 route -p add 10.0.0.0     mask 255.0.0.0     10.13.31.1
 route -p add 210.32.0.0   mask 255.255.240.0   10.13.31.1
-route -p add 222.205.0.0 mask 255.255.128.0   10.13.31.1</pre>
+route -p add 222.205.0.0 mask 255.255.128.0   10.13.31.1
 
 在Mac OSX 中, 设置路由的命令稍有不同, 为:
 
-<pre>route -n add defalut     10.13.31.1
+route -n add defalut     10.13.31.1
 route -n add   -net 10.0.0.0/8      10.13.31.1
 route -n add -net 210.32.0.0/20   10.13.31.1
-route -n add -net 222.205.0.0/17 10.13.31.1</pre>
+route -n add -net 222.205.0.0/17 10.13.31.1
 
 或者用如下的比较明了的命令也可以:
   
@@ -44,10 +44,10 @@ route -n add -net 222.205.0.0/17 10.13.31.1</pre>
 
 在linux下的命令又不太一样, 如下:
 
-<pre>route add default gw   10.13.31.1
+route add default gw   10.13.31.1
 route -n add   -net 10.0.0.0/8      gw 10.13.31.1
 route -n add -net 210.32.0.0/20   gw 10.13.31.1
-route -n add -net 222.205.0.0/17 gw   10.13.31.1</pre>
+route -n add -net 222.205.0.0/17 gw   10.13.31.1
 
 设置好如上静态路由, 就可以VPN内网外网访问无阻啦.
   
@@ -94,7 +94,7 @@ RestartService ()
         return 0
 }
  
-RunService "$1"</pre>
+RunService "$1"
       </td>
     </tr>
   </table>
@@ -117,7 +117,7 @@ RunService "$1"</pre>
         Provides        = ("SetRoutes");
         Requires        = ("Network");
         OrderPreference = "None";
-}</pre>
+}
       </td>
     </tr>
   </table>

@@ -165,11 +165,11 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 <filter>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 &#8211;>
 
 <filter-name>log</filter-name>
 
-<!&#8211; Filter 的实现类 &#8211;>
+<!- Filter 的实现类 &#8211;>
 
 <filter-class> test.filter.LogFilter</filter-class>
 
@@ -179,11 +179,11 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 <filter-mapping>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 &#8211;>
 
 <filter-name>log</filter-name>
 
-<!&#8211; Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL &#8211;>
 
 <url-pattern>/filter/*</url-pattern>
 
@@ -371,11 +371,11 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 <filter>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 &#8211;>
 
 <filter-name>encoding</filter-name>
 
-<!&#8211; Filter 的实现类 &#8211;>
+<!- Filter 的实现类 &#8211;>
 
 <filter-class> test.filter.EncodingFilter</filter-class>
 
@@ -393,11 +393,11 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 <filter-mapping>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 &#8211;>
 
 <filter-name> encoding </filter-name>
 
-<!&#8211; Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL &#8211;>
 
 <url-pattern>/encode/*</url-pattern>
 
@@ -581,11 +581,11 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 <filter>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 &#8211;>
 
 <filter-name>security</filter-name>
 
-<!&#8211; Filter 的实现类 &#8211;>
+<!- Filter 的实现类 &#8211;>
 
 <filter-class> test.filter.SecurityFilter</filter-class>
 
@@ -595,11 +595,11 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 <filter-mapping>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 &#8211;>
 
 <filter-name> security </filter-name>
 
-<!&#8211; Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL &#8211;>
 
 <url-pattern>/security/*</url-pattern>
 

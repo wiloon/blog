@@ -16,7 +16,8 @@ categories:
   
 chown的用途很多，还可以直接修改用户组的名称。如果要将目录下的所有子目录或文件同时更改文件拥有者的话，直接加上-R的参数即可。下面我们来看看语法与范例。
 
-```bashchown [-R] 账户名称 文件或目录
+```bash
+chown [-R] 账户名称 文件或目录
 chown [-R] 账户名称:用户组名称 文件或目录
 ```
 
@@ -24,7 +25,8 @@ chown [-R] 账户名称:用户组名称 文件或目录
   
 范例：
 
-```bashchown  root:root  install.log
+```bash
+chown  root:root  install.log
 
 # 按UID改owner
 chown -R 200:200 /root/foo
@@ -38,6 +40,6 @@ chown -R 200:200 /root/foo
   
 [root@linux ~]#ls –al .bashrc*
   
--rw-r&#8211;r&#8211; 1 root root 24343 Jun 23 08:33 .bashrc
+-rw-r&#8211;r- 1 root root 24343 Jun 23 08:33 .bashrc
   
--rw-r&#8211;r&#8211; 1 root root 24343 Jun 23 08:33 .bashrc\_test 怎么办？.bashrc\_test还是属于root所有，即使将文件拿给bin用户了，他仍然无法修改，所以必须修改这个文件的拥有者与用户组
+-rw-r&#8211;r- 1 root root 24343 Jun 23 08:33 .bashrc\_test 怎么办？.bashrc\_test还是属于root所有，即使将文件拿给bin用户了，他仍然无法修改，所以必须修改这个文件的拥有者与用户组

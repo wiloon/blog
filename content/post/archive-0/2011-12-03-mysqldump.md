@@ -46,7 +46,7 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 这个选项会在INSERT语句中捆上一个LOCK TABLE和UNLOCK TABLE语句。这就防止在这些记录被再次导入数据库时其他用户对表进行的操作
 
--c or &#8211; complete_insert
+-c or - complete_insert
 
 这个选项使得mysqldump命令给每一个产生INSERT语句加上列（field）的名字。当把数据导出导另外一个数据库时这个选项很有用。
 

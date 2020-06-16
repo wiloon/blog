@@ -28,7 +28,7 @@ categories:
   <table>
     <tr>
       <td>
-        <pre>SQL&gt; SELECT * FROM v$version WHERE rownum &lt;2;
+        SQL&gt; SELECT * FROM v$version WHERE rownum &lt;2;
 
 BANNER
 --------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ client_result_cache_size                big INTEGER 0
 result_cache_max_result                 INTEGER     5
 result_cache_max_size                   big INTEGER 960K
 result_cache_mode                       string      MANUAL
-result_cache_remote_expiration          INTEGER     0</pre>
+result_cache_remote_expiration          INTEGER     0
       </td>
     </tr>
   </table>
@@ -72,8 +72,8 @@ manual是默认属性，也就是说我们要启用该特性，那么必须通�
   <table>
     <tr>
       <td>
-        <pre>SQL&gt; SELECT name,version FROM v$sql_hint
-  2  WHERE name LIKE '%RESULT%';</pre>
+        SQL&gt; SELECT name,version FROM v$sql_hint
+  2  WHERE name LIKE '%RESULT%';
       </td>
     </tr>
   </table>
@@ -83,10 +83,10 @@ manual是默认属性，也就是说我们要启用该特性，那么必须通�
   <table>
     <tr>
       <td>
-        <pre>NAME                                     VERSION
+        NAME                                     VERSION
 ---------------------------------------- -------------------------
 RESULT_CACHE                             11.1.0.6
-NO_RESULT_CACHE                          11.1.0.6</pre>
+NO_RESULT_CACHE                          11.1.0.6
       </td>
     </tr>
   </table>

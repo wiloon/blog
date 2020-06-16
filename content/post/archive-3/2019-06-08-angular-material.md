@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashyarn add @angular/material @angular/cdk @angular/animations
+```bash
+yarn add @angular/material @angular/cdk @angular/animations
 ```
 
 app.module.ts

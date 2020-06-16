@@ -34,7 +34,7 @@ rm: cannot remove &#8216;dummy_data&#8217;: Operation not permitted
   
 -bash: dummy_data: Permission denied
 
-<pre><code class="language-shell line-numbers">chattr -ai /etc/passed
+```bashchattr -ai /etc/passed
 ```
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
@@ -92,7 +92,7 @@ chattr命令的用法：chattr \[ -RVf \] \[ -v version \] [ mode ] files…
 
 会显示如下属性
   
-&#8212;-i&#8212;&#8212;&#8211; /etc/resolv.conf
+&#8212;-i&#8212;&#8212;- /etc/resolv.conf
 
 2、让某个文件只能往里面追加数据，但不能删除，适用于各种日志文件：
 
