@@ -18,5 +18,5 @@ wordpress是业界被公认为最佳的php版优化博客程序。就我个人�
   
   
   
-    <title><?php if ( function_exists(‘wp_tag_cloud’) ) : if (single_tag_title(‘ ‘, false)) { echo ‘ ‘ ; } endif; ?><?php wp_title(‘ ‘); ?><?php if (wp_title(‘ ‘, false)) { echo ‘ – ‘; } ?><?php bloginfo(‘name’); ?> </title>
+    <title><?php if ( function_exists('wp_tag_cloud') ) : if (single_tag_title(' ', false)) { echo ' ' ; } endif; ?><?php wp_title(' '); ?><?php if (wp_title(' ', false)) { echo ' – '; } ?><?php bloginfo('name'); ?> </title>
   

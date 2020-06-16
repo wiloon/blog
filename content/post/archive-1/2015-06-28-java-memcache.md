@@ -148,7 +148,7 @@ Trying 192.168.1.2&#8230;
   
 Connected to 192.168.1.2.
   
-Escape character is &#8216;^]&#8217;
+Escape character is '^]'
 
 查看版本
 
@@ -368,7 +368,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 set key 0 0 8                       <—在10000端口设置key的值
 
@@ -388,7 +388,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get key                     <—在11211端口获取key的值成功
 
@@ -410,7 +410,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get key                     <—在11212端口获取key的值成功
 
@@ -432,7 +432,7 @@ root     23455  0.0  0.0  5012 1796 ?        Ss   09:22   0:00
 
 root     24950  0.0  0.0  4120 1800 ?        Ss   10:58   0:00 memcached -m 1 -u root -d -l 127.0.0.1 -p 11211
 
-[root@odb ~]# ps aux |grep -v grep |grep ‘magent -u’
+[root@odb ~]# ps aux |grep -v grep |grep 'magent -u'
 
 root     25919  0.0  0.0  2176  484 ?        Ss   12:00   0:00 magent -u root -n 51200 -l 127.0.0.1 -p 10000 -s 127.0.0.1:11211 -b 127.0.0.1:11212
 
@@ -446,7 +446,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 set stone 0 0 6                      <—在10000端口设置stone的值
 
@@ -466,7 +466,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 set shidl 0 0 6                 <—在11000端口设置shidl的值
 
@@ -514,7 +514,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                     <—在10000端口获取stone的值，已被修改
 
@@ -552,7 +552,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get shidl                      <—在11000端口验证删除shidl生效
 
@@ -582,7 +582,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                      <—在10000依然可以获取stone的值
 
@@ -604,7 +604,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                      <—在11000依然可以获取stone的值
 
@@ -632,7 +632,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                      <—在10000依然可以获取stone的值
 
@@ -658,7 +658,7 @@ Trying 127.0.0.1&#8230;
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is &#8216;^]&#8217;.
+Escape character is '^]'.
 
 get stone                                         <—在11000依然可以获取stone的值
 
@@ -1098,9 +1098,9 @@ memcached 1.2.0
 
 1. 下载memcache的windows稳定版，解压放某个盘下面，比如在c:\memcached
 
-2. 在终端（也即cmd命令界面）下输入‘c:\memcached\memcached.exe -d install’安装
+2. 在终端（也即cmd命令界面）下输入'c:\memcached\memcached.exe -d install'安装
 
-3. 再输入：‘c:\memcached\memcached.exe -d start’启动。NOTE: 以后memcached将作为windows的一个服务每次开机时自动启动。这样服务器端已经安装完毕了。
+3. 再输入：'c:\memcached\memcached.exe -d start'启动。NOTE: 以后memcached将作为windows的一个服务每次开机时自动启动。这样服务器端已经安装完毕了。
   
 2.  memcached的基本设置
   
@@ -1276,7 +1276,7 @@ echo -n $"Stopping service: $prog  "
   
 run_user=\`whoami\`
   
-pidlist=\`ps -ef | grep $run_user | grep memcached | grep -v grep | awk &#8216;{print($2)}&#8217;\`
+pidlist=\`ps -ef | grep $run_user | grep memcached | grep -v grep | awk '{print($2)}'\`
   
 for pid in $pidlist
   

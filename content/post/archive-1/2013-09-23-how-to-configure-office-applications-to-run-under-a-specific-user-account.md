@@ -47,7 +47,7 @@ This article was previously published under Q288367
   
   <ul>
     <li>
-      Any process that creates an Automation instance of the configured Office application creates the instance under the specific user account, allowing it to run with that user&#8217;s security credentials.
+      Any process that creates an Automation instance of the configured Office application creates the instance under the specific user account, allowing it to run with that user's security credentials.
     </li>
     <li>
       Setting the Distributed Componenet Object Model (DCOM) settings to run as a specific user is global to the system. This setting affects all users and programs that automate the Office application on the system. Terminal Server clients may not be able to use Office appropriately. You should not use this setting and the steps in this article on an application Terminal Server.

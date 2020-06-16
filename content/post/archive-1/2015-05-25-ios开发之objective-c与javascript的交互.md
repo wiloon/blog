@@ -124,7 +124,7 @@ pthread\_cond\_t _cond [1] ;
 
 void Parker::park(bool isAbsolute, jlong time) {
     
-// Ideally we&#8217;d do something useful while spinning, such
+// Ideally we'd do something useful while spinning, such
     
 // as calling unpackTime().
 
@@ -319,11 +319,11 @@ guarantee (p->AssociatedWith == NULL, "invariant") ;
     
 } else {
       
-// Do this the hard way &#8212; materialize a new Parker..
+// Do this the hard way - materialize a new Parker..
       
 // In rare cases an allocating thread might detach
       
-// a long list &#8212; installing null into FreeList &#8211;and
+// a long list - installing null into FreeList &#8211;and
       
 // then stall. Another thread calling Allocate() would see
       

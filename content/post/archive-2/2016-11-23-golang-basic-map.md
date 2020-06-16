@@ -39,7 +39,7 @@ if val, ok := dict["foo"]; ok {
 }
 ```
 
-```golang &lt;br />package main
+```golang <br />package main
 
 import "fmt"
 

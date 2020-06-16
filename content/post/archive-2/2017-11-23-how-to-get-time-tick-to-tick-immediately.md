@@ -11,7 +11,7 @@ categories:
 How to get time.Tick to tick immediately
 
 ```golang ticker := time.NewTicker(period)
-for ; true; &lt;-ticker.C {
+for ; true; <-ticker.C {
     ...
 }
 ```

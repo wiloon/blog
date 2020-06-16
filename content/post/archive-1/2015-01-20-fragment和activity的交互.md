@@ -104,7 +104,7 @@ OnArticleSelectedListener mListener;
   
 public void onListItemClick(ListView l, View v, int position, long id) {
   
-// Append the clicked item&#8217;s row ID with the content provider Uri
+// Append the clicked item's row ID with the content provider Uri
   
 Uri noteUri = ContentUris.withAppendedId(ArticleColumns.CONTENT_URI, id);
   

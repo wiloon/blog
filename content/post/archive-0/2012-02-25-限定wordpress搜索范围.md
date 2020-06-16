@@ -11,8 +11,8 @@ categories:
 打开主题的 _functions.php_文件并粘贴下面的代码：
 
 function SearchFilter($query) {
-if ($query-&gt;is_search) {
-$query-&gt;set('post_type', 'post');
+if ($query->is_search) {
+$query->set('post_type', 'post');
 }
 return $query;
 }

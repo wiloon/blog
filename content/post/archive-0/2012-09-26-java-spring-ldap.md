@@ -190,9 +190,9 @@ logger.info(username
    
 throw new RuntimeException(
    
-"Could not locate Authority for User: &#8216;" + username
+"Could not locate Authority for User: '" + username
    
-+ "&#8217; in LDAP");
++ "' in LDAP");
    
 }
    
@@ -202,9 +202,9 @@ return result;
    
 } catch (Exception ex) {
    
-logger.error("Exception during ldap authentication for User: &#8216;"
+logger.error("Exception during ldap authentication for User: '"
    
-+ username + "&#8217;", ex);
++ username + "'", ex);
    
 throw ex;
    
@@ -260,9 +260,9 @@ return ctx.getNameInNamespace();
 
 if (result.size() != 1) {
    
-throw new RuntimeException("User-&#8216;" + uid
+throw new RuntimeException("User-'" + uid
    
-+ "&#8217; not found in LDAP or not unique");
++ "' not found in LDAP or not unique");
    
 }
    
@@ -320,7 +320,7 @@ return true;
    
 // Context creation failed - authentication did not succeed
    
-logger.error("Login failed for userDn-&#8216;" + userDn + "&#8217;",
+logger.error("Login failed for userDn-'" + userDn + "'",
    
 e);
    

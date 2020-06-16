@@ -36,7 +36,7 @@ categories:
               GO
             </li>
             <li>
-              sp_detach_db &#8216;database name&#8217;
+              sp_detach_db 'database name'
             </li>
             <li>
               GO
@@ -57,7 +57,7 @@ categories:
                   GO
                 </li>
                 <li>
-                  sp_attach_db &#8216;database name&#8217;, &#8216;D:SQLDATADatabaseName.mdf&#8217;, &#8216;D:SQLDATADatabaseName.ldf&#8217;
+                  sp_attach_db 'database name', 'D:SQLDATADatabaseName.mdf', 'D:SQLDATADatabaseName.ldf'
                 </li>
                 <li>
                   GO

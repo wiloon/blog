@@ -10,7 +10,7 @@ categories:
 ---
 ```bash
 sudo pacman -S xorg xorg-xinit
-echo "exec startplasma-x11" &gt; ~/.xinitrc
+echo "exec startplasma-x11" > ~/.xinitrc
 sudo pacman -S plasma-desktop
 sudo pacman -S konsole dolphin kate
 startx

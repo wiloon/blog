@@ -86,7 +86,7 @@ systemctl restart rsyslog
 
 ```bash
 crontab -e
-0 1 * * * /path/to/shell/foo.sh &gt;&gt; /var/log/foo/foo.log
+0 1 * * * /path/to/shell/foo.sh >> /var/log/foo/foo.log
 ```
 
 * * *
@@ -239,7 +239,7 @@ crontab 的指令，预设是以 /bin/sh 为直译器，而以使用者的家目
 
 SHELL=/bin/sh
 
-# mail any output to \`paul’, no matter whose crontab this is
+# mail any output to \`paul', no matter whose crontab this is
 
 MAILTO=paul
   
@@ -255,7 +255,7 @@ MAILTO=paul
 
 # run at 10 pm on weekdays, annoy Joe
 
-0 22 \* \* 1-5 mail -s “It’s 10pm” joe%Joe,%%Where are your kids?%
+0 22 \* \* 1-5 mail -s “It's 10pm” joe%Joe,%%Where are your kids?%
   
 23 0-23/2 \* \* * echo “run 23 minutes after midn, 2am, 4am …, everyday”
   

@@ -46,7 +46,7 @@ $ which ruby
 
 ### Installing Ruby
 
-If you don’t have Ruby, install it as shown below.
+If you don't have Ruby, install it as shown below.
 
 [shell]
   
@@ -79,7 +79,7 @@ You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
   
   
   
-    Note: As Ruby is an interpreted language, you don’t have the compilation step similar to the C program.
+    Note: As Ruby is an interpreted language, you don't have the compilation step similar to the C program.
   
   
   
@@ -92,7 +92,7 @@ You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
   
   
     [shell]
- $ ruby -e &#8216;puts "Hello World!n"&#8217;
+ $ ruby -e 'puts "Hello World!n"'
  [/shell]
   
   

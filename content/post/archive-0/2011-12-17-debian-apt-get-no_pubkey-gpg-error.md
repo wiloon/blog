@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-The following signatures couldn&#8217;t be verified because the public key is not available: NO_PUBKEY 010908312D230C5F
+The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 010908312D230C5F
 
 ## Solution
 

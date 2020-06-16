@@ -124,7 +124,7 @@ http://redmine.ossxp.com, someone@foo.bar
 ### 内嵌图片:
 
 !image_url! 显示地址为image_url的图片(textile语法)
-!&gt;image_url! 图片右悬浮
+!>image_url! 图片右悬浮
 !{width:300px}image_url! 设置图片的显示宽度
 
 如果你的wiki页面有图片附件,你可以使用文件名:!attached_image.png!显示它
@@ -141,7 +141,7 @@ h3. 三级标题
 
 ### 段落
 
-p&gt;. 右对齐
+p>. 右对齐
 p=. 居中
 
 
@@ -267,8 +267,8 @@ bq. 这是块引用的示例
 
 ### 内容列表
 
-{{toc}} =&gt; toc左对齐
-{{&gt;toc}} =&gt; toc右对齐
+{{toc}} => toc左对齐
+{{>toc}} => toc右对齐
 
 具体参考 内容列表演示
 
@@ -312,6 +312,6 @@ Redmine有以下内置宏:
   
 你可以用下面的语法高亮显示你代码
 
-&lt;pre&gt;&lt;code&gt;
+<pre><code>
 加入你的代码
-&lt;/code&gt;
+</code>

@@ -96,97 +96,100 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
   
 PS：Maven仓库示意图
 
-两个比较稳定的maven mirror<pre data-language=XML>
+两个比较稳定的maven mirror
 
-<code class="language-markup line-numbers">&lt;mirror&gt;
-&lt;id&gt;jboss-public-repository-group&lt;/id&gt;
-&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-&lt;name&gt;JBoss Public Repository Group&lt;/name&gt;
-&lt;url&gt;http://repository.jboss.org/nexus/content/groups/public&lt;/url&gt;
-&lt;/mirror&gt;
+```xml
+<mirror>
+<id>jboss-public-repository-group</id>
+<mirrorOf>central</mirrorOf>
+<name>JBoss Public Repository Group</name>
+<url>http://repository.jboss.org/nexus/content/groups/public</url>
+</mirror>
 
-&lt;mirror&gt;
-&lt;id&gt;ibiblio&lt;/id&gt;
-&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-&lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;
-&lt;url&gt;http://mirrors.ibiblio.org/pub/mirrors/maven2/&lt;/url&gt;
-&lt;/mirror&gt;
+<mirror>
+<id>ibiblio</id>
+<mirrorOf>central</mirrorOf>
+<name>Human Readable Name for this Mirror.</name>
+<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+</mirror>
 ``` 
 
-另外转自其它出处的：<pre data-language=XML>
+另外转自其它出处的：
 
-<code class="language-markup line-numbers">&lt;mirrors&gt;
-&lt;mirror&gt;
-      &lt;id&gt;repo2&lt;/id&gt;
-      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;
-      &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;
-    &lt;/mirror&gt;
-&lt;mirror&gt;
-      &lt;id&gt;net-cn&lt;/id&gt;  
-      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;  
-      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;  
-      &lt;url&gt;http://maven.net.cn/content/groups/public/&lt;/url&gt;   
-    &lt;/mirror&gt;  
-&lt;mirror&gt;  
-      &lt;id&gt;ui&lt;/id&gt;  
-      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;  
-      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;  
-     &lt;url&gt;http://uk.maven.org/maven2/&lt;/url&gt;  
-    &lt;/mirror&gt;  
-&lt;mirror&gt;  
-      &lt;id&gt;ibiblio&lt;/id&gt;  
-      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;  
-      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;  
-     &lt;url&gt;http://mirrors.ibiblio.org/pub/mirrors/maven2/&lt;/url&gt;  
-    &lt;/mirror&gt;  
-&lt;mirror&gt;  
-      &lt;id&gt;jboss-public-repository-group&lt;/id&gt;  
-      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;  
-      &lt;name&gt;JBoss Public Repository Group&lt;/name&gt;  
-     &lt;url&gt;http://repository.jboss.org/nexus/content/groups/public&lt;/url&gt;  
-    &lt;/mirror&gt;
+```xml
+<mirrors>
+<mirror>
+      <id>repo2</id>
+      <mirrorOf>central</mirrorOf>
+      <name>Human Readable Name for this Mirror.</name>
+      <url>http://repo2.maven.org/maven2/</url>
+    </mirror>
+<mirror>
+      <id>net-cn</id>  
+      <mirrorOf>central</mirrorOf>  
+      <name>Human Readable Name for this Mirror.</name>  
+      <url>http://maven.net.cn/content/groups/public/</url>   
+    </mirror>  
+<mirror>  
+      <id>ui</id>  
+      <mirrorOf>central</mirrorOf>  
+      <name>Human Readable Name for this Mirror.</name>  
+     <url>http://uk.maven.org/maven2/</url>  
+    </mirror>  
+<mirror>  
+      <id>ibiblio</id>  
+      <mirrorOf>central</mirrorOf>  
+      <name>Human Readable Name for this Mirror.</name>  
+     <url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>  
+    </mirror>  
+<mirror>  
+      <id>jboss-public-repository-group</id>  
+      <mirrorOf>central</mirrorOf>  
+      <name>JBoss Public Repository Group</name>  
+     <url>http://repository.jboss.org/nexus/content/groups/public</url>  
+    </mirror>
 ``` 
 
-### 一个setting.xml示例<pre data-language=XML>
+### 一个setting.xml示例
 
-<code class="language-markup line-numbers">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 
-&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
- &lt;localRepository&gt;/path/to/local/repository&lt;/localRepository&gt;
-  &lt;mirrors&gt;
-       &lt;mirror&gt;
-       &lt;id&gt;public0&lt;/id&gt;
-       &lt;name&gt;Repository0&lt;/name&gt;
-       &lt;url&gt;https://maven.wiloon.com/repository/public&lt;/url&gt;
-       &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-       &lt;/mirror&gt;
-  &lt;/mirrors&gt;
-  &lt;profiles&gt;
-        &lt;profile&gt;
-            &lt;id&gt;default&lt;/id&gt;
-            &lt;activation&gt;
-                &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-            &lt;/activation&gt;
-            &lt;repositories&gt;
-                &lt;repository&gt;
-                  &lt;id&gt;repo0&lt;/id&gt;
-                  &lt;url&gt;https://maven.wiloon.com/repository/public&lt;/url&gt;
-                    &lt;snapshots&gt;
-                        &lt;enabled&gt;true&lt;/enabled&gt;
-                        &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
-                    &lt;/snapshots&gt;
-                    &lt;releases&gt;
-                        &lt;enabled&gt;true&lt;/enabled&gt;
-                    &lt;/releases&gt;
-                &lt;/repository&gt;
-            &lt;/repositories&gt;
-        &lt;/profile&gt;
-  &lt;/profiles&gt;
-&lt;/settings&gt;
+ <localRepository>/path/to/local/repository</localRepository>
+  <mirrors>
+       <mirror>
+       <id>public0</id>
+       <name>Repository0</name>
+       <url>https://maven.wiloon.com/repository/public</url>
+       <mirrorOf>central</mirrorOf>
+       </mirror>
+  </mirrors>
+  <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                  <id>repo0</id>
+                  <url>https://maven.wiloon.com/repository/public</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+            </repositories>
+        </profile>
+  </profiles>
+</settings>
 ``` 
 
 http://www.cnblogs.com/chenying99/archive/2012/06/23/2559218.html

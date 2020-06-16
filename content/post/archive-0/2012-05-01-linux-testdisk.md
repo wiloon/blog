@@ -36,7 +36,7 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
     Use arrow keys to select, then press Enter key:
  [ Create ]  Create a new log file
  [ Append ]  Append information to log file
- [ No Log ]  Don&#8217;t record anything
+ [ No Log ]  Don't record anything
   
   
   

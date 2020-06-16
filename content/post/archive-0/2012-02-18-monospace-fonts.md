@@ -32,10 +32,10 @@ Monospace fonts (Such as Courier or LetterGothic), or "fixed pitch" fonts, conta
           Good use of whitespace.
         </li>
         <li>
-          &#8216;l&#8217;, &#8216;1&#8217; and &#8216;i&#8217; are easily distinguished
+          'l', '1' and 'i' are easily distinguished
         </li>
         <li>
-          &#8216;0&#8217;, &#8216;o&#8217; and &#8216;O&#8217; are easily distinguished
+          '0', 'o' and 'O' are easily distinguished
         </li>
         <li>
           forward quotes from back quotes are easily distinguished -prefer mirrored appearance

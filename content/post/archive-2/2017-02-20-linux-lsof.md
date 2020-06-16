@@ -248,11 +248,11 @@ vi 24976 root cwd DIR 8,2 4096 2258872 test/test3
 
 命令：
 
-lsof |grep ‘test/test3’
+lsof |grep 'test/test3'
 
 输出：
 
-[root@localhost soft]# lsof |grep ‘test/test3’
+[root@localhost soft]# lsof |grep 'test/test3'
 
 bash 24941 root cwd DIR 8,2 4096 2258872 /opt/soft/test/test3
   

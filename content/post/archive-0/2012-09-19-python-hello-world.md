@@ -22,7 +22,7 @@ categories:
   
   
     <span style="font-size: medium;">使用带提示符的解释器
- </span>         在命令行的shell提示符下键入python，启动解释器。现在输入print &#8216;Hello World&#8217;，然后按Enter键。你应该可以看到输出的单词Hello World。
+ </span>         在命令行的shell提示符下键入python，启动解释器。现在输入print 'Hello World'，然后按Enter键。你应该可以看到输出的单词Hello World。
   
   
   
@@ -42,7 +42,7 @@ categories:
  Python 2.4.3 (#1, Jul 26 2006, 16:42:40)
  [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2
  Type "help", "copyright", "credits" or "license" for more information.
- >>> print &#8216;hello world&#8217;
+ >>> print 'hello world'
  hello world
  >>>
   
@@ -85,7 +85,7 @@ categories:
   
     #!/usr/bin/python
  # Filename : helloworld.py
- print &#8216;Hello World&#8217;
+ print 'Hello World'
  为了运行这个程序，请打开shell（Linux终端或者DOS提示符），然后键入命令python helloworld.py。如果你使用IDLE，请使用菜单Edit->Run Script或者使用键盘快捷方式Ctrl-F5。输出如下所示。
   
   
@@ -185,7 +185,7 @@ categories:
  Python 2.3.4 (#1, Jul 26 2006, 16:42:40)
  [GCC 3.4.2 20050110 (Red Hat 3.4.2-6.fc3)] on linux2
  Type "help", "copyright", "credits" or "license" for more information.
- >>> help(&#8216;print&#8217;)
+ >>> help('print')
   
   
   

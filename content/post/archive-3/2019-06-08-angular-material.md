@@ -14,9 +14,9 @@ yarn add @angular/material @angular/cdk @angular/animations
 
 app.module.ts
 
-import { MatSliderModule } from &#8216;@angular/material/slider&#8217;;
+import { MatSliderModule } from '@angular/material/slider';
   
-import &#8216;hammerjs&#8217;;
+import 'hammerjs';
   
 …
   
@@ -36,7 +36,7 @@ app.component.html
 
 styles.css
     
-@import &#8216;@angular/material/prebuilt-themes/deeppurple-amber.css&#8217;;
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 https://material.angular.io/
   

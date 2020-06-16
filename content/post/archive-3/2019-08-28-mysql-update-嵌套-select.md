@@ -10,7 +10,7 @@ categories:
 ---
 当你希望更新一批值，且值是通过select条件查询出来时，下面这个错误应该不陌生
 
-You can’t specify target table ‘x’ for update in FROM clause。
+You can't specify target table 'x' for update in FROM clause。
 
 错误示范 1： A B 有关联同一个key_id , 根据 B表符合条件 -> 更新A表val值。
 

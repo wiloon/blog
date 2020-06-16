@@ -80,7 +80,7 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 假定您需要为一个表单中要用到的帐号建立一个文件，经理要看今年（2004年）所有的订单（Orders），它们并不对DDL感兴趣，并且需要文件有逗号分隔，因为这样就很容易导入到Excel中。 为了完成这个人物，您可以使用下面的句子：
 
-bin/mysqldump –p –where "Order_Date >=&#8217;2000-01-01&#8242;"
+bin/mysqldump –p –where "Order_Date >='2000-01-01&#8242;"
   
 –tab = /home/mark –no-create-info –fields-terminated-by=, Meet\_A\_Geek Orders
 
@@ -110,15 +110,15 @@ mysqladmin ping用于检测mysqld的状态，is alive说明正在运行，出错
 
 6. 在命令行中，输入一下命令:
 
-SELECT * INTO OUTFILE &#8216;/home/mark/Orders.txt&#8217;
+SELECT * INTO OUTFILE '/home/mark/Orders.txt'
   
 FIELDS
   
-TERMINATED BY = &#8216;,&#8217;
+TERMINATED BY = ','
   
 FROM Orders
   
-WHERE Order_Date >= &#8216;2000-01-01&#8217;
+WHERE Order_Date >= '2000-01-01'
 
 在你按了Return（回车）之后，文件就创建了。这个句子就像一个规则的SELECT语句，只是把想屏幕的输出重定向到了文件中。这意味这您可以使用JOIN来实现多表的高级查询。这个特点也可以被用作一个报表产生器。
 
@@ -140,7 +140,7 @@ INSERT INTO Customers (Customer\_ID, Last\_Name, First_Name)
   
 VALUES (NULL, "Brown", "Sam");
   
-SELECT Last_Name INTO OUTFILE &#8216;/home/mark/Report.rpt&#8217;
+SELECT Last_Name INTO OUTFILE '/home/mark/Report.rpt'
   
 FROM Customers WHERE Customer_ID > 1;
 

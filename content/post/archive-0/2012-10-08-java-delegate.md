@@ -226,7 +226,7 @@ startAtTime is call-back in SparetimeWorker !
 
 SparetimeWorker send Rocket fail !
 
-这就体现 Java 中的一句话 Don&#8217;t call me,I&#8217;ll call you. 其含义就是回调（或者委派/委托）。
+这就体现 Java 中的一句话 Don't call me,I'll call you. 其含义就是回调（或者委派/委托）。
 
 android 中很多这样的用法，关于接口的好处还有很多，后续慢慢研究，记住一句话：面向对象面向接口编程。
 

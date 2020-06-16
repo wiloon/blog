@@ -206,7 +206,7 @@ write(String.valueOf(0x61));
 
 write(0x61)
   
-上面语句是将字符&#8217;a&#8217;写入到输出流。因为0x61对应的ASCII码的字母&#8217;a&#8217;。
+上面语句是将字符'a'写入到输出流。因为0x61对应的ASCII码的字母'a'。
 
 查看下面的代码，我们能对这些函数有更清晰的认识！
 
@@ -322,7 +322,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 30 private static void testPrintStreamConstrutor1() {
   
-31 // 0x61对应ASCII码的字母&#8217;a&#8217;，0x62对应ASCII码的字母&#8217;b&#8217;, &#8230;
+31 // 0x61对应ASCII码的字母'a'，0x62对应ASCII码的字母'b', &#8230;
   
 32 final byte[] arr={0x61, 0x62, 0x63, 0x64, 0x65 }; // abced
   
@@ -430,7 +430,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 84 private static void testPrintStreamAPIS() {
   
-85 // 0x61对应ASCII码的字母&#8217;a&#8217;，0x62对应ASCII码的字母&#8217;b&#8217;, &#8230;
+85 // 0x61对应ASCII码的字母'a'，0x62对应ASCII码的字母'b', &#8230;
   
 86 final byte[] arr={0x61, 0x62, 0x63, 0x64, 0x65 }; // abced
   
@@ -448,7 +448,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 93 // 将0x41写入到输出流中
   
-94 // 0x41对应ASCII码的字母&#8217;A&#8217;，也就是写入字符&#8217;A&#8217;
+94 // 0x41对应ASCII码的字母'A'，也就是写入字符'A'
   
 95 out.write(0x41);
   
@@ -458,9 +458,9 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 98 out.print(0x41);
   
-99 // 将字符&#8217;B&#8217;追加到输出流中
+99 // 将字符'B'追加到输出流中
   
-100 out.append(&#8216;B&#8217;);
+100 out.append('B');
   
 101
   

@@ -284,9 +284,9 @@ jsonParser.next(); //"
 
 jsonParser.nextClean(); //:
 
-// 返回当前的读取位置到第一次遇到&#8217;a&#8217;之间的字符串（不包括a）。
+// 返回当前的读取位置到第一次遇到'a'之间的字符串（不包括a）。
 
-jsonParser.nextString(&#8216;a&#8217;); // ["12345678", "87654321"], "n（前面有两个空格）
+jsonParser.nextString('a'); // ["12345678", "87654321"], "n（前面有两个空格）
 
 // 返回当前读取位置到第一次遇到字符串中(如"0089")任意字符之间的字符串，同时该字符是trimmed的。（此处就是第一次遇到了89）
 
@@ -306,7 +306,7 @@ jsonParser.next(8); //" : { "c
 
 // 读取位置前进到执行字符处（不包括字符）
 
-jsonParser.skipTo(&#8216;m&#8217;);
+jsonParser.skipTo('m');
 
 jsonParser.next(8); //married"
 
@@ -358,17 +358,17 @@ String token = result.get("token");
 
 view plaincopy
 
-单数据{&#8216;singer&#8217;:{&#8216;id&#8217;:01,&#8217;name&#8217;:&#8217;tom&#8217;,&#8217;gender&#8217;:&#8217;男&#8217;}}
+单数据{'singer':{'id':01,'name':'tom','gender':'男'}}
 
 多个数据{"singers":[
 
-{&#8216;id&#8217;:02,&#8217;name&#8217;:&#8217;tom&#8217;,&#8217;gender&#8217;:&#8217;男&#8217;},
+{'id':02,'name':'tom','gender':'男'},
 
-{&#8216;id&#8217;:03,&#8217;name&#8217;:&#8217;jerry,&#8217;gender&#8217;:&#8217;男&#8217;},
+{'id':03,'name':'jerry,'gender':'男'},
 
-{&#8216;id&#8217;:04,&#8217;name&#8217;:&#8217;jim,&#8217;gender&#8217;:&#8217;男&#8217;},
+{'id':04,'name':'jim,'gender':'男'},
 
-{&#8216;id&#8217;:05,&#8217;name&#8217;:&#8217;lily,&#8217;gender&#8217;:&#8217;女&#8217;}]}
+{'id':05,'name':'lily,'gender':'女'}]}
 
 下面的类主要是解析单个数据parseJson（）和多个数据的方法parseJsonMulti（）:
 
@@ -376,7 +376,7 @@ view plaincopy
 
 view plaincopy
 
-</pre><pre name="code" class="java" style="text-align: left; font-family: Monaco, &#8216;DejaVu Sans Mono&#8217;, &#8216;Bitstream Vera Sans Mono&#8217;, Consolas, &#8216;Courier New&#8217;, monospace; line-height: 18px; ">public class JsonActivity extends Activity {
+</pre><pre name="code" class="java" style="text-align: left; font-family: Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Consolas, 'Courier New', monospace; line-height: 18px; ">public class JsonActivity extends Activity {
 
 /*\* Called when the activity is first created. \*/
 

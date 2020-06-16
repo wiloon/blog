@@ -14,7 +14,7 @@ SoC: Broadcom BCM2837
   
 CPU: 4× ARM Cortex-A53, 1.2GHz
   
-GPU: Broadcom VideoCore IV &#8212; arm 32bit
+GPU: Broadcom VideoCore IV - arm 32bit
   
 RAM: 1GB LPDDR2 (900 MHz)
   

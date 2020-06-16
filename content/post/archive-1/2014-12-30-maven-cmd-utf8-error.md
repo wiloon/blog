@@ -14,10 +14,10 @@ unmappable character for encoding GBK
 
 
 
-<pre class="default prettyprint prettyprinted"><code>&lt;span class="tag">&lt;properties&gt;&lt;/span>
-    &lt;span class="tag">&lt;project.build.sourceEncoding&gt;&lt;/span>&lt;span class="pln">UTF-8&lt;/span>&lt;span class="tag">&lt;/project.build.sourceEncoding&gt;&lt;/span>
-    &lt;span class="tag">&lt;project.reporting.outputEncoding&gt;&lt;/span>&lt;span class="pln">UTF-8&lt;/span>&lt;span class="tag">&lt;/project.reporting.outputEncoding&gt;&lt;/span>
-&lt;span class="tag">&lt;/properties&gt;&lt;/span>```
+<pre class="default prettyprint prettyprinted"><code><span class="tag"><properties></span>
+    <span class="tag"><project.build.sourceEncoding></span><span class="pln">UTF-8</span><span class="tag"></project.build.sourceEncoding></span>
+    <span class="tag"><project.reporting.outputEncoding></span><span class="pln">UTF-8</span><span class="tag"></project.reporting.outputEncoding></span>
+<span class="tag"></properties></span>```
 
 
 

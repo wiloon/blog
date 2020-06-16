@@ -12,7 +12,7 @@ https://docs.gradle.org/current/userguide/application_plugin.html
 
 edit build.gradle
 
-apply plugin: &#8216;application&#8217;
+apply plugin: 'application'
   
 application {
       

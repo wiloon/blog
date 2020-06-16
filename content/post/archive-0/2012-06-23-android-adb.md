@@ -230,23 +230,23 @@ adb shell
 
 
 <p style="color: #4b4b4b;">
-  &#8212;&#8212; SYSTEM LOG &#8212;&#8212;
+  -- SYSTEM LOG --
 
 
 <p style="color: #4b4b4b;">
-  04-12 16:59:46.521 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I&#8217;m Here.
+  04-12 16:59:46.521 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
 
 <p style="color: #4b4b4b;">
-  04-12 16:59:46.531 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I&#8217;m Here.
+  04-12 16:59:46.531 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
 
 <p style="color: #4b4b4b;">
-  04-12 16:59:46.531 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I&#8217;m Here.
+  04-12 16:59:46.531 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
 
 <p style="color: #4b4b4b;">
-  04-12 16:59:46.541 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I&#8217;m Here.
+  04-12 16:59:46.541 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
 
 <p style="color: #4b4b4b;">
@@ -258,11 +258,11 @@ adb shell
 
 
 <p style="color: #4b4b4b;">
-  04-12 16:59:47.671 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I&#8217;m Here.
+  04-12 16:59:47.671 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
 
 <p style="color: #4b4b4b;">
-  04-12 16:59:47.681 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I&#8217;m Here.
+  04-12 16:59:47.681 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
 
 <p style="color: #4b4b4b;">

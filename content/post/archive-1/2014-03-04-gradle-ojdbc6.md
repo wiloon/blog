@@ -16,11 +16,11 @@ modify build.gradle, then gradle can search local maven repo
 
 [java]
   
-apply plugin: &#8216;java&#8217;
+apply plugin: 'java'
 
-apply plugin: &#8216;eclipse&#8217;
+apply plugin: 'eclipse'
 
-apply plugin: &#8216;war&#8217;
+apply plugin: 'war'
 
 apply plugin: "maven"
 
@@ -30,9 +30,9 @@ mavenCentral()
 
 maven {
 
-name &#8216;local-repo&#8217;
+name 'local-repo'
 
-url &#8216;file:///D:/dev/mavenRepo/&#8217;
+url 'file:///D:/dev/mavenRepo/'
 
 }
 

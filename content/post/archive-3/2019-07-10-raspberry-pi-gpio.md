@@ -22,25 +22,25 @@ https://www.kidscoding8.com/47249.html
 
 ```bash
 #使GPIO17从内核空间暴露到用户空间中
-sudo echo 17 &gt; /sys/class/gpio/export
+sudo echo 17 > /sys/class/gpio/export
 #设置GPIO17为输出模式
-sudo echo out &gt; /sys/class/gpio/gpio17/direction
+sudo echo out > /sys/class/gpio/gpio17/direction
 #向value文件中输入1，GPIO输出高电平，LED点亮
-sudo echo 1 &gt; /sys/class/gpio/gpio17/value
+sudo echo 1 > /sys/class/gpio/gpio17/value
 #向value文件中输入0，GPIO输出低电平，LED熄灭
-sudo echo 0 &gt; /sys/class/gpio/gpio17/value
+sudo echo 0 > /sys/class/gpio/gpio17/value
 #注销GPIO17接口
-sudo echo 17 &gt; /sys/class/gpio/unexport
+sudo echo 17 > /sys/class/gpio/unexport
 ```
 
 ```bash
 sudo vim ledonoff.sh
-echo $1 &gt; /sys/class/gpio/export
-echo out &gt; /sys/class/gpio/gpio$1/direction
-echo 1 &gt; /sys/class/gpio/gpio$1/value
+echo $1 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio$1/direction
+echo 1 > /sys/class/gpio/gpio$1/value
 sleep 5 #延时5秒
-echo 0 &gt; /sys/class/gpio/gpio$1/value
-echo $1 &gt; /sys/class/gpio/unexport
+echo 0 > /sys/class/gpio/gpio$1/value
+echo $1 > /sys/class/gpio/unexport
 
 sudo ./ledonoff.sh 17
 ```

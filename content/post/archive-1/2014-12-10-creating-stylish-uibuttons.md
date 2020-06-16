@@ -12,7 +12,7 @@ http://code.tutsplus.com/tutorials/five-tips-for-creating-stylish-uibuttons&#821
 
 Sometimes it only takes a few lines of code to make your interface pop. This tutorial will teach you five simple tricks for creating stylish UIButtons to make your app standout!
   
-Subsequent Changes to Techniques & SoftwareCertain aspects of applications or techniques used in this tutorial have changed since it was originally published. This might make it a little difficult to follow along. We&#8217;d recommend looking at these more recent tutorials on the same topic:
+Subsequent Changes to Techniques & SoftwareCertain aspects of applications or techniques used in this tutorial have changed since it was originally published. This might make it a little difficult to follow along. We'd recommend looking at these more recent tutorials on the same topic:
 
 Mobiletuts+ iOS SDK Category
   
@@ -20,13 +20,13 @@ Project Preview
 
 Project Setup
   
-In the download that accompanies this tutorial, you&#8217;ll find folders entitled "Initial Build" and "Final Build". Rather than showing all the steps necessary to setup the initial project, you should simply download the attachment and follow along using the project from the "Initial Build" folder.
+In the download that accompanies this tutorial, you'll find folders entitled "Initial Build" and "Final Build". Rather than showing all the steps necessary to setup the initial project, you should simply download the attachment and follow along using the project from the "Initial Build" folder.
 
 With the initial project open, go to the ViewController.m file and locate the forloop within the viewDidLoad method. The code snippets from the tips below should be placed within this loop.
 
 Tip #1: Tweak Colors & Gradients
   
-The most fundamental step toward customizing the UIButton class is to adjust the color of the background and title for both the default and highlighted states. The following code snippet sets each button&#8217;s background color to black, normal title color to white, and highlighted title color to red:
+The most fundamental step toward customizing the UIButton class is to adjust the color of the background and title for both the default and highlighted states. The following code snippet sets each button's background color to black, normal title color to white, and highlighted title color to red:
 
 1
   
@@ -88,7 +88,7 @@ Starting on line 4 above, an NSArray is created with the initial and target grad
 
 If all went well, your menu should now look something like this:
   
-Not bad, huh? And we&#8217;ve only just begun. . .
+Not bad, huh? And we've only just begun. . .
 
 Tip #2: Round the Corners
   
@@ -130,19 +130,19 @@ Sometimes the small tweaks make all the difference. Add a 1px, black stroke arou
   
 [btnLayer setBorderColor:[[UIColor blackColor] CGColor]];
   
-Can you tell the difference? It&#8217;s very subtle, but still valuable:
+Can you tell the difference? It's very subtle, but still valuable:
   
 Tip #4: Use a Custom Font
   
-Now let&#8217;s try a more noteworthy tweak. The default system font just isn&#8217;t cutting it. The game menu we&#8217;re building needs a font that can match the visual aesthetic of the game. A quick search on Google Fonts reveals just a font called Knewave by Tyler Finck that should do the trick. Download Knewave now.
+Now let's try a more noteworthy tweak. The default system font just isn't cutting it. The game menu we're building needs a font that can match the visual aesthetic of the game. A quick search on Google Fonts reveals just a font called Knewave by Tyler Finck that should do the trick. Download Knewave now.
 
-After downloading the Knewave-Regular.ttf file, you&#8217;ll need to drag it into the Project Navigator pane in Xcode to add it to your project. Next, open up theInfo.plist file. Add a new property list row and type in "Fonts provided by application". An array should be created automatically. Set the string associated with Item 0 to "Knewave-Regular.ttf". Double check the name because the value is case sensitive. Save the file.
+After downloading the Knewave-Regular.ttf file, you'll need to drag it into the Project Navigator pane in Xcode to add it to your project. Next, open up theInfo.plist file. Add a new property list row and type in "Fonts provided by application". An array should be created automatically. Set the string associated with Item 0 to "Knewave-Regular.ttf". Double check the name because the value is case sensitive. Save the file.
 
 After making the above modification, your Info.plist file should now look like this:
   
-Next, you&#8217;ll need to add the Knewave-Regular.ttf file to your project&#8217;s bundled resources. Select "SleekButtons" from the Project Navigator and then click the "Build Phases" tab. Expand the "Copy Bundle Resources" drop down and then click the plus sign.
+Next, you'll need to add the Knewave-Regular.ttf file to your project's bundled resources. Select "SleekButtons" from the Project Navigator and then click the "Build Phases" tab. Expand the "Copy Bundle Resources" drop down and then click the plus sign.
   
-At this point, you should be able to begin using the Knewave font in your project! Let&#8217;s test that out by jumping back to the ViewController.m file and modifying theviewDidLoad method to set a custom font:
+At this point, you should be able to begin using the Knewave font in your project! Let's test that out by jumping back to the ViewController.m file and modifying theviewDidLoad method to set a custom font:
 
 01
   
@@ -180,13 +180,13 @@ CAGradientLayer *btnGradient = [CAGradientLayer layer];
   
 btnGradient.frame = btn.bounds;
   
-Notice that the fontWithName value is specified as "Knewave", not "Knewave-Regular" as you might expect. This is because there is a difference between the font&#8217;s filename and the font&#8217;s given name. You&#8217;ll need to be sure you use the given name when working with your own fonts.
+Notice that the fontWithName value is specified as "Knewave", not "Knewave-Regular" as you might expect. This is because there is a difference between the font's filename and the font's given name. You'll need to be sure you use the given name when working with your own fonts.
 
 With the above code in place, the game menu should be complete! Build and run now and you should see something like the following:
   
 Tip #5: Optional: Apply a Rotation
   
-While not utilized in the primary design demonstrated by this tutorial, it&#8217;s often useful to apply a slight rotation to UIKit elements, particularly UIButton or UIImageobjects. Doing so is simple, and can be done with just one line of code.
+While not utilized in the primary design demonstrated by this tutorial, it's often useful to apply a slight rotation to UIKit elements, particularly UIButton or UIImageobjects. Doing so is simple, and can be done with just one line of code.
 
 You can try this out with the code written so far by doing the following:
 
@@ -220,9 +220,9 @@ In line 1 above, the constant M_PI is divided by 180 to generate 1 radian, which
 
 Bonus Tip: Use UIButton-Glossy
   
-With the five tips above, you&#8217;ve seen how easy it can be to make subtle yet significant tweaks to a UIButton object. However, what if I told you that doing so could be even easier? Meet UIButton-Glossy, an open-source category by George McMullen that automatically applies both a gradient and a glossy finish toUIButton objects.
+With the five tips above, you've seen how easy it can be to make subtle yet significant tweaks to a UIButton object. However, what if I told you that doing so could be even easier? Meet UIButton-Glossy, an open-source category by George McMullen that automatically applies both a gradient and a glossy finish toUIButton objects.
 
-Implementing UIButton-Glossy in your own project is simple. After you&#8217;vedownloaded the UIButton-Glossy.h and UIButton-Glossy.m files and added them to your Xcode project, import the *.h file in the main project view controller, like this:
+Implementing UIButton-Glossy in your own project is simple. After you'vedownloaded the UIButton-Glossy.h and UIButton-Glossy.m files and added them to your Xcode project, import the *.h file in the main project view controller, like this:
 
 1
   

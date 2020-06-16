@@ -84,7 +84,7 @@ $ vi test.py
   
 import xmlrpclib
 
-s = xmlrpclib.ServerProxy(‘http://192.168.2.22:61209’)
+s = xmlrpclib.ServerProxy('http://192.168.2.22:61209')
   
 print s.getSystem()
 

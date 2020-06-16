@@ -225,7 +225,7 @@ length = raf.length();
       
 } catch (Exception e) {
           
-ctx.writeAndFlush("ERR: " + e.getClass().getSimpleName() + ": " + e.getMessage() + &#8216;\n&#8217;);
+ctx.writeAndFlush("ERR: " + e.getClass().getSimpleName() + ": " + e.getMessage() + '\n');
           
 return;
       

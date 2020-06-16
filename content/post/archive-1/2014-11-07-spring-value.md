@@ -48,7 +48,7 @@ public class ImageAdminController {
 
 private String imageDir;
   
-@Value("#{settings[&#8216;test.abc&#8217;]}")
+@Value("#{settings['test.abc']}")
   
 public void setImageDir(String val) {
   

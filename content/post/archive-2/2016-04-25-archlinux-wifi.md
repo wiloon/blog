@@ -36,8 +36,8 @@ categories:
  + Security=wpa
  +
  + IP=dhcp
- + ESSID=&#8217;wifi-name&#8217;
- + Key=&#8217;wifi-passwd&#8217;
+ + ESSID='wifi-name'
+ + Key='wifi-passwd'
  # 注意，必须先完成以上才能进行一下，否则有一系列问题
  netctl enable wireless-wpa
  netctl start wireless-wpa

@@ -43,15 +43,15 @@ public	class MyListener implements ServletContextListener {
 	}
 }
 
-&lt;web-app&gt;
-	&lt;listener&gt;
-		&lt;listener-class&gt;
+<web-app>
+	<listener>
+		<listener-class>
 			com.listeners.MyContextListener
-		&lt;/listener-class&gt;
-	&lt;/listener&gt;
-	&lt;servlet/&gt;
-	&lt;servlet-mapping/&gt;
-&lt;/web-app&gt;
+		</listener-class>
+	</listener>
+	<servlet/>
+	<servlet-mapping/>
+</web-app>
 ----------------------------------------转载<a href="http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx">http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx</a>
   
   
@@ -76,7 +76,7 @@ public	class MyListener implements ServletContextListener {
   
   
     UserOnlineTimerTask.java
- &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+ -----&#8211;
  package com.bcxy.servlet;
   
   
@@ -109,10 +109,10 @@ public	class MyListener implements ServletContextListener {
   
   
     }
- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ ------------
+ ------------
  SysListener.java
- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+ -----------&#8211;
  package com.bcxy.servlet;
   
   
@@ -184,7 +184,7 @@ public	class MyListener implements ServletContextListener {
   
   
     }
- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+ ----------&#8211;
   
   
   

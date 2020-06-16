@@ -110,7 +110,7 @@ func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
 
 // ReadLine 是一个低水平的行读取原语，大多数情况下，应该使用
   
-// ReadBytes(&#8216;\n&#8217;) 或 ReadString(&#8216;\n&#8217;)，或者使用一个 Scanner。
+// ReadBytes('\n') 或 ReadString('\n')，或者使用一个 Scanner。
   
 //
   
@@ -507,7 +507,7 @@ onComma := func(data []byte, atEOF bool) (advance int, token []byte, err error) 
           
 for i := 0; i < len(data); i++ {
               
-if data[i] == &#8216;,&#8217; {
+if data[i] == ',' {
                   
 return i + 1, data[:i], nil
               

@@ -8,31 +8,31 @@ categories:
   - Uncategorized
 
 ---
-<pre class="prettyprint"><code>&lt;span class="pln">install node.js/npm
+<pre class="prettyprint"><code><span class="pln">install node.js/npm
 install cordova using npm
-C&lt;/span>&lt;span class="pun">:\&gt;&lt;/span>&lt;span class="pln">npm install &lt;/span>&lt;span class="pun">-&lt;/span>&lt;span class="pln">g cordova
+C</span><span class="pun">:\></span><span class="pln">npm install </span><span class="pun">-</span><span class="pln">g cordova
 
 create the app
-&lt;/span>```
+</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln">cordova create hello com&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">example&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">hello &lt;/span>&lt;span class="typ">HelloWorld&lt;/span>```
+<pre class="prettyprint"><code><span class="pln">cordova create hello com</span><span class="pun">.</span><span class="pln">example</span><span class="pun">.</span><span class="pln">hello </span><span class="typ">HelloWorld</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln">cd hello
-specify a set of target platforms&lt;/span>```
+<pre class="prettyprint"><code><span class="pln">cd hello
+specify a set of target platforms</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln">cordova platform add android
-&lt;/span>```
+<pre class="prettyprint"><code><span class="pln">cordova platform add android
+</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln">cordova platform add ios
-&lt;/span>```
+<pre class="prettyprint"><code><span class="pln">cordova platform add ios
+</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln">cordova platform add wp8&lt;/span>```
+<pre class="prettyprint"><code><span class="pln">cordova platform add wp8</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln">cordova platform add windows&lt;/span>```
+<pre class="prettyprint"><code><span class="pln">cordova platform add windows</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln">
-&lt;/span>```
+<pre class="prettyprint"><code><span class="pln">
+</span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln"> &lt;/span>```
+<pre class="prettyprint"><code><span class="pln"> </span>```
 
-<pre class="prettyprint"><code>&lt;span class="pln"> &lt;/span>```
+<pre class="prettyprint"><code><span class="pln"> </span>```

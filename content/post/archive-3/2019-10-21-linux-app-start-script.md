@@ -17,8 +17,8 @@ PID_FILE=/var/run/app0.pid
 
 startApp(){
     cd ${APP_HOME}
-    nohup java -jar ${APP_NAME}.jar &gt; log 2&gt;&1 &
-    echo $! &gt; ${PID_FILE};
+    nohup java -jar ${APP_NAME}.jar > log 2>&1 &
+    echo $! > ${PID_FILE};
 }
 
 stopApp(){

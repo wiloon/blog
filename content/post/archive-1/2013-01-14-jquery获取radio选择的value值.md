@@ -12,9 +12,9 @@ http://www.cnblogs.com/tangself/archive/2010/04/14/1711684.html
 
 jQuery获取Radio选择的Value值:
 
-var\_name = $(“input[name=&#8217;radio\_name&#8217;]:checked”).val();
+var\_name = $(“input[name='radio\_name']:checked”).val();
 
-1. $("input\[name=&#8217;radio_name&#8217;\]\[checked\]").val();  //选择被选中Radio的Value值
+1. $("input\[name='radio_name'\]\[checked\]").val();  //选择被选中Radio的Value值
   
 2. $("#text\_id").focus(function(){//code&#8230;});  //事件 当对象text\_id获取焦点时触发
   
@@ -22,13 +22,13 @@ var\_name = $(“input[name=&#8217;radio\_name&#8217;]:checked”).val();
   
 4. $("#text_id").select();  //使文本框的Vlaue值成选中状态
   
-5. $("input\[name=&#8217;radio_name&#8217;\]\[value=&#8217;要中Radio的Value值&#8217;\]").attr("checked",true);   jQuery获取CheckBox选择的Value
+5. $("input\[name='radio_name'\]\[value='要中Radio的Value值'\]").attr("checked",true);   jQuery获取CheckBox选择的Value
 
 语法解释：
   
-1. $("input\[name=&#8217;checkbox_name&#8217;\]\[checked\]");  //选择被选中CheckBox元素的集合 如果你想得到Value值，你需要遍历
+1. $("input\[name='checkbox_name'\]\[checked\]");  //选择被选中CheckBox元素的集合 如果你想得到Value值，你需要遍历
   
-2. $($("input\[name=&#8217;checkbox_name&#8217;\]\[checked\]")).each(function(){arrChk+=this.value + &#8216;,&#8217;;});  //遍历被选中CheckBox元素的集合 得到Value值
+2. $($("input\[name='checkbox_name'\]\[checked\]")).each(function(){arrChk+=this.value + ',';});  //遍历被选中CheckBox元素的集合 得到Value值
   
 3. $("#checkbox_id").attr("checked");  //获取一个CheckBox的状态(有没有被选中,返回true/false)
   
@@ -36,9 +36,9 @@ var\_name = $(“input[name=&#8217;radio\_name&#8217;]:checked”).val();
   
 5. $("#checkbox_id").attr("checked",false);  //设置一个CheckBox的状态为不选中(checked=false)
   
-6. $("input[name=&#8217;checkbox\_name&#8217;]").attr("checked",$("#checkbox\_id").attr("checked"));
+6. $("input[name='checkbox\_name']").attr("checked",$("#checkbox\_id").attr("checked"));
 
-7. $("#text_id").val().split(",");  //将Text的Value值以&#8217;,&#8217;分隔 返回一个数组
+7. $("#text_id").val().split(",");  //将Text的Value值以','分隔 返回一个数组
 
 <a href="http://www.cnblogs.com/bynet/archive/2009/11/13/1602491.html" target="_blank">jQuery&#8211;checkbox全选/取消全选</a>
 
@@ -56,27 +56,27 @@ var\_name = $(“input[name=&#8217;radio\_name&#8217;]:checked”).val();
   
 <script type="text/javascript">
 
-$("#chk\_all").click(function() {  $("input[name=&#8217;chk\_list&#8217;]").attr("checked",$(this).attr("checked"));});
+$("#chk\_all").click(function() {  $("input[name='chk\_list']").attr("checked",$(this).attr("checked"));});
   
 </script>
 
 jQuery.attr  获取/设置对象的属性值,如：
 
-$("input[name=&#8217;chk\_list&#8217;]").attr("checked");     //读取所有name为&#8217;chk\_list&#8217;对象的状态（是否选中）
+$("input[name='chk\_list']").attr("checked");     //读取所有name为'chk\_list'对象的状态（是否选中）
 
-$("input[name=&#8217;chk\_list&#8217;]").attr("checked",true);      //设置所有name为&#8217;chk\_list&#8217;对象的checked为true
+$("input[name='chk\_list']").attr("checked",true);      //设置所有name为'chk\_list'对象的checked为true
 
 再如：
 
-$("#img\_1").attr("src","test.jpg");    //设置ID为img\_1的<img>src的值为&#8217;test.jpg&#8217;
+$("#img\_1").attr("src","test.jpg");    //设置ID为img\_1的<img>src的值为'test.jpg'
   
 $("#img\_1").attr("src");     //读取ID为img\_1的<img>src值
 
 下面的代码是获取上面实例中选中的checkbox的value值:
   
-<script type="text/javascript"> //获取到所有name为&#8217;chk_list&#8217;并选中的checkbox(集合)
+<script type="text/javascript"> //获取到所有name为'chk_list'并选中的checkbox(集合)
 
-var arrChk=$("input[name=&#8217;chk_list]:checked");    //遍历得到每个checkbox的value值
+var arrChk=$("input[name='chk_list]:checked");    //遍历得到每个checkbox的value值
 
 for (var i=0;i<arrChk.length;i++){     alert(arrChk[i].value); }
   
@@ -84,7 +84,7 @@ for (var i=0;i<arrChk.length;i++){     alert(arrChk[i].value); }
 
 <script type="text/javascript">
 
-var arrChk=$("input[name=&#8217;chk_list&#8217;]:checked"); $(arrChk).each(function() {   window.alert(this.value);  }); });</script>
+var arrChk=$("input[name='chk_list']:checked"); $(arrChk).each(function() {   window.alert(this.value);  }); });</script>
 
 <a href="http://www.cnblogs.com/bynet/archive/2009/11/16/1603769.html" target="_blank">jQuery-对Select的操作集合[终结篇]</a>
 
@@ -130,15 +130,15 @@ jQuery添加/删除Select的Option项：
   
 3. $("#select_id option:last").remove();  //删除Select中索引值最大Option(最后一个)
   
-4. $("#select_id option[index=&#8217;0&#8242;]").remove();  //删除Select中索引值为0的Option(第一个)
+4. $("#select_id option[index='0&#8242;]").remove();  //删除Select中索引值为0的Option(第一个)
   
-5. $("#select_id option[value=&#8217;3&#8242;]").remove();  //删除Select中Value=&#8217;3&#8217;的Option
+5. $("#select_id option[value='3&#8242;]").remove();  //删除Select中Value='3'的Option
   
 5. $("#select_id option
 
 \[text language="4"\]\[/text\]
 
-").remove();  //删除Select中Text=&#8217;4&#8217;的Option
+").remove();  //删除Select中Text='4'的Option
 
 <a href="http://www.cnblogs.com/top5/archive/2009/11/12/1601543.html" target="_blank">JQUERY获取text,areatext,radio,checkbox,select值</a>
 
@@ -146,7 +146,7 @@ jquery radio取值，checkbox取值，select取值，radio选中，checkbox选�
   
 获取一组radio被选中项的值
   
-var item = $(&#8216;input\[@name=items\]\[@checked\]&#8217;).val();
+var item = $('input\[@name=items\]\[@checked\]').val();
   
 获取select被选中项的文本
   
@@ -154,11 +154,11 @@ var item = $("select[@name=items] option[@selected]").text();
   
 select下拉框的第二个元素为当前选中值
   
-$(&#8216;#select_id&#8217;)[0].selectedIndex = 1;
+$('#select_id')[0].selectedIndex = 1;
   
 radio单选组的第二个元素为当前选中值
   
-$(&#8216;input[@name=items]&#8217;).get(1).checked = true;
+$('input[@name=items]').get(1).checked = true;
   
 获取值：
   
@@ -168,29 +168,29 @@ $(&#8216;input[@name=items]&#8217;).get(1).checked = true;
   
 单选组radio：   $("input\[@type=radio\]\[@checked\]").val();
   
-下拉框select： $(&#8216;#sel&#8217;).val();
+下拉框select： $('#sel').val();
   
 控制表单元素：
   
 文本框，文本区域：$("#txt").attr("value",");//清空内容
   
-$("#txt").attr("value",&#8217;11&#8217;);//填充内容
+$("#txt").attr("value",'11');//填充内容
   
 多选框checkbox： $("#chk1").attr("checked",");//不打勾
   
 $("#chk2").attr("checked",true);//打勾
   
-if($("#chk1").attr(&#8216;checked&#8217;)==undefined) //判断是否已经打勾
+if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
 
-单选组radio：    $("input[@type=radio]").attr("checked",&#8217;2&#8242;);//设置value=2的项目为当前选中项
+单选组radio：    $("input[@type=radio]").attr("checked",'2&#8242;);//设置value=2的项目为当前选中项
   
-下拉框select：   $("#sel").attr("value",&#8217;-sel3&#8242;);//设置value=-sel3的项目为当前选中项
+下拉框select：   $("#sel").attr("value",'-sel3&#8242;);//设置value=-sel3的项目为当前选中项
   
-$("<option value=&#8217;1&#8242;>1111</option><option value=&#8217;2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
+$("<option value='1&#8242;>1111</option><option value='2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
   
 $("#sel").empty()；//清空下拉框
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+----------------------------------
 
 //遍历option和添加、移除option
   
@@ -210,13 +210,13 @@ $(this).remove();
   
 });
   
-}else{$("<option value=&#8217;111&#8242;>UPS Ground</option>").appendTo($("select[@name=ISHIPTYPE]"));}}
+}else{$("<option value='111&#8242;>UPS Ground</option>").appendTo($("select[@name=ISHIPTYPE]"));}}
   
 //取得下拉選單的選取值
 
-$(#testSelect option:selected&#8217;).text();
+$(#testSelect option:selected').text();
   
-或$("#testSelect").find(&#8216;option:selected&#8217;).text();
+或$("#testSelect").find('option:selected').text();
   
 或$("#testSelect").val();
   
@@ -226,21 +226,21 @@ $(#testSelect option:selected&#8217;).text();
   
 1,下拉框:
 
-var cc1 = $(".formc select[@name=&#8217;country&#8217;] option[@selected]").text(); //得到下拉菜单的选中项的文本(注意中间有空格)
+var cc1 = $(".formc select[@name='country'] option[@selected]").text(); //得到下拉菜单的选中项的文本(注意中间有空格)
   
-var cc2 = $(&#8216;.formc select[@name="country"]&#8217;).val(); //得到下拉菜单的选中项的值
+var cc2 = $('.formc select[@name="country"]').val(); //得到下拉菜单的选中项的值
   
-var cc3 = $(&#8216;.formc select[@name="country"]&#8217;).attr("id"); //得到下拉菜单的选中项的ID属性值
+var cc3 = $('.formc select[@name="country"]').attr("id"); //得到下拉菜单的选中项的ID属性值
   
 $("#select").empty();//清空下拉框//$("#select").html(");
   
-$("<option value=&#8217;1&#8242;>1111</option>").appendTo("#select")//添加下拉框的option
+$("<option value='1&#8242;>1111</option>").appendTo("#select")//添加下拉框的option
 
 稍微解释一下:
   
-1.select[@name=&#8217;country&#8217;] option[@selected] 表示具有name 属性，
+1.select[@name='country'] option[@selected] 表示具有name 属性，
   
-并且该属性值为&#8217;country&#8217; 的select元素 里面的具有selected 属性的option 元素；
+并且该属性值为'country' 的select元素 里面的具有selected 属性的option 元素；
   
 可以看出有@开头的就表示后面跟的是属性。
 
@@ -248,7 +248,7 @@ $("<option value=&#8217;1&#8242;>1111</option>").appendTo("#select")//添加下�
   
 $("input\[@type=radio\]\[@checked\]").val(); //得到单选框的选中项的值(注意中间没有空格)
   
-$("input\[@type=radio\]\[@value=2\]").attr("checked",&#8217;checked&#8217;); //设置单选框value=2的为选中状态.(注意中间没有空格)
+$("input\[@type=radio\]\[@value=2\]").attr("checked",'checked'); //设置单选框value=2的为选中状态.(注意中间没有空格)
 
 3,复选框:
   
@@ -264,7 +264,7 @@ $("#chk1").attr("checked",");//不打勾
   
 $("#chk2").attr("checked",true);//打勾
   
-if($("#chk1").attr(&#8216;checked&#8217;)==undefined){} //判断是否已经打勾
+if($("#chk1").attr('checked')==undefined){} //判断是否已经打勾
   
 当然jquery的选择器是强大的. 还有很多方法.
 
@@ -304,7 +304,7 @@ $("#selectTest").attr("value", "2");
   
 jquery radio取值，checkbox取值，select取值，radio选中，checkbox选中，select选中，及其相关获取一组radio被选中项的值
   
-var item = $(&#8216;input\[@name=items\]\[@checked\]&#8217;).val();
+var item = $('input\[@name=items\]\[@checked\]').val();
   
 获取select被选中项的文本
   
@@ -312,11 +312,11 @@ var item = $("select[@name=items] option[@selected]").text();
   
 select下拉框的第二个元素为当前选中值
   
-$(&#8216;#select_id&#8217;)[0].selectedIndex = 1;
+$('#select_id')[0].selectedIndex = 1;
   
 radio单选组的第二个元素为当前选中值
   
-$(&#8216;input[@name=items]&#8217;).get(1).checked = true;
+$('input[@name=items]').get(1).checked = true;
   
 获取值：
   
@@ -326,31 +326,31 @@ $(&#8216;input[@name=items]&#8217;).get(1).checked = true;
   
 单选组radio： $("input\[@type=radio\]\[@checked\]").val();
   
-下拉框select： $(&#8216;#sel&#8217;).val();
+下拉框select： $('#sel').val();
   
 控制表单元素：
   
 文本框，文本区域：$("#txt").attr("value",");//清空内容
   
-$("#txt").attr("value",&#8217;11&#8217;);//填充内容
+$("#txt").attr("value",'11');//填充内容
   
 多选框checkbox： $("#chk1").attr("checked",");//不打勾
   
 $("#chk2").attr("checked",true);//打勾
   
-if($("#chk1").attr(&#8216;checked&#8217;)==undefined) //判断是否已经打勾
+if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
   
-单选组radio： $("input[@type=radio]").attr("checked",&#8217;2&#8242;);//设置value=2的项目为当前选中项
+单选组radio： $("input[@type=radio]").attr("checked",'2&#8242;);//设置value=2的项目为当前选中项
   
-下拉框select： $("#sel").attr("value",&#8217;-sel3&#8242;);//设置value=-sel3的项目为当前选中项
+下拉框select： $("#sel").attr("value",'-sel3&#8242;);//设置value=-sel3的项目为当前选中项
   
-$("<optionvalue=&#8217;1&#8242;>1111</option><optionvalue=&#8217;2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
+$("<optionvalue='1&#8242;>1111</option><optionvalue='2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
   
 $("#sel").empty()；//清空下拉框
 
 获取一组radio被选中项的值
   
-var item = $(&#8216;input\[@name=items\]\[@checked\]&#8217;).val();
+var item = $('input\[@name=items\]\[@checked\]').val();
   
 获取select被选中项的文本
   
@@ -358,11 +358,11 @@ var item = $("select[@name=items] option[@selected]").text();
   
 select下拉框的第二个元素为当前选中值
   
-$(&#8216;#select_id&#8217;)[0].selectedIndex = 1;
+$('#select_id')[0].selectedIndex = 1;
   
 radio单选组的第二个元素为当前选中值
   
-$(&#8216;input[@name=items]&#8217;).get(1).checked = true;
+$('input[@name=items]').get(1).checked = true;
   
 获取值：
   
@@ -372,25 +372,25 @@ $(&#8216;input[@name=items]&#8217;).get(1).checked = true;
   
 单选组radio： $("input\[@type=radio\]\[@checked\]").val();
   
-下拉框select： $(&#8216;#sel&#8217;).val();
+下拉框select： $('#sel').val();
   
 控制表单元素：
   
 文本框，文本区域：$("#txt").attr("value",");//清空内容
   
-$("#txt").attr("value",&#8217;11&#8217;);//填充内容
+$("#txt").attr("value",'11');//填充内容
   
 多选框checkbox： $("#chk1").attr("checked",");//不打勾
   
 $("#chk2").attr("checked",true);//打勾
   
-if($("#chk1").attr(&#8216;checked&#8217;)==undefined) //判断是否已经打勾
+if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
   
-单选组radio： $("input[@type=radio]").attr("checked",&#8217;2&#8242;);//设置value=2的项目为当前选中项
+单选组radio： $("input[@type=radio]").attr("checked",'2&#8242;);//设置value=2的项目为当前选中项
   
-下拉框select： $("#sel").attr("value",&#8217;-sel3&#8242;);//设置value=-sel3的项目为当前选中项
+下拉框select： $("#sel").attr("value",'-sel3&#8242;);//设置value=-sel3的项目为当前选中项
   
-$("<option value=&#8217;1&#8242;>1111</option><option value=&#8217;2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
+$("<option value='1&#8242;>1111</option><option value='2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
   
 $("#sel").empty()；//清空下拉框
 
@@ -424,9 +424,9 @@ toid:目标list的id.
 
 moveOrAppend参数("move"或者是"append"):
 
-move &#8212; 源list中选中的option会删除.源list中选中的option移动到目标list中,若目标list中已存在则该option不添加.
+move - 源list中选中的option会删除.源list中选中的option移动到目标list中,若目标list中已存在则该option不添加.
 
-append &#8212; 源list中选中的option不会删除.源list中选中的option添加到目标list的后面,若目标list中已存在则该option不添加.
+append - 源list中选中的option不会删除.源list中选中的option添加到目标list的后面,若目标list中已存在则该option不添加.
 
 isAll参数(true或者false):是否全部移动或添加
 
@@ -564,7 +564,7 @@ $("#submitBut").click(function(){     //注意空格
   
 $("#fselect").attr("value", "t3");     //选中第二项
   
-$(&#8216;#fselect&#8217;)[0].selectedIndex = 1;
+$('#fselect')[0].selectedIndex = 1;
   
 alert($("#fselect")[0].length);
   
@@ -644,17 +644,17 @@ var item = $("select[@name= stsoft] option[@selected]").text();
   
 select下拉框的第二个元素为当前选中值
   
-$(&#8216;#stsoft&#8217;)[0].selectedIndex = 1;
+$('#stsoft')[0].selectedIndex = 1;
   
 获取value值
   
-$(&#8216;#stsoft&#8217;).val();
+$('#stsoft').val();
   
 设置value=1的项目为当前选中项
   
 $("#stsoft").attr("value",“1”);
   
-$(&#8216;#stsoft&#8217;).val(“1”);
+$('#stsoft').val(“1”);
 
 Js代码
 
@@ -675,11 +675,11 @@ Js代码
 
 
 <p align="left">
-  5.     move &#8212; 源list中选中的option会删除.源list中选中的option移动到目标list中,若目标list中已存在则该option不添加.
+  5.     move - 源list中选中的option会删除.源list中选中的option移动到目标list中,若目标list中已存在则该option不添加.
 
 
 <p align="left">
-  6.     append &#8212; 源list中选中的option不会删除.源list中选中的option添加到目标list的后面,若目标list中已存在则该option不添加.
+  6.     append - 源list中选中的option不会删除.源list中选中的option添加到目标list的后面,若目标list中已存在则该option不添加.
 
 
 <p align="left">
@@ -914,4 +914,4 @@ Js代码
   64. };
 
 
-isAllif(isAll == true) { //$("#"+fromid+" option").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });     $("#"+fromid).empty(); //}    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));      //if($("#"+fromid+" option[value="+$(this).val()+"]").length &gt; 0) {       $("#"+fromid).get(0)       .removeChild($("#"+fromid+" option[value="+$(this).val()+"]").get(0));      }     });    }  }  else if(moveOrAppend.toLowerCase() == "append") {    if(isAll == true) {     $("#"+fromid+" option").each(function() {      $("&lt;option&gt;&lt;/option&gt;")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      $("&lt;option&gt;&lt;/option&gt;")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }  } }; /** isAll$("#"+fromid+" option").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  }  else if(isAll == false) {    $("#"+fromid+" option:selected").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  } };
+isAllif(isAll == true) { //$("#"+fromid+" option").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });     $("#"+fromid).empty(); //}    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));      //if($("#"+fromid+" option[value="+$(this).val()+"]").length > 0) {       $("#"+fromid).get(0)       .removeChild($("#"+fromid+" option[value="+$(this).val()+"]").get(0));      }     });    }  }  else if(moveOrAppend.toLowerCase() == "append") {    if(isAll == true) {     $("#"+fromid+" option").each(function() {      $("<option></option>")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      $("<option></option>")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }  } }; /** isAll$("#"+fromid+" option").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  }  else if(isAll == false) {    $("#"+fromid+" option:selected").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  } };

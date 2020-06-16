@@ -94,7 +94,7 @@ Voluntary context switches 27221, Involuntary context switches 4241
   
 2、Demo2：指定数据库和sql语句
   
-mysqlslap -h192.168.202.84 -P3309 &#8211;concurrency=100 &#8211;iterations=1 &#8211;create-schema=&#8217;mms_sdmtv&#8217; &#8211;query=&#8217;select * from role;&#8217; &#8211;number-of-queries=10 &#8211;debug-info -uroot -p123abc
+mysqlslap -h192.168.202.84 -P3309 &#8211;concurrency=100 &#8211;iterations=1 &#8211;create-schema='mms_sdmtv' &#8211;query='select * from role;' &#8211;number-of-queries=10 &#8211;debug-info -uroot -p123abc
   
 #备注使用mysqlslap指定sql语句进行测试
   

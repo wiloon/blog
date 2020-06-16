@@ -1,5 +1,5 @@
 ---
-title: 'svn: Can’t find a temporary directory'
+title: 'svn: Can't find a temporary directory'
 author: wiloon
 type: post
 date: 2016-04-01T01:03:09+00:00
@@ -22,7 +22,7 @@ categories:
   
 今天我机子上的SVN突然没有办法进行代码提交了，出现的错误提示信息为：
 
-Error：Can&#8217;t find temporary directory:internal error
+Error：Can't find temporary directory:internal error
 
 然后试了下其他的SVN源，发现均无法提交，并且update时也出现上面的错误信息。对比项目文件时出现&#8221;不能创建目录或文件&#8221;
 
@@ -76,7 +76,7 @@ tmpfs                 248M     0  248M   0% /dev/shm
 
 本想这下拿它没折了，但意外的发现，这次提交失败的错误信息更加详细了，
 
-Error：Can&#8217;t find temporary directory
+Error：Can't find temporary directory
 
 Error: C:/Documents and Settings/Administrator/Local Settings/Temp/tmpxxxxx   internal error
 

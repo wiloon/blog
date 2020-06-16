@@ -20,7 +20,7 @@ python调用shell命令的方法有许多
 
 1.2   os.popen(command,mode)
 
-打开一个与command进程之间的管道。这个函数的返回值是一个文件对象，可以读或者写(由mode决定，mode默认是’r&#8217;)。如果mode为’r&#8217;，可以使用此函数的返回值调用read()来获取command命令的执行结果。
+打开一个与command进程之间的管道。这个函数的返回值是一个文件对象，可以读或者写(由mode决定，mode默认是'r')。如果mode为'r'，可以使用此函数的返回值调用read()来获取command命令的执行结果。
 
 1.3**   **commands.getstatusoutput(command)
 

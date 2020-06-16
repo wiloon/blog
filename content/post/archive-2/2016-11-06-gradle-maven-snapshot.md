@@ -12,7 +12,7 @@ configurations.all {
   
 // check for updates every build
   
-resolutionStrategy.cacheChangingModulesFor 0, &#8216;seconds&#8217;
+resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
   
 }
   

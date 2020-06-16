@@ -44,7 +44,7 @@ Usage: setfacl [-bkndRLP] { -m|-M|-x|-X &#8230; } file &#8230;
         
 &#8211;mask do recalculate the effective rights mask
     
--n, &#8211;no-mask don&#8217;t recalculate the effective rights mask
+-n, &#8211;no-mask don't recalculate the effective rights mask
     
 -d, &#8211;default operations apply to the default ACL
     
@@ -54,7 +54,7 @@ Usage: setfacl [-bkndRLP] { -m|-M|-x|-X &#8230; } file &#8230;
     
 -P, &#8211;physical physical walk, do not follow symbolic links
         
-&#8211;restore=file restore ACLs (inverse of \`getfacl -R&#8217;)
+&#8211;restore=file restore ACLs (inverse of \`getfacl -R')
         
 &#8211;test test mode (ACLs are not modified)
     

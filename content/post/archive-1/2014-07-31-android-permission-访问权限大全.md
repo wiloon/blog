@@ -74,7 +74,7 @@ android.permission.ACCESS\_NETWORK\_STATE
 
 android.permission.ACCESS\_SURFACE\_FLINGER
 
-允许程序使用SurfaceFlinger底层特性 (Allows an application to use SurfaceFlinger’s low level features)
+允许程序使用SurfaceFlinger底层特性 (Allows an application to use SurfaceFlinger's low level features)
 
 android.permission.ACCESS\_WIFI\_STATE
 
@@ -252,11 +252,11 @@ android.permission.PROCESS\_OUTGOING\_CALLS
 
 android.permission.READ_CALENDAR
 
-允许程序读取用户日历数据(Allows an application to read the user’s calendar data.)
+允许程序读取用户日历数据(Allows an application to read the user's calendar data.)
 
 android.permission.READ_CONTACTS
 
-允许程序读取用户联系人数据(Allows an application to read the user’s contacts data.)
+允许程序读取用户联系人数据(Allows an application to read the user's contacts data.)
 
 android.permission.READ\_FRAME\_BUFFER
 
@@ -272,7 +272,7 @@ android.permission.READ_LOGS
 
 android.permission.READ\_OWNER\_DATA
 
-允许程序读取所有者数据(Allows an application to read the owner’s data)
+允许程序读取所有者数据(Allows an application to read the owner's data)
 
 android.permission.READ_SMS
 
@@ -404,11 +404,11 @@ android.permission.WRITE\_APN\_SETTINGS
 
 android.permission.WRITE_CALENDAR
 
-允许一个程序写入但不读取用户日历数据(Allows an application to write (but not read) the user’s calendar data. )
+允许一个程序写入但不读取用户日历数据(Allows an application to write (but not read) the user's calendar data. )
 
 android.permission.WRITE_CONTACTS
 
-允许程序写入但不读取用户联系人数据(Allows an application to write (but not read) the user’s contacts data. )
+允许程序写入但不读取用户联系人数据(Allows an application to write (but not read) the user's contacts data. )
 
 android.permission.WRITE_GSERVICES
 
@@ -416,7 +416,7 @@ android.permission.WRITE_GSERVICES
 
 android.permission.WRITE\_OWNER\_DATA
 
-允许一个程序写入但不读取所有者数据(Allows an application to write (but not read) the owner’s data.)
+允许一个程序写入但不读取所有者数据(Allows an application to write (but not read) the owner's data.)
 
 android.permission.WRITE_SETTINGS
 

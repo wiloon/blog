@@ -69,6 +69,6 @@ input URL of repository xxx@xxx.xxx.xxx.xxx:/PROJECT_XXX/XXX
   
 [Build Triggers]
   
-Select Build when a URL&#8217;s content changes
+Select Build when a URL's content changes
   
 input URL file:/home/wyue/xxx/xxx

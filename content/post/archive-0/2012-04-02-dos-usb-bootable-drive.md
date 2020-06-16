@@ -22,7 +22,7 @@ Views
   
 61988
 
-We all use flash drives instead of the older floppy disk standard of last century. The problem with USB is that it isn&#8217;t made to boot like a floppy disk. Motherboards now support booting from USB drives made to look like hard drives. This guide is a step by step process running on Ubuntu.
+We all use flash drives instead of the older floppy disk standard of last century. The problem with USB is that it isn't made to boot like a floppy disk. Motherboards now support booting from USB drives made to look like hard drives. This guide is a step by step process running on Ubuntu.
   
 Tags Guides USB DOS Boot
   
@@ -34,11 +34,11 @@ Flash drives are really ubiquitous. If you look around your computer desk, you w
 
 Hard Drive:
   
-There are a few ways to boot USB devices today. The first way (and the one we will be using in this guide) is to make the USB flash drive look like a regular hard drive. Most flash drives are already setup this way. What does a regular hard drive "look" like? It has a master boot record as well as individual partitions on the drive each with their own boot sector. The other type of bootable USB is known as the supperfloppy type. This makes a flash drive act as one huge floppy disk. A floppy disk is the partition. There is no master boot record. There is only a boot sector. If you have a flash drive formated this way, it won&#8217;t show any partitions in Linux. Instead it will look like /dev/sdb whereas a normal drive with a partition would be /dev/sdb1. Motherboard support is getting better for booting USB, but some of my motherboards still refuse to boot using this guide. Once I find a way to do the super-floppy method, I will make an additional guide. If you know how to do this, please email me.
+There are a few ways to boot USB devices today. The first way (and the one we will be using in this guide) is to make the USB flash drive look like a regular hard drive. Most flash drives are already setup this way. What does a regular hard drive "look" like? It has a master boot record as well as individual partitions on the drive each with their own boot sector. The other type of bootable USB is known as the supperfloppy type. This makes a flash drive act as one huge floppy disk. A floppy disk is the partition. There is no master boot record. There is only a boot sector. If you have a flash drive formated this way, it won't show any partitions in Linux. Instead it will look like /dev/sdb whereas a normal drive with a partition would be /dev/sdb1. Motherboard support is getting better for booting USB, but some of my motherboards still refuse to boot using this guide. Once I find a way to do the super-floppy method, I will make an additional guide. If you know how to do this, please email me.
 
 Why DOS?:
   
-You may be asking why I&#8217;m going to boot into DOS. The simple reason is that most computers don&#8217;t come with a floppy drive and many motherboard manufactures still require DOS to flash their boards. While it is true that some boards have a flashing utility in the BIOS, others (such as Intel&#8217;s) require you to boot into DOS. Using DOS is the safest way to flash a motherboard. I wouldn&#8217;t trust using Windows or even Linux (if such flashing programs were made). Too much stuff is running in the background to cause trouble.
+You may be asking why I'm going to boot into DOS. The simple reason is that most computers don't come with a floppy drive and many motherboard manufactures still require DOS to flash their boards. While it is true that some boards have a flashing utility in the BIOS, others (such as Intel's) require you to boot into DOS. Using DOS is the safest way to flash a motherboard. I wouldn't trust using Windows or even Linux (if such flashing programs were made). Too much stuff is running in the background to cause trouble.
 
 System Setup:
   
@@ -68,7 +68,7 @@ The flash drive will be completely erased so be sure to back up the contents bef
 
 Step 1: Prepare the drive
   
-The first step will wipe the MBR of the drive as well as the partition table information on it. dd is a dangerous command if you don&#8217;t know what you are doing. If you make a mistake, you can wipe your regular hard drive out.
+The first step will wipe the MBR of the drive as well as the partition table information on it. dd is a dangerous command if you don't know what you are doing. If you make a mistake, you can wipe your regular hard drive out.
 
 [shell]
   
@@ -177,9 +177,9 @@ from built-in global.conf:634
   
 from built-in global.conf:648
   
-Error in : (line 648)You specified &#8216;/dev/sdb1&#8217; for read-write Direct Partition Access,
+Error in : (line 648)You specified '/dev/sdb1' for read-write Direct Partition Access,
   
-it is currently mounted read-write on &#8216;/media/disk&#8217; !!!1 error(s) detected while parsing the configuration-file
+it is currently mounted read-write on '/media/disk' !!!1 error(s) detected while parsing the configuration-file
   
 aronschatz@asetest2:~$
   
@@ -273,7 +273,7 @@ This command should bring up another prompt that is basically FreeDOS. In this n
   
   
   
-    With a working DOS USB flash drive, you can perform a number of useful tasks including flashing ROMs and using other DOS utilities. FreeDOS is an example of free and open source software. When using bootdisks that contain MS-DOS, you are not licensed to use it since you didn&#8217;t pay for it. Stay tuned to find out why I needed a DOS USB bootable drive in the first place. Buy a flash drive!
+    With a working DOS USB flash drive, you can perform a number of useful tasks including flashing ROMs and using other DOS utilities. FreeDOS is an example of free and open source software. When using bootdisks that contain MS-DOS, you are not licensed to use it since you didn't pay for it. Stay tuned to find out why I needed a DOS USB bootable drive in the first place. Buy a flash drive!
   
   
   

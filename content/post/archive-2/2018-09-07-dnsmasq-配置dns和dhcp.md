@@ -24,7 +24,7 @@ docker run \
 
 ```bash
 mkdir /etc/dnsmasq.d
-echo 'conf-dir=/etc/dnsmasq.d' &gt;&gt; /etc/dnsmasq.conf
+echo 'conf-dir=/etc/dnsmasq.d' >> /etc/dnsmasq.conf
 ```
 
 ### docker

@@ -8,27 +8,25 @@ categories:
   - Uncategorized
 
 ---
-log4j2:
+### log4j2
 
-log4j-api:log4j2定义的API
-  
-log4j-core:log4j2上述API的实现
+log4j-api:log4j2 定义的API
+log4j-core:log4j2 上述API的实现
 
 ### log4j1.x > slf4j
-
 log4j-over-slf4j
 
-### 直接依赖log4j1.x的换成log4j2输出
+#### 直接依赖log4j1.x的换成log4j2输出
 
-  * 去掉log4j jar包
-  * 加入以下jar包
-  * log4j-over-slf4j（实现log4j1切换到slf4j）<pre data-language=XML>
+  * 排除掉log4j jar包
+  * 引入依赖包 log4j-over-slf4j（实现log4j1桥接到slf4j）
 
-<code class="language-markup line-numbers">&lt;dependency&gt;
-    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-    &lt;artifactId&gt;log4j-over-slf4j&lt;/artifactId&gt;
-    &lt;version&gt;1.7.28&lt;/version&gt;
-&lt;/dependency&gt;
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>log4j-over-slf4j</artifactId>
+    <version>1.7.28</version>
+</dependency>
 ``` 
 
 ### common logging/jcl > slf4j

@@ -10,7 +10,7 @@ categories:
 ---
 download  bcprov-jdk16-146.jar
 
-add jar to ‘$JAVA_HOME$jrelibext’
+add jar to '$JAVA_HOME$jrelibext'
 
 java.security file in %JAVA_HOME%/jre/lib/security directory
 

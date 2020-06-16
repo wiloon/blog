@@ -20,7 +20,7 @@ Code:
   
 echo www-client/seamonkey >> /etc/portage/package.keywords
   
-If /etc/portage doesn&#8217;t exist then create it
+If /etc/portage doesn't exist then create it
   
 Code:
   

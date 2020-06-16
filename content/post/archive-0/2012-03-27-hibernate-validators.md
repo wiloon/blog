@@ -353,7 +353,7 @@ return state;
 
 // if the string is longer, the message will
 
-//be searched in the resource bundle at key &#8216;long&#8217;
+//be searched in the resource bundle at key 'long'
 
 @Length(max=5, message="{long}")
 

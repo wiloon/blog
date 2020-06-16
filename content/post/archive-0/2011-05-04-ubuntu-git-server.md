@@ -69,7 +69,7 @@ sudo apt-get install python-setuptools
   
 6.为gitosis创建一个系统用户
   
-sudo adduser &#8211;system &#8211;shell /bin/sh &#8211;gecos &#8216;git SCM user&#8217; &#8211;group &#8211;disabled-password &#8211;home /home/git git
+sudo adduser &#8211;system &#8211;shell /bin/sh &#8211;gecos 'git SCM user' &#8211;group &#8211;disabled-password &#8211;home /home/git git
 
 7.初始化 sudo -H -u git gitosis-init < id_rsa.pub
   

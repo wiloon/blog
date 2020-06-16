@@ -28,7 +28,7 @@ uKqU9dTB6gKwG6jQCuXYAiMNdfNRw98Hw_IWuA5MaMo
 
 可以简化为下面这样的结构:
 
-base64url\_encode(Header) + &#8216;.&#8217; + base64url\_encode(Claims) + &#8216;.&#8217; + base64url_encode(Signature)
+base64url\_encode(Header) + '.' + base64url\_encode(Claims) + '.' + base64url_encode(Signature)
 
 Header
 

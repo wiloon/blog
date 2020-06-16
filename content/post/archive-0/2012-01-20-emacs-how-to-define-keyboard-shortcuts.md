@@ -8,4 +8,4 @@ categories:
   - Emacs
 
 ---
-(global-set-key (kbd "C-c o") &#8216;COMMAND);test
+(global-set-key (kbd "C-c o") 'COMMAND);test

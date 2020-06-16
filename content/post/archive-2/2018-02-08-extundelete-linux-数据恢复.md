@@ -106,9 +106,9 @@ extundelete \[options\] \[action\] device-file
 
 &#8211;restore-inode ino[,ino,&#8230;]，恢复命令参数，表示恢复节点“ino”的文件，恢复的文件会自动放在当前目录下的RESTORED_FILES文件夹中，使用节点编号作为扩展名。
 
-&#8211;restore-file &#8216;path&#8217;，恢复命令参数，表示将恢复指定路径的文件，并把恢复的文件放在当前目录下的RECOVERED_FILES目录中。
+&#8211;restore-file 'path'，恢复命令参数，表示将恢复指定路径的文件，并把恢复的文件放在当前目录下的RECOVERED_FILES目录中。
 
-&#8211;restore-files &#8216;path&#8217;，恢复命令参数，表示将恢复在路径中已列出的所有文件。
+&#8211;restore-files 'path'，恢复命令参数，表示将恢复在路径中已列出的所有文件。
 
 &#8211;restore-all，恢复命令参数，表示将尝试恢复所有目录和文件。
 

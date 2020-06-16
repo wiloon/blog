@@ -56,7 +56,7 @@ TimerTask是一个实现了Runnable接口的抽象类，代表一个可以被Tim
   
     18 public void run(){
   
-    19 System.out.println(“Time’s up!”);
+    19 System.out.println(“Time's up!”);
   
     20 timer.cancel();
   
@@ -78,7 +78,7 @@ Task scheduled.
 
 然后3秒钟后，看到
 
-Time’s up!
+Time's up!
 
 从这个例子可以看出一个典型的利用timer执行计划任务的过程如下：
 

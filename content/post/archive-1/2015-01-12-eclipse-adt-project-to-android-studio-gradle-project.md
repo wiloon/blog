@@ -12,11 +12,11 @@ create new android studio project
 
 copy following files to new project
 
-folder &#8216;libs&#8217;
+folder 'libs'
 
-folder &#8216;res&#8217;
+folder 'res'
 
-folder &#8216;src&#8217;
+folder 'src'
 
 
 

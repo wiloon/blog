@@ -92,7 +92,7 @@ REPLACE [LOW_PRIORITY | DELAYED]
   
 SELECT …
 
-REPLACE INTO \`table\` (\`unique\_column\`,\`num\`) VALUES (&#8216;$unique\_value&#8217;,$num);跟INSERT INTO \`table\` (\`unique\_column\`,\`num\`) VALUES(&#8216;$unique\_value&#8217;,$num) ON DUPLICATE UPDATE num=$num;还是有些区别的，区别就是replace into的时候会删除老记录。如果表中有一个自增的主键。那么就要出问题了。
+REPLACE INTO \`table\` (\`unique\_column\`,\`num\`) VALUES ('$unique\_value',$num);跟INSERT INTO \`table\` (\`unique\_column\`,\`num\`) VALUES('$unique\_value',$num) ON DUPLICATE UPDATE num=$num;还是有些区别的，区别就是replace into的时候会删除老记录。如果表中有一个自增的主键。那么就要出问题了。
 
 首先，因为新纪录与老记录的主键值不同，所以其他表中所有与本表老数据主键id建立的关联全部会被破坏。
   

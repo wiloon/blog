@@ -88,7 +88,7 @@ InetAddress address=InetAddress.getByName("www.baidu.com");
 
 System.out.println(address);
 
-System.out.println("&#8212;&#8211;");
+System.out.println("-&#8211;");
 
 InetAddress[] addresses=InetAddress.getAllByName("www.baidu.com");
 
@@ -108,7 +108,7 @@ System.out.println(addr);
 
 www.baidu.com/119.75.213.61
 
-&#8212;&#8211;
+-&#8211;
 
 www.baidu.com/119.75.213.61
 

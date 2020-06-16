@@ -50,7 +50,7 @@ var cheeky = the_word.indexOf("q");
 
 indexOf更实用之处:
   
-var the_email = prompt("What’s your email address?", "");
+var the_email = prompt("What's your email address?", "");
   
 var the\_at\_is\_at = the\_email.indexOf("@");
   

@@ -32,15 +32,15 @@ Command
   
 下面列出SC可以使用的命令。
   
-config&#8212;-改变一个服务的配置。（长久的）
+config--改变一个服务的配置。（长久的）
   
 continue&#8211;对一个服务送出一个继续控制的要求。
   
-control&#8212;-对一个服务送出一个控制。
+control--对一个服务送出一个控制。
   
-create&#8212;-创建一个服务。（增加到注册表中）
+create--创建一个服务。（增加到注册表中）
   
-delete&#8212;-删除一个服务。（从注册表中删除）
+delete--删除一个服务。（从注册表中删除）
   
 EnumDepend&#8211;列举服务的从属关系。
   
@@ -50,15 +50,15 @@ GetKeyName&#8211;获得一个服务的服务键名。
   
 interrogate&#8211;对一个服务送出一个询问控制要求。
   
-pause&#8212;-对一个服务送出一个暂停控制要求。
+pause--对一个服务送出一个暂停控制要求。
   
-qc&#8212;-询问一个服务的配置。
+qc--询问一个服务的配置。
   
-query&#8212;-询问一个服务的状态，也可以列举服务的状态类型。
+query--询问一个服务的状态，也可以列举服务的状态类型。
   
-start&#8212;-启动一个服务。
+start--启动一个服务。
   
-stop&#8212;-对一个服务送出一个停止的要求。
+stop--对一个服务送出一个停止的要求。
   
 Servicename
   
@@ -110,15 +110,15 @@ Optionname&#8211;Optionvalues
   
 描述
   
-type=&#8212;-own, share, interact, kernel, filesys
+type=--own, share, interact, kernel, filesys
   
 关于建立服务的类型，选项值包括驱动程序使用的类型，默认是share。
   
-start=&#8212;-boot, sys tem, auto, demand, disabled
+start=--boot, sys tem, auto, demand, disabled
   
 关于启动服务的类型，选项值包括驱动程序使用的类型，默认是demand（手动）。
   
-error=&#8212;-normal, severe, critical, ignore
+error=--normal, severe, critical, ignore
   
 当服务在导入失败错误的严重性，默认是normal。
   
@@ -126,21 +126,21 @@ binPath=&#8211;(string)
   
 服务二进制文件的路径名，这里没有默认值，这个字符串是必须设置的。
   
-group=&#8212;-(string)
+group=--(string)
   
 这个服务属于的组，这个组的列表保存在注册表中的ServiceGroupOrder下。默认是nothing。
   
-tag=&#8212;-(string)
+tag=--(string)
   
 如果这个字符串被设置为yes，sc可以从CreateService call中得到一个tagId。然而，SC并不显示这个标签，所
   
 以使用这个没有多少意义。默认是nothing
   
-depend=&#8212;-(space separated string)有空格的字符串。
+depend=--(space separated string)有空格的字符串。
   
 在这个服务启动前必须启动的服务的名称或者是组。
   
-obj=&#8212;-(string)
+obj=--(string)
   
 账号运行使用的名称，也可以说是登陆身份。默认是localsys tem
   
@@ -200,21 +200,21 @@ SC QC命令显示了QUERY\_SERVICE\_CONFIG结构的内容。
   
 以下是QUERY\_SERVICE\_CONFIG相应的区域。
   
-TYPE&#8212;&#8212;dwServiceType
+TYPE--dwServiceType
   
-START_TYPE&#8212;-dwStartType
+START_TYPE--dwStartType
   
-ERROR_CONTROL&#8212;-dwErrorControl
+ERROR_CONTROL--dwErrorControl
   
 BINARY\_PATH\_NAME&#8211;lpBinaryPathName
   
 LOAD\_ORDER\_GROUP&#8211;lpLoadOrderGroup
   
-TAG&#8212;&#8212;dwTagId
+TAG--dwTagId
   
-DISPLAY_NAME&#8212;-lpDisplayName
+DISPLAY_NAME--lpDisplayName
   
-DEPENDENCIES&#8212;-lpDependencies
+DEPENDENCIES--lpDependencies
   
 SERVICE\_START\_NAME&#8211;lpServiceStartName
   
@@ -264,11 +264,11 @@ Optionname&#8211;Optionvalues
   
 Description
   
-type=&#8212;-driver, service, all
+type=--driver, service, all
   
 列举服务的类型，默认是service
   
-state=&#8212;-active, inactive, all
+state=--active, inactive, all
   
 列举服务的状态，默认是active
   
@@ -276,7 +276,7 @@ bufsize=&#8211;(numeric values)
   
 列举缓冲区的尺寸，默认是1024 bytes
   
-ri=&#8212;-(numeric values)
+ri=--(numeric values)
   
 但开始列举时，恢复指针的数字，默认是0
   
@@ -290,23 +290,23 @@ SC QUERY命令可以显示SERVICE_STATUS结构的内容。
   
 下面是SERVICE_STATUS结构相应的信息：
   
-TYPE&#8212;&#8212;dwServiceType
+TYPE--dwServiceType
   
-STATE&#8212;&#8212;dwCurrentState, dwControlsAccepted
+STATE--dwCurrentState, dwControlsAccepted
   
-WIN32\_EXIT\_CODE&#8212;-dwWin32ExitCode
+WIN32\_EXIT\_CODE--dwWin32ExitCode
   
 SERVICE\_EXIT\_CODE&#8211;dwServiceSpecificExitCode
   
-CHECKPOINT&#8212;-dwCheckPoint
+CHECKPOINT--dwCheckPoint
   
-WAIT_HINT&#8212;-dwWaitHint
+WAIT_HINT--dwWaitHint
   
 在启动计算机后，使用SC QUERY命令会告诉你是否，或者不是一个启动服务的尝试。如果这个服务成功启动，WIN32\_EXIT\_CODE区间会将会包含一个0，当尝试不成功时，当它意识到这个服务不能够启动时，这个区间也会提供一个退出码给服务。
   
 例子
   
-查询“mirror&#8217;服务状态，键入：
+查询“mirror'服务状态，键入：
   
 sc query mirror
   

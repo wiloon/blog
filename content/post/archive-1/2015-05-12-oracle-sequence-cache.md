@@ -64,7 +64,7 @@ SQL> select * from v$version;
 
 BANNER
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+----------------------
 
 Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod
 
@@ -116,7 +116,7 @@ SQL> select seq_nocache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 1
 
@@ -128,17 +128,17 @@ NEXTVAL
 
 执行计划
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 Plan hash value: 3078288422
 
 
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+------------------------
 
 | Id  | Operation        | Name        | Rows  | Cost (%CPU)| Time     |
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+------------------------
 
 |   0 | SELECT STATEMENT |             |     1 |     2   (0)| 00:00:01 |
 
@@ -146,7 +146,7 @@ Plan hash value: 3078288422
 
 |   2 |   FAST DUAL      |             |     1 |     2   (0)| 00:00:01 |
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+------------------------
 
 
 
@@ -154,7 +154,7 @@ Plan hash value: 3078288422
 
 统计信息
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 30  recursive calls
 
@@ -188,7 +188,7 @@ SQL> select seq_nocache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 2
 
@@ -200,7 +200,7 @@ NEXTVAL
 
 统计信息
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 14  recursive calls
 
@@ -234,7 +234,7 @@ SQL> select seq_nocache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 3
 
@@ -246,7 +246,7 @@ NEXTVAL
 
 统计信息
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 14  recursive calls
 
@@ -290,7 +290,7 @@ SQL> select seq_cache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 1
 
@@ -302,17 +302,17 @@ NEXTVAL
 
 执行计划
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 Plan hash value: 2754437009
 
 
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+------------------------
 
 | Id  | Operation        | Name      | Rows  | Cost (%CPU)| Time     |
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+------------------------
 
 |   0 | SELECT STATEMENT |           |     1 |     2   (0)| 00:00:01 |
 
@@ -320,7 +320,7 @@ Plan hash value: 2754437009
 
 |   2 |   FAST DUAL      |           |     1 |     2   (0)| 00:00:01 |
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+------------------------
 
 
 
@@ -328,7 +328,7 @@ Plan hash value: 2754437009
 
 统计信息
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 30  recursive calls
 
@@ -360,7 +360,7 @@ SQL> select seq_cache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 2
 
@@ -372,7 +372,7 @@ NEXTVAL
 
 统计信息
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 0  recursive calls
 
@@ -404,7 +404,7 @@ SQL> select seq_cache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 3
 
@@ -416,7 +416,7 @@ NEXTVAL
 
 统计信息
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 0  recursive calls
 
@@ -450,7 +450,7 @@ SQL> select seq_cache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 4
 
@@ -458,7 +458,7 @@ NEXTVAL
 
 统计信息
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------------
 
 14  recursive calls
 
@@ -536,7 +536,7 @@ SQL> select scott.seq_nocache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 9
 
@@ -546,7 +546,7 @@ SQL> select scott.seq_nocache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 10
 
@@ -556,7 +556,7 @@ SQL> select scott.seq_nocache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 11
 
@@ -566,7 +566,7 @@ SQL> select scott.seq_cache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 9
 
@@ -576,7 +576,7 @@ SQL> select scott.seq_cache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 10
 
@@ -586,7 +586,7 @@ SQL> select scott.seq_cache.nextval from dual;
 
 NEXTVAL
 
-&#8212;&#8212;&#8212;-
+----
 
 11
 
@@ -614,7 +614,7 @@ c:\tool\oracle\oracle\product\10.2.0\admin\ots\udump\ots\_ora\_5932.trc
 
 =====================
 
-PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16143418536 hv=311402377 ad=&#8217;248b5c60&#8242;
+PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16143418536 hv=311402377 ad='248b5c60&#8242;
 
 select scott.seq_nocache.nextval from dual –第一次调用nocache
 
@@ -626,11 +626,11 @@ BINDS #1:
 
 EXEC #1:c=0,e=13893,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,tim=16143450260
 
-WAIT #1: nam=&#8217;SQL*Net message to client&#8217; ela= 8 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16143453714
+WAIT #1: nam='SQL*Net message to client' ela= 8 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16143453714
 
 =====================
 
-PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16143457545 hv=2635489469 ad=&#8217;2891ff84&#8242;
+PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16143457545 hv=2635489469 ad='2891ff84&#8242;
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1 –第一次循环递归；
 
@@ -720,7 +720,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
-value="&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;"
+value="----------&#8211;"
 
 Bind#8
 
@@ -748,7 +748,7 @@ value=113487
 
 =====================
 
-PARSING IN CURSOR #2 len=42 dep=0 uid=0 ct=3 lid=0 tim=16145504123 hv=311402377 ad=&#8217;248b5c60&#8242;
+PARSING IN CURSOR #2 len=42 dep=0 uid=0 ct=3 lid=0 tim=16145504123 hv=311402377 ad='248b5c60&#8242;
 
 select scott.seq_nocache.nextval from dual –第二次调用
 
@@ -760,11 +760,11 @@ BINDS #2:
 
 EXEC #2:c=15625,e=4237,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,tim=16145528418
 
-WAIT #2: nam=&#8217;SQL*Net message to client&#8217; ela= 8 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16145532367
+WAIT #2: nam='SQL*Net message to client' ela= 8 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16145532367
 
 =====================
 
-PARSING IN CURSOR #1 len=129 dep=1 uid=0 ct=6 lid=0 tim=16145536517 hv=2635489469 ad=&#8217;2891ff84&#8242;
+PARSING IN CURSOR #1 len=129 dep=1 uid=0 ct=6 lid=0 tim=16145536517 hv=2635489469 ad='2891ff84&#8242;
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1
 
@@ -796,7 +796,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
-value="&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;"
+value="----------&#8211;"
 
 Bind#8
 
@@ -822,7 +822,7 @@ value=113487
 
 =====================
 
-PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16147403782 hv=311402377 ad=&#8217;248b5c60&#8242;
+PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16147403782 hv=311402377 ad='248b5c60&#8242;
 
 select scott.seq_nocache.nextval from dual –第三次调用
 
@@ -830,7 +830,7 @@ END OF STMT
 
 =====================
 
-PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16147424639 hv=2635489469 ad=&#8217;2891ff84&#8242;
+PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16147424639 hv=2635489469 ad='2891ff84&#8242;
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1
 
@@ -862,7 +862,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
-value="&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;"
+value="----------&#8211;"
 
 Bind#8
 
@@ -898,13 +898,13 @@ Bind#6在undate语句中对应字段highwater，显然是表示当前sequence对
 
 
 
-SQL> select object\_type, object\_id from dba\_objects where wner=&#8217;SCOTT&#8217; and object\_name=&#8217;SEQ_NOCACHE&#8217;;
+SQL> select object\_type, object\_id from dba\_objects where wner='SCOTT' and object\_name='SEQ_NOCACHE';
 
 
 
 OBJECT\_TYPE          OBJECT\_ID
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-
+------- ----
 
 SEQUENCE                113487
 
@@ -922,7 +922,7 @@ SEQUENCE                113487
 
 
 
-PARSING IN CURSOR #2 len=40 dep=0 uid=0 ct=3 lid=0 tim=16156274459 hv=1095976807 ad=&#8217;24882bec&#8217;
+PARSING IN CURSOR #2 len=40 dep=0 uid=0 ct=3 lid=0 tim=16156274459 hv=1095976807 ad='24882bec'
 
 select scott.seq_cache.nextval from dual –第一次调用
 
@@ -934,25 +934,25 @@ BINDS #2:
 
 EXEC #2:c=0,e=84,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,tim=16156274601
 
-WAIT #2: nam=&#8217;SQL*Net message to client&#8217; ela= 6 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16156274643
+WAIT #2: nam='SQL*Net message to client' ela= 6 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16156274643
 
 FETCH #2:c=0,e=46,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,tim=16156274725
 
-WAIT #2: nam=&#8217;SQL*Net message from client&#8217; ela= 568 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16156275360
+WAIT #2: nam='SQL*Net message from client' ela= 568 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16156275360
 
 FETCH #2:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,tim=16156275411
 
-WAIT #2: nam=&#8217;SQL*Net message to client&#8217; ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16156275445
+WAIT #2: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16156275445
 
-WAIT #2: nam=&#8217;SQL*Net message from client&#8217; ela= 2197902 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16158473393
+WAIT #2: nam='SQL*Net message from client' ela= 2197902 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16158473393
 
-STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p=&#8217;SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=57 us)&#8217;
+STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p='SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=57 us)'
 
-STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p=&#8217;FAST DUAL  (cr=0 pr=0 pw=0 time=8 us)&#8217;
+STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p='FAST DUAL  (cr=0 pr=0 pw=0 time=8 us)'
 
 =====================
 
-PARSING IN CURSOR #1 len=40 dep=0 uid=0 ct=3 lid=0 tim=16158473685 hv=1095976807 ad=&#8217;24882bec&#8217;
+PARSING IN CURSOR #1 len=40 dep=0 uid=0 ct=3 lid=0 tim=16158473685 hv=1095976807 ad='24882bec'
 
 select scott.seq_cache.nextval from dual –第二次调用；
 
@@ -964,11 +964,11 @@ BINDS #1:
 
 EXEC #1:c=0,e=73,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,tim=16158473813
 
-WAIT #1: nam=&#8217;SQL*Net message to client&#8217; ela= 5 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16158473855
+WAIT #1: nam='SQL*Net message to client' ela= 5 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16158473855
 
 =====================
 
-PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16158474024 hv=2635489469 ad=&#8217;2891ff84&#8242;
+PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16158474024 hv=2635489469 ad='2891ff84&#8242;
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1
 
@@ -1058,7 +1058,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c58fa  bln=32  avl=32  flg=09
 
-value="&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;"
+value="----------&#8211;"
 
 Bind#8
 
@@ -1084,7 +1084,7 @@ value=113488
 
 =====================
 
-PARSING IN CURSOR #2 len=40 dep=0 uid=0 ct=3 lid=0 tim=16160280316 hv=1095976807 ad=&#8217;24882bec&#8217;
+PARSING IN CURSOR #2 len=40 dep=0 uid=0 ct=3 lid=0 tim=16160280316 hv=1095976807 ad='24882bec'
 
 select scott.seq_cache.nextval from dual –第三次调用
 
@@ -1096,23 +1096,23 @@ BINDS #2:
 
 EXEC #2:c=0,e=77,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,tim=16160280449
 
-WAIT #2: nam=&#8217;SQL*Net message to client&#8217; ela= 6 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16160280593
+WAIT #2: nam='SQL*Net message to client' ela= 6 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16160280593
 
 FETCH #2:c=0,e=51,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,tim=16160280682
 
-WAIT #2: nam=&#8217;SQL*Net message from client&#8217; ela= 643 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16160281398
+WAIT #2: nam='SQL*Net message from client' ela= 643 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16160281398
 
 FETCH #2:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,tim=16160281451
 
-WAIT #2: nam=&#8217;SQL*Net message to client&#8217; ela= 3 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16160281482
+WAIT #2: nam='SQL*Net message to client' ela= 3 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16160281482
 
 \*** 2012-02-23 13:30:07.421
 
-WAIT #2: nam=&#8217;SQL*Net message from client&#8217; ela= 14238981 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16174520496
+WAIT #2: nam='SQL*Net message from client' ela= 14238981 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16174520496
 
-STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p=&#8217;SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=52 us)&#8217;
+STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p='SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=52 us)'
 
-STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p=&#8217;FAST DUAL  (cr=0 pr=0 pw=0 time=10 us)&#8217;
+STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p='FAST DUAL  (cr=0 pr=0 pw=0 time=10 us)'
 
 
 

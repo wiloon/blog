@@ -1,5 +1,5 @@
 ---
-title: MySQL Error 1093 – Can’t specify target table for update in FROM clause
+title: MySQL Error 1093 – Can't specify target table for update in FROM clause
 author: wiloon
 type: post
 date: 2015-08-06T11:22:19+00:00
@@ -16,10 +16,10 @@ wrap the condition in one more select
 
 
 
-<pre class="lang-sql prettyprint prettyprinted"><code>&lt;span class="kwd">DELETE&lt;/span> &lt;span class="kwd">FROM&lt;/span>&lt;span class="pln"> story_category
-&lt;/span>&lt;span class="kwd">WHERE&lt;/span>&lt;span class="pln"> category_id &lt;/span>&lt;span class="kwd">NOT&lt;/span> &lt;span class="kwd">IN&lt;/span> &lt;span class="pun">(&lt;/span>
-    &lt;span class="kwd">SELECT&lt;/span>&lt;span class="pln"> cid &lt;/span>&lt;span class="kwd">FROM&lt;/span> &lt;span class="pun">(&lt;/span>
-        &lt;span class="kwd">SELECT&lt;/span> &lt;span class="kwd">DISTINCT&lt;/span>&lt;span class="pln"> category&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">id &lt;/span>&lt;span class="kwd">AS&lt;/span>&lt;span class="pln"> cid &lt;/span>&lt;span class="kwd">FROM&lt;/span>&lt;span class="pln"> category 
-        &lt;/span>&lt;span class="kwd">INNER&lt;/span> &lt;span class="kwd">JOIN&lt;/span>&lt;span class="pln"> story_category &lt;/span>&lt;span class="kwd">ON&lt;/span>&lt;span class="pln"> category_id&lt;/span>&lt;span class="pun">=&lt;/span>&lt;span class="pln">category&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">id
-    &lt;/span>&lt;span class="pun">)&lt;/span> &lt;span class="kwd">AS&lt;/span>&lt;span class="pln"> c
-&lt;/span>&lt;span class="pun">)&lt;/span>```
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">DELETE</span> <span class="kwd">FROM</span><span class="pln"> story_category
+</span><span class="kwd">WHERE</span><span class="pln"> category_id </span><span class="kwd">NOT</span> <span class="kwd">IN</span> <span class="pun">(</span>
+    <span class="kwd">SELECT</span><span class="pln"> cid </span><span class="kwd">FROM</span> <span class="pun">(</span>
+        <span class="kwd">SELECT</span> <span class="kwd">DISTINCT</span><span class="pln"> category</span><span class="pun">.</span><span class="pln">id </span><span class="kwd">AS</span><span class="pln"> cid </span><span class="kwd">FROM</span><span class="pln"> category 
+        </span><span class="kwd">INNER</span> <span class="kwd">JOIN</span><span class="pln"> story_category </span><span class="kwd">ON</span><span class="pln"> category_id</span><span class="pun">=</span><span class="pln">category</span><span class="pun">.</span><span class="pln">id
+    </span><span class="pun">)</span> <span class="kwd">AS</span><span class="pln"> c
+</span><span class="pun">)</span>```

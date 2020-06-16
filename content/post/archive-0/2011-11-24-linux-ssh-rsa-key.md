@@ -21,7 +21,7 @@ ssh-keygen -t rsa -b 4096
 
 scp /root/.ssh/id_rsa.pub root@192.168.10.184:/root
 ssh 192.168.10.184
-cat /root/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys
+cat /root/id_rsa.pub >> /root/.ssh/authorized_keys
 # ok,you will login 192.168.10.184 without input password.
 
 ```

@@ -9,25 +9,25 @@ categories:
 
 ---
 <div class="cnblogs_code" style="color: #000000;">
-  &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-<span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">package</span>="com.example.android.apis"&gt; 
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+<span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">package</span>="com.example.android.apis"> 
 <span style="color: #008080;"> 3</span> 
 <span style="color: #008080;"> 4</span> 
-<span style="color: #008080;"> 5</span> &lt;activity android:name="<span style="color: #ff0000;">ApiDemos</span>"&gt; 
-<span style="color: #008080;"> 6</span>             &lt;intent-filter&gt; 
-<span style="color: #008080;"> 7</span>                 &lt;action android:name="android.intent.action.MAIN" /&gt; 
-<span style="color: #008080;"> 8</span>                 &lt;category android:name="android.intent.category.DEFAULT" /&gt; 
-<span style="color: #008080;"> 9</span>                 &lt;category android:name="android.intent.category.LAUNCHER" /&gt; 
-<span style="color: #008080;">10</span>             &lt;/intent-filter&gt; 
-<span style="color: #008080;">11</span> &lt;/activity&gt; 
+<span style="color: #008080;"> 5</span> <activity android:name="<span style="color: #ff0000;">ApiDemos</span>"> 
+<span style="color: #008080;"> 6</span>             <intent-filter> 
+<span style="color: #008080;"> 7</span>                 <action android:name="android.intent.action.MAIN" /> 
+<span style="color: #008080;"> 8</span>                 <category android:name="android.intent.category.DEFAULT" /> 
+<span style="color: #008080;"> 9</span>                 <category android:name="android.intent.category.LAUNCHER" /> 
+<span style="color: #008080;">10</span>             </intent-filter> 
+<span style="color: #008080;">11</span> </activity> 
 <span style="color: #008080;">12</span> 
 <span style="color: #008080;">13</span> 
-<span style="color: #008080;">14</span> &lt;activity android:name="<span style="color: #ff0000;">.app.HelloWorld</span>" android:label="@string/activity_hello_world"&gt; 
-<span style="color: #008080;">15</span>             &lt;intent-filter&gt; 
-<span style="color: #008080;">16</span>                 &lt;action android:name="android.intent.action.MAIN" /&gt; 
-<span style="color: #008080;">17</span>                 &lt;category android:name="android.intent.category.SAMPLE_CODE" /&gt; 
-<span style="color: #008080;">18</span>             &lt;/intent-filter&gt; 
-<span style="color: #008080;">19</span> &lt;/activity&gt;
+<span style="color: #008080;">14</span> <activity android:name="<span style="color: #ff0000;">.app.HelloWorld</span>" android:label="@string/activity_hello_world"> 
+<span style="color: #008080;">15</span>             <intent-filter> 
+<span style="color: #008080;">16</span>                 <action android:name="android.intent.action.MAIN" /> 
+<span style="color: #008080;">17</span>                 <category android:name="android.intent.category.SAMPLE_CODE" /> 
+<span style="color: #008080;">18</span>             </intent-filter> 
+<span style="color: #008080;">19</span> </activity>
   
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><a style="color: #4371a6;" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a></span>

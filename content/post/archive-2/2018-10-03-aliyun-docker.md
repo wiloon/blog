@@ -21,7 +21,7 @@ https://cr.console.aliyun.com/cn-qingdao/mirrors
   
 sudo mkdir -p /etc/docker
   
-sudo tee /etc/docker/daemon.json <<-&#8216;EOF&#8217;
+sudo tee /etc/docker/daemon.json <<-'EOF'
   
 {
     

@@ -26,19 +26,19 @@ categories:
 
 def A():
       
-print &#8216;1&#8217;
+print '1'
       
-print &#8216;2&#8217;
+print '2'
       
-print &#8216;3&#8217;
+print '3'
 
 def B():
       
-print &#8216;x&#8217;
+print 'x'
       
-print &#8216;y&#8217;
+print 'y'
       
-print &#8216;z&#8217;
+print 'z'
   
 假设由协程执行，在执行A的过程中，可以随时中断，去执行B，B也可能在执行过程中中断再去执行A，结果可能是：
 

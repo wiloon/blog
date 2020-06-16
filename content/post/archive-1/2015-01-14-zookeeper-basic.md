@@ -231,7 +231,7 @@ FIFO 队列用 Zookeeper 实现思路如下：
   
 imok
   
-那么我看见zookeeper回答我们“I’m OK”。下表中是所有的zookeeper的命名，都是由4个字符组成。
+那么我看见zookeeper回答我们“I'm OK”。下表中是所有的zookeeper的命名，都是由4个字符组成。
 
 ZooKeeper在数据一致性上实现了如下几个方面：
   
@@ -255,7 +255,7 @@ ZooKeeper在数据一致性上实现了如下几个方面：
 
 系统视图的状态更新的延迟时间是有一个上限的，最多不过几十秒。如果服务器的状态落后于其他服务器太多，ZooKeeper会宁可关闭这个服务器上的服务，强制客户端去连接一个状态更新的服务器。
   
-从执行效率上考虑，读操作的目标是内存中的缓存数据，并且读操作不会参与到写操作的全局排序中。这就会引起客户端在读取ZooKeeper的状态时产生不一致。例如，A客户端将znode z的值由$$a$$改变成$$a^{&#8216;}$$，然后通知客户端B去读取z的值，但是B读取到的值是$$a$$，而不是修改后的$$a^{&#8216;}$$。为了阻止这种情况出现，B在读取z的值之前，需要调用sync方法。sync方法会强制B连接的服务器状态与leader的状态同步，这样B在读取z的值就是A重新更改过的值了。
+从执行效率上考虑，读操作的目标是内存中的缓存数据，并且读操作不会参与到写操作的全局排序中。这就会引起客户端在读取ZooKeeper的状态时产生不一致。例如，A客户端将znode z的值由$$a$$改变成$$a^{'}$$，然后通知客户端B去读取z的值，但是B读取到的值是$$a$$，而不是修改后的$$a^{'}$$。为了阻止这种情况出现，B在读取z的值之前，需要调用sync方法。sync方法会强制B连接的服务器状态与leader的状态同步，这样B在读取z的值就是A重新更改过的值了。
 
 3.设置环境变量
   
@@ -331,7 +331,7 @@ HBase内置有ZooKeeper，也可以使用外部ZooKeeper。
   
 让HBase使用一个已有的不被HBase托管的Zookeep集群，需要设置 conf/hbase env sh文件中的HBASE\_MANAGES\_ZK 属性为 false
   
-… # Tell HBase whether it should manage it’s own instance of Zookeeper or not. export HBASE\_MANAGES\_ZK=false
+… # Tell HBase whether it should manage it's own instance of Zookeeper or not. export HBASE\_MANAGES\_ZK=false
   
 接下来，指明Zookeeper的host和端口。可以在 hbase-site.xml中设置, 也可以在HBase的CLASSPATH下面加一个zoo.cfg配置文件。 HBase 会优先加载 zoo.cfg 里面的配置，把hbase-site.xml里面的覆盖掉.
   

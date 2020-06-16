@@ -70,7 +70,7 @@ iptables -t raw -I PREROUTING 1 -p tcp -d 216.58.193.196 -j TRACE
   
 PING 192.168.0.19 (192.168.0.19)56(84) bytes of data.
   
-&#8212; 192.168.0.19 ping statistics &#8212;1 packets transmitted, 0 received, 100% packet loss, time 0ms
+- 192.168.0.19 ping statistics -1 packets transmitted, 0 received, 100% packet loss, time 0ms
   
 在/var/log/kern.log中的对应调试信息如下
 
@@ -166,7 +166,7 @@ https://www.howtoing.com/enable-logging-in-iptables-on-linux
   
 </blockquote>
 
-<iframe title=""iptables debugging&#8221; &#8212; 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""iptables debugging&#8221; - 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 http://blog.51cto.com/flymanhi/1276331
   

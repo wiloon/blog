@@ -78,6 +78,6 @@ Branch Specifier (blank for default):**
   
 #build triggers
   
-select build when a url&#8217;s content changes
+select build when a url's content changes
   
 note: the url should like file://x:/xxx/xxxx.xxx

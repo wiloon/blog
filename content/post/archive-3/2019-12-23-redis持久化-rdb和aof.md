@@ -23,7 +23,7 @@ dir /data/redisdata
 
 关于Redis说点什么，目前都是使用Redis作为数据缓存，缓存的目标主要是那些需要经常访问的数据，或计算复杂而耗时的数据。缓存的效果就是减少了数据库读的次数，减少了复杂数据的计算次数，从而提高了服务器的性能。
 
-一、redis持久化&#8212;-两种方式
+一、redis持久化--两种方式
   
 1、redis提供了两种持久化的方式，分别是RDB（Redis DataBase）和AOF（Append Only File）。
 
@@ -35,7 +35,7 @@ dir /data/redisdata
 
 5、如果你没有数据持久化的需求，也完全可以关闭RDB和AOF方式，这样的话，redis将变成一个纯内存数据库，就像memcache一样。
 
-二、redis持久化&#8212;-RDB
+二、redis持久化--RDB
   
 1、RDB方式，是将redis某一时刻的数据持久化到磁盘中，是一种快照式的持久化方法。
 
@@ -47,7 +47,7 @@ dir /data/redisdata
 
 5、虽然RDB有不少优点，但它的缺点也是不容忽视的。如果你对数据的完整性非常敏感，那么RDB方式就不太适合你，因为即使你每5分钟都持久化一次，当redis故障时，仍然会有近5分钟的数据丢失。所以，redis还提供了另一种持久化方式，那就是AOF。
 
-三、redis持久化&#8212;-AOF
+三、redis持久化--AOF
   
 1、AOF，英文是Append Only File，即只允许追加不允许改写的文件。
 
@@ -79,7 +79,7 @@ dir /data/redisdata
   
 4.重启redis，加载修复后的AOF文件
 
-四、redis持久化&#8212;-AOF重写
+四、redis持久化--AOF重写
   
 1、AOF重写的内部运行原理，我们有必要了解一下。
 
@@ -91,7 +91,7 @@ dir /data/redisdata
 
 5、当追加结束后，redis就会用新AOF文件来代替旧AOF文件，之后再有新的写指令，就都会追加到新的AOF文件中了。
 
-五、redis持久化&#8212;-如何选择RDB和AOF
+五、redis持久化--如何选择RDB和AOF
   
 1、对于我们应该选择RDB还是AOF，官方的建议是两个同时使用。这样可以提供更可靠的持久化方案。
 

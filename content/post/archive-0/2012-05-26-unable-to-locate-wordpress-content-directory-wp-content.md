@@ -17,11 +17,11 @@ adding the following code in my wp-config.php:
   
 if(is_admin()) {
   
-add\_filter(&#8216;filesystem\_method&#8217;,
+add\_filter('filesystem\_method',
   
-create_function(&#8216;$a&#8217;, &#8216;return "direct";&#8217; ));
+create_function('$a', 'return "direct";' ));
   
-define( &#8216;FS\_CHMOD\_DIR&#8217;, 0751 ); }
+define( 'FS\_CHMOD\_DIR', 0751 ); }
   
 [/php]
 

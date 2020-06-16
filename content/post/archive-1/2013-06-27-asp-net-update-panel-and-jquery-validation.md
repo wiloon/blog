@@ -140,7 +140,7 @@ public static void main(String[] args) {
           
 new Test();
           
-System.out.println("&#8212;&#8212;&#8212;&#8212;&#8212;-");
+System.out.println("------");
           
 new Test("1");
 

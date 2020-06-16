@@ -16,7 +16,7 @@ MessageFormatMessageFormat.format
   
 MessageFormat用来格式化一个消息，通常是一个字符串，比如：
 
-String str = "I&#8217;m not a {0}, age is {1,number,short}", height is {2,number,#.#};
+String str = "I'm not a {0}, age is {1,number,short}", height is {2,number,#.#};
 
 
 
@@ -24,7 +24,7 @@ String str = "I&#8217;m not a {0}, age is {1,number,short}", height is {2,number
 
 将str中的{0}用"pig"替换，{1,number,short}用数字8替换，{2,number,#.#}用数字1.2替换。
 
-那么最终用户得到的是一个格式化好的字符串"I&#8217;m not a pig, age is 8, height is 1.2"。
+那么最终用户得到的是一个格式化好的字符串"I'm not a pig, age is 8, height is 1.2"。
 
 
 
@@ -114,7 +114,7 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, {0} is &#8216;a&#8217; pig";
+String message = "oh, {0} is 'a' pig";
 
 Object[] array = new Object[]{"ZhangSan"};
 
@@ -138,7 +138,7 @@ String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
-最终结果是：oh, ZhangSan is &#8216;a&#8217; pig
+最终结果是：oh, ZhangSan is 'a' pig
 
 
 
@@ -148,7 +148,7 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, &#8216;{0}&#8217; is a pig";
+String message = "oh, '{0}' is a pig";
 
 Object[] array = new Object[]{"ZhangSan"};
 
@@ -156,7 +156,7 @@ String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
-最终结果是：oh, {0} is &#8216;a&#8217; pig，此处ZhangSan无法显示。
+最终结果是：oh, {0} is 'a' pig，此处ZhangSan无法显示。
 
 
 
@@ -164,7 +164,7 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, &#8216;{0,number,#.#} is a pig";
+String message = "oh, '{0,number,#.#} is a pig";
 
 Object[] array = new Object[]{new Double(3.1415)};
 
@@ -172,7 +172,7 @@ String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
-最终结果是：oh, {0,number,#.#}  is &#8216;a&#8217; pig。
+最终结果是：oh, {0,number,#.#}  is 'a' pig。
 
 
 

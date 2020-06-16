@@ -364,7 +364,7 @@ btn5 = new Button(this);
 
 btn5.setId(105);
 
-btn5.setText("main thread&#8217;s message to other thread");
+btn5.setText("main thread's message to other thread");
 
 btn5.setOnClickListener(this);
 
@@ -430,7 +430,7 @@ mHandler = new EventHandler(looper);
 
 mHandler.removeMessages(0);
 
-String obj = "This main thread&#8217;s message and received by itself!";
+String obj = "This main thread's message and received by itself!";
 
 //得到Message对象
 

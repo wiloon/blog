@@ -90,11 +90,11 @@ C代码
   
 #define EX_SOFTWARE 70 /\* internal software error \*/
   
-#define EX_OSERR 71 /\* system error (e.g., can&#8217;t fork) \*/
+#define EX_OSERR 71 /\* system error (e.g., can't fork) \*/
   
 #define EX_OSFILE 72 /\* critical OS file missing \*/
   
-#define EX_CANTCREAT 73 /\* can&#8217;t create (user) output file \*/
+#define EX_CANTCREAT 73 /\* can't create (user) output file \*/
   
 #define EX_IOERR 74 /\* input/output error \*/
   

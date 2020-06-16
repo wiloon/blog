@@ -78,7 +78,7 @@ CREATE TABLE T_test
 
 &#8211;插入数据
   
-INSERT T_test(Name) VALUES(&#8216;张三&#8217;)
+INSERT T_test(Name) VALUES('张三')
 
 &#8211;增加标识列
   
@@ -90,7 +90,7 @@ ADD ID int IDENTITY(1,1)
 
 可以使用 OBJECTPROPERTY 函数确定一个表是否具有 IDENTITY（标识）列,用法:
   
-Select OBJECTPROPERTY(OBJECT_ID(&#8216;表名&#8217;),&#8217;TableHasIdentity&#8217;)
+Select OBJECTPROPERTY(OBJECT_ID('表名'),'TableHasIdentity')
   
 如果有，则返回1,否则返回0
 
@@ -98,7 +98,7 @@ Select OBJECTPROPERTY(OBJECT_ID(&#8216;表名&#8217;),&#8217;TableHasIdentity&#8
 
 可使用 COLUMNPROPERTY 函数确定 某列是否具有IDENTITY 属性,用法
   
-SELECT COLUMNPROPERTY( OBJECT_ID(&#8216;表名&#8217;),&#8217;列名&#8217;,&#8217;IsIdentity&#8217;)
+SELECT COLUMNPROPERTY( OBJECT_ID('表名'),'列名','IsIdentity')
   
 如果该列为标识列，则返回1,否则返回0
 
@@ -108,9 +108,9 @@ SQL Server中没有现成的函数实现此功能，实现的SQL语句如下
   
 SELECT COLUMN\_NAME FROM INFORMATION\_SCHEMA.columns
   
-WHERE TABLE_NAME=&#8217;表名&#8217; AND  COLUMNPROPERTY(
+WHERE TABLE_NAME='表名' AND  COLUMNPROPERTY(
   
-OBJECT\_ID(&#8216;表名&#8217;),COLUMN\_NAME,&#8217;IsIdentity&#8217;)=1
+OBJECT\_ID('表名'),COLUMN\_NAME,'IsIdentity')=1
 
 5、标识列的引用
 
@@ -128,19 +128,19 @@ SELECT * FROM T_test WHERE ID=1
 
 可使用函数IDENT_SEED,用法：
   
-SELECT IDENT_SEED (&#8216;表名&#8217;)
+SELECT IDENT_SEED ('表名')
 
 7、获取标识列的递增量
 
 可使用函数IDENT_INCR ,用法：
   
-SELECT IDENT_INCR(&#8216;表名&#8217;)
+SELECT IDENT_INCR('表名')
 
 8、获取指定表中最后生成的标识值
 
 可使用函数IDENT_CURRENT，用法:
   
-SELECT IDENT_CURRENT(&#8216;表名&#8217;)
+SELECT IDENT_CURRENT('表名')
   
 注意事项：当包含标识列的表刚刚创建,为经过任何插入操作时，使用IDENT_CURRENT函数得到的值为标识列的种子值，这一点在开发数据库应用程序的时候尤其应该注意。
 

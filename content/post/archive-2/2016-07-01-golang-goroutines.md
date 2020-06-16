@@ -19,17 +19,17 @@ Go语言中有个概念叫做goroutine, 这类似我们熟知的线程，但是�
 以下的程序，我们串行地去执行两次`loop`函数:
 
 <div class="highlight">
-  <code class="language-go" data-lang="go">&lt;span class="kd">func&lt;/span> &lt;span class="nx">loop&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="k">for&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="p">&lt;&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">{&lt;/span>
-        &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">"%d "&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">i&lt;/span>&lt;span class="p">)&lt;/span>
-    &lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
+  <code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nx">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p"><</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-&lt;span class="kd">func&lt;/span> &lt;span class="nx">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="nx">loop&lt;/span>&lt;span class="p">()&lt;/span>
-    &lt;span class="nx">loop&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="p">}&lt;/span>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">loop</span><span class="p">()</span>
+    <span class="nx">loop</span><span class="p">()</span>
+<span class="p">}</span>
 ```
 
 
@@ -43,10 +43,10 @@ Go语言中有个概念叫做goroutine, 这类似我们熟知的线程，但是�
 下面我们把一个loop放在一个goroutine里跑，我们可以使用关键字`go`来定义并启动一个goroutine:
 
 <div class="highlight">
-  <code class="language-go" data-lang="go">&lt;span class="kd">func&lt;/span> &lt;span class="nx">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="k">go&lt;/span> &lt;span class="nx">loop&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// 启动一个goroutine&lt;/span>
-    &lt;span class="nx">loop&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="p">}&lt;/span>
+  <code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">go</span> <span class="nx">loop</span><span class="p">()</span> <span class="c1">// 启动一个goroutine</span>
+    <span class="nx">loop</span><span class="p">()</span>
+<span class="p">}</span>
 ```
 
 
@@ -64,11 +64,11 @@ Go语言中有个概念叫做goroutine, 这类似我们熟知的线程，但是�
 main函数退出地太快了，我们要想办法阻止它过早地退出，一个办法是让main等待一下:
 
 <div class="highlight">
-  <code class="language-go" data-lang="go">&lt;span class="kd">func&lt;/span> &lt;span class="nx">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-    &lt;span class="k">go&lt;/span> &lt;span class="nx">loop&lt;/span>&lt;span class="p">()&lt;/span>
-    &lt;span class="nx">loop&lt;/span>&lt;span class="p">()&lt;/span>
-    &lt;span class="nx">time&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">time&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Second&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 停顿一秒&lt;/span>
-&lt;span class="p">}&lt;/span>
+  <code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">go</span> <span class="nx">loop</span><span class="p">()</span>
+    <span class="nx">loop</span><span class="p">()</span>
+    <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span> <span class="c1">// 停顿一秒</span>
+<span class="p">}</span>
 ```
 
 

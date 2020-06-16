@@ -51,7 +51,7 @@ categories:
       union all
     </li>
     <li>
-      select &#8216;no records&#8217; from dual
+      select 'no records' from dual
     </li>
     <li>
              where not exists (select s_name from sql1 where rownum=1)
@@ -106,7 +106,7 @@ SELECT
   
 (query naming subquery_name);
 
-Retuning to our oversimplified example, let’s replace the temporary tables with the SQL “WITH  clause”:
+Retuning to our oversimplified example, let's replace the temporary tables with the SQL “WITH  clause”:
 
 WITH
   
@@ -154,7 +154,7 @@ Note the use of the Oracle undocumented “materialize” hint in the “WITH cl
 
 It should be noted that the “WITH clause” does not yet fully-functional within Oracle SQL and it does not yet support the use of “WITH clause” replacement for “CONNECT BY” when performing recursive queries.
 
-To see how the “WITH clause” is used in ANSI SQL-99 syntax, here is an excerpt from Jonathan Gennick’s great work “Understanding the WITH Clause” showing the use of the SQL-99 “WITH clause” to traverse a recursive bill-of-materials hierarchy
+To see how the “WITH clause” is used in ANSI SQL-99 syntax, here is an excerpt from Jonathan Gennick's great work “Understanding the WITH Clause” showing the use of the SQL-99 “WITH clause” to traverse a recursive bill-of-materials hierarchy
   
 The SQL-99 “WITH clause” is very confusing at first because the SQL statement does not begin with the word SELECT. Instead, we use the “WITH clause” to start our SQL query, defining the aggregations, which can then be named in the main query as if they were “real” tables:
 
@@ -170,7 +170,7 @@ SELECT
   
 (query naming subquery_name);
   
-Retuning to our oversimplified example, let’s replace the temporary tables with the SQL “WITH” clause”:
+Retuning to our oversimplified example, let's replace the temporary tables with the SQL “WITH” clause”:
 
 =================================================================================
 
@@ -256,7 +256,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                1
@@ -275,7 +275,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                3
@@ -341,7 +341,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                1
@@ -386,7 +386,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                1
@@ -434,7 +434,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                3

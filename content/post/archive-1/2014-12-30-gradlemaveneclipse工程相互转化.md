@@ -28,7 +28,7 @@ mvn eclipse:eclipse
   
 编辑build.gradle文件，在文件最前面增加一行：
   
-apply plugin: &#8216;eclipse&#8217;
+apply plugin: 'eclipse'
 
 gradle eclipse
 

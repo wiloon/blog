@@ -180,7 +180,7 @@ netmask 255.255.255.0
             
             
             
-              wpa_passphrase &lt;ssid&gt; [明文密码]
+              wpa_passphrase <ssid> [明文密码]
             
             
             
@@ -267,7 +267,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
                 
                 
                 
-                  sudo sh -c "iptables-save &gt; /etc/iptables.ipv4.nat"
+                  sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
                 
                 
                 
@@ -275,7 +275,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
                 
                 
                 
-                  up iptables-restore &lt; /etc/iptables.ipv4.nat
+                  up iptables-restore < /etc/iptables.ipv4.nat
                 
                 
                 

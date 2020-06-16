@@ -16,15 +16,15 @@ Our reference architecture specifies Tomcat as our default container. However, d
 
 Assumptions:
 
-You&#8217;re using 3.1.1-SNAPSHOT (or 3.1.1-GA, when available)
+You're using 3.1.1-SNAPSHOT (or 3.1.1-GA, when available)
 
-You&#8217;re using MySql (you can swap out the instructions below with the driver and JDBC information applicable to your RDBMS)
+You're using MySql (you can swap out the instructions below with the driver and JDBC information applicable to your RDBMS)
 
-You&#8217;re launching JBoss using the standalone configuration
+You're launching JBoss using the standalone configuration
 
-You&#8217;re installing the Broadleaf Commerce Heat Clinic demo on JBoss (or a project based on the Heat Clinic demo)
+You're installing the Broadleaf Commerce Heat Clinic demo on JBoss (or a project based on the Heat Clinic demo)
 
-If you&#8217;re using JRebel, make sure you&#8217;re using version 5.5.1 (or later), as earlier versions cause significant delays during JBoss startup
+If you're using JRebel, make sure you're using version 5.5.1 (or later), as earlier versions cause significant delays during JBoss startup
 
 Configure JBoss
 
@@ -178,11 +178,11 @@ Add a secure connector to the web subsystem element
 
 Configure the Application
 
-It&#8217;s best to avoid the JPA scanning done by JBoss. This can be achieved by making sure there are no files named persistence.xml in the codebase.
+It's best to avoid the JPA scanning done by JBoss. This can be achieved by making sure there are no files named persistence.xml in the codebase.
 
 In older versions of Heat Clinic, there is a filed called persistence.xml in [heat clinic installation]/core/src/main/resources/META-INF/persistence.xml
 
-If it&#8217;s not done already, rename this file persistence-core.xml
+If it's not done already, rename this file persistence-core.xml
 
 Change any spring application context elements pointing to this file to persistence-core.xml (see this example)
 
@@ -208,7 +208,7 @@ Here is the list of known files containing this persistence.xml reference
 
 Remove any unused resource-ref elements in web.xml
 
-In regard to Heat Clinic, if it&#8217;s not removed already, delete the resource-ref element from [heat clinic installation]/site/src/main/webapp/WEB-INF/web.xml
+In regard to Heat Clinic, if it's not removed already, delete the resource-ref element from [heat clinic installation]/site/src/main/webapp/WEB-INF/web.xml
 
 Configure the application to exclude some unwanted JBoss modules
 
@@ -268,7 +268,7 @@ Change the enable-welcome-root param to false
 
 <virtual-server name="default-host" enable-welcome-root="false">
 
-Change site&#8217;s generated war file name
+Change site's generated war file name
 
 Edit [heat clinic installation]/site/pom.xml
 

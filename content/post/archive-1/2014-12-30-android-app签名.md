@@ -32,7 +32,7 @@ _**方法一： 命令行下对apk签名（原理）**_
           <td class="code">
             <div class="container">
               <div class="line number1 index0 alt2">
-                <code class="fsharp plain">D:\&gt;keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore</code>
+                <code class="fsharp plain">D:\>keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore</code>
               
               
               <div class="line number2 index1 alt1">
@@ -56,7 +56,7 @@ _**方法一： 命令行下对apk签名（原理）**_
               
               
               <div class="line number7 index6 alt2">
-                <code class="fsharp plain">D:\&gt;jarsigner -verbose -keystore demo.keystore -signedjar demo_signed.apk demo.apk demo.keystore</code>
+                <code class="fsharp plain">D:\>jarsigner -verbose -keystore demo.keystore -signedjar demo_signed.apk demo.apk demo.keystore</code>
               
               
               <div class="line number8 index7 alt1">

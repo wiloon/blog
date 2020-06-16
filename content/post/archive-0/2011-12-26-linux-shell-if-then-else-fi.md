@@ -13,7 +13,7 @@ tags:
 ### 判断指定文件中是否包含指定的字符串
 
 ```bash
-grep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
+grep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml > /dev/null
 if [ $? -eq 0 ]; then
     echo "Found!"
 else
@@ -184,7 +184,7 @@ exit 0
 
 此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样：
 
-test "$(whoami)" != &#8216;root&#8217; && (echo you are using a non-privileged account; exit 1)
+test "$(whoami)" != 'root' && (echo you are using a non-privileged account; exit 1)
   
 &&相当于“if…then…”，而||相当于“if not…then…”。&&和||用于连接两个命令，而上面讲的-a和-o仅用于在测试表达式中连接两个测试条件，要注意它们的区别，例如，
 
@@ -495,7 +495,7 @@ shell字符串比较、判断是否为数字
   
 #!/bin/bash
 
-file=&#8217;folder\_url\_top24/url\_usa\_top24_0&#8242;
+file='folder\_url\_top24/url\_usa\_top24_0&#8242;
   
 fileSize=`ls -l folder_url_top24/url_usa_top24_0 | awk -F '[" "]' '{print $5}'`
   
@@ -646,7 +646,7 @@ fi
   
 使用-n在[]结构中测试必须要用""把变量引起来.使用一个未被""的字符串来使用! -z或者就是未用""引用的字符串本身,放到[]结构中。虽然一般情况下可以工作,但这是不安全的.习惯于使用""来测试字符串是一种好习惯.
 
-awk &#8216;{print $2}&#8217; class.txt | grep &#8216;^[0-9.]&#8217; > res
+awk '{print $2}' class.txt | grep '^[0-9.]' > res
   
 https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/
 

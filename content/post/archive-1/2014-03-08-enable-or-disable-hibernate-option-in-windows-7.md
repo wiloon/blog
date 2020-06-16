@@ -16,7 +16,7 @@ In Windows XP enabling Hibernate option was a very easy task. One could navigate
 
 
 
-If you are not aware of Hibernate feature, Hibernation is a power-saving state designed primarily for laptops. While sleep puts your work and settings in memory and draws a small amount of power, hibernation puts your open documents and programs on your hard disk and then turns off your computer. Of all the power-saving states in Windows, hibernation uses the least amount of power. On a laptop, use hibernation when you know that you won’t use your laptop for an extended period and won’t have an opportunity to charge the battery during that time.
+If you are not aware of Hibernate feature, Hibernation is a power-saving state designed primarily for laptops. While sleep puts your work and settings in memory and draws a small amount of power, hibernation puts your open documents and programs on your hard disk and then turns off your computer. Of all the power-saving states in Windows, hibernation uses the least amount of power. On a laptop, use hibernation when you know that you won't use your laptop for an extended period and won't have an opportunity to charge the battery during that time.
 
 
 
@@ -48,7 +48,7 @@ Step 3: Type exit and hit enter to close the Command Prompt.
 
 
 
-Step 4: If you can’t see the Hibernate option in Start menu then continue with the following tasks:
+Step 4: If you can't see the Hibernate option in Start menu then continue with the following tasks:
 
 
 
@@ -68,4 +68,4 @@ C. Under the Advanced Sleep options, expand the Sleep tree and turn off Hybrid S
 
 
 
-D. Now go back to Start menu to see the new Hibernate entry. That’s it!
+D. Now go back to Start menu to see the new Hibernate entry. That's it!

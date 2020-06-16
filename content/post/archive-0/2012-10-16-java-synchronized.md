@@ -266,17 +266,17 @@ map.put("a",value);
   
 下面是并发条件下的一些Donts
 
-Don’t synchronize on an object you’re changing
+Don't synchronize on an object you're changing
   
-Don’t synchronize on a String literal
+Don't synchronize on a String literal
   
-Don’t synchronize on auto-boxed values
+Don't synchronize on auto-boxed values
   
-Don’t synchronize on null
+Don't synchronize on null
   
-Don’t synchronize on a Lock object
+Don't synchronize on a Lock object
   
-Don’t synchronize on getClass()
+Don't synchronize on getClass()
   
 Be careful locking on a thread-safe object with encapsulated locking
 

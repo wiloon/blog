@@ -224,7 +224,7 @@ Check to see if the class requested has already been loaded.
   
 Check to see if the class is a “system” class.
   
-Attempt to fetch the class from this class loader’s repository.
+Attempt to fetch the class from this class loader's repository.
   
 Define the class for the VM.
   
@@ -257,7 +257,7 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
             
             
             <div class="line number5 index4 alt2">
-              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" &gt;&gt;&gt;&gt;&gt;&gt; Load class : "</code><code class="java plain">+className);</code>
+              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> Load class : "</code><code class="java plain">+className);</code>
             
             
             <div class="line number6 index5 alt1">
@@ -273,7 +273,7 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
             
             
             <div class="line number9 index8 alt2">
-              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" &gt;&gt;&gt;&gt;&gt;&gt; returning cached result."</code><code class="java plain">);</code>
+              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> returning cached result."</code><code class="java plain">);</code>
             
             
             <div class="line number10 index9 alt1">
@@ -290,7 +290,7 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
   
 
 
-The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It’s also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
+The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
 
   <div id="highlighter_688537" class="syntaxhighlighter nogutter java">
@@ -311,7 +311,7 @@ The code above is the first section of the loadClass method. As you can see, it 
             
             
             <div class="line number4 index3 alt1">
-              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" &gt;&gt;&gt;&gt;&gt;&gt; returning system class (in CLASSPATH)."</code><code class="java plain">);</code>
+              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> returning system class (in CLASSPATH)."</code><code class="java plain">);</code>
             
             
             <div class="line number5 index4 alt2">
@@ -323,7 +323,7 @@ The code above is the first section of the loadClass method. As you can see, it 
             
             
             <div class="line number7 index6 alt2">
-              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" &gt;&gt;&gt;&gt;&gt;&gt; Not a system class."</code><code class="java plain">);</code>
+              <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> Not a system class."</code><code class="java plain">);</code>
             
             
             <div class="line number8 index7 alt1">

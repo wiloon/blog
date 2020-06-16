@@ -38,9 +38,9 @@ batching机制——“分批发送“机制。每个批次(batch)中包含了�
  props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
  props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
- Producer&lt;String, String&gt; producer = new KafkaProducer&lt;&gt;(props);
- for(int i = 0; i &lt; 100; i++)
-     producer.send(new ProducerRecord&lt;String, String&gt;("my-topic", Integer.toString(i), Integer.toString(i)));
+ Producer<String, String> producer = new KafkaProducer<>(props);
+ for(int i = 0; i < 100; i++)
+     producer.send(new ProducerRecord<String, String>("my-topic", Integer.toString(i), Integer.toString(i)));
 
  producer.close();
 ```

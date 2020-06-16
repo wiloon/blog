@@ -122,7 +122,7 @@ JSSE使用Truststore和Keystore文件来提供客户端和服务器之间的安�
     验证新创建的truststore文件 
     
 
-  1. 创建一个客户端 keystore &#8212; 含有一个私钥的keystore文件
+  1. 创建一个客户端 keystore - 含有一个私钥的keystore文件
 
 keystore和key
   

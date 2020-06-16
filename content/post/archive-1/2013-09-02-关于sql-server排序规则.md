@@ -90,23 +90,23 @@ _WI(WS) 是否区分宽度 WI不区分，WS区分(width-insensitive/width-sensit
   
 二、修改、查看排序规则：
 
-&#8212;&#8212;修改列的排序规则
+--修改列的排序规则
   
 ALTER TABLE tb
   
 ALTER COLUMN colname nvarchar(100) COLLATE Chinese\_PRC\_CI_AS
 
-&#8212;&#8212;修改数据库的排序规则
+--修改数据库的排序规则
   
 ALTER DATABASE database
   
 COLLATE Chinese\_PRC\_CS_AS
 
-&#8212;&#8212;查看某个表的排序规则
+--查看某个表的排序规则
   
 select collation from syscolumns
   
-where id=object_id(N&#8217;yourtablename&#8217;)
+where id=object_id(N'yourtablename')
 
 五、排序规则应用：
 
@@ -118,13 +118,13 @@ SQL SERVER提供了大量的WINDOWS和SQLSERVER专用的排序规则，但它的
 
 create table #t(id int,name varchar(20))
   
-insert #t select 1,&#8217;中&#8217;
+insert #t select 1,'中'
   
-union all select 2,&#8217;国&#8217;
+union all select 2,'国'
   
-union all select 3,&#8217;人&#8217;
+union all select 3,'人'
   
-union all select 4,&#8217;阿&#8217;
+union all select 4,'阿'
 
 select * from #t order by name collate Chinese\_PRC\_CS\_AS\_KS_WS
   
@@ -134,7 +134,7 @@ drop table #t
   
 id          name
   
-&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+---- ------&#8211;
   
 4           阿
   
@@ -150,15 +150,15 @@ id          name
 
 create table #t(id int,name varchar(20))
 
-insert #t select 1,&#8217;三&#8217;
+insert #t select 1,'三'
   
-union all select 2,&#8217;乙&#8217;
+union all select 2,'乙'
   
-union all select 3,&#8217;二&#8217;
+union all select 3,'二'
   
-union all select 4,&#8217;一&#8217;
+union all select 4,'一'
   
-union all select 5,&#8217;十&#8217;
+union all select 5,'十'
   
 select * from #t order by name collate Chinese\_PRC\_Stroke\_CS\_AS\_KS\_WS
   
@@ -168,7 +168,7 @@ drop table #t
   
 id          name
   
-&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+---- ------&#8211;
   
 4           一
   
@@ -238,7 +238,7 @@ LatinCol nvarchar(10) COLLATE latin1\_general\_cs_as
 
 )
 
-INSERT TestTab VALUES (1, N&#8217;A&#8217;, N&#8217;a&#8217;)
+INSERT TestTab VALUES (1, N'A', N'a')
 
 GO
 

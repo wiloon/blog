@@ -40,13 +40,14 @@ document.body.textContent = greeter(user);
 ```bashtsc greeter.ts
 ```<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;&lt;title&gt;TypeScript Greeter&lt;/title&gt;&lt;/head&gt;
-    &lt;body&gt;
-        &lt;script src="greeter.js"&gt;&lt;/script&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
+```xml
+<!DOCTYPE html>
+<html>
+    <head><title>TypeScript Greeter</title></head>
+    <body>
+        <script src="greeter.js"></script>
+    </body>
+</html>
 ``` 
 
 let num: number = 100.001;

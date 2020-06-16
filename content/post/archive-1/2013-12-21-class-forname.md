@@ -362,7 +362,7 @@ java.sql.DriverManager.registerDriver(new Driver());
 
 } catch (SQLException E) {
 
-throw new RuntimeException("Can&#8217;t register driver!");
+throw new RuntimeException("Can't register driver!");
 
 }
 

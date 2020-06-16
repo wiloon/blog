@@ -25,7 +25,7 @@ categories:
 
 以上这些步骤就解决了每次新建一个工作空间，Eclipse自动从官方库下载nexus-maven-repository-index的问题了。
 
-&#8212;
+-
 
 First check all of your dependencies including plugins and children in the dependency tree,
   

@@ -89,11 +89,11 @@ addr varchar(128)
   
 go
   
-insert into chinadba1(userid,addr) values(1,&#8217;addr1&#8242;)
+insert into chinadba1(userid,addr) values(1,'addr1&#8242;)
   
-insert into chinadba1(userid,addr) values(2,&#8217;addr2&#8242;)
+insert into chinadba1(userid,addr) values(2,'addr2&#8242;)
   
-insert into chinadba1(userid,addr) values(3,&#8217;addr3&#8242;)
+insert into chinadba1(userid,addr) values(3,'addr3&#8242;)
   
 go
 
@@ -131,7 +131,7 @@ go
 
 declare @addr varchar(128)
   
-set @addr = &#8216;初始值&#8217;
+set @addr = '初始值'
   
 set @addr = (select addr from chinadba1 where userid = 4 )
   
@@ -143,7 +143,7 @@ go
 
 declare @addr varchar(128)
   
-set @addr = &#8216;初始值&#8217;
+set @addr = '初始值'
   
 select @addr = addr from chinadba1 where userid = 4
   
@@ -159,7 +159,7 @@ go
 
 declare @addr varchar(128)
   
-set @addr = &#8216;初始值&#8217;
+set @addr = '初始值'
   
 &#8211;select addr from chinadba1 where userid = 4 为标量子查询语句
   

@@ -428,7 +428,7 @@ initSID.ora或init.ora文件,通常位于：$ORACLE_BASE/admin/<SID>/pfile
 
 告警日志文件：报警日志文件(alert.log或alrt.ora），记录数据库启动，关闭和一些重要的出错信息
 
-查看路径：select value from v$PARAMETER where name =‘background\_dump\_dest’;
+查看路径：select value from v$PARAMETER where name ='background\_dump\_dest';
 
 
 

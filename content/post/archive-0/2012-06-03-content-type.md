@@ -3042,7 +3042,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Active message &#8212; connect to active mail app.
+      Active message - connect to active mail app.
     </td>
     
     <td>
@@ -3580,7 +3580,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Chemical types &#8212; to communicate information about chemical models
+      Chemical types - to communicate information about chemical models
     </td>
     
     <td>
@@ -3647,7 +3647,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      IGES models &#8212; CAD/CAM (CGM) data
+      IGES models - CAD/CAM (CGM) data
     </td>
     
     <td>
@@ -3878,7 +3878,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Installable software in &#8216;inst&#8217; format
+      Installable software in 'inst' format
     </td>
     
     <td>
@@ -3946,7 +3946,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Software in &#8216;tardist&#8217; format
+      Software in 'tardist' format
     </td>
     
     <td>
@@ -3963,7 +3963,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      Software in compressed &#8216;tardist&#8217; format
+      Software in compressed 'tardist' format
     </td>
     
     <td>

@@ -44,10 +44,10 @@ expr index $string $substring
     
     **ength of Matching Substring at Beginning of String**
     
-    expr match "$string" &#8216;$substring&#8217;
+    expr match "$string" '$substring'
     :   <tt><em>$substring</em></tt> is a [regular expression][1].
     
-    expr "$string" : &#8216;$substring&#8217;
+    expr "$string" : '$substring'
     :   <tt><em>$substring</em></tt> is a regular expression. 
         
         <table width="90%" border="0" bgcolor="#E0E0E0">

@@ -18,7 +18,7 @@ https://github.com/rholder/guava-retrying
 public boolean sendSMS(String phone, String content)  
 {  
     int retryTimes = 3;  
-    for(int i=0; i&lt;=3; i++)  
+    for(int i=0; i<=3; i++)  
     {  
         try  
         {  
@@ -60,14 +60,14 @@ private boolean doSomething(String phone, String content)
 
 ```javapublic boolean sendSMS(final String phone, final String content)  
 {  
-    Retryer&lt;Boolean&gt; retryer = RetryerBuilder.&lt;Boolean&gt;newBuilder()  
+    Retryer<Boolean> retryer = RetryerBuilder.<Boolean>newBuilder()  
             .retryIfResult(Predicates.equalTo(false)) // 返回false时重试  
             .retryIfExceptionOfType(IOException.class) // 抛出IOException时重试  
             .withWaitStrategy(WaitStrategies.fixedWait(200, TimeUnit.MILLISECONDS)) // 200ms后重试  
             .withStopStrategy(StopStrategies.stopAfterAttempt(3)) // 重试3次后停止  
             .build();  
     try {  
-        return retryer.call(new Callable&lt;Boolean&gt;() {  
+        return retryer.call(new Callable<Boolean>() {  
 
             @Override  
             public Boolean call() throws Exception {  

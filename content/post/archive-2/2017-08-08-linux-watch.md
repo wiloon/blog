@@ -51,7 +51,7 @@ watch -n 1 -d netstat -ant
   
 命令：
   
-watch -n 1 -d &#8216;pstree|grep http&#8217;
+watch -n 1 -d 'pstree|grep http'
   
 说明：
   
@@ -61,18 +61,18 @@ watch -n 1 -d &#8216;pstree|grep http&#8217;
   
 命令：
   
-watch &#8216;netstat -an | grep:21 | \ grep<模拟攻击客户机的IP>| wc -l&#8217;
+watch 'netstat -an | grep:21 | \ grep<模拟攻击客户机的IP>| wc -l'
   
 说明：
   
-实例4：监测当前目录中 scf&#8217; 的文件的变化
+实例4：监测当前目录中 scf' 的文件的变化
   
 命令：
   
-watch -d &#8216;ls -l|grep scf&#8217;
+watch -d 'ls -l|grep scf'
   
 实例5：10秒一次输出系统的平均负载
   
 命令：
   
-watch -n 10 &#8216;cat /proc/loadavg&#8217;
+watch -n 10 'cat /proc/loadavg'

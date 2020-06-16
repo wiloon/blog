@@ -230,7 +230,7 @@ if(flag)
   
 Description description = (Description)rt_class.getAnnotation(Description.class);
   
-System.out.println(“Utility’s Description—>”+description.value());
+System.out.println(“Utility's Description—>”+description.value());
   
 for (Method method : methods) {
   
@@ -238,7 +238,7 @@ if(method.isAnnotationPresent(Author.class)) {
   
 Author author = (Author)method.getAnnotation(Author.class);
   
-System.out.println(“Utility’s Author—>”+author.name()+” from “+author.group());
+System.out.println(“Utility's Author—>”+author.name()+” from “+author.group());
   
 }
   
@@ -262,6 +262,6 @@ e.printStackTrace();
 
 运行AnalysisAnnotation,输出结果为：
 
-　　Utility’s Description—>这是一个有用的工具类
+　　Utility's Description—>这是一个有用的工具类
   
-Utility’s Author—>haoran_202 from com.magc
+Utility's Author—>haoran_202 from com.magc

@@ -170,7 +170,7 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
       Connected to mail.centos.bz (127.0.0.1).
     </li>
     <li>
-      Escape character is &#8216;^]&#8217;.
+      Escape character is '^]'.
     </li>
     <li>
       +OK Dovecot ready.
@@ -196,7 +196,7 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
       Connected to mail.centos.bz (127.0.0.1).
     </li>
     <li>
-      Escape character is &#8216;^]&#8217;.
+      Escape character is '^]'.
     </li>
     <li>
       * OK Dovecot ready.
@@ -214,13 +214,13 @@ smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, rej
 broken_sasl_auth_clients = yes
   
   
-    ################&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+    ################------------------------------------
   
 
 
 <span style="color: #000000;">#默认情况下，dovecot是不允许plaintext类型的认证的，打开 </span>
 
-<span style="color: #000000;">&#8212;&#8212;&#8212;&#8212;&#8212;&#8212; </span>
+<span style="color: #000000;">------ </span>
   
 <span style="color: #000000;">重启postfix和dovecot。至此，postfix可以收信，并且foxmail可以pop3取信。测试。 </span>
   
@@ -234,7 +234,7 @@ broken_sasl_auth_clients = yes
   
 <span style="color: #000000;">接下来配置sasl认证 </span>
   
-<span style="color: #000000;">&#8212;&#8212;&#8212;&#8212;&#8212;&#8212; </span>
+<span style="color: #000000;">------ </span>
 
 <span style="color: #000000;">8、编辑dovecot.conf </span>
   

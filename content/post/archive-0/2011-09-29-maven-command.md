@@ -14,10 +14,9 @@ tags:
   - Maven
 
 ---
+
 -e for error
-  
 -X for debug
-  
 -q for only error
 
 ### 生成项目
@@ -141,7 +140,7 @@ mvn surefire-report:report
   
 #A HTML report should be generated in ${basedir}/target/site/surefire-report.html.
 
-&#8212;maven idea
+-maven idea
 
 [shell]
 

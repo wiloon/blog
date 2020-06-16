@@ -184,7 +184,7 @@ fmt.Println(time.Now().Sub(startTime))
 
 Sprintf 性能差些可以预见，因为它接收的是 interface，需要进行反射等操作。个人建议使用 strconv 包中的方法进行转换。
 
-注意：别想着通过 string(65) 这种方式将整数转为字符串，这样实际上得到的会是 ASCCII 值为 65 的字符，即 &#8216;A&#8217;。
+注意：别想着通过 string(65) 这种方式将整数转为字符串，这样实际上得到的会是 ASCCII 值为 65 的字符，即 'A'。
 
 思考：
 
@@ -224,19 +224,19 @@ func AppendFloat(dst []byte, f float64, fmt byte, prec int, bitSize int)
   
 函数的命名和作用跟上面讲解的其他类型一致。
 
-关于 FormatFloat 的 fmt 参数， 在第一章第三节格式化IO中有详细介绍。而 prec 表示有效数字（对 fmt=&#8217;b&#8217; 无效），对于 &#8216;e&#8217;, &#8216;E&#8217; 和 &#8216;f&#8217;，有效数字用于小数点之后的位数；对于 &#8216;g&#8217; 和 &#8216;G&#8217;，则是所有的有效数字。例如：
+关于 FormatFloat 的 fmt 参数， 在第一章第三节格式化IO中有详细介绍。而 prec 表示有效数字（对 fmt='b' 无效），对于 'e', 'E' 和 'f'，有效数字用于小数点之后的位数；对于 'g' 和 'G'，则是所有的有效数字。例如：
 
-strconv.FormatFloat(1223.13252, &#8216;e&#8217;, 3, 32) // 结果：1.223e+03
+strconv.FormatFloat(1223.13252, 'e', 3, 32) // 结果：1.223e+03
   
-strconv.FormatFloat(1223.13252, &#8216;g&#8217;, 3, 32) // 结果：1.22e+03
+strconv.FormatFloat(1223.13252, 'g', 3, 32) // 结果：1.22e+03
   
 由于浮点数有精度的问题，精度不一样，ParseFloat 和 FormatFloat 可能达不到互逆的效果。如：
 
-s := strconv.FormatFloat(1234.5678, &#8216;g&#8217;, 6, 64)
+s := strconv.FormatFloat(1234.5678, 'g', 6, 64)
   
 strconv.ParseFloat(s, 64)
   
-另外，fmt=&#8217;b&#8217; 时，得到的字符串是无法通过 ParseFloat 还原的。
+另外，fmt='b' 时，得到的字符串是无法通过 ParseFloat 还原的。
 
 特别地（不区分大小写），+inf/inf，+infinity/infinity，-inf/-infinity 和 nan 通过 ParseFloat 转换分别返回对应的值（在 math 包中定义）。
 

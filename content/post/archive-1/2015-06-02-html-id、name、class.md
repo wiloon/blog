@@ -48,7 +48,7 @@ name的用途
 
 1）主要是用于获取提交表单的某表单域信息， 作为可与服务器交互数据的HTML元素的服务器端的标示，比如input、select、textarea、框架元素(iframe、frame、 window的名字，用于在其他frame或window指定target )和button等，这些元素都与表单(框架元素作用于form的target)提交有关，浏览器会根据name来设定发送到服务器的request， 在表单的接收页面只接收有name的元素,  所以赋ID的元素通过表单是接收不到值的。 我们可以在服务器端根据其Name通过Request.Params取得元素提交的值。在form里面，如果不指定name，就不会发送到服务器端。
 
-2）HTML元素Input type=&#8217;radio&#8217;分组，我们知道radio button控件在同一个分组类，check操作是mutex的，同一时间只能选中一个radio，这个分组就是根据相同的name属性来实现的。
+2）HTML元素Input type='radio'分组，我们知道radio button控件在同一个分组类，check操作是mutex的，同一时间只能选中一个radio，这个分组就是根据相同的name属性来实现的。
 
 3）建立页面中的锚点，我们知道<a href="URL">link</a>是获得一个页面超级链接，如果不用href属性，而改用name，如：<a name="PageBottom"></a>，我们就获得了一个页面锚点，如<a name="1" id="1"></a>Experience (XP)，详见 示例
 
@@ -58,15 +58,15 @@ name的用途
 
 6）某些特定元素的属性，如attribute，meta和param。例如为Object定义参数<PARAM NAME = "appletParameter" VALUE = "value">或Meta中<META NAME = "Author" CONTENT = "Dave Raggett">。
 
-当然HTML元素的name属性在页面中也可以起那么一点ID的作用，因为在DHTML对象树中，我们可以使用document.getElementsByName来获取一个包含页面中所有指定Name元素的对象数组。Name属性还有一个问题，当我们动态创建可包含Name属性的元素时，不能简单的使用赋值element.name = "&#8230;"来添加其Name，而必须在创建Element时，使用document.createElement(&#8216;<element name = "myName"></element>&#8217;)为元素添加Name属性。这是什么意思啊？看下面的例子就明白了。
+当然HTML元素的name属性在页面中也可以起那么一点ID的作用，因为在DHTML对象树中，我们可以使用document.getElementsByName来获取一个包含页面中所有指定Name元素的对象数组。Name属性还有一个问题，当我们动态创建可包含Name属性的元素时，不能简单的使用赋值element.name = "&#8230;"来添加其Name，而必须在创建Element时，使用document.createElement('<element name = "myName"></element>')为元素添加Name属性。这是什么意思啊？看下面的例子就明白了。
 
 < script  language ="JavaScript" >
   
-var  input  =  document.createElement(&#8216;INPUT&#8217;);
+var  input  =  document.createElement('INPUT');
   
-input.id  =  &#8216;myId&#8217;;
+input.id  =  'myId';
   
-input.name  =  &#8216;myName&#8217;;
+input.name  =  'myName';
   
 alert(input.outerHTML);
   
@@ -76,9 +76,9 @@ alert(input.outerHTML);
   
 < script  language ="JavaScript" >
   
-var  input  =  document.createElement(&#8216; < INPUT name = " myName " > &#8216;);
+var  input  =  document.createElement(' < INPUT name = " myName " > ');
   
-input.id  =  &#8216;myId&#8217;;
+input.id  =  'myId';
   
 alert(input.outerHTML);
   

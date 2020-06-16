@@ -188,7 +188,7 @@ cat a.txt | sort | uniq | sort > a_u.txt
   
 cat b.txt | sort | uniq | sort > b_u.txt
   
-diff a\_u.txt b\_u.txt | grep /< | awk &#8216; $1 = " " &#8216; > c.txt
+diff a\_u.txt b\_u.txt | grep /< | awk ' $1 = " " ' > c.txt
 
 # END
 
@@ -207,11 +207,11 @@ diff a\_u.txt b\_u.txt | grep /< | awk &#8216; $1 = " " &#8216; > c.txt
 
 　　方法三：
 
-　　awk &#8216;{print NR，$0}&#8217; file1 file2 |sort -k2|uniq -u -f 1|sort -k1|awk &#8216;{print $2}&#8217;
+　　awk '{print NR，$0}' file1 file2 |sort -k2|uniq -u -f 1|sort -k1|awk '{print $2}'
 
 　　或者：
 
-　　awk &#8216;{print $0}&#8217; file1 file2 |sort|uniq -u
+　　awk '{print $0}' file1 file2 |sort|uniq -u
 
 4 Linux Shell删除两个文件相同部分
 
@@ -276,13 +276,13 @@ line2
 
 方法三：使用awk
   
-awk &#8216;{print NR, $0}&#8217; file1 file2 | sort -k2 | uniq -u -f 1 | sort -k1 | awk &#8216;{print $2}&#8217;
+awk '{print NR, $0}' file1 file2 | sort -k2 | uniq -u -f 1 | sort -k1 | awk '{print $2}'
   
 或者：
   
-awk &#8216;{print $0}&#8217; file1 file2 | sort | uniq -u
+awk '{print $0}' file1 file2 | sort | uniq -u
       
-awk命令的使用，听牛人说可谓博大精深，我也没有太搞清楚。这里只是使用了一些简单的功能。下面以我自己的理解来解释一下上面的shell代码。awk就是文本的解释器和过滤器。awk把每一行看成是一个记录(record)，每个记录使用分隔符(默认是空格)把每条记录分成若干域。awk内置参数$0表示整行，$1、$2&#8230;分别表示各域，内置参数NR，表示记录的计数，awk &#8216;{print NR, $0}&#8217; file1 file2表示依次读取file1 file2，打印出每行，并且在前面添加行号。
+awk命令的使用，听牛人说可谓博大精深，我也没有太搞清楚。这里只是使用了一些简单的功能。下面以我自己的理解来解释一下上面的shell代码。awk就是文本的解释器和过滤器。awk把每一行看成是一个记录(record)，每个记录使用分隔符(默认是空格)把每条记录分成若干域。awk内置参数$0表示整行，$1、$2&#8230;分别表示各域，内置参数NR，表示记录的计数，awk '{print NR, $0}' file1 file2表示依次读取file1 file2，打印出每行，并且在前面添加行号。
 
      命令sort，就是对行进行排序，参数-k表示根据各行的第几个参数关键字开进行排序，这里的-k2表示根据第二个关键字开始进行排序。
     

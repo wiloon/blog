@@ -142,8 +142,8 @@ public class Boss {
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      &lt;bean
- /&gt;
+      <bean
+ />
     </td>
   </tr>
 </table>

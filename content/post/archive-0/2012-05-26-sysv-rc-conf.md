@@ -469,7 +469,7 @@ categories:
   
   
   
-    powernowd 用于管理cpu的客户端程序，如果有变频功能，比如amd的quite&#8217; cool 那么就开启它吧。
+    powernowd 用于管理cpu的客户端程序，如果有变频功能，比如amd的quite' cool 那么就开启它吧。
   
   
   

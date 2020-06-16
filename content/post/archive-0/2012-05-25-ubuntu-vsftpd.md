@@ -68,7 +68,7 @@ Anon\_world\_readable_only=no
 
 注：要注意文件夹的属性，匿名帐户是其它（other）用户要开启它的读写执行的权限
 
-（R）读&#8212;&#8211;下传 （W）写&#8212;-上传 （X）执行&#8212;-如果不开FTP的目录都进不去
+（R）读-&#8211;下传 （W）写--上传 （X）执行--如果不开FTP的目录都进不去
 
 4．普通用户FTP服务器的连接（独立服务器）
 
@@ -164,9 +164,9 @@ useradd –G test –d /tmp/test –M usr2
 
 接着改变文件夹的属主和权限
 
-chown usr1.test /tmp/test &#8212;-这表示把/tmp/test的属主定为usr1
+chown usr1.test /tmp/test --这表示把/tmp/test的属主定为usr1
 
-chmod 750 /tmp/test &#8212;-7表示wrx 5表示rx 0表示什么权限都没有
+chmod 750 /tmp/test --7表示wrx 5表示rx 0表示什么权限都没有
 
 这个实验的目的就是usr1有上传、删除和下载的权限
 
@@ -244,9 +244,9 @@ vi /tmp/logins.txt
 
 添加入下信息：
 
-longlei&#8212;&#8212;&#8212;&#8212;用户名
+longlei----用户名
 
-longlei&#8212;&#8212;&#8212;&#8212;密码
+longlei----密码
 
 zhangweibo
 
@@ -300,9 +300,9 @@ Anon\_other\_write_enable=no
 
 Chroot\_local\_user=yes
 
-Guest_enable=yes&#8212;&#8212;&#8212;-起用虚拟用户
+Guest_enable=yes----起用虚拟用户
 
-Guest_username=qiang&#8212;&#8212;将虚拟用户映射为本地用户
+Guest_username=qiang--将虚拟用户映射为本地用户
 
 Listen_port=5555
 

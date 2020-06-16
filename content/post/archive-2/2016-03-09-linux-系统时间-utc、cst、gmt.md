@@ -149,7 +149,7 @@ CST Cuba Standard Time UT-4:00
   
 比如文件的最后修改时间就是错的，但是如果对一个页面做comment的时候，comment时间就是正确的。
   
-修改Zope中DateTime\DateTime.py的定义为：&#8217;cst&#8217;:&#8217;GMT+8&#8217;，就能够解决这个问题。
+修改Zope中DateTime\DateTime.py的定义为：'cst':'GMT+8'，就能够解决这个问题。
   
 但是这样做就需要改代码，然后重新编译。
   

@@ -48,6 +48,6 @@ Apache2 配置文件: /etc/apache2/apache2.conf
 
 插入下面代码
 
-&lt;?php phpinfo(); ?&gt;
+<?php phpinfo(); ?>
 
 http://www.zzbaike.com/wiki/Debian/%E5%9C%A8Debian%E4%B8%8A%E5%AE%89%E8%A3%85Apache_Mysql_PHP

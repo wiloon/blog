@@ -34,7 +34,7 @@ public class HttpClientGetServerCertificate {
     public static void main(String... args) throws IOException {
 
         // create http response certificate interceptor
-        HttpResponseInterceptor certificateInterceptor = (httpResponse, context) -&gt; {
+        HttpResponseInterceptor certificateInterceptor = (httpResponse, context) -> {
             ManagedHttpClientConnection routedConnection = (ManagedHttpClientConnection)context.getAttribute(HttpCoreContext.HTTP_CONNECTION);
             SSLSession sslSession = routedConnection.getSSLSession();
             if (sslSession != null) {

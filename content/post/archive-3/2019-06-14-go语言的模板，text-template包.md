@@ -274,7 +274,7 @@ const letter = \`Dear {{.Name}},
 
 {{if .Attended}}It was a pleasure to see you at the wedding.
   
-如果Attended是true的话，这句是第二行{{else}}It is a shame you couldn&#8217;t make it to the wedding.
+如果Attended是true的话，这句是第二行{{else}}It is a shame you couldn't make it to the wedding.
   
 如果Attended是false的话，这句是第二行{{end}}
   

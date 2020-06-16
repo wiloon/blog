@@ -373,13 +373,13 @@ class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 
 </beans>
   
-There is a relatively small difference between the way Spring is configured in XML and the new Java based configuration – in XML, a reference to another bean can point to either the bean or a bean factory for that bean. In Java however, since the types are different, the compiler doesn’t allow it, and so the EntityManagerFactory is first retrieved from it’s bean factory and then passed to the transaction manager:
+There is a relatively small difference between the way Spring is configured in XML and the new Java based configuration – in XML, a reference to another bean can point to either the bean or a bean factory for that bean. In Java however, since the types are different, the compiler doesn't allow it, and so the EntityManagerFactory is first retrieved from it's bean factory and then passed to the transaction manager:
 
 txManager.setEntityManagerFactory( this.entityManagerFactoryBean().getObject() );
 
 4. Going full XML-less
   
-Usually JPA defines a persistence unit through the META-INF/persistence.xml file. Starting with Spring 3.1, the persistence.xml is no longer necessary – theLocalContainerEntityManagerFactoryBean now supports a ‘packagesToScan’ property where the packages to scan for @Entity classes can be specified.
+Usually JPA defines a persistence unit through the META-INF/persistence.xml file. Starting with Spring 3.1, the persistence.xml is no longer necessary – theLocalContainerEntityManagerFactoryBean now supports a 'packagesToScan' property where the packages to scan for @Entity classes can be specified.
 
 This file was the last piece of XML to be removed – now, JPA can be fully set up with no XML.
 

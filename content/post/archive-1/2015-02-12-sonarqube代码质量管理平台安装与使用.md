@@ -18,7 +18,7 @@ Sonar是一个用于代码质量管理的开源平台，用于管理源代码的
 
 sonarQube能带来什么？
 
-Developers&#8217; Seven Deadly Sins
+Developers' Seven Deadly Sins
   
 1.糟糕的复杂度分布
   
@@ -88,11 +88,11 @@ SonarQube安装
 
 mysql> CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8\_general\_ci;
   
-mysql> CREATE USER &#8216;sonar&#8217; IDENTIFIED BY &#8216;sonar&#8217;;
+mysql> CREATE USER 'sonar' IDENTIFIED BY 'sonar';
   
-mysql> GRANT ALL ON sonar.* TO &#8216;sonar&#8217;@&#8217;%&#8217; IDENTIFIED BY &#8216;sonar&#8217;;
+mysql> GRANT ALL ON sonar.* TO 'sonar'@'%' IDENTIFIED BY 'sonar';
   
-mysql> GRANT ALL ON sonar.* TO &#8216;sonar&#8217;@&#8217;localhost&#8217; IDENTIFIED BY &#8216;sonar&#8217;;
+mysql> GRANT ALL ON sonar.* TO 'sonar'@'localhost' IDENTIFIED BY 'sonar';
   
 mysql> FLUSH PRIVILEGES;
 
@@ -140,37 +140,37 @@ view plaincopy
   
 #No information about specific project should appear here
   
-#&#8212;&#8211; Default SonarQube server
+#-&#8211; Default SonarQube server
   
 sonar.host.url=http://localhost:9000
   
-#&#8212;&#8211; PostgreSQL
+#-&#8211; PostgreSQL
   
 #sonar.jdbc.url=jdbc:postgresql://localhost/sonar
   
-#&#8212;&#8211; MySQL
+#-&#8211; MySQL
   
 sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
   
-#&#8212;&#8211; Oracle
+#-&#8211; Oracle
   
 #sonar.jdbc.url=jdbc:oracle:thin:@localhost/XE
   
-#&#8212;&#8211; Microsoft SQLServer
+#-&#8211; Microsoft SQLServer
   
 #sonar.jdbc.url=jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor
   
-#&#8212;&#8211; Global database settings
+#-&#8211; Global database settings
   
 sonar.jdbc.username=sonar
   
 sonar.jdbc.password=sonar
   
-#&#8212;&#8211; Default source code encoding
+#-&#8211; Default source code encoding
   
 sonar.sourceEncoding=UTF-8
   
-#&#8212;&#8211; Security (when &#8216;sonar.forceAuthentication&#8217; is set to &#8216;true&#8217;)
+#-&#8211; Security (when 'sonar.forceAuthentication' is set to 'true')
   
 sonar.login=admin
   

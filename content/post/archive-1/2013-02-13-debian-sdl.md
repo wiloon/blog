@@ -126,4 +126,4 @@ Issue these commands:
 
 The SDL library is now compiled and installed on your system. Tested under Ubuntu 11.10/11.04.
 
-That&#8217;s it!
+That's it!

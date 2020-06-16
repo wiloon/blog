@@ -20,7 +20,7 @@ http://blog.csdn.net/kobejayandy/article/details/17655739
 
 \[plain\]\[/plain\] view plaincopy
   
-netstat -n | awk &#8216;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&#8217;
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
   
 它会显示例如下面的信息：
 

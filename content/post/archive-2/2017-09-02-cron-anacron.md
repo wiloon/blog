@@ -60,11 +60,11 @@ $ ls -l /var/spool/anacron/
   
 total 12
   
--rw&#8212;&#8212;- 1 root root 9 Jun 1 10:25 cron.daily
+-rw--- 1 root root 9 Jun 1 10:25 cron.daily
   
--rw&#8212;&#8212;- 1 root root 9 May 27 11:01 cron.monthly
+-rw--- 1 root root 9 May 27 11:01 cron.monthly
   
--rw&#8212;&#8212;- 1 root root 9 May 30 10:28 cron.weekly
+-rw--- 1 root root 9 May 30 10:28 cron.weekly
   
 这是实际发生的：
 
@@ -100,7 +100,7 @@ HOME=/root
   
 LOGNAME=root
 
-# These replace cron&#8217;s entries
+# These replace cron's entries
 
 1 5 cron.daily run-parts &#8211;report /etc/cron.daily
   

@@ -14,7 +14,7 @@ Requirements
   
 2. You must have debugging enabled on your Nexus 7.
   
-3. Download Su here (Chainfire&#8217;s thread for supersu) (Thanks Eric\_Eric\_Eric)
+3. Download Su here (Chainfire's thread for supersu) (Thanks Eric\_Eric\_Eric)
   
 4. Download CWM here. Scroll down to Nexus 7 and choose whether touch or regular.
 

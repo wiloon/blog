@@ -12,7 +12,7 @@ categories:
 
 Here is a way how to include Debian/Ubuntu ISO image into your /etc/apt/sources.list file. This kind of hack can prove handy in terms of reducing package download during the installation or if you do not have CD/DVD drive available ( or is broken ) on your system.
   
-Let&#8217;s assume that we have a Debian ISO image downloaded at the location: /mnt/storage/iSO/debian-i386-DVD-1.iso. As a first step we need to create a mount point to where this ISO image will be mounted to:
+Let's assume that we have a Debian ISO image downloaded at the location: /mnt/storage/iSO/debian-i386-DVD-1.iso. As a first step we need to create a mount point to where this ISO image will be mounted to:
 
 mkdir /mnt/debian-dvd
 
@@ -30,6 +30,6 @@ All done. What remains is to mount the actual image:
 
 # mount /mnt/debian-dvd/
 
-and update apt&#8217;s depository:
+and update apt's depository:
 
 # apt-get update

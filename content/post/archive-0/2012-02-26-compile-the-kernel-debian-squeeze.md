@@ -74,7 +74,7 @@ sudo make-kpkg clean #这条命令好像不要超级权限，很多资料上说�
   
 fakeroot make-kpkg &#8211;initrd &#8211;append-to-version=ylxy1.0 kernel_image
 
-&#8212;
+-
 
 which brings up the kernel configuration menu. Go to Load an Alternate Configuration File and choose .config (which contains the configuration of your current working kernel) as the configuration file:
 

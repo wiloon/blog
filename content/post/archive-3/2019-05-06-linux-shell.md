@@ -103,7 +103,7 @@ NAME="tom"
   
 A=my #你甚至可以不用引号，但是字符串当中不能有空格，这种方式也不推荐
   
-B=&#8217;my name is ${NAME}&#8217; #变量不会被解析
+B='my name is ${NAME}' #变量不会被解析
   
 C="my name is ${NAME}" #变量会解析
   

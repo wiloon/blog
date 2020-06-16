@@ -12,16 +12,16 @@ http://colobu.com/2016/04/14/Golang-Channels/
 
 Channel是Go中的一个核心类型，你可以把它看成一个管道，通过它并发核心单元就可以发送或者接收数据进行通讯(communication)。
 
-```golang &lt;-          // 它的操作符是箭头
-ch &lt;- v     // 发送值v到Channel ch中
-v := &lt;-ch   // 从Channel ch中接收数据，并将数据赋值给v
+```golang <-          // 它的操作符是箭头
+ch <- v     // 发送值v到Channel ch中
+v := <-ch   // 从Channel ch中接收数据，并将数据赋值给v
 // (箭头的指向就是数据的流向)
 
 // channel 定义
-var dataChan &lt;-chan []byte
+var dataChan <-chan []byte
 
 // channel 初始化
-dataChan = make(&lt;-chan []byte)
+dataChan = make(<-chan []byte)
 ```
 
 就像 map 和 slice 数据类型一样, channel必须先创建再使用

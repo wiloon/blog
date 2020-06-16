@@ -35,15 +35,15 @@ POST和GET的差别其实是很大的。语义上，GET是获取指定URL上的�
 
 当学习概念A的时候，需要先了解概念B，而概念C又是理解B的前提。当B和C都是新的需要学习的概念时，可以说A的理解半径是2，如图:
 
-A --&gt; B --&gt; C
+A --> B --> C
 |--1--|--2--|
 
 在学习Web开发时，接触到GET和POST时，“理解的半径”可能包涵:
 
 POST vs. GET
-     |---&gt; Conditional GET -&gt; ETag -&gt; Cache
-     |         `--&gt; Status Code
-     `---&gt; HTTP的方法 --&gt; URL
+     |---> Conditional GET -> ETag -> Cache
+     |         `--> Status Code
+     `---> HTTP的方法 --> URL
 
 往往因为仅仅满足于完成手上被要求的任务，或者懒于问一个为什么，我们就把自己的理解半径设置成零，那么就学不到更深入的东西，也因此仅仅知道POST和GET不同，而不再会了解不同在哪里，什么是Conditional GET和缓存header等概念。
 

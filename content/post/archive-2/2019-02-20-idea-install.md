@@ -12,7 +12,7 @@ categories:
 
 build tool
   
-ant &#8212; disable
+ant - disable
   
 maven
   
@@ -20,9 +20,9 @@ gradle
 
 version control
   
-cvs &#8212; disable
+cvs - disable
   
-mercurial &#8212; disable
+mercurial - disable
   
 git
   
@@ -34,12 +34,12 @@ test tools
   
 junit
   
-testng-j &#8212; disable
+testng-j - disable
 
-swing &#8212; disable
+swing - disable
   
-android &#8212; disable
+android - disable
   
 othre tools
 
-plugin development &#8212; disable
+plugin development - disable

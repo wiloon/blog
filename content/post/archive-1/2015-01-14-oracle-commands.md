@@ -10,9 +10,9 @@ categories:
 ---
 [sql]
 
-to_number(&#8216;2&#8217;)
+to_number('2')
 
-&#8212; create sequence
+- create sequence
 
 create sequence sequence_name
   
@@ -26,7 +26,7 @@ increment by 1
   
 cache 20;
 
-&#8212; create trigger
+- create trigger
 
 CREATE OR REPLACE TRIGGER "trigger_name" BEFORE
   

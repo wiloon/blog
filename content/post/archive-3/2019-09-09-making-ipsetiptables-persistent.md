@@ -9,7 +9,7 @@ categories:
 
 ---
 ```bash
-ipset save &gt; /etc/ipset.conf
+ipset save > /etc/ipset.conf
 systemctl enable ipset.service
 
 iptables-save -f /etc/iptables/iptables.rules

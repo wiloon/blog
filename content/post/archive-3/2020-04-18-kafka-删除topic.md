@@ -68,7 +68,7 @@ rmr /consumers/【consumer-group】
 
 rmr /config/topics/【topic name】
 
-其实正常情况是不需要进行这两个操作的，如果需要，那都是由于操作不当导致的。比如step1停止生产和消费程序没有做，step2没有正确配置。也就是说，正常情况下严格按照step1 &#8212; step5 的步骤，是一定能够正常删除topic的。
+其实正常情况是不需要进行这两个操作的，如果需要，那都是由于操作不当导致的。比如step1停止生产和消费程序没有做，step2没有正确配置。也就是说，正常情况下严格按照step1 - step5 的步骤，是一定能够正常删除topic的。
 
 step6：
 

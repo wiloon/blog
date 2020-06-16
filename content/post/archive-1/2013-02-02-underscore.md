@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-Underscore 一个非常实用的JavaScript库，提供许多编程功能的支持，就像你期望 Prototype.js (或者 Ruby), 有这些功能且不扩展任何JavaScript的原生对象。 It&#8217;s the tie to go along with jQuery&#8217;s tux.
+Underscore 一个非常实用的JavaScript库，提供许多编程功能的支持，就像你期望 Prototype.js (或者 Ruby), 有这些功能且不扩展任何JavaScript的原生对象。 It's the tie to go along with jQuery's tux.
 
 Underscore提供60多个方法，即有普通的功能，例如: **map**, **select**, **invoke** — 也有更多特殊的编程辅助方法，例如：函数绑定、javascript模板、绝对相等判断等待。 如果一些现代的浏览器提供了内置的 **forEach**, **map**, **reduce**, **filter**, **every**,**some** 和 **indexOf**方法，Underscore就委托给浏览器原生的方法。
 

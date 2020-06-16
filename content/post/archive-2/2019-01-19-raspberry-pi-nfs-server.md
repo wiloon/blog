@@ -21,7 +21,7 @@ systemctl restart  nfs-kernel-server
 
 # 在另一台linux 上挂载
 sudo mkdir /nas/data
-sudo mount -t nfs &lt;raspberry-pi-hostname-or-ip&gt;:/nas/data /nas/data
+sudo mount -t nfs <raspberry-pi-hostname-or-ip>:/nas/data /nas/data
 ```
 
 ### autofs

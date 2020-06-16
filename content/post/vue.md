@@ -18,7 +18,7 @@ title = "Vue 跨域"
 
 Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src`和`./public`文件夹，所以网上很多教程说`config`目录下的`vue.config.js`是说的vue-cli 2.x版本。那么对于Vue-cli 3.x版本，构建也很简单，直接在根目录里建一个`vue.config.js`配置文件就可以了，我们直接看`devServer.proxy`里的代码:
 
-我这里devServer的地址是：localhost:8080/，需要代理的地址是：localhost/index/phpinfo.php （我自己写的一个测试跨域用的php，返回一个‘ok’）
+我这里devServer的地址是：localhost:8080/，需要代理的地址是：localhost/index/phpinfo.php （我自己写的一个测试跨域用的php，返回一个'ok'）
 
 下面是根据上面的地址需要配置的proxy对象
 

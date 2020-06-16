@@ -16,9 +16,9 @@ sudo apt-get updatesudo apt-get install gcc g++ build-essential subversion git-c
   
 选择编译目标
   
-make menuconfig Target System (Qualcomm Atheros IPQ806X) &#8212;>
+make menuconfig Target System (Qualcomm Atheros IPQ806X) ->
   
-Target Profile (Netgear Nighthawk X4S R7800) &#8212;> 退出保存
+Target Profile (Netgear Nighthawk X4S R7800) -> 退出保存
   
 编译固件
   

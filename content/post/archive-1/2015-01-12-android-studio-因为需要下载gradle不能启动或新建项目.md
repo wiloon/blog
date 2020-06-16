@@ -18,7 +18,7 @@ android studiogradle启动不了新建项目
 
 对于android studio 0.3.x 及以下的版本，安装或启动过程出现任何问题可以查看这篇博客。http://www.cnblogs.com/timeng/archive/2013/05/17/3084185.html 。
   
-对于android studio 0.4.x 的版本， 安装了android studio 之后，按照上文所述的那篇博文下载安装gradle，配置环境变量， 启动android studio，新建项目，发现还是新建不了，界面一直停在 【“building ‘ 项目名’ gradle project info”】:
+对于android studio 0.4.x 的版本， 安装了android studio 之后，按照上文所述的那篇博文下载安装gradle，配置环境变量， 启动android studio，新建项目，发现还是新建不了，界面一直停在 【“building ' 项目名' gradle project info”】:
 
 
 

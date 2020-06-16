@@ -76,11 +76,11 @@ explain select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853
 
 这里写图片描述
 
-看到使用的索引变成了刚刚建立的联合索引，并且Extra部分显示使用了’Using Index’
+看到使用的索引变成了刚刚建立的联合索引，并且Extra部分显示使用了'Using Index'
 
 总结
 
-‘Using Index’的意思是“覆盖索引”，它是使上面sql性能提升的关键
+'Using Index'的意思是“覆盖索引”，它是使上面sql性能提升的关键
 
 一个包含查询所需字段的索引称为“覆盖索引”
 

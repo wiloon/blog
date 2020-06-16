@@ -14,7 +14,7 @@ http://www.cnblogs.com/wang-123/archive/2012/01/05/2312676.html
 
 &#8211;sql中的group by 用法解析：
   
-&#8212; Group By语句从英文的字面意义上理解就是“根据(by)一定的规则进行分组(Group)”。
+- Group By语句从英文的字面意义上理解就是“根据(by)一定的规则进行分组(Group)”。
   
 &#8211;它的作用是通过一定的规则将一个数据集划分成若干个小的区域，然后针对若干个小区域进行数据处理。
   
@@ -22,9 +22,9 @@ http://www.cnblogs.com/wang-123/archive/2012/01/05/2312676.html
   
 &#8211;举例子说明：如果要用到group by 一般用到的就是“每这个字” 例如说明现在有一个这样的表：每个部门有多少人 就要用到分组的技术
   
-select DepartmentID as &#8216;部门名称&#8217;,
+select DepartmentID as '部门名称',
   
-COUNT(*) as &#8216;个数&#8217; from BasicDepartment group by DepartmentID
+COUNT(*) as '个数' from BasicDepartment group by DepartmentID
 
 &#8211;这个就是使用了group by +字段进行了分组，其中我们就可以理解为我们按照了部门的名称ID
   
@@ -38,7 +38,7 @@ select DepartmentID,DepartmentName from BasicDepartment group by DepartmentID
   
 &#8211;消息 8120，级别 16，状态 1，第 1 行
   
-&#8211;选择列表中的列 &#8216;BasicDepartment.DepartmentName&#8217; 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+&#8211;选择列表中的列 'BasicDepartment.DepartmentName' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
   
 &#8211;这就是我们需要注意的一点，如果在返回集字段中，这些字段要么就要包含在Group By语句的后面，
   
@@ -66,9 +66,9 @@ select DepartmentID,DepartmentName from BasicDepartment group by DepartmentID
   
 &#8211;没有 ALL 关键字，包含 GROUP BY 子句的 SELECT 语句将不显示没有符合条件的行的组。
   
-select DepartmentID,DepartmentName as &#8216;部门名称&#8217;,
+select DepartmentID,DepartmentName as '部门名称',
   
-COUNT(*) as &#8216;个数&#8217; from BasicDepartment group by all  DepartmentID,DepartmentName
+COUNT(*) as '个数' from BasicDepartment group by all  DepartmentID,DepartmentName
   
 &#8211;group by 和having 解释：前提必须了解sql语言中一种特殊的函数：聚合函数，
   
@@ -92,37 +92,37 @@ age int,
 
 &#8211;添加测试数据
   
-Insert into Table1 values(1,&#8217;男&#8217;,20)
+Insert into Table1 values(1,'男',20)
   
-Insert into Table1 values(2,&#8217;女&#8217;,22)
+Insert into Table1 values(2,'女',22)
   
-Insert into Table1 values(3,&#8217;男&#8217;,23)
+Insert into Table1 values(3,'男',23)
   
-Insert into Table1 values(4,&#8217;男&#8217;,22)
+Insert into Table1 values(4,'男',22)
   
-Insert into Table1 values(1,&#8217;男&#8217;,24)
+Insert into Table1 values(1,'男',24)
   
-Insert into Table1 values(2,&#8217;女&#8217;,19)
+Insert into Table1 values(2,'女',19)
   
-Insert into Table1 values(4,&#8217;男&#8217;,26)
+Insert into Table1 values(4,'男',26)
   
-Insert into Table1 values(1,&#8217;男&#8217;,24)
+Insert into Table1 values(1,'男',24)
   
-Insert into Table1 values(1,&#8217;男&#8217;,20)
+Insert into Table1 values(1,'男',20)
   
-Insert into Table1 values(2,&#8217;女&#8217;,22)
+Insert into Table1 values(2,'女',22)
   
-Insert into Table1 values(3,&#8217;男&#8217;,23)
+Insert into Table1 values(3,'男',23)
   
-Insert into Table1 values(4,&#8217;男&#8217;,22)
+Insert into Table1 values(4,'男',22)
   
-Insert into Table1 values(1,&#8217;男&#8217;,24)
+Insert into Table1 values(1,'男',24)
   
-Insert into Table1 values(2,&#8217;女&#8217;,19
+Insert into Table1 values(2,'女',19
   
 &#8211;举例子说明：查询table表查询每一个班级中年龄大于20，性别为男的人数
   
-select COUNT(*)as &#8216;>20岁人数&#8217;,classid  from Table1 where sex=&#8217;男&#8217; group by classid,age having age>20
+select COUNT(*)as '>20岁人数',classid  from Table1 where sex='男' group by classid,age having age>20
   
 &#8211;需要注意说明：当同时含有where子句、group by 子句 、having子句及聚集函数时，执行顺序如下：
   

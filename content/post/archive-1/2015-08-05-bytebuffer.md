@@ -188,7 +188,7 @@ DirectByteBuffer
   
 Netty所用的堆外内存只是Java NIO的 DirectByteBuffer类,还有一些sun.misc.*的类没有源码，得去OpenJdk看。
   
-&#8212; 堆外内存的限额默认与堆内内存(由-XMX 设定)相仿，可用 -XX:MaxDirectMemorySize 重新设定。
+- 堆外内存的限额默认与堆内内存(由-XMX 设定)相仿，可用 -XX:MaxDirectMemorySize 重新设定。
 
 http://calvin1978.blogcn.com/articles/directbytebuffer.html
 

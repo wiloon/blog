@@ -92,7 +92,7 @@ For gradle
   
 [shell]
   
-compile &#8216;org.apache.tomcat:tomcat-servlet-api:7.0.xx&#8217;
+compile 'org.apache.tomcat:tomcat-servlet-api:7.0.xx'
   
 [/shell]
 

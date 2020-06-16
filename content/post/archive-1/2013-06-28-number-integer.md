@@ -56,7 +56,7 @@ select  LOG(256,10)*126   from dual
 
 因为<a href="http://www.itpub.net/pubtree/?node=1" target="_blank">Oracle</a>的表结构中没有布尔类型，所以很多人干脆用integer 代替布尔类型，这个感觉有点“奢侈”；
 
-我一般都用char(1）表示布尔型；&#8217;0&#8217;表示false,&#8217;1&#8217;表示true
+我一般都用char(1）表示布尔型；'0'表示false,'1'表示true
 
 另外，比如varchar2(200)这个类型，它是动态分配的，所以字符串按实际使用的占用空间，但是integer却是固定暂用了最少53个字节，所以大部分时候，integer 类型还是不用为妙；
 

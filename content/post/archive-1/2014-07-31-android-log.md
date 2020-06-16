@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/Android_Tutor/article/details/5081713
 
-Android中级教程之&#8212;-Log图文详解(Log.v,Log.d,Log.i,Log.w,Log.e)!
+Android中级教程之--Log图文详解(Log.v,Log.d,Log.i,Log.w,Log.e)!
   
 分类： Android中级教程 2009-12-26 16:14 61927人阅读 评论(56) 收藏 举报
   

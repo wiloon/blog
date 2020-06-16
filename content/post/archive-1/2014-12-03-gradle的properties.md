@@ -28,67 +28,67 @@ http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternati
 
 <ol class="linenums">
   <li class="L0">
-    <code>&lt;span class="pln">buildscript &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln">buildscript </span><span class="pun">{</span></code>
   </li>
   <li class="L1">
-    <code>&lt;span class="pln"> repositories &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln"> repositories </span><span class="pun">{</span></code>
   </li>
   <li class="L2">
-    <code>&lt;span class="pln"> mavenCentral&lt;/span>&lt;span class="pun">()&lt;/span></code>
+    <code><span class="pln"> mavenCentral</span><span class="pun">()</span></code>
   </li>
   <li class="L3">
-    <code> &lt;span class="pun">}&lt;/span></code>
+    <code> <span class="pun">}</span></code>
   </li>
   <li class="L4">
     <code></code>
   </li>
   <li class="L5">
-    <code>&lt;span class="pln"> dependencies &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln"> dependencies </span><span class="pun">{</span></code>
   </li>
   <li class="L6">
-    <code>&lt;span class="pln"> classpath &lt;/span>&lt;span class="str">'com.android.tools.build:gradle:0.10.+'&lt;/span></code>
+    <code><span class="pln"> classpath </span><span class="str">'com.android.tools.build:gradle:0.10.+'</span></code>
   </li>
   <li class="L7">
-    <code> &lt;span class="pun">}&lt;/span></code>
+    <code> <span class="pun">}</span></code>
   </li>
   <li class="L8">
-    <code>&lt;span class="pun">}&lt;/span></code>
+    <code><span class="pun">}</span></code>
   </li>
   <li class="L9">
     <code></code>
   </li>
   <li class="L0">
-    <code>&lt;span class="pln">apply plugin&lt;/span>&lt;span class="pun">:&lt;/span> &lt;span class="str">'android-library'&lt;/span></code>
+    <code><span class="pln">apply plugin</span><span class="pun">:</span> <span class="str">'android-library'</span></code>
   </li>
   <li class="L1">
     <code></code>
   </li>
   <li class="L2">
-    <code>&lt;span class="pln">android &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln">android </span><span class="pun">{</span></code>
   </li>
   <li class="L3">
-    <code>&lt;span class="pln"> compileSdkVersion &lt;/span>&lt;span class="lit">19&lt;/span></code>
+    <code><span class="pln"> compileSdkVersion </span><span class="lit">19</span></code>
   </li>
   <li class="L4">
-    <code>&lt;span class="pln"> buildToolsVersion &lt;/span>&lt;span class="lit">19.0&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="lit">3&lt;/span></code>
+    <code><span class="pln"> buildToolsVersion </span><span class="lit">19.0</span><span class="pun">.</span><span class="lit">3</span></code>
   </li>
   <li class="L5">
     <code></code>
   </li>
   <li class="L6">
-    <code>&lt;span class="pln"> defaultConfig &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln"> defaultConfig </span><span class="pun">{</span></code>
   </li>
   <li class="L7">
-    <code>&lt;span class="pln"> minSdkVersion &lt;/span>&lt;span class="lit">8&lt;/span></code>
+    <code><span class="pln"> minSdkVersion </span><span class="lit">8</span></code>
   </li>
   <li class="L8">
-    <code>&lt;span class="pln"> targetSdkVersion &lt;/span>&lt;span class="lit">19&lt;/span></code>
+    <code><span class="pln"> targetSdkVersion </span><span class="lit">19</span></code>
   </li>
   <li class="L9">
-    <code> &lt;span class="pun">}&lt;/span></code>
+    <code> <span class="pun">}</span></code>
   </li>
   <li class="L0">
-    <code>&lt;span class="pun">}&lt;/span></code>
+    <code><span class="pun">}</span></code>
   </li>
 </ol>
 
@@ -124,67 +124,67 @@ Gradle支持三种Properties, 这三种Properties的作用域和初始化阶段�
 
 <ol class="linenums">
   <li class="L0">
-    <code>&lt;span class="pln">buildscript &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln">buildscript </span><span class="pun">{</span></code>
   </li>
   <li class="L1">
-    <code>&lt;span class="pln"> repositories &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln"> repositories </span><span class="pun">{</span></code>
   </li>
   <li class="L2">
-    <code>&lt;span class="pln"> mavenCentral&lt;/span>&lt;span class="pun">()&lt;/span></code>
+    <code><span class="pln"> mavenCentral</span><span class="pun">()</span></code>
   </li>
   <li class="L3">
-    <code> &lt;span class="pun">}&lt;/span></code>
+    <code> <span class="pun">}</span></code>
   </li>
   <li class="L4">
     <code></code>
   </li>
   <li class="L5">
-    <code>&lt;span class="pln"> dependencies &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln"> dependencies </span><span class="pun">{</span></code>
   </li>
   <li class="L6">
-    <code>&lt;span class="pln"> classpath &lt;/span>&lt;span class="str">'com.android.tools.build:gradle:'&lt;/span>&lt;span class="pun">+&lt;/span>&lt;span class="typ">System&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">properties&lt;/span>&lt;span class="pun">[&lt;/span>&lt;span class="str">'androidGradlePluginVersion'&lt;/span>&lt;span class="pun">]&lt;/span></code>
+    <code><span class="pln"> classpath </span><span class="str">'com.android.tools.build:gradle:'</span><span class="pun">+</span><span class="typ">System</span><span class="pun">.</span><span class="pln">properties</span><span class="pun">[</span><span class="str">'androidGradlePluginVersion'</span><span class="pun">]</span></code>
   </li>
   <li class="L7">
-    <code> &lt;span class="pun">}&lt;/span></code>
+    <code> <span class="pun">}</span></code>
   </li>
   <li class="L8">
-    <code>&lt;span class="pun">}&lt;/span></code>
+    <code><span class="pun">}</span></code>
   </li>
   <li class="L9">
     <code></code>
   </li>
   <li class="L0">
-    <code>&lt;span class="pln">apply plugin&lt;/span>&lt;span class="pun">:&lt;/span> &lt;span class="str">'android-library'&lt;/span></code>
+    <code><span class="pln">apply plugin</span><span class="pun">:</span> <span class="str">'android-library'</span></code>
   </li>
   <li class="L1">
     <code></code>
   </li>
   <li class="L2">
-    <code>&lt;span class="pln">android &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln">android </span><span class="pun">{</span></code>
   </li>
   <li class="L3">
-    <code>&lt;span class="pln"> compileSdkVersion &lt;/span>&lt;span class="lit">19&lt;/span></code>
+    <code><span class="pln"> compileSdkVersion </span><span class="lit">19</span></code>
   </li>
   <li class="L4">
-    <code>&lt;span class="pln"> buildToolsVersion &lt;/span>&lt;span class="typ">System&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">properties&lt;/span>&lt;span class="pun">[&lt;/span>&lt;span class="str">'buildToolsVersion'&lt;/span>&lt;span class="pun">]&lt;/span></code>
+    <code><span class="pln"> buildToolsVersion </span><span class="typ">System</span><span class="pun">.</span><span class="pln">properties</span><span class="pun">[</span><span class="str">'buildToolsVersion'</span><span class="pun">]</span></code>
   </li>
   <li class="L5">
     <code></code>
   </li>
   <li class="L6">
-    <code>&lt;span class="pln"> defaultConfig &lt;/span>&lt;span class="pun">{&lt;/span></code>
+    <code><span class="pln"> defaultConfig </span><span class="pun">{</span></code>
   </li>
   <li class="L7">
-    <code>&lt;span class="pln"> minSdkVersion &lt;/span>&lt;span class="lit">8&lt;/span></code>
+    <code><span class="pln"> minSdkVersion </span><span class="lit">8</span></code>
   </li>
   <li class="L8">
-    <code>&lt;span class="pln"> targetSdkVersion &lt;/span>&lt;span class="lit">19&lt;/span></code>
+    <code><span class="pln"> targetSdkVersion </span><span class="lit">19</span></code>
   </li>
   <li class="L9">
-    <code> &lt;span class="pun">}&lt;/span></code>
+    <code> <span class="pun">}</span></code>
   </li>
   <li class="L0">
-    <code>&lt;span class="pun">}&lt;/span></code>
+    <code><span class="pun">}</span></code>
   </li>
 </ol>
 
@@ -195,31 +195,31 @@ Gradle支持三种Properties, 这三种Properties的作用域和初始化阶段�
     <code></code>
   </li>
   <li class="L1">
-    <code>&lt;span class="com">//override your build tools version in project gradle.properties or ~/.gradle/gradle.properties&lt;/span></code>
+    <code><span class="com">//override your build tools version in project gradle.properties or ~/.gradle/gradle.properties</span></code>
   </li>
   <li class="L2">
     <code></code>
   </li>
   <li class="L3">
-    <code>&lt;span class="kwd">if&lt;/span> &lt;span class="pun">(!&lt;/span>&lt;span class="typ">System&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">properties&lt;/span>&lt;span class="pun">[&lt;/span>&lt;span class="str">'buildToolsVersion'&lt;/span>&lt;span class="pun">])&lt;/span> &lt;span class="pun">{&lt;/span></code>
+    <code><span class="kwd">if</span> <span class="pun">(!</span><span class="typ">System</span><span class="pun">.</span><span class="pln">properties</span><span class="pun">[</span><span class="str">'buildToolsVersion'</span><span class="pun">])</span> <span class="pun">{</span></code>
   </li>
   <li class="L4">
-    <code> &lt;span class="typ">System&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">properties&lt;/span>&lt;span class="pun">[&lt;/span>&lt;span class="str">'buildToolsVersion'&lt;/span>&lt;span class="pun">]&lt;/span> &lt;span class="pun">=&lt;/span> &lt;span class="str">"19.0.3"&lt;/span></code>
+    <code> <span class="typ">System</span><span class="pun">.</span><span class="pln">properties</span><span class="pun">[</span><span class="str">'buildToolsVersion'</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"19.0.3"</span></code>
   </li>
   <li class="L5">
-    <code>&lt;span class="pun">}&lt;/span></code>
+    <code><span class="pun">}</span></code>
   </li>
   <li class="L6">
     <code></code>
   </li>
   <li class="L7">
-    <code>&lt;span class="kwd">if&lt;/span> &lt;span class="pun">(!&lt;/span>&lt;span class="typ">System&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">properties&lt;/span>&lt;span class="pun">[&lt;/span>&lt;span class="str">'androidGradlePluginVersion'&lt;/span>&lt;span class="pun">])&lt;/span> &lt;span class="pun">{&lt;/span></code>
+    <code><span class="kwd">if</span> <span class="pun">(!</span><span class="typ">System</span><span class="pun">.</span><span class="pln">properties</span><span class="pun">[</span><span class="str">'androidGradlePluginVersion'</span><span class="pun">])</span> <span class="pun">{</span></code>
   </li>
   <li class="L8">
-    <code> &lt;span class="typ">System&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">properties&lt;/span>&lt;span class="pun">[&lt;/span>&lt;span class="str">'androidGradlePluginVersion'&lt;/span>&lt;span class="pun">]&lt;/span> &lt;span class="pun">=&lt;/span> &lt;span class="str">"0.10.+"&lt;/span></code>
+    <code> <span class="typ">System</span><span class="pun">.</span><span class="pln">properties</span><span class="pun">[</span><span class="str">'androidGradlePluginVersion'</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"0.10.+"</span></code>
   </li>
   <li class="L9">
-    <code>&lt;span class="pun">}&lt;/span></code>
+    <code><span class="pun">}</span></code>
   </li>
   <li class="L0">
     <code></code>
@@ -232,10 +232,10 @@ gradle.properties文件内容如下：
 
 <ol class="linenums">
   <li class="L0">
-    <code>&lt;span class="pln">systemProp&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">buildToolsVersion&lt;/span>&lt;span class="pun">=&lt;/span>&lt;span class="lit">19.1&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="lit">0&lt;/span></code>
+    <code><span class="pln">systemProp</span><span class="pun">.</span><span class="pln">buildToolsVersion</span><span class="pun">=</span><span class="lit">19.1</span><span class="pun">.</span><span class="lit">0</span></code>
   </li>
   <li class="L1">
-    <code>&lt;span class="pln">systemProp&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">androidGradlePluginVersion&lt;/span>&lt;span class="pun">=&lt;/span>&lt;span class="lit">0.12&lt;/span>&lt;span class="pun">.+&lt;/span></code>
+    <code><span class="pln">systemProp</span><span class="pun">.</span><span class="pln">androidGradlePluginVersion</span><span class="pun">=</span><span class="lit">0.12</span><span class="pun">.+</span></code>
   </li>
   <li class="L2">
     <code></code>

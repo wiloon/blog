@@ -57,7 +57,7 @@ categories:
   
   
   
-    <em>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</em>
+    <em>-------</em>
   
   
   
@@ -117,13 +117,13 @@ categories:
   
   
   
-    <code>　 var i=0;&lt;br />
-function test(){&lt;br />
-i+=1;&lt;br />
-alert(i);&lt;br />
-}&lt;br />
-setTimeout("test()",1000);&lt;br />
-也可以这样：&lt;br />
+    <code>　 var i=0;<br />
+function test(){<br />
+i+=1;<br />
+alert(i);<br />
+}<br />
+setTimeout("test()",1000);<br />
+也可以这样：<br />
 setTimeout(test,1000);</code>
   
   
@@ -168,8 +168,8 @@ setTimeout(test,1000);</code>
   
   
   
-    <code>　function a(){&lt;br />
-//...&lt;br />
+    <code>　function a(){<br />
+//...<br />
 }</code>
   
   
@@ -206,13 +206,13 @@ setTimeout(test,1000);</code>
   
   
   
-    <code>　　var i=0;&lt;br />
-function xilou(){&lt;br />
-i+=1;&lt;br />
-if(i&gt;10){alert(i);return;}&lt;br />
-setTimeout("xilou()",1000);&lt;br />
-//用这个也可以&lt;br />
-//setTimeout(xilou,1000);&lt;br />
+    <code>　　var i=0;<br />
+function xilou(){<br />
+i+=1;<br />
+if(i>10){alert(i);return;}<br />
+setTimeout("xilou()",1000);<br />
+//用这个也可以<br />
+//setTimeout(xilou,1000);<br />
 }</code>
   
   
@@ -229,22 +229,22 @@ setTimeout("xilou()",1000);&lt;br />
   
   
   
-    <code>　　function xilou(){&lt;br />
-//by 西楼冷月 www.chinacms.org&lt;br />
-this.name="xilou";&lt;br />
-this.sex="男";&lt;br />
-this.num=0;&lt;br />
-}&lt;br />
-xilou.prototype.count=function(){&lt;br />
-this.num+=1;&lt;br />
-alert(this.num);&lt;br />
-if(this.num&gt;10){return;}&lt;br />
-//下面用四种方法测试,一 个一个轮流测试。&lt;br />
-setTimeout("this.count()",1000);//A:当下面的x.count()调用时会发生错 误：对象不支持此属性或方法。&lt;br />
-setTimeout("count()",1000);//B:错误显示：缺少对象&lt;br />
-setTimeout(count,1000);//C:错误显示：'count'未定义&lt;br />
-//下面是第四种 by 西楼冷月 www.chinacms.org&lt;br />
-var self=this;&lt;br />
+    <code>　　function xilou(){<br />
+//by 西楼冷月 www.chinacms.org<br />
+this.name="xilou";<br />
+this.sex="男";<br />
+this.num=0;<br />
+}<br />
+xilou.prototype.count=function(){<br />
+this.num+=1;<br />
+alert(this.num);<br />
+if(this.num>10){return;}<br />
+//下面用四种方法测试,一 个一个轮流测试。<br />
+setTimeout("this.count()",1000);//A:当下面的x.count()调用时会发生错 误：对象不支持此属性或方法。<br />
+setTimeout("count()",1000);//B:错误显示：缺少对象<br />
+setTimeout(count,1000);//C:错误显示：'count'未定义<br />
+//下面是第四种 by 西楼冷月 www.chinacms.org<br />
+var self=this;<br />
 setTimeout(function() {self.count();},1000);//D:正确</code>
   
   
@@ -294,9 +294,9 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
   
   
   
-    <code>　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){&lt;br />
-//.....代码&lt;br />
-return timer//返回一个标记符&lt;br />
-}&lt;br />
+    <code>　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){<br />
+//.....代码<br />
+return timer//返回一个标记符<br />
+}<br />
 </code>　　所以当向 setTimeout()传入this的时候，当然指的是它所属的当前对象window了。
   

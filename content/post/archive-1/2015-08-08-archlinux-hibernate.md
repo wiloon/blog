@@ -43,7 +43,7 @@ Required kernel parameters
 resume=_swap_partition_
 
 ```bash
-&lt;br />LABEL arch
+<br />LABEL arch
 TEXT HELP
 Boot Arch Linux
 ENDTEXT

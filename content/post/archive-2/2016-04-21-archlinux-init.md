@@ -40,7 +40,7 @@ systemctl enable sshd
 
 ### zsh, oh-my-zsh
 
-install and switch to zsh &#8212; oh-my-zsh
+install and switch to zsh - oh-my-zsh
   
 <http://blog.wiloon.com/?p=10025>
 
@@ -114,7 +114,7 @@ https://bbs.archlinux.org/viewtopic.php?id=118986
 
 * * *
 
-removed "SigLevel = RecquiredPackage&#8221; from /etc/pacman.conf and now it&#8217;s O.K.
+removed "SigLevel = RecquiredPackage&#8221; from /etc/pacman.conf and now it's O.K.
 
 pacman -S binutils
   

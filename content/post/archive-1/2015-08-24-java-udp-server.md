@@ -156,7 +156,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
               InetAddress addr = recvPacket.getAddress();
     </li>
     <li class="alt">
-              String sendStr = <span class="string">"Hello ! I&#8217;m Server"</span>;
+              String sendStr = <span class="string">"Hello ! I'm Server"</span>;
     </li>
     <li>
               <span class="keyword">byte</span>[] sendBuf;
@@ -230,7 +230,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
     <li class="alt">
     </li>
     <li>
-              String sendStr = <span class="string">"Hello! I&#8217;m Client"</span>;
+              String sendStr = <span class="string">"Hello! I'm Client"</span>;
     </li>
     <li class="alt">
               <span class="keyword">byte</span>[] sendBuf;

@@ -22,21 +22,21 @@ HTTP/1.0 的持久连接机制是后来才引入的，通过 Connection: keep-al
 
 浏览器重用已经打开的空闲持久连接，可以避开缓慢的三次握手，还可以避免遇上 TCP 慢启动的拥塞适应阶段，听起来十分美妙。为了深入研究持久连接的特性，我决定用 Node 写一个最简单的 Web Server 用于测试，Node 提供了 http 模块用于快速创建 HTTP Web Server，但我需要更多的控制，所以用 net 模块创建了一个 TCP Server：
 
-JSrequire(&#8216;net&#8217;).createServer(function(sock) {
+JSrequire('net').createServer(function(sock) {
   
-sock.on(&#8216;data&#8217;, function(data) {
+sock.on('data', function(data) {
   
-sock.write(&#8216;HTTP/1.1 200 OK\r\n&#8217;);
+sock.write('HTTP/1.1 200 OK\r\n');
   
-sock.write(&#8216;\r\n&#8217;);
+sock.write('\r\n');
   
-sock.write(&#8216;hello world!&#8217;);
+sock.write('hello world!');
   
 sock.destroy();
   
 });
   
-}).listen(9090, &#8216;127.0.0.1&#8217;);
+}).listen(9090, '127.0.0.1');
 
 启动服务后，在浏览器里访问 127.0.0.1:9090，正确输出了指定内容，一切正常。去掉 sock.destroy() 这一行，让它变成持久连接，重启服务后再访问一下。这次的结果就有点奇怪了：迟迟看不到输出，通过 Network 查看请求状态，一直是 pending。
 
@@ -46,21 +46,21 @@ Content-Length
   
 要解决上面这个问题，最容易想到的办法就是计算实体长度，并通过头部告诉对方。这就要用到 Content-Length 了，改造一下上面的例子：
 
-JSrequire(&#8216;net&#8217;).createServer(function(sock) {
+JSrequire('net').createServer(function(sock) {
   
-sock.on(&#8216;data&#8217;, function(data) {
+sock.on('data', function(data) {
   
-sock.write(&#8216;HTTP/1.1 200 OK\r\n&#8217;);
+sock.write('HTTP/1.1 200 OK\r\n');
   
-sock.write(&#8216;Content-Length: 12\r\n&#8217;);
+sock.write('Content-Length: 12\r\n');
   
-sock.write(&#8216;\r\n&#8217;);
+sock.write('\r\n');
   
-sock.write(&#8216;hello world!&#8217;);
+sock.write('hello world!');
   
 });
   
-}).listen(9090, &#8216;127.0.0.1&#8217;);
+}).listen(9090, '127.0.0.1');
 
 可以看到，这次发送完数据并没有关闭 TCP 连接，但浏览器能正常输出内容并结束请求，因为浏览器可以通过 Content-Length 的长度信息，判断出响应实体已结束。那如果 Content-Length 和实体实际长度不一致会怎样？有兴趣的同学可以自己试试，通常如果 Content-Length 比实际长度短，会造成内容被截断；如果比实体内容长，会造成 pending。
 
@@ -74,31 +74,31 @@ Transfer-Encoding: chunked
 
 分块编码相当简单，在头部加入 Transfer-Encoding: chunked 之后，就代表这个报文采用了分块编码。这时，报文中的实体需要改为用一系列分块来传输。每个分块包含十六进制的长度值和数据，长度值独占一行，长度不包括它结尾的 CRLF（\r\n），也不包括分块数据结尾的 CRLF。最后一个分块长度值必须为 0，对应的分块数据没有内容，表示实体结束。按照这个格式改造下之前的代码：
 
-JSrequire(&#8216;net&#8217;).createServer(function(sock) {
+JSrequire('net').createServer(function(sock) {
   
-sock.on(&#8216;data&#8217;, function(data) {
+sock.on('data', function(data) {
   
-sock.write(&#8216;HTTP/1.1 200 OK\r\n&#8217;);
+sock.write('HTTP/1.1 200 OK\r\n');
   
-sock.write(&#8216;Transfer-Encoding: chunked\r\n&#8217;);
+sock.write('Transfer-Encoding: chunked\r\n');
   
-sock.write(&#8216;\r\n&#8217;);
+sock.write('\r\n');
 
-sock.write(&#8216;b\r\n&#8217;);
+sock.write('b\r\n');
   
-sock.write(&#8216;01234567890\r\n&#8217;);
+sock.write('01234567890\r\n');
 
-sock.write(&#8216;5\r\n&#8217;);
+sock.write('5\r\n');
   
-sock.write(&#8216;12345\r\n&#8217;);
+sock.write('12345\r\n');
 
-sock.write(&#8216;0\r\n&#8217;);
+sock.write('0\r\n');
   
-sock.write(&#8216;\r\n&#8217;);
+sock.write('\r\n');
   
 });
   
-}).listen(9090, &#8216;127.0.0.1&#8217;);
+}).listen(9090, '127.0.0.1');
 
 上面这个例子中，我在响应头中表明接下来的实体会采用分块编码，然后输出了 11 字节的分块，接着又输出了 5 字节的分块，最后用一个 0 长度的分块表明数据已经传完了。用浏览器访问这个服务，可以得到正确结果。可以看到，通过这种简单的分块策略，很好的解决了前面提出的问题。
 

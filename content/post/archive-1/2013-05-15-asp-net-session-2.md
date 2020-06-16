@@ -1250,7 +1250,7 @@ pred.next = node;
            
 * waitStatus must be 0 or PROPAGATE. Indicate that we
            
-* need a signal, but don&#8217;t park yet. Caller will need to
+* need a signal, but don't park yet. Caller will need to
            
 * retry to make sure it cannot acquire before parking.
            
@@ -1614,7 +1614,7 @@ setHead(node);
        
 * The next node is waiting in shared mode,
        
-* or we don&#8217;t know, because it appears null
+* or we don't know, because it appears null
        
 *
        
@@ -1730,7 +1730,7 @@ throw new InterruptedException();
 
 private void cancelAcquire(Node node) {
       
-// Ignore if node doesn&#8217;t exist
+// Ignore if node doesn't exist
       
 if (node == null)
           
@@ -1770,7 +1770,7 @@ compareAndSetNext(pred, predNext, null);
       
 } else {
           
-// If successor needs signal, try to set pred&#8217;s next-link
+// If successor needs signal, try to set pred's next-link
           
 // so it will get one. Otherwise wake it up to propagate.
           

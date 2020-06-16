@@ -48,7 +48,7 @@ multiplexing的实现，显然减少了多重连接建立的开销，因为每�
   
 与开启multiplexing相关的参数有3个，ControlMaster、ControlPath、ControlPersist
 
-ControlMaster Enables the sharing of multiple sessions over a single network connection. When set to yes, ssh(1) will listen for connections on a control socket specified using the ControlPath argument. Additional sessions can connect to this socket using the same ControlPath with ControlMaster set to no (the default). These sessions will try to reuse the master instance’s network connection rather than initiating new ones, but will fall back to connecting normally if the control socket does not exist, or is not listening.
+ControlMaster Enables the sharing of multiple sessions over a single network connection. When set to yes, ssh(1) will listen for connections on a control socket specified using the ControlPath argument. Additional sessions can connect to this socket using the same ControlPath with ControlMaster set to no (the default). These sessions will try to reuse the master instance's network connection rather than initiating new ones, but will fall back to connecting normally if the control socket does not exist, or is not listening.
 
 Setting this to ask will cause ssh(1) to listen for control connections, but require confirmation using ssh-askpass(1). If the ControlPath cannot be opened, ssh(1) will continue without connecting to a master instance.
 
@@ -58,11 +58,11 @@ Two additional options allow for opportunistic multiplexing: try to use a master
 
 ControlMaster 用来管理是否启用multiplexing，有2个可选参数: auto与autoask，前者会在没有socket文件时自动创建一个，后者在开启新的会话时会要求输入密码
 
-ControlPath Specify the path to the control socket used for connection sharing as described in the ControlMaster section above or the string none to disable connection sharing. Arguments to ControlPath may use the tilde syntax to refer to a user’s home directory or the tokens described in the TOKENS section. It is recommended that any ControlPath used for opportunistic connection sharing include at least %h, %p, and %r (or alternatively %C) and be placed in a directory that is not writable by other users. This ensures that shared connections are uniquely identified.
+ControlPath Specify the path to the control socket used for connection sharing as described in the ControlMaster section above or the string none to disable connection sharing. Arguments to ControlPath may use the tilde syntax to refer to a user's home directory or the tokens described in the TOKENS section. It is recommended that any ControlPath used for opportunistic connection sharing include at least %h, %p, and %r (or alternatively %C) and be placed in a directory that is not writable by other users. This ensures that shared connections are uniquely identified.
 
 ControlPath 用来指定muliplexing共用socket文件的路径，path支持~来表示home目录，也支持TOKENS：%%, %C, %h, %i, %L, %l, %n, %p, %r, and %u. ControlPath应该尽量保证其他用户对socket文件没有写权限
 
-%% A literal &#8216;%&#8217;.
+%% A literal '%'.
   
 %C Shorthand for %l%h%p%r.
   
@@ -100,7 +100,7 @@ ControlPersist yes
 
 $ls -l
   
-srw&#8212;&#8212;- 1 chason wheel 0 1 1 12:52 ssh-root@47.91._._
+srw--- 1 chason wheel 0 1 1 12:52 ssh-root@47.91._._
   
 $file ssh-root@47.91._._
   

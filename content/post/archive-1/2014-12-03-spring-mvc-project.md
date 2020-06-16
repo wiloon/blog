@@ -10,11 +10,11 @@ categories:
 ---
 gradle plugin:
 
-apply plugin: &#8216;idea&#8217;
+apply plugin: 'idea'
 
-apply plugin: &#8216;eclipse&#8217;
+apply plugin: 'eclipse'
 
-apply plugin: &#8216;war&#8217;
+apply plugin: 'war'
 
 
 

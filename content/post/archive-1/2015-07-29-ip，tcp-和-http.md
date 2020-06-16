@@ -30,19 +30,19 @@ http://objccn.io/issue-10-6/
 
 HTTP是运行在应用层上的应用协议，而不同的层级上都有相应的协议在运行。层级的堆栈关系一般可以这么描述：
 
-Application Layer &#8212; e.g. HTTP
+Application Layer - e.g. HTTP
   
-&#8212;-
+--
   
-Transport Layer &#8212; e.g. TCP
+Transport Layer - e.g. TCP
   
-&#8212;-
+--
   
-Internet Layer &#8212; e.g. IP
+Internet Layer - e.g. IP
   
-&#8212;-
+--
   
-Link Layer &#8212; e.g. IEEE 802.2
+Link Layer - e.g. IEEE 802.2
 
 所谓的 OSI（Open Systems Interconnection，开放式系统互联）模型定义了七层结构。本文会关注应用层 (application layer)、传输层 (transport layer) 和网络层 (internet layer)，它们分别代表了典型的 HTTP 的应用的 HTTP，TCP 以及 IP。在 IP 之下的是数据连接和物理层级，比如像 Ethernet 的实现之类的东西（Ethernet 拥有一个数据连接部分以及一个物理部分）。
 

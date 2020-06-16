@@ -52,7 +52,7 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
   
 * if a security manager exists and its <code>checkExit</code>
   
-* method doesn&#8217;t allow exit with the specified status.
+* method doesn't allow exit with the specified status.
   
 * @see java.lang.Runtime#exit(int)
   

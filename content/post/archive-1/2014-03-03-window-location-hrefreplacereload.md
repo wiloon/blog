@@ -70,7 +70,7 @@ top.window.location.href("${pageContext.request.contextPath}/Login_goBack");
   
 4 location.assign(location)
   
-5 document.execCommand(&#8216;Refresh&#8217;)
+5 document.execCommand('Refresh')
   
 6 window.navigate(location)
   
@@ -102,23 +102,23 @@ window.parent.close()是parent属性是当前窗口或框架的框架组
   
 <script language="javascript">
   
-setTimeout(&#8216;window.navigate("top.html");&#8217;,2000);
+setTimeout('window.navigate("top.html");',2000);
   
-setTimeout(&#8216;window.document.location.href="top.html";&#8217;,2000);
+setTimeout('window.document.location.href="top.html";',2000);
   
-setTimeout(&#8216;window.document.location="top.html";&#8217;,2000);
+setTimeout('window.document.location="top.html";',2000);
   
-setTimeout(&#8216;window.location.href="top.html";&#8217;,2000);
+setTimeout('window.location.href="top.html";',2000);
   
-setTimeout(&#8216;window.location="top.html";&#8217;,2000);
+setTimeout('window.location="top.html";',2000);
   
-setTimeout(&#8216;document.location.href="top.html";&#8217;,2000);
+setTimeout('document.location.href="top.html";',2000);
   
-setTimeout(&#8216;document.location="top.html";&#8217;,2000);
+setTimeout('document.location="top.html";',2000);
   
-setTimeout(&#8216;location.href="top.html";&#8217;,2000);
+setTimeout('location.href="top.html";',2000);
   
-setTimeout(&#8216;location.replace("top.html")&#8217;,2000);
+setTimeout('location.replace("top.html")',2000);
   
 //window对象
   

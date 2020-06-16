@@ -33,7 +33,7 @@ masquerade IP伪装，只适用于ADSL等动态拨号上网的IP伪装，如果�
 
 ### ip包大致的流向 DNAT， podman
 
-  * nat表prerouting链 &#8212; nat替换目标地址
+  * nat表prerouting链 - nat替换目标地址
   * 路由判断
   * filter表forward链
   * nat表postrouting链 accept

@@ -52,13 +52,13 @@ Type=forking &#8211;》 需要改为simple才会启动成功
 
 # Clean any existing files in /tmp/.X11-unix environment
 
-ExecStartPre=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
   
 ExecStart=/sbin/runuser -l 改为root不带括号 -c "/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
   
 PIDFile=/home/改为root不带括号/.vnc/%H%i.pid
   
-ExecStop=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStop=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
 
 修改后：
   
@@ -68,13 +68,13 @@ Type=simple
 
 # Clean any existing files in /tmp/.X11-unix environment
 
-ExecStartPre=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
   
 ExecStart=/sbin/runuser -l root -c "/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
   
 PIDFile=/home/root/.vnc/%H%i.pid
   
-ExecStop=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStop=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
 
 启动VNC并设置root用户vnc的密码
   
@@ -88,7 +88,7 @@ Verify: 123456 #确认vnc密码
   
 xauth: creating new authority file /root/.Xauthority
   
-New ‘localhost.localdomain:1 (root)’ desktop is localhost.localdomain:1
+New 'localhost.localdomain:1 (root)' desktop is localhost.localdomain:1
   
 Creating default startup script /root/.vnc/xstartup
   

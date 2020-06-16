@@ -58,7 +58,7 @@ categories:
     Since you are using m2eclipse, the .project file in your project contains
   
   
-  <code>&lt;buildCommand&gt; &lt;name&gt;org.maven.ide.eclipse.maven2Builder&lt;/name&gt; &lt;arguments&gt; &lt;/arguments&gt; &lt;/buildCommand&gt; ```
+  <code><buildCommand> <name>org.maven.ide.eclipse.maven2Builder</name> <arguments> </arguments> </buildCommand> ```
   
   
     This is overriding the Java builder, and copying the folders in /src/main/resources into the /target/classes directory.
@@ -69,7 +69,7 @@ categories:
   
   
   
-    I realize this doesn&#8217;t answer the stated question of what excluding="**" does, but this explains the behavior your are seeing.
+    I realize this doesn't answer the stated question of what excluding="**" does, but this explains the behavior your are seeing.
   
   
   

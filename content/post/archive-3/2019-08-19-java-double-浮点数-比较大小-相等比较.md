@@ -28,19 +28,19 @@ categories:
 
     //判断指定double是否为0（指定精度）
     public static boolean considerZero(double value, double delta) {
-        return Math.abs(value) &lt;= delta;
+        return Math.abs(value) <= delta;
     }
 
     /**
      * @param v1 v1
      * @param v2 v2
      * @return result
-     * v1&gt;v2, result = 1
+     * v1>v2, result = 1
      * v1=v2, result =0
-     * v1&lt;v2, result =-1
+     * v1<v2, result =-1
      */
     public static int compare(double v1, double v2) {
-        if (v1 - v2 &gt; DEFAULT_DELTA) {
+        if (v1 - v2 > DEFAULT_DELTA) {
             return 1;
         } else if (considerEqual(v1, v2)) {
             return 0;

@@ -44,7 +44,7 @@ Install gnome on debian
 
 KDE
 
-K Desktop Environment (KDE) is a free desktop environment and development platform built with Trolltech’s Qt toolkit. It runs on most Unix and Unix-like systems, such as Linux, BSD and Solaris.
+K Desktop Environment (KDE) is a free desktop environment and development platform built with Trolltech's Qt toolkit. It runs on most Unix and Unix-like systems, such as Linux, BSD and Solaris.
 
 \# apt-get install aptitude tasksel
 
@@ -60,7 +60,7 @@ Compiz is truly one of the original compositing window managers for the X Window
 
 \# echo "deb http://ftp.us.debian.org/debian/ sid main non-free contrib" >> /etc/apt/sources.list
 
-\# echo &#8216;APT::Default-Release "testing";&#8217; >> /etc/apt/apt.conf
+\# echo 'APT::Default-Release "testing";' >> /etc/apt/apt.conf
 
 \# apt-get update
 
@@ -246,7 +246,7 @@ The fluxbox package from debian contains:
 
 fluxbox: window manager
 
-fbsetbg: setup script for rootwindow’s background
+fbsetbg: setup script for rootwindow's background
 
 fbrun: small RunApplication tool
 

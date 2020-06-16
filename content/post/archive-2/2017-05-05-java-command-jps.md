@@ -46,7 +46,7 @@ drwxr-xr-x 2 hollis hollis 4096 4月 16 10:54 ./
   
 drwxrwxrwt 7 root root 12288 4月 16 10:56 ../
   
--rw&#8212;&#8212;- 1 hollis hollis 32768 4月 16 10:57 2679
+-rw--- 1 hollis hollis 32768 4月 16 10:57 2679
   
 hollis@hos:/tmp/hsperfdata_hollis$
   

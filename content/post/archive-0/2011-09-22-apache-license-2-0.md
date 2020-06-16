@@ -359,7 +359,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     boilerplate notice, with the fields enclosed by brackets "[]"
     
-    replaced with your own identifying information. (Don&#8217;t include
+    replaced with your own identifying information. (Don't include
     
     the brackets!) The text should be enclosed in the appropriate
     

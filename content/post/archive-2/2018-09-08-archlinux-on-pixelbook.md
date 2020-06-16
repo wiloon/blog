@@ -108,8 +108,8 @@ sudo pacman -S openvpn
 ```bash
 # in crostini
 export WAYLAND_DISPLAY=wayland-0
-# &lt;user id&gt;替换成 当前用户的id
-export XDG_RUNTIME_DIR=/run/user/&lt;user id&gt;
+# <user id>替换成 当前用户的id
+export XDG_RUNTIME_DIR=/run/user/<user id>
 /opt/google/cros-containers/bin/sommelier -X command0
 sommelier -X --x-display=1 --scale=2 bash -c 'echo Xft.dpi: 192 | xrdb -merge; firefox'
 --dpi=
@@ -135,6 +135,6 @@ https://wiki.archlinux.org/index.php/Installation_guide
   
 </blockquote>
 
-<iframe title=""archlinux install" &#8212; w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=7821&#038;embed=true#?secret=FlRlWw6ut3" data-secret="FlRlWw6ut3" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""archlinux install" - w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=7821&#038;embed=true#?secret=FlRlWw6ut3" data-secret="FlRlWw6ut3" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 https://chromium.googlesource.com/chromiumos/docs/+/master/containers\_and\_vms.md

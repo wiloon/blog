@@ -454,7 +454,7 @@ return stackTrace;
       
 } else {
           
-// Don&#8217;t need JVM help for current thread
+// Don't need JVM help for current thread
           
 return (new Exception()).getStackTrace();
       
@@ -494,7 +494,7 @@ oop filename = StringTable::intern(source, CHECK_0);
 
 ####com.alibaba.fastjson.parser.JSONScanner#scanFieldSymbol()
 
-if (ch == &#8216;\"&#8216;) {
+if (ch == '\"') {
       
 bp = index;
       
@@ -560,6 +560,6 @@ Java String array: is there a size of method?
   
 Understanding String Table Size in HotSpot
   
-How is Java&#8217;s String#intern() method implemented?
+How is Java's String#intern() method implemented?
   
 JDK7里的String.intern的变化

@@ -16,19 +16,19 @@ https://stackoverflow.com/questions/50481885/integration-of-angular-5-with-sprin
   
 3.Open CMD, navigate to angular2 application. Hit command
 
-&#8216;npm install&#8217;
+'npm install'
 
 and then
 
-&#8216;ng build&#8217;
+'ng build'
 
-or use &#8216;ng build &#8211;prod&#8217; for production build.
+or use 'ng build &#8211;prod' for production build.
   
 this command will create a “dist” folder, copy all files including all folders.
 
 <ol start="4">
   <li>
-    Paste those files and folders into &#8216;WebContent&#8217; directory.
+    Paste those files and folders into 'WebContent' directory.
   </li>
   <li>
     Last thing, you need to change basehref=”./” in index.html.

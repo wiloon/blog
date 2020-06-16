@@ -94,7 +94,7 @@ cp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
 ```bash
 arch-chroot /mnt/tmp
 
-echo hostname0 &gt; /etc/hostname
+echo hostname0 > /etc/hostname
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 pacman -S gvim
@@ -220,7 +220,7 @@ LABEL Arch
  MENU LABEL Arch Linux
  LINUX ../vmlinuz-linux
  APPEND root=UUID=3a9f8929-627b-4667-9db4-388c4eaaf9fa ro
- INITRD ../initramfs-linux.img&lt;/pre&gt;
+ INITRD ../initramfs-linux.img</pre>
 
 ＃umount the usb disk and reboot
 

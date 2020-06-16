@@ -18,7 +18,7 @@ API token可以在用户个人设置界面查看
 
 ### 取编译结果
 
-BUILD\_STATUS=$(curl -k &#8211;user user0:jenkins\_token\_0 &#8211;silent ${BUILD\_URL}api/json | jq -r &#8216;.result&#8217;)
+BUILD\_STATUS=$(curl -k &#8211;user user0:jenkins\_token\_0 &#8211;silent ${BUILD\_URL}api/json | jq -r '.result')
 
 https://cloud.tencent.com/developer/article/1415887
   

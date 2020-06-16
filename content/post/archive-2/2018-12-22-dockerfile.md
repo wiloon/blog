@@ -64,7 +64,7 @@ COPY 目标路径不存时会自动创建
 
 ### COPY
 
-Same as ‘ADD’ but without the tar and remote url handling.
+Same as 'ADD' but without the tar and remote url handling.
   
 COPY的语法与功能与ADD相同，只是不支持上面讲到的<src>是远程URL、自动解压这两个特性，但是Best Practices for Writing Dockerfiles建议尽量使用COPY，并使用RUN与COPY的组合来代替ADD，这是因为虽然COPY只支持本地文件拷贝到container，但它的处理比ADD更加透明，建议只在复制tar文件时使用ADD，如ADD trusty-core-amd64.tar.gz /。
 

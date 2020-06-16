@@ -40,23 +40,23 @@ http://www.benben.cc/blog/?p=9
       </td>
       
       <td>
-        &lt;script&gt;alert("我是html根节点之外的内部脚本");&lt;/script&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
-	&lt;title&gt;JavaScript&lt;/title&gt;
-	&lt;style type="text/css"&gt;body {margin:0;padding:0;}&lt;/style&gt;
-	&lt;script&gt;alert("我是头部header里的内部脚本");&lt;/script&gt;
-	&lt;script src="header.js"&gt;&lt;/script&gt;
-	&lt;script src="outer.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;script&gt;alert("我是页面body里的内部脚本");&lt;/script&gt;
-	&lt;script src="body.js"&gt;&lt;/script&gt;
-	&lt;input type="button" value="绑定事件" onclick="javascript:alert('我是body中的按钮，这是我自己绑定的事件');"&gt;&lt;/input&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script&gt;alert("我是html根节点之外的内部脚本");&lt;/script&gt;
+        <script>alert("我是html根节点之外的内部脚本");</script>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>JavaScript</title>
+	<style type="text/css">body {margin:0;padding:0;}</style>
+	<script>alert("我是头部header里的内部脚本");</script>
+	<script src="header.js"></script>
+	<script src="outer.js"></script>
+</head>
+<body>
+	<script>alert("我是页面body里的内部脚本");</script>
+	<script src="body.js"></script>
+	<input type="button" value="绑定事件" onclick="javascript:alert('我是body中的按钮，这是我自己绑定的事件');"></input>
+</body>
+</html>
+<script>alert("我是html根节点之外的内部脚本");</script>
       </td>
     </tr>
   </table>
@@ -91,10 +91,10 @@ http://www.benben.cc/blog/?p=9
       </td>
       
       <td>
-        document.write('&lt;script type="text/javascript"&gt;');
+        document.write('<script type="text/javascript">');
 document.write('alert("我是header中通过外部通过document.write生成的脚本")');
-//document.write('&lt;script src="outerouter.js"&gt;&lt;/script&gt;');
-document.write('&lt;/script&gt;');
+//document.write('<script src="outerouter.js"></script>');
+document.write('</script>');
       </td>
     </tr>
   </table>

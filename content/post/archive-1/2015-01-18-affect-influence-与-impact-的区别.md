@@ -40,7 +40,7 @@ The labour enthusiasm of the workers strongly influenced us.
 
 工人们的劳动热情强烈地感染了我们。《简明英汉词典》
 
-It&#8217;s all too easy to be influenced by our parents. 我们容易受父母的影响。《简明英汉词典》
+It's all too easy to be influenced by our parents. 我们容易受父母的影响。《简明英汉词典》
 
 The weather influences crops. 天气影响农作物。
 

@@ -18,7 +18,7 @@ tags:
   
 #黑底红字
   
-echo -e &#8216;E[31;40mThis prints in red.&#8217;; tput sgr0
+echo -e 'E[31;40mThis prints in red.'; tput sgr0
   
 [/shell]
 
@@ -26,7 +26,7 @@ echo -e &#8216;E[31;40mThis prints in red.&#8217;; tput sgr0
   
 #!/bin/bash
   
-echo -e &#8216;E[COLOR1;COLOR2mSome text goes here.&#8217;
+echo -e 'E[COLOR1;COLOR2mSome text goes here.'
   
 [/shell]
 
@@ -38,7 +38,7 @@ COLOR2: Background Color
   
 #!/bin/bash
   
-echo -e &#8216;E[32;40mThis prints in green.&#8217;; tput sgr0
+echo -e 'E[32;40mThis prints in green.'; tput sgr0
   
 echo -e:enable interpretation of backslash escapes
   

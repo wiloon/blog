@@ -28,33 +28,33 @@ HTML Spec: “The section element represents a generic section of a document or 
 
 那么，section 应该什么时候用呢？再接着看：
 
-“Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site’s home page could be split into sections for an introduction, news items, and contact information.”
+“Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site's home page could be split into sections for an introduction, news items, and contact information.”
 
 section 应用的典型场景有文章的章节、标签对话框中的标签页、或者论文中有编号的部分。一个网站的主页可以分成简介、新闻和联系信息等几部分。其实我对这里传达信息很感兴趣，因为感觉 section 和下面要介绍的 artilce 更加适用于模块化应用，这个话题以后会出篇专门的文章来讨论，这里暂时略过。
 
 要注意，W3C 还警告说：
 
-“The section element is not a generic container element. When an element is needed for styling purposes or as a convenience for scripting, authors are encouraged to use the div element instead. A general rule is that the section element is appropriate only if the element’s contents would be listed explicitly in the document’s outline.”
+“The section element is not a generic container element. When an element is needed for styling purposes or as a convenience for scripting, authors are encouraged to use the div element instead. A general rule is that the section element is appropriate only if the element's contents would be listed explicitly in the document's outline.”
 
 section 不仅仅是一个普通的容器标签。当一个标签只是为了样式化或者方便脚本使用时，应该使用 div 。一般来说，当元素内容明确地出现在文档大纲中时，section 就是适用的。
 
-&lt;article&gt;
- &lt;hgroup&gt;
-  &lt;h1&gt;Apples&lt;/h1&gt;
-  &lt;h2&gt;Tasty, delicious fruit!&lt;/h2&gt;
- &lt;/hgroup&gt;
- &lt;p&gt;The apple is the pomaceous fruit of the apple tree.&lt;/p&gt;
- &lt;section&gt;
-  &lt;h1&gt;Red Delicious&lt;/h1&gt;
-  &lt;p&gt;These bright red apples are the most common found in many
-  supermarkets.&lt;/p&gt;
- &lt;/section&gt;
- &lt;section&gt;
-  &lt;h1&gt;Granny Smith&lt;/h1&gt;
-  &lt;p&gt;These juicy, green apples make a great filling for
-  apple pies.&lt;/p&gt;
- &lt;/section&gt;
-&lt;/article&gt;
+<article>
+ <hgroup>
+  <h1>Apples</h1>
+  <h2>Tasty, delicious fruit!</h2>
+ </hgroup>
+ <p>The apple is the pomaceous fruit of the apple tree.</p>
+ <section>
+  <h1>Red Delicious</h1>
+  <p>These bright red apples are the most common found in many
+  supermarkets.</p>
+ </section>
+ <section>
+  <h1>Granny Smith</h1>
+  <p>These juicy, green apples make a great filling for
+  apple pies.</p>
+ </section>
+</article>
 
 ## article {#toc_1.3}
 
@@ -70,44 +70,44 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 “This could b
 
 例子：
 
-&lt;article&gt;
- &lt;header&gt;
-  &lt;h1&gt;The Very First Rule of Life&lt;/h1&gt;
-  &lt;p&gt;&lt;time pubdate datetime="2009-10-09T14:28-08:00"&gt;&lt;/time&gt;&lt;/p&gt;
- &lt;/header&gt;
- &lt;p&gt;If there's a microphone anywhere near you, assume it's hot and
- sending whatever you're saying to the world. Seriously.&lt;/p&gt;
- &lt;p&gt;...&lt;/p&gt;
- &lt;footer&gt;
-  &lt;a href="?comments=1"&gt;Show comments...&lt;/a&gt;
- &lt;/footer&gt;
-&lt;/article&gt;
-&lt;article&gt;
- &lt;header&gt;
-  &lt;h1&gt;The Very First Rule of Life&lt;/h1&gt;
-  &lt;p&gt;&lt;time pubdate datetime="2009-10-09T14:28-08:00"&gt;&lt;/time&gt;&lt;/p&gt;
- &lt;/header&gt;
- &lt;p&gt;If there's a microphone anywhere near you, assume it's hot and
- sending whatever you're saying to the world. Seriously.&lt;/p&gt;
- &lt;p&gt;...&lt;/p&gt;
- &lt;section&gt;
-  &lt;h1&gt;Comments&lt;/h1&gt;
-  &lt;article&gt;
-   &lt;footer&gt;
-    &lt;p&gt;Posted by: George Washington&lt;/p&gt;
-    &lt;p&gt;&lt;time pubdate datetime="2009-10-10T19:10-08:00"&gt;&lt;/time&gt;&lt;/p&gt;
-   &lt;/footer&gt;
-   &lt;p&gt;Yeah! Especially when talking about your lobbyist friends!&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article&gt;
-   &lt;footer&gt;
-    &lt;p&gt;Posted by: George Hammond&lt;/p&gt;
-    &lt;p&gt;&lt;time pubdate datetime="2009-10-10T19:15-08:00"&gt;&lt;/time&gt;&lt;/p&gt;
-   &lt;/footer&gt;
-   &lt;p&gt;Hey, you have the same first name as me.&lt;/p&gt;
-  &lt;/article&gt;
- &lt;/section&gt;
-&lt;/article&gt;
+<article>
+ <header>
+  <h1>The Very First Rule of Life</h1>
+  <p><time pubdate datetime="2009-10-09T14:28-08:00"></time></p>
+ </header>
+ <p>If there's a microphone anywhere near you, assume it's hot and
+ sending whatever you're saying to the world. Seriously.</p>
+ <p>...</p>
+ <footer>
+  <a href="?comments=1">Show comments...</a>
+ </footer>
+</article>
+<article>
+ <header>
+  <h1>The Very First Rule of Life</h1>
+  <p><time pubdate datetime="2009-10-09T14:28-08:00"></time></p>
+ </header>
+ <p>If there's a microphone anywhere near you, assume it's hot and
+ sending whatever you're saying to the world. Seriously.</p>
+ <p>...</p>
+ <section>
+  <h1>Comments</h1>
+  <article>
+   <footer>
+    <p>Posted by: George Washington</p>
+    <p><time pubdate datetime="2009-10-10T19:10-08:00"></time></p>
+   </footer>
+   <p>Yeah! Especially when talking about your lobbyist friends!</p>
+  </article>
+  <article>
+   <footer>
+    <p>Posted by: George Hammond</p>
+    <p><time pubdate datetime="2009-10-10T19:15-08:00"></time></p>
+   </footer>
+   <p>Hey, you have the same first name as me.</p>
+  </article>
+ </section>
+</article>
 
 ## 总结 {#toc_1.4}
 

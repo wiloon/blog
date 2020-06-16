@@ -24,7 +24,7 @@ Java里从来少不了字符串拼接的活，Java程序员也肯定用到过Str
 
 String[] tdArr=&#8230;;
   
-String result=MessageFormat.format("<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>", tdArr);
+String result=MessageFormat.format("<tr bgcolor='#cef'><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>", tdArr);
 
 这段代码将把数组tdArr中的四个元素分别插入到{0}，{1}，{2}，{3}的位置。
 
@@ -34,7 +34,7 @@ String result=MessageFormat.format("<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><
 
 补记：
 
-如果字符串需要输出单引号&#8217;,可以用两个单引号"进行转义，下面代码请参考：
+如果字符串需要输出单引号',可以用两个单引号"进行转义，下面代码请参考：
 
 public int insertToTest_tb(String createTime,String datefrom,String dateto,String name,String intranetid,String actualhour,String planhour,String status) throws Exception{
   

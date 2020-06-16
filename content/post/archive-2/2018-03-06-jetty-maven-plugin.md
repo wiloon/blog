@@ -8,26 +8,27 @@ categories:
   - Uncategorized
 
 ---
-### maven plugin<pre data-language=XML>
+### maven plugin
 
-<code class="language-markup line-numbers">&lt;plugin&gt;
-    &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
-    &lt;artifactId&gt;jetty-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;9.4.6.v20170531&lt;/version&gt;
-    &lt;configuration&gt;
-        &lt;stopKey&gt;stop&lt;/stopKey&gt;
-        &lt;stopPort&gt;5599&lt;/stopPort&gt;
-        &lt;webApp&gt;
-            &lt;contextPath&gt;/app0&lt;/contextPath&gt;
-            &lt;defaultsDescriptor&gt;src/main/resources/webdefault.xml&lt;/defaultsDescriptor&gt;
-        &lt;/webApp&gt;
-        &lt;scanIntervalSeconds&gt;2&lt;/scanIntervalSeconds&gt;
+```xml
+<plugin>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-maven-plugin</artifactId>
+    <version>9.4.6.v20170531</version>
+    <configuration>
+        <stopKey>stop</stopKey>
+        <stopPort>5599</stopPort>
+        <webApp>
+            <contextPath>/app0</contextPath>
+            <defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
+        </webApp>
+        <scanIntervalSeconds>2</scanIntervalSeconds>
 
-        &lt;httpConnector&gt;
-            &lt;port&gt;8081&lt;/port&gt;
-        &lt;/httpConnector&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;
+        <httpConnector>
+            <port>8081</port>
+        </httpConnector>
+    </configuration>
+</plugin>
 ``` 
 
 ### webdefault.xml

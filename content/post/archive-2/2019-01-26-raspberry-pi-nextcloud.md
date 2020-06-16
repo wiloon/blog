@@ -31,9 +31,9 @@ home-port: 63585
 
 nginx代理nextcloud时， nextcloud需要配置
 
-```bash'trusted_proxies'   =&gt; ['127.0.0.1'],
-'overwritehost'     =&gt; 'xxx.wiloon.com',
-'overwriteprotocol' =&gt; 'https',
-'overwritewebroot'  =&gt; '/',
-'overwritecondaddr' =&gt; '^127\.0\.0\.1$',
+```bash'trusted_proxies'   => ['127.0.0.1'],
+'overwritehost'     => 'xxx.wiloon.com',
+'overwriteprotocol' => 'https',
+'overwritewebroot'  => '/',
+'overwritecondaddr' => '^127\.0\.0\.1$',
 ```

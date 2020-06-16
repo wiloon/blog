@@ -89,25 +89,25 @@ $: 匹配正则表达式的结束行。
 
 4.grep命令使用简单实例
   
-$ grep ‘test’ d*
+$ grep 'test' d*
   
 显示所有以d开头的文件中包含 test的行。
   
-$ grep ‘test’ aa bb cc
+$ grep 'test' aa bb cc
   
 显示在aa，bb，cc文件中匹配test的行。
   
-$ grep ‘[a-z]&#123;5&#125;’ aa
+$ grep '[a-z]&#123;5&#125;' aa
   
 显示所有包含每个字符串至少有5个连续小写字符的字符串的行。
   
-$ grep ‘w&#40;es&#41;t._\1′ aa
+$ grep 'w&#40;es&#41;t._\1′ aa
   
-如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符(._)，这些字符后面紧跟着 另外一个es(\1)，找到就显示该行。如果用egrep或grep -E，就不用”\”号进行转义，直接写成’w(es)t.*\1′就可以了。
+如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符(._)，这些字符后面紧跟着 另外一个es(\1)，找到就显示该行。如果用egrep或grep -E，就不用”\”号进行转义，直接写成'w(es)t.*\1′就可以了。
 
 5.grep命令使用复杂实例
   
-假设您正在’/usr/src/Linux/Doc’目录下搜索带字符 串’magic’的文件：
+假设您正在'/usr/src/Linux/Doc'目录下搜索带字符 串'magic'的文件：
   
 $ grep magic /usr/src/Linux/Doc/*
   
@@ -115,25 +115,25 @@ sysrq.txt:* How do I enable the magic SysRQ key?
   
 sysrq.txt:* How do I use the magic SysRQ key?
   
-其中文件’sysrp.txt’包含该字符串，讨论的是 SysRQ 的功能。
+其中文件'sysrp.txt'包含该字符串，讨论的是 SysRQ 的功能。
   
-默认情况下，’grep’只搜索当前目录。如果 此目录下有许多子目录，’grep’会以如下形式列出：
+默认情况下，'grep'只搜索当前目录。如果 此目录下有许多子目录，'grep'会以如下形式列出：
   
 grep: sound: Is a directory
   
-这可能会使’grep’ 的输出难于阅读。这里有两种解决的办法：
+这可能会使'grep' 的输出难于阅读。这里有两种解决的办法：
   
 明确要求搜索子目录：grep -r
   
 或忽略子目录：grep -d skip
   
-如果有很多 输出时，您可以通过管道将其转到’less’上阅读：
+如果有很多 输出时，您可以通过管道将其转到'less'上阅读：
   
 $ grep magic /usr/src/Linux/Documentation/* | less
   
 这样，您就可以更方便地阅读。
 
-有一点要注意，您必需提供一个文件过滤方式(搜索全部文件的话用 *)。如果您忘了，’grep’会一直等着，直到该程序被中断。如果您遇到了这样的情况，按 <CTRL c> ，然后再试。
+有一点要注意，您必需提供一个文件过滤方式(搜索全部文件的话用 *)。如果您忘了，'grep'会一直等着，直到该程序被中断。如果您遇到了这样的情况，按 <CTRL c> ，然后再试。
 
 下面还有一些有意思的命令行参数：
   
@@ -143,7 +143,7 @@ grep -l pattern files ：只列出匹配的文件名，
   
 grep -L pattern files ：列出不匹配的文件名，
   
-grep -w pattern files ：只匹配整个单词，而不是字符串的一部分(如匹配’magic’，而不是’magical’)，
+grep -w pattern files ：只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')，
   
 grep -C number pattern files ：匹配的上下文分别显示[number]行，
   
@@ -161,15 +161,15 @@ grep -c pattern files 即可查找总行数
   
 例如：
   
-grep man * 会匹配 ‘Batman’、’manic’、’man’等，
+grep man * 会匹配 'Batman'、'manic'、'man'等，
   
-grep ‘\<man’ * 匹配’manic’和’man’，但不是’Batman’，
+grep '\<man' * 匹配'manic'和'man'，但不是'Batman'，
   
-grep ‘\<man>’ 只匹配’man’，而不是’Batman’或’manic’等其他的字符串。
+grep '\<man>' 只匹配'man'，而不是'Batman'或'manic'等其他的字符串。
   
-‘^’：指匹配的字符串在行首，
+'^'：指匹配的字符串在行首，
   
-‘$’：指匹配的字符串在行 尾，
+'$'：指匹配的字符串在行 尾，
 
 Grep 命令 用法大全
 
@@ -245,7 +245,7 @@ B103303
   
 BADc2345
 
-# more size.txt | grep ‘[a-b]’ 范围 ；如[A-Z]即A，B，C一直到Z都符合要求
+# more size.txt | grep '[a-b]' 范围 ；如[A-Z]即A，B，C一直到Z都符合要求
 
 b124230
   
@@ -263,7 +263,7 @@ a013386
   
 b044525
 
-# more size.txt | grep ‘[a-b]’*
+# more size.txt | grep '[a-b]'*
 
 b124230
   
@@ -297,7 +297,7 @@ B103303
   
 BADc2345
 
-# more size.txt | grep ‘b’ 单个字符；如[A] 即A符合要求
+# more size.txt | grep 'b' 单个字符；如[A] 即A符合要求
 
 b124230
   
@@ -307,7 +307,7 @@ b103303
   
 b044525
 
-# more size.txt | grep ‘[bB]’
+# more size.txt | grep '[bB]'
 
 b124230
   
@@ -323,7 +323,7 @@ B103303
   
 BADc2345
 
-# grep ‘root’ /etc/group
+# grep 'root' /etc/group
 
 root::0:root
   
@@ -345,27 +345,27 @@ nuucp::9:root,nuucp
   
 daemon::12:root,daemon
 
-# grep ‘^root’ /etc/group 匹配正则表达式的开始行
+# grep '^root' /etc/group 匹配正则表达式的开始行
 
 root::0:root
 
-# grep ‘uucp’ /etc/group
+# grep 'uucp' /etc/group
 
 uucp::5:root,uucp
   
 nuucp::9:root,nuucp
 
-# grep ‘\<uucp’ /etc/group
+# grep '\<uucp' /etc/group
 
 uucp::5:root,uucp
 
-# grep ‘root$’ /etc/group 匹配正则表达式的结束行
+# grep 'root$' /etc/group 匹配正则表达式的结束行
 
 root::0:root
   
 mail::6:root
 
-# more size.txt | grep -i ‘b1..*3’ -i ：忽略大小写
+# more size.txt | grep -i 'b1..*3' -i ：忽略大小写
 
 b124230
   
@@ -373,7 +373,7 @@ b103303
   
 B103303
 
-# more size.txt | grep -iv ‘b1..*3’ -v ：查找不包含匹配项的行
+# more size.txt | grep -iv 'b1..*3' -v ：查找不包含匹配项的行
 
 b034325
   
@@ -401,7 +401,7 @@ M45678
   
 BADc2345
 
-# more size.txt | grep -in ‘b1..*3’
+# more size.txt | grep -in 'b1..*3'
 
 1:b124230
   
@@ -409,15 +409,15 @@ BADc2345
   
 15:B103303
 
-# grep ‘$’ /etc/init.d/nfs.server | wc -l
+# grep '$' /etc/init.d/nfs.server | wc -l
 
 128
 
-# grep ‘\$’ /etc/init.d/nfs.server | wc –l 忽略正则表达式中特殊字符的原有含义
+# grep '\$' /etc/init.d/nfs.server | wc –l 忽略正则表达式中特殊字符的原有含义
 
 15
 
-# grep ‘\$’ /etc/init.d/nfs.server
+# grep '\$' /etc/init.d/nfs.server
 
 case “$1” in
 
@@ -433,7 +433,7 @@ case “$1” in
       
 > > /usr/bin/mv -f /tmp/sharetab.$$ /etc/dfs/sharetab
       
-> > if [ -f /etc/dfs/dfstab ] && /usr/bin/egrep -v ‘^[ ]*(#|$)’
+> > if [ -f /etc/dfs/dfstab ] && /usr/bin/egrep -v '^[ ]*(#|$)'
       
 > > if [ $startnfsd -eq 0 -a -f /etc/rmmount.conf ] &&
       
@@ -457,27 +457,27 @@ their are files
   
 The end
 
-# grep ‘the’ size.txt
+# grep 'the' size.txt
 
 the test file
   
 their are files
 
-# grep ‘\<the’ size.txt
+# grep '\<the' size.txt
 
 the test file
   
 their are files
 
-# grep ‘the>’ size.txt
+# grep 'the>' size.txt
 
 the test file
 
-# grep ‘\<the>’ size.txt
+# grep '\<the>' size.txt
 
 the test file
 
-# grep ‘\<[Tt]he>’ size.txt
+# grep '\<[Tt]he>' size.txt
 
 the test file
 
@@ -547,15 +547,15 @@ grep -i “ab” data.doc #输出所有含有ab或Ab的字符串的行
 
 (1)正则表达式的应用 (注意：最好把正则表达式用单引号括起来)
   
-grep ‘[239].’ data.doc #输出所有含有以2,3或9开头的，并且是两个数字的行
+grep '[239].' data.doc #输出所有含有以2,3或9开头的，并且是两个数字的行
 
 (2)不匹配测试
   
-grep ‘^[^48]’ data.doc #不匹配行首是48的行
+grep '^[^48]' data.doc #不匹配行首是48的行
 
 (3)使用扩展模式匹配
   
-grep -E ‘219|216’ data.doc
+grep -E '219|216' data.doc
 
 (4) …
   
@@ -579,7 +579,7 @@ grep -E ‘219|216’ data.doc
 
 (1)使用
   
-grep ‘5\[[:upper:]\]\[[:upper:\]]’ data.doc #查询以5开头以两个大写字母结尾的行
+grep '5\[[:upper:]\]\[[:upper:\]]' data.doc #查询以5开头以两个大写字母结尾的行
 
 <ol start="5">
   <li>
@@ -630,40 +630,40 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
   <li>
     grep正则表达式元字符集（基本集）
  ^
- 锚定行的开始 如：’^grep’匹配所有以grep开头的行。
+ 锚定行的开始 如：'^grep'匹配所有以grep开头的行。
  $
- 锚定行的结束 如：’grep$’匹配所有以grep结尾的行。
- 匹配一个非换行符的字符 如：’gr.p’匹配gr后接一个任意字符，然后是p。
+ 锚定行的结束 如：'grep$'匹配所有以grep结尾的行。
+ 匹配一个非换行符的字符 如：'gr.p'匹配gr后接一个任意字符，然后是p。
  *
- 匹配零个或多个先前字符 如：’<em>grep’匹配所有一个或多个空格后紧跟grep的行。 .</em>一起用代表任意字符。
+ 匹配零个或多个先前字符 如：'<em>grep'匹配所有一个或多个空格后紧跟grep的行。 .</em>一起用代表任意字符。
  []
- 匹配一个指定范围内的字符，如'[Gg]rep’匹配Grep和grep。
+ 匹配一个指定范围内的字符，如'[Gg]rep'匹配Grep和grep。
  [^]
- 匹配一个不在指定范围内的字符，如：'[^A-FH-Z]rep’匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。
+ 匹配一个不在指定范围内的字符，如：'[^A-FH-Z]rep'匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。
  (..)
- 标记匹配字符，如'(love)’，love被标记为1。
+ 标记匹配字符，如'(love)'，love被标记为1。
  <
- 锚定单词的开始，如:’>
- 锚定单词的结束，如’grep>’匹配包含以grep结尾的单词的行。
+ 锚定单词的开始，如:'>
+ 锚定单词的结束，如'grep>'匹配包含以grep结尾的单词的行。
  x
- 重复字符x，m次，如：’0’匹配包含5个o的行。
+ 重复字符x，m次，如：'0'匹配包含5个o的行。
  x
- 重复字符x,至少m次，如：’o’匹配至少有5个o的行。
+ 重复字符x,至少m次，如：'o'匹配至少有5个o的行。
  x
- 重复字符x，至少m次，不多于n次，如：’o’匹配5–10个o的行。
+ 重复字符x，至少m次，不多于n次，如：'o'匹配5–10个o的行。
  w
- 匹配文字和数字字符，也就是[A-Za-z0-9]，如：’Gw*p’匹配以G后跟零个或多个文字或数字字符，然后是p。
+ 匹配文字和数字字符，也就是[A-Za-z0-9]，如：'Gw*p'匹配以G后跟零个或多个文字或数字字符，然后是p。
  W
  w的反置形式，匹配一个或多个非单词字符，如点号句号等。
  b
- 单词锁定符，如: ‘bgrepb’只匹配grep。
+ 单词锁定符，如: 'bgrepb'只匹配grep。
   </li>
   <li>
     用于egrep和 grep -E的元字符扩展集
  +
- 匹配一个或多个先前的字符。如：'[a-z]+able’，匹配一个或多个小写字母后跟able的串，如loveable,enable,disable等。
+ 匹配一个或多个先前的字符。如：'[a-z]+able'，匹配一个或多个小写字母后跟able的串，如loveable,enable,disable等。
  ?
- 匹配零个或多个先前的字符。如：’gr?p’匹配gr后跟一个或没有字符，然后是p的行。
+ 匹配零个或多个先前的字符。如：'gr?p'匹配gr后跟一个或没有字符，然后是p的行。
  a|b|c
  匹配a或b或c。如：grep|sed匹配grep或sed
  ()
@@ -704,16 +704,16 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
     
       实例
  要用好grep这个工具，其实就是要写好正则表达式，所以这里不对grep的所有功能进行实例讲解，只列几个例子，讲解一个正则表达式的写法。
- $ ls -l | grep ‘^a’
+ $ ls -l | grep '^a'
  通过管道过滤ls -l输出的内容，只显示以a开头的行。
- $ grep ‘test’ d*
+ $ grep 'test' d*
  显示所有以d开头的文件中包含test的行。
- $ grep ‘test’ aa bb cc
+ $ grep 'test' aa bb cc
  显示在aa，bb，cc文件中匹配test的行。
- $ grep ‘[a-z]’ aa
+ $ grep '[a-z]' aa
  显示所有包含每个字符串至少有5个连续小写字符的字符串的行。
- $ grep ‘w(es)t.<em>’ aa
- 如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符（.</em>），这些字符后面紧跟着另外一个es（），找到就显示该行。如果用egrep或grep -E，就不用””号进行转义，直接写成’w(es)t.*’就可以了。
+ $ grep 'w(es)t.<em>' aa
+ 如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符（.</em>），这些字符后面紧跟着另外一个es（），找到就显示该行。如果用egrep或grep -E，就不用””号进行转义，直接写成'w(es)t.*'就可以了。
     
   </li>
 </ol>

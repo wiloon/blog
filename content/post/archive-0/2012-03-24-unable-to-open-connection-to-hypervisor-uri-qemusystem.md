@@ -19,13 +19,13 @@ After I finished the install of the “kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-
 > 
 > Verify that:
   
-> - The ‘libvirtd’ daemon has been started
+> - The 'libvirtd' daemon has been started
 > 
 > And more details:
 > 
-> Unable to open connection to hypervisor URI ‘qemu:///system’:
+> Unable to open connection to hypervisor URI 'qemu:///system':
   
-> unable to connect to ‘/var/run/libvirt/libvirt-sock’, libvirtd may need to be started: Permission denied
+> unable to connect to '/var/run/libvirt/libvirt-sock', libvirtd may need to be started: Permission denied
   
 > Traceback (most recent call last):
   
@@ -35,9 +35,9 @@ After I finished the install of the “kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-
   
 > File “/usr/lib/python2.6/dist-packages/libvirt.py”, line 111, in openAuth
   
-> if ret is None:raise libvirtError(‘virConnectOpenAuth() failed’)
+> if ret is None:raise libvirtError('virConnectOpenAuth() failed')
   
-> libvirtError: unable to connect to ‘/var/run/libvirt/libvirt-sock’, libvirtd may need to be started: Permission denied
+> libvirtError: unable to connect to '/var/run/libvirt/libvirt-sock', libvirtd may need to be started: Permission denied
 
 I look into the details of the error ,and finnally I find that I got not enough permission to access the /var/run/libvirt/libvirt-sock.
 

@@ -94,7 +94,7 @@ sudo make install
 
         
         
-          That’s all.
+          That's all.
         
         
         

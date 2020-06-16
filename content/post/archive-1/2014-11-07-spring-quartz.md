@@ -13,23 +13,23 @@ tags:
 ---
 <pre class="XML">http://www.oschina.net/question/8676_9032
 
-&lt;bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"&gt;  
-       &lt;property name="triggers"&gt;  
-           &lt;list&gt;  
-              &lt;ref bean="testTrigger"/&gt;  
-           &lt;/list&gt;  
-       &lt;/property&gt;  
-       &lt;property name="autoStartup" value="true"/&gt;  
-&lt;/bean&gt;
+<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+       <property name="triggers">  
+           <list>  
+              <ref bean="testTrigger"/>  
+           </list>  
+       </property>  
+       <property name="autoStartup" value="true"/>  
+</bean>
 
 说明：Scheduler包含一个Trigger列表，每个Trigger表示一个作业。
 
 **2、Trigger的配置**
 
-<pre class="XML">&lt;bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean"&gt;  
-       &lt;property name="jobDetail" ref="testJobDetail"/&gt;  
-       &lt;property name="cronExpression" value="*/1 * * * * ?"/&gt;&lt;!-- 每隔1秒钟触发一次 --&gt;  
-&lt;/bean&gt;
+<pre class="XML"><bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">  
+       <property name="jobDetail" ref="testJobDetail"/>  
+       <property name="cronExpression" value="*/1 * * * * ?"/><!-- 每隔1秒钟触发一次 -->  
+</bean>
 
 说明：
 
@@ -87,12 +87,12 @@ tags:
 
 **3、JobDetail的配置**
 
-<pre class="XML">&lt;bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"&gt;   
-        &lt;property name="targetObject" ref="testJob"/&gt;  
-        &lt;property name="targetMethod" value="execute"/&gt;  
-        &lt;property name="concurrent" value="false"/&gt;
-        &lt;!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 --&gt;  
-&lt;/bean&gt;
+<pre class="XML"><bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">   
+        <property name="targetObject" ref="testJob"/>  
+        <property name="targetMethod" value="execute"/>  
+        <property name="concurrent" value="false"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->  
+</bean>
 
 **4、业务类的配置**
 

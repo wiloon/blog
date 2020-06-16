@@ -270,7 +270,7 @@ prefix + file
 
 
 
-continue; /\* Loop/switch isn&#8217;t completed \*/
+continue; /\* Loop/switch isn't completed \*/
 
 
 

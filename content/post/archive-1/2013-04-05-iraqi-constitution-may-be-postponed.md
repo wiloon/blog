@@ -20,4 +20,4 @@ a sunni member of the committee, saleh al-mutlaq, suggested postponing a decisio
   
 "we will wait for drafting points of disagreement until there is a better atmosphere," kubba said. the constitution should be approved by parliament by aug. 15 and submitted to the voters in a referendum two months later.
   
-framers of iraq’s new constitution expect to submit a draft in time for parliament to meet an aug. 15 deadline for approval, but decisions on some key points may be deferred until later, the government spokesman said sunday.
+framers of iraq's new constitution expect to submit a draft in time for parliament to meet an aug. 15 deadline for approval, but decisions on some key points may be deferred until later, the government spokesman said sunday.

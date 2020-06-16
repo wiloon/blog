@@ -44,7 +44,7 @@ categories:
   
   <ol start="1">
     <li>
-      String script = "<script>alert(&#8216;ok!&#8217;);</script>";
+      String script = "<script>alert('ok!');</script>";
     </li>
     <li>
               response.getOutputStream().write(script.getBytes("utf-8"));
@@ -52,7 +52,7 @@ categories:
   </ol>
 
 
-alert(&#8216;ok&#8217;)将在当前页执行。原理是form提交后的结果在target指定的iframe里执行
+alert('ok')将在当前页执行。原理是form提交后的结果在target指定的iframe里执行
   
 而iframe将其隐藏。这样提交后的效果就和无刷新的效果一样。
 

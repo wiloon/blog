@@ -18,8 +18,8 @@ Connect your phone to the computer.
   
 Go to the folder where you have the modified files, then hold shift and right click in a blank space, click on "open command prompt here" in the menu that pops up.
   
-In the command prompt: type "fastboot flash boot [name of the file here]" and then press enter. If you&#8217;re flashing TWRP, replace boot with recovery. (Linux users, make sure you&#8217;re running as root)
+In the command prompt: type "fastboot flash boot [name of the file here]" and then press enter. If you're flashing TWRP, replace boot with recovery. (Linux users, make sure you're running as root)
   
-Edit: With the new EX zip, you shouldn&#8217;t need to flash the boot.img anymore, you can just flash twrp, and then flash EX in twrp.
+Edit: With the new EX zip, you shouldn't need to flash the boot.img anymore, you can just flash twrp, and then flash EX in twrp.
   
 Boot up your phone, and hopefully it should work!

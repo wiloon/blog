@@ -20,9 +20,9 @@ detached HEAD 具体示意图是这样:(网络图片)
 
 $ git checkout origin/master
   
-Note: checking out &#8216;origin/master&#8217;.
+Note: checking out 'origin/master'.
 
-You are in &#8216;detached HEAD&#8217; state. You can look around, make experimental
+You are in 'detached HEAD' state. You can look around, make experimental
   
 changes and commit them, and you can discard any commits you make in this
   
@@ -98,7 +98,7 @@ HEAD指向了一个未知的分支，再返回上面的提示，可以用 git ch
 
 $ git checkout -b temp
   
-Switched to a new branch &#8216;temp&#8217;
+Switched to a new branch 'temp'
   
 $ git branch
     
@@ -110,9 +110,9 @@ master
   
 $ git checkout master
   
-Switched to branch &#8216;master&#8217;
+Switched to branch 'master'
   
-Your branch is up-to-date with &#8216;origin/master&#8217;.
+Your branch is up-to-date with 'origin/master'.
   
 $ git merge temp
   
@@ -156,9 +156,9 @@ $ git checkout dev
   
 Previous HEAD position was 3e74a7a&#8230; merge bug fixed in issue1
   
-Switched to branch &#8216;dev&#8217;
+Switched to branch 'dev'
   
-Your branch is up-to-date with &#8216;origin/dev&#8217;.
+Your branch is up-to-date with 'origin/dev'.
   
 $ git branch
   

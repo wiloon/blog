@@ -351,13 +351,13 @@ mvn test-compile
 
 编译后查看 target\classes 目录中的字节码文件，可以发现，SampleAspect.aj 也被编译成了 java 字节码。在编译过程中的输出信息可以看出切点织入情况：
 
-[INFO] Join point &#8216;method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:23) advised by around advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:30)
+[INFO] Join point 'method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:23) advised by around advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:30)
 
-[INFO] Join point &#8216;method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:23) advised by after advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:41)
+[INFO] Join point 'method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:23) advised by after advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:41)
 
-[INFO] Join point &#8216;method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:31) advised by after advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:41)
+[INFO] Join point 'method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:31) advised by after advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:41)
 
-[INFO] Join point &#8216;method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:31) advised by before advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:54)
+[INFO] Join point 'method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:31) advised by before advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:54)
 
 注意：虽然 Eclipse 安装了 AJDT 插件，但有时候可能编译的字节码中并没有织入切面，所以建议还是执行 maven 命令进行编译。
 

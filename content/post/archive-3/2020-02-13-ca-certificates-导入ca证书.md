@@ -78,7 +78,7 @@ example.com/Example Root.ca
 
 5.最后，用root权限运行update-ca-certificates 命令，它会重新收集证书并更新 /etc/ssl/certs/ca-certificates.crt文件
 
-After these steps many utilities (like wget, for example) will be able to properly utilise the newly-installed certificate. Keep in mind that some applications do not use the certificates located withing the /etc/ssl/certs/ directory (like Firefox, or Thunderbird), and in these cases you&#8217;ll have to import the certificate manually into each one of them.
+After these steps many utilities (like wget, for example) will be able to properly utilise the newly-installed certificate. Keep in mind that some applications do not use the certificates located withing the /etc/ssl/certs/ directory (like Firefox, or Thunderbird), and in these cases you'll have to import the certificate manually into each one of them.
   
 至此，绝大多数程序就能访问您的新证书了。少数程序如Firefox、Thunderbird等不读取/etc/ssl/certs目录下的证书，则需要您在相关程序中去单独导入。
   

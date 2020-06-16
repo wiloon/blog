@@ -133,7 +133,7 @@ BusName=org.freedesktop.NetworkManager
 
 ExecStart=/usr/sbin/NetworkManager &#8211;no-daemon
 
-# NM doesn&#8217;t want systemd to kill its children for it
+# NM doesn't want systemd to kill its children for it
 
 KillMode=process
 
@@ -213,39 +213,39 @@ Install主要包含以下内容：
   
 service systemctl Description
 
-service name start &#8212;-> systemctl start name.service ●Starts a service.
+service name start --> systemctl start name.service ●Starts a service.
 
-service name stop &#8212;-> systemctl stopname.service ●Stops a service.
+service name stop --> systemctl stopname.service ●Stops a service.
 
-service name restart &#8212;-> systemctl restartname.service ●Restarts a service.
+service name restart --> systemctl restartname.service ●Restarts a service.
 
-service name condrestart &#8212;->
+service name condrestart -->
 
 systemctl try-restart name.service ●Restarts a service only if it is running.
 
-service name reload &#8212;-> systemctl reloadname.serviceReloads configuration.
+service name reload --> systemctl reloadname.serviceReloads configuration.
 
-service name status &#8212;-> systemctl status name.service
+service name status --> systemctl status name.service
 
 systemctl is-active name.service
 
 ●Checks if a service isrunning.
 
-service &#8211;status-all &#8212;-> systemctl list-units –type service &#8211;all
+service &#8211;status-all --> systemctl list-units –type service &#8211;all
 
 ●Displays the status of all services.chkconfig systemctl
 
-chkconfig name on &#8212;-> systemctl enablename.service ●Enables a service.
+chkconfig name on --> systemctl enablename.service ●Enables a service.
 
-chkconfig name off &#8212;-> systemctl disablename.service ●Disables a service.
+chkconfig name off --> systemctl disablename.service ●Disables a service.
 
-chkconfig &#8211;list name &#8212;-> systemctl statusname.service
+chkconfig &#8211;list name --> systemctl statusname.service
 
 system ctl is-enabled name.service
 
 ●Checks if a service is enabled.
 
-chkconfig &#8211;list &#8212;-> systemctl list-unit-files –type service
+chkconfig &#8211;list --> systemctl list-unit-files –type service
 
 ●Lists all services and checks if they are enabled.
 
@@ -287,7 +287,7 @@ Step4：将my-demo.service注册到系统当中执行命令：
 
 # systemctl enable my-demo.service
 
-输出：ln -s&#8217;/usr/lib/systemd/system/my-demo.service&#8217; &#8216;/etc/systemd/system/multi-user.target.wants/my-demo.service&#8217;
+输出：ln -s'/usr/lib/systemd/system/my-demo.service' '/etc/systemd/system/multi-user.target.wants/my-demo.service'
 
 输出表明，注册的过程实际上就是将服务链接到/etc/systemd/system/目录下。
 

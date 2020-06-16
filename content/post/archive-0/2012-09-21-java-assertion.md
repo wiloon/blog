@@ -39,7 +39,7 @@ assertion(断言)在软件开发中是一种常用的调试方式，很多开发
 
   1. assert　　0 < value;
   2. assert　　0 < value:"value="+value;
-  3. assert　　ref != null:"ref doesn&#8217;t equal null";
+  3. assert　　ref != null:"ref doesn't equal null";
   4. assert　　isBalanced();
 
 <a name="N1009B"></a>1．4) 编译
@@ -462,7 +462,7 @@ class Derived
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td>
-              assert  value&gt;=0:"Value should be bigger than 0:"+value;
+              assert  value>=0:"Value should be bigger than 0:"+value;
             </td>
           </tr>
         </table>
@@ -497,7 +497,7 @@ class Derived
             <a name="resources"></a>参考资料
             
               1. JSR 41 A Simple Assertion Facility <http://jcp.org/jsr/detail/41.jsp>
-              2. Wm. Paul Rogers, J2SE 1.4 premieres Java&#8217;s assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
+              2. Wm. Paul Rogers, J2SE 1.4 premieres Java's assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
               3. J2SE 1.4 Documents, Programming With Assertions <http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html>
               4. John Zukowski, Mastering Java 2, J2SE 1.4
             

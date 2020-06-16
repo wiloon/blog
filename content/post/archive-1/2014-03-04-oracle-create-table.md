@@ -92,9 +92,9 @@ CREATE TABLE region(
   
 ID number(2) NOT NULL PRIMARY KEY,
   
-postcode number(6) default &#8216;0&#8217; NOT NULL,
+postcode number(6) default '0' NOT NULL,
   
-areaname varchar2(30) default &#8216; &#8216; NOT NULL);
+areaname varchar2(30) default ' ' NOT NULL);
 
 4. 创建表时的命名规则和注意事项
   

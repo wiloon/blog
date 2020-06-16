@@ -26,7 +26,7 @@ docker run -v $OVPN_DATA:/etc/openvpn -d -p 192.168.100.230:1194:1194/udp --cap-
 docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm -it mjenz/rpi-openvpn easyrsa build-client-full client0 nopass
 
 # Retrieve the client configuration with embedded certificates
-docker run -v $OVPN_DATA:/etc/openvpn --rm mjenz/rpi-openvpn ovpn_getclient client0 &gt; client0.ovpn
+docker run -v $OVPN_DATA:/etc/openvpn --rm mjenz/rpi-openvpn ovpn_getclient client0 > client0.ovpn
 
 docker run -v $OVPN_DATA:/etc/openvpn -p 1194:1194/udp --privileged -e DEBUG=1 mjenz/rpi-openvpn
 

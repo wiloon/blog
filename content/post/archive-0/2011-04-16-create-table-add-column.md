@@ -103,9 +103,9 @@ alter table t1 add primary key (id);
 
 -- date format
 select date_format(create_time,'%Y-%c-%d'),count(*) from t_market_data group by date_format(create_time,'%Y%c%d');
-show variables like ‘max_connections’;
-show global status like ‘Max_used_connections’;
-show status like ‘Threads%’;
+show variables like 'max_connections';
+show global status like 'Max_used_connections';
+show status like 'Threads%';
 
 -- length
 select length(xxx) from txxx;
@@ -131,7 +131,7 @@ Threads\_connected 跟show processlist结果相同，表示当前连接数。准
   
 这是是查询数据库当前设置的最大连接数
   
-mysql> show variables like ‘%max_connections%’;
+mysql> show variables like '%max_connections%';
   
 +—————–+——-+
   
@@ -277,11 +277,11 @@ mysql -uusername -ppassword db\_name < db\_name.sql
   
 日期格式化函数date_format()
   
-mysql> select date_format(now(),’%Y’);
+mysql> select date_format(now(),'%Y');
   
 +————————-+
   
-| date_format(now(),’%Y’) |
+| date_format(now(),'%Y') |
   
 +————————-+
   
@@ -293,9 +293,9 @@ mysql> select date_format(now(),’%Y’);
   
 扩展： %Y：年 %c：月 %d：日 %H：小时 %i：分钟 %s：秒
   
-mysql> select date_format(now(),’%Y-%c-%d %h:%i:%s’); +—————————————-+
+mysql> select date_format(now(),'%Y-%c-%d %h:%i:%s'); +—————————————-+
   
-| date_format(now(),’%Y-%c-%d %h:%i:%s’) |
+| date_format(now(),'%Y-%c-%d %h:%i:%s') |
   
 +—————————————-+
   
@@ -329,7 +329,7 @@ Your MySQL connection id is 5
   
 Server version: 5.1.30-community MySQL Community Server (GPL)
 
-Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the buffer.
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
 
 mysql> CREATE DATABASE test DEFAULT CHARACTER SET utf8 COLLATE utf8\_general\_ci;
   

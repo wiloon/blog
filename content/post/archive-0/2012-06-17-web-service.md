@@ -137,7 +137,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 实际上，你可以使用不同的消息格式对port type进行访问。你已经见过的消息格式是”Simple Object Access Protocol( SOAP)”格式。也就是说，stringUtil的 port type 也可以支持普通文本格式：
 
-concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
+concat(s1='abc', s2='123&#8242;)
 
 除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( "binding")：
 
@@ -169,7 +169,7 @@ concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
 同样，你可以向IANA提交一个申请用于注册你的internet域名，比如像foo.com。当被批准后，你就可以使用URNs ，比如urn:foo.com:xyz去唯一的标识一个对象xyz。xyz的含义和格式完全由你决定。比如你可以使用urn:foo.com:product:123 表示产品#123，或者urn:foo.com:patent/123标识一个专利代码。
 
-尽管，这样会产生一些工作量。只要你已经注册了一个域名foo.com，其他人不可能在其URN’s中使用。
+尽管，这样会产生一些工作量。只要你已经注册了一个域名foo.com，其他人不可能在其URN's中使用。
 
 一个XML 命名空间必须是一个URI。你可以使用URL或者URN。在作用上它们没有什么不同。比如，你可以使用urn:ttdev.com:ss代替http:    ttdev.com/ss作为你的目标命名空间，这对你的web service 一点儿影响都没有。
 

@@ -115,7 +115,7 @@ jackson-mapper-asl-1.9.2.jar
 
 在SpringMVC中可以在Controller的某个方法上加**@ResponseBody**注解，表示该方法的返回结果直接写入HTTP response body中。
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+--------------
   
 **遇到的问题：**
 
@@ -133,7 +133,7 @@ jackson-mapper-asl-1.9.2.jar
   
 （如果你只拦截htm开头的链接，可以在web.xml里新增一个url-pattern为*.json的servlet即可。）**
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+-------------&#8211;
   
 参考：<a href="http://digdata.me/archives/96/" target="_blank">http://digdata.me/archives/96/</a>
 

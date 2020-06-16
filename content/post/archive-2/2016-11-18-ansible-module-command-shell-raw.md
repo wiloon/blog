@@ -216,7 +216,7 @@ lixc@ansible:~$ grep  -n "module_name&#8221; /etc/ansible/ansible.cfg
   
 59:#module_name = command
   
-lixc@ansible:~$ ansible salt  -a &#8216;ls /tmp&#8217;
+lixc@ansible:~$ ansible salt  -a 'ls /tmp'
   
 10.240.162.112 | success | rc=0 >>
   
@@ -234,7 +234,7 @@ OK，其实command模块，我们平时使用的命令，都可以在-a参数后
 
 啥区别呢？区别是，command不能用shell的一些特性，看下面这个例子，大伙就知道了。
 
-lixc@ansible:~$ ansible salt-master  -a &#8216;ls /tmp/_&#8216;
+lixc@ansible:~$ ansible salt-master  -a 'ls /tmp/_'
   
 salt-master | FAILED | rc=2 >>
   
@@ -242,7 +242,7 @@ ls: cannot access /tmp/_: No such file or directory
   
 看到了吧，command弄不了shell中的*,那有谁可以弄？shell这个模块可以，看个例子
 
-lixc@ansible:~$ ansible salt -m shell -a &#8216;ls /tmp/*&#8217; -s
+lixc@ansible:~$ ansible salt -m shell -a 'ls /tmp/*' -s
   
 salt-master | success | rc=0 >>
   
@@ -254,13 +254,13 @@ salt-master | success | rc=0 >>
 
 在这里楼主还有一个疑问。官网上说，command使用不了nodes上的环境变量，但是楼主测了下，居然可以用，难不成是官方文档太老了，没来得及更新？
 
-lixc@ansible:~$ ansible salt-master -m shell -a &#8216;echo $HOME&#8217;
+lixc@ansible:~$ ansible salt-master -m shell -a 'echo $HOME'
   
 salt-master | success | rc=0 >>
   
 /home/lixc
 
-lixc@ansible:~$ ansible salt-master  -a &#8216;echo $HOME&#8217;
+lixc@ansible:~$ ansible salt-master  -a 'echo $HOME'
   
 salt-master | success | rc=0 >>
   
@@ -278,7 +278,7 @@ raw还有一个拿手好戏，就是你的有些机器压根就装不了python�
 
 看个例子。
 
-lixc@ansible:~$ ansible  10.240.162.250 -a &#8216;ls /tmp/&#8217; -u root -k
+lixc@ansible:~$ ansible  10.240.162.250 -a 'ls /tmp/' -u root -k
   
 SSH password:
   
@@ -292,7 +292,7 @@ SSH password:
   
 }
 
-lixc@ansible:~$ ansible  10.240.162.250 -m shell -a &#8216;ls /tmp/*&#8217; -u root -k
+lixc@ansible:~$ ansible  10.240.162.250 -m shell -a 'ls /tmp/*' -u root -k
   
 SSH password:
   
@@ -306,7 +306,7 @@ SSH password:
   
 }
 
-lixc@ansible:~$ ansible  10.240.162.250 -m raw -a &#8216;ls /tmp/*&#8217; -u root -k
+lixc@ansible:~$ ansible  10.240.162.250 -m raw -a 'ls /tmp/*' -u root -k
   
 SSH password:
   
@@ -316,7 +316,7 @@ SSH password:
   
 看到了吧，我新装了一台debian的机器，里面没装python，command和shell模块都不能用了，raw照样OK。现在咱们把python给装上。
 
-lixc@ansible:~$ ansible  10.240.162.250 -m raw -a &#8216;aptitude -y install python&#8217; -u root -k >/dev/null
+lixc@ansible:~$ ansible  10.240.162.250 -m raw -a 'aptitude -y install python' -u root -k >/dev/null
   
 SSH password:
   
@@ -324,7 +324,7 @@ lixc@ansible:~$
   
 python装好了，下面咱们看看还能玩command和shell吗？
 
-lixc@ansible:~$ ansible  10.240.162.112  -a &#8216;ls /tmp/&#8217; -u root -k
+lixc@ansible:~$ ansible  10.240.162.112  -a 'ls /tmp/' -u root -k
   
 SSH password:
   
@@ -332,7 +332,7 @@ SSH password:
   
 test
 
-lixc@ansible:~$ ansible  10.240.162.112 -m shell -a &#8216;ls /tmp/&#8217; -u root -k
+lixc@ansible:~$ ansible  10.240.162.112 -m shell -a 'ls /tmp/' -u root -k
   
 SSH password:
   
@@ -358,7 +358,7 @@ OK，三剑客聊完了。
   
 拷贝个文件，拷贝之前要备份，并修改文件到指定的属性。
 
-lixc@ansible:~$ ansible salt-master -m copy -a &#8216;src=/etc/sudoers dest=/etc/sudoers owner=root group=root mode=440 backup=yes&#8217; -s
+lixc@ansible:~$ ansible salt-master -m copy -a 'src=/etc/sudoers dest=/etc/sudoers owner=root group=root mode=440 backup=yes' -s
   
 salt-master | success >> {
   
@@ -388,19 +388,19 @@ salt-master | success >> {
   
 OK，查看一下是不是按照要求来的
 
-lixc@ansible:~$ ansible salt-master -m shell -a &#8216;ls -l /etc/sudoers*&#8217;
+lixc@ansible:~$ ansible salt-master -m shell -a 'ls -l /etc/sudoers*'
   
 salt-master | success | rc=0 >>
   
--r&#8211;r&#8212;&#8211; 1 root root 1742 Jun 27 15:04 /etc/sudoers
+-r&#8211;r-&#8211; 1 root root 1742 Jun 27 15:04 /etc/sudoers
   
--r&#8211;r&#8212;&#8211; 1 root root  700 Jun 26 16:09 /etc/sudoers.2014-06-27@15:04~
+-r&#8211;r-&#8211; 1 root root  700 Jun 26 16:09 /etc/sudoers.2014-06-27@15:04~
   
 是对的，下面看看咋样修改文件属性，创建文件吧
 
 先弄个连接文件
 
-lixc@ansible:~$ ansible  salt-master -m file -a &#8216;src=/etc/sudoers  dest=/tmp/sudoers mode=440 owner=lixc group=lixc state=link&#8217;
+lixc@ansible:~$ ansible  salt-master -m file -a 'src=/etc/sudoers  dest=/tmp/sudoers mode=440 owner=lixc group=lixc state=link'
   
 salt-master | success >> {
   
@@ -426,7 +426,7 @@ salt-master | success >> {
   
 }
 
-lixc@ansible:~$ ansible salt-master -m shell -a &#8216;ls -l /tmp/sudoers&#8217;
+lixc@ansible:~$ ansible salt-master -m shell -a 'ls -l /tmp/sudoers'
   
 salt-master | success | rc=0 >>
   
@@ -434,7 +434,7 @@ lrwxrwxrwx 1 lixc lixc 12 Jun 27 15:15 /tmp/sudoers -> /etc/sudoers
   
 创建个文件
 
-lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/tmp/lixc.log  owner=lixc group=lixc mode=644 state=touch&#8217;
+lixc@ansible:~$ ansible salt-master -m file -a 'dest=/tmp/lixc.log  owner=lixc group=lixc mode=644 state=touch'
   
 salt-master | success >> {
   
@@ -458,7 +458,7 @@ salt-master | success >> {
   
 }
 
-lixc@ansible:~$ ansible salt-master -m shell -a &#8216;ls -l /tmp/lixc.log&#8217;
+lixc@ansible:~$ ansible salt-master -m shell -a 'ls -l /tmp/lixc.log'
   
 salt-master | success | rc=0 >>
   
@@ -466,7 +466,7 @@ salt-master | success | rc=0 >>
   
 递归创建个文件夹
 
-lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/tmp/a/b/c  owner=lixc group=lixc mode=755 state=directory&#8217;
+lixc@ansible:~$ ansible salt-master -m file -a 'dest=/tmp/a/b/c  owner=lixc group=lixc mode=755 state=directory'
   
 salt-master | success >> {
   
@@ -492,17 +492,17 @@ salt-master | success >> {
   
 查看一下结果，
 
-lixc@ansible:~$ ansible salt-master  -a &#8216;tree /tmp/a&#8217;
+lixc@ansible:~$ ansible salt-master  -a 'tree /tmp/a'
   
 salt-master | success | rc=0 >>
   
 /tmp/a
   
-`-- b`&#8212; c
+`-- b`- c
   
 删除刚才那个文件夹
 
-lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/tmp/a/   state=absent&#8217;
+lixc@ansible:~$ ansible salt-master -m file -a 'dest=/tmp/a/   state=absent'
   
 salt-master | success >> {
   
@@ -516,7 +516,7 @@ salt-master | success >> {
   
 查看一下结果
 
-lixc@ansible:~$ ansible salt-master  -a &#8216;tree /tmp/a&#8217;
+lixc@ansible:~$ ansible salt-master  -a 'tree /tmp/a'
   
 salt-master | success | rc=0 >>
   
@@ -526,7 +526,7 @@ salt-master | success | rc=0 >>
 
 OK，先建立个mysql用户吧
 
-lixc@ansible:~$ ansible salt-master -m user -a &#8216;name=mysql shell=/sbin/nologin createhome=no&#8217; -s
+lixc@ansible:~$ ansible salt-master -m user -a 'name=mysql shell=/sbin/nologin createhome=no' -s
   
 salt-master | success >> {
   
@@ -554,13 +554,13 @@ salt-master | success >> {
   
 好，安装mysql
 
-lixc@ansible:~$ ansible salt-master -m apt -a &#8216;name=mysql-server state=installed&#8217; -s  >/dev/null
+lixc@ansible:~$ ansible salt-master -m apt -a 'name=mysql-server state=installed' -s  >/dev/null
   
 lixc@ansible:~$
   
 好，配置/etc/mysql归mysql用户使用
 
-lixc@ansible:~$ ansible salt-master -m file -a &#8216;dest=/etc/mysql mode=644 owner=mysql group=mysql&#8217; -s
+lixc@ansible:~$ ansible salt-master -m file -a 'dest=/etc/mysql mode=644 owner=mysql group=mysql' -s
   
 salt-master | success >> {
   
@@ -586,7 +586,7 @@ salt-master | success >> {
   
 启动mysql服务
 
-lixc@ansible:~$ ansible salt-master -m service -a &#8216;name=mysql state=started&#8217; -s
+lixc@ansible:~$ ansible salt-master -m service -a 'name=mysql state=started' -s
   
 salt-master | success >> {
   
@@ -602,7 +602,7 @@ OK，安装好，再走一遍删除的流程吧
 
 停止服务
 
-lixc@ansible:~$ ansible salt-master -m service -a &#8216;name=mysql state=stopped&#8217; -s
+lixc@ansible:~$ ansible salt-master -m service -a 'name=mysql state=stopped' -s
   
 salt-master | success >> {
   
@@ -616,13 +616,13 @@ salt-master | success >> {
   
 删除mysql
 
-lixc@ansible:~$ ansible salt-master -m apt -a &#8216;name=mysql-server state=absent&#8217; -s >/dev/null
+lixc@ansible:~$ ansible salt-master -m apt -a 'name=mysql-server state=absent' -s >/dev/null
   
 lixc@ansible:~$
   
 删除mysql用户
 
-lixc@ansible:~$ ansible salt-master -m user -a &#8216;name=mysql state=absent&#8217; -s
+lixc@ansible:~$ ansible salt-master -m user -a 'name=mysql state=absent' -s
   
 salt-master | success >> {
   
@@ -642,7 +642,7 @@ OK，完成了，过程都是瞎掰的，主要是想测测ansible的功能的�
 
 还有一个后台执行的功能。-B 30是设置后台执行时间为30秒，-P2是没两秒钟报告一次状态，这个当你的任务要执行很长时间的时候可以用。
 
-lixc@ansible:~$ ansible salt-master -m apt -a &#8216;name=apache2 state=installed&#8217; -s -B 30 -P2 >>/dev/null
+lixc@ansible:~$ ansible salt-master -m apt -a 'name=apache2 state=installed' -s -B 30 -P2 >>/dev/null
   
 一叶浮萍归大海，人生何处不相逢，该聊到ansible的facts了，这东西就和salt里面的grains一个样。
 

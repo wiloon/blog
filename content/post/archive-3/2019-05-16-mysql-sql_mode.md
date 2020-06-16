@@ -32,29 +32,29 @@ SELECT @@SESSION.sql_mode;
   
 mysql> SELECT @@GLOBAL.sql_mode;
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++--------------&#8211;+
   
 | @@GLOBAL.sql_mode |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++--------------&#8211;+
   
 | STRICT\_TRANS\_TABLES,NO\_ENGINE\_SUBSTITUTION |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++--------------&#8211;+
   
 1 row in set (0.00 sec)
 
 mysql> SELECT @@SESSION.sql_mode;
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++--------------&#8211;+
   
 | @@SESSION.sql_mode |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++--------------&#8211;+
   
 | STRICT\_TRANS\_TABLES,NO\_ENGINE\_SUBSTITUTION |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++--------------&#8211;+
   
 1 row in set (0.00 sec)
   
@@ -64,9 +64,9 @@ mysql> SELECT @@SESSION.sql_mode;
   
 2
   
-SET GLOBAL sql_mode = &#8216;modes&#8230;&#8217;;
+SET GLOBAL sql_mode = 'modes&#8230;';
   
-SET SESSION sql_mode = &#8216;modes&#8230;&#8217;;
+SET SESSION sql_mode = 'modes&#8230;';
   
 my.cnf中配置sql-mode
   
@@ -134,6 +134,6 @@ ORACLE的sql\_mode设置等同：PIPES\_AS\_CONCAT, ANSI\_QUOTES, IGNORE\_SPACE,
 
 [mysqld]
   
-sql\_mode=&#8217;ONLY\_FULL\_GROUP\_BY,NO\_AUTO\_VALUE\_ON\_ZERO,STRICT\_TRANS\_TABLES,NO\_ZERO\_IN\_DATE,NO\_ZERO_DATE,
+sql\_mode='ONLY\_FULL\_GROUP\_BY,NO\_AUTO\_VALUE\_ON\_ZERO,STRICT\_TRANS\_TABLES,NO\_ZERO\_IN\_DATE,NO\_ZERO_DATE,
   
 ERROR\_FOR\_DIVISION\_BY\_ZERO,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITU

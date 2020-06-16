@@ -19,7 +19,7 @@ at+具体点钟，另外固定结构：at night ，at noon
 
 <pre id="answer-content-730248919" class="answer-text mb-10">1. at指时间表示： 
 （1）时间的一点、时刻等。如：
-They came home at sunrise （at noon, at midnight, at ten o’clock, at daybreak, at dawn）. 
+They came home at sunrise （at noon, at midnight, at ten o'clock, at daybreak, at dawn）. 
 （2）较短暂的一段时间。可指某个节日或被认为是一年中标志大事的日子。如： 
 He went home at Christmas （at New Year, at the Spring Festival, at night）. 
 2. in指时间表示： 
@@ -30,9 +30,9 @@ He will arrive in two hours.
 谓语动词为延续性动词时，in意为“在……以内”。如： 
 These products will be produced in a month. 
 注意：after用于将来时间也指一段时间之后，但其后的时间是“一点”，而不是“一段”。如： 
-He will arrive after two o’clock. 
+He will arrive after two o'clock. 
 3. on指时间表示： 
 （1）具体的时日和一个特定的时间，如某日、某节日、星期几等。如： 
 On Christmas Day（On May 4th）, there will be a celebration. 
 （2）在某个特定的早晨、下午或晚上。如： 
-He arrived at 10 o’clock on the night of the 5th.
+He arrived at 10 o'clock on the night of the 5th.

@@ -56,7 +56,7 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 （图片来自：http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html）
 
-本节参考文献：http://baike.baidu.com/view/133754.htm?fr=aladdin&#8212;&#8211;百度百科
+本节参考文献：http://baike.baidu.com/view/133754.htm?fr=aladdin-&#8211;百度百科
 
 注：由于本文主要是讲解Java中TreeMap，所以并没有对红黑树进行非常深入的了解和研究，如果诸位想对其进行更加深入的研究Lz提供几篇较好的博文：
 
@@ -182,7 +182,7 @@ public V put(K key, V value) { //用t表示二叉树的当前节点 Entry<K,V> t
 
 左旋：rotateLeft()
 
-所谓左旋转，就是将新增节点（N）当做其父节点（P），将其父节点P当做新增节点（N）的左子节点。即：G.left &#8212;> N ,N.left &#8212;> P。
+所谓左旋转，就是将新增节点（N）当做其父节点（P），将其父节点P当做新增节点（N）的左子节点。即：G.left -> N ,N.left -> P。
 
 复制代码
   
@@ -192,7 +192,7 @@ private void rotateLeft(Entry<K,V> p) { if (p != null) { //获取P的右子节�
   
 右旋：rotateRight()
 
-所谓右旋转即，P.right &#8212;> G、G.parent &#8212;> P。
+所谓右旋转即，P.right -> G、G.parent -> P。
 
 复制代码
   
@@ -258,7 +258,7 @@ private static <K,V> void setColor(Entry<K,V> p, boolean c) { if (p != null) p.c
 
 情况一、无子节点（红色节点）
 
-这种情况对该节点直接删除即可，不会影响树的结构。因为该节点为叶子节点它不可能存在子节点&#8212;&#8211;如子节点为黑，则违反黑节点数原则（规定5），为红，则违反“颜色”原则（规定4）。 如上图（2.2）。
+这种情况对该节点直接删除即可，不会影响树的结构。因为该节点为叶子节点它不可能存在子节点-&#8211;如子节点为黑，则违反黑节点数原则（规定5），为红，则违反“颜色”原则（规定4）。 如上图（2.2）。
 
 情况二、有一个子节点
 
@@ -316,7 +316,7 @@ TreeMap deleteEntry()方法实现分析
 
 复制代码
   
-private void deleteEntry(Entry<K,V> p) { modCount++; //修改次数 +1 size&#8211;; //元素个数 -1 /\* \* 被删除节点的左子树和右子树都不为空，那么就用 p节点的中序后继节点代替 p 节点 \* successor(P)方法为寻找P的替代节点。规则是右分支最左边，或者 左分支最右边的节点 \* &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;（1） _/ if (p.left != null && p.right != null) { Entry<K,V> s = successor(p); p.key = s.key; p.value = s.value; p = s; } //replacement为替代节点，如果P的左子树存在那么就用左子树替代，否则用右子树替代 Entry<K,V> replacement = (p.left != null ? p.left : p.right); /_ \* 删除节点，分为上面提到的三种情况 \* &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;（2） _/ //如果替代节点不为空 if (replacement != null) { replacement.parent = p.parent; /_ _replacement来替代P节点 */ //若P没有父节点，则跟节点直接变成replacement if (p.parent == null) root = replacement; //如果P为左节点，则用replacement来替代为左节点 else if (p == p.parent.left) p.parent.left = replacement; //如果P为右节点，则用replacement来替代为右节点 else p.parent.right = replacement; //同时将P节点从这棵树中剔除掉 p.left = p.right = p.parent = null; /_ \* 若P为红色直接删除，红黑树保持平衡 \* 但是若P为黑色，则需要调整红黑树使其保持平衡 */ if (p.color == BLACK) fixAfterDeletion(replacement); } else if (p.parent == null) { //p没有父节点，表示为P根节点，直接删除即可 root = null; } else { //P节点不存在子节点，直接删除即可 if (p.color == BLACK) //如果P节点的颜色为黑色，对红黑树进行调整 fixAfterDeletion(p); //删除P节点 if (p.parent != null) { if (p == p.parent.left) p.parent.left = null; else if (p == p.parent.right) p.parent.right = null; p.parent = null; } } }
+private void deleteEntry(Entry<K,V> p) { modCount++; //修改次数 +1 size&#8211;; //元素个数 -1 /\* \* 被删除节点的左子树和右子树都不为空，那么就用 p节点的中序后继节点代替 p 节点 \* successor(P)方法为寻找P的替代节点。规则是右分支最左边，或者 左分支最右边的节点 \* -------（1） _/ if (p.left != null && p.right != null) { Entry<K,V> s = successor(p); p.key = s.key; p.value = s.value; p = s; } //replacement为替代节点，如果P的左子树存在那么就用左子树替代，否则用右子树替代 Entry<K,V> replacement = (p.left != null ? p.left : p.right); /_ \* 删除节点，分为上面提到的三种情况 \* -------&#8211;（2） _/ //如果替代节点不为空 if (replacement != null) { replacement.parent = p.parent; /_ _replacement来替代P节点 */ //若P没有父节点，则跟节点直接变成replacement if (p.parent == null) root = replacement; //如果P为左节点，则用replacement来替代为左节点 else if (p == p.parent.left) p.parent.left = replacement; //如果P为右节点，则用replacement来替代为右节点 else p.parent.right = replacement; //同时将P节点从这棵树中剔除掉 p.left = p.right = p.parent = null; /_ \* 若P为红色直接删除，红黑树保持平衡 \* 但是若P为黑色，则需要调整红黑树使其保持平衡 */ if (p.color == BLACK) fixAfterDeletion(replacement); } else if (p.parent == null) { //p没有父节点，表示为P根节点，直接删除即可 root = null; } else { //P节点不存在子节点，直接删除即可 if (p.color == BLACK) //如果P节点的颜色为黑色，对红黑树进行调整 fixAfterDeletion(p); //删除P节点 if (p.parent != null) { if (p == p.parent.left) p.parent.left = null; else if (p == p.parent.right) p.parent.right = null; p.parent = null; } } }
   
 复制代码
   
@@ -336,7 +336,7 @@ static <K,V> TreeMap.Entry<K,V> successor(Entry<K,V> t) { if (t == null) return 
 
 复制代码
   
-private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代，知道 直到 x 不是根节点，且 x 的颜色是黑色 while (x != root && colorOf(x) == BLACK) { if (x == leftOf(parentOf(x))) { //若X节点为左节点 //获取其兄弟节点 Entry<K,V> sib = rightOf(parentOf(x)); /\* \* 如果兄弟节点为红色&#8212;-（情况3.1） * 策略：改变W、P的颜色，然后进行一次左旋转 _/ if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateLeft(parentOf(x)); sib = rightOf(parentOf(x)); } /_ \* 若兄弟节点的两个子节点都为黑色&#8212;-（情况3.2） \* 策略：将兄弟节点编程红色 _/ if (colorOf(leftOf(sib)) == BLACK && colorOf(rightOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { /_ \* 如果兄弟节点只有右子树为黑色&#8212;-（情况3.3） \* 策略：将兄弟节点与其左子树进行颜色互换然后进行右转 * 这时情况会转变为3.4 _/ if (colorOf(rightOf(sib)) == BLACK) { setColor(leftOf(sib), BLACK); setColor(sib, RED); rotateRight(sib); sib = rightOf(parentOf(x)); } /_ \*&#8212;-情况3.4 \*策略：交换兄弟节点和父节点的颜色， \*同时将兄弟节点右子树设置为黑色，最后左旋转 \*/ setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(rightOf(sib), BLACK); rotateLeft(parentOf(x)); x = root; } } /*\* \* X节点为右节点与其为做节点处理过程差不多，这里就不在累述了 */ else { Entry<K,V> sib = leftOf(parentOf(x)); if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateRight(parentOf(x)); sib = leftOf(parentOf(x)); } if (colorOf(rightOf(sib)) == BLACK && colorOf(leftOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { if (colorOf(leftOf(sib)) == BLACK) { setColor(rightOf(sib), BLACK); setColor(sib, RED); rotateLeft(sib); sib = leftOf(parentOf(x)); } setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(leftOf(sib), BLACK); rotateRight(parentOf(x)); x = root; } } } setColor(x, BLACK); }
+private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代，知道 直到 x 不是根节点，且 x 的颜色是黑色 while (x != root && colorOf(x) == BLACK) { if (x == leftOf(parentOf(x))) { //若X节点为左节点 //获取其兄弟节点 Entry<K,V> sib = rightOf(parentOf(x)); /\* \* 如果兄弟节点为红色--（情况3.1） * 策略：改变W、P的颜色，然后进行一次左旋转 _/ if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateLeft(parentOf(x)); sib = rightOf(parentOf(x)); } /_ \* 若兄弟节点的两个子节点都为黑色--（情况3.2） \* 策略：将兄弟节点编程红色 _/ if (colorOf(leftOf(sib)) == BLACK && colorOf(rightOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { /_ \* 如果兄弟节点只有右子树为黑色--（情况3.3） \* 策略：将兄弟节点与其左子树进行颜色互换然后进行右转 * 这时情况会转变为3.4 _/ if (colorOf(rightOf(sib)) == BLACK) { setColor(leftOf(sib), BLACK); setColor(sib, RED); rotateRight(sib); sib = rightOf(parentOf(x)); } /_ \*--情况3.4 \*策略：交换兄弟节点和父节点的颜色， \*同时将兄弟节点右子树设置为黑色，最后左旋转 \*/ setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(rightOf(sib), BLACK); rotateLeft(parentOf(x)); x = root; } } /*\* \* X节点为右节点与其为做节点处理过程差不多，这里就不在累述了 */ else { Entry<K,V> sib = leftOf(parentOf(x)); if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateRight(parentOf(x)); sib = leftOf(parentOf(x)); } if (colorOf(rightOf(sib)) == BLACK && colorOf(leftOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { if (colorOf(leftOf(sib)) == BLACK) { setColor(rightOf(sib), BLACK); setColor(sib, RED); rotateLeft(sib); sib = leftOf(parentOf(x)); } setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(leftOf(sib), BLACK); rotateRight(parentOf(x)); x = root; } } } setColor(x, BLACK); }
   
 复制代码
   

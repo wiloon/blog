@@ -30,13 +30,14 @@ categories:
       
     https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
     
-    ### maven 引入protobuf依赖<pre data-language=XML>
+    ### maven 引入protobuf依赖
     
-            <code class="language-markup line-numbers">&lt;dependency&gt;
-                &lt;groupId&gt;com.google.protobuf&lt;/groupId&gt;
-                &lt;artifactId&gt;protobuf-java&lt;/artifactId&gt;
-                &lt;version&gt;3.10.0&lt;/version&gt;
-            &lt;/dependency&gt;
+            ```xml
+<dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.10.0</version>
+            </dependency>
 
 ```bash
 export SRC_DIR=/pathToSrcDir

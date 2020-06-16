@@ -28,7 +28,7 @@ categories:
 
 <span style="font-size: medium;">如果说abc.rb中包含一个模块Ma，和几个类Ca,Cb等等。那么你若想在ef.rb文件中使用abc.rb中的资源，你得这样:</span>
 
-<span style="font-size: medium;">require &#8216;abc.rb&#8217;</span>
+<span style="font-size: medium;">require 'abc.rb'</span>
 
 <span style="font-size: medium;">若还想在ef.rb的某个类中使用abc.rb中的模块，则应在这个类中加入</span>
 
@@ -36,6 +36,6 @@ categories:
 
 <span style="font-size: medium;">如果你只想在ef.rb文件的某个类中使用abc.rb的模块，你得这样：</span>
 
-<span style="font-size: medium;">require &#8216;abc.rb&#8217;</span>
+<span style="font-size: medium;">require 'abc.rb'</span>
 
 <span style="font-size: medium;">include Ma</span>

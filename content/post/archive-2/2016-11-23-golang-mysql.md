@@ -266,7 +266,7 @@ panic(err.Error()) // proper error handling instead of panic in your app
   
 values := make([]sql.RawBytes, len(columns))
 
-// rows.Scan wants &#8216;[]interface{}&#8217; as an argument, so we must copy the
+// rows.Scan wants '[]interface{}' as an argument, so we must copy the
   
 // references into such a slice
   
@@ -318,7 +318,7 @@ fmt.Println(columns[i], ": ", value)
   
 }
   
-fmt.Println("&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;")
+fmt.Println("-----------&#8211;")
   
 }
   

@@ -10,8 +10,8 @@ categories:
 ---
 [sql]
   
-&#8212; http://www.wiloon.com/wordpress/?p=1899
+- http://www.wiloon.com/wordpress/?p=1899
   
-insert into t1 values (1,&#8217;1&#8242;,1) on duplicate key update c0=c0+1;
+insert into t1 values (1,'1&#8242;,1) on duplicate key update c0=c0+1;
 
 [/sql]

@@ -85,7 +85,7 @@ for(Annotation an:annotations){
               
 if(an instanceof PkgAnnotation){
                   
-System.out.println("Hi,I&#8217;m the PkgAnnotation ,which is be placed on package!");
+System.out.println("Hi,I'm the PkgAnnotation ,which is be placed on package!");
                   
 /*
                    
@@ -109,7 +109,7 @@ System.out.println("Hi,I&#8217;m the PkgAnnotation ,which is be placed on packag
         
 运行结果如下所示：
 
-Hi,I&#8217;m the PkgAnnotation ,which is be placed on package!
+Hi,I'm the PkgAnnotation ,which is be placed on package!
 
 声明友好类和包常量
        

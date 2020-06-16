@@ -33,7 +33,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     </td>
     
     <td align="left">
-      x >= 1.0 * The default Maven meaning for 1.0 is everything (,) but with 1.0 recommended. Obviously this doesn&#8217;t work for enforcing versions here, so it has been redefined as a minimum version.
+      x >= 1.0 * The default Maven meaning for 1.0 is everything (,) but with 1.0 recommended. Obviously this doesn't work for enforcing versions here, so it has been redefined as a minimum version.
     </td>
   </tr>
   

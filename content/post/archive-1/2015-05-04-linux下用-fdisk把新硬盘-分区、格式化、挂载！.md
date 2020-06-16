@@ -10,7 +10,7 @@ tags:
   - linux
 
 ---
-```bash&lt;br />sudo fdisk -l
+```bash<br />sudo fdisk -l
 
 sudo fdisk /dev/sdb
 p (print the partition table)
@@ -188,7 +188,7 @@ q   quit without saving changes 注：不保存退出；
   
 s   create a new empty Sun disklabel
   
-t   change a partition&#8217;s system id 注：t 改变分区类型；
+t   change a partition's system id 注：t 改变分区类型；
   
 u   change display/entry units
   

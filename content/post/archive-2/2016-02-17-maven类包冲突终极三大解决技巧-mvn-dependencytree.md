@@ -34,7 +34,7 @@ dependency:tree是把照妖照，pom.xml用它照照，所有传递性依赖都�
   
 引用
 
-[INFO] &#8212; maven-dependency-plugin:2.1:tree (default-cli) @ euler-foundation &#8212;
+[INFO] - maven-dependency-plugin:2.1:tree (default-cli) @ euler-foundation -
   
 [INFO] com.hsit:euler-foundation:jar:0.9.0.1-SNAPSHOT
   
@@ -90,7 +90,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
 
 就会出来asm依赖包的分析信息：
 
-[INFO] &#8212; maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test &#8212;
+[INFO] - maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test -
   
 [INFO] com.ridge:ridge-test:jar:1.0.2-SNAPSHOT
   
@@ -106,7 +106,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 [INFO] \- (asm:asm:jar:1.5.3:compile - omitted for conflict with 3.2)
   
-[INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+[INFO] ------------------------
 
 对asm有依赖有一个直接的依赖(asm:asm:jar:3.2)还有一个传递进入的依赖(asm:asm:jar:1.5.3)
 
@@ -150,13 +150,13 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 [INFO]
   
-[INFO] &#8212; maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test &#8212;
+[INFO] - maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test -
   
 [INFO] com.ridge:ridge-test:jar:1.0.2-SNAPSHOT
   
 [INFO] \- asm:asm:jar:3.2:compile
   
-[INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+[INFO] ------------------------
   
 [INFO] BUILD SUCCESS
 
@@ -202,7 +202,7 @@ if (cls == null)throw new IllegalArgumentException("null input: cls&#8221;);
   
 URL result = null;
   
-final String clsAsResource = cls.getName().replace(&#8216;.&#8217;, &#8216;/&#8217;).concat(".class&#8221;);
+final String clsAsResource = cls.getName().replace('.', '/').concat(".class&#8221;);
   
 final ProtectionDomain pd = cls.getProtectionDomain();
   

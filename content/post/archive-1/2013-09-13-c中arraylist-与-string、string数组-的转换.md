@@ -260,7 +260,7 @@ Total time for which application threads were stopped: 0.0098720 seconds
   
 当遇到这种情况，就要分析是不是有大的循环操作，可能这些循环操作的时候JIT优化时没有插入safepoint检查的代码。
 
-看到高性能虚拟机圈子的里面有好几个帖子说到全体Java线程进入到safepoint的时间较长，这和GC本身没有关系。如果有遇到这种情况的，可能就得去看代码是否有这种可能会被JIT优化，丢失safepoint的情况。How to get Java stacks when JVM can&#8217;t reach a safepoint 这篇提到的问题也是safepoint没有被正确插入导致JVM Freezen，VM线程等待所有Java线程进入safepoint阻塞，而有Java线程做了大操作而迟迟无法进入safepoint。
+看到高性能虚拟机圈子的里面有好几个帖子说到全体Java线程进入到safepoint的时间较长，这和GC本身没有关系。如果有遇到这种情况的，可能就得去看代码是否有这种可能会被JIT优化，丢失safepoint的情况。How to get Java stacks when JVM can't reach a safepoint 这篇提到的问题也是safepoint没有被正确插入导致JVM Freezen，VM线程等待所有Java线程进入safepoint阻塞，而有Java线程做了大操作而迟迟无法进入safepoint。
 
 参考资料:
 
@@ -276,4 +276,4 @@ mprotect的man page
 
 ParNew 应用暂停时间偶尔会出现好几秒的情况
 
-How to get Java stacks when JVM can&#8217;t reach a safepoint
+How to get Java stacks when JVM can't reach a safepoint

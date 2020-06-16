@@ -116,7 +116,7 @@ Line 36: implement the onAdvance-Method to explain that this task list is execut
   
 Line 41: iterate over the list of tasks
   
-Line 42: register this thread with the Phaser. Notice that a Phaser instance does not know the task instances. It&#8217;s a simple counter of registered, unarrived and arrived parties, shared across participating threads. If two parties are registered then two parties must arrive at the phaser to be able to start the first cycle.
+Line 42: register this thread with the Phaser. Notice that a Phaser instance does not know the task instances. It's a simple counter of registered, unarrived and arrived parties, shared across participating threads. If two parties are registered then two parties must arrive at the phaser to be able to start the first cycle.
   
 Line 46: tell the thread to wait at the barrier until the arrived parties equal the registered parties
   

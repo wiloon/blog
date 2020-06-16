@@ -24,11 +24,11 @@ categories:
   
   
     [INFO] Building jar: /home/dl9pf/svn/mindquarry/mindquarry-jcr/mindquarry-jcr-changes/target/mindquarry-migration-with-dependencies.jar
- [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] ------------------------
  [ERROR] FATAL ERROR
- [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] ------------------------
  [INFO] Java heap space
- [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] ------------------------
  [INFO] Trace
  java.lang.OutOfMemoryError: Java heap space
  at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:99)
@@ -38,11 +38,11 @@ categories:
  at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)
  at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)
  at org.codehaus.classworlds.Launcher.main(Launcher.java:375)
- [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] ------------------------
  [INFO] Total time: 7 minutes 14 seconds
  [INFO] Finished at: Wed Sep 05 07:44:55 CEST 2007
  [INFO] Final Memory: 37M/63M
- [INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+ [INFO] ------------------------
   
   
   

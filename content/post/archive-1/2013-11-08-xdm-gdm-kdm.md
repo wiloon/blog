@@ -11,8 +11,8 @@ tags:
 
 ---
 <div id="blog_content">
-     gdm &#8212; GNOME Display Manager
- kdm &#8212; KDE Display Manager
+     gdm - GNOME Display Manager
+ kdm - KDE Display Manager
  xdm - X Display Manager 
   
   
@@ -286,7 +286,7 @@ tags:
         #hehe,Run gdm in runlevel 5
       </li>
       <li>
-        #gdm is now for pk&#8217;Mandrake separate server
+        #gdm is now for pk'Mandrake separate server
       </li>
       <li>
         x:5:respawn:/etc/X11/prefdm -nodaemon

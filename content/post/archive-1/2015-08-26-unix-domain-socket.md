@@ -178,11 +178,11 @@ int shutdown(int sockfd,int how);
   
 Sockfd是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式：
   
-·0&#8212;&#8212;-不允许继续接收数据
+·0---不允许继续接收数据
   
-·1&#8212;&#8212;-不允许继续发送数据
+·1---不允许继续发送数据
   
-·2&#8212;&#8212;-不允许继续发送和接收数据，
+·2---不允许继续发送和接收数据，
   
 ·均为允许则调用close ()
   
@@ -346,7 +346,7 @@ exit(1);
   
 }
   
-buf[recvbytes] = &#8216;\0&#8242;;
+buf[recvbytes] = '\0&#8242;;
   
 printf("Received: %s",buf);
   
@@ -406,13 +406,13 @@ fd_set \*exceptfds,struct timeval \*timeout);
   
 其中readfds、writefds、exceptfds分别是被select()监控的读、写和异常处理的文档描述符集合。假如您希望确定是否能够从标准输入和某个socket描述符读取数据，您只需要将标准输入的文档描述符0和相应的sockdtfd加入到readfds集合中；numfds的值是需要检查的号码最高的文档描述符加1，这个例子中numfds的值应为sockfd+1；当select返回时，readfds将被修改，指示某个文档描述符已准备被读取，您能够通过FD\_ISSSET()来测试。为了实现fd\_set中对应的文档描述符的配置、复位和测试，他提供了一组宏：
   
-FD\_ZERO(fd\_set *set)&#8212;-清除一个文档描述符集；
+FD\_ZERO(fd\_set *set)--清除一个文档描述符集；
   
-FD\_SET(int fd,fd\_set *set)&#8212;-将一个文档描述符加入文档描述符集中；
+FD\_SET(int fd,fd\_set *set)--将一个文档描述符加入文档描述符集中；
   
-FD\_CLR(int fd,fd\_set *set)&#8212;-将一个文档描述符从文档描述符集中清除；
+FD\_CLR(int fd,fd\_set *set)--将一个文档描述符从文档描述符集中清除；
   
-FD\_ISSET(int fd,fd\_set *set)&#8212;-试判断是否文档描述符被置位。
+FD\_ISSET(int fd,fd\_set *set)--试判断是否文档描述符被置位。
   
 Timeout参数是个指向struct timeval类型的指针，他能够使select()在等待timeout长时间后没有文档描述符准备好即返回。struct timeval数据结构为：
   
@@ -526,7 +526,7 @@ iLength=recv(sockfd,buf+iEnd,sizeof(buf)-iEnd,0);
   
 iEnd+=iLength;
   
-buf[iEnd]=&#8217;\0&#8217;;
+buf[iEnd]='\0';
   
 printf("received: %s,%d\n",buf,iMsg);
   
@@ -638,7 +638,7 @@ Recvfrom()函数返回接收到的字节数或当出现错误时返回-1，并�
   
 当任何的数据操作结束以后，您能够调用close()函数来释放该socket，从而停止在该socket上的任
   
-何数据操作：close(sockfd); 也能够调用shutdown()函数来关闭该socket。该函数允许您只停止在某个方向上的数据传输，而一个方向上的数据传输继续进行。如您能够关闭某socket的写操作而允许继续在该socket上接受数据，直至读入任何数据。Sockfd 是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式：0&#8212;&#8212;-不允许继续接收数据 1&#8212;&#8212;-不允许继续发送数据 2&#8212;&#8212;-不允许继续发送和接收数据，均为允许则调用close () shutdown在操作成功时返回0，在出现错误时返回-1并置相应errno。
+何数据操作：close(sockfd); 也能够调用shutdown()函数来关闭该socket。该函数允许您只停止在某个方向上的数据传输，而一个方向上的数据传输继续进行。如您能够关闭某socket的写操作而允许继续在该socket上接受数据，直至读入任何数据。Sockfd 是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式：0---不允许继续接收数据 1---不允许继续发送数据 2---不允许继续发送和接收数据，均为允许则调用close () shutdown在操作成功时返回0，在出现错误时返回-1并置相应errno。
 
 
 
@@ -830,7 +830,7 @@ exit(1);
 
 /\* exchange data \*/
   
-char ch = &#8216;A&#8217;;
+char ch = 'A';
   
 write(sockfd, &ch, 1);
   

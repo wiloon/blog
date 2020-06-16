@@ -66,8 +66,9 @@ div> 上, *ngFor 会导致
 
 div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;div *ngFor="let product of products"&gt;
-&lt;/div&gt;
+```xml
+<div *ngFor="let product of products">
+</div>
 ``` 
 
 *ngIf
@@ -78,7 +79,8 @@ div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
 ### 绑定语法 []<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;a [title]="product.name + ' details'"&gt;
+```xml
+<a [title]="product.name + ' details'">
 ``` 
 
 插值表达式 {{}} 允许你把属性值渲染为文本；而属性绑定语法 [] 则允许你在模板表达式中使用属性值。
@@ -87,15 +89,17 @@ div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
 事件绑定是通过把事件名称包裹在圆括号 () 中完成的<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;button (click)="share()"&gt;
+```xml
+<button (click)="share()">
 ``` 
 
 ### 双向数据绑定
 
 [(ngModel)] 是 Angular 的双向数据绑定语法。<pre data-language=HTML>
 
-<code class="language-markup line-numbers">import { FormsModule } from '@angular/forms';
-&lt;input [(ngModel)]="hero.name" placeholder="name"/&gt;
+```xml
+import { FormsModule } from '@angular/forms';
+<input [(ngModel)]="hero.name" placeholder="name"/>
 ``` 
 
 https://zhuanlan.zhihu.com/p/27696268

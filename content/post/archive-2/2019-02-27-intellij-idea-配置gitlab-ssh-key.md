@@ -14,7 +14,7 @@ https://blog.csdn.net/u010348570/article/details/81204371
 
 公司网慢的可以用第三方的软件管家下载。
 
-2 打开git bash，不需要进入任何目录，直接输入 ssh-keygen -t rsa -C &#8216;xxx@xxx.com&#8217;，&#8217;xxx@xxx.com&#8217;为gitlab上的登录账户。一路回车。
+2 打开git bash，不需要进入任何目录，直接输入 ssh-keygen -t rsa -C 'xxx@xxx.com'，'xxx@xxx.com'为gitlab上的登录账户。一路回车。
 
  
 

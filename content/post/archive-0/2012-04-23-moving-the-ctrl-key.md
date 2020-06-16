@@ -16,7 +16,7 @@ categories:
 
 On Windows you can use the [AutoHotkey][1] program which uses “scripts” to remap the keyboard.
 
-This method has a couple benefits. One is scripts can be compiled to a stand alone <tt>.exe</tt> file which can be executed on a machine that doesn’t have AutoHotkey. Another is, the key re-mapping can be set to only apply in emacs; the caps lock key will behave normaly in every other program. (If that’s what you want.)
+This method has a couple benefits. One is scripts can be compiled to a stand alone <tt>.exe</tt> file which can be executed on a machine that doesn't have AutoHotkey. Another is, the key re-mapping can be set to only apply in emacs; the caps lock key will behave normaly in every other program. (If that's what you want.)
 
 To remap the Caps Lock key to Ctrl save the following to a file named <tt><em>script</em>.ahk</tt>. Then execute the script with [AutoHotKey][2] by double clicking it. See the [AHK2EXE][3]documentation to learn how to make scripts into stand alone executables.
 

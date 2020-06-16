@@ -54,7 +54,7 @@ System.out.println("向阻塞栈中添加了元素:" + i);
   
 }
   
-System.out.println("程序到此运行结束，即将退出&#8212;-");
+System.out.println("程序到此运行结束，即将退出--");
   
 }
   

@@ -122,7 +122,7 @@ YourKit Java Profiler
           
 YourKit 是一个用于分析Java 与.NET 应用程序的智能工具，YourKit Java Profiler 已经被IT 专业人士与分析师公认为最好的分析工具。通过YourKit 技术解决方案可以以非常高的的专业水平分析出CPU 与内存使用情况。
           
-YourKit Java Profiler 还获得了Java Developer&#8217;s Journal(Java 开发者杂志)的编辑选择奖，其功能的强大可见一斑。
+YourKit Java Profiler 还获得了Java Developer's Journal(Java 开发者杂志)的编辑选择奖，其功能的强大可见一斑。
           
 YourKit 网站官方：http://www.yourkit.com
           

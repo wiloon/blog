@@ -22,7 +22,7 @@ sqlite> .mode column
 
 查出所有的表：
   
-select name from sqlite_master where type=&#8217;table&#8217; order by name;
+select name from sqlite_master where type='table' order by name;
 
 通过以下语句可查询出某个表的所有字段信息
   

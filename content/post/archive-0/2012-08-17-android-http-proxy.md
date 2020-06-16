@@ -10,7 +10,7 @@ categories:
 ---
 
   
-    I’ve connected my Android phone to my Wifi network at work, but they use a proxy and I cannot use my browser without setting the proxy on my browser. Is there any way I can do this?
+    I've connected my Android phone to my Wifi network at work, but they use a proxy and I cannot use my browser without setting the proxy on my browser. Is there any way I can do this?
   
 
 
@@ -29,7 +29,7 @@ categories:
       # sqlite3 /data/data/com.google.android.providers.settings/databases/settings.db
     </li>
     <li>
-      sqlite> INSERT INTO system VALUES(99,’http_proxy’, ‘proxy:port’);
+      sqlite> INSERT INTO system VALUES(99,'http_proxy', 'proxy:port');
     </li>
     <li>
       sqlite>.exit

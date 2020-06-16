@@ -12,7 +12,7 @@ categories:
 ---
 http://www.ibm.com/developerworks/cn/xml/x-urlni.html
   
-&#8212;
+-
   
 http://www.cisco.com/en/US/partners/index.html —— 是一个 URI
   

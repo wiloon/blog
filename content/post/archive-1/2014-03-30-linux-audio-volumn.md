@@ -25,6 +25,6 @@ alsamixer
 
 解除静音
   
-amixer -c 0 sset &#8216;Master&#8217;,0 100%,100% unmute
+amixer -c 0 sset 'Master',0 100%,100% unmute
 
 http://blog.csdn.net/weed_hz/article/details/9226055

@@ -24,11 +24,11 @@ categories:
   
 
 
-If you have a Linux computer and sound is working on it, then you will be able to get sound through rdesktop. But it&#8217;s not necessary easy, unless you are aware that there is a bug that prevents it. Good news is that there is a really simple work-around to make sound work.
+If you have a Linux computer and sound is working on it, then you will be able to get sound through rdesktop. But it's not necessary easy, unless you are aware that there is a bug that prevents it. Good news is that there is a really simple work-around to make sound work.
 
-To get sound to work through rdesktop, first make sure Windows is configured to pass sound through Remote Desktop. Open up "Control Panel" -> "Sounds and Audio Devices". You should see "Microsoft RDP Audio Driver". Next, if the "Device volume" is set to "Low", it is either because: 1) sound pass-through is not enabled; or 2) you reduced the volume to "Low". Try fixing #2 by moving the slider to "High", then click the "Apply" button. If the slider stays at "High", then it&#8217;s #2 and you should now have sound. If the slider jumps back to "Low" then it&#8217;s #1 (continue to next paragraph).
+To get sound to work through rdesktop, first make sure Windows is configured to pass sound through Remote Desktop. Open up "Control Panel" -> "Sounds and Audio Devices". You should see "Microsoft RDP Audio Driver". Next, if the "Device volume" is set to "Low", it is either because: 1) sound pass-through is not enabled; or 2) you reduced the volume to "Low". Try fixing #2 by moving the slider to "High", then click the "Apply" button. If the slider stays at "High", then it's #2 and you should now have sound. If the slider jumps back to "Low" then it's #1 (continue to next paragraph).
 
-If the sound pass-through is diabled, then the volume slider will not stick. You&#8217;ll have to enable it in rdesktop with the "-r sound" flag. But that feature is bugged. Luckily the work around is to use the "-r sound" flag twice. (My version of rdesktop is 1.3.1.) For example:
+If the sound pass-through is diabled, then the volume slider will not stick. You'll have to enable it in rdesktop with the "-r sound" flag. But that feature is bugged. Luckily the work around is to use the "-r sound" flag twice. (My version of rdesktop is 1.3.1.) For example:
 
 
 
@@ -57,7 +57,7 @@ That did it for me THANKS a million!!!
  Tue, 22 Feb 2011 15:21:06 +0000
 
 
-It&#8217;s not a bug.
+It's not a bug.
   
 It will work correct if you use it like this:
 

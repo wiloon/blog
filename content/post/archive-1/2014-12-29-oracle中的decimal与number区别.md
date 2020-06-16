@@ -96,7 +96,7 @@ eg:
   
 Actual Data   Specified As  Stored As
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------
   
 123.89           NUMBER         123.89
   
@@ -164,7 +164,7 @@ FROM
   
 (
   
-SELECT t.statistics\_date, SUM(t.actuser) AS actuser FROM pdt\_stat\_act\_1133\_i t WHERE t.statistics\_date like &#8216;2013-04%&#8217; and t.statistics\_month = &#8216;2013-04&#8217; GROUP BY t.statistics\_date
+SELECT t.statistics\_date, SUM(t.actuser) AS actuser FROM pdt\_stat\_act\_1133\_i t WHERE t.statistics\_date like '2013-04%' and t.statistics\_month = '2013-04' GROUP BY t.statistics\_date
   
 ) tt1
   
@@ -172,6 +172,6 @@ FULL JOIN
   
 (
   
-SELECT t2.statistics\_date, SUM(t2.new\_user) OVER(ORDER BY t2.statistics\_date) AS new\_user FROM (SELECT statistics\_date AS statistics\_date, SUM(new\_user) AS new\_user FROM pdt\_stat\_newuser\_1133\_i WHERE statistics\_date like &#8216;2013-04%&#8217; GROUP BY statistics\_date) t2
+SELECT t2.statistics\_date, SUM(t2.new\_user) OVER(ORDER BY t2.statistics\_date) AS new\_user FROM (SELECT statistics\_date AS statistics\_date, SUM(new\_user) AS new\_user FROM pdt\_stat\_newuser\_1133\_i WHERE statistics\_date like '2013-04%' GROUP BY statistics\_date) t2
   
 ) tt2 ON tt1.statistics\_date = tt2.statistics\_date

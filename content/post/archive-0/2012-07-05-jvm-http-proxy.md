@@ -30,7 +30,7 @@ Your HTTP call needs to tunnel through the HTTP proxy (using SOCKS authenticatio
   
 SETTINGS
 
-Use one of the methods below for your JVM proxy settings. Try an alternate method if any particular method does not work. In most cases, you should not require any change the pre-compiled Java code for proxy settings. JVM’s environment settings should be enough to fix this problem.
+Use one of the methods below for your JVM proxy settings. Try an alternate method if any particular method does not work. In most cases, you should not require any change the pre-compiled Java code for proxy settings. JVM's environment settings should be enough to fix this problem.
 
 Command Line JVM Settings
 
@@ -56,7 +56,7 @@ System.getProperties().put("http.proxyUser", "someUserName");
   
 System.getProperties().put("http.proxyPassword", "somePassword");
   
-Don’t hardcode the proxy settings in your source. Read these settings from a configurable text file, so your users can configure them. You might also need to set this property:
+Don't hardcode the proxy settings in your source. Read these settings from a configurable text file, so your users can configure them. You might also need to set this property:
 
 System.getProperties().put("proxySet", "true");
   

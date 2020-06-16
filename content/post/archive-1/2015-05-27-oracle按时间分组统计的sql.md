@@ -18,61 +18,61 @@ oracle 实现按周,月,季度,年查询统计数据
 
 //按自然周统计
   
-select to_char(date,&#8217;iw&#8217;),sum()
+select to_char(date,'iw'),sum()
   
 from
   
 where
   
-group by to_char(date,&#8217;iw&#8217;)
+group by to_char(date,'iw')
 
 //按自然月统计
   
-select to_char(date,&#8217;mm&#8217;),sum()
+select to_char(date,'mm'),sum()
   
 from
   
 where
   
-group by to_char(date,&#8217;mm&#8217;)
+group by to_char(date,'mm')
 
 //按季统计
   
-select to_char(date,&#8217;q&#8217;),sum()
+select to_char(date,'q'),sum()
   
 from
   
 where
   
-group by to_char(date,&#8217;q&#8217;)
+group by to_char(date,'q')
 
 //按年统计
   
-select to_char(date,&#8217;yyyy&#8217;),sum()
+select to_char(date,'yyyy'),sum()
   
 from
   
 where
   
-group by to_char(date,&#8217;yyyy&#8217;)
+group by to_char(date,'yyyy')
 
 Oracle 中 IW和WW 有何差别
 
 SQL> select day,
   
-2 to_char(day, &#8216;d&#8217;),
+2 to_char(day, 'd'),
   
-3 to_char(day, &#8216;iw&#8217;),
+3 to_char(day, 'iw'),
   
-4 to_char(day, &#8216;ww&#8217;)
+4 to_char(day, 'ww')
   
-5 from (select trunc(sysdate, &#8216;year&#8217;)+level-1 as day from dual connect by level <=8)
+5 from (select trunc(sysdate, 'year')+level-1 as day from dual connect by level <=8)
   
 6 /
 
-DAY TO\_CHAR(DAY,&#8217;D&#8217;) TO\_CHAR(DAY,&#8217;IW&#8217;) TO_CHAR(DAY,&#8217;WW&#8217;)
+DAY TO\_CHAR(DAY,'D') TO\_CHAR(DAY,'IW') TO_CHAR(DAY,'WW')
   
-&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+---- ------ ------ -----&#8211;
   
 2009-1-1 5 01 01
   
@@ -96,17 +96,17 @@ WW：oracle标准周
   
 举例：
   
-SELECT to\_char(to\_date(&#8216;20051203&#8242;,&#8217;yyyymmdd&#8217;),&#8217;WW&#8217;) "WW03",
+SELECT to\_char(to\_date('20051203&#8242;,'yyyymmdd'),'WW') "WW03",
   
-to\_char(to\_date(&#8216;20051203&#8242;,&#8217;yyyymmdd&#8217;),&#8217;IW&#8217;) "IW03",
+to\_char(to\_date('20051203&#8242;,'yyyymmdd'),'IW') "IW03",
   
-to\_char(to\_date(&#8216;20051204&#8242;,&#8217;yyyymmdd&#8217;),&#8217;WW&#8217;) "WW04",
+to\_char(to\_date('20051204&#8242;,'yyyymmdd'),'WW') "WW04",
   
-to\_char(to\_date(&#8216;20051204&#8242;,&#8217;yyyymmdd&#8217;),&#8217;IW&#8217;) "WW04",
+to\_char(to\_date('20051204&#8242;,'yyyymmdd'),'IW') "WW04",
   
-to\_char(to\_date(&#8216;20051205&#8242;,&#8217;yyyymmdd&#8217;),&#8217;WW&#8217;) "WW05",
+to\_char(to\_date('20051205&#8242;,'yyyymmdd'),'WW') "WW05",
   
-to\_char(to\_date(&#8216;20051205&#8242;,&#8217;yyyymmdd&#8217;),&#8217;IW&#8217;) "WW05"
+to\_char(to\_date('20051205&#8242;,'yyyymmdd'),'IW') "WW05"
   
 FROM dual;
 
@@ -118,7 +118,7 @@ WW：
   
 比如：2004/01/01 是周四， 在Oracle中被定义为2004年WW的第一周的第一天；
   
-SELECT TO\_CHAR(TO\_DATE(&#8216;20040101&#8242;,&#8217;YYYYMMDD&#8217;),&#8217;YY:WW&#8217;),TO\_CHAR(TO\_DATE(&#8216;20040107&#8242;,&#8217;YYYYMMDD&#8217;),&#8217;YY:WW&#8217;),TO\_CHAR(TO\_DATE(&#8216;20040108&#8242;,&#8217;YYYYMMDD&#8217;),&#8217;YY:WW&#8217;) FROM DUAL;
+SELECT TO\_CHAR(TO\_DATE('20040101&#8242;,'YYYYMMDD'),'YY:WW'),TO\_CHAR(TO\_DATE('20040107&#8242;,'YYYYMMDD'),'YY:WW'),TO\_CHAR(TO\_DATE('20040108&#8242;,'YYYYMMDD'),'YY:WW') FROM DUAL;
 
 IW ：
   

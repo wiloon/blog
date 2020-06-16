@@ -66,7 +66,7 @@ export class AppComponent {
 
     tooltip: {
       trigger: 'item',
-      formatter: '{a} &lt;br/&gt;{b} : {c} ({d}%)'
+      formatter: '{a} <br/>{b} : {c} ({d}%)'
     },
     visualMap: {
       show: false,
@@ -126,7 +126,8 @@ export class AppComponent {
 
 ### app.component.html<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;div echarts [options]="chartOption" class="chart"&gt;&lt;/div&gt;
+```xml
+<div echarts [options]="chartOption" class="chart"></div>
 ``` 
 
 ### app.component.css

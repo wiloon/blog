@@ -154,10 +154,10 @@ func main() {
         _ = rw.w.state  
         raceReleaseMerge(unsafe.Pointer(&rw.writerSem))  
         raceDisable()  
-    }&lt;span style="color:#FF0000;"&gt;  
-    if atomic.AddInt32(&rw.readerCount, -1) &lt; 0 {　//readercounter初始值为０,调用RUnLock之后变为-1，继续往下执行  
+    }<span style="color:#FF0000;">  
+    if atomic.AddInt32(&rw.readerCount, -1) < 0 {　//readercounter初始值为０,调用RUnLock之后变为-1，继续往下执行  
         // A writer is pending.  
-        if atomic.AddInt32(&rw.readerWait, -1) == 0 {　//此时readerwaiter变为１，1-1之后变为０,可以继续以后的操作．&lt;/span&gt;  
+        if atomic.AddInt32(&rw.readerWait, -1) == 0 {　//此时readerwaiter变为１，1-1之后变为０,可以继续以后的操作．</span>  
             // The last reader unblocks the writer.  
             runtime_Semrelease(&rw.writerSem)  
         }  

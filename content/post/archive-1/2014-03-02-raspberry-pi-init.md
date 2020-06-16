@@ -12,6 +12,6 @@ tags:
 ---
 <ol start="1">
   <li>
-    deluged &#8212; <a href="http://www.wiloon.com/wordpress/?p=6306">http://www.wiloon.com/wordpress/?p=6306</a>
+    deluged - <a href="http://www.wiloon.com/wordpress/?p=6306">http://www.wiloon.com/wordpress/?p=6306</a>
   </li>
 </ol>

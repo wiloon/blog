@@ -14,7 +14,7 @@ DateTime dt = new DateTime(DateTimeZone.forOffsetHours(8));
    
 dt=dt.withZone(DateTimeZone.forOffsetHours(-5));
    
-DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd&#8217;T&#8217;HH:mm:ssZZ");
+DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZZ");
    
 System.out.println(dtf.print(dt));
    

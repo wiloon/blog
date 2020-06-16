@@ -67,9 +67,9 @@ TIMEFORMAT 自定义输出的时间格式。
   
 其中，选项prec为指定时间精度，即小数点后面的位数；选项l表示使用分秒(具体格式为：MMmNN[.FFF]s)的格式；最后一个字符表示时间的类型，其中R表示实际时间，U表示用户CPU时间，S表示系统CPU 时间，它们的单位均为秒。
 
-time命令缺省输出的时间格式同 TIMEFORMAT=$&#8217;/nreal/t%3lR/nuser/t%3lU/nsys/t%3lS&#8217;。
+time命令缺省输出的时间格式同 TIMEFORMAT=$'/nreal/t%3lR/nuser/t%3lU/nsys/t%3lS'。
 
-使用-p参数的time命令输出的时间格式同 TIMEFORMAT=$&#8217;real %2R/nuser %2U/nsys %2S&#8217;。
+使用-p参数的time命令输出的时间格式同 TIMEFORMAT=$'real %2R/nuser %2U/nsys %2S'。
 
 例3：
 

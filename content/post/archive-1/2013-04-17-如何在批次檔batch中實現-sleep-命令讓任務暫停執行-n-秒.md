@@ -17,7 +17,7 @@ tags:
 每壹台電腦都有 PING 執行檔，這個最好用啦!
 
 
-  @ping 127.0.0.1 -n 5 -w 1000 &gt; nul
+  @ping 127.0.0.1 -n 5 -w 1000 > nul
 
 
 **2. 利用 CHOICE 指令**
@@ -25,7 +25,7 @@ tags:
 CHOICE 命令在 Windows XP 中找不到，但在 Windows Server 2003 或 Vista 都有內建。
 
 
-  @CHOICE /C YN /N /T 5 /D y &gt; nul
+  @CHOICE /C YN /N /T 5 /D y > nul
 
 
 

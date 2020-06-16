@@ -50,11 +50,11 @@ free 空闲的物理内存的大小，我的机器内存总共8G，剩余3415M�
 
 buff Linux/Unix系统是用来存储，目录里面有什么内容，权限等的缓存;表示块设备(block device)所占用的缓存页，包括：直接读写块设备、以及文件系统元数据(metadata)比如SuperBlock所使用的缓存页；
   
-buffers are only used for file metadata (inodes, etc) and data from raw block devices. It&#8217;s accessed via block device and block number.
+buffers are only used for file metadata (inodes, etc) and data from raw block devices. It's accessed via block device and block number.
 
 cache 直接用来记忆我们打开的文件,给文件做缓冲，我本机大概占用300多M(这里是Linux/Unix的聪明之处，把空闲的物理内存的一部分拿来做文件和目录的缓存，是为了提高 程序执行的性能，当程序使用内存时，buffer/cached会很快地被使用。);表示普通文件数据所占用的缓存页。
   
-Cache has file data blocks, and memory mapped information (i.e. files mapped with mmap() calls). It&#8217;s accessed primarily via inode number.
+Cache has file data blocks, and memory mapped information (i.e. files mapped with mmap() calls). It's accessed primarily via inode number.
 
 si 每秒从磁盘读入虚拟内存的大小，如果这个值大于0，表示物理内存不够用或者内存泄露了，要查找耗内存进程解决掉。我的机器内存充裕，一切正常。
 

@@ -55,7 +55,7 @@ categories:
     
     
     
-      <span style="font-size: small;">　　直白一点，initrd就是一个带有根文件系统的虚拟RAM盘，里面包含了根目录‘/’，以及其他的目录，比如：bin，dev，proc，sbin，sys等linux启动时必须的目录，以及在bin目录下加入了一下必须的可执行命令。</span>
+      <span style="font-size: small;">　　直白一点，initrd就是一个带有根文件系统的虚拟RAM盘，里面包含了根目录'/'，以及其他的目录，比如：bin，dev，proc，sbin，sys等linux启动时必须的目录，以及在bin目录下加入了一下必须的可执行命令。</span>
     
     
     
@@ -63,7 +63,7 @@ categories:
     
     
     
-      <span style="font-size: small;">　　Initrd的引导过程：‘第二阶段引导程序’，常用的是grub将内核解压缩并拷贝到内存中，然后内 核接管了CPU开始执行，然后内核调用init()函数，注意，此init函数并不是后来的init进程！！！然后内核调用函数 initrd_load()来在内存中加载initrd根文件系统。Initrd_load()函数又调用了一些其他的函数来为RAM磁盘分配空间，并计 算CRC等操作。然后对RAM磁盘进行解压，并将其加载到内存中。现在，内存中就有了initrd的映象。</span>
+      <span style="font-size: small;">　　Initrd的引导过程：'第二阶段引导程序'，常用的是grub将内核解压缩并拷贝到内存中，然后内 核接管了CPU开始执行，然后内核调用init()函数，注意，此init函数并不是后来的init进程！！！然后内核调用函数 initrd_load()来在内存中加载initrd根文件系统。Initrd_load()函数又调用了一些其他的函数来为RAM磁盘分配空间，并计 算CRC等操作。然后对RAM磁盘进行解压，并将其加载到内存中。现在，内存中就有了initrd的映象。</span>
     
     
     

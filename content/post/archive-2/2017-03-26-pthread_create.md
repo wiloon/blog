@@ -100,7 +100,7 @@ err = pthread\_create(&ntid, NULL, thr\_fn, NULL);
   
 if (err != 0)
   
-printf("can&#8217;t create thread: %s\n", strerror(err));
+printf("can't create thread: %s\n", strerror(err));
   
 printids("main thread:");
   

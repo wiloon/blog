@@ -12,7 +12,7 @@ tags:
   - MySQL
 
 ---
-str\_to\_date(&#8217;29-AUG-10 03.26.32 PM&#8217;,&#8217;%d-%b-%y %h.%i.%s %p&#8217;)
+str\_to\_date('29-AUG-10 03.26.32 PM','%d-%b-%y %h.%i.%s %p')
 
 
 

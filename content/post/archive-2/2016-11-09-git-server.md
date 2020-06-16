@@ -56,7 +56,7 @@ git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
 
 $ git clone git@server:/path/to/sample.git
   
-Cloning into &#8216;sample&#8217;&#8230;
+Cloning into 'sample'&#8230;
   
 warning: You appear to have cloned an empty repository.
 

@@ -20,7 +20,7 @@ INNER JOIN dbo.Table2 AS t2
     
 ON t1.CommonField = t2.[Common Field]
     
-WHERE t1.BatchNo = &#8216;110&#8217;;
+WHERE t1.BatchNo = '110';
   
 [/sql]
 
@@ -34,7 +34,7 @@ JOIN t1 b
   
 ON a.c0=b.c0
   
-WHERE b.c1=&#8217;xxx&#8217;
+WHERE b.c1='xxx'
   
 [/sql]
 

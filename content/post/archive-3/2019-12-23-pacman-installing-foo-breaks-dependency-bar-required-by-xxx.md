@@ -1,5 +1,5 @@
 ---
-title: pacman, installing foo breaks dependency ‘bar’ required by xxx
+title: pacman, installing foo breaks dependency 'bar' required by xxx
 author: wiloon
 type: post
 date: 2019-12-23T01:19:46+00:00

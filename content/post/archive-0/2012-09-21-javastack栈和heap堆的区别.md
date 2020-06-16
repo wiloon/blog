@@ -157,7 +157,7 @@ System.out.println(name);
   
 }
 
-OK，让我们开始行动吧，出发指令就是：“java AppMain”，包包里带好我们的行动向导图，Let’s GO！
+OK，让我们开始行动吧，出发指令就是：“java AppMain”，包包里带好我们的行动向导图，Let's GO！
 
 系统收到了我们发出的指令，启动了一个Java虚拟机进程，这个进程首先从classpath中找到AppMain.class文件，读取这个文件中的二进制数据，然后把Appmain类的类信息存放到运行时数据区的方法区中。这一过程称为AppMain类的加载过程。
   

@@ -169,7 +169,7 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
   * InnoDB中不保存表的行数，如select count(\*) from table时，InnoDB需要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count(\*)语句包含where条件时MyISAM也需要扫描整个表
   * 对于自增长的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中可以和其他字段一起建立联合索引
   * 清空整个表时，InnoDB是一行一行的删除，效率非常慢。MyISAM则会重建表
-  * InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like ‘%lee%’
+  * InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like '%lee%'
 
 ## 总结
 

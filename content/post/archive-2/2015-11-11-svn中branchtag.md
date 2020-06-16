@@ -92,7 +92,7 @@ subclipse进行Merge操作同tortoiseSVN的操作方式有所区别，原理基�
   
 2.from revision中选择建立这个branch的revision号,不是最新的那个版本号!
   
-3.to url框中勾上&#8221;Use &#8216;From:&#8217; URL&#8221;这个check box, To Revision中选择需要需要Merge到的revision号，一般勾head revision
+3.to url框中勾上&#8221;Use 'From:' URL&#8221;这个check box, To Revision中选择需要需要Merge到的revision号，一般勾head revision
   
 4.Dry run让你预览一下merge效果，Unified Diff将Merge的两边进行Diff并将Diff结果保存到文件中。(在我机器中Dry run没有窗口出来，diff结果的文件除非只有很小的变化，不然看得头大)
   

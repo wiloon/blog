@@ -35,7 +35,7 @@ Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 
 ```bash
 --noconfirm
-Bypass any and all “Are you sure?” messages. It’s not a good idea to do this unless you want to run pacman from a script.
+Bypass any and all “Are you sure?” messages. It's not a good idea to do this unless you want to run pacman from a script.
 ```
 
 ### archlinux key could not be looked up remotely
@@ -214,11 +214,11 @@ Pacman是个非常广泛的包管理工具，这里只是它的一些其它主�
   
 pacman -Sw package_name
   
-安装一个’本地’包（不从源里）：
+安装一个'本地'包（不从源里）：
   
 pacman -U /path/to/package/package_name-version.pkg.tar.gz
   
-安装一个’远程’包（不从源里）：
+安装一个'远程'包（不从源里）：
   
 pacman -U http://url/package_name-version.pkg.tar.gz
   
@@ -242,7 +242,7 @@ pacman -S $(pacman -Qq | grep -v “$(pacman -Qmq)”)
   
 获取本地软件包和它们大小的一个已排序清单列表：
   
-LANG=C pacman -Qi | sed -n ‘/^Name[^:]*: (._)/{s//1 /;x};/^Installed[^:]_: (.*)/{s//1/;H;x;s/n//;p}’ | sort -nk2
+LANG=C pacman -Qi | sed -n '/^Name[^:]*: (._)/{s//1 /;x};/^Installed[^:]_: (.*)/{s//1/;H;x;s/n//;p}' | sort -nk2
   
 要了解更详细的参数开关可以pacman –help或者man pacman。
 

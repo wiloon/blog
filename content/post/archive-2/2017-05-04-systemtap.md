@@ -82,7 +82,7 @@ systemtap 测试示例
 
 以root用户或者具有sudo权限的用户运行以下命令：
 
-$stap -ve &#8216;probe begin { log("hello systemtap!") exit() }&#8217;
+$stap -ve 'probe begin { log("hello systemtap!") exit() }'
   
 如果安装正确，会得到如下类似的输出结果：
 

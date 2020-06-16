@@ -14,17 +14,17 @@ categories:
 ---
 http://www.avajava.com/tutorials/lessons/whats-the-difference-between-a-files-path-absolute-path-and-canonical-path.html
   
-&#8212;
+-
   
-What&#8217;s the difference between a file&#8217;s path, absolute path, and canonical path?
+What's the difference between a file's path, absolute path, and canonical path?
   
 Author: Deron Eriksson
   
-Description: This Java tutorial describes a file&#8217;s path, absolute path, and canonical path.
+Description: This Java tutorial describes a file's path, absolute path, and canonical path.
   
 Tutorial created using: Windows XP || JDK 1.5.0_09 || Eclipse Web Tools Platform 2.0 (Eclipse 3.3.0)
 
-This tutorial will examine the differences between a file&#8217;s path, absolute path, and canonical path. The FilePaths class will display data about several files and directories in the project. In JavaSW, a File object can represent a file or a directory. If a File object represents a directory, a call to its isDirectory() method returns true. Our project consists of the FilePaths class plus several files and directories.
+This tutorial will examine the differences between a file's path, absolute path, and canonical path. The FilePaths class will display data about several files and directories in the project. In JavaSW, a File object can represent a file or a directory. If a File object represents a directory, a call to its isDirectory() method returns true. Our project consists of the FilePaths class plus several files and directories.
 
 The FilePaths class is shown below. It displays information including path information for five files/directories in the project.
 
@@ -182,7 +182,7 @@ canonical path:C:projectsworkspacetestingf1f2
   
 Looking at the output tells us about path, absolute file, absolute path, canonical file, and canonical path. First off, you probably noticed that getAbsoluteFile() returns the same result as getAbsolutePath(), and getCanonicalFile() returns the same result as getCanonicalPath().
 
-Next, you should notice that getPath() returns the file path that we used when we instantiated the File object with the String file path, but with the current system&#8217;s path separation character. Since I&#8217;m on Windows XP, this is a backslash. If this path is relative, getPath() returns the relative path, whereas if we specified a full path when instantiating the File object, the full path is returned by getPath(). The getPath() method also returns "." and ".." if we used them in specifying the relative path.
+Next, you should notice that getPath() returns the file path that we used when we instantiated the File object with the String file path, but with the current system's path separation character. Since I'm on Windows XP, this is a backslash. If this path is relative, getPath() returns the relative path, whereas if we specified a full path when instantiating the File object, the full path is returned by getPath(). The getPath() method also returns "." and ".." if we used them in specifying the relative path.
 
 Next, notice that getAbsolutePath() returns an absolute path, but that this path can contain things like "." and "..". The getCanonicalPath() method, on the other hand, returns an absolute path, but it removes unnecessary parts of the path, such as "." and ".." and any other unnecessary directories involved in the "." or ".." path. This is shown clearly in the file1.txt example above.
 

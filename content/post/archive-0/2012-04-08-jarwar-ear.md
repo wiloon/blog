@@ -46,9 +46,9 @@ EJB: Enterprise JavaBeans (EJB) is a managed, server-side component architecture
   
 <span style="text-decoration: underline;">JavaBean</span>: JavaBeans are reusable software components for Java that can be manipulated visually in a builder tool. Practically, they are classes written in the Java programming language conforming to a particular convention. They are used to encapsulate many objects into a single object (the bean), so that they can be passed around as a single bean object instead of as multiple individual objects. A JavaBean is a Java Object that is serializable, has a nullary constructor, and allows access to properties using getter and setter methods.
   
-Metadata: Metadata is a means to describe the data files.It provides information about a certain item&#8217;s content, such as: means of creation, purpose of the data, time and date of creation, creator or author of data, placement on a network (electronic form) where the data was created, what standards used (ISO9000), etc.
+Metadata: Metadata is a means to describe the data files.It provides information about a certain item's content, such as: means of creation, purpose of the data, time and date of creation, creator or author of data, placement on a network (electronic form) where the data was created, what standards used (ISO9000), etc.
 
-&#8212;
+-
 
 **JAR**:
   
@@ -122,7 +122,7 @@ technology came along, the need arose to package additional application objects 
 
 These new objects and complex configuration made the WAR file, the standard way to go. And things like Tomcat and Websphere were taught how to read and deploy them. No more long nights putting things together and placing them on the server, and pushing the (or clicking) the buttons.
 
-Unlike the JAR file application, the server can not simply run the compressed file. And, the server **deploys** your application. So, when the server detects that either a new or updated war file has been saved to its special place, it will **extract** (_**expand**_) your entire application from the WAR archive to the server&#8217;s web applications directory. And the directory structure, will look just like it did on your computer when you first created it. And now we are ready to run. The magic of auto deploy.
+Unlike the JAR file application, the server can not simply run the compressed file. And, the server **deploys** your application. So, when the server detects that either a new or updated war file has been saved to its special place, it will **extract** (_**expand**_) your entire application from the WAR archive to the server's web applications directory. And the directory structure, will look just like it did on your computer when you first created it. And now we are ready to run. The magic of auto deploy.
 
 So now your entire web application is in one file. The WAR. The war is won.
 

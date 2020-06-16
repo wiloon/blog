@@ -45,7 +45,7 @@ total 24
   
 drwxr-xr-x 4 root root 4096 2010-12-11 12:44 .
   
-drwx&#8212;&#8212; 51 root root 4096 2010-12-11 12:44 ..
+drwx-- 51 root root 4096 2010-12-11 12:44 ..
   
 drwxr-xr-x 8 root root 4096 2010-12-11 12:44 .git
   

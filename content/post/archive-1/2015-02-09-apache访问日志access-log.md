@@ -264,7 +264,7 @@ alert消息应该写到root和tiger的个人账号中：
   
 #Log anything（except mail）of level info or higher
   
-#Don&#8217;t log private authentication messages!
+#Don't log private authentication messages!
   
 *.info:mail.none;authpriv.none /var/log/messages
   

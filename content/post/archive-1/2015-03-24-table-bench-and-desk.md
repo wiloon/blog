@@ -20,4 +20,4 @@ Note on "bench" &#8211; it can also refer to something used as a table, with the
 
 "Bench" as a seat seems a more American usage.
 
-"Table" is the basic structure: a flat surface on legs. It&#8217;s called a "desk" if it is designed or used primarily for work (eg. with drawers etc).
+"Table" is the basic structure: a flat surface on legs. It's called a "desk" if it is designed or used primarily for work (eg. with drawers etc).

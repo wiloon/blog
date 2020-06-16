@@ -126,7 +126,7 @@ categories:
     
     
     
-      此外，Postfix的队列对于<a &#8216;freebsd&#8217;);"="" href="http://liguxk.blog.51cto.com/&#8217;#'"" target="_self"><span style="text-decoration: underline;"><span style="color: #666666;">FreeBSD</span></span>的softupdate是安全的，而qmail则是不安全的，qmail作者明确警告用户<a href="http://cr.yp.to/qmail/faq/reliability.html"><span style="color: #8fabbe;">不要使用softupdate</span></a>，除非是有磁盘后写电池。
+      此外，Postfix的队列对于<a 'freebsd');"="" href="http://liguxk.blog.51cto.com/'#'"" target="_self"><span style="text-decoration: underline;"><span style="color: #666666;">FreeBSD</span></span>的softupdate是安全的，而qmail则是不安全的，qmail作者明确警告用户<a href="http://cr.yp.to/qmail/faq/reliability.html"><span style="color: #8fabbe;">不要使用softupdate</span></a>，除非是有磁盘后写电池。
     
     
     

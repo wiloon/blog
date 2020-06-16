@@ -18,75 +18,75 @@ BEGIN
   
 <wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
 
-<wbr /> <wbr /> <wbr /> BEGIN TRY&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;开始捕捉异常
+<wbr /> <wbr /> <wbr /> BEGIN TRY-------开始捕捉异常
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEIN TRAN&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;开始事务
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEIN TRAN------开始事务
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> UPDATE A SET A.names = B.names FROM 表1 AS A INNER JOIN 表2 AS B ON A.id = B.id
 
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> UPDATE A SET A.names = B.names FROM 表1 AS A INNER JOIN 表2 AS B ON A.TEST = B.TEST
 
-<wbr /> <wbr /> <wbr /> COMMIT TRAN &#8212;&#8212;-提交事务
+<wbr /> <wbr /> <wbr /> COMMIT TRAN ---提交事务
   
-<wbr /> <wbr /> <wbr /> END TRY&#8212;&#8212;&#8212;&#8211;结束捕捉异常
+<wbr /> <wbr /> <wbr /> END TRY---&#8211;结束捕捉异常
   
-<wbr /> <wbr /> <wbr /> BEGIN CATCH&#8212;&#8212;&#8212;&#8212;有异常被捕获
+<wbr /> <wbr /> <wbr /> BEGIN CATCH----有异常被捕获
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF @@TRANCOUNT > 0&#8212;&#8212;&#8212;&#8212;&#8212;判断有没有事务
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF @@TRANCOUNT > 0-----判断有没有事务
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEGIN
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ROLLBACK TRAN&#8212;&#8212;&#8212;-回滚事务
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ROLLBACK TRAN----回滚事务
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> END <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXEC YourLogErrorProcedure&#8212;&#8212;&#8212;&#8211;执行存储过程将错误信息记录在表当中
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXEC YourLogErrorProcedure---&#8211;执行存储过程将错误信息记录在表当中
   
-<wbr /> <wbr /> <wbr /> END CATCH&#8212;&#8212;&#8211;结束异常处理
+<wbr /> <wbr /> <wbr /> END CATCH--&#8211;结束异常处理
   
 END
 
 <wbr />
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;记录操作错信息的存储过程&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+---------------记录操作错信息的存储过程--------------&#8211;
 
 CREATE PROCEDURE YourLogErrorProcedure
   
-<wbr /> <wbr /> <wbr /> @ErrorLogID [int] = 0 OUTPUT &#8212; contains the ErrorLogID of the row inserted
+<wbr /> <wbr /> <wbr /> @ErrorLogID [int] = 0 OUTPUT - contains the ErrorLogID of the row inserted
   
-AS <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8212; by uspLogError in the ErrorLog table
+AS <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - by uspLogError in the ErrorLog table
   
 BEGIN
   
 <wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
 
-<wbr /> <wbr /> <wbr /> &#8212; Output parameter value of 0 indicates that error <wbr />
+<wbr /> <wbr /> <wbr /> - Output parameter value of 0 indicates that error <wbr />
   
-<wbr /> <wbr /> <wbr /> &#8212; information was not logged
+<wbr /> <wbr /> <wbr /> - information was not logged
   
 <wbr /> <wbr /> <wbr /> SET @ErrorLogID = 0;
 
 <wbr /> <wbr /> <wbr /> BEGIN TRY
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8212; Return if there is no error information to log
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Return if there is no error information to log
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF ERROR_NUMBER() IS NULL
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN;
 
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8212; Return if inside an uncommittable transaction.
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Return if inside an uncommittable transaction.
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8212; Data insertion/modification is not allowed when <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Data insertion/modification is not allowed when <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8212; a transaction is in an uncommittable state.
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - a transaction is in an uncommittable state.
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF XACT_STATE() = -1
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEGIN
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT &#8216;Cannot log error since the current transaction is in an uncommittable state. &#8216; <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT 'Cannot log error since the current transaction is in an uncommittable state. ' <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> + &#8216;Rollback the transaction before executing uspLogError in order to successfully log error information.&#8217;;
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> + 'Rollback the transaction before executing uspLogError in order to successfully log error information.';
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN;
   
@@ -138,9 +138,9 @@ BEGIN
   
 <wbr /> <wbr /> <wbr /> BEGIN CATCH
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT &#8216;An error occurred in stored procedure uspLogError: &#8216;;
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT 'An error occurred in stored procedure uspLogError: ';
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXECUTE YourPrintErrorProcedure;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;打印错误信息的存储过程
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXECUTE YourPrintErrorProcedure;-----&#8211;打印错误信息的存储过程
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN -1;
   
@@ -158,17 +158,17 @@ BEGIN
   
 <wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
 
-<wbr /> <wbr /> <wbr /> &#8212; Print error information. <wbr />
+<wbr /> <wbr /> <wbr /> - Print error information. <wbr />
   
-<wbr /> <wbr /> <wbr /> PRINT &#8216;Error &#8216; + CONVERT(varchar(50), ERROR_NUMBER()) +
+<wbr /> <wbr /> <wbr /> PRINT 'Error ' + CONVERT(varchar(50), ERROR_NUMBER()) +
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8216;, Severity &#8216; + CONVERT(varchar(5), ERROR_SEVERITY()) +
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Severity ' + CONVERT(varchar(5), ERROR_SEVERITY()) +
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8216;, State &#8216; + CONVERT(varchar(5), ERROR_STATE()) + <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', State ' + CONVERT(varchar(5), ERROR_STATE()) + <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8216;, Procedure &#8216; + ISNULL(ERROR_PROCEDURE(), &#8216;-&#8216;) + <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Procedure ' + ISNULL(ERROR_PROCEDURE(), '-') + <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> &#8216;, Line &#8216; + CONVERT(varchar(5), ERROR_LINE());
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Line ' + CONVERT(varchar(5), ERROR_LINE());
   
 <wbr /> <wbr /> <wbr /> PRINT ERROR_MESSAGE();
   

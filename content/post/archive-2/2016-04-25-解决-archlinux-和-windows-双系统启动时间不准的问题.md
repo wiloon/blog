@@ -12,7 +12,7 @@ https://bbs.archlinuxcn.org/viewtopic.php?id=424
 
 
 
-<code class="nginx">&lt;span class="title">pacman&lt;/span> -S openntpd
+<code class="nginx"><span class="title">pacman</span> -S openntpd
 systemctl start openntpd```
 
 ntpd -s -d

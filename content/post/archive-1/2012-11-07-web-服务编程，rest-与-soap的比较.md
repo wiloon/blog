@@ -67,17 +67,17 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
   <tr>
     <td>
       
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;users&gt;
-	&lt;user&gt;
-			&lt;name&gt;tester&lt;/name&gt;
-			&lt;link&gt;http://localhost:8182/v1/users/tester&lt;/link&gt;
-	&lt;/user&gt;
-	&lt;user&gt;
-			&lt;name&gt;tester1&lt;/name&gt;
-			&lt;link&gt;http://localhost:8182/v1/users/tester1&lt;/link&gt;
-	&lt;/user&gt;
-&lt;/users&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+	<user>
+			<name>tester</name>
+			<link>http://localhost:8182/v1/users/tester</link>
+	</user>
+	<user>
+			<name>tester1</name>
+			<link>http://localhost:8182/v1/users/tester1</link>
+	</user>
+</users>
     </td>
   </tr>
 </table>
@@ -88,14 +88,14 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
   <tr>
     <td>
       
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;user&gt;
-	&lt;name&gt;tester&lt;/name&gt;
-	&lt;title&gt;software engineer&lt;/title&gt;
-	&lt;company&gt;IBM&lt;/company&gt;
-	&lt;email&gt;tester@cn.ibm.com&lt;/email&gt;
-	&lt;description&gt;testing!&lt;/description&gt;
-&lt;/user&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<user>
+	<name>tester</name>
+	<title>software engineer</title>
+	<company>IBM</company>
+	<email>tester@cn.ibm.com</email>
+	<description>testing!</description>
+</user>
     </td>
   </tr>
 </table>
@@ -306,12 +306,12 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   <tr>
     <td>
       
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-	&lt;soap:Body&gt;
-		&lt;p:getUserList xmlns:p="http://www.exmaple.com"/&gt;
-	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<p:getUserList xmlns:p="http://www.exmaple.com"/>
+	</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>
@@ -326,19 +326,19 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   <tr>
     <td>
       
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-	&lt;soap:Body&gt;
-			&lt;p:get
-				UserListResponse xmlns:p="http://www.exmaple.com"&gt;
-				&lt;Users&gt;
-				&lt;username&gt;tester&lt;username&gt;
-				&lt;username&gt;tester1&lt;username&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+			<p:get
+				UserListResponse xmlns:p="http://www.exmaple.com">
+				<Users>
+				<username>tester<username>
+				<username>tester1<username>
 				......
-				&lt;/Users&gt;
-				&lt;p: getUserListResponse &gt;
-	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;
+				</Users>
+				<p: getUserListResponse >
+	</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>
@@ -353,14 +353,14 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   <tr>
     <td>
       
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-	&lt;soap:Body&gt;
-	 &lt;p:getUserByName xmlns:p="http://www.exmaple.com"&gt;
-				&lt;username&gt;tester&lt;/username&gt;
-				&lt;/p:getUserByName &gt;
-	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+	 <p:getUserByName xmlns:p="http://www.exmaple.com">
+				<username>tester</username>
+				</p:getUserByName >
+	</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>
@@ -375,18 +375,18 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
   <tr>
     <td>
       
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-&lt;soap:Body&gt;
-	&lt;p:getUserByNameResponse xmlns:p="http://www.exmaple.com"&gt;
-			&lt;name&gt;tester&lt;/name&gt;
-			&lt;title&gt;software engineer&lt;/title&gt;
-			&lt;company&gt;IBM&lt;/company&gt;
-			&lt;email&gt;tester@cn.ibm.com&lt;/email&gt;
-			&lt;description&gt;testing!&lt;/description&gt;
-	&lt;/p:getUserByNameResponse&gt;
-&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Body>
+	<p:getUserByNameResponse xmlns:p="http://www.exmaple.com">
+			<name>tester</name>
+			<title>software engineer</title>
+			<company>IBM</company>
+			<email>tester@cn.ibm.com</email>
+			<description>testing!</description>
+	</p:getUserByNameResponse>
+</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>

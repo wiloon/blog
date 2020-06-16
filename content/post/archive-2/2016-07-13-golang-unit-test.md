@@ -167,7 +167,7 @@ ok lib 0.008s
   
 如果提示找不到包，则将该代码路径加入环境变量GOPATH就可以了。
 
-can&#8217;t load package: package lib: cannot find package "lib&#8221; in any of:
+can't load package: package lib: cannot find package "lib&#8221; in any of:
   
 性能测试
   

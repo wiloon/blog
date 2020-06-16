@@ -206,7 +206,7 @@ public Properties getProperties() {return properties; }
 
 以上程序用到了ThreadLocal类，关于它的用法参见第13章的13.14节（ThreadLocal类）。
 
-&#8212;
+-
   
 静态工厂方法是一种将类的运用者和产生着隔离的设计模式，它是一种创造型模式，但是它不属于23种基本设计模式中的一种，它是理解抽象工厂的基础，当然它自身也有用途，这里不说了。
   

@@ -78,7 +78,7 @@ X-Forwarded-For属性（可以更改为其它的属性）
 
 internalProxies
   
-Regular expression (using java.util.regex) that a proxy&#8217;s IP address must match to be considered an internal proxy. Internal proxies that appear in the remoteIpHeader will be trusted and will not appear in the proxiesHeader value. If not specified the default value of 10&#46;\d{1,3}&#46;\d{1,3}&#46;\d{1,3}|192&#46;168&#46;\d{1,3}&#46;\d{1,3}|169&#46;254&#46;\d{1,3}&#46;\d{1,3}|127&#46;\d{1,3}&#46;\d{1,3}&#46;\d{1,3}|172&#46;1[6-9]{1}&#46;\d{1,3}&#46;\d{1,3}|172&#46;2[0-9]{1}&#46;\d{1,3}&#46;\d{1,3}|172&#46;3[0-1]{1}&#46;\d{1,3}&#46;\d{1,3} will be used.
+Regular expression (using java.util.regex) that a proxy's IP address must match to be considered an internal proxy. Internal proxies that appear in the remoteIpHeader will be trusted and will not appear in the proxiesHeader value. If not specified the default value of 10&#46;\d{1,3}&#46;\d{1,3}&#46;\d{1,3}|192&#46;168&#46;\d{1,3}&#46;\d{1,3}|169&#46;254&#46;\d{1,3}&#46;\d{1,3}|127&#46;\d{1,3}&#46;\d{1,3}&#46;\d{1,3}|172&#46;1[6-9]{1}&#46;\d{1,3}&#46;\d{1,3}|172&#46;2[0-9]{1}&#46;\d{1,3}&#46;\d{1,3}|172&#46;3[0-1]{1}&#46;\d{1,3}&#46;\d{1,3} will be used.
 
 对x-forwarded-for 中出现的IP进行过滤，过滤的方式采用的是正则表达式；
 
@@ -98,7 +98,7 @@ Set to true to set the request attributes used by AccessLog implementations to o
 
 trustedProxies
   
-Regular expression (using java.util.regex) that a proxy&#8217;s IP address must match to be considered an trusted proxy. Trusted proxies that appear in the remoteIpHeader will be trusted and will appear in the proxiesHeader value. If not specified, no proxies will be trusted.
+Regular expression (using java.util.regex) that a proxy's IP address must match to be considered an trusted proxy. Trusted proxies that appear in the remoteIpHeader will be trusted and will appear in the proxiesHeader value. If not specified, no proxies will be trusted.
 
 与internalProxies 需要区分开来；
 

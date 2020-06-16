@@ -37,10 +37,10 @@ Now there is a directory <tt class="backtick">runtime/local</tt> which contains 
 
 Add your agent name in the <tt class="backtick">value</tt> field of the <tt class="backtick">http.agent.name</tt> property in <tt class="backtick">conf/nutch-site.xml</tt>, for example:
 
-&lt;property&gt;
-<span id="line-2-1" class="anchor"></span> &lt;name&gt;http.agent.name&lt;/name&gt;
-<span id="line-3-1" class="anchor"></span> &lt;value&gt;My Nutch Spider&lt;/value&gt;
-<span id="line-4-1" class="anchor"></span>&lt;/property&gt;
+<property>
+<span id="line-2-1" class="anchor"></span> <name>http.agent.name</name>
+<span id="line-3-1" class="anchor"></span> <value>My Nutch Spider</value>
+<span id="line-4-1" class="anchor"></span></property>
 
 Edit the file <tt class="backtick">conf/regex-urlfilter.txt</tt> and replace
 
@@ -58,19 +58,19 @@ Specify the GORA backend in $NUTCH_HOME/conf/nutch-site.xml
 
 
 
-&lt;property&gt;
-<span id="line-2" class="anchor"></span> &lt;name&gt;storage.data.store.class&lt;/name&gt;
-<span id="line-3" class="anchor"></span> &lt;value&gt;org.apache.gora.hbase.store.HBaseStore&lt;/value&gt;
-<span id="line-4" class="anchor"></span> &lt;description&gt;Default class for storing data&lt;/description&gt;
-<span id="line-5" class="anchor"></span>&lt;/property&gt;
+<property>
+<span id="line-2" class="anchor"></span> <name>storage.data.store.class</name>
+<span id="line-3" class="anchor"></span> <value>org.apache.gora.hbase.store.HBaseStore</value>
+<span id="line-4" class="anchor"></span> <description>Default class for storing data</description>
+<span id="line-5" class="anchor"></span></property>
 
 
 
   * Ensure the HBase gora-hbase dependency is available in $NUTCH_HOME/ivy/ivy.xml<span id="line-26" class="anchor"></span><span id="line-27" class="anchor"></span>
 
-<span id="line-1-1" class="anchor"></span>    &lt;!-- Uncomment this to use HBase as Gora backend. --&gt;
+<span id="line-1-1" class="anchor"></span>    <!-- Uncomment this to use HBase as Gora backend. -->
 <span id="line-2-1" class="anchor"></span>    
-<span id="line-3-1" class="anchor"></span>    &lt;dependency org="org.apache.gora" name="gora-hbase" rev="0.4" conf="*-&gt;default" /&gt;
+<span id="line-3-1" class="anchor"></span>    <dependency org="org.apache.gora" name="gora-hbase" rev="0.4" conf="*->default" />
 
 
 

@@ -14,19 +14,19 @@ categories:
 ---
 rt.jar ,dt.jar ,tools.jar都是 做什么用的 ,分别什么时候需要设置到classpath里?
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+---------------------
 
 rt.jar是JAVA基础类库，dt.jar是关于运行环境的类库，tools.jar是工具类库
 
 设置在classpath里是为了让你 import *
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+---------------------
 
 web系统都用到tools.jar
 
 你用winrar看看里面是什么内容啦
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+---------------------
 
 1.
   
@@ -60,7 +60,7 @@ JDK 1.5 及以上的版不需要再设置 classpath, 只要把path配好就行�
   
 jdk1.6.0lib
   
-Files used by the development tools. These include tools.jar, which contains non-core classes for support of the tools and utilities in the JDK. Also includes dt.jar, the DesignTime archive of BeanInfo files that tell interactive development environments (IDE&#8217;s) how to display the Java components and how to let the developer customize them for an application.
+Files used by the development tools. These include tools.jar, which contains non-core classes for support of the tools and utilities in the JDK. Also includes dt.jar, the DesignTime archive of BeanInfo files that tell interactive development environments (IDE's) how to display the Java components and how to let the developer customize them for an application.
 
 c:jdk1.6.0jrebin
   
@@ -70,6 +70,6 @@ c:jdk1.6.0jrelib
   
 Code libraries, property settings, and resource files used by the Java runtime environment. For example:
   
-rt.jar &#8212; the bootstrap classes (the RunTime classes that comprise the Java platform&#8217;s core API).
+rt.jar - the bootstrap classes (the RunTime classes that comprise the Java platform's core API).
   
-charsets.jar &#8212; character conversion classes.
+charsets.jar - character conversion classes.

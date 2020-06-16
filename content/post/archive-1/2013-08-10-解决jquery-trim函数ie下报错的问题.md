@@ -21,13 +21,13 @@ categories:
   
   <ol start="1">
     <li>
-      var content = $(&#8216;#content&#8217;).val();
+      var content = $('#content').val();
     </li>
     <li>
       if(content.trim() == ")
     </li>
     <li>
-         alert(&#8216;空&#8217;);
+         alert('空');
     </li>
   </ol>
 
@@ -45,13 +45,13 @@ categories:
   
   <ol start="1">
     <li>
-      var content = $(&#8216;#content&#8217;).val();
+      var content = $('#content').val();
     </li>
     <li>
       if($.trim(content) == ")
     </li>
     <li>
-        alert(&#8216;空&#8217;);
+        alert('空');
     </li>
   </ol>
 
@@ -67,13 +67,13 @@ categories:
   
   <ol start="1">
     <li>
-      var content = $(&#8216;#content&#8217;).val();
+      var content = $('#content').val();
     </li>
     <li>
       if(jQuery.trim(content) == ")
     </li>
     <li>
-       alert(&#8216;空&#8217;);
+       alert('空');
     </li>
   </ol>
   

@@ -91,7 +91,7 @@ for (my $i=0;$i<$time;$i+=$ival) {
   
 Net::ARP::send_packet(
   
-&#8216;eth0&#8217;,
+'eth0',
   
 "192.168.6.28", #my ip
   
@@ -101,7 +101,7 @@ $gateip,
   
 $gatemac,
   
-&#8216;reply&#8217;);
+'reply');
   
 usleep($ival);
   
@@ -309,7 +309,7 @@ alert on deny address = true
   
 mod on deny address = true
 
-\# log if the adress isn&#8217;t referenced
+\# log if the adress isn't referenced
   
 log new address = true
   
@@ -317,7 +317,7 @@ alert on new address = true
   
 mod on new address = true
 
-\# log if the adress isn&#8217;t referenced (for mac adress only)
+\# log if the adress isn't referenced (for mac adress only)
   
 log new mac address = true
   

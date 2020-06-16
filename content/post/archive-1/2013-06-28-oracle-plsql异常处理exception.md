@@ -168,7 +168,7 @@ DECLARE
 
 
 
-&#8212; Exception to indicate an error condition
+- Exception to indicate an error condition
 
 
 
@@ -180,7 +180,7 @@ e_DuplicateAuthors EXCEPTION;
 
 
 
-&#8212; IDs for three authors
+- IDs for three authors
 
 
 
@@ -200,7 +200,7 @@ v_Author3 books.author3%TYPE;
 
 
 
-&#8212; Code and text of other runtime errors
+- Code and text of other runtime errors
 
 
 
@@ -216,7 +216,7 @@ BEGIN
 
 
 
-/\* Find the IDs for the 3 authors of &#8216;Oracle9i DBA 101&#8217; \*/
+/\* Find the IDs for the 3 authors of 'Oracle9i DBA 101' \*/
 
 
 
@@ -232,7 +232,7 @@ FROM books
 
 
 
-WHERE title = &#8216;Oracle9i DBA 101&#8217;;
+WHERE title = 'Oracle9i DBA 101';
 
 
 
@@ -284,7 +284,7 @@ INSERT INTO log_table (info)
 
 
 
-VALUES (&#8216;Oracle9i DBA 101 has duplicate authors&#8217;);
+VALUES ('Oracle9i DBA 101 has duplicate authors');
 
 
 
@@ -300,7 +300,7 @@ v_ErrorCode := SQLCODE;
 
 
 
-&#8212; Note the use of SUBSTR here.
+- Note the use of SUBSTR here.
 
 
 
@@ -312,7 +312,7 @@ INSERT INTO log_table (code, message, info) VALUES
 
 
 
-(v\_ErrorCode, v\_ErrorText, &#8216;Oracle error occurred&#8217;);
+(v\_ErrorCode, v\_ErrorText, 'Oracle error occurred');
 
 
 
@@ -354,27 +354,27 @@ BEGIN
 
 
 
-DBMS\_OUTPUT.PUT\_LINE(&#8216;SQLERRM(0): &#8216; || SQLERRM(0));
+DBMS\_OUTPUT.PUT\_LINE('SQLERRM(0): ' || SQLERRM(0));
 
 
 
-DBMS\_OUTPUT.PUT\_LINE(&#8216;SQLERRM(100): &#8216; || SQLERRM(100));
+DBMS\_OUTPUT.PUT\_LINE('SQLERRM(100): ' || SQLERRM(100));
 
 
 
-DBMS\_OUTPUT.PUT\_LINE(&#8216;SQLERRM(10): &#8216; || SQLERRM(10));
+DBMS\_OUTPUT.PUT\_LINE('SQLERRM(10): ' || SQLERRM(10));
 
 
 
-DBMS\_OUTPUT.PUT\_LINE(&#8216;SQLERRM: &#8216; || SQLERRM);
+DBMS\_OUTPUT.PUT\_LINE('SQLERRM: ' || SQLERRM);
 
 
 
-DBMS\_OUTPUT.PUT\_LINE(&#8216;SQLERRM(-1): &#8216; || SQLERRM(-1));
+DBMS\_OUTPUT.PUT\_LINE('SQLERRM(-1): ' || SQLERRM(-1));
 
 
 
-DBMS\_OUTPUT.PUT\_LINE(&#8216;SQLERRM(-54): &#8216; || SQLERRM(-54));
+DBMS\_OUTPUT.PUT\_LINE('SQLERRM(-54): ' || SQLERRM(-54));
 
 
 
@@ -478,7 +478,7 @@ WHEN e_MissingNull then
 
 
 
-INSERT INTO log_table (info) VALUES (&#8216;ORA-1400 occurred&#8217;);
+INSERT INTO log_table (info) VALUES ('ORA-1400 occurred');
 
 
 
@@ -558,11 +558,11 @@ p_Course IN classes.course%TYPE) AS
 
 
 
-v_CurrentStudents NUMBER; &#8212; Current number of students in the class
+v_CurrentStudents NUMBER; - Current number of students in the class
 
 
 
-v_MaxStudents NUMBER; &#8212; Maximum number of students in the class
+v_MaxStudents NUMBER; - Maximum number of students in the class
 
 
 
@@ -614,11 +614,11 @@ IF v\_CurrentStudents + 1 > v\_MaxStudents THEN
 
 
 
-RAISE\_APPLICATION\_ERROR(-20000, &#8216;Can"t add more students to &#8216; ||
+RAISE\_APPLICATION\_ERROR(-20000, 'Can"t add more students to ' ||
 
 
 
-p\_Department || &#8216; &#8216; || p\_Course);
+p\_Department || ' ' || p\_Course);
 
 
 
@@ -650,7 +650,7 @@ WHEN NO\_DATA\_FOUND THEN
 
 
 
-/* Class information passed to this procedure doesn&#8217;t exist. Raise an error
+/* Class information passed to this procedure doesn't exist. Raise an error
 
 
 
@@ -658,11 +658,11 @@ to let the calling program know of this. */
 
 
 
-RAISE\_APPLICATION\_ERROR(-20001, p\_Department || &#8216; &#8216; || p\_Course ||
+RAISE\_APPLICATION\_ERROR(-20001, p\_Department || ' ' || p\_Course ||
 
 
 
-&#8216; doesn"t exist!&#8217;);
+' doesn"t exist!');
 
 
 
@@ -946,7 +946,7 @@ VALUES
 
 
 
-(v\_errornumber,v\_errortext,’Oracle error occurred at’||TO_CHAR(SYSDATE,’DD-MON-YY HH24:MI:SS’));
+(v\_errornumber,v\_errortext,'Oracle error occurred at'||TO_CHAR(SYSDATE,'DD-MON-YY HH24:MI:SS'));
 
 
 
@@ -1048,7 +1048,7 @@ WHEN NO\_DATA\_FOUND THEN
 
 
 
-INSERT INTO log\_table(info) VALUES(‘NO DATA FOUND IN SELECT’||v\_selectcounter);
+INSERT INTO log\_table(info) VALUES('NO DATA FOUND IN SELECT'||v\_selectcounter);
 
 
 
@@ -1088,7 +1088,7 @@ WHEN NO\_DATA\_FOUND THEN
 
 
 
-INSERT INTO log_table(info) VALUES(‘NO DATA FOUND IN SELECT 1’);
+INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT 1');
 
 
 
@@ -1112,7 +1112,7 @@ WHEN NO\_DATA\_FOUND THEN
 
 
 
-INSERT INTO log_table(info) VALUES(‘NO DATA FOUND IN SELECT 2’);
+INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT 2');
 
 
 
@@ -1136,7 +1136,7 @@ WHEN NO\_DATA\_FOUND THEN
 
 
 
-INSERT INTO log_table(info) VALUES(‘NO DATA FOUND IN SELECT 3’);
+INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT 3');
 
 
 

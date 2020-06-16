@@ -22,7 +22,7 @@ System.out.println("s1 == ss1：" + (s1 == ss1)); //false
 System.out.println("s1.equals(ss1)：" + (s1.equals(ss1))); //false
 ```
 
-```java// 字符串 &gt; 枚举
+```java// 字符串 > 枚举
 Blah val = Blah.valueOf("A")
 package com.ljq.test;
 ```
@@ -206,7 +206,7 @@ System.out.println( " Today is  "   +  today.toString().toLowerCase());
 }
 ```
 
-4、枚举类型的性质：（摘自o&#8217;relly 出版的 Java in A Nutshell 5th)
+4、枚举类型的性质：（摘自o'relly 出版的 Java in A Nutshell 5th)
   
 Enumerated types have no public constructor. The only instances of an enumerated type are those declared by the enum.
   
@@ -214,9 +214,9 @@ Enums are not Cloneable, so copies of the existing instances cannot be created.
   
 Enums implement java.io.Serializable so they can be serialized, but the Java serialization mechanism handles them specially to ensure that no new instances are ever created.
   
-Instances of an enumerated type are immutable: each enum value retains its identity. (We’ll see later in this chapter that you can add your own fields and methods to an enumerated type, which means that you can create enumerated values that have mutable portions. This is not recommended, but does not affect the basic identity of each value.)
+Instances of an enumerated type are immutable: each enum value retains its identity. (We'll see later in this chapter that you can add your own fields and methods to an enumerated type, which means that you can create enumerated values that have mutable portions. This is not recommended, but does not affect the basic identity of each value.)
   
-Instances of an enumerated type are stored in public static final fields of the type itself. Because these fields are final, they cannot be overwritten with inappropriate values: you can’t assign the DownloadStatus.ERROR value to the DownloadStatus.DONE field, for example.
+Instances of an enumerated type are stored in public static final fields of the type itself. Because these fields are final, they cannot be overwritten with inappropriate values: you can't assign the DownloadStatus.ERROR value to the DownloadStatus.DONE field, for example.
   
 By convention, the values of enumerated types are written using all capital letters, just as other static final fields are.
   
@@ -254,10 +254,10 @@ try {
 i = System.in.read();
 } catch (IOException e) {
 }
-if (i == ‘n’ || i == ‘r’)
+if (i == 'n' || i == 'r')
 break;
 else {
-int num = i – ‘0’;
+int num = i – '0';
 vector.addElement(new Integer(num));
 }
 }
@@ -330,7 +330,7 @@ this.length= length;
 this.dataArray＝dataArray;
 }
 public boolean hasMoreElements() {
-return (count&lt; length);
+return (count< length);
 }
 public Object nextElement() {
 return dataArray[count++]；
@@ -368,7 +368,7 @@ three
 ```javapublic enum State {
 CREATED(0),
 UPDATED(1),
-RESOLVED(2);&lt;/code&gt;
+RESOLVED(2);</code>
 
 private final int value;
 

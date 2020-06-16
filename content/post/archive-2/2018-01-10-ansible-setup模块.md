@@ -151,20 +151,20 @@ OUTPUT OMITTED.
   
         lineinfile: dest=/etc/rsyslog.conf line="_._ @{{ logserver }}"
   
-        when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == "6"
+        when: ansible\_distribution == 'CentOS' and ansible\_distribution\_major\_version == "6"
       * name: restart syslog @CentOS6
   
-        when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == "6"
+        when: ansible\_distribution == 'CentOS' and ansible\_distribution\_major\_version == "6"
   
         service: name=rsyslog state=restarted
       * name: add conf to config files to RedHat 5
   
         lineinfile: dest=/etc/syslog.conf line="_._ @{{ logserver }}"
   
-        when: ansible\_distribution == &#8216;RedHat&#8217; and ansible\_distribution\_major\_version == "5"
+        when: ansible\_distribution == 'RedHat' and ansible\_distribution\_major\_version == "5"
       * name: restart syslog @RedHat 5
   
-        when: ansible\_distribution == &#8216;RedHat&#8217; and ansible\_distribution\_major\_version == "5"
+        when: ansible\_distribution == 'RedHat' and ansible\_distribution\_major\_version == "5"
   
         service: name=syslog state=restarted
   
@@ -180,7 +180,7 @@ OUTPUT OMITTED.
 
   * name: restart syslog @CentOS6
   
-    when: ansible\_distribution == &#8216;CentOS&#8217; and ansible\_distribution\_major\_version == "6"
+    when: ansible\_distribution == 'CentOS' and ansible\_distribution\_major\_version == "6"
   
     lineinfile: dest=/etc/rsyslog.conf line="_._ @{{ logserver }}"
   

@@ -36,7 +36,7 @@ categories:
   
   
   
-    #&#8212;-cut here&#8212;-
+    #--cut here--
  # I2C adapter drivers
  # modprobe unknown adapter NVIDIA i2c adapter
  # modprobe unknown adapter NVIDIA i2c adapter
@@ -45,7 +45,7 @@ categories:
  # Chip drivers
  # no driver for Winbond W83L785R/G yet
  lm85
- #&#8212;-cut here&#8212;-
+ #--cut here--
   
   
   

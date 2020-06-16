@@ -148,7 +148,7 @@ sendList(ctx, file);
   
 } else {
   
-sendRedirect(ctx, uri + &#8216;/&#8217;);
+sendRedirect(ctx, uri + '/');
   
 }
   
@@ -278,7 +278,7 @@ throw new Error(e);
   
 }
 
-if (uri.isEmpty() || uri.charAt(0) != &#8216;/&#8217;) {
+if (uri.isEmpty() || uri.charAt(0) != '/') {
   
 return null;
   
@@ -286,15 +286,15 @@ return null;
 
 // Convert file separators.
   
-uri = uri.replace(&#8216;/&#8217;, File.separatorChar);
+uri = uri.replace('/', File.separatorChar);
 
 // Simplistic dumb security check.
   
 // You will have to do something serious in the production environment.
   
-if (uri.contains(File.separator + &#8216;.&#8217;) || uri.contains(&#8216;.&#8217; + File.separator) || uri.charAt(0) == &#8216;.&#8217;
+if (uri.contains(File.separator + '.') || uri.contains('.' + File.separator) || uri.charAt(0) == '.'
   
-|| uri.charAt(uri.length() - 1) == &#8216;.&#8217; || INSECURE_URI.matcher(uri).matches()) {
+|| uri.charAt(uri.length() - 1) == '.' || INSECURE_URI.matcher(uri).matches()) {
   
 return null;
   

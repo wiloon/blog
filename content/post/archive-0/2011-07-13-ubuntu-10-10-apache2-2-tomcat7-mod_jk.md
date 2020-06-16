@@ -76,7 +76,7 @@ JkMountCopy All
 
 #如果在这里设置了JkMountCopy All，在httpd的VirtualHost中就不用设置JkMountCopy On了
   
-&#8212;
+-
   
 Note: replace "xxx" with your app name/path in tomcat
 

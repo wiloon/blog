@@ -28,7 +28,7 @@ public MyThread(String name) {
 this.name = name;
 }
 public void run(){
-for(int i=0;i&lt;100;i++){
+for(int i=0;i<100;i++){
 System.out.println("线程开始："+this.name+",i="+i);
 }
 }
@@ -217,7 +217,7 @@ t2.start();
 
 [/java]
 
-&#8212;-Runnable的代码
+--Runnable的代码
 
 [java]
 
@@ -298,4 +298,4 @@ http://blog.csdn.net/ghsau/article/details/7481142
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=9968&#038;embed=true#?secret=Y65uz4t1vN" data-secret="Y65uz4t1vN" width="600" height="338" title=""多线程的代价及上下文切换" &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=9968&#038;embed=true#?secret=Y65uz4t1vN" data-secret="Y65uz4t1vN" width="600" height="338" title=""多线程的代价及上下文切换" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

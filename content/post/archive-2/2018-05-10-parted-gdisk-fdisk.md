@@ -82,7 +82,7 @@ q quit without saving changes # 退出不保存
      
 s create a new empty Sun disklabel # 创建一个空的sun磁盘标签
      
-t change a partition&#8217;s system id # 改变一个分区的类型
+t change a partition's system id # 改变一个分区的类型
      
 u change display/entry units # 改变显示的单位
      
@@ -138,9 +138,9 @@ GPT: not present
 
 Found invalid GPT and valid MBR; converting MBR to GPT format.
   
-THIS OPERATION IS POTENTIALLY DESTRUCTIVE! Exit by typing &#8216;q&#8217; if
+THIS OPERATION IS POTENTIALLY DESTRUCTIVE! Exit by typing 'q' if
   
-you don&#8217;t want to convert your MBR partitions to GPT format!
+you don't want to convert your MBR partitions to GPT format!
 
 * * *
 
@@ -148,7 +148,7 @@ Command (? for help): ?
   
 b back up GPT data to a file # 备份一个gpt数据到文件
   
-c change a partition&#8217;s name # 改变分区名
+c change a partition's name # 改变分区名
   
 d delete a partition # 删除一个分区
   
@@ -168,7 +168,7 @@ r recovery and transformation options (experts only) # 专家模式
   
 s sort partitions # 排序分区
   
-t change a partition&#8217;s type code # 改变分区类型
+t change a partition's type code # 改变分区类型
   
 v verify disk # 验证磁盘
   

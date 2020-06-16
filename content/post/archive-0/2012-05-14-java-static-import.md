@@ -85,7 +85,7 @@ categories:
  String dv = "123.3456";
  System.out.println(iv+":"+parseInt(iv));
  System.out.println(dv+":"+parseDouble(dv));
- System.out.println("Double&#8217;s MaxValue is:"+MAX_VALUE );
+ System.out.println("Double's MaxValue is:"+MAX_VALUE );
   
   
   

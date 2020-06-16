@@ -114,7 +114,7 @@ categories:
   
   
   
-    Slackware的测试／开发版本称为 &#8216;-current&#8217; ，这是为了可以使用更多超前的配置。
+    Slackware的测试／开发版本称为 '-current' ，这是为了可以使用更多超前的配置。
   
   
   
@@ -389,7 +389,7 @@ categories:
   </h2>
   
   
-    KISS， 代表“保持简洁，笨拙”（Keep it Simple, Stupid），是一个可以解释很多Slackware中设计选择的概念。在这个文本中，“简洁”（&#8217;simple&#8217;）指系统设计的观点，而不是指易用性。与大多数其他的发行版不同，KISS(Keep it simple,stupid)是Slackware一贯坚持的原则，尽量保持系统的简洁，从而实现稳定、高效和安全。在KISS哲学里面，简单(Simple)指的是系统设计的简洁性，而不是用户友好(User friendly)。这可能会在一定程度上牺牲了系统的易用性，但却提高了系统的透明性和灵活性。
+    KISS， 代表“保持简洁，笨拙”（Keep it Simple, Stupid），是一个可以解释很多Slackware中设计选择的概念。在这个文本中，“简洁”（'simple'）指系统设计的观点，而不是指易用性。与大多数其他的发行版不同，KISS(Keep it simple,stupid)是Slackware一贯坚持的原则，尽量保持系统的简洁，从而实现稳定、高效和安全。在KISS哲学里面，简单(Simple)指的是系统设计的简洁性，而不是用户友好(User friendly)。这可能会在一定程度上牺牲了系统的易用性，但却提高了系统的透明性和灵活性。
   
   
   

@@ -18,7 +18,7 @@ ssh到node1
 
 XiaoleideMacBook-Pro:~ professor$ vi .bashrc
   
-alias go-node1=&#8217;ssh -p 1046 hzlixiaolei@10.165.xxx.xxx&#8217;
+alias go-node1='ssh -p 1046 hzlixiaolei@10.165.xxx.xxx'
   
 XiaoleideMacBook-Pro:~ professor$ go-node1
   
@@ -100,7 +100,7 @@ Step1，用户发起连接，携带者用户名
   
 Step2，ssh守护进程（sshd）在Server上查看authorized_keys文件，基于publickey构造一个口令盘问发送给SSH client
   
-The ssh daemon on the server looks in the user&#8217;s authorized_keys file, constructs a challenge based on the public key found there, and sends this challenge back to the user&#8217;s ssh client.
+The ssh daemon on the server looks in the user's authorized_keys file, constructs a challenge based on the public key found there, and sends this challenge back to the user's ssh client.
 
 2.png
   

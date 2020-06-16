@@ -58,7 +58,7 @@ sudo apt-get install xfonts-wqy
 
 sudo apt-get install xfonts-intl-chinese wqy*
 
-#set chrome&#8217;s font as wqy micro hei, size 16, set font "fix width" with micro hei mono, set encoding as utf8, restart the chrome
+#set chrome's font as wqy micro hei, size 16, set font "fix width" with micro hei mono, set encoding as utf8, restart the chrome
 
 #restart chrome,
 
@@ -122,15 +122,15 @@ sudo apt-get install xfonts-intl-chinese wqy*
 
 #add system monitor to tool bar
 
-#######################terminal&#8217;s color
+#######################terminal's color
 
-#update terminal&#8217;s color config, select gray and black
+#update terminal's color config, select gray and black
 
 #edit ~./.bashrc
 
 #remove the comments for
 
-alias ll=’ls -l’
+alias ll='ls -l'
 
 #######################sudoer
 

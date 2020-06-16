@@ -30,16 +30,16 @@ It will probably be fine tomorrow．明天大概会是晴天。
 
 译：她大概不会来这里。
 
-正：Probably she won’t come here．
+正：Probably she won't come here．
 
-正：She probably won’t come here．
+正：She probably won't come here．
 
-正：She won’t come here probably．
+正：She won't come here probably．
 
-误：She won’t probably come here．
+误：She won't probably come here．
 
 (3) perhaps“或许”，含有“可能这样，也可能不这样”之意，其含义和用法与maybe一样，多用于口语。maybe多用于美国英语。在这几个单词中，语义最强的是probably，其次是perhaps和maybe，最弱的是possibly。例如：
 
 Perhaps we will be late for work．或许我们上班会迟到。
 
-Perhaps we’d better take a bus．也许我们最好乘公共汽车。
+Perhaps we'd better take a bus．也许我们最好乘公共汽车。

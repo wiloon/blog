@@ -74,13 +74,13 @@ GO
 
 &#8211;2.创建测试数据
 
-Insert into Table1 values(&#8216;赵&#8217;,&#8217;asds&#8217;,&#8217;90&#8217;)
+Insert into Table1 values('赵','asds','90')
 
-Insert into Table1 values(&#8216;钱&#8217;,&#8217;asds&#8217;,&#8217;100&#8242;)
+Insert into Table1 values('钱','asds','100&#8242;)
 
-Insert into Table1 values(&#8216;孙&#8217;,&#8217;asds&#8217;,&#8217;80&#8217;)
+Insert into Table1 values('孙','asds','80')
 
-Insert into Table1 values(&#8216;李&#8217;,&#8217;asds&#8217;,null)
+Insert into Table1 values('李','asds',null)
 
 GO
 
@@ -152,13 +152,13 @@ GO
 
 &#8211;2.创建测试数据
 
-Insert into Table1 values(&#8216;赵&#8217;,&#8217;asds&#8217;,&#8217;90&#8217;)
+Insert into Table1 values('赵','asds','90')
 
-Insert into Table1 values(&#8216;钱&#8217;,&#8217;asds&#8217;,&#8217;100&#8242;)
+Insert into Table1 values('钱','asds','100&#8242;)
 
-Insert into Table1 values(&#8216;孙&#8217;,&#8217;asds&#8217;,&#8217;80&#8217;)
+Insert into Table1 values('孙','asds','80')
 
-Insert into Table1 values(&#8216;李&#8217;,&#8217;asds&#8217;,null)
+Insert into Table1 values('李','asds',null)
 
 GO
 

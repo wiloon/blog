@@ -48,7 +48,7 @@ parents()，我想这个大家再熟悉不过了，它是取得所有符合条�
 
 这里，我们可以：
 
-$(".moto").parents("li[name=&#8217;b&#8217;]");
+$(".moto").parents("li[name='b']");
 
 或者
 
@@ -70,7 +70,7 @@ closest()，这个方法呢就是向上检查元素并逐级匹配。首先，�
 
 可以这样写：
 
-$(".moto").closest("li[name=&#8217;b&#8217;]");
+$(".moto").closest("li[name='b']");
 
 或者
 

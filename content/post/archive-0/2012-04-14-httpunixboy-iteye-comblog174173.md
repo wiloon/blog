@@ -92,7 +92,7 @@ Java堆中对象的对象指针被压缩到32bit
   
 -XX:MaxMetaspaceSize=128m
 
-jdk7&#8212;&#8212;&#8212;
+jdk7---
   
 -XX:PermSize=64M JVM初始分配的非堆内存
   
@@ -474,7 +474,7 @@ GCARGS="-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps\
   
 -XX:+PrintTenuringDistribution -Xloggc:/tmp/tsd-gc-`date +%s`.log"
   
-if test -t 0; then # if stdin is a tty, don&#8217;t turn on GC logging.
+if test -t 0; then # if stdin is a tty, don't turn on GC logging.
   
 GCARGS=
   
@@ -486,7 +486,7 @@ fi
 
 # IP. Instead tell it to cache names for only 10 minutes at most.
 
-FIX_DNS=&#8217;-Dsun.net.inetaddr.ttl=600&#8242;
+FIX_DNS='-Dsun.net.inetaddr.ttl=600&#8242;
   
 JVMARGS="$JVMARGS $GCARGS $FIX_DNS"
   

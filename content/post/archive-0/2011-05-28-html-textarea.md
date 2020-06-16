@@ -34,6 +34,6 @@ The text area size is determined using the attributes "rows" and "cols". You can
 
 Example Code:
 
-&#8212;
+-
   
 text area in status 2

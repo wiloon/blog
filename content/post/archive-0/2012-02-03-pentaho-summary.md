@@ -26,7 +26,7 @@ Location: [/opt/pentaho]:
   
 - Embedded Database Port: 9092
 
-&#8212;
+-
 
 sample users:
 

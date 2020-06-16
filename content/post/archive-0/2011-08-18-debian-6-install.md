@@ -188,7 +188,7 @@ append initrd=initrd.gz
   
 Master Boot Record
   
-Some USB keys don&#8217;t boot. If this is the case, it may be possible to fix them by installing a new master boot record. (Most keys boot OK by default; some cannot be fixed even by doing this. However, it helps in some cases). Run the command:
+Some USB keys don't boot. If this is the case, it may be possible to fix them by installing a new master boot record. (Most keys boot OK by default; some cannot be fixed even by doing this. However, it helps in some cases). Run the command:
 
 #umount the usb drive
 

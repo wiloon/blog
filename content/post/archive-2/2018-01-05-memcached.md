@@ -40,13 +40,13 @@ value：存储的值（始终位于第二行）（可直接理解为key-value结
 get key
 
 # 删除key
-delete &lt;key&gt;
+delete <key>
 
 #输出各个slab中的item的数目和最老item的年龄(最后一次访问距离现在的秒数) .
 stats items
 
-# 根据&lt;slab_id&gt;输出相同的&lt;slab_id&gt;中的item信息。&lt;limit_num&gt;是输出的个数，当&lt;limit_num&gt;为0是输出所有的item。
-stats cachedump &lt;slab_id&gt; &lt;limit_num&gt;
+# 根据<slab_id>输出相同的<slab_id>中的item信息。<limit_num>是输出的个数，当<limit_num>为0是输出所有的item。
+stats cachedump <slab_id> <limit_num>
 
 
 #显示各个slab的信息，包括chunk的大小、数目、使用情况等。
@@ -77,7 +77,7 @@ Trying 127.0.0.1&#8230;
 
 Connected to 127.0.0.1.
 
-Escape character is &#8216;^]&#8217;.
+Escape character is '^]'.
 
 set foo 0 0 3 保存命令
 

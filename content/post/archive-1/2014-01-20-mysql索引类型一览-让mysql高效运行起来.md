@@ -12,29 +12,29 @@ tags:
 ---
 [code lang=sql]
   
-&#8212; 显示索引信息
+- 显示索引信息
   
 SHOW INDEX FROM table_name;
   
 SHOW keys FROM table_name;
 
-&#8212; create index
+- create index
   
 CREATE INDEX indexName ON mytable(username(length));
 
-&#8212; 该语句添加一个主键，这意味着索引值必须是唯一的，且不能为NULL。
+- 该语句添加一个主键，这意味着索引值必须是唯一的，且不能为NULL。
   
 ALTER TABLE tbl\_name ADD PRIMARY KEY (column\_list);
 
-&#8212; 这条语句创建索引的值必须是唯一的（除了NULL外，NULL可能会出现多次）。
+- 这条语句创建索引的值必须是唯一的（除了NULL外，NULL可能会出现多次）。
   
 ALTER TABLE tbl\_name ADD UNIQUE index\_name (column_list): 
 
-&#8212; 添加普通索引，索引值可出现多次。
+- 添加普通索引，索引值可出现多次。
   
 ALTER TABLE tbl\_name ADD INDEX index\_name (column_list): 
 
-&#8212; 该语句指定了索引为 FULLTEXT ，用于全文索引。
+- 该语句指定了索引为 FULLTEXT ，用于全文索引。
   
 ALTER TABLE tbl\_name ADD FULLTEXT index\_name (column_list):
 
@@ -56,7 +56,7 @@ Seq\_in\_index：索引中的列序列号，从1开始
   
 Column_name：列名称
   
-Collation：列以什么方式存储在索引中。在MySQL中，有值‘A’（升序）或NULL（无分类）。
+Collation：列以什么方式存储在索引中。在MySQL中，有值'A'（升序）或NULL（无分类）。
   
 Cardinality：索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没有必要是精确的。基数越大，当进行联合时，MySQL使用该索引的机会就越大。
   
@@ -98,7 +98,7 @@ Full-text (全文索引)：全文索引也是MyISAM的一种特殊索引类型�
   
 3.尽量选择区分度高的列作为索引,区分度的公式是count(distinct col)/count(*)，表示字段不重复的比例，比例越大我们扫描的记录数越少，唯一键的区分度是1，而一些状态、性别字段可能在大数据面前区分度就是0，那可能有人会问，这个比例有什么经验值吗？使用场景不同，这个值也很难确定，一般需要join的字段我们都要求是0.1以上，即平均1条扫描10条记录
   
-4.索引列不能参与计算，保持列“干净”，比如from\_unixtime(create\_time) = ’2014-05-29’就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create\_time = unix\_timestamp(’2014-05-29’);
+4.索引列不能参与计算，保持列“干净”，比如from\_unixtime(create\_time) = '2014-05-29'就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create\_time = unix\_timestamp('2014-05-29');
   
 5.尽量的扩展索引，不要新建索引。比如表中已经有a的索引，现在要加(a,b)的索引，那么只需要修改原来的索引即可
 
@@ -120,7 +120,7 @@ username VARCHAR(16) NOT NULL
 
 我们随机向里面插入了10000条记录，其中有一条：5555, admin。
 
-在查找username=”admin”的记录 SELECT * FROM mytable WHERE username=’admin’;时，如果在username上已经建立了索引，MySQL无须任何扫描，即准确可找到该记录。相反，MySQL会扫描所有记录，即要查询10000条记录。
+在查找username=”admin”的记录 SELECT * FROM mytable WHERE username='admin';时，如果在username上已经建立了索引，MySQL无须任何扫描，即准确可找到该记录。相反，MySQL会扫描所有记录，即要查询10000条记录。
 
 索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索引包含多个列。
 
@@ -248,17 +248,17 @@ SELECT t.Name
   
 FROM mytable t LEFT JOIN mytable m
   
-ON t.Name=m.username WHERE m.age=20 AND m.city=’郑州’
+ON t.Name=m.username WHERE m.age=20 AND m.city='郑州'
 
 此时就需要对city和age建立索引，由于mytable表的userame也出现在了JOIN子句中，也有对它建立索引的必要。
   
 刚才提到只有某些时候的LIKE才需建立索引。因为在以通配符%和_开头作查询时，MySQL不会使用索引。例如下句会使用索引：
   
-SELECT * FROM mytable WHERE username like’admin%’
+SELECT * FROM mytable WHERE username like'admin%'
 
 而下句就不会使用：
   
-SELECT * FROM mytable WHEREt Name like’%admin’
+SELECT * FROM mytable WHEREt Name like'%admin'
   
 因此，在使用LIKE时应注意以上的区别。
 
@@ -298,7 +298,7 @@ select * from users where YEAR(adddate)<2007;
   
 将在每个行上进行运算，这将导致索引失效而进行全表扫描，因此我们可以改成
   
-select * from users where adddate<‘2007-01-01’;
+select * from users where adddate<'2007-01-01';
 
 ◆不使用NOT IN和<>操作
   

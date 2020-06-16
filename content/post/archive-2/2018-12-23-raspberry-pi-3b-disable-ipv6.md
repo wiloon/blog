@@ -12,7 +12,7 @@ Add ipv6.disable=1 to /boot/cmdline.txt
 
 cat /etc/modprobe.d/ipv6.conf
 
-# Don&#8217;t load ipv6 by default
+# Don't load ipv6 by default
 
 alias net-pf-10 off
 

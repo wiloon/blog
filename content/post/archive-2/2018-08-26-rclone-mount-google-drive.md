@@ -123,7 +123,7 @@ https://rclone.org/webdav/
   
 </blockquote>
 
-<iframe title=""rclone Systemd startup mount script&#8221; &#8212; JamesCoyle.net Limited" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.jamescoyle.net/how-to/3116-rclone-systemd-startup-mount-script/embed#?secret=JYXAHPlYuh" data-secret="JYXAHPlYuh" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""rclone Systemd startup mount script&#8221; - JamesCoyle.net Limited" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.jamescoyle.net/how-to/3116-rclone-systemd-startup-mount-script/embed#?secret=JYXAHPlYuh" data-secret="JYXAHPlYuh" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 ### windows
 
@@ -161,9 +161,9 @@ end if
 
 ```bash
 rclone config
-storage&gt; 23
-client_id&gt; ""
-client_secret&gt; ""
+storage> 23
+client_id> ""
+client_secret> ""
 dit advanced config? (y/n) n
 Use auto config? y
 Choose a number from below, or type in an existing value: 1 / OneDrive Personal or Business

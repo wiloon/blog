@@ -16,7 +16,7 @@ This article gives an awareness tip. Do you know the difference between java, ja
 
 jvm.dll
   
-We need to know about jvm.dll also. This is the actual java virtual machine implementation in windows environment and it is part of the JRE. A ‘C’ program can use this jvm.dll directly to run the jvm.
+We need to know about jvm.dll also. This is the actual java virtual machine implementation in windows environment and it is part of the JRE. A 'C' program can use this jvm.dll directly to run the jvm.
 
 java.exe
   
@@ -26,7 +26,7 @@ java.exe is a Win32 console application. This is provided as a helper so that, i
 
 javaw.exe
   
-javaw.exe is very similar to java.exe. It can be considered as a parallel twin. It is a Win32 GUI application. This is provided as a helper so that application launches its own GUI window and will not launch a console. Whenever we want to run a GUI based application and don’t require a command console, we can use this as application launcher. For example to launch Eclipse this javaw.exe is used. Write a small java hello world program and run it as “javaw HelloWorld” using a command prompt. Silence! nothing happens then how do I ensure it. Write the same using Swing and execute it you will see the GUI launched. For the lazy to ensure that it is same as java.exe (only difference is console) “javaw HelloWorld >> output.txt”. It silently interprets and pushes the output to the text file.
+javaw.exe is very similar to java.exe. It can be considered as a parallel twin. It is a Win32 GUI application. This is provided as a helper so that application launches its own GUI window and will not launch a console. Whenever we want to run a GUI based application and don't require a command console, we can use this as application launcher. For example to launch Eclipse this javaw.exe is used. Write a small java hello world program and run it as “javaw HelloWorld” using a command prompt. Silence! nothing happens then how do I ensure it. Write the same using Swing and execute it you will see the GUI launched. For the lazy to ensure that it is same as java.exe (only difference is console) “javaw HelloWorld >> output.txt”. It silently interprets and pushes the output to the text file.
 
 import javax.swing.*;
 

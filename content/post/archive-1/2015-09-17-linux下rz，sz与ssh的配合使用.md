@@ -58,7 +58,7 @@ zmodem接收可以自行启动.
   
 然后在 SecureCRT 里选文件发送,协议 zmodem
 
-&#8212;&#8212;&#8212;&#8212;&#8212;-
+------
   
 Linux下和Windows之间的文件传输工具rz/sz(lrz/lsz) 介绍
 

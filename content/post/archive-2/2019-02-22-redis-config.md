@@ -50,23 +50,23 @@ loglevel notice
 
 
 # Set the number of databases. The default database is DB 0, you can select
-# a different one on a per-connection basis using SELECT &lt;dbid&gt; where
+# a different one on a per-connection basis using SELECT <dbid> where
 # dbid is a number between 0 and 'databases'-1
 # 
-# 设置数据库数量。默认会使用 0 数据库，也可以使用  SELECT &lt;dbid&gt; 指令为每个连接选择不同的数据库，
+# 设置数据库数量。默认会使用 0 数据库，也可以使用  SELECT <dbid> 指令为每个连接选择不同的数据库，
 # 其中 dbid 的取值在 0 和 （'databases' 设置值）-1 之间
 # 不同的数据库使用不同的内存空间, 互不影响, 不同的库里可以有相同的key
 # 在redis 集群模式, 不支持多库.
 databases 16
 
-#   save &lt;seconds&gt; &lt;changes&gt;
+#   save <seconds> <changes>
 #
 #   Will save the DB if both the given number of seconds and the given
 #   number of write operations against the DB occurred.
 
 # Save the DB on disk:保存数据库到磁盘  
 #  
-#   save &lt;秒&gt; &lt;更新&gt;  
+#   save <秒> <更新>  
 #  
 #   如果指定的秒数和数据库写操作次数都满足了就将数据库保存。  
 #  

@@ -36,7 +36,7 @@ http://blog.sina.com.cn/s/blog_4b3c4bfa0100vz7h.html
 
 
 
-  &#8216;Spring 的 SimpleFormController里面, 把cache-control设成了no-cache no-store.&#8217;
+  'Spring 的 SimpleFormController里面, 把cache-control设成了no-cache no-store.'
 
 
 

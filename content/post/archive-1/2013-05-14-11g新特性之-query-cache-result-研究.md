@@ -28,13 +28,13 @@ categories:
   <table>
     <tr>
       <td>
-        SQL&gt; SELECT * FROM v$version WHERE rownum &lt;2;
+        SQL> SELECT * FROM v$version WHERE rownum <2;
 
 BANNER
 --------------------------------------------------------------------------------
 Oracle DATABASE 11g Enterprise Edition Release 11.2.0.1.0 - Production
 
-SQL&gt; SHOW parameter RESULT
+SQL> SHOW parameter RESULT
 
 NAME                                    TYPE        VALUE
 ------------------------------------    ----------- ------------------------------
@@ -72,7 +72,7 @@ manual是默认属性，也就是说我们要启用该特性，那么必须通�
   <table>
     <tr>
       <td>
-        SQL&gt; SELECT name,version FROM v$sql_hint
+        SQL> SELECT name,version FROM v$sql_hint
   2  WHERE name LIKE '%RESULT%';
       </td>
     </tr>

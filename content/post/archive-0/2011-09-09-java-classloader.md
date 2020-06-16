@@ -228,7 +228,7 @@ A non-primordial class loader
   
 "So what?" you might ask.
 
-The Java virtual machine has hooks in it to allow a user-defined class loader to be used in place of the primordial one. Furthermore, since the user class loader gets first crack at the class name, the user is able to implement any number of interesting class repositories, not the least of which is HTTP servers &#8212; which got Java off the ground in the first place.
+The Java virtual machine has hooks in it to allow a user-defined class loader to be used in place of the primordial one. Furthermore, since the user class loader gets first crack at the class name, the user is able to implement any number of interesting class repositories, not the least of which is HTTP servers - which got Java off the ground in the first place.
 
 There is a cost, however, because the class loader is so powerful (for example, it can replace java.lang.Object with its own version), Java classes like applets are not allowed to instantiate their own loaders. (This is enforced by the class loader, by the way.) This column will not be useful if you are trying to do this stuff with an applet, only with an application running from the trusted class repository (such as local files).
 
@@ -244,7 +244,7 @@ Check to see if the class requested has already been loaded.
   
 Check to see if the class is a "system" class.
   
-Attempt to fetch the class from this class loader&#8217;s repository.
+Attempt to fetch the class from this class loader's repository.
   
 Define the class for the VM.
   
@@ -280,7 +280,7 @@ return result;
   
 [/java]
 
-The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It&#8217;s also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
+The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
 [java]
   

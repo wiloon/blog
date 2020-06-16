@@ -63,7 +63,7 @@ dependencies {
   
 repositories {
   
-    maven { url &#8216;http://maven.oschina.net/content/groups/public/&#8217; }
+    maven { url 'http://maven.oschina.net/content/groups/public/' }
   
 }
 
@@ -71,7 +71,7 @@ exclude jar
   
 compile("comxxx:xxx:xxx") {
       
-exclude group: &#8216;ch.qos.logback&#8217;, module: &#8216;logback-classic&#8217;
+exclude group: 'ch.qos.logback', module: 'logback-classic'
   
 }
   

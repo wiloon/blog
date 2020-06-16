@@ -70,17 +70,17 @@ Context相关URL——/static/css/style.css
   
 另外，如果需要Thymeleaf对URL进行渲染，那么务必使用th:href，th:src等属性，下面是一个例子
 
-<!- Will produce &#8216;http://localhost:8080/gtvg/order/details?orderId=3&#8217; (plus rewriting) &#8211;>
+<!- Will produce 'http://localhost:8080/gtvg/order/details?orderId=3' (plus rewriting) &#8211;>
   
 <a href="details.html"
   
 th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
 
-<!- Will produce &#8216;/gtvg/order/details?orderId=3&#8217; (plus rewriting) &#8211;>
+<!- Will produce '/gtvg/order/details?orderId=3' (plus rewriting) &#8211;>
   
 <a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>
 
-<!- Will produce &#8216;/gtvg/order/3/details&#8217; (plus rewriting) &#8211;>
+<!- Will produce '/gtvg/order/3/details' (plus rewriting) &#8211;>
   
 <a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
 
@@ -96,7 +96,7 @@ th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
   
 很多时候可能我们只需要对一大段文字中的某一处地方进行替换，可以通过字符串拼接操作完成：
 
-<span th:text="&#8216;Welcome to our application, &#8216; + ${user.name} + &#8216;!'">
+<span th:text="'Welcome to our application, ' + ${user.name} + '!'">
 
 一种更简洁的方式是：
 
@@ -114,7 +114,7 @@ th:with="isEven=(${prodStat.count} % 2 == 0)"
 
 th:if="${prodStat.count} > 1"
   
-th:text="&#8216;Execution mode is &#8216; + ( (${execMode} == &#8216;dev&#8217;)? &#8216;Development&#8217; : &#8216;Production&#8217;)"
+th:text="'Execution mode is ' + ( (${execMode} == 'dev')? 'Development' : 'Production')"
 
 循环
   
@@ -174,7 +174,7 @@ Thymeleaf同样支持多路选择Switch结构：
 
 <div th:switch="${user.role}">
   
-<p th:case="&#8216;admin'">User is an administrator
+<p th:case="'admin'">User is an administrator
   
 <p th:case="#{roles.manager}">User is a manager
   
@@ -184,7 +184,7 @@ Thymeleaf同样支持多路选择Switch结构：
 
 <div th:switch="${user.role}">
   
-<p th:case="&#8216;admin'">User is an administrator
+<p th:case="'admin'">User is an administrator
   
 <p th:case="#{roles.manager}">User is a manager
   
@@ -226,13 +226,13 @@ maps
   
 */
   
-${#dates.format(date, &#8216;dd/MMM/yyyy HH:mm&#8217;)}
+${#dates.format(date, 'dd/MMM/yyyy HH:mm')}
   
-${#dates.arrayFormat(datesArray, &#8216;dd/MMM/yyyy HH:mm&#8217;)}
+${#dates.arrayFormat(datesArray, 'dd/MMM/yyyy HH:mm')}
   
-${#dates.listFormat(datesList, &#8216;dd/MMM/yyyy HH:mm&#8217;)}
+${#dates.listFormat(datesList, 'dd/MMM/yyyy HH:mm')}
   
-${#dates.setFormat(datesSet, &#8216;dd/MMM/yyyy HH:mm&#8217;)}
+${#dates.setFormat(datesSet, 'dd/MMM/yyyy HH:mm')}
 
 /*
   
@@ -276,7 +276,7 @@ ${#strings.setIsEmpty(nameSet)}
   
 */
   
-${#strings.startsWith(name,&#8217;Don&#8217;)} // also array\*, list\* and set*
+${#strings.startsWith(name,'Don')} // also array\*, list\* and set*
   
 ${#strings.endsWith(name,endingFragment)} // also array\*, list\* and set*
 

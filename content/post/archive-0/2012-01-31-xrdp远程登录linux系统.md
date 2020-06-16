@@ -52,15 +52,15 @@ Resolving Dependencies
   
 &#8211;> Running transaction check
   
-&#8212;> Package tigervnc-server.x86\_64 0:1.8.0-2.el7\_4 will be installed
+-> Package tigervnc-server.x86\_64 0:1.8.0-2.el7\_4 will be installed
   
-&#8212;> Package xrdp.x86_64 1:0.9.5-1.el7 will be installed
+-> Package xrdp.x86_64 1:0.9.5-1.el7 will be installed
   
 &#8211;> Processing Dependency: xorgxrdp for package: 1:xrdp-0.9.5-1.el7.x86_64
   
 &#8211;> Running transaction check
   
-&#8212;> Package xorgxrdp.x86_64 0:0.2.5-3.el7 will be installed
+-> Package xorgxrdp.x86_64 0:0.2.5-3.el7 will be installed
   
 &#8211;> Finished Dependency Resolution
 
@@ -164,7 +164,7 @@ tcp 0 0 127.0.0.1:3350 0.0.0.0:* LISTEN 1507/xrdp-sesman
   
 READ: netstat command not found on CentOS 7 / RHEL 7 – Quick Fix
 
-By default, xrdp service won’t start automatically after a system reboot. Run the following command in the terminal to enable the service at system startup.
+By default, xrdp service won't start automatically after a system reboot. Run the following command in the terminal to enable the service at system startup.
 
 systemctl enable xrdp
   
@@ -210,7 +210,7 @@ Install xrdp on CentOS 7 - xrdp CentOS Desktop
   
 Install xrdp on CentOS 7 – xrdp CentOS Desktop
   
-That’s All. You have successfully configured xRDP on CentOS 7 / RHEL 7.
+That's All. You have successfully configured xRDP on CentOS 7 / RHEL 7.
 
 来源：Linux社区 作者：Finans
 

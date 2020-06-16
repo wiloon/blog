@@ -11,7 +11,7 @@ tags:
   - Jboss
 
 ---
-JBoss AS 7 and Hibernate: what&#8217;s up?
+JBoss AS 7 and Hibernate: what's up?
 
 You might have heard the news: JBoss AS 7 is out 🙂 What does it mean from an Hibernate user perspective?
 
@@ -81,7 +81,7 @@ We will also include additional tuning options to disable some of the JPA integr
 
 Hibernate Validator and Bean Validation
 
-What&#8217;s new in AS7 in relation to Bean Validation? The short answer - nothing. It was already awesome 😉 The initial version - AS 7.0 - ships with Hibernate Validator 4.1.0.Final. This is the same Validator version as in AS 6 so no change there.
+What's new in AS7 in relation to Bean Validation? The short answer - nothing. It was already awesome 😉 The initial version - AS 7.0 - ships with Hibernate Validator 4.1.0.Final. This is the same Validator version as in AS 6 so no change there.
 
 The long answer is that Hibernate Validator 4.2.0.Final merely missed the AS 7.0 release train and an upgrade is planned at the latest in AS 7.1. What will the update mean for AS users? Besides the usual bug fixes and performance improvements, the biggest new feature is the implementation of appendix C of the Bean Validation specification: method level validation.
 

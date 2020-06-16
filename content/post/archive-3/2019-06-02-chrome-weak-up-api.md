@@ -22,7 +22,7 @@ async function toggleWakeLock() {
       wakeLock = await navigator.getWakeLock("screen");
       updateStatus(wakeLock);
       // Listen for changes to the wakeLock
-      wakeLock.addEventListener('activechange', (e) =&gt; {
+      wakeLock.addEventListener('activechange', (e) => {
         updateStatus(wakeLock);
       });
       wakeLockRequest = wakeLock.createRequest();

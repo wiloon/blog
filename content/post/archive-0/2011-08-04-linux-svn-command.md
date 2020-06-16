@@ -14,7 +14,7 @@ categories:
 
 ```bash
 # 分支合到主干 cd trunk
-svn merge -r &lt;revision where branch was cut&gt;:&lt;revision of trunk&gt; svn://branch/path
+svn merge -r <revision where branch was cut>:<revision of trunk> svn://branch/path
 
 # 分支当前版本为4847，想把4825到4847间的改动merge到主干
 # cd trunk
