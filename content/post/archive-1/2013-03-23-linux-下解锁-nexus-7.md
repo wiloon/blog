@@ -33,7 +33,7 @@ To unlock your device
   
 2. Reboot to the bootloader - adb reboot bootloader
   
-3. Unlock your device* &#8211;
+3. Unlock your device* -
   
 fastboot oem unlock
   

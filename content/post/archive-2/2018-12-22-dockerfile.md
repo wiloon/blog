@@ -38,7 +38,7 @@ ENV 设置环境变量
 
 ENV <key> <value>
   
-ENV <key1>=<value1> <key2>=<value2>&#8230;
+ENV <key1>=<value1> <key2>=<value2>...
   
 这个指令很简单，就是设置环境变量而已，无论是后面的其它指令，如 RUN，还是运行时的应用，都可以直接使用这里定义的环境变量。
 
@@ -56,7 +56,7 @@ ENV 设置环境变量
   
 ENV <key> <value>
   
-ENV <key1>=<value1> <key2>=<value2>&#8230;
+ENV <key1>=<value1> <key2>=<value2>...
   
 这个指令很简单，就是设置环境变量而已，无论是后面的其它指令，如 RUN，还是运行时的应用，都可以直接使用这里定义的环境变量
 

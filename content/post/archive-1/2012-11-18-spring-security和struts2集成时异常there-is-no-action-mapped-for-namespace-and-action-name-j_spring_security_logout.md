@@ -357,7 +357,7 @@ age int
   
 func (p Person) String() string {
       
-return "(name: " + p.name + " &#8211; age: "+strconv.Itoa(p.age)+ " years)"
+return "(name: " + p.name + " - age: "+strconv.Itoa(p.age)+ " years)"
   
 }
 

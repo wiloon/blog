@@ -68,11 +68,11 @@ EscapeChar ~
   
 Host *
   
-"Host&#8221;只对匹配后面字串的计算机有效，“_”表示所有的计算机。从该项格式前置一些可以看出，这是一个类似于全局的选项，表示下面缩进的选项都适用于该设置，可以指定某计算机替换_号使下面选项只针对该算机器生效。
+"Host"只对匹配后面字串的计算机有效，“_”表示所有的计算机。从该项格式前置一些可以看出，这是一个类似于全局的选项，表示下面缩进的选项都适用于该设置，可以指定某计算机替换_号使下面选项只针对该算机器生效。
   
 ForwardAgent no
   
-"ForwardAgent&#8221;设置连接是否经过验证代理（如果存在）转发给远程计算机。
+"ForwardAgent"设置连接是否经过验证代理（如果存在）转发给远程计算机。
   
 ForwardX11 no
   
@@ -80,47 +80,47 @@ ForwardX11 no
   
 RhostsAuthentication no
   
-"RhostsAuthentication&#8221;设置是否使用基于rhosts的安全验证。
+"RhostsAuthentication"设置是否使用基于rhosts的安全验证。
   
 RhostsRSAAuthentication no
   
-"RhostsRSAAuthentication&#8221;设置是否使用用RSA算法的基于rhosts的安全验证。
+"RhostsRSAAuthentication"设置是否使用用RSA算法的基于rhosts的安全验证。
   
 RSAAuthentication yes
   
-"RSAAuthentication&#8221;设置是否使用RSA算法进行安全验证。
+"RSAAuthentication"设置是否使用RSA算法进行安全验证。
   
 PasswordAuthentication yes
   
-"PasswordAuthentication&#8221;设置是否使用口令验证。
+"PasswordAuthentication"设置是否使用口令验证。
   
 FallBackToRsh no
   
-"FallBackToRsh&#8221;设置如果用ssh连接出现错误是否自动使用rsh，由于rsh并不安全，所以此选项应当设置为&#8221;no&#8221;。
+"FallBackToRsh"设置如果用ssh连接出现错误是否自动使用rsh，由于rsh并不安全，所以此选项应当设置为"no"。
   
 UseRsh no
   
-"UseRsh&#8221;设置是否在这台计算机上使用&#8221;rlogin/rsh&#8221;，原因同上，设为&#8221;no&#8221;。
+"UseRsh"设置是否在这台计算机上使用"rlogin/rsh"，原因同上，设为"no"。
   
 BatchMode no
   
-"BatchMode&#8221;：批处理模式，一般设为&#8221;no&#8221;；如果设为&#8221;yes&#8221;，交互式输入口令的提示将被禁止，这个选项对脚本文件和批处理任务十分有用。
+"BatchMode"：批处理模式，一般设为"no"；如果设为"yes"，交互式输入口令的提示将被禁止，这个选项对脚本文件和批处理任务十分有用。
   
 CheckHostIP yes
   
-"CheckHostIP&#8221;设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为&#8221;yes&#8221;。
+"CheckHostIP"设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为"yes"。
   
 StrictHostKeyChecking no
   
-"StrictHostKeyChecking&#8221;如果设为&#8221;yes&#8221;，ssh将不会自动把计算机的密匙加入&#8221;$HOME/.ssh/known_hosts&#8221;文件，且一旦计算机的密匙发生了变化，就拒绝连接。
+"StrictHostKeyChecking"如果设为"yes"，ssh将不会自动把计算机的密匙加入"$HOME/.ssh/known_hosts"文件，且一旦计算机的密匙发生了变化，就拒绝连接。
   
 IdentityFile ~/.ssh/identity
   
-"IdentityFile&#8221;设置读取用户的RSA安全验证标识。
+"IdentityFile"设置读取用户的RSA安全验证标识。
   
 Port 22
   
-"Port&#8221;设置连接到远程主机的端口，ssh默认端口为22。
+"Port"设置连接到远程主机的端口，ssh默认端口为22。
   
 Cipher blowfish
   
@@ -160,7 +160,7 @@ EscapeChar ~
   
 Port 22
   
-"Port&#8221;设置sshd监听的端口号。
+"Port"设置sshd监听的端口号。
   
 ListenAddress 192.168.1.1
   
@@ -184,7 +184,7 @@ KeyRegenerationInterval 3600
   
 PermitRootLogin no
   
-"PermitRootLogin”设置是否允许root通过ssh登录。这个选项从安全角度来讲应设成&#8221;no&#8221;。
+"PermitRootLogin”设置是否允许root通过ssh登录。这个选项从安全角度来讲应设成"no"。
   
 IgnoreRhosts yes
   
@@ -192,7 +192,7 @@ IgnoreRhosts yes
   
 IgnoreUserKnownHosts yes
   
-"IgnoreUserKnownHosts”设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的&#8221;$HOME/.ssh/known_hosts”
+"IgnoreUserKnownHosts”设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的"$HOME/.ssh/known_hosts”
   
 StrictModes yes
   

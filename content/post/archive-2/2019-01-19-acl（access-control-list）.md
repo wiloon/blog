@@ -24,43 +24,43 @@ ACL可以针对单一用户、单一文件或目录来进行r,w,x的权限控制
 
 setfacl 参数
   
-Usage: setfacl [-bkndRLP] { -m|-M|-x|-X &#8230; } file &#8230;
+Usage: setfacl [-bkndRLP] { -m|-M|-x|-X ... } file ...
     
--m, &#8211;modify=acl modify the current ACL(s) of file(s)
+-m, -modify=acl modify the current ACL(s) of file(s)
     
--M, &#8211;modify-file=file read ACL entries to modify from file
+-M, -modify-file=file read ACL entries to modify from file
     
--x, &#8211;remove=acl remove entries from the ACL(s) of file(s)
+-x, -remove=acl remove entries from the ACL(s) of file(s)
     
--X, &#8211;remove-file=file read ACL entries to remove from file
+-X, -remove-file=file read ACL entries to remove from file
     
--b, &#8211;remove-all remove all extended ACL entries
+-b, -remove-all remove all extended ACL entries
     
--k, &#8211;remove-default remove the default ACL
+-k, -remove-default remove the default ACL
         
-&#8211;set=acl set the ACL of file(s), replacing the current ACL
+-set=acl set the ACL of file(s), replacing the current ACL
         
-&#8211;set-file=file read ACL entries to set from file
+-set-file=file read ACL entries to set from file
         
-&#8211;mask do recalculate the effective rights mask
+-mask do recalculate the effective rights mask
     
--n, &#8211;no-mask don't recalculate the effective rights mask
+-n, -no-mask don't recalculate the effective rights mask
     
--d, &#8211;default operations apply to the default ACL
+-d, -default operations apply to the default ACL
     
--R, &#8211;recursive recurse into subdirectories
+-R, -recursive recurse into subdirectories
     
--L, &#8211;logical logical walk, follow symbolic links
+-L, -logical logical walk, follow symbolic links
     
--P, &#8211;physical physical walk, do not follow symbolic links
+-P, -physical physical walk, do not follow symbolic links
         
-&#8211;restore=file restore ACLs (inverse of \`getfacl -R')
+-restore=file restore ACLs (inverse of \`getfacl -R')
         
-&#8211;test test mode (ACLs are not modified)
+-test test mode (ACLs are not modified)
     
--v, &#8211;version print version and exit
+-v, -version print version and exit
     
--h, &#8211;help this help text
+-h, -help this help text
 
 例子：在/test 下建立一个test文件 将权限改为777 并查看其ACL设置
   

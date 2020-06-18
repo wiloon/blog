@@ -10,13 +10,13 @@ categories:
 ---
 Message.obtain函数：有多个obtain函数，主要功能一样，只是参数不一样。作用是从Message Pool中取出一个Message，如果Message Pool中已经没有Message可取则新建一个Message返回，同时用对应的参数给得到的Message对象赋值。
 
-Message Pool：大小为10个；通过Message.mPool->（Message并且Message.next）-> （Message并且Message.next）-> （Message并且Message.next）&#8230;构造一个Message Pool。Message Pool的第一个元素直接new出来，然后把Message.mPool（static类的static变量）指向它。其他的元素都是使用完的 Message通过Message的recycle函数清理后放到Message Pool（通过Message Pool最后一个Message的next指向需要回收的Message的方式实现）。
+Message Pool：大小为10个；通过Message.mPool->（Message并且Message.next）-> （Message并且Message.next）-> （Message并且Message.next）...构造一个Message Pool。Message Pool的第一个元素直接new出来，然后把Message.mPool（static类的static变量）指向它。其他的元素都是使用完的 Message通过Message的recycle函数清理后放到Message Pool（通过Message Pool最后一个Message的next指向需要回收的Message的方式实现）。
 
 1.2.MessageQueue
 
 MessageQueue里面有一个收到的Message的队列：
 
-MessageQueue.mMessages(static变量)->( Message并且Message.next)-> ( Message并且Message.next)->&#8230;，
+MessageQueue.mMessages(static变量)->( Message并且Message.next)-> ( Message并且Message.next)->...，
 
 上层代码通过Handler的sendMessage等函数放入一个message到MessageQueue里面时最终会调用MessageQueue的 enqueueMessage函数。enqueueMessage根据上面的接收的Message的队列的构造把接收到的Message放入队列中。
 

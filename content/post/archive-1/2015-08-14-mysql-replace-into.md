@@ -38,11 +38,11 @@ replace into 跟 insert 功能类似，不同点在于：replace into 首先尝�
 
 MySQL replace into 有三种形式：
 
-1. replace into tbl\_name(col\_name, &#8230;) values(&#8230;)
+1. replace into tbl\_name(col\_name, ...) values(...)
 
-2. replace into tbl\_name(col\_name, &#8230;) select &#8230;
+2. replace into tbl\_name(col\_name, ...) select ...
 
-3. replace into tbl\_name set col\_name=value, &#8230;
+3. replace into tbl\_name set col\_name=value, ...
 
 第一种形式类似于insert into的用法，
 
@@ -72,7 +72,7 @@ b. 再次尝试把新行插入到表中
 
 REPLACE [LOW_PRIORITY | DELAYED]
   
-[INTO] tbl\_name [(col\_name,&#8230;)]
+[INTO] tbl\_name [(col\_name,...)]
   
 VALUES ({expr | DEFAULT},…),(…),…
   
@@ -88,7 +88,7 @@ SET col_name={expr | DEFAULT}, …
 
 REPLACE [LOW_PRIORITY | DELAYED]
   
-[INTO] tbl\_name [(col\_name,&#8230;)]
+[INTO] tbl\_name [(col\_name,...)]
   
 SELECT …
 

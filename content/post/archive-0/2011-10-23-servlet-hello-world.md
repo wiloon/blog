@@ -100,7 +100,7 @@ compile 'org.apache.tomcat:tomcat-servlet-api:7.0.xx'
 
 ROOT/WEB-INF/classes/HelloWorld.class(把上面生成的HelloWorld.class文件放在这个里面)
 
-然后在浏览器中输入http://localhost:8080/servlet/HelloWorld,于是Server众望所归的报错了:Error 404&#8211;Not Found
+然后在浏览器中输入http://localhost:8080/servlet/HelloWorld,于是Server众望所归的报错了:Error 404-Not Found
 
 怎么回事呢？
 

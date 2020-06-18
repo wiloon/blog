@@ -70,7 +70,7 @@ jndi也可以配置在server.xml，context.xml中
   
 <!- Resource configuration for UserTransaction
   
-use JOTM &#8211;>
+use JOTM ->
   
 <Resource name="UserTransaction" auth="Container"
   
@@ -158,7 +158,7 @@ Persistence.xml配置：
   
 </property>
   
-<!- if no datasource is specified, use this one &#8211;>
+<!- if no datasource is specified, use this one ->
   
 <property name="defaultDataSource" ref="remoteDataSource"/>
   

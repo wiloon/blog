@@ -12,7 +12,7 @@ categories:
   
 vmc start dev
   
-run\_container.sh &#8211;container\_name=stretch &#8211;user=wiloon &#8211;shell
+run\_container.sh -container\_name=stretch -user=wiloon -shell
   
 ```
 
@@ -26,7 +26,7 @@ Launch crosh (ctrl-alt-t)
   
 Create crostini VM vmc start dev. This'll download the termina component, and open a shell.
   
-Launch a container run\_container.sh &#8211;container\_name=stretch &#8211;user=wiloon &#8211;shell
+Launch a container run\_container.sh -container\_name=stretch -user=wiloon -shell
 
 <https://www.youtube.com/watch?v=s9mrR2tqVbQ>
 

@@ -62,7 +62,7 @@ pacman -Syu
 
 #忽略/排除指定包
   
-pacman -Su &#8211;ignore postgresql &#8211;ignore libpqxx
+pacman -Su -ignore postgresql -ignore libpqxx
 
 查看软件包依赖
   
@@ -260,7 +260,7 @@ Pacman的配置文件位于/etc/pacman.conf。关于配置文件的进一步信�
   
 IgnorePkg = 软件包名
   
-多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 &#8211;ignore 选项。
+多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 -ignore 选项。
 
 忽略了的软件包可通过 pacman -S 升级。
 

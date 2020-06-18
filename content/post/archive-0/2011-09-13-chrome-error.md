@@ -10,6 +10,6 @@ categories:
   - Uncategorized
 
 ---
-your profile can not be used&#8230; &#8230;
+your profile can not be used... ...
 
 rm -rf /home/wiloon/.config/google-chrome/Default

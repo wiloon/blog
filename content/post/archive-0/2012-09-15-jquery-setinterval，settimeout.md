@@ -278,7 +278,7 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
   
   
   
-    window对象^_^(有点头晕&#8230;)
+    window对象^_^(有点头晕...)
   
   
   

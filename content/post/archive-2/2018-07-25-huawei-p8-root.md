@@ -14,7 +14,7 @@ install twrp
   
 Download: https://www.androidfilehost.com/?fid=529152257862681510
   
-- rename the .img to "TWRP&#8221; (TWRP.img) and flash it with ADB.
+- rename the .img to "TWRP" (TWRP.img) and flash it with ADB.
   
 - first store the TWRlP.img in C:\Program Files (x86)\Minimal ADB and Fastboot, after open the Program (Phone must be connected with USB to PC)
   
@@ -30,9 +30,9 @@ If the flashing of the Recovery is succesfully done - disconnect your Phone from
   
 - wait until the phone reboot - in the moment you see the Huawei Logo skip pressing the Power Button but stay on Vol+ until you are succesfully bootet to TWRP
   
-- TWRP ask you by the first start for root access "Allow to modify system partion&#8221; - swype to confirm "yes&#8221;
+- TWRP ask you by the first start for root access "Allow to modify system partion" - swype to confirm "yes"
   
-- go to button "Backup&#8221;, select your external Storage and make a complete Nandroid Backup of all shown partititions
+- go to button "Backup", select your external Storage and make a complete Nandroid Backup of all shown partititions
   
 - after you can Root your Phone now - see description
   
@@ -60,7 +60,7 @@ and quit this with the ok tab
   
 6.) Swype to confirm flash - after use: Reboot
   
-7.) If TWRP ask you for Root - "Your device does not appear to be rooted - Install SuperSU now?&#8221; - NO - use: DO NOT INSTALL Button!
+7.) If TWRP ask you for Root - "Your device does not appear to be rooted - Install SuperSU now?" - NO - use: DO NOT INSTALL Button!
   
 Older Versions of TWRP ask you this - the newest TWRP 3.0.2 dont.
   

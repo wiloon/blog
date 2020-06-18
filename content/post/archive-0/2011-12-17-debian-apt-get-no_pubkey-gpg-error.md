@@ -19,6 +19,6 @@ The following signatures couldn't be verified because the public key is not avai
 
 Simply type the following commands, taking care to replace the number of the key that displayed in the error message:
   
-gpg &#8211;keyserver pgpkeys.mit.edu &#8211;recv-key 010908312D230C5F
+gpg -keyserver pgpkeys.mit.edu -recv-key 010908312D230C5F
   
-gpg -a &#8211;export 010908312D230C5F | sudo apt-key add &#8211;
+gpg -a -export 010908312D230C5F | sudo apt-key add -

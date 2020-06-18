@@ -14,7 +14,7 @@ tags:
   - Gradle
 
 ---
-project name: &#8211;
+project name: -
   
 package: lowercase
   

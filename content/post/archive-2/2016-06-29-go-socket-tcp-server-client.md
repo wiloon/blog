@@ -31,11 +31,11 @@ for {
           
 // read from the connection
           
-// &#8230; &#8230;
+// ... ...
           
 // write to the connection
           
-//&#8230; &#8230;
+//... ...
       
 }
   
@@ -43,11 +43,11 @@ for {
 
 func main() {
       
-l, err := net.Listen("tcp&#8221;, ":8888&#8221;)
+l, err := net.Listen("tcp", ":8888")
       
 if err != nil {
           
-fmt.Println("listen error:&#8221;, err)
+fmt.Println("listen error:", err)
           
 return
       
@@ -75,7 +75,7 @@ return
 
 阻塞Dial：
 
-conn, err := net.Dial("tcp&#8221;, "google.com:80&#8221;)
+conn, err := net.Dial("tcp", "google.com:80")
   
 if err != nil {
       
@@ -87,7 +87,7 @@ if err != nil {
   
 或是带上超时机制的Dial：
 
-conn, err := net.DialTimeout("tcp&#8221;, ":8080&#8221;, 2 * time.Second)
+conn, err := net.DialTimeout("tcp", ":8080", 2 * time.Second)
   
 if err != nil {
       
@@ -105,17 +105,17 @@ if err != nil {
 
 //go-tcpsock/conn_establish/client1.go
   
-&#8230; &#8230;
+... ...
   
 func main() {
       
-log.Println("begin dial&#8230;&#8221;)
+log.Println("begin dial...")
       
-conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
+conn, err := net.Dial("tcp", ":8888")
       
 if err != nil {
           
-log.Println("dial error:&#8221;, err)
+log.Println("dial error:", err)
           
 return
       
@@ -123,7 +123,7 @@ return
       
 defer conn.Close()
       
-log.Println("dial ok&#8221;)
+log.Println("dial ok")
   
 }
   
@@ -131,7 +131,7 @@ log.Println("dial ok&#8221;)
 
 $go run client1.go
   
-2015/11/16 14:37:41 begin dial&#8230;
+2015/11/16 14:37:41 begin dial...
   
 2015/11/16 14:37:41 dial error: dial tcp :8888: getsockopt: connection refused
   
@@ -143,15 +143,15 @@ $go run client1.go
 
 //go-tcpsock/conn_establish/server2.go
   
-&#8230; &#8230;
+... ...
   
 func main() {
       
-l, err := net.Listen("tcp&#8221;, ":8888&#8221;)
+l, err := net.Listen("tcp", ":8888")
       
 if err != nil {
           
-log.Println("error listen:&#8221;, err)
+log.Println("error listen:", err)
           
 return
       
@@ -159,7 +159,7 @@ return
       
 defer l.Close()
       
-log.Println("listen ok&#8221;)
+log.Println("listen ok")
 
     var i int
     for {
@@ -179,21 +179,21 @@ log.Println("listen ok&#8221;)
 
 //go-tcpsock/conn_establish/client2.go
   
-&#8230; &#8230;
+... ...
   
 func establishConn(i int) net.Conn {
       
-conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
+conn, err := net.Dial("tcp", ":8888")
       
 if err != nil {
           
-log.Printf("%d: dial error: %s&#8221;, i, err)
+log.Printf("%d: dial error: %s", i, err)
           
 return nil
       
 }
       
-log.Println(i, ":connect to server ok&#8221;)
+log.Println(i, ":connect to server ok")
       
 return conn
   
@@ -230,7 +230,7 @@ $go run server2.go
   
 2015/11/16 21:56:01 2: accept a new connection
   
-&#8230; &#8230;
+... ...
 
 $go run client2.go
   
@@ -240,7 +240,7 @@ $go run client2.go
   
 2015/11/16 21:55:44 3 :connect to server ok
   
-&#8230; &#8230;
+... ...
 
 2015/11/16 21:55:44 126 :connect to server ok
   
@@ -254,7 +254,7 @@ $go run client2.go
   
 2015/11/16 21:56:14 131 :connect to server ok
   
-&#8230; &#8230;
+... ...
   
 可以看出Client初始时成功地一次性建立了128个连接，然后后续每阻塞近10s才能成功建立一条连接。也就是说在server端 backlog满时(未及时accept)，客户端将阻塞在Dial上，直到server端进行一次accept。至于为什么是128，这与darwin 下的默认设置有关：
 
@@ -280,17 +280,17 @@ kern.ipc.somaxconn: 128
 
 //go-tcpsock/conn_establish/client3.go
   
-&#8230; &#8230;
+... ...
   
 func main() {
       
-log.Println("begin dial&#8230;&#8221;)
+log.Println("begin dial...")
       
-conn, err := net.DialTimeout("tcp&#8221;, "104.236.176.96:80&#8221;, 2*time.Second)
+conn, err := net.DialTimeout("tcp", "104.236.176.96:80", 2*time.Second)
       
 if err != nil {
           
-log.Println("dial error:&#8221;, err)
+log.Println("dial error:", err)
           
 return
       
@@ -298,7 +298,7 @@ return
       
 defer conn.Close()
       
-log.Println("dial ok&#8221;)
+log.Println("dial ok")
   
 }
 
@@ -306,7 +306,7 @@ log.Println("dial ok&#8221;)
 
 $go run client3.go
   
-2015/11/17 09:28:34 begin dial&#8230;
+2015/11/17 09:28:34 begin dial...
   
 2015/11/17 09:28:36 dial error: dial tcp 104.236.176.96:80: i/o timeout
   
@@ -350,7 +350,7 @@ n, err := c.fd.Read(b)
       
 if err != nil && err != io.EOF {
           
-err = &OpError{Op: "read&#8221;, Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
+err = &OpError{Op: "read", Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
       
 }
       
@@ -372,7 +372,7 @@ n, err := c.fd.Write(b)
       
 if err != nil {
           
-err = &OpError{Op: "write&#8221;, Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
+err = &OpError{Op: "write", Net: c.fd.net, Source: c.fd.laddr, Addr: c.fd.raddr, Err: err}
       
 }
       
@@ -396,25 +396,25 @@ Client端：
 
 //go-tcpsock/read_write/client2.go
   
-&#8230; &#8230;
+... ...
   
 func main() {
       
 if len(os.Args) <= 1 {
           
-fmt.Println("usage: go run client2.go YOUR_CONTENT&#8221;)
+fmt.Println("usage: go run client2.go YOUR_CONTENT")
           
 return
       
 }
       
-log.Println("begin dial&#8230;&#8221;)
+log.Println("begin dial...")
       
-conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
+conn, err := net.Dial("tcp", ":8888")
       
 if err != nil {
           
-log.Println("dial error:&#8221;, err)
+log.Println("dial error:", err)
           
 return
       
@@ -422,7 +422,7 @@ return
       
 defer conn.Close()
       
-log.Println("dial ok&#8221;)
+log.Println("dial ok")
 
     time.Sleep(time.Second * 2)
     data := os.Args[1]
@@ -437,7 +437,7 @@ Server端：
 
 //go-tcpsock/read_write/server2.go
   
-&#8230; &#8230;
+... ...
   
 func handleConn(c net.Conn) {
       
@@ -449,25 +449,25 @@ for {
           
 var buf = make([]byte, 10)
           
-log.Println("start to read from conn&#8221;)
+log.Println("start to read from conn")
           
 n, err := c.Read(buf)
           
 if err != nil {
               
-log.Println("conn read error:&#8221;, err)
+log.Println("conn read error:", err)
               
 return
           
 }
           
-log.Printf("read %d bytes, content is %s\n&#8221;, n, string(buf[:n]))
+log.Printf("read %d bytes, content is %s\n", n, string(buf[:n]))
       
 }
   
 }
   
-&#8230; &#8230;
+... ...
 
 我们通过client2.go发送”hi”到Server端：
   
@@ -475,7 +475,7 @@ log.Printf("read %d bytes, content is %s\n&#8221;, n, string(buf[:n]))
 
 $go run client2.go hi
   
-2015/11/17 13:30:53 begin dial&#8230;
+2015/11/17 13:30:53 begin dial...
   
 2015/11/17 13:30:53 dial ok
 
@@ -487,7 +487,7 @@ $go run server2.go
   
 2015/11/17 13:33:47 read 2 bytes, content is hi
   
-&#8230;
+...
   
 Client向socket中写入两个字节数据(“hi”)，Server端创建一个len = 10的slice，等待Read将读取的数据放入slice；Server随后读取到那两个字节：”hi”。Read成功返回，n =2 ，err = nil。
 
@@ -499,7 +499,7 @@ Client向socket中写入两个字节数据(“hi”)，Server端创建一个len 
 
 $go run client2.go abcdefghij12345
   
-2015/11/17 13:38:00 begin dial&#8230;
+2015/11/17 13:38:00 begin dial...
   
 2015/11/17 13:38:00 dial ok
 
@@ -525,7 +525,7 @@ client端发送的内容长度为15个字节，Server端Read buffer的长度为1
 
 $go run client3.go hello
   
-2015/11/17 13:50:57 begin dial&#8230;
+2015/11/17 13:50:57 begin dial...
   
 2015/11/17 13:50:57 dial ok
 
@@ -551,17 +551,17 @@ $go run server3.go
 
 //go-tcpsock/read_write/client4.go
   
-&#8230; &#8230;
+... ...
   
 func main() {
       
-log.Println("begin dial&#8230;&#8221;)
+log.Println("begin dial...")
       
-conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
+conn, err := net.Dial("tcp", ":8888")
       
 if err != nil {
           
-log.Println("dial error:&#8221;, err)
+log.Println("dial error:", err)
           
 return
       
@@ -569,7 +569,7 @@ return
       
 defer conn.Close()
       
-log.Println("dial ok&#8221;)
+log.Println("dial ok")
 
     data := make([]byte, 65536)
     conn.Write(data)
@@ -581,7 +581,7 @@ log.Println("dial ok&#8221;)
 
 //go-tcpsock/read_write/server4.go
   
-&#8230; &#8230;
+... ...
   
 func handleConn(c net.Conn) {
       
@@ -595,7 +595,7 @@ time.Sleep(10 * time.Second)
           
 var buf = make([]byte, 65536)
           
-log.Println("start to read from conn&#8221;)
+log.Println("start to read from conn")
           
 c.SetReadDeadline(time.Now().Add(time.Microsecond * 10))
           
@@ -603,7 +603,7 @@ n, err := c.Read(buf)
           
 if err != nil {
               
-log.Printf("conn read %d bytes, error: %s&#8221;, n, err)
+log.Printf("conn read %d bytes, error: %s", n, err)
               
 if nerr, ok := err.(net.Error); ok && nerr.Timeout() {
                   
@@ -615,7 +615,7 @@ return
           
 }
           
-log.Printf("read %d bytes, content is %s\n&#8221;, n, string(buf[:n]))
+log.Printf("read %d bytes, content is %s\n", n, string(buf[:n]))
       
 }
   
@@ -649,17 +649,17 @@ TCP连接通信两端的OS都会为该连接保留数据缓冲，一端调用Wri
 
 //go-tcpsock/read_write/client5.go
   
-&#8230; &#8230;
+... ...
   
 func main() {
       
-log.Println("begin dial&#8230;&#8221;)
+log.Println("begin dial...")
       
-conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
+conn, err := net.Dial("tcp", ":8888")
       
 if err != nil {
           
-log.Println("dial error:&#8221;, err)
+log.Println("dial error:", err)
           
 return
       
@@ -667,7 +667,7 @@ return
       
 defer conn.Close()
       
-log.Println("dial ok&#8221;)
+log.Println("dial ok")
 
     data := make([]byte, 65536)
     var total int
@@ -690,7 +690,7 @@ log.Println("dial ok&#8221;)
 
 //go-tcpsock/read_write/server5.go
   
-&#8230; &#8230;
+... ...
   
 func handleConn(c net.Conn) {
       
@@ -706,13 +706,13 @@ time.Sleep(5 * time.Second)
           
 var buf = make([]byte, 60000)
           
-log.Println("start to read from conn&#8221;)
+log.Println("start to read from conn")
           
 n, err := c.Read(buf)
           
 if err != nil {
               
-log.Printf("conn read %d bytes, error: %s&#8221;, n, err)
+log.Printf("conn read %d bytes, error: %s", n, err)
               
 if nerr, ok := err.(net.Error); ok && nerr.Timeout() {
                   
@@ -728,13 +728,13 @@ continue
 
 }
   
-&#8230; &#8230;
+... ...
   
 Server5在前10s中并不Read数据，因此当client5一直尝试写入时，写到一定量后就会发生阻塞：
 
 $go run client5.go
 
-2015/11/17 14:57:33 begin dial&#8230;
+2015/11/17 14:57:33 begin dial...
   
 2015/11/17 14:57:33 dial ok
   
@@ -776,7 +776,7 @@ $go run server5.go
   
 2015/11/17 15:07:26 read 60000 bytes, content is
   
-&#8230;.
+....
 
 client端：
 
@@ -792,13 +792,13 @@ client端：
   
 2015/11/17 15:07:27 write 65536 bytes this time, 1048576 bytes in total
   
-&#8230;. &#8230;
+.... ...
 
 3、写入部分数据
 
 Write操作存在写入部分数据的情况，比如上面例子中，当client端输出日志停留在“write 65536 bytes this time, 655360 bytes in total”时，我们杀掉server5，这时我们会看到client5输出以下日志：
 
-&#8230;
+...
   
 2015/11/17 15:19:14 write 65536 bytes this time, 655360 bytes in total
   
@@ -818,13 +818,13 @@ conn.SetWriteDeadline(time.Now().Add(time.Microsecond * 10))
 
 $go run client6.go
   
-2015/11/17 15:26:34 begin dial&#8230;
+2015/11/17 15:26:34 begin dial...
   
 2015/11/17 15:26:34 dial ok
   
 2015/11/17 15:26:34 write 65536 bytes this time, 65536 bytes in total
   
-&#8230; &#8230;
+... ...
   
 2015/11/17 15:26:34 write 65536 bytes this time, 655360 bytes in total
   
@@ -921,7 +921,7 @@ break
       
 if _, ok := err.(syscall.Errno); ok {
           
-err = os.NewSyscallError("read&#8221;, err)
+err = os.NewSyscallError("read", err)
       
 }
       
@@ -991,7 +991,7 @@ break
       
 if _, ok := err.(syscall.Errno); ok {
           
-err = os.NewSyscallError("write&#8221;, err)
+err = os.NewSyscallError("write", err)
       
 }
       
@@ -1039,17 +1039,17 @@ tcpConn.SetNoDelay(true)
 
 //go-tcpsock/conn_close/client1.go
   
-&#8230; &#8230;
+... ...
   
 func main() {
       
-log.Println("begin dial&#8230;&#8221;)
+log.Println("begin dial...")
       
-conn, err := net.Dial("tcp&#8221;, ":8888&#8221;)
+conn, err := net.Dial("tcp", ":8888")
       
 if err != nil {
           
-log.Println("dial error:&#8221;, err)
+log.Println("dial error:", err)
           
 return
       
@@ -1057,7 +1057,7 @@ return
       
 conn.Close()
       
-log.Println("close ok&#8221;)
+log.Println("close ok")
 
     var buf = make([]byte, 32)
     n, err := conn.Read(buf)
@@ -1081,7 +1081,7 @@ log.Println("close ok&#8221;)
 
 //go-tcpsock/conn_close/server1.go
   
-&#8230; &#8230;
+... ...
   
 func handleConn(c net.Conn) {
       
@@ -1107,7 +1107,7 @@ defer c.Close()
 
 }
   
-&#8230; &#8230;
+... ...
 
 上述例子的执行结果如下：
 
@@ -1123,7 +1123,7 @@ $go run server1.go
 
 $go run client1.go
   
-2015/11/17 17:00:51 begin dial&#8230;
+2015/11/17 17:00:51 begin dial...
   
 2015/11/17 17:00:51 close ok
   

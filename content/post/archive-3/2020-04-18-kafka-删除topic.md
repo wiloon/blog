@@ -32,13 +32,13 @@ step3：
 
 调用命令删除topic：
 
-./bin/kafka-topics &#8211;delete &#8211;zookeeper 【zookeeper server:port】 &#8211;topic 【topic name】
+./bin/kafka-topics -delete -zookeeper 【zookeeper server:port】 -topic 【topic name】
 
 step4：
 
 删除kafka存储目录（server.properties文件log.dirs配置，默认为"/data/kafka-logs"）相关topic的数据目录。
 
-注意：如果kafka 有多个 broker，且每个broker 配置了多个数据盘（比如 /data/kafka-logs,/data1/kafka-logs &#8230;），且topic也有多个分区和replica，则需要对所有broker的所有数据盘进行扫描，删除该topic的所有分区数据。
+注意：如果kafka 有多个 broker，且每个broker 配置了多个数据盘（比如 /data/kafka-logs,/data1/kafka-logs ...），且topic也有多个分区和replica，则需要对所有broker的所有数据盘进行扫描，删除该topic的所有分区数据。
 
 一般而言，经过上面4步就可以正常删除掉topic和topic的数据。但是，如果经过上面四步，还是无法正常删除topic，则需要对kafka在zookeeer的存储信息进行删除。具体操作如下：
 
@@ -74,7 +74,7 @@ step6：
 
 完成之后，调用命令：
 
-./bin/kafka-topics.sh &#8211;list &#8211;zookeeper 【zookeeper server:port】
+./bin/kafka-topics.sh -list -zookeeper 【zookeeper server:port】
 
 查看现在kafka的topic信息。正常情况下删除的topic就不会再显示。
 

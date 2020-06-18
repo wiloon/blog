@@ -22,7 +22,7 @@ and then
 
 'ng build'
 
-or use 'ng build &#8211;prod' for production build.
+or use 'ng build -prod' for production build.
   
 this command will create a “dist” folder, copy all files including all folders.
 

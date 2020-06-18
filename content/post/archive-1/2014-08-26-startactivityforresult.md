@@ -16,7 +16,7 @@ categories:
   
 先看 A.java 的相关代码
   
-//- A.java &#8211;//
+//- A.java -//
   
 /*
   
@@ -50,7 +50,7 @@ Bundle b=data.getExtras(); //data为B中回传的Intent
   
 String str=b.getString("ListenB");//str即为回传的值"Hello, this is B speaking"
   
-/\* 得到B回传的数据后做什么&#8230; 略 \*/
+/\* 得到B回传的数据后做什么... 略 \*/
   
 break;
   
@@ -64,7 +64,7 @@ break;
   
 -----------------------------
   
-//- B.java &#8211;//
+//- B.java -//
   
 // 用 setResut() 准备好要回传的数据后，只要使用finish()的方法就能把打包好的数据发给A且运行onActivityResult()部分的代码
   
@@ -74,7 +74,7 @@ Intent aintent = new Intent(B.this, A.class);
   
 setResut(RESULT_OK,aintent); //这理有2个参数(int resultCode, Intent intent)
   
-&#8230; &#8230;
+... ...
   
 finish();
   

@@ -49,7 +49,7 @@ categories:
  /etc/systemd/system/multi-user.target.wants # netctl@wireless-wpa.service
  相关命令:
  journalctl -xn
- systemctl &#8211;failed
+ systemctl -failed
  systemctl list-unit-files
  systemctl daemon-reload
   

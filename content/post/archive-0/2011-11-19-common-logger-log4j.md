@@ -94,13 +94,13 @@ import org.apache.log4j.Priority;
   
 import org.apache.log4j.Level;
   
-import &#8230;&#8230;
+import ......
 
 public class Log4JLogger implements Log, Serializable {
   
 // 对 org.apache.commons.logging.Log 的实现
   
-&#8230;&#8230;
+......
   
 }
 
@@ -120,7 +120,7 @@ public class Jdk14Logger implements Log, Serializable {
   
 // 对 org.apache.commons.logging.Log 的实现
   
-&#8230;&#8230;
+......
   
 }
 

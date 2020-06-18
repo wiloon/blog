@@ -14,7 +14,7 @@ http://www.cnblogs.com/golove/p/3282667.html
 
 * * *
 
-type Reader struct { &#8230; }
+type Reader struct { ... }
 
 // NewReaderSize 将 rd 封装成一个带缓存的 bufio.Reader 对象，
   
@@ -272,7 +272,7 @@ buf := bufio.NewReaderSize(strings.NewReader("ABCDEFG\n"), 0)
 
 * * *
 
-type Writer struct { &#8230; }
+type Writer struct { ... }
 
 // NewWriterSize 将 wr 封装成一个带缓存的 bufio.Writer 对象，
   
@@ -371,7 +371,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 //
   
-// Scanner 使用了缓存，所以匹配部分的长度不能超出缓存的容量。默认缓存容量为 4096 &#8211;
+// Scanner 使用了缓存，所以匹配部分的长度不能超出缓存的容量。默认缓存容量为 4096 -
   
 // bufio.MaxScanTokenSize，用户可以通过 Buffer 方法指定自定义缓存及其最大容量。
   
@@ -391,7 +391,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 // 使用 bufio.Reader
   
-type Scanner struct { &#8230; }
+type Scanner struct { ... }
 
 // NewScanner 创建一个 Scanner 来扫描 r，默认匹配函数为 ScanLines。
   

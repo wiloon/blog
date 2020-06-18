@@ -38,11 +38,11 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 选项/Option 作用/Action Performed
 
-&#8211;add-drop-table
+-add-drop-table
 
 这个选项将会在每一个表的前面加上DROP TABLE IF EXISTS语句，这样可以保证导回MySQL数据库的时候不会出错，因为每次导回的时候，都会首先检查表是否存在，存在就删除
 
-&#8211;add-locks
+-add-locks
 
 这个选项会在INSERT语句中捆上一个LOCK TABLE和UNLOCK TABLE语句。这就防止在这些记录被再次导入数据库时其他用户对表进行的操作
 
@@ -50,13 +50,13 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 这个选项使得mysqldump命令给每一个产生INSERT语句加上列（field）的名字。当把数据导出导另外一个数据库时这个选项很有用。
 
-&#8211;delayed-insert 在INSERT命令中加入DELAY选项
+-delayed-insert 在INSERT命令中加入DELAY选项
 
 -F or -flush-logs 使用这个选项，在执行导出之前将会刷新MySQL服务器的log.
 
 -f or -force 使用这个选项，即使有错误发生，仍然继续导出
 
-&#8211;full 这个选项把附加信息也加到CREATE TABLE的语句中
+-full 这个选项把附加信息也加到CREATE TABLE的语句中
 
 -l or -lock-tables 使用这个选项，导出表的时候服务器将会给表加锁。
 
@@ -68,7 +68,7 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 在您只需要DDL语句时，可以使用这个选项。
 
-&#8211;opt 此选项将打开所有会提高文件导出速度和创造一个可以更快导入的文件的选项。
+-opt 此选项将打开所有会提高文件导出速度和创造一个可以更快导入的文件的选项。
 
 -q or -quick 这个选项使得MySQL不会把整个导出的内容读入内存再执行导出，而是在读到的时候就写入导文件中。
 
@@ -80,7 +80,7 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 假定您需要为一个表单中要用到的帐号建立一个文件，经理要看今年（2004年）所有的订单（Orders），它们并不对DDL感兴趣，并且需要文件有逗号分隔，因为这样就很容易导入到Excel中。 为了完成这个人物，您可以使用下面的句子：
 
-bin/mysqldump –p –where "Order_Date >='2000-01-01&#8242;"
+bin/mysqldump –p –where "Order_Date >='2000-01-01'"
   
 –tab = /home/mark –no-create-info –fields-terminated-by=, Meet\_A\_Geek Orders
 

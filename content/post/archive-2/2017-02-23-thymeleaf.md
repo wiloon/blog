@@ -58,7 +58,7 @@ Today is: <span th:text="${today}">13 february 2011</span>.
 
 URL
   
-URL在Web应用模板中占据着十分重要的地位，需要特别注意的是Thymeleaf对于URL的处理是通过语法@{&#8230;}来处理的。Thymeleaf支持绝对路径URL：
+URL在Web应用模板中占据着十分重要的地位，需要特别注意的是Thymeleaf对于URL的处理是通过语法@{...}来处理的。Thymeleaf支持绝对路径URL：
 
 <a th:href="@{http://www.thymeleaf.org}">Thymeleaf</a>
 
@@ -70,17 +70,17 @@ Context相关URL——/static/css/style.css
   
 另外，如果需要Thymeleaf对URL进行渲染，那么务必使用th:href，th:src等属性，下面是一个例子
 
-<!- Will produce 'http://localhost:8080/gtvg/order/details?orderId=3' (plus rewriting) &#8211;>
+<!- Will produce 'http://localhost:8080/gtvg/order/details?orderId=3' (plus rewriting) ->
   
 <a href="details.html"
   
 th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
 
-<!- Will produce '/gtvg/order/details?orderId=3' (plus rewriting) &#8211;>
+<!- Will produce '/gtvg/order/details?orderId=3' (plus rewriting) ->
   
 <a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>
 
-<!- Will produce '/gtvg/order/3/details' (plus rewriting) &#8211;>
+<!- Will produce '/gtvg/order/3/details' (plus rewriting) ->
   
 <a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
 
@@ -88,7 +88,7 @@ th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
 
 上例中URL最后的(orderId=${o.id})表示将括号内的内容作为URL参数处理，该语法避免使用字符串拼接，大大提高了可读性
   
-@{&#8230;}表达式中可以通过{orderId}访问Context中的orderId变量
+@{...}表达式中可以通过{orderId}访问Context中的orderId变量
   
 @{/order}是Context相关的相对路径，在渲染时会自动添加上当前Web应用的Context名字，假设context名字为app，那么结果应该是/app/order
   
@@ -102,7 +102,7 @@ th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
 
 <span th:text="|Welcome to our application, ${user.name}!|">
 
-当然这种形式限制比较多，|&#8230;|中只能包含变量表达式${&#8230;}，不能包含其他常量、条件表达式等。
+当然这种形式限制比较多，|...|中只能包含变量表达式${...}，不能包含其他常量、条件表达式等。
 
 运算符
   
@@ -212,7 +212,7 @@ sets
   
 maps
   
-&#8230;
+...
   
 下面用一段代码来举例一些常用的方法：
 

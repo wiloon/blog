@@ -16,7 +16,7 @@ categories:
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=10215&#038;embed=true#?secret=FazEXCjmAy" data-secret="FazEXCjmAy" width="600" height="338" title=""自旋锁/Spin lock" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=10215&embed=true#?secret=FazEXCjmAy" data-secret="FazEXCjmAy" width="600" height="338" title=""自旋锁/Spin lock" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 排队自旋锁
 
@@ -26,7 +26,7 @@ categories:
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=5496&#038;embed=true#?secret=dvWR0yOf3D" data-secret="dvWR0yOf3D" width="600" height="338" title=""排队自旋锁/Ticket Lock" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=5496&embed=true#?secret=dvWR0yOf3D" data-secret="dvWR0yOf3D" width="600" height="338" title=""排队自旋锁/Ticket Lock" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 MCS锁
 
@@ -36,7 +36,7 @@ MCS锁
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=5493&#038;embed=true#?secret=nvFCYYcuyH" data-secret="nvFCYYcuyH" width="600" height="338" title=""MCS锁/MCS Spinlock" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=5493&embed=true#?secret=nvFCYYcuyH" data-secret="nvFCYYcuyH" width="600" height="338" title=""MCS锁/MCS Spinlock" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 CLH锁
 
@@ -46,7 +46,7 @@ CLH锁
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=10307&#038;embed=true#?secret=qftAW3eZtB" data-secret="qftAW3eZtB" width="600" height="338" title=""CLH" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=10307&embed=true#?secret=qftAW3eZtB" data-secret="qftAW3eZtB" width="600" height="338" title=""CLH" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 差异：
 

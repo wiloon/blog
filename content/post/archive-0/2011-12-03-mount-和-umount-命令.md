@@ -74,7 +74,7 @@ umount -l
   
 none /mnt/cdrom supermount dev=/dev/scd0,fs=udf:iso9660,ro,- 0 0
   
-none /mnt/floppy supermount dev=/dev/fd0,fs=ext2:vfat,&#8211;,sync,umask=0 0 0
+none /mnt/floppy supermount dev=/dev/fd0,fs=ext2:vfat,-,sync,umask=0 0 0
   
 none /proc proc defaults 0 0
   

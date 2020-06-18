@@ -36,7 +36,7 @@ USING 'connectstring'
 
 其中：
   
-&#8211;demona为用net8 easy config创建的连接字符串
+-demona为用net8 easy config创建的连接字符串
   
 目的方数据库的init.ora文件中的global_names设为false
   
@@ -88,7 +88,7 @@ SELECT * FROM <camel.worker@zrhs_link> ;
 
 SELECT * FROM GLOBAL_NAME;
 
-atabase link(dblink)&#8211;数据库链路
+atabase link(dblink)-数据库链路
   
 创建dblink的语法：
   

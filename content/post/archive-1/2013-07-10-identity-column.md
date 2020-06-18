@@ -68,7 +68,7 @@ Name varchar(50)
   
 下面的例子向表T_test中添加一个名为ID,类型为int,种子为1，递增量为1的标识列
   
-&#8211;创建表
+-创建表
   
 CREATE TABLE T_test
   
@@ -76,11 +76,11 @@ CREATE TABLE T_test
   
 )
 
-&#8211;插入数据
+-插入数据
   
 INSERT T_test(Name) VALUES('张三')
 
-&#8211;增加标识列
+-增加标识列
   
 ALTER TABLE T_test
   

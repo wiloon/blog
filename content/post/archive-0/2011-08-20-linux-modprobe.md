@@ -30,7 +30,7 @@ lsmod 以美观的方式列出/proc/modules的内容。
       
 输出为：
       
-Module(模块名) Size(模块大小) Used by(被&#8230;使用)
+Module(模块名) Size(模块大小) Used by(被...使用)
 
 ```bashmodinfo module_name
 systool -v -m module_name

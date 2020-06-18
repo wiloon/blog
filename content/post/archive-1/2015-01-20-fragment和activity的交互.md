@@ -44,7 +44,7 @@ ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentBy
   
 public static class FragmentA extends ListFragment {
   
-&#8230;
+...
   
 // Container Activity must implement this interface
   
@@ -54,7 +54,7 @@ public void onArticleSelected(Uri articleUri);
   
 }
   
-&#8230;
+...
   
 }
 
@@ -66,7 +66,7 @@ public static class FragmentA extends ListFragment {
   
 OnArticleSelectedListener mListener;
   
-&#8230;
+...
   
 @Override
   
@@ -86,7 +86,7 @@ throw new ClassCastException(activity.toString() + " must implement OnArticleSel
   
 }
   
-&#8230;
+...
   
 }
 
@@ -98,7 +98,7 @@ public static class FragmentA extends ListFragment {
   
 OnArticleSelectedListener mListener;
   
-&#8230;
+...
   
 @Override
   
@@ -114,7 +114,7 @@ mListener.onArticleSelected(noteUri);
   
 }
   
-&#8230;
+...
   
 }
 

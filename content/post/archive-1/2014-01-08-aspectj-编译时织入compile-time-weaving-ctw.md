@@ -153,7 +153,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <complianceLevel>1.5</complianceLevel>
 
-<!- <encoding>UTF-8</encoding> &#8211;>
+<!- <encoding>UTF-8</encoding> ->
 
 <verbose>false</verbose>
 
@@ -161,9 +161,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <aspectLibraries>
 
-<!- 此处定义外部的aspect包，例如spring的事务aspect包 。这里引用的包必须在依赖中声明 &#8211;>
+<!- 此处定义外部的aspect包，例如spring的事务aspect包 。这里引用的包必须在依赖中声明 ->
 
-<!&#8211;
+<!-
 
 <aspectLibrary>
 
@@ -173,7 +173,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 </aspectLibrary>
 
-&#8211;>
+->
 
 </aspectLibraries>
 
@@ -185,9 +185,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <goals>
 
-<goal>compile</goal><!- use this goal to weave all your main classes &#8211;>
+<goal>compile</goal><!- use this goal to weave all your main classes ->
 
-<!- <goal>test-compile</goal> &#8211;>
+<!- <goal>test-compile</goal> ->
 
 </goals>
 
@@ -407,7 +407,7 @@ return k;
 
 }
 
-//&#8230;
+//...
 
 可以看出，字节码中已经织入了我们所定义的切面。
 

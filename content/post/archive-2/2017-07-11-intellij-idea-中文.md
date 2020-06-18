@@ -14,7 +14,7 @@ categories:
   
 </blockquote>
 
-<iframe title=""IntelliJ IDEA Windows JBR是什么&#8221; - 四个空格" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.4spaces.org/what-is-intellij-idea-jbr/embed/#?secret=ZFT4esKgN4" data-secret="ZFT4esKgN4" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""IntelliJ IDEA Windows JBR是什么" - 四个空格" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.4spaces.org/what-is-intellij-idea-jbr/embed/#?secret=ZFT4esKgN4" data-secret="ZFT4esKgN4" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 ### idea without JBR
 

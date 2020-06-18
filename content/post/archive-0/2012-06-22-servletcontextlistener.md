@@ -76,7 +76,7 @@ public	class MyListener implements ServletContextListener {
   
   
     UserOnlineTimerTask.java
- -----&#8211;
+ ------
  package com.bcxy.servlet;
   
   
@@ -100,7 +100,7 @@ public	class MyListener implements ServletContextListener {
   
     public void run() {
  // 删除超时在线用户
- log.info("删除在线的超时用户&#8230;.");
+ log.info("删除在线的超时用户....");
   
   
   
@@ -112,7 +112,7 @@ public	class MyListener implements ServletContextListener {
  ------------
  ------------
  SysListener.java
- -----------&#8211;
+ ------------
  package com.bcxy.servlet;
   
   
@@ -158,7 +158,7 @@ public	class MyListener implements ServletContextListener {
   
   
   
-    log.info("initial context&#8230;.");
+    log.info("initial context....");
   
   
   
@@ -174,7 +174,7 @@ public	class MyListener implements ServletContextListener {
   
   
   
-    log.info("destory context&#8230;.");
+    log.info("destory context....");
   
   
   
@@ -184,7 +184,7 @@ public	class MyListener implements ServletContextListener {
   
   
     }
- ----------&#8211;
+ -----------
   
   
   

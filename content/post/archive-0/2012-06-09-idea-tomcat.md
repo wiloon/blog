@@ -20,4 +20,4 @@ factes.deployment descriptors: \***/web.xml
 
 factes.web resource directores:$project home/src/main/webapp
 
-artifacts.output directory: $project home/out/artifacts/&#8230; &#8230;
+artifacts.output directory: $project home/out/artifacts/... ...

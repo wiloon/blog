@@ -68,7 +68,7 @@ abc 123 abc 123
   
 000000000000024
 
-8:变量answer被给定一个值&#8211;Yes并变成一个小写,左对齐,一个字符的串
+8:变量answer被给定一个值-Yes并变成一个小写,左对齐,一个字符的串
   
 /home/lee#typeset -lL1 answer=Yes
   

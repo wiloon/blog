@@ -58,17 +58,17 @@ conn则是一个代表与service连接状态的类，当我们连接service成�
   
 第二步：在androidManifest.xml中进行注册，如：
   
-<!- service配置开始 &#8211;>
+<!- service配置开始 ->
   
 <service android:name="MyService"></service>
   
-<!- service配置结束&#8211;>
+<!- service配置结束->
   
 第三步：在activity中进行启动、绑定、解绑或者停止service。
   
 （很多书上说，service与用户是不能交互的，其实这话很不正确，我们完全可以通过activity与service进行交互！我认为，确切的说法应该是service与用户不能进行直接的交互）。
 
----------&#8211;
+----------
 
 bindService介绍
   
@@ -94,7 +94,7 @@ context.bindService() ——> onCreate() ——> onBind() ——> Service runnin
 
 onBind()将返回给客户端一个IBind接口实例，IBind允许客户端回调服务的方法，比如得到Service的实例、运行状态或其他操作。这个时候把调用者（Context，例如Activity）会和Service绑定在一起，Context退出了，Srevice就会调用onUnbind->onDestroy相应退出。
 
-所以调用bindService的生命周期为：onCreate &#8211;> onBind(只一次，不可多次绑定) &#8211;> onUnbind &#8211;> onDestory。
+所以调用bindService的生命周期为：onCreate -> onBind(只一次，不可多次绑定) -> onUnbind -> onDestory。
 
 在Service每一次的开启关闭过程中，只有onStart可被多次调用(通过多次startService调用)，其他onCreate，onBind，onUnbind，onDestory在一个生命周期中只能被调用一次。
 
@@ -464,7 +464,7 @@ public IBinder onBind(Intent intent) {
   
 // TODO Auto-generated method stub
   
-System.out.println("onBind&#8230;..");
+System.out.println("onBind.....");
   
 IBinder result = null;
   

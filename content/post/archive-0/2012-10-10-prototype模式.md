@@ -87,7 +87,7 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
       <li>
       </li>
       <li>
-            &#8230;//这里省略掉了对成员变量的setter/getter方法的定义
+            ...//这里省略掉了对成员变量的setter/getter方法的定义
       </li>
       <li>
       </li>
@@ -147,7 +147,7 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
                 cell.setCellWall("cell wall 1" );
       </li>
       <li>
-                &#8230;
+                ...
       </li>
       <li>
                 //克隆原型细胞
@@ -156,7 +156,7 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
                 Cell clonedCell = cell.clone();
       </li>
       <li>
-                &#8230;
+                ...
       </li>
       <li>
                 //操作被克隆的细胞（略）

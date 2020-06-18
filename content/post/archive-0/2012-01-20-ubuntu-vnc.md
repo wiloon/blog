@@ -64,7 +64,7 @@ xsetroot -solid grey
    
 vnccon** -iconic &
    
-x-terminal-emulator -geometry 80&#215;24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
    
 x-window-manager &
 
@@ -92,7 +92,7 @@ exec /etc/X11/xinit/xinitrc
    
 #vnccon** -iconic &
    
-#x-terminal-emulator -geometry 80&#215;24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
    
 #x-window-manager &
 
@@ -104,7 +104,7 @@ sudo chmod 755 /etc/X11/xinit/xinitrc
   
 8、启动vncserver：vncserver
 
-设置分辨率:  vncserver -geometry 1280&#215;1024
+设置分辨率:  vncserver -geometry 1280x1024
 
 (vncserver is a link for vnc4server)
   

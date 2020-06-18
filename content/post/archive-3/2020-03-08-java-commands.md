@@ -10,6 +10,6 @@ categories:
 ---
 java -cp
   
-&#8211;class-path classpath, -classpath classpath, or -cp classpath
+-class-path classpath, -classpath classpath, or -cp classpath
 
 https://blog.csdn.net/shixiaoguo90/article/details/50607716

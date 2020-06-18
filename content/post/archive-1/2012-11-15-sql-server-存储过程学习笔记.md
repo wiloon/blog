@@ -35,7 +35,7 @@ tags:
     <span style="color: #000000;">CREATE PROC[ EDURE ] [ <em>owner</em>. ] <em>procedure_name </em>[ ; <em>number </em>]
  [ { @<em>parameter data_type </em>}</span><span style="color: #000000;"><em>
  </em>[ VARYING ] [ = <em>default </em>] [ OUTPUT ] </span>
- <span style="color: #000000;">    </span><span style="color: #000000;">] [ ,&#8230;<em>n </em>] 
+ <span style="color: #000000;">    </span><span style="color: #000000;">] [ ,...<em>n </em>] 
     
     
       [ WITH
@@ -47,7 +47,7 @@ tags:
     
     
     
-      AS <em>sql_statement</em> [ &#8230;<em>n </em>]</span></h5> 
+      AS <em>sql_statement</em> [ ...<em>n </em>]</span></h5> 
       
       
         <span style="color: #ff0000; font-size: small;">参数</span>

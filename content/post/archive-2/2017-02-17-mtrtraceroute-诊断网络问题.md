@@ -114,7 +114,7 @@ w 报告中带有 hostname 信息，Linode 技术支持可以看到每一跳的�
   
 因为 MTR 报告包括了丰富的信息，新手第一次阅读有点困难。下面是我本地到 google.com 的测试报告：
 
-$ mtr &#8211;report google.com
+$ mtr -report google.com
   
 HOST: example                  Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -146,7 +146,7 @@ HOST: example                  Loss%   Snt   Last   Avg 
 
 在命令下面，就是 MTR 产生的输出报告 。在通常情况下， MTR需要几秒钟的时间来输出报告，但是偶尔可能需要更长的时间。MTR 报告是由一系列跳数组成的（在上述例子中是12跳）。“跳”意味着节点，或路由器，数据包通过它们才能到达目的主机。在上面例子中，数据包经过本地网络的“内层”和“外层”，然后到达 “68.85.118.13”，然后再到一系列的域名主机。主机的域名是通过反向 DNS 查找确定的。如果您想忽略 rDNS 查找，您可以使用 –no-dns 参数，使用 –no-dns 参数后，报告结果如下：
 
-%  mtr  &#8211;no-dns &#8211;report google.com
+%  mtr  -no-dns -report google.com
   
 HOST: deleuze                     Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -270,7 +270,7 @@ HOST: localhost                   Loss%   Snt   Last   A
 
 ICMP 速率限制也可能会增加延迟，如下：
 
-root@meiriyitie.com:~# mtr &#8211;report www.google.com
+root@meiriyitie.com:~# mtr -report www.google.com
   
 HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -300,7 +300,7 @@ HOST: localhost                   Loss%   Snt   Last   A
   
 在下面这个例子中，数据包在目的地出现了 100% 的丢包。乍一看是数据包没有到达，其实未必，很有可能是路由器或主机配置不当。
 
-root@meiriyitie.com:~# mtr &#8211;report www.google.com
+root@meiriyitie.com:~# mtr -report www.google.com
   
 HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -326,7 +326,7 @@ MTR 报告数据包没有到达目的主机是因为目的主机没有发送任�
   
 有时候家庭路由器的原因导致 MTR 报告看起来有点误导。
 
-% mtr &#8211;no-dns &#8211;report google.com
+% mtr -no-dns -report google.com
   
 HOST: deleuze                     Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -358,7 +358,7 @@ HOST: deleuze                     Loss%   Snt   Last  
   
 有时候您的运营商的路由器配置原因，导致 ICMP 包永远不能到达目的地，例如：
 
-root@meiriyitie.com:~# mtr &#8211;report www.google.com
+root@meiriyitie.com:~# mtr -report www.google.com
   
 HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -384,7 +384,7 @@ HOST: localhost                   Loss%   Snt   Last   A
   
 当没有额外的路由信息时，将会显示问号（???），下面例子也一样：
 
-root@meiriyitie.com:~# mtr &#8211;report www.google.com
+root@meiriyitie.com:~# mtr -report www.google.com
   
 HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -410,7 +410,7 @@ HOST: localhost                   Loss%   Snt   Last   A
   
 有时候，一个错误配置的路由器，将会在一个环路中不断发送数据包，如下：
 
-root@meiriyitie.com:~# mtr &#8211;report www.google.com
+root@meiriyitie.com:~# mtr -report www.google.com
   
 HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -448,7 +448,7 @@ ICMP 速率限制
   
 ICMP 速率限制可引起数据包的丢失。如果数据包在这一跳有丢失，但是下面几条都正常，我们可以判断是 ICMP 速率限制的原因。如下：
 
-root@meiriyitie.com:~# mtr &#8211;report www.google.com
+root@meiriyitie.com:~# mtr -report www.google.com
   
 HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   
@@ -476,7 +476,7 @@ HOST: localhost                   Loss%   Snt   Last   A
   
 另外，也有可能在数据返回的路上出现了问题。
 
-root@meiriyitie.com:~# mtr &#8211;report www.google.com
+root@meiriyitie.com:~# mtr -report www.google.com
   
 HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   

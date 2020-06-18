@@ -16,11 +16,11 @@ tags:
  xdm - X Display Manager 
   
   
-    1、我们先不讨论xdm/gdm/kdm这些东西。而是先看看启动X最直接的方式。首先来认识两个重要的文件，一个是X视窗启动文件&#8211;xinitrc，另外一个就是X视窗资源文件&#8211;Xdefaults.
+    1、我们先不讨论xdm/gdm/kdm这些东西。而是先看看启动X最直接的方式。首先来认识两个重要的文件，一个是X视窗启动文件-xinitrc，另外一个就是X视窗资源文件-Xdefaults.
   
   
   
-    [1]X视窗启动文件&#8211;xinitrc
+    [1]X视窗启动文件-xinitrc
   
   
   
@@ -75,7 +75,7 @@ tags:
   
   
   
-    [2]X视窗资源文件&#8211;Xdefaults
+    [2]X视窗资源文件-Xdefaults
  在X的文献中，resources有两种意义。第一种是指被server管理或建立桌面应用程序使用的东西，例如：视窗、光标、字体等均属于这种意义。另外的一种又是指一种可以传递预设置值、参数和其它值给应用程序的方法，比如，可以定义视窗的大小、前景颜色、显示字体、快捷键等。而在X Window System的操作应用过程中，泛指的resources的意义也局限于第二种，主要是采用resources功能。在X Window System 的资源文件Xdefaults中，主要是设置合适自己喜欢的应用程序的操作操控环境或界面。一般会执行X后，会自动读取$ HOME/.Xdefaults.
   
   
@@ -360,7 +360,7 @@ tags:
         failsafe)
       </li>
       <li>
-        exec xterm -geometry 80&#215;24-0-0
+        exec xterm -geometry 80x24-0-0
       </li>
       <li>
         ;;
@@ -417,7 +417,7 @@ tags:
         failsafe)
       </li>
       <li>
-        exec xterm -geometry 80&#215;24-0-0
+        exec xterm -geometry 80x24-0-0
       </li>
       <li>
         ;;

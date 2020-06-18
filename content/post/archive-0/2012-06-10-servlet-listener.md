@@ -197,13 +197,13 @@ public class TigerListen implements ServletContextListener {
    
 public void contextInitialized(ServletContextEvent sce) {
    
-System.out.print("context listener.context initialized&#8230;.Init");
+System.out.print("context listener.context initialized....Init");
    
 }
 
 public void contextDestroyed(ServletContextEvent sce) {
    
-System.out.print("context listener.context initialized&#8230;.Destroved");
+System.out.print("context listener.context initialized....Destroved");
    
 }
   

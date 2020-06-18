@@ -1,116 +1,84 @@
 +++
-author = "w1100n"
-date = 2020-05-22T05:23:52Z
-title = "Vue 跨域"
+author = ""
+date = 2020-05-16T03:03:37Z
+title = "vue"
 
 +++
-## 缘起
+[https://github.com/vuejs/vue-next](https://github.com/vuejs/vue-next "https://github.com/vuejs/vue-next")
 
-最近实验课上需要重构以前写过的一个项目（垃圾堆），需要添加发生邮件提醒的功能，记得以前写过一个PHP版的实现，所以想把PHP写的功能整理成一个服务，然后在前端调用。但是这个项目是JavaWeb，也就是说我需要面对跨域的问题。不过本篇文章，讲的并不是如何解决这样的跨域问题，而是我在找如何解决这个问题的路上遇到的坑。
+[https://qingbii.com/2019/10/10/building-vue3-from-scratch/](https://qingbii.com/2019/10/10/building-vue3-from-scratch/ "https://qingbii.com/2019/10/10/building-vue3-from-scratch/")
 
-其实，在前端工程化大行其道的现在，前后端已经分离开来，前端为了提高工作流效率往往自己开一个小型的服务器，就比如`webpack.devServer`。这样在前端调用后端接口的时候必然会面临跨域的问题， 如题，`Vue-cli 3.x + axios 跨域方案` 就是解决这里的跨域问题。这里的跨域是基于`webpack`的devServer的代理功能（proxy）来实现开发环境中的跨域，也就是说本篇所讨论的并不能解决生产环境下的跨域问题，因为webpack.devServer是DevDependencies，一旦打包上线，这个proxy代理就会失效。但是这并不妨碍我们开发中使用跨域来提高开发效率和体验。
+[https://juejin.im/post/5dd3d4dae51d453d493092da](https://juejin.im/post/5dd3d4dae51d453d493092da "https://juejin.im/post/5dd3d4dae51d453d493092da")
 
-## 开始填坑
+```bash
 
-其实这个问题解决起来很简单，网上也是很多教程，为了文章完整性，我这里也做一个尽量完备的展示，介绍如何配置Vue-cli 3.x来实现跨域 。
+install nodejs
+install yarn
+yarn global add vue
+yarn global remove vue-cli
+yarn global add @vue/cli
+yarn global add @vue/cli-service
+yarn global add @vue/cli-plugin-babel
+yarn global add @vue/cli-plugin-e2e-cypress
+yarn global add @vue/cli-plugin-eslint
+yarn global add @vue/cli-plugin-pwa
+yarn global add @vue/cli-plugin-typescript
+yarn global add @vue/cli-plugin-unit-jest
+yarn global add vue-cli-plugin-vuetify
+yarn add        @vue/cli-plugin-babel
+yarn global add lerna
+yarn global add typescript
 
-### vue.config.js中devServer.proxy的配置解析
 
-Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src`和`./public`文件夹，所以网上很多教程说`config`目录下的`vue.config.js`是说的vue-cli 2.x版本。那么对于Vue-cli 3.x版本，构建也很简单，直接在根目录里建一个`vue.config.js`配置文件就可以了，我们直接看`devServer.proxy`里的代码:
+vue --version
 
-我这里devServer的地址是：localhost:8080/，需要代理的地址是：localhost/index/phpinfo.php （我自己写的一个测试跨域用的php，返回一个'ok'）
+vue create my-app
+vue add vue-next
+yarn run serve
+```
 
-下面是根据上面的地址需要配置的proxy对象
+https://www.jianshu.com/p/7de5d4f612d7
 
-    module.exports = {
-      devServer: {
-        proxy: {
-          '/api': {
-            target: 'http://192.168.80.2:38081',
-            ws: true,
-            changeOrigin: true,
-            pathRewrite: {
-              '^/api': ''
-            }
-          }
-        }
-      }
-    }
+### ui
 
-    # main.ts
-    axios.defaults.baseURL = '/api'
+[https://element.eleme.cn/#/zh-CN](https://element.eleme.cn/#/zh-CN "https://element.eleme.cn/#/zh-CN")
 
-大部分教程到这里就停止了，但是我在这里做一个扩展，为了让读者理解这里的配置是如何起作用的（以下内容整理自`http-proxy-middleware`的[npm描述](https://github.com/chimurai/http-proxy-middleware#context-matching)里，`http-proxy-middleware`是一个npm模块，是proxy的底层原理实现）。
+使用 axios 访问 API
 
-             foo://example.com:8042/over/there?name=ferret#nose
-             \_/   \______________/\_________/ \_________/ \__/
-              |           |            |            |        |
-           scheme     authority       path        query   fragment
-    复制代码
+Babel 和 webpack 的模块系统
 
-以我上面的配置为例，`'/index'`这个`key`在`http-proxy-middleware`中被称为`context`——用来决定哪些请求需要被`target`对应的主机地址（这里是`http://localhost/index`）代理，它可以是 字符串，含有通配符的字符串，或是一个数组，分别对应于`path matching`(路径匹配)`wildcard path matching`(通配符路径匹配)`multiple path matching`(多路径匹配)，而这里的`path`指的就是上图所标识的path段。
+**Modern JavaScript with ES2015/16**：阅读 Babel 的 [**Learn ES2015 guide**](https://babeljs.io/docs/learn-es2015/)。你不需要立刻记住每一个方法，但是你可以
 
-简言之，这个key就是匹配`path`的，一旦匹配到符合的`path`，就会把请求转发的代理主机去，而代理主机的地址就是`target`字段对应的内容。
+[https://babeljs.io/docs/en/learn](https://babeljs.io/docs/en/learn "https://babeljs.io/docs/en/learn")保留这个页面以便后期参考。
 
-那`pathRewrit`是什么意思呢？意如其名，路径重写。就是把模式（这里是`^/index`）匹配到的`path`重写为对应的路径（这里是`''`，相当于删除了这个匹配到的路径）。除了删除，还有在原有路径上添加一个基础路径，或是改写一个路径的方式，这可以参考`http-proxy-middleware`的[npm描述的option.pathRewrite章节](https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options) 。
+webpack 或 Browserify 等构建工具
 
-### 在Vue中使用axios
+Pug，Babel (with ES2015 modules)，和 Stylus。
 
-这个使用任意一个ajax封装的库都是可行的，axios，jquery.ajax或者是vue-resource都是可以的。
+### Docker 部署 vue 项目
 
-在Vue中使用axios，网上有两种方法，一种是将axios加入Vue的原型里，我更推荐第二种方法：
+[https://juejin.im/post/5cce4b1cf265da0373719819](https://juejin.im/post/5cce4b1cf265da0373719819 "https://juejin.im/post/5cce4b1cf265da0373719819")
 
-    npm install axios vue-axios
-    复制代码
-    
-    import axios from 'axios';
-    import VueAxios from 'vue-axios';
-    Vue.use(VueAxios,axios);
-    复制代码
+[https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F](https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F "https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F")
 
-以我上面的proxy配置为基础，想要让代理成功转发到`localhost/index/phpinfo.php`，在Vue实例中axios需要这样写访问地址：
+[https://webpack.js.org/configuration/](https://webpack.js.org/configuration/ "https://webpack.js.org/configuration/")
 
-    this.axios.get('/index/phpinfo.php').then((res)=>{
-            console.log(res);
-          })
-    复制代码
+### webstorm reformat
 
-我们来分析这些代码整个发挥作用的原理是什么？首先，axios去访问`/index/phpinfo.php`，这是个相对地址，所以真实访问地址其实是`localhost:8080/index/phpinfo.php`，然而`/index/phpinfo.php`被我们配置的`/index`匹配到了 ，所以访问被proxy代理，那转发到哪个路径呢？在`pathRewrite`中，我们将模式`^/index`的路径清除了，所以最终的访问路径是 `target`+`pathRewrite`+ 剩余的部分 ， 这样也就是 `http://localhost/index`++`/phpinfo.php`
+[https://www.jetbrains.com/help/webstorm/eslint.html](https://www.jetbrains.com/help/webstorm/eslint.html "https://www.jetbrains.com/help/webstorm/eslint.html")
 
-### 坑点
+[https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint "https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint")
 
-可能出现即使配置了proxy，但是依然没有任何卵用。
+### 跨域
 
-* 大部分情况是因为你的proxy配置和你的访问路径不匹配，或者即使匹配到了，但是转发出去的地址不对，没有命中后端给的API
-* 或者看看axios，有没有使用正确姿势？
-* 还有一点，或许你看到返回的response里的url依然显示的是本地主机，但是数据已经正常返回，这是正常的，因为我们访问的本来就是本地主机，只不过proxy转发了这个请求到一个新的地址。
+[https://juejin.im/post/5d1cc073f265da1bcb4f486d](https://juejin.im/post/5d1cc073f265da1bcb4f486d "https://juejin.im/post/5d1cc073f265da1bcb4f486d")
 
-###  生产环境部署用nginx解决
+### JWT
 
-    server {
-            listen 80;
-            server_name foo.wiloon.com;
-    	    rewrite ^/(.*)$ https://$host/;
-    }
-    server {
-            listen 443 ssl;
-            server_name foo.wiloon.com;
-    
-            include /etc/nginx/ssl.conf;
-            include /etc/nginx/error-pages.conf;
-    
-            location /api {
-                    proxy_pass http://192.168.50.xxx:38081/;
-            }
-            location / {
-                    proxy_pass http://192.168.50.xxx:38080/;
-            }
-    }
-    
+[https://segmentfault.com/a/1190000010444825](https://segmentfault.com/a/1190000010444825 "https://segmentfault.com/a/1190000010444825")
 
-[https://segmentfault.com/a/1190000010792260](https://segmentfault.com/a/1190000010792260 "https://segmentfault.com/a/1190000010792260")
+[https://www.jianshu.com/p/aeaa353da89b](https://www.jianshu.com/p/aeaa353da89b "https://www.jianshu.com/p/aeaa353da89b")
 
-作者：熊饲  
-链接：[https://juejin.im/post/5d1cc073f265da1bcb4f486d](https://juejin.im/post/5d1cc073f265da1bcb4f486d "https://juejin.im/post/5d1cc073f265da1bcb4f486d")  
-来源：掘金  
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+企业微信
+
+[https://juejin.im/post/5b3475adf265da5977597e27](https://juejin.im/post/5b3475adf265da5977597e27 "https://juejin.im/post/5b3475adf265da5977597e27")

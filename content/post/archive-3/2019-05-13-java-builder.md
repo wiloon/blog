@@ -249,7 +249,7 @@ public class MyClass {
       
 public MyClass clone() {
           
-//&#8230;
+//...
       
 }
   
@@ -295,11 +295,11 @@ Override + 强制类型转换
 
 public class Customer extends Person {
       
-//&#8230;
+//...
       
 public static class Builder extends Person.Builder {
           
-//&#8230;
+//...
           
 @Override
           
@@ -340,7 +340,7 @@ public class Person {
       
 public static class Builder<T extends Builder<T>> {
           
-//&#8230;
+//...
       
 }
   
@@ -356,7 +356,7 @@ public class Person {
       
 public static class Builder<T extends Builder<T>> {
           
-//&#8230;
+//...
           
 public T age(int age) {
               
@@ -382,7 +382,7 @@ public class Customer {
       
 public static class Builder extends Person.Builder<Builder> {
           
-//&#8230;
+//...
       
 }
   

@@ -16,7 +16,7 @@ Port 22
 port用来设置sshd监听的端口，为了安全起见，建议更改默认的22端口为5位以上陌生端口
 
 AddressFamily
-指定 sshd(8) 应当使用哪种地址族。取值范围是：&#8221;any&#8221;(默认)、&#8221;inet&#8221;(仅IPv4)、&#8221;inet6"(仅IPv6)。
+指定 sshd(8) 应当使用哪种地址族。取值范围是："any"(默认)、"inet"(仅IPv4)、"inet6"(仅IPv6)。
   
 #ListenAddress 0.0.0.0
   
@@ -26,7 +26,7 @@ Protocol
                
 指定 sshd(8) 支持的SSH协议的版本号。
                
-'1'和'2'表示仅仅支持SSH-1和SSH-2协议。&#8221;2,1"表示同时支持SSH-1和SSH-2协议。
+'1'和'2'表示仅仅支持SSH-1和SSH-2协议。"2,1"表示同时支持SSH-1和SSH-2协议。
 
 HostKey
                
@@ -36,17 +36,17 @@ SSH-1默认是 /etc/ssh/ssh\_host\_key 。
                
 SSH-2默认是 /etc/ssh/ssh\_host\_rsa\_key 和 /etc/ssh/ssh\_host\_dsa\_key 。
                
-一台主机可以拥有多个不同的私钥。&#8221;rsa1"仅用于SSH-1，&#8221;dsa&#8221;和&#8221;rsa&#8221;仅用于SSH-2。
+一台主机可以拥有多个不同的私钥。"rsa1"仅用于SSH-1，"dsa"和"rsa"仅用于SSH-2。
 
 PermitRootLogin
   
 是否允许 root 登录。可用值如下：
   
-"yes&#8221;(默认) 表示允许。&#8221;no&#8221;表示禁止。
+"yes"(默认) 表示允许。"no"表示禁止。
   
-"without-password&#8221;表示禁止使用密码认证登录。
+"without-password"表示禁止使用密码认证登录。
   
-"forced-commands-only&#8221;表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
+"forced-commands-only"表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
 
 AuthorizedKeysFile
   
@@ -58,15 +58,15 @@ AuthorizedKeysFile
   
 经过扩展之后的值必须要么是绝对路径，要么是相对于用户主目录的相对路径。
   
-默认值是&#8221;.ssh/authorized_keys&#8221;。
+默认值是".ssh/authorized_keys"。
 
 PasswordAuthentication
   
-是否允许使用基于密码的认证。默认为&#8221;yes&#8221;。
+是否允许使用基于密码的认证。默认为"yes"。
 
 UsePrivilegeSeparation
   
-是否让 sshd(8) 通过创建非特权子进程处理接入请求的方法来进行权限分离。默认值是&#8221;yes&#8221;。
+是否让 sshd(8) 通过创建非特权子进程处理接入请求的方法来进行权限分离。默认值是"yes"。
                
 认证成功后，将以该认证用户的身份创建另一个子进程。
                
@@ -76,11 +76,11 @@ PermitUserEnvironment
                
 指定是否允许 sshd(8) 处理 ~/.ssh/environment 以及 ~/.ssh/authorized_keys 中的 environment= 选项。
                
-默认值是&#8221;no&#8221;。如果设为&#8221;yes&#8221;可能会导致用户有机会使用某些机制(比如 LD_PRELOAD)绕过访问控制，造成安全漏洞。
+默认值是"no"。如果设为"yes"可能会导致用户有机会使用某些机制(比如 LD_PRELOAD)绕过访问控制，造成安全漏洞。
 
 AllowUsers
                
-这个指令后面跟着一串用空格分隔的用户名列表(其中可以使用&#8221;*&#8221;和&#8221;?&#8221;通配符)。默认允许所有用户登录。
+这个指令后面跟着一串用空格分隔的用户名列表(其中可以使用"*"和"?"通配符)。默认允许所有用户登录。
                
 如果使用了这个指令，那么将仅允许这些用户登录，而拒绝其它所有用户。
                

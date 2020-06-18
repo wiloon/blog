@@ -46,7 +46,7 @@ This guide will demonstrate how to make a DOS USB boot drive using FreeDOS. We a
 
 Open up Applications -> Accessories - > Terminal.
 
-That prompt you see will look something like this&#8230;
+That prompt you see will look something like this...
 
 [shell]
   
@@ -106,7 +106,7 @@ You want to mark the partition as "Bootable."
   
 Now you need to change the "Type" of the partition to a FAT16. It would be 06 for FAT16.
   
-Once you are back to the make screen, you need to "Write" the changes to the disk and accept any prompts that come up. Then you can "Quit" cfdisk and return which will show this&#8230;
+Once you are back to the make screen, you need to "Write" the changes to the disk and accept any prompts that come up. Then you can "Quit" cfdisk and return which will show this...
 
 [shell]
   
@@ -151,7 +151,7 @@ aronschatz@asetest2:~$ sudo emacs /root/.dosemurc
   
 [/shell]
 
-The file should look like this&#8230;
+The file should look like this...
 
 [shell]
   
@@ -193,7 +193,7 @@ aronschatz@asetest2:~$ sudo umount /dev/sdb1
   
 [/shell]
 
-Now try to start dosemu again&#8230;
+Now try to start dosemu again...
 
 [shell]
   
@@ -201,7 +201,7 @@ aronschatz@asetest2:~$ sudo dosemu
   
 [/shell]
 
-This command should bring up another prompt that is basically FreeDOS. In this new window, type the series of commands&#8230;
+This command should bring up another prompt that is basically FreeDOS. In this new window, type the series of commands...
 
 
   <h4>
@@ -212,7 +212,7 @@ This command should bring up another prompt that is basically FreeDOS. In this n
     [shell]
  C:> z:
  Z:> sys f:
- FreeDOS System Installer v3.2, Aug 18 2006Processing boot sector&#8230;
+ FreeDOS System Installer v3.2, Aug 18 2006Processing boot sector...
  Reading old bootsector from drive F:
  FAT type: FAT16
  Old boot sector values: sectors/track: 62, heads: 4, hidden: 62
@@ -222,9 +222,9 @@ This command should bring up another prompt that is basically FreeDOS. In this n
  Root directory starts at sector (PREVIOUS + 245 * 2)
  Boot sector kernel name set to KERNEL SYS
  Boot sector load segment set to 60h
- writing new bootsector to drive F:Copying KERNEL.SYS&#8230;
+ writing new bootsector to drive F:Copying KERNEL.SYS...
  45341 Bytes transferred
- Copying COMMAND.COM&#8230;
+ Copying COMMAND.COM...
  66945 Bytes transferred
  System transferred.
  Z:>exitemu

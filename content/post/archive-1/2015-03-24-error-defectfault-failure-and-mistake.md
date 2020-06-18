@@ -15,15 +15,15 @@ tags:
 
 
 <p class="list_answer">
-  Error/bug/defect/mistake&#8211;>  are human intraction which produce an incorrect result.
+  Error/bug/defect/mistake->  are human intraction which produce an incorrect result.
 
 
 <p class="list_answer">
-  Fault&#8211;> Fault is a stage of software which is caused by an error/bug/defect/mistake.
+  Fault-> Fault is a stage of software which is caused by an error/bug/defect/mistake.
 
 
 <p class="list_answer">
-  Failure&#8211;> It is a deviation of software from its expected delivery or service.
+  Failure-> It is a deviation of software from its expected delivery or service.
 
 
 <p class="list_answer">
@@ -35,11 +35,11 @@ tags:
 
 
 <p class="list_answer">
-  1) left&#8211;> mumbai
+  1) left-> mumbai
 
 
 <p class="list_answer">
-  2) right&#8211;> delhi
+  2) right-> delhi
 
 
 <p class="list_answer">

@@ -20,8 +20,8 @@ netstat -ntlp
   
 -p 显示正在使用Socket的程序识别码和程序名称。
   
--a, &#8211;all
+-a, -all
          
-Show both listening and non-listening sockets. With the &#8211;interfaces option, show interfaces that are not marked
+Show both listening and non-listening sockets. With the -interfaces option, show interfaces that are not marked
 
        yum install net-tools

@@ -32,29 +32,29 @@ SELECT @@SESSION.sql_mode;
   
 mysql> SELECT @@GLOBAL.sql_mode;
   
-+--------------&#8211;+
++---------------+
   
 | @@GLOBAL.sql_mode |
   
-+--------------&#8211;+
++---------------+
   
 | STRICT\_TRANS\_TABLES,NO\_ENGINE\_SUBSTITUTION |
   
-+--------------&#8211;+
++---------------+
   
 1 row in set (0.00 sec)
 
 mysql> SELECT @@SESSION.sql_mode;
   
-+--------------&#8211;+
++---------------+
   
 | @@SESSION.sql_mode |
   
-+--------------&#8211;+
++---------------+
   
 | STRICT\_TRANS\_TABLES,NO\_ENGINE\_SUBSTITUTION |
   
-+--------------&#8211;+
++---------------+
   
 1 row in set (0.00 sec)
   
@@ -64,9 +64,9 @@ mysql> SELECT @@SESSION.sql_mode;
   
 2
   
-SET GLOBAL sql_mode = 'modes&#8230;';
+SET GLOBAL sql_mode = 'modes...';
   
-SET SESSION sql_mode = 'modes&#8230;';
+SET SESSION sql_mode = 'modes...';
   
 my.cnf中配置sql-mode
   
@@ -82,7 +82,7 @@ my.cnf中配置sql-mode
   
 #set the SQL mode to strict
   
-#sql-mode="modes&#8230;"
+#sql-mode="modes..."
   
 sql-mode = "STRICT\_TRANS\_TABLES,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITUTION"
   

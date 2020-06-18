@@ -87,7 +87,7 @@ long aft = System.currentTimeMillis();
 
 context.log("Request to " + request.getRemoteAddr() + ": " + (aft - bef));
    
-System.out.println("log filter&#8230;"+ (aft - bef));
+System.out.println("log filter..."+ (aft - bef));
    
 }
 

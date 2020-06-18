@@ -232,7 +232,7 @@ categories:
  ＜title＞Wrox Homepage＜/title＞
  ＜/head＞
  ＜body＞
- ＜!- body goes here &#8211;＞
+ ＜!- body goes here -＞
  ＜/body＞
  ＜/html＞
  2．最常用的状态码有：

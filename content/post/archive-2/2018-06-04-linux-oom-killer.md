@@ -51,7 +51,7 @@ bzero(mm,block);
           
 total += MB;
           
-fprintf(stdout,&#8221;alloc %lum mem\n&#8221;,total);
+fprintf(stdout,"alloc %lum mem\n",total);
       
 }
 
@@ -162,7 +162,7 @@ _\_alloc\_pages\_nodemask分配内存 -> 发现内存不足(或低于low memory)
   
 /**
    
-* out\_of\_memory - kill the "best&#8221; process when we run out of memory
+* out\_of\_memory - kill the "best" process when we run out of memory
    
 */
   

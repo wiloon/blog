@@ -17,7 +17,7 @@ categories:
 
 
 
-  首先看看三个<span style="text-decoration: underline;"><span style="color: #666666;">MTA</span></span>的历史&#8230;
+  首先看看三个<span style="text-decoration: underline;"><span style="color: #666666;">MTA</span></span>的历史...
 
 
 #### MTAs的发展历史
@@ -179,9 +179,9 @@ categories:
     
     
       <b>作者介绍</b>
- sendmail &#8211;<a href="http://www.sendmail.org/~eric/"><span style="color: #8fabbe;">Eric Allman</span></a>Unix专家、学者
- qmail &#8211;<a href="http://cr.yp.to/djb.html"><span style="color: #8fabbe;">DJB</span></a>数学教授，科学家
- Postfix &#8211;<a href="http://www.porcupine.org/wietse/"><span style="color: #8fabbe;">wietse venema</span></a>安全专家 学者
+ sendmail -<a href="http://www.sendmail.org/~eric/"><span style="color: #8fabbe;">Eric Allman</span></a>Unix专家、学者
+ qmail -<a href="http://cr.yp.to/djb.html"><span style="color: #8fabbe;">DJB</span></a>数学教授，科学家
+ Postfix -<a href="http://www.porcupine.org/wietse/"><span style="color: #8fabbe;">wietse venema</span></a>安全专家 学者
     
     
     <h4>

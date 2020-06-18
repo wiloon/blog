@@ -30,7 +30,7 @@ android:minSdkVersion="7"
   
 android:targetSdkVersion="15" />
   
-<!- 声明权限 &#8211;>
+<!- 声明权限 ->
   
 <permission android:name="com.example.testbutton.RECEIVE" />
 
@@ -40,7 +40,7 @@ android:icon="@drawable/ic_launcher"
   
 android:label="@string/app_name"
 
-&#8230;&#8230;
+......
 
 
 

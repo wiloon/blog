@@ -19,9 +19,9 @@ categories:
 
 #start jboss
   
-#open a browser &#8230; http://localhots:xxxx/hudson-2.1.1
+#open a browser ... http://localhots:xxxx/hudson-2.1.1
   
-&#8230;
+...
   
 #go to Hudson>Manage Hudson>Configure System
   
@@ -55,7 +55,7 @@ Files Found Trigger
   
 URL Change Trigger
   
-&#8230;
+...
   
 new project
   

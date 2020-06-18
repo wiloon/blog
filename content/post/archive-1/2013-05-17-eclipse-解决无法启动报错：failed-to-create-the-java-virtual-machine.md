@@ -26,7 +26,7 @@ eclipse.ini是一个文本文件，其内容相当于在Eclipse运行时添加�
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -58,7 +58,7 @@ Windows Example
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -80,7 +80,7 @@ Linux Example
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -102,7 +102,7 @@ Mac OS X Example
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -198,7 +198,7 @@ C:\Java\jre1.6.0\bin\javaw.exe
   
 org.eclipse.platform
 
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -230,13 +230,13 @@ Google了一下，有一篇文章说是修改eclipse.ini文件中的
 
 Xml代码
 
-<span style="font-size: small;">&#8211;launcher.XXMaxPermSize
+<span style="font-size: small;">-launcher.XXMaxPermSize
 
 256M</span>
 
 修改为128
 
-注意：eclipse.ini中有两处“&#8211;launcher.XXMaxPermSize”，都要改。 （不明白为什么一个参数配置两遍）
+注意：eclipse.ini中有两处“-launcher.XXMaxPermSize”，都要改。 （不明白为什么一个参数配置两遍）
 
 试了一下这种方法我这边可行，但不明白为什么改小了就可以了。
 

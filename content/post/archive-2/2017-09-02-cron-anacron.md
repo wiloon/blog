@@ -102,11 +102,11 @@ LOGNAME=root
 
 # These replace cron's entries
 
-1 5 cron.daily run-parts &#8211;report /etc/cron.daily
+1 5 cron.daily run-parts -report /etc/cron.daily
   
-7 10 cron.weekly run-parts &#8211;report /etc/cron.weekly
+7 10 cron.weekly run-parts -report /etc/cron.weekly
   
-@monthly 15 cron.monthly run-parts &#8211;report /etc/cron.monthly
+@monthly 15 cron.monthly run-parts -report /etc/cron.monthly
   
 @daily 10 example.daily /bin/bash /home/aaronkilik/bin/backup.sh
   

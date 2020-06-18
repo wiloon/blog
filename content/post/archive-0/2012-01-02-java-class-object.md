@@ -78,7 +78,7 @@ Object obj = Class.forName(s).newInstance();
       
 2、虚拟机为每种类型管理一个独一无二的Class对象。因此可以使用==操作符来比较类对象。例如：
       
-if(e.getClass() == Employee.class)&#8230;
+if(e.getClass() == Employee.class)...
 
 在使用反射的API时，经常需要取得Class Object类型的值
   

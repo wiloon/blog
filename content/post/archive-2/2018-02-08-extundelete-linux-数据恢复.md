@@ -70,13 +70,13 @@ e2fsprogs和e2fsprogs-libs安装非常简单，这里不做介绍。下面是ext
   
 [root@cloud1 extundelete-0.2.4]#make install
   
-成功安装extundelete后，会在系统中生成一个extundelete可执行文件。extundelete的使用非常简单，读者可以通过“extundelete &#8211;help”获得此软件的使用方法。
+成功安装extundelete后，会在系统中生成一个extundelete可执行文件。extundelete的使用非常简单，读者可以通过“extundelete -help”获得此软件的使用方法。
 
 五、extundelete用法详解
 
 extundelete安装完成后，就可以执行数据恢复操作了，本节详细介绍下extundelete每个参数的含义。extundelete用法如下：
 
-extundelete &#8211;help
+extundelete -help
 
 命令格式:
 
@@ -86,31 +86,31 @@ extundelete \[options\] \[action\] device-file
   
 其中参数（options）有：
 
-&#8211;version, -[vV]，显示软件版本号。
+-version, -[vV]，显示软件版本号。
 
-&#8211;help，显示软件帮助信息。
+-help，显示软件帮助信息。
 
-&#8211;superblock，显示超级块信息。
+-superblock，显示超级块信息。
 
-&#8211;journal，显示日志信息。
+-journal，显示日志信息。
 
-&#8211;after dtime，时间参数，表示在某段时间之后被删的文件或目录。
+-after dtime，时间参数，表示在某段时间之后被删的文件或目录。
 
-&#8211;before dtime，时间参数，表示在某段时间之前被删的文件或目录。
+-before dtime，时间参数，表示在某段时间之前被删的文件或目录。
 
 动作（action）有：
 
-&#8211;inode ino，显示节点“ino”的信息。
+-inode ino，显示节点“ino”的信息。
 
-&#8211;block blk，显示数据块“blk”的信息。
+-block blk，显示数据块“blk”的信息。
 
-&#8211;restore-inode ino[,ino,&#8230;]，恢复命令参数，表示恢复节点“ino”的文件，恢复的文件会自动放在当前目录下的RESTORED_FILES文件夹中，使用节点编号作为扩展名。
+-restore-inode ino[,ino,...]，恢复命令参数，表示恢复节点“ino”的文件，恢复的文件会自动放在当前目录下的RESTORED_FILES文件夹中，使用节点编号作为扩展名。
 
-&#8211;restore-file 'path'，恢复命令参数，表示将恢复指定路径的文件，并把恢复的文件放在当前目录下的RECOVERED_FILES目录中。
+-restore-file 'path'，恢复命令参数，表示将恢复指定路径的文件，并把恢复的文件放在当前目录下的RECOVERED_FILES目录中。
 
-&#8211;restore-files 'path'，恢复命令参数，表示将恢复在路径中已列出的所有文件。
+-restore-files 'path'，恢复命令参数，表示将恢复在路径中已列出的所有文件。
 
-&#8211;restore-all，恢复命令参数，表示将尝试恢复所有目录和文件。
+-restore-all，恢复命令参数，表示将尝试恢复所有目录和文件。
 
 -j journal，表示从已经命名的文件中读取扩展日志。
 
@@ -166,7 +166,7 @@ extundelete \[options\] \[action\] device-file
   
 [root@cloud1 ~]# mkdir /data/test
   
-[root@cloud1 ~]# echo "extundelete test&#8221; > /data/test/mytest.txt
+[root@cloud1 ~]# echo "extundelete test" > /data/test/mytest.txt
   
 [root@cloud1 ~]#cd /data
   
@@ -214,9 +214,9 @@ eb42e4b3f953ce00e78e11bf50652a80 test/mytest.txt
   
 9
   
-[root@cloud1 /]# extundelete /dev/sdc1 &#8211;inode 2
+[root@cloud1 /]# extundelete /dev/sdc1 -inode 2
   
-&#8230;&#8230;
+......
   
 File name | Inode number | Deleted status
   
@@ -256,11 +256,11 @@ ganglia-3.4.0 245761 Deleted
   
 9
   
-[root@cloud1 /]# extundelete /dev/sdc1 &#8211;restore-file passwd
+[root@cloud1 /]# extundelete /dev/sdc1 -restore-file passwd
   
-Loading filesystem metadata &#8230; 40 groups loaded.
+Loading filesystem metadata ... 40 groups loaded.
   
-Loading journal descriptors &#8230; 54 descriptors loaded.
+Loading journal descriptors ... 54 descriptors loaded.
   
 Successfully restored file passwd
   
@@ -274,7 +274,7 @@ passwd
   
 0715baf8f17a6c51be63b1c5c0fbe8c5 passwd
   
-extundelete恢复单个文件的参数是“&#8211;restore-file”，这里需要注意的是，“&#8211;restore-file”后面指定的是恢复文件路径，这个路径是文件的相对路径。相对路径是相对于原来文件的存储路径而言的，比如，原来文件的存储路径是/data/passwd，那么在参数后面直接指定passwd文件即可，如果原来文件的存储路径是/data/test/mytest.txt，那么在参数后面通过“test/mytest.txt”指定即可。
+extundelete恢复单个文件的参数是“-restore-file”，这里需要注意的是，“-restore-file”后面指定的是恢复文件路径，这个路径是文件的相对路径。相对路径是相对于原来文件的存储路径而言的，比如，原来文件的存储路径是/data/passwd，那么在参数后面直接指定passwd文件即可，如果原来文件的存储路径是/data/test/mytest.txt，那么在参数后面通过“test/mytest.txt”指定即可。
 
 在文件恢复成功后，extundelete命令默认会在执行命令的当前目录下创建一个RECOVERED_FILES目录，此目录用于存放恢复出来的文件，所以执行extundelete命令的当前目录必须是可写的。
 
@@ -282,7 +282,7 @@ extundelete恢复单个文件的参数是“&#8211;restore-file”，这里需�
 
 6.2通过extundelete恢复单个目录
 
-extundelete除了支持恢复单个文件，也支持恢复单个目录，在需要恢复目录时，通过 “&#8211;restore-directory”选项即可恢复指定目录的所有数据。
+extundelete除了支持恢复单个文件，也支持恢复单个目录，在需要恢复目录时，通过 “-restore-directory”选项即可恢复指定目录的所有数据。
 
 继续在上面模拟的误删除数据环境下操作，现在要恢复/data目录下的ganglia-3.4.0文件夹，操作如下：
 
@@ -310,17 +310,17 @@ extundelete除了支持恢复单个文件，也支持恢复单个目录，在需
   
 12
   
-[root@cloud1 mnt]# extundelete /dev/sdc1 &#8211;restore-directory /ganglia-3.4.0
+[root@cloud1 mnt]# extundelete /dev/sdc1 -restore-directory /ganglia-3.4.0
   
-Loading filesystem metadata &#8230; 40 groups loaded.
+Loading filesystem metadata ... 40 groups loaded.
   
-Loading journal descriptors &#8230; 247 descriptors loaded.
+Loading journal descriptors ... 247 descriptors loaded.
   
-Searching for recoverable inodes in directory /ganglia-3.4.0 &#8230;
+Searching for recoverable inodes in directory /ganglia-3.4.0 ...
   
 781 recoverable inodes found.
   
-Looking through the directory structure for deleted files &#8230;
+Looking through the directory structure for deleted files ...
   
 4 recoverable inodes still lost.
   
@@ -338,7 +338,7 @@ ganglia-3.4.0
 
 6.3 通过extundelete恢复所有误删除数据
 
-当需要恢复的数据较多时，一个个地指定文件或目录将是一个非常繁重和耗时的工作，不过，extundelete考虑到了这点，此时可以通过“&#8211;restore-all”选项来恢复所有被删除的文件或文件夹。
+当需要恢复的数据较多时，一个个地指定文件或目录将是一个非常繁重和耗时的工作，不过，extundelete考虑到了这点，此时可以通过“-restore-all”选项来恢复所有被删除的文件或文件夹。
 
 仍然在上面模拟的误删除数据环境下操作，现在要恢复/data目录下所有数据，操作过程如下：
 
@@ -374,17 +374,17 @@ ganglia-3.4.0
   
 16
   
-[root@cloud1 mnt]# extundelete /dev/sdc1 &#8211;restore-all
+[root@cloud1 mnt]# extundelete /dev/sdc1 -restore-all
   
-Loading filesystem metadata &#8230; 40 groups loaded.
+Loading filesystem metadata ... 40 groups loaded.
   
-Loading journal descriptors &#8230; 247 descriptors loaded.
+Loading journal descriptors ... 247 descriptors loaded.
   
-Searching for recoverable inodes in directory / &#8230;
+Searching for recoverable inodes in directory / ...
   
 781 recoverable inodes found.
   
-Looking through the directory structure for deleted files &#8230;
+Looking through the directory structure for deleted files ...
   
 0 recoverable inodes still lost.
   
@@ -410,7 +410,7 @@ ganglia-3.4.0 passwd test
 
 6.4通过extundelete恢复某个时间段的数据
 
-有时候删除了大量的数据量，其中很多数据都是没用的，我们仅需要恢复其中的一部分数据，此时，如果采用恢复全部数据的办法，不但耗时，而且浪费资源，在这种情况下，就需要采用另外的一种恢复机制有选择地恢复，extundelete提供了“—after”“和”&#8211;before“参数，可以通过指定某个时间段，进而只恢复这个时间段内的数据。
+有时候删除了大量的数据量，其中很多数据都是没用的，我们仅需要恢复其中的一部分数据，此时，如果采用恢复全部数据的办法，不但耗时，而且浪费资源，在这种情况下，就需要采用另外的一种恢复机制有选择地恢复，extundelete提供了“—after”“和”-before“参数，可以通过指定某个时间段，进而只恢复这个时间段内的数据。
 
 下面通过一个简单示例，描述下如何恢复某个时间段内的数据。
 
@@ -470,15 +470,15 @@ ganglia-3.4.0 passwd test
   
 1379150340
   
-[root@cloud1 mnt]# extundelete &#8211;after 1379146740 &#8211;restore-all /dev/sdc1
+[root@cloud1 mnt]# extundelete -after 1379146740 -restore-all /dev/sdc1
   
 Only show and process deleted entries if they are deleted on or after 1379146740 and before 9223372036854775807.
   
-Loading filesystem metadata &#8230; 40 groups loaded.
+Loading filesystem metadata ... 40 groups loaded.
   
-Loading journal descriptors &#8230; 247 descriptors loaded.
+Loading journal descriptors ... 247 descriptors loaded.
   
-Searching for recoverable inodes in directory / &#8230;
+Searching for recoverable inodes in directory / ...
   
 779 recoverable inodes found.
   
@@ -488,6 +488,6 @@ Searching for recoverable inodes in directory / &#8230;
   
 ganglia-3.4.0.tar.gz
   
-可以看到，刚才删除的文件，已经成功恢复，而在/data目录下还有很多被删除的文件却没有恢复，这就是”&#8211;after“参数控制的结果，因为/data目录下其他文件都是在一天之前删除的，而我们恢复的是一个小时之内被删除的文件，这就是没有恢复其他被删除文件的原因。
+可以看到，刚才删除的文件，已经成功恢复，而在/data目录下还有很多被删除的文件却没有恢复，这就是”-after“参数控制的结果，因为/data目录下其他文件都是在一天之前删除的，而我们恢复的是一个小时之内被删除的文件，这就是没有恢复其他被删除文件的原因。
 
-在这个操作过程中，需要注意是“&#8211;after”参数后面跟的时间是个总秒数。起算时间为“1970-01-01 00:00:00 UTC”，通过“date +%s”命令即可将当前时间转换为总秒数，因为恢复的是一个小时之内的数据，所以“1379146740”这个值就是通过“1379150340”减去“60*60=3600”获得的。
+在这个操作过程中，需要注意是“-after”参数后面跟的时间是个总秒数。起算时间为“1970-01-01 00:00:00 UTC”，通过“date +%s”命令即可将当前时间转换为总秒数，因为恢复的是一个小时之内的数据，所以“1379146740”这个值就是通过“1379150340”减去“60*60=3600”获得的。

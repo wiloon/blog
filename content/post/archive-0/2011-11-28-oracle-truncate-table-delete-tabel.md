@@ -71,7 +71,7 @@ categories:
     
     
     
-      <span style="font-family: Verdana;">三、 truncate 会把 highwatermark 回归至 0 &#8230; 当下一次再插入新资料时就会快一些啦。</span>
+      <span style="font-family: Verdana;">三、 truncate 会把 highwatermark 回归至 0 ... 当下一次再插入新资料时就会快一些啦。</span>
     
     
     

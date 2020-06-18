@@ -56,7 +56,7 @@ LoadingCache<String,String> cahceBuilder=CacheBuilder
   
 public String load(String key) throws Exception {
   
-String strProValue=&#8221;hello "+key+&#8221;!&#8221;;
+String strProValue="hello "+key+"!";
   
 return strProValue;
   
@@ -64,19 +64,19 @@ return strProValue;
 
 });
 
-System.out.println("jerry value:&#8221;+cahceBuilder.apply("jerry&#8221;));
+System.out.println("jerry value:"+cahceBuilder.apply("jerry"));
   
-System.out.println("jerry value:&#8221;+cahceBuilder.get("jerry&#8221;));
+System.out.println("jerry value:"+cahceBuilder.get("jerry"));
   
-System.out.println("peida value:&#8221;+cahceBuilder.get("peida&#8221;));
+System.out.println("peida value:"+cahceBuilder.get("peida"));
   
-System.out.println("peida value:&#8221;+cahceBuilder.apply("peida&#8221;));
+System.out.println("peida value:"+cahceBuilder.apply("peida"));
   
-System.out.println("lisa value:&#8221;+cahceBuilder.apply("lisa&#8221;));
+System.out.println("lisa value:"+cahceBuilder.apply("lisa"));
   
-cahceBuilder.put("harry&#8221;, "ssdded&#8221;);
+cahceBuilder.put("harry", "ssdded");
   
-System.out.println("harry value:&#8221;+cahceBuilder.get("harry&#8221;));
+System.out.println("harry value:"+cahceBuilder.get("harry"));
   
 }
 
@@ -102,11 +102,11 @@ public void testcallableCache()throws Exception{
   
 Cache<String, String> cache = CacheBuilder.newBuilder().maximumSize(1000).build();
   
-String resultVal = cache.get("jerry&#8221;, new Callable<String>() {
+String resultVal = cache.get("jerry", new Callable<String>() {
   
 public String call() {
   
-String strProValue=&#8221;hello "+&#8221;jerry&#8221;+&#8221;!&#8221;;
+String strProValue="hello "+"jerry"+"!";
   
 return strProValue;
   
@@ -114,13 +114,13 @@ return strProValue;
   
 });
   
-System.out.println("jerry value : &#8221; + resultVal);
+System.out.println("jerry value : " + resultVal);
 
-resultVal = cache.get("peida&#8221;, new Callable<String>() {
+resultVal = cache.get("peida", new Callable<String>() {
   
 public String call() {
   
-String strProValue=&#8221;hello "+&#8221;peida&#8221;+&#8221;!&#8221;;
+String strProValue="hello "+"peida"+"!";
   
 return strProValue;
   
@@ -128,7 +128,7 @@ return strProValue;
   
 });
   
-System.out.println("peida value : &#8221; + resultVal);
+System.out.println("peida value : " + resultVal);
   
 }
 
@@ -192,7 +192,7 @@ LoadingCache<K , V> cache = CacheBuilder
   
 public void onRemoval(RemovalNotification<K, V> rn) {
   
-System.out.println(rn.getKey()+&#8221;被移除&#8221;);
+System.out.println(rn.getKey()+"被移除");
 
 }})
   
@@ -224,7 +224,7 @@ LoadingCache<String , String> commonCache= cached(new CacheLoader<String , Strin
   
 public String load(String key) throws Exception {
   
-return "hello "+key+&#8221;!&#8221;;
+return "hello "+key+"!";
   
 }
   
@@ -238,17 +238,17 @@ return commonCache;
   
 public void testCache() throws Exception{
   
-LoadingCache<String , String> commonCache=commonCache("peida&#8221;);
+LoadingCache<String , String> commonCache=commonCache("peida");
   
-System.out.println("peida:&#8221;+commonCache.get("peida&#8221;));
+System.out.println("peida:"+commonCache.get("peida"));
   
-commonCache.apply("harry&#8221;);
+commonCache.apply("harry");
   
-System.out.println("harry:&#8221;+commonCache.get("harry&#8221;));
+System.out.println("harry:"+commonCache.get("harry"));
   
-commonCache.apply("lisa&#8221;);
+commonCache.apply("lisa");
   
-System.out.println("lisa:&#8221;+commonCache.get("lisa&#8221;));
+System.out.println("lisa:"+commonCache.get("lisa"));
   
 }
 
@@ -312,9 +312,9 @@ return cacheFormCallable.get(userName, new Callable<String>() {
   
 public String call() throws Exception {
   
-System.out.println(userName+&#8221; from db&#8221;);
+System.out.println(userName+" from db");
   
-return "hello "+userName+&#8221;!&#8221;;
+return "hello "+userName+"!";
   
 }
   
@@ -334,21 +334,21 @@ return null;
   
 public void testCallableCache() throws Exception{
   
-final String u1name = "peida&#8221;;
+final String u1name = "peida";
   
-final String u2name = "jerry&#8221;;
+final String u2name = "jerry";
   
-final String u3name = "lisa&#8221;;
+final String u3name = "lisa";
   
 cacheFormCallable=callableCached();
   
-System.out.println("peida:&#8221;+getCallableCache(u1name));
+System.out.println("peida:"+getCallableCache(u1name));
   
-System.out.println("jerry:&#8221;+getCallableCache(u2name));
+System.out.println("jerry:"+getCallableCache(u2name));
   
-System.out.println("lisa:&#8221;+getCallableCache(u3name));
+System.out.println("lisa:"+getCallableCache(u3name));
   
-System.out.println("peida:&#8221;+getCallableCache(u1name));
+System.out.println("peida:"+getCallableCache(u1name));
 
 }
 

@@ -34,7 +34,7 @@ Spring的HibernateTemplate提供了Hibernate的完美封装，即通过匿名类
 
   1. HibernateTemplate.execute(new HibernateCallback() {
   2. public Object doInHibernate(Session session) throws HibernateException {
-  3. &#8230;.
+  3. ....
   4. }
   5. }
 

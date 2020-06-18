@@ -66,7 +66,7 @@ System.out.print(qi.poll() + ",");
   
 System.out.println();
   
-System.out.println("---------&#8211;");
+System.out.println("----------");
 
 Comparator<Integer> cmp;
   
@@ -104,7 +104,7 @@ output
 
 1,2,3,5,10,
   
----------&#8211;
+----------
   
 9,8,2,1,
   

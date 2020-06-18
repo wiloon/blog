@@ -192,7 +192,7 @@ Object x = items[takeptr];//取值
          
 if (++takeptr == items.length) takeptr = 0;//如果读索引读到队列的最后一个位置了，那么置为0
          
-&#8211;count;//个数&#8211;
+-count;//个数-
          
 notFull.signal();//唤醒写线程
          

@@ -26,7 +26,7 @@ SELECT TO\_CHAR(date1,'MMDDYYYY:HH24:MI:SS') date1, TO\_CHAR(date2,'MMDDYYYY:
   
 trunc(86400\*(date2-date1))-60\*(trunc((86400\*(date2-date1))/60))  seconds,   trunc((86400\*(date2-date1))/60)-60\*(trunc(((86400\*(date2-date1))/60)/60)) minutes,   trunc(((86400\*(date2-date1))/60)/60)-24\*(trunc((((86400\*(date2-date1))/60)/60)/24)) hours,   trunc((((86400\*(date2-date1))/60)/60)/24) days,   trunc(((((86400*(date2-date1))/60)/60)/24)/7) weeks   FROM date_table
   
-DATE1  DATE2  SECONDS  MINUTES  HOURS   DAYS  WEEKS     -----&#8211; -----&#8211; ---- ---- ---- ---- ---- 06202003:16:55:14 07082003:11:22:57   43  27  18     17  2 06262003:11:16:36 07082003:11:22:57   21   6  0    12  1
+DATE1  DATE2  SECONDS  MINUTES  HOURS   DAYS  WEEKS     ------ ------ ---- ---- ---- ---- ---- 06202003:16:55:14 07082003:11:22:57   43  27  18     17  2 06262003:11:16:36 07082003:11:22:57   21   6  0    12  1
 
 TIMESTAMP 数据类型
   
@@ -46,7 +46,7 @@ substr((time2-time1),instr((time2-time1),' ')+7,2)   seconds,   substr((t
   
 trunc(to\_number(substr((time2-time1),1,instr(time2-time1,' '))))  days,   trunc(to\_number(substr((time2-time1),1,instr(time2-time1,' ')))/7) weeks FROM date_table
   
-TIME1  TIME2   SECONDS   MINUTES   HOURS   DAYS   WEEKS   ---------  --------&#8211; --- --- -&#8211; -- -&#8211;
+TIME1  TIME2   SECONDS   MINUTES   HOURS   DAYS   WEEKS   ---------  --------- --- --- -- -- --
   
 06/20/2003:16:55:14:000000 07/08/2003:11:22:57:000000 43   27   18  17  2 06/26/2003:11:16:36:000000 07/08/2003:11:22:57:000000 21   06   00  12  1   这就意味着不再需要关心一天有多少秒在麻烦的计算中。因此，得到天数、月数、天数、时数、分钟数和秒数就成为用substr函数摘取出数字的事情了
   

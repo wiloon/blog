@@ -142,7 +142,7 @@ Java的Keytool工具可以把密钥和认证保存到keystore文件。 如果在
   
 执行下列命令来生成keystore
   
-keytool -genkey -alias sslclient -keysize 2048 -validity 3650 -keyalg RSA -dname "CN=localhost&#8221; -keypass 123456 -storepass 123456 -keystore sslclientkeys
+keytool -genkey -alias sslclient -keysize 2048 -validity 3650 -keyalg RSA -dname "CN=localhost" -keypass 123456 -storepass 123456 -keystore sslclientkeys
 
   1. 验证新生成的keystor而文件
   

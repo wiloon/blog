@@ -38,7 +38,7 @@ compile("org.springframework:spring-core:$versionSpring",
 
 **web.xml**
 
-create web.xml in &#8230;/webapp/WEB-INF/
+create web.xml in .../webapp/WEB-INF/
 
 http://www.wiloon.com/wordpress/?p=3459
 

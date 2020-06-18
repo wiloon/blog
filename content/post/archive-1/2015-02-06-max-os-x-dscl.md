@@ -28,11 +28,11 @@ Consumer调用的Provider提供的服务。
 
 Message Queue系统结构：
 
-+--&#8211;+ +---+ +----+
++---+ +---+ +----+
   
 | Sender | <=> | Queue | <=> | Receiver |
   
-+--&#8211;+ +---+ +----+
++---+ +---+ +----+
   
 Sender发送消息给Queue；Receiver从Queue拿到消息来处理。
   

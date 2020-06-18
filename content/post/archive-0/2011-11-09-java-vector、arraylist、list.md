@@ -90,7 +90,7 @@ LinkedList实现了List接口，允许null元素。此外LinkedList提供额外�
   
 注意LinkedList没有同步方法。如果多个线程同时访问一个List，则必须自己实现访问同步。一种解决方法是在创建List时构造一个同步的List：
   
-List list = Collections.synchronizedList(new LinkedList(&#8230;));
+List list = Collections.synchronizedList(new LinkedList(...));
 
 对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。
 

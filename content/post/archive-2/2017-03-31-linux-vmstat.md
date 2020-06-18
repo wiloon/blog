@@ -86,6 +86,6 @@ http://man.linuxde.net/vmstat
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://linuxperf.com/?p=32&#038;embed=true#?secret=w2eizeWWHO" data-secret="w2eizeWWHO" width="600" height="338" title="《free命令显示的buffers与cached的区别》—Linux Performance" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://linuxperf.com/?p=32&embed=true#?secret=w2eizeWWHO" data-secret="w2eizeWWHO" width="600" height="338" title="《free命令显示的buffers与cached的区别》—Linux Performance" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 http://netcome.iteye.com/blog/754548

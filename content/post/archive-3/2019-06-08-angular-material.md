@@ -20,9 +20,9 @@ import 'hammerjs';
   
 …
   
-@NgModule ({&#8230;.
+@NgModule ({....
     
-imports: [&#8230;,
+imports: [...,
     
 MatSliderModule,
   

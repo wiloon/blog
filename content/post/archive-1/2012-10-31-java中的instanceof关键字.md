@@ -38,7 +38,7 @@ categories:
  if (bill instanceof GasBill) {
  //计算燃气账单
  }
- &#8230;
+ ...
  }
  这样就可以用一个方法处理两种子类。
   

@@ -17,7 +17,7 @@ tags:
 
 flag.Parse()
   
-解析函数将会在碰到第一个非flag命令行参数时停止，非flag命令行参数是指不满足命令行语法的参数，如命令行参数为cmd &#8211;flag=true abc则第一个非flag命令行参数为“abc”
+解析函数将会在碰到第一个非flag命令行参数时停止，非flag命令行参数是指不满足命令行语法的参数，如命令行参数为cmd -flag=true abc则第一个非flag命令行参数为“abc”
 
 使用flag来操作命令行参数，支持的格式如下：
 

@@ -142,11 +142,11 @@ wait_timeout = 120
 
 (root:imysql.cn:Thu Oct 15 09:16:22 2009)[mysql]> show engines;
   
-+----+---+----------------------+----&#8211;+--+----+
++----+---+----------------------+-----+--+----+
   
 | Engine | Support | Comment | Transactions | XA | Savepoints |
   
-+----+---+----------------------+----&#8211;+--+----+
++----+---+----------------------+-----+--+----+
   
 | InnoDB | YES | Supports transactions, row-level locking, and foreign keys | YES | YES | YES |
 
@@ -158,9 +158,9 @@ CREATE TABLE my\_innodb\_talbe(
   
 id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   
-name VARCHAR(20) NOT NULL DEFAULT &#8221;,
+name VARCHAR(20) NOT NULL DEFAULT ",
   
-passwd VARCHAR(32) NOT NULL DEFAULT &#8221;,
+passwd VARCHAR(32) NOT NULL DEFAULT ",
   
 PRIMARY KEY(id),
   

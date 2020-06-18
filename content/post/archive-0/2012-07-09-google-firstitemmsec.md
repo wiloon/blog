@@ -16,7 +16,7 @@ Get subscription list. Each subscription contains a "category" if the user had c
 
 
 
-{"subscriptions":[{"id":"feed/供稿地址","title":"供稿名","categories":[{"id":"user/Google Reader用户ID/label/分类名","label":"分类名"}],"sortid":"不知道啥玩意","firstitemmsec":"第一个条目的时间戳","htmlUrl":"供稿的网站地址"},&#8230;(其他供稿的信息)]}
+{"subscriptions":[{"id":"feed/供稿地址","title":"供稿名","categories":[{"id":"user/Google Reader用户ID/label/分类名","label":"分类名"}],"sortid":"不知道啥玩意","firstitemmsec":"第一个条目的时间戳","htmlUrl":"供稿的网站地址"},...(其他供稿的信息)]}
 
 
 

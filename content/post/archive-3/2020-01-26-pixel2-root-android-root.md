@@ -24,7 +24,7 @@ categories:
   
 </blockquote>
 
-<iframe title=""安卓线刷升级 flash factory image for android device" - w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=7296&#038;embed=true#?secret=Im4BCxWQUv" data-secret="Im4BCxWQUv" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""安卓线刷升级 flash factory image for android device" - w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=7296&embed=true#?secret=Im4BCxWQUv" data-secret="Im4BCxWQUv" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 Enable USB Debugging mode
    

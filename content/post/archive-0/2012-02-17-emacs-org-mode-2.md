@@ -56,9 +56,9 @@ C-c *为当前分支加入内容
   
 C-c C-t Rotate the TODO state of the current item among
   
-,-> (unmarked) -> TODO -> DONE &#8211;.
+,-> (unmarked) -> TODO -> DONE -.
   
-'----------&#8211;'
+'-----------'
   
 C-c C-t是在定义的状态中循环，而C-u C-c C-t可以指定一个状态。
 

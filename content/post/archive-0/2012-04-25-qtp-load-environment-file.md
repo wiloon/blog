@@ -244,7 +244,7 @@ $ cat gojson.go
   
 52 strData := <-ch
   
-53 fmt.Println("----------&#8211;")
+53 fmt.Println("-----------")
   
 54 stb := &Student{}
   

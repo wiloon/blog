@@ -20,17 +20,17 @@ strace常用来跟踪进程执行时的系统调用和所接收的信号。 在L
 
 $strace cat /dev/null
   
-execve("/bin/cat&#8221;, ["cat&#8221;, "/dev/null&#8221;], [/\* 22 vars \*/]) = 0
+execve("/bin/cat", ["cat", "/dev/null"], [/\* 22 vars \*/]) = 0
   
 brk(0) = 0xab1000
   
-access("/etc/ld.so.nohwcap&#8221;, F_OK) = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
   
 mmap(NULL, 8192, PROT\_READ|PROT\_WRITE, MAP\_PRIVATE|MAP\_ANONYMOUS, -1, 0) = 0x7f29379a7000
   
-access("/etc/ld.so.preload&#8221;, R_OK) = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
   
-&#8230;
+...
   
 6.2. 参数
   
@@ -76,7 +76,7 @@ access("/etc/ld.so.preload&#8221;, R_OK) = -1 ENOENT (No such file or directory)
   
 指定一个表达式,用来控制如何跟踪.格式如下:
   
-\[qualifier=\]\[!\]value1[,value2]&#8230;
+\[qualifier=\]\[!\]value1[,value2]...
   
 qualifier只能是 trace,abbrev,verbose,raw,signal,read,write其中之一.value是用来限定的符号或数字.默认的 qualifier是 trace.感叹号是否定符号.例如:
   

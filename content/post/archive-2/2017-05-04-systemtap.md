@@ -56,7 +56,7 @@ git clone git://sources.redhat.com/git/systemtap.git
   
 如果你下载的是最新版本的systemtap，那么你需要新版的 elfutils，可以从https://fedorahosted.org/releases/e/l/elfutils/ 下载elfutils-0.156 版本。下载之后解压缩到适合的目录（我放在~/Document/ 下），不需要安装，只要配置systemtap时指定其位置即可。 进入之前解压systemtap的目录，使用下面命令进行配置：
 
-./configure &#8211;with-elfutils=~/Document/elfutils-0.156
+./configure -with-elfutils=~/Document/elfutils-0.156
   
 以这里方法配置之后，你只需要再运行 make install 即完成systemtap的编译安装。如果需要卸载的话，运行 make uninstall。
 

@@ -16,9 +16,9 @@ var\_name = $(“input[name='radio\_name']:checked”).val();
 
 1. $("input\[name='radio_name'\]\[checked\]").val();  //选择被选中Radio的Value值
   
-2. $("#text\_id").focus(function(){//code&#8230;});  //事件 当对象text\_id获取焦点时触发
+2. $("#text\_id").focus(function(){//code...});  //事件 当对象text\_id获取焦点时触发
   
-3. $("#text\_id").blur(function(){//code&#8230;});  //事件 当对象text\_id失去焦点时触发
+3. $("#text\_id").blur(function(){//code...});  //事件 当对象text\_id失去焦点时触发
   
 4. $("#text_id").select();  //使文本框的Vlaue值成选中状态
   
@@ -40,7 +40,7 @@ var\_name = $(“input[name='radio\_name']:checked”).val();
 
 7. $("#text_id").val().split(",");  //将Text的Value值以','分隔 返回一个数组
 
-<a href="http://www.cnblogs.com/bynet/archive/2009/11/13/1602491.html" target="_blank">jQuery&#8211;checkbox全选/取消全选</a>
+<a href="http://www.cnblogs.com/bynet/archive/2009/11/13/1602491.html" target="_blank">jQuery-checkbox全选/取消全选</a>
 
 用JavaScript使页面上的一组checkbox全选/取消全选，逻辑很简单，实现代码也没有太难的语法。但使用jQuery实现则更简单，代码也很简洁，精辟！
   
@@ -92,7 +92,7 @@ jQuery获取Select选择的Text和Value:
 
 语法解释：
   
-1. $("#select_id").change(function(){//code&#8230;});   //为Select添加事件，当选择其中一项时触发
+1. $("#select_id").change(function(){//code...});   //为Select添加事件，当选择其中一项时触发
   
 2. var checkText=$("#select_id").find("option:selected").text();  //获取Select选择的Text
   
@@ -130,9 +130,9 @@ jQuery添加/删除Select的Option项：
   
 3. $("#select_id option:last").remove();  //删除Select中索引值最大Option(最后一个)
   
-4. $("#select_id option[index='0&#8242;]").remove();  //删除Select中索引值为0的Option(第一个)
+4. $("#select_id option[index='0']").remove();  //删除Select中索引值为0的Option(第一个)
   
-5. $("#select_id option[value='3&#8242;]").remove();  //删除Select中Value='3'的Option
+5. $("#select_id option[value='3']").remove();  //删除Select中Value='3'的Option
   
 5. $("#select_id option
 
@@ -182,11 +182,11 @@ $("#chk2").attr("checked",true);//打勾
   
 if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
 
-单选组radio：    $("input[@type=radio]").attr("checked",'2&#8242;);//设置value=2的项目为当前选中项
+单选组radio：    $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
   
-下拉框select：   $("#sel").attr("value",'-sel3&#8242;);//设置value=-sel3的项目为当前选中项
+下拉框select：   $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
   
-$("<option value='1&#8242;>1111</option><option value='2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
+$("<option value='1'>1111</option><option value='2'>2222</option>").appendTo("#sel")//添加下拉框的option
   
 $("#sel").empty()；//清空下拉框
 
@@ -210,7 +210,7 @@ $(this).remove();
   
 });
   
-}else{$("<option value='111&#8242;>UPS Ground</option>").appendTo($("select[@name=ISHIPTYPE]"));}}
+}else{$("<option value='111'>UPS Ground</option>").appendTo($("select[@name=ISHIPTYPE]"));}}
   
 //取得下拉選單的選取值
 
@@ -234,7 +234,7 @@ var cc3 = $('.formc select[@name="country"]').attr("id"); //得到下拉菜单�
   
 $("#select").empty();//清空下拉框//$("#select").html(");
   
-$("<option value='1&#8242;>1111</option>").appendTo("#select")//添加下拉框的option
+$("<option value='1'>1111</option>").appendTo("#select")//添加下拉框的option
 
 稍微解释一下:
   
@@ -292,7 +292,7 @@ $("#selectTest").attr("value", "2");
   
 <a href="#">aaass</a>
 
-<!&#8211;下拉框&#8211;>
+<!-下拉框->
   
 <select id="selectTest" name="selectTest">
   
@@ -340,11 +340,11 @@ $("#chk2").attr("checked",true);//打勾
   
 if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
   
-单选组radio： $("input[@type=radio]").attr("checked",'2&#8242;);//设置value=2的项目为当前选中项
+单选组radio： $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
   
-下拉框select： $("#sel").attr("value",'-sel3&#8242;);//设置value=-sel3的项目为当前选中项
+下拉框select： $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
   
-$("<optionvalue='1&#8242;>1111</option><optionvalue='2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
+$("<optionvalue='1'>1111</option><optionvalue='2'>2222</option>").appendTo("#sel")//添加下拉框的option
   
 $("#sel").empty()；//清空下拉框
 
@@ -386,11 +386,11 @@ $("#chk2").attr("checked",true);//打勾
   
 if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
   
-单选组radio： $("input[@type=radio]").attr("checked",'2&#8242;);//设置value=2的项目为当前选中项
+单选组radio： $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
   
-下拉框select： $("#sel").attr("value",'-sel3&#8242;);//设置value=-sel3的项目为当前选中项
+下拉框select： $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
   
-$("<option value='1&#8242;>1111</option><option value='2&#8242;>2222</option>").appendTo("#sel")//添加下拉框的option
+$("<option value='1'>1111</option><option value='2'>2222</option>").appendTo("#sel")//添加下拉框的option
   
 $("#sel").empty()；//清空下拉框
 

@@ -52,7 +52,7 @@ int result=0;
   
 OK:
   
-for(int l=min;l>0;l&#8211;){
+for(int l=min;l>0;l-){
   
 for(int i=0;i<=max-l;i++){
   

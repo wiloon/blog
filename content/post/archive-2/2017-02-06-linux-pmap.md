@@ -20,7 +20,7 @@ Pmap 提供了进程的内存映射，pmap命令用于显示一个或多个进�
 
 选项
   
--p, &#8211;show-path
+-p, -show-path
                 
 Show full path to files in the mapping column
   

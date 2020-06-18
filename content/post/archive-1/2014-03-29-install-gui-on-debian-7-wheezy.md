@@ -40,7 +40,7 @@ Tasksel is a tool that installs multiple related packages as a co-ordinated “t
 
 Install gnome on debian
 
-\# tasksel install gnome-desktop &#8211;new-install
+\# tasksel install gnome-desktop -new-install
 
 KDE
 
@@ -48,7 +48,7 @@ K Desktop Environment (KDE) is a free desktop environment and development platfo
 
 \# apt-get install aptitude tasksel
 
-\# aptitude &#8211;without-recommends install ~t^standard$ ~t^desktop$ ~t^kde-desktop$
+\# aptitude -without-recommends install ~t^standard$ ~t^desktop$ ~t^kde-desktop$
 
 Or install KDE from the default repositorie
 
@@ -66,7 +66,7 @@ Compiz is truly one of the original compositing window managers for the X Window
 
 \# apt-get -t sid install compiz compiz-fusion-plugins-extra compizconfig-settings-manager
 
-\# compiz &#8211;replace
+\# compiz -replace
 
 You can configure Compiz via CCSM utility. located in System -> Preferences -> CompizConfig
 
@@ -234,7 +234,7 @@ Fluxbox is a extremely minimalistic and fast window manager for Linux and Unix s
 
 You will need to install X before FluxBox
 
-$ su &#8211;
+$ su -
 
 \# apt-get update && apt-get install xorg
 

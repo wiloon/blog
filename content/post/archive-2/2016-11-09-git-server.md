@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-在远程仓库一节中，我们讲了远程仓库实际上和本地仓库没啥不同，纯粹为了7&#215;24小时开机并交换大家的修改。
+在远程仓库一节中，我们讲了远程仓库实际上和本地仓库没啥不同，纯粹为了7x24小时开机并交换大家的修改。
 
 GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。
 
@@ -32,7 +32,7 @@ sudo useradd git
 
 先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令：
 
-$ sudo git init &#8211;bare sample.git
+$ sudo git init -bare sample.git
 
 Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：
 
@@ -56,7 +56,7 @@ git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
 
 $ git clone git@server:/path/to/sample.git
   
-Cloning into 'sample'&#8230;
+Cloning into 'sample'...
   
 warning: You appear to have cloned an empty repository.
 
@@ -96,7 +96,7 @@ echo 'PUB\_KEY\_TEXT' > /home/git/.ssh/authorized_keys
 
 #Initialized empty Git repository
   
-git init &#8211;bare sample.git
+git init -bare sample.git
   
 git clone git@localhost:/path/to/sample.git
   

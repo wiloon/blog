@@ -346,7 +346,7 @@ exit(1);
   
 }
   
-buf[recvbytes] = '\0&#8242;;
+buf[recvbytes] = '\0';
   
 printf("Received: %s",buf);
   

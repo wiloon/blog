@@ -166,11 +166,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -ea:&#8230;
+          -ea:...
         </td>
         
         <td>
-          java -ea:&#8230;
+          java -ea:...
         </td>
         
         <td>
@@ -180,11 +180,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -da:&#8230;
+          -da:...
         </td>
         
         <td>
-          java -da:&#8230;
+          java -da:...
         </td>
         
         <td>
@@ -194,11 +194,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -ea:<packagename>&#8230;
+          -ea:<packagename>...
         </td>
         
         <td>
-          java -ea:pkg1&#8230;
+          java -ea:pkg1...
         </td>
         
         <td>
@@ -208,11 +208,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -da:<packagename>&#8230;
+          -da:<packagename>...
         </td>
         
         <td>
-          java -da:pkg1&#8230;
+          java -da:pkg1...
         </td>
         
         <td>
@@ -263,7 +263,7 @@ javac -source 1.4 test.java
       </tr>
     </table>
     
-    其中&#8230;代表，此包和其子包的含义。例如我们有两个包为pkg1和pkg1.subpkg。那么pkg1&#8230;就代表pkg1和pkg1.subpkg两个包。
+    其中...代表，此包和其子包的含义。例如我们有两个包为pkg1和pkg1.subpkg。那么pkg1...就代表pkg1和pkg1.subpkg两个包。
   
     另外，Java为了让程序也能够动态开启和关闭某些类和包的assertion功能，Java修该了Class和ClassLoader的实现，增加了几个用于操作assert的API。下面简单说明一下几个API的作用。
   

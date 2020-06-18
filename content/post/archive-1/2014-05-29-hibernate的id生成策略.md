@@ -34,13 +34,13 @@ SEQUENCE – sequence
 
 @Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_STORE")
   
-public Integer getId() { &#8230; }
+public Integer getId() { ... }
 
 下面这个例子使用的是identity生成器
 
 @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
   
-public Long getId() { &#8230; }
+public Long getId() { ... }
   
 AUTO生成器适用于可移植的应用(在多个DB间切换). 多个@Id可以共享同一个identifier生成器,只要把generator属性设成相同的值就可以了. 通过@SequenceGenerator 和@TableGenerator,你可以配置不同的identifier生成器. 每一个identifier生成器都有自己的适用范围,可以是应用级(application level)和类一级(class level). 类一级的生成器在外部是不可见的, 而且类一级的生成器可以覆盖应用级的生成器. 应用级的生成器则定义在包一级(package level)(如package-info.java):
 

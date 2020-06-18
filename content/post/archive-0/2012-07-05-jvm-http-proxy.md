@@ -80,6 +80,6 @@ Tomcat Settings: catalina.bat
 
 Add all the parameters defined above in the ${CATALINA\_HOME}/bin/catalina.bat (for Windows) or ${CATALINA\_HOME}/bin/catalina.bat (for *nix):
 
-JAVA_OPTS="-Dhttp.proxyHost=yourProxyURL &#8230;"
+JAVA_OPTS="-Dhttp.proxyHost=yourProxyURL ..."
   
 (Each option is seperated by spaces.)

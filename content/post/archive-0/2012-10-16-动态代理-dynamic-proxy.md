@@ -239,7 +239,7 @@ tags:
     
     
     
-      System.out.println(obj.getServletInfo()+":Init servlet starting&#8230;"); //增加控制台输出。
+      System.out.println(obj.getServletInfo()+":Init servlet starting..."); //增加控制台输出。
     
     
     
@@ -247,7 +247,7 @@ tags:
     
     
     
-      System.out.println(obj.getServletInfo()+":Init servlet ending&#8230;"); //增加控制台输出。
+      System.out.println(obj.getServletInfo()+":Init servlet ending..."); //增加控制台输出。
     
     
     
@@ -255,7 +255,7 @@ tags:
     
     
     
-      System.out.println(obj.getServletInfo()+":service starting&#8230;"); //增加控制台输出。
+      System.out.println(obj.getServletInfo()+":service starting..."); //增加控制台输出。
     
     
     
@@ -267,7 +267,7 @@ tags:
     
     
     
-      System.out.println(obj.getServletInfo()+":service ending&#8230;"); //增加控制台输出。
+      System.out.println(obj.getServletInfo()+":service ending..."); //增加控制台输出。
     
     
     
@@ -888,7 +888,7 @@ tags:
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:Init servlet starting&#8230;
+    org.colimas.servlet.DefaultServlet:Init servlet starting...
   
   
   <div align="left">
@@ -896,11 +896,11 @@ tags:
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:Init servlet ending&#8230;
+    org.colimas.servlet.DefaultServlet:Init servlet ending...
   
   
   <div align="left">
-    org.colimas.servlet.UserServlet:Init servlet starting&#8230;
+    org.colimas.servlet.UserServlet:Init servlet starting...
   
   
   <div align="left">
@@ -908,39 +908,27 @@ tags:
   
   
   <div align="left">
-    org.colimas.servlet.UserServlet:Init servlet ending&#8230;
+    org.colimas.servlet.UserServlet:Init servlet ending...
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service starting&#8230;
+    org.colimas.servlet.DefaultServlet:service starting...
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service ending&#8230;
+    org.colimas.servlet.DefaultServlet:service ending...
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service starting&#8230;
+    org.colimas.servlet.DefaultServlet:service starting...
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service ending&#8230;
+    org.colimas.servlet.DefaultServlet:service ending...
   
   
   <div align="left">
-    org.colimas.servlet.UserServlet:service starting&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:Do UserSErvlet Get
-  
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:service ending&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:service starting&#8230;
+    org.colimas.servlet.UserServlet:service starting...
   
   
   <div align="left">
@@ -948,39 +936,11 @@ tags:
   
   
   <div align="left">
-    org.colimas.servlet.UserServlet:service ending&#8230;
+    org.colimas.servlet.UserServlet:service ending...
   
   
   <div align="left">
-    org.colimas.servlet.UserServlet:service starting&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:Do UserSErvlet Get
-  
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:service ending&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:service starting&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.DefaultServlet:service starting&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:service starting&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.DefaultServlet:service starting&#8230;
-  
-  
-  <div align="left">
-    org.colimas.servlet.DefaultServlet:service starting&#8230;
+    org.colimas.servlet.UserServlet:service starting...
   
   
   <div align="left">
@@ -988,7 +948,11 @@ tags:
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service ending&#8230;
+    org.colimas.servlet.UserServlet:service ending...
+  
+  
+  <div align="left">
+    org.colimas.servlet.UserServlet:service starting...
   
   
   <div align="left">
@@ -996,19 +960,55 @@ tags:
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service ending&#8230;
+    org.colimas.servlet.UserServlet:service ending...
   
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service ending&#8230;
+    org.colimas.servlet.UserServlet:service starting...
   
   
   <div align="left">
-    org.colimas.servlet.UserServlet:service ending&#8230;
+    org.colimas.servlet.DefaultServlet:service starting...
   
   
   <div align="left">
-    org.colimas.servlet.UserServlet:service ending&#8230;
+    org.colimas.servlet.UserServlet:service starting...
+  
+  
+  <div align="left">
+    org.colimas.servlet.DefaultServlet:service starting...
+  
+  
+  <div align="left">
+    org.colimas.servlet.DefaultServlet:service starting...
+  
+  
+  <div align="left">
+    org.colimas.servlet.UserServlet:Do UserSErvlet Get
+  
+  
+  <div align="left">
+    org.colimas.servlet.DefaultServlet:service ending...
+  
+  
+  <div align="left">
+    org.colimas.servlet.UserServlet:Do UserSErvlet Get
+  
+  
+  <div align="left">
+    org.colimas.servlet.DefaultServlet:service ending...
+  
+  
+  <div align="left">
+    org.colimas.servlet.DefaultServlet:service ending...
+  
+  
+  <div align="left">
+    org.colimas.servlet.UserServlet:service ending...
+  
+  
+  <div align="left">
+    org.colimas.servlet.UserServlet:service ending...
   
   
   

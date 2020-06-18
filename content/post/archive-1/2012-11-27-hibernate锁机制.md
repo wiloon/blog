@@ -68,7 +68,7 @@ categories:
       
       
       
-        等到数据库解锁我们再进行下面的操作，我们浪费的资源是多少？&#8211;这也就导致了乐观锁的产生。
+        等到数据库解锁我们再进行下面的操作，我们浪费的资源是多少？-这也就导致了乐观锁的产生。
   <wbr> <wbr> <wbr> 2.乐观锁：
  </wbr></wbr></wbr>　乐观锁定（optimistic locking）则乐观的认为资料的存取很少发生同时存取的问题，因而不作数
       
@@ -131,7 +131,7 @@ categories:
       
       
       
-        <wbr> <wbr> <wbr> <wbr> <wbr> &#8230;.
+        <wbr> <wbr> <wbr> <wbr> <wbr> ....
       
       
       
@@ -159,7 +159,7 @@ categories:
       
       
       
-        <wbr> <wbr> <wbr> <wbr> <wbr> &#8230;.
+        <wbr> <wbr> <wbr> <wbr> <wbr> ....
       
       
       
@@ -187,7 +187,7 @@ categories:
       
       
       
-        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <id&#8230;../>
+        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <id...../>
       
       
       
@@ -195,7 +195,7 @@ categories:
       
       
       
-        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> &#8230;.
+        <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> <wbr> ....
       
       
       

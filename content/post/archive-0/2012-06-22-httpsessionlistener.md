@@ -124,7 +124,7 @@ categories:
                     int count = numSessions.intValue( );
       </li>
       <li>
-                    numSessions = new Integer(count &#8211; 1);
+                    numSessions = new Integer(count - 1);
       </li>
       <li>
                 }

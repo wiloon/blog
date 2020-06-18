@@ -126,13 +126,13 @@ int main()
   
 {
       
-int res = mkfifo("/tmp/my_fifo&#8221;, 0777);
+int res = mkfifo("/tmp/my_fifo", 0777);
       
 if (res == 0)
       
 {
           
-printf("FIFO created/n&#8221;);
+printf("FIFO created/n");
       
 }
        

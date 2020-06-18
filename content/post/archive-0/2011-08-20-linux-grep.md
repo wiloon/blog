@@ -29,12 +29,12 @@ grep -o objStr  filename|wc -l
 ```
 
   * -A, –after-context=NUM print NUM lines of trailing context
-  * -B <显示行数> &#8211;before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
+  * -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
   * -C 显示file文件里匹配foo字串那行以及上下5行
-  * -r, &#8211;recursive
-  * -l, &#8211;files-with-matches
-  * -G, &#8211;basic-regexp BRE 模式，也是默认的模式
-  * -E, &#8211;extended-regexp ERE 模式
+  * -r, -recursive
+  * -l, -files-with-matches
+  * -G, -basic-regexp BRE 模式，也是默认的模式
+  * -E, -extended-regexp ERE 模式
   * -h, 查询多文件时不显示文件名。
 
 BRE(basic regular expression)
@@ -97,11 +97,11 @@ $ grep 'test' aa bb cc
   
 显示在aa，bb，cc文件中匹配test的行。
   
-$ grep '[a-z]&#123;5&#125;' aa
+$ grep '[a-z]{5}' aa
   
 显示所有包含每个字符串至少有5个连续小写字符的字符串的行。
   
-$ grep 'w&#40;es&#41;t._\1′ aa
+$ grep 'w(es)t._\1′ aa
   
 如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符(._)，这些字符后面紧跟着 另外一个es(\1)，找到就显示该行。如果用egrep或grep -E，就不用”\”号进行转义，直接写成'w(es)t.*\1′就可以了。
 

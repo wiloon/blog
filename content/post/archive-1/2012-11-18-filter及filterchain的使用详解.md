@@ -119,7 +119,7 @@ ServletContext context = **this**.config.getServletContext();
 
 **long** before = System._currentTimeMillis_();
 
-System._out_.println("开始过滤&#8230; ");
+System._out_.println("开始过滤... ");
 
 // 将请求转换成HttpServletRequest 请求
 
@@ -151,7 +151,7 @@ context.log("过滤结束");
 
 context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestURI()
 
-+ "所花的时间为: " + (after &#8211; before));
++ "所花的时间为: " + (after - before));
 
 }
 
@@ -161,29 +161,29 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 步骤2：在web.xml中配置Filter
 
-<!&#8211; 定义Filter &#8211;>
+<!- 定义Filter ->
 
 <filter>
 
-<!- Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>log</filter-name>
 
-<!- Filter 的实现类 &#8211;>
+<!- Filter 的实现类 ->
 
 <filter-class> test.filter.LogFilter</filter-class>
 
 </filter>
 
-<!&#8211; 定义Filter 拦截地址 &#8211;>
+<!- 定义Filter 拦截地址 ->
 
 <filter-mapping>
 
-<!- Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>log</filter-name>
 
-<!- Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL ->
 
 <url-pattern>/filter/*</url-pattern>
 
@@ -367,15 +367,15 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 步骤2：在web.xml中配置Filter
 
-<!&#8211; 定义Filter &#8211;>
+<!- 定义Filter ->
 
 <filter>
 
-<!- Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>encoding</filter-name>
 
-<!- Filter 的实现类 &#8211;>
+<!- Filter 的实现类 ->
 
 <filter-class> test.filter.EncodingFilter</filter-class>
 
@@ -389,15 +389,15 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 </filter>
 
-<!&#8211; 定义Filter 拦截地址 &#8211;>
+<!- 定义Filter 拦截地址 ->
 
 <filter-mapping>
 
-<!- Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name> encoding </filter-name>
 
-<!- Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL ->
 
 <url-pattern>/encode/*</url-pattern>
 
@@ -577,29 +577,29 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 步骤2：在web.xml中配置Filter
 
-<!&#8211; 定义Filter &#8211;>
+<!- 定义Filter ->
 
 <filter>
 
-<!- Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>security</filter-name>
 
-<!- Filter 的实现类 &#8211;>
+<!- Filter 的实现类 ->
 
 <filter-class> test.filter.SecurityFilter</filter-class>
 
 </filter>
 
-<!&#8211; 定义Filter 拦截地址 &#8211;>
+<!- 定义Filter 拦截地址 ->
 
 <filter-mapping>
 
-<!- Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name> security </filter-name>
 
-<!- Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL ->
 
 <url-pattern>/security/*</url-pattern>
 

@@ -194,4 +194,4 @@ OUTPUT OMITTED.
   
 http://sapser.github.io/ansible/2014/07/21/ansible-conditionals/
 
-转载请注明：IPCPU&#8211;网络之路 » Ansible入门setup模块和条件判断
+转载请注明：IPCPU-网络之路 » Ansible入门setup模块和条件判断

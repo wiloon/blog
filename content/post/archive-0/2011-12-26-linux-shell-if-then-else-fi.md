@@ -495,7 +495,7 @@ shell字符串比较、判断是否为数字
   
 #!/bin/bash
 
-file='folder\_url\_top24/url\_usa\_top24_0&#8242;
+file='folder\_url\_top24/url\_usa\_top24_0'
   
 fileSize=`ls -l folder_url_top24/url_usa_top24_0 | awk -F '[" "]' '{print $5}'`
   
@@ -509,7 +509,7 @@ while (("$fileSize" < 1000))
   
 do
       
-echo "down again&#8230;"
+echo "down again..."
   
 done
   

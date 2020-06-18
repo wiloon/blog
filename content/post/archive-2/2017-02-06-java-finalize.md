@@ -120,7 +120,7 @@ protected void finalize()
 
 super.finalize();
 
-// other finalization code&#8230;
+// other finalization code...
 
 }
 
@@ -130,7 +130,7 @@ super.finalize();
 
 然而有益的是，Java 的自动垃圾回收器不会失去平衡。作为便利的代价，你不得不放弃对系统资源释放的控制。不象 C++ 中的析构函数，Java Applet 不会自动执行你的类中的finalize() 方法。事实上，如果你正在使用 Java 1.0，即使你试图强制它调用finalize() 方法，也不能确保将调用它。
 
-因此，你不应当依靠finalize() 来执行你的 Applet 和应用程序的资源清除工作。取而代之，你应当明确的清除那些资源或创建一个try&#8230;finally 块（或类似的机制）来实现。
+因此，你不应当依靠finalize() 来执行你的 Applet 和应用程序的资源清除工作。取而代之，你应当明确的清除那些资源或创建一个try...finally 块（或类似的机制）来实现。
 
 finalize方法是与Java编程中的垃圾回收器有关系。即：当一个对象变成一个垃圾对象的时候，如果此对象的内存被回收，那么就可以调用系统中定义的finalize方法来完成
 

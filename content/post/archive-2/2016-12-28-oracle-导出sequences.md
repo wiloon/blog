@@ -32,7 +32,7 @@ from dba\_sequences where sequence\_owner='HR' <wbr /> <wbr />
 
 create sequence MIAGENTVERSION\_VERSION\_SEQ minvalue 1 maxvalue 999999999999999999999999<wbr />start with 121 increment by 1 cache 20;
 
---------------------------&#8211;
+---------------------------
 
 如果你只想导出本用户的sequence那就不要那么复杂的写，只写如下语句就可以了：
 

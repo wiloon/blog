@@ -108,7 +108,7 @@ Sequence created
 
 
 
-&#8211;第一次调用；
+-第一次调用；
 
 SQL> select seq_nocache.nextval from dual;
 
@@ -180,7 +180,7 @@ Plan hash value: 3078288422
 
 
 
-&#8211;第二次调用（篇幅原因，执行计划和部分统计量省略）
+-第二次调用（篇幅原因，执行计划和部分统计量省略）
 
 SQL> select seq_nocache.nextval from dual;
 
@@ -226,7 +226,7 @@ NEXTVAL
 
 
 
-&#8211;第三次调用
+-第三次调用
 
 SQL> select seq_nocache.nextval from dual;
 
@@ -442,7 +442,7 @@ NEXTVAL
 
 
 
-&#8211;第四次调用，获取新的cache值。
+-第四次调用，获取新的cache值。
 
 SQL> select seq_cache.nextval from dual;
 
@@ -610,11 +610,11 @@ c:\tool\oracle\oracle\product\10.2.0\admin\ots\udump\ots\_ora\_5932.trc
 
 
 
-&#8211;篇幅原因，本部分有省略；
+-篇幅原因，本部分有省略；
 
 =====================
 
-PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16143418536 hv=311402377 ad='248b5c60&#8242;
+PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16143418536 hv=311402377 ad='248b5c60'
 
 select scott.seq_nocache.nextval from dual –第一次调用nocache
 
@@ -630,7 +630,7 @@ WAIT #1: nam='SQL*Net message to client' ela= 8 driver id=1413697536 #bytes=1 p3
 
 =====================
 
-PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16143457545 hv=2635489469 ad='2891ff84&#8242;
+PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16143457545 hv=2635489469 ad='2891ff84'
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1 –第一次循环递归；
 
@@ -720,7 +720,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
-value="----------&#8211;"
+value="-----------"
 
 Bind#8
 
@@ -748,7 +748,7 @@ value=113487
 
 =====================
 
-PARSING IN CURSOR #2 len=42 dep=0 uid=0 ct=3 lid=0 tim=16145504123 hv=311402377 ad='248b5c60&#8242;
+PARSING IN CURSOR #2 len=42 dep=0 uid=0 ct=3 lid=0 tim=16145504123 hv=311402377 ad='248b5c60'
 
 select scott.seq_nocache.nextval from dual –第二次调用
 
@@ -764,7 +764,7 @@ WAIT #2: nam='SQL*Net message to client' ela= 8 driver id=1413697536 #bytes=1 p3
 
 =====================
 
-PARSING IN CURSOR #1 len=129 dep=1 uid=0 ct=6 lid=0 tim=16145536517 hv=2635489469 ad='2891ff84&#8242;
+PARSING IN CURSOR #1 len=129 dep=1 uid=0 ct=6 lid=0 tim=16145536517 hv=2635489469 ad='2891ff84'
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1
 
@@ -796,7 +796,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
-value="----------&#8211;"
+value="-----------"
 
 Bind#8
 
@@ -822,7 +822,7 @@ value=113487
 
 =====================
 
-PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16147403782 hv=311402377 ad='248b5c60&#8242;
+PARSING IN CURSOR #1 len=42 dep=0 uid=0 ct=3 lid=0 tim=16147403782 hv=311402377 ad='248b5c60'
 
 select scott.seq_nocache.nextval from dual –第三次调用
 
@@ -830,7 +830,7 @@ END OF STMT
 
 =====================
 
-PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16147424639 hv=2635489469 ad='2891ff84&#8242;
+PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16147424639 hv=2635489469 ad='2891ff84'
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1
 
@@ -862,7 +862,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
-value="----------&#8211;"
+value="-----------"
 
 Bind#8
 
@@ -968,7 +968,7 @@ WAIT #1: nam='SQL*Net message to client' ela= 5 driver id=1413697536 #bytes=1 p3
 
 =====================
 
-PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16158474024 hv=2635489469 ad='2891ff84&#8242;
+PARSING IN CURSOR #2 len=129 dep=1 uid=0 ct=6 lid=0 tim=16158474024 hv=2635489469 ad='2891ff84'
 
 update seq$ set increment$=:2,minvalue=:3,maxvalue=:4,cycle#=:5,order$=:6,cache=:7,highwater=:8,audit$=:9,flags=:10 where obj#=:1
 
@@ -1058,7 +1058,7 @@ oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
 kxsbbbfp=248c58fa  bln=32  avl=32  flg=09
 
-value="----------&#8211;"
+value="-----------"
 
 Bind#8
 

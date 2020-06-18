@@ -856,7 +856,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      "basic"audio &#8211; 8-bit u-law PCM
+      "basic"audio - 8-bit u-law PCM
     </td>
     
     <td>

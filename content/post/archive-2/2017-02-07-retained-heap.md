@@ -218,7 +218,7 @@ List<Person> persons = new ArrayList<Person> ();
   
 while( 1>0){
   
-persons.add( new Person("fakeperson&#8221;,&#8221;male&#8221;,25));
+persons.add( new Person("fakeperson","male",25));
   
 }
   
@@ -498,9 +498,9 @@ List<CompanyPerson> companyPersons = new ArrayList<CompanyPerson> ();
   
 while( 1>0){
   
-Person person = new Person("fackperson&#8221;,&#8221;male&#8221;,25);
+Person person = new Person("fackperson","male",25);
   
-CompanyPerson cp = new CompanyPerson(person,&#8221;emp123",20000L,&#8221;SSE&#8221;);
+CompanyPerson cp = new CompanyPerson(person,"emp123",20000L,"SSE");
   
 companyPersons.add( cp);
   
@@ -550,7 +550,7 @@ public static void makeOutOfMemory3(){
   
 while( 1>0){
   
-Person person = new Person("fackperson&#8221;,&#8221;male&#8221;,25);
+Person person = new Person("fackperson","male",25);
   
 }
   

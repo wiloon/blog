@@ -228,7 +228,7 @@ https://Amazon FPS web service end point/?AWSAccessKeyId=Your AWSAccessKeyId
   
 &parameter1=[Value of the API parameter1] &parameter2=[Value of the API parameter2]
   
-&&#8230;[API parameters and their values]
+&...[API parameters and their values]
   
 返回消息：
   

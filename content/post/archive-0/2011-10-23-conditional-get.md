@@ -94,6 +94,6 @@ categories:
  Age: 11
  X-Cache: HIT from sy32-27.sina.com.cn
  Connection: close
- /*&#8230;&#8230;.网页内容&#8230;&#8230;. */
+ /*.......网页内容....... */
  [/java]
   

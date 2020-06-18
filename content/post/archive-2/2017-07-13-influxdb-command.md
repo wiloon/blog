@@ -47,39 +47,39 @@ emacs /etc/influxdb/influxdb.conf
 
 [meta]
   
-dir = "/var/lib/influxdb/meta&#8221;
+dir = "/var/lib/influxdb/meta"
   
 #retention-autocreate = true
 
 [data]
   
-dir = "/var/lib/influxdb/data&#8221;
+dir = "/var/lib/influxdb/data"
   
-wal-dir = "/var/lib/influxdb/wal&#8221;
+wal-dir = "/var/lib/influxdb/wal"
   
-wal-fsync-delay = "0s&#8221;
+wal-fsync-delay = "0s"
 
-# index-version = "inmem&#8221;
+# index-version = "inmem"
 
-index-version = "tsi1&#8221;
+index-version = "tsi1"
 
 trace-logging-enabled = false
   
 query-log-enabled = true
   
-cache-max-memory-size = "512m&#8221;
+cache-max-memory-size = "512m"
   
-cache-snapshot-memory-size = "32m&#8221;
+cache-snapshot-memory-size = "32m"
 
 # 超过10分钟没有写入, 把cache写到新的TSM文件
 
-cache-snapshot-write-cold-duration = "10m&#8221;
+cache-snapshot-write-cold-duration = "10m"
 
 [coordinator]
   
 #慢查询
   
-log-queries-after = "10s&#8221;
+log-queries-after = "10s"
 
 [retention]
 

@@ -20,7 +20,7 @@ MySQL的大小写敏感性 lower\_case\_table_names
 
 要避免这个问题，你最好在定义数据库命名规则的时候就全部采用小写字母加下划线的组合，而不使用任何的大写字母。
 
-或者也可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 &#8211;defaults-file=&#8230;\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
+或者也可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 -defaults-file=...\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
 
 当你更改这个选项时，你必须在启动 mysqld 前首先将老的表名转换为小写字母。
 
@@ -42,7 +42,7 @@ MySQL的大小写敏感性 lower\_case\_table_names
     </td>
     
     <td>
-      使用CREATE TABLE或CREATE DATABASE语句指定的大写和小写在硬盘上保存表名和数据库名。名称比较对大小写敏感。在Unix系统中的默认设置即如此。请注意如果在大小写不敏感的文件系统上用&#8211;lower-case-table-names=0强制设为0，并且使用不同的大小写访问MyISAM表名，会导致索引破坏。
+      使用CREATE TABLE或CREATE DATABASE语句指定的大写和小写在硬盘上保存表名和数据库名。名称比较对大小写敏感。在Unix系统中的默认设置即如此。请注意如果在大小写不敏感的文件系统上用-lower-case-table-names=0强制设为0，并且使用不同的大小写访问MyISAM表名，会导致索引破坏。
     </td>
   </tr>
   
@@ -69,7 +69,7 @@ MySQL的大小写敏感性 lower\_case\_table_names
 
 
 
-MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 &#8211;defaults-file=&#8230;\\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。
+MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。
   
 这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
   

@@ -16,7 +16,7 @@ ykpamcfg -2 -v
   
 mkdir /data/yubikey
   
-mv ~/.yubico/challenge-123456&#8242; /data/yubikey
+mv ~/.yubico/challenge-123456' /data/yubikey
   
 vim /etc/pam.d/sudo
   

@@ -74,9 +74,9 @@ http://blog.csdn.net/lonely_fireworks/article/details/7962171/
 
 String类的format()方法用于创建格式化的字符串以及连接多个字符串对象。熟悉C语言的同学应该记得C语言的sprintf()方法，两者有类似之处。format()方法有两种重载形式。
   
-format(String format, Object&#8230; args) 新字符串使用本地语言环境，制定字符串格式和参数生成格式化的新字符串。
+format(String format, Object... args) 新字符串使用本地语言环境，制定字符串格式和参数生成格式化的新字符串。
   
-format(Locale locale, String format, Object&#8230; args) 使用指定的语言环境，制定字符串格式和参数生成格式化的字符串。
+format(Locale locale, String format, Object... args) 使用指定的语言环境，制定字符串格式和参数生成格式化的字符串。
 
 显示不同转换符实现不同数据类型到字符串的转换，如图所示。
 

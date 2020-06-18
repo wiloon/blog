@@ -50,13 +50,13 @@ lrwxrwxrwx   1 root    root          21 2009-07-19 08:45 libevent-
   
 -rwxr-xr-x   1 root    root      301588 2009-07-19 08:45 libevent-1.4.so.2.1.3
   
--rw-r&#8211;r&#8211;   1 root    root      386638 2009-07-19 08:45 libevent.a
+-rw-r-r-   1 root    root      386638 2009-07-19 08:45 libevent.a
   
 lrwxrwxrwx   1 root    root          26 2009-07-19 08:45 libevent\_core-1.4.so.2 -> libevent\_core-1.4.so.2.1.3
   
 -rwxr-xr-x   1 root    root      115721 2009-07-19 08:45 libevent_core-1.4.so.2.1.3
   
--rw-r&#8211;r&#8211;   1 root    root      151618 2009-07-19 08:45 libevent_core.a
+-rw-r-r-   1 root    root      151618 2009-07-19 08:45 libevent_core.a
   
 -rwxr-xr-x   1 root    root         860 2009-07-19 08:45 libevent_core.la
   
@@ -66,7 +66,7 @@ lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent\
   
 -rwxr-xr-x   1 root    root      239933 2009-07-19 08:45 libevent_extra-1.4.so.2.1.3
   
--rw-r&#8211;r&#8211;   1 root    root      298406 2009-07-19 08:45 libevent_extra.a
+-rw-r-r-   1 root    root      298406 2009-07-19 08:45 libevent_extra.a
   
 -rwxr-xr-x   1 root    root         867 2009-07-19 08:45 libevent_extra.la
   
@@ -144,7 +144,7 @@ telnet测试memcached
   
 telnet 192.168.1.2 11211
 
-Trying 192.168.1.2&#8230;
+Trying 192.168.1.2...
   
 Connected to 192.168.1.2.
   
@@ -654,7 +654,7 @@ Connection closed by foreign host.
 
 [root@lh-web-test memcached-1.4.5]# telnet 127.0.0.1 11000
 
-Trying 127.0.0.1&#8230;
+Trying 127.0.0.1...
 
 Connected to localhost.localdomain (127.0.0.1).
 
@@ -976,7 +976,7 @@ lrwxrwxrwx   1 root root     21 Mar 22 18:41 libevent-1.2.so.1 -> libevent
 
 -rwxr-xr-x   1 root root 262475 Mar 22 18:41 libevent-1.2.so.1.0.3
 
--rw-r&#8211;r&#8211;   1 root root 430228 Mar 22 18:41 libevent.a
+-rw-r-r-   1 root root 430228 Mar 22 18:41 libevent.a
 
 -rwxr-xr-x   1 root root    811 Mar 22 18:41 libevent.la
 
@@ -1170,7 +1170,7 @@ view plain   copy
   
 # cd memcached-1.4.5
   
-# ./configure &#8211;prefix=/etc/memcached
+# ./configure -prefix=/etc/memcached
   
 # make
   
@@ -1366,9 +1366,9 @@ exit $RETVAL
 
 view plain   copy
   
-\# chkconfig &#8211;add memcached
+\# chkconfig -add memcached
   
-\# chkconfig &#8211;level 35 memcached on
+\# chkconfig -level 35 memcached on
   
 启动memcached
   

@@ -20,15 +20,15 @@ cron 表达式代表了一个时间集合，使用 6 个空格分隔的字段表
   
 字段名 是否必须 允许的值 允许的特定字符
   
-秒(Seconds) 是 0-59 * / , &#8211;
+秒(Seconds) 是 0-59 * / , -
   
-分(Minutes) 是 0-59 * / , &#8211;
+分(Minutes) 是 0-59 * / , -
   
-时(Hours) 是 0-23 * / , &#8211;
+时(Hours) 是 0-23 * / , -
   
 日(Day of month) 是 1-31 * / , – ?
   
-月(Month) 是 1-12 or JAN-DEC * / , &#8211;
+月(Month) 是 1-12 or JAN-DEC * / , -
   
 星期(Day of week) 否 0-6 or SUM-SAT * / , – ?
   
@@ -109,7 +109,7 @@ c.Start()
   
 2017/07/06 18:28:50 cron running: 5
   
-&#8230;
+...
   
 多个定时crontab任务
   
@@ -131,7 +131,7 @@ type TestJob struct {
 
 func (this TestJob)Run() {
       
-fmt.Println("testJob1&#8230;")
+fmt.Println("testJob1...")
   
 }
 
@@ -141,7 +141,7 @@ type Test2Job struct {
 
 func (this Test2Job)Run() {
       
-fmt.Println("testJob2&#8230;")
+fmt.Println("testJob2...")
   
 }
 
@@ -179,41 +179,41 @@ go run crontab/crontab-2.go
   
 启动后输出如下：
   
-testJob1&#8230;
+testJob1...
   
 2017/07/07 18:46:40 cron running: 1
   
-testJob2&#8230;
+testJob2...
   
 2017/07/07 18:46:45 cron running: 2
   
-testJob1&#8230;
+testJob1...
   
-testJob2&#8230;
+testJob2...
   
 2017/07/07 18:46:50 cron running: 3
   
-testJob1&#8230;
+testJob1...
   
-testJob2&#8230;
+testJob2...
   
 2017/07/07 18:46:55 cron running: 4
   
-testJob1&#8230;
+testJob1...
   
-testJob2&#8230;
+testJob2...
   
-testJob2&#8230;
+testJob2...
   
-testJob1&#8230;
+testJob1...
   
 2017/07/07 18:47:00 cron running: 5
   
-&#8230;
+...
   
 可结合toml yaml 配置需要定时执行的任务
   
-&#8230;
+...
   
 参考
   

@@ -54,13 +54,13 @@ this.hasDataToProcess = hasData;
   
 准备处理数据的线程 B 正在等待数据变为可用。换句话说，它在等待线程 A 的一个信号，这个信号使 hasDataToProcess()返回 true。线程 B 运行在一个循环里，以等待这个信号：
 
-protected MySignal sharedSignal = &#8230;
+protected MySignal sharedSignal = ...
 
-&#8230;
+...
 
 while(!sharedSignal.hasDataToProcess()){
     
-//do nothing&#8230; busy waiting
+//do nothing... busy waiting
   
 }
 
@@ -88,7 +88,7 @@ try{
           
 myMonitorObject.wait();
         
-} catch(InterruptedException e){&#8230;}
+} catch(InterruptedException e){...}
       
 }
     
@@ -138,7 +138,7 @@ try{
             
 myMonitorObject.wait();
            
-} catch(InterruptedException e){&#8230;}
+} catch(InterruptedException e){...}
         
 }
         
@@ -192,7 +192,7 @@ try{
             
 myMonitorObject.wait();
            
-} catch(InterruptedException e){&#8230;}
+} catch(InterruptedException e){...}
         
 }
         
@@ -228,7 +228,7 @@ myMonitorObject.notify();
 
 public class MyWaitNotify{
 
-String myMonitorObject = "&#8221;;
+String myMonitorObject = "";
     
 boolean wasSignalled = false;
 
@@ -242,7 +242,7 @@ try{
             
 myMonitorObject.wait();
            
-} catch(InterruptedException e){&#8230;}
+} catch(InterruptedException e){...}
         
 }
         

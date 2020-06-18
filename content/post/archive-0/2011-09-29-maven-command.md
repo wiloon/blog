@@ -98,7 +98,7 @@ mvn eclipse:clean
   
 mvn eclipse:eclipse
   
-&#8211;mvn package：依据项目生成jar/war文件
+-mvn package：依据项目生成jar/war文件
   
 mvn dependency:sources
   

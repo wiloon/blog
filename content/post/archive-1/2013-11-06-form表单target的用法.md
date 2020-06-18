@@ -22,7 +22,7 @@ categories:
       <form action="提交的action" method="post" target="theID">
     </li>
     <li>
-      &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+      .....................
     </li>
     <li>
       </form>

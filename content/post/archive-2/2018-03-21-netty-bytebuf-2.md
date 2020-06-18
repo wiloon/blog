@@ -38,9 +38,9 @@ ByteBuf 支持 slice 操作, 因此可以将 ByteBuf 分解为多个共享同一
   
 假设我们有一份协议数据, 它由头部和消息体组成, 而头部和消息体是分别存放在两个 ByteBuf 中的, 即:
 
-ByteBuf header = &#8230;
+ByteBuf header = ...
   
-ByteBuf body = &#8230;
+ByteBuf body = ...
   
 我们在代码处理中, 通常希望将 header 和 body 合并为一个 ByteBuf, 方便处理, 那么通常的做法是:
 
@@ -54,9 +54,9 @@ allBuf.writeBytes(body);
 
 那么有没有更加高效优雅的方式实现相同的目的呢? 我们来看一下 CompositeByteBuf 是如何实现这样的需求的吧.
 
-ByteBuf header = &#8230;
+ByteBuf header = ...
   
-ByteBuf body = &#8230;
+ByteBuf body = ...
 
 CompositeByteBuf compositeByteBuf = Unpooled.compositeBuffer();
   
@@ -64,9 +64,9 @@ compositeByteBuf.addComponents(true, header, body);
   
 上面代码中, 我们定义了一个 CompositeByteBuf 对象, 然后调用
 
-public CompositeByteBuf addComponents(boolean increaseWriterIndex, ByteBuf&#8230; buffers) {
+public CompositeByteBuf addComponents(boolean increaseWriterIndex, ByteBuf... buffers) {
   
-&#8230;
+...
   
 }
   
@@ -74,7 +74,7 @@ public CompositeByteBuf addComponents(boolean increaseWriterIndex, ByteBuf&#8230
 
 不过需要注意的是, 虽然看起来 CompositeByteBuf 是由两个 ByteBuf 组合而成的, 不过在 CompositeByteBuf 内部, 这两个 ByteBuf 都是单独存在的, CompositeByteBuf 只是逻辑上是一个整体.
 
-上面 CompositeByteBuf 代码还以一个地方值得注意的是, 我们调用 addComponents(boolean increaseWriterIndex, ByteBuf&#8230; buffers) 来添加两个 ByteBuf, 其中第一个参数是 true, 表示当添加新的 ByteBuf 时, 自动递增 CompositeByteBuf 的 writeIndex.
+上面 CompositeByteBuf 代码还以一个地方值得注意的是, 我们调用 addComponents(boolean increaseWriterIndex, ByteBuf... buffers) 来添加两个 ByteBuf, 其中第一个参数是 true, 表示当添加新的 ByteBuf 时, 自动递增 CompositeByteBuf 的 writeIndex.
   
 如果我们调用的是
 
@@ -84,9 +84,9 @@ compositeByteBuf.addComponents(header, body);
 
 除了上面直接使用 CompositeByteBuf 类外, 我们还可以使用 Unpooled.wrappedBuffer 方法, 它底层封装了 CompositeByteBuf 操作, 因此使用起来更加方便:
 
-ByteBuf header = &#8230;
+ByteBuf header = ...
   
-ByteBuf body = &#8230;
+ByteBuf body = ...
 
 ByteBuf allByteBuf = Unpooled.wrappedBuffer(header, body);
   
@@ -94,7 +94,7 @@ ByteBuf allByteBuf = Unpooled.wrappedBuffer(header, body);
   
 例如我们有一个 byte 数组, 我们希望将它转换为一个 ByteBuf 对象, 以便于后续的操作, 那么传统的做法是将此 byte 数组拷贝到 ByteBuf 中, 即:
 
-byte[] bytes = &#8230;
+byte[] bytes = ...
   
 ByteBuf byteBuf = Unpooled.buffer();
   
@@ -102,7 +102,7 @@ byteBuf.writeBytes(bytes);
   
 显然这样的方式也是有一个额外的拷贝操作的, 我们可以使用 Unpooled 的相关方法, 包装这个 byte 数组, 生成一个新的 ByteBuf 实例, 而不需要进行拷贝操作. 上面的代码可以改为:
 
-byte[] bytes = &#8230;
+byte[] bytes = ...
   
 ByteBuf byteBuf = Unpooled.wrappedBuffer(bytes);
   
@@ -118,17 +118,17 @@ public static ByteBuf wrappedBuffer(ByteBuffer buffer)
   
 public static ByteBuf wrappedBuffer(ByteBuf buffer)
 
-public static ByteBuf wrappedBuffer(byte[]&#8230; arrays)
+public static ByteBuf wrappedBuffer(byte[]... arrays)
   
-public static ByteBuf wrappedBuffer(ByteBuf&#8230; buffers)
+public static ByteBuf wrappedBuffer(ByteBuf... buffers)
   
-public static ByteBuf wrappedBuffer(ByteBuffer&#8230; buffers)
+public static ByteBuf wrappedBuffer(ByteBuffer... buffers)
 
-public static ByteBuf wrappedBuffer(int maxNumComponents, byte[]&#8230; arrays)
+public static ByteBuf wrappedBuffer(int maxNumComponents, byte[]... arrays)
   
-public static ByteBuf wrappedBuffer(int maxNumComponents, ByteBuf&#8230; buffers)
+public static ByteBuf wrappedBuffer(int maxNumComponents, ByteBuf... buffers)
   
-public static ByteBuf wrappedBuffer(int maxNumComponents, ByteBuffer&#8230; buffers)
+public static ByteBuf wrappedBuffer(int maxNumComponents, ByteBuffer... buffers)
   
 这些方法可以将一个或多个 buffer 包装为一个 ByteBuf 对象, 从而避免了拷贝操作.
 
@@ -146,7 +146,7 @@ public ByteBuf slice(int index, int length);
 
 下面的例子展示了 ByteBuf.slice 方法的简单用法:
 
-ByteBuf byteBuf = &#8230;
+ByteBuf byteBuf = ...
   
 ByteBuf header = byteBuf.slice(0, 5);
   

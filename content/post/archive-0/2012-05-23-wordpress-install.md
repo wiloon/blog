@@ -50,7 +50,7 @@ define('DB_NAME', 'wordpress');    // The name of the database
 
 define('DB_USER', 'username');     // Your MySQL username
 
-define('DB_PASSWORD', 'password'); // &#8230;and password
+define('DB_PASSWORD', 'password'); // ...and password
 
 #import wordpress DB data
 
@@ -58,4 +58,4 @@ define('DB_PASSWORD', 'password'); // &#8230;and password
 
 #wordpress login url:<a id="" href="http://www.wiloon.com/wordpress/wp-login.php" shape="rect" target="_blank">http://www.wiloon.com/wordpress/wp-login.php</a>
 
-#Go to browser check the wordpress is ok&#8230;
+#Go to browser check the wordpress is ok...

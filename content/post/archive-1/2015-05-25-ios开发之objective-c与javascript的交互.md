@@ -92,7 +92,7 @@ private:
     
 volatile int _counter ;
     
-&#8230;
+...
   
 public:
     
@@ -100,7 +100,7 @@ void park(bool isAbsolute, jlong time);
     
 void unpark();
     
-&#8230;
+...
   
 }
   
@@ -112,7 +112,7 @@ pthread\_mutex\_t _mutex [1] ;
       
 pthread\_cond\_t _cond [1] ;
       
-&#8230;
+...
   
 }
   
@@ -323,7 +323,7 @@ guarantee (p->AssociatedWith == NULL, "invariant") ;
       
 // In rare cases an allocating thread might detach
       
-// a long list - installing null into FreeList &#8211;and
+// a long list - installing null into FreeList -and
       
 // then stall. Another thread calling Allocate() would see
       

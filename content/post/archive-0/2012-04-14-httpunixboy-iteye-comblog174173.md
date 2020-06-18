@@ -218,7 +218,7 @@ java -Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThread
   
 -XX:ParallelGCThreads=20：配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。
   
-java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20 &#8211;
+java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20 -
   
 java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:MaxGCPauseMillis=100
   
@@ -234,7 +234,7 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:MaxGCPauseMillis
   
 典型配置：
   
-java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC &#8211;
+java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC -
   
 -XX:+UseConcMarkSweepGC：设置年老代为并发收集。测试中配置这个以后，-XX:NewRatio=4的配置失效了，原因不明。所以，此时年轻代大小最好用-Xmn设置。
   
@@ -364,7 +364,7 @@ JVM 在发生内存溢出时自动的生成堆内存快照。有了这个参数�
 
 -verbose.gc开关可显示GC的操作内容。打开它，可以显示最忙和最空闲收集行为发生的时间、收集前后的内存大小、收集需要的时间等。
   
--verbose:gc &#8211; Same as "-XX:+PrintGC".
+-verbose:gc - Same as "-XX:+PrintGC".
   
 -verbose:gc -Xloggc:$CATALINA_HOME/logs/gc.log
   
@@ -486,7 +486,7 @@ fi
 
 # IP. Instead tell it to cache names for only 10 minutes at most.
 
-FIX_DNS='-Dsun.net.inetaddr.ttl=600&#8242;
+FIX_DNS='-Dsun.net.inetaddr.ttl=600'
   
 JVMARGS="$JVMARGS $GCARGS $FIX_DNS"
   

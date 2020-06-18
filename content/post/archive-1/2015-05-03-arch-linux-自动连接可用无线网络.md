@@ -70,7 +70,7 @@ CGroup: /system.slice/system-netctl\x2dauto.slice/netctl-auto@wlan0.service
   
 └─501 dhcpcd -4 -q -t 30 -K -L wlan0
   
-&#8230;
+...
   
 或者通过 netctl-auto list 命令也可以看到连接上了哪个配置文件里指定的热点。
 

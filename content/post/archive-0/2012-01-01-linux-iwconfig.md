@@ -19,7 +19,7 @@ lwe是linux下对无线网络配置的工具，包括内核的支持、用户层
 
 1、iwconfig 用法:
 
-iwconfig interface \[essid {nn|on|off}\] \[nwid {nn|on|off}\] \[mode {managed|ad-hoc|&#8230;} [freq n.nnnn[k|m|g]\] \[channel n\] \[ap {n|off|auto}\] \[sens n\] \[nick n\] \[rate {n|auto|fixed}\] \[rts {n|auto|fixed|off}\] \[frag {n|auto|fixed|off}\] \[enc {nnnn-nnnn|off}\] \[power {period n|timeout n}\] \[retry {limit n|lifetime n}\] \[txpower n {mw|dbm}\] [commit]
+iwconfig interface \[essid {nn|on|off}\] \[nwid {nn|on|off}\] \[mode {managed|ad-hoc|...} [freq n.nnnn[k|m|g]\] \[channel n\] \[ap {n|off|auto}\] \[sens n\] \[nick n\] \[rate {n|auto|fixed}\] \[rts {n|auto|fixed|off}\] \[frag {n|auto|fixed|off}\] \[enc {nnnn-nnnn|off}\] \[power {period n|timeout n}\] \[retry {limit n|lifetime n}\] \[txpower n {mw|dbm}\] [commit]
 
 说明：iwconfig是lwe最主要的工具，可以对无线网卡的大部分参数进行配置。 参数： essid：设置无线网卡的essid(extension service set id)。
 

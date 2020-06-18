@@ -72,7 +72,7 @@ studentView = new StudentView();
 
 public void dispatch(String viewName){
   
-if ("homeView&#8221;.equals(viewName)){
+if ("homeView".equals(viewName)){
   
 homeView.show();
   
@@ -102,7 +102,7 @@ dispatcher = new Dispatcher();
 
 public boolean isAuthenticUser(){
   
-System.out.println("Authenticate user&#8221;);
+System.out.println("Authenticate user");
   
 return true;
   
@@ -110,7 +110,7 @@ return true;
 
 public void trackRequest(String viewName){
   
-System.out.println("track request &#8221; + viewName);
+System.out.println("track request " + viewName);
   
 }
 
@@ -136,11 +136,11 @@ public static void main(){
 
 FrontController frontController = new FrontController();
 
-String viewName = "homeView&#8221;;
+String viewName = "homeView";
   
 frontController.dispatchRequest(viewName);
 
-viewName = "studentView&#8221;;
+viewName = "studentView";
   
 frontController.dispatchRequest(viewName);
   

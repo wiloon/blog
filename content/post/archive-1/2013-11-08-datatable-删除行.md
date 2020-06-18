@@ -18,7 +18,7 @@ categories:
   
         protected void deleteDataRow(int RowID,DataTable dt)
  {
- for (int i = dt.Rows.Count &#8211; 1; i >= 0; i&#8211;)
+ for (int i = dt.Rows.Count - 1; i >= 0; i-)
  {
  if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
  dt.Rows.RemoveAt(i);

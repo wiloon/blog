@@ -113,7 +113,7 @@ public   void   valueUnbound(HttpSessionBindingEvent   event)
   
 {
   
-count&#8211;;
+count-;
   
 if   (privateInfo.equals( "count "))
   

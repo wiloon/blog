@@ -32,6 +32,6 @@ This reverts commit 5962845b0059f9e7702b73066e6a35aea1efaa49.
 
 reset 可以回滚到某一次提交，而该提交之后的所有修改都会丢失，常用的方法是
 
-git reset &#8211;hard head~3
+git reset -hard head~3
 
 rebase 更高级，可以重写所有的信息，不过据说也很危险，还没有真正用过，用到的时候在补充吧。

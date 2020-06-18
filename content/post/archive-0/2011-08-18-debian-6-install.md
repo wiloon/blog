@@ -184,7 +184,7 @@ append initrd=initrd.gz
 
 复制debian6 的 iso文件(debian-6.0.2.1-i386-CD-1.iso)到优盘
   
-到这里还是不能用U盘引导&#8230;&#8230;要用下面一步。
+到这里还是不能用U盘引导......要用下面一步。
   
 Master Boot Record
   

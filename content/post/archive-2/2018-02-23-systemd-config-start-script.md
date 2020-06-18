@@ -131,7 +131,7 @@ Type=dbus
 
 BusName=org.freedesktop.NetworkManager
 
-ExecStart=/usr/sbin/NetworkManager &#8211;no-daemon
+ExecStart=/usr/sbin/NetworkManager -no-daemon
 
 # NM doesn't want systemd to kill its children for it
 
@@ -231,7 +231,7 @@ systemctl is-active name.service
 
 ●Checks if a service isrunning.
 
-service &#8211;status-all --> systemctl list-units –type service &#8211;all
+service -status-all --> systemctl list-units –type service -all
 
 ●Displays the status of all services.chkconfig systemctl
 
@@ -239,13 +239,13 @@ chkconfig name on --> systemctl enablename.service ●Enables a service.
 
 chkconfig name off --> systemctl disablename.service ●Disables a service.
 
-chkconfig &#8211;list name --> systemctl statusname.service
+chkconfig -list name --> systemctl statusname.service
 
 system ctl is-enabled name.service
 
 ●Checks if a service is enabled.
 
-chkconfig &#8211;list --> systemctl list-unit-files –type service
+chkconfig -list --> systemctl list-unit-files –type service
 
 ●Lists all services and checks if they are enabled.
 

@@ -18,7 +18,7 @@ http://stackoverflow.com/questions/39882669/unrecognized-option-modulepath
 
 [shell]
 
-java &#8211;module-path mods -m com.mycompany.helloworld/com.mycompany.helloworld.HelloWorld
+java -module-path mods -m com.mycompany.helloworld/com.mycompany.helloworld.HelloWorld
 
 [/shell]
 

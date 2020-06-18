@@ -164,7 +164,7 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
       telnet 127.0.0.1 110
     </li>
     <li>
-      Trying 127.0.0.1&#8230;
+      Trying 127.0.0.1...
     </li>
     <li>
       Connected to mail.centos.bz (127.0.0.1).
@@ -190,7 +190,7 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
       telnet 127.0.0.1 143
     </li>
     <li>
-      Trying 127.0.0.1&#8230;
+      Trying 127.0.0.1...
     </li>
     <li>
       Connected to mail.centos.bz (127.0.0.1).

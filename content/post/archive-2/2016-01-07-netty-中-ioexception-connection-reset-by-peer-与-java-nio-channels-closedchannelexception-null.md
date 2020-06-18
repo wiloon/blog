@@ -58,7 +58,7 @@ AbstractChannel
 
 在代码的许多部分, 都会有这个 ClosedChannelException, 大概的意思是说在 channel close 以后, 如果还调用了 write 方法, 则会将 write 的 future 设置为 failure, 并将 cause 设置为 ClosedChannelException, 同样 SSLHandler 中也类似
 
------&#8211;
+------
 
 回到 Connection reset by peer, 要模拟这个情况比较简单, 就是在 server 端设置一个在 channelActive 的时候就 close channel 的 handler. 而在 client 端则写一个 Connect 成功后立即发送请求数据的 listener. 如下
 
@@ -251,7 +251,7 @@ client 1, 主动关闭 channel
 
 只要在 write 之前主动调用了 close, 那么 write 必然会知道 close 是 close 状态, 最后 write 就会失败, 并且 future 里的 cause 就是 ClosedChannelException
 
-------&#8211;
+-------
 
 client 2. 由服务端造成的 ClosedChannelException
 

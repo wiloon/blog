@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-http://code.tutsplus.com/tutorials/five-tips-for-creating-stylish-uibuttons&#8211;mobile-11847
+http://code.tutsplus.com/tutorials/five-tips-for-creating-stylish-uibuttons-mobile-11847
 
 Sometimes it only takes a few lines of code to make your interface pop. This tutorial will teach you five simple tricks for creating stylish UIButtons to make your app standout!
   

@@ -101,7 +101,7 @@ b := [2]string{"Penn", "Teller"}
 
 当然，也可以让编译器统计数组字面值中元素的数目：
   
-b := [&#8230;]string{"Penn", "Teller"}
+b := [...]string{"Penn", "Teller"}
   
 这两种写法， b 都是对应 [2]string 类型。
 
@@ -143,11 +143,11 @@ s :=make([]int,len,cap)
   
 赋值与使用
 
-切片是引用类型，在使用时需要注意其操作。查看示例代码 ，在线运行示例代码 切片可以通过内置函数append(slice []Type,elems &#8230;Type)追加元素，elems可以是一排type类型的数据，也可以是slice,因为追加的一个一个的元素，因此如果将一个slice追加到另一个slice中需要带上"&#8230;"，这样才能表示是将slice中的元素依次追加到另一个slice中。另外在通过下标访问元素时下标不能超过len大小，如同数组的下标不能超出len范围一样。
+切片是引用类型，在使用时需要注意其操作。查看示例代码 ，在线运行示例代码 切片可以通过内置函数append(slice []Type,elems ...Type)追加元素，elems可以是一排type类型的数据，也可以是slice,因为追加的一个一个的元素，因此如果将一个slice追加到另一个slice中需要带上"..."，这样才能表示是将slice中的元素依次追加到另一个slice中。另外在通过下标访问元素时下标不能超过len大小，如同数组的下标不能超出len范围一样。
 
 s :=append(s,1,2,3,4)
   
-s :=append(s,s1&#8230;)
+s :=append(s,s1...)
 
 * * *
 
@@ -263,7 +263,7 @@ s = t
   
 一个常见的操作是将数据追加到切片的尾部。下面的函数将元素追加到切片尾部， 必要的话会增加切片的容量，最后返回更新的切片：
 
-func AppendByte(slice []byte, data &#8230;byte) []byte {
+func AppendByte(slice []byte, data ...byte) []byte {
       
 m := len(slice)
       
@@ -301,7 +301,7 @@ p = AppendByte(p, 7, 11, 13)
 
 但大多数程序不需要完全的控制，因此Go提供了一个内置函数 append ， 用于大多数场合；它的函数签名：
 
-func append(s []T, x &#8230;T) []T
+func append(s []T, x ...T) []T
   
 append 函数将 x 追加到切片 s 的末尾，并且在必要的时候增加容量。
 
@@ -313,13 +313,13 @@ a = append(a, 1, 2, 3)
   
 // a == []int{0, 1, 2, 3}
   
-如果是要将一个切片追加到另一个切片尾部，需要使用 &#8230; 语法将第2个参数展开为参数列表。
+如果是要将一个切片追加到另一个切片尾部，需要使用 ... 语法将第2个参数展开为参数列表。
 
 a := []string{"John", "Paul"}
   
 b := []string{"George", "Ringo", "Pete"}
   
-a = append(a, b&#8230;) // equivalent to "append(a, b[0], b[1], b[2])"
+a = append(a, b...) // equivalent to "append(a, b[0], b[1], b[2])"
   
 // a == []string{"John", "Paul", "George", "Ringo", "Pete"}
   

@@ -90,7 +90,7 @@ wl@wl-MS-7673:/home/python$
 
 root@wl-MS-7673:~# ls -sail test
   
-790207 4 -rwxr&#8211;r- 1 root root 30 11月 14 19:25 test
+790207 4 -rwxr-r- 1 root root 30 11月 14 19:25 test
   
 root@wl-MS-7673:~# ./test
   

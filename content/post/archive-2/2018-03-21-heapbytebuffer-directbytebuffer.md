@@ -64,7 +64,7 @@ return new DirectByteBuffer(capacity);
 
 public native long allocateMemory(long var1);
   
-&#8230;
+...
   
 long base = 0;
           
@@ -82,7 +82,7 @@ throw x;
           
 unsafe.setMemory(base, size, (byte) 0);
   
-&#8230;
+...
 
 关键的是，allocateMemory是一个native方法，并不是jvm能够控制的内存区域，通常称为堆外内存，一般是通过c/c++分配的内存（malloc）。
 

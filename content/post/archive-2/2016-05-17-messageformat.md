@@ -232,7 +232,7 @@ System.out.println(value);
 
 Java代码
   
-public static String format(String pattern, Object &#8230; arguments)
+public static String format(String pattern, Object ... arguments)
   
 {
   

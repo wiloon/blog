@@ -143,10 +143,10 @@ main.xml代码如下，很简单，也不需要多做解释了：
               HashMap<String, String> map = new HashMap<String, String>();
     </li>
     <li>
-              map.put("ItemTitle", "This is Title&#8230;..");
+              map.put("ItemTitle", "This is Title.....");
     </li>
     <li>
-              map.put("ItemText", "This is text&#8230;..");
+              map.put("ItemText", "This is text.....");
     </li>
     <li>
               mylist.add(map);

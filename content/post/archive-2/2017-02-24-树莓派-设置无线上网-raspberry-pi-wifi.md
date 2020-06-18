@@ -100,7 +100,7 @@ sudo nano /etc/wpa.conf
 
 network={
   
-[Tab] ssid=&#8221;你的无线网络名称（ssid）&#8221;
+[Tab] ssid="你的无线网络名称（ssid）"
   
 [Tab] key_mgmt=NONE
   
@@ -110,11 +110,11 @@ network={
 
 network={
   
-[Tab] ssid=&#8221;你的无线网络名称（ssid）&#8221;
+[Tab] ssid="你的无线网络名称（ssid）"
   
 [Tab] key_mgmt=NONE
   
-[Tab] wep_key0=&#8221;你的wifi密码&#8221;
+[Tab] wep_key0="你的wifi密码"
   
 }
   
@@ -122,11 +122,11 @@ network={
 
 network={
   
-[Tab] ssid=&#8221;你的无线网络名称（ssid）&#8221;
+[Tab] ssid="你的无线网络名称（ssid）"
   
 [Tab] key_mgmt=WPA-PSK
   
-[Tab] psk=&#8221;你的wifi密码&#8221;
+[Tab] psk="你的wifi密码"
   
 }
   
@@ -138,11 +138,11 @@ network={
 
 network={
   
-ssid=&#8221;1234"
+ssid="1234"
   
 key_mgmt=WPA-PSK
   
-psk=&#8221;MTIzNA1234"
+psk="MTIzNA1234"
   
 }
   

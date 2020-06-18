@@ -135,7 +135,7 @@ LWMA = SUM(Close(i)*i, N)/SUM(i, N)
 
 注释:
   
-SUM(i, N) — 权数系数的总合，即1+2+&#8230;+N。
+SUM(i, N) — 权数系数的总合，即1+2+...+N。
 
 **http://baike.baidu.com/view/7973.htm**
 

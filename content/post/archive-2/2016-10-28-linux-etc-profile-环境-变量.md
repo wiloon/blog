@@ -28,13 +28,13 @@ unset key
   
 默认情况下，Debian提供/etc/profile文件，这个文件用来设置$PATH变量（$PATH通常用来声明命令的搜索路径），可以立即生效。下面的代码是/etc/profile的一部分。
 
-if [ "`id -u`&#8221; -eq 0 ]; then
+if [ "`id -u`" -eq 0 ]; then
   
-PATH=&#8221;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#8221;
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   
 else
   
-PATH=&#8221;/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games&#8221;
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
   
 fi
   
@@ -82,13 +82,13 @@ fi
 
 # if running bash
   
-if [ -n "$BASH_VERSION&#8221; ]; then
+if [ -n "$BASH_VERSION" ]; then
   
 # include .bashrc if it exists
   
-if [ -f "$HOME/.bashrc&#8221; ]; then
+if [ -f "$HOME/.bashrc" ]; then
   
-. "$HOME/.bashrc&#8221;
+. "$HOME/.bashrc"
   
 fi
   

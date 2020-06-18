@@ -18,27 +18,27 @@ tags:
 
 比如我们有以下目录
   
-|&#8211;project
+|-project
   
-|&#8211;src
+|-src
   
-|&#8211;javaapplication
+|-javaapplication
   
-|&#8211;Test.java
+|-Test.java
   
-|&#8211;file1.txt
+|-file1.txt
   
-|&#8211;file2.txt
+|-file2.txt
   
-|&#8211;build
+|-build
   
-|&#8211;javaapplication
+|-javaapplication
   
-|&#8211;Test.class
+|-Test.class
   
-|&#8211;file3.txt
+|-file3.txt
   
-|&#8211;file4.txt
+|-file4.txt
 
 在上面的目录中，有一个src目录，这是JAVA源文件的目录，有一个build目录，这是JAVA编译后文件(.class文件等）的存放目录
   

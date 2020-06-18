@@ -44,7 +44,7 @@ modprobe xt_LOG
 
 TRACE This target marks packes so that the kernel will log every rule which match the packets as those traverse the tables, chains, rules. (The ipt\_LOG or ip6t\_LOG module is required for the logging.) The packets are logged with the string prefix:
 
-"TRACE: tablename:chainname:type:rulenum &#8221; where type can be "rule&#8221; for plain rule, "return&#8221; for implicit rule at the end of a user defined chain and "policy&#8221; for the policy of the built in chains. It can only be used in the raw table.
+"TRACE: tablename:chainname:type:rulenum " where type can be "rule" for plain rule, "return" for implicit rule at the end of a user defined chain and "policy" for the policy of the built in chains. It can only be used in the raw table.
 
 policy 是指iptables内置的规则如：accept
   
@@ -130,23 +130,23 @@ Apr 1811:50:23 openstack-network kernel: [1038991.870985] TRACE: nat:quantum-l3-
   
 -A POSTROUTING -j quantum-postrouting-bottom
   
--A quantum-l3-agent-OUTPUT -d 192.168.0.16/32-j DNAT &#8211;to-destination 10.0.0.4
+-A quantum-l3-agent-OUTPUT -d 192.168.0.16/32-j DNAT -to-destination 10.0.0.4
   
--A quantum-l3-agent-OUTPUT -d 192.168.0.17/32-j DNAT &#8211;to-destination 10.0.0.3
+-A quantum-l3-agent-OUTPUT -d 192.168.0.17/32-j DNAT -to-destination 10.0.0.3
   
--A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !&#8211;ctstate DNAT -j ACCEPT
+-A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !-ctstate DNAT -j ACCEPT
   
 -A quantum-l3-agent-POSTROUTING -s 10.0.0.0/24-d 192.168.1.1/32-j ACCEPT
   
--A quantum-l3-agent-PREROUTING -d 169.254.169.254/32-p tcp -m tcp &#8211;dport80-j DNAT &#8211;to-destination 192.168.1.1:8775-A quantum-l3-agent-PREROUTING -d 192.168.0.16/32-j DNAT &#8211;to-destination 10.0.0.4
+-A quantum-l3-agent-PREROUTING -d 169.254.169.254/32-p tcp -m tcp -dport80-j DNAT -to-destination 192.168.1.1:8775-A quantum-l3-agent-PREROUTING -d 192.168.0.16/32-j DNAT -to-destination 10.0.0.4
   
--A quantum-l3-agent-PREROUTING -d 192.168.0.17/32-j DNAT &#8211;to-destination 10.0.0.3
+-A quantum-l3-agent-PREROUTING -d 192.168.0.17/32-j DNAT -to-destination 10.0.0.3
   
--A quantum-l3-agent-float-snat -s 10.0.0.4/32-j SNAT &#8211;to-source 192.168.0.16
+-A quantum-l3-agent-float-snat -s 10.0.0.4/32-j SNAT -to-source 192.168.0.16
   
 -A quantum-l3-agent-snat -j quantum-l3-agent-float-snat
   
--A quantum-l3-agent-snat -s 10.0.0.0/24-j SNAT &#8211;to-source 192.168.0.15
+-A quantum-l3-agent-snat -s 10.0.0.0/24-j SNAT -to-source 192.168.0.15
   
 -A quantum-postrouting-bottom -j quantum-l3-agent-snat
   
@@ -154,7 +154,7 @@ COMMIT
   
 确定有问题的规则为
 
--A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !&#8211;ctstate DNAT -j ACCEPT
+-A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !-ctstate DNAT -j ACCEPT
   
 把这条规则删掉后重启iptables，vm能顺利连接外网，问题解决。
 
@@ -166,7 +166,7 @@ https://www.howtoing.com/enable-logging-in-iptables-on-linux
   
 </blockquote>
 
-<iframe title=""iptables debugging&#8221; - 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""iptables debugging" - 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 http://blog.51cto.com/flymanhi/1276331
   

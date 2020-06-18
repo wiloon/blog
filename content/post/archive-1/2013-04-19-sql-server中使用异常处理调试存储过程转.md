@@ -195,9 +195,9 @@ categories:
       
         RAISERROR ( { msg_id | msg_str | @local_variable }
  { ,severity ,state }
- [ ,argument [ ,&#8230;n ] ]
+ [ ,argument [ ,...n ] ]
  )
- [ WITH option [ ,&#8230;n ] ]
+ [ WITH option [ ,...n ] ]
       
     
     
@@ -286,7 +286,7 @@ categories:
     
     
     
-      &#8211;示例1
+      -示例1
     
     
     
@@ -310,7 +310,7 @@ categories:
     
     
     
-      &#8211;示例2
+      -示例2
     
     
     
@@ -341,7 +341,7 @@ categories:
   
   
   
-    &#8211;示例3
+    -示例3
   
   
   
@@ -370,7 +370,7 @@ categories:
   
   
   
-    &#8211;示例4
+    -示例4
   
   
   
@@ -389,11 +389,11 @@ categories:
   
   
   
-    &#8211;示例5
+    -示例5
   
   
   
-    &#8211;A. 从 CATCH 块返回错误消息
+    -A. 从 CATCH 块返回错误消息
  以下代码示例显示如何在 TRY 块中使用 RAISERROR 使执行跳至关联的 CATCH 块中。
  它还显示如何使用 RAISERROR 返回有关调用 CATCH 块的错误的信息。
   
@@ -441,11 +441,11 @@ categories:
   
   
   
-    &#8211;示例6
+    -示例6
   
   
   
-    &#8211;B. 在 sys.messages 中创建即席消息
+    -B. 在 sys.messages 中创建即席消息
  以下示例显示如何引发 sys.messages 目录视图中存储的消息。
  该消息通过 sp_addmessage 系统存储过程，以消息号50005添加到 sys.messages 目录视图中。
   
@@ -486,8 +486,8 @@ categories:
   
   
   
-    &#8211;示例7
- &#8211;C. 使用局部变量提供消息文本
+    -示例7
+ -C. 使用局部变量提供消息文本
  以下代码示例显示如何使用局部变量为 RAISERROR 语句提供消息文本。
   
   

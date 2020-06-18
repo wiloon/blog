@@ -199,7 +199,7 @@ WebContent (站点根目录)
 
 | |-classes (class文件目录)
 
-| |-&#8230;*.class (class文件)
+| |-...*.class (class文件)
 
 |-<userdir> (自定义的目录)
 

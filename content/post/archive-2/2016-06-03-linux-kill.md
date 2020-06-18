@@ -128,7 +128,7 @@ killall - 以名字方式来linux杀死进程
   
 SYNOPSIS (总览)
   
-killall \[-egiqvw\] \[-signal\] name &#8230;
+killall \[-egiqvw\] \[-signal\] name ...
   
 killall -l
   

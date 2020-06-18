@@ -44,7 +44,7 @@ if (bill instanceof GasBill) {
   
 }
   
-&#8230;
+...
   
 }
   

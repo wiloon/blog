@@ -30,6 +30,6 @@ CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作（如get
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/embed/#?secret=zLAPktQzUL" data-secret="zLAPktQzUL" width="600" height="338" title=""为什么java.util.concurrent 包里没有并发的ArrayList实现？&#8221; - 并发编程网 - ifeve.com" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/embed/#?secret=zLAPktQzUL" data-secret="zLAPktQzUL" width="600" height="338" title=""为什么java.util.concurrent 包里没有并发的ArrayList实现？" - 并发编程网 - ifeve.com" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 https://twiceyuan.com/2016/06/09/ArrayList-is-not-thread-safe/

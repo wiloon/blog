@@ -40,7 +40,7 @@ Add datasource definitions to the datasources subsystem element (change JDBC con
 
 <datasources>
 
-&#8230;
+...
 
 <datasource jndi-name="java:/jdbc/web" pool-name="webDS" enabled="true" use-java-context="true">
 
@@ -90,7 +90,7 @@ Add datasource definitions to the datasources subsystem element (change JDBC con
 
 </datasource>
 
-&#8230;
+...
 
 Setup a database driver
 
@@ -102,11 +102,11 @@ Add a driver definition to the datasources subsystem element
 
 <datasources>
 
-&#8230;
+...
 
 <drivers>
 
-&#8230;
+...
 
 <driver name="mysql" module="com.mysql.jdbc">
 
@@ -136,7 +136,7 @@ Create a module.xml file in the "main" directory. Here are its contents:
 
 <resource-root path="mysql-connector-java-5.1.25.jar"/>
 
-<!- Insert resources here &#8211;>
+<!- Insert resources here ->
 
 </resources>
 
@@ -164,7 +164,7 @@ Add a secure connector to the web subsystem element
 
 <subsystem xmlns="urn:jboss:domain:web:1.1" native="false" default-virtual-server="default-host">
 
-&#8230;
+...
 
 <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="https" secure="true">
 
@@ -172,7 +172,7 @@ Add a secure connector to the web subsystem element
 
 </connector>
 
-&#8230;
+...
 
 </subsystem>
 
@@ -274,7 +274,7 @@ Edit [heat clinic installation]/site/pom.xml
 
 Change the finalName element value to ROOT
 
-&#8230;
+...
 
 <build>
 
@@ -286,7 +286,7 @@ Change the finalName element value to ROOT
 
 <plugin>
 
-&#8230;
+...
 
 At this point, you can perform a mvn install on your project and take the generated war files for admin and site and place them in [jboss installation]/standalone/deployments so that the JBoss deployment scanner can pick them up and perform the deployment. You may see the following exception during startup:
 

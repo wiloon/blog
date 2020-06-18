@@ -33,7 +33,7 @@ categories:
  java.lang.OutOfMemoryError: Java heap space
  at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:99)
  at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:518)
- &#8230;
+ ...
  at org.codehaus.classworlds.Launcher.launchEnhanced(Launcher.java:315)
  at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)
  at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)
@@ -58,7 +58,7 @@ categories:
   
   
   
-    @REM set MAVEN_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE&#8230;
+    @REM set MAVEN_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE...
   
   
   
@@ -115,7 +115,7 @@ categories:
   
   
   
-    好在Hudson也给为我们提供了配置点，在Hudson的项目配置页面中，有一块Build区域，这里我们已经设置了Root Pom和Goals。注意该区域的右下角有一个"Advanced&#8230;"按钮，点击会看到JVM Options输入框，这里输入"-Xmx1024m"就OK了。
+    好在Hudson也给为我们提供了配置点，在Hudson的项目配置页面中，有一块Build区域，这里我们已经设置了Root Pom和Goals。注意该区域的右下角有一个"Advanced..."按钮，点击会看到JVM Options输入框，这里输入"-Xmx1024m"就OK了。
   
   
   <h2>

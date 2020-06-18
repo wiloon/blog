@@ -130,7 +130,7 @@ System.out.println(a.getClass());//通过 实例名.getClass()获得Class对象
 
 System.out.println(Class.forName("demo.A"));//通过Class.forName(全路径)获得Class对象
 
-System.out.println("&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;");
+System.out.println(".................................");
 
 System.out.println(a);//使用不同的方式创建对象
 
@@ -152,7 +152,7 @@ class demo.A
 
 class demo.A （这里也可以得到一个类的Class对象是唯一的）
 
-&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+.......................................
 
 demo.A@de6ced
 
@@ -316,7 +316,7 @@ return (result); //一旦成功连接，直接返回Connection对象，然后推
 
 } catch (SQLException ex) {
 
-&#8230;
+...
 
 }
 

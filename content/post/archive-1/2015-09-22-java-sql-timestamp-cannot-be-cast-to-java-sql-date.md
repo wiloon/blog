@@ -28,7 +28,7 @@ java.sql.Date->java.sql.Timestamp
   
 new java.sql.Timestamp(yourDate.getTime());
 
-java.sql.Timestamp&#8211;>java.sql.Date
+java.sql.Timestamp->java.sql.Date
   
 new java.sql.Date(yourTimestamp.getTime());
 

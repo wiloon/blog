@@ -20,7 +20,7 @@ If you want to send the file together with its sha1sum output redirect the outpu
     sha1sum {file} > {file}.sha1
     
 
-Send both files and the other party can do a&#8230;
+Send both files and the other party can do a...
 
     sha1sum -c {file}.sha1
     

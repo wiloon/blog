@@ -92,7 +92,7 @@ createBusinessCar();
 
 discount(…);
 
-&#8230;.
+....
 
 }
 

@@ -12,6 +12,6 @@ svn change password
   
 1. after svn password changed， delete the folder $HOME/.subversion
   
-2. run svn checkout &#8211;username user svn://server/repo， input new password
+2. run svn checkout -username user svn://server/repo， input new password
   
 3. run git svn

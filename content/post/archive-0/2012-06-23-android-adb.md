@@ -364,7 +364,7 @@ adb shell
 
 
 <p style="color: #4b4b4b;">
-  &#8230;. enter commands, then quit&#8230;
+  .... enter commands, then quit...
 
 
 <p style="color: #4b4b4b;">

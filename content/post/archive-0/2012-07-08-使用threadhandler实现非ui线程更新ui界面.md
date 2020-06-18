@@ -286,7 +286,7 @@ android:versionName="1.0">
 
 <uses-sdk android:minSdkVersion="9" />
 
-<uses-permission android:name="android.permission.INTERNET"></uses-permission><!&#8211;不要忘记设置网络访问权限&#8211;>
+<uses-permission android:name="android.permission.INTERNET"></uses-permission><!-不要忘记设置网络访问权限->
 
 
 

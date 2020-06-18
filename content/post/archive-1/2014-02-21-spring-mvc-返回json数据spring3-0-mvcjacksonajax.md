@@ -35,7 +35,7 @@ jackson-mapper-asl-1.9.2.jar
   
   <ol start="1">
     <li>
-      <!&#8211; 返回JSON模版 &#8211;>
+      <!- 返回JSON模版 ->
     </li>
     <li>
       <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
@@ -133,7 +133,7 @@ jackson-mapper-asl-1.9.2.jar
   
 （如果你只拦截htm开头的链接，可以在web.xml里新增一个url-pattern为*.json的servlet即可。）**
 
--------------&#8211;
+--------------
   
 参考：<a href="http://digdata.me/archives/96/" target="_blank">http://digdata.me/archives/96/</a>
 

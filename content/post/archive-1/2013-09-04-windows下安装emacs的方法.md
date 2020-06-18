@@ -46,7 +46,7 @@ Emacs平台很强大，已经不只是一个编辑器这么简单了，它被移
 
 
 
-上一步，我们把emacs的配置文件用 (load-file &#8230;) 配置已经指向到 D:/emacs-23.2/.emacs 了，那两个就拷贝一个 .emacs 文件放到 D:/emacs-23.2/ 里吧（Windows下好像不能建立以 . 开头的文件吧）。然后，打开D:/emacs-23.2/.emacs，在开头添加如下配置：
+上一步，我们把emacs的配置文件用 (load-file ...) 配置已经指向到 D:/emacs-23.2/.emacs 了，那两个就拷贝一个 .emacs 文件放到 D:/emacs-23.2/ 里吧（Windows下好像不能建立以 . 开头的文件吧）。然后，打开D:/emacs-23.2/.emacs，在开头添加如下配置：
 
 (setenv "HOME" "D:/emacs-23.2")
 

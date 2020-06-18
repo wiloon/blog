@@ -89,11 +89,11 @@ addr varchar(128)
   
 go
   
-insert into chinadba1(userid,addr) values(1,'addr1&#8242;)
+insert into chinadba1(userid,addr) values(1,'addr1')
   
-insert into chinadba1(userid,addr) values(2,'addr2&#8242;)
+insert into chinadba1(userid,addr) values(2,'addr2')
   
-insert into chinadba1(userid,addr) values(3,'addr3&#8242;)
+insert into chinadba1(userid,addr) values(3,'addr3')
   
 go
 
@@ -105,7 +105,7 @@ set @addr = (select addr from chinadba1)
   
 /*
   
-&#8211;出错信息为
+-出错信息为
   
 服务器: 消息 512，级别 16，状态 1，行 2
   
@@ -121,9 +121,9 @@ declare @addr varchar(128)
   
 select @addr = addr from chinadba1
   
-print @addr &#8211;结果集中最后一个 addr 列的值
+print @addr -结果集中最后一个 addr 列的值
   
-&#8211;结果: addr3
+-结果: addr3
   
 go
 
@@ -135,7 +135,7 @@ set @addr = '初始值'
   
 set @addr = (select addr from chinadba1 where userid = 4 )
   
-print @addr &#8211;null值
+print @addr -null值
   
 go
 
@@ -147,7 +147,7 @@ set @addr = '初始值'
   
 select @addr = addr from chinadba1 where userid = 4
   
-print @addr &#8211;保持原值
+print @addr -保持原值
   
 go
 
@@ -161,10 +161,10 @@ declare @addr varchar(128)
   
 set @addr = '初始值'
   
-&#8211;select addr from chinadba1 where userid = 4 为标量子查询语句
+-select addr from chinadba1 where userid = 4 为标量子查询语句
   
 select @addr = (select addr from chinadba1 where userid = 4)
   
-print @addr &#8211;null值
+print @addr -null值
   
 go

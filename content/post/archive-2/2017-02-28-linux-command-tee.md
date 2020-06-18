@@ -42,13 +42,13 @@ contained is overwritten unless the \`-a' option is used.）
 
 
 
-格式：tee &#8211;
+格式：tee -
 
 输出到标准输出两次。（A FILE of \`-' causes \`tee' to send another copy of input to standard output, but this is typically not that useful as the copies are interleaved.）
 
 
 
-格式：tee file1 file2 &#8211;
+格式：tee file1 file2 -
 
 输出到标准输出两次，同时保存到file1和file2中。
 
@@ -178,21 +178,13 @@ contained is overwritten unless the \`-a' option is used.）
   
 12345
 
-[root@web ~]# echo 12345 | tee &#8211;
+[root@web ~]# echo 12345 | tee -
   
 12345
   
 12345
   
-[root@web ~]# echo 12345 | tee - &#8211;
-  
-12345
-  
-12345
-  
-12345
-  
-[root@web ~]# echo 12345 | tee - - &#8211;
+[root@web ~]# echo 12345 | tee - -
   
 12345
   
@@ -200,9 +192,17 @@ contained is overwritten unless the \`-a' option is used.）
   
 12345
   
+[root@web ~]# echo 12345 | tee - - -
+  
 12345
   
-[root@web ~]# echo 12345 | tee - - - &#8211;
+12345
+  
+12345
+  
+12345
+  
+[root@web ~]# echo 12345 | tee - - - -
   
 12345
   
@@ -218,13 +218,13 @@ contained is overwritten unless the \`-a' option is used.）
 
 [root@web ~]# echo -n 12345 | tee
 
-12345[root@web ~]# echo -n 12345 | tee &#8211;
+12345[root@web ~]# echo -n 12345 | tee -
   
-1234512345[root@web ~]# echo -n 12345 | tee - &#8211;
+1234512345[root@web ~]# echo -n 12345 | tee - -
   
-123451234512345[root@web ~]# echo -n 12345 | tee - - &#8211;
+123451234512345[root@web ~]# echo -n 12345 | tee - - -
   
-12345123451234512345[root@web ~]# echo -n 12345 | tee - - - &#8211;
+12345123451234512345[root@web ~]# echo -n 12345 | tee - - - -
   
 1234512345123451234512345[root@web ~]#
 
@@ -236,7 +236,7 @@ contained is overwritten unless the \`-a' option is used.）
   
 ls: *: 没有那个文件或目录
   
-[root@web ~]# ls "*" | tee &#8211;
+[root@web ~]# ls "*" | tee -
   
 ls: *: 没有那个文件或目录
   

@@ -58,7 +58,7 @@ synchronized (this){
   
 ```
 
-(1)处的this指的是什么呢？他指的就是调用这个方法的对象，如P1。可见同步方法实质是将synchronized作用于object reference。&#8211;那个拿到了P1对象锁的线程，才能够调用P1的同步方法，而对P2而言，P1这个锁和他毫不相干，程序也可能在这种情形下摆脱同步机制的控制，造成数据混乱。
+(1)处的this指的是什么呢？他指的就是调用这个方法的对象，如P1。可见同步方法实质是将synchronized作用于object reference。-那个拿到了P1对象锁的线程，才能够调用P1的同步方法，而对P2而言，P1这个锁和他毫不相干，程序也可能在这种情形下摆脱同步机制的控制，造成数据混乱。
 
 同步块，示例代码如下：
 
@@ -68,7 +68,7 @@ public void method(SomeObject so) {
   
 synchronized(so){
   
-//&#8230;
+//...
   
 }
   
@@ -88,19 +88,19 @@ Public void method(){
          
 synchronized(lock) {
   
-//&#8230;
+//...
   
 }
   
 }
   
-//&#8230;
+//...
   
 }
   
 ```
 
-注: 零长度的byte数组对象创建起来将比任何对象都经济&#8211;查看编译后的字节码：生成零长度的byte[]对象只需3条操作码，而Object lock = new Object()则需要7行操作码。
+注: 零长度的byte数组对象创建起来将比任何对象都经济-查看编译后的字节码：生成零长度的byte[]对象只需3条操作码，而Object lock = new Object()则需要7行操作码。
 
 将synchronized作用于static 函数，示例代码如下：
 
@@ -158,7 +158,7 @@ public class Widget {
       
 public synchronized void doSomething() {
           
-&#8230;
+...
       
 }
   

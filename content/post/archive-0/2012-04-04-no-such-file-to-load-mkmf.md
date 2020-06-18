@@ -11,7 +11,7 @@ categories:
 ---
 [shell]
   
-Building native extensions. This could take a while&#8230;
+Building native extensions. This could take a while...
   
 ERROR: Error installing rails:
 	  

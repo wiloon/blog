@@ -28,7 +28,7 @@ BEGIN
 
 <wbr /> <wbr /> <wbr /> COMMIT TRAN ---提交事务
   
-<wbr /> <wbr /> <wbr /> END TRY---&#8211;结束捕捉异常
+<wbr /> <wbr /> <wbr /> END TRY----结束捕捉异常
   
 <wbr /> <wbr /> <wbr /> BEGIN CATCH----有异常被捕获
   
@@ -40,15 +40,15 @@ BEGIN
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> END <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXEC YourLogErrorProcedure---&#8211;执行存储过程将错误信息记录在表当中
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXEC YourLogErrorProcedure----执行存储过程将错误信息记录在表当中
   
-<wbr /> <wbr /> <wbr /> END CATCH--&#8211;结束异常处理
+<wbr /> <wbr /> <wbr /> END CATCH---结束异常处理
   
 END
 
 <wbr />
 
----------------记录操作错信息的存储过程--------------&#8211;
+---------------记录操作错信息的存储过程---------------
 
 CREATE PROCEDURE YourLogErrorProcedure
   
@@ -140,7 +140,7 @@ BEGIN
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT 'An error occurred in stored procedure uspLogError: ';
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXECUTE YourPrintErrorProcedure;-----&#8211;打印错误信息的存储过程
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXECUTE YourPrintErrorProcedure;------打印错误信息的存储过程
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN -1;
   

@@ -78,7 +78,7 @@ Along the lines of evolution, the java community discovered that it would be eas
 
 Their evolution created these terms that you have heard of:
 
-#### <!&#8211;mstheme&#8211;>
+#### <!-mstheme->
   
 JAR files = collection of class files
   
@@ -86,7 +86,7 @@ WAR files = collection of class, JSP, XML files
   
 EAR files = collection of JAR, WAR, and EJBs
   
-<!&#8211;mstheme&#8211;>
+<!-mstheme->
 
 ## JAR (Java ARchives)
 
@@ -106,7 +106,7 @@ The good news, is that you can call or access the classes in the JAR without nee
 
 So, for simple classes you can use this format, which was the beginning of it all.
 
-## <!&#8211;mstheme&#8211;>WAR (Web ARchives) <!&#8211;mstheme&#8211;>
+## <!-mstheme->WAR (Web ARchives) <!-mstheme->
 
 Then, inorder to keep people from seeing your code, by viewing the source in your browser, someone invented JSPs. You write the JavaScript, but it is only visible on the server and not on the HTML page( that is why JSP was born).
 
@@ -126,7 +126,7 @@ Unlike the JAR file application, the server can not simply run the compressed fi
 
 So now your entire web application is in one file. The WAR. The war is won.
 
-## <!&#8211;mstheme&#8211;>EAR (Enterprise ARchive) <!&#8211;mstheme&#8211;>
+## <!-mstheme->EAR (Enterprise ARchive) <!-mstheme->
 
 Until, enter the enterprise!
 
@@ -188,7 +188,7 @@ Main-Class: com/hp/HelloWorld
   
 jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当然也可以test指向文件夹)
   
-**     上述命令执行成功的话，会提示“标明清单（manifest）&#8230;”，
+**     上述命令执行成功的话，会提示“标明清单（manifest）...”，
   
 然后再在当前目录下输入java -jar test.jar 命令，可以看到“test java”。
 
@@ -200,7 +200,7 @@ jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当�
 
 方法三：myeclipse工具　（**推荐**）
   
-右击项目&#8211;Export&#8211;Jar File-要选择Main-Class
+右击项目-Export-Jar File-要选择Main-Class
 
 方法四：ant
 

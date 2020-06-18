@@ -46,15 +46,15 @@ ModelAndView(View view, String modelName, Object modelObject)
 
 …
 
-public ModelAndView handleRequest(&#8230;.) … {
+public ModelAndView handleRequest(....) … {
 
-&#8230;.
+....
 
 return new ModelAndView(new RedirectView(this.getViewPage()));
 
 }
 
-&#8230;.
+....
   
 在这边，viewPage的地址是从服务器网页根目录开始指定，而不是Web应用程序的根目录，所以您的getViewPage()传回的地址必须像是 /springapp/pages/index.htm这样的地址，其中springapp是您的Web应用程序目录。
   

@@ -16,9 +16,9 @@ Compile time Time spent in just-in-time (JIT) compilation
 
 if visualvm can not find java
   
-start visualvm with &#8211;jdkhome
+start visualvm with -jdkhome
   
-visualvm.exe &#8211;jdkhome D:\java\jdk7
+visualvm.exe -jdkhome D:\java\jdk7
 
 插件安装目录
   

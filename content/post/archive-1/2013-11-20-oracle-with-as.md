@@ -313,7 +313,7 @@ Retuning to our oversimplified example, let's replace the temporary tables with 
     <li>
     </li>
     <li>
-      &#8211;从这里可以看到，你定义了sql1和sql2，就得用它们哦，不然会报错的。
+      -从这里可以看到，你定义了sql1和sql2，就得用它们哦，不然会报错的。
     </li>
     <li>
     </li>
@@ -355,7 +355,7 @@ Retuning to our oversimplified example, let's replace the temporary tables with 
     <li>
     </li>
     <li>
-      &#8211;下面加个WHERE条件试试
+      -下面加个WHERE条件试试
     </li>
     <li>
     </li>
@@ -400,7 +400,7 @@ Retuning to our oversimplified example, let's replace the temporary tables with 
     <li>
     </li>
     <li>
-      &#8211;奇怪？为什么加了WHERE条件还是输出ID=1的记录了，继续往下看：
+      -奇怪？为什么加了WHERE条件还是输出ID=1的记录了，继续往下看：
     </li>
     <li>
     </li>
@@ -442,7 +442,7 @@ Retuning to our oversimplified example, let's replace the temporary tables with 
     <li>
     </li>
     <li>
-      &#8211;可以看到，每个条件是要针对每个SELECT语句的。
+      -可以看到，每个条件是要针对每个SELECT语句的。
     </li>
   </ol>
 

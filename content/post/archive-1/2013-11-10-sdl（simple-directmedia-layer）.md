@@ -21,4 +21,4 @@ tags:
 
 debian install sdl
 
-open synaptic&#8230;.. install libsdl1.2-dev
+open synaptic..... install libsdl1.2-dev

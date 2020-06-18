@@ -14,15 +14,15 @@ categories:
 
 #delete icons of the default mail and browser
 
-#######################comment out cdrom&#8230; from source list
+#######################comment out cdrom... from source list
 
-su &#8211;
+su -
 
 #input root password
 
 gedit /etc/apt/source.list
 
-#comment out the line contains cdrom&#8230;
+#comment out the line contains cdrom...
 
 ########################chinese support
 
@@ -34,7 +34,7 @@ sudo apt-get install locales
 
 sudo dpkg-reconfigure locales
 
-#select all lines start with zh_&#8230; , select OK move to  next screen.
+#select all lines start with zh_... , select OK move to  next screen.
 
 #select en_US as default language of the system
 
@@ -87,14 +87,14 @@ sudo apt-get install xfonts-intl-chinese wqy*
 
 
 
-  #select wubi in ibus&#8230;
+  #select wubi in ibus...
 
 
 
   #install pinyin engine for ibus
 
 
-#start ibus, goto System>Preferences>IBUS&#8230; ,,, maybe need restart the system to enable the wubi and pinyin&#8230;
+#start ibus, goto System>Preferences>IBUS... ,,, maybe need restart the system to enable the wubi and pinyin...
 
 
   #there will be a alert, "if can not use ibus add follow lines to .bashrc
@@ -136,7 +136,7 @@ alias ll='ls -l'
 
 #edit sudoer
 
-su &#8211;
+su -
 
 #input root password
 

@@ -138,7 +138,7 @@ public static void main(String[] args) throws Exception {
   
 HttpServer server = new HttpServer();
   
-log.info("Http Server listening on 8844 &#8230;&#8221;);
+log.info("Http Server listening on 8844 ...");
   
 server.start(8844);
   
@@ -202,7 +202,7 @@ request = (HttpRequest) msg;
 
 String uri = request.getUri();
   
-System.out.println("Uri:&#8221; + uri);
+System.out.println("Uri:" + uri);
   
 }
   
@@ -216,13 +216,13 @@ System.out.println(buf.toString(io.netty.util.CharsetUtil.UTF_8));
   
 buf.release();
 
-String res = "I am OK&#8221;;
+String res = "I am OK";
   
 FullHttpResponse response = new DefaultFullHttpResponse(HTTP\_1\_1,
   
-OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8&#8221;)));
+OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8")));
   
-response.headers().set(CONTENT_TYPE, "text/plain&#8221;);
+response.headers().set(CONTENT_TYPE, "text/plain");
   
 response.headers().set(CONTENT_LENGTH,
   

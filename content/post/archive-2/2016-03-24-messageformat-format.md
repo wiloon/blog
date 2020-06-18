@@ -22,7 +22,7 @@ Java里从来少不了字符串拼接的活，Java程序员也肯定用到过Str
 
 如果直接将张三，某地点和李四用变量替代，再拼接起来，可以达到目的。但是，代码不好写，也不好看，也不好维护。但是，我看过很多SQL拼接，HTML拼接都是这样做的。我自己以前也是这样，自从接触了MessageFormat.format之后才意识到有更好的形式。请看下面的代码：
 
-String[] tdArr=&#8230;;
+String[] tdArr=...;
   
 String result=MessageFormat.format("<tr bgcolor='#cef'><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>", tdArr);
 

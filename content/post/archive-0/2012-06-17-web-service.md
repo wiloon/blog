@@ -137,7 +137,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 实际上，你可以使用不同的消息格式对port type进行访问。你已经见过的消息格式是”Simple Object Access Protocol( SOAP)”格式。也就是说，stringUtil的 port type 也可以支持普通文本格式：
 
-concat(s1='abc', s2='123&#8242;)
+concat(s1='abc', s2='123')
 
 除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( "binding")：
 

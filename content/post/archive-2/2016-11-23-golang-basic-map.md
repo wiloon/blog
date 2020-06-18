@@ -86,27 +86,27 @@ get,set,delete
   
 m := map[string]int
   
-m["a&#8221;] = 1
+m["a"] = 1
 
-fmt.Println(m["a&#8221;]) // 输出 1
+fmt.Println(m["a"]) // 输出 1
 
 // 如果访问一个不存在的key，返回类型默认值
   
-fmt.Println(m["b&#8221;]) // 输出0
+fmt.Println(m["b"]) // 输出0
 
 // 测试key是否存在
   
-v, ok := m["b&#8221;]
+v, ok := m["b"]
   
 if ok {
   
-&#8230;
+...
   
 }
 
 // 删除一个key
   
-delete(m, "a&#8221;)
+delete(m, "a")
   
 迭代器
   
@@ -114,7 +114,7 @@ delete(m, "a&#8221;)
   
 for k := range m {
   
-&#8230;
+...
   
 }
 
@@ -122,7 +122,7 @@ for k := range m {
   
 for k, v := range m {
   
-&#8230;
+...
   
 }
   
@@ -138,7 +138,7 @@ for k, v := range m {
   
 其他
   
-map的value是不可取地址的，意味着 &m["a&#8221;]这样的语法是非法的
+map的value是不可取地址的，意味着 &m["a"]这样的语法是非法的
   
 len和cap分别可以获取当前map的kv个数和总容量
 

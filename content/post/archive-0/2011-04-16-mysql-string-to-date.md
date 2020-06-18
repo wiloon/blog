@@ -78,7 +78,7 @@ mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%W %M %Y');
   
 mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%H:%i:%s');
   
--> '22:23:00&#8242;
+-> '22:23:00'
   
 mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00',
   
@@ -90,7 +90,7 @@ mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00',
   
 '%H %k %I %r %T %S %w');
   
--> '22 22 10 10:23:00 PM 22:23:00 00 6&#8242;
+-> '22 22 10 10:23:00 PM 22:23:00 00 6'
   
 mysql> SELECT DATE_FORMAT('1999-01-01', '%X %V');
   

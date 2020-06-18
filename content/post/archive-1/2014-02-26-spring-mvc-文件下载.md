@@ -140,7 +140,7 @@ super(new MediaType("application", "octet-stream"), MediaType.ALL);
 
 }
 
-&#8230;
+...
 
 protected void writeInternal(byte[] bytes, HttpOutputMessage outputMessage) throws IOException {
 

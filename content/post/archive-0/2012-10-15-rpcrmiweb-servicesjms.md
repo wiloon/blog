@@ -28,7 +28,7 @@ categories:
   
   
   
-    5. 大多数情况下soap是两系统间的直接交互（Consumer <&#8211;> Producer），而大多数情况下jms是三方系统交互（Consumer <- Broker -> Producer）。当然，JMS也可以实现request-response模式的通信，只要Consumer或Producer其中一方兼任broker即可。
+    5. 大多数情况下soap是两系统间的直接交互（Consumer <-> Producer），而大多数情况下jms是三方系统交互（Consumer <- Broker -> Producer）。当然，JMS也可以实现request-response模式的通信，只要Consumer或Producer其中一方兼任broker即可。
   
   
   

@@ -72,7 +72,7 @@ SQL> select day,
 
 DAY TO\_CHAR(DAY,'D') TO\_CHAR(DAY,'IW') TO_CHAR(DAY,'WW')
   
----- ------ ------ -----&#8211;
+---- ------ ------ ------
   
 2009-1-1 5 01 01
   
@@ -96,17 +96,17 @@ WW：oracle标准周
   
 举例：
   
-SELECT to\_char(to\_date('20051203&#8242;,'yyyymmdd'),'WW') "WW03",
+SELECT to\_char(to\_date('20051203','yyyymmdd'),'WW') "WW03",
   
-to\_char(to\_date('20051203&#8242;,'yyyymmdd'),'IW') "IW03",
+to\_char(to\_date('20051203','yyyymmdd'),'IW') "IW03",
   
-to\_char(to\_date('20051204&#8242;,'yyyymmdd'),'WW') "WW04",
+to\_char(to\_date('20051204','yyyymmdd'),'WW') "WW04",
   
-to\_char(to\_date('20051204&#8242;,'yyyymmdd'),'IW') "WW04",
+to\_char(to\_date('20051204','yyyymmdd'),'IW') "WW04",
   
-to\_char(to\_date('20051205&#8242;,'yyyymmdd'),'WW') "WW05",
+to\_char(to\_date('20051205','yyyymmdd'),'WW') "WW05",
   
-to\_char(to\_date('20051205&#8242;,'yyyymmdd'),'IW') "WW05"
+to\_char(to\_date('20051205','yyyymmdd'),'IW') "WW05"
   
 FROM dual;
 
@@ -118,7 +118,7 @@ WW：
   
 比如：2004/01/01 是周四， 在Oracle中被定义为2004年WW的第一周的第一天；
   
-SELECT TO\_CHAR(TO\_DATE('20040101&#8242;,'YYYYMMDD'),'YY:WW'),TO\_CHAR(TO\_DATE('20040107&#8242;,'YYYYMMDD'),'YY:WW'),TO\_CHAR(TO\_DATE('20040108&#8242;,'YYYYMMDD'),'YY:WW') FROM DUAL;
+SELECT TO\_CHAR(TO\_DATE('20040101','YYYYMMDD'),'YY:WW'),TO\_CHAR(TO\_DATE('20040107','YYYYMMDD'),'YY:WW'),TO\_CHAR(TO\_DATE('20040108','YYYYMMDD'),'YY:WW') FROM DUAL;
 
 IW ：
   

@@ -94,11 +94,11 @@ synchronized void flush()
   
 // 根据“Locale值(区域属性)”来格式化数据
   
-PrintStream format(Locale l, String format, Object&#8230; args)
+PrintStream format(Locale l, String format, Object... args)
   
 // 根据“默认的Locale值(区域属性)”来格式化数据
   
-PrintStream format(String format, Object&#8230; args)
+PrintStream format(String format, Object... args)
   
 // 将“float数据f对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
   
@@ -138,11 +138,11 @@ void print(boolean b)
   
 // 将“数据args”根据“Locale值(区域属性)”按照format格式化，并写入到“PrintStream输出流”中
   
-PrintStream printf(Locale l, String format, Object&#8230; args)
+PrintStream printf(Locale l, String format, Object... args)
   
 // 将“数据args”根据“默认Locale值(区域属性)”按照format格式化，并写入到“PrintStream输出流”中
   
-PrintStream printf(String format, Object&#8230; args)
+PrintStream printf(String format, Object... args)
   
 // 将“换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
   
@@ -202,7 +202,7 @@ print(0x61);
 
 write(String.valueOf(0x61));
   
-上面语句是将字符串&#8221;97"写入到输出流。0x61对应十进制数是97。
+上面语句是将字符串"97"写入到输出流。0x61对应十进制数是97。
 
 write(0x61)
   
@@ -322,7 +322,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 30 private static void testPrintStreamConstrutor1() {
   
-31 // 0x61对应ASCII码的字母'a'，0x62对应ASCII码的字母'b', &#8230;
+31 // 0x61对应ASCII码的字母'a'，0x62对应ASCII码的字母'b', ...
   
 32 final byte[] arr={0x61, 0x62, 0x63, 0x64, 0x65 }; // abced
   
@@ -330,7 +330,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 34 // 创建文件“file.txt”的File对象
   
-35 File file = new File("file.txt&#8221;);
+35 File file = new File("file.txt");
   
 36 // 创建文件对应FileOutputStream
   
@@ -372,7 +372,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 55 try {
   
-56 File file = new File("file.txt&#8221;);
+56 File file = new File("file.txt");
   
 57 PrintStream out = new PrintStream(file);
   
@@ -406,7 +406,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 72 try {
   
-73 PrintStream out = new PrintStream("file.txt&#8221;);
+73 PrintStream out = new PrintStream("file.txt");
   
 74 out.write(arr);
   
@@ -430,7 +430,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 84 private static void testPrintStreamAPIS() {
   
-85 // 0x61对应ASCII码的字母'a'，0x62对应ASCII码的字母'b', &#8230;
+85 // 0x61对应ASCII码的字母'a'，0x62对应ASCII码的字母'b', ...
   
 86 final byte[] arr={0x61, 0x62, 0x63, 0x64, 0x65 }; // abced
   
@@ -438,13 +438,13 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 88 // 创建文件对应FileOutputStream
   
-89 PrintStream out = new PrintStream("other.txt&#8221;);
+89 PrintStream out = new PrintStream("other.txt");
   
 90
   
 91 // 将字符串“hello PrintStream”+回车符，写入到输出流中
   
-92 out.println("hello PrintStream&#8221;);
+92 out.println("hello PrintStream");
   
 93 // 将0x41写入到输出流中
   
@@ -452,7 +452,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 95 out.write(0x41);
   
-96 // 将字符串&#8221;65"写入到输出流中。
+96 // 将字符串"65"写入到输出流中。
   
 97 // out.print(0x41); 等价于 out.write(String.valueOf(0x41));
   
@@ -464,13 +464,13 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 101
   
-102 // 将&#8221;CDE is 5" + 回车 写入到输出流中
+102 // 将"CDE is 5" + 回车 写入到输出流中
   
-103 String str = "CDE&#8221;;
+103 String str = "CDE";
   
 104 int num = 5;
   
-105 out.printf("%s is %d\n&#8221;, str, num);
+105 out.printf("%s is %d\n", str, num);
   
 106
   

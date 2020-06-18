@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-Insert是T-sql中常用语句，Insert INTO table(field1,field2,&#8230;) values(value1,value2,&#8230;)这种形式的在应用程序开发中必不可少。但我们在开发、测试过程中，经常会遇到需要表复制的情况，如将一个table1的数据的部分字段复制到table2中，或者将整个table1复制到table2中，这时候我们就要使用SELECT INTO 和 INSERT INTO SELECT 表复制语句了。
+Insert是T-sql中常用语句，Insert INTO table(field1,field2,...) values(value1,value2,...)这种形式的在应用程序开发中必不可少。但我们在开发、测试过程中，经常会遇到需要表复制的情况，如将一个table1的数据的部分字段复制到table2中，或者将整个table1复制到table2中，这时候我们就要使用SELECT INTO 和 INSERT INTO SELECT 表复制语句了。
 
 
 
@@ -16,7 +16,7 @@ Insert是T-sql中常用语句，Insert INTO table(field1,field2,&#8230;) values(
 
 
 
-语句形式为：Insert into Table2(field1,field2,&#8230;) select value1,value2,&#8230; from Table1
+语句形式为：Insert into Table2(field1,field2,...) select value1,value2,... from Table1
 
 
 
@@ -26,7 +26,7 @@ Insert是T-sql中常用语句，Insert INTO table(field1,field2,&#8230;) values(
 
 
 
-&#8211;1.创建测试表
+-1.创建测试表
 
 create TABLE Table1
 
@@ -72,11 +72,11 @@ a ASC
 
 GO
 
-&#8211;2.创建测试数据
+-2.创建测试数据
 
 Insert into Table1 values('赵','asds','90')
 
-Insert into Table1 values('钱','asds','100&#8242;)
+Insert into Table1 values('钱','asds','100')
 
 Insert into Table1 values('孙','asds','80')
 
@@ -88,7 +88,7 @@ select * from Table2
 
 
 
-&#8211;3.INSERT INTO SELECT语句复制表数据
+-3.INSERT INTO SELECT语句复制表数据
 
 Insert into Table2(a, c, d) select a,c,5 from Table1
 
@@ -96,13 +96,13 @@ GO
 
 
 
-&#8211;4.显示更新后的结果
+-4.显示更新后的结果
 
 select * from Table2
 
 GO
 
-&#8211;5.删除测试表
+-5.删除测试表
 
 drop TABLE Table1
 
@@ -124,7 +124,7 @@ drop TABLE Table2
 
 
 
-&#8211;1.创建测试表
+-1.创建测试表
 
 create TABLE Table1
 
@@ -150,11 +150,11 @@ GO
 
 
 
-&#8211;2.创建测试数据
+-2.创建测试数据
 
 Insert into Table1 values('赵','asds','90')
 
-Insert into Table1 values('钱','asds','100&#8242;)
+Insert into Table1 values('钱','asds','100')
 
 Insert into Table1 values('孙','asds','80')
 
@@ -164,7 +164,7 @@ GO
 
 
 
-&#8211;3.SELECT INTO FROM语句创建表Table2并复制数据
+-3.SELECT INTO FROM语句创建表Table2并复制数据
 
 select a,c INTO Table2 from Table1
 
@@ -172,13 +172,13 @@ GO
 
 
 
-&#8211;4.显示更新后的结果
+-4.显示更新后的结果
 
 select * from Table2
 
 GO
 
-&#8211;5.删除测试表
+-5.删除测试表
 
 drop TABLE Table1
 

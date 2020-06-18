@@ -32,7 +32,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | code                  | visual studio code                     |
 | rsibreak              | 番茄钟                                    |
 | libreoffice-fresh     |                                        |
-| ark                   | kde dolphin extract zip&#8230;         |
+| ark                   | kde dolphin extract zip...         |
 | spectacle             | kde screen shot                        |
 | neofetch              |                                        |
 | wine                  | 需要开启Multilib仓库                         |

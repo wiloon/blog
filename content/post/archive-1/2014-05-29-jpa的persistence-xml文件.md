@@ -34,69 +34,69 @@ persistence.xml:
   
 6
   
-7 <!&#8211;必须要有name属性，不能为空 &#8211;>
+7 <!-必须要有name属性，不能为空 ->
   
 8 <persistence-unit name="jpaPU" transaction-type="RESOURCE_LOCAL">
   
-9 <!&#8211;可选 &#8211;>
+9 <!-可选 ->
   
 10 <provider>org.hibernate.ejb.HibernatePersistence</provider>
   
-11 <!&#8211;可选 &#8211;>
+11 <!-可选 ->
   
 12 <jta-data-source>java:/DefaultDS</jta-data-source>
   
-13 <!&#8211;可选 &#8211;>
+13 <!-可选 ->
   
 14 <mapping-file>ormap.xml</mapping-file>
   
-15 <!&#8211;可选 &#8211;>
+15 <!-可选 ->
   
 16 <jar-file>MyApp.jar</jar-file>
   
-17 <!&#8211;可选 &#8211;>
+17 <!-可选 ->
   
 18 <class>org.acme.Employee</class>
   
-19 <!&#8211;可选 &#8211;>
+19 <!-可选 ->
   
 20 <shared-cache-mode>ENABLE_SELECTOVE</shared-cache-mode>
   
-21 <!&#8211;可选 &#8211;>
+21 <!-可选 ->
   
 22 <validation-mode>CALLBACK</validation-mode>
   
 23
   
-24 <!&#8211;厂商的特定属性 &#8211;>
+24 <!-厂商的特定属性 ->
   
 25 <properties>
   
-26 <!&#8211;配置Hibernate方言 &#8211;>
+26 <!-配置Hibernate方言 ->
   
 27 <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
   
-28 <!&#8211;配置数据库驱动 &#8211;>
+28 <!-配置数据库驱动 ->
   
 29 <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
   
-30 <!&#8211;配置数据库用户名 &#8211;>
+30 <!-配置数据库用户名 ->
   
 31 <property name="hibernate.connection.username" value="root" />
   
-32 <!&#8211;配置数据库密码 &#8211;>
+32 <!-配置数据库密码 ->
   
 33 <property name="hibernate.connection.password" value="root" />
   
-34 <!&#8211;配置数据库url &#8211;>
+34 <!-配置数据库url ->
   
 35 <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jpa?useUnicode=true&characterEncoding=UTF-8" />
   
-36 <!&#8211;设置外连接抓取树的最大深度 &#8211;>
+36 <!-设置外连接抓取树的最大深度 ->
   
 37 <property name="hibernate.max\_fetch\_depth" value="3" />
   
-38 <!&#8211;自动输出schema创建DDL语句 &#8211;>
+38 <!-自动输出schema创建DDL语句 ->
   
 39 <property name="hibernate.hbm2ddl.auto" value="update" />
   

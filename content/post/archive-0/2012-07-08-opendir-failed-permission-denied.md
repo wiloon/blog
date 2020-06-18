@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-su &#8211;
+su -
 
 adb shell
 

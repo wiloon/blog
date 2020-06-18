@@ -50,19 +50,19 @@ Loading mirror speeds from cached hostfile
   
 Resolving Dependencies
   
-&#8211;> Running transaction check
+-> Running transaction check
   
 -> Package tigervnc-server.x86\_64 0:1.8.0-2.el7\_4 will be installed
   
 -> Package xrdp.x86_64 1:0.9.5-1.el7 will be installed
   
-&#8211;> Processing Dependency: xorgxrdp for package: 1:xrdp-0.9.5-1.el7.x86_64
+-> Processing Dependency: xorgxrdp for package: 1:xrdp-0.9.5-1.el7.x86_64
   
-&#8211;> Running transaction check
+-> Running transaction check
   
 -> Package xorgxrdp.x86_64 0:0.2.5-3.el7 will be installed
   
-&#8211;> Finished Dependency Resolution
+-> Finished Dependency Resolution
 
 Dependencies Resolved
 
@@ -172,17 +172,17 @@ Firewall
   
 Configure the firewall to allow RDP connection from external machines. The following command will add the exception for RDP port (3389).
 
-firewall-cmd &#8211;permanent &#8211;add-port=3389/tcp
+firewall-cmd -permanent -add-port=3389/tcp
   
-firewall-cmd &#8211;reload
+firewall-cmd -reload
   
 SELinux
   
 Configure SELinux
 
-chcon &#8211;type=bin_t /usr/sbin/xrdp
+chcon -type=bin_t /usr/sbin/xrdp
   
-chcon &#8211;type=bin_t /usr/sbin/xrdp-sesman
+chcon -type=bin_t /usr/sbin/xrdp-sesman
   
 Test xrdp Remote Connectivity
   

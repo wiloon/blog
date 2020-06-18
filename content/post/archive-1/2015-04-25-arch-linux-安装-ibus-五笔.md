@@ -28,7 +28,7 @@ export QT\_IM\_MODULE=ibus
   
 [shell]
 
-sudo pacman -S &#8211;needed gcc make automake autoconf
+sudo pacman -S -needed gcc make automake autoconf
   
 yaourt -Ssq ibus
   
@@ -40,7 +40,7 @@ yaourt -S ibus-table-chinese
 
 [shell]
 
-$ sudo pacman -S &#8211;needed gcc make cmake wget
+$ sudo pacman -S -needed gcc make cmake wget
   
 sudo pacman -S pkg-config
   

@@ -131,7 +131,7 @@ tags:
         </activation>
     </li>
     <li>
-        &#8230;
+        ...
     </li>
     <li>
       </profile>
@@ -171,7 +171,7 @@ tags:
         </activation>
     </li>
     <li>
-        &#8230;
+        ...
     </li>
     <li>
       </profile>
@@ -197,7 +197,7 @@ settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为
       <settings>
     </li>
     <li>
-        &#8230;
+        ...
     </li>
     <li>
         <activeProfiles>

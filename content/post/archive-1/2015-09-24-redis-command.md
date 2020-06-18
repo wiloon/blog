@@ -55,7 +55,7 @@ exists key_name
 type key0
 
 ### 删除 key
-DEL key [key &#8230;]
+DEL key [key ...]
 
 ### 设置过期时间
 

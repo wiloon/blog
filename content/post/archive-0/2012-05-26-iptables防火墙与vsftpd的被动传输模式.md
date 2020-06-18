@@ -77,7 +77,7 @@ categories:
   
   
   
-    -A RH-Firewall-1-INPUT -p tcp -m tcp &#8211;dport 50000:50100 -j ACCEPT
+    -A RH-Firewall-1-INPUT -p tcp -m tcp -dport 50000:50100 -j ACCEPT
   
   
   

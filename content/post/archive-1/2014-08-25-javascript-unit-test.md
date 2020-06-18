@@ -58,11 +58,11 @@ test.html
   
 <script type="text/javascript" src="qunit.js"></script>
 
-<!- js to be tested &#8211;>
+<!- js to be tested ->
   
 <script type="text/javascript" src="mycode.js"></script>
 
-<!- unit test part &#8211;>
+<!- unit test part ->
   
 <script>
   

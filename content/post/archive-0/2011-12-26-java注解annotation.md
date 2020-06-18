@@ -460,7 +460,7 @@ Description des = (Description)test.getAnnotation(Description.class);
   
 System.out.println("描述:"+des.value());
   
-System.out.println("-----&#8211;");
+System.out.println("------");
   
 }
 
@@ -500,7 +500,7 @@ System.out.println("创建的社区:"+name.community());
   
 描述:javaeye,做最棒的软件开发交流社区
   
------&#8211;
+------
   
 创始人:robbin
   

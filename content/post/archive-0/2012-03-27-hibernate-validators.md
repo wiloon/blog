@@ -75,7 +75,7 @@ property (date 或 calendar)
   
 检查是否日期在将来
 
-@Pattern(regex="regexp", flag=) or @Patterns( {@Pattern(&#8230;)} )
+@Pattern(regex="regexp", flag=) or @Patterns( {@Pattern(...)} )
   
 property (字符串)
   
@@ -399,9 +399,9 @@ public class Dog {
 
 @AssertTrue private boolean isMale;
 
-@NotNull protected String getName() { &#8230; };
+@NotNull protected String getName() { ... };
 
-&#8230;
+...
 
 }
 
@@ -411,7 +411,7 @@ public interface Named {
 
 @NotNull String getName();
 
-&#8230;
+...
 
 }
 
@@ -419,7 +419,7 @@ public class Dog implements Named {
 
 @AssertTrue private boolean isMale;
 
-public String getName() { &#8230; };
+public String getName() { ... };
 
 }
 
@@ -457,7 +457,7 @@ Hibernate验证器已经内置两个hibernate事件监听器，任何时候一�
 
 在这种情况下你需要手工为hibernate设置事件监听器，下面是配置
 
-&#8230;
+...
 
 2.2.2 基于事件的java持久化验证
 
@@ -471,7 +471,7 @@ Hibernate 验证器与hibernate在基于事件的验证上没有关联，一个j
 
 public class Submarine {
 
-&#8230;
+...
 
 }
 

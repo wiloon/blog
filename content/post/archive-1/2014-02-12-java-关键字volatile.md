@@ -38,7 +38,7 @@ public void run() {
   
 while (!pleaseStop) {
   
-// do some stuff&#8230;
+// do some stuff...
   
 }
   

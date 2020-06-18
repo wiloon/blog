@@ -20,21 +20,21 @@ a. 通过imp指定indexfile参数，但这种办法不爽在于有每行前会�
 
 语法大体如下：
 
-exp userid=&#8230; tables=emp rows=n file=emp.dmp
+exp userid=... tables=emp rows=n file=emp.dmp
   
-imp userid=&#8230; file=emp.dmp indexfile=emp.sql
+imp userid=... file=emp.dmp indexfile=emp.sql
 
 b. 通过imp指定show=y，同时指定log参数，格式上也不是很爽，在格式上很美观的还是通过工具导出的比较美观
 
 语法大体如下：
 
-exp userid=&#8230; tables=emp rows=n file= emp.dmp
+exp userid=... tables=emp rows=n file= emp.dmp
   
-imp userid=&#8230; file= emp.dmp show=y log=emp.sql
+imp userid=... file= emp.dmp show=y log=emp.sql
 
 c. 利用unix下有strings命令,语法大体如下，这种方法比较野蛮：
 
-exp userid=&#8230; tables=tab1 rows=n file=tab1.dmp
+exp userid=... tables=tab1 rows=n file=tab1.dmp
   
 strings emp.dmp >emp.sql
   
@@ -92,7 +92,7 @@ select DBMS\_METADATA.GET\_DDL('PROCEDURE',u.object\_name) from user\_objects u 
   
 spool off;
 
-另：dbms\_metadata.get\_ddl('TABLE','TAB1&#8242;,'USER1&#8242;)
+另：dbms\_metadata.get\_ddl('TABLE','TAB1','USER1')
   
 三个参数中，第一个指定导出DDL定义的对象类型（此例中为表类型），第二个是对象名（此例中即表名），第三个是对象所在的用户名。
 
@@ -100,11 +100,11 @@ ORACLE获取DML(Insert into)的方法
 
 from: 把Oracle表里的数据导成insert语句
 
-有些时候我们需要把oracle里的数据导入其他数据库里。生成insert into 表名 &#8230;. 是一种很简单直接的方法。
+有些时候我们需要把oracle里的数据导入其他数据库里。生成insert into 表名 .... 是一种很简单直接的方法。
 
-今年六月份从www.arikaplan.com/oracle.html看到一个可以生成insert into 表名 &#8230;.语句的存储过程genins\_output。按中文习惯的时间格式YYYY-MM-DD HH24:MI:SS改了改，并新写了一个存储过程genins\_file.sql。
+今年六月份从www.arikaplan.com/oracle.html看到一个可以生成insert into 表名 ....语句的存储过程genins\_output。按中文习惯的时间格式YYYY-MM-DD HH24:MI:SS改了改，并新写了一个存储过程genins\_file.sql。
 
-它可以把小于16383条记录表里的数据导成(insert into 表名 &#8230;.)OS下文件。
+它可以把小于16383条记录表里的数据导成(insert into 表名 ....)OS下文件。
 
 调用它之前，DBA要看看数据库的初始化参数 UTL\_FILE\_DIR 是否已经正确地设置:
 
@@ -114,7 +114,7 @@ SQL> show parameters utl\_file\_dir;
 
 如果没有值，必须修改数据库的initsid.ora文件，将utl\_file\_dir 指向一个你想用PL/SQL file I/O 的路径。重新启动数据库。此参数才生效。
 
-调用它，可以把表里的数据生成(insert into 表名 &#8230;.)OS下文件的过程genins_file方法:
+调用它，可以把表里的数据生成(insert into 表名 ....)OS下文件的过程genins_file方法:
 
 SQL>exec genins\_file('emp','/oracle/logs','insert\_emp.sql');
   
@@ -128,13 +128,13 @@ utl\_file\_dir路径名,不变(我设置的是/oracle/logs)
 
 可以在OS目录/oracle/logs下看到insert_emp.sql文件。
   
-注意事项: 生成(insert into 表名 &#8230;.)OS下文件最多32767行。因为我一条insert分成两行,所以最多处理16383条记录的表。
+注意事项: 生成(insert into 表名 ....)OS下文件最多32767行。因为我一条insert分成两行,所以最多处理16383条记录的表。
 
 附：genins_file.sql
 
 code:
   
---------------------------&#8211;
+---------------------------
   
 CREATE OR REPLACE PROCEDURE genins_file(
   
@@ -214,7 +214,7 @@ CURSOR l\_query\_cur(c_table VARCHAR2) IS
   
 SELECT 'decode('||column_name||',null,"null",'||
   
-decode(data\_type,'VARCHAR2&#8242;,""""'||'||column\_name ||'||""""'
+decode(data\_type,'VARCHAR2',""""'||'||column\_name ||'||""""'
   
 ,'DATE',""""'||to\_char('||column\_name||',"YYYY-MM-DD HH24:MI:SS")||""""'
   

@@ -32,11 +32,11 @@ https://github.com/denji/golang-tls
 
 Generate private key (.key)
 
-# Key considerations for algorithm "RSA&#8221; ≥ 2048-bit
+# Key considerations for algorithm "RSA" ≥ 2048-bit
 
 openssl genrsa -out server.key 2048
 
-# Key considerations for algorithm "ECDSA&#8221; ≥ secp384r1
+# Key considerations for algorithm "ECDSA" ≥ secp384r1
 
 # List ECDSA the supported curves (openssl ecparam -list_curves)
 

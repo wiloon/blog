@@ -701,7 +701,7 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
             
             
             <div id="crayon-558f8b0e9051a898827726-2" class="crayon-line crayon-striped-line">
-              <span class="crayon-v">Full</span><span class="crayon-o">&#8211;</span><span class="crayon-e">text </span><span class="crayon-e">search </span><span class="crayon-st">in</span> <span class="crayon-v">MySQL</span> <span class="crayon-o">&</span><span class="crayon-v">lt</span><span class="crayon-sy">;</span><span class="crayon-o">=</span> <span class="crayon-cn">5.5</span><span class="crayon-h">      </span><span class="crayon-o">=&</span><span class="crayon-v">gt</span><span class="crayon-sy">;</span> <span class="crayon-v">MyISAM</span>
+              <span class="crayon-v">Full</span><span class="crayon-o">-</span><span class="crayon-e">text </span><span class="crayon-e">search </span><span class="crayon-st">in</span> <span class="crayon-v">MySQL</span> <span class="crayon-o">&</span><span class="crayon-v">lt</span><span class="crayon-sy">;</span><span class="crayon-o">=</span> <span class="crayon-cn">5.5</span><span class="crayon-h">      </span><span class="crayon-o">=&</span><span class="crayon-v">gt</span><span class="crayon-sy">;</span> <span class="crayon-v">MyISAM</span>
             
           
         </td>

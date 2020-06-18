@@ -34,7 +34,7 @@ Command
   
 config--改变一个服务的配置。（长久的）
   
-continue&#8211;对一个服务送出一个继续控制的要求。
+continue-对一个服务送出一个继续控制的要求。
   
 control--对一个服务送出一个控制。
   
@@ -42,13 +42,13 @@ create--创建一个服务。（增加到注册表中）
   
 delete--删除一个服务。（从注册表中删除）
   
-EnumDepend&#8211;列举服务的从属关系。
+EnumDepend-列举服务的从属关系。
   
-GetDisplayName&#8211;获得一个服务的显示名称。
+GetDisplayName-获得一个服务的显示名称。
   
-GetKeyName&#8211;获得一个服务的服务键名。
+GetKeyName-获得一个服务的服务键名。
   
-interrogate&#8211;对一个服务送出一个询问控制要求。
+interrogate-对一个服务送出一个询问控制要求。
   
 pause--对一个服务送出一个暂停控制要求。
   
@@ -106,7 +106,7 @@ sc [servername] create Servicename [Optionname= Optionvalues]
   
 明一下optionname和optionvalues。
   
-Optionname&#8211;Optionvalues
+Optionname-Optionvalues
   
 描述
   
@@ -122,7 +122,7 @@ error=--normal, severe, critical, ignore
   
 当服务在导入失败错误的严重性，默认是normal。
   
-binPath=&#8211;(string)
+binPath=-(string)
   
 服务二进制文件的路径名，这里没有默认值，这个字符串是必须设置的。
   
@@ -144,11 +144,11 @@ obj=--(string)
   
 账号运行使用的名称，也可以说是登陆身份。默认是localsys tem
   
-Displayname=&#8211;(string)
+Displayname=-(string)
   
 一个为在用户界面程序中鉴别各个服务使用的字符串。
   
-password=&#8211;(string)
+password=-(string)
   
 一个密码，如果一个不同于localsystem的账号使用时需要使用这个。
   
@@ -206,9 +206,9 @@ START_TYPE--dwStartType
   
 ERROR_CONTROL--dwErrorControl
   
-BINARY\_PATH\_NAME&#8211;lpBinaryPathName
+BINARY\_PATH\_NAME-lpBinaryPathName
   
-LOAD\_ORDER\_GROUP&#8211;lpLoadOrderGroup
+LOAD\_ORDER\_GROUP-lpLoadOrderGroup
   
 TAG--dwTagId
   
@@ -216,7 +216,7 @@ DISPLAY_NAME--lpDisplayName
   
 DEPENDENCIES--lpDependencies
   
-SERVICE\_START\_NAME&#8211;lpServiceStartName
+SERVICE\_START\_NAME-lpServiceStartName
   
 例1
   
@@ -254,13 +254,13 @@ SC QUERY命令可以获得服务的信息。
   
 语法：
   
-sc [Servername] query { Servicename | ptionname= Optionvalues&#8230; }
+sc [Servername] query { Servicename | ptionname= Optionvalues... }
   
 参数：
   
 servername, servicename, optionname, optionvalues不在解释。只谈一下这个命令提供的数值。
   
-Optionname&#8211;Optionvalues
+Optionname-Optionvalues
   
 Description
   
@@ -272,7 +272,7 @@ state=--active, inactive, all
   
 列举服务的状态，默认是active
   
-bufsize=&#8211;(numeric values)
+bufsize=-(numeric values)
   
 列举缓冲区的尺寸，默认是1024 bytes
   
@@ -296,7 +296,7 @@ STATE--dwCurrentState, dwControlsAccepted
   
 WIN32\_EXIT\_CODE--dwWin32ExitCode
   
-SERVICE\_EXIT\_CODE&#8211;dwServiceSpecificExitCode
+SERVICE\_EXIT\_CODE-dwServiceSpecificExitCode
   
 CHECKPOINT--dwCheckPoint
   

@@ -28,7 +28,7 @@ C 程序库里很多函数都需要配置以便能在本地环境正常工作, �
 
 在有NYS 支持的Linux libc5以及GNU C Library 2.x (libc.so.6)里, 依靠一个更清晰完整的方案来解决该问题. 该方案模仿了Sun
   
-Microsystems公司在Solaris 2 的C 程序库里的方法, 也沿袭了它们的命名, 称为 "名字服务开关(NSS)&#8221;. 所用 "数据库&#8221; 及其查找顺序在文
+Microsystems公司在Solaris 2 的C 程序库里的方法, 也沿袭了它们的命名, 称为 "名字服务开关(NSS)". 所用 "数据库" 及其查找顺序在文
   
 件 /etc/nsswitch.conf 里指明.
   

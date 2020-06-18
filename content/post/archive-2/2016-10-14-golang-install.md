@@ -34,7 +34,7 @@ mkdir -p /home/wiloon/my-projects/golang/lib/
 
 mkdir -p /home/wiloon/my-projects/golang/projects/
 
-export GOPATH=&#8221;/home/wiloon/my-projects/golang/lib/:/home/wiloon/my-projects/golang/projects/&#8221;
+export GOPATH="/home/wiloon/my-projects/golang/lib/:/home/wiloon/my-projects/golang/projects/"
 
 #check golang version
   

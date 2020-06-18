@@ -136,4 +136,4 @@ Content-Encoding: gzip
 
 本文链接：https://imququ.com/post/transfer-encoding-header-in-http.html，参与评论 »
 
-&#8211;EOF&#8211;
+-EOF-

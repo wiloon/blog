@@ -45,11 +45,11 @@ rmdir : delete folder
   
 rm -rf
   
--r, -R, &#8211;recursive
+-r, -R, -recursive
   
 remove directories and their contents recursively
   
--f, &#8211;force
+-f, -force
   
 ignore nonexistent files, never prompt
   
@@ -71,7 +71,7 @@ md5sum : compute and check MD5 message digest
 
 <span style="font-family: 宋体; font-size: medium;">统计某文件夹下<span style="color: #ff0000;">文件</span>的个数</span>
 
-<span style="font-family: 宋体; font-size: medium;">ls -l |grep "^<span style="color: #000000;">&#8211;</span>"|wc -l</span>
+<span style="font-family: 宋体; font-size: medium;">ls -l |grep "^<span style="color: #000000;">-</span>"|wc -l</span>
 
 <span style="font-family: 宋体; font-size: medium;">统计某文件夹下<span style="color: #ff0000;">目录</span>的个数</span>
 

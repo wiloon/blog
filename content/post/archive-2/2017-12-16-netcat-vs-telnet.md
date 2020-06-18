@@ -93,7 +93,7 @@ Telnet有“标准输入文件结束符(standard input EOF)”问题，
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2" data-secret="xAPNTA4aj2" width="600" height="338" title=""Use Netcat - not Telnet - to test network connectivity&#8221; - Terminal Inflection" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2" data-secret="xAPNTA4aj2" width="600" height="338" title=""Use Netcat - not Telnet - to test network connectivity" - Terminal Inflection" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="mR1NgJH6y2">
   
@@ -101,6 +101,6 @@ Telnet有“标准输入文件结束符(standard input EOF)”问题，
   
 </blockquote>
 
-<iframe title=""Stop using telnet and start using netcat&#8221; - scottlinux.com | Linux Blog" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2" data-secret="mR1NgJH6y2" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""Stop using telnet and start using netcat" - scottlinux.com | Linux Blog" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2" data-secret="mR1NgJH6y2" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat

@@ -28,7 +28,7 @@ En dash 在 Windows 里可以用 Alt + 0150 （即按下 Alt 键的同时依次�
 
 Em dash 的 Unicode 编码是 U+2014，在 MS Word 里可以先输入 2014 再按 Alt + x，更简便的方法是利用 MS Word 的自动更正功能：不加空格，直接按两下「-」，例如
   
-输入「this is&#8211;a test」，将转换为「this is—a test」
+输入「this is-a test」，将转换为「this is—a test」
   
 Em dash 在 Windows 里可以用 Alt + 0151 来输入，在 Mac 里可以用⌥ + ⇧ + - 来输入，在 TeX 里可以用 -输入，在 HTML 里可以用 — 来输入。
 

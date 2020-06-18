@@ -87,7 +87,7 @@ The long answer is that Hibernate Validator 4.2.0.Final merely missed the AS 7.0
 
 With this API a design by contract approach is possible which can already be seen in action in the Seam Validation module. Another new feature is the ability to combine the composing constraints with AND and OR operators. There is also a fail fast mode in which validation stops on the first validation error and a new message interpolator which is able to interpolate the validated value.
 
-As you can see AS 7.0 is just the beginning. More is to come in the coming releases&#8230;
+As you can see AS 7.0 is just the beginning. More is to come in the coming releases...
 
 Hibernate Search
 

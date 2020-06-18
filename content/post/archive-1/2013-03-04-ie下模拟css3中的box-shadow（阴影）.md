@@ -26,7 +26,7 @@ IE下模拟css3中的box-shadow（阴影）代码：
 
 03
   
-filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696&#8242;, Direction=135, Strength=5);/_for ie6,7,8_/
+filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=135, Strength=5);/_for ie6,7,8_/
   
 04
 

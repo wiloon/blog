@@ -53,7 +53,7 @@ linux下超帅的分区表修复软件.以前用过n多的windows的分区表修
   
     Please select the partition table type, press Enter when done.
  [Intel  ]  Intel/PC partition
- [EFI GPT]  EFI GPT partition map (Mac i386, some x86_64&#8230;)
+ [EFI GPT]  EFI GPT partition map (Mac i386, some x86_64...)
  [Mac    ]  Apple partition map
  [None   ]  Non partitioned media
  [Sun    ]  Sun Solaris partition

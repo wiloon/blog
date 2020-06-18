@@ -20,7 +20,7 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 protoc -help
   
-protoc -I proto/ proto/helloworld.proto &#8211;go_out=plugins=grpc:proto
+protoc -I proto/ proto/helloworld.proto -go_out=plugins=grpc:proto
 
 ```
 

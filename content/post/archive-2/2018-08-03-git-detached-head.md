@@ -34,7 +34,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 
 git checkout -b <new-branch-name>
 
-HEAD is now at 3e74a7a&#8230; merge bug fixed in issue1
+HEAD is now at 3e74a7a... merge bug fixed in issue1
   
 1
   
@@ -154,7 +154,7 @@ $ git checkout master //master或者任意已知分支
   
 $ git checkout dev
   
-Previous HEAD position was 3e74a7a&#8230; merge bug fixed in issue1
+Previous HEAD position was 3e74a7a... merge bug fixed in issue1
   
 Switched to branch 'dev'
   

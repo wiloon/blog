@@ -25,7 +25,7 @@ categories:
     
     
     
-      学习jQuery核心函数时，讲$(document).ready(function(){&#8230;. })这个函数是用来取代页面中的window.onload;
+      学习jQuery核心函数时，讲$(document).ready(function(){.... })这个函数是用来取代页面中的window.onload;
     
     
     

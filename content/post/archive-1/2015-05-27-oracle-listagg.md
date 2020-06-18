@@ -260,7 +260,7 @@ stragg/wm_concat
 
 下面将使用广为流传的字符串聚合，Tom Kyte的定义的聚合函数STRAGG。在 oracle的10g版本中，oracle在WMSYS的用户下实现了类似功能的函数，这里直接使用这个函数来测试。注：STRAGG函数不支持字符串的排序。
 
-SQL> SELECT grp 2 , WMSYS.WM\_CONCAT(val) AS vals &#8211;<- WM\_CONCAT ~= STRAGG 3 FROM t 4 GROUP BY 5 grp;
+SQL> SELECT grp 2 , WMSYS.WM\_CONCAT(val) AS vals -<- WM\_CONCAT ~= STRAGG 3 FROM t 4 GROUP BY 5 grp;
   
 2000 rows selected. Elapsed: 00:00:19.45 Statistics -------------------- 1 recursive calls 0 db block gets 7206 consistent gets 0 physical reads 0 redo size 6039067 bytes sent via SQL\*Net to client 552 bytes received via SQL\*Net from client 5 SQL*Net roundtrips to/from client 1 sorts (memory) 0 sorts (disk) 2000 rows processed
   
@@ -294,7 +294,7 @@ SQL> SELECT grp 2 , vals 3 FROM ( 4 SELECT grp 5 , RTRIM(vals, ',') AS vals 6 , 
 
 MODEL字符串聚合方法的执行计划如下：
 
---------------------&#8211; | Id | Operation | Name | Rows | Bytes |TempSpc| --------------------&#8211; | 0 | SELECT STATEMENT | | | | | | 1 | SORT ORDER BY | | 1000K| 1934M| 1953M| |* 2 | VIEW | | 1000K| 1934M| | | 3 | SQL MODEL ORDERED | | 1000K| 9765K| | | 4 | WINDOW SORT | | 1000K| 9765K| 19M| | 5 | TABLE ACCESS FULL| T | 1000K| 9765K| | --------------------&#8211; Predicate Information (identified by operation id): ----------------- 2 &#8211; filter("RN"=1) 通过SQL的监控报告（使用DBMS\_SQLTUNE.REPORT\_SQL_MONITOR）在SQL MODEL操作的第三步中，数据的排序使用4Gb的临时空间，在Gary Myers' Sydney Oracle Lab blog中也阐述了这个现象。
+--------------------- | Id | Operation | Name | Rows | Bytes |TempSpc| --------------------- | 0 | SELECT STATEMENT | | | | | | 1 | SORT ORDER BY | | 1000K| 1934M| 1953M| |* 2 | VIEW | | 1000K| 1934M| | | 3 | SQL MODEL ORDERED | | 1000K| 9765K| | | 4 | WINDOW SORT | | 1000K| 9765K| 19M| | 5 | TABLE ACCESS FULL| T | 1000K| 9765K| | --------------------- Predicate Information (identified by operation id): ----------------- 2 - filter("RN"=1) 通过SQL的监控报告（使用DBMS\_SQLTUNE.REPORT\_SQL_MONITOR）在SQL MODEL操作的第三步中，数据的排序使用4Gb的临时空间，在Gary Myers' Sydney Oracle Lab blog中也阐述了这个现象。
   
 性能总结
 

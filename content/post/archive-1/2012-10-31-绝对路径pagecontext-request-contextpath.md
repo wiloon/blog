@@ -16,7 +16,7 @@ categories:
   
     <div id="cnblogs_post_body">
       
-        登录后第一次点击正确,鼠标放在链接上，出现正确url----&#8211;http://localhost:8080/ibatisORM/listuser/2
+        登录后第一次点击正确,鼠标放在链接上，出现正确url-----http://localhost:8080/ibatisORM/listuser/2
       
       
       

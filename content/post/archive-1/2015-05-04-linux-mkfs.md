@@ -68,9 +68,9 @@ mkfs -t ext2 /dev/sda7     //将sda7分区格式化为ext2格式
 
 注：
   
-这里的文件系统是要指定的，比如 ext3 ；reiserfs ；ext2 ；fat32 ；msdos 等&#8230; &#8230;
+这里的文件系统是要指定的，比如 ext3 ；reiserfs ；ext2 ；fat32 ；msdos 等... ...
   
-设备比如是一个硬盘的分区，软盘，光驱等.. &#8230; 在格式化分区之前，您得懂得如何查看硬盘分区情况，并有针对性的格式化；比如用 fdisk -l 来查看； 请参考：《Linux 查看磁盘分区、文件系统、使用情况的命令和相关工具介绍》 比如我想格式化一个移动U盘中的一个分区；全景应该是：
+设备比如是一个硬盘的分区，软盘，光驱等.. ... 在格式化分区之前，您得懂得如何查看硬盘分区情况，并有针对性的格式化；比如用 fdisk -l 来查看； 请参考：《Linux 查看磁盘分区、文件系统、使用情况的命令和相关工具介绍》 比如我想格式化一个移动U盘中的一个分区；全景应该是：
   
 [root@localhost beinan]# fdisk -l
 
@@ -180,7 +180,7 @@ This filesystem will be automatically checked every 26 mounts or
   
 [root@localhost beinan]# mkfs -t msdos   /dev/sda6
   
-&#8230; &#8230;
+... ...
 
 2）mkfs.ext3 mkfs.reiserfs mkfs.ext2 mkfs.msdos mkfs.vfat mke2fs 的介绍；
   
@@ -202,7 +202,7 @@ root@localhost beinan]# mke2fs    /dev/sda6          注：把该设备�
   
 [root@localhost beinan]# mkdosfs   /dev/sda6         注：把该设备格式化成fat16文件系统，同mkfs.msdos
   
-&#8230; &#8230;
+... ...
 
 2）mkswap 把一个分区格式化成为swap交换区；
 

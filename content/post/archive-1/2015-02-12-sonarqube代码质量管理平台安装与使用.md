@@ -140,37 +140,37 @@ view plaincopy
   
 #No information about specific project should appear here
   
-#-&#8211; Default SonarQube server
+#-- Default SonarQube server
   
 sonar.host.url=http://localhost:9000
   
-#-&#8211; PostgreSQL
+#-- PostgreSQL
   
 #sonar.jdbc.url=jdbc:postgresql://localhost/sonar
   
-#-&#8211; MySQL
+#-- MySQL
   
 sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
   
-#-&#8211; Oracle
+#-- Oracle
   
 #sonar.jdbc.url=jdbc:oracle:thin:@localhost/XE
   
-#-&#8211; Microsoft SQLServer
+#-- Microsoft SQLServer
   
 #sonar.jdbc.url=jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor
   
-#-&#8211; Global database settings
+#-- Global database settings
   
 sonar.jdbc.username=sonar
   
 sonar.jdbc.password=sonar
   
-#-&#8211; Default source code encoding
+#-- Default source code encoding
   
 sonar.sourceEncoding=UTF-8
   
-#-&#8211; Security (when 'sonar.forceAuthentication' is set to 'true')
+#-- Security (when 'sonar.forceAuthentication' is set to 'true')
   
 sonar.login=admin
   
@@ -260,7 +260,7 @@ sudo ln -s $SONAR_HOME/bin/linux-x86-64/sonar.sh /usr/bin/sonar
   
 sudo chmod 755 /etc/init.d/sonar
   
-sudo chkconfig &#8211;add sonar
+sudo chkconfig -add sonar
 
 使用SonarQube Runner分析源码
   

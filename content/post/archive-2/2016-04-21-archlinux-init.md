@@ -114,7 +114,7 @@ https://bbs.archlinux.org/viewtopic.php?id=118986
 
 * * *
 
-removed "SigLevel = RecquiredPackage&#8221; from /etc/pacman.conf and now it's O.K.
+removed "SigLevel = RecquiredPackage" from /etc/pacman.conf and now it's O.K.
 
 pacman -S binutils
   

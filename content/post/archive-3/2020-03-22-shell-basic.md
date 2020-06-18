@@ -8,6 +8,9 @@ categories:
   - Uncategorized
 
 ---
+### Shell中去除字符串前后空格的方法
+    echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
+
 #将pwd的执行结果放到变量value中保存，
 
 value=$(pwd)

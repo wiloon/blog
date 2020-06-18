@@ -18,7 +18,7 @@ resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
   
 dependencies {
   
-compile group: "group&#8221;, name: "projectA&#8221;, version: "1.1-SNAPSHOT&#8221;, changing: true
+compile group: "group", name: "projectA", version: "1.1-SNAPSHOT", changing: true
   
 }
 

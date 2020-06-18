@@ -18,7 +18,7 @@ git clone https://github.com/openwrt/openwrt.git openwrt
   
 cd openwrt
   
-git fetch &#8211;all &#8211;tags &#8211;prune
+git fetch -all -tags -prune
   
 git checkout tags/v17.01.2
 

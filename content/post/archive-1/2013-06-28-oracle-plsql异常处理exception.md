@@ -386,7 +386,7 @@ END;
 
 
 
-&#8211;运行结果如下
+-运行结果如下
 
 
 
@@ -444,7 +444,7 @@ PRAGMA EXCEPTION\_INIT(exception\_name,Oracle\_error\_number);
 
 
 
-下面这个例子在运行时刻如果遇到“ORA-1400:mandatory NOT NULL column missing or NULL during insert”错误时将引发e_MissingNull&#8211;用户定义的异常。
+下面这个例子在运行时刻如果遇到“ORA-1400:mandatory NOT NULL column missing or NULL during insert”错误时将引发e_MissingNull-用户定义的异常。
 
 
 
@@ -828,7 +828,7 @@ END Globals;
 
 
 
-&#8211;有了这个和GLOBALS包以后，就可以重写前面的代码：
+-有了这个和GLOBALS包以后，就可以重写前面的代码：
 
 
 
@@ -864,7 +864,7 @@ explicitly */
 
 
 
-WHEN Globals.e_UserDefinedException THEN &#8211;引用包中定义异常
+WHEN Globals.e_UserDefinedException THEN -引用包中定义异常
 
 
 
@@ -988,7 +988,7 @@ WHEN NO\_DATA\_FOUND THEN
 
 
 
-&#8211;which select statement raised the exception?
+-which select statement raised the exception?
 
 
 
@@ -1000,7 +1000,7 @@ END;
 
 
 
-&#8211;解决上述问题的方法有两种。第一种是添加一个标识该SQL语句的计数器：
+-解决上述问题的方法有两种。第一种是添加一个标识该SQL语句的计数器：
 
 
 
@@ -1060,7 +1060,7 @@ END;
 
 
 
-&#8211;另一种方法是将每一条语句都放置在它自己的子块中：
+-另一种方法是将每一条语句都放置在它自己的子块中：
 
 
 

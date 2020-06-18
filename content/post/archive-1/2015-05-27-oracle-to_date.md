@@ -26,13 +26,13 @@ to_date()与24小时制表示法及mm分钟的显示：
 
 一、在使用Oracle的to_date函数来做日期转换时，很多Java程序员也许会直接的采用“yyyy-MM-dd HH:mm:ss”的格式作为格式进行转换，但是在Oracle中会引起错误：“ORA 01810 格式代码出现两次”。
 
-select to_date('2005-01-01 13:14:20&#8242;,'yyyy-MM-dd HH24:mm:ss') from dual;
+select to_date('2005-01-01 13:14:20','yyyy-MM-dd HH24:mm:ss') from dual;
   
 如：
   
 原因是SQL中不区分大小写，MM和mm被认为是相同的格式代码，所以Oracle的SQL采用了mi代替分钟。
 
-select to_date('2005-01-01 13:14:20&#8242;,'yyyy-MM-dd HH24:mi:ss') from dual;
+select to_date('2005-01-01 13:14:20','yyyy-MM-dd HH24:mi:ss') from dual;
   
 二、另要以24小时的形式显示出来要用HH24
   
@@ -130,11 +130,11 @@ select to_char(trunc(sysdate ,'YYYY'),'YYYY') from dual
   
 5.oracle有毫秒级的数据类型
   
-&#8211;返回当前时间 年月日小时分秒毫秒
+-返回当前时间 年月日小时分秒毫秒
   
 select to\_char(current\_timestamp(5),'DD-MON-YYYY HH24:MI:SSxFF') from dual;
   
-&#8211;返回当前 时间的秒毫秒，可以指定秒后面的精度(最大=9)
+-返回当前 时间的秒毫秒，可以指定秒后面的精度(最大=9)
   
 select to\_char(current\_timestamp(9),'MI:SSxFF') from dual;
 
@@ -172,6 +172,6 @@ dbms\_output.put\_line
   
 ( round( (dbms\_utility.get\_time-l_start)/100, 2 ) ||
   
-' seconds&#8230;' );
+' seconds...' );
   
 end;

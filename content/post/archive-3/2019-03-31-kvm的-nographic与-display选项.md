@@ -22,7 +22,7 @@ KVM客户机正常运行时是不需要在主机上显示图形界面的,以前�
   
 这提示过于简单的,新版本的kvm不再允许-nographic和-daemonize一起使用了,应该使用-display none参数来代替-nographic,这样:
 
-kvm &#8230;
+kvm ...
   
 -display none
   

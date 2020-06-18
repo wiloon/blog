@@ -20,7 +20,7 @@ b-tree索引应该是mysql里最广泛的索引的了，除了archive基本所�
 
 full-text在mysql里仅有myisam支持它，而且支持full-text的字段只有char、varchar、text数据类型。
 
-full-text主要是用来代替like "%\***%&#8221;效率低下的问题
+full-text主要是用来代替like "%\***%"效率低下的问题
 
 2. b-tree索引
 
@@ -62,7 +62,7 @@ r-tree在mysql很少使用，仅支持geometry数据类型，支持该类型的�
 
 4. 当在字段时候函数的时候，mysql无法使用索引；在join时条件字段类型不一致的时候，mysql无法使用索引；在组合索引里使用非第一个索引时也不使用索引.
 
-5. 在使用like的时候，以%开头，即&#8221;%\***&#8221;的时候无法使用索引；在使用or的时候，要求or前后字段都有索引.
+5. 在使用like的时候，以%开头，即"%\***"的时候无法使用索引；在使用or的时候，要求or前后字段都有索引.
 
 有时候mysql query optimizer会认为使用索引并不是最优计划,所以不使用索引。可以在sql语句里可以用use,force index,当然有时候使用也不会比不用快,所以需要忽略掉index方法是ignore index.
 
@@ -84,7 +84,7 @@ select high\_priority * fromtable\_name;
 
 mysql里还有延时插入insert delayed
 
-insert delayed into table_name&#8230;.;
+insert delayed into table_name....;
 
 #当提交之后，mysql返回ok，但不立即插入，而是当mysql有空再插入。假如等待时服务器崩溃，那么所有数据丢失，并且插入不会返回自增id.
 

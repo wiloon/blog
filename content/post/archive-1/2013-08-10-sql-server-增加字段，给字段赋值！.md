@@ -44,7 +44,7 @@ ALTER   TABLE   TableName   DROP   Field\_name\_tobe_delete
   
 ALTER   TABLE   TableName   rename   as   newTableName
 
-alter   table   语句好像不能对表实行字段删除操作，可以用create   table   tablename(field1,field2,field3&#8230;&#8230;)   (select   field1,field2,field3&#8230;&#8230;from   orgtablename);
+alter   table   语句好像不能对表实行字段删除操作，可以用create   table   tablename(field1,field2,field3......)   (select   field1,field2,field3......from   orgtablename);
   
 或者用ALTER   TABLE   TableName   DROP   [COLUMN]   col_name；
   

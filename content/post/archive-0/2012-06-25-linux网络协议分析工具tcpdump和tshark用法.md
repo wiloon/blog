@@ -179,7 +179,7 @@ categories:
     tcpdump 的输出结果介绍
  下面我们介绍几种典型的tcpdump命令的输出信息
  (1) 数据链路层头信息
- 使用命令#tcpdump &#8211;e host ice
+ 使用命令#tcpdump -e host ice
  ice 是一台装有linux的主机，她的MAC地址是0：90：27：58：AF：1A
  H219是一台装有SOLARIC的SUN工作站，它的MAC地址是8：0：20：79：5B：46；上一条
  命令的输出结果如下所示：
@@ -235,7 +235,7 @@ sudo pacman -S wireshark-cli
   
   
   
-    // 列出可监听流量的网络接口列表。tshark使用1,2,&#8230;等数字来标识eth0,eth1&#8230;
+    // 列出可监听流量的网络接口列表。tshark使用1,2,...等数字来标识eth0,eth1...
  # tshark -D
   
   

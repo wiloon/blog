@@ -26,7 +26,7 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 红黑树又称红-黑二叉树，它首先是一颗二叉树，它具体二叉树所有的特性。同时红黑树更是一颗自平衡的排序二叉树。
 
-我们知道一颗基本的二叉树他们都需要满足一个基本性质&#8211;即树中的任何节点的值大于它的左子节点，且小于它的右子节点。按照这个基本性质使得树的检索效率大大提高。我们知道在生成二叉树的过程是非常容易失衡的，最坏的情况就是一边倒（只有右/左子树），这样势必会导致二叉树的检索效率大大降低（O(n)），所以为了维持二叉树的平衡，大牛们提出了各种实现的算法，如：AVL，SBT，伸展树，TREAP ，红黑树等等。
+我们知道一颗基本的二叉树他们都需要满足一个基本性质-即树中的任何节点的值大于它的左子节点，且小于它的右子节点。按照这个基本性质使得树的检索效率大大提高。我们知道在生成二叉树的过程是非常容易失衡的，最坏的情况就是一边倒（只有右/左子树），这样势必会导致二叉树的检索效率大大降低（O(n)），所以为了维持二叉树的平衡，大牛们提出了各种实现的算法，如：AVL，SBT，伸展树，TREAP ，红黑树等等。
 
 平衡二叉树必须具备如下特性：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。也就是说该二叉树的任何一个等等子节点，其左右子树的高度都相近。
 
@@ -56,7 +56,7 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 （图片来自：http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html）
 
-本节参考文献：http://baike.baidu.com/view/133754.htm?fr=aladdin-&#8211;百度百科
+本节参考文献：http://baike.baidu.com/view/133754.htm?fr=aladdin--百度百科
 
 注：由于本文主要是讲解Java中TreeMap，所以并没有对红黑树进行非常深入的了解和研究，如果诸位想对其进行更加深入的研究Lz提供几篇较好的博文：
 
@@ -78,7 +78,7 @@ TreeMap继承AbstractMap，实现NavigableMap、Cloneable、Serializable三个�
 
 TreeMap中同时也包含了如下几个重要的属性：
 
-//比较器，因为TreeMap是有序的，通过comparator接口我们可以对TreeMap的内部排序进行精密的控制 private final Comparator<? super K> comparator; //TreeMap红-黑节点，为TreeMap的内部类 private transient Entry<K,V> root = null; //容器大小 private transient int size = 0; //TreeMap修改次数 private transient int modCount = 0; //红黑树的节点颜色&#8211;红色 private static final boolean RED = false; //红黑树的节点颜色&#8211;黑色 private static final boolean BLACK = true;
+//比较器，因为TreeMap是有序的，通过comparator接口我们可以对TreeMap的内部排序进行精密的控制 private final Comparator<? super K> comparator; //TreeMap红-黑节点，为TreeMap的内部类 private transient Entry<K,V> root = null; //容器大小 private transient int size = 0; //TreeMap修改次数 private transient int modCount = 0; //红黑树的节点颜色-红色 private static final boolean RED = false; //红黑树的节点颜色-黑色 private static final boolean BLACK = true;
   
 对于叶子节点Entry是TreeMap的内部类，它有几个重要的属性：
 
@@ -258,7 +258,7 @@ private static <K,V> void setColor(Entry<K,V> p, boolean c) { if (p != null) p.c
 
 情况一、无子节点（红色节点）
 
-这种情况对该节点直接删除即可，不会影响树的结构。因为该节点为叶子节点它不可能存在子节点-&#8211;如子节点为黑，则违反黑节点数原则（规定5），为红，则违反“颜色”原则（规定4）。 如上图（2.2）。
+这种情况对该节点直接删除即可，不会影响树的结构。因为该节点为叶子节点它不可能存在子节点--如子节点为黑，则违反黑节点数原则（规定5），为红，则违反“颜色”原则（规定4）。 如上图（2.2）。
 
 情况二、有一个子节点
 
@@ -316,7 +316,7 @@ TreeMap deleteEntry()方法实现分析
 
 复制代码
   
-private void deleteEntry(Entry<K,V> p) { modCount++; //修改次数 +1 size&#8211;; //元素个数 -1 /\* \* 被删除节点的左子树和右子树都不为空，那么就用 p节点的中序后继节点代替 p 节点 \* successor(P)方法为寻找P的替代节点。规则是右分支最左边，或者 左分支最右边的节点 \* -------（1） _/ if (p.left != null && p.right != null) { Entry<K,V> s = successor(p); p.key = s.key; p.value = s.value; p = s; } //replacement为替代节点，如果P的左子树存在那么就用左子树替代，否则用右子树替代 Entry<K,V> replacement = (p.left != null ? p.left : p.right); /_ \* 删除节点，分为上面提到的三种情况 \* -------&#8211;（2） _/ //如果替代节点不为空 if (replacement != null) { replacement.parent = p.parent; /_ _replacement来替代P节点 */ //若P没有父节点，则跟节点直接变成replacement if (p.parent == null) root = replacement; //如果P为左节点，则用replacement来替代为左节点 else if (p == p.parent.left) p.parent.left = replacement; //如果P为右节点，则用replacement来替代为右节点 else p.parent.right = replacement; //同时将P节点从这棵树中剔除掉 p.left = p.right = p.parent = null; /_ \* 若P为红色直接删除，红黑树保持平衡 \* 但是若P为黑色，则需要调整红黑树使其保持平衡 */ if (p.color == BLACK) fixAfterDeletion(replacement); } else if (p.parent == null) { //p没有父节点，表示为P根节点，直接删除即可 root = null; } else { //P节点不存在子节点，直接删除即可 if (p.color == BLACK) //如果P节点的颜色为黑色，对红黑树进行调整 fixAfterDeletion(p); //删除P节点 if (p.parent != null) { if (p == p.parent.left) p.parent.left = null; else if (p == p.parent.right) p.parent.right = null; p.parent = null; } } }
+private void deleteEntry(Entry<K,V> p) { modCount++; //修改次数 +1 size-; //元素个数 -1 /\* \* 被删除节点的左子树和右子树都不为空，那么就用 p节点的中序后继节点代替 p 节点 \* successor(P)方法为寻找P的替代节点。规则是右分支最左边，或者 左分支最右边的节点 \* -------（1） _/ if (p.left != null && p.right != null) { Entry<K,V> s = successor(p); p.key = s.key; p.value = s.value; p = s; } //replacement为替代节点，如果P的左子树存在那么就用左子树替代，否则用右子树替代 Entry<K,V> replacement = (p.left != null ? p.left : p.right); /_ \* 删除节点，分为上面提到的三种情况 \* --------（2） _/ //如果替代节点不为空 if (replacement != null) { replacement.parent = p.parent; /_ _replacement来替代P节点 */ //若P没有父节点，则跟节点直接变成replacement if (p.parent == null) root = replacement; //如果P为左节点，则用replacement来替代为左节点 else if (p == p.parent.left) p.parent.left = replacement; //如果P为右节点，则用replacement来替代为右节点 else p.parent.right = replacement; //同时将P节点从这棵树中剔除掉 p.left = p.right = p.parent = null; /_ \* 若P为红色直接删除，红黑树保持平衡 \* 但是若P为黑色，则需要调整红黑树使其保持平衡 */ if (p.color == BLACK) fixAfterDeletion(replacement); } else if (p.parent == null) { //p没有父节点，表示为P根节点，直接删除即可 root = null; } else { //P节点不存在子节点，直接删除即可 if (p.color == BLACK) //如果P节点的颜色为黑色，对红黑树进行调整 fixAfterDeletion(p); //删除P节点 if (p.parent != null) { if (p == p.parent.left) p.parent.left = null; else if (p == p.parent.right) p.parent.right = null; p.parent = null; } } }
   
 复制代码
   

@@ -16,7 +16,7 @@ Linux系统中，所有用户（包括系统管理员）的账号和密码都可
   
 [root@localhost Python-3.5.0]# ls -al /etc/passwd /etc/shadow
   
--rw-r&#8211;r&#8211;. 1 root root 2250 12月 14 00:17 /etc/passwd
+-rw-r-r-. 1 root root 2250 12月 14 00:17 /etc/passwd
   
 ----. 1 root root 1263 12月 14 00:17 /etc/shadow
   

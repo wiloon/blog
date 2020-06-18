@@ -132,7 +132,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 </exclusion>
   
-<!- 这个就是我们要加的片断 &#8211;>
+<!- 这个就是我们要加的片断 ->
   
 <exclusion>
   
@@ -198,11 +198,11 @@ public class ClassLocationUtils {
   
 public static String where(final Class cls) {
   
-if (cls == null)throw new IllegalArgumentException("null input: cls&#8221;);
+if (cls == null)throw new IllegalArgumentException("null input: cls");
   
 URL result = null;
   
-final String clsAsResource = cls.getName().replace('.', '/').concat(".class&#8221;);
+final String clsAsResource = cls.getName().replace('.', '/').concat(".class");
   
 final ProtectionDomain pd = cls.getProtectionDomain();
   
@@ -214,17 +214,17 @@ if (cs != null) result = cs.getLocation();
   
 if (result != null) {
   
-if ("file&#8221;.equals(result.getProtocol())) {
+if ("file".equals(result.getProtocol())) {
   
 try {
   
-if (result.toExternalForm().endsWith(".jar&#8221;) ||
+if (result.toExternalForm().endsWith(".jar") ||
   
-result.toExternalForm().endsWith(".zip&#8221;))
+result.toExternalForm().endsWith(".zip"))
   
-result = new URL("jar:&#8221;.concat(result.toExternalForm())
+result = new URL("jar:".concat(result.toExternalForm())
   
-.concat("!/&#8221;).concat(clsAsResource));
+.concat("!/").concat(clsAsResource));
   
 else if (new File(result.getFile()).isDirectory())
   

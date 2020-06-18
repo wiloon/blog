@@ -10,7 +10,7 @@ categories:
 ---
 #go语言的模板，text/template包 ##定义 模板就是将一组文本嵌入另一组文本里
 
-##传入string&#8211;最简单的替换
+##传入string-最简单的替换
 
 package main
 

@@ -20,7 +20,7 @@ decimal类型从根本上说应该是数字类型的,因为oracle内部的数据
 
 在Oracle中Number类型可以用来存储0，正负定点或者浮点数，可表示的数据范围在
 
-1.0 \* 10(-130) —— 9.9&#8230;9 \* 10(125) {38个9后边带88个0}
+1.0 \* 10(-130) —— 9.9...9 \* 10(125) {38个9后边带88个0}
   
 的数字，当Oracle中的数学表达式的值>=1.0*10(126)时，Oracle就会报错。
 
@@ -64,9 +64,9 @@ NUMBER类型细讲
 
 Oracle number datatype 语法：NUMBER[(precision [, scale])]
   
-简称：precision &#8211;> p
+简称：precision -> p
   
-scale     &#8211;> s
+scale     -> s
 
 NUMBER(p, s)
   

@@ -30,19 +30,19 @@ emerge search mozilla
 
 emerge -S mozilla
   
-emerge &#8211;searchdesc mozilla
+emerge -searchdesc mozilla
 
 使用本地编好的包，没有就下源码(尽量避免编译)
 
 emerge -k mozilla
   
-emerge &#8211;usepkg mozilla
+emerge -usepkg mozilla
 
 只使用本地编好的，否则不安装(绝对不编译，所有依赖的包都有binary才装)
 
 emerge -K mozilla
   
-emerge &#8211;usepkgonly mozilla
+emerge -usepkgonly mozilla
 
 卸载
 
@@ -52,7 +52,7 @@ emerge unmerge mozilla
 
 升级portage树
 
-emerge &#8211;sync
+emerge -sync
 
 下载snapshot包来完成sync
 
@@ -62,7 +62,7 @@ emerge-webrsync
 
 emerge -pl mozilla
   
-emerge &#8211;pretend &#8211;changelog mozilla
+emerge -pretend -changelog mozilla
 
 查看依赖关系(这个包还没装)
   
@@ -70,13 +70,13 @@ emerge &#8211;pretend &#8211;changelog mozilla
 
 emerge -p mozilla
   
-emerge &#8211;pretend mozilla
+emerge -pretend mozilla
 
 只下载某个软件的源码(以及它所依赖的)
 
 emerge -f mozilla
   
-emerge &#8211;fetchonly mozilla
+emerge -fetchonly mozilla
 
 查看从哪下的源码
 
@@ -84,15 +84,15 @@ emerge -fp mozilla
 
 安装指定版本号的
 
-emerge "&#8230;&#8230;&#8230;..&#8221;
+emerge "..........."
 
-emerge -k &#8221;
+emerge -k "
 
 从网上下binary包来装
 
 emerge -g mozilla
   
-emerge &#8211;getbinpkg mozilla
+emerge -getbinpkg mozilla
 
 (注意，实际上没有任何binary包存在于官方的mirror中
   
@@ -106,13 +106,13 @@ emerge &#8211;getbinpkg mozilla
 
 emerge -gp mozilla
   
-emrege &#8211;getbinpkg &#8211;pretend mozilla
+emrege -getbinpkg -pretend mozilla
 
 查看依赖关系(这个包已经装了)
 
 emerge -ep opera
   
-emerge &#8211;emptytree &#8211;pretend opera
+emerge -emptytree -pretend opera
 
 (不用pretend会重新编译这所有依赖的包，glibc因为安全关系没有列出)
 
@@ -120,19 +120,19 @@ emerge &#8211;emptytree &#8211;pretend opera
 
 emerge -O opera
   
-emerge &#8211;nodeps opera
+emerge -nodeps opera
 
 只安装其依赖的软件
 
 emerge -o opera
   
-emerge &#8211;onlydeps opera
+emerge -onlydeps opera
 
 升级软件
 
 emerge -u opera
   
-emerge &#8211;update opera
+emerge -update opera
 
 升级系统软件
 
@@ -146,7 +146,7 @@ emerge -u world
 
 emerge -uU world
   
-emerge &#8211;update &#8211;upgradeonly world
+emerge -update -upgradeonly world
 
 查看可用的USE参数
   

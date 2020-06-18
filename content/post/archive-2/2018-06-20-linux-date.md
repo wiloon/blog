@@ -43,15 +43,15 @@ Here are a few examples. Also see the documentation for the \`-d' option in the 
 
 To print the date of the day before yesterday:
   
-date &#8211;date='2 days ago'
+date -date='2 days ago'
   
 To print the date of the day three months and one day hence:
   
-date &#8211;date='3 months 1 day'
+date -date='3 months 1 day'
   
 To print the day of year of Christmas in the current year:
   
-date &#8211;date='25 Dec' +%j
+date -date='25 Dec' +%j
   
 To print the current full month name and the day of the month:
   
@@ -71,13 +71,13 @@ To set the system clock forward by two minutes:
 
 date --set='+2 minutes'
 
-To print the date in the format specified by RFC-822, use`date &#8211;rfc'. I just did and saw this:
+To print the date in the format specified by RFC-822, use`date -rfc'. I just did and saw this:
   
 Mon, 25 Mar 1996 23:34:17 -0600
   
 To convert a date string to the number of seconds since the epoch (which is 1970-01-01 00:00:00 UTC), use the `--date' option with the`%s' format. That can be useful in sorting and/or graphing and/or comparing data by date. The following command outputs the number of the seconds since the epoch for the time one second later than the epoch, but in time zone five hours later (Cambridge, Massachusetts), thus a total of five hours and one second after the epoch:
   
-date &#8211;date='1970-01-01 00:00:01 UTC +5 hours' +%s
+date -date='1970-01-01 00:00:01 UTC +5 hours' +%s
   
 18001
   
@@ -85,13 +85,13 @@ Suppose you had not specified time zone information in the example above. Then, 
 
 # local time zone used
 
-date &#8211;date='1970-01-01 00:00:01&#8242; +%s
+date -date='1970-01-01 00:00:01' +%s
   
 1
   
-If you're sorting or graphing dated data, your raw date values may be represented as seconds since the epoch. But few people can look at the date \`946684800&#8242; and casually note "Oh, that's the first second of the year 2000."
+If you're sorting or graphing dated data, your raw date values may be represented as seconds since the epoch. But few people can look at the date \`946684800' and casually note "Oh, that's the first second of the year 2000."
   
-date &#8211;date='2000-01-01 UTC' +%s
+date -date='2000-01-01 UTC' +%s
   
 946684800
   

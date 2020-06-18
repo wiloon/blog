@@ -251,11 +251,11 @@ alter table table1 add id int unsigned not Null auto_increment primary key
 
 4.2.修改某个表的字段类型及指定为空或非空
 
-&#8211;alter table 表名称 change 字段名称 字段名称 字段类型 [是否允许非空];
+-alter table 表名称 change 字段名称 字段名称 字段类型 [是否允许非空];
 
 alter table tbl_user change password password varchar(256)
 
-&#8211;alter table 表名称 modify 字段名称 字段类型 [是否允许非空];
+-alter table 表名称 modify 字段名称 字段类型 [是否允许非空];
   
 alter table tbl_user modify deleted char(1) not null;
 
@@ -269,7 +269,7 @@ alter table 表名称 change 字段原名称 字段新名称 字段类型 [是�
 
 导出
 
-mysqldump -uwiloon -pPASSWORD &#8211;default-character-set=utf8 enlab >enlab.sql
+mysqldump -uwiloon -pPASSWORD -default-character-set=utf8 enlab >enlab.sql
   
 导入
 

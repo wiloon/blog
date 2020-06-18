@@ -66,7 +66,7 @@ Redis客户端运行命令：Redis安装目录/redis-cli.exe
   
 redis 4162 0.1 0.0 10676 1420 ? Ss 23:24 0:00 /usr/bin/redis-server /etc/redis/redis.conf
   
-conan 4172 0.0 0.0 11064 924 pts/0 S+ 23:26 0:00 grep &#8211;color=auto redis
+conan 4172 0.0 0.0 11064 924 pts/0 S+ 23:26 0:00 grep -color=auto redis
 
 \# 通过启动命令检查Redis服务器状态
   

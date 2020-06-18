@@ -73,7 +73,7 @@ telnet HOST PORT
 
 telnet 127.0.0.1 11211
 
-Trying 127.0.0.1&#8230;
+Trying 127.0.0.1...
 
 Connected to 127.0.0.1.
 

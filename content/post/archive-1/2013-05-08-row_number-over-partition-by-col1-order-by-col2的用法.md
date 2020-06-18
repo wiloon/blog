@@ -10,7 +10,7 @@ categories:
 ---
 [sql]
 
-ROW_NUMBER() OVER (PARTITION BY COL1 ORDER BY COL2) &#8211;(其中，COL1，COL2可以为多列)
+ROW_NUMBER() OVER (PARTITION BY COL1 ORDER BY COL2) -(其中，COL1，COL2可以为多列)
   
 select xt.id,
   

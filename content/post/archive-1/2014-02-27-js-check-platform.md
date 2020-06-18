@@ -16,7 +16,7 @@ tags:
 
 <script type="text/javascript">
    
-<!&#8211;
+<!-
    
 //平台、设备和操作系统
    
@@ -54,7 +54,7 @@ window.location.href="wapLojin.jsp";
    
 }
    
-&#8211;>
+->
   
 </script>
 

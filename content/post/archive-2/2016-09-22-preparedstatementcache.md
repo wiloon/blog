@@ -38,13 +38,13 @@ sql里用？占位，等待被替换。例如，select * from table1 where user_
 
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
   
-&#8230;.
+....
   
 <property name="poolPreparedStatements" value="true" />
   
 <property name="maxOpenPreparedStatements" value="10" />
   
-&#8230;.
+....
   
 </bean>
   
