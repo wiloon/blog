@@ -16,7 +16,8 @@ https://colobu.com/2016/06/07/simple-golang-tls-examples/
 
 #### server
 
-```golang package main
+```golang
+package main
 
 import (
     "bufio"
@@ -74,7 +75,8 @@ func handleConn(conn net.Conn) {
 
 #### client
 
-```golang package main
+```golang
+package main
 
 import (
     "crypto/tls"

@@ -36,7 +36,8 @@ Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置
   
 Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。AppClassLoader也是用Java写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar文档，它也是Java程序默认的类加载器。
 
-[code lang=java]
+```java
+
   
 public class ClassLoaderX {
       

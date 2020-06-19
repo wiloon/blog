@@ -25,7 +25,8 @@ cap(sl)
 
 ### 清空slice
 
-```golang <br />func SliceClear(s *[]interface{}) {
+```golang
+<br />func SliceClear(s *[]interface{}) {
     *s = append([]interface{}{})
 }
 
@@ -63,7 +64,8 @@ foo:= [5] int {1,2,3,4,5}
 长度为5的数组，起元素值依次为：0，0，1，0，3。由于指定了最大索引4对应的值3，根据初始化的元素个数确定其长度为5
 ```
 
-```golang <br />// 遍历
+```golang
+<br />// 遍历
 for i, sliceV := range v {
     log.Printf("%v %v : %v", k, i, sliceV)
 }

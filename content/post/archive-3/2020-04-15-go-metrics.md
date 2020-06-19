@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```golang import "    influxdb "github.com/vrischmann/go-metrics-influxdb""
+```golang
+import "    influxdb "github.com/vrischmann/go-metrics-influxdb""
     go influxdb.InfluxDB(
         metrics.DefaultRegistry,
         time.Duration(10)*time.Second,

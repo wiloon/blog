@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```golang type worker struct {
+```golang
+type worker struct {
     Func func()
 }
 
@@ -42,7 +43,8 @@ func main() {
 }
 ```
 
-```golang package pool
+```golang
+package pool
 
 type PayloadProcessor func(payload interface{})
 

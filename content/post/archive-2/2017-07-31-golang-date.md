@@ -12,7 +12,8 @@ categories:
 
 先把当前时间格式化成相同格式的字符串,然后使用time的Before, After, Equal 方法即可.
 
-```golang time1 := "2015-03-20 08:50:29"
+```golang
+time1 := "2015-03-20 08:50:29"
     time2 := "2015-03-21 09:04:25"
     //先把时间字符串格式化成相同的时间类型
     t1, err := time.Parse("2006-01-02 15:04:05", time1)
@@ -36,17 +37,20 @@ Mon, 2 Jan 2006 15:04:05 MST
 
 ### unix nano > time
 
-```golang unixnano:=int64(1570603226000000000)
+```golang
+unixnano:=int64(1570603226000000000)
 t:=time.Unix(0,unixnano)
 fmt.Println(t)
 ```
 
 ### 毫秒, get microsecond, mill second
 
-```golang time.Now().UnixNano() / int64(time.Millisecond)
+```golang
+time.Now().UnixNano() / int64(time.Millisecond)
 ```
 
-```golang func main() {
+```golang
+func main() {
     fmt.Printf("时间戳（秒）：%v;\n", time.Now().Unix())
     fmt.Printf("时间戳（纳秒）：%v;\n",time.Now().UnixNano())
     fmt.Printf("时间戳（毫秒）：%v;\n",time.Now().UnixNano() / 1e6)
@@ -56,7 +60,8 @@ fmt.Println(t)
 
 ### days between two dates
 
-```golang func main() {
+```golang
+func main() {
     // The leap year 2016 had 366 days.
     t1 := Date(2016, 1, 1)
     t2 := Date(2017, 1, 1)
@@ -71,11 +76,13 @@ func Date(year, month, day int) time.Time {
 
 ### date > string
 
-```golang // 格式化日期 - RFC3339
+```golang
+// 格式化日期 - RFC3339
 time.Now().Format("2006-01-02T15:04:05Z07:00")
 ```
 
-```golang     format:="2006-01-02 15:04:05"
+```golang
+    format:="2006-01-02 15:04:05"
     fmt.Println(time.Now().Format(format))
 
 // 一天前
@@ -90,13 +97,15 @@ time.Now().Format("2006-01-02T15:04:05Z07:00")
   
 但是在linux环境下，time.Parse()的默认时区是UTC，time.Format()的时区默认是本地, 使用ParseInLocation 解决时区问题
 
-```golang tm2, _ := time.Parse("01/02/2006", "02/08/2015")
+```golang
+tm2, _ := time.Parse("01/02/2006", "02/08/2015")
 localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:02", time.Local)
 ```
 
 ### 时区
 
-```golang  now := time.Now()
+```golang
+ now := time.Now()
     local1, err1 := time.LoadLocation("") //等同于"UTC"
     if err1 != nil {
         fmt.Println(err1)

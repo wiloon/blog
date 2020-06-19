@@ -18,7 +18,8 @@ Go语言中的变量使用方式与C语言接近,但具备更大的灵活性。
 
 Go语言的变量声明方式与C和C++语言有明显的不同。对于纯粹的变量声明,Go语言引入了关键字var,而类型信息放在变量名之后,示例如下:
 
-```golang var v1 int
+```golang
+var v1 int
 var v2 string
 
 var v3 [10] int  // 数组
@@ -36,7 +37,8 @@ var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为
   
 对于声明变量时需要进行初始化的场景,var关键字可以保留,但不再是必要的元素,如下 ：
 
-```golang var v1 int = 10 // 正确的使用方式1
+```golang
+var v1 int = 10 // 正确的使用方式1
 var v2 = 10 // 正确的使用方式2,编译器可以自动推导出v2的类型
 v3 := 10 // 正确的使用方式3,编译器可以自动推导出v3的类型
 ```
@@ -77,7 +79,8 @@ t = i; i = j; j = t;
 
 ## 常量
 
-```golang const (
+```golang
+const (
 c0 = iota // iota被重设为0 // c0 == 0
 c1 = iota // c1 == 1
 c2 = iota // c2 == 2
@@ -170,7 +173,8 @@ c = 1 << iota // c == 4
 
 ### 读环境变量
 
-```golang func main(){
+```golang
+func main(){
     var JAVAHOME string
     JAVAHOME = os.Getenv("JAVA_HOME")
     fmt.Println(JAVAHOME)

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```golang func shellExec(s string) string {
+```golang
+func shellExec(s string) string {
     cmd := exec.Command("/bin/sh", "-c", s)
     var out bytes.Buffer
 

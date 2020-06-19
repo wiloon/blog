@@ -10,7 +10,8 @@ categories:
 ---
 Condition 将 Object 监视器方法（wait、notify 和 notifyAll）分解成截然不同的对象，以便通过将这些对象与任意 Lock 实现组合使用，为每个对象提供多个等待 set （wait-set）。其中，Lock 替代了 synchronized 方法和语句的使用，Condition 替代了 Object 监视器方法的使用。下面将之前写过的一个线程通信的例子替换成用Condition实现(Java线程(三))，代码如下：
 
-[code lang=java]
+```java
+
   
 public class ThreadTest2 {
       
@@ -138,7 +139,8 @@ lock.unlock();
 
 这样看来，Condition和传统的线程通信没什么区别，Condition的强大之处在于它可以为多个线程间建立不同的Condition，下面引入API中的一段代码，加以说明。
 
-[code lang=java]
+```java
+
   
 class BoundedBuffer {
      
@@ -237,7 +239,8 @@ lock.unlock();
 
 ReentrantLock和Condition的使用方式通常是这样的：
 
-[code lang=java]
+```java
+
   
 public static void main(String[] args) {
       

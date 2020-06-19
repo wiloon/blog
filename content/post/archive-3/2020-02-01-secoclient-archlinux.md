@@ -8,6 +8,9 @@ categories:
   - Uncategorized
 
 ---
+### 下载安装包
+http://www.corem.com.cn/index.php/service/tools/secoclient
+
 官方只提供了ubuntu版本，用以下方式可以在archlinux上使用。
 
 ```bash
@@ -32,3 +35,5 @@ export WAYLAND_DISPLAY=wayland-0
 export XDG_RUNTIME_DIR=/run/user/<user id>
 /opt/google/cros-containers/bin/sommelier -X ./SecoClient
 ```
+
+

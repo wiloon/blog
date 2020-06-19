@@ -27,7 +27,8 @@ flag.Parse()
 --id 1
 ```
 
-```golang package main
+```golang
+package main
 import (
 "flag"
 "fmt"

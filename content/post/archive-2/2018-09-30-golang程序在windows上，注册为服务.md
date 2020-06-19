@@ -10,7 +10,8 @@ categories:
 ---
 https://blog.csdn.net/yang8023tao/article/details/53332984
 
-[code lang=java]
+```java
+
   
 package main
 

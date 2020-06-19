@@ -8,7 +8,8 @@ categories:
   - Java
 
 ---
-[code lang=java]
+```java
+
   
 Thread.sleep(3000);
   

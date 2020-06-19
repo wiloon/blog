@@ -14,7 +14,8 @@ Go 语言虽然是静态编译型语言，但是它却拥有脚本化的语法�
 
 ### hello world
 
-```golang package main
+```golang
+package main
 import "fmt"
 func main() {
 fmt.Println("hello world")

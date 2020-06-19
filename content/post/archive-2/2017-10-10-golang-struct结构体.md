@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```golang //定义一个struct
+```golang
+//定义一个struct
 type Student struct {
     id      int
     name    string
