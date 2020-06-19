@@ -12,7 +12,8 @@ tags:
   - MySQL
 
 ---
-<code class="language-sql line-numbers">mysql> select date_format(now(),'%Y-%m-%d');
+```sql
+mysql> select date_format(now(),'%Y-%m-%d');
 mysql> select time_format(now(),'%H-%i-%S');
 
 -- 连接字符串, CONCAT

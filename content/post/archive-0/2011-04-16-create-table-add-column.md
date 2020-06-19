@@ -16,13 +16,15 @@ tags:
 ---
 ### 查看建表语句
 
-<code class="language-sql line-numbers">show create table table0;
+```sql
+show create table table0;
 SHOW CREATE TABLE table0 \G;
 ```
 
 ### 查看版本
 
-<code class="language-sql line-numbers">select version();
+```sql
+select version();
 -- 查看sql_model参数命令：
 
 SELECT @@GLOBAL.sql_mode;
@@ -67,7 +69,8 @@ sudo systemctl start mariadb.service
 mysql -u root -p
 ```
 
-<code class="language-sql line-numbers"># 查 表字段名
+```sql
+# 查 表字段名
 select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name' and table_schema = 'your_db_name';
 
 select COLUMN_KEY,COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where table_name='表名' AND COLUMN_KEY='PRI';

@@ -108,6 +108,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | perl-goo-canvas                       | shutter 的画线插件       |
 | google-chrome-dev     |                                        |
 |intellij-idea-community-edition-jre|idea with jre|
+|telegraf||
 
 
 ### KDE

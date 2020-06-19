@@ -15,7 +15,8 @@ openssl s_client -connect 127.0.0.1:443
 
 set yum repo, /etc/yum.repos.d/nginx.repo
 
-```bash[nginx]
+```bash
+[nginx]
 name=nginx repo
 baseurl=http://nginx.org/packages/centos/7/$basearch/
 gpgcheck=0

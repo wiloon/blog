@@ -319,3 +319,10 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
     复制代码
 
 最后，根据自己的需求，决定是否需要将生成的token存入数据库或者redis，但建议不要存储用户密码等敏感信息。
+
+
+### token刷新
+https://zhuanlan.zhihu.com/p/52300092
+https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh
+https://usthe.com/2018/04/%E7%AD%BE%E5%8F%91%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81token%E8%B6%85%E6%97%B6%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5/
+https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/

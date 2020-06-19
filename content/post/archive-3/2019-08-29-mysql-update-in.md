@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<code class="language-sql line-numbers">EXPLAIN
+```sql
+EXPLAIN
 UPDATE table0 w SET
  w.field0 ='foo'
 WHERE 
@@ -22,7 +23,8 @@ LIMIT 10) AS a  );
 
 ```
 
-<code class="language-sql line-numbers">EXPLAIN
+```sql
+EXPLAIN
 UPDATE table0 w0
 JOIN (SELECT *FROM table0 w1 WHERE w1.field0 IS NULL AND w1.key0=0 LIMIT 10) w2 
 ON w0.key0=w2.key0 AND w0.key1=w2.key1 AND w0.key2=w2.key2 

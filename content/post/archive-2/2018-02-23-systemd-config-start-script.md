@@ -14,7 +14,8 @@ categories:
 vim /usr/lib/systemd/system/foo.service
 ```
 
-```bash[Unit]
+```bash
+[Unit]
 Description=description0
 AssertPathIsDirectory=/mnt/drive_wiloon
 After=docker.service
@@ -62,7 +63,8 @@ WantedBy=multi-user.target
 
 zookeeper
 
-```bash[Unit]
+```bash
+[Unit]
 Description=zookeeper
 After=syslog.target network.target
 

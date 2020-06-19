@@ -1,5 +1,5 @@
 ---
-title: influxdb command, docker
+title: influxdb basic,command, docker
 author: wiloon
 type: post
 date: 2017-08-02T06:50:39+00:00
@@ -37,7 +37,8 @@ drop database db0
 
 ### insert
 
-<code class="language-sql line-numbers">-- float value
+```sql
+-- float value
 INSERT measurement0,tag0=tag_value0 field0=1,field1=field_value1
 -- int value
 INSERT measurement0,tag0=tag_value0 field0=1i,field1=field_value1
@@ -47,12 +48,14 @@ INSERT measurement0,tag0=tag_value0 field0=1,field1=field_value1 157061160000000
 
 ### delete
 
-<code class="language-sql line-numbers">DELETE FROM measurement0 WHERE tag0=tag_value0
+```sql
+DELETE FROM measurement0 WHERE tag0=tag_value0
 ```
 
 ### 导出
 
-<code class="language-sql line-numbers">influx -database 'db0' -execute "select field0,\"field1\" from measurement0 where tag-name0='tag-value0' and time>'2018-05-05 02:00:00' and time<'2018-05-07 11:00:00' order by time tz('Etc/GMT-8')" -format 'csv' -precision 'rfc3339' > xxx.csv
+```sql
+influx -database 'db0' -execute "select field0,\"field1\" from measurement0 where tag-name0='tag-value0' and time>'2018-05-05 02:00:00' and time<'2018-05-07 11:00:00' order by time tz('Etc/GMT-8')" -format 'csv' -precision 'rfc3339' > xxx.csv
 
 # 使用 tz('Etc/GMT-8') 后,过滤条件中的time>'xxx' 填写东8区时间.
 ```
@@ -102,17 +105,20 @@ ALTER  RETENTION POLICY "default" ON db0 DURATION 3h REPLICATION 1 SHARD DURATIO
 
 #### list shard id
 
-<code class="language-sql line-numbers">show shards
+```sql
+show shards
 DROP SHARD <shard_id_number>
 ```
 
 ### measurement
 
-<code class="language-sql line-numbers">show measurements
+```sql
+show measurements
 DROP MEASUREMENT <measurement_name>
 ```
 
-<code class="language-sql line-numbers">select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time>now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq>0
+```sql
+select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time>now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq>0
 ```
 
 ```bash<br /><br /># show tag keys
