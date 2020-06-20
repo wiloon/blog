@@ -11,7 +11,7 @@
             {{ range . -}}
               <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/"> {{ . }} </a>
             {{ end -}}
-          
+          </div>
         {{- end }}
         {{- if .Site.Params.moreMeta }}
           <span class="more-meta"> {{ T "wordCount" .WordCount }} </span>
@@ -21,7 +21,7 @@
           {{ $valueSpan := printf `<span id="busuanzi_value_page_pv"><img src="%s" alt="spinner.svg"/></span>` ("img/spinner.svg" | relURL) -}}
           <span id="busuanzi_container_page_pv" class="more-meta"> {{ printf (T "pagePV") $valueSpan | safeHTML }} </span>
         {{- end }}
-      
+      </div>
     </header>
 
     <!-- TOC -->
@@ -33,7 +33,7 @@
     <!-- Content -->
     <div class="post-content">
       {{ .Content }}
-    
+    </div>
 
     <!-- Copyright -->
     {{- partial "post/copyright.html" . -}}
@@ -47,7 +47,7 @@
           {{ range . -}}
             <a href="{{ "tags" | relLangURL }}/{{ . | urlize }}/">{{ . }}</a>
           {{ end -}}
-        
+        </div>
       {{- end -}}
 
       <!-- Post Pagination -->

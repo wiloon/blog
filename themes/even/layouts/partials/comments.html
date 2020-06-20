@@ -1,7 +1,7 @@
 {{ if and .IsPage (ne .Params.comment false) -}}
   <!-- Disqus -->
   {{- if .Site.DisqusShortname -}}
-    <div id="disqus_thread">
+    <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       // Don't ever inject Disqus on localhost--it creates unwanted
@@ -19,7 +19,7 @@
 
   <!-- changyan -->
   {{- if and .Site.Params.changyanAppid .Site.Params.changyanAppkey -}}
-    <div id="SOHUCS" sid="{{ .RelPermalink }}">
+    <div id="SOHUCS" sid="{{ .RelPermalink }}"></div>
     <script type="text/javascript">
     (function(){
       if (window.location.hostname === 'localhost') return;
@@ -49,12 +49,12 @@
       })(document, 'script');
     </script>
     <noscript>Please enable JavaScript to view the comments powered by <a href="https://livere.com/">LiveRe.</a></noscript>
-    
+    </div>
   {{- end -}}
 
   <!-- gitment -->
   {{- if .Site.Params.gitment.owner -}}
-    <div id="comments-gitment">
+    <div id="comments-gitment"></div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -77,7 +77,7 @@
 
   <!-- gitalk -->
   {{- if .Site.Params.gitalk.owner -}}
-    <div id="gitalk-container">
+    <div id="gitalk-container"></div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -103,10 +103,10 @@
 	  <span id="{{ .RelPermalink | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
 		<span class="post-meta-item-text">文章阅读量 </span>
 		<span class="leancloud-visitors-count">0</span>
-		
+		<p></p>
 	  </span>
     {{- end }}
-  <div id="vcomments">
+  <div id="vcomments"></div>
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script type="text/javascript">

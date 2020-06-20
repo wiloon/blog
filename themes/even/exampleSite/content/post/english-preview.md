@@ -55,17 +55,17 @@ There are a few concepts that you need to understand before creating a theme.
 
 ### Skins
 
-Skins are the files responsible for the look and feel of your site. It's the CSS that controls colors and fonts, it's the Javascript that determines actions and reactions. It's also the rules that Hugo uses to transform your content into the HTML that the site will serve to visitors.
+Skins are the files responsible for the look and feel of your site. It’s the CSS that controls colors and fonts, it’s the Javascript that determines actions and reactions. It’s also the rules that Hugo uses to transform your content into the HTML that the site will serve to visitors.
 
-You have two ways to create a skin. The simplest way is to create it in the ```layouts/``` directory. If you do, then you don't have to worry about configuring Hugo to recognize it. The first place that Hugo will look for rules and files is in the ```layouts/``` directory so it will always find the skin.
+You have two ways to create a skin. The simplest way is to create it in the ```layouts/``` directory. If you do, then you don’t have to worry about configuring Hugo to recognize it. The first place that Hugo will look for rules and files is in the ```layouts/``` directory so it will always find the skin.
 
-Your second choice is to create it in a sub-directory of the ```themes/``` directory. If you do, then you must always tell Hugo where to search for the skin. It's extra work, though, so why bother with it?
+Your second choice is to create it in a sub-directory of the ```themes/``` directory. If you do, then you must always tell Hugo where to search for the skin. It’s extra work, though, so why bother with it?
 
-The difference between creating a skin in ```layouts/``` and creating it in ```themes/``` is very subtle. A skin in ```layouts/``` can't be customized without updating the templates and static files that it is built from. A skin created in ```themes/```, on the other hand, can be and that makes it easier for other people to use it.
+The difference between creating a skin in ```layouts/``` and creating it in ```themes/``` is very subtle. A skin in ```layouts/``` can’t be customized without updating the templates and static files that it is built from. A skin created in ```themes/```, on the other hand, can be and that makes it easier for other people to use it.
 
 The rest of this tutorial will call a skin created in the ```themes/``` directory a theme.
 
-Note that you can use this tutorial to create a skin in the ```layouts/``` directory if you wish to. The main difference will be that you won't need to update the site's configuration file to use a theme.
+Note that you can use this tutorial to create a skin in the ```layouts/``` directory if you wish to. The main difference will be that you won’t need to update the site’s configuration file to use a theme.
 
 ### The Home Page
 
@@ -73,7 +73,7 @@ The home page, or landing page, is the first page that many visitors to a site s
 
 ### Site Configuration File
 
-When Hugo runs, it looks for a configuration file that contains settings that override default values for the entire site. The file can use TOML, YAML, or JSON. I prefer to use TOML for my configuration files. If you prefer to use JSON or YAML, you'll need to translate my examples. You'll also need to change the name of the file since Hugo uses the extension to determine how to process it.
+When Hugo runs, it looks for a configuration file that contains settings that override default values for the entire site. The file can use TOML, YAML, or JSON. I prefer to use TOML for my configuration files. If you prefer to use JSON or YAML, you’ll need to translate my examples. You’ll also need to change the name of the file since Hugo uses the extension to determine how to process it.
 
 Hugo translates Markdown files into HTML. By default, Hugo expects to find Markdown files in your ```content/``` directory and template files in your ```themes/``` directory. It will create HTML files in your ```public/``` directory. You can change this by specifying alternate locations in the configuration file.
 
@@ -83,7 +83,7 @@ Content is stored in text files that contain two sections. The first section is 
 
 #### Front Matter
 
-The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn't use the file's extension to know the format. It looks for markers to signal the type. TOML is surrounded by “`+++`”, YAML by “`---`”, and JSON is enclosed in curly braces. I prefer to use TOML, so you'll need to translate my examples if you prefer YAML or JSON.
+The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn’t use the file’s extension to know the format. It looks for markers to signal the type. TOML is surrounded by “`+++`”, YAML by “`---`”, and JSON is enclosed in curly braces. I prefer to use TOML, so you’ll need to translate my examples if you prefer YAML or JSON.
 
 The information in the front matter is passed into the template before the content is rendered into HTML.
 
@@ -97,9 +97,9 @@ Hugo uses template files to render content into HTML. Template files are a bridg
 
 There are three types of templates: single, list, and partial. Each type takes a bit of content as input and transforms it based on the commands in the template.
 
-Hugo uses its knowledge of the content to find the template file used to render the content. If it can't find a template that is an exact match for the content, it will shift up a level and search from there. It will continue to do so until it finds a matching template or runs out of templates to try. If it can't find a template, it will use the default template for the site.
+Hugo uses its knowledge of the content to find the template file used to render the content. If it can’t find a template that is an exact match for the content, it will shift up a level and search from there. It will continue to do so until it finds a matching template or runs out of templates to try. If it can’t find a template, it will use the default template for the site.
 
-Please note that you can use the front matter to influence Hugo's choice of templates.
+Please note that you can use the front matter to influence Hugo’s choice of templates.
 
 #### Single Template
 
@@ -219,20 +219,20 @@ sitemap.xml
 
 That's a listing of your public/ directory. Hugo didn't create a home page because our site has no content. When there's no index.html file in a directory, the server lists the files in the directory, which is what you should see in your browser.
 
-Let's go back and look at those warnings again.
+Let’s go back and look at those warnings again.
 
 ```
 WARN: 2014/09/29 Unable to locate layout: [index.html _default/list.html _default/single.html]
 WARN: 2014/09/29 Unable to locate layout: [404.html]
 ```
 
-That second warning is easier to explain. We haven't created a template to be used to generate “page not found errors.” The 404 message is a topic for a separate tutorial.
+That second warning is easier to explain. We haven’t created a template to be used to generate “page not found errors.” The 404 message is a topic for a separate tutorial.
 
-Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was “index.html.” That's only used by the home page.
+Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was “index.html.” That’s only used by the home page.
 
 I like that the verbose flag causes Hugo to list the files that it's searching for. For the home page, they are index.html, _default/list.html, and _default/single.html. There are some rules that we'll cover later that explain the names and paths. For now, just remember that Hugo couldn't find a template for the home page and it told you so.
 
-At this point, you've got a working installation and site that we can build upon. All that's left is to add some content and a theme to display it.
+At this point, you've got a working installation and site that we can build upon. All that’s left is to add some content and a theme to display it.
 
 ## Create a New Theme
 
@@ -412,7 +412,7 @@ When you're working on a theme, you will make changes in the theme's directory, 
 5. Glance at your browser window to see changes.
 6. Return to step 4.
 
-I'll throw in one more opinion: never work on a theme on a live site. Always work on a copy of your site. Make changes to your theme, test them, then copy them up to your site. For added safety, use a tool like Git to keep a revision history of your content and your theme. Believe me when I say that it is too easy to lose both your mind and your changes.
+I’ll throw in one more opinion: never work on a theme on a live site. Always work on a copy of your site. Make changes to your theme, test them, then copy them up to your site. For added safety, use a tool like Git to keep a revision history of your content and your theme. Believe me when I say that it is too easy to lose both your mind and your changes.
 
 Check the main Hugo site for information on using Git with Hugo.
 
@@ -495,7 +495,7 @@ $ vi themes/zafta/layouts/index.html
 <!DOCTYPE html> 
 <html> 
 <body> 
-  hugo says hello! 
+  <p>hugo says hello!</p> 
 </body> 
 </html> 
 :wq
@@ -525,7 +525,7 @@ $ cat public/index.html
 <!DOCTYPE html> 
 <html> 
 <body> 
-  hugo says hello! 
+  <p>hugo says hello!</p> 
 </html>
 ```
 
@@ -538,7 +538,7 @@ $ cat public/index.html
 <!DOCTYPE html> 
 <html> 
 <body> 
-  hugo says hello! 
+  <p>hugo says hello!</p> 
 <script>document.write('<script src="http://' 
         + (location.host || 'localhost').split(':')[0] 
     + ':1313/livereload.js?mindelay=10"></' 
@@ -810,7 +810,7 @@ $ cat public/post/first/index.html
 </head>
 <body>
   <h1>first</h1>
-  my first post
+  <p>my first post</p>
 
 </body>
 </html>
@@ -823,7 +823,7 @@ $ cat public/post/second/index.html
 </head>
 <body>
   <h1>second</h1>
-  my second post
+  <p>my second post</p>
 
 </body>
 </html>

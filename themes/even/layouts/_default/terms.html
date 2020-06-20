@@ -12,7 +12,7 @@
         {{- else -}}
           {{ T "categoryCounter" $length }}
         {{- end }}
-      
+      </div>
       <div class="terms-tags">
         {{ range $key, $value := $terms -}}
           <a class="terms-link" href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
@@ -20,8 +20,8 @@
             <span class="terms-count">{{ len $value.Pages }}</span>
           </a>
         {{ end -}}
-      
-    
+      </div>
+    </div>
   {{- else if eq $name "tags" -}}
     <div class="terms">
       <div class="terms-title">
@@ -30,7 +30,7 @@
         {{- else -}}
           {{ T "tagCounter" $length }}
         {{- end }}
-      
+      </div>
       <div class="terms-tags">
         {{- range $key, $value := $terms }}
           <a class="terms-link" href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
@@ -38,7 +38,7 @@
             <span class="terms-count">{{ len $value.Pages }}</span>
           </a>
         {{ end -}}
-      
-    
+      </div>
+    </div>
   {{- end }}
 {{- end }}

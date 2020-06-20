@@ -163,11 +163,11 @@ By `{{</* highlight go-html-template "linenos=table,hl_lines=1 3-7,linenostart=1
 
 {{< highlight go-html-template "linenos=table,hl_lines=1 3-7,linenostart=199" >}}
 <section id="main">
-  
+  <div>
    <h1 id="title">{{ .Title }}</h1>
     {{ range .Data.Pages }}
         {{ .Render "summary"}}
     {{ end }}
-  
+  </div>
 </section>
 {{< / highlight >}}

@@ -8,7 +8,7 @@
       <span class="archive-post-counter">
         {{ T "archiveCounter" (len .Data.Pages) }}
       </span>
-    
+    </div>
   {{- end -}}
 
   {{- range $index, $element := $paginator.Pages -}}
@@ -17,7 +17,7 @@
     {{- if or (eq $index 0) ( ne ($lastElement.Date.Format "2006") $thisYear ) }}
       <div class="collection-title">
         <h2 class="archive-year">{{ $thisYear }}</h2>
-      
+      </div>
     {{- end }}
 
     <div class="archive-post">
@@ -29,7 +29,7 @@
           {{ .Title }}
         </a>
       </span>
-    
+    </div>
   {{- end -}}
 </section>
 <!-- pagination -->
