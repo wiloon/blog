@@ -70,10 +70,10 @@ print handle.communicate()[0]
 
 
 
-<span style="color: #333333; font-family: Arial;">import commands</span>
+<span style="color: #333333; font-family: Arial;">import commands
 
-<span style="color: #333333; font-family: Arial;">stat, content = commands.getstatusoutput( cmd )</span>
+<span style="color: #333333; font-family: Arial;">stat, content = commands.getstatusoutput( cmd )
 
-<span style="color: #333333; font-family: Arial;"># stat is the exit code</span>
+<span style="color: #333333; font-family: Arial;"># stat is the exit code
 
-<span style="color: #333333; font-family: Arial;"># content is the content for printing</span>
+<span style="color: #333333; font-family: Arial;"># content is the content for printing

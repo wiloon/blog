@@ -20,4 +20,3 @@ Invalid partition table
 回国后正常进入syslinux
 
 http://bbs.sjtu.edu.cn/bbscon,board,GNULinux,file,M.1398935226.A.html
-</span>

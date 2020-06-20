@@ -12,11 +12,11 @@ https://bbs.archlinuxcn.org/viewtopic.php?id=424
 
 
 
-<code class="nginx"><span class="title">pacman</span> -S openntpd
+<code class="nginx"><span class="title">pacman -S openntpd
 systemctl start openntpd```
 
 ntpd -s -d
 
-<span class="n">hwclock</span> <span class="o">-</span><span class="n">w</span>
+<span class="n">hwclock <span class="o">-<span class="n">w
 
 <code class="nginx">http://mindonmind.github.io/notes/linux/arch_time.html```

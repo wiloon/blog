@@ -26,7 +26,7 @@ Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分�
 
 标识这个pojo是一个jpa实体
 
-<span style="color: #353833;">Specifies that the class is an entity. This annotation is applied to the entity class.</span>
+<span style="color: #353833;">Specifies that the class is an entity. This annotation is applied to the entity class.
 
 
 
@@ -36,9 +36,9 @@ Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分�
 
 
 
-<pre class="odb_java geshifilter-odb_java"><span class="sy1">@</span><span class="kw11">Column</span>
+<pre class="odb_java geshifilter-odb_java"><span class="sy1">@<span class="kw11">Column
 
-<pre class="odb_java geshifilter-odb_java"><span class="sy1">@</span><span class="kw11">Column</span><span class="br0">(</span>name<span class="sy0">=</span><span class="st0">"DESC"</span>, <span class="kw12">nullable</span><span class="sy0">=</span><span class="kw2">false</span>, <span class="kw12">length</span><span class="sy0">=</span><span class="nu0">512</span><span class="br0">)</span>
+<pre class="odb_java geshifilter-odb_java"><span class="sy1">@<span class="kw11">Column<span class="br0">(name<span class="sy0">=<span class="st0">"DESC", <span class="kw12">nullable<span class="sy0">=<span class="kw2">false, <span class="kw12">length<span class="sy0">=<span class="nu0">512<span class="br0">)
 
 设置字段类型
   
@@ -320,7 +320,7 @@ this.tempValue = value;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 
-<span style="color: #000000;">Single Table</span><br style="color: #000000;" /><span style="color: #000000;">    InheritanceType.SINGLE_TABLE 策略为类的继承体系采用同一个表。表名是基类的名称。例如：</span>
+<span style="color: #000000;">Single Table<br style="color: #000000;" /><span style="color: #000000;">    InheritanceType.SINGLE_TABLE 策略为类的继承体系采用同一个表。表名是基类的名称。例如：
 
 InheritanceType.JOINED策略为类继承体系中的每个类创建不同的表。每个表只包含类中定义的列，因此在load一个子类的时候，JPA实现需要同时查询子类映射的表，以及通过关联查询所有的父类映射的表。PrimaryKeyJoinColumn annotation用来指定子类映射的表如何关联到父类映射的表。它有以下属性：
   
@@ -330,7 +330,7 @@ String referencedColumnName: 父类映射表中用来关联的列名。如果只
   
 String columnDefinition: 数据库中列的数据类型。只有当JPA vendor支持通过metadata创建表的时候，这个属性才被使用。
 
-<span style="color: #000000;">Table Per Class</span><br style="color: #000000;" /><span style="color: #000000;">    InheritanceType.TABLE_PER_CLASS策略为类继承体系中的每个类创建不同的表。和InheritanceType.JOINED策略不同的是，每个表中包含所有的子类和父类中定义的所有列。因此在load一个子类的时候，JPA实现只需要同时查询子类映射的表。</span>
+<span style="color: #000000;">Table Per Class<br style="color: #000000;" /><span style="color: #000000;">    InheritanceType.TABLE_PER_CLASS策略为类继承体系中的每个类创建不同的表。和InheritanceType.JOINED策略不同的是，每个表中包含所有的子类和父类中定义的所有列。因此在load一个子类的时候，JPA实现只需要同时查询子类映射的表。
 
 http://whitesock.iteye.com/blog/173543
 

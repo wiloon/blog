@@ -8,13 +8,13 @@ categories:
   - Uncategorized
 
 ---
-<span>昨天偶然看到网上有人讨论究竟是该用viewstate还是session来保存信息. 忽然觉得有必要去深入的研究一下这两个东东了.</span>
+<span>昨天偶然看到网上有人讨论究竟是该用viewstate还是session来保存信息. 忽然觉得有必要去深入的研究一下这两个东东了.
 
-<span>我们先来看深入分析一下viewstate, 为了分析的相对完整性,先从简单的说起:</span>
+<span>我们先来看深入分析一下viewstate, 为了分析的相对完整性,先从简单的说起:
 
-<span>在asp时代, 大家都知道一个html控件的值,比如input 控件值,当我们把表单提交到服务器后, 页面再刷新回来的时候, input里面的数据已经被清空. 这是因为web的无状态性导致的, 服务端每次把html输出到客户端后就不再于客户端有联系.</span>
+<span>在asp时代, 大家都知道一个html控件的值,比如input 控件值,当我们把表单提交到服务器后, 页面再刷新回来的时候, input里面的数据已经被清空. 这是因为web的无状态性导致的, 服务端每次把html输出到客户端后就不再于客户端有联系.
 
-<span>asp.net巧妙的改变了这一点. 当我们在写一个asp.net表单时, 一旦标明了 form runat=server ,那么,asp.net就会自动在输出时给页面添加一个隐藏域</span>
+<span>asp.net巧妙的改变了这一点. 当我们在写一个asp.net表单时, 一旦标明了 form runat=server ,那么,asp.net就会自动在输出时给页面添加一个隐藏域
 
 
   <input type="hidden" name="__VIEWSTATE" value="">
@@ -24,7 +24,7 @@ categories:
   
 很多人会认为这是加密的信息,其实不是, ms仅仅是给各个控件和页面的状态存入适当的对象里面,然后把该对象序列化, 最后再做一次base64编码,直接赋值给viewstate控件.
 
-说到这,想必你一定想看看这个viewstate里面到底存了哪些东西, 嗯,你是可以写一个base64 to string的转换代码来实现.不过,viewstate是有层次之分的,普通的转换后,你看到的也是很乱的文字. 这里提供了一个专门转换viewstate值的地方 [<span style="text-decoration: underline;"><span style="color: #0000ff;">http://www.wilsondotnet.com/Demos/ViewState.aspx</span></span>][1] . 你可以去将自己的viewstate输入进去,让它给你转化一下,这可是带结构的哦 🙂
+说到这,想必你一定想看看这个viewstate里面到底存了哪些东西, 嗯,你是可以写一个base64 to string的转换代码来实现.不过,viewstate是有层次之分的,普通的转换后,你看到的也是很乱的文字. 这里提供了一个专门转换viewstate值的地方 [<span style="text-decoration: underline;"><span style="color: #0000ff;">http://www.wilsondotnet.com/Demos/ViewState.aspx][1] . 你可以去将自己的viewstate输入进去,让它给你转化一下,这可是带结构的哦 🙂
 
 好, 以上说的这些你可能会觉得: 这与session有什么关系? 这个viewstate不是由asp.net自动去维护吗? 是的, 如果仅仅是保存控件的状态, 你可以感觉不到它与session有什么瓜葛( 呵呵,其实它们就没有瓜葛),不过,接下来,我们看看这种使用方法: 在后台aspx.cs代码里:
 
@@ -48,6 +48,6 @@ categories:
 
 而viewstate加密就更简单了, 只要在machine.config里设置一下machineKey validation="3DES"即可实现用des加密viewstate了.
 
-<span>呵呵,至此,我们对viewstate应该有个很清晰的认识了, 不过,初步研究viewstate, 理解有误之处还望大家多指教 🙂</span>
+<span>呵呵,至此,我们对viewstate应该有个很清晰的认识了, 不过,初步研究viewstate, 理解有误之处还望大家多指教 🙂
 
  [1]: http://www.wilsondotnet.com/Demos/ViewState.aspx ""

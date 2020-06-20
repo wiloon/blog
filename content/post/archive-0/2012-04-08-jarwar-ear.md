@@ -44,7 +44,7 @@ RAR: A Resource Adapter is an archive file format defined in the J2EE Connector 
 
 EJB: Enterprise JavaBeans (EJB) is a managed, server-side component architecture for modular construction of enterprise applications. The EJB specification is one of several Java APIs in the Java EE. EJB is a server-side model that encapsulates the business logic of an application.
   
-<span style="text-decoration: underline;">JavaBean</span>: JavaBeans are reusable software components for Java that can be manipulated visually in a builder tool. Practically, they are classes written in the Java programming language conforming to a particular convention. They are used to encapsulate many objects into a single object (the bean), so that they can be passed around as a single bean object instead of as multiple individual objects. A JavaBean is a Java Object that is serializable, has a nullary constructor, and allows access to properties using getter and setter methods.
+<span style="text-decoration: underline;">JavaBean: JavaBeans are reusable software components for Java that can be manipulated visually in a builder tool. Practically, they are classes written in the Java programming language conforming to a particular convention. They are used to encapsulate many objects into a single object (the bean), so that they can be passed around as a single bean object instead of as multiple individual objects. A JavaBean is a Java Object that is serializable, has a nullary constructor, and allows access to properties using getter and setter methods.
   
 Metadata: Metadata is a means to describe the data files.It provides information about a certain item's content, such as: means of creation, purpose of the data, time and date of creation, creator or author of data, placement on a network (electronic form) where the data was created, what standards used (ISO9000), etc.
 
@@ -138,22 +138,22 @@ No wonder, the java community loves ANT.
 
 
 
-<span style="font-family: Calibri;">一、java</span>的打包<span style="font-family: Calibri;">jar,war,ear</span>包的作用，区别，打包方式<span style="font-family: Calibri;">.</span>
+<span style="font-family: Calibri;">一、java的打包<span style="font-family: Calibri;">jar,war,ear包的作用，区别，打包方式<span style="font-family: Calibri;">.
 
-<span style="font-family: Calibri;">a)</span>         作用与区别
+<span style="font-family: Calibri;">a)         作用与区别
 
-  1.                          <span style="font-family: Calibri;">i.</span>              <span style="font-family: Calibri;">jar: </span>通常是开发时要引用通用<span style="font-family: Calibri;">(JAVA)</span>类，打成包便于存放管理
-  2.                        <span style="font-family: Calibri;">ii.</span>              <span style="font-family: Calibri;">war: </span>是做好一个<span style="font-family: Calibri;">(web)</span>应用后，通常是网站，打成包部署到容器中
-  3.                       <span style="font-family: Calibri;">iii.</span>              <span style="font-family: Calibri;">ear: </span>企业级应用，实际上<span style="font-family: Calibri;">EAR</span>包中包含<span style="font-family: Calibri;">WAR</span>包和几个企业级项目的配置文件而已，一般服务器选择<span style="font-family: Calibri;">WebSphere</span>等，都会使用<span style="font-family: Calibri;">EAR</span>包。通常是<span style="font-family: Calibri;">EJB</span>打成<span style="font-family: Calibri;">ear</span>包。
+  1.                          <span style="font-family: Calibri;">i.              <span style="font-family: Calibri;">jar: 通常是开发时要引用通用<span style="font-family: Calibri;">(JAVA)类，打成包便于存放管理
+  2.                        <span style="font-family: Calibri;">ii.              <span style="font-family: Calibri;">war: 是做好一个<span style="font-family: Calibri;">(web)应用后，通常是网站，打成包部署到容器中
+  3.                       <span style="font-family: Calibri;">iii.              <span style="font-family: Calibri;">ear: 企业级应用，实际上<span style="font-family: Calibri;">EAR包中包含<span style="font-family: Calibri;">WAR包和几个企业级项目的配置文件而已，一般服务器选择<span style="font-family: Calibri;">WebSphere等，都会使用<span style="font-family: Calibri;">EAR包。通常是<span style="font-family: Calibri;">EJB打成<span style="font-family: Calibri;">ear包。
 
-<span style="font-family: Calibri;">b)</span>         打包方式
+<span style="font-family: Calibri;">b)         打包方式
 
-  1.                          <span style="font-family: Calibri;">i.</span>              所有的包都是用<span style="font-family: Calibri;">jar</span>打的，只不过目标文件的扩展名不一样
-  2.                        <span style="font-family: Calibri;">ii.</span>              也可以用<span style="font-family: Calibri;">Ant</span>来安成构建
+  1.                          <span style="font-family: Calibri;">i.              所有的包都是用<span style="font-family: Calibri;">jar打的，只不过目标文件的扩展名不一样
+  2.                        <span style="font-family: Calibri;">ii.              也可以用<span style="font-family: Calibri;">Ant来安成构建
 
-<span style="font-family: Calibri;">c)</span>         JET编译成EXE
+<span style="font-family: Calibri;">c)         JET编译成EXE
 
-  1.                          <span style="font-family: Calibri;">i.</span>              <span style="font-family: Calibri;">JET   </span>是要用钱买的，而且据说<span style="font-family: Calibri;">   JET   </span>也不是能把所有的<span style="font-family: Calibri;">   Java   </span>程序都编译成执行文件，性能也要打些折扣。所以，使用制作可执行<span style="font-family: Calibri;">   JAR   </span>文件包的方法就是最佳选择了，何况它还能保持<span style="font-family: Calibri;">   Java   </span>的跨平台特性。
+  1.                          <span style="font-family: Calibri;">i.              <span style="font-family: Calibri;">JET   是要用钱买的，而且据说<span style="font-family: Calibri;">   JET   也不是能把所有的<span style="font-family: Calibri;">   Java   程序都编译成执行文件，性能也要打些折扣。所以，使用制作可执行<span style="font-family: Calibri;">   JAR   文件包的方法就是最佳选择了，何况它还能保持<span style="font-family: Calibri;">   Java   的跨平台特性。
 
 二、实例
 

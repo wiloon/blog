@@ -12,12 +12,12 @@ categories:
   - DataBase
 
 ---
-# <span class="Apple-style-span" style="font-family: Verdana; font-size: 13px; font-weight: normal;">　一、</span>
+# <span class="Apple-style-span" style="font-family: Verdana; font-size: 13px; font-weight: normal;">　一、
 
 
   <div id="cnblogs_post_body">
     
-      <span style="font-family: Verdana;">1.delete产生rollback，如果删除大数据量的表速度会很慢，同时会占用很多的rollback segments .truncate 是DDL操作，不产生rollback，速度快一些.</span>
+      <span style="font-family: Verdana;">1.delete产生rollback，如果删除大数据量的表速度会很慢，同时会占用很多的rollback segments .truncate 是DDL操作，不产生rollback，速度快一些.
     
     
     
@@ -58,7 +58,7 @@ categories:
     
     
       <span style="font-family: Verdana;">二、 truncate是DDL語言.
- delete是DML語言</span>
+ delete是DML語言
     
     
     
@@ -71,7 +71,7 @@ categories:
     
     
     
-      <span style="font-family: Verdana;">三、 truncate 会把 highwatermark 回归至 0 ... 当下一次再插入新资料时就会快一些啦。</span>
+      <span style="font-family: Verdana;">三、 truncate 会把 highwatermark 回归至 0 ... 当下一次再插入新资料时就会快一些啦。
     
     
     
@@ -79,12 +79,12 @@ categories:
     
     
     
-      <span style="font-family: Verdana;">四、</span>
+      <span style="font-family: Verdana;">四、
     
     
     
       <span style="font-family: Verdana;">当你不再需要该表时， 用 drop;
  当你仍要保留该表，但要删除所有记录时， 用 truncate;
- 当你要删除部分记录时（always with a WHERE clause), 用 delete.</span>
+ 当你要删除部分记录时（always with a WHERE clause), 用 delete.
     
   

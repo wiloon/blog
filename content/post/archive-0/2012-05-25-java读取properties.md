@@ -124,28 +124,28 @@ load resouorces as utf8
 
 [java]
   
-<pre class="lang-java prettyprint prettyprinted"><code><span class="typ">Properties</span><span class="pln"> properties </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Properties</span><span class="pun">();</span>
+<pre class="lang-java prettyprint prettyprinted"><code><span class="typ">Properties<span class="pln"> properties <span class="pun">= <span class="kwd">new <span class="typ">Properties<span class="pun">();
   
-<span class="typ">InputStream</span><span class="pln"> inputStream </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">FileInputStream</span><span class="pun">(</span><span class="str">"path/to/file"</span><span class="pun">);</span>
+<span class="typ">InputStream<span class="pln"> inputStream <span class="pun">= <span class="kwd">new <span class="typ">FileInputStream<span class="pun">(<span class="str">"path/to/file"<span class="pun">);
   
-<span class="kwd">try</span> <span class="pun">{</span>
+<span class="kwd">try <span class="pun">{
       
-<span class="typ">Reader</span><span class="pln"> reader </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">InputStreamReader</span><span class="pun">(</span><span class="pln">inputStream</span><span class="pun">,</span> <span class="str">"UTF-8"</span><span class="pun">);</span>
+<span class="typ">Reader<span class="pln"> reader <span class="pun">= <span class="kwd">new <span class="typ">InputStreamReader<span class="pun">(<span class="pln">inputStream<span class="pun">, <span class="str">"UTF-8"<span class="pun">);
       
-<span class="kwd">try</span> <span class="pun">{</span><span class="pln">
+<span class="kwd">try <span class="pun">{<span class="pln">
           
-properties</span><span class="pun">.</span><span class="pln">load</span><span class="pun">(</span><span class="pln">reader</span><span class="pun">);</span>
+properties<span class="pun">.<span class="pln">load<span class="pun">(<span class="pln">reader<span class="pun">);
       
-<span class="pun">}</span> <span class="kwd">finally</span> <span class="pun">{</span><span class="pln">
+<span class="pun">} <span class="kwd">finally <span class="pun">{<span class="pln">
           
-reader</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+reader<span class="pun">.<span class="pln">close<span class="pun">();
       
-<span class="pun">}</span>
+<span class="pun">}
   
-<span class="pun">}</span> <span class="kwd">finally</span> <span class="pun">{</span><span class="pln">
+<span class="pun">} <span class="kwd">finally <span class="pun">{<span class="pln">
      
-inputStream</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+inputStream<span class="pun">.<span class="pln">close<span class="pun">();
   
-<span class="pun">}</span>```
+<span class="pun">}```
   
 [/java]

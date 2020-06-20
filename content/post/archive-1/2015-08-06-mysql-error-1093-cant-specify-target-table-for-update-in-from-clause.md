@@ -16,10 +16,10 @@ wrap the condition in one more select
 
 
 
-<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">DELETE</span> <span class="kwd">FROM</span><span class="pln"> story_category
-</span><span class="kwd">WHERE</span><span class="pln"> category_id </span><span class="kwd">NOT</span> <span class="kwd">IN</span> <span class="pun">(</span>
-    <span class="kwd">SELECT</span><span class="pln"> cid </span><span class="kwd">FROM</span> <span class="pun">(</span>
-        <span class="kwd">SELECT</span> <span class="kwd">DISTINCT</span><span class="pln"> category</span><span class="pun">.</span><span class="pln">id </span><span class="kwd">AS</span><span class="pln"> cid </span><span class="kwd">FROM</span><span class="pln"> category 
-        </span><span class="kwd">INNER</span> <span class="kwd">JOIN</span><span class="pln"> story_category </span><span class="kwd">ON</span><span class="pln"> category_id</span><span class="pun">=</span><span class="pln">category</span><span class="pun">.</span><span class="pln">id
-    </span><span class="pun">)</span> <span class="kwd">AS</span><span class="pln"> c
-</span><span class="pun">)</span>```
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">DELETE <span class="kwd">FROM<span class="pln"> story_category
+<span class="kwd">WHERE<span class="pln"> category_id <span class="kwd">NOT <span class="kwd">IN <span class="pun">(
+    <span class="kwd">SELECT<span class="pln"> cid <span class="kwd">FROM <span class="pun">(
+        <span class="kwd">SELECT <span class="kwd">DISTINCT<span class="pln"> category<span class="pun">.<span class="pln">id <span class="kwd">AS<span class="pln"> cid <span class="kwd">FROM<span class="pln"> category 
+        <span class="kwd">INNER <span class="kwd">JOIN<span class="pln"> story_category <span class="kwd">ON<span class="pln"> category_id<span class="pun">=<span class="pln">category<span class="pun">.<span class="pln">id
+    <span class="pun">) <span class="kwd">AS<span class="pln"> c
+<span class="pun">)```

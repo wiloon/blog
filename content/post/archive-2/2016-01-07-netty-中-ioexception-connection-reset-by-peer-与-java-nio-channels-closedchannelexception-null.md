@@ -52,7 +52,7 @@ AbstractChannel
         }
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -66,7 +66,7 @@ client
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   
       public static void main(String[] args) throws IOException, InterruptedException {
@@ -89,7 +89,7 @@ client
         });
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -97,7 +97,7 @@ server
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   
   public class SimpleServer {
@@ -139,7 +139,7 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
 }
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -151,7 +151,7 @@ NioEventLoop
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   
   private static void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
@@ -192,7 +192,7 @@ NioEventLoop
     }
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -206,7 +206,7 @@ client 1, 主动关闭 channel
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   
   public class SimpleClient {
@@ -243,7 +243,7 @@ client 1, 主动关闭 channel
 }
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -257,7 +257,7 @@ client 2. 由服务端造成的 ClosedChannelException
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   
   public class SimpleClient {
@@ -287,7 +287,7 @@ client 2. 由服务端造成的 ClosedChannelException
 }
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -295,7 +295,7 @@ client 2. 由服务端造成的 ClosedChannelException
 
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   
   public class SimpleServer {
@@ -319,7 +319,7 @@ client 2. 由服务端造成的 ClosedChannelException
 }
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></span>
+    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 

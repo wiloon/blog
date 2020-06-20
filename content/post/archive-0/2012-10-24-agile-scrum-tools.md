@@ -78,7 +78,7 @@ Mingle后台存储采用数据库方式，目前仅支持mysql和Postgres两种�
 
 **Excel**
 
-我们最初也用过，主要是成员多的情况下，修改时会相互冲突，不好同步。。可以参考我写的这个文章[<span style="color: #000000;">[scrum工具]用excel表格工具实现Scrum</span>][1]
+我们最初也用过，主要是成员多的情况下，修改时会相互冲突，不好同步。。可以参考我写的这个文章[<span style="color: #000000;">[scrum工具]用excel表格工具实现Scrum][1]
 
 **ScrumWiki**
 

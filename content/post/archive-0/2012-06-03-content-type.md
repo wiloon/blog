@@ -53,7 +53,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="text"></a>Text and Text-Related Types</span>
+      <span style="font-size: medium;"><a name="text"></a>Text and Text-Related Types
     </td>
     
     <td>
@@ -215,7 +215,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;">Document <a name="styl"></a>Stylesheet Types</span>
+      <span style="font-size: medium;">Document <a name="styl"></a>Stylesheet Types
     </td>
     
     <td>
@@ -277,7 +277,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="imag"></a>Image Types</span>
+      <span style="font-size: medium;"><a name="imag"></a>Image Types
     </td>
     
     <td>
@@ -841,7 +841,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="audi"></a>Audio/Voice/Music Related Types</span>
+      <span style="font-size: medium;"><a name="audi"></a>Audio/Voice/Music Related Types
     </td>
     
     <td>
@@ -1105,7 +1105,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="vide"></a>Video Types</span>
+      <span style="font-size: medium;"><a name="vide"></a>Video Types
     </td>
     
     <td>
@@ -1254,7 +1254,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="spec"></a>Special HTTP/Web Application Types</span>
+      <span style="font-size: medium;"><a name="spec"></a>Special HTTP/Web Application Types
     </td>
     
     <td>
@@ -1397,7 +1397,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;">Application Types</span>
+      <span style="font-size: medium;">Application Types
     </td>
     
     <td>
@@ -3120,7 +3120,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="mult"></a>Multipart Types (mostly email)</span>
+      <span style="font-size: medium;"><a name="mult"></a>Multipart Types (mostly email)
     </td>
     
     <td>
@@ -3325,7 +3325,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="mesg"></a>Message Types (mostly email)</span>
+      <span style="font-size: medium;"><a name="mesg"></a>Message Types (mostly email)
     </td>
     
     <td>
@@ -3434,7 +3434,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="vrml"></a>2D/3D Data/Virtual Reality Types</span>
+      <span style="font-size: medium;"><a name="vrml"></a>2D/3D Data/Virtual Reality Types
     </td>
     
     <td>
@@ -3565,7 +3565,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;"><a name="math"></a>Scientific/Math/CAD Types</span>
+      <span style="font-size: medium;"><a name="math"></a>Scientific/Math/CAD Types
     </td>
     
     <td>
@@ -3695,7 +3695,7 @@ http://www.utoronto.ca/webdocs/HTMLdocs/Book/Book-3ed/appb/mimetype.html
   
   <tr>
     <td>
-      <span style="font-size: medium;">Largely Platform-Specific Types</span>
+      <span style="font-size: medium;">Largely Platform-Specific Types
     </td>
     
     <td>

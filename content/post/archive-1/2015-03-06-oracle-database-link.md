@@ -66,15 +66,15 @@ DROP [PUBLIC] DATABASE LINK zrhs_link
 
 一般情况下引用数据库链接，可以直接将其放到调用的表名或视图名称后面，中间使用一个 @ 作为分割符：
 
-SELECT * FROM [<span style="color: #800080;">worker@zrhs_link</span>][1];
+SELECT * FROM [<span style="color: #800080;">worker@zrhs_link][1];
 
 对于经常使用的数据库链接，可以建立一个本地的同义词，方便使用：
 
-CREATE SYNONYM worker_syn FOR [<span style="color: #800080;">worker@zrhs_link</span>][1];
+CREATE SYNONYM worker_syn FOR [<span style="color: #800080;">worker@zrhs_link][1];
 
 还可以建立一个本地的远程视图，方便使用：
 
-CREATE VIEW worker AS SELECT * FROM [<span style="color: #800080;">worker@zrhs_link</span>][1] where… ;
+CREATE VIEW worker AS SELECT * FROM [<span style="color: #800080;">worker@zrhs_link][1] where… ;
 
 现在本视图可与本地数据库中的任何其它视图一样对待，也可以授权给其它用户，访问此视图，但该用户必须有访问数据库链接的权限。
 
@@ -126,7 +126,7 @@ sql>select * from 表名@ora9i.us.oracle.com;
 
 SQL>select owner,object\_name from dba\_objects where object_type='DATABASE LINK';
 
-<span style="font-family: Verdana;">http://hi.baidu.com/mataoxf/blog/item/86e2be51db2a538e8d54306a.html</span>
+<span style="font-family: Verdana;">http://hi.baidu.com/mataoxf/blog/item/86e2be51db2a538e8d54306a.html
 
 http://www.cnblogs.com/xinyuxin912/archive/2008/01/09/1032261.html
 

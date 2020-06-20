@@ -32,13 +32,13 @@ categories:
 <table>
   <tr>
     <td class="gutter">
-      <span class="line">1</span>
+      <span class="line">1
     </td>
     
     <td class="code">
       <span class="line">sudo mkdir /usr/share/fonts/truetype/yahei
 sudo cp yahei.ttf  /usr/share/fonts/truetype/yahei
-fc-cache -f -v</span>
+fc-cache -f -v
     </td>
   </tr>
 </table></figure> 

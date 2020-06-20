@@ -232,7 +232,7 @@ Xml代码
 
 <span style="font-size: small;">-launcher.XXMaxPermSize
 
-256M</span>
+256M
 
 修改为128
 
@@ -250,7 +250,7 @@ Xml代码
 
 <span style="font-size: small;">-vm
 
-D:Javajdk1.6.0_29binjavaw.exe</span>
+D:Javajdk1.6.0_29binjavaw.exe
 
 注意：这个参数的放置位置，我放在文件最下面时还是不行，放在-vmargs参数上面就可以了。
 

@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<span style="color: #ff0000;"> ServletContext context = getServletContext();</span>
+<span style="color: #ff0000;"> ServletContext context = getServletContext();
 
-<span style="color: #ff0000;"> context.setAttribute("attrName", "attrValue");</span>
+<span style="color: #ff0000;"> context.setAttribute("attrName", "attrValue");
 
 [java]
 

@@ -10,32 +10,32 @@ categories:
 ---
 <div class="cnblogs_code" style="color: #000000;">
   <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-<span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">package</span>="com.example.android.apis"> 
-<span style="color: #008080;"> 3</span> 
-<span style="color: #008080;"> 4</span> 
-<span style="color: #008080;"> 5</span> <activity android:name="<span style="color: #ff0000;">ApiDemos</span>"> 
-<span style="color: #008080;"> 6</span>             <intent-filter> 
-<span style="color: #008080;"> 7</span>                 <action android:name="android.intent.action.MAIN" /> 
-<span style="color: #008080;"> 8</span>                 <category android:name="android.intent.category.DEFAULT" /> 
-<span style="color: #008080;"> 9</span>                 <category android:name="android.intent.category.LAUNCHER" /> 
-<span style="color: #008080;">10</span>             </intent-filter> 
-<span style="color: #008080;">11</span> </activity> 
-<span style="color: #008080;">12</span> 
-<span style="color: #008080;">13</span> 
-<span style="color: #008080;">14</span> <activity android:name="<span style="color: #ff0000;">.app.HelloWorld</span>" android:label="@string/activity_hello_world"> 
-<span style="color: #008080;">15</span>             <intent-filter> 
-<span style="color: #008080;">16</span>                 <action android:name="android.intent.action.MAIN" /> 
-<span style="color: #008080;">17</span>                 <category android:name="android.intent.category.SAMPLE_CODE" /> 
-<span style="color: #008080;">18</span>             </intent-filter> 
-<span style="color: #008080;">19</span> </activity>
+<span style="color: #008080;"> 2     <span style="color: #0000ff;">package="com.example.android.apis"> 
+<span style="color: #008080;"> 3 
+<span style="color: #008080;"> 4 
+<span style="color: #008080;"> 5 <activity android:name="<span style="color: #ff0000;">ApiDemos"> 
+<span style="color: #008080;"> 6             <intent-filter> 
+<span style="color: #008080;"> 7                 <action android:name="android.intent.action.MAIN" /> 
+<span style="color: #008080;"> 8                 <category android:name="android.intent.category.DEFAULT" /> 
+<span style="color: #008080;"> 9                 <category android:name="android.intent.category.LAUNCHER" /> 
+<span style="color: #008080;">10             </intent-filter> 
+<span style="color: #008080;">11 </activity> 
+<span style="color: #008080;">12 
+<span style="color: #008080;">13 
+<span style="color: #008080;">14 <activity android:name="<span style="color: #ff0000;">.app.HelloWorld" android:label="@string/activity_hello_world"> 
+<span style="color: #008080;">15             <intent-filter> 
+<span style="color: #008080;">16                 <action android:name="android.intent.action.MAIN" /> 
+<span style="color: #008080;">17                 <category android:name="android.intent.category.SAMPLE_CODE" /> 
+<span style="color: #008080;">18             </intent-filter> 
+<span style="color: #008080;">19 </activity>
   
   <div class="cnblogs_code_toolbar">
-    <span class="cnblogs_code_copy"><a style="color: #4371a6;" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a></span>
+    <span class="cnblogs_code_copy"><a style="color: #4371a6;" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
   
 
 
 <p style="color: #4b4b4b;">
-  　　activity 组件的 android:name 属性采用类名的简写方式，查看文档类名的简写格式为<span style="color: #ff0000;"> ".ClassName"</span>, 但为什么<activity android:name="ApiDemos">里的android:anem="ApiDemos"，而不是android:anem=".ApiDemos"呢？ 而后面的所有Activity组件的android:name的值都是".ClassName"格式呢？google查询android:name属性值的说明，但未查到有类名前不加 "." 的说明!
+  　　activity 组件的 android:name 属性采用类名的简写方式，查看文档类名的简写格式为<span style="color: #ff0000;"> ".ClassName", 但为什么<activity android:name="ApiDemos">里的android:anem="ApiDemos"，而不是android:anem=".ApiDemos"呢？ 而后面的所有Activity组件的android:name的值都是".ClassName"格式呢？google查询android:name属性值的说明，但未查到有类名前不加 "." 的说明!
 
 
 <p style="color: #4b4b4b;">

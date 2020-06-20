@@ -137,7 +137,7 @@ fmt.Print(e.Value) //输出l2的值,460123
       
 fmt.Println("")
       
-<span style="color:#FF0000;">l.Init() //清空l</span>
+<span style="color:#FF0000;">l.Init() //清空l
       
 fmt.Print(l.Len()) //0
       

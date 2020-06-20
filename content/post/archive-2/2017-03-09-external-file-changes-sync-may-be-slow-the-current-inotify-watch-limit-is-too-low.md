@@ -15,7 +15,7 @@ To fix the warning about **fs.inotify.max\_user\_watches** the IntelliJ shows, i
 Here are the commands necessary to fix the issue on ArchLinux:
 
 <div class="language-shell highlighter-rouge">
-  <pre class="highlight"><code>sudo <span class="nb">echo</span> <span class="s1">'fs.inotify.max_user_watches = 524288'</span> >>/usr/lib/sysctl.d/50-default.conf
+  <pre class="highlight"><code>sudo <span class="nb">echo <span class="s1">'fs.inotify.max_user_watches = 524288' >>/usr/lib/sysctl.d/50-default.conf
 sudo sysctl -p --system
 ```
 

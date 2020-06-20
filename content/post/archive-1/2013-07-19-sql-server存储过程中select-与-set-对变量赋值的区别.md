@@ -58,7 +58,7 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
     </td>
     
     <td>
-      <span style="color: #ff0000;">将返回的最后一个值赋给变量</span>
+      <span style="color: #ff0000;">将返回的最后一个值赋给变量
     </td>
   </tr>
   
@@ -72,7 +72,7 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
     </td>
     
     <td>
-      <span style="color: #ff0000;">变量保持原值</span>
+      <span style="color: #ff0000;">变量保持原值
     </td>
   </tr>
 </table>

@@ -52,7 +52,7 @@ href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
   
 Thymeleaf模板引擎在进行模板渲染时，还会附带一个Context存放进行模板渲染的变量，在模板中定义的表达式本质上就是从Context中获取对应的变量的值：
 
-Today is: <span th:text="${today}">13 february 2011</span>.
+Today is: <span th:text="${today}">13 february 2011.
 
 假设today的值为2015年8月14日，那么渲染结果为：Today is: 2015年8月14日.。可见Thymeleaf的基本变量和JSP一样，都使用${.}表示获取变量的值。
 

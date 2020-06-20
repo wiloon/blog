@@ -61,7 +61,7 @@ libvirt是目前使用最为广泛的对KVM虚拟机进行管理的工具和API�
 
 **libvirt，virt-manager,virsh**:由于qemu-kvm的效率及通用性问题，有组织开发了libvirt用于虚拟机的管理，带有一套基于文本的虚拟机的管理工具-virsh，以及一套用户渴望的图形界面管理工具-virt-manager。libvirt是用python语言写的通用的API，不仅可以管理KVM，也可用于管理XEN
 
-### <span class="Apple-style-span" style="font-size: 13px; font-weight: normal;">内核版本是 2.6.22 或更新版本内建KVM模块，可以使用下面命令来检查你的内核版本是否支持KVM :</span>
+### <span class="Apple-style-span" style="font-size: 13px; font-weight: normal;">内核版本是 2.6.22 或更新版本内建KVM模块，可以使用下面命令来检查你的内核版本是否支持KVM :
 
 modprobe -l kvm*
 

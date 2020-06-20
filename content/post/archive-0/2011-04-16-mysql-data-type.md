@@ -66,7 +66,7 @@ bug不常见，笔者碰到过一次，分享如下：
 
 从库show slave status\G，behind\_master\_pos在60000和0之间循环，每两秒一次；
 
-**<span lang="EN-US">2</span>， <span lang="EN-US">mysql</span>中<span lang="EN-US">myisam</span>与<span lang="EN-US">innodb</span>的区别，至少<span lang="EN-US">5</span>点。**
+**<span lang="EN-US">2， <span lang="EN-US">mysql中<span lang="EN-US">myisam与<span lang="EN-US">innodb的区别，至少<span lang="EN-US">5点。**
 
 <p align="left">
   　　（1） 问5点不同
@@ -105,7 +105,7 @@ bug不常见，笔者碰到过一次，分享如下：
 
 
 <p align="left">
-  　　（2）、问各种不同<span lang="EN-US">mysql</span>版本的<span lang="EN-US">2</span>者的改进；
+  　　（2）、问各种不同<span lang="EN-US">mysql版本的<span lang="EN-US">2者的改进；
 
 
 <p align="left">
@@ -141,7 +141,7 @@ bug不常见，笔者碰到过一次，分享如下：
 
 
 <p align="left">
-  　　（<span lang="EN-US">3</span>）<span lang="EN-US">2</span>者的索引的实现方式；
+  　　（<span lang="EN-US">3）<span lang="EN-US">2者的索引的实现方式；
 
 
 <p align="left">
@@ -291,7 +291,7 @@ bug不常见，笔者碰到过一次，分享如下：
 
 
 <p align="left">
-  <span lang="EN-US">6</span>，问了下<span lang="EN-US">mysql</span>数据库<span lang="EN-US">cpu</span>飙升到<span lang="EN-US">500%</span>的话他怎么处理？
+  <span lang="EN-US">6，问了下<span lang="EN-US">mysql数据库<span lang="EN-US">cpu飙升到<span lang="EN-US">500%的话他怎么处理？
 
 
 <p align="left">

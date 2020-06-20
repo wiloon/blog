@@ -62,7 +62,7 @@ fmt.Printf(“%#v\n”, *s) // main.Sample{a:1, str:”hello”}
   
 fmt.Printf(“%T\n”, *s) // main.Sample
   
-fmt.Printf(“%%\n”, s.a) // % %!(EXTRA int=1) <span style=”color:#FF0000;”> 注：暂时还没有明白其用法</span>
+fmt.Printf(“%%\n”, s.a) // % %!(EXTRA int=1) <span style=”color:#FF0000;”> 注：暂时还没有明白其用法
   
 }
 

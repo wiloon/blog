@@ -38,13 +38,13 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
   
 4. 如果既没有指定name，又没有指定type，则自动按照byName方式进行装配；如果没有匹配，则回退为一个原始类型进行匹配，如果匹配则自动装配；
 
-<span style="font-size: small;">@Autowired 与@Resource的区别：</span>
+<span style="font-size: small;">@Autowired 与@Resource的区别：
 
 
 
-<span style="font-size: small;">1、 @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。</span>
+<span style="font-size: small;">1、 @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。
 
-<span style="font-size: small;">2、 @Autowired默认按类型装配（这个注解是属业spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，如：@Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用，如下：</span>
+<span style="font-size: small;">2、 @Autowired默认按类型装配（这个注解是属业spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，如：@Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用，如下：
 
 
   <div id="highlighter_297578">

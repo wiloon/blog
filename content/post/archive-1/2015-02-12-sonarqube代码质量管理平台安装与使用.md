@@ -12,7 +12,7 @@ SonarQube（曾用名Sonar（声纳）<sup id="cite_ref-1" class="reference">[1]
 
 Sonar是一个用于代码质量管理的开源平台，用于管理源代码的质量，可以从七个维度检测代码质量
 
-提供<span class="ilh-all"><span class="ilh-page">重复代码</span></span>、编码标准、单元测试、代码覆盖率、代码复杂度、潜在Bug、注释和软件设计报告
+提供<span class="ilh-all"><span class="ilh-page">重复代码、编码标准、单元测试、代码覆盖率、代码复杂度、潜在Bug、注释和软件设计报告
 
 通过插件形式，可以支持包括java,C#,C/C++,PL/SQL,Cobol,JavaScrip,Groovy等等二十几种编程语言的代码质量管理与检测
 

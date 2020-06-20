@@ -32,7 +32,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | code                  | visual studio code                     |
 | rsibreak              | 番茄钟                                    |
 | libreoffice-fresh     |                                        |
-| ark                   | kde dolphin extract zip...         |
+| ark                   | kde dolphin extract zip,gz         |
 | spectacle             | kde screen shot                        |
 | neofetch              |                                        |
 | wine                  | 需要开启Multilib仓库                         |
@@ -94,7 +94,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | ttf-wps-fonts                         | wps字体|
 | heidisql                              |        |
 | nixnote2-git                          | evernote linux 客户端  |
-| gitkraken                             | git clinet, Free for non-commercial use |
+| gitkraken                             | git GUI clinet, Free for non-commercial use |
 | github-desktop-bin                    | MIT Linense  |
 | heidisql                              | mysql客户端     |
 | jd-gui-bin                            | java反编译      |

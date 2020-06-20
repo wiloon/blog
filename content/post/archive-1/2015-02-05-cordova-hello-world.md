@@ -10,29 +10,29 @@ categories:
 ---
 <pre class="prettyprint"><code><span class="pln">install node.js/npm
 install cordova using npm
-C</span><span class="pun">:\></span><span class="pln">npm install </span><span class="pun">-</span><span class="pln">g cordova
+C<span class="pun">:\><span class="pln">npm install <span class="pun">-<span class="pln">g cordova
 
 create the app
-</span>```
+```
 
-<pre class="prettyprint"><code><span class="pln">cordova create hello com</span><span class="pun">.</span><span class="pln">example</span><span class="pun">.</span><span class="pln">hello </span><span class="typ">HelloWorld</span>```
+<pre class="prettyprint"><code><span class="pln">cordova create hello com<span class="pun">.<span class="pln">example<span class="pun">.<span class="pln">hello <span class="typ">HelloWorld```
 
 <pre class="prettyprint"><code><span class="pln">cd hello
-specify a set of target platforms</span>```
+specify a set of target platforms```
 
 <pre class="prettyprint"><code><span class="pln">cordova platform add android
-</span>```
+```
 
 <pre class="prettyprint"><code><span class="pln">cordova platform add ios
-</span>```
+```
 
-<pre class="prettyprint"><code><span class="pln">cordova platform add wp8</span>```
+<pre class="prettyprint"><code><span class="pln">cordova platform add wp8```
 
-<pre class="prettyprint"><code><span class="pln">cordova platform add windows</span>```
+<pre class="prettyprint"><code><span class="pln">cordova platform add windows```
 
 <pre class="prettyprint"><code><span class="pln">
-</span>```
+```
 
-<pre class="prettyprint"><code><span class="pln"> </span>```
+<pre class="prettyprint"><code><span class="pln"> ```
 
-<pre class="prettyprint"><code><span class="pln"> </span>```
+<pre class="prettyprint"><code><span class="pln"> ```

@@ -130,7 +130,7 @@ categories:
                 }
       </li>
       <li>
-                ctx.setAttribute("numSessions", numSessions);</span>
+                ctx.setAttribute("numSessions", numSessions);
       </li>
       <li>
       </li>

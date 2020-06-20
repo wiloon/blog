@@ -1,5 +1,5 @@
 ---
-title: 'svn: Can't find a temporary directory'
+title: svn: Cannot find a temporary directory
 author: wiloon
 type: post
 date: 2016-04-01T01:03:09+00:00

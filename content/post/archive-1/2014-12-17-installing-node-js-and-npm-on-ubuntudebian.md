@@ -28,7 +28,7 @@ tags:
     <div class="post">
       <div class="body">
         
-          This is just short snippet on how to install Node.js (any version) and <span class="caps">NPM</span> (Node Package Manager) on your Ubuntu/Debian system.
+          This is just short snippet on how to install Node.js (any version) and <span class="caps">NPM (Node Package Manager) on your Ubuntu/Debian system.
         
         
         
@@ -76,11 +76,11 @@ sudo make install
 
         
         
-          Step 3 - Install <span class="caps">NPM</span>
+          Step 3 - Install <span class="caps">NPM
         
         
         
-          Simply run the <span class="caps">NPM</span> install script:
+          Simply run the <span class="caps">NPM install script:
         
         
         <pre class="plaincode">curl https://npmjs.org/install.sh | sudo sh

@@ -13,7 +13,7 @@ http://blog.sina.com.cn/s/blog_4b3c4bfa0100vz7h.html
 最近开发的时候,碰到了这个问题,就是在回到上一页的时候,IE出现了webpage has expired; Firefox会出现一个alert,是否重新提交表单.
 
 
-  <span style="color: #990030;">page A 提交表单给page B, 然后去到page C.  <wbr /> 从page C回到page B的时候, 这个问题就出现了.</span> 
+  <span style="color: #990030;">page A 提交表单给page B, 然后去到page C.  <wbr /> 从page C回到page B的时候, 这个问题就出现了. 
   
   
     于是去查了一些资料,并好好检查了一下我的代码.发现了几个问题,得到一些启发,在这里总结一下.
@@ -51,7 +51,7 @@ http://blog.sina.com.cn/s/blog_4b3c4bfa0100vz7h.html
 
 
 
-  <span style="color: #990030;">Page A 把表单Post给Page B, Page B拿到后Redirect用户去Pace C.在Page C显示结果.</span>
+  <span style="color: #990030;">Page A 把表单Post给Page B, Page B拿到后Redirect用户去Pace C.在Page C显示结果.
 
 
 

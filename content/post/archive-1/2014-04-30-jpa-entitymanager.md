@@ -10,7 +10,7 @@ tags:
   - JPA
 
 ---
-<span style="line-height: 1.5em;">1. 持久化上下文（Persistence Context ）</span>
+<span style="line-height: 1.5em;">1. 持久化上下文（Persistence Context ）
 
 
 

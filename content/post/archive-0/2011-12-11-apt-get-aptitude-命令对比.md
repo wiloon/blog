@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-# <span class="Apple-style-span" style="font-size: 15px;">出自Guoshuang Wiki</span> {#firstHeading}
+# <span class="Apple-style-span" style="font-size: 15px;">出自Guoshuang Wiki {#firstHeading}
 
 [http://wiki.guoshuang.com/Apt-get\_%E5%92%8C\_aptitude_%E5%91%BD%E4%BB%A4%E5%AF%B9%E6%AF%94%E5%8F%82%E8%80%83][1]
 

@@ -8,11 +8,11 @@ categories:
   - Development
 
 ---
-<span style="color: #888888;"> <a href="http://blog.csdn.net/pjeby/article/details/1212592">http://blog.csdn.net/pjeby/article/details/1212592</a></span>
+<span style="color: #888888;"> <a href="http://blog.csdn.net/pjeby/article/details/1212592">http://blog.csdn.net/pjeby/article/details/1212592</a>
 
 <div id="article_content">
   
-    <span style="font-size: medium;">简介</span>
+    <span style="font-size: medium;">简介
  我们将看一下如何用Python编写运行一个传统的“Hello World”程序。通过它，你将学会如何编写、保存和运行Python程序。
   
   
@@ -22,7 +22,7 @@ categories:
   
   
     <span style="font-size: medium;">使用带提示符的解释器
- </span>         在命令行的shell提示符下键入python，启动解释器。现在输入print 'Hello World'，然后按Enter键。你应该可以看到输出的单词Hello World。
+          在命令行的shell提示符下键入python，启动解释器。现在输入print 'Hello World'，然后按Enter键。你应该可以看到输出的单词Hello World。
   
   
   
@@ -54,7 +54,7 @@ categories:
   
     如何退出Python提示符: 如果你使用的是Linux/BSD shell，那么按Ctrl-d退出提示符。如果是在Windows命令行中，则按Ctrl-z再按Enter。
  <span style="font-size: medium;">挑选一个编辑器
- </span>         在我们开始讲述以源文件方式编写Python程序之前，我们需要一个编辑器来写源文件。挑选一个编辑器确实是极其重要的。你挑选一个编辑器就如同你挑选一辆你将购买的轿车一样。一个好的编辑器会帮助你方便地编写Python程序，使你地编程旅程更加舒适，帮助你更加快捷安全地到达目的地（实现目标）。
+          在我们开始讲述以源文件方式编写Python程序之前，我们需要一个编辑器来写源文件。挑选一个编辑器确实是极其重要的。你挑选一个编辑器就如同你挑选一辆你将购买的轿车一样。一个好的编辑器会帮助你方便地编写Python程序，使你地编程旅程更加舒适，帮助你更加快捷安全地到达目的地（实现目标）。
   
   
   
@@ -70,7 +70,7 @@ categories:
   
   
   
-    <span style="font-size: medium;">使用源文件</span>
+    <span style="font-size: medium;">使用源文件
  现在让我们重新开始编程。当你学习一种新的编程语言的时候，你编写运行的第一个程序通常都是“Hello World”程序，这已经成为一种传统了。在你运行“Hello World”程序的时候，它所做的事只是说声：“Hello World”。正如提出“Hello World”程序的Simon Cozens所说：“它是编程之神的传统咒语，可以帮助你更好的学习语言。”
   
   
@@ -113,7 +113,7 @@ categories:
   
   
     <span style="font-size: small;">
- </span>         在你的程序中合理地使用注释以解释一些重要的细节——这将有助于你的程序的读者轻松地理解程序在干什么。记住，这个读者可能就是6个月以后的你！
+          在你的程序中合理地使用注释以解释一些重要的细节——这将有助于你的程序的读者轻松地理解程序在干什么。记住，这个读者可能就是6个月以后的你！
   
   
   
@@ -121,7 +121,7 @@ categories:
   
   
   
-    <span style="font-size: medium;">可执行的Python程序</span>
+    <span style="font-size: medium;">可执行的Python程序
  这部分内容只对Linux/Unix用户适用，不过Windows用户可能也对程序的第一行比较好奇。首先我们需要通过chmod命令，给程序可执行的许可，然后 运行 程序。
   
   
@@ -164,7 +164,7 @@ categories:
   
   
   
-    <span style="font-size: medium;">获取帮助</span>
+    <span style="font-size: medium;">获取帮助
  如果你需要某个Python函数或语句的快速信息帮助，那么你可以使用内建的help功能。尤其在你使用带提示符的命令行的时候，它十分有用。比如，运行help(str)——这会显示str类的帮助。str类用于保存你的程序使用的各种文本（字符串）。类将在后面面向对象编程的章节详细解释。
   
   

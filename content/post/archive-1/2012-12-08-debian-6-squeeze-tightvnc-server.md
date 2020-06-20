@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# <span style="font-size: 13px;">1 安装</span>
+# <span style="font-size: 13px;">1 安装
 
 
   <div id="cnblogs_post_body">

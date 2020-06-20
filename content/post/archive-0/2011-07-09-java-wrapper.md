@@ -195,43 +195,43 @@ false？没错，它就是false，自动装箱时，对于值从-128-127之间�
         
         
         
-          <span style="color: #0000ff;">转换关系：</span>
+          <span style="color: #0000ff;">转换关系：
         
         
         
-          <span style="color: #0000ff;">基本类型-->包装器类</span>
+          <span style="color: #0000ff;">基本类型-->包装器类
  Integer obj=new Integer(145);
         
         
         
-          <span style="color: #0000ff;">包装器类-->基本类型</span>
+          <span style="color: #0000ff;">包装器类-->基本类型
  int num=obj.intValue();
         
         
         
-          <span style="color: #0000ff;">字符串-->包装器类</span>
+          <span style="color: #0000ff;">字符串-->包装器类
  Integer obj=new Integer("-45.36");
         
         
         
-          <span style="color: #0000ff;">包装器类-->字符串包装器类</span>
+          <span style="color: #0000ff;">包装器类-->字符串包装器类
         
         
         
-          <span style="color: #000000;">String str=obj.toString();</span>
+          <span style="color: #000000;">String str=obj.toString();
         
         
         
-          <span style="color: #0000ff;">字符串-->基本类型</span>
+          <span style="color: #0000ff;">字符串-->基本类型
  int num=Integer.parseInt("-45.36");
         
         
         
-          <span style="color: #0000ff;">基本类型-->字符串包装器类</span>
+          <span style="color: #0000ff;">基本类型-->字符串包装器类
         
         
         
-          <span style="color: #000000;">String str=String.valueOf(5);</span>
+          <span style="color: #000000;">String str=String.valueOf(5);
  在一定的场合,运用java包装类来解决问题,能大大提高编程效率.
         
         
