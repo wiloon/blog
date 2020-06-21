@@ -35,6 +35,12 @@ vue --version
 vue create my-app
 vue add vue-next
 yarn run serve
+
+vue add vuetify
+vim tsconfig.json
+"compilerOptions": {
+  "types": ["...", "vuetify"],
+  https://github.com/vuetifyjs/vuetify/issues/5944
 ```
 
 https://www.jianshu.com/p/7de5d4f612d7
