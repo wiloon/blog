@@ -26,6 +26,7 @@ yarn global add @vue/cli-plugin-typescript
 yarn global add @vue/cli-plugin-unit-jest
 yarn global add vue-cli-plugin-vuetify
 yarn add        @vue/cli-plugin-babel
+yarn add @mdi/font -D
 yarn global add lerna
 yarn global add typescript
 
@@ -88,3 +89,8 @@ Pug，Babel (with ES2015 modules)，和 Stylus。
 企业微信
 
 [https://juejin.im/post/5b3475adf265da5977597e27](https://juejin.im/post/5b3475adf265da5977597e27 "https://juejin.im/post/5b3475adf265da5977597e27")
+
+### 取当前页面的url
+- this.$route.path
+- window.location.href
+- this.$route.params

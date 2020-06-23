@@ -46,4 +46,4 @@ if (Sys.opera) document.write('Opera: ' + Sys.opera);
    
 if (Sys.safari) document.write('Safari: ' + Sys.safari);
 
-[/javascript]
+```

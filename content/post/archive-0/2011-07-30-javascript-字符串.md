@@ -16,7 +16,7 @@ categories:
 
 indexOf()
 
-[/javascript]
+```
 
 indexOf用于发现一系列的字符在一个字符串中等位置并告诉你子字符串的起始位置。如果一个字符串中不包含该子字符串则indexOf返回"-1".
   
@@ -80,7 +80,7 @@ stringObject.replace(regexp/substr,replacement)
   
  replace(/&quot;/g,"\"");//g 替换所有
   
-[/javascript]
+```
 
 replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
 

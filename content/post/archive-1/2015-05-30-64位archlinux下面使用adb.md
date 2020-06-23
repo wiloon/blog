@@ -108,7 +108,7 @@ Include = /etc/pacman.d/mirrorlist
   
 再运行adb
 
-$ adb devices
+    adb devices
   
 adb: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
   

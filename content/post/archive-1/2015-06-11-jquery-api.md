@@ -60,6 +60,6 @@ return dog.name;
   
 };
   
-[/javascript]
+```
 
 https://github.com/TooBug/javascript.patterns/blob/master/chapter3.markdown

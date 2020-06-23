@@ -58,7 +58,7 @@ window.location.href="wapLojin.jsp";
   
 </script>
 
-[/javascript]
+```
 
 [javascript]
   
@@ -96,7 +96,7 @@ return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobil
   
 };</code>
   
-[/javascript]
+```
 
 http://blog.csdn.net/yakson/article/details/9390863
 
