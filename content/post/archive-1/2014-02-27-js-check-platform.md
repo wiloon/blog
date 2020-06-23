@@ -12,7 +12,8 @@ tags:
 ---
 
 
-[javascript]
+```
+
 
 <script type="text/javascript">
    
@@ -60,7 +61,8 @@ window.location.href="wapLojin.jsp";
 
 ```
 
-[javascript]
+```
+
   
 <code>var isMobile = {
       

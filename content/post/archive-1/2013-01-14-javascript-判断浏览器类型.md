@@ -8,7 +8,8 @@ categories:
   - Web
 
 ---
-[javascript]
+```
+
 
 var Sys = {};
    

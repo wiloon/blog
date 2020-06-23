@@ -10,7 +10,8 @@ tags:
   - JavaScript
 
 ---
-[javascript]
+```
+
 
 //tag name
   
