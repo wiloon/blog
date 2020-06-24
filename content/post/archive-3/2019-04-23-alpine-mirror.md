@@ -21,3 +21,5 @@ apk update
 apk add busybox-extras
 busybox-extras telnet localhost 6900
 ```
+
+    apk add curl

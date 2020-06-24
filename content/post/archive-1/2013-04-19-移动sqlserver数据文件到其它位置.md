@@ -46,7 +46,7 @@ categories:
         
         <li>
           Now, copy the data files and the log files from the correct location to the new location. 
-            <b>NOTE:</b> If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step.</li> 
+            NOTE: If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step.</li> 
             
             <li>
               Re-attach the database. Point to the files in the new location <ul>

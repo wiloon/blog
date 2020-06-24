@@ -18,15 +18,15 @@ tags:
 
 
 <div style="color: #464646;">
-  <b>classpath 和 classpath* 区别</b>：
+  classpath 和 classpath* 区别：
 
 
 <div style="color: #464646;">
-  <b>classpath：只会到你指定的class路径中查找找文件;</b>
+  classpath：只会到你指定的class路径中查找找文件;
 
 
 <div style="color: #464646;">
-  <b>classpath*：不仅包含class路径，还包括jar文件中(class路径)进行查找.</b>
+  classpath*：不仅包含class路径，还包括jar文件中(class路径)进行查找.
 
 
 <div style="color: #464646;">

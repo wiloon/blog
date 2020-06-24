@@ -16,6 +16,18 @@ tags:
     const regexp = /.*?key0=(.*)$/;
     const match = imageDescription.match(regexp);
     console.log(`value=${match[1]}`);
+
+    function checkPassWord(nubmer)  
+    {  
+        var re =  /^[0-9a-zA-Z]*$/;  //判断字符串是否为数字和字母组合     
+        if (!re.test(nubmer))  
+        {  
+            return false;  
+        }else{  
+        return true;  
+        }  
+    } 
+
 ### 异常处理
     try {
             bomb();
@@ -26,6 +38,9 @@ tags:
 ### 字符串长度
     var str="字符串字节长度为" ;
     alert(str.length);
+
+### indexOf
+    stringObject.indexOf(searchvalue,fromindex)
 
 indexOf用于发现一系列的字符在一个字符串中等位置并告诉你子字符串的起始位置。如果一个字符串中不包含该子字符串则indexOf返回"-1".
   

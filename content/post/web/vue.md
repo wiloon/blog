@@ -43,6 +43,35 @@ vim tsconfig.json
   "types": ["...", "vuetify"],
   https://github.com/vuetifyjs/vuetify/issues/5944
 ```
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Run your unit tests
+```
+yarn test:unit
+```
+
+### Run your end-to-end tests
+```
+yarn test:e2e
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
 
 https://www.jianshu.com/p/7de5d4f612d7
 
