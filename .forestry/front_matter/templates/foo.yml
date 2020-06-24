@@ -24,6 +24,7 @@ fields:
   label: AUTHOR
   default: w1100n
 pages:
+- content/post/amd-cmd.md
 - content/post/dkms.md
 - content/post/etcd.md
 - content/post/github-actions-hugo.md
