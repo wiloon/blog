@@ -1,11 +1,11 @@
 ---
-title: archlinux kde
+title: archlinux kde, config
 author: wiloon
 type: post
 date: 2018-06-11T10:48:46+00:00
 url: /?p=12297
-categories:
-  - Uncategorized
+tags:
+  - kde
 
 ---
 ```bash
@@ -59,3 +59,8 @@ text: Qt.formatDate(timeSource.data["Local"]["DateTime"], "yyyy-MM-dd");
 
 按Ctrl + Alt + L锁定屏幕并立即查看更改。
  ```
+
+ ### kde 配置
+ #### 多显示器
+ Right-click on the background of the second screen -> Add Panel -> Empty Panel 
+ add widgets: task manager

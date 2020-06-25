@@ -24,10 +24,10 @@ tags:
   
   
   
-    返回从 0 到 1 之间的随机 <b>float</b> 值。
+    返回从 0 到 1 之间的随机 float 值。
   
   
-  语法: RAND <b>(</b> [ <i>seed </i>] <b>)</b>
+  语法: RAND ( [ <i>seed </i>] )
   
   <dl>
     <dt>
@@ -35,7 +35,7 @@ tags:
     </dt>
     
     <dd>
-      提供种子值的整数表达式（<b>tinyint</b>、<b>smallint</b> 或 <b>int</b>）。如果未指定 <i>seed</i>，则 Microsoft SQL Server 数据库引擎 随机分配种子值。对于指定的种子值，返回的结果始终相同。
+      提供种子值的整数表达式（tinyint、smallint 或 int）。如果未指定 <i>seed</i>，则 Microsoft SQL Server 数据库引擎 随机分配种子值。对于指定的种子值，返回的结果始终相同。
     </dd>
   </dl>
   
@@ -59,7 +59,7 @@ tags:
     返回按照表的某一行或一组表达式计算出来的校验和值。CHECKSUM 用于生成哈希索引。
   
   
-  语法：CHECKSUM <b>(</b> * | <i>expression </i>[ <b>,</b>...<i>n</i> ] <b>)</b>
+  语法：CHECKSUM ( * | <i>expression </i>[ ,...<i>n</i> ] )
   
   
     *
@@ -100,14 +100,14 @@ tags:
   
   
   
-    创建 <b>uniqueidentifier</b> 类型的唯一值。
+    创建 uniqueidentifier 类型的唯一值。
   
   
   
     语法：
   
   
-  NEWID <b>(</b> <b>)</b>
+  NEWID ( )
   
   
     这个函数总是能返回一个新的GUID号码，它永远不会重复，而且毫无规律

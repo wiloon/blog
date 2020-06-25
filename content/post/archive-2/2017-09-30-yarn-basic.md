@@ -16,7 +16,7 @@ npm install
 yarn install
 
 npm install --save algoliasearch/lite
-yarn add npm algoliasearch/lite 
+yarn add algoliasearch/lite 
 
 npm install --save-dev
 yarn add -dev
@@ -27,6 +27,8 @@ yarn add [package] --dev
 
 ```
 
+### 打印依赖
+    yarn list
 ### Yarn是什么？
 “Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ，正如官方文档中写的，Yarn 是为了弥补 npm 的一些缺陷而出现的。
 

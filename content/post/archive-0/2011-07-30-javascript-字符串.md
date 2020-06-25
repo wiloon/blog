@@ -1,22 +1,46 @@
 ---
-title: javascript 字符串操作
+title: javascript basic
 author: wiloon
 type: post
 date: 2011-07-30T06:20:10+00:00
 url: /?p=381
-views:
-  - 1
-bot_views:
-  - 5
-categories:
-  - Uncategorized
+tags:
+  - javascript
 
 ---
-[javascript]
+### substring
+    stringObject.substring(start,stop)
+### 正则
 
-indexOf()
+    const imageDescription = 'https://www.wiloon.com/?key0=value0';
+    const regexp = /.*?key0=(.*)$/;
+    const match = imageDescription.match(regexp);
+    console.log(`value=${match[1]}`);
 
-[/javascript]
+    function checkPassWord(nubmer)  
+    {  
+        var re =  /^[0-9a-zA-Z]*$/;  //判断字符串是否为数字和字母组合     
+        if (!re.test(nubmer))  
+        {  
+            return false;  
+        }else{  
+        return true;  
+        }  
+    } 
+
+### 异常处理
+    try {
+            bomb();
+        } catch (e) {
+            // Handle all the error things
+        }
+
+### 字符串长度
+    var str="字符串字节长度为" ;
+    alert(str.length);
+
+### indexOf
+    stringObject.indexOf(searchvalue,fromindex)
 
 indexOf用于发现一系列的字符在一个字符串中等位置并告诉你子字符串的起始位置。如果一个字符串中不包含该子字符串则indexOf返回"-1".
   
@@ -70,7 +94,8 @@ have @ signs in them.");
 
 
 
-[javascript]
+```
+
 
 replace()
 
@@ -80,7 +105,7 @@ stringObject.replace(regexp/substr,replacement)
   
  replace(/&quot;/g,"\"");//g 替换所有
   
-[/javascript]
+```
 
 replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
 

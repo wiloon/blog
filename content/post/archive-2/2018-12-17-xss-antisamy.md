@@ -27,7 +27,7 @@ Slashdot不仅仅是目前同类中最酷的网站之一，而且同时也曾是
 Slashdot的安全策略非常严格：用户只能提交下列的html标签：<pre data-language=HTML>
 
 ```xml
-<b>, <u>, <i>, <a>, <blockquote>
+, <u>, <i>, <a>, <blockquote>
 ``` 
 
 并且还不支持CSS.

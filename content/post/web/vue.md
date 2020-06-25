@@ -26,6 +26,7 @@ yarn global add @vue/cli-plugin-typescript
 yarn global add @vue/cli-plugin-unit-jest
 yarn global add vue-cli-plugin-vuetify
 yarn add        @vue/cli-plugin-babel
+yarn add @mdi/font -D
 yarn global add lerna
 yarn global add typescript
 
@@ -41,6 +42,35 @@ vim tsconfig.json
 "compilerOptions": {
   "types": ["...", "vuetify"],
   https://github.com/vuetifyjs/vuetify/issues/5944
+```
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Run your unit tests
+```
+yarn test:unit
+```
+
+### Run your end-to-end tests
+```
+yarn test:e2e
+```
+
+### Lints and fixes files
+```
+yarn lint
 ```
 
 https://www.jianshu.com/p/7de5d4f612d7
@@ -88,3 +118,8 @@ Pug，Babel (with ES2015 modules)，和 Stylus。
 企业微信
 
 [https://juejin.im/post/5b3475adf265da5977597e27](https://juejin.im/post/5b3475adf265da5977597e27 "https://juejin.im/post/5b3475adf265da5977597e27")
+
+### 取当前页面的url
+- this.$route.path
+- window.location.href
+- this.$route.params

@@ -12,7 +12,8 @@ tags:
 ---
 
 
-[javascript]
+```
+
 
 <script type="text/javascript">
    
@@ -58,9 +59,10 @@ window.location.href="wapLojin.jsp";
   
 </script>
 
-[/javascript]
+```
 
-[javascript]
+```
+
   
 <code>var isMobile = {
       
@@ -96,7 +98,7 @@ return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobil
   
 };</code>
   
-[/javascript]
+```
 
 http://blog.csdn.net/yakson/article/details/9390863
 

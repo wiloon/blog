@@ -14,7 +14,8 @@ http://blog.csdn.net/zhangquanok/article/details/13002771
 
 
 
-  [javascript]
+  ```
+
 
 
 
@@ -34,4 +35,4 @@ http://blog.csdn.net/zhangquanok/article/details/13002771
 
 
 
-  [/javascript]
+  ```

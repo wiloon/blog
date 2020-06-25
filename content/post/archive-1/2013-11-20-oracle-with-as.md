@@ -21,7 +21,7 @@ categories:
 
   
     
-      <b>[java][/java]</b> <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
+      [java][/java] <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
       
       
       
@@ -179,7 +179,7 @@ Retuning to our oversimplified example, let's replace the temporary tables with 
 
   
     
-      <b>[java][/java]</b> <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
+      [java][/java] <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
       
       
       

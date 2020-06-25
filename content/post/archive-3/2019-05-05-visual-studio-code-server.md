@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code Server
+title: vscode, Visual Studio Code, Visual Studio Code Server
 author: wiloon
 type: post
 date: 2019-05-05T07:42:04+00:00
@@ -8,6 +8,12 @@ categories:
   - Uncategorized
 
 ---
+### plugin
+#### Markdown All in One
+    ctrl+shift+i - 表格格式化
+#### Settings Sync
+#### Github Markdown Preview
+
 https://github.com/cdr/code-server
 
 ```bash

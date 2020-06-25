@@ -23,7 +23,7 @@ categories:
 #### MTAs的发展历史
 
 
-  <b><span style="text-decoration: underline;"><span style="color: #666666;">Sendmail</b>
+  <span style="text-decoration: underline;"><span style="color: #666666;">Sendmail
  毫无疑问，sendmail是最古老的MTA之一。它比<span style="text-decoration: underline;"><span style="color: #666666;">qmail和<span style="text-decoration: underline;"><span style="color: #666666;">postfix要古老得多。最早它诞生的时候，<span style="text-decoration: underline;"><span style="color: #666666;">Internet还没有被标准化，当时主机之间使用的是UUCP技术来交换邮件。
 
 
@@ -32,7 +32,7 @@ categories:
 
 
 
-  <b>Qmail</b>
+  Qmail
  qmail是新生一代的MTA代表，它以速度快、体积小、易配置安装等特性而著称。作者D. J. Bernstein(djb)是一个数学教授，富有传奇色彩。djb于1995年开发qmail，1996年发布0.70版，并使用了多种当时比较先进的<span style="text-decoration: underline;"><span style="color: #666666;">技术，包括Maildir，与sendmail单个binary不同的模块化设计，权限分离，以及使用了大量由djb编写的配套工具，如daemontools，ucsip-tcp等。
 
 
@@ -41,7 +41,7 @@ categories:
 
 
 
-  <b>Postfix</b>
+  Postfix
  Postfix作者是Wietse Venema，一名著名的安全专家。最早postfix起源于1996年，当时venema 在美国IBM研究中心负责研究更安全的邮件系统，当时称为Vmailer。后因为商标问题于1998年11月正式更名为Postfix
 
 
@@ -60,7 +60,7 @@ categories:
     
     
     
-      <b>sendmail</b>
+      sendmail
  sendmai功能非常强大，很多先进功能在sendmail上都最先有实现。sendmail里的Milter技术是一个非常好的<span style="text-decoration: underline;"><span style="color: #666666;">框架，目前postfix及qmail仍然没有官方发布的方案比milter要好。
     
     
@@ -73,7 +73,7 @@ categories:
     
     
     
-      <b>qmail</b>
+      qmail
  qmail体积非常小巧，source的gz包大概只有260多K，是三大MTA中最小的！模块化设计，避免了sid问题，基本功能齐全。配置相对sendmail而言，简单了很多，而且用户非常广泛。而且补丁和插件非常多，例如著名的vpopmail，netqmail，以及qmail-ldap等。
     
     
@@ -86,7 +86,7 @@ categories:
     
     
     
-      <b>postfix</b>
+      postfix
  postfix如今已经独树一帜，流水线、模块化的设计，兼顾了效率和功能。灵活的配置和扩展，使得配置postfix变得富有趣味。其主要的特点是速度快、稳定，而且配置/功能非常强大，并和sendmail类似，提供了与外部程序对接的API/protocol。尤其是配置部分，可以说是一扫qmail和sendmail的各自缺点。
     
     
@@ -95,7 +95,7 @@ categories:
     
     
     
-      <b>大规模应用例子</b>
+      大规模应用例子
  国内若干个大型emailISP（如163.net/tom.com/163.com及sohu等）过去都使用qmail，后来全部更换成postfix。
     
     
@@ -112,7 +112,7 @@ categories:
     
     
     
-      <b>磁盘I/O</b>
+      磁盘I/O
  从队列文件的读写来看，qmail处理每一封邮件时，都至少需要建立3个文件，mess, intd, info等。而Postfix使用的是单队列文件设计，因此磁盘I/O的开销要比qmail小得多，如果仅仅从这个方面考虑，postfix的队列是qmail的2-4倍那么快。
     
     
@@ -121,7 +121,7 @@ categories:
     
     
     
-      <b>数据同步</b>
+      数据同步
  如果从MTA对待操作系统的文件是否安全写入磁盘的策略来看，qmail和postfix也是不同的。Postfix使用的是随机写，并且需要写入完成并安全同步到磁盘后才算完成。而qmail的写入则是即刻执行的，因此它将等待数据安全写入磁盘后才返回。对于高流量的系统而言，这将导致性能问题。
     
     
@@ -130,7 +130,7 @@ categories:
     
     
     
-      <b>扩充能力</b>
+      扩充能力
  sendmail有着非常好的扩充能力，支持众多的特性，功能可谓豪华。包括频率控制到集群支持应有尽有。而milterAPI则更加使sendmail的灵活性发挥至极，通过milter，用户可以对邮件几乎所有的参数进行控制！但是在存储方面，由于只支持mbox，会有一定的问题。
     
     
@@ -143,7 +143,7 @@ categories:
     
     
     
-      <b>可配置性</b>
+      可配置性
  sendmail 使用m4语法，单一的主配置文件（sendmail.cf）是三个mta中最难使用的，但是如果熟悉使用的话却能实现复杂的功能。
     
     
@@ -160,7 +160,7 @@ categories:
     
     
     
-      <b><span style="text-decoration: underline;"><span style="color: #666666;">数据库支持</b>
+      <span style="text-decoration: underline;"><span style="color: #666666;">数据库支持
  sendmail通过一些插件/补丁，可以支持mysql/pgsql/oracle等，ldap及小型的dbm/cdb等数据存储格式。
     
     
@@ -173,12 +173,12 @@ categories:
     
     
     
-      <b>稳定性/负载能力</b>
+      稳定性/负载能力
  sendmail, qmail, postfix都比较稳定。在高负载下，配置不佳或没有打足够补丁的qmail容易被DOS攻击打跨，而postfix在遇到超过配置的限制时会降低处理能力，但系统依然有一定资源可用。
     
     
     
-      <b>作者介绍</b>
+      作者介绍
  sendmail -<a href="http://www.sendmail.org/~eric/"><span style="color: #8fabbe;">Eric Allman</a>Unix专家、学者
  qmail -<a href="http://cr.yp.to/djb.html"><span style="color: #8fabbe;">DJB</a>数学教授，科学家
  Postfix -<a href="http://www.porcupine.org/wietse/"><span style="color: #8fabbe;">wietse venema</a>安全专家 学者

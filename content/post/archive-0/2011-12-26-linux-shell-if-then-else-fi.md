@@ -420,7 +420,8 @@ fi
 
 示例：
 
-[javascript] view plain copy
+```
+ view plain copy
   
 #!/bin/sh
 
