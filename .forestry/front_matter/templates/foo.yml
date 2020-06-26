@@ -32,6 +32,7 @@ pages:
 - content/post/lerna.md
 - content/post/mustache.md
 - content/post/mysql.md
+- content/post/nginx-config-tls.md
 - content/post/okhttp.md
 - content/post/vim.md
 - content/post/字面量-常量和变量.md
