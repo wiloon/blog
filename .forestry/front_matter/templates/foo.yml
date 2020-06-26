@@ -24,6 +24,7 @@ fields:
   label: AUTHOR
   default: w1100n
 pages:
+- content/post/dns-config.md
 - content/post/github-action.md
 - content/post/github-actions-hugo.md
 - content/post/golang-sync.map.md
