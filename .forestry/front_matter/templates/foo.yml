@@ -24,6 +24,7 @@ fields:
   label: AUTHOR
   default: w1100n
 pages:
+- content/post/chrome-basic.md
 - content/post/dns-config.md
 - content/post/github-action.md
 - content/post/github-actions-hugo.md
