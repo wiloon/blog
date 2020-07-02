@@ -6,11 +6,11 @@ title = "vim宏录制"
 +++
 在编辑某个文件的时候，可能会出现需要对某种特定的操作进行许多次的情况，以编辑下面的文件为例：
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
+\[![复制代码](https://common.cnblogs.com/images/copycode.gif)\](javascript:void(0); "复制代码")
 
     ;=====================================================================================;This is a sample configuration file when upgrading XXX using InstallShield.;Author:        ini_always;Date:          8/24/2011;Last modified: 9/20/2011;Note: Install script does NOT verify whether the configuration file is in a "WELL";format, a WRONG format may lead to installation failure.;If more information is needed, please check the document for details.;=====================================================================================
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
+\[![复制代码](https://common.cnblogs.com/images/copycode.gif)\](javascript:void(0); "复制代码")
 
 这是一个ini类型的配置文件，可以看到每一行的最前面有一个逗号，现在如果需要将每行前面的逗号去掉，怎么办？在第一行行首按x，然后按j，然后按x...这样重复下去？确实，我最开始也是这样的，但如果这个文件有100行要这样修改呢？或者1000行？
 
@@ -31,3 +31,5 @@ title = "vim宏录制"
 这也不简单啊？你肯定会这样想，要删除100行，我还得输入100个@a，我还不如手动删除呢。呵呵，vim早就想到了，输入7@a，好了，剩下的7行全部搞定了。（PS：在命令前面加数字，就是代表要执行这个命令多少次）
 
 当然，这个例子很简单，但也很典型。利用好vim的宏，可以使一些原本很无聊的工作要简单很多。
+
+[https://www.cnblogs.com/ini_always/archive/2011/09/21/2184446.html](https://www.cnblogs.com/ini_always/archive/2011/09/21/2184446.html "https://www.cnblogs.com/ini_always/archive/2011/09/21/2184446.html")
