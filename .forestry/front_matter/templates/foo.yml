@@ -37,5 +37,6 @@ pages:
 - content/post/nginx-config-tls.md
 - content/post/novnc.md
 - content/post/okhttp.md
+- content/post/vim-1.md
 - content/post/vim.md
 - content/post/字面量-常量和变量.md
