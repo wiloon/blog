@@ -75,7 +75,7 @@ yarn config get registry
 
 可以改成 taobao 的源：
 
-yarn config set registry &#8216;https://registry.npm.taobao.org&#8217;
+yarn config set registry "https://registry.npm.taobao.org"
 
 # -> yarn config v0.15.0
 
