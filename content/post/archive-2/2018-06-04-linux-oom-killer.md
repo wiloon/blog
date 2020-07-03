@@ -10,7 +10,7 @@ categories:
 ---
 https://blog.csdn.net/GugeMichael/article/details/24017515
 
-Linux &#8212; 内存控制之oom killer机制及代码分析
+Linux - 内存控制之oom killer机制及代码分析
   
 2014年04月18日 15:04:29
   
@@ -51,7 +51,7 @@ bzero(mm,block);
           
 total += MB;
           
-fprintf(stdout,&#8221;alloc %lum mem\n&#8221;,total);
+fprintf(stdout,"alloc %lum mem\n",total);
       
 }
 
@@ -162,7 +162,7 @@ _\_alloc\_pages\_nodemask分配内存 -> 发现内存不足(或低于low memory)
   
 /**
    
-* out\_of\_memory &#8211; kill the &#8220;best&#8221; process when we run out of memory
+* out\_of\_memory - kill the "best" process when we run out of memory
    
 */
   
@@ -233,7 +233,7 @@ out:
   
 /**
    
-* oom_badness &#8211; heuristic function to determine which candidate task to kill
+* oom_badness - heuristic function to determine which candidate task to kill
    
 *
    

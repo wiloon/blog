@@ -12,8 +12,9 @@ tags:
   - MySQL
 
 ---
-<pre><code class="language-sql line-numbers">mysql&gt; select date_format(now(),'%Y-%m-%d');
-mysql&gt; select time_format(now(),'%H-%i-%S');
+```sql
+mysql> select date_format(now(),'%Y-%m-%d');
+mysql> select time_format(now(),'%H-%i-%S');
 
 -- 连接字符串, CONCAT
 select CONCAT('My', 'S', 'QL');
@@ -22,6 +23,6 @@ select CONCAT('My', 'S', 'QL');
 
 ### Oracle
 
-SQL> select to_char(sysdate,&#8217;yyyy-mm-dd&#8217;) from dual;
+SQL> select to_char(sysdate,'yyyy-mm-dd') from dual;
   
-SQL> select to_char(sysdate,&#8217;hh24-mi-ss&#8217;) from dual;
+SQL> select to_char(sysdate,'hh24-mi-ss') from dual;

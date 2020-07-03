@@ -8,10 +8,10 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 #archlinux
   
-echo fs.inotify.max\_user\_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl &#8211;system
+echo fs.inotify.max\_user\_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl -system
 
-[/code]
+```

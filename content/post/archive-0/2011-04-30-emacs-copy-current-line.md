@@ -12,11 +12,11 @@ categories:
 ---
 ;;copy current line
   
-(global-set-key (kbd &#8220;C-c C-w&#8221;) &#8216;copy-lines)
+(global-set-key (kbd "C-c C-w") 'copy-lines)
   
 (defun copy-lines(&optional arg)
     
-(interactive &#8220;p&#8221;)
+(interactive "p")
     
 (save-excursion
       

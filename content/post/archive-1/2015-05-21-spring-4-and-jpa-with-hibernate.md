@@ -43,100 +43,6 @@ This is the main part of the configuration – and it is done via a Spring facto
 
 ?
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
-  
-33
-  
-34
-  
-35
-  
-36
-  
-37
-  
-38
-  
-39
-  
-40
-  
-41
-  
-42
-  
-43
-  
-44
-  
-45
-  
-46
-  
-47
-  
 @Configuration
   
 @EnableTransactionManagement
@@ -151,7 +57,7 @@ LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFacto
   
 em.setDataSource(dataSource());
   
-em.setPackagesToScan(new String[] { &#8220;org.baeldung.persistence.model&#8221; });
+em.setPackagesToScan(new String[] { "org.baeldung.persistence.model" });
 
 JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
   
@@ -169,13 +75,13 @@ public DataSource dataSource(){
   
 DriverManagerDataSource dataSource = new DriverManagerDataSource();
   
-dataSource.setDriverClassName(&#8220;com.mysql.jdbc.Driver&#8221;);
+dataSource.setDriverClassName("com.mysql.jdbc.Driver");
   
-dataSource.setUrl(&#8220;jdbc:mysql://localhost:3306/spring_jpa&#8221;);
+dataSource.setUrl("jdbc:mysql://localhost:3306/spring_jpa");
   
-dataSource.setUsername( &#8220;tutorialuser&#8221; );
+dataSource.setUsername( "tutorialuser" );
   
-dataSource.setPassword( &#8220;tutorialmy5ql&#8221; );
+dataSource.setPassword( "tutorialmy5ql" );
   
 return dataSource;
   
@@ -205,9 +111,9 @@ Properties additionalProperties() {
   
 Properties properties = new Properties();
   
-properties.setProperty(&#8220;hibernate.hbm2ddl.auto&#8221;, &#8220;create-drop&#8221;);
+properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
   
-properties.setProperty(&#8220;hibernate.dialect&#8221;, &#8220;org.hibernate.dialect.MySQL5Dialect&#8221;);
+properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
   
 return properties;
   
@@ -223,95 +129,15 @@ The same Spring Configuration with XML:
 
 ?
   
-1
+<?xml version="1.0" encoding="UTF-8"?>
   
-2
+<beans xmlns="http://www.springframework.org/schema/beans"
   
-3
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   
-4
+xmlns:tx="http://www.springframework.org/schema/tx"
   
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
-  
-33
-  
-34
-  
-35
-  
-36
-  
-37
-  
-38
-  
-39
-  
-40
-  
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?>
-  
-<beans xmlns=&#8221;http://www.springframework.org/schema/beans&#8221;
-  
-xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
-  
-xmlns:tx=&#8221;http://www.springframework.org/schema/tx&#8221;
-  
-xsi:schemaLocation=&#8221;
+xsi:schemaLocation="
   
 http://www.springframework.org/schema/beans
   
@@ -319,27 +145,27 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
   
 http://www.springframework.org/schema/tx
   
-http://www.springframework.org/schema/tx/spring-tx-3.2.xsd&#8221;>
+http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
-<bean id=&#8221;myEmf&#8221; class=&#8221;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&#8221;>
+<bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
   
-<property name=&#8221;dataSource&#8221; ref=&#8221;dataSource&#8221; />
+<property name="dataSource" ref="dataSource" />
   
-<property name=&#8221;packagesToScan&#8221; value=&#8221;org.baeldung.persistence.model&#8221; />
+<property name="packagesToScan" value="org.baeldung.persistence.model" />
   
-<property name=&#8221;jpaVendorAdapter&#8221;>
+<property name="jpaVendorAdapter">
   
-<bean class=&#8221;org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter&#8221; />
+<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
   
 </property>
   
-<property name=&#8221;jpaProperties&#8221;>
+<property name="jpaProperties">
   
 <props>
   
-<prop key=&#8221;hibernate.hbm2ddl.auto&#8221;>create-drop</prop>
+<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
   
-<prop key=&#8221;hibernate.dialect&#8221;>org.hibernate.dialect.MySQL5Dialect</prop>
+<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
   
 </props>
   
@@ -347,39 +173,39 @@ http://www.springframework.org/schema/tx/spring-tx-3.2.xsd&#8221;>
   
 </bean>
 
-<bean id=&#8221;dataSource&#8221; class=&#8221;org.springframework.jdbc.datasource.DriverManagerDataSource&#8221;>
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
   
-<property name=&#8221;driverClassName&#8221; value=&#8221;com.mysql.jdbc.Driver&#8221; />
+<property name="driverClassName" value="com.mysql.jdbc.Driver" />
   
-<property name=&#8221;url&#8221; value=&#8221;jdbc:mysql://localhost:3306/spring_jpa&#8221; />
+<property name="url" value="jdbc:mysql://localhost:3306/spring_jpa" />
   
-<property name=&#8221;username&#8221; value=&#8221;tutorialuser&#8221; />
+<property name="username" value="tutorialuser" />
   
-<property name=&#8221;password&#8221; value=&#8221;tutorialmy5ql&#8221; />
+<property name="password" value="tutorialmy5ql" />
   
 </bean>
 
-<bean id=&#8221;transactionManager&#8221; class=&#8221;org.springframework.orm.jpa.JpaTransactionManager&#8221;>
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
   
-<property name=&#8221;entityManagerFactory&#8221; ref=&#8221;myEmf&#8221; />
+<property name="entityManagerFactory" ref="myEmf" />
   
 </bean>
   
 <tx:annotation-driven />
 
-<bean id=&#8221;persistenceExceptionTranslationPostProcessor&#8221;
+<bean id="persistenceExceptionTranslationPostProcessor"
   
-class=&#8221;org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor&#8221; />
+class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 </beans>
   
-There is a relatively small difference between the way Spring is configured in XML and the new Java based configuration – in XML, a reference to another bean can point to either the bean or a bean factory for that bean. In Java however, since the types are different, the compiler doesn’t allow it, and so the EntityManagerFactory is first retrieved from it’s bean factory and then passed to the transaction manager:
+There is a relatively small difference between the way Spring is configured in XML and the new Java based configuration – in XML, a reference to another bean can point to either the bean or a bean factory for that bean. In Java however, since the types are different, the compiler doesn't allow it, and so the EntityManagerFactory is first retrieved from it's bean factory and then passed to the transaction manager:
 
 txManager.setEntityManagerFactory( this.entityManagerFactoryBean().getObject() );
 
 4. Going full XML-less
   
-Usually JPA defines a persistence unit through the META-INF/persistence.xml file. Starting with Spring 3.1, the persistence.xml is no longer necessary – theLocalContainerEntityManagerFactoryBean now supports a ‘packagesToScan’ property where the packages to scan for @Entity classes can be specified.
+Usually JPA defines a persistence unit through the META-INF/persistence.xml file. Starting with Spring 3.1, the persistence.xml is no longer necessary – theLocalContainerEntityManagerFactoryBean now supports a 'packagesToScan' property where the packages to scan for @Entity classes can be specified.
 
 This file was the last piece of XML to be removed – now, JPA can be fully set up with no XML.
 
@@ -396,32 +222,6 @@ As a side-note, if Hibernate would be the persistence provider, then this would 
 In addition to Spring Core and persistence dependencies – show in detail in the Spring with Maven tutorial – we also need to define JPA and Hibernate in the project, as well as a MySQL connector:
 
 ?
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
   
 <dependency>
   

@@ -15,7 +15,6 @@ com.mysql.jdbc.Driver
 
 oracle.jdbc.driver.OracleDriver
 
-&nbsp;
 
 jdbc url:
 

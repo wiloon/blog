@@ -11,4 +11,4 @@ categories:
 | Key    | Command      |
 | ------ | ------------ |
 | ctrl+g | line/column  |
-| ctrl+t | Class&#8230; |
+| ctrl+t | Class... |

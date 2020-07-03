@@ -20,45 +20,46 @@ HTML5 不基于 SGML，所以不需要引用 DTD。
 
 <p class="tip">
   添加 <!DOCTYPE> 声明，这样浏览器才能获知文档类型。
-</p>
 
 <p class="tip">
-  <h3>
+  
     HTML Transitional DTD
-  </h3>
   
-  <p>
+  
+  
     Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素。如果您的读者使用了不支持层叠样式表（CSS）的浏览器以至于您不得不使用 HTML 的呈现特性时，请使用此类型：
-  </p>
   
-  <p>
-    [html]<br /> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><br /> [/html]
-  </p>
   
-  <p>
-    html5只有一种DOCTYPE声明
-  </p>
   
-  <p>
     [html]
-  </p>
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ [/html]
   
-  <p>
+  
+  
+    html5只有一种DOCTYPE声明
+  
+  
+  
+    [html]
+  
+  
+  
     <!DOCTYPE html>
-  </p>
   
-  <p>
+  
+  
     [/html]
-  </p>
+  
   
   <p class="note">
     <!DOCTYPE> 声明没有结束标签。
-  </p>
+  
   
   <p class="tip">
     <!DOCTYPE> 声明对大小写不敏感。
-  </p>
   
-  <p>
+  
+  
     http://www.w3school.com.cn/tags/tag_doctype.asp
-  </p>
+  

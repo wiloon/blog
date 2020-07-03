@@ -12,13 +12,12 @@ tags:
 ---
 pathmunge是linux系统redhat系列版本系统变量/etc/profile中的函数，如果想要把某个二进制程序可以在所有的shell不用全路径运行，就需要将其所在的目录放在profile中，用过的命令正是pathmunge （目录命）
 
-&nbsp;
 
 pathmunge{
 
-if ! echo $PATH | /bin/egrep -q &#8220;(^|:)$1($|:)&#8221;;then
+if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)";then
 
-if[&#8220;$2&#8243;=&#8221;after&#8221;];then
+if["$2"="after"];then
 
 PATH=$PATH:$1
 
@@ -34,13 +33,11 @@ export PATH
 
 }
 
-&nbsp;
 
 pathmunge大致的作用是：判断当前系统的PATH中是否有该命令的目录，如果没有，则判断是要将该目录放于PATH之前还是之后
 
-&nbsp;
 
-echo &#8220;PATH&#8221; 输出PATH变量的内容以供egrep查询，
+echo "PATH" 输出PATH变量的内容以供egrep查询，
 
 grep是利用正则表达式来搜索文本的工具，egrep用的是扩展的正则表达式
 
@@ -50,7 +47,6 @@ grep是利用正则表达式来搜索文本的工具，egrep用的是扩展的�
 
 ！表示查找的字符串不在PATH中
 
-&nbsp;
 
 下来两个if很好理解，如果你想把该目录放于整个PATH变量的后边,pathmunge (目录名) after 则PATH=$PATH:$1,否则PATH=$1:PATH
 

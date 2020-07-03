@@ -38,11 +38,11 @@ replace into 跟 insert 功能类似，不同点在于：replace into 首先尝�
 
 MySQL replace into 有三种形式：
 
-1. replace into tbl\_name(col\_name, &#8230;) values(&#8230;)
+1. replace into tbl\_name(col\_name, ...) values(...)
 
-2. replace into tbl\_name(col\_name, &#8230;) select &#8230;
+2. replace into tbl\_name(col\_name, ...) select ...
 
-3. replace into tbl\_name set col\_name=value, &#8230;
+3. replace into tbl\_name set col\_name=value, ...
 
 第一种形式类似于insert into的用法，
 
@@ -72,7 +72,7 @@ b. 再次尝试把新行插入到表中
 
 REPLACE [LOW_PRIORITY | DELAYED]
   
-[INTO] tbl\_name [(col\_name,&#8230;)]
+[INTO] tbl\_name [(col\_name,...)]
   
 VALUES ({expr | DEFAULT},…),(…),…
   
@@ -88,11 +88,11 @@ SET col_name={expr | DEFAULT}, …
 
 REPLACE [LOW_PRIORITY | DELAYED]
   
-[INTO] tbl\_name [(col\_name,&#8230;)]
+[INTO] tbl\_name [(col\_name,...)]
   
 SELECT …
 
-REPLACE INTO \`table\` (\`unique\_column\`,\`num\`) VALUES (&#8216;$unique\_value&#8217;,$num);跟INSERT INTO \`table\` (\`unique\_column\`,\`num\`) VALUES(&#8216;$unique\_value&#8217;,$num) ON DUPLICATE UPDATE num=$num;还是有些区别的，区别就是replace into的时候会删除老记录。如果表中有一个自增的主键。那么就要出问题了。
+REPLACE INTO \`table\` (\`unique\_column\`,\`num\`) VALUES ('$unique\_value',$num);跟INSERT INTO \`table\` (\`unique\_column\`,\`num\`) VALUES('$unique\_value',$num) ON DUPLICATE UPDATE num=$num;还是有些区别的，区别就是replace into的时候会删除老记录。如果表中有一个自增的主键。那么就要出问题了。
 
 首先，因为新纪录与老记录的主键值不同，所以其他表中所有与本表老数据主键id建立的关联全部会被破坏。
   

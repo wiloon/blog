@@ -10,7 +10,6 @@ categories:
 ---
 <http://blog.csdn.net/aomandeshangxiao/article/details/7000077>
 
-&nbsp;
 
 JSON的定义：
 
@@ -34,7 +33,7 @@ android2.3提供的json解析类
 
 android的json解析部分都在包org.json下，主要有以下几个类：
 
-JSONObject：可以看作是一个json对象,这是系统中有关JSON定义的基本单元，其包含一对儿(Key/Value)数值。它对外部(External： 应用toString()方法输出的数值)调用的响应体现为一个标准的字符串（例如：{&#8220;JSON&#8221;: &#8220;Hello, World&#8221;}，最外被大括号包裹，其中的Key和Value被冒号&#8221;:&#8221;分隔）。其对于内部(Internal)行为的操作格式略微，例如：初始化一个JSONObject实例，引用内部的put()方法添加数值：new JSONObject().put(&#8220;JSON&#8221;, &#8220;Hello, World!&#8221;)，在Key和Value之间是以逗号&#8221;,&#8221;分隔。Value的类型包括：Boolean、JSONArray、JSONObject、Number、String或者默认值JSONObject.NULL object 。
+JSONObject：可以看作是一个json对象,这是系统中有关JSON定义的基本单元，其包含一对儿(Key/Value)数值。它对外部(External： 应用toString()方法输出的数值)调用的响应体现为一个标准的字符串（例如：{"JSON": "Hello, World"}，最外被大括号包裹，其中的Key和Value被冒号":"分隔）。其对于内部(Internal)行为的操作格式略微，例如：初始化一个JSONObject实例，引用内部的put()方法添加数值：new JSONObject().put("JSON", "Hello, World!")，在Key和Value之间是以逗号","分隔。Value的类型包括：Boolean、JSONArray、JSONObject、Number、String或者默认值JSONObject.NULL object 。
 
 JSONStringer：json文本构建类 ，根据官方的解释，这个类可以帮助快速和便捷的创建JSON text。其最大的优点在于可以减少由于 格式的错误导致程序异常，引用这个类可以自动严格按照JSON语法规则（syntax rules）创建JSON text。每个JSONStringer实体只能对应创建一个JSON text。。其最大的优点在于可以减少由于格式的错误导致程序异常，引用这个类可以自动严格按照JSON语法规则（syntax rules）创建JSON text。每个JSONStringer实体只能对应创建一个JSON text。
 
@@ -52,15 +51,15 @@ JSONObject, JSONArray来构建json文本
 
 // {
 
-// &#8220;phone&#8221; : [&#8220;12345678&#8221;, &#8220;87654321&#8221;], // 数组
+// "phone" : ["12345678", "87654321"], // 数组
 
-// &#8220;name&#8221; : &#8220;yuanzhifei89&#8221;, // 字符串
+// "name" : "yuanzhifei89", // 字符串
 
-// &#8220;age&#8221; : 100, // 数值
+// "age" : 100, // 数值
 
-// &#8220;address&#8221; : { &#8220;country&#8221; : &#8220;china&#8221;, &#8220;province&#8221; : &#8220;jiangsu&#8221; }, // 对象
+// "address" : { "country" : "china", "province" : "jiangsu" }, // 对象
 
-// &#8220;married&#8221; : false // 布尔值
+// "married" : false // 布尔值
 
 // }
 
@@ -74,25 +73,25 @@ JSONObject person = new JSONObject();
 
 JSONArray phone = new JSONArray();
 
-phone.put(&#8220;12345678&#8221;).put(&#8220;87654321&#8221;);
+phone.put("12345678").put("87654321");
 
-person.put(&#8220;phone&#8221;, phone);
+person.put("phone", phone);
 
-person.put(&#8220;name&#8221;, &#8220;yuanzhifei89&#8221;);
+person.put("name", "yuanzhifei89");
 
-person.put(&#8220;age&#8221;, 100);
+person.put("age", 100);
 
 // 键address的值是对象，所以又要创建一个对象
 
 JSONObject address = new JSONObject();
 
-address.put(&#8220;country&#8221;, &#8220;china&#8221;);
+address.put("country", "china");
 
-address.put(&#8220;province&#8221;, &#8220;jiangsu&#8221;);
+address.put("province", "jiangsu");
 
-person.put(&#8220;address&#8221;, address);
+person.put("address", address);
 
-person.put(&#8220;married&#8221;, false);
+person.put("married", false);
 
 } catch (JSONException ex) {
 
@@ -118,15 +117,15 @@ try {
 
 phone.getLong(0);
 
-person.getLong(&#8220;name&#8221;); // 会抛异常，因为名字无法转换为long
+person.getLong("name"); // 会抛异常，因为名字无法转换为long
 
 phone.optLong(0); // 代码内置的默认值
 
 phone.optLong(0, 1000); // 用户提供的默认值
 
-person.optLong(&#8220;name&#8221;);
+person.optLong("name");
 
-person.optLong(&#8220;name&#8221;, 1000); // 不像上面那样抛异常，而是返回1000
+person.optLong("name", 1000); // 不像上面那样抛异常，而是返回1000
 
 } catch (JSONException ex) {
 
@@ -146,41 +145,41 @@ JSONStringer jsonText = new JSONStringer();
 
 jsonText.object();
 
-jsonText.key(&#8220;phone&#8221;);
+jsonText.key("phone");
 
 // 键phone的值是数组。array和endArray必须配对使用
 
 jsonText.array();
 
-jsonText.value(&#8220;12345678&#8221;).value(&#8220;87654321&#8221;);
+jsonText.value("12345678").value("87654321");
 
 jsonText.endArray();
 
-jsonText.key(&#8220;name&#8221;);
+jsonText.key("name");
 
-jsonText.value(&#8220;yuanzhifei89&#8221;);
+jsonText.value("yuanzhifei89");
 
-jsonText.key(&#8220;age&#8221;);
+jsonText.key("age");
 
 jsonText.value(100);
 
-jsonText.key(&#8220;address&#8221;);
+jsonText.key("address");
 
 // 键address的值是对象
 
 jsonText.object();
 
-jsonText.key(&#8220;country&#8221;);
+jsonText.key("country");
 
-jsonText.value(&#8220;china&#8221;);
+jsonText.value("china");
 
-jsonText.key(&#8220;province&#8221;);
+jsonText.key("province");
 
-jsonText.value(&#8220;jiangsu&#8221;);
+jsonText.value("jiangsu");
 
 jsonText.endObject();
 
-jsonText.key(&#8220;married&#8221;);
+jsonText.key("married");
 
 jsonText.value(false);
 
@@ -208,33 +207,33 @@ public Object nextValue();
 
 // {
 
-// &#8220;phone&#8221; : [&#8220;12345678&#8221;, &#8220;87654321&#8221;], // 数组
+// "phone" : ["12345678", "87654321"], // 数组
 
-// &#8220;name&#8221; : &#8220;yuanzhifei89&#8221;, // 字符串
+// "name" : "yuanzhifei89", // 字符串
 
-// &#8220;age&#8221; : 100, // 数值
+// "age" : 100, // 数值
 
-// &#8220;address&#8221; : { &#8220;country&#8221; : &#8220;china&#8221;, &#8220;province&#8221; : &#8220;jiangsu&#8221; }, // 对象
+// "address" : { "country" : "china", "province" : "jiangsu" }, // 对象
 
-// &#8220;married&#8221; : false // 布尔值
+// "married" : false // 布尔值
 
 // }
 
 private static final String JSON =
 
-&#8220;{&#8221; +
+"{" +
 
-&#8221; &#8220;phone&#8221; : [&#8220;12345678&#8221;, &#8220;87654321&#8221;],&#8221; +
+" "phone" : ["12345678", "87654321"]," +
 
-&#8221; &#8220;name&#8221; : &#8220;yuanzhifei89&#8243;,&#8221; +
+" "name" : "yuanzhifei89"," +
 
-&#8221; &#8220;age&#8221; : 100,&#8221; +
+" "age" : 100," +
 
-&#8221; &#8220;address&#8221; : { &#8220;country&#8221; : &#8220;china&#8221;, &#8220;province&#8221; : &#8220;jiangsu&#8221; },&#8221; +
+" "address" : { "country" : "china", "province" : "jiangsu" }," +
 
-&#8221; &#8220;married&#8221; : false,&#8221; +
+" "married" : false," +
 
-&#8220;}&#8221;;
+"}";
 
 try {
 
@@ -242,21 +241,21 @@ JSONTokener jsonParser = new JSONTokener(JSON);
 
 // 此时还未读取任何json文本，直接读取就是一个JSONObject对象。
 
-// 如果此时的读取位置在&#8221;name&#8221; : 了，那么nextValue就是&#8221;yuanzhifei89&#8243;（String）
+// 如果此时的读取位置在"name" : 了，那么nextValue就是"yuanzhifei89"（String）
 
 JSONObject person = (JSONObject) jsonParser.nextValue();
 
 // 接下来的就是JSON对象的操作了
 
-person.getJSONArray(&#8220;phone&#8221;);
+person.getJSONArray("phone");
 
-person.getString(&#8220;name&#8221;);
+person.getString("name");
 
-person.getInt(&#8220;age&#8221;);
+person.getInt("age");
 
-person.getJSONObject(&#8220;address&#8221;);
+person.getJSONObject("address");
 
-person.getBoolean(&#8220;married&#8221;);
+person.getBoolean("married");
 
 } catch (JSONException ex) {
 
@@ -274,23 +273,23 @@ JSONTokener jsonParser = new JSONTokener(JSON);
 
 // 继续向下读8个json文本中的字符。此时刚开始，即在{处
 
-jsonParser.next(8); //{ &#8220;phone。tab算一个字符
+jsonParser.next(8); //{ "phone。tab算一个字符
 
 // 继续向下读1个json文本中的字符
 
-jsonParser.next(); //&#8221;
+jsonParser.next(); //"
 
 // 继续向下读取一个json文本中的字符。该字符不是空白、同时也不是注视中的字符
 
 jsonParser.nextClean(); //:
 
-// 返回当前的读取位置到第一次遇到&#8217;a&#8217;之间的字符串（不包括a）。
+// 返回当前的读取位置到第一次遇到'a'之间的字符串（不包括a）。
 
-jsonParser.nextString(&#8216;a&#8217;); // [&#8220;12345678&#8221;, &#8220;87654321&#8221;], &#8220;n（前面有两个空格）
+jsonParser.nextString('a'); // ["12345678", "87654321"], "n（前面有两个空格）
 
-// 返回当前读取位置到第一次遇到字符串中(如&#8221;0089&#8221;)任意字符之间的字符串，同时该字符是trimmed的。（此处就是第一次遇到了89）
+// 返回当前读取位置到第一次遇到字符串中(如"0089")任意字符之间的字符串，同时该字符是trimmed的。（此处就是第一次遇到了89）
 
-jsonParser.nextTo(&#8220;0089&#8243;); //me&#8221; : &#8220;yuanzhifei
+jsonParser.nextTo("0089"); //me" : "yuanzhifei
 
 // 读取位置撤销一个
 
@@ -300,15 +299,15 @@ jsonParser.next(); //i
 
 // 读取位置前进到指定字符串处（包括字符串）
 
-jsonParser.skipPast(&#8220;address&#8221;);
+jsonParser.skipPast("address");
 
-jsonParser.next(8); //&#8221; : { &#8220;c
+jsonParser.next(8); //" : { "c
 
 // 读取位置前进到执行字符处（不包括字符）
 
-jsonParser.skipTo(&#8216;m&#8217;);
+jsonParser.skipTo('m');
 
-jsonParser.next(8); //married&#8221;
+jsonParser.next(8); //married"
 
 } catch (JSONException ex) {
 
@@ -328,9 +327,9 @@ HttpPost request = new HttpPost(url);
 
 JSONObject param = new JSONObject();
 
-param.put(&#8220;name&#8221;, &#8220;rarnu&#8221;);
+param.put("name", "rarnu");
 
-param.put(&#8220;password&#8221;, &#8220;123456&#8221;);
+param.put("password", "123456");
 
 // 绑定到请求 Entry
 
@@ -350,7 +349,7 @@ String retSrc = EntityUtils.toString(httpResponse.getEntity());
 
 JSONObject result = new JSONObject( retSrc);
 
-String token = result.get(&#8220;token&#8221;);
+String token = result.get("token");
 
 下面这个是自己修改别人的小例子，主要是加一些注释和讲解，这个例子主要是使用android进行json解析。
 
@@ -358,17 +357,17 @@ String token = result.get(&#8220;token&#8221;);
 
 view plaincopy
 
-单数据{&#8216;singer&#8217;:{&#8216;id&#8217;:01,&#8217;name&#8217;:&#8217;tom&#8217;,&#8217;gender&#8217;:&#8217;男&#8217;}}
+单数据{'singer':{'id':01,'name':'tom','gender':'男'}}
 
-多个数据{&#8220;singers&#8221;:[
+多个数据{"singers":[
 
-{&#8216;id&#8217;:02,&#8217;name&#8217;:&#8217;tom&#8217;,&#8217;gender&#8217;:&#8217;男&#8217;},
+{'id':02,'name':'tom','gender':'男'},
 
-{&#8216;id&#8217;:03,&#8217;name&#8217;:&#8217;jerry,&#8217;gender&#8217;:&#8217;男&#8217;},
+{'id':03,'name':'jerry,'gender':'男'},
 
-{&#8216;id&#8217;:04,&#8217;name&#8217;:&#8217;jim,&#8217;gender&#8217;:&#8217;男&#8217;},
+{'id':04,'name':'jim,'gender':'男'},
 
-{&#8216;id&#8217;:05,&#8217;name&#8217;:&#8217;lily,&#8217;gender&#8217;:&#8217;女&#8217;}]}
+{'id':05,'name':'lily,'gender':'女'}]}
 
 下面的类主要是解析单个数据parseJson（）和多个数据的方法parseJsonMulti（）:
 
@@ -376,7 +375,7 @@ view plaincopy
 
 view plaincopy
 
-</pre><pre name=&#8221;code&#8221; class=&#8221;java&#8221; style=&#8221;text-align: left; font-family: Monaco, &#8216;DejaVu Sans Mono&#8217;, &#8216;Bitstream Vera Sans Mono&#8217;, Consolas, &#8216;Courier New&#8217;, monospace; line-height: 18px; &#8220;>public class JsonActivity extends Activity {
+</pre><pre name="code" class="java" style="text-align: left; font-family: Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Consolas, 'Courier New', monospace; line-height: 18px; ">public class JsonActivity extends Activity {
 
 /*\* Called when the activity is first created. \*/
 
@@ -408,7 +407,7 @@ public void onClick(View v) {
 
 // url
 
-// String strUrl = &#8220;http://10.158.166.110:8080/AndroidServer/JsonServlet&#8221;;
+// String strUrl = "http://10.158.166.110:8080/AndroidServer/JsonServlet";
 
 String strUrl = ServerPageUtil.getStrUrl(UrlsOfServer.JSON_SINGER);
 
@@ -450,7 +449,7 @@ private String connServerForResult(String strUrl) {
 
 HttpGet httpRequest = new HttpGet(strUrl);
 
-String strResult = &#8220;&#8221;;
+String strResult = "";
 
 try {
 
@@ -472,13 +471,13 @@ strResult = EntityUtils.toString(httpResponse.getEntity());
 
 } catch (ClientProtocolException e) {
 
-tvJson.setText(&#8220;protocol error&#8221;);
+tvJson.setText("protocol error");
 
 e.printStackTrace();
 
 } catch (IOException e) {
 
-tvJson.setText(&#8220;IO error&#8221;);
+tvJson.setText("IO error");
 
 e.printStackTrace();
 
@@ -494,19 +493,19 @@ private void parseJson(String strResult) {
 
 try {
 
-JSONObject jsonObj = new JSONObject(strResult).getJSONObject(&#8220;singer&#8221;);
+JSONObject jsonObj = new JSONObject(strResult).getJSONObject("singer");
 
-int id = jsonObj.getInt(&#8220;id&#8221;);
+int id = jsonObj.getInt("id");
 
-String name = jsonObj.getString(&#8220;name&#8221;);
+String name = jsonObj.getString("name");
 
-String gender = jsonObj.getString(&#8220;gender&#8221;);
+String gender = jsonObj.getString("gender");
 
-tvJson.setText(&#8220;ID号&#8221;+id + &#8220;, 姓名：&#8221; + name + &#8220;,性别：&#8221; + gender);
+tvJson.setText("ID号"+id + ", 姓名：" + name + ",性别：" + gender);
 
 } catch (JSONException e) {
 
-System.out.println(&#8220;Json parse error&#8221;);
+System.out.println("Json parse error");
 
 e.printStackTrace();
 
@@ -520,23 +519,23 @@ private void parseJsonMulti(String strResult) {
 
 try {
 
-JSONArray jsonObjs = new JSONObject(strResult).getJSONArray(&#8220;singers&#8221;);
+JSONArray jsonObjs = new JSONObject(strResult).getJSONArray("singers");
 
-String s = &#8220;&#8221;;
+String s = "";
 
 for(int i = 0; i < jsonObjs.length() ; i++){
 
 JSONObject jsonObj = ((JSONObject)jsonObjs.opt(i))
 
-.getJSONObject(&#8220;singer&#8221;);
+.getJSONObject("singer");
 
-int id = jsonObj.getInt(&#8220;id&#8221;);
+int id = jsonObj.getInt("id");
 
-String name = jsonObj.getString(&#8220;name&#8221;);
+String name = jsonObj.getString("name");
 
-String gender = jsonObj.getString(&#8220;gender&#8221;);
+String gender = jsonObj.getString("gender");
 
-s += &#8220;ID号&#8221;+id + &#8220;, 姓名：&#8221; + name + &#8220;,性别：&#8221; + gender+ &#8220;n&#8221; ;
+s += "ID号"+id + ", 姓名：" + name + ",性别：" + gender+ "n" ;
 
 }
 
@@ -544,7 +543,7 @@ tvJson.setText(s);
 
 } catch (JSONException e) {
 
-System.out.println(&#8220;Jsons parse error !&#8221;);
+System.out.println("Jsons parse error !");
 
 e.printStackTrace();
 

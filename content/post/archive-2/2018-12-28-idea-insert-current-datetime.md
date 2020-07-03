@@ -18,6 +18,6 @@ categories:
 
 ### 设置 快捷键
 
-setting>keymap>plugin>&#8230;date&#8230;generator
+setting>keymap>plugin>...date...generator
 
 <https://plugins.jetbrains.com/plugin/9722-current-date-generator>

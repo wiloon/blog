@@ -46,15 +46,15 @@ ModelAndView(View view, String modelName, Object modelObject)
 
 …
 
-public ModelAndView handleRequest(&#8230;.) … {
+public ModelAndView handleRequest(....) … {
 
-&#8230;.
+....
 
 return new ModelAndView(new RedirectView(this.getViewPage()));
 
 }
 
-&#8230;.
+....
   
 在这边，viewPage的地址是从服务器网页根目录开始指定，而不是Web应用程序的根目录，所以您的getViewPage()传回的地址必须像是 /springapp/pages/index.htm这样的地址，其中springapp是您的Web应用程序目录。
   
@@ -136,16 +136,15 @@ ModelAndView
 
 完整的例子
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      <span style=&#8221;font-size: small;&#8221;>public ModelAndView handleRequestInternal(
+      <span style="font-size: small;">public ModelAndView handleRequestInternal(
     </li>
     <li>
               HttpServletRequest request,
@@ -158,12 +157,12 @@ ModelAndView
     <li>
     </li>
     <li>
-      ModelAndView mav = new ModelAndView(&#8220;hello&#8221;);//实例化一个VIew的ModelAndView实例
+      ModelAndView mav = new ModelAndView("hello");//实例化一个VIew的ModelAndView实例
     </li>
     <li>
     </li>
     <li>
-      mav.addObject(&#8220;message&#8221;, &#8220;Hello World!&#8221;);//添加一个带名的model对象
+      mav.addObject("message", "Hello World!");//添加一个带名的model对象
     </li>
     <li>
     </li>
@@ -180,7 +179,6 @@ ModelAndView
       }
     </li>
     <li>
-      </span>
+      
     </li>
   </ol>
-</div>

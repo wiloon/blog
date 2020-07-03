@@ -138,7 +138,7 @@ public static void main(String[] args) throws Exception {
   
 HttpServer server = new HttpServer();
   
-log.info(&#8220;Http Server listening on 8844 &#8230;&#8221;);
+log.info("Http Server listening on 8844 ...");
   
 server.start(8844);
   
@@ -202,7 +202,7 @@ request = (HttpRequest) msg;
 
 String uri = request.getUri();
   
-System.out.println(&#8220;Uri:&#8221; + uri);
+System.out.println("Uri:" + uri);
   
 }
   
@@ -216,13 +216,13 @@ System.out.println(buf.toString(io.netty.util.CharsetUtil.UTF_8));
   
 buf.release();
 
-String res = &#8220;I am OK&#8221;;
+String res = "I am OK";
   
 FullHttpResponse response = new DefaultFullHttpResponse(HTTP\_1\_1,
   
-OK, Unpooled.wrappedBuffer(res.getBytes(&#8220;UTF-8&#8221;)));
+OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8")));
   
-response.headers().set(CONTENT_TYPE, &#8220;text/plain&#8221;);
+response.headers().set(CONTENT_TYPE, "text/plain");
   
 response.headers().set(CONTENT_LENGTH,
   
@@ -288,7 +288,7 @@ log4j.appender.stdout.Target=System.out
   
 log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
   
-log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L &#8211; %m%n
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
 
 log4j.appender.file = org.apache.log4j.DailyRollingFileAppender
   
@@ -300,4 +300,4 @@ log4j.appender.file.Threshold = INFO
   
 log4j.appender.file.layout = org.apache.log4j.PatternLayout
   
-log4j.appender.file.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss} %5p %c{1}:%L &#8211; %m%n
+log4j.appender.file.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss} %5p %c{1}:%L - %m%n

@@ -26,23 +26,23 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
   
 * code indicates abnormal termination.
   
-* <p>
+* 
   
 * This method calls the <code>exit</code> method in class
   
 * <code>Runtime</code>. This method never returns normally.
   
-* <p>
+* 
   
 * The call <code>System.exit(n)</code> is effectively equivalent to
   
 * the call:
   
-* <blockquote><pre>
+* <blockquote>
   
 * Runtime.getRuntime().exit(n)
   
-* </pre></blockquote>
+* </blockquote>
   
 *
   
@@ -52,7 +52,7 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
   
 * if a security manager exists and its <code>checkExit</code>
   
-* method doesn&#8217;t allow exit with the specified status.
+* method doesn't allow exit with the specified status.
   
 * @see java.lang.Runtime#exit(int)
   

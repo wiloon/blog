@@ -10,16 +10,14 @@ categories:
 ---
 http://www.coderanch.com/t/625696/Web-Services/java/Invalid-HTTP-server-response-Length
 
-&nbsp;
 
 As William asked, please share how you are setting content length in SOAP header.
   
 I searched online for error and found that there can be one more reason for this failure.
   
-Reason &#8211; The remote WSEndpoint did not like the HTTP Chunking feature activated. Try disabling this feature for WS client.
+Reason - The remote WSEndpoint did not like the HTTP Chunking feature activated. Try disabling this feature for WS client.
 
-&nbsp;
 
 netty
 
-<pre>HttpPostRequestEncoder bodyRequestEncoder = new HttpPostRequestEncoder(factory, request, false);</pre>
+HttpPostRequestEncoder bodyRequestEncoder = new HttpPostRequestEncoder(factory, request, false);

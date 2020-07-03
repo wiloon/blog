@@ -22,9 +22,9 @@ Java里从来少不了字符串拼接的活，Java程序员也肯定用到过Str
 
 如果直接将张三，某地点和李四用变量替代，再拼接起来，可以达到目的。但是，代码不好写，也不好看，也不好维护。但是，我看过很多SQL拼接，HTML拼接都是这样做的。我自己以前也是这样，自从接触了MessageFormat.format之后才意识到有更好的形式。请看下面的代码：
 
-String[] tdArr=&#8230;;
+String[] tdArr=...;
   
-String result=MessageFormat.format(&#8220;<tr bgcolor=&#8217;#cef&#8217;><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>&#8221;, tdArr);
+String result=MessageFormat.format("<tr bgcolor='#cef'><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>", tdArr);
 
 这段代码将把数组tdArr中的四个元素分别插入到{0}，{1}，{2}，{3}的位置。
 
@@ -34,49 +34,49 @@ String result=MessageFormat.format(&#8220;<tr bgcolor=&#8217;#cef&#8217;><td>{0}
 
 补记：
 
-如果字符串需要输出单引号&#8217;,可以用两个单引号&#8221;进行转义，下面代码请参考：
+如果字符串需要输出单引号',可以用两个单引号"进行转义，下面代码请参考：
 
 public int insertToTest_tb(String createTime,String datefrom,String dateto,String name,String intranetid,String actualhour,String planhour,String status) throws Exception{
   
 StringBuilder sb=new StringBuilder();
   
-sb.append(&#8221;    insert into test_tb (&#8220;);
+sb.append("    insert into test_tb (");
   
-sb.append(&#8221;        createTime, &#8220;);
+sb.append("        createTime, ");
   
-sb.append(&#8221;        datefrom, &#8220;);
+sb.append("        datefrom, ");
   
-sb.append(&#8221;        dateto, &#8220;);
+sb.append("        dateto, ");
   
-sb.append(&#8221;        name, &#8220;);
+sb.append("        name, ");
   
-sb.append(&#8221;        intranetid, &#8220;);
+sb.append("        intranetid, ");
   
-sb.append(&#8221;        actualhour, &#8220;);
+sb.append("        actualhour, ");
   
-sb.append(&#8221;        planhour, &#8220;);
+sb.append("        planhour, ");
   
-sb.append(&#8221;        status&#8221;);
+sb.append("        status");
   
-sb.append(&#8221;    ) values (&#8220;);
+sb.append("    ) values (");
   
-sb.append(&#8221;        &#8221;{0}&#8221;,&#8221;);
+sb.append("        "{0}",");
   
-sb.append(&#8221;        &#8221;{1}&#8221;,&#8221;);
+sb.append("        "{1}",");
   
-sb.append(&#8221;        &#8221;{2}&#8221;,&#8221;);
+sb.append("        "{2}",");
   
-sb.append(&#8221;        &#8221;{3}&#8221;,&#8221;);
+sb.append("        "{3}",");
   
-sb.append(&#8221;        &#8221;{4}&#8221;,&#8221;);
+sb.append("        "{4}",");
   
-sb.append(&#8221;        &#8221;{5}&#8221;,&#8221;);
+sb.append("        "{5}",");
   
-sb.append(&#8221;        &#8221;{6}&#8221;,&#8221;);
+sb.append("        "{6}",");
   
-sb.append(&#8221;        &#8221;{7}&#8221;&#8221;);
+sb.append("        "{7}"");
   
-sb.append(&#8221;    )&#8221;);
+sb.append("    )");
   
 String result=sb.toString();
 
@@ -88,4 +88,3 @@ return this.getJdbcTemplate().update(sql);
   
 }
 
-&nbsp;

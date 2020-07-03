@@ -13,166 +13,164 @@ categories:
   - Java
 
 ---
-<div>
-  <h3>
+
+  
     <a href="http://pengjiaheng.iteye.com/blog/566843">http://pengjiaheng.iteye.com/blog/566843</a>
-  </h3>
-</div>
+  
 
 <div id="blog_content">
-  <p>
+  
         所谓“工欲善其事必先利其器”，程序写多了，对于快捷键总有些特别的偏爱。在众多编辑器中，Eclipse算是用的比较多，也是最熟的。
-  </p>
   
-  <p>
-    <strong>最常用（也是最爱的：））</strong>
-  </p>
   
-  <p>
-    <strong>Ctrl+’ </strong>:  自动完成提示。这个快捷键是我自己设的。Eclipse默认是Ctrl+Sapce，跟输入法冲突了。这个东东很强大，除了提示方法外，也支持自动完成的提示。比如：输入一个for后输入快捷键，能提示for方法的几种形式，以便自动完成。sysout也是平时用的比较多的。想不起来东西的时候输入这个即可。
-  </p>
   
-  <p>
-    <strong>Alt+←（→）</strong>：前（后）一个编辑的页面
-  </p>
+    最常用（也是最爱的：））
   
-  <p>
-    <strong>Alt+X</strong>：运行上次运行的程序。也是自己设的，Eclipse默认是Ctrl+F11，这个用起来太别扭，要两只手，还容易按错，所以设了这个。调试程序时的最爱。
-  </p>
   
-  <p>
-    <strong>Ctrl+Alt+H </strong>: 对着某个方法使用，显示方法的调用树，在“Call Hierarchy”视图中显示。有两种视图，一种是现实有哪些方法调用了当前方法；一直是当前方法调用了哪些其他方法。前者用的最多。在查询程序方法的调用关系时非常方便。
-  </p>
   
-  <p>
-    <strong>F3</strong> ：查看某个对象的定义。与按住Ctrl点击点击对象一样。
-  </p>
+    Ctrl+' :  自动完成提示。这个快捷键是我自己设的。Eclipse默认是Ctrl+Sapce，跟输入法冲突了。这个东东很强大，除了提示方法外，也支持自动完成的提示。比如：输入一个for后输入快捷键，能提示for方法的几种形式，以便自动完成。sysout也是平时用的比较多的。想不起来东西的时候输入这个即可。
   
-  <p>
-    <strong>Ctrl+O </strong>: 显示当前类的方法列表。可以根据输入过滤。
-  </p>
   
-  <p>
-    <strong>Ctrl+Q </strong>: 跳转到最后编辑的位置。这个也是个好东东。
-  </p>
   
-  <p>
-    <strong>Ctrl+K</strong> : 参照选中的单词查找下一个。
-  </p>
+    Alt+←（→）：前（后）一个编辑的页面
   
-  <p>
-    <strong>Ctrl+Shift+K</strong> : 参照选中的单词查找上一个。
-  </p>
   
-  <p>
-    <strong>Ctrl+D </strong>: 删除当前行。
-  </p>
   
-  <p>
-    <strong>    Ctrl+Alt+↓（↑）</strong>：复制当前行到下（上）一行
-  </p>
+    Alt+X：运行上次运行的程序。也是自己设的，Eclipse默认是Ctrl+F11，这个用起来太别扭，要两只手，还容易按错，所以设了这个。调试程序时的最爱。
   
-  <p>
-    <strong>    Ctrl+L </strong>: 直接定位到某行
-  </p>
   
-  <p>
-    <strong>Ctrl+E </strong>: 显示已经打开的文件列表，可以根据输入过滤。
-  </p>
   
-  <p>
-    <strong>Ctrl+Shift+O（M）</strong>: 自动进行包导入。M导入对单个缺失的包，O导入当前类所有缺失的包。
-  </p>
+    Ctrl+Alt+H : 对着某个方法使用，显示方法的调用树，在“Call Hierarchy”视图中显示。有两种视图，一种是现实有哪些方法调用了当前方法；一直是当前方法调用了哪些其他方法。前者用的最多。在查询程序方法的调用关系时非常方便。
   
-  <p>
-    <strong>Ctrl+/  </strong>：增加/取消注释。
-  </p>
   
-  <p>
-    <strong>Ctrl+1</strong> ：错误修复建议，会给出当前问题的一些解决方法。
-  </p>
   
-  <p>
-    <strong>Ctrl+Shift+F</strong> ：程序代码自动排版。使用前需要选中一个代码块，最简单的使用就是Ctrl+A后在使用这个。
-  </p>
+    F3 ：查看某个对象的定义。与按住Ctrl点击点击对象一样。
   
-  <p>
-    <strong>Alt+Shift+R </strong>：重命名。是很强大的那种，可以对类、变量等使用，除了重命名当前对象外，也会把对当前对象引用的地方进行相应的重命名。
-  </p>
   
-  <p>
-    <strong>    Alt+Shift+J </strong>：增加注释。根据位置不同（类、方法）会自动产生不同的注释模板。
-  </p>
   
-  <p>
-    &nbsp;
-  </p>
+    Ctrl+O : 显示当前类的方法列表。可以根据输入过滤。
   
-  <p>
-    <strong>一般常用的</strong>
-  </p>
   
-  <p>
-    <strong>Ctrl+T</strong> ：显示当前类的继承结构，很有用滴~特别查找接口的实现类的时候：）
-  </p>
   
-  <p>
-    <strong>Ctrl+J</strong> ：正向增量查找。
-  </p>
+    Ctrl+Q : 跳转到最后编辑的位置。这个也是个好东东。
   
-  <p>
-    <strong>Ctrl+Shift+P </strong>：定位到对于的匹配符。比如().{}等的匹配。
-  </p>
   
-  <p>
-    <strong>Alt+Shift+↑</strong> ：选择封装元素。在某单词的任何位置上使用，即可选中这个单词。
-  </p>
   
-  <p>
-    <strong>    Alt+↓（↑）</strong>：上下行互换。
-  </p>
+    Ctrl+K : 参照选中的单词查找下一个。
   
-  <p>
-    <strong>    Ctrl+Shift+X（Y）</strong>：把当前选中的文本全部变味大（小）写
-  </p>
   
-  <p>
-    <strong>Ctrl+（Shift）+W </strong>： 关闭当前（所有）编辑窗口
-  </p>
   
-  <p>
-    <strong>Ctrl+M </strong>: 最大化编辑窗口。
-  </p>
+    Ctrl+Shift+K : 参照选中的单词查找上一个。
   
-  <p>
-    <strong>Ctrl+F6 </strong>：可以弹出菜单,上面列出可以切换的编辑窗口。类似Ctrl+E。不过是直接定位编辑窗口
-  </p>
   
-  <p>
-    <strong>Ctrl+F7</strong> ： 一般视图切换。
-  </p>
   
-  <p>
-    <strong>Ctrl+F8 </strong>： 主要视图切换。
-  </p>
+    Ctrl+D : 删除当前行。
   
-  <p>
-    <strong>Ctrl+Shift+G</strong>：搜索工作区中的引用。
-  </p>
   
-  <p>
-    <strong>Ctrl+H </strong>：打开搜索框。
-  </p>
   
-  <p>
-    <strong>F4</strong> ：打开类型层次结构
-  </p>
+        Ctrl+Alt+↓（↑）：复制当前行到下（上）一行
   
-  <p>
-    &nbsp;
-  </p>
   
-  <p>
+  
+        Ctrl+L : 直接定位到某行
+  
+  
+  
+    Ctrl+E : 显示已经打开的文件列表，可以根据输入过滤。
+  
+  
+  
+    Ctrl+Shift+O（M）: 自动进行包导入。M导入对单个缺失的包，O导入当前类所有缺失的包。
+  
+  
+  
+    Ctrl+/  ：增加/取消注释。
+  
+  
+  
+    Ctrl+1 ：错误修复建议，会给出当前问题的一些解决方法。
+  
+  
+  
+    Ctrl+Shift+F ：程序代码自动排版。使用前需要选中一个代码块，最简单的使用就是Ctrl+A后在使用这个。
+  
+  
+  
+    Alt+Shift+R ：重命名。是很强大的那种，可以对类、变量等使用，除了重命名当前对象外，也会把对当前对象引用的地方进行相应的重命名。
+  
+  
+  
+        Alt+Shift+J ：增加注释。根据位置不同（类、方法）会自动产生不同的注释模板。
+  
+  
+  
+    
+  
+  
+  
+    一般常用的
+  
+  
+  
+    Ctrl+T ：显示当前类的继承结构，很有用滴~特别查找接口的实现类的时候：）
+  
+  
+  
+    Ctrl+J ：正向增量查找。
+  
+  
+  
+    Ctrl+Shift+P ：定位到对于的匹配符。比如().{}等的匹配。
+  
+  
+  
+    Alt+Shift+↑ ：选择封装元素。在某单词的任何位置上使用，即可选中这个单词。
+  
+  
+  
+        Alt+↓（↑）：上下行互换。
+  
+  
+  
+        Ctrl+Shift+X（Y）：把当前选中的文本全部变味大（小）写
+  
+  
+  
+    Ctrl+（Shift）+W ： 关闭当前（所有）编辑窗口
+  
+  
+  
+    Ctrl+M : 最大化编辑窗口。
+  
+  
+  
+    Ctrl+F6 ：可以弹出菜单,上面列出可以切换的编辑窗口。类似Ctrl+E。不过是直接定位编辑窗口
+  
+  
+  
+    Ctrl+F7 ： 一般视图切换。
+  
+  
+  
+    Ctrl+F8 ： 主要视图切换。
+  
+  
+  
+    Ctrl+Shift+G：搜索工作区中的引用。
+  
+  
+  
+    Ctrl+H ：打开搜索框。
+  
+  
+  
+    F4 ：打开类型层次结构
+  
+  
+  
+    
+  
+  
+  
     以前是我主要用到的一些，大家如果有什么心得话欢迎交流~ 重构方面的快捷键个人用到的比较少。在这就没写了。
-  </p>
-</div>
+  

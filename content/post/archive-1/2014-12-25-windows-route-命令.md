@@ -10,7 +10,8 @@ tags:
   - Windows
 
 ---
-```bashroute print
+```bash
+route print
 ```
 
 1.具体功能

@@ -32,11 +32,11 @@ EPEL 下载地址：http://download.fedora.redhat.com/pub/epel/
 
 例如CentOS6.5添加阿里云的EPEL源
 
-yum localinstall &#8211;nogpgcheck http://mirrors.aliyun.com/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum localinstall -nogpgcheck http://mirrors.aliyun.com/epel/6/x86_64/epel-release-6-8.noarch.rpm
   
 CentOS 7.0添加阿里云的EPEL源
 
-yum localinstall &#8211;nogpgcheck http://mirrors.aliyun.com/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm
+yum localinstall -nogpgcheck http://mirrors.aliyun.com/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm
   
 Remi源
   
@@ -48,11 +48,11 @@ Remi下载地址：http://rpms.famillecollet.com/
 
 例如CentOS 6.5添加官方的Remi源
 
-yum localinstall &#8211;nogpgcheck http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+yum localinstall -nogpgcheck http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
   
 例如CentOS 7添加官方的Remi源
 
-yum localinstall &#8211;nogpgcheck http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+yum localinstall -nogpgcheck http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
   
 RPMForge源
 
@@ -68,11 +68,11 @@ RPMForge下载地址：
 
 例如CentOS6.5添加官方的RPMForge源
 
-yum localinstall &#8211;nogpgcheck http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+yum localinstall -nogpgcheck http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
   
 CentOS 7.0添加官方的RPMForge源
 
-yum localinstall &#8211;nogpgcheck http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
+yum localinstall -nogpgcheck http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
   
 RPMFusion源
 
@@ -84,15 +84,15 @@ RPMFusion官网：http://rpmfusion.org/
 
 例如CentOS6.5添加阿里云的RPMFusion源
 
-yum localinstall &#8211;nogpgcheck http://mirrors.aliyun.com/rpmfusion/free/el/updates/6/x86_64/rpmfusion-free-release-6-1.noarch.rpm
+yum localinstall -nogpgcheck http://mirrors.aliyun.com/rpmfusion/free/el/updates/6/x86_64/rpmfusion-free-release-6-1.noarch.rpm
   
-yum localinstall &#8211;nogpgcheck http://mirrors.aliyun.com/rpmfusion/nonfree/el/updates/6/x86_64/rpmfusion-nonfree-release-6-1.noarch.rpm
+yum localinstall -nogpgcheck http://mirrors.aliyun.com/rpmfusion/nonfree/el/updates/6/x86_64/rpmfusion-nonfree-release-6-1.noarch.rpm
   
 或者添加CentOS6.5官方的RPMFusion源
 
-yum localinstall &#8211;nogpgcheck http://download1.rpmfusion.org/free/el/updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm
+yum localinstall -nogpgcheck http://download1.rpmfusion.org/free/el/updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm
   
-yum localinstall &#8211;nogpgcheck http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+yum localinstall -nogpgcheck http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
   
 注意：在安装RPMFusion源之前需要先安装 epel-release
 
@@ -116,7 +116,7 @@ priority=N （N为1到99的正整数，数值越小越优先）
 
 [base]
 
-name=CentOS-$releasever &#8211; Base
+name=CentOS-$releasever - Base
 
 mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
 

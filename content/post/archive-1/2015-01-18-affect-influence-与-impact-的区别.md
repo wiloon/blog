@@ -32,7 +32,6 @@ Your attitude will affect how successful you are.
 
 你的态度会影响你成功的程度。《新牛津英汉双解大词典》
 
-&nbsp;
 
 influence 侧重在思想、性格、行为等方面所产生的潜移默化的影响，也可指自然力的影响。
 
@@ -40,11 +39,10 @@ The labour enthusiasm of the workers strongly influenced us.
 
 工人们的劳动热情强烈地感染了我们。《简明英汉词典》
 
-It&#8217;s all too easy to be influenced by our parents. 我们容易受父母的影响。《简明英汉词典》
+It's all too easy to be influenced by our parents. 我们容易受父母的影响。《简明英汉词典》
 
 The weather influences crops. 天气影响农作物。
 
-&nbsp;
 
 impact 是不及物动词，对某物有强烈影响（have a strong effect）（+on）
 
@@ -56,7 +54,6 @@ These costs will impact on our profitability.
   
 这些费用会影响到我们的利润。《简明英汉词典》
 
-&nbsp;
 
 另：have an effect / influence / impact on对……有影响
 

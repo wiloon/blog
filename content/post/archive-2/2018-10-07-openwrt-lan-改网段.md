@@ -10,7 +10,7 @@ categories:
 ---
 https://www.cnblogs.com/double-win/p/3841017.html
 
-[code lang=shell]
+```bash
   
 vim /etc/config/network
 
@@ -26,4 +26,4 @@ option 'ipaddr' '192.168.99.1'
           
 option 'netmask' '255.255.255.0'
 
-[/code]
+```

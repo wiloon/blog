@@ -14,7 +14,7 @@ http://blog.51cto.com/janephp/1318705
 
 减少碎片：
   
-合适的query\_cache\_min\_res\_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query\_cache\_size &#8211; Qcache\_free\_memory）除以Qcache\_queries\_in_cache计算平均缓存大小。
+合适的query\_cache\_min\_res\_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query\_cache\_size - Qcache\_free\_memory）除以Qcache\_queries\_in_cache计算平均缓存大小。
   
 可以通过Qcache\_free\_blocks来观察碎片，这个值反应了剩余的空闲块，如果这个值很多，但是
   
@@ -32,17 +32,9 @@ picname 图片名称
   
 smallimg 小图名称
   
-1
-  
-2
-  
-3
-  
 一个用户会有多条图片记录，现在有一个根据user_id建立的索引：uid，查询语句也很简单：取得某用户的图片集合：
 
 select picname, smallimg from pics where user_id = xxx;
-  
-1
   
 优化前
 
@@ -50,15 +42,11 @@ select picname, smallimg from pics where user_id = xxx;
 
 select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853;
   
-1
-  
 执行了10次，平均耗时在40ms左右
 
 使用explain进行分析：
 
 explain select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853
-  
-1
   
 这里写图片描述
 
@@ -76,11 +64,11 @@ explain select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853
 
 这里写图片描述
 
-看到使用的索引变成了刚刚建立的联合索引，并且Extra部分显示使用了’Using Index’
+看到使用的索引变成了刚刚建立的联合索引，并且Extra部分显示使用了'Using Index'
 
 总结
 
-‘Using Index’的意思是“覆盖索引”，它是使上面sql性能提升的关键
+'Using Index'的意思是“覆盖索引”，它是使上面sql性能提升的关键
 
 一个包含查询所需字段的索引称为“覆盖索引”
 
@@ -97,12 +85,6 @@ MySQL只需要通过索引就可以返回查询所需要的数据，而不必在
 SQL\_NO\_CACHE means that the query result is not cached. It does not mean that the cache is not used to answer the query.
 
 You may use RESET QUERY CACHE to remove all queries from the cache and then your next query should be slow again. Same effect if you change the table, because this makes all cached queries invalid.
-  
-1
-  
-2
-  
-3
   
 当我们想用SQL\_NO\_CACHE来禁止结果缓存时发现结果和我们的预期不一样，查询执行的结果仍然是缓存后的结果。其实，SQL\_NO\_CACHE的真正作用是禁止缓存查询结果，但并不意味着cache不作为结果返回给query。
 
@@ -176,9 +158,7 @@ Qcache\_queries\_in_cache 查询缓存区当前缓存着多少条查询命令的
 
 关于query\_cache\_min\_res\_unit大小的调优，书中给出了一个计算公式，可以供调优设置参考：
 
-query\_cache\_min\_res\_unit = (query\_cache\_size &#8211; Qcache\_free\_memory) /Qcache\_queries\_in_cache
-  
-1
+query\_cache\_min\_res\_unit = (query\_cache\_size - Qcache\_free\_memory) /Qcache\_queries\_in_cache
   
 还要注意一点的是，FLUSH QUERY CACHE 命令可以用来整理查询缓存区的碎片，改善内存使用状况，但不会清理查询缓存区的内容，这个要和RESET QUERY CACHE相区别，不要混淆，后者才是清除查询缓存区中的所有的内容。
   
@@ -191,10 +171,6 @@ query\_cache\_min\_res\_unit = (query\_cache\_size &#8211; Qcache\_free\_memory)
 mysql> select sql\_no\_cache id,name from test3 where id < 2;
   
 mysql> select sql_cache id,name from test3 where id < 2;
-  
-1
-  
-2
   
 注意：查询缓存的使用还需要配合相应得服务器参数的设置。
 
@@ -216,13 +192,9 @@ Innodb的辅助索引叶子节点包含的是主键列，所以主键一定是�
 
 mysql> EXPLAIN SELECT store\_id, film\_id FROM sakila.inventory\G
   
-1
-  
 （2）再比如说在文章系统里分页显示的时候，一般的查询是这样的：
 
 SELECT id, title, content FROM article ORDER BY created DESC LIMIT 10000, 10;
-  
-1
   
 通常这样的查询会把索引建在created字段（其中id是主键），不过当LIMIT偏移很大时，查询效率仍然很低，改变一下查询：
 
@@ -234,14 +206,6 @@ SELECT id FROM article ORDER BY created DESC LIMIT 10000, 10
   
 ) AS page USING(id)
   
-1
-  
-2
-  
-3
-  
-4
-  
 此时，建立复合索引”created, id”（只要建立created索引就可以吧，Innodb是会在辅助索引里面存储主键值的），就可以在子查询里利用上Covering Index，快速定位id，查询效率嗷嗷的
 
-注：本文是参考《Mysql性能优化案例 &#8211; 覆盖索引》 的一篇文章借题发挥，参考了原文的知识点，自己做了一点的发挥和研究，原文被多次转载，不知作者何许人也，也不知出处在哪个，如需原文请自行搜索。
+注：本文是参考《Mysql性能优化案例 - 覆盖索引》 的一篇文章借题发挥，参考了原文的知识点，自己做了一点的发挥和研究，原文被多次转载，不知作者何许人也，也不知出处在哪个，如需原文请自行搜索。

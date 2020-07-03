@@ -24,7 +24,7 @@ USB 3.0, Type-C 1.0 reversible connector
   
 Chipset Qualcomm MSM8996 Snapdragon 821 (14 nm)
   
-CPU Quad-core (2&#215;2.15 GHz Kryo & 2&#215;1.6 GHz Kryo)
+CPU Quad-core (2x2.15 GHz Kryo & 2x1.6 GHz Kryo)
   
 GPU Adreno 530
 
@@ -34,7 +34,7 @@ Announced 2017, October
   
 Chipset Qualcomm MSM8998 Snapdragon 835 (10 nm)
   
-CPU Octa-core (4&#215;2.35 GHz Kryo & 4&#215;1.9 GHz Kryo)
+CPU Octa-core (4x2.35 GHz Kryo & 4x1.9 GHz Kryo)
   
 GPU Adreno 540
   

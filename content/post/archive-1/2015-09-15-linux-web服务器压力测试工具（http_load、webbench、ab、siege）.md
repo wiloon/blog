@@ -47,33 +47,33 @@ http_load以并行复用的方式运行，用以测试web服务器的吞吐量�
 准备URL文件：urllist.txt，文件格式是每行一个URL，URL最好超过50－100个测试效果比较好.文件格式如下：
 
 <blockquote class="wp-embedded-content" data-secret="iAUiVVmnMv">
-  <p>
+  
     <a href="https://www.vpser.net/other/choose-vps.html">VPS服务器的选择</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《VPS服务器的选择》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv" data-secret="iAUiVVmnMv" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="cLrZu8rncf">
-  <p>
+  
     <a href="https://www.vpser.net/vps-cp/hypervm-tutorial.html">HyperVM使用教程/手册</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《HyperVM使用教程/手册》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf" data-secret="cLrZu8rncf" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="aK3vT9Oj6d">
-  <p>
+  
     <a href="https://www.vpser.net/coupons/diavps-april-coupons.html">DiaVPS 4月最新优惠</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《DiaVPS 4月最新优惠》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d" data-secret="aK3vT9Oj6d" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote class="wp-embedded-content" data-secret="GisBcCy5FH">
-  <p>
+  
     <a href="https://www.vpser.net/security/vps-backup-web-mysql.html">VPS主机上备份网站和数据库</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《VPS主机上备份网站和数据库》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/security/vps-backup-web-mysql.html/embed#?secret=GisBcCy5FH" data-secret="GisBcCy5FH" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
@@ -164,15 +164,15 @@ webbench -c 5000 -t 120 http://www.163.com
   
 -d
   
-不显示&#8221;percentage served within XX [ms] table&#8221;的消息(为以前的版本提供支持)。
+不显示"percentage served within XX [ms] table"的消息(为以前的版本提供支持)。
   
 -e csv-file
   
-产生一个以逗号分隔的(CSV)文件， 其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。 由于这种格式已经“二进制化”，所以比&#8217;gnuplot&#8217;格式更有用。
+产生一个以逗号分隔的(CSV)文件， 其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。 由于这种格式已经“二进制化”，所以比'gnuplot'格式更有用。
   
 -g gnuplot-file
   
-把所有测试结果写入一个&#8217;gnuplot&#8217;或者TSV (以Tab分隔的)文件。 此文件可以方便地导入到Gnuplot, IDL, Mathematica, Igor甚至Excel中。 其中的第一行为标题。
+把所有测试结果写入一个'gnuplot'或者TSV (以Tab分隔的)文件。 此文件可以方便地导入到Gnuplot, IDL, Mathematica, Igor甚至Excel中。 其中的第一行为标题。
   
 -h
   
@@ -180,7 +180,7 @@ webbench -c 5000 -t 120 http://www.163.com
   
 -H custom-header
   
-对请求附加额外的头信息。 此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对 (如, &#8220;Accept-Encoding: zip/zop;8bit&#8221;).
+对请求附加额外的头信息。 此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对 (如, "Accept-Encoding: zip/zop;8bit").
   
 -i
   
@@ -224,7 +224,7 @@ POST数据所使用的Content-type头信息。
   
 -v verbosity
   
-设置显示信息的详细程度 &#8211; 4或更大值会显示头信息， 3或更大值可以显示响应代码(404, 200等), 2或更大值可以显示警告和其他信息。
+设置显示信息的详细程度 - 4或更大值会显示头信息， 3或更大值可以显示响应代码(404, 200等), 2或更大值可以显示警告和其他信息。
   
 -V
   
@@ -258,21 +258,21 @@ table 这里 >.
 
 -attributes
   
-设置</p> 
+设置 
 
 属性的字符串.
   
--z </p>-attributes
+-z -attributes
   
-设置</p> 
+设置 
 
-属性的字符串.</p> 
+属性的字符串. 
 
 缺陷
   
 程序中有各种静态声明的固定长度的缓冲区。 另外，对命令行参数、服务器的响应头和其他外部输入的解析也很简单，这可能会有不良后果。
 
-它没有完整地实现HTTP/1.x; 仅接受某些&#8217;预想&#8217;的响应格式。 strstr(3)的频繁使用可能会带来性能问题，即, 你可能是在测试ab而不是服务器的性能。
+它没有完整地实现HTTP/1.x; 仅接受某些'预想'的响应格式。 strstr(3)的频繁使用可能会带来性能问题，即, 你可能是在测试ab而不是服务器的性能。
 
  
 
@@ -477,9 +477,9 @@ Longest transaction: 29.04 //每次传输所花最长时间
 Shortest transaction: 0.00 //每次传输所花最短时间
 
 <blockquote class="wp-embedded-content" data-secret="No65LHIzR5">
-  <p>
+  
     <a href="https://coolshell.cn/articles/2589.html">十个免费的Web压力测试工具</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《十个免费的Web压力测试工具》—酷 壳 - CoolShell" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5" data-secret="No65LHIzR5" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

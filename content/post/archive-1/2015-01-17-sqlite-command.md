@@ -10,7 +10,8 @@ tags:
   - Sqlite
 
 ---
-```bashsudo pacman -S sqlite
+```bash
+sudo pacman -S sqlite
 ```
 
 在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如：
@@ -21,7 +22,7 @@ sqlite> .mode column
 
 查出所有的表：
   
-select name from sqlite_master where type=&#8217;table&#8217; order by name;
+select name from sqlite_master where type='table' order by name;
 
 通过以下语句可查询出某个表的所有字段信息
   

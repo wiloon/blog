@@ -22,7 +22,6 @@ Memcache是danga的一个项目，最早是LiveJournal 服务的，最初为了�
 
 Memcached是以守护程序方式运行于一个或多个服务器中，随时会接收客户端的连接和操作
 
-&nbsp;
 
 为什么会有Memcache和memcached两种名称
 
@@ -50,13 +49,13 @@ lrwxrwxrwx   1 root    root          21 2009-07-19 08:45 libevent-
   
 -rwxr-xr-x   1 root    root      301588 2009-07-19 08:45 libevent-1.4.so.2.1.3
   
--rw-r&#8211;r&#8211;   1 root    root      386638 2009-07-19 08:45 libevent.a
+-rw-r-r-   1 root    root      386638 2009-07-19 08:45 libevent.a
   
 lrwxrwxrwx   1 root    root          26 2009-07-19 08:45 libevent\_core-1.4.so.2 -> libevent\_core-1.4.so.2.1.3
   
 -rwxr-xr-x   1 root    root      115721 2009-07-19 08:45 libevent_core-1.4.so.2.1.3
   
--rw-r&#8211;r&#8211;   1 root    root      151618 2009-07-19 08:45 libevent_core.a
+-rw-r-r-   1 root    root      151618 2009-07-19 08:45 libevent_core.a
   
 -rwxr-xr-x   1 root    root         860 2009-07-19 08:45 libevent_core.la
   
@@ -66,7 +65,7 @@ lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent\
   
 -rwxr-xr-x   1 root    root      239933 2009-07-19 08:45 libevent_extra-1.4.so.2.1.3
   
--rw-r&#8211;r&#8211;   1 root    root      298406 2009-07-19 08:45 libevent_extra.a
+-rw-r-r-   1 root    root      298406 2009-07-19 08:45 libevent_extra.a
   
 -rwxr-xr-x   1 root    root         867 2009-07-19 08:45 libevent_extra.la
   
@@ -77,14 +76,6 @@ lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent\
 lrwxrwxrwx   1 root    root          21 2009-07-19 08:45 libevent.so -> libevent-1.4.so.2.1.3
 
 ?View Code BASH
-  
-1
-  
-2
-  
-3
-  
-4
   
 5
 
@@ -98,7 +89,6 @@ make
   
 make install
 
-&nbsp;
 
 1)安装Memcache服务端
 
@@ -136,7 +126,6 @@ memcached -d -m 128 -p 11111 -u root
   
 -h 显示帮助
 
-&nbsp;
 
 查看是否建立成功
 
@@ -144,11 +133,11 @@ telnet测试memcached
   
 telnet 192.168.1.2 11211
 
-Trying 192.168.1.2&#8230;
+Trying 192.168.1.2...
   
 Connected to 192.168.1.2.
   
-Escape character is &#8216;^]&#8217;
+Escape character is '^]'
 
 查看版本
 
@@ -208,7 +197,7 @@ Java代码
   
 static {
   
-String[] serverlist = { &#8220;server1.com:port&#8221;, &#8220;server2.com:port&#8221; };
+String[] serverlist = { "server1.com:port", "server2.com:port" };
 
 SockIOPool pool = SockIOPool.getInstance();
   
@@ -230,7 +219,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = &#8220;cacheKey1&#8221;;
+String key = "cacheKey1";
   
 Object value = SomeClass.getObject();
   
@@ -242,7 +231,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = &#8220;cacheKey1&#8221;;
+String key = "cacheKey1";
   
 mc.delete(key);
 
@@ -252,7 +241,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String key = &#8220;key&#8221;;
+String key = "key";
   
 Object value = mc.get(key);
 
@@ -262,7 +251,7 @@ Java代码
   
 MemCachedClient mc = new MemCachedClient();
   
-String[] keys = { &#8220;key&#8221;, &#8220;key1&#8221;, &#8220;key2&#8221; };
+String[] keys = { "key", "key1", "key2" };
   
 Map<Object> values = mc.getMulti(keys);
 
@@ -320,7 +309,6 @@ magent采用的是：Consistent Hashing原理，Consistent Hashing如下所示�
 
 Java开发中的Memcache原理及实现（四）原理与部署
 
-&nbsp;
 
 3. 搭建memcache集群服务
 
@@ -368,7 +356,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 set key 0 0 8                       <—在10000端口设置key的值
 
@@ -380,7 +368,6 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
 
 [root@odb ~]# telnet 127.0.0.1 11211
 
@@ -388,7 +375,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get key                     <—在11211端口获取key的值成功
 
@@ -402,7 +389,6 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
 
 [root@odb ~]# telnet 127.0.0.1 11212
 
@@ -410,7 +396,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get key                     <—在11212端口获取key的值成功
 
@@ -432,13 +418,12 @@ root     23455  0.0  0.0  5012 1796 ?        Ss   09:22   0:00
 
 root     24950  0.0  0.0  4120 1800 ?        Ss   10:58   0:00 memcached -m 1 -u root -d -l 127.0.0.1 -p 11211
 
-[root@odb ~]# ps aux |grep -v grep |grep ‘magent -u’
+[root@odb ~]# ps aux |grep -v grep |grep 'magent -u'
 
 root     25919  0.0  0.0  2176  484 ?        Ss   12:00   0:00 magent -u root -n 51200 -l 127.0.0.1 -p 10000 -s 127.0.0.1:11211 -b 127.0.0.1:11212
 
 root     25925  0.0  0.0  3004  484 ?        Ss   12:00   0:00 magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11211
 
-&nbsp;
 
 [root@odb ~]# telnet 127.0.0.1 10000
 
@@ -446,7 +431,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 set stone 0 0 6                      <—在10000端口设置stone的值
 
@@ -458,7 +443,6 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
 
 [root@odb ~]# telnet 127.0.0.1 11000
 
@@ -466,7 +450,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 set shidl 0 0 6                 <—在11000端口设置shidl的值
 
@@ -506,7 +490,6 @@ quit                             <—退出11000端�
 
 Connection closed by foreign host.
 
-&nbsp;
 
 [root@odb ~]# telnet 127.0.0.1 10000
 
@@ -514,7 +497,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                     <—在10000端口获取stone的值，已被修改
 
@@ -544,7 +527,6 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
 
 [root@odb ~]# telnet 127.0.0.1 11000
 
@@ -552,7 +534,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get shidl                      <—在11000端口验证删除shidl生效
 
@@ -582,7 +564,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                      <—在10000依然可以获取stone的值
 
@@ -596,7 +578,6 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
 
 [root@odb ~]# telnet 127.0.0.1 11000
 
@@ -604,7 +585,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                      <—在11000依然可以获取stone的值
 
@@ -618,7 +599,6 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
 
 5. Down机模拟测试2
   
@@ -632,7 +612,7 @@ Trying 127.0.0.1…
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is ‘^]’.
+Escape character is '^]'.
 
 get stone                      <—在10000依然可以获取stone的值
 
@@ -646,7 +626,6 @@ quit
 
 Connection closed by foreign host.
 
-&nbsp;
 
 2)      重启11000端口的magent
 
@@ -654,11 +633,11 @@ Connection closed by foreign host.
 
 [root@lh-web-test memcached-1.4.5]# telnet 127.0.0.1 11000
 
-Trying 127.0.0.1&#8230;
+Trying 127.0.0.1...
 
 Connected to localhost.localdomain (127.0.0.1).
 
-Escape character is &#8216;^]&#8217;.
+Escape character is '^]'.
 
 get stone                                         <—在11000依然可以获取stone的值
 
@@ -714,13 +693,11 @@ XMemcached也使用得比较广泛，而且有较详细的中文API文档，具�
 
 package temp;
 
-&nbsp;
 
 import com.danga.MemCached.*;
 
 import org.apache.log4j.*;
 
-&nbsp;
 
 public class CacheTest {
 
@@ -732,7 +709,7 @@ public static void main(String[] args) {
 
 \* \*/
 
-String[] servers = { &#8220;10.11.15.222:10000&#8221; };
+String[] servers = { "10.11.15.222:10000" };
 
 SockIOPool pool = SockIOPool.getInstance();
 
@@ -756,7 +733,6 @@ pool.setAliveCheck(true);
 
 pool.initialize();
 
-&nbsp;
 
 /**
 
@@ -774,7 +750,7 @@ for (int i = 0; i < 1000; i++) {
 
 \* \*/
 
-boolean success = memCachedClient.set(&#8220;&#8221; + i, &#8220;Hello!&#8221;);
+boolean success = memCachedClient.set("" + i, "Hello!");
 
 /**
 
@@ -782,11 +758,11 @@ boolean success = memCachedClient.set(&#8220;&#8221; + i, &#8220;Hello!&#8221;);
 
 \* \*/
 
-String result = (String) memCachedClient.get(&#8220;&#8221; + i);
+String result = (String) memCachedClient.get("" + i);
 
-System.out.println(String.format(&#8220;set( %d ): %s&#8221;, i, success));
+System.out.println(String.format("set( %d ): %s", i, success));
 
-System.out.println(String.format(&#8220;get( %d ): %s&#8221;, i, result));
+System.out.println(String.format("get( %d ): %s", i, result));
 
 }
 
@@ -802,17 +778,14 @@ spymemcached当前版本是2.5版本，官方网址是：http://code.google.com/
 
 package temp;
 
-&nbsp;
 
 import java.net.InetSocketAddress;
 
 import java.util.concurrent.Future;
 
-&nbsp;
 
 import net.spy.memcached.MemcachedClient;
 
-&nbsp;
 
 public class TestSpyMemcache {
 
@@ -824,13 +797,13 @@ try {
 
 /\* 建立MemcachedClient 实例，并指定memcached服务的IP地址和端口号 \*/
 
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress(&#8220;10.11.15.222&#8221;, 10000));
+MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
 
 Future<Boolean> b = null;
 
 /\* 将key值，过期时间(秒)和要缓存的对象set到memcached中 \*/
 
-b = mc.set(&#8220;neea:testDaF:ksIdno&#8221;, 900, &#8220;someObject&#8221;);
+b = mc.set("neea:testDaF:ksIdno", 900, "someObject");
 
 if (b.get().booleanValue() == true) {
 
@@ -850,11 +823,11 @@ try {
 
 /\* 建立MemcachedClient 实例，并指定memcached服务的IP地址和端口号 \*/
 
-MemcachedClient mc = new MemcachedClient(new InetSocketAddress(&#8220;10.11.15.222&#8221;, 10000));
+MemcachedClient mc = new MemcachedClient(new InetSocketAddress("10.11.15.222", 10000));
 
 /\* 按照key值从memcached中查找缓存，不存在则返回null \*/
 
-Object b = mc.get(&#8220;neea:testDaF:ksIdno&#8221;);
+Object b = mc.get("neea:testDaF:ksIdno");
 
 System.out.println(b.toString());
 
@@ -878,13 +851,11 @@ Xmemcached的官方网址是：http://code.google.com/p/xmemcached/，可以从�
 
 package temp;
 
-&nbsp;
 
 import java.io.IOException;
 
 import java.util.concurrent.TimeoutException;
 
-&nbsp;
 
 import net.rubyeye.xmemcached.utils.AddrUtil;
 
@@ -896,7 +867,6 @@ import net.rubyeye.xmemcached.XMemcachedClientBuilder;
 
 import net.rubyeye.xmemcached.exception.MemcachedException;
 
-&nbsp;
 
 public class TestXMemcache {
 
@@ -904,7 +874,7 @@ public static void main(String[] args) {
 
 MemcachedClientBuilder builder = new XMemcachedClientBuilder(AddrUtil
 
-.getAddresses(&#8220;10.11.15.222:10000&#8221;));
+.getAddresses("10.11.15.222:10000"));
 
 MemcachedClient memcachedClient;
 
@@ -912,19 +882,18 @@ try {
 
 memcachedClient = builder.build();
 
-&nbsp;
 
-memcachedClient.set(&#8220;hello&#8221;, 0, &#8220;Hello,xmemcached&#8221;);
+memcachedClient.set("hello", 0, "Hello,xmemcached");
 
-String value = memcachedClient.get(&#8220;hello&#8221;);
+String value = memcachedClient.get("hello");
 
-System.out.println(&#8220;hello=&#8221; + value);
+System.out.println("hello=" + value);
 
-memcachedClient.delete(&#8220;hello&#8221;);
+memcachedClient.delete("hello");
 
-value = memcachedClient.get(&#8220;hello&#8221;);
+value = memcachedClient.get("hello");
 
-System.out.println(&#8220;hello=&#8221; + value);
+System.out.println("hello=" + value);
 
 // close memcached client
 
@@ -932,13 +901,13 @@ memcachedClient.shutdown();
 
 } catch (MemcachedException e) {
 
-System.err.println(&#8220;MemcachedClient operation fail&#8221;);
+System.err.println("MemcachedClient operation fail");
 
 e.printStackTrace();
 
 } catch (TimeoutException e) {
 
-System.err.println(&#8220;MemcachedClient operation timeout&#8221;);
+System.err.println("MemcachedClient operation timeout");
 
 e.printStackTrace();
 
@@ -948,7 +917,7 @@ e.printStackTrace();
 
 }catch (IOException e) {
 
-System.err.println(&#8220;Shutdown MemcachedClient fail&#8221;);
+System.err.println("Shutdown MemcachedClient fail");
 
 e.printStackTrace();
 
@@ -976,7 +945,7 @@ lrwxrwxrwx   1 root root     21 Mar 22 18:41 libevent-1.2.so.1 -> libevent
 
 -rwxr-xr-x   1 root root 262475 Mar 22 18:41 libevent-1.2.so.1.0.3
 
--rw-r&#8211;r&#8211;   1 root root 430228 Mar 22 18:41 libevent.a
+-rw-r-r-   1 root root 430228 Mar 22 18:41 libevent.a
 
 -rwxr-xr-x   1 root root    811 Mar 22 18:41 libevent.la
 
@@ -1098,9 +1067,9 @@ memcached 1.2.0
 
 1. 下载memcache的windows稳定版，解压放某个盘下面，比如在c:\memcached
 
-2. 在终端（也即cmd命令界面）下输入‘c:\memcached\memcached.exe -d install’安装
+2. 在终端（也即cmd命令界面）下输入'c:\memcached\memcached.exe -d install'安装
 
-3. 再输入：‘c:\memcached\memcached.exe -d start’启动。NOTE: 以后memcached将作为windows的一个服务每次开机时自动启动。这样服务器端已经安装完毕了。
+3. 再输入：'c:\memcached\memcached.exe -d start'启动。NOTE: 以后memcached将作为windows的一个服务每次开机时自动启动。这样服务器端已经安装完毕了。
   
 2.  memcached的基本设置
   
@@ -1138,9 +1107,9 @@ Memcache的默认启动时的参数可能不满足实际生产环境的需要，
 
 打开注册表，找到：HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\memcached Server
 
-其中的ImagePath项的值为： c:\memcached\memcached.exe&#8221; -d runservice
+其中的ImagePath项的值为： c:\memcached\memcached.exe" -d runservice
 
-改成：c:\memcached\memcached.exe&#8221; -p 12345 -m 128 -d runservice
+改成：c:\memcached\memcached.exe" -p 12345 -m 128 -d runservice
 
 其中，-p就是端口，-m就是缓存大小，以M为单位。
 
@@ -1170,7 +1139,7 @@ view plain   copy
   
 # cd memcached-1.4.5
   
-# ./configure &#8211;prefix=/etc/memcached
+# ./configure -prefix=/etc/memcached
   
 # make
   
@@ -1224,23 +1193,23 @@ view plain   copy
 
 RETVAL=0
 
-prog=&#8221;memcached&#8221;
+prog="memcached"
   
 basedir=/etc/memcached
   
 cmd=${basedir}/bin/memcached
   
-pidfile=&#8221;$basedir/${prog}.pid&#8221;
+pidfile="$basedir/${prog}.pid"
   
-#logfile=&#8221;$basedir/memcached_log.txt&#8221;
+#logfile="$basedir/memcached_log.txt"
 
 # 设置memcached启动参数
   
-ipaddr=&#8221;192.168.1.201&#8243;    # 绑定侦听的IP地址
+ipaddr="192.168.1.201"    # 绑定侦听的IP地址
   
-port=&#8221;11211&#8243;                    # 服务端口
+port="11211"                    # 服务端口
   
-username=&#8221;root&#8221;                 # 运行程序的用户身份
+username="root"                 # 运行程序的用户身份
   
 max_memory=64                   # default: 64M | 最大使用内存
   
@@ -1252,13 +1221,13 @@ max\_simul\_conn=1024             # default: 1024 | 最大同�
   
 #thread_num=6                   # default: 4
   
-#verbose=&#8221;-vv&#8221;                  # 查看详细启动信息
+#verbose="-vv"                  # 查看详细启动信息
   
 #bind_protocol=binary           # ascii, binary, or auto (default)
 
 start() {
   
-echo -n $&#8221;Starting service: $prog&#8221;
+echo -n $"Starting service: $prog"
   
 $cmd -d -m $max\_memory -u $username -l $ipaddr -p $port -c $max\_simul_conn -P $pidfile
   
@@ -1272,17 +1241,17 @@ echo
 
 stop() {
   
-echo -n $&#8221;Stopping service: $prog  &#8221;
+echo -n $"Stopping service: $prog  "
   
 run_user=\`whoami\`
   
-pidlist=\`ps -ef | grep $run_user | grep memcached | grep -v grep | awk &#8216;{print($2)}&#8217;\`
+pidlist=\`ps -ef | grep $run_user | grep memcached | grep -v grep | awk '{print($2)}'\`
   
 for pid in $pidlist
   
 do
   
-#           echo &#8220;pid=$pid&#8221;
+#           echo "pid=$pid"
   
 kill -9 $pid
   
@@ -1304,7 +1273,7 @@ echo
 
 # See how we were called.
   
-case &#8220;$1&#8221; in
+case "$1" in
   
 start)
   
@@ -1352,7 +1321,7 @@ status memcached
   
 *)
   
-echo &#8220;Usage: $0 {start|stop|restart|status}&#8221;
+echo "Usage: $0 {start|stop|restart|status}"
   
 exit 1
   
@@ -1366,9 +1335,9 @@ exit $RETVAL
 
 view plain   copy
   
-\# chkconfig &#8211;add memcached
+\# chkconfig -add memcached
   
-\# chkconfig &#8211;level 35 memcached on
+\# chkconfig -level 35 memcached on
   
 启动memcached
   

@@ -27,18 +27,18 @@ apt install wireguard
 ### peer A
 
 umask 077
-wg genkey &gt; privatekey
-wg pubkey &lt; privatekey &gt; publickey
-wg genpsk &gt; preshared
+wg genkey > privatekey
+wg pubkey < privatekey > publickey
+wg genpsk > preshared
 
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
 sudo wg set wg0 private-key ./privatekey
 sudo wg set wg0 listen-port 9000
 # peer b 有确定的端口和IP时， 可以配置endpoint
-sudo wg set wg0 peer &lt;PEER_B_PUBLIC_KEY&gt; persistent-keepalive 25 allowed-ips 192.168.53.2/32 endpoint 192.168.50.115:9000
+sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32 endpoint 192.168.50.115:9000
 # 做为服务端使用时，peer B的ip 和端口一般是动态的，不配置endpoint
-sudo wg set wg0 peer &lt;PEER_B_PUBLIC_KEY&gt; persistent-keepalive 25 allowed-ips 192.168.53.2/32
+sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
 ip link set wg0 up
 
 ### peer B
@@ -52,7 +52,6 @@ sudo wg set wg0 listen-port 9000
 sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
 ip link set wg0 up
 
-
 ### remove peer
 
 wg set wg0 peer PEER_A_PUBLIC_KEY remove
@@ -60,7 +59,7 @@ wg set wg0 peer PEER_A_PUBLIC_KEY remove
 
 ### 保存配置到文件
 
-g showconf wg0 &gt; /etc/wireguard/wg0.conf
+g showconf wg0 > /etc/wireguard/wg0.conf
 
 ### chromeos>crostini
 
@@ -79,18 +78,18 @@ sudo tunsafe start -d TunSafe.conf
 #### tunsafe 配置文件
 
 [Interface]
-PrivateKey = &lt;private_key&gt;
+PrivateKey = <private_key>
 DNS = 192.168.50.1
 BlockDNS = true
 # 设置虚拟网卡的内网地址（可选子网掩码）
 Address = 192.168.53.3/24
 [Peer]
-PublicKey = &lt;public_key&gt;
+PublicKey = <public_key>
 # 目标地址是192.168.53.1 的会通过vpn发送到服务端
 AllowedIPs = 192.168.53.1/24
 # 所有ip包都 会发往 vpn服务端
 AllowedIPs = 0.0.0.0/0
-Endpoint = &lt;server_ip0:server_port0&gt;
+Endpoint = <server_ip0:server_port0>
 PersistentKeepalive = 25
 
 ### systemd-networkd
@@ -109,12 +108,12 @@ https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/
 https://blog.mozcp.com/wireguard-usage/
 
 <blockquote class="wp-embedded-content" data-secret="3eFM6gPGdn">
-  <p>
+  
     <a href="https://mine260309.me/archives/1697">自己搭建WireGuard给Android用</a>
-  </p>
+  
 </blockquote>
 
-<iframe title="&#8220;自己搭建WireGuard给Android用&#8221; &#8212; This is Mine" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://mine260309.me/archives/1697/embed#?secret=3eFM6gPGdn" data-secret="3eFM6gPGdn" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""自己搭建WireGuard给Android用" - This is Mine" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://mine260309.me/archives/1697/embed#?secret=3eFM6gPGdn" data-secret="3eFM6gPGdn" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 https://wiki.debian.org/Wireguard
   

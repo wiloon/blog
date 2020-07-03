@@ -12,7 +12,7 @@ tags:
   - Git
 
 ---
-git checkout：Git的checkout有两个作用，其一是在不同的branch之间进行切换，例如&#8217;git checkout new\_branch&#8217;就会切换到new\_branch的分支上去；另一个功能是还原代码的作用，例如&#8217;git checkout app/model/user.rb&#8217;就会将user.rb文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚
+git checkout：Git的checkout有两个作用，其一是在不同的branch之间进行切换，例如'git checkout new\_branch'就会切换到new\_branch的分支上去；另一个功能是还原代码的作用，例如'git checkout app/model/user.rb'就会将user.rb文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚
 
 git checkout -f     //提取当前branch的所有文件．
 

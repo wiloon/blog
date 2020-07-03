@@ -85,9 +85,9 @@ e.printStackTrace(); //To change body of catch statement use File | Settings | F
 
 long aft = System.currentTimeMillis();
 
-context.log("Request to " + request.getRemoteAddr() + ": " + (aft &#8211; bef));
+context.log("Request to " + request.getRemoteAddr() + ": " + (aft - bef));
    
-System.out.println("log filter&#8230;"+ (aft &#8211; bef));
+System.out.println("log filter..."+ (aft - bef));
    
 }
 

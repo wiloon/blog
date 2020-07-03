@@ -24,6 +24,6 @@ http://www.cnblogs.com/zzuzys/p/3195885.html
   
 而后运行win64\_11gR2\_database_1of2文件中的setup.exe
 
-注意：再次运行的时候要将D:\app\Administrator\product\11.2.0\dbhome\_1\&#8230;&#8230;.红色区域文件删除，也就是删除dbhome\_1文件夹。
+注意：再次运行的时候要将D:\app\Administrator\product\11.2.0\dbhome\_1\.......红色区域文件删除，也就是删除dbhome\_1文件夹。
 
 否者安装到60%左右会出现文件移动错误！！

@@ -15,22 +15,5 @@
         <a class="menu-item-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
       </li>
     {{- end }}
-
   </ul>
-  <div id="modalSearch" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Search blog.qikqiak.com</h4>
-        </div>
-        <div class="modal-body">
-            {{ partial "search.html" . }}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
-        </div>
-      </div>
-    </div>
-</div>
 </nav>

@@ -18,13 +18,13 @@ alter table mailtable default character set utf8;//修改表的字符集
   
 ALTER TABLE wap\_lenovo\_bookmark ADD free BIT NOT NULL DEFAULT 0
 
-alter table MemailNodeDefine add action varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL default &#8216;admin&#8217;;
+alter table MemailNodeDefine add action varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL default 'admin';
 
 给一个字段赋值
   
-UPDATE &#8220;表格名&#8221; SET &#8220;栏位1&#8221; = [新值] WHERE {条件}
+UPDATE "表格名" SET "栏位1" = [新值] WHERE {条件}
 
-UPDATE wap\_lenovo\_bookmark set type = &#8216;other&#8217;
+UPDATE wap\_lenovo\_bookmark set type = 'other'
 
 ALTER TABLE wap\_lenovo\_bookmark ADD groupid INT NOT NULL DEFAULT 0
 
@@ -44,11 +44,11 @@ ALTER   TABLE   TableName   DROP   Field\_name\_tobe_delete
   
 ALTER   TABLE   TableName   rename   as   newTableName
 
-alter   table   语句好像不能对表实行字段删除操作，可以用create   table   tablename(field1,field2,field3&#8230;&#8230;)   (select   field1,field2,field3&#8230;&#8230;from   orgtablename);
+alter   table   语句好像不能对表实行字段删除操作，可以用create   table   tablename(field1,field2,field3......)   (select   field1,field2,field3......from   orgtablename);
   
 或者用ALTER   TABLE   TableName   DROP   [COLUMN]   col_name；
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+---------------------
   
 mysql alter 语句用法,添加、修改、删除字段等
 
@@ -60,7 +60,7 @@ alter table tabelname add new\_field\_id int(5) unsigned default 0 not null auto
 
 alter table t2 add d timestamp;
   
-alter table infos add ex tinyint not null default &#8216;0&#8217;;
+alter table infos add ex tinyint not null default '0';
   
 //删除列549830479
 
@@ -74,7 +74,7 @@ alter table t1 change a b integer;
 
 alter table t1 change b b bigint not null;
   
-alter table infos change list list tinyint not null default &#8216;0&#8217;;
+alter table infos change list list tinyint not null default '0';
 
 //重命名表549830479
 

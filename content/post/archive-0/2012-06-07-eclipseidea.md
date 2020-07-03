@@ -10,36 +10,32 @@ tags:
   - IDEA
 
 ---
-outline &#8211; structure, Ctrl+F12
+outline - structure, Ctrl+F12
 
 本文转自：<http://gagi.iteye.com/blog/633778>
 
-&nbsp;
 
 1、比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下：
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
       sysout(sout 按tab)，main(psvm按tab),具体可按照ctrl+j
     </li>
   </ol>
-</div>
 
 2、性能优化
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
@@ -79,23 +75,21 @@ outline &#8211; structure, Ctrl+F12
       -server控制内存garage方式，这样你无需在花一到两分钟等待内存garage的收集。
     </li>
   </ol>
-</div>
 
 3、优化文件保存和工程加载
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
       取消“Synchronize file on frame activation”和“Save files on framedeactivation”的选择
     </li>
     <li>
-      同时我们选择&#8221;Save files automatically&#8221;, 并将其设置为30秒，这样IDEA依然可以自动保持文件,所以在每次切换时，你需要按下Ctrl+S保存文件
+      同时我们选择"Save files automatically", 并将其设置为30秒，这样IDEA依然可以自动保持文件,所以在每次切换时，你需要按下Ctrl+S保存文件
     </li>
     <li>
     </li>
@@ -103,16 +97,14 @@ outline &#8211; structure, Ctrl+F12
       如何让IntelliJ IDEA动的时候不打开工程文件：Settings->General去掉Reopen last project on startup
     </li>
   </ol>
-</div>
 
 4、用*标识编辑过的文件
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
@@ -125,67 +117,59 @@ outline &#8211; structure, Ctrl+F12
       在IDEA中，你需要做以下设置, 这样被修改的文件会以*号标识出来，你可以及时保存相关的文件。
     </li>
     <li>
-      &#8220;Mark modifyied tabs with asterisk&#8221;
+      "Mark modifyied tabs with asterisk"
     </li>
   </ol>
-</div>
 
 5、显示行号
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
       如何显示行号：Settings->Editor->Appearance标签项，勾选Show line numbers
     </li>
   </ol>
-</div>
 
 6、自定义键盘快捷方式
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
       如果默认代码提示和补全快捷键跟输入法冲突，如何解决：Settings->Keymap
     </li>
   </ol>
-</div>
 
 7、如何让光标不随意定位
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
       Settings->Editor中去掉Allow placement of caret after end of line。
     </li>
   </ol>
-</div>
 
 8、中文乱码问题
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
@@ -200,32 +184,28 @@ outline &#8211; structure, Ctrl+F12
       File菜单->Settings->Appearance-> Font Name=Simsun，size=12
     </li>
   </ol>
-</div>
 
 9、如何完美显示中文
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
       Settings->Appearance中勾选Override default fonts by (not recommended)，设置Name:NSimSun，Size:12
     </li>
   </ol>
-</div>
 
 10编辑自动提示
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
@@ -238,18 +218,15 @@ outline &#8211; structure, Ctrl+F12
       parameter info->autoopopup in ->0
     </li>
   </ol>
-</div>
 
-&nbsp;
 
 11、一些有用的快捷键
 
-<div>
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol>
     <li>
@@ -304,4 +281,3 @@ outline &#8211; structure, Ctrl+F12
       Ctrl+B 快速打开光标处的类或方法
     </li>
   </ol>
-</div>

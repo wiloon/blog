@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
-&#8211; name: ensure file exists
+- name: ensure file exists
     
 copy:
       
@@ -26,6 +26,6 @@ owner: root
       
 mode: 0555
   
-[/code]
+```
 
 https://stackoverflow.com/questions/28347717/how-to-create-an-empty-file-with-ansible

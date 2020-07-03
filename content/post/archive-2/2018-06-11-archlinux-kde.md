@@ -1,15 +1,16 @@
 ---
-title: archlinux kde
+title: archlinux kde, config
 author: wiloon
 type: post
 date: 2018-06-11T10:48:46+00:00
 url: /?p=12297
-categories:
-  - Uncategorized
+tags:
+  - kde
 
 ---
-<pre><code class="language-shell line-numbers">sudo pacman -S xorg xorg-xinit
-echo "exec startplasma-x11" &gt; ~/.xinitrc
+```bash
+sudo pacman -S xorg xorg-xinit
+echo "exec startplasma-x11" > ~/.xinitrc
 sudo pacman -S plasma-desktop
 sudo pacman -S konsole dolphin kate
 startx
@@ -22,8 +23,8 @@ sudo pacman -S kwalletmanager
 ```
 
 ### 登录后启动kde
-
-<pre><code class="language-shell line-numbers">vim /home/wiloon/.zshrc
+```bash
+vim /home/wiloon/.zshrc
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
@@ -37,3 +38,29 @@ sddm
 https://wiki.archlinux.org/index.php/Display\_manager#Loading\_the\_display\_manager
 
  [1]: https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login "https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login"
+
+ ### 锁屏界面的日期时间格式
+ https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html
+ ```bash
+vim  /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml
+找到这一行：
+
+text: Qt.formatTime(timeSource.data["Local"]["DateTime"])
+并将其更改为
+
+text: Qt.formatTime(timeSource.data["Local"]["DateTime"], "hh:mm:ss")
+对于ISO日期更改，请找到以下行：
+
+text: Qt.formatDate(timeSource.data["Local"]["DateTime"], Qt.DefaultLocaleLongDate);
+并将其更改为
+
+text: Qt.formatDate(timeSource.data["Local"]["DateTime"], "yyyy-MM-dd");
+保存更改。
+
+按Ctrl + Alt + L锁定屏幕并立即查看更改。
+ ```
+
+ ### kde 配置
+ #### 多显示器
+ Right-click on the background of the second screen -> Add Panel -> Empty Panel 
+ add widgets: task manager

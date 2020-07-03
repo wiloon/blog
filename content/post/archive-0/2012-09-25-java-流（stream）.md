@@ -20,9 +20,9 @@ IO流的分类：
 
 2、根据数据的流向来分：
   
-输出流：是用来写数据的，是由程序（内存）&#8212;>外界设备
+输出流：是用来写数据的，是由程序（内存）->外界设备
   
-输入流：是用来读数据的，是由外界设备&#8212;>程序（内存）
+输入流：是用来读数据的，是由外界设备->程序（内存）
   
 如何区分：一般来说输入流带有Input，输出流带有Output
 
@@ -84,7 +84,7 @@ public class ReadFileDemo {
    
 public static void main(String[] args) {
    
-String path = &#8220;c:/boot.ini&#8221;;
+String path = "c:/boot.ini";
    
 File file = new File(path);
 
@@ -98,7 +98,7 @@ is = new FileInputStream(file);
    
 } catch (FileNotFoundException e) {
    
-System.err.println(&#8220;文件 &#8221; + path + &#8221; 不存在。&#8221;);
+System.err.println("文件 " + path + " 不存在。");
    
 return;
    
@@ -126,7 +126,7 @@ eachTime = is.read(buffer); // 继续读取
    
 } catch (IOException e) {
    
-System.err.println(&#8220;读取文件内容失败。&#8221;);
+System.err.println("读取文件内容失败。");
    
 e.printStackTrace();
    
@@ -206,13 +206,13 @@ public class SaveFileDemo {
 
 public static void main(String[] args) throws IOException {
    
-String path = &#8220;c:/now.txt&#8221;;
+String path = "c:/now.txt";
 
 File file = new File(path);
    
 if (!file.exists() && !file.createNewFile()) {
    
-System.err.println(&#8220;无法创建文件。&#8221;);
+System.err.println("无法创建文件。");
    
 return;
    
@@ -224,7 +224,7 @@ os.write(new Date().toString().getBytes()); // 将当前时间写入文件
    
 os.close(); // 必须关闭流，内容才会写入文件。
    
-System.out.println(&#8220;文件写入完成。&#8221;);
+System.out.println("文件写入完成。");
    
 }
   
@@ -260,9 +260,9 @@ public static void main(String[] args) {
           
 try {
               
-System.out.print(&#8220;输入字符: &#8220;);
+System.out.print("输入字符: ");
               
-System.out.println(&#8220;输入字符十进制表示: &#8221; +
+System.out.println("输入字符十进制表示: " +
                                       
 System.in.read());
           
@@ -326,9 +326,9 @@ new FileOutputStream(new File(args[1]));
               
 // available()可取得未读取的数据长度
               
-System.out.println(&#8220;复制文件：&#8221; +
+System.out.println("复制文件：" +
                       
-fileInputStream.available() + &#8220;字节&#8221;);
+fileInputStream.available() + "字节");
 
             while(true) {
                 if(fileInputStream.available() < 1024) {
@@ -426,9 +426,9 @@ new BufferedOutputStream(
                            
 new FileOutputStream(desFile));
               
-System.out.println(&#8220;复制文件：&#8221; +
+System.out.println("复制文件：" +
                                
-srcFile.length() + &#8220;字节&#8221;);
+srcFile.length() + "字节");
               
 while(bufferedInputStream.read(data) != -1) {
                   

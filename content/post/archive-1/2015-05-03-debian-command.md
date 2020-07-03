@@ -10,7 +10,8 @@ tags:
   - linux
 
 ---
-```bash# list installed package
+```bash
+# list installed package
 dpkg --list
 
 # remove package
@@ -18,7 +19,6 @@ apt-get remove foo
 
 # ping, command not found
 apt-get install inetutils-ping
-
 
 ```
 

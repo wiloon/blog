@@ -12,9 +12,9 @@ hibernate.cfg.xml 中hibernate.hbm2ddl.auto配置节点如下：
   
 <properties>
   
-<property name=&#8221;hibernate.show_sql&#8221; value=&#8221;true&#8221; />
+<property name="hibernate.show_sql" value="true" />
   
-<property name=&#8221;hibernate.hbm2ddl.auto&#8221; value=&#8221;create&#8221; />
+<property name="hibernate.hbm2ddl.auto" value="create" />
   
 </properties>
 
@@ -26,9 +26,8 @@ With create-drop, the database schema will be dropped when the SessionFactory is
   
 eg. validate | update | create | create-drop
 
-&nbsp;
   
-其实这个hibernate.hbm2ddl.auto参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value=&#8221;none&#8221;。
+其实这个hibernate.hbm2ddl.auto参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value="none"。
   
 create：
   
@@ -50,7 +49,7 @@ validate ：
   
 当我们把hibernate.hbm2ddl.auto=create时hibernate先用hbm2ddl来生成数据库schema。
   
-当我们把hibernate.cfg.xml文件中hbm2ddl属性注释掉，这样我们就取消了在启动时用hbm2ddl来生成数据库schema。通常 只有在不断重复进行单元测试的时候才需要打开它，但再次运行hbm2ddl会把你保存的一切都删除掉（drop）&#8212;- create配置的含义是：“在创建SessionFactory的时候，从scema中drop掉所以的表，再重新创建它们”。
+当我们把hibernate.cfg.xml文件中hbm2ddl属性注释掉，这样我们就取消了在启动时用hbm2ddl来生成数据库schema。通常 只有在不断重复进行单元测试的时候才需要打开它，但再次运行hbm2ddl会把你保存的一切都删除掉（drop）-- create配置的含义是：“在创建SessionFactory的时候，从scema中drop掉所以的表，再重新创建它们”。
   
 注意，很多Hibernate新手在这一步会失败，我们不时看到关于Table not found错误信息的提问。但是，只要你根据上面描述的步骤来执行，就不会有这个问题，因为hbm2ddl会在第一次运行的时候创建数据库schema， 后续的应用程序重启后还能继续使用这个schema。假若你修改了映射，或者修改了数据库schema,你必须把hbm2ddl重新打开一次。
 
@@ -60,9 +59,9 @@ validate ：
 
 <properties>
   
-<property name=&#8221;hibernate.show_sql&#8221; value=&#8221;true&#8221; />
+<property name="hibernate.show_sql" value="true" />
   
-<property name=&#8221;hibernate.hbm2ddl.auto&#8221; value=&#8221;create&#8221; />
+<property name="hibernate.hbm2ddl.auto" value="create" />
   
 </properties>
   
@@ -70,7 +69,7 @@ validate ：
 
 hibernate.hbm2ddl.auto Automatically validate or export schema DDL to the database when the SessionFactory is created. With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly. eg. validate | update | create | create-drop
 
-其实这个参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value=&#8221;none&#8221;.
+其实这个参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value="none".
 
 其它几个参数的意思，我解释一下：
 
@@ -84,7 +83,6 @@ update                 加载hibernate自动更新数据库结�
 
 以上4个属性对同一配置文件下所用有的映射表都起作用
 
-&nbsp;
 
 总结：
 
@@ -92,6 +90,5 @@ update                 加载hibernate自动更新数据库结�
 
 2.如果发现数据库表丢失，请检查hibernate.hbm2ddl.auto的配置
 
-&nbsp;
 
 本文来自CSDN博客，转载请标明出处：http://blog.csdn.net/lgq_0714/archive/2009/11/16/4814693.aspx

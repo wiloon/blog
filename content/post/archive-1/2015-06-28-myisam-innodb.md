@@ -169,7 +169,7 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
   * InnoDB中不保存表的行数，如select count(\*) from table时，InnoDB需要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count(\*)语句包含where条件时MyISAM也需要扫描整个表
   * 对于自增长的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中可以和其他字段一起建立联合索引
   * 清空整个表时，InnoDB是一行一行的删除，效率非常慢。MyISAM则会重建表
-  * InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like ‘%lee%’
+  * InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like '%lee%'
 
 ## 总结
 
@@ -561,11 +561,6 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
   4. Merge：允许MySQL DBA或开发人员将一系列等同的MyISAM表以逻辑方式组合在一起，并作为1个对象引用它们。对于诸如数据仓储等VLDB环境十分适合。
   5. 
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 建表的时候会选择数据库引擎，常用的有MyISAM和InnoDB，到底选哪个呢？
 
@@ -677,7 +672,7 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
 
 <div id="crayon-558f8b0e9051a898827726" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover">
   <div class="crayon-plain-wrap">
-  </div>
+  
   
   <div class="crayon-main">
     <table class="crayon-table">
@@ -686,33 +681,31 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
           <div class="crayon-nums-content">
             <div class="crayon-num" data-line="crayon-558f8b0e9051a898827726-1">
               1
-            </div>
+            
             
             <div class="crayon-num crayon-striped-num" data-line="crayon-558f8b0e9051a898827726-2">
               2
-            </div>
-          </div>
+            
+          
         </td>
         
         <td class="crayon-code">
           <div class="crayon-pre">
             <div id="crayon-558f8b0e9051a898827726-1" class="crayon-line">
-              <span class="crayon-e">Frequent </span><span class="crayon-v">reading</span><span class="crayon-sy">,</span> <span class="crayon-e">almost </span><span class="crayon-e">no </span><span class="crayon-i">writing</span> 常有读取操作，几乎没有写操作<span class="crayon-o">=&</span><span class="crayon-v">gt</span><span class="crayon-sy">;</span> <span class="crayon-e">MyISAM</span>
-            </div>
+              <span class="crayon-e">Frequent <span class="crayon-v">reading<span class="crayon-sy">, <span class="crayon-e">almost <span class="crayon-e">no <span class="crayon-i">writing 常有读取操作，几乎没有写操作<span class="crayon-o">=&<span class="crayon-v">gt<span class="crayon-sy">; <span class="crayon-e">MyISAM
+            
             
             <div id="crayon-558f8b0e9051a898827726-2" class="crayon-line crayon-striped-line">
-              <span class="crayon-v">Full</span><span class="crayon-o">&#8211;</span><span class="crayon-e">text </span><span class="crayon-e">search </span><span class="crayon-st">in</span> <span class="crayon-v">MySQL</span> <span class="crayon-o">&</span><span class="crayon-v">lt</span><span class="crayon-sy">;</span><span class="crayon-o">=</span> <span class="crayon-cn">5.5</span><span class="crayon-h">      </span><span class="crayon-o">=&</span><span class="crayon-v">gt</span><span class="crayon-sy">;</span> <span class="crayon-v">MyISAM</span>
-            </div>
-          </div>
+              <span class="crayon-v">Full<span class="crayon-o">-<span class="crayon-e">text <span class="crayon-e">search <span class="crayon-st">in <span class="crayon-v">MySQL <span class="crayon-o">&<span class="crayon-v">lt<span class="crayon-sy">;<span class="crayon-o">= <span class="crayon-cn">5.5<span class="crayon-h">      <span class="crayon-o">=&<span class="crayon-v">gt<span class="crayon-sy">; <span class="crayon-v">MyISAM
+            
+          
         </td>
       </tr>
     </table>
-  </div>
-</div>
+  
 
 InnoDB的设计目标是处理大容量数据库系统，它的CPU利用率是其它基于磁盘的关系数据库引擎所不能比的。
 
-&nbsp;
 
 http://boweihe.me/?p=1500
 

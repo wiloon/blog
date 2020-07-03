@@ -12,7 +12,6 @@ tags:
 ---
 http://blog.csdn.net/ithomer/article/details/8080912
 
-&nbsp;
 
 HTML中id、name、class 区别
   
@@ -32,15 +31,15 @@ id的用途
 
 2） label与form控件的关联，如
 
-<label for=&#8221;MyInput&#8221;>My Input</label>
+<label for="MyInput">My Input</label>
   
-<input id=&#8221;MyInput&#8221; type=&#8221;text&#8221;>
+<input id="MyInput" type="text">
   
 for属性指定与label关联的元素的id，不可用name替代
 
 3）脚本中获得对象：IE支持在脚本中直接以id（而不是name）引用该id标识的对象。
 
-例如上面的input，要在脚本中获得输入的内容，可以直接以 MyInput.value来获得。如果用DOM的话，则用document.getElementById(&#8220;MyInput&#8221;).value；
+例如上面的input，要在脚本中获得输入的内容，可以直接以 MyInput.value来获得。如果用DOM的话，则用document.getElementById("MyInput").value；
 
 如果要用name的话，通常先得到包含控件的form，例如document.forms[0]，然后从form再引用name，注意这样得到的是经过计算后将发送给服务器的值
 
@@ -48,25 +47,25 @@ name的用途
 
 1）主要是用于获取提交表单的某表单域信息， 作为可与服务器交互数据的HTML元素的服务器端的标示，比如input、select、textarea、框架元素(iframe、frame、 window的名字，用于在其他frame或window指定target )和button等，这些元素都与表单(框架元素作用于form的target)提交有关，浏览器会根据name来设定发送到服务器的request， 在表单的接收页面只接收有name的元素,  所以赋ID的元素通过表单是接收不到值的。 我们可以在服务器端根据其Name通过Request.Params取得元素提交的值。在form里面，如果不指定name，就不会发送到服务器端。
 
-2）HTML元素Input type=&#8217;radio&#8217;分组，我们知道radio button控件在同一个分组类，check操作是mutex的，同一时间只能选中一个radio，这个分组就是根据相同的name属性来实现的。
+2）HTML元素Input type='radio'分组，我们知道radio button控件在同一个分组类，check操作是mutex的，同一时间只能选中一个radio，这个分组就是根据相同的name属性来实现的。
 
-3）建立页面中的锚点，我们知道<a href=&#8221;URL&#8221;>link</a>是获得一个页面超级链接，如果不用href属性，而改用name，如：<a name=&#8221;PageBottom&#8221;></a>，我们就获得了一个页面锚点，如<strong><a name=&#8221;1&#8243; id=&#8221;1&#8243;></a>Experience (XP)</strong>，详见 示例
+3）建立页面中的锚点，我们知道<a href="URL">link</a>是获得一个页面超级链接，如果不用href属性，而改用name，如：<a name="PageBottom"></a>，我们就获得了一个页面锚点，如<a name="1" id="1"></a>Experience (XP)，详见 示例
 
 4）作为对象的Identity，如Applet、Object、Embed等元素。比如在Applet对象实例中，我们将使用其name来引用该对象。
 
-5）在IMG元素和MAP元素之间关联的时候，如果要定义IMG的热点区域，需要使用其属性usemap，使usemap=&#8221;#name&#8221;(被关联的MAP元素的Name)。
+5）在IMG元素和MAP元素之间关联的时候，如果要定义IMG的热点区域，需要使用其属性usemap，使usemap="#name"(被关联的MAP元素的Name)。
 
-6）某些特定元素的属性，如attribute，meta和param。例如为Object定义参数<PARAM NAME = &#8220;appletParameter&#8221; VALUE = &#8220;value&#8221;>或Meta中<META NAME = &#8220;Author&#8221; CONTENT = &#8220;Dave Raggett&#8221;>。
+6）某些特定元素的属性，如attribute，meta和param。例如为Object定义参数<PARAM NAME = "appletParameter" VALUE = "value">或Meta中<META NAME = "Author" CONTENT = "Dave Raggett">。
 
-当然HTML元素的name属性在页面中也可以起那么一点ID的作用，因为在DHTML对象树中，我们可以使用document.getElementsByName来获取一个包含页面中所有指定Name元素的对象数组。Name属性还有一个问题，当我们动态创建可包含Name属性的元素时，不能简单的使用赋值element.name = &#8220;&#8230;&#8221;来添加其Name，而必须在创建Element时，使用document.createElement(&#8216;<element name = &#8220;myName&#8221;></element>&#8217;)为元素添加Name属性。这是什么意思啊？看下面的例子就明白了。
+当然HTML元素的name属性在页面中也可以起那么一点ID的作用，因为在DHTML对象树中，我们可以使用document.getElementsByName来获取一个包含页面中所有指定Name元素的对象数组。Name属性还有一个问题，当我们动态创建可包含Name属性的元素时，不能简单的使用赋值element.name = "..."来添加其Name，而必须在创建Element时，使用document.createElement('<element name = "myName"></element>')为元素添加Name属性。这是什么意思啊？看下面的例子就明白了。
 
-< script  language =&#8221;JavaScript&#8221; >
+< script  language ="JavaScript" >
   
-var  input  =  document.createElement(&#8216;INPUT&#8217;);
+var  input  =  document.createElement('INPUT');
   
-input.id  =  &#8216;myId&#8217;;
+input.id  =  'myId';
   
-input.name  =  &#8216;myName&#8217;;
+input.name  =  'myName';
   
 alert(input.outerHTML);
   
@@ -74,11 +73,11 @@ alert(input.outerHTML);
   
 消息框里显示的结果是：<INPUT id=myId>
   
-< script  language =&#8221;JavaScript&#8221; >
+< script  language ="JavaScript" >
   
-var  input  =  document.createElement(&#8216; < INPUT name = &#8221; myName &#8221; > &#8216;);
+var  input  =  document.createElement(' < INPUT name = " myName " > ');
   
-input.id  =  &#8216;myId&#8217;;
+input.id  =  'myId';
   
 alert(input.outerHTML);
   
@@ -86,33 +85,27 @@ alert(input.outerHTML);
   
 消息框里显示的结果是：<INPUT id=myId name=myName>
 
-&nbsp;
-
-&nbsp;
-
 name与id 区别
 
 id要符合标识的要求，比如大小写敏感，最好不要包含下划线（因为不兼容CSS）。而name基本上没有什么要求，甚至可以用数字。table、tr、td、div、p、span、h1、li等元素一般用id。与表单相关的元素也可以赋ID值,  但为这些元素赋ID值的时候引用这些元素的方法就要变一下了，具体的如下：
 
-赋name时，引用元素的方式:  document.formName.inputName 或 document.frames(&#8220;frameName&#8221;)
+赋name时，引用元素的方式:  document.formName.inputName 或 document.frames("frameName")
   
 赋id时，引用元素的方式:  document.all.inputID 或 document.all.frameID
   
 除去与表单相关的元素，只能赋id不能赋name，这些元素有body、li、a、table、tr、td、th、p、div、span、pre、dl、dt、dd、font、b等等
 
-&nbsp;
   
 CSS 中 id、class属性的区别
 
-&nbsp;
 
-1）class是设置标签的类，用于指定元素属于何种样式的类。在CSS样式中以小写的“点”及“.”来命名，在html页面里则以class=&#8221;css5&#8243; 来选择调用，命名好的CSS又叫css选择器。
+1）class是设置标签的类，用于指定元素属于何种样式的类。在CSS样式中以小写的“点”及“.”来命名，在html页面里则以class="css5" 来选择调用，命名好的CSS又叫css选择器。
   
-如： .css5{属性：属性值;} 选择器在html调用为“<div class=&#8221;css5&#8243;>我是class例子</div>
+如： .css5{属性：属性值;} 选择器在html调用为“<div class="css5">我是class例子
   
 .baobao { color: lime; background: #ff80c0 }
   
-使用方法：class=&#8221;baobao&#8221;
+使用方法：class="baobao"
 
 2）id是设置标签的标识。用于定义一个元素的独特的样式。在CSS样式定义的时候 以“#”来开头命名id名称
   
@@ -120,7 +113,7 @@ CSS 中 id、class属性的区别
   
 #binbin { font-size: larger }
   
-使用方法：id=&#8221;binbin&#8221;
+使用方法：id="binbin"
   
 id是一个标签，用于区分不同的结构和内容，就象你的名字，如果一个屋子有2个人同名，就会出现混淆；
 
@@ -132,7 +125,7 @@ id是一个标签，用于区分不同的结构和内容，就象你的名字，
 
 调用ID ：
 
-<div id=&#8221;css5&#8243;>我是ID例子</div>
+<div id="css5">我是ID例子
   
 class是一个样式，可以套在任何结构和内容上，就象一件衣服。
 
@@ -140,7 +133,7 @@ class是一个样式，可以套在任何结构和内容上，就象一件衣服
 
 id是先找到结构/内容，再给它定义样式；class是先定义好一种样式，再套给多个结构/内容。
 
-（1） 一个class是用来根据用户定义的标准对一个或多个元素进行定义的。打个比较恰当的比方就是剧本：一个class可以定义剧本中每个人物的故事线，你可以通过cSS，javascript等来使用这个类。因此你可以在一个页面上使用class=&#8221;Frodo&#8221; ，class= &#8220;Gandalf&#8221;， class=&#8221;Aragorn&#8221;来区分不同的故事线。还有一点非常重要的是你可以在一个文档中使用任意次数的class。
+（1） 一个class是用来根据用户定义的标准对一个或多个元素进行定义的。打个比较恰当的比方就是剧本：一个class可以定义剧本中每个人物的故事线，你可以通过cSS，javascript等来使用这个类。因此你可以在一个页面上使用class="Frodo" ，class= "Gandalf"， class="Aragorn"来区分不同的故事线。还有一点非常重要的是你可以在一个文档中使用任意次数的class。
   
 （2） id 通常用于定义页面上一个仅出现一次的标记。在对页面排版进行结构化布局时（比如说通常一个页面都是由一个页眉，一个报头< masthead>，一个内容区域和一个页脚等组成），一般使用ID比较理想，因为一个ID在一个文档中只能被使用一次。而这些元素在同一页面中很少会出现大于一次的情况。
   
@@ -152,7 +145,6 @@ id是先找到结构/内容，再给它定义样式；class是先定义好一种
   
 <<id具有唯一性，而class是一个类，适用于可多次重复使用的容器>>
 
-&nbsp;
   
 关于ID和Name的一些注意事项
 

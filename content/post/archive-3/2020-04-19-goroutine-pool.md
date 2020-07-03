@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```golang type worker struct {
+```golang
+type worker struct {
     Func func()
 }
 
@@ -17,7 +18,7 @@ func main() {
 
     channels := make(chan worker, 10)
 
-    for i := 0; i &lt; 5; i++ {
+    for i := 0; i < 5; i++ {
         wg.Add(1)
         go func() {
             defer wg.Done()
@@ -28,21 +29,22 @@ func main() {
         }()
     }
 
-    for i := 0; i &lt; 100; i++ {
+    for i := 0; i < 100; i++ {
         j := i
         wk := worker{
             Func: func() {
                 fmt.Println(j + j)
             },
         }
-        channels &lt;- wk
+        channels <- wk
     }
     close(channels)
     wg.Wait()
 }
 ```
 
-```golang package pool
+```golang
+package pool
 
 type PayloadProcessor func(payload interface{})
 
@@ -59,7 +61,7 @@ func New(size int, processor func(interface{})) *Pool {
         Processor: processor,
     }
 
-    for i := 0; i &lt; p.Size; i++ {
+    for i := 0; i < p.Size; i++ {
         go func() {
             for payload := range p.Channels {
                 p.Processor(payload)
@@ -70,7 +72,7 @@ func New(size int, processor func(interface{})) *Pool {
 }
 
 func (p *Pool) Process(payload interface{}) {
-    p.Channels &lt;- payload
+    p.Channels <- payload
 }
 
 ```

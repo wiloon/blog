@@ -24,11 +24,11 @@ cal.add(Calendar.DAY\_OF\_MONTH, +1);//取当前日期的后一天.
   
 //通过格式化输出日期
   
-java.text.SimpleDateFormat format = new java.text.SimpleDateFormat(&#8220;yyyy-MM-dd&#8221;);
+java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
   
-System.out.println(&#8220;Today is:&#8221;+format.format(Calendar.getInstance().getTime()));
+System.out.println("Today is:"+format.format(Calendar.getInstance().getTime()));
   
-System.out.println(&#8220;yesterday is:&#8221;+format.format(cal.getTime()));
+System.out.println("yesterday is:"+format.format(cal.getTime()));
   
 得到2007-12-25日期:
 
@@ -47,28 +47,28 @@ s 分钟中的秒数 Number 55
 S 毫秒数 Number 978
 
 <blockquote data-secret="RA1Eqnm13T" class="wp-embedded-content">
-  <p>
+  
     <a href="http://www.wiloon.com/wordpress/?p=8834">java 8 日期/date time</a>
-  </p>
+  
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=8834&#038;embed=true#?secret=RA1Eqnm13T" data-secret="RA1Eqnm13T" width="600" height="338" title="&#8220;java 8 日期/date time&#8221; &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=8834&embed=true#?secret=RA1Eqnm13T" data-secret="RA1Eqnm13T" width="600" height="338" title=""java 8 日期/date time" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 <blockquote data-secret="qXtE3cmQSt" class="wp-embedded-content">
-  <p>
+  
     <a href="http://www.wiloon.com/wordpress/?p=3269">joda-time, ThreeTen Backport</a>
-  </p>
+  
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=3269&#038;embed=true#?secret=qXtE3cmQSt" data-secret="qXtE3cmQSt" width="600" height="338" title="&#8220;joda-time, ThreeTen Backport&#8221; &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=3269&embed=true#?secret=qXtE3cmQSt" data-secret="qXtE3cmQSt" width="600" height="338" title=""joda-time, ThreeTen Backport" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
-SimpleDateFormat sdf = new SimpleDateFormat(&#8220;yyyy-MM-dd hh:mm:ss.SSS&#8221;);
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
   
 System.out.println(sdf.format(1318495528278l));
 
 //date to string
   
-new SimpleDateFormat(&#8220;yyyy-MM-dd hh:mm:ss.SSS&#8221;).format(new Date())
+new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new Date())
 
 //Timestamp -&amp;gt; Date
   

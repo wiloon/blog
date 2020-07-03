@@ -42,7 +42,7 @@ Compaction流程
   
 HBase中可以触发compaction的因素有很多，最常见的因素有这么三种：Memstore Flush、后台线程周期性检查、手动触发。
 
-  1. Memstore Flush: 应该说compaction操作的源头就来自flush操作，memstore flush会产生HFile文件，文件越来越多就需要compact。因此在每次执行完Flush操作之后，都会对当前Store中的文件数进行判断，一旦文件数＃ > ，就会触发compaction。需要说明的是，compaction都是以Store为单位进行的，而在Flush触发条件下，整个Region的所有Store都会执行compact，所以会在短时间内执行多次compaction。</p> 
+  1. Memstore Flush: 应该说compaction操作的源头就来自flush操作，memstore flush会产生HFile文件，文件越来越多就需要compact。因此在每次执行完Flush操作之后，都会对当前Store中的文件数进行判断，一旦文件数＃ > ，就会触发compaction。需要说明的是，compaction都是以Store为单位进行的，而在Flush触发条件下，整个Region的所有Store都会执行compact，所以会在短时间内执行多次compaction。 
   2. 后台线程周期性检查：后台线程CompactionChecker定期触发检查是否需要执行compaction，检查周期为：hbase.server.thread.wakefrequency_hbase.server.compactchecker.interval.multiplier。和flush不同的是，该线程优先检查文件数＃是否大于，一旦大于就会触发compaction。如果不满足，它会接着检查是否满足major compaction条件，简单来说，如果当前store中hfile的最早更新时间早于某个值mcTime，就会触发major compaction，HBase预想通过这种机制定期删除过期数据。上文mcTime是一个浮动值，浮动区间默认为［7-7_0.2，7+7*0.2］，其中7为hbase.hregion.majorcompaction，0.2为hbase.hregion.majorcompaction.jitter，可见默认在7天左右就会执行一次major compaction。用户如果想禁用major compaction，只需要将参数hbase.hregion.majorcompaction设为0
 
   3. 手动触发：一般来讲，手动触发compaction通常是为了执行major compaction，原因有三，其一是因为很多业务担心自动major compaction影响读写性能，因此会选择低峰期手动触发；其二也有可能是用户在执行完alter操作之后希望立刻生效，执行手动触发major compaction；其三是HBase管理员发现硬盘容量不够的情况下手动触发major compaction删除大量过期数据；无论哪种触发动机，一旦手动触发，HBase会不做很多自动化检查，直接执行合并。
@@ -51,12 +51,12 @@ HBase中可以触发compaction的因素有很多，最常见的因素有这么�
   
 选择合适的文件进行合并是整个compaction的核心，因为合并文件的大小以及其当前承载的IO数直接决定了compaction的效果。最理想的情况是，这些文件承载了大量IO请求但是大小很小，这样compaction本身不会消耗太多IO，而且合并完成之后对读的性能会有显著提升。然而现实情况可能大部分都不会是这样，在0.96版本和0.98版本，分别提出了两种选择策略，在充分考虑整体情况的基础上选择最佳方案。无论哪种选择策略，都会首先对该Store中所有HFile进行一一排查，排除不满足条件的部分文件：
 
-  1. 排除当前正在执行compact的文件及其比这些文件更新的所有文件（SequenceId更大）</p> 
+  1. 排除当前正在执行compact的文件及其比这些文件更新的所有文件（SequenceId更大） 
   2. 排除某些过大的单个文件，如果文件大小大于hbase.hzstore.compaction.max.size（默认Long最大值），则被排除，否则会产生大量IO消耗
 
 经过排除的文件称为候选文件，HBase接下来会再判断是否满足major compaction条件，如果满足，就会选择全部文件进行合并。判断条件有下面三条，只要满足其中一条就会执行major compaction：
 
-  1. 用户强制执行major compaction</p> 
+  1. 用户强制执行major compaction 
   2. 长时间没有进行compact（CompactionChecker的判断条件2）且候选文件数小于hbase.hstore.compaction.max（默认10）
 
   3. Store中含有Reference文件，Reference文件是split region产生的临时文件，只是简单的引用文件，一般必须在compact过程中删除
@@ -87,7 +87,7 @@ ExploringCompactionPolicy
   
 HBase实现中有一个专门的线程CompactSplitThead负责接收compact请求以及split请求，而且为了能够独立处理这些请求，这个线程内部构造了多个线程池：largeCompactions、smallCompactions以及splits等，其中splits线程池负责处理所有的split请求，largeCompactions和smallCompaction负责处理所有的compaction请求，其中前者用来处理大规模compaction，后者处理小规模compaction。这里需要明白三点：
 
-  1. 上述设计目的是为了能够将请求独立处理，提供系统的处理性能。</p> 
+  1. 上述设计目的是为了能够将请求独立处理，提供系统的处理性能。 
   2. 哪些compaction应该分配给largeCompactions处理，哪些应该分配给smallCompactions处理？是不是Major Compaction就应该交给largeCompactions线程池处理？不对。这里有个分配原则：待compact的文件总大小如果大于值throttlePoint（可以通过参数hbase.regionserver.thread.compaction.throttle配置，默认为2.5G），分配给largeCompactions处理，否则分配给smallCompactions处理。
 
   3. largeCompactions线程池和smallCompactions线程池默认都只有一个线程，用户可以通过参数hbase.regionserver.thread.compaction.large和hbase.regionserver.thread.compaction.small进行配置
@@ -96,7 +96,7 @@ HBase实现中有一个专门的线程CompactSplitThead负责接收compact请求
   
 上文一方面选出了待合并的HFile集合，一方面也选出来了合适的处理线程，万事俱备，只欠最后真正的合并。合并流程说起来也简单，主要分为如下几步：
 
-  1. 分别读出待合并hfile文件的KV，并顺序写到位于./tmp目录下的临时文件中</p> 
+  1. 分别读出待合并hfile文件的KV，并顺序写到位于./tmp目录下的临时文件中 
   2. 将临时文件移动到对应region的数据目录
 
   3. 将compaction的输入文件路径和输出文件路径封装为KV写入WAL日志，并打上compaction标记，最后强制执行sync
@@ -105,13 +105,13 @@ HBase实现中有一个专门的线程CompactSplitThead负责接收compact请求
 
 上述四个步骤看起来简单，但实际是很严谨的，具有很强的容错性和完美的幂等性：
 
-  1. 如果RS在步骤2之前发生异常，本次compaction会被认为失败，如果继续进行同样的compaction，上次异常对接下来的compaction不会有任何影响，也不会对读写有任何影响。唯一的影响就是多了一份多余的数据。</p> 
+  1. 如果RS在步骤2之前发生异常，本次compaction会被认为失败，如果继续进行同样的compaction，上次异常对接下来的compaction不会有任何影响，也不会对读写有任何影响。唯一的影响就是多了一份多余的数据。 
   2. 如果RS在步骤2之后、步骤3之前发生异常，同样的，仅仅会多一份冗余数据。
 
   3. 如果在步骤3之后、步骤4之前发生异常，RS在重新打开region之后首先会从WAL中看到标有compaction的日志，因为此时输入文件和输出文件已经持久化到HDFS，因此只需要根据WAL移除掉compaction输入文件即可
 
 总结
 
-本文重点从减少IO的层面对Compaction进行了介绍，其实Compaction还是HBase删除过期数据的唯一手段。文章下半部分着眼于Compaction的整个流程，细化分阶段分别进行了梳理。通过本文的介绍，一方面希望读者对Compaction的左右有一个清晰的认识，另一方面能够从流程方面了解Compaction的工作原理。然而，Compaction一直是HBase整个架构体系中最重要的一环，对它的改造也从来没有停止过，改造的重点就是上文的核心点－’选择合适的HFile合并’，在接下来的一篇文章中会重点分析HBase在此处所作的努力～
+本文重点从减少IO的层面对Compaction进行了介绍，其实Compaction还是HBase删除过期数据的唯一手段。文章下半部分着眼于Compaction的整个流程，细化分阶段分别进行了梳理。通过本文的介绍，一方面希望读者对Compaction的左右有一个清晰的认识，另一方面能够从流程方面了解Compaction的工作原理。然而，Compaction一直是HBase整个架构体系中最重要的一环，对它的改造也从来没有停止过，改造的重点就是上文的核心点－'选择合适的HFile合并'，在接下来的一篇文章中会重点分析HBase在此处所作的努力～
 
 <http://hbasefly.com/2016/07/13/hbase-compaction-1/>

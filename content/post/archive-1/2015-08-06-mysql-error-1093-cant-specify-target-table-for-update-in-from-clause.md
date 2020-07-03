@@ -1,5 +1,5 @@
 ---
-title: MySQL Error 1093 – Can’t specify target table for update in FROM clause
+title: MySQL Error 1093 – Can't specify target table for update in FROM clause
 author: wiloon
 type: post
 date: 2015-08-06T11:22:19+00:00
@@ -10,16 +10,14 @@ categories:
 ---
 http://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause
 
-&nbsp;
 
 wrap the condition in one more select
 
-&nbsp;
 
-<pre class="lang-sql prettyprint prettyprinted"><code>&lt;span class="kwd">DELETE&lt;/span> &lt;span class="kwd">FROM&lt;/span>&lt;span class="pln"> story_category
-&lt;/span>&lt;span class="kwd">WHERE&lt;/span>&lt;span class="pln"> category_id &lt;/span>&lt;span class="kwd">NOT&lt;/span> &lt;span class="kwd">IN&lt;/span> &lt;span class="pun">(&lt;/span>
-    &lt;span class="kwd">SELECT&lt;/span>&lt;span class="pln"> cid &lt;/span>&lt;span class="kwd">FROM&lt;/span> &lt;span class="pun">(&lt;/span>
-        &lt;span class="kwd">SELECT&lt;/span> &lt;span class="kwd">DISTINCT&lt;/span>&lt;span class="pln"> category&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">id &lt;/span>&lt;span class="kwd">AS&lt;/span>&lt;span class="pln"> cid &lt;/span>&lt;span class="kwd">FROM&lt;/span>&lt;span class="pln"> category 
-        &lt;/span>&lt;span class="kwd">INNER&lt;/span> &lt;span class="kwd">JOIN&lt;/span>&lt;span class="pln"> story_category &lt;/span>&lt;span class="kwd">ON&lt;/span>&lt;span class="pln"> category_id&lt;/span>&lt;span class="pun">=&lt;/span>&lt;span class="pln">category&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="pln">id
-    &lt;/span>&lt;span class="pun">)&lt;/span> &lt;span class="kwd">AS&lt;/span>&lt;span class="pln"> c
-&lt;/span>&lt;span class="pun">)&lt;/span>```
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">DELETE <span class="kwd">FROM<span class="pln"> story_category
+<span class="kwd">WHERE<span class="pln"> category_id <span class="kwd">NOT <span class="kwd">IN <span class="pun">(
+    <span class="kwd">SELECT<span class="pln"> cid <span class="kwd">FROM <span class="pun">(
+        <span class="kwd">SELECT <span class="kwd">DISTINCT<span class="pln"> category<span class="pun">.<span class="pln">id <span class="kwd">AS<span class="pln"> cid <span class="kwd">FROM<span class="pln"> category 
+        <span class="kwd">INNER <span class="kwd">JOIN<span class="pln"> story_category <span class="kwd">ON<span class="pln"> category_id<span class="pun">=<span class="pln">category<span class="pun">.<span class="pln">id
+    <span class="pun">) <span class="kwd">AS<span class="pln"> c
+<span class="pun">)```

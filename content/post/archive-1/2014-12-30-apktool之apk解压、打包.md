@@ -10,7 +10,6 @@ categories:
 ---
 http://blog.csdn.net/caszhao/article/details/6030425
 
-&nbsp;
 
 博客分类： java
   
@@ -36,13 +35,13 @@ D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool
   
 Java代码 收藏代码
   
-Apktool v1.4.3 &#8211; a tool for reengineering Android apk files
+Apktool v1.4.3 - a tool for reengineering Android apk files
   
 Copyright 2010 Ryszard Wi?niewski <brut.alll@gmail.com>
   
 Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
-Usage: apktool [-q|&#8211;quiet OR -v|&#8211;verbose] COMMAND [&#8230;]
+Usage: apktool [-q|-quiet OR -v|-verbose] COMMAND [...]
 
 COMMANDs are:
 
@@ -52,31 +51,31 @@ Decode <file.apk> to <dir>.
 
 OPTS:
 
--s, &#8211;no-src
+-s, -no-src
   
 Do not decode sources.
   
--r, &#8211;no-res
+-r, -no-res
   
 Do not decode resources.
   
--d, &#8211;debug
+-d, -debug
   
 Decode in debug mode. Check project page for more info.
   
--f, &#8211;force
+-f, -force
   
 Force delete destination directory.
   
--t <tag>, &#8211;frame-tag <tag>
+-t <tag>, -frame-tag <tag>
   
 Try to use framework files tagged by <tag>.
   
-&#8211;keep-broken-res
+-keep-broken-res
   
 Use if there was an error and some resources were dropped, e.g.:
   
-&#8220;Invalid config flags detected. Dropping resources&#8221;, but you
+"Invalid config flags detected. Dropping resources", but you
   
 want to decode them anyway, even with errors. You will have to
   
@@ -98,11 +97,11 @@ will be used.
 
 OPTS:
 
--f, &#8211;force-all
+-f, -force-all
   
 Skip changes detection and build all files.
   
--d, &#8211;debug
+-d, -debug
   
 Build in debug mode. Check project page for more info.
 
@@ -124,9 +123,9 @@ D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool d F:\document\
   
 Java代码 收藏代码
   
-I: Baksmaling&#8230;
+I: Baksmaling...
   
-I: Loading resource table&#8230;
+I: Loading resource table...
   
 I: Loaded.
   
@@ -134,13 +133,13 @@ I: Loading resource table from file: D:\My Documents\apktool\framework\1.apk
   
 I: Loaded.
   
-I: Decoding file-resources&#8230;
+I: Decoding file-resources...
   
-I: Decoding values\*/\* XMLs&#8230;
+I: Decoding values\*/\* XMLs...
   
 I: Done.
   
-I: Copying assets and libs&#8230;
+I: Copying assets and libs...
   
 2）.打包APK
   
@@ -152,12 +151,12 @@ D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool b F:\document\
   
 Java代码 收藏代码
   
-I: Checking whether sources has changed&#8230;
+I: Checking whether sources has changed...
   
-I: Smaling&#8230;
+I: Smaling...
   
-I: Checking whether resources has changed&#8230;
+I: Checking whether resources has changed...
   
-I: Building resources&#8230;
+I: Building resources...
   
-I: Building apk file&#8230;
+I: Building apk file...

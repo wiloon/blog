@@ -18,7 +18,7 @@ TextArea
 
 <textarea rows="3" cols="30">
   
-这里是文本域中的文本 &#8230; &#8230; &#8230; &#8230;
+这里是文本域中的文本 ... ... ... ...
   
 </textarea>
 
@@ -30,10 +30,10 @@ Code:
 
 Setting TextArea Size
   
-The text area size is determined using the attributes &#8220;rows&#8221; and &#8220;cols&#8221;. You can change the size of text area by changing the values of rows and cols.
+The text area size is determined using the attributes "rows" and "cols". You can change the size of text area by changing the values of rows and cols.
 
 Example Code:
 
-&#8212;
+-
   
 text area in status 2

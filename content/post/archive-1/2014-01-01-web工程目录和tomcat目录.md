@@ -131,7 +131,7 @@ tags:
     </td>
     
     <td align="left">
-      Project&#8217;s license
+      Project's license
     </td>
   </tr>
   
@@ -151,7 +151,7 @@ tags:
     </td>
     
     <td align="left">
-      Project&#8217;s readme
+      Project's readme
     </td>
   </tr>
 </table>
@@ -165,19 +165,15 @@ tags:
 
 创建标准目录模板，可以通过如下命令：
 
-<div>
-  <pre>mvn archetype:create -DgroupId=com.codeline.commons -DartifactId=codelineCommons</pre>
-</div>
+  mvn archetype:create -DgroupId=com.codeline.commons -DartifactId=codelineCommons
 
 groupId和artifactId的含义与Maven1中的含义一样，参数artifactId的值会作为项目根目录的名字。除了建立相应的目录之外，Maven2还会创建缺省的pom.xml。
 
 Maven2也考虑到：不同类型的项目需要拥有不同的目录结构。如创建web项目，可以使用命令：
 
-<div>
-  <pre>mvn archetype:create -DgroupId=com.mycompany.app
+  mvn archetype:create -DgroupId=com.mycompany.app
 -DartifactId=my-webapp
--DarchetypeArtifactId=maven-archetype-webapp</pre>
-</div>
+-DarchetypeArtifactId=maven-archetype-webapp
 
 ### 
 
@@ -185,27 +181,27 @@ Maven2也考虑到：不同类型的项目需要拥有不同的目录结构。�
 
 WebContent (站点根目录)
 
-|&#8212;META-INF (META-INF文件夹)<http://www.wiloon.com/wordpress/?p=6102>
+|-META-INF (META-INF文件夹)<http://www.wiloon.com/wordpress/?p=6102>
 
-| |&#8212;MANIFEST.MF (MANIFEST.MF配置清单文件)
+| |-MANIFEST.MF (MANIFEST.MF配置清单文件)
 
-|&#8212;WEB-INF (WEB-INF文件夹)
+|-WEB-INF (WEB-INF文件夹)
 
-| |&#8212;web.xml (站点配置web.xml)
+| |-web.xml (站点配置web.xml)
 
-| |&#8212;lib (第三方库文件夹)
+| |-lib (第三方库文件夹)
 
-| | |&#8212;*.jar (程序需要的jar包)
+| | |-*.jar (程序需要的jar包)
 
-| |&#8212;classes (class文件目录)
+| |-classes (class文件目录)
 
-| |&#8212;&#8230;*.class (class文件)
+| |-...*.class (class文件)
 
-|&#8212;<userdir> (自定义的目录)
+|-<userdir> (自定义的目录)
 
-| |&#8212;\*.jsp,\*.js,\*.css，\*images (自定义的资源文件)
+| |-\*.jsp,\*.js,\*.css，\*images (自定义的资源文件)
 
-|&#8212;<userfiles> (自定义的资源文件)
+|-<userfiles> (自定义的资源文件)
 
 1.WebRoot(WebContent)下是发布到服务器上的内容。
 

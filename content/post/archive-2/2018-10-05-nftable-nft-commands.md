@@ -1,5 +1,5 @@
 ---
-title: 'nftable, nft  commands'
+title: 'nftable, nft  basic, commands'
 author: wiloon
 type: post
 date: 2018-10-05T06:43:04+00:00
@@ -20,7 +20,8 @@ sudo systemctl enable nftables
 
 #### 增加表, Adding tables：
 
-```bashnft add table [&lt;family&gt;] &lt;name&gt;
+```bash
+nft add table [<family>] <name>
 nft add table ip foo
 ```
 
@@ -28,13 +29,15 @@ family 参数是可选的，如果不指定 family，默认是 IPv4
 
 #### 增加链,add chain：
 
-```bashnft add chain [&lt;family&gt;] &lt;table-name&gt; &lt;chain-name&gt; { type &lt;type&gt; hook &lt;hook&gt; priority &lt;value&gt; \; [policy &lt;policy&gt;] }
+```bash
+nft add chain [<family>] <table-name> <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
 nft add chain filter input { type filter hook input priority 0 \; } # 要和hook（钩子）相关连
 ```
 
 #### 增加规则, add rule:
 
-```bashnft add rule &lt;table-name&gt; &lt;chain-name&gt; ip daddr 8.8.8.8 counter
+```bash
+nft add rule <table-name> <chain-name> ip daddr 8.8.8.8 counter
 nft add rule filter input tcp dport 22 accept
 
 nft insert rule nat post ip protocol icmp icmp type echo-request accept
@@ -42,12 +45,12 @@ nft insert rule nat post ip protocol icmp icmp type echo-request accept
 
 ### 查
 
-```bashnft list ruleset # 列出所有规则
+```bash
+nft list ruleset # 列出所有规则
 nft list tables # 列出所有表
 # 列出每个族的表
 nft list tables ip
 nft list table ip foo # 列出foo表的内容
-
 
 nft list chain filter input # 列出filter表input链
 
@@ -57,7 +60,8 @@ nft list table filter -n -a
 
 ### 删
 
-```bash#清空整个规则集
+```bash
+#清空整个规则集
 nft flush ruleset
 # 删除表中所有的规则
 nft flush table ip foo
@@ -84,10 +88,11 @@ nft delete rule table0 chain0 handle 4
 
 nftables.service 启动时自动加载 /etc/nftables.conf
 
-<pre><code class="language-shell line-numbers">nft list ruleset &gt; /etc/nftables.conf
+```bash
+nft list ruleset> /etc/nftables.conf
 ```
 
 ### 从文件加载规则
 
-<pre><code class="language-shell line-numbers">nft -f /etc/nftables.conf
+```bashnft -f /etc/nftables.conf
 ```

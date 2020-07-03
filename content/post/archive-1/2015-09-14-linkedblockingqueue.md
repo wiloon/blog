@@ -108,11 +108,11 @@ try {
   
 LinkedBlockingQueue<String> queue=new LinkedBlockingQueue(2);
 
-queue.add(&#8220;hello&#8221;);
+queue.add("hello");
   
-queue.add(&#8220;world&#8221;);
+queue.add("world");
   
-queue.add(&#8220;yes&#8221;);
+queue.add("yes");
   
 } catch (Exception e) {
   
@@ -170,7 +170,7 @@ e.printStackTrace();
 
 3.最后看一下offer方法：
 
-Inserts the specified element at the tail of this queue if it is possible to do so immediately without exceeding the queue’s capacity, returning true upon success and false if this queue is full. When using a capacity-restricted queue, this method is generally preferable to method add, which can fail to insert an element only by throwing an exception.
+Inserts the specified element at the tail of this queue if it is possible to do so immediately without exceeding the queue's capacity, returning true upon success and false if this queue is full. When using a capacity-restricted queue, this method is generally preferable to method add, which can fail to insert an element only by throwing an exception.
 
 offer方法在添加元素时，如果发现队列已满无法添加的话，会直接返回false。
 

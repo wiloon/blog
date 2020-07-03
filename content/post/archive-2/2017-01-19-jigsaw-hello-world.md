@@ -10,7 +10,6 @@ categories:
 ---
 git@github.com:wiloon/java9x.git
 
-&nbsp;
 
 http://blog.oneapm.com/apm-tech/724.html
 
@@ -18,8 +17,7 @@ http://stackoverflow.com/questions/39882669/unrecognized-option-modulepath
 
 [shell]
 
-java &#8211;module-path mods -m com.mycompany.helloworld/com.mycompany.helloworld.HelloWorld
+java -module-path mods -m com.mycompany.helloworld/com.mycompany.helloworld.HelloWorld
 
 [/shell]
 
-&nbsp;

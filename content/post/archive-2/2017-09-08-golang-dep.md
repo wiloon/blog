@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 dep status -dot | dot -T png | display
 
@@ -30,7 +30,7 @@ ensure Ensure a dependency is safely vendored in the project
   
 prune Prune the vendor tree of unused packages
 
-[/code]
+```
 
 http://tonybai.com/2017/06/08/first-glimpse-of-dep/
   

@@ -11,11 +11,9 @@ categories:
 ---
 <p align="center">
   <a href="http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html">http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html</a>
-</p>
 
 <p align="center">
   第一章           设计一个简单的web service接口
-</p>
 
 本章主要内容： 你将学会如何设计一个简单的web service接口
 
@@ -29,7 +27,7 @@ categories:
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg1.jpg" alt="" width="552" height="346" border="0" />
 
-然而，你希望为你的每一个web service 操作提供全球唯一标识，这样别人也可以拥有名称为“concat”的操作。如何实现呢？很简单，你可以在名称“concat&#8221;前面声明一个”namespace“( 命名空间，比如http: ttdev.com/ss). namespace( 命名空间)的作用同java 中包的作用非常类似，只是表示形式不用而已，包的表示形式为 com.ttdev.foo。全球唯一标识是由namespace和操作名称组成的。Operation(操作)的名称,比如”concat”被称为local name( 本地名称)。全球唯一标识被称为QName( qualified name)。
+然而，你希望为你的每一个web service 操作提供全球唯一标识，这样别人也可以拥有名称为“concat”的操作。如何实现呢？很简单，你可以在名称“concat"前面声明一个”namespace“( 命名空间，比如http: ttdev.com/ss). namespace( 命名空间)的作用同java 中包的作用非常类似，只是表示形式不用而已，包的表示形式为 com.ttdev.foo。全球唯一标识是由namespace和操作名称组成的。Operation(操作)的名称,比如”concat”被称为local name( 本地名称)。全球唯一标识被称为QName( qualified name)。
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg2.jpg" alt="" width="541" height="313" border="0" />
 
@@ -79,33 +77,31 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 当有人调用这个operation(操作)，他会向你发送一个<concatRequest>元素作为input message，如下：
 
-<div>
-  <div>
-    <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
-  </div>
   
-  <div>
-    <foo:concatRequest xmlns:foo=&#8221;http:    ttdev.com/ss&#8221;><s1>abc</s1></p> 
+    <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
+  
+  
+  
+    <foo:concatRequest xmlns:foo="http:    ttdev.com/ss"><s1>abc</s1> 
     
-    <p>
+    
       <s2>123</s2>
-    </p>
     
-    <p>
+    
+    
       </foo:concatRequest>
-    </p>
-  </div>
+    
   
-  <div>
+  
+  
     <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
-  </div>
-</div>
+  
 
 对于output message也类似，可以指定其仅仅包含一个part，这个part是一个<concatResponse> 元素：
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg11.jpg" alt="" width="567" height="514" border="0" />
 
-这种类型的web service 被称为&#8221;文档类型”的web service。文档类型的特点是，input message(输入消息)仅仅包含一个部分( part)，并且这个部分( part)是在schema中良好定义的。
+这种类型的web service 被称为"文档类型”的web service。文档类型的特点是，input message(输入消息)仅仅包含一个部分( part)，并且这个部分( part)是在schema中良好定义的。
 
 对于output message( 输出消息)也一样。
 
@@ -119,7 +115,7 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg13.jpg" alt="" width="564" height="239" border="0" />
 
-没有太大不同，对吧？最明显的不同是RPC类型的不能通过schema进行验证，而文档类型( Document style)却可以。因此，文档类型的web service 是主要的应用方式在实践中。依据“WS-I&#8221;的要求，我们应该只使用文档类型的web services。 注： WS-I 指的是 web service interoperability organization( web服务互操作组织)。
+没有太大不同，对吧？最明显的不同是RPC类型的不能通过schema进行验证，而文档类型( Document style)却可以。因此，文档类型的web service 是主要的应用方式在实践中。依据“WS-I"的要求，我们应该只使用文档类型的web services。 注： WS-I 指的是 web service interoperability organization( web服务互操作组织)。
 
 4.确定文档类型的web service的操作( operation)
 
@@ -137,9 +133,9 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 实际上，你可以使用不同的消息格式对port type进行访问。你已经见过的消息格式是”Simple Object Access Protocol( SOAP)”格式。也就是说，stringUtil的 port type 也可以支持普通文本格式：
 
-concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
+concat(s1='abc', s2='123')
 
-除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( &#8220;binding&#8221;)：
+除了消息格式，port type可以使得消息通过 http post请求或者通过邮件进行传输。每一个可用的组合被称为一个绑定( "binding")：
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg16.jpg" alt="" width="474" height="430" border="0" />
 
@@ -159,7 +155,7 @@ concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
 8.目标命名空间( Target namespace)
 
-你已经对operation的名称，port type的名称等使用了相同的namespace(命名空间)在这个web service中。它们是不是必须使用相同的命名空间呢？默认情况下，一个web service使用同一个命名空间。这就是所谓的&#8221;target namespace&#8221;目标命名空间。
+你已经对operation的名称，port type的名称等使用了相同的namespace(命名空间)在这个web service中。它们是不是必须使用相同的命名空间呢？默认情况下，一个web service使用同一个命名空间。这就是所谓的"target namespace"目标命名空间。
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg19.jpg" alt="" width="506" height="388" border="0" />
 
@@ -169,7 +165,7 @@ concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
 同样，你可以向IANA提交一个申请用于注册你的internet域名，比如像foo.com。当被批准后，你就可以使用URNs ，比如urn:foo.com:xyz去唯一的标识一个对象xyz。xyz的含义和格式完全由你决定。比如你可以使用urn:foo.com:product:123 表示产品#123，或者urn:foo.com:patent/123标识一个专利代码。
 
-尽管，这样会产生一些工作量。只要你已经注册了一个域名foo.com，其他人不可能在其URN’s中使用。
+尽管，这样会产生一些工作量。只要你已经注册了一个域名foo.com，其他人不可能在其URN's中使用。
 
 一个XML 命名空间必须是一个URI。你可以使用URL或者URN。在作用上它们没有什么不同。比如，你可以使用urn:ttdev.com:ss代替http:    ttdev.com/ss作为你的目标命名空间，这对你的web service 一点儿影响都没有。
 
@@ -183,7 +179,7 @@ concat(s1=&#8217;abc&#8217;, s2=&#8217;123&#8242;)
 
 <img src="http://images.cnblogs.com/cnblogs_com/hanlsheng/jpg21.jpg" alt="" width="519" height="387" border="0" />
 
-上图全面描述了你的web service。这个描述语言被称为“wsdl( web services Description Language)&#8221;.
+上图全面描述了你的web service。这个描述语言被称为“wsdl( web services Description Language)".
 
 10.本章总结
 
@@ -203,5 +199,3 @@ web service,每一个port、binding、port type和operation都有一个QName用�
 
 有两种类型的URI：URL 和URN. URN的格式为：urn:<NID>:<NSS>.可以使用两种形式中的任何一种作为XML的命名空间。唯一不同的是URL被建议用过对象的地址而URN只是单纯的用于对象标识。
 
-<div>
-</div>

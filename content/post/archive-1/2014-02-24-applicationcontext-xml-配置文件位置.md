@@ -92,7 +92,7 @@ classpath\*:conf/spring/applicationContext_apm\*.xml
 
 contextConfigLocation 参数定义了要装入的 Spring 配置文件。
 
-首先与Spring相关的配置文件必须要以&#8221;applicationContext-&#8220;开头，要符合约定优于配置的思想，这样在效率上和出错率上都要好很多。
+首先与Spring相关的配置文件必须要以"applicationContext-"开头，要符合约定优于配置的思想，这样在效率上和出错率上都要好很多。
   
 还有最好把所有Spring配置文件都放在一个统一的目录下，如果项目大了还可以在该目录下分模块建目录。这样程序看起来不会很乱。
   
@@ -108,13 +108,13 @@ Xml代码
   
 </context-param>
 
-&#8220;**/&#8221;表示的是任意目录；
+"**/"表示的是任意目录；
   
-&#8220;*\*/applicationContext-\*.xml&#8221;表示任意目录下的以&#8221;applicationContext-&#8220;开头的XML文件。
+"*\*/applicationContext-\*.xml"表示任意目录下的以"applicationContext-"开头的XML文件。
   
 你自己可以根据需要修改。最好把所有Spring配置文件都放在一个统一的目录下，如：
 
-<!&#8211; Spring 的配置 &#8211;>
+<!- Spring 的配置 ->
   
 <context-param>
   

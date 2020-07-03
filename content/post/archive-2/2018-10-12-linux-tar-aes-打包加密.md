@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
-tar -cvf &#8211; foo | openssl enc -e -aes256 -k password -out foo.tar
+tar -cvf - foo | openssl enc -e -aes256 -k password -out foo.tar
   
 openssl enc -d -aes256 -in foo.tar -k password | tar xv
   
@@ -22,4 +22,4 @@ openssl enc -d -aes256 -in foo.tar -k password | tar xv -C .
   
 #目标文件 foo.tar
 
-[/code]
+```

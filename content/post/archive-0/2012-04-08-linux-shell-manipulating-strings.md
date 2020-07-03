@@ -10,7 +10,6 @@ categories:
 ---
 <http://www.faqs.org/docs/abs/HTML/string-manipulation.html>
 
-&nbsp;
 
 连接字符串
 
@@ -25,17 +24,17 @@ echo $a$b
 [/shell]
 
 expr index $string $substring
-:   Numerical position in $string of first character in $substring that matches.</p> 
+:   Numerical position in $string of first character in $substring that matches. 
     
     <table width="90%" border="0" bgcolor="#E0E0E0">
       <tr>
         <td>
-          <pre>   1 stringZ=abcABC123ABCabc
+             1 stringZ=abcABC123ABCabc
    2 echo `expr index "$stringZ" C12`             # 6
    3                                              # C position.
    4 
    5 echo `expr index "$stringZ" 1c`              # 3
-   6 # 'c' (in #3 position) matches before '1'.</pre>
+   6 # 'c' (in #3 position) matches before '1'.
         </td>
       </tr>
     </table>
@@ -44,20 +43,20 @@ expr index $string $substring
     
     **ength of Matching Substring at Beginning of String**
     
-    expr match &#8220;$string&#8221; &#8216;$substring&#8217;
+    expr match "$string" '$substring'
     :   <tt><em>$substring</em></tt> is a [regular expression][1].
     
-    expr &#8220;$string&#8221; : &#8216;$substring&#8217;
-    :   <tt><em>$substring</em></tt> is a regular expression.</p> 
+    expr "$string" : '$substring'
+    :   <tt><em>$substring</em></tt> is a regular expression. 
         
         <table width="90%" border="0" bgcolor="#E0E0E0">
           <tr>
             <td>
-              <pre>   1 stringZ=abcABC123ABCabc
+                 1 stringZ=abcABC123ABCabc
    2 #       |------|
    3 
    4 echo `expr match "$stringZ" 'abc[A-Z]*.2'`   # 8
-   5 echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8</pre>
+   5 echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8
             </td>
           </tr>
         </table>

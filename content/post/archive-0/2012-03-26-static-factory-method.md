@@ -14,7 +14,7 @@ tags:
 
 例如Class实例是Java虚拟机在加载一个类时自动创建的，程序无法用new语句创建java.lang.Class类的实例，因为Class类没有提供public类型的构造方法。为了使程序能获得代表某个类的Class实例，在Class类中提供了静态工厂方法forName(String name)，它的使用方式如下：
 
-Class c=Class.forName( &#8220;Sample &#8220;); //返回代表Sample类的实例
+Class c=Class.forName( "Sample "); //返回代表Sample类的实例
 
 静态工厂方法与用new语句调用的构造方法相比，有以下区别。
 
@@ -28,9 +28,9 @@ public class Gender{
 
 private String description;
 
-private static final Gender female=new Gender( &#8220;女 &#8220;);
+private static final Gender female=new Gender( "女 ");
 
-private static final Gender male=new Gender( &#8220;男 &#8220;);
+private static final Gender male=new Gender( "男 ");
 
 private Gender(String description){this.description=description;}
 
@@ -112,13 +112,13 @@ try{
 
 //加载配置信息
 
-InputStream in=getClass().getResourceAsStream( &#8220;myapp.properties &#8220;);
+InputStream in=getClass().getResourceAsStream( "myapp.properties ");
 
 properties.load(in);
 
 in.close();
 
-}catch(IOException e){throw new RuntimeException( &#8220;加载配置信息失败 &#8220;);}
+}catch(IOException e){throw new RuntimeException( "加载配置信息失败 ");}
 
 }
 
@@ -206,7 +206,7 @@ public Properties getProperties() {return properties; }
 
 以上程序用到了ThreadLocal类，关于它的用法参见第13章的13.14节（ThreadLocal类）。
 
-&#8212;
+-
   
 静态工厂方法是一种将类的运用者和产生着隔离的设计模式，它是一种创造型模式，但是它不属于23种基本设计模式中的一种，它是理解抽象工厂的基础，当然它自身也有用途，这里不说了。
   

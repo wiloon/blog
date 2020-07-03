@@ -8,10 +8,14 @@ categories:
   - Uncategorized
 
 ---
+### 下载安装包
+http://www.corem.com.cn/index.php/service/tools/secoclient
+
 官方只提供了ubuntu版本，用以下方式可以在archlinux上使用。
 
-```bash# seco client 依赖ubuntu的arch命令， 模拟arch命令返回x86_64
-echo "echo x86_64" &gt; /usr/bin/arch
+```bash
+# seco client 依赖ubuntu的arch命令， 模拟arch命令返回x86_64
+echo "echo x86_64" > /usr/bin/arch
 chmod u+x /usr/bin/arch
 
 # install seco client
@@ -28,6 +32,7 @@ cd /usr/local/SecoClient/
 # in crostini
 export WAYLAND_DISPLAY=wayland-0
 # user id 使用非0数字(非root的已有用户id,如1000,填0 时，secoclient无法启动)
-export XDG_RUNTIME_DIR=/run/user/&lt;user id&gt;
+export XDG_RUNTIME_DIR=/run/user/<user id>
 /opt/google/cros-containers/bin/sommelier -X ./SecoClient
 ```
+

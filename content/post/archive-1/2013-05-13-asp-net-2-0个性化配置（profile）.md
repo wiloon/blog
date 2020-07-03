@@ -10,7 +10,8 @@ categories:
 ---
 http://blog.csdn.net/a578559967/article/details/7688971
 
-[code lang=java]
+```java
+
   
 public class ClassName {
       
@@ -74,4 +75,4 @@ System.out.println(Thread.currentThread().getStackTrace()[2].getMethodName());
   
 }
   
-[/code]
+```

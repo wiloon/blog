@@ -22,12 +22,12 @@ mkdir workspace
   
 cd source
   
-#create a project in os china git server and clone &#8230;
+#create a project in os china git server and clone ...
   
 git clone git@git.oschina.net:wiloon/javaEELab.git
   
 cd javaEELab
   
-gradle init &#8211;typeb java-library
+gradle init -typeb java-library
   
 [/shell]

@@ -22,7 +22,7 @@ JDK 默认提供了如下几种ClassLoader
 
 **Bootstrap Class Loader,引导类装载器**
   
-虚拟机的内置类加载器（称为 &#8220;bootstrap class loader&#8221;）本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。
+虚拟机的内置类加载器（称为 "bootstrap class loader"）本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。
   
 Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA\_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA\_HOME%/jre/classes中的类。
   
@@ -36,7 +36,8 @@ Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置
   
 Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。AppClassLoader也是用Java写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar文档，它也是Java程序默认的类加载器。
 
-[code lang=java]
+```java
+
   
 public class ClassLoaderX {
       
@@ -62,7 +63,7 @@ System.out.println("ext class loader > parent:" + bootClassLoader);
   
 }
   
-[/code]
+```
 
 **委托模型 (双亲委托模型)**
   
@@ -194,10 +195,6 @@ Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比�
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
-&nbsp;
-
-&nbsp;
-
 http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1
 
 The class loader concept, one of the cornerstones of the Java virtual machine, describes the behavior of converting a named class into the bits responsible for implementing that class. Because class loaders exist, the Java run time does not need to know anything about files and file systems when running Java programs.
@@ -226,9 +223,9 @@ So when are classes loaded? There are exactly two cases: when the new bytecode i
 
 A non-primordial class loader
   
-&#8220;So what?&#8221; you might ask.
+"So what?" you might ask.
 
-The Java virtual machine has hooks in it to allow a user-defined class loader to be used in place of the primordial one. Furthermore, since the user class loader gets first crack at the class name, the user is able to implement any number of interesting class repositories, not the least of which is HTTP servers &#8212; which got Java off the ground in the first place.
+The Java virtual machine has hooks in it to allow a user-defined class loader to be used in place of the primordial one. Furthermore, since the user class loader gets first crack at the class name, the user is able to implement any number of interesting class repositories, not the least of which is HTTP servers - which got Java off the ground in the first place.
 
 There is a cost, however, because the class loader is so powerful (for example, it can replace java.lang.Object with its own version), Java classes like applets are not allowed to instantiate their own loaders. (This is enforced by the class loader, by the way.) This column will not be useful if you are trying to do this stuff with an applet, only with an application running from the trusted class repository (such as local files).
 
@@ -242,9 +239,9 @@ Verify class name.
   
 Check to see if the class requested has already been loaded.
   
-Check to see if the class is a &#8220;system&#8221; class.
+Check to see if the class is a "system" class.
   
-Attempt to fetch the class from this class loader&#8217;s repository.
+Attempt to fetch the class from this class loader's repository.
   
 Define the class for the VM.
   
@@ -280,7 +277,7 @@ return result;
   
 [/java]
 
-The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It&#8217;s also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
+The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
 [java]
   
@@ -318,7 +315,7 @@ throw new ClassNotFoundException();
   
 [/java]
 
-After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory &#8220;store&#8221; to the class name and appends the extension &#8220;.impl&#8221;. I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
+After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory "store" to the class name and appends the extension ".impl". I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
 
 http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html
 

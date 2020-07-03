@@ -10,4 +10,4 @@ categories:
 ---
 http://hllvm.group.iteye.com/group/topic/40211
 
--XX:OnError=&#8221;jstack -F %p >/opt/com/test/threaddump.log&#8221;
+-XX:OnError="jstack -F %p >/opt/com/test/threaddump.log"

@@ -34,4 +34,4 @@ edit eclipse.init
 add row
 
 --launcher.GTK_version
-2</pre>
+2

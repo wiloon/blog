@@ -1,5 +1,5 @@
 ---
-title: git command
+title: git basic, command
 author: wiloon
 date: 2011-05-28T13:01:51.000+00:00
 url: "/?p=202"
@@ -62,7 +62,8 @@ git push -u origin master
 
 ### tag
 
-```bash#list tags
+```bash
+#list tags
 git tag
 
 # add a tag
@@ -83,7 +84,8 @@ git push origin :refs/tags/1.0.0
 
 ```
 
-```bashgit rm
+```bash
+git rm
 git rm -f
 ```
 
@@ -91,7 +93,8 @@ git rm -f
 
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
 
-```bashgit reset --hard
+```bash
+git reset --hard
 ```
 
 git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。
@@ -104,7 +107,8 @@ $ git fetch <远程主机名> <分支名>
 
 $ git fetch origin master
 
-```bash# 查看远程仓库地址
+```bash
+# 查看远程仓库地址
 git remote -v
 
 man git-fetch
@@ -160,7 +164,9 @@ git ls-files -d | xargs git checkout --
 
 ```
 
-```bash#checkout tag
+```bash
+#checkout tag/branch
+git clone -b v1.30.0 https://github.com/foo/bar
 git clone --branch <tag_name> <repo_url>
 
 git clean -fd

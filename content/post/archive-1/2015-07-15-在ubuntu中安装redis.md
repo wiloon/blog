@@ -66,7 +66,7 @@ Redis客户端运行命令：Redis安装目录/redis-cli.exe
   
 redis 4162 0.1 0.0 10676 1420 ? Ss 23:24 0:00 /usr/bin/redis-server /etc/redis/redis.conf
   
-conan 4172 0.0 0.0 11064 924 pts/0 S+ 23:26 0:00 grep &#8211;color=auto redis
+conan 4172 0.0 0.0 11064 924 pts/0 S+ 23:26 0:00 grep -color=auto redis
 
 \# 通过启动命令检查Redis服务器状态
   
@@ -96,13 +96,13 @@ redis 127.0.0.1:6379> help
   
 redis-cli 2.2.12
   
-Type: &#8220;help @&#8221; to get a list of commands in
+Type: "help @" to get a list of commands in
   
-&#8220;help &#8221; for help on
+"help " for help on
   
-&#8220;help &#8221; to get a list of possible help topics
+"help " to get a list of possible help topics
   
-&#8220;quit&#8221; to exit
+"quit" to exit
   
 \# 查看所有的key列表
   
@@ -116,7 +116,7 @@ redis 127.0.0.1:6379> keys *
   
 \# 增加一条记录key1
   
-redis 127.0.0.1:6379> set key1 &#8220;hello&#8221;
+redis 127.0.0.1:6379> set key1 "hello"
   
 OK
 
@@ -124,7 +124,7 @@ OK
   
 redis 127.0.0.1:6379> get key1
   
-&#8220;hello&#8221;
+"hello"
 
 增加一条数字记录key2
   
@@ -148,7 +148,7 @@ redis 127.0.0.1:6379> INCR key2
   
 redis 127.0.0.1:6379> get key2
   
-&#8220;3&#8221;
+"3"
 
 增加一条列表记录key3
   
@@ -174,23 +174,23 @@ redis 127.0.0.1:6379> RPUSH key3 c
   
 redis 127.0.0.1:6379> LRANGE key3 0 3
   
-1) &#8220;b&#8221;
+1) "b"
   
-2) &#8220;a&#8221;
+2) "a"
   
-3) &#8220;c&#8221;
+3) "c"
 
 增加一条哈希表记录key4
   
 \# 增加一个哈希记表录key4
   
-redis 127.0.0.1:6379> HSET key4 name &#8220;John Smith&#8221;
+redis 127.0.0.1:6379> HSET key4 name "John Smith"
   
 (integer) 1
 
 \# 在哈希表中插入，email的Key和Value的值
   
-redis 127.0.0.1:6379> HSET key4 email &#8220;abc@gmail.com&#8221;
+redis 127.0.0.1:6379> HSET key4 email "abc@gmail.com"
   
 (integer) 1
 
@@ -198,19 +198,19 @@ redis 127.0.0.1:6379> HSET key4 email &#8220;abc@gmail.com&#8221;
   
 redis 127.0.0.1:6379> HGET key4 name
   
-&#8220;John Smith&#8221;
+"John Smith"
 
 \# 打印整个哈希表
   
 redis 127.0.0.1:6379> HGETALL key4
   
-1) &#8220;name&#8221;
+1) "name"
   
-2) &#8220;John Smith&#8221;
+2) "John Smith"
   
-3) &#8220;email&#8221;
+3) "email"
   
-4) &#8220;abc@gmail.com&#8221;
+4) "abc@gmail.com"
 
 增加一条哈希表记录key5
   
@@ -224,25 +224,25 @@ OK
   
 redis 127.0.0.1:6379> HMGET key5 username age
   
-1) &#8220;antirez&#8221;
+1) "antirez"
   
-2) &#8220;3&#8221;
+2) "3"
 
 \# 打印完整的哈希表记录
   
 redis 127.0.0.1:6379> HGETALL key5
   
-1) &#8220;username&#8221;
+1) "username"
   
-2) &#8220;antirez&#8221;
+2) "antirez"
   
-3) &#8220;password&#8221;
+3) "password"
   
-4) &#8220;P1pp0&#8221;
+4) "P1pp0"
   
-5) &#8220;age&#8221;
+5) "age"
   
-6) &#8220;3&#8221;
+6) "3"
 
 删除记录
   
@@ -250,15 +250,15 @@ redis 127.0.0.1:6379> HGETALL key5
   
 redis 127.0.0.1:6379> keys *
   
-1) &#8220;key2&#8221;
+1) "key2"
   
-2) &#8220;key3&#8221;
+2) "key3"
   
-3) &#8220;key4&#8221;
+3) "key4"
   
-4) &#8220;key5&#8221;
+4) "key5"
   
-5) &#8220;key1&#8221;
+5) "key1"
 
 \# 删除key1,key5
   
@@ -274,11 +274,11 @@ redis 127.0.0.1:6379> del key5
   
 redis 127.0.0.1:6379> keys *
   
-1) &#8220;key2&#8221;
+1) "key2"
   
-2) &#8220;key3&#8221;
+2) "key3"
   
-3) &#8220;key4&#8221;
+3) "key4"
 
 4. 修改Redis的配置
   
@@ -330,11 +330,11 @@ redis 127.0.0.1:6379> keys *
 
 redis 127.0.0.1:6379> keys *
   
-1) &#8220;key2&#8221;
+1) "key2"
   
-2) &#8220;key3&#8221;
+2) "key3"
   
-3) &#8220;key4&#8221;
+3) "key4"
 
 登陆后，一切正常。
 
@@ -354,11 +354,11 @@ tcp 0 0 0.0.0.0:6379 0.0.0.0:* LISTEN
 
 redis 192.168.1.199:6379> keys *
   
-1) &#8220;key2&#8221;
+1) "key2"
   
-2) &#8220;key3&#8221;
+2) "key3"
   
-3) &#8220;key4&#8221;
+3) "key4"
 
 远程访问正常。通过上面的操作，我们就把Redis数据库服务器，在Linux Ubuntu中的系统安装完成。
 

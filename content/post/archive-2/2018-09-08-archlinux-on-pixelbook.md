@@ -16,7 +16,8 @@ Settings > Linux > Enable
 
 ### Delete the Debian container (optional)
 
-```bashvmc destroy termina
+```bash
+vmc destroy termina
 vmc start termina
 ```
 
@@ -24,7 +25,8 @@ vmc start termina
 
 Open a new terminal in Chrome (Ctrl + Alt + T)
 
-```bashvmc container termina arch https://us.images.linuxcontainers.org archlinux/current
+```bash
+vmc container termina arch https://us.images.linuxcontainers.org archlinux/current
 vsh termina
 lxc list
 lxc exec arch -- bash
@@ -56,12 +58,10 @@ systemctl --user enable sommelier-x@0
 systemctl --user start sommelier@1
 systemctl --user start sommelier-x@1
 
-
 systemctl --user status sommelier@0
 systemctl --user status sommelier@1
 systemctl --user status sommelier-x@0
 systemctl --user status sommelier-x@1
-
 
 lxc stop --force arch
 lxc stop --force penguin
@@ -72,7 +72,8 @@ lxc start penguin
 
 https://tedyin.com/posts/archlinux-on-pixelbook/
 
-```bashlxc profile set default security.syscalls.blacklist "keyctl errno 38"
+```bash
+lxc profile set default security.syscalls.blacklist "keyctl errno 38"
 run_container.sh --container_name archlinux --user ymf --lxd_image archlinux/current --lxd_remote https://us.images.linuxcontainers.org/
 
 lxc exec archlinux -- bash
@@ -80,13 +81,15 @@ lxc exec archlinux -- bash
 
 ### crosh
 
-```bashvmc list
+```bash
+vmc list
 vmc start termina
 ```
 
 ### openvpn in crostini
 
-```bash# 进入crosh环境
+```bash
+# 进入crosh环境
 ctrl+t
 # 在crosh中执行以下命令
 vmc stop termina
@@ -100,10 +103,11 @@ sudo pacman -S openvpn
 
 ### 显示问题， 找不到图形环境问题
 
-```bash# in crostini
+```bash
+# in crostini
 export WAYLAND_DISPLAY=wayland-0
-# &lt;user id&gt;替换成 当前用户的id
-export XDG_RUNTIME_DIR=/run/user/&lt;user id&gt;
+# <user id>替换成 当前用户的id
+export XDG_RUNTIME_DIR=/run/user/<user id>
 /opt/google/cros-containers/bin/sommelier -X command0
 sommelier -X --x-display=1 --scale=2 bash -c 'echo Xft.dpi: 192 | xrdb -merge; firefox'
 --dpi=
@@ -124,11 +128,11 @@ https://wiki.archlinux.org/index.php/Chrome\_OS\_devices#Installing\_Arch\_Linux
 https://wiki.archlinux.org/index.php/Installation_guide
 
 <blockquote class="wp-embedded-content" data-secret="FlRlWw6ut3">
-  <p>
+  
     <a href="http://blog.wiloon.com/?p=7821">archlinux install</a>
-  </p>
+  
 </blockquote>
 
-<iframe title="&#8220;archlinux install&#8221; &#8212; w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=7821&#038;embed=true#?secret=FlRlWw6ut3" data-secret="FlRlWw6ut3" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""archlinux install" - w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=7821&embed=true#?secret=FlRlWw6ut3" data-secret="FlRlWw6ut3" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 https://chromium.googlesource.com/chromiumos/docs/+/master/containers\_and\_vms.md

@@ -28,7 +28,7 @@ uKqU9dTB6gKwG6jQCuXYAiMNdfNRw98Hw_IWuA5MaMo
 
 可以简化为下面这样的结构:
 
-base64url\_encode(Header) + &#8216;.&#8217; + base64url\_encode(Claims) + &#8216;.&#8217; + base64url_encode(Signature)
+base64url\_encode(Header) + '.' + base64url\_encode(Claims) + '.' + base64url_encode(Signature)
 
 Header
 
@@ -36,9 +36,9 @@ Header 包含了一些元数据，至少会表明 token 类型以及 签名方�
 
 {
 
-&#8220;typ&#8221; : &#8220;JWT&#8221;,
+"typ" : "JWT",
 
-&#8220;alg&#8221; : &#8220;HS256&#8221;
+"alg" : "HS256"
 
 }
 

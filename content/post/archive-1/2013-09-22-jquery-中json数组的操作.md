@@ -20,7 +20,7 @@ var arrayObj = new Array();　//创建一个数组
 
 var arrayObj = new Array([size]);　//创建一个数组并指定长度，注意不是上限，是长度
 
-var arrayObj = new Array([element0[, element1[, &#8230;[, elementN]]]]);　创建一个数组并赋值
+var arrayObj = new Array([element0[, element1[, ...[, elementN]]]]);　创建一个数组并赋值
 
 要说明的是，虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是变长的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的，注意：这时长度会随之改变。
 
@@ -28,7 +28,7 @@ var arrayObj = new Array([element0[, element1[, &#8230;[, elementN]]]]);　创�
 
 var testGetArrValue=arrayObj[1]; //获取数组的元素值
 
-arrayObj[1]= &#8220;这是新值&#8221;; //给数组元素赋予新的值
+arrayObj[1]= "这是新值"; //给数组元素赋予新的值
 
 **3、数组元素的添加**
 
@@ -36,7 +36,7 @@ arrayObj. push([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素�
 
 arrayObj.unshift([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度
 
-arrayObj.splice(insertPos,0,[item1[, item2[, . . . [,itemN]]]]);//将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回&#8221;&#8221;。
+arrayObj.splice(insertPos,0,[item1[, item2[, . . . [,itemN]]]]);//将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回""。
 
 **4、数组元素的删除**
 

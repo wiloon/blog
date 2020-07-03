@@ -1,5 +1,5 @@
 ---
-title: alpine
+title: alpine basic
 author: wiloon
 type: post
 date: 2019-04-23T06:24:28+00:00
@@ -16,7 +16,13 @@ http://mirrors.ustc.edu.cn/
 
 ### alpine install telnet
 
-```bashapk update
+```bash
+apk update
 apk add busybox-extras
 busybox-extras telnet localhost 6900
+
+apk add drill
+
 ```
+
+    apk add curl

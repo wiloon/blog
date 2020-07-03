@@ -16,15 +16,15 @@ MBR分区
 
 硬盘主引导记录MBR由4个部分组成
   
-主引导程序（偏移地址0000H&#8211;0088H），它负责从活动分区中装载，并运行系统引导程序。
+主引导程序（偏移地址0000H-0088H），它负责从活动分区中装载，并运行系统引导程序。
   
-出错信息数据区，偏移地址0089H&#8211;00E1H为出错信息，00E2H&#8211;01BDH全为0字节。
+出错信息数据区，偏移地址0089H-00E1H为出错信息，00E2H-01BDH全为0字节。
   
 分区表（DPT,Disk Partition Table）含4个分区项，偏移地
   
-址01BEH&#8211;01FDH,每个分区表项长16个字节，共64字节为分区项1、分区项2、分区项3、分区项4
+址01BEH-01FDH,每个分区表项长16个字节，共64字节为分区项1、分区项2、分区项3、分区项4
   
-结束标志字，偏移地址01FE&#8211;01FF的2个字节值为结束标志55AA
+结束标志字，偏移地址01FE-01FF的2个字节值为结束标志55AA
   
 GPT分区
 
@@ -82,7 +82,7 @@ q quit without saving changes # 退出不保存
      
 s create a new empty Sun disklabel # 创建一个空的sun磁盘标签
      
-t change a partition&#8217;s system id # 改变一个分区的类型
+t change a partition's system id # 改变一个分区的类型
      
 u change display/entry units # 改变显示的单位
      
@@ -138,9 +138,9 @@ GPT: not present
 
 Found invalid GPT and valid MBR; converting MBR to GPT format.
   
-THIS OPERATION IS POTENTIALLY DESTRUCTIVE! Exit by typing &#8216;q&#8217; if
+THIS OPERATION IS POTENTIALLY DESTRUCTIVE! Exit by typing 'q' if
   
-you don&#8217;t want to convert your MBR partitions to GPT format!
+you don't want to convert your MBR partitions to GPT format!
 
 * * *
 
@@ -148,7 +148,7 @@ Command (? for help): ?
   
 b back up GPT data to a file # 备份一个gpt数据到文件
   
-c change a partition&#8217;s name # 改变分区名
+c change a partition's name # 改变分区名
   
 d delete a partition # 删除一个分区
   
@@ -168,7 +168,7 @@ r recovery and transformation options (experts only) # 专家模式
   
 s sort partitions # 排序分区
   
-t change a partition&#8217;s type code # 改变分区类型
+t change a partition's type code # 改变分区类型
   
 v verify disk # 验证磁盘
   
@@ -210,9 +210,9 @@ View Code
   
 复制代码
   
-[root@centos7 mnt]$ parted &#8211;help
+[root@centos7 mnt]$ parted -help
   
-Usage: parted [OPTION]&#8230; [DEVICE [COMMAND [PARAMETERS]&#8230;]&#8230;]
+Usage: parted [OPTION]... [DEVICE [COMMAND [PARAMETERS]...]...]
   
 Apply COMMANDs with PARAMETERS to DEVICE. If no COMMAND(s) are given, run in
   
@@ -220,17 +220,17 @@ interactive mode.
 
 OPTIONs:
     
--h, &#8211;help displays this help message
+-h, -help displays this help message
     
--l, &#8211;list lists partition layout on all block devices
+-l, -list lists partition layout on all block devices
     
--m, &#8211;machine displays machine parseable output
+-m, -machine displays machine parseable output
     
--s, &#8211;script never prompts for user intervention
+-s, -script never prompts for user intervention
     
--v, &#8211;version displays the version
+-v, -version displays the version
     
--a, &#8211;align=[none|cyl|min|opt] alignment for new partitions
+-a, -align=[none|cyl|min|opt] alignment for new partitions
 
 COMMANDs:
     

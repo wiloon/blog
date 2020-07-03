@@ -14,13 +14,14 @@ categories:
 ---
 在~/.ssh目录下生产私匙id\_rsa和公匙id\_rsa.pub文件
 
-```bashssh-keygen -t rsa
+```bash
+ssh-keygen -t rsa
 ssh-keygen -t rsa -b 4096
 # -t type 指定要创建的密钥类型。可以使用："rsa1"(SSH-1) "rsa"(SSH-2) "dsa"(SSH-2)
 
 scp /root/.ssh/id_rsa.pub root@192.168.10.184:/root
 ssh 192.168.10.184
-cat /root/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys
+cat /root/id_rsa.pub >> /root/.ssh/authorized_keys
 # ok,you will login 192.168.10.184 without input password.
 
 ```

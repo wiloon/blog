@@ -50,7 +50,7 @@ char[] password = console.readPassword("[%s]", titlePWD);
    
 String strPassword = String.valueOf(password);
    
-java.util.Arrays.fill(password, &#8216;*&#8217;);
+java.util.Arrays.fill(password, '*');
 
 console.printf("%s", titlePWD + String.valueOf(password));
    

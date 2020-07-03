@@ -10,7 +10,7 @@ categories:
 ---
 https://forums.virtualbox.org/viewtopic.php?t=66442
 
-Went to the C:\Program Files\Oracle\VirtualBox\drivers\vboxdrv directory, right clicked on VBoxDrv.inf and selected Install. I then went back to my console and typed &#8216;sc start vboxdrv&#8217; and got this:
+Went to the C:\Program Files\Oracle\VirtualBox\drivers\vboxdrv directory, right clicked on VBoxDrv.inf and selected Install. I then went back to my console and typed 'sc start vboxdrv' and got this:
 
 SERVICE_NAME: vboxdrv
   

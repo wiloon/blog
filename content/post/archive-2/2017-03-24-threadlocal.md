@@ -32,7 +32,7 @@ ThreadLocal<String> mStringThreadLocal = new ThreadLocal<>();
   
 set方法
 
-mStringThreadLocal.set(&#8220;droidyue.com&#8221;);
+mStringThreadLocal.set("droidyue.com");
   
 get方法
 
@@ -85,7 +85,7 @@ private static void prepare(boolean quitAllowed) {
       
 if (sThreadLocal.get() != null) {
           
-throw new RuntimeException(&#8220;Only one Looper may be created per thread&#8221;);
+throw new RuntimeException("Only one Looper may be created per thread");
       
 }
       
@@ -178,7 +178,7 @@ private void testInheritableThreadLocal() {
       
 final ThreadLocal threadLocal = new InheritableThreadLocal();
       
-threadLocal.set(&#8220;droidyue.com&#8221;);
+threadLocal.set("droidyue.com");
       
 Thread t = new Thread() {
           
@@ -188,7 +188,7 @@ public void run() {
               
 super.run();
               
-Log.i(LOGTAG, &#8220;testInheritableThreadLocal =&#8221; + threadLocal.get());
+Log.i(LOGTAG, "testInheritableThreadLocal =" + threadLocal.get());
           
 }
       
@@ -257,7 +257,7 @@ static class ThreadLocalMap {
   
 * entry can be expunged from table. Such entries are referred to
   
-* as &#8220;stale entries&#8221; in the code that follows.
+* as "stale entries" in the code that follows.
   
 */
       

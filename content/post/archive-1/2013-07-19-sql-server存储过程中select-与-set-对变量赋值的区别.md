@@ -26,11 +26,11 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
     </td>
     
     <td>
-      <strong>set</strong>
+      set
     </td>
     
     <td>
-      <strong>select</strong>
+      select
     </td>
   </tr>
   
@@ -58,7 +58,7 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
     </td>
     
     <td>
-      <span style="color: #ff0000;">将返回的最后一个值赋给变量</span>
+      <span style="color: #ff0000;">将返回的最后一个值赋给变量
     </td>
   </tr>
   
@@ -72,7 +72,7 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
     </td>
     
     <td>
-      <span style="color: #ff0000;">变量保持原值</span>
+      <span style="color: #ff0000;">变量保持原值
     </td>
   </tr>
 </table>
@@ -89,11 +89,11 @@ addr varchar(128)
   
 go
   
-insert into chinadba1(userid,addr) values(1,&#8217;addr1&#8242;)
+insert into chinadba1(userid,addr) values(1,'addr1')
   
-insert into chinadba1(userid,addr) values(2,&#8217;addr2&#8242;)
+insert into chinadba1(userid,addr) values(2,'addr2')
   
-insert into chinadba1(userid,addr) values(3,&#8217;addr3&#8242;)
+insert into chinadba1(userid,addr) values(3,'addr3')
   
 go
 
@@ -105,7 +105,7 @@ set @addr = (select addr from chinadba1)
   
 /*
   
-&#8211;出错信息为
+-出错信息为
   
 服务器: 消息 512，级别 16，状态 1，行 2
   
@@ -121,9 +121,9 @@ declare @addr varchar(128)
   
 select @addr = addr from chinadba1
   
-print @addr &#8211;结果集中最后一个 addr 列的值
+print @addr -结果集中最后一个 addr 列的值
   
-&#8211;结果: addr3
+-结果: addr3
   
 go
 
@@ -131,11 +131,11 @@ go
 
 declare @addr varchar(128)
   
-set @addr = &#8216;初始值&#8217;
+set @addr = '初始值'
   
 set @addr = (select addr from chinadba1 where userid = 4 )
   
-print @addr &#8211;null值
+print @addr -null值
   
 go
 
@@ -143,11 +143,11 @@ go
 
 declare @addr varchar(128)
   
-set @addr = &#8216;初始值&#8217;
+set @addr = '初始值'
   
 select @addr = addr from chinadba1 where userid = 4
   
-print @addr &#8211;保持原值
+print @addr -保持原值
   
 go
 
@@ -159,12 +159,12 @@ go
 
 declare @addr varchar(128)
   
-set @addr = &#8216;初始值&#8217;
+set @addr = '初始值'
   
-&#8211;select addr from chinadba1 where userid = 4 为标量子查询语句
+-select addr from chinadba1 where userid = 4 为标量子查询语句
   
 select @addr = (select addr from chinadba1 where userid = 4)
   
-print @addr &#8211;null值
+print @addr -null值
   
 go

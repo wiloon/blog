@@ -1,5 +1,5 @@
 ---
-title: maven command
+title: maven basic, command
 author: wiloon
 type: post
 date: 2011-09-29T04:34:14+00:00
@@ -11,19 +11,19 @@ views:
 categories:
   - DataBase
 tags:
-  - Maven
+  - maven
 
 ---
+
 -e for error
-  
 -X for debug
-  
 -q for only error
 
 ### 生成项目
 
-```bash# common project
-# mvn archetype:generate 会自动创建项目目录mvntest
+```bash
+# common project
+# mvn archetype:generate 会自动创建项目目录 mvntest
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
@@ -31,18 +31,20 @@ mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false -DarchetypeCatalog=local
 
-#web project
+# web project
 mvn archetype:generate -DgroupId=com.wiloon.mail.web -DartifactId=mailTestWeb \
 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ```
 
-```bashmvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -q
+```bash
+mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -q
 
 #-U,--update-snapshots                  Forces a check for missing                                        releases and updated snapshots on
 mvn clean compile -U
 ```
 
-```bash# upload jar to nexus
+```bash
+# upload jar to nexus
 mvn deploy:deploy-file -Dfile=xxx.pom -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=pom -DrepositoryId=repo0 -Durl=https://maven.wiloon.com/repository/snapshot/
 
 mvn deploy:deploy-file -Dfile=xxx.jar -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=jar -DrepositoryId=repo0 -Durl=https://maven.wiloon.net/repository/snapshot/
@@ -70,12 +72,14 @@ mvn package appassembler:assemble
 
 查看mvn 参数
 
-```bashmvn --help
+```bash
+mvn --help
 mvn install 指定 pom.xml
 mvn -f trunk\mvntest\pom.xml install
 ```
 
-```bashmvn archetype:generate
+```bash
+mvn archetype:generate
 #390 maven-archetype-webapp
 #387 maven-archetype-quickstart
 ```
@@ -94,7 +98,7 @@ mvn eclipse:clean
   
 mvn eclipse:eclipse
   
-&#8211;mvn package：依据项目生成jar/war文件
+-mvn package：依据项目生成jar/war文件
   
 mvn dependency:sources
   
@@ -104,7 +108,7 @@ webApp: maven-archetype-webapp
   
 -Dmvn install -Dmaven.test.skip=true  <del>编译时跳过Test</del>
 
--Dmaven.test.failure.ignore=true <del> Set this to <code>true</code> to ignore a failure during testing. Its use is <strong>NOT RECOMMENDED</strong>, but quite convenient on occasion.</del>
+-Dmaven.test.failure.ignore=true <del> Set this to <code>true</code> to ignore a failure during testing. Its use is NOT RECOMMENDED, but quite convenient on occasion.</del>
 
 mvn install -rf  :MODULENAME
 
@@ -136,7 +140,7 @@ mvn surefire-report:report
   
 #A HTML report should be generated in ${basedir}/target/site/surefire-report.html.
 
-&#8212;maven idea
+-maven idea
 
 [shell]
 
@@ -159,7 +163,7 @@ mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2
   * src 
       * main
   
-        -java 源文件</p> 
+        -java 源文件 
           * resources 资源文件
           * filters 资源过滤文件
           * config 配置文件

@@ -64,7 +64,7 @@ shutdown -r now
 
 (2)、设置1分钟以后关闭计算机，并在SSH中提示“1 minute after shutdown”
 
-shutdown -h +1 &#8220;1 minute after shutdown&#8221;
+shutdown -h +1 "1 minute after shutdown"
 
 shutdown1.jpg
 

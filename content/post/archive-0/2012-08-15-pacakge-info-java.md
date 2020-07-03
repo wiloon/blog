@@ -71,7 +71,7 @@ public static void main(String[] args) {
           
 //可以通过I/O操作或配置项获得包名
           
-String pkgName = &#8220;com.company&#8221;;
+String pkgName = "com.company";
           
 Package pkg = Package.getPackage(pkgName);
           
@@ -85,7 +85,7 @@ for(Annotation an:annotations){
               
 if(an instanceof PkgAnnotation){
                   
-System.out.println(&#8220;Hi,I&#8217;m the PkgAnnotation ,which is be placed on package!&#8221;);
+System.out.println("Hi,I'm the PkgAnnotation ,which is be placed on package!");
                   
 /*
                    
@@ -109,7 +109,7 @@ System.out.println(&#8220;Hi,I&#8217;m the PkgAnnotation ,which is be placed on 
         
 运行结果如下所示：
 
-Hi,I&#8217;m the PkgAnnotation ,which is be placed on package!
+Hi,I'm the PkgAnnotation ,which is be placed on package!
 
 声明友好类和包常量
        
@@ -135,7 +135,7 @@ public void test(){
   
 class PkgConst{
       
-static final String PACAKGE_CONST=&#8221;ABC&#8221;;
+static final String PACAKGE_CONST="ABC";
   
 }
 

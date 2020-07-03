@@ -10,7 +10,8 @@ tags:
   - Arch Linux
 
 ---
-```bashpacman -S android-tools
+```bash
+pacman -S android-tools
 ```
 
 装了个64位的Archlinux，发现adb用不了，运行adb提示没有这个文件或目录，进入到sdk的platform-tools目录下去运行还是不行。
@@ -61,7 +62,7 @@ kdesdk-kmtrace
   
 4.9.1-1
   
-A KDE tool to assist with malloc debugging using glibc´s &#8220;mtrace&#8221; functionality
+A KDE tool to assist with malloc debugging using glibc´s "mtrace" functionality
   
 2012-09-05
 
@@ -107,7 +108,7 @@ Include = /etc/pacman.d/mirrorlist
   
 再运行adb
 
-$ adb devices
+    adb devices
   
 adb: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
   

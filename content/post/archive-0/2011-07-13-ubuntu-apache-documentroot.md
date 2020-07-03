@@ -18,6 +18,6 @@ ServerAdmin webmaster@localhost
 
 DocumentRoot /var/www
   
-&#8230;
+...
   
-&#8230;
+...

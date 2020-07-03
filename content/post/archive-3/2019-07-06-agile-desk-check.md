@@ -13,9 +13,9 @@ categories:
 在敏捷开发中，当一个Story开发结束之后，我们会把开发，测试，BA，UX聚在一起来做Shoulder Check / Desk Check。这个实践可能很多团队都会坚持。但是做的流畅程度则千差万别，效果也自然大相径庭。
 
 <blockquote class="wp-embedded-content" data-secret="CuWoU1KPNH">
-  <p>
+  
     <a href="https://insights.thoughtworks.cn/professional/">你要专业</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《你要专业》—ThoughtWorks洞见" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH" data-secret="CuWoU1KPNH" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

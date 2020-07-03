@@ -12,7 +12,7 @@ https://cr.console.aliyun.com/cn-qingdao/mirrors
 
   1. 安装／升级Docker客户端
   
-    推荐安装1.10.0以上版本的Docker客户端，参考文档 docker-ce</p> 
+    推荐安装1.10.0以上版本的Docker客户端，参考文档 docker-ce 
   2. 配置镜像加速器
   
     针对Docker客户端版本大于 1.10.0 的用户
@@ -21,11 +21,11 @@ https://cr.console.aliyun.com/cn-qingdao/mirrors
   
 sudo mkdir -p /etc/docker
   
-sudo tee /etc/docker/daemon.json <<-&#8216;EOF&#8217;
+sudo tee /etc/docker/daemon.json <<-'EOF'
   
 {
     
-&#8220;registry-mirrors&#8221;: [&#8220;https://xxxxxx.mirror.aliyuncs.com&#8221;]
+"registry-mirrors": ["https://xxxxxx.mirror.aliyuncs.com"]
   
 }
   

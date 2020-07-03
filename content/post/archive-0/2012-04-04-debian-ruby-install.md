@@ -44,7 +44,7 @@ http://ruby.taobao.org/是一个完整 rubygems.org 镜像，用这个代替官�
   
 [shell]
   
-$ gem sources &#8211;remove http://rubygems.org/
+$ gem sources -remove http://rubygems.org/
   
 $ gem sources -a http://ruby.taobao.org/
   

@@ -76,9 +76,9 @@ JkMountCopy All
 
 #如果在这里设置了JkMountCopy All，在httpd的VirtualHost中就不用设置JkMountCopy On了
   
-&#8212;
+-
   
-Note: replace &#8220;xxx&#8221; with your app name/path in tomcat
+Note: replace "xxx" with your app name/path in tomcat
 
 3. create workers file
 
@@ -140,4 +140,4 @@ JkMount /xxx worker1
   
 JkMount /xxx/* worker1
   
-JkMountCopy All</pre>
+JkMountCopy All

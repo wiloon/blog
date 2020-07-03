@@ -118,7 +118,6 @@ $ sudo ip addr del 10.0.0.1/24 dev eth1
 
 使用net-tools：
 
-&nbsp;
 
 使用net-tools：
 
@@ -280,7 +279,6 @@ $ sudo ip maddr del 33:44:00:00:00:01 dev eth0
   
 $ ip maddr list dev eth0
 
-&nbsp;
 
 使用net-tools：
 

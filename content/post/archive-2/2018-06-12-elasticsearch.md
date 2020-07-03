@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#查看索引
+```bash
+#查看索引
 GET /_cat/indices?pretty
 curl -X GET "localhost:9200/_cat/indices?v"
 
@@ -32,7 +33,8 @@ unassigned_shards: 没有被分配到节点的分片
   
 unassigned\_shards 在elasticsearch 重启后会逐渐减少，如果最终unassigned\_shards不为0,则需要手动处理。
 
-```bash# 找出未分配到结点的分片
+```bash
+# 找出未分配到结点的分片
 curl -s "http://localhost:9200/_cat/shards" | grep UNASSIGNED
 
 curl 'localhost:9200/_cat/master?v'
@@ -49,7 +51,6 @@ curl 'localhost:9200/_nodes/process?pretty'
 
 #check if index exist
 curl --head "localhost:9200/twitter"
-
 
 curl -X GET "localhost:9200/_cat/health?v"
 curl -X GET "localhost:9200/_cat/nodes?v"
@@ -68,6 +69,5 @@ curl -X DELETE "localhost:9200/index-0?pretty"
 curl -X DELETE "localhost:9200/customer/_doc/2?pretty"
 curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/_doc/_bulk?pretty&refresh" --data-binary "@accounts.json"
 curl "localhost:9200/_cat/indices?v"
-
 
 ```

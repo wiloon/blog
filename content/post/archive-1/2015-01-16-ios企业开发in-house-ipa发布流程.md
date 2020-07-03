@@ -14,7 +14,7 @@ http://www.cnblogs.com/golove/p/3282667.html
 
 * * *
 
-type Reader struct { &#8230; }
+type Reader struct { ... }
 
 // NewReaderSize 将 rd 封装成一个带缓存的 bufio.Reader 对象，
   
@@ -110,7 +110,7 @@ func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
 
 // ReadLine 是一个低水平的行读取原语，大多数情况下，应该使用
   
-// ReadBytes(&#8216;\n&#8217;) 或 ReadString(&#8216;\n&#8217;)，或者使用一个 Scanner。
+// ReadBytes('\n') 或 ReadString('\n')，或者使用一个 Scanner。
   
 //
   
@@ -166,7 +166,7 @@ func (b *Reader) Reset(r io.Reader)
   
 func main() {
       
-sr := strings.NewReader(&#8220;ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&#8221;)
+sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
       
 buf := bufio.NewReaderSize(sr, 0)
       
@@ -199,7 +199,7 @@ b := make([]byte, 10)
   
 func main() {
       
-sr := strings.NewReader(&#8220;ABCDEFGHIJKLMNOPQRSTUVWXYZ\n1234567890&#8221;)
+sr := strings.NewReader("ABCDEFGHIJKLMNOPQRSTUVWXYZ\n1234567890")
       
 buf := bufio.NewReaderSize(sr, 0)
 
@@ -247,7 +247,7 @@ func main() {
       
 // 尾部有换行标记
       
-buf := bufio.NewReaderSize(strings.NewReader(&#8220;ABCDEFG\n&#8221;), 0)
+buf := bufio.NewReaderSize(strings.NewReader("ABCDEFG\n"), 0)
 
     for line, err := []byte{0}, error(nil); len(line) > 0 && err == nil; {
         line, err = buf.ReadSlice('\n')
@@ -272,7 +272,7 @@ buf := bufio.NewReaderSize(strings.NewReader(&#8220;ABCDEFG\n&#8221;), 0)
 
 * * *
 
-type Writer struct { &#8230; }
+type Writer struct { ... }
 
 // NewWriterSize 将 wr 封装成一个带缓存的 bufio.Writer 对象，
   
@@ -371,7 +371,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 //
   
-// Scanner 使用了缓存，所以匹配部分的长度不能超出缓存的容量。默认缓存容量为 4096 &#8211;
+// Scanner 使用了缓存，所以匹配部分的长度不能超出缓存的容量。默认缓存容量为 4096 -
   
 // bufio.MaxScanTokenSize，用户可以通过 Buffer 方法指定自定义缓存及其最大容量。
   
@@ -391,7 +391,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 // 使用 bufio.Reader
   
-type Scanner struct { &#8230; }
+type Scanner struct { ... }
 
 // NewScanner 创建一个 Scanner 来扫描 r，默认匹配函数为 ScanLines。
   
@@ -401,7 +401,7 @@ func NewScanner(r io.Reader) *Scanner
   
 // 固定不可调。Buffer 必须在第一次 Scan 之前设置，否则会引发 panic。
   
-// 默认情况下，Scanner 会使用一个 4096 &#8211; bufio.MaxScanTokenSize 大小的内部缓存。
+// 默认情况下，Scanner 会使用一个 4096 - bufio.MaxScanTokenSize 大小的内部缓存。
   
 func (s *Scanner) Buffer(buf []byte, max int)
 
@@ -471,7 +471,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 // ScanRunes 是一个“匹配函数”，用来找出 data 中单个 UTF8 字符的编码。如果 UTF8 编
   
-// 码错误，则 token 会返回 &#8220;\xef\xbf\xbd&#8221;（即：U+FFFD），但只消耗 data 中的一个字节。
+// 码错误，则 token 会返回 "\xef\xbf\xbd"（即：U+FFFD），但只消耗 data 中的一个字节。
   
 // 这使得调用者无法区分“真正的U+FFFD字符”和“解码错误的返回值”。
   
@@ -497,7 +497,7 @@ func main() {
       
 // 逗号分隔的字符串，最后一项为空
       
-const input = &#8220;1,2,3,4,&#8221;
+const input = "1,2,3,4,"
       
 scanner := bufio.NewScanner(strings.NewReader(input))
       
@@ -507,7 +507,7 @@ onComma := func(data []byte, atEOF bool) (advance int, token []byte, err error) 
           
 for i := 0; i < len(data); i++ {
               
-if data[i] == &#8216;,&#8217; {
+if data[i] == ',' {
                   
 return i + 1, data[:i], nil
               
@@ -539,7 +539,7 @@ scanner.Split(onComma)
       
 for scanner.Scan() {
           
-fmt.Printf(&#8220;%q &#8220;, scanner.Text())
+fmt.Printf("%q ", scanner.Text())
       
 }
       
@@ -547,7 +547,7 @@ fmt.Printf(&#8220;%q &#8220;, scanner.Text())
       
 if err := scanner.Err(); err != nil {
           
-fmt.Fprintln(os.Stderr, &#8220;reading input:&#8221;, err)
+fmt.Fprintln(os.Stderr, "reading input:", err)
       
 }
   
@@ -559,7 +559,7 @@ fmt.Fprintln(os.Stderr, &#8220;reading input:&#8221;, err)
   
 func main() {
       
-const input = &#8220;1234 5678 1234567901234567890 90&#8221;
+const input = "1234 5678 1234567901234567890 90"
       
 scanner := bufio.NewScanner(strings.NewReader(input))
       
@@ -593,13 +593,13 @@ scanner.Split(split)
       
 for scanner.Scan() {
           
-fmt.Printf(&#8220;%s\n&#8221;, scanner.Text())
+fmt.Printf("%s\n", scanner.Text())
       
 }
       
 if err := scanner.Err(); err != nil {
           
-fmt.Printf(&#8220;Invalid input: %s&#8221;, err)
+fmt.Printf("Invalid input: %s", err)
       
 }
   

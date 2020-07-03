@@ -16,23 +16,23 @@ http://blog.csdn.net/iter_zc/article/details/41843595
 
 Class hierarchy
    
-&#8211; Thread
+- Thread
      
-&#8211; NamedThread
+- NamedThread
        
-&#8211; VMThread
+- VMThread
        
-&#8211; ConcurrentGCThread
+- ConcurrentGCThread
        
-&#8211; WorkerThread
+- WorkerThread
          
-&#8211; GangWorker
+- GangWorker
          
-&#8211; GCTaskThread
+- GCTaskThread
      
-&#8211; JavaThread
+- JavaThread
      
-&#8211; WatcherThread
+- WatcherThread
   
 另外还有一个重要的类OSThread不在这个继承关系里，它以组合的方式被Thread类所使用
 
@@ -48,12 +48,12 @@ VMThread: JVM中C++定义的类，这个类和用户创建的线程无关，是J
 
 有两种方式可以让用户在JVM中创建线程
 
-  1. new java.lang.Thread().start()</p> 
+  1. new java.lang.Thread().start() 
   2. 使用JNI将一个native thread attach到JVM中
 
 针对 new java.lang.Thread().start()这种方式，只有调用start()方法的时候，才会真正的在JVM中去创建线程，主要的生命周期步骤有：
 
-  1. 创建对应的JavaThread的instance</p> 
+  1. 创建对应的JavaThread的instance 
   2. 创建对应的OSThread的instance
 
   3. 创建实际的底层操作系统的native thread
@@ -68,7 +68,7 @@ VMThread: JVM中C++定义的类，这个类和用户创建的线程无关，是J
 
 针对JNI将一个native thread attach到JVM中，主要的步骤有：
 
-  1. 通过JNI call AttachCurrentThread申请连接到执行的JVM实例</p> 
+  1. 通过JNI call AttachCurrentThread申请连接到执行的JVM实例 
   2. JVM创建相应的JavaThread和OSThread对象
 
   3. 创建相应的java.lang.Thread的对象

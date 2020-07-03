@@ -16,13 +16,12 @@ http://blog.csdn.net/mengweiqi33/article/details/7679467
   
 一、启动android默认浏览器
 
-&nbsp;
 
 Intent intent= new Intent();
   
-intent.setAction(&#8220;android.intent.action.VIEW&#8221;);
+intent.setAction("android.intent.action.VIEW");
   
-Uri content_url = Uri.parse(&#8220;http://www.cnblogs.com&#8221;);
+Uri content_url = Uri.parse("http://www.cnblogs.com");
   
 intent.setData(content_url);
   
@@ -30,7 +29,6 @@ startActivity(intent);
 
 这样子，android就可以调用起手机默认的浏览器访问。
 
-&nbsp;
 
 二、指定相应的浏览器访问
   
@@ -40,13 +38,13 @@ startActivity(intent);
   
 Intent intent= new Intent();
   
-intent.setAction(&#8220;android.intent.action.VIEW&#8221;);
+intent.setAction("android.intent.action.VIEW");
   
-Uri content_url = Uri.parse(&#8220;http://www.cnblogs.com&#8221;);
+Uri content_url = Uri.parse("http://www.cnblogs.com");
   
 intent.setData(content_url);
   
-intent.setClassName(&#8220;com.android.browser&#8221;,&#8221;com.android.browser.BrowserActivity&#8221;);
+intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
   
 startActivity(intent);
 
@@ -54,33 +52,30 @@ startActivity(intent);
   
 只要修改以下相应的packagename 和 主启动activity即可调用其他浏览器
 
-&nbsp;
 
-intent.setClassName(&#8220;com.android.browser&#8221;,&#8221;com.android.browser.BrowserActivity&#8221;);
+intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
 
-uc浏览器&#8221;：&#8221;com.uc.browser&#8221;, &#8220;com.uc.browser.ActivityUpdate“
+uc浏览器"："com.uc.browser", "com.uc.browser.ActivityUpdate“
 
-opera    ：&#8221;com.opera.mini.android&#8221;, &#8220;com.opera.mini.android.Browser&#8221;
+opera    ："com.opera.mini.android", "com.opera.mini.android.Browser"
   
-qq浏览器：&#8221;com.tencent.mtt&#8221;, &#8220;com.tencent.mtt.MainActivity&#8221;
+qq浏览器："com.tencent.mtt", "com.tencent.mtt.MainActivity"
 
-&nbsp;
 
 三、打开本地html文件
 
 打开本地的html文件的时候，一定要指定某个浏览器，而不能采用方式一来浏览，具体示例代码如下
 
-&nbsp;
 
 Intent intent= new Intent();
   
-intent.setAction(&#8220;android.intent.action.VIEW&#8221;);
+intent.setAction("android.intent.action.VIEW");
   
-Uri content_url = Uri.parse(&#8220;content://com.android.htmlfileprovider/sdcard/help.html&#8221;);
+Uri content_url = Uri.parse("content://com.android.htmlfileprovider/sdcard/help.html");
   
 intent.setData(content_url);
   
-intent.setClassName(&#8220;com.android.browser&#8221;,&#8221;com.android.browser.BrowserActivity&#8221;);
+intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
   
 startActivity(intent);
   
@@ -92,17 +87,16 @@ startActivity(intent);
 
 1、打开 packages/apps/Browser/AndroidManifest.xml文件把加到相应的<intent-filter>后面就可以了
 
-&nbsp;
 
 <intent-filter>
   
-<action android:name=&#8221;android.intent.action.VIEW&#8221; />
+<action android:name="android.intent.action.VIEW" />
   
-<category android:name=&#8221;android.intent.category.DEFAULT&#8221; />
+<category android:name="android.intent.category.DEFAULT" />
   
-<category android:name=&#8221;android.intent.category.BROWSABLE&#8221; />
+<category android:name="android.intent.category.BROWSABLE" />
   
-<data android:scheme=&#8221;file&#8221; />
+<data android:scheme="file" />
   
 </intent-filter>
   

@@ -12,4 +12,4 @@ categories:
   - Network
 
 ---
-netstat -an|find &#8220;61616&#8221;
+netstat -an|find "61616"

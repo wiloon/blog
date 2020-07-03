@@ -42,7 +42,7 @@ for (int i = 0; i < 2000000000; i++) {
         
 a = a + b;
         
-b = a &#8211; b;
+b = a - b;
        
 }
       
@@ -108,7 +108,7 @@ Line 29: 任务列表当作参数传递给 runTasks 方法
 
 runTasks 方法实际使用了一个 Phaser 用于同步任务，使得每个任务在并行执行之前必须先到达屏障(Barrier)。列表中的任务执行了两次，执行情况如下图所示：
 
-注意: &#8220;party&#8221; 是 Phaser 中的一个术语，相当于是线程的意思，当一个 party 到达，就是线程到达意思就是线程到了同步的屏障(Barrier)。
+注意: "party" 是 Phaser 中的一个术语，相当于是线程的意思，当一个 party 到达，就是线程到达意思就是线程到了同步的屏障(Barrier)。
   
 Line 35: create a Phaser that has one registered party (this means: at this time phaser expects one thread=party to arrive before it can start the execution cycle)
   
@@ -116,7 +116,7 @@ Line 36: implement the onAdvance-Method to explain that this task list is execut
   
 Line 41: iterate over the list of tasks
   
-Line 42: register this thread with the Phaser. Notice that a Phaser instance does not know the task instances. It&#8217;s a simple counter of registered, unarrived and arrived parties, shared across participating threads. If two parties are registered then two parties must arrive at the phaser to be able to start the first cycle.
+Line 42: register this thread with the Phaser. Notice that a Phaser instance does not know the task instances. It's a simple counter of registered, unarrived and arrived parties, shared across participating threads. If two parties are registered then two parties must arrive at the phaser to be able to start the first cycle.
   
 Line 46: tell the thread to wait at the barrier until the arrived parties equal the registered parties
   
@@ -124,27 +124,27 @@ Line 51: Just for demonstration purposes, this line delays execution. The origin
   
 Line 52: two tasks are registered, in total three parties are registered.
   
-Line 54: deregister one party. This results in two registered parties and two arrived parties. This causes the threads waiting (Line 46) to execute the first cycle. (in fact the third party arrived while three were registered &#8211; but it does not make a difference)
+Line 54: deregister one party. This results in two registered parties and two arrived parties. This causes the threads waiting (Line 46) to execute the first cycle. (in fact the third party arrived while three were registered - but it does not make a difference)
 
 原始的代码 存放在 Git 仓库中，执行的结果如下：
   
-After phaser init -> Registered: 1 &#8211; Unarrived: 1 &#8211; Arrived: 0 &#8211; Phase: 0
+After phaser init -> Registered: 1 - Unarrived: 1 - Arrived: 0 - Phase: 0
   
-After register -> Registered: 2 &#8211; Unarrived: 2 &#8211; Arrived: 0 &#8211; Phase: 0
+After register -> Registered: 2 - Unarrived: 2 - Arrived: 0 - Phase: 0
   
-After arrival -> Registered: 2 &#8211; Unarrived: 1 &#8211; Arrived: 1 &#8211; Phase: 0
+After arrival -> Registered: 2 - Unarrived: 1 - Arrived: 1 - Phase: 0
   
-After register -> Registered: 3 &#8211; Unarrived: 2 &#8211; Arrived: 1 &#8211; Phase: 0
+After register -> Registered: 3 - Unarrived: 2 - Arrived: 1 - Phase: 0
   
-After arrival -> Registered: 3 &#8211; Unarrived: 1 &#8211; Arrived: 2 &#8211; Phase: 0
+After arrival -> Registered: 3 - Unarrived: 1 - Arrived: 2 - Phase: 0
   
-Before main thread arrives and deregisters -> Registered: 3 &#8211; Unarrived: 1 &#8211; Arrived: 2 &#8211; Phase: 0
+Before main thread arrives and deregisters -> Registered: 3 - Unarrived: 1 - Arrived: 2 - Phase: 0
   
-On advance -> Registered: 2 &#8211; Unarrived: 0 &#8211; Arrived: 2 &#8211; Phase: 0
+On advance -> Registered: 2 - Unarrived: 0 - Arrived: 2 - Phase: 0
   
-After main thread arrived and deregistered -> Registered: 2 &#8211; Unarrived: 2 &#8211; Arrived: 0 &#8211; Phase: 1
+After main thread arrived and deregistered -> Registered: 2 - Unarrived: 2 - Arrived: 0 - Phase: 1
   
-Main thread will terminate &#8230;
+Main thread will terminate ...
   
 Thread-0:go :Wed Dec 28 16:09:16 CET 2011
   
@@ -154,7 +154,7 @@ Thread-0:done:Wed Dec 28 16:09:20 CET 2011
   
 Thread-1:done:Wed Dec 28 16:09:20 CET 2011
   
-On advance -> Registered: 2 &#8211; Unarrived: 0 &#8211; Arrived: 2 &#8211; Phase: 1
+On advance -> Registered: 2 - Unarrived: 0 - Arrived: 2 - Phase: 1
   
 Thread-0:go :Wed Dec 28 16:09:20 CET 2011
   

@@ -8,13 +8,13 @@ categories:
   - DataBase
 
 ---
-# <span style="color: #ffffff;">STUFF</span>
+# <span style="color: #ffffff;">STUFF
 
 删除指定长度的字符并在指定的起始点插入另一组字符。
 
 ##### 语法
 
-`<span style="color: #ffffff;">STUFF</span> <strong>( </strong><em>character_expression </em><strong>,</strong> <em>start </em><strong>,</strong> <em>length </em><strong>,</strong> <em>character_expression </em><strong>)</strong>`
+`<span style="color: #ffffff;">STUFF ( <em>character_expression </em>, <em>start </em>, <em>length </em>, <em>character_expression </em>)`
 
 ##### 参数
 
@@ -42,7 +42,7 @@ _length_
 
 下例通过在第一个字符串 (abcdef) 中删除从第二个位置（字符 b）开始的三个字符，然后在删除的起始位置插入第二个字符串，创建并返回一个字符串。
 
-    SELECT <span style="color: #ffffff;">STUFF</span>('abcdef', 2, 3, 'ijklmn')
+    SELECT <span style="color: #ffffff;">STUFF('abcdef', 2, 3, 'ijklmn')
     GO
     
 

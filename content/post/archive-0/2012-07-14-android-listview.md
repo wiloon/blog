@@ -24,59 +24,88 @@ ListView是一个经常用到的控件，ListView里面的每个子项Item可以
 
 main.xml代码如下，很简单，也不需要多做解释了：
 
-<div>
-  <div>
-    <p>
-      [xml]</div><br /> <div><?xml version="1.0" encoding="utf-8"?></div><br /> <div><LinearLayout</div><br /> <div>android:id="@+id/LinearLayout01"<br /> android:layout_width="fill_parent"<br /> android:layout_height="fill_parent"<br /> xmlns:android="http://schemas.android.com/apk/res/android">
-    </p>
+  
     
-    <p>
-      <ListView android:layout_width="wrap_content"<br /> android:layout_height="wrap_content"<br /> android:id="@+id/MyListView"><br /> </ListView><br /> </LinearLayout><br /> <div>[/xml]
-    </p>
-  </div>
-</div>
+      [xml]
+ <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+ android:id="@+id/LinearLayout01"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    
+    
+      <ListView android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:id="@+id/MyListView">
+ </ListView>
+ </LinearLayout>
+ [/xml]
+    
+  
 
-<div>
-  my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item：</p> 
+
+  my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item： 
   
-  <p>
-    [xml]</div><br /> <div>
-  </p>
   
-  <p>
-    <?xml version="1.0" encoding="utf-8"?><br /> <LinearLayout<br /> android:layout_width="fill_parent"<br /> xmlns:android="http://schemas.android.com/apk/res/android"<br /> android:orientation="vertical"<br /> android:layout_height="wrap_content"<br /> android:id="@+id/MyListItem"<br /> android:paddingBottom="3dip"<br /> android:paddingLeft="10dip"><br /> <TextView<br /> android:layout_height="wrap_content"<br /> android:layout_width="fill_parent"<br /> android:id="@+id/ItemTitle"<br /> android:textSize="30dip"><br /> </TextView><br /> <TextView<br /> android:layout_height="wrap_content"<br /> android:layout_width="fill_parent"<br /> android:id="@+id/ItemText"><br /> </TextView><br /> </LinearLayout>
-  </p>
+    [xml]
+ 
   
-  <p>
-    </div><br /> <div>[/xml]
-  </p>
-</div>
+  
+  
+    <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+ android:layout_width="fill_parent"
+ xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:layout_height="wrap_content"
+ android:id="@+id/MyListItem"
+ android:paddingBottom="3dip"
+ android:paddingLeft="10dip">
+ <TextView
+ android:layout_height="wrap_content"
+ android:layout_width="fill_parent"
+ android:id="@+id/ItemTitle"
+ android:textSize="30dip">
+ </TextView>
+ <TextView
+ android:layout_height="wrap_content"
+ android:layout_width="fill_parent"
+ android:id="@+id/ItemText">
+ </TextView>
+ </LinearLayout>
+  
+  
+  
+    
+ [/xml]
+  
 
 解释一下，里面用到的一些属性：
 
-1.paddingBottom=&#8221;3dip&#8221;，Layout往底部留出3个像素的空白区域
+1.paddingBottom="3dip"，Layout往底部留出3个像素的空白区域
 
-2.paddingLeft=&#8221;10dip&#8221;，Layout往左边留出10个像素的空白区域
+2.paddingLeft="10dip"，Layout往左边留出10个像素的空白区域
 
-3.textSize=&#8221;30dip&#8221;，TextView的字体为30个像素那么大。
+3.textSize="30dip"，TextView的字体为30个像素那么大。
 
 最后就是JAVA的源代码：
 
-<div>
-  <div>
-    <div>
-      <p>
+  
+    
+      
         [java][/java]
-      </p>
       
-      <p>
+      
+      
         <a title="view plain" href="http://blog.csdn.net/hellogv/article/details/4542668#">view plain</a><a title="copy" href="http://blog.csdn.net/hellogv/article/details/4542668#">copy</a><a title="print" href="http://blog.csdn.net/hellogv/article/details/4542668#">print</a><a title="?" href="http://blog.csdn.net/hellogv/article/details/4542668#">?</a>
-      </p>
       
-      <div>
-      </div>
-    </div>
-  </div>
+      
+      
+      
+    
+  
   
   <ol start="1">
     <li>
@@ -110,10 +139,10 @@ main.xml代码如下，很简单，也不需要多做解释了：
               HashMap<String, String> map = new HashMap<String, String>();
     </li>
     <li>
-              map.put(&#8220;ItemTitle&#8221;, &#8220;This is Title&#8230;..&#8221;);
+              map.put("ItemTitle", "This is Title.....");
     </li>
     <li>
-              map.put(&#8220;ItemText&#8221;, &#8220;This is text&#8230;..&#8221;);
+              map.put("ItemText", "This is text.....");
     </li>
     <li>
               mylist.add(map);
@@ -137,7 +166,7 @@ main.xml代码如下，很简单，也不需要多做解释了：
                                                       //动态数组与ListItem对应的子项
     </li>
     <li>
-                                                      new String[] {&#8220;ItemTitle&#8221;, &#8220;ItemText&#8221;},
+                                                      new String[] {"ItemTitle", "ItemText"},
     </li>
     <li>
                                                       //ListItem的XML文件里面的两个TextView ID
@@ -156,15 +185,14 @@ main.xml代码如下，很简单，也不需要多做解释了：
     </li>
   </ol>
   
-  <p>
-    &nbsp;
-  </p>
   
-  <p>
+    
+  
+  
+  
     <a href="http://www.vogella.com/articles/AndroidListView/article.html">http://www.vogella.com/articles/AndroidListView/article.html</a>
-  </p>
   
-  <p>
+  
+  
     http://www.iteye.com/topic/540423
-  </p>
-</div>
+  

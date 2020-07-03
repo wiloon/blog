@@ -24,10 +24,6 @@ num := rand.Int31n(10)
   
 time.sleep(num * time.Second)
   
-1
-  
-2
-  
 num := rand.Int31n(10)
   
 time.sleep(num * time.Second)
@@ -40,12 +36,6 @@ time.sleep(num * time.Second)
 
 ./lock.go:88: invalid operation: int(DefaultTimeout) * time.Second (mismatched types int and time.Duration)
   
-1
-  
-2
-  
-3
-  
 #xiaorui.cc
 
 # command-line-arguments
@@ -56,8 +46,6 @@ time.sleep(num * time.Second)
 
 time.Sleep(time.Duration(num) * time.Second)
   
-1
-  
 time.Sleep(time.Duration(num) * time.Second)
   
 期初原因以为是rand随机数有问题，简单看了rand的函数说明感觉没问题！ 下面是产生的原因:
@@ -65,10 +53,6 @@ time.Sleep(time.Duration(num) * time.Second)
 func Sleep(d Duration)
       
 Sleep pauses the current goroutine for at least the duration d. A negative or zero duration causes Sleep to return immediately.
-  
-1
-  
-2
   
 func Sleep(d Duration)
       
@@ -82,11 +66,11 @@ package main
 
 import (
       
-&#8220;fmt&#8221;
+"fmt"
       
-&#8220;math/rand&#8221;
+"math/rand"
       
-&#8220;time&#8221;
+"time"
   
 )
 
@@ -106,47 +90,15 @@ time.Sleep(time.Duration(x) * time.Second)
   
 }
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
 package main
 
 import (
       
-&#8220;fmt&#8221;
+"fmt"
       
-&#8220;math/rand&#8221;
+"math/rand"
       
-&#8220;time&#8221;
+"time"
   
 )
 
@@ -173,12 +125,6 @@ time.Sleep(1 * time.Second) //可以
 time.Sleep(1.1 * time.Second) //BUG
   
 time.Sleep(time.Duration(yourTime) * time.Second) //可以
-  
-1
-  
-2
-  
-3
   
 time.Sleep(1 * time.Second) //可以
   

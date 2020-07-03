@@ -12,15 +12,15 @@ https://docs.gradle.org/current/userguide/application_plugin.html
 
 edit build.gradle
 
-apply plugin: &#8216;application&#8217;
+apply plugin: 'application'
   
 application {
       
-applicationDefaultJvmArgs = [&#8220;-Xms512m&#8221;, &#8220;-Xmx1600m&#8221;]
+applicationDefaultJvmArgs = ["-Xms512m", "-Xmx1600m"]
   
 }
   
-mainClassName = &#8220;org.gradle.sample.Main&#8221;
+mainClassName = "org.gradle.sample.Main"
 
 gradle distZip
 

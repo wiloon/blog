@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 unset key
 
-[/code]
+```
 
 不知道你有没有遇到过这样的场景，当你需要设置一个环境变量，或者运行一个程序设置你的shell或桌面环境，但是不知道在哪里是最方便设置的位置。
 
@@ -20,7 +20,7 @@ unset key
 
 有时，程序通常只需要在首次登陆时运行一次，例如xrandr命令。
 
-此外，有的程序偶尔会被注入到shell中，例如rbenv，rvn或 SitePoint’s自己的 envswith 程序。
+此外，有的程序偶尔会被注入到shell中，例如rbenv，rvn或 SitePoint's自己的 envswith 程序。
 
 让我们来看看在Debian GNU/Linux Jessie安装中出现的一些常见选项，并尝试理解这一切。
 
@@ -28,13 +28,13 @@ unset key
   
 默认情况下，Debian提供/etc/profile文件，这个文件用来设置$PATH变量（$PATH通常用来声明命令的搜索路径），可以立即生效。下面的代码是/etc/profile的一部分。
 
-if [ &#8220;`id -u`&#8221; -eq 0 ]; then
+if [ "`id -u`" -eq 0 ]; then
   
-PATH=&#8221;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#8221;
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   
 else
   
-PATH=&#8221;/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games&#8221;
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
   
 fi
   
@@ -46,7 +46,7 @@ export PATH
 
 所以从这一点上，我们可以推断/etc/profile在登陆期间（例如使用login命令）会被所有的shell读取。/etc/profile调用id命令来读取用户ID，而不是使用更高效的Bash内置变量${UID}。Bash使用特定来源的配置，而不是定义一个花哨的shell提示符，因为Bash支持反斜杠转义的特殊字符，例如\u(用户名) 和 \h (主机名），许多其他的shell都不支持这样定义。/etc/profile应该尝试和POSIX兼容，以便与用户可能自己安装的任何shell兼容。
 
-Debian GNU/linux通常预装Dash，Dash是一个仅仅旨在实现POSIX（和一些伯克利）扩展的基本shell。如果我们修改/etc/profile（修改之前先备份）让PS1=’$ ‘这一行设置不同的值，然后模拟一个Dash登录（通过dash -l命令），我们可以看到Dash会使用我们自定义的提示。但是，如果我们调用不带-l参数的dash命令，dash将不会读取/etc/profile。此时Dash会使用默认值（这意味着此时PS1的值是我们修改之前的值）。
+Debian GNU/linux通常预装Dash，Dash是一个仅仅旨在实现POSIX（和一些伯克利）扩展的基本shell。如果我们修改/etc/profile（修改之前先备份）让PS1='$ '这一行设置不同的值，然后模拟一个Dash登录（通过dash -l命令），我们可以看到Dash会使用我们自定义的提示。但是，如果我们调用不带-l参数的dash命令，dash将不会读取/etc/profile。此时Dash会使用默认值（这意味着此时PS1的值是我们修改之前的值）。
 
 最后一点和/etc/profile相关的趣事是下面的代码片段：
 
@@ -82,13 +82,13 @@ fi
 
 # if running bash
   
-if [ -n &#8220;$BASH_VERSION&#8221; ]; then
+if [ -n "$BASH_VERSION" ]; then
   
 # include .bashrc if it exists
   
-if [ -f &#8220;$HOME/.bashrc&#8221; ]; then
+if [ -f "$HOME/.bashrc" ]; then
   
-. &#8220;$HOME/.bashrc&#8221;
+. "$HOME/.bashrc"
   
 fi
   

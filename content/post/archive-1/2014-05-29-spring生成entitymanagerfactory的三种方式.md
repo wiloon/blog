@@ -12,15 +12,15 @@ tags:
 ---
 1.LocalEntityManagerFactoryBean
   
-只是简单环境中使用。它使用JPA PersistenceProvider自动检测机制( according to JPA&#8217;s Java SE bootstrapping )，并且大多数情况下，你只能定义一下persistence unit name
+只是简单环境中使用。它使用JPA PersistenceProvider自动检测机制( according to JPA's Java SE bootstrapping )，并且大多数情况下，你只能定义一下persistence unit name
 
 例如：
 
 <beans>
   
-<bean id=&#8221;myEmf&#8221; class=&#8221;org.springframework.orm.jpa.LocalEntityManagerFactoryBean&#8221;>
+<bean id="myEmf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
   
-<property name=&#8221;persistenceUnitName&#8221; value=&#8221;myPersistenceUnit&#8221;/>
+<property name="persistenceUnitName" value="myPersistenceUnit"/>
   
 </bean>
   
@@ -34,7 +34,7 @@ tags:
 
 <beans>
   
-<jee:jndi-lookup id=&#8221;myEmf&#8221; jndi-name=&#8221;persistence/myPersistenceUnit&#8221;/>
+<jee:jndi-lookup id="myEmf" jndi-name="persistence/myPersistenceUnit"/>
   
 </beans>
   
@@ -52,15 +52,15 @@ transactions是使用的javaee容器支持的JTA系统，例如tomcat中，可�
   
 文件的Context节点下，如下：
   
-<Resource name=&#8221;&#8221; auth=&#8221;Container&#8221; type=&#8221;javax.sql.DataSource&#8221;
+<Resource name="" auth="Container" type="javax.sql.DataSource"
   
-username=&#8221;&#8221;
+username=""
   
-password=&#8221;&#8221;
+password=""
   
-driveClassName=&#8221;oracle.jdbc.driver.OracleDriver&#8221;
+driveClassName="oracle.jdbc.driver.OracleDriver"
   
-url=&#8221;&#8221; maxActive=&#8221;45&#8243; maxIdle=&#8221;25&#8243;/>
+url="" maxActive="45" maxIdle="25"/>
   
 jndi也可以配置在server.xml，context.xml中
   
@@ -68,25 +68,25 @@ jndi也可以配置在server.xml，context.xml中
   
 在server.xml文件GlobalNamingResources节点下配置如下：
   
-<!&#8211; Resource configuration for UserTransaction
+<!- Resource configuration for UserTransaction
   
-use JOTM &#8211;>
+use JOTM ->
   
-<Resource name=&#8221;UserTransaction&#8221; auth=&#8221;Container&#8221;
+<Resource name="UserTransaction" auth="Container"
   
-type=&#8221;javax.transaction.UserTransaction&#8221;
+type="javax.transaction.UserTransaction"
   
-factory=&#8221;org.objectweb.jotm.UserTransactionFactory&#8221;
+factory="org.objectweb.jotm.UserTransactionFactory"
   
-jotm.timeout=&#8221;60&#8243;/>
+jotm.timeout="60"/>
   
 然后在 项目名.xml 文件的context节点下加：
   
-<ResourceLink name=&#8221;UserTransaction&#8221;
+<ResourceLink name="UserTransaction"
   
-global=&#8221;UserTransaction&#8221;
+global="UserTransaction"
   
-type=&#8221;javax.transaction.UserTransaction&#8221;/>
+type="javax.transaction.UserTransaction"/>
 
 SPRING 仅仅做的是是把EntityManagerFactory通过依赖注入到应用的object中。如果要管理事务，则使用JtaTransactionManager。
   
@@ -98,13 +98,13 @@ LocalContainerEntityManagerFactoryBean会根据persistence.xml创造一个Persis
 
 <beans>
   
-<bean id=&#8221;myEmf&#8221; class=&#8221;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&#8221;>
+<bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
   
-<property name=&#8221;dataSource&#8221; ref=&#8221;someDataSource&#8221;/>
+<property name="dataSource" ref="someDataSource"/>
   
-<span style=&#8221;color: #ff0000;&#8221;><property name=&#8221;loadTimeWeaver&#8221;>
+<span style="color: #ff0000;"><property name="loadTimeWeaver">
   
-</span><bean class=&#8221;org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver&#8221;/>
+<bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
   
 </property>
   
@@ -112,13 +112,13 @@ LocalContainerEntityManagerFactoryBean会根据persistence.xml创造一个Persis
   
 </beans>
   
-不是所有的JPA provider都需要load-time weaving。hibernate就不需要。呵呵。 <property name=&#8221;loadTimeWeaver&#8221;>这个就不是必须的了。。
+不是所有的JPA provider都需要load-time weaving。hibernate就不需要。呵呵。 <property name="loadTimeWeaver">这个就不是必须的了。。
 
 Persistence.xml配置：
 
-<persistence xmlns=&#8221;http://java.sun.com/xml/ns/persistence&#8221; version=&#8221;1.0&#8243;>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
   
-<persistence-unit name=&#8221;myUnit&#8221; transaction-type=&#8221;RESOURCE_LOCAL&#8221;>
+<persistence-unit name="myUnit" transaction-type="RESOURCE_LOCAL">
   
 <mapping-file>META-INF/orm.xml</mapping-file>
   
@@ -130,9 +130,9 @@ Persistence.xml配置：
   
 如何处理多个persistence units。spring提供了PersistenceUnitManager统一管理。
 
-<bean id=&#8221;pum&#8221; class=&#8221;org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager&#8221;>
+<bean id="pum" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
   
-<property name=&#8221;persistenceXmlLocations&#8221;>
+<property name="persistenceXmlLocations">
   
 <list>
   
@@ -146,35 +146,34 @@ Persistence.xml配置：
   
 </property>
   
-<span style=&#8221;color: #ff0000;&#8221;><property name=&#8221;dataSources&#8221;></span>
+<span style="color: #ff0000;"><property name="dataSources">
   
 <map>
   
-<entry key=&#8221;localDataSource&#8221; value-ref=&#8221;local-db&#8221;/>
+<entry key="localDataSource" value-ref="local-db"/>
   
-<entry key=&#8221;remoteDataSource&#8221; value-ref=&#8221;remote-db&#8221;/>
+<entry key="remoteDataSource" value-ref="remote-db"/>
   
 </map>
   
 </property>
   
-<!&#8211; if no datasource is specified, use this one &#8211;>
+<!- if no datasource is specified, use this one ->
   
-<property name=&#8221;defaultDataSource&#8221; ref=&#8221;remoteDataSource&#8221;/>
+<property name="defaultDataSource" ref="remoteDataSource"/>
   
 </bean>
   
-<bean id=&#8221;emf&#8221; class=&#8221;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&#8221;>
+<bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
   
-<property name=&#8221;persistenceUnitManager&#8221; ref=&#8221;pum&#8221;/>
+<property name="persistenceUnitManager" ref="pum"/>
   
-<property name=&#8221;persistenceUnitName&#8221; value=&#8221;myCustomUnit&#8221;/>
+<property name="persistenceUnitName" value="myCustomUnit"/>
   
 </bean>
   
 dataSources中的key是persistence.xml中配置的datasource名字，value-ref是spring管理的数据源。
 
-&nbsp;
 
 另外：
 
@@ -200,7 +199,7 @@ EntityManager em = this.emf.createEntityManager();
   
 try {
   
-Query query = em.createQuery(&#8220;from Product as p where p.category = ?1&#8221;);
+Query query = em.createQuery("from Product as p where p.category = ?1");
   
 query.setParameter(1, category);
   
@@ -226,7 +225,7 @@ em.close();
   
 这样使用有个最大问题就是每次都要创建一个新的entityManager。那么该怎么办？
 
-你可以通过@PersistenceContext获取一个transactional EntityManager(&#8220;shared EntityManager&#8221;)。为什么称它为transactional？因为它是一个共享的以及线程安全的当前的transactional EntityManager的一个代理。
+你可以通过@PersistenceContext获取一个transactional EntityManager("shared EntityManager")。为什么称它为transactional？因为它是一个共享的以及线程安全的当前的transactional EntityManager的一个代理。
 
 复制代码
   
@@ -238,9 +237,9 @@ private EntityManager em;
   
 public Collection loadProductsByCategory(String category) {
   
-Query query = em.createQuery(&#8220;from Product as p where p.category = :category&#8221;);
+Query query = em.createQuery("from Product as p where p.category = :category");
   
-query.setParameter(&#8220;category&#8221;, category);
+query.setParameter("category", category);
   
 return query.getResultList();
   

@@ -25,8 +25,6 @@ XMLHttpRequest 对象还没有标准化，但是 W3C 已经开始了标准化的
 
 HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的值从 0 开始，直到接收到完整的 HTTP 响应，这个值增加到 4。
 
-<div>
-</div>
 
 <table>
   <tr>
@@ -115,50 +113,44 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 
 5 个状态中每一个都有一个相关联的非正式的名称，下表列出了状态、名称和含义：
 
-<div>
-   readyState 的值不会递减，除非当一个请求在处理过程中的时候调用了 abort() 或 open() 方法。每次这个属性的值增加的时候，都会触发 onreadystatechange 事件句柄。</p> 
+   readyState 的值不会递减，除非当一个请求在处理过程中的时候调用了 abort() 或 open() 方法。每次这个属性的值增加的时候，都会触发 onreadystatechange 事件句柄。 
   
-  <h3>
+  
     responseText
-  </h3>
   
-  <p>
+  
+  
     目前为止从服务器接收到的响应体（不包括头部），或者如果还没有接收到数据的话，就是空字符串。
-  </p>
   
-  <div>
-  </div>
   
-  <p>
+  
+  
+  
+  
     如果 readyState 小于 3，这个属性就是一个空字符串。当 readyState 为 3，这个属性返回目前已经接收的响应部分。如果 readyState 为 4，这个属性保存了完整的响应体。
-  </p>
   
-  <div>
-  </div>
   
-  <p>
+  
+  
+  
+  
     如果响应包含了为响应体指定字符编码的头部，就使用该编码。否则，假定使用 Unicode UTF-8。
-  </p>
-</div>
+  
 
 ### statu
 
-由服务器返回的 HTTP 状态代码，如 200 表示成功，而 404 表示 &#8220;Not Found&#8221; 错误。当 readyState 小于 3 的时候读取这一属性会导致一个异常。
+由服务器返回的 HTTP 状态代码，如 200 表示成功，而 404 表示 "Not Found" 错误。当 readyState 小于 3 的时候读取这一属性会导致一个异常。
 
 ### statusText
 
-这个属性用名称而不是数字指定了请求的 HTTP 的状态代码。也就是说，当状态为 200 的时候它是 &#8220;OK&#8221;，当状态为 404 的时候它是 &#8220;Not Found&#8221;。和 status 属性一样，当 readyState 小于 3 的时候读取这一属性会导致一个异常。
+这个属性用名称而不是数字指定了请求的 HTTP 的状态代码。也就是说，当状态为 200 的时候它是 "OK"，当状态为 404 的时候它是 "Not Found"。和 status 属性一样，当 readyState 小于 3 的时候读取这一属性会导致一个异常。
 
 **onreadystatechange：**
 
-<div>
-</div>
 
 每次 readyState 属性改变的时候调用的事件句柄函数。当 readyState 为 3 时，它也可能调用多次。
 
 **onreadystatechange：**
 
-<div>
-</div>
 
 每次 readyState 属性改变的时候调用的事件句柄函数。当 readyState 为 3 时，它也可能调用多次。

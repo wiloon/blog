@@ -22,24 +22,18 @@ tags:
   * configure name and path for maven
   * go to jenkins > manage jenkins> manage plugins>advanced
   * configure proxy (optional)
-  * click &#8220;choose file&#8221; to upload the plugin; e.g.: git plugin
+  * click "choose file" to upload the plugin; e.g.: git plugin
   * restart jboss
   * go to jenkins>Manage Jenkins>Configure system
   * configure name and path for git plugin(optional)
   * Create a new job, jenkins>new item
   *  input job name , select **Build a free-style software project**
   * **[Source Code Management], select git, input URL of repository**
-  * **[build], click &#8220;add build step&#8221;,  select invoke top-level Maven targets**
+  * **[build], click "add build step",  select invoke top-level Maven targets**
   * **select maven version**
   * **input Goals. e.g. clean, install, surefire-report:report, cobertura:cobertura**
   * **
   
 ** 
 
-&nbsp;
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;

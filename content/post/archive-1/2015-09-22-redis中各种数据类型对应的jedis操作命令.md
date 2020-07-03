@@ -218,7 +218,7 @@ String是最常用的一种数据类型,普通的key/value存储.
 
 品牌、厂商、车系、车型等列表
 
-拆车坊专题列表&#8230;
+拆车坊专题列表...
   
 3.set类型的应用场景
 
@@ -242,331 +242,29 @@ zset的使用场景与set类似,区别是set不是自动有序的,而zset可以�
 
 ?
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
-  
-33
-  
-34
-  
-35
-  
-36
-  
-37
-  
-38
-  
-39
-  
-40
-  
-41
-  
-42
-  
-43
-  
-44
-  
-45
-  
-46
-  
-47
-  
-48
-  
-49
-  
-50
-  
-51
-  
-52
-  
-53
-  
-54
-  
-55
-  
-56
-  
-57
-  
-58
-  
-59
-  
-60
-  
-61
-  
-62
-  
-63
-  
-64
-  
-65
-  
-66
-  
-67
-  
-68
-  
-69
-  
-70
-  
-71
-  
-72
-  
-73
-  
-74
-  
-75
-  
-76
-  
-77
-  
-78
-  
-79
-  
-80
-  
-81
-  
-82
-  
-83
-  
-84
-  
-85
-  
-86
-  
-87
-  
-88
-  
-89
-  
-90
-  
-91
-  
-92
-  
-93
-  
-94
-  
-95
-  
-96
-  
-97
-  
-98
-  
-99
-  
-100
-  
-101
-  
-102
-  
-103
-  
-104
-  
-105
-  
-106
-  
-107
-  
-108
-  
-109
-  
-110
-  
-111
-  
-112
-  
-113
-  
-114
-  
-115
-  
-116
-  
-117
-  
-118
-  
-119
-  
-120
-  
-121
-  
-122
-  
-123
-  
-124
-  
-125
-  
-126
-  
-127
-  
-128
-  
-129
-  
-130
-  
-131
-  
-132
-  
-133
-  
-134
-  
-135
-  
-136
-  
-137
-  
-138
-  
-139
-  
-140
-  
-141
-  
-142
-  
-143
-  
-144
-  
-145
-  
-146
-  
-147
-  
-148
-  
-149
-  
-150
-  
-151
-  
 private void testKey() {
   
-System.out.println(&#8220;=============key==========================&#8221;);
+System.out.println("=============key==========================");
   
 // 清空数据
   
 System.out.println(jedis.flushDB());
   
-System.out.println(jedis.echo(&#8220;foo&#8221;));
+System.out.println(jedis.echo("foo"));
   
 // 判断key否存在
   
-System.out.println(shardedJedis.exists(&#8220;foo&#8221;));
+System.out.println(shardedJedis.exists("foo"));
   
-shardedJedis.set(&#8220;key&#8221;, &#8220;values&#8221;);
+shardedJedis.set("key", "values");
   
-System.out.println(shardedJedis.exists(&#8220;key&#8221;));
+System.out.println(shardedJedis.exists("key"));
   
 }
 
 private void testString() {
   
-System.out.println(&#8220;=============String==========================&#8221;);
+System.out.println("=============String==========================");
   
 // 清空数据
   
@@ -574,33 +272,33 @@ System.out.println(jedis.flushDB());
   
 // 存储数据
   
-shardedJedis.set(&#8220;foo&#8221;, &#8220;bar&#8221;);
+shardedJedis.set("foo", "bar");
   
-System.out.println(shardedJedis.get(&#8220;foo&#8221;));
+System.out.println(shardedJedis.get("foo"));
   
 // 若key不存在，则存储
   
-shardedJedis.setnx(&#8220;foo&#8221;, &#8220;foo not exits&#8221;);
+shardedJedis.setnx("foo", "foo not exits");
   
-System.out.println(shardedJedis.get(&#8220;foo&#8221;));
+System.out.println(shardedJedis.get("foo"));
   
 // 覆盖数据
   
-shardedJedis.set(&#8220;foo&#8221;, &#8220;foo update&#8221;);
+shardedJedis.set("foo", "foo update");
   
-System.out.println(shardedJedis.get(&#8220;foo&#8221;));
+System.out.println(shardedJedis.get("foo"));
   
 // 追加数据
   
-shardedJedis.append(&#8220;foo&#8221;, &#8221; hello, world&#8221;);
+shardedJedis.append("foo", " hello, world");
   
-System.out.println(shardedJedis.get(&#8220;foo&#8221;));
+System.out.println(shardedJedis.get("foo"));
   
 // 设置key的有效期，并存储数据
   
-shardedJedis.setex(&#8220;foo&#8221;, 2, &#8220;foo not exits&#8221;);
+shardedJedis.setex("foo", 2, "foo not exits");
   
-System.out.println(shardedJedis.get(&#8220;foo&#8221;));
+System.out.println(shardedJedis.get("foo"));
   
 try {
   
@@ -610,29 +308,29 @@ Thread.sleep(3000);
   
 }
   
-System.out.println(shardedJedis.get(&#8220;foo&#8221;));
+System.out.println(shardedJedis.get("foo"));
   
 // 获取并更改数据
   
-shardedJedis.set(&#8220;foo&#8221;, &#8220;foo update&#8221;);
+shardedJedis.set("foo", "foo update");
   
-System.out.println(shardedJedis.getSet(&#8220;foo&#8221;, &#8220;foo modify&#8221;));
+System.out.println(shardedJedis.getSet("foo", "foo modify"));
   
 // 截取value的值
   
-System.out.println(shardedJedis.getrange(&#8220;foo&#8221;, 1, 3));
+System.out.println(shardedJedis.getrange("foo", 1, 3));
   
-System.out.println(jedis.mset(&#8220;mset1&#8221;, &#8220;mvalue1&#8221;, &#8220;mset2&#8221;, &#8220;mvalue2&#8221;, &#8220;mset3&#8221;, &#8220;mvalue3&#8221;, &#8220;mset4&#8221;, &#8220;mvalue4&#8221;));
+System.out.println(jedis.mset("mset1", "mvalue1", "mset2", "mvalue2", "mset3", "mvalue3", "mset4", "mvalue4"));
   
-System.out.println(jedis.mget(&#8220;mset1&#8221;, &#8220;mset2&#8221;, &#8220;mset3&#8221;, &#8220;mset4&#8221;));
+System.out.println(jedis.mget("mset1", "mset2", "mset3", "mset4"));
   
-System.out.println(jedis.del(new String[] { &#8220;foo&#8221;, &#8220;foo1&#8221;, &#8220;foo3&#8221; }));
+System.out.println(jedis.del(new String[] { "foo", "foo1", "foo3" }));
   
 }
 
 private void testList() {
   
-System.out.println(&#8220;=============list==========================&#8221;);
+System.out.println("=============list==========================");
   
 // 清空数据
   
@@ -640,53 +338,53 @@ System.out.println(jedis.flushDB());
   
 // 添加数据
   
-shardedJedis.lpush(&#8220;lists&#8221;, &#8220;vector&#8221;);
+shardedJedis.lpush("lists", "vector");
   
-shardedJedis.lpush(&#8220;lists&#8221;, &#8220;ArrayList&#8221;);
+shardedJedis.lpush("lists", "ArrayList");
   
-shardedJedis.lpush(&#8220;lists&#8221;, &#8220;LinkedList&#8221;);
+shardedJedis.lpush("lists", "LinkedList");
   
 // 数组长度
   
-System.out.println(shardedJedis.llen(&#8220;lists&#8221;));
+System.out.println(shardedJedis.llen("lists"));
   
 // 排序
   
-System.out.println(shardedJedis.sort(&#8220;lists&#8221;));
+System.out.println(shardedJedis.sort("lists"));
   
 // 字串
   
-System.out.println(shardedJedis.lrange(&#8220;lists&#8221;, 0, 3));
+System.out.println(shardedJedis.lrange("lists", 0, 3));
   
 // 修改列表中单个值
   
-shardedJedis.lset(&#8220;lists&#8221;, 0, &#8220;hello list!&#8221;);
+shardedJedis.lset("lists", 0, "hello list!");
   
 // 获取列表指定下标的值
   
-System.out.println(shardedJedis.lindex(&#8220;lists&#8221;, 1));
+System.out.println(shardedJedis.lindex("lists", 1));
   
 // 删除列表指定下标的值
   
-System.out.println(shardedJedis.lrem(&#8220;lists&#8221;, 1, &#8220;vector&#8221;));
+System.out.println(shardedJedis.lrem("lists", 1, "vector"));
   
 // 删除区间以外的数据
   
-System.out.println(shardedJedis.ltrim(&#8220;lists&#8221;, 0, 1));
+System.out.println(shardedJedis.ltrim("lists", 0, 1));
   
 // 列表出栈
   
-System.out.println(shardedJedis.lpop(&#8220;lists&#8221;));
+System.out.println(shardedJedis.lpop("lists"));
   
 // 整个列表值
   
-System.out.println(shardedJedis.lrange(&#8220;lists&#8221;, 0, -1));
+System.out.println(shardedJedis.lrange("lists", 0, -1));
 
 }
 
 private void testSet() {
   
-System.out.println(&#8220;=============set==========================&#8221;);
+System.out.println("=============set==========================");
   
 // 清空数据
   
@@ -694,63 +392,63 @@ System.out.println(jedis.flushDB());
   
 // 添加数据
   
-shardedJedis.sadd(&#8220;sets&#8221;, &#8220;HashSet&#8221;);
+shardedJedis.sadd("sets", "HashSet");
   
-shardedJedis.sadd(&#8220;sets&#8221;, &#8220;SortedSet&#8221;);
+shardedJedis.sadd("sets", "SortedSet");
   
-shardedJedis.sadd(&#8220;sets&#8221;, &#8220;TreeSet&#8221;);
+shardedJedis.sadd("sets", "TreeSet");
   
 // 判断value是否在列表中
   
-System.out.println(shardedJedis.sismember(&#8220;sets&#8221;, &#8220;TreeSet&#8221;));
+System.out.println(shardedJedis.sismember("sets", "TreeSet"));
   
 ;
   
 // 整个列表值
   
-System.out.println(shardedJedis.smembers(&#8220;sets&#8221;));
+System.out.println(shardedJedis.smembers("sets"));
   
 // 删除指定元素
   
-System.out.println(shardedJedis.srem(&#8220;sets&#8221;, &#8220;SortedSet&#8221;));
+System.out.println(shardedJedis.srem("sets", "SortedSet"));
   
 // 出栈
   
-System.out.println(shardedJedis.spop(&#8220;sets&#8221;));
+System.out.println(shardedJedis.spop("sets"));
   
-System.out.println(shardedJedis.smembers(&#8220;sets&#8221;));
+System.out.println(shardedJedis.smembers("sets"));
   
 //
   
-shardedJedis.sadd(&#8220;sets1&#8221;, &#8220;HashSet1&#8221;);
+shardedJedis.sadd("sets1", "HashSet1");
   
-shardedJedis.sadd(&#8220;sets1&#8221;, &#8220;SortedSet1&#8221;);
+shardedJedis.sadd("sets1", "SortedSet1");
   
-shardedJedis.sadd(&#8220;sets1&#8221;, &#8220;TreeSet&#8221;);
+shardedJedis.sadd("sets1", "TreeSet");
   
-shardedJedis.sadd(&#8220;sets2&#8221;, &#8220;HashSet2&#8221;);
+shardedJedis.sadd("sets2", "HashSet2");
   
-shardedJedis.sadd(&#8220;sets2&#8221;, &#8220;SortedSet1&#8221;);
+shardedJedis.sadd("sets2", "SortedSet1");
   
-shardedJedis.sadd(&#8220;sets2&#8221;, &#8220;TreeSet1&#8221;);
+shardedJedis.sadd("sets2", "TreeSet1");
   
 // 交集
   
-System.out.println(jedis.sinter(&#8220;sets1&#8221;, &#8220;sets2&#8221;));
+System.out.println(jedis.sinter("sets1", "sets2"));
   
 // 并集
   
-System.out.println(jedis.sunion(&#8220;sets1&#8221;, &#8220;sets2&#8221;));
+System.out.println(jedis.sunion("sets1", "sets2"));
   
 // 差集
   
-System.out.println(jedis.sdiff(&#8220;sets1&#8221;, &#8220;sets2&#8221;));
+System.out.println(jedis.sdiff("sets1", "sets2"));
   
 }
 
 private void testSortedSet() {
   
-System.out.println(&#8220;=============zset==========================&#8221;);
+System.out.println("=============zset==========================");
   
 // 清空数据
   
@@ -758,41 +456,41 @@ System.out.println(jedis.flushDB());
   
 // 添加数据
   
-shardedJedis.zadd(&#8220;zset&#8221;, 10.1, &#8220;hello&#8221;);
+shardedJedis.zadd("zset", 10.1, "hello");
   
-shardedJedis.zadd(&#8220;zset&#8221;, 10.0, &#8220;:&#8221;);
+shardedJedis.zadd("zset", 10.0, ":");
   
-shardedJedis.zadd(&#8220;zset&#8221;, 9.0, &#8220;zset&#8221;);
+shardedJedis.zadd("zset", 9.0, "zset");
   
-shardedJedis.zadd(&#8220;zset&#8221;, 11.0, &#8220;zset!&#8221;);
+shardedJedis.zadd("zset", 11.0, "zset!");
   
 // 元素个数
   
-System.out.println(shardedJedis.zcard(&#8220;zset&#8221;));
+System.out.println(shardedJedis.zcard("zset"));
   
 // 元素下标
   
-System.out.println(shardedJedis.zscore(&#8220;zset&#8221;, &#8220;zset&#8221;));
+System.out.println(shardedJedis.zscore("zset", "zset"));
   
 // 集合子集
   
-System.out.println(shardedJedis.zrange(&#8220;zset&#8221;, 0, -1));
+System.out.println(shardedJedis.zrange("zset", 0, -1));
   
 // 删除元素
   
-System.out.println(shardedJedis.zrem(&#8220;zset&#8221;, &#8220;zset!&#8221;));
+System.out.println(shardedJedis.zrem("zset", "zset!"));
   
-System.out.println(shardedJedis.zcount(&#8220;zset&#8221;, 9.5, 10.5));
+System.out.println(shardedJedis.zcount("zset", 9.5, 10.5));
   
 // 整个集合值
   
-System.out.println(shardedJedis.zrange(&#8220;zset&#8221;, 0, -1));
+System.out.println(shardedJedis.zrange("zset", 0, -1));
   
 }
 
 private void testHash() {
   
-System.out.println(&#8220;=============hash==========================&#8221;);
+System.out.println("=============hash==========================");
   
 // 清空数据
   
@@ -800,37 +498,37 @@ System.out.println(jedis.flushDB());
   
 // 添加数据
   
-shardedJedis.hset(&#8220;hashs&#8221;, &#8220;entryKey&#8221;, &#8220;entryValue&#8221;);
+shardedJedis.hset("hashs", "entryKey", "entryValue");
   
-shardedJedis.hset(&#8220;hashs&#8221;, &#8220;entryKey1&#8221;, &#8220;entryValue1&#8221;);
+shardedJedis.hset("hashs", "entryKey1", "entryValue1");
   
-shardedJedis.hset(&#8220;hashs&#8221;, &#8220;entryKey2&#8221;, &#8220;entryValue2&#8221;);
+shardedJedis.hset("hashs", "entryKey2", "entryValue2");
   
 // 判断某个值是否存在
   
-System.out.println(shardedJedis.hexists(&#8220;hashs&#8221;, &#8220;entryKey&#8221;));
+System.out.println(shardedJedis.hexists("hashs", "entryKey"));
   
 // 获取指定的值
   
-System.out.println(shardedJedis.hget(&#8220;hashs&#8221;, &#8220;entryKey&#8221;));        // 批量获取指定的值
+System.out.println(shardedJedis.hget("hashs", "entryKey"));        // 批量获取指定的值
   
-System.out.println(shardedJedis.hmget(&#8220;hashs&#8221;, &#8220;entryKey&#8221;, &#8220;entryKey1&#8221;));
+System.out.println(shardedJedis.hmget("hashs", "entryKey", "entryKey1"));
   
 // 删除指定的值
   
-System.out.println(shardedJedis.hdel(&#8220;hashs&#8221;, &#8220;entryKey&#8221;));
+System.out.println(shardedJedis.hdel("hashs", "entryKey"));
   
 // 为key中的域 field 的值加上增量 increment
   
-System.out.println(shardedJedis.hincrBy(&#8220;hashs&#8221;, &#8220;entryKey&#8221;, 123l));
+System.out.println(shardedJedis.hincrBy("hashs", "entryKey", 123l));
   
 // 获取所有的keys
   
-System.out.println(shardedJedis.hkeys(&#8220;hashs&#8221;));
+System.out.println(shardedJedis.hkeys("hashs"));
   
 // 获取所有的values
   
-System.out.println(shardedJedis.hvals(&#8220;hashs&#8221;));
+System.out.println(shardedJedis.hvals("hashs"));
   
 }
   

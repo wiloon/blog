@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#zkCli.sh
+```bash
+#zkCli.sh
 #连接zookeeper
 bin/zkCli.sh -server localhost:2181
 
@@ -47,7 +48,7 @@ zookeeper提供了很多方便的功能，方便我们查看服务器的状态�
   
 目录分布情况请参考我的另一篇文章：
   
-zookeeper集群搭建 &#8211; http://www.cnblogs.com/linuxbug/p/4840137.html
+zookeeper集群搭建 - http://www.cnblogs.com/linuxbug/p/4840137.html
   
 zkServer.sh
   

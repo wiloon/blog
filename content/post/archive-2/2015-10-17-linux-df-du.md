@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashdf -h
+```bash
+df -h
 df -t ext4 -h
 ```
 
@@ -62,11 +63,11 @@ Filesystem Inodes IUsed IFree IUse% Mounted on
   
 /dev/hda5 98392 23919 74473 25% /
   
-none 0 0 0 &#8211; /proc
+none 0 0 0 - /proc
   
 /dev/hda1 12048 38 12010 1% /boot
   
-none 0 0 0 &#8211; /dev/pts
+none 0 0 0 - /dev/pts
   
 /dev/hda3 1275456 355008 920448 28% /home
   

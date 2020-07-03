@@ -8,10 +8,10 @@ categories:
   - Uncategorized
 
 ---
-```bash#centos
+```bash
+#centos
 sudo yum install epel-release
 yum install redis
-
 
 ```
 
@@ -56,8 +56,9 @@ https://blog.csdn.net/FengYe_YuLu/article/details/77628094
 
 [OK] All 16384 slots covered
 
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core\_ext/kernel\_require.rb:55:in `require’: cannot load such file — redis (LoadError)<br />
-注意 ：kernel_require.rb:55:in`require’: cannot load such file — redis
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core\_ext/kernel\_require.rb:55:in `require': cannot load such file — redis (LoadError)
+
+注意 ：kernel_require.rb:55:in`require': cannot load such file — redis
   
 这里就是缺什么，安装什么
 

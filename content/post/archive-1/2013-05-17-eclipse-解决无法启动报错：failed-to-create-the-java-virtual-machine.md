@@ -26,7 +26,7 @@ eclipse.ini是一个文本文件，其内容相当于在Eclipse运行时添加�
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -58,7 +58,7 @@ Windows Example
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -80,7 +80,7 @@ Linux Example
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -102,7 +102,7 @@ Mac OS X Example
   
 org.eclipse.platform
   
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -198,7 +198,7 @@ C:\Java\jre1.6.0\bin\javaw.exe
   
 org.eclipse.platform
 
-&#8211;launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
   
 256m
   
@@ -220,7 +220,6 @@ org.eclipse.platform
   
 让GC可以更快的执行。
 
-&nbsp;
 
 下载了新的Eclipse Indigo(3.7)，却无法启动，报错“Failed to create the Java Virtual Machine”，如图：
 
@@ -230,13 +229,13 @@ Google了一下，有一篇文章说是修改eclipse.ini文件中的
 
 Xml代码
 
-<span style=&#8221;font-size: small;&#8221;>&#8211;launcher.XXMaxPermSize
+<span style="font-size: small;">-launcher.XXMaxPermSize
 
-256M</span>
+256M
 
 修改为128
 
-注意：eclipse.ini中有两处“&#8211;launcher.XXMaxPermSize”，都要改。 （不明白为什么一个参数配置两遍）
+注意：eclipse.ini中有两处“-launcher.XXMaxPermSize”，都要改。 （不明白为什么一个参数配置两遍）
 
 试了一下这种方法我这边可行，但不明白为什么改小了就可以了。
 
@@ -248,9 +247,9 @@ eclipse failed to create the java virtual machine 问题图文解析
 
 Xml代码
 
-<span style=&#8221;font-size: small;&#8221;>-vm
+<span style="font-size: small;">-vm
 
-D:Javajdk1.6.0_29binjavaw.exe</span>
+D:Javajdk1.6.0_29binjavaw.exe
 
 注意：这个参数的放置位置，我放在文件最下面时还是不行，放在-vmargs参数上面就可以了。
 

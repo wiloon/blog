@@ -32,6 +32,6 @@ nvl( ) 函数
 
 在不支持 null 值或 null 值无关紧要的情况下，可以使用 NVL( ) 来移去计算或操作中的 null 值。
 
-  1. select nvl(a.name,&#8217;空得&#8217;) as name from student a join school b on a.ID=b.ID
+  1. select nvl(a.name,'空得') as name from student a join school b on a.ID=b.ID
 
  [1]: http://database.51cto.com/art/200511/12457.htm

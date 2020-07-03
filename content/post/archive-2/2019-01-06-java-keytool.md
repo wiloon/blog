@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashkeytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
+```bash
+keytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
 
 sudo /usr/lib/jvm/java-8-openjdk/bin/keytool -importcert -keystore /usr/lib/jvm/java-8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt  -file xxx.crt -alias "xxx.crt"
 
@@ -27,13 +28,13 @@ JDK中keytool 常用命令:
 
 | param      | comments                                                                               |
 | ---------- | -------------------------------------------------------------------------------------- |
-| -genkey    | 在用户主目录中创建一个默认文件&#8221;.keystore&#8221;,还会产生一个mykey的别名，mykey中包含用户的公钥、私钥和证书              |
+| -genkey    | 在用户主目录中创建一个默认文件".keystore",还会产生一个mykey的别名，mykey中包含用户的公钥、私钥和证书              |
 | -alias     | 产生别名                                                                                   |
 | -keystore  | 指定密钥库的名称(产生的各类信息将不在.keystore文件中)                                                       |
 | -keysize   | 指定密钥长度                                                                                 |
 | -validity  | 指定创建的证书有效期多少天                                                                          |
 | -keyalg    | 指定密钥的算法 (如 RSA DSA（如果不指定默认采用DSA）)                                                      |
-| -dname     | 指定证书拥有者信息 例如： &#8220;CN=名字与姓氏,OU=组织单位名称,O=组织名称,L=城市或区域名称,ST=州或省份名称,C=单位的两字母国家代码&#8221; |
+| -dname     | 指定证书拥有者信息 例如： "CN=名字与姓氏,OU=组织单位名称,O=组织名称,L=城市或区域名称,ST=州或省份名称,C=单位的两字母国家代码" |
 | -keypass   | 指定别名条目的密码(私钥的密码)                                                                       |
 | -storepass | 指定密钥库的密码(获取keystore信息所需的密码)                                                            |
 | -list      | 显示密钥库中的证书信息                                                                            |

@@ -20,41 +20,41 @@ hibernate的ID生成策略（annotation方式@GeneratedValue）
 
 标准的annotation方式的主键生成策略如下：
 
-AUTO &#8211; 可以是identity column类型,或者sequence类型或者table类型,取决于不同的底层数据库.
+AUTO - 可以是identity column类型,或者sequence类型或者table类型,取决于不同的底层数据库.
   
-TABLE &#8211; 使用表保存id值（也就是会为应用的表创建一张专门保存Id的表，记录对应的表的对应最大的ID值,如下图）
+TABLE - 使用表保存id值（也就是会为应用的表创建一张专门保存Id的表，记录对应的表的对应最大的ID值,如下图）
   
 CPU7@71(TD68TSQ(FD@D}MM
 
-IDENTITY &#8211; identity column
+IDENTITY - identity column
   
 SEQUENCE – sequence
 
 下面的例子展示了使用SEQ_STORE配置的sequence生成器
 
-@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator=&#8221;SEQ_STORE&#8221;)
+@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_STORE")
   
-public Integer getId() { &#8230; }
+public Integer getId() { ... }
 
 下面这个例子使用的是identity生成器
 
 @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
   
-public Long getId() { &#8230; }
+public Long getId() { ... }
   
 AUTO生成器适用于可移植的应用(在多个DB间切换). 多个@Id可以共享同一个identifier生成器,只要把generator属性设成相同的值就可以了. 通过@SequenceGenerator 和@TableGenerator,你可以配置不同的identifier生成器. 每一个identifier生成器都有自己的适用范围,可以是应用级(application level)和类一级(class level). 类一级的生成器在外部是不可见的, 而且类一级的生成器可以覆盖应用级的生成器. 应用级的生成器则定义在包一级(package level)(如package-info.java):
 
 @javax.persistence.TableGenerator(
   
-name=&#8221;EMP_GEN&#8221;,
+name="EMP_GEN",
   
-table=&#8221;GENERATOR_TABLE&#8221;,
+table="GENERATOR_TABLE",
   
-pkColumnName = &#8220;key&#8221;,
+pkColumnName = "key",
   
-valueColumnName = &#8220;hi&#8221;
+valueColumnName = "hi"
   
-pkColumnValue=&#8221;EMP&#8221;,
+pkColumnValue="EMP",
   
 allocationSize=20
   
@@ -62,15 +62,15 @@ allocationSize=20
   
 @javax.persistence.SequenceGenerator(
   
-name=&#8221;SEQ_GEN&#8221;,
+name="SEQ_GEN",
   
-sequenceName=&#8221;my_sequence&#8221;
+sequenceName="my_sequence"
   
 )
   
 package org.hibernate.test.metadata;
 
-如果在org.hibernate.test.metadata包下面的 package-info.java文件用于初始化EJB配置, 那么该文件中定义的 EMP\_GEN 和SEQ\_GEN都是应用级的生成器. EMP\_GEN定义了一个使用hilo算法 (max\_lo为20)的id生成器(该生成器将id的信息存在数据库的某个表中.). id的hi值保存在GENERATOR_TABLE中. 在该表中 pkColumnName&#8221;key&#8221;等价于 pkColumnValue &#8220;EMP&#8221;, 而valueColumnName &#8220;hi&#8221;中存储的是下一个要使用的最大值.
+如果在org.hibernate.test.metadata包下面的 package-info.java文件用于初始化EJB配置, 那么该文件中定义的 EMP\_GEN 和SEQ\_GEN都是应用级的生成器. EMP\_GEN定义了一个使用hilo算法 (max\_lo为20)的id生成器(该生成器将id的信息存在数据库的某个表中.). id的hi值保存在GENERATOR_TABLE中. 在该表中 pkColumnName"key"等价于 pkColumnValue "EMP", 而valueColumnName "hi"中存储的是下一个要使用的最大值.
 
 SEQ\_GEN则定义了一个sequence 生成器, 其对应的sequence名为 my\_sequence. 注意目前Hibernate Annotations还不支持sequence 生成器中的 initialValue和 allocationSize参数.
 
@@ -80,9 +80,9 @@ SEQ\_GEN则定义了一个sequence 生成器, 其对应的sequence名为 my\_seq
   
 @javax.persistence.SequenceGenerator(
   
-name=&#8221;SEQ_STORE&#8221;,
+name="SEQ_STORE",
   
-sequenceName=&#8221;my_sequence&#8221;
+sequenceName="my_sequence"
   
 )
   
@@ -90,7 +90,7 @@ public class Store implements Serializable {
   
 private Long id;
 
-@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator=&#8221;SEQ_STORE&#8221;)
+@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_STORE")
   
 public Long getId() { return id; }
   
@@ -200,7 +200,7 @@ Hibernate支持在组合标识符中定义关联(就像使用普通的注解一�
 
 @Entity
   
-@AssociationOverride( name=&#8221;id.channel&#8221;, joinColumns = @JoinColumn(name=&#8221;chan_id&#8221;) )
+@AssociationOverride( name="id.channel", joinColumns = @JoinColumn(name="chan_id") )
   
 public class TvMagazin {
   

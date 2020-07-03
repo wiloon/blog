@@ -12,19 +12,19 @@ categories:
 
 A.       webview组件如何使用
   
-1)             添加权限：AndroidManifest.xml中必须使用许可&#8221;android.permission.INTERNET&#8221;,否则会出Web page not available错误。
+1)             添加权限：AndroidManifest.xml中必须使用许可"android.permission.INTERNET",否则会出Web page not available错误。
   
 2)             在要Activity中生成一个WebView组件：WebView webView = new WebView(this);或者可以在activity的layout文件里添加webview控件：
   
 <WebView
 
-android:id=&#8221;@+id/wv&#8221;
+android:id="@+id/wv"
 
-android:layout\_width=&#8221;fill\_parent&#8221;
+android:layout\_width="fill\_parent"
 
-android:layout\_height=&#8221;fill\_parent&#8221;
+android:layout\_height="fill\_parent"
 
-android:text=&#8221;@string/hello&#8221;
+android:text="@string/hello"
 
 />
 
@@ -44,9 +44,9 @@ this.setScrollBarStyle(SCROLLBARS\_OUTSIDE\_OVERLAY);
   
 4)             设置WevView要显示的网页：
   
-互联网用：webView.loadUrl(&#8220;http://www.google.com&#8221;);
+互联网用：webView.loadUrl("http://www.google.com");
   
-本地文件用：webView.loadUrl(&#8220;file:///android_asset/XX.html&#8221;);    本地文件存放在：assets文件中
+本地文件用：webView.loadUrl("file:///android_asset/XX.html");    本地文件存放在：assets文件中
   
 5)             如果希望点击链接由自己处理，而不是新开Android的系统browser中响应该链接。给WebView添加一个事件监听对象（WebViewClient)并重写其中的一些方法：
   
@@ -56,7 +56,7 @@ shouldOverrideUrlLoading ：对网页中超链接按钮的响应。当按下某�
   
 public boolean shouldOverrideUrlLoading(WebView view,String url){
 
-if(url.indexOf(&#8220;tel:&#8221;)<0){//页面上有数字会导致连接电话
+if(url.indexOf("tel:")<0){//页面上有数字会导致连接电话
 
 view.loadUrl(url);
 
@@ -118,11 +118,10 @@ Webview与js的双向交互才是android的webview强大所在，也是马甲精
 
 首先，webview可以定义一个在其内嵌页面中可以触发的事件
 
-&nbsp;
 
 [java] view plaincopy
   
-wv.addJavascriptInterface(new DemoJavaScriptInterface(), &#8220;demo&#8221;);
+wv.addJavascriptInterface(new DemoJavaScriptInterface(), "demo");
 
 rivate final class DemoJavaScriptInterface
 
@@ -138,9 +137,9 @@ mHandler.post(newRunnable(){
   
 public void run(){
   
-jsonText=&#8221;{&#8220;name&#8221;:&#8221;&#8221;+order+&#8221;&#8221;}&#8221;;
+jsonText="{"name":""+order+""}";
   
-wv.loadUrl(&#8220;javascript:wave(&#8220;+jsonText+&#8221;)&#8221;);
+wv.loadUrl("javascript:wave("+jsonText+")");
   
 }
   
@@ -148,23 +147,22 @@ wv.loadUrl(&#8220;javascript:wave(&#8220;+jsonText+&#8221;)&#8221;);
   
 }
 
-&nbsp;
 
 通过以上代码，即可实现在其内嵌网页中触发window.demo.clickOnAndroid(str)事件并传参数str给webview。Webview接收到str之后，可以通过以上代码触发其内嵌页面中的js函数wave(str)。这样就可以实现网页触发webview的事件并传参数，webview接收参数并调用js函数。
 
 下面看我的Html脚本：
 
-<!DOCTYPE html PUBLIC &#8220;-//W3C//DTD HTML 4.01 Transitional//EN&#8221;&#8221;http://www.w3.org/TR/html4/loose.dtd&#8221;>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 
 <head>
 
-<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=UTF-8&#8243;>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Insert title here</title>
 
-<script type=&#8221;text/javascript&#8221; src=&#8221;jquery.js&#8221;></script>
+<script type="text/javascript" src="jquery.js"></script>
 
 <script>
 
@@ -172,21 +170,19 @@ function toclient()
 
 {
 
-var order=$(&#8220;#val&#8221;).val();
+var order=$("#val").val();
 
 window.demo.clickonAndroid(order);
 
-&nbsp;
 
 }
 
-&nbsp;
 
 function wave(str){
 
 //alert(str.name);
 
-$(&#8220;#fromclient&#8221;).text(str.name);
+$("#fromclient").text(str.name);
 
 }
 
@@ -200,25 +196,23 @@ $(&#8220;#fromclient&#8221;).text(str.name);
 
 输入一个字符串：<br/>
 
-<input id=&#8221;val&#8221; />
+<input id="val" />
 
-<input type=&#8221;submit&#8221; value=&#8221;点击提交给客户端&#8221;
+<input type="submit" value="点击提交给客户端"
 
-onclick=&#8221;toclient();&#8221;/>
+onclick="toclient();"/>
 
 <br />
 
-显示返回：<label id=&#8221;fromclient&#8221;></label>
+显示返回：<label id="fromclient"></label>
 
 </body>
 
 </html>
 
-&nbsp;
 
 通过脚本看到wave（str）函数是负责将原来传给webview的数据重新拿回页面，效果图如下：
 
-&nbsp;
   
 另外，如果你想获取页面的一些处理数据并交给webview客户端处理，可在wave函数里将数据alert，然后webview中重写WebChromeClient的onJsAlert函数，具体代码如下
 

@@ -14,4 +14,3 @@ apt-get install automake
 
 error: possibly undefined macro: AC\_PROG\_LIBTOOL
 
-&nbsp;

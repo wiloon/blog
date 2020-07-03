@@ -68,59 +68,59 @@ EscapeChar ~
   
 Host *
   
-&#8220;Host&#8221;只对匹配后面字串的计算机有效，“_”表示所有的计算机。从该项格式前置一些可以看出，这是一个类似于全局的选项，表示下面缩进的选项都适用于该设置，可以指定某计算机替换_号使下面选项只针对该算机器生效。
+"Host"只对匹配后面字串的计算机有效，“_”表示所有的计算机。从该项格式前置一些可以看出，这是一个类似于全局的选项，表示下面缩进的选项都适用于该设置，可以指定某计算机替换_号使下面选项只针对该算机器生效。
   
 ForwardAgent no
   
-&#8220;ForwardAgent&#8221;设置连接是否经过验证代理（如果存在）转发给远程计算机。
+"ForwardAgent"设置连接是否经过验证代理（如果存在）转发给远程计算机。
   
 ForwardX11 no
   
-&#8220;ForwardX11&#8243;设置X11连接是否被自动重定向到安全的通道和显示集（DISPLAY set）。
+"ForwardX11"设置X11连接是否被自动重定向到安全的通道和显示集（DISPLAY set）。
   
 RhostsAuthentication no
   
-&#8220;RhostsAuthentication&#8221;设置是否使用基于rhosts的安全验证。
+"RhostsAuthentication"设置是否使用基于rhosts的安全验证。
   
 RhostsRSAAuthentication no
   
-&#8220;RhostsRSAAuthentication&#8221;设置是否使用用RSA算法的基于rhosts的安全验证。
+"RhostsRSAAuthentication"设置是否使用用RSA算法的基于rhosts的安全验证。
   
 RSAAuthentication yes
   
-&#8220;RSAAuthentication&#8221;设置是否使用RSA算法进行安全验证。
+"RSAAuthentication"设置是否使用RSA算法进行安全验证。
   
 PasswordAuthentication yes
   
-&#8220;PasswordAuthentication&#8221;设置是否使用口令验证。
+"PasswordAuthentication"设置是否使用口令验证。
   
 FallBackToRsh no
   
-&#8220;FallBackToRsh&#8221;设置如果用ssh连接出现错误是否自动使用rsh，由于rsh并不安全，所以此选项应当设置为&#8221;no&#8221;。
+"FallBackToRsh"设置如果用ssh连接出现错误是否自动使用rsh，由于rsh并不安全，所以此选项应当设置为"no"。
   
 UseRsh no
   
-&#8220;UseRsh&#8221;设置是否在这台计算机上使用&#8221;rlogin/rsh&#8221;，原因同上，设为&#8221;no&#8221;。
+"UseRsh"设置是否在这台计算机上使用"rlogin/rsh"，原因同上，设为"no"。
   
 BatchMode no
   
-&#8220;BatchMode&#8221;：批处理模式，一般设为&#8221;no&#8221;；如果设为&#8221;yes&#8221;，交互式输入口令的提示将被禁止，这个选项对脚本文件和批处理任务十分有用。
+"BatchMode"：批处理模式，一般设为"no"；如果设为"yes"，交互式输入口令的提示将被禁止，这个选项对脚本文件和批处理任务十分有用。
   
 CheckHostIP yes
   
-&#8220;CheckHostIP&#8221;设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为&#8221;yes&#8221;。
+"CheckHostIP"设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为"yes"。
   
 StrictHostKeyChecking no
   
-&#8220;StrictHostKeyChecking&#8221;如果设为&#8221;yes&#8221;，ssh将不会自动把计算机的密匙加入&#8221;$HOME/.ssh/known_hosts&#8221;文件，且一旦计算机的密匙发生了变化，就拒绝连接。
+"StrictHostKeyChecking"如果设为"yes"，ssh将不会自动把计算机的密匙加入"$HOME/.ssh/known_hosts"文件，且一旦计算机的密匙发生了变化，就拒绝连接。
   
 IdentityFile ~/.ssh/identity
   
-&#8220;IdentityFile&#8221;设置读取用户的RSA安全验证标识。
+"IdentityFile"设置读取用户的RSA安全验证标识。
   
 Port 22
   
-&#8220;Port&#8221;设置连接到远程主机的端口，ssh默认端口为22。
+"Port"设置连接到远程主机的端口，ssh默认端口为22。
   
 Cipher blowfish
   
@@ -160,80 +160,80 @@ EscapeChar ~
   
 Port 22
   
-&#8220;Port&#8221;设置sshd监听的端口号。
+"Port"设置sshd监听的端口号。
   
 ListenAddress 192.168.1.1
   
-&#8220;ListenAddress”设置sshd服务器绑定的IP地址。
+"ListenAddress”设置sshd服务器绑定的IP地址。
   
 HostKey /etc/ssh/ssh\_host\_key
   
-&#8220;HostKey”设置包含计算机私人密匙的文件。
+"HostKey”设置包含计算机私人密匙的文件。
   
 ServerKeyBits 1024
   
-&#8220;ServerKeyBits”定义服务器密匙的位数。
+"ServerKeyBits”定义服务器密匙的位数。
   
 LoginGraceTime 600
   
-&#8220;LoginGraceTime”设置如果用户不能成功登录，在切断连接之前服务器需要等待的时间（以秒为单位）。
+"LoginGraceTime”设置如果用户不能成功登录，在切断连接之前服务器需要等待的时间（以秒为单位）。
   
 KeyRegenerationInterval 3600
   
-&#8220;KeyRegenerationInterval”设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙）。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。
+"KeyRegenerationInterval”设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙）。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。
   
 PermitRootLogin no
   
-&#8220;PermitRootLogin”设置是否允许root通过ssh登录。这个选项从安全角度来讲应设成&#8221;no&#8221;。
+"PermitRootLogin”设置是否允许root通过ssh登录。这个选项从安全角度来讲应设成"no"。
   
 IgnoreRhosts yes
   
-&#8220;IgnoreRhosts”设置验证的时候是否使用“rhosts”和“shosts”文件。
+"IgnoreRhosts”设置验证的时候是否使用“rhosts”和“shosts”文件。
   
 IgnoreUserKnownHosts yes
   
-&#8220;IgnoreUserKnownHosts”设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的&#8221;$HOME/.ssh/known_hosts”
+"IgnoreUserKnownHosts”设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的"$HOME/.ssh/known_hosts”
   
 StrictModes yes
   
-&#8220;StrictModes”设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。
+"StrictModes”设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。
   
 X11Forwarding no
   
-&#8220;X11Forwarding”设置是否允许X11转发。
+"X11Forwarding”设置是否允许X11转发。
   
 PrintMotd yes
   
-&#8220;PrintMotd”设置sshd是否在用户登录的时候显示“/etc/motd”中的信息。
+"PrintMotd”设置sshd是否在用户登录的时候显示“/etc/motd”中的信息。
   
 SyslogFacility AUTH
   
-&#8220;SyslogFacility”设置在记录来自sshd的消息的时候，是否给出“facility code”。
+"SyslogFacility”设置在记录来自sshd的消息的时候，是否给出“facility code”。
   
 LogLevel INFO
   
-&#8220;LogLevel”设置记录sshd日志消息的层次。INFO是一个好的选择。查看sshd的man帮助页，已获取更多的信息。
+"LogLevel”设置记录sshd日志消息的层次。INFO是一个好的选择。查看sshd的man帮助页，已获取更多的信息。
   
 RhostsAuthentication no
   
-&#8220;RhostsAuthentication”设置只用rhosts或“/etc/hosts.equiv”进行安全验证是否已经足够了。
+"RhostsAuthentication”设置只用rhosts或“/etc/hosts.equiv”进行安全验证是否已经足够了。
   
 RhostsRSAAuthentication no
   
-&#8220;RhostsRSA”设置是否允许用rhosts或“/etc/hosts.equiv”加上RSA进行安全验证。
+"RhostsRSA”设置是否允许用rhosts或“/etc/hosts.equiv”加上RSA进行安全验证。
   
 RSAAuthentication yes
   
-&#8220;RSAAuthentication”设置是否允许只有RSA安全验证。
+"RSAAuthentication”设置是否允许只有RSA安全验证。
   
 PasswordAuthentication yes
   
-&#8220;PasswordAuthentication”设置是否允许口令验证。
+"PasswordAuthentication”设置是否允许口令验证。
   
 PermitEmptyPasswords no
   
-&#8220;PermitEmptyPasswords”设置是否允许用口令为空的帐号登录。
+"PermitEmptyPasswords”设置是否允许用口令为空的帐号登录。
   
 AllowUsers admin
   
-&#8220;AllowUsers”的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。
+"AllowUsers”的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。

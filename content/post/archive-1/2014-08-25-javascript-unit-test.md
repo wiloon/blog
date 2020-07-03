@@ -52,27 +52,27 @@ test.html
   
 <head>
   
-<link rel=&#8221;stylesheet&#8221; href=&#8221;qunit.css&#8221; type=&#8221;text/css&#8221; media=&#8221;screen&#8221; />
+<link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
   
-<script src=&#8221;http://code.jquery.com/jquery-latest.js&#8221;></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
   
-<script type=&#8221;text/javascript&#8221; src=&#8221;qunit.js&#8221;></script>
+<script type="text/javascript" src="qunit.js"></script>
 
-<!&#8211; js to be tested &#8211;>
+<!- js to be tested ->
   
-<script type=&#8221;text/javascript&#8221; src=&#8221;mycode.js&#8221;></script>
+<script type="text/javascript" src="mycode.js"></script>
 
-<!&#8211; unit test part &#8211;>
+<!- unit test part ->
   
 <script>
   
 $(document).ready(function(){
   
-test(&#8220;a basic test example&#8221;, function() {
+test("a basic test example", function() {
   
 var sum = add (1 + 1);
   
-equal( sum, &#8220;2&#8221;, &#8220;We expect value to be 2&#8243; );
+equal( sum, "2", "We expect value to be 2" );
   
 });
   
@@ -84,16 +84,16 @@ equal( sum, &#8220;2&#8221;, &#8220;We expect value to be 2&#8243; );
   
 <body>
   
-<h1 id=&#8221;qunit-header&#8221;>QUnit example</h1>
+<h1 id="qunit-header">QUnit example</h1>
   
-<h2 id=&#8221;qunit-banner&#8221;></h2>
+<h2 id="qunit-banner"></h2>
   
-<div id=&#8221;qunit-testrunner-toolbar&#8221;></div>
+<div id="qunit-testrunner-toolbar">
   
-<h2 id=&#8221;qunit-userAgent&#8221;></h2>
+<h2 id="qunit-userAgent"></h2>
   
-<ol id=&#8221;qunit-tests&#8221;></ol>
+<ol id="qunit-tests"></ol>
   
-<div id=&#8221;qunit-fixture&#8221;>test markup, will be hidden</div>
+<div id="qunit-fixture">test markup, will be hidden
   
 </

@@ -218,7 +218,7 @@ return sync.isHeldExclusively();
       
 public static void withoutMutex() throws InterruptedException {
           
-System.out.println(&#8220;Without mutex: &#8220;);
+System.out.println("Without mutex: ");
           
 int threadCount = 2;
           
@@ -238,7 +238,7 @@ for (int j = 0; j < 100000; j++) {
                           
 if (j % 20000 == 0) {
                               
-System.out.println(&#8220;Thread-&#8221; + index + &#8220;: j =&#8221; + j);
+System.out.println("Thread-" + index + ": j =" + j);
                           
 }
                       
@@ -266,7 +266,7 @@ threads[i].join();
       
 public static void withMutex() {
           
-System.out.println(&#8220;With mutex: &#8220;);
+System.out.println("With mutex: ");
           
 final Mutex mutex = new Mutex();
           
@@ -292,7 +292,7 @@ for (int j = 0; j < 100000; j++) {
                               
 if (j % 20000 == 0) {
                                   
-System.out.println(&#8220;Thread-&#8221; + index + &#8220;: j =&#8221; + j);
+System.out.println("Thread-" + index + ": j =" + j);
                               
 }
                           
@@ -404,7 +404,7 @@ public Sync(int resourceCount) {
               
 if (resourceCount <= 0) {
                   
-throw new IllegalArgumentException(&#8220;resourceCount must be larger than zero.&#8221;);
+throw new IllegalArgumentException("resourceCount must be larger than zero.");
               
 }
               
@@ -426,7 +426,7 @@ for (; ; ) {
                   
 int lastCount = getState();
                   
-int newCount = lastCount &#8211; reduceCount;
+int newCount = lastCount - reduceCount;
                   
 if (newCount < 0 || compareAndSetState(lastCount, newCount)) {
                       
@@ -672,7 +672,7 @@ static {
           
 try {
               
-offset = unsafe.objectFieldOffset(CASIntTest.class.getDeclaredField(&#8220;count&#8221;));
+offset = unsafe.objectFieldOffset(CASIntTest.class.getDeclaredField("count"));
           
 } catch (NoSuchFieldException e) {
               
@@ -690,7 +690,7 @@ Unsafe unsafe = null;
           
 try {
               
-Field theUnsafe = Unsafe.class.getDeclaredField(&#8220;theUnsafe&#8221;);
+Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
               
 theUnsafe.setAccessible(true);
               
@@ -804,7 +804,7 @@ Unsafe unsafe = null;
           
 try {
               
-Field theUnsafe = Unsafe.class.getDeclaredField(&#8220;theUnsafe&#8221;);
+Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
               
 theUnsafe.setAccessible(true);
               
@@ -830,7 +830,7 @@ static {
           
 try {
               
-offset = unsafe.objectFieldOffset(CASCounter.class.getDeclaredField(&#8220;counter&#8221;));
+offset = unsafe.objectFieldOffset(CASCounter.class.getDeclaredField("counter"));
           
 } catch (NoSuchFieldException e) {
               
@@ -898,7 +898,7 @@ threads[i].join();
           
 }
           
-System.out.printf(&#8220;CASCounter is %d \nintCounter is %d\n&#8221;, casCounter.getCounter(), intCounter);
+System.out.printf("CASCounter is %d \nintCounter is %d\n", casCounter.getCounter(), intCounter);
       
 }
   
@@ -912,7 +912,7 @@ static {
       
 try {
           
-waitStatusOffset = unsafe.objectFieldOffset(Node.class.getDeclaredField(&#8220;waitStatus&#8221;));
+waitStatusOffset = unsafe.objectFieldOffset(Node.class.getDeclaredField("waitStatus"));
       
 } catch (Exception ex) {
           
@@ -1250,7 +1250,7 @@ pred.next = node;
            
 * waitStatus must be 0 or PROPAGATE. Indicate that we
            
-* need a signal, but don&#8217;t park yet. Caller will need to
+* need a signal, but don't park yet. Caller will need to
            
 * retry to make sure it cannot acquire before parking.
            
@@ -1614,7 +1614,7 @@ setHead(node);
        
 * The next node is waiting in shared mode,
        
-* or we don&#8217;t know, because it appears null
+* or we don't know, because it appears null
        
 *
        
@@ -1730,7 +1730,7 @@ throw new InterruptedException();
 
 private void cancelAcquire(Node node) {
       
-// Ignore if node doesn&#8217;t exist
+// Ignore if node doesn't exist
       
 if (node == null)
           
@@ -1770,7 +1770,7 @@ compareAndSetNext(pred, predNext, null);
       
 } else {
           
-// If successor needs signal, try to set pred&#8217;s next-link
+// If successor needs signal, try to set pred's next-link
           
 // so it will get one. Otherwise wake it up to propagate.
           
@@ -1866,7 +1866,7 @@ return true;
               
 // 判断是否超时，如果超时就返回
               
-nanosTimeout = deadline &#8211; System.nanoTime();
+nanosTimeout = deadline - System.nanoTime();
               
 if (nanosTimeout <= 0 L)
                   

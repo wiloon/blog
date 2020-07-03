@@ -20,7 +20,7 @@ missing LSB tags and overrides
 
 add the following lines into the script
 
-<pre>### BEGIN INIT INFO
+### BEGIN INIT INFO
 # Provides: tomcat
 # Required-Start: $remote_fs $syslog
 # Required-Stop: $remote_fs $syslog
@@ -28,4 +28,4 @@ add the following lines into the script
 # Default-Stop: 0 1 6
 # Short-Description: Start tomcat at boot time
 # Description:       Enable service provided by tomcat.
-### END INIT INFO</pre>
+### END INIT INFO

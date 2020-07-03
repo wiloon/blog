@@ -12,4 +12,4 @@ Smart Response固态硬盘缓存技术属于英特尔Rapid Storage Technology 10
 
 Smart Response固态硬盘缓存技术具有三种工作模式，分别为关闭（Off），增强（Enhanced）和极限（Maximized）。其中增强模式是默认状态，使用该模式时，由于数据同时写入高速缓存和机械硬盘，因此写入速度并无提升，但系统启动和数据读取的速度将得到较大提升，同时无需担心数据意外丢失；而极限模式下，数据将首先写入高速缓存中，然后再从缓存转移至机械硬.
 
-Intel&#8217;s Rapid Storage Technology (RST) driver that is only available for Windows to access the drive.
+Intel's Rapid Storage Technology (RST) driver that is only available for Windows to access the drive.

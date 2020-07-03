@@ -12,13 +12,13 @@ tags:
 ---
 Java Decompiler
 
-&#8220;Java Decompiler&#8221;, 由 Pavel Kouznetsov开发，目前最新版本为0.2.5. 它由 C++开发，并且官方可以下载windows、linux和苹果Mac Os三个平台的可执行程序。
+"Java Decompiler", 由 Pavel Kouznetsov开发，目前最新版本为0.2.5. 它由 C++开发，并且官方可以下载windows、linux和苹果Mac Os三个平台的可执行程序。
 
 http://jd.benow.ca/
 
 http://www.oschina.net/p/java+decompiler
 
-<span style="line-height: 1.5em;">DJ Java Decompiler(不免费)</span>
+<span style="line-height: 1.5em;">DJ Java Decompiler(不免费)
 
 DJ Java Decompiler 是个反编译的工具，可以将编译过的 CLASS 文件编译还原成为 Java 原始文件，并且不需要额外安装 JVM（Java Virtual Machine）或是JDK 的工具模组即可使用。不单如此，它也兼具有 Java 程序编辑工具的角色，提供一些辅助功能便于程序撰写与修改。
 

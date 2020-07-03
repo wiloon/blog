@@ -91,7 +91,7 @@ for (my $i=0;$i<$time;$i+=$ival) {
   
 Net::ARP::send_packet(
   
-&#8216;eth0&#8217;,
+'eth0',
   
 "192.168.6.28", #my ip
   
@@ -101,7 +101,7 @@ $gateip,
   
 $gatemac,
   
-&#8216;reply&#8217;);
+'reply');
   
 usleep($ival);
   
@@ -203,17 +203,17 @@ interface = eth0
   
 \# parameters are:
   
-#  &#8211; "mac adress of requestor"
+#  - "mac adress of requestor"
   
-#  &#8211; "ip of requestor"
+#  - "ip of requestor"
   
-#  &#8211; "supp. parm."
+#  - "supp. parm."
   
-#  &#8211; "ethernet device listening on"
+#  - "ethernet device listening on"
   
-#  &#8211; "type of alert"
+#  - "type of alert"
   
-#  &#8211; optional : "ethernet vendor"
+#  - optional : "ethernet vendor"
   
 \# type of alert:
   
@@ -309,7 +309,7 @@ alert on deny address = true
   
 mod on deny address = true
 
-\# log if the adress isn&#8217;t referenced
+\# log if the adress isn't referenced
   
 log new address = true
   
@@ -317,7 +317,7 @@ alert on new address = true
   
 mod on new address = true
 
-\# log if the adress isn&#8217;t referenced (for mac adress only)
+\# log if the adress isn't referenced (for mac adress only)
   
 log new mac address = true
   
@@ -405,10 +405,9 @@ sudo visudo
   
 加上一行
 
-<div>
-  <strong>代码:</strong>
-</div>
+  代码:
 
-<div>
-  [shell]<br /> arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *<br /> [/shell]</p>
-</div>
+
+  [shell]
+ arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *
+ [/shell]

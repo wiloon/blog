@@ -10,7 +10,6 @@ categories:
 ---
 http://wenku.baidu.com/view/9c73c0d349649b6648d747fc.html
 
-&nbsp;
 
 oracle中TIMESTAMP与DATE比较
   
@@ -22,11 +21,11 @@ DATE数据类型
 
 我见到的大多数人陷入的麻烦就是计算两个时间的间隔年数、月数、天数、小时数和秒数。你需要明白的是，当你进行两个日期的相减运算的时候，得到的是天数。你需要乘上每天的秒数（1天=86400秒），然后，你可以再次计算得到你想要的间隔数。下面就是我的解决方法，可以精确计算出两个时间的间隔。我明白这个例子可以更简短些，但是我是为了显示所有的数字来强调计算方式。
   
-SELECT TO\_CHAR(date1,&#8217;MMDDYYYY:HH24:MI:SS&#8217;) date1, TO\_CHAR(date2,&#8217;MMDDYYYY:HH24:MI:SS&#8217;) date2,
+SELECT TO\_CHAR(date1,'MMDDYYYY:HH24:MI:SS') date1, TO\_CHAR(date2,'MMDDYYYY:HH24:MI:SS') date2,
   
 trunc(86400\*(date2-date1))-60\*(trunc((86400\*(date2-date1))/60))  seconds,   trunc((86400\*(date2-date1))/60)-60\*(trunc(((86400\*(date2-date1))/60)/60)) minutes,   trunc(((86400\*(date2-date1))/60)/60)-24\*(trunc((((86400\*(date2-date1))/60)/60)/24)) hours,   trunc((((86400\*(date2-date1))/60)/60)/24) days,   trunc(((((86400*(date2-date1))/60)/60)/24)/7) weeks   FROM date_table
   
-DATE1  DATE2  SECONDS  MINUTES  HOURS   DAYS  WEEKS     &#8212;&#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;- 06202003:16:55:14 07082003:11:22:57   43  27  18     17  2 06262003:11:16:36 07082003:11:22:57   21   6  0    12  1
+DATE1  DATE2  SECONDS  MINUTES  HOURS   DAYS  WEEKS     ------ ------ ---- ---- ---- ---- ---- 06202003:16:55:14 07082003:11:22:57   43  27  18     17  2 06262003:11:16:36 07082003:11:22:57   21   6  0    12  1
 
 TIMESTAMP 数据类型
   
@@ -42,11 +41,11 @@ TIMESTAMP数据的格式化显示和DATE 数据一样。注意，to_char函数�
 
 SELECT time1,  time2,
   
-substr((time2-time1),instr((time2-time1),&#8217; &#8216;)+7,2)   seconds,   substr((time2-time1),instr((time2-time1),&#8217; &#8216;)+4,2)   minutes,   substr((time2-time1),instr((time2-time1),&#8217; &#8216;)+1,2)   hours,
+substr((time2-time1),instr((time2-time1),' ')+7,2)   seconds,   substr((time2-time1),instr((time2-time1),' ')+4,2)   minutes,   substr((time2-time1),instr((time2-time1),' ')+1,2)   hours,
   
-trunc(to\_number(substr((time2-time1),1,instr(time2-time1,&#8217; &#8216;))))  days,   trunc(to\_number(substr((time2-time1),1,instr(time2-time1,&#8217; &#8216;)))/7) weeks FROM date_table
+trunc(to\_number(substr((time2-time1),1,instr(time2-time1,' '))))  days,   trunc(to\_number(substr((time2-time1),1,instr(time2-time1,' ')))/7) weeks FROM date_table
   
-TIME1  TIME2   SECONDS   MINUTES   HOURS   DAYS   WEEKS   &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;- &#8212;&#8212;- &#8212;&#8211; &#8212;- &#8212;&#8211;
+TIME1  TIME2   SECONDS   MINUTES   HOURS   DAYS   WEEKS   ---------  --------- --- --- -- -- --
   
 06/20/2003:16:55:14:000000 07/08/2003:11:22:57:000000 43   27   18  17  2 06/26/2003:11:16:36:000000 07/08/2003:11:22:57:000000 21   06   00  12  1   这就意味着不再需要关心一天有多少秒在麻烦的计算中。因此，得到天数、月数、天数、时数、分钟数和秒数就成为用substr函数摘取出数字的事情了
   
@@ -56,24 +55,20 @@ TIME1  TIME2   SECONDS   MINUTES   HOURS   DAYS   WEEKS   &#
 
 为了得到系统时间，返回成timestamp数据类型。你可以使用systimestamp函数。
 
-你可以设置初始化参数FIXED\_DATE指定sysdate函数返回一个固定值。这用在测试日期和时间敏感的代码。注意，这个参数对于systimestamp函数无效。   SQL> ALTER SYSTEM SET fixed\_date = &#8216;2003-01-01-10:00:00&#8217;;
+你可以设置初始化参数FIXED\_DATE指定sysdate函数返回一个固定值。这用在测试日期和时间敏感的代码。注意，这个参数对于systimestamp函数无效。   SQL> ALTER SYSTEM SET fixed\_date = '2003-01-01-10:00:00';
 
 System altered.
   
 SQL> select sysdate from dual;
   
-SYSDATE   &#8212;&#8212;&#8212;   01-JAN-03
+SYSDATE   ---   01-JAN-03
   
 SQL> select systimestamp from dual;
   
 SYSTIMESTAMP
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;   09-JUL-03 11.05.02.519000 AM -06:00
+-------------------   09-JUL-03 11.05.02.519000 AM -06:00
   
 当使用date和timestamp类型的时候，选择是很清楚的。你可以随意处置date和timestamp类型。当你试图转换到更强大的timestamp的时候，需要注意，它们既有类似的地方，更有不同的地方，而足以造成破坏。两者在简洁和间隔尺寸方面各有优势，请合理选择。另外，date类型一般很少用，建议大家在产品里面所有的date数据类型全部改为timestamp。
-
-&nbsp;
-
-&nbsp;
 
 http://www.cnblogs.com/linximf/archive/2011/11/21/2257036.html

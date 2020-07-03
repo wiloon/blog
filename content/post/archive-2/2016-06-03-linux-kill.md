@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashkill -HUP xxx
+```bash
+kill -HUP xxx
 ps -A | grep httpd | grep -v grep | awk '{ print $1; }' | xargs -L 1 sudo kill -HUP 
 ```
 
@@ -76,7 +77,7 @@ kill -l
   
     kill -9 -1
   
-    终止你拥有的全部进程。</p> 
+    终止你拥有的全部进程。 
   2. killall
   
     作用：通过程序的名字，直接杀死所有进程
@@ -123,11 +124,11 @@ KILLALL
   
 NAME (名称)
   
-killall &#8211; 以名字方式来linux杀死进程
+killall - 以名字方式来linux杀死进程
   
 SYNOPSIS (总览)
   
-killall \[-egiqvw\] \[-signal\] name &#8230;
+killall \[-egiqvw\] \[-signal\] name ...
   
 killall -l
   
@@ -187,7 +188,7 @@ http://os.51cto.com/art/200910/158639.htm
   
 这里提供两个方法：
   
-1、#kill -9 $(ps -ef|grep 进程名关键字|gawk &#8216;$0 !~/grep/ {print $2}&#8217; |tr -s &#8216;\n&#8217; &#8216; &#8216;)这个是利用管道和替换将 进程名对应的进程号提出来作为kill的参数。
+1、#kill -9 $(ps -ef|grep 进程名关键字|gawk '$0 !~/grep/ {print $2}' |tr -s '\n' ' ')这个是利用管道和替换将 进程名对应的进程号提出来作为kill的参数。
   
 很显然上面的方法能完成但是过于复杂，下面这种就显得简单的多了
   

@@ -48,7 +48,8 @@ public final native boolean compareAndSwapLong(Object paramObject, long paramLon
 
 实例代码1：AtomicIntegerTest.java
 
-[code lang=java]
+```java
+
   
 import java.util.concurrent.atomic.AtomicInteger;
   
@@ -132,7 +133,7 @@ System.out.println("最终运行结果：" + TEST_INTEGER.get());
   
 }
   
-[/code]
+```
 
 代码例子中模拟多个线程并发对AtomicInteger进行增加1的操作，如果这个数据是普通类型，那么增加过程中出现的问题就是两个线程可能同时看到的数据都是同一个数据，增加完成后写回的时候，也是同一个数据，但是两个加法应当串行增加1，也就是加2的操作，甚至于更加特殊的情况是一个线程加到3后，写入，另一个线程写入了2，还越变越少，也就是不能得到正确的结果，在并发下，我们模拟计数器，要得到精确的计数器值，就需要使用它，我们希望得到的结果是11,可以拷贝代码进去运行后看到结果的确是11，虽然输出的顺序可能不一样，也同时可以证明线程的确是并发运行的（只是在输出的时候，征用System.out这个对象也不一定是谁先抢到），但是最终结果的确是11。
 
@@ -150,7 +151,8 @@ AtomicBoolean#getAndSet(boolean) 尝试设置新的boolean值，直到成功为�
 
 实例代码2：AtomicBooleanTest.java
 
-[code lang=java]
+```java
+
   
 import java.util.concurrent.atomic.AtomicBoolean; 
 
@@ -202,7 +204,7 @@ System.out.println("我成功了！");
   
 }
   
-[/code]
+```
 
 这里有10个线程，我们让他们几乎同时去征用boolean值的修改，修改成功者输出：我成功了！此时你运行完你会发现只会输出一个“我成功了！”，说明征用过程中达到了锁的效果。
 
@@ -240,7 +242,7 @@ static {
         
 try {
           
-valueOffset = unsafe.objectFieldOffset(AtomicInteger.class.getDeclaredField(&#8220;value&#8221;));
+valueOffset = unsafe.objectFieldOffset(AtomicInteger.class.getDeclaredField("value"));
         
 } catch (Exception ex) {
            
@@ -262,7 +264,8 @@ throw new Error(ex);
 
 实例代码1：AtomicReferenceTest.java
 
-[code lang=java]
+```java
+
   
 import java.util.concurrent.atomic.AtomicReference; 
 
@@ -316,7 +319,7 @@ System.out.println("我是线程：" + num + ",我获得了锁进行了对象修
   
 }
   
-[/code]
+```
 
 测试结果如我们所料，的确只有一个线程，执行，跟着代码：compareAndSet进去，发现源码中的调用是：
 
@@ -334,7 +337,8 @@ OK，的确和我们上面所讲一致，那么此时我们又遇到了引用修
 
 实例代码3（ABA问题模拟代码演示）：
 
-[code lang=java]
+```java
+
   
 import java.util.concurrent.atomic.AtomicReference; 
 
@@ -400,7 +404,7 @@ System.out.println("已经改为原始值！");
   
 }
   
-[/code]
+```
 
 代码中和原来的例子，唯一的区别就是最后增加了一个线程让他将数据修改为原来的值，并一直尝试修改，直到修改成功为止，为什么没有直接用：方法呢getAndSet方法呢，因为我们的目的是要让某个线程先将他修改为abc2后再让他修改回abc，所以需要这样做；
 
@@ -478,23 +482,24 @@ System.out.println("已经改回为原始值！");
   
 }
   
-[/code]
+```
 
 此时再运行程序看到的结果就是我们想要的了，发现将abc修改为abc2的线程仅有一个被访问，虽然被修改回了原始值，但是其他线程也不会再将abc改为abc2。
 
 而类：AtomicMarkableReference和AtomicStampedReference功能差不多，有点区别的是：它描述更加简单的是与否的关系，通常ABA问题只有两种状态，而AtomicStampedReference是多种状态，那么为什么还要有AtomicMarkableReference呢，因为它在处理是与否上面更加具有可读性，而AtomicStampedReference过于随意定义状态，并不便于阅读大量的是和否的关系，它可以被认为是一个计数器或状态列表等信息，java提倡通过类名知道其意义，所以这个类的存在也是必要的，它的定义就是将数据变换为true|false如下：
 
-public final static AtomicMarkableReference <String>ATOMIC\_MARKABLE\_REFERENCE = new AtomicMarkableReference<String>(&#8220;abc&#8221; , false);
+public final static AtomicMarkableReference <String>ATOMIC\_MARKABLE\_REFERENCE = new AtomicMarkableReference<String>("abc" , false);
 
 操作时使用：
   
-ATOMIC\_MARKABLE\_REFERENCE.compareAndSet(&#8220;abc&#8221;, &#8220;abc2&#8221;, false, true);
+ATOMIC\_MARKABLE\_REFERENCE.compareAndSet("abc", "abc2", false, true);
 
 好了，reference的三个类的种类都介绍了，我们下面要开始说Atomic的数组用法，因为我们开始说到的都是一些简单变量和基本数据，操作数组呢？如果你来设计会怎么设计，Atomic的数组要求不允许修改长度等，不像集合类那么丰富的操作，不过它可以让你的数组上每个元素的操作绝对安全的，也就是它细化的力度还是到数组上的元素，为你做了二次包装，所以如果你来设计，就是在原有的操作上增加一个下标访问即可，我们来模拟一个Integer类型的数组，即：AtomicIntegerArray
 
 实例代码5（AtomicIntegerArrayTest.java）
 
-[code lang=java]
+```java
+
   
 import java.util.concurrent.atomic.AtomicIntegerArray; 
 
@@ -570,7 +575,7 @@ System.out.println(ATOMIC\_INTEGER\_ARRAY.get(i));
   
 }
   
-[/code]
+```
 
 计算结果说明：100个线程并发，每10个线程会被并发修改数组中的一个元素，也就是数组中的每个元素会被10个线程并发修改访问，每次增加原始值的大小，此时运算完的结果看最后输出的敲好为原始值的11倍数，和我们预期的一致，如果不是线程安全那么这个值什么都有可能。
 
@@ -626,7 +631,7 @@ private long rawIndex(int i) {
       
 if (i < 0 || i >= array.length)
           
-throw new IndexOutOfBoundsException(&#8220;index &#8221; + i);
+throw new IndexOutOfBoundsException("index " + i);
       
 return base + (long) i * scale;
   
@@ -656,7 +661,8 @@ private static final int scale = unsafe.arrayIndexScale(int[].class);
 
 实例代码6：（AtomicIntegerFieldUpdaterTest.java）
 
-[code lang=java]
+```java
+
   
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater; 
 
@@ -730,7 +736,7 @@ System.out.println("我是线程：" + num + " 我对对应的值做了修改！
   
 }
   
-[/code]
+```
 
 此时你会发现只有一个线程可以对这个数据进行修改，其他的方法如上面描述一样，实现的功能和AtomicInteger类似。
 
@@ -740,18 +746,18 @@ AtomicReferenceFieldUpdater方法较少，主要是compareAndSet以及getAndSet�
 
 static class A {
       
-volatile String stringValue = &#8220;abc&#8221;;
+volatile String stringValue = "abc";
   
 }
 
-AtomicReferenceFieldUpdater <A ,String>ATOMIC\_REFERENCE\_FIELD_UPDATER = AtomicReferenceFieldUpdater.newUpdater(A.class, String.class, &#8220;stringValue&#8221;);
+AtomicReferenceFieldUpdater <A ,String>ATOMIC\_REFERENCE\_FIELD_UPDATER = AtomicReferenceFieldUpdater.newUpdater(A.class, String.class, "stringValue");
 
 可以看到，这里传递的参数增加了一个属性的类型，因为引用的是一个对象，对象本身也有一个类型。
 
 <blockquote data-secret="O4fzlyLgRv" class="wp-embedded-content">
-  <p>
+  
     <a href="http://ifeve.com/java-atomic/">Java中的Atomic包使用指南</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/java-atomic/embed/#?secret=O4fzlyLgRv" data-secret="O4fzlyLgRv" width="600" height="338" title="《Java中的Atomic包使用指南》—并发编程网 - ifeve.com" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

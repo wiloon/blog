@@ -26,7 +26,7 @@ HOCON（Human-Optimized Config Object Notation）是一个易于使用的配置�
   
 示例：
 
-yellow-thing: &#8220;Sponge&#8221;
+yellow-thing: "Sponge"
   
 在这一示例中，key 是 yellow-thing，value 是 Sponge，而 key-value separator 是 :。
 
@@ -38,7 +38,7 @@ HOCON 要比 JSON（JavaScript Object Notation）更灵活，因为书写一个�
 
 player: {
       
-name: &#8220;Steve&#8221;,
+name: "Steve",
       
 level: 30
   
@@ -48,7 +48,7 @@ level: 30
 
 player {
       
-name = &#8220;Steve&#8221;
+name = "Steve"
       
 level = 30
   

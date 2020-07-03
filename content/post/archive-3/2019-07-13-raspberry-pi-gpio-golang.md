@@ -10,7 +10,8 @@ categories:
 ---
 https://github.com/stianeikeland/go-rpio
 
-```golang package main
+```golang
+package main
 
 import (
     "fmt"

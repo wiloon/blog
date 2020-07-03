@@ -10,8 +10,8 @@ categories:
 ---
 https://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex
 
-[code lang=shell]
+```bash
   
 kill $(ps -ef|grep process-foo|grep -v grep |awk '{print $2}')
   
-[/code]
+```

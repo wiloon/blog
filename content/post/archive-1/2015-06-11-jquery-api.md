@@ -10,7 +10,7 @@ tags:
   - JavaScript
 
 ---
-[javascript]
+```
 
 //tag name
   
@@ -42,9 +42,9 @@ console.log( $( this ).text() );
   
 });
 
-//对象字面量</pre>
+//对象字面量
   
-<pre><code>// 定义空对象
+<code>// 定义空对象
   
 var dog = {};
 
@@ -60,6 +60,6 @@ return dog.name;
   
 };
   
-[/javascript]
+```
 
 https://github.com/TooBug/javascript.patterns/blob/master/chapter3.markdown

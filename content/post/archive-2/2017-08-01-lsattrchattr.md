@@ -10,7 +10,7 @@ categories:
 ---
 为了允许添加数据，防止更改或者删除等，文件和文件夹可以设定了特定的控制属性。例如，你可以在关键的系统文件或者文件夹中启用属性，然后没有任何用户，包括root，可以删除或者修改它，比如不允许使用像dump这样的命令等备份工具去备份一个特定的文件或者文件夹，等等。这些属性只可以在ext2，ext3或者ext4文件系统中的文件和文件夹上设定。
 
-```bash&lt;br /># 使用‘i’属性使文件不可更改
+```bash<br /># 使用'i'属性使文件不可更改
 chattr +i /etc/passwd /etc/shadow /etc/group /etc/gshadow
 # 查看文件属性
 lsattr /etc/passwd
@@ -28,19 +28,19 @@ lsattr /etc/passwd
   
 [root@linuxtechi ~]# rm -f dummy_data
   
-rm: cannot remove &#8216;dummy_data&#8217;: Operation not permitted
+rm: cannot remove 'dummy_data': Operation not permitted
   
-[root@linuxtechi ~]# echo &#8220;test&#8221; >> dummy_data
+[root@linuxtechi ~]# echo "test" >> dummy_data
   
 -bash: dummy_data: Permission denied
 
-<pre><code class="language-shell line-numbers">chattr -ai /etc/passed
+```bashchattr -ai /etc/passed
 ```
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
-  <p>
+  
     <a href="http://www.ha97.com/5172.html">（总结）Linux的chattr与lsattr命令详解</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk" data-secret="D3gPzD1nWk" width="600" height="338" title="《（总结）Linux的chattr与lsattr命令详解》—服务器运维架构|深度学习" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
@@ -92,7 +92,7 @@ chattr命令的用法：chattr \[ -RVf \] \[ -v version \] [ mode ] files…
 
 会显示如下属性
   
-&#8212;-i&#8212;&#8212;&#8211; /etc/resolv.conf
+--i--- /etc/resolv.conf
 
 2、让某个文件只能往里面追加数据，但不能删除，适用于各种日志文件：
 
@@ -101,9 +101,9 @@ chattr命令的用法：chattr \[ -RVf \] \[ -v version \] [ mode ] files…
 https://linux.cn/article-5590-1.html
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
-  <p>
+  
     <a href="http://www.ha97.com/5172.html">（总结）Linux的chattr与lsattr命令详解</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk" data-secret="D3gPzD1nWk" width="600" height="338" title="《（总结）Linux的chattr与lsattr命令详解》—服务器运维架构|深度学习" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

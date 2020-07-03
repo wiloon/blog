@@ -10,7 +10,7 @@ tags:
   - Hbase
 
 ---
-[code lang=shell]
+```bash
   
 tar xzvf hbase-2.0.0-SNAPSHOT-bin.tar.gz
   
@@ -24,7 +24,7 @@ cd hbase-2.0.0-SNAPSHOT/
 
 #edit hbase-site.xml
   
-[/code]
+```
 
 [xml]
   
@@ -58,7 +58,7 @@ cd hbase-2.0.0-SNAPSHOT/
   
 [/xml]
 
-[code lang=shell]
+```bash
   
 #start hbase
   
@@ -84,4 +84,4 @@ enable 'test'
   
 drop 'test'
   
-[/code]
+```

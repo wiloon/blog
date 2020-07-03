@@ -18,7 +18,8 @@ Sorted-Sets和Sets类型极为相似，它们都是字符串的集合，都不�
 
 ### 添加, ZADD
 
-```bashZADD key score member [score] [member]
+```bash
+zADD key score member [score] [member]
 ```
 
 将一个或多个member元素及其score值加入到有序集key当中。
@@ -95,7 +96,7 @@ O(log(N))
   
 返回值: 以字符串形式表示的新分数。
 
-### ZRANGE, 返回指定区间内的成员 &#8211; 正序
+### ZRANGE, 返回指定区间内的成员 - 正序
 
   * ZRANGE key start stop [WITHSCORES]
   
@@ -113,7 +114,7 @@ O(log(N)+M)
   
 返回值: 返回索引在start和stop之间的成员列表。
 
-### ZREVRANGE, 返回指定区间内的成员 &#8211; 倒序
+### ZREVRANGE, 返回指定区间内的成员 - 倒序
 
   * ZREVRANGE key start stop [WITHSCORES]
   
@@ -129,7 +130,7 @@ O(log(N)+M)
   
 返回值: 返回指定的成员列表。
 
-### ZRANGEBYSCORE, 返回有序集合中指定分数区间的成员列表 &#8211; 正序
+### ZRANGEBYSCORE, 返回有序集合中指定分数区间的成员列表 - 正序
 
   * ZRANGEBYSCORE key min max \[WITHSCORES\] \[LIMIT offset count\]
   
@@ -143,7 +144,7 @@ O(log(N)+M)
   
 返回值: 返回分数在指定范围内的成员列表。
 
-### ZREVRANGEBYSCORE, 返回分数在指定范围内的成员列表 &#8211; 倒序
+### ZREVRANGEBYSCORE, 返回分数在指定范围内的成员列表 - 倒序
 
   * ZREVRANGEBYSCORE key max min \[WITHSCORES\] \[LIMIT offset count\]
   
@@ -155,7 +156,7 @@ O(log(N)+M)
   
 返回值: 返回分数在指定范围内的成员列表。
 
-### ZRANK, 返回指定成员的排名(位置值,0表示第一个成员) &#8211; 正序
+### ZRANK, 返回指定成员的排名(位置值,0表示第一个成员) - 正序
 
   * ZRANK key member
   
@@ -169,7 +170,7 @@ Sorted-Set中的成员都是按照分数从低到高的顺序存储，该命令�
   
 返回值: 如果该成员存在，则返回它的位置索引值。否则返回nil。
 
-### ZREVRANK, 返回指定成员的排名(位置值,0表示第一个成员) &#8211; 倒序
+### ZREVRANK, 返回指定成员的排名(位置值,0表示第一个成员) - 倒序
 
   * ZREVRANK key member
   

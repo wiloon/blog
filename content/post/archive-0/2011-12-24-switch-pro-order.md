@@ -14,7 +14,7 @@ categories:
   * screen timeout, 屏幕总是打开
   * auto rotate, 自动旋转屏幕
   * -brigthness, 背光
-  * &#8211;bluetooth, 蓝牙
+  * -bluetooth, 蓝牙
   * gps
   * Data Connection, 数据连接
   * auto screen(auto lock), 自动屏幕锁定

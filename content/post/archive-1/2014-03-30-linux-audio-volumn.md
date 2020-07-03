@@ -10,7 +10,8 @@ tags:
   - linux
 
 ---
-```bash# archlinux+kde 不需要手动修改默认静音设置，安装alsa-utils, plasma-pa后重启即可。
+```bash
+# archlinux+kde 不需要手动修改默认静音设置，安装alsa-utils, plasma-pa后重启即可。
 sudo pacman -S alsa-utils
 #kde
 sudo pacman -S plasma-pa
@@ -24,6 +25,6 @@ alsamixer
 
 解除静音
   
-amixer -c 0 sset &#8216;Master&#8217;,0 100%,100% unmute
+amixer -c 0 sset 'Master',0 100%,100% unmute
 
 http://blog.csdn.net/weed_hz/article/details/9226055

@@ -10,7 +10,8 @@ tags:
   - Raspberry Pi
 
 ---
-```bashsudo apt-get install omxplayer
+```bash
+sudo apt-get install omxplayer
 sudo apt-get install fonts-wqy-zenhei
 sudo apt-get install ttf-freefont
 
@@ -27,13 +28,13 @@ La.Leggenda.Del.Pianista.Sull.Oceano.1998.BluRay.1080p.2Audio.DTS-HD.MA.5.1.x264
   
 #-o hdmi 输出音频到hdmi
   
-#&#8211;subtitles 字幕
+#-subtitles 字幕
   
-#&#8211;font 字体文件
+#-font 字体文件
   
 omxplayer中文乱码可以直接在omxplayer中指定字体，直接使用wqy字体即可：
   
-$omxplayer -t 1 -p -r &#8211;font /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc &#8211;align center -o hdmi test.avi
+$omxplayer -t 1 -p -r -font /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc -align center -o hdmi test.avi
   
 omxplayer不支持外置字幕目前新版本omxplayer已经支持外置字幕，可以去网站上下载5，不过目前好像只支持utf-8，不行只能通过enca转码。
 

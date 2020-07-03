@@ -52,7 +52,7 @@ HTTP Servlet 使用一个 HTML 表格来发送和接收数据。要创建一个 
 
 (2) service() 方法
 
-service() 方法是 Servlet 的核心。每当一个客户请求一个HttpServlet 对象，该对象的service() 方法就要被调用，而且传递给这个方法一个&#8221;请求&#8221;(ServletRequest)对象和一个&#8221;响应&#8221;(ServletResponse)对象作为参数。在 HttpServlet 中已存在 service() 方法。缺省的服务功能是调用与 HTTP 请求的方法相应的 do 功能。例如， 如果 HTTP 请求方法为 GET，则缺省情况下就调用 doGet() 。Servlet 应该为 Servlet 支持的 HTTP 方法覆盖 do 功能。因为 HttpServlet.service() 方法会检查请求方法是否调用了适当的处理方法，不必要覆盖 service() 方法。只需覆盖相应的 do 方法就可以了。
+service() 方法是 Servlet 的核心。每当一个客户请求一个HttpServlet 对象，该对象的service() 方法就要被调用，而且传递给这个方法一个"请求"(ServletRequest)对象和一个"响应"(ServletResponse)对象作为参数。在 HttpServlet 中已存在 service() 方法。缺省的服务功能是调用与 HTTP 请求的方法相应的 do 功能。例如， 如果 HTTP 请求方法为 GET，则缺省情况下就调用 doGet() 。Servlet 应该为 Servlet 支持的 HTTP 方法覆盖 do 功能。因为 HttpServlet.service() 方法会检查请求方法是否调用了适当的处理方法，不必要覆盖 service() 方法。只需覆盖相应的 do 方法就可以了。
 
 当一个客户通过HTML 表单发出一个HTTP POST请求时，doPost()方法被调用。与POST请求相关的参数作为一个单独的HTTP 请求从浏览器发送到服务器。当需要修改服务器端的数据时，应该使用doPost()方法。
 
@@ -78,11 +78,11 @@ GetServletConfig()方法返回一个 ServletConfig 对象，该对象用来返�
 
 GetServletInfo()方法是一个可选的方法，它提供有关servlet 的信息，如作者、版本、版权。
 
-当服务器调用sevlet 的Service()、doGet()和doPost()这三个方法时，均需要 &#8220;请求&#8221;和&#8221;响应&#8221;对象作为参数。&#8221;请求&#8221;对象提供有关请求的信息，而&#8221;响应&#8221;对象提供了一个将响应信息返回给浏览器的一个通信途径。
+当服务器调用sevlet 的Service()、doGet()和doPost()这三个方法时，均需要 "请求"和"响应"对象作为参数。"请求"对象提供有关请求的信息，而"响应"对象提供了一个将响应信息返回给浏览器的一个通信途径。
 
 javax.servlet 软件包中的相关类为ServletResponse和ServletRequest，而javax.servlet.http 软件包中的相关类为HttpServletRequest 和 HttpServletResponse。
 
-Servlet 通过这些对象与服务器通信并最终与客户机通信。Servlet 能通过调用&#8221;请求&#8221;对象的方法获知客户机环境，服务器环境的信息和所有由客户机提供的信息。Servlet 可以调用&#8221;响应&#8221;对象的方法发送响应，该响应是准备发回客户机的。
+Servlet 通过这些对象与服务器通信并最终与客户机通信。Servlet 能通过调用"请求"对象的方法获知客户机环境，服务器环境的信息和所有由客户机提供的信息。Servlet 可以调用"响应"对象的方法发送响应，该响应是准备发回客户机的。
   
 log4j-init
   

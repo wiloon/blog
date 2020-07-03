@@ -16,7 +16,7 @@ categories:
   
 先看 A.java 的相关代码
   
-//&#8211; A.java &#8211;//
+//- A.java -//
   
 /*
   
@@ -30,9 +30,9 @@ Intent bintent = new Intent(A.this, B.class);
   
 //设置 bintent的Bundle的一个值
   
-String bsay = &#8220;Hello, this is B speaking&#8221;;
+String bsay = "Hello, this is B speaking";
   
-bintent.putExtra(&#8220;listenB&#8221;, bsay)
+bintent.putExtra("listenB", bsay)
   
 startActivityForResult(bintent,0); // 参数(Intent intent, Int requestCode) 的 requestCode 对应下面回收Bundle时识别用的
   
@@ -48,9 +48,9 @@ case RESULT_OK:
   
 Bundle b=data.getExtras(); //data为B中回传的Intent
   
-String str=b.getString(&#8220;ListenB&#8221;);//str即为回传的值&#8221;Hello, this is B speaking&#8221;
+String str=b.getString("ListenB");//str即为回传的值"Hello, this is B speaking"
   
-/\* 得到B回传的数据后做什么&#8230; 略 \*/
+/\* 得到B回传的数据后做什么... 略 \*/
   
 break;
   
@@ -62,9 +62,9 @@ break;
   
 }
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+-----------------------------
   
-//&#8211; B.java &#8211;//
+//- B.java -//
   
 // 用 setResut() 准备好要回传的数据后，只要使用finish()的方法就能把打包好的数据发给A且运行onActivityResult()部分的代码
   
@@ -74,11 +74,11 @@ Intent aintent = new Intent(B.this, A.class);
   
 setResut(RESULT_OK,aintent); //这理有2个参数(int resultCode, Intent intent)
   
-&#8230; &#8230;
+... ...
   
 finish();
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+-----------------------------
   
 OK，代码如上，可能这个时候还会有点疑问，关于参数的疑问。直接看android sdk 帮助说得更清楚。我发现网上有些文章还有吧 requestCode 和 resultCode 混淆说明错的。
   

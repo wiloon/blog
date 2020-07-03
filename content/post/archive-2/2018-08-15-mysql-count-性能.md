@@ -52,11 +52,11 @@ innodb可优化点：
 
 CREATE TABLE `qstardbcontent` (
     
-`id` BIGINT(20) NOT NULL DEFAULT &#8216;0&#8217;,
+`id` BIGINT(20) NOT NULL DEFAULT '0',
     
 `content` MEDIUMTEXT,
     
-`length` INT(11) NOT NULL DEFAULT &#8216;0&#8217;,
+`length` INT(11) NOT NULL DEFAULT '0',
     
 PRIMARY KEY (`id`)
   

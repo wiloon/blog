@@ -10,7 +10,8 @@ categories:
 ---
 ### choco
 
-```bashchoco install keepassxc
+```bash
+choco install keepassxc
 choco upgrade keepassxc
 ```
 

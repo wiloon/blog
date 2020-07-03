@@ -10,21 +10,25 @@ categories:
 ---
 先列出正确的写法，如果你只想马上改错就先复制吧，
 
-<div>
-  <div>
-    <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
-  </div>
   
-  <div>
-        protected void deleteDataRow(int RowID,DataTable dt)<br /> {<br /> for (int i = dt.Rows.Count &#8211; 1; i >= 0; i&#8211;)<br /> {<br /> if (Convert.ToInt32(dt.Rows[i][&#8220;RowID&#8221;]) == RowID)<br /> dt.Rows.RemoveAt(i);<br /> }<br /> }
-  </div>
-  
-  <div>
     <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
-  </div>
-</div>
+  
+  
+  
+        protected void deleteDataRow(int RowID,DataTable dt)
+ {
+ for (int i = dt.Rows.Count - 1; i >= 0; i-)
+ {
+ if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
+ dt.Rows.RemoveAt(i);
+ }
+ }
+  
+  
+  
+    <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+  
 
-&nbsp;
 
 如果你有时间想学习一下就继续看下面列出可能出错的可能性吧。
 
@@ -34,15 +38,16 @@ categories:
 
 3.循环彻底删除就要用.Rows.RemoveAt(int index)方法，所以如果你是foreach的爱好者，在此请你换换口味，还有如果你是for的i++的忠实fans也希望你能换个思维。先看一下上面程序的正向写法（错误的，不可用）
 
-<div>
-  <div>
-            for (int i = 0, j = dt.Rows.Count; i < j; i++)<br /> {<br /> if (Convert.ToInt32(dt.Rows[i][&#8220;RowID&#8221;]) == RowID)<br /> dt.Rows.RemoveAt(i);<br /> }
-  </div>
-</div>
+  
+            for (int i = 0, j = dt.Rows.Count; i < j; i++)
+ {
+ if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
+ dt.Rows.RemoveAt(i);
+ }
+  
 
-&nbsp;
 
-这个的错误在于datatable的RemoveAt()会在删除后更新dataTable的index，所以你要删除的index可能已经不是你的符合Convert.ToInt32(dt.Rows\[i\]\[&#8220;RowID&#8221;\]) == RowID的index了，甚者还会抛出异常，说你访问的index不存在。
+这个的错误在于datatable的RemoveAt()会在删除后更新dataTable的index，所以你要删除的index可能已经不是你的符合Convert.ToInt32(dt.Rows\[i\]\["RowID"\]) == RowID的index了，甚者还会抛出异常，说你访问的index不存在。
 
 所以要从DataTable的下面网上查找删除，这样即使这行符合条件被删除了，上面的行依旧不受影响。
 

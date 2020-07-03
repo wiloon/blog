@@ -30,7 +30,7 @@ password requisite pam\_cracklib.so try\_first_pass retry=3 type= ocredit=2 minl
 
 这里的minlen=10实际上表示最小分数为10，而不是简单的最小长度为10。密码每有一个任意字符会有一分，另外，ucredit/lcredit/dcredit/ocredit默认值均为1，表示密码中四种字符的类别数，每多一种，就会得到额外的一分。
 
-在这里，ocredit=2 minlen=10，也就是说，如果密码全是其它字符的话，最少需要minlen &#8211; ocredit = 10-2 = 8位；若密码包含其它字符和小写字符，最少需要minlen &#8211; ocredit &#8211; lcredit = 10-2-1 = 7位字符，以此类推。
+在这里，ocredit=2 minlen=10，也就是说，如果密码全是其它字符的话，最少需要minlen - ocredit = 10-2 = 8位；若密码包含其它字符和小写字符，最少需要minlen - ocredit - lcredit = 10-2-1 = 7位字符，以此类推。
 
 另外ucredit/lcredit/dcredit/ocredit参数的值如果为负数，例如dcredit=-2，则表示密码中最少需要2位数字。
 

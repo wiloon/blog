@@ -120,7 +120,7 @@ protected void finalize()
 
 super.finalize();
 
-// other finalization code&#8230;
+// other finalization code...
 
 }
 
@@ -130,7 +130,7 @@ super.finalize();
 
 然而有益的是，Java 的自动垃圾回收器不会失去平衡。作为便利的代价，你不得不放弃对系统资源释放的控制。不象 C++ 中的析构函数，Java Applet 不会自动执行你的类中的finalize() 方法。事实上，如果你正在使用 Java 1.0，即使你试图强制它调用finalize() 方法，也不能确保将调用它。
 
-因此，你不应当依靠finalize() 来执行你的 Applet 和应用程序的资源清除工作。取而代之，你应当明确的清除那些资源或创建一个try&#8230;finally 块（或类似的机制）来实现。
+因此，你不应当依靠finalize() 来执行你的 Applet 和应用程序的资源清除工作。取而代之，你应当明确的清除那些资源或创建一个try...finally 块（或类似的机制）来实现。
 
 finalize方法是与Java编程中的垃圾回收器有关系。即：当一个对象变成一个垃圾对象的时候，如果此对象的内存被回收，那么就可以调用系统中定义的finalize方法来完成
 
@@ -166,7 +166,7 @@ public Cake(int id) {
   
 this.id = id;
   
-System.out.println(&#8220;Cake Object &#8221; + id + &#8220;is created&#8221;);
+System.out.println("Cake Object " + id + "is created");
   
 }
 
@@ -174,7 +174,7 @@ protected void finalize() throws java.lang.Throwable {
   
 super.finalize();
   
-System.out.println(&#8220;Cake Object &#8221; + id + &#8220;is disposed&#8221;);
+System.out.println("Cake Object " + id + "is disposed");
   
 }
   
@@ -196,19 +196,16 @@ Cake Object 3is disposed
   
 Cake Object 2is disposed
   
-&nbsp;
 
 final
 
 修饰符（关键字）如果一个类被声明为final，意味着它不能再派生出新的子类，不能作为父类被继承。因此一个类不能既被声明为 abstract的，又被声明为final的。将变量或方法声明为final，可以保证它们在使用中不被改变。被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改。被声明为final的方法也同样只能使用，不能重载。
 
-&nbsp;
 
 finally
 
 异常处理时提供 finally 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 catch 子句就会执行，然后控制就会进入 finally 块（如果有的话）。一般异常处理块需要。
 
-&nbsp;
 
 finalize
 

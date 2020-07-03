@@ -46,15 +46,15 @@ defg
 
 6:typeset的-Z选项把串变成一个空填充,占15个字符位的串,冒号用来保护空白符
   
-/home/lee#typeset -Z15 var=&#8221;abc ddd&#8221;
+/home/lee#typeset -Z15 var="abc ddd"
   
-/home/lee#echo &#8220;$var&#8221;
+/home/lee#echo "$var"
   
 ^^^^^^^^abc ddd #^为空白
   
-/home/lee#typeset -LZ15 var=&#8221;abc 123&#8243;
+/home/lee#typeset -LZ15 var="abc 123"
   
-/home/lee#echo &#8220;$var$var&#8221;
+/home/lee#echo "$var$var"
   
 abc 123 abc 123
 
@@ -68,7 +68,7 @@ abc 123 abc 123
   
 000000000000024
 
-8:变量answer被给定一个值&#8211;Yes并变成一个小写,左对齐,一个字符的串
+8:变量answer被给定一个值-Yes并变成一个小写,左对齐,一个字符的串
   
 /home/lee#typeset -lL1 answer=Yes
   
@@ -83,8 +83,6 @@ typeset -i num #强制num为一个整数,如:
 /home/lee#typeset -i num=10
   
 /home/lee#echo $num
-  
-10
   
 /home/lee#typeset -i16 num=10
   

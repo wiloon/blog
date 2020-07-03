@@ -28,7 +28,7 @@ vmstat命令是最常见的Linux/Unix监控工具，可以展现给定时间间�
 
 一般vmstat工具的使用是通过两个数字参数来完成的，第一个参数是采样的时间间隔数，单位是秒，第二个参数是采样的次数，如:
 
-[code lang=shell]
+```bash
   
 #vmstat每2秒采集数据，一直采集，直到结束程序
   
@@ -38,7 +38,7 @@ vmstat 2
   
 vmstat 2 1
   
-[/code]
+```
 
 r 表示运行队列(就是说多少个进程真的分配到CPU)，我测试的服务器目前CPU比较空闲，没什么程序在跑，当这个值超过了CPU数目，就会出现CPU瓶颈了。这个也和top的负载有关系，一般负载超过了3就比较高，超过了5就高，超过了10就不正常了，服务器的状态很危险。top的负载类似每秒的运行队列。如果运行队列过大，表示你的CPU很繁忙，一般会造成CPU使用率很高。
 
@@ -50,11 +50,11 @@ free 空闲的物理内存的大小，我的机器内存总共8G，剩余3415M�
 
 buff Linux/Unix系统是用来存储，目录里面有什么内容，权限等的缓存;表示块设备(block device)所占用的缓存页，包括：直接读写块设备、以及文件系统元数据(metadata)比如SuperBlock所使用的缓存页；
   
-buffers are only used for file metadata (inodes, etc) and data from raw block devices. It&#8217;s accessed via block device and block number.
+buffers are only used for file metadata (inodes, etc) and data from raw block devices. It's accessed via block device and block number.
 
 cache 直接用来记忆我们打开的文件,给文件做缓冲，我本机大概占用300多M(这里是Linux/Unix的聪明之处，把空闲的物理内存的一部分拿来做文件和目录的缓存，是为了提高 程序执行的性能，当程序使用内存时，buffer/cached会很快地被使用。);表示普通文件数据所占用的缓存页。
   
-Cache has file data blocks, and memory mapped information (i.e. files mapped with mmap() calls). It&#8217;s accessed primarily via inode number.
+Cache has file data blocks, and memory mapped information (i.e. files mapped with mmap() calls). It's accessed primarily via inode number.
 
 si 每秒从磁盘读入虚拟内存的大小，如果这个值大于0，表示物理内存不够用或者内存泄露了，要查找耗内存进程解决掉。我的机器内存充裕，一切正常。
 
@@ -81,11 +81,11 @@ http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html
 http://man.linuxde.net/vmstat
 
 <blockquote data-secret="w2eizeWWHO" class="wp-embedded-content">
-  <p>
+  
     <a href="http://linuxperf.com/?p=32">free命令显示的buffers与cached的区别</a>
-  </p>
+  
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://linuxperf.com/?p=32&#038;embed=true#?secret=w2eizeWWHO" data-secret="w2eizeWWHO" width="600" height="338" title="《free命令显示的buffers与cached的区别》—Linux Performance" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://linuxperf.com/?p=32&embed=true#?secret=w2eizeWWHO" data-secret="w2eizeWWHO" width="600" height="338" title="《free命令显示的buffers与cached的区别》—Linux Performance" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 http://netcome.iteye.com/blog/754548

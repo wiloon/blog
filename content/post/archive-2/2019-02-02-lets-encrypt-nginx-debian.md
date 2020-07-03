@@ -1,5 +1,5 @@
 ---
-title: let’s encrypt, nginx, debian
+title: let's encrypt, nginx, debian
 author: wiloon
 type: post
 date: 2019-02-02T07:14:49+00:00
@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="line-numbers">sudo apt-get install certbot python-certbot-nginx -t stretch-backports
+<code class="line-numbers">sudo apt-get install certbot python-certbot-nginx -t stretch-backports
 sudo certbot --nginx
 
 ```

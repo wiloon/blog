@@ -20,9 +20,9 @@ detached HEAD 具体示意图是这样:(网络图片)
 
 $ git checkout origin/master
   
-Note: checking out &#8216;origin/master&#8217;.
+Note: checking out 'origin/master'.
 
-You are in &#8216;detached HEAD&#8217; state. You can look around, make experimental
+You are in 'detached HEAD' state. You can look around, make experimental
   
 changes and commit them, and you can discard any commits you make in this
   
@@ -34,33 +34,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 
 git checkout -b <new-branch-name>
 
-HEAD is now at 3e74a7a&#8230; merge bug fixed in issue1
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
+HEAD is now at 3e74a7a... merge bug fixed in issue1
   
 此时用status指令查看，工作目录是干净的。
 
@@ -69,12 +43,6 @@ $ git status
 HEAD detached at origin/master
   
 nothing to commit, working tree clean
-  
-1
-  
-2
-  
-3
   
 用git branch 可以查看到:
 
@@ -86,19 +54,11 @@ dev
     
 master
   
-1
-  
-2
-  
-3
-  
-4
-  
 HEAD指向了一个未知的分支，再返回上面的提示，可以用 git checkout -b 基于当前分支创建一个新的临时分支保留代码，合并到合适的分支后删除。
 
 $ git checkout -b temp
   
-Switched to a new branch &#8216;temp&#8217;
+Switched to a new branch 'temp'
   
 $ git branch
     
@@ -110,9 +70,9 @@ master
   
 $ git checkout master
   
-Switched to branch &#8216;master&#8217;
+Switched to branch 'master'
   
-Your branch is up-to-date with &#8216;origin/master&#8217;.
+Your branch is up-to-date with 'origin/master'.
   
 $ git merge temp
   
@@ -122,43 +82,17 @@ $ git branch -d temp
   
 Deleted branch temp (was 3e74a7a).
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
 但是与道友不同的是，使用 git checkout origin/master制造的detached HEAD的情况，再次使用切换分支就会消失：
 
 $ git checkout master //master或者任意已知分支
   
 $ git checkout dev
   
-Previous HEAD position was 3e74a7a&#8230; merge bug fixed in issue1
+Previous HEAD position was 3e74a7a... merge bug fixed in issue1
   
-Switched to branch &#8216;dev&#8217;
+Switched to branch 'dev'
   
-Your branch is up-to-date with &#8216;origin/dev&#8217;.
+Your branch is up-to-date with 'origin/dev'.
   
 $ git branch
   

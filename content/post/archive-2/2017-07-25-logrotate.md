@@ -22,7 +22,8 @@ categories:
 
 配置文件内容
 
-```bashvim /etc/logrotate.d/ansiblelog
+```bash
+vim /etc/logrotate.d/ansiblelog
 
 /var/log/ansible.log {
     daily
@@ -52,7 +53,8 @@ categories:
 }
 ```
 
-```bash# logrotate status
+```bash
+# logrotate status
 cat /var/lib/logrotate/logrotate.status
 
 # 启用debug模式
@@ -66,7 +68,6 @@ logrotate -f /etc/logrotate.conf
 logrotate --force /etc/logrotate.d/nginx
 # -f,--force
 
-
 ```
 
 日志实在是太有用了，它记录了程序运行时各种信息。通过日志可以分析用户行为，记录运行轨迹，查找程序问题。可惜磁盘的空间是有限的，就像飞机里的黑匣子，记录的信息再重要也只能记录最后一段时间发生的事。为了节省空间和整理方便，日志文件经常需要按时间或大小等维度分成多份，删除时间久远的日志文件。这就是通常说的日志滚动(log rotation)。
@@ -77,7 +78,7 @@ logrotate --force /etc/logrotate.d/nginx
 
 logrotate在很多Linux发行版上都是默认安装的。系统会定时运行logrotate，一般是每天一次。系统是这么实现按天执行的。crontab会每天定时执行/etc/cron.daily目录下的脚本，而这个目录下有个文件叫logrotate。在centos上脚本内容是这样的：
 
-<pre><code class="language-shell line-numbers">/usr/sbin/logrotate /etc/logrotate.conf &gt;/dev/null 2&gt;&1
+```bash/usr/sbin/logrotate /etc/logrotate.conf >/dev/null 2>&1
 EXITVALUE=$?
 if [ $EXITVALUE != 0 ]; then
     /usr/bin/logger -t logrotate "ALERT exited abnormally with [$EXITVALUE]"
@@ -115,7 +116,7 @@ inodes
 
 file pointer
 
-进程每新打开一个文件，系统会分配一个新的文件描述符给这个文件。文件描述符对应着一个文件表。表里面存着文件的状态信息（O\_APPEND/O\_CREAT/O_DIRECT&#8230;）、当前文件位置和文件的inode信息。系统会为每个进程创建独立的文件描述符和文件表，不同进程是不会共用同一个文件表。正因为如此，不同进程可以同时用不同的状态操作同一个文件的不同位置。文件表中存的是inode信息而不是文件路径，所以文件路径发生改变不会影响文件操作。
+进程每新打开一个文件，系统会分配一个新的文件描述符给这个文件。文件描述符对应着一个文件表。表里面存着文件的状态信息（O\_APPEND/O\_CREAT/O_DIRECT...）、当前文件位置和文件的inode信息。系统会为每个进程创建独立的文件描述符和文件表，不同进程是不会共用同一个文件表。正因为如此，不同进程可以同时用不同的状态操作同一个文件的不同位置。文件表中存的是inode信息而不是文件路径，所以文件路径发生改变不会影响文件操作。
 
 方案1：create
 

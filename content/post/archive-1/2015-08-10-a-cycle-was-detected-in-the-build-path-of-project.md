@@ -18,6 +18,6 @@ tags:
   
 解决方法非常简单：
   
-Eclipse Menu -> Window -> Preferences&#8230; -> Java -> Compiler -> Building -> Building path problems -> Circular dependencies -> 将Error改成Warning
+Eclipse Menu -> Window -> Preferences... -> Java -> Compiler -> Building -> Building path problems -> Circular dependencies -> 将Error改成Warning
 
 http://blog.csdn.net/kcai678/article/details/4668993

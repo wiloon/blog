@@ -50,7 +50,7 @@ customThread.join();
 
 1.CustomThread 类
 
-  1. CustomThread1类</p> 
+  1. CustomThread1类 
   2. JoinTestDemo 类，main方法所在的类。
 
 代码1：
@@ -73,7 +73,7 @@ class CustomThread1 extends Thread {
       
 public CustomThread1() {
           
-super(&#8220;[CustomThread1] Thread&#8221;);
+super("[CustomThread1] Thread");
       
 };
       
@@ -81,23 +81,23 @@ public void run() {
           
 String threadName = Thread.currentThread().getName();
           
-System.out.println(threadName + &#8221; start.&#8221;);
+System.out.println(threadName + " start.");
           
 try {
               
 for (int i = 0; i < 5; i++) {
                   
-System.out.println(threadName + &#8221; loop at &#8221; + i);
+System.out.println(threadName + " loop at " + i);
                   
 Thread.sleep(1000);
               
 }
               
-System.out.println(threadName + &#8221; end.&#8221;);
+System.out.println(threadName + " end.");
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from &#8221; + threadName + &#8220;.run&#8221;);
+System.out.println("Exception from " + threadName + ".run");
           
 }
       
@@ -111,7 +111,7 @@ CustomThread1 t1;
       
 public CustomThread(CustomThread1 t1) {
           
-super(&#8220;[CustomThread] Thread&#8221;);
+super("[CustomThread] Thread");
           
 this.t1 = t1;
       
@@ -121,17 +121,17 @@ public void run() {
           
 String threadName = Thread.currentThread().getName();
           
-System.out.println(threadName + &#8221; start.&#8221;);
+System.out.println(threadName + " start.");
           
 try {
               
 t1.join();
               
-System.out.println(threadName + &#8221; end.&#8221;);
+System.out.println(threadName + " end.");
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from &#8221; + threadName + &#8220;.run&#8221;);
+System.out.println("Exception from " + threadName + ".run");
           
 }
       
@@ -145,7 +145,7 @@ public static void main(String[] args) {
           
 String threadName = Thread.currentThread().getName();
           
-System.out.println(threadName + &#8221; start.&#8221;);
+System.out.println(threadName + " start.");
           
 CustomThread1 t1 = new CustomThread1();
           
@@ -163,11 +163,11 @@ t.join();//在代碼2里，將此處注釋掉
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from main&#8221;);
+System.out.println("Exception from main");
           
 }
           
-System.out.println(threadName + &#8221; end!&#8221;);
+System.out.println(threadName + " end!");
       
 }
   
@@ -207,7 +207,7 @@ public static void main(String[] args) {
           
 String threadName = Thread.currentThread().getName();
           
-System.out.println(threadName + &#8221; start.&#8221;);
+System.out.println(threadName + " start.");
           
 CustomThread1 t1 = new CustomThread1();
           
@@ -225,11 +225,11 @@ t.start();
           
 } catch (Exception e) {
               
-System.out.println(&#8220;Exception from main&#8221;);
+System.out.println("Exception from main");
           
 }
           
-System.out.println(threadName + &#8221; end!&#8221;);
+System.out.println(threadName + " end!");
       
 }
   
@@ -303,7 +303,7 @@ long now = 0;
   
 if (millis < 0) {
              
-throw new IllegalArgumentException(&#8220;timeout value is negative&#8221;);
+throw new IllegalArgumentException("timeout value is negative");
   
 }
   
@@ -319,7 +319,7 @@ wait(0);//阻塞
       
 while (isAlive()) {
       
-long delay = millis &#8211; now;
+long delay = millis - now;
       
 if (delay <= 0) {
           
@@ -329,7 +329,7 @@ break;
       
 wait(delay);
       
-now = System.currentTimeMillis() &#8211; base;
+now = System.currentTimeMillis() - base;
       
 }
   

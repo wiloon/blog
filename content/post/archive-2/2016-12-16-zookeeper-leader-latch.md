@@ -14,19 +14,20 @@ curator-framework 4.x 同时支持zookeeper 3.4.x, 3.5.x
   
 curator4 默认依赖zookeeper 3.5
   
-使用zookeeper3.4时,需要把zookeeper排除掉,再依赖zookeeper3.4<pre data-language=XML>
+使用zookeeper3.4时,需要把zookeeper排除掉,再依赖zookeeper3.4
 
-<code class="language-markup line-numbers">&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.curator&lt;/groupId&gt;
-    &lt;artifactId&gt;curator-recipes&lt;/artifactId&gt;
-    &lt;version&gt;${curator-version}&lt;/version&gt;
-    &lt;exclusions&gt;
-        &lt;exclusion&gt;
-            &lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;
-            &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;
-        &lt;/exclusion&gt;
-    &lt;/exclusions&gt;
-&lt;/dependency&gt;
+```xml
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-recipes</artifactId>
+    <version>${curator-version}</version>
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
 ``` 
 
 leader latch/leader election
@@ -67,19 +68,20 @@ public boolean await(long timeout,TimeUnit unit)throws InterruptedException
   
 LeaderLatch实例可以增加ConnectionStateListener来监听网络连接问题。 当 SUSPENDED 或 LOST 时, leader不再认为自己还是leader.当LOST 连接重连后 RECONNECTED,LeaderLatch会删除先前的ZNode然后重新创建一个.
   
-LeaderLatch用户必须考虑导致leadershi丢失的连接问题。 强烈推荐你使用ConnectionStateListener。<pre data-language=XML>
+LeaderLatch用户必须考虑导致leadershi丢失的连接问题。 强烈推荐你使用ConnectionStateListener。
 
- <code class="language-markup line-numbers">&lt;dependency&gt;
-            &lt;groupId&gt;org.apache.curator&lt;/groupId&gt;
-            &lt;artifactId&gt;curator-recipes&lt;/artifactId&gt;
-            &lt;version&gt;${curator.version}&lt;/version&gt;
-            &lt;exclusions&gt;
-                &lt;exclusion&gt;
-                    &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-                    &lt;groupId&gt;log4j&lt;/groupId&gt;
-                &lt;/exclusion&gt;
-            &lt;/exclusions&gt;
-        &lt;/dependency&gt;
+ ```xml
+<dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 ``` 
 
 ```javaRetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3)
@@ -94,9 +96,9 @@ client.start();
 http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/
 
 <blockquote class="wp-embedded-content" data-secret="mwCqdwnDV0">
-  <p>
+  
     <a href="http://ifeve.com/zookeeper-leader/">跟着实例学习ZooKeeper的用法： Leader选举</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《跟着实例学习ZooKeeper的用法： Leader选举》—并发编程网 - ifeve.com" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0" data-secret="mwCqdwnDV0" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

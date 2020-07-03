@@ -46,7 +46,7 @@ init方法是在Servlet实例化之后执行的，并且只执行一次。
   
 [/xml]
      
-在程序中可以用this.getServletConfig()方法得到ServletConfig的实例，然后用ServletConfig的相应方法 可以得到ServletConfig的名字(getServletName)和配置参数的名字(getInitParameter(&#8220;name&#8221;))或者 名字枚举(getInitParameterNames())，并且通过参数名字得到相应的参数值。具体方法参见API。
+在程序中可以用this.getServletConfig()方法得到ServletConfig的实例，然后用ServletConfig的相应方法 可以得到ServletConfig的名字(getServletName)和配置参数的名字(getInitParameter("name"))或者 名字枚举(getInitParameterNames())，并且通过参数名字得到相应的参数值。具体方法参见API。
 
 二.再说说init方法，从源码中我们不难发现：Servlet接口里面只有init(ServletConfig)，这是供tomcat调用的。GenericServlet类里面有成员变量ServletConfig，init(ServletConfig)方法和init()方法：
   

@@ -62,32 +62,32 @@ Microsoft Internet Information Server(IIS)
 
 <Connector
 
-debug=&#8221;0&#8243;
+debug="0"
 
-acceptCount=&#8221;100&#8243;
+acceptCount="100"
 
-connectionTimeout=&#8221;20000&#8243;
+connectionTimeout="20000"
 
-disableUploadTimeout=&#8221;true&#8221;
+disableUploadTimeout="true"
 
-port=&#8221;8080&#8243;
+port="8080"
 
-redirectPort=&#8221;8443&#8243;
+redirectPort="8443"
 
-enableLookups=&#8221;false&#8221;
+enableLookups="false"
 
-minSpareThreads=&#8221;25&#8243;
+minSpareThreads="25"
 
-maxSpareThreads=&#8221;75&#8243;
+maxSpareThreads="75"
 
-maxThreads=&#8221;150&#8243;
+maxThreads="150"
 
-maxPostSize=&#8221;0&#8243;
+maxPostSize="0"
 
-URIEncoding=&#8221;GBK&#8221;
+URIEncoding="GBK"
 
 >
 
 </Connector>
 
-增加红色字体部分 maxPostSize=&#8221;0&#8243; (设为0是取消POST的大小限制)
+增加红色字体部分 maxPostSize="0" (设为0是取消POST的大小限制)

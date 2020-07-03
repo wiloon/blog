@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-The current released versions of Debian Install images and Debian Live images are built using isohybrid techniques, which means using them with a USB key is simple and easy, using &#8220;dd&#8221;. Older Debian images were not so easy to use with USB keys and needed a lot of instructions. Those instructions are no longer helpful, so have been removed from this page.
+The current released versions of Debian Install images and Debian Live images are built using isohybrid techniques, which means using them with a USB key is simple and easy, using "dd". Older Debian images were not so easy to use with USB keys and needed a lot of instructions. Those instructions are no longer helpful, so have been removed from this page.
 
 Several of the Debian CD and Debian Live images are created using _isohybrid_ technology, which means that they may be used in two different ways:
 
@@ -40,9 +40,7 @@ http://wiki.debian.org/BootUsb
 
 http://www.debian.org/CD/faq/#write-usb
 
-<div>
   !!!!!!!!!!!!!!!!!!!!!以下方法作废!!!!!!!!!!!!!!!!!
-</div>
 
 **方法1：**
 
@@ -144,7 +142,6 @@ sudo umount /dev/sdb1
   
 [/shell]
 
-&nbsp;
 
 [shell]
   
@@ -184,11 +181,11 @@ append initrd=initrd.gz
 
 复制debian6 的 iso文件(debian-6.0.2.1-i386-CD-1.iso)到优盘
   
-到这里还是不能用U盘引导&#8230;&#8230;要用下面一步。
+到这里还是不能用U盘引导......要用下面一步。
   
 Master Boot Record
   
-Some USB keys don&#8217;t boot. If this is the case, it may be possible to fix them by installing a new master boot record. (Most keys boot OK by default; some cannot be fixed even by doing this. However, it helps in some cases). Run the command:
+Some USB keys don't boot. If this is the case, it may be possible to fix them by installing a new master boot record. (Most keys boot OK by default; some cannot be fixed even by doing this. However, it helps in some cases). Run the command:
 
 #umount the usb drive
 

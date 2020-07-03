@@ -15,13 +15,13 @@ tags:
   
 @Autowired是按类型装配依赖对象，默认情况下，要求依赖对象必须存在，若允许null值，可以设置它的required属性为false。如果想使用按名称装配，可以结合@Qualifier注解一起使用。如：
   
-@Autowired @Qualifier(&#8220;xmlBean1&#8243;)
+@Autowired @Qualifier("xmlBean1")
   
 private XMLBean xmlBean;
 
 @Resource和@Autowired一样，也可以标注在字段或属性的setter方法上，但它默认是按名称装配。名称可以通过@Resource的name属性指定，如果没有指定name属性，当注解标注在字段上，即默认取字段的名称作为bean名称寻找对象，当注解标注在属性的setter方法上，即默认取属性名作为bean名称寻找依赖对象。当没有使用name属性时，如果按照字段名找不到bean，就会转而使用按类型装配的方式进行查找；但当使用了name属性，只能按照指定的name查找bean，当找不到相应的bean时，就会抛异常。
   
-@Resource(name=&#8221;xmlBeanx&#8221;)
+@Resource(name="xmlBeanx")
   
 private XMLBean xmlBean;//用于字段上
 
@@ -65,7 +65,7 @@ Spring提供了一套扩展于Junit测试用例的测试套件，使用这套测
 
 @RunWith(SpringJUnit4ClassRunner.class)
 
-//使用junit4进行测试@ContextConfiguration({&#8220;/app\*.xml&#8221;,&#8221;/spring/app\*.xml&#8221;,&#8221;/spring/service/app*.xml&#8221;})
+//使用junit4进行测试@ContextConfiguration({"/app\*.xml","/spring/app\*.xml","/spring/service/app*.xml"})
 
 //加载配置文件
 
@@ -106,7 +106,7 @@ public class UserAssignServiceTest extends BaseJunit4Test{
                   UserAssign u=new UserAssign();
     </li>
     <li>
-                  u.setAmount(&#8220;7&#8221;);
+                  u.setAmount("7");
     </li>
     <li>
                   u.setCity(2);
@@ -115,7 +115,7 @@ public class UserAssignServiceTest extends BaseJunit4Test{
                   u.setProvince(1);
     </li>
     <li>
-                  u.setCompany(&#8220;宜信&#8221;);
+                  u.setCompany("宜信");
     </li>
     <li>
                   u.setCreate_date(DateUtil.getCurrentTimeSecond());
@@ -124,25 +124,25 @@ public class UserAssignServiceTest extends BaseJunit4Test{
                   u.setCreator(0);
     </li>
     <li>
-                  u.setEmail(&#8220;1133@163.com&#8221;);
+                  u.setEmail("1133@163.com");
     </li>
     <li>
                   u.setOper_date(DateUtil.getCurrentTimeSecond());
     </li>
     <li>
-                  u.setPosition(&#8220;工人&#8221;);
+                  u.setPosition("工人");
     </li>
     <li>
                   u.setOperator(0);
     </li>
     <li>
-                  u.setQudao(&#8220;2&#8221;);
+                  u.setQudao("2");
     </li>
     <li>
-                  u.setTelephone(&#8220;13013701997&#8221;);
+                  u.setTelephone("13013701997");
     </li>
     <li>
-                  u.setUsername(&#8220;张&#8221;+i);
+                  u.setUsername("张"+i);
     </li>
     <li>
                   userAssignService.insertUserAssign(u);
@@ -162,4 +162,3 @@ public class UserAssignServiceTest extends BaseJunit4Test{
       }
     </li>
   </ol>
-</div>

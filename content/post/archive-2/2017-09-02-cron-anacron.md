@@ -20,7 +20,7 @@ https://linux.cn/article-8590-1.html
 
 要在一个给定时间或者稍后安排一个任务，你可以使用 at 或者 batch 命令，要使命令能够重复运行，你可以使用 cron 以及 anacron 工具。
 
-cron &#8211; 是一个用于运行计划任务如系统备份、更新等的守护进程。它适合在那些 24X7 不间断运行的机器如服务器上运行的计划任务。
+cron - 是一个用于运行计划任务如系统备份、更新等的守护进程。它适合在那些 24X7 不间断运行的机器如服务器上运行的计划任务。
 
 命令/脚本被写在 cron 任务脚本中，它是在 crontab 文件中被安排的。系统默认的 crontab 文件是 /etc/crontab，但是每个用户也可以创建自己的 crontab 文件来在特定时间运行用户定义的命令。
 
@@ -46,13 +46,13 @@ period delay job-identifier command
   
 从上面的格式中：
 
-period &#8211; 这是任务的频率，以天来指定，或者是 @daily、@weekly、@monthly 代表每天、每周、每月一次。你也可以使用数字：1 &#8211; 每天、7 &#8211; 每周、30 &#8211; 每月，或者 N &#8211; 几天。
+period - 这是任务的频率，以天来指定，或者是 @daily、@weekly、@monthly 代表每天、每周、每月一次。你也可以使用数字：1 - 每天、7 - 每周、30 - 每月，或者 N - 几天。
   
-delay &#8211; 这是在执行一个任务前等待的分钟数。
+delay - 这是在执行一个任务前等待的分钟数。
   
-job-id &#8211; 这是写在日志文件中任务的独特名字。
+job-id - 这是写在日志文件中任务的独特名字。
   
-command &#8211; 这是要执行的命令或 shell 脚本。
+command - 这是要执行的命令或 shell 脚本。
   
 要浏览示例文件，输入：
 
@@ -60,11 +60,11 @@ $ ls -l /var/spool/anacron/
   
 total 12
   
--rw&#8212;&#8212;- 1 root root 9 Jun 1 10:25 cron.daily
+-rw--- 1 root root 9 Jun 1 10:25 cron.daily
   
--rw&#8212;&#8212;- 1 root root 9 May 27 11:01 cron.monthly
+-rw--- 1 root root 9 May 27 11:01 cron.monthly
   
--rw&#8212;&#8212;- 1 root root 9 May 30 10:28 cron.weekly
+-rw--- 1 root root 9 May 30 10:28 cron.weekly
   
 这是实际发生的：
 
@@ -80,9 +80,9 @@ anacron 会检查任务是否已经在 period 字段指定的时间被被执行�
 
 这里有两个你应该理解的 anacrontab 文件的重要变量：
 
-START\_HOURS\_RANGE &#8211; 这个设置任务开始运行的时间范围（也就是任务只在这几个小时内运行）。
+START\_HOURS\_RANGE - 这个设置任务开始运行的时间范围（也就是任务只在这几个小时内运行）。
 
-RANDOM_DELAY &#8211; 这定义添加到用户定义的任务延迟的最大随机延迟（默认为 45）。
+RANDOM_DELAY - 这定义添加到用户定义的任务延迟的最大随机延迟（默认为 45）。
 
 这是你的 anacrontab 文件可能看上去的样子。
 
@@ -100,13 +100,13 @@ HOME=/root
   
 LOGNAME=root
 
-# These replace cron&#8217;s entries
+# These replace cron's entries
 
-1 5 cron.daily run-parts &#8211;report /etc/cron.daily
+1 5 cron.daily run-parts -report /etc/cron.daily
   
-7 10 cron.weekly run-parts &#8211;report /etc/cron.weekly
+7 10 cron.weekly run-parts -report /etc/cron.weekly
   
-@monthly 15 cron.monthly run-parts &#8211;report /etc/cron.monthly
+@monthly 15 cron.monthly run-parts -report /etc/cron.monthly
   
 @daily 10 example.daily /bin/bash /home/aaronkilik/bin/backup.sh
   

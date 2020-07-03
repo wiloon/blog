@@ -16,31 +16,27 @@ tags:
 
 1 首先在applicationContext.xml中加入：
   
-<beans xmlns:util=&#8221;http://www.springframework.org/schema/util&#8221;
+<beans xmlns:util="http://www.springframework.org/schema/util"
   
-xsi:schemaLocation=&#8221;http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd&#8221;>
+xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
   
 </beans>
 
 的命名空间，然后
 
-2
-  
-<util:properties id=&#8221;settings&#8221; location=&#8221;WEB-INF/classes/META-INF/spring/test.properties&#8221; />
+<util:properties id="settings" location="WEB-INF/classes/META-INF/spring/test.properties" />
 
 3 创建test.properties
   
 abc=123
 
-4
-  
 import org.springframework.beans.factory.annotation.Value;
   
 import org.springframework.stereotype.Controller;
   
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping(&#8220;/admin/images&#8221;)
+@RequestMapping("/admin/images")
   
 @Controller
   
@@ -48,7 +44,7 @@ public class ImageAdminController {
 
 private String imageDir;
   
-@Value(&#8220;#{settings[&#8216;test.abc&#8217;]}&#8221;)
+@Value("#{settings['test.abc']}")
   
 public void setImageDir(String val) {
   

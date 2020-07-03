@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashredis-cli -h redis.wiloon.com
+```bash
+redis-cli -h redis.wiloon.com
 SUBSCRIBE channel0
 publish channel0 message0
 ```

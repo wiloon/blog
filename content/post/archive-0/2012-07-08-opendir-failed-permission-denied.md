@@ -8,10 +8,9 @@ categories:
   - Uncategorized
 
 ---
-su &#8211;
+su -
 
 adb shell
 
 adb root
 
-&nbsp;

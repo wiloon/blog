@@ -26,7 +26,7 @@ axel http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.32.5.tar.xz
   
 /usr/src下面需要root权限反而容易出问题.
 
-unpak&#8230;
+unpak...
 
 $xz -d \***.**tar.xz**
 
@@ -48,23 +48,21 @@ cp /boot/config-\`uname -r\` ./.config
   
 不过ubntu的config存在很多问题, 建议改用附件中arch的2.6.23的config
 
-开始配置内核选项。从linux-2.6.32开始可以使用make localmodconfig自动精简内核, 菜鸟也能轻松精简内核到十几MB(也可以完全手动配置&#8230;.直接跳到make menuconfig)
+开始配置内核选项。从linux-2.6.32开始可以使用make localmodconfig自动精简内核, 菜鸟也能轻松精简内核到十几MB(也可以完全手动配置....直接跳到make menuconfig)
   
 自动精简内核模块
   
 注意: 该方法会自动去掉一些从开机到当前没用使用的模块(主要是驱动模块),
   
-所以你可以使用一下你的摄像头, 挂载一下iso文件&#8230;..
+所以你可以使用一下你的摄像头, 挂载一下iso文件.....
   
 以保证需要的模块不会被精简掉, 否则使用新内核时会发现不能挂载iso文件, 不能使用某些外设等等.
   
 命令如下:
 
-<div>
   make localmodconfig
-</div>
 
-然后就可以直接进行编译了.(fakeroot&#8230;&#8230;)
+然后就可以直接进行编译了.(fakeroot......)
 
 也可以再使用menuconfig检查一下
 
@@ -72,15 +70,15 @@ make menuconfig(2.6.35以上支持make nconfig)
 
 sudo make-kpkg clean #这条命令好像不要超级权限，很多资料上说要，不过这不是原则问题。
   
-fakeroot make-kpkg &#8211;initrd &#8211;append-to-version=ylxy1.0 kernel_image
+fakeroot make-kpkg -initrd -append-to-version=ylxy1.0 kernel_image
 
-&#8212;
+-
 
 which brings up the kernel configuration menu. Go to Load an Alternate Configuration File and choose .config (which contains the configuration of your current working kernel) as the configuration file:
 
 Then browse through the kernel configuration menu and make your choices. When you are finished and select Exit, answer the following question (Do you wish to save your new kernel configuration?) with Yes:
 
-After &#8211;append-to-version= you can write any string that helps you identify the kernel, but it must begin with a minus (-) and must not contain whitespace.
+After -append-to-version= you can write any string that helps you identify the kernel, but it must begin with a minus (-) and must not contain whitespace.
 
 Now be patient, the kernel compilation can take some hours, depending on your kernel configuration and your processor speed.
 

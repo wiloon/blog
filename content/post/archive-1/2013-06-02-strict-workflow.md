@@ -11,7 +11,6 @@ categories:
 A Chrome extension that helps you stay focused by blocking sites during work timers and letting you browse during break timers
 
 <div id="repository_homepage">
-  <p>
+  
     <a href="https://chrome.google.com/webstore/detail/cgmnfnmlficgeijcalkgnnkigkefkbhd" rel="nofollow">https://chrome.google.com/webstore/detail/cgmnfnmlficgeijcalkgnnkigkefkbhd</a>
-  </p>
-</div>
+  

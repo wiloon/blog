@@ -30,7 +30,6 @@ branch，是用来做并行开发的，这里的并行是指和trunk进行比较
 
 对于svn还要注意的一点，就是它是全局版本号，其实这个就是一个tag的标记，所以我们经常可以看到，什么什么release，基于xxx项目的 2xxxx版本。就是这个意思了。但是，它还明确的给出一个tag的概念，就是因为这个更加的可读，毕竟记住tag\_release\_1_0要比记住一个 很大的版本号容易的多。
 
-&nbsp;
 
 svn中建立branch或者tag的方法比较简单，totoiseSVN中的操作是:
   
@@ -92,7 +91,7 @@ subclipse进行Merge操作同tortoiseSVN的操作方式有所区别，原理基�
   
 2.from revision中选择建立这个branch的revision号,不是最新的那个版本号!
   
-3.to url框中勾上&#8221;Use &#8216;From:&#8217; URL&#8221;这个check box, To Revision中选择需要需要Merge到的revision号，一般勾head revision
+3.to url框中勾上"Use 'From:' URL"这个check box, To Revision中选择需要需要Merge到的revision号，一般勾head revision
   
 4.Dry run让你预览一下merge效果，Unified Diff将Merge的两边进行Diff并将Diff结果保存到文件中。(在我机器中Dry run没有窗口出来，diff结果的文件除非只有很小的变化，不然看得头大)
   

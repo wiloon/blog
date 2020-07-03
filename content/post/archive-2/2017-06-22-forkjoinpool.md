@@ -318,6 +318,6 @@ Java 1.8 新增加的 CompletableFuture 类可以实现类似于 Javascript 的 
 
 之所以煞有介事地取名为 POFLC，显然是为了模仿 POJO 。而 POJO —— Plain Old Java Object 这个词是如何产生的，在 stackoverflow 上有个帖子讨论过，摘录一下就是
 
-I’ve come to the conclusion that people forget about regular Java objects because they haven’t got a fancy name. That’s why, while preparing for a talk in 2000, Rebecca Parsons, Josh Mackenzie, and I gave them one: POJOs (plain old Java objects).
+I've come to the conclusion that people forget about regular Java objects because they haven't got a fancy name. That's why, while preparing for a talk in 2000, Rebecca Parsons, Josh Mackenzie, and I gave them one: POJOs (plain old Java objects).
 
 我得出一个结论：人们之所以总是忘记使用标准的 Java 对象是因为缺少一个足够装逼的名字（译注：类似于 Java Bean 这样的名字）。因此，在准备2000年的演讲时，Rebecca Parsons，Josh Mackenzie 和我给他们起了一个名字叫做 POJO （平淡无奇的 Java 对象）。

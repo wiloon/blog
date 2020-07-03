@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-Linux命令pidof &#8211; 找出正在运行程序的进程PID
+Linux命令pidof - 找出正在运行程序的进程PID
 
 本文链接：<http://codingstandards.iteye.com/blog/841123>   （转载请注明出处）
 
@@ -24,7 +24,7 @@ pidof用于找出正在运行的程序的进程PID（find the process ID of a ru
 
 格式：pidof -s program
 
-找出program程序的进程PID，只列出一个。（Single shot &#8211; this instructs the program to only return one pid.）
+找出program程序的进程PID，只列出一个。（Single shot - this instructs the program to only return one pid.）
 
 格式：pidof -x script
 

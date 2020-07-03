@@ -10,12 +10,11 @@ categories:
 ---
 ### 
 
-<div>
   <div id="main-content">
-    <div>
-      <p>
+    
+      
         Follow the steps outlined below to move the SQL Server Data File(s):
-      </p>
+      
       
       <ol>
         <li>
@@ -36,7 +35,7 @@ categories:
               GO
             </li>
             <li>
-              sp_detach_db &#8216;database name&#8217;
+              sp_detach_db 'database name'
             </li>
             <li>
               GO
@@ -45,8 +44,8 @@ categories:
         </li>
         
         <li>
-          Now, copy the data files and the log files from the correct location to the new location. <p>
-            <b>NOTE:</b> If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step.</li> 
+          Now, copy the data files and the log files from the correct location to the new location. 
+            NOTE: If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step.</li> 
             
             <li>
               Re-attach the database. Point to the files in the new location <ul>
@@ -57,7 +56,7 @@ categories:
                   GO
                 </li>
                 <li>
-                  sp_attach_db &#8216;database name&#8217;, &#8216;D:SQLDATADatabaseName.mdf&#8217;, &#8216;D:SQLDATADatabaseName.ldf&#8217;
+                  sp_attach_db 'database name', 'D:SQLDATADatabaseName.mdf', 'D:SQLDATADatabaseName.ldf'
                 </li>
                 <li>
                   GO
@@ -65,18 +64,19 @@ categories:
               </ul>
             </li></ol> 
             
-            <p>
-              See, Microsoft knowledge base article for further information on how to Detach and Attach databases in SQL Server.<br /> 参考：
-            </p>
             
-            <p>
+              See, Microsoft knowledge base article for further information on how to Detach and Attach databases in SQL Server.
+ 参考：
+            
+            
+            
               <a href="http://support.microsoft.com/kb/965095/en-us">http://support.microsoft.com/kb/965095/en-us</a>
-            </p>
             
-            <p>
+            
+            
               <a href="http://server.chinabyte.com/216/11420716.shtml">http://server.chinabyte.com/216/11420716.shtml</a>
-            </p>
             
-            <p>
+            
+            
               <a href="http://support.microsoft.com/?scid=kb;zh-cn;224071&spid=2852&sid=521">http://support.microsoft.com/?scid=kb;zh-cn;224071&spid=2852&sid=521</a>
-            </p></div> </div> </div>
+              

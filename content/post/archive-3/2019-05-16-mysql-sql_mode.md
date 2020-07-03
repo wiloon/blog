@@ -22,69 +22,53 @@ http://blog.csdn.net/wyzxg/article/details/8787878
   
 查看当前sql-mode
   
-1
-  
-2
-  
 SELECT @@GLOBAL.sql_mode;
   
 SELECT @@SESSION.sql_mode;
   
 mysql> SELECT @@GLOBAL.sql_mode;
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++---------------+
   
 | @@GLOBAL.sql_mode |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++---------------+
   
 | STRICT\_TRANS\_TABLES,NO\_ENGINE\_SUBSTITUTION |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++---------------+
   
 1 row in set (0.00 sec)
 
 mysql> SELECT @@SESSION.sql_mode;
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++---------------+
   
 | @@SESSION.sql_mode |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++---------------+
   
 | STRICT\_TRANS\_TABLES,NO\_ENGINE\_SUBSTITUTION |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
++---------------+
   
 1 row in set (0.00 sec)
   
 设置当前sql-mode
   
-1
+SET GLOBAL sql_mode = 'modes...';
   
-2
-  
-SET GLOBAL sql_mode = &#8216;modes&#8230;&#8217;;
-  
-SET SESSION sql_mode = &#8216;modes&#8230;&#8217;;
+SET SESSION sql_mode = 'modes...';
   
 my.cnf中配置sql-mode
-  
-1
-  
-2
-  
-3
-  
-4
   
 [mysqld]
   
 #set the SQL mode to strict
   
-#sql-mode=&#8221;modes&#8230;&#8221;
+#sql-mode="modes..."
   
-sql-mode = &#8220;STRICT\_TRANS\_TABLES,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITUTION&#8221;
+sql-mode = "STRICT\_TRANS\_TABLES,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITUTION"
   
 sql_mode常用值
   
@@ -122,7 +106,7 @@ NO\_ENGINE\_SUBSTITUTION：
 
 PIPES\_AS\_CONCAT：
   
-将&#8221;||&#8221;视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样的，也和字符串的拼接函数Concat相类似
+将"||"视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样的，也和字符串的拼接函数Concat相类似
   
 ANSI_QUOTES：
   
@@ -134,6 +118,6 @@ ORACLE的sql\_mode设置等同：PIPES\_AS\_CONCAT, ANSI\_QUOTES, IGNORE\_SPACE,
 
 [mysqld]
   
-sql\_mode=&#8217;ONLY\_FULL\_GROUP\_BY,NO\_AUTO\_VALUE\_ON\_ZERO,STRICT\_TRANS\_TABLES,NO\_ZERO\_IN\_DATE,NO\_ZERO_DATE,
+sql\_mode='ONLY\_FULL\_GROUP\_BY,NO\_AUTO\_VALUE\_ON\_ZERO,STRICT\_TRANS\_TABLES,NO\_ZERO\_IN\_DATE,NO\_ZERO_DATE,
   
 ERROR\_FOR\_DIVISION\_BY\_ZERO,NO\_AUTO\_CREATE\_USER,NO\_ENGINE_SUBSTITU

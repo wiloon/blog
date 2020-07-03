@@ -10,7 +10,8 @@ tags:
   - linux
 
 ---
-```bashsudo mkfs.msdos -F 32 /dev/sdx1
+```bash
+sudo mkfs.msdos -F 32 /dev/sdx1
 mkfs.ntfs -Q -L diskLabel /dev/sdXY
 
 #查看文件系统备份Superblock
@@ -47,7 +48,7 @@ block : 给定 block 的大小
 
 补充说明:
   
-mkfs本身并不执行建立文件系统的工作,而是去调用相关的程序来执行。例如，若在&#8221;-t&#8221; 参数中指定ext2,则
+mkfs本身并不执行建立文件系统的工作,而是去调用相关的程序来执行。例如，若在"-t" 参数中指定ext2,则
   
 mkfs会调用mke2fs来建立文件系统.使用时如省略指定【块数】参数，mkfs会自动设置    适当的块数.
 
@@ -67,9 +68,9 @@ mkfs -t ext2 /dev/sda7     //将sda7分区格式化为ext2格式
 
 注：
   
-这里的文件系统是要指定的，比如 ext3 ；reiserfs ；ext2 ；fat32 ；msdos 等&#8230; &#8230;
+这里的文件系统是要指定的，比如 ext3 ；reiserfs ；ext2 ；fat32 ；msdos 等... ...
   
-设备比如是一个硬盘的分区，软盘，光驱等.. &#8230; 在格式化分区之前，您得懂得如何查看硬盘分区情况，并有针对性的格式化；比如用 fdisk -l 来查看； 请参考：《Linux 查看磁盘分区、文件系统、使用情况的命令和相关工具介绍》 比如我想格式化一个移动U盘中的一个分区；全景应该是：
+设备比如是一个硬盘的分区，软盘，光驱等.. ... 在格式化分区之前，您得懂得如何查看硬盘分区情况，并有针对性的格式化；比如用 fdisk -l 来查看； 请参考：《Linux 查看磁盘分区、文件系统、使用情况的命令和相关工具介绍》 比如我想格式化一个移动U盘中的一个分区；全景应该是：
   
 [root@localhost beinan]# fdisk -l
 
@@ -179,7 +180,7 @@ This filesystem will be automatically checked every 26 mounts or
   
 [root@localhost beinan]# mkfs -t msdos   /dev/sda6
   
-&#8230; &#8230;
+... ...
 
 2）mkfs.ext3 mkfs.reiserfs mkfs.ext2 mkfs.msdos mkfs.vfat mke2fs 的介绍；
   
@@ -201,7 +202,7 @@ root@localhost beinan]# mke2fs    /dev/sda6          注：把该设备�
   
 [root@localhost beinan]# mkdosfs   /dev/sda6         注：把该设备格式化成fat16文件系统，同mkfs.msdos
   
-&#8230; &#8230;
+... ...
 
 2）mkswap 把一个分区格式化成为swap交换区；
 
@@ -223,22 +224,34 @@ Filename                                Type            Si
   
 /dev/sda6                               partition       225144  0       -3
   
-</p>
-<p>为什么我的系统有两个交换分区？因为我用移动U盘做的实验，主要是为写教程之用；sda6是我在U盘上建的swap分区；</p>
-<p>如果让swap开机就加载，应该改 /etc/fstab文件，加类似如下一行；<br />
-http://www.linuxso.com/command/mkfs.html</p>
-<p>mke2fs命令<br />
-mke2fs命令是专门用于管理ext系列文件系统的一个专门的工具。其还有像mkfs.ext2，mkfs.ext3，mkfs.ext4等衍生的命令，它们的用法mke2fs类似，在系统man下它们的帮助手册会直接跳转mke2fs命令的帮助手册。</p>
-<p>命令格式：<br />
-mke2fs [options] [device]<br />
-常用选项</p>
-<p>-t fs-type:指定文件系统类型（如ext2，ext3，ext4等等），则会从/etc/mke2fs.conf文件中读取默认配置；<br />
--b block-size：设置硬盘的block大小。<br />
--L 'LABEL':设置卷标；<br />
--j：创建ext3文件系统，mkfs.ext3自带了该选项；<br />
--N：设置inode节点的数量；<br />
--m：设置为文件系统预留的块的百分比；</p>
-<p>作者：小尛酒窝<br />
-链接：https://www.jianshu.com/p/bf939474d69b<br />
-来源：简书<br />
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+为什么我的系统有两个交换分区？因为我用移动U盘做的实验，主要是为写教程之用；sda6是我在U盘上建的swap分区；
+如果让swap开机就加载，应该改 /etc/fstab文件，加类似如下一行；
+
+http://www.linuxso.com/command/mkfs.html
+mke2fs命令
+
+mke2fs命令是专门用于管理ext系列文件系统的一个专门的工具。其还有像mkfs.ext2，mkfs.ext3，mkfs.ext4等衍生的命令，它们的用法mke2fs类似，在系统man下它们的帮助手册会直接跳转mke2fs命令的帮助手册。
+命令格式：
+
+mke2fs [options] [device]
+
+常用选项
+-t fs-type:指定文件系统类型（如ext2，ext3，ext4等等），则会从/etc/mke2fs.conf文件中读取默认配置；
+
+-b block-size：设置硬盘的block大小。
+
+-L 'LABEL':设置卷标；
+
+-j：创建ext3文件系统，mkfs.ext3自带了该选项；
+
+-N：设置inode节点的数量；
+
+-m：设置为文件系统预留的块的百分比；
+作者：小尛酒窝
+
+链接：https://www.jianshu.com/p/bf939474d69b
+
+来源：简书
+
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

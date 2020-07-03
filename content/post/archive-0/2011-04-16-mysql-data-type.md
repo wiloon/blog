@@ -13,24 +13,19 @@ tags:
 
 ---
 <p align="left">
-  <strong>1</strong><strong>，</strong><strong> mysql</strong><strong>的复制原理以及流程。</strong>
-</p>
+  1， mysql的复制原理以及流程。
 
 <p align="left">
   （1）先问基本原理流程，3个线程以及之间的关联。
-</p>
 
 <p align="left">
   　　答：Mysql复制的三个线程：主库线程，从库I/O线程，从库sql线程；
-</p>
 
 <p align="left">
   　　　　复制流程：（1）I/O线程向主库发出请求
-</p>
 
 <p align="left">
   　　　　　　　　　（2）主库线程响应请求，并推binlog日志到从库
-</p>
 
 　　　　　　　　　（3）I/O线程收到线程并记入中继日志
 
@@ -66,259 +61,199 @@ bug不常见，笔者碰到过一次，分享如下：
 
 从库show slave status\G，behind\_master\_pos在60000和0之间循环，每两秒一次；
 
-**<span lang="EN-US">2</span>， <span lang="EN-US">mysql</span>中<span lang="EN-US">myisam</span>与<span lang="EN-US">innodb</span>的区别，至少<span lang="EN-US">5</span>点。**
+**<span lang="EN-US">2， <span lang="EN-US">mysql中<span lang="EN-US">myisam与<span lang="EN-US">innodb的区别，至少<span lang="EN-US">5点。**
 
 <p align="left">
   　　（1） 问5点不同
-</p>
 
 <p align="left">
   　　　　答：1、 存储成本不一样，存储限制不一样；
-</p>
 
 <p align="left">
   　　　　　　2、CPU使用成本不一样，innodb缓存数据和索引；
-</p>
 
 <p align="left">
   　　　　　　3、锁粒度不一样，支持MVCC；
-</p>
 
 <p align="left">
   　　　　　　4、缓存机制不一样(buffer_pool和key_buffer)
-</p>
 
 <p align="left">
   　　　　　　5、事务支持；
-</p>
 
 <p align="left">
   　　　　　　6、索引支持：全文索引(myisam),外键(innodb)，hash(innodb)
-</p>
 
 <p align="left">
   　　　　　　7、读写速度；
-</p>
 
 <p align="left">
   　　　　　　8、备份；
-</p>
 
 <p align="left">
-  　　（2）、问各种不同<span lang="EN-US">mysql</span>版本的<span lang="EN-US">2</span>者的改进；
-</p>
+  　　（2）、问各种不同<span lang="EN-US">mysql版本的<span lang="EN-US">2者的改进；
 
 <p align="left">
   　　　　　　最近测5.1.38和5.5.35
-</p>
 
 <p align="left">
   　　　　　　Innodb:（1）adeptive_innodb_index可控；
-</p>
 
 <p align="left">
   　　　　　　　　　　（2）innodb变为默认引擎；
-</p>
 
 <p align="left">
   　　　　　　　　　　（3）更快的innodb插入；
-</p>
 
 <p align="left">
   　　　　　　　　　　（4）读写线程数目；
-</p>
 
 <p align="left">
   　　　　　　　　　　（5）半同步复制；
-</p>
 
 <p align="left">
   　　　　　　　　　　（6）performance_schame
-</p>
 
 <p align="left">
   　　　　　　Myisam（1）
-</p>
 
 <p align="left">
-  　　（<span lang="EN-US">3</span>）<span lang="EN-US">2</span>者的索引的实现方式；
-</p>
+  　　（<span lang="EN-US">3）<span lang="EN-US">2者的索引的实现方式；
 
 <p align="left">
   　　　　  myisam将索引和数据分开存放，索引记录索引中键值的物理位置，根据物理位置去MYD的数据页中寻找对应的data page；数据排列是堆数据，没有物理顺序，索引只是在逻辑上将数据串起来，并不改变数据的物理位置；
-</p>
 
 <p align="left">
   　　　　 innodb采用主键将数据进行物理排序存放，新插入的数据根据主键的大小，会修改主键索引的序列；secondary index通过查找主键来查找数据；
-</p>
 
 <p align="left">
-  <strong>3</strong><strong>，</strong><strong>问</strong><strong>mysql</strong><strong>中</strong><strong>varchar</strong><strong>与</strong><strong>char</strong><strong>的区别以及</strong><strong>varchar(30)</strong><strong>中的</strong><strong>30</strong><strong>代表的涵义。</strong>
-</p>
+  3，问mysql中varchar与char的区别以及varchar(30)中的30代表的涵义。
 
 <p align="left">
   　　（1） varchar与char的区别
-</p>
 
 <p align="left">
   　　　　答：变长和固定长度
-</p>
 
 <p align="left">
         （2）varchar(50)中50的涵义
-</p>
 
 <p align="left">
              答： 字符最大长度50，所代表的字节数与字符集有关，比如是utf8占3个字节，那么varchar(50)字段在表中最大取到150个字节
-</p>
 
 <p align="left">
   　　（3） int（20）中20的涵义
-</p>
 
 <p align="left">
   　　　　答：int是类型的数字，在2进制记录里，长度最大为20，数字范围是-2^19~(2^19-1)；
-</p>
 
 <p align="left">
         （4）为什么MySQL这样设计？
-</p>
 
 <p align="left">
   　　　　答：在varchar(M)中,varchar在一张表中最大的字节数目为65535，实际长度跟存放的内容有关；
-</p>
 
 <p align="left">
-  <strong>4</strong><strong>，</strong><strong>问了</strong><strong>innodb</strong><strong>的事务与日志的实现方式。</strong><strong><br /> </strong>
-</p>
+  4，问了innodb的事务与日志的实现方式。
+ 
 
 <p align="left">
   　　（1）有多少种日志
-</p>
 
 <p align="left">
   　　　　答：5种，binlog,查询日志，慢查询，错误日志，中继日志
-</p>
 
 <p align="left">
   　　（2）日志的存放形式
-</p>
 
 <p align="left">
   　　　　答：Binlog,中继日志都是二进制；
-</p>
 
 <p align="left">
   　　　　　　其他三种是文本形式；
-</p>
 
 <p align="left">
   　　（3）事务是如何通过日志来实现的，说得越深入越好。
-</p>
 
 <p align="left">
   　　　　答：Innodb日志需要开启显式提交，默认是关闭的；
-</p>
 
 <p align="left">
   　　　　　　首先了解日志过程。缓存进log_buffer,每秒或每十秒刷入redo_log，提交后刷入硬盘
-</p>
 
 <p align="left">
   　　　　　　事务日志会在innodb_buffer_pool页中标记行是否更新，删除，commit后刷入硬盘，没有commit则不计入磁盘，属于脏数据；
-</p>
 
 <p align="left">
-  <strong>5</strong><strong>，</strong><strong>问了</strong><strong>mysql binlog</strong><strong>的几种日志录入格式以及区别</strong><strong><br /> </strong>
-</p>
+  5，问了mysql binlog的几种日志录入格式以及区别
+ 
 
 <p align="left">
   　　（1）    各种日志格式的涵义
-</p>
 
 <p align="left">
   　　　　答：三种日志格式 ：statement,row,mixed
-</p>
 
 <p align="left">
   　　　　　　每一条DML操作的sql都被计入statement日志；
-</p>
 
 <p align="left">
   　　　　　　每条DML操作的sql被记录为对每条数据的操作，计入row日志；
-</p>
 
 <p align="left">
   　　　　　　mixed日志是上面两种的混合，具体记录的方式由隔离级别+binlog_format共同决定
-</p>
 
 <p align="left">
   　　（2）    适用场景
-</p>
 
 <p align="left">
   　　　　答：1、Statement，优点：不需要记录每一行的变化，减少了binlog日志量，节约了IO，提高性能；
-</p>
 
 <p align="left">
   　　　　　　　　　　　　　　缺点：由于记录的只是执行语句，为了这些语句能在slave上正确运行，因此还必须记录每条语句在执行的时候的一些相关信息，以保证所有语句能　　　　　　　　　　　　　　　　　在slave得到和在master端执行时候相同 的结果；
-</p>
 
 <p align="left">
   　　　　　　　　　　　　　　　　　某些特定函数功能会引起复制问题,比如sleep()函数， last_insert_id()；
-</p>
 
 <p align="left">
   　　　　　　　　　　　　　　　　　某些函数无法计入复制日志： LOAD_FILE()
-</p>
 
 <p align="left">
   　　　　　　2、Row模式，优点：不记录执行的sql语句的上下文相关的信息，仅需要记录那一条记录被修改成什么了；
-</p>
 
 <p align="left">
   　　　　　　　　　　　　  缺点：产生大量的日志，大量日志造成io开销大；
-</p>
 
 <p align="left">
   　　　　　　3、mixed模式，一般的语句修改使用statment格式保存binlog，statement无法完成主从复制的操作，则采用row格式保存binlog，MySQL根据sql来选择日志记录　　　　　　　　格式，表结构变更的时候就会以statement模式来记录，update或者delete等修改数据的语句，还是会记录所有行的变更；
-</p>
 
 <p align="left">
         （3）结合第一个问题，每一种日志格式在复制中的优劣。
-</p>
 
 <p align="left">
-  <strong><span lang="EN-US">6</span>，问了下<span lang="EN-US">mysql</span>数据库<span lang="EN-US">cpu</span>飙升到<span lang="EN-US">500%</span>的话他怎么处理？</strong>
-</p>
+  <span lang="EN-US">6，问了下<span lang="EN-US">mysql数据库<span lang="EN-US">cpu飙升到<span lang="EN-US">500%的话他怎么处理？
 
 <p align="left">
   　　答：（1）多实例的服务器，先top查看是那一个进程，哪个端口占用CPU多；
-</p>
 
 <p align="left">
   　　　　（2）show processeslist查看是否由于大量并发，锁引起的负载问题；
-</p>
 
 <p align="left">
   　　　　（3）否则，查看慢查询，找出执行时间长的sql；explain分析sql是否走索引，sql优化；
-</p>
 
 <p align="left">
   　　　　（4）再查看是否缓存失效引起，需要查看buffer命中率；
-</p>
 
 <p align="left">
-  <strong>7</strong><strong>，</strong><strong> sql</strong><strong>优化。</strong><strong><br /> </strong>
-</p>
+  7， sql优化。
+ 
 
 <p align="left">
            （1）explain出来的各种item的意义
-</p>
 
 <p align="left">
   　　　　答：Select_type：所使用的查询类型，主要有以下这几种查询类型：
-</p>
 
 　　　　　　　　DEPENDENT SUBQUERY：子查询内层的第一个SELECT，依赖于外部查询的结果集。
 
@@ -370,248 +305,188 @@ Extra：查询中每一步实现的额外细节信息，主要会是以下内容
 
 <p align="left">
            （2）profile的意义以及使用场景。
-</p>
 
 <p align="left">
   　　　　　　profile是为了锁定sql执行过程中，在每一步消耗的资源；然后有针对性的进行优化；
-</p>
 
 <p align="left">
            （3）explain中的索引问题。
-</p>
 
 <p align="left">
-  <strong>8,  </strong><strong>备份计划，</strong><strong>mysqldump</strong><strong>以及</strong><strong>xtranbackup</strong><strong>的实现原理，</strong><strong><br /> </strong>
-</p>
+  8,  备份计划，mysqldump以及xtranbackup的实现原理，
+ 
 
 <p align="left">
         答： Mysqldump：先锁所有表，然后把表中每条sql拼接为insert语句，一页为一小段，
-</p>
 
 <p align="left">
                                      备份结构为：表结构+insert
-</p>
 
 <p align="left">
                Xtrabackup分对innodb和myisam引擎表的备份；
-</p>
 
 <p align="left">
   　　　　　　　　myisam：锁表进行copy；
-</p>
 
 <p align="left">
   　　　　　　　　innodb： Xtrabackup备份Innodb是利用了innodb的crach_recovery功能；
-</p>
 
 <p align="left">
                                      Crash_recovery是对事务日志，commit的sql记入datafile，没有commit的则回滚，这点在innodb启动时被应用；
-</p>
 
 <p align="left">
                                      Xtrabackup由三个线程进行：
-</p>
 
 <p align="left">
          　　　　　　　　　　　　线程1，copy innodb的页，每秒copy1M，64页，copy过程中页数据是rw的，利用Innodb的内置表进行copy；
-</p>
 
 <p align="left">
   　　　　　　　　　　　　　　 线程2，监控copy过程中页数据是否正常，正常则copy，不正常则再copy一次，最多重复10次；
-</p>
 
 <p align="left">
                                      　　线程3，监控logfile，有变化则立刻copy走；
-</p>
 
 <p align="left">
                                      Copy结束后，记录位置点；
-</p>
 
 <p align="left">
                增量备份:检查与上次备份，哪些页有变化，比较上次备份页的lsn与当前页lsn大小，有变化则copy走，copy结束后，则记录最后的位置点；
-</p>
 
 <p align="left">
   　　（1）备份计划
-</p>
 
 <p align="left">
   　　　　Dump，每天备份一次，每15分钟日志备份；
-</p>
 
 <p align="left">
   　　　　Xtranbackup：每三天备份一次，每天一次增量备份，每15分钟一次日志备份；
-</p>
 
 <p align="left">
   　　（2）备份恢复时间
-</p>
 
 <p align="left">
    　　　　这个真心没看懂问的什么意思。
-</p>
 
 <p align="left">
   　　（3） 备份恢复失败如何处理
-</p>
 
 <p align="left">
   　　　　答：检查表是否损坏，正常则再重新备份恢复；
-</p>
 
 <p align="left">
-  <strong>9</strong><strong>，</strong><strong>  500</strong><strong>台</strong><strong>db</strong><strong>，在最快时间之内重启。</strong>
-</p>
+  9，  500台db，在最快时间之内重启。
 
 10**，****在当前的工作中，你碰到到的最大的****mysql db****问题是？****
   
 ** 
 
 <p align="left">
-  <strong>11</strong><strong>，</strong><strong>  innodb</strong><strong>的读写参数优化</strong>
-</p>
+  11，  innodb的读写参数优化
 
 <p align="left">
   　　（1）    读取参数，global buffer pool以及 local buffer
-</p>
 
 <p align="left">
   　　　　　　Innodb_buffer_pool_size，理论上越大越好，建议服务器50%~80%，实际为数据大小80%~90%即可；
-</p>
 
 <p align="left">
   　　　　　　Innodb_read_io_thread，根据处理器内核数决定；
-</p>
 
 <p align="left">
   　　　　　　Read_buffer_size;
-</p>
 
 <p align="left">
   　　　　　　Sort_buffer_size
-</p>
 
 <p align="left">
   　　（2）    写入参数
-</p>
 
 <p align="left">
   　　　　　　Insert_buffer_size；
-</p>
 
 <p align="left">
   　　　　　　Innodb_double_write；
-</p>
 
 <p align="left">
   　　　　　　Innodb_write_io_thread
-</p>
 
 <p align="left">
   　　　　　　innodb_flush_method
-</p>
 
 <p align="left">
   　　（3）    与IO相关的参数
-</p>
 
 <p align="left">
   　　　　　　Innodb_log_buffer_size
-</p>
 
 <p align="left">
   　　　　　　innodb_flush_log_at_trx_commit
-</p>
 
 <p align="left">
   　　　　　　innodb_file_io_threads
-</p>
 
 <p align="left">
   　　　　　　innodb_max_dirty_pages_pct
-</p>
 
 <p align="left">
        （4）缓存参数以及缓存的适用场景
-</p>
 
 <p align="left">
-  <strong>12 </strong><strong>，请简洁地描述下</strong><strong>MySQL</strong><strong>中</strong><strong>InnoDB</strong><strong>支持的四种事务隔离级别名称，以及逐级之间的区别？</strong>
-</p>
+  12 ，请简洁地描述下MySQL中InnoDB支持的四种事务隔离级别名称，以及逐级之间的区别？
 
 <p align="left">
          未提交读（uncommited read），提交读（commited read），重复读（repeatable read），串行读（serializable）
-</p>
 
 <p align="left">
          这四种隔离级别逐个提高，区别表现在脏读，非重复读，幻读这三点，还有对并发的影响，隔离级别越高，并发性越差；
-</p>
 
 <p align="left">
          所谓脏读，就是同一事务中，会读取还未提交的事务修改的数据；
-</p>
 
 <p align="left">
          非重复读，是指在同一事务中，在t1时刻，读取某行数据时为A，t2时刻读取同一行数据时，由于其他事务更新，这行数据已经发生改变；
-</p>
 
 <p align="left">
          幻读，是指在同一事务中，同一查询多次进行时，由于其他事务的提交，插入新纪录，导致每次查询的结果都不同；
-</p>
 
 <p align="left">
   　　区别在于：
-</p>
 
 <p align="left">
          未提交读：会造成脏读，非重复读，幻读；
-</p>
 
 <p align="left">
          提交读：不会造成脏读，但是会有非重复读，幻读；
-</p>
 
 <p align="left">
          重复读：可能会造成幻读；
-</p>
 
 <p align="left">
          串行读：不会造成脏读，非重复读，幻读；
-</p>
 
 <p align="left">
-  <strong>13</strong><strong>，表中有大字段</strong><strong>X</strong><strong>（例如：</strong><strong>text</strong><strong>类型），且字段</strong><strong>X</strong><strong>不会经常更新，以读为为主，请问</strong>
-</p>
+  13，表中有大字段X（例如：text类型），且字段X不会经常更新，以读为为主，请问
 
 <p align="left">
   （1）    您 是选择拆成子表，还是继续放一起？
-</p>
 
 <p align="left">
   a)      放在子表中
-</p>
 
 <p align="left">
   （2）    写出您这样选择的理由？
-</p>
 
 <p align="left">
   a)       避免大数据被频繁的从buffer重换进换出，影响其他数据的缓存；
-</p>
 
 <p align="left">
-  <strong>14</strong><strong>，</strong><strong>MySQL</strong><strong>中</strong><strong>InnoDB</strong><strong>引擎的行锁是通过加在什么上完成（或称实现）的？为什么是这样子的？</strong><strong> </strong>
-</p>
+  14，MySQL中InnoDB引擎的行锁是通过加在什么上完成（或称实现）的？为什么是这样子的？ 
 
 <p align="left">
-  <strong>       </strong>Innodb的行锁是加在索引实现的；
-</p>
+         Innodb的行锁是加在索引实现的；
 
 <p align="left">
   　　 原因是:innodb是将primary key index和相关的行数据共同放在B+树的叶节点；innodb一定会有一个primary key，secondary index查找的时候，也是通过找到对应的primary，再找对应的数据行；
-</p>
 
-&nbsp;
 
 http://www.cnblogs.com/wyeat/p/job_interview2.html

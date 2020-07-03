@@ -40,15 +40,15 @@ Tasksel is a tool that installs multiple related packages as a co-ordinated “t
 
 Install gnome on debian
 
-\# tasksel install gnome-desktop &#8211;new-install
+\# tasksel install gnome-desktop -new-install
 
 KDE
 
-K Desktop Environment (KDE) is a free desktop environment and development platform built with Trolltech’s Qt toolkit. It runs on most Unix and Unix-like systems, such as Linux, BSD and Solaris.
+K Desktop Environment (KDE) is a free desktop environment and development platform built with Trolltech's Qt toolkit. It runs on most Unix and Unix-like systems, such as Linux, BSD and Solaris.
 
 \# apt-get install aptitude tasksel
 
-\# aptitude &#8211;without-recommends install ~t^standard$ ~t^desktop$ ~t^kde-desktop$
+\# aptitude -without-recommends install ~t^standard$ ~t^desktop$ ~t^kde-desktop$
 
 Or install KDE from the default repositorie
 
@@ -58,15 +58,15 @@ Compiz
 
 Compiz is truly one of the original compositing window managers for the X Window System which is capable to make use of OpenGL-acceleration. The integration enables it to run compositing effects in window management, for example a minimization effect and a cube workspace. Compiz conforms to the ICCCM standard together with replacement for the main Metacity in GNOME or KWin in KDE.
 
-\# echo &#8220;deb http://ftp.us.debian.org/debian/ sid main non-free contrib&#8221; >> /etc/apt/sources.list
+\# echo "deb http://ftp.us.debian.org/debian/ sid main non-free contrib" >> /etc/apt/sources.list
 
-\# echo &#8216;APT::Default-Release &#8220;testing&#8221;;&#8217; >> /etc/apt/apt.conf
+\# echo 'APT::Default-Release "testing";' >> /etc/apt/apt.conf
 
 \# apt-get update
 
 \# apt-get -t sid install compiz compiz-fusion-plugins-extra compizconfig-settings-manager
 
-\# compiz &#8211;replace
+\# compiz -replace
 
 You can configure Compiz via CCSM utility. located in System -> Preferences -> CompizConfig
 
@@ -118,7 +118,7 @@ After that change /etc/apt/apt.conf.d/80mintupdate-debian
 
 To
 
-Acquire::Check-Valid-Until &#8220;false&#8221;;
+Acquire::Check-Valid-Until "false";
 
 Finally we can install cinnamon on debian 7 wheezy now
 
@@ -206,7 +206,7 @@ $ nano .bashrc
 
 add these code to the end of the .bashrc file
 
-if [ &#8220;$(tty)&#8221; = &#8220;/dev/tty1&#8221; -o &#8220;$(tty)&#8221; = &#8220;/dev/vc/1&#8221; ] ; then
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ] ; then
 
 startxfce4
 
@@ -234,7 +234,7 @@ Fluxbox is a extremely minimalistic and fast window manager for Linux and Unix s
 
 You will need to install X before FluxBox
 
-$ su &#8211;
+$ su -
 
 \# apt-get update && apt-get install xorg
 
@@ -246,7 +246,7 @@ The fluxbox package from debian contains:
 
 fluxbox: window manager
 
-fbsetbg: setup script for rootwindow’s background
+fbsetbg: setup script for rootwindow's background
 
 fbrun: small RunApplication tool
 

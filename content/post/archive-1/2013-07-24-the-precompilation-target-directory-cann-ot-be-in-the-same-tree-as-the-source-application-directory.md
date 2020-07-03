@@ -14,18 +14,17 @@ ot be in the same tree as the source application directory (D:appsjenkinsHomejob
   
 workspacexxxxxx.metaproj]
 
-&nbsp;
 
 modify the slution file xxx.sln
 
 modity from
 
-Debug.AspNetCompiler.TargetPath=&#8221;PrecompiledWebxxx&#8221;
+Debug.AspNetCompiler.TargetPath="PrecompiledWebxxx"
 
-Release.AspNetCompiler.TargetPath=&#8221;PrecompiledWebxxx&#8221;
+Release.AspNetCompiler.TargetPath="PrecompiledWebxxx"
 
 to
 
-Debug.AspNetCompiler.TargetPath=&#8221;..PrecompiledWebxxx&#8221;
+Debug.AspNetCompiler.TargetPath="..PrecompiledWebxxx"
 
-Release.AspNetCompiler.TargetPath=&#8221;..PrecompiledWebxxx&#8221;
+Release.AspNetCompiler.TargetPath="..PrecompiledWebxxx"

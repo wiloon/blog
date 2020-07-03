@@ -12,11 +12,11 @@ tags:
 ---
 跳转到行
   
-(define-key global-map &#8220;\C-c\C-g&#8221; &#8216;goto-line)
+(define-key global-map "\C-c\C-g" 'goto-line)
 
-`C-x C-f 文件名’ — 打开文件`C-x C-s’ — 保存文件
+`C-x C-f 文件名' — 打开文件`C-x C-s' — 保存文件
   
-`C-x C-c’ — 退出Emacs`C-x u’ — 取消上一次操作
+`C-x C-c' — 退出Emacs`C-x u' — 取消上一次操作
   
 C-x C-w 按提示输入文件名，另存为
 
@@ -50,9 +50,9 @@ M-x occur 统计该表达式在buffer中出现的次数，显示在哪些地方�
 
 ALT+X hexl-mode 进入16进制模式
 
-`C-‘开头的是`Ctrl’键加上后面的键一块按下，例如 \`C-x 0′就是Ctrl键和 x键一块按下， 然后再按下0;
+`C-'开头的是`Ctrl'键加上后面的键一块按下，例如 \`C-x 0′就是Ctrl键和 x键一块按下， 然后再按下0;
 
-以 \`M-‘开头的就是META键, 一般就是 Alt键.
+以 \`M-'开头的就是META键, 一般就是 Alt键.
 
 http://hi.baidu.com/gz_gzhao/item/0090f3bfdeca95442bebe37d
   

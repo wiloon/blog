@@ -12,7 +12,6 @@ http://blog.csdn.net/bingqingsuimeng/article/details/8470029
 
 http://blog.chinaunix.net/uid-20511624-id-1659107.html
 
-&nbsp;
 
 什么是Socket
   
@@ -26,9 +25,9 @@ Socket建立
   
 int socket(int domain, int type, int protocol);
   
-domain指明所使用的协议族，通常为PF\_INET，表示互连网协议族（TCP/IP协议族）；type参数指定socket的类型： SOCK\_STREAM 或SOCK\_DGRAM，Socket接口还定义了原始Socket（SOCK\_RAW），允许程式使用低层协议；protocol通常赋值&#8221;0&#8243;。 Socket()调用返回一个整型socket描述符，您能够在后面的调用使用他。
+domain指明所使用的协议族，通常为PF\_INET，表示互连网协议族（TCP/IP协议族）；type参数指定socket的类型： SOCK\_STREAM 或SOCK\_DGRAM，Socket接口还定义了原始Socket（SOCK\_RAW），允许程式使用低层协议；protocol通常赋值"0"。 Socket()调用返回一个整型socket描述符，您能够在后面的调用使用他。
   
-Socket描述符是个指向内部数据结构的指针，他指向描述符表入口。调用Socket函数时，socket执行体将建立一个Socket，实际上&#8221;建立一个Socket&#8221;意味着为一个Socket数据结构分配存储空间。Socket执行体为您管理描述符表。
+Socket描述符是个指向内部数据结构的指针，他指向描述符表入口。调用Socket函数时，socket执行体将建立一个Socket，实际上"建立一个Socket"意味着为一个Socket数据结构分配存储空间。Socket执行体为您管理描述符表。
   
 两个网络程式之间的一个网络连接包括五种信息：通信协议、本地协议地址、本地主机端口、远端主机地址和远端协议端口。Socket数据结构中包含这五种信息。
   
@@ -92,7 +91,7 @@ my\_addr.sin\_addr.s\_addr = INADDR\_ANY; /\* 填入本机IP地址 \*/
   
 ·ntohs()：把16位值从网络字节序转换成主机字节序
   
-Bind()函数在成功被调用时返回0；出现错误时返回&#8221;-1&#8243;并将errno置为相应的错误号。需要注意的是，在调用bind函数时一般不要将端口号置为小于1024的值，因为1到1024是保留端口号，您能够选择大于1024中的任何一个没有被占用的端口号。
+Bind()函数在成功被调用时返回0；出现错误时返回"-1"并将errno置为相应的错误号。需要注意的是，在调用bind函数时一般不要将端口号置为小于1024的值，因为1到1024是保留端口号，您能够选择大于1024中的任何一个没有被占用的端口号。
   
 连接建立
   
@@ -132,7 +131,7 @@ Sockfd是您想用来传输数据的socket描述符；msg是个指向要发送�
   
 Send()函数返回实际上发送出的字节数，可能会少于您希望发送的数据。在程式中应该将send()的返回值和欲发送的字节数进行比较。当send()返回值和len不匹配时，应该对这种情况进行处理。
   
-char *msg = &#8220;Hello!&#8221;;
+char *msg = "Hello!";
   
 int len, bytes_sent;
   
@@ -178,11 +177,11 @@ int shutdown(int sockfd,int how);
   
 Sockfd是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式：
   
-·0&#8212;&#8212;-不允许继续接收数据
+·0---不允许继续接收数据
   
-·1&#8212;&#8212;-不允许继续发送数据
+·1---不允许继续发送数据
   
-·2&#8212;&#8212;-不允许继续发送和接收数据，
+·2---不允许继续发送和接收数据，
   
 ·均为允许则调用close ()
   
@@ -190,7 +189,7 @@ shutdown在操作成功时返回0，在出现错误时返回-1并置相应errno�
   
 Socket编程实例
   
-代码实例中的服务器通过socket连接向客户端发送字符串&#8221;Hello, you are connected!&#8221;。只要在服务器上运行该服务器软件，在客户端运行客户软件，客户端就会收到该字符串。
+代码实例中的服务器通过socket连接向客户端发送字符串"Hello, you are connected!"。只要在服务器上运行该服务器软件，在客户端运行客户软件，客户端就会收到该字符串。
   
 该服务器软件代码如下：
   
@@ -226,7 +225,7 @@ struct sockaddr\_in remote\_addr; /\* 客户端地址信息 \*/
   
 if ((sockfd = socket(AF\_INET, SOCK\_STREAM, 0)) == -1) {
   
-perror(&#8220;socket创建出错！&#8221;); exit(1);
+perror("socket创建出错！"); exit(1);
   
 }
   
@@ -240,7 +239,7 @@ bzero(&(my\_addr.sin\_zero),8);
   
 if (bind(sockfd, (struct sockaddr *)&my_addr, sizeof(struct sockaddr)) == -1) {
   
-perror(&#8220;bind出错！&#8221;);
+perror("bind出错！");
   
 exit(1);
   
@@ -248,7 +247,7 @@ exit(1);
   
 if (listen(sockfd, BACKLOG) == -1) {
   
-perror(&#8220;listen出错！&#8221;);
+perror("listen出错！");
   
 exit(1);
   
@@ -260,19 +259,19 @@ sin\_size = sizeof(struct sockaddr\_in);
   
 if ((client\_fd = accept(sockfd, (struct sockaddr *)&remote\_addr, &sin_size)) == -1) {
   
-perror(&#8220;accept出错&#8221;);
+perror("accept出错");
   
 continue;
   
 }
   
-printf(&#8220;received a connection from %s\n&#8221;, inet\_ntoa(remote\_addr.sin_addr));
+printf("received a connection from %s\n", inet\_ntoa(remote\_addr.sin_addr));
   
 if (!fork()) { /\* 子进程代码段 \*/
   
-if (send(client_fd, &#8220;Hello, you are connected!\n&#8221;, 26, 0) == -1)
+if (send(client_fd, "Hello, you are connected!\n", 26, 0) == -1)
   
-perror(&#8220;send出错！&#8221;);
+perror("send出错！");
   
 close(client_fd);
   
@@ -288,7 +287,7 @@ close(client_fd);
   
 }
   
-服务器的工作流程是这样的：首先调用socket函数创建一个Socket，然后调用bind函数将其和本机地址连同一个本地端口号绑定，然后调用 listen在相应的socket上监听，当accpet接收到一个连接服务请求时，将生成一个新的socket。服务器显示该客户机的IP地址，并通过新的socket向客户端发送字符串&#8221;Hello，you are connected!&#8221;。最后关闭该socket。
+服务器的工作流程是这样的：首先调用socket函数创建一个Socket，然后调用bind函数将其和本机地址连同一个本地端口号绑定，然后调用 listen在相应的socket上监听，当accpet接收到一个连接服务请求时，将生成一个新的socket。服务器显示该客户机的IP地址，并通过新的socket向客户端发送字符串"Hello，you are connected!"。最后关闭该socket。
   
 代码实例中的fork()函数生成一个子进程来处理数据传输部分，fork()语句对于子进程返回的值为0。所以包含fork函数的if语句是子进程代码部分，他和if语句后面的父进程代码部分是并发执行的。
   
@@ -332,7 +331,7 @@ if (connect(sockfd, (struct sockaddr *)&serv_addr, \
   
 sizeof(struct sockaddr)) == -1) {
   
-perror(&#8220;connect出错！&#8221;);
+perror("connect出错！");
   
 exit(1);
   
@@ -340,15 +339,15 @@ exit(1);
   
 if ((recvbytes=recv(sockfd, buf, MAXDATASIZE, 0)) ==-1) {
   
-perror(&#8220;recv出错！&#8221;);
+perror("recv出错！");
   
 exit(1);
   
 }
   
-buf[recvbytes] = &#8216;\0&#8242;;
+buf[recvbytes] = '\0';
   
-printf(&#8220;Received: %s&#8221;,buf);
+printf("Received: %s",buf);
   
 close(sockfd);
   
@@ -398,7 +397,7 @@ fcntl(sockfd,F\_SETFL,O\_NONBLOCK)；
   
 ……
   
-通过配置socket为非阻塞方式，能够实现&#8221;轮询&#8221;若干Socket。当企图从一个没有数据等待处理的非阻塞Socket读入数据时，函数将立即返回，返回值为-1，并置errno值为EWOULDBLOCK。但是这种&#8221;轮询&#8221;会使CPU处于忙等待方式，从而降低性能，浪费系统资源。而调用 select()会有效地解决这个问题，他允许您把进程本身挂起来，而同时使系统内核监听所需要的一组文档描述符的任何活动，只要确认在任何被监控的文档描述符上出现活动，select()调用将返回指示该文档描述符已准备好的信息，从而实现了为进程选出随机的变化，而不必由进程本身对输入进行测试而浪费 CPU开销。Select函数原型为:
+通过配置socket为非阻塞方式，能够实现"轮询"若干Socket。当企图从一个没有数据等待处理的非阻塞Socket读入数据时，函数将立即返回，返回值为-1，并置errno值为EWOULDBLOCK。但是这种"轮询"会使CPU处于忙等待方式，从而降低性能，浪费系统资源。而调用 select()会有效地解决这个问题，他允许您把进程本身挂起来，而同时使系统内核监听所需要的一组文档描述符的任何活动，只要确认在任何被监控的文档描述符上出现活动，select()调用将返回指示该文档描述符已准备好的信息，从而实现了为进程选出随机的变化，而不必由进程本身对输入进行测试而浪费 CPU开销。Select函数原型为:
   
 int select(int numfds,fd\_set \*readfds,fd\_set \*writefds，
   
@@ -406,13 +405,13 @@ fd_set \*exceptfds,struct timeval \*timeout);
   
 其中readfds、writefds、exceptfds分别是被select()监控的读、写和异常处理的文档描述符集合。假如您希望确定是否能够从标准输入和某个socket描述符读取数据，您只需要将标准输入的文档描述符0和相应的sockdtfd加入到readfds集合中；numfds的值是需要检查的号码最高的文档描述符加1，这个例子中numfds的值应为sockfd+1；当select返回时，readfds将被修改，指示某个文档描述符已准备被读取，您能够通过FD\_ISSSET()来测试。为了实现fd\_set中对应的文档描述符的配置、复位和测试，他提供了一组宏：
   
-FD\_ZERO(fd\_set *set)&#8212;-清除一个文档描述符集；
+FD\_ZERO(fd\_set *set)--清除一个文档描述符集；
   
-FD\_SET(int fd,fd\_set *set)&#8212;-将一个文档描述符加入文档描述符集中；
+FD\_SET(int fd,fd\_set *set)--将一个文档描述符加入文档描述符集中；
   
-FD\_CLR(int fd,fd\_set *set)&#8212;-将一个文档描述符从文档描述符集中清除；
+FD\_CLR(int fd,fd\_set *set)--将一个文档描述符从文档描述符集中清除；
   
-FD\_ISSET(int fd,fd\_set *set)&#8212;-试判断是否文档描述符被置位。
+FD\_ISSET(int fd,fd\_set *set)--试判断是否文档描述符被置位。
   
 Timeout参数是个指向struct timeval类型的指针，他能够使select()在等待timeout长时间后没有文档描述符准备好即返回。struct timeval数据结构为：
   
@@ -458,19 +457,19 @@ struct sockaddr\_in serv\_addr;
   
 char *POPMessage[]={
   
-&#8220;USER userid\r\n&#8221;,
+"USER userid\r\n",
   
-&#8220;PASS password\r\n&#8221;,
+"PASS password\r\n",
   
-&#8220;STAT\r\n&#8221;,
+"STAT\r\n",
   
-&#8220;LIST\r\n&#8221;,
+"LIST\r\n",
   
-&#8220;RETR 1\r\n&#8221;,
+"RETR 1\r\n",
   
-&#8220;DELE 1\r\n&#8221;,
+"DELE 1\r\n",
   
-&#8220;QUIT\r\n&#8221;,
+"QUIT\r\n",
   
 NULL
   
@@ -484,9 +483,9 @@ int iEnd=0;
   
 char buf[MAXDATASIZE];
   
-if((host=gethostbyname(&#8220;your.server&#8221;))==NULL) {
+if((host=gethostbyname("your.server"))==NULL) {
   
-perror(&#8220;gethostbyname error&#8221;);
+perror("gethostbyname error");
   
 exit(1);
   
@@ -494,7 +493,7 @@ exit(1);
   
 if ((sockfd = socket(AF\_INET, SOCK\_STREAM, 0)) == -1){
   
-perror(&#8220;socket error&#8221;);
+perror("socket error");
   
 exit(1);
   
@@ -510,7 +509,7 @@ bzero(&(serv\_addr.sin\_zero),8);
   
 if (connect(sockfd, (struct sockaddr *)&serv_addr,sizeof(struct sockaddr))==-1){
   
-perror(&#8220;connect error&#8221;);
+perror("connect error");
   
 exit(1);
   
@@ -520,15 +519,15 @@ do {
   
 send(sockfd,POPMessage[iMsg],strlen(POPMessage[iMsg]),0);
   
-printf(&#8220;have sent: %s&#8221;,POPMessage[iMsg]);
+printf("have sent: %s",POPMessage[iMsg]);
   
 iLength=recv(sockfd,buf+iEnd,sizeof(buf)-iEnd,0);
   
 iEnd+=iLength;
   
-buf[iEnd]=&#8217;\0&#8217;;
+buf[iEnd]='\0';
   
-printf(&#8220;received: %s,%d\n&#8221;,buf,iMsg);
+printf("received: %s,%d\n",buf,iMsg);
   
 iMsg++;
   
@@ -542,7 +541,7 @@ Unix/Linux环境下的Socket编程
   
 网络的Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。 Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该 Socket实现的。常用的Socket类型有两种：流式Socket （SOCK\_STREAM）和数据报式Socket（SOCK\_DGRAM）。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。
   
-Socket描述符是个指向内部数据结构的指针，他指向描述符表入口。调用Socket函数时，socket执行体将建立一个Socket，实际上&#8221;建立一个Socket&#8221;意味着为一个Socket数据结构分配存储空间。Socket执行体为您管理描述符表。两个网络程式之间的一个网络连接包括五种信息：通信协议、本地协议地址、本地主机端口、远端主机地址和远端协议端口。Socket数据结构中包含这五种信息。
+Socket描述符是个指向内部数据结构的指针，他指向描述符表入口。调用Socket函数时，socket执行体将建立一个Socket，实际上"建立一个Socket"意味着为一个Socket数据结构分配存储空间。Socket执行体为您管理描述符表。两个网络程式之间的一个网络连接包括五种信息：通信协议、本地协议地址、本地主机端口、远端主机地址和远端协议端口。Socket数据结构中包含这五种信息。
   
 struct sockaddr结构类型是用来保存socket信息的：
   
@@ -596,7 +595,7 @@ sockaddr_in的指针转换为指向sockaddr的指针；或相反。
   
 ·ntohs()：把16位值从网络字节序转换成主机字节序
   
-Bind()函数在成功被调用时返回0；出现错误时返回&#8221;-1&#8243;并将errno置为相应的错误号。需要注意的
+Bind()函数在成功被调用时返回0；出现错误时返回"-1"并将errno置为相应的错误号。需要注意的
   
 是，在调用bind函数时一般不要将端口号置为小于1024的值，因为1到1024是保留端口号，您能够选择
   
@@ -638,9 +637,8 @@ Recvfrom()函数返回接收到的字节数或当出现错误时返回-1，并�
   
 当任何的数据操作结束以后，您能够调用close()函数来释放该socket，从而停止在该socket上的任
   
-何数据操作：close(sockfd); 也能够调用shutdown()函数来关闭该socket。该函数允许您只停止在某个方向上的数据传输，而一个方向上的数据传输继续进行。如您能够关闭某socket的写操作而允许继续在该socket上接受数据，直至读入任何数据。Sockfd 是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式：0&#8212;&#8212;-不允许继续接收数据 1&#8212;&#8212;-不允许继续发送数据 2&#8212;&#8212;-不允许继续发送和接收数据，均为允许则调用close () shutdown在操作成功时返回0，在出现错误时返回-1并置相应errno。
+何数据操作：close(sockfd); 也能够调用shutdown()函数来关闭该socket。该函数允许您只停止在某个方向上的数据传输，而一个方向上的数据传输继续进行。如您能够关闭某socket的写操作而允许继续在该socket上接受数据，直至读入任何数据。Sockfd 是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式：0---不允许继续接收数据 1---不允许继续发送数据 2---不允许继续发送和接收数据，均为允许则调用close () shutdown在操作成功时返回0，在出现错误时返回-1并置相应errno。
 
-&nbsp;
 
 socket API原本是为网络通讯设计的，但后来在socket的框架上发展出一种IPC机制，就是UNIXDomain Socket。虽然网络socket也可用于同一台主机的进程间通讯（通过loopback地址127.0.0.1），但是UNIX Domain Socket用于IPC更有效率：不需要经过网络协议栈，不需要打包拆包、计算校验和、维护序号和应答等，只是将应用层数据从一个进程拷贝到另一个进程。这是因为，IPC机制本质上是可靠的通讯，而网络协议是为不可靠的通讯设计的。UNIX Domain Socket也提供面向流和面向数据包两种API接口，类似于TCP和UDP，但是面向消息的UNIX Domain Socket也是可靠的，消息既不会丢失也不会顺序错乱。
 
@@ -676,7 +674,6 @@ http://blog.csdn.net/htttw/article/details/7519971
   
 2. connect：   主动连接服务器端的某个文件（AF\_UNIX）或某个端口（AF\_INET）
 
-&nbsp;
 
 3. read/write：如果服务器同意连接（accept），则读取或发送数据到服务器端
 
@@ -686,7 +683,6 @@ http://blog.csdn.net/htttw/article/details/7519971
 
 Makefile：
 
-&nbsp;
 
 \[plain\]\[/plain\] view plaincopy
 
@@ -702,7 +698,6 @@ rm -rf *.o tcp\_client tcp\_server
 
 tcp_server.c：
 
-&nbsp;
 
 \[cpp\]\[/cpp\] view plaincopy
 
@@ -724,7 +719,7 @@ int main()
   
 /\* delete the socket file \*/
   
-unlink(&#8220;server_socket&#8221;);
+unlink("server_socket");
 
 /\* create a socket \*/
   
@@ -734,7 +729,7 @@ struct sockaddr\_un server\_addr;
   
 server\_addr.sun\_family = AF_UNIX;
   
-strcpy(server\_addr.sun\_path, &#8220;server_socket&#8221;);
+strcpy(server\_addr.sun\_path, "server_socket");
 
 /\* bind with the local file \*/
   
@@ -756,7 +751,7 @@ while(1)
   
 {
   
-printf(&#8220;server waiting:\n&#8221;);
+printf("server waiting:\n");
 
 /\* accept a connection \*/
   
@@ -766,7 +761,7 @@ client\_sockfd = accept(server\_sockfd, (struct sockaddr *)&client_addr, &
   
 read(client_sockfd, &ch, 1);
   
-printf(&#8220;get char from client: %c\n&#8221;, ch);
+printf("get char from client: %c\n", ch);
   
 ++ch;
   
@@ -784,7 +779,6 @@ return 0;
 
 tcp_client.c：
 
-&nbsp;
 
 \[cpp\]\[/cpp\] view plaincopy
 
@@ -812,7 +806,7 @@ struct sockaddr_un address;
   
 address.sun\_family = AF\_UNIX;
   
-strcpy(address.sun\_path, &#8220;server\_socket&#8221;);
+strcpy(address.sun\_path, "server\_socket");
 
 /\* connect to the server \*/
   
@@ -822,7 +816,7 @@ if(result == -1)
   
 {
   
-perror(&#8220;connect failed: &#8220;);
+perror("connect failed: ");
   
 exit(1);
   
@@ -830,13 +824,13 @@ exit(1);
 
 /\* exchange data \*/
   
-char ch = &#8216;A&#8217;;
+char ch = 'A';
   
 write(sockfd, &ch, 1);
   
 read(sockfd, &ch, 1);
   
-printf(&#8220;get char from server: %c\n&#8221;, ch);
+printf("get char from server: %c\n", ch);
 
 /\* close the socket \*/
   
@@ -846,7 +840,6 @@ return 0;
   
 }
 
-&nbsp;
 
 如果我们首先运行tcp_client，会提示没有这个文件：
   
@@ -882,7 +875,6 @@ socket()函数返回新创建的socket，出错则返回-1
 
 常用的有两种socket域：AF\_UNIX或AF\_INET，因此就有两种地址格式：sockaddr\_un和sockaddr\_in，分别定义如下：
 
-&nbsp;
 
 \[cpp\]\[/cpp\] view plaincopy
 
@@ -910,7 +902,6 @@ struct in\_addr sin\_addr;       /\* internet address \*/
 
 其中in_addr正是用来描述一个ip地址的：
 
-&nbsp;
 
 \[cpp\]\[/cpp\] view plaincopy
 
@@ -922,7 +913,6 @@ unsigned long int s_addr;
   
 }
 
-&nbsp;
 
 从上面的定义我们可以看出，sun\_path存放socket的本地文件名，sin\_addr存放socket的ip地址，sin_port存放socket的端口号。
   

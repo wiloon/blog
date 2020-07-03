@@ -22,7 +22,8 @@ journal config
   
 SystemMaxUse=1024M
 
-```bash# 最近一次重新引导后收集到的日志
+```bash
+# 最近一次重新引导后收集到的日志
 journalctl -b
 
 # 查看系统上全部来自Nginx单元的日志
@@ -96,9 +97,9 @@ systemd journal本身未提供日志分发功能。
 注：systemd-212引入了 systemd-journal-remote >systemd-journal-remote is a command to receive serialized journal events and store them to the journal.
 
 <blockquote data-secret="ObA611VJvT" class="wp-embedded-content">
-  <p>
+  
     <a href="https://www.nenew.net/arch-linux-enable-systemd-fix-syslog-error.html">Arch Linux启用Systemd后syslog无法正常工作解决方法</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.nenew.net/arch-linux-enable-systemd-fix-syslog-error.html/embed#?secret=ObA611VJvT" data-secret="ObA611VJvT" width="600" height="338" title="《Arch Linux启用Systemd后syslog无法正常工作解决方法》—奶牛博客" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

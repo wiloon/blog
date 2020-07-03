@@ -10,7 +10,8 @@ categories:
 ---
 For parted set/activate the flag bios_grub on the partition.
 
-```bashset 1 bios_grub on
+```bash
+set 1 bios_grub on
 pacman -S grub
 grub-install --target=i386-pc /dev/sdX
 grub-mkconfig -o /boot/grub/grub.cfg

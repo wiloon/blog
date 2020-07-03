@@ -46,7 +46,7 @@ tips:
   
 1,sudo apt-get install scim-pinyin
   
-2,if some packages can’t be downloaded, try sudo apt-get update –-fix-missing
+2,if some packages can't be downloaded, try sudo apt-get update –-fix-missing
   
 3,run scim and it will run wihle booting.
 

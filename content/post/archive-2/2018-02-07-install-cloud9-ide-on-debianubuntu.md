@@ -10,7 +10,7 @@ categories:
 ---
 https://github.com/c9
 
-[code lang=shell]
+```bash
   
 git clone https://github.com/c9/core sdk
   
@@ -20,6 +20,6 @@ cd sdk/
   
 node server.js -p 8181 -l 0.0.0.0 -w /our/project/directory/-a :
   
-[/code]
+```
 
 https://www.vultr.com/docs/install-the-cloud9-ide-on-debian-wheezy

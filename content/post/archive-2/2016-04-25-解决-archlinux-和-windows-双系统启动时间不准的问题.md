@@ -10,13 +10,12 @@ categories:
 ---
 https://bbs.archlinuxcn.org/viewtopic.php?id=424
 
-&nbsp;
 
-<pre><code class="nginx">&lt;span class="title">pacman&lt;/span> -S openntpd
+<code class="nginx"><span class="title">pacman -S openntpd
 systemctl start openntpd```
 
-<pre>ntpd -s -d</pre>
+ntpd -s -d
 
-<pre><span class="n">hwclock</span> <span class="o">-</span><span class="n">w</span></pre>
+<span class="n">hwclock <span class="o">-<span class="n">w
 
-<pre><code class="nginx">http://mindonmind.github.io/notes/linux/arch_time.html```
+<code class="nginx">http://mindonmind.github.io/notes/linux/arch_time.html```

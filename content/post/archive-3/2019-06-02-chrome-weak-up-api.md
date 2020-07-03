@@ -12,7 +12,7 @@ chrome://flags/#enable-experimental-web-platform-features
 
 Note: Like most other powerful web APIs, the Wake Lock API is only available when served over HTTPS.
 
-<pre><code class="language-javascript line-numbers">let wakeLock;
+<code class="language-javascript line-numbers">let wakeLock;
 let wakeLockRequest;
 
 async function toggleWakeLock() {
@@ -22,7 +22,7 @@ async function toggleWakeLock() {
       wakeLock = await navigator.getWakeLock("screen");
       updateStatus(wakeLock);
       // Listen for changes to the wakeLock
-      wakeLock.addEventListener('activechange', (e) =&gt; {
+      wakeLock.addEventListener('activechange', (e) => {
         updateStatus(wakeLock);
       });
       wakeLockRequest = wakeLock.createRequest();

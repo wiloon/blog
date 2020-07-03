@@ -10,20 +10,23 @@ categories:
 ---
 ### install rclone
 
-```bash# install rclone
+```bash
+# install rclone
 sudo pacman -S rclone
 sudo pacman -S fuse
 ```
 
 ### config fuse
 
-```bashsudo vim /etc/fuse.conf
+```bash
+sudo vim /etc/fuse.conf
 # uncomment  user_allow_other
 ```
 
 ### google drive
 
-```bash# config rclone
+```bash
+# config rclone
 rclone config
 # n, new config
 # name? name-foo, a name
@@ -41,7 +44,8 @@ rclone config
 rclone mount name-foo:path/to/files /path/to/local/mount --allow-other --vfs-cache-mode writes
 ```
 
-```bashrclone lsl foo:
+```bash
+rclone lsl foo:
 rclone dedupe --dedupe-mode newest $name
 
 # linux mount google drive
@@ -56,7 +60,8 @@ rclone.exe mount foo:/ x: --cache-dir C:\path\to\cache\dir --vfs-cache-mode writ
 
 ### mount webdav
 
-```bashrclone config
+```bash
+rclone config
 n
 name0 # enter name
 24 #webdav, see help at https://rclone.org/webdav/
@@ -71,7 +76,8 @@ rclone lsl
 
 uid=1000, gid=2000
 
-```bashsudo vim /etc/systemd/system/rclone.service
+```bash
+sudo vim /etc/systemd/system/rclone.service
 
 [Unit]
 Description=keepass@foo
@@ -112,12 +118,12 @@ WantedBy=default.target
 https://rclone.org/webdav/
 
 <blockquote class="wp-embedded-content" data-secret="JYXAHPlYuh">
-  <p>
+  
     <a href="https://www.jamescoyle.net/how-to/3116-rclone-systemd-startup-mount-script">rclone Systemd startup mount script</a>
-  </p>
+  
 </blockquote>
 
-<iframe title="&#8220;rclone Systemd startup mount script&#8221; &#8212; JamesCoyle.net Limited" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.jamescoyle.net/how-to/3116-rclone-systemd-startup-mount-script/embed#?secret=JYXAHPlYuh" data-secret="JYXAHPlYuh" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""rclone Systemd startup mount script" - JamesCoyle.net Limited" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.jamescoyle.net/how-to/3116-rclone-systemd-startup-mount-script/embed#?secret=JYXAHPlYuh" data-secret="JYXAHPlYuh" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 ### windows
 
@@ -125,7 +131,7 @@ for windows, install winfsp <https://github.com/billziss-gh/winfsp> first
   
 windows vbs脚本后台挂载
 
-<pre><code class="language-shell line-numbers">著作权归作者所有。
+```bash著作权归作者所有。
 商业转载请联系作者获得授权，非商业转载请注明出处。
 作者：Rhilip
 链接：https://blog.rhilip.info/archives/874/
@@ -153,10 +159,11 @@ end if
 
 <https://rclone.org/onedrive/>
 
-```bashrclone config
-storage&gt; 23
-client_id&gt; ""
-client_secret&gt; ""
+```bash
+rclone config
+storage> 23
+client_id> ""
+client_secret> ""
 dit advanced config? (y/n) n
 Use auto config? y
 Choose a number from below, or type in an existing value: 1 / OneDrive Personal or Business
@@ -165,7 +172,8 @@ Is that okay? y
 y) Yes this is OK (default)
 ```
 
-```bashsudo -i
+```bash
+sudo -i
 rclone config
 # ...
 rclone mount onedrive-keepassxc-db:/keepassxc /mnt/ms-one-drive --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
@@ -174,7 +182,8 @@ rclone mount onedrive: /mnt/ms-one-drive --allow-other
 
 #### systemd config
 
-```bashsudo vim  /etc/systemd/system/rclone-onedrive.service
+```bash
+sudo vim  /etc/systemd/system/rclone-onedrive.service
 
 [Unit]
 Description=keepass@onedrive

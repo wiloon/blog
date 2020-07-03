@@ -70,30 +70,30 @@ mysql中DATE_FORMAT(date, format)函数可根据format字符串格式化日期�
   
 示例:
   
-select date_format(日期字段,’%Y-%m-%d’) as ‘日期’ from test
+select date_format(日期字段,'%Y-%m-%d') as '日期' from test
   
-mysql> SELECT DATE_FORMAT(&#8216;1997-10-04 22:23:00&#8217;, &#8216;%W %M %Y&#8217;);
+mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%W %M %Y');
   
--> &#8216;Saturday October 1997&#8217;
+-> 'Saturday October 1997'
   
-mysql> SELECT DATE_FORMAT(&#8216;1997-10-04 22:23:00&#8217;, &#8216;%H:%i:%s&#8217;);
+mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%H:%i:%s');
   
--> &#8217;22:23:00&#8242;
+-> '22:23:00'
   
-mysql> SELECT DATE_FORMAT(&#8216;1997-10-04 22:23:00&#8217;,
+mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00',
   
-&#8216;%D %y %a %d %m %b %j&#8217;);
+'%D %y %a %d %m %b %j');
   
--> &#8216;4th 97 Sat 04 10 Oct 277&#8217;
+-> '4th 97 Sat 04 10 Oct 277'
   
-mysql> SELECT DATE_FORMAT(&#8216;1997-10-04 22:23:00&#8217;,
+mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00',
   
-&#8216;%H %k %I %r %T %S %w&#8217;);
+'%H %k %I %r %T %S %w');
   
--> &#8217;22 22 10 10:23:00 PM 22:23:00 00 6&#8242;
+-> '22 22 10 10:23:00 PM 22:23:00 00 6'
   
-mysql> SELECT DATE_FORMAT(&#8216;1999-01-01&#8217;, &#8216;%X %V&#8217;);
+mysql> SELECT DATE_FORMAT('1999-01-01', '%X %V');
   
--> &#8216;1998 52&#8217;
+-> '1998 52'
 
-在 MySQL 3.23 中，在格式修饰符前需要字符 \`%\`。在更早的 MySQL 版本中，\`%\` 是可选的。 月份与天修饰符的范围从零开始的原因是，在 MySQL 3.23 中，它允许存储不完善的日期值(例如 &#8216;2009-00-00&#8217;)。
+在 MySQL 3.23 中，在格式修饰符前需要字符 \`%\`。在更早的 MySQL 版本中，\`%\` 是可选的。 月份与天修饰符的范围从零开始的原因是，在 MySQL 3.23 中，它允许存储不完善的日期值(例如 '2009-00-00')。

@@ -38,8 +38,8 @@ assertion(断言)在软件开发中是一种常用的调试方式，很多开发
 下面是一些Assert的例子。
 
   1. assert　　0 < value;
-  2. assert　　0 < value:&#8221;value=&#8221;+value;
-  3. assert　　ref != null:&#8221;ref doesn&#8217;t equal null&#8221;;
+  2. assert　　0 < value:"value="+value;
+  3. assert　　ref != null:"ref doesn't equal null";
   4. assert　　isBalanced();
 
 <a name="N1009B"></a>1．4) 编译
@@ -65,7 +65,7 @@ javac -source 1.4 test.java
   
     -ea和-da的全名为-enableassertions和-disenableassertions，全名和缩写名有同样的功能。
   
-    下面表格表示了参数及其含义，并有例子说明如何使用。</p> <table width="60%" border="1">
+    下面表格表示了参数及其含义，并有例子说明如何使用。 <table width="60%" border="1">
       <tr>
         <td>
           参数
@@ -166,11 +166,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -ea:&#8230;
+          -ea:...
         </td>
         
         <td>
-          java -ea:&#8230;
+          java -ea:...
         </td>
         
         <td>
@@ -180,11 +180,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -da:&#8230;
+          -da:...
         </td>
         
         <td>
-          java -da:&#8230;
+          java -da:...
         </td>
         
         <td>
@@ -194,11 +194,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -ea:<packagename>&#8230;
+          -ea:<packagename>...
         </td>
         
         <td>
-          java -ea:pkg1&#8230;
+          java -ea:pkg1...
         </td>
         
         <td>
@@ -208,11 +208,11 @@ javac -source 1.4 test.java
       
       <tr>
         <td>
-          -da:<packagename>&#8230;
+          -da:<packagename>...
         </td>
         
         <td>
-          java -da:pkg1&#8230;
+          java -da:pkg1...
         </td>
         
         <td>
@@ -263,7 +263,7 @@ javac -source 1.4 test.java
       </tr>
     </table>
     
-    其中&#8230;代表，此包和其子包的含义。例如我们有两个包为pkg1和pkg1.subpkg。那么pkg1&#8230;就代表pkg1和pkg1.subpkg两个包。
+    其中...代表，此包和其子包的含义。例如我们有两个包为pkg1和pkg1.subpkg。那么pkg1...就代表pkg1和pkg1.subpkg两个包。
   
     另外，Java为了让程序也能够动态开启和关闭某些类和包的assertion功能，Java修该了Class和ClassLoader的实现，增加了几个用于操作assert的API。下面简单说明一下几个API的作用。
   
@@ -277,8 +277,8 @@ javac -source 1.4 test.java
   
     clearAssertionStatus：用于关闭assertion功能</li> </ol> 
     
-    <div>
-    </div>
+    
+    
     
     [回页首][1]
     
@@ -292,8 +292,8 @@ javac -source 1.4 test.java
     
     另外，我们注意到AssertionError作为Error的一个子类，而不是RuntimeException。关于这一点，专家组也进行了长期的讨论。Error代表一些异常的错误，通常是不可以恢复的，而RuntimeException强调该错误在运行时才发生的特点。AssertionError通常为非常关键的错误，这些错误往往是不容易恢复的，而且assertion机制也不鼓励程序员对这种错误进行恢复。因此，为了强调assertion的含义，Java专家小组选择了让AssertError为Error的子类。
     
-    <div>
-    </div>
+    
+    
     
     [回页首][1]
     
@@ -306,7 +306,7 @@ javac -source 1.4 test.java
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td>
-          <pre>class Base
+          class Base
 {
   public void baseMethod()
   {
@@ -335,12 +335,12 @@ class Derived
       System.out.println(ae);
     }
   }
-}</pre>
+}
         </td>
       </tr>
     </table>
     
-    &nbsp;
+    
     
     <table width="60%" border="1">
       <tr>
@@ -430,8 +430,8 @@ class Derived
     
     从这个例子我们可以看出，父类的assert语句将只有在父类的assert开启才起作用，如果仅仅开启子类的assert，父类的assert仍然不运行。例如，我们执行java -ea:Derived Derived的时候，Base类的assert语句并不执行。因此，我们可以认为，assert语句不具有继承功能。
     
-    <div>
-    </div>
+    
+    
     
     [回页首][1]
     
@@ -444,12 +444,12 @@ class Derived
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td>
-              <pre>	switch (x)
+              	switch (x)
  	{ case 1: …;
           case 2: …;
           case 3: …
 	  default: assert false:"x value is invalid: "+x;
-}</pre>
+}
             </td>
           </tr>
         </table>
@@ -462,7 +462,7 @@ class Derived
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td>
-              <pre>assert  value&gt;=0:"Value should be bigger than 0:"+value;</pre>
+              assert  value>=0:"Value should be bigger than 0:"+value;
             </td>
           </tr>
         </table>
@@ -474,17 +474,17 @@ class Derived
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td>
-                  <pre>      private boolean isBalance() {
+                        private boolean isBalance() {
            ……
-         }</pre>
+         }
                 </td>
               </tr>
             </table>
             
             在这个系统中，在一些可能影响这种平衡关系的方法的前后，我们都可以加上assert验证： `assert isBalance():"balance is destoried";`</li> </ol> 
             
-            <div>
-            </div>
+            
+            
             
             [回页首][1]
             
@@ -492,29 +492,29 @@ class Derived
             
             assertion为开发人员提供了一种灵活地调试和测试机制，它的使用也非常简单、方便。但是，如何规范、系统地使用assertion(特别是在Java语言中)仍然是一个亟待研究的问题。
             
-            &nbsp;
+            
             
             <a name="resources"></a>参考资料
             
               1. JSR 41 A Simple Assertion Facility <http://jcp.org/jsr/detail/41.jsp>
-              2. Wm. Paul Rogers, J2SE 1.4 premieres Java&#8217;s assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
+              2. Wm. Paul Rogers, J2SE 1.4 premieres Java's assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
               3. J2SE 1.4 Documents, Programming With Assertions <http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html>
               4. John Zukowski, Mastering Java 2, J2SE 1.4
             
             <a name="author"></a>作者简介
             
-            <div>
-              <div>
-                <p>
-                  <a name="author1"></a>欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 <a href="mailto:yeekee@sina.com?cc=yeekee@sina.com">yeekee@sina.com</a>
-                </p>
-              </div>
+            
               
-              <div>
-                <p>
+                
+                  <a name="author1"></a>欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 <a href="mailto:yeekee@sina.com?cc=yeekee@sina.com">yeekee@sina.com</a>
+                
+              
+              
+              
+                
                   <a name="author2"></a>周欣，北京大学计算机系在读博士生，主要研究方向：程序理解、逆向工程及软件度量，联系方式 <a href="mailto:zhouxin@sei.pku.edu.cn?cc=zhouxin@sei.pku.edu.cn">zhouxin@sei.pku.edu.cn</a>。
-                </p>
-              </div>
-            </div>
+                
+              
+            
 
  [1]: http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html#ibm-pcon

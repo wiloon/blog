@@ -10,7 +10,7 @@ categories:
 ---
 [shell]
 
-git clone &#8211;branch pkg-archlinux git://github.com/kovetskiy/manul /tmp/manul
+git clone -branch pkg-archlinux git://github.com/kovetskiy/manul /tmp/manul
   
 cd /tmp/manul
   

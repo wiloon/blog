@@ -14,37 +14,32 @@ http://www.cnblogs.com/ganzhijie/archive/2010/08/21/1805573.html
 
 Android permission 访问权限大全
 
-&nbsp;
 
-<manifest xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   
-package=&#8221;com.example.testbutton&#8221;
+package="com.example.testbutton"
   
-android:versionCode=&#8221;1&#8243;
+android:versionCode="1"
   
-android:versionName=&#8221;1.0&#8243; >
+android:versionName="1.0" >
 
 <uses-sdk
   
-android:minSdkVersion=&#8221;7&#8243;
+android:minSdkVersion="7"
   
-android:targetSdkVersion=&#8221;15&#8243; />
+android:targetSdkVersion="15" />
   
-<!&#8211; 声明权限 &#8211;>
+<!- 声明权限 ->
   
-<permission android:name=&#8221;com.example.testbutton.RECEIVE&#8221; />
+<permission android:name="com.example.testbutton.RECEIVE" />
 
 <application
   
-android:icon=&#8221;@drawable/ic_launcher&#8221;
+android:icon="@drawable/ic_launcher"
   
-android:label=&#8221;@string/app_name&#8221;
+android:label="@string/app_name"
 
-&#8230;&#8230;
-
-&nbsp;
-
-&nbsp;
+......
 
 程序执行需要读取到安全敏感项必需在androidmanifest.xml中声明相关权限请求, 完整列表如下:
 
@@ -74,7 +69,7 @@ android.permission.ACCESS\_NETWORK\_STATE
 
 android.permission.ACCESS\_SURFACE\_FLINGER
 
-允许程序使用SurfaceFlinger底层特性 (Allows an application to use SurfaceFlinger’s low level features)
+允许程序使用SurfaceFlinger底层特性 (Allows an application to use SurfaceFlinger's low level features)
 
 android.permission.ACCESS\_WIFI\_STATE
 
@@ -252,11 +247,11 @@ android.permission.PROCESS\_OUTGOING\_CALLS
 
 android.permission.READ_CALENDAR
 
-允许程序读取用户日历数据(Allows an application to read the user’s calendar data.)
+允许程序读取用户日历数据(Allows an application to read the user's calendar data.)
 
 android.permission.READ_CONTACTS
 
-允许程序读取用户联系人数据(Allows an application to read the user’s contacts data.)
+允许程序读取用户联系人数据(Allows an application to read the user's contacts data.)
 
 android.permission.READ\_FRAME\_BUFFER
 
@@ -272,7 +267,7 @@ android.permission.READ_LOGS
 
 android.permission.READ\_OWNER\_DATA
 
-允许程序读取所有者数据(Allows an application to read the owner’s data)
+允许程序读取所有者数据(Allows an application to read the owner's data)
 
 android.permission.READ_SMS
 
@@ -404,11 +399,11 @@ android.permission.WRITE\_APN\_SETTINGS
 
 android.permission.WRITE_CALENDAR
 
-允许一个程序写入但不读取用户日历数据(Allows an application to write (but not read) the user’s calendar data. )
+允许一个程序写入但不读取用户日历数据(Allows an application to write (but not read) the user's calendar data. )
 
 android.permission.WRITE_CONTACTS
 
-允许程序写入但不读取用户联系人数据(Allows an application to write (but not read) the user’s contacts data. )
+允许程序写入但不读取用户联系人数据(Allows an application to write (but not read) the user's contacts data. )
 
 android.permission.WRITE_GSERVICES
 
@@ -416,7 +411,7 @@ android.permission.WRITE_GSERVICES
 
 android.permission.WRITE\_OWNER\_DATA
 
-允许一个程序写入但不读取所有者数据(Allows an application to write (but not read) the owner’s data.)
+允许一个程序写入但不读取所有者数据(Allows an application to write (but not read) the owner's data.)
 
 android.permission.WRITE_SETTINGS
 

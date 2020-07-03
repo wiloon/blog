@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/Android_Tutor/article/details/5081713
 
-Android中级教程之&#8212;-Log图文详解(Log.v,Log.d,Log.i,Log.w,Log.e)!
+Android中级教程之--Log图文详解(Log.v,Log.d,Log.i,Log.w,Log.e)!
   
 分类： Android中级教程 2009-12-26 16:14 61927人阅读 评论(56) 收藏 举报
   
@@ -20,7 +20,7 @@ androidlayoutbuttonencodingeclipsebt
 
 android.util.Log常用的方法有以下5个：Log.v() Log.d() Log.i() Log.w() 以及 Log.e() 。根据首字母对应VERBOSE，DEBUG,INFO, WARN，ERROR。
 
-1、Log.v 的调试颜色为黑色的，任何消息都会输出，这里的v代表verbose啰嗦的意思，平时使用就是Log.v(&#8220;&#8221;,&#8221;&#8221;);
+1、Log.v 的调试颜色为黑色的，任何消息都会输出，这里的v代表verbose啰嗦的意思，平时使用就是Log.v("","");
 
 2、Log.d的输出颜色是蓝色的，仅输出debug调试的意思，但他会输出上层的信息，过滤起来可以通过DDMS的Logcat标签来选择.
 

@@ -16,7 +16,8 @@ replace顾名思义，就是用新的package去替换另一个package，他们�
   
 go mod replace 必须带版本号, 不带版本号的replace只能用于replace到本地目录
 
-```bash# old是要被替换的package，new就是用于替换的package。
+```bash
+# old是要被替换的package，new就是用于替换的package。
 go mod edit -replace=old[@v]=new[@v]
 
 # replace golang sys
@@ -29,18 +30,18 @@ go mod edit -replace=git.xxx.com/path/to/package@v1.0.2=/path/to/local/package
 go mod edit -replace=github.com/wiloon/pingd-config=/home/wiloon/projects/pingd-config/
 
 #after that, in the go.mod
-replace git.xxx.com/path/to/package v1.0.2 =&gt; /path/to/local/package
+replace git.xxx.com/path/to/package v1.0.2 => /path/to/local/package
 ```
 
-```bash&lt;br />replace golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e =&gt; github.com/golang/sys v0.0.0-20180909124046-d0be0721c37e
+```bash<br />replace golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e => github.com/golang/sys v0.0.0-20180909124046-d0be0721c37e
 
-replace golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3 =&gt; github.com/golang/net v0.0.0-20190404232315-eb5bcb51f2a3
+replace golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3 => github.com/golang/net v0.0.0-20190404232315-eb5bcb51f2a3
 
-replace golang.org/x/text v0.3.0 =&gt; github.com/golang/text v0.3.0
+replace golang.org/x/text v0.3.0 => github.com/golang/text v0.3.0
 
-replace golang.org/x/crypto v0.0.0-20190404164418-38d8ce5564a5 =&gt; github.com/golang/crypto v0.0.0-20190404164418-38d8ce5564a5
+replace golang.org/x/crypto v0.0.0-20190404164418-38d8ce5564a5 => github.com/golang/crypto v0.0.0-20190404164418-38d8ce5564a5
 
-replace google.golang.org/appengine v1.6.0 =&gt; github.com/golang/appengine v1.6.0
+replace google.golang.org/appengine v1.6.0 => github.com/golang/appengine v1.6.0
 
 ```
 

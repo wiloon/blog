@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-<pre data-language=HTML><code class="language-markup line-numbers">&lt;input type="value0"&gt;
+<pre data-language=HTML>```xml
+<input type="value0">
 ``` 
 
 hidden 定义隐藏的输入字段。

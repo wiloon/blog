@@ -15,21 +15,20 @@ categories:
 <div id="title">
   <div id="blurb">
     <em>SyntaxHighlighter is an open source Java Script client side code syntax highlighter.</em>
-  </div>
+  
   
   <div id="meta">
     <a href="http://alexgorbatchev.com/SyntaxHighlighter/donate.html">donate</a><a href="http://alexgorbatchev.com/SyntaxHighlighter/download">download</a><a href="http://alexgorbatchev.com/SyntaxHighlighter/manual/installation.html">installation</a><a href="http://alexgorbatchev.com/SyntaxHighlighter/manual/api/autoloader.html">autoloader</a><a href="http://alexgorbatchev.com/SyntaxHighlighter/manual/configuration">configuration</a><a href="http://twitter.com/syntaxhighlight">@syntaxhighlight</a>
-  </div>
+  
   
   <h2>
     Bundled Brushes
   </h2>
-</div>
 
 <div id="content">
-  <p>
-    SyntaxHighlighter uses separate syntax files called <strong>brushes</strong> to define its highlighting functionality.
-  </p>
+  
+    SyntaxHighlighter uses separate syntax files called brushes to define its highlighting functionality.
+  
   
   <table cellspacing="0">
     <tr>
@@ -368,4 +367,3 @@ categories:
       </td>
     </tr>
   </table>
-</div>

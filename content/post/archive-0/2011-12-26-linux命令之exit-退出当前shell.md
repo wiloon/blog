@@ -30,15 +30,15 @@ exit命令用于退出当前shell，在shell脚本中可以终止当前脚本执
   
 上一个命令的退出码。
 
-格式：trap &#8220;commands&#8221; EXIT
+格式：trap "commands" EXIT
   
 退出时执行commands指定的命令。（ A trap on EXIT is executed before the shell terminates.）
 
 退出码（exit status，或exit code）的约定：
   
-0表示成功（Zero &#8211; Success）
+0表示成功（Zero - Success）
   
-非0表示失败（Non-Zero &#8211; Failure）
+非0表示失败（Non-Zero - Failure）
   
 2表示用法不当（Incorrect Usage）
   
@@ -90,11 +90,11 @@ C代码
   
 #define EX_SOFTWARE 70 /\* internal software error \*/
   
-#define EX_OSERR 71 /\* system error (e.g., can&#8217;t fork) \*/
+#define EX_OSERR 71 /\* system error (e.g., can't fork) \*/
   
 #define EX_OSFILE 72 /\* critical OS file missing \*/
   
-#define EX_CANTCREAT 73 /\* can&#8217;t create (user) output file \*/
+#define EX_CANTCREAT 73 /\* can't create (user) output file \*/
   
 #define EX_IOERR 74 /\* input/output error \*/
   
@@ -128,23 +128,23 @@ cd $(dirname $0) || exit 1
   
 Bash代码
   
-if [ &#8220;$#&#8221; -ne &#8220;2&#8221; ]; then
+if [ "$#" -ne "2" ]; then
       
-echo &#8220;usage: $0 
+echo "usage: $0 
 
 <area />
-<hours>&#8221;
+<hours>"
 
       
 exit 2
   
-fi</p> 
+fi 
 
 示例四 在脚本中，退出时删除临时文件
   
 Bash代码
   
-trap &#8220;rm -f tmpfile; echo Bye.&#8221; EXIT
+trap "rm -f tmpfile; echo Bye." EXIT
 
 示例五 检查上一命令的退出码
   
@@ -154,8 +154,8 @@ Bash代码
   
 EXCODE=$?
   
-if [ &#8220;$EXCODE&#8221; == &#8220;0&#8221; ]; then
+if [ "$EXCODE" == "0" ]; then
       
-echo &#8220;O.K&#8221;
+echo "O.K"
   
 fi

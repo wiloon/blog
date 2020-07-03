@@ -48,13 +48,13 @@ The Dynamic Code Evolution VirtualMachine (DCEVM)is a modification of the Java H
   
 uhttp://www.hotswapagent.org/
   
-uHotswap agent does the work of reloadingresources and framework configuration (Spring, Hibernate, &#8230;)
+uHotswap agent does the work of reloadingresources and framework configuration (Spring, Hibernate, ...)
   
 uHotswapagentis a plugin container with plugin manager, plugin registry, and several agentservices (e.g. to watch for class/resource change). It helps with common tasksand classloading issues. It scans classpath for class annotated with @Pluginannotation, injects agent services and registers reloading hooks. Runtimebytecode modification is provided by javaasist library.
 
 具体怎么用？
 
-照着我上头给的两个地址安装他们，具体怎么搞，我比较懒，就不写了（注意，在安装DCEVM的时候，请用临时替换）&#8221;InstallDCEVM as altjvm&#8221; 
+照着我上头给的两个地址安装他们，具体怎么搞，我比较懒，就不写了（注意，在安装DCEVM的时候，请用临时替换）"InstallDCEVM as altjvm" 
 
 配置你的运行脚本（假设你的APP是运行在各种服务器上，比如tomcat, jboss等），上头两个网站也有，别告诉我你看不懂英文，我还是懒，不想写
   

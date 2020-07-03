@@ -10,10 +10,10 @@ categories:
 ---
 ### gradle kotlin
 
-<pre><code class="language-kotlin line-numbers">repositories {
+<code class="language-kotlin line-numbers">repositories {
     mavenCentral()
     maven {
-        setUrl("&lt;MAVEN REPO URL&gt;")
+        setUrl("<MAVEN REPO URL>")
     }
 }
 ```
@@ -30,7 +30,7 @@ allprojects {
   
 repositories {
   
-maven{ url &#8216;http://maven.oschina.net/content/groups/public/&#8217;}
+maven{ url 'http://maven.oschina.net/content/groups/public/'}
   
 }
   
@@ -46,7 +46,7 @@ allprojects{
   
 repositories {
   
-def REPOSITORY_URL = &#8216;http://maven.oschina.net/content/groups/public&#8217;
+def REPOSITORY_URL = 'http://maven.oschina.net/content/groups/public'
   
 all { ArtifactRepository repo ->
   
@@ -54,9 +54,9 @@ if(repo instanceof MavenArtifactRepository){
   
 def url = repo.url.toString()
   
-if (url.startsWith(&#8216;https://repo1.maven.org/maven2&#8217;) || url.startsWith(&#8216;https://jcenter.bintray.com/&#8217;)) {
+if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) {
   
-project.logger.lifecycle &#8220;Repository ${repo.url} replaced by $REPOSITORY_URL.&#8221;
+project.logger.lifecycle "Repository ${repo.url} replaced by $REPOSITORY_URL."
   
 remove repo
   

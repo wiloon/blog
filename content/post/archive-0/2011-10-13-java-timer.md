@@ -56,7 +56,7 @@ TimerTask是一个实现了Runnable接口的抽象类，代表一个可以被Tim
   
     18 public void run(){
   
-    19 System.out.println(“Time’s up!”);
+    19 System.out.println(“Time's up!”);
   
     20 timer.cancel();
   
@@ -78,7 +78,7 @@ Task scheduled.
 
 然后3秒钟后，看到
 
-Time’s up!
+Time's up!
 
 从这个例子可以看出一个典型的利用timer执行计划任务的过程如下：
 
@@ -91,8 +91,6 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
 2 this(“Timer-” + serialNumber());
   
 3 }
-  
-4
   
 5 public Timer(String name) {
   
@@ -150,8 +148,6 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
   
 4 queue[i] = null;
   
-5
-  
 6 size = 0;
   
 7 }
@@ -163,8 +159,6 @@ clear方法很简单，就是去清空queue，queue是一个TimerTask的数组�
 2 this(“Timer-” + serialNumber());
   
 3 }
-  
-4
   
 5 public Timer(String name) {
   

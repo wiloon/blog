@@ -10,7 +10,8 @@ categories:
 ---
 http://studygolang.com/articles/3387
 
-[code lang=java]
+```java
+
   
 package system
 
@@ -22,4 +23,4 @@ return os.Getenv(key)
   
 }
   
-[/code]
+```

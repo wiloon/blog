@@ -18,7 +18,6 @@ deb http://debian.nctu.edu.tw/debian/ squeeze main non-free contrib
   
 deb http://debian.nctu.edu.tw/debian/ squeeze-proposed-updates main non-free contrib
 
-&nbsp;
 
 \# 这个ftp的源速度很快（将http改为ftp也可）
   

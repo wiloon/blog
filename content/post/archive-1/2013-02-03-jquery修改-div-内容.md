@@ -8,4 +8,4 @@ categories:
   - Web
 
 ---
-<pre id="best-content-365824777">$(选择器).html(内容)</pre>
+<pre id="best-content-365824777">$(选择器).html(内容)

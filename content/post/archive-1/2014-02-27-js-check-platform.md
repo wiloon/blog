@@ -10,13 +10,12 @@ tags:
   - JavaScript
 
 ---
-&nbsp;
 
-[javascript]
+```
 
 <script type="text/javascript">
    
-<!&#8211;
+<!-
    
 //平台、设备和操作系统
    
@@ -54,13 +53,14 @@ window.location.href="wapLojin.jsp";
    
 }
    
-&#8211;>
+->
   
 </script>
 
-[/javascript]
+```
 
-[javascript]
+```
+
   
 <code>var isMobile = {
       
@@ -96,7 +96,7 @@ return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobil
   
 };</code>
   
-[/javascript]
+```
 
 http://blog.csdn.net/yakson/article/details/9390863
 

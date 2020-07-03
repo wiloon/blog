@@ -39,7 +39,8 @@ func (m *Mutex) Unlock()用于解锁m，如果在使用Unlock()前未加锁，�
 
 正常运行例子：
 
-```golang package main  
+```golang
+package main  
 
 import (  
     "fmt"  
@@ -59,7 +60,8 @@ func main() {
 
 当Unlock()在Lock()之前使用时，便会报错
 
-```golang package main  
+```golang
+package main  
 
 import (  
     "fmt"  
@@ -79,7 +81,8 @@ func main() {
 
 当在解锁之前再次进行加锁，便会死锁状态
 
-```golang package main  
+```golang
+package main  
 
 import (  
     "fmt"  
@@ -97,7 +100,7 @@ func main() {
 
 运行结果: 1
 
-fatal error: all goroutines are asleep &#8211; deadlock!
+fatal error: all goroutines are asleep - deadlock!
   
 RWMutex是一个读写锁，该锁可以加多个读锁或者一个写锁，其经常用于读次数远远多于写次数的场景．
 
@@ -105,7 +108,8 @@ func (rw *RWMutex) Lock()　　写锁，如果在添加写锁之前已经有其�
     
 func (rw *RWMutex) Unlock()　写锁解锁，如果没有进行写锁定，则就会引起一个运行时错误．
 
-```golang package main  
+```golang
+package main  
 
 import (  
     "fmt"  
@@ -127,7 +131,8 @@ func (rw *RWMutex) RLock() 读锁，当有写锁时，无法加载读锁，当�
 
 func (rw *RWMutex)RUnlock()　读锁解锁，RUnlock 撤销单次 RLock 调用，它对于其它同时存在的读取器则没有效果。若 rw 并没有为读取而锁定，调用 RUnlock 就会引发一个运行时错误(注：这种说法在go1.3版本中是不对的，例如下面这个例子)。
 
-```golang package main  
+```golang
+package main  
 
 import (  
     "fmt"  
@@ -149,15 +154,16 @@ func main() {
 
 分析：go1.3版本中出现这种情况的原因分析，通过阅读源码可以很清晰的得到结果
 
-```golang func (rw *RWMutex) RUnlock() {  
+```golang
+func (rw *RWMutex) RUnlock() {  
     if raceenabled {  
         _ = rw.w.state  
         raceReleaseMerge(unsafe.Pointer(&rw.writerSem))  
         raceDisable()  
-    }&lt;span style="color:#FF0000;"&gt;  
-    if atomic.AddInt32(&rw.readerCount, -1) &lt; 0 {　//readercounter初始值为０,调用RUnLock之后变为-1，继续往下执行  
+    }<span style="color:#FF0000;">  
+    if atomic.AddInt32(&rw.readerCount, -1) < 0 {　//readercounter初始值为０,调用RUnLock之后变为-1，继续往下执行  
         // A writer is pending.  
-        if atomic.AddInt32(&rw.readerWait, -1) == 0 {　//此时readerwaiter变为１，1-1之后变为０,可以继续以后的操作．&lt;/span&gt;  
+        if atomic.AddInt32(&rw.readerWait, -1) == 0 {　//此时readerwaiter变为１，1-1之后变为０,可以继续以后的操作．  
             // The last reader unblocks the writer.  
             runtime_Semrelease(&rw.writerSem)  
         }  
@@ -170,7 +176,8 @@ func main() {
 
 当RUnlock多于RLock多个时，便会报错，进入死锁．实例如下：
 
-```golang package main  
+```golang
+package main  
 
 import (  
     "fmt"  
@@ -194,7 +201,7 @@ func main() {
   
 1
 
-fatal error: all goroutines are asleep &#8211; deadlock!
+fatal error: all goroutines are asleep - deadlock!
   
 总结：
 

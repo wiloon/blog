@@ -22,17 +22,12 @@ double d=345.975423578631442d;//结果显示为345.975423578631，只显示15个
 
 注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。
 
-decimal dd=345.545454879&#8230;..//可以支持28位，对最后一位四舍五入。
+decimal dd=345.545454879.....//可以支持28位，对最后一位四舍五入。
 
 注：当对decimal类型进行操作时，数值会因溢出而报错。
 
-&nbsp;
-
-&nbsp;
-
 由于对float或double 的使用不当，可能会出现精度丢失的问题。问题大概情况可以通过如下代码理解:
 
-<div>
   <ol>
     <li>
       public class FloatDoubleTest {
@@ -50,13 +45,13 @@ decimal dd=345.545454879&#8230;..//可以支持28位，对最后一位四舍五�
       double d2 = 20014999;
     </li>
     <li>
-      System.out.println(&#8220;f=&#8221; + f);
+      System.out.println("f=" + f);
     </li>
     <li>
-      System.out.println(&#8220;d=&#8221; + d);
+      System.out.println("d=" + d);
     </li>
     <li>
-      System.out.println(&#8220;d2=&#8221; + d2);
+      System.out.println("d2=" + d2);
     </li>
     <li>
       }
@@ -65,9 +60,7 @@ decimal dd=345.545454879&#8230;..//可以支持28位，对最后一位四舍五�
       }
     </li>
   </ol>
-</div>
 
-&nbsp;
 
 得到的结果如下：
 
@@ -107,7 +100,6 @@ double(64位):
 
 以下程序可以得出 20014999 在 double 和 float 下的二进制表示方式。
 
-<div>
   <ol>
     <li>
       public class FloatDoubleTest3 {
@@ -140,9 +132,7 @@ double(64位):
       }
     </li>
   </ol>
-</div>
 
-&nbsp;
 
 输出结果如下：
 
@@ -170,7 +160,6 @@ Float:1001011100110001011001111001100
   
 也就是说 20014999 虽然是在float的表示范围之内，但 在 IEEE 754 的 float 表示法精度长度没有办法表示出 20014999 ，而只能通过四舍五入得到一个近似值。
 
-&nbsp;
 
 **总结：**
 

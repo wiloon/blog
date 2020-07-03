@@ -10,7 +10,7 @@ tags:
   - Network
 
 ---
-172.16.128.0/24 经常看到这类IP地址&#8221;/24&#8243;表示什么意思？
+172.16.128.0/24 经常看到这类IP地址"/24"表示什么意思？
 
 子网掩码, 代表多少个1
   
@@ -18,31 +18,26 @@ tags:
   
 192.168.1.1/24     就表示ip是192.168.1.1, 子网掩码是255.255.255.0
 
-&nbsp;
-
-&nbsp;
-
 http://objccn.io/issue-10-6/
 
-&nbsp;
 
 当 app 和服务器进行通信的时候，大多数情况下，都是采用 HTTP 协议。HTTP 最初是为 web 浏览器而定制的，如果在浏览器里输入 http://www.objc.io ，浏览器会通过 HTTP 协议和 www.objc.io 所对应的服务器进行通信。
 
 HTTP是运行在应用层上的应用协议，而不同的层级上都有相应的协议在运行。层级的堆栈关系一般可以这么描述：
 
-Application Layer &#8212; e.g. HTTP
+Application Layer - e.g. HTTP
   
-&#8212;-
+--
   
-Transport Layer &#8212; e.g. TCP
+Transport Layer - e.g. TCP
   
-&#8212;-
+--
   
-Internet Layer &#8212; e.g. IP
+Internet Layer - e.g. IP
   
-&#8212;-
+--
   
-Link Layer &#8212; e.g. IEEE 802.2
+Link Layer - e.g. IEEE 802.2
 
 所谓的 OSI（Open Systems Interconnection，开放式系统互联）模型定义了七层结构。本文会关注应用层 (application layer)、传输层 (transport layer) 和网络层 (internet layer)，它们分别代表了典型的 HTTP 的应用的 HTTP，TCP 以及 IP。在 IP 之下的是数据连接和物理层级，比如像 Ethernet 的实现之类的东西（Ethernet 拥有一个数据连接部分以及一个物理部分）。
 
@@ -142,7 +137,7 @@ Fragmentation (数据分片)
 
 在IPv6中，如果数据包超限制，路由会直接丢弃数据包并且向发送源回传 ICMP6 的数据帧超长报告信息。源和目标两端会基于这个特性来进行路径 MTU 发现，以此寻找两端之间最大传输单元（maximum transfer unit）所在的路由。找到 MTU 路由后，仅当上层数据包的最小 payload 确实超过了 MTU，IPv6 才会进行分片传输。对于 IPv6 下的 TCP 来说，这不会造成什么问题。
 
-TCP &#8211; 传输控制协议 (Trasnmission Control Protocol)
+TCP - 传输控制协议 (Trasnmission Control Protocol)
   
 TCP 层位于 IP 层之上，是最受欢迎的因特网通讯协议之一，人们通常用 TCP/IP 来泛指整个因特网协议族。
 
@@ -348,7 +343,7 @@ Accept-Encoding: gzip, deflate
   
 Connection: keep-alive
   
-If-None-Match: &#8220;a54907f38b306fe3ae4f32c003ddd507&#8221;
+If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
   
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8
   
@@ -384,7 +379,7 @@ Accept-Encoding: gzip, deflate
 
 If-Modified-Since: Mon, 10 Feb 2014 18:08:48 GMT
   
-If-None-Match: &#8220;a54907f38b306fe3ae4f32c003ddd507&#8221;
+If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
 
 这两行信息表明 Safari 已经对请求结果做过缓存。如果服务器上的待请求内容在 2 月 10 号以后发生过变化或者是 ETag 与a54907f38b306fe3ae4f32c003ddd507 不匹配，这就表示请求结果与当前缓存信息不一致，需要服务器返回最新的请求结果。
 
@@ -402,7 +397,7 @@ Date: Mon, 03 Mar 2014 21:09:45 GMT
   
 Cache-Control: max-age=3600
   
-ETag: &#8220;a54907f38b306fe3ae4f32c003ddd507&#8243;
+ETag: "a54907f38b306fe3ae4f32c003ddd507"
   
 Last-Modified: Mon, 10 Feb 2014 18:08:48 GMT
   
@@ -460,11 +455,11 @@ Connection: keep-alive
 
 <!DOCTYPE html>
   
-<html xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221; xml:lang=&#8221;en-US&#8221; lang=&#8221;en-US&#8221;>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
   
 <head>
   
-<meta charset=&#8221;utf-8&#8243; />
+<meta charset="utf-8" />
 
 后面还会有一些，现在收到的响应里 body 中包含了 HTML 文档信息。
 
@@ -472,7 +467,7 @@ Apple 服务器响应的状态码是 200，这是标准的表示 HTTP 请求成�
 
 服务器同时还告知响应媒体类型是 text/html；字符集 charset=UTF-8；内容长度 Content-Length：12342，代表了 body 信息的大小。
 
-HTTPS &#8211; 安全的 HTTP
+HTTPS - 安全的 HTTP
   
 Transport Layer Security (安全传输层协议，TLS) 是一种基于 TCP 的加密协议。它支持两件事：传输的两端可以互相验证对方的身份，以及加密所传输的数据。基于 TLS 的 HTTP 请求就是 HTTPS。
 
@@ -590,7 +585,7 @@ RFC 2616 指明，在与同一个服务器通讯的时候，如果启用了 HTTP
   
 看看第一个例子中发送的这段 header 信息：
 
-If-None-Match: &#8220;a54907f38b306fe3ae4f32c003ddd507&#8221;
+If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
 
 这表示客户端本地已经针对所请求的资源做过缓存了，如果服务器上的资源有过更新，需要将最新的资源返回给客户端，否则不需要返回。如果自己构建客户端和服务器的数据通信，建议充分利用这个机制。这种机制叫做 HTTP ETag，如果使用得当，会对通讯的速度有明显的优化。
 

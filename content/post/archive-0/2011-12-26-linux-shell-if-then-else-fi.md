@@ -12,7 +12,8 @@ tags:
 ---
 ### 判断指定文件中是否包含指定的字符串
 
-```bashgrep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml &gt; /dev/null
+```bash
+grep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml > /dev/null
 if [ $? -eq 0 ]; then
     echo "Found!"
 else
@@ -22,7 +23,8 @@ fi
 
 ### 判断字符串是否相等
 
-```bash#判断字符串是否相等
+```bash
+#判断字符串是否相等
 if [ "$A" = "$B" ];then
 echo "[ = ]"
 fi
@@ -40,12 +42,6 @@ if [ c1 -a c2 ]; then
   
 fi
   
-1
-  
-2
-  
-3
-  
 方式二：
 
 if [ c1 && c2 ]; then
@@ -53,12 +49,6 @@ if [ c1 && c2 ]; then
 …
   
 fi
-  
-1
-  
-2
-  
-3
   
 2.或者
   
@@ -71,12 +61,6 @@ if [ c1 -o c2 ]; then
 …
   
 fi
-  
-1
-  
-2
-  
-3
   
 方式二：
 
@@ -110,7 +94,8 @@ grep操作的返回值：
 
 https://www.shellscript.sh/functions.html
 
-```bash# check if directory is exist
+```bash
+# check if directory is exist
 if [ ! -d "$DIRECTORY" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
 fi
@@ -132,7 +117,7 @@ if/else
   
 和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如
 
-<pre><code class="language-shell line-numbers">if [ -f ~/.bashrc ]; then
+```bashif [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 ```
@@ -143,33 +128,33 @@ fi
   
 if [ -f /bin/bash ]
   
-then echo &#8220;/bin/bash is a file&#8221;
+then echo "/bin/bash is a file"
   
-else echo &#8220;/bin/bash is NOT a file&#8221;
+else echo "/bin/bash is NOT a file"
   
 fi
   
-if :; then echo &#8220;always true&#8221;; fi
+if :; then echo "always true"; fi
   
 :是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子：
 
 #! /bin/sh
 
-echo &#8220;Is it morning? Please answer yes or no.&#8221;
+echo "Is it morning? Please answer yes or no."
   
 read YES\_OR\_NO
   
-if [ &#8220;$YES\_OR\_NO&#8221; = &#8220;yes&#8221; ]; then
+if [ "$YES\_OR\_NO" = "yes" ]; then
     
-echo &#8220;Good morning!&#8221;
+echo "Good morning!"
   
-elif [ &#8220;$YES\_OR\_NO&#8221; = &#8220;no&#8221; ]; then
+elif [ "$YES\_OR\_NO" = "no" ]; then
     
-echo &#8220;Good afternoon!&#8221;
+echo "Good afternoon!"
   
 else
     
-echo &#8220;Sorry, $YES\_OR\_NO not recognized. Enter yes or no.&#8221;
+echo "Sorry, $YES\_OR\_NO not recognized. Enter yes or no."
     
 exit 1
   
@@ -181,7 +166,7 @@ exit 0
 
 此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样：
 
-test &#8220;$(whoami)&#8221; != &#8216;root&#8217; && (echo you are using a non-privileged account; exit 1)
+test "$(whoami)" != 'root' && (echo you are using a non-privileged account; exit 1)
   
 &&相当于“if…then…”，而||相当于“if not…then…”。&&和||用于连接两个命令，而上面讲的-a和-o仅用于在测试表达式中连接两个测试条件，要注意它们的区别，例如，
 
@@ -233,13 +218,13 @@ filename1 -ot filename2 如果 filename1 比 filename2 旧，则为真 [ /boot/b
   
 字符串比较运算符 （请注意引号的使用，这是防止空格扰乱代码的好方法）
   
--z string 如果 string 长度为零，则为真 [ -z &#8220;$myvar&#8221; ]
+-z string 如果 string 长度为零，则为真 [ -z "$myvar" ]
   
--n string 如果 string 长度非零，则为真 [ -n &#8220;$myvar&#8221; ]
+-n string 如果 string 长度非零，则为真 [ -n "$myvar" ]
   
-string1 = string2 如果 string1 与 string2 相同，则为真 [ &#8220;$myvar&#8221; = &#8220;one two three&#8221; ]
+string1 = string2 如果 string1 与 string2 相同，则为真 [ "$myvar" = "one two three" ]
   
-string1 != string2 如果 string1 与 string2 不同，则为真 [ &#8220;$myvar&#8221; != &#8220;one two three&#8221; ]
+string1 != string2 如果 string1 与 string2 不同，则为真 [ "$myvar" != "one two three" ]
   
 算术比较运算符
   
@@ -257,7 +242,7 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 
 算术运算符
   
-+ &#8211; * / % 表示加减乘除和取余运算
++ - * / % 表示加减乘除和取余运算
   
 += -= *= /= 同 C 语言中的含义
 
@@ -383,23 +368,23 @@ Bash Shell可以进行变量的条件替换,既只有某种条件发生时才进
 
 #!/bin/bash
 
-var1=&#8221;1&#8243;
+var1="1"
   
-var2=&#8221;2&#8243;
+var2="2"
 
 下面是“与”运算符-a，另外注意，用一个test命令就可以了，还有if条件后面的分号
 
-if test $var1 = &#8220;1&#8221;-a $var2 = &#8220;2&#8221; ; then
+if test $var1 = "1"-a $var2 = "2" ; then
      
-echo &#8220;equal&#8221;
+echo "equal"
   
 fi
 
 下面是“或”运算符 -o，有一个为真就可以
 
-if test $var1 != &#8220;1&#8221; -o $var2 != &#8220;3&#8221; ; then
+if test $var1 != "1" -o $var2 != "3" ; then
      
-echo &#8220;not equal&#8221;
+echo "not equal"
   
 fi
 
@@ -407,9 +392,9 @@ fi
   
 if条件是为真的时候执行，如果使用！运算符，那么原表达式必须为false
 
-if ! test $var1 != &#8220;1&#8221;; then
+if ! test $var1 != "1"; then
      
-echo &#8220;not 1&#8243;
+echo "not 1"
   
 fi
 
@@ -417,39 +402,40 @@ fi
 
 示例：
 
-[javascript] view plain copy
+```
+ view plain copy
   
 #!/bin/sh
 
-aa=&#8221;August 15, 2012&#8221;
+aa="August 15, 2012"
   
-bb=&#8221;August 15, 20122&#8243;
+bb="August 15, 20122"
   
-cc=&#8221;123&#8243;
+cc="123"
   
-dd=&#8221;123&#8243;
+dd="123"
 
 # -o
 
-if [ &#8220;$aa&#8221; = &#8220;$bb&#8221; -o &#8220;$cc&#8221; = &#8220;$dd&#8221; ]; then
+if [ "$aa" = "$bb" -o "$cc" = "$dd" ]; then
       
-echo &#8220;yes&#8221;
+echo "yes"
   
 else
       
-echo &#8220;no&#8221;
+echo "no"
   
 fi
 
 # -a and !
 
-if [ &#8220;$aa&#8221; != &#8220;$bb&#8221; -a &#8220;$cc&#8221; = &#8220;$dd&#8221; ]; then
+if [ "$aa" != "$bb" -a "$cc" = "$dd" ]; then
       
-echo &#8220;yes&#8221;
+echo "yes"
   
 else
       
-echo &#8220;no&#8221;
+echo "no"
   
 fi
   
@@ -465,26 +451,26 @@ shell字符串比较、判断是否为数字
 
 1 整数比较
 
--eq 等于,如:if [ &#8220;$a&#8221; -eq &#8220;$b&#8221; ]
+-eq 等于,如:if [ "$a" -eq "$b" ]
 
--ne 不等于,如:if [ &#8220;$a&#8221; -ne &#8220;$b&#8221; ]
+-ne 不等于,如:if [ "$a" -ne "$b" ]
 
--gt 大于,如:if [ &#8220;$a&#8221; -gt &#8220;$b&#8221; ]
+-gt 大于,如:if [ "$a" -gt "$b" ]
 
--ge 大于等于,如:if [ &#8220;$a&#8221; -ge &#8220;$b&#8221; ]
+-ge 大于等于,如:if [ "$a" -ge "$b" ]
 
--lt 小于,如:if [ &#8220;$a&#8221; -lt &#8220;$b&#8221; ]
+-lt 小于,如:if [ "$a" -lt "$b" ]
 
--le 小于等于,如:if [ &#8220;$a&#8221; -le &#8220;$b&#8221; ]
+-le 小于等于,如:if [ "$a" -le "$b" ]
 
-< 小于(需要双括号),如:((&#8220;$a&#8221; < &#8220;$b&#8221;))
+< 小于(需要双括号),如:(("$a" < "$b"))
 
-<= 小于等于(需要双括号),如:((&#8220;$a&#8221; <= &#8220;$b&#8221;))
+<= 小于等于(需要双括号),如:(("$a" <= "$b"))
 
 >       大于(需要双括号),如:(("$a" > "$b"))
 >     
 > 
-> = 大于等于(需要双括号),如:((&#8220;$a&#8221; >= &#8220;$b&#8221;)) 
+> = 大于等于(需要双括号),如:(("$a" >= "$b")) 
 
 整数比较实例
 
@@ -492,67 +478,67 @@ shell字符串比较、判断是否为数字
   
 #!/bin/bash
 
-file=&#8217;folder\_url\_top24/url\_usa\_top24_0&#8242;
+file='folder\_url\_top24/url\_usa\_top24_0'
   
 fileSize=`ls -l folder_url_top24/url_usa_top24_0 | awk -F '[" "]' '{print $5}'`
   
 FILESIZE=1000
   
-#while [ ! -f $file -o &#8220;$fileSize&#8221; -lt &#8220;$FILESIZE&#8221; ]
+#while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
   
-#while [ ! -f $file -o &#8220;$fileSize&#8221; -lt 1000 ]
+#while [ ! -f $file -o "$fileSize" -lt 1000 ]
   
-while ((&#8220;$fileSize&#8221; < 1000))
+while (("$fileSize" < 1000))
   
 do
       
-echo &#8220;down again&#8230;&#8221;
+echo "down again..."
   
 done
   
 其中，下面三种整数比较都成立：
   
-1） while [ ! -f $file -o &#8220;$fileSize&#8221; -lt &#8220;$FILESIZE&#8221; ]
+1） while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
 
-2） while [ ! -f $file -o &#8220;$fileSize&#8221; -lt 1000 ]
+2） while [ ! -f $file -o "$fileSize" -lt 1000 ]
 
-3） ((&#8220;$fileSize&#8221; < 1000))
+3） (("$fileSize" < 1000))
 
 推荐使用第一种
 
 2 字符串比较
   
-= 等于,如:if [ &#8220;$a&#8221; = &#8220;$b&#8221; ]
+= 等于,如:if [ "$a" = "$b" ]
 
-== 等于,如:if [ &#8220;$a&#8221; == &#8220;$b&#8221; ],与=等价
+== 等于,如:if [ "$a" == "$b" ],与=等价
          
 注意:==的功能在[[]]和[]中的行为是不同的,如下:
          
-1 [[ $a == z* ]] # 如果$a以&#8221;z&#8221;开头(模式匹配)那么将为true
+1 [[ $a == z* ]] # 如果$a以"z"开头(模式匹配)那么将为true
          
-2 [[ $a == &#8220;z_&#8221; ]] # 如果$a等于z_(字符匹配),那么结果为true
+2 [[ $a == "z_" ]] # 如果$a等于z_(字符匹配),那么结果为true
          
 3
          
 4 [ $a == z* ] # File globbing 和word splitting将会发生
          
-5 [ &#8220;$a&#8221; == &#8220;z_&#8221; ] # 如果$a等于z_(字符匹配),那么结果为true
+5 [ "$a" == "z_" ] # 如果$a等于z_(字符匹配),那么结果为true
          
-一点解释,关于File globbing是一种关于文件的速记法,比如&#8221;*.c&#8221;就是,再如~也是.
+一点解释,关于File globbing是一种关于文件的速记法,比如"*.c"就是,再如~也是.
          
 但是file globbing并不是严格的正则表达式,虽然绝大多数情况下结构比较像.
 
-!= 不等于,如:if [ &#8220;$a&#8221; != &#8220;$b&#8221; ]
+!= 不等于,如:if [ "$a" != "$b" ]
          
 这个操作符将在[[]]结构中使用模式匹配.
 
 < 小于,在ASCII字母顺序下.如:
          
-if [[ &#8220;$a&#8221; < &#8220;$b&#8221; ]]
+if [[ "$a" < "$b" ]]
          
-if [ &#8220;$a&#8221; \< &#8220;$b&#8221; ]
+if [ "$a" \< "$b" ]
          
-注意:在[]结构中&#8221;<&#8220;需要被转义.
+注意:在[]结构中"<"需要被转义.
 
 >       大于,在ASCII字母顺序下.如:
 >        if [[ "$a" > "$b" ]]
@@ -561,9 +547,9 @@ if [ &#8220;$a&#8221; \< &#8220;$b&#8221; ]
 >        具体参考Example 26-11来查看这个操作符应用的例子.
 >     
 
--z 字符串为&#8221;null&#8221;.就是长度为0
+-z 字符串为"null".就是长度为0
 
--n 字符串不为&#8221;null&#8221;
+-n 字符串不为"null"
 
 判断shell传入的参数个数是否为空：
 
@@ -579,13 +565,13 @@ port=$1 # 获取指定端口号
   
 fi
 
-echo &#8220;redis port: $port&#8221;
+echo "redis port: $port"
   
 redis-cli -h 172.1628.10.114 -p $port
 
 字符串比较实例：
 
-if [ &#8220;$var1&#8221; = &#8220;$var2&#8243; ]
+if [ "$var1" = "$var2" ]
 
 代码：
 
@@ -593,17 +579,17 @@ if [ &#8220;$var1&#8221; = &#8220;$var2&#8243; ]
   
 #!/bin/sh
 
-aa=&#8221;August 15, 2012&#8221;
+aa="August 15, 2012"
   
-bb=&#8221;August 15, 2012&#8243;
+bb="August 15, 2012"
 
-if [ &#8220;$aa&#8221; = &#8220;$bb&#8221; ]; then
+if [ "$aa" = "$bb" ]; then
       
-echo &#8220;yes&#8221;
+echo "yes"
   
 else
       
-echo &#8220;no&#8221;
+echo "no"
   
 fi
 
@@ -613,37 +599,37 @@ fi
 
 [python] view plain copy
   
-a1=&#8221;ithomer&#8221;
+a1="ithomer"
   
-a2=&#8221;ithomer.net&#8221;
+a2="ithomer.net"
   
-a3=&#8221;blog.ithomer.net&#8221;
+a3="blog.ithomer.net"
 
-if [[ &#8220;$a3&#8221; =~ &#8220;$a1&#8221; ]]; then
+if [[ "$a3" =~ "$a1" ]]; then
            
-echo &#8220;$a1是$a3的子串！&#8221;
+echo "$a1是$a3的子串！"
   
 else
            
-echo &#8220;$a1不是$a3的子串！&#8221;
+echo "$a1不是$a3的子串！"
   
 fi
 
-if [[ &#8220;$a3&#8221; =~ &#8220;$a2&#8221; ]];then
+if [[ "$a3" =~ "$a2" ]];then
            
-echo &#8220;$a2是$a3的子串！&#8221;
+echo "$a2是$a3的子串！"
   
 else
            
-echo &#8220;$a2不是$a3的子串！&#8221;
+echo "$a2不是$a3的子串！"
   
 fi
 
 注意:
   
-使用-n在[]结构中测试必须要用&#8221;&#8221;把变量引起来.使用一个未被&#8221;&#8221;的字符串来使用! -z或者就是未用&#8221;&#8221;引用的字符串本身,放到[]结构中。虽然一般情况下可以工作,但这是不安全的.习惯于使用&#8221;&#8221;来测试字符串是一种好习惯.
+使用-n在[]结构中测试必须要用""把变量引起来.使用一个未被""的字符串来使用! -z或者就是未用""引用的字符串本身,放到[]结构中。虽然一般情况下可以工作,但这是不安全的.习惯于使用""来测试字符串是一种好习惯.
 
-awk &#8216;{print $2}&#8217; class.txt | grep &#8216;^[0-9.]&#8217; > res
+awk '{print $2}' class.txt | grep '^[0-9.]' > res
   
 https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60ls%60-into-an-array-346719/
 

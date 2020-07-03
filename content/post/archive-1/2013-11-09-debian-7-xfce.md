@@ -40,13 +40,13 @@ I personally find the greybird and bluebird themes to be great looking when it c
 
 Its easy, just run the following commands
 
-\# add-apt-repository &#8216;deb http://ppa.launchpad.net/shimmerproject/ppa/ubuntu quantal main&#8217;
+\# add-apt-repository 'deb http://ppa.launchpad.net/shimmerproject/ppa/ubuntu quantal main'
 
 \# apt-get update
 
 \# aptitude search shimmer
 
-p shimmer-themes-greybird &#8211; Greybird Theme from the Shimmer Project
+p shimmer-themes-greybird - Greybird Theme from the Shimmer Project
 
 \# apt-get install shimmer-themes-greybird
 

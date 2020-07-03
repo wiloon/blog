@@ -14,7 +14,7 @@ Requirements
   
 2. You must have debugging enabled on your Nexus 7.
   
-3. Download Su here (Chainfire&#8217;s thread for supersu) (Thanks Eric\_Eric\_Eric)
+3. Download Su here (Chainfire's thread for supersu) (Thanks Eric\_Eric\_Eric)
   
 4. Download CWM here. Scroll down to Nexus 7 and choose whether touch or regular.
 
@@ -31,9 +31,9 @@ To unlock your device
   
 1. cd to platform-tools
   
-2. Reboot to the bootloader &#8211; adb reboot bootloader
+2. Reboot to the bootloader - adb reboot bootloader
   
-3. Unlock your device* &#8211;
+3. Unlock your device* -
   
 fastboot oem unlock
   

@@ -12,13 +12,12 @@ create new android studio project
 
 copy following files to new project
 
-folder &#8216;libs&#8217;
+folder 'libs'
 
-folder &#8216;res&#8217;
+folder 'res'
 
-folder &#8216;src&#8217;
+folder 'src'
 
-&nbsp;
 
 edit build.gradle
 
@@ -28,14 +27,7 @@ remove my.xml
 
 remove MyActivity.java
 
-&nbsp;
 
 cd project root run gradle build
 
-&nbsp;
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;

@@ -9,9 +9,9 @@ categories:
 
 ---
 <blockquote data-secret="dTFsANiQAP" class="wp-embedded-content">
-  <p>
+  
     <a href="http://www.zhyea.com/2017/03/15/using-of-bufferedmutator.html">使用BufferedMutator</a>
-  </p>
+  
 </blockquote>
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.zhyea.com/2017/03/15/using-of-bufferedmutator.html/embed#?secret=dTFsANiQAP" data-secret="dTFsANiQAP" width="600" height="338" title="《使用BufferedMutator》—ZY笔记" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

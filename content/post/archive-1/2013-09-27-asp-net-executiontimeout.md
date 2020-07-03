@@ -17,7 +17,7 @@ categories:
 
 ## 《深入理解Java虚拟机:JVM高级特性与最佳实践》 作者： 周志明
 
-Each thread of a running program has its own pc register, or program counter, which is created when the thread is started. The pc register is one word in size, so it can hold both a native pointer and a returnValue. As a thread executes a Java method, the pc register contains the address of the current instruction being executed by the thread. An &#8220;address&#8221; can be a native pointer or an offset from the beginning of a method&#8217;s bytecodes. If a thread is executing a native method, the value of the pc register is undefined.
+Each thread of a running program has its own pc register, or program counter, which is created when the thread is started. The pc register is one word in size, so it can hold both a native pointer and a returnValue. As a thread executes a Java method, the pc register contains the address of the current instruction being executed by the thread. An "address" can be a native pointer or an offset from the beginning of a method's bytecodes. If a thread is executing a native method, the value of the pc register is undefined.
   
 对于一个运行中的Java程序而言，其中的每一个线程都有它自己的PC（程序计数器），在线程启动时创建。大小是一个字长。因此它既能持有一个本地指针，也能够持有一个returnAddress。当线程执行某个Java方法时，PC的内容总是下一条将被指向指令的“地址”。这里的“地址”可以是一个本地指针，也可以是在方法字节码中相对于该方法起始指令的偏移量。如果该线程正在执行一个本地方法，那么此时PC寄存器的值为”undefined”。
 

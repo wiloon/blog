@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-用JAVA获取文件，听似简单，但对于很多像我这样的新人来说，还是掌握颇浅，用起来感觉颇深，大常最经常用的，就是用JAVA的File类，如要取得c:/test.txt文件，就会这样用File file = new File(&#8220;c:/test.txt&#8221;);这样用有什么问题，相信大家都知道，就是路径硬编码，对于JAVA精神来说，应用应该一次成型，到处可用，并且从现实应用来讲，最终生成的应用也会部署到Windows外的操作系统中，对于linux来说，在应用中用了c:/这样的字样，就是失败，所以，我们应该尽量避免使用硬编码，即直接使用绝对路径。
+用JAVA获取文件，听似简单，但对于很多像我这样的新人来说，还是掌握颇浅，用起来感觉颇深，大常最经常用的，就是用JAVA的File类，如要取得c:/test.txt文件，就会这样用File file = new File("c:/test.txt");这样用有什么问题，相信大家都知道，就是路径硬编码，对于JAVA精神来说，应用应该一次成型，到处可用，并且从现实应用来讲，最终生成的应用也会部署到Windows外的操作系统中，对于linux来说，在应用中用了c:/这样的字样，就是失败，所以，我们应该尽量避免使用硬编码，即直接使用绝对路径。
 
 在Servlet应用中，有一个getRealPath(String str)的方法，这个方法尽管也可以动态地获得文件的路径，不秘直接手写绝对路径，但这也是一个不被建议使用的方法，那么，我们有什么方法可以更好地获得文件呢?
 
@@ -18,27 +18,27 @@ tags:
 
 比如我们有以下目录
   
-|&#8211;project
+|-project
   
-|&#8211;src
+|-src
   
-|&#8211;javaapplication
+|-javaapplication
   
-|&#8211;Test.java
+|-Test.java
   
-|&#8211;file1.txt
+|-file1.txt
   
-|&#8211;file2.txt
+|-file2.txt
   
-|&#8211;build
+|-build
   
-|&#8211;javaapplication
+|-javaapplication
   
-|&#8211;Test.class
+|-Test.class
   
-|&#8211;file3.txt
+|-file3.txt
   
-|&#8211;file4.txt
+|-file4.txt
 
 在上面的目录中，有一个src目录，这是JAVA源文件的目录，有一个build目录，这是JAVA编译后文件(.class文件等）的存放目录
   
@@ -50,17 +50,17 @@ file1.txt file2.txt file3.txt file4.txt这四个文件呢？
   
 file3.txt:
   
-方法一：File file3 = new File(Test.class.getResource(&#8220;file3.txt&#8221;).getFile());
+方法一：File file3 = new File(Test.class.getResource("file3.txt").getFile());
   
-方法二：File file3 = new File(Test.class.getResource(&#8220;/javaapplication/file3.txt&#8221;).getFile());
+方法二：File file3 = new File(Test.class.getResource("/javaapplication/file3.txt").getFile());
   
-方法三：File file3 = new File(Test.class.getClassLoader().getResource(&#8220;javaapplication/file3.txt&#8221;).getFile());
+方法三：File file3 = new File(Test.class.getClassLoader().getResource("javaapplication/file3.txt").getFile());
 
 file4.txt:
   
-方法一：File file4 = new File(Test.class.getResource(&#8220;/file4.txt&#8221;).getFile());
+方法一：File file4 = new File(Test.class.getResource("/file4.txt").getFile());
   
-方法二：File file4 = new File(Test.class.getClassLoader().getResource(&#8220;file4.txt&#8221;).getFile());
+方法二：File file4 = new File(Test.class.getClassLoader().getResource("file4.txt").getFile());
 
 很好，我们可以有多种方法选择，但是file1与file2文件呢？如何获得？
   
@@ -70,18 +70,18 @@ file4.txt:
   
 file1.txt
   
-方法一：File file1 = new File(&#8220;c:/project/src/javaapplication/file1.txt&#8221;);
+方法一：File file1 = new File("c:/project/src/javaapplication/file1.txt");
   
 方法二：。。。没有
 
 file2.txt
   
-方法一：File file2 = new File(&#8220;c:/project/src/file2.txt&#8221;);
+方法一：File file2 = new File("c:/project/src/file2.txt");
   
 方法二：。。。也没有
 
 总结一下，就是你想获得文件，你得从最终生成的.class文件为着手点，不要以.java文件的路径为出发点，因为真正使用的就是.class，不会拿个.java文件就使用，因为java是编译型语言嘛
 
-至于getResouce()方法的参数，你以class为出发点，再结合相对路径的概念，就可以准确地定位资源文件了，至于它的根目录嘛，你用不同的IDE build出来是不同的位置下的，不过都是以顶层package作为根目录，比如在Web应用中，有一个WEB-INF的目录，WEB-INF目录里面除了web.xml文件外，还有一个classes目录，没错了，它就是你这个WEB应用的package的顶层目录，也是所有.class的根目录“/”，假如clasaes目录下面有一个file.txt文件，它的相对路径就是&#8221;/file.txt&#8221;，如果相对路径不是以&#8221;/&#8221;开头，那么它就是相对于.class的路径。。
+至于getResouce()方法的参数，你以class为出发点，再结合相对路径的概念，就可以准确地定位资源文件了，至于它的根目录嘛，你用不同的IDE build出来是不同的位置下的，不过都是以顶层package作为根目录，比如在Web应用中，有一个WEB-INF的目录，WEB-INF目录里面除了web.xml文件外，还有一个classes目录，没错了，它就是你这个WEB应用的package的顶层目录，也是所有.class的根目录“/”，假如clasaes目录下面有一个file.txt文件，它的相对路径就是"/file.txt"，如果相对路径不是以"/"开头，那么它就是相对于.class的路径。。
 
 还有一个getResourceAsStream()方法，参数是与getResouce()方法是一样的，它相当于你用getResource()取得File文件后，再new InputStream(file)一样的结果

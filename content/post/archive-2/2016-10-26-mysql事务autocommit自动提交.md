@@ -14,24 +14,22 @@ MySQL默认操作模式就是autocommit自动提交模式。这就表示除非�
 
 通过以下命令可以查看当前autocommit模式
   
-mysql> show variables like &#8216;autocommit&#8217;;
+mysql> show variables like 'autocommit';
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+
++-----+---+
   
 | Variable_name | Value |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+
++-----+---+
   
 | autocommit    | ON    |
   
-+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+
++-----+---+
   
 1 row in set (0.04 sec)
   
 从查询结果中，我们发现Value的值是ON，表示autocommit开启。我们可以通过以下SQL语句改变这个模式
 
-1
-  
 mysql> set autocommit = 0;
   
 值0和OFF都是一样的，当然，1也就表示ON。通过以上设置autocommit=0，则用户将一直处于某个事务中，直到执行一条commit提交或rollback语句才会结束当前事务重新开始一个新的事务。

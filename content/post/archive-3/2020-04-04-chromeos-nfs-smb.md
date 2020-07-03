@@ -14,10 +14,10 @@ On Chrome 71 or higher you can:
 
 Open the files app
   
-Click the &#8220;three dot menu&#8221; in the top right
+Click the "three dot menu" in the top right
   
-Choose &#8220;Add New Service&#8221;
+Choose "Add New Service"
   
-Choose &#8220;SMB file share&#8221;
+Choose "SMB file share"
 
 https://chrome.google.com/webstore/detail/network-file-share-for-ch/ndjpildffkeodjdaeebdhnncfhopkajk

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 jcmd 40019 VM.check\_commercial\_features
   
@@ -18,4 +18,4 @@ jcmd 40019 JFR.check
   
 jcmd 40019 JFR.start name=jfr0 delay=10s duration=10s filename=jfr0.jfr
 
-[/code]
+```

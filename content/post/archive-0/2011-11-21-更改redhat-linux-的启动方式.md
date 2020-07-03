@@ -20,11 +20,11 @@ tags:
 
 为了在Linux启动时直接进入Console界面，我们可以编辑/etc/inittab文件。找到
 
-<span style="color: #ff0000;">id:5:initdefault:</span>
+<span style="color: #ff0000;">id:5:initdefault:
 
 这一行，将它改为
 
-<span style="color: #ff0000;">id:3:initdefault:</span>
+<span style="color: #ff0000;">id:3:initdefault:
 
 后重新启动系统即可。我们看到，简简单单地将5改为3，就能实现启动时进入X-Window图形操作界面或Console字符界面的转换，这是因为Linux操作系统有六种不同的运行级（run level），在不同的运行级下，系统有着不同的状态，这六种运行级分别为：
 

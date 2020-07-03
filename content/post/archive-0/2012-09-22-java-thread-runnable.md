@@ -15,20 +15,22 @@ tags:
 
 在实际开发中一个多线程的操作很少使用Thread类，而是通过Runnable接口完成。
 
-```javapublic interface Runnable{
+```java
+public interface Runnable{
 public void run();
 }
 ```
 
 例子：
 
-```javaclass MyThread implements Runnable{
+```java
+class MyThread implements Runnable{
 private String name;
 public MyThread(String name) {
 this.name = name;
 }
 public void run(){
-for(int i=0;i&lt;100;i++){
+for(int i=0;i<100;i++){
 System.out.println("线程开始："+this.name+",i="+i);
 }
 }
@@ -37,7 +39,7 @@ System.out.println("线程开始："+this.name+",i="+i);
 
 但是在使用Runnable定义的子类中没有start()方法，只有Thread类中才有。此时观察Thread类，有一个构造方法：public Thread(Runnable targer)此构造方法接受Runnable的子类实例，也就是说可以通过Thread类来启动Runnable实现的多线程。（start()可以协调系统的资源）:
 
-&#8220;\`java
+"\`java
   
 import org.runnable.demo.MyThread;
 
@@ -45,9 +47,9 @@ public class ThreadDemo01 {
   
 public static void main(String[] args) {
   
-MyThread mt1=new MyThread(&#8220;线程a&#8221;);
+MyThread mt1=new MyThread("线程a");
   
-MyThread mt2=new MyThread(&#8220;线程b&#8221;);
+MyThread mt2=new MyThread("线程b");
   
 new Thread(mt1).start();
   
@@ -83,7 +85,7 @@ for(int i=0;i<20;i++){
 
 if(this.ticket>0){
 
-System.out.println(&#8220;卖票：ticket&#8221;+this.ticket&#8211;);
+System.out.println("卖票：ticket"+this.ticket-);
 
 }
 
@@ -131,7 +133,7 @@ for(int i=0;i<20;i++){
 
 if(this.ticket>0){
 
-System.out.println(&#8220;卖票：ticket&#8221;+this.ticket&#8211;);
+System.out.println("卖票：ticket"+this.ticket-);
 
 }
 
@@ -203,11 +205,11 @@ Thread t1 = new Thread();
    
 Thread t2 = new Thread();
 
-t1.word = &#8220;a&#8221;
+t1.word = "a"
    
 t1.time = 1000
 
-t2.Word = &#8220;b&#8221;
+t2.Word = "b"
    
 t2.time = 2000
 
@@ -217,13 +219,13 @@ t2.start();
 
 [/java]
 
-&#8212;-Runnable的代码
+--Runnable的代码
 
 [java]
 
 class T implements Runnable{
    
-String s = &#8220;&#8221;;
+String s = "";
    
 int time = 0;
    
@@ -257,11 +259,11 @@ T t1 = new T();
    
 T t2 = new T();
    
-t1.s = &#8220;a&#8221;;
+t1.s = "a";
    
 t1.time = 100;
    
-t2.s = &#8220;b&#8221;;
+t2.s = "b";
    
 t2.time = 200;
    
@@ -288,13 +290,13 @@ locl condition
 http://blog.csdn.net/ghsau/article/details/7481142
 
 <p id="java">
-  创建和启动线程的三种方式<br /> https://jisonami.github.io/2016/09/04/JavaThread1/
-</p>
+  创建和启动线程的三种方式
+ https://jisonami.github.io/2016/09/04/JavaThread1/
 
 <blockquote data-secret="Y65uz4t1vN" class="wp-embedded-content">
-  <p>
+  
     <a href="http://www.wiloon.com/wordpress/?p=9968">多线程的代价及上下文切换</a>
-  </p>
+  
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=9968&#038;embed=true#?secret=Y65uz4t1vN" data-secret="Y65uz4t1vN" width="600" height="338" title="&#8220;多线程的代价及上下文切换&#8221; &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=9968&embed=true#?secret=Y65uz4t1vN" data-secret="Y65uz4t1vN" width="600" height="338" title=""多线程的代价及上下文切换" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

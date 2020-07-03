@@ -12,21 +12,21 @@ tags:
 ---
 Location: [/opt/pentaho]:
 
-&#8211; MySQL server port: 3306
+- MySQL server port: 3306
   
-&#8211; HSQL server port: 9001
+- HSQL server port: 9001
   
-&#8211; BI Server (Tomcat) startup port: 8080
+- BI Server (Tomcat) startup port: 8080
   
-&#8211; BI Server shutdown port: 8012
+- BI Server shutdown port: 8012
   
-&#8211; Enterprise Console port: 8088
+- Enterprise Console port: 8088
   
-&#8211; Data Integration Server port: 9080
+- Data Integration Server port: 9080
   
-&#8211; Embedded Database Port: 9092
+- Embedded Database Port: 9092
 
-&#8212;
+-
 
 sample users:
 

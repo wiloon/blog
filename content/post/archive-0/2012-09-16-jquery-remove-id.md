@@ -8,4 +8,4 @@ categories:
   - Uncategorized
 
 ---
-row.removeAttr(&#8220;id&#8221;);
+row.removeAttr("id");

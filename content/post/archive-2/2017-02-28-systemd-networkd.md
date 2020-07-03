@@ -63,7 +63,8 @@ Gateway= 网关地址.
 
 如果需要指定多个 DNS, Address 或者 Gateway, 你可以多次指定相应的键值对. (也就是说, 多写几行 DNS=xxx, DNS=yyy…)
 
-```bashpacman -S wpa_supplicant
+```bash
+pacman -S wpa_supplicant
 
 # start systemd-networkd and systemd-resolved service
 systemctl enable systemd-networkd
@@ -105,16 +106,16 @@ DNS=192.168.1.254
 
 ### check network config
 
-<pre><code class="language-shell line-numbers">networkctl status -a
+```bashnetworkctl status -a
 ```
 
 <blockquote class="wp-embedded-content" data-secret="GLctgxboIR">
-  <p>
+  
     <a href="https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/">尝鲜: 新的网络连接管理工具 systemd-networkd</a>
-  </p>
+  
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/embed/#?secret=GLctgxboIR" data-secret="GLctgxboIR" width="600" height="338" title="&#8220;尝鲜: 新的网络连接管理工具 systemd-networkd&#8221; &#8212; Felix&#039;s Blog" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/embed/#?secret=GLctgxboIR" data-secret="GLctgxboIR" width="600" height="338" title=""尝鲜: 新的网络连接管理工具 systemd-networkd" - Felix's Blog" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 https://zhuanlan.zhihu.com/p/19770401
   

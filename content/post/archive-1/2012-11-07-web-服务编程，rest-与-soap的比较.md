@@ -38,8 +38,6 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 如图 1 所示，客户端 1（Client1）与客户端 2（Client2）对于信息的存取具有不同的权限，客户端 1 可以执行所有的操作，而客户端 2 只被允许执行用户查询（Query User）与用户列表查询（Query User List）。关于这一点，我们在对 REST Web 服务与 SOAP Web 服务安全控制对比时会具体谈到。下面我们将分别向您介绍如何使用 REST 和 SOAP 架构实现 Web 服务。
 
-<div>
-</div>
 
 <a name="4.使用 REST 实现 Web 服务|outline"></a>使用 REST 实现 Web 服务
 
@@ -66,18 +64,18 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;users&gt;
-	&lt;user&gt;
-			&lt;name&gt;tester&lt;/name&gt;
-			&lt;link&gt;http://localhost:8182/v1/users/tester&lt;/link&gt;
-	&lt;/user&gt;
-	&lt;user&gt;
-			&lt;name&gt;tester1&lt;/name&gt;
-			&lt;link&gt;http://localhost:8182/v1/users/tester1&lt;/link&gt;
-	&lt;/user&gt;
-&lt;/users&gt;</pre>
+      
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+	<user>
+			<name>tester</name>
+			<link>http://localhost:8182/v1/users/tester</link>
+	</user>
+	<user>
+			<name>tester1</name>
+			<link>http://localhost:8182/v1/users/tester1</link>
+	</user>
+</users>
     </td>
   </tr>
 </table>
@@ -87,22 +85,21 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;user&gt;
-	&lt;name&gt;tester&lt;/name&gt;
-	&lt;title&gt;software engineer&lt;/title&gt;
-	&lt;company&gt;IBM&lt;/company&gt;
-	&lt;email&gt;tester@cn.ibm.com&lt;/email&gt;
-	&lt;description&gt;testing!&lt;/description&gt;
-&lt;/user&gt;</pre>
+      
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<user>
+	<name>tester</name>
+	<title>software engineer</title>
+	<company>IBM</company>
+	<email>tester@cn.ibm.com</email>
+	<description>testing!</description>
+</user>
     </td>
   </tr>
 </table>
 
-&nbsp;
 
-客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <strong><link>http://localhost:8182/v1/users/tester</link></strong> `) 获得具体的某个 USER Resource。
+客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <link>http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
 
 <a name="OLE_LINK1"></a>
 
@@ -127,7 +124,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 public class UserRestHelper {
 //The root URI of our ROA implementation.
 public static final tring <em>APPLICATION_URI</em> = "http://localhost:8182/v1";
@@ -192,12 +189,11 @@ private static void printUserByURI(String uri) {
  		System.<em>out</em>.println("unexpected status:"+ getResponse.getStatus());
  	}
 }
-}</pre>
+}
     </td>
   </tr>
 </table>
 
-&nbsp;
 
 <a name="4.4.服务器端实现|outline"></a>服务器端实现
 
@@ -208,7 +204,7 @@ private static void printUserByURI(String uri) {
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
+      
 public class UserResource extends Resource {
 private User _user;
 private String _userName;
@@ -269,20 +265,17 @@ private Document createDocument(User user) {
 }
 //The remaining methods here
 ……
-}</pre>
+}
     </td>
   </tr>
 </table>
 
-&nbsp;
 
 UserResource 类是对用户资源类的抽象，包括了对该资源的创建修改（put 方法），读取（handleGet 方法 ）和删除（delete 方法），被创建出来的 UserResource 类实例被 Restlet 框架所托管，所有操纵资源的方法会在相应的 HTTP 请求到达后被自动回调。
 
 另外，在服务端，还需要实现代表用户列表资源的资源类 UserListResource，它的实现与 UserResource 类似，响应 HTTP GET 请求，读取当前系统内的所有用户信息，形成如清单 1 所示的用户列表资源 Representation，然后返回该结果给客户端。具体的实现请读者参见本文所附的代码示例。
 
-<div>
   使用 SOAP 实现 Web 服务
-</div>
 
 本文对于 SOAP 实现，就不再像 REST 那样，具体到代码级别的实现。本节将主要通过 URI,HTTP 和 XML 来宏观上表述 SOAP Web 服务实现的技术本质，为下一节 REST Web 服务与 SOAP Web 服务的对比做铺垫。
 
@@ -305,18 +298,17 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-	&lt;soap:Body&gt;
-		&lt;p:getUserList xmlns:p="http://www.exmaple.com"/&gt;
-	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+      
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<p:getUserList xmlns:p="http://www.exmaple.com"/>
+	</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>
 
-&nbsp;
 
 客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI，SOAP SERVER 收到该 HTTP POST 请求，通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用，返回如下的响应：
   
@@ -325,25 +317,24 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-	&lt;soap:Body&gt;
-			&lt;p:get
-				UserListResponse xmlns:p="http://www.exmaple.com"&gt;
-				&lt;Users&gt;
-				&lt;username&gt;tester&lt;username&gt;
-				&lt;username&gt;tester1&lt;username&gt;
+      
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+			<p:get
+				UserListResponse xmlns:p="http://www.exmaple.com">
+				<Users>
+				<username>tester<username>
+				<username>tester1<username>
 				......
-				&lt;/Users&gt;
-				&lt;p: getUserListResponse &gt;
-	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+				</Users>
+				<p: getUserListResponse >
+	</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>
 
-&nbsp;
 
 <a name="5.3.获得某一具体用户信息|outline"></a>获得某一具体用户信息
   
@@ -352,20 +343,19 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-	&lt;soap:Body&gt;
-	 &lt;p:getUserByName xmlns:p="http://www.exmaple.com"&gt;
-				&lt;username&gt;tester&lt;/username&gt;
-				&lt;/p:getUserByName &gt;
-	&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+      
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+	 <p:getUserByName xmlns:p="http://www.exmaple.com">
+				<username>tester</username>
+				</p:getUserByName >
+	</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>
 
-&nbsp;
 
 同样地，客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI，SOAP SERVER 处理后返回的 Response 如下：
   
@@ -374,29 +364,26 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-      <pre>
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-&lt;soap:Body&gt;
-	&lt;p:getUserByNameResponse xmlns:p="http://www.exmaple.com"&gt;
-			&lt;name&gt;tester&lt;/name&gt;
-			&lt;title&gt;software engineer&lt;/title&gt;
-			&lt;company&gt;IBM&lt;/company&gt;
-			&lt;email&gt;tester@cn.ibm.com&lt;/email&gt;
-			&lt;description&gt;testing!&lt;/description&gt;
-	&lt;/p:getUserByNameResponse&gt;
-&lt;/soap:Body&gt;
-&lt;/soap:Envelope&gt;</pre>
+      
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Body>
+	<p:getUserByNameResponse xmlns:p="http://www.exmaple.com">
+			<name>tester</name>
+			<title>software engineer</title>
+			<company>IBM</company>
+			<email>tester@cn.ibm.com</email>
+			<description>testing!</description>
+	</p:getUserByNameResponse>
+</soap:Body>
+</soap:Envelope>
     </td>
   </tr>
 </table>
 
-&nbsp;
 
 实际上，创建新的用户，过程也比较类似，在这里，就不一一列出，因为这两个例子对于本文在选定的点上对比 REST 与 SOAP 已经足够了。
 
-<div>
-</div>
 
 [回页首][1]
 
@@ -486,8 +473,6 @@ getUserList SOAP 消息获得所有的用户列表后，仍然无法通过既有
 
 而对于 REST，情况是完全不同的：通过 `http://localhost:8182/v1/users` URI 获得用户列表，然后再通过用户列表中所提供的 LINK 属性，例如 `<link>http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式，非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面，并不依赖任何第三方的信息。
 
-<div>
-</div>
 
 <a name="7.总结|outline"></a>总结
 

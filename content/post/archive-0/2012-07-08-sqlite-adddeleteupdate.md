@@ -36,11 +36,11 @@ private static DBHelper mInstance=null;
    
 private final static String mTUserPhoto="UserPhoto";
    
-final private static String mCreateSqlForNoteClass="create table if not exists NoteClass(classId integer primary key asc autoincrement,className NVARCHAR(100),rowTime timestamp default (datetime(&#8216;now&#8217;, &#8216;localtime&#8217;)))";
+final private static String mCreateSqlForNoteClass="create table if not exists NoteClass(classId integer primary key asc autoincrement,className NVARCHAR(100),rowTime timestamp default (datetime('now', 'localtime')))";
    
-final private static String mCreateSqlForUserPhoto="create table if not exists UserPhoto(photoId integer primary key asc autoincrement,photoName VARCHAR(200),userPt VARCHAR(200),title VARCHAR(255),classId integer,content NVARCHAR(250),tag NVARCHAR(200),remark text,status integer default 0,rowTime timestamp default (datetime(&#8216;now&#8217;, &#8216;localtime&#8217;)))";
+final private static String mCreateSqlForUserPhoto="create table if not exists UserPhoto(photoId integer primary key asc autoincrement,photoName VARCHAR(200),userPt VARCHAR(200),title VARCHAR(255),classId integer,content NVARCHAR(250),tag NVARCHAR(200),remark text,status integer default 0,rowTime timestamp default (datetime('now', 'localtime')))";
    
-final private static String[] mInsertSqlForNoteClass={"insert into NoteClass(className) values(&#8216;默认分类[私有]&#8217;);","insert into NoteClass(className) values(&#8216;读书笔记[私有]&#8217;);","insert into NoteClass(className) values(&#8216;电子资料[公开]&#8217;);"};
+final private static String[] mInsertSqlForNoteClass={"insert into NoteClass(className) values('默认分类[私有]');","insert into NoteClass(className) values('读书笔记[私有]');","insert into NoteClass(className) values('电子资料[公开]');"};
    
 private DBHelper(Context context, CursorFactory factory) {
    

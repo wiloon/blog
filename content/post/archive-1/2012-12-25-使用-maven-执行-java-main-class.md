@@ -8,9 +8,8 @@ categories:
   - Java
 
 ---
-mvn exec:java -Dexec.mainClass=&#8221;org.ts.main.App&#8221;
+mvn exec:java -Dexec.mainClass="org.ts.main.App"
 
-&nbsp;
 
 http://www.cnblogs.com/foxswl/archive/2010/05/10/maven-execute-java-main.html
 

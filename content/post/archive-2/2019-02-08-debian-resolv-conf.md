@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash### check status
+```bash
+### check status
 resolvectl status
 ### 测试 域名解析
 resolvectl query baidu.com
@@ -17,7 +18,8 @@ resolvectl query google.com
 
 ### 配置
 
-```bashvim /etc/systemd/resolved.conf
+```bash
+vim /etc/systemd/resolved.conf
 [Resolve]
 # 上游的dns服务器，可以配置多条
 DNS=192.168.50.1
@@ -34,14 +36,16 @@ FallbackDNS=223.5.5.5 223.6.6.6 114.114.114.114
 
 ### link
 
-```bashln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+```bash
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 ```
 
 archlinux
   
 https://wiki.archlinux.org/index.php/Systemd-resolved
 
-```bashvim /etc/systemd/resolved.conf
+```bash
+vim /etc/systemd/resolved.conf
 [Resolve]
 DNS=192.168.50.1
 
@@ -63,7 +67,8 @@ debian
   
 https://wiki.debian.org/resolv.conf
 
-```bashvim /etc/dhcp/dhclient.conf
+```bash
+vim /etc/dhcp/dhclient.conf
 
 prepend domain-name-servers 223.5.5.5;
 supersede domain-name-servers 223.5.5.5;

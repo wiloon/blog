@@ -40,23 +40,23 @@ boot.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
   
 protected void initChannel(SocketChannel ch) throws Exception {
   
-ch.pipeline().addLast(&#8220;http-decoder&#8221;, new HttpRequestDecoder());
+ch.pipeline().addLast("http-decoder", new HttpRequestDecoder());
   
-ch.pipeline().addLast(&#8220;http-aggregator&#8221;, new HttpObjectAggregator(65536));
+ch.pipeline().addLast("http-aggregator", new HttpObjectAggregator(65536));
   
-ch.pipeline().addLast(&#8220;http-encoder&#8221;, new HttpResponseEncoder());
+ch.pipeline().addLast("http-encoder", new HttpResponseEncoder());
   
-ch.pipeline().addLast(&#8220;http-chunked&#8221;, new ChunkedWriteHandler());
+ch.pipeline().addLast("http-chunked", new ChunkedWriteHandler());
   
-ch.pipeline().addLast(&#8220;fileServerHandler&#8221;, new HttpFileServerHandler(url));
+ch.pipeline().addLast("fileServerHandler", new HttpFileServerHandler(url));
   
 }
 
 });
   
-ChannelFuture cf =boot.bind(&#8220;127.0.0.1&#8221;,port).sync();
+ChannelFuture cf =boot.bind("127.0.0.1",port).sync();
   
-System.out.println(&#8220;Http文件目录服务器启动：http://127.0.0.1:&#8221;+port+url);
+System.out.println("Http文件目录服务器启动：http://127.0.0.1:"+port+url);
   
 cf.channel().closeFuture().sync();
 
@@ -72,7 +72,7 @@ workerGroup.shutdownGracefully();
 
 public static void main(String[] args) throws InterruptedException {
   
-String url=&#8221;/src/main/java/&#8221;;
+String url="/src/main/java/";
 
 new HttpFileServer().run(8080, url);
 
@@ -84,13 +84,13 @@ new HttpFileServer().run(8080, url);
 
 public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
-HttpMethod GET = new HttpMethod(&#8220;GET&#8221;);
+HttpMethod GET = new HttpMethod("GET");
 
 private String url;
 
-private final Pattern ALLOWED\_FILE\_NAME = Pattern.compile(&#8220;\[A-Za-z0-9\]\[-_A-Za-z0-9\\.\]*&#8221;);
+private final Pattern ALLOWED\_FILE\_NAME = Pattern.compile("\[A-Za-z0-9\]\[-_A-Za-z0-9\\.\]*");
 
-private final Pattern INSECURE_URI = Pattern.compile(&#8220;.\*[<>&\&#8221;].\*&#8221;);
+private final Pattern INSECURE_URI = Pattern.compile(".\*[<>&\"].\*");
 
 public HttpFileServerHandler(String url) {
   
@@ -142,13 +142,13 @@ return;
 
 if (file.isDirectory()) {
   
-if (uri.endsWith(&#8220;/&#8221;)) {
+if (uri.endsWith("/")) {
   
 sendList(ctx, file);
   
 } else {
   
-sendRedirect(ctx, uri + &#8216;/&#8217;);
+sendRedirect(ctx, uri + '/');
   
 }
   
@@ -168,7 +168,7 @@ RandomAccessFile randomAccessFile = null;
 
 try {
   
-randomAccessFile = new RandomAccessFile(file, &#8220;r&#8221;);
+randomAccessFile = new RandomAccessFile(file, "r");
   
 } catch (FileNotFoundException e) {
   
@@ -204,7 +204,7 @@ sendFileFuture.addListener(new ChannelProgressiveFutureListener() {
   
 public void operationComplete(ChannelProgressiveFuture future) throws Exception {
 
-System.err.println(future.channel() + &#8221; transfer complete&#8221;);
+System.err.println(future.channel() + " transfer complete");
 
 }
 
@@ -216,11 +216,11 @@ throws Exception {
   
 if (total < 0) {
   
-System.err.println(future.channel() + &#8221; transfer progress : &#8221; + progress);
+System.err.println(future.channel() + " transfer progress : " + progress);
   
 } else {
   
-System.err.println(future.channel() + &#8221; transfer progress : &#8221; + progress + &#8221; / &#8221; + total);
+System.err.println(future.channel() + " transfer progress : " + progress + " / " + total);
   
 }
   
@@ -256,9 +256,9 @@ private void sendError(ChannelHandlerContext ctx, HttpResponseStatus status) {
   
 FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP\_1\_1, status, Unpooled.copiedBuffer(
   
-&#8220;Failure :&#8221; + status + &#8220;\r\n&#8221;, CharsetUtil.UTF_8));
+"Failure :" + status + "\r\n", CharsetUtil.UTF_8));
   
-response.headers().set(HttpHeaders.Names.CONTENT_TYPE, &#8220;text/plain; charset=UTF-8&#8221;);
+response.headers().set(HttpHeaders.Names.CONTENT_TYPE, "text/plain; charset=UTF-8");
   
 ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
   
@@ -270,7 +270,7 @@ public String sanitizeUri(String uri) {
   
 try {
   
-uri = URLDecoder.decode(uri, &#8220;UTF-8&#8221;);
+uri = URLDecoder.decode(uri, "UTF-8");
   
 } catch (UnsupportedEncodingException e) {
   
@@ -278,7 +278,7 @@ throw new Error(e);
   
 }
 
-if (uri.isEmpty() || uri.charAt(0) != &#8216;/&#8217;) {
+if (uri.isEmpty() || uri.charAt(0) != '/') {
   
 return null;
   
@@ -286,15 +286,15 @@ return null;
 
 // Convert file separators.
   
-uri = uri.replace(&#8216;/&#8217;, File.separatorChar);
+uri = uri.replace('/', File.separatorChar);
 
 // Simplistic dumb security check.
   
 // You will have to do something serious in the production environment.
   
-if (uri.contains(File.separator + &#8216;.&#8217;) || uri.contains(&#8216;.&#8217; + File.separator) || uri.charAt(0) == &#8216;.&#8217;
+if (uri.contains(File.separator + '.') || uri.contains('.' + File.separator) || uri.charAt(0) == '.'
   
-|| uri.charAt(uri.length() &#8211; 1) == &#8216;.&#8217; || INSECURE_URI.matcher(uri).matches()) {
+|| uri.charAt(uri.length() - 1) == '.' || INSECURE_URI.matcher(uri).matches()) {
   
 return null;
   
@@ -302,7 +302,7 @@ return null;
 
 // Convert to absolute path.
   
-return System.getProperty(&#8220;user.dir&#8221;) + File.separator + uri;
+return System.getProperty("user.dir") + File.separator + uri;
   
 }
 
@@ -310,31 +310,31 @@ public final void sendList(ChannelHandlerContext ctx, File file) {
   
 FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP\_1\_1, HttpResponseStatus.OK);
   
-response.headers().set(HttpHeaders.Names.CONTENT_TYPE, &#8220;text/html; charset=UTF-8&#8221;);
+response.headers().set(HttpHeaders.Names.CONTENT_TYPE, "text/html; charset=UTF-8");
   
 StringBuilder sb = new StringBuilder();
 
 String dirPath = file.getPath();
 
-sb.append(&#8220;<!DOCTYPE html>\r\n&#8221;);
+sb.append("<!DOCTYPE html>\r\n");
   
-sb.append(&#8220;<html><head><title>&#8221;);
+sb.append("<html><head><title>");
   
 sb.append(dirPath);
   
-sb.append(&#8220;目录：&#8221;);
+sb.append("目录：");
   
-sb.append(&#8220;</title></head><body>\r\n&#8221;);
+sb.append("</title></head><body>\r\n");
   
-sb.append(&#8220;<h3>&#8221;);
+sb.append("");
   
-sb.append(dirPath).append(&#8220;目录：&#8221;);
+sb.append(dirPath).append("目录：");
   
-sb.append(&#8220;</h3>\r\n&#8221;);
+sb.append("\r\n");
 
-sb.append(&#8220;<ul>&#8221;);
+sb.append("<ul>");
   
-sb.append(&#8220;<li><a href=\&#8221;../\&#8221;>..</a></li>\r\n&#8221;);
+sb.append("<li><a href=\"../\">..</a></li>\r\n");
 
 for (File f : file.listFiles()) {
   
@@ -352,19 +352,19 @@ continue;
   
 }
 
-sb.append(&#8220;<li><a href=\&#8221;&#8221;);
+sb.append("<li><a href=\"");
   
 sb.append(name);
   
-sb.append(&#8220;\&#8221;>&#8221;);
+sb.append("\">");
   
 sb.append(name);
   
-sb.append(&#8220;</a></li>\r\n&#8221;);
+sb.append("</a></li>\r\n");
 
 }
 
-sb.append(&#8220;</ul></body></html>\r\n&#8221;);
+sb.append("</ul></body></html>\r\n");
 
 ByteBuf buffer = Unpooled.copiedBuffer(sb, CharsetUtil.UTF_8);
   

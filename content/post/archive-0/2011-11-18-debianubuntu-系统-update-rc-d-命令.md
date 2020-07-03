@@ -60,38 +60,24 @@ sudo sysv-rc-conf
 
 从所有的运行级别中删除指定启动项
 
-1
-  
 update-rc.d -f ＜basename＞ remove
   
 按指定顺序、在指定运行级别中启动或关闭
 
-1
-  
 update-rc.d ＜basename＞ start|stop ＜order＞ ＜runlevels＞
-  
-1
   
 实例：update-rc.d apachectl start 20 2 3 4 5 . stop 20 0 1 6 .
   
 解析：表示在2、3、4、5这五个运行级别中，由小到大，第20个开始运行apachectl；在 0 1 6这3个运行级别中，第20个关闭apachectl。这是合并起来的写法，注意它有2个点号，效果等于下面方法：
 
-1
-  
 update-rc.d apachectl defaults
   
 A启动后B才能启动，B关闭后A才关闭
 
-1
-  
-2
-  
 update-rc.d A defaults 80 20
   
 update-rc.d B defaults 90 10
   
 启动和关闭顺序为90，级别默认
 
-1
-  
 update-rc.d ＜basename＞ defaults 90

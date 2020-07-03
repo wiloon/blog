@@ -18,17 +18,17 @@ categories:
   
 ###NewBufferString
   
-还可以用bytes.NewBufferString(&#8220;hello&#8221;)来建立一个内容是hello的缓冲器
+还可以用bytes.NewBufferString("hello")来建立一个内容是hello的缓冲器
 
-buf1:=bytes.NewBufferString(&#8220;hello&#8221;)
+buf1:=bytes.NewBufferString("hello")
   
-buf2:=bytes.NewBuffer([]byte(&#8220;hello&#8221;))
+buf2:=bytes.NewBuffer([]byte("hello"))
   
-buf3:=bytes.NewBuffer([]byte{&#8220;h&#8221;,&#8221;e&#8221;,&#8221;l&#8221;,&#8221;l&#8221;,&#8221;o&#8221;})
+buf3:=bytes.NewBuffer([]byte{"h","e","l","l","o"})
   
 以上三者等效
   
-buf4:=bytes.NewBufferString(&#8220;&#8221;)
+buf4:=bytes.NewBufferString("")
   
 buf5:=bytes.NewBuffer([]byte{})
   
@@ -36,6 +36,6 @@ buf5:=bytes.NewBuffer([]byte{})
   
 如果buffer在new的时候是空的也没关系，因为可以用Write来写入，写在尾部
 
-##写入到缓冲器（缓冲器变大） ###Write&#8212;- func (b *Buffer) Write(p []byte) (n int, err error) 使用Write方法，将一个byte类型的slice放到缓冲器的尾部
+##写入到缓冲器（缓冲器变大） ###Write-- func (b *Buffer) Write(p []byte) (n int, err error) 使用Write方法，将一个byte类型的slice放到缓冲器的尾部
 
 https://my.oschina.net/u/943306/blog/127981

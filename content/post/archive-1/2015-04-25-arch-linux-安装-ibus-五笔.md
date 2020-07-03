@@ -28,7 +28,7 @@ export QT\_IM\_MODULE=ibus
   
 [shell]
 
-sudo pacman -S &#8211;needed gcc make automake autoconf
+sudo pacman -S -needed gcc make automake autoconf
   
 yaourt -Ssq ibus
   
@@ -40,7 +40,7 @@ yaourt -S ibus-table-chinese
 
 [shell]
 
-$ sudo pacman -S &#8211;needed gcc make cmake wget
+$ sudo pacman -S -needed gcc make cmake wget
   
 sudo pacman -S pkg-config
   
@@ -64,7 +64,7 @@ $ sudo make install
   
 1. 在屏幕右上角的 IBus 输入法框架 上点击鼠标右键，选择“重新启动”。
 
-2. 在屏幕右上角的 IBus 输入法框架 上点击鼠标右键，选择“首选项”，在“输入法”选项卡中添加“汉语 &#8211; 极点五笔86”。
+2. 在屏幕右上角的 IBus 输入法框架 上点击鼠标右键，选择“首选项”，在“输入法”选项卡中添加“汉语 - 极点五笔86”。
 
 其他未尽事宜，请参阅：ArchWiki: IBus(简体中文)
 

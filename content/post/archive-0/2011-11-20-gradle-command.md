@@ -14,7 +14,8 @@ tags:
   - Gradle
 
 ---
-```bash# 更新依赖包
+```bash
+# 更新依赖包
 gradle build --refresh-dependencies
 
 # publish to maven
@@ -40,7 +41,6 @@ gradle distZip
 # 安装到本地
 gradle installDist
 
-
 #convert maven project to gradle project
 gradle init --type pom
 #eclipse 
@@ -52,7 +52,7 @@ gradle cleanIdea
 #load local jars compile files('libs/jfx-2.3.8.jar') 
 ```
 
-<pre><code class="line-numbers">// project dependency
+<code class="line-numbers">// project dependency
 dependencies {
     compile project(":project-name")
 }
@@ -62,15 +62,15 @@ dependencies {
   
 repositories {
   
-    maven { url &#8216;http://maven.oschina.net/content/groups/public/&#8217; }
+    maven { url 'http://maven.oschina.net/content/groups/public/' }
   
 }
 
 exclude jar
   
-compile(&#8220;comxxx:xxx:xxx&#8221;) {
+compile("comxxx:xxx:xxx") {
       
-exclude group: &#8216;ch.qos.logback&#8217;, module: &#8216;logback-classic&#8217;
+exclude group: 'ch.qos.logback', module: 'logback-classic'
   
 }
   

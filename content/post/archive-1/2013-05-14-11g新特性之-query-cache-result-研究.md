@@ -24,17 +24,16 @@ categories:
   
 首先我们来介绍跟该特性有关的几个参数(包括隐含参数）：
 
-<div>
   <table>
     <tr>
       <td>
-        <pre>SQL&gt; SELECT * FROM v$version WHERE rownum &lt;2;
+        SQL> SELECT * FROM v$version WHERE rownum <2;
 
 BANNER
 --------------------------------------------------------------------------------
 Oracle DATABASE 11g Enterprise Edition Release 11.2.0.1.0 - Production
 
-SQL&gt; SHOW parameter RESULT
+SQL> SHOW parameter RESULT
 
 NAME                                    TYPE        VALUE
 ------------------------------------    ----------- ------------------------------
@@ -52,11 +51,10 @@ client_result_cache_size                big INTEGER 0
 result_cache_max_result                 INTEGER     5
 result_cache_max_size                   big INTEGER 960K
 result_cache_mode                       string      MANUAL
-result_cache_remote_expiration          INTEGER     0</pre>
+result_cache_remote_expiration          INTEGER     0
       </td>
     </tr>
   </table>
-</div>
 
 几个重要的参数：
 
@@ -68,29 +66,26 @@ manual是默认属性，也就是说我们要启用该特性，那么必须通�
   
 是无法认知的，那么是什么hint呢？ 如下：
 
-<div>
   <table>
     <tr>
       <td>
-        <pre>SQL&gt; SELECT name,version FROM v$sql_hint
-  2  WHERE name LIKE '%RESULT%';</pre>
+        SQL> SELECT name,version FROM v$sql_hint
+  2  WHERE name LIKE '%RESULT%';
       </td>
     </tr>
   </table>
-</div>
 
-<div>
+
   <table>
     <tr>
       <td>
-        <pre>NAME                                     VERSION
+        NAME                                     VERSION
 ---------------------------------------- -------------------------
 RESULT_CACHE                             11.1.0.6
-NO_RESULT_CACHE                          11.1.0.6</pre>
+NO_RESULT_CACHE                          11.1.0.6
       </td>
     </tr>
   </table>
-</div>
 
 当设置为force时，oracle 优化就能自动识别了，不需要使用hint，相反，如果当设置为force时，同时
   

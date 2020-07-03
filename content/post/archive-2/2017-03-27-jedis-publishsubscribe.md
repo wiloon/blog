@@ -32,13 +32,13 @@ public Subscriber() {
 
 public void onMessage(String channel, String message) {
   
-System.out.println(String.format(&#8220;receive redis published message, channel %s, message %s&#8221;, channel, message));
+System.out.println(String.format("receive redis published message, channel %s, message %s", channel, message));
   
 }
 
 public void onSubscribe(String channel, int subscribedChannels) {
   
-System.out.println(String.format(&#8220;subscribe redis channel success, channel %s, subscribedChannels %d&#8221;,
+System.out.println(String.format("subscribe redis channel success, channel %s, subscribedChannels %d",
   
 channel, subscribedChannels));
   
@@ -46,101 +46,13 @@ channel, subscribedChannels));
 
 public void onUnsubscribe(String channel, int subscribedChannels) {
   
-System.out.println(String.format(&#8220;unsubscribe redis channel, channel %s, subscribedChannels %d&#8221;,
+System.out.println(String.format("unsubscribe redis channel, channel %s, subscribedChannels %d",
   
 channel, subscribedChannels));
 
 }
   
 }
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
   
 定义SubThread线程类
   
@@ -158,11 +70,11 @@ private final JedisPool jedisPool;
   
 private final Subscriber subscriber = new Subscriber();
 
-private final String channel = &#8220;mychannel&#8221;;
+private final String channel = "mychannel";
 
 public SubThread(JedisPool jedisPool) {
   
-super(&#8220;SubThread&#8221;);
+super("SubThread");
   
 this.jedisPool = jedisPool;
   
@@ -172,7 +84,7 @@ this.jedisPool = jedisPool;
   
 public void run() {
   
-System.out.println(String.format(&#8220;subscribe redis, channel %s, thread will be blocked&#8221;, channel));
+System.out.println(String.format("subscribe redis, channel %s, thread will be blocked", channel));
   
 Jedis jedis = null;
   
@@ -184,7 +96,7 @@ jedis.subscribe(subscriber, channel);
   
 } catch (Exception e) {
   
-System.out.println(String.format(&#8220;subsrcibe channel error, %s&#8221;, e));
+System.out.println(String.format("subsrcibe channel error, %s", e));
   
 } finally {
   
@@ -199,130 +111,6 @@ jedis.close();
 }
   
 }
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
   
 在上面的代码中，我们从JedisPool获取一个Jedis实例，并使用这个Jedis实例进行subscribe的操作。
   
@@ -374,9 +162,9 @@ try {
   
 line = reader.readLine();
   
-if (!&#8221;quit&#8221;.equals(line)) {
+if (!"quit".equals(line)) {
   
-jedis.publish(&#8220;mychannel&#8221;, line);
+jedis.publish("mychannel", line);
   
 } else {
   
@@ -395,134 +183,6 @@ e.printStackTrace();
 }
   
 }
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
   
 定义入口代码
   
@@ -544,13 +204,13 @@ public static void main( String[] args )
   
 // 替换成你的reids地址和端口
   
-String redisIp = &#8220;192.168.229.154&#8221;;
+String redisIp = "192.168.229.154";
   
 int reidsPort = 6379;
   
 JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), redisIp, reidsPort);
   
-System.out.println(String.format(&#8220;redis pool is starting, redis ip %s, redis port %d&#8221;, redisIp, reidsPort));
+System.out.println(String.format("redis pool is starting, redis ip %s, redis port %d", redisIp, reidsPort));
 
 SubThread subThread = new SubThread(jedisPool);
   
@@ -563,90 +223,6 @@ publisher.start();
 }
   
 }
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
   
 在上面的代码中，我们首先生成了一个JedisPool的redis连接池，这是由于Jedis不是线程安全的，JedisPool是线程安全的。而我们的程序在主线程和订阅线程(SubThread)均需要使用Jedis，故在程序中我们使用JedisPool。具体也可以参考在多线程环境中使用Jedis。
   

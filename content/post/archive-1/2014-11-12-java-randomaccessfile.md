@@ -104,7 +104,7 @@ MappedByteBuffer out = fc.map(FileChannel.MapMode.READ_WRITE, 0, length);
           
 for (int i = 0; i < length; i++) {
               
-out.put((byte) ‘x’);
+out.put((byte) 'x');
           
 }
           
@@ -166,7 +166,7 @@ file.writeUTF(“又是一个UTF字符串”);
     
 file.writeFloat(35.5f);// 占4个字节
     
-file.writeChar(‘a’);// 占2个字节
+file.writeChar('a');// 占2个字节
     
 file.seek(0);// 把文件指针位置设置到文件起始处
     

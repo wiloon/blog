@@ -10,7 +10,7 @@ categories:
 ---
 nf\_conntrack(在老版本的 Linux 内核中叫 ip\_conntrack)是一个内核模块,用于跟踪一个连接的状态的。连接状态跟踪可以供其他模块使用,最常见的两个使用场景是 iptables 的 nat 的 state 模块。 iptables 的 nat 通过规则来修改目的/源地址,但光修改地址不行,我们还需要能让回来的包能路由到最初的来源主机。这就需要借助 nf\_conntrack 来找到原来那个连接的记录才行。而 state 模块则是直接使用 nf\_conntrack 里记录的连接的状态来匹配用户定义的相关规则。例如下面这条 INPUT 规则用于放行 80 端口上的状态为 NEW 的连接上的包。
 
-iptables -A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 80 -j ACCEPT。
+iptables -A INPUT -p tcp -m state -state NEW -m tcp -dport 80 -j ACCEPT。
 
 iptables中的状态检测功能是由state选项来实现iptable的。对这个选项，在iptables的手册页中有以下描述：
 
@@ -18,7 +18,7 @@ state
 
 这个模块能够跟踪分组的连接状态(即状态检测)。
 
-格式：&#8211;state XXXXX
+格式：-state XXXXX
 
 这里，state是一个用逗号分割的列表，表示要匹配的连接状态。
 

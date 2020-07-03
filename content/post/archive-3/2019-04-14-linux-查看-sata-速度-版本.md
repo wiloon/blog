@@ -10,7 +10,8 @@ categories:
 ---
 https://www.cyberciti.biz/faq/linux-command-to-find-sata-harddisk-link-speed/
 
-```bashsudo pacman -S smartmontools
+```bash
+sudo pacman -S smartmontools
 
 sudo smartctl -a /dev/DEVICE-NAME-HERE
 sudo smartctl -i /dev/DEVICE-NAME-HERE
@@ -18,7 +19,6 @@ sudo smartctl -a /dev/sda | grep "^SATA"
 sudo smartctl -i /dev/sdb | grep "^SATA"
 sudo smartctl -a /dev/sda
 sudo smartctl -i /dev/sdb
-
 
 dmesg | grep -i sata | grep 'link up'
 

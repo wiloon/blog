@@ -56,7 +56,7 @@ git clone git://sources.redhat.com/git/systemtap.git
   
 如果你下载的是最新版本的systemtap，那么你需要新版的 elfutils，可以从https://fedorahosted.org/releases/e/l/elfutils/ 下载elfutils-0.156 版本。下载之后解压缩到适合的目录（我放在~/Document/ 下），不需要安装，只要配置systemtap时指定其位置即可。 进入之前解压systemtap的目录，使用下面命令进行配置：
 
-./configure &#8211;with-elfutils=~/Document/elfutils-0.156
+./configure -with-elfutils=~/Document/elfutils-0.156
   
 以这里方法配置之后，你只需要再运行 make install 即完成systemtap的编译安装。如果需要卸载的话，运行 make uninstall。
 
@@ -82,7 +82,7 @@ systemtap 测试示例
 
 以root用户或者具有sudo权限的用户运行以下命令：
 
-$stap -ve &#8216;probe begin { log(&#8220;hello systemtap!&#8221;) exit() }&#8217;
+$stap -ve 'probe begin { log("hello systemtap!") exit() }'
   
 如果安装正确，会得到如下类似的输出结果：
 
@@ -90,9 +90,9 @@ Pass 1: parsed user script and 96 library script(s) using 55100virt/26224res/207
   
 Pass 2: analyzed script: 1 probe(s), 2 function(s), 0 embed(s), 0 global(s) using 55496virt/27016res/2172shr/25568data kb, in 0usr/0sys/4real ms.
   
-Pass 3: translated to C into &#8220;/tmp/stapYqNuF9/stap\_e2d1c1c9962c809ee9477018c642b661\_939_src.c&#8221; using 55624virt/27380res/2488shr/25696data kb, in 0usr/0sys/0real ms.
+Pass 3: translated to C into "/tmp/stapYqNuF9/stap\_e2d1c1c9962c809ee9477018c642b661\_939_src.c" using 55624virt/27380res/2488shr/25696data kb, in 0usr/0sys/0real ms.
   
-Pass 4: compiled C into &#8220;stap\_e2d1c1c9962c809ee9477018c642b661\_939.ko&#8221; in 1230usr/160sys/1600real ms.
+Pass 4: compiled C into "stap\_e2d1c1c9962c809ee9477018c642b661\_939.ko" in 1230usr/160sys/1600real ms.
   
 Pass 5: starting run.
   
@@ -110,7 +110,7 @@ probe begin
   
 {
       
-log(&#8220;begin to probe&#8221;)
+log("begin to probe")
   
 }
 
@@ -118,7 +118,7 @@ probe syscall.open
   
 {
       
-printf (&#8220;%s(%d) open (%s)\n&#8221;, execname(), pid(), argstr)
+printf ("%s(%d) open (%s)\n", execname(), pid(), argstr)
   
 }
 
@@ -134,7 +134,7 @@ probe end
   
 {
       
-log(&#8220;end to probe&#8221;)
+log("end to probe")
   
 }
   

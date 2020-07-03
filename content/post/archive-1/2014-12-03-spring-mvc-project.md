@@ -10,60 +10,53 @@ categories:
 ---
 gradle plugin:
 
-apply plugin: &#8216;idea&#8217;
+apply plugin: 'idea'
 
-apply plugin: &#8216;eclipse&#8217;
+apply plugin: 'eclipse'
 
-apply plugin: &#8216;war&#8217;
+apply plugin: 'war'
 
-&nbsp;
 
 **gradle dependencies:**
 
-compile(&#8220;org.springframework:spring-core:$versionSpring&#8221;,
+compile("org.springframework:spring-core:$versionSpring",
   
-&#8220;org.springframework:spring-context:$versionSpring&#8221;,
+"org.springframework:spring-context:$versionSpring",
   
-&#8220;org.springframework:spring-web:$versionSpring&#8221;,
+"org.springframework:spring-web:$versionSpring",
   
-&#8220;org.springframework:spring-webmvc:$versionSpring&#8221;,
+"org.springframework:spring-webmvc:$versionSpring",
   
-&#8220;org.springframework:spring-jdbc:$versionSpring&#8221;,
+"org.springframework:spring-jdbc:$versionSpring",
   
-&#8220;org.springframework:spring-orm:$versionSpring&#8221;
+"org.springframework:spring-orm:$versionSpring"
   
 )
 
-&nbsp;
 
 **web.xml**
 
-create web.xml in &#8230;/webapp/WEB-INF/
+create web.xml in .../webapp/WEB-INF/
 
 http://www.wiloon.com/wordpress/?p=3459
 
-&nbsp;
 
 **add context loader listener**
 
 org.springframework.web.context.ContextLoaderListener
 
-&nbsp;
 
 **spring schema index**
 
 http://www.springframework.org/schema/beans/
 
-&nbsp;
 
 Create controller
 
 /JavaEEX/src/main/java/com/wiloon/javaeex/controller/FooController.java
 
-&nbsp;
 
 create springMvc.xml
 
-&nbsp;
 
 for eclipse project convert project to web project

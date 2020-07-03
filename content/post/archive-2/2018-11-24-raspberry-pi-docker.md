@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-shell line-numbers">curl -sSL https://get.docker.com | sh
+```bashcurl -sSL https://get.docker.com | sh
 ```
 
 <https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/>

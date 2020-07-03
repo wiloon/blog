@@ -14,23 +14,16 @@ categories:
 
 作者：Jack_Jia 邮箱： 309zhijun@163.com
 
-&nbsp;
 
 一、什么是加壳？
 
 加壳是在二进制的程序中植入一段代码，在运行的时候优先取得程序的控制权，做一些额外的工作。大多数病毒就是基于此原理。PC EXE文件加壳的过程如下：
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 二、加壳作用
 
 加壳的程序可以有效阻止对程序的反汇编分析，以达到它不可告人的目的。这种技术也常用来保护软件版权，防止被软件破解。
 
-&nbsp;
 
 三、Android Dex文件加壳原理
 
@@ -48,23 +41,15 @@ PC平台现在已存在大量的标准的加壳和解壳工具，但是Android�
 
 http://blog.csdn.net/jiazhijun/article/details/8664778
 
-&nbsp;
 
 根据解壳数据在解壳程序DEX文件中的不同分布，本文将提出两种Android Dex加壳的实现方案。
 
-&nbsp;
 
 （一）解壳数据位于解壳程序文件尾部
 
-&nbsp;
 
 该种方式简单实用，合并后的DEX文件结构如下。
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 加壳程序工作流程：
 
@@ -76,7 +61,6 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 
 4、修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。
 
-&nbsp;
 
 解壳DEX程序工作流程：
 
@@ -86,19 +70,12 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 
 3、通过DexClassLoader动态加载a.apk。
 
-&nbsp;
 
 （二）解壳数据位于解壳程序文件头
 
-&nbsp;
 
 该种方式相对比较复杂， 合并后DEX文件结构如下：
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 加壳程序工作流程：
 
@@ -114,7 +91,6 @@ method\_ids\_off、class\_defs\_off和data\_off相关项。 分析map\_off 数�
 
 4、修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。
 
-&nbsp;
 
 解壳DEX程序工作流程：
 
@@ -124,10 +100,8 @@ method\_ids\_off、class\_defs\_off和data\_off相关项。 分析map\_off 数�
 
 3、通过DexClassLoader动态加载a.APK。
 
-&nbsp;
 
 四、加壳及脱壳代码实现
 
-&nbsp;
 
 http://blog.csdn.net/jiazhijun/article/details/8809542

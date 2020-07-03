@@ -12,7 +12,7 @@ http://www.ibm.com/developerworks/cn/linux/l-cn-shell-monitoring/index.html?ca=d
 
 [shell]
   
-<pre> function GetPID #User #Name
+ function GetPID #User #Name
    
 {
       
@@ -22,11 +22,11 @@ PsName=$2
       
 pid=\`ps -u $PsUser|grep $PsName|grep -v grep|grep -v vi|grep -v dbxn
       
-|grep -v tail|grep -v start|grep -v stop |sed -n 1p |awk &#8216;{print $1}&#8217;\`
+|grep -v tail|grep -v start|grep -v stop |sed -n 1p |awk '{print $1}'\`
       
 echo $pid
    
-}</pre>
+}
   
 [/shell]
   
@@ -34,7 +34,7 @@ echo $pid
 
 function killJboss {
    
-jbosspid=\`ps -ef | grep -i jboss | grep -v grep |grep -v killJboss.sh | awk &#8216;{print $2}&#8217;\`
+jbosspid=\`ps -ef | grep -i jboss | grep -v grep |grep -v killJboss.sh | awk '{print $2}'\`
    
 if [ "$jbosspid" != "" ]; then
 
@@ -58,21 +58,21 @@ fi
   
 [shell]
   
-<pre>function GetCpu
+function GetCpu
     
 {
      
-CpuValue=\`ps -p $pid -o pcpu |grep -v CPU | awk &#8216;{print $1}&#8217; | awk -F. &#8216;{print $1}&#8217;\`
+CpuValue=\`ps -p $pid -o pcpu |grep -v CPU | awk '{print $1}' | awk -F. '{print $1}'\`
           
 echo $CpuValue
       
-}</pre>
+}
   
 [/shell]
   
 [shell]
   
-<pre> function GetMem
+ function GetMem
       
 {
           
@@ -82,7 +82,7 @@ MEMUsage=\`ps -o vsz -p $1|grep -v VSZ\`
           
 echo $MEMUsage
       
-}</pre>
+}
   
 [/shell]
 
@@ -92,7 +92,7 @@ echo $MEMUsage
 
 [shell]
   
-<pre>function GetDes
+function GetDes
       
 {
           
@@ -100,7 +100,7 @@ DES=\`ls /proc/$1/fd | wc -l\`
           
 echo $DES
       
-}</pre>
+}
   
 [/shell]查看某个 TCP 或 UDP 端口是否在监听
 
@@ -114,11 +114,11 @@ function Listening
       
 TCPListeningnum=\`netstat -an | grep ":$1 " | n
       
-awk &#8216;$1 == "tcp" && $NF == "LISTEN" {print $0}&#8217; | wc -l\`
+awk '$1 == "tcp" && $NF == "LISTEN" {print $0}' | wc -l\`
       
 UDPListeningnum=\`netstat -an|grep ":$1 " n
       
-|awk &#8216;$1 == "udp" && $NF == "0.0.0.0:*" {print $0}&#8217; | wc -l\`
+|awk '$1 == "udp" && $NF == "0.0.0.0:*" {print $0}' | wc -l\`
       
 (( Listeningnum = TCPListeningnum + UDPListeningnum ))
       
@@ -152,19 +152,19 @@ fi
 
 [shell]
   
-<pre> function GetSysCPU
+ function GetSysCPU
    
 {
      
-CpuIdle=\`vmstat 1 5 |sed -n &#8216;3,$p&#8217; n
+CpuIdle=\`vmstat 1 5 |sed -n '3,$p' n
      
-|awk &#8216;{x = x + $15} END {print x/5}&#8217; |awk -F. &#8216;{print $1}&#8217;
+|awk '{x = x + $15} END {print x/5}' |awk -F. '{print $1}'
      
 CpuNum=\`echo "100-$CpuIdle" | bc\`
      
 echo $CpuNum
    
-}</pre>
+}
   
 [/shell]
 
@@ -174,7 +174,7 @@ echo $CpuNum
 
 [shell]
   
-<pre>function GetDiskSpc
+function GetDiskSpc
    
 {
       
@@ -188,11 +188,11 @@ fi
 
 Folder="$1$"
       
-DiskSpace=\`df -k |grep $Folder |awk &#8216;{print $5}&#8217; |awk -F% &#8216;{print $1}&#8217;
+DiskSpace=\`df -k |grep $Folder |awk '{print $5}' |awk -F% '{print $1}'
       
 echo $DiskSpace
    
-}</pre>
+}
   
 [/shell]
   

@@ -50,19 +50,19 @@ Loading mirror speeds from cached hostfile
   
 Resolving Dependencies
   
-&#8211;> Running transaction check
+-> Running transaction check
   
-&#8212;> Package tigervnc-server.x86\_64 0:1.8.0-2.el7\_4 will be installed
+-> Package tigervnc-server.x86\_64 0:1.8.0-2.el7\_4 will be installed
   
-&#8212;> Package xrdp.x86_64 1:0.9.5-1.el7 will be installed
+-> Package xrdp.x86_64 1:0.9.5-1.el7 will be installed
   
-&#8211;> Processing Dependency: xorgxrdp for package: 1:xrdp-0.9.5-1.el7.x86_64
+-> Processing Dependency: xorgxrdp for package: 1:xrdp-0.9.5-1.el7.x86_64
   
-&#8211;> Running transaction check
+-> Running transaction check
   
-&#8212;> Package xorgxrdp.x86_64 0:0.2.5-3.el7 will be installed
+-> Package xorgxrdp.x86_64 0:0.2.5-3.el7 will be installed
   
-&#8211;> Finished Dependency Resolution
+-> Finished Dependency Resolution
 
 Dependencies Resolved
 
@@ -106,7 +106,7 @@ Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
   
 Importing GPG key 0x352C64E5:
    
-Userid : &#8220;Fedora EPEL (7) [&#x65;&#x70;&#x65;&#x6c;&#x40;&#x66;&#x65;&#100;&#111;&#114;&#97;&#112;&#114;&#111;&#106;&#101;&#99;&#116;&#46;&#111;&#114;&#103;][1]&#8221;
+Userid : "Fedora EPEL (7) [&#x65;&#x70;&#x65;&#x6c;&#x40;&#x66;&#x65;&#100;&#111;&#114;&#97;&#112;&#114;&#111;&#106;&#101;&#99;&#116;&#46;&#111;&#114;&#103;][1]"
    
 Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
    
@@ -164,7 +164,7 @@ tcp 0 0 127.0.0.1:3350 0.0.0.0:* LISTEN 1507/xrdp-sesman
   
 READ: netstat command not found on CentOS 7 / RHEL 7 – Quick Fix
 
-By default, xrdp service won’t start automatically after a system reboot. Run the following command in the terminal to enable the service at system startup.
+By default, xrdp service won't start automatically after a system reboot. Run the following command in the terminal to enable the service at system startup.
 
 systemctl enable xrdp
   
@@ -172,45 +172,45 @@ Firewall
   
 Configure the firewall to allow RDP connection from external machines. The following command will add the exception for RDP port (3389).
 
-firewall-cmd &#8211;permanent &#8211;add-port=3389/tcp
+firewall-cmd -permanent -add-port=3389/tcp
   
-firewall-cmd &#8211;reload
+firewall-cmd -reload
   
 SELinux
   
 Configure SELinux
 
-chcon &#8211;type=bin_t /usr/sbin/xrdp
+chcon -type=bin_t /usr/sbin/xrdp
   
-chcon &#8211;type=bin_t /usr/sbin/xrdp-sesman
+chcon -type=bin_t /usr/sbin/xrdp-sesman
   
 Test xrdp Remote Connectivity
   
 Now take RDP from any windows machine using Remote Desktop Connection. Enter the ip address of Linux server in the computer field and then click on connect.
 
-Install xrdp on CentOS 7 &#8211; Enter IP Address in Remote Desktop Connecton Window
+Install xrdp on CentOS 7 - Enter IP Address in Remote Desktop Connecton Window
   
 Install xrdp on CentOS 7 – Enter IP Address in Remote Desktop Connection Window
   
 You may need to ignore the warning of RDP certificate name mismatch.
 
-Install xrdp on CentOS 7 &#8211; Accept the Certificate
+Install xrdp on CentOS 7 - Accept the Certificate
   
 Install xrdp on CentOS 7 – Accept the Certificate
   
 You would be asked to enter the username and password. You can either use root or any user that you have it on the system. Make sure you use module “Xvnc“.
 
-Install xrdp on CentOS 7 &#8211; xrdp Login Page
+Install xrdp on CentOS 7 - xrdp Login Page
   
 Install xrdp on CentOS 7 – xrdp Login Page
   
 If you click ok, you will see the processing. In less than a half minute, you will get a desktop.
 
-Install xrdp on CentOS 7 &#8211; xrdp CentOS Desktop
+Install xrdp on CentOS 7 - xrdp CentOS Desktop
   
 Install xrdp on CentOS 7 – xrdp CentOS Desktop
   
-That’s All. You have successfully configured xRDP on CentOS 7 / RHEL 7.
+That's All. You have successfully configured xRDP on CentOS 7 / RHEL 7.
 
 来源：Linux社区 作者：Finans
 

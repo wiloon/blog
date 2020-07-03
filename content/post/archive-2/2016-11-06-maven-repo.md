@@ -10,16 +10,19 @@ categories:
 ---
 ### aliyun
 
-```bashhttps://maven.aliyun.com/mvn/view
+```bash
+https://maven.aliyun.com/mvn/view
 https://maven.aliyun.com/repository/public
 ```
 
 ### repo1
 
-```bashhttps://repo1.maven.org/maven2/
+```bash
+https://repo1.maven.org/maven2/
 ```
 
-```bashmaven { url 'http://repo.grails.org/grails/repo' }
+```bash
+maven { url 'http://repo.grails.org/grails/repo' }
 maven { url 'http://repo.grails.org/grails/plugins' }
 http://maven.aliyun.com/nexus/content/groups/public/
 

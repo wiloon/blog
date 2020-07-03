@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 #files
   
@@ -32,7 +32,7 @@ node-7001
   
 node-7002
   
-[/code]
+```
 
 http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html
   

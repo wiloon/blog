@@ -10,7 +10,8 @@ categories:
 ---
 ### dnf
 
-```bashsudo tee  /etc/yum.repos.d/influxdb.repo&lt;&lt;EOF
+```bash
+sudo tee  /etc/yum.repos.d/influxdb.repo<<EOF
 [influxdb]
 name = InfluxDB Repository
 baseurl = https://repos.influxdata.com/rhel/7/x86_64/stable/
@@ -24,7 +25,8 @@ systemctl enable influxdb
 
 ```
 
-```bash# install
+```bash
+# install
 # archlinux
 yaourt -S influxdb
 
@@ -45,39 +47,39 @@ emacs /etc/influxdb/influxdb.conf
 
 [meta]
   
-dir = &#8220;/var/lib/influxdb/meta&#8221;
+dir = "/var/lib/influxdb/meta"
   
 #retention-autocreate = true
 
 [data]
   
-dir = &#8220;/var/lib/influxdb/data&#8221;
+dir = "/var/lib/influxdb/data"
   
-wal-dir = &#8220;/var/lib/influxdb/wal&#8221;
+wal-dir = "/var/lib/influxdb/wal"
   
-wal-fsync-delay = &#8220;0s&#8221;
+wal-fsync-delay = "0s"
 
-# index-version = &#8220;inmem&#8221;
+# index-version = "inmem"
 
-index-version = &#8220;tsi1&#8221;
+index-version = "tsi1"
 
 trace-logging-enabled = false
   
 query-log-enabled = true
   
-cache-max-memory-size = &#8220;512m&#8221;
+cache-max-memory-size = "512m"
   
-cache-snapshot-memory-size = &#8220;32m&#8221;
+cache-snapshot-memory-size = "32m"
 
 # 超过10分钟没有写入, 把cache写到新的TSM文件
 
-cache-snapshot-write-cold-duration = &#8220;10m&#8221;
+cache-snapshot-write-cold-duration = "10m"
 
 [coordinator]
   
 #慢查询
   
-log-queries-after = &#8220;10s&#8221;
+log-queries-after = "10s"
 
 [retention]
 
@@ -89,7 +91,8 @@ STDERR=/data/logs/influxdb/influxdb.log
   
 /etc/logrotate.d/influxdb
 
-<pre><code class="language-shell line-numbers"># chown
+```bash
+# chown
 chown influxdb:influxdb /data/influxdb/
 chown influxdb:influxdb /data/logs/influxdb/
 
@@ -100,7 +103,6 @@ sudo influxd
 
 #connect via cli, rfc3339：日期格式YYYY-MM-DDTHH:MM:SS.nnnnnnnnnZ
 influx -precision rfc3339
-
 
 
 ```

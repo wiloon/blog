@@ -48,7 +48,7 @@ Cuba Standard Time UT-4:00
 
 2) 修改/etc/sysconfig/clock文件，修改为：
 
-ZONE=&#8221;Asia/Shanghai&#8221;
+ZONE="Asia/Shanghai"
   
 [color=red]UTC=true[/color]
   
@@ -92,7 +92,7 @@ ln -sf ../usr/share/zoneinfo/your/zone /etc/localtime
 
 设置UTC 或本地时间：
 
-当Linux 启动时，一个启动脚本运行/sbin/hwclock 程序复制当前硬件时钟时间到系统时钟。hwclock 假定硬件时钟设置为本地时间，除非它使用了&#8211;utc 参数。在RedHat Linux下您不是编辑启动脚本，而是编辑/etc/sysconfig/clock 文件，相应的改变UTC 一行为UTC=true或UTC=false。
+当Linux 启动时，一个启动脚本运行/sbin/hwclock 程序复制当前硬件时钟时间到系统时钟。hwclock 假定硬件时钟设置为本地时间，除非它使用了-utc 参数。在RedHat Linux下您不是编辑启动脚本，而是编辑/etc/sysconfig/clock 文件，相应的改变UTC 一行为UTC=true或UTC=false。
 
 设置系统时钟：
 
@@ -100,7 +100,7 @@ ln -sf ../usr/share/zoneinfo/your/zone /etc/localtime
 
 设置硬件时钟：
 
-要设置硬件时钟，我喜欢的方式是首先设置系统时钟，然后设置硬件时钟为当前系统时钟时间，使用命令/sbin/hwclock &#8211;systohc (或 /sbin/hwclock &#8211;systohc &#8211;utc ) ，如果您使用UTC 保存硬件时钟) 。要查看当前硬件时钟的设置，不带参数运行hwclock 。如果硬件时钟是UTC 保存，而您想看相应的本地时间，运行/sbin/hwclock &#8211;utc 。
+要设置硬件时钟，我喜欢的方式是首先设置系统时钟，然后设置硬件时钟为当前系统时钟时间，使用命令/sbin/hwclock -systohc (或 /sbin/hwclock -systohc -utc ) ，如果您使用UTC 保存硬件时钟) 。要查看当前硬件时钟的设置，不带参数运行hwclock 。如果硬件时钟是UTC 保存，而您想看相应的本地时间，运行/sbin/hwclock -utc 。
 
 一些应用程序中时间错误：
 
@@ -112,11 +112,11 @@ ln -s ../share/zoneinfo /usr/lib/zoneinfo 。
 
 */etc/sysconfig/clock 设置硬件时钟，无论是用UTC 保存还是用本地时间保存
   
-*建立/etc/localtime到/usr/share/zoneinfo/&#8230;的符号链结来设置时区
+*建立/etc/localtime到/usr/share/zoneinfo/...的符号链结来设置时区
   
 *运行date MMDDhhmm 来设置当前系统日期/ 时间
   
-*运行/sbin/hwclock &#8211;systohc [&#8211;utc]来设置硬件时钟
+*运行/sbin/hwclock -systohc [-utc]来设置硬件时钟
 
 其它有趣的注解：
 
@@ -149,7 +149,7 @@ CST Cuba Standard Time UT-4:00
   
 比如文件的最后修改时间就是错的，但是如果对一个页面做comment的时候，comment时间就是正确的。
   
-修改Zope中DateTime\DateTime.py的定义为：&#8217;cst&#8217;:&#8217;GMT+8&#8217;，就能够解决这个问题。
+修改Zope中DateTime\DateTime.py的定义为：'cst':'GMT+8'，就能够解决这个问题。
   
 但是这样做就需要改代码，然后重新编译。
   

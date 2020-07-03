@@ -8,7 +8,6 @@ categories:
   - DataBase
 
 ---
-&nbsp;
 
 建表的时候，如果是浮点数，一般设置为 number(m,n )[m为精度，n为小数位数，所以整数为m-n位],  整数设置为integer;
 
@@ -36,7 +35,7 @@ d和a,b,c有什么区别呢，首先d可以放小数，另外它的范围同样�
 
 具体这a,b,c,d四种类型的明确差异，我也说不清楚，希望有专家把它解释清楚，我这里只是抛砖引玉。
 
-以前我一直以为 integer=number(38,0) &#8211;38是number的最大精度
+以前我一直以为 integer=number(38,0) -38是number的最大精度
 
 刚才无意中发现integer 是个超大的数据类型，最大可以表示为power(10,126)-1
   
@@ -56,7 +55,7 @@ select  LOG(256,10)*126   from dual
 
 因为<a href="http://www.itpub.net/pubtree/?node=1" target="_blank">Oracle</a>的表结构中没有布尔类型，所以很多人干脆用integer 代替布尔类型，这个感觉有点“奢侈”；
 
-我一般都用char(1）表示布尔型；&#8217;0&#8217;表示false,&#8217;1&#8217;表示true
+我一般都用char(1）表示布尔型；'0'表示false,'1'表示true
 
 另外，比如varchar2(200)这个类型，它是动态分配的，所以字符串按实际使用的占用空间，但是integer却是固定暂用了最少53个字节，所以大部分时候，integer 类型还是不用为妙；
 
@@ -68,11 +67,10 @@ select  LOG(256,10)*126   from dual
 
 效率测试下来：simple\_integer>pls\_integer>binary_integer>integer;
 
-&nbsp;
 
 ### SIMPLE\_INTEGER Subtype of PLS\_INTEGER {#autoId14}
 
-<a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in[&#8220;NOT NULL Constraint&#8221;][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
+<a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint"][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
 
 If you know that a variable will never have the value `NULL` or need overflow checking, declare it as `SIMPLE_INTEGER` rather than `PLS_INTEGER`. Without the overhead of checking for nullness and overflow, `SIMPLE_INTEGER` performs significantly better than `PLS_INTEGER`.
 

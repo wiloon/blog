@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-enca &#8211;list languages
+enca -list languages
   
 enca -L zh_CN file 检查文件的编码
   

@@ -19,4 +19,4 @@ categories:
    一般指终端(terminal), 就是显示器, shell里代号是 1
 3) 标准错误 STDERR, 在 /dev/stderr
    也是指终端(terminal), 不同的是, 错误信息送到这里
-   shell里代号是 2</pre>
+   shell里代号是 2

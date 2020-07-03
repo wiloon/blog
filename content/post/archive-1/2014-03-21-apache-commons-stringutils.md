@@ -30,7 +30,7 @@ Java代码 收藏代码
 
 public void doStuffWithString(String stringParam) {
 
-if(stringParam.equals(&#8220;MyStringValue&#8221;)) {
+if(stringParam.equals("MyStringValue")) {
 
 // do stuff }
 
@@ -44,7 +44,7 @@ public void safeDoStuffWithString1(String stringParam) {
 
 if(stringParam != null &&
 
-stringParam.equals(&#8220;MyStringValue&#8221;)) {
+stringParam.equals("MyStringValue")) {
 
 // do stuff
 
@@ -54,7 +54,7 @@ stringParam.equals(&#8220;MyStringValue&#8221;)) {
 
 public void safeDoStuffWithString2(String stringParm) {
 
-if(&#8220;MyStringValue&#8221;.equals(stringParam))
+if("MyStringValue".equals(stringParam))
 
 {
 
@@ -70,7 +70,7 @@ Java代码 收藏代码
 
 public void safeDoStuffWithString3(String stringParam) {
 
-if(StringUtils.equals(stringParam,&#8221;MyStringValue))
+if(StringUtils.equals(stringParam,"MyStringValue))
 
 {
 
@@ -108,7 +108,7 @@ isBlank将在字符串含有空白字符的时候，返回true，例如：
 
 Java代码 收藏代码
 
-String someWhiteSpace = &#8221; \t \n&#8221;;
+String someWhiteSpace = " \t \n";
 
 StringUtils.isEmpty(someWhiteSpace); // false
 
@@ -122,15 +122,15 @@ Java代码 收藏代码
 
 public void possiblyNotWhatYouWant() {
 
-String contrivedExampleString = &#8220;one.two.three.four&#8221;;
+String contrivedExampleString = "one.two.three.four";
 
-String[] result = contrivedExampleString.split(&#8220;.&#8221;);
+String[] result = contrivedExampleString.split(".");
 
 System.out.println(result.length); // 0
 
 }
 
-上面很明显你希望按照.分隔，但是jdk理解的“.”是正则表达式的任意字符，导致字符串内任意字符都匹配，返回一个size=0的字符串数组。其实你只要传递&#8221;\\.&#8221;就行了，但是这个确实是一个问题。
+上面很明显你希望按照.分隔，但是jdk理解的“.”是正则表达式的任意字符，导致字符串内任意字符都匹配，返回一个size=0的字符串数组。其实你只要传递"\\."就行了，但是这个确实是一个问题。
 
 这样，使用StringUtils.split就简单多了，另外，我测试还发现StringUtils.split比jdk自带的split要快四倍。
 
@@ -140,9 +140,9 @@ System.out.println(result.length); // 0
 
 Java代码 收藏代码
 
-String[] numbers = {&#8220;one&#8221;, &#8220;two&#8221;, &#8220;three&#8221;};
+String[] numbers = {"one", "two", "three"};
 
-StringUtils.join(numbers,&#8221;,&#8221;); // returns &#8220;one,two,three&#8221;
+StringUtils.join(numbers,","); // returns "one,two,three"
 
 当然你可以传递一个数字或者迭代序列iterators.
 

@@ -27,27 +27,27 @@ jackson-mapper-asl-1.9.2.jar
 **2、spring-servlet.xml中加入：**
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      <!&#8211; 返回JSON模版 &#8211;>
+      <!- 返回JSON模版 ->
     </li>
     <li>
-      <bean class=&#8221;org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter&#8221; >
+      <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
     </li>
     <li>
-          <property name=&#8221;messageConverters&#8221;>
+          <property name="messageConverters">
     </li>
     <li>
           <list>
     </li>
     <li>
-               <bean class=&#8221;org.springframework.http.converter.json.MappingJacksonHttpMessageConverter&#8221; />
+               <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
     </li>
     <li>
           </list>
@@ -59,7 +59,6 @@ jackson-mapper-asl-1.9.2.jar
       </bean>
     </li>
   </ol>
-</div>
 
 我们在SPRING的配置中加入了一个新的适配器：AnnotationMethodHandlerAdapter，通过这个适配器，我们配置了一个属性，messageConverters，其中mappingJacksonHttpMessageConverter这个Bean，它就是用来处理json数据转换的。
   
@@ -68,11 +67,11 @@ jackson-mapper-asl-1.9.2.jar
 **3、Controller中的使用**
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -90,7 +89,7 @@ jackson-mapper-asl-1.9.2.jar
     <li>
     </li>
     <li>
-          @RequestMapping(&#8220;/type&#8221;)
+          @RequestMapping("/type")
     </li>
     <li>
           @ResponseBody
@@ -111,29 +110,28 @@ jackson-mapper-asl-1.9.2.jar
       }
     </li>
   </ol>
-</div>
 
 在SpringMVC中可以在Controller的某个方法上加**@ResponseBody**注解，表示该方法的返回结果直接写入HTTP response body中。
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+--------------
   
 **遇到的问题：**
 
 用上面的controller，访问：http://localhost:8080/demo/type.htm，报406错如下：
   
-**Failed to load resource: the server responded with a status of 406 (Not Acceptable) ： The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request &#8220;accept&#8221; headers () **
+**Failed to load resource: the server responded with a status of 406 (Not Acceptable) ： The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers () **
 
 查资料表明，不是JAR的版本问题，网友解答描述：
 
-1、spring 3.2时requestedMediaTypes却为\[text language=&#8221;/html&#8221;\]\[/text\]的情况报406错误，还有一个原因可能是由于采用的后缀有关，如果使用\*.htm,\*.html等，默认就会采用\[text language=&#8221;/html&#8221;\]\[/text\]编码，若改成\*.json,\*.shtml等就OK
+1、spring 3.2时requestedMediaTypes却为\[text language="/html"\]\[/text\]的情况报406错误，还有一个原因可能是由于采用的后缀有关，如果使用\*.htm,\*.html等，默认就会采用\[text language="/html"\]\[/text\]编码，若改成\*.json,\*.shtml等就OK
 
-2、3.2.4 也遇到这个问题。修改ajax 请求的后缀为json 或者其他就可以了。他还是会优先根据url请求的后缀决定请求类型。所以你看到的一直是\[text language=&#8221;/html&#8221;\]\[/text\]
+2、3.2.4 也遇到这个问题。修改ajax 请求的后缀为json 或者其他就可以了。他还是会优先根据url请求的后缀决定请求类型。所以你看到的一直是\[text language="/html"\]\[/text\]
 
 **所以，将访问路径从http://localhost:8080/demo/type.htm改为http://localhost:8080/demo/type.json即可。
   
 （如果你只拦截htm开头的链接，可以在web.xml里新增一个url-pattern为*.json的servlet即可。）**
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+--------------
   
 参考：<a href="http://digdata.me/archives/96/" target="_blank">http://digdata.me/archives/96/</a>
 

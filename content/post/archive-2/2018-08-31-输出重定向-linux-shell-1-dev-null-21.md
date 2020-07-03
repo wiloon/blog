@@ -12,7 +12,8 @@ https://blog.csdn.net/sunboy_2050/article/details/9288353
   
 shell中可能经常能看到：
 
-```bashecho log &gt; /dev/null 2&gt;&1
+```bash
+echo log > /dev/null 2>&1
 ```
 
 命令的结果可以通过%>的形式来定义输出
@@ -21,10 +22,11 @@ shell中可能经常能看到：
   
 > ：代表重定向到哪里，例如：
 
-```bashecho "123" &gt; /home/123.txt
+```bash
+echo "123" > /home/123.txt
 ```
 
-1 ：表示stdout标准输出，系统默认值是1，所以&#8221;>/dev/null&#8221;等同于&#8221;1>/dev/null&#8221;
+1 ：表示stdout标准输出，系统默认值是1，所以">/dev/null"等同于"1>/dev/null"
   
 2 ：表示stderr标准错误
   
@@ -94,7 +96,7 @@ Tue Oct 9 20:53:44 CST 2007
 
 实际上， > 就相当于 1> 也就是重定向标准输出，不包括标准错误。通过2>&1，就将标准错误重定向到标准输出了，那么再使用>重定向就会将标准输出和标准错误信息一同重定向了。如果只想重定向标准错误到文件中，则可以使用2> file。
 
-linux shell 中&#8221;2>&1&#8243;含义脚本是：
+linux shell 中"2>&1"含义脚本是：
          
 nohup /mnt/Nand3/H2000G >/dev/null 2>&1 &
 
@@ -140,7 +142,11 @@ dup2(1,2)
 
 <ol start="2">
   <li>
-    command 2>&1 >file<br /> 这个命令中实现重定向的关键系统调用序列是：<br /> dup2(1,2)<br /> open(file) == 3<br /> dup2(3,1)
+    command 2>&1 >file
+ 这个命令中实现重定向的关键系统调用序列是：
+ dup2(1,2)
+ open(file) == 3
+ dup2(3,1)
   </li>
 </ol>
 

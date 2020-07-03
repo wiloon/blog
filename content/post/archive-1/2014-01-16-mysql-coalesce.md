@@ -14,13 +14,13 @@ coalesce函数表示可以返回参数中的第一个非空表达式，当你有
 
 实例一：
 
-select coalesce（null,&#8221;carrot&#8221;,&#8221;apple&#8221;）
+select coalesce（null,"carrot","apple"）
 
 返回结果：carrot
 
 实例二：
 
-select coalesce(1,&#8221;carrot&#8221;,&#8221;apple&#8221;)
+select coalesce(1,"carrot","apple")
 
 返回结果：1
 
@@ -28,6 +28,5 @@ select coalesce(1,&#8221;carrot&#8221;,&#8221;apple&#8221;)
 
 这些语句可以直接在mysql里运行。
 
-&nbsp;
 
 http://hi.baidu.com/luoganet/item/7ec497dec10c88e2795daa1f

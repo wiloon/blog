@@ -20,7 +20,7 @@ decimal类型从根本上说应该是数字类型的,因为oracle内部的数据
 
 在Oracle中Number类型可以用来存储0，正负定点或者浮点数，可表示的数据范围在
 
-1.0 \* 10(-130) —— 9.9&#8230;9 \* 10(125) {38个9后边带88个0}
+1.0 \* 10(-130) —— 9.9...9 \* 10(125) {38个9后边带88个0}
   
 的数字，当Oracle中的数学表达式的值>=1.0*10(126)时，Oracle就会报错。
 
@@ -64,9 +64,9 @@ NUMBER类型细讲
 
 Oracle number datatype 语法：NUMBER[(precision [, scale])]
   
-简称：precision &#8211;> p
+简称：precision -> p
   
-scale     &#8211;> s
+scale     -> s
 
 NUMBER(p, s)
   
@@ -96,7 +96,7 @@ eg:
   
 Actual Data   Specified As  Stored As
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+--------------
   
 123.89           NUMBER         123.89
   
@@ -154,7 +154,6 @@ Actual Data   Specified As  Stored As
 
 项目中的语句：
 
-&nbsp;
 
 [sql] view plaincopy
   
@@ -164,7 +163,7 @@ FROM
   
 (
   
-SELECT t.statistics\_date, SUM(t.actuser) AS actuser FROM pdt\_stat\_act\_1133\_i t WHERE t.statistics\_date like &#8216;2013-04%&#8217; and t.statistics\_month = &#8216;2013-04&#8217; GROUP BY t.statistics\_date
+SELECT t.statistics\_date, SUM(t.actuser) AS actuser FROM pdt\_stat\_act\_1133\_i t WHERE t.statistics\_date like '2013-04%' and t.statistics\_month = '2013-04' GROUP BY t.statistics\_date
   
 ) tt1
   
@@ -172,6 +171,6 @@ FULL JOIN
   
 (
   
-SELECT t2.statistics\_date, SUM(t2.new\_user) OVER(ORDER BY t2.statistics\_date) AS new\_user FROM (SELECT statistics\_date AS statistics\_date, SUM(new\_user) AS new\_user FROM pdt\_stat\_newuser\_1133\_i WHERE statistics\_date like &#8216;2013-04%&#8217; GROUP BY statistics\_date) t2
+SELECT t2.statistics\_date, SUM(t2.new\_user) OVER(ORDER BY t2.statistics\_date) AS new\_user FROM (SELECT statistics\_date AS statistics\_date, SUM(new\_user) AS new\_user FROM pdt\_stat\_newuser\_1133\_i WHERE statistics\_date like '2013-04%' GROUP BY statistics\_date) t2
   
 ) tt2 ON tt1.statistics\_date = tt2.statistics\_date

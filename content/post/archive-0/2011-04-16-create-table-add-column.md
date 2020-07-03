@@ -1,5 +1,5 @@
 ---
-title: mysql command
+title: mysql basic,command
 author: wiloon
 type: post
 date: 2011-04-16T01:23:24+00:00
@@ -16,13 +16,15 @@ tags:
 ---
 ### 查看建表语句
 
-<pre><code class="language-sql line-numbers">show create table table0;
+```sql
+show create table table0;
 SHOW CREATE TABLE table0 \G;
 ```
 
 ### 查看版本
 
-<pre><code class="language-sql line-numbers">select version();
+```sql
+select version();
 -- 查看sql_model参数命令：
 
 SELECT @@GLOBAL.sql_mode;
@@ -31,7 +33,8 @@ SELECT @@SESSION.sql_mode;
 
 ### docker server
 
-```bashpodman run \
+```bash
+podman run \
 --name mariadb \
 -p 3306:3306 \
 -v /etc/localtime:/etc/localtime:ro \
@@ -51,20 +54,23 @@ podman run -it \
 
 ### mysql client
 
-```bashsudo pacman -S mariadb-clients
+```bash
+sudo pacman -S mariadb-clients
 mysql -u user0 -ppassword0 -h 127.0.0.1 -P 3306 -D mydb
 mariadb -u user0 -h 127.0.0.1 -P 3306 -D database0 -ppassword0
 # add yum repo https://dev.mysql.com/doc/mysql-repo-excerpt/5.6/en/linux-installation-yum-repo.html
 yum install mysql-community-client
 ```
 
-```bashsudo pacman -S mariadb
+```bash
+sudo pacman -S mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl start mariadb.service
 mysql -u root -p
 ```
 
-<pre><code class="language-sql line-numbers"># 查 表字段名
+```sql
+# 查 表字段名
 select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name' and table_schema = 'your_db_name';
 
 select COLUMN_KEY,COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where table_name='表名' AND COLUMN_KEY='PRI';
@@ -87,7 +93,6 @@ grant all privileges on db0 .* to user0@localhost identified by 'password0';
 -- delete database
 drop database db0 ;
 
-
 EXPLAIN SELECT * FROM t0 where id=1 \G
 explain partitions select * from t4 where id=1 \G
 
@@ -100,9 +105,9 @@ alter table t1 add primary key (id);
 
 -- date format
 select date_format(create_time,'%Y-%c-%d'),count(*) from t_market_data group by date_format(create_time,'%Y%c%d');
-show variables like ‘max_connections’;
-show global status like ‘Max_used_connections’;
-show status like ‘Threads%’;
+show variables like 'max_connections';
+show global status like 'Max_used_connections';
+show status like 'Threads%';
 
 -- length
 select length(xxx) from txxx;
@@ -128,7 +133,7 @@ Threads\_connected 跟show processlist结果相同，表示当前连接数。准
   
 这是是查询数据库当前设置的最大连接数
   
-mysql> show variables like ‘%max_connections%’;
+mysql> show variables like '%max_connections%';
   
 +—————–+——-+
   
@@ -166,7 +171,7 @@ select now() from dual;
 
 set password
 
-SET PASSWORD FOR wordpressuser@localhost= PASSWORD(&#8220;password&#8221;);
+SET PASSWORD FOR wordpressuser@localhost= PASSWORD("password");
   
 #注意后面这句话 “COLLATE utf8\_general\_ci”,大致意思是在排序时根据utf8变码格式来排序
 
@@ -248,11 +253,11 @@ alter table table1 add id int unsigned not Null auto_increment primary key
 
 4.2.修改某个表的字段类型及指定为空或非空
 
-&#8211;alter table 表名称 change 字段名称 字段名称 字段类型 [是否允许非空];
+-alter table 表名称 change 字段名称 字段名称 字段类型 [是否允许非空];
 
 alter table tbl_user change password password varchar(256)
 
-&#8211;alter table 表名称 modify 字段名称 字段类型 [是否允许非空];
+-alter table 表名称 modify 字段名称 字段类型 [是否允许非空];
   
 alter table tbl_user modify deleted char(1) not null;
 
@@ -266,7 +271,7 @@ alter table 表名称 change 字段原名称 字段新名称 字段类型 [是�
 
 导出
 
-mysqldump -uwiloon -pPASSWORD &#8211;default-character-set=utf8 enlab >enlab.sql
+mysqldump -uwiloon -pPASSWORD -default-character-set=utf8 enlab >enlab.sql
   
 导入
 
@@ -274,11 +279,11 @@ mysql -uusername -ppassword db\_name < db\_name.sql
   
 日期格式化函数date_format()
   
-mysql> select date_format(now(),’%Y’);
+mysql> select date_format(now(),'%Y');
   
 +————————-+
   
-| date_format(now(),’%Y’) |
+| date_format(now(),'%Y') |
   
 +————————-+
   
@@ -290,9 +295,9 @@ mysql> select date_format(now(),’%Y’);
   
 扩展： %Y：年 %c：月 %d：日 %H：小时 %i：分钟 %s：秒
   
-mysql> select date_format(now(),’%Y-%c-%d %h:%i:%s’); +—————————————-+
+mysql> select date_format(now(),'%Y-%c-%d %h:%i:%s'); +—————————————-+
   
-| date_format(now(),’%Y-%c-%d %h:%i:%s’) |
+| date_format(now(),'%Y-%c-%d %h:%i:%s') |
   
 +—————————————-+
   
@@ -326,7 +331,7 @@ Your MySQL connection id is 5
   
 Server version: 5.1.30-community MySQL Community Server (GPL)
 
-Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the buffer.
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
 
 mysql> CREATE DATABASE test DEFAULT CHARACTER SET utf8 COLLATE utf8\_general\_ci;
   

@@ -38,18 +38,18 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
 
 从使用者的社区力量上来看，无疑MVC模型获得了更多程序员的青睐。这里面的原因很多，我们在这里也不想过多展开对两种不同编程模型之间的讨论。不过在这里，我们将针对同一个业务场景（用户注册）分别给出基于这两个编程模型的代码示例，帮助读者了解这两种编程模型在设计思想上的不同之处。
 
-<span style="text-decoration: underline;"><strong>【MVC模型】</strong></span>
+<span style="text-decoration: underline;">【MVC模型】
 
 在MVC模型中，我们选取当前比较热门的两大框架Struts2和SpringMVC作为代码示例。
 
 首先，我们将用户注册场景中最为核心的“用户类”定义出来：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -74,46 +74,44 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
       }
     </li>
   </ol>
-</div>
 
 紧接着是一个简单的JSP表单：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Html代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      <form method=&#8221;post&#8221; action=&#8221;/register&#8221;>
+      <form method="post" action="/register">
     </li>
     <li>
-      <label>Email:</label><input type=&#8221;text&#8221; name=&#8221;email&#8221; />
+      <label>Email:</label><input type="text" name="email" />
     </li>
     <li>
-      <label>Password:</label><input type=&#8221;password&#8221; name=&#8221;password&#8221; />
+      <label>Password:</label><input type="password" name="password" />
     </li>
     <li>
-      <input type=&#8221;submit&#8221; value=&#8221;submit&#8221; />
+      <input type="submit" value="submit" />
     </li>
     <li>
       </form>
     </li>
   </ol>
-</div>
 
 上述这两段代码无论是SpringMVC还是Struts2，都可以共用。而在请求响应处理类（也就是Controller）上的设计差异是两个框架最大的不同。
 
 如果使用SpringMVC，那么Controller的代码看上去就像这样：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -128,7 +126,7 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
     <li>
     </li>
     <li>
-          @RequestMapping(&#8220;/register&#8221;)
+          @RequestMapping("/register")
     </li>
     <li>
           public ModelAndView register(String email, String password) {
@@ -137,7 +135,7 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
               // 在这里调用具体的业务逻辑代码
     </li>
     <li>
-              return new ModelAndView(&#8220;register-success&#8221;);
+              return new ModelAndView("register-success");
     </li>
     <li>
           }
@@ -148,16 +146,15 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
       }
     </li>
   </ol>
-</div>
 
 如果使用Struts2，那么Controller的代码看上去就稍有不同：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -182,7 +179,7 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
               // 在这里调用具体的业务逻辑代码
     </li>
     <li>
-              return &#8220;register-success&#8221;;
+              return "register-success";
     </li>
     <li>
           }
@@ -198,29 +195,27 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
       }
     </li>
   </ol>
-</div>
 
 除此之外，Struts2还需要在某个配置文件中进行请求映射的配置：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Xml代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      <action name=&#8221;register&#8221; class=&#8221;com.demo2do.sandbox.web.UserController&#8221; method=&#8221;register&#8221;>
+      <action name="register" class="com.demo2do.sandbox.web.UserController" method="register">
     </li>
     <li>
-          <result name=&#8221;success&#8221;>/register-success.jsp</result>
+          <result name="success">/register-success.jsp</result>
     </li>
     <li>
       </action>
     </li>
   </ol>
-</div>
 
 从上面的代码示例中，我们可以为整个MVC模型的实现总结归纳出一些特点：
 
@@ -238,48 +233,47 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
 
 在MVC模型中，浏览器端和服务器端的交互关系非常明确：无论采取什么样的框架，**总是以一个明确的URL作为中心，辅之以参数请求。**因此，URL看上去就像是一个明文的契约，当然，真正蕴藏在背后的是Http协议。所有的这些东西都被放在了台面上，我们可以非常明确地获取到一次交互中所有的Http信息。这也是MVC模型中最为突出的一个特点。
 
-<span style="text-decoration: underline;"><strong>【组件模型】</strong></span>
+<span style="text-decoration: underline;">【组件模型】
 
 在组件模型中，我们则选取较为成熟的Tapestry5作为我们的代码示例。
 
 首先，我们来看看请求页面的情况：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Html代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      <form t:type=&#8221;form&#8221; t:id=&#8221;form&#8221;>
+      <form t:type="form" t:id="form">
     </li>
     <li>
-      <t:label for=&#8221;email&#8221;/>:<input t:type=&#8221;TextField&#8221; t:id=&#8221;email&#8221; t:validate=&#8221;required,minlength=3&#8243; size=&#8221;30&#8243;/>
+      <t:label for="email"/>:<input t:type="TextField" t:id="email" t:validate="required,minlength=3" size="30"/>
     </li>
     <li>
-      <t:label for=&#8221;password&#8221;/>:<input t:type=&#8221;PasswordField&#8221; t:id=&#8221;password&#8221; t:validate=&#8221;required,minlength=3&#8243; size=&#8221;30&#8243;/>
+      <t:label for="password"/>:<input t:type="PasswordField" t:id="password" t:validate="required,minlength=3" size="30"/>
     </li>
     <li>
-      <input type=&#8221;submit&#8221; value=&#8221;Login&#8221;/>
+      <input type="submit" value="Login"/>
     </li>
     <li>
       </form>
     </li>
   </ol>
-</div>
 
 在这里，请求的页面不再是原生的HTML代码，而是一个扩展后的HTML，这一扩展包含了对HTML标签的扩展（增加了新的标签，例如<t:label>），也包含了对HTML自身标签中属性的扩展（增加新的支持属性，例如t:type，t:validate）。
 
 接着我们来看看服务器端响应程序：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -298,7 +292,7 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
     <li>
     </li>
     <li>
-          @Component(id = &#8220;password&#8221;)
+          @Component(id = "password")
     </li>
     <li>
           private PasswordField passwordField;
@@ -319,7 +313,7 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
     <li>
     </li>
     <li>
-              return &#8220;PostRegister&#8221;;
+              return "PostRegister";
     </li>
     <li>
           }
@@ -330,13 +324,12 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
           // 这里省略了setter和getter方法
     </li>
   </ol>
-</div>
 
 从上面的代码示例中，我们可以看到一些与MVC模型截然不同的特点：
 
 **1. 框架通过对HTML进行行为扩展来干预和控制浏览器与服务器的交互过程。**
 
-_我们可以发现，Tapestry5的请求页面被加入了更多的HTML扩展，这些扩展包括对HTML标签的扩展以及HTML标签中属性的扩展。而这些扩展中，有不少直接干预了浏览器与服务器的交互。例如，上面例子中的t:validate=&#8221;required,minlength=3&#8243;扩展实际上就会被自动映射到服务器端程序中带有@Component(id=&#8221;password&#8221;)标注的PasswordField组件上，并在提交时自动进行组件化校验。而当页面上的提交按钮被点击触发时，默认在服务器端的onSuccess方法会形成响应并调用其内部逻辑。_
+_我们可以发现，Tapestry5的请求页面被加入了更多的HTML扩展，这些扩展包括对HTML标签的扩展以及HTML标签中属性的扩展。而这些扩展中，有不少直接干预了浏览器与服务器的交互。例如，上面例子中的t:validate="required,minlength=3"扩展实际上就会被自动映射到服务器端程序中带有@Component(id="password")标注的PasswordField组件上，并在提交时自动进行组件化校验。而当页面上的提交按钮被点击触发时，默认在服务器端的onSuccess方法会形成响应并调用其内部逻辑。_
 
 **2. 页面组件的实现是整个组件模型的绝对核心**
 
@@ -354,17 +347,14 @@ _在上面的例子中，从页面组件到服务器端的响应程序之间的�
 
 _注：笔者在这里将提到三种不同的MVC框架的表现形态，实际上与请求-响应的实现模式有着密切的联系，有关这一方面的内容，请参阅另外一篇博文的内容：<a href="http://downpour.iteye.com/blog/1219164" target="_blank">《Struts2技术内幕》 新书部分篇章连载（五）—— 请求响应哲学</a>_
 
-<span style="text-decoration: underline;"><strong>【Servlet】</strong></span>
+<span style="text-decoration: underline;">【Servlet】
 
 Servlet规范是最基本的J2EE规范，也是我们进行Web开发的核心依赖。它虽然自身并不构成开发框架，但是我们不得不承认所有的MVC框架都是从最基本的Servlet规范发展而来。因此，我们可以得出一个基本结论：
 
-<div>
   downpour 写道
-</div>
 
-<div>
+
   Servlet是MVC模型最为基本的表现形态。
-</div>
 
 在Servlet规范中所定义的请求处理响应接口是这样的：
 
@@ -390,25 +380,24 @@ MVC模型的这一种形态，被笔者冠以一个名称：**参数-参数（Pa
 
 Servlet的设计模型是所有MVC模型表现形态中最为基础也是最为底层的一种模型，所有其他模型都是建立在这一模型的基础之上扩展而来。
 
-<span style="text-decoration: underline;"><strong>【Struts1.X】</strong></span>
+<span style="text-decoration: underline;">【Struts1.X】
 
 Struts1.X是一个较为早期的MVC框架实现，它的历史最早可以追溯到2000年，作为Apache开源组织的一个重要项目，取名为“Struts”，有“基础构建”的含义。在那个程序框架尚处于朦胧阶段的年代，“基础构建”无疑是每个程序员梦寐以求的东西。
 
 对于Struts1.X，我们还是把关注的重点放在Struts中的Controller层的定义上：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
       public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response);
     </li>
   </ol>
-</div>
 
 如果和之前的Servlet模型加以比较我们就可以发现，Struts1.X对于基本的Servlet模型做了一定的扩展和重构：
 
@@ -422,7 +411,7 @@ MVC模型发展到了这里，我们可以看到响应方法中的“返回值�
 
 由于Struts1.X已经不再是一个底层的实现规范，于是响应方法“返回值”被框架引入，加入到了整个处理过程之中。我们可以看到，在这里最大的进步之处就在于：**引入了新的编程元素，从而优化整个逻辑处理过程。**编程元素的引入非常重要，因为对于一个任何一个程序员而言，充分调用所有可以利用的编程要素是衡量一个程序写得好坏的重要标准。之后，我们还可以看到其他的框架在引入编程元素这个方面所做的努力。
 
-<span style="text-decoration: underline;"><strong>【Webwork2 / Struts2】</strong></span>
+<span style="text-decoration: underline;">【Webwork2 / Struts2】
 
 随着时间的推进，越来越多的程序员在使用Struts1.X进行开发的过程中发现Struts1.X在设计上存在的一些不足。而与此同时，各种各样的Web层的解决方案也如雨后春笋般涌现出来。不仅仅是以MVC模型为基础的开发框架，还有包括JSF和Tapestry之类的基于组件模型的开发框架也在这个时期诞生并不断发展壮大。因此，这个时期应该是整个Web层解决方案的大力发展时期。
 
@@ -433,11 +422,11 @@ MVC模型发展到了这里，我们可以看到响应方法中的“返回值�
 从整个过程中，我们可以发现，**Webwork2和Struts2是一脉相承的Web层解决方案。**而两者能够在一个相当长的时间段内占据开发市场主导地位的重要原因在于其技术上的领先优势。而这一技术上的领先优势，突出表现为对Controller的彻底改造：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -457,7 +446,7 @@ MVC模型发展到了这里，我们可以看到响应方法中的“返回值�
               // 这里加入业务逻辑代码
     </li>
     <li>
-              return &#8220;success&#8221;;
+              return "success";
     </li>
     <li>
           }
@@ -471,7 +460,6 @@ MVC模型发展到了这里，我们可以看到响应方法中的“返回值�
       }
     </li>
   </ol>
-</div>
 
 从上面的代码中，我们可以看到Webwork2 / Struts2对于Controller最大的改造有两点：
 
@@ -488,18 +476,18 @@ _注：有关ThreadLocal模式相关的话题，请参考另外一篇博文：<a
 
 POJO实现模式是一种具有革命性意义的模式，因为它能够把解耦合这样一个观点发挥到极致。从面向对象的角度来看，POJO模式无疑也是所有程序员所追求的一个目标。这也就是Webwork2 / Struts2那么多年来经久不衰的一个重要原因。
 
-<span style="text-decoration: underline;"><strong>【SpringMVC】</strong></span>
+<span style="text-decoration: underline;">【SpringMVC】
 
 相比较Webwork2 / Struts2，SpringMVC走了一条比较温和的改良路线。因为SpringMVC自始至终都没有突破传统Servlet编程模型的限制，而是在这过程中不断改良，不断重构，反而在发展中开拓了一条崭新的道路。
 
 我们可以看看目前最新版本的SpringMVC中对于Controller的定义：
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
@@ -514,7 +502,7 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
     <li>
     </li>
     <li>
-          @RequestMapping(&#8220;/register&#8221;)
+          @RequestMapping("/register")
     </li>
     <li>
           public ModelAndView register(String email, String password) {
@@ -523,7 +511,7 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
               // 在这里调用具体的业务逻辑代码
     </li>
     <li>
-              return new ModelAndView(&#8220;register-success&#8221;);
+              return new ModelAndView("register-success");
     </li>
     <li>
           }
@@ -534,7 +522,6 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
       }
     </li>
   </ol>
-</div>
 
 我们在这里引用了在之前的讲解中曾经使用过的代码片段。不过这一代码片段刚刚好可以说明SpringMVC在整个Controller改造中所涉及到的一些要点：
 
@@ -570,13 +557,10 @@ _这是一个蕴含的特点。事实上，SpringMVC在响应方法上，可以�
 
 从整个MVC框架的发展轨迹来看，我们可以得出一个很重要的结论：
 
-<div>
   downpour 写道
-</div>
 
-<div>
-  <strong>MVC框架的发展轨迹，始终是伴随着技术的革新（无论是编程模型的改变还是引入新的编程元素）共同向前发展。而每一次的技术革新，都会成为MVC框架发展过程中的里程碑。</strong>
-</div>
+
+  MVC框架的发展轨迹，始终是伴随着技术的革新（无论是编程模型的改变还是引入新的编程元素）共同向前发展。而每一次的技术革新，都会成为MVC框架发展过程中的里程碑。
 
 **小结**
 

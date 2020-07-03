@@ -20,49 +20,49 @@ A universally unique identifier (UUID) is a 128-bit number used to identify info
 
 例如Java中生成uuid：
 
-package com.mytest;
-  
-import java.util.UUID;
-  
-public class UTest {
+    package com.mytest;
       
-public static void main(String[] args) {
+    import java.util.UUID;
+      
+    public class UTest {
           
-UUID uuid = UUID.randomUUID();
-          
-System.out.println(uuid);
-  
-}}
+    public static void main(String[] args) {
+              
+    UUID uuid = UUID.randomUUID();
+              
+    System.out.println(uuid);
+      
+    }}
 
 c++中生成uuid：
 
-#pragma comment(lib, &#8220;rpcrt4.lib&#8221;)
-  
-#include <windows.h>
-  
-#include <iostream>
+    #pragma comment(lib, "rpcrt4.lib")
+      
+    #include <windows.h>
+      
+    #include <iostream>
 
-using namespace std;
+    using namespace std;
 
-int main()
-  
-{
+    int main()
       
-UUID uuid;
+    {
+          
+    UUID uuid;
+          
+    UuidCreate(&uuid);
+          
+    char _str;
+          
+    UuidToStringA(&uuid, (RPC_CSTR_)&str);
+          
+    cout<<str<<endl;
+          
+    RpcStringFreeA((RPC_CSTR*)&str);
+          
+    return 0;
       
-UuidCreate(&uuid);
-      
-char _str;
-      
-UuidToStringA(&uuid, (RPC_CSTR_)&str);
-      
-cout<<str<<endl;
-      
-RpcStringFreeA((RPC_CSTR*)&str);
-      
-return 0;
-  
-}
+    }
 
 github.com/satori/go.uuid
 
@@ -72,34 +72,34 @@ go get -u github.com/satori/go.uuid
 
 使用：
 
-package main
+    package main
 
-import (
+    import (
+          
+    "fmt"
+          
+    "github.com/satori/go.uuid"
       
-&#8220;fmt&#8221;
-      
-&#8220;github.com/satori/go.uuid&#8221;
-  
-)
+    )
 
-func main() {
-      
-// 创建
-      
-u1 := uuid.NewV4()
-      
-fmt.Printf(&#8220;UUIDv4: %s\n&#8221;, u1)
+    func main() {
+          
+    // 创建
+          
+    u1 := uuid.NewV4()
+          
+    fmt.Printf("UUIDv4: %s\n", u1)
 
-    // 解析
-    u2, err := uuid.FromString("f5394eef-e576-4709-9e4b-a7c231bd34a4")
-    if err != nil {
-        fmt.Printf("Something gone wrong: %s", err)
-        return
+        // 解析
+        u2, err := uuid.FromString("f5394eef-e576-4709-9e4b-a7c231bd34a4")
+        if err != nil {
+            fmt.Printf("Something gone wrong: %s", err)
+            return
+        }
+        fmt.Printf("Successfully parsed: %s", u2)
+        
+
     }
-    fmt.Printf("Successfully parsed: %s", u2)
-    
-
-}
 
 uuid在websocket中使用
 

@@ -15,7 +15,7 @@ categories:
 
 什么是过滤器？
 
-与Servlet相似，过滤器是一些web应用程序组件，可以绑定到一个web应用程序中。但是与其他web应用程序组件不同的是，过滤器是&#8221;链&#8221;在容器的处理过程中的。这就意味着它们会在servlet处理器之前访问一个进入的请求，并且在外发响应信息返回到客户前访问这些响应信息。这种访问使得过滤器可以检查并修改请求和响应的内容。
+与Servlet相似，过滤器是一些web应用程序组件，可以绑定到一个web应用程序中。但是与其他web应用程序组件不同的是，过滤器是"链"在容器的处理过程中的。这就意味着它们会在servlet处理器之前访问一个进入的请求，并且在外发响应信息返回到客户前访问这些响应信息。这种访问使得过滤器可以检查并修改请求和响应的内容。
 
 过滤器适用于那些地方？
 
@@ -119,7 +119,7 @@ ServletContext context = **this**.config.getServletContext();
 
 **long** before = System._currentTimeMillis_();
 
-System._out_.println(&#8220;开始过滤&#8230; &#8220;);
+System._out_.println("开始过滤... ");
 
 // 将请求转换成HttpServletRequest 请求
 
@@ -127,7 +127,7 @@ HttpServletRequest hrequest = (HttpServletRequest) request;
 
 // 记录日志
 
-context.log(&#8220;Filter已经截获到用户的请求的地址: &#8221; + hrequest.getServletPath());
+context.log("Filter已经截获到用户的请求的地址: " + hrequest.getServletPath());
 
 **try** {
 
@@ -145,13 +145,13 @@ e.printStackTrace();
 
 // 记录日志
 
-context.log(&#8220;过滤结束&#8221;);
+context.log("过滤结束");
 
 // 再次记录日志
 
-context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request).getRequestURI()
+context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestURI()
 
-+ &#8220;所花的时间为: &#8221; + (after &#8211; before));
++ "所花的时间为: " + (after - before));
 
 }
 
@@ -161,29 +161,29 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 步骤2：在web.xml中配置Filter
 
-<!&#8211; 定义Filter &#8211;>
+<!- 定义Filter ->
 
 <filter>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>log</filter-name>
 
-<!&#8211; Filter 的实现类 &#8211;>
+<!- Filter 的实现类 ->
 
 <filter-class> test.filter.LogFilter</filter-class>
 
 </filter>
 
-<!&#8211; 定义Filter 拦截地址 &#8211;>
+<!- 定义Filter 拦截地址 ->
 
 <filter-mapping>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>log</filter-name>
 
-<!&#8211; Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL ->
 
 <url-pattern>/filter/*</url-pattern>
 
@@ -208,174 +208,135 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 1、   编写EncodingFilter类
 
 <p align="left">
-  <strong>package</strong> test.filter;
-</p>
+  package test.filter;
 
 <p align="left">
-  <strong>import</strong> java.io.IOException;
-</p>
+  import java.io.IOException;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.Filter;
-</p>
+  import javax.servlet.Filter;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.FilterChain;
-</p>
+  import javax.servlet.FilterChain;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.FilterConfig;
-</p>
+  import javax.servlet.FilterConfig;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletContext;
-</p>
+  import javax.servlet.ServletContext;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletException;
-</p>
+  import javax.servlet.ServletException;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletRequest;
-</p>
+  import javax.servlet.ServletRequest;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletResponse;
-</p>
+  import javax.servlet.ServletResponse;
 
 <p align="left">
-  <strong>public</strong> <strong>class</strong> EncodingFilter <strong>implements</strong> Filter {
-</p>
+  public class EncodingFilter implements Filter {
 
 <p align="left">
-      <strong>private</strong> FilterConfig filterConfig = <strong>null</strong>;
-</p>
+      private FilterConfig filterConfig = null;
 
 <p align="left">
-      <strong>private</strong> String encoding = <strong>null</strong>;
-</p>
+      private String encoding = null;
 
 <p align="left">
       //实现销毁方法
-</p>
 
 <p align="left">
-      <strong>public</strong> <strong>void</strong> destroy() {
-</p>
+      public void destroy() {
 
 <p align="left">
-           encoding = <strong>null</strong>;
-</p>
+           encoding = null;
 
 <p align="left">
        }
-</p>
 
 <p align="left">
       //进行具体的过滤
-</p>
 
 <p align="left">
-      <strong>public</strong> <strong>void</strong> doFilter(ServletRequest request, ServletResponse response,
-</p>
+      public void doFilter(ServletRequest request, ServletResponse response,
 
 <p align="left">
-               FilterChain chain) <strong>throws</strong> IOException, ServletException {
-</p>
+               FilterChain chain) throws IOException, ServletException {
 
 <p align="left">
           // 获取ServletContext 对象，用于记录日志
-</p>
 
 <p align="left">
-           ServletContext context =<strong>this</strong>.filterConfig.getServletContext();
-</p>
+           ServletContext context =this.filterConfig.getServletContext();
 
 <p align="left">
-           context.log(&#8220;开始设置编码格式&#8221;);
-</p>
+           context.log("开始设置编码格式");
 
 <p align="left">
            String encoding = getEncoding();
-</p>
 
 <p align="left">
-           <strong>if</strong> (encoding == <strong>null</strong>){
-</p>
+           if (encoding == null){
 
 <p align="left">
-               encoding = &#8220;gb2312&#8221;;
-</p>
+               encoding = "gb2312";
 
 <p align="left">
            }
-</p>
 
 <p align="left">
            // 在请求里设置上指定的编码
-</p>
 
 <p align="left">
            request.setCharacterEncoding(encoding);
-</p>
 
 <p align="left">
            chain.doFilter(request, response);
-</p>
 
 <p align="left">
-           context.log(&#8220;成功设置了编码格式&#8221;);
-</p>
+           context.log("成功设置了编码格式");
 
 <p align="left">
        }
-</p>
 
 <p align="left">
       //初始化配置
-</p>
 
 <p align="left">
-      <strong>public</strong> <strong>void</strong> init(FilterConfig filterConfig) <strong>throws</strong>ServletException {
-</p>
+      public void init(FilterConfig filterConfig) throwsServletException {
 
 <p align="left">
-          <strong>this</strong>.filterConfig = filterConfig;
-</p>
+          this.filterConfig = filterConfig;
 
 <p align="left">
-          <strong>this</strong>.encoding = filterConfig.getInitParameter(&#8220;encoding&#8221;);
-</p>
+          this.encoding = filterConfig.getInitParameter("encoding");
 
 <p align="left">
        }
-</p>
 
 <p align="left">
-      <strong>private</strong> String getEncoding() {
-</p>
+      private String getEncoding() {
 
 <p align="left">
-          <strong>return</strong> <strong>this</strong>.encoding;
-</p>
+          return this.encoding;
 
 <p align="left">
        }
-</p>
 
 }
 
 步骤2：在web.xml中配置Filter
 
-<!&#8211; 定义Filter &#8211;>
+<!- 定义Filter ->
 
 <filter>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>encoding</filter-name>
 
-<!&#8211; Filter 的实现类 &#8211;>
+<!- Filter 的实现类 ->
 
 <filter-class> test.filter.EncodingFilter</filter-class>
 
@@ -389,15 +350,15 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 
 </filter>
 
-<!&#8211; 定义Filter 拦截地址 &#8211;>
+<!- 定义Filter 拦截地址 ->
 
 <filter-mapping>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name> encoding </filter-name>
 
-<!&#8211; Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL ->
 
 <url-pattern>/encode/*</url-pattern>
 
@@ -410,196 +371,155 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 1、   编写身份认证SecurityFilter类
 
 <p align="left">
-  <strong>package</strong> test.filter;
-</p>
+  package test.filter;
 
 <p align="left">
-  <strong>import</strong> java.io.IOException;
-</p>
+  import java.io.IOException;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.Filter;
-</p>
+  import javax.servlet.Filter;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.FilterChain;
-</p>
+  import javax.servlet.FilterChain;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.FilterConfig;
-</p>
+  import javax.servlet.FilterConfig;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletContext;
-</p>
+  import javax.servlet.ServletContext;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletException;
-</p>
+  import javax.servlet.ServletException;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletRequest;
-</p>
+  import javax.servlet.ServletRequest;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.ServletResponse;
-</p>
+  import javax.servlet.ServletResponse;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.http.HttpServletRequest;
-</p>
+  import javax.servlet.http.HttpServletRequest;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.http.HttpServletResponse;
-</p>
+  import javax.servlet.http.HttpServletResponse;
 
 <p align="left">
-  <strong>import</strong> javax.servlet.http.HttpSession;
-</p>
+  import javax.servlet.http.HttpSession;
 
 <p align="left">
-  <strong>public</strong> <strong>class</strong> SecurityFilter <strong>implements</strong> Filter {
-</p>
+  public class SecurityFilter implements Filter {
 
 <p align="left">
-      <strong>private</strong> FilterConfig filterConfig;
-</p>
+      private FilterConfig filterConfig;
 
 <p align="left">
       //初始化方法实现
-</p>
 
 <p align="left">
       @Override
-</p>
 
 <p align="left">
-      <strong>public</strong> <strong>void</strong> init(FilterConfig filterConfig) <strong>throws</strong>ServletException {
-</p>
+      public void init(FilterConfig filterConfig) throwsServletException {
 
 <p align="left">
-          <strong>this</strong>.filterConfig = filterConfig;
-</p>
+          this.filterConfig = filterConfig;
 
 <p align="left">
       }
-</p>
 
 <p align="left">
       //身份认证的过滤
-</p>
 
 <p align="left">
       @Override
-</p>
 
 <p align="left">
-      <strong>public</strong> <strong>void</strong> doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-</p>
+      public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 
 <p align="left">
-              <strong>throws</strong> IOException, ServletException {
-</p>
+              throws IOException, ServletException {
 
 <p align="left">
-          ServletContext context =<strong>this</strong>.filterConfig.getServletContext();
-</p>
+          ServletContext context =this.filterConfig.getServletContext();
 
 <p align="left">
           HttpServletRequest req = (HttpServletRequest) request;
-</p>
 
 <p align="left">
           HttpServletResponse res = (HttpServletResponse) response;
-</p>
 
 <p align="left">
           HttpSession session = req.getSession();
-</p>
 
 <p align="left">
           //登录后才能进入下一步处理，否则直接进入错误提示页面
-</p>
 
 <p align="left">
-          <strong>if</strong> (session.getAttribute(&#8220;username&#8221;) != <strong>null</strong>) {
-</p>
+          if (session.getAttribute("username") != null) {
 
 <p align="left">
-              context.log(&#8220;身份认证通过，进入下一步处理 &#8220;);
-</p>
+              context.log("身份认证通过，进入下一步处理 ");
 
 <p align="left">
               chain.doFilter(request, response);
-</p>
 
 <p align="left">
-          } <strong>else</strong> {
-</p>
+          } else {
 
 <p align="left">
-              context.log(&#8220;身份认证失败，直接返回&#8221;);
-</p>
+              context.log("身份认证失败，直接返回");
 
 <p align="left">
-              res.sendRedirect(&#8220;../failure.jsp&#8221;);
-</p>
+              res.sendRedirect("../failure.jsp");
 
 <p align="left">
           }
-</p>
 
 <p align="left">
       }
-</p>
 
 <p align="left">
       //实现销毁方法
-</p>
 
 <p align="left">
       @Override
-</p>
 
 <p align="left">
-      <strong>public</strong> <strong>void</strong> destroy() {
-</p>
+      public void destroy() {
 
 <p align="left">
-          <strong>this</strong>.filterConfig = <strong>null</strong>;
-</p>
+          this.filterConfig = null;
 
 <p align="left">
       }
-</p>
 
 }
 
 步骤2：在web.xml中配置Filter
 
-<!&#8211; 定义Filter &#8211;>
+<!- 定义Filter ->
 
 <filter>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name>security</filter-name>
 
-<!&#8211; Filter 的实现类 &#8211;>
+<!- Filter 的实现类 ->
 
 <filter-class> test.filter.SecurityFilter</filter-class>
 
 </filter>
 
-<!&#8211; 定义Filter 拦截地址 &#8211;>
+<!- 定义Filter 拦截地址 ->
 
 <filter-mapping>
 
-<!&#8211; Filter 的名字 &#8211;>
+<!- Filter 的名字 ->
 
 <filter-name> security </filter-name>
 
-<!&#8211; Filter 负责拦截的URL &#8211;>
+<!- Filter 负责拦截的URL ->
 
 <url-pattern>/security/*</url-pattern>
 
@@ -608,41 +528,31 @@ context.log(&#8221; 请求被定位到&#8221; + ((HttpServletRequest) request)
 通过上述步骤的操作，此时就可以通过URI进行访问。此时如果能够取得Session中的username值时，会直接进入下一步处理，否则直接进入错误页面。
 
 <p align="left">
-  <strong>二、过滤链</strong><strong>FilterChain</strong>
-</p>
+  二、过滤链FilterChain
 
 <p align="left">
   两个过滤器，EncodingFilter负责设置编码，SecurityFilter负责控制权限，服务器会按照web.xml中过滤器定义的先后循序组装成一条链，然后一次执行其中的doFilter()方法。执行的顺序就如下图所示，执行第一个过滤器的chain.doFilter()之前的代码，第二个过滤器的chain.doFilter()之前的代码，请求的资源，第二个过滤器的chain.doFilter()之后的代码，第一个过滤器的chain.doFilter()之后的代码，最后返回响应。
-</p>
 
 <p align="left">
   执行的代码顺序是：
-</p>
 
 <p align="left">
-  l  执行EncodingFilter.doFilter()中chain.doFilter()之前的部分；<strong>request.setCharacterEncoding(encoding);</strong><strong></strong>
-</p>
+  l  执行EncodingFilter.doFilter()中chain.doFilter()之前的部分；request.setCharacterEncoding(encoding);
 
 <p align="left">
   l  执行SecurityFilter.doFilter()中chain.doFilter()之前的部分：判断用户是否已登录。
-</p>
 
 <p align="left">
   l  如果用户已登录，则访问请求的资源。
-</p>
 
 <p align="left">
   l  如果用户未登录，则页面重定向到：/failure.jsp。
-</p>
 
 <p align="left">
   l  执行SecurityFilter.doFilter()中chain.doFilter()之后的部分：这里没有代码。
-</p>
 
 <p align="left">
   l  执行EncodingFilter.doFilter()中chain.doFilter()之后的部分：写入已经完成的日志。
-</p>
 
 <p align="left">
   过滤链的好处是，执行过程中任何时候都可以打断，只要不执行chain.doFilter()就不会再执行后面的过滤器和请求的内容。而在实际使用时，就要特别注意过滤链的执行顺序问题，像EncodingFilter就一定要放在所有Filter之前，这样才能确保在使用请求中的数据前设置正确的编码。
-</p>

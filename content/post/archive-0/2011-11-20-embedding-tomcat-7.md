@@ -16,7 +16,7 @@ tags:
 ---
 <http://www.copperykeenclaws.com/embedding-tomcat-7/>
 
-One of the more anticipated features of Tomcat 7 is the ability to run as an embedded server like Jetty. We use Tomcat 6 in production, but embedded Jetty more and more for running and testing during development (in Eclipse). The Tomcat 7  has been out for a while, but there seems to be little documentation out there on how to embed it, other than some suggestions to look at the unit tests for examples. So that’s what I did! First, here is the guts of our original Main method in Jetty:
+One of the more anticipated features of Tomcat 7 is the ability to run as an embedded server like Jetty. We use Tomcat 6 in production, but embedded Jetty more and more for running and testing during development (in Eclipse). The Tomcat 7  has been out for a while, but there seems to be little documentation out there on how to embed it, other than some suggestions to look at the unit tests for examples. So that's what I did! First, here is the guts of our original Main method in Jetty:
 
 [java]
   
@@ -50,25 +50,19 @@ server.join();
   
 [/java]
 
-<div>
   To switch to Tomcat 7, add these dependencies to your build.gradle:
-</div>
 
-<div>
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile &#8220;org.apache.tomcat:tomcat-catalina:7.0.22&#8221;</span>
-</div>
 
-<div>
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile &#8220;org.apache.tomcat.embed:tomcat-embed-core:7.0.22&#8221;</span>
-</div>
+  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat:tomcat-catalina:7.0.22"
 
-<div>
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile &#8220;org.apache.tomcat:tomcat-jasper:7.0.22&#8221;</span>
-</div>
 
-<div>
+  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat.embed:tomcat-embed-core:7.0.22"
+
+
+  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat:tomcat-jasper:7.0.22"
+
+
   Here is the Tomcat 7 version:
-</div>
 
 [java]
   
@@ -112,10 +106,7 @@ tomcat.getServer().await();
   
 [/java]
 
-<div>
   Without the await() call at the end, the server quits right after it starts, which you may or may not want.
-</div>
 
-<div>
-  Launch it! We normally set up a launch configuration in Eclipse to run it. It’s also easy to run on the command-line using java -jar after you’ve built your jar.
-</div>
+
+  Launch it! We normally set up a launch configuration in Eclipse to run it. It's also easy to run on the command-line using java -jar after you've built your jar.

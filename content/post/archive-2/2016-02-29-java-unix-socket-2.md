@@ -8,11 +8,9 @@ categories:
   - Uncategorized
 
 ---
-<pre>&lt;dependency&gt;
-   &lt;groupId&gt;uk.co.caprica&lt;/groupId&gt;
-   &lt;artifactId&gt;juds&lt;/artifactId&gt;
-   &lt;version&gt;0.94.1&lt;/version&gt;
-&lt;/dependency&gt;
+<dependency>
+   <groupId>uk.co.caprica</groupId>
+   <artifactId>juds</artifactId>
+   <version>0.94.1</version>
+</dependency>
 
-
-</pre>

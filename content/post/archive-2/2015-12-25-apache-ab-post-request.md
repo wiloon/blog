@@ -12,7 +12,8 @@ ApacheBench
 
 ### install
 
-```bashyay -S apache-tools
+```bash
+yay -S apache-tools
 sudo yum -y install httpd-tools
 ```
 
@@ -73,7 +74,7 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
 
 -C ” c1=1234,c2=2,c3=3, JSESSIONID=FF056CD16DA9D71CB131C1D56F0319F8″ 。
   
--H attribute Add Arbitrary header line, eg. ‘Accept-Encoding: gzip’ Inserted after all normal header lines. (repeatable)
+-H attribute Add Arbitrary header line, eg. 'Accept-Encoding: gzip' Inserted after all normal header lines. (repeatable)
   
 -A attribute Add Basic WWW Authentication, the attributes
   
@@ -101,7 +102,7 @@ are a colon separated username and password.
   
 -h Display usage information (this message)
   
-//-attributes 设置属性的字符串. 缺陷程序中有各种静态声明的固定长度的缓冲区。另外，对命令行参数、服务器的响应头和其他外部输入的解析也很简单，这可能会有不良后果。它没有完整地实现 HTTP/1.x; 仅接受某些’预想’的响应格式。 strstr(3)的频繁使用可能会带来性能问题，即你可能是在测试ab而不是服务器的性能。
+//-attributes 设置属性的字符串. 缺陷程序中有各种静态声明的固定长度的缓冲区。另外，对命令行参数、服务器的响应头和其他外部输入的解析也很简单，这可能会有不良后果。它没有完整地实现 HTTP/1.x; 仅接受某些'预想'的响应格式。 strstr(3)的频繁使用可能会带来性能问题，即你可能是在测试ab而不是服务器的性能。
 
 参数很多，一般我们用 -c 和 -n 参数就可以了。例如:
 
@@ -125,7 +126,7 @@ ApacheBench用法详解：
 
 使用ab发送post请求
 
-<pre>ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant</pre>
+ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant
 
 解释：-p:包含post请求的参数文件。文件内容类似：sk=1babb55a0b4b4dd2a&apitype=restaurant&p=tJoLaT4mon
 
@@ -142,9 +143,9 @@ http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%
  
 
 <blockquote class="wp-embedded-content" data-secret="uK0hS4Tawl">
-  <p>
+  
     <a href="http://www.ha97.com/4617.html">（总结）Web性能压力测试工具之ApacheBench（ab）详解</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《（总结）Web性能压力测试工具之ApacheBench（ab）详解》—运维架构笔记 | 股市实战分享" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl" data-secret="uK0hS4Tawl" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

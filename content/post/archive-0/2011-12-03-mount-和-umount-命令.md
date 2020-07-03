@@ -14,7 +14,8 @@ categories:
 ---
 ### mount iso
 
-```bashsudo mkdir /mnt/iso
+```bash
+sudo mkdir /mnt/iso
 sudo mount -o loop /path/to/my-iso-image.iso /mnt/iso
 ls -l /mnt/iso/
 sudo umount /mnt/iso/
@@ -24,7 +25,8 @@ mount 和 umount 命令
   
 现在，文件系统已经创建成功，您应该挂载分区了。挂载文件系统的命令是 mount，其语法是：
 
-```bashmount [选项]  [-o 挂载选项]
+```bash
+mount [选项]  [-o 挂载选项]
 ```
 
 在本例中，我们首先会将分区临时挂载在 /mnt (或您选择的任何其它挂载点：请记住，挂载点必须已经存在)。挂载我们新创建的分区的命令是：
@@ -40,7 +42,7 @@ mount 和 umount 命令
 
 现在，您已经挂载了您的新分区，现在该将整个 /usr 目录复制到新分区了：
 
-$ (cd /usr && tar cf &#8211; .) | (cd /mnt && tar xpvf -)
+$ (cd /usr && tar cf - .) | (cd /mnt && tar xpvf -)
   
 文件都已经复制完了，现在可以卸下分区了。要卸下分区，请使用 umount 命令。语法很简单：
 
@@ -70,9 +72,9 @@ umount -l
   
 /dev/hda6 swap swap defaults 0 0
   
-none /mnt/cdrom supermount dev=/dev/scd0,fs=udf:iso9660,ro,&#8211; 0 0
+none /mnt/cdrom supermount dev=/dev/scd0,fs=udf:iso9660,ro,- 0 0
   
-none /mnt/floppy supermount dev=/dev/fd0,fs=ext2:vfat,&#8211;,sync,umask=0 0 0
+none /mnt/floppy supermount dev=/dev/fd0,fs=ext2:vfat,-,sync,umask=0 0 0
   
 none /proc proc defaults 0 0
   

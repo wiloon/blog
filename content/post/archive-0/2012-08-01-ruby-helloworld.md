@@ -46,7 +46,7 @@ $ which ruby
 
 ### Installing Ruby
 
-If you don’t have Ruby, install it as shown below.
+If you don't have Ruby, install it as shown below.
 
 [shell]
   
@@ -60,34 +60,41 @@ $ sudo apt-get install ruby
 
 You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
 
-<div>
-  [shell]<br /> $ ruby helloworld.rb<br /> Hello World!<br /> [/shell]</p> 
+  [shell]
+ $ ruby helloworld.rb
+ Hello World!
+ [/shell] 
   
-  <p>
-    ( or )<br /> [shell]<br /> $ chmod u+x helloworld.rb
-  </p>
   
-  <p>
-    $ ./helloworld.rb<br /> Hello World!<br /> [/shell]
-  </p>
+    ( or )
+ [shell]
+ $ chmod u+x helloworld.rb
   
-  <p>
-    <strong>Note:</strong> As Ruby is an interpreted language, you don’t have the compilation step similar to the C program.
-  </p>
   
-  <h3>
+  
+    $ ./helloworld.rb
+ Hello World!
+ [/shell]
+  
+  
+  
+    Note: As Ruby is an interpreted language, you don't have the compilation step similar to the C program.
+  
+  
+  
     Executing Ruby one liner
-  </h3>
   
-  <p>
+  
+  
     You can also execute Ruby from the command line as shown below. This will print Hello World!.
-  </p>
   
-  <p>
-    [shell]<br /> $ ruby -e &#8216;puts "Hello World!n"&#8217;<br /> [/shell]
-  </p>
   
-  <p>
+  
+    [shell]
+ $ ruby -e 'puts "Hello World!n"'
+ [/shell]
+  
+  
+  
     <a href="http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/">http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/</a>
-  </p>
-</div>
+  

@@ -36,11 +36,11 @@ http://mayday85.iteye.com/blog/1622445
 
 对于文件下载，再简单不过了，但我比较傻，不会自己写
 
-于是在google搜索&#8221;Spring mvc 3 download&#8221;，demo版本都差不多
+于是在google搜索"Spring mvc 3 download"，demo版本都差不多
 
 Java代码 收藏代码
 
-@RequestMapping(&#8220;download&#8221;)
+@RequestMapping("download")
 
 public void download(HttpServletResponse res) throws IOException {
 
@@ -50,9 +50,9 @@ try {
 
 res.reset();
 
-res.setHeader(&#8220;Content-Disposition&#8221;, &#8220;attachment; filename=dict.txt&#8221;);
+res.setHeader("Content-Disposition", "attachment; filename=dict.txt");
 
-res.setContentType(&#8220;application/octet-stream; charset=utf-8&#8221;);
+res.setContentType("application/octet-stream; charset=utf-8");
 
 os.write(FileUtils.readFileToByteArray(getDictionaryFile()));
 
@@ -80,7 +80,7 @@ os.close();
 
 Java代码 收藏代码
 
-@RequestMapping(&#8220;download&#8221;)
+@RequestMapping("download")
 
 public ResponseEntity<byte[]> download() throws IOException {
 
@@ -88,7 +88,7 @@ HttpHeaders headers = new HttpHeaders();
 
 headers.setContentType(MediaType.APPLICATION\_OCTET\_STREAM);
 
-headers.setContentDispositionFormData(&#8220;attachment&#8221;, &#8220;dict.txt&#8221;);
+headers.setContentDispositionFormData("attachment", "dict.txt");
 
 return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(getDictionaryFile()),
 
@@ -102,7 +102,7 @@ headers, HttpStatus.CREATED);
 
 Java代码 收藏代码
 
-&#8220;YWEJMQ0KdnYJMg0KaGgJMw==&#8221;
+"YWEJMQ0KdnYJMg0KaGgJMw=="
 
 正确内容为
 
@@ -124,7 +124,7 @@ ResponseEntity<String>
 
 Java代码 收藏代码
 
-&#8220;aa 1\n\tvv 2\n\thh 3&#8221;
+"aa 1\n\tvv 2\n\thh 3"
 
 相信很多人看到这已经知道了发生了什么
 
@@ -136,11 +136,11 @@ Java代码 收藏代码
 
 public ByteArrayHttpMessageConverter() {
 
-super(new MediaType(&#8220;application&#8221;, &#8220;octet-stream&#8221;), MediaType.ALL);
+super(new MediaType("application", "octet-stream"), MediaType.ALL);
 
 }
 
-&#8230;
+...
 
 protected void writeInternal(byte[] bytes, HttpOutputMessage outputMessage) throws IOException {
 
@@ -190,17 +190,17 @@ extends AbstractHttpMessageConverter[color=red]<Object>[/color]
 
 Java代码 收藏代码
 
-<bean class=&#8221;org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter&#8221;>
+<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 
-<property name=&#8221;messageConverters&#8221;>
+<property name="messageConverters">
 
 <list>
 
-[color=red]<bean class=&#8221;org.springframework.http.converter.ByteArrayHttpMessageConverter&#8221;/>[/color]
+[color=red]<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>[/color]
 
-<bean id=&#8221;jsonHttpMessageConverter&#8221; class=&#8221;org.springframework.http.converter.json.MappingJacksonHttpMessageConverter&#8221; >
+<bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" >
 
-<property name = &#8220;supportedMediaTypes&#8221;>
+<property name = "supportedMediaTypes">
 
 <list>
 

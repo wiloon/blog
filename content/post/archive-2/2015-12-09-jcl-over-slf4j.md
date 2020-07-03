@@ -22,15 +22,9 @@ java 界里有许多实现日志功能的工具，最早得到广泛使用的是
 
 现在还有一个问题，假如你正在开发应用程序所调用的组件当中已经使用了 JCL 的，还有一些组建可能直接调用了 java.util.logging，这时你需要一个桥接器（名字为 XXX-over-slf4j.jar）把他们的日志输出重定向到 SLF4J，所谓的桥接器就是一个假的日志实现工具，比如当你把 jcl-over-slf4j.jar 放到 CLASS_PATH 时，即使某个组件原本是通过 JCL 输出日志的，现在却会被 jcl-over-slf4j “骗到”SLF4J 里，然后 SLF4J 又会根据绑定器把日志交给具体的日志实现工具。过程如下
 
-Component
-  
-|
-  
+Component  
 | log to Apache Commons Logging
-  
-V
-  
-jcl-over-slf4j.jar &#8212; (redirect) &#8212;> SLF4j &#8212;> slf4j-log4j12-version.jar &#8212;> log4j.jar &#8212;> 输出日志
+jcl-over-slf4j.jar - (redirect) -> SLF4j -> slf4j-log4j12-version.jar -> log4j.jar -> 输出日志
 
 看到上面的流程图可能会发现一个有趣的问题，假如在 CLASS_PATH 里同时放置 log4j-over-slf4j.jar 和 slf4j-log4j12-version.jar 会发生什么情况呢？没错，日志会被踢来踢去，最终进入死循环。
 

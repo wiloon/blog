@@ -10,7 +10,8 @@ categories:
 ---
 Condition 将 Object 监视器方法（wait、notify 和 notifyAll）分解成截然不同的对象，以便通过将这些对象与任意 Lock 实现组合使用，为每个对象提供多个等待 set （wait-set）。其中，Lock 替代了 synchronized 方法和语句的使用，Condition 替代了 Object 监视器方法的使用。下面将之前写过的一个线程通信的例子替换成用Condition实现(Java线程(三))，代码如下：
 
-[code lang=java]
+```java
+
   
 public class ThreadTest2 {
       
@@ -132,13 +133,14 @@ lock.unlock();
   
 }
   
-[/code]
+```
 
 在Condition中，用await()替换wait()，用signal()替换notify()，用signalAll()替换notifyAll()，传统线程的通信方式，Condition都可以实现，这里注意，Condition是被绑定到Lock上的，要创建一个Lock的Condition必须用newCondition()方法。
 
 这样看来，Condition和传统的线程通信没什么区别，Condition的强大之处在于它可以为多个线程间建立不同的Condition，下面引入API中的一段代码，加以说明。
 
-[code lang=java]
+```java
+
   
 class BoundedBuffer {
      
@@ -192,7 +194,7 @@ Object x = items[takeptr];//取值
          
 if (++takeptr == items.length) takeptr = 0;//如果读索引读到队列的最后一个位置了，那么置为0
          
-&#8211;count;//个数&#8211;
+-count;//个数-
          
 notFull.signal();//唤醒写线程
          
@@ -208,7 +210,7 @@ lock.unlock();
    
 }
   
-[/code]
+```
 
 这是一个处于多线程工作环境下的缓存区，缓存区提供了两个方法，put和take，put是存数据，take是取数据，内部有个缓存队列，具体变量和方法说明见代码，这个缓存区类实现的功能：有多个线程往里面存数据和从里面取数据，其缓存队列(先进先出后进后出)能缓存的最大数值是100，多个线程间是互斥的，当缓存队列中存储的值达到100时，将写线程阻塞，并唤醒读线程，当缓存队列中存储的值为0时，将读线程阻塞，并唤醒写线程，这也是ArrayBlockingQueue的内部实现。下面分析一下代码的执行过程：
           
@@ -237,7 +239,8 @@ lock.unlock();
 
 ReentrantLock和Condition的使用方式通常是这样的：
 
-[code lang=java]
+```java
+
   
 public static void main(String[] args) {
       
@@ -301,7 +304,7 @@ thread1.start();
   
 }
   
-[/code]
+```
 
 运行后，结果如下：
 

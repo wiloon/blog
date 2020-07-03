@@ -12,15 +12,16 @@ categories:
 
 build tensorflow
 
-[code lang=shell]
+```bash
   
-<br />git clone https://github.com/tensorflow/tensorflow
+
+git clone https://github.com/tensorflow/tensorflow
   
 sudo pacman -S bazel
   
 sudo pacman -S python-numpy
 
-[/code]
+```
 
 [shell]
 

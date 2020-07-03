@@ -24,7 +24,7 @@ private TestJUnit tju = null;
   
 public static void enter() {
   
-System.out.println(&#8220;进来了！&#8221;);
+System.out.println("进来了！");
   
 }
 
@@ -32,11 +32,11 @@ System.out.println(&#8220;进来了！&#8221;);
   
 public void init() {
   
-System.out.println(&#8220;正在初始化。。&#8221;);
+System.out.println("正在初始化。。");
   
 tju = new TestJUnit();
   
-System.out.println(&#8220;初始化完毕！&#8221;);
+System.out.println("初始化完毕！");
   
 }
 
@@ -52,11 +52,11 @@ tju.run();
   
 public void destroy() {
   
-System.out.println(&#8220;销毁对象。。。&#8221;);
+System.out.println("销毁对象。。。");
   
 tju = null;
   
-System.out.println(&#8220;销毁完毕！&#8221;);
+System.out.println("销毁完毕！");
   
 }
 
@@ -64,7 +64,7 @@ System.out.println(&#8220;销毁完毕！&#8221;);
   
 public static void leave() {
   
-System.out.println(&#8220;离开了！&#8221;);
+System.out.println("离开了！");
   
 }
   

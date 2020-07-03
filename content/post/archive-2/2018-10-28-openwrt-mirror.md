@@ -10,7 +10,7 @@ categories:
 ---
 edit /etc/opkg/distfeeds.conf
 
-[code lang=shell]
+```bash
   
 src/gz openwrt_core http://openwrt.proxy.ustclug.org/releases/18.06.1/targets/ipq806x/generic/packages
   
@@ -22,9 +22,9 @@ src/gz openwrt\_routing http://openwrt.proxy.ustclug.org/releases/18.06.1/packag
   
 src/gz openwrt\_telephony http://openwrt.proxy.ustclug.org/releases/18.06.1/packages/arm\_cortex-a15_neon-vfpv4/telephony
   
-[/code]
+```
 
-[code lang=shell]
+```bash
   
 \# backup
   
@@ -38,7 +38,7 @@ src/gz openwrt\_routing http://downloads.openwrt.org/releases/18.06.1/packages/a
   
 src/gz openwrt\_telephony http://downloads.openwrt.org/releases/18.06.1/packages/arm\_cortex-a15_neon-vfpv4/telephony
   
-[/code]
+```
 
 https://openwrt.proxy.ustclug.org/
 

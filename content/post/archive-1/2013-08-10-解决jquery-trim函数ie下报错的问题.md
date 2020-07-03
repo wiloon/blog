@@ -13,71 +13,68 @@ categories:
 其主要原因是写法不对，下面是错误的写法
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      var content = $(&#8216;#content&#8217;).val();
+      var content = $('#content').val();
     </li>
     <li>
-      if(content.trim() == &#8221;)
+      if(content.trim() == ")
     </li>
     <li>
-         alert(&#8216;空&#8217;);
+         alert('空');
     </li>
   </ol>
-</div>
 
 上面的写法在firefox下不会报错，但在ie下确会报错
   
 正确的写法应该为
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      var content = $(&#8216;#content&#8217;).val();
+      var content = $('#content').val();
     </li>
     <li>
-      if($.trim(content) == &#8221;)
+      if($.trim(content) == ")
     </li>
     <li>
-        alert(&#8216;空&#8217;);
+        alert('空');
     </li>
   </ol>
-</div>
 
 或者为:
 
 <div id="">
-  <div>
-    <div>
+  
+    
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    </div>
-  </div>
+    
+  
   
   <ol start="1">
     <li>
-      var content = $(&#8216;#content&#8217;).val();
+      var content = $('#content').val();
     </li>
     <li>
-      if(jQuery.trim(content) == &#8221;)
+      if(jQuery.trim(content) == ")
     </li>
     <li>
-       alert(&#8216;空&#8217;);
+       alert('空');
     </li>
   </ol>
   
-  <p>
+  
     <a href="http://vsp.iteye.com/blog/1262441">http://vsp.iteye.com/blog/1262441</a>
-  </p>
-</div>
+  

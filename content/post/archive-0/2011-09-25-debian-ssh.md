@@ -10,7 +10,7 @@ categories:
   - Linux
 
 ---
-[code lang=shell]
+```bash
   
 #debian
   
@@ -26,4 +26,4 @@ ssh IP
   
 ssh IP -p 1234 -l root
   
-[/code]
+```

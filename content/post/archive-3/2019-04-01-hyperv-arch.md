@@ -45,7 +45,7 @@ Set-VM -VMName **Your\_Arch\_Machine** -EnhancedSessionTransportType HvSocket
 
 在虚拟机栏中右键点击虚拟机>设置>添加硬件
   
-选择&#8221;网络适配器&#8221;
+选择"网络适配器"
   
 点击添加按钮
   

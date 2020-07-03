@@ -20,7 +20,7 @@ tar -xjf Python-3.xtar.bz2 cd Python-3.x
   
 4- Configure the build with a prefix (install dir) of /opt/python3, compile, and install.
 
-./configure &#8211;prefix=/opt/python3
+./configure -prefix=/opt/python3
   
 make
   

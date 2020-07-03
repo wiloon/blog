@@ -48,51 +48,11 @@ mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一�
    
 </dependency>
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
 3、移出项目中的ibatis相关配置及文件（与spring集成为样例）：
 
 <bean id="sqlMapClient" class="com.common.sqlmap.DynSqlMapClientFactoryBean"> <property name="configLocations"> <list> <value>classpath:common-sqlmap-config.xml</value>
       
 <value>classpath*:ibatis-sqlmap-config.xml</value> </list> </property> <property name="dynamicDataSource" ref="dataSource_dyn"> </property> </bean>
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
   
 同时移出common-sqlmap-config.xml和ibatis-sqlmap-config.xml
 
@@ -109,30 +69,11 @@ mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一�
     </bean>
     
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
 同时在项目资源根目录下添加mybatis-config.xml，新建mapper目录用于存放SQL映射文件
 
 mybatis-config.xml样例
   
 <?xml version="1.0" encoding="UTF-8"?>
-
 
   
 
@@ -146,24 +87,6 @@ mybatis-config.xml样例
 </typeAliases>
   
 </configuration>
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
   
 5、创建mybatis的SQL映射文件：
 
@@ -225,7 +148,7 @@ public interface DataDao {
       
 void insertBackupLog(BackupLog log);
       
-int deleteBackupLog(@Param(&#8220;bookId&#8221;) long bookId, @Param(&#8220;id&#8221;) long id);
+int deleteBackupLog(@Param("bookId") long bookId, @Param("id") long id);
       
 void insertRestoreLog(RestoreLog log);
       
@@ -233,32 +156,11 @@ int resetSyncLabel(long bookId);
   
 }
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
 以下给出升级前后的样例文件：
 
 在ibatis中是这样的
 
 <?xml version="1.0" encoding="UTF-8" ?>
-
 
   
 
@@ -311,9 +213,25 @@ SELECT LAST\_INSERT\_ID() as value
    
 </insert>
 
-<select id="listSyncLabel" parameterClass="java.util.Map" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> <dynamic prepend="WHERE"><br /> <isNotEmpty property="appName" prepend="AND"><br /> FAppName = #appName#<br /> </isNotEmpty><br /> <isNotEmpty property="udid" prepend="AND"><br /> FUDID = #udid#<br /> </isNotEmpty><br /> <isNotEmpty property="bookId" prepend="AND"><br /> FBookId = #bookId#<br /> </isNotEmpty><br /> </dynamic><br /> </select>
+<select id="listSyncLabel" parameterClass="java.util.Map" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ <dynamic prepend="WHERE">
+ <isNotEmpty property="appName" prepend="AND">
+ FAppName = #appName#
+ </isNotEmpty>
+ <isNotEmpty property="udid" prepend="AND">
+ FUDID = #udid#
+ </isNotEmpty>
+ <isNotEmpty property="bookId" prepend="AND">
+ FBookId = #bookId#
+ </isNotEmpty>
+ </dynamic>
+ </select>
 
-<select id="getSyncLabelByLabel" parameterClass="String" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> where FLabel = #label# limit 0,1<br /> </select>
+<select id="getSyncLabelByLabel" parameterClass="String" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ where FLabel = #label# limit 0,1
+ </select>
 
 <update id="modifySyncLabel" parameterClass="syncLabelClass">
     
@@ -337,7 +255,7 @@ where FID = #id:INTEGER#
 
 <update id="resetSyncLabel" parameterClass="java.util.Map">
     
-update t\_sync\_label set FLabel = &#8220;&#8221;, FTimestamp = 0 ,fmirror = null
+update t\_sync\_label set FLabel = "", FTimestamp = 0 ,fmirror = null
     
 <dynamic prepend="WHERE">
      
@@ -379,184 +297,9 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
   
 </sqlMap>
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
-  
-33
-  
-34
-  
-35
-  
-36
-  
-37
-  
-38
-  
-39
-  
-40
-  
-41
-  
-42
-  
-43
-  
-44
-  
-45
-  
-46
-  
-47
-  
-48
-  
-49
-  
-50
-  
-51
-  
-52
-  
-53
-  
-54
-  
-55
-  
-56
-  
-57
-  
-58
-  
-59
-  
-60
-  
-61
-  
-62
-  
-63
-  
-64
-  
-65
-  
-66
-  
-67
-  
-68
-  
-69
-  
-70
-  
-71
-  
-72
-  
-73
-  
-74
-  
-75
-  
-76
-  
-77
-  
-78
-  
-79
-  
-80
-  
-81
-  
-82
-  
-83
-  
-84
-  
-85
-  
-86
-  
-87
-  
 在mybatis中是这样的
 
 <?xml version="1.0" encoding="UTF-8"?>
-
 
   
 
@@ -589,7 +332,6 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
 
 <!-- 添加同步标签 -->
 
-
    
 <insert id="addSyncLabel" parameterType="SyncLabel">
        
@@ -613,9 +355,25 @@ SELECT LAST\_INSERT\_ID() as value
    
 </insert>
 
-<select id="listSyncLabel" parameterType="java.util.Map" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> <where><br /> <if test="appName != null and appName != ''"><br /> FAppName = #{appName}<br /> </if><br /> <if test="udid != null and udid != ''"><br /> and FUDID = #{udid}<br /> </if><br /> <if test="bookId != null and bookId != ''"><br /> and FBookId = #{bookId}<br /> </if><br /> </where><br /> </select>
+<select id="listSyncLabel" parameterType="java.util.Map" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ <where>
+ <if test="appName != null and appName != ''">
+ FAppName = #{appName}
+ </if>
+ <if test="udid != null and udid != ''">
+ and FUDID = #{udid}
+ </if>
+ <if test="bookId != null and bookId != ''">
+ and FBookId = #{bookId}
+ </if>
+ </where>
+ </select>
 
-<select id="getSyncLabelByLabel" parameterType="String" resultMap="syncLabelResult"><br /> <include refid="selectSyncLabelForm"/><br /> where FLabel = #{label} limit 0,1<br /> </select>
+<select id="getSyncLabelByLabel" parameterType="String" resultMap="syncLabelResult">
+ <include refid="selectSyncLabelForm"/>
+ where FLabel = #{label} limit 0,1
+ </select>
 
 <update id="modifySyncLabel" parameterType="SyncLabel">
     
@@ -639,7 +397,7 @@ where FID = #{id,jdbcType=INTEGER}
    
 <update id="resetSyncLabel" parameterType="java.util.Map">
     
-update t\_sync\_label set FLabel = &#8220;&#8221;, FTimestamp = 0 ,fmirror = null
+update t\_sync\_label set FLabel = "", FTimestamp = 0 ,fmirror = null
     
 <where>
      

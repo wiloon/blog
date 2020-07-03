@@ -20,9 +20,9 @@ Apache内建了记录服务器活动的功能，这就是它的日志功能。�
   
 正如其名字所示，访问日志access_log记录了所有对Web服务器的访问活动。下面是访问日志中一个典型的记录：
   
-180.168.41.175 &#8211; &#8211; [19/Aug/2000:14:47:37 -0400] &#8220;GET / HTTP/1.0&#8221; 200 654
+180.168.41.175 - - [19/Aug/2000:14:47:37 -0400] "GET / HTTP/1.0" 200 654
 
-【216.35.116.91 &#8211; &#8211; [19/Aug/2000:14:47:37 -0400] &#8220;GET / HTTP/1.0&#8221; 200 654】【可忽略此行】
+【216.35.116.91 - - [19/Aug/2000:14:47:37 -0400] "GET / HTTP/1.0" 200 654】【可忽略此行】
   
 这行内容由7项构成，上面的例子中有两项空白，但整行内容仍旧分成了7项。
   
@@ -116,23 +116,23 @@ accton S root ttyp0 0.00 secs Sun Aug 20 00:15
   
 进程统计的一个问题是pacct文件可能增长的十分迅速。这时需要交互式的或经过cron机制运行sa命令来保持日志数据在系统控制内。sa命令报告、清理并维护进程统计文件。它能把/var/log/pacct中的信息压缩到摘要文件/var/log/savacct和/var/log/usracct中。这些摘要包含按命令名和用户名分类的系统统计数据。sa缺省情况下先读它们，然后读pacct文件，使报告能包含所有的可用信息。sa的输出有下面一些标记项：
   
-avio&#8211;每次执行的平均I/O操作次数
+avio-每次执行的平均I/O操作次数
   
-cp&#8211;用户和系统时间总和，以分钟计
+cp-用户和系统时间总和，以分钟计
   
-cpu&#8211;和cp一样
+cpu-和cp一样
   
-k&#8211;内核使用的平均CPU时间，以1k为单位
+k-内核使用的平均CPU时间，以1k为单位
   
-k*sec&#8211;CPU存储完整性，以1k-core秒
+k*sec-CPU存储完整性，以1k-core秒
   
-re&#8211;实时时间，以分钟计
+re-实时时间，以分钟计
   
-s&#8211;系统时间，以分钟计
+s-系统时间，以分钟计
   
-tio&#8211;I/O操作的总数
+tio-I/O操作的总数
   
-u&#8211;用户时间，以分钟计
+u-用户时间，以分钟计
   
 例如：
   
@@ -176,63 +176,63 @@ qmailp 3 0.01re 0.00cp 0avk
   
 四、Syslog设备
   
-Syslog已被许多日志函数采纳，它用在许多保护措施中&#8211;任何程序都可以通过syslog纪录事件。Syslog可以纪录系统事件，可以写到一个文件或设备中，或给用户发送一个信息。它能纪录本地事件或通过网络纪录另一个主机上的事件。
+Syslog已被许多日志函数采纳，它用在许多保护措施中-任何程序都可以通过syslog纪录事件。Syslog可以纪录系统事件，可以写到一个文件或设备中，或给用户发送一个信息。它能纪录本地事件或通过网络纪录另一个主机上的事件。
   
 Syslog设备依据两个重要的文件：/etc/syslogd（守护进程）和/etc/syslog.conf配置文件，习惯上，多数syslog信息被写到/var/adm或/var/log目录下的信息文件中（messages.*）。一个典型的syslog纪录包括生成程序的名字和一个文本信息。它还包括一个设备和一个优先级范围（但不在日之中出现）。
   
 每个syslog消息被赋予下面的主要设备之一：
   
-LOG_AUTH&#8211;认证系统：login、su、getty等
+LOG_AUTH-认证系统：login、su、getty等
   
-LOG\_AUTHPRIV&#8211;同LOG\_AUTH，但只登录到所选择的单个用户可读的文件中
+LOG\_AUTHPRIV-同LOG\_AUTH，但只登录到所选择的单个用户可读的文件中
   
-LOG_CRON&#8211;cron守护进程
+LOG_CRON-cron守护进程
   
-LOG_DAEMON&#8211;其他系统守护进程，如routed
+LOG_DAEMON-其他系统守护进程，如routed
   
-LOG_FTP&#8211;文件传输协议：ftpd、tftpd
+LOG_FTP-文件传输协议：ftpd、tftpd
   
-LOG_KERN&#8211;内核产生的消息
+LOG_KERN-内核产生的消息
   
-LOG_LPR&#8211;系统打印机缓冲池：lpr、lpd
+LOG_LPR-系统打印机缓冲池：lpr、lpd
   
-LOG_MAIL&#8211;电子邮件系统
+LOG_MAIL-电子邮件系统
   
-LOG_NEWS&#8211;网络新闻系统
+LOG_NEWS-网络新闻系统
   
-LOG_SYSLOG&#8211;由syslogd（8）产生的内部消息
+LOG_SYSLOG-由syslogd（8）产生的内部消息
   
-LOG_USER&#8211;随机用户进程产生的消息
+LOG_USER-随机用户进程产生的消息
   
-LOG_UUCP&#8211;UUCP子系统
+LOG_UUCP-UUCP子系统
   
-LOG\_LOCAL0~LOG\_LOCAL7&#8211;为本地使用保留
+LOG\_LOCAL0~LOG\_LOCAL7-为本地使用保留
   
 Syslog为每个事件赋予几个不同的优先级：
   
-LOG_EMERG&#8211;紧急情况
+LOG_EMERG-紧急情况
   
-LOG_ALERT&#8211;应该被立即改正的问题，如系统数据库破坏
+LOG_ALERT-应该被立即改正的问题，如系统数据库破坏
   
-LOG_CRIT&#8211;重要情况，如硬盘错误
+LOG_CRIT-重要情况，如硬盘错误
   
-LOG_ERR&#8211;错误
+LOG_ERR-错误
   
-LOG_WARNING&#8211;警告信息
+LOG_WARNING-警告信息
   
-LOG_NOTICE&#8211;不是错误情况，但是可能需要处理
+LOG_NOTICE-不是错误情况，但是可能需要处理
   
-LOG_INFO&#8211;情报信息
+LOG_INFO-情报信息
   
-LOG_DEBUG&#8211;包含情报的信息，通常旨在调试一个程序时使用
+LOG_DEBUG-包含情报的信息，通常旨在调试一个程序时使用
   
-syslog.conf文件指明syslogd程序纪录日志的行为，该程序在启动时查询配置文件。该文件由不同程序或消息分类的单个条目组成，每个占一行。对每类消息提供一个选择域和一个动作域。这些域由tab隔开：选择域指明消息的类型和优先级；动作域指明syslogd接收到一个与选择标准相匹配的消息时所执行的动作。每个选项是由设备和优先级组成。当指明一个优先级时，syslogd将纪录一个拥有相同或更高优先级的消息。所以如果指明&#8221;crit&#8221;，那所有标为crit、alert和emerg的消息将被纪录。每行的行动域指明当选择域选择了一个给定消息后应该把他发送到哪儿。例如，如果想把所有邮件消息纪录到一个文件中，如下：
+syslog.conf文件指明syslogd程序纪录日志的行为，该程序在启动时查询配置文件。该文件由不同程序或消息分类的单个条目组成，每个占一行。对每类消息提供一个选择域和一个动作域。这些域由tab隔开：选择域指明消息的类型和优先级；动作域指明syslogd接收到一个与选择标准相匹配的消息时所执行的动作。每个选项是由设备和优先级组成。当指明一个优先级时，syslogd将纪录一个拥有相同或更高优先级的消息。所以如果指明"crit"，那所有标为crit、alert和emerg的消息将被纪录。每行的行动域指明当选择域选择了一个给定消息后应该把他发送到哪儿。例如，如果想把所有邮件消息纪录到一个文件中，如下：
   
 #Log all the mail messages in on e place
   
 mail.* /var/log/maillog
   
-其他设备也有自己的日志。UUCP和news设备能产生许多外部消息。它把这些消息存到自己的日志（/var/log/spooler）中并把级别限为&#8221;err&#8221;或更高。例如：
+其他设备也有自己的日志。UUCP和news设备能产生许多外部消息。它把这些消息存到自己的日志（/var/log/spooler）中并把级别限为"err"或更高。例如：
   
 \# Save mail and news errors of level err and higher in aspecial file.
   
@@ -252,7 +252,7 @@ alert消息应该写到root和tiger的个人账号中：
   
 *.alert root,tiger
   
-有时syslogd将产生大量的消息。例如内核（&#8221;kern&#8221;设备）可能很冗长。用户可能想把内核消息纪录到/dev/console中。下面的例子表明内核日志纪录被注释掉了：
+有时syslogd将产生大量的消息。例如内核（"kern"设备）可能很冗长。用户可能想把内核消息纪录到/dev/console中。下面的例子表明内核日志纪录被注释掉了：
   
 #Log all kernel messages to the console
   
@@ -260,11 +260,11 @@ alert消息应该写到root和tiger的个人账号中：
   
 #kern.* /dev/console
   
-用户可以在一行中指明所有的设备。下面的例子把info或更高级别的消息送到/var/log/messages，除了mail以外。级别&#8221;none&#8221;禁止一个设备：
+用户可以在一行中指明所有的设备。下面的例子把info或更高级别的消息送到/var/log/messages，除了mail以外。级别"none"禁止一个设备：
   
 #Log anything（except mail）of level info or higher
   
-#Don&#8217;t log private authentication messages!
+#Don't log private authentication messages!
   
 *.info:mail.none;authpriv.none /var/log/messages
   

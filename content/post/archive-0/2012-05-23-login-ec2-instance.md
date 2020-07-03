@@ -14,6 +14,5 @@ kernel ID:default
 
 ram disk :default
 
-&nbsp;
 
 sh -v -i xxx.pem ubuntu@xxx.xxx.xxx.xxx

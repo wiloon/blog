@@ -14,45 +14,39 @@ http://www.cnblogs.com/eyu8874521/archive/2012/08/16/2642605.html
   
 喜欢显示好友QQ那样的列表，可以展开，可以收起，在android中，以往用的比较多的是listview，虽然可以实现列表的展示，但在某些情况下，我们还是希望用到可以分组并实现收缩的列表，那就要用到android的ExpandableListView，今天研究了一下这个的用法，也参考了很多资料动手写了一个小demo，实现了基本的功能，但界面优化方面做得还不够好，有待改进，素材采用了Q版三国杀武将的图片，很有爱哈哈，下面直接上效果图以及源代码~！
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 main.xml的布局很简单啦，只是一个ExpandableListView 就OK了
 
-但值得简单说下的是 android:cacheColorHint=&#8221;#00000000&#8243;，这个设置可以去除拖动view时背景变成黑色的效果
+但值得简单说下的是 android:cacheColorHint="#00000000"，这个设置可以去除拖动view时背景变成黑色的效果
 
-android:listSelector=&#8221;#00000000&#8243; ，可以去除选中时的黄色底色
+android:listSelector="#00000000" ，可以去除选中时的黄色底色
 
-&nbsp;
 
 复制代码
   
-1 <?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?>
+1 <?xml version="1.0" encoding="utf-8"?>
   
-2 <LinearLayout xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+2 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   
-3 android:layout\_width=&#8221;fill\_parent&#8221;
+3 android:layout\_width="fill\_parent"
   
-4 android:layout\_height=&#8221;fill\_parent&#8221;
+4 android:layout\_height="fill\_parent"
   
-5 android:orientation=&#8221;vertical&#8221; >
+5 android:orientation="vertical" >
   
 6 <ExpandableListView
   
-7 android:id=&#8221;@+id/list&#8221;
+7 android:id="@+id/list"
   
-8 android:layout\_width=&#8221;fill\_parent&#8221;
+8 android:layout\_width="fill\_parent"
   
-9 android:layout\_height=&#8221;fill\_parent&#8221;
+9 android:layout\_height="fill\_parent"
   
-10 android:background=&#8221;#ffffff&#8221;
+10 android:background="#ffffff"
   
-11 android:cacheColorHint=&#8221;#00000000&#8243;
+11 android:cacheColorHint="#00000000"
   
-12 android:listSelector=&#8221;#00000000&#8243;
+12 android:listSelector="#00000000"
   
 13 >
   
@@ -60,15 +54,11 @@ android:listSelector=&#8221;#00000000&#8243; ，可以去除选中时的黄色�
   
 15 </LinearLayout>
   
-16
-  
 复制代码
 
-&nbsp;
 
 java代码：
 
-&nbsp;
 
 复制代码
   
@@ -126,17 +116,17 @@ int[] logos = new int[] { R.drawable.wei, R.drawable.shu,R.drawable.wu};
   
 //设置组视图的显示文字
   
-private String[] generalsTypes = new String[] { &#8220;魏&#8221;, &#8220;蜀&#8221;, &#8220;吴&#8221; };
+private String[] generalsTypes = new String[] { "魏", "蜀", "吴" };
   
 //子视图显示文字
   
 private String\[][] generals = new String[\]\[\] {
   
-{ &#8220;夏侯惇&#8221;, &#8220;甄姬&#8221;, &#8220;许褚&#8221;, &#8220;郭嘉&#8221;, &#8220;司马懿&#8221;, &#8220;杨修&#8221; },
+{ "夏侯惇", "甄姬", "许褚", "郭嘉", "司马懿", "杨修" },
   
-{ &#8220;马超&#8221;, &#8220;张飞&#8221;, &#8220;刘备&#8221;, &#8220;诸葛亮&#8221;, &#8220;黄月英&#8221;, &#8220;赵云&#8221; },
+{ "马超", "张飞", "刘备", "诸葛亮", "黄月英", "赵云" },
   
-{ &#8220;吕蒙&#8221;, &#8220;陆逊&#8221;, &#8220;孙权&#8221;, &#8220;周瑜&#8221;, &#8220;孙尚香&#8221; }
+{ "吕蒙", "陆逊", "孙权", "周瑜", "孙尚香" }
 
 };
   
@@ -360,7 +350,7 @@ Toast.makeText(
   
 ExpandableList.this,
   
-&#8220;你点击了&#8221; + adapter.getChild(groupPosition, childPosition),
+"你点击了" + adapter.getChild(groupPosition, childPosition),
   
 Toast.LENGTH_SHORT).show();
 

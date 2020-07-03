@@ -43,7 +43,6 @@ categories:
     --describe
 
 replication-factor: 副本数, partitions: 分区数
-
 topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
@@ -150,7 +149,8 @@ bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --
     
     ### 调整 ReplicationFactor
     
-    ```bashcat increase-replication-factor.json
+    ```bash
+cat increase-replication-factor.json
     
     {"version":1,
     "partitions":\[{"topic":"connect-configs","partition":0,"replicas":\[0,1,2\]}\]

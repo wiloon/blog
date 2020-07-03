@@ -16,6 +16,5 @@ categories:
   
 切换gdm和xdm命令：sudo dpkg-reconfigure xdm(gdm)
 
-&nbsp;
 
 <http://ml0675.blog.163.com/blog/static/1714502020110311403867/>

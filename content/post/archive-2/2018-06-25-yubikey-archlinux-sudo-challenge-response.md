@@ -16,7 +16,7 @@ ykpamcfg -2 -v
   
 mkdir /data/yubikey
   
-mv ~/.yubico/challenge-123456&#8242; /data/yubikey
+mv ~/.yubico/challenge-123456' /data/yubikey
   
 vim /etc/pam.d/sudo
   
@@ -26,6 +26,7 @@ auth sufficient /usr/lib/security/pam\_yubico.so mode=challenge-response debug c
   
 auth sufficient /usr/lib/security/pam\_yubico.so mode=challenge-response chalresp\_path=/data/yubikey
 
-```bashpacman -S yubico-pam
+```bash
+pacman -S yubico-pam
 pacman -S yubikey-manager
 ```

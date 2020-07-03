@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-Volatile [&#8216;vɑlətl]
+Volatile ['vɑlətl]
   
 Volatile 修饰的成员变量在每次被线程访问时，都强迫从共享内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的值是相同的，更简单一点理解就是volatile修饰的变量值发生变化时对于另外的线程是可见的。
 
@@ -38,7 +38,7 @@ public void run() {
   
 while (!pleaseStop) {
   
-// do some stuff&#8230;
+// do some stuff...
   
 }
   
@@ -98,7 +98,7 @@ geti1()
 
 既然volatile关键字已经实现了线程间数据同步，又要 synchronized干什么呢？呵呵，它们之间有两点不同。首先，synchronized获得并释放监视器——如果两个线程使用了同一个对象锁，监视器能强制保证代码块同时只被一个线程所执行——这是众所周知的事实。但是，synchronized也同步内存：事实上，synchronized在“ 主”内存区域同步整个线程的内存。因此，执行geti3()方法做了如下几步：
 
-  1. 线程请求获得监视this对象的对象锁（假设未被锁，否则线程等待直到锁释放）</p> 
+  1. 线程请求获得监视this对象的对象锁（假设未被锁，否则线程等待直到锁释放） 
   2. 线程内存的数据被消除，从“主”内存区域中读入（Java虚拟机能优化此步。。。[后面的不知道怎么表达,汗]）
 
   3. 代码块被执行
@@ -181,7 +181,7 @@ for ( int i = 0 ; i < threads.length; i ++ )
 
 threads[i].join();
 
-System.out.println( &#8221; n= &#8221; + JoinThread.n);
+System.out.println( " n= " + JoinThread.n);
 
 }
 
@@ -261,7 +261,7 @@ for ( int i = 0 ; i < threads.length; i ++ )
 
 threads[i].join();
 
-System.out.println( &#8221; n= &#8221; + JoinThread.n);
+System.out.println( " n= " + JoinThread.n);
 
 }
 

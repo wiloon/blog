@@ -23,14 +23,14 @@ sudo gedit /etc/environment
   
 add /\***/jdk1.6.0_25/bin to path
 
-add &#8230;
+add ...
   
 JAVA\_HOME=/\***/jdk1.6.0\_25
   
 CLASSPATH=.:/\***/jdk1.6.0_25/lib
 
-sudo update-alternatives &#8211;install /usr/bin/java java /\***/jdk1.6.0_25/bin/java 300
+sudo update-alternatives -install /usr/bin/java java /\***/jdk1.6.0_25/bin/java 300
   
-sudo update-alternatives &#8211;install /usr/bin/javac javac /\***/jdk1.6.0_25/bin/javac 300
+sudo update-alternatives -install /usr/bin/javac javac /\***/jdk1.6.0_25/bin/javac 300
 
-udo update-alternatives &#8211;config java
+udo update-alternatives -config java

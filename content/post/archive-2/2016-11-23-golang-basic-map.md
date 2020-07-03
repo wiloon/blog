@@ -26,20 +26,23 @@ https://github.com/emirpasic/gods#hashset
   
 golang set: https://studygolang.com/articles/8231
 
-```golang 
+```golang
+
 # create map
 serials:= make(map[string]uint8)
 ```
 
 check if a map contains a key
 
-```golang 
+```golang
+
 if val, ok := dict["foo"]; ok {
     //do something here
 }
 ```
 
-```golang &lt;br />package main
+```golang
+<br />package main
 
 import "fmt"
 
@@ -57,7 +60,8 @@ fmt.Println(x["key"][1])
 
 遍历
 
-```golang for k, v := range m { 
+```golang
+for k, v := range m { 
  fmt.Printf("k=%v, v=%v\n", k, v) 
  } 
 ```
@@ -86,27 +90,27 @@ get,set,delete
   
 m := map[string]int
   
-m[&#8220;a&#8221;] = 1
+m["a"] = 1
 
-fmt.Println(m[&#8220;a&#8221;]) // 输出 1
+fmt.Println(m["a"]) // 输出 1
 
 // 如果访问一个不存在的key，返回类型默认值
   
-fmt.Println(m[&#8220;b&#8221;]) // 输出0
+fmt.Println(m["b"]) // 输出0
 
 // 测试key是否存在
   
-v, ok := m[&#8220;b&#8221;]
+v, ok := m["b"]
   
 if ok {
   
-&#8230;
+...
   
 }
 
 // 删除一个key
   
-delete(m, &#8220;a&#8221;)
+delete(m, "a")
   
 迭代器
   
@@ -114,7 +118,7 @@ delete(m, &#8220;a&#8221;)
   
 for k := range m {
   
-&#8230;
+...
   
 }
 
@@ -122,7 +126,7 @@ for k := range m {
   
 for k, v := range m {
   
-&#8230;
+...
   
 }
   
@@ -138,7 +142,7 @@ for k, v := range m {
   
 其他
   
-map的value是不可取地址的，意味着 &m[&#8220;a&#8221;]这样的语法是非法的
+map的value是不可取地址的，意味着 &m["a"]这样的语法是非法的
   
 len和cap分别可以获取当前map的kv个数和总容量
 
@@ -148,7 +152,8 @@ https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map
   
 there is not a simpler/nicer way.
 
-```golang package main
+```golang
+package main
 
 func main() {
     mymap := make(map[int]string)

@@ -58,9 +58,9 @@ PermGen space进行清理，所以如果你的应用中有很多CLASS的话,就�
 
 修改TOMCAT_HOME/bin/catalina.sh
   
-在“echo &#8220;Using CATALINA\_BASE: $CATALINA\_BASE&#8221;”上面加入以下行：
+在“echo "Using CATALINA\_BASE: $CATALINA\_BASE"”上面加入以下行：
   
-JAVA_OPTS=&#8221;-server -XX:PermSize=64M -XX:MaxPermSize=128m
+JAVA_OPTS="-server -XX:PermSize=64M -XX:MaxPermSize=128m
   
 建议：将相同的第三方jar文件移置到tomcat/shared/lib目录下，这样可以达到减少jar 文档重复占用内存的目的。
 
@@ -82,13 +82,13 @@ JVM堆的设置是指java程序运行过程中JVM可以调配使用的内存空�
   
 修改TOMCAT_HOME/bin/catalina.sh
   
-在“echo &#8220;Using CATALINA\_BASE: $CATALINA\_BASE&#8221;”上面加入以下行：
+在“echo "Using CATALINA\_BASE: $CATALINA\_BASE"”上面加入以下行：
   
-JAVA_OPTS=&#8221;-server -Xms800m -Xmx800m -XX:MaxNewSize=256m&#8221;
+JAVA_OPTS="-server -Xms800m -Xmx800m -XX:MaxNewSize=256m"
 
 三、实例，以下给出1G内存环境下java jvm 的参数设置参考：
 
-JAVA_OPTS=&#8221;-server -Xms800m -Xmx800m -XX:PermSize=64M -XX:MaxNewSize=256m -XX:MaxPermSize=128m -Djava.awt.headless=true &#8221;
+JAVA_OPTS="-server -Xms800m -Xmx800m -XX:PermSize=64M -XX:MaxNewSize=256m -XX:MaxPermSize=128m -Djava.awt.headless=true "
 
 三、相关资料
 
@@ -98,7 +98,7 @@ http://www.tot.name/show/3/7/20061112220054.htm
 
 http://www.tot.name/show/3/7/20061112220201.htm
 
-题外话：经常看到网友抱怨tomcat的性能不如&#8230;，不稳定等，其实根据笔者几年的经验，从&#8221;互联星空“到现在的房产门户网，我们
+题外话：经常看到网友抱怨tomcat的性能不如...，不稳定等，其实根据笔者几年的经验，从"互联星空“到现在的房产门户网，我们
   
 均使用tomcat作为WEB服务器，每天访问量百万多，tomcat仍然运行良好。建议大家有问题多从自己程序入手，多看看java的DOC文档
   
@@ -112,7 +112,7 @@ apache+Tomcat负载平衡设置详解
 
 http://www.wujianrong.com/archives/2006/11/apachetomcat.html
   
-java &#8211; the Java application launcher
+java - the Java application launcher
 
 http://java.sun.com/j2se/1.3/docs/tooldocs/linux/java.html
 

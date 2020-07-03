@@ -10,7 +10,6 @@ categories:
 ---
 [IntelliJ and Tomcat][1]{.question-hyperlink}
 
-&nbsp;
 
 http://stackoverflow.com/questions/19596779/intellij-and-tomcat-changed-files-are-not-automatically-recognized-by-tomcat/19609115#19609115
 

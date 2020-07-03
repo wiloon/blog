@@ -44,7 +44,7 @@ int nextc = c + acquires;
                   
 if (nextc < 0) // overflow
               
-throw new Error(&#8220;Maximum lock count exceeded&#8221;);
+throw new Error("Maximum lock count exceeded");
           
 setState(nextc);
           
@@ -67,8 +67,6 @@ return false;
 如果未设置成功状态且当前线程不是获取锁的线程，那么返回失败。
   
 公平的获取语义：
-  
-01
   
 protected final boolean tryAcquire(int acquires) {
   
@@ -114,7 +112,7 @@ if (nextc < 0)
   
 12
               
-throw new Error(&#8220;Maximum lock count exceeded&#8221;);
+throw new Error("Maximum lock count exceeded");
   
 13
           
@@ -132,21 +130,17 @@ return true;
       
 return false;
   
-17
-  
 }
   
 上述逻辑相比较非公平的获取，仅加入了当前线程（Node）之前是否有前置节点在等待的判断。hasQueuedPredecessors()方法命名有些歧义，其实应该是currentThreadHasQueuedPredecessors()更为妥帖一些，也就是说当前面没有人排在该节点（Node）前面时候队且能够设置成功状态，才能够获取锁。
 
 释放语义：
   
-01
-  
 protected final boolean tryRelease(int releases) {
   
 02
       
-int c = getState() &#8211; releases;
+int c = getState() - releases;
   
 03
       
@@ -184,8 +178,6 @@ setState(c);
       
 return free;
   
-12
-  
 }
   
 上述逻辑主要主要计算了释放状态后的值，如果为0则完全释放，返回true，反之仅是设置状态，返回false。
@@ -194,8 +186,6 @@ return free;
   
 测试用例如下：
 
-01
-  
 public class ReentrantLockTest {
   
 02
@@ -218,7 +208,7 @@ public void fair() {
   
 07
           
-System.out.println(&#8220;fair version&#8221;);
+System.out.println("fair version");
   
 08
           
@@ -230,7 +220,7 @@ Thread thread = new Thread(new Job(fairLock));
   
 10
               
-thread.setName(&#8220;&#8221; + i);
+thread.setName("" + i);
   
 11
               
@@ -278,7 +268,7 @@ public void unfair() {
   
 23
           
-System.out.println(&#8220;unfair version&#8221;);
+System.out.println("unfair version");
   
 24
           
@@ -290,7 +280,7 @@ Thread thread = new Thread(new Job(unfairLock));
   
 26
               
-thread.setName(&#8220;&#8221; + i);
+thread.setName("" + i);
   
 27
               
@@ -372,7 +362,7 @@ try {
   
 48
                       
-System.out.println(&#8220;Lock by:&#8221;
+System.out.println("Lock by:"
   
 49
                               
@@ -401,8 +391,6 @@ lock.unlock();
 55
       
 }
-  
-56
   
 }
   
@@ -468,8 +456,6 @@ Lock by:4
   
 修改测试如下：
 
-01
-  
 public class ReentrantLockTest {
   
 02
@@ -490,7 +476,7 @@ public void fair() {
   
 06
           
-System.out.println(&#8220;fair version&#8221;);
+System.out.println("fair version");
   
 07
           
@@ -518,7 +504,7 @@ return getName();
   
 13
               
-thread.setName(&#8220;&#8221; + i);
+thread.setName("" + i);
   
 14
               
@@ -548,7 +534,7 @@ public void unfair() {
   
 21
           
-System.out.println(&#8220;unfair version&#8221;);
+System.out.println("unfair version");
   
 22
           
@@ -576,7 +562,7 @@ return getName();
   
 28
               
-thread.setName(&#8220;&#8221; + i);
+thread.setName("" + i);
   
 29
               
@@ -642,11 +628,11 @@ try {
   
 46
                       
-System.out.println(&#8220;Lock by:&#8221;
+System.out.println("Lock by:"
   
 47
                               
-+ Thread.currentThread().getName() + &#8221; and &#8221;
++ Thread.currentThread().getName() + " and "
   
 48
                               
@@ -654,7 +640,7 @@ System.out.println(&#8220;Lock by:&#8221;
   
 49
                               
-+ &#8221; waits.&#8221;);
++ " waits.");
   
 50
                   
@@ -714,8 +700,6 @@ return super.getQueuedThreads();
       
 }
   
-66
-  
 }
   
 上述逻辑主要是通过构造ReentrantLock2用来输出在sync队列中的线程内容，而且每个线程的toString方法被重写，这样当一个线程获取到锁时，sync队列里的内容也就可以得知了，运行结果如下：
@@ -764,8 +748,6 @@ Lock by:2 and [1, 0, 4, 3] waits.
   
 可以明显看出，在非公平获取的过程中，“插队”现象非常严重，后续获取锁的线程根本不顾及sync队列中等待的线程，而是能获取就获取。反观公平获取的过程，锁的获取就类似线性化的，每次都由sync队列中等待最长的线程（链表的第一个，sync队列是由尾部结点添加，当前输出的sync队列是逆序输出）获取锁。一个 hasQueuedPredecessors方法能够获得公平性的特性，这点实际上是由AbstractQueuedSynchronizer来完成的，看一下acquire方法：
 
-1
-  
 public final void acquire(int arg) {
   
 2
@@ -775,8 +757,6 @@ if (!tryAcquire(arg) && acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
 3
           
 selfInterrupt();
-  
-4
   
 }
   

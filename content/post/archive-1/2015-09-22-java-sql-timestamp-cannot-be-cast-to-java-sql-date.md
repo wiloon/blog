@@ -24,11 +24,11 @@ java.lang.ClassCastException: java.sql.Timestamp cannot be cast to java.sql.Date
   
 \___\___\___\___\___\___\___\___\___\___\___\___\___\___\___\___\___\_____
   
-java.sql.Date&#8212;>java.sql.Timestamp
+java.sql.Date->java.sql.Timestamp
   
 new java.sql.Timestamp(yourDate.getTime());
 
-java.sql.Timestamp&#8211;>java.sql.Date
+java.sql.Timestamp->java.sql.Date
   
 new java.sql.Date(yourTimestamp.getTime());
 

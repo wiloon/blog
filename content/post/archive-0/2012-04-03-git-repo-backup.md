@@ -18,7 +18,7 @@ $ git pull somefile
   
 接收者甚至可以在一个空仓库做这个。不考虑大小， somefile 可以包含整个原先 git仓库。
 
-在较大的项目里，可以通过只打包其他仓库缺少的变更消除浪费。例如，假设提交 ‘\`1b6d…’&#8217;是两个参与者共享的最近提交：
+在较大的项目里，可以通过只打包其他仓库缺少的变更消除浪费。例如，假设提交 '\`1b6d…''是两个参与者共享的最近提交：
 
 $ git bundle create somefile HEAD ^1b6d
   
@@ -30,7 +30,6 @@ $ git tag -f lastbundle HEAD
 
 $ git bundle create newbundle HEAD ^lastbundle
 
-&nbsp;
 
 <http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/ch06.html>
 

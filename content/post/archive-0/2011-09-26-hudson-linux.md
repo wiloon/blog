@@ -19,9 +19,9 @@ categories:
 
 #start jboss
   
-#open a browser &#8230; http://localhots:xxxx/hudson-2.1.1
+#open a browser ... http://localhots:xxxx/hudson-2.1.1
   
-&#8230;
+...
   
 #go to Hudson>Manage Hudson>Configure System
   
@@ -55,7 +55,7 @@ Files Found Trigger
   
 URL Change Trigger
   
-&#8230;
+...
   
 new project
   
@@ -69,6 +69,6 @@ input URL of repository xxx@xxx.xxx.xxx.xxx:/PROJECT_XXX/XXX
   
 [Build Triggers]
   
-Select Build when a URL&#8217;s content changes
+Select Build when a URL's content changes
   
 input URL file:/home/wyue/xxx/xxx

@@ -10,8 +10,8 @@ categories:
   - Linux
 
 ---
-strA=&#8221;aaa&#8221;
+strA="aaa"
   
-strB=&#8221;bbb&#8221;
+strB="bbb"
   
 strC=$strA$strB

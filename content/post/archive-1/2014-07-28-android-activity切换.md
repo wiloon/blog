@@ -50,7 +50,7 @@ public void onClick(View v)
   
 Intent intent = new Intent();
   
-intent.putExtra(&#8220;name&#8221;,&#8221;LeiPei&#8221;);
+intent.putExtra("name","LeiPei");
   
 /\* 指定intent要启动的类 \*/
   
@@ -70,6 +70,6 @@ Activity01.this.finish();
   
 Activity02中:
 
-String name=intent.getStringExtra(&#8220;name&#8221;);
+String name=intent.getStringExtra("name");
   
-textview2.setText(&#8220;activity01传过来的值为:&#8221;+name);
+textview2.setText("activity01传过来的值为:"+name);

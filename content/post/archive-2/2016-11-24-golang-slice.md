@@ -25,7 +25,8 @@ cap(sl)
 
 ### 清空slice
 
-```golang &lt;br />func SliceClear(s *[]interface{}) {
+```golang
+<br />func SliceClear(s *[]interface{}) {
     *s = append([]interface{}{})
 }
 
@@ -63,7 +64,8 @@ foo:= [5] int {1,2,3,4,5}
 长度为5的数组，起元素值依次为：0，0，1，0，3。由于指定了最大索引4对应的值3，根据初始化的元素个数确定其长度为5
 ```
 
-```golang &lt;br />// 遍历
+```golang
+<br />// 遍历
 for i, sliceV := range v {
     log.Printf("%v %v : %v", k, i, sliceV)
 }
@@ -97,11 +99,11 @@ Go的数组是值语义。一个数组变量表示整个数组，它不是指向
 
 数组的字面值像这样：
   
-b := [2]string{&#8220;Penn&#8221;, &#8220;Teller&#8221;}
+b := [2]string{"Penn", "Teller"}
 
 当然，也可以让编译器统计数组字面值中元素的数目：
   
-b := [&#8230;]string{&#8220;Penn&#8221;, &#8220;Teller&#8221;}
+b := [...]string{"Penn", "Teller"}
   
 这两种写法， b 都是对应 [2]string 类型。
 
@@ -143,11 +145,11 @@ s :=make([]int,len,cap)
   
 赋值与使用
 
-切片是引用类型，在使用时需要注意其操作。查看示例代码 ，在线运行示例代码 切片可以通过内置函数append(slice []Type,elems &#8230;Type)追加元素，elems可以是一排type类型的数据，也可以是slice,因为追加的一个一个的元素，因此如果将一个slice追加到另一个slice中需要带上&#8221;&#8230;&#8221;，这样才能表示是将slice中的元素依次追加到另一个slice中。另外在通过下标访问元素时下标不能超过len大小，如同数组的下标不能超出len范围一样。
+切片是引用类型，在使用时需要注意其操作。查看示例代码 ，在线运行示例代码 切片可以通过内置函数append(slice []Type,elems ...Type)追加元素，elems可以是一排type类型的数据，也可以是slice,因为追加的一个一个的元素，因此如果将一个slice追加到另一个slice中需要带上"..."，这样才能表示是将slice中的元素依次追加到另一个slice中。另外在通过下标访问元素时下标不能超过len大小，如同数组的下标不能超出len范围一样。
 
 s :=append(s,1,2,3,4)
   
-s :=append(s,s1&#8230;)
+s :=append(s,s1...)
 
 * * *
 
@@ -157,7 +159,7 @@ s :=append(s,s1&#8230;)
   
 切片类型的写法是 []T ， T 是切片元素的类型。和数组不同的是，切片类型并没有给定固定的长度。
   
-切片的字面值和数组字面值很像，不过切片没有指定元素个数：letters := []string{&#8220;a&#8221;, &#8220;b&#8221;, &#8220;c&#8221;, &#8220;d&#8221;}
+切片的字面值和数组字面值很像，不过切片没有指定元素个数：letters := []string{"a", "b", "c", "d"}
   
 切片可以使用内置函数 make 创建，函数签名为：func make([]T, len, cap) []T
   
@@ -185,21 +187,21 @@ cap(s) == 5
   
 切片也可以基于现有的切片或数组生成。切分的范围由两个由冒号分割的索引对应的半开区间指定。 例如，表达式 b[1:4] 创建的切片引用数组 b 的第1到3个元素空间（对应切片的索引为0到2）。
 
-b := []byte{&#8216;g&#8217;, &#8216;o&#8217;, &#8216;l&#8217;, &#8216;a&#8217;, &#8216;n&#8217;, &#8216;g&#8217;}
+b := []byte{'g', 'o', 'l', 'a', 'n', 'g'}
   
-// b[1:4] == []byte{&#8216;o&#8217;, &#8216;l&#8217;, &#8216;a&#8217;}, sharing the same storage as b
+// b[1:4] == []byte{'o', 'l', 'a'}, sharing the same storage as b
 
 切片的开始和结束的索引都是可选的；它们分别默认为零和数组的长度。
   
-// b[:2] == []byte{&#8216;g&#8217;, &#8216;o&#8217;}
+// b[:2] == []byte{'g', 'o'}
   
-// b[2:] == []byte{&#8216;l&#8217;, &#8216;a&#8217;, &#8216;n&#8217;, &#8216;g&#8217;}
+// b[2:] == []byte{'l', 'a', 'n', 'g'}
   
 // b[:] == b
   
 下面语法也是基于数组创建一个切片：
 
-x := [3]string{&#8220;Лайка&#8221;, &#8220;Белка&#8221;, &#8220;Стрелка&#8221;}
+x := [3]string{"Лайка", "Белка", "Стрелка"}
   
 s := x[:] // a slice referencing the storage of x
 
@@ -215,17 +217,17 @@ s := x[:] // a slice referencing the storage of x
   
 切片操作并不复制切片指向的元素。它创建一个新的切片并复用原来切片的底层数组。 这使得切片操作和数组索引一样高效。因此，通过一个新切片修改元素会影响到原始切片的对应元素。
 
-d := []byte{&#8216;r&#8217;, &#8216;o&#8217;, &#8216;a&#8217;, &#8216;d&#8217;}
+d := []byte{'r', 'o', 'a', 'd'}
   
 e := d[2:]
   
-// e == []byte{&#8216;a&#8217;, &#8216;d&#8217;}
+// e == []byte{'a', 'd'}
   
-e[1] = &#8216;m&#8217;
+e[1] = 'm'
   
-// e == []byte{&#8216;a&#8217;, &#8216;m&#8217;}
+// e == []byte{'a', 'm'}
   
-// d == []byte{&#8216;r&#8217;, &#8216;o&#8217;, &#8216;a&#8217;, &#8216;m&#8217;}
+// d == []byte{'r', 'o', 'a', 'm'}
   
 前面创建的切片 s 长度小于它的容量。我们可以增长切片的长度为它的容量：
 
@@ -263,7 +265,7 @@ s = t
   
 一个常见的操作是将数据追加到切片的尾部。下面的函数将元素追加到切片尾部， 必要的话会增加切片的容量，最后返回更新的切片：
 
-func AppendByte(slice []byte, data &#8230;byte) []byte {
+func AppendByte(slice []byte, data ...byte) []byte {
       
 m := len(slice)
       
@@ -271,7 +273,7 @@ n := m + len(data)
       
 if n > cap(slice) { // if necessary, reallocate
           
-// allocate double what&#8217;s needed, for future growth.
+// allocate double what's needed, for future growth.
           
 newSlice := make([]byte, (n+1)*2)
           
@@ -301,7 +303,7 @@ p = AppendByte(p, 7, 11, 13)
 
 但大多数程序不需要完全的控制，因此Go提供了一个内置函数 append ， 用于大多数场合；它的函数签名：
 
-func append(s []T, x &#8230;T) []T
+func append(s []T, x ...T) []T
   
 append 函数将 x 追加到切片 s 的末尾，并且在必要的时候增加容量。
 
@@ -313,15 +315,15 @@ a = append(a, 1, 2, 3)
   
 // a == []int{0, 1, 2, 3}
   
-如果是要将一个切片追加到另一个切片尾部，需要使用 &#8230; 语法将第2个参数展开为参数列表。
+如果是要将一个切片追加到另一个切片尾部，需要使用 ... 语法将第2个参数展开为参数列表。
 
-a := []string{&#8220;John&#8221;, &#8220;Paul&#8221;}
+a := []string{"John", "Paul"}
   
-b := []string{&#8220;George&#8221;, &#8220;Ringo&#8221;, &#8220;Pete&#8221;}
+b := []string{"George", "Ringo", "Pete"}
   
-a = append(a, b&#8230;) // equivalent to &#8220;append(a, b[0], b[1], b[2])&#8221;
+a = append(a, b...) // equivalent to "append(a, b[0], b[1], b[2])"
   
-// a == []string{&#8220;John&#8221;, &#8220;Paul&#8221;, &#8220;George&#8221;, &#8220;Ringo&#8221;, &#8220;Pete&#8221;}
+// a == []string{"John", "Paul", "George", "Ringo", "Pete"}
   
 由于切片的零值 nil 用起来就像一个长度为零的切片，我们可以声明一个切片变量然后在循环 中向它追加数据：
 
@@ -353,7 +355,7 @@ return p
 
 例如， FindDigits 函数加载整个文件到内存，然后搜索第一个连续的数字，最后结果以切片方式返回。
 
-var digitRegexp = regexp.MustCompile(&#8220;[0-9]+&#8221;)
+var digitRegexp = regexp.MustCompile("[0-9]+")
 
 func FindDigits(filename string) []byte {
       

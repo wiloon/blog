@@ -38,11 +38,11 @@ properties文件。
   
 java.io:
 
-File file = new File(&#8220;&#8230;&#8221;);
+File file = new File("...");
    
-FileInputStream fis = new FileInputStream(&#8220;&#8230;&#8221;);
+FileInputStream fis = new FileInputStream("...");
    
-FileReader fr = new FileReader(&#8220;&#8230;&#8221;);
+FileReader fr = new FileReader("...");
 
 ClassLoader:
   
@@ -50,11 +50,11 @@ ClassLoader loader = XXXClass.class.getClassLoader();
    
 ClassLoader loader = Thread.currentThread().getContextClassLoader();
    
-URL url = loader.getResource(&#8220;&#8230;&#8221;);
+URL url = loader.getResource("...");
    
 File file = new File(url.getFile());
    
-InputStream input = loader.getResourceAsStream(&#8220;&#8230;&#8221;);
+InputStream input = loader.getResourceAsStream("...");
 
 这两种，一种是从project loader folder取，一种是从class loader folder取，class loader
   

@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# Do not run, just test the configuration file.
+```bash
+# Do not run, just test the configuration file.
 sudo nginx -t
 
 nginx -s signal
@@ -19,7 +20,8 @@ nginx -s signal
 # reopen — reopening the log files
 ```
 
-```bash# install
+```bash
+# install
 # docker
 docker run -d \
 --name nginx \

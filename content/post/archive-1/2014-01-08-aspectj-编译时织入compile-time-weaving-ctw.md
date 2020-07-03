@@ -45,9 +45,9 @@ mvn archetype:generate
 
 然后，修改 pom.xml，增加 aspectj 相关内容，如下
 
-<project xmlns=&#8221;http://maven.apache.org/POM/4.0.0&#8243; xmlns:xsi=&#8221;http://www.w3.org/2001/XMLSchema-instance&#8221;
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
-xsi:schemaLocation=&#8221;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#8221;>
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 <modelVersion>4.0.0</modelVersion>
 
@@ -153,7 +153,7 @@ xsi:schemaLocation=&#8221;http://maven.apache.org/POM/4.0.0 http://maven.apache.
 
 <complianceLevel>1.5</complianceLevel>
 
-<!&#8211; <encoding>UTF-8</encoding> &#8211;>
+<!- <encoding>UTF-8</encoding> ->
 
 <verbose>false</verbose>
 
@@ -161,9 +161,9 @@ xsi:schemaLocation=&#8221;http://maven.apache.org/POM/4.0.0 http://maven.apache.
 
 <aspectLibraries>
 
-<!&#8211; 此处定义外部的aspect包，例如spring的事务aspect包 。这里引用的包必须在依赖中声明 &#8211;>
+<!- 此处定义外部的aspect包，例如spring的事务aspect包 。这里引用的包必须在依赖中声明 ->
 
-<!&#8211;
+<!-
 
 <aspectLibrary>
 
@@ -173,7 +173,7 @@ xsi:schemaLocation=&#8221;http://maven.apache.org/POM/4.0.0 http://maven.apache.
 
 </aspectLibrary>
 
-&#8211;>
+->
 
 </aspectLibraries>
 
@@ -185,9 +185,9 @@ xsi:schemaLocation=&#8221;http://maven.apache.org/POM/4.0.0 http://maven.apache.
 
 <goals>
 
-<goal>compile</goal><!&#8211; use this goal to weave all your main classes &#8211;>
+<goal>compile</goal><!- use this goal to weave all your main classes ->
 
-<!&#8211; <goal>test-compile</goal> &#8211;>
+<!- <goal>test-compile</goal> ->
 
 </goals>
 
@@ -269,7 +269,7 @@ return x + y;
 
 public String getPassword(String username) {
 
-return &#8220;password&#8221;;
+return "password";
 
 }
 
@@ -295,7 +295,7 @@ Object around(): serviceAddMethods(){
 
 Object oldValue = proceed();
 
-System.out.println(&#8220;原值是：&#8221; + oldValue);
+System.out.println("原值是：" + oldValue);
 
 return Integer.MIN_VALUE;
 
@@ -313,7 +313,7 @@ before(): serviceAuthCheckAnnotatedMethods(){
 
 if(1==1){//权限检查代码
 
-throw new IllegalStateException(&#8220;权限不足&#8221;);
+throw new IllegalStateException("权限不足");
 
 }
 
@@ -333,7 +333,7 @@ MethodSignature methodSignature = (MethodSignature) thisJoinPoint.getSignature()
 
 Method method = methodSignature.getMethod();
 
-System.out.println(&#8220;[LOG] 方法被调用了: &#8221; + method);
+System.out.println("[LOG] 方法被调用了: " + method);
 
 }
 
@@ -351,13 +351,13 @@ mvn test-compile
 
 编译后查看 target\classes 目录中的字节码文件，可以发现，SampleAspect.aj 也被编译成了 java 字节码。在编译过程中的输出信息可以看出切点织入情况：
 
-[INFO] Join point &#8216;method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:23) advised by around advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:30)
+[INFO] Join point 'method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:23) advised by around advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:30)
 
-[INFO] Join point &#8216;method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:23) advised by after advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:41)
+[INFO] Join point 'method-execution(int org.opoo.samples.aspectj.SampleServiceImpl.add(int, int))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:23) advised by after advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:41)
 
-[INFO] Join point &#8216;method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:31) advised by after advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:41)
+[INFO] Join point 'method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:31) advised by after advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:41)
 
-[INFO] Join point &#8216;method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))&#8217; in Type &#8216;org.opoo.samples.aspectj.SampleServiceImpl&#8217; (SampleServiceImpl.java:31) advised by before advice from &#8216;org.opoo.samples.aspectj.SampleAspect&#8217; (SampleAspect.aj:54)
+[INFO] Join point 'method-execution(java.lang.String org.opoo.samples.aspectj.SampleServiceImpl.getPassword(java.lang.String))' in Type 'org.opoo.samples.aspectj.SampleServiceImpl' (SampleServiceImpl.java:31) advised by before advice from 'org.opoo.samples.aspectj.SampleAspect' (SampleAspect.aj:54)
 
 注意：虽然 Eclipse 安装了 AJDT 插件，但有时候可能编译的字节码中并没有织入切面，所以建议还是执行 maven 命令进行编译。
 
@@ -407,7 +407,7 @@ return k;
 
 }
 
-//&#8230;
+//...
 
 可以看出，字节码中已经织入了我们所定义的切面。
 

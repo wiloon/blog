@@ -24,9 +24,9 @@ Tomcat 7.0.xx：http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.xx/bin/apac
 
 然后再配置环境变量；添加三个系统变量：
 
-JAVA_HOME=&#8221;/opt/jvm/jdk1.7.0&#8243;
+JAVA_HOME="/opt/jvm/jdk1.7.0"
   
-TOMCAT_HOME=&#8221;/home/wiloon/program/apache-tomcat-7.0.xx&#8221;
+TOMCAT_HOME="/home/wiloon/program/apache-tomcat-7.0.xx"
   
 CLASSPATH: %JAVA\_HOME%/lib;%TOMCAT\_HOME%/lib
 
@@ -92,7 +92,7 @@ For gradle
   
 [shell]
   
-compile &#8216;org.apache.tomcat:tomcat-servlet-api:7.0.xx&#8217;
+compile 'org.apache.tomcat:tomcat-servlet-api:7.0.xx'
   
 [/shell]
 
@@ -100,7 +100,7 @@ compile &#8216;org.apache.tomcat:tomcat-servlet-api:7.0.xx&#8217;
 
 ROOT/WEB-INF/classes/HelloWorld.class(把上面生成的HelloWorld.class文件放在这个里面)
 
-然后在浏览器中输入http://localhost:8080/servlet/HelloWorld,于是Server众望所归的报错了:Error 404&#8211;Not Found
+然后在浏览器中输入http://localhost:8080/servlet/HelloWorld,于是Server众望所归的报错了:Error 404-Not Found
 
 怎么回事呢？
 

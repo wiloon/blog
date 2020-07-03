@@ -16,17 +16,16 @@ categories:
 
 先举个例子吧：
 
-有两张表，分别为A、B，求得一个字段的值先在表A中寻找，如果A表中存在数据，则输出A表的值；如果A表中不存在，则在B表中寻找，若B表中有相应记录，则输出B表的值；如果B表中也不存在，则输出&#8221;no records”字符串。
+有两张表，分别为A、B，求得一个字段的值先在表A中寻找，如果A表中存在数据，则输出A表的值；如果A表中不存在，则在B表中寻找，若B表中有相应记录，则输出B表的值；如果B表中也不存在，则输出"no records”字符串。
 
-<div>
-  <div>
-    <div>
-      <b>[java][/java]</b> <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a></p> 
+  
+    
+      [java][/java] <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
       
-      <div>
-      </div>
-    </div>
-  </div>
+      
+      
+    
+  
   
   <ol start="1">
     <li>
@@ -51,7 +50,7 @@ categories:
       union all
     </li>
     <li>
-      select &#8216;no records&#8217; from dual
+      select 'no records' from dual
     </li>
     <li>
              where not exists (select s_name from sql1 where rownum=1)
@@ -60,7 +59,6 @@ categories:
              and not exists (select s_name from sql2 where rownum=1);
     </li>
   </ol>
-</div>
 
 再举个简单的例子
 
@@ -106,7 +104,7 @@ SELECT
   
 (query naming subquery_name);
 
-Retuning to our oversimplified example, let’s replace the temporary tables with the SQL “WITH  clause”:
+Retuning to our oversimplified example, let's replace the temporary tables with the SQL “WITH  clause”:
 
 WITH
   
@@ -154,7 +152,7 @@ Note the use of the Oracle undocumented “materialize” hint in the “WITH cl
 
 It should be noted that the “WITH clause” does not yet fully-functional within Oracle SQL and it does not yet support the use of “WITH clause” replacement for “CONNECT BY” when performing recursive queries.
 
-To see how the “WITH clause” is used in ANSI SQL-99 syntax, here is an excerpt from Jonathan Gennick’s great work “Understanding the WITH Clause” showing the use of the SQL-99 “WITH clause” to traverse a recursive bill-of-materials hierarchy
+To see how the “WITH clause” is used in ANSI SQL-99 syntax, here is an excerpt from Jonathan Gennick's great work “Understanding the WITH Clause” showing the use of the SQL-99 “WITH clause” to traverse a recursive bill-of-materials hierarchy
   
 The SQL-99 “WITH clause” is very confusing at first because the SQL statement does not begin with the word SELECT. Instead, we use the “WITH clause” to start our SQL query, defining the aggregations, which can then be named in the main query as if they were “real” tables:
 
@@ -170,21 +168,20 @@ SELECT
   
 (query naming subquery_name);
   
-Retuning to our oversimplified example, let’s replace the temporary tables with the SQL “WITH” clause”:
+Retuning to our oversimplified example, let's replace the temporary tables with the SQL “WITH” clause”:
 
 =================================================================================
 
 下面自己小试一把，当然，一点都不复杂，很简单很简单的例子，呵呵。
 
-<div>
-  <div>
-    <div>
-      <b>[java][/java]</b> <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a></p> 
+  
+    
+      [java][/java] <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
       
-      <div>
-      </div>
-    </div>
-  </div>
+      
+      
+    
+  
   
   <ol start="1">
     <li>
@@ -256,7 +253,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                1
@@ -275,7 +272,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                3
@@ -313,7 +310,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
     <li>
     </li>
     <li>
-      &#8211;从这里可以看到，你定义了sql1和sql2，就得用它们哦，不然会报错的。
+      -从这里可以看到，你定义了sql1和sql2，就得用它们哦，不然会报错的。
     </li>
     <li>
     </li>
@@ -341,7 +338,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                1
@@ -355,7 +352,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
     <li>
     </li>
     <li>
-      &#8211;下面加个WHERE条件试试
+      -下面加个WHERE条件试试
     </li>
     <li>
     </li>
@@ -386,7 +383,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                1
@@ -400,7 +397,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
     <li>
     </li>
     <li>
-      &#8211;奇怪？为什么加了WHERE条件还是输出ID=1的记录了，继续往下看：
+      -奇怪？为什么加了WHERE条件还是输出ID=1的记录了，继续往下看：
     </li>
     <li>
     </li>
@@ -434,7 +431,7 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
               ID
     </li>
     <li>
-      &#8212;&#8212;&#8212;-
+      ----
     </li>
     <li>
                3
@@ -442,9 +439,8 @@ Retuning to our oversimplified example, let’s replace the temporary tables wit
     <li>
     </li>
     <li>
-      &#8211;可以看到，每个条件是要针对每个SELECT语句的。
+      -可以看到，每个条件是要针对每个SELECT语句的。
     </li>
   </ol>
-</div>
 
 好了就先记这些吧，以后看到了新的用法再补充。

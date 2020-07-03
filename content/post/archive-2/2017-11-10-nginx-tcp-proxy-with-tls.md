@@ -8,13 +8,15 @@ categories:
   - Uncategorized
 
 ---
-```bash#check tls version
+```bash
+#check tls version
 openssl s_client -connect 127.0.0.1:443
 ```
 
 set yum repo, /etc/yum.repos.d/nginx.repo
 
-```bash[nginx]
+```bash
+[nginx]
 name=nginx repo
 baseurl=http://nginx.org/packages/centos/7/$basearch/
 gpgcheck=0
@@ -23,7 +25,8 @@ enabled=1
 
 https://www.nginx.com/resources/admin-guide/tcp-load-balancing/
 
-```bashstream {
+```bash
+stream {
     server {
         listen 9000 ssl;
         proxy_pass stream_backend;

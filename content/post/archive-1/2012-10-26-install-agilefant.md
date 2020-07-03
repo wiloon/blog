@@ -8,23 +8,21 @@ categories:
   - Agile
 
 ---
-  * <span style="line-height: 13px;">install mysql</span>
-  * <span style="line-height: 13px;">create user agilefant</span>
-  * <span style="line-height: 13px;">update password in table users, md5</span>
-  * <span style="line-height: 13px;">import example DB</span>
-  * <span style="line-height: 13px;">deply agilefant in tomcat</span>
-  * <span style="line-height: 13px;">fix utf8 encoding(tomcat server.xml, mysql character-set)</span>
+  * <span style="line-height: 13px;">install mysql
+  * <span style="line-height: 13px;">create user agilefant
+  * <span style="line-height: 13px;">update password in table users, md5
+  * <span style="line-height: 13px;">import example DB
+  * <span style="line-height: 13px;">deply agilefant in tomcat
+  * <span style="line-height: 13px;">fix utf8 encoding(tomcat server.xml, mysql character-set)
 
-<div>
-  <p>
+  
     EL: Effort left
-  </p>
   
-  <p>
+  
+  
     OE: Original estimate
-  </p>
   
-  <p>
+  
+  
     ES: Effort spent
-  </p>
-</div>
+  

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<pre><code class="language-shell line-numbers">chkconfig --list
+```bashchkconfig --list
 
 # 如果这个服务尚未被添加到 chkconfig 列表中，则现需要使用 –-add 参数将其添加进去
 chkconfig –-add postfix
@@ -26,17 +26,17 @@ chkconfig命令主要用来更新（启动或停止）和查询系统服务的�
 
 使用语法：
   
-chkconfig \[&#8211;add\]\[&#8211;del\]\[&#8211;list\]\[系统服务\] 或 chkconfig \[&#8211;level <等级代号>\]\[系统服务\][on/off/reset]
+chkconfig \[-add\]\[-del\]\[-list\]\[系统服务\] 或 chkconfig \[-level <等级代号>\]\[系统服务\][on/off/reset]
 
 chkconfig在没有参数运行时，显示用法。如果加上服务名，那么就检查这个服务是否在当前运行级启动。如果是，返回true，否则返回false。如果在服务名后面指定了on，off或者reset，那么chkconfi 会改变指定服务的启动信息。on和off分别指服务被启动和停止，reset指重置服务的启动信息，无论有问题的初始化脚本指定了什么。on和off开关，系统默认只对运行级3，4，5有效，但是reset可以对所有运行级有效。
 
 参数用法：
      
-&#8211;add 　增加所指定的系统服务，让chkconfig指令得以管理它，并同时在系统启动的叙述文件内增加相关数据。
+-add 　增加所指定的系统服务，让chkconfig指令得以管理它，并同时在系统启动的叙述文件内增加相关数据。
      
-&#8211;del 　删除所指定的系统服务，不再由chkconfig指令管理，并同时在系统启动的叙述文件内删除相关数据。
+-del 　删除所指定的系统服务，不再由chkconfig指令管理，并同时在系统启动的叙述文件内删除相关数据。
      
-&#8211;level<等级代号> 　指定读系统服务要在哪一个执行等级中开启或关毕。
+-level<等级代号> 　指定读系统服务要在哪一个执行等级中开启或关毕。
         
 等级0表示：表示关机
         

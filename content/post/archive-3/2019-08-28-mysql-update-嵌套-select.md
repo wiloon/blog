@@ -10,7 +10,7 @@ categories:
 ---
 当你希望更新一批值，且值是通过select条件查询出来时，下面这个错误应该不陌生
 
-You can’t specify target table ‘x’ for update in FROM clause。
+You can't specify target table 'x' for update in FROM clause。
 
 错误示范 1： A B 有关联同一个key_id , 根据 B表符合条件 -> 更新A表val值。
 
@@ -22,23 +22,11 @@ LEFT JOIN B ON b.key\_id = a.key\_id
                   
 WHERE b.satisfy = 1)
   
-1
-  
-2
-  
-3
-  
-4
-  
 解决思路 1： 使用 INNER JOIN (最简洁)
 
 UPDATE A a INNER JOIN B b ON b.key\_id = a.key\_id
   
 SET a.val = 2 WHERE b.satisfy = 1
-  
-1
-  
-2
   
 解决思路 2：
 

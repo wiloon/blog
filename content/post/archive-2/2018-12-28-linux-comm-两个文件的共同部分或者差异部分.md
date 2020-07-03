@@ -19,11 +19,11 @@ categories:
 
 NAME
          
-comm &#8211; compare two sorted files line by line
+comm - compare two sorted files line by line
 
 SYNOPSIS
          
-comm [OPTION]&#8230; FILE1 FILE2
+comm [OPTION]... FILE1 FILE2
 
 DESCRIPTION
          
@@ -52,9 +52,9 @@ Compare sorted files FILE1 and FILE2 line by line.
 
 功能说明：比较两个已排过序的文件。（使用sort排序）
   
-语　　法：comm \[-123\]\[&#8211;help\]\[&#8211;version\]\[第1个文件\][第2个文件]
+语　　法：comm \[-123\]\[-help\]\[-version\]\[第1个文件\][第2个文件]
   
-补充说明：这项指令会一列列地比较两个已排序文件的差异，并将其结果显示出来，如果没有指定任何参数，则会把结果分成3栏显示：第1栏仅是在第1个文件中出现过的记录，第2栏是仅在第2个文件中出现过的记录，第3栏则是在第1与第2个文件里都出现过的记录。若给予的文件名改为&#8221;-&#8220;，则comm指令会从标准输入设备读取数据。
+补充说明：这项指令会一列列地比较两个已排序文件的差异，并将其结果显示出来，如果没有指定任何参数，则会把结果分成3栏显示：第1栏仅是在第1个文件中出现过的记录，第2栏是仅在第2个文件中出现过的记录，第3栏则是在第1与第2个文件里都出现过的记录。若给予的文件名改为"-"，则comm指令会从标准输入设备读取数据。
   
 参　　数：
     
@@ -64,17 +64,17 @@ Compare sorted files FILE1 and FILE2 line by line.
     
 -3 不显示只在第1和第2个文件里出现过的列。
     
-&#8211;help 在线帮助。
+-help 在线帮助。
     
-&#8211;version 显示版本信息。
+-version 显示版本信息。
   
 例子
   
-comm &#8211; 12 就只显示在两个文件中都存在的行；
+comm - 12 就只显示在两个文件中都存在的行；
   
-comm &#8211; 23 只显示在第一个文件中出现而未在第二个文件中出现的行；
+comm - 23 只显示在第一个文件中出现而未在第二个文件中出现的行；
   
-comm &#8211; 123 则什么也不显示。
+comm - 123 则什么也不显示。
 
 例如：找出a.txt文件有而b.txt文件中没有的放在c.txt文件中(注意：一定要是先排序，即sort)
 
@@ -98,7 +98,7 @@ comm -23 a\_u.txt b\_u.txt > c.txt
   
 功能说明：比较文件的差异。
 
-　　语　　法：diff \[-abBcdefHilnNpPqrstTuvwy\]\[-<行数>\]\[-C <行数>\]\[-D <巨集名称>\]\[-I <字符或字符串>\]\[-S <文件>\]\[-W <宽度>\]\[-x <文件或目录>\]\[-X <文件>\]\[&#8211;help\]\[&#8211;left-column\]\[&#8211;suppress-common-line\]\[文件或目录1\]\[文件或目录2\]
+　　语　　法：diff \[-abBcdefHilnNpPqrstTuvwy\]\[-<行数>\]\[-C <行数>\]\[-D <巨集名称>\]\[-I <字符或字符串>\]\[-S <文件>\]\[-W <宽度>\]\[-x <文件或目录>\]\[-X <文件>\]\[-help\]\[-left-column\]\[-suppress-common-line\]\[文件或目录1\]\[文件或目录2\]
 
 　　补充说明：diff以逐行的方式，比较文本文件的异同处。所是指定要比较目录，则diff会比较目录中相同文件名的文件，但不会比较其中子目录。
 
@@ -106,73 +106,73 @@ comm -23 a\_u.txt b\_u.txt > c.txt
 
 　　-<行数> 　指定要显示多少行的文本。此参数必须与-c或-u参数一并使用。
 
-　　-a或&#8211;text 　diff预设只会逐行比较文本文件。
+　　-a或-text 　diff预设只会逐行比较文本文件。
 
-　　-b或&#8211;ignore-space-change 　不检查空格字符的不同。
+　　-b或-ignore-space-change 　不检查空格字符的不同。
 
-　　-B或&#8211;ignore-blank-lines 　不检查空白行。
+　　-B或-ignore-blank-lines 　不检查空白行。
 
 　　-c 　显示全部内文，并标出不同之处。
 
-　　-C<行数>或&#8211;context<行数> 　与执行&#8221;-c-<行数>&#8221;指令相同。
+　　-C<行数>或-context<行数> 　与执行"-c-<行数>"指令相同。
 
-　　-d或&#8211;minimal 　使用不同的演算法，以较小的单位来做比较。
+　　-d或-minimal 　使用不同的演算法，以较小的单位来做比较。
 
 　　-D<巨集名称>或ifdef<巨集名称> 　此参数的输出格式可用于前置处理器巨集。
 
-　　-e或&#8211;ed 　此参数的输出格式可用于ed的script文件。
+　　-e或-ed 　此参数的输出格式可用于ed的script文件。
 
 　　-f或-forward-ed 　输出的格式类似ed的script文件，但按照原来文件的顺序来显示不同处。
 
-　　-H或&#8211;speed-large-files 　比较大文件时，可加快速度。
+　　-H或-speed-large-files 　比较大文件时，可加快速度。
 
-　　-l<字符或字符串>或&#8211;ignore-matching-lines<字符或字符串> 　若两个文件在某几行有所不同，而这几行同时都包含了选项中指定的字符或字符串，则不显示这两个文件的差异。
+　　-l<字符或字符串>或-ignore-matching-lines<字符或字符串> 　若两个文件在某几行有所不同，而这几行同时都包含了选项中指定的字符或字符串，则不显示这两个文件的差异。
 
-　　-i或&#8211;ignore-case 　不检查大小写的不同。
+　　-i或-ignore-case 　不检查大小写的不同。
 
-　　-l或&#8211;paginate 　将结果交由pr程序来分页。
+　　-l或-paginate 　将结果交由pr程序来分页。
 
-　　-n或&#8211;rcs 　将比较结果以RCS的格式来显示。
+　　-n或-rcs 　将比较结果以RCS的格式来显示。
 
-　　-N或&#8211;new-file 　在比较目录时，若文件A仅出现在某个目录中，预设会显示：
+　　-N或-new-file 　在比较目录时，若文件A仅出现在某个目录中，预设会显示：
 
 　　Only in目录：文件A若使用-N参数，则diff会将文件A与一个空白的文件比较。
 
 　　-p 　若比较的文件为C语言的程序码文件时，显示差异所在的函数名称。
 
-　　-P或&#8211;unidirectional-new-file 　与-N类似，但只有当第二个目录包含了一个第一个目录所没有的文件时，才会将这个文件与空白的文件做比较。
+　　-P或-unidirectional-new-file 　与-N类似，但只有当第二个目录包含了一个第一个目录所没有的文件时，才会将这个文件与空白的文件做比较。
 
-　　-q或&#8211;brief 　仅显示有无差异，不显示详细的信息。
+　　-q或-brief 　仅显示有无差异，不显示详细的信息。
 
-　　-r或&#8211;recursive 　比较子目录中的文件。
+　　-r或-recursive 　比较子目录中的文件。
 
-　　-s或&#8211;report-identical-files 　若没有发现任何差异，仍然显示信息。
+　　-s或-report-identical-files 　若没有发现任何差异，仍然显示信息。
 
-　　-S<文件>或&#8211;starting-file<文件> 　在比较目录时，从指定的文件开始比较。
+　　-S<文件>或-starting-file<文件> 　在比较目录时，从指定的文件开始比较。
 
-　　-t或&#8211;expand-tabs 　在输出时，将tab字符展开。
+　　-t或-expand-tabs 　在输出时，将tab字符展开。
 
-　　-T或&#8211;initial-tab 　在每行前面加上tab字符以便对齐。
+　　-T或-initial-tab 　在每行前面加上tab字符以便对齐。
 
-　　-u,-U<列数>或&#8211;unified=<列数> 　以合并的方式来显示文件内容的不同。
+　　-u,-U<列数>或-unified=<列数> 　以合并的方式来显示文件内容的不同。
 
-　　-v或&#8211;version 　显示版本信息。
+　　-v或-version 　显示版本信息。
 
-　　-w或&#8211;ignore-all-space 　忽略全部的空格字符。
+　　-w或-ignore-all-space 　忽略全部的空格字符。
 
-　　-W<宽度>或&#8211;width<宽度> 　在使用-y参数时，指定栏宽。
+　　-W<宽度>或-width<宽度> 　在使用-y参数时，指定栏宽。
 
-　　-x<文件名或目录>或&#8211;exclude<文件名或目录> 　不比较选项中所指定的文件或目录。
+　　-x<文件名或目录>或-exclude<文件名或目录> 　不比较选项中所指定的文件或目录。
 
-　　-X<文件>或&#8211;exclude-from<文件> 　您可以将文件或目录类型存成文本文件，然后在=<文件>中指定此文本文件。
+　　-X<文件>或-exclude-from<文件> 　您可以将文件或目录类型存成文本文件，然后在=<文件>中指定此文本文件。
 
-　　-y或&#8211;side-by-side 　以并列的方式显示文件的异同之处。
+　　-y或-side-by-side 　以并列的方式显示文件的异同之处。
 
-　　&#8211;help 　显示帮助。
+　　-help 　显示帮助。
 
-　　&#8211;left-column 　在使用-y参数时，若两个文件某一行内容相同，则仅在左侧的栏位显示该行内容。
+　　-left-column 　在使用-y参数时，若两个文件某一行内容相同，则仅在左侧的栏位显示该行内容。
 
-　　&#8211;suppress-common-lines 　在使用-y参数时，仅显示不同之处。
+　　-suppress-common-lines 　在使用-y参数时，仅显示不同之处。
 
 例如： 找出a.txt文件有而b.txt文件中没有的放在c.txt文件中
 
@@ -188,7 +188,7 @@ cat a.txt | sort | uniq | sort > a_u.txt
   
 cat b.txt | sort | uniq | sort > b_u.txt
   
-diff a\_u.txt b\_u.txt | grep /< | awk &#8216; $1 = &#8221; &#8221; &#8216; > c.txt
+diff a\_u.txt b\_u.txt | grep /< | awk ' $1 = " " ' > c.txt
 
 # END
 
@@ -207,11 +207,11 @@ diff a\_u.txt b\_u.txt | grep /< | awk &#8216; $1 = &#8221; &#8221; &#8216; > c.
 
 　　方法三：
 
-　　awk &#8216;{print NR，$0}&#8217; file1 file2 |sort -k2|uniq -u -f 1|sort -k1|awk &#8216;{print $2}&#8217;
+　　awk '{print NR，$0}' file1 file2 |sort -k2|uniq -u -f 1|sort -k1|awk '{print $2}'
 
 　　或者：
 
-　　awk &#8216;{print $0}&#8217; file1 file2 |sort|uniq -u
+　　awk '{print $0}' file1 file2 |sort|uniq -u
 
 4 Linux Shell删除两个文件相同部分
 
@@ -261,9 +261,9 @@ comm: file 2 is not in sorted order
           
 line2
   
-如果使用&#8211;nocheck-order参数，不进行有序性检测，结果如下：
+如果使用-nocheck-order参数，不进行有序性检测，结果如下：
 
-$ comm -3 &#8211;nocheck-order file1 file2
+$ comm -3 -nocheck-order file1 file2
           
 line0
   
@@ -276,13 +276,13 @@ line2
 
 方法三：使用awk
   
-awk &#8216;{print NR, $0}&#8217; file1 file2 | sort -k2 | uniq -u -f 1 | sort -k1 | awk &#8216;{print $2}&#8217;
+awk '{print NR, $0}' file1 file2 | sort -k2 | uniq -u -f 1 | sort -k1 | awk '{print $2}'
   
 或者：
   
-awk &#8216;{print $0}&#8217; file1 file2 | sort | uniq -u
+awk '{print $0}' file1 file2 | sort | uniq -u
       
-awk命令的使用，听牛人说可谓博大精深，我也没有太搞清楚。这里只是使用了一些简单的功能。下面以我自己的理解来解释一下上面的shell代码。awk就是文本的解释器和过滤器。awk把每一行看成是一个记录(record)，每个记录使用分隔符(默认是空格)把每条记录分成若干域。awk内置参数$0表示整行，$1、$2&#8230;分别表示各域，内置参数NR，表示记录的计数，awk &#8216;{print NR, $0}&#8217; file1 file2表示依次读取file1 file2，打印出每行，并且在前面添加行号。
+awk命令的使用，听牛人说可谓博大精深，我也没有太搞清楚。这里只是使用了一些简单的功能。下面以我自己的理解来解释一下上面的shell代码。awk就是文本的解释器和过滤器。awk把每一行看成是一个记录(record)，每个记录使用分隔符(默认是空格)把每条记录分成若干域。awk内置参数$0表示整行，$1、$2...分别表示各域，内置参数NR，表示记录的计数，awk '{print NR, $0}' file1 file2表示依次读取file1 file2，打印出每行，并且在前面添加行号。
 
      命令sort，就是对行进行排序，参数-k表示根据各行的第几个参数关键字开进行排序，这里的-k2表示根据第二个关键字开始进行排序。
     

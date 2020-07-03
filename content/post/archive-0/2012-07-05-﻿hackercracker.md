@@ -16,7 +16,7 @@ internal workings of a system, computers and computer networks in
   
 particular.  The term is often misused in a pejorative context,
   
-where &#8220;cracker&#8221; would be the correct term.  See also: cracker.
+where "cracker" would be the correct term.  See also: cracker.
 
 cracker
   

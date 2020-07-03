@@ -16,7 +16,7 @@ categories:
 
 [plain] view plain copy
   
-id [选项]&#8230; [用户名]
+id [选项]... [用户名]
   
 命令选项
   

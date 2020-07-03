@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-[code lang=shell]
+```bash
   
 解包：tar xvf FileName.tar
   
@@ -20,7 +20,7 @@ categories:
   
 \# 注：tar是打包，不是压缩！
 
-[/code]
+```
 
 必要参数有如下：
   
@@ -64,9 +64,9 @@ categories:
   
 -f 指定压缩文件
   
-&#8211;help 显示帮助信息
+-help 显示帮助信息
   
-&#8211;version 显示版本信息
+-version 显示版本信息
 
 -z 是配合解压.GZ的
   
@@ -76,20 +76,20 @@ categories:
   
 -f 必须，表示使用归档文件
   
--z, &#8211;gzip, &#8211;ungzip
+-z, -gzip, -ungzip
                 
 filter the archive through gzip
   
--x, &#8211;extract, &#8211;get
+-x, -extract, -get
                 
 extract files from an archive
   
--v, &#8211;verbose
+-v, -verbose
                 
 verbosely list files processed
   
--f, &#8211;file [HOSTNAME:]F
+-f, -file [HOSTNAME:]F
                 
-use archive file or device F (default &#8220;-&#8220;, meaning stdin/stdout)
+use archive file or device F (default "-", meaning stdin/stdout)
   
--j, &#8211;bzip2
+-j, -bzip2

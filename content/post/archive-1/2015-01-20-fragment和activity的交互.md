@@ -20,7 +20,6 @@ View listView = getActivity().findViewById(R.id.list);
   
 但是注意调用getActivity()时，fragment必须和activity关联（attached to an activity），否则将会返回一个null。
 
-&nbsp;
 
 相似的，activity也可以获得一个fragment的引用，从而调用fragment中的方法。
 
@@ -44,7 +43,7 @@ ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentBy
   
 public static class FragmentA extends ListFragment {
   
-&#8230;
+...
   
 // Container Activity must implement this interface
   
@@ -54,7 +53,7 @@ public void onArticleSelected(Uri articleUri);
   
 }
   
-&#8230;
+...
   
 }
 
@@ -66,7 +65,7 @@ public static class FragmentA extends ListFragment {
   
 OnArticleSelectedListener mListener;
   
-&#8230;
+...
   
 @Override
   
@@ -80,13 +79,13 @@ mListener = (OnArticleSelectedListener) activity;
   
 } catch (ClassCastException e) {
   
-throw new ClassCastException(activity.toString() + &#8221; must implement OnArticleSelectedListener&#8221;);
+throw new ClassCastException(activity.toString() + " must implement OnArticleSelectedListener");
   
 }
   
 }
   
-&#8230;
+...
   
 }
 
@@ -98,13 +97,13 @@ public static class FragmentA extends ListFragment {
   
 OnArticleSelectedListener mListener;
   
-&#8230;
+...
   
 @Override
   
 public void onListItemClick(ListView l, View v, int position, long id) {
   
-// Append the clicked item&#8217;s row ID with the content provider Uri
+// Append the clicked item's row ID with the content provider Uri
   
 Uri noteUri = ContentUris.withAppendedId(ArticleColumns.CONTENT_URI, id);
   
@@ -114,7 +113,7 @@ mListener.onArticleSelected(noteUri);
   
 }
   
-&#8230;
+...
   
 }
 
@@ -138,7 +137,6 @@ fragment不可见。可能是因为宿主activity处于stopped状态，或者fra
 
 一个处于stopped状态的activity还是存活状态的，所有的状态和成员信息会被系统保持。但是，它不再被用户可见，并且如果宿主activity被kill掉，它也会被kill掉。
 
-&nbsp;
 
 数据存储和恢复
 
@@ -180,11 +178,6 @@ onDetach()
 
 如图：
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 从这个图上可以看出activity的状态决定了fragment可能接收到的回调函数。
 
@@ -193,10 +186,6 @@ onDetach()
 当activity处于Resumed状态时，可以自由地添加和移除fragment，也即是说，只有activity在Resumed状态时，fragment的状态可以独立改变。
 
 但是，当activity离开Resumed状态，fragment的生命周期被activity控制。
-
-&nbsp;
-
-&nbsp;
 
 参考资料
   

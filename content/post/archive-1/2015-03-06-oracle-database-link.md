@@ -32,11 +32,11 @@ CREATE [PUBLIC] DATABASE LINK link
 
 CONNECT TO username IDENTIFIED BY password
 
-USING ‘connectstring’
+USING 'connectstring'
 
 其中：
   
-&#8211;demona为用net8 easy config创建的连接字符串
+-demona为用net8 easy config创建的连接字符串
   
 目的方数据库的init.ora文件中的global_names设为false
   
@@ -52,7 +52,7 @@ USING ‘connectstring’
 
 create public database link zrhs_link
 
-using ‘zrhs’;
+using 'zrhs';
 
 在不指定用户名和口令的情况下，ORACLE使用当前的用户名和口令登录到远程数据库。
 
@@ -66,15 +66,15 @@ DROP [PUBLIC] DATABASE LINK zrhs_link
 
 一般情况下引用数据库链接，可以直接将其放到调用的表名或视图名称后面，中间使用一个 @ 作为分割符：
 
-SELECT * FROM [<span style="color: #800080;">worker@zrhs_link</span>][1];
+SELECT * FROM [<span style="color: #800080;">worker@zrhs_link][1];
 
 对于经常使用的数据库链接，可以建立一个本地的同义词，方便使用：
 
-CREATE SYNONYM worker_syn FOR [<span style="color: #800080;">worker@zrhs_link</span>][1];
+CREATE SYNONYM worker_syn FOR [<span style="color: #800080;">worker@zrhs_link][1];
 
 还可以建立一个本地的远程视图，方便使用：
 
-CREATE VIEW worker AS SELECT * FROM [<span style="color: #800080;">worker@zrhs_link</span>][1] where… ;
+CREATE VIEW worker AS SELECT * FROM [<span style="color: #800080;">worker@zrhs_link][1] where… ;
 
 现在本视图可与本地数据库中的任何其它视图一样对待，也可以授权给其它用户，访问此视图，但该用户必须有访问数据库链接的权限。
 
@@ -88,7 +88,7 @@ SELECT * FROM <camel.worker@zrhs_link> ;
 
 SELECT * FROM GLOBAL_NAME;
 
-atabase link(dblink)&#8211;数据库链路
+atabase link(dblink)-数据库链路
   
 创建dblink的语法：
   
@@ -96,7 +96,7 @@ sql>create database link 数据库链路名
   
 connect to 用户名 identified by 口令
   
-using &#8216;主机字符串名&#8217;;
+using '主机字符串名';
   
 如：
   
@@ -104,7 +104,7 @@ sql>create database link ora9i.us.oracle.com ### 这里的us.oracle.com为oracle
   
 connect to scott identified by tiger
   
-using &#8216;sun&#8217;;
+using 'sun';
 
 1)dblink名必须与远程数据库的全局数据库名（global_name）相同；
   
@@ -124,9 +124,9 @@ sql>select * from 表名@ora9i.us.oracle.com;
 
 查看所有的数据库链接，进入系统管理员SQL>操作符下，运行命令：
 
-SQL>select owner,object\_name from dba\_objects where object_type=&#8217;DATABASE LINK&#8217;;
+SQL>select owner,object\_name from dba\_objects where object_type='DATABASE LINK';
 
-<span style="font-family: Verdana;">http://hi.baidu.com/mataoxf/blog/item/86e2be51db2a538e8d54306a.html</span>
+<span style="font-family: Verdana;">http://hi.baidu.com/mataoxf/blog/item/86e2be51db2a538e8d54306a.html
 
 http://www.cnblogs.com/xinyuxin912/archive/2008/01/09/1032261.html
 

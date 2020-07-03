@@ -12,7 +12,8 @@ https://github.com/golang/go/wiki/WebAssembly
   
 https://tutorialedge.net/golang/go-webassembly-tutorial/
 
-```golang package main
+```golang
+package main
 
 import "fmt"
 
@@ -21,10 +22,10 @@ func main() {
 }
 ```
 
-```bashGOOS=js GOARCH=wasm go build -o main.wasm
+```bash
+gOOS=js GOARCH=wasm go build -o main.wasm
 cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" .
 go get -u github.com/shurcooL/goexec
 goexec 'http.ListenAndServe(":8080", http.FileServer(http.Dir(".")))'
-
 
 ```

@@ -12,9 +12,9 @@ categories:
   - DataBase
 
 ---
-<pre>BEGIN
+BEGIN
   FOR ss in (select sid,serial# from v$session s where s.USERNAME='USERNAME')
   loop
     execute immediate 'ALTER system kill session '''||ss.sid||','||ss.serial#||'''';
   end loop;
-end;</pre>
+end;

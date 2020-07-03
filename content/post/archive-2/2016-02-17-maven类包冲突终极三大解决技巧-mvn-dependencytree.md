@@ -34,7 +34,7 @@ dependency:tree是把照妖照，pom.xml用它照照，所有传递性依赖都�
   
 引用
 
-[INFO] &#8212; maven-dependency-plugin:2.1:tree (default-cli) @ euler-foundation &#8212;
+[INFO] - maven-dependency-plugin:2.1:tree (default-cli) @ euler-foundation -
   
 [INFO] com.hsit:euler-foundation:jar:0.9.0.1-SNAPSHOT
   
@@ -90,7 +90,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
 
 就会出来asm依赖包的分析信息：
 
-[INFO] &#8212; maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test &#8212;
+[INFO] - maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test -
   
 [INFO] com.ridge:ridge-test:jar:1.0.2-SNAPSHOT
   
@@ -102,11 +102,11 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 [INFO] +- cglib:cglib:jar:2.1_3:compile
   
-[INFO] | \- (asm:asm:jar:1.5.3:compile &#8211; omitted for conflict with 3.2)
+[INFO] | \- (asm:asm:jar:1.5.3:compile - omitted for conflict with 3.2)
   
-[INFO] \- (asm:asm:jar:1.5.3:compile &#8211; omitted for conflict with 3.2)
+[INFO] \- (asm:asm:jar:1.5.3:compile - omitted for conflict with 3.2)
   
-[INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+[INFO] ------------------------
 
 对asm有依赖有一个直接的依赖(asm:asm:jar:3.2)还有一个传递进入的依赖(asm:asm:jar:1.5.3)
 
@@ -132,7 +132,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 </exclusion>
   
-<!&#8211; 这个就是我们要加的片断 &#8211;>
+<!- 这个就是我们要加的片断 ->
   
 <exclusion>
   
@@ -150,13 +150,13 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 [INFO]
   
-[INFO] &#8212; maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test &#8212;
+[INFO] - maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test -
   
 [INFO] com.ridge:ridge-test:jar:1.0.2-SNAPSHOT
   
 [INFO] \- asm:asm:jar:3.2:compile
   
-[INFO] &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+[INFO] ------------------------
   
 [INFO] BUILD SUCCESS
 
@@ -198,11 +198,11 @@ public class ClassLocationUtils {
   
 public static String where(final Class cls) {
   
-if (cls == null)throw new IllegalArgumentException(&#8220;null input: cls&#8221;);
+if (cls == null)throw new IllegalArgumentException("null input: cls");
   
 URL result = null;
   
-final String clsAsResource = cls.getName().replace(&#8216;.&#8217;, &#8216;/&#8217;).concat(&#8220;.class&#8221;);
+final String clsAsResource = cls.getName().replace('.', '/').concat(".class");
   
 final ProtectionDomain pd = cls.getProtectionDomain();
   
@@ -214,17 +214,17 @@ if (cs != null) result = cs.getLocation();
   
 if (result != null) {
   
-if (&#8220;file&#8221;.equals(result.getProtocol())) {
+if ("file".equals(result.getProtocol())) {
   
 try {
   
-if (result.toExternalForm().endsWith(&#8220;.jar&#8221;) ||
+if (result.toExternalForm().endsWith(".jar") ||
   
-result.toExternalForm().endsWith(&#8220;.zip&#8221;))
+result.toExternalForm().endsWith(".zip"))
   
-result = new URL(&#8220;jar:&#8221;.concat(result.toExternalForm())
+result = new URL("jar:".concat(result.toExternalForm())
   
-.concat(&#8220;!/&#8221;).concat(clsAsResource));
+.concat("!/").concat(clsAsResource));
   
 else if (new File(result.getFile()).isDirectory())
   

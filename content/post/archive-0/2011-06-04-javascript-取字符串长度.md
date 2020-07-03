@@ -10,6 +10,6 @@ categories:
   - Uncategorized
 
 ---
-var pig =&#8221;ttttt&#8221;
+var pig ="ttttt"
   
 alert(pig.length) ;

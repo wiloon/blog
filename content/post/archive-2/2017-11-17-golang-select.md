@@ -18,19 +18,19 @@ select {
   
 case v1 := <-c1:
       
-fmt.Printf(&#8220;received %v from c1\n&#8221;, v1)
+fmt.Printf("received %v from c1\n", v1)
   
 case v2 := <-c2:
       
-fmt.Printf(&#8220;received %v from c2\n&#8221;, v1)
+fmt.Printf("received %v from c2\n", v1)
   
 case c3 <- 23:
       
-fmt.Printf(&#8220;sent %v to c3\n&#8221;, 23)
+fmt.Printf("sent %v to c3\n", 23)
   
 default:
       
-fmt.Printf(&#8220;no one was ready to communicate\n&#8221;)
+fmt.Printf("no one was ready to communicate\n")
   
 }
   
@@ -56,17 +56,17 @@ ch1 := make (chan int, 1)
   
 ch2 := make (chan int, 1)
 
-&#8230;
+...
 
 select {
   
 case <-ch1:
       
-fmt.Println(&#8220;ch1 pop one element&#8221;)
+fmt.Println("ch1 pop one element")
   
 case <-ch2:
       
-fmt.Println(&#8220;ch2 pop one element&#8221;)
+fmt.Println("ch2 pop one element")
   
 }
   
@@ -96,7 +96,7 @@ case <- ch:
   
 case <- timeout:
       
-fmt.Println(&#8220;timeout!&#8221;)
+fmt.Println("timeout!")
   
 }
   
@@ -114,15 +114,15 @@ select {
   
 case <-ch1:
       
-fmt.Println(&#8220;ch1 pop one element&#8221;)
+fmt.Println("ch1 pop one element")
   
 case <-ch2:
       
-fmt.Println(&#8220;ch2 pop one element&#8221;)
+fmt.Println("ch2 pop one element")
   
 default:
       
-fmt.Println(&#8220;default&#8221;)
+fmt.Println("default")
   
 }
   
@@ -142,7 +142,7 @@ case ch <- 2:
   
 default:
       
-fmt.Println(&#8220;channel is full !&#8221;)
+fmt.Println("channel is full !")
   
 }
   

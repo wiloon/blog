@@ -24,7 +24,7 @@ categories:
   
 先用下面的命令来建立一个文件
 
-<pre><code class="language-shell line-numbers">date && echo "this is file be used test time of file" &gt;filetime.txt && ll --full-time filetime.txt
+```bashdate && echo "this is file be used test time of file" >filetime.txt && ll --full-time filetime.txt
 ```
 
 Tue Aug 4 15:13:44 HKT 2009
@@ -35,7 +35,7 @@ Tue Aug 4 15:13:44 HKT 2009
 
 # stat filetime.txt
 
-File: \`filetime.txt’
+File: \`filetime.txt'
   
 Size: 39 Blocks: 8 IO Block: 4096 Regular File
   
@@ -73,7 +73,7 @@ ls -lu filename 列出文件的 atime（最后存取时间）
   
 ls -l filename 列出文件的 mtime （最后修改时间）
 
-在linux中stat函数中，用st\_atime表示文件数据最近的存取时间(last accessed time)；用st\_mtime表示文件数据最近的修改时间(last modified time)；使用st_ctime表示文件inode数据最近的修改时间(last i-node’s status changed time)。
+在linux中stat函数中，用st\_atime表示文件数据最近的存取时间(last accessed time)；用st\_mtime表示文件数据最近的修改时间(last modified time)；使用st_ctime表示文件inode数据最近的修改时间(last i-node's status changed time)。
 
 字段 说明 例子 ls(-l)
   
@@ -94,9 +94,9 @@ ext4、xfs、btrfs 都支持创建时间
 http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html
 
 <blockquote class="wp-embedded-content" data-secret="0aBZM4XyiK">
-  <p>
+  
     <a href="https://man.linuxde.net/stat">stat</a>
-  </p>
+  
 </blockquote>
 
 <iframe title="《stat》—Linux命令大全" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK" data-secret="0aBZM4XyiK" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>

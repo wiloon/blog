@@ -10,11 +10,11 @@ categories:
 ---
 动态INCLUDE
   
-用jsp:include动作实现 <jsp:include page=&#8221;included.jsp&#8221; flush=&#8221;true&#8221; />它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数。
+用jsp:include动作实现 <jsp:include page="included.jsp" flush="true" />它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数。
   
 静态INCLUDE
   
-用include伪码实现,定不会检查所含文件的变化，适用于包含静态页面<%@ include file=&#8221;included.htm&#8221; %>
+用include伪码实现,定不会检查所含文件的变化，适用于包含静态页面<%@ include file="included.htm" %>
 
 ===================================================================
 

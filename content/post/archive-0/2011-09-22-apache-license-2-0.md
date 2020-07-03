@@ -37,23 +37,23 @@ http://www.apache.org/licenses/
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
   1. Definitions. 
-    &#8220;License&#8221; shall mean the terms and conditions for use,
+    "License" shall mean the terms and conditions for use,
     
     reproduction, and distribution as defined by Sections 1 through
     
     9 of this document.
     
-    &#8220;Licensor&#8221; shall mean the copyright owner or entity authorized
+    "Licensor" shall mean the copyright owner or entity authorized
     
     by the copyright owner that is granting the License.
     
-    &#8220;Legal Entity&#8221; shall mean the union of the acting entity and all
+    "Legal Entity" shall mean the union of the acting entity and all
     
     other entities that control, are controlled by, or are under
     
     common control with that entity. For the purposes of this
     
-    definition, &#8220;control&#8221; means (i) the power, direct or indirect,
+    definition, "control" means (i) the power, direct or indirect,
     
     to cause the direction or management of such entity, whether by
     
@@ -63,17 +63,17 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     of such entity.
     
-    &#8220;You&#8221; (or &#8220;Your&#8221;) shall mean an individual or Legal Entity
+    "You" (or "Your") shall mean an individual or Legal Entity
     
     exercising permissions granted by this License.
     
-    &#8220;Source&#8221; form shall mean the preferred form for making
+    "Source" form shall mean the preferred form for making
     
     modifications, including but not limited to software source code,
     
     documentation source, and configuration files.
     
-    &#8220;Object&#8221; form shall mean any form resulting from mechanical
+    "Object" form shall mean any form resulting from mechanical
     
     transformation or translation of a Source form, including but
     
@@ -81,7 +81,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     and conversions to other media types.
     
-    &#8220;Work&#8221; shall mean the work of authorship, whether in Source or
+    "Work" shall mean the work of authorship, whether in Source or
     
     Object form, made available under the License, as indicated by a
     
@@ -89,7 +89,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     (an example is provided in the Appendix below).
     
-    &#8220;Derivative Works&#8221; shall mean any work, whether in Source or
+    "Derivative Works" shall mean any work, whether in Source or
     
     Object form, that is based on (or derived from) the Work and
     
@@ -105,7 +105,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     and Derivative Works thereof.
     
-    &#8220;Contribution&#8221; shall mean any work of authorship, including
+    "Contribution" shall mean any work of authorship, including
     
     the original version of the Work and any modifications or
     
@@ -119,7 +119,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     purposes of this definition,
     
-    &#8220;submitted&#8221; means any form of electronic, verbal, or written
+    "submitted" means any form of electronic, verbal, or written
     
     communication sent to the Licensor or its representatives,
     
@@ -133,11 +133,11 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     communication that is conspicuously marked or otherwise
     
-    designated in writing by the copyright owner as &#8220;Not a
+    designated in writing by the copyright owner as "Not a
     
-    Contribution.&#8221;
+    Contribution."
     
-    &#8220;Contributor&#8221; shall mean Licensor and any individual or Legal
+    "Contributor" shall mean Licensor and any individual or Legal
     
     Entity on behalf of whom a Contribution has been received by
     
@@ -213,7 +213,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
         
     the Derivative Works; and
     
-    (d) If the Work includes a &#8220;NOTICE&#8221; text file as part of its
+    (d) If the Work includes a "NOTICE" text file as part of its
         
     distribution, then any Derivative Works that You distribute
         
@@ -289,7 +289,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     agreed to in writing, Licensor provides the Work (and each
     
-    Contributor provides its Contributions) on an &#8220;AS IS&#8221; BASIS,
+    Contributor provides its Contributions) on an "AS IS" BASIS,
     
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
     
@@ -357,9 +357,9 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     To apply the Apache License to your work, attach the following
     
-    boilerplate notice, with the fields enclosed by brackets &#8220;[]&#8221;
+    boilerplate notice, with the fields enclosed by brackets "[]"
     
-    replaced with your own identifying information. (Don&#8217;t include
+    replaced with your own identifying information. (Don't include
     
     the brackets!) The text should be enclosed in the appropriate
     
@@ -367,13 +367,13 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     file or class name and description of purpose be included on the
     
-    same &#8220;printed page&#8221; as the copyright notice for easier
+    same "printed page" as the copyright notice for easier
     
     identification within third-party archives.
     
     Copyright \[yyyy\] \[name of copyright owner\]
     
-    Licensed under the Apache License, Version 2.0 (the &#8220;License&#8221;);
+    Licensed under the Apache License, Version 2.0 (the "License");
   
     you may not use this file except in compliance with the License.
   
@@ -383,7 +383,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     Unless required by applicable law or agreed to in writing, software
   
-    distributed under the License is distributed on an &#8220;AS IS&#8221; BASIS,
+    distributed under the License is distributed on an "AS IS" BASIS,
   
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
   

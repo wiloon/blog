@@ -10,7 +10,8 @@ categories:
 ---
 ### 按版本安装
 
-```bashyum list|grep filebeat
+```bash
+yum list|grep filebeat
 
 # 回显
 filebeat.x86_64                         7.2.0-1                         @elastic
@@ -21,7 +22,8 @@ filebeat.x86_64                         7.2.1-1                         elastic
 yum install filebeat-7.2.0-1
 ```
 
-```bash#search
+```bash
+#search
 yum search iostat
 
 #search
@@ -57,7 +59,6 @@ sudo yum localinstall influxdb-1.2.4.x86_64.rpm
 #卸载
 yum remove httpd
 yum -y remove httpd
-
 
 
 #yum mirror

@@ -10,7 +10,8 @@ categories:
 ---
 http://www.jianshu.com/p/f38a62efaa96
 
-[code lang=java]
+```java
+
   
 HttpHost proxy = new HttpHost("localhost",8888);
   
@@ -20,4 +21,4 @@ CloseableHttpClient httpclient = HttpClients.custom()
   
 .setProxy(proxy).build()).build();
   
-[/code]
+```

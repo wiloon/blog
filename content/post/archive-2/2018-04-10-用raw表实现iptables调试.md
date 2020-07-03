@@ -10,7 +10,8 @@ categories:
 ---
 ### 启用iptables的日志
 
-```bashiptables -t nat -A POSTROUTING -p icmp  -s 192.168.50.215 -j LOG --log-prefix 'iptable-log: '
+```bash
+iptables -t nat -A POSTROUTING -p icmp  -s 192.168.50.215 -j LOG --log-prefix 'iptable-log: '
 iptables -t nat -I PREROUTING -p tcp -s 192.168.50.115 --dport 80 -j LOG --log-prefix 'iptable-log: '
 
 #配置日志级别
@@ -25,13 +26,15 @@ raw表使用PREROUTING和OUTPUT两个链，因此raw可以覆盖所有包。在r
   
 假设需要对ipv4的ICMP包进行跟踪调试，抓取所有流经本机的ICMP包
 
-```bashiptables -t raw -A OUTPUT -p icmp -j TRACE
+```bash
+iptables -t raw -A OUTPUT -p icmp -j TRACE
 iptables -t raw -A PREROUTING -p icmp -j TRACE
 ```
 
 加载对应内核模块
 
-```bashmodprobe ipt_LOG
+```bash
+modprobe ipt_LOG
 modprobe xt_LOG
 ```
 
@@ -41,7 +44,7 @@ modprobe xt_LOG
 
 TRACE This target marks packes so that the kernel will log every rule which match the packets as those traverse the tables, chains, rules. (The ipt\_LOG or ip6t\_LOG module is required for the logging.) The packets are logged with the string prefix:
 
-&#8220;TRACE: tablename:chainname:type:rulenum &#8221; where type can be &#8220;rule&#8221; for plain rule, &#8220;return&#8221; for implicit rule at the end of a user defined chain and &#8220;policy&#8221; for the policy of the built in chains. It can only be used in the raw table.
+"TRACE: tablename:chainname:type:rulenum " where type can be "rule" for plain rule, "return" for implicit rule at the end of a user defined chain and "policy" for the policy of the built in chains. It can only be used in the raw table.
 
 policy 是指iptables内置的规则如：accept
   
@@ -49,7 +52,8 @@ policy 会跟用户定义的rule放在一起排序，如果用户定义了6条�
 
 for openwrt > iptables
 
-```bash# install raw table for iptables
+```bash
+# install raw table for iptables
 opkg install kmod-ipt-raw
 
 #build kmod-ipt-debug as module which provides the iptables TRACE target
@@ -66,7 +70,7 @@ iptables -t raw -I PREROUTING 1 -p tcp -d 216.58.193.196 -j TRACE
   
 PING 192.168.0.19 (192.168.0.19)56(84) bytes of data.
   
-&#8212; 192.168.0.19 ping statistics &#8212;1 packets transmitted, 0 received, 100% packet loss, time 0ms
+- 192.168.0.19 ping statistics -1 packets transmitted, 0 received, 100% packet loss, time 0ms
   
 在/var/log/kern.log中的对应调试信息如下
 
@@ -108,17 +112,17 @@ Apr 1811:50:23 openstack-network kernel: [1038991.870985] TRACE: nat:quantum-l3-
   
 :POSTROUTING ACCEPT [26:13022]
   
-:quantum-l3-agent-OUTPUT &#8211; [0:0]
+:quantum-l3-agent-OUTPUT - [0:0]
   
-:quantum-l3-agent-POSTROUTING &#8211; [0:0]
+:quantum-l3-agent-POSTROUTING - [0:0]
   
-:quantum-l3-agent-PREROUTING &#8211; [0:0]
+:quantum-l3-agent-PREROUTING - [0:0]
   
-:quantum-l3-agent-float-snat &#8211; [0:0]
+:quantum-l3-agent-float-snat - [0:0]
   
-:quantum-l3-agent-snat &#8211; [0:0]
+:quantum-l3-agent-snat - [0:0]
   
-:quantum-postrouting-bottom &#8211; [0:0]-A PREROUTING -j quantum-l3-agent-PREROUTING
+:quantum-postrouting-bottom - [0:0]-A PREROUTING -j quantum-l3-agent-PREROUTING
   
 -A OUTPUT -j quantum-l3-agent-OUTPUT
   
@@ -126,23 +130,23 @@ Apr 1811:50:23 openstack-network kernel: [1038991.870985] TRACE: nat:quantum-l3-
   
 -A POSTROUTING -j quantum-postrouting-bottom
   
--A quantum-l3-agent-OUTPUT -d 192.168.0.16/32-j DNAT &#8211;to-destination 10.0.0.4
+-A quantum-l3-agent-OUTPUT -d 192.168.0.16/32-j DNAT -to-destination 10.0.0.4
   
--A quantum-l3-agent-OUTPUT -d 192.168.0.17/32-j DNAT &#8211;to-destination 10.0.0.3
+-A quantum-l3-agent-OUTPUT -d 192.168.0.17/32-j DNAT -to-destination 10.0.0.3
   
--A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !&#8211;ctstate DNAT -j ACCEPT
+-A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !-ctstate DNAT -j ACCEPT
   
 -A quantum-l3-agent-POSTROUTING -s 10.0.0.0/24-d 192.168.1.1/32-j ACCEPT
   
--A quantum-l3-agent-PREROUTING -d 169.254.169.254/32-p tcp -m tcp &#8211;dport80-j DNAT &#8211;to-destination 192.168.1.1:8775-A quantum-l3-agent-PREROUTING -d 192.168.0.16/32-j DNAT &#8211;to-destination 10.0.0.4
+-A quantum-l3-agent-PREROUTING -d 169.254.169.254/32-p tcp -m tcp -dport80-j DNAT -to-destination 192.168.1.1:8775-A quantum-l3-agent-PREROUTING -d 192.168.0.16/32-j DNAT -to-destination 10.0.0.4
   
--A quantum-l3-agent-PREROUTING -d 192.168.0.17/32-j DNAT &#8211;to-destination 10.0.0.3
+-A quantum-l3-agent-PREROUTING -d 192.168.0.17/32-j DNAT -to-destination 10.0.0.3
   
--A quantum-l3-agent-float-snat -s 10.0.0.4/32-j SNAT &#8211;to-source 192.168.0.16
+-A quantum-l3-agent-float-snat -s 10.0.0.4/32-j SNAT -to-source 192.168.0.16
   
 -A quantum-l3-agent-snat -j quantum-l3-agent-float-snat
   
--A quantum-l3-agent-snat -s 10.0.0.0/24-j SNAT &#8211;to-source 192.168.0.15
+-A quantum-l3-agent-snat -s 10.0.0.0/24-j SNAT -to-source 192.168.0.15
   
 -A quantum-postrouting-bottom -j quantum-l3-agent-snat
   
@@ -150,19 +154,19 @@ COMMIT
   
 确定有问题的规则为
 
--A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !&#8211;ctstate DNAT -j ACCEPT
+-A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !-ctstate DNAT -j ACCEPT
   
 把这条规则删掉后重启iptables，vm能顺利连接外网，问题解决。
 
 https://www.howtoing.com/enable-logging-in-iptables-on-linux
 
 <blockquote class="wp-embedded-content" data-secret="GkDsoEKKiO">
-  <p>
+  
     <a href="https://backreference.org/2010/06/11/iptables-debugging/">iptables debugging</a>
-  </p>
+  
 </blockquote>
 
-<iframe title="&#8220;iptables debugging&#8221; &#8212; 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe title=""iptables debugging" - 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
 http://blog.51cto.com/flymanhi/1276331
   

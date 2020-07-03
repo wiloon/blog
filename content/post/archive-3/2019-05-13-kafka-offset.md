@@ -34,7 +34,7 @@ offset是consumer position，Topic的每个Partition都有各自的offset.
 
 Keeping track of what has been consumed, is, surprisingly, one of the key performance points of a messaging system.
 
-Most messaging systems keep metadata about what messages have been consumed on the broker. That is, as a message is handed out to a consumer, the broker either records that fact locally immediately or it may wait for acknowledgement from the consumer. This is a fairly intuitive choice, and indeed for a single machine server it is not clear where else this state could go. Since the data structure used for storage in many messaging systems scale poorly, this is also a pragmatic choice&#8211;since the broker knows what is consumed it can immediately delete it, keeping the data size small.
+Most messaging systems keep metadata about what messages have been consumed on the broker. That is, as a message is handed out to a consumer, the broker either records that fact locally immediately or it may wait for acknowledgement from the consumer. This is a fairly intuitive choice, and indeed for a single machine server it is not clear where else this state could go. Since the data structure used for storage in many messaging systems scale poorly, this is also a pragmatic choice-since the broker knows what is consumed it can immediately delete it, keeping the data size small.
 
 What is perhaps not obvious, is that getting the broker and consumer to come into agreement about what has been consumed is not a trivial problem. If the broker records a message as consumed immediately every time it is handed out over the network, then if the consumer fails to process the message (say because it crashes or the request times out or whatever) that message will be lost. To solve this problem, many messaging systems add an acknowledgement feature which means that messages are only marked as sent not consumed when they are sent; the broker waits for a specific acknowledgement from the consumer to record the message as consumed. This strategy fixes the problem of losing messages, but creates new problems. First of all, if the consumer processes the message but fails before it can send an acknowledgement then the message will be consumed twice. The second problem is around performance, now the broker must keep multiple states about every single message (first to lock it so it is not given out a second time, and then to mark it as permanently consumed so that it can be removed). Tricky problems must be dealt with, like what to do with messages that are sent but never acknowledged.
 
@@ -64,7 +64,8 @@ There is a side benefit of this decision. A consumer can deliberately rewind bac
 
 <ol start="2">
   <li>
-    auto.commit.enable（例如true，表示offset自动提交到Zookeeper）<br /> If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer. This committed offset will be used when the process fails as the position from which the new consumer will begin
+    auto.commit.enable（例如true，表示offset自动提交到Zookeeper）
+ If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer. This committed offset will be used when the process fails as the position from which the new consumer will begin
   </li>
 </ol>
 
@@ -72,7 +73,8 @@ There is a side benefit of this decision. A consumer can deliberately rewind bac
 
 <ol start="3">
   <li>
-    auto.commit.interval.ms(例如60000,每隔1分钟offset提交到Zookeeper)<br /> The frequency in ms that the consumer offsets are committed to zookeeper.
+    auto.commit.interval.ms(例如60000,每隔1分钟offset提交到Zookeeper)
+ The frequency in ms that the consumer offsets are committed to zookeeper.
   </li>
 </ol>
 
@@ -90,7 +92,8 @@ Select where offsets should be stored (zookeeper or kafka).默认是Zookeeper
 
 <ol start="5">
   <li>
-    基于offset的重复读<br /> The Kafka consumer works by issuing &#8220;fetch&#8221; requests to the brokers leading the partitions it wants to consume. The consumer specifies its offset in the log with each request and receives back a chunk of log beginning from that position. The consumer thus has significant control over this position and can rewind it to re-consume data if need be.
+    基于offset的重复读
+ The Kafka consumer works by issuing "fetch" requests to the brokers leading the partitions it wants to consume. The consumer specifies its offset in the log with each request and receives back a chunk of log beginning from that position. The consumer thus has significant control over this position and can rewind it to re-consume data if need be.
   </li>
 </ol>
 

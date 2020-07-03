@@ -46,7 +46,7 @@ Btn1.setOnClickListener(new Button.OnClickListener(){//创建监听
   
 public void onClick(View v) {
   
-String strTmp = &#8220;点击Button01&#8243;;
+String strTmp = "点击Button01";
   
 Ev1.setText(strTmp);
   
@@ -66,7 +66,7 @@ Button.OnClickListener listener = new Button.OnClickListener(){//创建监听对
   
 public void onClick(View v){
   
-String strTmp=&#8221;点击Button02&#8243;;
+String strTmp="点击Button02";
   
 Ev1.setText(strTmp);
   
@@ -78,7 +78,7 @@ Ev1.setText(strTmp);
   
 public void Btn3OnClick(View view){
   
-String strTmp=&#8221;点击Button03&#8243;;
+String strTmp="点击Button03";
   
 Ev1.setText(strTmp);
 
@@ -90,63 +90,63 @@ Ev1.setText(strTmp);
 
 view plaincopy
   
-<?xml version=&#8221;1.0&#8243; encoding=&#8221;utf-8&#8243;?>
+<?xml version="1.0" encoding="utf-8"?>
   
-<LinearLayout xmlns:android=&#8221;http://schemas.android.com/apk/res/android&#8221;
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   
-android:layout\_width=&#8221;fill\_parent&#8221;
+android:layout\_width="fill\_parent"
   
-android:layout\_height=&#8221;fill\_parent&#8221;
+android:layout\_height="fill\_parent"
   
-android:orientation=&#8221;vertical&#8221; >
+android:orientation="vertical" >
 
 <TextView
   
-android:layout\_width=&#8221;fill\_parent&#8221;
+android:layout\_width="fill\_parent"
   
-android:layout\_height=&#8221;wrap\_content&#8221;
+android:layout\_height="wrap\_content"
   
-android:text=&#8221;@string/hello&#8221; />
+android:text="@string/hello" />
 
 <Button
   
-android:id=&#8221;@+id/button1&#8243;
+android:id="@+id/button1"
   
-android:layout\_width=&#8221;wrap\_content&#8221;
+android:layout\_width="wrap\_content"
   
-android:layout\_height=&#8221;wrap\_content&#8221;
+android:layout\_height="wrap\_content"
   
-android:text=&#8221;Button1&#8243; />
+android:text="Button1" />
 
 <Button
   
-android:id=&#8221;@+id/button2&#8243;
+android:id="@+id/button2"
   
-android:layout\_width=&#8221;wrap\_content&#8221;
+android:layout\_width="wrap\_content"
   
-android:layout\_height=&#8221;wrap\_content&#8221;
+android:layout\_height="wrap\_content"
   
-android:text=&#8221;Button2&#8243; />
+android:text="Button2" />
 
 <Button
   
-android:id=&#8221;@+id/button3&#8243;
+android:id="@+id/button3"
   
-android:layout\_width=&#8221;wrap\_content&#8221;
+android:layout\_width="wrap\_content"
   
-android:layout\_height=&#8221;wrap\_content&#8221;
+android:layout\_height="wrap\_content"
   
-android:text=&#8221;Button3&#8243;
+android:text="Button3"
   
-android:onClick=&#8221;Btn3OnClick&#8221;/>
+android:onClick="Btn3OnClick"/>
 
 <EditText
   
-android:id=&#8221;@+id/editText1&#8243;
+android:id="@+id/editText1"
   
-android:layout\_width=&#8221;match\_parent&#8221;
+android:layout\_width="match\_parent"
   
-android:layout\_height=&#8221;wrap\_content&#8221; >
+android:layout\_height="wrap\_content" >
 
 <requestFocus />
   

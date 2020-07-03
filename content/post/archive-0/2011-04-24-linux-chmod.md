@@ -12,11 +12,12 @@ categories:
   - Linux
 
 ---
-```bashchmod a+x 1.sh
+```bash
+chmod a+x 1.sh
 chmod og+rwx 1.sh
 ```
 
-格式: \[ugoa&#8230;\]\[+-=\]\[rwxX&#8230;\]\[,&#8230;\]
+格式: \[ugoa...\]\[+-=\]\[rwxX...\]\[,...\]
   
 u 拥有者
   

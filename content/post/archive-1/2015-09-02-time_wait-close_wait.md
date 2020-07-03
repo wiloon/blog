@@ -12,15 +12,13 @@ tags:
 ---
 http://blog.csdn.net/kobejayandy/article/details/17655739
 
-&nbsp;
 
 在服务器的日常维护过程中，会经常用到下面的命令：
 
-&nbsp;
 
 \[plain\]\[/plain\] view plaincopy
   
-netstat -n | awk &#8216;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&#8217;
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
   
 它会显示例如下面的信息：
 

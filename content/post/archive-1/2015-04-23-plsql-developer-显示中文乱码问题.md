@@ -10,7 +10,6 @@ categories:
 ---
 http://dw008.blog.51cto.com/2050259/934741
 
-&nbsp;
 
 PL/SQL Developer 显示中文乱码问题
 
@@ -18,11 +17,10 @@ PL/SQL Developer 显示中文乱码问题
 
 首先，通过
 
-select userenv(&#8216;language&#8217;) from dual;
+select userenv('language') from dual;
 
 查询oracle服务器端的编码， 如为： AMERICAN_AMERICA.US7ASCII 显示什么编码 就设置什么编码
 
-&nbsp;
 
 在我们的客户端需要和服务器端的编码保持一致。
 
@@ -70,7 +68,7 @@ select * from v$nls_parameters;
 
 LANG=zh_CN.GBK
   
-NLS\_LANG=&#8221;SIMPLIFIED CHINESE\_CHINA.ZHS16GBK&#8221;
+NLS\_LANG="SIMPLIFIED CHINESE\_CHINA.ZHS16GBK"
 
 2.设置本地客户端编码:
 
@@ -78,7 +76,7 @@ NLS\_LANG=&#8221;SIMPLIFIED CHINESE\_CHINA.ZHS16GBK&#8221;
 
 LANG=zh_CN.GBK
   
-NLS\_LANG=&#8221;SIMPLIFIED CHINESE\_CHINA.ZHS16GBK&#8221;
+NLS\_LANG="SIMPLIFIED CHINESE\_CHINA.ZHS16GBK"
 
 如图:
   

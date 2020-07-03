@@ -12,13 +12,14 @@ systemd-journal: Suppressed 9567 messages from /system.slice/
   
 systemd-journal: Suppressed 6735 messages from /system.slice/
   
-&#8230;&#8230;
+......
   
 根据字面意思理解就是日志被丢弃了, 看来是由于 journald 服务的问题导致的日志问题
 
 在 journald 中, 有如下两个参数跟此问题相关:
 
-```bashvim /etc/systemd/journald.conf
+```bash
+vim /etc/systemd/journald.conf
 ```
 
 RateLimitInterval

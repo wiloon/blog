@@ -18,7 +18,7 @@ categories:
 
 Flight Recorder
   
-Java Flight Recorder &#8211; JFR 默认被设置为关闭状态。JDK7 通过在启动应用程序的命令中加入-XX:+UnlockCommercialFeatures –XX:+FlightRecorder 参数来开启 JFR，以及相关的一些功能。但是值得注意的是这个命令只是开启了 JFR 功能，但并没有开启记录进程各种事件。
+Java Flight Recorder - JFR 默认被设置为关闭状态。JDK7 通过在启动应用程序的命令中加入-XX:+UnlockCommercialFeatures –XX:+FlightRecorder 参数来开启 JFR，以及相关的一些功能。但是值得注意的是这个命令只是开启了 JFR 功能，但并没有开启记录进程各种事件。
   
 JDK 8 可能直接 通过jcmd控制JFR。
 

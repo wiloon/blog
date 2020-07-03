@@ -14,7 +14,7 @@ tags:
 
 To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
 
-<pre><code class="line-numbers">/etc/pacman.conf
+<code class="line-numbers">/etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
@@ -23,7 +23,8 @@ Include = /etc/pacman.d/mirrorlist
 
 编辑 /etc/pacman.d/mirrorlist，修改为。
 
-```bashServer = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+```bash
+server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 Server = http://mirrors.neusoft.edu.cn/archlinux/
 Server = http://mirrors.lug.mtu.edu/archlinux/
 Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
@@ -32,13 +33,15 @@ Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 #Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
 ```
 
-```bash--noconfirm
-Bypass any and all “Are you sure?” messages. It’s not a good idea to do this unless you want to run pacman from a script.
+```bash
+--noconfirm
+Bypass any and all “Are you sure?” messages. It's not a good idea to do this unless you want to run pacman from a script.
 ```
 
 ### archlinux key could not be looked up remotely
 
-```bashsudo pacman -S archlinux-keyring && sudo pacman -Syu
+```bash
+sudo pacman -S archlinux-keyring && sudo pacman -Syu
 
 # 要删除软件包，但是不删除依赖这个软件包的其他程序：
 pacman -Rdd package_name
@@ -59,7 +62,7 @@ pacman -Syu
 
 #忽略/排除指定包
   
-pacman -Su &#8211;ignore postgresql &#8211;ignore libpqxx
+pacman -Su -ignore postgresql -ignore libpqxx
 
 查看软件包依赖
   
@@ -211,11 +214,11 @@ Pacman是个非常广泛的包管理工具，这里只是它的一些其它主�
   
 pacman -Sw package_name
   
-安装一个’本地’包（不从源里）：
+安装一个'本地'包（不从源里）：
   
 pacman -U /path/to/package/package_name-version.pkg.tar.gz
   
-安装一个’远程’包（不从源里）：
+安装一个'远程'包（不从源里）：
   
 pacman -U http://url/package_name-version.pkg.tar.gz
   
@@ -239,7 +242,7 @@ pacman -S $(pacman -Qq | grep -v “$(pacman -Qmq)”)
   
 获取本地软件包和它们大小的一个已排序清单列表：
   
-LANG=C pacman -Qi | sed -n ‘/^Name[^:]*: (._)/{s//1 /;x};/^Installed[^:]_: (.*)/{s//1/;H;x;s/n//;p}’ | sort -nk2
+LANG=C pacman -Qi | sed -n '/^Name[^:]*: (._)/{s//1 /;x};/^Installed[^:]_: (.*)/{s//1/;H;x;s/n//;p}' | sort -nk2
   
 要了解更详细的参数开关可以pacman –help或者man pacman。
 
@@ -257,7 +260,7 @@ Pacman的配置文件位于/etc/pacman.conf。关于配置文件的进一步信�
   
 IgnorePkg = 软件包名
   
-多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 &#8211;ignore 选项。
+多软件包可以用空格隔开，也可是用 glob 模式。如果只打算忽略一次升级，可以使用 -ignore 选项。
 
 忽略了的软件包可通过 pacman -S 升级。
 

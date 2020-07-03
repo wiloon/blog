@@ -10,7 +10,7 @@ categories:
 ---
 http://glances.readthedocs.io/en/latest/index.html
 
-[code lang=shell]
+```bash
   
 #filter process
   
@@ -24,7 +24,7 @@ glances -s
   
 glances -c xxx.xxx.xxx.xxx:xxxx
   
-[/code]
+```
 
 Glances 还是有些值得关注的，和那些常用的老牌监控工具比起来，比如 top/vmstat/iostat 只能监控本机系统，Glances 可以监控本机也可以通过客户端服务器模式监控其他机器；Glances 提供了基于 XML/RPC 的 API 便于其他程序调用，可编程；Glances 可以将数据输出保存到 csv 或 html 格式的文件方便其他程序处理（报告或绘制图形）。
 
@@ -84,7 +84,7 @@ $ vi test.py
   
 import xmlrpclib
 
-s = xmlrpclib.ServerProxy(‘http://192.168.2.22:61209’)
+s = xmlrpclib.ServerProxy('http://192.168.2.22:61209')
   
 print s.getSystem()
 

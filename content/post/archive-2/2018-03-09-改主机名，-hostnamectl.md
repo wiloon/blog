@@ -10,18 +10,18 @@ categories:
 ---
 http://blog.csdn.net/peterxiaoq/article/details/72912862
 
-[code lang=shell]
+```bash
   
 hostnamectl
   
 hostnamectl status
   
-hostnamectl &#8211;static
+hostnamectl -static
   
-hostnamectl &#8211;transient
+hostnamectl -transient
   
-hostnamectl &#8211;pretty
+hostnamectl -pretty
   
 sudo hostnamectl set-hostname new-host-name
 
-[/code]
+```

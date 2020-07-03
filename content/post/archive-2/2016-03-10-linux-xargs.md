@@ -20,7 +20,8 @@ xargs可以将输入内容（通常通过命令行管道传递），转成后续
   * -t 在执行前回显各个command
   * -n 参数分组
 
-```bashls *.js | xargs -t -n2 ls -al
+```bash
+ls *.js | xargs -t -n2 ls -al
 # 输出如下，-n2表示，将参数以2个为一组，传给后面的命令。
 ```
 
@@ -30,12 +31,14 @@ xargs可以将输入内容（通常通过命令行管道传递），转成后续
 
 首先，创建4个文件用来做实验。
 
-```bashtouch a.js b.js c.js d.js
+```bash
+touch a.js b.js c.js d.js
 ```
 
 然后运行如下命令：
 
-```bashls -al a.js b.js
+```bash
+ls -al a.js b.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 a.js
 -rw-r--r-- 1 root root 0 Dec 18 16:52 b.js
 ls -al c.js d.js
@@ -63,7 +66,7 @@ ls -l | xargs
   
 090218.txt 090607.txt
   
-find ~/mail -type f | xargs grep &#8220;Linux&#8221;
+find ~/mail -type f | xargs grep "Linux"
   
 ./misc:User-Agent: slrn/0.9.8.1 (Linux)
   
@@ -71,7 +74,7 @@ find ~/mail -type f | xargs grep &#8220;Linux&#8221;
   
 ./sent-mail-jul-2005: (Linux Documentation Project Site, rtf version)
   
-./sent-mail-jul-2005: Subject: Criticism of Bozo&#8217;s Windows/Linux article
+./sent-mail-jul-2005: Subject: Criticism of Bozo's Windows/Linux article
   
 . . .
   
@@ -83,13 +86,13 @@ find / -type f -print0 | xargs -0 grep -liwZ GUI | xargs -0 rm -f
   
 grep -rliwZ GUI / | xargs -0 rm -f
   
-上边两行都可以用来删除任何包含&#8221;GUI&#8221;的文件。
+上边两行都可以用来删除任何包含"GUI"的文件。
 
 还有参数-s 和 -x 具体查手册.
   
 下面是另一个示例，我们希望计算这些文件中的行数：
 
-$ file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | xargs wc -l
+$ file * | grep ASCII | cut -d":" -f1 | xargs wc -l
 
 47853 alert_DBA102.log
   
@@ -105,7 +108,7 @@ $ file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | xargs wc -l
   
 （注：上述任务还可用以下命令完成：）
   
-$ wc -l ‘file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | grep ASCII | cut -d&#8221;:&#8221; -f1‘
+$ wc -l 'file * | grep ASCII | cut -d":" -f1 | grep ASCII | cut -d":" -f1'
 
 该 xargs 版本用于阐释概念。Linux 可以用几种方法来完成同一个任务；请使用最适合您的情况的方法。
 
@@ -117,19 +120,19 @@ $ ls | xargs -t -i mv {} {}.bak
   
 另一个非常有用的操作是当您使用 vi 打开要编辑的文件时：
   
-$ file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | xargs vi
+$ file * | grep ASCII | cut -d":" -f1 | xargs vi
   
 该命令使用 vi 逐个打开文件。当您希望搜索多个文件并打开它们进行编辑时，使用该命令非常方便。
   
 它还有几个选项。最有用的可能是 -p 选项，它使操作具有可交互性：
   
-$ file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | xargs -p vi
+$ file * | grep ASCII | cut -d":" -f1 | xargs -p vi
 
 vi alert\_DBA102.log dba102\_cjq0\_14493.trc dba102\_mmnl_14497.trc
 
-dba102\_reco\_14491.trc dba102\_rvwr\_14518.trc ?&#8230;
+dba102\_reco\_14491.trc dba102\_rvwr\_14518.trc ?...
 
-此处的 xarg 要求您在运行每个命令之前进行确认。如果您按下 &#8220;y&#8221;，则执行命令。当您对文件进行某些可能有破坏且不可恢复的操作（如删除或覆盖）时，您会发现该选项非常有用。
+此处的 xarg 要求您在运行每个命令之前进行确认。如果您按下 "y"，则执行命令。当您对文件进行某些可能有破坏且不可恢复的操作（如删除或覆盖）时，您会发现该选项非常有用。
 
  
 
@@ -139,11 +142,11 @@ dba102\_reco\_14491.trc dba102\_rvwr\_14518.trc ?&#8230;
 
  
 
-$ file * | grep SSSSSS | cut -d&#8221;:&#8221; -f1 | xargs -t wc -l wc -l 0 $
+$ file * | grep SSSSSS | cut -d":" -f1 | xargs -t wc -l wc -l 0 $
 
-在此处，搜索 &#8220;SSSSSS&#8221; 后没有匹配的内容；因此 xargs 的输入均为空，如第二行所示（由于我们使用 -t 这个详细选项而产生的结果）。虽然这可能会有所帮助，但在某些情况下，如果没有要处理的内容，您可能希望停止 xargs；如果是这样，可以使用 -r 选项：
+在此处，搜索 "SSSSSS" 后没有匹配的内容；因此 xargs 的输入均为空，如第二行所示（由于我们使用 -t 这个详细选项而产生的结果）。虽然这可能会有所帮助，但在某些情况下，如果没有要处理的内容，您可能希望停止 xargs；如果是这样，可以使用 -r 选项：
 
-$ file * | grep SSSSSS | cut -d&#8221;:&#8221; -f1 | xargs -t -r wc -l $
+$ file * | grep SSSSSS | cut -d":" -f1 | xargs -t -r wc -l $
 
 如果没有要运行的内容，该命令退出。
 
@@ -155,13 +158,13 @@ $ file * | grep SSSSSS | cut -d&#8221;:&#8221; -f1 | xargs -t -r wc -l $
 
  
 
-$ file * | grep ASCII | cut -d&#8221;:&#8221; -f1 | xargs -t -n2 ls -ltr
+$ file * | grep ASCII | cut -d":" -f1 | xargs -t -n2 ls -ltr
 
 ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 738 Aug 10 19:18 dba102\_cjq0\_14493.trc
+-rw-r-- 1 oracle dba 738 Aug 10 19:18 dba102\_cjq0\_14493.trc
 
--rw-r&#8211;r&#8211; 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
+-rw-r-r- 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
 
  
 
@@ -169,9 +172,9 @@ ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
 
 ls -ltr dba102\_mmnl\_14497.trc dba102\_reco\_14491.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 5386163 Aug 10 17:55 dba102\_mmnl\_14497.trc
+-rw-r-- 1 oracle dba 5386163 Aug 10 17:55 dba102\_mmnl\_14497.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 6808 Aug 13 05:21 dba102\_reco\_14491.trc
+-rw-r-- 1 oracle dba 6808 Aug 13 05:21 dba102\_reco\_14491.trc
 
  
 
@@ -179,6 +182,6 @@ ls -ltr dba102\_mmnl\_14497.trc dba102\_reco\_14491.trc
 
 ls -ltr dba102\_rvwr\_14518.trc
 
--rw-r&#8212;&#8211; 1 oracle dba 2087 Aug 10 04:30 dba102\_rvwr\_14518.trc
+-rw-r-- 1 oracle dba 2087 Aug 10 04:30 dba102\_rvwr\_14518.trc
 
 使用该方法，您可以快速重命名目录中的文件。

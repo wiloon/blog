@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash#系统的平均负载
+```bash
+#系统的平均负载
 uptime
 # 每个 CPU 的使用情况
 mpstat

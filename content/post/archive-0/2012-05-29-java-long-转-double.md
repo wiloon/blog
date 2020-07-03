@@ -16,20 +16,21 @@ double dnum = Double.parseDouble(str);
 
 ### hex > int
 
-```bash// 默认hex 大端字节序
+```bash
+// 默认hex 大端字节序
 int decimal = Integer.parseInt(hexNumber, 16);
 ```
 
 ### list > array>set
 
 ```java
-Set&lt;T&gt; mySet = new HashSet&lt;&gt;(Arrays.asList(someArray));
+Set<T> mySet = new HashSet<>(Arrays.asList(someArray));
 ```
 
 ### array > set, jdk 9+
 
 ```java
-Set&lt;T&gt; mySet = Set.of(someArray);
+Set<T> mySet = Set.of(someArray);
 ```
 
 ### array > set, jdk 10+

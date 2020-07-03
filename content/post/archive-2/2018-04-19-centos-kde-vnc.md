@@ -22,7 +22,7 @@ yum grouplist
   
 如果系统有“KDE Plasma Workspaces”，说明可以安装KDE图形化界面，然后执行一键安装命令：
   
-yum groupinstall &#8220;KDE Plasma Workspaces&#8221;
+yum groupinstall "KDE Plasma Workspaces"
   
 直到安装完成。
 
@@ -48,17 +48,17 @@ cp /lib/systemd/system/vncserver@.service /lib/systemd/system/vncserver@:1.servi
   
 [Service]
   
-Type=forking &#8211;》 需要改为simple才会启动成功
+Type=forking -》 需要改为simple才会启动成功
 
 # Clean any existing files in /tmp/.X11-unix environment
 
-ExecStartPre=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
   
-ExecStart=/sbin/runuser -l 改为root不带括号 -c &#8220;/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
+ExecStart=/sbin/runuser -l 改为root不带括号 -c "/usr/bin/vncserver %i -geometry 1024x768"
   
 PIDFile=/home/改为root不带括号/.vnc/%H%i.pid
   
-ExecStop=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStop=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
 
 修改后：
   
@@ -68,13 +68,13 @@ Type=simple
 
 # Clean any existing files in /tmp/.X11-unix environment
 
-ExecStartPre=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
   
-ExecStart=/sbin/runuser -l root -c &#8220;/usr/bin/vncserver %i -geometry 1024&#215;768&#8221;
+ExecStart=/sbin/runuser -l root -c "/usr/bin/vncserver %i -geometry 1024x768"
   
 PIDFile=/home/root/.vnc/%H%i.pid
   
-ExecStop=/bin/sh -c &#8216;/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :&#8217;
+ExecStop=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
 
 启动VNC并设置root用户vnc的密码
   
@@ -88,7 +88,7 @@ Verify: 123456 #确认vnc密码
   
 xauth: creating new authority file /root/.Xauthority
   
-New ‘localhost.localdomain:1 (root)’ desktop is localhost.localdomain:1
+New 'localhost.localdomain:1 (root)' desktop is localhost.localdomain:1
   
 Creating default startup script /root/.vnc/xstartup
   

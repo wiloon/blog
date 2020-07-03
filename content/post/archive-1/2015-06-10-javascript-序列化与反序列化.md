@@ -10,24 +10,22 @@ tags:
   - JavaScript
 
 ---
-<pre>http://blog.csdn.net/zhangquanok/article/details/13002771</p>
+http://blog.csdn.net/zhangquanok/article/details/13002771
 
 
-<p>
-  [javascript]
-</p>
+  ```
 
+  var objP = {};
 
-<p>
-  var objP = {};<br />
-  objP.id = 1;<br />
-  objP.name = 2;<br />
-  objP.sex = 32;<br />
-  JSON.stringify(objP)//序列化<br />
+  objP.id = 1;
+
+  objP.name = 2;
+
+  objP.sex = 32;
+
+  JSON.stringify(objP)//序列化
+
   JSON.parse(e); //JSON.parse(e)反序列化
-</p>
 
 
-<p>
-  [/javascript]
-</p>
+  ```

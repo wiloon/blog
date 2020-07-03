@@ -8,20 +8,20 @@ categories:
   - Uncategorized
 
 ---
-<div>
-  <p>
+
+  
     Use this procedure to create a macro that generates a list of all the commands in the integrated development environment (IDE) and any shortcut keys mapped to those commands according to the current keyboard mapping scheme.
-  </p>
   
-  <p>
+  
+  
     Several keyboard mapping schemes are available in the IDE. You can change keyboard mapping schemes on the Keyboard page, under the Environment folder of theOptions dialog box. For more information, see <a href="http://msdn.microsoft.com/en-us/library/5zwses53(v=vs.100).aspx">How to: Work with Keyboard Shortcuts</a>.
-  </p>
   
-  <div>
+  
+  
     <table>
       <tr>
         <th>
-          <img id="alert_note" title="Note" alt="Note" src="http://i.msdn.microsoft.com/areas/global/content/clear.gif" /><strong>Note</strong>
+          <img id="alert_note" title="Note" alt="Note" src="http://i.msdn.microsoft.com/areas/global/content/clear.gif" />Note
         </th>
       </tr>
       
@@ -31,12 +31,10 @@ categories:
         </td>
       </tr>
     </table>
-  </div>
-</div>
+  
 
 ### To list current keyboard shortcut mappings
 
-<div>
   <ol>
     <li>
       On the Tools menu, point to Macros, and then click Macros IDE.
@@ -55,16 +53,16 @@ categories:
     </li>
     <li>
       Paste the following code in the file after Public Module KeyboardShortcuts: <div id="code-snippet-1">
-        <div>
-        </div>
         
-        <div>
-          <div>
-          </div>
+        
+        
+        
+          
+          
           
           <div dir="ltr" id="CodeSnippetContainerCode_5caf603c-61bf-4bff-b2e9-fbb55e05b63f">
-            <div>
-              <pre>Sub GetAllCommands()
+            
+              Sub GetAllCommands()
 
     Dim cmd As Command
     Dim ow As OutputWindow = DTE.Windows.Item(Constants.vsWindowKindOutput).Object
@@ -119,11 +117,11 @@ categories:
     Array.Sort(sArray)
     owp.OutputString(String.Join(vbCrLf, sArray))
 
-End Sub</pre>
-            </div>
-          </div>
-        </div>
-      </div>
+End Sub
+            
+          
+        
+      
     </li>
     
     <li>
@@ -139,13 +137,13 @@ End Sub</pre>
       Expand MyMacros and then expand KeyboardShortcuts.
     </li>
     <li>
-      Right-click GetAllCommands and then click Run. <p>
+      Right-click GetAllCommands and then click Run. 
         The macro generates a list of all possible commands in the IDE and any keyboard shortcut mappings these commands have in the current keyboard mapping scheme.</li> 
         
         <li>
-          On the View menu, click Output. <p>
+          On the View menu, click Output. 
             Commands and their shortcut key combinations appear in the Output window. You can copy this information and paste it into another application, such as Microsoft Office Excel, for additional formatting and printing options.</li> </ol> 
             
-            <p>
+            
               <a href="http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx">http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx</a>
-            </p></div>
+            

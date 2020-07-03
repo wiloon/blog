@@ -8,11 +8,10 @@ categories:
   - Windows
 
 ---
-&nbsp;
 
 [shell]
 
-Set-Alias&nbsp;ll dir
+Set-Aliasll dir
 
 [/shell]
 
@@ -78,11 +77,11 @@ Windows PowerShell 将交互式环境和脚本环境组合在一起，从而允�
   
 使用 Windows PowerShell，您可以很方便地从以交互方式键入命令过渡到创建和运行脚本。您可以在 Windows PowerShell 命令提示符下键入命令以找到可执行任务的命令。随后，可将这些命令保存到脚本或历史记录中，然后将其复制到文件中以用作脚本。
   
-识别你即将使用的Provider 通过识别PowerShell里安装的Provider，你就可以了解默认安装下PowerShell提供了那些能力。 Provider可以使用一种简单的访问方式，暴露位于不同储存位置的数据。就像是浏览不同磁盘上的目录结构一样简单。 Provider把不同的信息存放位置，表示成“驱动器”-目录这种结构，这样很容易被用户所理解。就像我们要访问一个位于D盘的WIN32目录下的SETUP.exe文件，我们要通过浏览器，单击D盘的图标，然后选择WIN32目录并双击一样，如果我们要访问位于“注册表”的数据，那么我们也只需要简单地通过Set-Location命令，来到到“REGISTRY”这个“驱动器”，然后用GET-CHILDITEM命令获取其子数据就行了。 注：实际上，PowerShell访问磁盘驱动器，也是通过Provider的，切换驱动器其实和切换其他数据容器是一样地操作。 例如： Set-Location d: 这是切换驱动器 Set-Location HKLM: 这是切换到注册表的HKLM键 另外，Get-PSprovider命令，可以查看当前已经安装的所有PROVIDER。任何熟悉.NET编程的人，都可以编写Provider。当新的provider被安装后，就叫做snap-in。snap-in其实是一个动态连接库dll文件，可以被安装到powershell中。然而，当一个snap-in安装后，却没有办法卸载。 Get-PSProvider： Name Capabilities Drives &#8212;- &#8212;&#8212;&#8212;&#8212; &#8212;&#8212; Alias ShouldProcess {Alias} Environment ShouldProcess {Env} FileSystem Filter, ShouldProcess {C, D, F, A&#8230;} Function ShouldProcess {Function} Registry ShouldProcess {HKLM, HKCU} Variable ShouldProcess {Variable} Certificate ShouldProcess {cert} 这些就是我机器上的默认安装后的provider。
+识别你即将使用的Provider 通过识别PowerShell里安装的Provider，你就可以了解默认安装下PowerShell提供了那些能力。 Provider可以使用一种简单的访问方式，暴露位于不同储存位置的数据。就像是浏览不同磁盘上的目录结构一样简单。 Provider把不同的信息存放位置，表示成“驱动器”-目录这种结构，这样很容易被用户所理解。就像我们要访问一个位于D盘的WIN32目录下的SETUP.exe文件，我们要通过浏览器，单击D盘的图标，然后选择WIN32目录并双击一样，如果我们要访问位于“注册表”的数据，那么我们也只需要简单地通过Set-Location命令，来到到“REGISTRY”这个“驱动器”，然后用GET-CHILDITEM命令获取其子数据就行了。 注：实际上，PowerShell访问磁盘驱动器，也是通过Provider的，切换驱动器其实和切换其他数据容器是一样地操作。 例如： Set-Location d: 这是切换驱动器 Set-Location HKLM: 这是切换到注册表的HKLM键 另外，Get-PSprovider命令，可以查看当前已经安装的所有PROVIDER。任何熟悉.NET编程的人，都可以编写Provider。当新的provider被安装后，就叫做snap-in。snap-in其实是一个动态连接库dll文件，可以被安装到powershell中。然而，当一个snap-in安装后，却没有办法卸载。 Get-PSProvider： Name Capabilities Drives -- ---- -- Alias ShouldProcess {Alias} Environment ShouldProcess {Env} FileSystem Filter, ShouldProcess {C, D, F, A...} Function ShouldProcess {Function} Registry ShouldProcess {HKLM, HKCU} Variable ShouldProcess {Variable} Certificate ShouldProcess {cert} 这些就是我机器上的默认安装后的provider。
   
 使用Set-Location和Get-ChildItem浏览数据 Set-Location用于改变当前目录，以及选择当前的provider，而Get-ChildItem用于获取当前目录或者指定目录下的子对象： 例子： set-location hkcu:software get-childitem 例子2： GCI -path HKLM:software
   
-有两种连接WMI服务的方法：l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，“WbemScripting.SWbemLocator”，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数：用户名，密码，语言代码，验证方法（Kerberos, NTLM等），标志（超时值）。下例中，我们使用New-Object命令，创建了一个“WbemScripting.SWbemLocator”的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间（rootcimv2），ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf（）方法，返回了一系列WMI的CLASS： $strComputer = &#8220;.&#8221; $wmiNS = &#8220;rootcimv2&#8243; $strUsr =&#8221;&#8221; #Blank for current security. DomainUsername $strPWD = &#8220;&#8221; #Blank for current security. $strLocl = &#8220;MS\_409&#8221; #US English. Can leave blank for current language $strAuth = &#8220;&#8221; #if specify domain in strUsr this must be blank $iFlag = &#8220;0&#8221; #only two values allowed: 0 and 128. $objLocator = New-Object -comobject &#8220;WbemScripting.SWbemLocator&#8221; $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host &#8220;There are: &#8221; $colItems.count &#8221; classes in $wmiNS&#8221; foreach ($objItem In $colItems) { $objItem.path\_.class }　新脚本语言　由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言：
+有两种连接WMI服务的方法：l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，“WbemScripting.SWbemLocator”，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数：用户名，密码，语言代码，验证方法（Kerberos, NTLM等），标志（超时值）。下例中，我们使用New-Object命令，创建了一个“WbemScripting.SWbemLocator”的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间（rootcimv2），ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf（）方法，返回了一系列WMI的CLASS： $strComputer = "." $wmiNS = "rootcimv2" $strUsr ="" #Blank for current security. DomainUsername $strPWD = "" #Blank for current security. $strLocl = "MS\_409" #US English. Can leave blank for current language $strAuth = "" #if specify domain in strUsr this must be blank $iFlag = "0" #only two values allowed: 0 and 128. $objLocator = New-Object -comobject "WbemScripting.SWbemLocator" $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host "There are: " $colItems.count " classes in $wmiNS" foreach ($objItem In $colItems) { $objItem.path\_.class }　新脚本语言　由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言：
   
 Windows PowerShell 需要用于管理.NET 对象的语言。该语言需要为使用cmdlet 提供一致的环境。该语言需要支持复杂的任务，而不会使简单的任务变得更复杂。 · 该语言需要与在.NET 编程中使用的高级语言（如C#）一致
   
@@ -100,7 +99,7 @@ PowerShell脚本十个基本概念
   
 Get-ExecutionPolicy 你可以选择使用的执行策略有：
   
-Restricted &#8211; 脚本不能运行。 RemoteSigned &#8211; 本地创建的脚本可以运行，但从网上下载的脚本不能运行（除非它们拥有由受信任的发布者签署的数字签名）。 AllSigned – 仅当脚本由受信任的发布者签名才能运行。 Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。
+Restricted - 脚本不能运行。 RemoteSigned - 本地创建的脚本可以运行，但从网上下载的脚本不能运行（除非它们拥有由受信任的发布者签署的数字签名）。 AllSigned – 仅当脚本由受信任的发布者签名才能运行。 Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。
   
 你可以使用下面的cmdlet命令设置PowerShell的执行策略：
   
@@ -132,7 +131,7 @@ $a = Get-Process 在这里，变量被命名为$a，如果你想使用这个变�
   
 $a = (Get-Process | Sort-Object ID) 6、@符号
   
-通过使用@符号，你可以将列表内容转换成一个数组，例如，下面的代码创建了一个名为$Procs的变量，它包含多行文本内容（一个数组）：$procs = @{name=&#8221;explorer&#8221;,&#8221;svchost&#8221;}
+通过使用@符号，你可以将列表内容转换成一个数组，例如，下面的代码创建了一个名为$Procs的变量，它包含多行文本内容（一个数组）：$procs = @{name="explorer","svchost"}
   
 使用变量时你也可以使用@符号，为了确保它作为数组而不是单个值处理，例如，下面的代码将在我前面定义的变量上运行Get-Process cmdlet命令：
   
@@ -142,13 +141,13 @@ Get-Process @procs Windows将显示Windows资源管理器和Svchost使用的所�
   
 Split操作符根据你指定的字符拆分一个文本字符串，例如，假设你想将一个句子拆分成一个单词组成的一个数组，你可以使用下面的命令做到：
   
-&#8220;This is a test&#8221; -split &#8221; &#8221; 拆分后的结果如下：
+"This is a test" -split " " 拆分后的结果如下：
   
 This is a test 8、Join
   
 就像Split可以将一个文本字符串拆分成多块一样，Join的操作则是逆向的，将多个独立的块连接成一个整体，例如，下面这行代码将会创建一个文本字符串，由我的名字和姓氏组成：
   
-&#8220;Brien&#8221;,&#8221;Posey&#8221; -join &#8221; &#8221; 命令末尾双引号之间的空格告诉Windows在两个文本字符串之间插入一个空格。
+"Brien","Posey" -join " " 命令末尾双引号之间的空格告诉Windows在两个文本字符串之间插入一个空格。
   
 9、断点
   

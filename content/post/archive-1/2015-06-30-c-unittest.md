@@ -88,7 +88,7 @@ Thread state for a waiting thread.A thread is in the waiting state due to callin
   
 {@link LockSupport#park() LockSupport.park}
 
-Blocked vs. Waiting &#8211; Blocked是syncronized阻塞的，或者一个线程进入了sychronized,然后调用了wait,则进入等待状态，其他线程进入了同步块调用了Notify，等待进程被唤起，然后，重新等待synchronized的对象锁，这个时候也是Blocked的状态。也就是临界点阻塞或者回到临界点阻塞都是Blocked.
+Blocked vs. Waiting - Blocked是syncronized阻塞的，或者一个线程进入了sychronized,然后调用了wait,则进入等待状态，其他线程进入了同步块调用了Notify，等待进程被唤起，然后，重新等待synchronized的对象锁，这个时候也是Blocked的状态。也就是临界点阻塞或者回到临界点阻塞都是Blocked.
   
 sleep, wait, wait(long), park, join等等都是等待waiting状态。
 
@@ -204,19 +204,19 @@ Java Monitor
   
 下面这个线程在等待这个锁 0x00000000fe7e3b50，等待进入临界区：
   
-&#8220;RMI TCP Connection(64896)-172.16.52.118&#8221; daemon prio=10 tid=0x00000000405a6000 nid=0x68fe waiting for monitor entry [0x00007f2be65a3000]
+"RMI TCP Connection(64896)-172.16.52.118" daemon prio=10 tid=0x00000000405a6000 nid=0x68fe waiting for monitor entry [0x00007f2be65a3000]
      
 java.lang.Thread.State: BLOCKED (on object monitor)
   
 at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(GoodsServiceImpl.java:1734)
   
-&#8211; waiting to lock <0x00000000fe7e3b50> (a java.lang.String)
+- waiting to lock <0x00000000fe7e3b50> (a java.lang.String)
 
 那么谁持有这个锁呢？
   
 是另一个先调用了 findChanellGoodsCountWithCache 函数的线程：
   
-&#8220;RMI TCP Connection(64878)-172.16.52.117&#8221; daemon prio=10 tid=0x0000000040822000 nid=0x6841 runnable [0x00007f2be76b3000]
+"RMI TCP Connection(64878)-172.16.52.117" daemon prio=10 tid=0x0000000040822000 nid=0x6841 runnable [0x00007f2be76b3000]
      
 java.lang.Thread.State: RUNNABLE
   
@@ -230,7 +230,7 @@ at java.io.BufferedInputStream.read1(BufferedInputStream.java:258)
   
 at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
   
-&#8211; locked <0x00000000af4ed638> (a java.io.BufferedInputStream)
+- locked <0x00000000af4ed638> (a java.io.BufferedInputStream)
   
 at org.bson.io.Bits.readFully(Bits.java:35)
   
@@ -240,11 +240,11 @@ at com.mongodb.Response.<init>(Response.java:35)
   
 at com.mongodb.DBPort.go(DBPort.java:110)
   
-&#8211; locked <0x00000000af442d48> (a com.mongodb.DBPort)
+- locked <0x00000000af442d48> (a com.mongodb.DBPort)
   
 at com.mongodb.DBPort.go(DBPort.java:75)
   
-&#8211; locked <0x00000000af442d48> (a com.mongodb.DBPort)
+- locked <0x00000000af442d48> (a com.mongodb.DBPort)
   
 at com.mongodb.DBPort.call(DBPort.java:65)
   
@@ -266,19 +266,19 @@ at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCount(GoodsServic
   
 at com.xyz.goods.service.impl.GoodsServiceImpl.findChanellGoodsCountWithCache(GoodsServiceImpl.java:1739)
   
-&#8211; locked <0x00000000fe7e3b50> (a java.lang.String)
+- locked <0x00000000fe7e3b50> (a java.lang.String)
   
 示范二：
   
 等待另一个条件发生来将自己唤醒：
   
-&#8220;RMI TCP Connection(idle)&#8221; daemon prio=10 tid=0x00007fd50834e800 nid=0x56b2 waiting on condition [0x00007fd4f1a59000]
+"RMI TCP Connection(idle)" daemon prio=10 tid=0x00007fd50834e800 nid=0x56b2 waiting on condition [0x00007fd4f1a59000]
      
 java.lang.Thread.State: TIMED_WAITING (parking)
   
 at sun.misc.Unsafe.park(Native Method)
   
-&#8211; parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)
+- parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)
   
 at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
   
@@ -300,17 +300,17 @@ at java.lang.Thread.run(Thread.java:662)
 
 示范三：
   
-&#8220;RMI RenewClean-[172.16.50.182:4888]&#8221; daemon prio=10 tid=0x0000000040d2c800 nid=0x97e in Object.wait() [0x00007f9ccafd0000]
+"RMI RenewClean-[172.16.50.182:4888]" daemon prio=10 tid=0x0000000040d2c800 nid=0x97e in Object.wait() [0x00007f9ccafd0000]
      
 java.lang.Thread.State: TIMED_WAITING (on object monitor)
   
 at java.lang.Object.wait(Native Method)
   
-&#8211; waiting on <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
+- waiting on <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
   
 at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:118)
   
-&#8211; locked <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
+- locked <0x0000000799b032d8> (a java.lang.ref.ReferenceQueue$Lock)
   
 at sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread.run(DGCClient.java:516)
   
@@ -341,11 +341,11 @@ http://www.iteye.com/topic/1119957
 https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503
 
 <blockquote data-secret="1A90iIEGUv" class="wp-embedded-content">
-  <p>
+  
     <a href="http://www.wiloon.com/wordpress/?p=2057">Linux系统日志–syslog</a>
-  </p>
+  
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=2057&#038;embed=true#?secret=1A90iIEGUv" data-secret="1A90iIEGUv" width="600" height="338" title="&#8220;Linux系统日志–syslog&#8221; &#8212; w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=2057&embed=true#?secret=1A90iIEGUv" data-secret="1A90iIEGUv" width="600" height="338" title=""Linux系统日志–syslog" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
  [1]: http://orwbur8sk.bkt.clouddn.com/javaSE_%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E6%96%B9%E6%B3%95%E4%B8%8E%E7%8A%B6%E6%80%81%E5%85%B3%E7%B3%BB%E7%A4%BA%E6%84%8F%E5%9B%BE.png

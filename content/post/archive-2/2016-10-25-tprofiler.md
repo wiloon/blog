@@ -18,6 +18,5 @@ mvn assembly:assembly
 
 #create tprofiler.properties
 
-&nbsp;
 
 [/shell]

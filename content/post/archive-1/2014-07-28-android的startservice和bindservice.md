@@ -48,7 +48,6 @@ intent是跳转到service的intent，如 Intent intent = new Intent(); intent.se
   
 conn则是一个代表与service连接状态的类，当我们连接service成功或失败时，会主动触发其内部的onServiceConnected或onServiceDisconnected方法。如果我们想要访问service中的数据，可以在onServiceConnected()方法中进行实现，
 
-&nbsp;
 
 使用service的步骤：
   
@@ -58,17 +57,17 @@ conn则是一个代表与service连接状态的类，当我们连接service成�
   
 第二步：在androidManifest.xml中进行注册，如：
   
-<!&#8211; service配置开始 &#8211;>
+<!- service配置开始 ->
   
-<service android:name=&#8221;MyService&#8221;></service>
+<service android:name="MyService"></service>
   
-<!&#8211; service配置结束&#8211;>
+<!- service配置结束->
   
 第三步：在activity中进行启动、绑定、解绑或者停止service。
   
 （很多书上说，service与用户是不能交互的，其实这话很不正确，我们完全可以通过activity与service进行交互！我认为，确切的说法应该是service与用户不能进行直接的交互）。
 
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+----------
 
 bindService介绍
   
@@ -94,7 +93,7 @@ context.bindService() ——> onCreate() ——> onBind() ——> Service runnin
 
 onBind()将返回给客户端一个IBind接口实例，IBind允许客户端回调服务的方法，比如得到Service的实例、运行状态或其他操作。这个时候把调用者（Context，例如Activity）会和Service绑定在一起，Context退出了，Srevice就会调用onUnbind->onDestroy相应退出。
 
-所以调用bindService的生命周期为：onCreate &#8211;> onBind(只一次，不可多次绑定) &#8211;> onUnbind &#8211;> onDestory。
+所以调用bindService的生命周期为：onCreate -> onBind(只一次，不可多次绑定) -> onUnbind -> onDestory。
 
 在Service每一次的开启关闭过程中，只有onStart可被多次调用(通过多次startService调用)，其他onCreate，onBind，onUnbind，onDestory在一个生命周期中只能被调用一次。
 
@@ -120,7 +119,6 @@ service的活动生命周期是在onStart()之后，这个方法会处理通过s
 
 onCreate()方法和onDestroy()方法是针对所有的services，无论它们是否启动，通过Context.startService()和Context.bindService()方法都可以访问执行。然而，只有通过startService()方法启动service服务时才会调用onStart()方法。
 
-&nbsp;
 
 如果一个service允许别人绑定，那么需要实现以下额外的方法：
 
@@ -204,7 +202,7 @@ CountService.class);
   
 startService(intent);
 
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;start Service&#8221;);
+Log.v("MainStadyServics", "start Service");
   
 }
   
@@ -226,7 +224,7 @@ CountService.class);
   
 stopService(intent);
   
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;shutDown serveice&#8221;);
+Log.v("MainStadyServics", "shutDown serveice");
   
 }
   
@@ -244,7 +242,7 @@ Intent intent = new Intent(MainActivity.this, UseBrider.class);
   
 startActivity(intent);
   
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;start Binder Service&#8221;);
+Log.v("MainStadyServics", "start Binder Service");
   
 }
   
@@ -320,7 +318,7 @@ Thread.sleep(1000);
   
 count++;
   
-Log.v(&#8220;CountService&#8221;, &#8220;Count is&#8221; + count);
+Log.v("CountService", "Count is" + count);
   
 }
   
@@ -440,7 +438,7 @@ super.onDestroy();
   
 this.unbindService(conn);
   
-Log.v(&#8220;MainStadyServics&#8221;, &#8220;out&#8221;);
+Log.v("MainStadyServics", "out");
   
 }
   
@@ -464,13 +462,13 @@ public IBinder onBind(Intent intent) {
   
 // TODO Auto-generated method stub
   
-System.out.println(&#8220;onBind&#8230;..&#8221;);
+System.out.println("onBind.....");
   
 IBinder result = null;
   
 if ( null == result ) result = new MyBinder() ;
   
-Toast.makeText(this, &#8220;onBind&#8221;,Toast.LENGTH_LONG);
+Toast.makeText(this, "onBind",Toast.LENGTH_LONG);
   
 return result;
   
@@ -478,7 +476,6 @@ return result;
   
 复制代码
 
-&nbsp;
 
 至于startservice和bindservice的使用场景，有网友这么说：
 
@@ -490,7 +487,6 @@ return result;
   
 一旦调用者挂掉了.service也会跟着挂掉 .
 
-&nbsp;
 
 示例下载地址：http://pan.baidu.com/share/link?shareid=1614272126&uk=1428765741
 

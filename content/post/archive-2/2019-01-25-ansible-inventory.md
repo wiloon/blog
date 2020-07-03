@@ -8,5 +8,6 @@ categories:
   - Uncategorized
 
 ---
-```bashansible_user=root
+```bash
+ansible_user=root
 ```

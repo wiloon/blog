@@ -19,7 +19,7 @@ categories:
   
 　　位置cygwin=false前。
   
-　　JAVA_OPTS=&#8221;-server -Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128m&#8221; （仅做参考，具体数值根据自己的电脑内存配置）
+　　JAVA_OPTS="-server -Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128m" （仅做参考，具体数值根据自己的电脑内存配置）
 
 　　windows
 
@@ -27,7 +27,7 @@ categories:
   
 　　第一行加上
   
-　　JAVA_OPTS=&#8221;-server -Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128m&#8221;
+　　JAVA_OPTS="-server -Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128m"
 
 （2）配置环境变量
 

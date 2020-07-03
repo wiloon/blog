@@ -44,9 +44,9 @@ yum localinstall kibana
 
 edit kibana config file, vi /etc/kibana/kibana.conf
   
-server.host: &#8220;xxx&#8221;
+server.host: "xxx"
   
-elasticsearch.url: &#8220;http://elasticsearch-ip:9200&#8221;
+elasticsearch.url: "http://elasticsearch-ip:9200"
   
 systemctl restart kibana
 

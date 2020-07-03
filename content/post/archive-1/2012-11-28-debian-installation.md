@@ -8,21 +8,21 @@ categories:
   - Linux
 
 ---
-##click the icon &#8220;open this note in a new window
+##click the icon "open this note in a new window
 
 #tuo.. terminal icon to the task bar
 
 #delete icons of the default mail and browser
 
-#######################comment out cdrom&#8230; from source list
+#######################comment out cdrom... from source list
 
-su &#8211;
+su -
 
 #input root password
 
 gedit /etc/apt/source.list
 
-#comment out the line contains cdrom&#8230;
+#comment out the line contains cdrom...
 
 ########################chinese support
 
@@ -34,7 +34,7 @@ sudo apt-get install locales
 
 sudo dpkg-reconfigure locales
 
-#select all lines start with zh_&#8230; , select OK move to  next screen.
+#select all lines start with zh_... , select OK move to  next screen.
 
 #select en_US as default language of the system
 
@@ -58,11 +58,10 @@ sudo apt-get install xfonts-wqy
 
 sudo apt-get install xfonts-intl-chinese wqy*
 
-#set chrome&#8217;s font as wqy micro hei, size 16, set font &#8220;fix width&#8221; with micro hei mono, set encoding as utf8, restart the chrome
+#set chrome's font as wqy micro hei, size 16, set font "fix width" with micro hei mono, set encoding as utf8, restart the chrome
 
 #restart chrome,
 
-&nbsp;
 
 #######################input method
 
@@ -74,69 +73,53 @@ sudo apt-get install xfonts-intl-chinese wqy*
 
 #install wubi input method
 
-<div>
-  #search &#8220;wubi&#8221; in software center
-</div>
+  #search "wubi" in software center
 
-<div>
+
   #install wubi input method base on table engine of ibus
-</div>
 
-<div>
+
   #right click the ibus icon and select restart, restart the ibus
-</div>
 
-<div>
-  #select wubi in ibus&#8230;
-</div>
 
-<div>
+  #select wubi in ibus...
+
+
   #install pinyin engine for ibus
-</div>
 
-#start ibus, goto System>Preferences>IBUS&#8230; ,,, maybe need restart the system to enable the wubi and pinyin&#8230;
+#start ibus, goto System>Preferences>IBUS... ,,, maybe need restart the system to enable the wubi and pinyin...
 
-<div>
-  #there will be a alert, &#8220;if can not use ibus add follow lines to .bashrc
-</div>
+  #there will be a alert, "if can not use ibus add follow lines to .bashrc
 
-<div>
+
   #export GTK_IM_MODULE=ibus
-</div>
 
-<div>
+
   #export XMODIFIERS=@im=ibus
-</div>
 
-<div>
+
   #export QT_IM_MODULE=ibus
-</div>
 
-<div>
-</div>
-
-<div>
-</div>
 
 #######################system monitor
 
 #add system monitor to tool bar
 
-#######################terminal&#8217;s color
+#######################terminal's color
 
-#update terminal&#8217;s color config, select gray and black
+#update terminal's color config, select gray and black
 
 #edit ~./.bashrc
 
 #remove the comments for
 
-alias ll=’ls -l’
+alias ll='ls -l'
 
 #######################sudoer
 
 #edit sudoer
 
-su &#8211;
+su -
 
 #input root password
 
@@ -162,4 +145,3 @@ http://ubuntu.cn99.com/.help/debian.html
 
 #restart the system and install wordpress
 
-&nbsp;

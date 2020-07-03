@@ -16,11 +16,11 @@ tags:
 ---
 http://www.danstraw.com/triggering-a-hudson-build-to-run-when-git-is-updated/2010/11/23/
   
-&#8212;
+-
   
-Hudson CI lets you configure a build so that it periodically polls git to check whether anything’s changed. This is something of a waste of time & resources – it’s polling git when nothing has changed and there may be a lag between when you check something in and when it builds.
+Hudson CI lets you configure a build so that it periodically polls git to check whether anything's changed. This is something of a waste of time & resources – it's polling git when nothing has changed and there may be a lag between when you check something in and when it builds.
 
-Below are instructions on how to get git to trigger the build once it has had changes pushed to it. I’m assuming here that you have:
+Below are instructions on how to get git to trigger the build once it has had changes pushed to it. I'm assuming here that you have:
 
 A central git repository on server A
   
@@ -42,9 +42,9 @@ With the following lines:
   
 #xxx is your job name
   
-URL=&#8217;http://localhost:8080/hudson/job/xxx/build&#8217;
+URL='http://localhost:8080/hudson/job/xxx/build'
 
-echo &#8220;Run Hudson build at $URL&#8221;
+echo "Run Hudson build at $URL"
   
 wget $URL > /dev/null 2>&1
 
@@ -52,7 +52,7 @@ Finally, you will need to make the hook executable by whoever will be checking c
 
 sudo usermod -G git userA
   
-If they’re not already a member of the “git” group, and then
+If they're not already a member of the “git” group, and then
 
 chmod ug+x /path/to/your/git/repository.git/hooks/post-receive
   

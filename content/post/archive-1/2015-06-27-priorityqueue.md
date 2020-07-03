@@ -12,7 +12,6 @@ tags:
 ---
 http://java-er.com/blog/java-priority-queue/
 
-&nbsp;
 
 PriorityQueue是个基于优先级堆的极大优先级队列。
 
@@ -60,13 +59,13 @@ qi.add(3);
 
 while (!qi.isEmpty()){
   
-System.out.print(qi.poll() + &#8220;,&#8221;);
+System.out.print(qi.poll() + ",");
   
 }
   
 System.out.println();
   
-System.out.println(&#8220;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;&#8220;);
+System.out.println("----------");
 
 Comparator<Integer> cmp;
   
@@ -74,7 +73,7 @@ cmp = new Comparator<Integer>() {
   
 public int compare(Integer e1, Integer e2) {
   
-return e2 &#8211; e1;
+return e2 - e1;
   
 }
   
@@ -92,7 +91,7 @@ q2.add(1);
   
 while (!q2.isEmpty()){
   
-System.out.print(q2.poll() + &#8220;,&#8221;);
+System.out.print(q2.poll() + ",");
   
 }
 
@@ -104,7 +103,7 @@ output
 
 1,2,3,5,10,
   
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+----------
   
 9,8,2,1,
   
@@ -116,7 +115,7 @@ cmp = new Comparator() {
   
 public int compare(Integer e1, Integer e2) {
   
-return e2 &#8211; e1;
+return e2 - e1;
   
 }
   
@@ -172,6 +171,5 @@ PriorityQueue对元素采用的是堆排序，头是按指定排序方式的最�
   
 实例1的结果也正好与此相符
 
-&nbsp;
 
 http://blog.csdn.net/hiphopmattshi/article/details/7334487

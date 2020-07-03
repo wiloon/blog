@@ -52,7 +52,7 @@ a A 111.222.111.222
 
 TXT记录
 
-TXT记录一般是为某条记录设置说明，比如你新建了一条a.ezloo.com的TXT记录，TXT记录内容&#8221;this is a test TXT record.&#8221;，然后你用 nslookup -qt=txt a.ezloo.com ，你就能看到&#8221;this is a test TXT record&#8221;的字样。
+TXT记录一般是为某条记录设置说明，比如你新建了一条a.ezloo.com的TXT记录，TXT记录内容"this is a test TXT record."，然后你用 nslookup -qt=txt a.ezloo.com ，你就能看到"this is a test TXT record"的字样。
 
 除外，TXT还可以用来验证域名的所有，比如你的域名使用了Google的某项服务，Google会要求你建一个TXT记录，然后Google验证你对此域名是否具备管理权限。
 

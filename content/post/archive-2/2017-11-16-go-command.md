@@ -10,7 +10,8 @@ categories:
 ---
 ### go build
 
-```bash# -a
+```bash
+# -a
 强行对所有涉及到的代码包（包含标准库中的代码包）进行重新构建，即使它们已经是最新的了。
 # -installsuffix
 为了使当前的输出目录与默认的编译输出目录分离，可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实，如果使用了-race标记，这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix，那么在-installsuffix标记的值的后面会再被追加_race，并以此来作为实际使用的后缀。
@@ -26,7 +27,8 @@ categories:
 指定输出文件
 ```
 
-```bash#查看golang 环境变量
+```bash
+#查看golang 环境变量
 go env
 # 查看Go支持OS和平台列表
 go tool dist list

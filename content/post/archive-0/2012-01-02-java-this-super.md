@@ -44,13 +44,13 @@ this.age=age;
   
 public void print(){
   
-System.out.println(&#8220;Name=&#8221;+name+&#8221; Age=&#8221;+age);//在此行中并不需要用this，因为没有会导致混淆的东西
+System.out.println("Name="+name+" Age="+age);//在此行中并不需要用this，因为没有会导致混淆的东西
   
 }
   
 public static void main(String[] args){
   
-DemoThis dt=new DemoThis(&#8220;Kevin&#8221;,&#8221;22&#8243;);
+DemoThis dt=new DemoThis("Kevin","22");
   
 }
   
@@ -80,7 +80,7 @@ this.age=age;
   
 protected void print(){
   
-System.out.println(&#8220;Name=&#8221;+name+&#8221; Age=&#8221;+age);
+System.out.println("Name="+name+" Age="+age);
   
 }
   
@@ -90,7 +90,7 @@ public class DemoSuper extends Person{
   
 public void print(){
   
-System.out.println(&#8220;DemoSuper:&#8221;);
+System.out.println("DemoSuper:");
   
 super.print();
   
@@ -100,7 +100,7 @@ public static void main(String[] args){
   
 DemoSuper ds=new DemoSuper();
   
-ds.setName(&#8220;kevin&#8221;);
+ds.setName("kevin");
   
 ds.setAge(22);
   
@@ -132,13 +132,13 @@ System.out.println(s);
   
 Person(){
   
-prt(&#8220;A Person.&#8221;);
+prt("A Person.");
   
 }
   
 Person(String name){
   
-prt(&#8220;A person name is:&#8221;+name);
+prt("A person name is:"+name);
   
 }
   
@@ -150,7 +150,7 @@ Chinese(){
   
 super(); //调用父类构造函数（1）
   
-prt(&#8220;A chinese.&#8221;);//(4)
+prt("A chinese.");//(4)
   
 }
   
@@ -158,7 +158,7 @@ Chinese(String name){
   
 super(name);//调用父类具有相同形参的构造函数（2）
   
-prt(&#8220;his name is:&#8221;+name);
+prt("his name is:"+name);
   
 }
   
@@ -166,7 +166,7 @@ Chinese(String name,int age){
   
 this(name);//调用当前具有相同形参的构造函数（3）
   
-prt(&#8220;his age is:&#8221;+age);
+prt("his age is:"+age);
   
 }
   
@@ -174,9 +174,9 @@ public static void main(String[] args){
   
 Chinese cn=new Chinese();
   
-cn=new Chinese(&#8220;kevin&#8221;);
+cn=new Chinese("kevin");
   
-cn=new Chinese(&#8220;kevin&#8221;,22);
+cn=new Chinese("kevin",22);
   
 }
   

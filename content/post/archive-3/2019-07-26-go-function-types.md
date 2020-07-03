@@ -18,7 +18,8 @@ A function type denotes the set of all functions with the same parameter and res
 
 先找个例子来看一下：
 
-```golang package main
+```golang
+package main
 
 import "fmt"
 
@@ -42,7 +43,8 @@ func main() {
 
 say()函数要求传入一个Greeting类型，因为english函数的参数和返回值跟Greeting一样，参考接口的概念这里可以做类型转换。我们换个方式来实现上面的功能:
 
-```golang package main
+```golang
+package main
 
 import "fmt"
 
@@ -67,7 +69,8 @@ func main() {
 
 既然是函数集合，那么只有一个函数显然是不足以说明问题的。
 
-```golang package main
+```golang
+package main
 
 import "fmt"
 

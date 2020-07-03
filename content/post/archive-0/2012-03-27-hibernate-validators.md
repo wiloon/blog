@@ -75,7 +75,7 @@ property (date 或 calendar)
   
 检查是否日期在将来
 
-@Pattern(regex=&#8221;regexp&#8221;, flag=) or @Patterns( {@Pattern(&#8230;)} )
+@Pattern(regex="regexp", flag=) or @Patterns( {@Pattern(...)} )
   
 property (字符串)
   
@@ -181,7 +181,7 @@ public @interface Capitalized {
 
 CapitalizeType type() default Capitalize.FIRST;
 
-String message() default &#8220;has incorrect capitalization&#8221;
+String message() default "has incorrect capitalization"
 
 }
 
@@ -201,7 +201,7 @@ public @interface Capitalized {
 
 CapitalizeType type() default Capitalize.FIRST;
 
-String message() default &#8220;{validator.capitalized}&#8221;;
+String message() default "{validator.capitalized}";
 
 }
 
@@ -353,11 +353,11 @@ return state;
 
 // if the string is longer, the message will
 
-//be searched in the resource bundle at key &#8216;long&#8217;
+//be searched in the resource bundle at key 'long'
 
-@Length(max=5, message=&#8221;{long}&#8221;)
+@Length(max=5, message="{long}")
 
-@Pattern(regex=&#8221;[0-9]+&#8221;)
+@Pattern(regex="[0-9]+")
 
 @NotNull
 
@@ -399,9 +399,9 @@ public class Dog {
 
 @AssertTrue private boolean isMale;
 
-@NotNull protected String getName() { &#8230; };
+@NotNull protected String getName() { ... };
 
-&#8230;
+...
 
 }
 
@@ -411,7 +411,7 @@ public interface Named {
 
 @NotNull String getName();
 
-&#8230;
+...
 
 }
 
@@ -419,7 +419,7 @@ public class Dog implements Named {
 
 @AssertTrue private boolean isMale;
 
-public String getName() { &#8230; };
+public String getName() { ... };
 
 }
 
@@ -457,7 +457,7 @@ Hibernate验证器已经内置两个hibernate事件监听器，任何时候一�
 
 在这种情况下你需要手工为hibernate设置事件监听器，下面是配置
 
-&#8230;
+...
 
 2.2.2 基于事件的java持久化验证
 
@@ -471,7 +471,7 @@ Hibernate 验证器与hibernate在基于事件的验证上没有关联，一个j
 
 public class Submarine {
 
-&#8230;
+...
 
 }
 
@@ -483,7 +483,7 @@ Hibernate 验证器可被应用到代码的任何地方
 
 ClassValidator personValidator = new ClassValidator( Person.class );
 
-ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle(&#8220;messages&#8221;, Locale.ENGLISH) );
+ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages", Locale.ENGLISH) );
 
 InvalidValue[] validationMessages = addressValidator.getInvalidValues(address);
 
@@ -493,19 +493,19 @@ InvalidValue[] validationMessages = addressValidator.getInvalidValues(address);
 
 你也可以检查一个属性而非整个bean 这对属性对属性的用户交互是有用的。
 
-ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle(&#8220;messages&#8221;, Locale.ENGLISH) );
+ClassValidator addressValidator = new ClassValidator( Address.class, ResourceBundle.getBundle("messages", Locale.ENGLISH) );
 
 //only get city property invalid values
 
-InvalidValue[] validationMessages = addressValidator.getInvalidValues(address, &#8220;city&#8221;);
+InvalidValue[] validationMessages = addressValidator.getInvalidValues(address, "city");
 
 //only get potential city property invalid values
 
-InvalidValue[] validationMessages = addressValidator.getPotentialInvalidValues(&#8220;city&#8221;, &#8221;
+InvalidValue[] validationMessages = addressValidator.getPotentialInvalidValues("city", "
   
 Paris
   
-&#8220;)
+")
 
 2.4 表示层验证
 
@@ -513,23 +513,14 @@ Paris
 
 和让约束表示在模型里，违反出现在表示层。
 
-<div>
-</div>
-
-<div>
-  <p>
+  
     Country:
-  </p>
-</div>
+  
 
-<div>
-  <p>
+
+  
     Zip code:
-  </p>
-</div>
-
-<div>
-</div>
+  
 
 不久将来，将添加Ajax4JSF 到循环将带来客户端验证利用一对附加的jsf标签，避免验证定义重复。请看jboss seam 更多信息。
 

@@ -8,7 +8,6 @@ categories:
   - Uncategorized
 
 ---
-&nbsp;
 
 androidjavaactivityonSaveInstanceStateBundle
   
@@ -20,7 +19,7 @@ androidjavaactivityonSaveInstanceStateBundle
 
 Java代码
   
-<span style=&#8221;font-size: small;&#8221;>public class MainActivity extends Activity {
+<span style="font-size: small;">public class MainActivity extends Activity {
   
 public static final int SECOND_ACTIVITY = 0;
   
@@ -36,9 +35,9 @@ super.onCreate(savedInstanceState);
   
 if (savedInstanceState != null) {
   
-temp = savedInstanceState.getString(&#8220;temp&#8221;);
+temp = savedInstanceState.getString("temp");
   
-System.out.println(&#8220;onCreate: temp = &#8221; + temp);
+System.out.println("onCreate: temp = " + temp);
   
 }
   
@@ -48,9 +47,9 @@ public void onResume() {
   
 super.onResume();
   
-temp = &#8220;xing&#8221;;
+temp = "xing";
   
-System.out.println(&#8220;onResume: temp = &#8221; + temp);
+System.out.println("onResume: temp = " + temp);
   
 // 切换屏幕方向会导致activity的摧毁和重建
   
@@ -58,7 +57,7 @@ if (getRequestedOrientation() == ActivityInfo.SCREEN\_ORIENTATION\_UNSPECIFIE
   
 setRequestedOrientation(ActivityInfo.SCREEN\_ORIENTATION\_LANDSCAPE);
   
-System.out.println(&#8220;屏幕切换&#8221;);
+System.out.println("屏幕切换");
   
 }
   
@@ -72,11 +71,11 @@ protected void onSaveInstanceState(Bundle outState) {
   
 super.onSaveInstanceState(outState);
   
-outState.putString(&#8220;temp&#8221;, temp);
+outState.putString("temp", temp);
   
 }
   
-}</span>
+}
   
 需要注意的是, onSaveInstanceState()方法并不是一定会被调用的, 因为有些场景是不需要保存状态数据的. 比如用户按下BACK键退出activity时, 用户显然想要关闭这个activity, 此时是没有必要保存数据以供下次恢复的, 也就是onSaveInstanceState()方法不会被调用. 如果调用onSaveInstanceState()方法, 调用将发生在onPause()或onStop()方法之前.
   
@@ -100,7 +99,6 @@ onSaveInstanceState()方法适合保存什么数据
 
 除了系统处于内存不足的原因会摧毁activity之外, 某些系统设置的改变也会导致activity的摧毁和重建. 例如改变屏幕方向(见上例), 改变设备语言设定, 键盘弹出等.
 
-&nbsp;
 
 http://blog.csdn.net/lixiang0522/article/details/7565401
 

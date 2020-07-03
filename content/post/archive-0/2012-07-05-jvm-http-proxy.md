@@ -30,7 +30,7 @@ Your HTTP call needs to tunnel through the HTTP proxy (using SOCKS authenticatio
   
 SETTINGS
 
-Use one of the methods below for your JVM proxy settings. Try an alternate method if any particular method does not work. In most cases, you should not require any change the pre-compiled Java code for proxy settings. JVM’s environment settings should be enough to fix this problem.
+Use one of the methods below for your JVM proxy settings. Try an alternate method if any particular method does not work. In most cases, you should not require any change the pre-compiled Java code for proxy settings. JVM's environment settings should be enough to fix this problem.
 
 Command Line JVM Settings
 
@@ -48,21 +48,21 @@ Setting System Properties in Code
 
 Add the following lines in your Java code so that JVM uses the proxy to make HTTP calls. This would, of course, require you to recompile your Java source. (The other methods do not require any recompilation.):
 
-System.getProperties().put(&#8220;http.proxyHost&#8221;, &#8220;someProxyURL&#8221;);
+System.getProperties().put("http.proxyHost", "someProxyURL");
   
-System.getProperties().put(&#8220;http.proxyPort&#8221;, &#8220;someProxyPort&#8221;);
+System.getProperties().put("http.proxyPort", "someProxyPort");
   
-System.getProperties().put(&#8220;http.proxyUser&#8221;, &#8220;someUserName&#8221;);
+System.getProperties().put("http.proxyUser", "someUserName");
   
-System.getProperties().put(&#8220;http.proxyPassword&#8221;, &#8220;somePassword&#8221;);
+System.getProperties().put("http.proxyPassword", "somePassword");
   
-Don’t hardcode the proxy settings in your source. Read these settings from a configurable text file, so your users can configure them. You might also need to set this property:
+Don't hardcode the proxy settings in your source. Read these settings from a configurable text file, so your users can configure them. You might also need to set this property:
 
-System.getProperties().put(&#8220;proxySet&#8221;, &#8220;true&#8221;);
+System.getProperties().put("proxySet", "true");
   
 Or
 
-System.getProperties().put(&#8220;http.proxySet&#8221;, &#8220;true&#8221;);
+System.getProperties().put("http.proxySet", "true");
   
 Tomcat Settings: catalina.properties
 
@@ -80,6 +80,6 @@ Tomcat Settings: catalina.bat
 
 Add all the parameters defined above in the ${CATALINA\_HOME}/bin/catalina.bat (for Windows) or ${CATALINA\_HOME}/bin/catalina.bat (for *nix):
 
-JAVA_OPTS=&#8221;-Dhttp.proxyHost=yourProxyURL &#8230;&#8221;
+JAVA_OPTS="-Dhttp.proxyHost=yourProxyURL ..."
   
 (Each option is seperated by spaces.)

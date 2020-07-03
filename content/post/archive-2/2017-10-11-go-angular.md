@@ -47,13 +47,14 @@ https://github.com/aralroca/helloworld-angular-with-golang
 
 ### 修改angular编译输出目录
 
-```bashvim angular.json
+```bash
+vim angular.json
 ...builder/outputPath
 ```
 
 ### 结构型指令
 
-\*ngFor 是一个 &#8220;结构型指令&#8221;。结构型指令会通过添加、删除和操纵它们的宿主元素等方式塑造或重塑 DOM 的结构。任何带有 \* 的指令都是结构型指令。
+\*ngFor 是一个 "结构型指令"。结构型指令会通过添加、删除和操纵它们的宿主元素等方式塑造或重塑 DOM 的结构。任何带有 \* 的指令都是结构型指令。
 
 #### 把 *ngFor 指令加到
 
@@ -65,8 +66,9 @@ div> 上, *ngFor 会导致
 
 div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;div *ngFor="let product of products"&gt;
-&lt;/div&gt;
+```xml
+<div *ngFor="let product of products">
+</div>
 ``` 
 
 *ngIf
@@ -77,7 +79,8 @@ div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
 ### 绑定语法 []<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;a [title]="product.name + ' details'"&gt;
+```xml
+<a [title]="product.name + ' details'">
 ``` 
 
 插值表达式 {{}} 允许你把属性值渲染为文本；而属性绑定语法 [] 则允许你在模板表达式中使用属性值。
@@ -86,15 +89,17 @@ div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
 事件绑定是通过把事件名称包裹在圆括号 () 中完成的<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;button (click)="share()"&gt;
+```xml
+<button (click)="share()">
 ``` 
 
 ### 双向数据绑定
 
 [(ngModel)] 是 Angular 的双向数据绑定语法。<pre data-language=HTML>
 
-<code class="language-markup line-numbers">import { FormsModule } from '@angular/forms';
-&lt;input [(ngModel)]="hero.name" placeholder="name"/&gt;
+```xml
+import { FormsModule } from '@angular/forms';
+<input [(ngModel)]="hero.name" placeholder="name"/>
 ``` 
 
 https://zhuanlan.zhihu.com/p/27696268

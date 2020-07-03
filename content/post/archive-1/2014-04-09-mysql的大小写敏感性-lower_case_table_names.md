@@ -10,7 +10,6 @@ tags:
   - MySQL
 
 ---
-&nbsp;
 
 MySQL的大小写敏感性 lower\_case\_table_names
 
@@ -20,7 +19,7 @@ MySQL的大小写敏感性 lower\_case\_table_names
 
 要避免这个问题，你最好在定义数据库命名规则的时候就全部采用小写字母加下划线的组合，而不使用任何的大写字母。
 
-或者也可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 &#8211;defaults-file=&#8230;\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
+或者也可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 -defaults-file=...\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
 
 当你更改这个选项时，你必须在启动 mysqld 前首先将老的表名转换为小写字母。
 
@@ -29,11 +28,11 @@ MySQL的大小写敏感性 lower\_case\_table_names
 <table id="table5" border="1" cellpadding="0">
   <tr>
     <td>
-      <strong>值</strong>
+      值
     </td>
     
     <td>
-      <strong>含义</strong>
+      含义
     </td>
   </tr>
   
@@ -42,7 +41,7 @@ MySQL的大小写敏感性 lower\_case\_table_names
     </td>
     
     <td>
-      使用CREATE TABLE或CREATE DATABASE语句指定的大写和小写在硬盘上保存表名和数据库名。名称比较对大小写敏感。在Unix系统中的默认设置即如此。请注意如果在大小写不敏感的文件系统上用&#8211;lower-case-table-names=0强制设为0，并且使用不同的大小写访问MyISAM表名，会导致索引破坏。
+      使用CREATE TABLE或CREATE DATABASE语句指定的大写和小写在硬盘上保存表名和数据库名。名称比较对大小写敏感。在Unix系统中的默认设置即如此。请注意如果在大小写不敏感的文件系统上用-lower-case-table-names=0强制设为0，并且使用不同的大小写访问MyISAM表名，会导致索引破坏。
     </td>
   </tr>
   
@@ -62,14 +61,13 @@ MySQL的大小写敏感性 lower\_case\_table_names
     </td>
     
     <td>
-      表名和数据库名在硬盘上使用CREATE TABLE或CREATE DATABASE语句指定的大小写进行保存，但MySQL将它们转换为小写以便查找。名称比较对大小写敏感。<strong>注释：</strong> 只 在对大小写不敏感的文件系统上适用! InnoDB表名以小写保存，例如lower_case_tables_name=1。
+      表名和数据库名在硬盘上使用CREATE TABLE或CREATE DATABASE语句指定的大小写进行保存，但MySQL将它们转换为小写以便查找。名称比较对大小写敏感。注释： 只 在对大小写不敏感的文件系统上适用! InnoDB表名以小写保存，例如lower_case_tables_name=1。
     </td>
   </tr>
 </table>
 
-&nbsp;
 
-MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 &#8211;defaults-file=&#8230;\\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。
+MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。
   
 这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
   
@@ -107,7 +105,7 @@ MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强�
   
 5、字符串比较和模式匹配
   
-缺省地，Mysql搜索是大小写不敏感的(尽管有一些字符集从来不是忽略Mysql大小写的，例如捷克语)。这意味着，如果你用col\_name LIKE &#8216;a%&#8217;搜寻，你将得到所有以A或a开始的列值。如果你想要使这个搜索大小写敏感，使用象INDEX(col\_name, &#8220;A&#8221;)=0检查一个前缀。或如果列值必须确切是&#8221;A&#8221;，使用STRCMP(col_name, &#8220;A&#8221;) = 0。
+缺省地，Mysql搜索是大小写不敏感的(尽管有一些字符集从来不是忽略Mysql大小写的，例如捷克语)。这意味着，如果你用col\_name LIKE 'a%'搜寻，你将得到所有以A或a开始的列值。如果你想要使这个搜索大小写敏感，使用象INDEX(col\_name, "A")=0检查一个前缀。或如果列值必须确切是"A"，使用STRCMP(col_name, "A") = 0。
   
 简单的比较操作(>=、>、= 、< 、<=、排序和聚合)是基于每个字符的“排序值”。有同样排序值的字符(象E，e)被视为相同的字符!
   
@@ -119,11 +117,11 @@ LIKE比较在每个字符的大写值上进行(“E”=”e”)。
   
 代码如下 复制代码
 
-1.Mysql> SELECT &#8220;E&#8221;=&#8221;e&#8221;,&#8221;E&#8221;=BINARY &#8220;e&#8221;;
+1.Mysql> SELECT "E"="e","E"=BINARY "e";
   
-2.+&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;-+| &#8220;E&#8221;=&#8221;e&#8221; | &#8220;E&#8221;=BINARY &#8220;e&#8221;
+2.+---+------+| "E"="e" | "E"=BINARY "e"
   
-|+&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;-+| 1 | 0 |+&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;-+
+|+---+------+| 1 | 0 |+---+------+
   
 MySQL大小写
 
@@ -133,4 +131,3 @@ http://fygh6318.blog.51cto.com/390568/385507
 
 http://blog.chinaunix.net/uid-26602509-id-4104999.html
 
-&nbsp;

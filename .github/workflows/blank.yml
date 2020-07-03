@@ -47,3 +47,14 @@ jobs:
           REMOTE_HOST: "wiloon.com"
           REMOTE_USER: "blog"
           TARGET: "/home/blog/public/"
+      # Deploy to vm-bwg
+      - name: Deploy to vm-bwg
+        uses: easingthemes/ssh-deploy@v2.1.2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG }}
+          ARGS: "-avz --delete"
+          SOURCE: "public/"
+          REMOTE_HOST: "67.216.209.168"
+          REMOTE_PORT: 38785
+          REMOTE_USER: "blog"
+          TARGET: "/home/blog/public/"

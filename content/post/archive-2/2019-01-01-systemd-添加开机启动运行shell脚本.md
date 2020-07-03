@@ -20,19 +20,19 @@ systemd 添加开机启动运行shell脚本
 
 [Unit]
 
-Description=test shell &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;->开机启动会打印【ok】 started test shell
+Description=test shell ------->开机启动会打印【ok】 started test shell
 
 [Service]
 
-ExecStart=/bin/sh /home/root/cs.sh &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;->你要开机运行的脚本必须绝对位置 /bin/sh 为shell解释器不能省
+ExecStart=/bin/sh /home/root/cs.sh ------->你要开机运行的脚本必须绝对位置 /bin/sh 为shell解释器不能省
 
 [Install]
 
 WantedBy=multi-user.target
 
-Requires=pulseaudio.service &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;>你要安排在哪个服务后面才启动（如依赖的服务）
+Requires=pulseaudio.service -------->你要安排在哪个服务后面才启动（如依赖的服务）
 
-After=pulseaudio.service &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;->你要安排在哪个服务后面才启动（如依赖的服务）
+After=pulseaudio.service --------->你要安排在哪个服务后面才启动（如依赖的服务）
 
 * * *
 

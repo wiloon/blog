@@ -92,7 +92,7 @@ private:
     
 volatile int _counter ;
     
-&#8230;
+...
   
 public:
     
@@ -100,7 +100,7 @@ void park(bool isAbsolute, jlong time);
     
 void unpark();
     
-&#8230;
+...
   
 }
   
@@ -112,7 +112,7 @@ pthread\_mutex\_t _mutex [1] ;
       
 pthread\_cond\_t _cond [1] ;
       
-&#8230;
+...
   
 }
   
@@ -124,7 +124,7 @@ pthread\_cond\_t _cond [1] ;
 
 void Parker::park(bool isAbsolute, jlong time) {
     
-// Ideally we&#8217;d do something useful while spinning, such
+// Ideally we'd do something useful while spinning, such
     
 // as calling unpackTime().
 
@@ -160,7 +160,7 @@ _counter = 0 ;
   
 status = pthread\_mutex\_unlock(_mutex) ;
   
-assert_status(status == 0, status, &#8220;invariant&#8221;) ;
+assert_status(status == 0, status, "invariant") ;
   
 OrderAccess::fence();
   
@@ -172,7 +172,7 @@ int s, status ;
     
 status = pthread\_mutex\_lock(_mutex);
     
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant") ;
     
 s = _counter;
     
@@ -184,21 +184,21 @@ if (WorkAroundNPTLTimedWaitHang) {
           
 status = pthread\_cond\_signal (_cond) ;
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant") ;
           
 status = pthread\_mutex\_unlock(_mutex);
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant") ;
        
 } else {
           
 status = pthread\_mutex\_unlock(_mutex);
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant") ;
           
 status = pthread\_cond\_signal (_cond) ;
           
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant") ;
        
 }
     
@@ -206,7 +206,7 @@ assert (status == 0, &#8220;invariant&#8221;) ;
       
 pthread\_mutex\_unlock(_mutex);
       
-assert (status == 0, &#8220;invariant&#8221;) ;
+assert (status == 0, "invariant") ;
     
 }
   
@@ -262,7 +262,7 @@ Parker * volatile Parker::FreeList = NULL ;
 
 Parker \* Parker::Allocate (JavaThread \* t) {
     
-guarantee (t != NULL, &#8220;invariant&#8221;) ;
+guarantee (t != NULL, "invariant") ;
     
 Parker * p ;
 
@@ -315,15 +315,15 @@ continue ;
 
 if (p != NULL) {
       
-guarantee (p->AssociatedWith == NULL, &#8220;invariant&#8221;) ;
+guarantee (p->AssociatedWith == NULL, "invariant") ;
     
 } else {
       
-// Do this the hard way &#8212; materialize a new Parker..
+// Do this the hard way - materialize a new Parker..
       
 // In rare cases an allocating thread might detach
       
-// a long list &#8212; installing null into FreeList &#8211;and
+// a long list - installing null into FreeList -and
       
 // then stall. Another thread calling Allocate() would see
       
@@ -361,9 +361,9 @@ void Parker::Release (Parker * p) {
     
 if (p == NULL) return ;
     
-guarantee (p->AssociatedWith != NULL, &#8220;invariant&#8221;) ;
+guarantee (p->AssociatedWith != NULL, "invariant") ;
     
-guarantee (p->FreeNext == NULL , &#8220;invariant&#8221;) ;
+guarantee (p->FreeNext == NULL , "invariant") ;
     
 p->AssociatedWith = NULL ;
     
@@ -397,7 +397,8 @@ JUC(Java Util Concurrency)仅用简单的park, unpark和CAS指令就实现了各
 
 LockSupport.park() 中断响应
 
-[code lang=java]
+```java
+
   
 import java.util.concurrent.locks.LockSupport;
   
@@ -431,7 +432,7 @@ long start = System.currentTimeMillis();
                   
 long end = 0;
 
-while ((end &#8211; start) <= 1000) {
+while ((end - start) <= 1000) {
                       
 count++;
                       
@@ -465,7 +466,7 @@ System.out.println("main over");
   
 }
 
-[/code]
+```
 
 最终线程会打印出thread over.true。这说明线程如果因为调用park而阻塞的话，能够响应中断请求(中断状态被设置成true)，但是不会抛出InterruptedException。
 

@@ -78,7 +78,7 @@ which which
   
 [root@localhost ~]# which which
   
-alias which=&#8217;alias | /usr/bin/which &#8211;tty-only &#8211;read-alias &#8211;show-dot &#8211;show-tilde&#8217;
+alias which='alias | /usr/bin/which -tty-only -read-alias -show-dot -show-tilde'
   
 /usr/bin/which
   

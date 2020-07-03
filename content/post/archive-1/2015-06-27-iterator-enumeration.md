@@ -12,7 +12,6 @@ tags:
 ---
 http://www.cnblogs.com/skywang12345/p/3311275.html
 
-&nbsp;
 
 Iterator和Enumeration区别
   
@@ -60,7 +59,6 @@ Enumeration 是JDK 1.0添加的接口。使用到它的函数包括Vector、Hash
   
 而Iterator 是JDK 1.2才添加的接口，它也是为了HashMap、ArrayList等集合提供遍历接口。Iterator是支持fail-fast机制的：当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。
 
-&nbsp;
 
 第2部分 Iterator和Enumeration实例
   

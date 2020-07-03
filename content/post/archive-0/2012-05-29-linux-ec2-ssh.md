@@ -39,13 +39,11 @@ DynamicForward 默认用localhost:3128，在后面的浏览器设置中要用到
 
 到此ssh配置完成。从temnial输入：
 
-<div>
   <blockquote>
-    <p>
+    
       ssh aws
-    </p>
+    
   </blockquote>
-</div>
 
 即可看到从远程EC2 Instance返回的登录成功信息。
 
@@ -66,6 +64,4 @@ Google了一圈，现总结如下：
   * 找到“**network.proxy.socks\_remote\_dns**”，双击改为**True**（默认False）；
   * 可能需要重启Firefox。
 
-<div>
   已验证可行。
-</div>

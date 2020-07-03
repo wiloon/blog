@@ -24,13 +24,13 @@ git svn fetch -r 1342:HEAD
 git commit -a -m “”
 git svn dcommit
 
-### Password for ‘user0’: Can’t locate Term/ReadKey.pm
+### Password for 'user0': Can't locate Term/ReadKey.pm
 
 git requires perl-term-readkey when it asks for user input
 
 Found when trying to enter a password for a `git svn dcommit`
 
-Password for ‘user0’: Can’t locate Term/ReadKey.pm in @INC (you may need to install the Term::ReadKey module) (@INC contains: /usr/share/perl5/site_perl /usr/lib/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /usr/share/perl5/vendor_perl/Git.pm line 565.
+Password for 'user0': Can't locate Term/ReadKey.pm in @INC (you may need to install the Term::ReadKey module) (@INC contains: /usr/share/perl5/site_perl /usr/lib/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /usr/share/perl5/vendor_perl/Git.pm line 565.
 
 Installing the perl-term-readkey package fixes this
 

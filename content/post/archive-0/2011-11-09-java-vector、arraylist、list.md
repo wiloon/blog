@@ -46,7 +46,6 @@ Map
   
 └WeakHashMap
 
-&nbsp;
 
 ### Collection接口
 
@@ -70,7 +69,6 @@ Object obj = it.next(); // 得到下一个元素
 
 由Collection接口派生的两个接口是List和Set。
 
-&nbsp;
 
 ### List接口
 
@@ -82,7 +80,6 @@ List是有序的Collection，使用此接口能够精确的控制每个元素插
   
 实现List接口的常用类有LinkedList，ArrayList，Vector和Stack。
 
-&nbsp;
 
 ### LinkedList类
 
@@ -90,11 +87,10 @@ LinkedList实现了List接口，允许null元素。此外LinkedList提供额外�
   
 注意LinkedList没有同步方法。如果多个线程同时访问一个List，则必须自己实现访问同步。一种解决方法是在创建List时构造一个同步的List：
   
-List list = Collections.synchronizedList(new LinkedList(&#8230;));
+List list = Collections.synchronizedList(new LinkedList(...));
 
 对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。
 
-&nbsp;
 
 ### ArrayList类
 
@@ -106,7 +102,6 @@ size，isEmpty，get，set方法运行时间为常数。但是add方法开销为
   
 和LinkedList一样，ArrayList也是非同步的（unsynchronized）。
 
-&nbsp;
 
 ### Vector
 
@@ -118,13 +113,11 @@ Vector内部实际是以Array实现的，也通过元素的整数索引来访问
   
 Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在：Vector is synchronized。即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素），这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
 
-&nbsp;
 
 ### Stack 类
 
 Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得 Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。
 
-&nbsp;
 
 ### Set接口
 
@@ -134,13 +127,11 @@ Set是一种不包含重复的元素的Collection，即任意的两个元素e1�
   
 请注意：必须小心操作可变对象（Mutable Object）。如果一个Set中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题。
 
-&nbsp;
 
 ### Map接口
 
 请注意，Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同的key，每个key只能映射一个 value。Map接口提供3种集合的视图，Map的内容可以被当作一组key集合，一组value集合，或者一组key-value映射。
 
-&nbsp;
 
 ### Hashtable类
 
@@ -176,13 +167,11 @@ System.out.println(“two = ” + n);
   
 Hashtable是同步的。
 
-&nbsp;
 
 ### HashMap类
 
 HashMap和Hashtable类似，不同之处在于HashMap是非同步的，并且允许null，即null value和null key。，但是将HashMap视为Collection时（values()方法可返回Collection），其迭代子操作时间开销和HashMap的容量成比例。因此，如果迭代操作的性能相当重要的话，不要将HashMap的初始化容量设得过高，或者load factor过低。
 
-&nbsp;
 
 WeakHashMap类
   

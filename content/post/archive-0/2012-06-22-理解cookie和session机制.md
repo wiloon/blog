@@ -45,17 +45,19 @@ session机制是一种服务器端的机制，服务器使用一种类似于散�
 
 另一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如下面的表单<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;form name=”testform” action=”/xxx”&gt;
-&lt;input type=”text”&gt;
-&lt;/form&gt;
+```xml
+<form name=”testform” action=”/xxx”>
+<input type=”text”>
+</form>
 ``` 
 
 在被传递给客户端之前将被改写成<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;form name=”testform” action=”/xxx”&gt;
-&lt;input type=”hidden” name=”jsessionid” value=”ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764″&gt;
-&lt;input type=”text”&gt;
-&lt;/form&gt;
+```xml
+<form name=”testform” action=”/xxx”>
+<input type=”hidden” name=”jsessionid” value=”ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764″>
+<input type=”text”>
+</form>
 ``` 
 
 这种技术现在已较少应用，笔者接触过的很古老的iPlanet6(SunONE应用服务器的前身)就使用了这种技术。

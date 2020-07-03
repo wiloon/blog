@@ -20,7 +20,7 @@ TIMESTAMP列的显示格式与DATETIME列相同。换句话说，显示宽度固
 
 范围
 
-datetime 以&#8217;YYYY-MM-DD HH:MM:SS&#8217;格式检索和显示DATETIME值。支持的范围为&#8217;1000-01-01 00:00:00&#8217;到&#8217;9999-12-31 23:59:59&#8217;TIMESTAMP值不能早于1970或晚于2037
+datetime 以'YYYY-MM-DD HH:MM:SS'格式检索和显示DATETIME值。支持的范围为'1000-01-01 00:00:00'到'9999-12-31 23:59:59'TIMESTAMP值不能早于1970或晚于2037
 
 储存
 
@@ -54,7 +54,7 @@ datetime
 
 1.null 是否为空
 
-timestamp 默认允许为 “非空”（not null by default）， 如果你在定义“ts TIMESTAMP DEFAULT NULL” 是非法的。 可以指定为空 null ，“ts TIMESTAMP NULL&#8221; ,这时可以在添加语句改变默认值。
+timestamp 默认允许为 “非空”（not null by default）， 如果你在定义“ts TIMESTAMP DEFAULT NULL” 是非法的。 可以指定为空 null ，“ts TIMESTAMP NULL" ,这时可以在添加语句改变默认值。
 
 ts2 TIMESTAMP NULL DEFAULT 0,
   
@@ -72,4 +72,3 @@ ON UPDATE 见上2
 
 http://database.51cto.com/art/200905/124240.htm
 
-&nbsp;

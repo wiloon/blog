@@ -13,23 +13,23 @@ tags:
 ---
 <pre class="XML">http://www.oschina.net/question/8676_9032
 
-&lt;bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"&gt;  
-       &lt;property name="triggers"&gt;  
-           &lt;list&gt;  
-              &lt;ref bean="testTrigger"/&gt;  
-           &lt;/list&gt;  
-       &lt;/property&gt;  
-       &lt;property name="autoStartup" value="true"/&gt;  
-&lt;/bean&gt;</pre>
+<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+       <property name="triggers">  
+           <list>  
+              <ref bean="testTrigger"/>  
+           </list>  
+       </property>  
+       <property name="autoStartup" value="true"/>  
+</bean>
 
 说明：Scheduler包含一个Trigger列表，每个Trigger表示一个作业。
 
 **2、Trigger的配置**
 
-<pre class="XML">&lt;bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean"&gt;  
-       &lt;property name="jobDetail" ref="testJobDetail"/&gt;  
-       &lt;property name="cronExpression" value="*/1 * * * * ?"/&gt;&lt;!-- 每隔1秒钟触发一次 --&gt;  
-&lt;/bean&gt;</pre>
+<pre class="XML"><bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">  
+       <property name="jobDetail" ref="testJobDetail"/>  
+       <property name="cronExpression" value="*/1 * * * * ?"/><!-- 每隔1秒钟触发一次 -->  
+</bean>
 
 说明：
 
@@ -37,19 +37,19 @@ tags:
 
 字段名                 允许的值                        允许的特殊字符
 
-秒                         0-59                               , &#8211; * /
+秒                         0-59                               , - * /
 
-分                         0-59                               , &#8211; * /
+分                         0-59                               , - * /
 
-小时                   0-23                               , &#8211; * /
+小时                   0-23                               , - * /
 
-日                         1-31                               , &#8211; * ? / L W C
+日                         1-31                               , - * ? / L W C
 
-月                         1-12 or JAN-DEC          , &#8211; * /
+月                         1-12 or JAN-DEC          , - * /
 
-周几                     1-7 or SUN-SAT            , &#8211; * ? / L C #
+周几                     1-7 or SUN-SAT            , - * ? / L C #
 
-年 (可选字段)     empty, 1970-2099      , &#8211; * /
+年 (可选字段)     empty, 1970-2099      , - * /
 
 “?”字符：表示不确定的值
 
@@ -87,16 +87,16 @@ tags:
 
 **3、JobDetail的配置**
 
-<pre class="XML">&lt;bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"&gt;   
-        &lt;property name="targetObject" ref="testJob"/&gt;  
-        &lt;property name="targetMethod" value="execute"/&gt;  
-        &lt;property name="concurrent" value="false"/&gt;
-        &lt;!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 --&gt;  
-&lt;/bean&gt;</pre>
+<pre class="XML"><bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">   
+        <property name="targetObject" ref="testJob"/>  
+        <property name="targetMethod" value="execute"/>  
+        <property name="concurrent" value="false"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->  
+</bean>
 
 **4、业务类的配置**
 
-<bean id=&#8221;testJob&#8221; class=&#8221;com.cjm.web.service.quartz.TestJob&#8221;/>
+<bean id="testJob" class="com.cjm.web.service.quartz.TestJob"/>
 
 **5、业务类源代码**
 
@@ -108,7 +108,7 @@ tags:
              ex.printStackTrace();  
          }  
      }  
-}</pre>
+}
 
 说明：业务类不需要继承任何父类，也不需要实现任何接口，只是一个普通的java类。
 
@@ -116,8 +116,7 @@ tags:
 
 在Spring配置和Quartz集成内容时，有两点需要注意
 
-１、在<Beans>中不能够设置default-lazy-init=&#8221;true&#8221;,否则定时任务不触发，如果不明确指明default-lazy-init的值，默认是false。
+１、在<Beans>中不能够设置default-lazy-init="true",否则定时任务不触发，如果不明确指明default-lazy-init的值，默认是false。
 
-２、在<Beans>中不能够设置default-autowire=&#8221;byName&#8221;的属性，否则后台会报org.springframework.beans.factory.BeanCreationException错误，这样就不能通过Bean名称自动注入，必须通过明确引用注入
+２、在<Beans>中不能够设置default-autowire="byName"的属性，否则后台会报org.springframework.beans.factory.BeanCreationException错误，这样就不能通过Bean名称自动注入，必须通过明确引用注入
 
-&nbsp;

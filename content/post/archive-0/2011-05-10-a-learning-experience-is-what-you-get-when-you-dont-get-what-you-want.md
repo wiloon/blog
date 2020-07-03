@@ -10,4 +10,4 @@ categories:
   - L
 
 ---
-A learning experience is what you get when you don&#8217;t get what you want.
+A learning experience is what you get when you don't get what you want.

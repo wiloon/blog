@@ -10,9 +10,9 @@ categories:
 ---
 **安装特定版本的软件**
 
-\# emerge &#8220;=python-3.2&#8221;
+\# emerge "=python-3.2"
   
-\# emerge &#8220;<python-3.2&#8221;
+\# emerge "<python-3.2"
 
 You can also manually edit the /etc/portage/package.keywords file to unmask keyword_masked packages
   
@@ -20,7 +20,7 @@ Code:
   
 echo www-client/seamonkey >> /etc/portage/package.keywords
   
-If /etc/portage doesn&#8217;t exist then create it
+If /etc/portage doesn't exist then create it
   
 Code:
   

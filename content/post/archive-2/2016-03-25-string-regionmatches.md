@@ -12,7 +12,6 @@ categories:
 
 eg：输入abcde  xxxBcyyy，输出 2。
 
-&nbsp;
 
 完整Java代码：
   
@@ -46,13 +45,13 @@ maxStr=str2; minStr=str1;
   
 int max=maxStr.length();
   
-int min=minStr.length();//System.out.println(maxStr+&#8221; &#8220;+minStr+&#8221; &#8220;+max+&#8221; &#8220;+min);
+int min=minStr.length();//System.out.println(maxStr+" "+minStr+" "+max+" "+min);
   
 int result=0;
   
 OK:
   
-for(int l=min;l>0;l&#8211;){
+for(int l=min;l>0;l-){
   
 for(int i=0;i<=max-l;i++){
   
@@ -60,7 +59,7 @@ for(int j=0;j<=min-l;j++){
   
 if(maxStr.regionMatches(true, i, minStr, j, l)){
   
-result=l;//System.out.println(l+&#8221; &#8220;+i+&#8221; &#8220;+j);
+result=l;//System.out.println(l+" "+i+" "+j);
   
 break OK;
   
@@ -82,7 +81,6 @@ System.out.println(result);
 
 学习点二：灵活使用String.regionMatches方法，来判断两个字符串的子串区域是否相等，具体可参考Java API文档如下。
 
-&nbsp;
 
 regionMatches
   
@@ -118,15 +116,15 @@ Character.toUpperCase(other.charAt(ooffset+k))
   
 参数：
   
-ignoreCase &#8211; 如果为 true，则比较字符时忽略大小写。
+ignoreCase - 如果为 true，则比较字符时忽略大小写。
   
-toffset &#8211; 此字符串中子区域的起始偏移量。
+toffset - 此字符串中子区域的起始偏移量。
   
-other &#8211; 字符串参数。
+other - 字符串参数。
   
-toffset &#8211; 字符串参数中子区域的起始偏移量。
+toffset - 字符串参数中子区域的起始偏移量。
   
-len &#8211; 要比较的字符数。
+len - 要比较的字符数。
   
 返回：
   

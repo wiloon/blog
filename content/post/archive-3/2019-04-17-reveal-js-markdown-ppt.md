@@ -37,33 +37,34 @@ ln -s scrum/index.html index.html
 npm start
 npm start -- --port=8001
 
-    <code class="language-markup line-numbers">&lt;section data-markdown="example.md" data-separator-notes="^Note:" data-charset="UTF-8"&gt;
-    &lt;/section&gt;
+    ```xml
+<section data-markdown="example.md" data-separator-notes="^Note:" data-charset="UTF-8">
+    </section>
 ``` 
 
 ### 内容左对齐
 
-```bash&lt;style&gt;
+```bash<style>
     .reveal .slides {
         text-align: left;
     }
-    .reveal .slides section&gt;* {
+    .reveal .slides section>* {
         margin-left: 0;
         margin-right: 0;
     }
-&lt;/style&gt;
+</style>
 ```
 
 ### 插入图片并控制样式
 
 路径是相对于index.html的路径
 
-```bash![An image](scrum/scrum.png)  &lt;!-- .element height="50%" width="50%" --&gt;
+```bash![An image](scrum/scrum.png)  <!-- .element height="50%" width="50%" -->
 ```
 
 ### 设备字号
 
-<pre><code class="line-numbers">&lt;!-- .element: style="font-size:80%;" --&gt; &lt;br&gt;
+<code class="line-numbers"><!-- .element: style="font-size:80%;" --> <br>
 ```
 
 https://github.com/hakimel/reveal.js/issues/1349

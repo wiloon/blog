@@ -132,21 +132,21 @@ wait_timeout = 120
   
 修改完配置文件，即可启动MySQL。启动完毕后，在MySQL的datadir目录下，若产生以下几个文件，则表示应该可以使用InnoDB引擎了。
 
--rw-rw&#8212;- 1 mysql mysql 1.0G Sep 21 17:25 ibdata1
+-rw-rw-- 1 mysql mysql 1.0G Sep 21 17:25 ibdata1
   
--rw-rw&#8212;- 1 mysql mysql 256M Sep 21 17:25 ib_logfile0
+-rw-rw-- 1 mysql mysql 256M Sep 21 17:25 ib_logfile0
   
--rw-rw&#8212;- 1 mysql mysql 256M Sep 21 10:50 ib_logfile1
+-rw-rw-- 1 mysql mysql 256M Sep 21 10:50 ib_logfile1
 
 登录MySQL后，执行命令，确认已启用InnoDB引擎：
 
 (root:imysql.cn:Thu Oct 15 09:16:22 2009)[mysql]> show engines;
   
-+&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;+
++----+---+----------------------+-----+--+----+
   
 | Engine | Support | Comment | Transactions | XA | Savepoints |
   
-+&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;+
++----+---+----------------------+-----+--+----+
   
 | InnoDB | YES | Supports transactions, row-level locking, and foreign keys | YES | YES | YES |
 
@@ -158,9 +158,9 @@ CREATE TABLE my\_innodb\_talbe(
   
 id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   
-name VARCHAR(20) NOT NULL DEFAULT &#8221;,
+name VARCHAR(20) NOT NULL DEFAULT ",
   
-passwd VARCHAR(32) NOT NULL DEFAULT &#8221;,
+passwd VARCHAR(32) NOT NULL DEFAULT ",
   
 PRIMARY KEY(id),
   

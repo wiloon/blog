@@ -16,7 +16,7 @@ more命令，功能类似 cat ，cat命令是整个文件的内容从上到下
 
 1．命令格式：
 
-more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file &#8230; ]
+more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file ... ]
 
 2．命令功能：
 
@@ -32,7 +32,7 @@ more命令和cat的功能一样都是查看文件里的内容，但有所不同�
 
 -c       从顶部清屏，然后显示
 
--d       提示“Press space to continue，’q’ to quit（按空格键继续，按q键退出）”，禁用响铃功能
+-d       提示“Press space to continue，'q' to quit（按空格键继续，按q键退出）”，禁用响铃功能
 
 -l        忽略Ctrl+l（换页）字符
 
@@ -86,7 +86,6 @@ more +3 log2012.log
 
 2012-04-day3
 
-&nbsp;
 
 ======[root@localhost test]# more +3 log2012.log
 
@@ -98,13 +97,11 @@ more +3 log2012.log
 
 2012-04-day3
 
-&nbsp;
 
 ======[root@localhost test]#
 
-&nbsp;
 
-实例2：从文件中查找第一个出现&#8221;day3&#8243;字符串的行，并从该处前两行开始显示输出
+实例2：从文件中查找第一个出现"day3"字符串的行，并从该处前两行开始显示输出
 
 命令：
 
@@ -114,7 +111,7 @@ more +/day3 log2012.log
 
 [root@localhost test]# more +/day3 log2012.log
 
-&#8230;skipping
+...skipping
 
 2012-04-day1
 
@@ -126,11 +123,9 @@ more +/day3 log2012.log
 
 2012-05-day1
 
-&nbsp;
 
 ======[root@localhost test]#
 
-&nbsp;
 
 实例3：设定每屏显示行数
 
@@ -168,17 +163,17 @@ ls -l  | more -5
 
 总计 36
 
--rw-r&#8211;r&#8211; 1 root root  308 11-01 16:49 log2012.log
+-rw-r-r- 1 root root  308 11-01 16:49 log2012.log
 
--rw-r&#8211;r&#8211; 1 root root   33 10-28 16:54 log2013.log
+-rw-r-r- 1 root root   33 10-28 16:54 log2013.log
 
--rw-r&#8211;r&#8211; 1 root root  127 10-28 16:51 log2014.log
+-rw-r-r- 1 root root  127 10-28 16:51 log2014.log
 
 lrwxrwxrwx 1 root root    7 10-28 15:18 log_link.log -> log.log
 
--rw-r&#8211;r&#8211; 1 root root   25 10-28 17:02 log.log
+-rw-r-r- 1 root root   25 10-28 17:02 log.log
 
--rw-r&#8211;r&#8211; 1 root root   37 10-28 17:07 log.txt
+-rw-r-r- 1 root root   37 10-28 17:07 log.txt
 
 drwxr-xr-x 6 root root 4096 10-27 01:58 scf
 
@@ -186,7 +181,6 @@ drwxrwxrwx 2 root root 4096 10-28 14:47 test3
 
 drwxrwxrwx 2 root root 4096 10-28 14:47 test4
 
-&nbsp;
 
 说明：
 

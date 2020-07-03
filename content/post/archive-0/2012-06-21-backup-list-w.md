@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-[code lang=shell]
+```bash
   
 (add-to-list 'load-path "/home/wiloon/.emacs.d/lisp")
 
@@ -22,7 +22,7 @@ categories:
         
 (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-[/code]
+```
 
 https://www.emacswiki.org/emacs/YamlMode
   

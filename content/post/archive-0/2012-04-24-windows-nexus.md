@@ -10,7 +10,8 @@ categories:
 ---
 ### docker
 
-```bashpodman run \
+```bash
+podman run \
 -d \
 --name nexus \
 -p 8081:8081 \
@@ -83,7 +84,7 @@ click OK
 
 ### 上传pom
 
-选择pom文件，扩展名填写 &#8220;pom&#8221;
+选择pom文件，扩展名填写 "pom"
   
 包路径 和版本信息会从pom自动读取。
   

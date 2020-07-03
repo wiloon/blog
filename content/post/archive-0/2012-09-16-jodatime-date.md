@@ -10,19 +10,19 @@ categories:
 ---
 function currentTime(){
   
-var d = new Date(),str = &#8221;;
+var d = new Date(),str = ";
   
-str += d.getFullYear()+&#8217;年&#8217;;
+str += d.getFullYear()+'年';
   
-str  += d.getMonth() + 1+&#8217;月&#8217;;
+str  += d.getMonth() + 1+'月';
   
-str  += d.getDate()+&#8217;日&#8217;;
+str  += d.getDate()+'日';
   
-str += d.getHours()+&#8217;时&#8217;;
+str += d.getHours()+'时';
   
-str  += d.getMinutes()+&#8217;分&#8217;;
+str  += d.getMinutes()+'分';
   
-str+= d.getSeconds()+&#8217;秒&#8217;;
+str+= d.getSeconds()+'秒';
   
 return str;
   

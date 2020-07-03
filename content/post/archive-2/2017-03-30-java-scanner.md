@@ -32,15 +32,15 @@ public static void main(String[] args) {
   
 Scanner s = new Scanner(System.in);
   
-System.out.println(&#8220;请输入字符串：&#8221;);
+System.out.println("请输入字符串：");
   
 while (true) {
   
 String line = s.nextLine();
   
-if (line.equals(&#8220;exit&#8221;)) break;
+if (line.equals("exit")) break;
   
-System.out.println(&#8220;>>>&#8221; + line);
+System.out.println(">>>" + line);
   
 }
   
@@ -49,8 +49,6 @@ System.out.println(&#8220;>>>&#8221; + line);
 }
 
 请输入字符串：
-  
-234
   
 >>>234
   
@@ -78,9 +76,9 @@ Process finished with exit code 0
   
 public static void main(String[] args) throws FileNotFoundException {
   
-Scanner s = new Scanner(&#8220;123 asdf sd 45 789 sdf asdfl,sdf.sdfl,asdf    &#8230;&#8230;asdfkl    las&#8221;);
+Scanner s = new Scanner("123 asdf sd 45 789 sdf asdfl,sdf.sdfl,asdf    ......asdfkl    las");
   
-//                s.useDelimiter(&#8221; |,|\\.&#8221;);
+//                s.useDelimiter(" |,|\\.");
   
 while (s.hasNext()) {
   
@@ -90,21 +88,15 @@ System.out.println(s.next());
   
 }
 
-123
-  
 asdf
   
 sd
-  
-45
-  
-789
   
 sdf
   
 asdfl,sdf.sdfl,asdf
   
-&#8230;&#8230;asdfkl
+......asdfkl
   
 las
 
@@ -112,15 +104,9 @@ Process finished with exit code 0
 
 将注释行去掉，使用空格或逗号或点号作为分隔符，输出结果如下：
   
-123
-  
 asdf
   
 sd
-  
-45
-  
-789
   
 sdf
   
@@ -152,25 +138,25 @@ public class ThreatAnalyzer {
   
 static String threatData =
   
-&#8220;58.27.82.161@02/10/2005\n&#8221; +
+"58.27.82.161@02/10/2005\n" +
   
-&#8220;204.45.234.40@02/11/2005\n&#8221; +
+"204.45.234.40@02/11/2005\n" +
   
-&#8220;58.27.82.161@02/11/2005\n&#8221; +
+"58.27.82.161@02/11/2005\n" +
   
-&#8220;58.27.82.161@02/12/2005\n&#8221; +
+"58.27.82.161@02/12/2005\n" +
   
-&#8220;58.27.82.161@02/12/2005\n&#8221; +
+"58.27.82.161@02/12/2005\n" +
   
-&#8220;[Next log section with different data format]&#8221;;
+"[Next log section with different data format]";
   
 public static void main(String[] args) {
   
 Scanner scanner = new Scanner(threatData);
   
-String pattern = &#8220;(\\d+[.]\\d+[.]\\d+[.]\\d+)@&#8221; +
+String pattern = "(\\d+[.]\\d+[.]\\d+[.]\\d+)@" +
   
-&#8220;(\\d{2}/\\d{2}/\\d{4})&#8221;;
+"(\\d{2}/\\d{2}/\\d{4})";
   
 while(scanner.hasNext(pattern)) {
   
@@ -182,7 +168,7 @@ String ip = match.group(1);
   
 String date = match.group(2);
   
-System.out.format(&#8220;Threat on %s from %s\n&#8221;, date,ip);
+System.out.format("Threat on %s from %s\n", date,ip);
   
 }
   

@@ -12,7 +12,6 @@ categories:
 
 原文如下：
 
-&nbsp;
 
 **I will laugh at the world.**
 
@@ -22,7 +21,7 @@ I will smile and my digestion will improve; I will chuckle and my burdens will b
 
 I will laugh at the world.
 
-And most of all, I will laugh at myself for humans are most comical when we take ourselves too seriously.  Never will I fall into this trap of the mind.  For though I be nature’s greatest miracle am I not still a mere grain tossed about by the winds of time?  Do I truly know whence I came or whither I am bound?  Will my concern for this day not seem foolish ten years hence?  Why should I permit the petty happenings of today to disturb me?  What can take place before this sun sets which will not seem insignificant in the river of centuries?
+And most of all, I will laugh at myself for humans are most comical when we take ourselves too seriously.  Never will I fall into this trap of the mind.  For though I be nature's greatest miracle am I not still a mere grain tossed about by the winds of time?  Do I truly know whence I came or whither I am bound?  Will my concern for this day not seem foolish ten years hence?  Why should I permit the petty happenings of today to disturb me?  What can take place before this sun sets which will not seem insignificant in the river of centuries?
 
 I will laugh at the world.
 
@@ -34,7 +33,7 @@ For all worldly things shall indeed pass.  When I am heavy with heartache I sha
 
 I will laugh at the world.
 
-I will paint this day with laughter; I will frame this night in song.  Never will I labor to be happy; rather I will remain too busy to be sad.  I will enjoy today’s happiness today.  It is not grain to be stored in a box.  It is not wine to be saved in a jar.  It cannot be saved for the morrow.  It must be sown and reaped on the same day and this will I do, henceforth.
+I will paint this day with laughter; I will frame this night in song.  Never will I labor to be happy; rather I will remain too busy to be sad.  I will enjoy today's happiness today.  It is not grain to be stored in a box.  It is not wine to be saved in a jar.  It cannot be saved for the morrow.  It must be sown and reaped on the same day and this will I do, henceforth.
 
 I will laugh at the world.
 
@@ -48,7 +47,7 @@ Never will I allow myself to become so important, so wise, so dignified, so powe
 
 I will laugh at the world.
 
-And so long as I can laugh never will I be poor.  This then, is one of nature’s greatest gifts, and I will waste it no more.  Only with laughter and happiness can I truly become a success.  Only with laughter and happiness can I enjoy the fruits of my labor.  Were it not so, far better would it be to fail, for happiness is the wine that sharpens the taste of the meal.  To enjoy success I must have happiness, and laughter will be the maiden who serves me.
+And so long as I can laugh never will I be poor.  This then, is one of nature's greatest gifts, and I will waste it no more.  Only with laughter and happiness can I truly become a success.  Only with laughter and happiness can I enjoy the fruits of my labor.  Were it not so, far better would it be to fail, for happiness is the wine that sharpens the taste of the meal.  To enjoy success I must have happiness, and laughter will be the maiden who serves me.
 
 I will be happy.
 
@@ -98,7 +97,6 @@ I will be the greatest salesman the world has ever known.
 
 我要成为世上最伟大的推销员。
 
-&nbsp;
 
 [http://smilejay.com/i\_will\_laugh\_at\_the_world/][1]
 

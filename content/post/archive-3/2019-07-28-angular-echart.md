@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash# 新建 angular项目后， 在项目目录下执行
+```bash
+# 新建 angular项目后， 在项目目录下执行
 yarn add echarts
 yarn add ngx-echarts
 yarn add @types/echarts -D
@@ -16,7 +17,7 @@ yarn add @types/echarts -D
 
 ### src/app/app.module.ts
 
-<pre><code class="language-typescript line-numbers">import { NgxEchartsModule } from 'ngx-echarts';
+<code class="language-typescript line-numbers">import { NgxEchartsModule } from 'ngx-echarts';
 @NgModule({
   imports: [
     ...,
@@ -28,7 +29,7 @@ export class AppModule { }
 
 ### angular.json
 
-<pre><code class="language-json line-numbers">{
+<code class="language-json line-numbers">{
     ...
     projects
     //...
@@ -43,7 +44,7 @@ export class AppModule { }
 
 ### app.component.ts
 
-<pre><code class="language-typescript line-numbers">import {Component} from '@angular/core';
+<code class="language-typescript line-numbers">import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -65,7 +66,7 @@ export class AppComponent {
 
     tooltip: {
       trigger: 'item',
-      formatter: '{a} &lt;br/&gt;{b} : {c} ({d}%)'
+      formatter: '{a} <br/>{b} : {c} ({d}%)'
     },
     visualMap: {
       show: false,
@@ -125,12 +126,13 @@ export class AppComponent {
 
 ### app.component.html<pre data-language=HTML>
 
-<code class="language-markup line-numbers">&lt;div echarts [options]="chartOption" class="chart"&gt;&lt;/div&gt;
+```xml
+<div echarts [options]="chartOption" class="chart"></div>
 ``` 
 
 ### app.component.css
 
-<pre><code class="line-numbers">.chart {
+<code class="line-numbers">.chart {
     height: 400px;
 }
 ```

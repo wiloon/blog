@@ -28,7 +28,7 @@ sudo apt-get install php5-mysql
 
 CREATE DATABASE wordpress;
 
-CREATE USER wordpress IDENTIFIED BY &#8216;PASSWORD&#8217;
+CREATE USER wordpress IDENTIFIED BY 'PASSWORD'
 
 grant all privileges on wordpress.* to wordpress@localhost;
 
@@ -46,11 +46,11 @@ sudo cp wp-config-sample.php wp-config.php
 
 #edit wp-config.php
 
-define(&#8216;DB_NAME&#8217;, &#8216;wordpress&#8217;);    // The name of the database
+define('DB_NAME', 'wordpress');    // The name of the database
 
-define(&#8216;DB_USER&#8217;, &#8216;username&#8217;);     // Your MySQL username
+define('DB_USER', 'username');     // Your MySQL username
 
-define(&#8216;DB_PASSWORD&#8217;, &#8216;password&#8217;); // &#8230;and password
+define('DB_PASSWORD', 'password'); // ...and password
 
 #import wordpress DB data
 
@@ -58,4 +58,4 @@ define(&#8216;DB_PASSWORD&#8217;, &#8216;password&#8217;); // &#8230;and passwor
 
 #wordpress login url:<a id="" href="http://www.wiloon.com/wordpress/wp-login.php" shape="rect" target="_blank">http://www.wiloon.com/wordpress/wp-login.php</a>
 
-#Go to browser check the wordpress is ok&#8230;
+#Go to browser check the wordpress is ok...

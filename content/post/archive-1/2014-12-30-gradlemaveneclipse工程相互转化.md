@@ -10,7 +10,6 @@ tags:
   - Gradle
 
 ---
-&nbsp;
 
 gradle/maven/eclipse工程相互转化：
   
@@ -28,7 +27,7 @@ mvn eclipse:eclipse
   
 编辑build.gradle文件，在文件最前面增加一行：
   
-apply plugin: &#8216;eclipse&#8217;
+apply plugin: 'eclipse'
 
 gradle eclipse
 
@@ -40,7 +39,7 @@ gradle eclipse
   
 gradle集成了一个很方便的插件：Build Init Plugin，使用这个插件可以很方便地创建一个新的gradle项目，或者将其它类型的项目转换为gradle项目。
   
-gradle init &#8211;type pom
+gradle init -type pom
 
 6、gradle->maven
 

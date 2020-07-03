@@ -50,7 +50,7 @@ static
 
 {
 
-System.loadLibrary(&#8220;test&#8221;);
+System.loadLibrary("test");
 
 }
 
@@ -70,7 +70,7 @@ new CheckFile().displayHelloWorld();
 
 然后根据头文件的内容编写com\_hode\_hodeframework\_modelupdate\_CheckFile.c文件
 
-#include &#8220;CheckFile.h&#8221;
+#include "CheckFile.h"
 
 #include
 
@@ -80,13 +80,13 @@ JNIEXPORT void JNICALL Java\_com\_hode\_hodeframework\_modelupdate\_CheckFile\_d
 
 {
 
-printf(&#8220;Hello world!n&#8221;);
+printf("Hello world!n");
 
 return;
 
 }
 
-之后编译生成DLL文件如“test.dll”，名称与System.loadLibrary(&#8220;test&#8221;)中的名称一致
+之后编译生成DLL文件如“test.dll”，名称与System.loadLibrary("test")中的名称一致
 
 vc的编译方法：cl -I%java\_home%include -I%java\_home%includewin32 -LD com\_hode\_hodeframework\_modelupdate\_CheckFile.c -Fetest.dll
 

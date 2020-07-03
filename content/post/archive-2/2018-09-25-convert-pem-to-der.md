@@ -8,8 +8,8 @@ categories:
   - Uncategorized
 
 ---
-[code lang=shell]
+```bash
   
 openssl x509 -outform der -in certificate.pem -out certificate.der
   
-[/code]
+```

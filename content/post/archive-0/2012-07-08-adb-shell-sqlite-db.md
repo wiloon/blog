@@ -32,7 +32,6 @@ select * from tag;
 
 .header on
 
-&nbsp;
 
 查看sqlite3表结构的命令
   
@@ -44,11 +43,10 @@ select * from tag;
   
 如果想查看这些表的结构：
 
-select * from sqlite_master where type=&#8221;table&#8221;;
+select * from sqlite_master where type="table";
   
 可以看到类似：
 
-&nbsp;
 
 默认情况下，不会出现红框中的表头，需要之前设置，命令为：
 
@@ -56,16 +54,12 @@ select * from sqlite_master where type=&#8221;table&#8221;;
   
 如果只想查看具体一张表的表结构，比如查看emperors表，命令为：
 
-select * from sqlite_master where type=&#8221;table&#8221; and name=&#8221;emperors&#8221;;
+select * from sqlite_master where type="table" and name="emperors";
   
 另外，也可以这样：
 
 sqlite> .schema emperors
   
 CREATE TABLE emperors( id integer primary key autoincrement, name text,dynasty text,start_year text);
-
-&nbsp;
-
-&nbsp;
 
 http://marshal.easymorse.com/index.html%3Fp=2981.html

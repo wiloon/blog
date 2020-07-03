@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-测试文件用 &#8220;_test&#8221; 结尾，测试的函数用Test开头
+测试文件用 "_test" 结尾，测试的函数用Test开头
 
 fibonacci.go
   
@@ -30,7 +30,8 @@ fibonacci_test.go
   
 函数中通过调用testing.T 的Error，Errorf，FailNow,Fatal,FatalIf方法，说明测试不通过，调用Log方法来记录测试信息
 
-```golang package gotest
+```golang
+package gotest
 
 import (
     "testing"
@@ -55,9 +56,9 @@ func Test_Division_2(t *testing.T) {
 
 压力测试用例必须遵循如下格式，其中XXX可以是任意字母数字组合，但是首字母不能是小写字母
    
-func BenchmarkXXX(b _testing.B) { &#8230; }
+func BenchmarkXXX(b _testing.B) { ... }
   
-go test不会默认执行压力测试的函数，如果要执行压力测试需要带上参数-test.bench,语法：-test.bench=&#8221;test\_name\_regex&#8221;,例如go test.bench=&#8221;.&#8221;_ 表示测试全部的压力测试函数
+go test不会默认执行压力测试的函数，如果要执行压力测试需要带上参数-test.bench,语法：-test.bench="test\_name\_regex",例如go test.bench="."_ 表示测试全部的压力测试函数
   
 在压力测试用例中，请记得在循环体内使用testing.B.N，以使测试可以正常运行
   
@@ -93,7 +94,8 @@ Division(4, 5)
   
 }
 
-```bashgo test -test.bench=".*"
+```bash
+go test -test.bench=".*"
 #使用-count可以指定执行多少次
 go test -test.bench=".*" -count=5
 ```
@@ -142,7 +144,7 @@ package lib
 
 import (
   
-&#8220;testing&#8221;
+"testing"
   
 )
 
@@ -152,7 +154,7 @@ r := Fibonacci(10)
   
 if r != 55 {
   
-t.Errorf(&#8220;Fibonacci(10) failed. Got %d, expected 55.&#8221;, r)
+t.Errorf("Fibonacci(10) failed. Got %d, expected 55.", r)
   
 }
   
@@ -166,24 +168,12 @@ ok lib 0.008s
   
 如果提示找不到包，则将该代码路径加入环境变量GOPATH就可以了。
 
-can&#8217;t load package: package lib: cannot find package &#8220;lib&#8221; in any of:
+can't load package: package lib: cannot find package "lib" in any of:
   
 性能测试
   
 结合上面的方法，这里测试一下函数的性能，如果需要进行性能测试，则函数开头使用Benchmark就可以了。
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
 //性能测试
   
 func BenchmarkFibonacci(b *testing.B) {
@@ -210,32 +200,6 @@ ok lib 2.608s
 
 这个性能测试只测试参数为10的情况。如果有需要可以测试多个参数：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
 //测试参数为5的性能
   
 func BenchmarkFibonacci5(b *testing.B) {

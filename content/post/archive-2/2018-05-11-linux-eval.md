@@ -28,13 +28,13 @@ echo $4
   
 如果使用命令：
   
-echo &#8220;\$$#&#8221;
+echo "\$$#"
   
 则得到的结果是 $4，而不是我们想要的44。这里涉及到一个变量间接引用的问题，我们的本意是输出 $4，默认情况下，命令后忽略变量间接引用的情况。
   
 这时候，就可以使用eval命令。
   
-eval echo &#8220;\$$#&#8221;
+eval echo "\$$#"
   
 得到的结果为44
   
@@ -52,7 +52,7 @@ eval echo $NAME等价于echo $NAME
 
 test.txt内容：hello shell world!
 
-myfile=&#8221;cat test.txt&#8221;
+myfile="cat test.txt"
 
 (1)echo $myfile　　#result:cat test.txt
 
@@ -62,8 +62,8 @@ myfile=&#8221;cat test.txt&#8221;
 
 4.获得最后一个参数
 
-echo &#8220;Last argument is $(eval echo \$$#)&#8221;
+echo "Last argument is $(eval echo \$$#)"
 
-echo &#8220;Last argument is $(eval echo $#)&#8221;
+echo "Last argument is $(eval echo $#)"
 
 转自：http://www.cnblogs.com/xdzone/archive/2011/03/15/1984971.html

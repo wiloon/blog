@@ -16,9 +16,9 @@ Compile time Time spent in just-in-time (JIT) compilation
 
 if visualvm can not find java
   
-start visualvm with &#8211;jdkhome
+start visualvm with -jdkhome
   
-visualvm.exe &#8211;jdkhome D:\java\jdk7
+visualvm.exe -jdkhome D:\java\jdk7
 
 插件安装目录
   
@@ -52,7 +52,7 @@ VisualVM监控线程
 
 1：新建一个jstatd.all.policy文件，在里面添加以下内容来保证jstatd服务启动的时候不报异常：
 
-grant codebase &#8220;file:${java.home}/../lib/tools.jar&#8221; {
+grant codebase "file:${java.home}/../lib/tools.jar" {
   
 permission java.security.AllPermission;
   
@@ -74,7 +74,7 @@ rmiregistry 2020 & jstatd -J-Djava.security.policy=jstatd.all.policy -p 20
 
 I：将jmxremote.access、jmxremote.password.template权限调整为读写：
 
-grant codebase &#8220;file:${java.home}/../lib/tools.jar&#8221; {
+grant codebase "file:${java.home}/../lib/tools.jar" {
   
 permission java.security.AllPermission;
   
@@ -90,13 +90,13 @@ II：vi jmxremote.password去掉
 
 2：在Jboss的启动文件中添加以下信息：
 
-JAVA_OPTS=&#8221;-Dcom.sun.management.jmxremote.port=2899 \
+JAVA_OPTS="-Dcom.sun.management.jmxremote.port=2899 \
   
 -Dcom.sun.management.jmxremote.ssl=false \
   
 -Dcom.sun.management.jmxremote.authenticate=false \
   
--Djava.rmi.server.hostname=10.212.20.9  其他配置&#8221;
+-Djava.rmi.server.hostname=10.212.20.9  其他配置"
   
 3：检查启动情况：
 
@@ -122,7 +122,7 @@ YourKit Java Profiler
           
 YourKit 是一个用于分析Java 与.NET 应用程序的智能工具，YourKit Java Profiler 已经被IT 专业人士与分析师公认为最好的分析工具。通过YourKit 技术解决方案可以以非常高的的专业水平分析出CPU 与内存使用情况。
           
-YourKit Java Profiler 还获得了Java Developer&#8217;s Journal(Java 开发者杂志)的编辑选择奖，其功能的强大可见一斑。
+YourKit Java Profiler 还获得了Java Developer's Journal(Java 开发者杂志)的编辑选择奖，其功能的强大可见一斑。
           
 YourKit 网站官方：http://www.yourkit.com
           

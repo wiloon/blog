@@ -18,7 +18,6 @@ D-Bus是一个为应用程序间通信的消息总线系统, 用于进程之间�
 
 3、基于特定应用程序框架的封装库或捆绑（wrapper libraries or bindings ）。例如，libdbus-glib和libdbus-qt，还有绑定在其他语言，例如Python的。大多数开发者都是使用这些封装库的API，因为它们简化了D-Bus编程细节。libdbus被有意设计成为更高层次绑定的底层后端（low-levelbackend ）。大部分libdbus的 API仅仅是为了用来实现绑定。
 
-&nbsp;
 
 总线
 
@@ -46,7 +45,6 @@ D、带有异常处理的通用远程调用接口
 
 E、支持广播类型的通信
 
-&nbsp;
 
 Bus daemon总线守护
 

@@ -26,17 +26,17 @@ AUTOMAKE和AUTOCONF是非常有用的用来发布C程序的东西。如果你也
 
 代码:
   
-./configure &#8211;prefix=/usr
+./configure -prefix=/usr
       
 上面的意思是将该软件安装在 /usr 下面，执行文件就会安装在 /usr/bin （而不是默认的 /usr/local/bin),
   
 资源文件就会安装在 /usr/share（而不是默认的/usr/local/share）。
   
-同时一些软件的配置文件你可以通过指定 &#8211;sys-config= 参数进行设定。
+同时一些软件的配置文件你可以通过指定 -sys-config= 参数进行设定。
   
-有一些软件还可以加上 &#8211;with、&#8211;enable、&#8211;without、&#8211;disable 等等参数对编译加以控制，
+有一些软件还可以加上 -with、-enable、-without、-disable 等等参数对编译加以控制，
   
-你可以通过允许 ./configure &#8211;help 察看详细的说明帮助。
+你可以通过允许 ./configure -help 察看详细的说明帮助。
 
     2、make ，这一步就是编译，大多数的源代码包都经过这一步进行编译
     
@@ -98,7 +98,7 @@ cc和gcc又是什么？我在rh7.3用./configure时，它老说我没有cc，无
   
 cc是gcc的连接.gcc是编译器.你安装的时候大概是没有选择开发工具.你自己到光盘上找一下gcc* 吧.装上就行了.
   
-或者yum -y groupinstall &#8220;Development Tools&#8221; 自动安装基本开发工具
+或者yum -y groupinstall "Development Tools" 自动安装基本开发工具
   
 CC是makefile里用来定义编译器的,是为了方便代码移植而设定,因为不同的平台可能用到不同的编译器
   
@@ -138,7 +138,7 @@ Q5:
   
 Makefile是什么东东？有什么用？怎么用？
   
-makefile是用于自动编译和链接的，一个工程有很多文件组成，每一个文件的改变都会导致工程的重新链接&#8212;&#8211;但是不是所有的文件都需要重新编译，makefile能够纪录文件的信息，决定在链接的时候需要重新编译哪些文件！
+makefile是用于自动编译和链接的，一个工程有很多文件组成，每一个文件的改变都会导致工程的重新链接--但是不是所有的文件都需要重新编译，makefile能够纪录文件的信息，决定在链接的时候需要重新编译哪些文件！
 
 在unix系统下，makefile是与make命令配合使用的。
   

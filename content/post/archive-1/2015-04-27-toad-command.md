@@ -10,4 +10,4 @@ tags:
   - Database
 
 ---
-database &#8211;>schema browse&#8211;>my schema &#8211;>Tables查看该用户所有的表
+database ->schema browse->my schema ->Tables查看该用户所有的表

@@ -10,11 +10,11 @@ categories:
 ---
 angler: Nexus 6P (codenamed Angler)
   
-provided you&#8217;ve already unlocked your bootloader,
+provided you've already unlocked your bootloader,
 
   1. Download the TWRP Recovery
   
-    <https://dl.twrp.me/angler/></p> 
+    <https://dl.twrp.me/angler/> 
   2. Download the SuperSU and push the zip to your device.
   
     <http://www.supersu.com/download>
@@ -31,11 +31,11 @@ provided you&#8217;ve already unlocked your bootloader,
 
   6. reboot to TWRP by powering your phone off, then pressing and holding the volume down and power keys for five seconds.
 
-  7. When TWRP boots up, tap &#8220;Install,&#8221; then navigate to the Download folder and select the SuperSU ZIP without the extra delay. Then, swipe to confirm the installation, and when that&#8217;s finished, tap on Reboot System and wait for Android to boot up (it might take a couple of minutes for the first boot with root).
+  7. When TWRP boots up, tap "Install," then navigate to the Download folder and select the SuperSU ZIP without the extra delay. Then, swipe to confirm the installation, and when that's finished, tap on Reboot System and wait for Android to boot up (it might take a couple of minutes for the first boot with root).
 
   8. install ss apk
 
-## &#8212;
+## -
 
 SuperSU Stable, https://download.chainfire.eu/969/SuperSU/UPDATE-SuperSU-v2.76-20160630161323.zip
 

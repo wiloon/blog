@@ -12,7 +12,7 @@ https://docs.gradle.org/current/userguide/publishing_maven.html#header
 
 gradle v5.3.1
 
-<pre><code class="language-kotlin line-numbers">&lt;br />group = "com.wiloon.group0"
+<code class="language-kotlin line-numbers"><br />group = "com.wiloon.group0"
 version = "0.0.1-SNAPSHOT"
 
 plugins {
@@ -21,20 +21,19 @@ plugins {
     id("com.gradle.build-scan") version "2.2.1"
 }
 
-
-tasks.register&lt;Jar&gt;("sourcesJar") {
+tasks.register<Jar>("sourcesJar") {
     from(sourceSets.main.get().allJava)
     archiveClassifier.set("sources")
 }
 
-tasks.register&lt;Jar&gt;("javadocJar") {
+tasks.register<Jar>("javadocJar") {
     from(tasks.javadoc)
     archiveClassifier.set("javadoc")
 }
 
 publishing {
     publications {
-        create&lt;MavenPublication&gt;("maven") {
+        create<MavenPublication>("maven") {
             from(components["java"])
             artifact(tasks["sourcesJar"])
             artifact(tasks["javadocJar"])

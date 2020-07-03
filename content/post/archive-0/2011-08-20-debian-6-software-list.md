@@ -33,7 +33,7 @@ run synaptic
    
 install emacs
    
-#copy Emacs’s configuration file to ~./ as .Emacs
+#copy Emacs's configuration file to ~./ as .Emacs
    
 install Chrome
 
@@ -82,7 +82,7 @@ Wladimir Palant
    
 system>preference>appearance>font
    
-#set terminal’s font as wqy.
+#set terminal's font as wqy.
    
 #Audacious: music player.
    

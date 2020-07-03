@@ -55,8 +55,7 @@ exists key_name
 type key0
 
 ### 删除 key
-
-DEL key [key &#8230;]
+DEL key [key ...]
 
 ### 设置过期时间
 
@@ -82,7 +81,8 @@ TTL key
 
 O(N) where N is the number of keys that will be removed. When a key to remove holds a value other than a string, the individual complexity for this key is O(M) where M is the number of elements in the list, set, sorted set or hash. Removing a single key that holds a string value is O(1).
 
-```bashredis-cli -h 127.0.0.1 -p 6379
+```bash
+redis-cli -h 127.0.0.1 -p 6379
 
 #cluster
 redis-cli -c -h 127.0.0.1 -p 6379

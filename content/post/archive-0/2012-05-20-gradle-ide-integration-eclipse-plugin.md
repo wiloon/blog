@@ -16,9 +16,8 @@ https://github.com/spring-projects/eclipse-integration-gradle/
 
 ### http://dist.springsource.com/release/TOOLS/gradle (latest release)
 
-&nbsp;
 
-<span style="line-height: 1.5em;">config gradle heap space</span>
+<span style="line-height: 1.5em;">config gradle heap space
 
 Preference>Gradle>Arguments>JVM Arguments
 

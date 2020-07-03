@@ -12,7 +12,7 @@ categories:
 
 但旧的数据使用的是中文版, 使用的排序规则是 Chinese\_PRC\_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
 
-Cannot resolve the collation conflict between &#8220;SQL\_Latin1\_General\_CP1\_CI\_AS&#8221; and &#8220;Chinese\_PRC\_CI\_AS&#8221; in the equal to operation.
+Cannot resolve the collation conflict between "SQL\_Latin1\_General\_CP1\_CI\_AS" and "Chinese\_PRC\_CI\_AS" in the equal to operation.
 
 <wbr />
 
@@ -34,23 +34,22 @@ SELECT Title **COLLATE DATABASE_DEFAULT**,
   
 FirstName **COLLATE DATABASE_DEFAULT**, <wbr /> MiddleName **COLLATE DATABASE_DEFAULT,** EmailAddress**COLLATE DATABASE_DEFAULT**
 
-**<span style="color: #000000;">2. 在建表时直接更改表的排序规则:</span>**
+**<span style="color: #000000;">2. 在建表时直接更改表的排序规则:**
 
-CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**<span>Chinese_PRC_CI_AS</span>**)
+CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**<span>Chinese_PRC_CI_AS**)
 
-<span style="color: #000000;"><strong>3. 使用以下语句更改,但不适用于临时表</strong></span>
+<span style="color: #000000;">3. 使用以下语句更改,但不适用于临时表
 
-ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medium;">Chinese_PRC_CI_AS</span>**
+ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medium;">Chinese_PRC_CI_AS**
 
-&nbsp;
 
 一、排序规则简介：
 
-什么叫排序规则呢？MS是这样描述的：&#8221;在 Microsoft SQL Server  中，
+什么叫排序规则呢？MS是这样描述的："在 Microsoft SQL Server  中，
   
 字符串的物理存储由排序规则控制。排序规则指定表示每个字符的位模式以及存
   
-储和比较字符所使用的规则。&#8221;
+储和比较字符所使用的规则。"
   
 在查询分析器内执行下面语句，可以得到SQL　SERVER支持的所有排序规则。
   
@@ -90,23 +89,23 @@ _WI(WS) 是否区分宽度 WI不区分，WS区分(width-insensitive/width-sensit
   
 二、修改、查看排序规则：
 
-&#8212;&#8212;修改列的排序规则
+--修改列的排序规则
   
 ALTER TABLE tb
   
 ALTER COLUMN colname nvarchar(100) COLLATE Chinese\_PRC\_CI_AS
 
-&#8212;&#8212;修改数据库的排序规则
+--修改数据库的排序规则
   
 ALTER DATABASE database
   
 COLLATE Chinese\_PRC\_CS_AS
 
-&#8212;&#8212;查看某个表的排序规则
+--查看某个表的排序规则
   
 select collation from syscolumns
   
-where id=object_id(N&#8217;yourtablename&#8217;)
+where id=object_id(N'yourtablename')
 
 五、排序规则应用：
 
@@ -118,13 +117,13 @@ SQL SERVER提供了大量的WINDOWS和SQLSERVER专用的排序规则，但它的
 
 create table #t(id int,name varchar(20))
   
-insert #t select 1,&#8217;中&#8217;
+insert #t select 1,'中'
   
-union all select 2,&#8217;国&#8217;
+union all select 2,'国'
   
-union all select 3,&#8217;人&#8217;
+union all select 3,'人'
   
-union all select 4,&#8217;阿&#8217;
+union all select 4,'阿'
 
 select * from #t order by name collate Chinese\_PRC\_CS\_AS\_KS_WS
   
@@ -134,7 +133,7 @@ drop table #t
   
 id          name
   
-&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+---- -------
   
 4           阿
   
@@ -150,15 +149,15 @@ id          name
 
 create table #t(id int,name varchar(20))
 
-insert #t select 1,&#8217;三&#8217;
+insert #t select 1,'三'
   
-union all select 2,&#8217;乙&#8217;
+union all select 2,'乙'
   
-union all select 3,&#8217;二&#8217;
+union all select 3,'二'
   
-union all select 4,&#8217;一&#8217;
+union all select 4,'一'
   
-union all select 5,&#8217;十&#8217;
+union all select 5,'十'
   
 select * from #t order by name collate Chinese\_PRC\_Stroke\_CS\_AS\_KS\_WS
   
@@ -168,7 +167,7 @@ drop table #t
   
 id          name
   
-&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+---- -------
   
 4           一
   
@@ -181,10 +180,6 @@ id          name
 1           三
   
 */
-
-&nbsp;
-
-&nbsp;
 
 三、常见问题处理：
 
@@ -238,7 +233,7 @@ LatinCol nvarchar(10) COLLATE latin1\_general\_cs_as
 
 )
 
-INSERT TestTab VALUES (1, N&#8217;A&#8217;, N&#8217;a&#8217;)
+INSERT TestTab VALUES (1, N'A', N'a')
 
 GO
 
@@ -268,6 +263,5 @@ WHERE GreekCol = LatinCol COLLATE greek\_ci\_as
 
 还需注意的是，尽管 LatinCol 通常有一个区分大小写的排序规则，但表达式不区分大小写的排序规则会将其覆盖，从而使“A”的大写和小写被视为等同。
 
-&nbsp;
 
 <http://blog.sina.com.cn/s/blog_539c0c040100zxsn.html>

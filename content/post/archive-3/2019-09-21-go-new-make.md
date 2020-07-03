@@ -18,9 +18,9 @@ new(T) 为一个 T 类型新值分配空间并将此空间初始化为 T 的零�
 
 p1 := new(int)
   
-fmt.Printf(&#8220;p1 &#8211;> %#v \n &#8220;, p1) //(*int)(0xc42000e250)
+fmt.Printf("p1 -> %#v \n ", p1) //(*int)(0xc42000e250)
   
-fmt.Printf(&#8220;p1 point to &#8211;> %#v \n &#8220;, *p1) //0
+fmt.Printf("p1 point to -> %#v \n ", *p1) //0
 
 var p2 _int
   
@@ -28,9 +28,9 @@ i := 0
   
 p2 = &i
   
-fmt.Printf(&#8220;p2 &#8211;> %#v \n &#8220;, p2) //(_int)(0xc42000e278)
+fmt.Printf("p2 -> %#v \n ", p2) //(_int)(0xc42000e278)
   
-fmt.Printf(&#8220;p2 point to &#8211;> %#v \n &#8220;, *p2) //0
+fmt.Printf("p2 point to -> %#v \n ", *p2) //0
   
 上面的代码是等价的，new(int) 将分配的空间初始化为 int 的零值，也就是 0，并返回 int 的指针，这和直接声明指针并初始化的效果是相同的。
 
@@ -42,7 +42,7 @@ var s1 []int
   
 if s1 == nil {
       
-fmt.Printf(&#8220;s1 is nil &#8211;> %#v \n &#8220;, s1) // []int(nil)
+fmt.Printf("s1 is nil -> %#v \n ", s1) // []int(nil)
   
 }
 
@@ -50,11 +50,11 @@ s2 := make([]int, 3)
   
 if s2 == nil {
       
-fmt.Printf(&#8220;s2 is nil &#8211;> %#v \n &#8220;, s2)
+fmt.Printf("s2 is nil -> %#v \n ", s2)
   
 } else {
       
-fmt.Printf(&#8220;s2 is not nill &#8211;> %#v \n &#8220;, s2)// []int{0, 0, 0}
+fmt.Printf("s2 is not nill -> %#v \n ", s2)// []int{0, 0, 0}
   
 }
   
@@ -64,7 +64,7 @@ var m1 map[int]string
   
 if m1 == nil {
       
-fmt.Printf(&#8220;m1 is nil &#8211;> %#v \n &#8220;, m1) //map[int]string(nil)
+fmt.Printf("m1 is nil -> %#v \n ", m1) //map[int]string(nil)
   
 }
 
@@ -72,11 +72,11 @@ m2 := make(map[int]string)
   
 if m2 == nil {
       
-fmt.Printf(&#8220;m2 is nil &#8211;> %#v \n &#8220;, m2)
+fmt.Printf("m2 is nil -> %#v \n ", m2)
   
 } else {
       
-fmt.Printf(&#8220;m2 is not nill &#8211;> %#v \n &#8220;, m2) map[int]string{}
+fmt.Printf("m2 is not nill -> %#v \n ", m2) map[int]string{}
   
 }
 
@@ -84,7 +84,7 @@ var c1 chan string
   
 if c1 == nil {
       
-fmt.Printf(&#8220;c1 is nil &#8211;> %#v \n &#8220;, c1) //(chan string)(nil)
+fmt.Printf("c1 is nil -> %#v \n ", c1) //(chan string)(nil)
   
 }
 
@@ -92,11 +92,11 @@ c2 := make(chan string)
   
 if c2 == nil {
       
-fmt.Printf(&#8220;c2 is nil &#8211;> %#v \n &#8220;, c2)
+fmt.Printf("c2 is nil -> %#v \n ", c2)
   
 } else {
       
-fmt.Printf(&#8220;c2 is not nill &#8211;> %#v \n &#8220;, c2)//(chan string)(0xc420016120)
+fmt.Printf("c2 is not nill -> %#v \n ", c2)//(chan string)(0xc420016120)
   
 }
   
@@ -112,23 +112,23 @@ s[0] = 1
 
 s2 := make([]int, 3)
   
-fmt.Printf(&#8220;%#v&#8221;, s2) //[]int{0, 0, 0}
+fmt.Printf("%#v", s2) //[]int{0, 0, 0}
   
 modifySlice(s2)
   
-fmt.Printf(&#8220;%#v&#8221;, s2) //[]int{1, 0, 0}
+fmt.Printf("%#v", s2) //[]int{1, 0, 0}
   
 这说明 make(T, args) 返回的是引用类型，在函数内部可以直接更改原始值，对 map 和 channel 也是如此。
 
 func modifyMap(m map[int]string) {
       
-m[0] = &#8220;string&#8221;
+m[0] = "string"
   
 }
 
 func modifyChan(c chan string) {
       
-c <- &#8220;string&#8221;
+c <- "string"
   
 }
 
@@ -136,33 +136,33 @@ m2 := make(map[int]string)
   
 if m2 == nil {
       
-fmt.Printf(&#8220;m2 is nil &#8211;> %#v \n &#8220;, m2)
+fmt.Printf("m2 is nil -> %#v \n ", m2)
   
 } else {
       
-fmt.Printf(&#8220;m2 is not nill &#8211;> %#v \n &#8220;, m2) //map[int]string{}
+fmt.Printf("m2 is not nill -> %#v \n ", m2) //map[int]string{}
   
 }
 
 modifyMap(m2)
   
-fmt.Printf(&#8220;m2 is not nill &#8211;> %#v \n &#8220;, m2) // map[int]string{0:&#8221;string&#8221;}
+fmt.Printf("m2 is not nill -> %#v \n ", m2) // map[int]string{0:"string"}
 
 c2 := make(chan string)
   
 if c2 == nil {
       
-fmt.Printf(&#8220;c2 is nil &#8211;> %#v \n &#8220;, c2)
+fmt.Printf("c2 is nil -> %#v \n ", c2)
   
 } else {
       
-fmt.Printf(&#8220;c2 is not nill &#8211;> %#v \n &#8220;, c2)
+fmt.Printf("c2 is not nill -> %#v \n ", c2)
   
 }
 
 go modifyChan(c2)
   
-fmt.Printf(&#8220;c2 is not nill &#8211;> %#v &#8220;, <-c2) //&#8221;string&#8221;
+fmt.Printf("c2 is not nill -> %#v ", <-c2) //"string"
   
 很少需要使用 new
   
@@ -180,7 +180,7 @@ age int
   
 var foo1 Foo
   
-fmt.Printf(&#8220;foo1 &#8211;> %#v\n &#8220;, foo1) //main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo1 -> %#v\n ", foo1) //main.Foo{age:0, name:""}
   
 foo1.age = 1
   
@@ -190,7 +190,7 @@ fmt.Println(foo1.age)
   
 foo2 := Foo{}
   
-fmt.Printf(&#8220;foo2 &#8211;> %#v\n &#8220;, foo2) //main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo2 -> %#v\n ", foo2) //main.Foo{age:0, name:""}
   
 foo2.age = 2
   
@@ -200,7 +200,7 @@ fmt.Println(foo2.age)
   
 foo3 := &Foo{}
   
-fmt.Printf(&#8220;foo3 &#8211;> %#v\n &#8220;, foo3) //&main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo3 -> %#v\n ", foo3) //&main.Foo{age:0, name:""}
   
 foo3.age = 3
   
@@ -210,7 +210,7 @@ fmt.Println(foo3.age)
   
 foo4 := new(Foo)
   
-fmt.Printf(&#8220;foo4 &#8211;> %#v\n &#8220;, foo4) //&main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo4 -> %#v\n ", foo4) //&main.Foo{age:0, name:""}
   
 foo4.age = 4
   
@@ -220,7 +220,7 @@ fmt.Println(foo4.age)
   
 var foo5 _Foo = new(Foo)
   
-fmt.Printf(&#8220;foo5 &#8211;> %#v\n &#8220;, foo5) //&main.Foo{age:0, name:&#8221;&#8221;}
+fmt.Printf("foo5 -> %#v\n ", foo5) //&main.Foo{age:0, name:""}
   
 foo5.age = 5
   
