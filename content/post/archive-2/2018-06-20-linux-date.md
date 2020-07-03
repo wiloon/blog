@@ -87,8 +87,6 @@ Suppose you had not specified time zone information in the example above. Then, 
 
 date -date='1970-01-01 00:00:01' +%s
   
-1
-  
 If you're sorting or graphing dated data, your raw date values may be represented as seconds since the epoch. But few people can look at the date \`946684800' and casually note "Oh, that's the first second of the year 2000."
   
 date -date='2000-01-01 UTC' +%s

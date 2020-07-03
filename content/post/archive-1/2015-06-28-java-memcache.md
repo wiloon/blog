@@ -78,14 +78,6 @@ lrwxrwxrwx   1 root    root          21 2009-07-19 08:45 libevent.
 
 ?View Code BASH
   
-1
-  
-2
-  
-3
-  
-4
-  
 5
 
 wget http://www.monkey.org/~provos/libevent-2.0.13-stable.tar.gz

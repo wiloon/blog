@@ -18,19 +18,11 @@ let array1:Array<number>;
   
 let array2:number[];
   
-1
-  
-2
-  
 二、数组初始化
 
 let array1:Array<number> = new Array<number>();
   
 let array2:number[] = [1，2，3];
-  
-1
-  
-2
   
 三、数组元素赋值、添加、更改
 
@@ -53,34 +45,6 @@ console.log(array) // [20, 2, 3, 4, 5, 6]
 array.unshift(8, 0); // 在第一个位置依次添加
   
 console.log(array); // [8, 0, 20, 2, 3, 4, 5, 6]
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
   
 四、删除
 

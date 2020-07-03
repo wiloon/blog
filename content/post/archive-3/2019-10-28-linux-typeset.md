@@ -84,8 +84,6 @@ typeset -i num #强制num为一个整数,如:
   
 /home/lee#echo $num
   
-10
-  
 /home/lee#typeset -i16 num=10
   
 /home/lee#echo $num

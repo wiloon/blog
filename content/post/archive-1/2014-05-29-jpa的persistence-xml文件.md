@@ -32,8 +32,6 @@ persistence.xml:
   
 5 http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd">
   
-6
-  
 7 <!-必须要有name属性，不能为空 ->
   
 8 <persistence-unit name="jpaPU" transaction-type="RESOURCE_LOCAL">
@@ -65,8 +63,6 @@ persistence.xml:
 21 <!-可选 ->
   
 22 <validation-mode>CALLBACK</validation-mode>
-  
-23
   
 24 <!-厂商的特定属性 ->
   
@@ -103,8 +99,6 @@ persistence.xml:
 40 </properties>
   
 41 </persistence-unit>
-  
-42
   
 43 </persistence>
   

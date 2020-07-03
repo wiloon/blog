@@ -62,111 +62,21 @@ contained is overwritten unless the \`-a' option is used.）
   
 [root@web ~]# cat 1.txt
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 [root@web ~]# cat 1.txt >2.txt
   
 [root@web ~]# cat 1.txt | tee 3.txt
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 [root@web ~]# cat 2.txt
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 [root@web ~]# cat 3.txt
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
   
 [root@web ~]# cat 1.txt >>2.txt
   
 [root@web ~]# cat 1.txt | tee -a 3.txt
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 [root@web ~]# cat 2.txt
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 [root@web ~]# cat 3.txt
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
   
 [root@web ~]#
 

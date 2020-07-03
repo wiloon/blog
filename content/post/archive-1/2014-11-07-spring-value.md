@@ -24,16 +24,12 @@ xsi:schemaLocation="http://www.springframework.org/schema/util http://www.spring
 
 的命名空间，然后
 
-2
-  
 <util:properties id="settings" location="WEB-INF/classes/META-INF/spring/test.properties" />
 
 3 创建test.properties
   
 abc=123
 
-4
-  
 import org.springframework.beans.factory.annotation.Value;
   
 import org.springframework.stereotype.Controller;

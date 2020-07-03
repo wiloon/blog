@@ -62,28 +62,6 @@ BinaryOperator - 二元操作符， 传入的两个参数的类型和返回类�
   
 Java API对函数式接口都已经标明了， 如
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
 java.lang
   
 Interface Runnable
@@ -106,22 +84,6 @@ This is a functional interface and can therefore be used as the assignment targe
   
 如以下的接口依然是函数式接口：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
 @FunctionalInterface
   
 public interface ObjectMethodFunctionalInterface {
@@ -137,16 +99,6 @@ void count(int i);
   
 为什么限定public类型的方法呢？因为接口中定义的方法都是public类型的。 举个例子，下面的接口就不是函数式接口：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 interface WrongObjectMethodFunctionalInterface {
       
 void count(int i);
@@ -162,34 +114,6 @@ void count(int i);
 
 函数式接口的抽象方法可以声明 可检查异常(checked exception)。 在调用目标对象的这个方法时必须catch这个异常。
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
 public class FunctionalInterfaceWithException {
       
 public static void main(String[] args) {
@@ -222,26 +146,6 @@ void apply(int i) throws Exception;
 
 但是，如果在Lambda表达式中抛出异常， 而目标接口中的抽象函数没有声明这个可检查， 则此接口不能作为此lambda表达式的目标类型。
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
 public class FunctionalInterfaceWithException {
       
 public static void main(String[] args) {
@@ -272,38 +176,6 @@ Java 8以前的规范中接口中不允许定义静态方法。 静态方法只�
   
 下面的例子中FunctionalInterfaceWithStaticMethod包含一个SAM: apply,还有一个静态方法sum。 它依然是函数式接口。
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
 @FunctionalInterface
   
 interface FunctionalInterfaceWithStaticMethod {
@@ -337,40 +209,6 @@ Java 8中允许接口实现方法， 而不是简单的声明， 这些方法叫
   
 因为默认方法不是抽象方法，所以不影响我们判断一个接口是否是函数式接口。
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
 @FunctionalInterface
   
 interface InterfaceWithDefaultMethod {
@@ -418,12 +256,6 @@ m的返回值类型是M中的每一个方法的返回值类型的替代类型（
 
 1)
 
-1
-  
-2
-  
-3
-  
 interface X { int m(Iterable<String> arg); }
   
 interface Y { int m(Iterable<String> arg); }
@@ -434,12 +266,6 @@ interface Z extends X, Y {}
 
 2)
 
-1
-  
-2
-  
-3
-  
 interface X { Iterable m(Iterable<String> arg); }
   
 interface Y { Iterable<String> m(Iterable arg); }
@@ -450,12 +276,6 @@ interface Z extends X, Y {}
 
 3)
 
-1
-  
-2
-  
-3
-  
 interface X { int m(Iterable<String> arg); }
   
 interface Y { int m(Iterable<Integer> arg); }
@@ -466,12 +286,6 @@ interface Z extends X, Y {}
 
 4)
 
-1
-  
-2
-  
-3
-  
 interface X { int m(Iterable<String> arg, Class c); }
   
 interface Y { int m(Iterable arg, Class<?> c); }
@@ -484,12 +298,6 @@ Compiler error: No method has a subsignature of all abstract methods
 
 5)
 
-1
-  
-2
-  
-3
-  
 interface X { long m(); }
   
 interface Y { int m(); }
@@ -502,12 +310,6 @@ Compiler error: no method is return type substitutable
 
 6)
 
-1
-  
-2
-  
-3
-  
 interface Foo<T> { void m(T arg); }
   
 interface Bar<T> { void m(T arg); }
@@ -520,12 +322,6 @@ Compiler error: different signatures, same erasure
 
 7)
 
-1
-  
-2
-  
-3
-  
 interface Foo { void m(String arg); }
   
 interface Bar<T> { void m(T arg); }
@@ -536,16 +332,6 @@ interface FooBar<T> extends Foo, Bar<T> {}
 
 8)
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 interface X { void m() throws IOException; }
   
 interface Y { void m() throws EOFException; }
@@ -566,28 +352,6 @@ X.m,Y.m,Z.m方法签名相同，返回值类型都是void，只是异常列表�
 
 9)
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
 interface A {
     
 List<String> foo(List<String> arg) throws IOException, SQLTransientException;
@@ -616,20 +380,6 @@ interface E extends A, B, C {}
 
 10)
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
 interface G1 {
     
 <E extends Exception> Object m() throws E;
@@ -650,30 +400,6 @@ interface G extends G1, G2 {}
 
 1)
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
 public class Z {
       
 public static void main(String[] args) {
@@ -700,32 +426,6 @@ I和J方法的交集依然符合函数式接口的定义。 上述代码可以�
 
 2)
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
 public class Z {
       
 public static void main(String[] args) {
@@ -756,14 +456,6 @@ void bar();
 
 Java 不会强制要求你使用@FunctionalInterface注解来标记你的接口是函数式接口， 然而，作为API作者， 你可能倾向使用@FunctionalInterface指明特定的接口为函数式接口， 这只是一个设计上的考虑， 可以让用户很明显的知道一个接口是函数式接口。
 
-1
-  
-2
-  
-3
-  
-4
-  
 @FunctionalInterface
   
 public interface SimpleFuncInterface {
@@ -774,16 +466,6 @@ public void doWork();
   
 如果你在一个不是函数式的接口使用@FunctionalInterface标记的话，会出现什么情况？编译时出错。
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 error: Unexpected @FunctionalInterface annotation
   
 @FunctionalInterface

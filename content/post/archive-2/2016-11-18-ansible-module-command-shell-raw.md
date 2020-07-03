@@ -74,15 +74,11 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
   
 3 leihuo
   
-4
-  
 5 [salt]
   
 6 salt-master  ansible\_ssh\_user=lixc ansible\_ssh\_pass=123456
   
 7 10.240.162.112  ansible_connection=paramiko
-  
-8
   
 9 [leihuo]
   
@@ -128,15 +124,11 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
   
 3 leihuo
   
-4
-  
 5 [salt]
   
 6 salt-master  salt-port=4505 mysql-port=3306
   
 7 10.240.162.112  salt-path=/usr/bin/salt-call
-  
-8
   
 9 [leihuo]
   

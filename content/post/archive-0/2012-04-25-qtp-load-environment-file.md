@@ -170,8 +170,6 @@ $ cat gojson.go
   
 14 }
   
-15
-  
 16 func (s * Student)ShowStu() {
   
 17 fmt.Println("show Student :")
@@ -196,8 +194,6 @@ $ cat gojson.go
   
 27 }
   
-28
-  
 29 func main() {
   
 30 st := &Student {
@@ -217,8 +213,6 @@ $ cat gojson.go
 37 fmt.Println("before JSON encoding :")
   
 38 st.ShowStu()
-  
-39
   
 40 b, err := json.Marshal(st)
   

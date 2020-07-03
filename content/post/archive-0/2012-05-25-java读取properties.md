@@ -108,8 +108,6 @@ System.out.println(getParam2());
 
 运行结果：
   
-151
-  
 152
 
 Process finished with exit code 0

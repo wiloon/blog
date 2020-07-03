@@ -270,8 +270,6 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 4 import java.io.IOException;
   
-5
-  
 6 /**
   
 7 * PrintStream 的示例程序
@@ -284,11 +282,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 11 public class PrintStreamTest {
   
-12
-  
 13 public static void main(String[] args) {
-  
-14
   
 15 // 下面3个函数的作用都是一样：都是将字母“abcde”写入到文件“file.txt”中。
   
@@ -300,15 +294,11 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 19 //testPrintStreamConstrutor3() ;
   
-20
-  
 21 // 测试write(), print(), println(), printf()等接口。
   
 22 testPrintStreamAPIS() ;
   
 23 }
-  
-24
   
 25 /**
   
@@ -354,8 +344,6 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 46 }
   
-47
-  
 48 /**
   
 49 * PrintStream(File file) 的测试函数
@@ -388,8 +376,6 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 63 }
   
-64
-  
 65 /**
   
 66 * PrintStream(String fileName) 的测试函数
@@ -420,8 +406,6 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 79 }
   
-80
-  
 81 /**
   
 82 * 测试write(), print(), println(), printf()等接口。
@@ -439,8 +423,6 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
 88 // 创建文件对应FileOutputStream
   
 89 PrintStream out = new PrintStream("other.txt");
-  
-90
   
 91 // 将字符串“hello PrintStream”+回车符，写入到输出流中
   
@@ -462,8 +444,6 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 100 out.append('B');
   
-101
-  
 102 // 将"CDE is 5" + 回车 写入到输出流中
   
 103 String str = "CDE";
@@ -471,8 +451,6 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
 104 int num = 5;
   
 105 out.printf("%s is %d\n", str, num);
-  
-106
   
 107 out.close();
   

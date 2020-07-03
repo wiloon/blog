@@ -22,33 +22,9 @@ cd 到 /etc/netctl 目录下，可以看到 examples 目录下有一堆示例配
 
 配置文件写好之后，当然是启动相应的服务啦。Arch Linux 一贯的传统是不启动不必要的服务，除非用户说要启动之。netctl-auto 的 systemd 服务名是 netctl-auto@interface.service（当然 .service 后缀还是可以省略的）。interface 部分写你的无线网络接口的名字，可以通过 ip link、ifconfig、iwconfig 等命令看到。我禁用了 systemd 的可预测网络接口名称，所以我的无线网络接口名唤 wlan0。我使用如下命令启动服务：
   
-1
-  
 $ sudo systemctl start netctl-auto@wlan0.service
   
 如果一切顺利的话一小会儿之后就应该连上网了：
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
   
 $ systemctl status netctl-auto@wlan0.service
   
@@ -75,8 +51,6 @@ CGroup: /system.slice/system-netctl\x2dauto.slice/netctl-auto@wlan0.service
 或者通过 netctl-auto list 命令也可以看到连接上了哪个配置文件里指定的热点。
 
 如果满意的话，就让它开机自启动啦：
-  
-1
   
 $ sudo systemctl enable netctl-auto@wlan0.service
   

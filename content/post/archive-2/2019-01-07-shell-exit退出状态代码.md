@@ -56,8 +56,6 @@ kkllk: command not found
   
 wl@wl-MS-7673:/home/python$ echo $?
   
-127
-  
 wl@wl-MS-7673:/home/python$ ls
   
 hello.py hello.py~
@@ -76,15 +74,11 @@ bash: ./hello.py: 权限不够
   
 wl@wl-MS-7673:/home/python$ echo $?
   
-126
-  
 wl@wl-MS-7673:/home/python$ date %t
   
 date: 无效的日期"%t"
   
 wl@wl-MS-7673:/home/python$ echo $?
-  
-1
   
 wl@wl-MS-7673:/home/python$
 
@@ -95,8 +89,6 @@ root@wl-MS-7673:~# ls -sail test
 root@wl-MS-7673:~# ./test
   
 root@wl-MS-7673:~# echo $?
-  
-44
   
 root@wl-MS-7673:~# cat test
   

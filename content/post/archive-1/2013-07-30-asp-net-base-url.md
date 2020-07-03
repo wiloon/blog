@@ -22,10 +22,6 @@ http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/
   
 重新进入虚拟Ubuntu，在命令行终端下输入：
 
-1
-  
-2
-  
 sudo mkdir /mnt/shared
   
 sudo mount -t vboxsf gongxiang /mnt/shared
@@ -34,8 +30,6 @@ sudo mount -t vboxsf gongxiang /mnt/shared
 
 假如您不想每一次都手动挂载，能够在/etc/fstab中添加一项
 
-1
-  
 gongxiang /mnt/shared vboxsf rw,gid=username,uid=username,auto 0 0
   
 以上的 vboxsf 是群组名称 username 是你的 用户名 就是 /home/下的文件夹名称
@@ -43,8 +37,6 @@ gongxiang /mnt/shared vboxsf rw,gid=username,uid=username,auto 0 0
 /mnt/shared 是挂载目录
 
 取消挂载
-  
-1
   
 sudo umount -f /mnt/shared
   

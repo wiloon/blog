@@ -72,8 +72,6 @@ Usage: setfacl [-bkndRLP] { -m|-M|-x|-X ... } file ...
   
 [root@localhost test]# cat test.txt
   
-123
-  
 [root@localhost test]# chmod 777 test.txt
   
 [root@localhost test]# ll
@@ -129,8 +127,6 @@ other::rwx
 [root@localhost test]# su - handsome
   
 [handsome@localhost ~]$ cat /test/test.txt
-  
-123
   
 [handsome@localhost ~]$ echo 456 >> /test/test.txt
   

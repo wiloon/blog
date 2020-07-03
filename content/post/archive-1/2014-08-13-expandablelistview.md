@@ -60,8 +60,6 @@ android:listSelector="#00000000" ，可以去除选中时的黄色底色
   
 15 </LinearLayout>
   
-16
-  
 复制代码
 
 

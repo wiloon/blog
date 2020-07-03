@@ -24,101 +24,53 @@ Disruptor是一个用于在线程间通信的高效低延时的消息组件，�
 
 用原生的Disruptor语法来创建这些消费者的话代码如下：
 
-01
-  
 Executor executor = Executors.newCachedThreadPool();
-  
-02
   
 BatchHandler handler1 = new MyBatchHandler1();
   
-03
-  
 BatchHandler handler2 = new MyBatchHandler2();
-  
-04
   
 BatchHandler handler3 = new MyBatchHandler3()
   
-05
-  
 RingBuffer ringBuffer = new RingBuffer(ENTRY\_FACTORY, RING\_BUFFER_SIZE);
-  
-06
   
 ConsumerBarrier consumerBarrier1 = ringBuffer.createConsumerBarrier();
   
-07
-  
 BatchConsumer consumer1 = new BatchConsumer(consumerBarrier1, handler1);
-  
-08
   
 BatchConsumer consumer2 = new BatchConsumer(consumerBarrier1, handler2);
   
-09
-  
 ConsumerBarrier consumerBarrier2 =
-  
-10
   
 ringBuffer.createConsumerBarrier(consumer1, consumer2);
   
-11
-  
 BatchConsumer consumer3 = new BatchConsumer(consumerBarrier2, handler3);
-  
-12
   
 executor.execute(consumer1);
   
-13
-  
 executor.execute(consumer2);
-  
-14
   
 executor.execute(consumer3);
   
-15
-  
 ProducerBarrier producerBarrier =
-  
-16
   
 ringBuffer.createProducerBarrier(consumer3);
   
 在以上这段代码中，我们不得不创建那些个handler（就是那些个MyBatchHandler实例），外加消费者屏障，BatchConsumer实例，然后在他们各自的线程中处理这些消费者。DSL能帮我们完成很多创建工作，最终的结果如下：
 
-1
-  
 Executor executor = Executors.newCachedThreadPool();
-  
-2
   
 BatchHandler handler1 = new MyBatchHandler1();
   
-3
-  
 BatchHandler handler2 = new MyBatchHandler2();
-  
-4
   
 BatchHandler handler3 = new MyBatchHandler3();
   
-5
-  
 DisruptorWizard dw = new DisruptorWizard(ENTRY_FACTORY,
-  
-6
   
 RING\_BUFFER\_SIZE, executor);
   
-7
-  
 dw.consumeWith(handler1, handler2).then(handler3);
-  
-8
   
 ProducerBarrier producerBarrier = dw.createProducerBarrier();
   
@@ -128,23 +80,13 @@ ProducerBarrier producerBarrier = dw.createProducerBarrier();
   
 打印帮助
   
-1
-  
 dw.consumeWith(handler1a, handler2a);
-  
-2
   
 dw.after(handler1a).consumeWith(handler1b);
   
-3
-  
 dw.after(handler2a).consumeWith(handler2b);
   
-4
-  
 dw.after(handler1b, handler2b).consumeWith(handler3);
-  
-5
   
 ProducerBarrier producerBarrier = dw.createProducerBarrier();
   

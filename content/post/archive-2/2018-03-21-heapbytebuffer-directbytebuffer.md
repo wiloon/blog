@@ -22,14 +22,10 @@ http://www.importnew.com/19191.html
 
 分配HeapByteBuffer的方法是：
 
-1
-  
 ByteBuffer.allocate(int capacity);参数大小为字节的数量
   
 分配DirectByteBuffer的方法是：
 
-1
-  
 ByteBuffer.allocateDirect(int capacity);//可以看到分配内存是通过unsafe.allocateMemory()来实现的，这个unsafe默认情况下java代码是没有能力可以调用到的，不过你可以通过反射的手段得到实例进而做操作，当然你需要保证的是程序的稳定性，既然叫unsafe的，就是告诉你这不是安全的，其实并不是不安全，而是交给程序员来操作，它可能会因为程序员的能力而导致不安全，而并非它本身不安全。
 
 http://blog.csdn.net/u011262847/article/details/76861974
