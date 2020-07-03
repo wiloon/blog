@@ -58,12 +58,10 @@ systemctl --user enable sommelier-x@0
 systemctl --user start sommelier@1
 systemctl --user start sommelier-x@1
 
-
 systemctl --user status sommelier@0
 systemctl --user status sommelier@1
 systemctl --user status sommelier-x@0
 systemctl --user status sommelier-x@1
-
 
 lxc stop --force arch
 lxc stop --force penguin

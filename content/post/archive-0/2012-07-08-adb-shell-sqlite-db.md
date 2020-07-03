@@ -33,7 +33,6 @@ select * from tag;
 .header on
 
 
-
 查看sqlite3表结构的命令
   
 在android下通过adb shell命令可以进入sqlite3的命令行client，见：在android命令行下使用sqlite3。
@@ -49,7 +48,6 @@ select * from sqlite_master where type="table";
 可以看到类似：
 
 
-
 默认情况下，不会出现红框中的表头，需要之前设置，命令为：
 
 .header on
@@ -63,9 +61,5 @@ select * from sqlite_master where type="table" and name="emperors";
 sqlite> .schema emperors
   
 CREATE TABLE emperors( id integer primary key autoincrement, name text,dynasty text,start_year text);
-
-
-
-
 
 http://marshal.easymorse.com/index.html%3Fp=2981.html

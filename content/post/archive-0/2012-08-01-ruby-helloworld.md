@@ -60,7 +60,6 @@ $ sudo apt-get install ruby
 
 You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
 
-
   [shell]
  $ ruby helloworld.rb
  Hello World!

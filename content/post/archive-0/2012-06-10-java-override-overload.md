@@ -17,7 +17,6 @@ Overriding是父类与子类之间多态性的一种表现；
 Overloading是一个类中多态性的一种表现。
 
 
-
 override->重写(=覆盖)、overload->重载、polymorphism -> 多态
 
 override是重写（覆盖）了一个方法，以实现不同的功能。一般是用于子类在继承父类时，重写（重新实现）父类中的方法。
@@ -35,7 +34,6 @@ override是重写（覆盖）了一个方法，以实现不同的功能。一般
 5、被重写的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行重写。
   
 6、静态方法不能被重写为非静态的方法（会编译出错）。
-
 
 
 overload是重载，一般是用于在一个类内实现若干重载的方法，这些方法的名称相同而参数形式不同。
@@ -137,7 +135,6 @@ return i;
 如果用多态，则父类只提供取得边数的接口，至于取得哪个形状的边数，怎样取得，在子类里各自实现(重写)。
 
 
-
 Overriding：在子类中定义某个方法与其父类有相同的名称和参数；子类的对象使用这个方法时，将调用子类中的定义。
 
 对它而言，父类中的定义如同被“屏蔽”了。
@@ -157,7 +154,6 @@ Overiding：
 5、方法被定义为final不能被重写。
 
 
-
 Overloading：
 
 1、参数类型、个数、顺序至少有一个不相同。
@@ -167,7 +163,6 @@ Overloading：
 3、存在于父类和子类、同类中。
 
 
-
 Animal类：
 
 Java代码
@@ -175,13 +170,10 @@ Java代码
 package wei.peng.overriding_overloading;
 
 
-
 public class Animal {
 
 
-
 public void introduce(){
-
 
 
 System.out.println("我是动物！");
@@ -197,9 +189,7 @@ Java代码
 package wei.peng.overriding_overloading;
 
 
-
 public class Cat extends Animal {
-
 
 
 //重写了父类的introduce，实现了overrding（重写）
@@ -209,7 +199,6 @@ public void introduce(){
 System.out.println("我是一只猫！");
 
 }
-
 
 
 //实现了Overloading（重载）
@@ -229,9 +218,7 @@ Java代码
 package wei.peng.overriding_overloading;
 
 
-
 public class Dog extends Animal {
-
 
 
 //重写了父类的introduce，实现了overrding（重写）
@@ -241,7 +228,6 @@ public void introduce(){
 System.out.println("我是一只狗！");
 
 }
-
 
 
 //实现了Overloading（重载）
@@ -261,13 +247,10 @@ Java代码
 package wei.peng.overriding_overloading;
 
 
-
 public class Test {
 
 
-
 public static void main(String[] args) {
-
 
 
 //Overring是父类与子类之间多态性的一个表现：屏蔽父类的方法定义
@@ -279,13 +262,11 @@ Animal animal2 = new Cat();
 Animal animal3 = new Dog();
 
 
-
 animal1.introduce();
 
 animal2.introduce();
 
 animal3.introduce();
-
 
 
 //Overloading是在一个类中定义多个同名方法
@@ -297,7 +278,6 @@ cat.introduce();
 cat.introduce("JACK");
 
 }
-
 
 
 }

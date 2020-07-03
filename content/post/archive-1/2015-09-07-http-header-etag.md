@@ -17,7 +17,6 @@ HTTP Header中的ETag
 原文参考百度百科：http://baike.baidu.com/view/3039264.htm
 
 
-
 概念
   
 Etag[1] 是URL的Entity Tag，用于标示URL对象是否改变，区分不同语言和Session等等。具体内部含义是使服务器控制的，就像Cookie那样。

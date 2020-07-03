@@ -15,7 +15,6 @@ Posted on 2012-05-24 12:27 CN.programmer.Luxh 阅读(7217) 评论(0) 编辑 收�
 persistence.xml文件必须定义在classpath路径下的META-INF文件夹中。
 
 
-
 我们看看基于Hibernate提供的一个比较完整的JPA2.0的persistence.xml文件。
 
 persistence.xml:

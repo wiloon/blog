@@ -9,7 +9,6 @@ categories:
 
 ---
 
-
 <div id="article_content">
   
     jdk1.5 static import

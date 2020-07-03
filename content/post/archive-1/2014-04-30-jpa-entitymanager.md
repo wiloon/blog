@@ -13,7 +13,6 @@ tags:
 <span style="line-height: 1.5em;">1. 持久化上下文（Persistence Context ）
 
 
-
 一个持久化单元（Persistence Unit ）就是关于一组Entity 类的命名配置。持久化单元是一个静态的概念。
 
 一个持久化上下文（Persistence Context ）就是一个受管的Entity 实例的集合。每一个持久化上下文都关联一个持久化单元，持久化上下文不可能脱离持久化单元独立存在。持久化上下文中的Entity 实例就是相关联的持久化单元中的若干Entity 的实例。持久化上下文是一个动态的概念。
@@ -23,9 +22,7 @@ tags:
 尽管持久化上下文非常重要，但是开发者不直接与之打交道，持久化上下文在应用程序中是透明的，我们需要通过EntityManager 间接管理它。
 
 
-
 2. 容器管理的EntityManager(Container-Managed EntityManager)
-
 
 
 通过将@PersistenceContext 注解标注在EntityManager 类型的字段上，这样得到的EntityManager 就是容器管理的EntityManager 。由于是容器管理的，所以我们不需要也不应该显式关闭注入的EntityManager 实例。
@@ -45,9 +42,7 @@ tags:
 由于在扩展的EntityManager 中，每次方法调用都是使用的相同的持久化上下文，所以前一次方法调用时产生的受管实体在下一个方法访问时仍然为受管实体。
 
 
-
 3. 应用程序管理的EntityManager（Application-Managed EntityManager）
-
 
 
 在JavaSE和JavaEE环境下创建应用程序管理的EntityManager的不同之处，并非创建EntityManager的方式不同，而是获得创建EntityManager的EntityManagerFactory的方式不同。
@@ -65,7 +60,6 @@ JavaEE 环境：使用@PersistenceUnit(unitName=”APU”)标注EntityManagerFac
 就 持久化上下文而言，应用程序管理的EntityManager就像扩展的容器管理的EntityManager。当创建应用程序管理的 EntityManager实例之后，该EntityManager实例立即创建一个属于它自己私有的持久化上下文，该持久化上下文将一直存活下去，直到 所属的EntityManager实例销毁才消失。
 
 4. 容器管理的事务 之 容器管理的持久化上下文
-
 
 
 JPA支持两种事务类型：
@@ -90,16 +84,10 @@ Java事务API（JTA）：可用于管理分布式事务，管理多数据源的�
 
 持久化上下文的冲突：当调用某个方法 时有若干个持久化上下文，则会出现持久化上下文冲突，抛出异常。有个特殊情况，即在一个有状态会话Bean的扩展持久化上下文中调用另一个有状态会话 Bean的方法，并且被调用的会话Bean也使用扩展持久化上下文，这样当调用被调用的会话Bean中方法时虽有两个持久化上下文可用，但并不会出现冲 突。被调用的会话Bean继承调用者的持久化上下文。
 
-
-
-
-
 3. 容器管理的事务 之 应用程序管理的持久化上下文
 
 
-
 应用程序管理的持久化上下文与容器管理的持久化上下文的一个最大的区别是：只能有一个容器管理的持久化上下文与事务关联，但是可以有任意多个应用程序管理的持久化上下文与当前事务关联。
-
 
 
 应用程序管理的持久化上下文有两种方式加入JTA 事务：
@@ -115,17 +103,13 @@ Java事务API（JTA）：可用于管理分布式事务，管理多数据源的�
 由于在同一个JTA 事务当中可以存在多个持久化上下文，所以当事务提交时，可能若干持久化上下文同时执行flush 操作，这样会存在隐性问题，比如，如果一个实例存在于多个持久化上下文中，flush 的结果会如何？结果是无法预料的。因此应该避免在同一事务中将一个实例加入多个持久化上下文。
 
 
-
 4. 本地资源事务（RESOURCE_LOCAL Transaction ）
-
 
 
 本地资源事务是指通过调用EntityManager.getTransaction() 管理的事务。其实质是使用Connection 来管理事务。
 
 
-
 5. 其他
-
 
 
 当事务回滚时，持久化上下文会将所有托管对象清空，亦即调用EntityManager.clear() 方法。如果持久化上下文是事务范围的，那么该持久化上下文将被销毁。

@@ -58,7 +58,8 @@ private boolean doSomething(String phone, String content)
 
 最近遇到2个开源项目，都是将重试代码封装成专门的工具，方便使用，比如guava-retrying和spring-retry。后面的文章，会介绍下如何使用guava-retrying。下面这段代码使用的是guava-retrying，明显可以感到代码变简单了。
 
-```javapublic boolean sendSMS(final String phone, final String content)  
+```java
+public boolean sendSMS(final String phone, final String content)  
 {  
     Retryer<Boolean> retryer = RetryerBuilder.<Boolean>newBuilder()  
             .retryIfResult(Predicates.equalTo(false)) // 返回false时重试  

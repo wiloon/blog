@@ -16,10 +16,6 @@ jarsigner -verbose -keystore E:\projects\keystore\JFrench.keystore -s ignedjar 
 
 [/shell]
 
-
-
-
-
 http://showlike.iteye.com/blog/1686103
 
 http://blog.csdn.net/jesusjzp/article/details/7922451

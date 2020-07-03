@@ -61,7 +61,6 @@ yum remove httpd
 yum -y remove httpd
 
 
-
 #yum mirror
 /etc/yum.repos.d
 #Yum更新中排除特定的包

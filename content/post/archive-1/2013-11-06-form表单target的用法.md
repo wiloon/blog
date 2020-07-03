@@ -32,7 +32,6 @@ categories:
     </li>
   </ol>
 
-
 提交到action后，action返回一串javascript语句
 
 <div id="">
@@ -50,7 +49,6 @@ categories:
               response.getOutputStream().write(script.getBytes("utf-8"));
     </li>
   </ol>
-
 
 alert('ok')将在当前页执行。原理是form提交后的结果在target指定的iframe里执行
   

@@ -52,7 +52,6 @@ sudo wg set wg0 listen-port 9000
 sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
 ip link set wg0 up
 
-
 ### remove peer
 
 wg set wg0 peer PEER_A_PUBLIC_KEY remove

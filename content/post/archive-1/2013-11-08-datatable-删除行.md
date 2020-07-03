@@ -10,7 +10,6 @@ categories:
 ---
 先列出正确的写法，如果你只想马上改错就先复制吧，
 
-
   
     <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
   
@@ -31,8 +30,6 @@ categories:
   
 
 
-
-
 如果你有时间想学习一下就继续看下面列出可能出错的可能性吧。
 
 1.如果只是想删除datatable中的一行，可以用DataRow的delete，但是必须要删除后让DataTable知道，所以就要用到.AcceptChanges()方法，原因是这种删除只是标识性删除，就像我们通常在数据库中用到的IsDelete字段。
@@ -41,7 +38,6 @@ categories:
 
 3.循环彻底删除就要用.Rows.RemoveAt(int index)方法，所以如果你是foreach的爱好者，在此请你换换口味，还有如果你是for的i++的忠实fans也希望你能换个思维。先看一下上面程序的正向写法（错误的，不可用）
 
-
   
             for (int i = 0, j = dt.Rows.Count; i < j; i++)
  {
@@ -49,8 +45,6 @@ categories:
  dt.Rows.RemoveAt(i);
  }
   
-
-
 
 
 这个的错误在于datatable的RemoveAt()会在删除后更新dataTable的index，所以你要删除的index可能已经不是你的符合Convert.ToInt32(dt.Rows\[i\]\["RowID"\]) == RowID的index了，甚者还会抛出异常，说你访问的index不存在。

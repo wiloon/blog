@@ -43,7 +43,6 @@ google搜的结果前两页，不管中文英文都看过了，依然解决不�
 我的代码出现这个错误，是因为又做了一个接口，最后实在没办法，就把做接口前的代码，拿出来，之后，又把接口的类填上，代码和原来一样，然后就可以了。就这。。。。，很奇怪，想不通，记录下来吧。
 
 
-
 二、
   
 Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : <span style="color: #ff0000;">12031

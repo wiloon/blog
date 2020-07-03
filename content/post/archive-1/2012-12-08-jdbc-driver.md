@@ -16,7 +16,6 @@ com.mysql.jdbc.Driver
 oracle.jdbc.driver.OracleDriver
 
 
-
 jdbc url:
 
 jdbc:mysql://localhost:3306/xxxxxx

@@ -15,6 +15,4 @@ SET RUBY_HOME=D:/ruby
     SET RUBYOPT=rubygems
 
 
-
-
   * install ruby gem

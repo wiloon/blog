@@ -48,7 +48,6 @@ bah and humbug
 $
 ```
 
-
 ## Some Definitions
 
 There are a few concepts that you need to understand before creating a theme.
@@ -188,7 +187,6 @@ $
 Hugo created two XML files, which is standard, but there are no HTML files.
 
 
-
 ### Test the New Site
 
 Verify that you can run the built-in web server. It will dramatically shorten your development cycle if you do. Start it by running the "server" command. If it is successful, you will see output similar to the following:
@@ -241,7 +239,6 @@ Hugo doesn't ship with a default theme. There are a few available (I counted a d
 We're going to create a new theme called "zafta." Since the goal of this tutorial is to show you how to fill out the files to pull in your content, the theme will not contain any CSS. In other words, ugly but functional.
 
 All themes have opinions on content and layout. For example, Zafta uses "post" over "blog". Strong opinions make for simpler templates but differing opinions make it tougher to use themes. When you build a theme, consider using the terms that other themes do.
-
 
 ### Create a Skeleton
 
@@ -301,7 +298,6 @@ $ find themes/zafta -name '*.html' | xargs ls -l
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/partials/header.html
 $
 ```
-
 
 
 ### Update the Configuration File to Use the Theme
@@ -445,7 +441,6 @@ $ hugo server --watch --verbose
 ```
 
 Here's sample output showing Hugo detecting a change to the template for the home page. Once generated, the web browser automatically reloaded the page. I've said this before, it's amazing.
-
 
 ```
 $ rm -rf public

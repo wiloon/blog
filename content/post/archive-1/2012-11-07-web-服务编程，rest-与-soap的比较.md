@@ -39,8 +39,6 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 如图 1 所示，客户端 1（Client1）与客户端 2（Client2）对于信息的存取具有不同的权限，客户端 1 可以执行所有的操作，而客户端 2 只被允许执行用户查询（Query User）与用户列表查询（Query User List）。关于这一点，我们在对 REST Web 服务与 SOAP Web 服务安全控制对比时会具体谈到。下面我们将分别向您介绍如何使用 REST 和 SOAP 架构实现 Web 服务。
 
 
-
-
 <a name="4.使用 REST 实现 Web 服务|outline"></a>使用 REST 实现 Web 服务
 
 本部分将基于 Restlet 框架来实现该应用。Restlet 为那些要采用 REST 结构体系来构建应用程序的 Java 开发者提供了一个具体的解决方案。关于更多的 Restlet 相关内容，本文不做深入讨论，请见参考资源列表。
@@ -99,7 +97,6 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
     </td>
   </tr>
 </table>
-
 
 
 客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <link>http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
@@ -198,7 +195,6 @@ private static void printUserByURI(String uri) {
 </table>
 
 
-
 <a name="4.4.服务器端实现|outline"></a>服务器端实现
 
 清单 4 给出的是服务器端对于用户资源类（UserResourc）的实现，其核心的功能是响应有关用户资源的 HTTP GET/PUT/DELETE 请求，而这些请求响应逻辑正对应了 UserRestHelper 类中关于用户资源类的 HTTP 请求。
@@ -275,14 +271,11 @@ private Document createDocument(User user) {
 </table>
 
 
-
 UserResource 类是对用户资源类的抽象，包括了对该资源的创建修改（put 方法），读取（handleGet 方法 ）和删除（delete 方法），被创建出来的 UserResource 类实例被 Restlet 框架所托管，所有操纵资源的方法会在相应的 HTTP 请求到达后被自动回调。
 
 另外，在服务端，还需要实现代表用户列表资源的资源类 UserListResource，它的实现与 UserResource 类似，响应 HTTP GET 请求，读取当前系统内的所有用户信息，形成如清单 1 所示的用户列表资源 Representation，然后返回该结果给客户端。具体的实现请读者参见本文所附的代码示例。
 
-
   使用 SOAP 实现 Web 服务
-
 
 本文对于 SOAP 实现，就不再像 REST 那样，具体到代码级别的实现。本节将主要通过 URI,HTTP 和 XML 来宏观上表述 SOAP Web 服务实现的技术本质，为下一节 REST Web 服务与 SOAP Web 服务的对比做铺垫。
 
@@ -317,7 +310,6 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 </table>
 
 
-
 客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI，SOAP SERVER 收到该 HTTP POST 请求，通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用，返回如下的响应：
   
 <a name="5.2.2.清单 6. getUserListResponse 消息|outline"></a>**清单 6. getUserListResponse 消息**
@@ -344,7 +336,6 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 </table>
 
 
-
 <a name="5.3.获得某一具体用户信息|outline"></a>获得某一具体用户信息
   
 <a name="5.3.1.清单 7. getUserByName SOAP 消息|outline"></a>**清单 7. getUserByName SOAP 消息**
@@ -364,7 +355,6 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
     </td>
   </tr>
 </table>
-
 
 
 同样地，客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI，SOAP SERVER 处理后返回的 Response 如下：
@@ -392,10 +382,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 </table>
 
 
-
 实际上，创建新的用户，过程也比较类似，在这里，就不一一列出，因为这两个例子对于本文在选定的点上对比 REST 与 SOAP 已经足够了。
-
-
 
 
 [回页首][1]
@@ -485,8 +472,6 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
 getUserList SOAP 消息获得所有的用户列表后，仍然无法通过既有的信息得到某个具体的用户信息。唯一的方法只有通过 WSDL 的指示，通过调用 getUserByName 获得，getUserList 与 getUserByName 是彼此孤立的。
 
 而对于 REST，情况是完全不同的：通过 `http://localhost:8182/v1/users` URI 获得用户列表，然后再通过用户列表中所提供的 LINK 属性，例如 `<link>http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式，非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面，并不依赖任何第三方的信息。
-
-
 
 
 <a name="7.总结|outline"></a>总结

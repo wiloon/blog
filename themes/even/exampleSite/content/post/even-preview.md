@@ -72,7 +72,6 @@ A footnote with link[^pa]
 [^pa]: [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 [^!DEF]: The footnote for definition
 
-
 ## Inline
 
 ```
@@ -86,7 +85,6 @@ A footnote with link[^pa]
 
 ~~strike~~
 
-
 ***bold 1 and italic 1***
 
 ___bold 2 and italic 2___
@@ -95,16 +93,13 @@ __*bold 2 and italic 1*__
 
 **_bold 1 and italic 2_**
 
-
 ~~*strike italic 1*~~ and *~~strike italic 2~~*
 
 ~~_strike italic 2_~~ and  _~~strike italic 2~~_
 
-
 ~~**strike bold 1**~~ and **~~strike bold 1~~**
 
 ~~__strike bold 2__~~ and __~~strike bold 2~~__
-
 
 ~~***strike italic 1 bold 1***~~ and ***~~strike italic 1 bold 1~~***
 
@@ -130,7 +125,6 @@ __~~*strike italic 1 bold 2*~~__ and *~~__strike italic 1 bold 2__~~*
 
 ~~strike~~
 
-
 ***bold 1 and italic 1***
 
 ___bold 2 and italic 2___
@@ -139,16 +133,13 @@ __*bold 2 and italic 1*__
 
 **_bold 1 and italic 2_**
 
-
 ~~*strike italic 1*~~ and *~~strike italic 2~~*
 
 ~~_strike italic 2_~~ and  _~~strike italic 2~~_
 
-
 ~~**strike bold 1**~~ and **~~strike bold 1~~**
 
 ~~__strike bold 2__~~ and __~~strike bold 2~~__
-
 
 ~~***strike italic 1 bold 1***~~ and ***~~strike italic 1 bold 1~~***
 
@@ -161,7 +152,6 @@ __~~_strike italic 2 bold 2_~~__ and _~~__strike italic 2 bold 2__~~_
 **~~_strike italic 2 bold 1_~~** and _~~**strike italic 2 bold 1**~~_
 
 __~~*strike italic 1 bold 2*~~__ and *~~__strike italic 1 bold 2__~~*
-
 
 ## Links
 
@@ -253,7 +243,6 @@ Unordered List
 - item 2
 - item 3
 
-
 ## Ordered List
 
 ```
@@ -332,7 +321,6 @@ Mixed Lists
 - item 2
 - item 3
 
-
 Really Mixed Lists
 
 - item 1
@@ -360,7 +348,6 @@ Mixed Lists
 - item 2
 - item 3
 
-
 Really Mixed Lists
 
 - item 1
@@ -373,7 +360,6 @@ Really Mixed Lists
     3. item C
 2. item 2
 - [X] item 3
-
 
 ## Dictionary
 
@@ -405,7 +391,6 @@ Dictionary
     This is a block.
     
     This is more of a block.
-
 
 ## Block Quotes
 

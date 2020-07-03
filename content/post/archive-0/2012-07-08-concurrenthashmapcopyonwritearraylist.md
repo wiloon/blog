@@ -17,7 +17,6 @@ categories:
     并发集合类 ConcurrentHashMap 和 CopyOnWriteArrayList(转)
   
 
-
 <div id="content">
   
     在Java类库中出现的第一个关联的集合类是 <code>Hashtable</code> ，它是JDK 1.0的一部分。 <code>Hashtable</code> 提供了一种易于使用的、线程安全的、关联的map功能，这当然也是方便的。然而，线程安全性是凭代价换来的―― <code>Hashtable</code> 的所有方法都是同步的。此时，无竞争的同步会导致可观的性能代价。 <code>Hashtable</code> 的后继者 <code>HashMap</code> 是作为JDK1.2中的集合框架的一部分出现的，它通过提供一个不同步的基类和一个同步的包装器 <code>Collections.synchronizedMap</code> ，解决了线程安全性问题。通过将基本的功能从线程安全性中分离开来， <code>Collections.synchronizedMap</code> 允许需要同步的用户可以拥有同步，而不需要同步的用户则不必为同步付出代价。

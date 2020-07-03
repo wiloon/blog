@@ -22,7 +22,6 @@ wlan: BCM94313HMG2L
     Single spatial stream up to a 72 Mbps data rate
     https://www.broadcom.cn/products/wireless/wireless-lan-bluetooth/bcm43013
 
-
 ### R7800
 802.11ac
 2.4G 800Mbps

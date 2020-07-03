@@ -17,7 +17,6 @@ out of the box:
 2）"Out of the box"(开箱即用)也用作"off the shelf"（现货供应）的同义词，其含义是指能够满足一定需求的、已经作好了的软件、硬件或两者的结合形式。如不采用，就需要投入专门的人力物力来开发。
 
 
-
 out-of-the-box具有“创造性的，独特性，思维不合常规”的意思，但在计算机术语里又可以指“从盒子里拿出来直接可以使用的，也就是即开即用”的意思。"out-of-the-box" is similar to "off-the-shelf",
   
 usually referinng to software/hardware which can be used as is, not requiring extra customisation or add-on components.

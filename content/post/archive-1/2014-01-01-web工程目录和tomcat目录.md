@@ -165,19 +165,15 @@ tags:
 
 创建标准目录模板，可以通过如下命令：
 
-
   mvn archetype:create -DgroupId=com.codeline.commons -DartifactId=codelineCommons
-
 
 groupId和artifactId的含义与Maven1中的含义一样，参数artifactId的值会作为项目根目录的名字。除了建立相应的目录之外，Maven2还会创建缺省的pom.xml。
 
 Maven2也考虑到：不同类型的项目需要拥有不同的目录结构。如创建web项目，可以使用命令：
 
-
   mvn archetype:create -DgroupId=com.mycompany.app
 -DartifactId=my-webapp
 -DarchetypeArtifactId=maven-archetype-webapp
-
 
 ### 
 

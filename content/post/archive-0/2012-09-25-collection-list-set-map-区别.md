@@ -11,10 +11,6 @@ categories:
 
   这些都代表了Java中的集合，这里主要从其元素是否有序，是否可重复来进行区别记忆，以便恰当地使用，当然还存在同步方面的差异，见上一篇相关文章。
 
-
-
-
-
 <table>
   <tr>
     <td width="147">
@@ -127,18 +123,7 @@ categories:
 </table>
 
 
-
-
-
-
-
-
   <a href="http://tb.blog.csdn.net/TrackBack.aspx?PostId=584112">http://tb.blog.csdn.net/TrackBack.aspx?PostId=584112</a>
-
-
-
-
-
 
   List接口对Collection进行了简单的扩充，它的具体实现类常用的有ArrayList和LinkedList。你可以将任何东西放到一个List容器中，并在需要时从中取出。ArrayList从其命名中可以看出它是一种类似数组的形式进行存储，因此它的随机访问速度极快，而LinkedList的内部实现是链表，它适合于在链表中间需要频繁进行插入和删除操作。在具体应用时可以根据需要自由选择。前面说的Iterator只能对容器进行向前遍历，而ListIterator则继承了Iterator的思想，并提供了对List进行双向遍历的方法。 
   
@@ -149,7 +134,6 @@ categories:
   
     Map是一种把键对象和值对象进行关联的容器，而一个值对象又可以是一个Map，依次类推，这样就可形成一个多级映射。对于键对象来说，像Set一样，一个Map容器中的键对象不允许重复，这是为了保持查找结果的一致性;如果有两个键对象一样，那你想得到那个键对象所对应的值对象时就有问题了，可能你得到的并不是你想的那个值对象，结果会造成混乱，所以键的唯一性很重要，也是符合集合的性质的。当然在使用过程中，某个键所对应的值对象可能会发生变化，这时会按照最后一次修改的值对象与键对应。对于值对象则没有唯一性的要求。你可以将任意多个键都映射到一个值对象上，这不会发生任何问题（不过对你的使用却可能会造成不便，你不知道你得到的到底是那一个键所对应的值对象）。Map有两种比较常用的实现：HashMap和TreeMap。HashMap也用到了哈希码的算法，以便快速查找一个键，TreeMap则是对键按序存放，因此它便有一些扩展的方法，比如firstKey(),lastKey()等，你还可以从TreeMap中指定一个范围以取得其子Map。键和值的关联很简单，用pub(Object key,Object value)方法即可将一个键与一个值对象相关联。用get(Object key)可得到与此key对象所对应的值对象。
   
-
 
 
   <a href="http://zhidao.baidu.com/question/16113509.html">http://zhidao.baidu.com/question/16113509.html</a>

@@ -130,10 +130,6 @@ persons.add( new Person("fakeperson","male",25));
 
 为了解决这个问题，我们要看下Shallow Size和Retained Size各是什么？
 
-
-
-
-
 知识补充：
 
 Shallow Size是对象本身占据的内存的大小，不包含其引用的对象。对于常规对象（非数组）的Shallow Size由其成员变量的数量和类型来定，而数组的ShallowSize由数组类型和数组长度来决定，它为数组元素大小的总和。

@@ -13,7 +13,6 @@ tags:
 http://www.cnblogs.com/Beyond-bit/p/SpringMVC\_And\_SpringSecurity.html
 
 
-
 add maven dependancy
 
 [xml]
@@ -49,7 +48,6 @@ add maven dependancy
 </dependency>
 
 [/xml]
-
 
 
 add dispatcher servlet in web.xml

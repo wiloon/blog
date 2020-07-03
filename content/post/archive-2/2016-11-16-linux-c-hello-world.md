@@ -25,7 +25,6 @@ return 0;
 [/c]
 
 
-
 [shell]
 
 gcc main.c
@@ -33,7 +32,6 @@ gcc main.c
 ./a.out
 
 [/shell]
-
 
 
 http://world77.blog.51cto.com/414605/328263

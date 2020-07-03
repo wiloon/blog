@@ -13,7 +13,6 @@ tags:
 http://www.cnblogs.com/skywang12345/p/3311275.html
 
 
-
 Iterator和Enumeration区别
   
 在Java集合中，我们通常都通过 “Iterator(迭代器)” 或 “Enumeration(枚举类)” 去遍历集合。今天，我们就一起学习一下它们之间到底有什么区别。
@@ -59,7 +58,6 @@ Iterator只有3个函数接口。Iterator除了能读取集合的数据之外，
 Enumeration 是JDK 1.0添加的接口。使用到它的函数包括Vector、Hashtable等类，这些类都是JDK 1.0中加入的，Enumeration存在的目的就是为它们提供遍历接口。Enumeration本身并没有支持同步，而在Vector、Hashtable实现Enumeration时，添加了同步。
   
 而Iterator 是JDK 1.2才添加的接口，它也是为了HashMap、ArrayList等集合提供遍历接口。Iterator是支持fail-fast机制的：当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。
-
 
 
 第2部分 Iterator和Enumeration实例

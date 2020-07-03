@@ -9,7 +9,6 @@ categories:
 
 ---
 
-
 <http://www.candoudou.com/archives/161>
 
 jquery1.6中新加了一个方法prop()，一直没用过它，官方解释只有一句话:获取在匹配的元素集中的第一个元素的属性值。

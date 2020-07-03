@@ -26,8 +26,6 @@ XMLHttpRequest 对象还没有标准化，但是 W3C 已经开始了标准化的
 HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的值从 0 开始，直到接收到完整的 HTTP 响应，这个值增加到 4。
 
 
-
-
 <table>
   <tr>
     <td>
@@ -115,7 +113,6 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 
 5 个状态中每一个都有一个相关联的非正式的名称，下表列出了状态、名称和含义：
 
-
    readyState 的值不会递减，除非当一个请求在处理过程中的时候调用了 abort() 或 open() 方法。每次这个属性的值增加的时候，都会触发 onreadystatechange 事件句柄。 
   
   
@@ -140,7 +137,6 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
     如果响应包含了为响应体指定字符编码的头部，就使用该编码。否则，假定使用 Unicode UTF-8。
   
 
-
 ### statu
 
 由服务器返回的 HTTP 状态代码，如 200 表示成功，而 404 表示 "Not Found" 错误。当 readyState 小于 3 的时候读取这一属性会导致一个异常。
@@ -152,13 +148,9 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 **onreadystatechange：**
 
 
-
-
 每次 readyState 属性改变的时候调用的事件句柄函数。当 readyState 为 3 时，它也可能调用多次。
 
 **onreadystatechange：**
-
-
 
 
 每次 readyState 属性改变的时候调用的事件句柄函数。当 readyState 为 3 时，它也可能调用多次。

@@ -119,7 +119,6 @@ $ sudo ip addr del 10.0.0.1/24 dev eth1
 使用net-tools：
 
 
-
 使用net-tools：
 
 $ sudo ifconfig eth1 inet6 add 2002:0db5:0:f102::1/64
@@ -279,7 +278,6 @@ $ sudo ip maddr add 33:44:00:00:00:01 dev eth0
 $ sudo ip maddr del 33:44:00:00:00:01 dev eth0
   
 $ ip maddr list dev eth0
-
 
 
 使用net-tools：

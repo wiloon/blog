@@ -137,7 +137,6 @@ Now we can have Enterprise Java Beans, in the archive as well. Plus, we can stil
 No wonder, the java community loves ANT.
 
 
-
 <span style="font-family: Calibri;">一、java的打包<span style="font-family: Calibri;">jar,war,ear包的作用，区别，打包方式<span style="font-family: Calibri;">.
 
 <span style="font-family: Calibri;">a)         作用与区别
@@ -173,7 +172,6 @@ No wonder, the java community loves ANT.
     
   
 
-
 写好后，保存为A.java，存在D:Javajdk1.6test\_jartest目录下面，打开cmd，进入这个目录，即D:Javajdk1.6test\_jartest然后用javac命令编译，会生成一个A.class文件，此时类的编写工作已经完成。
 
 2，在D:Javajdk1.6test_jar目录下新建一个文件夹META-INF，再新建mainclass.mf文件，在其中写入下面一行信息
@@ -203,7 +201,6 @@ jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当�
 右击项目-Export-Jar File-要选择Main-Class
 
 方法四：ant
-
 
 
 http://www.blogjava.net/junky/archive/2006/05/21/47284.aspx

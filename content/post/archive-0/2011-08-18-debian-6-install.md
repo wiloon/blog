@@ -40,9 +40,7 @@ http://wiki.debian.org/BootUsb
 
 http://www.debian.org/CD/faq/#write-usb
 
-
   !!!!!!!!!!!!!!!!!!!!!以下方法作废!!!!!!!!!!!!!!!!!
-
 
 **方法1：**
 
@@ -143,7 +141,6 @@ unmount the usb drive
 sudo umount /dev/sdb1
   
 [/shell]
-
 
 
 [shell]

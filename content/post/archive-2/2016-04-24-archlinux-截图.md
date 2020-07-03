@@ -13,7 +13,6 @@ scrot
 pacman -S scrot
 
 
-
   * 抓取区域：
 
 scrot -s rectangle.png

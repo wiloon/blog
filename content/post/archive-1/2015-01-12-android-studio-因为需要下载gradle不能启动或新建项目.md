@@ -21,7 +21,6 @@ android studiogradle启动不了新建项目
 对于android studio 0.4.x 的版本， 安装了android studio 之后，按照上文所述的那篇博文下载安装gradle，配置环境变量， 启动android studio，新建项目，发现还是新建不了，界面一直停在 【“building ' 项目名' gradle project info”】:
 
 
-
 其实这时候android studio 还是在下载 gradle ,但是由于被墙的原因, gradle 下载不了，所以建立不了项目。这时候我们只能在 任务管理器 中关闭android studio。
 
 解决方案是：

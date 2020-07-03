@@ -12,7 +12,6 @@ categories:
   <span style="font-size: small;">
  
 
-
 <div id="blog_content">
   
     /dev/zero,是一个输入设备，你可你用它来初始化文件。

@@ -11,7 +11,6 @@ categories:
 
   gz,bz2,xz三种压缩格式的 OpenBSD CVS库容量对比
 
-
 <hr size="1" />
 
 <div id="post_message_4838">

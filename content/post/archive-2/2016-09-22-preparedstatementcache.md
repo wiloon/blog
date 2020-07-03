@@ -11,7 +11,6 @@ categories:
 http://www.cnblogs.com/alipayhutu/archive/2013/04/18/3029171.html
 
 
-
 如何理解PreparedStatementCache，以及如何使用
 
 为节约键盘敲击次数，记PreparedStatement为PS， PreparedStatementCache为PSCache，并且所有的SQL使用的绑定变量。
@@ -25,13 +24,11 @@ http://agapple.iteye.com/blog/838286
 http://singleant.iteye.com/blog/1298837
 
 
-
 使用：
 
 1. 使用ps.
 
 sql里用？占位，等待被替换。例如，select * from table1 where user_name = ? and age > ?
-
 
 
 2. 启用pscache。

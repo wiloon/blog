@@ -11,7 +11,6 @@ categories:
 apply plugin: 'application'
 
 
-
   [shell]
 
   gradle installApp

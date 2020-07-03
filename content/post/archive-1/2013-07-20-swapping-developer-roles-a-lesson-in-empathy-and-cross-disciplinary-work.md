@@ -25,5 +25,4 @@ Obviously there are organizational complexities to having developers swap roles.
 Have you ever done a dev swap? Have you implemented this practice into your team? Tell me about it!
 
 
-
 <http://mehlhope.net/swapping-developer-roles-lesson-empathy>

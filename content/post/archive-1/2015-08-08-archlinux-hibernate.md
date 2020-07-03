@@ -52,7 +52,6 @@ LINUX /boot/vmlinuz-linux
 APPEND root=PARTUUID=1af9c78c-0c07-42fb-9e8c-201235183fd5 rootfstype=ext4 rw rootflags=rw,noatime,discard,data=ordered cgroup_disable=memory resume=/dev/sda1
 INITRD /boot/intel-ucode.img,/boot/initramfs-linux.img
 
-
 systemctl hibernate
 ```
 

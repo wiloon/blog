@@ -175,7 +175,6 @@ Persistence.xml配置：
 dataSources中的key是persistence.xml中配置的datasource名字，value-ref是spring管理的数据源。
 
 
-
 另外：
 
 EntityManagerFactory是线程安全的，但是EntityManager不是。

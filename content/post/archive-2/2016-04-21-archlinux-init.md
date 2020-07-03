@@ -61,12 +61,10 @@ sudo pacman -S xf86-video-fbdev #for hyper v
 sudo pacman -S xfce4
 sudo pacman -S xfce4-goodies
 
-
 sudo pacman -S wqy-microhei
 #font for terminal
 sudo pacman -S ttf-inconsolata
 sudo pacman -S chromium
-
 
 ##### 登录shell后自动启动xfce4
 

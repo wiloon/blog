@@ -16,7 +16,6 @@ spring api
 <p title="Interface WebApplicationInitializer">
   WebApplicationInitializer
 
-
 public class MyWebAppInitializer implements WebApplicationInitializer {
 
     @Override

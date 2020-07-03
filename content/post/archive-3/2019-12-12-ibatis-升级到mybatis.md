@@ -75,7 +75,6 @@ mybatis-config.xml样例
   
 <?xml version="1.0" encoding="UTF-8"?>
 
-
   
 
   
@@ -162,7 +161,6 @@ int resetSyncLabel(long bookId);
 在ibatis中是这样的
 
 <?xml version="1.0" encoding="UTF-8" ?>
-
 
   
 
@@ -303,7 +301,6 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
 
 <?xml version="1.0" encoding="UTF-8"?>
 
-
   
 
   
@@ -334,7 +331,6 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
 </sql>
 
 <!-- 添加同步标签 -->
-
 
    
 <insert id="addSyncLabel" parameterType="SyncLabel">

@@ -133,7 +133,6 @@ Now, I'll create an EclipseSW Debug Configuration to start up my project in Tom
 
 On the Arguments tab, I specified the working directory to be my Tomcat home directory, which for me is C:devapache-tomcat-6.0.14.
 
-
   
     I clicked the Debug button to start up my project in Tomcat via Eclipse.
   
@@ -145,7 +144,6 @@ On the Arguments tab, I specified the working directory to be my Tomcat home dir
   
     <a href="http://www.avajava.com/tutorials/lessons/how-do-i-run-a-maven-web-application-in-tomcat-from-eclipse.html?page=1">http://www.avajava.com/tutorials/lessons/how-do-i-run-a-maven-web-application-in-tomcat-from-eclipse.html?page=1</a>
   
-
 
 http://www.avajava.com/tutorials/lessons/how-do-i-create-an-eclipse-user-library-for-the-tomcat-jar-files.html
 

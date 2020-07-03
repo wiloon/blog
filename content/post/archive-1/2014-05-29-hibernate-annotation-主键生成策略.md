@@ -25,7 +25,6 @@ Hibernate 默认总共支持 13 种生成策略 :
 10. assigned 11. select 12. foreign 13. sequence-identity
 
 
-
 下面介绍几个较为常用的策略 :
   
 ① identity [ 自然递增 ]
@@ -41,7 +40,6 @@ Hibernate 默认总共支持 13 种生成策略 :
 @GenericGenerator(name = "idGenerator", strategy = "identity")
 
 @GeneratedValue(generator = "idGenerator")
-
 
 
 ② sequence [ 序列 ]
@@ -65,7 +63,6 @@ parameters = {@Parameter(name = "sequence",value="seq_name")})
 org.hibernate.exception.SQLGrammarException: could not get next sequence value
 
 
-
 ③ native
 
 需底层数据库的支持，对于 MySQL，SQL Server 采用 identity 的生成策略，对于 Oracle，则采用 sequence 策略。
@@ -77,7 +74,6 @@ org.hibernate.exception.SQLGrammarException: could not get next sequence value
 @GenericGenerator(name = "idGenerator", strategy = "native")
 
 @GeneratedValue(generator = "idGenerator")
-
 
 
 ④ increment [ 自然递增 ]
@@ -97,7 +93,6 @@ org.hibernate.exception.SQLGrammarException: could not get next sequence value
 @GeneratedValue(generator = "idGenerator")
 
 
-
 ⑤ uuid [ 32位16进制数的字符串 ]
 
 采用128位UUID算法生成主键，能够保证网络环境下的主键唯一性，也就能够保证在不同数据库及不同服务器下主键的唯一性。
@@ -115,7 +110,6 @@ uuid 最终被编码成一个32位16进制数的字符串，
 @GeneratedValue(generator = "idGenerator")
 
 
-
 ⑤ assigned [ 手工分配主键ID值 ]
 
 该策略要求程序员必须自己维护和管理主键，当有数据需要存储时，程序员必须自己为该数据分配指定一个主键ID值，
@@ -129,9 +123,5 @@ uuid 最终被编码成一个32位16进制数的字符串，
 @GenericGenerator(name = "idGenerator", strategy = "assigned")
 
 @GeneratedValue(generator = "idGenerator")
-
-
-
-
 
 [ 随笔均原创，转载请注明出处：http://www.blogjava.net/fancydeepin ]

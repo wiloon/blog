@@ -353,5 +353,4 @@ this.ldapPropertiesMap = ldapPropertiesMap;
 }
 
 
-
 [/java]

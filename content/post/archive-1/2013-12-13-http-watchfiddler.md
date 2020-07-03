@@ -91,7 +91,6 @@ Fiddler支持插件机制，如果你觉得它提供的功能还不够用，那�
 总的来说，HTTP Watch的使用相比Fiddler更简洁、容易上手。但是只适用于IE和Firefox。Fiddler功能更为强大，适用范围更广，而且还是免费的。具体用哪个就得看实际需求了。
 
 
-
 1.为什么是Fiddler?
   
 抓包工具有很多，小到最常用的web调试工具firebug，达到通用的强大的抓包工具wireshark.为什么使用fiddler?原因如下：

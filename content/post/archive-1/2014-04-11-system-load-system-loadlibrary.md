@@ -19,9 +19,7 @@ jniwindowsjvm平台pathsystem
 System.load 和 System.loadLibrary详解
 
 
-
 1.它们都可以用来装载库文件，不论是JNI库文件还是非JNI库文件。在任何本地方法被调用之前必须先用这个两个方法之一把相应的JNI库文件装载。
-
 
 
 2.System.load 参数为库文件的绝对路径，可以是任意路径。
@@ -31,13 +29,11 @@ System.load 和 System.loadLibrary详解
 System.load("C://Documents and Settings//TestJNI.dll");。
 
 
-
 3. System.loadLibrary 参数为库文件名，不包含库文件的扩展名。
 
 例如你可以这样载入一个windows平台下JNI库文件
 
 System. loadLibrary ("TestJNI");
-
 
 
 这里，TestJNI.dll 必须是在java.library.path这一jvm变量所指向的路径中。
@@ -57,7 +53,6 @@ System.getProperty("java.library.path");
 4）系统目录（system32）
 
 5）系统环境变量path指定目录
-
 
 
 4.如果你要载入的库文件静态链接到其它动态链接库，例如TestJNI.dll 静态链接到dependency.dll, 那么你必须注意：

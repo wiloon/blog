@@ -31,7 +31,6 @@ install yaourt
 install flash plugin 
 
 
-
 [shell]yaourt -S chromium-pepper-flash[/shell]
 
 Enable the plugin in <code>chrome://plugins</code>.

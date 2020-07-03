@@ -87,7 +87,6 @@ more +3 log2012.log
 2012-04-day3
 
 
-
 ======[root@localhost test]# more +3 log2012.log
 
 2012-03
@@ -99,9 +98,7 @@ more +3 log2012.log
 2012-04-day3
 
 
-
 ======[root@localhost test]#
-
 
 
 实例2：从文件中查找第一个出现"day3"字符串的行，并从该处前两行开始显示输出
@@ -127,9 +124,7 @@ more +/day3 log2012.log
 2012-05-day1
 
 
-
 ======[root@localhost test]#
-
 
 
 实例3：设定每屏显示行数
@@ -185,7 +180,6 @@ drwxr-xr-x 6 root root 4096 10-27 01:58 scf
 drwxrwxrwx 2 root root 4096 10-28 14:47 test3
 
 drwxrwxrwx 2 root root 4096 10-28 14:47 test4
-
 
 
 说明：

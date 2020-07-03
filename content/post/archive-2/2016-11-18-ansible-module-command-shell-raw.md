@@ -47,7 +47,6 @@ export ANSIBLE_ASK_SUDO_PASS=true
 ```bash
 ansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state=present"
 
-
 ```
 
 http://www.jianshu.com/p/f400f600b17c

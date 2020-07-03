@@ -30,7 +30,6 @@ yarn add @mdi/font -D
 yarn global add lerna
 yarn global add typescript
 
-
 vue --version
 
 vue create my-app

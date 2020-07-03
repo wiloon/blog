@@ -29,8 +29,6 @@ categories:
 2010年，Ethan Marcotte提出了<a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">"自适应网页设计"</a>（Responsive Web Design）这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。
 
 
-
-
  [1]: http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html
  [2]: http://www.ruanyifeng.com/
  [3]: http://www.ruanyifeng.com/blog/2012/05/

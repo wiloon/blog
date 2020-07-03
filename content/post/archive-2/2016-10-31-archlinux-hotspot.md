@@ -47,7 +47,6 @@ Name=br0
 DNS=192.168.50.1
 Address=192.168.97.1/24
 
-
 ```
 
 ### iptables

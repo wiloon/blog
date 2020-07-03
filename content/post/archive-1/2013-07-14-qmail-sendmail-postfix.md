@@ -12,42 +12,32 @@ categories:
 
 关于sendmail/qmail/postfix孰优孰劣，以及部署邮件系统的时候该选哪一个的讨论已经重复了千百次了。但事实往往并不是A好B坏，或B好A坏，必须根据场合和应用的要求来定。但虽然如此，大多数人还是需要一个相对公平的评价，以引导邮件系统的部署。
 
-
   自己一直很慎重于回答这类问题，以免引发不必要的争论甚至矛盾，但还是必须面对这个问题做一定的分析和比较的，否则很多朋友经常会问“到底用哪个好？”，却拿不出完整的答案。
-
 
 
   首先看看三个<span style="text-decoration: underline;"><span style="color: #666666;">MTA的历史...
 
-
 #### MTAs的发展历史
-
 
   <span style="text-decoration: underline;"><span style="color: #666666;">Sendmail
  毫无疑问，sendmail是最古老的MTA之一。它比<span style="text-decoration: underline;"><span style="color: #666666;">qmail和<span style="text-decoration: underline;"><span style="color: #666666;">postfix要古老得多。最早它诞生的时候，<span style="text-decoration: underline;"><span style="color: #666666;">Internet还没有被标准化，当时主机之间使用的是UUCP技术来交换邮件。
 
 
-
   它被设计得比较灵活，便于配置和运行于各种类型的机器。
-
 
 
   Qmail
  qmail是新生一代的MTA代表，它以速度快、体积小、易配置安装等特性而著称。作者D. J. Bernstein(djb)是一个数学教授，富有传奇色彩。djb于1995年开发qmail，1996年发布0.70版，并使用了多种当时比较先进的<span style="text-decoration: underline;"><span style="color: #666666;">技术，包括Maildir，与sendmail单个binary不同的模块化设计，权限分离，以及使用了大量由djb编写的配套工具，如daemontools，ucsip-tcp等。
 
 
-
   qmail迅速成为了Internet上最有名的MTA，使用者众。
-
 
 
   Postfix
  Postfix作者是Wietse Venema，一名著名的安全专家。最早postfix起源于1996年，当时venema 在美国IBM研究中心负责研究更安全的邮件系统，当时称为Vmailer。后因为商标问题于1998年11月正式更名为Postfix
 
 
-
   Postfix以替代sendmail为目的，并提供了一个更安全、更高性能的灵活的体系。它同样也采用模块化设计，使用了大量优秀的技术，以达到安全的目的。由于作者的设计理念独到，经过7，8年时间，Postfix现今已发展成为功能非常丰富，扩展性和安全性强的优秀MTA。
-
 
 <div id="a000058more">
   <div id="more">

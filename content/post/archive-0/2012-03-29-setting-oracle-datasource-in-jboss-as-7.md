@@ -13,9 +13,7 @@ tags:
 ---
 srikanth.s.nair
 
-
   <a href="http://www.javaworld.com/community/node/8184">http://www.javaworld.com/community/node/8184</a>
-
 
 <div id="nodezone">
   

@@ -27,7 +27,6 @@ set-language-environment
 然后输入Chinese-GB，最后刷新缓冲区即可。
 
 
-
 alt + x
 
 revert-buffer

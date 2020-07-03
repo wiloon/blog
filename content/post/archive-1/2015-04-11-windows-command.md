@@ -13,7 +13,6 @@ tags:
 tasklist
 
 
-
 1、查看进程对应哪服务 tasklist -svc
   
 2、查看进程调用哪些DLL tasklist -m
@@ -24,37 +23,25 @@ tasklist
   
 5、筛选器查找进程
 
-
   EQ:　等于
-
 
 
   NE:　不等于
 
 
-
   LT:　小于
-
 
 
   LE:　小于等于
 
 
-
   GT:　大于
-
 
 
   GE:　大于等于
 
 
-
   tasklist -fi "username ne NT authority\system" -fi "status eq running" 列出系统中正在运行的非SYSTEM状态的所有进程
-
-
-
-
-
 
   
     tasklist -fi "username ne NT authority\system" -fi "status eq running" 列出系统中正在运行的非SYSTEM状态的所有进程
@@ -79,11 +66,6 @@ tasklist
   
     tasklist -fi "modules eq MSVCP60.DLL"列出调用MSVCP60.DLL的进程（哪些进程在使用这个有问题的DLL）
   
-
-
-
-
-
 
   
     Taskkill -pid 2860/Taskkill -im qq.exe 关掉进程
@@ -129,9 +111,7 @@ tasklist
   
 
 
-
   大家有补充的，请留言
-
 
 本文出自 “[Colt-'s-Cyberspace][1]” 博客，请务必保留此出处<http://coltiam.blog.51cto.com/1364465/394060>
 

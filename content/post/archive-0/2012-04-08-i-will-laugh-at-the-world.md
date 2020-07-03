@@ -13,7 +13,6 @@ categories:
 原文如下：
 
 
-
 **I will laugh at the world.**
 
 No living creature can laugh except humans.  Trees may bleed when they are wounded, and beasts in the field will cry in pain and hunger, yet only I have the gift of laughter and it is mine to use whenever I choose.  Henceforth I will cultivate the habit of laughter.
@@ -97,7 +96,6 @@ I will be the greatest salesman the world has ever known.
 我要成功。
 
 我要成为世上最伟大的推销员。
-
 
 
 [http://smilejay.com/i\_will\_laugh\_at\_the_world/][1]

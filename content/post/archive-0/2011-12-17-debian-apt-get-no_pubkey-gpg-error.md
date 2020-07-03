@@ -13,7 +13,6 @@ The following signatures couldn't be verified because the public key is not avai
 ## Solution
 
 
-
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C962022012520A0
     
 

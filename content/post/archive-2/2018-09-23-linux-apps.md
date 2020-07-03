@@ -111,7 +111,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | intellij-idea-community-edition-jre   | idea with jre                               |
 | telegraf                              |                                             |
 
-
 ### KDE
 
 | name       | comments             |

@@ -24,7 +24,6 @@ ListView是一个经常用到的控件，ListView里面的每个子项Item可以
 
 main.xml代码如下，很简单，也不需要多做解释了：
 
-
   
     
       [xml]
@@ -45,7 +44,6 @@ main.xml代码如下，很简单，也不需要多做解释了：
  [/xml]
     
   
-
 
 
   my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item： 
@@ -84,7 +82,6 @@ main.xml代码如下，很简单，也不需要多做解释了：
  [/xml]
   
 
-
 解释一下，里面用到的一些属性：
 
 1.paddingBottom="3dip"，Layout往底部留出3个像素的空白区域
@@ -94,7 +91,6 @@ main.xml代码如下，很简单，也不需要多做解释了：
 3.textSize="30dip"，TextView的字体为30个像素那么大。
 
 最后就是JAVA的源代码：
-
 
   
     

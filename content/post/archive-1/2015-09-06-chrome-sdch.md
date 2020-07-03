@@ -13,7 +13,6 @@ sdch: chrome支持的新HTTP传输压缩算法
 我们知道，为了加快网络传输，一般都使用gzip对文本进行压缩。如果你现在用最新版的chrome去访问页面，然后打开network控制面板，查看http headers，细心的你会发现在Request Headers里的Accept-Encoding不再是gzip,deflate，而是多了个sdch，变成了gzip,deflate,sdch。如图：
 
 
-
 SDCH到底是什么
   
 sdch是Shared Dictionary Compression over HTTP的缩写，即通过字典压缩算法对各个页面中相同的内容进行压缩，减少相同的内容的传输。如：一个网站中一般都是共同的头部和尾部，甚至一些侧边栏也是共同的。之前的方式每个页面打开的时候这些共同的信息都要重新加载，但使用SDCH压缩方式的话，那些共同的内容只用传输一次就可以了。

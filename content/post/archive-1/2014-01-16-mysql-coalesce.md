@@ -29,5 +29,4 @@ select coalesce(1,"carrot","apple")
 这些语句可以直接在mysql里运行。
 
 
-
 http://hi.baidu.com/luoganet/item/7ec497dec10c88e2795daa1f

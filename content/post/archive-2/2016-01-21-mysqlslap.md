@@ -11,7 +11,6 @@ categories:
 mysqlslap -uuser0 -ppassword0 -concurrency=1 -iterations=1 -engine=innodb -number-of-queries=20000 -debug-info -query="INSERT INTO xxxxxx"
 
 
-
 MySQL数据库基准压力测试工具之MySQLSlap使用实例 2013-05-20 19:04:09
   
 分类： Mysql/postgreSQL

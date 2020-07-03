@@ -221,7 +221,6 @@ org.eclipse.platform
 让GC可以更快的执行。
 
 
-
 下载了新的Eclipse Indigo(3.7)，却无法启动，报错“Failed to create the Java Virtual Machine”，如图：
 
 一开始以为是eclipse3.7要求的JRE版本高，看了下readme，说是：Oracle Java 6 Update 17，我之前装的jdk1.6.16，装了最新版本的jdk，可还是不行。

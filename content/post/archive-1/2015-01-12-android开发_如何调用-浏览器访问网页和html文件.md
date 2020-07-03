@@ -17,7 +17,6 @@ http://blog.csdn.net/mengweiqi33/article/details/7679467
 一、启动android默认浏览器
 
 
-
 Intent intent= new Intent();
   
 intent.setAction("android.intent.action.VIEW");
@@ -29,7 +28,6 @@ intent.setData(content_url);
 startActivity(intent);
 
 这样子，android就可以调用起手机默认的浏览器访问。
-
 
 
 二、指定相应的浏览器访问
@@ -55,7 +53,6 @@ startActivity(intent);
 只要修改以下相应的packagename 和 主启动activity即可调用其他浏览器
 
 
-
 intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
 
 uc浏览器"："com.uc.browser", "com.uc.browser.ActivityUpdate“
@@ -65,11 +62,9 @@ opera    ："com.opera.mini.android", "com.opera.mini.android.Browser"
 qq浏览器："com.tencent.mtt", "com.tencent.mtt.MainActivity"
 
 
-
 三、打开本地html文件
 
 打开本地的html文件的时候，一定要指定某个浏览器，而不能采用方式一来浏览，具体示例代码如下
-
 
 
 Intent intent= new Intent();
@@ -91,7 +86,6 @@ startActivity(intent);
 大体的步骤如下：
 
 1、打开 packages/apps/Browser/AndroidManifest.xml文件把加到相应的<intent-filter>后面就可以了
-
 
 
 <intent-filter>

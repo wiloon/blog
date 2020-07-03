@@ -15,17 +15,11 @@ http://www.cnblogs.com/eyu8874521/archive/2012/08/16/2642605.html
 喜欢显示好友QQ那样的列表，可以展开，可以收起，在android中，以往用的比较多的是listview，虽然可以实现列表的展示，但在某些情况下，我们还是希望用到可以分组并实现收缩的列表，那就要用到android的ExpandableListView，今天研究了一下这个的用法，也参考了很多资料动手写了一个小demo，实现了基本的功能，但界面优化方面做得还不够好，有待改进，素材采用了Q版三国杀武将的图片，很有爱哈哈，下面直接上效果图以及源代码~！
 
 
-
-
-
-
-
 main.xml的布局很简单啦，只是一个ExpandableListView 就OK了
 
 但值得简单说下的是 android:cacheColorHint="#00000000"，这个设置可以去除拖动view时背景变成黑色的效果
 
 android:listSelector="#00000000" ，可以去除选中时的黄色底色
-
 
 
 复制代码
@@ -63,9 +57,7 @@ android:listSelector="#00000000" ，可以去除选中时的黄色底色
 复制代码
 
 
-
 java代码：
-
 
 
 复制代码

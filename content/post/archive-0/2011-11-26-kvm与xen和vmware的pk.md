@@ -17,13 +17,7 @@ categories:
   
 
 
-
   原创作品，允许转载，转载时请务必以超链接形式标明文章 <a href="http://virtualizing.blog.51cto.com/687668/136544" target="_blank">原始出处</a> 、作者信息和本声明。否则将追究法律责任。<a href="http://virtualizing.blog.51cto.com/687668/136544">http://virtualizing.blog.51cto.com/687668/136544</a>
-
-
-
-
-
 
   
     【sudison】这篇文章翻译至KVM的maintainer Avi Kivity的一篇<a href="http://avikivity.blogspot.com/2008/04/maintainability-vs-performance.html">文章</a>. 文中提到了KVM比ESX和Xen优越的一个地方：既能获得很好的performance,又能解决设备驱动的维护问题。还是有一定的道理。

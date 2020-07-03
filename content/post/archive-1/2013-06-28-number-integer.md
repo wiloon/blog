@@ -9,7 +9,6 @@ categories:
 
 ---
 
-
 建表的时候，如果是浮点数，一般设置为 number(m,n )[m为精度，n为小数位数，所以整数为m-n位],  整数设置为integer;
 
 比如：
@@ -67,7 +66,6 @@ select  LOG(256,10)*126   from dual
 可以用binary\_integer 或pls\_integer ；11g里还出了个新的整形，效率更高，叫simple_integer，反正最好不用integer就是了。
 
 效率测试下来：simple\_integer>pls\_integer>binary_integer>integer;
-
 
 
 ### SIMPLE\_INTEGER Subtype of PLS\_INTEGER {#autoId14}

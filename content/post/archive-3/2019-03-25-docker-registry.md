@@ -17,7 +17,6 @@ podman run -d \
 -v docker-registry:/var/lib/registry \
 registry:latest
 
-
 docker push registry.wiloon.com/foo:v0.0.1
 docker pull registry.wiloon.com/foo:v0.0.1
 ```

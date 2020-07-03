@@ -13,9 +13,7 @@ http://redmine.ossxp.com/redmine/documents/8
 Redmine默认使用Textile作为wiki的文本格式过滤器, 当然你也可以下载其他文本格式过滤器插件(Markdown, reST等). 以下介绍的语法都是基于Textile的语法.
 
 
-
 ## 链接
-
 
 
 ### Redmine链接
@@ -27,13 +25,11 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
   * 使用非数字的哈希值链接到变更集： commit:c6f4d0fd(显示c6f4d0fd)。该特征出现在主线 1236。
 
 
-
 ### wiki链接
 
   * [[Guide]] 显示一个链接到“Guide”的链接：Guide
   * [[Guide|Use manual]] 显示指向同一页面的链接，链接显示的文本是：Use manual
   * [[Guide#Use-guide|Use guide]] 显示指向同一页面头的链接，链接显示的文本是：Use guide
-
 
 
 ### 可以加入指向其它项目wiki页面的链接
@@ -42,7 +38,6 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
   * [[sandbox:]] 显示一个指向Sandbox项目Wiki主页面的链接。
 
 如果Wiki还不存在，则连接将显示为红色，例如： Nonexistent page.
-
 
 
 ### 链接到其他资源：
@@ -78,7 +73,6 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
 如果您不希望Redmine将上述标记解释为链接，可以在它们前面添加一个感叹号：!
 
 
-
 ### 外部链接
 
 HTTP URLs和邮件地址将自动转换为可点击的链接:
@@ -94,13 +88,11 @@ http://redmine.ossxp.com, someone@foo.bar
 显示为: 群英汇
 
 
-
 ## 文本格式:
 
 对于标题、粗体、表格、列表，Redmine支持Textile语法。参考 http://www.textism.com/tools/textile/ 上对使用这些特征的详细信息.
 
 下面列出一些例子, 但是Textile引擎可以做的更多.
-
 
 
 ### 字体样式:
@@ -120,7 +112,6 @@ http://redmine.ossxp.com, someone@foo.bar
   * <del>strike-through</del>
 
 
-
 ### 内嵌图片:
 
 !image_url! 显示地址为image_url的图片(textile语法)
@@ -130,7 +121,6 @@ http://redmine.ossxp.com, someone@foo.bar
 如果你的wiki页面有图片附件,你可以使用文件名:!attached_image.png!显示它
 
 
-
 ### 标题
 
 h1. 一级标题
@@ -138,12 +128,10 @@ h2. 二级标题
 h3. 三级标题
 
 
-
 ### 段落
 
 p>. 右对齐
 p=. 居中
-
 
 
 ### 块引用
@@ -154,7 +142,6 @@ bq. 这是块引用的示例
 显示为:
 
 > 这是块引用的示例
-
 
 
 ### 无序列表
@@ -174,7 +161,6 @@ bq. 这是块引用的示例
   * Item 3
 
 
-
 ### 有序列表
 
 # Item 1
@@ -190,7 +176,6 @@ bq. 这是块引用的示例
   3. Item 3 
       1. Item 3.1
       2. Item 3.2
-
 
 
 ### 表格
@@ -264,14 +249,12 @@ bq. 这是块引用的示例
 </table>
 
 
-
 ### 内容列表
 
 {{toc}} => toc左对齐
 {{>toc}} => toc右对齐
 
 具体参考 内容列表演示
-
 
 
 ### 宏(Macros)

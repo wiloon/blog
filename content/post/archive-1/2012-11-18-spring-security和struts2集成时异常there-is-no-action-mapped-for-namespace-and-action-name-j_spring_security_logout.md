@@ -126,7 +126,6 @@ func (derived *Derived) Get() (nm string, ag int) {
     return derived.name, derived.age
 }
 
-
 func main() {
     b := &Derived{}
 

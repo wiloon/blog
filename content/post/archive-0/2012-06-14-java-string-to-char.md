@@ -8,7 +8,8 @@ categories:
   - Java
 
 ---
-```javachar c="abc".charAt(1);
+```java
+char c="abc".charAt(1);
 
 ```
 

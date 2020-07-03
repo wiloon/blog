@@ -15,7 +15,6 @@ mysql里目前只支持4种索引分别是：full-text，b-tree，hash，r-tree
 b-tree索引应该是mysql里最广泛的索引的了，除了archive基本所有的存储引擎都支持它.
 
 
-
 1. full-text索引
 
 full-text在mysql里仅有myisam支持它，而且支持full-text的字段只有char、varchar、text数据类型。

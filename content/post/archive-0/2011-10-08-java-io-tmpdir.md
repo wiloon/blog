@@ -16,7 +16,6 @@ categories:
   操作系统不同 这个系统属性所表示的目录也不同
 
 
-
   On Windows: java.io.tmpdir:[C:DOCUME~1joshuaLOCALS~1Temp] 
   
   
@@ -30,7 +29,6 @@ categories:
   
     On Mac OS X: java.io.tmpdir: [/tmp]
   
-
 
 
   <blockquote>

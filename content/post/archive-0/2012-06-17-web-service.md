@@ -12,10 +12,8 @@ categories:
 <p align="center">
   <a href="http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html">http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html</a>
 
-
 <p align="center">
   第一章           设计一个简单的web service接口
-
 
 本章主要内容： 你将学会如何设计一个简单的web service接口
 
@@ -79,7 +77,6 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 
 当有人调用这个operation(操作)，他会向你发送一个<concatRequest>元素作为input message，如下：
 
-
   
     <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
   
@@ -99,7 +96,6 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
   
     <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
   
-
 
 对于output message也类似，可以指定其仅仅包含一个part，这个part是一个<concatResponse> 元素：
 
@@ -202,5 +198,4 @@ service 的schema中定义的元素要么就是schema中定义的元素。所�
 web service,每一个port、binding、port type和operation都有一个QName用来唯一标识。QName 是由local name 和namespace组成的。xml namespace是一个URI，它是全球唯一的。默认情况下，这些组件的名称被放在web service的目标命名空间中。
 
 有两种类型的URI：URL 和URN. URN的格式为：urn:<NID>:<NSS>.可以使用两种形式中的任何一种作为XML的命名空间。唯一不同的是URL被建议用过对象的地址而URN只是单纯的用于对象标识。
-
 

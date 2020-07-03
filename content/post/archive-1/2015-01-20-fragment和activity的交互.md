@@ -21,7 +21,6 @@ View listView = getActivity().findViewById(R.id.list);
 但是注意调用getActivity()时，fragment必须和activity关联（attached to an activity），否则将会返回一个null。
 
 
-
 相似的，activity也可以获得一个fragment的引用，从而调用fragment中的方法。
 
 获得fragment的引用要用FragmentManager，之后可以调用findFragmentById() 或者 findFragmentByTag().
@@ -139,7 +138,6 @@ fragment不可见。可能是因为宿主activity处于stopped状态，或者fra
 一个处于stopped状态的activity还是存活状态的，所有的状态和成员信息会被系统保持。但是，它不再被用户可见，并且如果宿主activity被kill掉，它也会被kill掉。
 
 
-
 数据存储和恢复
 
 和Activity类似，可以用Bundle类对象保存fragment的状态，当activity的进程被kill之后，需要重建activity时，可以用于恢复fragment的状态。
@@ -181,11 +179,6 @@ onDetach()
 如图：
 
 
-
-
-
-
-
 从这个图上可以看出activity的状态决定了fragment可能接收到的回调函数。
 
 比如说，当activity接收到它的onCreate()回调函数，那么这个activity中的fragment最多接收到了onActivityCreated()。
@@ -193,10 +186,6 @@ onDetach()
 当activity处于Resumed状态时，可以自由地添加和移除fragment，也即是说，只有activity在Resumed状态时，fragment的状态可以独立改变。
 
 但是，当activity离开Resumed状态，fragment的生命周期被activity控制。
-
-
-
-
 
 参考资料
   

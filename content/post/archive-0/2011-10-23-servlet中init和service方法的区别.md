@@ -86,16 +86,11 @@ javax.servlet 软件包中的相关类为ServletResponse和ServletRequest，而j
 
 Servlet 通过这些对象与服务器通信并最终与客户机通信。Servlet 能通过调用"请求"对象的方法获知客户机环境，服务器环境的信息和所有由客户机提供的信息。Servlet 可以调用"响应"对象的方法发送响应，该响应是准备发回客户机的。
 
-
   
 log4j-init
   
 com.neusoft.ehr.common.Log4jInit
 
 log4j-init-file /WEB-INF/classes/property/log4j.properties
-
-
-
-
 
 <http://hi.baidu.com/abo123456789/blog/item/f9d0721179fb9af0c2ce7936.html>

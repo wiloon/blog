@@ -10,7 +10,6 @@ categories:
 ---
 我们可以借助syslog函数将消息写入到/var/log/messages文件或其他配置好的文章。syslogd（系统日志守护进程）会监控程序提交的消息并对其进行处理。klogd（内核日志守护进程）负责监控内核提交的消息，并将内核消息记录到/var/log/messages。二者协作记录日志消息。每次启动linux时，这两个守护进程都会由/etc/rc.d/init.d中的初始化脚本启动。
 
-
   
     #vi /etc/syslog.conf 
     
@@ -18,7 +17,6 @@ categories:
       daemon.info    /var/log/messages
     
   
-
 
 syslog.conf文件中每一行包括以下内容：
 
@@ -274,7 +272,6 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
 
 下面给出一些例子：
 
-
   
     #vi /etc/syslog.conf 
     
@@ -283,19 +280,15 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
   
 
-
 将私有用户验证的消息对于任何优先级写入/var/log/messages.
-
 
   
     *.info ;main.none ;authpriv.none                    /var/log/messages
   
 
-
 匹配来自任何设备并且优先级为info（或更高）的消息，但来自mail的所有消息都被排除。
 
 最后，在对syslog.conf修改完成后，记得通知syslogd和klogd重新读取该配置文件。
-
 
   
     #service syslog restart

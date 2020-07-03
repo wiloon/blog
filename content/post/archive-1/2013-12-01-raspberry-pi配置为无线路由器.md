@@ -81,7 +81,6 @@ tags:
 ...
 Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapter
 
-
     
       呼……一大波前提说完了，下面要干正事了！
     
@@ -151,7 +150,6 @@ opt lease 864000 # 10 day DHCP lease time in seconds
 
 address 192.168.42.1
 netmask 255.255.255.0
-
 
         
           如果原来有“iface wlan0 inet dhcp”之类的那么就删除，“wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf”什么的也删除。
@@ -261,7 +259,6 @@ wmm_enabled=0
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
-
                 
                   为了以后重启之后可以自动加载，因此运行命令来保存为一个文件：
                 
@@ -287,7 +284,6 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
 sudo service udhcpd start
 
-
                     
                       如果你想开机启动的话，那么就这么做：
                     
@@ -296,7 +292,6 @@ sudo service udhcpd start
                       sudo update-rc.d hostapd enable
 
 sudo update-rc.d udhcpd enable
-
 
                     
                       </li> </ol> 
@@ -329,7 +324,6 @@ ip6tables-restore v1.4.14: Couldn't load match \`icmp':No such file or directory
 Error occurred at line: 17
 Try \`ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
 Failed to bring up wlan0.
-
 
                       
                         因为我也设置了ip6tables，而wlan0目前没有设置ipv6，所以就出错了，解决方法也很简单，把错的那一行删了就可以了。如果你也觉得udhcpd启动不了，可以使用

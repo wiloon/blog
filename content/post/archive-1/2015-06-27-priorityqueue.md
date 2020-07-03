@@ -13,7 +13,6 @@ tags:
 http://java-er.com/blog/java-priority-queue/
 
 
-
 PriorityQueue是个基于优先级堆的极大优先级队列。
 
 此队列按照在构造时所指定的顺序对元素排序，既可以根据元素的自然顺序来指定排序（参阅 Comparable），
@@ -171,7 +170,6 @@ PriorityQueue对元素采用的是堆排序，头是按指定排序方式的最�
 方法iterator()中提供的迭代器可能只是对整个数组的依次遍历。也就只能保证数组的第一个元素是最小的。
   
 实例1的结果也正好与此相符
-
 
 
 http://blog.csdn.net/hiphopmattshi/article/details/7334487

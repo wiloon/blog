@@ -11,7 +11,6 @@ categories:
 http://www.cnblogs.com/skywang12345/p/io_16.html
 
 
-
 本章介绍PrintStream以及 它与DataOutputStream的区别。我们先对PrintStream有个大致认识，然后再深入学习它的源码，最后通过示例加深对它的了解。
 
 转载请注明出处：http://www.cnblogs.com/skywang12345/p/io_16.html
@@ -211,7 +210,6 @@ write(0x61)
 查看下面的代码，我们能对这些函数有更清晰的认识！
 
 
-
 PrintStream 源码分析(基于jdk1.7.40)
   
 View Code
@@ -219,7 +217,6 @@ View Code
 说明：
   
 PrintStream的源码比较简单，请上文的注释进行阅读。若有不明白的地方，建议先看看后面的PrintStream使用示例；待搞清它的作用和用法之后，再来阅读源码。
-
 
 
 PrintStream和DataOutputStream异同点
@@ -255,7 +252,6 @@ DataOutputStream的构造函数只有一个：DataOutputStream(OutputStream out)
 DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配合使用：允许应用程序以与机器无关的方式从底层输入流中读写java数据类型。
   
 而PrintStream的作用虽然也是装饰其他输出流，但是它的目的不是以与机器无关的方式从底层读写java数据类型；而是为其它输出流提供打印各种数据值表示形式，使其它输出流能方便的通过print(), println()或printf()等输出各种格式的数据。
-
 
 
 示例代码

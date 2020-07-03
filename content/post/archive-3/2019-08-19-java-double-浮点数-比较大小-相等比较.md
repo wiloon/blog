@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```javapublic class DoubleUtils {
+```java
+public class DoubleUtils {
     private static final double DEFAULT_DELTA = 0.000001; //默认比较精度
 
     //比较2个double值是否相等（默认精度）

@@ -21,16 +21,11 @@ GROUP BY deptno;
 [/sql]
 
 
-
 http://xpchild.blog.163.com/blog/static/10180985920108485721969/
 
 本文描述了在oracle 11g release 2 版本中新增的listagg函数，listagg是一个实现字符串聚合的oracle内建函数。作为一种普遍的技术，网络上也有多种实现字符串聚合的方法。本文会首先介绍listagg函数，最后会拿这些方法与listagg进行性能方面的对比。
 
 样例数据
-
-
-
-
 
 本文的例子将使用如下的样例数据：
 
@@ -67,10 +62,6 @@ DEPTNO ENAME      HIREDATE
 30 WARD        22/02/1981
 
 字符串聚合
-
-
-
-
 
 字符串聚合就是按照分组把多行数据串联成一行，以下面的结果集为例：
 
@@ -168,7 +159,6 @@ DEPTNO EMPLOYEES ---- -------------------- 10 CLARK,KING,MILLER 20 ADAMS,FORD,JO
 
 分隔符
 
-
   
 在字符串的聚合中，可以使用静态变量或者表达式作为分隔符，事实上，分隔符是可选项，例如：
 
@@ -208,10 +198,6 @@ FROM all_objects * ERROR at line 2: ORA-01489: result of string concatenation is
   
 性能方面
 
-
-
-
-
 下面将比较几种常用的字符串聚合方法的性能，类比的有：
 
 LISTAGG (11g Release 2);
@@ -247,7 +233,6 @@ SQL> set autotrace traceonly statistics SQL> set timing on SQL> set arrays 500
 listagg
   
 第一个测试的是listagg，下面将对2000个分组进行聚合，并按照value排序：
-
 
 
 SQL> SELECT grp 2 , LISTAGG(val, ',') WITHIN GROUP (ORDER BY val) AS vals 3 FROM t 4 GROUP BY 5 grp;

@@ -13,7 +13,6 @@ tags:
 http://blog.csdn.net/ithomer/article/details/8080912
 
 
-
 HTML中id、name、class 区别
   
 分类： Script2012-10-17 13:53 27969人阅读 评论(7) 收藏 举报
@@ -86,10 +85,6 @@ alert(input.outerHTML);
   
 消息框里显示的结果是：<INPUT id=myId name=myName>
 
-
-
-
-
 name与id 区别
 
 id要符合标识的要求，比如大小写敏感，最好不要包含下划线（因为不兼容CSS）。而name基本上没有什么要求，甚至可以用数字。table、tr、td、div、p、span、h1、li等元素一般用id。与表单相关的元素也可以赋ID值,  但为这些元素赋ID值的时候引用这些元素的方法就要变一下了，具体的如下：
@@ -100,10 +95,8 @@ id要符合标识的要求，比如大小写敏感，最好不要包含下划线
   
 除去与表单相关的元素，只能赋id不能赋name，这些元素有body、li、a、table、tr、td、th、p、div、span、pre、dl、dt、dd、font、b等等
 
-
   
 CSS 中 id、class属性的区别
-
 
 
 1）class是设置标签的类，用于指定元素属于何种样式的类。在CSS样式中以小写的“点”及“.”来命名，在html页面里则以class="css5" 来选择调用，命名好的CSS又叫css选择器。
@@ -151,7 +144,6 @@ id是先找到结构/内容，再给它定义样式；class是先定义好一种
 在实际应用的时候，class可能对文字的排版等比较有用，而id则对宏观布局和设计放置各种元素较有用。
   
 <<id具有唯一性，而class是一个类，适用于可多次重复使用的容器>>
-
 
   
 关于ID和Name的一些注意事项

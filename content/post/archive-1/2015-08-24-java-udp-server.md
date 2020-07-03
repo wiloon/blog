@@ -12,8 +12,6 @@ tags:
 ---
 
 
-
-
 一. UDP协议定义
 
 UDP协议的全称是用户数据报，在网络中它与TCP协议一样用于处理数据包。在OSI模型中，在第四层——传输层，处于IP协议的上一层。UDP有不提供数据报分组、组装和不能对数据包的排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。
@@ -84,10 +82,6 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
   * 将数据打包到DatagramPacket中去
   * 通过socket服务发送 （send()方法）
   * 关闭资源
-
-
-
-
 
 <div class="highlighter dp-highlighter">
   <ol class="highlighter-j" start="1">
@@ -189,8 +183,6 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
     <li>
     </li>
   </ol>
-
-
 
 
 <div class="highlighter dp-highlighter">

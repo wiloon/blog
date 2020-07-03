@@ -295,7 +295,6 @@ WARN \[org.jboss.as.ee\] (MSC service thread 1-1) JBAS011006: Not installing opt
 This warning is innocuous and can be ignored. This will likely be resolved in a future version of the Spring framework.
 
 
-
 Jboss side change  in standlone.xml
 
 Add datasource node

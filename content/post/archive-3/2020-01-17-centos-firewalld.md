@@ -44,7 +44,6 @@ firewall-cmd --zone=public --add-port=8080/tcp
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --zone=public --remove-port=8080/tcp
 
-
 ```
 ### 防火墙区域
 默认的区域设置为 public ，并且所有网络接口都分配给该区域，当然您可以根据自己的需要修改默认区域。
@@ -66,7 +65,6 @@ target 为未指定的传入流量定义区域的默认行为。它可以设置�
 要设置区域的目标，请使用 --zone 选项指定区域，并使用选项指定目标 --set-target 。
 例如，要将 public 区域的目标更改为 DROP 您将运行：
     sudo firewall-cmd --zone=public --set-target=DROP
-
 
 仅对当前会话(运行时配置)允许公共区域中的接口允许传入的 HTTP 通信(端口 80) ，请输入：
 

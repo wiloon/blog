@@ -10,7 +10,6 @@ categories:
 ---
 ```
 
-
 var Sys = {};
    
 var ua = navigator.userAgent.toLowerCase();

@@ -130,9 +130,7 @@ show tag values on db0 from measure0 with key="host"
 SHOW FIELD KEYS [ON <database_name>] [FROM <measurement_name>]
 show tag values from cpu with key=host where service_name=~/xxx/
 
-
 influx -precision rfc3339
-
 
 
 select * from m0 where tag0='tag-value0' and time > '2018-05-16 13:00:00' and time < '2018-05-16 13:01:00' tz('Etc/GMT-8')
@@ -151,7 +149,6 @@ ERR: error parsing query: found /, expected regex at line 1, char 56
 
 # =~和后面的正则表达式之间要有空格T_T
 select f0,f1  from s0 where t0=~ /xxx.*/ 
-
 
 ```
 

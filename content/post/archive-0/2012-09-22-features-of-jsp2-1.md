@@ -10,12 +10,7 @@ categories:
 ---
 <http://www.roseindia.net/jsp/FeaturesOfJsp2.1.shtml>
 
-
-
-
-
 The main purpose of Java Platform, Enterprise Edition (Java EE) 5 is to ease development. Now the Jsp2.1 includes theJava Standard Tag Library(JSTL) and JavaServerFaces technology.
-
 
 
 This version has new expression language (EL ) syntax that allows deferred evaluation of expressions. It now enables using the expression to both get and set data and to invoke methods, and facilitates customizing the resolution of a variable or property referenced by an expression.
@@ -37,17 +32,13 @@ Ability to express references to bean methods using the expression language and 
 This version requires these jars:
 
 
-
 1) ant-1.6.5.jar
-
 
 
 2) core-3.1.1.jar
 
 
-
 3 jsp-2.1.jar
-
 
 
 4) jsp-api-2.1.jar

@@ -14,7 +14,6 @@ categories:
 ---
 # <span class="Apple-style-span" style="font-family: Verdana; font-size: 13px; font-weight: normal;">　一、
 
-
   <div id="cnblogs_post_body">
     
       <span style="font-family: Verdana;">1.delete产生rollback，如果删除大数据量的表速度会很慢，同时会占用很多的rollback segments .truncate 是DDL操作，不产生rollback，速度快一些.

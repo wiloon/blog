@@ -15,7 +15,6 @@ categories:
 [java]
 
 
-
   import javax.servlet.ServletContext;
 
   import javax.servlet.ServletException;
@@ -33,16 +32,10 @@ categories:
   import java.util.Enumeration;
 
 
-
-
   public class HelloWorld extends HttpServlet {
 
 
-
-
   private static final long serialVersionUID = -9037964452251358377L;
-
-
 
 
   public HelloWorld() {
@@ -52,15 +45,11 @@ categories:
    }
 
 
-
-
   public void init() {
 
    System.out.println("servlet.helloWorld.init.");
 
    }
-
-
 
 
   public void destroy() {
@@ -70,8 +59,6 @@ categories:
    }
 
 
-
-
   public void doGet(HttpServletRequest request, HttpServletResponse response)
 
    throws ServletException, IOException {
@@ -79,13 +66,9 @@ categories:
    System.out.println("servlet.helloWorld.doGet.start");
 
 
-
-
   // get, query string
 
    String queryString = request.getQueryString();
-
-
 
 
   // header name
@@ -93,13 +76,9 @@ categories:
    printHeaderName(request);
 
 
-
-
   // get parameter
 
    System.out.println("parameter.foo= " + request.getParameter("foo"));
-
-
 
 
   // query string
@@ -107,13 +86,9 @@ categories:
    System.out.println("query string: " + queryString);
 
 
-
-
   // character encoding
 
    System.out.println("encoding: " + request.getCharacterEncoding());
-
-
 
 
   //init param
@@ -121,15 +96,11 @@ categories:
    System.out.println("init param: " + getInitParameter("ipn"));
 
 
-
-
   //set context attribute
 
    ServletContext context = getServletContext();
 
    context.setAttribute("attrName", "attrValue");
-
-
 
 
   response.setContentType("text/html");
@@ -147,20 +118,14 @@ categories:
    out.println("</body></html>");
 
 
-
-
   System.out.println("servlet.helloWorld.doGet.end");
 
    }
 
 
-
-
   private void printHeaderName(HttpServletRequest request) {
 
    Enumeration enumstr = request.getHeaderNames();
-
-
 
 
   while (enumstr.hasMoreElements()) {
@@ -172,16 +137,10 @@ categories:
    + request.getHeader(name));
 
 
-
-
   }
 
 
-
-
   }
-
-
 
 
   public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -195,8 +154,6 @@ categories:
    }
 
   }
-
-
 
 
   [/java]

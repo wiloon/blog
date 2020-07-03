@@ -11,7 +11,6 @@ categories:
 <p style="color: #000000;" align="justify">
   http://www.cnblogs.com/feisky/archive/2010/01/16/1649081.html
 
-
 Activity
 
 Android中，Activity是所有程序的根本，所有程序的流程都运行在Activity之中，Activity具有自己的生命周期（见http://www.cnblogs.com/feisky/archive/2010/01/01/1637427.html，由系统控制生命周期，程序无法改变，但可以用onSaveInstanceState保存其状态）。
