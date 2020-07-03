@@ -18,7 +18,8 @@ vim foo.md
 
 ### content
 
-<code class="language-puml line-numbers">@startuml
+```puml
+@startuml
 
 [First component]
 [Another component] as Comp2  
@@ -33,3 +34,18 @@ component [Last\ncomponent] as Comp4
 alt+d
 
 https://www.jianshu.com/p/ed0e979657f4
+
+### 活动图
+```puml
+@startuml
+start
+
+if (foo?) then (yes)
+  :process0;
+else (no)
+  :process1;
+endif
+
+stop
+@enduml
+```

@@ -4,8 +4,6 @@ author: wiloon
 type: post
 date: 2017-03-02T08:01:23+00:00
 url: /?p=9890
-categories:
-  - Uncategorized
 
 ---
 flags
@@ -81,41 +79,18 @@ format(Locale locale, String format, Object... args) 使用指定的语言环境
 显示不同转换符实现不同数据类型到字符串的转换，如图所示。
 
  
+| 转换符 | 说明               | 示例         |
+| ------ | ------------------ | ------------ |
+| %s     | 字符串类型         | "mingrisoft" |
+| %b     | 布尔类型           | true         |
+| %d     | 整数类型（十进制） | 99           |
 
-转  换  符
-  
-说    明
-  
-示    例
-  
-%s
-  
-字符串类型
-  
-"mingrisoft"
-  
 %c
-  
 字符类型
-  
 'm'
   
-%b
-  
-布尔类型
-  
-true
-  
-%d
-  
-整数类型（十进制）
-  
-99
-  
 %x
-  
 整数类型（十六进制）
-  
 FF
   
 %o

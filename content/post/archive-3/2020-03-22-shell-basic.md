@@ -11,6 +11,19 @@ categories:
 ### Shell中去除字符串前后空格的方法
     echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
 
+### 判断字符串为空
+    #!/bin/sh
+
+    STRING=
+
+    if [ -z "$STRING" ]; then
+        echo "STRING is empty"
+    fi
+
+    if [ -n "$STRING" ]; then
+        echo "STRING is not empty"
+    fi
+
 #将pwd的执行结果放到变量value中保存，
 
 value=$(pwd)

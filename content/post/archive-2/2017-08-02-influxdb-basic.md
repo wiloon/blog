@@ -21,7 +21,7 @@ curl -i -XPOST http://10.60.0.62:8086/query --data-urlencode "db=mydb" --data-ur
 
 ```bash
 #show db
-dhow databases
+show databases
 
 # 创建数据库，同时配置retention policy
 # DURATION: 数据生命周期 30天
@@ -60,19 +60,9 @@ influx -database 'db0' -execute "select field0,\"field1\" from measurement0 wher
 # 使用 tz('Etc/GMT-8') 后,过滤条件中的time>'xxx' 填写东8区时间.
 ```
 
-### docker
+### 安装
 
 ```bash
-docker run -d \
---name influxdb \
--p 8086:8086 \
--p 8083:8083 \
--v influxdb-config:/etc/influxdb:ro \
--v influxdb-storage:/var/lib/influxdb \
--v /etc/localtime:/etc/localtime:ro \
---restart=always \
-influxdb
-
 # podman
 podman run -d \
 --name influxdb \
@@ -83,9 +73,18 @@ podman run -d \
 -v /etc/localtime:/etc/localtime:ro \
 influxdb
 
-docker exec -it influxdb influx
-docker run -it --rm influxdb influx -host influxdb.wiloon.com
+podman run -d \
+--name influxdb \
+--pod monitor \
+-v influxdb-config:/etc/influxdb:ro \
+-v influxdb-storage:/var/lib/influxdb \
+-v /etc/localtime:/etc/localtime:ro \
+influxdb
+
 ```
+#### run influx
+    sudo podman exec -it influxdb influx
+    sudo podman run -it --rm influxdb influx -host influxdb.wiloon.com
 
 ### retention policies
 

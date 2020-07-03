@@ -43,7 +43,6 @@ categories:
     --describe
 
 replication-factor: 副本数, partitions: 分区数
-
 topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic

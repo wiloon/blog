@@ -1,5 +1,5 @@
 ---
-title: memcache command
+title: memcache basic,command
 author: wiloon
 type: post
 date: 2018-01-05T09:00:17+00:00
@@ -9,12 +9,11 @@ categories:
 
 ---
 ```bash
-docker run \
+podman run \
 --name memcache \
 -d \
 -p 11211:11211 \
 -v /etc/localtime:/etc/localtime:ro \
---restart=always \
 memcached -m 16
 ```
 
