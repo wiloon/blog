@@ -1,5 +1,5 @@
 ---
-title: mysql command
+title: mysql basic,command
 author: wiloon
 type: post
 date: 2011-04-16T01:23:24+00:00
