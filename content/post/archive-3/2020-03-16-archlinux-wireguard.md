@@ -25,7 +25,7 @@ apt update
 apt install wireguard
 
 ### peer A
-
+```
 umask 077
 wg genkey > privatekey
 wg pubkey < privatekey > publickey
@@ -35,38 +35,41 @@ sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
 sudo wg set wg0 private-key ./privatekey
 sudo wg set wg0 listen-port 9000
-# peer b 有确定的端口和IP时， 可以配置endpoint
-sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32 endpoint 192.168.50.115:9000
-# 做为服务端使用时，peer B的ip 和端口一般是动态的，不配置endpoint
+
+# 做为服务端使用时，peer B的ip 和端口一般是动态的，不配置endpoint  
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
+# peer b 有确定的端口和IP时， 可以配置endpoint
+sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32   endpoint 192.168.50.115:9000
 ip link set wg0 up
+```
 
 ### peer B
 
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.2/24 dev wg0
 sudo wg set wg0 private-key ./privatekey
-# 配置监听端口，监听peer A发起的连接 请求，仅作为客户端使用时，可以不配置监听
-sudo wg set wg0 listen-port 9000
-# allowed-ips 0.0.0.0/0 peer_B 所有的ip包都 会被 发往 peer_A
-sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
+配置监听端口，监听peer A发起的连接 请求，仅作为客户端使用时，可以不配置监听
+sudo wg set wg0 listen-port 9000  
+allowed-ips 0.0.0.0/0 peer_B 所有的ip包都 会被 发往 peer_A  
+sudo wg set wg0 peer PEER_A_PUBLIC_KEY   persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
 ip link set wg0 up
 
 
 ### remove peer
-
 wg set wg0 peer PEER_A_PUBLIC_KEY remove
 ```
 
-### 保存配置到文件
+### 配置文件
+/etc/wireguard/wg0.conf
 
-g showconf wg0 > /etc/wireguard/wg0.conf
+#### 保存配置到文件
+wg showconf wg0 > /etc/wireguard/wg0.conf
 
 ### chromeos>crostini
-
-crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe
-  
-<https://tunsafe.com/user-guide/linux>
+~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~  
+~~<https://tunsafe.com/user-guide/linux>~~  
+chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
+/etc/wireguard/wg0.conf
 
 git clone https://github.com/TunSafe/TunSafe.git
 cd TunSafe
@@ -78,20 +81,24 @@ sudo tunsafe start -d TunSafe.conf
 
 #### tunsafe 配置文件
 
-[Interface]
-PrivateKey = <private_key>
-DNS = 192.168.50.1
-BlockDNS = true
-# 设置虚拟网卡的内网地址（可选子网掩码）
-Address = 192.168.53.3/24
-[Peer]
-PublicKey = <public_key>
-# 目标地址是192.168.53.1 的会通过vpn发送到服务端
-AllowedIPs = 192.168.53.1/24
-# 所有ip包都 会发往 vpn服务端
-AllowedIPs = 0.0.0.0/0
-Endpoint = <server_ip0:server_port0>
-PersistentKeepalive = 25
+    [Interface]
+    PrivateKey = <private_key>
+    DNS = 192.168.50.1
+    BlockDNS = true
+
+    # 设置虚拟网卡的内网地址（可选子网掩码）
+    Address = 192.168.53.3/24
+    ;/l.4r5t3677777777
+    [Peer]
+    PublicKey = <public_key>
+
+    # 目标地址是192.168.53.1 的会通过vpn发送到服务端
+    AllowedIPs = 192.168.53.1/24
+
+    # 所有ip包都 会发往 vpn服务端
+    AllowedIPs = 0.0.0.0/0
+    Endpoint = <server_ip0:server_port0>
+    PersistentKeepalive = 25
 
 ### systemd-networkd
 

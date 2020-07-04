@@ -1,16 +1,8 @@
 ---
-title: linux compact/extract 压缩/解压
+title: compact/extract 压缩/解压
 author: wiloon
 date: 2011-11-04T05:13:18.000+00:00
 url: "/?p=1444"
-bot_views:
-- 9
-views:
-- 3
-categories:
-- Linux
-tags:
-- linux
 
 ---
 ### 解压多个文件
@@ -45,7 +37,6 @@ pacman -S p7zip
 ```
 
 ### .zip
-
 #### 压缩
 
 ```bash
@@ -53,9 +44,7 @@ pacman -S p7zip
 zip -s SIZE origin.zip --out new.zip
 
 # SIZE为分卷的大小4m,4g,4t等
-
 # 解压的时候需要先将它合并才能正常解压
-
 zip spiltfile.zip -s=0 --out single.zip
 ```
 
@@ -73,7 +62,6 @@ unzip all.zip
 unzip -o -d /home/sunny myfile.zip
 
 # 解压 多个文件
-
 ls *.zip | xargs -n1 unzip -o
 
 # -o：不必先询问用户，unzip执行后覆盖原有的文件；

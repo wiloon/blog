@@ -28,7 +28,6 @@ yum groupinstall "KDE Plasma Workspaces"
 
 3、安装VNC server，一键安装：
   
-yum install -y tigervnc-server tigervnc
 
 4、配置VNC server：
   

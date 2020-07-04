@@ -31,32 +31,7 @@ rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 Install xrdp on CentOS 7
   
 Use YUM command to install xrdp package on CentOS 7 / RHEL 7.
-
-yum -y install xrdp tigervnc-server
-  
-Output:
-
-Loaded plugins: fastestmirror, langpacks
-  
-Loading mirror speeds from cached hostfile
-   
-* base: centos.excellmedia.net
-   
-* epel: del-mirrors.extreme-ix.org
-   
-* extras: centos.excellmedia.net
-   
-* updates: centos.excellmedia.net
-  
-Resolving Dependencies
-  
--> Running transaction check
-  
--> Package tigervnc-server.x86\_64 0:1.8.0-2.el7\_4 will be installed
-  
--> Package xrdp.x86_64 1:0.9.5-1.el7 will be installed
-  
--> Processing Dependency: xorgxrdp for package: 1:xrdp-0.9.5-1.el7.x86_64
+  e: 1:xrdp-0.9.5-1.el7.x86_64
   
 -> Running transaction check
   
@@ -64,9 +39,7 @@ Resolving Dependencies
   
 -> Finished Dependency Resolution
 
-Dependencies Resolved
-
-=================================================================================================
+### install tigervnc
 
 # Package Arch Version Repository Size
 
