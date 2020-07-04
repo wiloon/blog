@@ -195,10 +195,6 @@ Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比�
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
-
-
-
-
 http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1
 
 The class loader concept, one of the cornerstones of the Java virtual machine, describes the behavior of converting a named class into the bits responsible for implementing that class. Because class loaders exist, the Java run time does not need to know anything about files and file systems when running Java programs.

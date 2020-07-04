@@ -22,23 +22,11 @@ LEFT JOIN B ON b.key\_id = a.key\_id
                   
 WHERE b.satisfy = 1)
   
-1
-  
-2
-  
-3
-  
-4
-  
 解决思路 1： 使用 INNER JOIN (最简洁)
 
 UPDATE A a INNER JOIN B b ON b.key\_id = a.key\_id
   
 SET a.val = 2 WHERE b.satisfy = 1
-  
-1
-  
-2
   
 解决思路 2：
 

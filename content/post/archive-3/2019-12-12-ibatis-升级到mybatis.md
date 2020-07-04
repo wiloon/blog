@@ -48,51 +48,11 @@ mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一�
    
 </dependency>
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
 3、移出项目中的ibatis相关配置及文件（与spring集成为样例）：
 
 <bean id="sqlMapClient" class="com.common.sqlmap.DynSqlMapClientFactoryBean"> <property name="configLocations"> <list> <value>classpath:common-sqlmap-config.xml</value>
       
 <value>classpath*:ibatis-sqlmap-config.xml</value> </list> </property> <property name="dynamicDataSource" ref="dataSource_dyn"> </property> </bean>
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
   
 同时移出common-sqlmap-config.xml和ibatis-sqlmap-config.xml
 
@@ -109,30 +69,11 @@ mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一�
     </bean>
     
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
 同时在项目资源根目录下添加mybatis-config.xml，新建mapper目录用于存放SQL映射文件
 
 mybatis-config.xml样例
   
 <?xml version="1.0" encoding="UTF-8"?>
-
 
   
 
@@ -146,24 +87,6 @@ mybatis-config.xml样例
 </typeAliases>
   
 </configuration>
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
   
 5、创建mybatis的SQL映射文件：
 
@@ -233,32 +156,11 @@ int resetSyncLabel(long bookId);
   
 }
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
 以下给出升级前后的样例文件：
 
 在ibatis中是这样的
 
 <?xml version="1.0" encoding="UTF-8" ?>
-
 
   
 
@@ -395,184 +297,9 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
   
 </sqlMap>
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
-  
-33
-  
-34
-  
-35
-  
-36
-  
-37
-  
-38
-  
-39
-  
-40
-  
-41
-  
-42
-  
-43
-  
-44
-  
-45
-  
-46
-  
-47
-  
-48
-  
-49
-  
-50
-  
-51
-  
-52
-  
-53
-  
-54
-  
-55
-  
-56
-  
-57
-  
-58
-  
-59
-  
-60
-  
-61
-  
-62
-  
-63
-  
-64
-  
-65
-  
-66
-  
-67
-  
-68
-  
-69
-  
-70
-  
-71
-  
-72
-  
-73
-  
-74
-  
-75
-  
-76
-  
-77
-  
-78
-  
-79
-  
-80
-  
-81
-  
-82
-  
-83
-  
-84
-  
-85
-  
-86
-  
-87
-  
 在mybatis中是这样的
 
 <?xml version="1.0" encoding="UTF-8"?>
-
 
   
 
@@ -604,7 +331,6 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
 </sql>
 
 <!-- 添加同步标签 -->
-
 
    
 <insert id="addSyncLabel" parameterType="SyncLabel">

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+
 ```bash
 # apps
 sudo pacman -S code go jdk-openjdk openjdk-src \
@@ -110,7 +111,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | intellij-idea-community-edition-jre   | idea with jre                               |
 | telegraf                              |                                             |
 
-
 ### KDE
 
 | name       | comments             |
@@ -138,5 +138,4 @@ sudo pacman -S powerdevil kmix kscreen ark
 | openjdk-8-jdk |          |
 
 ### xfce4
-
 file-roller

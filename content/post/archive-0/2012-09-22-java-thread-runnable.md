@@ -15,14 +15,16 @@ tags:
 
 在实际开发中一个多线程的操作很少使用Thread类，而是通过Runnable接口完成。
 
-```javapublic interface Runnable{
+```java
+public interface Runnable{
 public void run();
 }
 ```
 
 例子：
 
-```javaclass MyThread implements Runnable{
+```java
+class MyThread implements Runnable{
 private String name;
 public MyThread(String name) {
 this.name = name;
@@ -290,7 +292,6 @@ http://blog.csdn.net/ghsau/article/details/7481142
 <p id="java">
   创建和启动线程的三种方式
  https://jisonami.github.io/2016/09/04/JavaThread1/
-
 
 <blockquote data-secret="Y65uz4t1vN" class="wp-embedded-content">
   

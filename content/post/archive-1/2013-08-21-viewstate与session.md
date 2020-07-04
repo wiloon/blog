@@ -16,9 +16,7 @@ categories:
 
 <span>asp.net巧妙的改变了这一点. 当我们在写一个asp.net表单时, 一旦标明了 form runat=server ,那么,asp.net就会自动在输出时给页面添加一个隐藏域
 
-
   <input type="hidden" name="__VIEWSTATE" value="">
-
 
 那么,有了这个隐藏域,页面里其他所有的控件的状态,包括页面本身的一些状态都会保存到这个控件值里面. 每次页面提交时一起提交到后台,asp.net对其中的值进行解码,然后输出时再根据这个值来恢复各个控件的状态. 我们再看这个控件的value值,它可能类似如下的形式:Oz4+O2w8aTwxPjs+O2w8....
   
@@ -28,9 +26,7 @@ categories:
 
 好, 以上说的这些你可能会觉得: 这与session有什么关系? 这个viewstate不是由asp.net自动去维护吗? 是的, 如果仅仅是保存控件的状态, 你可以感觉不到它与session有什么瓜葛( 呵呵,其实它们就没有瓜葛),不过,接下来,我们看看这种使用方法: 在后台aspx.cs代码里:
 
-
   private void Page_Load(object sender, System.EventArgs e) { ViewState["myvalue"] = "viewstatevalue"; //..... }
-
 
 呵呵, 可以在页面后台直接给viewstate集合赋值, 现在你是不是觉得和session的使用方法差不多了呢? 对,这一点就是几乎所有初学asp.net的人的疑惑. 会认为asp.net也像session那样把这个值保存到服务器内存里面, 其实不是!
 

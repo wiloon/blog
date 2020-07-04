@@ -54,15 +54,11 @@ rsync -anv dir1/ dir2
 
 $ rsync -a dir1／ root@blog.topspeedsnail.com:~/dir2
   
-1
-  
 $ rsync -a dir1／ root@blog.topspeedsnail.com:~/dir2
   
 把远程主机目录同步到本地：
 
 $ rsync -a root@blog.topspeedsnail.com:~/dir2/ dir1
-  
-1
   
 $ rsync -a root@blog.topspeedsnail.com:~/dir2/ dir1
   
@@ -72,15 +68,11 @@ rsync有用的选项
 
 $ rsync -az source dest
   
-1
-  
 $ rsync -az source dest
   
 -P选项非常有用，它是-progress和-partial的组合。第一个选项是用来显示传输进度条，第二个选项允许断点续传和增量传输：
 
 $ rsync -azP source dest
-  
-1
   
 $ rsync -azP source dest
   

@@ -11,7 +11,6 @@ categories:
 https://www.tianmaying.com/tutorial/using-thymeleaf
 
 
-
 Thymeleaf是一款用于渲染XML/XHTML/HTML5内容的模板引擎。类似JSP，Velocity，FreeMaker等，它也可以轻易的与Spring MVC等Web框架进行集成作为Web应用的模板引擎。与其它模板引擎相比，Thymeleaf最大的特点是能够直接在浏览器中打开并正确显示模板页面，而不需要启动整个Web应用。
 
 Thymeleaf初探
@@ -148,7 +147,6 @@ th:text="'Execution mode is ' + ( (${execMode} == 'dev')? 'Development' : 'Produ
   
 </table>
 
-
   
 <a href="../home.html" th:href="@{/}">Return to home</a>
   
@@ -179,7 +177,6 @@ Thymeleaf同样支持多路选择Switch结构：
 <p th:case="#{roles.manager}">User is a manager
   
 
-
 默认属性default可以用*表示：
 
 <div th:switch="${user.role}">
@@ -190,7 +187,6 @@ Thymeleaf同样支持多路选择Switch结构：
   
 <p th:case="*">User is some other thing
   
-
 
 Utilities
   

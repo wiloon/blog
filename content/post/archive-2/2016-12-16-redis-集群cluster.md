@@ -13,7 +13,6 @@ categories:
 sudo yum install epel-release
 yum install redis
 
-
 ```
 
 mkdir redis-cluster

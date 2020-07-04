@@ -183,9 +183,7 @@ Once these files are on your remote device open port 50000 to on your router to 
 Consider setting up fail2ban for open VPN (this will ban IPs that try to connect to OpenVPN at port 50000) But with out a the above client config file - they are kind of wasting their time.
 
 
-
 -------
-
 
 ```
 
@@ -200,6 +198,5 @@ iptables -A FORWARD -i tun+ -j ACCEPT
 iptables -A FORWARD -i tun+ -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -i wlan0 -o tun+ -m state --state RELATED,ESTABLISHED -j ACCEPT
 service openvpn restart
-
 
 ```

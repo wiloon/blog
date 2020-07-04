@@ -21,7 +21,6 @@ plugins {
     id("com.gradle.build-scan") version "2.2.1"
 }
 
-
 tasks.register<Jar>("sourcesJar") {
     from(sourceSets.main.get().allJava)
     archiveClassifier.set("sources")

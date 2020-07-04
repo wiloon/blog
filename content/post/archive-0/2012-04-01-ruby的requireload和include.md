@@ -11,7 +11,6 @@ categories:
 <p style="text-align: justify;" align="center">
   <span style="font-size: medium;">三者之间区别并不像你想的那么难，也不会像有些文章写的那么长。挺简单的。
 
-
 <span style="font-size: medium;">相同之处：三者均在kernel中定义的，均含有包含进某物之意。
 
 <span style="font-size: medium;">不同之处：

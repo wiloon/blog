@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```javapackage com.memorynotfound.httpclient;
+```java
+package com.memorynotfound.httpclient;
 
 import org.apache.http.HttpResponseInterceptor;
 import org.apache.http.client.methods.HttpGet;

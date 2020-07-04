@@ -13,11 +13,9 @@ categories:
 
 本文向您介绍Servlet Session机制，包括会话管理机制、事件监听等，并结合具体的示例讲解了一个基于Servlet Session登陆系统的实现。
 
-
   
     一、           Servlet的会话管理机制
   
-
 
 
   

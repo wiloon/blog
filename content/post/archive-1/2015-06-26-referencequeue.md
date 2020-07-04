@@ -13,15 +13,10 @@ tags:
 http://www.iflym.com/index.php/java-programe/201407140001.html
 
 
-
 1 何为ReferenceQueue
 
 在java的引用体系中，存在着强引用，软引用，虚引用，幽灵引用，这4种引用类型。在正常的使用过程中，我们定义的类型都是强引用的，这种引用类型在回收中，只有当其它对象没有对这个对象的引用时，才会被GC回收掉。简单来说，对于以下定义：
 
-1
-  
-2
-  
 Object obj = new Object();
   
 Ref ref = new Ref(obj);
@@ -37,23 +32,6 @@ Ref ref = new Ref(obj);
 一个简单的例子，通过往map中放入10000个对象，每个对象大小为1M字节数组。使用引用队列监控被放入的key的回收情况。代码如下所示：
 
 
-
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
 Object value = new Object();
   
 Map<Object, Object> map = new HashMap<>();
@@ -72,32 +50,6 @@ System.out.println("map.size->" + map.size());
   
 这里使用了weakReference对象，即当值不再被引用时，相应的数据被回收。另外使用一个线程不断地从队列中获取被gc的数据，代码如下：
 
-01
-  
-02
-  
-03
-  
-04
-  
-05
-  
-06
-  
-07
-  
-08
-  
-09
-  
-10
-  
-11
-  
-12
-  
-13
-  
 Thread thread = new Thread(() -> {
   
 try {
@@ -126,16 +78,6 @@ thread.start();
   
 结果如下所示：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 9992回收了:java.lang.ref.WeakReference@1d13cd4
   
 9993回收了:java.lang.ref.WeakReference@118b73a
@@ -160,18 +102,6 @@ weakHashMap即使用weakReference当作key来进行数据的存储，当key中�
 
 简单点代码如下：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
 public int size() {
   
 if (size == 0)
@@ -196,14 +126,6 @@ C:由queue拿到的事件对象，即这里的entry值。通过entry定位到具
   
 具体的代码，即将开始的map定义为一个WeakHashMap，最终的输出类似如下所示：
 
-1
-  
-2
-  
-3
-  
-4
-  
 9993回收了:java.lang.ref.WeakReference@12aa816
   
 9994回收了:java.lang.ref.WeakReference@2bd967
@@ -220,24 +142,6 @@ weakHashMap.size->4
 
 WeakR对象定义如下：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
 //描述一种强key关系的处理，当value值被回收之后，我们可以通过反向引用将key从map中移除的做法
   
 //即通过在weakReference中加入其所引用的key值，以获取key信息，再反向移除map信息
@@ -258,18 +162,6 @@ this.key = key;
   
 那么，相应的map，我们就使用普通的hashMap，将weakR作为value进行存储，如下所示：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
 final Map<Object, WeakR> hashMap = new HashMap<>();
   
 for(int i = 0;i < 10000;i++) {
@@ -284,22 +176,6 @@ hashMap.put(bytesKey, new WeakR(bytesKey, bytesValue, referenceQueue));
   
 相应的队列，我们则一样地进行监控，不同的是，我们对获取的WeakR对象进行了额外的处理，如下所示：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
 int cnt = 0;
   
 WeakR k;
@@ -324,14 +200,6 @@ hashMap.remove(k.key);
 
 相应的输出，如下所示：
 
-1
-  
-2
-  
-3
-  
-4
-  
 9995回收了:com.m_ylf.study.java.reference.TestCase$1WeakR@13c5f83
   
 9996回收了:com.m_ylf.study.java.reference.TestCase$1WeakR@197558c

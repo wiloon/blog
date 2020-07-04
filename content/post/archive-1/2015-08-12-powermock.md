@@ -9,11 +9,9 @@ categories:
 
 ---
 
-
 [PowerMock LinkageError: MockClassLoader javax/management/MBeanServer][1]{.question-hyperlink}
 
 http://stackoverflow.com/questions/20400574/powermock-linkageerror-mockclassloader-javax-management-mbeanserver
-
 
 
 @RunWith(PowerMockRunner.class)
@@ -21,10 +19,6 @@ http://stackoverflow.com/questions/20400574/powermock-linkageerror-mockclassload
 @PowerMockIgnore({"javax.management.*"})
   
 @PrepareForTest(ClassName.class)
-
-
-
-
 
 http://blog.csdn.net/jackiehff/article/details/14000779
 

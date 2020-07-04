@@ -32,10 +32,6 @@ Linux下高效数据恢复软件extundelete应用实战 推荐
 
 在介绍使用extundelete进行恢复数据之前，简单介绍下关于inode的知识。在Linux下可以通过“ls –id”命令来查看某个文件或者目录的inode值，例如查看根目录的inode值，可以输入：
 
-1
-  
-2
-  
 [root@cloud1 ~]# ls -id /
   
 2 /
@@ -50,16 +46,6 @@ extundelete的官方网站是http://extundelete.sourceforge.net/ ，其目前的
 
 e2fsprogs和e2fsprogs-libs安装非常简单，这里不做介绍。下面是extundelete的编译安装过程：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
 [root@cloud1 app]#tar jxvf extundelete-0.2.4.tar.bz2
   
 [root@cloud1 app]#cd extundelete-0.2.4
@@ -80,8 +66,6 @@ extundelete -help
 
 命令格式:
 
-1
-  
 extundelete \[options\] \[action\] device-file
   
 其中参数（options）有：
@@ -128,32 +112,6 @@ extundelete \[options\] \[action\] device-file
 
 在演示通过extundelete恢复数据之前，我们首先要模拟一个数据误删除环境，这里我们以ext3文件系统为例，在ext4文件系统下的恢复方式与此完全一样。简单的模拟操作过程如下：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
 [root@cloud1 ~]#mkdir /data
   
 [root@cloud1 ~]#mkfs.ext3 /dev/sdc1
@@ -184,10 +142,6 @@ eb42e4b3f953ce00e78e11bf50652a80 test/mytest.txt
 
 在将数据误删除后，立刻需要做的就是卸载这块磁盘分区：
 
-1
-  
-2
-  
 [root@cloud1 data]#cd /mnt
   
 [root@cloud1 mnt]# umount /data
@@ -196,24 +150,6 @@ eb42e4b3f953ce00e78e11bf50652a80 test/mytest.txt
 
 通过extundelete命令可以查询/dev/sdc1分区可恢复的数据信息：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
 [root@cloud1 /]# extundelete /dev/sdc1 -inode 2
   
 ......
@@ -238,24 +174,6 @@ ganglia-3.4.0 245761 Deleted
 
 执行如下命令开始恢复文件：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
 [root@cloud1 /]# extundelete /dev/sdc1 -restore-file passwd
   
 Loading filesystem metadata ... 40 groups loaded.
@@ -286,30 +204,6 @@ extundelete除了支持恢复单个文件，也支持恢复单个目录，在需
 
 继续在上面模拟的误删除数据环境下操作，现在要恢复/data目录下的ganglia-3.4.0文件夹，操作如下：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
 [root@cloud1 mnt]# extundelete /dev/sdc1 -restore-directory /ganglia-3.4.0
   
 Loading filesystem metadata ... 40 groups loaded.
@@ -342,38 +236,6 @@ ganglia-3.4.0
 
 仍然在上面模拟的误删除数据环境下操作，现在要恢复/data目录下所有数据，操作过程如下：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
 [root@cloud1 mnt]# extundelete /dev/sdc1 -restore-all
   
 Loading filesystem metadata ... 40 groups loaded.
@@ -416,42 +278,6 @@ ganglia-3.4.0 passwd test
 
 我们首先假定在/data目录下有个刚刚创建的压缩文件ganglia-3.4.0.tar.gz，然后删除此文件，接着卸载/data分区，开始恢复一小时内的文件，操作如下：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
 [root@cloud1 ~]#cd /data/
   
 [root@cloud1 data]# cp /app/ganglia-3.4.0.tar.gz /data

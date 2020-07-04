@@ -91,7 +91,6 @@ cd /home/user1/Maildir/new
 ### try to send email from gmail to user1@wiloon.com
 
 
-
 dovecot
 
 安装POP3和IMAP支持
@@ -153,11 +152,9 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
 `/etc/init.d/dovecot restart`
 
 
-
 大功告成！
 
 使用telnet检测110(POP3)和143(IMAP)端口
-
 
   <ol title="Double click to hide line number.">
     <li>
@@ -216,7 +213,6 @@ broken_sasl_auth_clients = yes
   
     ################------------------------------------
   
-
 
 <span style="color: #000000;">#默认情况下，dovecot是不允许plaintext类型的认证的，打开 
 

@@ -20,7 +20,6 @@ apt-get remove foo
 # ping, command not found
 apt-get install inetutils-ping
 
-
 ```
 
 dpkg-reconfigure tzdata

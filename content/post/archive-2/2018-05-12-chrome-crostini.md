@@ -36,7 +36,6 @@ Launch a container run\_container.sh -container\_name=stretch -user=wiloon -shel
   
 </blockquote>
 
-
   
 https://github.com/lstoll/cros-crostini/blob/master/README.md
   

@@ -23,7 +23,6 @@ Memcache是danga的一个项目，最早是LiveJournal 服务的，最初为了�
 Memcached是以守护程序方式运行于一个或多个服务器中，随时会接收客户端的连接和操作
 
 
-
 为什么会有Memcache和memcached两种名称
 
 其实Memcache是这个项目的名称，而memcached是它服务器端的主程序文件名，知道我的意思了吧。一个是项目名称，一个是主程序文件名，在网上看到了很多人不明白，于是混用了。
@@ -78,14 +77,6 @@ lrwxrwxrwx   1 root    root          21 2009-07-19 08:45 libevent.
 
 ?View Code BASH
   
-1
-  
-2
-  
-3
-  
-4
-  
 5
 
 wget http://www.monkey.org/~provos/libevent-2.0.13-stable.tar.gz
@@ -97,7 +88,6 @@ tar xzvf libevent-2.0.13-stable.tar.gz
 make
   
 make install
-
 
 
 1)安装Memcache服务端
@@ -135,7 +125,6 @@ memcached -d -m 128 -p 11111 -u root
 -f 块大小增长因子，默认是1.25-n 最小分配空间，key+value+flags默认是48
   
 -h 显示帮助
-
 
 
 查看是否建立成功
@@ -321,7 +310,6 @@ magent采用的是：Consistent Hashing原理，Consistent Hashing如下所示�
 Java开发中的Memcache原理及实现（四）原理与部署
 
 
-
 3. 搭建memcache集群服务
 
 利用magent实现对memecache的分布式管理，搭建一套memcache集群服务：
@@ -381,7 +369,6 @@ quit
 Connection closed by foreign host.
 
 
-
 [root@odb ~]# telnet 127.0.0.1 11211
 
 Trying 127.0.0.1…
@@ -401,7 +388,6 @@ END
 quit
 
 Connection closed by foreign host.
-
 
 
 [root@odb ~]# telnet 127.0.0.1 11212
@@ -439,7 +425,6 @@ root     25919  0.0  0.0  2176  484 ?        Ss   12:00   0:0
 root     25925  0.0  0.0  3004  484 ?        Ss   12:00   0:00 magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11211
 
 
-
 [root@odb ~]# telnet 127.0.0.1 10000
 
 Trying 127.0.0.1…
@@ -457,7 +442,6 @@ STORED
 quit
 
 Connection closed by foreign host.
-
 
 
 [root@odb ~]# telnet 127.0.0.1 11000
@@ -507,7 +491,6 @@ quit                             <—退出11000端�
 Connection closed by foreign host.
 
 
-
 [root@odb ~]# telnet 127.0.0.1 10000
 
 Trying 127.0.0.1…
@@ -543,7 +526,6 @@ END
 quit
 
 Connection closed by foreign host.
-
 
 
 [root@odb ~]# telnet 127.0.0.1 11000
@@ -597,7 +579,6 @@ quit
 Connection closed by foreign host.
 
 
-
 [root@odb ~]# telnet 127.0.0.1 11000
 
 Trying 127.0.0.1…
@@ -617,7 +598,6 @@ END
 quit
 
 Connection closed by foreign host.
-
 
 
 5. Down机模拟测试2
@@ -645,7 +625,6 @@ END
 quit
 
 Connection closed by foreign host.
-
 
 
 2)      重启11000端口的magent
@@ -715,11 +694,9 @@ XMemcached也使用得比较广泛，而且有较详细的中文API文档，具�
 package temp;
 
 
-
 import com.danga.MemCached.*;
 
 import org.apache.log4j.*;
-
 
 
 public class CacheTest {
@@ -755,7 +732,6 @@ pool.setSocketTO(3000);
 pool.setAliveCheck(true);
 
 pool.initialize();
-
 
 
 /**
@@ -803,15 +779,12 @@ spymemcached当前版本是2.5版本，官方网址是：http://code.google.com/
 package temp;
 
 
-
 import java.net.InetSocketAddress;
 
 import java.util.concurrent.Future;
 
 
-
 import net.spy.memcached.MemcachedClient;
-
 
 
 public class TestSpyMemcache {
@@ -879,11 +852,9 @@ Xmemcached的官方网址是：http://code.google.com/p/xmemcached/，可以从�
 package temp;
 
 
-
 import java.io.IOException;
 
 import java.util.concurrent.TimeoutException;
-
 
 
 import net.rubyeye.xmemcached.utils.AddrUtil;
@@ -895,7 +866,6 @@ import net.rubyeye.xmemcached.MemcachedClientBuilder;
 import net.rubyeye.xmemcached.XMemcachedClientBuilder;
 
 import net.rubyeye.xmemcached.exception.MemcachedException;
-
 
 
 public class TestXMemcache {
@@ -911,7 +881,6 @@ MemcachedClient memcachedClient;
 try {
 
 memcachedClient = builder.build();
-
 
 
 memcachedClient.set("hello", 0, "Hello,xmemcached");

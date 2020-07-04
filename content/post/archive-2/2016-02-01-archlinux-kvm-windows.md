@@ -76,7 +76,6 @@ sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
 ```
 
 
-
 ### start win10
 第一次启动要挂载virtio-win\_x86\_64.vfd，启动之后到win里面安装网卡驱动。
 

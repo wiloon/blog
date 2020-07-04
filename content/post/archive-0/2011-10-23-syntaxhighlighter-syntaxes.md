@@ -25,7 +25,6 @@ categories:
     Bundled Brushes
   </h2>
 
-
 <div id="content">
   
     SyntaxHighlighter uses separate syntax files called brushes to define its highlighting functionality.

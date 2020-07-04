@@ -37,13 +37,15 @@ package com.ljq.test;
   
 每一个枚举常量被隐式的声明成Day的一个public、static成员，而且其类型为Day，亦就是说这些常量是self-typed的
 
-```javapublic   enum  Day
+```java
+public   enum  Day
 {
 MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
 ```
 
-```javapublic enum ColorEnum {
+```java
+public enum ColorEnum {
     red, green, yellow, blue;
 }
 
@@ -67,7 +69,8 @@ return winter;
 
 ### 有构造器的枚举
 
-```javapublic enum Gender{
+```java
+public enum Gender{
 //通过括号赋值,而且必须带有一个参构造器和一个属性跟方法，否则编译出错
 //赋值必须都赋值或都不赋值，不能一部分赋值一部分不赋值；如果不赋值则不能写构造器，赋值编译也出错
 MAN("MAN"), WOMEN("WOMEN");
@@ -87,7 +90,8 @@ return value;
 
 ### 有抽象方法的枚举
 
-```javapublic enum OrderState {
+```java
+public enum OrderState {
     /** 已取消 */
     CANCEL {public String getName(){return "已取消";}},
     /** 待审核 */
@@ -165,7 +169,8 @@ System.out.println(order.getName());
 
 2、下面的定义也是合法的：
 
-```javapublic enum Day
+```java
+public enum Day
 {
 MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY,
 }
@@ -183,7 +188,8 @@ MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 
 但是当枚举类型有其他定义时，则分号;是必须的 3、声明、使用一个枚举类型： （1）在同一个包中：
 
-```javapublic   class  BasicMainClass
+```java
+public   class  BasicMainClass
 {
 public   static   void  main(String args[])
 {
@@ -195,7 +201,8 @@ System.out.println( " Today is  "   +  today.toString().toLowerCase());
 
 （2）在不同包中：
 
-```javaimport  basic.Day;
+```java
+import  basic.Day;
 public   class  OtherMainClass
 {
 public   static   void  main(String [] args)
@@ -244,7 +251,8 @@ It is not possible to extend an enumerated type. Enumerated types are effectivel
   
 Like classes, enumerated types may implement one or more interfaces.
 
-```javapublic class VectorTest {
+```java
+public class VectorTest {
 public static void main(String[] args) {
 Vector vector = new Vector();
 System.out.println("enter your number:");
@@ -365,7 +373,8 @@ two
   
 three
 
-```javapublic enum State {
+```java
+public enum State {
 CREATED(0),
 UPDATED(1),
 RESOLVED(2);</code>
@@ -398,7 +407,8 @@ DK1.5引入了新的类型——枚举。在 Java 中它虽然算个“小”功
   
 在JDK1.5 之前，我们定义常量都是： public static fianl…. 。现在好了，有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。
 
-```javapublic enum Color {
+```java
+public enum Color {
 RED, GREEN, BLANK, YELLOW
 }
 
@@ -406,7 +416,8 @@ RED, GREEN, BLANK, YELLOW
 
 2.2 Equality
 
-```javapublic final boolean equals(Object other) {
+```java
+public final boolean equals(Object other) {
 return this==other;
 }
 
@@ -421,7 +432,8 @@ return super.hashCode();
   
 JDK1.6之前的switch语句只支持int,char,enum类型，使用枚举，能让我们的代码可读性更强。
 
-```javaenum Signal {
+```java
+enum Signal {
 GREEN, YELLOW, RED
 }
 public class TrafficLight {
@@ -446,7 +458,8 @@ break;
   
 如果打算自定义自己的方法，那么必须在enum实例序列的最后添加一个分号。而且 Java 要求必须先定义 enum 实例。
 
-```javaJava代码 收藏代码
+```java
+java代码 收藏代码
 public enum Color {
 RED(“红色”, 1), GREEN(“绿色”, 2), BLANK(“白色”, 3), YELLO(“黄色”, 4);
 // 成员变量
@@ -486,7 +499,8 @@ this.index = index;
   
 下面给出一个toString()方法覆盖的例子。
 
-```javapublic enum Color {
+```java
+public enum Color {
 RED(“红色”, 1), GREEN(“绿色”, 2), BLANK(“白色”, 3), YELLO(“黄色”, 4);
 // 成员变量
 private String name;
@@ -508,7 +522,8 @@ return this.index+”_”+this.name;
   
 所有的枚举都继承自java.lang.Enum类。由于Java 不支持多继承，所以枚举对象不能再继承其他类。
 
-```javapublic interface Behaviour {
+```java
+public interface Behaviour {
 void print();
 String getInfo();
 }
@@ -537,7 +552,8 @@ System.out.println(this.index+”:”+this.name);
 
 用法六：使用接口组织枚举
 
-```javapublic interface Food {
+```java
+public interface Food {
 enum Coffee implements Food{
 BLACK_COFFEE,DECAF_COFFEE,LATTE,CAPPUCCINO
 }

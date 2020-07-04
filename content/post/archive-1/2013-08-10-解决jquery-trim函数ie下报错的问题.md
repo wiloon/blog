@@ -31,7 +31,6 @@ categories:
     </li>
   </ol>
 
-
 上面的写法在firefox下不会报错，但在ie下确会报错
   
 正确的写法应该为
@@ -54,7 +53,6 @@ categories:
         alert('空');
     </li>
   </ol>
-
 
 或者为:
 

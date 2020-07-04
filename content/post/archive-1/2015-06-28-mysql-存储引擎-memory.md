@@ -13,7 +13,6 @@ tags:
 http://samyubw.blog.51cto.com/978243/223769
 
 
-
 Memory存储引擎使用存在内存中的内容来创建表，每个Memory表只实际对应一个磁盘文件，在磁盘中表现为.frm文件。Memory类型的表访问速度非常快，因为它的数据是放在内存中的，并且默认使用hash索引，但是一旦服务关闭，表中的数据就会丢失。
 
 示例：create table memory_tab(id int)engine=memory;
@@ -57,7 +56,6 @@ As indicated by the name, MEMORY tables are stored in memory. They use hash inde
 这里临时表默认使用的存储引擎是服务器指定的存储引擎（默认是myisam）。mysql临时表的定义和数据都是放在内存中，而未放到磁盘中，用show tables是找不到临时表的。
 
 另外，因为memory的存取速度优于myisam，在用临时表做中间表的应用时，可以将其改为使用memory引擎的临时表。
-
 
 
 http://www.cnblogs.com/wu-jian/archive/2011/11/29/2267795.html

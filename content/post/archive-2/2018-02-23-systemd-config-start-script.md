@@ -73,7 +73,6 @@ Type=forking
 ExecStart=/data/server/zookeeper/zookeeper-3.4.12/bin/zkServer.sh start
 ExecStop=/data/server/zookeeper/zookeeper-3.4.12/bin/zkServer.sh stop
 
-
 [Install]
 WantedBy=multi-user.target
 ```

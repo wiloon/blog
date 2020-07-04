@@ -15,7 +15,6 @@ categories:
   * [appassembler:generate-daemons][3] Generates JSW based daemon wrappers.
 
 
-
 maven 自动生成运行脚本插件appassembler-maven-plugin
   
 博客分类：maven
@@ -25,7 +24,6 @@ appassembler-maven-plugin可以自动生成跨平台的启动脚本，省去了�
 appassembler的配置比较简单，在pom.xml的配置文件加入插件配置。
 
 比如说不同的启动脚本，可以如下配置
-
 
 
 Xml代码
@@ -87,12 +85,7 @@ Xml代码
 就可以自动生成整个的依赖文件，配置文件和运行脚本了。
 
 
-
 一些配置说明
-
-
-
-
 
 configurationDirectory：生成配置文件路径
 
@@ -110,14 +103,9 @@ repositoryName：依赖包目录，默认repo
 
 programs：这个必须参数，启动的主class
 
-
-
-
-
 生成jsw也是一个简单的配置
 
 eg：
-
 
 
 Xml代码
@@ -273,7 +261,6 @@ Xml代码
 </executions>
   
 </plugin>
-
 
 
 http://lavafree.iteye.com/blog/1502594

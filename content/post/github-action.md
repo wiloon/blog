@@ -16,6 +16,5 @@ title = "github action"
           REMOTE_USER: "blog"
           TARGET: "/home/blog/public/"
 
-
 secrets.SSH_PRIVATE_KEY
 粘贴私钥时后面加一个换行，否则会报错，invalid format

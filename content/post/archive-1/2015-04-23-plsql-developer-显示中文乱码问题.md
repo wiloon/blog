@@ -11,7 +11,6 @@ categories:
 http://dw008.blog.51cto.com/2050259/934741
 
 
-
 PL/SQL Developer 显示中文乱码问题
 
 简单版本：
@@ -21,7 +20,6 @@ PL/SQL Developer 显示中文乱码问题
 select userenv('language') from dual;
 
 查询oracle服务器端的编码， 如为： AMERICAN_AMERICA.US7ASCII 显示什么编码 就设置什么编码
-
 
 
 在我们的客户端需要和服务器端的编码保持一致。

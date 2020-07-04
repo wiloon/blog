@@ -13,7 +13,6 @@ categories:
     I've connected my Android phone to my Wifi network at work, but they use a proxy and I cannot use my browser without setting the proxy on my browser. Is there any way I can do this?
   
 
-
 <div id="post-749">
   The great thing about Android is that the operating system on your phone is open up to any tweaking you might want to do. unfortunately, there is no UI for proxy settings for Android web browser. Instead the Android web browser will read the proxy settings in its settings database. 
   

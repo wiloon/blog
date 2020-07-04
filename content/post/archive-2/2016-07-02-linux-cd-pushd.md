@@ -11,7 +11,6 @@ categories:
 http://os.51cto.com/art/200910/158752.htm
 
 
-
 3,如何在多个目录之间切换？
 
 用 pushd +n即可
@@ -49,7 +48,6 @@ n是一个数字,有此参数时，是切换到堆栈中的第n个目录,并把�
 3  /usr/share/kde4/apps/kget
 
 4,如何把目录从堆栈中删除?
-
 
 
 在向大家详细介绍linux之前，首先让大家了解下linux cd命令，然后全面介绍巧用linux cd命令的方法。在Linux的多目录命令提示符中工作是一种痛苦的事情，但以下这些利用linux cd命令和pushd切换目录的技巧有助于你节省时间和精力。

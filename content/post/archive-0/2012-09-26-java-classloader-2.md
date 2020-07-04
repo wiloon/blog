@@ -17,11 +17,9 @@ JDK默认ClassLoader
 JDK 默认提供了如下几种ClassLoader
 
 
-
 Bootstrp loader
   
 Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA\_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA\_HOME%/jre/classes中的类。
-
 
 
 ExtClassLoader
@@ -164,10 +162,6 @@ Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比�
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
-
-
-
-
 http://www.javaworld.com/javaworld/jw-10-1996/jw-10-indepth.html?page=1
 
 The class loader concept, one of the cornerstones of the Java virtual machine, describes the behavior of converting a named class into the bits responsible for implementing that class. Because class loaders exist, the Java run time does not need to know anything about files and file systems when running Java programs.
@@ -177,7 +171,6 @@ What class loaders do
 Classes are introduced into the Java environment when they are referenced by name in a class that is already running. There is a bit of magic that goes on to get the first class running (which is why you have to declare the main() method as static, taking a string array as an argument), but once that class is running, future attempts at loading classes are done by the class loader.
 
 At its simplest, a class loader creates a flat name space of class bodies that are referenced by a string name. The method definition is:
-
 
   <div id="highlighter_62595" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
@@ -192,7 +185,6 @@ At its simplest, a class loader creates a flat name space of class bodies that a
       </tr>
     </table>
   
-
 
 The variable className contains a string that is understood by the class loader and is used to uniquely identify a class implementation. The variable resolveIt is a flag to tell the class loader that classes referenced by this class name should be resolved (that is, any referenced class should be loaded as well).
 
@@ -233,7 +225,6 @@ Resolve the class.
 Return the class to the caller.
 
 Some Java code that implements this flow is taken from the file SimpleClassLoader and appears as follows with descriptions about what it does interspersed with the code.
-
 
   <div id="highlighter_496219" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
@@ -289,9 +280,7 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
     </table>
   
 
-
 The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
-
 
   <div id="highlighter_688537" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
@@ -335,9 +324,7 @@ The code above is the first section of the loadClass method. As you can see, it 
     </table>
   
 
-
 As you can see in the code above, the next step is to check if the primordial class loader can resolve this class name. This check is essential to both the sanity and security of the system. For example, if you return your own instance of java.lang.Object to the caller, then this object will share no common superclass with any other object! The security of the system can be compromised if your class loader returned its own value of java.lang.SecurityManager, which did not have the same checks as the real one did.
-
 
   <div id="highlighter_844302" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
@@ -369,7 +356,6 @@ As you can see in the code above, the next step is to check if the primordial cl
     </table>
   
 
-
 After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory “store” to the class name and appends the extension “.impl”. I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
 
 http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html
@@ -383,7 +369,6 @@ JAVA中的一切都是以类的形式存在的（除少数底层的东西，那�
 Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的classes或lib目录下的.jar文件（例如rt.jar）是否需要被加载（实际上是由系统参数sun.boot.class.path来指定）；ExtClassLoader主要负责搜索JRE所在目录的lib/ext 目录下的classes或.jar中是否需要被加载（实际上是由系统参数java.ext.dirs指定）；AppClassLoader则是搜索 Classpath中是否有指定的classes需要被载入（由系统参数java.class.path指定）。
 
 简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候：
-
 
   <div id="highlighter_340310" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
@@ -403,7 +388,6 @@ Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的clas
     </table>
   
 
-
 AppClassLoader首先会到classpath下去寻找Student.class文件。（找不到则会抛出ClassNotFoundException异常）找到之后便会把Student这个类以二进制的形式存储到内存中。这个过程也就是对Student类加载的过程。然后用我们加载到内存中的Student类去实例化一个Student对象stu。
 
 以上就是所谓的隐式的类的加载过程。但是有些时候需要我们自定义一个类的加载器，这个时候就需要我们模仿这个过程，显示的加载我们自己所需要的类。比如，我们自定义一个类的加载器MyClassLoader，那我们利用我们自定义的这个加载器，显示的去加载一个类的过程也是这样的：
@@ -419,7 +403,6 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
 3.创建类对象。
   
 我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考：
-
 
   <div id="highlighter_147823" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
@@ -494,9 +477,7 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
     </table>
   
 
-
 https://my.oschina.net/aminqiao/blog/262601
-
 
 
 [java]

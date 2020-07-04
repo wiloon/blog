@@ -19,7 +19,6 @@ SELENIUM 家族成员有：SELENIUM， SELENIUM RC， SELENIUM IDE， SELENIUM C
 GOOGLE 每天都要在他的**TESTING** FARM上跑几万个SELENIUM测试CASE,现在也些会更多，你如果想学习SELENIUM， 可以从这里开始 http://selenium.seleniumhq.org/
 
 
-
 **tellurium **
 
 这个框架是从[Selenium框架][1]{#ex48}发展而来，但又具有不同的测试理念。大多数Web测试框架，比如Selenium，主要致力于单独的UI元素。而Tellurium恰好相反，它把多个UI元素看作一个Widget整体，并将其称作UI module。

@@ -20,7 +20,6 @@ sudo smartctl -i /dev/sdb | grep "^SATA"
 sudo smartctl -a /dev/sda
 sudo smartctl -i /dev/sdb
 
-
 dmesg | grep -i sata | grep 'link up'
 
 ```

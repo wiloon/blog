@@ -12,9 +12,7 @@ categories:
   http://blog.sina.com.cn/s/blog_5396eb53010004sg.html
 
 
-
   The number is only the status code for the termination of the JVM. It does not effect the actual command. By convention 0 means a normal exit, anything else signifies an abnormal termination.
-
 
 
   <div id="post_message_193968">

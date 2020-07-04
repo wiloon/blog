@@ -21,7 +21,6 @@ HTML5 不基于 SGML，所以不需要引用 DTD。
 <p class="tip">
   添加 <!DOCTYPE> 声明，这样浏览器才能获知文档类型。
 
-
 <p class="tip">
   
     HTML Transitional DTD

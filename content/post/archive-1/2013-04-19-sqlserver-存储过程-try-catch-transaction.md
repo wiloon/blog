@@ -205,7 +205,6 @@ CREATE TABLE \[dbo].[ErrorLog\](
 ) ON [PRIMARY]
 
 
-
 <wbr />
 
 下面系统函数在CATCH块有效.可以用来得到更多的错误信息:

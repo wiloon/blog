@@ -11,7 +11,6 @@ tags:
 
 ---
 
-
 MySQL的大小写敏感性 lower\_case\_table_names
 
 在 MySQL 中，数据库和表对就于那些目录下的目录和文件。因而，操作系统的敏感性决定数据库和表命名的大小写敏感。这就意味着数据库和表名在 Windows 中是大小写不敏感的，而在大多数类型的 Unix 系统中是大小写敏感的。
@@ -66,7 +65,6 @@ MySQL的大小写敏感性 lower\_case\_table_names
     </td>
   </tr>
 </table>
-
 
 
 MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。

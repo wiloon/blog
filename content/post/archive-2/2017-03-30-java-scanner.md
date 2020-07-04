@@ -50,8 +50,6 @@ System.out.println(">>>" + line);
 
 请输入字符串：
   
-234
-  
 >>>234
   
 wer
@@ -90,15 +88,9 @@ System.out.println(s.next());
   
 }
 
-123
-  
 asdf
   
 sd
-  
-45
-  
-789
   
 sdf
   
@@ -112,15 +104,9 @@ Process finished with exit code 0
 
 将注释行去掉，使用空格或逗号或点号作为分隔符，输出结果如下：
   
-123
-  
 asdf
   
 sd
-  
-45
-  
-789
   
 sdf
   

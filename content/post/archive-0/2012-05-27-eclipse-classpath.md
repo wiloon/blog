@@ -11,7 +11,6 @@ categories:
 
   <classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 
-
 <div id="blog_content">
   
     每个新建java工程(Project)都默认存在的。

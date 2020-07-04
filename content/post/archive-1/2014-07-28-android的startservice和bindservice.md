@@ -49,7 +49,6 @@ intent是跳转到service的intent，如 Intent intent = new Intent(); intent.se
 conn则是一个代表与service连接状态的类，当我们连接service成功或失败时，会主动触发其内部的onServiceConnected或onServiceDisconnected方法。如果我们想要访问service中的数据，可以在onServiceConnected()方法中进行实现，
 
 
-
 使用service的步骤：
   
 第一步：我们要继承service类，实现自己的service。
@@ -119,7 +118,6 @@ service的整个生命周期是在onCreate()和onDestroy()方法之间。和acti
 service的活动生命周期是在onStart()之后，这个方法会处理通过startServices()方法传递来的Intent对象。音乐service可以通过开打intent对象来找到要播放的音乐，然后开始后台播放。注： service停止时没有相应的回调方法，即没有onStop()方法，只有onDestroy()销毁方法。
 
 onCreate()方法和onDestroy()方法是针对所有的services，无论它们是否启动，通过Context.startService()和Context.bindService()方法都可以访问执行。然而，只有通过startService()方法启动service服务时才会调用onStart()方法。
-
 
 
 如果一个service允许别人绑定，那么需要实现以下额外的方法：
@@ -479,7 +477,6 @@ return result;
 复制代码
 
 
-
 至于startservice和bindservice的使用场景，有网友这么说：
 
 1.通过startservice开启的服务.一旦服务开启, 这个服务和开启他的调用者之间就没有任何的关系了.
@@ -489,7 +486,6 @@ return result;
 2.通过bindService开启的服务,服务开启之后,调用者和服务之间 还存在着联系 ,
   
 一旦调用者挂掉了.service也会跟着挂掉 .
-
 
 
 示例下载地址：http://pan.baidu.com/share/link?shareid=1614272126&uk=1428765741

@@ -47,13 +47,7 @@ Mingle后台存储采用数据库方式，目前仅支持mysql和Postgres两种�
   * 丰富的card properties，使需求驱动的管理流程更加清晰；
   * 支持card和源代码之间的link；.
 
-
   agilefant
-
-
-
-
-
 
   
     XPlanner
@@ -70,7 +64,6 @@ Mingle后台存储采用数据库方式，目前仅支持mysql和Postgres两种�
   
     XP 独特的开发概念如iteration、user stories等，XPlanner都提供了相对应的的管理工具，XPlanner支持XP开发流程，并解决利用XP思想来开发项目所碰到的问题。 XPlanner特点包括：简单的模型规划，虚拟笔记卡(Virtual note cards),iterations、user stories与工作记录的追踪，未完成stories将自动迭代，工作时间追踪，生成团队效率，个人工时报表，SOAP界面支持。.
   
-
 
 **白板**
 

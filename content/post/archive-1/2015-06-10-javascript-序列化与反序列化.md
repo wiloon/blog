@@ -13,12 +13,7 @@ tags:
 http://blog.csdn.net/zhangquanok/article/details/13002771
 
 
-
   ```
-
-
-
-
 
   var objP = {};
 
@@ -31,8 +26,6 @@ http://blog.csdn.net/zhangquanok/article/details/13002771
   JSON.stringify(objP)//序列化
 
   JSON.parse(e); //JSON.parse(e)反序列化
-
-
 
 
   ```

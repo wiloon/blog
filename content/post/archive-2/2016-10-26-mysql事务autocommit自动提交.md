@@ -30,8 +30,6 @@ mysql> show variables like 'autocommit';
   
 从查询结果中，我们发现Value的值是ON，表示autocommit开启。我们可以通过以下SQL语句改变这个模式
 
-1
-  
 mysql> set autocommit = 0;
   
 值0和OFF都是一样的，当然，1也就表示ON。通过以上设置autocommit=0，则用户将一直处于某个事务中，直到执行一条commit提交或rollback语句才会结束当前事务重新开始一个新的事务。

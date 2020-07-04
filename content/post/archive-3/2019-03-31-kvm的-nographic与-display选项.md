@@ -15,7 +15,6 @@ http://openwares.net/2014/03/10/kvm_nographic_display/
 KVM的-nographic与-display选项&
 http://openwares.net/2014/03/10/kvm_nographic_display/embed/#?secret=cEd7rLTTHt
 
-
 KVM客户机正常运行时是不需要在主机上显示图形界面的,以前都是使用-nographic和-daemoniz选项来使客户机后台运行。
 但是从qemu-kvm 1.4开始,这招不灵了，会有这样的错误提示:
 -nographic can not be used with -daemonize

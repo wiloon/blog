@@ -3,7 +3,6 @@ title: "podman openwrt"
 date: 2020-05-03T11:59:36Z
 ---
 
-
 https://openwrt.org/
 https://hub.docker.com/u/openwrtorg
 https://hub.docker.com/r/openwrtorg/rootfs

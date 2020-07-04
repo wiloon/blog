@@ -49,5 +49,4 @@ connect, dba, resource
 unlimited tablespace
 
 
-
 http://www.2cto.com/database/201109/103010.html

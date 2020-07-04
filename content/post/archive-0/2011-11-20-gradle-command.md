@@ -41,7 +41,6 @@ gradle distZip
 # 安装到本地
 gradle installDist
 
-
 #convert maven project to gradle project
 gradle init --type pom
 #eclipse 

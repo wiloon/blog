@@ -10,10 +10,8 @@ categories:
 ---
 
 
-
 <div id="blog_content">
   1、打开Chrome，在地址栏键入 chrome://net-internals 回车
-
 
 <div id="blog_content">
   

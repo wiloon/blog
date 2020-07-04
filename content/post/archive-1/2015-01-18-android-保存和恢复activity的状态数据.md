@@ -9,7 +9,6 @@ categories:
 
 ---
 
-
 androidjavaactivityonSaveInstanceStateBundle
   
 [coolxing按: 转载请注明作者和出处, 如有谬误, 欢迎在评论中指正.]
@@ -99,7 +98,6 @@ onSaveInstanceState()方法适合保存什么数据
 引发activity摧毁和重建的其他情形
 
 除了系统处于内存不足的原因会摧毁activity之外, 某些系统设置的改变也会导致activity的摧毁和重建. 例如改变屏幕方向(见上例), 改变设备语言设定, 键盘弹出等.
-
 
 
 http://blog.csdn.net/lixiang0522/article/details/7565401

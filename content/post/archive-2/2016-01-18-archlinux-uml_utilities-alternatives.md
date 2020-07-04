@@ -11,6 +11,4 @@ categories:
 ip tuntap
 
 
-
-
 https://lists.archlinux.org/pipermail/aur-general/2013-May/023611.html

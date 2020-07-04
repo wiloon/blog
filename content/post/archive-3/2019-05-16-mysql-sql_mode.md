@@ -22,10 +22,6 @@ http://blog.csdn.net/wyzxg/article/details/8787878
   
 查看当前sql-mode
   
-1
-  
-2
-  
 SELECT @@GLOBAL.sql_mode;
   
 SELECT @@SESSION.sql_mode;
@@ -60,23 +56,11 @@ mysql> SELECT @@SESSION.sql_mode;
   
 设置当前sql-mode
   
-1
-  
-2
-  
 SET GLOBAL sql_mode = 'modes...';
   
 SET SESSION sql_mode = 'modes...';
   
 my.cnf中配置sql-mode
-  
-1
-  
-2
-  
-3
-  
-4
   
 [mysqld]
   

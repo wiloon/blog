@@ -63,7 +63,6 @@ sudo apt-get install xfonts-intl-chinese wqy*
 #restart chrome,
 
 
-
 #######################input method
 
 #go to System>Administration>Software Center
@@ -74,48 +73,32 @@ sudo apt-get install xfonts-intl-chinese wqy*
 
 #install wubi input method
 
-
   #search "wubi" in software center
-
 
 
   #install wubi input method base on table engine of ibus
 
 
-
   #right click the ibus icon and select restart, restart the ibus
-
 
 
   #select wubi in ibus...
 
 
-
   #install pinyin engine for ibus
-
 
 #start ibus, goto System>Preferences>IBUS... ,,, maybe need restart the system to enable the wubi and pinyin...
 
-
   #there will be a alert, "if can not use ibus add follow lines to .bashrc
-
 
 
   #export GTK_IM_MODULE=ibus
 
 
-
   #export XMODIFIERS=@im=ibus
 
 
-
   #export QT_IM_MODULE=ibus
-
-
-
-
-
-
 
 
 #######################system monitor

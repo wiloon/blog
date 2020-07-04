@@ -11,7 +11,6 @@ categories:
 http://blog.csdn.net/liangxanhai/article/details/7767430
 
 
-
 pthread_create函数的详细讲解(包括向线程函数传递参数详解)
   
 标签： threadinclude编译器nulllinuxgcc
@@ -181,7 +180,6 @@ int count;
 struct parameter arg;
 
 
-
 通过如下的方式来调用函数：
   
 pthread_create(&ntid, NULL, fn,& (arg));
@@ -199,7 +197,6 @@ cout<<"i = "<<i<<endl;
 return ((void *)0);
   
 }
-
 
 
 void thr_fn(void *arg)

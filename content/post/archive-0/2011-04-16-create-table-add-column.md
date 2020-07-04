@@ -93,7 +93,6 @@ grant all privileges on db0 .* to user0@localhost identified by 'password0';
 -- delete database
 drop database db0 ;
 
-
 EXPLAIN SELECT * FROM t0 where id=1 \G
 explain partitions select * from t4 where id=1 \G
 

@@ -13,7 +13,6 @@ tags:
 https://blog.hackroad.com/apple/mac-os/7011.html
 
 
-
 mac osx Lerpard 中, 使用内置的pptp client端拨号成功后,
   
 所有的网络连接均走vpn路线,
@@ -99,7 +98,6 @@ RunService "$1"
     </tr>
   </table>
 
-
 ==================================================
 
 注意更换其中的 route add 为你自己的命令.
@@ -121,7 +119,6 @@ RunService "$1"
       </td>
     </tr>
   </table>
-
 
 ====================================
 

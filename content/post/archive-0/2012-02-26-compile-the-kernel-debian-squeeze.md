@@ -60,9 +60,7 @@ cp /boot/config-\`uname -r\` ./.config
   
 命令如下:
 
-
   make localmodconfig
-
 
 然后就可以直接进行编译了.(fakeroot......)
 

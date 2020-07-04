@@ -47,7 +47,6 @@ Map
 └WeakHashMap
 
 
-
 ### Collection接口
 
 Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素（Elements）。一些 Collection允许相同的元素而另一些不行。一些能排序而另一些不行。Java SDK不提供直接继承自Collection的类， Java SDK提供的类都是继承自Collection的“子接口”如List和Set。
@@ -71,7 +70,6 @@ Object obj = it.next(); // 得到下一个元素
 由Collection接口派生的两个接口是List和Set。
 
 
-
 ### List接口
 
 List是有序的Collection，使用此接口能够精确的控制每个元素插入的位置。用户能够使用索引（元素在List中的位置，类似于数组下标）来访问List中的元素，这类似于Java的数组。
@@ -81,7 +79,6 @@ List是有序的Collection，使用此接口能够精确的控制每个元素插
 除了具有Collection接口必备的iterator()方法外，List还提供一个listIterator()方法，返回一个 ListIterator接口，和标准的Iterator接口相比，ListIterator多了一些add()之类的方法，允许添加，删除，设定元素，还能向前或向后遍历。
   
 实现List接口的常用类有LinkedList，ArrayList，Vector和Stack。
-
 
 
 ### LinkedList类
@@ -95,7 +92,6 @@ List list = Collections.synchronizedList(new LinkedList(...));
 对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。
 
 
-
 ### ArrayList类
 
 ArrayList实现了可变大小的数组。它允许所有元素，包括null。ArrayList没有同步。
@@ -105,7 +101,6 @@ size，isEmpty，get，set方法运行时间为常数。但是add方法开销为
 每个ArrayList实例都有一个容量（Capacity），即用于存储元素的数组的大小。这个容量可随着不断添加新元素而自动增加，但是增长算法并没有定义。当需要插入大量元素时，在插入前可以调用ensureCapacity方法来增加ArrayList的容量以提高插入效率。
   
 和LinkedList一样，ArrayList也是非同步的（unsynchronized）。
-
 
 
 ### Vector
@@ -119,11 +114,9 @@ Vector内部实际是以Array实现的，也通过元素的整数索引来访问
 Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在：Vector is synchronized。即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素），这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
 
 
-
 ### Stack 类
 
 Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得 Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。
-
 
 
 ### Set接口
@@ -135,11 +128,9 @@ Set是一种不包含重复的元素的Collection，即任意的两个元素e1�
 请注意：必须小心操作可变对象（Mutable Object）。如果一个Set中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题。
 
 
-
 ### Map接口
 
 请注意，Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同的key，每个key只能映射一个 value。Map接口提供3种集合的视图，Map的内容可以被当作一组key集合，一组value集合，或者一组key-value映射。
-
 
 
 ### Hashtable类
@@ -177,11 +168,9 @@ System.out.println(“two = ” + n);
 Hashtable是同步的。
 
 
-
 ### HashMap类
 
 HashMap和Hashtable类似，不同之处在于HashMap是非同步的，并且允许null，即null value和null key。，但是将HashMap视为Collection时（values()方法可返回Collection），其迭代子操作时间开销和HashMap的容量成比例。因此，如果迭代操作的性能相当重要的话，不要将HashMap的初始化容量设得过高，或者load factor过低。
-
 
 
 WeakHashMap类

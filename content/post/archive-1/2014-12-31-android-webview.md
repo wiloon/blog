@@ -119,7 +119,6 @@ Webview与js的双向交互才是android的webview强大所在，也是马甲精
 首先，webview可以定义一个在其内嵌页面中可以触发的事件
 
 
-
 [java] view plaincopy
   
 wv.addJavascriptInterface(new DemoJavaScriptInterface(), "demo");
@@ -149,7 +148,6 @@ wv.loadUrl("javascript:wave("+jsonText+")");
 }
 
 
-
 通过以上代码，即可实现在其内嵌网页中触发window.demo.clickOnAndroid(str)事件并传参数str给webview。Webview接收到str之后，可以通过以上代码触发其内嵌页面中的js函数wave(str)。这样就可以实现网页触发webview的事件并传参数，webview接收参数并调用js函数。
 
 下面看我的Html脚本：
@@ -177,9 +175,7 @@ var order=$("#val").val();
 window.demo.clickonAndroid(order);
 
 
-
 }
-
 
 
 function wave(str){
@@ -215,9 +211,7 @@ onclick="toclient();"/>
 </html>
 
 
-
 通过脚本看到wave（str）函数是负责将原来传给webview的数据重新拿回页面，效果图如下：
-
 
   
 另外，如果你想获取页面的一些处理数据并交给webview客户端处理，可在wave函数里将数据alert，然后webview中重写WebChromeClient的onJsAlert函数，具体代码如下

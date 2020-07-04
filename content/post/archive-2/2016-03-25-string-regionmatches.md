@@ -13,7 +13,6 @@ categories:
 eg：输入abcde  xxxBcyyy，输出 2。
 
 
-
 完整Java代码：
   
 import java.util.*;
@@ -81,7 +80,6 @@ System.out.println(result);
 学习点一：利用Java标签跳出多重循环；
 
 学习点二：灵活使用String.regionMatches方法，来判断两个字符串的子串区域是否相等，具体可参考Java API文档如下。
-
 
 
 regionMatches

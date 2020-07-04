@@ -33,9 +33,7 @@ categories:
     </table>
   
 
-
 ### To list current keyboard shortcut mappings
-
 
   <ol>
     <li>

@@ -13,7 +13,6 @@ http://blog.csdn.net/bingqingsuimeng/article/details/8470029
 http://blog.chinaunix.net/uid-20511624-id-1659107.html
 
 
-
 什么是Socket
   
 Socket接口是TCP/IP网络的API，Socket接口定义了许多函数或例程，程式员能够用他们来研发TCP/IP网络上的应用程式。要学Internet上的TCP/IP网络编程，必须理解Socket接口。
@@ -641,7 +640,6 @@ Recvfrom()函数返回接收到的字节数或当出现错误时返回-1，并�
 何数据操作：close(sockfd); 也能够调用shutdown()函数来关闭该socket。该函数允许您只停止在某个方向上的数据传输，而一个方向上的数据传输继续进行。如您能够关闭某socket的写操作而允许继续在该socket上接受数据，直至读入任何数据。Sockfd 是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式：0---不允许继续接收数据 1---不允许继续发送数据 2---不允许继续发送和接收数据，均为允许则调用close () shutdown在操作成功时返回0，在出现错误时返回-1并置相应errno。
 
 
-
 socket API原本是为网络通讯设计的，但后来在socket的框架上发展出一种IPC机制，就是UNIXDomain Socket。虽然网络socket也可用于同一台主机的进程间通讯（通过loopback地址127.0.0.1），但是UNIX Domain Socket用于IPC更有效率：不需要经过网络协议栈，不需要打包拆包、计算校验和、维护序号和应答等，只是将应用层数据从一个进程拷贝到另一个进程。这是因为，IPC机制本质上是可靠的通讯，而网络协议是为不可靠的通讯设计的。UNIX Domain Socket也提供面向流和面向数据包两种API接口，类似于TCP和UDP，但是面向消息的UNIX Domain Socket也是可靠的，消息既不会丢失也不会顺序错乱。
 
 UNIX Domain Socket是全双工的，API接口语义丰富，相比其它IPC机制有明显的优越性，目前已成为使用最广泛的IPC机制，比如X Window服务器和GUI程序之间就是通过UNIX Domain Socket通讯的。
@@ -677,7 +675,6 @@ http://blog.csdn.net/htttw/article/details/7519971
 2. connect：   主动连接服务器端的某个文件（AF\_UNIX）或某个端口（AF\_INET）
 
 
-
 3. read/write：如果服务器同意连接（accept），则读取或发送数据到服务器端
 
 4. close：        通信完成后关闭socket
@@ -685,7 +682,6 @@ http://blog.csdn.net/htttw/article/details/7519971
 上面是整个流程，我们先给出一个例子，具体分析会在之后给出。例子实现的功能是客户端发送一个字符到服务器，服务器将这个字符+1后送回客户端，客户端再把它打印出来：
 
 Makefile：
-
 
 
 \[plain\]\[/plain\] view plaincopy
@@ -701,7 +697,6 @@ clean:
 rm -rf *.o tcp\_client tcp\_server
 
 tcp_server.c：
-
 
 
 \[cpp\]\[/cpp\] view plaincopy
@@ -785,7 +780,6 @@ return 0;
 tcp_client.c：
 
 
-
 \[cpp\]\[/cpp\] view plaincopy
 
 #include <sys/types.h>
@@ -847,7 +841,6 @@ return 0;
 }
 
 
-
 如果我们首先运行tcp_client，会提示没有这个文件：
   
 因为我们是以AF\_UNIX方式进行通信的，这种方式是通过文件来将服务器和客户端连接起来的，因此我们应该先运行tcp\_server，创建这个文件，默认情况下，这个文件会创建在当前目录下，并且第一个s表示它是一个socket文件：
@@ -883,7 +876,6 @@ socket()函数返回新创建的socket，出错则返回-1
 常用的有两种socket域：AF\_UNIX或AF\_INET，因此就有两种地址格式：sockaddr\_un和sockaddr\_in，分别定义如下：
 
 
-
 \[cpp\]\[/cpp\] view plaincopy
 
 struct sockaddr_un
@@ -911,7 +903,6 @@ struct in\_addr sin\_addr;       /\* internet address \*/
 其中in_addr正是用来描述一个ip地址的：
 
 
-
 \[cpp\]\[/cpp\] view plaincopy
 
 struct in_addr
@@ -921,7 +912,6 @@ struct in_addr
 unsigned long int s_addr;
   
 }
-
 
 
 从上面的定义我们可以看出，sun\_path存放socket的本地文件名，sin\_addr存放socket的ip地址，sin_port存放socket的端口号。

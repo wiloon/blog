@@ -45,64 +45,50 @@ adb shell
 <p style="color: #4b4b4b;">
   在SDK的Tools文件夹下包含着Android模拟器操作的重要命令ADB，ADB的全称为Android Debug Bridge，就是调试桥的作用，借助这个工具，我们可以管理设备或手机模拟器的状态 ，还可以进行以下的操作：
 
-
 <p style="color: #4b4b4b;">
   （1）快速更新设备或手机模拟器中的代码，如应用或Android系统升级；
  （2）在设备上运行Shell命令；
  （3）管理设备或手机模拟器上的预定端口；
 
-
 <p style="color: #4b4b4b;">
   （4）在设备或手机模拟器上复制或粘贴文件。
-
 
 <p style="color: #4b4b4b;">
   ADB的工作方式比较特殊采用监听Socket TCP 5554等端口的方式让IDE和Qemu通信，默认情况下ADB会daemon相关的网络端口，所以当我们运行Eclipse时ADB进程就会自动运行，在Eclipse中通过DDMS来调试Android程序；也可以通过手动方式调用，以下为一些常用的操作供参考。
 
-
 <p style="color: #4b4b4b;">
   1.版本信息
-
 
 <p style="color: #4b4b4b;">
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb version
 
-
 <p style="color: #4b4b4b;">
   Android Debug Bridge version 1.0.20
-
 
 <p style="color: #4b4b4b;">
   2.安装应用到模拟器
  adb install [-l] [-r] <file>。
 
-
 <p style="color: #4b4b4b;">
   其中file是需要安装的apk文件的决定路径。
-
 
 <p style="color: #4b4b4b;">
   3.卸载已经安装的应用
 
-
 <p style="color: #4b4b4b;">
   （1）方法1：
-
 
 <p style="color: #4b4b4b;">
        adb uninstall [-k] <package>。
 
-
 <p style="color: #4b4b4b;">
   其中package表示需要卸载的应用的包的名字，k表示是否保留应用的配置信息和cache数据。
-
 
 <p style="color: #4b4b4b;">
   （2）手动删除。
  adb shell
  cd /data/app
  rm app.apk
-
 
 <p style="color: #4b4b4b;">
   4.进入设备或模拟器的Shell
@@ -111,277 +97,209 @@ adb shell
  adb shell [command]
  如：
 
-
 <p style="color: #4b4b4b;">
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb shell df
-
 
 <p style="color: #4b4b4b;">
   /dev: 49564K total, 0K used, 49564K available (block size 4096)
 
-
 <p style="color: #4b4b4b;">
   /sqlite_stmt_journals: 4096K total, 0K used, 4096K available (block size 4096)
-
 
 <p style="color: #4b4b4b;">
   /system: 69120K total, 65508K used, 3612K available (block size 4096)
 
-
 <p style="color: #4b4b4b;">
   /data: 76544K total, 63684K used, 12860K available (block size 4096)
-
 
 <p style="color: #4b4b4b;">
   /cache: 69120K total, 1244K used, 67876K available (block size 4096)
 
-
 <p style="color: #4b4b4b;">
   5.转发端口
-
 
 <p style="color: #4b4b4b;">
   可以使用 forward 命令进行任意端口的转发—一个模拟器/设备实例的某一特定主机端口向另一不同端口的转发请求。下面演示了如何建立从主机端口7100到模拟器/设备端口8100的转发。
 
-
 <p class="PreformattedText" style="color: #4b4b4b;">
   adb forward tcp:7100 tcp:8100
-
 
 <p style="color: #4b4b4b;">
   同样地，可以使用ADB来建立命名为抽象的UNIX域套接口，上述过程如下所示:
 
-
 <p class="PreformattedText" style="color: #4b4b4b;">
   adb forward tcp:7100 local:logd
-
 
 <p style="color: #4b4b4b;">
   6.复制文件
 
-
 <p style="color: #4b4b4b;">
   可以使用adb pull ,push 命令将文件复制到一个模拟器/设备实例的数据文件或是从数据文件中复制。install 命令只将一个apk文件复制到一个特定的位置，与其不同的是，pull 和 push 命令可让用户复制任意的目录和文件到一个模拟器/设备实例的任何位置。
-
 
 <p style="color: #4b4b4b;">
   从模拟器或者设备中复制文件或目录，使用如下命:
 
-
 <p class="PreformattedText" style="color: #4b4b4b;">
   adb pull <remote> <local>
-
 
 <p style="color: #4b4b4b;">
   将文件或目录复制到模拟器或者设备，使用如下命令：
 
-
 <p class="PreformattedText" style="color: #4b4b4b;">
   adb push <local> <remote>
-
 
 <p style="color: #4b4b4b;">
   在这些命令中， <local> 和<remote> 分别指通向自己的发展机（本地）和模拟器/设备实例（远程）上的目标文件/目录的路径。
 
-
 <p style="color: #4b4b4b;">
   下面是一个例子：:
 
-
 <p class="PreformattedText" style="color: #4b4b4b;">
   adb push foo.txt /sdcard/foo.txt
-
 
 <p style="color: #4b4b4b;">
   7.搜索模拟器/设备的实例
  取得当前运行的模拟器/设备的实例的列表及每个实例的状态，如：
 
-
 <p style="color: #4b4b4b;">
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb devices
-
 
 <p style="color: #4b4b4b;">
   List of devices attached
 
-
 <p style="color: #4b4b4b;">
   HT843GZ03305    device
-
 
 <p style="color: #4b4b4b;">
   8.查看bug报告
 
-
 <p style="color: #4b4b4b;">
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb bugreport
 
-
 <p style="color: #4b4b4b;">
   ========================================================
-
 
 <p style="color: #4b4b4b;">
   == dumpstate
 
-
 <p style="color: #4b4b4b;">
   ========================================================
-
 
 <p style="color: #4b4b4b;">
   -- SYSTEM LOG --
 
-
 <p style="color: #4b4b4b;">
   04-12 16:59:46.521 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
-
 <p style="color: #4b4b4b;">
   04-12 16:59:46.531 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
-
 <p style="color: #4b4b4b;">
   04-12 16:59:46.531 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
-
 
 <p style="color: #4b4b4b;">
   04-12 16:59:46.541 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
-
 <p style="color: #4b4b4b;">
   04-12 16:59:47.391 I/ActivityManager(   55): Starting activity: Intent { comp={com.iceskysl.iTracks/com.iceskysl.iTracks.iTracks} }
-
 
 <p style="color: #4b4b4b;">
   04-12 16:59:47.641 D/iTracks (23968): renderListView.
 
-
 <p style="color: #4b4b4b;">
   04-12 16:59:47.671 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
-
 <p style="color: #4b4b4b;">
   04-12 16:59:47.681 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
-
 
 <p style="color: #4b4b4b;">
   9.记录无线通讯日志
  一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录：
 
-
 <p style="color: #4b4b4b;">
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb shell
-
 
 <p style="color: #4b4b4b;">
   # logcat -b radio
 
-
 <p style="color: #4b4b4b;">
   logcat -b radio
 
-
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): (t=1239390296)<< 0
-
 
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): (t=1239390296)>> AT@HTCPDPFD=0
 
-
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): (t=1239390296)<< 0
-
 
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): (t=1239390296)>> AT+CSQ
 
-
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): (t=1239390296)<< +CSQ: 29,99
 
-
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): 0
-
 
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): (t=1239390296)>> AT+CREG?
 
-
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): (t=1239390296)<< +CREG: 2,3
 
-
 <p style="color: #4b4b4b;">
   D/HTC_RIL (   30): 0
-
 
 <p style="color: #4b4b4b;">
   10.获取设备的ID和序列号
  adb get-product
 
-
 <p style="color: #4b4b4b;">
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb get-serialno
-
 
 <p style="color: #4b4b4b;">
   HT843GZ03305
 
-
 <p style="color: #4b4b4b;">
   11.通过远程Shell端运行AQLite3连接数据库
-
 
 <p style="color: #4b4b4b;">
   通过ADB远程Shell端，可以通过Android的软AQLite 3 命令程序来管理数据库。SQLite 3 工具包含了许多使用命令，例如，.dump 显示表的内容，.schema 可以显示出已经存在的表空间的SQL CREATE结果集。SQLite3还允许远程执行sql命令。
 
-
 <p style="color: #4b4b4b;">
   通过SQLite 3 , 按照前面的方法登录模拟器的远程Shell端，然后启动工具就可以使用SQLite 3 命令。当SQLite 3 启动以后，还可以指定想查看的数据库的完整路径。模拟器/设备实例会在文件夹中保存SQLite3数据库/data/data/<package_name> /databases /。
-
 
 <p style="color: #4b4b4b;">
   示例如下:
 
-
 <p style="color: #4b4b4b;">
   $ adb  shell
-
 
 <p style="color: #4b4b4b;">
   # sqlite3 /data/data/com.example.google.rss.rssexample/databases/rssitems.db
 
-
 <p style="color: #4b4b4b;">
   SQLite version 3.3.12
-
 
 <p style="color: #4b4b4b;">
   Enter ".help" for instructions
 
-
 <p style="color: #4b4b4b;">
   .... enter commands, then quit...
-
 
 <p style="color: #4b4b4b;">
   sqlite> .exit
 
-
 <p style="color: #4b4b4b;">
   当启动SQLite 3的时候，就可以通过Shell端发送SQLite 3,命令了。用exit 或<Ctrl+D>组合键退出ADB远程Shell端。
-
 
 <p style="color: #4b4b4b;">
   12.ADB命令列表
 
-
 <p style="color: #4b4b4b;">
   下列表格列出了adb支持的所有命令,并对它们的意义和使用方法做了说明.
-
 
 <table style="color: #4b4b4b;" border="1" cellspacing="0" cellpadding="0">
   <tr>

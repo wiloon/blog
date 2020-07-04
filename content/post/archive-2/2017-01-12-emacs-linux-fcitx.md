@@ -65,7 +65,6 @@ sudo pacman -S fcitx-configtool
         export LC_CTYPE=zh_CN.utf-8;
         /usr/bin/emacs.raw "$@"
 
-
 ### .zshrc
 vim .zshrc
 export XIM="fcitx"

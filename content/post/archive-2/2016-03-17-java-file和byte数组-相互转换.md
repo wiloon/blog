@@ -10,7 +10,8 @@ categories:
 ---
 http://blog.sina.com.cn/s/blog_ae48aad6010177ns.html
 
-```javapublic class Test {  
+```java
+public class Test {  
    public static void main(String[] args){  
        String filePath = “E:\\softoon\\workspace_softoon\\TestMobile\\src\\1.docx”;  
        String outFilePath = “E:\\softoon\\workspace_softoon\\TestMobile\\src”;  

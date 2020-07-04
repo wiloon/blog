@@ -12,7 +12,6 @@ tags:
 ---
 ```
 
-
 //tag name
   
 $(obj).prop("tagName")

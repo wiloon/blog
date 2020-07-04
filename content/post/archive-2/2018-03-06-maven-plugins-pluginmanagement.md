@@ -18,7 +18,6 @@ plugins 和 pluginManagement 的区别，和我们前面研究过的 dependencie
   
 假如存在两个项目，项目A为项目B的父项目，其关系通过pom文件的关系确定。项目A的父pom文件片段如下：<pluginManagement> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId>
 
-
               
 <artifactId>maven-source-plugin</artifactId>
               

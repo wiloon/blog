@@ -88,4 +88,3 @@ command比较安全有可预知性，最好用command， 需要用到shell特性
 
 http://liumissyou.blog.51cto.com/4828343/1616462
 
-

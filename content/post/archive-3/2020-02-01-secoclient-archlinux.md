@@ -36,4 +36,3 @@ export XDG_RUNTIME_DIR=/run/user/<user id>
 /opt/google/cros-containers/bin/sommelier -X ./SecoClient
 ```
 
-

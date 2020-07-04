@@ -68,7 +68,6 @@ crontab -r #删除没个用户的cron服务
 
 ```
 
-
 ```bash
 #centos
 tail /var/log/cron

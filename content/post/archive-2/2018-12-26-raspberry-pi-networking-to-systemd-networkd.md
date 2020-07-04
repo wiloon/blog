@@ -26,7 +26,6 @@ Name=eth0
 [Network]
 DHCP=yes
 
-
 apt install deborphan
 apt --autoremove purge openresolv
 apt --autoremove purge ifupdown

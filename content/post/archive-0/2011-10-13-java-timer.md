@@ -92,8 +92,6 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
   
 3 }
   
-4
-  
 5 public Timer(String name) {
   
 6 thread.setName(name);
@@ -150,8 +148,6 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
   
 4 queue[i] = null;
   
-5
-  
 6 size = 0;
   
 7 }
@@ -163,8 +159,6 @@ clear方法很简单，就是去清空queue，queue是一个TimerTask的数组�
 2 this(“Timer-” + serialNumber());
   
 3 }
-  
-4
   
 5 public Timer(String name) {
   

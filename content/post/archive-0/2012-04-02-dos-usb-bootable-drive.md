@@ -126,7 +126,6 @@ aronschatz@asetest2:~$
   
 With the partition made in the previous step, you know need to put a filesystem on it. The command mkdosfs is pretty easy to figure out.
 
-
   <h4>
     Code
   </h4>
@@ -143,7 +142,6 @@ With the partition made in the previous step, you know need to put a filesystem 
     Step 4: Edit .dosemurc 
  You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc" in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
   
-
 
 [shell]
   
@@ -202,7 +200,6 @@ aronschatz@asetest2:~$ sudo dosemu
 [/shell]
 
 This command should bring up another prompt that is basically FreeDOS. In this new window, type the series of commands...
-
 
   <h4>
     Code

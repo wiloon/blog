@@ -10,10 +10,6 @@ categories:
 ---
 # 
 
-
-
-
-
   <div id="cnblogs_post_body">
     
       window.onload = function(){ alert("welcome"); }

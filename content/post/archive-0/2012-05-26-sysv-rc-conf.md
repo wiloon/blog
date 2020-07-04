@@ -15,7 +15,6 @@ categories:
     
   
 
-
 <div id="lemmaContent-0">
   
     <a name="2_1"></a><a name="sub2521377_2_1"></a>Ubuntu运行级别
@@ -601,10 +600,8 @@ categories:
   
   
 
-
 <div id="lemmaContent-0">
   　　xorg-common 设置x服务ice socket。不用管它。
-
 
 
   <a href="http://baike.baidu.com/view/2521377.htm?fromTaglist">http://baike.baidu.com/view/2521377.htm?fromTaglist</a>

@@ -10,7 +10,6 @@ categories:
 ---
 This article was previously published under Q288367
 
-
   <h2>
     SUMMARY
   </h2>
@@ -22,7 +21,6 @@ This article was previously published under Q288367
   
     If there is no choice but to automate Office from an unattended user account, the following steps can be used to configure the computer to run the Office application as a specific user, giving the application a fixed identity when it is started for Automation.
   
-
 
 
   <h2>

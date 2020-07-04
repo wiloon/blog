@@ -11,7 +11,6 @@ categories:
 <http://blog.csdn.net/aomandeshangxiao/article/details/7000077>
 
 
-
 JSON的定义：
 
 一种轻量级的数据交换格式，具有良好的可读和便于快速编写的特性。业内主流技术为其提供了完整的解决方案（有点类似于正则表达式 ，获得了当今大部分语言的支持），从而可以在不同平台间进行数据交换。JSON采用兼容性很高的文本格式，同时也具备类似于C语言体系的行为。 – Json.org

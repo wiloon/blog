@@ -155,7 +155,6 @@ Actual Data   Specified As  Stored As
 项目中的语句：
 
 
-
 [sql] view plaincopy
   
 SELECT (CASE WHEN tt1.statistics\_date is not null THEN tt1.statistics\_date ELSE tt2.statistics\_date END) AS statistics\_date, NVL(tt1.actuser,0) AS actuser, NVL(tt2.new\_user,0) AS new\_user

@@ -137,4 +137,3 @@ select COUNT(*)as '>20岁人数',classid  from Table1 where sex='男' group by 
 -having子句限制的是组，而不是行。where子句中不能使用聚集函数，而having子句中可以。
 
 
-

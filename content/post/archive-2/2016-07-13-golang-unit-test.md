@@ -174,18 +174,6 @@ can't load package: package lib: cannot find package "lib" in any of:
   
 结合上面的方法，这里测试一下函数的性能，如果需要进行性能测试，则函数开头使用Benchmark就可以了。
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
 //性能测试
   
 func BenchmarkFibonacci(b *testing.B) {
@@ -212,32 +200,6 @@ ok lib 2.608s
 
 这个性能测试只测试参数为10的情况。如果有需要可以测试多个参数：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
 //测试参数为5的性能
   
 func BenchmarkFibonacci5(b *testing.B) {

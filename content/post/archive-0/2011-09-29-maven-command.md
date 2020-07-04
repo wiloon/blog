@@ -1,5 +1,5 @@
 ---
-title: maven command
+title: maven basic, command
 author: wiloon
 type: post
 date: 2011-09-29T04:34:14+00:00
@@ -11,7 +11,7 @@ views:
 categories:
   - DataBase
 tags:
-  - Maven
+  - maven
 
 ---
 
@@ -23,7 +23,7 @@ tags:
 
 ```bash
 # common project
-# mvn archetype:generate 会自动创建项目目录mvntest
+# mvn archetype:generate 会自动创建项目目录 mvntest
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
@@ -31,7 +31,7 @@ mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false -DarchetypeCatalog=local
 
-#web project
+# web project
 mvn archetype:generate -DgroupId=com.wiloon.mail.web -DartifactId=mailTestWeb \
 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ```

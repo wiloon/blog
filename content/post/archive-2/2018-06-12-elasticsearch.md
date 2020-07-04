@@ -52,7 +52,6 @@ curl 'localhost:9200/_nodes/process?pretty'
 #check if index exist
 curl --head "localhost:9200/twitter"
 
-
 curl -X GET "localhost:9200/_cat/health?v"
 curl -X GET "localhost:9200/_cat/nodes?v"
 
@@ -70,6 +69,5 @@ curl -X DELETE "localhost:9200/index-0?pretty"
 curl -X DELETE "localhost:9200/customer/_doc/2?pretty"
 curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/_doc/_bulk?pretty&refresh" --data-binary "@accounts.json"
 curl "localhost:9200/_cat/indices?v"
-
 
 ```

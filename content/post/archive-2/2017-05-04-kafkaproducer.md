@@ -28,7 +28,8 @@ batching机制——“分批发送“机制。每个批次(batch)中包含了�
    
 其实，新版本producer的设计优势还有很多，诸如监控指标更加完善等这样的就不一一细说了。总之，新版本producer更加地健壮，性能更好~
 
-```javaProperties props = new Properties();
+```java
+properties props = new Properties();
  props.put("bootstrap.servers", "localhost:9092");
  props.put("acks", "all");
  props.put("retries", 0);

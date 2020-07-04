@@ -21,7 +21,6 @@ categories:
     clearInterval(sliderIntervalID);
   
 
-
 <div id="content">
   
     当遇到setInterval,setTimeout与jquery混用的问题 时，直接按JavaScript中的语法写并不起作用，有以下两种解决方法。

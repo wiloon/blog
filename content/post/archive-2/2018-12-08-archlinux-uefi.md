@@ -46,7 +46,6 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=PARTUUID=xxx rw
 
-
 r !blkid
 
 reboot

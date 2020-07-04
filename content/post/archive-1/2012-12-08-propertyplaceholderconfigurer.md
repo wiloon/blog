@@ -25,7 +25,6 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
  [/java]
   
 
-
 但是好像在属性文件定义中却不支持多个属性文件的定义，比如不能这样用config/*.properties。
 
 经过查看源码，发现可以使用locations属性定义多个配置文件：
@@ -58,7 +57,6 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
     </li>
   </ol>
 
-
 使用外部属性后如下：
 
 <div id="">
@@ -82,7 +80,6 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
           </bean>
     </li>
   </ol>
-
 
 PropertyOverrideConfigurer：在spring所有的bean初使化以后，将bean的值强行改变
 
@@ -130,7 +127,6 @@ PropertyOverrideConfigurer：在spring所有的bean初使化以后，将bean的�
            </bean>
     </li>
   </ol>
-
 
 定义HelloBean,注入word的值为hello.
 

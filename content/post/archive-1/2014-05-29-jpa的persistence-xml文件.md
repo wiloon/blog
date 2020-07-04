@@ -15,7 +15,6 @@ Posted on 2012-05-24 12:27 CN.programmer.Luxh 阅读(7217) 评论(0) 编辑 收�
 persistence.xml文件必须定义在classpath路径下的META-INF文件夹中。
 
 
-
 我们看看基于Hibernate提供的一个比较完整的JPA2.0的persistence.xml文件。
 
 persistence.xml:
@@ -31,8 +30,6 @@ persistence.xml:
 4 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
   
 5 http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd">
-  
-6
   
 7 <!-必须要有name属性，不能为空 ->
   
@@ -65,8 +62,6 @@ persistence.xml:
 21 <!-可选 ->
   
 22 <validation-mode>CALLBACK</validation-mode>
-  
-23
   
 24 <!-厂商的特定属性 ->
   
@@ -103,8 +98,6 @@ persistence.xml:
 40 </properties>
   
 41 </persistence-unit>
-  
-42
   
 43 </persistence>
   

@@ -36,32 +36,6 @@ git checkout -b <new-branch-name>
 
 HEAD is now at 3e74a7a... merge bug fixed in issue1
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
 此时用status指令查看，工作目录是干净的。
 
 $ git status
@@ -69,12 +43,6 @@ $ git status
 HEAD detached at origin/master
   
 nothing to commit, working tree clean
-  
-1
-  
-2
-  
-3
   
 用git branch 可以查看到:
 
@@ -85,14 +53,6 @@ $ git branch
 dev
     
 master
-  
-1
-  
-2
-  
-3
-  
-4
   
 HEAD指向了一个未知的分支，再返回上面的提示，可以用 git checkout -b 基于当前分支创建一个新的临时分支保留代码，合并到合适的分支后删除。
 
@@ -121,32 +81,6 @@ Already up-to-date.
 $ git branch -d temp
   
 Deleted branch temp (was 3e74a7a).
-  
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
   
 但是与道友不同的是，使用 git checkout origin/master制造的detached HEAD的情况，再次使用切换分支就会消失：
 

@@ -244,7 +244,6 @@ function left($str, $len, $charset="utf-8")
     $sLen = strlen($str);
     if( $len >= $sLen )
 
-
       
 {
           

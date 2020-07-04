@@ -60,7 +60,6 @@ jackson-mapper-asl-1.9.2.jar
     </li>
   </ol>
 
-
 我们在SPRING的配置中加入了一个新的适配器：AnnotationMethodHandlerAdapter，通过这个适配器，我们配置了一个属性，messageConverters，其中mappingJacksonHttpMessageConverter这个Bean，它就是用来处理json数据转换的。
   
 注：我的项目中没有乱码现象，这样配即可，若有乱码现象，可以在MappingJacksonHttpMessageConverter的BEAN中配置supportedMediaTypes属性，是用于解决返回的乱码问题。
@@ -111,7 +110,6 @@ jackson-mapper-asl-1.9.2.jar
       }
     </li>
   </ol>
-
 
 在SpringMVC中可以在Controller的某个方法上加**@ResponseBody**注解，表示该方法的返回结果直接写入HTTP response body中。
 

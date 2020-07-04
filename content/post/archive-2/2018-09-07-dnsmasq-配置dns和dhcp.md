@@ -59,7 +59,6 @@ vim /etc/dnsmasq.conf
 # 通过下面的选项指定其他文件来管理上游的DNS服务器
 resolv-file=/etc/resolv.dnsmasq.conf
 
-
 # 服务监听的网络接口地址
 # If you want dnsmasq to listen for DHCP and DNS requests only on
 # specified interfaces (and the loopback) give the name of the

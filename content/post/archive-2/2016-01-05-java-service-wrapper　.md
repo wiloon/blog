@@ -11,13 +11,11 @@ categories:
 http://www.cnblogs.com/fsjohnhuang/p/4019267.html
 
 
-
 Java魔法堂：以Windows服务的形式运行Java程序
 
 一、前言
 
 由于防止维护人员误操作关闭Java控制台程序，因此决定将其改造为以Windows服务的形式运行。弄了一个上午总算搞定了，下面记录下来，以供日后查阅。
-
 
 
 二、Java Service Wrapper
@@ -143,13 +141,11 @@ wrapper.filter.message.1001=The JVM has run out of memory.
 用于原有项目已经打包为jar或war包的情况，配置方式与\`WrapperSimpleApp\`相似，但\`wrapper.app.parameter.1=jar或war包路径\`。该方式同样不用修改原来项目的代码
 
 
-
 三、总结
 
 官方文档以JBOSS为例子说明WrapperSimpleApp的使用，十分不好懂，幸好有前人记录实操过程我才从苦海得救，感谢感谢。
 
 尊重原创，转载请注明来自：http://www.cnblogs.com/fsjohnhuang/p/4019267.html  ^_^肥仔John
-
 
 
 四、参考

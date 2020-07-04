@@ -17,7 +17,6 @@ apply plugin: 'eclipse'
 apply plugin: 'war'
 
 
-
 **gradle dependencies:**
 
 compile("org.springframework:spring-core:$versionSpring",
@@ -35,7 +34,6 @@ compile("org.springframework:spring-core:$versionSpring",
 )
 
 
-
 **web.xml**
 
 create web.xml in .../webapp/WEB-INF/
@@ -43,11 +41,9 @@ create web.xml in .../webapp/WEB-INF/
 http://www.wiloon.com/wordpress/?p=3459
 
 
-
 **add context loader listener**
 
 org.springframework.web.context.ContextLoaderListener
-
 
 
 **spring schema index**
@@ -55,15 +51,12 @@ org.springframework.web.context.ContextLoaderListener
 http://www.springframework.org/schema/beans/
 
 
-
 Create controller
 
 /JavaEEX/src/main/java/com/wiloon/javaeex/controller/FooController.java
 
 
-
 create springMvc.xml
-
 
 
 for eclipse project convert project to web project

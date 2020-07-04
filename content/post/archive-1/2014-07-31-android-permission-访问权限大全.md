@@ -15,7 +15,6 @@ http://www.cnblogs.com/ganzhijie/archive/2010/08/21/1805573.html
 Android permission 访问权限大全
 
 
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   
 package="com.example.testbutton"
@@ -41,10 +40,6 @@ android:icon="@drawable/ic_launcher"
 android:label="@string/app_name"
 
 ......
-
-
-
-
 
 程序执行需要读取到安全敏感项必需在androidmanifest.xml中声明相关权限请求, 完整列表如下:
 

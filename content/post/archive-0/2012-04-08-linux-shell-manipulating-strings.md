@@ -11,7 +11,6 @@ categories:
 <http://www.faqs.org/docs/abs/HTML/string-manipulation.html>
 
 
-
 连接字符串
 
 [shell]

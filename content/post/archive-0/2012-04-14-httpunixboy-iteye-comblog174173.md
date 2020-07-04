@@ -630,7 +630,6 @@ ParNew: 表示对年轻代进行的GC，使用ParNew收集器
   
 [GC [<collector>: <starting occupancy1> -> <ending occupancy1>, <pause time1> secs] <starting occupancy3> -> <ending occupancy3>, <pause time3> secs]<collector> GC收集器的名称
 
-
   
 <starting occupancy1> 新生代在GC前占用的内存
   

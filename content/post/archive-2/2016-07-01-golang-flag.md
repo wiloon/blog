@@ -10,7 +10,8 @@ tags:
   - Golang
 
 ---
-```javaflag.String("port", ":8080", "http listen port")
+```java
+flag.String("port", ":8080", "http listen port")
 ```
 
 像flag.Int、flag.Bool、flag.String这样的函数格式都是一样的，第一个参数表示参数名称，第二个参数表示默认值，第三个参数表示使用说明和描述。flag.StringVar这样的函数第一个参数换成了变量地址，后面的参数和flag.String是一样的。

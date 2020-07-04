@@ -67,7 +67,6 @@ public double calculate(GasBill bill) {
 所以，使用instanceof在绝大多数情况下并不是推荐的做法，应当好好利用多态。
 
 
-
 http://rodney.cnblogs.com/archive/2005/08/18/instanceof.html
 
 10.4 instanceof判断对象类型

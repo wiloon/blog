@@ -1,5 +1,5 @@
 ---
-title: memcache command
+title: memcache basic,command
 author: wiloon
 type: post
 date: 2018-01-05T09:00:17+00:00
@@ -9,12 +9,11 @@ categories:
 
 ---
 ```bash
-docker run \
+podman run \
 --name memcache \
 -d \
 -p 11211:11211 \
 -v /etc/localtime:/etc/localtime:ro \
---restart=always \
 memcached -m 16
 ```
 
@@ -48,10 +47,8 @@ stats items
 # 根据<slab_id>输出相同的<slab_id>中的item信息。<limit_num>是输出的个数，当<limit_num>为0是输出所有的item。
 stats cachedump <slab_id> <limit_num>
 
-
 #显示各个slab的信息，包括chunk的大小、数目、使用情况等。
 stats slabs
-
 
 ```
 

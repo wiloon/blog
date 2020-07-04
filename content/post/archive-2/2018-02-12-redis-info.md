@@ -8,14 +8,11 @@ categories:
   - Uncategorized
 
 ---
+
 instantaneous\_input\_kbps 每秒读字节数
-  
 instantaneous\_ops\_per_sec 每秒处理指令数
-  
 instantaneous\_output\_kbps 每秒写字节数
-  
 keyspace_hitrate Rate of successful lookup of keys in the main dictionary
-  
 keyspace_hits : 查找数据库键成功的次数。
   
 keyspace_misses : 查找数据库键失败的次数。

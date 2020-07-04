@@ -12,7 +12,6 @@ categories:
 
      Session创建事件发生在每次一个新的session创建的时候，类似地Session失效事件发生在每次一个Session失效的时候。
 
-
 <div id="blog_content">
   这个接口也只包含两个方法，分别对应于Session的创建和失效：
  # public void sessionCreated(HttpSessionEvent se);

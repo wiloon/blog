@@ -13,7 +13,6 @@ http://www.itivy.com/android/archive/2012/5/4/634717451517462189.html
 有一些场景，我们需要向用户展示一系列的页面。比如我们正在开发一个看漫画的应用，可能就需要向用户展示一张一张的漫画图片，用户使用手指滑动屏幕，可以在前一幅漫画和后一幅漫画之间切换。这个时候ViewFlipper就是一个很好的选择。
 
 
-
 1）View切换的控件—ViewFlipper介绍
 
 ViewFilpper类继承于ViewAnimator类。而ViewAnimator类继承于FrameLayout。

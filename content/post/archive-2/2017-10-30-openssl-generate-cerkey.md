@@ -1,5 +1,5 @@
 ---
-title: openssl
+title: openssl basic
 author: wiloon
 type: post
 date: 2017-10-30T09:16:49+00:00
@@ -9,23 +9,23 @@ categories:
 
 ---
 ```bash
-  
-\# openssl 解密
-  
+# openssl 解密  
 openssl pkeyutl -inkey xxx-pri.pem -decrypt -pkeyopt rsa\_padding\_mode:oaep -pkeyopt rsa\_oaep\_md:sha256 -in foo.bin -out result.dec
 
-\# 查看公钥内容
-  
+# 查看公钥内容  
 openssl rsa -inform PEM -in xxx-pub.pem -pubin -text
 
-\# generate private key
-  
+# generate private key  
 openssl genrsa -out pri2048.key 2048
 
-\# generate public key
-  
+# generate public key  
 openssl rsa -inform PEM -outform PEM -in pri2048.key -out pub2048.key -pubout
-  
+
+# 查看证书信息
+openssl x509 -noout -text -in ca.crt
+
+# 验证证书
+openssl verify selfsign.crt
 ```
 
 https://github.com/denji/golang-tls

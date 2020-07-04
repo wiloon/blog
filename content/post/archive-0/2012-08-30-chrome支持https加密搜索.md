@@ -11,9 +11,7 @@ categories:
 http://www.williamlong.info/archives/2186.html
 
 
-
 https://www.google.com.hk/search?hl=zh-CN&q=%s
-
 
 
 Google的官方博客曾经在上周发布消息称，Google会在下周部署HTTPS（超文本加密传输协议）加密技术的搜索方式，以确保搜索过程的安全性，Google没有食言，现在，HTTPS的Google搜索已经可以使用了。

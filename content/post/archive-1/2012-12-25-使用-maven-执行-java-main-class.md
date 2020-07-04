@@ -11,7 +11,6 @@ categories:
 mvn exec:java -Dexec.mainClass="org.ts.main.App"
 
 
-
 http://www.cnblogs.com/foxswl/archive/2010/05/10/maven-execute-java-main.html
 
 http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/

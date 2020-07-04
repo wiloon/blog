@@ -16,5 +16,4 @@ categories:
 
 fs.file-max = 65536
 
-
    /sbin/sysctl -p

@@ -23,7 +23,6 @@ https://stackoverflow.com/questions/59515026/how-do-i-replicate-a-docker-macvlan
 http://docs.podman.io/en/latest/
 
 
-
 ---
 
 https://github.com/containernetworking/plugins

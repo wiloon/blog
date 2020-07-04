@@ -130,10 +130,6 @@ msg.recycle();
 
  
 
-
-
-
-
 1.4.Handler
 
 Handler的构造函数表示Handler会有成员变量指向Looper和MessageQueue，后面我们会看到为什么需要这些引用；至于callback是实现了Callback接口的对象，后面会看到这个对象的作用。

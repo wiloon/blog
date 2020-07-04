@@ -28,18 +28,6 @@ Tip #1: Tweak Colors & Gradients
   
 The most fundamental step toward customizing the UIButton class is to adjust the color of the background and title for both the default and highlighted states. The following code snippet sets each button's background color to black, normal title color to white, and highlighted title color to red:
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
 // Set the button Text Color
   
 [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -52,22 +40,6 @@ The most fundamental step toward customizing the UIButton class is to adjust the
   
 Solid background colors are great, but a subtle gradient can often make the difference between bland and polished. Replace the setBackgroundColor:message above with the following to create a custom gradient:
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
 // Draw a custom gradient
   
 CAGradientLayer *btnGradient = [CAGradientLayer layer];
@@ -94,14 +66,6 @@ Tip #2: Round the Corners
   
 Next we want to add a custom corner radius to each UIButton in order to make things look a bit more sleek. Insert the following lines of code to make this happen:
 
-1
-  
-2
-  
-3
-  
-4
-  
 // Round button corners
   
 CALayer *btnLayer = [btn layer];
@@ -118,12 +82,6 @@ Tip #3: Add a Stroke Border
   
 Sometimes the small tweaks make all the difference. Add a 1px, black stroke around each button with the following lines of code:
 
-1
-  
-2
-  
-3
-  
 // Apply a 1 pixel, black border
   
 [btnLayer setBorderWidth:1.0f];
@@ -144,26 +102,6 @@ Next, you'll need to add the Knewave-Regular.ttf file to your project's bundled 
   
 At this point, you should be able to begin using the Knewave font in your project! Let's test that out by jumping back to the ViewController.m file and modifying theviewDidLoad method to set a custom font:
 
-01
-  
-02
-  
-03
-  
-04
-  
-05
-  
-06
-  
-07
-  
-08
-  
-09
-  
-10
-  
 // Set the button Text Color
   
 [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -190,20 +128,6 @@ While not utilized in the primary design demonstrated by this tutorial, it's oft
 
 You can try this out with the code written so far by doing the following:
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
 self.startGameButton.transform = CGAffineTransformMakeRotation(M_PI / 180 * 5.0f);
 
 for(UIButton *btn in buttons)
@@ -224,10 +148,6 @@ With the five tips above, you've seen how easy it can be to make subtle yet sign
 
 Implementing UIButton-Glossy in your own project is simple. After you'vedownloaded the UIButton-Glossy.h and UIButton-Glossy.m files and added them to your Xcode project, import the *.h file in the main project view controller, like this:
 
-1
-  
-2
-  
 #import "ViewController.h"
   
 #import "UIButton+Glossy.h"
@@ -236,36 +156,6 @@ Now you can instantly apply a cool glossy effect on your buttons with just one l
 
 To see this in action, replace the existing view controller code with the following:
 
-01
-  
-02
-  
-03
-  
-04
-  
-05
-  
-06
-  
-07
-  
-08
-  
-09
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
 for(UIButton *btn in buttons)
   
 {

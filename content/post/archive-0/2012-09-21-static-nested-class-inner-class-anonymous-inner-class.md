@@ -35,7 +35,6 @@ categories:
  }
  }
 
-
 <span style="font-size: medium;">匿名类（<span style="font-family: 'Times New Roman';">Anonymous Class）
   
 <span style="font-size: medium;">　　当一个内部类的类声名只是在创建此类对象时用了一次，而且要产生的新类需继承于一个已有的父类或实现一个接口，才能考虑用匿名类，由于匿名类本身无名，因此它也就不存在构造方法，它需要显示地调用一个无参的父类的构造方法，并且重写父类的方法。

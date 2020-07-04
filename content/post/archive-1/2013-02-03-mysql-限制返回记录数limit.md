@@ -32,7 +32,6 @@ tags:
   
 
 
-
   
     //为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
  <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />mysql> SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last.

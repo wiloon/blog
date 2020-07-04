@@ -88,7 +88,6 @@ server.xml的整体结构如下：
                   
 <Context /><!-- 现在常常使用自动部署，不推荐配置Context元素，Context小节有详细说明 -->
 
-
               
 </Host>
           
@@ -144,10 +143,6 @@ Connector的主要功能，是接收连接请求，创建Request和Response对�
 
 通过配置Connector，可以控制请求Service的协议及端口号。在第一部分的例子中，Service包含两个Connector：
 
-1
-  
-2
-  
 <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
   
 <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
@@ -166,8 +161,6 @@ Engine组件在Service组件中有且只有一个；Engine是Service组件中的
 
 在第一部分的例子中，Engine的配置语句如下：
 
-1
-  
 <Engine name="Catalina" defaultHost="localhost">
   
 其中，name属性用于日志和错误信息，在整个Server中应该唯一。defaultHost属性指定了默认的host名称，当发往本机的请求指定的host名称不存在时，一律使用defaultHost指定的host进行处理；因此，defaultHost的值，必须与Engine中的一个Host组件的name属性值匹配。
@@ -190,8 +183,6 @@ Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如
 
 在第一部分的例子中，Host的配置如下：
 
-1
-  
 <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
   
 下面对其中配置的属性进行说明：
@@ -250,8 +241,6 @@ reloadable属性指示tomcat是否在运行时监控在WEB-INF/classes和WEB-INF
 
 下面来看自动部署时，xmlBase下的XML配置文件app1.xml的例子：
 
-1
-  
 <Context docBase="D:\Program Files\app1.war" reloadable="true"/>
   
 在该例子中，docBase位于Host的appBase目录之外；path属性没有指定，而是根据app1.xml自动推导为”app1”；由于是在开发环境下，因此reloadable设置为true，便于开发调试。
@@ -268,8 +257,6 @@ reloadable属性指示tomcat是否在运行时监控在WEB-INF/classes和WEB-INF
 
 server.xml中使用Context元素配置Web应用，Context元素应该位于Host元素中。举例如下：
 
-1
-  
 <Context path="/" docBase="D:\Program Files \app1.war" reloadable="true"/>
   
 docBase：静态部署时，docBase可以在appBase目录下，也可以不在；本例中，docBase不在appBase目录下。
@@ -334,94 +321,7 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
 
 以第一部分的server.xml为例，多个Service的配置如下：
 
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
-7
-  
-8
-  
-9
-  
-10
-  
-11
-  
-12
-  
-13
-  
-14
-  
-15
-  
-16
-  
-17
-  
-18
-  
-19
-  
-20
-  
-21
-  
-22
-  
-23
-  
-24
-  
-25
-  
-26
-  
-27
-  
-28
-  
-29
-  
-30
-  
-31
-  
-32
-  
-33
-  
-34
-  
-35
-  
-36
-  
-37
-  
-38
-  
-39
-  
-40
-  
-41
-  
-42
-  
-43
-  
 <?xml version='1.0' encoding='utf-8'?>
-
 
   
 <Server port="8005" shutdown="SHUTDOWN">
@@ -502,18 +402,6 @@ http://localhost:8084/docs/
 
 1、Listener
   
-1
-  
-2
-  
-3
-  
-4
-  
-5
-  
-6
-  
 <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
     
 <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
@@ -550,14 +438,6 @@ ThreadLocalLeakPreventionListener：当Web应用因thread-local导致的内存�
   
 第一部分的例子中，Engine组件下定义了Realm组件：
 
-1
-  
-2
-  
-3
-  
-4
-  
 <Realm className="org.apache.catalina.realm.LockOutRealm">
           
 <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
@@ -566,12 +446,6 @@ ThreadLocalLeakPreventionListener：当Web应用因thread-local导致的内存�
   
 Realm，可以把它理解成“域”；Realm提供了一种用户密码与web应用的映射关系，从而达到角色安全管理的作用。在本例中，Realm的配置使用name为UserDatabase的资源实现。而该资源在Server元素中使用GlobalNamingResources配置：
 
-1
-  
-2
-  
-3
-  
 <GlobalNamingResources>
       
 <Resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml" />
@@ -586,8 +460,6 @@ GlobalNamingResources元素定义了全局资源，通过配置可以看出，�
   
 在第一部分的例子中，Host元素内定义了Valve组件：
 
-1
-  
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost\_access\_log." suffix=".txt" pattern="%h %l %u %t "%r" %s %b" />
   
 单词Valve的意思是“阀门”，在Tomcat中代表了请求处理流水线上的一个组件；Valve可以与Tomcat的容器(Engine、Host或Context)关联。

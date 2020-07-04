@@ -46,7 +46,6 @@ com.wiloon.xxx.xxx.xxx
 [/xml]
 
 
-
 [shell]
 
 mvn assembly:assembly

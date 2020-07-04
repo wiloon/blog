@@ -46,7 +46,6 @@ systemctl enable chronyd
 systemctl start chronyd
 
 
-
 ## 查看 ntp_sync 状态
 chronyc sourcestats -v
 

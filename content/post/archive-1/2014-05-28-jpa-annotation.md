@@ -13,13 +13,11 @@ tags:
 http://mzhj.iteye.com/blog/711685
 
 
-
 **@Embedded**
 
 你可以创建一个类被嵌套在实体类中，在这种情况下我们可以使用@Embedded注解。例如，在Hotel类中 可能会有一个Address。
   
 Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分开的collection中。在这种情况下我们可以使用@Embedded注解
-
 
 
 **@Entity**
@@ -29,11 +27,9 @@ Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分�
 <span style="color: #353833;">Specifies that the class is an entity. This annotation is applied to the entity class.
 
 
-
 @Table (name= users )
 
 //指定表名为users
-
 
 
 <pre class="odb_java geshifilter-odb_java"><span class="sy1">@<span class="kw11">Column
@@ -71,11 +67,9 @@ private double wages;
 private Date joinDate;
 
 
-
 @Id
 
 设置主键
-
 
 
 字段排序
@@ -83,7 +77,6 @@ private Date joinDate;
 在加载数据的时候可以为其指定顺序，使用@OrderBy注解实现
 
 @OrderBy(name = "group_name ASC, name DESC")
-
 
 
 主键生成策略
@@ -315,7 +308,6 @@ public void setTempValue(int value){
 this.tempValue = value;
   
 }
-
 
 
 @Inheritance(strategy = InheritanceType.JOINED)

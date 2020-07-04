@@ -47,7 +47,6 @@ export ANSIBLE_ASK_SUDO_PASS=true
 ```bash
 ansible 192.168.x.x -m lineinfile -a "path=/etc/ssh/sshd_config line='xxx' state=present"
 
-
 ```
 
 http://www.jianshu.com/p/f400f600b17c
@@ -74,15 +73,11 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
   
 3 leihuo
   
-4
-  
 5 [salt]
   
 6 salt-master  ansible\_ssh\_user=lixc ansible\_ssh\_pass=123456
   
 7 10.240.162.112  ansible_connection=paramiko
-  
-8
   
 9 [leihuo]
   
@@ -128,15 +123,11 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
   
 3 leihuo
   
-4
-  
 5 [salt]
   
 6 salt-master  salt-port=4505 mysql-port=3306
   
 7 10.240.162.112  salt-path=/usr/bin/salt-call
-  
-8
   
 9 [leihuo]
   

@@ -43,7 +43,6 @@ CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRI
 ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medium;">Chinese_PRC_CI_AS**
 
 
-
 一、排序规则简介：
 
 什么叫排序规则呢？MS是这样描述的："在 Microsoft SQL Server  中，
@@ -182,10 +181,6 @@ id          name
   
 */
 
-
-
-
-
 三、常见问题处理：
 
 1.“无法解决 equal to 操作的排序规则冲突。”
@@ -267,7 +262,6 @@ FROM TestTab
 WHERE GreekCol = LatinCol COLLATE greek\_ci\_as
 
 还需注意的是，尽管 LatinCol 通常有一个区分大小写的排序规则，但表达式不区分大小写的排序规则会将其覆盖，从而使“A”的大写和小写被视为等同。
-
 
 
 <http://blog.sina.com.cn/s/blog_539c0c040100zxsn.html>

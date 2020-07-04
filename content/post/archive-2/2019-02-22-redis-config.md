@@ -25,7 +25,6 @@ tcp-keepalive 0
 #是否守护线程
 daemonize yes
 
-
 # If you run Redis from upstart or systemd, Redis can interact with your
 # supervision tree. Options:
 #   supervised no      - no supervision interaction
@@ -39,7 +38,6 @@ supervised systemd
 
 pidfile /path/to/redis.pid
 
-
 # Specify the server verbosity level.
 # This can be one of:
 # debug (a lot of information, useful for development/testing)
@@ -47,7 +45,6 @@ pidfile /path/to/redis.pid
 # notice (moderately verbose, what you want in production probably)
 # warning (only very important / critical messages are logged)
 loglevel notice
-
 
 # Set the number of databases. The default database is DB 0, you can select
 # a different one on a per-connection basis using SELECT <dbid> where
@@ -91,12 +88,10 @@ dir
 # 这将会促使用户发现（以一种强硬的方式）数据持久化到磁盘出问题了，否则，很有可能没人会注意到这一点，最终带来灾难性的后果。
 stop-writes-on-bgsave-error yes
 
-
 # 当导出 .rdb 数据库时，是否对字符串对象采用 LZF 进行压缩。
 # 由于进行压缩在多数情况下效果都比较好，所以，该配置的缺省值为 'yes' 。
 # 如果你想要节省点 CPU ，可以将其改为  'no' ，相应地，如果你的数据集里面包含较多可压缩的键或值时，保存的数据集很有可能会比较大。
 rdbcompression yes
-
 
 # 从 RDB 5 版开始，CRC64 和校验被添加到了 .rdb 文件的末尾。
 # 这样做可以使 .rdb 文件变得更加不容易损坏，但相应地，在文件保存和加载的时候也会消耗更多服务器性能（大概10%）。
@@ -106,11 +101,9 @@ rdbcompression yes
 # tell the loading code to skip the check.
 rdbchecksum yes
 
-
 # The filename where to dump the DB
 # 导出的 .rdb 文件名称
 dbfilename dump.rdb
-
 
 # 当一个从节点与主节点失去连接时，或者当复制还在进行时，从节点可以有以下两种表现方式：
 #
@@ -156,7 +149,6 @@ auto-aof-rewrite-percentage 100
 auto-aof-rewrite-min-size 64mb
 aof-load-truncated yes
 lua-time-limit 5000
-
 
 cluster-enabled yes
 cluster-config-file cluster.conf

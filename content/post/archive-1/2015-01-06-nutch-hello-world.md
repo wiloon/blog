@@ -20,7 +20,6 @@ download HBase 0.94.14
 http://mirrors.cnnic.cn/apache/hbase/stable/hbase-0.98.9-hadoop2-bin.tar.gz
 
 
-
 config java_home in .bashrc
 
 Download a source package
@@ -50,12 +49,9 @@ Edit the file <tt class="backtick">conf/regex-urlfilter.txt</tt> and replace
 <p class="line862">
   with a regular expression matching the domain you wish to crawl. For example, if you wished to limit the crawl to the <tt class="backtick">nutch.apache.org</tt> domain, the line should read:<span id="line-113" class="anchor"><span id="line-114" class="anchor">
 
-
 <span id="line-1-7" class="anchor"> +^http://([a-z0-9]*\.)*nutch.apache.org/
 
-
 Specify the GORA backend in $NUTCH_HOME/conf/nutch-site.xml
-
 
 
 <property>
@@ -65,13 +61,11 @@ Specify the GORA backend in $NUTCH_HOME/conf/nutch-site.xml
 <span id="line-5" class="anchor"></property>
 
 
-
   * Ensure the HBase gora-hbase dependency is available in $NUTCH_HOME/ivy/ivy.xml<span id="line-26" class="anchor"><span id="line-27" class="anchor">
 
 <span id="line-1-1" class="anchor">    <!-- Uncomment this to use HBase as Gora backend. -->
 <span id="line-2-1" class="anchor">    
 <span id="line-3-1" class="anchor">    <dependency org="org.apache.gora" name="gora-hbase" rev="0.4" conf="*->default" />
-
 
 
   * <p class="line862">
@@ -81,7 +75,6 @@ Specify the GORA backend in $NUTCH_HOME/conf/nutch-site.xml
 <span id="line-1-2" class="anchor">    gora.datastore.default=org.apache.gora.hbase.store.HBaseStore
 
 
-
 run ant runtime
 
 config ssh for cygwin
@@ -89,7 +82,6 @@ config ssh for cygwin
 http://hbase.apache.org/cygwin.html
 
 start HBase
-
 
 
 http://wiki.apache.org/nutch/NutchTutorial

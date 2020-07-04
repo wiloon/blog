@@ -135,7 +135,6 @@ areaname varchar2(30) default ' ' NOT NULL);
 SQL> alter session set constraints deferred.
 
 
-
 7. 由实体关系图到创建表的例子 s_dept
   
 前提条件:已有region表且含唯一关键字的字段id

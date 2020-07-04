@@ -23,7 +23,6 @@ http://www.cnblogs.com/brainy/archive/2012/08/29/2662295.html
 添加事务处理，把5000条插入作为一个事务
 
 
-
 我们使用SQLite的事务进行控制：
 
 db.beginTransaction();  //手动设置开始事务

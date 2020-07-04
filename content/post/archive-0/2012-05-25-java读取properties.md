@@ -108,8 +108,6 @@ System.out.println(getParam2());
 
 运行结果：
   
-151
-  
 152
 
 Process finished with exit code 0
@@ -117,7 +115,6 @@ Process finished with exit code 0
 当然，把Object.class换成int.class照样行，呵呵，大家可以试试。
 
 另外，如果是static方法或块中读取Properties文件，还有一种最保险的方法，就是这个类的本身名字来直接获取Class对象，比如本例中可写成TestProperties.class，这样做是最保险的方法。
-
 
 
 load resouorces as utf8

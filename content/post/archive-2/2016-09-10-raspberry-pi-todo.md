@@ -18,7 +18,6 @@ unzip 2018-11-13-raspbian-stretch-lite.zip
 # burn the system
 sudo dd bs=4M if=2017-08-16-raspbian-stretch.img of=/dev/sdX conv=fsync
 
-
 ```
 
 ### config

@@ -15,4 +15,3 @@ tags:
 str\_to\_date('29-AUG-10 03.26.32 PM','%d-%b-%y %h.%i.%s %p')
 
 
-

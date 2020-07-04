@@ -14,7 +14,6 @@ categories:
 ---
 ## <http://www.voland.com.cn/debian32-bit-linux-system-to-support-large-memory>
 
-
   
     公司的服务器为2G的内存，使用free命令查看，明显不够用了，现在使用了大量的交换分区，那么，就升级内存吧，两条4G的kingston内存就这样补加上了，但原来的系统是Debian32位Linux系统，上8G内存根本不支持，使用free命令查看，只支持3.1G的内存！如果换64位的系统比较麻烦，服务器上安装配置的东西太多了，只能升级系统内核来解决了，debian提供了bigmem内核，在升级之前，第一步需要更新一下源：
   
