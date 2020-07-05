@@ -23,6 +23,9 @@ categories:
 ### 调整词顺序
 ctrl+6
 
+### 删除词
+ctrl+7
+
 ### 五笔词库位置
 /home/user0/.config/fcitx/table/wbx.mb
 

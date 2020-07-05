@@ -4,6 +4,8 @@ date = 2020-05-27T15:30:45Z
 title = "hardware"
 
 +++
+### Dell wyse 5070
+
 ### PC:
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
 
