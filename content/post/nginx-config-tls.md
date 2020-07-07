@@ -4,6 +4,19 @@ date = 2020-06-26T13:04:56Z
 title = "nginx config, tls"
 
 +++
+### stream
+代理远程桌面3389的tcp连接   
+
+    stream {
+        upstream mstsc {
+            server 1.2.3.4:3389;
+        }
+
+        server {
+            listen 1082;
+            proxy_pass mstsc;
+        }
+    }
 
 ### tls
 
