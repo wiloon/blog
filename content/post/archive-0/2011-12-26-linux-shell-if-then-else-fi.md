@@ -10,77 +10,6 @@ tags:
   - Shell
 
 ---
-### 判断指定文件中是否包含指定的字符串
-
-```bash
-grep "prod" /home/admin/gitrep/otp/otp-webapp-api/src/main/webapp/WEB-INF/web.xml > /dev/null
-if [ $? -eq 0 ]; then
-    echo "Found!"
-else
-    echo "Not found!"
-fi
-```
-
-### 判断字符串是否相等
-
-```bash
-#判断字符串是否相等
-if [ "$A" = "$B" ];then
-echo "[ = ]"
-fi
-```
-
-1.并且
-  
-条件 c1并且条件c2
-
-方式一： -a: and
-
-if [ c1 -a c2 ]; then
-  
-…
-  
-fi
-  
-方式二：
-
-if [ c1 && c2 ]; then
-  
-…
-  
-fi
-  
-2.或者
-  
-条件 c1或者 条件c2
-
-方式一：-o: or
-
-if [ c1 -o c2 ]; then
-  
-…
-  
-fi
-  
-方式二：
-
-if [ c1 || c2 ]; then
-  
-…
-  
-fi
-
-参考
-
-## http://fyan.iteye.com/blog/1130034
-
-作者：翔云翔云
-  
-来源：CSDN
-  
-原文：https://blog.csdn.net/lanyang123456/article/details/57416906
-  
-版权声明：本文为博主原创文章，转载请附上博文链接！
 
 ## grep
 
@@ -90,28 +19,8 @@ grep操作的返回值：
   
 如果没有匹配， 会返回1。
 
-本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy
 
-https://www.shellscript.sh/functions.html
 
-```bash
-# check if directory is exist
-if [ ! -d "$DIRECTORY" ]; then
-  # Control will enter here if $DIRECTORY doesn't exist.
-fi
-
-```
-
-shell变量
-
-```bash$var
-${var}
-${var:start_index}
-${var:-newstring}
-
-```
-
-<http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html>{.wp-editor-md-post-content-link}
 
 if/else
   
@@ -638,3 +547,17 @@ https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60l
 版权声明：本文为CSDN博主「DevMaster」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
 原文链接：https://blog.csdn.net/wncnke/java/article/details/54847140
+
+
+参考
+
+http://fyan.iteye.com/blog/1130034   
+作者：翔云翔云  
+来源：CSDN    
+原文：https://blog.csdn.net/lanyang123456/article/details/57416906    
+版权声明：本文为博主原创文章，转载请附上博文链接！
+本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy
+
+https://www.shellscript.sh/functions.html
+
+<http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html>{.wp-editor-md-post-content-link}

@@ -4,20 +4,25 @@ author: wiloon
 type: post
 date: 2011-09-29T04:34:14+00:00
 url: /?p=959
-bot_views:
-  - 7
-views:
-  - 3
-categories:
-  - DataBase
 tags:
   - maven
 
 ---
+### 参数
+对应一个变量值，pom.xml里面配置的有，那么如果你在命令行中 以 -Dmy.filter.value=1 的格式去配置mvn命令，那么将覆盖你pom中的值。
+    mvn clean -Ptrip-app,daily package -Dmy.filter.value=1 -Dttidapk.ttids=21xx00
 
--e for error
--X for debug
--q for only error
+    <project>
+      <properties>
+        <my.filter.value>hello</my.filter.value>
+      </properties>
+    </project>
+    https://blog.csdn.net/Maxiao1204/article/details/90510176
+
+### command
+  -e for error
+  -X for debug
+  -q for only error
 
 ### 生成项目
 
