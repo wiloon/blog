@@ -69,6 +69,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | flameshot             | 截图工具                                                     |
 | ttf-jetbrains-mono    | jetbrain的mono字体                                           |
 | gpick                 | 颜色拾取工具                                                 |
+|	telegram-desktop| 	telegram|
 
 ### pacman, dev
 
