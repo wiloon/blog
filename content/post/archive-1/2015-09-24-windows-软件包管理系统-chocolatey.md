@@ -43,6 +43,8 @@ choco list -l
 choco list -local-only
 ```
 
+### 设置安装目录，环境变量 
+ChocolateyInstall
 http://www.oschina.net/p/chocolatey
   
 https://chocolatey.org/packages

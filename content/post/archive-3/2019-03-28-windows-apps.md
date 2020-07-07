@@ -23,7 +23,7 @@ choco upgrade keepassxc
 
 | Name                       | Comments              |
 | -------------------------- | --------------------- |
-| chocolatey                 |                       |
+| chocolatey                 | choco可以自己更新自己   |
 | keepassxc                  |                       |
 | microsoft-windows-terminal |                       |
 | winscp                     |                       |
@@ -34,7 +34,6 @@ choco upgrade keepassxc
 
 | Name             | Comments |
 | ---------------- | -------- |
-| Chocolatey       |          |
 | gradle           |          |
 | notepad++        |          |
 | wlstty           |          |

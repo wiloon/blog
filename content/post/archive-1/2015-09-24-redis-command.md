@@ -27,12 +27,11 @@ rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ### docker
 
 ```bash
-docker run \
+podman run \
 -d \
 --name redis \
 -p 6379:6379 \
 -v /etc/localtime:/etc/localtime:ro \
---restart=always \
 redis
 
 docker run -it --rm redis redis-cli -h redis.wiloon.com
