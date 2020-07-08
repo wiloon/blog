@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bash---                         #任何playbook文件(其实就是yaml文件)都要以这个开头
+```bash
+---                         #任何playbook文件(其实就是yaml文件)都要以这个开头
 - hosts: '{{ hosts }}'      #可以是主机组或IP
   become: root
   gather_facts: true
@@ -93,6 +94,26 @@ ansible的playbook就如同salt的state，一个playbook就是一个YAML文件�
   user: ...
 
 ansible-playbook user.yml --extra-vars "target=imac-2.local"
+```
+
+定义变量 - 列表
+
+```
+- hosts: localhost
+  become: true
+  vars:
+    app_list:
+      - - htop
+        - emacs
+        - vim
+```
+
+```bash
+ansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1" --list-hosts --list-tasks
+--skip-tags
+--start-at-task
+--step # one-step-at-a-time: confirm each task before running
+
 ```
 
 http://sapser.github.io/ansible/2014/07/21/ansible-playbook
