@@ -12,6 +12,7 @@ categories:
 #### Markdown All in One
     ctrl+shift+i - 表格格式化
 #### Settings Sync
+配置同步
 #### Github Markdown Preview
 
 https://github.com/cdr/code-server
@@ -31,6 +32,7 @@ codercom/code-server \
 ```
 
 ### REST Client
-
+vscode 发http请求
+同一个文档 中不同的请求用 "###" 分隔
 ### Insert Date String
 插入当前日期时间
