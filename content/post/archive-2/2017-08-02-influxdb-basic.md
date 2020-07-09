@@ -120,7 +120,9 @@ DROP MEASUREMENT <measurement_name>
 select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time>now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq>0
 ```
 
-```bash<br /><br /># show tag keys
+```bash
+
+# show tag keys
 SHOW TAG KEYS [ON <database_name>] [FROM_clause] [WHERE <tag_key> <operator> ['<tag_value>' | <regular_expression>]] [LIMIT_clause] [OFFSET_clause]
 
 show tag keys

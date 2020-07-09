@@ -25,8 +25,10 @@ srikanth.s.nair
   
   
   
-    <code>$ cd $JBOSS_HOME/modules<br />
-$ mkdir -p com/oracle/ojdbc6/main<br />
+    <code>$ cd $JBOSS_HOME/modules
+
+$ mkdir -p com/oracle/ojdbc6/main
+
 $ vi module.xml</code>
   
   
@@ -35,13 +37,20 @@ $ vi module.xml</code>
   
   
   
-    <code><module xmlns="urn:jboss:module:1.0" name="com.oracle.ojdbc6"><br />
-<resources><br />
-<resource-root path="ojdbc6.jar"/><br />
-</resources><br />
-<dependencies><br />
-<module name="javax.api"/><br />
-</dependencies><br />
+    <code><module xmlns="urn:jboss:module:1.0" name="com.oracle.ojdbc6">
+
+<resources>
+
+<resource-root path="ojdbc6.jar"/>
+
+</resources>
+
+<dependencies>
+
+<module name="javax.api"/>
+
+</dependencies>
+
 </module></code>
   
   
@@ -70,10 +79,14 @@ $ vi module.xml</code>
   
   
   
-    <code><driver name="oracle" module="com.oracle.ojdbc6"><br />
-<xa-datasource-class><br />
-oracle.jdbc.OracleDriver<br />
-</xa-datasource-class><br />
+    <code><driver name="oracle" module="com.oracle.ojdbc6">
+
+<xa-datasource-class>
+
+oracle.jdbc.OracleDriver
+
+</xa-datasource-class>
+
 </driver></code>
   
   
@@ -82,19 +95,32 @@ oracle.jdbc.OracleDriver<br />
   
   
   
-    <code><datasource jndi-name="WorkCenterDS" pool-name="OracleDS" enabled="true" jta="true" use-java-context="true" use-ccm="true"><br />
-<connection-url>jdbc:oracle:thin:@localhost:1521:oradb1</connection-url><br />
-<driver>oracle</driver><br />
-<transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation><br />
-<pool><br />
-<prefill>true</prefill><br />
-<use-strict-min>false</use-strict-min><br />
-<flush-strategy>FailingConnectionOnly</flush-strategy><br />
-</pool><br />
-<security><br />
-<user-name>user1</user-name><br />
-<password>1234</password><br />
-</security><br />
+    <code><datasource jndi-name="WorkCenterDS" pool-name="OracleDS" enabled="true" jta="true" use-java-context="true" use-ccm="true">
+
+<connection-url>jdbc:oracle:thin:@localhost:1521:oradb1</connection-url>
+
+<driver>oracle</driver>
+
+<transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+
+<pool>
+
+<prefill>true</prefill>
+
+<use-strict-min>false</use-strict-min>
+
+<flush-strategy>FailingConnectionOnly</flush-strategy>
+
+</pool>
+
+<security>
+
+<user-name>user1</user-name>
+
+<password>1234</password>
+
+</security>
+
 </datasource></code>
   
   

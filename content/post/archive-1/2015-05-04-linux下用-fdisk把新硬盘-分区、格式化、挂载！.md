@@ -10,7 +10,8 @@ tags:
   - linux
 
 ---
-```bash<br />sudo fdisk -l
+```bash
+sudo fdisk -l
 
 sudo fdisk /dev/sdb
 p (print the partition table)

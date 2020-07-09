@@ -26,7 +26,8 @@ cap(sl)
 ### 清空slice
 
 ```golang
-<br />func SliceClear(s *[]interface{}) {
+
+func SliceClear(s *[]interface{}) {
     *s = append([]interface{}{})
 }
 
@@ -65,7 +66,8 @@ foo:= [5] int {1,2,3,4,5}
 ```
 
 ```golang
-<br />// 遍历
+
+// 遍历
 for i, sliceV := range v {
     log.Printf("%v %v : %v", k, i, sliceV)
 }

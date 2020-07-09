@@ -12,7 +12,8 @@ https://docs.gradle.org/current/userguide/publishing_maven.html#header
 
 gradle v5.3.1
 
-<code class="language-kotlin line-numbers"><br />group = "com.wiloon.group0"
+<code class="language-kotlin line-numbers">
+group = "com.wiloon.group0"
 version = "0.0.1-SNAPSHOT"
 
 plugins {

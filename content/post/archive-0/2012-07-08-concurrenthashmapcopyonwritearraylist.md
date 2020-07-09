@@ -41,23 +41,37 @@ categories:
   
     集合框架引入了迭代器，用于遍历一个列表或者其他集合，从而优化了对一个集合中的元素进行迭代的过程。然而，在 <code>java.util</code> 集合类中实现的迭代器极易崩溃，也就是说，如果在一个线程正在通过一个 <code>Iterator</code> 遍历集合时，另一个线程也来修改这个集合，那么接下来的 <code>Iterator.hasNext()</code> 或 <code>Iterator.next()</code> 调用将抛出 <code>ConcurrentModificationException</code> 异常。就拿刚才这个例子来讲，如果想要防止出现 <code>ConcurrentModificationException</code> 异常，那么当您正在进行迭代时，您必须使用一个在 <code>List l</code> 上同步的 <code>synchronized</code> 块将该 <code>List</code> 包装起来，从而锁住整个 <code>List</code> 。（或者，您也可以调用 <code>List.toArray()</code> ，在不同步的情况下对数组进行迭代，但是如果列表比较大的话这样做代价很高）。
  <a name="listing1"></a>清单 1. 同步的map中的公用竞争条件
- <code><br />
-Map m = Collections.synchronizedMap(new HashMap());<br />
+ <code>
+
+Map m = Collections.synchronizedMap(new HashMap());
+
 List l = Collections.synchronizedList(new ArrayList());</p>
-<p>// put-if-absent idiom -- contains a race condition<br />
-// may require external synchronization<br />
-if (!map.containsKey(key))<br />
+<p>// put-if-absent idiom -- contains a race condition
+
+// may require external synchronization
+
+if (!map.containsKey(key))
+
 map.put(key, value);</p>
-<p>// ad-hoc iteration -- contains race conditions<br />
-// may require external synchronization<br />
-for (int i=0; i<list.size(); i++) {<br />
-doSomething(list.get(i));<br />
+<p>// ad-hoc iteration -- contains race conditions
+
+// may require external synchronization
+
+for (int i=0; i<list.size(); i++) {
+
+doSomething(list.get(i));
+
 }</p>
-<p>// normal iteration -- can throw ConcurrentModificationException<br />
-// may require external synchronization<br />
-for (Iterator i=list.iterator(); i.hasNext(); ) {<br />
-doSomething(i.next());<br />
-}<br />
+<p>// normal iteration -- can throw ConcurrentModificationException
+
+// may require external synchronization
+
+for (Iterator i=list.iterator(); i.hasNext(); ) {
+
+doSomething(i.next());
+
+}
+
 </code>
  <a name="N10141"></a>信任的错觉
   

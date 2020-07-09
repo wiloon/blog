@@ -33,7 +33,8 @@ go mod edit -replace=github.com/wiloon/pingd-config=/home/wiloon/projects/pingd-
 replace git.xxx.com/path/to/package v1.0.2 => /path/to/local/package
 ```
 
-```bash<br />replace golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e => github.com/golang/sys v0.0.0-20180909124046-d0be0721c37e
+```bash
+replace golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e => github.com/golang/sys v0.0.0-20180909124046-d0be0721c37e
 
 replace golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3 => github.com/golang/net v0.0.0-20190404232315-eb5bcb51f2a3
 

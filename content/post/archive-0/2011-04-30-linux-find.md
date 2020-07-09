@@ -54,7 +54,9 @@ find ./ -mtime -2 #查找2天内修改的文件，多了一个减号
 find ./ -mmin  -10  #查找距离现在10分钟内修改的文件
 ```
 
-```bash<br /><br />find pathname -options
+```bash
+
+find pathname -options
 
 # -name 按文件名查找文件
 find . -name t.sql

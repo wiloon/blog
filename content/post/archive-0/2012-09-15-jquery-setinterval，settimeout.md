@@ -116,13 +116,20 @@ categories:
   
   
   
-    <code>　 var i=0;<br />
-function test(){<br />
-i+=1;<br />
-alert(i);<br />
-}<br />
-setTimeout("test()",1000);<br />
-也可以这样：<br />
+    <code>　 var i=0;
+
+function test(){
+
+i+=1;
+
+alert(i);
+
+}
+
+setTimeout("test()",1000);
+
+也可以这样：
+
 setTimeout(test,1000);</code>
   
   
@@ -167,8 +174,10 @@ setTimeout(test,1000);</code>
   
   
   
-    <code>　function a(){<br />
-//...<br />
+    <code>　function a(){
+
+//...
+
 }</code>
   
   
@@ -205,13 +214,20 @@ setTimeout(test,1000);</code>
   
   
   
-    <code>　　var i=0;<br />
-function xilou(){<br />
-i+=1;<br />
-if(i>10){alert(i);return;}<br />
-setTimeout("xilou()",1000);<br />
-//用这个也可以<br />
-//setTimeout(xilou,1000);<br />
+    <code>　　var i=0;
+
+function xilou(){
+
+i+=1;
+
+if(i>10){alert(i);return;}
+
+setTimeout("xilou()",1000);
+
+//用这个也可以
+
+//setTimeout(xilou,1000);
+
 }</code>
   
   
@@ -228,22 +244,38 @@ setTimeout("xilou()",1000);<br />
   
   
   
-    <code>　　function xilou(){<br />
-//by 西楼冷月 www.chinacms.org<br />
-this.name="xilou";<br />
-this.sex="男";<br />
-this.num=0;<br />
-}<br />
-xilou.prototype.count=function(){<br />
-this.num+=1;<br />
-alert(this.num);<br />
-if(this.num>10){return;}<br />
-//下面用四种方法测试,一 个一个轮流测试。<br />
-setTimeout("this.count()",1000);//A:当下面的x.count()调用时会发生错 误：对象不支持此属性或方法。<br />
-setTimeout("count()",1000);//B:错误显示：缺少对象<br />
-setTimeout(count,1000);//C:错误显示：'count'未定义<br />
-//下面是第四种 by 西楼冷月 www.chinacms.org<br />
-var self=this;<br />
+    <code>　　function xilou(){
+
+//by 西楼冷月 www.chinacms.org
+
+this.name="xilou";
+
+this.sex="男";
+
+this.num=0;
+
+}
+
+xilou.prototype.count=function(){
+
+this.num+=1;
+
+alert(this.num);
+
+if(this.num>10){return;}
+
+//下面用四种方法测试,一 个一个轮流测试。
+
+setTimeout("this.count()",1000);//A:当下面的x.count()调用时会发生错 误：对象不支持此属性或方法。
+
+setTimeout("count()",1000);//B:错误显示：缺少对象
+
+setTimeout(count,1000);//C:错误显示：'count'未定义
+
+//下面是第四种 by 西楼冷月 www.chinacms.org
+
+var self=this;
+
 setTimeout(function() {self.count();},1000);//D:正确</code>
   
   
@@ -293,9 +325,13 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
   
   
   
-    <code>　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){<br />
-//.....代码<br />
-return timer//返回一个标记符<br />
-}<br />
+    <code>　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){
+
+//.....代码
+
+return timer//返回一个标记符
+
+}
+
 </code>　　所以当向 setTimeout()传入this的时候，当然指的是它所属的当前对象window了。
   

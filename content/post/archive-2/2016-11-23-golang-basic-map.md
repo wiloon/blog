@@ -42,7 +42,8 @@ if val, ok := dict["foo"]; ok {
 ```
 
 ```golang
-<br />package main
+
+package main
 
 import "fmt"
 
