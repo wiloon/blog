@@ -1,6 +1,6 @@
 +++
 author = "w1100n"
-date = 2020-05-24T06:14:49Z
+date = "2020-05-24T06:14:49Z"
 title = "vue-router的两种模式"
 
 +++
