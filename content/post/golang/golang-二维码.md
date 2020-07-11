@@ -1,7 +1,7 @@
 ---
-author = "w1100n"
-date = "2020-07-08 10:58:34"
-title = "golang 生成二维码"
+author: "w1100n"
+date: "2020-07-08 10:58:34"
+title: "golang 生成二维码"
 
 ---
 
