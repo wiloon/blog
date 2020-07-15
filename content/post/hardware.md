@@ -1,6 +1,6 @@
 +++
 author = "w1100n"
-date = 2020-05-27T15:30:45Z
+date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++

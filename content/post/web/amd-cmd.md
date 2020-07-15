@@ -1,6 +1,6 @@
 +++
 author = "w1100n"
-date = 2020-06-23T11:56:43Z
+date = "2020-06-23T11:56:43Z"
 title = "AMD, CMD"
 
 +++
