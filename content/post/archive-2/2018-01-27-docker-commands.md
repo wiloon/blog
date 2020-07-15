@@ -248,6 +248,18 @@ docker run -dit -p 5000:5000 ubuntu
 docker network create -d bridge my-net
 ```
 
+### macvlan, --net, --ip
+
+    docker run \
+    --name memcache \
+    -d \
+    --net net0 \
+    --ip 192.168.1.xxx \
+    -p 11211:11211 \
+    -v /etc/localtime:/etc/localtime:ro \
+    --restart=always \
+    memcached -m 16
+
 default volumn path /var/lib/docker/volumes/
 
 https://segmentfault.com/a/1190000012063374

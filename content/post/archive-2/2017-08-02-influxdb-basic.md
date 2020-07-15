@@ -13,9 +13,13 @@ categories:
 ```bash
 # http api
 curl -G 'http://localhost:8086/query?pretty=true'  --data-urlencode "q=show databases"
-curl -i -XPOST http://10.60.0.62:8086/query --data-urlencode "db=mydb" --data-urlencode "q=CREATE DATABASE db0"
+curl -i -XPOST http://localhost:8086/query --data-urlencode "db=mydb" --data-urlencode "q=CREATE DATABASE db0"
 
+curl -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=82 1594349970000000000'
 ```
+
+### 
+    curl -x http://127.0.0.1:8899/ -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=86 1594349970000000000'
 
 ### database management
 
@@ -63,6 +67,18 @@ influx -database 'db0' -execute "select field0,\"field1\" from measurement0 wher
 ### 安装
 
 ```bash
+# docker
+docker run -d \
+--name influxdb \
+--net net0 \
+--ip 192.168.1.xxx \
+-p 8086:8086 \
+-p 8083:8083 \
+-v influxdb-config:/etc/influxdb:ro \
+-v influxdb-storage:/var/lib/influxdb \
+-v /etc/localtime:/etc/localtime:ro \
+influxdb
+
 # podman
 podman run -d \
 --name influxdb \
@@ -137,9 +153,6 @@ influx -precision rfc3339
 
 select * from m0 where tag0='tag-value0' and time > '2018-05-16 13:00:00' and time < '2018-05-16 13:01:00' tz('Etc/GMT-8')
 
-# http api
-curl -G 'http://localhost:8086/query?pretty=true'  --data-urlencode "q=show databases"
-curl -i -XPOST http://10.60.0.62:8086/query --data-urlencode "db=mydb" --data-urlencode "q=CREATE DATABASE db0"
 
 #use
 use db0

@@ -47,7 +47,12 @@ mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plug
 #-U,--update-snapshots                  Forces a check for missing                                        releases and updated snapshots on
 mvn clean compile -U
 ```
-
+### 检测包冲突工具
+    mvn dependency:help
+    mvn dependency:analyze
+    mvn dependency:tree
+    mvn dependency:tree -Dverbose
+    
 ```bash
 # upload jar to nexus
 mvn deploy:deploy-file -Dfile=xxx.pom -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=pom -DrepositoryId=repo0 -Durl=https://maven.wiloon.com/repository/snapshot/
@@ -60,7 +65,7 @@ mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plug
 # maven-assembly-plugin 打包
 mvn assembly:assembly
 
-mvn dependency:tree
+
 
 #Generates JSW based daemon wrappers.
 mvn appassembler:generate-daemons 

@@ -82,7 +82,7 @@ sudo systemctl start ntpd.service
 sudo systemctl enable ntpd.service
 
 vim /etc/ntp.conf
-server time.roiland.com iburst
+server time.wiloon.com iburst
 
 #check ntp status
 ntpq -p

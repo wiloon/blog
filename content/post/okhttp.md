@@ -3,6 +3,25 @@ date = 2020-05-15T10:16:43Z
 title = "OkHttp"
 
 +++
+```java
+ String url = String.format("http://%s/write", influxdbAddress);
+            try {
+                String postBody = lineProtocol.ToString();
+                Request request = new Request.Builder()
+                        .url(url)
+                        .post(RequestBody.create(postBody, MediaType.parse("text/plain; charset=utf-8")))
+                        .build();
+
+                try (Response response = client.newCall(request).execute()) {
+                    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+                    logger.trace("influxdb response: " + response.code());
+                }
+
+                logger.trace("url: {}, body: {}", url, postBody);
+            } catch (Exception e) {
+                logger.warn("failed to send metrics data: url: {}, e: {}", url, e);
+            }
+```
 ### 1. 历史上Http请求库优缺点
 
 在讲述OkHttp之前, 我们看下没有OkHttp的时代, 我们是如何完成http请求的.  
