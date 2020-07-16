@@ -43,7 +43,7 @@ choco upgrade keepassxc
 | alacritty        |          |
 | Windows Terminal |          |
 | wsl2             |          |
-
+choco install heidisql
 MobaXterm
   
 VcXsrc

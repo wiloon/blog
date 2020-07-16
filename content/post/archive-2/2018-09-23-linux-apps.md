@@ -111,6 +111,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | google-chrome-dev                     |                                             |
 | intellij-idea-community-edition-jre   | idea with jre                               |
 | telegraf                              |                                             |
+|goland-jre||
 
 ### KDE
 
