@@ -11,13 +11,10 @@ tags:
 
 ---
 ### Arch Linux Fast Installer
-
 https://github.com/MatMoul/archfi
 
 ## 从U盘引导安装
-
-download iso
-  
+download iso  
 <http://mirrors.163.com/archlinux/iso/>
 
 ```bash
@@ -29,11 +26,9 @@ sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && 
 ```
 
 ### 设置网络
-
 setup network with shell script https://gist.github.com/wiloon/xxxxxx
-  
-or
-  
+
+#### or  
 <https://blog.wiloon.com/?p=9881>
 
 ```bash
@@ -53,23 +48,18 @@ systemctl start sshd
 ```
 
 ### config pacman mirror
-
 <https://blog.wiloon.com/?p=7501>
 
-# pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
-
+### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 ```bash
 pacman -Sy
 ```
 
 ## 分区并格式化硬盘
-
 #### 用 parted 分区
-
 <http://blog.wiloon.com/?p=8416>
 
 #### 用 fdisk 分区
-
 <http://blog.wiloon.com/?p=7609>
 
 ```bash
@@ -85,12 +75,9 @@ pacstrap /mnt/tmp base linux linux-firmware
 # 建议使用UUID方式生成fstab和启动管理器配置
 genfstab -p -U /mnt/tmp >> /mnt/tmp/etc/fstab
 ```
-
 ### 把网络配置文件复制到新系统
-
 ```bash
 cp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
-
 ```
 
 ```bash
@@ -108,7 +95,7 @@ zh_CN.UTF-8 UTF-8
 
 locale-gen
 
-# 文件设置全局有效的locale
+# 文件设置全局有效的locale,没有的话新建一个文件。
 vim /etc/locale.conf
 LANG=en_US.UTF-8
 
