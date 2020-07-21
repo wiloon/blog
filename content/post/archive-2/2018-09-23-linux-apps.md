@@ -112,7 +112,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | intellij-idea-community-edition-jre   | idea with jre                               |
 | telegraf                              |                                             |
 |goland-jre||
-
+|tableplus|mysql client|
 ### KDE
 
 | name       | comments             |

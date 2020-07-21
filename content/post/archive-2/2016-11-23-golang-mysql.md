@@ -330,15 +330,13 @@ panic(err.Error()) // proper error handling instead of panic in your app
   
 }
   
-事务
+### 事务
   
 使用db.Begin()来开启一个事务, 通过Commit()和Rollback()方法来关闭。
 
-tx := db.Begin()
-  
-tx.Rollback()
-  
-tx.Commit()
+    tx := db.Begin()
+    tx.Rollback()
+    tx.Commit()
   
 Exec, Query, QueryRow and Prepare 方法已经全部可以在tx上面使用。使用方法和在*sql.DB是一样的，事务必须以Commit()或者Rollback()结束
 
@@ -558,3 +556,4 @@ https://stackoverflow.com/questions/17845619/how-to-call-the-scan-variadic-funct
 https://golangtc.com/t/521abe66320b523a3500000e
   
 http://www.jianshu.com/p/340eb943be2e
+https://www.jianshu.com/p/bc8120bec94e

@@ -8,11 +8,13 @@ categories:
   - Uncategorized
 
 ---
+### struct json tag
 https://colobu.com/2017/06/21/json-tricks-in-Go/
 
 ```golang
 type Result struct {
     Count int `json:"count"`
+    Data       MyStruct  `json:"data,omitempty"`
 }
 
 func main() {
