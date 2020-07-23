@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-在~/.ssh目录下生产私匙id\_rsa和公匙id\_rsa.pub文件
+在~/.ssh目录下生成私钥id_rsa和公钥id_rsa.pub文件
 
 ```bash
 ssh-keygen -t rsa
