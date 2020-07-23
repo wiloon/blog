@@ -180,3 +180,8 @@ func main(){
     fmt.Println(JAVAHOME)
 }
 ```
+
+### 废弃的函数
+
+    // Deprecated
+    func foo(){}

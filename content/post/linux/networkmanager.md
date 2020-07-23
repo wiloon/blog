@@ -1,7 +1,7 @@
 +++
 author = "w1100n"
 date = "2020-07-17 17:13:21" 
-title = "networkmanager"
+title = "network manager"
 
 +++
 
@@ -61,3 +61,11 @@ Like auth_admin but the authorization is kept for a brief period (e.g. five minu
 
 典型的场景是把allow_active的设置从auth_admin（root密码）改成auth_self（当前用户密码）或者yes（不要密码）。
 
+
+### 配置文件
+
+    /etc/NetworkManager/system-connections
+
+### network manager + openvpn 多个默认路由的问题
+IPv4 Settings->Routes and checking “Use this connection only for resources on its network”.
+https://www.debuntu.org/how-to-network-manager-openvpn-overwrites-default-route/

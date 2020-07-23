@@ -13,23 +13,16 @@ http://www.cnblogs.com/hupengcool/p/4143238.html
 Golang操作数据库
 
 基本概念
-  
-Open() – creates a DB
-  
-Close() - closes the DB
-  
-Query() - 查询
-  
-QueryRow() -查询行
-  
-Exec() -执行操作，update，insert，delete
-  
-Row - A row is not a hash map, but an abstraction of a cursor
-  
-Next()
-  
-Scan()
-  
+
+    Open() – creates a DB
+    Close() - closes the DB
+    Query() - 查询
+    QueryRow() -查询行
+    Exec() -执行操作，update，insert，delete
+    Row - A row is not a hash map, but an abstraction of a cursor
+    Next()
+    Scan()
+
 注意：DB并不是指的一个connection
 
 连接到数据库

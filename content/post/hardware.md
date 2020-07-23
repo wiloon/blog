@@ -34,3 +34,7 @@ Qualcomm Atheros IPQ8065 arm 32bit
 5G QCA9984
 2.4G QCA9984
 有线网络 QCA8337
+
+### Dell Latitude 3450
+https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers
+

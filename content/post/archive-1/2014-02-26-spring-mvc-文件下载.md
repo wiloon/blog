@@ -156,7 +156,7 @@ Java代码 收藏代码
 
 public AnnotationMethodHandlerAdapter() {
 
-// no restriction of HTTP methods by default
+// no restriction of by default
 
 super(false);
 
