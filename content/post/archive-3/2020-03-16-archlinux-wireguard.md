@@ -33,13 +33,31 @@ https://f-droid.org/en/packages/com.wireguard.android/
     apt update
     apt install wireguard
 
-### peer A
+### 生成密钥 peer A / peer B
 ```
-umask 077
-wg genkey > privatekey
-wg pubkey < privatekey > publickey
-wg genpsk > preshared
+# 生成私钥
+wg genkey > peer_A.key
+chmod 600 peer_A.key
+# 生成公钥
+wg pubkey < peer_A.key > peer_A.pub
 
+# 同时生成私钥公钥
+wg genkey | tee peer_A.key | wg pubkey > peer_A.pub
+
+wg genpsk > peer_A-peer_B.psk
+```
+
+### 参数
+    # 设置可以被路由到对端的ip/段
+    allowed-ips 
+    # 路由所有流量到对端
+    allowed-ips 0.0.0.0/0 
+    # 路由指定ip/段到对端
+    allowed-ips 192.168.53.1/32
+    # 路由多个ip/段到对端 
+    allowed-ips 192.168.53.1/32,192.168.50.0/24
+#### Peer A setup
+```bash
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
 sudo wg set wg0 private-key ./privatekey
@@ -48,7 +66,7 @@ sudo wg set wg0 listen-port 9000
 # 做为服务端使用时，peer B的ip 和端口一般是动态的，不配置endpoint  
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
 # peer b 有确定的端口和IP时， 可以配置endpoint
-sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32   endpoint 192.168.50.115:9000
+sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32  endpoint 192.168.50.115:9000
 ip link set wg0 up
 ```
 
@@ -57,11 +75,16 @@ ip link set wg0 up
     sudo ip link add dev wg0 type wireguard
     sudo ip addr add 192.168.53.2/24 dev wg0
     sudo wg set wg0 private-key ./privatekey
-    配置监听端口，监听peer A发起的连接 请求，仅作为客户端使用时，可以不配置监听
-    sudo wg set wg0 listen-port 9000  
-    allowed-ips 0.0.0.0/0 peer_B 所有的ip包都 会被 发往 peer_A  
-    sudo wg set wg0 peer PEER_A_PUBLIC_KEY   persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
+
+    # 配置监听端口，监听peer A发起的连接请求，仅作为客户端使用时，可以不配置监听,忽略此步骤
+    sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 所有的ip包都 会被 发往 peer_A
+    sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
     ip link set wg0 up
+
+### 添加路由
+
+    ip route add 192.168.50.0/24 dev wg0
+    ip route add fd7b:d0bd:7a6e::/64 dev wg0
 
 ### remove peer
     wg set wg0 peer PEER_A_PUBLIC_KEY remove  
@@ -72,6 +95,19 @@ ip link set wg0 up
 
 #### 保存配置到文件
     wg showconf wg0 > /etc/wireguard/wg0.conf
+    wg-quick up interfacename
+    wg-quick down interfacename
+### systemd-networkd
+
+    systemd-networkd-wait-online.service
+    systemd-resolvconf  
+    openresolv
+
+### iptables
+
+    iptables -A FORWARD -i wg0 -j ACCEPT
+    iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+
 
 ### chromeos>crostini
 chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
@@ -111,16 +147,6 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     Endpoint = <server_ip0:server_port0>
     PersistentKeepalive = 25
 
-### systemd-networkd
-
-    systemd-networkd-wait-online.service  
-    systemd-resolvconf  
-    openresolv
-
-### iptables
-
-iptables -A FORWARD -i wg0 -j ACCEPT
-iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 
 https://www.wireguard.com/install/
 https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/

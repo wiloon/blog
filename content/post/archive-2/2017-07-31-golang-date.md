@@ -128,6 +128,11 @@ localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:
     //2016-12-03 23:39:06.270473069 -0800 PST
 ```
 
+### 时间计算
+
+    h, _ := time.ParseDuration("-1h")
+	start := time.Now().Add(h)
+    
 https://github.com/jemygraw/TechDoc/blob/master/Go%E7%A4%BA%E4%BE%8B%E5%AD%A6/Go%20%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90.markdown
 
 Go 时间格式化和解析
@@ -201,6 +206,7 @@ Mon Mar 3 22:39:31 2014
 parsing time "8:41PM" as "Mon Jan _2 15:04:05 2006": cannot parse "8:41PM" as "Mon"
   
 10:39PM
+
 
 https://blog.csdn.net/CodyGuo/article/details/53009451
   
