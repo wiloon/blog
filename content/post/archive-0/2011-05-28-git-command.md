@@ -24,6 +24,7 @@ git checkout master
 ### git config
 
     #设置电子邮件地址
+    git config --global user.name "name0"
     git config --global user.email "email@example.com"
     git config --local user.email "email@example.com"
     git config --local user.name "name0"
