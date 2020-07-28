@@ -84,6 +84,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | gradle                          |                  |
 | git                             |                  |
 | rust                            | rust-lang        |
+|iperf3|网络测试工具|
 
 ### AUR, yay:
 
@@ -113,6 +114,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | telegraf                              |                                             |
 |goland-jre||
 |tableplus|mysql client|
+|procmon| 微软的进程监控工具|
+
 ### KDE
 
 | name       | comments             |

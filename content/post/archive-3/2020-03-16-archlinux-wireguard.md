@@ -11,8 +11,8 @@ categories:
 ### android
 安装wireguard
 https://f-droid.org/en/packages/com.wireguard.android/  
-新建 连接  
-输入连接名  
+点右下角的加号新建 连接  
+输入连接名 
 点击私钥后面的刷新按钮 新建一对密钥
 把公钥发给对端
 
