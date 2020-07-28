@@ -49,13 +49,17 @@ wg genpsk > peer_A-peer_B.psk
 
 ### 参数
     # 设置可以被路由到对端的ip/段
-    allowed-ips 
+    allowed-ips
+
     # 路由所有流量到对端
-    allowed-ips 0.0.0.0/0 
+    allowed-ips 0.0.0.0/0
+
     # 路由指定ip/段到对端
     allowed-ips 192.168.53.1/32
+
     # 路由多个ip/段到对端 
     allowed-ips 192.168.53.1/32,192.168.50.0/24
+
 #### Peer A setup
 ```bash
 sudo ip link add dev wg0 type wireguard
@@ -77,7 +81,9 @@ ip link set wg0 up
     sudo wg set wg0 private-key ./privatekey
 
     # 配置监听端口，监听peer A发起的连接请求，仅作为客户端使用时，可以不配置监听,忽略此步骤
-    sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 所有的ip包都 会被 发往 peer_A
+    sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 
+    
+    # 所有的ip包都 会被 发往 peer_A
     sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
     ip link set wg0 up
 
@@ -95,8 +101,8 @@ ip link set wg0 up
 
 #### 保存配置到文件
     wg showconf wg0 > /etc/wireguard/wg0.conf
-    wg-quick up interfacename
-    wg-quick down interfacename
+    wg-quick up wg0
+    wg-quick down wg0
 ### systemd-networkd
 
     systemd-networkd-wait-online.service

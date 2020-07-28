@@ -3,12 +3,6 @@ title: git basic, command
 author: wiloon
 date: 2011-05-28T13:01:51.000+00:00
 url: "/?p=202"
-bot_views:
-- 11
-views:
-- 2
-categories:
-- VCS
 tags:
 - Git
 
@@ -120,7 +114,7 @@ git fetch --all 告诉 Git 同步所有的远端仓库。
 
 git checkout tag_name
 
-\#git分析指定的tag标签创建分支的命令
+#git分析指定的tag标签创建分支的命令
 git checkout -b branch_name tag_name
 
 # 新建分支
