@@ -1,5 +1,5 @@
 ---
-title: nginx command, docker
+title: nginx basic, command, docker
 author: wiloon
 type: post
 date: 2017-10-26T06:17:15+00:00
@@ -39,6 +39,7 @@ podman run -d \
 --name nginx \
 -p 80:80 \
 -p 443:443 \
+-p 3389:3389 \
 -v nginx-config:/etc/nginx \
 -v certbot-conf:/etc/letsencrypt \
 -v nginx-www:/var/www \

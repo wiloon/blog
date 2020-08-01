@@ -21,8 +21,8 @@ git svn fetch -r 1342:HEAD
 
     git svn rebase
 
-git commit -a -m “”
-git svn dcommit
+    git commit -a -m ""
+    git svn dcommit
 
 ### Password for 'user0': Can't locate Term/ReadKey.pm
 

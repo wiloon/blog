@@ -10,24 +10,24 @@ categories:
 ---
 ### worker_processes, nginx进程数，建议设置为等于CPU总核心数。
 
-worker_processes 8;
+    worker_processes 8;
   
 官方英文版wiki配置说明中的描述如下，个人理解为worker角色的进程个数（nginx启动后有多少个worker处理http请求。master不处理请求，而是根据相应配置文件信息管理worker进程. master进程主要负责对外揽活（即接收客户端的请求），并将活儿合理的分配给多个worker，每个worker进程主要负责干活（处理请求））。
 
 ### worker_connections
 
-max\_clients = worker\_processes * worker_connections;
+    max_clients = worker_processes * worker_connections;
   
 官方解释如下，个人认为是每一个worker进程能并发处理（发起）的最大连接数（包含所有连接数）。
 
-# worker\_rlimit\_nofile
+### worker\_rlimit\_nofile
 
 #一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
   
-worker\_rlimit\_nofile 65535;
+    worker_rlimit_nofile 65535;
 
 proxy_bind
-  
+
 https://pengpengxp.github.io/2017-06-27-%E4%BD%BF%E7%94%A8nginx%E7%9A%84proxy_bind%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE%E9%80%8F%E6%98%8E%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html
 
 #定义Nginx运行的用户和用户组
@@ -677,13 +677,6 @@ gzip_types text/plain application/xml;
   
 反正，具体场景具体分析把，到时遇到了真的不用压缩的场景，我们记得有这么一个选项就好了
 
-作者：skyesx
-  
-链接：https://hacpai.com/article/1447946179819
-  
-来源：黑客派
-  
-协议：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 
 gunzip
   
@@ -701,67 +694,52 @@ Nginx的日志配置
   
 日志是一把双刃剑。一方面，它提供了很多有用的信息；另一方面，它带来了计算成本。如果Nginx产生成千上万行日志，必然会对性能产生影响。下面来讨论优化日志的几个directive。
 
-access_log
+### access_log
   
 这条directive配置Nginx处理所有请求时产生的日志。它有多个参数，可以用来指定日志路径，日志格式样本，缓冲等等。syslog可以将日志传送给一个日志服务器而不写入日志文件。如果access_log的值设为off，那么Nginx不会产生任何日志。访问日志文件的默认路径是 /var/log/nginx/access.log。
 
-http {
-      
-access_log /var/log/nginx/access.log;
+    http {
+        access_log /var/log/nginx/access.log;
+    }
   
-}
-  
-error_log
+### error_log
   
 Nginx默认启用了错误日志，error_log可以在http, server, location模块中定义。它可以有两个参数，第一个参数是错误日志的路径，第二个是错误日志的级别。级别的值可以是debug,info,notice,warn,error,crit,alert和emerg。
 
-http {
-         
-error_log /var/log/nginx/error.log crit;
-  
-}
+    http {
+        error_log /var/log/nginx/error.log crit;
+    }
   
 大综合
   
 下面的配置综合了上述讨论的所有directive。
 
-http {
-        
-######
-        
-\# configuring buffers
-        
-######
-        
-client\_body\_buffer_size 15k;
-        
-client\_max\_body_size 8m;
+    http {
+    # configuring buffers
+    client_body_buffer_size 15k;
+    client_max_body_size 8m;
+        # configuring timeouts
+        # client_header_timeout 和 client_body_timeout设置请求头和请求体(各自)的超时时间，如果没有发送请求头和请求体，Nginx服务器会返回408错误或者request time out
+        keepalive_timeout 20;
+        client_body_timeout 15;
+        client_header_timeout 15;
+        send_timeout 10;
 
-      ####
-      # configuring timeouts
-      ####
-      keepalive_timeout 20;
-      client_body_timeout 15;
-      client_header_timeout 15;
-      send_timeout 10;
-    
-      ######
-      # configuring gzip
-      ######
-      gzip on;
-      gzip_comp_level 2;
-      gzip_min_length 1000;
-      gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
-    
-     #####
-     # configuring logs
-     #####
-     access_log off;
-     log_not_found off;
-     error_log logs/error.log crit;
-    
-
-}
+        ######
+        # configuring gzip
+        ######
+        gzip on;
+        gzip_comp_level 2;
+        gzip_min_length 1000;
+        gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+        
+        #####
+        # configuring logs
+        #####
+        access_log off;
+        log_not_found off;
+        error_log logs/error.log crit;
+    }
 
 NGINX配置超时时间 原
    
@@ -920,3 +898,11 @@ https://www.linuxdashen.com/nginx%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E
 https://my.oschina.net/xsh1208/blog/199674
   
 https://blog.51cto.com/liuqunying/1420556
+
+作者：skyesx
+  
+链接：https://hacpai.com/article/1447946179819
+  
+来源：黑客派
+  
+协议：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
