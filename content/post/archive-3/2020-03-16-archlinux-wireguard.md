@@ -15,7 +15,16 @@ https://f-droid.org/en/packages/com.wireguard.android/
 输入连接名 
 点击私钥后面的刷新按钮 新建一对密钥
 把公钥发给对端
+在服务端执行wg set... 配置服务端
 
+#### 客户端
+局域网ip: 192.168.53.xx/32
+dns: 192.168.50.1
+mtu: 1200
+##### 添加节点
+公钥： 服务端公钥
+对端： xxx.wiloon.com:51xxx
+路由的ip地址: 0.0.0.0/0
 
 ### install
 
@@ -56,6 +65,7 @@ wg genpsk > peer_A-peer_B.psk
     allowed-ips 192.168.53.1/32
     # 路由多个ip/段到对端 
     allowed-ips 192.168.53.1/32,192.168.50.0/24
+
 #### Peer A setup
 ```bash
 sudo ip link add dev wg0 type wireguard
@@ -63,7 +73,7 @@ sudo ip addr add 192.168.53.1/24 dev wg0
 sudo wg set wg0 private-key ./privatekey
 sudo wg set wg0 listen-port 9000
 
-# 做为服务端使用时，peer B的ip 和端口一般是动态的，不配置endpoint  
+# 做为服务端使用时，peer_B 的ip 和端口一般是动态的，不配置endpoint  
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
 # peer b 有确定的端口和IP时， 可以配置endpoint
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32  endpoint 192.168.50.115:9000
