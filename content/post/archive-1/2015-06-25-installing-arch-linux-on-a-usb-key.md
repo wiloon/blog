@@ -122,7 +122,7 @@ vim loader.conf
 default arch
 timeout 1
 
-cd entries
+cd /boot/loader/entries
 vim arch.conf
 
 # arch.conf content

@@ -10,7 +10,7 @@ categories:
 ---
 <div class="cnblogs_code" style="color: #000000;">
   <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-<span style="color: #008080;"> 2     <span style="color: #0000ff;">package="com.example.android.apis"> 
+<span style="color: #008080;"> 2     package="com.example.android.apis"> 
 <span style="color: #008080;"> 3 
 <span style="color: #008080;"> 4 
 <span style="color: #008080;"> 5 <activity android:name="<span style="color: #ff0000;">ApiDemos"> 

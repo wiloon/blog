@@ -14,4 +14,4 @@ tags:
   - JavaScript
 
 ---
-_<span style="font-size: medium;">str.<span style="color: #0000ff;">toLowerCase()_
+_<span style="font-size: medium;">str.toLowerCase()_
