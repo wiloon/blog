@@ -38,3 +38,8 @@ Qualcomm Atheros IPQ8065 arm 32bit
 ### Dell Latitude 3450
 https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers
 
+### WNDR4300 v1
+WNDR4300  
+Flash容量: 128 MiB NAND  
+RAM: 128 MiB  
+mips, not mipsle  
