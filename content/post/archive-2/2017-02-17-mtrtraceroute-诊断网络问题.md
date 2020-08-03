@@ -10,11 +10,7 @@ categories:
 ---
 https://meiriyitie.com/2015/05/26/diagnosing-network-issues-with-mtr/
 
- 
-
 使用 MTR 诊断网络问题
-  
-每日一贴 • 2015年5月26日 • 3 条评论
   
 MTR 是一款强大的网络诊断工具，网络管理员使用 MTR 可以诊断和隔离网络问题，并且为上游 ISP 提供有用的网络状态报告。
 
@@ -29,7 +25,6 @@ MTR 是传统 traceroute 命令的进化版，并且可以提供强大的数据�
 相对于其他命令仅仅收集传输路径或响应时间，MTR 工具会收集更多的信息，比如 连接状态，连接可用性，以及传输路径中主机的响应性。由于这些额外的信息，我们建议您尽可能完整的展现 Internet 两个主机之间的网络连接信息。接下来我们讲述如何安装 MTR 软件，以及如何看懂这款软件的输出结果。
 
 ### 安装 MTR
-
 在 Debian 和 Ubuntu 系统中，使用如下命令更新系统，然后安装 MTR：
 
 ```bash
@@ -52,9 +47,8 @@ yum install mtr
   
 在 Arch Linux 系统中，按照如下命令更新系统并安装 MTR：
 
-pacman -Sy
-  
-pacman -S mtr
+    pacman -Sy
+    pacman -S mtr
   
 如果您的本机使用的是 Linux 系统，并且想用 MTR 测试网络状况，请按照如上教程安装。
 

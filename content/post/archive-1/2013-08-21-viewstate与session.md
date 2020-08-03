@@ -22,7 +22,7 @@ categories:
   
 很多人会认为这是加密的信息,其实不是, ms仅仅是给各个控件和页面的状态存入适当的对象里面,然后把该对象序列化, 最后再做一次base64编码,直接赋值给viewstate控件.
 
-说到这,想必你一定想看看这个viewstate里面到底存了哪些东西, 嗯,你是可以写一个base64 to string的转换代码来实现.不过,viewstate是有层次之分的,普通的转换后,你看到的也是很乱的文字. 这里提供了一个专门转换viewstate值的地方 [<span style="text-decoration: underline;"><span style="color: #0000ff;">http://www.wilsondotnet.com/Demos/ViewState.aspx][1] . 你可以去将自己的viewstate输入进去,让它给你转化一下,这可是带结构的哦 🙂
+说到这,想必你一定想看看这个viewstate里面到底存了哪些东西, 嗯,你是可以写一个base64 to string的转换代码来实现.不过,viewstate是有层次之分的,普通的转换后,你看到的也是很乱的文字. 这里提供了一个专门转换viewstate值的地方 [<span style="text-decoration: underline;">http://www.wilsondotnet.com/Demos/ViewState.aspx][1] . 你可以去将自己的viewstate输入进去,让它给你转化一下,这可是带结构的哦 🙂
 
 好, 以上说的这些你可能会觉得: 这与session有什么关系? 这个viewstate不是由asp.net自动去维护吗? 是的, 如果仅仅是保存控件的状态, 你可以感觉不到它与session有什么瓜葛( 呵呵,其实它们就没有瓜葛),不过,接下来,我们看看这种使用方法: 在后台aspx.cs代码里:
 
