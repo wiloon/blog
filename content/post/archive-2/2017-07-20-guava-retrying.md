@@ -14,7 +14,8 @@ https://github.com/rholder/guava-retrying
 
 对于开发过网络应用程序的程序员来说，重试并不陌生，由于网络的拥堵和波动，此刻不能访问服务的请求，也许过一小段时间就可以正常访问了。比如下面这段给某个手机号发SMS的伪代码：
 
-```java// 发送SMS  
+```java
+// 发送SMS  
 public boolean sendSMS(String phone, String content)  
 {  
     int retryTimes = 3;  
