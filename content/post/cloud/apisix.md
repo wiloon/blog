@@ -22,3 +22,14 @@ title = "apisix"
     --network apisix \
     --ip 172.18.5.10 \
     --env ALLOW_NONE_AUTHENTICATION=yes bitnami/etcd:3.3.13-r80
+
+### apisix
+
+    podman run -d \
+    --name apisix \
+    -v apisix-logs:/usr/local/apisix/logs \
+    -v apisix-conf:/usr/local/apisix/conf \
+    -p 9180:9180 \
+    -p 9080:9080 \
+    -p 9443:9443 \
+    apache/apisix
