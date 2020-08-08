@@ -44,7 +44,8 @@ return SingletonHolder.INSTANCE;
   
 5.示例：
 
-```java/*
+```java
+/*
 方式一：饿汉式单例模式
 缺点是它不是一种懒加载模式（lazy initialization），单例会在加载类后一开始就被初始化，即使客户端没有调用 getInstance()方法。
 饿汉式的创建方式在一些场景中将无法使用：譬如 Singleton 实例的创建是依赖参数或者配置文件的，

@@ -4,15 +4,15 @@ author: wiloon
 type: post
 date: 2012-09-22T08:10:05+00:00
 url: /?p=4183
-categories:
+tags:
   - Java
 
 ---
 Java 5.0 引入了枚举类型,语法参见 JLS 8.9
 
 ### 枚举比较
-
-```java// 枚举可以用 "==" 和 equals 比较
+```java
+// 枚举可以用 "==" 和 equals 比较
 GameEnum s1 = GameEnum.BIG;
 GameEnum s2 = GameEnum.BIG;
 GameEnum ss1 = GameEnum.SMALL;
@@ -22,19 +22,17 @@ System.out.println("s1 == ss1：" + (s1 == ss1)); //false
 System.out.println("s1.equals(ss1)：" + (s1.equals(ss1))); //false
 ```
 
-```java// 字符串 > 枚举
+```java
+// 字符串 > 枚举
 Blah val = Blah.valueOf("A")
 package com.ljq.test;
 ```
 
 ### 普通枚举
 
-定义一个功能简单的枚举类型，跟定义一个简单的类很相似，例如
-  
-跟类定义一样，枚举类型可以单独放在一个文件里，当一个枚举类型用public修饰时，它对其他包可见，否则只对同一个包中的类可见，这和类定义是一样的。
-  
-标识符 MONDAY, TUESDAY等就称为枚举常量（enumeration constants）
-  
+定义一个功能简单的枚举类型，跟定义一个简单的类很相似，例如  
+跟类定义一样，枚举类型可以单独放在一个文件里，当一个枚举类型用public修饰时，它对其他包可见，否则只对同一个包中的类可见，这和类定义是一样的。  
+标识符 MONDAY, TUESDAY等就称为枚举常量（enumeration constants）  
 每一个枚举常量被隐式的声明成Day的一个public、static成员，而且其类型为Day，亦就是说这些常量是self-typed的
 
 ```java
@@ -308,7 +306,8 @@ System.out.println(o);
   
 如果Bnumeration枚举对象还含有元素，该方法得到对象中的下一个元素。
 
-```java/*
+```java
+/*
 * @(#)DemoEnumeration.java
 * 演示Enumeration接口的使用
 * /
