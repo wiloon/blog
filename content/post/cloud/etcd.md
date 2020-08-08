@@ -4,6 +4,7 @@ date = "2020-06-14T05:25:48Z"
 title = "etcd"
 
 +++
+
 etcd是CoreOS团队于2013年6月发起的开源项目，它的目标是构建一个高可用的分布式键值(key-value)数据库。etcd内部采用`raft`协议作为一致性算法，etcd基于Go语言实现。
 
 ## etcd的特点
@@ -64,8 +65,63 @@ etcd认为写入请求被Leader节点处理并分发给了多数节点后，就�
 
 通常，一个用户的请求发送过来，会经由 HTTP Server 转发给 Store 进行具体的事务处理，如果涉及到节点的修改，则交给 Raft 模块进行状态的变更、日志的记录，然后再同步给别的 etcd 节点以确认数据提交，最后进行数据的提交，再次同步。
 
-  
+### etcd vs zookeeper
+
+zookeeper 使用 ZAB 协议作为其一致性协议。 zookeeper 通过团队的形式工作，一组 node 一起工作，来提供分布式能力，这组 node 的数量需要是奇数。
+
+第一个节点与其他节点沟通，选举出一个 leader，获取多数票数的成为 leader，这就是为什么需要奇数个 node，其他节点被称为follower。
+
+client 连接 zookeeper 时可以连接任何一个，client 的读请求可以被任何一个节点处理，写请求只能被 leader 处理。所以，添加新节点可以提高读的速度，但不会提高写的速度。
+
+对于 CAP 模型，zookeeper 保障的是 CP。
+
+优点
+非阻塞全部快照（达成最终一致）
+高效的内存管理
+高可靠
+API 简单
+连接管理可以自动重试
+ZooKeeper recipes 的实现是经过完整良好的测试的。
+有一套框架使得写新的 ZooKeeper recipes 非常简单。
+支持监听事件
+发生网络分区时，各个区都会开始选举 leader，那么节点数少的那个分区将会停止运行。
+缺点
+zookeeper 是 java 写的，那么自然就会继承 java 的缺点，例如 GC 暂停。
+如果开启了快照，数据会写入磁盘，此时 zookeeper 的读写操作会有一个暂时的停顿。
+对于每个 watch 请求，zookeeper 都会打开一个新的 socket 连接，这样 zookeeper 就需要实时管理很多 socket 连接，比较复杂。
+
+etcd 使用 RAFT 算法实现的一致性，比 zookeeper 的 ZAB 算法更简单。
+
+etcd 没有使用 zookeeper 的树形结构，而是提供了一个分布式的 key-value 存储。
+
+优点
+支持增量快照，避免了 zookeeper 的快照暂停问题
+堆外存储，没有垃圾回收暂停问题
+无需像 zookeeper 那样为每个 watch 都做个 socket 连接，可以复用
+zookeeper 每个 watch 只能收到一次事件通知，etcd 可以持续监控，在一次 watch 触发之后无需再次设置一次 watch
+zookeeper 会丢弃事件，etcd3 持有一个事件窗口，在 client 断开连接后不会丢失所有事件
+缺点
+如果超时，或者 client 与 etcd 网络中断，client 不会明确的知道当前操作的状态
+在 leader 选举时，etcd 会放弃操作，并且不会给 client 发送放弃响应
+在网络分区时，当 leader 处于小分区时，读请求会继续被处理
+总结
+zookeeper 是用 java 开发的，被 Apache 很多项目采用。
+
+etcd 是用 go 开发的，主要是被 Kubernetes 采用。
+
+zookeeper 非常稳定，是一个著名的分布式协调系统，etcd 是后起之秀，前景广阔。
+
+因为 etcd 是用 go 写的，现在还没有很好的 java 客户端库，需要通过 http 方式调用。
+
+而 zookeeper 在这方面就成熟很多，对于 java 之外的其他开发语言都有很好的客户端库。
+
+具体选择 zookeeper 还是 etcd，需要根据您的需求结合它们各自的特性进行判断，还有您所使用的开发语言。
+
+https://medium.com/@Imesha94/apache-curator-vs-etcd3-9c1362600b26
+
 作者：kaliarch  
 链接：[https://juejin.im/post/5e02fb1f518825123b1aa341](https://juejin.im/post/5e02fb1f518825123b1aa341 "https://juejin.im/post/5e02fb1f518825123b1aa341")  
 来源：掘金  
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+

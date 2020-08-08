@@ -13,7 +13,8 @@ char c="abc".charAt(1);
 
 ```
 
-```java/**
+```java
+/**
 * 将元数据前补零，补后的总长度为指定的长度，以字符串的形式返回
 * @param sourceDate
 * @param formatLength

@@ -121,8 +121,14 @@ zookeeper.connect=localhost:2181
     --property "parse.key=true" \
     --property "key.separator=:"
 
-\# 删除topic
-bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
+
+    bin/kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic topic0 \
+    --from-beginning
+
+### 删除topic
+    bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
 \#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
 \#start kafka server
