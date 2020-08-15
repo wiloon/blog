@@ -1,5 +1,5 @@
 ---
-title: mysql basic,command
+title: mysql basic, command
 author: wiloon
 type: post
 date: 2011-04-16T01:23:24+00:00
@@ -17,8 +17,8 @@ tags:
 ### 查看建表语句
 
 ```sql
-show create table table0;
-SHOW CREATE TABLE table0 \G;
+    show create table table0;
+    SHOW CREATE TABLE table0 \G;
 ```
 
 ### 查看版本
@@ -34,22 +34,22 @@ SELECT @@SESSION.sql_mode;
 ### docker server
 
 ```bash
-podman run \
---name mariadb \
--p 3306:3306 \
--v /etc/localtime:/etc/localtime:ro \
--v mysql-config:/etc/mysql/conf.d \
--v mysql-data:/var/lib/mysql \
--e MYSQL_ROOT_PASSWORD=password0 \
--d \
-mariadb:latest \
---character-set-server=utf8mb4 \
---collation-server=utf8mb4_unicode_ci
+    podman run \
+    --name mariadb \
+    -p 3306:3306 \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v mysql-config:/etc/mysql/conf.d \
+    -v mysql-data:/var/lib/mysql \
+    -e MYSQL_ROOT_PASSWORD=password0 \
+    -d \
+    mariadb:latest \
+    --character-set-server=utf8mb4 \
+    --collation-server=utf8mb4_unicode_ci
 
-# docker client
-podman run -it \
---network some-network \
---rm mariadb mysql -h host0 -u user0 -p
+    # docker client
+    podman run -it \
+    --network some-network \
+    --rm mariadb mysql -h host0 -u user0 -p
 ```
 
 ### mysql client
@@ -277,35 +277,11 @@ mysqldump -uwiloon -pPASSWORD -default-character-set=utf8 enlab >enlab.sql
 
 mysql -uusername -ppassword db\_name < db\_name.sql
   
-日期格式化函数date_format()
-  
-mysql> select date_format(now(),'%Y');
-  
-+————————-+
-  
-| date_format(now(),'%Y') |
-  
-+————————-+
-  
-| 2009 |
-  
-+————————-+
-  
-1 row in set (0.00 sec)
-  
-扩展： %Y：年 %c：月 %d：日 %H：小时 %i：分钟 %s：秒
-  
-mysql> select date_format(now(),'%Y-%c-%d %h:%i:%s'); +—————————————-+
-  
-| date_format(now(),'%Y-%c-%d %h:%i:%s') |
-  
-+—————————————-+
-  
-| 2009-8-07 06:59:40 |
-  
-+—————————————-+
-  
-1 row in set (0.00 sec) —
+### 日期格式化函数date_format()
+```sql
+    -- %Y：年 %c：月 %d：日 %H：小时 %i：分钟 %s：秒
+    select date_format(now(),'%Y');
+```
 
 还可以用一个USE db_name语句启动文本文件。在这种情况下，不需要在命令行中指定数据库名：
 

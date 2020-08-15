@@ -36,15 +36,12 @@ log4j-over-slf4j
 jcl-over-slf4j 原本是通过 JCL 输出日志的，会被 jcl-over-slf4j 桥接到slf4j输出
 
 ### slf4j > log4j1.x
-
 slf4j-log4j12 使用slf4j + log4j1.x 输出日志
 
-### common logging/jcl > log4j2.x
-
-log4j-jcl commons-logging到log4j2的桥梁
-
 ### slf4j > log4j2.x
-
 log4j-slf4j-impl slf4j到log4j2的桥梁
+
+### common logging/jcl > log4j2.x
+log4j-jcl commons-logging到log4j2的桥梁
 
 https://my.oschina.net/pingpangkuangmo/blog/410224?p=2
