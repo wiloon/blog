@@ -8,27 +8,32 @@ categories:
 
 ---
 ### define message formates in a .proto file
-
+```protobuf
     syntax = "proto3";
     package package0;
     option java_package = "com.wiloon.test.protobuf.package0";
     
     message Msg0 {
+
     // comments0
     string foo = 1;
     ObjType enum0 = 2;
     uint64 timestamp = 5;
-    //类型
-    enum ObjType {
-        type0 = 0;
-        type1 = 1;
+    int32 type = 6;
+
+        //类型
+        enum ObjType {
+            type0 = 0;
+            type1 = 1;
+        }
     }
-    }
+```
     
-    
-### download protoc
+### install protoc
       
     https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
+
+    pacman -S protoc
     
 ### maven 引入protobuf依赖
     
@@ -40,9 +45,11 @@ categories:
     </dependency>
 ```
 
+### generate java/golang code
 ```bash
 export SRC_DIR=/pathToSrcDir
 export DST_DIR=/pathToSrcDir
+
 # Java, generate java code
 protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
 
