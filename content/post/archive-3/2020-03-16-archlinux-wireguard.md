@@ -130,6 +130,10 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 ~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
 ~~<https://tunsafe.com/user-guide/linux>~~  
 
+### systemd-networkd
+
+    /etc/systemd/network/99-server.netdev
+
 ### ~~tunsafe  安装~~
     /etc/wireguard/wg0.conf
 
