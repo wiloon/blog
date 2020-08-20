@@ -4,71 +4,58 @@ author: wiloon
 type: post
 date: 2011-10-13T08:55:42+00:00
 url: /?p=673
-views:
-  - 7
-bot_views:
-  - 8
 categories:
   - Java
 
 ---
-  1. Timer和TimerTask
-
+### Timer和TimerTask
 Timer是jdk中提供的一个定时器工具，使用的时候会在主线程之外起一个单独的线程执行指定的计划任务，可以指定执行一次或者反复执行多次。
-
 TimerTask是一个实现了Runnable接口的抽象类，代表一个可以被Timer执行的任务。
 
-  1. 一个Timer调度的例子
+### 一个Timer调度的例子
+```java 
+import java.util.Timer;
+import java.util.TimerTask;
+public class TestTimer {
+public static void main(String args[]){
+
+System.out.println(“About to schedule task.”);
+
+new Reminder(3);
+
+System.out.println(“Task scheduled.”);
   
-    1 import java.util.Timer;
-  
-    2 import java.util.TimerTask;
-  
-    3
-  
-    4 public class TestTimer {
-  
-    5
-  
-    6 public static void main(String args[]){
-  
-    7 System.out.println(“About to schedule task.”);
-  
-    8 new Reminder(3);
-  
-    9 System.out.println(“Task scheduled.”);
-  
-    10 }
-  
-    11
-  
-    12 public static class Reminder{
-  
-    13 Timer timer;
-  
-    14
-  
-    15 public Reminder(int sec){
-  
-    16 timer = new Timer();
-  
-    17 timer.schedule(new TimerTask(){
-  
-    18 public void run(){
-  
-    19 System.out.println(“Time's up!”);
-  
-    20 timer.cancel();
-  
-    21 }
-  
-    22 }, sec*1000);
-  
-    23 }
-  
-    24 }
-  
-    25 }
+}
+
+
+
+public static class Reminder{
+
+Timer timer;
+
+
+
+public Reminder(int sec){
+
+timer = new Timer();
+
+timer.schedule(new TimerTask(){
+
+public void run(){
+
+System.out.println(“Time's up!”);
+
+timer.cancel();
+
+}
+
+}, sec*1000);
+
+}
+
+}
+}
+```
 
 运行之后，在console会首先看到：
 
