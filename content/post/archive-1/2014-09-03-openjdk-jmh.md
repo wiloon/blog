@@ -10,22 +10,14 @@ categories:
 ---
 create test project with maven
 
-```bash
-  
+```java
 mvn archetype:generate \
-            
 -DinteractiveMode=false \
-            
 -DarchetypeGroupId=org.openjdk.jmh \
-            
 -DarchetypeArtifactId=jmh-java-benchmark-archetype \
-            
 -DgroupId=org.sample \
-            
 -DartifactId=test \
-            
 -Dversion=1.0
-  
 ```
 
 JMH 是一个由 OpenJDK/Oracle 里面那群开发了 Java 编译器的大牛们所开发的 Micro Benchmark Framework 。何谓 Micro Benchmark 呢？简单地说就是在 method 层面上的 benchmark，精度可以精确到微秒级。可以看出 JMH 主要使用在当你已经找出了热点函数，而需要对热点函数进行进一步的优化时，就可以使用 JMH 对优化的效果进行定量的分析。

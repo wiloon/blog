@@ -11,6 +11,16 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
 
 ### Pixelbook
+CPU: i5  
+MEM: 8G  
+DISK: 128G  
+display: 2400x1600  
+
+#### software
+chrome
+vscode
+linux in vm
+wireguard
 
 ### Pixel2
 
