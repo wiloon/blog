@@ -9,6 +9,10 @@ categories:
 
 ---
 ```bash
+alias ll='ls -l --color=auto'
+alias la='ls -la --color=auto'
+```
+```bash
   
 #查看命令别名
   

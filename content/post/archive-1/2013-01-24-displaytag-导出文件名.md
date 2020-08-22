@@ -22,7 +22,6 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://magicgod.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">
@@ -46,7 +45,6 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://magicgod.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">
@@ -72,7 +70,6 @@ displaytag还算是比较好的，可以分页（可以配合hibernate分页，�
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://magicgod.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">

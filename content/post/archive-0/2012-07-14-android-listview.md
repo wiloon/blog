@@ -23,7 +23,6 @@ ListView是一个经常用到的控件，ListView里面的每个子项Item可以
 接下来，就开始UI的XML代码：
 
 main.xml代码如下，很简单，也不需要多做解释了：
-
   
     
       [xml]
@@ -42,16 +41,12 @@ main.xml代码如下，很简单，也不需要多做解释了：
  </ListView>
  </LinearLayout>
  [/xml]
-    
   
 
 
   my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item： 
   
-  
     [xml]
- 
-  
   
   
     <?xml version="1.0" encoding="utf-8"?>
@@ -77,7 +72,6 @@ main.xml代码如下，很简单，也不需要多做解释了：
  </LinearLayout>
   
   
-  
     
  [/xml]
   
@@ -91,7 +85,6 @@ main.xml代码如下，很简单，也不需要多做解释了：
 3.textSize="30dip"，TextView的字体为30个像素那么大。
 
 最后就是JAVA的源代码：
-
   
     
       
@@ -104,7 +97,6 @@ main.xml代码如下，很简单，也不需要多做解释了：
       
       
       
-    
   
   
   <ol start="1">
@@ -186,12 +178,8 @@ main.xml代码如下，很简单，也不需要多做解释了：
   </ol>
   
   
-    
-  
-  
   
     <a href="http://www.vogella.com/articles/AndroidListView/article.html">http://www.vogella.com/articles/AndroidListView/article.html</a>
-  
   
   
     http://www.iteye.com/topic/540423

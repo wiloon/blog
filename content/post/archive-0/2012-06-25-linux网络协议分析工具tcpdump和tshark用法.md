@@ -16,37 +16,28 @@ categories:
 <div id="content">
   <a href="http://www.tcpdump.org/" target="_blank">Tcpdump</a>是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具<a href="http://www.wireshark.org/" target="_blank">wireshark</a> （原名叫ethereal）的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见<a href="http://www.tcpdump.org/pcap.htm" target="_blank">libpcap编程教程</a>）进行网络截包。 
   
-  
     TCPDUMP
-  
   
   
     详细manpage参见<a href="http://www.tcpdump.org/tcpdump_man.html" target="_blank">tcpdump网站</a>。
   
   
-  
     基本用法 
-  
   
   
     Tcpdump的参数基本分为两块:选项（options）和过滤器表达式（filter_expression）。
   
   
-  
     # tcpdump [options] [filter_expression]
-  
   
   
     例如
   
   
-  
     # tcpdump -c 100 -i eth0 -w log tcp dst port 50000
   
   
-  
     其中 options部分参数：
-  
   
   
     -c 100 指定截取的包的数量
@@ -54,18 +45,14 @@ categories:
  -w log 输出到名为log的文件中（libpcap格式）
   
   
-  
     filter_expression参数为 tcp dst port 50000，即只监听目标端口为50000的tcp包。
-  
   
   
     更多的例子：
   
   
-  
     /* 监视目标地址为除内网地址(192.168.3.1-192.168.3.254)之外的流量 */
  # tcpdump dst net not 192.168.3.0/24
-  
   
   
     /*
@@ -76,15 +63,12 @@ categories:
  # tcpdump -n -nn port ! (www or 22 or 110)
   
   
-  
     /* 监视源主机MAC地址为00:50:04:BA: 9B的包 */
  # tcpdump ether src 00:50:04:BA: 9B
   
   
-  
     /* 监视源主机为192.168.0.1并且目的端口不是telnet的包 */
  # tcpdump src host 192.168.0.1 and dst port not telnet
-  
   
   
     ip icmp arp rarp 和 tcp、udp、icmp这些选项等都要放到第一个参数的位置，用来过滤数据报的类型。例如：
@@ -92,9 +76,7 @@ categories:
  # tcpdump udp and src host 192.168.0.1 //只过滤源主机192.168.0.1的所有udp报头
   
   
-  
     TcpDump提供了很多options参数来让我们选择如何处理得到的数据，如下所示：
-  
   
   
     -l 将数据重定向。 如tcpdump -l > tcpcap.txt将得到的数据存入tcpcap.txt文件中。
@@ -107,16 +89,13 @@ categories:
  -v 详细的输出，也就比普通的多了个TTL和服务类型。
   
   
-  
     参数详解
-  
   
   
     tcpdump采用命令行方式，它的命令格式为：
  tcpdump [ -adeflnNOpqStvx ] [ -c 数量 ] [ -F 文件名 ]
  [ -i 网络接口 ] [ -r 文件名] [ -s snaplen ]
  [ -T 类型 ] [ -w 文件名 ] [表达式 ]
-  
   
   
     -a 　　　将网络地址和广播地址转变成名字；
@@ -137,7 +116,6 @@ categories:
  -w 　　　直接将包写入文件中，并不分析和打印出来；
  -T 　　　将监听到的包直接解释为指定的类型的报文，常见的类型有rpc （远程过程
  调用）和snmp（简单　　　　　　　网络管理协议；）
-  
   
   
     tcpdump的表达式介绍
@@ -174,7 +152,6 @@ categories:
  #tcpdump tcp port 23 host 210.27.48.1
   
   
-  
     tcpdump 的输出结果介绍
  下面我们介绍几种典型的tcpdump命令的输出信息
  (1) 数据链路层头信息
@@ -193,7 +170,6 @@ categories:
  表明对序列号是222535的包进行响应. win 8760表明发送窗口的大小是8760.
   
   
-  
     (2) ARP包的TCPDUMP输出信息
  使用命令#tcpdump arp
  得到的输出结果是：
@@ -205,7 +181,6 @@ categories:
  8:af:1a是主机ICE的MAC地址。
   
   
-  
     (3) TCP包的输出信息
  用TCPDUMP捕获的TCP包的一般输出信息是：
  src > dst: flags data-seqno ack window urgent options
@@ -215,12 +190,10 @@ categories:
  Options是选项.
   
   
-  
     (4) UDP包的输出信息
  用TCPDUMP捕获的UDP包的一般输出信息是：
  route.port1 > ice.port2: udp lenth
  UDP十分简单，上面的输出行表明从主机ROUTE的port1端口发出的一个UDP数据包到主机ICE的port2端口，类型是UDP， 包的长度是lenth
-  
   
   
     Tshark
@@ -229,23 +202,18 @@ sudo pacman -S wireshark-cli
 #安装后可以使用 tshark 命令
 ```
   
-  
     详细参数参见tshark的<a href="http://www.wireshark.org/docs/man-pages/tshark.html" target="_blank">manpage</a>。
-  
   
   
     // 列出可监听流量的网络接口列表。tshark使用1,2,...等数字来标识eth0,eth1...
  # tshark -D
   
   
-  
     // 监听接口eth0上的UDP端口为1234的流量
  # tshark -f "udp port 1234" -i 1
   
   
-  
     tshark的强悍之处在于对协议进行完全解码，甚至对分片的TCP包进行重组再行解码，例如
-  
   
   
     // 监听接口eth0上目标端口为80的http流量，并将http请求头的host和location打印
@@ -255,10 +223,8 @@ sudo pacman -S wireshark-cli
  -i 1为指定监听的网络接口为1号
   
   
-  
     // 监听http流量，仅过滤GET请求, 监听10秒钟，打印出HTTP HOST和URL
  c:Program FilesWiresharktshark.exe -i 4 -n -f "tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420" -T fields -e http.host -e http.request.uri -a duration:10
-  
   
   
     关于各种协议的具体字段参数参见 <a href="http://www.wireshark.org/docs/dfref/" target="_blank">http://www.wireshark.org/docs/dfref/</a>

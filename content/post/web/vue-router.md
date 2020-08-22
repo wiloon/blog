@@ -41,7 +41,6 @@ title = "vue-router的两种模式"
 结合自身例子，对于一般的 **Vue + Vue-Router + Webpack + XXX** 形式的 Web 开发场景，用 `history` 模式即可，只需在后端（Apache 或 Nginx）进行简单的路由配置，同时搭配前端路由的 404 页面支持。
 
 **转载：**[**https://segmentfault.com/q/1010000010340823**](https://segmentfault.com/q/1010000010340823 "https://segmentfault.com/q/1010000010340823")
-
   
 作者：旭1478080873000  
 链接：[https://juejin.im/post/5a61908c6fb9a01c9064f20a](https://juejin.im/post/5a61908c6fb9a01c9064f20a "https://juejin.im/post/5a61908c6fb9a01c9064f20a")  

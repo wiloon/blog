@@ -290,12 +290,9 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
           </tr>
         </table>
       
-    
-  
   
   
     PS:一些简码示例(用时请去掉@)
-  
   
   <ul class="ul-disc">
     <li>

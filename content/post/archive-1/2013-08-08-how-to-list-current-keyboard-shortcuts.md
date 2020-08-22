@@ -8,14 +8,11 @@ categories:
   - Uncategorized
 
 ---
-
   
     Use this procedure to create a macro that generates a list of all the commands in the integrated development environment (IDE) and any shortcut keys mapped to those commands according to the current keyboard mapping scheme.
   
   
-  
     Several keyboard mapping schemes are available in the IDE. You can change keyboard mapping schemes on the Keyboard page, under the Environment folder of theOptions dialog box. For more information, see <a href="http://msdn.microsoft.com/en-us/library/5zwses53(v=vs.100).aspx">How to: Work with Keyboard Shortcuts</a>.
-  
   
   
     <table>

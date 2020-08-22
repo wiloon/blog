@@ -12,31 +12,24 @@ categories:
 <http://developer.51cto.com/art/200907/134673.htm>
 
 本文向您介绍Servlet Session机制，包括会话管理机制、事件监听等，并结合具体的示例讲解了一个基于Servlet Session登陆系统的实现。
-
   
     一、           Servlet的会话管理机制
   
-
 
   
     HttpSession接口提供了存储和返回标准会话属性的方法。标准会话属性如会话标识符、应用数据等，都以“键-值”对的形式保存。简而言之，HttpSession接口提供了一种把对象保存到内存、在同一用户的后继请求中提取这些对象的标准办法。在会话中保存数据的方法是setAttribute(String s, Object o)，从会话提取原来所保存对象的方法是getAttribute(String s)。
   
   
-  
     每当新用户请求一个使用了HttpSession对象的JSP页面，JSP容器除了发回应答页面之外，它还要向浏览器发送一个特殊的数字。这个特殊的数字称为“会话标识符”，它是一个唯一的用户标识符。此后，HttpSession对象就驻留在内存之中，等待同一用户返回时再次调用它的方法。
-  
   
   
     在客户端，浏览器保存会话标识符，并在每一个后继请求中把这个会话标识符发送给服务器。会话标识符告诉JSP容器当前请求不是用户发出的第一个请求，服务器以前已经为该用户创建了HttpSession对象。此时，JSP容器不再为用户创建新的HttpSession对象，而是寻找具有相同会话标识符的HttpSession对象，然后建立该HttpSession对象和当前请求的关联。
   
   
-  
     会话标识符以Cookie的形式在服务器和浏览器之间传送。如果客户端不支持cookie，运用url改写机制来保证会话标识符传回服务器。
   
   
-  
     二、           <span style="font-size: medium;">Servlet Session事件侦听
-  
   
   
     HttpSessionBindingEvent类
@@ -67,37 +60,28 @@ categories:
  当一个对象被从session中取消绑定，调用此方法。HttpSession.removeValue方法被调用时，Servlet引擎应该调用此方法。
   
   
-  
     Session的事件处理机制与swing事件处理机制不同。Swing采用注册机制，而session没有；当任一session发生绑定或其他事件时，都会触发HttpSessionBindingEvent ，如果servlet容器中存在HttpSessionBindingListener的实现类，则会将事件作为参数传送给session侦听器的实现类。在HttpSessionBindingEvent 中可以通过getsession得到发生绑定和取消绑定的session的名字，而侦听器可以据此做更多处理。
-  
   
   
     因此，对session的事件侦听，只需实现HttpSessionBindingListener即可。
   
   
-  
     从servlet2.3增加了
-  
   
   
     HttpSessionEvent（This is the class representing event notifications for changes to sessions within a web application）
   
   
-  
     HttpSessionActivationListener（Objects that are bound to a session may listen to container events notifying them that sessions will be passivated and that session will be activated.）
-  
   
   
     HttpSessionAttributeListener（This listener interface can be implemented in order to get notifications of changes to the attribute lists of sessions within this web application.）
   
   
-  
     分别执行不同的任务，处理基本相同。
   
   
-  
     三、           例子（zz）
-  
   
   
     捕获Servlet Session事件的意义：
@@ -108,7 +92,6 @@ categories:
  另外一个问题是，如何统计在线人数，这个问题跟实现登录日志稍微有点不同，统计在线人数（及其信息），就是统计现在有多少个Session实例存在，我们可以增加一个计数器（如果想存储更多的信息，可以用一个对象来做计数器，随后给出的实例中，简单起见，用一个整数变量作为计数器），通过在valueBound方法中给计数器加1，valueUnbound方法中计数器减1，即可实现在线人数的统计。当然，这里面要利用到ServletContext的全局特性。(有关ServletContext的叙述请参考Servlet规范)，新建一个监听器，并将其实例存入ServletContext的属性中，以保证此监听器实例的唯一性，当客户登录时，先判断ServletContext的这个属性是否为空，如果不为空，证明已经创建，直接将此属性取出放入Session中，计数器加1；如果为空则创建一个新的监听器，并存入ServletContext的属性中。
  举例说明：
  实现一个监听器：
-  
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
@@ -393,11 +376,9 @@ categories:
       </tr>
     </table>
   
-  
   <p align="left">
     登录日志的实现：
  下面再来看看我们的登录Servlet中使用这个监听器的部分源代码：
-  
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
@@ -450,12 +431,10 @@ categories:
       </tr>
     </table>
   
-  
   <p align="left">
     当系统退出登录时，只需简单地调用session.removeAttribute(“listener”);
  即可自动调用监听器的valueUnbound方法。或者，当Session Time Out的时候也会调用此方法。
  登录人数的统计：
-  
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
@@ -528,10 +507,8 @@ categories:
       </tr>
     </table>
   
-  
   <p align="left">
     在此后的程序中随时可以用以下代码取得当前的登录人数：
-  
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
@@ -543,7 +520,6 @@ categories:
         </td>
       </tr>
     </table>
-  
   
   
     Servlet Session中的getCount()是监听器的一个方法，即取得当前计数器的值也就是登录人数了。

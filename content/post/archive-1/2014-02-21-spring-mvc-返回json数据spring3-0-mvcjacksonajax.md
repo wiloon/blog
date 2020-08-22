@@ -30,7 +30,6 @@ jackson-mapper-asl-1.9.2.jar
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">
@@ -70,7 +69,6 @@ jackson-mapper-asl-1.9.2.jar
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">

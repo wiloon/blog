@@ -38,15 +38,15 @@ SSH-2默认是 /etc/ssh/ssh\_host\_rsa\_key 和 /etc/ssh/ssh\_host\_dsa\_key 。
                
 一台主机可以拥有多个不同的私钥。"rsa1"仅用于SSH-1，"dsa"和"rsa"仅用于SSH-2。
 
-PermitRootLogin
-  
+### PermitRootLogin
 是否允许 root 登录。可用值如下：
-  
-"yes"(默认) 表示允许。"no"表示禁止。
-  
-"without-password"表示禁止使用密码认证登录。
-  
-"forced-commands-only"表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
+默认值是“prohibit-password”
+如果这个选项设置为“prohibit-password”、“without-password”，通过密码和键盘交互的授权方式对 root 用户禁用。
+
+- "without-password"表示禁止使用密码认证登录。
+- "forced-commands-only"表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
+- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式：用户名密码认证，公钥认证）
+
 
 AuthorizedKeysFile
   

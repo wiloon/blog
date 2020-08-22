@@ -200,16 +200,13 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
     </li>
   </ol>
   
-  
     9、给postfix加上如下配置
-  
   
   smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, permit
 broken_sasl_auth_clients = yes
-  
   
     ################------------------------------------
   

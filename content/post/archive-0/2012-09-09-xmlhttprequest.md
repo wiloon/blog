@@ -115,22 +115,14 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 
    readyState 的值不会递减，除非当一个请求在处理过程中的时候调用了 abort() 或 open() 方法。每次这个属性的值增加的时候，都会触发 onreadystatechange 事件句柄。 
   
-  
     responseText
-  
   
   
     目前为止从服务器接收到的响应体（不包括头部），或者如果还没有接收到数据的话，就是空字符串。
   
   
   
-  
-  
-  
     如果 readyState 小于 3，这个属性就是一个空字符串。当 readyState 为 3，这个属性返回目前已经接收的响应部分。如果 readyState 为 4，这个属性保存了完整的响应体。
-  
-  
-  
   
   
   

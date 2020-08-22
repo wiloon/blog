@@ -232,12 +232,9 @@ tags:
     
     
       [/java]
-    
-  
   
   
     好了，通过对Builder模式向Factory的一步步演化，我们可以看到两者实质上并没有太多的区别，这也就是本文想要阐述的观点，也许很多朋友这时会反驳我了，说两者怎么会没有区别呢？
-  
   
   <ol>
     <li>
@@ -259,9 +256,7 @@ tags:
     </li>
   </ol>
   
-  
     对于持以上观点的朋友，我也有如下一些疑问。
-  
   
   <ol>
     <li>
@@ -289,9 +284,7 @@ tags:
     </li>
   </ol>
   
-  
     既然我们不是为了学习设计模式而学习，而是为了学习OOD的精髓，能够编写出更加灵活，适用于需求变化的软件。那么对于需求变化，我们不妨再来看看两个模式是如何应对的。Builder模式适用场景中的第3条提到了"变化"二字：对象内部的构建通常面临着复杂的变化。就拿PartA为例，现在这个对象发生了剧烈的变化，对于Builder来讲，修改BuildPartA()方法显然是违反OCP的，于是采取第二种方法，从抽象Builder派生一个新的NewBuilder类，为这个新的Builder添加变化后的BuildPartA()方法，其余BuildPart方法不变。代码如下。
-  
   
   
     [java]
@@ -299,7 +292,6 @@ tags:
  {
  private Product product;
  #region IBuilder Members
-  
   
   
     public void BuildPart1()
@@ -310,7 +302,6 @@ tags:
  }
   
   
-  
     public void BuildPart2()
  {
  //Nothing changed.
@@ -318,9 +309,7 @@ tags:
  }
   
   
-  
     #endregion
-  
   
   
     public Product GetResult()
@@ -332,11 +321,9 @@ tags:
  //如果我们要换成Factory呢？一样可以通过扩展来应对变化。
   
   
-  
     public class NewFactory : Factory
  {
  Product product = null;
-  
   
   
     public Product Create()
@@ -344,7 +331,6 @@ tags:
  //With new part1.
  product = new Product();
  product.Add("NewPart1 build by builderA");
-  
   
   
     //Nothing changed.

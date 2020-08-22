@@ -106,7 +106,6 @@ http://bbs.csdn.net/topics/320156312
 
   所以同时使用 'filter:alpha(opacity=50);' opacity:0.5; 即可保证在所有浏览器中呈现出半透明效果。
 
-
   
 
 

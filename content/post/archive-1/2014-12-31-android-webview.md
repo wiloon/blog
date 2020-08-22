@@ -212,7 +212,6 @@ onclick="toclient();"/>
 
 
 通过脚本看到wave（str）函数是负责将原来传给webview的数据重新拿回页面，效果图如下：
-
   
 另外，如果你想获取页面的一些处理数据并交给webview客户端处理，可在wave函数里将数据alert，然后webview中重写WebChromeClient的onJsAlert函数，具体代码如下
 

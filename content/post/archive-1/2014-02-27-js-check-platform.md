@@ -60,7 +60,6 @@ window.location.href="wapLojin.jsp";
 ```
 
 ```
-
   
 <code>var isMobile = {
       

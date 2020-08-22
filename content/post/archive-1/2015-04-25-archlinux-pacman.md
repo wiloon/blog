@@ -21,10 +21,13 @@ Include = /etc/pacman.d/mirrorlist
 
 ### config pacman mirror
 
-编辑 /etc/pacman.d/mirrorlist，修改为。
+
 
 ```bash
-server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+vim  /etc/pacman.d/mirrorlist
+
+# /etc/pacman.d/mirrorlist
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 Server = http://mirrors.neusoft.edu.cn/archlinux/
 Server = http://mirrors.lug.mtu.edu/archlinux/
 Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
@@ -291,3 +294,15 @@ unstable-非正式的软件包，可能包括以前版本的软件或者测试�
 http://jsome.net/blog/2010/01/18/tips-for-pacman
   
 http://blog.chinaunix.net/uid-20728322-id-2454942.html
+
+
+### pacman, installing foo breaks dependency 'bar' required by xxx
+
+```bash
+installing xorgproto (2019.2-2) breaks dependency 'dmxproto' required by libdmx
+installing xorgproto (2019.2-2) breaks dependency 'xf86dgaproto' required by libxxf86dga
+```
+
+```bash
+sudo pacman -Rdd libdmx libxxf86dga && sudo pacman -Syu
+```

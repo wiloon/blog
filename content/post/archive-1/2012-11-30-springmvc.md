@@ -48,7 +48,6 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
   
     
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -81,7 +80,6 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
   
     
       Html代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -110,7 +108,6 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
   
     
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -153,7 +150,6 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
   
     
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -202,7 +198,6 @@ _**注：**笔者个人对于这两种模型的概念定义并不是非常认同
   
     
       Xml代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -243,7 +238,6 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
   
     
       Html代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -272,7 +266,6 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
   
     
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -390,7 +383,6 @@ Struts1.X是一个较为早期的MVC框架实现，它的历史最早可以追�
   
     
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -425,7 +417,6 @@ MVC模型发展到了这里，我们可以看到响应方法中的“返回值�
   
     
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -486,7 +477,6 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
   
     
       Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">

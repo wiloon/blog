@@ -12,10 +12,8 @@ categories:
   - Network
 
 ---
-
   
      <span class="Apple-style-span" style="font-size: 15px; font-weight: bold;">HTTP条件Get
-  
   
   
     <span class="Apple-style-span" style="font-size: 13px; font-weight: normal;">HTTP条件Get是HTTP协议为了减少不必要的带宽浪费，提出的一种方案。详见http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html<span class="Apple-style-span" style="font-size: 13px; font-weight: normal;"> 
@@ -26,25 +24,19 @@ categories:
     HTTP条件Get使用的时机：
   
   
-  
     客户端之前已经访问过某网站，并打算再次访问该网站
-  
   
   
     HTTP条件Get使用的方法：
   
   
-  
     客户端向服务器发送一个包询问是否在上一次访问网站的时间后是否更改了页面，如果服务器没有更新，显然不需要把整个网页传给客户端，客户端只要使用本地缓存即可，如果服务器对照客户端给出的时间已经更新了客户端请求的网页，则发送这个更新了的网页给用户。
-  
   
   
     下面是具体的发送接受报文：
   
   
-  
     客户端发送查询请求：
-  
   
   
     [java]
@@ -55,9 +47,7 @@ categories:
  [/java]
   
   
-  
     下面是当没有更新时服务器的相应：
-  
   
   
     [java]
@@ -72,9 +62,7 @@ categories:
  [/java]
   
   
-  
     如果服务器网页已经更新就会发送把客户端的请求当作一个普通的Get请求发送相应报文
-  
   
   
     [java]

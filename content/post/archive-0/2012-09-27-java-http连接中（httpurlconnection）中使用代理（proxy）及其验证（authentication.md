@@ -23,31 +23,22 @@ System.setProperty("http.proxyPort", "8080");
           设置代理（Proxy）可以有两种方式：
   
   
-  
     1、通过设置系统属性(System.setPropery(String key, String value)的方式
-  
   
   
     首先你可以在这里看到<a href="http://download.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html">Java支持的属性</a>。我们可以使用其中的http.proxyHost，http.proxyPort这两个属性。顾名思义，就是分别设置代理服务器地址和代理端口。
   
   
-  
     
       [c language="-sharp"][/c]
-    
   
-  
-  
-    
   
   
   
     替换上面的<a href="http://www.proxy.com/">www.proxy.com</a>为你的代理服务器地址或IP地址，以及相应的端口为真实端口，Http连接及可以工作了。需要注意的是如果你设置了这些属性，那么所有的Http请求都会通过代理服务器。这些属性是JVM级别的，设置了以后对所有的同类请求都有效。比如上面的是关于http的，还有关于ftp的等等。
   
   
-  
     如果你的代理服务器不需要验证，那到此就结束了。但一般都是需要验证的。但是你要是看了上面<a href="http://download.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html">Java支持的属性列表</a>，你就会发现那里面并没有期望中的
-  
   
   
     
@@ -75,9 +66,7 @@ System.setProperty("http.proxyPort", "8080");
     </ol>
   
   
-  
     这两个属性。 这时就需要java.net.Authenticator类来完成一般的Http验证。但是java.net.Authenticator这个类却是个抽象类，我们要使用还需要实例化一下子自己的类。个人觉得这里很不方便。如下：
-  
   
   
     
@@ -161,12 +150,8 @@ System.setProperty("http.proxyPort", "8080");
   
   
   
-    
-  
-  
   
     我们需要覆盖java.net.Authenticator类的getPasswordAuthentication()方法，并返回一个PasswordAuthentication实例。要使他起作用，还需要设置
-  
   
   
     
@@ -192,20 +177,14 @@ System.setProperty("http.proxyPort", "8080");
   
   
   
-    
-  
-  
   
     这样就提供了基于Http Basic的验证，接着就可以顺畅的使用需要验证的代理了。
-  
   
   
     2、通过java.net.Proxy类。
   
   
-  
     这种方式是实例化一个Proxy类提供代理服务器的信息，如端口和地址。
-  
   
   
     
@@ -234,12 +213,8 @@ System.setProperty("http.proxyPort", "8080");
   
   
   
-    
-  
-  
   
     使用代理的方式是在打开Http连接的时候同时传递一个Proxy参数。如果需要验证信息的话我们可以添加一个Http头参数来实现。
-  
   
   
     
@@ -282,12 +257,8 @@ System.setProperty("http.proxyPort", "8080");
   
   
   
-    
-  
-  
   
     其中的Base64.encode(user:password)是指把用户名和密码用冒号连接起来之后使用Base64编码后的值作为值的一部分。
-  
   
   
     通过这种方式只影响特定的Http连接，但是需要对代码进行修改。这种方式下是否可以使用Authenticator还未做验证。

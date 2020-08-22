@@ -135,11 +135,9 @@ ModelAndView
 对model的支持来自于类ModelMap，这个类继承自HashMap。
 
 完整的例子
-
   
     
       Java代码
-    
   
   
   <ol start="1">

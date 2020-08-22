@@ -512,11 +512,9 @@ Paris
 当使用jsf和jboss seam 时，你可以触发验证流程在表示层使用seam的jsf标签
 
 和让约束表示在模型里，违反出现在表示层。
-
   
     Country:
   
-
 
   
     Zip code:

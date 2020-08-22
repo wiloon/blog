@@ -15,45 +15,32 @@ tags:
 <div id="article_content">
   
   
-  
-  
     1．代理模式（Proxy Pattern）
-  
   
   
     在JDK1.3以前，代理模式就已流行，所以得代理模式是生成一个和类相同接口的代理类，用户通过使用代理类来封装某个实现类。如图1，其目的是加强实现类的某个方法的功能，而不必改变原有的源代码。
   
   
-  
     <img src="http://p.blog.csdn.net/images/p_blog_csdn_net/tyrone1979/proxy1.JPG" alt="" />
   
   
-  
     2．动态代理（Dynamic Proxy）
-  
   
   
     随着Proxy的流行，Sun把它纳入到JDK1.3实现了Java的动态代理。动态代理和普通的代理模式的区别，就是动态代理中的代理类是由java.lang.reflect.Proxy类在运行期时根据接口定义，采用Java反射功能动态生成的。和java.lang.reflect.InvocationHandler结合，可以加强现有类的方法实现。如图2，图中的自定义Handler实现InvocationHandler接口，自定义Handler实例化时，将实现类传入自定义Handler对象。自定义Handler需要实现invoke方法，该方法可以使用Java反射调用实现类的实现的方法，同时当然可以实现其他功能，例如在调用实现类方法前后加入Log。而Proxy类根据Handler和需要代理的接口动态生成一个接口实现类的对象。当用户调用这个动态生成的实现类时，实际上是调用了自定义Handler的invoke方法。
   
   
   
-  
-  
-  
     <img src="http://p.blog.csdn.net/images/p_blog_csdn_net/tyrone1979/proxy2.JPG" alt="" width="683" height="284" />
-  
   
   
     3．动态代理Servlet
   
   
-  
                   虽然Web Application Server的产品很多，但Servlet的处理原理是相似的：动态加载Servlet，调用Servlet的init方法（只被调用一次），并保存到Servlet容器；Servlet使用时，调用Servlet的service方法。本文动态代理Servlet接口，使其init和service被调用时会在控制台打出方法调用前后信息。
   
   
-  
     首先实现2个Servlet，DefaultServlet和UserServlet
-  
   
   
     [java]
@@ -566,19 +553,13 @@ tags:
       }
  
  [/java]
-    
-  
   
   
     其中的ServletConfig保存Servlet相关信息。ServletContext保存所有的Servlet对象。WebAppClassLoader为自定义class loader,参见<a href="http://blog.csdn.net/tyrone1979/archive/2006/09/03/1164262.aspx">http://blog.csdn.net/tyrone1979/archive/2006/09/03/1164262.aspx</a>。
   
   
   
-  
-  
-  
     最后编写测试类Main，该类模拟10个用户访问Servlet，5人访问DefaultServlet，5人访问UserServlet。
-  
   
   
     [java]
@@ -876,142 +857,105 @@ tags:
       }
  
  [/java]
-    
-  
   
   
     HttpServletRequestWrapper和HttpServletResponseWrapper实现HttpServletRequest，和HttpServletResponse。
   
   
-  
     测试结果如下
-  
   
   <div align="left">
     org.colimas.servlet.DefaultServlet:Init servlet starting...
   
-  
   <div align="left">
     org.colimas.servlet.DefaultServlet:Running init
-  
   
   <div align="left">
     org.colimas.servlet.DefaultServlet:Init servlet ending...
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:Init servlet starting...
-  
   
   <div align="left">
     org.colimas.servlet.UserServlet:Running init
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:Init servlet ending...
   
-  
   <div align="left">
     org.colimas.servlet.DefaultServlet:service starting...
-  
   
   <div align="left">
     org.colimas.servlet.DefaultServlet:service ending...
   
-  
   <div align="left">
     org.colimas.servlet.DefaultServlet:service starting...
-  
   
   <div align="left">
     org.colimas.servlet.DefaultServlet:service ending...
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service starting...
-  
   
   <div align="left">
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service ending...
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service starting...
-  
   
   <div align="left">
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service ending...
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service starting...
-  
   
   <div align="left">
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service ending...
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service starting...
-  
   
   <div align="left">
     org.colimas.servlet.DefaultServlet:service starting...
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service starting...
   
+  <div align="left">
+    org.colimas.servlet.DefaultServlet:service starting...
   
   <div align="left">
     org.colimas.servlet.DefaultServlet:service starting...
   
+  <div align="left">
+    org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
   <div align="left">
-    org.colimas.servlet.DefaultServlet:service starting...
-  
+    org.colimas.servlet.DefaultServlet:service ending...
   
   <div align="left">
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  
   <div align="left">
     org.colimas.servlet.DefaultServlet:service ending...
   
-  
-  <div align="left">
-    org.colimas.servlet.UserServlet:Do UserSErvlet Get
-  
-  
   <div align="left">
     org.colimas.servlet.DefaultServlet:service ending...
-  
-  
-  <div align="left">
-    org.colimas.servlet.DefaultServlet:service ending...
-  
   
   <div align="left">
     org.colimas.servlet.UserServlet:service ending...
   
-  
   <div align="left">
     org.colimas.servlet.UserServlet:service ending...
-  
-  
-  
   
   
   
@@ -1019,11 +963,7 @@ tags:
   
   
   
-  
-  
-  
     4．动态代理的限制
-  
   
   
                   JDK的动态代理并不能随心所欲的代理所有的类。Proxy.newProxyInstance方法的第二个参数只能是接口数组， 也就是Proxy只能代理接口。

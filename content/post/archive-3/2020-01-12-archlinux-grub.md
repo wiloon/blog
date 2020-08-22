@@ -11,8 +11,16 @@ categories:
 For parted set/activate the flag bios_grub on the partition.
 
 ```bash
-set 1 bios_grub on
+parted -a optimal /dev/sda
+    set 1 bios_grub on
+
 pacman -S grub
+# where /dev/sdX is the disk (not a partition)
 grub-install --target=i386-pc /dev/sdX
+
 grub-mkconfig -o /boot/grub/grub.cfg
+
+# 重启
+reboot
 ```
+

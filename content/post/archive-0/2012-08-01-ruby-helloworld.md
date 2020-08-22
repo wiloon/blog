@@ -65,11 +65,9 @@ You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
  Hello World!
  [/shell] 
   
-  
     ( or )
  [shell]
  $ chmod u+x helloworld.rb
-  
   
   
     $ ./helloworld.rb
@@ -77,23 +75,18 @@ You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
  [/shell]
   
   
-  
     Note: As Ruby is an interpreted language, you don't have the compilation step similar to the C program.
-  
   
   
     Executing Ruby one liner
   
   
-  
     You can also execute Ruby from the command line as shown below. This will print Hello World!.
-  
   
   
     [shell]
  $ ruby -e 'puts "Hello World!n"'
  [/shell]
-  
   
   
     <a href="http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/">http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/</a>

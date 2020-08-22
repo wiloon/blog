@@ -18,9 +18,6 @@ categories:
   
   
   
-    
-  
-  
   
     # 如果之前systemctl enable dhcpcd.service
  systemctl dhcpcd.service
@@ -52,11 +49,9 @@ categories:
  systemctl daemon-reload
   
   
-  
     ip link
  ifconfig wlp8s0 up  # start wireless adapter
  ifconfig eno1 up # start wire adapter
-  
   
   
     # dhcpcd network-adapter 动态分配IP

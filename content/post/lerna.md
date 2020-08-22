@@ -135,7 +135,6 @@ lerna到底是什么呢？lerna官网上是这样描述的。
 * lint-staged
 * prettier
 * eslint
-
   
 作者：破晓前  
 链接：[https://juejin.im/post/5a989fb451882555731b88c2](https://juejin.im/post/5a989fb451882555731b88c2 "https://juejin.im/post/5a989fb451882555731b88c2")  

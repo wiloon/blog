@@ -18,9 +18,7 @@ categories:
     2、在HSTS选项卡下的Domain中输入你想要实现这个强制跳转的域名，如 google.com.hk
   
   
-  
     3、勾选上Include subdomains，这样可以确保指定网址的所有二级域名都被重定向到https。
-  
   
   
     4、点击Add按钮，完成。

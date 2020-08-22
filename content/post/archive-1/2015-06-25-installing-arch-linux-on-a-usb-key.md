@@ -87,6 +87,7 @@ echo hostname0 > /etc/hostname
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 pacman -S gvim
+
 # Uncomment the needed locales(en_US.UTF-8, zh_CN.UTF-8) in /etc/locale.gen, then generate them with: locale-gen
 vim /etc/locale.gen
 
@@ -140,6 +141,7 @@ options root=PARTUUID=xxx rw
 ### boot with grub
 
 <https://blog.wiloon.com/?p=15345>
+
 
 ```bash
 useradd -m -s /bin/bash wiloon

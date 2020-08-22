@@ -9,7 +9,6 @@ categories:
 
 ---
 ```java
-
   
 Thread.sleep(3000);
   

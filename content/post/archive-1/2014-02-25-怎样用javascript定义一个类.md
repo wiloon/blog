@@ -38,10 +38,8 @@ http://www.cnblogs.com/xcj26/archive/2013/04/08/3006023.html
 var dog02 = new Dog("狗类", "黄狗", 5);
 
 有些朋友要拍砖了，这么简单的东西，都拿出来说，那我们不妨再来进阶一下。我上边的代码，实例化了两个对象，一个是dog01,dog01下边那个是dog02。因为dog01的Cateogry太口语化了，我要修改为dog01.Categry = '犬类'，这样听起来是不是舒服多了，这是一个很简单的事，我们仅仅需要为dog01的Cateogry重赋值就可以了。我们修改了dog01的Cateory, dog02的Category会跟着变吗？答案是肯定的，不会变，如果有变，肯定有鬼。那我们有没有方法让dog01,dog02这些对象的Cateogry属性共用起来呢？也就是说当我修改了Category属性，不管是dog01,还是dog02都跟一样的变，我们不妨来这样写写。
-
   
     <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
-  
   
   function Dog(name,age) {
     this.Name = "";
@@ -55,7 +53,6 @@ alert(dog02.Category);
 Dog.prototype.Category = "犬类";
 alert(dog01.Category);
 alert(dog02.Category);
-  
   
     <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
   

@@ -85,5 +85,4 @@ categories:
       <span style="font-family: Verdana;">当你不再需要该表时， 用 drop;
  当你仍要保留该表，但要删除所有记录时， 用 truncate;
  当你要删除部分记录时（always with a WHERE clause), 用 delete.
-    
   

@@ -130,13 +130,11 @@ With the partition made in the previous step, you know need to put a filesystem 
     Code
   </h4>
   
-  
     [shell]
  aronschatz@asetest2:~$ sudo mkdosfs -I /dev/sdb1
  mkdosfs 2.11 (12 Mar 2005)
  aronschatz@asetest2:~$
  [/shell]
-  
   
   
     Step 4: Edit .dosemurc 
@@ -205,7 +203,6 @@ This command should bring up another prompt that is basically FreeDOS. In this n
     Code
   </h4>
   
-  
     [shell]
  C:> z:
  Z:> sys f:
@@ -228,12 +225,8 @@ This command should bring up another prompt that is basically FreeDOS. In this n
  [/shell]
   
   
-  
     First you type "Z:" to get into the Z drive which holds all the FreeDOS tools and binaries. Then the command "sys f:" tells it to make the F: drive a system drive by copying kernerl.sys and command.com. Once that is completed, "exitemu" exits out of the dosemu program.
   
-  
-  
-    
   
   
   
@@ -245,7 +238,6 @@ This command should bring up another prompt that is basically FreeDOS. In this n
  [/shell]
   
   
-  
     Step 7: smartdrv.exe, himemx.exe, JEMM386.EXE
  download freefos iso from http://www.freedos.org/, and extract HIMEMX.EXE, JEMM386.EXE to the usb drive
  Create file CONFIG.SYS on /dev/sdb1 , add two lines:
@@ -253,25 +245,19 @@ This command should bring up another prompt that is basically FreeDOS. In this n
  DEVICE=JEMM386.EXE
   
   
-  
     download and copy smartdrv.exe to /dev/sdb1
-  
   
   
     Step 8: Copy your own utilities to the drive and boot
   
   
-  
     Now the drive is usable for booting. You can now copy files onto the FAT16 partition. This is a pure DOS boot, so you can include any sort of DOS utilities. Once you are finished loading the drive up, restart the computer and force the BIOS to boot off the USB flash drive. With any luck, you will see a FreeDOS screen telling you to input the date and time. Just press enter and you now have a working DOS system off of your flash drive.
-  
   
   
     Conclusion:
   
   
-  
     With a working DOS USB flash drive, you can perform a number of useful tasks including flashing ROMs and using other DOS utilities. FreeDOS is an example of free and open source software. When using bootdisks that contain MS-DOS, you are not licensed to use it since you didn't pay for it. Stay tuned to find out why I needed a DOS USB bootable drive in the first place. Buy a flash drive!
-  
   
   
     http://wiki.gentoo.org/wiki/Bootable_DOS_USB_stick
