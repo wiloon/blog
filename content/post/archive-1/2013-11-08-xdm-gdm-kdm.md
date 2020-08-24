@@ -1,5 +1,5 @@
 ---
-title: xdm gdm kdm
+title: display manager(DM), 显示管理器, sddm, gdm3, lightdm
 author: wiloon
 type: post
 date: 2013-11-08T15:28:48+00:00
@@ -10,8 +10,9 @@ tags:
   - linux
 
 ---
-<div id="blog_content">
-     gdm - GNOME Display Manager
+### sddm
+
+ gdm - GNOME Display Manager
  kdm - KDE Display Manager
  xdm - X Display Manager 
   

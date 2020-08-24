@@ -1,5 +1,5 @@
 ---
-title: hyperv arch
+title: hyperv archlinux
 author: wiloon
 type: post
 date: 2019-04-01T06:53:10+00:00
@@ -8,38 +8,6 @@ categories:
   - Uncategorized
 
 ---
-https://wiki.archlinux.org/index.php/Hyper-V
-
-Internal switch
-  
-Xorg
-  
-xf86-video-fbdev
-
-```bash/boot/loader/entries/arch.conf
-title Arch Linux
-linux /vmlinuz-linux
-initrd /initramfs-linux.img
-options video=hyperv_fb:1920x1080 root=PARTUUID=xxxx-xxxx rw
-```
-
-Enhanced Session Mod
-  
-Xrdp
-
-~/.xinitrc
-   
-exec startxfce4
-
-git clone https://github.com/Microsoft/linux-vm-tools
-  
-cd linux-vm-tools/arch
-  
-./makepkg.sh
-  
-./install-config.sh
-
-Set-VM -VMName **Your\_Arch\_Machine** -EnhancedSessionTransportType HvSocket
 
 ### network
 
@@ -74,3 +42,47 @@ DNS: 192.168.1.xxx
 ### 问题
 
 遇到过一次虚拟机不能访问外网, 确认linux网络 配置没有问题, 重启windows解决了.
+
+### hyperv service
+    pacman -S hyperv
+    systemctl enable  hv_fcopy_daemon.service
+    systemctl enable  hv_kvp_daemon.service
+    systemctl enable  hv_vss_daemon.service
+
+### Internal switch
+  
+### Xorg
+  
+    pacman -S xf86-video-fbdev
+
+```bash
+/boot/loader/entries/arch.conf
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options video=hyperv_fb:1920x1080 root=PARTUUID=xxxx-xxxx rw
+```
+
+#### Enhanced Session Mod
+
+    git clone https://github.com/Microsoft/linux-vm-tools
+    cd linux-vm-tools/arch
+    ./makepkg.sh
+    ./install-config.sh
+
+    yay -S xrdp
+    sudo systemctl enable xrdp.service 
+    sudo systemctl enable xrdp-sesman.service
+
+#### ~/.xinitrc
+   
+    exec startxfce4
+
+
+#### 以管理员身份运行powershell 并执行
+    Set-VM -VMName arch -EnhancedSessionTransportType HvSocket
+
+
+
+https://wiki.archlinux.org/index.php/Hyper-V
+
