@@ -164,3 +164,4 @@ options video=hyperv_fb:1920x1080 root=PARTUUID=xxxx-xxxx rw
 
 https://wiki.archlinux.org/index.php/Hyper-V
 
+https://x410.dev/cookbook/command-line-switches/

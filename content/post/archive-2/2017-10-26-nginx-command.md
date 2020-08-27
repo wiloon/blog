@@ -39,7 +39,6 @@ podman run -d \
 --name nginx \
 -p 80:80 \
 -p 443:443 \
--p 3389:3389 \
 -v nginx-config:/etc/nginx \
 -v certbot-conf:/etc/letsencrypt \
 -v nginx-www:/var/www \
