@@ -17,16 +17,15 @@ log4j-core:log4j2 上述API的实现
 log4j-over-slf4j
 
 #### 直接依赖log4j1.x的换成log4j2输出
-
   * 排除掉log4j jar包
   * 引入依赖包 log4j-over-slf4j（实现log4j1桥接到slf4j）
 
 ```xml
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>log4j-over-slf4j</artifactId>
-    <version>1.7.28</version>
-</dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>log4j-over-slf4j</artifactId>
+        <version>1.7.28</version>
+    </dependency>
 ``` 
 
 ### common logging/jcl > slf4j
