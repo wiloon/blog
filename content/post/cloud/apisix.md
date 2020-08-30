@@ -13,18 +13,7 @@ title = "apisix"
     --gateway=172.18.5.254 \
     apisix
 
-### Run etcd server with apisix network
-
-    podman run -it --name etcd-server \
-    -v `pwd`/example/etcd_conf/etcd.conf.yml:/opt/bitnami/etcd/conf/etcd.conf.yml \
-    -p 2379:2379 \
-    -p 2380:2380  \
-    --network apisix \
-    --ip 172.18.5.10 \
-    --env ALLOW_NONE_AUTHENTICATION=yes bitnami/etcd:3.3.13-r80
-
 ### apisix
-
     podman run -d \
     --name apisix \
     -v apisix-logs:/usr/local/apisix/logs \
@@ -33,3 +22,19 @@ title = "apisix"
     -p 9080:9080 \
     -p 9443:9443 \
     apache/apisix
+
+#### 修改etcd 地址
+        etcd:
+        host: 
+            - "http://192.168.50.101:2379"
+
+### build apisix-dashboard
+    buildah bud -f Dockerfile -t apisix-dashboard:1.5 .
+
+### run apisix dashboard
+        podman run -d \
+        --name apisix-dashboard \
+        -p 80:80 \
+        -v apisix-dashboard-config:/etc/nginx/conf.d/ \
+        -v /etc/localtime:/etc/localtime:ro \
+        nginx

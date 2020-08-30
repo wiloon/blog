@@ -7,22 +7,16 @@ title = "etcd basic"
 
 ### 单节点的etcd
     export NODE1=192.168.97.1
-    export DATA_DIR="etcd-data"
-    podman volume create etcd-data
-    
-    REGISTRY=gcr.io/etcd-development/etcd
 
     podman run -d \
     -p 2379:2379 \
-    -p 2380:2380 \
-    --volume=${DATA_DIR}:/etcd-data \
-    --name etcd ${REGISTRY}:latest \
-    /usr/local/bin/etcd \
-    --data-dir=/etcd-data --name node1 \
-    --initial-advertise-peer-urls http://${NODE1}:2380 --listen-peer-urls http://0.0.0.0:2380 \
-    --advertise-client-urls http://${NODE1}:2379 --listen-client-urls http://0.0.0.0:2379 \
-    --initial-cluster node1=http://${NODE1}:2380
-
+    --volume=etcd-data:/etcd-data \
+    -e ETCD_DATA_DIR="/etcd-data" \
+    -e ETCD_ENABLE_V2="true" \
+    -e ALLOW_NONE_AUTHENTICATION="yes" \
+    -e ETCD_ADVERTISE_CLIENT_URLS="http://0.0.0.0:2379" \
+    -e ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379" \
+    --name etcd bitnami/etcd:latest
 
 ### set, get
     etcdctl ls
@@ -33,6 +27,7 @@ title = "etcd basic"
     etcdctl mk /testdir/testkey "Hello world"
     etcdctl mkdir testdir2
 
-
+https://etcd.io/docs/v3.4.0/op-guide/container/
 https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/container.md
+
 
