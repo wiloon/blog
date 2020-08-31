@@ -27,10 +27,12 @@ categories:
     a="foo-bar-foobar" && a="${a#*-}" && echo "${a}"
     # 输出
     foo
+
 ### 去掉最后一段
     a="foo-bar-foobar" && a="${a%-*}" && echo "${a}"
     # 输出
     foo-bar
+    
 https://stackoverflow.com/questions/16153446/bash-last-index-of
 
 ### Shell中去除字符串前后空格

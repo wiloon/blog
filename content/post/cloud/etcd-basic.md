@@ -6,11 +6,10 @@ title = "etcd basic"
 +++
 
 ### 单节点的etcd
-    export NODE1=192.168.97.1
-
     podman run -d \
     -p 2379:2379 \
-    --volume=etcd-data:/etcd-data \
+    -v etcd-data:/etcd-data \
+    --add-host=localhost:127.0.0.1 \
     -e ETCD_DATA_DIR="/etcd-data" \
     -e ETCD_ENABLE_V2="true" \
     -e ALLOW_NONE_AUTHENTICATION="yes" \
