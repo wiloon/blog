@@ -4,6 +4,8 @@ date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++
+### Back-UPS Pro 550
+
 ### Dell wyse 5070
 Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2系列
