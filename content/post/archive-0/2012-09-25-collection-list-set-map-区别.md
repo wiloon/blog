@@ -11,119 +11,16 @@ categories:
 
   这些都代表了Java中的集合，这里主要从其元素是否有序，是否可重复来进行区别记忆，以便恰当地使用，当然还存在同步方面的差异，见上一篇相关文章。
 
-<table>
-  <tr>
-    <td width="147">
-    </td>
-    
-    <td width="245">
-      有序否
-    </td>
-    
-    <td width="176">
-      允许元素重复否
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="147">
-      Collection
-    </td>
-    
-    <td width="245">
-      否
-    </td>
-    
-    <td width="176">
-      是
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="147">
-      List
-    </td>
-    
-    <td width="245">
-      是
-    </td>
-    
-    <td width="176">
-      是
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="56">
-      Set
-    </td>
-    
-    <td width="91">
-      AbstractSet
-    </td>
-    
-    <td width="245">
-      否
-    </td>
-    
-    <td width="176">
-      否
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="91">
-      HashSet
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="91">
-      TreeSet
-    </td>
-    
-    <td width="245">
-      是（用二叉树排序）
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="56">
-      Map
-    </td>
-    
-    <td width="91">
-      AbstractMap
-    </td>
-    
-    <td width="245">
-      否
-    </td>
-    
-    <td width="176">
-      使用key-value来映射和存储数据，Key必须惟一，value可以重复
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="91">
-      HashMap
-    </td>
-  </tr>
-  
-  <tr>
-    <td width="91">
-      TreeMap
-    </td>
-    
-    <td width="245">
-      是（用二叉树排序）
-    </td>
-  </tr>
-</table>
+|          |有序否|允许元素重复否|
+|Collection|否|是|
+|List|是|是|
+|Set|是|是|
+|HashSet| | |
+|TreeSet| 是（用二叉树排序）| |
+|Map|AbstractMap|否|使用key-value来映射和存储数据，Key必须惟一，value可以重复|
+|HashMap|是（用二叉树排序）||
 
-
-  <a href="http://tb.blog.csdn.net/TrackBack.aspx?PostId=584112">http://tb.blog.csdn.net/TrackBack.aspx?PostId=584112</a>
+http://tb.blog.csdn.net/TrackBack.aspx?PostId=584112
 
   List接口对Collection进行了简单的扩充，它的具体实现类常用的有ArrayList和LinkedList。你可以将任何东西放到一个List容器中，并在需要时从中取出。ArrayList从其命名中可以看出它是一种类似数组的形式进行存储，因此它的随机访问速度极快，而LinkedList的内部实现是链表，它适合于在链表中间需要频繁进行插入和删除操作。在具体应用时可以根据需要自由选择。前面说的Iterator只能对容器进行向前遍历，而ListIterator则继承了Iterator的思想，并提供了对List进行双向遍历的方法。 
   
@@ -134,4 +31,4 @@ categories:
   
 
 
-  <a href="http://zhidao.baidu.com/question/16113509.html">http://zhidao.baidu.com/question/16113509.html</a>
+http://zhidao.baidu.com/question/16113509.html

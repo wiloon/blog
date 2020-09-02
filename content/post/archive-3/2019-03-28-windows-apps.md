@@ -21,9 +21,9 @@ choco upgrade keepassxc
 
 ### chocolatey packages
 
-| Name                       | Comments              |
+| Name                       | 备注              |
 | -------------------------- | --------------------- |
-| chocolatey                 | choco可以自己更新自己   |
+| chocolatey                 | choco可以自己更新自己  |
 | keepassxc                  |                       |
 | microsoft-windows-terminal |                       |
 | winscp                     |                       |
@@ -43,7 +43,7 @@ choco upgrade keepassxc
 | alacritty        |          |
 | Windows Terminal |          |
 | wsl2             |          |
-|x410|windows x server|
+|x410              |windows x server|
 
 choco install heidisql
 MobaXterm
@@ -92,4 +92,31 @@ rdm redis desktop manager
   
 visualbox
   
-winscp
+360
+
+chrome
+
+shougou
+
+avirnt
+
+youku
+
+cctv
+
+kugou
+
+
+网易云音乐
+
+qq
+
+qq game
+
+wechat
+
+steam
+
+* * *
+
+cooledit
