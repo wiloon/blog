@@ -26,12 +26,12 @@ Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz
         https://www.broadcom.cn/products/wireless/wireless-lan-bluetooth/bcm43013
 
 ### R7800
+    CPU: Qualcomm Atheros IPQ8065 ARMv7 32bit
     802.11ac
     2.4G 800Mbps
     5G 1733Mbps
     128MB闪存
     512MB内存
-    Qualcomm Atheros IPQ8065 arm 32bit
     5G QCA9984
     2.4G QCA9984
     有线网络 QCA8337
