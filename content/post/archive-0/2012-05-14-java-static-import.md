@@ -25,9 +25,7 @@ categories:
  import static java.lang.Math.*;
   
   
-  
     public class StaticImportTest{
-  
   
   
     public static void main(String arsg[]){
@@ -38,18 +36,14 @@ categories:
  System.out.println("E = "+E);
   
   
-  
     }
-  
   
   
     }
  ```
   
   
-  
     这样的代码不仅省却了Programmer的劳动，在可读性上也是有所增强。
-  
   
   
     static import的限制和import也基本一样，就是不能出现二义性。
@@ -62,9 +56,7 @@ categories:
  ```
   
   
-  
     就算在同一个包也是如此。
-  
   
   
     值得注意的是，过多的static import也许可能影响程序的可读性，如：
@@ -74,9 +66,7 @@ categories:
  import static java.lang.Double.*;
   
   
-  
     public class StaticImportTest{
-  
   
   
     public static void main(String arsg[]){
@@ -87,10 +77,8 @@ categories:
  System.out.println("Double's MaxValue is:"+MAX_VALUE );
   
   
-  
     }
  ```
-  
   
   
     虽然能编译通过，但是却很容易混绕读者视线。

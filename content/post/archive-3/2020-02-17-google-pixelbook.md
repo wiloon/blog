@@ -9,9 +9,6 @@ categories:
 
 ---
 i5
-  
 8G
-  
 128G
-  
 display: 2400x1600

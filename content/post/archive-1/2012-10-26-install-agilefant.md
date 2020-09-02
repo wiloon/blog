@@ -14,14 +14,11 @@ categories:
   * <span style="line-height: 13px;">import example DB
   * <span style="line-height: 13px;">deply agilefant in tomcat
   * <span style="line-height: 13px;">fix utf8 encoding(tomcat server.xml, mysql character-set)
-
   
     EL: Effort left
   
   
-  
     OE: Original estimate
-  
   
   
     ES: Effort spent

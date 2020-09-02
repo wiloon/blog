@@ -15,7 +15,6 @@ Ticket Lock 是为了解决自旋锁的公平性问题，类似于现实中银�
 简单的实现
 
 ```java
-
   
 import java.util.concurrent.atomic.AtomicInteger;
 

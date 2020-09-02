@@ -8,11 +8,9 @@ categories:
   - Linux
 
 ---
-
   
     <a href="http://donghao.org/2011/07/ext4aoaupunch-hole.html">http://donghao.org/2011/07/ext4aoaupunch-hole.html</a>
   
-
 
   
     
@@ -63,5 +61,4 @@ categories:
       
         也许数据库，搜索引擎里的大文件可以用上，我猜。
       
-    
   

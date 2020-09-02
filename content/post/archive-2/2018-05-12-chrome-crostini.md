@@ -35,7 +35,6 @@ Launch a container run\_container.sh -container\_name=stretch -user=wiloon -shel
     <a href="https://www.reddit.com/r/Crostini/comments/89q1cu/crostini_101/?ref_source=embed&ref=share">Crostini 101</a> from <a href="https://www.reddit.com/r/Crostini/">Crostini</a>
   
 </blockquote>
-
   
 https://github.com/lstoll/cros-crostini/blob/master/README.md
   

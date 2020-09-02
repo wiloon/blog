@@ -152,7 +152,6 @@ java Public synchronized void method(){}
 这也就是同步方法，那这时synchronized锁定的是哪个对象呢？他锁定的是调用这个同步方法对象。也就是说，当一个对象P1在不同的线程中执行这个同步方法时，他们之间会形成互斥，达到同步的效果。但是这个对象所属的Class所产生的另一对象P2却能够任意调用这个被加了synchronized关键字的方法。 上边的示例代码等同于如下代码：
 
 ```java
-
   
 public void method(){
   
@@ -171,7 +170,6 @@ synchronized (this){
 同步块，示例代码如下：
 
 ```java
-
   
 public void method(SomeObject so) {
   
@@ -188,7 +186,6 @@ synchronized(so){
 这时，锁就是so这个对象，谁拿到这个锁谁就能够运行他所控制的那段代码。当有一个明确的对象作为锁时，就能够这样写，但当没有明确的对象作为锁，只是想让一段代码同步时，能够创建一个特别的instance变量（他得是个对象）来充当锁：
 
 ```java
-
   
 class Foo implements Runnable{
       
@@ -215,7 +212,6 @@ synchronized(lock) {
 将synchronized作用于static 函数，示例代码如下：
 
 ```java
-
   
 Class Foo{
       

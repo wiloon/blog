@@ -42,69 +42,51 @@ tasklist
 
 
   tasklist -fi "username ne NT authority\system" -fi "status eq running" 列出系统中正在运行的非SYSTEM状态的所有进程
-
   
     tasklist -fi "username ne NT authority\system" -fi "status eq running" 列出系统中正在运行的非SYSTEM状态的所有进程
-  
   
   
     tasklist -fi "pid eq 2860" -svc列出pid是2860的这个进程中的服务 （有问题的进程调用哪些服务）
   
   
-  
     tasklist -fi "pid eq 2860" -m列出pid是2860的这个进程加载的dll模块（有问题的进程调用哪些DLL文件）
-  
   
   
     tasklist -fi "pid eq 2860" -v列出pid是2860的这个进程的详细信息
   
   
-  
     tasklist -fi "servicers eq spooler"列出对应服务是spooler的进程（哪些进程在使用这个有问题的服务）
-  
   
   
     tasklist -fi "modules eq MSVCP60.DLL"列出调用MSVCP60.DLL的进程（哪些进程在使用这个有问题的DLL）
   
-
   
     Taskkill -pid 2860/Taskkill -im qq.exe 关掉进程
   
   
-  
     系统debug级的ntsd，很多进程Tasklist是杀不了的，但是用ntsd就可以，基本上除了WINDOWS系统自己的管理进程,ntsd都可以杀掉，不过有些rootkit级别的超级木马就无能为力了，不过幸好这类木马还是很少的。
-  
-  
-  
   
   
   
     ntsd
   
   
-  
     系统debug级的ntsd，很多进程Tasklist是杀不了的，但是用ntsd就可以，基本上除了WINDOWS系统自己的管理进程,ntsd都可以杀掉，不过有些rootkit级别的超级木马就无能为力了，不过幸好这类木马还是很少的。
-  
   
   
     1、利用进程的PID结束进程
   
   
-  
     　　命令格式：ntsd -c q -p pid
-  
   
   
     　　命令范例： ntsd -c q -p 1332 （结束explorer.exe进程）
   
   
-  
     2、利用进程名结束进程
   
   
-  
     　　命令格式：ntsd -c q -pn ***.exe （***.exe 为进程名,exe不能省）
-  
   
   
     　　命令范例：ntsd -c q -pn explorer.exe

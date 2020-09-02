@@ -16,11 +16,9 @@ outline - structure, Ctrl+F12
 
 
 1、比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下：
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -30,11 +28,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 2、性能优化
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -77,11 +73,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 3、优化文件保存和工程加载
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -99,11 +93,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 4、用*标识编辑过的文件
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -122,11 +114,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 5、显示行号
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -136,11 +126,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 6、自定义键盘快捷方式
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -150,11 +138,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 7、如何让光标不随意定位
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -164,11 +150,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 8、中文乱码问题
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -186,11 +170,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 9、如何完美显示中文
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -200,11 +182,9 @@ outline - structure, Ctrl+F12
   </ol>
 
 10编辑自动提示
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>
@@ -221,11 +201,9 @@ outline - structure, Ctrl+F12
 
 
 11、一些有用的快捷键
-
   
     
       Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol>

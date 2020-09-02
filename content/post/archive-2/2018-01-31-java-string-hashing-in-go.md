@@ -11,7 +11,6 @@ categories:
 https://www.manniwood.com/2016\_03\_20/fun\_with\_java\_string\_hashing.html
 
 ```java
-
   
 func ActualHash(s string) int32 {
       

@@ -11,7 +11,6 @@ categories:
 http://www.jianshu.com/p/f38a62efaa96
 
 ```java
-
   
 HttpHost proxy = new HttpHost("localhost",8888);
   

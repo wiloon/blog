@@ -74,7 +74,6 @@ _**方法一： 命令行下对apk签名（原理）**_
           </td>
         </tr>
       </table>
-    
   
 
 注意事项：android工程的bin目录下的demo.apk默认是已经使用debug用户签名的，所以不能使用上述步骤对此文件再次签名。正确步骤应该是:在工程点击右键->Anroid Tools-Export Unsigned Application Package导出的apk采用上述步骤签名。

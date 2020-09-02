@@ -20,12 +20,8 @@ categories:
  像/dev/null一样, /dev/zero也是一个伪文件, 但它实际上产生连续不断的null的流（二进制的零流，而不是ASCII型的）. 写入它的输出会丢失不见, 而从/dev/zero读出一连串的null也比较困难, 虽然这也能通过od或一个十六进制编辑器来做到. /dev/zero主要的用处是用来创建一个指定长度用于初始化的空文件，就像临时交换文件.
   
   
-  
     关于 /dev/zero 的另一个应用是为特定的目的而用零去填充一个指定大小的文件, 如挂载一个文件系统到环回设备 （loopback device） 或"安全地" 删除一个文件
   
-  
-  
-    
   
   
   
@@ -45,6 +41,4 @@ categories:
  cat /dev/null > /var/log/wtmp     - 自动清空日志文件的内容 (适合处理由Web站点发送的讨厌的"cookies")
   
   
-  
-    
   

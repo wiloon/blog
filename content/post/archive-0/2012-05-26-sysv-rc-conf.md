@@ -12,7 +12,6 @@ categories:
   <div data-nslog-type="72">
     
       　　sysv-rc-conf是一个强大的服务管理程序，群众的意见是sysv-rc-conf比chkconfig好用。
-    
   
 
 <div id="lemmaContent-0">
@@ -20,19 +19,13 @@ categories:
     <a name="2_1"></a><a name="sub2521377_2_1"></a>Ubuntu运行级别
   
   
-  
     Linux 系统任何时候都运行在一个指定的运行级上，并且不同的运行级的程序和服务都不同，所要完成的工作和要达到的目的都不同，系统可以在这些运行级之间进行切换，以完成不同的工作。
-  
   
   
     <a name="2_2"></a><a name="sub2521377_2_2"></a>Ubuntu 的系统运行级别：
   
   
-  
     0 系统停机状态
-  
-  
-  
   
   
   
@@ -40,43 +33,27 @@ categories:
   
   
   
-  
-  
-  
     2~5 多用户状态
-  
-  
-  
   
   
   
     6 重新启动
   
   
-  
     <a name="2_3"></a><a name="sub2521377_2_3"></a>查看当前运行级别,执行命令：
-  
   
   
     runlevel
   
   
   
-  
-  
-  
     （ runlevel 显示上次的运行级别和当前的运行级别，“N”表示没有上次的运行级别。）
-  
   
   
     <a name="2_4"></a><a name="sub2521377_2_4"></a>切换运行级别，执行命令：
   
   
-  
     init [0123456Ss]
-  
-  
-  
   
   
   
@@ -84,21 +61,14 @@ categories:
   
   
   
-  
-  
   <h2>
     <a name="3"></a><a name="sub2521377_3"></a>三、Linux 系统主要启动步骤:
   </h2>
   
-  
     <a name="3_1"></a><a name="sub2521377_3_1"></a>1. 读取 MBR 的信息,启动 Boot Manager
   
   
-  
     Windows 使用 NTLDR 作为 Boot Manager,如果您的系统中安装多个
-  
-  
-  
   
   
   
@@ -106,29 +76,19 @@ categories:
   
   
   
-  
-  
-  
     Linux 通常使用功能强大,配置灵活的 GRUB 作为 Boot Manager。
-  
   
   
     <a name="3_2"></a><a name="sub2521377_3_2"></a>2. 加载系统内核,启动 init 进程
   
   
-  
     init 进程是 Linux 的根进程,所有的系统进程都是它的子进程。
-  
   
   
     <a name="3_3"></a><a name="sub2521377_3_3"></a>3. 进程读取
   
   
-  
     init 进程读取 /etc/inittab 文件中的信息,并进入预设的运行级别,
-  
-  
-  
   
   
   
@@ -136,13 +96,7 @@ categories:
   
   
   
-  
-  
-  
     动,并指向一个系统中的程序。
-  
-  
-  
   
   
   
@@ -150,43 +104,27 @@ categories:
   
   
   
-  
-  
-  
     /etc/rcN.d/ 目录。例如您设定的运行级别为 3,那么它对应的启动
-  
-  
-  
   
   
   
     目录为 /etc/rc3.d/ 。
   
   
-  
     <a name="3_4"></a><a name="sub2521377_3_4"></a>4. 根据对应脚本启动服务器
-  
   
   
     根据 /etc/rcS.d/ 文件夹中对应的脚本启动 Xwindow 服务器 xorg
   
   
   
-  
-  
-  
     Xwindow 为 Linux 下的图形用户界面系统。
-  
   
   
     <a name="3_5"></a><a name="sub2521377_3_5"></a>5. 启动登录管理器,等待用户登录
   
   
-  
     Ubuntu 系统默认使用 GDM 作为登录管理器,您在登录管理器界面中
-  
-  
-  
   
   
   
@@ -194,12 +132,7 @@ categories:
   
   
   
-  
-  
-  
     文件夹中找到一个名为 S13gdm 的链接)
-  
-  
   
   
   
@@ -207,10 +140,7 @@ categories:
     <a name="4"></a><a name="sub2521377_4"></a>四、安装sysv-rc-conf
   </h2>
   
-  
     sudo apt-get install sysv-rc-conf
-  
-  
   
   
   
@@ -218,11 +148,7 @@ categories:
     <a name="5"></a><a name="sub2521377_5"></a>五、使用sysv-rc-conf
   </h2>
   
-  
     sudo sysv-rc-conf
-  
-  
-  
   
   
   
@@ -230,17 +156,11 @@ categories:
   
   
   
-  
-  
   <h2>
     <a name="6"></a><a name="sub2521377_6"></a>六 、部分服务优化推荐及介绍
   </h2>
   
-  
     acpi-support 这个是关于电源支持的默认是1,2,3,4,5下启动，我认为你可以把它调整到s级别。
-  
-  
-  
   
   
   
@@ -248,13 +168,7 @@ categories:
   
   
   
-  
-  
-  
     alsa alsa声音子系统，应该不用开启它。
-  
-  
-  
   
   
   
@@ -262,13 +176,7 @@ categories:
   
   
   
-  
-  
-  
     anacron 这是一个用于执行到时间没有执行的程序的服务，我认为它无所谓，所以关了它，这个可以随便。
-  
-  
-  
   
   
   
@@ -276,13 +184,7 @@ categories:
   
   
   
-  
-  
-  
     atd 和anacron类似，我把它关了。
-  
-  
-  
   
   
   
@@ -290,13 +192,7 @@ categories:
   
   
   
-  
-  
-  
     bootlogd 似乎使用来写log的，安全期间开着他也许比较好。
-  
-  
-  
   
   
   
@@ -304,13 +200,7 @@ categories:
   
   
   
-  
-  
-  
     cupsys 打印机服务，所以如果你有，就开启吧。
-  
-  
-  
   
   
   
@@ -318,13 +208,7 @@ categories:
   
   
   
-  
-  
-  
     dns-clean 拨号连接用的，如果不用，就关了它。
-  
-  
-  
   
   
   
@@ -332,13 +216,7 @@ categories:
   
   
   
-  
-  
-  
     fetchmail 用于邮件守护，我关了它。
-  
-  
-  
   
   
   
@@ -346,13 +224,7 @@ categories:
   
   
   
-  
-  
-  
     halt 关机用的，不要更改
-  
-  
-  
   
   
   
@@ -360,13 +232,7 @@ categories:
   
   
   
-  
-  
-  
     hotkey-setup 这个是给某些品牌笔记本设计的热键映射，台式机用户请关了它
-  
-  
-  
   
   
   
@@ -374,13 +240,7 @@ categories:
   
   
   
-  
-  
-  
     hplip hp打印机专用的，应该可以关了它。
-  
-  
-  
   
   
   
@@ -388,13 +248,7 @@ categories:
   
   
   
-  
-  
-  
     ifupdown 这个使用来打开网络的，开着它。
-  
-  
-  
   
   
   
@@ -402,13 +256,7 @@ categories:
   
   
   
-  
-  
-  
     klogd linux守护程序，接受来自内核和发送信息到syslogd的记录，并记录为一个文件，所以请开着它。
-  
-  
-  
   
   
   
@@ -416,13 +264,7 @@ categories:
   
   
   
-  
-  
-  
     lvm 逻辑卷管理器，如果你没有请关了它。
-  
-  
-  
   
   
   
@@ -430,13 +272,7 @@ categories:
   
   
   
-  
-  
-  
     mdamd 管理raid用，如果你没有请关闭它。
-  
-  
-  
   
   
   
@@ -444,13 +280,7 @@ categories:
   
   
   
-  
-  
-  
     networking 增加网络接口和配置dns用，将它开启。
-  
-  
-  
   
   
   
@@ -458,13 +288,7 @@ categories:
   
   
   
-  
-  
-  
     pcmcia 激活pcmica设备，遗憾我有生以来都没有见过这样的设备，关了它。
-  
-  
-  
   
   
   
@@ -472,13 +296,7 @@ categories:
   
   
   
-  
-  
-  
     ppp 拨号用的，我关了它。
-  
-  
-  
   
   
   
@@ -486,13 +304,7 @@ categories:
   
   
   
-  
-  
-  
     readahead 预加载服务，让我想起了win的预读，当然他们不同，它会使启动变慢3－4妙，所以我关了它。
-  
-  
-  
   
   
   
@@ -500,13 +312,7 @@ categories:
   
   
   
-  
-  
-  
     rmnologin 如果发现nologin，就去除它，在笔记本上不用开启。
-  
-  
-  
   
   
   
@@ -514,13 +320,7 @@ categories:
   
   
   
-  
-  
-  
     screen-cleanup 一个清除开机屏幕的脚本，随便。
-  
-  
-  
   
   
   
@@ -528,13 +328,7 @@ categories:
   
   
   
-  
-  
-  
     single 激活但用户模式，不用管它。
-  
-  
-  
   
   
   
@@ -542,13 +336,7 @@ categories:
   
   
   
-  
-  
-  
     sudo 这个不用说吧，不用管它。
-  
-  
-  
   
   
   
@@ -556,13 +344,7 @@ categories:
   
   
   
-  
-  
-  
     udev 用户空间dev文件系统，不用管它。
-  
-  
-  
   
   
   
@@ -570,13 +352,7 @@ categories:
   
   
   
-  
-  
-  
     umountfs 用来卸载文件卷的，不用管它。
-  
-  
-  
   
   
   
@@ -584,19 +360,11 @@ categories:
   
   
   
-  
-  
-  
     usplash 那个漂亮的启动画面，但是我关了它，它也存在，所以想关他需要把内核起动参数中的splash一句删掉。
   
   
   
-  
-  
-  
     vbesave 显卡bios配置工具，不用管它。
-  
-  
   
   
 

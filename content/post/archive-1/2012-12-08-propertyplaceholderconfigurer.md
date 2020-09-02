@@ -33,7 +33,6 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
   
     
       Java代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -63,7 +62,6 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
   
     
       Java代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -87,7 +85,6 @@ PropertyOverrideConfigurer：在spring所有的bean初使化以后，将bean的�
   
     
       Xml代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">

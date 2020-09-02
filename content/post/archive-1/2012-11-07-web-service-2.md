@@ -86,9 +86,6 @@ Web Services扮演什么角色？
 
 ## 技术支持
 
-<div data-layout="right">
-  <a title="查看图片" href="http://baike.baidu.com/albums/67105/67105/0/0.html#0$bd7faf35fe6a4fcba71e1276" target="_blank">  </a><a href="http://baike.baidu.com/albums/67105/67105/0/0.html#0$bd7faf35fe6a4fcba71e1276" target="_blank"><img title="关于Web 服务" src="http://f.hiphotos.baidu.com/baike/s%3D220/sign=a8a8c197912397ddd2799f066983b216/2cf5e0fe9925bc3191f0f9e85edf8db1cb137015.jpg" alt="关于Web 服务" width="220" height="162" /></a>关于Web 服务
-
 Web Service平台需要一套协议来实现<a href="http://baike.baidu.com/view/553502.htm" target="_blank">分布式应用程序</a>的创建。任何平台都有它的<a href="http://baike.baidu.com/view/1026250.htm" target="_blank">数据表示</a>方法和类型系统。要实现<a href="http://baike.baidu.com/view/1490165.htm" target="_blank">互操作性</a>，Web Service平台必须提供一套标准的类型系统，用于沟通不同平台、编程语言和<a href="http://baike.baidu.com/view/3852154.htm" target="_blank">组件模型</a>中的不同类型系统。目前这些协议有：
 
 ### <a name="5_1"></a><a name="sub67105_5_1"></a>XML和XSD

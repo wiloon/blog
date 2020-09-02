@@ -29,17 +29,13 @@ At work we recently switched from subversion to Git for our version control.
     </li>
   </ul>
   
-  
     Anyway, I love GitHub, but it's not the answer to everything! I wanted a central repository that I could control, so having had a brief glimpse at Gitorious and gitosis, I settled on gitolite. Now, I'm usually quite a lazy sys admin, and unless I desperately need a feature in the latest version of an application, I'm usually happy to fall back on the my chosen package manager, in this caseUbuntu's APT. Gitolite got a package as of version 10.10 Maverick Meerkat, so I told our local Ubuntu mirror to download all the 10.10 packages and after that, upgraded the server I had in mind so that I could use the gitolite package.
-  
   
   <h4>
     Install Gitolite
   </h4>
   
-  
     Nice and easy this part, on the server:
-  
   
   server> sudo apt-get update
 server> sudo apt-get install gitolite
@@ -48,9 +44,7 @@ server> sudo apt-get install gitolite
     Creating a Public/Private key pair
   </h4>
   
-  
     If you already have one, send the public halve over to the server and skip this part. Otherwise, take a look at ssh key based authentication, then create your key pair on your client machine:
-  
   
   client> ssh-keygen
 Generating public/private rsa key pair.
@@ -74,9 +68,7 @@ The key's randomart image is:
 |            ...o*|
 +-----------------+
   
-  
     Once created, send the public halve to the gitolite server. Be sure to use the name you provided when creating the key. In this example, I've called the key davem.pub on the target machine, so I can differentiate between myself and other developers.
-  
   
   client> scp ~/.ssh/id_rsa.pub server:davem.pub
   
@@ -84,9 +76,7 @@ The key's randomart image is:
     Configure gitolite
   </h4>
   
-  
     On the server, copy the public halve to a convenient location and run the gl-setup tool.
-  
   
   server> mv davem.pub /tmp/davem.pub
 server> chmod 666 /tmp/davem.pub
@@ -94,16 +84,12 @@ server> sudo su gitolite
 server> gl-setup /tmp/davem.pub
 ...
   
-  
     That's gitolite setup, we now need to go back to the client machine to fully configure it. First edit your <tt>.ssh/config</tt> file, so that ssh knows how to connect to the server. Again, be careful to use the correct name for your key pair:
-  
   
   Host servername
 IdentityFile ~/.ssh/id_rsa
   
-  
     Now we can clone the git repository that is used to configure gitolite:
-  
   
   client> git clone gitolite@server:gitolite-admin
 Initialized empty Git repository in /home/davem/gitolite-admin/.git/
@@ -117,23 +103,17 @@ client> cd gitolite-admin
     Adding repositories
   </h4>
   
-  
     The gitolite admin contains two folders. The first, <tt>conf</tt> contains a single config file. Open that and create a new repository by adding:
-  
   
           repo    mytest
                   RW+     =   @all
   
-  
     You then need to commit the changes and push them to the gitolite server:
-  
   
   client> git commit -m "Added mytest repo" conf/gitolite.conf
 client> git push
   
-  
     We then should be able to clone our new repository:
-  
   
   client> git clone gitolite@server:mytest
   
@@ -141,9 +121,7 @@ client> git push
     Adding users
   </h4>
   
-  
     To add a new user, simply add their public key halve to your clone of the <tt>gitolite-admin</tt> repo, add, commit and push.
-  
   
   client> cd gitolite-admin
 client> cp ~/Downloads/another.pub keydir/
@@ -151,13 +129,10 @@ client> git add keydir/another.pub
 client> git commit -m "Added another as a user" keydir/another.pub
 client> git push
   
-  
     I wont go any further than that, you can configure fine grain access control and other things in the<tt>conf/gitolite.conf</tt> file, check out the documentation. Hope it's been helpful, comments (especially corrections) are appreciated.
   
   
-  
     #push
-  
   
   
     git push origin master

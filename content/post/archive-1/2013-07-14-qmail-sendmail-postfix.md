@@ -194,5 +194,4 @@ categories:
  <a href="http://lists.debian.org/debian-isp/2002/11/msg00303.html"><span style="color: #8fabbe;">有关mta benchmark</a>
  <a href="http://www.shub-internet.org/brad/papers/sendmail-tuning/"><span style="color: #8fabbe;">Sendmail性能调整</a>
  <a href="http://cr.yp.to/qmail/faq/reliability.html"><span style="color: #8fabbe;">qmail可靠性FAQ</a>
-    
   

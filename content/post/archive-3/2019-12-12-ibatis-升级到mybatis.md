@@ -74,9 +74,7 @@ mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一�
 mybatis-config.xml样例
   
 <?xml version="1.0" encoding="UTF-8"?>
-
   
-
   
 <configuration>
    
@@ -161,9 +159,7 @@ int resetSyncLabel(long bookId);
 在ibatis中是这样的
 
 <?xml version="1.0" encoding="UTF-8" ?>
-
   
-
   
 <sqlMap namespace="SyncLabel">
    
@@ -300,9 +296,7 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
 在mybatis中是这样的
 
 <?xml version="1.0" encoding="UTF-8"?>
-
   
-
   
 <mapper namespace="com.money.movedata.mapper.SyncLabelDao"> <resultMap id="syncLabelResult" type="com.money.movedata.entity.SyncLabel">
        

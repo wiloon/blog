@@ -54,19 +54,15 @@ public	class MyListener implements ServletContextListener {
 </web-app>
 ----------------------------------------转载<a href="http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx">http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx</a>
   
-  
     ServletContextListener接口有两方需要实现的方法:contextInitialized()和contextDestroyed();
-  
   
   
     Listener,译为监听者.顾名思义,它会监听Servlet容器,当应用开始的时候它会调用contextInitialized()方法;
  当应用关闭的时候,它同样会调用contextDestroyed()方法.
   
   
-  
     我们可以利用这个特性初始化一些信息,当然我们也可以利用Servlet类init()方法,并在配置文件中让它启动应用的时候
  就执行,并且在关闭的时候执行destroy()方法.但是继承此接口应该更符合容器的应用.
-  
   
   
     举个简单的例子:在一些论坛,社区及聊天室当中,删除在线的超时用户就可以利用这个接口来实现.
@@ -74,28 +70,22 @@ public	class MyListener implements ServletContextListener {
  实例代码如下:
   
   
-  
     UserOnlineTimerTask.java
  ------
  package com.bcxy.servlet;
   
   
-  
     import java.util.TimerTask;
-  
   
   
     import org.apache.commons.logging.Log;
  import org.apache.commons.logging.LogFactory;
   
   
-  
     public class UserOnlineTimerTask extends TimerTask {
   
   
-  
     Log log = LogFactory.getLog(UserOnlineTimerTask.class);
-  
   
   
     public void run() {
@@ -103,9 +93,7 @@ public	class MyListener implements ServletContextListener {
  log.info("删除在线的超时用户....");
   
   
-  
     }
-  
   
   
     }
@@ -116,10 +104,8 @@ public	class MyListener implements ServletContextListener {
  package com.bcxy.servlet;
   
   
-  
     import java.io.IOException;
  import java.util.Timer;
-  
   
   
     import javax.servlet.ServletContextEvent;
@@ -130,10 +116,8 @@ public	class MyListener implements ServletContextListener {
  import javax.servlet.http.HttpServlet;
   
   
-  
     import org.apache.commons.logging.Log;
  import org.apache.commons.logging.LogFactory;
-  
   
   
     public class SysListener
@@ -141,10 +125,8 @@ public	class MyListener implements ServletContextListener {
  implements ServletContextListener {
   
   
-  
     Log log = LogFactory.getLog(SysListener.class);
  Timer timer = new Timer();
-  
   
   
     public void service(ServletRequest request, ServletResponse response)
@@ -153,39 +135,30 @@ public	class MyListener implements ServletContextListener {
  }
   
   
-  
     public void contextInitialized(ServletContextEvent sce) {
-  
   
   
     log.info("initial context....");
   
   
-  
     timer.schedule(new UserOnlineTimerTask(), 0, 10000);
-  
   
   
     }
   
   
-  
     public void contextDestroyed(ServletContextEvent sce) {
   
   
-  
     log.info("destory context....");
-  
   
   
     timer.cancel();
  }
   
   
-  
     }
  -----------
-  
   
   
     如果你没有使用log4j的话,你可以把log.info()改为System.out.println()会得到同样的结果.

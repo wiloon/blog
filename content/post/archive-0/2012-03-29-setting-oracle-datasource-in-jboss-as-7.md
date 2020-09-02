@@ -20,9 +20,7 @@ srikanth.s.nair
     Here are step by step directions on how to configure JBoss AS 7 to communicate with Oracle XE.
   
   
-  
     1. Create directory for the oracle driver deployment
-  
   
   
     <code>$ cd $JBOSS_HOME/modules
@@ -32,9 +30,7 @@ $ mkdir -p com/oracle/ojdbc6/main
 $ vi module.xml</code>
   
   
-  
     Add the following snippet to the newly created module.xml file
-  
   
   
     <code><module xmlns="urn:jboss:module:1.0" name="com.oracle.ojdbc6">
@@ -54,29 +50,22 @@ $ vi module.xml</code>
 </module></code>
   
   
-  
     Copy the ojdbc6.jar to $JBOSS_HOME/modules/com/oracle/ojdbc6/main [make sure your jar META-INF folder is having a Services dir with a file called java.sql.Driver]
-  
   
   
     Next, create the driver definition in the standalone configuration file
   
   
-  
     <code>$ vi $JBOSS_HOME/standalone/configuration/standalone.xml</code>
-  
   
   
     Look for
   
   
-  
     <code><subsystem xmlns="urn:jboss:domain:datasources:1.0">  </code>
   
   
-  
     this is where the datasource and driver configuration will go. Within this subsystem, look for the section and add the following:
-  
   
   
     <code><driver name="oracle" module="com.oracle.ojdbc6">
@@ -90,9 +79,7 @@ oracle.jdbc.OracleDriver
 </driver></code>
   
   
-  
     Then create the datasource configuration, also in the standalone configuration file. The following block will go just below the<code> <datasources></code>element.
-  
   
   
     <code><datasource jndi-name="WorkCenterDS" pool-name="OracleDS" enabled="true" jta="true" use-java-context="true" use-ccm="true">
@@ -122,7 +109,6 @@ oracle.jdbc.OracleDriver
 </security>
 
 </datasource></code>
-  
   
   
     Restart JBoss and look for the following lines in your log file to determine if the deployment succeeded.

@@ -322,7 +322,6 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
 以第一部分的server.xml为例，多个Service的配置如下：
 
 <?xml version='1.0' encoding='utf-8'?>
-
   
 <Server port="8005" shutdown="SHUTDOWN">
     

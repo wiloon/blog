@@ -18,13 +18,10 @@ categories:
 
   On Windows: java.io.tmpdir:[C:DOCUME~1joshuaLOCALS~1Temp] 
   
-  
     On Solaris: java.io.tmpdir:[/var/tmp/]
   
   
-  
     On Linux: java.io.tmpdir: [/tmp]
-  
   
   
     On Mac OS X: java.io.tmpdir: [/tmp]
@@ -37,12 +34,9 @@ categories:
     
   </blockquote>
   
-  
     To specify the <code>java.io.tmpdir</code> System property, you can invoke the JVM as follows:
   
-  
   <code>java -Djava.io.tmpdir=/path/to/tmpdir  ```
-  
   
     By default this value should come from the <code>TMP</code> environment variable on Windows systems
   

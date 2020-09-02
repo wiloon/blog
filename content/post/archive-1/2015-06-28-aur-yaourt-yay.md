@@ -18,20 +18,11 @@ yay 是下一个最好的 AUR 助手。它使用 Go 语言写成，宗旨是提�
 pacman -S base-devel binutils git
 
 # 从 git 克隆并编译安装。
+```bash
 git clone https://aur.archlinux.org/yay.git
 
 cd yay
 makepkg -si
-```
-
-### 使用 yay：
-
-```bash
-# 搜索：
-yay -Ss <package-name>
-
-# 安装：
-yay -S <package-name>
 ```
 
 ### AUR mirror
@@ -45,14 +36,22 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 yay -P -g
 ```
 
+### 使用 yay：
+```bash
+# 搜索：
+yay -Ss <package-name>
+
+# 安装：
+yay -S <package-name>
+```
+
 https://mirrors.tuna.tsinghua.edu.cn/help/AUR/
 
 <http://bashell.nodemedia.cn/archives/install-yaourt.html>
   
 https://linux.cn/article-9925-1.html
 
-* * *
-
+### 废弃
 Yaourt (Yet AnOther User Repository Tool)，是社区贡献的一个pacman的一个外壳。在pacman的基础上，它添加了AUR支持，帮助用户轻松从AUR的海量PKGBUILD中选择需要的软件进行编译安装。Yaourt的操作方式类似pacman，易于记忆使用。它提供诸如彩色输出、交互式搜索模式等一系列实用功能。
 
 yaourt-Yet AnOther User Repository Tool

@@ -17,12 +17,7 @@ tags:
 <div id="lemmaContent-0">
   
   
-  
-  
     <!ELEMENT welcome-file-list (welcome-file+)>
-  
-  
-  
   
   
   
@@ -30,13 +25,7 @@ tags:
   
   
   
-  
-  
-  
     举个例子说明，假设用户在浏览器的地址框中输入http://www.mycompany.com/appName/等地址。如果在Web应用的部署描述符中指定welcome-file-list元素，用户就会看到一个权限错误消息，或者是应用目录下的文件和目录列表。如果定义了welcome-file-list元素，用户就能看到由该元素指定的具体文件。
-  
-  
-  
   
   
   
@@ -44,13 +33,7 @@ tags:
   
   
   
-  
-  
-  
     下面是一个包含welcome-file-list元素的部署描述符。该元素包含两个welcome-file元素：第一个指定应用目录中的main.html文件，第二个定义jsp目录下的welcom.jsp文件，jsp目录也在应用目录下。
-  
-  
-  
   
   
   
@@ -58,13 +41,7 @@ tags:
   
   
   
-  
-  
-  
     <!DOCTYPE web-app
-  
-  
-  
   
   
   
@@ -72,13 +49,7 @@ tags:
   
   
   
-  
-  
-  
     "http://java.sun.com/dtd/web-app_2_3.dtd">
-  
-  
-  
   
   
   
@@ -86,13 +57,7 @@ tags:
   
   
   
-  
-  
-  
     <welcome-file-list>
-  
-  
-  
   
   
   
@@ -100,13 +65,7 @@ tags:
   
   
   
-  
-  
-  
     <welcome-file>jsp/welcome.jsp</welcome-file>
-  
-  
-  
   
   
   
@@ -114,13 +73,7 @@ tags:
   
   
   
-  
-  
-  
     </web-app>
-  
-  
-  
   
   
   

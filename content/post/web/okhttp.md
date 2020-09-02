@@ -52,7 +52,6 @@ title = "OkHttp"
 使用 OkHttp 无需重写您程序中的网络代码。OkHttp实现了几乎和java.net.HttpURLConnection一样的API。如果你用了 Apache HttpClient，则OkHttp也提供了一个对应的okhttp-apache 模块。
 
 还有一个好消息, 从Android 4.4起, 其`HttpURLConnection`的内部实现已经变为`OkHttp`, 您可以参考这两个网页:[爆栈网](https://link.jianshu.com?t=http://stackoverflow.com/questions/26000027/does-android-use-okhttp-internally)和[Twitter](https://link.jianshu.com?t=https://twitter.com/JakeWharton/status/482563299511250944).
-
   
   
 作者：oncealong  

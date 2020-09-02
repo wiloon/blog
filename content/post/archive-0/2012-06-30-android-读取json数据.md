@@ -8,7 +8,6 @@ categories:
   - Uncategorized
 
 ---
-
   
     android 读取json数据（遍历JSONObject和JSONArray）
   
@@ -30,7 +29,6 @@ categories:
  JSONObject oj = nameList.getJSONObject(i);
  aa = aa + oj.getString("name")+"|"; 
   
-  
     }
  Iterator<?> it = result.keys();
  String aa2 = "";
@@ -38,7 +36,6 @@ categories:
  while(it.hasNext()){//遍历JSONObject
  bb2 = (String) it.next().toString();
  aa2 = aa2 + result.getString(bb2);
-  
   
   
     }

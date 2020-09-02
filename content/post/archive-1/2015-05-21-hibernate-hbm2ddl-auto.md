@@ -25,7 +25,6 @@ Automatically validate or export schema DDL to the database when the SessionFact
 With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly.
   
 eg. validate | update | create | create-drop
-
   
 其实这个hibernate.hbm2ddl.auto参数的作用主要用于：自动创建|更新|验证数据库表结构。如果不是此方面的需求建议set value="none"。
   

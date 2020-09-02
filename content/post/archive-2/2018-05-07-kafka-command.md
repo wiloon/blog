@@ -63,7 +63,7 @@ topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, 
     --partitions 5 \
     --topic topic0
 
-[https://cloud.tencent.com/developer/article/1436988](https://cloud.tencent.com/developer/article/1436988 "https://cloud.tencent.com/developer/article/1436988")
+<https://cloud.tencent.com/developer/article/1436988>
 
 ### 调整分区数
 
@@ -116,11 +116,14 @@ zookeeper.connect=localhost:2181
 
     bin/kafka-console-consumer.sh \
     --bootstrap-server localhost:9092 \
+    --topic topic0
+
+    bin/kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
     --topic topic0 \
     --from-beginning \
     --property "parse.key=true" \
     --property "key.separator=:"
-
 
     bin/kafka-console-consumer.sh \
     --bootstrap-server localhost:9092 \

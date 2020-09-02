@@ -48,7 +48,6 @@ wl@wl-MS-7673:/home/python$ date
   
 wl@wl-MS-7673:/home/python$ echo $?
   
-
   
 wl@wl-MS-7673:/home/python$ kkllk
   

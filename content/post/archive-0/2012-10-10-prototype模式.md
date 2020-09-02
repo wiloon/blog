@@ -56,7 +56,6 @@ Prototype {
 Java语言提供了对象复制的机制，Prototype模式的Java实现一般也通过实现Cloneable接口来实现。
   
 这里我们也通过实现Cloneable接口来说明Prototype模式。
-
   
     <ol>
       <li>

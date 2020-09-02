@@ -49,7 +49,6 @@ public final native boolean compareAndSwapLong(Object paramObject, long paramLon
 实例代码1：AtomicIntegerTest.java
 
 ```java
-
   
 import java.util.concurrent.atomic.AtomicInteger;
   
@@ -152,7 +151,6 @@ AtomicBoolean#getAndSet(boolean) 尝试设置新的boolean值，直到成功为�
 实例代码2：AtomicBooleanTest.java
 
 ```java
-
   
 import java.util.concurrent.atomic.AtomicBoolean; 
 
@@ -265,7 +263,6 @@ throw new Error(ex);
 实例代码1：AtomicReferenceTest.java
 
 ```java
-
   
 import java.util.concurrent.atomic.AtomicReference; 
 
@@ -338,7 +335,6 @@ OK，的确和我们上面所讲一致，那么此时我们又遇到了引用修
 实例代码3（ABA问题模拟代码演示）：
 
 ```java
-
   
 import java.util.concurrent.atomic.AtomicReference; 
 
@@ -499,7 +495,6 @@ ATOMIC\_MARKABLE\_REFERENCE.compareAndSet("abc", "abc2", false, true);
 实例代码5（AtomicIntegerArrayTest.java）
 
 ```java
-
   
 import java.util.concurrent.atomic.AtomicIntegerArray; 
 
@@ -662,7 +657,6 @@ private static final int scale = unsafe.arrayIndexScale(int[].class);
 实例代码6：（AtomicIntegerFieldUpdaterTest.java）
 
 ```java
-
   
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater; 
 

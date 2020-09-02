@@ -169,7 +169,6 @@ No wonder, the java community loves ANT.
  System.out.println("test java");
  }
  }
-    
   
 
 写好后，保存为A.java，存在D:Javajdk1.6test\_jartest目录下面，打开cmd，进入这个目录，即D:Javajdk1.6test\_jartest然后用javac命令编译，会生成一个A.class文件，此时类的编写工作已经完成。

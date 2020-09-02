@@ -4,51 +4,53 @@ author: wiloon
 type: post
 date: 2012-03-02T15:36:38+00:00
 url: /?p=2515
-categories:
-  - Linux
 
 ---
 
 ```bash
 yum install cronie
+pacman -S cronie
+```
+
+```
+    # Use the hash sign to prefix a comment
+    # +—————- minute (0 – 59)
+    # |  +————- hour (0 – 23)
+    # |  |  +———- day of month (1 – 31)
+    # |  |  |  +——- month (1 – 12)
+    # |  |  |  |  +—- day of week (0 – 7) (Sunday=0 or 7)
+    # |  |  |  |  |
+    # *  *  *  *  *  user-name command to be executed
 ```
 
 ```bash
 # Use the hash sign to prefix a comment
 ### 配置自动生效
 cron will then examine the modification time on all crontabs and reload those which have changed. Thus cron need not be restarted whenever a crontab file is modified
-
-```
-# 每周一，三，五，13:55分
-55 13 * * 1,3,5 metting-notification.sh
 ```
 
 ```
-yum install cronie
+    # 每周一，三，五，13:55分
+    55 13 * * 1,3,5 metting-notification.sh
 ```
 
-```
-# Use the hash sign to prefix a comment
-# +—————- minute (0 – 59)
-# |  +————- hour (0 – 23)
-# |  |  +———- day of month (1 – 31)
-# |  |  |  +——- month (1 – 12)
-# |  |  |  |  +—- day of week (0 – 7) (Sunday=0 or 7)
-# |  |  |  |  |
-# *  *  *  *  *  command to be executed
-```
-
-0 5 \* \* * /root/bin/backup.sh //每天早上5点运行
+### 每两个小时
+    0 */2 * * * echo "foo" >> /tmp/foo.txt
+### 每天早上5点运行
+    0 5 * * * /root/bin/backup.sh
 
 run-parts
+
+### 每个小时去执行一遍/etc/cron.hourly内的脚本
+    01 * * * * root run-parts /etc/cron.hourly
   
-01 \* \* \* \* root run-parts /etc/cron.hourly // 每个小时去执行一遍/etc/cron.hourly内的脚本
+02 4 * * * root run-parts /etc/cron.daily // 每天去执行一遍/etc/cron.daily内的脚本
+
+每星期去执行一遍/etc/cron.weekly内的脚本
+
+    22 4 * * 0 root run-parts /etc/cron.weekly 
   
-02 4 \* \* * root run-parts /etc/cron.daily // 每天去执行一遍/etc/cron.daily内的脚本
-  
-22 4 \* \* 0 root run-parts /etc/cron.weekly //每星期去执行一遍/etc/cron.weekly内的脚本
-  
-42 4 1 \* \* root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
+42 4 1 * * root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
 
 ```bash
 yum list installed |grep cron
@@ -62,7 +64,8 @@ service crond stop # 关闭服务
 service crond restart # 重启服务
 
 crontab -l #列出某个用户cron服务的详细内容
-crontab -e #编辑某个用户的cron服务
+crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， c r o n会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
+crontab -e -u 用户名  # 配置指定用户 的定时任务
 crontab -u #设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
 crontab -r #删除没个用户的cron服务
 
@@ -130,7 +133,7 @@ crontab -u root -e
   
 引用:
   
-_/1 \* \* \* \* ls >> /tmp/ls.txt
+_/1 * * * * ls >> /tmp/ls.txt
   
 这个格式的前一部分是对时间的设定，后面一部分是要执行的命令，如果要执行的命令太多，可以把这些命令写到一个脚本里面，然后在这里直接调用这个脚本就可 以了，调用的时候记得写出命令的完整路径。时间的设定我们有一定的约定，前面五个_号代表五个数字，数字的取值范围和含义如下：
 
@@ -148,15 +151,13 @@ _/1 \* \* \* \* ls >> /tmp/ls.txt
 
 每天凌晨4点
   
-0 4 \* \* * echo “Good morning.” >> /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。
+0 4 * * * echo “Good morning.” >> /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。
 
-每两个小时
-  
-0 \*/2 \* \* \* echo “Welcome to http://beyl.cn.” >> /tmp/test.txt
+
   
 晚上11点到早上8点之间每两个小时，早上八点
   
-0 23-7/2，8 \* \* * echo “Welcome to http://beyl.cn.：）” >> /tmp/test.txt
+0 23-7/2，8 * * * echo “Welcome to http://beyl.cn.：）” >> /tmp/test.txt
   
 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点
   
@@ -184,13 +185,13 @@ HOME=/
 
 # run-parts
 
-01 \* \* \* \* root run-parts /etc/cron.hourly //每个小时去执行一遍/etc/cron.hourly内的脚本
+01 * * * * root run-parts /etc/cron.hourly //每个小时去执行一遍/etc/cron.hourly内的脚本
   
-02 4 \* \* * root run-parts /etc/cron.daily //每天去执行一遍/etc/cron.daily内的脚本
+02 4 * * * root run-parts /etc/cron.daily //每天去执行一遍/etc/cron.daily内的脚本
   
-22 4 \* \* 0 root run-parts /etc/cron.weekly //每星期去执行一遍/etc/cron.weekly内的脚本
+22 4 * * 0 root run-parts /etc/cron.weekly //每星期去执行一遍/etc/cron.weekly内的脚本
   
-42 4 1 \* \* root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
+42 4 1 * * root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
   
 使用者 运行的路径
   
@@ -246,19 +247,19 @@ MAILTO=paul
 
 # run five minutes after midnight, every day
 
-5 0 \* \* * $HOME/bin/daily.job >> $HOME/tmp/out 2>&1
+5 0 * * * $HOME/bin/daily.job >> $HOME/tmp/out 2>&1
 
 # run at 2:15pm on the first of every month — output mailed to paul
 
-15 14 1 \* \* $HOME/bin/monthly
+15 14 1 * * $HOME/bin/monthly
 
 # run at 10 pm on weekdays, annoy Joe
 
-0 22 \* \* 1-5 mail -s “It's 10pm” joe%Joe,%%Where are your kids?%
+0 22 * * 1-5 mail -s “It's 10pm” joe%Joe,%%Where are your kids?%
   
-23 0-23/2 \* \* * echo “run 23 minutes after midn, 2am, 4am …, everyday”
+23 0-23/2 * * * echo “run 23 minutes after midn, 2am, 4am …, everyday”
   
-5 4 \* \* sun echo “run at 5 after 4 every sunday”
+5 4 * * sun echo “run at 5 after 4 every sunday”
   
 root 可以用 -u user name 来编辑其它使用者的 crontab 设定。
   

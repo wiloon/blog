@@ -8,6 +8,8 @@ categories:
   - Uncategorized
 
 ---
+### application list
+    https://wiki.archlinux.org/index.php/List_of_applications
 
 ```bash
 # apps
@@ -85,6 +87,9 @@ sudo pacman -S powerdevil kmix kscreen ark
 | git                             |                  |
 | rust                            | rust-lang        |
 |iperf3|网络测试工具|
+|termite|支持32位色的终端|
+|neovim|用户体验更好的vim|
+|adobe-source-code-pro-fonts|adobe 的编程字体|
 
 ### AUR, yay:
 
@@ -106,13 +111,13 @@ sudo pacman -S powerdevil kmix kscreen ark
 | menulibre                             | xfce的系统菜单管理工具                      |
 | ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                     |
 | goland                                |                                             |
+|goland-jre|集成jre的goland|
 | zoom                                  |                                             |
 | shutter                               |                                             |
 | perl-goo-canvas                       | shutter 的画线插件                          |
 | google-chrome-dev                     |                                             |
 | intellij-idea-community-edition-jre   | idea with jre                               |
 | telegraf                              |                                             |
-|goland-jre||
 |tableplus|mysql client|
 |procmon| 微软的进程监控工具|
 

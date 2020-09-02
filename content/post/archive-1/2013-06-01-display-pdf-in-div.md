@@ -11,7 +11,6 @@ categories:
 <http://www.webdeveloper.com/forum/showthread.php?152923-PDF-within-a-DIV>
 
 [html]
-
   
 <object data="test.pdf" type="application/pdf" width="300" height="200">
   

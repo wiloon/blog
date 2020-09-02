@@ -17,6 +17,18 @@ sudo pacman -S chrony
 # for centos
 yum install chrony
 
+```
+
+### chrony 配置
+#号和！号都 代表注释
+
+        vim  /etc/chrony.conf
+        server 0.cn.pool.ntp.org iburst
+        server 1.cn.pool.ntp.org iburst
+        server 2.cn.pool.ntp.org iburst
+        server 3.cn.pool.ntp.org iburst
+
+```bash
 # chronyd service
 systemctl status chronyd
 systemctl start chronyd
@@ -34,18 +46,6 @@ sudo chronyc makestep
 # systemd-timesyncd.service is in conflict with chronyd
 systemctl disable systemd-timesyncd.service
 
-vim  /etc/chrony.conf
-server 0.cn.pool.ntp.org iburst
-server 1.cn.pool.ntp.org iburst
-server 2.cn.pool.ntp.org iburst
-server 3.cn.pool.ntp.org iburst
-
-# 运行 chrony
-systemctl status chronyd
-systemctl enable chronyd
-systemctl start chronyd
-
-
 ## 查看 ntp_sync 状态
 chronyc sourcestats -v
 
@@ -61,17 +61,10 @@ add server - 手动添加一台新的NTP服务器。
 clients - 在客户端报告已访问到服务器
 delete - 手动移除NTP服务器或对等服务器
 settime - 手动设置守护进程时间
-
 ```
 
-<blockquote class="wp-embedded-content" data-secret="M7IADqld6f">
-  
-    <a href="http://www.361way.com/rhel7-chrony/4778.html">RH254小结（九）rhel7新的ntp对时服务Chrony</a>
-  
-</blockquote>
-
-<iframe title="《RH254小结（九）rhel7新的ntp对时服务Chrony》—运维之路" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.361way.com/rhel7-chrony/4778.html/embed#?secret=M7IADqld6f" data-secret="M7IADqld6f" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-  
+http://www.361way.com/rhel7-chrony/4778.html
+http://www.361way.com/rhel7-chrony/4778.html/embed#?secret=M7IADqld6f
 https://www.zfl9.com/chrony.html
 
 ### ntp

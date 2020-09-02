@@ -8,6 +8,10 @@ categories:
   - Linux
 
 ---
+
+### remove
+yay -R xorgxrdp-devel-git
+yay -R xrdp
 Install xrdp on CentOS 7 / RHEL 7
   
 By Raj Last updated Mar 29, 2018

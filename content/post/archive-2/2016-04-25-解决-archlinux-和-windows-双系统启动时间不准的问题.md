@@ -10,9 +10,10 @@ categories:
 ---
 https://bbs.archlinuxcn.org/viewtopic.php?id=424
 
-
-<code class="nginx"><span class="title">pacman -S openntpd
-systemctl start openntpd```
+```
+pacman -S openntpd
+systemctl start openntpd
+```
 
 ntpd -s -d
 

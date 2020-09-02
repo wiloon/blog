@@ -76,10 +76,8 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
 就像以上所描述的一样，一part(部分)可以被声明为一个特定的元素(<concatRequest>在schema中定义，自定义)或者被声明为特定类型的任意元素( string由XML schema spec 内部定义)。在这两种情况下，part 都通过QName来指定。
 
 当有人调用这个operation(操作)，他会向你发送一个<concatRequest>元素作为input message，如下：
-
   
     <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
-  
   
   
     <foo:concatRequest xmlns:foo="http:    ttdev.com/ss"><s1>abc</s1> 
@@ -90,8 +88,6 @@ RP类型不是设计web service接口的唯一方式。比如，input message �
     
     
       </foo:concatRequest>
-    
-  
   
   
     <a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>

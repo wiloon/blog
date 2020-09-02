@@ -16,24 +16,19 @@ categories:
  以如果要在 linux下監控CPU溫度，可以透過 lm-sensor這套軟體來監控。安裝環境：
  ubuntu 8.04.1 LTS 
   
-  
     安裝步驟：
  1. 安裝lm-sensors
  # apt-get install lm-sensors
-  
   
   
     2. 設定監控選項
  # sensors-detect
   
   
-  
     通常都是回答yes即可，注意最後一項，例如下面的資訊
   
   
-  
     To load everything that is needed, add this to /etc/modules:
-  
   
   
     #--cut here--
@@ -48,24 +43,19 @@ categories:
  #--cut here--
   
   
-  
     3. 出現如上訊息後，載入模組，
  例如我的是 i2c-i801 與 lm85，
-  
   
   
     # modprobe i2c-i801
  # modprobe lm85
   
   
-  
     4. 之後再輸入：
  # sensors
   
   
-  
     5. 就會出現cpu溫度之類的監控訊息。
-  
   
   
     adm1027-i2c-3-2e

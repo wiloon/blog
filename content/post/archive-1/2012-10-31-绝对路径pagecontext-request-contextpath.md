@@ -11,7 +11,6 @@ categories:
 ---
 <div id="header">
 
-
   
     <div id="cnblogs_post_body">
       
@@ -45,5 +44,4 @@ categories:
       
         在使用的时候可以使用${pageContext.request.contextPath}，也同时可以使用<%=request.getContextPath()%>达到同样的效果，同时，也可以将${pageContext.request.contextPath}，放入一个JSP文件中，将用C：set放入一个变量中，然后在用的时候用EL表达式取出来。
       
-    
   

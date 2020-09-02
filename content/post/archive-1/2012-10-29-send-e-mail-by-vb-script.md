@@ -11,7 +11,6 @@ categories:
 http://studygolang.com/articles/3387
 
 ```java
-
   
 package system
 

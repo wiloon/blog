@@ -109,7 +109,6 @@ document.write('</script>');
   </table>
 
 代码的输出顺序如下：
-
   
     alert("我是html根节点之外的内部脚本");
 alert("我是头部header里的内部脚本");

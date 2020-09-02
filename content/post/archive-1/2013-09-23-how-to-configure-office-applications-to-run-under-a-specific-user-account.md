@@ -14,9 +14,7 @@ This article was previously published under Q288367
     SUMMARY
   </h2>
   
-  
     We do not recommend or support automation to a Microsoft Office application from an unattended user account. For additional information on why Microsoft does not recommend automation under this context, click the following article number to view the article in the Microsoft Knowledge Base:<a href="http://support.microsoft.com/default.aspx?kbid=257757">257757</a> Considerations for server-side automation of Office
-  
   
   
     If there is no choice but to automate Office from an unattended user account, the following steps can be used to configure the computer to run the Office application as a specific user, giving the application a fixed identity when it is started for Automation.
@@ -27,21 +25,16 @@ This article was previously published under Q288367
     MORE INFORMATION
   </h2>
   
-  
     Caution Automation of any Office application from an unattended, non-interactive user account is risky and unstable. A single error in code or configuration can result in a dialog box that can cause the client process to stop responding (hang), that can corrupt data, or that can even crash the calling process (which could bring down your Web server if the client is ASP).
-  
   
   
     Warning Office was not designed, and is not safe, for unattended execution on a server. Developers who use Office in this manner do so at their own risk.
   
   
-  
     Regardless, it may be absolutely required to use Office in this manner. In these cases, special configuration must be done to avoid errors on Office startup. The steps in this article demonstrate how to configure Office to run as a specific user account when it is started for Automation.
   
   
-  
     When you automate under a specific user account, you should be aware of the following problems:
-  
   
   <ul>
     <li>
@@ -58,29 +51,22 @@ This article was previously published under Q288367
     </li>
   </ul>
   
-  
     Because the changes in DCOM are global, configuring Office in this manner can have negative side effects for other clients on the system that use Office. It is possible that another client application, or Terminal Server clients, will not be able to use the Office application after the settings are made. Consider carefully what impact this has to your server before you make any changes to the DCOM configuration settings.
-  
   
   
     If the problems listed here are too great for your design, or cause other unidentified problems, it is possible to configure Office differently and still allow it to start from an unattended process or service.
   
   
-  
     For additional information, click the following article numbers to view the articles in the Microsoft Knowledge Base:<a href="http://theether.net/download/Microsoft/kb/288366.html">288366</a> How To Configure Office Applications to Run Under the Interactive User Account
-  
   
   
     <a href="http://theether.net/download/Microsoft/kb/288368.html">288368</a> How To Configure Office Applications for Automation from a COM+/MTS Package
   
   
-  
     Configuring Office as a Specific User
   
   
-  
     To set up an Office Automation server under a specific user account, follow these steps:
-  
   
   <ol>
     <li>

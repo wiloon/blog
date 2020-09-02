@@ -11,7 +11,6 @@ categories:
 http://blog.csdn.net/a578559967/article/details/7688971
 
 ```java
-
   
 public class ClassName {
       

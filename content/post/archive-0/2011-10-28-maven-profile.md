@@ -65,7 +65,6 @@ tags:
   
     
       Xml代码
-    
   
   
   <ol start="1">
@@ -149,7 +148,6 @@ tags:
   
     
       Xml代码  <a title="收藏这段代码" href="http://juvenshun.iteye.com/blog/208714"><img src="http://juvenshun.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-    
   
   
   <ol start="1">
@@ -186,7 +184,6 @@ settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为
   
     
       Xml代码
-    
   
   
   <ol start="1">

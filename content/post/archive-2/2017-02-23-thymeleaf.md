@@ -146,11 +146,9 @@ th:text="'Execution mode is ' + ( (${execMode} == 'dev')? 'Development' : 'Produ
 </tr>
   
 </table>
-
   
 <a href="../home.html" th:href="@{/}">Return to home</a>
   
-
   
 </body>
 

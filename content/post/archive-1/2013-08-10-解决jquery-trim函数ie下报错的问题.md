@@ -16,7 +16,6 @@ categories:
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">
@@ -39,7 +38,6 @@ categories:
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">
@@ -60,7 +58,6 @@ categories:
   
     
       Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
-    
   
   
   <ol start="1">
@@ -74,7 +71,6 @@ categories:
        alert('空');
     </li>
   </ol>
-  
   
     <a href="http://vsp.iteye.com/blog/1262441">http://vsp.iteye.com/blog/1262441</a>
   

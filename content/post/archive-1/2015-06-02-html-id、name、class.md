@@ -94,7 +94,6 @@ id要符合标识的要求，比如大小写敏感，最好不要包含下划线
 赋id时，引用元素的方式:  document.all.inputID 或 document.all.frameID
   
 除去与表单相关的元素，只能赋id不能赋name，这些元素有body、li、a、table、tr、td、th、p、div、span、pre、dl、dt、dd、font、b等等
-
   
 CSS 中 id、class属性的区别
 
@@ -144,7 +143,6 @@ id是先找到结构/内容，再给它定义样式；class是先定义好一种
 在实际应用的时候，class可能对文字的排版等比较有用，而id则对宏观布局和设计放置各种元素较有用。
   
 <<id具有唯一性，而class是一个类，适用于可多次重复使用的容器>>
-
   
 关于ID和Name的一些注意事项
 

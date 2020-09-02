@@ -21,7 +21,6 @@ categories:
     
     
     
-    
   
 
 <div id="lemmaContent-0">
@@ -29,11 +28,7 @@ categories:
     简介
   </h2>
   
-  
     2008年2月12日，Sun Microsystems宣布将以购买股票的方式收购德国Innotek软件公司，新版不再叫做Innotek VirtualBox，而改叫Sun xVM VirtualBox。
-  
-  
-  
   
   
   

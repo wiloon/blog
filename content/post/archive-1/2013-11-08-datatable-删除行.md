@@ -9,10 +9,8 @@ categories:
 
 ---
 先列出正确的写法，如果你只想马上改错就先复制吧，
-
   
     <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
-  
   
   
         protected void deleteDataRow(int RowID,DataTable dt)
@@ -23,7 +21,6 @@ categories:
  dt.Rows.RemoveAt(i);
  }
  }
-  
   
   
     <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
@@ -37,7 +34,6 @@ categories:
 2.彻底删除就要用到datatable的.Rows.Remove(DataRow dr)方法，同理也只是删除一行可以，如果要循环删除请继续往下看。
 
 3.循环彻底删除就要用.Rows.RemoveAt(int index)方法，所以如果你是foreach的爱好者，在此请你换换口味，还有如果你是for的i++的忠实fans也希望你能换个思维。先看一下上面程序的正向写法（错误的，不可用）
-
   
             for (int i = 0, j = dt.Rows.Count; i < j; i++)
  {

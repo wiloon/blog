@@ -22,7 +22,6 @@ AbstractChannel
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
   
-  
   static final ClosedChannelException CLOSED_CHANNEL_EXCEPTION = new ClosedChannelException();
 
 ...
@@ -66,7 +65,6 @@ client
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
-  
       public static void main(String[] args) throws IOException, InterruptedException {
         Bootstrap b = new Bootstrap();
         b.group(new NioEventLoopGroup())
@@ -95,7 +93,6 @@ server
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
-  
   
   public class SimpleServer {
 
@@ -146,7 +143,6 @@ NioEventLoop
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
-  
   
   private static void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
         final NioUnsafe unsafe = ch.unsafe();
@@ -201,7 +197,6 @@ client 1, 主动关闭 channel
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
-  
   public class SimpleClient {
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleClient.class);
@@ -250,7 +245,6 @@ client 2. 由服务端造成的 ClosedChannelException
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
-  
   public class SimpleClient {
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleClient.class);
@@ -286,7 +280,6 @@ client 2. 由服务端造成的 ClosedChannelException
 <div class="cnblogs_code">
   <div class="cnblogs_code_toolbar">
     <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
-  
   
   public class SimpleServer {
 

@@ -8,14 +8,10 @@ categories:
   - Java
 
 ---
-
   
     http://www.oecp.cn/hi/hailang/blog/146
   
   
-  
-  
-
 
   
     一、 FreeMarker简介
@@ -30,10 +26,8 @@ categories:
  FreeMarker的原理就是：模板+数据模型=输出 ，模板只负责数据在页面中的表现，不涉及任何的逻辑代码，而所有的逻辑都是由数据模型来处理的。用户最终看到的输出是模板和数据模型合并后创建的。
   
   
-  
     2.使用FreeMarker的优点之二，可以提高开发效率。
  在我们以往的开发中，使用的都是JSP 页面来展示数据的，即所谓的表现层。我们都知道，JSP在第一次执行的时候需要转换成Servlet类，开发阶段进行功能调适时，需要频繁的修改JSP，每次修改都要编译和转换，那么试想一天中我们浪费在程序编译的时间有多少。相对于JSP来说，FreeMarker模板技术不存在编译和转换的问题，所以就不会存在上述问题。而且开发过程中，我们在不必在等待界面设计开发人员完成页面原形后，我们再来开发程序。
-  
   
   
     3.使用FreeMarker的优点之三，使得开发过程中的人员分工更加明确。
@@ -44,7 +38,6 @@ categories:
  2.使用FreeMarker的缺点之二，FreeMarker模板技术在应用过程中，FreeMarker中的变量必须要赋值，如果不赋值，那么就会抛出异常。想避免错误就要应用if/elseif/else 指令进行判段，如果对每一个变量都判断的话，那么则反而增加了编程的麻烦。
  3.使用FreeMarker的缺点之三，FreeMarker的map限定key必须是string，其他数据类型无法操作
  4.使用FreeMarker的缺点之四，FreeMarker不支持集群应用。为了编成的方便性，把序列化的东西都放到了Session中，如<a href="http://www.po-soft.com/blog/wm2395/57.html">Session</a>，request等，在开发的过程中确实方便，但如果将应用放到集群中，就会出现错误。
-  
   
   
     通过以上的阐述，希望可以令您清晰FreeMarker的优点和缺点，旨在抛砖引玉。有什么问题可以留下您的宝贵留言，我非常愿意与大家讨论。

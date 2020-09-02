@@ -32,7 +32,6 @@ categories:
  总结：Response.Redirect 简单地告诉浏览器访问另一个页面。Server.Transfer 有利于减少服务器请求，保持地址栏 URL 不变，允许你将 query string 和 form 变量传递到另一个页面（有一点小小的缺陷）。
  重要提示：不要混淆了 Server.Transfer 和 Server.Execute，Server.Execute 执行一个页面，并返回结果，在过去 Server.Execute 很有用，不过在 ASP.NET 里，它被 fresher 方法所代替，所以忽略 Server.Execute。 
   
-  
     使用HttpContext.RewritePath来配合Server.Transfer/Execute 
     
     
@@ -82,8 +81,6 @@ categories:
     
     
       特别要注意的是：在 .NET Beta 2 中，Microsoft 将不再包括 Page.Navigate 这个功能，大家应该现在就用 Response.Redirect 来代替 Page.Navigate，以节省将来升级时的时间。
-    
-  
   
   
     (1)Server.Transfer方法:
@@ -93,19 +90,16 @@ categories:
  <img title="点击图片可在新窗口打开" src="http://www.jb51.net/upload/2009-11/20091114002305895.jpg" alt="" border="0" />
   
   
-  
     (2)Server.Execute方法:
  Server.Execute("m2.aspx");
  服务器保存此页转向前的数据后,使页面转向到m2.aspx执行,
  再返回本页继续执行.再将三者结果合并后返回给浏览器.
   
   
-  
     以上都是服务器端页面转向所以浏览器不出现页更改记录(显示的地址不会改变).
  因此,如果用户刷新此页,也许会出现一些其它意外情况.
  此类页转向,可完成一些其它功能,比如访问到前一页面中的服务端控件.
  <img title="点击图片可在新窗口打开" src="http://www.jb51.net/upload/2009-11/20091114002305632.jpg" alt="" border="0" />
-  
   
   
     (3)Response.Redirect:

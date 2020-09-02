@@ -18,35 +18,23 @@ categories:
   
     
       Slackware Linux
-    
-  
   
   
     Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本（Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等）不同的道路，它力图成为“UNIX风格”的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。
   
   
   
-  
-  
-  
     <a name="2_1"></a>Slackware的历史
-  
   
   
     第一个 Slackware 的版本1.00 在1993年
   
   
-  
     
       Slackware
-    
-  
   
   
     7月16日由创立者和开发领导者Patrick Volkerding发布。 它是基于SLS Linux并以软盘为镜像在匿名FTP上发行。Slackware是现存的最古老的发行版本，在2003年度过了它的十周年纪念。
-  
-  
-  
   
   
   
@@ -54,13 +42,7 @@ categories:
   
   
   
-  
-  
-  
     在早期的发布版本中，发行版本带有三个用户帐号： "satan", "gonzo" 和 "snake"。它们是作为示例被提供，但是后来的版本中去除了这些帐号，因为它们有潜在的安全漏洞。
-  
-  
-  
   
   
   
@@ -68,13 +50,7 @@ categories:
   
   
   
-  
-  
-  
     在2004年，Patrick Volkerding 得了严重的疾病，Slackware 未来的开发变得不可预测。 在他痊愈后很快恢复了Slackware 的开发。
-  
-  
-  
   
   
   
@@ -82,21 +58,13 @@ categories:
   
   
   
-  
-  
-  
     贯穿Slackware的历史，出现一些在Slackware基础上制作的发行版本和LiveCD。一些流行的发行版本就起源于 Slackware ，包括SUSE， College Linux 和 Slax。
-  
   
   
     <a name="2_2"></a>Slackware X86发布名称
   
   
-  
     Slackware 主要为x86 PC 开发。然而曾经存在一些官方的移植 ，像针对DEC Alpha 和 SPARC 架构的。从2005年起，开始出现针对System/390架构的官方移植。同时也存在一些非官方的移植，ARM，Alpha，SPARC，PowerPC 和 x86-64。
-  
-  
-  
   
   
   
@@ -104,19 +72,11 @@ categories:
   
   
   
-  
-  
-  
     Slackware 最新稳定发布的版本是 13.37（直到2011年4月27日），其中包括了2.6.37.6和2.6.38.4版本内核，
   
   
   
-  
-  
-  
     Slackware的测试／开发版本称为 '-current' ，这是为了可以使用更多超前的配置。
-  
-  
   
   
   
@@ -376,9 +336,7 @@ categories:
     </tr>
   </table>
   
-  
     <a name="2_3"></a>
-  
   
   <h2>
     <a name="3"></a>设计理念
@@ -388,41 +346,27 @@ categories:
     <span class="Apple-style-span" style="font-size: 13px; font-weight: normal;">Slackware
   </h2>
   
-  
     KISS， 代表“保持简洁，笨拙”（Keep it Simple, Stupid），是一个可以解释很多Slackware中设计选择的概念。在这个文本中，“简洁”（'simple'）指系统设计的观点，而不是指易用性。与大多数其他的发行版不同，KISS(Keep it simple,stupid)是Slackware一贯坚持的原则，尽量保持系统的简洁，从而实现稳定、高效和安全。在KISS哲学里面，简单(Simple)指的是系统设计的简洁性，而不是用户友好(User friendly)。这可能会在一定程度上牺牲了系统的易用性，但却提高了系统的透明性和灵活性。
-  
-  
-  
   
   
   
     正是一直以来对KISS原则的坚持，Slackware赢得了简洁、安全、稳定、高效的名声，也赢得了一大批的忠实用户。
   
   
-  
     <a name="3_2"></a>启动脚本
-  
   
   
     Slackware 使用BSD风格的初始化脚本，其他的Linux发行版本大多使用 System V 风格的初始化脚本。基本上 System V 风格的每个运行级都是存放初始化脚本的子目录，而BSD 风格仅为每个运行级提供一个脚本。BSD 风格的拥护者认为这样更佳，因为系统可以更容易找到，读取，编辑，和维护脚本。System V的拥护者认为System V 的结构强大和灵活。
   
   
   
-  
-  
-  
     但这些都无关紧要，System V初始化兼容在7.0版本之后被引入了 Slackware 中。
-  
   
   
     <a name="3_3"></a>软件套件管理
   
   
-  
     Slackware的软件套件管理系统很独特。它的软件套件管理系统和别的发行版本一样可以很容易的安装、升级、移除包。但是它不会试着去追踪或者管理涉及哪些依赖关系（也就是保证系统拥有所有的安装包内的程序需要的系统库）。如果所需要的先决条件不能满足，在程序执行之前不会有提醒和指示。
-  
-  
-  
   
   
   
@@ -430,28 +374,17 @@ categories:
   
   
   
-  
-  
-  
     相对的，Red Hat的RPM是CPIO档案，Debian的.deb文件是ar档案。他们都包括一些依赖关系的信息，包管理器工具可以使用这些信息来寻找和安装先决条件。他们在先决条件满足前是不会安装新包的（虽然可以强制进行）。
-  
-  
-  
   
   
   
     关于追踪或者无视依赖关系孰优孰劣的争论并不很热闹，这多少让人想起了持续甚久的"vi 对 Emacs" 的“宗教战争”。 Slackware解决问题的方法被技巧熟练的用户群很好的接受了。
   
   
-  
     <a name="3_4"></a>简单灵活的软件包管理机制
   
   
-  
     Slackware在软件包管理上的独树一帜也是KISS原则的体现。
-  
-  
-  
   
   
   
@@ -459,13 +392,7 @@ categories:
   
   
   
-  
-  
-  
     需要特别指出的是，Slackware的软件包管理系统，并没有提供自动的检测依赖机制，用户需要手动检测软件的依赖性问题。Slackware的理由则是：系统管理员应该知道自己系统里有什么东西，也应该知道要安装什么东西。既然各种软件包管理工具都不可能从根本上杜绝dependency hell的恶梦，不如干脆由用户自己来决定。
-  
-  
-  
   
   
   
@@ -473,28 +400,17 @@ categories:
   
   
   
-  
-  
-  
     从Slackware-13.0版本开始， Slackware的安装包开始改为txz格式， 即用tar打包、经过xz压缩的文件。但Slackware的管理器也同时兼容以前的tgz格式。
-  
-  
-  
   
   
   
     为了满足一些用户对自动解决软件依赖性的需求， 目前已出现了Swaret、Slapt-get和SlackUpdate等等第三方项目。
   
   
-  
     <a name="3_5"></a>Slackware 的中文化支持
   
   
-  
     能否很好地支持中文，是中文用户选择Linux发行版的一个重要标准。
-  
-  
-  
   
   
   
@@ -502,13 +418,7 @@ categories:
   
   
   
-  
-  
-  
     历史上，Slackware确实存在对中文支持不太好的问题，但这是在Linux国际化程度比较差的大环境下，几乎所有发行版都存在的普遍问题。在当时，这促成市场上涌现出了几种以中文处理为优势的“国产”Linux。
-  
-  
-  
   
   
   
@@ -516,21 +426,13 @@ categories:
   
   
   
-  
-  
-  
     Slackware的当前版本已经可以做到通过安装中文字体、修改配置文件、安装中文输入法这几个简单的步骤，就很容易地实现中文显示和输入。系统级的中文打印和LaTeX的中文支持，也能够用比较简单的步骤实现。
-  
   
   
      <a style="font-size: 20px; font-weight: bold;" name="4"></a><span class="Apple-style-span" style="font-size: 20px; font-weight: bold;">总结
   
   
-  
     在历史上， Slackware曾经对中文支持方面较差， 结果是Slackware的中文用户数量远远低于其他名气大的发行版。国内 的用户数量少，使得Slackware被蒙上了一层神秘的面纱，直至今日， 一些不准确的传言，如难安装、中文支持不好、易用性差等等，依然让很多用户不敢轻易尝试。
-  
-  
-  
   
   
   
@@ -538,13 +440,7 @@ categories:
   
   
   
-  
-  
-  
     在软件包的选择上，Slackware不贪多求全，只安装一些常用的软件。软件版本不一定选最新的，而是对安全性和稳定性的考虑更多一些，目的也是减轻系统管理工作的负担。
-  
-  
-  
   
   
   
@@ -552,20 +448,11 @@ categories:
   
   
   
-  
-  
-  
     Slackware打包时，对内核和软件的改动尽可能少，除非发现安全漏洞才会打补丁，最大限度地保持了内核和应用软件的原汁原味。
   
   
   
-  
-  
-  
     由于Slackware在系统管理上的简单、透明，以及“不太友好”的配置工具，用户在进行系统管理时，需要对系统有更加深入的了解，更容易真正理解Linux的运行机制。
-  
-  
-  
   
   
   

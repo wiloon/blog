@@ -21,17 +21,18 @@ https://f-droid.org/en/packages/com.wireguard.android/
 局域网ip: 192.168.53.xx/32
 dns: 192.168.50.1
 mtu: 1200
+
 ##### 添加节点
 公钥： 服务端公钥
 对端： xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
 
-### install
+### server install
 
 #### arch
     pacman -Syu
+    # 安装 wireguard管理工具
     pacman -S wireguard-tools
-    pacman -S wireguard-arch
 
     lsmod | grep wireguard
     sudo modprobe wireguard
@@ -129,6 +130,38 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 
 ~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
 ~~<https://tunsafe.com/user-guide/linux>~~  
+
+### systemd-networkd
+    vim /etc/systemd/network/99-wg0.netdev
+    # ---
+    [NetDev]
+    Name = wg0
+    Kind = wireguard
+    Description = WireGuard
+
+    [WireGuard]
+    ListenPort = 54321
+    PrivateKey = private-key-0
+
+    [WireGuardPeer]
+    PublicKey = public-key-0
+    AllowedIPs = 192.168.xx.xx/32 
+
+    [WireGuardPeer]
+    PublicKey = public-key-1
+    AllowedIPs = 192.168.xx.xx/32 
+
+    vim /etc/systemd/network/99-wg0.network
+    # --
+    [Match]
+    Name = wg0
+
+    [Network]
+    Address = 192.168.53.1/32
+
+    [Route]
+    Gateway = 192.168.53.1
+    Destination = 192.168.53.0/24
 
 ### ~~tunsafe  安装~~
     /etc/wireguard/wg0.conf

@@ -4,8 +4,6 @@ author: wiloon
 type: post
 date: 2017-08-02T06:50:39+00:00
 url: /?p=10979
-categories:
-  - Uncategorized
 
 ---
 ### http api
@@ -84,10 +82,11 @@ podman run -d \
 --name influxdb \
 -p 8086:8086 \
 -p 8083:8083 \
+-p 25826:25826 \
 -v influxdb-config:/etc/influxdb:ro \
 -v influxdb-storage:/var/lib/influxdb \
 -v /etc/localtime:/etc/localtime:ro \
-influxdb
+influxdb:1.8.1
 
 podman run -d \
 --name influxdb \
