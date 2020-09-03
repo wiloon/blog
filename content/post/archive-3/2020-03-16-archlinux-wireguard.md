@@ -29,7 +29,7 @@ mtu: 1200
 
 ### server install
 
-#### arch
+#### archlinux
     pacman -Syu
     # 安装 wireguard管理工具
     pacman -S wireguard-tools

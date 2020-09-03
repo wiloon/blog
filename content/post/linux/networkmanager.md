@@ -10,7 +10,6 @@ title = "network manager"
     sudo pacman -S nm-connection-editor
     sudo pacman -S network-manager-applet
 
-
     nmcli device
     nmcli connection
     nmcli c delete
@@ -35,15 +34,10 @@ Save the file and restart your computer.
 
 设置取值有：
 no
-
 Not authorized.
-
 yes
-
 Authorized.
-
 auth_self
-
 Authentication by the owner of the session that the client originates from is required.
 
 auth_admin
