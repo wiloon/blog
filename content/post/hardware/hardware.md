@@ -4,6 +4,37 @@ date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++
+### 斐讯N1
+CPU型号：晶晨 Amlogic S905，ARM Cortex-A53，四核 2GHz，GPU是ARM Mali™-450，支持4K@60fps硬件解码，HDMI 2.0。
+四核64位
+
+内存芯片RAM：K4B4G1646E ，4Gb DDR3-1866MHz，内存容量512MB；前后一共有4颗，总内存2GB。
+闪存芯片ROM：KLM8G1GEME，8GB eMMC。
+网卡芯片：RTL8211F，千兆速率。
+
+WIFI芯片：屏蔽罩是焊死的，所以不清楚。哈哈，只知道是双频 1x1mimo用支持5G ac，2.4G连接速率65Mbps，5G连接速率390Mbps。为什么不是72m和433m，因为No SGI。
+
+视频处理
+超高清4K 60fps硬件解码，支持H.265/VP9 10比特, H.264和AVS+等众多格式
+HDR10和HLG高动态范围处理
+全高清1080p 60fps硬件编码，支持H.264
+视频接口
+HDMI 2.0，CVBS和RGB888输出
+支持ITU 601/656并口摄像头输入
+TS流输入接口
+
+音频接口
+S/PDIF, I2S, PCM输入输出接口
+模拟立体声输出
+数字立体麦克风输入
+P授权（可选）
+Dolby Digital, Dolby Digital Plus
+DTS Digital Surround, DTS HD, DTS Express
+Real, DivX HD
+
+工艺
+28nm HKMG
+
 ### Back-UPS Pro 550
 
 ### Dell wyse 5070

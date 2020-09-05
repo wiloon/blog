@@ -15,30 +15,6 @@ unicode是国际组织制定的可以容纳世界上所有文字和符号的字�
 
 UNICODE与UCS实际上是两个不同组织的产物，为了编码一体化而进行协商，可以把unicode看做UCS-2的父集，UCS-4的子集，以为UNICODE只支持U+0FFFF-U+10FFFF的编码，而UCS-4支持31个平面。
 
-### UTF-8  
-UTF-8以字节为单位对Unicode进行编码。从Unicode到UTF-8的编码方式如下：
-  
-    Unicode编码(16进制)　║　UTF-8 字节流(二进制)  
-    000000 - 00007F　║　0xxxxxxx
-    000080 - 0007FF　║　110xxxxx 10xxxxxx
-    000800 - 00FFFF　║　1110xxxx 10xxxxxx 10xxxxxx
-    010000 - 10FFFF　║　11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-
-
-### 字符: 【
-#### unicode
-    0x30103011
-
-    00110000
-    00010000
-
-#### utf-8
-    0xe38090e38091
-    11100011
-    10000000
-    10010000
-
-
 https://www.jianshu.com/p/1a39be00f5b8
 
 ### Unicode ASCII UTF-8 GBK关系
@@ -88,6 +64,19 @@ UTF-8 最大的一个特点, 就是它是一种变长的编码方式. 它可以�
     0000 0080-0000 07FF     110xxxxx 10xxxxxx
     0000 0800-0000 FFFF     1110xxxx 10xxxxxx 10xxxxxx
     0001 0000-0010 FFFF     11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+
+### 字符: 【
+#### unicode
+    0x30103011
+
+    00110000
+    00010000
+
+#### utf-8
+    0xe38090e38091
+    11100011
+    10000000
+    10010000
 
 ### 总结
 Unicode, ASCII, GB2312, GBK 都是字符集. UTF-8不是.
@@ -311,3 +300,6 @@ https://my.oschina.net/darionyaphet/blog/221124
 http://blog.csdn.net/u012223913/article/details/51772610
   
 参考链接2：http://blog.csdn.net/u012223913/article/details/51772610
+http://www.cnblogs.com/malecrab/p/5300503.html
+  
+http://www.ruanyifeng.com/blog/2007/10/ascii\_unicode\_and_utf-8.html
