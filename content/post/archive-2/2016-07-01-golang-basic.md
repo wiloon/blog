@@ -8,6 +8,10 @@ categories:
   - Uncategorized
 
 ---
+### internal package
+Go语言1.4版本增加了 Internal packages 特征用于控制包的导入，即internal package只能被特定的包导入。
+内部包的规范约定：导出路径包含internal关键字的包，只允许internal的父级目录及父级目录的子包导入，其它包无法导入。
+
 ### 变量
 
 变量是几乎所有编程语言中最基本的组成元素。从根本上说,变量相当于是对一块数据存储空间的命名,程序可以通过定义一个变量来申请一块数据存储空间,之后可以通过引用变量名来使用这块存储空间。
