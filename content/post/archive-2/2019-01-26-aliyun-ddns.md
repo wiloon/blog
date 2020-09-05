@@ -9,16 +9,15 @@ categories:
 
 ---
 https://github.com/honwen/aliyun-ddns-cli
-  
-https://github.com/chenhw2/aliyun-ddns-cli
 
 ```bash
 aliyun-ddns-cli --access-key-id=ak0 --access-key-secret=sk0  auto-update --domain=domain0.wiloon.com --redo=600
 
 docker run -d \
-    -e "AKID=[ALIYUN's AccessKey-ID]" \
-    -e "AKSCT=[ALIYUN's AccessKey-Secret]" \
-    -e "DOMAIN=ddns.aliyun.win" \
+    --name ddns
+    -e "AKID=ak0" \
+    -e "AKSCT=sk0" \
+    -e "DOMAIN=foo.wiloon.com" \
     -e "REDO=600" \
     chenhw2/aliyun-ddns-cli
 
