@@ -8,6 +8,17 @@ categories:
   - Uncategorized
 
 ---
+
+```java
+        TreeMap<String,Integer> treeMap = new TreeMap<String,Integer>();
+        System.out.println("初始化后,TreeMap元素个数为：" + treeMap.size());
+
+        //新增元素:
+        treeMap.put("hello",1);
+        treeMap.put("world",2);
+```
+https://www.jianshu.com/p/2dcff3634326
+
 http://www.cnblogs.com/chenssy/p/3746600.html
 
 TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对红黑树有一定的了解,其实这篇博文的名字叫做：根据红黑树的算法来分析TreeMap的实现，但是为了与Java提高篇系列博文保持一致还是叫做TreeMap比较好。通过这篇博文你可以获得如下知识点：

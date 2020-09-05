@@ -111,7 +111,12 @@ sudo pacman -S powerdevil kmix kscreen ark
 | dingtalk                              | 钉钉                                        |
 | menulibre                             | xfce的系统菜单管理工具                      |
 | ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                     |
+<<<<<<< HEAD:content/post/archive-2/2018-09-23-linux-apps.md
 | goland                                |yay -S goland goland-jre, 两个一起安装| 
+=======
+| goland                                |                                             |
+|goland-jre|集成jre的goland|
+>>>>>>> 800545fb93d0bf687448968aee51e9c09b539641:content/post/linux/2018-09-23-linux-apps.md
 | zoom                                  |                                             |
 | shutter                               |                                             |
 | perl-goo-canvas                       | shutter 的画线插件                          |

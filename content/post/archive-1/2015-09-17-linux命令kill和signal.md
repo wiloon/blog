@@ -23,48 +23,37 @@ kill命令用于终止指定的进程（terminate a process），是Unix/Linux�
 格式：kill -l
   
 列出所有信号名称（Print a list of signal names.  These are found in /usr/include/linux/signal.h）。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。下面是常用的信号：
-  
-HUP     1    终端断线
-  
-INT       2    中断（同 Ctrl + C）
-  
-QUIT    3    退出（同 Ctrl + \）
-  
-TERM    15    终止
-  
-KILL      9    强制终止
-  
-CONT   18    继续（与STOP相反， fg/bg命令）
-  
-STOP    19    暂停（同 Ctrl + Z）
+
+HUP    1    终端断线
+INT    2    中断（同 Ctrl + C）
+QUIT   3    退出（同 Ctrl + \）
+TERM   15   终止
+KILL   9    强制终止
+CONT   18   继续（与STOP相反， fg/bg命令）
+STOP   19   暂停（同 Ctrl + Z）
 
 格式：kill -l <signame>
-  
 显示指定信号的数值。
 
 格式：kill -9 <pid>
-  
 格式：kill -KILL <pid>
-  
 强制杀掉指定进程，无条件终止指定进程。
 
 格式：kill %<jobid>
-  
 格式：kill -9 %<jobid>
-  
 杀掉指定的任务（使用jobs命令可以列出）
 
 格式：kill -QUIT <pid>
-  
+
 格式：kill -3 <pid>
-  
+
 使得程序正常的退出。
 
-killall命令
+### killall命令
   
 killall命令杀死同一进程组内的所有进程。其允许指定要终止的进程的名称，而非PID。
   
-\# killall httpd
+    killall httpd
 
 二 示例
 
@@ -83,127 +72,7 @@ root      3370  2822  0 16:21 pts/0    00:00:00 grep vim
 -bash: kill: (3368) - 没有那个进程
 
 2）init进程是不可杀的。
-
-3）列出所有信号名称
   
-[root@new55 ~]# kill -l
-  
-1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL
-  
-5) SIGTRAP      6) SIGABRT      7) SIGBUS       8) SIGFPE
-  
-9) SIGKILL     10) SIGUSR1     11) SIGSEGV     12) SIGUSR2
-  
-13) SIGPIPE     14) SIGALRM     15) SIGTERM     16) SIGSTKFLT
-  
-17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
-  
-21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU
-  
-25) SIGXFSZ     26) SIGVTALRM   27) SIGPROF     28) SIGWINCH
-  
-29) SIGIO       30) SIGPWR      31) SIGSYS      34) SIGRTMIN
-  
-35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3  38) SIGRTMIN+4
-  
-39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
-  
-43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12
-  
-47) SIGRTMIN+13 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14
-  
-51) SIGRTMAX-13 52) SIGRTMAX-12 53) SIGRTMAX-11 54) SIGRTMAX-10
-  
-55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7  58) SIGRTMAX-6
-  
-59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
-  
-63) SIGRTMAX-1  64) SIGRTMAX
-  
-[root@new55 ~]#
-  
-/usr/include/linux/signal.h 写道
-  
-#define SIGHUP 1
-  
-#define SIGINT 2
-  
-#define SIGQUIT 3
-  
-#define SIGILL 4
-  
-#define SIGTRAP 5
-  
-#define SIGABRT 6
-  
-#define SIGIOT 6
-  
-#define SIGBUS 7
-  
-#define SIGFPE 8
-  
-#define SIGKILL 9
-  
-#define SIGUSR1 10
-  
-#define SIGSEGV 11
-  
-#define SIGUSR2 12
-  
-#define SIGPIPE 13
-  
-#define SIGALRM 14
-  
-#define SIGTERM 15
-  
-#define SIGSTKFLT 16
-  
-#define SIGCHLD 17
-  
-#define SIGCONT 18
-  
-#define SIGSTOP 19
-  
-#define SIGTSTP 20
-  
-#define SIGTTIN 21
-  
-#define SIGTTOU 22
-  
-#define SIGURG 23
-  
-#define SIGXCPU 24
-  
-#define SIGXFSZ 25
-  
-#define SIGVTALRM 26
-  
-#define SIGPROF 27
-  
-#define SIGWINCH 28
-  
-#define SIGIO 29
-  
-#define SIGPOLL SIGIO
-  
-/*
-  
-#define SIGLOST 29
-  
-*/
-  
-#define SIGPWR 30
-  
-#define SIGSYS 31
-  
-#define SIGUNUSED 31
-
-/\* These should not be considered constants from userland. \*/
-  
-#define SIGRTMIN 32
-  
-#define SIGRTMAX _NSIG
-
 参考：
   
 http://codingstandards.iteye.com/blog/847299

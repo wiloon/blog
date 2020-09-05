@@ -1,5 +1,5 @@
 ---
-title: android apk list/setting
+title: android app, apk list
 author: wiloon
 type: post
 date: 2011-12-24T07:04:18+00:00
@@ -8,21 +8,17 @@ categories:
   - Uncategorized
 
 ---
-  * wan dou jia
+  * 碗豆夹
   * producteev
-  * google reader
-  * RssLab
-  * ucweb
+  * RssX
   * wa cai
   * gmail
   * google maps
   * evernote
   * sms backup
-  * 安卓市场
   * astro
   * -------------
   * 凤凰移动台
-  * 街旁
   * touch china
   * any radio
   * 8684地铁

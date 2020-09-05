@@ -46,22 +46,21 @@ properties props = new Properties();
  producer.close();
 ```
 
-batch.size: 该参数对于调优producer至关重要。新版producer(o.a.k.clients.producer.KafkaProducer)采用分批发送机制，该参数即控制一个batch的大小。默认是16KB
+### batch.size
+单位：字节
+该参数对于调优producer至关重要。新版producer(o.a.k.clients.producer.KafkaProducer)采用分批发送机制，该参数即控制一个batch的大小。默认是16KB
 
 #### acks:
-
 关乎到消息持久性(durability)的一个参数。高吞吐量和高持久性很多时候是相矛盾的，需要先明确我们的目标是什么？ 高吞吐量？高持久性？亦或是中等？因此该参数也有对应的三个取值：0， -1和1
 
 acks用来控制一个produce请求怎样才能算完成，准确的说，是有多少broker必须已经提交数据到log文件，并向leader发送ack，可以设置如下的值：
   
-0，意味着producer永远不会等待一个来自broker的ack继续发送下一条（批）消息。，这就是0.7版本的行为。这个选项提供了最低的延迟，但是持久化的保证是最弱的，当server挂掉的时候会丢失一些数据。
+- 0，意味着producer永远不会等待一个来自broker的ack继续发送下一条（批）消息。，这就是0.7版本的行为。这个选项提供了最低的延迟，但是持久化的保证是最弱的，当server挂掉的时候会丢失一些数据。
+- 1，意味着在leader replica已经接收到数据后，producer会得到一个ack。这个选项提供了更好的持久性，因为在server确认请求成功处理后，client才会返回。如果刚写到leader上，还没来得及复制leader就挂了，那么消息才可能会丢失。
+- -1，意味着在所有的ISR都接收到数据后，producer才得到一个ack。这个选项提供了最好的持久性，只要还有一个replica存活，那么数据就不会丢失。
 
-1，意味着在leader replica已经接收到数据后，producer会得到一个ack。这个选项提供了更好的持久性，因为在server确认请求成功处理后，client才会返回。如果刚写到leader上，还没来得及复制leader就挂了，那么消息才可能会丢失。
-
--1，意味着在所有的ISR都接收到数据后，producer才得到一个ack。这个选项提供了最好的持久性，只要还有一个replica存活，那么数据就不会丢失。
-
-#### linger.ms:
-
+#### linger.ms
+单位：毫秒
 producer会等待buffer的messages数目达到指定值或时间超过x毫秒，才发送数据。减少网络IO，节省带宽之用。原理就是把原本需要多次发送的小batch，通过引入延时的方式合并成大batch发送，减少了网络传输的压力，从而提升吞吐量。当然，也会引入延时.
 
 #### compression.type

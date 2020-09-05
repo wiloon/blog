@@ -10,29 +10,17 @@ categories:
 ---
 create file main.c
 
-[c]
-
+```c
 #include <stdio.h>
-  
 int main(){
-  
-printf("hello world!\n");
-  
-return 0;
-  
+  printf("hello world!\n");
+  return 0;
 }
+```
 
-[/c]
-
-
-[shell]
-
+```bash
 gcc main.c
-
 ./a.out
-
-[/shell]
-
-
+```
 http://world77.blog.51cto.com/414605/328263
 
