@@ -34,6 +34,12 @@ choco upgrade keepassxc
 
 | Name             | Comments |
 | ---------------- | -------- |
+|搜狗五笔||
+|微信||
+|企业微信||
+|企业QQ||
+|foxmail||
+|TortoiseSVN||
 | gradle           |          |
 | notepad++        |          |
 | wlstty           |          |
