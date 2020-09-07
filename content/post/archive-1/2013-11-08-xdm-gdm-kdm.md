@@ -29,7 +29,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码   
       
     
     
@@ -143,7 +143,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -210,7 +210,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -244,7 +244,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -299,7 +299,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -336,7 +336,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -398,7 +398,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -418,7 +418,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -445,7 +445,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -467,7 +467,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     
@@ -486,7 +486,7 @@ tags:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://ihyperwin.iteye.com/images/icon_star.png" /></a>
+        Java代码  
       
     
     

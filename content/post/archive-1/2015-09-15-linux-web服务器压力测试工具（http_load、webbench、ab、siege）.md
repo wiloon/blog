@@ -60,7 +60,7 @@ http_load以并行复用的方式运行，用以测试web服务器的吞吐量�
   
 </blockquote>
 
-<iframe title="《HyperVM使用教程/手册》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf" data-secret="cLrZu8rncf" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf
 
 <blockquote class="wp-embedded-content" data-secret="aK3vT9Oj6d">
   
