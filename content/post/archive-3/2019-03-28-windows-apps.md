@@ -39,6 +39,7 @@ choco upgrade keepassxc
 |企业微信||
 |企业QQ||
 |foxmail||
+|TortoiseSVN||
 | gradle           |          |
 | notepad++        |          |
 | wlstty           |          |
