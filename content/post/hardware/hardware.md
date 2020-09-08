@@ -4,6 +4,9 @@ date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++
+### Sharp 
+3840*2160
+
 ### 斐讯N1
 CPU型号：晶晨 Amlogic S905，ARM Cortex-A53，四核 2GHz，GPU是ARM Mali™-450，支持4K@60fps硬件解码，HDMI 2.0。
 四核64位
