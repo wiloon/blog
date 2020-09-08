@@ -28,7 +28,6 @@ COPY --from=build /go/src/xxx.com/xxx/xxx .
 # dev
 ADD configs/xxx.json .
 CMD ["./xxx"]
-
 ```
 
 ### ENV
@@ -64,7 +63,6 @@ ENV <key1>=<value1> <key2>=<value2>...
 COPY 目标路径不存时会自动创建
 
 ### COPY
-
 Same as 'ADD' but without the tar and remote url handling.
   
 COPY的语法与功能与ADD相同，只是不支持上面讲到的<src>是远程URL、自动解压这两个特性，但是Best Practices for Writing Dockerfiles建议尽量使用COPY，并使用RUN与COPY的组合来代替ADD，这是因为虽然COPY只支持本地文件拷贝到container，但它的处理比ADD更加透明，建议只在复制tar文件时使用ADD，如ADD trusty-core-amd64.tar.gz /。
@@ -74,12 +72,10 @@ COPY的语法与功能与ADD相同，只是不支持上面讲到的<src>是远�
 WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录)，该指令在Dockerfile文件中可以出现多次，如果使用相对路径则为相对于WORKDIR上一次的值，例如WORKDIR /a，WORKDIR b，RUN pwd最终输出的当前目录是/a/b。（RUN cd /a/b，RUN pwd是得不到/a/b的）
 
 ### create file 
-
     RUN echo 'All of your\n\
     multiline that you ever wanted\n\
     into a dockerfile\n'\
     >> /etc/example.conf
 
 <http://blog.wiloon.com/?p=11796>
-  
 http://dockone.io/article/8196

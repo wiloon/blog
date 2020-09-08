@@ -11,12 +11,13 @@ categories:
 ### choco
 
 ```bash
+# 安装软件，重复执行只会检查是否安装不会升级版本
 choco install keepassxc
+# 升级软件到新版本
 choco upgrade keepassxc
 ```
 
 <https://blog.wiloon.com/?p=8340>
-  
 <https://chocolatey.org/packages>
 
 ### chocolatey packages
@@ -29,6 +30,8 @@ choco upgrade keepassxc
 | winscp                     |                       |
 | vnote.portable             | 支持markdown和puml的文本编辑器 |
 | vscode                     | Visual Studio Code    |
+|notepadplusplus||
+|puyyt||
 
 ### apps
 
@@ -40,6 +43,7 @@ choco upgrade keepassxc
 |企业QQ||
 |foxmail||
 |TortoiseSVN||
+|powershell||
 | gradle           |          |
 | notepad++        |          |
 | wlstty           |          |
