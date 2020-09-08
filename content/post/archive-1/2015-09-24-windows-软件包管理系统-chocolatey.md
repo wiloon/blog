@@ -1,5 +1,5 @@
 ---
-title: Chocolatey,choco, Windows 软件包管理系统
+title: Chocolatey, choco, Windows 软件包管理系统
 author: wiloon
 type: post
 date: 2015-09-24T00:07:48+00:00
@@ -17,17 +17,16 @@ https://chocolatey.org/install
 以管理员权限打开powershell执行以下命令
 
 ```bash
-set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
 设置环境变量参数 ChocolateyInstall （当然是要对应一个路径/文件夹）
-  
 手动创建刚才设置的ChocolateyInstall变量所对应的文件夹
 
-### 用choco安装其它软件
+    ChocolateyInstall=D:\ChocolateyInstall
 
+### 用choco安装其它软件
 查询程序是否在数据库中：clist < 程序名>
-  
 安装程序：cinst < 程序名>
   
 choco install keepassxc

@@ -1,11 +1,9 @@
 ---
-title: x509, keystore, truststore, pem
+title: 证书, x509, keystore, truststore, pem
 author: wiloon
 type: post
 date: 2018-02-22T07:21:37+00:00
 url: /?p=11902
-categories:
-  - Uncategorized
 
 ---
 PEM是由RFC1421至1424定义的一种数据格式。其实前面的.cert和.key文件都是PEM格式的，只不过在有些系统中（比如Windows）会根据扩展名不同而做不同的事。所以当你看到.pem文件时，它里面的内容可能是certificate也可能是key，也可能两个都有，要看具体情况。可以通过openssl查看。  
@@ -15,20 +13,23 @@ X.509是常见通用的证书格式。所有的证书都符合为Public Key Infr
 证书标准
 
 X.509 DER 编码(ASCII)的后缀是： .DER .CER .CRT  
-X.509 PAM 编码(Base64)的后缀是： .PEM .CER .CRT  
+X.509 PEM 编码(Base64)的后缀是： .PEM .CER .CRT  
 .cer/.crt是用于存放证书，它是2进制形式存放的，不含私钥。  
 .pem跟crt/cer的区别是它以Ascii来表示。  
 
 编码格式
 同样的X.509证书,可能有不同的编码格式,目前有以下两种编码格式.
 
-PEM - Privacy Enhanced Mail,打开看文本格式,以"-----BEGIN..."开头, "-----END..."结尾,内容是BASE64编码.
+### PEM 
+Privacy Enhanced Mail,打开看文本格式,以"-----BEGIN..."开头, "-----END..."结尾,内容是BASE64编码.
 查看PEM格式证书的信息:
 
     openssl x509 -in certificate.pem -text -noout
+
 Apache和*NIX服务器偏向于使用这种编码格式.
 
-DER - Distinguished Encoding Rules,打开看是二进制格式,不可读.
+### DER 
+Distinguished Encoding Rules,打开看是二进制格式,不可读.
 查看DER格式证书的信息:
 
     openssl x509 -in certificate.der -inform der -text -noout
@@ -73,7 +74,14 @@ DER转为PEM openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
 或者生成自签名的证书
 openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如"yourcompany.com",或者你服务器的IP地址,其它都可以留空的.
-生产环境中还是不要使用自签的证书,否则浏览器会不认,或者如果你是企业应用的话能够强制让用户的浏览器接受你的自签证书也行.向权威机构要证书通常是要钱的,但现在也有免费的,仅仅需要一个简单的域名验证即可.有兴趣的话查查"沃通数字证书".
+生产环境中还是不要使用自签的证书,否则浏览器会不认,或者如果你是企业应用的话能够强制让用户的浏览器接受你的自签证
+书也行.向权威机构要证书通常是要钱的,但现在也有免费的,仅仅需要一个简单的域名验证即可.有兴趣的话查查"沃通数字证书".
+
+### convert pem to der
+    openssl x509 -outform der -in certificate.pem -out certificate.der
+
+### pem to jks
+    https://docs.oracle.com/cd/E35976\_01/server.740/es\_admin/src/tadm\_ssl\_convert\_pem\_to_jks.html
 
 ---
 https://www.cnblogs.com/guogangj/p/4118605.html

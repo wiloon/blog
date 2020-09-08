@@ -7,7 +7,7 @@ title = "foxmail"
 
 ### 邮件存储目录修改
 关闭foxmail  
-打开FMStorage.list文件  
+打开C:\Foxmail 7.2\FMStorage.list文件  
 修改邮件存储路径  
 启动foxmail  
 Done.  
