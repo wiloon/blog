@@ -8,6 +8,13 @@ title = "hardware"
 3840*2160
 
 ### 斐讯N1
+CPU: Amlogic S905, ARM Cortex-A53 四核 up to 2.0GHz
+GPU: ARM Mali™-450, 5core
+ETH: RTL8211F 100/1000M
+WLAN: Broadcom CYW43455 2.4GHz + 5GHz + BT4.1
+ROM: Samsung KLM8G1GEME or FORESEE NCEMAM6G-08G，eMMC5.1 MLC = 8GB
+RAM: Samsung K4B4G1646E-BYMA, 4Gb(512MB) DDR3-1866MHz * 4 = 2GB
+
 CPU型号：晶晨 Amlogic S905，ARM Cortex-A53，四核 2GHz，GPU是ARM Mali™-450，支持4K@60fps硬件解码，HDMI 2.0。
 四核64位
 
@@ -63,8 +70,8 @@ wireguard
 ### Pixel2
 
 ### Intel® Compute Stick STK1AW32SC
-
 Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz  
+
 ### board
     cpu: Intel(R) Celeron(R) CPU 1037U @ 1.80GHz
     MEM: DDR3
