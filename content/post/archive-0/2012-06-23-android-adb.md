@@ -12,35 +12,35 @@ http://blog.sina.com.cn/s/blog_51335a000101j59n.html
 
 启动adb服务, 该服务用来为模拟器或通过USB数据线连接的真机服务, 需要以root权限启动, 否则adb devices会提示no permissions.
 
-[shell]
+```bash
   
 adb kill-server
   
-sudo adb start-server
+adb start-server
   
-[/shell]
+```
 
 列出已连接的android设备
 
-[shell]
+```bash
   
 adb devices
   
-[/shell]
+```
 
 安装apk
 
-[shell]
+```bash
   
 adb install xxx/xxx.apk
   
-[/shell]
+```
 
-[shell]
+```bash
   
 adb shell
   
-[/shell]
+```
 
 <p style="color: #4b4b4b;">
   在SDK的Tools文件夹下包含着Android模拟器操作的重要命令ADB，ADB的全称为Android Debug Bridge，就是调试桥的作用，借助这个工具，我们可以管理设备或手机模拟器的状态 ，还可以进行以下的操作：
