@@ -4,21 +4,18 @@ author: wiloon
 type: post
 date: 2017-05-05T04:30:59+00:00
 url: /?p=10222
-categories:
-  - Uncategorized
 
 ---
--h: help
-  
--l: 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名
-  
--m: 输出传递给main 方法的参数，在嵌入式jvm上可能是null， 在这里，在启动main方法的时候，我给String[] args传递两个参数。hollis,chuang,执行jsp -m:
-  
--v: 输出传递给JVM的参数 在这里，在启动main方法的时候，我给jvm传递一个参数：-Dfile.encoding=UTF-8,执行jps -v：
-
-http://www.hollischuang.com/archives/105
-
 jps位于jdk的bin目录下，其作用是显示当前系统的java进程情况，及其id号。 jps相当于Solaris进程工具ps。不象”pgrep java”或”ps -ef grep java”，jps并不使用应用程序名来查找JVM实例。因此，它查找所有的Java应用程序，包括即使没有使用java执行体的那种（例如，定制的启动 器）。另外，jps仅查找当前用户的Java进程，而不是当前系统中的所有进程。
+
+    -h: help
+    -l: 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名
+    -m: 输出传递给main 方法的参数，在嵌入式jvm上可能是null， 在这里，在启动main方法的时候，我给String[] args传递两个参数。hollis,chuang,执行jsp -m:
+    -v: 输出传递给JVM的参数 在这里，在启动main方法的时候，我给jvm传递一个参数：-Dfile.encoding=UTF-8,执行jps -v：
+
+
+
+
 
 位置
 
@@ -157,3 +154,5 @@ JPS失效处理
 1.如何给main传递参数 在eclipse中，鼠标右键->Run As->Run COnfiguations->Arguments->在Program arguments中写下要传的参数值
 
 1.如何给JVM传递参数 在eclipse中，鼠标右键->Run As->Run COnfiguations->Arguments->在VM arguments中写下要传的参数值（一般以-D开头）
+
+http://www.hollischuang.com/archives/105
