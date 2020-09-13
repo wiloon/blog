@@ -3,14 +3,15 @@ date = "2020-05-12T15:03:55Z"
 title = "hugo, envoy, github actions"
 
 +++
-### hugo pages, nginx server
-
+### hugo pages, nginx server simple
     podman run -d \
     --name hugo   \
-    --ip=10.88.0.10   \
-    -v /opt/hugo/public:/usr/share/nginx/html   \
+    -p 30080:80 \
+    -v /home/blog/public:/usr/share/nginx/html   \
     -v /etc/localtime:/etc/localtime   \
     nginx:alpine
+
+### hugo pages, nginx server
     
     podman run -d \
     --name hugo   \
