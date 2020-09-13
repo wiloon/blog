@@ -32,6 +32,7 @@ choco upgrade keepassxc
 | vscode                     | Visual Studio Code    |
 |notepadplusplus||
 |puyyt||
+|telegraf||
 
 ### apps
 

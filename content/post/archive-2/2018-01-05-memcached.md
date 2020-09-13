@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+### run as docker 
 ```bash
 podman run \
 --name memcache \
@@ -17,12 +18,11 @@ podman run \
 memcached -m 16
 ```
 
-```bash
-# connect
-telnet HOST PORT
+### connect
+    telnet HOST PORT
 
-set foo 0 0 3
-bar
+### set
+```bash
 
 set key flags exptime bytes [noreply]
 value
@@ -34,6 +34,10 @@ exptime：在缓存中保存键值对的时间长度（以秒为单位，0 表�
 bytes：在缓存中存储的字节数
 noreply（可选）： 该参数告知服务器不需要返回数据
 value：存储的值（始终位于第二行）（可直接理解为key-value结构中的value）
+
+set foo 0 0 3
+bar
+
 
 #获取存储在 key(键) 中的 value(数据值) ，如果 key 不存在，则返回空。
 get key
