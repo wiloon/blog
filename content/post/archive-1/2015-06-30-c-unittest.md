@@ -1,5 +1,5 @@
 ---
-title: java 线程状态
+title: java 线程
 author: wiloon
 type: post
 date: 2015-06-30T02:52:35+00:00
@@ -8,6 +8,36 @@ categories:
   - Uncategorized
 
 ---
+### Thread Dump日志的线程信息
+    "resin-22129" daemon prio=10 tid=0x00007fbe5c34e000 nid=0x4cb1 waiting on condition [0x00007fbe4ff7c000]
+      java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:315)
+        at com.caucho.env.thread2.ResinThread2.park(ResinThread2.java:196)
+        at com.caucho.env.thread2.ResinThread2.runTasks(ResinThread2.java:147)
+        at com.caucho.env.thread2.ResinThread2.run(ResinThread2.java:118)
+
+    "Timer-20" daemon prio=10 tid=0x00007fe3a4bfb800 nid=0x1a31 in Object.wait() [0x00007fe3a077a000]
+      java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x00000006f0620ff0> (a java.util.TaskQueue)
+        at java.util.TimerThread.mainLoop(Timer.java:552)
+        - locked <0x00000006f0620ff0> (a java.util.TaskQueue)
+        at java.util.TimerThread.run(Timer.java:505)
+
+以上依次是：  
+
+    "resin-22129" 线程名称：如果使用 java.lang.Thread 类生成一个线程的时候，线程名称为 Thread-(数字) 的形式，这里是resin生成的线程；
+    daemon 线程类型：线程分为守护线程 (daemon) 和非守护线程 (non-daemon) 两种，通常都是守护线程；
+    prio=10 线程优先级：默认为5，数字越大优先级越高；
+    tid=0x00007fbe5c34e000 JVM线程的id：JVM内部线程的唯一标识，通过 java.lang.Thread.getId()获取，通常用自增的方式实现；
+    nid=0x4cb1 系统线程id：对应的系统线程id（Native Thread ID)，可以通过 top 命令进行查看，现场id是十六进制的形式；
+    waiting on condition 系统线程状态：这里是系统的线程状态，具体的含义见下面 系统线程状态 部分；
+    [0x00007fbe4ff7c000] 起始栈地址：线程堆栈调用的其实内存地址；
+    java.lang.Thread.State: WAITING (parking) JVM线程状态：这里标明了线程在代码级别的状态，详细的内容见下面的 JVM线程运行状态 部分。
+    线程调用栈信息：下面就是当前线程调用的详细栈信息，用于代码的分析。堆栈信息应该从下向上解读，因为程序调用的顺序是从下向上的。
+
+
 在Java程序中，JVM负责线程的调度。线程调度是指按照特定的机制为多个线程分配CPU的使用权。
   
 调度的模式有两种：分时调度和抢占式调度。分时调度是所有线程轮流获得CPU使用权，并平均分配每个线程占用CPU的时间；抢占式调度是根据线程的优先级别来获取CPU的使用权。JVM的线程调度模式采用了抢占式模式。
@@ -158,27 +188,18 @@ Disables the current thread for thread scheduling purposes unless the permit is 
   
 java.lang.Thread.State: BLOCKED (on object monitor)
 
-2，线程状态为“waiting on condition”：
-  
-说明它在等待另一个条件的发生，来把自己唤醒，或者干脆它是调用了 sleep(N)。
-  
-此时线程状态大致为以下几种：
-  
+### waiting on condition
+说明它在等待另一个条件的发生，来把自己唤醒，或者干脆它是调用了 sleep(N)。  
+此时线程状态大致为以下几种：  
 java.lang.Thread.State: WAITING (parking)：一直等那个条件发生；
-  
 java.lang.Thread.State: TIMED_WAITING (parking或sleeping)：定时的，那个条件不到来，也将定时唤醒自己。
+如果大量线程在“waiting on condition”：  
+可能是它们又跑去获取第三方资源，尤其是第三方网络资源，迟迟获取不到Response，导致大量线程进入等待状态。  
+所以如果你发现有大量的线程都处在 Wait on condition，从线程堆栈看，正等待网络读写，这可能是一个网络瓶颈的征兆，因为网络阻塞导致线程无法执行。  
 
-3，如果大量线程在“waiting for monitor entry”：
-  
-可能是一个全局锁阻塞住了大量线程。
-  
-如果短时间内打印的 thread dump 文件反映，随着时间流逝，waiting for monitor entry 的线程越来越多，没有减少的趋势，可能意味着某些线程在临界区里呆的时间太长了，以至于越来越多新线程迟迟无法进入临界区。
-
-4，如果大量线程在“waiting on condition”：
-  
-可能是它们又跑去获取第三方资源，尤其是第三方网络资源，迟迟获取不到Response，导致大量线程进入等待状态。
-  
-所以如果你发现有大量的线程都处在 Wait on condition，从线程堆栈看，正等待网络读写，这可能是一个网络瓶颈的征兆，因为网络阻塞导致线程无法执行。
+### waiting for monitor entry
+可能是一个全局锁阻塞住了大量线程。  
+如果短时间内打印的 thread dump 文件反映，随着时间流逝，waiting for monitor entry 的线程越来越多，没有减少的趋势，可能意味着某些线程在临界区里呆的时间太长了，以至于越来越多新线程迟迟无法进入临界区。  
 
 线程状态为“in Object.wait()”：
   

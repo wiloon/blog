@@ -4,8 +4,6 @@ author: wiloon
 type: post
 date: 2011-08-20T20:00:03+00:00
 url: /?p=468
-bot_views:
-  - 3
 categories:
   - Linux
 
@@ -36,6 +34,7 @@ grep -o objStr  filename|wc -l
   * -G, -basic-regexp BRE 模式，也是默认的模式
   * -E, -extended-regexp ERE 模式
   * -h, 查询多文件时不显示文件名。
+  * -a, --text: 强制作为文本文件处理， 报错：Binary file [some_file] matches 的时候可以用。
 
 BRE(basic regular expression)
 
