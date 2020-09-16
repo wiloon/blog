@@ -4,14 +4,6 @@ author: wiloon
 type: post
 date: 2011-04-16T01:23:24+00:00
 url: /?p=22
-bot_views:
-  - 22
-views:
-  - 2
-categories:
-  - DataBase
-tags:
-  - MySQL
 
 ---
 ### 查看建表语句
