@@ -111,15 +111,15 @@ sudo pacman -S powerdevil kmix kscreen ark
 | dingtalk                              | 钉钉                                        |
 | menulibre                             | xfce的系统菜单管理工具                      |
 | ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                     |
-| goland                                |yay -S goland goland-jre, 两个一起安装| 
+| goland                                | yay -S goland goland-jre, 两个一起安装| 
 | zoom                                  |                                             |
 | shutter                               |                                             |
 | perl-goo-canvas                       | shutter 的画线插件                          |
 | google-chrome-dev                     |                                             |
 | intellij-idea-community-edition-jre   | idea with jre                               |
 | telegraf                              |                                             |
-|tableplus|mysql client|
-|procmon| 微软的进程监控工具|
+| tableplus|mysql client|
+| procmon| 微软的进程监控工具|
 
 ### KDE
 

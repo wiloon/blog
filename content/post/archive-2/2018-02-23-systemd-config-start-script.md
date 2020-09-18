@@ -304,4 +304,4 @@ https://blog.csdn.net/fu_wayne/article/details/38018825
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW" data-secret="rpemgAP8dW" width="600" height="338" title="《systemctl开机启动zookeeper》—应用开发笔记" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW

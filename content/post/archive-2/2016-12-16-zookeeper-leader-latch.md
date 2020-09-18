@@ -101,4 +101,4 @@ http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/
   
 </blockquote>
 
-<iframe title="《跟着实例学习ZooKeeper的用法： Leader选举》—并发编程网 - ifeve.com" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0" data-secret="mwCqdwnDV0" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0
