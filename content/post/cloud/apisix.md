@@ -12,6 +12,7 @@ title = "apisix"
     --name apisix \
     -v apisix-logs:/usr/local/apisix/logs \
     -v apisix-conf:/usr/local/apisix/conf \
+    -v /etc/letsencrypt/live/wiloon.com-0001:/usr/local/apisix/cert \
     -p 9180:9180 \
     -p 9080:9080 \
     -p 443:9443 \
