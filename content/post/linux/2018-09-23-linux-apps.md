@@ -36,7 +36,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | rsibreak              | 番茄钟                                                       |
 | libreoffice-fresh     |                                                              |
 | ark                   | kde dolphin extract zip,gz                                   |
-| spectacle             | kde screen shot                                              |
 | neofetch              |                                                              |
 | wine                  | 需要开启Multilib仓库                                         |
 | qalculate-gtk         | 全宇宙最好用的计算器                                         |
@@ -68,7 +67,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | podman                |                                                              |
 | v2ray                 |                                                              |
 | nethogs               |                                                              |
-| flameshot             | 截图工具                                                     |
+| flameshot             | 截图工具,screenshot                                                 |
 | ttf-jetbrains-mono    | jetbrain的mono字体                                           |
 | gpick                 | 颜色拾取工具                                                 |
 |	telegram-desktop| 	telegram|
@@ -91,6 +90,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |termite|支持32位色的终端|
 |neovim|用户体验更好的vim|
 |adobe-source-code-pro-fonts|adobe 的编程字体|
+
 
 ### AUR, yay:
 
@@ -120,6 +120,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | telegraf                              |                                             |
 | tableplus|mysql client|
 | procmon| 微软的进程监控工具|
+|webstorm-jre| jetbrain, webstorm|
 
 ### KDE
 
