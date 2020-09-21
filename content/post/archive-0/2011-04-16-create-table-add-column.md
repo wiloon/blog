@@ -26,22 +26,20 @@ SELECT @@SESSION.sql_mode;
 ### docker server
 
 ```bash
-    podman run \
+    podman run    -d \
     --name mariadb \
     -p 3306:3306 \
     -v /etc/localtime:/etc/localtime:ro \
     -v mysql-config:/etc/mysql/conf.d \
     -v mysql-data:/var/lib/mysql \
     -e MYSQL_ROOT_PASSWORD=password0 \
-    -d \
     mariadb:latest \
     --character-set-server=utf8mb4 \
     --collation-server=utf8mb4_unicode_ci
 
     # docker client
     podman run -it \
-    --network some-network \
-    --rm mariadb mysql -h host0 -u user0 -p
+    --rm mariadb mysql -h 127.0.0.1 -u root -p password0
 ```
 
 ### mysql client
@@ -378,6 +376,10 @@ alter table tablename drop index indexname;
 show index from tablename;
   
 show create table pk_tab2;
+
+### ClassNotFoundException: com.mysql.jdbc.Driver
+download and install connector/J , the JDBC driver for MySql.  
+mysql-connector-java-5.1.15-bin.jar
 
 http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html
 

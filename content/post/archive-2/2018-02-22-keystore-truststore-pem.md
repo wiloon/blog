@@ -28,6 +28,12 @@ Privacy Enhanced Mail,打开看文本格式,以"-----BEGIN..."开头, "-----END.
 
 Apache和*NIX服务器偏向于使用这种编码格式.
 
+#### convert multi line pem to signle line pem
+    awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert-name.pem
+
+https://docs.vmware.com/cn/Unified-Access-Gateway/2.9/com.vmware.access-point-29-deploy-config/GUID-870AF51F-AB37-4D6C-B9F5-4BFEB18F11E9.html
+
+
 ### DER 
 Distinguished Encoding Rules,打开看是二进制格式,不可读.
 查看DER格式证书的信息:

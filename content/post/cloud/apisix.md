@@ -12,6 +12,7 @@ title = "apisix"
     --name apisix \
     -v apisix-logs:/usr/local/apisix/logs \
     -v apisix-conf:/usr/local/apisix/conf \
+    -v /etc/letsencrypt/live/wiloon.com-0001:/usr/local/apisix/cert \
     -p 9180:9180 \
     -p 9080:9080 \
     -p 443:9443 \
@@ -51,7 +52,7 @@ title = "apisix"
     }
 }'
 
-
+### config host and upstrem
 curl "http://192.168.50.101:9080/apisix/admin/routes/5" -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
 {
     "uri": "/*",
@@ -61,3 +62,21 @@ curl "http://192.168.50.101:9080/apisix/admin/routes/5" -H 'X-API-KEY: edd1c9f03
     "upstream_id": 50
 }'
 
+### config tls cert
+convert multi line pem to single line pem with following command
+
+    awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert-name.pem
+
+    curl http://127.0.0.1:9080/apisix/admin/ssl/1 -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
+    {
+        "cert": "-----BEGIN CERTIFICATE-----\n<base64 pem cert>\n-----END CERTIFICATE-----\n",
+        "key": "-----BEGIN PRIVATE KEY-----\nM<base64 pem private key>\n-----END PRIVATE KEY-----\n",
+        "sni": "wiloon.com"
+    }'
+
+    curl http://127.0.0.1:9080/apisix/admin/ssl/2 -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
+    {
+        "cert": "-----BEGIN CERTIFICATE-----\n<base64 pem cert>\n-----END CERTIFICATE-----\n",
+        "key": "-----BEGIN PRIVATE KEY-----\nM<base64 pem private key>\n-----END PRIVATE KEY-----\n",
+        "sni": "*.wiloon.com"
+    }'
