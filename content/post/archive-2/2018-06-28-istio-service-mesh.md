@@ -1,5 +1,5 @@
 ---
-title: Istio Service Mesh
+title: Istio, Service Mesh
 author: wiloon
 type: post
 date: 2018-06-28T04:55:10+00:00
@@ -8,6 +8,8 @@ categories:
   - Uncategorized
 
 ---
+service mesh是微服务时代的TCP协议
+
 Istio是由Google/IBM/Lyft共同开发的新一代Service Mesh开源项目
 
 容错：当请求失败和重试的时候，使用它能够理解的响应状态码；
