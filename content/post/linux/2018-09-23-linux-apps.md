@@ -120,7 +120,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | telegraf                              |                                             |
 | tableplus|mysql client|
 | procmon| 微软的进程监控工具|
-|webstorm-jre| jetbrain, webstorm|
+|webstorm-jre| yay -S webstorm webstorm-jre|
 
 ### KDE
 
