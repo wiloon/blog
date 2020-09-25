@@ -12,11 +12,41 @@ title = "vue"
 
 ```bash
 
-install nodejs
-install yarn
+sudo pacman -S nodejs
+sudo pacman -S yarn
 yarn global add vue
 yarn global remove vue-cli
 yarn global add @vue/cli
+```
+### 用vue cli 创建一个项目 
+    vue create hello-world
+### 或者 使用图形界面
+    vue ui
+#### unit test
+Jest
+#### E2E test
+Cypress
+
+### run 
+yarn serve
+
+### add vuetify
+    vue add vuetify
+
+#### Could not find a declaration file for module 'vuetify/lib'
+    vim tsconfig.json
+
+    "compilerOptions": {
+         "types": ["...", "vuetify"],
+
+
+ #### a-la-carte 组件
+ 只包含需要(想要)使用的组件,而不是获取所有组件
+
+### 使用 axios 访问 API
+    yarn add axios
+    
+```bash
 yarn global add @vue/cli-service
 yarn global add @vue/cli-plugin-babel
 yarn global add @vue/cli-plugin-e2e-cypress
@@ -122,3 +152,8 @@ Pug，Babel (with ES2015 modules)，和 Stylus。
 - this.$route.path
 - window.location.href
 - this.$route.params
+
+
+---
+
+https://cli.vuejs.org/zh/guide/prototyping.html

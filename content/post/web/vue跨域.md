@@ -61,19 +61,18 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 在Vue中使用axios，网上有两种方法，一种是将axios加入Vue的原型里，我更推荐第二种方法：
 
     npm install axios vue-axios
-    复制代码
+
     
     import axios from 'axios';
     import VueAxios from 'vue-axios';
     Vue.use(VueAxios,axios);
-    复制代码
 
 以我上面的proxy配置为基础，想要让代理成功转发到`localhost/index/phpinfo.php`，在Vue实例中axios需要这样写访问地址：
 
     this.axios.get('/index/phpinfo.php').then((res)=>{
             console.log(res);
           })
-    复制代码
+
 
 我们来分析这些代码整个发挥作用的原理是什么？首先，axios去访问`/index/phpinfo.php`，这是个相对地址，所以真实访问地址其实是`localhost:8080/index/phpinfo.php`，然而`/index/phpinfo.php`被我们配置的`/index`匹配到了 ，所以访问被proxy代理，那转发到哪个路径呢？在`pathRewrite`中，我们将模式`^/index`的路径清除了，所以最终的访问路径是 `target`+`pathRewrite`+ 剩余的部分 ， 这样也就是 `http://localhost/index`++`/phpinfo.php`
 
@@ -108,9 +107,6 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
     }
     
 
-[https://segmentfault.com/a/1190000010792260](https://segmentfault.com/a/1190000010792260 "https://segmentfault.com/a/1190000010792260")
+https://segmentfault.com/a/1190000010792260
 
-作者：熊饲  
-链接：[https://juejin.im/post/5d1cc073f265da1bcb4f486d](https://juejin.im/post/5d1cc073f265da1bcb4f486d "https://juejin.im/post/5d1cc073f265da1bcb4f486d")  
-来源：掘金  
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+https://juejin.im/post/5d1cc073f265da1bcb4f486d
