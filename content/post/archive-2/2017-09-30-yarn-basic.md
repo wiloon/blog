@@ -8,7 +8,9 @@ categories:
   - Uncategorized
 
 ---
-
+### build
+   yarn build
+   yarn build --report // 会在dist目录下生成一个report.html
 ### npm > yarn
 https://classic.yarnpkg.com/zh-Hans/docs/migrating-from-npm/
 ```bash

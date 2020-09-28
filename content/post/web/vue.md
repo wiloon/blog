@@ -154,6 +154,18 @@ Pug，Babel (with ES2015 modules)，和 Stylus。
 - this.$route.params
 
 
+### 组件按组分块
+    const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')
+    const Bar = () => import(/* webpackChunkName: "group-foo" */ './Bar.vue')
+    const Baz = () => import(/* webpackChunkName: "group-foo" */ './Baz.vue')
+
+### JavaScript Source Map
+Source map就是一个信息文件，里面储存着位置信息。也就是说，转换后的代码的每一个位置，所对应的转换前的位置。
+有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码。
+
+#### vue.config.js
+        // 生产环境 sourceMap
+        productionSourceMap: false,
 ---
 
 https://cli.vuejs.org/zh/guide/prototyping.html
