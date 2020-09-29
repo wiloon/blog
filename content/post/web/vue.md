@@ -166,6 +166,57 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
 #### vue.config.js
         // 生产环境 sourceMap
         productionSourceMap: false,
+
+### 去掉微信页面上的缩放按钮
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+
+#### vue-meta
+    yarn add vue-meta
+#### main.ts
+    import VueMeta from 'vue-meta'
+    Vue.use(VueMeta)
+    
+##### 常规页面
+    export default {
+    name: 'Home',
+    components: {},
+    metaInfo: {
+        meta: [
+        { charset: 'utf-8' },
+        {
+            name: 'description',
+            content: 'gator'
+        },
+        {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes'
+        }
+        ]
+    },
+    data () {
+        return {
+        dense: false
+        }
+    },
+    mounted () {
+        console.log('qr scanner mounted: ')
+    }
+    }
+
+#### 用了 vue-class-component 的页面 
+    @Component({
+    metaInfo: {
+        meta: [
+        { charset: 'utf-8' },
+        { name: 'description', content: 'gator' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes' }
+        ]
+    },
+    components: { Vin }
+    })
+
 ---
 
 https://cli.vuejs.org/zh/guide/prototyping.html
+https://blog.csdn.net/flyspace/article/details/39993103
