@@ -4,6 +4,9 @@ date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++
+### Dell U2412M
+1920x1200
+
 ### Sharp 
 3840*2160
 

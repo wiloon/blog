@@ -24,7 +24,7 @@ go mod edit -replace=old[@v]=new[@v]
 go mod edit -replace=golang.org/x/sys@v0.0.0-20190526052359-791d8a0f4d09=github.com/golang/sys@v0.0.0-20190526052359-791d8a0f4d09
 
 # replace到本地的包
-# git.xxx.com/path/to/package 参照 go.mod 已有的require项。
+# git.xxx.com/path/to/package 参照 go.mod 已有的require项, /path/to/local/package 配置到有go.mod文件的那层目录 
 go mod edit -replace=git.xxx.com/path/to/package@v1.0.2=/path/to/local/package
 # replace到本地目录可以不带版本号
 go mod edit -replace=github.com/wiloon/pingd-config=/home/wiloon/projects/pingd-config/
