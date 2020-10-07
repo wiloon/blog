@@ -8,6 +8,9 @@ categories:
   - Uncategorized
 
 ---
+### build
+   yarn build
+   yarn build --report // 会在dist目录下生成一个report.html
 
 ### npm > yarn
 https://classic.yarnpkg.com/zh-Hans/docs/migrating-from-npm/
@@ -24,6 +27,8 @@ yarn add -dev
 npm install packagename --save-dev 或 -D
 yarn add [package] --dev
 
+npm install --global http-server
+yarn global add http-server
 ```
 
 ### 打印依赖
