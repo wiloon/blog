@@ -189,3 +189,6 @@ func main(){
 
     // Deprecated
     func foo(){}
+
+### command
+        go env
