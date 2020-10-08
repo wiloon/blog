@@ -29,7 +29,7 @@ var v2 string
 var v3 [10] int  // 数组
 var v4 [] int  // 数组切片
 var v5 struct {
-f int
+    f int
 }
 var v6 *int   // 指针
 var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为int类型
