@@ -393,10 +393,7 @@ System.out.println(jedis.flushDB());
 // 添加数据
   
 shardedJedis.sadd("sets", "HashSet");
-  
-shardedJedis.sadd("sets", "SortedSet");
-  
-shardedJedis.sadd("sets", "TreeSet");
+
   
 // 判断value是否在列表中
   
