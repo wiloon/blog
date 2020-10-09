@@ -52,3 +52,6 @@ netstat -ano|findstr 8080
 
 ### LTSC
 Windows Server vNext Long-Term Servicing Channel (LTSC)
+
+### 启动项
+    C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
