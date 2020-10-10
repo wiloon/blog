@@ -1,5 +1,5 @@
 ---
-title: 'systemd/User  ssh-agent'
+title: 'systemd/User ssh-agent'
 author: wiloon
 type: post
 date: 2018-12-09T14:53:48+00:00
