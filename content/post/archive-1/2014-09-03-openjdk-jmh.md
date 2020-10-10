@@ -164,11 +164,11 @@ Mode
   
 Mode 表示 JMH 进行 Benchmark 时所使用的模式。通常是测量的维度不同，或是测量的方式不同。目前 JMH 共有四种模式：
 
-Throughput: 整体吞吐量，例如“1秒内可以执行多少次调用”。
+Throughput: 整体吞吐量，例如"1秒内可以执行多少次调用"。
   
-AverageTime: 调用的平均时间，例如“每次调用平均耗时xxx毫秒”。
+AverageTime: 调用的平均时间，例如"每次调用平均耗时xxx毫秒"。
   
-SampleTime: 随机取样，最后输出取样结果的分布，例如“99%的调用在xxx毫秒以内，99.99%的调用在xxx毫秒以内”
+SampleTime: 随机取样，最后输出取样结果的分布，例如"99%的调用在xxx毫秒以内，99.99%的调用在xxx毫秒以内"
   
 SingleShotTime: 以上模式都是默认一次 iteration 是 1s，唯有 SingleShotTime 是只运行一次。往往同时把 warmup 次数设为0，用于测试冷启动时的性能。
   
@@ -194,7 +194,7 @@ Mode 如之前所说，表示 JMH 进行 Benchmark 时所使用的模式。
 
 @State
   
-State 用于声明某个类是一个“状态”，然后接受一个 Scope 参数用来表示该状态的共享范围。因为很多 benchmark 会需要一些表示状态的类，JMH 允许你把这些类以依赖注入的方式注入到 benchmark 函数里。Scope 主要分为两种。
+State 用于声明某个类是一个"状态"，然后接受一个 Scope 参数用来表示该状态的共享范围。因为很多 benchmark 会需要一些表示状态的类，JMH 允许你把这些类以依赖注入的方式注入到 benchmark 函数里。Scope 主要分为两种。
 
 Thread: 该状态为每个线程独享。
   

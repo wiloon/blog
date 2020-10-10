@@ -40,7 +40,7 @@ mtime 最后一次内容修改时间, 如 vi 保存后等, 修改时间发生改
   
 (如果想反序查看的话需要加一个选项 -r)
   
-以上出自 “ShawOnline” 博客，请务必保留此出处http://shawonline.blog.51cto.com/304978/199674
+以上出自 "ShawOnline" 博客，请务必保留此出处http://shawonline.blog.51cto.com/304978/199674
   
 [acm]time 计量单位是天，即24H
   

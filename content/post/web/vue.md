@@ -214,6 +214,31 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
     components: { Vin }
     })
 
+### pwa
+https://www.jianshu.com/p/917e3e160030
+    vim manifest.json
+        {
+    "name": "PWA-DEMO",   //项目主名称
+    "short_name": "DEMO",   //项目小名
+    "icons": [   //设置你需要的logo图标，我这里随便找了一张
+        {
+        "src": "./timg.jpg",
+        "sizes": "192x192",
+        "type": "image/png"
+        },
+        {
+        "src": "./timg.jpg",
+        "sizes": "512x512",
+        "type": "image/png"
+        }
+    ],
+    "start_url": "./index.html",    //启动页面
+    "display": "standalone",      //启动过渡动画
+    "background_color": "#000000",    //背景颜色
+    "theme_color": "#4DBA87"    //导航栏颜色
+    }
+
+
 ---
 
 https://cli.vuejs.org/zh/guide/prototyping.html

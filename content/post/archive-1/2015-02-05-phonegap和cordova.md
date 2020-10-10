@@ -14,7 +14,7 @@ http://www.smallhead.cn/knowledge/422.html
 
 谈着两个名字必须要涉及到两个名词的由来，也就是说说他们的历史。小头我从phonegap1.9版本一直沿用到现在发展的3.3版本，了解他的发展历史也有一点。
 
-2008年8月，PhoneGap在旧金山举办的iPhoneDevCamp上崭露头角，起名为PhoneGap是创始人的想法：“为跨越Web技术和iPhone之间的鸿沟牵线搭桥”。当时PhoneGap隶属于Nitobe公司。经过几个版本的更新，这款PhoneGap开始支持更多的平台，在2011年10月4日，Adobe公司收购了这个Nitobe公司，当时adobe公司还有着adobe air 和flash。随后Adobe把PhoneGap项目捐献给了Apache基金会，但是保留了PhoneGap的商标所有权。而就在这时候PhoneGap开始分两条路而走，在Adobe公司内部一直保有着PhoneGap的商标所有权，而Apache收录这个项目后将其更名为Apache Callback。而捐献之后虽然PhoneGap的升级和维护工作大部分还是依托于Adobe的Nitobe项目组，所以在Adobe的PhoneGap官方宣扬的“PhoneGap”名号，而Apache对外公布的确实Callback名号，当2012年PhoneGap更新到1.4版本后，Apache又把名字更新成Cordova，有趣的是Cordova是PhoneGap团队附近一条街的名字。
+2008年8月，PhoneGap在旧金山举办的iPhoneDevCamp上崭露头角，起名为PhoneGap是创始人的想法："为跨越Web技术和iPhone之间的鸿沟牵线搭桥"。当时PhoneGap隶属于Nitobe公司。经过几个版本的更新，这款PhoneGap开始支持更多的平台，在2011年10月4日，Adobe公司收购了这个Nitobe公司，当时adobe公司还有着adobe air 和flash。随后Adobe把PhoneGap项目捐献给了Apache基金会，但是保留了PhoneGap的商标所有权。而就在这时候PhoneGap开始分两条路而走，在Adobe公司内部一直保有着PhoneGap的商标所有权，而Apache收录这个项目后将其更名为Apache Callback。而捐献之后虽然PhoneGap的升级和维护工作大部分还是依托于Adobe的Nitobe项目组，所以在Adobe的PhoneGap官方宣扬的"PhoneGap"名号，而Apache对外公布的确实Callback名号，当2012年PhoneGap更新到1.4版本后，Apache又把名字更新成Cordova，有趣的是Cordova是PhoneGap团队附近一条街的名字。
 
 随后就出现了我们经常混淆的PhoneGap和Cordova两个名字混淆的状况。从概念上将，两者的区别如下：
 
@@ -36,7 +36,7 @@ http://www.smallhead.cn/knowledge/422.html
 
 3.PhoneGap会不会在Cordova之上建立私有代码？
 
-答：就目前官方博客给出的消息是，到现在为止Phonegap和Apache Cordova唯一的区别就是包的名字不同，而这种状态还是会持续一段时间，并且在“持续一段时间”上加重语气。所以暂时不用担心在代码上PhoneGap和Cordova的不同。
+答：就目前官方博客给出的消息是，到现在为止Phonegap和Apache Cordova唯一的区别就是包的名字不同，而这种状态还是会持续一段时间，并且在"持续一段时间"上加重语气。所以暂时不用担心在代码上PhoneGap和Cordova的不同。
 
 参考：
 

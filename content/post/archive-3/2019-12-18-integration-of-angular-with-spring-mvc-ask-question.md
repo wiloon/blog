@@ -24,13 +24,13 @@ and then
 
 or use 'ng build -prod' for production build.
   
-this command will create a “dist” folder, copy all files including all folders.
+this command will create a "dist" folder, copy all files including all folders.
 
 <ol start="4">
   <li>
     Paste those files and folders into 'WebContent' directory.
   </li>
   <li>
-    Last thing, you need to change basehref=”./” in index.html.
+    Last thing, you need to change basehref="./" in index.html.
   </li>
 </ol>

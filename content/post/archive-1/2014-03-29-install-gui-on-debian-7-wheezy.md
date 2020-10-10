@@ -20,7 +20,7 @@ x32 http://cdimage.debian.org/debian-cd/7.4.0/i386/iso-cd/debian-7.4.0-i386-neti
 
 x64 http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso
 
-When you are at “Software selection” screen, \*unselect\* all the option.
+When you are at "Software selection" screen, \*unselect\* all the option.
 
 If you already have debian installed and you want to find out what your debian version is, you can use this command
 
@@ -34,7 +34,7 @@ You will need to install aptitude and tasksel before install gnome
 
 Aptitude is an Ncurses based FrontEnd to Apt, the debian package manager.
 
-Tasksel is a tool that installs multiple related packages as a co-ordinated “task” onto your system.
+Tasksel is a tool that installs multiple related packages as a co-ordinated "task" onto your system.
 
 \# apt-get install aptitude tasksel
 
@@ -214,7 +214,7 @@ fi
 
 LXDE
 
-The LXDE or “Lightweight X11 Desktop Environment” is an extremely fast-performing and energy-saving desktop environment. LXDE uses less CPU and less RAM than other environments. It is especially designed for cloud computers with low hardware specifications, such as netbooks, mobile devices (e.g. MIDs) or older computers. LXDE can be installed on many Linux distributions including Debian, Fedora, OpenSUSE and Ubuntu.
+The LXDE or "Lightweight X11 Desktop Environment" is an extremely fast-performing and energy-saving desktop environment. LXDE uses less CPU and less RAM than other environments. It is especially designed for cloud computers with low hardware specifications, such as netbooks, mobile devices (e.g. MIDs) or older computers. LXDE can be installed on many Linux distributions including Debian, Fedora, OpenSUSE and Ubuntu.
 
 minimum set of elements
 

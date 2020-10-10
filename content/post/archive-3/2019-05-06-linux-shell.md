@@ -1,5 +1,5 @@
 ---
-title: linux shell
+title: shell basic
 author: wiloon
 type: post
 date: 2019-05-06T04:27:52+00:00
@@ -35,7 +35,7 @@ sh\_to\_bash
 
 3.3、csh／tcsh
   
-C shell 使用的是“类C”语法,csh是具有C语言风格的一种shell，tcsh是增强版本的csh，目前csh已经很少使用了。
+C shell 使用的是"类C"语法,csh是具有C语言风格的一种shell，tcsh是增强版本的csh，目前csh已经很少使用了。
 
 3.4、ksh
   

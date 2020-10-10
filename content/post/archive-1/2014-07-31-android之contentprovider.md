@@ -30,7 +30,7 @@ Android之ContentProvider
 
 Uri uri = Uri.parse("content://com.changcheng.provider.contactprovider/contact")
 
-在Content Provider中使用的查询字符串有别于标准的SQL查询。很多诸如select, add, delete, modify等操作我们都使用一种特殊的URI来进行，这种URI由3个部分组成， “content://”, 代表数据的路径，和一个可选的标识数据的ID。以下是一些示例URI:
+在Content Provider中使用的查询字符串有别于标准的SQL查询。很多诸如select, add, delete, modify等操作我们都使用一种特殊的URI来进行，这种URI由3个部分组成， "content://", 代表数据的路径，和一个可选的标识数据的ID。以下是一些示例URI:
 
 content://media/internal/images 这个URI将返回设备上存储的所有图片
   

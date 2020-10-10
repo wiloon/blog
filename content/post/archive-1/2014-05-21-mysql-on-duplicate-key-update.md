@@ -1,5 +1,5 @@
 ---
-title: mysql “ON DUPLICATE KEY UPDATE”
+title: mysql "ON DUPLICATE KEY UPDATE"
 author: wiloon
 type: post
 date: 2014-05-21T01:33:15+00:00

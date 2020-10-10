@@ -78,11 +78,11 @@ Hugo translates Markdown files into HTML. By default, Hugo expects to find Markd
 
 ### Content
 
-Content is stored in text files that contain two sections. The first section is the “front matter,” which is the meta-information on the content. The second section contains Markdown that will be converted to HTML.
+Content is stored in text files that contain two sections. The first section is the "front matter," which is the meta-information on the content. The second section contains Markdown that will be converted to HTML.
 
 #### Front Matter
 
-The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn’t use the file’s extension to know the format. It looks for markers to signal the type. TOML is surrounded by “`+++`”, YAML by “`---`”, and JSON is enclosed in curly braces. I prefer to use TOML, so you’ll need to translate my examples if you prefer YAML or JSON.
+The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn’t use the file’s extension to know the format. It looks for markers to signal the type. TOML is surrounded by "`+++`", YAML by "`---`", and JSON is enclosed in curly braces. I prefer to use TOML, so you’ll need to translate my examples if you prefer YAML or JSON.
 
 The information in the front matter is passed into the template before the content is rendered into HTML.
 
@@ -112,7 +112,7 @@ The homepage template is a special type of list template. Hugo assumes that the 
 
 #### Partial Template
 
-A partial template is a template that can be included in other templates. Partial templates must be called using the “partial” template command. They are very handy for rolling up common behavior. For example, your site may have a banner that all pages use. Instead of copying the text of the banner into every single and list template, you could create a partial with the banner in it. That way if you decide to change the banner, you only have to change the partial template.
+A partial template is a template that can be included in other templates. Partial templates must be called using the "partial" template command. They are very handy for rolling up common behavior. For example, your site may have a banner that all pages use. Instead of copying the text of the banner into every single and list template, you could create a partial with the banner in it. That way if you decide to change the banner, you only have to change the partial template.
 
 ## Create a New Site
 
@@ -224,9 +224,9 @@ WARN: 2014/09/29 Unable to locate layout: [index.html _default/list.html _defaul
 WARN: 2014/09/29 Unable to locate layout: [404.html]
 ```
 
-That second warning is easier to explain. We haven’t created a template to be used to generate “page not found errors.” The 404 message is a topic for a separate tutorial.
+That second warning is easier to explain. We haven’t created a template to be used to generate "page not found errors." The 404 message is a topic for a separate tutorial.
 
-Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was “index.html.” That’s only used by the home page.
+Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was "index.html." That’s only used by the home page.
 
 I like that the verbose flag causes Hugo to list the files that it's searching for. For the home page, they are index.html, _default/list.html, and _default/single.html. There are some rules that we'll cover later that explain the names and paths. For now, just remember that Hugo couldn't find a template for the home page and it told you so.
 
@@ -1075,11 +1075,11 @@ $ vi themes/zafta/layouts/_default/single.html
 
 Generate the web site and verify the results. The title on the posts and the about page should both reflect the value in the markdown file.
 
-## Add “Date Published” to Posts
+## Add "Date Published" to Posts
 
 It's common to have posts display the date that they were written or published, so let's add that. The front matter of our posts has a variable named "date." It's usually the date the content was created, but let's pretend that's the value we want to display.
 
-### Add “Date Published” to the Template
+### Add "Date Published" to the Template
 
 We'll start by updating the template used to render the posts. The template code will look like:
 

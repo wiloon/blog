@@ -158,13 +158,13 @@ keytool -genkey -alias sslclient -keysize 2048 -validity 3650 -keyalg RSA -dname
 
 在这一步，你可以导出自我签署凭证或是Verisign或其他的认证机构的商业凭证的。这里只说导出自我签署的凭证：
 
-通过执行下面的命令把自我签署的凭证保存到 “selfsignedcert.cer”文件
+通过执行下面的命令把自我签署的凭证保存到 "selfsignedcert.cer"文件
   
 keytool -export -alias certificatekey -keystore keystore.jks -storepass 123456 -file selfsignedcert.cer
   
 keytool -export -alias certificatekey -keystore keystore.jks -rfc -file selfsignedcert.cer
 
-执行上面的命令，会要求你输入密码，就是上面生成keystore的输入的密码“123456”，
+执行上面的命令，会要求你输入密码，就是上面生成keystore的输入的密码"123456"，
 
 keytool -import -alias sslclient -keystore sslservertrust -file sslclient.cer
   

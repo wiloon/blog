@@ -3,11 +3,12 @@ title: git svn
 author: wiloon
 date: 2013-01-07T14:37:06.000+00:00
 url: "/?p=4986"
-categories:
-- Java
-- Web
 
 ---
+### install
+#### ubuntu
+    sudo apt-get install -y git-svn
+    
 ```bash
 # init
 mkdir -p /path/to/project-foo/
@@ -98,7 +99,7 @@ git pull --allow-unrelated-histories
 git push -u origin master -f
 
 git svn rebase
-git commit -a -m “”
+git commit -a -m ""
 git svn dcommit
 ```
 =======
@@ -138,7 +139,7 @@ git-svn基本⽤用法
 
 本地修改代码后提交
 
-git commit -a -m “”
+git commit -a -m ""
 
 同步远程svn 服务器
 

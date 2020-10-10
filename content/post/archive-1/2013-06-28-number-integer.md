@@ -53,7 +53,7 @@ select  LOG(256,10)*126   from dual
 
 特别是某些人对于boolean类型的处理；
 
-因为<a href="http://www.itpub.net/pubtree/?node=1" target="_blank">Oracle</a>的表结构中没有布尔类型，所以很多人干脆用integer 代替布尔类型，这个感觉有点“奢侈”；
+因为<a href="http://www.itpub.net/pubtree/?node=1" target="_blank">Oracle</a>的表结构中没有布尔类型，所以很多人干脆用integer 代替布尔类型，这个感觉有点"奢侈"；
 
 我一般都用char(1）表示布尔型；'0'表示false,'1'表示true
 

@@ -20,7 +20,7 @@ VPS远程操作用的最多的是SSH，有时候一些特殊需求也要用到�
   
 yum grouplist
   
-如果系统有“KDE Plasma Workspaces”，说明可以安装KDE图形化界面，然后执行一键安装命令：
+如果系统有"KDE Plasma Workspaces"，说明可以安装KDE图形化界面，然后执行一键安装命令：
   
 yum groupinstall "KDE Plasma Workspaces"
   
@@ -35,11 +35,11 @@ yum groupinstall "KDE Plasma Workspaces"
   
 这个配置文件只是一个模版，是不会被调用的。需要按照如下步骤复制1份或多份并修改相应的参数来对应不同的VNC viewer客户端。下面以root用户为例。
 
-复制一份配置文件，“@”后的1表示该配置文件对应的远程连接端口号为5901（5900+1）：
+复制一份配置文件，"@"后的1表示该配置文件对应的远程连接端口号为5901（5900+1）：
   
 cp /lib/systemd/system/vncserver@.service /lib/systemd/system/vncserver@:1.service
   
-远程连接端口号默认为5900+n，n为VNC服务端设置的连接序号，上面的序号就是配置文件名称里“.service”前的1。其它的以此类推。
+远程连接端口号默认为5900+n，n为VNC服务端设置的连接序号，上面的序号就是配置文件名称里".service"前的1。其它的以此类推。
 
 修改新配置文件：将（有两处）改为登录用户root，VNC远程连接后将是root权限。 如果是非root用户就直接用用户名替换即可。
   

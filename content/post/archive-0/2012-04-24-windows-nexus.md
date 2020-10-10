@@ -64,19 +64,19 @@ error: wrapper | OpenSCManager failed – Access is denied.
 
 click on start
   
-click “All Programs”
+click "All Programs"
   
 click on accessories
   
-right click on “Command Prompt” icon
+right click on "Command Prompt" icon
   
-click “properties”
+click "properties"
   
-click on the “shortcut” tab on the top
+click on the "shortcut" tab on the top
   
 click the advanced button at the bottom
   
-click on the check box that says “Run as Administrator”.
+click on the check box that says "Run as Administrator".
   
 click OK
 

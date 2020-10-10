@@ -173,7 +173,7 @@ public class Thread extends Object implements Runnable
 
 <http://jinguo.iteye.com/blog/286772>
 
-Runnable是Thread的接口，在大多数情况下“推荐用接口的方式”生成线程，因为接口可以实现多继承，况且Runnable只有一个run方法，很适合继承。
+Runnable是Thread的接口，在大多数情况下"推荐用接口的方式"生成线程，因为接口可以实现多继承，况且Runnable只有一个run方法，很适合继承。
 
 在使用Thread的时候只需要new一个实例出来，调用start()方法即可以启动一个线程。
   

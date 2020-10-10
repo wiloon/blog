@@ -147,6 +147,13 @@ sudo pacman -S powerdevil kmix kscreen ark
 | Name          | Comments |
 | ------------- | -------- |
 | openjdk-8-jdk |          |
+|openjdk-8-source||
+|git-svn        |             |
+|nautilus           |ubuntu默认的文件管理器|
+|ttf-wqy-microhei   |文泉驿-微米黑|
+|ttf-wqy-zenhei     |文泉驿-正黑|
+|xfonts-wqy         |文泉驿-点阵宋体|
+|keepassxc          ||
 
 ### xfce4
 file-roller

@@ -44,7 +44,7 @@ t.newInstance();
 
 Java中工厂模式经常使用newInstance()方法来创建对象，因此从为什么要使用工厂模式上可以找到具体答案。 例如：
   
-class c = Class.forName(“Example”);
+class c = Class.forName("Example");
   
 factory = (ExampleInterface)c.newInstance();
 
@@ -187,7 +187,7 @@ Class.forName（String driverClassName）加载JDBC驱动程序时，底层都�
 实质是：
 
 
-Class.forName（“com.mysql.jdbc.Driver”）是 强制JVM将com.mysql.jdbc.Driver这个类加载入内存，并将其注册到DriverManager类，然后根据DriverManager.getConnection（url，user,pwd）中的url找到相应的驱动类，最后调用该该驱动类的connect(url, info)来获得connection对象。
+Class.forName（"com.mysql.jdbc.Driver"）是 强制JVM将com.mysql.jdbc.Driver这个类加载入内存，并将其注册到DriverManager类，然后根据DriverManager.getConnection（url，user,pwd）中的url找到相应的驱动类，最后调用该该驱动类的connect(url, info)来获得connection对象。
 
 
 JDBC的驱动管理机制的 具体底层代码分析如下：
@@ -324,7 +324,7 @@ public Driver() throws SQLException {
 复制代码
 
 
-可 以看到，有一段static代码，调用了DriverManager的registerDriver方法。这其实就解释了 Class.forName（“com.mysql.jdbc.Driver”）能够完成MySql驱动注册的问题。因为forName会导致这段 static代码被调用，从而间接调用了registerDriver，完成注册过程。
+可 以看到，有一段static代码，调用了DriverManager的registerDriver方法。这其实就解释了 Class.forName（"com.mysql.jdbc.Driver"）能够完成MySql驱动注册的问题。因为forName会导致这段 static代码被调用，从而间接调用了registerDriver，完成注册过程。
 
 
 com.mysql.jdbc.Driver 从com.mysql.jdbc.NonRegisteringDriver继承而来，实际上是NonReisteringDriver完成了 java.sql.Driver接口的实现工作。转移目标，分析NonRegisteringDriver的connect函数。
@@ -363,7 +363,7 @@ return newConn;
 
 复制代码
 
-非 常简单，先parseURL，然后使用Connection去建立连接。parseURL只是简单的字符串分析，主要是分析传入的连接字符串是否满足 “jdbc:mysql://host:port/database“的格式，如果不满足，直接返回null，然后由DriverManager去试验下 一个Driver。如果满足，则建立一个Connection对象建立实际的数据库连接，这不是本人关注的问题，源码分析就此打住。
+非 常简单，先parseURL，然后使用Connection去建立连接。parseURL只是简单的字符串分析，主要是分析传入的连接字符串是否满足 "jdbc:mysql://host:port/database"的格式，如果不满足，直接返回null，然后由DriverManager去试验下 一个Driver。如果满足，则建立一个Connection对象建立实际的数据库连接，这不是本人关注的问题，源码分析就此打住。
 
 
 由此可见1中的问题答案是：DriverManager的轮询查询注册的Driver对象的工作方式所带来的性能代价并不是很大，主工作量只是parseURL函数。

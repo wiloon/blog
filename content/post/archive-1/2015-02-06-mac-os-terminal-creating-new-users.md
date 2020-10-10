@@ -16,7 +16,7 @@ Every Monday, we'll show you how to do something new and simple with Apple's bui
 
 Adding users through the GUI in OS X is an easy process, but sometimes, you may just need to quickly create an SSH user, or a user that is allowed to SFTP or FTP into the system. You can easily create a stripped-down account in OS X using the dscl command, and we'll show you how in this week's Terminal 101. Continue reading to learn all about creating new users through the Terminal.
 
-In order to create a complete user, we'll type the following commands one-at-a-time into the Terminal. These commands need to be run as either the root user or with the “sudo” prefix.
+In order to create a complete user, we'll type the following commands one-at-a-time into the Terminal. These commands need to be run as either the root user or with the "sudo" prefix.
 
 First, we'll create a new entry for the user under /Users:
 
@@ -42,7 +42,7 @@ Now, we'll set the user's home directory by running the following command. Ensur
 
 dscl . create /Users/corybohon NFSHomeDirectory /Local/Users/corybohon
   
-Now we'll add some security to the user account and set their password. Here, you'll replace “PASSWORD” with the actual password that will be used initially for their account. The user can always change the password later:
+Now we'll add some security to the user account and set their password. Here, you'll replace "PASSWORD" with the actual password that will be used initially for their account. The user can always change the password later:
 
 dscl . passwd /Users/corybohon PASSWORD
   

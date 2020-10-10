@@ -12,7 +12,7 @@ categories:
 > 
 > private ListView listCats;
   
-> private String catsName[]={“敬拜‧讚美”,”祈禱‧感恩”,”教導‧生活”,”見証‧委身”, “團契‧佈道”};
+> private String catsName[]={"敬拜‧讚美","祈禱‧感恩","教導‧生活","見証‧委身", "團契‧佈道"};
 > 
 > @Override
   

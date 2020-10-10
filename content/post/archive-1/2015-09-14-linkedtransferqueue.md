@@ -16,7 +16,7 @@ LinkedTransferQueue最早出现在JSR66R(一个轻量级并行执行框架)包�
   
 Doug Lea说LinkedTransferQueue是一个聪明的队列，他是ConcurrentLinkedQueue,
   
-SynchronousQueue (in “fair” mode), and unbounded LinkedBlockingQueue的超集。
+SynchronousQueue (in "fair" mode), and unbounded LinkedBlockingQueue的超集。
 
 有一篇论文讨论了其算法与性能：地址：http://www.cs.rice.edu/~wns1/papers/2006-PPoPP-SQ.pdf
 

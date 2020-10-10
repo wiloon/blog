@@ -118,9 +118,9 @@ org.eclipse.platform
 
 堆(Heap)和非堆(Non-heap)内存
   
-按照官方的说法：“Java虚拟机具有一个堆，堆是运行时数据区域，所有类实例和数组的内存均从此处分配。堆是在 Java
+按照官方的说法："Java虚拟机具有一个堆，堆是运行时数据区域，所有类实例和数组的内存均从此处分配。堆是在 Java
   
-虚拟机启动时创建的。”“在JVM中堆之外的内存称为非堆内存(Non-heap memory)”。可以看出JVM主要管理两种类型的内存：堆和非堆。
+虚拟机启动时创建的。""在JVM中堆之外的内存称为非堆内存(Non-heap memory)"。可以看出JVM主要管理两种类型的内存：堆和非堆。
   
 简单来说堆就是Java代码可及的内存，是留给开发人员使用的；
   
@@ -166,7 +166,7 @@ Windows系统下为1.5G-2G，Linux系统下为2G-3G），而64bit以上的处理
   
 那为什么同样的参数在快捷方式或者命令行中有效而在eclipse.ini文件中是无效的呢？这是因为我们没有遵守eclipse.ini文件的设置规则：
   
-参数形如“项 值”这种形式，中间有空格的需要换行书写，如果值中有空格的需要用双引号包括起来。比如我们使用-vm
+参数形如"项 值"这种形式，中间有空格的需要换行书写，如果值中有空格的需要用双引号包括起来。比如我们使用-vm
   
 C:\Java\jre1.6.0\bin\javaw.exe参数设置虚拟机，在eclipse.ini文件中要写成这样：
   
@@ -188,7 +188,7 @@ C:\Java\jre1.6.0\bin\javaw.exe
   
 实际运行的结果可以通过Eclipse中
   
-“Help”-“About Eclipse SDK”窗口里面的“Configuration Details”按钮进行查看。
+"Help"-"About Eclipse SDK"窗口里面的"Configuration Details"按钮进行查看。
   
 另外需要说明
   
@@ -221,7 +221,7 @@ org.eclipse.platform
 让GC可以更快的执行。
 
 
-下载了新的Eclipse Indigo(3.7)，却无法启动，报错“Failed to create the Java Virtual Machine”，如图：
+下载了新的Eclipse Indigo(3.7)，却无法启动，报错"Failed to create the Java Virtual Machine"，如图：
 
 一开始以为是eclipse3.7要求的JRE版本高，看了下readme，说是：Oracle Java 6 Update 17，我之前装的jdk1.6.16，装了最新版本的jdk，可还是不行。
 
@@ -235,7 +235,7 @@ Xml代码
 
 修改为128
 
-注意：eclipse.ini中有两处“-launcher.XXMaxPermSize”，都要改。 （不明白为什么一个参数配置两遍）
+注意：eclipse.ini中有两处"-launcher.XXMaxPermSize"，都要改。 （不明白为什么一个参数配置两遍）
 
 试了一下这种方法我这边可行，但不明白为什么改小了就可以了。
 

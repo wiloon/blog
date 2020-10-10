@@ -152,7 +152,7 @@ address 192.168.42.1
 netmask 255.255.255.0
 
         
-          如果原来有“iface wlan0 inet dhcp”之类的那么就删除，“wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf”什么的也删除。
+          如果原来有"iface wlan0 inet dhcp"之类的那么就删除，"wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf"什么的也删除。
         
         
         

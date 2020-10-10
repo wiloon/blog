@@ -1,5 +1,5 @@
 ---
-title: 'button input type=“button”   Which to use?'
+title: 'button input type="button"   Which to use?'
 author: wiloon
 type: post
 date: 2013-09-08T01:59:16+00:00

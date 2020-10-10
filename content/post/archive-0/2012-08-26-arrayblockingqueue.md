@@ -16,9 +16,9 @@ ArrayBlockingQueue是一个基于数组的阻塞队列实现，此队列按 FIFO
 
 队列的头部 是在队列中存在时间最长的元素。队列的尾部 是在队列中存在时间最短的元素。新元素插入到队列的尾部，队列检索操作则是从队列头部开始获得元素。
 
-这是一个典型的“有界缓存区”，固定大小的数组在其中保持生产者插入的元素和使用者提取的元素。一旦创建了这样的缓存区，就不能再增加其容量。试图向已满队列中放入元素会导致放入操作受阻塞；试图从空队列中检索元素将导致类似阻塞。
+这是一个典型的"有界缓存区"，固定大小的数组在其中保持生产者插入的元素和使用者提取的元素。一旦创建了这样的缓存区，就不能再增加其容量。试图向已满队列中放入元素会导致放入操作受阻塞；试图从空队列中检索元素将导致类似阻塞。
 
-此类支持对等待的生产者线程和使用者线程进行排序的可选公平策略。默认情况下，不保证是这种排序。然而，通过将公平性 (fairness) 设置为 true 而构造的队列允许按照 FIFO 顺序访问线程。公平性通常会降低吞吐量，但也减少了可变性和避免了“不平衡性”。
+此类支持对等待的生产者线程和使用者线程进行排序的可选公平策略。默认情况下，不保证是这种排序。然而，通过将公平性 (fairness) 设置为 true 而构造的队列允许按照 FIFO 顺序访问线程。公平性通常会降低吞吐量，但也减少了可变性和避免了"不平衡性"。
 
 ArrayBlockingQueue在构造时需要指定容量，并可以选择是否需要公平性，如果公平参数被设置true，等待时间最长的线程会优先得到处理（其实就是通过将ReentrantLock设置为true来达到这种公平性的：即等待时间最长的线程会先操作）。通常，公平性会使你在性能上付出代价，只有在的确非常需要的时候再使用它。它是基于数组的阻塞循环队列，此队列按 FIFO（先进先出）原则对元素进行排序。
   
@@ -46,11 +46,11 @@ public static void main(String[] args) {
           
 Scanner in = new Scanner(System.in);
           
-System.out.print(“Enter base directory (e.g. /usr/local/jdk5.0/src): “);
+System.out.print("Enter base directory (e.g. /usr/local/jdk5.0/src): ");
           
 String directory = in.nextLine();
           
-System.out.print(“Enter keyword (e.g. volatile): “);
+System.out.print("Enter keyword (e.g. volatile): ");
           
 String keyword = in.nextLine();
           
@@ -86,7 +86,7 @@ class FileEnumerationTask implements Runnable {
       
 //哑元文件对象，放在阻塞队列最后，用来标示文件已被遍历完
       
-public static File DUMMY = new File(“”);
+public static File DUMMY = new File("");
       
 private BlockingQueue<File> queue;
       
@@ -202,7 +202,7 @@ String line = in.nextLine();
               
 if (line.contains(keyword))
                   
-System.out.printf(“%s:%d:%s%n”, file.getPath(), lineNumber,
+System.out.printf("%s:%d:%s%n", file.getPath(), lineNumber,
                           
 line);
           

@@ -8,11 +8,11 @@ categories:
   - Agile
 
 ---
-f you've ever found yourself in a code oriented meeting in which people are going over issues and you find yourself dozed off in the corner – you've got an empathy problem. It isn't explicitly because you're a jackass (which, you very well may be), but because you cannot relate to the issues. Maybe you've never coded a REST interface before, handled the scaling issues of a database, or written the markup for a responsive website. You don't know what pitfalls exist, what complexities often arise, or what technical challenges are present — it's all unfamiliar and unknown. To remedy this, a colleague — <a title="Willie Miller" href="http://w.illiemiller.com/" target="_blank">Willie Miller</a> — and I engaged in what we call “dev swap.”
+f you've ever found yourself in a code oriented meeting in which people are going over issues and you find yourself dozed off in the corner – you've got an empathy problem. It isn't explicitly because you're a jackass (which, you very well may be), but because you cannot relate to the issues. Maybe you've never coded a REST interface before, handled the scaling issues of a database, or written the markup for a responsive website. You don't know what pitfalls exist, what complexities often arise, or what technical challenges are present — it's all unfamiliar and unknown. To remedy this, a colleague — <a title="Willie Miller" href="http://w.illiemiller.com/" target="_blank">Willie Miller</a> — and I engaged in what we call "dev swap."
 
 Willie is an academically trained programmer and has traditionally handled the back end while I do the front end for a lot of the projects we work on together (e.g., <a title="Boss Blueprint" href="http://beta.bossblueprint.com/" target="_blank">Boss Blueprint</a>). In an effort to gain a better appreciation for each other's work, we started a project in which we swap roles;I would write the back end and he would write the front.
 
-> “The rabbit hole for front end development is way deeper than I expected. It was as if I walked to the edge of a pit, dropped a rock, and never heard it hit the bottom.”
+> "The rabbit hole for front end development is way deeper than I expected. It was as if I walked to the edge of a pit, dropped a rock, and never heard it hit the bottom."
   
 > – Willie Miller
 

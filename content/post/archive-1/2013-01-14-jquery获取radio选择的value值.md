@@ -12,7 +12,7 @@ http://www.cnblogs.com/tangself/archive/2010/04/14/1711684.html
 
 jQuery获取Radio选择的Value值:
 
-var\_name = $(“input[name='radio\_name']:checked”).val();
+var\_name = $("input[name='radio\_name']:checked").val();
 
 1. $("input\[name='radio_name'\]\[checked\]").val();  //选择被选中Radio的Value值
   
@@ -652,9 +652,9 @@ $('#stsoft').val();
   
 设置value=1的项目为当前选中项
   
-$("#stsoft").attr("value",“1”);
+$("#stsoft").attr("value","1");
   
-$('#stsoft').val(“1”);
+$('#stsoft').val("1");
 
 Js代码
 

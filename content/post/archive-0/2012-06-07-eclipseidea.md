@@ -80,7 +80,7 @@ outline - structure, Ctrl+F12
   
   <ol>
     <li>
-      取消“Synchronize file on frame activation”和“Save files on framedeactivation”的选择
+      取消"Synchronize file on frame activation"和"Save files on framedeactivation"的选择
     </li>
     <li>
       同时我们选择"Save files automatically", 并将其设置为30秒，这样IDEA依然可以自动保持文件,所以在每次切换时，你需要按下Ctrl+S保存文件

@@ -147,17 +147,17 @@ _/1 * * * * ls >> /tmp/ls.txt
   
 星期　（0-6）//0代表星期天
   
-除了数字还有几个个特殊的符号就是”_”、”/”和”-“、”,”，_代表所有的取值范围内的数字，”/”代表每的意思,”*/5″表示每5个单位，”-“代表从某个数字到某个数字,”,”分开几个离散的数字。以下举几个例子说明问题：
+除了数字还有几个个特殊的符号就是"_"、"/"和"-"、","，_代表所有的取值范围内的数字，"/"代表每的意思,"*/5″表示每5个单位，"-"代表从某个数字到某个数字,","分开几个离散的数字。以下举几个例子说明问题：
 
 每天凌晨4点
   
-0 4 * * * echo “Good morning.” >> /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。
+0 4 * * * echo "Good morning." >> /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。
 
 
   
 晚上11点到早上8点之间每两个小时，早上八点
   
-0 23-7/2，8 * * * echo “Welcome to http://beyl.cn.：）” >> /tmp/test.txt
+0 23-7/2，8 * * * echo "Welcome to http://beyl.cn.：）" >> /tmp/test.txt
   
 每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点
   
@@ -195,7 +195,7 @@ HOME=/
   
 使用者 运行的路径
   
-大家注意”run-parts”这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名了。
+大家注意"run-parts"这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名了。
   
 cron
   
@@ -255,11 +255,11 @@ MAILTO=paul
 
 # run at 10 pm on weekdays, annoy Joe
 
-0 22 * * 1-5 mail -s “It's 10pm” joe%Joe,%%Where are your kids?%
+0 22 * * 1-5 mail -s "It's 10pm" joe%Joe,%%Where are your kids?%
   
-23 0-23/2 * * * echo “run 23 minutes after midn, 2am, 4am …, everyday”
+23 0-23/2 * * * echo "run 23 minutes after midn, 2am, 4am …, everyday"
   
-5 4 * * sun echo “run at 5 after 4 every sunday”
+5 4 * * sun echo "run at 5 after 4 every sunday"
   
 root 可以用 -u user name 来编辑其它使用者的 crontab 设定。
   

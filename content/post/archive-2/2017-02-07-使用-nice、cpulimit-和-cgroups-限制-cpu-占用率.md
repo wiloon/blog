@@ -86,7 +86,7 @@ cgroups 命令集
 
 对 cgroups 善加利用就可以控制好整个子系统的资源消耗。就拿 CoreOS 作为例子，这是一个专为大规模服务器部署而设计的最简化的 Linux 发行版本，它的 upgrade 进程就是使用 cgroups 来管控。这样，系统在下载和安装升级版本时也不会影响到系统的性能。
 
-下面做一下演示，我们将创建两个控制组（cgroups），并对其分配不同的 cpu 资源。这两个控制组分别命名为“cpulimited”和“lesscpulimited”。
+下面做一下演示，我们将创建两个控制组（cgroups），并对其分配不同的 cpu 资源。这两个控制组分别命名为"cpulimited"和"lesscpulimited"。
 
 使用 cgcreate 命令来创建控制组，如下所示：
 
@@ -94,7 +94,7 @@ sudo cgcreate -g cpu:/cpulimited
   
 sudo cgcreate -g cpu:/lesscpulimited
   
-其中“-g cpu”选项用于设定 cpu 的使用上限。除 cpu 外，cgroups 还提供 cpuset、memory、blkio 等控制器。cpuset 控制器与 cpu 控制器的不同在于，cpu 控制器只能限制一个 cpu 核的使用率，而 cpuset 可以控制多个 cpu 核。
+其中"-g cpu"选项用于设定 cpu 的使用上限。除 cpu 外，cgroups 还提供 cpuset、memory、blkio 等控制器。cpuset 控制器与 cpu 控制器的不同在于，cpu 控制器只能限制一个 cpu 核的使用率，而 cpuset 可以控制多个 cpu 核。
 
 cpu 控制器中的 cpu.shares 属性用于控制 cpu 使用率。它的默认值是 1024，我们将 lesscpulimited 控制组的 cpu.shares 设为1024（默认值），而 cpulimited 设为512，配置后内核就会按照2：1的比例为这两个控制组分配资源。
 

@@ -52,7 +52,7 @@ shutdown
   
 可以为详细时间，如22：00，晚上10点关闭计算机
   
-也可以作为详细分钟，如“+5”，则5分钟后关机。
+也可以作为详细分钟，如"+5"，则5分钟后关机。
   
 警告信息 可以是任意文本，信息，需要引号括起来才能使用。
   
@@ -62,7 +62,7 @@ shutdown
 
 shutdown -r now
 
-(2)、设置1分钟以后关闭计算机，并在SSH中提示“1 minute after shutdown”
+(2)、设置1分钟以后关闭计算机，并在SSH中提示"1 minute after shutdown"
 
 shutdown -h +1 "1 minute after shutdown"
 

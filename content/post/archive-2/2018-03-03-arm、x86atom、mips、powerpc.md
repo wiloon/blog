@@ -59,7 +59,7 @@ Powpc+Android目前在移植、完善过程中。
 
 (3)MIPS系列
 
-         MIPS是世界上很流行的一种RISC处理器。MIPS的意思是“无内部互锁流水级的微处理器”(Microprocessor without interlockedpipedstages)，其机制是尽量利用软件办法避免流水线中的数据相关问题。它最早是在80年代初期由斯坦福(Stanford)大学Hennessy教授领导的研究小组研制出来的。MIPS公司的R系列就是在此基础上开发的RISC工业产品的微处理器。这些系列产品为很多计算机公司采用构成各种工作站和计算机系统。
+         MIPS是世界上很流行的一种RISC处理器。MIPS的意思是"无内部互锁流水级的微处理器"(Microprocessor without interlockedpipedstages)，其机制是尽量利用软件办法避免流水线中的数据相关问题。它最早是在80年代初期由斯坦福(Stanford)大学Hennessy教授领导的研究小组研制出来的。MIPS公司的R系列就是在此基础上开发的RISC工业产品的微处理器。这些系列产品为很多计算机公司采用构成各种工作站和计算机系统。
     
         MIPS技术公司是美国著名的芯片设计公司，它采用精简指令系统计算结构(RISC)来设计芯片。和英特尔采用的复杂指令系统计算结构(CISC)相比，RISC具有设计更简单、设计周期更短等优点，并可以应用更多先进的技术，开发更快的下一代处理器。MIPS是出现最早的商业RISC架构芯片之一，新的架构集成了所有原来MIPS指令集，并增加了许多更强大的功能。MIPS自己只进行CPU的设计，之后把设计方案授权给客户，使得客户能够制造出高性能的CPU。
     
@@ -82,13 +82,13 @@ Powpc+Android目前在移植、完善过程中。
 
 2007年8月16日－MIPS科技宣布，中科院计算机研究所的龙芯中央处理器获得其处理器IP的全部专利和总线、指令集授权。
 
-2007年12月20日－MIPS科技宣布，扬智科技已取得其针对先进多媒体所设计的可定制化系统单芯片（SoC）核心“MIPS32 24KEcPro”授权。
+2007年12月20日－MIPS科技宣布，扬智科技已取得其针对先进多媒体所设计的可定制化系统单芯片（SoC）核心"MIPS32 24KEcPro"授权。
 
 (4)PowerPC系列
 
-         PowerPC 是一种精简指令集（RISC）架构的中央处理器（CPU），其基本的设计源自IBM（国际商用机器公司）的IBMPowerPC 601 微处理器POWER（PerformanceOptimized With Enhanced RISC；《IBM Connect 电子报》2007年8月号译为“增强RISC性能优化”）架构。二十世纪九十年代，IBM(国际商用机器公司)、Apple（苹果公司）和Motorola（摩托罗拉）公司开发PowerPC芯片成功，并制造出基于PowerPC的多处理器计算机。PowerPC架构的特点是可伸缩性好、方便灵活。
+         PowerPC 是一种精简指令集（RISC）架构的中央处理器（CPU），其基本的设计源自IBM（国际商用机器公司）的IBMPowerPC 601 微处理器POWER（PerformanceOptimized With Enhanced RISC；《IBM Connect 电子报》2007年8月号译为"增强RISC性能优化"）架构。二十世纪九十年代，IBM(国际商用机器公司)、Apple（苹果公司）和Motorola（摩托罗拉）公司开发PowerPC芯片成功，并制造出基于PowerPC的多处理器计算机。PowerPC架构的特点是可伸缩性好、方便灵活。
     
-        PowerPC 处理器有广泛的实现范围，包括从诸如 Power4 那样的高端服务器CPU 到嵌入式 CPU 市场（任天堂Gamecube 使用了 PowerPC）。PowerPC处理器有非常强的嵌入式表现，因为它具有优异的性能、较低的能量损耗以及较低的散热量。除了象串行和以太网控制器那样的集成 I/O，该嵌入式处理器与“台式机”CPU 存在非常显著的区别。
+        PowerPC 处理器有广泛的实现范围，包括从诸如 Power4 那样的高端服务器CPU 到嵌入式 CPU 市场（任天堂Gamecube 使用了 PowerPC）。PowerPC处理器有非常强的嵌入式表现，因为它具有优异的性能、较低的能量损耗以及较低的散热量。除了象串行和以太网控制器那样的集成 I/O，该嵌入式处理器与"台式机"CPU 存在非常显著的区别。
     
 
 学习资料参考于：

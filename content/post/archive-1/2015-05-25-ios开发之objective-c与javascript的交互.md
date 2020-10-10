@@ -16,11 +16,11 @@ LockSupport.park()和unpark()，与object.wait()和notify()的区别？
   
 2). 实现机制不同。虽然LockSuport可以指定monitor的object对象，但和object.wait()，两者的阻塞队列并不交叉。object.notifyAll()不能唤醒LockSupport的阻塞Thread.
 
-阻塞和唤醒是对于线程来说的，LockSupport的park/unpark更符合这个语义，以“线程”作为方法的参数， 语义更清晰，使用起来也更方便。而wait/notify的实现使得“线程”的阻塞/唤醒对线程本身来说是被动的，要准确的控制哪个线程、什么时候阻塞/唤醒很困难， 要不随机唤醒一个线程（notify）要不唤醒所有的（notifyAll）。
+阻塞和唤醒是对于线程来说的，LockSupport的park/unpark更符合这个语义，以"线程"作为方法的参数， 语义更清晰，使用起来也更方便。而wait/notify的实现使得"线程"的阻塞/唤醒对线程本身来说是被动的，要准确的控制哪个线程、什么时候阻塞/唤醒很困难， 要不随机唤醒一个线程（notify）要不唤醒所有的（notifyAll）。
 
 LockSupport.park()（以下简称 park() ）可能是 java.util.concurrent 包最重要的函数了，因为很多 java.util.concurrent 中的功能类都是利用 park() 来实现它们各自的阻塞。在 park() 之前 Java 也有过类似功能的函数——suspend()，相应的唤醒函数是 resume()。不过 suspend() 有个严重的问题是父线程有可能在调用 suspend() 之前子线程已经调用了 resume()，那么这个 resume() 并不会解除在它之后的 suspend()，因此父线程就会陷入永久的等待中。相比于 suspend()，park() 可以在以下几种情况解除线程的等待状态：
 
-在 park() 前曾经调用过该线程的 unpark() 进而获得了一次“继续执行的权利”，此时调用 park() 会立即返回，并且消耗掉相应的“继续执行的权利”。
+在 park() 前曾经调用过该线程的 unpark() 进而获得了一次"继续执行的权利"，此时调用 park() 会立即返回，并且消耗掉相应的"继续执行的权利"。
   
 在 park() 进入等待状态之后，有其他线程以该线程为目标调用 unpark()。
   
@@ -58,13 +58,13 @@ isAbsolute参数是指明时间是绝对的，还是相对的。
 
 先来解析下两个函数是做什么的。
 
-unpark函数为线程提供“许可(permit)”，线程调用park函数则等待“许可”。这个有点像信号量，但是这个“许可”是不能叠加的，“许可”是一次性的。
+unpark函数为线程提供"许可(permit)"，线程调用park函数则等待"许可"。这个有点像信号量，但是这个"许可"是不能叠加的，"许可"是一次性的。
 
-比如线程B连续调用了三次unpark函数，当线程A调用park函数就使用掉这个“许可”，如果线程A再次调用park，则进入等待状态。
+比如线程B连续调用了三次unpark函数，当线程A调用park函数就使用掉这个"许可"，如果线程A再次调用park，则进入等待状态。
 
-注意，unpark函数可以先于park调用。比如线程B调用unpark函数，给线程A发了一个“许可”，那么当线程A调用park时，它发现已经有“许可”了，那么它会马上再继续运行。
+注意，unpark函数可以先于park调用。比如线程B调用unpark函数，给线程A发了一个"许可"，那么当线程A调用park时，它发现已经有"许可"了，那么它会马上再继续运行。
 
-实际上，park函数即使没有“许可”，有时也会无理由地返回，这点等下再解析。
+实际上，park函数即使没有"许可"，有时也会无理由地返回，这点等下再解析。
 
 park和unpark的灵活之处
 
@@ -118,9 +118,9 @@ pthread\_cond\_t _cond [1] ;
   
 可以看到Parker类实际上用Posix的mutex，condition来实现的。
 
-在Parker类里的_counter字段，就是用来记录所谓的“许可”的。
+在Parker类里的_counter字段，就是用来记录所谓的"许可"的。
 
-当调用park时，先尝试直接能否直接拿到“许可”，即\_counter>0时，如果成功，则把\_counter设置为0,并返回：
+当调用park时，先尝试直接能否直接拿到"许可"，即\_counter>0时，如果成功，则把\_counter设置为0,并返回：
 
 void Parker::park(bool isAbsolute, jlong time) {
     
@@ -214,9 +214,9 @@ assert (status == 0, "invariant") ;
   
 简而言之，是用mutex和condition保护了一个_counter的变量，当park时，这个变量置为了0，当unpark时，这个变量置为1。
   
-值得注意的是在park函数里，调用pthread\_cond\_wait时，并没有用while来判断，所以posix condition里的”Spurious wakeup”一样会传递到上层Java的代码里。
+值得注意的是在park函数里，调用pthread\_cond\_wait时，并没有用while来判断，所以posix condition里的"Spurious wakeup"一样会传递到上层Java的代码里。
 
-关于”Spurious wakeup”，参考上一篇blog：http://blog.csdn.net/hengyunabc/article/details/27969613
+关于"Spurious wakeup"，参考上一篇blog：http://blog.csdn.net/hengyunabc/article/details/27969613
 
 if (time == 0) {
     

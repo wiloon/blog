@@ -43,7 +43,7 @@ As indicated by the name, MEMORY tables are stored in memory. They use hash inde
   
 2、仅适合使用的场合。heap不允许使用xxxTEXT和xxxBLOB数据类型；只允许使用=和<=>操作符来搜索记录（不允许<、>、<=或>=）；不支持auto_increment；只允许对非空数据列进行索引（not null）。
   
-注：操作符 “<=>” 说明：NULL-safe equal.这个操作符和“=”操作符执行相同的比较操作，不过在两个操作码均为NULL时，其所得值为1而不为NULL，而当一个操作码为NULL时，其所得值为0而不为NULL。
+注：操作符 "<=>" 说明：NULL-safe equal.这个操作符和"="操作符执行相同的比较操作，不过在两个操作码均为NULL时，其所得值为1而不为NULL，而当一个操作码为NULL时，其所得值为0而不为NULL。
   
 3.HEAP表使用一个固定的记录长度格式。默认情况下max\_rows依赖于max\_heap\_table\_size.
   

@@ -124,7 +124,7 @@ public void subscribe(final JedisPubSub jedisPubSub, final String… channels)
 
 定义Publisher类
   
-Publisher类接受用户的输入，并将输入发布到channel。当用户输入”quit”后，输入结束。
+Publisher类接受用户的输入，并将输入发布到channel。当用户输入"quit"后，输入结束。
 
 Publisher.java
 

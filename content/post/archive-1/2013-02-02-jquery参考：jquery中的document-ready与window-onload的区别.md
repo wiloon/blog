@@ -41,7 +41,7 @@ categories:
     
     
     
-      “Allows you to bind a function to be executed when the DOM document has finished loading. ”
+      "Allows you to bind a function to be executed when the DOM document has finished loading. "
     
     
     
@@ -49,7 +49,7 @@ categories:
     
     
     
-      “允许你绑定一个在DOM文档载入完成后，执行的函数。”
+      "允许你绑定一个在DOM文档载入完成后，执行的函数。"
     
     
     

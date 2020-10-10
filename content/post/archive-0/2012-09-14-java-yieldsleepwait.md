@@ -34,11 +34,11 @@ wait()方法是Object类里的方法；当一个线程执行到wait()方法时�
   
 wait()使用notify或者notifyAlll或者指定睡眠时间来唤醒当前等待池中的线程。
   
-wiat()必须放在synchronized block中，否则会在program runtime时扔出”java.lang.IllegalMonitorStateException“异常。
+wiat()必须放在synchronized block中，否则会在program runtime时扔出"java.lang.IllegalMonitorStateException"异常。
 
-wait() 是从 Java 1.0 开始就存在的老牌“等待”函数，在 Java 1.5 以前是最主要的一类用于线程间进行同步的方法。
+wait() 是从 Java 1.0 开始就存在的老牌"等待"函数，在 Java 1.5 以前是最主要的一类用于线程间进行同步的方法。
 
-wait() 的使用方法相对比较“怪异”。首先调用 wait() 的线程需要获得一个用于线程间共享的对象的“锁”（在 Java 术语中称为“监视器”），然后调用 wait() 会首先释放这把锁，并将当前线程暂停，只有在其他进程通过调用共享对象的 notify() 或者 notifyAll() 时才会醒来。但是醒来之后也不是说立即就会得到执行，只是线程会重新加入对锁对象的竞争，只有竞争胜出之后才会获得运行权。
+wait() 的使用方法相对比较"怪异"。首先调用 wait() 的线程需要获得一个用于线程间共享的对象的"锁"（在 Java 术语中称为"监视器"），然后调用 wait() 会首先释放这把锁，并将当前线程暂停，只有在其他进程通过调用共享对象的 notify() 或者 notifyAll() 时才会醒来。但是醒来之后也不是说立即就会得到执行，只是线程会重新加入对锁对象的竞争，只有竞争胜出之后才会获得运行权。
 
 典型的使用 wait() 函数的代码是这样的
 
@@ -89,7 +89,7 @@ lock.notify(); // step.3
 
 Thread.sleep和Object.wait都会暂停当前的线程，对于CPU资源来说，不管是哪种方式暂停的线程，都表示它暂时不再需要CPU的执行时间。OS会将执行时间分配给其它线程。区别是，调用wait后，需要别的线程执行notify/notifyAll才能够重新获得CPU执行时间。
 
-线程的状态参考 Thread.State的定义。新创建的但是没有执行（还没有调用start())的线程处于“就绪”，或者说Thread.State.NEW状态。
+线程的状态参考 Thread.State的定义。新创建的但是没有执行（还没有调用start())的线程处于"就绪"，或者说Thread.State.NEW状态。
   
 Thread.State.BLOCKED（阻塞）表示线程正在获取锁时，因为锁不能获取到而被迫暂停执行下面的指令，一直等到这个锁被别的线程释放。BLOCKED状态下线程，OS调度机制需要决定下一个能够获取锁的线程是哪个，这种情况下，就是产生锁的争用，无论如何这都是很耗时的操作。
 
@@ -175,7 +175,7 @@ for (int i = 0; i < 5; i++)
   
 {
   
-System.out.println(“I am Producer : Produced Item ” + i);
+System.out.println("I am Producer : Produced Item " + i);
   
 Thread.yield();
   
@@ -197,7 +197,7 @@ for (int i = 0; i < 5; i++)
   
 {
   
-System.out.println(“I am Consumer : Consumed Item ” + i);
+System.out.println("I am Consumer : Consumed Item " + i);
   
 Thread.yield();
   
@@ -255,7 +255,7 @@ join()方法
   
 join() 定义在Thread.java中。
   
-join() 的作用：让“主线程”等待“子线程”结束之后才能继续运行。这句话可能有点晦涩，我们还是通过例子去理解：
+join() 的作用：让"主线程"等待"子线程"结束之后才能继续运行。这句话可能有点晦涩，我们还是通过例子去理解：
   
 线程实例的方法join()方法可以使得一个线程在另一个线程结束后再执行。如果join()方法在一个线程实例上调用，当前运行着的线程将阻塞直到这个线程实例完成了执行。
   

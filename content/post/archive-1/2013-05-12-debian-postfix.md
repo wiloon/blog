@@ -271,7 +271,7 @@ broken_sasl_auth_clients = yes
   
 <span style="color: #000000;">2、如果被hotmail等退信的话。大部分情况下有两种可能：a、没有PTR记录，找你的ISP做。b、你的IP属于垃圾邮件监控地址(俗称上榜，呵呵)，去查查看。比如www.spamhaus.org(hotmail就是用这个的)，如果属于pbl，申请取消就好了，如果sbl这些，那就只能找你的ISP解决了。gmail则比较奇怪。如果gmail退信的话，试着改一下mail.cf中mydestination的顺序，把localhost改到前面。改成这个样子： 
   
-<span style="color: #000000;">“mydestination = localhost, localhost.example.com, mail.example.com, example.com” 
+<span style="color: #000000;">"mydestination = localhost, localhost.example.com, mail.example.com, example.com" 
   
 <span style="color: #000000;">很多人就这样把问题解决了，但似乎谁都不知道原理 🙂
 

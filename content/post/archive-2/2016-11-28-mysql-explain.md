@@ -86,7 +86,7 @@ mysql> explain select \* from (select \* from ( select * from t1 where id=2602) 
 
 ### type
 
-表示MySQL在表中找到所需行的方式，又称“访问类型”。
+表示MySQL在表中找到所需行的方式，又称"访问类型"。
   
 依次从好到差：
   
@@ -203,7 +203,7 @@ constants,常量
   
 - Using temporary：表示MySQL需要使用临时表来存储结果集，常见于排序和分组查询
   
-- Using filesort：MySQL中无法利用索引完成的排序操作称为“文件排序”
+- Using filesort：MySQL中无法利用索引完成的排序操作称为"文件排序"
   
 - Using join buffer：改值强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那应该注意，根据查询的具体情况可能需要添加索引来改进能。
   

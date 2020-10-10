@@ -100,7 +100,7 @@ Web Service平台是用XSD来作为数据类型系统的。当你用某种语言
 SOAP即<a href="http://baike.baidu.com/view/1695890.htm" target="_blank">简单对象访问协议</a>(Simple Object Access Protocal)，它是用于交换XML编码信息的轻量级协议。它有三个主要方面：XML-envelope为描述信息内容和如何处理内容定义了框架，将程序对象编码成为XML对象的规则，执行<a href="http://baike.baidu.com/view/431455.htm" target="_blank">远程过程调用</a>(RPC)的约定。SOAP可以运行在任何其他<a href="http://baike.baidu.com/view/441895.htm" target="_blank">传输协议</a>上。例如，你可以使用 SMTP，即因特网<a href="http://baike.baidu.com/view/2367542.htm" target="_blank">电子邮件协议</a>来传递SOAP消息，这可是很有诱惑力的。在<a href="http://baike.baidu.com/view/239605.htm" target="_blank">传输层</a>之间的头是不同的，但XML有效负载保持相同。
 
 
-Web Service 希望实现不同的系统之间能够用“<a href="http://baike.baidu.com/view/37.htm" target="_blank">软件</a>-软件对话”的方式相互调用，打破了软件应用、网站和各种设备之间的格格不入的状态，实现“基于Web无缝集成”的目标。
+Web Service 希望实现不同的系统之间能够用"<a href="http://baike.baidu.com/view/37.htm" target="_blank">软件</a>-软件对话"的方式相互调用，打破了软件应用、网站和各种设备之间的格格不入的状态，实现"基于Web无缝集成"的目标。
 
 **WSDL**
 
@@ -124,7 +124,7 @@ Web Service本身其实是在实现应用程序间的通信。我们现在有两
 <a href="http://baike.baidu.com/view/2353.htm" target="_blank">微软</a>的.NET技术应该算是时下最为流行的Web Service 开发技术。首先因为其公司在以前相应的产品就占有相当大的市场份额，以至使新推出的.NET得以有比较稳定的用户群；其次也是更重要的是 .NET平台不仅延续了微软一贯的编程风格，而且还增加了许多支持Web 服务的关键性技术，使得.NET在操作的简单性和执行的稳定性，高效性上达到了一个非常好的结合。
 
 
-微软的Visual Studio. NET便是一个便于 Web 服务的开发工具。微软的目标是，将其新<a href="http://baike.baidu.com/view/552871.htm" target="_blank">编程语言</a>——C#作为Web Service的首选语言。虽然C#看起来与Java类似，但是还有一些Java中没有的独特的功能。.NET技术中用于Web Service 开发的主要工具是ASP. NET?从技术上说，ASP. net　提供了一些超出ASP以前版本的优点(例如：代码和HTML的分离，与<a href="http://baike.baidu.com/view/76320.htm" target="_blank">脚本语言</a>相比较，对“真正”的编程语言如 C# 的支持)。
+微软的Visual Studio. NET便是一个便于 Web 服务的开发工具。微软的目标是，将其新<a href="http://baike.baidu.com/view/552871.htm" target="_blank">编程语言</a>——C#作为Web Service的首选语言。虽然C#看起来与Java类似，但是还有一些Java中没有的独特的功能。.NET技术中用于Web Service 开发的主要工具是ASP. NET?从技术上说，ASP. net　提供了一些超出ASP以前版本的优点(例如：代码和HTML的分离，与<a href="http://baike.baidu.com/view/76320.htm" target="_blank">脚本语言</a>相比较，对"真正"的编程语言如 C# 的支持)。
 
 **IBM的WebSphere**
 

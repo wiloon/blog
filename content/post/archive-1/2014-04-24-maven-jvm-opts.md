@@ -25,7 +25,7 @@ Windows下添加环境变量MAVEN_OPTS的value为-Xms1024m -Xmx1024m -Xss1m
 Linux下可修改.profile或者.bash_profile文件，并做如下设置：
 
 
-export MAVEN_OPTS=”-Xms1024m -Xmx1024m -Xss1m”
+export MAVEN_OPTS="-Xms1024m -Xmx1024m -Xss1m"
 
 
 (注意：这里需要使用双引号或者单引号)

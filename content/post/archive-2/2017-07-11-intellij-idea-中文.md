@@ -58,7 +58,7 @@ IDE本身的中文乱码
 
 Intellij IDEA 12 设置字体
   
-在此路径（win7）“C:\Users\你的计算机名.IntelliJIdea12\config\colors”找到Darcula1.xml文件。
+在此路径（win7）"C:\Users\你的计算机名.IntelliJIdea12\config\colors"找到Darcula1.xml文件。
   
 用记事本打开Darcula1.xml文件，把第8行改为然后重启IntelliJ IDEA 12.0，中文字符问题解决，
   

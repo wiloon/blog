@@ -83,7 +83,7 @@ e   extended
   
 p   primary partition (1-4)
 
-p  #选择“增加主分区“
+p  #选择"增加主分区"
   
 Partition number (1-4):1     #选择作为1号分区
 

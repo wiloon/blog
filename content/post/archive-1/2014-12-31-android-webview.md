@@ -92,7 +92,7 @@ public void onPageStarted(WebView view, String url, Bitmap favicon) { }
 
 通过这几个事件，我们可以很轻松的控制程序操作，一边用着浏览器显示内容，一边监控着用户操作实现我们需要的各种显示方式，同时可以防止用户产生误操作。
   
-6)             如果用webview点链接看了很多页以后，如果不做任何处理，点击系统“Back”键，整个浏览器会调用finish()而结束自身，如果希望浏览的网页回退而不是退出浏览器，需要在当前Activity中处理并消费掉该Back事件。
+6)             如果用webview点链接看了很多页以后，如果不做任何处理，点击系统"Back"键，整个浏览器会调用finish()而结束自身，如果希望浏览的网页回退而不是退出浏览器，需要在当前Activity中处理并消费掉该Back事件。
   
 覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法。
   

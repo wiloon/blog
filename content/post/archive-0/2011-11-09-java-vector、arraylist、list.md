@@ -49,7 +49,7 @@ Map
 
 ### Collection接口
 
-Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素（Elements）。一些 Collection允许相同的元素而另一些不行。一些能排序而另一些不行。Java SDK不提供直接继承自Collection的类， Java SDK提供的类都是继承自Collection的“子接口”如List和Set。
+Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素（Elements）。一些 Collection允许相同的元素而另一些不行。一些能排序而另一些不行。Java SDK不提供直接继承自Collection的类， Java SDK提供的类都是继承自Collection的"子接口"如List和Set。
   
 所有实现Collection接口的类都必须提供两个标准的构造函数：无参数的构造函数用于创建一个空的Collection，有一个Collection参数的构造函数用于创建一个新的 Collection，这个新的Collection与传入的Collection有相同的元素。后一个构造函数允许用户复制一个Collection。
   
@@ -141,23 +141,23 @@ Hashtable继承Map接口，实现一个key-value映射的哈希表。任何非�
   
 Hashtable 通过initial capacity和load factor两个参数调整性能。通常缺省的load factor 0.75较好地实现了时间和空间的均衡。增大load factor可以节省空间但相应的查找时间将增大，这会影响像get和put这样的操作。
   
-使用Hashtable的简单示例如下，将1，2，3放到Hashtable中，他们的key分别是”one”，”two”，”three”：
+使用Hashtable的简单示例如下，将1，2，3放到Hashtable中，他们的key分别是"one"，"two"，"three"：
 
 [java]
 
 Hashtable numbers = new Hashtable();
   
-numbers.put(“one”, new Integer(1));
+numbers.put("one", new Integer(1));
   
-numbers.put(“two”, new Integer(2));
+numbers.put("two", new Integer(2));
   
-numbers.put(“three”, new Integer(3));
+numbers.put("three", new Integer(3));
   
 //要取出一个数，比如2，用相应的key：
   
-Integer n = (Integer)numbers.get(“two”);
+Integer n = (Integer)numbers.get("two");
   
-System.out.println(“two = ” + n);
+System.out.println("two = " + n);
 
 [/java]
 
@@ -175,7 +175,7 @@ HashMap和Hashtable类似，不同之处在于HashMap是非同步的，并且允
 
 WeakHashMap类
   
-WeakHashMap是一种改进的HashMap，它对key实行“弱引用”，如果一个key不再被外部所引用，那么该key可以被GC回收。
+WeakHashMap是一种改进的HashMap，它对key实行"弱引用"，如果一个key不再被外部所引用，那么该key可以被GC回收。
 
 总结
   

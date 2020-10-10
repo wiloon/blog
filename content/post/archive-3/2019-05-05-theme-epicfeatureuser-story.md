@@ -42,7 +42,7 @@ categories:
   
 　　因此，一个Feature是很难进行估算的，它需要被分解成一个个更小的单位，这就是下面要讨论的User Story。Feature一般在Release Plan的层次，一个Feature可能需要几次迭代才能完成。项目管理者联盟
   
-　　由于Feature是满足用户需求的交付物，因此每次交付的对象应该是一个或多个Feature。可以说Feature就是敏捷宣言中的“Working software”。转自项目管理者联盟
+　　由于Feature是满足用户需求的交付物，因此每次交付的对象应该是一个或多个Feature。可以说Feature就是敏捷宣言中的"Working software"。转自项目管理者联盟
   
 　　2. Minimal Marketable Feature (MMF)项目管理者联盟
   
@@ -102,7 +102,7 @@ categories:
   
 　　6. Theme项目经理博客
   
-　　Theme则是一组User Story(甚至是Epic Story)，这些User Story拥有共同的特征，为了更容易开发这些相关内容，通常会将这些User Story作为一组进行开发和管理。这组User Story就被称为Theme。比如，有关报表这个机能，包括Excel报表、Word报表、PDF报表等，那么“报表”就是一个Theme。项目管理者联盟
+　　Theme则是一组User Story(甚至是Epic Story)，这些User Story拥有共同的特征，为了更容易开发这些相关内容，通常会将这些User Story作为一组进行开发和管理。这组User Story就被称为Theme。比如，有关报表这个机能，包括Excel报表、Word报表、PDF报表等，那么"报表"就是一个Theme。项目管理者联盟
   
 　　对于Theme与Epic/Feature的关系，可以在自己的项目中进行明确定义。这取决于项目组成员的喜好。项目管理者联盟
   

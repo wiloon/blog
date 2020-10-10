@@ -54,7 +54,7 @@ IFNULL(1/0,'yes');
 
 ->   'yes'
 
-IFNULL(expr1,expr2)的默认结果值为两个表达式中更加“通用”的一个，顺序为STRING、   REAL或
+IFNULL(expr1,expr2)的默认结果值为两个表达式中更加"通用"的一个，顺序为STRING、   REAL或
   
 INTEGER。假设一个基于表达式的表的情况，     或**MySQL**必须在内存储器中储存一个临时表中IFNULL()的返回值：
   

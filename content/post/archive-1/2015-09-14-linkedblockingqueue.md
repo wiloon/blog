@@ -46,7 +46,7 @@ for(int i=0;i<100;i++)
   
 {
   
-bq.add(“i”+i);//如果空间已满，此方法会抛出异常，所以这就是put，或者offer方法的优势所在
+bq.add("i"+i);//如果空间已满，此方法会抛出异常，所以这就是put，或者offer方法的优势所在
   
 }
 
@@ -54,9 +54,9 @@ String s1=bq.take();//i0
   
 String s2=bq.take();//i1
 
-bq.offer(“ix”,5,TimeUnit.SECONDS);//在尾部插入一个元素，如果有必要 ，等待 指定的时间，使得队列变得可用。返回boolean值 表示是否插入成功。
+bq.offer("ix",5,TimeUnit.SECONDS);//在尾部插入一个元素，如果有必要 ，等待 指定的时间，使得队列变得可用。返回boolean值 表示是否插入成功。
 
-bq.put(“ixx”);//将指定的元素添加到队列的尾部，如有必要，则等待空间变得可用，如果空间满了，则会一直等到空间可用时，进行插入。
+bq.put("ixx");//将指定的元素添加到队列的尾部，如有必要，则等待空间变得可用，如果空间满了，则会一直等到空间可用时，进行插入。
 
 bq.poll();//poll() //poll(long timeout, TimeUnit unit) 检索并移除此队列的头，如果此队列为空，则返回 null。
 
@@ -144,13 +144,13 @@ try {
   
 LinkedBlockingQueue<String> queue=new LinkedBlockingQueue(2);
 
-queue.put(“hello”);
+queue.put("hello");
   
-queue.put(“world”);
+queue.put("world");
   
-queue.put(“yes”);
+queue.put("yes");
 
-System.out.println(“yes”);
+System.out.println("yes");
   
 } catch (Exception e) {
   
@@ -164,9 +164,9 @@ e.printStackTrace();
   
 //运行结果：
   
-//在queue.put(“yes”)处发生阻塞
+//在queue.put("yes")处发生阻塞
   
-//下面的“yes”无法输出
+//下面的"yes"无法输出
 
 3.最后看一下offer方法：
 
@@ -180,11 +180,11 @@ try {
   
 LinkedBlockingQueue<String> queue=new LinkedBlockingQueue(2);
 
-boolean bol1=queue.offer(“hello”);
+boolean bol1=queue.offer("hello");
   
-boolean bol2=queue.offer(“world”);
+boolean bol2=queue.offer("world");
   
-boolean bol3=queue.offer(“yes”);
+boolean bol3=queue.offer("yes");
 
 System.out.println(queue.toString());
   

@@ -12,7 +12,7 @@ tags:
 ---
 http://qqhugo.blogbus.com/logs/15733455.html
   
-安装新的MYSLQ数据库，安装好运行MySQL Server Instance ConfigWizard，在最后一步却发现无法启动服务，出现这样的提示“cannotcreate windows service for mysql.error:0”！
+安装新的MYSLQ数据库，安装好运行MySQL Server Instance ConfigWizard，在最后一步却发现无法启动服务，出现这样的提示"cannotcreate windows service for mysql.error:0"！
   
 找了很久终于搞到一点资料，解决方法如下：
   

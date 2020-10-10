@@ -26,7 +26,7 @@ String是最简单的类型，一个key对应一个value
 
 String类型的数据最大1G。
   
-String类型的值可以被视作integer，从而可以让“INCR”命令族操作(incrby、decr、decrby),这种情况下，该integer的值限制在64位有符号数。在list、set和zset中包含的独立的元素类型都是Redis String类型。
+String类型的值可以被视作integer，从而可以让"INCR"命令族操作(incrby、decr、decrby),这种情况下，该integer的值限制在64位有符号数。在list、set和zset中包含的独立的元素类型都是Redis String类型。
   
 2.List类型
 
@@ -184,9 +184,9 @@ zrem(key, member) ：删除名称为key的zset中的元素member
 
 zincrby(key, increment, member) ：如果在名称为key的zset中已经存在元素member，则该元素的score增加increment；否则向集合中添加该元素，其score的值为increment
 
-zrank(key, member) ：返回名称为key的zset（元素已按score从小到大排序）中member元素的rank（即index，从0开始），若没有member元素，返回“nil”
+zrank(key, member) ：返回名称为key的zset（元素已按score从小到大排序）中member元素的rank（即index，从0开始），若没有member元素，返回"nil"
 
-zrevrank(key, member) ：返回名称为key的zset（元素已按score从大到小排序）中member元素的rank（即index，从0开始），若没有member元素，返回“nil”
+zrevrank(key, member) ：返回名称为key的zset（元素已按score从大到小排序）中member元素的rank（即index，从0开始），若没有member元素，返回"nil"
 
 zrange(key, start, end)：返回名称为key的zset（元素已按score从小到大排序）中的index从start到end的所有元素
 

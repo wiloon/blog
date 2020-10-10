@@ -35,7 +35,7 @@ startFlipping：开始进行View的切换，时间间隔是上述方法设置的
 
 stopFlipping：停止View切换。
 
-setAutoStart：设置是否自动开始。如果设置为“true”，当ViewFlipper显示的时候View的切换会自动开始。
+setAutoStart：设置是否自动开始。如果设置为"true"，当ViewFlipper显示的时候View的切换会自动开始。
 
 一般情况下，我们都会使用ViewFilpper类实现View的切换，而不使用它的父类ViewAnimator类。
 

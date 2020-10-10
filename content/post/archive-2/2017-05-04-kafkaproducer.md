@@ -16,11 +16,11 @@ KafkaProducer中还有一个专门的Sender IO线程负责将缓冲池中的消�
   
 结合源代码，笔者认为新版本的producer从设计上来说具有以下几个特点(或者说是优势)：
 
-总共创建两个线程：执行KafkaPrducer#send逻辑的线程——我们称之为“用户主线程”；执行发送逻辑的IO线程——我们称之为“Sender线程”
+总共创建两个线程：执行KafkaPrducer#send逻辑的线程——我们称之为"用户主线程"；执行发送逻辑的IO线程——我们称之为"Sender线程"
   
 不同于Scala老版本的producer，新版本producer完全异步发送消息，并提供了回调机制(callback)供用户判断消息是否成功发送
   
-batching机制——“分批发送“机制。每个批次(batch)中包含了若干个PRODUCE请求，因此具有更高的吞吐量
+batching机制——"分批发送"机制。每个批次(batch)中包含了若干个PRODUCE请求，因此具有更高的吞吐量
   
 更加合理的默认分区策略：对于无key消息而言，Scala版本分区策略是一段时间内(默认是10分钟)将消息发往固定的目标分区，这容易造成消息分布的不均匀，而新版本的producer采用轮询的方式均匀地将消息分发到不同的分区
   
@@ -85,7 +85,7 @@ Step 1： 序列化+计算目标分区
 
 Step 2：追加写入消息缓冲区(accumulator)
   
-producer创建时会创建一个默认32MB(由buffer.memory参数指定)的accumulator缓冲区，专门保存待发送的消息。除了之前在“关键参数”段落中提到的linger.ms和batch.size等参数之外，该数据结构中还包含了一个特别重要的集合信息：消息批次信息(batches)。该集合本质上是一个HashMap，里面分别保存了每个topic分区下的batch队列，即前面说的批次是按照topic分区进行分组的。这样发往不同分区的消息保存在对应分区下的batch队列中。举个简单的例子，假设消息M1, M2被发送到test的0分区但属于不同的batch，M3分送到test的1分区，那么batches中包含的信息就是：{"test-0" -> [batch1, batch2], "test-1" -> [batch3]}
+producer创建时会创建一个默认32MB(由buffer.memory参数指定)的accumulator缓冲区，专门保存待发送的消息。除了之前在"关键参数"段落中提到的linger.ms和batch.size等参数之外，该数据结构中还包含了一个特别重要的集合信息：消息批次信息(batches)。该集合本质上是一个HashMap，里面分别保存了每个topic分区下的batch队列，即前面说的批次是按照topic分区进行分组的。这样发往不同分区的消息保存在对应分区下的batch队列中。举个简单的例子，假设消息M1, M2被发送到test的0分区但属于不同的batch，M3分送到test的1分区，那么batches中包含的信息就是：{"test-0" -> [batch1, batch2], "test-1" -> [batch3]}
 
 单个topic分区下的batch队列中保存的是若干个消息批次。每个batch中最重要的3个组件包括：
 

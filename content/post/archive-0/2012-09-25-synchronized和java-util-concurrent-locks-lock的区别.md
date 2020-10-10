@@ -60,9 +60,9 @@ Dao.save(user)
 
 User u=new User();
 
-u.setUserName(“liaomin”);
+u.setUserName("liaomin");
 
-u.setUserPassword(“liaomin”);
+u.setUserPassword("liaomin");
 
 Test.add(u);
 
@@ -70,9 +70,9 @@ Test.add(u);
 
 User u1=new User();
 
-u1.setUserName(“huqun”);
+u1.setUserName("huqun");
 
-u1.setUserPassword(“huqun”);
+u1.setUserPassword("huqun");
 
 Tes1t.add(u1);
 

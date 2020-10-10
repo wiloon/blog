@@ -15,7 +15,7 @@ Tomcat隶属于Apache基金会，是开源的轻量级Web应用服务器，使�
 
 本文将通过实例，介绍server.xml中各个组件的配置，并详细说明Tomcat各个核心组件的作用以及各个组件之间的相互关系。
 
-说明：由于server.xml文件中元素与Tomcat中组件的对应关系，后文中为了描述方便，“元素”和“组件”的使用不严格区分。
+说明：由于server.xml文件中元素与Tomcat中组件的对应关系，后文中为了描述方便，"元素"和"组件"的使用不严格区分。
 
 一、一个server.xml配置实例
   
@@ -135,7 +135,7 @@ Server的主要任务，就是提供一个接口让客户端能够访问到这�
   
 Service的作用，是在Connector和Engine外面包了一层，把它们组装在一起，对外提供服务。一个Service可以包含多个Connector，但是只能包含一个Engine；其中Connector的作用是从客户端接收请求，Engine的作用是处理接收进来的请求。
 
-在第一部分的例子中，Server中包含一个名称为“Catalina”的Service。实际上，Tomcat可以提供多个Service，不同的Service监听不同的端口，后文会有介绍。
+在第一部分的例子中，Server中包含一个名称为"Catalina"的Service。实际上，Tomcat可以提供多个Service，不同的Service监听不同的端口，后文会有介绍。
 
 3、Connector
   
@@ -175,7 +175,7 @@ Host是Engine的子容器。Engine组件中可以内嵌1个或多个Host组件�
 
 Host虚拟主机的作用，是运行多个Web应用（一个Context代表一个Web应用），并负责安装、展开、启动和结束每个Web应用。
 
-Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如”www.test.com”，或IP地址”116.25.25.25”)；为了使用户可以通过网络名连接Tomcat服务器，这个名字应该在DNS服务器上注册。
+Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如"www.test.com"，或IP地址"116.25.25.25")；为了使用户可以通过网络名连接Tomcat服务器，这个名字应该在DNS服务器上注册。
 
 客户端通常使用主机名来标识它们希望连接的服务器；该主机名也会包含在HTTP请求头中。Tomcat从HTTP头中提取出主机名，寻找名称匹配的主机。如果没有匹配，请求将发送至默认主机。因此默认主机不需要是在DNS服务器中注册的网络名，因为任何与所有Host名称不匹配的请求，都会路由至默认主机。
 
@@ -233,9 +233,9 @@ Context元素最重要的属性是docBase和path，此外reloadable属性也比�
 
 docBase指定了该Web应用使用的WAR包路径，或应用目录。需要注意的是，在自动部署场景下(配置文件位于xmlBase中)，docBase不在appBase目录中，才需要指定；如果docBase指定的WAR包或应用目录就在docBase中，则不需要指定，因为Tomcat会自动扫描appBase中的WAR包和应用目录，指定了反而会造成问题。
 
-path指定了访问该Web应用的上下文路径，当请求到来时，Tomcat根据Web应用的 path属性与URI的匹配程度来选择Web应用处理相应请求。例如，Web应用app1的path属性是”/app1”，Web应用app2的path属性是”/app2”，那么请求/app1/index.html会交由app1来处理；而请求/app2/index.html会交由app2来处理。如果一个Context元素的path属性为””，那么这个Context是虚拟主机的默认Web应用；当请求的uri与所有的path都不匹配时，使用该默认Web应用来处理。
+path指定了访问该Web应用的上下文路径，当请求到来时，Tomcat根据Web应用的 path属性与URI的匹配程度来选择Web应用处理相应请求。例如，Web应用app1的path属性是"/app1"，Web应用app2的path属性是"/app2"，那么请求/app1/index.html会交由app1来处理；而请求/app2/index.html会交由app2来处理。如果一个Context元素的path属性为""，那么这个Context是虚拟主机的默认Web应用；当请求的uri与所有的path都不匹配时，使用该默认Web应用来处理。
 
-但是，需要注意的是，在自动部署场景下(配置文件位于xmlBase中)，不能指定path属性，path属性由配置文件的文件名、WAR文件的文件名或应用目录的名称自动推导出来。如扫描Web应用时，发现了xmlBase目录下的app1.xml，或appBase目录下的app1.WAR或app1应用目录，则该Web应用的path属性是”app1”。如果名称不是app1而是ROOT，则该Web应用是虚拟主机默认的Web应用，此时path属性推导为””。
+但是，需要注意的是，在自动部署场景下(配置文件位于xmlBase中)，不能指定path属性，path属性由配置文件的文件名、WAR文件的文件名或应用目录的名称自动推导出来。如扫描Web应用时，发现了xmlBase目录下的app1.xml，或appBase目录下的app1.WAR或app1应用目录，则该Web应用的path属性是"app1"。如果名称不是app1而是ROOT，则该Web应用是虚拟主机默认的Web应用，此时path属性推导为""。
 
 reloadable属性指示tomcat是否在运行时监控在WEB-INF/classes和WEB-INF/lib目录下class文件的改动。如果值为true，那么当class文件改动时，会触发Web应用的重新加载。在开发环境下，reloadable设置为true便于调试；但是在生产环境中设置为true会给服务器带来性能压力，因此reloadable参数的默认值为false。
 
@@ -243,7 +243,7 @@ reloadable属性指示tomcat是否在运行时监控在WEB-INF/classes和WEB-INF
 
 <Context docBase="D:\Program Files\app1.war" reloadable="true"/>
   
-在该例子中，docBase位于Host的appBase目录之外；path属性没有指定，而是根据app1.xml自动推导为”app1”；由于是在开发环境下，因此reloadable设置为true，便于开发调试。
+在该例子中，docBase位于Host的appBase目录之外；path属性没有指定，而是根据app1.xml自动推导为"app1"；由于是在开发环境下，因此reloadable设置为true，便于开发调试。
 
 自动部署举例
 
@@ -309,7 +309,7 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
 
 （2）修改端口号：根据需要监听的端口号修改<Connector>元素的port属性；必须确保该端口没有被其他进程占用，否则Tomcat启动时会报错，而无法通过该端口访问Web应用。
 
-以Win7为例，可以用如下方法找出某个端口是否被其他进程占用：netstat -aon|findstr “8081″发现8081端口被PID为2064的进程占用，tasklist |findstr “2064″发现该进程为FrameworkService.exe(这是McAfee杀毒软件的进程)。
+以Win7为例，可以用如下方法找出某个端口是否被其他进程占用：netstat -aon|findstr "8081″发现8081端口被PID为2064的进程占用，tasklist |findstr "2064″发现该进程为FrameworkService.exe(这是McAfee杀毒软件的进程)。
 
 （3）修改Service和Engine的name属性
 
@@ -443,7 +443,7 @@ ThreadLocalLeakPreventionListener：当Web应用因thread-local导致的内存�
   
 </Realm>
   
-Realm，可以把它理解成“域”；Realm提供了一种用户密码与web应用的映射关系，从而达到角色安全管理的作用。在本例中，Realm的配置使用name为UserDatabase的资源实现。而该资源在Server元素中使用GlobalNamingResources配置：
+Realm，可以把它理解成"域"；Realm提供了一种用户密码与web应用的映射关系，从而达到角色安全管理的作用。在本例中，Realm的配置使用name为UserDatabase的资源实现。而该资源在Server元素中使用GlobalNamingResources配置：
 
 <GlobalNamingResources>
       
@@ -461,7 +461,7 @@ GlobalNamingResources元素定义了全局资源，通过配置可以看出，�
 
 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost\_access\_log." suffix=".txt" pattern="%h %l %u %t "%r" %s %b" />
   
-单词Valve的意思是“阀门”，在Tomcat中代表了请求处理流水线上的一个组件；Valve可以与Tomcat的容器(Engine、Host或Context)关联。
+单词Valve的意思是"阀门"，在Tomcat中代表了请求处理流水线上的一个组件；Valve可以与Tomcat的容器(Engine、Host或Context)关联。
 
 不同的Valve有不同的特性，下面介绍一下本例中出现的AccessLogValve。
 
@@ -481,9 +481,9 @@ AccessLogValve的作用是通过日志记录其所在的容器中处理的所有
 
 %h：远程主机名或IP地址；如果有nginx等反向代理服务器进行请求分发，该主机名/IP地址代表的是nginx，否则代表的是客户端。后面远程的含义与之类似，不再解释。
   
-%l：远程逻辑用户名，一律是”-”，可以忽略。
+%l：远程逻辑用户名，一律是"-"，可以忽略。
   
-%u：授权的远程用户名，如果没有，则是”-”。
+%u：授权的远程用户名，如果没有，则是"-"。
   
 %t：访问的时间。
   
@@ -491,7 +491,7 @@ AccessLogValve的作用是通过日志记录其所在的容器中处理的所有
   
 %s：响应状态，200,404等等。
   
-%b：响应的数据量，不包括请求头，如果为0，则是””-。
+%b：响应的数据量，不包括请求头，如果为0，则是""-。
   
 例如，下面是访问日志中的一条记录
 

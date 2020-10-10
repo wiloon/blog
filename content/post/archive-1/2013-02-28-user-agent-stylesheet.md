@@ -20,6 +20,6 @@ categories:
   
 从上图中还可以看出浏览器的User Agent Stylesheet的优先级是很低的，经常被其他样式覆盖，这也是设置了CSS样式文件后能够起作用的原因。
 
-从CSS的英文全称 Cascading Style Sheet，中文译作“层叠样式表单”， 其中cascading取义为层叠，即不同层级的样式表单叠加覆盖的意思。
+从CSS的英文全称 Cascading Style Sheet，中文译作"层叠样式表单"， 其中cascading取义为层叠，即不同层级的样式表单叠加覆盖的意思。
 
 其实W3C的CSS标准中有一套完整的CSS样式的优先级规则，高优先级的样式覆盖低优先级，后面将逐步剖析这些优先级的规则，讲解怎样能做出高效能的CSS样式表。

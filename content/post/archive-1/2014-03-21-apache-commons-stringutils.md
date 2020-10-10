@@ -84,7 +84,7 @@ if(StringUtils.equals(stringParam,"MyStringValue))
 
 2）isEmpty,isNotEmpty,isBlank,isNotBlank
 
-和前面一样，这些方法相对于jdk提供的isEmpty方法来说，多了一个“空指针安全”，即不用考虑传递参数的空值问题，让我们来看一个例子：
+和前面一样，这些方法相对于jdk提供的isEmpty方法来说，多了一个"空指针安全"，即不用考虑传递参数的空值问题，让我们来看一个例子：
 
 Java代码 收藏代码
 
@@ -130,7 +130,7 @@ System.out.println(result.length); // 0
 
 }
 
-上面很明显你希望按照.分隔，但是jdk理解的“.”是正则表达式的任意字符，导致字符串内任意字符都匹配，返回一个size=0的字符串数组。其实你只要传递"\\."就行了，但是这个确实是一个问题。
+上面很明显你希望按照.分隔，但是jdk理解的"."是正则表达式的任意字符，导致字符串内任意字符都匹配，返回一个size=0的字符串数组。其实你只要传递"\\."就行了，但是这个确实是一个问题。
 
 这样，使用StringUtils.split就简单多了，另外，我测试还发现StringUtils.split比jdk自带的split要快四倍。
 

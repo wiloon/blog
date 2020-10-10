@@ -12,7 +12,7 @@ enca -list languages
   
 enca -L zh_CN file 检查文件的编码
   
-enca -L zh_CN -x UTF-8 file 将文件编码转换为”UTF-8″编码
+enca -L zh_CN -x UTF-8 file 将文件编码转换为"UTF-8″编码
   
 enca -L zh_CN -x UTF-8 < file1 > file2 如果不想覆盖原文件可以这样
   

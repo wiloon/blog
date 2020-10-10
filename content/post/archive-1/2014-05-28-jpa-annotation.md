@@ -163,7 +163,7 @@ private String description;
 
 @JoinColumn(name = "ONE\_ID", referencedColumnName = "ONE\_ID")//设置对应数据表的列名和引用的数据表的列名
   
-@ManyToOne//设置在“一方”pojo的外键字段上
+@ManyToOne//设置在"一方"pojo的外键字段上
   
 private One oneId;
 

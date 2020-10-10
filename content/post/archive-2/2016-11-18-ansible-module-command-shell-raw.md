@@ -91,7 +91,7 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
 
 第7行可以设置ssh的连接方式，默认是openssh，我这里用paramiko,不用官网推荐用openssh，因为paramiko查询key的时候，很耗时，效率不高。
 
-第10行，可以给主机随便取个别名，这里的“lixc”就是一个别名，如果ssh默认端口不是22，这里可以
+第10行，可以给主机随便取个别名，这里的"lixc"就是一个别名，如果ssh默认端口不是22，这里可以
 
 指定特定的端口
 

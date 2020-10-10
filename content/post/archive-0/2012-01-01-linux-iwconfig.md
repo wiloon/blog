@@ -25,7 +25,7 @@ iwconfig interface \[essid {nn|on|off}\] \[nwid {nn|on|off}\] \[mode {managed|ad
 
 通过essid来区分不同的无线网络，正常情况下只有相同essid的无线站点 才可以互相通讯，除非想监听无线网络。
 
-其后的参数为双引号括起的essid字符串，或者是any/on/off，如果essid字符串中包含 any/no/off，则需要在前面加”–”。
+其后的参数为双引号括起的essid字符串，或者是any/on/off，如果essid字符串中包含 any/no/off，则需要在前面加"–"。
 
 示例：
 
@@ -33,13 +33,13 @@ iwconfig interface \[essid {nn|on|off}\] \[nwid {nn|on|off}\] \[mode {managed|ad
 
 允许任何essid，也就是混杂模式
 
-#iwconfig eth0 essid “my network”
+#iwconfig eth0 essid "my network"
 
-设置essid为”my network”
+设置essid为"my network"
 
-#iwconfig eth0 essid — “any”
+#iwconfig eth0 essid — "any"
 
-设置essid为”any” nwid: network id，只用于pre-802.11的无线网卡，802.11网卡利用essid和ap的mac地址来替换nwid，现在基本上不用设置。
+设置essid为"any" nwid: network id，只用于pre-802.11的无线网卡，802.11网卡利用essid和ap的mac地址来替换nwid，现在基本上不用设置。
 
 示例：
 
@@ -49,7 +49,7 @@ iwconfig interface \[essid {nn|on|off}\] \[nwid {nn|on|off}\] \[mode {managed|ad
 
 示例：
 
-#iwconfig eth0 nickname “my linux node” mode：
+#iwconfig eth0 nickname "my linux node" mode：
 
 设置无线网卡的工作模式，可以是 ad-hoc：不带ap的点对点无线网络 managed：通过多个ap组成的网络，无线设备可以在这个网络中漫游 master：设置该无线网卡为一个ap repeater：设置为无线网络中继设备，可以转发网络包 secondary：设置为备份的ap/repeater monitor：监听模式 auto：由无线网卡自动选择工作模式 示例：
 

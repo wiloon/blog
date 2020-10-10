@@ -30,11 +30,11 @@ select userenv('language') from dual;
 
 GBK如下：
 
-在windows中创建一个名为“NLS\_LANG”的系统环境变量，设置其值为“SIMPLIFIED CHINESE\_CHINA.ZHS16GBK”，然后重新启动 pl/sql developer，这样检索出来的中文内容就不会是乱码了。
+在windows中创建一个名为"NLS\_LANG"的系统环境变量，设置其值为"SIMPLIFIED CHINESE\_CHINA.ZHS16GBK"，然后重新启动 pl/sql developer，这样检索出来的中文内容就不会是乱码了。
 
 UTF-8如下：
 
-如果想转换为UTF8字符集，可以赋予“NLS\_LANG”为 “AMERICAN\_AMERICA.UTF8”，然后重新启动 pl/sql developer。
+如果想转换为UTF8字符集，可以赋予"NLS\_LANG"为 "AMERICAN\_AMERICA.UTF8"，然后重新启动 pl/sql developer。
 
 其它字符集设置同上。
   

@@ -163,7 +163,7 @@ set password
 
 SET PASSWORD FOR wordpressuser@localhost= PASSWORD("password");
   
-#注意后面这句话 “COLLATE utf8\_general\_ci”,大致意思是在排序时根据utf8变码格式来排序
+#注意后面这句话 "COLLATE utf8\_general\_ci",大致意思是在排序时根据utf8变码格式来排序
 
 授权之后该用户才能用他自己的用户名密码访问mysql.
 
