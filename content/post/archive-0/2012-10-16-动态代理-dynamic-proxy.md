@@ -43,7 +43,7 @@ tags:
     首先实现2个Servlet，DefaultServlet和UserServlet
   
   
-    [java]
+    ```java
  package org.colimas.servlet; 
     
     
@@ -552,7 +552,7 @@ tags:
     
       }
  
- [/java]
+ ```
   
   
     其中的ServletConfig保存Servlet相关信息。ServletContext保存所有的Servlet对象。WebAppClassLoader为自定义class loader,参见<a href="http://blog.csdn.net/tyrone1979/archive/2006/09/03/1164262.aspx">http://blog.csdn.net/tyrone1979/archive/2006/09/03/1164262.aspx</a>。
@@ -562,7 +562,7 @@ tags:
     最后编写测试类Main，该类模拟10个用户访问Servlet，5人访问DefaultServlet，5人访问UserServlet。
   
   
-    [java]
+    ```java
  package org.colimas.main; 
     
     
@@ -856,7 +856,7 @@ tags:
     
       }
  
- [/java]
+ ```
   
   
     HttpServletRequestWrapper和HttpServletResponseWrapper实现HttpServletRequest，和HttpServletResponse。

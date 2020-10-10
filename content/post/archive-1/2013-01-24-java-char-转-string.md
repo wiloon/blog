@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
   
 public class Test{
 
@@ -26,4 +26,4 @@ char[] chars = s.toCharArray();
 
 }
 
-[/java]
+```

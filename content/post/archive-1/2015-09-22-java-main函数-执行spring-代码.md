@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[java]
+```java
 
 package com.zuidaima.test;
 
@@ -42,4 +42,4 @@ Thread.sleep(10000);
   
 }
 
-[/java]
+```

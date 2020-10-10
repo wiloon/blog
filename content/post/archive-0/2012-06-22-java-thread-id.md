@@ -14,7 +14,7 @@ Thread.currendThread().getName()
 
 设置线程名
 
-[java]
+```java
 
 public class Thread3 {
   
@@ -44,4 +44,4 @@ t2.start();
   
 }
 
-[/java]
+```

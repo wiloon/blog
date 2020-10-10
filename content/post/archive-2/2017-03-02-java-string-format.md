@@ -141,7 +141,7 @@ FF.35AE
 
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -302,7 +302,7 @@ $
   
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -408,7 +408,7 @@ R
 
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -460,7 +460,7 @@ HH:MM格式（24时制）：10:43
   
 定义日期格式的转换符可以使日期通过指定的转换符生成新字符串。这些日期转换符如图所示。
   
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -628,7 +628,7 @@ Q
 
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   

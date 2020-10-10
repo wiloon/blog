@@ -90,7 +90,7 @@ web.xml里面可以定义两种参数：
 
 在servlet中可以通过代码分别取用：
 
-[java]
+```java
 
 package com.wes.controller;
 
@@ -122,7 +122,7 @@ System.out.println(getServletContext().getInitParameter("context/param"));
 
 }
 
-[/java]
+```
 
 第一种参数在servlet里面可以通过getServletContext().getInitParameter("context/param")得到
 

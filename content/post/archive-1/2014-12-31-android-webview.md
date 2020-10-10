@@ -52,7 +52,7 @@ this.setScrollBarStyle(SCROLLBARS\_OUTSIDE\_OVERLAY);
   
 shouldOverrideUrlLoading ：对网页中超链接按钮的响应。当按下某个连接时WebViewClient会调用这个方法，并传递参数：按下的url。比如当webview内嵌网页的某个数字被点击时，它会自动认为这是一个电话请求，会传递url：tel:123,如果你不希望如此可通过重写shouldOverrideUrlLoading 函数解决：
   
-[java] view plaincopy
+```java view plaincopy
   
 public boolean shouldOverrideUrlLoading(WebView view,String url){
 
@@ -96,7 +96,7 @@ public void onPageStarted(WebView view, String url, Bitmap favicon) { }
   
 覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法。
   
-[java] view plaincopy
+```java view plaincopy
   
 public boolean onKeyDown(int keyCoder,KeyEvent event){
   
@@ -119,7 +119,7 @@ Webview与js的双向交互才是android的webview强大所在，也是马甲精
 首先，webview可以定义一个在其内嵌页面中可以触发的事件
 
 
-[java] view plaincopy
+```java view plaincopy
   
 wv.addJavascriptInterface(new DemoJavaScriptInterface(), "demo");
 
@@ -215,7 +215,7 @@ onclick="toclient();"/>
   
 另外，如果你想获取页面的一些处理数据并交给webview客户端处理，可在wave函数里将数据alert，然后webview中重写WebChromeClient的onJsAlert函数，具体代码如下
 
-[java] view plaincopy
+```java view plaincopy
   
 wv.setWebChromeClient(new MyWebChromeClient());
 

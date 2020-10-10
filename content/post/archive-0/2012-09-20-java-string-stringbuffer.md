@@ -92,7 +92,7 @@ String 是final类,即不能被继承.
   
   
   
-    [java]
+    ```java
  String tempstr = "abcdefghijklmnopqrstuvwxyz";
  int times = 5000;
  long lstart1 = System.currentTimeMillis();
@@ -105,7 +105,7 @@ String 是final类,即不能被继承.
  System.out.println("time="+time);
   
   
-    [/java]
+    ```
   
   
     可惜我的计算机不是超级计算机，得到的结果每次不一定一样一般为 46687左右。
@@ -113,7 +113,7 @@ String 是final类,即不能被继承.
  我们再看看以下代码
   
   
-    [java]
+    ```java
   
   
     String tempstr = "abcdefghijklmnopqrstuvwxyz";
@@ -128,7 +128,7 @@ String 是final类,即不能被继承.
  System.out.println("time=" + time2);
   
   
-    [/java]
+    ```
   
   
     得到的结果为 16 有时还是 0
@@ -160,7 +160,7 @@ String 是final类,即不能被继承.
     所以上面直接利用"+"来连接String的代码可以基本等同于以下代码
   
   
-    [java]
+    ```java
  String tempstr = "abcdefghijklmnopqrstuvwxyz";
  int times = 5000;
  long lstart2 = System.currentTimeMillis();
@@ -173,7 +173,7 @@ String 是final类,即不能被继承.
  long lend2 = System.currentTimeMillis();
  long time2 = (lend2 - lstart2);
  System.out.println("time=" + time2);
- [/java]
+ ```
   
   
     平均执行时间为46922左右，也就是46秒。

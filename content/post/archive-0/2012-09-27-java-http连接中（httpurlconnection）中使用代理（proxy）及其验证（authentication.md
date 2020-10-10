@@ -8,13 +8,13 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 System.setProperty("http.proxyHost", "www.proxy.com");
   
 System.setProperty("http.proxyPort", "8080");
 
-[/java]
+```
 
 使用Java的HttpURLConnection类可以实现HttpClient的功能，而不需要依赖任何其他类库。所有有时候大家就直接使用它来完成一些简单（或复杂）的功能。但是你活在伟大的{print G.F.W}后面，如果你需要访问的网站被墙了，那HttpURLConnection类就会出现连接超时的错误。这时候就需要给他设置代理（Proxy）了。
 
@@ -72,7 +72,7 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [java][/java]
+          ```java```
         
         
         
@@ -157,7 +157,7 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [java][/java]
+          ```java```
         
         
         
@@ -190,7 +190,7 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [java][/java]
+          ```java```
         
         
         
@@ -220,7 +220,7 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [java][/java]
+          ```java```
         
         
         

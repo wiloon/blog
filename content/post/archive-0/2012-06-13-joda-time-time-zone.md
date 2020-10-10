@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 DateTime dt = new DateTime(DateTimeZone.forOffsetHours(8));
    
@@ -24,4 +24,4 @@ DateTime dt2= dtf.parseDateTime(s) ;
    
 System.out.println(dtf.print(dt2));
 
-[/java]
+```

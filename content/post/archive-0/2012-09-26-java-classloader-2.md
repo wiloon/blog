@@ -480,7 +480,7 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
 https://my.oschina.net/aminqiao/blog/262601
 
 
-[java]
+```java
 
 public class ClassLoader {
 
@@ -516,4 +516,4 @@ return clazz;
 
 }
 
-[/java]
+```

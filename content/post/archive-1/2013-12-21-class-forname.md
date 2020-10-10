@@ -108,7 +108,7 @@ Java中反射机制和Class.forName、实例对象.class(属性)、实例对象g
 
 例如：
 
-[java]
+```java
 
 package demo;
 
@@ -143,7 +143,7 @@ System.out.println(Class.forName("demo.A").newInstance());
 
 }
 
-[/java]
+```
 
 结果：class demo.A
 

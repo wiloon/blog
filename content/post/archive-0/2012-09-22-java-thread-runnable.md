@@ -59,7 +59,7 @@ new Thread(mt2).start();
 
 }
 
-[/java]
+```
 
 · 两种实现方式的区别和联系：
 
@@ -183,7 +183,7 @@ Test.start();
 
 在使用Runnable的时候需要先new一个继承Runnable的实例，之后用子类Thread调用。
 
-[java]
+```java
    
 Test impelements Runnable
    
@@ -191,7 +191,7 @@ Test t = new Test();
    
 Thread test = new Thread(t);
 
-[/java]
+```
 
 在某个题目里，需要分别打印出a与b各10次，并且每打印一次a睡1秒，打印一次b睡2秒。
 
@@ -199,7 +199,7 @@ Thread test = new Thread(t);
   
 之后用
 
-[java]
+```java
    
 Thread t1 = new Thread();
    
@@ -217,11 +217,11 @@ t1.start();
    
 t2.start();
 
-[/java]
+```
 
 --Runnable的代码
 
-[java]
+```java
 
 class T implements Runnable{
    
@@ -279,7 +279,7 @@ b.start();
    
 }
 
-[/java]
+```
 
 http://blog.csdn.net/wwww1988600/article/details/7309070
 

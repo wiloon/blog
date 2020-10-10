@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 import java.io.Console;
 
@@ -66,4 +66,4 @@ System.out.println();
   
 }
 
-[/java]
+```

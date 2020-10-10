@@ -12,7 +12,7 @@ categories:
 
 <span style="color: #ff0000;"> context.setAttribute("attrName", "attrValue");
 
-[java]
+```java
 
 
   import javax.servlet.ServletContext;
@@ -156,4 +156,4 @@ categories:
   }
 
 
-  [/java]
+  ```

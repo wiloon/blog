@@ -370,7 +370,7 @@ readCount += inStream.read(b, readCount, count - readCount);
    
 这样就能保证读取100个字节，除非中途遇到IO异常或者到了数据流的结尾情况！
 
-[java]
+```java
 
 ByteArrayOutputStream baos = new ByteArrayOutputStream();
   
@@ -386,7 +386,7 @@ baos.write(b, 0, len);
   
 byte[] buffer =  baos.toByteArray();
 
-[/java]
+```
 
 http://www.blogjava.net/anchor110/articles/343500.html
   

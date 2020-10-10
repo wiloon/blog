@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-[java]
+```java
 
 package com.db.imgfornote;
 
@@ -226,4 +226,4 @@ return db.delete(mTUserPhoto, "photoId=?", args);
   
 }
 
-[/java]
+```

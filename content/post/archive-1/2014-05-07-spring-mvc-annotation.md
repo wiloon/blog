@@ -50,7 +50,7 @@ tags:
       
         <div style="color: silver;">
           
-            [java][/java]
+            ```java```
           
           
           

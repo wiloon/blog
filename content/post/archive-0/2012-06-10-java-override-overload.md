@@ -52,7 +52,7 @@ overload是重载，一般是用于在一个类内实现若干重载的方法，
 
 举个例子：
 
-[java]
+```java
 
 public class Shape
   
@@ -126,7 +126,7 @@ return i;
   
 }
 
-[/java]
+```
 
 注意Triangle类的方法是重写，而Rectangle类的方法是重载。对两者比较，可以发现多态对重载的优点：
   

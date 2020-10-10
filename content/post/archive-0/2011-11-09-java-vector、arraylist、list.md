@@ -55,7 +55,7 @@ Collection是最基本的集合接口，一个Collection代表一组Object，即
   
 如何遍历Collection中的每一个元素？不论Collection的实际类型如何，它都支持一个iterator()的方法，该方法返回一个迭代子，使用该迭代子即可逐一访问Collection中每一个元素。典型的用法如下：
 
-[java]
+```java
 
 Iterator it = collection.iterator(); // 获得一个迭代子
   
@@ -65,7 +65,7 @@ Object obj = it.next(); // 得到下一个元素
   
 }
 
-[/java]
+```
 
 由Collection接口派生的两个接口是List和Set。
 
@@ -143,7 +143,7 @@ Hashtable 通过initial capacity和load factor两个参数调整性能。通常�
   
 使用Hashtable的简单示例如下，将1，2，3放到Hashtable中，他们的key分别是"one"，"two"，"three"：
 
-[java]
+```java
 
 Hashtable numbers = new Hashtable();
   
@@ -159,7 +159,7 @@ Integer n = (Integer)numbers.get("two");
   
 System.out.println("two = " + n);
 
-[/java]
+```
 
 由于作为key的对象将通过计算其散列函数来确定与之对应的value的位置，因此任何作为key的对象都必须实现hashCode和equals方法。hashCode和equals方法继承自根类Object，如果你用自定义的类当作key的话，要相当小心，按照散列函数的定义，如果两个对象相同，即obj1.equals(obj2)=true，则它们的hashCode必须相同，但如果两个对象不同，则它们的hashCode不一定不同，如果两个不同对象的hashCode相同，这种现象称为冲突，冲突会导致操作哈希表的时间开销增大，所以尽量定义好的hashCode()方法，能加快哈希表的操作。
   
