@@ -1,5 +1,5 @@
 ---
-title: 'tomcat autoDeploy=”false”  deployOnStartup=”false”'
+title: 'tomcat autoDeploy="false"  deployOnStartup="false"'
 author: wiloon
 type: post
 date: 2018-09-19T04:48:43+00:00

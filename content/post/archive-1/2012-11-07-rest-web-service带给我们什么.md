@@ -36,8 +36,8 @@ REST的Web Service彻底摒弃了SOAP协议。它的数据格式简单，一般�
 
 你就可以创建一个REST Web Service。然后通过IE，在地址栏输入Interface的URL，就想访问网页一样调用你的Web Service，返回的数据就通过IE直接显示，这够直观了吧！？
 
-现在，很多大型公司的Public Web Service也都已经REST化，比如GOOGLE所有的Web Service都是REST的，MS也已经采用REST来优化他的public WebService。很多“云计算”的提供商，如AMASON，他的“云服务”（呵呵，暂且如此叫吧），也是REST的。国内很多知名公司在看到REST的巨大优势后也纷纷开始采用REST的Web Service来提高他们的效率，如上海深睿科技的销售管理软件易卖通采用REST WebService，极大的提高了系统的速度和效率，使得传统的供销村管理软件架构在网络和“云”内成为可能。
+现在，很多大型公司的Public Web Service也都已经REST化，比如GOOGLE所有的Web Service都是REST的，MS也已经采用REST来优化他的public WebService。很多"云计算"的提供商，如AMASON，他的"云服务"（呵呵，暂且如此叫吧），也是REST的。国内很多知名公司在看到REST的巨大优势后也纷纷开始采用REST的Web Service来提高他们的效率，如上海深睿科技的销售管理软件易卖通采用REST WebService，极大的提高了系统的速度和效率，使得传统的供销村管理软件架构在网络和"云"内成为可能。
 
-总之，REST带给我们的是，一种更好、更简单、更有效率的Web Service，同时，可能将来成为“云计算”的基础通讯协议。
+总之，REST带给我们的是，一种更好、更简单、更有效率的Web Service，同时，可能将来成为"云计算"的基础通讯协议。
 
 

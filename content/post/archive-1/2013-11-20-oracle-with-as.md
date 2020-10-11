@@ -16,10 +16,10 @@ categories:
 
 先举个例子吧：
 
-有两张表，分别为A、B，求得一个字段的值先在表A中寻找，如果A表中存在数据，则输出A表的值；如果A表中不存在，则在B表中寻找，若B表中有相应记录，则输出B表的值；如果B表中也不存在，则输出"no records”字符串。
+有两张表，分别为A、B，求得一个字段的值先在表A中寻找，如果A表中存在数据，则输出A表的值；如果A表中不存在，则在B表中寻找，若B表中有相应记录，则输出B表的值；如果B表中也不存在，则输出"no records"字符串。
   
     
-      [java][/java] <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
+      ```java``` <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
       
       
       
@@ -72,23 +72,23 @@ select * from a;
 
 About Oracle WITH clause
   
-Starting in Oracle9i release 2 we see an incorporation of the SQL-99 “WITH clause”, a tool for materializing subqueries to save Oracle from having to re-compute them multiple times.
+Starting in Oracle9i release 2 we see an incorporation of the SQL-99 "WITH clause", a tool for materializing subqueries to save Oracle from having to re-compute them multiple times.
 
-The SQL “WITH clause” is very similar to the use of Global temporary tables (GTT), a technique that is often used to improve query speed for complex subqueries. Here are some important notes about the Oracle “WITH clause”:
+The SQL "WITH clause" is very similar to the use of Global temporary tables (GTT), a technique that is often used to improve query speed for complex subqueries. Here are some important notes about the Oracle "WITH clause":
 
-• The SQL “WITH clause” only works on Oracle 9i release 2 and beyond.
+• The SQL "WITH clause" only works on Oracle 9i release 2 and beyond.
   
-• Formally, the “WITH clause” is called subquery factoring
+• Formally, the "WITH clause" is called subquery factoring
   
-• The SQL “WITH clause” is used when a subquery is executed multiple times
+• The SQL "WITH clause" is used when a subquery is executed multiple times
   
 • Also useful for recursive queries (SQL-99, but not Oracle SQL)
 
-To keep it simple, the following example only references the aggregations once, where the SQL “WITH clause” is normally used when an aggregation is referenced multiple times in a query.
+To keep it simple, the following example only references the aggregations once, where the SQL "WITH clause" is normally used when an aggregation is referenced multiple times in a query.
   
-We can also use the SQL-99 “WITH clause” instead of temporary tables. The Oracle SQL “WITH clause” will compute the aggregation once, give it a name, and allow us to reference it (maybe multiple times), later in the query.
+We can also use the SQL-99 "WITH clause" instead of temporary tables. The Oracle SQL "WITH clause" will compute the aggregation once, give it a name, and allow us to reference it (maybe multiple times), later in the query.
 
-The SQL-99 “WITH clause” is very confusing at first because the SQL statement does not begin with the word SELECT. Instead, we use the “WITH clause” to start our SQL query, defining the aggregations, which can then be named in the main query as if they were “real” tables:
+The SQL-99 "WITH clause" is very confusing at first because the SQL statement does not begin with the word SELECT. Instead, we use the "WITH clause" to start our SQL query, defining the aggregations, which can then be named in the main query as if they were "real" tables:
 
 WITH
   
@@ -102,7 +102,7 @@ SELECT
   
 (query naming subquery_name);
 
-Retuning to our oversimplified example, let's replace the temporary tables with the SQL “WITH  clause”:
+Retuning to our oversimplified example, let's replace the temporary tables with the SQL "WITH  clause":
 
 WITH
   
@@ -146,13 +146,13 @@ store\_sales > (all\_sales / nbr_stores)
   
 ;
 
-Note the use of the Oracle undocumented “materialize” hint in the “WITH clause”. The Oracle materialize hint is used to ensure that the Oracle cost-based optimizer materializes the temporary tables that are created inside the “WITH” clause. This is not necessary in Oracle10g, but it helps ensure that the tables are only created one time.
+Note the use of the Oracle undocumented "materialize" hint in the "WITH clause". The Oracle materialize hint is used to ensure that the Oracle cost-based optimizer materializes the temporary tables that are created inside the "WITH" clause. This is not necessary in Oracle10g, but it helps ensure that the tables are only created one time.
 
-It should be noted that the “WITH clause” does not yet fully-functional within Oracle SQL and it does not yet support the use of “WITH clause” replacement for “CONNECT BY” when performing recursive queries.
+It should be noted that the "WITH clause" does not yet fully-functional within Oracle SQL and it does not yet support the use of "WITH clause" replacement for "CONNECT BY" when performing recursive queries.
 
-To see how the “WITH clause” is used in ANSI SQL-99 syntax, here is an excerpt from Jonathan Gennick's great work “Understanding the WITH Clause” showing the use of the SQL-99 “WITH clause” to traverse a recursive bill-of-materials hierarchy
+To see how the "WITH clause" is used in ANSI SQL-99 syntax, here is an excerpt from Jonathan Gennick's great work "Understanding the WITH Clause" showing the use of the SQL-99 "WITH clause" to traverse a recursive bill-of-materials hierarchy
   
-The SQL-99 “WITH clause” is very confusing at first because the SQL statement does not begin with the word SELECT. Instead, we use the “WITH clause” to start our SQL query, defining the aggregations, which can then be named in the main query as if they were “real” tables:
+The SQL-99 "WITH clause" is very confusing at first because the SQL statement does not begin with the word SELECT. Instead, we use the "WITH clause" to start our SQL query, defining the aggregations, which can then be named in the main query as if they were "real" tables:
 
 WITH
   
@@ -166,14 +166,14 @@ SELECT
   
 (query naming subquery_name);
   
-Retuning to our oversimplified example, let's replace the temporary tables with the SQL “WITH” clause”:
+Retuning to our oversimplified example, let's replace the temporary tables with the SQL "WITH" clause":
 
 =================================================================================
 
 下面自己小试一把，当然，一点都不复杂，很简单很简单的例子，呵呵。
   
     
-      [java][/java] <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
+      ```java``` <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
       
       
       

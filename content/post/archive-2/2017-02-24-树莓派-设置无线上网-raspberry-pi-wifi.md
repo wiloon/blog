@@ -130,7 +130,7 @@ network={
   
 }
   
-注1：所有符号都是半角符号（英文状态下的符号），“[Tab]”表示按一次Tab键
+注1：所有符号都是半角符号（英文状态下的符号），"[Tab]"表示按一次Tab键
 
 注2：如果你不清楚wifi的加密模式，可以在安卓手机上用root explorer打开 /data/misc/wifi/wpa/wpa_supplicant.conf，查看wifi的信息。
 

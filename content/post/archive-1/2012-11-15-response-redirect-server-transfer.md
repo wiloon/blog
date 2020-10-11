@@ -22,7 +22,7 @@ categories:
  或者
  Response.Redirect("http://www.cnnas.com/")
  Server.Transfer 也是通过一条语句将用户引导到另一页面，比如：Server.Transfer("WebForm2.aspx")。不过，这条语句有一系列独特的优缺点。
- 首先，通过 Server.Transfer 引导到另一页面保留服务器资源，通过更改服务器端“焦点”和传输请求来代替告诉浏览器重定向，这就意味着你不会占用较多的 HTTP 请求，因此这可以减轻服务器的压力，使你的服务器运行更快。
+ 首先，通过 Server.Transfer 引导到另一页面保留服务器资源，通过更改服务器端"焦点"和传输请求来代替告诉浏览器重定向，这就意味着你不会占用较多的 HTTP 请求，因此这可以减轻服务器的压力，使你的服务器运行更快。
  不过，请注意，由于 "transfer" 只能在同一服务器端的同一站点间运行，所以你不能用 Server.Transfer 将用户重定向到另一服务器上的站点。要重定向到服务器以外的站点，只有 Response.Redirect 能办到。
  其次，Server.Transfer 保留浏览器端的 URL 地址。这对流线型的数据输入很有帮助，不过这也增加了调试的复杂度。
  还有：Server.Transfer 方法还有另一个参数——"preserveForm"。如果你设置这个参数为 True，比如：Server.Transfer("WebForm2.aspx", True), 那么 query string 和任何 form 变量都会同时传递到你定位的页面。

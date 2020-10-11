@@ -16,13 +16,13 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
 
 <div id="">
   
-    [java]
+    ```java
  
  <bean id="propertyConfigurer"
  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
  <property name="location" value="classpath:config/jdoserver.properties"/>
  </bean>
- [/java]
+ ```
   
 
 但是好像在属性文件定义中却不支持多个属性文件的定义，比如不能这样用config/*.properties。

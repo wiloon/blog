@@ -32,7 +32,7 @@ Download MagiskManager apk 并安装 到手机
   
 从第一步线刷升级用的镜像文件 里解压出boot.img, 传到手机 上的download目录
   
-打开magisk mamanger, 点击 "未安装 Magisk" 后面的安装按钮， 在弹出的菜单中选择 “选择并修补一个文件 ”， 然后 选择boot.img。
+打开magisk mamanger, 点击 "未安装 Magisk" 后面的安装按钮， 在弹出的菜单中选择 "选择并修补一个文件 "， 然后 选择boot.img。
   
 把打好补丁的boot.img传到电脑 上 ， 打补丁之后的boot.img的名字 应该 是magisk_patched.img
   

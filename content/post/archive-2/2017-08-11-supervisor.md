@@ -30,7 +30,7 @@ Supervisor 相当强大，提供了很丰富的功能，不过我们可能只需
   
 echo\_supervisord\_conf > /etc/supervisord.conf
   
-去除里面大部分注释和“不相关”的部分，我们可以先看这些配置：
+去除里面大部分注释和"不相关"的部分，我们可以先看这些配置：
   
 [unix\_http\_server]
   

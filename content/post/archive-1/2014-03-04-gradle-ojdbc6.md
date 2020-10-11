@@ -14,7 +14,7 @@ install ojdbc into loacal repo  http://www.wiloon.com/wordpress/?p=4863
 
 modify build.gradle, then gradle can search local maven repo
 
-[java]
+```java
   
 apply plugin: 'java'
 
@@ -38,7 +38,7 @@ url 'file:///D:/dev/mavenRepo/'
 
 }
   
-[/java]
+```
 
 http://forums.gradle.org/gradle/topics/access\_a\_oracle\_db\_runs\_no\_more\_with\_gradle\_1\_0\_rc\_3
 

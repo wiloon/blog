@@ -30,7 +30,7 @@ windows端需要支持ZModem的telnet/ssh客户端（比如SecureCRT）
 
 运行命令rz，即是接收文件，SecureCRT就会弹出文件选择对话框，选好文件之后关闭对话框，文件就会上传到当前目录
 
-注意：单独用rz会有两个问题：上传中断、上传文件变化（md5不同），解决办法是上传是用rz -be，并且去掉弹出的对话框中“Upload files as ASCII”前的勾选。
+注意：单独用rz会有两个问题：上传中断、上传文件变化（md5不同），解决办法是上传是用rz -be，并且去掉弹出的对话框中"Upload files as ASCII"前的勾选。
   
 -b binary 用binary的方式上传下载，不解释字符为ascii
   

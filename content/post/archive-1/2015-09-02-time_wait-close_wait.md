@@ -62,4 +62,4 @@ TIME\_WAIT 和CLOSE\_WAIT状态socket过多
 
 2.服务器保持了大量CLOSE\_WAIT状态，简单来说CLOSE\_WAIT数目过大是由于被动关闭连接处理不当导致的。
 
-因为linux分配给一个用户的文件句柄是有限的，而TIME\_WAIT和CLOSE\_WAIT两种状态如果一直被保持，那么意味着对应数目的通道就一直被占着，而且是“占着茅坑不使劲”，一旦达到句柄数上限，新的请求就无法被处理了，接着就是大量Too Many Open Files异常，Tomcat崩溃。
+因为linux分配给一个用户的文件句柄是有限的，而TIME\_WAIT和CLOSE\_WAIT两种状态如果一直被保持，那么意味着对应数目的通道就一直被占着，而且是"占着茅坑不使劲"，一旦达到句柄数上限，新的请求就无法被处理了，接着就是大量Too Many Open Files异常，Tomcat崩溃。

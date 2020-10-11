@@ -14,6 +14,8 @@ jar: Java   Archive   file
 
 部署文件 application-client.xml
 
+### 查看jar归档目录
+jar -vtf xxx.jar
 war: Web Archive file/web application archive
 
 扩展名为.War, 包含全部Web应用程序, Servlet、JSP、JSP标记库、JAR库文件、HTML/XML文档和其他公用资源文件,图片、音频. 一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet）来访问。
@@ -177,7 +179,7 @@ No wonder, the java community loves ANT.
   
 Main-Class: com/hp/HelloWorld
   
-这一句有两个注意的地方，首先行尾要有回车换行；其次“:”和“com”之间要有一个空格。
+这一句有两个注意的地方，首先行尾要有回车换行；其次":"和"com"之间要有一个空格。
   
 这一行信息的作用是标明主类。
 
@@ -185,9 +187,9 @@ Main-Class: com/hp/HelloWorld
   
 jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当然也可以test指向文件夹)
   
-**     上述命令执行成功的话，会提示“标明清单（manifest）...”，
+**     上述命令执行成功的话，会提示"标明清单（manifest）..."，
   
-然后再在当前目录下输入java -jar test.jar 命令，可以看到“test java”。
+然后再在当前目录下输入java -jar test.jar 命令，可以看到"test java"。
 
 方法二：
   

@@ -42,11 +42,11 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
 
 -p postfile File containing data to POST
   
-//包含了需要POST的数据的文件，文件格式如“p1=1&p2=2”.使用方法是 -p 111.txt 。 （配合-T）
+//包含了需要POST的数据的文件，文件格式如"p1=1&p2=2".使用方法是 -p 111.txt 。 （配合-T）
 
 -T content-type Content-type header for POSTing
   
-//POST数据所使用的Content-type头信息，如 -T “application/x-www-form-urlencoded” 。 （配合-p）
+//POST数据所使用的Content-type头信息，如 -T "application/x-www-form-urlencoded" 。 （配合-p）
 
 -v verbosity How much troubleshooting info to print
   
@@ -66,13 +66,13 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
   
 -z attributes String to insert as td or th attributes
   
--C attribute Add cookie, eg. -C “c1=1234,c2=2,c3=3” (repeatable)
+-C attribute Add cookie, eg. -C "c1=1234,c2=2,c3=3" (repeatable)
   
 //-C cookie-name=value 对请求附加一个Cookie:行。 其典型形式是name=value的一个参数对。此参数可以重复，用逗号分割。
   
 提示：可以借助session实现原理传递 JSESSIONID参数， 实现保持会话的功能，如
 
--C ” c1=1234,c2=2,c3=3, JSESSIONID=FF056CD16DA9D71CB131C1D56F0319F8″ 。
+-C " c1=1234,c2=2,c3=3, JSESSIONID=FF056CD16DA9D71CB131C1D56F0319F8″ 。
   
 -H attribute Add Arbitrary header line, eg. 'Accept-Encoding: gzip' Inserted after all normal header lines. (repeatable)
   

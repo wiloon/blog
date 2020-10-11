@@ -252,7 +252,7 @@ SQL> SELECT grp 2 , WMSYS.WM\_CONCAT(val) AS vals -<- WM\_CONCAT ~= STRAGG 3 FRO
 
 collect（without ordering）
   
-当10g发布的时候，我就立即使用collect函数和一个“collection-to-string”PL/SQL函数来替代STRAGG。不过10g版本中的collect没有排序功能。注；To_STRING的源码可以在相关文档中查到。
+当10g发布的时候，我就立即使用collect函数和一个"collection-to-string"PL/SQL函数来替代STRAGG。不过10g版本中的collect没有排序功能。注；To_STRING的源码可以在相关文档中查到。
 
 SQL> SELECT grp 2 , TO\_STRING( 3 CAST(COLLECT(val) AS varchar2\_ntt) 4 ) AS vals 5 FROM t 6 GROUP BY 7 grp;
   

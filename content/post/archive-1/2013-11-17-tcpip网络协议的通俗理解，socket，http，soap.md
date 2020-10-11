@@ -44,7 +44,7 @@ http 超文本传送协议，听上去像是传输层的协议一样。但事实
 
 http中文译名问题
   
-HTTP 在中国大陆被翻译为“超文本传输协议”，因为“transfer”在中文里有“传输”的含意。但依据 HTTP 定制者之一的 Roy Fielding博士的论文[1]（6.5.3节），作者专门强调“transfer”表示的是“（表述状态的）转移”（Representational State Transfer），而不是“传输”（transport）。故其中文译名“超文本传输协议”恰恰引种反映了这种误解。更符合原义的译名应该为“超文本转移协议”。
+HTTP 在中国大陆被翻译为"超文本传输协议"，因为"transfer"在中文里有"传输"的含意。但依据 HTTP 定制者之一的 Roy Fielding博士的论文[1]（6.5.3节），作者专门强调"transfer"表示的是"（表述状态的）转移"（Representational State Transfer），而不是"传输"（transport）。故其中文译名"超文本传输协议"恰恰引种反映了这种误解。更符合原义的译名应该为"超文本转移协议"。
 
 这段话解除了我的疑惑。那么http协议当然是应用层的协议。
 

@@ -23,7 +23,7 @@ categories:
 
 下面是一个定义注解的实例
   
-[java]
+```java
   
 package com.wiloon.test.annotation;
 
@@ -105,11 +105,11 @@ public String description() default "no description";
   
 }
   
-[/java]
+```
 
 下面是一个使用注解 和 解析注解的实例
   
-[java]
+```java
   
 package com.wiloon.test.annotation;
 
@@ -183,7 +183,7 @@ System.out.println("Test( method = " + method.getName() + " , id = "
 
 }
   
-[/java]
+```
   
 输出结果如下：
 
@@ -209,7 +209,7 @@ Test( method = method_3 , id = 3 , description = last method )
 
 1、源文件Target.java
   
-[java]
+```java
   
 @Documented
   
@@ -223,13 +223,13 @@ public @interface Target {
   
 }
   
-[/java]
+```
 
 其中的@interface是一个关键字，在设计annotations的时候必须把一个类型定义为@interface，而不能用class或interface关键字(会不会觉得sun有点吝啬,偏偏搞得与interface这么像).
 
 2、源文件Retention.java
   
-[java]
+```java
   
 @Documented
   
@@ -243,7 +243,7 @@ public @interface Retention {
   
 }
   
-[/java]
+```
 
 看到这里，大家可能都模糊了,都不知道在说什么，别急，往下看一下.
   
@@ -251,7 +251,7 @@ public @interface Retention {
 
 3、源文件RetentionPolicy.java
   
-[java]
+```java
   
 public enum RetentionPolicy {
   
@@ -263,7 +263,7 @@ RUNTIME
   
 }
   
-[/java]
+```
 
 这是一个enum类型,共有三个值，分别是SOURCE,CLASS 和 RUNTIME.
   
@@ -277,7 +277,7 @@ ClASS的意思是这个Annotation类型的信息保留在程序源码里,同时�
 
 4、源文件ElementType.java
   
-[java]
+```java
   
 public enum ElementType {
   
@@ -287,7 +287,7 @@ LOCAL\_VARIABLE, ANNOTATION\_TYPE,PACKAGE
   
 }
   
-[/java]
+```
 
 ＠Target里面的ElementType是用来指定Annotation类型可以用在哪一些元素上的.说明一下：TYPE(类型), FIELD(属性), METHOD(方法), PARAMETER(参数), CONSTRUCTOR(构造函数),LOCAL\_VARIABLE(局部变量), ANNOTATION\_TYPE,PACKAGE(包),其中的TYPE(类型)是指可以用在Class,Interface,Enum和 Annotation类型上.
   
@@ -313,7 +313,7 @@ LOCAL\_VARIABLE, ANNOTATION\_TYPE,PACKAGE
   
 1、Description.java
   
-[java]
+```java
   
 package lighter.javaeye.com;
 
@@ -339,7 +339,7 @@ String value();
   
 }
   
-[/java]
+```
 
 说明:所有的Annotation会自动继承java.lang.annotation这一个接口,所以不能再去继承别的类或是接口.
   
@@ -353,7 +353,7 @@ String value();
 
 2、Name.java
   
-[java]
+```java
   
 package lighter.javaeye.com;
 
@@ -383,11 +383,11 @@ String community();
   
 }
   
-[/java]
+```
 
 3、JavaEyer.java
   
-[java]
+```java
   
 package lighter.javaeye.com;
 
@@ -417,11 +417,11 @@ return "借用两位的id一用,写这一个例子,请见谅!";
   
 }
   
-[/java]
+```
 
 4、最后，写一个可以运行提取JavaEyer信息的类TestAnnotation
   
-[java]
+```java
   
 package lighter.javaeye.com;
 
@@ -493,7 +493,7 @@ System.out.println("创建的社区:"+name.community());
   
 }
   
-[/java]
+```
 
 5、运行结果：
   
@@ -527,7 +527,7 @@ Annotation(注释)是JDK5.0及以后版本引入的。它可以用于创建文�
   
 @Override
   
-[java]
+```java
   
 package com.iwtxokhtd.annotation;
   
@@ -553,11 +553,11 @@ return "测试注释";
   
 }
   
-[/java]
+```
   
 @Deprecated的作用是对不应该在使用的方法添加注释，当编程人员使用这些方法时，将会在编译时显示提示信息，它与javadoc里的@deprecated标记有相同的功能，准确的说，它还不如javadoc @deprecated，因为它不支持参数，使用@Deprecated的示例代码示例如下：
   
-[java]
+```java
   
 package com.iwtxokhtd.annotation;
   
@@ -593,7 +593,7 @@ public static void DeprecatedMethod() {
   
 }
   
-[/java]
+```
   
 @SuppressWarnings,其参数有：
   
@@ -611,7 +611,7 @@ finally ，任何 finally 子句不能正常完成时的警告
   
 all，关于以上所有情况的警告
   
-[java]
+```java
   
 package com.iwtxokhtd.annotation;
   
@@ -633,13 +633,13 @@ list.add(data);
   
 }
   
-[/java]
+```
   
 2. 自定义注释
   
 它类似于新创建一个接口类文件，但为了区分，我们需要将它声明为@interface,如下例：
   
-[java]
+```java
   
 package com.iwtxokhtd.annotation;
   
@@ -647,11 +647,11 @@ public @interface NewAnnotation {
   
 }
   
-[/java]
+```
   
 使用自定义的注释类型
   
-[java]
+```java
   
 package com.iwtxokhtd.annotation;
   
@@ -665,11 +665,11 @@ public static void main(String[] args) {
   
 }
   
-[/java]
+```
   
 为自定义注释添加变量
   
-[java]
+```java
   
 package com.iwtxokhtd.annotation;
   
@@ -679,9 +679,9 @@ String value();
   
 }
   
-[/java]
+```
   
-[java]
+```java
   
 public class AnnotationTest {
   
@@ -701,11 +701,11 @@ public static void saying() {
   
 }
   
-[/java]
+```
   
 定义一个枚举类型，然后将参数设置为该枚举类型，并赋予默认值
   
-[java]
+```java
   
 public @interface Greeting {
   
@@ -721,11 +721,11 @@ FontColor fontColor() default FontColor.RED;
   
 }
   
-[/java]
+```
   
 这里有两种选择，其实变数也就是在赋予默认值的参数上，我们可以选择使用该默认值，也可以重新设置一个值来替换默认值
   
-[java]
+```java
   
 public class AnnotationTest {
   
@@ -765,7 +765,7 @@ public static void sayHelloWithRedFontColor() {
   
 }
   
-[/java]
+```
   
 3. 注释的高级应用
   
@@ -773,7 +773,7 @@ public static void sayHelloWithRedFontColor() {
   
 用@Target指定ElementType属性
   
-[java]
+```java
   
 package java.lang.annotation;
   
@@ -813,11 +813,11 @@ PACKAGE
   
 }
   
-[/java]
+```
   
 3.2. 注解保持性策略
   
-[java]
+```java
   
 //限制注解使用范围
   
@@ -839,7 +839,7 @@ FontColor fontColor() default FontColor.RED;
   
 }
   
-[/java]
+```
   
 在Java编译器编译时，它会识别在源代码里添加的注释是否还会保留，这就是RetentionPolicy。下面是Java定义的RetentionPolicy枚举：
   
@@ -851,7 +851,7 @@ FontColor fontColor() default FontColor.RED;
   
 按照规定使用注释，但是并不将它保留到编译后的类文件中
 
-[java]
+```java
   
 package java.lang.annotation;
   
@@ -893,13 +893,13 @@ FontColor fontColor() default FontColor.RED;
   
 }
   
-[/java]
+```
 
 3.3. 文档化功能
   
 Java提供的Documented元注释跟Javadoc的作用是差不多的，其实它存在的好处是开发人员可以定制Javadoc不支持的文档属性，并在开发中应用。它的使用跟前两个也是一样的，简单代码示例如下：
   
-[java]
+```java
   
 //让它定制文档化功能
   
@@ -923,11 +923,11 @@ FontColor fontColor() default FontColor.RED;
   
 }
   
-[/java]
+```
 
 3.4. 标注继承
   
-[java]
+```java
   
 //让它允许继承，可作用到子类
   
@@ -949,7 +949,7 @@ FontColor fontColor() default FontColor.RED;
   
 }
   
-[/java]
+```
 
 4. 读取注解信息
   
@@ -957,7 +957,7 @@ FontColor fontColor() default FontColor.RED;
   
 注意： 要想使用反射去读取注解，必须将Retention的值选为Runtime
   
-[java]
+```java
   
 package com.iwtxokhtd.annotation;
   
@@ -1019,4 +1019,4 @@ System.out.println("注解的变量名为：" + meth.getName());
   
 }
   
-[/java]
+```

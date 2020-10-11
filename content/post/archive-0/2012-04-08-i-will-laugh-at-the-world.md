@@ -8,7 +8,7 @@ categories:
   - L
 
 ---
-英文原文是来自美国作家”Og Mandino”的畅销书”**_The Greatest Salesman in the World._**”
+英文原文是来自美国作家"Og Mandino"的畅销书"**_The Greatest Salesman in the World._**"
 
 原文如下：
 
@@ -57,7 +57,7 @@ I will be the greatest salesman the world has ever known.
 
 **我要笑遍世界。**
 
-只有人类才会笑。树木受伤时也会流“血”，禽兽也会 因痛苦和饥饿而哭嚎哀鸣，然而，只有我才具备笑的天赋，可以随时开怀大笑。从今往后，我要培养笑的习惯。
+只有人类才会笑。树木受伤时也会流"血"，禽兽也会 因痛苦和饥饿而哭嚎哀鸣，然而，只有我才具备笑的天赋，可以随时开怀大笑。从今往后，我要培养笑的习惯。
 
 笑有助于消化，笑能减轻压力，笑，是长寿的秘方。现在我终于掌握了它。
 

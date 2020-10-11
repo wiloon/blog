@@ -179,7 +179,7 @@ session.setAttribute( "listener ",sessionListener);     //将监听器植入Ht
   
 ///////////////////////////////////////////////////////////////////////
   
-当系统退出登录时，只需简单地调用session.removeAttribute(“listener”);即可自动调用监听器的valueUnbound方法。或者，当Session   Time   Out的时候也会调用此方法。
+当系统退出登录时，只需简单地调用session.removeAttribute("listener");即可自动调用监听器的valueUnbound方法。或者，当Session   Time   Out的时候也会调用此方法。
 
 登录人数的统计：
   

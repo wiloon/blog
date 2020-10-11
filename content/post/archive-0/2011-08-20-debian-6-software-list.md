@@ -47,15 +47,11 @@ update time zone: select shanghai. System.administration.Time and date
 
 #install Xmarks for chrome, download all bookmarks then switch profile to HOME
    
-#create folder named “opt” in /home/wiloon/
+#create folder named "opt" in /home/wiloon/
 
 #create a link…
    
 sudo ln -s /home/wiloon/.emacs /root/.emacs
-   
-#axel
-   
-sudo apt-get install axel
 
 Firefox
 

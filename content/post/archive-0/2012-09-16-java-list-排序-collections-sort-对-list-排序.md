@@ -98,19 +98,19 @@ public static void main(String[] args){
 
 List userlist=new ArrayList();
 
-userlist.add(new User(“dd”,”4″));
+userlist.add(new User("dd","4″));
 
-userlist.add(new User(“aa”,”1″));
+userlist.add(new User("aa","1″));
 
-userlist.add(new User(“ee”,”5″));
+userlist.add(new User("ee","5″));
 
-userlist.add(new User(“bb”,”2″));
+userlist.add(new User("bb","2″));
 
-userlist.add(new User(“ff”,”5″));
+userlist.add(new User("ff","5″));
 
-userlist.add(new User(“cc”,”3″));
+userlist.add(new User("cc","3″));
 
-userlist.add(new User(“gg”,”6″));
+userlist.add(new User("gg","6″));
 
 ComparatorUser comparator=new ComparatorUser();
 
@@ -120,7 +120,7 @@ for (int i=0;i<userlist.size();i++){
 
 User user_temp=(User)userlist.get(i);
 
-System.out.println(user\_temp.getAge()+”,”+user\_temp.getName());
+System.out.println(user\_temp.getAge()+","+user\_temp.getName());
 
 }
 

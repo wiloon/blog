@@ -166,7 +166,7 @@ The SC CREATE command perFORMs the operations of the CreateService API function.
   
 例子1
   
-下面这个例子在计算机上建立叫“mirror”的服务建立的一个注册表登记,是自动运行服务,从属于TDI组和NetBios服务。
+下面这个例子在计算机上建立叫"mirror"的服务建立的一个注册表登记,是自动运行服务,从属于TDI组和NetBios服务。
   
 C:WINDOWSsystem32>sc create mirror binPath= "D:Ftp新建文件夹mirror.exe" type= own start= auto
   
@@ -182,7 +182,7 @@ C:WINDOWSsystem32>sc delete mirror binPath= "D:Ftp新建文件夹mirror.exe" typ
   
 三. SC QC
   
-这个SC QC“询问配置”命令可以列出一个服务的配置信息和QUERY\_SERVICE\_CONFIG结构。
+这个SC QC"询问配置"命令可以列出一个服务的配置信息和QUERY\_SERVICE\_CONFIG结构。
   
 语法1
   
@@ -220,7 +220,7 @@ SERVICE\_START\_NAME-lpServiceStartName
   
 例1
   
-下面这个例子询问了在上面例子中建立的“mirror”服务的配置：
+下面这个例子询问了在上面例子中建立的"mirror"服务的配置：
   
 sc qc
   
@@ -306,7 +306,7 @@ WAIT_HINT--dwWaitHint
   
 例子
   
-查询“mirror'服务状态，键入：
+查询"mirror'服务状态，键入：
   
 sc query mirror
   

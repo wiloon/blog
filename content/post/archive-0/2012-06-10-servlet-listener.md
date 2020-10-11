@@ -187,7 +187,7 @@ Servlet中的Listener和Event:
 
 其中YouAchieveListener 为你实现的某个Listener接口的实现类com.servlet.listener.为你的包名。
 
-[java]
+```java
 
 import javax.servlet.ServletContextListener;
   
@@ -209,7 +209,7 @@ System.out.print("context listener.context initialized....Destroved");
   
 }
 
-[/java]
+```
   
 [xml]
 

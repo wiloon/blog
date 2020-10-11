@@ -311,7 +311,7 @@ eqauls方法必须保证一致（如果对象没有被修改，equals应该返�
   
 例如在我们的例子中，如果我们使用e1.id == e2.id则可能会出现这个问题，但是我们使用e1.getId() == e2.getId()就不会出现这个问题。
 
-[java]
+```java
   
 import org.apache.commons.lang.builder.EqualsBuilder;
   
@@ -403,7 +403,7 @@ return builder.toHashCode();
 
 }
 
-[/java]
+```
 
 https://www.oschina.net/question/82993_75533
   

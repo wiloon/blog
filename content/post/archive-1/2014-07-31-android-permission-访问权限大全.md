@@ -45,7 +45,7 @@ android:label="@string/app_name"
 
 android.permission.ACCESS\_CHECKIN\_PROPERTIES
 
-允许读写访问”properties”表在 checkin数据库中，改值可以修改上传( Allows read/write access to the “properties” table in the checkin database, to change values that get uploaded)
+允许读写访问"properties"表在 checkin数据库中，改值可以修改上传( Allows read/write access to the "properties" table in the checkin database, to change values that get uploaded)
 
 android.permission.ACCESS\_COARSE\_LOCATION
 

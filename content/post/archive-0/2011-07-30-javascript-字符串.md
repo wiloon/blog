@@ -60,7 +60,7 @@ var location\_of\_o = the_word.indexOf("o");
   
 var location\_of\_key = the_word.indexOf("key");
   
-//location\_of\_key(key的位置)将为3因为子字符串“key”以字母k开始，而k
+//location\_of\_key(key的位置)将为3因为子字符串"key"以字母k开始，而k
 
 在单词monkey中的位置是3。
   
@@ -70,7 +70,7 @@ var location\_of\_y = the_word.indexOf("y");
   
 var cheeky = the_word.indexOf("q");
   
-//cheeky值是-1，因为在单词“monkey”中没有字母q。
+//cheeky值是-1，因为在单词"monkey"中没有字母q。
 
 indexOf更实用之处:
   

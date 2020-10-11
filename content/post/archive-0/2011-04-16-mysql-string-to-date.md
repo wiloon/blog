@@ -66,7 +66,7 @@ mysql中DATE_FORMAT(date, format)函数可根据format字符串格式化日期�
   
 %y 两位数字表示的年份
   
-%% 直接值“%”
+%% 直接值"%"
   
 示例:
   

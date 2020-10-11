@@ -38,7 +38,7 @@ C、去掉updatepanel，看是否有代码错误。代码错误改正，再重�
 
 我的解决办法：
 
-google搜的结果前两页，不管中文英文都看过了，依然解决不了。用A方法，不可以。用B方法引起二次错误“Extender controls may not be registered before PreRender” 二次错误，也解决不了。用C方法，取出ajax控件，我的代码依然可以用，没有什么错误。
+google搜的结果前两页，不管中文英文都看过了，依然解决不了。用A方法，不可以。用B方法引起二次错误"Extender controls may not be registered before PreRender" 二次错误，也解决不了。用C方法，取出ajax控件，我的代码依然可以用，没有什么错误。
 
 我的代码出现这个错误，是因为又做了一个接口，最后实在没办法，就把做接口前的代码，拿出来，之后，又把接口的类填上，代码和原来一样，然后就可以了。就这。。。。，很奇怪，想不通，记录下来吧。
 

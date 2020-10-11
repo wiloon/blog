@@ -58,7 +58,7 @@ $ sudo apt-get install ruby
 
 ### 3. Execute Ruby Program
 
-You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
+You can either execute using "ruby helloworld.rb" or "./helloworld.rb".
 
   [shell]
  $ ruby helloworld.rb

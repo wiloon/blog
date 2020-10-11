@@ -10,7 +10,7 @@ flags
   
 flags是可选参数，用于控制输出的格式，比如左对齐、金额用逗号隔开。
 
-'-' 在最小宽度内左对齐，不可以与“用0填充”同时使用
+'-' 在最小宽度内左对齐，不可以与"用0填充"同时使用
 
 '+' 结果总是包括一个符号
 
@@ -18,7 +18,7 @@ flags是可选参数，用于控制输出的格式，比如左对齐、金额用
 
 '0' 结果将用零来填充
 
-',' 每3位数字之间用“，”分隔(只适用于fgG的转换)
+',' 每3位数字之间用"，"分隔(只适用于fgG的转换)
 
 '(' 若参数是负数，则结果中不添加负号而是用圆括号把数字括起来(只适用于eEfgG的转换)
   
@@ -40,7 +40,7 @@ System.out.println(String.format("'+':结果总是包括一个符号。%+d:%+d:%
      
 System.out.println(String.format("' ':正值前加空格，负值前加负号。% d:% d:% d", 1, -2, 0));
      
-System.out.println(String.format("',':每3位数字之间用“，”分隔(只适用于fgG的转换)。%,d:%,d:%,d", 1, 100, 1000));
+System.out.println(String.format("',':每3位数字之间用"，"分隔(只适用于fgG的转换)。%,d:%,d:%,d", 1, 100, 1000));
      
 System.out.println(String.format("'(':若参数是负数，则结果中不添加负号而是用圆括号把数字括起来(只适用于eEfgG的转换)。%(d:%(d", 1, -1));
   
@@ -58,7 +58,7 @@ System.out.println(String.format("'(':若参数是负数，则结果中不添加
   
 ' ':正值前加空格，负值前加负号。 1:-2: 0
   
-',':每3位数字之间用“，”分隔(只适用于fgG的转换)。1:100:1,000
+',':每3位数字之间用"，"分隔(只适用于fgG的转换)。1:100:1,000
   
 '(':若参数是负数，则结果中不添加负号而是用圆括号把数字括起来(只适用于eEfgG的转换)。1:(1)
   
@@ -141,7 +141,7 @@ FF.35AE
 
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -256,7 +256,7 @@ Hi,王南:王力.王张
   
 ,
   
-以“,”对数字分组
+以","对数字分组
   
 ("%,f", 9999.99)
   
@@ -302,7 +302,7 @@ $
   
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -376,31 +376,31 @@ c
   
 F
   
-“年-月-日”格式
+"年-月-日"格式
   
 2007-10-27
   
 D
   
-“月/日/年”格式
+"月/日/年"格式
   
 10/27/07
   
 r
   
-“HH:MM:SS PM”格式（12时制）
+"HH:MM:SS PM"格式（12时制）
   
 02:25:51 下午
   
 T
   
-“HH:MM:SS”格式（24时制）
+"HH:MM:SS"格式（24时制）
   
 14:28:16
   
 R
   
-“HH:MM”格式（24时制）
+"HH:MM"格式（24时制）
   
 14:28
   
@@ -408,7 +408,7 @@ R
 
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -460,7 +460,7 @@ HH:MM格式（24时制）：10:43
   
 定义日期格式的转换符可以使日期通过指定的转换符生成新字符串。这些日期转换符如图所示。
   
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   
@@ -628,7 +628,7 @@ Q
 
  
 
-[java] view plain copy
+```java view plain copy
   
 public static void main(String[] args) {
   

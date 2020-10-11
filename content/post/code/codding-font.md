@@ -8,7 +8,7 @@ title = "编程字体"
 
 对于程序员来说，好的字体应该满足的基本条件：
 
-字母和数字易于分辨,如: 英文字母o 和 阿拉伯数字 0 ,或者 英文字母 l 和 阿拉伯数字 1 ，两个单引号 '' 和双引号 ”.
+字母和数字易于分辨,如: 英文字母o 和 阿拉伯数字 0 ,或者 英文字母 l 和 阿拉伯数字 1 ，两个单引号 '' 和双引号 ".
 字体等宽，保持对齐，美观漂亮
 免费开源
 Source Code Pro 是 Adobe 公司号称最佳的编程字体。而且还是开源的。
@@ -20,3 +20,9 @@ Source Code Pro 是 Adobe 公司号称最佳的编程字体。而且还是开源
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 https://www.archlinux.org/packages/extra/any/adobe-source-code-pro-fonts/
+
+### jetbrain字体 
+    JetBrain Mono
+
+### FiraCode
+    https://github.com/tonsky/FiraCode

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-### make Vim behave like “tail -f”?
+### make Vim behave like "tail -f"?
 
 ```bash
 less +F
@@ -52,11 +52,11 @@ less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能
   
 -S 行过长时间将超出部分舍弃
   
--x <数字> 将“tab”键显示为规定的数字空格
+-x <数字> 将"tab"键显示为规定的数字空格
   
-/字符串：向下搜索“字符串”的功能
+/字符串：向下搜索"字符串"的功能
   
-?字符串：向上搜索“字符串”的功能
+?字符串：向上搜索"字符串"的功能
   
 n：重复前一个搜索（与 / 或 ? 有关）
   

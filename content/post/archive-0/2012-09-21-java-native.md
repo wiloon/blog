@@ -86,7 +86,7 @@ return;
 
 }
 
-之后编译生成DLL文件如“test.dll”，名称与System.loadLibrary("test")中的名称一致
+之后编译生成DLL文件如"test.dll"，名称与System.loadLibrary("test")中的名称一致
 
 vc的编译方法：cl -I%java\_home%include -I%java\_home%includewin32 -LD com\_hode\_hodeframework\_modelupdate\_CheckFile.c -Fetest.dll
 

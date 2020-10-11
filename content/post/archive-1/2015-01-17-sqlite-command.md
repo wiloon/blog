@@ -28,7 +28,7 @@ select name from sqlite_master where type='table' order by name;
   
 PRAGMA table_info([tablename])
 
-cur.execute(“PRAGMA table_info(table)”)
+cur.execute("PRAGMA table_info(table)")
   
 print cur.fetchall()
   

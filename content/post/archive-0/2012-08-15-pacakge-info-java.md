@@ -13,7 +13,7 @@ http://strong-life-126-com.iteye.com/blog/806246
   
 翻看以前的笔记，看到一个特殊的java文件：pacakge-info.java，虽然有记录，但是不全，就尝试着追踪一下该问题， 分享一下流水账式的结果。
   
-首先，它不能随便被创建。在Eclipse中， package-info文件不能随便被创建，会报“Type name is notvalid”错误，类名无效，Java变量定义规范是：字母、数字、下划线，还有那个不怎么常用的$符号（顺带说下，Java是支持中文名称的变量，习惯挑战的同学可以尝试下，分享一下这方面的经验），这个中划线可不再之列，那怎么创建这个文件呢？
+首先，它不能随便被创建。在Eclipse中， package-info文件不能随便被创建，会报"Type name is notvalid"错误，类名无效，Java变量定义规范是：字母、数字、下划线，还有那个不怎么常用的$符号（顺带说下，Java是支持中文名称的变量，习惯挑战的同学可以尝试下，分享一下这方面的经验），这个中划线可不再之列，那怎么创建这个文件呢？
   
 很简单，用记事本创建一个，然后拷贝进去再改一下就成了，更直接的办法就是从别的项目中拷贝过来一个，这更方便。
       
@@ -131,7 +131,7 @@ public void test(){
   
 }
   
-//包常量，只运行包内访问，适用于分“包”开发
+//包常量，只运行包内访问，适用于分"包"开发
   
 class PkgConst{
       
@@ -141,7 +141,7 @@ static final String PACAKGE_CONST="ABC";
 
 提供包的整体注释说明
        
-如果是分“包”开发，也就是说一个包实现一个业务逻辑或功能点、或模块、或组件，则需要对一个包有很好的说明，说明这个包是干啥的，有啥作用，版本变迁，特别说明等等，如下：
+如果是分"包"开发，也就是说一个包实现一个业务逻辑或功能点、或模块、或组件，则需要对一个包有很好的说明，说明这个包是干啥的，有啥作用，版本变迁，特别说明等等，如下：
 
 Java代码
   
@@ -165,6 +165,6 @@ package com.company;
 
 与package-info相关的问题
        
-在项目开发中，可以放置在包上的常用注解有：Struts的@namespace、Hibernate的@FilterDef和@TypeDef等等。在包下，随便一个类中的包名前加这些注解，Eclipse会提示“Package annotations must be in file package-info.java”,在该包下建立package-info.java文件，把注解移到这里即可。
+在项目开发中，可以放置在包上的常用注解有：Struts的@namespace、Hibernate的@FilterDef和@TypeDef等等。在包下，随便一个类中的包名前加这些注解，Eclipse会提示"Package annotations must be in file package-info.java",在该包下建立package-info.java文件，把注解移到这里即可。
       
-使用Checkstyle插件做代码检查时，会报一个警告“Missing package-info.java file.”也是这个package-info文件惹的祸，在各个包下创建一个即可。
+使用Checkstyle插件做代码检查时，会报一个警告"Missing package-info.java file."也是这个package-info文件惹的祸，在各个包下创建一个即可。

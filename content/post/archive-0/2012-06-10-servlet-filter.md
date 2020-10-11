@@ -11,7 +11,7 @@ tags:
   - Servlet
 
 ---
-filter功能.它使用户可以改变一个 request和修改一个response. Filter 不是一个servlet,它不能产生一个response,它能够在一个request到达servlet之前预处理request,也可以在离开 servlet时处理response.换种说法,filter其实是一个”servlet chaining”(servlet 链).一个filter 包括:
+filter功能.它使用户可以改变一个 request和修改一个response. Filter 不是一个servlet,它不能产生一个response,它能够在一个request到达servlet之前预处理request,也可以在离开 servlet时处理response.换种说法,filter其实是一个"servlet chaining"(servlet 链).一个filter 包括:
 
 1. 在servlet被调用之前截获;
 
@@ -39,7 +39,7 @@ filter功能.它使用户可以改变一个 request和修改一个response. Filt
 
 一个filter可以包装request 或response以改变几个方法和提供用户定制的属性.Api2.3提供了HttpServletRequestWrapper 和HttpServletResponseWrapper来实现.它们能分派最初的request和response.如果要改变一个方法的特性,必须继 承wapper和重写方法.下面是一段简单的日志filter用来记录所有request的持续时间.
 
-[java]
+```java
   
 public class LogFilter implements Filter {
 
@@ -101,7 +101,7 @@ public void destroy() {
   
 }
   
-[/java]
+```
 
 当server调用setFilterConfig(),filter保存config信息.在doFilter()方法中通过config信息得到servletContext.如果要运行这个filter,必须去配置到web.xml中.以tomcat4.01为例:
 

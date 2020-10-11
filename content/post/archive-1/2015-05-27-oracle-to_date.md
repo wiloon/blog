@@ -23,7 +23,7 @@ select to\_char(to\_date('2015/1/5', 'yyyy/mm/dd'),'iw') from dual;
 
 to_date()与24小时制表示法及mm分钟的显示：
 
-一、在使用Oracle的to_date函数来做日期转换时，很多Java程序员也许会直接的采用“yyyy-MM-dd HH:mm:ss”的格式作为格式进行转换，但是在Oracle中会引起错误：“ORA 01810 格式代码出现两次”。
+一、在使用Oracle的to_date函数来做日期转换时，很多Java程序员也许会直接的采用"yyyy-MM-dd HH:mm:ss"的格式作为格式进行转换，但是在Oracle中会引起错误："ORA 01810 格式代码出现两次"。
 
 select to_date('2005-01-01 13:14:20','yyyy-MM-dd HH24:mm:ss') from dual;
   

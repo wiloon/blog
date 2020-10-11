@@ -36,7 +36,7 @@ Resource1.java演示了三个线程（包括main线程）试图进入某个类�
   
 比如
 
-[java]
+```java
 
 Class Test
 
@@ -60,9 +60,9 @@ Dao.save(user)
 
 User u=new User();
 
-u.setUserName(“liaomin”);
+u.setUserName("liaomin");
 
-u.setUserPassword(“liaomin”);
+u.setUserPassword("liaomin");
 
 Test.add(u);
 
@@ -70,13 +70,13 @@ Test.add(u);
 
 User u1=new User();
 
-u1.setUserName(“huqun”);
+u1.setUserName("huqun");
 
-u1.setUserPassword(“huqun”);
+u1.setUserPassword("huqun");
 
 Tes1t.add(u1);
 
-[/java]
+```
 
 那么 现在线程1 和线程2同时启动 如果对象new的不是同一个Test
 
@@ -90,7 +90,7 @@ Tes1t.add(u1);
 
 修改如下
 
-[java]
+```java
 
 Public static synchronized void add(User u)
 
@@ -102,7 +102,7 @@ Dao.save(user)
 
 }
 
-[/java]
+```
 
 修改为static的方法是存在于堆中
 
@@ -110,7 +110,7 @@ Dao.save(user)
 
 当然不用static 也可以 那就用lock
 
-[java]
+```java
 
 Class Test
 
@@ -148,7 +148,7 @@ Dao.save(user)
 
 }
 
-[/java]
+```
 
 同时 lock性能上高于synchronized
 

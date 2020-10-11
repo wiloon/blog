@@ -20,7 +20,7 @@ CountDownLatch是一个同步辅助类，在完成一组正在其他线程中执
 
 下面通过CountDownLatch实现："主线程"等待"5个子线程"全部都完成"指定的工作(休眠1000ms)"之后，再继续运行。
 
-[java]
+```java
 
 import java.util.concurrent.CountDownLatch;
   
@@ -86,7 +86,7 @@ e.printStackTrace();
   
 }
 
-[/java]
+```
 
 主线程通过doneSignal.await()等待其它线程将doneSignal递减至0。其它的5个InnerThread线程，每一个都通过doneSignal.countDown()将doneSignal的值减1；当doneSignal为0时，main被唤醒后继续执行。
 

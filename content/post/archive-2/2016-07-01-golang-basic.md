@@ -8,6 +8,12 @@ categories:
   - Uncategorized
 
 ---
+### install
+#### ubuntu
+    sudo add-apt-repository ppa:longsleep/golang-backports
+    sudo apt update
+    sudo apt install golang-go
+    
 ### internal package
 Go语言1.4版本增加了 Internal packages 特征用于控制包的导入，即internal package只能被特定的包导入。
 内部包的规范约定：导出路径包含internal关键字的包，只允许internal的父级目录及父级目录的子包导入，其它包无法导入。
@@ -79,7 +85,7 @@ t = i; i = j; j = t;
   
 我们在使用传统的强类型语言编程时,经常会出现这种情况,即在调用函数时为了获取一个值,却因为该函数返回多个值而不得不定义一堆没用的变量。在Go中这种情况可以通过结合使用多重返回和匿名变量来避免这种丑陋的写法,让代码看起来更加优雅。
   
-\_, \_, nickName := “May”, “Chan”, “Chibi Maruko”
+\_, \_, nickName := "May", "Chan", "Chibi Maruko"
 
 ## 常量
 
@@ -99,7 +105,7 @@ c2 = iota // c2 == 2
   
 -12
   
-3.14159265358979323846 // 浮点类型的常量3.2+12i // 复数类型的常量true // 布尔类型的常量”foo” // 字符串常量
+3.14159265358979323846 // 浮点类型的常量3.2+12i // 复数类型的常量true // 布尔类型的常量"foo" // 字符串常量
 
 Go语言的字面常量更接近我们自然语言中的常量概念,它是无类型的。只要这个常量在相应类型的值域范围内,就可以作为该类型的常量,比如上面的常量12,它可以赋值给int、uint、int32、int64、float32、float64、complex64、complex128等类型的变量。
 
@@ -113,7 +119,7 @@ const zero = 0.0
   
 const u, v float32 = 0, 3
   
-const a, b, c = 3, 4, “foo”//a=3,b=4,c=”foo”, 无类型整型和字符串常量
+const a, b, c = 3, 4, "foo"//a=3,b=4,c="foo", 无类型整型和字符串常量
 
 Go的常量定义可以限定常量类型,但不是必需的。如果定义常量时没有指定类型,那么它与字面常量一样,是无类型常量。常量定义的右值也可以是一个在编译期运算的常量表达式,比如：
   
@@ -121,7 +127,7 @@ const mask = 1 << 3
 
 由于常量的赋值是一个编译期行为,所以右值不能出现任何需要运行期才能得出结果的表达式,比如试图以如下方式定义常量就会导致编译错误:
   
-const Home = os.GetEnv(“HOME”)
+const Home = os.GetEnv("HOME")
   
 原因很简单,os.GetEnv()只有在运行期才能知道返回结果,在编译期并不能确定,所以无法作为常量定义的右值。
   
@@ -135,7 +141,7 @@ const Pi float64 = 3.14159265358979323846 // 无类型浮点常量// 无类型�
   
 const u, v float32 = 0, 3
   
-const a, b, c = 3, 4, “foo”//a=3,b=4,c=”foo”, 无类型整型和字符串常量
+const a, b, c = 3, 4, "foo"//a=3,b=4,c="foo", 无类型整型和字符串常量
   
 const zero = 0.0
 
@@ -145,7 +151,7 @@ const mask = 1 << 3
 
 由于常量的赋值是一个编译期行为,所以右值不能出现任何需要运行期才能得出结果的表达式,比如试图以如下方式定义常量就会导致编译错误:
   
-const Home = os.GetEnv(“HOME”)
+const Home = os.GetEnv("HOME")
 
 原因很简单,os.GetEnv()只有在运行期才能知道返回结果,在编译期并不能确定,所以重置为0,然后在下一个const出现之前,每出现一次iota,其所代表的数字会自动增1。从以下的例子可以基本理解iota的用法:
   

@@ -34,7 +34,7 @@ title = "vue-router的两种模式"
 当然啦，`history` 也不是样样都好。SPA 虽然在浏览器里游刃有余，但真要通过 URL 向后端发起 HTTP 请求时，两者的差异就来了。尤其在用户手动输入 URL 后回车，或者刷新（重启）浏览器的时候。
 
 1. `hash` 模式下，仅 `hash` 符号之前的内容会被包含在请求中，如 [`http://www.abc.com`](http://www.abc.com "http://www.abc.com")，因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回 404 错误。
-2. `history` 模式下，前端的 URL 必须和实际向后端发起请求的 URL 一致，如 [`http://www.abc.com/book/id`](http://www.abc.com/book/id "http://www.abc.com/book/id")。如果后端缺少对 `/book/id` 的路由处理，将返回 404 错误。[Vue-Router 官网](https://router.vuejs.org/zh-cn/essentials/history-mode.html)里如此描述：**“不过这种模式要玩好，还需要后台配置支持……所以呢，你要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是你 app 依赖的页面。”**
+2. `history` 模式下，前端的 URL 必须和实际向后端发起请求的 URL 一致，如 [`http://www.abc.com/book/id`](http://www.abc.com/book/id "http://www.abc.com/book/id")。如果后端缺少对 `/book/id` 的路由处理，将返回 404 错误。[Vue-Router 官网](https://router.vuejs.org/zh-cn/essentials/history-mode.html)里如此描述：**"不过这种模式要玩好，还需要后台配置支持……所以呢，你要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是你 app 依赖的页面。"**
 
 #### 小结
 

@@ -45,11 +45,11 @@ set  JAVA\_HOME="/usr/java/jdk1.5.0\_17"
 
 export   JAVA_HOME
 
-[注意：“=”两侧不能有空格]
+[注意："="两侧不能有空格]
 
 export  CLASSPATH="/usr/java/jdk1.5.0\_17/lib:/usr/java/jdk1.5.0\_17/jre/lib"
 
-[注意：“=”两侧不能有空格；“:”是冒号，同样不要有空格出现]
+[注意："="两侧不能有空格；":"是冒号，同样不要有空格出现]
 
 pathmunge $JAVA_HOME
 
@@ -57,4 +57,4 @@ pathmunge $JAVA_HOME
 
 9.      设置完毕后，保存文件。重启Redhat后登录控制终端，键入：java  -version;
 
-如果出现java version “1.5.0.17”等字样，说明您的JDK已经安装成功了
+如果出现java version "1.5.0.17"等字样，说明您的JDK已经安装成功了

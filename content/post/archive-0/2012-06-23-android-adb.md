@@ -383,7 +383,7 @@ adb shell
     
     <td style="color: #454545;">
       <p class="TableContents">
-        通过模拟器/设备的允许命令号码来发送命令来管理adb (如 “emulator-5556″)
+        通过模拟器/设备的允许命令号码来发送命令来管理adb (如 "emulator-5556″)
       
     </td>
     

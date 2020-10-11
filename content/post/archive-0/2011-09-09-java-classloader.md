@@ -4,12 +4,6 @@ author: wiloon
 type: post
 date: 2011-09-09T09:16:20+00:00
 url: /?p=666
-bot_views:
-  - 6
-views:
-  - 1
-categories:
-  - Java
 
 ---
 不同的JVM的实现不同，本文所描述的内容均只限于Hotspot Jvm.
@@ -20,66 +14,52 @@ JDK默认ClassLoader
   
 JDK 默认提供了如下几种ClassLoader
 
-**Bootstrap Class Loader,引导类装载器**
-  
-虚拟机的内置类加载器（称为 "bootstrap class loader"）本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。
-  
-Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA\_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA\_HOME%/jre/classes中的类。
-  
-bootstrap class loader（后面叫它引导类加载器）是jvm内部由c++实现的，并不继承java.lang.ClassLoader类，所以它不属于“ClassLoader 实例”，也没有办法在Java代码中获取到它。
+### Bootstrap Class Loader, 引导类装载器
+虚拟机的内置类加载器（称为 "bootstrap class loader"）本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。  
+Bootstrap Class Loader加载器是由c++实现的  
+不继承java.lang.ClassLoader类, 所以它不属于"ClassLoader 实例"，也没有办法在Java代码中获取到它。  
+用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。  
 
-**ExtClassLoader,扩展类装载器**
-  
-Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置为Bootstrp loader.ExtClassLoader是用Java写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有classes目录以及java.ext.dirs系统变量指定的路径中类库。
+### ExtClassLoader, 扩展类装载器
+Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置为Bootstrp loader  
+ExtClassLoader是用Java写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有classes目录以及java.ext.dirs系统变量指定的路径中类库。
 
-**AppClassLoader**
-  
-Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。AppClassLoader也是用Java写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar文档，它也是Java程序默认的类加载器。
+### AppClassLoader
+Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。
+AppClassLoader 也是用Java写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar包，它也是Java程序默认的类加载器。
 
+### URLClassLoader
+AppClassLoader 和 ExtClassLoader 都扩展于 URLClassLoader 加载器.
 ```java
   
 public class ClassLoaderX {
-      
-public static void main(String[] args) {
-          
-ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-          
-System.out.println("context class loader:" + classLoader);
-          
-ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
-          
-System.out.println("system class loader:" + systemClassLoader);
+    public static void main(String[] args) {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        System.out.println("context class loader:" + classLoader);
 
-ClassLoader extClassLoader = systemClassLoader.getParent();
-          
-System.out.println("system class loader > parent: ext class loader:" + extClassLoader);
-          
-ClassLoader bootClassLoader = extClassLoader.getParent();
-          
-System.out.println("ext class loader > parent:" + bootClassLoader);
-      
-}
-  
+        ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+        System.out.println("system class loader:" + systemClassLoader);
+
+        ClassLoader extClassLoader = systemClassLoader.getParent();
+        System.out.println("system class loader > parent: ext class loader:" + extClassLoader);
+
+        ClassLoader bootClassLoader = extClassLoader.getParent();
+        System.out.println("ext class loader > parent:" + bootClassLoader);
+    }
 }
   
 ```
 
-**委托模型 (双亲委托模型)**
+### 委托模型 (双亲委托模型)
+Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤：  
+当前ClassLoader首先从自己已经加载的类中查询是否此类已经加载，如果已经加载则直接返回原来已经加载的类。  
+每个类加载器都有自己的加载缓存，当一个类被加载了以后就会放入缓存，等下次加载的时候就可以直接返回了。  
+当前classLoader的缓存中没有找到被加载的类的时候，委托父类加载器去加载，父类加载器采用同样的策略，首先查看自己的缓存，然后委托父类的父类去加载，一直到bootstrp ClassLoader.  
   
-Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤：
+当所有的父类加载器都没有加载的时候，再由当前的类加载器加载，并将其放入它自己的缓存中，以便下次有加载请求的时候直接返回。  
+说到这里大家可能会想，Java为什么要采用这样的委托机制？理解这个问题，我们引入另外一个关于Classloader的概念"命名空间"， 它是指要确定某一个类，需要类的全限定名以及加载此类的ClassLoader来共同确定。也就是说即使两个类的全限定名是相同的，但是因为不同的 ClassLoader加载了此类，那么在JVM中它是不同的类。明白了命名空间以后，我们再来看看委托模型。采用了委托模型以后加大了不同的 ClassLoader的交互能力，比如上面说的，我们JDK本身提供的类库，比如hashmap,linkedlist等等，这些类由bootstrp 类加载器加载了以后，无论你程序中有多少个类加载器，那么这些类其实都是可以共享的，这样就避免了不同的类加载器加载了同样名字的不同类以后造成混乱。
 
-当前ClassLoader首先从自己已经加载的类中查询是否此类已经加载，如果已经加载则直接返回原来已经加载的类。
-
-每个类加载器都有自己的加载缓存，当一个类被加载了以后就会放入缓存，等下次加载的时候就可以直接返回了。
-  
-当前classLoader的缓存中没有找到被加载的类的时候，委托父类加载器去加载，父类加载器采用同样的策略，首先查看自己的缓存，然后委托父类的父类去加载，一直到bootstrp ClassLoader.
-  
-当所有的父类加载器都没有加载的时候，再由当前的类加载器加载，并将其放入它自己的缓存中，以便下次有加载请求的时候直接返回。
-  
-说到这里大家可能会想，Java为什么要采用这样的委托机制？理解这个问题，我们引入另外一个关于Classloader的概念“命名空间”， 它是指要确定某一个类，需要类的全限定名以及加载此类的ClassLoader来共同确定。也就是说即使两个类的全限定名是相同的，但是因为不同的 ClassLoader加载了此类，那么在JVM中它是不同的类。明白了命名空间以后，我们再来看看委托模型。采用了委托模型以后加大了不同的 ClassLoader的交互能力，比如上面说的，我们JDK本生提供的类库，比如hashmap,linkedlist等等，这些类由bootstrp 类加载器加载了以后，无论你程序中有多少个类加载器，那么这些类其实都是可以共享的，这样就避免了不同的类加载器加载了同样名字的不同类以后造成混乱。
-
-如何自定义ClassLoader
-  
+### 自定义ClassLoader
 Java除了上面所说的默认提供的classloader以外，它还容许应用程序可以自定义classloader，那么要想自定义classloader我们需要通过继承java.lang.ClassLoader来实现,接下来我们就来看看再自定义Classloader的时候，我们需要注意的几个重要的方法：
 
 1.loadClass 方法
@@ -186,7 +166,7 @@ Ok,通过上面的描述，我们来思考下面一个问题：
 
 答案是否定的。我们不能实现。为什么呢？我看很多网上解释是说双亲委托机制解决这个问题，其实不是非常的准确。因为双亲委托机制是可以打破的，你完全可以自己写一个classLoader来加载自己写的java.lang.String类，但是你会发现也不会加载成功，具体就是因为针对java.*开头的类，jvm的实现中已经保证了必须由bootstrp来加载。
   
-不遵循“双亲委托机制”的场景
+不遵循"双亲委托机制"的场景
   
 上面说了双亲委托机制主要是为了实现不同的ClassLoader之间加载的类的交互问题，被大家公用的类就交由父加载器去加载，但是Java中确实也存在父类加载器加载的类需要用到子加载器加载的类的情况。下面我们就来说说这种情况的发生。
 
@@ -203,12 +183,9 @@ What class loaders do
 Classes are introduced into the Java environment when they are referenced by name in a class that is already running. There is a bit of magic that goes on to get the first class running (which is why you have to declare the main() method as static, taking a string array as an argument), but once that class is running, future attempts at loading classes are done by the class loader.
 
 At its simplest, a class loader creates a flat name space of class bodies that are referenced by a string name. The method definition is:
-
-[java]
-
+```java
 Class r = loadClass(String className, boolean resolveIt);
-
-[/java]
+```
 
 The variable className contains a string that is understood by the class loader and is used to uniquely identify a class implementation. The variable resolveIt is a flag to tell the class loader that classes referenced by this class name should be resolved (that is, any referenced class should be loaded as well).
 
@@ -250,7 +227,7 @@ Return the class to the caller.
 
 Some Java code that implements this flow is taken from the file SimpleClassLoader and appears as follows with descriptions about what it does interspersed with the code.
 
-[java]
+```java
   
 public synchronized Class loadClass(String className, boolean resolveIt)
    
@@ -274,11 +251,11 @@ return result;
    
 }
   
-[/java]
+```
 
 The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
-[java]
+```java
   
 /\* Check with the primordial class loader \*/
    
@@ -296,11 +273,11 @@ System.out.println(" >>>>>> Not a system class.");
    
 }
   
-[/java]
+```
 
 As you can see in the code above, the next step is to check if the primordial class loader can resolve this class name. This check is essential to both the sanity and security of the system. For example, if you return your own instance of java.lang.Object to the caller, then this object will share no common superclass with any other object! The security of the system can be compromised if your class loader returned its own value of java.lang.SecurityManager, which did not have the same checks as the real one did.
 
-[java]
+```java
   
 /\* Try to load it from our repository \*/
    
@@ -312,7 +289,7 @@ throw new ClassNotFoundException();
    
 }
   
-[/java]
+```
 
 After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory "store" to the class name and appends the extension ".impl". I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
 
@@ -328,13 +305,13 @@ Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的clas
 
 简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候：
 
-[java]
+```java
 
 Student stu = new Student();
   
 //实例化一个Student类的对象stu
 
-[/java]
+```
 
 AppClassLoader首先会到classpath下去寻找Student.class文件。（找不到则会抛出ClassNotFoundException异常）找到之后便会把Student这个类以二进制的形式存储到内存中。这个过程也就是对Student类加载的过程。然后用我们加载到内存中的Student类去实例化一个Student对象stu。
 
@@ -352,7 +329,7 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
   
 我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考：
 
-[java]
+```java
 
 import java.net.MalformedURLException;
    
@@ -384,8 +361,12 @@ Student stu = c1.newInstance();
    
 }
 
-[/java]
+```
 
 <https://my.oschina.net/aminqiao/blog/262601>
   
 <http://www.ticmy.com/?p=257>
+https://blog.csdn.net/a729913162/article/details/81698109
+https://sourceforge.net/p/corn/corn-cps/code/HEAD/tree/corn-cps/trunk/src/main/java/net/sf/corn/cps/CPScanner.java
+https://blog.csdn.net/neosmith/article/details/43955963
+https://segmentfault.com/a/1190000023229787

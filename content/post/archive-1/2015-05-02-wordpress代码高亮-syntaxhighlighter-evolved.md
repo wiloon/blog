@@ -16,7 +16,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
 
 1.安装启用后，在SyntaxHighlighter设置中，选择Highlighter Version为Version 2.x
 
-2.可以把“显示工具条”选项选中
+2.可以把"显示工具条"选项选中
 
 3.使用中非常方便，只需要在文章中输入：[@php]你的代码[/php]（用时请去掉@）
 

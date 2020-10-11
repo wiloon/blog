@@ -91,7 +91,7 @@ unit 类型如下：
   
 service ：守护进程的启动、停止、重启和重载是此类 unit 中最为明显的几个类型。
   
-socket ：此类 unit 封装系统和互联网中的一个socket。当下，systemd支持流式, 数据报和连续包的AF&#95;INET,AF&#95;INET6,AF&#95;UNIXsocket 。也支持传统的 FIFOs 传输模式。每一个 socket unit 都有一个相应的服务 unit 。相应的服务在第一个“连接”进入 socket 或 FIFO 时就会启动(例如：nscd.socket 在有新连接后便启动 nscd.service)。
+socket ：此类 unit 封装系统和互联网中的一个socket。当下，systemd支持流式, 数据报和连续包的AF&#95;INET,AF&#95;INET6,AF&#95;UNIXsocket 。也支持传统的 FIFOs 传输模式。每一个 socket unit 都有一个相应的服务 unit 。相应的服务在第一个"连接"进入 socket 或 FIFO 时就会启动(例如：nscd.socket 在有新连接后便启动 nscd.service)。
    
 device ：此类 unit 封装一个存在于 Linux设备树中的设备。每一个使用 udev 规则标记的设备都将会在 systemd 中作为一个设备 unit 出现。udev 的属性设置可以作为配置设备 unit 依赖关系的配置源。
 
@@ -160,15 +160,15 @@ Unit主要包含以下内容：
 
 ● Before, After：定义启动顺序，Before=xxx.service，代表本服务在xxx.service启动之前启动。After=xxx.service,代表本服务在xxx之后启动。
 
-● Requires: 这个单元启动了，那么它“需要”的单元也会被启动; 它“需要”的单元被停止了，它自己也活不了。但是请注意，这个设定并不能控制某单元与它“需要”的单元的启动顺序（启动顺序是另外控制的），即 Systemd 不是先启动 Requires 再启动本单元，而是在本单元被激活时，并行启动两者。于是会产生争分夺秒的问题，如果 Requires 先启动成功，那么皆大欢喜; 如果 Requires 启动得慢，那本单元就会失败（Systemd 没有自动重试）。所以为了系统的健壮性，不建议使用这个标记，而建议使用 Wants 标记。可以使用多个 Requires。
+● Requires: 这个单元启动了，那么它"需要"的单元也会被启动; 它"需要"的单元被停止了，它自己也活不了。但是请注意，这个设定并不能控制某单元与它"需要"的单元的启动顺序（启动顺序是另外控制的），即 Systemd 不是先启动 Requires 再启动本单元，而是在本单元被激活时，并行启动两者。于是会产生争分夺秒的问题，如果 Requires 先启动成功，那么皆大欢喜; 如果 Requires 启动得慢，那本单元就会失败（Systemd 没有自动重试）。所以为了系统的健壮性，不建议使用这个标记，而建议使用 Wants 标记。可以使用多个 Requires。
 
 ● RequiresOverridable：跟 Requires 很像。但是如果这条服务是由用户手动启动的，那么 RequiresOverridable 后面的服务即使启动不成功也不报错。跟 Requires 比增加了一定容错性，但是你要确定你的服务是有等待功能的。另外，如果不由用户手动启动而是随系统开机启动，那么依然会有 Requires 面临的问题。
 
 ● Requisite：强势版本的 Requires。要是这里需要的服务启动不成功，那本单元文件不管能不能检测等不能等待都立刻就会失败。
 
-● Wants：推荐使用。本单元启动了，它“想要”的单元也会被启动。但是启动不成功，对本单元没有影响。
+● Wants：推荐使用。本单元启动了，它"想要"的单元也会被启动。但是启动不成功，对本单元没有影响。
 
-● Conflicts：一个单元的启动会停止与它“冲突”的单元，反之亦然。
+● Conflicts：一个单元的启动会停止与它"冲突"的单元，反之亦然。
 
 Service主要包含以下内容：
 

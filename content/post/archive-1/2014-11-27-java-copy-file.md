@@ -12,7 +12,7 @@ tags:
 ---
 http://www.oschina.net/question/565065_58510
 
-[java]
+```java
   
 private static void nioTransferCopy(File source, File target) {
   
@@ -54,4 +54,4 @@ close(out);
   
 }
   
-[/java]
+```

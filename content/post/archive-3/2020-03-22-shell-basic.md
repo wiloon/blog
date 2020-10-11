@@ -181,13 +181,13 @@ ${var:-newstring}
     [file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 
     [file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 
     [file1 –ef file2] 如果file1和file2指向相同的设备和节点号则为真 
-    [-o optionname] 如果shell选项“optionname”开启则为真 
-    [-z string] “string”的长度为零则为真 
-    [-n string] or [string] “string”的长度为非零non-zero则为真 
-    [sting1==string2] 如果2个字符串相同。“=”may be used instead of “==”for strict posix compliance则为真 
+    [-o optionname] 如果shell选项"optionname"开启则为真 
+    [-z string] "string"的长度为零则为真 
+    [-n string] or [string] "string"的长度为非零non-zero则为真 
+    [sting1==string2] 如果2个字符串相同。"="may be used instead of "=="for strict posix compliance则为真 
     [string1!=string2] 如果字符串不相等则为真 
-    [string1<string2] 如果“string1”sorts before“string2”lexicographically in the current locale则为真 
-    [arg1 OP arg2] “OP”is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if “arg1”is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to“agr2”,respectively.“arg1”and “agr2”are integers. 
+    [string1<string2] 如果"string1"sorts before"string2"lexicographically in the current locale则为真 
+    [arg1 OP arg2] "OP"is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if "arg1"is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to"agr2",respectively."arg1"and "agr2"are integers. 
 
 ---
 版权声明：本文为CSDN博主「无知的蜗牛」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。

@@ -50,7 +50,7 @@ init方法是在Servlet实例化之后执行的，并且只执行一次。
 
 二.再说说init方法，从源码中我们不难发现：Servlet接口里面只有init(ServletConfig)，这是供tomcat调用的。GenericServlet类里面有成员变量ServletConfig，init(ServletConfig)方法和init()方法：
   
-[java]
+```java
   
 private transient ServletConfig config;
   
@@ -66,6 +66,6 @@ public void init() throws ServletException{
   
 }
   
-[/java]
+```
   
 现在一切都很明了了，当容器(tomcat)帮忙调用init(ServletConfig config)并且给传过来一个参数config，这个方法把参数对象的引用指向类的成员变量this.config，并且调用类的 this.init()方法。有人问了，我们在写Servlet类时只要重写init(ServletConfig config)就可以了，init()不就成了多余的了吗？实际上init()方法是为了防止程序员在写Servlet类重写 init(ServletConfig config)时忘记写super.init(ServletConfig config),这样就容易造成出现空指针异常。而这就要求我们最好不要重写init(ServletConfig config)，而要重写init()方法，就可以不写super。Servlet，你真是绕死人不偿命！

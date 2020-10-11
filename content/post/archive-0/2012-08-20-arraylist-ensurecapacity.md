@@ -13,7 +13,7 @@ categories:
 <div id="blog_content">
   转自：<a href="http://topic.csdn.net/t/20061223/10/5250896.html" target="_blank">http://topic.csdn.net/t/20061223/10/5250896.html</a> 
   
-    任何一个ArrayList对象都有一个capacity属性，用来指示该ArrayList的最小容量，用“容量”这个词容易引起像本贴楼主那样的误解，我觉得用“容纳能力”比较贴切。
+    任何一个ArrayList对象都有一个capacity属性，用来指示该ArrayList的最小容量，用"容量"这个词容易引起像本贴楼主那样的误解，我觉得用"容纳能力"比较贴切。
   
   
     我们知道ArrayList的内部是采用数组来存储元素的，由于java数组都是定长的，所以这个数组的大小一定是固定的，这个大小就是capacity。我们可以肯定capacity一定是大于或等于ArrayList的size，那么当size不断增加到了要超过capacity的时候，ArrayList就不得不重新创建新的capacity来容纳更多的元素，这时需要首先建立一个更长的数组，将原来的数组中的元素复制到新数组中，再删除原来的数组。可见当ArrayList越来越大时，这种操作的消耗也是越来越大的。

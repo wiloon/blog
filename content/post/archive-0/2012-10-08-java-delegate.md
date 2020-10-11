@@ -18,7 +18,7 @@ ProfessionalWorker 、SparetimeWorker 负责发射 Rocket，Rocket 类通过接�
 
 IRocketDelegate.java源码
 
-[java]
+```java
 
 public interface IRocketDelegate {
 
@@ -30,13 +30,13 @@ public abstract void sendDidFail();
 
 }
 
-[/java]
+```
 
 共有三个方法，分别是用于计算 Rocket 发射时间、计算 Rocket 发射完毕的时间以及发送是否失败的。
 
 Rocket.java源码
 
-[java]
+```java
 
 public class Rocket {
 
@@ -82,7 +82,7 @@ return true;
   
 }
   
-[/java]
+```
 
 在这个类中，声明一个 IRocketDelegate 接口对象，使用该对象调用接口的方法。我们知道，接口不可以直接实例化，换句话说，实例化接口必须实现接口的所有方法。
 
@@ -90,7 +90,7 @@ return true;
 
 ProfessionalWorker.java源码
 
-[java]
+```java
 
 public class ProfessionalWorker implements IRocketDelegate {
 
@@ -134,11 +134,11 @@ System.out.println("ProfessionalWorker send Rocket ok !");
 
 }
 
-[/java]
+```
 
 SparetimeWorker.java源码
 
-[java]
+```java
   
 public class SparetimeWorker {
   
@@ -186,13 +186,13 @@ System.out.println("SparetimeWorker send Rocket ok !");
   
 }
   
-[/java]
+```
 
 这个类采用内部类的方式完成。
 
 Test.java
 
-[java]
+```java
 
 public class Test {
 
@@ -208,7 +208,7 @@ new SparetimeWorker().send();
 
 }
 
-[/java]
+```
 
 显示结果
 

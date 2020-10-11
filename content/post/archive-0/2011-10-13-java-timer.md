@@ -19,11 +19,11 @@ import java.util.TimerTask;
 public class TestTimer {
 public static void main(String args[]){
 
-System.out.println(“About to schedule task.”);
+System.out.println("About to schedule task.");
 
 new Reminder(3);
 
-System.out.println(“Task scheduled.”);
+System.out.println("Task scheduled.");
   
 }
 
@@ -43,7 +43,7 @@ timer.schedule(new TimerTask(){
 
 public void run(){
 
-System.out.println(“Time's up!”);
+System.out.println("Time's up!");
 
 timer.cancel();
 
@@ -75,7 +75,7 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
 
 1 public Timer() {
   
-2 this(“Timer-” + serialNumber());
+2 this("Timer-" + serialNumber());
   
 3 }
   
@@ -143,7 +143,7 @@ clear方法很简单，就是去清空queue，queue是一个TimerTask的数组�
   
 1 public Timer() {
   
-2 this(“Timer-” + serialNumber());
+2 this("Timer-" + serialNumber());
   
 3 }
   

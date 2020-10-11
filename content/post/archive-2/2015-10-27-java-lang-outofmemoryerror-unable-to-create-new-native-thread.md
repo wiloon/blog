@@ -62,7 +62,7 @@ ReservedOSMemory：Native heap，JNI
 
 (MaxProcessMemory<固定值> – Xms<初始化值，最小值> – XX:PermSize<初始化值，最小值> – 100m<估算值>) / Xss = Number of threads<最大值>
 
-在本地(32bit windows)试了试，可达的线程的最大值差不多就是这个数，它不受物理内存的限制，会利用虚拟内存，从任务管理器看到memory已经是5500 m左右了（开了两个jvm），我机器的物理内存是2g，也不知道这个准不准，后来还抛出了“unable to create new native thread”的兄弟“Exception in thread "CompilerThread0" java.lang.OutOfMemoryError: requested 471336 bytes for Chunk::new. Out of swap space?“。
+在本地(32bit windows)试了试，可达的线程的最大值差不多就是这个数，它不受物理内存的限制，会利用虚拟内存，从任务管理器看到memory已经是5500 m左右了（开了两个jvm），我机器的物理内存是2g，也不知道这个准不准，后来还抛出了"unable to create new native thread"的兄弟"Exception in thread "CompilerThread0" java.lang.OutOfMemoryError: requested 471336 bytes for Chunk::new. Out of swap space?"。
 
 本地测完了后，就该轮到dev环境了，linux2.6，64bit，双核，8G（虚拟机），总的物理内存是16g。在上面整了一下，创建到了15000多个线程的时候挂掉了。此时其他application也不能创建新的线程，而且db也报错了，操作系统不能fork新的线程了。这应该是操作系统的哪里限制了新线程的创建，
 
@@ -104,7 +104,7 @@ file locks                      (-x) unlimited
 
 oracle   27408 27017 12 13:45 ?        00:00:07 /home/oracle/ias1013/FWAPP/FWDev/jdk/bin/java -server -Xmx4096m -Xms4096m -XX:+HeapDumpOnOutOfMemoryError -XX:PermSize=4096m -XX:MaxPermSize=4096m -XX:HeapDumpPath=/home/oracle/ias1013/FWAPP/FWDev/j2ee/OC4J_OOMTest/workEnv/log -Xss100m
   
-结果在create 3379个线程后，“unable to create new native thread”出现了，这时其他jvm都是可以create新线程的。如果按照上面公式计算，linux 64bit，2.6kernel，它的最大寻址空间肯定超过了300g，当然应该还没有达到可用内存的限制，因为其他JVM还能create新线程。
+结果在create 3379个线程后，"unable to create new native thread"出现了，这时其他jvm都是可以create新线程的。如果按照上面公式计算，linux 64bit，2.6kernel，它的最大寻址空间肯定超过了300g，当然应该还没有达到可用内存的限制，因为其他JVM还能create新线程。
 
 我还怀疑是不是oracle application server上的某个配置参数限制了总的线程数，影响了所有application，但我们的产品环境一个application就是一个单独的application server。
 
@@ -144,4 +144,4 @@ stack size              (kbytes, -s) 10240
 
 -v     The maximum amount of virtual memory available to the shell
 
-“Has no effect on Linux”就足以证明它确实只是来做做俯卧撑的。最后查出只有“max user processes”会对所有application能创建总的线程数有限制。
+"Has no effect on Linux"就足以证明它确实只是来做做俯卧撑的。最后查出只有"max user processes"会对所有application能创建总的线程数有限制。

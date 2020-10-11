@@ -12,7 +12,7 @@ categories:
 
 opkg install ipset
 
-# 创建一个网络地址的“集合”
+# 创建一个网络地址的"集合"
 
 ipset create vlist hash:net
 

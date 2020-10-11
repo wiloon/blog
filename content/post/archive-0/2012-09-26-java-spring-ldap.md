@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
   
 import java.util.HashMap;
   
@@ -353,4 +353,4 @@ this.ldapPropertiesMap = ldapPropertiesMap;
 }
 
 
-[/java]
+```

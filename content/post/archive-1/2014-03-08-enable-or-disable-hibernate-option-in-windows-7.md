@@ -45,7 +45,7 @@ Step 4: If you can't see the Hibernate option in Start menu then continue with t
 A. Type Power Options in Start menu and hit enter.
 
 
-B. In the left pane, open the link labeled “Change when the computer sleeps” and then open the link “Change advanced power settings”.
+B. In the left pane, open the link labeled "Change when the computer sleeps" and then open the link "Change advanced power settings".
 
 
 Hybrid sleep

@@ -48,11 +48,11 @@ echo "Run Hudson build at $URL"
   
 wget $URL > /dev/null 2>&1
 
-Finally, you will need to make the hook executable by whoever will be checking code in. As an example, assuming that the git repository is owned by a user called “git”, and a user called “userA” will be checking in via their own ssh account, you should:
+Finally, you will need to make the hook executable by whoever will be checking code in. As an example, assuming that the git repository is owned by a user called "git", and a user called "userA" will be checking in via their own ssh account, you should:
 
 sudo usermod -G git userA
   
-If they're not already a member of the “git” group, and then
+If they're not already a member of the "git" group, and then
 
 chmod ug+x /path/to/your/git/repository.git/hooks/post-receive
   

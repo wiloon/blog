@@ -103,6 +103,6 @@ Hello, World
   
 Bonjour, World
   
-在其他语言里面，有些函数可以直接作为参数传递，有些是以函数指针进行传递，但是都没有办法像go这样可以给函数类型“增加”新方法。
+在其他语言里面，有些函数可以直接作为参数传递，有些是以函数指针进行传递，但是都没有办法像go这样可以给函数类型"增加"新方法。
 
 回到Go: net/http的HandlerFunc类型，只要Martini的函数遵循文档中type HandlerFunc func(ResponseWriter, *Request)的要求，就可以转换成HandlerFunc类型，也就可以调用func (HandlerFunc)ServeHTTP函数。

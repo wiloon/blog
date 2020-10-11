@@ -25,7 +25,7 @@ java.exe is a Win32 console application. This is provided as a helper so that, i
 
 javaw.exe
   
-javaw.exe is very similar to java.exe. It can be considered as a parallel twin. It is a Win32 GUI application. This is provided as a helper so that application launches its own GUI window and will not launch a console. Whenever we want to run a GUI based application and don't require a command console, we can use this as application launcher. For example to launch Eclipse this javaw.exe is used. Write a small java hello world program and run it as “javaw HelloWorld” using a command prompt. Silence! nothing happens then how do I ensure it. Write the same using Swing and execute it you will see the GUI launched. For the lazy to ensure that it is same as java.exe (only difference is console) “javaw HelloWorld >> output.txt”. It silently interprets and pushes the output to the text file.
+javaw.exe is very similar to java.exe. It can be considered as a parallel twin. It is a Win32 GUI application. This is provided as a helper so that application launches its own GUI window and will not launch a console. Whenever we want to run a GUI based application and don't require a command console, we can use this as application launcher. For example to launch Eclipse this javaw.exe is used. Write a small java hello world program and run it as "javaw HelloWorld" using a command prompt. Silence! nothing happens then how do I ensure it. Write the same using Swing and execute it you will see the GUI launched. For the lazy to ensure that it is same as java.exe (only difference is console) "javaw HelloWorld >> output.txt". It silently interprets and pushes the output to the text file.
 
 import javax.swing.*;
 
@@ -67,6 +67,6 @@ We can execute the above GUI application using both java.exe and javaw.exe If we
 
 javaws.exe
   
-javaws.exe is used to launch a java application that is distributed through web. We have a jnlp\_url associated with such application. We can use as “javaws jnlp\_url” to launch the application. It downloads the application from the url and launches it. It is useful to distribute application to users and gives central control to provide updates and ensures all the users are using the latest software. When the application is invoked, it is cached in the local computer. Every time it is launched, it checks if there is any update available from the distributor.
+javaws.exe is used to launch a java application that is distributed through web. We have a jnlp\_url associated with such application. We can use as "javaws jnlp\_url" to launch the application. It downloads the application from the url and launches it. It is useful to distribute application to users and gives central control to provide updates and ensures all the users are using the latest software. When the application is invoked, it is cached in the local computer. Every time it is launched, it checks if there is any update available from the distributor.
 
 This Core Java tutorial was added on 07/08/2012.

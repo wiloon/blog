@@ -165,7 +165,7 @@ tags:
   
 　
   
-　　BOOTPROTO=static //IP地址静态配置，若该值为“dhcp”则为动态获得
+　　BOOTPROTO=static //IP地址静态配置，若该值为"dhcp"则为动态获得
   
 　
   

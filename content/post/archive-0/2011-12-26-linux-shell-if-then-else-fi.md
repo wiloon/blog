@@ -77,13 +77,13 @@ exit 0
 
 test "$(whoami)" != 'root' && (echo you are using a non-privileged account; exit 1)
   
-&&相当于“if…then…”，而||相当于“if not…then…”。&&和||用于连接两个命令，而上面讲的-a和-o仅用于在测试表达式中连接两个测试条件，要注意它们的区别，例如，
+&&相当于"if…then…"，而||相当于"if not…then…"。&&和||用于连接两个命令，而上面讲的-a和-o仅用于在测试表达式中连接两个测试条件，要注意它们的区别，例如，
 
-test “$VAR” -gt 1 -a “$VAR” -lt 3
+test "$VAR" -gt 1 -a "$VAR" -lt 3
   
 和以下写法是等价的
 
-test “$VAR” -gt 1 && test “$VAR” -lt 3
+test "$VAR" -gt 1 && test "$VAR" -lt 3
 
 —
 
@@ -281,7 +281,7 @@ var1="1"
   
 var2="2"
 
-下面是“与”运算符-a，另外注意，用一个test命令就可以了，还有if条件后面的分号
+下面是"与"运算符-a，另外注意，用一个test命令就可以了，还有if条件后面的分号
 
 if test $var1 = "1"-a $var2 = "2" ; then
      
@@ -289,7 +289,7 @@ echo "equal"
   
 fi
 
-下面是“或”运算符 -o，有一个为真就可以
+下面是"或"运算符 -o，有一个为真就可以
 
 if test $var1 != "1" -o $var2 != "3" ; then
      
@@ -297,7 +297,7 @@ echo "not equal"
   
 fi
 
-下面是“非”运算符 ！
+下面是"非"运算符 ！
   
 if条件是为真的时候执行，如果使用！运算符，那么原表达式必须为false
 
