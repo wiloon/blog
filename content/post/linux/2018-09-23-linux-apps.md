@@ -132,6 +132,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | ark        | 压缩包管理器         |
 | gwenview   | 图片查看             |
 | kscreen    | kde 多显示器管理工具 |
+|kcolorchooser|颜色拾取|
 
 ### KDE widget
 
