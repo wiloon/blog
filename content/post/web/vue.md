@@ -30,6 +30,15 @@ yarn serve
 
 ### add vuetify
     vue add vuetify
+#### vuetify config
+- use a pre-made template Y
+- use custom theme Y
+- Use custom properties Y
+- Select icon font: Material Design Icons
+- Use fonts as a dependency: y
+- Use a-la-carte components: y
+- Select locale: English
+
 
 #### Could not find a declaration file for module 'vuetify/lib'
     vim tsconfig.json
@@ -213,6 +222,9 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
     },
     components: { Vin }
     })
+
+
+### vue-class-component
 
 ---
 
