@@ -39,19 +39,20 @@ npm 本来是 Node.js 的包管理工具，但随着 JS 这几年的蓬勃发展
 
 ### install nodejs
 #### archlinux
-
   pacman -S nodejs
 
-#### debian
-sudo -i
-curl -sL https://deb.nodesource.com/setup_14.x | bash -
-apt-get install -y nodejs
-sudo apt-get install gcc g++ make
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
+#### debian/ubuntu
+https://github.com/nodesource/distributions/blob/master/README.md#debinstall  
 
-https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    sudo apt-get install gcc g++ make
+    # install yarn 
+     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+
+
 
 ### list version 
   node -v
