@@ -30,6 +30,15 @@ yarn serve
 
 ### add vuetify
     vue add vuetify
+#### vuetify config
+- use a pre-made template Y
+- use custom theme Y
+- Use custom properties Y
+- Select icon font: Material Design Icons
+- Use fonts as a dependency: y
+- Use a-la-carte components: y
+- Select locale: English
+
 
 #### Could not find a declaration file for module 'vuetify/lib'
     vim tsconfig.json
@@ -214,32 +223,49 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
     components: { Vin }
     })
 
+
+### vue-class-component
 ### pwa
-https://www.jianshu.com/p/917e3e160030
-    vim manifest.json
-        {
-    "name": "PWA-DEMO",   //项目主名称
-    "short_name": "DEMO",   //项目小名
-    "icons": [   //设置你需要的logo图标，我这里随便找了一张
-        {
-        "src": "./timg.jpg",
-        "sizes": "192x192",
-        "type": "image/png"
+    vim vue.config.js
+
+        module.exports = {
+        pwa: {
+            // 一些基础配置
+            name: 'RSSX',
+            assetsVersion: '1.0.0',
+            themeColor: '#4DBA87',
+            msTileColor: '#000000',
+            appleMobileWebAppCapable: 'yes',
+            appleMobileWebAppStatusBarStyle: 'debault',
+            workboxPluginMode: 'InjectManifest',
+            workboxOptions: {
+            // 自定义的service worker文件的位置
+            swSrc: 'src/service-worker.js'
+            }
         },
-        {
-        "src": "./timg.jpg",
-        "sizes": "512x512",
-        "type": "image/png"
-        }
-    ],
-    "start_url": "./index.html",    //启动页面
-    "display": "standalone",      //启动过渡动画
-    "background_color": "#000000",    //背景颜色
-    "theme_color": "#4DBA87"    //导航栏颜色
-    }
+    //...
 
+#### service-worker.js
+修改在 Cache Storage 中的缓存名。
+程序保存在 Cache Storage 的默认缓存有两个，一个是预缓存一个是运行时缓存。
 
+缓存名的格式是 <prefix>-<Cache ID>-<suffix>，通过修改缓存前缀和后缀，可以让缓存名独一无二，避免在使用 localhost 调试程序时因为端口号相同引发的冲突。
+修改前后缀：
+
+        workbox.core.setCacheNameDetails({
+        prefix: 'my-app',
+        suffix: 'v1'
+        });
+
+        // 一旦激活就开始控制任何现有客户机（通常是与skipWaiting配合使用）
+        // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_clientsClaim.mjs
+        workbox.core.clientsClaim()
+        // 跳过等待期
+        // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_skipWaiting.mjs
+        workbox.core.skipWaiting()
 ---
 
 https://cli.vuejs.org/zh/guide/prototyping.html
 https://blog.csdn.net/flyspace/article/details/39993103
+https://www.jianshu.com/p/0093c189b0cd
+https://www.webascii.cn/article/5ef2cb72071be112473165bc/
