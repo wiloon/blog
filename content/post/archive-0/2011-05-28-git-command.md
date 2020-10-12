@@ -56,21 +56,17 @@ git push -u origin master
 ```
 
 ### tag
-
 ```bash
 #list tags
 git tag
 
 # add a tag
-
 git tag v1.0.0
 
 # commit tag
-
 git push origin v1.0.0
 
 # delete tag
-
 git tag -d 1.0.0
 
 # delete remote tag
