@@ -8,16 +8,17 @@ categories:
   - Java
 
 ---
-jar: Java   Archive   file
+### jar: Java Archive file  
+扩展名为.Jar 包含Java类的普通库(class)、资源（resources）、辅助文件（auxiliary files）, properties 等部署文件 application-client.xml
 
-扩展名为. Jar 包含Java类的普通库(class)、资源（resources）、辅助文件（auxiliary files）, properties 等
+JAR: Software developers generally use .jar files to distribute Java applications or libraries, in the form. of classes and associated metadata and resources (text, images, etc.) JAR files build on the ZIP file format.
 
-部署文件 application-client.xml
 
-### 查看jar归档目录
-jar -vtf xxx.jar
-war: Web Archive file/web application archive
+#### 查看jar归档目录
+    jar -vtf xxx.jar
 
+
+### war: Web Archive file/web application archive
 扩展名为.War, 包含全部Web应用程序, Servlet、JSP、JSP标记库、JAR库文件、HTML/XML文档和其他公用资源文件,图片、音频. 一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet）来访问。
 
 部署文件：web.xml
@@ -34,9 +35,9 @@ war:封装web站点
   
 ear:可以封装ejb
 
-jar <war <ear
+    jar <war <ear
 
-JAR: Software developers generally use .jar files to distribute Java applications or libraries, in the form. of classes and associated metadata and resources (text, images, etc.) JAR files build on the ZIP file format.
+
   
 WAR: In computing, a WAR file (which stands for "web application archive" ) is a JAR file used to distribute a collection of JavaServer Pages, servlets, Java classes, XML files, tag libraries and static Web pages (HTML and related files) that together constitute a Web application.
   
@@ -52,16 +53,13 @@ Metadata: Metadata is a means to describe the data files.It provides information
 
 -
 
-**JAR**:
-  
+### JAR
 EJB modules which contains enterprise java beans class files and EJB deployment descriptor are packed as JAR files with .jar extenstion
   
-**WAR**
-  
+### WAR
 Web modules which contains Servlet class files,JSP FIles,supporting files, GIF and HTML files are packaged as JAR file with .war( web achive) extension
   
-**EAR**
-  
+### EAR
 All above files(.jar and .war) are packaged as JAR file with .ear ( enterprise archive) extension and deployed into Application Server.
 
 如果想生成war文件：可以使用如下命令：jar -cvf web1.war *

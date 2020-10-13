@@ -33,11 +33,11 @@ yarn global add http-server
 
 ### 打印依赖
     yarn list
+
 ### Yarn是什么？
 "Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ，正如官方文档中写的，Yarn 是为了弥补 npm 的一些缺陷而出现的。
 
 ### yarn 国内加速，修改镜像源
-
 #### 以下命令查看当前使用的镜像源
 yarn config get registry
 # 临时修改
