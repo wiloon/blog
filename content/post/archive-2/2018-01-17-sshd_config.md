@@ -60,9 +60,7 @@ AuthorizedKeysFile
   
 默认值是".ssh/authorized_keys"。
 
-PasswordAuthentication
-  
-是否允许使用基于密码的认证。默认为"yes"。
+
 
 UsePrivilegeSeparation
   

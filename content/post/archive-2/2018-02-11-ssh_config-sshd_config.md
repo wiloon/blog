@@ -40,7 +40,6 @@ RhostsRSAAuthentication no
       
 &#x200d; RSAAuthentication yes
           
-PasswordAuthentication yes
           
 FallBackToRsh no
           
@@ -90,9 +89,6 @@ RSAAuthentication yes
   
 "RSAAuthentication"设置是否使用RSA算法进行安全验证。
   
-PasswordAuthentication yes
-  
-"PasswordAuthentication"设置是否使用口令验证。
   
 FallBackToRsh no
   
@@ -130,30 +126,6 @@ EscapeChar ~
   
 "EscapeChar"设置escape字符。
   
-2、编辑 /etc/ssh/sshd_config 文件：&#x200d;
-
-# This is ssh server systemwide configuration file.
-
-          Port 22
-          ListenAddress 192.168.1.1
-          HostKey /etc/ssh/ssh_host_key
-          ServerKeyBits 1024
-          LoginGraceTime 600
-          KeyRegenerationInterval 3600
-          PermitRootLogin no
-          IgnoreRhosts yes
-          IgnoreUserKnownHosts yes
-          StrictModes yes
-          X11Forwarding no
-          PrintMotd yes
-          SyslogFacility AUTH
-          LogLevel INFO
-          RhostsAuthentication no
-          RhostsRSAAuthentication no
-          RSAAuthentication yes
-          PasswordAuthentication yes
-          PermitEmptyPasswords no
-          AllowUsers admin
     
 
 &#x200d;下面逐行说明上面的选项设置：
@@ -226,9 +198,6 @@ RSAAuthentication yes
   
 "RSAAuthentication"设置是否允许只有RSA安全验证。
   
-PasswordAuthentication yes
-  
-"PasswordAuthentication"设置是否允许口令验证。
   
 PermitEmptyPasswords no
   
