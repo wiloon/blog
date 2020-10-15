@@ -20,7 +20,6 @@ curl -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measur
     curl -x http://127.0.0.1:8899/ -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=86 1594349970000000000'
 
 ### database management
-
 ```bash
 #show db
 show databases
@@ -97,6 +96,15 @@ podman run -d \
 influxdb
 
 ```
+
+### chronograf
+    podman run -d \
+    --name chronograf \
+    --pod monitor \
+    -v chronograf:/var/lib/chronograf \
+    -v /etc/localtime:/etc/localtime:ro \
+    chronograf --influxdb-url=http://monitor:8086
+
 #### run influx
     sudo podman exec -it influxdb influx
     sudo podman run -it --rm influxdb influx -host influxdb.wiloon.com
@@ -131,9 +139,17 @@ show measurements
 DROP MEASUREMENT <measurement_name>
 ```
 
+### select
 ```sql
 select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time>now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq>0
+
+select * from "database0"."rentention-policies-0"."measurement0"
+
 ```
+
+#### influx
+
+    influx -execute 'select * from "database0"."retention_policies_0"."measurement0" order by time desc limit 1'
 
 ```bash
 
