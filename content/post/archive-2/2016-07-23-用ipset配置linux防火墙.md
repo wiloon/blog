@@ -18,6 +18,7 @@ ipset list
 
 ipset create vlist hash:net
 
+ipset add myset 14.144.0.0/12
 ipset -A vlist 172.217.24.14
 
 ipset del yoda x.x.x.x    # 从 yoda 集合中删除内容
