@@ -32,8 +32,7 @@ StrictModes yes
 RSAAuthentication yes # 启用 RSA 认证
   
 PubkeyAuthentication yes # 启用公钥认证
-  
-PasswordAuthentication no # 禁止密码认证
+
   
 ServerKeyBits 1024 #将ServerKey强度改为1024比特
   
