@@ -99,6 +99,6 @@ http://blog.sina.com.cn/s/blog_605f5b4f01015k56.html
   
 </blockquote>
 
-<iframe title="《stat》—Linux命令大全" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK" data-secret="0aBZM4XyiK" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://man.linuxde.net/stat/embed#?secret=0aBZM4XyiK
   
 https://blog.lilydjwg.me/2018/7/11/get-file-birth-time-in-linux.213101.html

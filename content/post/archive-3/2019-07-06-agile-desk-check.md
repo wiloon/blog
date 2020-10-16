@@ -18,4 +18,4 @@ categories:
   
 </blockquote>
 
-<iframe title="《你要专业》—ThoughtWorks洞见" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH" data-secret="CuWoU1KPNH" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH

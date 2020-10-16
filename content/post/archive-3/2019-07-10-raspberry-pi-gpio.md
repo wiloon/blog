@@ -16,7 +16,7 @@ categories:
   
 </blockquote>
 
-<iframe title="《Raspberry Pi 的GPIO接口电路》—oa25开源日记" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.oa25.org/?p=472&embed=true#?secret=57KOUtczxY" data-secret="57KOUtczxY" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://blog.oa25.org/?p=472&embed=true#?secret=57KOUtczxY
 
 https://www.kidscoding8.com/47249.html
 

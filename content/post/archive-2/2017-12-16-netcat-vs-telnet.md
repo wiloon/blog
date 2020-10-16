@@ -101,6 +101,6 @@ Telnet有"标准输入文件结束符(standard input EOF)"问题，
   
 </blockquote>
 
-<iframe title=""Stop using telnet and start using netcat" - scottlinux.com | Linux Blog" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2" data-secret="mR1NgJH6y2" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2
   
 https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat

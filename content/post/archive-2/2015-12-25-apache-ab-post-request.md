@@ -148,6 +148,6 @@ http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%
   
 </blockquote>
 
-<iframe title="《（总结）Web性能压力测试工具之ApacheBench（ab）详解》—运维架构笔记 | 股市实战分享" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl" data-secret="uK0hS4Tawl" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl
 
  

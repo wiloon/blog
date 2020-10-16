@@ -14,7 +14,7 @@ categories:
   
 </blockquote>
 
-<iframe title=""Root Android Q on Google Pixel 2, Google Pixel" - Team Android" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm" data-secret="dymLQPYWmm" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm
 
 线刷 android 10
 
@@ -24,7 +24,7 @@ categories:
   
 </blockquote>
 
-<iframe title=""安卓线刷升级 flash factory image for android device" - w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=7296&embed=true#?secret=Im4BCxWQUv" data-secret="Im4BCxWQUv" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://blog.wiloon.com/?p=7296&embed=true#?secret=Im4BCxWQUv
 
 Enable USB Debugging mode
    

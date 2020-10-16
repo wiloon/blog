@@ -59,7 +59,7 @@ OpenJTAG为开源的JTAG调试工具，功能强大，并且配合其他的开�
 ARM-OB因为不支持JTAG模式，而仅支持SWD模式，因此有些较早的ARM7内核MCU，并且不支持SWD模式的芯片，是不能够调试的。
 
 
-### IDE 说明 Keil、RVDS、ADS、DS-5、MDK
+## IDE 说明 Keil、RVDS、ADS、DS-5、MDK
 #### Software Development Toolkit (SDT)
 ARM公司最早推出的开发工具，最终版本是2.5.2，但从版本2.5.1开始，ARM公司宣布推出一套新的集成开发工具 ADS1.0，用来取代SDT。主要特点如下：
 
@@ -124,6 +124,10 @@ ARM编译套件
 ARM公司除了提供了以上各种IDE外，从4.x开始，其也提供了可独立下载使用（命令行工具）的编译套件！交旧版本的没有独立提供，但是可以很方便的进行提取从而独立使用！ 
 其中，最新版的独立编译套件可以从https://developer.arm.com/products/software-development-tools/compilers/arm-compiler/downloads下载，旧点版本的可以通过以下地址下载https://developer.arm.com/products/software-development-tools/compilers/legacy-compiler-releases。再旧的就只能自己搞了。 
 
+### segger embedded studio for arm v5.1.0b
+#### package manager
+- cmsis-core support package
+- 
 
 ### 天线, 陶瓷天线和PCB天线以及IPEX天线
 陶瓷天线是一种适合于蓝牙装置使用的小型化天线。下面云里物里给大家介绍下这三种天线有什么区别。

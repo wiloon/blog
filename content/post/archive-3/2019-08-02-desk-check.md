@@ -14,7 +14,7 @@ categories:
   
 </blockquote>
 
-<iframe title="《敏捷实践之Desk Check》—ThoughtWorks洞见" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://insights.thoughtworkers.org/desk-check/embed/#?secret=5PpVVMPtJf" data-secret="5PpVVMPtJf" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://insights.thoughtworkers.org/desk-check/embed/#?secret=5PpVVMPtJf
 
 开发人员在完成需求之后，快速在本地开发环境建立功能验证条件。
 
