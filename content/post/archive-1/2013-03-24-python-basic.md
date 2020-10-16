@@ -1,13 +1,12 @@
 ---
-title: debian install python 3.3.0
+title: python basic
 author: wiloon
 type: post
 date: 2013-03-24T02:25:43+00:00
 url: /?p=5343
-categories:
-  - Uncategorized
 
 ---
+### debian
 Download latest release of Python
 
 Fetch and extract source. Please refer to http://www.python.org/download/releases to ensure the latest source is used.
@@ -37,3 +36,7 @@ $ /opt/python3/bin/python3 -V Python 3.x
 That is all.
   
 http://www.unixmen.com/howto-install-python-3-x-in-ubuntu-debian-fedora-centos/
+
+### archlinux 
+    pacman -S python
+  
