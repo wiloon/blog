@@ -1,12 +1,9 @@
 +++
-author = ""
+author = "w1100n"
 date = "2020-05-16T03:03:37Z"
 title = "vue"
 
 +++
-https://github.com/vuejs/vue-next
-https://qingbii.com/2019/10/10/building-vue3-from-scratch/
-https://juejin.im/post/5dd3d4dae51d453d493092da
 
 ```bash
 
@@ -32,8 +29,8 @@ yarn serve
     vue add vuetify
 #### vuetify config
 - use a pre-made template Y
-- use custom theme Y
-- Use custom properties Y
+- use custom theme N
+- Use custom properties N
 - Select icon font: Material Design Icons
 - Use fonts as a dependency: y
 - Use a-la-carte components: y
@@ -47,7 +44,7 @@ yarn serve
          "types": ["...", "vuetify"],
 
 
- #### a-la-carte 组件
+#### a-la-carte 组件
  只包含需要(想要)使用的组件,而不是获取所有组件
 
 ### 使用 axios 访问 API
@@ -263,9 +260,16 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
         // 跳过等待期
         // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_skipWaiting.mjs
         workbox.core.skipWaiting()
----
 
+### vue typescript
+https://xie.infoq.cn/article/00845440bed4248cb80c15128?utm_source=rss&utm_medium=article
+
+----
 https://cli.vuejs.org/zh/guide/prototyping.html
 https://blog.csdn.net/flyspace/article/details/39993103
 https://www.jianshu.com/p/0093c189b0cd
 https://www.webascii.cn/article/5ef2cb72071be112473165bc/
+https://github.com/vuejs/vue-next
+https://qingbii.com/2019/10/10/building-vue3-from-scratch/
+https://juejin.im/post/5dd3d4dae51d453d493092da
+ 
