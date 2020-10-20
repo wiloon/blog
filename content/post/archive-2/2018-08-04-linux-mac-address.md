@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-https://wiki.archlinux.org/index.php/MAC\_address\_spoofing
+https://wiki.archlinux.org/index.php/MAC_address_spoofing
 
 ```bash
 vim /etc/systemd/network/00-default.link

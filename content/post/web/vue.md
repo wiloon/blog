@@ -263,6 +263,23 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
         // 跳过等待期
         // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_skipWaiting.mjs
         workbox.core.skipWaiting()
+
+### vue typescript 调用 javascript
+https://blog.csdn.net/qq_29483485/article/details/86605215
+
+    vim src/assets/foo.js
+
+    # content
+    export function foo () {
+        console.log('foo')
+    }
+
+    # 组件中引用
+    import { foo } from './assets/foo.js'
+    //...
+    mounted () {
+        foo()
+    }
 ---
 
 https://cli.vuejs.org/zh/guide/prototyping.html

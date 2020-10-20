@@ -160,3 +160,6 @@ https://blog.csdn.net/ZCShouCSDN/article/details/81836601
 
 ### linux jlink
 https://boseji.com/posts/segger-jlink-in-manjaro-linux/
+
+### micro python
+https://gitee.com/WeAct-TC/MiniF4-STM32F4x1

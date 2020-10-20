@@ -55,6 +55,7 @@ choco upgrade keepassxc
 | Windows Terminal |          |
 | wsl2             |          |
 |x410              |windows x server|
+|rufus|iso to usb|
 
 choco install heidisql
 MobaXterm

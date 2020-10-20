@@ -170,7 +170,8 @@ cat increase-replication-factor.json
 
 ### consumer
 
-```bash/opt/cloudera/parcels/KAFKA/bin/kafka-console-consumer --bootstrap-server 192.168.0.1:9092,192.168.0.2:9092,192.168.0.3:9092 --topic topic0
+```bash
+/opt/cloudera/parcels/KAFKA/bin/kafka-console-consumer --bootstrap-server 192.168.0.1:9092,192.168.0.2:9092,192.168.0.3:9092 --topic topic0
 ```
 
 ### install
@@ -200,7 +201,7 @@ docker run  -d --name kafka \
 ```bash
 
 ```
-    ### server.properties
+### server.properties
     
     advertised.host.name：是注册到zookeeper，client要访问的broker地址。（可能producer也是拿这个值，没有验证）
     

@@ -64,10 +64,7 @@ pacman -Sy
 
 ```bash
 # Mount the partitions
-mkdir /mnt/tmp
-mount /dev/sdx3 /mnt/tmp
-mkdir /mnt/tmp/boot
-mount /dev/sdx1 /mnt/tmp/boot
+mkdir /mnt/t
 
 pacstrap /mnt/tmp base linux linux-firmware
 # if command not found, see http://www.wiloon.com/wordpress/?p=8443
