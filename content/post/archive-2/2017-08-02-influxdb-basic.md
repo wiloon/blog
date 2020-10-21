@@ -133,10 +133,10 @@ DROP SHARD <shard_id_number>
 ```
 
 ### measurement
-
 ```sql
 show measurements
 DROP MEASUREMENT <measurement_name>
+DROP MEASUREMENT "kernel"
 ```
 
 ### select
