@@ -46,8 +46,8 @@ com.wiloon.xxx.xxx.xxx
 [/xml]
 
 
-[shell]
+```bash
 
 mvn assembly:assembly
 
-[/shell]
+```

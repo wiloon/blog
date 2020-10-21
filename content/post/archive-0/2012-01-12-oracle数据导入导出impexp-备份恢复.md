@@ -8,11 +8,11 @@ categories:
   - DataBase
 
 ---
-[shell]
+```bash
 
 exp scott/123456@172.16.234.51/orcl file=d:export.dmp owner=(scott)
 
-[/shell]
+```
 
 语法：
   

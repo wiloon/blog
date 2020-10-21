@@ -79,3 +79,54 @@ http://blog.csdn.net/ciml/article/details/5753367
 java protobuf
     
 https://blog.csdn.net/u014801432/article/details/82558380
+
+
+### maven + protobuf
+https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
+
+
+在src/main/proto下定义proto文件
+在pom.xml中配置
+```xml
+<properties>
+    <protobuf.version>3.5.0</protobuf.version>
+</properties>
+
+<dependencies>
+    <dependency>
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java</artifactId>
+        <version>${protobuf.version}</version>
+    </dependency>
+</dependencies>
+
+<build>
+    <extensions>
+        <extension>
+            <groupId>kr.motd.maven</groupId>
+            <artifactId>os-maven-plugin</artifactId>
+            <version>1.5.0.Final</version>
+        </extension>
+    </extensions>
+    <plugins>
+        <plugin>
+            <groupId>org.xolstice.maven.plugins</groupId>
+            <artifactId>protobuf-maven-plugin</artifactId>
+            <version>0.5.1</version>
+            <extensions>true</extensions>
+            <configuration>
+                <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>compile</goal>
+                        <goal>test-compile</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+```
+通过mvn compile,就可以在target/generated-sources 下看到生成的源码了

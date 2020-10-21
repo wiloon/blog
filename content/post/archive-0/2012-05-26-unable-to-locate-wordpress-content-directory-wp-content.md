@@ -27,11 +27,11 @@ define( 'FS\_CHMOD\_DIR', 0751 ); }
 
 如果提示没有写权限之类...
 
-[shell]
+```bash
   
 chmod -R 777 /var/www/wordpress/wp-content/
   
-[/shell]
+```
 
 http://wordpress.org/support/topic/unable-to-locate-wordpress-plugin-directory-1
   

@@ -152,48 +152,40 @@ mvn surefire-report:report
 
 -maven idea
 
-[shell]
+```bash
 
 mvn idea:idea
 
 mvn idea:clean
 
-[/shell]
+```
 
-[shell]
+```bash
   
 #maven install jar
   
 mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -Dfile=/home/wiloon/Downloads/ojdbc6.jar
   
-[/shell]
+```
+
+### os-maven-plugin
+os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和 ${os.arch} 属性）的 Maven 插件
 
 ### Maven项目的标准目录结构
-
-  * src 
-      * main
-  
+    src 
+      main
         -java 源文件 
-          * resources 资源文件
-          * filters 资源过滤文件
-          * config 配置文件
-  
-            scripts 脚本文件
-  
-            webapp web应用文件
-  
-            test
-  
-            java 测试源文件
-  
-            resources 测试资源文件
-  
+          resources 资源文件
+          filters 资源过滤文件
+          config 配置文件
+          scripts 脚本文件
+          webapp web应用文件
+      test
+          java 测试源文件
+          resources 测试资源文件
             filters 测试资源过滤文件
-  
             it 集成测试
-  
             assembly assembly descriptors
-  
             site Site
   
             target
@@ -215,5 +207,17 @@ mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2
             NOTICE.txt
   
             README.txt
+
+### pom
+#### extensions
+    <!-- build中的extensions是执行构建过程中可能用到的其他工lib，在执行构建的过程中被加入到classpath中。 -->
+    <extensions>
+        <extension>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </extension>
+    </extensions>
+
 
 https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecatalog-local-does-not-list-my-archetype

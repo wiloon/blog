@@ -23,11 +23,11 @@ The most common way to copy an image to a USB flash drive is to use the <q>dd</q
 
 `dd if=<file> of=<device> bs=4M; sync`
 
-[shell]
+```bash
   
 dd if=debian-6.0.2.1-i386-CD-1.iso of=/dev/sdb bs=4M; sync
   
-[/shell]
+```
 
 where:
 
@@ -52,21 +52,21 @@ http://ftp.nl.debian.org/debian/dists/squeeze/main/installer-i386/current/images
 
 #将 hd-media/boot.img.gz 的文件(里面包含所有安装程序文件,syslinux) 解压缩到U 盘
 
-[shell]
+```bash
   
 sudo umount /dev/sdX
   
 sudo zcat boot.img.gz > /dev/sdX
   
-[/shell]
+```
 
 #挂载该U盘
 
-[shell]
+```bash
   
 sudo mount /dev/sdX /mnt
   
-[/shell]
+```
 
 #复制 Debian netinst 到 /mnt (也就是U盘)
 
@@ -82,31 +82,31 @@ sudo mount /dev/sdX /mnt
   
 mkdosfs可在Linux下，将磁盘格式化为MS-DOS文件系统的格式。
 
-[shell]
+```bash
   
 sudo umount /dev/sdb1
   
 sudo mkdosfs /dev/sdb1
   
-[/shell]
+```
 
 把syslinux放到FAT16分区,来引导系统 (如果你的系统没有 syslinux和mtools包,要先行安装)
 
-[shell]
+```bash
   
 sudo apt-get install syslinux
   
 sudo syslinux /dev/sdb1
   
-[/shell]
+```
 
 挂载分区
 
-[shell]
+```bash
   
 sudo mount /dev/sdb1 /mnt
   
-[/shell]
+```
 
 复制下面的文件到U盘
   
@@ -136,18 +136,18 @@ http://wiki.debian.org/BootUsb
 
 unmount the usb drive
 
-[shell]
+```bash
   
 sudo umount /dev/sdb1
   
-[/shell]
+```
 
 
-[shell]
+```bash
   
 sudo fdisk /dev/sdb
   
-[/shell]
+```
 
 Using fdisk: Press P to see the list of all partitions.
 
@@ -189,21 +189,21 @@ Some USB keys don't boot. If this is the case, it may be possible to fix them by
 
 #umount the usb drive
 
-[shell]
+```bash
   
 #lilo -M /dev/$usbdevice
   
 sudo lilo -M /dev/sdb
   
-[/shell]
+```
 
 没有lilo的话。。要安装一下
 
-[shell]
+```bash
   
 sudo apt-get install lilo
   
-[/shell]
+```
 
 安装过程中会跳出一个窗口,选OK..
 

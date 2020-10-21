@@ -10,11 +10,11 @@ categories:
 ---
 <span style="color: #000000; font-size: 13px; line-height: 19px;">install postfix
 
-[shell]
+```bash
   
 sudo apt-get install postfix
   
-[/shell]
+```
 
 internet site, wiloon.com;
 
@@ -22,7 +22,7 @@ internet site, wiloon.com;
 
 <span style="color: #000000;">4、编辑main.cf 
 
-[shell]
+```bash
   
 emacs  /etc/postfix/main.cf
 
@@ -48,13 +48,13 @@ mydestination参数指定postfix接收邮件时收件人的域名，换句话说
 
 创建用户user1
 
-[shell]
+```bash
   
 sudo useradd -m -s /bin/bash user1
   
 sudo passwd user1
   
-[/shell]
+```
 
 <span style="color: #000000;">在mydestination后加上wiloon.com，成为这个样子： 
 

@@ -12,7 +12,7 @@ filco 配对 ctrl+alt+fn
   
 忘记已配对设备 connect 长按3秒
 
-[shell]
+```bash
   
 #mac of bluetooth keyboard
   
@@ -42,7 +42,7 @@ connect 00:18:00:3C:A4:C5
 
 systemctl start bluetooth
   
-[/shell]
+```
 
 https://wiki.archlinux.org/index.php/Bluetooth_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
   

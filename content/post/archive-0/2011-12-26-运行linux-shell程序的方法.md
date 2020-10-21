@@ -10,13 +10,13 @@ tags:
   - Shell
 
 ---
-[shell]
+```bash
 
 ./xxx.sh
 
 sh xxx.sh
 
-[/shell]
+```
 
 用户可以用任何编辑程序来编写Shell程序。因为Shell程序是解释执行的，所以不需要编译成目的程序。按照Shell编程的惯例，以bash 为例，程序的第一行一般为"#！/bin/bash"，其中 # 表示该行是注释，叹号 ！ 告诉Shell运行叹号之后的命令并用文档的其余部分作为输入，也就是运行/bin/bash并让/bin/bash去执行Shell程序的内容。
   

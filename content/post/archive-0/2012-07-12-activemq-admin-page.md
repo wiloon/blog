@@ -8,13 +8,13 @@ categories:
   - Development
 
 ---
-[shell]
+```bash
 
 ./activemq start
 
 ./activemq stop
 
-[/shell]
+```
 
 
 [http://localhost:8161/admin][1]

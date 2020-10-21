@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
 
 git clone https://github.com/alibaba/TProfiler.git
 
@@ -19,4 +19,4 @@ mvn assembly:assembly
 #create tprofiler.properties
 
 
-[/shell]
+```

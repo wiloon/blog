@@ -57,7 +57,7 @@ wpa\_passphrase <your\_essid> <your\_assic\_key>
 
 例如:
 
-[shell]
+```bash
   
 wpa_passphrase DFERG 100200300b
   
@@ -71,6 +71,6 @@ psk=fcb3717c5f66e893d9010a6872436b34686618a3e8fa2833d56bb98b41be5c8d
   
 }
   
-[/shell]
+```
 
 原文地址：<http://hi.baidu.com/tanmeng_sino/blog/item/8b3526f5781d65e77709d735.html>

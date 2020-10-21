@@ -48,19 +48,19 @@ Open up Applications -> Accessories - > Terminal.
 
 That prompt you see will look something like this...
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$
   
-[/shell]
+```
 
 And that is how you will enter commands in.
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$ sudo apt-get install dosemu
   
-[/shell]
+```
 
 The above command will install dosemu as well as the FreeDOS component automatically. Now you are set to follow the guide. The other thing you need to worry about is where the USB flash drive shows up in /dev. Mine was mounted as /dev/sdb, but yours may be completely different. This guide uses /dev/sdb as the flash drive.
 
@@ -70,7 +70,7 @@ Step 1: Prepare the drive
   
 The first step will wipe the MBR of the drive as well as the partition table information on it. dd is a dangerous command if you don't know what you are doing. If you make a mistake, you can wipe your regular hard drive out.
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$ sudo dd if=/dev/zero of=/dev/sdb bs=512 count=1
   
@@ -82,7 +82,7 @@ aronschatz@asetest2:~$ sudo dd if=/dev/zero of=/dev/sdb bs=512 count=1
   
 aronschatz@asetest2:~$
   
-[/shell]
+```
 
 Now you are finished preparing the drive and can continue.
 
@@ -92,11 +92,11 @@ This will be the pictorial step. The basic layout is to use cfdisk to create a s
 
 note: umount the usb drive firstly.
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$ sudo cfdisk /dev/sdb
   
-[/shell]
+```
 
 The flash drive is ready to be partitioned. We want to add a "New" partition.
   
@@ -108,7 +108,7 @@ Now you need to change the "Type" of the partition to a FAT16. It would be 06 fo
   
 Once you are back to the make screen, you need to "Write" the changes to the disk and accept any prompts that come up. Then you can "Quit" cfdisk and return which will show this...
 
-[shell]
+```bash
   
 Disk has been changed.
 
@@ -120,7 +120,7 @@ page for additional information.
   
 aronschatz@asetest2:~$
   
-[/shell]
+```
 
 **Step 3: Format the partition**
   
@@ -130,30 +130,30 @@ With the partition made in the previous step, you know need to put a filesystem 
     Code
   </h4>
   
-    [shell]
+    ```bash
  aronschatz@asetest2:~$ sudo mkdosfs -I /dev/sdb1
  mkdosfs 2.11 (12 Mar 2005)
  aronschatz@asetest2:~$
- [/shell]
+ ```
   
   
     Step 4: Edit .dosemurc 
  You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc" in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
   
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$ sudo emacs /root/.dosemurc
   
-[/shell]
+```
 
 The file should look like this...
 
-[shell]
+```bash
   
 $_hdimage = "drives/* /tmp /dev/sdb1"
   
-[/shell]
+```
 
 Basically that means to parse the directories in ./drives/ and then use /dev/sdb1. It will make everything into a fixed disk. Save and close the file.
 
@@ -163,7 +163,7 @@ You need to start the emulator for dos. If the command brings up errors such as 
 
 #### Code
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$ sudo dosemu
   
@@ -179,23 +179,23 @@ it is currently mounted read-write on '/media/disk' !!!1 error(s) detected while
   
 aronschatz@asetest2:~$
   
-[/shell]
+```
 
 Here we see the problem. The flash drive is mounted. This command will unmount the drive.
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$ sudo umount /dev/sdb1
   
-[/shell]
+```
 
 Now try to start dosemu again...
 
-[shell]
+```bash
   
 aronschatz@asetest2:~$ sudo dosemu
   
-[/shell]
+```
 
 This command should bring up another prompt that is basically FreeDOS. In this new window, type the series of commands...
 
@@ -203,7 +203,7 @@ This command should bring up another prompt that is basically FreeDOS. In this n
     Code
   </h4>
   
-    [shell]
+    ```bash
  C:> z:
  Z:> sys f:
  FreeDOS System Installer v3.2, Aug 18 2006Processing boot sector...
@@ -222,7 +222,7 @@ This command should bring up another prompt that is basically FreeDOS. In this n
  66945 Bytes transferred
  System transferred.
  Z:>exitemu
- [/shell]
+ ```
   
   
     First you type "Z:" to get into the Z drive which holds all the FreeDOS tools and binaries. Then the command "sys f:" tells it to make the F: drive a system drive by copying kernerl.sys and command.com. Once that is completed, "exitemu" exits out of the dosemu program.
@@ -231,11 +231,11 @@ This command should bring up another prompt that is basically FreeDOS. In this n
   
   
     Step 6: install mbr
- [shell]
+ ```bash
  #install-mbr -v -p [boot partition #] /dev/<usb device>
  # Note: no partition, root device only
  sudo install-mbr -v -p 1 /dev/sdb
- [/shell]
+ ```
   
   
     Step 7: smartdrv.exe, himemx.exe, JEMM386.EXE

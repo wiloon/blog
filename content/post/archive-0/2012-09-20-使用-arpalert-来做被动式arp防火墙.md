@@ -117,7 +117,7 @@ usleep($ival);
   
 (调整了一下)
 
-[shell]
+```bash
   
 #
   
@@ -399,7 +399,7 @@ alert on flood   = false
   
 mod on flood = true
   
-[/shell]
+```
 
 sudo visudo
   
@@ -408,6 +408,6 @@ sudo visudo
   代码:
 
 
-  [shell]
+  ```bash
  arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *
- [/shell]
+ ```

@@ -12,7 +12,7 @@ install Yaourt
 
 添加Yaourt源至您的 `/etc/pacman.conf`:
 
-[shell]
+```bash
   
 [archlinuxcn]
   
@@ -22,16 +22,16 @@ SigLevel = Optional TrustedOnly
   
 Server = http://repo.archlinuxcn.org/$arch
   
-[/shell]
+```
 
 install yaourt
 
-[shell]pacman -Syu yaourt[/shell]
+```bashpacman -Syu yaourt```
 
 install flash plugin 
 
 
-[shell]yaourt -S chromium-pepper-flash[/shell]
+```bashyaourt -S chromium-pepper-flash```
 
 Enable the plugin in <code>chrome://plugins</code>.
 

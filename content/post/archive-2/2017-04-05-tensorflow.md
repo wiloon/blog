@@ -23,13 +23,13 @@ sudo pacman -S python-numpy
 
 ```
 
-[shell]
+```bash
 
 docker run -it -p 8888:8888 gcr.io/tensorflow/tensorflow
 
 docker run -it gcr.io/tensorflow/tensorflow bash
 
-[/shell]
+```
 
 https://www.tensorflow.org/install/install_linux#InstallingDocker
 

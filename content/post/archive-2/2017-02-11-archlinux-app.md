@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
   
 #linux
   
@@ -22,4 +22,4 @@ omxplayer #http://www.wiloon.com/wordpress/?p=5417
   
 airdroid
   
-[/shell]
+```

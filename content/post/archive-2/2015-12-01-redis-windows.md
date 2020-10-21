@@ -10,13 +10,13 @@ categories:
 ---
 启动redis 服务
 
-[shell]
+```bash
 
 redis-server.exe
 
 redis-server.exe  redis.windows.conf
 
-[/shell]
+```
 
 https://github.com/MSOpenTech/redis/releases
 

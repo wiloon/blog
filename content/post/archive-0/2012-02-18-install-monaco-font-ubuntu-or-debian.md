@@ -8,7 +8,7 @@ categories:
   - Font
 
 ---
-[shell]
+```bash
   
 sudo mkdir /usr/share/fonts/truetype/custom
   
@@ -16,4 +16,4 @@ sudo mv Monaco_Linux.ttf /usr/share/ts/truetype/custom/
   
 sudo fc-cache -f -v
   
-[/shell]
+```
