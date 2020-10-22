@@ -7,6 +7,9 @@ categories:
 - Uncategorized
 
 ---
+### kafka package 
+    https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+
 ### group
 
     # list all group
@@ -46,7 +49,6 @@ replication-factor: 副本数, partitions: 分区数
 topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
-
     # cloudera kafka
     /opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \
     --zookeeper 127.0.0.1:2181 \
