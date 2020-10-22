@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
 
 Channel channel = Mockito.mock(XxxClass.class);
   
@@ -32,4 +32,4 @@ return true;
   
 }
 
-[/shell]
+```

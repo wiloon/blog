@@ -10,7 +10,7 @@ categories:
 ---
 edit /boot/grub/grub.cfg
   
-[shell]
+```bash
   
 menuentry 'Debian GNU/Linux, with Linux 2.6.32-5-686-bigmem run level 3' -class debian -class gnu-linux -class gnu -class os {
 	  
@@ -52,4 +52,4 @@ initrd /initrd.img-2.6.32-5-686-bigmem
   
 }
   
-[/shell]
+```

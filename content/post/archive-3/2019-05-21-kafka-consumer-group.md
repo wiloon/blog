@@ -1,5 +1,5 @@
 ---
-title: kafka consumer group
+title: kafka consumer, group
 author: wiloon
 type: post
 date: 2019-05-21T02:54:18+00:00
@@ -8,6 +8,25 @@ categories:
   - Uncategorized
 
 ---
+### kafka consumer
+https://blog.csdn.net/lishuangzhe7047/article/details/74530417
+
+    properties.put("enable.auto.commit", "true");
+    properties.put("auto.commit.interval.ms", "1000");
+    properties.put("auto.offset.reset", "earliest");
+    properties.put("session.timeout.ms", "30000");
+    properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+    properties.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
+
+    auto.offset.reset
+    earliest
+    当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+    latest
+    当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
+    none
+    topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
+
+
 https://www.cnblogs.com/huxi2b/p/6223228.html
 
 Kafka消费组(consumer group)

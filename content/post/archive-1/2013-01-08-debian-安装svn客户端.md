@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-[shell]
+```bash
   
 apt-get install subversion
   
@@ -16,4 +16,4 @@ cd /usr/local/src/
   
 svn checkout http://droidwall.googlecode.com/svn/trunk/ droidwall-read-only
   
-[/shell]
+```

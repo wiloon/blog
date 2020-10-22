@@ -16,7 +16,7 @@ connect to oracle with sqlplus
 
 http://www.wiloon.com/wordpress/?p=5560
 
-[shell]
+```bash
 
 create user user0 identified by password0;
 
@@ -24,7 +24,7 @@ grant connect, resource to user0;
 
 drop user user0 cascade;
 
-[/shell]
+```
 
 oracle create user, pl sql developer
 

@@ -1,5 +1,5 @@
 ---
-title: 'dnsmasq  配置'
+title: 'dnsmasq config  配置'
 author: wiloon
 type: post
 date: 2018-09-07T02:42:31+00:00
@@ -8,6 +8,11 @@ categories:
   - Uncategorized
 
 ---
+DNSmasq是一个小巧且方便地用于配置DNS和DHCP的工具，适用于小型网络。它提供了DNS功能和可选择的DHCP功能可以取代dhcpd(DHCPD服务配置)和bind等服务，配置起来更简单，更适用于虚拟化和大数据环境的部署。
+
+检查一下no-hosts前面是不是已经有了#号，默认的情况下是有的，dnsmasq 会首先寻找本地的 hosts 文件再去寻找缓存下来的域名, 最后去上游dns 服务器寻找。
+
+### docker
 ```bash
 docker run \
     --name dnsmasq \
@@ -20,16 +25,7 @@ docker run \
     -e "HTTP_PASS=bar" \
     --restart always \
     jpillora/dnsmasq
-```
-
-```bash
-mkdir /etc/dnsmasq.d
-echo 'conf-dir=/etc/dnsmasq.d' >> /etc/dnsmasq.conf
-```
-
-### docker
-
-```bash
+  
 docker run \
 -d \
 --name dnsmasq \
@@ -39,15 +35,16 @@ docker run \
 -v dnsmasq-config:/etc/dnsmasq.d \
 --restart=always \
 andyshinn/dnsmasq
+```
 
+```bash
+mkdir /etc/dnsmasq.d
+echo 'conf-dir=/etc/dnsmasq.d' >> /etc/dnsmasq.conf
 ```
 
 http://debugo.com/dnsmasq/
 
-DNSmasq是一个小巧且方便地用于配置DNS和DHCP的工具，适用于小型网络。它提供了DNS功能和可选择的DHCP功能可以取代dhcpd(DHCPD服务配置)和bind等服务，配置起来更简单，更适用于虚拟化和大数据环境的部署。
-
 dhcp服务
-  
 其中一些关键的配置如下,配置文件/etc/dnsmasq.conf 中的注释已经给出了非常详细的解释。
 
 ```bash
@@ -89,6 +86,32 @@ vim /etc/resolv.dnsmasq.conf
 nameserver 223.5.5.5
 nameserver 223.6.6.6
 ```
+
+### DNSMasq支持泛域名，比如在hosts中需要配2000条：
+
+# apple app store
+
+202.175.5.114 a1.phobos.apple.com
+202.175.5.114 a2.phobos.apple.com
+202.175.5.114 a3.phobos.apple.com
+  
+……
+  
+202.175.5.114 a2000.phobos.apple.com
+  
+而DNSMasq只需要1条：
+
+#apple app store
+  
+address=/.phobos.apple.com/202.175.5.114
+
+    dnsmasq --test
+    
+https://www.hi-linux.com/posts/30947.html
+
+http://wppurking.github.io/2012/10/01/li-yong-dnsmasq-da-jian-zi-ji-de-dns-fu-wu-qi.html
+  
+http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html
 
 https://www.hi-linux.com/posts/30947.html#%E9%85%8D%E7%BD%AE%E4%B8%8A%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80
   

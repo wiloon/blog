@@ -16,11 +16,11 @@ tags:
 ---
 install apache
 
-[shell]
+```bash
   
 apt-get install apache2
   
-[/shell]
+```
 
 download and install tomcat
 

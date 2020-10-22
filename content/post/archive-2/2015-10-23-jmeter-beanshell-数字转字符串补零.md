@@ -10,7 +10,7 @@ categories:
 ---
 http://localhost:7000/?id=${__counter(FALSE,eIndex)}&p=prefix${__BeanShell(333+${eIndex})}sufix
 
-[shell]
+```bash
 
 http://localhost:7000/?id=${__BeanShell(String.format("%03d"\,new Object[]{1}))}
   
@@ -18,6 +18,6 @@ http://localhost:7000/?id=${__BeanShell(String.format("%03d"\,new Object[]{1}))}
   
 #参数传Object数组
   
-[/shell]
+```
 
 https://help.flood.io/docs/how-to-pad-strings-in-jmeter

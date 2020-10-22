@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
 
 git clone -branch pkg-archlinux git://github.com/kovetskiy/manul /tmp/manul
   
@@ -18,4 +18,4 @@ makepkg
   
 pacman -U *.xz
 
-[/shell]
+```

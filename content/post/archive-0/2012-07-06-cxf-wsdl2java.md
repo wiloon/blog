@@ -9,11 +9,11 @@ categories:
   - Web
 
 ---
-[shell]
+```bash
   
 wsdl2java -d src -client http://localhost:9000/helloWorld?wsdl
   
-[/shell]
+```
 
 其作用上面的build.xml作用一样。
   

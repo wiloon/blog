@@ -28,7 +28,7 @@ GOPATH:
 
 linux:
   
-[shell]
+```bash
 
 mkdir -p /home/wiloon/my-projects/golang/lib/
 
@@ -40,7 +40,7 @@ export GOPATH="/home/wiloon/my-projects/golang/lib/:/home/wiloon/my-projects/gol
   
 go version
   
-[/shell]
+```
 
 windows:
   

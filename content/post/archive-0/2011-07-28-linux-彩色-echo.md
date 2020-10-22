@@ -14,27 +14,27 @@ tags:
   - Shell
 
 ---
-[shell]
+```bash
   
 #黑底红字
   
 echo -e 'E[31;40mThis prints in red.'; tput sgr0
   
-[/shell]
+```
 
-[shell]
+```bash
   
 #!/bin/bash
   
 echo -e 'E[COLOR1;COLOR2mSome text goes here.'
   
-[/shell]
+```
 
 COLOR1: Foreground Color
   
 COLOR2: Background Color
 
-[shell]
+```bash
   
 #!/bin/bash
   
@@ -42,7 +42,7 @@ echo -e 'E[32;40mThis prints in green.'; tput sgr0
   
 echo -e:enable interpretation of backslash escapes
   
-[/shell]
+```
 
 -e "允许 反斜杠 (对字符)的转义"
   

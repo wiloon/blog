@@ -11,7 +11,7 @@ categories:
 ---
 将相应的pem保存到 .ssh 文件夹。在该文件内建立config文件，输入以下配置内容：
 
-[shell]
+```bash
   
 Host aws
   
@@ -25,7 +25,7 @@ CompressionLevel 6
   
 DynamicForward localhost:3128
   
-[/shell]
+```
 
 Host 为设定一个名字给该连接，可任意选，此处用aws；
   

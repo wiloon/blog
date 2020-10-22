@@ -90,11 +90,11 @@ out.println("＜/body＞＜/html＞");
 
 For gradle
   
-[shell]
+```bash
   
 compile 'org.apache.tomcat:tomcat-servlet-api:7.0.xx'
   
-[/shell]
+```
 
 然后在Tomcat目录里面的/home/wiloon/program/apache-tomcat-7.0.xx/webapps/ROOT里面按如下的文件结构:
 

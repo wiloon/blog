@@ -48,13 +48,13 @@ init [0123456Ss]
   
 启动项管理工具
 
-[shell]
+```bash
   
 sudo apt-get install sysv-rc-conf //或者使用带gui的工具bum
   
 sudo sysv-rc-conf
   
-[/shell]
+```
 
 三、update-rc.d命令详解
 

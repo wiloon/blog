@@ -1,5 +1,5 @@
 ---
-title: kafka　producer config
+title: kafka config, server, producer
 author: wiloon
 type: post
 date: 2017-05-04T09:27:25+00:00
@@ -101,6 +101,10 @@ thunks：保存消息回调逻辑的集合
         //block 在 KafkaProducer.doSend() 中的 long waitedOnMetadataMs = waitOnMetadata(record.topic(), this.maxBlockTimeMs);
         //如果项目启动并且取得 waitOnMetaData 之后全部broker再挂掉的话,不会block应用
     
+
+### kafka server config
+https://stackoverflow.com/questions/53039752/kafka-how-to-calculate-the-value-of-log-retention-byte
+
 
 http://www.cnblogs.com/huxi2b/p/6364613.html
   

@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-[shell]
+```bash
   
 sentence="This is   a sentence."
   
@@ -20,11 +20,11 @@ echo $word
   
 done
   
-[/shell]
+```
 
 ``
 
-[shell]This
+```bashThis
   
 is
   
@@ -32,4 +32,4 @@ a
   
 sentence.
   
-[/shell]
+```

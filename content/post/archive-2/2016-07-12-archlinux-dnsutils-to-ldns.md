@@ -17,7 +17,9 @@ sudo pacman -S ldns
 yum install bind-utils
 
 # install drill
+#ubuntu
 sudo apt install ldnsutils
+#alpine
 apk add drill
 
 dig +trace wiloon.com

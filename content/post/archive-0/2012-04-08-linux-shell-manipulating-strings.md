@@ -13,7 +13,7 @@ categories:
 
 连接字符串
 
-[shell]
+```bash
 
 a="abc"
 
@@ -21,7 +21,7 @@ b="def"
 
 echo $a$b
 
-[/shell]
+```
 
 expr index $string $substring
 :   Numerical position in $string of first character in $substring that matches. 

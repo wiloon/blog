@@ -10,7 +10,7 @@ tags:
   - JavaEE
 
 ---
-[shell]
+```bash
   
 mkdir javaEELab
   
@@ -30,4 +30,4 @@ cd javaEELab
   
 gradle init -typeb java-library
   
-[/shell]
+```

@@ -11,8 +11,8 @@ categories:
 apply plugin: 'application'
 
 
-  [shell]
+  ```bash
 
   gradle installApp
 
-  [/shell]
+  ```

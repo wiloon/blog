@@ -12,7 +12,7 @@ categories:
 
 Dmidecode 应该在主流的 Linux 发行版中都可以找到，因此你只需通过所用发行版的包管理器安装即可，如：
 
-[shell]
+```bash
   
 aptitude install dmidecode # Debian/Ubuntu
   
@@ -22,7 +22,7 @@ pacman -S dmidecode # Arch Linux
   
 emerge -av dmidecode # Gentoo
   
-[/shell]
+```
 
 不带选项执行 `dmidecode` 通常会输出所有的硬件信息，以下是在笔者机器上执行 dmidecode 后所得到的结果（部分）：
 

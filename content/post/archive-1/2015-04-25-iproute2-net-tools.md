@@ -10,7 +10,7 @@ tags:
   - linux
 
 ---
-[shell]
+```bash
   
 #Delete all IPv4 addresses on interface wlp3s0
   
@@ -42,7 +42,7 @@ ip link show
   
 ip addr show dev eth1
 
-[/shell]
+```
 
 $ ifconfig eth1
   

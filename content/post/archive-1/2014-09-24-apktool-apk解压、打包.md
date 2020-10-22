@@ -8,13 +8,13 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
 
 keytool -genkey -alias JFrench.keystore -keyalg RSA -validity 1000000 -keystore JFrench.keystore
 
 jarsigner -verbose -keystore E:\projects\keystore\JFrench.keystore -s ignedjar JFrench_signed.apk foo.apk JFrench.keystore
 
-[/shell]
+```
 
 http://showlike.iteye.com/blog/1686103
 

@@ -9,11 +9,11 @@ categories:
 
 ---
 
-[shell]
+```bash
 
 Set-Aliasll dir
 
-[/shell]
+```
 
 http://marui.blog.51cto.com/1034148/290067/
 

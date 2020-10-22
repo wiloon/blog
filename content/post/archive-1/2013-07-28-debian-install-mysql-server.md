@@ -11,8 +11,8 @@ tags:
   - MySQL
 
 ---
-[shell]
+```bash
 
 sudo apt-get install mysql-server
 
-[/shell]
+```

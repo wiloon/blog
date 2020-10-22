@@ -46,7 +46,7 @@ gedit /.vnc/xstartup
   
 文件看起来将是这样的：
 
-[shell]
+```bash
    
 #!/bin/sh
    
@@ -68,13 +68,13 @@ x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
    
 x-window-manager &
 
-[/shell]
+```
 
 6、修改 .vnc/xstartup文件并保存
   
 取消unset和exec开始的行的注释，注释以xsetroot，vnccon**，xterm和twm开始的行。执行后看起来像这样：
 
-[shell]
+```bash
    
 #!/bin/sh
    
@@ -96,7 +96,7 @@ exec /etc/X11/xinit/xinitrc
    
 #x-window-manager &
 
-[/shell]
+```
 
 7、修改/etc/X11/xinit/xinitrc文件的许可，使其可执行：
   

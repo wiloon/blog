@@ -9,7 +9,7 @@ categories:
   - Linux
 
 ---
-[shell]
+```bash
   
 Building native extensions. This could take a while...
   
@@ -23,16 +23,16 @@ extconf.rb:1:in \`require': no such file to load - mkmf (LoadError)
 	  
 from extconf.rb:1
   
-[/shell]
+```
 
 For some reason, mkmf.rb is part of the ruby1.8-dev package, and initially I hadn't installed that.
 
 #install ruby1.8-dev
   
-[shell]
+```bash
   
 sudo apt-get install ruby1.8-dev
   
-[/shell]
+```
   
 and everything trotted along happily after that.

@@ -10,11 +10,11 @@ categories:
 ---
 ruby
   
-[shell]
+```bash
   
 sudo apt-get install ruby
    
-[/shell]
+```
   
 RubyGems
   
@@ -22,19 +22,19 @@ RubyGems
   
 解压后运行以下命令安装即可:
   
-[shell]
+```bash
   
 sudo ruby setup.rb
    
-[/shell]
+```
   
 #create link
   
-[shell]
+```bash
   
 sudo ln -s gem1.8 gem
   
-[/shell]
+```
 
 更换gem sources
   
@@ -42,7 +42,7 @@ sudo ln -s gem1.8 gem
   
 http://ruby.taobao.org/是一个完整 rubygems.org 镜像，用这个代替官方版本，同步频率目前为30分钟一次.
   
-[shell]
+```bash
   
 $ gem sources -remove http://rubygems.org/
   
@@ -54,7 +54,7 @@ $ gem sources -l
 
 http://ruby.taobao.org
   
-[/shell]
+```
   
 \# 请确保只有 ruby.taobao.org
 

@@ -36,11 +36,11 @@ shutdown 关闭NMT功能,NMT can be shutdown using jcmd utility, but can not sta
   
 scale 指定内存单位，默认为KB
 
-[shell]
+```bash
   
 ./jcmd PID VM.native_memory baseline
   
-[/shell]
+```
 
 http://www.voidcn.com/blog/jicahoo/article/p-5727258.html
   

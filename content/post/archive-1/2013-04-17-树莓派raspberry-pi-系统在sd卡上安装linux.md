@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
 
 sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img of=/dev/sdx
 
-[/shell]
+```
 
 刚刚拿到一只Simon同学出借的树莓派(raspberry pi) ，准备一张4GB的SD卡，准备跑一下Linux。
 

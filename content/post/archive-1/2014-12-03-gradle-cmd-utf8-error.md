@@ -10,11 +10,11 @@ tags:
   - Gradle
 
 ---
-[shell]
+```bash
 
 export GRADLE_OPTS="-Dfile.encoding=utf-8"
 
-[/shell]
+```
 
 
 add
