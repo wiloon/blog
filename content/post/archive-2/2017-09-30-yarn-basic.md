@@ -8,6 +8,9 @@ categories:
   - Uncategorized
 
 ---
+### Yarn是什么？
+"Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ，正如官方文档中写的，Yarn 是为了弥补 npm 的一些缺陷而出现的。
+
 ### build
    yarn build
    yarn build --report // 会在dist目录下生成一个report.html
@@ -34,9 +37,6 @@ yarn global add http-server
 ### 打印依赖
     yarn list
 
-### Yarn是什么？
-"Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ，正如官方文档中写的，Yarn 是为了弥补 npm 的一些缺陷而出现的。
-
 ### yarn 国内加速，修改镜像源
 #### 以下命令查看当前使用的镜像源
 yarn config get registry
@@ -47,19 +47,18 @@ yarn config set registry https://registry.npm.taobao.org/
 
 yarn add @angular-devkit/build-angular --dev
 
-# debian install yarn
-
+#### debian install yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn
 
 https://yarnpkg.com/zh-Hans/docs/install#debian-stable
 
-# archlinux
+#### archlinux
 sudo pacman -S yarn
 
-# 查看版本
-yarn --version
+### 查看版本
+    yarn --version
 
 yarn global add @angular/cli
 
