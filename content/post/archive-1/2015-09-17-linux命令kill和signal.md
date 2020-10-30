@@ -1,13 +1,17 @@
 ---
-title: Linux命令kill和signal
+title: kill, killall, signal
 author: wiloon
 type: post
 date: 2015-09-17T07:24:41+00:00
 url: /?p=8289
-categories:
-  - Uncategorized
 
 ---
+
+### killall命令
+killall命令杀死同一进程组内的所有进程。其允许指定要终止的进程的名称，而非PID。
+  
+    killall java
+
 http://www.cnblogs.com/itech/archive/2012/03/05/2380794.html
 
 kill命令用于终止指定的进程（terminate a process），是Unix/Linux下进程管理的常用命令。通常，我们在需要终止某个或某些进程时，先使用ps/pidof/pstree/top等工具获取进程PID，然后使用kill命令来杀掉该进程。kill命令的另外一个用途就是向指定的进程或进程组发送信号（The  command kill sends the specified signal to the specified process or process group），或者确定进程号为PID的进程是否还在。比如，有许多程序都把SIGHUP信号作为重新读取配置文件的触发条件。
@@ -49,11 +53,6 @@ STOP   19   暂停（同 Ctrl + Z）
 
 使得程序正常的退出。
 
-### killall命令
-  
-killall命令杀死同一进程组内的所有进程。其允许指定要终止的进程的名称，而非PID。
-  
-    killall httpd
 
 二 示例
 

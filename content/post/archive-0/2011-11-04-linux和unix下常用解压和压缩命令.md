@@ -26,10 +26,11 @@ url: "/?p=1444"
 
 ### .7z
 ```bash
-yum install p7zip
-pacman -S p7zip
+    yum install p7zip
+    pacman -S p7zip
+    sudo apt install p7zip-full p7zip-rar
 
-7z x filename.7z
+    7z x filename.7z
 ```
 
 ### .zip

@@ -17,6 +17,20 @@ git checkout master
 
 ### git config
 
+#### 查看 
+config 配置有system级别 global（用户级别） 和local（当前仓库）三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
+
+    git config --system --list
+
+查看当前用户（global）配置
+
+    git config --global  --list
+
+查看当前仓库配置信息
+
+    git config --local  --list
+
+#### 设置
     #设置电子邮件地址
     git config --global user.name "name0"
     git config --global user.email "email@example.com"
@@ -32,10 +46,11 @@ git reset ** file0
 
 # 彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
 
-git reset -hard file0
+    git reset -hard file0
 
-1\.git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-2\.git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
+    git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
+    git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
+
 ```
 
 ### git log

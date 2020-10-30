@@ -13,7 +13,7 @@ yarn global add vue
 yarn global remove vue-cli
 yarn global add @vue/cli
 ```
-### 用vue cli 创建一个项目 
+### 用vue cli 创建一个项目, vue create 会创建一个目录 "hello-world"
     vue create hello-world
 ### 或者 使用图形界面
     vue ui
@@ -49,6 +49,7 @@ yarn serve
 
 ### 使用 axios 访问 API
     yarn add axios
+    
     
 ```bash
 yarn global add @vue/cli-service
