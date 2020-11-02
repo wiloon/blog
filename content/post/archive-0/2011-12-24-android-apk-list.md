@@ -14,13 +14,10 @@ categories:
 |英语轻松读|英语学习|
 |english buoy|英语学习|
 |酷安|应用商店|
-
-  * 碗豆夹
+|internet speed meter lite|网速监控|
+|随手记||
   * producteev
   * RssX
-  * wa cai
-  * gmail
-  * google maps
   * evernote
   * sms backup
   * astro
@@ -31,7 +28,6 @@ categories:
   * 8684地铁
   * AIDE
   * QQ
-  * chrome
   * opera
   * 京东
   * 淘宝
