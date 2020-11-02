@@ -31,6 +31,8 @@ journalctl -u nginx.service
 journalctl -u nginx.service --since today
 journalctl -u nginx.service --since "2018-06-11 12:00:00"
 journalctl --since "2015-01-10" --until "2015-01-11 03:00"
+journalctl --since "2020-11-02 00:00" --until "2020-11-02 10:00"
+journalctl --since "2020-11-02 00:00" --until "2020-11-02 10:00" | grep -v write
 
 # 检查当前journal使用磁盘量
 journalctl --disk-usage
