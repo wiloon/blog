@@ -127,9 +127,7 @@ ALTER  RETENTION POLICY "default" ON db0 DURATION 3h REPLICATION 1 SHARD DURATIO
 ```
 
 ### shard
-
 #### list shard id
-
 ```sql
 show shards
 DROP SHARD <shard_id_number>
