@@ -6,6 +6,15 @@ date: 2020-03-15T16:20:26+00:00
 url: /?p=15763
 
 ---
+### windows
+添加隧道>添加空隧道
+名称: foo
+公钥: 客户端公钥
+
+    [Interface]
+    PrivateKey = sFYPWEp/7Y5Qkkf/R+XSDXhaH1UklNFTaJ6aL8EOIXI=
+
+
 ### android
 安装wireguard
 https://f-droid.org/en/packages/com.wireguard.android/  
@@ -26,7 +35,6 @@ mtu: 1200
 路由的ip地址: 0.0.0.0/0
 
 ### server install
-
 #### archlinux
     pacman -Syu
     # 安装 wireguard管理工具
