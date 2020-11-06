@@ -12,3 +12,4 @@ categories:
 | ------ | ------------ |
 | ctrl+g | line/column  |
 | ctrl+t | Class... |
+|ctrl+]  | move caret to code block end |
