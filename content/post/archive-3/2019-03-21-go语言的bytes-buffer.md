@@ -38,4 +38,22 @@ buf5:=bytes.NewBuffer([]byte{})
 
 ##写入到缓冲器（缓冲器变大） ###Write-- func (b *Buffer) Write(p []byte) (n int, err error) 使用Write方法，将一个byte类型的slice放到缓冲器的尾部
 
+
+
+    package main
+
+    import (
+        "bytes"
+        "fmt"
+    )
+
+    func main() {
+        var buffer bytes.Buffer
+        for i := 0; i < 1000; i++ {
+            buffer.WriteString("a")
+        }
+        fmt.Println(buffer.String())
+    }
+
+
 https://my.oschina.net/u/943306/blog/127981

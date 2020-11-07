@@ -4,12 +4,9 @@ author: wiloon
 type: post
 date: 2019-08-17T06:58:40+00:00
 url: /?p=14805
-categories:
-  - Uncategorized
 
 ---
-数字
-  
+### 数字
 和JavaScript一样，TypeScript里的所有数字都是浮点数。 这些浮点数的类型是number。 除了支持十进制和十六进制字面量，TypeScript还支持ECMAScript 2015中引入的二进制和八进制字面量。
   
 let decLiteral: number = 6;

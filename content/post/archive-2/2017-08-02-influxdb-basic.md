@@ -85,7 +85,7 @@ podman run -d \
 -v influxdb-config:/etc/influxdb:ro \
 -v influxdb-storage:/var/lib/influxdb \
 -v /etc/localtime:/etc/localtime:ro \
-influxdb:1.8.1
+influxdb:1.8.3
 
 podman run -d \
 --name influxdb \
@@ -115,18 +115,19 @@ influxdb
 show retention policies
 show retention policies on db0
 CREATE RETENTION POLICY "default" ON db0 DURATION 30d REPLICATION 1 SHARD DURATION 1d DEFAULT
+
+# ALTER  RETENTION POLICY "<policy name>" ON <database> DURATION <duration> REPLICATION 1 SHARD DURATION <shard group duration> DEFAULT
 ALTER  RETENTION POLICY "default" ON db0 DURATION 3h REPLICATION 1 SHARD DURATION 1h DEFAULT
 
+# policy name: retention policy 名: default 
+# database: 库名
 # duration 3h: 保留3个小时的数据
-# shard duration 1h: 每1个小时的数据一个分片
-# policy "default": retention policy 名: default
+# shard group duration 1h: 每1个小时的数据一个分片
 # DEFAULT: 设置此策略为默认策略
 ```
 
 ### shard
-
 #### list shard id
-
 ```sql
 show shards
 DROP SHARD <shard_id_number>
