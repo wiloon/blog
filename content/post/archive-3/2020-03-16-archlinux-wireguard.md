@@ -6,7 +6,7 @@ date: 2020-03-15T16:20:26+00:00
 url: /?p=15763
 
 ---
-### android
+### android client
 安装wireguard
 https://f-droid.org/en/packages/com.wireguard.android/  
 点右下角的加号新建 连接  
@@ -16,17 +16,18 @@ https://f-droid.org/en/packages/com.wireguard.android/
 在服务端执行wg set... 配置服务端
 
 #### 客户端
-局域网ip: 192.168.53.xx/32
+局域网ip/address: 192.168.53.xx/32
+端口/port: random
 dns: 192.168.50.1
 mtu: 1200
 
-##### 添加节点
+##### 添加节点/add peer
 公钥： 服务端公钥
-对端： xxx.wiloon.com:51xxx
+预共享密钥：pre-shared key: 可以不填
+对端/endpoint： xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
 
 ### server install
-
 #### archlinux
     pacman -Syu
     # 安装 wireguard管理工具
@@ -83,7 +84,6 @@ ip link set wg0 up
 ```
 
 ### peer B
-
     sudo ip link add dev wg0 type wireguard
     sudo ip addr add 192.168.53.2/24 dev wg0
     sudo wg set wg0 private-key ./privatekey
@@ -111,8 +111,8 @@ ip link set wg0 up
     wg showconf wg0 > /etc/wireguard/wg0.conf
     wg-quick up wg0
     wg-quick down wg0
-### systemd-networkd
 
+### systemd-networkd
     systemd-networkd-wait-online.service
     systemd-resolvconf  
     openresolv
