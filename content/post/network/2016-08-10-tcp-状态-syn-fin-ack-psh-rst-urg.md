@@ -9,14 +9,9 @@ categories:
 
 ---
 ### TCP    (Transmission Control Protocol)
-
-TCP工作在网络OSI的七层模型中的第四层——Transport层
-
-
-TCP标志位
-
-
-在TCP层，有个FLAGS字段，这个字段有以下几个标识：SYN, FIN, ACK, PSH, RST, URG.
+TCP工作在网络OSI的七层模型中的第四层——Transport层  
+TCP标志位  
+在TCP层，有个FLAGS字段，这个字段有以下几个标识：SYN, FIN, ACK, PSH, RST, URG.  
 
 其中，对于我们日常的分析有用的就是前面的五个字段。它们的含义是：
 
@@ -31,7 +26,6 @@ PSH表示有 DATA数据传输，(Push)
 RST表示连接重置。Reset重连位~ 当RST=1的时候通知重新建立TCP连接
 
 URG: urgent
-
 
 其中，ACK是可能与SYN，FIN等同时使用的，比如SYN和ACK可能同时为1，它表示的就是建立连接之后的响应，
 
@@ -50,8 +44,7 @@ PSH为1的情况，一般只出现在 DATA内容不为0的包中，也就是说P
 TCP的连接建立和连接关闭，都是通过请求－响应的模式完成的。
 
 
-### **TCP三次握手：**
-
+### TCP三次握手
 TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接：
 
 第一次握手：（A -> [SYN] -> B）主机A发送位码为syn＝1, seq=1234567(seq随机产生)的数据包到服务器，主机B由SYN=1知道，A要求建立联机；(seq:Sequence number),并进入SYN_SEND状态，等待服务器确认；
