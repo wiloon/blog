@@ -10,9 +10,9 @@ categories:
 ---
 http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/
 
-tcp\_syn\_retries
+tcp_syn_retries
   
-tcp\_synack\_retries
+tcp_synack_retries
 
 ```bashsysctl -a | grep tcp_synack_retries
 ```
@@ -131,7 +131,7 @@ tcp\_max\_syn_backlog ：INTEGER
   
 对于那些依然还未获得客户端确认的连接请求﹐需要保存在队列中最大数目。对于超过 128Mb 内存的系统﹐默认值是 1024 ﹐低于 128Mb 的则为 128。如果服务器经常出现过载﹐可以尝试增加这个数字。警告﹗假如您将此值设为大于 1024﹐最好修改 include/net/tcp.h 里面的 TCP\_SYNQ\_HSIZE ﹐以保持 TCP\_SYNQ\_HSIZE*16<=tcp\_max\_syn_backlog ﹐并且编进核心之内。(SYN Flood攻击利用TCP协议散布握手的缺陷，伪造虚假源IP地址发送大量TCP-SYN半打开连接到目标系统，最终导致目标系统Socket队列资源耗 尽而无法接受新的连接。为了应付这种攻击，现代Unix系统中普遍采用多连接队列处理的方式来缓冲(而不是解决)这种攻击，是用一个基本队列处理正常的完 全连接应用(Connect()和Accept() )，是用另一个队列单独存放半打开连接。这种双队列处理方式和其他一些系统内核措施(例如Syn-Cookies/Caches)联合应用时，能够比较有效的缓解小规模的SYN Flood攻击(事实证明<1000p/s)加大SYN队列长度可以容纳更多等待连接的网络连接数，所以对Server来说可以考虑增大该值.)
 
-tcp\_window\_scaling ：INTEGER
+tcp_window_scaling ：INTEGER
   
 缺省值为1
   

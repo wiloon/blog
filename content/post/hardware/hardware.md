@@ -4,6 +4,8 @@ date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++
+### QNAP TS453Bmini
+
 ### pixel3
 5.5 英寸显示屏, 2160 x 1080) 柔性 OLED 屏幕 (443ppi), 18:9
 后置摄像头1220 万像素
