@@ -54,4 +54,6 @@ netstat -ano|findstr 8080
 Windows Server vNext Long-Term Servicing Channel (LTSC)
 
 ### 启动项
+把bat脚本复制到以下目录
+
     C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
