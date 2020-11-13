@@ -1,5 +1,5 @@
 ---
-title: maven basic, command
+title: mvn maven basic, command
 author: wiloon
 type: post
 date: 2011-09-29T04:34:14+00:00

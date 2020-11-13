@@ -4,12 +4,12 @@ author: wiloon
 type: post
 date: 2020-01-26T04:41:00+00:00
 url: /?p=15419
-categories:
-  - Uncategorized
 
 ---
-安装graphviz
-  
+### 安装 graphviz
+    
+    sudo apt-get install -y graphviz
+
 VS-Code扩展
 
 使用PlantUML
@@ -30,8 +30,7 @@ component [Last\ncomponent] as Comp4
 ```
 
 ### vs code 快捷键
-
-alt+d
+    alt+d
 
 https://www.jianshu.com/p/ed0e979657f4
 
