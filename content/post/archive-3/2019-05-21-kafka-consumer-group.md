@@ -13,7 +13,7 @@ https://blog.csdn.net/lishuangzhe7047/article/details/74530417
 
     properties.put("enable.auto.commit", "true");
     properties.put("auto.commit.interval.ms", "1000");
-    properties.put("auto.offset.reset", "earliest");
+    properties.put("auto.offset.reset", "latest");
     properties.put("session.timeout.ms", "30000");
     properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
     properties.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
