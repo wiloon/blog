@@ -48,7 +48,7 @@ System.setProperty("http.proxyPort", "8080");
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
@@ -76,7 +76,7 @@ System.setProperty("http.proxyPort", "8080");
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
@@ -86,7 +86,7 @@ System.setProperty("http.proxyPort", "8080");
   
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
@@ -119,7 +119,7 @@ System.setProperty("http.proxyPort", "8080");
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
@@ -149,7 +149,7 @@ System.setProperty("http.proxyPort", "8080");
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         

@@ -19,7 +19,7 @@ categories:
 有两张表，分别为A、B，求得一个字段的值先在表A中寻找，如果A表中存在数据，则输出A表的值；如果A表中不存在，则在B表中寻找，若B表中有相应记录，则输出B表的值；如果B表中也不存在，则输出"no records"字符串。
   
     
-      ```java``` <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
+http://blog.csdn.net/a9529lty/article/details/4923957#
       
       
       
@@ -173,7 +173,7 @@ Retuning to our oversimplified example, let's replace the temporary tables with 
 下面自己小试一把，当然，一点都不复杂，很简单很简单的例子，呵呵。
   
     
-      ```java``` <a title="view plain" href="http://blog.csdn.net/a9529lty/article/details/4923957#">view plain</a><a title="copy" href="http://blog.csdn.net/a9529lty/article/details/4923957#">copy</a> 
+http://blog.csdn.net/a9529lty/article/details/4923957#
       
       
       
