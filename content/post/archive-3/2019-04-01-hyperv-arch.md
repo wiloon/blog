@@ -160,12 +160,8 @@ options video=hyperv_fb:1920x1080 root=PARTUUID=xxxx-xxxx rw
    
     exec startxfce4
 
-
 #### 以管理员身份运行powershell 并执行
     Set-VM -VMName arch -EnhancedSessionTransportType HvSocket
 
-
-
 https://wiki.archlinux.org/index.php/Hyper-V
-
 https://x410.dev/cookbook/command-line-switches/

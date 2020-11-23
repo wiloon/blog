@@ -69,44 +69,34 @@ find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 ```
 
 ### Zstandard, zstd
-
 ```bash
 # zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
 
 # tar从1.30.90 之后开始支持zstd
 
 # 压缩
-
 tar -I zstd -cvf foo.tar.zst foo
 
 # 解压
-
 tar -I zstd -xvf foo.tar.zst
 
 # 压缩, 不加参数，默认为压缩
-
 zstd foo.txt
 zstd -z foo.txt
 
 # 解压
-
 zstd -d foo.txt.zst
 unzstd foo.txt.zst
 
 # 指定压缩级别 1-19 默认3
-
 zstd -6 foo.txt
 
 # 线程数, 线程数为0时会检测cpu核心数
-
 zstd -T0 foo.txt
 
 # -z 压缩
-
 # -d 解压
-
 # --rm 压缩后删除原文件
-
 ```
 
 ### .tar

@@ -44,7 +44,6 @@ Use YUM command to install xrdp package on CentOS 7 / RHEL 7.
 -> Finished Dependency Resolution
 
 ### install tigervnc
-
 # Package Arch Version Repository Size
 
 Installing:
