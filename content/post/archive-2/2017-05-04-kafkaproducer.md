@@ -71,12 +71,12 @@ producer所使用的压缩器，目前支持gzip, snappy和lz4。压缩是在用
 
 重试机制，对于瞬时失败的消息发送，开启重试后KafkaProducer会尝试再次发送消息。对于有强烈无消息丢失需求的用户来说，开启重试机制是必选项。
   
-**buffer.memory:** 缓冲区大小
+### buffer.memory 缓冲区大小
   
-**max.in.flight.requests.per.connection** 关乎消息乱序的一个配置参数。它指定了Sender线程在单个Socket连接上能够发送未应答PRODUCE请求的最大请求数。适当增加此值通常会增大吞吐量，从而整体上提升producer的性能。不过笔者始终觉得其效果不如调节batch.size来得明显，所以请谨慎使用。另外如果开启了重试机制，配置该参数大于1可能造成消息发送的乱序(先发送A，然后发送B，但B却先行被broker接收)
+### max.in.flight.requests.per.connection
+关乎消息乱序的一个配置参数。它指定了Sender线程在单个Socket连接上能够发送未应答PRODUCE请求的最大请求数。适当增加此值通常会增大吞吐量，从而整体上提升producer的性能。不过笔者始终觉得其效果不如调节batch.size来得明显，所以请谨慎使用。另外如果开启了重试机制，配置该参数大于1可能造成消息发送的乱序(先发送A，然后发送B，但B却先行被broker接收)
 
-**max.block.ms**
-  
+### max.block.ms
 buffer.memory 写满之后x毫秒抛异常TimeoutException
 
 Step 1： 序列化+计算目标分区
@@ -106,6 +106,21 @@ thunks：保存消息回调逻辑的集合
 https://stackoverflow.com/questions/53039752/kafka-how-to-calculate-the-value-of-log-retention-byte
 
 
+### max.request.size
+The maximum size of a request in bytes. This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests. This is also effectively a cap on the maximum uncompressed record batch size. Note that the server has its own cap on the record batch size (after compression if compression is enabled) which may be different from this.
+
+Type:	int
+Default:	1048576
+Valid Values:	[0,...]
+Importance:	medium
+
+## kafka server, topic config
+### max.message.bytes
+max.message.bytes 参数校验的是批次大小，而不是消息大小。
+
+---
+
+https://zhuanlan.zhihu.com/p/142139663
 http://www.cnblogs.com/huxi2b/p/6364613.html
   
 http://blog.csdn.net/itleochen/article/details/18352797

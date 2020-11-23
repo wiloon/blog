@@ -7,6 +7,14 @@ tags:
 - Git
 
 ---
+
+### 放弃本地未提交的修改
+To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
+
+```bash
+git reset --hard
+```
+
 ### 指定克隆深度
 
 在git clone时加上--depth=1
@@ -32,10 +40,14 @@ config 配置有system级别 global（用户级别） 和local（当前仓库）
 
 #### 设置
     #设置电子邮件地址
+    # global
     git config --global user.name "name0"
     git config --global user.email "email@example.com"
+
+    # local
     git config --local user.email "email@example.com"
     git config --local user.name "name0"
+    
     #确认在 Git 中正确设置了电子邮件地址
     git config --global user.email
     git config --local  user.email
@@ -93,14 +105,6 @@ git push origin :refs/tags/1.0.0
 ```bash
 git rm
 git rm -f
-```
-
-放弃本地未提交的修改
-
-To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
-
-```bash
-git reset --hard
 ```
 
 git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。

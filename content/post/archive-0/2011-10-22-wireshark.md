@@ -36,3 +36,8 @@ Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分
   
     自此之后，数以千计的人开始参与Ethereal的开发，多半是因为希望能让Ethereal撷取特定的，尚未包含在Ethereal默认的网络协定的封包而参予新的开发。2006年6月，因为商标的问题，Ethereal更名为Wireshark。
   
+[TCP Window Full] ：服务端向客户端发送的一种窗口警告，表示已经发送到数据接收端的极限了。
+[TCP Window Update]：缓冲区已释放为所示的大小，因此请恢复传输。
+[Zero Window] ：客户端向服务端发送的一种窗口警告，告诉发送者你的接收窗口已满，暂时停止发送。
+
+https://www.codenong.com/cs106112955/

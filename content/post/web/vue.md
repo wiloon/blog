@@ -1,7 +1,7 @@
 +++
 author = "w1100n"
 date = "2020-05-16T03:03:37Z"
-title = "vue"
+title = "vue basic"
 
 +++
 
@@ -126,15 +126,27 @@ webpack 或 Browserify 等构建工具
 Pug，Babel (with ES2015 modules)，和 Stylus。
 
 ### Docker 部署 vue 项目
+https://juejin.im/post/5cce4b1cf265da0373719819
 
-[https://juejin.im/post/5cce4b1cf265da0373719819](https://juejin.im/post/5cce4b1cf265da0373719819 "https://juejin.im/post/5cce4b1cf265da0373719819")
+    server {
+        listen       80;
+        server_name  pingdx.wiloon.com;
 
-[https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F](https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F "https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F")
+            location /api/ {
+                    rewrite  /api/(.*)  /$1  break;
+                    proxy_pass http://192.168.97.1:38080;
+            }
 
-[https://webpack.js.org/configuration/](https://webpack.js.org/configuration/ "https://webpack.js.org/configuration/")
+            location / {
+                    proxy_pass http://192.168.97.1:30080/;
+            }
+
+    }
+
+https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F
+https://webpack.js.org/configuration/
 
 ### webstorm reformat
-
 [https://www.jetbrains.com/help/webstorm/eslint.html](https://www.jetbrains.com/help/webstorm/eslint.html "https://www.jetbrains.com/help/webstorm/eslint.html")
 
 [https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint "https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint")

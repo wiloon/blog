@@ -2,7 +2,7 @@
 author = "w1100n"
 date = "2020-10-14 10:37:00" 
 title = "embedded basic"
-
++++
 ### MCU
 微控制单元MCU（Microcontroller Unit）又叫单片机、微处理器，是集成电路的一种。MCU类似于CPU，是可以执行嵌入式程序的一种集成电路。  
 MCU执行的程序叫嵌入式程序。嵌入式程序可以存储在MCU上，也可以存储在外面的存储器上。比如Flash就是存储器的一种。  

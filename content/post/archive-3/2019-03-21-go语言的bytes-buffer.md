@@ -1,5 +1,5 @@
 ---
-title: go语言的bytes.buffer
+title: golang bytes.buffer
 author: wiloon
 type: post
 date: 2019-03-21T02:43:54+00:00

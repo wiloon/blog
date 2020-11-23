@@ -4,14 +4,6 @@ author: wiloon
 type: post
 date: 2011-04-23T08:54:55+00:00
 url: /?p=101
-views:
-  - 8
-bot_views:
-  - 5
-categories:
-  - Linux
-tags:
-  - linux
 
 ---
 ```bash

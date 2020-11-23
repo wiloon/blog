@@ -1,17 +1,16 @@
 ---
-title: MySQL Interview
+title: MySQL basic
 author: wiloon
 type: post
 date: 2011-04-16T00:55:15+00:00
 url: /?p=19
-bot_views:
-  - 4
-categories:
-  - DataBase
 tags:
   - MySQL
 
 ---
+### 配置文件位置
+    /etc/my.cnf
+
 <p align="left">
   1， mysql的复制原理以及流程。
 
@@ -386,8 +385,12 @@ Extra：查询中每一步实现的额外细节信息，主要会是以下内容
 <p align="left">
   　　（1）    读取参数，global buffer pool以及 local buffer
 
-<p align="left">
-  　　　　　　Innodb_buffer_pool_size，理论上越大越好，建议服务器50%~80%，实际为数据大小80%~90%即可；
+
+- Innodb_buffer_pool_size, 理论上越大越好，建议服务器50%~80%，实际为数据大小80%~90%即可；
+buffer pool的大小，默认值128MB，建议为总内存的80%(InnoDB还要为buffer pool预留一些空间供control structures使用，因此实际大小为设定值的110%左右)
+
+该参数定义了 InnoDB 存储引擎的表数据和索引数据的最大内存缓冲区大小。和 MyISAM 存储引擎不同，MyISAM 的 key_buffer_size只缓存索引键， 而 innodb_buffer_pool_size 却是同时为数据块和索引块做缓存，这个特性和 Oracle 是一样的。这个值设得越高，访问 表中数据需要的磁盘 I/O 就越少。在一个专用的数据库服务器上，可以设置这个参数达机器 物理内存大小的 80%。尽管如此，还是建议用户不要把它设置得太大，因为对物理内存的竞 争可能在操作系统上导致内存调度。  
+https://zhuanlan.zhihu.com/p/60089484  
 
 <p align="left">
   　　　　　　Innodb_read_io_thread，根据处理器内核数决定；

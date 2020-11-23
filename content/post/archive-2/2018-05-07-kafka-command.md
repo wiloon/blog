@@ -14,7 +14,7 @@ categories:
 
     # list all group
     bin/kafka-consumer-groups.sh \
-    --bootstrap-server localhost:9092 --list 
+    --bootstrap-server localhost:9092 --list
     
     # list group detail
     bin/kafka-consumer-groups.sh \
@@ -33,13 +33,11 @@ categories:
     --state
 
 ## topic
-### list topic
-
+### list topic, 查看kafka topic列表，使用--list参数
     bin/kafka-topics.sh --list \
     --zookeeper localhost:2181
 
 ### 查看topic详细信息
-
     bin/kafka-topics.sh \
     --zookeeper 127.0.0.1:2181 \
     --topic topic0 \
@@ -135,40 +133,39 @@ zookeeper.connect=localhost:2181
 ### 删除topic
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
-\#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
-\#start kafka server
-bin/kafka-server-start.sh config/server.properties
+    \#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
+    \#start kafka server
+    bin/kafka-server-start.sh config/server.properties
 
-\#start kafka server as daemon
-bin/kafka-server-start.sh -daemon config/server.properties
+    \#start kafka server as daemon
+    bin/kafka-server-start.sh -daemon config/server.properties
 
-bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
+    bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
+    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
 
-./bin/kafka-server-start.sh config/server.properties
+    ./bin/kafka-server-start.sh config/server.properties
 
-查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
-bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
-bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
+    查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
+    bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
+    bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
 
 bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --from-beginning
 
-# 会只消费 N 条数据，如果配合 --from-beginning，就会消费最早 N 条数据。
-
-bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
+    # 会只消费 N 条数据，如果配合 --from-beginning，就会消费最早 N 条数据。
+    bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
 
     
-    ### 调整 ReplicationFactor
+### 调整 ReplicationFactor
     
-    ```bash
+```bash
 cat increase-replication-factor.json
     
     {"version":1,
-    "partitions":\[{"topic":"connect-configs","partition":0,"replicas":\[0,1,2\]}\]
+    "partitions":[{"topic":"connect-configs","partition":0,"replicas":[0,1,2]}]
     }
     
     bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
-    
+```
 
 ### consumer
 
