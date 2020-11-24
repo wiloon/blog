@@ -1,6 +1,6 @@
 ---
 title: ext4的"打洞"功能（punch hole）
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-18T08:16:49+00:00
 url: /?p=1921

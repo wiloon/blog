@@ -1,6 +1,6 @@
 ---
 title: WordPress, robots.txt
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-27T03:11:09+00:00
 url: /?p=2032

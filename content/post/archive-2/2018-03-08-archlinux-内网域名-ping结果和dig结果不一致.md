@@ -1,6 +1,6 @@
 ---
 title: archlinux 内网域名 ping结果和dig结果不一致
-author: wiloon
+author: w1100n
 type: post
 date: 2018-03-08T05:26:41+00:00
 url: /?p=11977

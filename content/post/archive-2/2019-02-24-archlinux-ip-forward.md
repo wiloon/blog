@@ -1,6 +1,6 @@
 ---
 title: archlinux ip forward
-author: wiloon
+author: w1100n
 type: post
 date: 2019-02-24T04:15:04+00:00
 url: /?p=13701

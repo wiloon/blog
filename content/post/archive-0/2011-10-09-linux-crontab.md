@@ -1,6 +1,6 @@
 ---
 title: maven plugin
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-09T04:35:36+00:00
 url: /?p=1010

@@ -1,6 +1,6 @@
 ---
 title: ORACLE PL/SQL异常处理(Exception)
-author: wiloon
+author: w1100n
 type: post
 date: 2013-06-28T01:44:07+00:00
 url: /?p=5591

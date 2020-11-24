@@ -1,6 +1,6 @@
 ---
 title: Increasing the amount of inotify watchers
-author: wiloon
+author: w1100n
 type: post
 date: 2017-07-27T02:19:47+00:00
 url: /?p=10927

@@ -1,6 +1,6 @@
 ---
 title: linux 查看 SATA 速度, 版本
-author: wiloon
+author: w1100n
 type: post
 date: 2019-04-14T02:33:16+00:00
 url: /?p=14159

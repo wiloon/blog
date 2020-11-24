@@ -1,6 +1,6 @@
 ---
 title: 限定WordPress搜索范围
-author: wiloon
+author: w1100n
 type: post
 date: 2012-02-25T02:53:09+00:00
 url: /?p=2393

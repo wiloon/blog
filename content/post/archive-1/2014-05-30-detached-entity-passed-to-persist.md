@@ -1,6 +1,6 @@
 ---
 title: detached entity passed to persist
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-30T01:08:45+00:00
 url: /?p=6697

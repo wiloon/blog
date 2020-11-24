@@ -1,6 +1,6 @@
 ---
 title: 用户故事, user story
-author: wiloon
+author: w1100n
 type: post
 date: 2019-05-05T10:22:03+00:00
 url: /?p=14293

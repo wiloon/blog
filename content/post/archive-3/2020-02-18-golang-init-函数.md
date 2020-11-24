@@ -1,6 +1,6 @@
 ---
 title: golang init 函数
-author: wiloon
+author: w1100n
 type: post
 date: 2020-02-18T05:01:48+00:00
 url: /?p=15590

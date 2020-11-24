@@ -1,6 +1,6 @@
 ---
 title: linux command df
-author: wiloon
+author: w1100n
 type: post
 date: 2015-10-17T05:38:58+00:00
 url: /?p=8411

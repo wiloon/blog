@@ -1,6 +1,6 @@
 ---
 title: connect to database
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-16T00:46:14+00:00
 url: /?p=16

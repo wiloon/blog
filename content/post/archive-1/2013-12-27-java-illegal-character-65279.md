@@ -1,6 +1,6 @@
 ---
 title: 'java  illegal character  \65279'
-author: wiloon
+author: w1100n
 type: post
 date: 2013-12-27T03:39:49+00:00
 url: /?p=6081

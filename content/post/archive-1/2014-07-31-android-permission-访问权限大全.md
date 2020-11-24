@@ -1,6 +1,6 @@
 ---
 title: Android permission
-author: wiloon
+author: w1100n
 type: post
 date: 2014-07-31T01:36:04+00:00
 url: /?p=6856

@@ -1,6 +1,6 @@
 ---
 title: gitosis install
-author: wiloon
+author: w1100n
 type: post
 date: 2011-05-04T01:23:27+00:00
 url: /?p=177

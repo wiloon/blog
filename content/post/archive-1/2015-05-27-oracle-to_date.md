@@ -1,6 +1,6 @@
 ---
 title: Oracle to_date
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-27T03:19:26+00:00
 url: /?p=7714

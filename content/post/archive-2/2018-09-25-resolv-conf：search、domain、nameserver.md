@@ -1,6 +1,6 @@
 ---
 title: 'resolv.conf: search、domain、nameserver'
-author: wiloon
+author: w1100n
 type: post
 date: 2018-09-25T09:53:24+00:00
 url: /?p=12701

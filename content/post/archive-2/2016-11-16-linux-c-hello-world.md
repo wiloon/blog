@@ -1,6 +1,6 @@
 ---
 title: linux C hello world
-author: wiloon
+author: w1100n
 type: post
 date: 2016-11-16T07:09:09+00:00
 url: /?p=9397

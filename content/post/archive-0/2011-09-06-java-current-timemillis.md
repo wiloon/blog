@@ -1,6 +1,6 @@
 ---
 title: java 日期/date time
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-06T07:30:27+00:00
 url: /?p=682
@@ -52,7 +52,7 @@ S 毫秒数 Number 978
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=8834&embed=true#?secret=RA1Eqnm13T" data-secret="RA1Eqnm13T" width="600" height="338" title=""java 8 日期/date time" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.wiloon.com/wordpress/?p=8834&embed=true#?secret=RA1Eqnm13T
 
 <blockquote data-secret="qXtE3cmQSt" class="wp-embedded-content">
   

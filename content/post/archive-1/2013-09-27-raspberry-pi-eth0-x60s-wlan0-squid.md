@@ -1,6 +1,6 @@
 ---
 title: raspberry pi eth0 x60s wlan0 squid
-author: wiloon
+author: w1100n
 type: post
 date: 2013-09-27T14:34:29+00:00
 url: /?p=5828

@@ -1,6 +1,6 @@
 ---
 title: jsw wrapper.ping.alert
-author: wiloon
+author: w1100n
 type: post
 date: 2016-10-19T05:19:05+00:00
 url: /?p=9314

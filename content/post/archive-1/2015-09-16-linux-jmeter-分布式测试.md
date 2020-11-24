@@ -1,6 +1,6 @@
 ---
 title: linux jmeter 分布式测试
-author: wiloon
+author: w1100n
 type: post
 date: 2015-09-16T05:07:36+00:00
 url: /?p=8270

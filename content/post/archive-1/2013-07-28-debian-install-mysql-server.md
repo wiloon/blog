@@ -1,6 +1,6 @@
 ---
 title: debian install mysql server
-author: wiloon
+author: w1100n
 type: post
 date: 2013-07-28T11:24:15+00:00
 url: /?p=5729

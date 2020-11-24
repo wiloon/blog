@@ -1,6 +1,6 @@
 ---
 title: mplayer output driver
-author: wiloon
+author: w1100n
 type: post
 date: 2012-04-07T12:40:58+00:00
 url: /?p=2850

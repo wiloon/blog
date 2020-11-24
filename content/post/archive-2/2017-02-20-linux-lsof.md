@@ -1,6 +1,6 @@
 ---
 title: linux lsof
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-20T00:53:45+00:00
 url: /?p=9838

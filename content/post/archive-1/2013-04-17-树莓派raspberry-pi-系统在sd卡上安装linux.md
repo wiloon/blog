@@ -1,6 +1,6 @@
 ---
 title: 树莓派(raspberry pi) 系统在SD卡上安装Linux
-author: wiloon
+author: w1100n
 type: post
 date: 2013-04-17T15:43:43+00:00
 url: /?p=5408

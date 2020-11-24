@@ -1,6 +1,6 @@
 ---
 title: MongoDB vs CouchDB
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-19T05:54:45+00:00
 url: /?p=6257

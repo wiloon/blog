@@ -1,6 +1,6 @@
 ---
 title: broadleaf jboss 7 ， linux
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-08T09:24:47+00:00
 url: /?p=6483

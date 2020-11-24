@@ -1,6 +1,6 @@
 ---
 title: 解决 archlinux 和 windows 双系统启动时间不准的问题
-author: wiloon
+author: w1100n
 type: post
 date: 2016-04-25T15:48:11+00:00
 url: /?p=8956

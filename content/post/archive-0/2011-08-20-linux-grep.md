@@ -1,6 +1,6 @@
 ---
 title: grep
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-20T20:00:03+00:00
 url: /?p=468

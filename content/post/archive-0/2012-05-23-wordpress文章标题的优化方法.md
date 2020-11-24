@@ -1,6 +1,6 @@
 ---
 title: wordpress文章标题的优化方法
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-23T13:21:29+00:00
 url: /?p=3182

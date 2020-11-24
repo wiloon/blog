@@ -1,6 +1,6 @@
 ---
 title: linux kill,pkill
-author: wiloon
+author: w1100n
 type: post
 date: 2016-06-03T04:24:01+00:00
 url: /?p=9037

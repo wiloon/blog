@@ -1,6 +1,6 @@
 ---
 title: 'Java Double 浮点数 比较大小 & 相等比较'
-author: wiloon
+author: w1100n
 type: post
 date: 2019-08-19T07:31:09+00:00
 url: /?p=14814

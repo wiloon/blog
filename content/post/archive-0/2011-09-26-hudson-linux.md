@@ -1,6 +1,6 @@
 ---
 title: hudson linux
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-26T03:42:25+00:00
 url: /?p=920

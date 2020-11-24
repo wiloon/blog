@@ -1,6 +1,6 @@
 ---
 title: linux kvm nat nftables
-author: wiloon
+author: w1100n
 type: post
 date: 2016-01-19T15:41:05+00:00
 url: /?p=8681

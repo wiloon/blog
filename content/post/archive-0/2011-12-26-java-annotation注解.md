@@ -1,6 +1,6 @@
 ---
 title: Java Annotation/注解
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-26T05:36:33+00:00
 url: /?p=2003

@@ -1,6 +1,6 @@
 ---
 title: XHTML Validator
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-06T14:53:36+00:00
 url: /?p=688

@@ -1,6 +1,6 @@
 ---
 title: insufficient permissions for device
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-22T15:05:20+00:00
 url: /?p=3618

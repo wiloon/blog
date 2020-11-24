@@ -1,6 +1,6 @@
 ---
 title: centos vncserver
-author: wiloon
+author: w1100n
 type: post
 date: 2012-03-13T15:13:27+00:00
 url: /?p=2556

@@ -1,6 +1,6 @@
 ---
 title: 自动装箱 拆箱
-author: wiloon
+author: w1100n
 type: post
 date: 2011-07-09T06:00:25+00:00
 url: /?p=324

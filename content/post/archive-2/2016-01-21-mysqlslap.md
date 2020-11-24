@@ -1,6 +1,6 @@
 ---
 title: Mysqlslap
-author: wiloon
+author: w1100n
 type: post
 date: 2016-01-21T00:12:50+00:00
 url: /?p=8691

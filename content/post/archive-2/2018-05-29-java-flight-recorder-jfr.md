@@ -1,6 +1,6 @@
 ---
 title: Java Flight Recorder, jfr
-author: wiloon
+author: w1100n
 type: post
 date: 2018-05-29T10:05:18+00:00
 url: /?p=12264

@@ -1,6 +1,6 @@
 ---
 title: java timer
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-13T08:55:42+00:00
 url: /?p=673

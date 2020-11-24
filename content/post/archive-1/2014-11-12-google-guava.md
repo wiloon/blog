@@ -1,6 +1,6 @@
 ---
 title: Google Guava
-author: wiloon
+author: w1100n
 type: post
 date: 2014-11-12T07:44:06+00:00
 url: /?p=7009

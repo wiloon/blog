@@ -1,6 +1,6 @@
 ---
 title: hibernate.hbm2ddl.auto
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-21T01:58:01+00:00
 url: /?p=7696

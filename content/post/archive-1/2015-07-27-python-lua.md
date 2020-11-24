@@ -1,6 +1,6 @@
 ---
 title: Python, Lua
-author: wiloon
+author: w1100n
 type: post
 date: 2015-07-27T01:04:50+00:00
 url: /?p=8035

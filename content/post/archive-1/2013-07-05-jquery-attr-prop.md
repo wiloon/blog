@@ -1,6 +1,6 @@
 ---
 title: jquery attr prop
-author: wiloon
+author: w1100n
 type: post
 date: 2013-07-05T11:23:08+00:00
 url: /?p=5615

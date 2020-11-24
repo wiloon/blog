@@ -1,6 +1,6 @@
 ---
 title: maven依赖本地非repository中的jar包
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-12T06:23:38+00:00
 url: /?p=8795

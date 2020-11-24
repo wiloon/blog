@@ -1,6 +1,6 @@
 ---
 title: kafka config, server, producer
-author: wiloon
+author: w1100n
 type: post
 date: 2017-05-04T09:27:25+00:00
 url: /?p=10207

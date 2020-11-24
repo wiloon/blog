@@ -1,6 +1,6 @@
 ---
 title: int 和 Integer
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-19T08:47:39+00:00
 url: /?p=4097

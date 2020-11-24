@@ -1,6 +1,6 @@
 ---
 title: install gradle
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-23T05:58:27+00:00
 url: /?p=90

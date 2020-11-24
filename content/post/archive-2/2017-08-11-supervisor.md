@@ -1,6 +1,6 @@
 ---
 title: supervisor
-author: wiloon
+author: w1100n
 type: post
 date: 2017-08-11T08:21:18+00:00
 url: /?p=11029

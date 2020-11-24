@@ -1,6 +1,6 @@
 ---
 title: POP3、SMTP、IMAP和Exchange
-author: wiloon
+author: w1100n
 type: post
 date: 2013-05-20T11:47:32+00:00
 url: /?p=5480

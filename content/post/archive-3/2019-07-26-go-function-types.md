@@ -1,6 +1,6 @@
 ---
 title: go, function types, 函数类型
-author: wiloon
+author: w1100n
 type: post
 date: 2019-07-26T02:27:23+00:00
 url: /?p=14721

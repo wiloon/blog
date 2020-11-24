@@ -1,6 +1,6 @@
 ---
 title: linux tp fancontrol
-author: wiloon
+author: w1100n
 type: post
 date: 2012-04-15T14:42:08+00:00
 url: /?p=2945

@@ -1,6 +1,6 @@
 ---
 title: MySql 里的IFNULL、NULLIF和ISNULL用法
-author: wiloon
+author: w1100n
 type: post
 date: 2014-01-16T05:03:08+00:00
 url: /?p=6219

@@ -1,6 +1,6 @@
 ---
 title: Java string hashing in Go
-author: wiloon
+author: w1100n
 type: post
 date: 2018-01-31T08:44:45+00:00
 url: /?p=11810

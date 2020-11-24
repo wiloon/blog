@@ -1,6 +1,6 @@
 ---
 title: linux comm, 两个文件的共同部分或者差异部分
-author: wiloon
+author: w1100n
 type: post
 date: 2018-12-28T08:28:03+00:00
 url: /?p=13228

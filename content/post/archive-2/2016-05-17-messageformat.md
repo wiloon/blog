@@ -1,6 +1,6 @@
 ---
 title: MessageFormat
-author: wiloon
+author: w1100n
 type: post
 date: 2016-05-17T05:14:30+00:00
 url: /?p=9004

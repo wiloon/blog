@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-author: wiloon
+author: w1100n
 type: post
 date: 2015-06-13T00:22:45+00:00
 url: /?p=7806

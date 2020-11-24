@@ -1,6 +1,6 @@
 ---
 title: Gradle command
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-20T07:58:09+00:00
 url: /?p=1548

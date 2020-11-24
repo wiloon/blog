@@ -1,6 +1,6 @@
 ---
 title: 'Integration of Angular  with Spring MVC'
-author: wiloon
+author: w1100n
 type: post
 date: 2019-12-18T09:53:42+00:00
 url: /?p=15220

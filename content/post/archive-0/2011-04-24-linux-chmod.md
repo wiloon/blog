@@ -1,6 +1,6 @@
 ---
 title: chmod
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-24T08:34:50+00:00
 url: /?p=119

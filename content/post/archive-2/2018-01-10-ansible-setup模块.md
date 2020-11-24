@@ -1,6 +1,6 @@
 ---
 title: Ansible setup模块
-author: wiloon
+author: w1100n
 type: post
 date: 2018-01-10T09:46:37+00:00
 url: /?p=11704

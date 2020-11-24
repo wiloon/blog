@@ -1,6 +1,6 @@
 ---
 title: java vs javaw vs javaws
-author: wiloon
+author: w1100n
 type: post
 date: 2015-01-22T12:17:18+00:00
 url: /?p=7283

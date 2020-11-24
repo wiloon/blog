@@ -1,6 +1,6 @@
 ---
 title: javascript window.event.keyCode ascii
-author: wiloon
+author: w1100n
 type: post
 date: 2011-06-11T12:07:19+00:00
 url: /?p=230

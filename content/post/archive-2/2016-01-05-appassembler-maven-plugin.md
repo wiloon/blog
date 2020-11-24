@@ -1,6 +1,6 @@
 ---
 title: appassembler-maven-plugin
-author: wiloon
+author: w1100n
 type: post
 date: 2016-01-05T01:51:35+00:00
 url: /?p=8630

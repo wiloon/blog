@@ -1,6 +1,6 @@
 ---
 title: linux modprobe
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-20T20:06:06+00:00
 url: /?p=471

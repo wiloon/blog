@@ -1,6 +1,6 @@
 ---
 title: connection=keep alive 和　close
-author: wiloon
+author: w1100n
 type: post
 date: 2015-12-02T01:16:53+00:00
 url: /?p=8501

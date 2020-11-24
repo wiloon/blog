@@ -1,6 +1,6 @@
 ---
 title: /etc/passwd, /etc/shadow
-author: wiloon
+author: w1100n
 type: post
 date: 2018-12-24T05:05:07+00:00
 url: /?p=13201

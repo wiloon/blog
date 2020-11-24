@@ -1,6 +1,6 @@
 ---
 title: centos tigervnc
-author: wiloon
+author: w1100n
 type: post
 date: 2018-10-17T02:58:00+00:00
 url: /?p=12793

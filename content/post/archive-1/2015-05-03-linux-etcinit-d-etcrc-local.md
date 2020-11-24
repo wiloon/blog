@@ -1,6 +1,6 @@
 ---
 title: Linux /etc/init.d /etc/rc.local
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-02T23:46:21+00:00
 url: /?p=7575

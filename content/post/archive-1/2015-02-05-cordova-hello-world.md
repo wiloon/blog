@@ -1,6 +1,6 @@
 ---
 title: Cordova Hello World
-author: wiloon
+author: w1100n
 type: post
 date: 2015-02-05T08:27:05+00:00
 url: /?p=7318

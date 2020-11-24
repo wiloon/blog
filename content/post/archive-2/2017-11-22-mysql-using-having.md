@@ -1,6 +1,6 @@
 ---
 title: mysql using having
-author: wiloon
+author: w1100n
 type: post
 date: 2017-11-22T06:17:25+00:00
 url: /?p=11462

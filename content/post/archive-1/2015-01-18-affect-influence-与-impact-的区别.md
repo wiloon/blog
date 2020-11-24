@@ -1,6 +1,6 @@
 ---
 title: affect, influence 与 impact 的区别
-author: wiloon
+author: w1100n
 type: post
 date: 2015-01-18T03:35:18+00:00
 url: /?p=7253

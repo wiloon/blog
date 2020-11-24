@@ -1,6 +1,6 @@
 ---
 title: 'external file changes sync may be slow the current inotify  watch limit is too low'
-author: wiloon
+author: w1100n
 type: post
 date: 2017-03-09T02:05:42+00:00
 url: /?p=9906

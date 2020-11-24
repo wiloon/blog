@@ -1,6 +1,6 @@
 ---
 title: mysql index
-author: wiloon
+author: w1100n
 type: post
 date: 2012-03-01T10:37:42+00:00
 url: /?p=2511

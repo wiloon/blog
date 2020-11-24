@@ -1,6 +1,6 @@
 ---
 title: Java LockSupport.park()
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-25T07:28:38+00:00
 url: /?p=7707

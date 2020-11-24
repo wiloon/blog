@@ -1,6 +1,6 @@
 ---
 title: java copy file
-author: wiloon
+author: w1100n
 type: post
 date: 2014-11-27T02:53:36+00:00
 url: /?p=7049

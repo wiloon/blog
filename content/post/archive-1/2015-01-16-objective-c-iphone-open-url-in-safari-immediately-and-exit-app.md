@@ -1,6 +1,6 @@
 ---
 title: httpcomponent, httpclient proxy setting
-author: wiloon
+author: w1100n
 type: post
 date: 2015-01-16T02:53:10+00:00
 url: /?p=7244

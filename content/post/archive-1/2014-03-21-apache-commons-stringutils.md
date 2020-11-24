@@ -1,6 +1,6 @@
 ---
 title: apache commons StringUtils
-author: wiloon
+author: w1100n
 type: post
 date: 2014-03-21T12:40:05+00:00
 url: /?p=6430

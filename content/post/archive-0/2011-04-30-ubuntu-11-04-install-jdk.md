@@ -1,6 +1,6 @@
 ---
 title: ubuntu 11.04 install JDK
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-30T05:35:15+00:00
 url: /?p=128

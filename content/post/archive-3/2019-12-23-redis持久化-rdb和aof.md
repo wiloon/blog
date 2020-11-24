@@ -1,6 +1,6 @@
 ---
 title: Redis持久化 RDB和AOF
-author: wiloon
+author: w1100n
 type: post
 date: 2019-12-23T08:00:59+00:00
 url: /?p=15236

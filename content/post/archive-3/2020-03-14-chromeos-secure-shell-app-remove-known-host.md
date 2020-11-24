@@ -1,6 +1,6 @@
 ---
 title: chromeos Secure Shell App remove known host
-author: wiloon
+author: w1100n
 type: post
 date: 2020-03-14T06:27:26+00:00
 url: /?p=15741

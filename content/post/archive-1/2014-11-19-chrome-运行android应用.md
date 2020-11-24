@@ -1,6 +1,6 @@
 ---
 title: Chrome 运行Android应用
-author: wiloon
+author: w1100n
 type: post
 date: 2014-11-19T03:49:12+00:00
 url: /?p=7019

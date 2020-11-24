@@ -1,6 +1,6 @@
 ---
 title: MANIFEST.MF
-author: wiloon
+author: w1100n
 type: post
 date: 2012-04-08T11:42:35+00:00
 url: /?p=2876

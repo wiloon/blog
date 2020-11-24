@@ -1,6 +1,6 @@
 ---
 title: Class.forName
-author: wiloon
+author: w1100n
 type: post
 date: 2013-12-21T13:11:52+00:00
 url: /?p=6067

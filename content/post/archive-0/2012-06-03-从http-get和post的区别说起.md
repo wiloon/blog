@@ -1,6 +1,6 @@
 ---
 title: 从HTTP GET和POST的区别说起
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-03T11:45:35+00:00
 url: /?p=3385

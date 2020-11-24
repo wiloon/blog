@@ -1,6 +1,6 @@
 ---
 title: slackware
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-26T06:36:29+00:00
 url: /?p=1605

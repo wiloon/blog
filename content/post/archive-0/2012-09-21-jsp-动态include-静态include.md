@@ -1,6 +1,6 @@
 ---
 title: JSP 动态INCLUDE 静态INCLUDE
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-21T08:03:28+00:00
 url: /?p=4157

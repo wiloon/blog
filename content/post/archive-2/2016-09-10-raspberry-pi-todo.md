@@ -1,6 +1,6 @@
 ---
 title: raspberry pi install, init
-author: wiloon
+author: w1100n
 type: post
 date: 2016-09-10T05:44:49+00:00
 url: /?p=9199

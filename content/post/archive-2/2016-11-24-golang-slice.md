@@ -1,6 +1,6 @@
 ---
 title: golang 数组/切片/slice
-author: wiloon
+author: w1100n
 type: post
 date: 2016-11-24T01:41:36+00:00
 url: /?p=9429

@@ -1,6 +1,6 @@
 ---
 title: tcp_syn_retries等参数
-author: wiloon
+author: w1100n
 type: post
 date: 2018-08-23T11:20:58+00:00
 url: /?p=12551

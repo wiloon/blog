@@ -1,6 +1,6 @@
 ---
 title: android.intent.action.MAIN 与 android.intent.category.LAUNCHER
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-14T08:06:08+00:00
 url: /?p=6547

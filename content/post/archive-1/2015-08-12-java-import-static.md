@@ -1,6 +1,6 @@
 ---
 title: java import static
-author: wiloon
+author: w1100n
 type: post
 date: 2015-08-12T01:22:29+00:00
 url: /?p=8095

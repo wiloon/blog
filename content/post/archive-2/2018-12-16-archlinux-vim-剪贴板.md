@@ -1,6 +1,6 @@
 ---
 title: archlinux vim 剪贴板
-author: wiloon
+author: w1100n
 type: post
 date: 2018-12-16T02:09:20+00:00
 url: /?p=13100

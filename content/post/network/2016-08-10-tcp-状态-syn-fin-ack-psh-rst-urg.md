@@ -1,6 +1,6 @@
 ---
 title: 'TCP 三次握手,  TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)'
-author: wiloon
+author: w1100n
 type: post
 date: 2016-08-10T04:25:26+00:00
 url: /?p=9172

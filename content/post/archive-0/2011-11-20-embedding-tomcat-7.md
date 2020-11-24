@@ -1,6 +1,6 @@
 ---
 title: Embedding tomcat 7
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-20T09:10:54+00:00
 url: /?p=1550

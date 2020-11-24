@@ -1,6 +1,6 @@
 ---
 title: Android Activity
-author: wiloon
+author: w1100n
 type: post
 date: 2014-07-31T02:25:30+00:00
 url: /?p=6864

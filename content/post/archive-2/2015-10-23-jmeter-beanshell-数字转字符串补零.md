@@ -1,6 +1,6 @@
 ---
 title: jmeter beanshell 数字转字符串补零
-author: wiloon
+author: w1100n
 type: post
 date: 2015-10-23T07:02:28+00:00
 url: /?p=8420

@@ -1,6 +1,6 @@
 ---
 title: Features of jsp2.1
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-22T07:33:03+00:00
 url: /?p=4179

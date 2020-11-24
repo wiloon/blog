@@ -1,6 +1,6 @@
 ---
 title: Free Download Manager
-author: wiloon
+author: w1100n
 type: post
 date: 2012-02-02T05:10:12+00:00
 url: /?p=2227

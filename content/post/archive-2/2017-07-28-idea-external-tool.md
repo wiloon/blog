@@ -1,6 +1,6 @@
 ---
 title: idea external tool
-author: wiloon
+author: w1100n
 type: post
 date: 2017-07-28T01:58:23+00:00
 url: /?p=10948

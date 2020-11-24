@@ -1,6 +1,6 @@
 ---
 title: manually install python modules
-author: wiloon
+author: w1100n
 type: post
 date: 2018-06-20T16:03:05+00:00
 url: /?p=12342

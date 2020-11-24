@@ -1,6 +1,6 @@
 ---
 title: compact/extract 压缩/解压
-author: wiloon
+author: w1100n
 date: 2011-11-04T05:13:18.000+00:00
 url: "/?p=1444"
 

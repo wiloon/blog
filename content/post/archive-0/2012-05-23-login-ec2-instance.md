@@ -1,6 +1,6 @@
 ---
 title: AWS EC2
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-23T01:26:24+00:00
 url: /?p=3175

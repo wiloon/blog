@@ -1,6 +1,6 @@
 ---
 title: linux ec2 ssh
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-29T13:04:13+00:00
 url: /?p=3291

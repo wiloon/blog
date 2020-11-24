@@ -1,6 +1,6 @@
 ---
 title: java exit code
-author: wiloon
+author: w1100n
 type: post
 date: 2015-12-30T07:25:26+00:00
 url: /?p=8612

@@ -1,6 +1,6 @@
 ---
 title: JUnit Assert
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-03T03:17:23+00:00
 url: /?p=8769

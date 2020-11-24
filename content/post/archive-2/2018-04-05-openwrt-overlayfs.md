@@ -1,6 +1,6 @@
 ---
 title: R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
-author: wiloon
+author: w1100n
 type: post
 date: 2018-04-05T15:47:18+00:00
 url: /?p=12113

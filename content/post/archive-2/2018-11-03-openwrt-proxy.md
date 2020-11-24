@@ -1,6 +1,6 @@
 ---
 title: openwrt proxy
-author: wiloon
+author: w1100n
 type: post
 date: 2018-11-03T05:45:46+00:00
 url: /?p=12846

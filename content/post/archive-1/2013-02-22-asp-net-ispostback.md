@@ -1,6 +1,6 @@
 ---
 title: 'String#intern'
-author: wiloon
+author: w1100n
 type: post
 date: 2013-02-22T08:44:36+00:00
 url: /?p=5230

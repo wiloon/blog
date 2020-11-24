@@ -1,6 +1,6 @@
 ---
 title: 'button input type="button"   Which to use?'
-author: wiloon
+author: w1100n
 type: post
 date: 2013-09-08T01:59:16+00:00
 url: /?p=5797

@@ -1,6 +1,6 @@
 ---
 title: '[Design Pattern] Front Controller Pattern'
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-12T11:45:56+00:00
 url: /?p=9800

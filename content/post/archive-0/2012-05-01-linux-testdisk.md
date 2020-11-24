@@ -1,6 +1,6 @@
 ---
 title: Linux Testdisk
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-01T11:11:34+00:00
 url: /?p=3074

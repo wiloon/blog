@@ -1,6 +1,6 @@
 ---
 title: 迭代回顾, Sprint Retrospective
-author: wiloon
+author: w1100n
 type: post
 date: 2015-10-12T14:44:49+00:00
 url: /?p=8396

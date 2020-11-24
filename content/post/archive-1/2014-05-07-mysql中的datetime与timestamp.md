@@ -1,6 +1,6 @@
 ---
 title: MySQL中的datetime与timestamp
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-07T01:46:29+00:00
 url: /?p=6592

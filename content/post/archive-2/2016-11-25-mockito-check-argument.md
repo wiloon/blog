@@ -1,6 +1,6 @@
 ---
 title: mockito check argument
-author: wiloon
+author: w1100n
 type: post
 date: 2016-11-25T02:11:30+00:00
 url: /?p=9435

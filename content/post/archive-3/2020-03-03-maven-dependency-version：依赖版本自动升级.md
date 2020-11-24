@@ -1,6 +1,6 @@
 ---
 title: Maven Dependency Version：依赖版本自动升级
-author: wiloon
+author: w1100n
 type: post
 date: 2020-03-03T02:44:07+00:00
 url: /?p=15677

@@ -1,6 +1,6 @@
 ---
 title: WP-Markdown
-author: wiloon
+author: w1100n
 type: post
 date: 2013-02-25T13:46:31+00:00
 url: /?p=5251

@@ -1,6 +1,6 @@
 ---
 title: mysql view, MERGE, TEMPTABLE
-author: wiloon
+author: w1100n
 type: post
 date: 2018-02-11T01:42:00+00:00
 url: /?p=11863

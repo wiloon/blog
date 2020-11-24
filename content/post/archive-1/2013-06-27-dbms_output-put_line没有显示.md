@@ -1,6 +1,6 @@
 ---
 title: DBMS_OUTPUT.put_line没有显示
-author: wiloon
+author: w1100n
 type: post
 date: 2013-06-27T02:42:32+00:00
 url: /?p=5562

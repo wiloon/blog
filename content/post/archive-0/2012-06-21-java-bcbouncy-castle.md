@@ -1,6 +1,6 @@
 ---
 title: java BC/Bouncy Castle
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-21T04:49:08+00:00
 url: /?p=3563

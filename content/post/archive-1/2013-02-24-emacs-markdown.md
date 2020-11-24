@@ -1,6 +1,6 @@
 ---
 title: Emacs Markdown
-author: wiloon
+author: w1100n
 type: post
 date: 2013-02-24T08:07:23+00:00
 url: /?p=5247

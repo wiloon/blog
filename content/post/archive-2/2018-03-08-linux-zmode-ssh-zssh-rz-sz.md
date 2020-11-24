@@ -1,6 +1,6 @@
 ---
 title: linux, zmodem ssh, zssh, rz, sz
-author: wiloon
+author: w1100n
 type: post
 date: 2018-03-08T04:14:26+00:00
 url: /?p=11974

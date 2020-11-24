@@ -1,6 +1,6 @@
 ---
 title: linux http proxy
-author: wiloon
+author: w1100n
 type: post
 date: 2012-01-18T06:33:02+00:00
 url: /?p=2151

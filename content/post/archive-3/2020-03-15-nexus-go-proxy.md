@@ -1,6 +1,6 @@
 ---
 title: nexus go proxy
-author: wiloon
+author: w1100n
 type: post
 date: 2020-03-14T16:53:38+00:00
 url: /?p=15751

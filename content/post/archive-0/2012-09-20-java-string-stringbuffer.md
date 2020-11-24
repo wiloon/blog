@@ -1,6 +1,6 @@
 ---
 title: JAVA String, StringBuffer, StringBuilder
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-20T03:27:09+00:00
 url: /?p=4123

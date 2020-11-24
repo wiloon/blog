@@ -1,6 +1,6 @@
 ---
 title: ByteArrayInputStream ByteArrayOutputStream
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-04T01:58:59+00:00
 url: /?p=6479

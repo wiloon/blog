@@ -1,6 +1,6 @@
 ---
 title: 'Thank you very much & Thanks a lot'
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-09T04:50:44+00:00
 url: /?p=6608

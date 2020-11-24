@@ -1,6 +1,6 @@
 ---
 title: golang sync.RWMutex, sync.Mutex
-author: wiloon
+author: w1100n
 type: post
 date: 2018-04-13T02:31:40+00:00
 url: /?p=12143

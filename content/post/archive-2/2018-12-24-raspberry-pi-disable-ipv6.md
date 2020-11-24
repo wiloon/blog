@@ -1,6 +1,6 @@
 ---
 title: raspberry pi disable ipv6
-author: wiloon
+author: w1100n
 type: post
 date: 2018-12-24T15:16:49+00:00
 url: /?p=13205

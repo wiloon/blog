@@ -1,6 +1,6 @@
 ---
 title: linux delete folder
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-30T09:33:33+00:00
 url: /?p=150

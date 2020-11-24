@@ -1,6 +1,6 @@
 ---
 title: JPA EntityManager
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-30T03:21:18+00:00
 url: /?p=6571

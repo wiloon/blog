@@ -1,6 +1,6 @@
 ---
 title: Mysql replace into
-author: wiloon
+author: w1100n
 type: post
 date: 2015-08-14T01:52:09+00:00
 url: /?p=8114

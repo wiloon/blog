@@ -1,6 +1,6 @@
 ---
 title: java final
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-08T07:11:59+00:00
 url: /?p=726

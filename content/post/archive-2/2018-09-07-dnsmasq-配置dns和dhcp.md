@@ -1,6 +1,6 @@
 ---
 title: 'dnsmasq config  配置'
-author: wiloon
+author: w1100n
 type: post
 date: 2018-09-07T02:42:31+00:00
 url: /?p=12638

@@ -1,6 +1,6 @@
 ---
 title: Java 信号量 Semaphore
-author: wiloon
+author: w1100n
 type: post
 date: 2014-10-31T02:46:50+00:00
 url: /?p=6997

@@ -1,6 +1,6 @@
 ---
 title: javascript 日期时间函数
-author: wiloon
+author: w1100n
 type: post
 date: 2011-06-05T00:08:53+00:00
 url: /?p=214

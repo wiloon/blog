@@ -1,6 +1,6 @@
 ---
 title: 解决JQuery.trim()函数ie下报错的问题
-author: wiloon
+author: w1100n
 type: post
 date: 2013-08-10T10:34:07+00:00
 url: /?p=5769

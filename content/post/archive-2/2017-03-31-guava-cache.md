@@ -1,6 +1,6 @@
 ---
 title: Guava cache
-author: wiloon
+author: w1100n
 type: post
 date: 2017-03-31T06:58:32+00:00
 url: /?p=10004

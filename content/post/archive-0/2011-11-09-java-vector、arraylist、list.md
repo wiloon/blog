@@ -1,6 +1,6 @@
 ---
 title: Java Array, Vector, ArrayList, List, LinkedList
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-09T05:46:13+00:00
 url: /?p=1470

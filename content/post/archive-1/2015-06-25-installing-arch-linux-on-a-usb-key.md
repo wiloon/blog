@@ -1,6 +1,6 @@
 ---
 title: archlinux install
-author: wiloon
+author: w1100n
 type: post
 date: 2015-06-25T09:18:44+00:00
 url: /?p=7821

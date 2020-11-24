@@ -1,6 +1,6 @@
 ---
 title: jenkins api token
-author: wiloon
+author: w1100n
 type: post
 date: 2020-03-22T10:30:34+00:00
 url: /?p=15806

@@ -1,6 +1,6 @@
 ---
 title: java enum/枚举
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-22T08:10:05+00:00
 url: /?p=4183

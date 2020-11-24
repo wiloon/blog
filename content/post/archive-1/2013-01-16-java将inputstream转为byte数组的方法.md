@@ -1,6 +1,6 @@
 ---
 title: java InputStream
-author: wiloon
+author: w1100n
 type: post
 date: 2013-01-16T04:31:49+00:00
 url: /?p=5029

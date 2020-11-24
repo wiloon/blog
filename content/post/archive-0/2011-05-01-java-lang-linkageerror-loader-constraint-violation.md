@@ -1,6 +1,6 @@
 ---
 title: 'java.lang.LinkageError: loader constraint violation'
-author: wiloon
+author: w1100n
 type: post
 date: 2011-05-01T01:54:27+00:00
 url: /?p=157

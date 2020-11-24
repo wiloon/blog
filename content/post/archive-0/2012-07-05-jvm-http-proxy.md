@@ -1,6 +1,6 @@
 ---
 title: jvm http proxy
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-05T06:10:33+00:00
 url: /?p=3746

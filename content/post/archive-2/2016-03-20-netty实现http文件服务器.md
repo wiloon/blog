@@ -1,6 +1,6 @@
 ---
 title: netty实现http文件服务器
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-20T05:58:13+00:00
 url: /?p=8815

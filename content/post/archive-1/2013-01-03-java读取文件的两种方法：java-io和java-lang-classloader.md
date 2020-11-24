@@ -1,6 +1,6 @@
 ---
 title: JAVA读取文件的两种方法：JAVA.IO和JAVA.LANG.CLASSLOADER
-author: wiloon
+author: w1100n
 type: post
 date: 2013-01-03T03:40:04+00:00
 url: /?p=4961

@@ -1,6 +1,6 @@
 ---
 title: Servlet url-pattern
-author: wiloon
+author: w1100n
 type: post
 date: 2013-01-20T13:07:45+00:00
 url: /?p=5051

@@ -1,6 +1,6 @@
 ---
 title: 'WIN7 MBR > UEFI'
-author: wiloon
+author: w1100n
 type: post
 date: 2018-09-28T07:48:58+00:00
 url: /?p=12707

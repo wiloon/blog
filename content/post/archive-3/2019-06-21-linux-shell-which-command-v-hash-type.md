@@ -1,6 +1,6 @@
 ---
 title: linux shell 查找文件位置，which, command -v, hash, type
-author: wiloon
+author: w1100n
 type: post
 date: 2019-06-21T00:18:13+00:00
 url: /?p=14537

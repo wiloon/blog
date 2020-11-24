@@ -1,6 +1,6 @@
 ---
 title: Unable to locate WordPress Content directory
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-26T02:50:27+00:00
 url: /?p=3240

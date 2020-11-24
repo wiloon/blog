@@ -1,6 +1,6 @@
 ---
 title: redis中各种数据类型对应的jedis操作命令,placeholder
-author: wiloon
+author: w1100n
 type: post
 date: 2015-09-22T10:06:45+00:00
 url: /?p=8333

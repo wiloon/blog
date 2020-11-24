@@ -1,6 +1,6 @@
 ---
 title: linux disk format, mkfs,mke2fs 格式化磁盘
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-04T09:52:55+00:00
 url: /?p=7607

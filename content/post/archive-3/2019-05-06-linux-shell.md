@@ -1,6 +1,6 @@
 ---
 title: shell basic
-author: wiloon
+author: w1100n
 type: post
 date: 2019-05-06T04:27:52+00:00
 url: /?p=14295

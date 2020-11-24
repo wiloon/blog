@@ -1,6 +1,6 @@
 ---
 title: upgrade和update的区别
-author: wiloon
+author: w1100n
 type: post
 date: 2019-09-04T03:11:34+00:00
 url: /?p=14898

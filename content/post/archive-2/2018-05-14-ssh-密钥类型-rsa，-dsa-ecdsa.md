@@ -1,6 +1,6 @@
 ---
 title: 'SSH 密钥类型  RSA， DSA  ,ecdsa'
-author: wiloon
+author: w1100n
 type: post
 date: 2018-05-13T16:02:13+00:00
 url: /?p=12248

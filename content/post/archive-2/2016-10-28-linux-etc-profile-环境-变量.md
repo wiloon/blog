@@ -1,6 +1,6 @@
 ---
 title: 'linux   环境 变量'
-author: wiloon
+author: w1100n
 type: post
 date: 2016-10-28T04:34:33+00:00
 url: /?p=9346

@@ -1,6 +1,6 @@
 ---
 title: emacs copy current line
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-30T09:32:53+00:00
 url: /?p=148

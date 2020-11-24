@@ -1,6 +1,6 @@
 ---
 title: javascript unit test
-author: wiloon
+author: w1100n
 type: post
 date: 2014-08-25T01:30:34+00:00
 url: /?p=6959

@@ -1,6 +1,6 @@
 ---
 title: idea 插入当前日期，insert current datetime
-author: wiloon
+author: w1100n
 type: post
 date: 2018-12-28T09:44:26+00:00
 url: /?p=13232

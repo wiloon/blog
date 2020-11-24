@@ -1,6 +1,6 @@
 ---
 title: SDL（Simple DirectMedia Layer）
-author: wiloon
+author: w1100n
 type: post
 date: 2013-11-10T08:04:58+00:00
 url: /?p=5938

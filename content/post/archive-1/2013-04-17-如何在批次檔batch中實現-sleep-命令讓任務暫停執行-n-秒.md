@@ -1,6 +1,6 @@
 ---
 title: windows bat basic
-author: wiloon
+author: w1100n
 type: post
 date: 2013-04-17T12:40:36+00:00
 url: /?p=5406

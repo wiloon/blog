@@ -1,6 +1,6 @@
 ---
 title: Java URL URI
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-26T05:24:54+00:00
 url: /?p=6287

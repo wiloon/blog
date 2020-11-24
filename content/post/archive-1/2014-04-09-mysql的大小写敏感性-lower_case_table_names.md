@@ -1,6 +1,6 @@
 ---
 title: MySQL的大小写敏感性 lower_case_table_names
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-09T02:10:43+00:00
 url: /?p=6491

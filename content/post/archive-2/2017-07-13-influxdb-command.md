@@ -1,6 +1,6 @@
 ---
 title: 'influxdb install & config'
-author: wiloon
+author: w1100n
 type: post
 date: 2017-07-13T08:21:48+00:00
 url: /?p=10830

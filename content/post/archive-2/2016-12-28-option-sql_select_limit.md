@@ -1,6 +1,6 @@
 ---
 title: OPTION SQL_SELECT_LIMIT
-author: wiloon
+author: w1100n
 type: post
 date: 2016-12-28T08:54:04+00:00
 url: /?p=9629

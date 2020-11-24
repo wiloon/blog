@@ -1,6 +1,6 @@
 ---
 title: 'java  ByteBuffer'
-author: wiloon
+author: w1100n
 type: post
 date: 2015-08-05T04:32:55+00:00
 url: /?p=8057

@@ -1,6 +1,6 @@
 ---
 title: PL/SQL Developer 显示中文乱码问题
-author: wiloon
+author: w1100n
 type: post
 date: 2015-04-23T00:27:24+00:00
 url: /?p=7478

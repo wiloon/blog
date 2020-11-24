@@ -1,6 +1,6 @@
 ---
 title: pathmunge
-author: wiloon
+author: w1100n
 type: post
 date: 2012-03-15T06:01:25+00:00
 url: /?p=2570

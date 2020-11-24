@@ -1,6 +1,6 @@
 ---
 title: archlinux chrominum flash
-author: wiloon
+author: w1100n
 type: post
 date: 2015-06-28T07:11:42+00:00
 url: /?p=7955

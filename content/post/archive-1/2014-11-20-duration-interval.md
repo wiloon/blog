@@ -1,6 +1,6 @@
 ---
 title: duration ,interval
-author: wiloon
+author: w1100n
 type: post
 date: 2014-11-20T02:15:56+00:00
 url: /?p=7029

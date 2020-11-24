@@ -1,6 +1,6 @@
 ---
 title: Web服务 压力测试工具，goreplay gor, http_load、webbench、apabhe ab、siege
-author: wiloon
+author: w1100n
 type: post
 date: 2015-09-15T07:13:48+00:00
 url: /?p=8261

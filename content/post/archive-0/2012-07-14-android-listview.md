@@ -1,6 +1,6 @@
 ---
 title: android ListView
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-14T12:24:31+00:00
 url: /?p=3850

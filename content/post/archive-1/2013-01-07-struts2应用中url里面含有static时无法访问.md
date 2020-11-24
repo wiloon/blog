@@ -1,6 +1,6 @@
 ---
 title: git svn
-author: wiloon
+author: w1100n
 date: 2013-01-07T14:37:06.000+00:00
 url: "/?p=4986"
 

@@ -1,6 +1,6 @@
 ---
 title: mysql basic, command
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-16T01:23:24+00:00
 url: /?p=22

@@ -1,6 +1,6 @@
 ---
 title: display manager(DM), 显示管理器, sddm, gdm3, lightdm
-author: wiloon
+author: w1100n
 type: post
 date: 2013-11-08T15:28:48+00:00
 url: /?p=5910

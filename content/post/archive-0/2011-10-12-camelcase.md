@@ -1,6 +1,6 @@
 ---
 title: Camel Casing
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-12T13:38:23+00:00
 url: /?p=1026

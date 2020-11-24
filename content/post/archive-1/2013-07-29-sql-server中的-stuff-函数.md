@@ -1,6 +1,6 @@
 ---
 title: sql server中的 stuff 函数
-author: wiloon
+author: w1100n
 type: post
 date: 2013-07-29T08:28:32+00:00
 url: /?p=5742

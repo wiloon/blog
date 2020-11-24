@@ -1,6 +1,6 @@
 ---
-title: vscode, Visual Studio Code, Visual Studio Code Server
-author: wiloon
+title: vscode, Visual Studio Code, plugin
+author: w1100n
 type: post
 date: 2019-05-05T07:42:04+00:00
 url: /?p=14288
@@ -31,8 +31,9 @@ codercom/code-server \
 
 ```
 
-### REST Client
+#### REST Client
 vscode 发http请求
 同一个文档 中不同的请求用 "###" 分隔
+
 ### Insert Date String
 插入当前日期时间

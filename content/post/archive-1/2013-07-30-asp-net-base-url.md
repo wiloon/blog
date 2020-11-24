@@ -1,6 +1,6 @@
 ---
 title: VirtualBox 共享文件夹
-author: wiloon
+author: w1100n
 type: post
 date: 2013-07-30T03:24:15+00:00
 url: /?p=5745

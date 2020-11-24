@@ -1,6 +1,6 @@
 ---
 title: 设计模式 – Decorator
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-22T07:48:49+00:00
 url: /?p=847
