@@ -10,12 +10,15 @@ categories:
 ---
 |name|comments|
 |-|-|
-|炼妖壶  |流氓软件管理|
 |英语轻松读|英语学习|
 |ebuoy|英语学习|
 |酷安|应用商店|
 |internet speed meter lite|网速监控|
 |随手记||
+|Cellular-Z|移动信号监测|
+|炼妖壶  |流氓软件管理|
+---
+
   * producteev
   * RssX
   * evernote

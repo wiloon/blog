@@ -14,6 +14,21 @@ tags:
   - Gradle
 
 ---
+### install
+download latest version of gradle from http://www.gradle.org/downloads.html
+  
+extract the gradle package
+
+sudo emacs ~/.bashrc
+  
+add the gradle to path.
+  
+set PATH=$JAVA_HOME/bin:/home/wiloon/program/gradle-1.0-milestone-3/bin:$PATH
+  
+export PATH
+  
+restart the system
+
 ```bash
 # 更新依赖包
 gradle build --refresh-dependencies

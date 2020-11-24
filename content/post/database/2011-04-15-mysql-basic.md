@@ -1,11 +1,64 @@
 ---
-title: mysql basic, command
+title: MySQL basic
 author: w1100n
 type: post
-date: 2011-04-16T01:23:24+00:00
-url: /?p=22
+date: 2011-04-15T14:42:09+00:00
+url: /?p=7
+categories:
+  - DataBase
+tags:
+  - MySQL
 
 ---
+### 配置文件位置
+    /etc/my.cnf
+
+### 查端口
+    show variables like 'port';
+
+### 字段默认值
+    alter tabe tbl_ecp modify load_count default 0;
+
+MySQL管理员用户名: root
+  
+密码安装mysql时指定.
+  
+登录MySQL: mysql -u root -p
+
+提示输入密码.... 输入密码后回车...
+
+//查看有哪些数据库
+  
+show databases;
+
+//创建新用户 wiloon ......
+
+```sql
+CREATE USER wiloon IDENTIFIED BY '123456';
+-- 密码要带引号
+```
+### 创建数据库, 数据库名 mydb.
+```sql
+create database mydb;
+```
+
+创建数据库指定数据库的字符集
+
+```sql
+   
+create database mydb character set utf8;
+  
+```
+
+### 授权用户wiloon 拥有数据库enlab 的所有权限.
+
+```sql
+grant all privileges on enlab.* to wiloon@'%' identified by 'password';
+```
+
+退出后用wiloon登录, 然后show databases; 应该可以看到enlab了.
+
+
 ### 查看建表语句
 
 ```sql

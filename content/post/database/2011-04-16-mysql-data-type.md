@@ -8,8 +8,6 @@ tags:
   - MySQL
 
 ---
-### 配置文件位置
-    /etc/my.cnf
 
 <p align="left">
   1， mysql的复制原理以及流程。

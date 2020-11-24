@@ -1,11 +1,18 @@
 ---
-title: linux shell command
+title: linux basic shell command
 author: w1100n
 type: post
 date: 2011-04-23T08:54:55+00:00
 url: /?p=101
 
 ---
+
+### delete folder
+    rm -rf \***
+
+### cp
+    cp -r 按递归方式保留原目录结构复制文件
+
 ```bash
 # 替换字符串
 foo=foo-bar
