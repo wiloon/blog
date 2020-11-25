@@ -8,6 +8,12 @@ categories:
   - Windows
 
 ---
+### 查看 power shell 版本
+    $PSVersionTable
+
+### install
+    https://github.com/PowerShell/PowerShell/releases
+    
 
 ```bash
 

@@ -10,7 +10,7 @@ title = "letsencrypt, certbot, acme.sh"
 ### 安装 certbot
         sudo dnf install certbot
         sudo apt install certbot
-        
+
 ### 安装 certbot-auto
         wget https://dl.eff.org/certbot-auto
         sudo mv certbot-auto /usr/local/bin/certbot-auto
@@ -19,6 +19,13 @@ title = "letsencrypt, certbot, acme.sh"
         /usr/local/bin/certbot-auto --help
 
 alternatives --set python /usr/bin/python3
+
+### ubuntu
+        $ sudo apt update
+        $ sudo apt install snapd
+        sudo snap install core; sudo snap refresh core
+        sudo apt-get remove certbo
+        sudo snap install --classic certbot
 
 ### dry run
         certbot-auto certonly  -d wiloon.com -d *.wiloon.com --manual --preferred-challenges dns --dry-run  --manual-auth-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"
