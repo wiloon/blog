@@ -4,6 +4,7 @@ date = "2020-05-16T03:03:37Z"
 title = "vue basic"
 
 +++
+
 ### 安装vue
 ```bash
 sudo pacman -S nodejs
@@ -295,7 +296,22 @@ https://blog.csdn.net/qq_29483485/article/details/86605215
 ### vue typescript
 https://xie.infoq.cn/article/00845440bed4248cb80c15128?utm_source=rss&utm_medium=article
 
+
+### vue + element ui
+https://github.com/ElementUI/vue-cli-plugin-element
+
+    vue create my-app
+    cd my-app
+    vue add element
+
+#### edit main.ts
+    import ElementUI from 'element-ui'
+    import 'element-ui/lib/theme-chalk/index.css'
+
+    Vue.use(ElementUI)
+
 ----
+
 https://cli.vuejs.org/zh/guide/prototyping.html
 https://blog.csdn.net/flyspace/article/details/39993103
 https://www.jianshu.com/p/0093c189b0cd

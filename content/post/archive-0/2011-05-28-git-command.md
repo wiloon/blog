@@ -97,9 +97,7 @@ git push origin v1.0.0
 git tag -d 1.0.0
 
 # delete remote tag
-
 git push origin :refs/tags/1.0.0
-
 ```
 
 ```bash
