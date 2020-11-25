@@ -20,7 +20,7 @@ categories:
   
 官方解释如下，个人认为是每一个worker进程能并发处理（发起）的最大连接数（包含所有连接数）。
 
-### worker\_rlimit\_nofile
+### worker_rlimit_nofile
 
 #一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
   
