@@ -48,11 +48,12 @@ https://github.com/nodesource/distributions/blob/master/README.md#debinstall
     sudo apt-get install -y nodejs
     sudo apt-get install gcc g++ make
     # install yarn 
-     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-     sudo apt-get update && sudo apt-get install yarn
+    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt-get update && sudo apt-get install yarn
 
-
+#### windows
+    choco install nodejs-lts
 
 ### list version 
   node -v
