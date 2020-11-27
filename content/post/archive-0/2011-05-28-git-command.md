@@ -56,14 +56,12 @@ config 配置有system级别 global（用户级别） 和local（当前仓库）
 
 git reset ** file0
 
-# 彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
+彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
 
     git reset -hard file0
 
     git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
     git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
-
-```
 
 ### git log
 
@@ -84,8 +82,11 @@ git push -u origin master
 
 ### tag
 ```bash
-#list tags
+#list local tags
 git tag
+
+# list remote tags
+git ls-remote --tags origin
 
 # add a tag
 git tag v1.0.0
