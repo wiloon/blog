@@ -1,6 +1,6 @@
 ---
 title: 'Debian – Apt-get : NO_PUBKEY / GPG error'
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-17T05:54:56+00:00
 url: /?p=1912

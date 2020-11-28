@@ -1,6 +1,6 @@
 ---
 title: Content-disposition
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-17T05:13:16+00:00
 url: /?p=8803
@@ -18,25 +18,25 @@ Response.AppendHeader("Content-Disposition","attachment;filename=FileName.txt");
 
 Content-Disposition就是当用户想把请求所得的内容存为一个文件的时候提供一个默认的文件名。具体的定义如下：
 
-content-disposition = “Content-Disposition” “:”
+content-disposition = "Content-Disposition" ":"
 
-disposition-type *( “;” disposition-parm )
+disposition-type *( ";" disposition-parm )
 
-disposition-type = “attachment” | disp-extension-token
+disposition-type = "attachment" | disp-extension-token
 
 disposition-parm = filename-parm | disp-extension-parm
 
-filename-parm = “filename” “=” quoted-string
+filename-parm = "filename" "=" quoted-string
 
 disp-extension-token = token
 
-disp-extension-parm = token “=” ( token | quoted-string )
+disp-extension-parm = token "=" ( token | quoted-string )
 
 那么由上可知具体的例子：
 
-Content-Disposition: attachment; filename=“filename.xls”
+Content-Disposition: attachment; filename="filename.xls"
 
-当然filename参数可以包含路径信息，但User-Agnet会忽略掉这些信息，只会把路径信息的最后一部分做为文件名。当你在响应类型为application/octet- stream情况下使用了这个头信息的话，那就意味着你不想直接显示内容，而是弹出一个”文件下载”的对话框，接下来就是由你来决定“打开”还是“保存” 了。
+当然filename参数可以包含路径信息，但User-Agnet会忽略掉这些信息，只会把路径信息的最后一部分做为文件名。当你在响应类型为application/octet- stream情况下使用了这个头信息的话，那就意味着你不想直接显示内容，而是弹出一个"文件下载"的对话框，接下来就是由你来决定"打开"还是"保存" 了。
 
 注意事项：
 

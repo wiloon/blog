@@ -1,6 +1,6 @@
 ---
 title: IDEA JavaDoc
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-02T04:18:03+00:00
 url: /?p=4000
@@ -16,7 +16,7 @@ tags:
 
 Javadoc Sync plugin可以快速生成所有的注释，使用稍微麻烦点，步骤如下：
   
-1. 打开设置面板，选择inspection，然后找到“javadoc issues"，选择相应的配置项
+1. 打开设置面板，选择inspection，然后找到"javadoc issues"，选择相应的配置项
   
 2. 回到编辑窗口，会有警告提示，将光标置于类名上，按下Alt+Enter，选择生成javadoc就可以啦。
   

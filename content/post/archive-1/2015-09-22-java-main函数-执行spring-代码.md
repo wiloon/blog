@@ -1,6 +1,6 @@
 ---
 title: java main函数 执行spring 代码
-author: wiloon
+author: w1100n
 type: post
 date: 2015-09-22T07:42:57+00:00
 url: /?p=8327
@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[java]
+```java
 
 package com.zuidaima.test;
 
@@ -42,4 +42,4 @@ Thread.sleep(10000);
   
 }
 
-[/java]
+```

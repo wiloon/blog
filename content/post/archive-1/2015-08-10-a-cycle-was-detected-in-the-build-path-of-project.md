@@ -1,6 +1,6 @@
 ---
 title: A cycle was detected in the build path of project
-author: wiloon
+author: w1100n
 type: post
 date: 2015-08-10T04:11:39+00:00
 url: /?p=8091
@@ -14,7 +14,7 @@ tags:
   
 如果我们的项目包含多个工程（project），而它们之间又是循环引用的关系，那么Eclipse在编译时会抛出如下一个错误信息：
   
-“A cycle was detected in the build path of project: XXX”
+"A cycle was detected in the build path of project: XXX"
   
 解决方法非常简单：
   

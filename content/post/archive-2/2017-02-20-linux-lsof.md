@@ -1,6 +1,6 @@
 ---
 title: linux lsof
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-20T00:53:45+00:00
 url: /?p=9838
@@ -410,7 +410,7 @@ lsof -d description(like 2)
 
 lsof -d 2-3
 
-实例24：列出COMMAND列中包含字符串” sshd”，且文件描符的类型为txt的文件信息
+实例24：列出COMMAND列中包含字符串" sshd"，且文件描符的类型为txt的文件信息
 
 命令：
 

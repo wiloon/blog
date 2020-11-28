@@ -1,6 +1,6 @@
 ---
 title: linux echo
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-21T01:21:27+00:00
 url: /?p=3555
@@ -66,8 +66,8 @@ Linux的echo命令, 在shell编程中极为常用, 在终端下打印变量value
   
 echo "the echo command test!"
 
-这个就会输出“the echo command test!”这一行文字！
+这个就会输出"the echo command test!"这一行文字！
 
 echo "the echo command test!">a.sh
   
-这个就会在a.sh文件中输出“the echo command test!”这一行文字！ 该命令的一般格式为： echo [ -n ] 字符串其中选项n表示输出文字后不换行；字符串能加引号，也能不加引号。用echo命令输出加引号的字符串时，将字符串原样输出；用echo命令输出不加引号的字符串时，将字符串中的各个单词作为字符串输出，各字符串之间用一个空格分割。
+这个就会在a.sh文件中输出"the echo command test!"这一行文字！ 该命令的一般格式为： echo [ -n ] 字符串其中选项n表示输出文字后不换行；字符串能加引号，也能不加引号。用echo命令输出加引号的字符串时，将字符串原样输出；用echo命令输出不加引号的字符串时，将字符串中的各个单词作为字符串输出，各字符串之间用一个空格分割。

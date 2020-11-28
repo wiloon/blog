@@ -1,6 +1,6 @@
 ---
 title: RedHat Enterprise Linux 网络配置
-author: wiloon
+author: w1100n
 type: post
 date: 2012-03-13T14:59:40+00:00
 url: /?p=2554
@@ -165,7 +165,7 @@ tags:
   
 　
   
-　　BOOTPROTO=static //IP地址静态配置，若该值为“dhcp”则为动态获得
+　　BOOTPROTO=static //IP地址静态配置，若该值为"dhcp"则为动态获得
   
 　
   

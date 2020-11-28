@@ -1,6 +1,6 @@
 ---
 title: cookie, session
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-22T06:55:22+00:00
 url: /?p=3600
@@ -46,17 +46,17 @@ session机制是一种服务器端的机制，服务器使用一种类似于散�
 另一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如下面的表单<pre data-language=HTML>
 
 ```xml
-<form name=”testform” action=”/xxx”>
-<input type=”text”>
+<form name="testform" action="/xxx">
+<input type="text">
 </form>
 ``` 
 
 在被传递给客户端之前将被改写成<pre data-language=HTML>
 
 ```xml
-<form name=”testform” action=”/xxx”>
-<input type=”hidden” name=”jsessionid” value=”ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764″>
-<input type=”text”>
+<form name="testform" action="/xxx">
+<input type="hidden" name="jsessionid" value="ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764″>
+<input type="text">
 </form>
 ``` 
 
@@ -64,7 +64,7 @@ session机制是一种服务器端的机制，服务器使用一种类似于散�
   
 实际上这种技术可以简单的用对action应用URL重写来代替。
 
-在谈论session机制的时候，常常听到这样一种误解“只要关闭浏览器，session就消失了”。其实可以想象一下会员卡的例子，除非顾客主动对店家提出销卡，否则店家绝对不会轻易删除顾客的资料。对session来说也是一样的，除非程序通知服务器删除一个session，否则服务器会一直保留，程序一般都是在用户做log off的时候发个指令去删除session。然而浏览器从来不会主动在关闭之前通知服务器它将要关闭，因此服务器根本不会有机会知道浏览器已经关闭，之所以会有这种错觉，是大部分session机制都使用会话cookie来保存session id，而关闭浏览器后这个 session id就消失了，再次连接服务器时也就无法找到原来的session。如果服务器设置的cookie被保存到硬盘上，或者使用某种手段改写浏览器发出的HTTP请求头，把原来的session id发送给服务器，则再次打开浏览器仍然能够找到原来的session。
+在谈论session机制的时候，常常听到这样一种误解"只要关闭浏览器，session就消失了"。其实可以想象一下会员卡的例子，除非顾客主动对店家提出销卡，否则店家绝对不会轻易删除顾客的资料。对session来说也是一样的，除非程序通知服务器删除一个session，否则服务器会一直保留，程序一般都是在用户做log off的时候发个指令去删除session。然而浏览器从来不会主动在关闭之前通知服务器它将要关闭，因此服务器根本不会有机会知道浏览器已经关闭，之所以会有这种错觉，是大部分session机制都使用会话cookie来保存session id，而关闭浏览器后这个 session id就消失了，再次连接服务器时也就无法找到原来的session。如果服务器设置的cookie被保存到硬盘上，或者使用某种手段改写浏览器发出的HTTP请求头，把原来的session id发送给服务器，则再次打开浏览器仍然能够找到原来的session。
 
 恰恰是由于关闭浏览器不会导致session被删除，迫使服务器为seesion设置了一个失效时间，当距离客户端上一次使用session的时间超过这个失效时间时，服务器就可以认为客户端已经停止了活动，才会把session删除以节省存储空间。
 
@@ -100,7 +100,7 @@ cookie[]cookies = request.getCookies();
   
 if (cookies.lenght == 0 || cookies == null)
   
-out.println(“Has not visited this website”);
+out.println("Has not visited this website");
   
 }
 
@@ -112,7 +112,7 @@ for (int i = 0; i < cookie.length; i++)
   
 {
   
-out.println(“cookie name:” + cookies[i].getName() + “cookie value:” +
+out.println("cookie name:" + cookies[i].getName() + "cookie value:" +
   
 cookie[i].getValue());
   

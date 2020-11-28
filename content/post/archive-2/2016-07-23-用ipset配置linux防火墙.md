@@ -1,6 +1,6 @@
 ---
 title: ipset
-author: wiloon
+author: w1100n
 type: post
 date: 2016-07-23T09:22:41+00:00
 url: /?p=9145
@@ -18,6 +18,7 @@ ipset list
 
 ipset create vlist hash:net
 
+ipset add myset 14.144.0.0/12
 ipset -A vlist 172.217.24.14
 
 ipset del yoda x.x.x.x    # 从 yoda 集合中删除内容
@@ -82,7 +83,7 @@ ipset比传统的iptables拥有显著的性能提升和扩展特性，比如将�
 
 在许多的linux发布中ipset是一个简单的安装包，大家可以通过自己的linux发行版提供的包管理工具进行安装。
 
-需要理解的重点时，同iptables一样，ipset是由用户空间的工具和内核空间的模块两部分组成，所以你需要将这两部分都准备好。你也需要”ipset-aware”这个iptables 模块，这个模块用来增加 rules that match against sets。（……）
+需要理解的重点时，同iptables一样，ipset是由用户空间的工具和内核空间的模块两部分组成，所以你需要将这两部分都准备好。你也需要"ipset-aware"这个iptables 模块，这个模块用来增加 rules that match against sets。（……）
 
 首先我们使用自己的linux发行版的包管理工具对ipset进行搜索。在ubuntu上安装需要安装ipset 和 xtables-addons-source 包，然后，运行module-assistant auto-install xtables-addons，等待大约30秒后ipset就可以使用了。
 
@@ -94,11 +95,11 @@ iptables概述
 
 简单来讲，iptables防火墙配置由规则链的集合组成，每一个链包含一个规则。一个数据包，在各个处理阶段，内核商量合适的规则来决定数据报的命运。
 
-规则链按照顺序进行匹配，基于数据包的流向 (remote-to-local, remote-to-remote or local-to-remote)和当前所处的处理阶段(before or after “routing”)。参考图1。
+规则链按照顺序进行匹配，基于数据包的流向 (remote-to-local, remote-to-remote or local-to-remote)和当前所处的处理阶段(before or after "routing")。参考图1。
   
 当需要匹配规则链时，数据包需要与链中的每个规则按照顺序进行比对，直道找到匹配的规则。一旦找到了匹配的规则，目标规则就会被调用。如果最后一个规则与数据包也不匹配，就会使用默认规则。
   
-一个规则链就是许多规则按顺序排列组成，一个规则就是match/target 的组合。一个简单的match例子是“TCP 目标端口为80”。target的例子是“接受这个包”。target同样可以将数据包重定向到其他的用户自定义的链，用户自定义链提供了一些机制，包括组合和细分规则，将多个链级联来完成一个功能。
+一个规则链就是许多规则按顺序排列组成，一个规则就是match/target 的组合。一个简单的match例子是"TCP 目标端口为80"。target的例子是"接受这个包"。target同样可以将数据包重定向到其他的用户自定义的链，用户自定义链提供了一些机制，包括组合和细分规则，将多个链级联来完成一个功能。
   
 每一个用来定义规则的iptables命令，不管是用于简单的规则还是复杂的规则，都有三个基本的部分组成，包括指定table/chain (and order)， match 和 target。
 
@@ -120,7 +121,7 @@ iptables -A INPUT -s 1.1.1.1 -j DROP
   
 iptables -A INPUT -s 2.2.2.2 -j DROP
   
-match 部分语法 -s 1.1.1.1 表示“匹配源地址是1.1.1.1的数据包”。
+match 部分语法 -s 1.1.1.1 表示"匹配源地址是1.1.1.1的数据包"。
   
 下面的ipset/iptables命令同样可以达到上面的目的：
   
@@ -134,7 +135,7 @@ iptables -A INPUT -m set –set myset src -j DROP
   
 上面的ipset命令创建了一个包含两个地址(1.1.1.1 and 2.2.2.2)的集合(myset of type iphash)。
   
-然后iptables命令通过-m set –set myset src这个match选项使用这个集合，这个匹配规则的意思是“匹配源地址包含在集合myset中的数据包”
+然后iptables命令通过-m set –set myset src这个match选项使用这个集合，这个匹配规则的意思是"匹配源地址包含在集合myset中的数据包"
   
 src 表示源地址，dst表示目标地址。如果同时使用 src 和 dst 表示既要匹配源地址又要匹配目的地址。
   

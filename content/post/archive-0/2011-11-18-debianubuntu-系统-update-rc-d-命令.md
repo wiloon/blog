@@ -1,6 +1,6 @@
 ---
 title: Debian/Ubuntu 系统 Update-rc.d 命令
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-18T22:36:08+00:00
 url: /?p=1523
@@ -48,13 +48,13 @@ init [0123456Ss]
   
 启动项管理工具
 
-[shell]
+```bash
   
 sudo apt-get install sysv-rc-conf //或者使用带gui的工具bum
   
 sudo sysv-rc-conf
   
-[/shell]
+```
 
 三、update-rc.d命令详解
 

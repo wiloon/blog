@@ -1,6 +1,6 @@
 ---
 title: 偏向锁(Biased Locking)
-author: wiloon
+author: w1100n
 type: post
 date: 2013-09-13T11:07:15+00:00
 url: /?p=5812

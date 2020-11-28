@@ -1,6 +1,6 @@
 ---
 title: archlinux install
-author: wiloon
+author: w1100n
 type: post
 date: 2015-06-25T09:18:44+00:00
 url: /?p=7821
@@ -64,10 +64,7 @@ pacman -Sy
 
 ```bash
 # Mount the partitions
-mkdir /mnt/tmp
-mount /dev/sdx3 /mnt/tmp
-mkdir /mnt/tmp/boot
-mount /dev/sdx1 /mnt/tmp/boot
+mkdir /mnt/t
 
 pacstrap /mnt/tmp base linux linux-firmware
 # if command not found, see http://www.wiloon.com/wordpress/?p=8443

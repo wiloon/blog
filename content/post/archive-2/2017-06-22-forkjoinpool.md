@@ -1,6 +1,6 @@
 ---
 title: ForkJoinPool
-author: wiloon
+author: w1100n
 type: post
 date: 2017-06-22T02:11:10+00:00
 url: /?p=10628
@@ -18,7 +18,7 @@ TLDR; 如果觉得文章太长的话，以下就是结论：
 
 ForkJoinPool 不是为了替代 ExecutorService，而是它的补充，在某些应用场景下性能比 ExecutorService 更好。（见 Java Tip: When to use ForkJoinPool vs ExecutorService ）
   
-ForkJoinPool 主要用于实现“分而治之”的算法，特别是分治之后递归调用的函数，例如 quick sort 等。
+ForkJoinPool 主要用于实现"分而治之"的算法，特别是分治之后递归调用的函数，例如 quick sort 等。
   
 ForkJoinPool 最适合的是计算密集型的任务，如果存在 I/O，线程间同步，sleep() 等会造成线程长时间阻塞的情况时，最好配合使用 ManagedBlocker。
   
@@ -206,13 +206,13 @@ private ForkJoinPool pool;
 
 }
   
-可以看出，使用了 ForkJoinPool 的实现逻辑全部集中在了 compute() 这个函数里，仅用了14行就实现了完整的计算过程。特别是，在这段代码里没有显式地“把任务分配给线程”，只是分解了任务，而把具体的任务到线程的映射交给了 ForkJoinPool 来完成。
+可以看出，使用了 ForkJoinPool 的实现逻辑全部集中在了 compute() 这个函数里，仅用了14行就实现了完整的计算过程。特别是，在这段代码里没有显式地"把任务分配给线程"，只是分解了任务，而把具体的任务到线程的映射交给了 ForkJoinPool 来完成。
 
 原理
 
 如果你除了 ForkJoinPool 的用法以外，对 ForkJoinPoll 的原理也感兴趣的话，那么请接着阅读这一节。在这一节中，我会结合 ForkJoinPool 的作者 Doug Lea 的论文——《A Java Fork/Join Framework》，尽可能通俗地解释 Fork/Join Framework 的原理。
 
-我一直以为，要理解一样东西的原理，最好就是自己尝试着去实现一遍。根据上面的示例代码，可以看出 fork() 和 join() 是 Fork/Join Framework “魔法”的关键。我们可以根据函数名假设一下 fork() 和 join() 的作用：
+我一直以为，要理解一样东西的原理，最好就是自己尝试着去实现一遍。根据上面的示例代码，可以看出 fork() 和 join() 是 Fork/Join Framework "魔法"的关键。我们可以根据函数名假设一下 fork() 和 join() 的作用：
 
 fork()：开启一个新线程（或是重用线程池内的空闲线程），将任务交给该线程处理。
   
@@ -234,7 +234,7 @@ pool = new ForkJoinPool(1);
   
 }
   
-这个矛盾可以导出，我们的假设是错误的，并不是每个 fork() 都会促成一个新线程被创建，而每个 join() 也不是一定会造成线程被阻塞。Fork/Join Framework 的实现算法并不是那么“显然”，而是一个更加复杂的算法——这个算法的名字就叫做 work stealing 算法。
+这个矛盾可以导出，我们的假设是错误的，并不是每个 fork() 都会促成一个新线程被创建，而每个 join() 也不是一定会造成线程被阻塞。Fork/Join Framework 的实现算法并不是那么"显然"，而是一个更加复杂的算法——这个算法的名字就叫做 work stealing 算法。
 
 work stealing 算法在 Doung Lea 的论文中有详细的描述，以下是我在结合 Java 1.8 代码的阅读以后——现有代码的实现有一部分相比于论文中的描述发生了变化——得到的相对通俗的解释：
 
@@ -300,7 +300,7 @@ submit
 
 其实除了前面介绍过的每个工作线程自己拥有的工作队列以外，ForkJoinPool 自身也拥有工作队列，这些工作队列的作用是用来接收由外部线程（非 ForkJoinThread 线程）提交过来的任务，而这些工作队列被称为 submitting queue 。
 
-submit() 和 fork() 其实没有本质区别，只是提交对象变成了 submitting queue 而已（还有一些同步，初始化的操作）。submitting queue 和其他 work queue 一样，是工作线程”窃取“的对象，因此当其中的任务被一个工作线程成功窃取时，就意味着提交的任务真正开始进入执行阶段。
+submit() 和 fork() 其实没有本质区别，只是提交对象变成了 submitting queue 而已（还有一些同步，初始化的操作）。submitting queue 和其他 work queue 一样，是工作线程"窃取"的对象，因此当其中的任务被一个工作线程成功窃取时，就意味着提交的任务真正开始进入执行阶段。
 
 总结
 

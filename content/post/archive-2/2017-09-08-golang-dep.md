@@ -1,6 +1,6 @@
 ---
 title: 'golang  dep'
-author: wiloon
+author: w1100n
 type: post
 date: 2017-09-08T02:03:27+00:00
 url: /?p=11132

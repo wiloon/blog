@@ -1,6 +1,6 @@
 ---
 title: ORACLE PL/SQL异常处理(Exception)
-author: wiloon
+author: w1100n
 type: post
 date: 2013-06-28T01:44:07+00:00
 url: /?p=5591
@@ -108,7 +108,7 @@ PL/SQL定义了一个异常处理子程序，即OTHERS。当前异常处理部�
 
 检查错误堆栈—SQLCODE和SQLERRM
 
-PL/SQL使用两个内置函数SQLCODE和SQLERRM提供错误信息。SQLCODE返回的是当前的错误代号，而SQLERRM返回的是当前的错误信息文本。如果是用户自定义的异常，SQLCODE就会返回值1，SQLERRM就会返回“ User-defined Exception”。
+PL/SQL使用两个内置函数SQLCODE和SQLERRM提供错误信息。SQLCODE返回的是当前的错误代号，而SQLERRM返回的是当前的错误信息文本。如果是用户自定义的异常，SQLCODE就会返回值1，SQLERRM就会返回" User-defined Exception"。
 
 
 下面是一个使用SQLCODE和SQLERRM的例子
@@ -310,7 +310,7 @@ PRAGMA EXCEPTION\_INIT(exception\_name,Oracle\_error\_number);
 这里，exception\_name是在PRAGMA前面声明的异常的名字，而Oracle\_error_number是与此命名异常相关的所需错误代码。这个PRAGMA必须在声明部分。
 
 
-下面这个例子在运行时刻如果遇到“ORA-1400:mandatory NOT NULL column missing or NULL during insert”错误时将引发e_MissingNull-用户定义的异常。
+下面这个例子在运行时刻如果遇到"ORA-1400:mandatory NOT NULL column missing or NULL during insert"错误时将引发e_MissingNull-用户定义的异常。
 
 
 \[php\]\[/php\] view plaincopy

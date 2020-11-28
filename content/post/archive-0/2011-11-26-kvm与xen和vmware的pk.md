@@ -1,6 +1,6 @@
 ---
 title: KVM与Xen和VMware的PK
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-26T07:53:04+00:00
 url: /?p=1625

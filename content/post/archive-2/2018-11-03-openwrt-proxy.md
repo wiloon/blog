@@ -1,6 +1,6 @@
 ---
 title: openwrt proxy
-author: wiloon
+author: w1100n
 type: post
 date: 2018-11-03T05:45:46+00:00
 url: /?p=12846
@@ -12,7 +12,7 @@ categories:
 
 opkg install ipset
 
-# 创建一个网络地址的“集合”
+# 创建一个网络地址的"集合"
 
 ipset create vlist hash:net
 

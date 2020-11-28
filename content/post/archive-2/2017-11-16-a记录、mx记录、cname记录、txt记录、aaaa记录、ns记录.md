@@ -1,6 +1,6 @@
 ---
 title: A记录、MX记录、CNAME记录、TXT记录、AAAA记录、NS记录
-author: wiloon
+author: w1100n
 type: post
 date: 2017-11-16T08:21:04+00:00
 url: /?p=11442

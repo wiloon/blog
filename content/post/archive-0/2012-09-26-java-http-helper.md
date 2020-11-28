@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 import javax.net.ssl.SSLContext;
   
@@ -354,4 +354,4 @@ httpClient.getConnectionManager().shutdown();
 
 }
 
-[/java]
+```

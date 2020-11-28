@@ -1,6 +1,6 @@
 ---
 title: Triggering a hudson build to run when git is updated
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-27T14:37:51+00:00
 url: /?p=941
@@ -48,11 +48,11 @@ echo "Run Hudson build at $URL"
   
 wget $URL > /dev/null 2>&1
 
-Finally, you will need to make the hook executable by whoever will be checking code in. As an example, assuming that the git repository is owned by a user called “git”, and a user called “userA” will be checking in via their own ssh account, you should:
+Finally, you will need to make the hook executable by whoever will be checking code in. As an example, assuming that the git repository is owned by a user called "git", and a user called "userA" will be checking in via their own ssh account, you should:
 
 sudo usermod -G git userA
   
-If they're not already a member of the “git” group, and then
+If they're not already a member of the "git" group, and then
 
 chmod ug+x /path/to/your/git/repository.git/hooks/post-receive
   

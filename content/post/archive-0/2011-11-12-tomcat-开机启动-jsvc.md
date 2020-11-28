@@ -1,6 +1,6 @@
 ---
 title: tomcat 开机启动, jsvc
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-12T06:40:44+00:00
 url: /?p=1491
@@ -20,7 +20,7 @@ tags:
 
 在tomcat的bin目录下：
 
-[shell]
+```bash
   
 cd $CATALINA_HOME/bin
   
@@ -36,21 +36,21 @@ cp jsvc ../..
   
 cd ../..
   
-[/shell]
+```
 
 设置启动脚本
 
 在$CATALINA_HOME/bin/commons-daemon-1.0.x-native-src/unix/samples目录下有一个Tomcat7.sh文件，将其复制到/etc/init.d/m目录下并命名为tomcat:
 
-[shell]
+```bash
   
 sudo cp Tomcat7.sh /etc/init.d/tomcat
   
-[/shell]
+```
 
 add following lines to the file.
 
-[shell]
+```bash
   
 \### BEGIN INIT INFO
   
@@ -78,22 +78,22 @@ JAVA_HOME=/opt/jvm/jdk1.7.0
   
 export JAVA_HOME
   
-[/shell]
+```
 
 修改运行级别
 
-[shell]
+```bash
   
 update-rc.d tomcat defaults
   
-[/shell]
+```
 
 创建用户:
 
-[shell]
+```bash
   
 groupadd tomcat
   
 useradd -s /sbin/nologin -g tomcat tomcat
   
-[/shell]
+```

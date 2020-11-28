@@ -1,6 +1,6 @@
 ---
 title: '绝对路径${pageContext.request.contextPath}'
-author: wiloon
+author: w1100n
 type: post
 date: 2012-10-31T07:21:27+00:00
 url: /?p=4591
@@ -36,7 +36,7 @@ categories:
       
       
         "${pageContext.request.contextPath}/images/title.gif"
- 代码” ${pageContext.request.contextPath}”的作用是取出部署的应用程序名，这样不管如何部署，所用路径都是正确的。
+ 代码" ${pageContext.request.contextPath}"的作用是取出部署的应用程序名，这样不管如何部署，所用路径都是正确的。
  缺点：
  操作不便，其他工具无法正确解释${pageContext.request.contextPath}
       

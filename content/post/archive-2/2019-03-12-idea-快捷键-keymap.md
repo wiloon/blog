@@ -1,6 +1,6 @@
 ---
 title: idea 快捷键, keymap
-author: wiloon
+author: w1100n
 type: post
 date: 2019-03-12T06:00:12+00:00
 url: /?p=13803
@@ -12,3 +12,4 @@ categories:
 | ------ | ------------ |
 | ctrl+g | line/column  |
 | ctrl+t | Class... |
+|ctrl+]  | move caret to code block end |

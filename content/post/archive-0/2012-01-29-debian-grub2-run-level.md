@@ -1,6 +1,6 @@
 ---
 title: debian, grub2, run level
-author: wiloon
+author: w1100n
 type: post
 date: 2012-01-29T11:41:16+00:00
 url: /?p=2189
@@ -10,7 +10,7 @@ categories:
 ---
 edit /boot/grub/grub.cfg
   
-[shell]
+```bash
   
 menuentry 'Debian GNU/Linux, with Linux 2.6.32-5-686-bigmem run level 3' -class debian -class gnu-linux -class gnu -class os {
 	  
@@ -52,4 +52,4 @@ initrd /initrd.img-2.6.32-5-686-bigmem
   
 }
   
-[/shell]
+```

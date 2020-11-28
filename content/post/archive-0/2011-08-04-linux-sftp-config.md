@@ -1,6 +1,6 @@
 ---
 title: linux sftp config
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-04T03:47:31+00:00
 url: /?p=401

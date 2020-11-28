@@ -1,6 +1,6 @@
 ---
 title: golang 文件名 命名规则
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-28T04:56:36+00:00
 url: /?p=601

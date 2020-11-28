@@ -1,6 +1,6 @@
 ---
 title: install log4e
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-29T04:55:03+00:00
 url: /?p=332

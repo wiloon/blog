@@ -1,6 +1,6 @@
 ---
 title: AbstractQueuedSynchronizer
-author: wiloon
+author: w1100n
 type: post
 date: 2013-05-15T07:00:21+00:00
 url: /?p=5472

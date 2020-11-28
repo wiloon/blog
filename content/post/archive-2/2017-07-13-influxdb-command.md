@@ -1,6 +1,6 @@
 ---
 title: 'influxdb install & config'
-author: wiloon
+author: w1100n
 type: post
 date: 2017-07-13T08:21:48+00:00
 url: /?p=10830
@@ -43,53 +43,52 @@ rsync -r /path/to/influxdb-1.2.4-1/ /
 emacs /etc/influxdb/influxdb.conf
 ```
 
-#reporting-disabled = false
+### /etc/influxdb/influxdb.conf
+    #reporting-disabled = false
 
-[meta]
-  
-dir = "/var/lib/influxdb/meta"
-  
-#retention-autocreate = true
+    [meta]
+      
+    dir = "/var/lib/influxdb/meta"
+      
+    #retention-autocreate = true
 
-[data]
-  
-dir = "/var/lib/influxdb/data"
-  
-wal-dir = "/var/lib/influxdb/wal"
-  
-wal-fsync-delay = "0s"
+    [data]
+      
+    dir = "/var/lib/influxdb/data"
+    wal-dir = "/var/lib/influxdb/wal"
+    wal-fsync-delay = "100ms"
 
-# index-version = "inmem"
+    # index-version = "inmem"
 
-index-version = "tsi1"
+    index-version = "tsi1"
 
-trace-logging-enabled = false
-  
-query-log-enabled = true
-  
-cache-max-memory-size = "512m"
-  
-cache-snapshot-memory-size = "32m"
+    trace-logging-enabled = false
+      
+    query-log-enabled = true
+      
+    cache-max-memory-size = "512m"
+      
+    cache-snapshot-memory-size = "32m"
 
-# 超过10分钟没有写入, 把cache写到新的TSM文件
+    # 超过10分钟没有写入, 把cache写到新的TSM文件
 
-cache-snapshot-write-cold-duration = "10m"
+    cache-snapshot-write-cold-duration = "10m"
 
-[coordinator]
-  
-#慢查询
-  
-log-queries-after = "10s"
+    [coordinator]
+      
+    #慢查询
+      
+    log-queries-after = "10s"
 
-[retention]
+    [retention]
 
-#edit file /etc/default/influxdb
-  
-STDERR=/data/logs/influxdb/influxdb.log
+    #edit file /etc/default/influxdb
+      
+    STDERR=/data/logs/influxdb/influxdb.log
 
-#edit logrotate config, modify log path
-  
-/etc/logrotate.d/influxdb
+    #edit logrotate config, modify log path
+      
+    /etc/logrotate.d/influxdb
 
 ```bash
 # chown

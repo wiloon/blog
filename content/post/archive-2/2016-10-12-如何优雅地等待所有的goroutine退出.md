@@ -1,6 +1,6 @@
 ---
 title: 如何优雅地等待所有的goroutine退出
-author: wiloon
+author: w1100n
 type: post
 date: 2016-10-12T07:10:06+00:00
 url: /?p=9291
@@ -30,7 +30,7 @@ select {
   
 case <-done:
   
-fmt.Println(“exiting…”)
+fmt.Println("exiting…")
   
 done <- 1
   
@@ -42,7 +42,7 @@ default:
 
 time.Sleep(time.Second * 1)
   
-fmt.Println(“do something”)
+fmt.Println("do something")
   
 }
   
@@ -54,7 +54,7 @@ c := make(chan int)
 
 go run(c)
 
-fmt.Println(“wait”)
+fmt.Println("wait")
   
 time.Sleep(time.Second * 5)
 
@@ -62,7 +62,7 @@ c <- 1
   
 <-c
 
-fmt.Println(“main exited”)
+fmt.Println("main exited")
   
 }
 
@@ -134,7 +134,7 @@ select {
   
 case <-s.ch:
   
-fmt.Println(“stopping…”)
+fmt.Println("stopping…")
   
 return
   
@@ -160,7 +160,7 @@ select {
   
 case <-s.ch:
   
-fmt.Println(“stopping…”)
+fmt.Println("stopping…")
   
 return
   

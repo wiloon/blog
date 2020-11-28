@@ -1,6 +1,6 @@
 ---
 title: Spring MVC 文件下载
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-26T05:57:21+00:00
 url: /?p=6289
@@ -72,7 +72,7 @@ os.close();
 
 因为鄙人强烈的精神洁癖，心中大骂
 
-“这样的狗屁代码也贴在网上？”
+"这样的狗屁代码也贴在网上？"
 
 既然使用了mvc，怎么还能暴露HttpServletResponse这样的j2ee接口出来！
 

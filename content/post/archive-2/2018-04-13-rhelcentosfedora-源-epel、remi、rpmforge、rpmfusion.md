@@ -1,6 +1,6 @@
 ---
 title: RHEL/CentOS/Fedora 源 EPEL、Remi、RPMForge、RPMFusion
-author: wiloon
+author: w1100n
 type: post
 date: 2018-04-13T02:44:19+00:00
 url: /?p=12145
@@ -20,7 +20,7 @@ EPEL源
   
 EPEL,即Extra Packages for Enterprise Linux,是由 Fedora 社区创建维护，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。EPEL中含有大量的软件，对官方标准源是一个很好的补充。
 
-“EPEL (Extra Packages for Enterprise Linux ) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL).”
+"EPEL (Extra Packages for Enterprise Linux ) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL)."
 
 wiki:http://fedoraproject.org/wiki/EPEL
 

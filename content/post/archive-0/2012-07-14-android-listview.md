@@ -1,6 +1,6 @@
 ---
 title: android ListView
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-14T12:24:31+00:00
 url: /?p=3850
@@ -85,20 +85,10 @@ main.xml代码如下，很简单，也不需要多做解释了：
 3.textSize="30dip"，TextView的字体为30个像素那么大。
 
 最后就是JAVA的源代码：
-  
-    
-      
-        [java][/java]
-      
-      
-      
-        <a title="view plain" href="http://blog.csdn.net/hellogv/article/details/4542668#">view plain</a><a title="copy" href="http://blog.csdn.net/hellogv/article/details/4542668#">copy</a><a title="print" href="http://blog.csdn.net/hellogv/article/details/4542668#">print</a><a title="?" href="http://blog.csdn.net/hellogv/article/details/4542668#">?</a>
-      
-      
-      
-      
-  
-  
+
+ 
+    http://blog.csdn.net/hellogv/article/details/4542668#
+
   <ol start="1">
     <li>
       public void onCreate(Bundle savedInstanceState) {

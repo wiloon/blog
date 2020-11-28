@@ -1,6 +1,6 @@
 ---
 title: idea tomcat
-author: wiloon
+author: w1100n
 type: post
 date: 2012-12-29T04:58:37+00:00
 url: /?p=4954
@@ -12,13 +12,13 @@ categories:
 
 我想在介绍具体设置之前，不妨了解一些背景知识和概念。
 
-  * **HotSwap**：“HotSwap”是JPDA（Java Platform Debugger Architecture）中的一个特性，JPDA增强是自Java 2 SDK1.4新增的功能。HotSwap允许将JVM中的类定义替换为新的类定义，这就允许开发人员在debug时，将修改过的class替换JVM中旧有的class，无需重新启动服务器。不过，目前HotSwap只支持对方法body的修改，不支持对类和方法签名的修改（比如修改类名，方法名，方法参数等）。考虑这些限制，也是有理由的，替换类定义，就需要新类和旧类之间有一个关联，这里关联就是类的全名（或许还有其他信息），类名都改了，就不知道替换哪个类了。至于方法签名的修改，应该是考虑到运行时方法的调用，通过方法签名替换已有的方法调用。
+  * **HotSwap**："HotSwap"是JPDA（Java Platform Debugger Architecture）中的一个特性，JPDA增强是自Java 2 SDK1.4新增的功能。HotSwap允许将JVM中的类定义替换为新的类定义，这就允许开发人员在debug时，将修改过的class替换JVM中旧有的class，无需重新启动服务器。不过，目前HotSwap只支持对方法body的修改，不支持对类和方法签名的修改（比如修改类名，方法名，方法参数等）。考虑这些限制，也是有理由的，替换类定义，就需要新类和旧类之间有一个关联，这里关联就是类的全名（或许还有其他信息），类名都改了，就不知道替换哪个类了。至于方法签名的修改，应该是考虑到运行时方法的调用，通过方法签名替换已有的方法调用。
   * **三种目录**：项目的源程序目录，构建输出目录，部署目录（这是我按照我个人理解划分的）。热部署的设置与这些目录有着密切关系。源程序目录包括java文件，资源文件，web资源文件等项目文件的目录；构建输出目录是指通过编译java源文件，copy资源文件构建一个应用程序部署之后应该具有的目录结构；部署目录很好理解，就是应用程序在服务器中可以存在的位置。
 
 通常我们部署一个应用是将该应用打包成war或者ear，而通常开发阶段是构建成Server指定的目录结构来部署到Server上，如果每次要copy来copy去，那麻烦死了。所以我们要想办法减少不必要的copy。
 
   * **第一种方法**：在Server部署目录下设置构建输出目录，以tomcat为例，就是在%tomcat\_home%webapps目录下建立一个新的目录，目录名就是你的应用context，具体就是打开项目设置界面（ctrl+alt+shift+S，v8.0），选择Modules，将你的应用Exploded Directory设置为%tomcat\_home%webappsyourContext。同时，将你各个Module的编译输出路径设置为%tomcat_home%webappsyourContextWEB-INFclasses（可能需要你预先手动建立），这样class文件就自动生成到该目录下。
-  * **第二种方法**：现在一些Server都支持重定向，以tomcat为例，可以在%tomcat_home%confCatalinalocalhost下创建一个xml配置文件将部署目录指定为你的构建输出目录。代码片段如：<Context path=”/myApp” docBase=”D:workspacemyProjectoutexplodedmyApp” />。这样每次修改了java文件之后comile一下修改的文件，对于jsp需要make一下，就能达到热部署的目的。其实现在Intellj Idea默认设置使用的就是这种方法，只不过这个重定向的配置文件在你的Documents and Settings里面，所以你如果你使用这样方法，不必自己设置。
+  * **第二种方法**：现在一些Server都支持重定向，以tomcat为例，可以在%tomcat_home%confCatalinalocalhost下创建一个xml配置文件将部署目录指定为你的构建输出目录。代码片段如：<Context path="/myApp" docBase="D:workspacemyProjectoutexplodedmyApp" />。这样每次修改了java文件之后comile一下修改的文件，对于jsp需要make一下，就能达到热部署的目的。其实现在Intellj Idea默认设置使用的就是这种方法，只不过这个重定向的配置文件在你的Documents and Settings里面，所以你如果你使用这样方法，不必自己设置。
 
 其实，这两种方法是异曲同工。
 

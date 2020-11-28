@@ -1,6 +1,6 @@
 ---
 title: POP3、SMTP、IMAP和Exchange
-author: wiloon
+author: w1100n
 type: post
 date: 2013-05-20T11:47:32+00:00
 url: /?p=5480
@@ -31,7 +31,7 @@ categories:
       
       
       
-        SMTP的全称是“Simple Mail Transfer Protocol”，即简单邮件传输协议。它是一组用于从源地址到目的地址传输邮件的规范，通过它来控制邮件的中转方式。SMTP 协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。SMTP 服务器就是遵循SMTP协议的发送邮件服务器。SMTP认证，简单地说就是要求必须在提供了账户名和密码之后才可以登录 SMTP 服务器，这就使得那些垃圾邮件的散播者无可乘之机。增加 SMTP 认证的目的是为了使用户避免受到垃圾邮件的侵扰。SMTP目前已是事实上的E-Mail传输的标准。
+        SMTP的全称是"Simple Mail Transfer Protocol"，即简单邮件传输协议。它是一组用于从源地址到目的地址传输邮件的规范，通过它来控制邮件的中转方式。SMTP 协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。SMTP 服务器就是遵循SMTP协议的发送邮件服务器。SMTP认证，简单地说就是要求必须在提供了账户名和密码之后才可以登录 SMTP 服务器，这就使得那些垃圾邮件的散播者无可乘之机。增加 SMTP 认证的目的是为了使用户避免受到垃圾邮件的侵扰。SMTP目前已是事实上的E-Mail传输的标准。
       
       
       

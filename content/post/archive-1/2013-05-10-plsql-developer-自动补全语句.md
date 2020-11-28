@@ -1,6 +1,6 @@
 ---
 title: PL/SQL Developer 自动补全语句
-author: wiloon
+author: w1100n
 type: post
 date: 2013-05-10T01:18:32+00:00
 url: /?p=5440

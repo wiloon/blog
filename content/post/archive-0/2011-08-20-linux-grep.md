@@ -1,6 +1,6 @@
 ---
 title: grep
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-20T20:00:03+00:00
 url: /?p=468
@@ -102,7 +102,7 @@ $ grep '[a-z]{5}' aa
   
 $ grep 'w(es)t._\1′ aa
   
-如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符(._)，这些字符后面紧跟着 另外一个es(\1)，找到就显示该行。如果用egrep或grep -E，就不用”\”号进行转义，直接写成'w(es)t.*\1′就可以了。
+如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符(._)，这些字符后面紧跟着 另外一个es(\1)，找到就显示该行。如果用egrep或grep -E，就不用"\"号进行转义，直接写成'w(es)t.*\1′就可以了。
 
 5.grep命令使用复杂实例
   
@@ -418,13 +418,13 @@ BADc2345
 
 # grep '\$' /etc/init.d/nfs.server
 
-case “$1” in
+case "$1" in
 
 > /tmp/sharetab.$$
     
-> [ “x$fstype” != xnfs ] &&
+> [ "x$fstype" != xnfs ] &&
     
-> echo “$path\t$res\t$fstype\t$opts\t$desc”
+> echo "$path\t$res\t$fstype\t$opts\t$desc"
 > 
 > > /tmp/sharetab.$$
       
@@ -438,7 +438,7 @@ case “$1” in
       
 > > if [ $startnfsd -ne 0 ]; then
       
-> > elif [ ! -n “$\_INIT\_RUN_LEVEL” ]; then
+> > elif [ ! -n "$\_INIT\_RUN_LEVEL" ]; then
       
 > > while [ $wtime -gt 0 ]; do
       
@@ -446,7 +446,7 @@ case “$1” in
       
 > > if [ $wtime -eq 0 ]; then
       
-> > echo “Usage: $0 { start | stop }” 
+> > echo "Usage: $0 { start | stop }" 
 
 # more size.txt
 
@@ -484,7 +484,7 @@ the test file
 
 1,简介
   
-使用正则表达式的一个多用途文本搜索工具.这个php?name=%C3%FC%C1%EE” onclick=”tagshow(event)” class=”t\_tag”>命令本来是ed行编辑器中的一个php?name=%C3%FC%C1%EE” onclick=”tagshow(event)” class=”t\_tag”>命令/过滤器:
+使用正则表达式的一个多用途文本搜索工具.这个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t\_tag">命令本来是ed行编辑器中的一个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t\_tag">命令/过滤器:
   
 g/re/p — global – regular expression – print.
   
@@ -520,27 +520,27 @@ grep pattern [file…]
 
 (1)多个文件查询
   
-grep “sort” *.doc #见文件名的匹配
+grep "sort" *.doc #见文件名的匹配
 
 (2)行匹配:输出匹配行的计数
   
-grep -c “48” data.doc #输出文档中含有48字符的行数
+grep -c "48" data.doc #输出文档中含有48字符的行数
 
 (3)显示匹配行和行数
   
-grep -n “48” data.doc #显示所有匹配48的行和行号
+grep -n "48" data.doc #显示所有匹配48的行和行号
 
 (4)显示非匹配的行
   
-grep -vn “48” data.doc #输出所有不包含48的行
+grep -vn "48" data.doc #输出所有不包含48的行
 
 (4)显示非匹配的行
   
-grep -vn “48” data.doc #输出所有不包含48的行
+grep -vn "48" data.doc #输出所有不包含48的行
 
 (5)大小写敏感
   
-grep -i “ab” data.doc #输出所有含有ab或Ab的字符串的行
+grep -i "ab" data.doc #输出所有含有ab或Ab的字符串的行
 
 4, 正则表达式的应用
 
@@ -712,7 +712,7 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  $ grep '[a-z]' aa
  显示所有包含每个字符串至少有5个连续小写字符的字符串的行。
  $ grep 'w(es)t.<em>' aa
- 如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符（.</em>），这些字符后面紧跟着另外一个es（），找到就显示该行。如果用egrep或grep -E，就不用””号进行转义，直接写成'w(es)t.*'就可以了。
+ 如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符（.</em>），这些字符后面紧跟着另外一个es（），找到就显示该行。如果用egrep或grep -E，就不用""号进行转义，直接写成'w(es)t.*'就可以了。
     
   </li>
 </ol>

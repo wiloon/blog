@@ -1,6 +1,6 @@
 ---
 title: git rebase,revert,reset
-author: wiloon
+author: w1100n
 type: post
 date: 2014-08-07T01:47:09+00:00
 url: /?p=6897

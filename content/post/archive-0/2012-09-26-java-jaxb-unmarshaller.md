@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 import java.io.IOException;
   
@@ -100,4 +100,4 @@ return root;
   
 }
 
-[/java]
+```

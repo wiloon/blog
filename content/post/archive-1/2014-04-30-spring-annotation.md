@@ -1,6 +1,6 @@
 ---
 title: spring annotation
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-30T01:55:01+00:00
 url: /?p=6569
@@ -12,7 +12,7 @@ categories:
 
 <span style="color: #393939;"> 在annotaion配置注解中用@Component来表示一个通用注释用于说明一个类是一个spring容器管理的类。即就是该类已经拉入到spring的管理中了。而@Controller, @Service, @Repository是@Component的细化，这三个注解比@Component带有更多的语义，它们分别对应了控制层、服务层、持久层的类。 
 
-@Service用于标注业务层组件,对象名默认是类名（头字母小写），如果想自定义，可以@Service(“foo”)这样来指定，这种bean默认是单例的，如果想改变，可以使用@Service(“foo”) @Scope(“prototype”)来改变。
+@Service用于标注业务层组件,对象名默认是类名（头字母小写），如果想自定义，可以@Service("foo")这样来指定，这种bean默认是单例的，如果想改变，可以使用@Service("foo") @Scope("prototype")来改变。
 
 @Controller用于标注控制层组件（如struts中的action）
 

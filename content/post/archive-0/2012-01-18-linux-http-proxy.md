@@ -1,6 +1,6 @@
 ---
 title: linux http proxy
-author: wiloon
+author: w1100n
 type: post
 date: 2012-01-18T06:33:02+00:00
 url: /?p=2151
@@ -29,7 +29,7 @@ export ftp_proxy=http://username:password@proxyserver:port/
   
 如果你的代理服务器需要用户名和密码才能访问，需要填写上面的username和passwd部分，否则的话，省略这两部分。
 
-export no_proxy=”localhost,127.0.0.0/8,*.local”
+export no_proxy="localhost,127.0.0.0/8,*.local"
 
 例如，假设你的代理服务器为192.168.1.1，端口是8080，用户名为cnkker，密码是123456，那么应该这样设置这两个环境变量：
 

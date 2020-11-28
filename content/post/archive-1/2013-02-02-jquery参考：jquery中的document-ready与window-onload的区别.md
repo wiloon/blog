@@ -1,6 +1,6 @@
 ---
 title: jQuery参考：jquery中的$(document).ready()与window.onload的区别
-author: wiloon
+author: w1100n
 type: post
 date: 2013-02-02T11:06:02+00:00
 url: /?p=5104
@@ -41,7 +41,7 @@ categories:
     
     
     
-      “Allows you to bind a function to be executed when the DOM document has finished loading. ”
+      "Allows you to bind a function to be executed when the DOM document has finished loading. "
     
     
     
@@ -49,7 +49,7 @@ categories:
     
     
     
-      “允许你绑定一个在DOM文档载入完成后，执行的函数。”
+      "允许你绑定一个在DOM文档载入完成后，执行的函数。"
     
     
     

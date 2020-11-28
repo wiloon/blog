@@ -1,6 +1,6 @@
 ---
 title: joda time, time zone
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-13T05:09:31+00:00
 url: /?p=3523
@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 DateTime dt = new DateTime(DateTimeZone.forOffsetHours(8));
    
@@ -24,4 +24,4 @@ DateTime dt2= dtf.parseDateTime(s) ;
    
 System.out.println(dtf.print(dt2));
 
-[/java]
+```

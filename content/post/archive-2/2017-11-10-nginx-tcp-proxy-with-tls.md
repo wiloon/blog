@@ -1,6 +1,6 @@
 ---
 title: nginx tcp proxy with tls
-author: wiloon
+author: w1100n
 type: post
 date: 2017-11-10T05:48:19+00:00
 url: /?p=11399

@@ -1,6 +1,6 @@
 ---
 title: NMT, Native Memory Tracking
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-06T05:15:44+00:00
 url: /?p=9726
@@ -36,11 +36,11 @@ shutdown 关闭NMT功能,NMT can be shutdown using jcmd utility, but can not sta
   
 scale 指定内存单位，默认为KB
 
-[shell]
+```bash
   
 ./jcmd PID VM.native_memory baseline
   
-[/shell]
+```
 
 http://www.voidcn.com/blog/jicahoo/article/p-5727258.html
   

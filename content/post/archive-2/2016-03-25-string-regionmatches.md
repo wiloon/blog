@@ -1,6 +1,6 @@
 ---
 title: String.regionMatches
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-25T03:53:24+00:00
 url: /?p=8826

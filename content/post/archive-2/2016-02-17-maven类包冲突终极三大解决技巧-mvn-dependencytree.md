@@ -1,6 +1,6 @@
 ---
 title: Maven类包冲突终极三大解决技巧 mvn dependency:tree
-author: wiloon
+author: w1100n
 type: post
 date: 2016-02-17T01:13:13+00:00
 url: /?p=8742
@@ -76,7 +76,7 @@ dependency:tree是把照妖照，pom.xml用它照照，所有传递性依赖都�
   
 [INFO] | \- javax.xml.stream:stax-api:jar:1.0-2:compile
   
-刚才吹嘘dependency:tree时，我用到了“无处遁形”，其实有时你会发现简单地用dependency:tree往往并不能查看到所有的传递依赖。不过如果你真的想要看所有的，必须得加一个-Dverbose参数，这时就必定是最全的了。
+刚才吹嘘dependency:tree时，我用到了"无处遁形"，其实有时你会发现简单地用dependency:tree往往并不能查看到所有的传递依赖。不过如果你真的想要看所有的，必须得加一个-Dverbose参数，这时就必定是最全的了。
   
 全是全了，但显示出来的东西太多，头晕目眩，有没有好法呢？当然有了，加上Dincludes或者Dexcludes说出你喜欢或讨厌，dependency:tree就会帮你过滤出来：
   

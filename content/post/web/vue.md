@@ -1,24 +1,20 @@
 +++
-author = ""
+author = "w1100n"
 date = "2020-05-16T03:03:37Z"
-title = "vue"
+title = "vue basic"
 
 +++
-[https://github.com/vuejs/vue-next](https://github.com/vuejs/vue-next "https://github.com/vuejs/vue-next")
 
-[https://qingbii.com/2019/10/10/building-vue3-from-scratch/](https://qingbii.com/2019/10/10/building-vue3-from-scratch/ "https://qingbii.com/2019/10/10/building-vue3-from-scratch/")
-
-[https://juejin.im/post/5dd3d4dae51d453d493092da](https://juejin.im/post/5dd3d4dae51d453d493092da "https://juejin.im/post/5dd3d4dae51d453d493092da")
-
+### 安装vue
 ```bash
-
 sudo pacman -S nodejs
 sudo pacman -S yarn
 yarn global add vue
 yarn global remove vue-cli
 yarn global add @vue/cli
 ```
-### 用vue cli 创建一个项目 
+
+### 用vue cli 创建一个项目, vue create 会创建一个目录 "hello-world"
     vue create hello-world
 ### 或者 使用图形界面
     vue ui
@@ -32,6 +28,15 @@ yarn serve
 
 ### add vuetify
     vue add vuetify
+#### vuetify config
+- use a pre-made template Y
+- use custom theme N
+- Use custom properties N
+- Select icon font: Material Design Icons
+- Use fonts as a dependency: y
+- Use a-la-carte components: y
+- Select locale: English
+
 
 #### Could not find a declaration file for module 'vuetify/lib'
     vim tsconfig.json
@@ -40,11 +45,12 @@ yarn serve
          "types": ["...", "vuetify"],
 
 
- #### a-la-carte 组件
+#### a-la-carte 组件
  只包含需要(想要)使用的组件,而不是获取所有组件
 
 ### 使用 axios 访问 API
     yarn add axios
+    
     
 ```bash
 yarn global add @vue/cli-service
@@ -121,15 +127,27 @@ webpack 或 Browserify 等构建工具
 Pug，Babel (with ES2015 modules)，和 Stylus。
 
 ### Docker 部署 vue 项目
+https://juejin.im/post/5cce4b1cf265da0373719819
 
-[https://juejin.im/post/5cce4b1cf265da0373719819](https://juejin.im/post/5cce4b1cf265da0373719819 "https://juejin.im/post/5cce4b1cf265da0373719819")
+    server {
+        listen       80;
+        server_name  pingdx.wiloon.com;
 
-[https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F](https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F "https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F")
+            location /api/ {
+                    rewrite  /api/(.*)  /$1  break;
+                    proxy_pass http://192.168.97.1:38080;
+            }
 
-[https://webpack.js.org/configuration/](https://webpack.js.org/configuration/ "https://webpack.js.org/configuration/")
+            location / {
+                    proxy_pass http://192.168.97.1:30080/;
+            }
+
+    }
+
+https://vue-loader.vuejs.org/zh/#vue-loader-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F
+https://webpack.js.org/configuration/
 
 ### webstorm reformat
-
 [https://www.jetbrains.com/help/webstorm/eslint.html](https://www.jetbrains.com/help/webstorm/eslint.html "https://www.jetbrains.com/help/webstorm/eslint.html")
 
 [https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint "https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint")
@@ -216,7 +234,91 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
     components: { Vin }
     })
 
+
+### vue-class-component
+### pwa
+    vim vue.config.js
+
+        module.exports = {
+        pwa: {
+            // 一些基础配置
+            name: 'RSSX',
+            assetsVersion: '1.0.0',
+            themeColor: '#4DBA87',
+            msTileColor: '#000000',
+            appleMobileWebAppCapable: 'yes',
+            appleMobileWebAppStatusBarStyle: 'debault',
+            workboxPluginMode: 'InjectManifest',
+            workboxOptions: {
+            // 自定义的service worker文件的位置
+            swSrc: 'src/service-worker.js'
+            }
+        },
+    //...
+
+#### service-worker.js
+修改在 Cache Storage 中的缓存名。
+程序保存在 Cache Storage 的默认缓存有两个，一个是预缓存一个是运行时缓存。
+
+缓存名的格式是 <prefix>-<Cache ID>-<suffix>，通过修改缓存前缀和后缀，可以让缓存名独一无二，避免在使用 localhost 调试程序时因为端口号相同引发的冲突。
+修改前后缀：
+
+        workbox.core.setCacheNameDetails({
+        prefix: 'my-app',
+        suffix: 'v1'
+        });
+
+        // 一旦激活就开始控制任何现有客户机（通常是与skipWaiting配合使用）
+        // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_clientsClaim.mjs
+        workbox.core.clientsClaim()
+        // 跳过等待期
+        // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_skipWaiting.mjs
+        workbox.core.skipWaiting()
+
+### vue typescript 调用 javascript
+https://blog.csdn.net/qq_29483485/article/details/86605215
+
+    vim src/assets/foo.js
+
+    # content
+    export function foo () {
+        console.log('foo')
+    }
+
+    # 组件中引用
+    import { foo } from './assets/foo.js'
+    //...
+    mounted () {
+        foo()
+    }
 ---
+
+### vue typescript
+https://xie.infoq.cn/article/00845440bed4248cb80c15128?utm_source=rss&utm_medium=article
+
+
+### vue + element ui
+https://github.com/ElementUI/vue-cli-plugin-element
+
+    vue create my-app
+    cd my-app
+    vue add element
+
+#### edit main.ts
+    import ElementUI from 'element-ui'
+    import 'element-ui/lib/theme-chalk/index.css'
+
+    Vue.use(ElementUI)
+
+### package.json
+
+----
 
 https://cli.vuejs.org/zh/guide/prototyping.html
 https://blog.csdn.net/flyspace/article/details/39993103
+https://www.jianshu.com/p/0093c189b0cd
+https://www.webascii.cn/article/5ef2cb72071be112473165bc/
+https://github.com/vuejs/vue-next
+https://qingbii.com/2019/10/10/building-vue3-from-scratch/
+https://juejin.im/post/5dd3d4dae51d453d493092da
+ 

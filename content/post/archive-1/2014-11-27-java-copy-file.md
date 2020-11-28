@@ -1,6 +1,6 @@
 ---
 title: java copy file
-author: wiloon
+author: w1100n
 type: post
 date: 2014-11-27T02:53:36+00:00
 url: /?p=7049
@@ -12,7 +12,7 @@ tags:
 ---
 http://www.oschina.net/question/565065_58510
 
-[java]
+```java
   
 private static void nioTransferCopy(File source, File target) {
   
@@ -54,4 +54,4 @@ close(out);
   
 }
   
-[/java]
+```

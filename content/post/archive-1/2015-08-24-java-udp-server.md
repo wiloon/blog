@@ -1,6 +1,6 @@
 ---
 title: java UDP
-author: wiloon
+author: w1100n
 type: post
 date: 2015-08-24T05:09:42+00:00
 url: /?p=8148
@@ -48,7 +48,7 @@ DatagramSocket(int port, InetAddress localAddr)：这是个非常有用的构建
   
 DatagramSocket具有的主要方法如下：
   
-1）receive(DatagramPacket d)：接收数据报文到d中。receive方法产生一个“阻塞”。“阻塞”是一个专业名词，它会产生一个内部循环，使程序暂停在这个地方，直到一个条件触发。
+1）receive(DatagramPacket d)：接收数据报文到d中。receive方法产生一个"阻塞"。"阻塞"是一个专业名词，它会产生一个内部循环，使程序暂停在这个地方，直到一个条件触发。
 
 2）send(DatagramPacket dp)：发送报文dp到目的地。
 

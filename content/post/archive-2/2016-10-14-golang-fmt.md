@@ -1,6 +1,6 @@
 ---
 title: golang fmt/print
-author: wiloon
+author: w1100n
 type: post
 date: 2016-10-14T00:09:01+00:00
 url: /?p=9293
@@ -18,7 +18,7 @@ fmt包实现了格式化的I/O函数，这点类似Ｃ语言中的printf和scanf
 
 通用占位符：
 
-%v 值的默认格式。当打印结构体时，“加号”标记（%+v）会添加字段名
+%v 值的默认格式。当打印结构体时，"加号"标记（%+v）会添加字段名
   
 %#v　相应值的Go语法表示
   
@@ -34,7 +34,7 @@ package main
 
 import (
   
-“fmt”
+"fmt"
   
 )
 
@@ -52,17 +52,17 @@ s := new(Sample)
   
 s.a = 1
   
-s.str = “hello”
+s.str = "hello"
   
-fmt.Printf(“%v\n”, *s)　//{1 hello}
+fmt.Printf("%v\n", *s)　//{1 hello}
   
-fmt.Printf(“%+v\n”, *s) // {a:1 str:hello}
+fmt.Printf("%+v\n", *s) // {a:1 str:hello}
   
-fmt.Printf(“%#v\n”, *s) // main.Sample{a:1, str:”hello”}
+fmt.Printf("%#v\n", *s) // main.Sample{a:1, str:"hello"}
   
-fmt.Printf(“%T\n”, *s) // main.Sample
+fmt.Printf("%T\n", *s) // main.Sample
   
-fmt.Printf(“%%\n”, s.a) // % %!(EXTRA int=1) <span style=”color:#FF0000;”> 注：暂时还没有明白其用法
+fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1) <span style="color:#FF0000;"> 注：暂时还没有明白其用法
   
 }
 
@@ -86,7 +86,7 @@ fmt.Printf(“%%\n”, s.a) // % %!(EXTRA int=1) <span style=”color:#FF0000;�
   
 %X 十六进制表示，字母形式为大写 A-F
   
-%U Unicode格式：U+1234，等同于 “U+%04X”
+%U Unicode格式：U+1234，等同于 "U+%04X"
   
 浮点数及复数：
 
@@ -164,11 +164,11 @@ pointer to above: &{}, &[], &map[]
 
 对大多数值而言，宽度为输出的最小字符数，如果必要的话会为已格式化的形式填充空格。对字符串而言，精度为输出的最大字符数，如果必要的话会直接截断。
 
-宽度是指”必要的最小宽度”. 若结果字符串的宽度超过指定宽度时, 指定宽度就会失效。
+宽度是指"必要的最小宽度". 若结果字符串的宽度超过指定宽度时, 指定宽度就会失效。
 
 若将宽度指定为\`*'时, 将从参数中取得宽度值。
 
-紧跟在”.”后面的数串表示精度(若只有”.”的话，则为”.0″)。若遇到整数的指示符(`d',`i', `b',`o', `x',`X', `u')的话，精度表示数值部分的长度若遇到浮点数的指示符(`f')的话，它表示小数部分的位数。
+紧跟在"."后面的数串表示精度(若只有"."的话，则为".0″)。若遇到整数的指示符(`d',`i', `b',`o', `x',`X', `u')的话，精度表示数值部分的长度若遇到浮点数的指示符(`f')的话，它表示小数部分的位数。
 
 若遇到浮点数的指示符(`e',`E', `g',`G')的话，它表示有效位数
 
@@ -182,15 +182,15 @@ func main() {
   
 a := 123
   
-fmt.Printf(“%1.2d\n”, a) //123，宽度为１小于数值本身宽度，失效，而精度为２，无法截断整数
+fmt.Printf("%1.2d\n", a) //123，宽度为１小于数值本身宽度，失效，而精度为２，无法截断整数
   
 b := 1.23
   
-fmt.Printf(“%1.1f\n”, b) //1.2，精度为１，截断浮点型数据
+fmt.Printf("%1.1f\n", b) //1.2，精度为１，截断浮点型数据
   
-c := “asdf”
+c := "asdf"
   
-fmt.Printf(“%_._s\n”, 1, 2, c) //as，利用'*'支持宽度和精度的输入，并且字符串也可以利用精度截断
+fmt.Printf("%_._s\n", 1, 2, c) //as，利用'*'支持宽度和精度的输入，并且字符串也可以利用精度截断
   
 }
   
@@ -226,7 +226,7 @@ package main
 
 import (
   
-“fmt”
+"fmt"
   
 )
 
@@ -240,9 +240,9 @@ str string
 
 func main() {
   
-var i interface{} = Sample{1, “a”}
+var i interface{} = Sample{1, "a"}
   
-fmt.Printf(“%v\n”, i)　　　　　　//{1 a}
+fmt.Printf("%v\n", i)　　　　　　//{1 a}
   
 }
   
@@ -254,13 +254,13 @@ view plain copy
   
 func main() {
   
-fmt.Printf(“%[2]d, %[1]d\n”, 11, 22) //22, 11，先输出第二个值，再输出第一个值
+fmt.Printf("%[2]d, %[1]d\n", 11, 22) //22, 11，先输出第二个值，再输出第一个值
   
 }
   
 格式化错误：
 
-如果给占位符提供了无效的实参（如将一个字符串提供给％d），便会出现格式化错误．所有的错误都始于“%!”，有时紧跟着单个字符（占位符），并以小括号括住的描述结尾。
+如果给占位符提供了无效的实参（如将一个字符串提供给％d），便会出现格式化错误．所有的错误都始于"%!"，有时紧跟着单个字符（占位符），并以小括号括住的描述结尾。
 
 view plain copy
   
@@ -268,7 +268,7 @@ func main() {
   
 var i int = 1
   
-fmt.Printf(“%s\n”, i) //%!s(int=1)
+fmt.Printf("%s\n", i) //%!s(int=1)
   
 }
 
@@ -302,7 +302,7 @@ view plain copy
   
 func main() {
   
-a := fmt.Errorf(“%s%d”, “error:”, 1)
+a := fmt.Errorf("%s%d", "error:", 1)
   
 fmt.Println(a)
   
@@ -320,11 +320,11 @@ view plain copy
   
 func main() {
   
-a := “asdf”
+a := "asdf"
   
 fmt.Fprintln(os.Stdout, a) //asdf
   
-fmt.Fprintf(os.Stdout, “%.2s\n”, a) //as
+fmt.Fprintf(os.Stdout, "%.2s\n", a) //as
   
 fmt.Fprint(os.Stdout, a) //asdf
   
@@ -342,7 +342,7 @@ view plain copy
   
 func main() {
   
-r := strings.NewReader(“hello 1”)
+r := strings.NewReader("hello 1")
   
 var a string
   
@@ -352,9 +352,9 @@ fmt.Fscanln(r, &a, &b)
   
 fmt.Println(a, b)　　　　　　　　 //hello 1
   
-r1 := strings.NewReader(“helloworld 2”)
+r1 := strings.NewReader("helloworld 2")
   
-fmt.Fscanf(r1, “hello%s%d”, &a, &b)
+fmt.Fscanf(r1, "hello%s%d", &a, &b)
   
 fmt.Println(a, b)　　　　　　　　//world 2
   
@@ -370,11 +370,11 @@ view plain copy
   
 func main() {
   
-s := “hello,world!”
+s := "hello,world!"
   
 fmt.Println(s) //hello,world!
   
-fmt.Printf(“%s\n”, s) //hello,world!
+fmt.Printf("%s\n", s) //hello,world!
   
 fmt.Print(s) //hello,world!
   
@@ -400,7 +400,7 @@ fmt.Scanln(&a, &b) // 2,1
   
 fmt.Println(a, b) //输出２　１
   
-fmt.Scanf(“%s%d”, &a, &b)　//2 1
+fmt.Scanf("%s%d", &a, &b)　//2 1
   
 fmt.Println(a, b)　　//输出２　１
   
@@ -416,7 +416,7 @@ view plain copy
   
 func main() {
   
-a := fmt.Sprintf(“%s,%d”, “hello”, 1)
+a := fmt.Sprintf("%s,%d", "hello", 1)
   
 fmt.Println(a) //hello,1
   
@@ -440,11 +440,11 @@ var b int
   
 var c int
   
-fmt.Sscan(“hello 1”, &a, &b) //hello 1
+fmt.Sscan("hello 1", &a, &b) //hello 1
   
 fmt.Println(a, b)
   
-fmt.Sscanf(“helloworld 2 “, “hello%s%d”, &a, &c) //world 2
+fmt.Sscanf("helloworld 2 ", "hello%s%d", &a, &c) //world 2
   
 fmt.Println(a, c)
   
@@ -496,7 +496,7 @@ type ScanState interface {
 
 <
 
-pre name=”code” class=”html”>//world 2
+pre name="code" class="html">//world 2
   
 // 如果在 Scanln、Fscanln 或 Sscanln 中调用该方法// 该方法会在遇到 '\n' 或读取超过指定的宽度时返回 EOFReadRune() (r rune, size int, err error)// UnreadRune 撤消最后一次的 ReadRune 操作UnreadRune() error// SkipSpace 跳过输入数据中的空格// 在 Scanln、Fscanln、Sscanln 操作中，换行符会被当作 EOF// 在其它 Scan 操作中，换行符会被当作空格SkipSpace()// 如果参数 skipSpace 为 true，则 Token 会跳过输入数据中的空格// 然后返回满足函数 f 的连续字符，如果 f 为 nil，则使用 !unicode.IsSpace 来代替 f// 在 Scanln、Fscanln、Sscanln 操作中，换行符会被当作 EOF// 在其它 Scan 操作中，换行符会被当作空格// 返回的 token 是一个切片，返回的数据可能在下一次调用 Token 的时候被修改Token(skipSpace bool, f func(rune) bool) (token []byte, err error)// Width 返回宽度值以及宽度值是否被设置Width() (wid int, ok bool)// 因为 ReadRune 已经通过接口实现，所以 Read 可能永远不会被 Scan 例程调用// 一个 ScanState 的实现，可能会选择废弃 Read 方法，而使其始终返回一个错误信息Read(buf []byte) (n int, err error)}
 
@@ -552,13 +552,13 @@ type Ustr string
 
 func (us Ustr) String() string {
   
-return string(us) + ” 自定义格式”
+return string(us) + " 自定义格式"
   
 }
 
 func (us Ustr) GoString() string {
   
-return string(us) + ” Go 格式”
+return string(us) + " Go 格式"
   
 }
 
@@ -568,49 +568,49 @@ switch c {
   
 case 'm', 'M':
   
-f.Write([]byte(us + “\n扩展标记：[“))
+f.Write([]byte(us + "\n扩展标记：["))
   
 if f.Flag('-') {
   
-f.Write([]byte(” -“))
+f.Write([]byte(" -"))
   
 }
   
 if f.Flag('+') {
   
-f.Write([]byte(” +”))
+f.Write([]byte(" +"))
   
 }
   
 if f.Flag('#') {
   
-f.Write([]byte(” #”))
+f.Write([]byte(" #"))
   
 }
   
 if f.Flag(' ') {
   
-f.Write([]byte(” space”))
+f.Write([]byte(" space"))
   
 }
   
 if f.Flag('0') {
   
-f.Write([]byte(” 0″))
+f.Write([]byte(" 0″))
   
 }
   
-f.Write([]byte(” ]\n”))
+f.Write([]byte(" ]\n"))
   
 if w, wok := f.Width(); wok {
   
-f.Write([]byte(“宽度值：” + fmt.Sprint(w) + “\n”))
+f.Write([]byte("宽度值：" + fmt.Sprint(w) + "\n"))
   
 }
   
 if p, pok := f.Precision(); pok {
   
-f.Write([]byte(“精度值：” + fmt.Sprint(p)))
+f.Write([]byte("精度值：" + fmt.Sprint(p)))
   
 }
   
@@ -636,9 +636,9 @@ f.Write([]byte(us.String()))
 
 func main() {
   
-us := Ustr(“Hello World!”)
+us := Ustr("Hello World!")
   
-fmt.Printf(“% 0-+#8.5m\n”, us)
+fmt.Printf("% 0-+#8.5m\n", us)
   
 // Hello World!
   
@@ -652,7 +652,7 @@ fmt.Println(us)
   
 // Hello World! 自定义格式
   
-fmt.Printf(“%#v\n”, us)
+fmt.Printf("%#v\n", us)
   
 // Hello World! Go 格式
   

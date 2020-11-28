@@ -1,6 +1,6 @@
 ---
 title: rxvt-unicode 标签
-author: wiloon
+author: w1100n
 type: post
 date: 2017-07-25T01:52:06+00:00
 url: /?p=10901
@@ -20,13 +20,13 @@ http://0x3f.org/post/let-rxvt-unicode-support-tags-and-links/
 
 urxvt -pe tabbed
 
-二是在配置文件“.Xresources”中添加如下配置信息：
+二是在配置文件".Xresources"中添加如下配置信息：
 
 URxvt.perl-ext-common: default,tabbed
 
 则默认情况下执行urxvt就会打开多标签功能。urxvt的标签支持使用鼠标操作，同时可以使用Ctrl+Shift+左右箭头来切换标签页，使用Ctrl+Shift+向下箭头开启新标签。
 
-另外一个功能就是可以通过在urxvt中的链接上点击鼠标左键来通过设定的浏览器打开之。首先在“.Xresources”文件中添加如下内容：
+另外一个功能就是可以通过在urxvt中的链接上点击鼠标左键来通过设定的浏览器打开之。首先在".Xresources"文件中添加如下内容：
 
 URxvt.urlLauncher: firefox URxvt.matcher.button: 1
 
@@ -38,6 +38,6 @@ urxvt -pe matcher
 
 URxvt.perl-ext-common: matcher
 
-此后即默认开启在终端窗口中打开链接的功能。注意修改“.Xresources”文件后需要执行如下命令才能使修改后的配置文件生效：
+此后即默认开启在终端窗口中打开链接的功能。注意修改".Xresources"文件后需要执行如下命令才能使修改后的配置文件生效：
 
 xrdb ~/.Xresources

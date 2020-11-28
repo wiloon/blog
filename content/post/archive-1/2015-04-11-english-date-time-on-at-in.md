@@ -1,6 +1,6 @@
 ---
 title: english date time on at in
-author: wiloon
+author: w1100n
 type: post
 date: 2015-04-11T02:16:56+00:00
 url: /?p=7453
@@ -25,11 +25,11 @@ He went home at Christmas （at New Year, at the Spring Festival, at night）.
 2. in指时间表示： 
 （1）在某个较长的时间（如世纪、朝代、年、月、季节以及泛指的上午、下午或傍晚等）内。如： 
 in 2004, in March, in spring, in the morning, in the evening, etc 
-（2）在一段时间之后。一般情况下，用于将来时，谓语动词为瞬间动词，意为“在……以后”。如： 
+（2）在一段时间之后。一般情况下，用于将来时，谓语动词为瞬间动词，意为"在……以后"。如： 
 He will arrive in two hours. 
-谓语动词为延续性动词时，in意为“在……以内”。如： 
+谓语动词为延续性动词时，in意为"在……以内"。如： 
 These products will be produced in a month. 
-注意：after用于将来时间也指一段时间之后，但其后的时间是“一点”，而不是“一段”。如： 
+注意：after用于将来时间也指一段时间之后，但其后的时间是"一点"，而不是"一段"。如： 
 He will arrive after two o'clock. 
 3. on指时间表示： 
 （1）具体的时日和一个特定的时间，如某日、某节日、星期几等。如： 

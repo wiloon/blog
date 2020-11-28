@@ -1,6 +1,6 @@
 ---
 title: Javascript 重定向 window.location.href / replace / reload()
-author: wiloon
+author: w1100n
 type: post
 date: 2014-03-03T02:41:06+00:00
 url: /?p=6309
@@ -28,7 +28,7 @@ assign() 方法可加载一个新的文档。效果与location.href相当。
 
 将地址替换成新url，该方法通过指定URL替换当前缓存在历史里（客户端）的项目，
   
-因此当使用replace方法之后，你不能通过“前进”和“后 退”来访问已经被替换的URL，这个特点对于做一些过渡页面非常有用！
+因此当使用replace方法之后，你不能通过"前进"和"后 退"来访问已经被替换的URL，这个特点对于做一些过渡页面非常有用！
 
 replace() 方法不会在 History 对象中生成一个新的记录。当使用该方法时，新的 URL 将覆盖 History 对象中的当前记录。
 
@@ -42,7 +42,7 @@ top.window.location.href("${pageContext.request.contextPath}/Login_goBack");
 
 二、window.location.href和window.location.replace的区别
 
-1.window.location.href=“url”：改变url地址；
+1.window.location.href="url"：改变url地址；
 
 2.
 

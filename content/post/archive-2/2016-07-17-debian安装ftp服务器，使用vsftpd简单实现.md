@@ -1,6 +1,6 @@
 ---
 title: Debian安装FTP服务器，使用vsftpd简单实现
-author: wiloon
+author: w1100n
 type: post
 date: 2016-07-17T15:05:03+00:00
 url: /?p=9133

@@ -1,6 +1,6 @@
 ---
 title: Android adb devices显示no permission
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-23T01:35:19+00:00
 url: /?p=3627

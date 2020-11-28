@@ -1,6 +1,6 @@
 ---
 title: Oracle CHAR，VARCHAR，VARCHAR2,nvarchar类型的区别与使用
-author: wiloon
+author: w1100n
 type: post
 date: 2013-06-28T02:32:01+00:00
 url: /?p=5600
@@ -162,7 +162,7 @@ NCHAR根据所选字符集来定义存放字符的占用字节数，一般都为
 
 6.例子
   
-比如有一个性别字段，里面存放“男，女”的其中一个值，两种常用选择
+比如有一个性别字段，里面存放"男，女"的其中一个值，两种常用选择
   
 CHAR(2)    和 NCHAR(1)
 

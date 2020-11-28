@@ -1,6 +1,6 @@
 ---
 title: debian RAR
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-27T13:06:15+00:00
 url: /?p=592

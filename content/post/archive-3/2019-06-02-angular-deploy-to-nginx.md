@@ -1,6 +1,6 @@
 ---
 title: angular deploy to nginx
-author: wiloon
+author: w1100n
 type: post
 date: 2019-06-02T14:51:28+00:00
 url: /?p=14436

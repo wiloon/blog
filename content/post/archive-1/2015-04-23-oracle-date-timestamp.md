@@ -1,6 +1,6 @@
 ---
 title: oracle date timestamp
-author: wiloon
+author: w1100n
 type: post
 date: 2015-04-23T01:02:43+00:00
 url: /?p=7481
@@ -31,7 +31,7 @@ TIMESTAMP 数据类型
   
 DATE数据类型的主要问题是它粒度不能足够区别出两个事件哪个先发生。ORACLE已经在DATE数据类型上扩展出来了TIMESTAMP数据类型，它包括了所有DATE数据类型的年月日时分秒的信息，而且包括了小数秒的信息。如果你想把DATE类型转换成TIMESTAMP类型，就使用CAST函数。
 
-正如你看到的，在转换后的时间段尾部有了一段“.000000”。这是因为从date转换过来的时候，没有小数秒的信息，缺省为0。而且显示格式是按照参数NLS\_TIMESTAMP\_FORMAT定的缺省格式显示。当你把一个表中date类型字段的数据移到另一个表的timestamp类型字段中去的时候，可以直接写INSERT SELECT语句，oracle会自动为你做转换的。
+正如你看到的，在转换后的时间段尾部有了一段".000000"。这是因为从date转换过来的时候，没有小数秒的信息，缺省为0。而且显示格式是按照参数NLS\_TIMESTAMP\_FORMAT定的缺省格式显示。当你把一个表中date类型字段的数据移到另一个表的timestamp类型字段中去的时候，可以直接写INSERT SELECT语句，oracle会自动为你做转换的。
   
 TIMESTAMP数据的格式化显示和DATE 数据一样。注意，to_char函数支持date和timestamp，但是trunc却不支持TIMESTAMP数据类型。这已经清楚表明了在当两个时间的差别极度重要的情况下，使用TIMESTAMP数据类型要比DATE数据类型更确切     如果你想显示TIMESTAMP的小数秒信息，参考下面：
 

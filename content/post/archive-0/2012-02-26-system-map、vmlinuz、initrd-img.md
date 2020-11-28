@@ -1,6 +1,6 @@
 ---
 title: System.map、vmlinuz、initrd.img
-author: wiloon
+author: w1100n
 type: post
 date: 2012-02-26T13:55:06+00:00
 url: /?p=2465
@@ -14,16 +14,16 @@ categories:
   
     <span style="font-size: small;">
  一、vmlinuz
- 1.vmlinuz是可引导的、压缩的内核。“vm”代表“Virtual Memory”。Linux
- 支持虚拟内存，不像老的操作系统比如DOS有640KB内存的限制。Linux能够使用硬盘空间作为虚拟内存，因此得名“vm”。vmlinuz是可执行 的Linux内核，它位于/boot/vmlinuz，它一般是一个软链接，比如图中是vmlinuz-2.4.7-10的软链接。
- vmlinuz的建立有两种方式。一是编译内核时通过“make zImage”创建，然后通过:“cp
- /usr/src/linux-2.4/arch/i386/linux/boot/zImage/boot/vmlinuz”产生。zImage适用于
+ 1.vmlinuz是可引导的、压缩的内核。"vm"代表"Virtual Memory"。Linux
+ 支持虚拟内存，不像老的操作系统比如DOS有640KB内存的限制。Linux能够使用硬盘空间作为虚拟内存，因此得名"vm"。vmlinuz是可执行 的Linux内核，它位于/boot/vmlinuz，它一般是一个软链接，比如图中是vmlinuz-2.4.7-10的软链接。
+ vmlinuz的建立有两种方式。一是编译内核时通过"make zImage"创建，然后通过:"cp
+ /usr/src/linux-2.4/arch/i386/linux/boot/zImage/boot/vmlinuz"产生。zImage适用于
  小内核的情况，它的存在是为了向后的兼容性。 
     
     
           2.是内核编译时通过命令make
- bzImage创建，然后通过:“cp/usr/src/linux-2.4/arch/i386/linux/boot/bzImage
- /boot/vmlinuz”产生。bzImage是压缩的内核映像，需要注意，bzImage不是用bzip2压缩的，bzImage中的bz容易引起误解，bz表示“big zImage”。 bzImage中的b是“big”意思。
+ bzImage创建，然后通过:"cp/usr/src/linux-2.4/arch/i386/linux/boot/bzImage
+ /boot/vmlinuz"产生。bzImage是压缩的内核映像，需要注意，bzImage不是用bzip2压缩的，bzImage中的bz容易引起误解，bz表示"big zImage"。 bzImage中的b是"big"意思。
     
     
     
@@ -34,7 +34,7 @@ categories:
     
       大的内核采用bzImage，不能采用zImage。vmlinux是未压缩的内核，vmlinuz是vmlinux的压缩文件。
  二、initrd-x.x.x.img
- initrd是“initial ramdisk”的简写。initrd一般被用来临时的引导硬件到实际内核vmlinuz能够接管并继续引导的状态。图中的initrd-2.4.7- 10.img主要是用于加载ext3等文件系统及scsi设备的驱动。比如，使用的是scsi硬盘，而内核vmlinuz中并没有这个scsi硬件的驱 动，那么在装入scsi模块之前，内核不能加载根文件系统，但
+ initrd是"initial ramdisk"的简写。initrd一般被用来临时的引导硬件到实际内核vmlinuz能够接管并继续引导的状态。图中的initrd-2.4.7- 10.img主要是用于加载ext3等文件系统及scsi设备的驱动。比如，使用的是scsi硬盘，而内核vmlinuz中并没有这个scsi硬件的驱 动，那么在装入scsi模块之前，内核不能加载根文件系统，但
  scsi模块存储在根文件系统的/lib/modules下。为了解决这个问题，可以引导一个能够读实际内核的initrd内核并用initrd修正 scsi引导问题。initrd-2.6.20-1.img是用gzip压缩的文件，initrd实现加载一些模块和安装文件系统等功能。
     
     
@@ -87,7 +87,7 @@ categories:
       
       
         System.map是一个特定内核的内核符号表。它是你当前运行的内核的System.map的链接。
- 内核符号表是怎么创建的呢? System.map是由“nm vmlinux”产生并且不相关的符号被滤出。
+ 内核符号表是怎么创建的呢? System.map是由"nm vmlinux"产生并且不相关的符号被滤出。
       
       
       
@@ -122,7 +122,7 @@ categories:
       
       
       
-        /proc/ksyms是一个“proc file”，在内核引导时创建。实际上，它并不真正的是一个文件，它只不过是内核数据的表示，却给人们是一个磁盘文件的假象，这从它的文件大小是0可以看 出来。然而，System.map是存在于你的文件系统上的实际文件。
+        /proc/ksyms是一个"proc file"，在内核引导时创建。实际上，它并不真正的是一个文件，它只不过是内核数据的表示，却给人们是一个磁盘文件的假象，这从它的文件大小是0可以看 出来。然而，System.map是存在于你的文件系统上的实际文件。
  当你编译一个新内核时，各个符号名的地址要发生变化，你的老的System.map具有的是错误的符号信息。每次内核编译时产生一个新的System.map，你应当用新的System.map来取代老的System.map。
  虽然内核本身并不真正使用System.map，但其它程序比如klogd，lsof和ps等软件需要一个正确的System.map。如果你使用错误的 或没有System.map，klogd的输出将是不可靠的，这对于排除程序故障会带来困难。没有System.map，你可能会面临一些令人烦恼的提示 信息。
  另外少数驱动需要System.map来解析符号，没有为你当前运行的特定内核创建的System.map它们就不能正常工作。

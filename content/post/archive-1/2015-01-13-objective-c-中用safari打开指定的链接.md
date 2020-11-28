@@ -1,6 +1,6 @@
 ---
 title: thread join
-author: wiloon
+author: w1100n
 type: post
 date: 2015-01-13T05:52:17+00:00
 url: /?p=7232
@@ -30,7 +30,7 @@ customThread.start();
 
 customThread.join();
 
-在这种情况下，两个线程的关系是一个线程由另外一个线程生成并起动，所以我们暂且认为第一个线程叫做“子线程”，另外一个线程叫做“主线程”。
+在这种情况下，两个线程的关系是一个线程由另外一个线程生成并起动，所以我们暂且认为第一个线程叫做"子线程"，另外一个线程叫做"主线程"。
 
 二、为什么要用join()方法
 
@@ -38,11 +38,11 @@ customThread.join();
 
 三、join方法的作用
 
-在网上看到有人说“将两个线程合并”。这样解释我觉得理解起来还更麻烦。不如就借鉴下API里的说法：
+在网上看到有人说"将两个线程合并"。这样解释我觉得理解起来还更麻烦。不如就借鉴下API里的说法：
 
-“等待该线程终止。”
+"等待该线程终止。"
 
-解释一下，是主线程(我在“一”里已经命名过了)等待子线程的终止。也就是在子线程调用了join()方法后面的代码，只有等到子线程结束了才能执行。(Waits for this thread to die.)
+解释一下，是主线程(我在"一"里已经命名过了)等待子线程的终止。也就是在子线程调用了join()方法后面的代码，只有等到子线程结束了才能执行。(Waits for this thread to die.)
 
 四、用实例来理解
 
@@ -55,7 +55,7 @@ customThread.join();
 
 代码1：
 
-[java] view plain copy
+```java view plain copy
   
 package wxhx.csdn2;
   
@@ -199,7 +199,7 @@ main end!//线程CustomThread结束，此线程在t.join();阻塞处起动，向
 
 修改一下代码，得到代码2：(这里只写出修改的部分)
 
-[java] view plain copy
+```java view plain copy
   
 public class JoinTestDemo {
       
@@ -263,7 +263,7 @@ main end!// Thread.sleep(2000);结束，虽然在线程CustomThread执行了t1.j
 
 在CustomThread的run方法里，执行了t1.join();，进入看一下它的JDK源码：
 
-[java] view plain copy
+```java view plain copy
   
 public final void join() throws InterruptedException {
   
@@ -273,7 +273,7 @@ n(0);
 
 然后进入join(0)方法：
 
-[java] view plain copy
+```java view plain copy
      
 /**
       

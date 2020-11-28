@@ -1,6 +1,6 @@
 ---
 title: apache documentRoot
-author: wiloon
+author: w1100n
 type: post
 date: 2011-07-13T12:38:01+00:00
 url: /?p=347

@@ -1,6 +1,6 @@
 ---
 title: display manager(DM), 显示管理器, sddm, gdm3, lightdm
-author: wiloon
+author: w1100n
 type: post
 date: 2013-11-08T15:28:48+00:00
 url: /?p=5910
@@ -282,7 +282,7 @@ tags:
   
     0. 前言
  我拿到了FreeBSD 5.1后，就赶紧安装了起来。5.1版本的兼容性和硬件支持确实不错，在我的计算机上很顺利地就安装好了。
- 由于我是预备把FreeBSD用作开发工作站，图形化的界面自然会比较轻易使用一些。我安装X-Window底层支持，和KDE、GNOME这两大窗口管理器。通过设置“.xinitrc”文件，也能够在KDE和GNOME之间换来换去。但是总感觉不那么自然和彻底。看过了Linux发行版的窗口界面，知 道了Display Manager，这才开始熟悉了DM三兄弟。假如你已经安装了X-Server、KDE和GNOME，它们就已经在你的系统里了。没有的话，…。
+ 由于我是预备把FreeBSD用作开发工作站，图形化的界面自然会比较轻易使用一些。我安装X-Window底层支持，和KDE、GNOME这两大窗口管理器。通过设置".xinitrc"文件，也能够在KDE和GNOME之间换来换去。但是总感觉不那么自然和彻底。看过了Linux发行版的窗口界面，知 道了Display Manager，这才开始熟悉了DM三兄弟。假如你已经安装了X-Server、KDE和GNOME，它们就已经在你的系统里了。没有的话，…。
   
   
     1. XDM
@@ -294,7 +294,7 @@ tags:
   
     2. KDM
  为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为：
- 代码: ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件“/usr/X11R6/lib/X11/xdm/Xsession”。把中间的这段文字，
+ 代码: ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件"/usr/X11R6/lib/X11/xdm/Xsession"。把中间的这段文字，
   
   <div id="">
     
@@ -387,7 +387,7 @@ tags:
   
   
     如此目标识别已加载，让我们重新开始吧。
- 慢点，还有一个地方需要修改一下。用root进入KDE中，找到“Login Manager”，在“Sessions”页下的“New Type”中，“kde”项已经有了，只要增加“gnome”，顺便再调整一下顺序吧。
+ 慢点，还有一个地方需要修改一下。用root进入KDE中，找到"Login Manager"，在"Sessions"页下的"New Type"中，"kde"项已经有了，只要增加"gnome"，顺便再调整一下顺序吧。
  好了，现在再次重起系统，感觉如何？KDM还是很能干的。
   
   
@@ -435,7 +435,7 @@ tags:
     </ol>
   
   
-    第三点，拉拉关系，搞好配置。这得修改 “/usr/X11R6/share/gnome/gdm/gdm.conf”才行，
+    第三点，拉拉关系，搞好配置。这得修改 "/usr/X11R6/share/gnome/gdm/gdm.conf"才行，
  ServAuthDir=/usr/X11R6/share/gnome/gdm 改为：
  ServAuthDir=/var/gdm
  再改Greeter=/usr/X11R6/bin/gdmlogin 为：
@@ -481,7 +481,7 @@ tags:
     </ol>
   
   
-    保存为文件 “/usr/X11R6/share/gnome/gdm/Sessions/Kde”，然后修改属性，
+    保存为文件 "/usr/X11R6/share/gnome/gdm/Sessions/Kde"，然后修改属性，
   
   <div id="">
     
@@ -497,7 +497,7 @@ tags:
     </ol>
   
   
-    第五点，现在该给老三让位了。用gdm替换kdm，这又要改“/etc/ttys”中的
+    第五点，现在该给老三让位了。用gdm替换kdm，这又要改"/etc/ttys"中的
  ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 为：
  ttyv8 "/usr/X11R6/bin/gdm -nodaemon" xterm on secure
  做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。

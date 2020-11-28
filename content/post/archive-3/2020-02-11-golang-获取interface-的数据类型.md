@@ -1,6 +1,6 @@
 ---
 title: 'golang 获取interface{} 的数据类型'
-author: wiloon
+author: w1100n
 type: post
 date: 2020-02-11T05:42:52+00:00
 url: /?p=15516
@@ -75,15 +75,15 @@ switch v:= b1.(type){//b1为interface对象 ，v为相应对象及数据
   
 case Bag: //类型为Bag时执行
   
-fmt.Println(“b1.(type):”, “Bag”, v)
+fmt.Println("b1.(type):", "Bag", v)
   
 case Bag2://类型为Bag2时执行
   
-fmt.Println(“b1.(type):”, “Bag2”, v)
+fmt.Println("b1.(type):", "Bag2", v)
   
 default://类型为其他类型时执行
   
-fmt.Println(“b1.(type):”, “other”, v)
+fmt.Println("b1.(type):", "other", v)
   
 }
   

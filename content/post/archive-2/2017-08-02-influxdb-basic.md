@@ -1,6 +1,6 @@
 ---
 title: influxdb basic,command, docker
-author: wiloon
+author: w1100n
 type: post
 date: 2017-08-02T06:50:39+00:00
 url: /?p=10979
@@ -20,7 +20,6 @@ curl -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measur
     curl -x http://127.0.0.1:8899/ -i -XPOST "http://192.168.97.1:8086/write?db=monitor" --data-binary 'measurement_0,location=us-midwest temperature=86 1594349970000000000'
 
 ### database management
-
 ```bash
 #show db
 show databases
@@ -86,7 +85,7 @@ podman run -d \
 -v influxdb-config:/etc/influxdb:ro \
 -v influxdb-storage:/var/lib/influxdb \
 -v /etc/localtime:/etc/localtime:ro \
-influxdb:1.8.1
+influxdb:1.8.3
 
 podman run -d \
 --name influxdb \
@@ -97,6 +96,15 @@ podman run -d \
 influxdb
 
 ```
+
+### chronograf
+    podman run -d \
+    --name chronograf \
+    --pod monitor \
+    -v chronograf:/var/lib/chronograf \
+    -v /etc/localtime:/etc/localtime:ro \
+    chronograf --influxdb-url=http://monitor:8086
+
 #### run influx
     sudo podman exec -it influxdb influx
     sudo podman run -it --rm influxdb influx -host influxdb.wiloon.com
@@ -107,33 +115,42 @@ influxdb
 show retention policies
 show retention policies on db0
 CREATE RETENTION POLICY "default" ON db0 DURATION 30d REPLICATION 1 SHARD DURATION 1d DEFAULT
+
+# ALTER  RETENTION POLICY "<policy name>" ON <database> DURATION <duration> REPLICATION 1 SHARD DURATION <shard group duration> DEFAULT
 ALTER  RETENTION POLICY "default" ON db0 DURATION 3h REPLICATION 1 SHARD DURATION 1h DEFAULT
 
+# policy name: retention policy 名: default 
+# database: 库名
 # duration 3h: 保留3个小时的数据
-# shard duration 1h: 每1个小时的数据一个分片
-# policy "default": retention policy 名: default
+# shard group duration 1h: 每1个小时的数据一个分片
 # DEFAULT: 设置此策略为默认策略
 ```
 
 ### shard
-
 #### list shard id
-
 ```sql
 show shards
 DROP SHARD <shard_id_number>
 ```
 
 ### measurement
-
 ```sql
 show measurements
 DROP MEASUREMENT <measurement_name>
+DROP MEASUREMENT "kernel"
 ```
 
+### select
 ```sql
 select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time>now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq>0
+
+select * from "database0"."rentention-policies-0"."measurement0"
+
 ```
+
+#### influx
+
+    influx -execute 'select * from "database0"."retention_policies_0"."measurement0" order by time desc limit 1'
 
 ```bash
 

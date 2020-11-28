@@ -1,6 +1,6 @@
 ---
 title: 工厂模式
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-29T06:02:20+00:00
 url: /?p=1335
@@ -20,37 +20,37 @@ tags:
   
 我们以类Sample为例， 如果我们要创建Sample的实例对象:
 
-[java]
+```java
   
 Sample sample=new Sample();
   
-[/java]
+```
 
 可是，实际情况是，通常我们都要在创建sample实例时做点初始化的工作,比如赋值 查询数据库等。
   
 首先，我们想到的是，可以使用Sample的构造函数，这样生成实例就写成:
 
-[java]
+```java
   
 Sample sample=new Sample(参数);
   
-[/java]
+```
 
 但是，如果创建sample实例时所做的初始化工作不是象赋值这样简单的事，可能是很长一段代码，如果也写入构造函数中，那你的代码很难看了（就需要Refactor重构）。
   
-为什么说代码很难看，初学者可能没有这种感觉，我们分析如下，初始化工作如果是很长一段代码，说明要做的工作很多，将很多工作装入一个方法中，相当于将很多鸡蛋放在一个篮子里，是很危险的，这也是有背于Java面向对象的原则，面向对象的封装(Encapsulation)和分派(Delegation)告诉我们，尽量将长的代码分派“切割”成每段，将每段再“封装”起来(减少段和段之间偶合联系性)，这样，就会将风险分散，以后如果需要修改，只要更改每段，不会再发生牵一动百的事情。
+为什么说代码很难看，初学者可能没有这种感觉，我们分析如下，初始化工作如果是很长一段代码，说明要做的工作很多，将很多工作装入一个方法中，相当于将很多鸡蛋放在一个篮子里，是很危险的，这也是有背于Java面向对象的原则，面向对象的封装(Encapsulation)和分派(Delegation)告诉我们，尽量将长的代码分派"切割"成每段，将每段再"封装"起来(减少段和段之间偶合联系性)，这样，就会将风险分散，以后如果需要修改，只要更改每段，不会再发生牵一动百的事情。
   
 在本例中，首先，我们需要将创建实例的工作与使用实例的工作分开, 也就是说，让创建实例所需要的大量初始化工作从Sample的构造函数中分离出去。
   
 这时我们就需要Factory工厂模式来生成对象了，不能再用上面简单new Sample(参数)。还有,如果Sample有个继承如MySample, 按照面向接口编程,我们需要将Sample抽象成一个接口.现在Sample是接口,有两个子类MySample 和HisSample .我们要实例化他们时,如下:
 
-[java]
+```java
   
 Sample mysample=new MySample();
   
 Sample hissample=new HisSample();
   
-[/java]
+```
 
 随着项目的深入,Sample可能还会"生出很多儿子出来", 那么我们要对这些儿子一个个实例化,更糟糕的是,可能还要对以前的代码进行修改:加入后来生出儿子的实例.这在传统程序中是无法避免的.
   
@@ -60,7 +60,7 @@ Sample hissample=new HisSample();
   
 你会建立一个专门生产Sample实例的工厂:
 
-[java]
+```java
   
 public class Factory{
   
@@ -80,7 +80,7 @@ return new SampleB();
   
 }
   
-[/java]
+```
 
 那么在你的程序中,如果要实例化Sample时.就使用
   
@@ -100,7 +100,7 @@ Sample sampleA=Factory.creator(1);
   
 那么，我们就将上例中Factory变成抽象类,将共同部分封装在抽象类中,不同部分使用子类实现，下面就是将上例中的Factory拓展成抽象工厂:
 
-[java]
+```java
   
 public abstract class Factory{
   
@@ -150,7 +150,7 @@ return new Sample2B
   
 }
   
-[/java]
+```
 
 从上面看到两个工厂各自生产出一套Sample和Sample2,也许你会疑问，为什么我不可以使用两个工厂方法来分别生产Sample和Sample2?
   
@@ -162,7 +162,7 @@ return new Sample2B
   
 我们以Jive的ForumFactory为例，这个例子在前面的Singleton模式中我们讨论过，现在再讨论其工厂模式:
 
-[java]
+```java
   
 public abstract class ForumFactory {
   
@@ -232,7 +232,7 @@ throws UnauthorizedException, ForumAlreadyExistsException;
   
 }
   
-[/java]
+```
 
 因为现在的Jive是通过数据库系统存放论坛帖子等内容数据,如果希望更改为通过文件系统实现,这个工厂方法ForumFactory就提供了提供动态接口:
   
@@ -244,7 +244,7 @@ private static String className = "com.jivesoftware.forum.database.DbForumFactor
   
 看看Java宠物店中的CatalogDAOFactory:
 
-[java]
+```java
   
 public class CatalogDAOFactory {
   
@@ -298,7 +298,7 @@ return catDao;
   
 }
   
-[/java]
+```
 
 CatalogDAOFactory是典型的工厂方法，catDao是通过动态类装入器className获得CatalogDAOFactory具体实现子类，这个实现子类在Java宠物店是用来操作catalog数据库，用户可以根据数据库的类型不同，定制自己的具体实现子类，将自己的子类名给与CATALOG\_DAO\_CLASS变量就可以。
   

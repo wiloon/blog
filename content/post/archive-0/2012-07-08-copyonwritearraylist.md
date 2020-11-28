@@ -1,6 +1,6 @@
 ---
 title: CopyOnWriteArrayList
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-08T07:46:46+00:00
 url: /?p=3802
@@ -18,7 +18,7 @@ categories:
     
     
     
-      1、JAVA中“=”操作只是将引用和某个对象关联，假如同时有一个线程将引用指向另外一个对象，一个线程获取这个引用指向的对象，那么他们之间不会发生<span style="font-family: 'Courier New';">ConcurrentModificationException，他们是在虚拟机层面阻塞的，而且速度非常快，几乎不需要CPU时间。
+      1、JAVA中"="操作只是将引用和某个对象关联，假如同时有一个线程将引用指向另外一个对象，一个线程获取这个引用指向的对象，那么他们之间不会发生<span style="font-family: 'Courier New';">ConcurrentModificationException，他们是在虚拟机层面阻塞的，而且速度非常快，几乎不需要CPU时间。
     
     
     
@@ -42,5 +42,5 @@ categories:
     
     
     
-      CopyOnWriteArrayList中写操作需要大面积复制数组，所以性能肯定很差，但是读操作因为操作的对象和写操作不是同一个对象，读之间也不需要加锁，读和写之间的同步处理只是在写完后通过一个简单的“=”将引用指向新的数组对象上来，这个几乎不需要时间，这样读操作就很快很安全，适合在多线程里使用，绝对不会发生<span style="font-family: 'Courier New';">ConcurrentModificationException，所以最后得出结论：CopyOnWriteArrayList适合使用在读操作远远大于写操作的场景里，比如缓存。
+      CopyOnWriteArrayList中写操作需要大面积复制数组，所以性能肯定很差，但是读操作因为操作的对象和写操作不是同一个对象，读之间也不需要加锁，读和写之间的同步处理只是在写完后通过一个简单的"="将引用指向新的数组对象上来，这个几乎不需要时间，这样读操作就很快很安全，适合在多线程里使用，绝对不会发生<span style="font-family: 'Courier New';">ConcurrentModificationException，所以最后得出结论：CopyOnWriteArrayList适合使用在读操作远远大于写操作的场景里，比如缓存。
   

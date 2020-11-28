@@ -1,6 +1,6 @@
 ---
 title: hibernate的ID生成策略
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-29T01:47:15+00:00
 url: /?p=6684

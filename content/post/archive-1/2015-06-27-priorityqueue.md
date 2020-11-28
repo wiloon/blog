@@ -1,6 +1,6 @@
 ---
 title: PriorityQueue
-author: wiloon
+author: w1100n
 type: post
 date: 2015-06-27T13:00:28+00:00
 url: /?p=7904

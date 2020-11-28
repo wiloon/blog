@@ -1,6 +1,6 @@
 ---
 title: DecimalFormat
-author: wiloon
+author: w1100n
 type: post
 date: 2019-03-18T10:15:02+00:00
 url: /?p=13874

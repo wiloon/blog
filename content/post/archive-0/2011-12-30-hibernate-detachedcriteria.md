@@ -1,6 +1,6 @@
 ---
 title: Hibernate DetachedCriteria
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-30T03:53:00+00:00
 url: /?p=2054
@@ -22,7 +22,7 @@ DetachedCriteria可以解决这个问题，即在web层，程序员使用Detache
   
     createAlias("employees", "e").add(Restrictions.gt(("e.age"), new Integer(20)));
 
-Department和Employee是一对多关联，查询条件为：名称是“department”开发部门；部门里面的雇员年龄大于20岁；
+Department和Employee是一对多关联，查询条件为：名称是"department"开发部门；部门里面的雇员年龄大于20岁；
 
 业务层对象使用该条件执行查询：
 

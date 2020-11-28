@@ -1,6 +1,6 @@
 ---
 title: activemq admin page
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-12T04:17:32+00:00
 url: /?p=3845
@@ -8,13 +8,13 @@ categories:
   - Development
 
 ---
-[shell]
+```bash
 
 ./activemq start
 
 ./activemq stop
 
-[/shell]
+```
 
 
 [http://localhost:8161/admin][1]

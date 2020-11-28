@@ -1,6 +1,6 @@
 ---
 title: Java Http连接中（HttpURLConnection）中使用代理（Proxy）及其验证（Authentication）
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-27T02:11:49+00:00
 url: /?p=4338
@@ -8,13 +8,13 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 System.setProperty("http.proxyHost", "www.proxy.com");
   
 System.setProperty("http.proxyPort", "8080");
 
-[/java]
+```
 
 使用Java的HttpURLConnection类可以实现HttpClient的功能，而不需要依赖任何其他类库。所有有时候大家就直接使用它来完成一些简单（或复杂）的功能。但是你活在伟大的{print G.F.W}后面，如果你需要访问的网站被墙了，那HttpURLConnection类就会出现连接超时的错误。这时候就需要给他设置代理（Proxy）了。
 
@@ -48,7 +48,7 @@ System.setProperty("http.proxyPort", "8080");
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
@@ -72,96 +72,21 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [java][/java]
+          ```java```
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
         
       
     
-    
-    <ol start="1">
-      <li>
-        public class BasicAuthenticator extends Authenticator {
-      </li>
-      <li>
-            String userName;
-      </li>
-      <li>
-            String password;
-      </li>
-      <li>
-      </li>
-      <li>
-            public BasicAuthenticator(String userName, String password) {
-      </li>
-      <li>
-                this.userName = userName;
-      </li>
-      <li>
-                this.password = password;
-      </li>
-      <li>
-            }
-      </li>
-      <li>
-      </li>
-      <li>
-            /**
-      </li>
-      <li>
-             * Called when password authorization is needed.  Subclasses should
-      </li>
-      <li>
-             * override the default implementation, which returns null.
-      </li>
-      <li>
-             *
-      </li>
-      <li>
-             * @return The PasswordAuthentication collected from the
-      </li>
-      <li>
-             *         user, or null if none is provided.
-      </li>
-      <li>
-             */
-      </li>
-      <li>
-            @Override
-      </li>
-      <li>
-            protected PasswordAuthentication getPasswordAuthentication() {
-      </li>
-      <li>
-                return new PasswordAuthentication(userName, password.toCharArray());
-      </li>
-      <li>
-            }
-      </li>
-      <li>
-        }
-      </li>
-    </ol>
   
-  
-  
-  
-    我们需要覆盖java.net.Authenticator类的getPasswordAuthentication()方法，并返回一个PasswordAuthentication实例。要使他起作用，还需要设置
-  
-  
-    
-      
-        
-          [java][/java]
         
         
-        
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
@@ -190,11 +115,11 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [java][/java]
+          ```java```
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         
@@ -220,11 +145,11 @@ System.setProperty("http.proxyPort", "8080");
     
       
         
-          [java][/java]
+          ```java```
         
         
         
-          <a title="view plain" href="http://blog.csdn.net/redhat456/article/details/6149774#">view plain</a><a title="copy" href="http://blog.csdn.net/redhat456/article/details/6149774#">copy</a><a title="print" href="http://blog.csdn.net/redhat456/article/details/6149774#">print</a><a title="?" href="http://blog.csdn.net/redhat456/article/details/6149774#">?</a>
+http://blog.csdn.net/redhat456/article/details/6149774#
         
         
         

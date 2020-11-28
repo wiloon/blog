@@ -1,6 +1,6 @@
 ---
 title: 'IPconfig  release renew'
-author: wiloon
+author: w1100n
 type: post
 date: 2018-01-22T02:19:13+00:00
 url: /?p=11775

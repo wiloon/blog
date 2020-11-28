@@ -1,6 +1,6 @@
 ---
 title: redis hash
-author: wiloon
+author: w1100n
 type: post
 date: 2015-07-28T02:43:59+00:00
 url: /?p=8040

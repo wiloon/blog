@@ -1,6 +1,6 @@
 ---
 title: 怎样用Javascript定义一个类
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-25T05:40:45+00:00
 url: /?p=6282

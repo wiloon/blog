@@ -1,6 +1,6 @@
 ---
 title: 'context-param&init-param'
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-10T09:23:34+00:00
 url: /?p=3498
@@ -90,7 +90,7 @@ web.xml里面可以定义两种参数：
 
 在servlet中可以通过代码分别取用：
 
-[java]
+```java
 
 package com.wes.controller;
 
@@ -122,7 +122,7 @@ System.out.println(getServletContext().getInitParameter("context/param"));
 
 }
 
-[/java]
+```
 
 第一种参数在servlet里面可以通过getServletContext().getInitParameter("context/param")得到
 

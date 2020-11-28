@@ -1,6 +1,6 @@
 ---
 title: jpa annotation, 注解
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-28T09:17:04+00:00
 url: /?p=6678
@@ -163,7 +163,7 @@ private String description;
 
 @JoinColumn(name = "ONE\_ID", referencedColumnName = "ONE\_ID")//设置对应数据表的列名和引用的数据表的列名
   
-@ManyToOne//设置在“一方”pojo的外键字段上
+@ManyToOne//设置在"一方"pojo的外键字段上
   
 private One oneId;
 

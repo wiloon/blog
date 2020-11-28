@@ -1,6 +1,6 @@
 ---
 title: Ansible setup模块
-author: wiloon
+author: w1100n
 type: post
 date: 2018-01-10T09:46:37+00:00
 url: /?p=11704
@@ -20,7 +20,7 @@ Ansible入门setup模块和条件判断.md
   
 setup模块用于收集远程主机的一些基本信息。
   
-而在playbook中，默认参数”gather_facts: True”的含义就是在远程主机运行setup模块，并将收集的信息记录起来。
+而在playbook中，默认参数"gather_facts: True"的含义就是在远程主机运行setup模块，并将收集的信息记录起来。
 
 这样在后面的playbook里面可以调用并进行一些判断和对照。
 

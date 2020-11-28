@@ -1,6 +1,6 @@
 ---
 title: linux more
-author: wiloon
+author: w1100n
 type: post
 date: 2015-09-17T01:31:48+00:00
 url: /?p=8279
@@ -32,7 +32,7 @@ more命令和cat的功能一样都是查看文件里的内容，但有所不同�
 
 -c       从顶部清屏，然后显示
 
--d       提示“Press space to continue，'q' to quit（按空格键继续，按q键退出）”，禁用响铃功能
+-d       提示"Press space to continue，'q' to quit（按空格键继续，按q键退出）"，禁用响铃功能
 
 -l        忽略Ctrl+l（换页）字符
 

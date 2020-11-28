@@ -1,6 +1,6 @@
 ---
 title: ruby helloworld
-author: wiloon
+author: w1100n
 type: post
 date: 2012-08-01T06:48:44+00:00
 url: /?p=3883
@@ -16,7 +16,7 @@ categories:
 
 Create the helloworld.rb program using a Vim editor as shown below.
 
-[shell]
+```bash
   
 $ vim helloworld.rb
 
@@ -26,13 +26,13 @@ $ vim helloworld.rb
 
 puts "Hello World!";
   
-[/shell]
+```
 
 ### 2. Verify ruby Interpreter availability
 
 Make sure ruby interpreter is installed on your system as shown below.
 
-[shell]
+```bash
   
 $ whereis ruby
   
@@ -42,37 +42,37 @@ $ which ruby
   
 /usr/bin/ruby
   
-[/shell]
+```
 
 ### Installing Ruby
 
 If you don't have Ruby, install it as shown below.
 
-[shell]
+```bash
   
 $ sudo apt-get install ruby
   
-[/shell]
+```
 
 ### 
 
 ### 3. Execute Ruby Program
 
-You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
+You can either execute using "ruby helloworld.rb" or "./helloworld.rb".
 
-  [shell]
+  ```bash
  $ ruby helloworld.rb
  Hello World!
- [/shell] 
+ ``` 
   
     ( or )
- [shell]
+ ```bash
  $ chmod u+x helloworld.rb
   
   
     $ ./helloworld.rb
  Hello World!
- [/shell]
+ ```
   
   
     Note: As Ruby is an interpreted language, you don't have the compilation step similar to the C program.
@@ -84,9 +84,9 @@ You can either execute using “ruby helloworld.rb” or “./helloworld.rb”.
     You can also execute Ruby from the command line as shown below. This will print Hello World!.
   
   
-    [shell]
+    ```bash
  $ ruby -e 'puts "Hello World!n"'
- [/shell]
+ ```
   
   
     <a href="http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/">http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/</a>

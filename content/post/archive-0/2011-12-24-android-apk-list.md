@@ -1,6 +1,6 @@
 ---
 title: android app, apk list
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-24T07:04:18+00:00
 url: /?p=1945
@@ -10,17 +10,17 @@ categories:
 ---
 |name|comments|
 |-|-|
-|炼妖壶  |流氓软件管理|
 |英语轻松读|英语学习|
-|english buoy|英语学习|
+|ebuoy|英语学习|
 |酷安|应用商店|
+|internet speed meter lite|网速监控|
+|随手记||
+|Cellular-Z|移动信号监测|
+|炼妖壶  |流氓软件管理|
+---
 
-  * 碗豆夹
   * producteev
   * RssX
-  * wa cai
-  * gmail
-  * google maps
   * evernote
   * sms backup
   * astro
@@ -31,7 +31,6 @@ categories:
   * 8684地铁
   * AIDE
   * QQ
-  * chrome
   * opera
   * 京东
   * 淘宝

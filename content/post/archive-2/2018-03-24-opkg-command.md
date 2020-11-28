@@ -1,6 +1,6 @@
 ---
 title: opkg command
-author: wiloon
+author: w1100n
 type: post
 date: 2018-03-24T02:00:02+00:00
 url: /?p=12043

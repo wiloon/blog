@@ -1,6 +1,6 @@
 ---
 title: 'clean arch  linux'
-author: wiloon
+author: w1100n
 type: post
 date: 2018-06-09T14:32:13+00:00
 url: /?p=12288

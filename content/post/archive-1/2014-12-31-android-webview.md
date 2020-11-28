@@ -1,6 +1,6 @@
 ---
 title: android WebView
-author: wiloon
+author: w1100n
 type: post
 date: 2014-12-31T09:01:10+00:00
 url: /?p=7167
@@ -52,7 +52,7 @@ this.setScrollBarStyle(SCROLLBARS\_OUTSIDE\_OVERLAY);
   
 shouldOverrideUrlLoading ：对网页中超链接按钮的响应。当按下某个连接时WebViewClient会调用这个方法，并传递参数：按下的url。比如当webview内嵌网页的某个数字被点击时，它会自动认为这是一个电话请求，会传递url：tel:123,如果你不希望如此可通过重写shouldOverrideUrlLoading 函数解决：
   
-[java] view plaincopy
+```java view plaincopy
   
 public boolean shouldOverrideUrlLoading(WebView view,String url){
 
@@ -92,11 +92,11 @@ public void onPageStarted(WebView view, String url, Bitmap favicon) { }
 
 通过这几个事件，我们可以很轻松的控制程序操作，一边用着浏览器显示内容，一边监控着用户操作实现我们需要的各种显示方式，同时可以防止用户产生误操作。
   
-6)             如果用webview点链接看了很多页以后，如果不做任何处理，点击系统“Back”键，整个浏览器会调用finish()而结束自身，如果希望浏览的网页回退而不是退出浏览器，需要在当前Activity中处理并消费掉该Back事件。
+6)             如果用webview点链接看了很多页以后，如果不做任何处理，点击系统"Back"键，整个浏览器会调用finish()而结束自身，如果希望浏览的网页回退而不是退出浏览器，需要在当前Activity中处理并消费掉该Back事件。
   
 覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法。
   
-[java] view plaincopy
+```java view plaincopy
   
 public boolean onKeyDown(int keyCoder,KeyEvent event){
   
@@ -119,7 +119,7 @@ Webview与js的双向交互才是android的webview强大所在，也是马甲精
 首先，webview可以定义一个在其内嵌页面中可以触发的事件
 
 
-[java] view plaincopy
+```java view plaincopy
   
 wv.addJavascriptInterface(new DemoJavaScriptInterface(), "demo");
 
@@ -215,7 +215,7 @@ onclick="toclient();"/>
   
 另外，如果你想获取页面的一些处理数据并交给webview客户端处理，可在wave函数里将数据alert，然后webview中重写WebChromeClient的onJsAlert函数，具体代码如下
 
-[java] view plaincopy
+```java view plaincopy
   
 wv.setWebChromeClient(new MyWebChromeClient());
 

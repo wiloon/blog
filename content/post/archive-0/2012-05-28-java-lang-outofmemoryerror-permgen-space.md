@@ -1,6 +1,6 @@
 ---
 title: 'java.lang.OutOfMemoryError: PermGen space'
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-28T02:21:45+00:00
 url: /?p=3267
@@ -58,7 +58,7 @@ PermGen space进行清理，所以如果你的应用中有很多CLASS的话,就�
 
 修改TOMCAT_HOME/bin/catalina.sh
   
-在“echo "Using CATALINA\_BASE: $CATALINA\_BASE"”上面加入以下行：
+在"echo "Using CATALINA\_BASE: $CATALINA\_BASE""上面加入以下行：
   
 JAVA_OPTS="-server -XX:PermSize=64M -XX:MaxPermSize=128m
   
@@ -82,7 +82,7 @@ JVM堆的设置是指java程序运行过程中JVM可以调配使用的内存空�
   
 修改TOMCAT_HOME/bin/catalina.sh
   
-在“echo "Using CATALINA\_BASE: $CATALINA\_BASE"”上面加入以下行：
+在"echo "Using CATALINA\_BASE: $CATALINA\_BASE""上面加入以下行：
   
 JAVA_OPTS="-server -Xms800m -Xmx800m -XX:MaxNewSize=256m"
 
@@ -98,7 +98,7 @@ http://www.tot.name/show/3/7/20061112220054.htm
 
 http://www.tot.name/show/3/7/20061112220201.htm
 
-题外话：经常看到网友抱怨tomcat的性能不如...，不稳定等，其实根据笔者几年的经验，从"互联星空“到现在的房产门户网，我们
+题外话：经常看到网友抱怨tomcat的性能不如...，不稳定等，其实根据笔者几年的经验，从"互联星空"到现在的房产门户网，我们
   
 均使用tomcat作为WEB服务器，每天访问量百万多，tomcat仍然运行良好。建议大家有问题多从自己程序入手，多看看java的DOC文档
   

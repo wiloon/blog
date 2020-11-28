@@ -1,6 +1,6 @@
 ---
 title: static factory method
-author: wiloon
+author: w1100n
 type: post
 date: 2012-03-26T03:37:05+00:00
 url: /?p=2626

@@ -1,6 +1,6 @@
 ---
 title: mysql limit
-author: wiloon
+author: w1100n
 type: post
 date: 2013-02-03T05:07:23+00:00
 url: /?p=5117

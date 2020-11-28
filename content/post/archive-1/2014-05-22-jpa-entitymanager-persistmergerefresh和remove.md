@@ -1,6 +1,6 @@
 ---
 title: JPA EntityManager——persist,merge,refresh和remove
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-22T11:03:53+00:00
 url: /?p=6651

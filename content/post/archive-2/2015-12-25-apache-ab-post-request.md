@@ -1,6 +1,6 @@
 ---
 title: apache ab/Apache Bench
-author: wiloon
+author: w1100n
 type: post
 date: 2015-12-25T11:47:19+00:00
 url: /?p=8602
@@ -42,11 +42,11 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
 
 -p postfile File containing data to POST
   
-//包含了需要POST的数据的文件，文件格式如“p1=1&p2=2”.使用方法是 -p 111.txt 。 （配合-T）
+//包含了需要POST的数据的文件，文件格式如"p1=1&p2=2".使用方法是 -p 111.txt 。 （配合-T）
 
 -T content-type Content-type header for POSTing
   
-//POST数据所使用的Content-type头信息，如 -T “application/x-www-form-urlencoded” 。 （配合-p）
+//POST数据所使用的Content-type头信息，如 -T "application/x-www-form-urlencoded" 。 （配合-p）
 
 -v verbosity How much troubleshooting info to print
   
@@ -66,13 +66,13 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
   
 -z attributes String to insert as td or th attributes
   
--C attribute Add cookie, eg. -C “c1=1234,c2=2,c3=3” (repeatable)
+-C attribute Add cookie, eg. -C "c1=1234,c2=2,c3=3" (repeatable)
   
 //-C cookie-name=value 对请求附加一个Cookie:行。 其典型形式是name=value的一个参数对。此参数可以重复，用逗号分割。
   
 提示：可以借助session实现原理传递 JSESSIONID参数， 实现保持会话的功能，如
 
--C ” c1=1234,c2=2,c3=3, JSESSIONID=FF056CD16DA9D71CB131C1D56F0319F8″ 。
+-C " c1=1234,c2=2,c3=3, JSESSIONID=FF056CD16DA9D71CB131C1D56F0319F8″ 。
   
 -H attribute Add Arbitrary header line, eg. 'Accept-Encoding: gzip' Inserted after all normal header lines. (repeatable)
   
@@ -148,6 +148,6 @@ http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%
   
 </blockquote>
 
-<iframe title="《（总结）Web性能压力测试工具之ApacheBench（ab）详解》—运维架构笔记 | 股市实战分享" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl" data-secret="uK0hS4Tawl" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl
 
  

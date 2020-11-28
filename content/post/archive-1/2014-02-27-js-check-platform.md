@@ -1,6 +1,6 @@
 ---
 title: js check platform
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-27T01:31:58+00:00
 url: /?p=6293

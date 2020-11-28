@@ -1,6 +1,6 @@
 ---
 title: ibatis 升级到mybatis
-author: wiloon
+author: w1100n
 type: post
 date: 2019-12-12T10:05:39+00:00
 url: /?p=15204

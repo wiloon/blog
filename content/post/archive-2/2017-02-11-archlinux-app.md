@@ -1,6 +1,6 @@
 ---
 title: fav app
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-11T03:31:21+00:00
 url: /?p=9775
@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
   
 #linux
   
@@ -22,4 +22,4 @@ omxplayer #http://www.wiloon.com/wordpress/?p=5417
   
 airdroid
   
-[/shell]
+```

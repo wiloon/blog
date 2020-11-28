@@ -1,6 +1,6 @@
 ---
 title: ntp, chrony
-author: wiloon
+author: w1100n
 type: post
 date: 2017-07-20T00:57:34+00:00
 url: /?p=10869
@@ -23,10 +23,17 @@ yum install chrony
 #号和！号都 代表注释
 
         vim  /etc/chrony.conf
+        # ubuntu 
+         vim  /etc/chrony/chrony.conf
+
+         # 中国ntp服务
         server 0.cn.pool.ntp.org iburst
         server 1.cn.pool.ntp.org iburst
         server 2.cn.pool.ntp.org iburst
         server 3.cn.pool.ntp.org iburst
+
+        # 北美
+        north-america.pool.ntp.org
 
 ```bash
 # chronyd service
@@ -111,3 +118,4 @@ ntpdate
 https://chrony.tuxfamily.org/documentation.html
   
 https://wiki.archlinux.org/index.php/Network\_Time\_Protocol_daemon
+https://www.ntppool.org/en/use.html

@@ -1,6 +1,6 @@
 ---
 title: GetROProperty
-author: wiloon
+author: w1100n
 type: post
 date: 2012-08-31T07:52:34+00:00
 url: /?p=3977

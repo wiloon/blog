@@ -1,6 +1,6 @@
 ---
 title: Python Hello World
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-19T03:00:23+00:00
 url: /?p=4075
@@ -13,7 +13,7 @@ categories:
 <div id="article_content">
   
     <span style="font-size: medium;">简介
- 我们将看一下如何用Python编写运行一个传统的“Hello World”程序。通过它，你将学会如何编写、保存和运行Python程序。
+ 我们将看一下如何用Python编写运行一个传统的"Hello World"程序。通过它，你将学会如何编写、保存和运行Python程序。
   
   
     有两种使用Python运行你的程序的方式——使用交互式的带提示符的解释器或使用源文件。我们将学习这两种方法。
@@ -59,7 +59,7 @@ categories:
   
   
     <span style="font-size: medium;">使用源文件
- 现在让我们重新开始编程。当你学习一种新的编程语言的时候，你编写运行的第一个程序通常都是“Hello World”程序，这已经成为一种传统了。在你运行“Hello World”程序的时候，它所做的事只是说声：“Hello World”。正如提出“Hello World”程序的Simon Cozens所说：“它是编程之神的传统咒语，可以帮助你更好的学习语言。”
+ 现在让我们重新开始编程。当你学习一种新的编程语言的时候，你编写运行的第一个程序通常都是"Hello World"程序，这已经成为一种传统了。在你运行"Hello World"程序的时候，它所做的事只是说声："Hello World"。正如提出"Hello World"程序的Simon Cozens所说："它是编程之神的传统咒语，可以帮助你更好的学习语言。"
   
   
     启动你选择的编辑器，输入下面这段程序，然后把它保存为helloworld.py。
@@ -95,7 +95,7 @@ categories:
           在你的程序中合理地使用注释以解释一些重要的细节——这将有助于你的程序的读者轻松地理解程序在干什么。记住，这个读者可能就是6个月以后的你！
   
   
-    跟在注释之后的是一句Python 语句 ——它只是打印文本“Hello World”。print实际上是一个操作符，而“Hello World”被称为一个字符串——别担心我们会在后面详细解释这些术语。
+    跟在注释之后的是一句Python 语句 ——它只是打印文本"Hello World"。print实际上是一个操作符，而"Hello World"被称为一个字符串——别担心我们会在后面详细解释这些术语。
   
   
     <span style="font-size: medium;">可执行的Python程序
@@ -123,7 +123,7 @@ categories:
  Hello World
   
   
-    我们能够用echo命令来显示PATH变量，用$给变量名加前缀以向shell表示我们需要这个变量的值。我们看到/home/swaroop/bin是PATH变量中的目录之一。swaroop是我的系统中使用的用户名。通常，在你的系统中也会有一个相似的目录。你也可以把你选择的目录添加到PATH变量中去——这可以通过运行PATH=$PATH:/home/swaroop/mydir完成，其中“/home/swaroop/mydir”是我想要添加到PATH变量中的目录。
+    我们能够用echo命令来显示PATH变量，用$给变量名加前缀以向shell表示我们需要这个变量的值。我们看到/home/swaroop/bin是PATH变量中的目录之一。swaroop是我的系统中使用的用户名。通常，在你的系统中也会有一个相似的目录。你也可以把你选择的目录添加到PATH变量中去——这可以通过运行PATH=$PATH:/home/swaroop/mydir完成，其中"/home/swaroop/mydir"是我想要添加到PATH变量中的目录。
   
   
     当你想要在任何时间、任何地方运行你的程序的时候，这个方法十分有用。它就好像创造你自己的指令，如同cd或其他Linux终端或DOS提示符命令那样。
@@ -152,7 +152,7 @@ categories:
  >>> help('print')
   
   
-    你应该注意到我特意在“print”上使用了引号，那样Python就可以理解我是希望获取关于“print”的帮助而不是想要它打印东西。
+    你应该注意到我特意在"print"上使用了引号，那样Python就可以理解我是希望获取关于"print"的帮助而不是想要它打印东西。
   
   
     注意，我使用的位置是在Fedora Core 3 Linux中的位置——它可能在不同的发行版和版本中有所不同。

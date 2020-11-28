@@ -1,6 +1,6 @@
 ---
 title: java enum/枚举
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-22T08:10:05+00:00
 url: /?p=4183
@@ -109,7 +109,7 @@ public enum OrderState {
 }
 
 public static void main(String[] args) {
-//枚举是一种类型，用于定义变量，以限制变量的赋值；赋值时通过“枚举名.值”取得枚举中的值
+//枚举是一种类型，用于定义变量，以限制变量的赋值；赋值时通过"枚举名.值"取得枚举中的值
 ColorEnum colorEnum = ColorEnum.blue;
 switch (colorEnum) {
 case red:
@@ -233,11 +233,11 @@ Enumerated types have a working hashCode() method consistent with their equals( 
   
 Enumerated types implement java.lang.Comparable, and the compareTo() method orders enumerated values in the order in which they appear in the enum declaration.
   
-Enumerated types include a working toString( ) method that returns the name of the enumerated value. For example, DownloadStatus.DONE.toString( ) returns the string “DONE” by default. This method is not final, and enum types can provide a custom implementation if they choose.
+Enumerated types include a working toString( ) method that returns the name of the enumerated value. For example, DownloadStatus.DONE.toString( ) returns the string "DONE" by default. This method is not final, and enum types can provide a custom implementation if they choose.
   
 Enumerated types provide a static valueOf( ) method that does the opposite of the default
   
-toString( ) method. For example, DownloadStatus.valueOf(“DONE”) would return DownloadStatus.DONE.
+toString( ) method. For example, DownloadStatus.valueOf("DONE") would return DownloadStatus.DONE.
   
 Enumerated types define a final instance method namedordinal()that returns an integer for each enumerated value. The ordinal of an enumerated value represents its position (starting at zero) in the list of value names in the enum declaration. You do not typically need to use the ordinal( ) method, but it is used by a number of enum-related facilities, as described later in the chapter.
   
@@ -351,10 +351,10 @@ String[] data;
 // 构造器
 MyDataStruct(){
 data＝new String[4]
-data[0] =”zero”；
-data[1]=”one”；
-data[2] =”two”;
-data[3]=”three”;
+data[0] ="zero"；
+data[1]="one"；
+data[2] ="two";
+data[3]="three";
 ｝
 // 返回一个enumeration对象给使用程序
 Enumeration getEnum() {
@@ -400,7 +400,7 @@ return null;
 }
 ```
 
-DK1.5引入了新的类型——枚举。在 Java 中它虽然算个“小”功能，却给我的开发带来了“大”方便。
+DK1.5引入了新的类型——枚举。在 Java 中它虽然算个"小"功能，却给我的开发带来了"大"方便。
   
 用法一：常量
   
@@ -460,7 +460,7 @@ break;
 ```java
 java代码 收藏代码
 public enum Color {
-RED(“红色”, 1), GREEN(“绿色”, 2), BLANK(“白色”, 3), YELLO(“黄色”, 4);
+RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
 // 成员变量
 private String name;
 private int index;
@@ -500,7 +500,7 @@ this.index = index;
 
 ```java
 public enum Color {
-RED(“红色”, 1), GREEN(“绿色”, 2), BLANK(“白色”, 3), YELLO(“黄色”, 4);
+RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
 // 成员变量
 private String name;
 private int index;
@@ -512,7 +512,7 @@ this.index = index;
 //覆盖方法
 @Override
 public String toString() {
-return this.index+”_”+this.name;
+return this.index+"_"+this.name;
 }
 }
 ```
@@ -527,7 +527,7 @@ void print();
 String getInfo();
 }
 public enum Color implements Behaviour{
-RED(“红色”, 1), GREEN(“绿色”, 2), BLANK(“白色”, 3), YELLO(“黄色”, 4);
+RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
 // 成员变量
 private String name;
 private int index;
@@ -544,7 +544,7 @@ return this.name;
 //接口方法
 @Override
 public void print() {
-System.out.println(this.index+”:”+this.name);
+System.out.println(this.index+":"+this.name);
 }
 }
 ```

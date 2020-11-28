@@ -1,6 +1,6 @@
 ---
 title: archlinux kde, config
-author: wiloon
+author: w1100n
 type: post
 date: 2018-06-11T10:48:46+00:00
 url: /?p=12297

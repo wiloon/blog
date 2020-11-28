@@ -1,6 +1,6 @@
 ---
 title: Red hat Linux 重启、关机、退出X、启动X 命令
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-21T04:51:03+00:00
 url: /?p=1568

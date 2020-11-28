@@ -1,6 +1,6 @@
 ---
 title: windows command
-author: wiloon
+author: w1100n
 type: post
 date: 2015-04-11T01:03:59+00:00
 url: /?p=7451
@@ -95,6 +95,6 @@ tasklist
 
   大家有补充的，请留言
 
-本文出自 “[Colt-'s-Cyberspace][1]” 博客，请务必保留此出处<http://coltiam.blog.51cto.com/1364465/394060>
+本文出自 "[Colt-'s-Cyberspace][1]" 博客，请务必保留此出处<http://coltiam.blog.51cto.com/1364465/394060>
 
  [1]: http://coltiam.blog.51cto.com/

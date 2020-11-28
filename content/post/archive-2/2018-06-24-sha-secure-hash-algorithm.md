@@ -1,6 +1,6 @@
 ---
 title: SHA, Secure Hash Algorithm
-author: wiloon
+author: w1100n
 type: post
 date: 2018-06-24T03:29:52+00:00
 url: /?p=12356

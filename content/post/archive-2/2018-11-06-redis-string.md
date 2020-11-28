@@ -1,6 +1,6 @@
 ---
 title: redis string
-author: wiloon
+author: w1100n
 type: post
 date: 2018-11-06T02:19:24+00:00
 url: /?p=12863

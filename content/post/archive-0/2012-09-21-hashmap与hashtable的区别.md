@@ -1,6 +1,6 @@
 ---
 title: HashMap,Hashtable
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-21T05:24:11+00:00
 url: /?p=4144
@@ -19,7 +19,7 @@ categories:
     6.哈希值的使用不同，HashTable直接使用对象的hashCode，代码是这样的：
   
   
-    [java]
+    ```java
   
   
     int hash = key.hashCode();
@@ -44,7 +44,7 @@ categories:
  }
   
   
-    [/java]
+    ```
   
   
     以上只是一些比较突出的区别，当然他们的实现上还是有很多不同的，比如

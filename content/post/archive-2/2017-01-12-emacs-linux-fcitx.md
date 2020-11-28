@@ -1,6 +1,6 @@
 ---
 title: fcitx
-author: wiloon
+author: w1100n
 date: 2017-01-12T04:50:30.000+00:00
 url: "/?p=9650"
 categories:
@@ -34,7 +34,7 @@ ctrl+7
     #图形界面的配置程序：KDE 中的 kcm-fcitx
     sudo pacman -S  kcm-fcitx
 
-### gtk3 config tool
+#### gtk3 config tool
 ```bash
 sudo pacman -S fcitx-configtool
 ```
@@ -44,7 +44,6 @@ sudo pacman -S fcitx-configtool
 
 ### 五笔
 ##### 可能需要重启
-
         sudo pacman -S fcitx-table-extra
 
         #edit .zshrc

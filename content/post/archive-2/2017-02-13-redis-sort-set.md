@@ -1,6 +1,6 @@
 ---
 title: redis sort set, 有序集
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-13T08:48:39+00:00
 url: /?p=9803
@@ -66,7 +66,7 @@ O(1)
 
 O(log(N)+M)
   
-时间复杂度中的N表示Sorted-Sets中成员的数量，M则表示min和max之间元素的数量。该命令用于获取分数(score)在min和max之间的成员数量。针对min和max参数需要额外说明的是，-inf和+inf分别表示Sorted-Sets中分数的最高值和最低值。缺省情况下，min和max表示的范围是闭区间范围，即min <= score <= max内的成员将被返回。然而我们可以通过在min和max的前面添加”(“字符来表示开区间，如(min max表示min < score <= max，而(min (max表示min < score < max。
+时间复杂度中的N表示Sorted-Sets中成员的数量，M则表示min和max之间元素的数量。该命令用于获取分数(score)在min和max之间的成员数量。针对min和max参数需要额外说明的是，-inf和+inf分别表示Sorted-Sets中分数的最高值和最低值。缺省情况下，min和max表示的范围是闭区间范围，即min <= score <= max内的成员将被返回。然而我们可以通过在min和max的前面添加"("字符来表示开区间，如(min max表示min < score <= max，而(min (max表示min < score < max。
   
 返回值: 分数指定范围内成员的数量。
 

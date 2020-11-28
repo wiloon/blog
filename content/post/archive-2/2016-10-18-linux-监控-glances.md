@@ -1,6 +1,6 @@
 ---
 title: 'linux  监控  glances'
-author: wiloon
+author: w1100n
 type: post
 date: 2016-10-18T09:02:31+00:00
 url: /?p=9312
@@ -92,6 +92,6 @@ print s.getSystem()
 
 $ python test.py
   
-{“linux\_distro”: “Ubuntu 12.04”, “platform”: “64bit”, “os\_name”: “Linux”, “hostname”: “vpsee.com”, “os_version”: “3.2.0-23-virtual”}
+{"linux\_distro": "Ubuntu 12.04", "platform": "64bit", "os\_name": "Linux", "hostname": "vpsee.com", "os_version": "3.2.0-23-virtual"}
 
 <http://www.vpsee.com/2013/07/a-new-system-monitoring-tool-glances-installation-and-usage/>

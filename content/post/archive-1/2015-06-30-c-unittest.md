@@ -1,6 +1,6 @@
 ---
 title: java 线程
-author: wiloon
+author: w1100n
 type: post
 date: 2015-06-30T02:52:35+00:00
 url: /?p=7991
@@ -130,7 +130,7 @@ suspend()、resume()
   
 通过suspend()函数，可使线程进入停滞状态。通过suspend()使线程进入停滞状态后，除非收到resume()消息，否则该线程不会变回可执行状态。
   
-当调用suspend()函数后，线程不会释放它的“锁标志”。
+当调用suspend()函数后，线程不会释放它的"锁标志"。
 
 5、当线程池中线程都具有相同的优先级，调度程序的JVM实现自由选择它喜欢的线程。这时候调度程序的操作有两种可能：一是选择一个线程运行，直到它阻塞或者运行完成为止。二是时间分片，为池内的每个线程提供均等的运行机会。
 
@@ -146,7 +146,7 @@ yield()应该做的是让当前运行线程回到可运行状态，以允许具�
 
 8、另一个问题是线程的同步，这个我感觉比调度更加复杂一些
 
-Java中每个对象都有一个“内置锁”，也有一个内置的“线程表”
+Java中每个对象都有一个"内置锁"，也有一个内置的"线程表"
 
 当程序运行到非静态的synchronized方法上时，会获得与正在执行代码类的当前实例（this实例）有关的锁；当运行到同步代码块时，获得与声明的对象有关的锁
 
@@ -182,9 +182,9 @@ Parking
   
 Disables the current thread for thread scheduling purposes unless the permit is available.
 
-1，线程状态为“waiting for monitor entry”：
+1，线程状态为"waiting for monitor entry"：
   
-意味着它 在等待进入一个临界区 ，所以它在”Entry Set“队列中等待。
+意味着它 在等待进入一个临界区 ，所以它在"Entry Set"队列中等待。
   
 此时线程状态一般都是 Blocked：
   
@@ -195,7 +195,7 @@ java.lang.Thread.State: BLOCKED (on object monitor)
 此时线程状态大致为以下几种：  
 java.lang.Thread.State: WAITING (parking)：一直等那个条件发生；
 java.lang.Thread.State: TIMED_WAITING (parking或sleeping)：定时的，那个条件不到来，也将定时唤醒自己。
-如果大量线程在“waiting on condition”：  
+如果大量线程在"waiting on condition"：  
 可能是它们又跑去获取第三方资源，尤其是第三方网络资源，迟迟获取不到Response，导致大量线程进入等待状态。  
 所以如果你发现有大量的线程都处在 Wait on condition，从线程堆栈看，正等待网络读写，这可能是一个网络瓶颈的征兆，因为网络阻塞导致线程无法执行。  
 
@@ -203,13 +203,13 @@ java.lang.Thread.State: TIMED_WAITING (parking或sleeping)：定时的，那个�
 可能是一个全局锁阻塞住了大量线程。  
 如果短时间内打印的 thread dump 文件反映，随着时间流逝，waiting for monitor entry 的线程越来越多，没有减少的趋势，可能意味着某些线程在临界区里呆的时间太长了，以至于越来越多新线程迟迟无法进入临界区。  
 
-线程状态为“in Object.wait()”：
+线程状态为"in Object.wait()"：
   
 说明它获得了监视器之后，又调用了 java.lang.Object.wait() 方法。
   
-每个 Monitor在某个时刻，只能被一个线程拥有，该线程就是 “Active Thread”，而其它线程都是 “Waiting Thread”，分别在两个队列 “ Entry Set”和 “Wait Set”里面等候。在 “Entry Set”中等待的线程状态是 “Waiting for monitor entry”，而在 “Wait Set”中等待的线程状态是 “in Object.wait()”。
+每个 Monitor在某个时刻，只能被一个线程拥有，该线程就是 "Active Thread"，而其它线程都是 "Waiting Thread"，分别在两个队列 " Entry Set"和 "Wait Set"里面等候。在 "Entry Set"中等待的线程状态是 "Waiting for monitor entry"，而在 "Wait Set"中等待的线程状态是 "in Object.wait()"。
   
-当线程获得了 Monitor，如果发现线程继续运行的条件没有满足，它则调用对象（一般就是被 synchronized 的对象）的 wait() 方法，放弃了 Monitor，进入 “Wait Set”队列。
+当线程获得了 Monitor，如果发现线程继续运行的条件没有满足，它则调用对象（一般就是被 synchronized 的对象）的 wait() 方法，放弃了 Monitor，进入 "Wait Set"队列。
   
 此时线程状态大致为以下几种：
   
@@ -317,9 +317,9 @@ at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:90
   
 at java.lang.Thread.run(Thread.java:662)
   
-1）“TIMED\_WAITING (parking)”中的 timed\_waiting 指等待状态，但这里指定了时间，到达指定的时间后自动退出等待状态；parking指线程处于挂起中。
+1）"TIMED\_WAITING (parking)"中的 timed\_waiting 指等待状态，但这里指定了时间，到达指定的时间后自动退出等待状态；parking指线程处于挂起中。
   
-2）“waiting on condition”需要与堆栈中的“parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)” 结合来看。首先，本线程肯定是在等待某个条件的发生，来把自己唤醒。其次，SynchronousQueue 并不是一个队列，只是线程之间移交信息的机制，当我们把一个元素放入到 SynchronousQueue 中时必须有另一个线程正在等待接受移交的任务，因此这就是本线程在等待的条件。
+2）"waiting on condition"需要与堆栈中的"parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)" 结合来看。首先，本线程肯定是在等待某个条件的发生，来把自己唤醒。其次，SynchronousQueue 并不是一个队列，只是线程之间移交信息的机制，当我们把一个元素放入到 SynchronousQueue 中时必须有另一个线程正在等待接受移交的任务，因此这就是本线程在等待的条件。
 
 示范三：
   

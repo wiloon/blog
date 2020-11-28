@@ -1,6 +1,6 @@
 ---
 title: typescript 数组
-author: wiloon
+author: w1100n
 type: post
 date: 2019-08-17T06:47:09+00:00
 url: /?p=14801
@@ -12,19 +12,19 @@ categories:
   
 本文链接：https://blog.csdn.net/honey199396/article/details/80750408
 
-一、数组的声明
+### 数组的声明
 
 let array1:Array<number>;
   
 let array2:number[];
   
-二、数组初始化
+### 数组初始化
 
 let array1:Array<number> = new Array<number>();
   
 let array2:number[] = [1，2，3];
   
-三、数组元素赋值、添加、更改
+### 数组元素赋值、添加、更改
 
 let array:Array<number> = [1,2,3,4];
   
@@ -46,7 +46,7 @@ array.unshift(8, 0); // 在第一个位置依次添加
   
 console.log(array); // [8, 0, 20, 2, 3, 4, 5, 6]
   
-四、删除
+### 删除
 
 let array:Array<number> = [1,2,3,4];
   

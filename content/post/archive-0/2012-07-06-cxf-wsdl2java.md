@@ -1,6 +1,6 @@
 ---
 title: cxf wsdl2java
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-06T01:44:43+00:00
 url: /?p=3755
@@ -9,11 +9,11 @@ categories:
   - Web
 
 ---
-[shell]
+```bash
   
 wsdl2java -d src -client http://localhost:9000/helloWorld?wsdl
   
-[/shell]
+```
 
 其作用上面的build.xml作用一样。
   

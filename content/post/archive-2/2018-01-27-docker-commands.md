@@ -1,6 +1,6 @@
 ---
 title: docker basic, commands
-author: wiloon
+author: w1100n
 type: post
 date: 2018-01-27T08:35:04+00:00
 url: /?p=11796
@@ -249,7 +249,6 @@ docker network create -d bridge my-net
 ```
 
 ### macvlan, --net, --ip
-
     docker run \
     --name memcache \
     -d \
@@ -261,6 +260,8 @@ docker network create -d bridge my-net
     memcached -m 16
 
 default volumn path /var/lib/docker/volumes/
+
+---
 
 https://segmentfault.com/a/1190000012063374
   

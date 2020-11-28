@@ -1,6 +1,6 @@
 ---
 title: maven jvm opts
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-24T07:47:07+00:00
 url: /?p=6557
@@ -25,7 +25,7 @@ Windows下添加环境变量MAVEN_OPTS的value为-Xms1024m -Xmx1024m -Xss1m
 Linux下可修改.profile或者.bash_profile文件，并做如下设置：
 
 
-export MAVEN_OPTS=”-Xms1024m -Xmx1024m -Xss1m”
+export MAVEN_OPTS="-Xms1024m -Xmx1024m -Xss1m"
 
 
 (注意：这里需要使用双引号或者单引号)

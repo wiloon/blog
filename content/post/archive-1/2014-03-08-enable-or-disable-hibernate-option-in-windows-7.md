@@ -1,6 +1,6 @@
 ---
 title: Enable Or Disable Hibernate Option In Windows 7
-author: wiloon
+author: w1100n
 type: post
 date: 2014-03-08T05:04:19+00:00
 url: /?p=6368
@@ -45,7 +45,7 @@ Step 4: If you can't see the Hibernate option in Start menu then continue with t
 A. Type Power Options in Start menu and hit enter.
 
 
-B. In the left pane, open the link labeled “Change when the computer sleeps” and then open the link “Change advanced power settings”.
+B. In the left pane, open the link labeled "Change when the computer sleeps" and then open the link "Change advanced power settings".
 
 
 Hybrid sleep

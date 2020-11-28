@@ -1,6 +1,6 @@
 ---
 title: 原型模式 Prototype
-author: wiloon
+author: w1100n
 type: post
 date: 2012-10-10T03:25:48+00:00
 url: /?p=4418

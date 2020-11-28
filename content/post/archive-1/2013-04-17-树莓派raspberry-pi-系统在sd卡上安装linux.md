@@ -1,6 +1,6 @@
 ---
 title: 树莓派(raspberry pi) 系统在SD卡上安装Linux
-author: wiloon
+author: w1100n
 type: post
 date: 2013-04-17T15:43:43+00:00
 url: /?p=5408
@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-[shell]
+```bash
 
 sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img of=/dev/sdx
 
-[/shell]
+```
 
 刚刚拿到一只Simon同学出借的树莓派(raspberry pi) ，准备一张4GB的SD卡，准备跑一下Linux。
 

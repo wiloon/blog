@@ -1,6 +1,6 @@
 ---
 title: Pentaho Data Integration(PDI)
-author: wiloon
+author: w1100n
 type: post
 date: 2015-01-08T09:34:04+00:00
 url: /?p=7214

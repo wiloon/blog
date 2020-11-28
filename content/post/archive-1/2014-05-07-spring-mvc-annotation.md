@@ -1,6 +1,6 @@
 ---
 title: spring mvc annotation
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-07T11:25:46+00:00
 url: /?p=6603
@@ -50,11 +50,11 @@ tags:
       
         <div style="color: silver;">
           
-            [java][/java]
+            ```java```
           
           
           
-            <wbr /><a style="color: #3e73a0;" title="view plain" href="http://blog.csdn.net/walkerjong/article/details/7946109#">view plain</a><a style="color: #3e73a0;" title="copy" href="http://blog.csdn.net/walkerjong/article/details/7946109#">copy</a>
+http://blog.csdn.net/walkerjong/article/details/7946109#
           
           
           

@@ -1,6 +1,6 @@
 ---
 title: sshd config
-author: wiloon
+author: w1100n
 type: post
 date: 2018-01-17T08:50:28+00:00
 url: /?p=11742
@@ -40,8 +40,8 @@ SSH-2默认是 /etc/ssh/ssh\_host\_rsa\_key 和 /etc/ssh/ssh\_host\_dsa\_key 。
 
 ### PermitRootLogin
 是否允许 root 登录。可用值如下：
-默认值是“prohibit-password”
-如果这个选项设置为“prohibit-password”、“without-password”，通过密码和键盘交互的授权方式对 root 用户禁用。
+默认值是"prohibit-password"
+如果这个选项设置为"prohibit-password"、"without-password"，通过密码和键盘交互的授权方式对 root 用户禁用。
 
 - "without-password"表示禁止使用密码认证登录。
 - "forced-commands-only"表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
@@ -60,9 +60,7 @@ AuthorizedKeysFile
   
 默认值是".ssh/authorized_keys"。
 
-PasswordAuthentication
-  
-是否允许使用基于密码的认证。默认为"yes"。
+
 
 UsePrivilegeSeparation
   

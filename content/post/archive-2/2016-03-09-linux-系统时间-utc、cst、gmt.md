@@ -1,6 +1,6 @@
 ---
 title: UTC、CST、GMT
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-09T01:58:55+00:00
 url: /?p=8786
@@ -88,7 +88,7 @@ ln -sf ../usr/share/zoneinfo/your/zone /etc/localtime
 
 [1] 这里假设/usr/share/zoneinfo 是到/etc/localtime 的链结的前提是Redhat Linux
 
-[2] 在旧版本的系统里，您会发现使用/usr/lib/zoneinfo而不是/usr/share/zoneinfo。参考后面“一些应用程序中时间错误”。
+[2] 在旧版本的系统里，您会发现使用/usr/lib/zoneinfo而不是/usr/share/zoneinfo。参考后面"一些应用程序中时间错误"。
 
 设置UTC 或本地时间：
 

@@ -4,6 +4,17 @@ date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++
+### QNAP TS453Bmini
+
+### pixel3
+5.5 英寸显示屏, 2160 x 1080) 柔性 OLED 屏幕 (443ppi), 18:9
+后置摄像头1220 万像素
+Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
+内存, 4GB LPDDR4x RAM
+2915 毫安时的电池
+#### esim
+https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans
+
 ### Dell U2412M
 1920x1200
 

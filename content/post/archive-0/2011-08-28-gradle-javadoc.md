@@ -1,6 +1,6 @@
 ---
 title: gradle javadoc
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-28T08:05:01+00:00
 url: /?p=609

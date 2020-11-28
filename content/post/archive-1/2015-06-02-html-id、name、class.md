@@ -1,6 +1,6 @@
 ---
 title: HTML id、name、class
-author: wiloon
+author: w1100n
 type: post
 date: 2015-06-02T03:36:15+00:00
 url: /?p=7748
@@ -98,15 +98,15 @@ id要符合标识的要求，比如大小写敏感，最好不要包含下划线
 CSS 中 id、class属性的区别
 
 
-1）class是设置标签的类，用于指定元素属于何种样式的类。在CSS样式中以小写的“点”及“.”来命名，在html页面里则以class="css5" 来选择调用，命名好的CSS又叫css选择器。
+1）class是设置标签的类，用于指定元素属于何种样式的类。在CSS样式中以小写的"点"及"."来命名，在html页面里则以class="css5" 来选择调用，命名好的CSS又叫css选择器。
   
-如： .css5{属性：属性值;} 选择器在html调用为“<div class="css5">我是class例子
+如： .css5{属性：属性值;} 选择器在html调用为"<div class="css5">我是class例子
   
 .baobao { color: lime; background: #ff80c0 }
   
 使用方法：class="baobao"
 
-2）id是设置标签的标识。用于定义一个元素的独特的样式。在CSS样式定义的时候 以“#”来开头命名id名称
+2）id是设置标签的标识。用于定义一个元素的独特的样式。在CSS样式定义的时候 以"#"来开头命名id名称
   
 如一个CSS规则：
   

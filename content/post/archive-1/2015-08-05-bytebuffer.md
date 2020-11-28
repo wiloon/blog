@@ -1,6 +1,6 @@
 ---
 title: 'java  ByteBuffer'
-author: wiloon
+author: w1100n
 type: post
 date: 2015-08-05T04:32:55+00:00
 url: /?p=8057
@@ -292,7 +292,7 @@ ByteBuf对象每读取一个byte的数据，readerIndex就会往前推进，直�
 
 几种ByteBuf模式
   
-Netty的“Zero-Copy”设计非常出名，这主要就是依赖了Netty中ByteBuf的设计。ByteBuf主要有以下几种模式：
+Netty的"Zero-Copy"设计非常出名，这主要就是依赖了Netty中ByteBuf的设计。ByteBuf主要有以下几种模式：
 
 1.Heap Buffer模式
   
@@ -404,7 +404,7 @@ socketChannel.write(buffer);
   
 此方法以一个ByteBuffer为参数,试图将该缓冲区中剩余的字节写入信道.
 
-ByteBuffer俗称缓冲器， 是将数据移进移出通道的唯一方式，并且我们只能创建一个独立的基本类型缓冲器，或者使用“as”方法从 ByteBuffer 中获得。ByteBuffer 中存放的是字节，如果要将它们转换成字符串则需要使用 Charset ， Charset 是字符编码，它提供了把字节流转换成字符串 ( 解码 ) 和将字符串转换成字节流 ( 编码) 的方法。
+ByteBuffer俗称缓冲器， 是将数据移进移出通道的唯一方式，并且我们只能创建一个独立的基本类型缓冲器，或者使用"as"方法从 ByteBuffer 中获得。ByteBuffer 中存放的是字节，如果要将它们转换成字符串则需要使用 Charset ， Charset 是字符编码，它提供了把字节流转换成字符串 ( 解码 ) 和将字符串转换成字节流 ( 编码) 的方法。
 
 private byte[] getBytes (char[] chars) {//将字符转为字节(编码)
   

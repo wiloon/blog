@@ -1,6 +1,6 @@
 ---
 title: linux 挂载 windows共享
-author: wiloon
+author: w1100n
 type: post
 date: 2020-02-01T02:25:40+00:00
 url: /?p=15463

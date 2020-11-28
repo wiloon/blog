@@ -1,11 +1,9 @@
 ---
 title: Kafka, offset
-author: wiloon
+author: w1100n
 type: post
 date: 2019-05-13T02:32:29+00:00
 url: /?p=14328
-categories:
-  - Uncategorized
 
 ---
 offset的保存
@@ -48,17 +46,13 @@ There is a side benefit of this decision. A consumer can deliberately rewind bac
 
  
 
-  1. auto.offset.reset
-  
-    What to do when there is no initial offset in ZooKeeper or if an offset is out of range:
-  
-    smallest : automatically reset the offset to the smallest offset
-  
-    largest : automatically reset the offset to the largest offset
-  
-    anything else: throw exception to the consumer
-  
-    如果Kafka没有开启Consumer，只有Producer生产了数据到Kafka中，此后开启Consumer。在这种场景下，将auto.offset.reset设置为largest，那么Consumer会读取不到之前Produce的消息，只有新Produce的消息才会被Consumer消费
+### auto.offset.reset值含义解释
+#### earliest
+当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+#### latest
+当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
+#### none
+topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
 
  
 
@@ -120,3 +114,5 @@ At Least Once:
 原文：https://blog.csdn.net/u012129558/article/details/80075270
   
 版权声明：本文为博主原创文章，转载请附上博文链接！
+
+https://blog.csdn.net/lishuangzhe7047/article/details/74530417

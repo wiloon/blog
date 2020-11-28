@@ -1,6 +1,6 @@
 ---
 title: Java 8 函数式接口 functional interface
-author: wiloon
+author: w1100n
 type: post
 date: 2014-12-24T02:39:51+00:00
 url: /?p=7127

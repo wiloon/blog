@@ -1,6 +1,6 @@
 ---
 title: jconsole
-author: wiloon
+author: w1100n
 type: post
 date: 2012-11-14T05:47:49+00:00
 url: /?p=4670
@@ -12,7 +12,7 @@ http://jiajun.iteye.com/blog/810150
 
 一、JConsole是什么
       
-从Java 5开始 引入了 JConsole。JConsole 是一个内置 Java 性能分析器，可以从命令行或在 GUI shell 中运行。您可以轻松地使用 JConsole（或者，它更高端的 “近亲” VisualVM ）来监控 Java 应用程序性能和跟踪 Java 中的代码。
+从Java 5开始 引入了 JConsole。JConsole 是一个内置 Java 性能分析器，可以从命令行或在 GUI shell 中运行。您可以轻松地使用 JConsole（或者，它更高端的 "近亲" VisualVM ）来监控 Java 应用程序性能和跟踪 Java 中的代码。
   
 二、如何启动JConsole
   
@@ -56,7 +56,7 @@ Java代码 收藏代码
   
 jconsole.exe 192.168.0.181:8999
    
-也可以在已经打开的JConsole界面操作 连接->新建连接->选择远程进程->输入远程主机IP和端口号->点击“连接”，如图：
+也可以在已经打开的JConsole界面操作 连接->新建连接->选择远程进程->输入远程主机IP和端口号->点击"连接"，如图：
 
 然后就会进入分析界面：
   
@@ -101,7 +101,7 @@ GC的算法和参数对性能有显著的影响，注意垃圾回收次数、时
     统计图显示的是线程数目的峰值（红色）和当前活动的线程（蓝色）。
     
 
-另外下面有个按钮“检测到死锁”，有时候会有用处。
+另外下面有个按钮"检测到死锁"，有时候会有用处。
   
 类
 

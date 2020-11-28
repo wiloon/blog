@@ -1,6 +1,6 @@
 ---
 title: Conditional Get
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-23T01:30:12+00:00
 url: /?p=1240
@@ -39,18 +39,18 @@ categories:
     客户端发送查询请求：
   
   
-    [java]
+    ```java
  GET / HTTP/1.1
  Host: www.sina.com.cn:80
  If-Modified-Since:Thu, 4 Feb 2010 20:39:13 GMT
  Connection: Close
- [/java]
+ ```
   
   
     下面是当没有更新时服务器的相应：
   
   
-    [java]
+    ```java
  HTTP/1.0 304 Not Modified
  Date: Thu, 04 Feb 2010 12:38:41 GMT
  Content-Type: text/html
@@ -59,13 +59,13 @@ categories:
  Age: 28
  X-Cache: HIT from sy32-21.sina.com.cn
  Connection: close
- [/java]
+ ```
   
   
     如果服务器网页已经更新就会发送把客户端的请求当作一个普通的Get请求发送相应报文
   
   
-    [java]
+    ```java
  HTTP/1.0 200 OK
  Date: Thu, 04 Feb 2010 12:49:46 GMT
  Server: Apache
@@ -82,5 +82,5 @@ categories:
  X-Cache: HIT from sy32-27.sina.com.cn
  Connection: close
  /*.......网页内容....... */
- [/java]
+ ```
   

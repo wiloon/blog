@@ -1,6 +1,6 @@
 ---
 title: java List 排序 Collections.sort() 对 List 排序
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-16T07:34:25+00:00
 url: /?p=4047
@@ -98,19 +98,19 @@ public static void main(String[] args){
 
 List userlist=new ArrayList();
 
-userlist.add(new User(“dd”,”4″));
+userlist.add(new User("dd","4″));
 
-userlist.add(new User(“aa”,”1″));
+userlist.add(new User("aa","1″));
 
-userlist.add(new User(“ee”,”5″));
+userlist.add(new User("ee","5″));
 
-userlist.add(new User(“bb”,”2″));
+userlist.add(new User("bb","2″));
 
-userlist.add(new User(“ff”,”5″));
+userlist.add(new User("ff","5″));
 
-userlist.add(new User(“cc”,”3″));
+userlist.add(new User("cc","3″));
 
-userlist.add(new User(“gg”,”6″));
+userlist.add(new User("gg","6″));
 
 ComparatorUser comparator=new ComparatorUser();
 
@@ -120,7 +120,7 @@ for (int i=0;i<userlist.size();i++){
 
 User user_temp=(User)userlist.get(i);
 
-System.out.println(user\_temp.getAge()+”,”+user\_temp.getName());
+System.out.println(user\_temp.getAge()+","+user\_temp.getName());
 
 }
 

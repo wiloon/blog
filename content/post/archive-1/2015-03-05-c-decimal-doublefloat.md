@@ -1,6 +1,6 @@
 ---
 title: Java 轻量级锁 (Lightweight Locking)
-author: wiloon
+author: w1100n
 type: post
 date: 2015-03-05T02:32:58+00:00
 url: /?p=7381

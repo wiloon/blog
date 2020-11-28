@@ -1,6 +1,6 @@
 ---
 title: ACL（Access Control List）
-author: wiloon
+author: w1100n
 type: post
 date: 2019-01-19T11:04:38+00:00
 url: /?p=13432
@@ -102,7 +102,7 @@ other::rwx /其它者权限
   
 总用量 4
   
--rwxrwxrwx+ 1 root root 0 2月 6 20:40 test.txt //权限的最后多了一个“+”
+-rwxrwxrwx+ 1 root root 0 2月 6 20:40 test.txt //权限的最后多了一个"+"
   
 [root@localhost test]# getfacl test.txt
 
@@ -154,4 +154,4 @@ other::rwx
   
 总用量 4
   
--rwxrwxrwx. 1 root root 4 2月 6 20:47 test.txt //文件权限后面的“+”没了
+-rwxrwxrwx. 1 root root 4 2月 6 20:47 test.txt //文件权限后面的"+"没了

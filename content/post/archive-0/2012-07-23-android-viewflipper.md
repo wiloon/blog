@@ -1,6 +1,6 @@
 ---
 title: Android ViewFlipper
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-23T04:54:14+00:00
 url: /?p=3875
@@ -35,7 +35,7 @@ startFlipping：开始进行View的切换，时间间隔是上述方法设置的
 
 stopFlipping：停止View切换。
 
-setAutoStart：设置是否自动开始。如果设置为“true”，当ViewFlipper显示的时候View的切换会自动开始。
+setAutoStart：设置是否自动开始。如果设置为"true"，当ViewFlipper显示的时候View的切换会自动开始。
 
 一般情况下，我们都会使用ViewFilpper类实现View的切换，而不使用它的父类ViewAnimator类。
 
@@ -51,7 +51,7 @@ GestureDetector.OnGestureListener：用来通知普通的手势事件，该接�
 
 下面的代码片段详细说明了如何实现滑动翻页。
 
-[java]
+```java
 
 public class ViewFlipperActivity extends Activity implements OnGestureListener {
 
@@ -187,7 +187,7 @@ return false;
 
 }
 
-[/java]
+```
 
 在这段代码里，创建了两个IamgeView（用来显示图片），加入到了ViewFlipper中。程序运行后，当用手指在屏幕上向左滑动，会显示前一个图片，用手指在屏幕上向右滑动，会显示下一个图片。实现滑动切换的主要代码都在onFling()方法中，用户按下触摸屏，快速移动后松开，就会触发这个事件。在这段代码示例中，对手指滑动的距离进行了计算，如果滑动距离大于100像素，就做切换动作，否则不做任何切换动作。
 

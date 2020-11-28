@@ -1,6 +1,6 @@
 ---
 title: java 日期/date time
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-06T07:30:27+00:00
 url: /?p=682
@@ -52,7 +52,7 @@ S 毫秒数 Number 978
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=8834&embed=true#?secret=RA1Eqnm13T" data-secret="RA1Eqnm13T" width="600" height="338" title=""java 8 日期/date time" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.wiloon.com/wordpress/?p=8834&embed=true#?secret=RA1Eqnm13T
 
 <blockquote data-secret="qXtE3cmQSt" class="wp-embedded-content">
   
@@ -98,7 +98,7 @@ Date -&amp;gt; Timestamp
    
 日期转字符串
 
-SimpleDateFormat sdf = new SimpleDateFormat( ” yyyy年MM月dd日 ” );
+SimpleDateFormat sdf = new SimpleDateFormat( " yyyy年MM月dd日 " );
   
 String datestr = sdf.format( new Date());
 
@@ -106,9 +106,9 @@ datestr便会依照我们设定的格式输出
 
 附
   
-SimpleDateFormat parser = new SimpleDateFormat(“EEEE, MMMM dd, yyyy”);
+SimpleDateFormat parser = new SimpleDateFormat("EEEE, MMMM dd, yyyy");
   
-SimpleDateFormat formatter = new SimpleDateFormat(“EEE. MM/dd”);
+SimpleDateFormat formatter = new SimpleDateFormat("EEE. MM/dd");
 
 long start = System.currentTimeMillis();
   
@@ -122,7 +122,7 @@ JAVA字符串转日期或日期转字符串
 
 用法：
 
-SimpleDateFormat sdf = new SimpleDateFormat( ” yyyy-MM-dd HH:mm:ss ” );
+SimpleDateFormat sdf = new SimpleDateFormat( " yyyy-MM-dd HH:mm:ss " );
 
 这一行最重要，它确立了转换的格式，yyyy是完整的公元年，MM是月份，dd是日期，至于HH:mm:ss就不需要我再解释了吧！
 
@@ -132,7 +132,7 @@ ps:为什么有的格式大写，有的格式小写，那是怕避免混淆，�
 
 2002-10-8 15:30:22要把它转成日期，可以用
 
-Date date = sdf.parse( ” 2002-10-8 15:30:22 ” );
+Date date = sdf.parse( " 2002-10-8 15:30:22 " );
 
 2.日期转字符串
 
@@ -146,7 +146,7 @@ String datestr = sdf.format( new Date());
 
 我们可以这么写：
 
-SimpleDateFormat sdf = new SimpleDateFormat( ” yyyy年MM月dd日 ” );
+SimpleDateFormat sdf = new SimpleDateFormat( " yyyy年MM月dd日 " );
   
 String datestr = sdf.format( new Date());
 
@@ -154,9 +154,9 @@ datestr便会依照我们设定的格式输出
 
 附
   
-SimpleDateFormat parser = new SimpleDateFormat(“EEEE, MMMM dd, yyyy”);
+SimpleDateFormat parser = new SimpleDateFormat("EEEE, MMMM dd, yyyy");
   
-SimpleDateFormat formatter = new SimpleDateFormat(“EEE. MM/dd”);
+SimpleDateFormat formatter = new SimpleDateFormat("EEE. MM/dd");
 
 http://blog.csdn.net/xymyeah/article/details/1654364
   

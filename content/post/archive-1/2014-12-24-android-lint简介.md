@@ -1,6 +1,6 @@
 ---
 title: Android Lint简介
-author: wiloon
+author: w1100n
 type: post
 date: 2014-12-24T03:52:50+00:00
 url: /?p=7129
@@ -40,7 +40,7 @@ Android Lint主要用于检查以下这些错误：
   
 当然Android Lint远远不至检查以上的错误，更多的内容请参考《Android Lint 检查规则列表》
   
-在Eclipse中可以在菜单Window->Preference->“Lint Eerro checking”中设置规则的检查级别，如图1所示。
+在Eclipse中可以在菜单Window->Preference->"Lint Eerro checking"中设置规则的检查级别，如图1所示。
   
 检查级别可以是:
   

@@ -1,6 +1,6 @@
 ---
 title: 线程通信
-author: wiloon
+author: w1100n
 type: post
 date: 2016-09-23T05:13:57+00:00
 url: /?p=9219
@@ -224,7 +224,7 @@ myMonitorObject.notify();
   
 （校注：本章说的字符串常量指的是值为常量的变量）
 
-本文早期的一个版本在 MyWaitNotify 例子里使用字符串常量（””）作为管程对象。以下是那个例子：
+本文早期的一个版本在 MyWaitNotify 例子里使用字符串常量（""）作为管程对象。以下是那个例子：
 
 public class MyWaitNotify{
 

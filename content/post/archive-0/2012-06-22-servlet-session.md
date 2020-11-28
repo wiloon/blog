@@ -1,6 +1,6 @@
 ---
 title: Servlet Session
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-22T06:08:16+00:00
 url: /?p=3594
@@ -17,10 +17,10 @@ categories:
   
 
   
-    HttpSession接口提供了存储和返回标准会话属性的方法。标准会话属性如会话标识符、应用数据等，都以“键-值”对的形式保存。简而言之，HttpSession接口提供了一种把对象保存到内存、在同一用户的后继请求中提取这些对象的标准办法。在会话中保存数据的方法是setAttribute(String s, Object o)，从会话提取原来所保存对象的方法是getAttribute(String s)。
+    HttpSession接口提供了存储和返回标准会话属性的方法。标准会话属性如会话标识符、应用数据等，都以"键-值"对的形式保存。简而言之，HttpSession接口提供了一种把对象保存到内存、在同一用户的后继请求中提取这些对象的标准办法。在会话中保存数据的方法是setAttribute(String s, Object o)，从会话提取原来所保存对象的方法是getAttribute(String s)。
   
   
-    每当新用户请求一个使用了HttpSession对象的JSP页面，JSP容器除了发回应答页面之外，它还要向浏览器发送一个特殊的数字。这个特殊的数字称为“会话标识符”，它是一个唯一的用户标识符。此后，HttpSession对象就驻留在内存之中，等待同一用户返回时再次调用它的方法。
+    每当新用户请求一个使用了HttpSession对象的JSP页面，JSP容器除了发回应答页面之外，它还要向浏览器发送一个特殊的数字。这个特殊的数字称为"会话标识符"，它是一个唯一的用户标识符。此后，HttpSession对象就驻留在内存之中，等待同一用户返回时再次调用它的方法。
   
   
     在客户端，浏览器保存会话标识符，并在每一个后继请求中把这个会话标识符发送给服务器。会话标识符告诉JSP容器当前请求不是用户发出的第一个请求，服务器以前已经为该用户创建了HttpSession对象。此时，JSP容器不再为用户创建新的HttpSession对象，而是寻找具有相同会话标识符的HttpSession对象，然后建立该HttpSession对象和当前请求的关联。
@@ -432,7 +432,7 @@ categories:
     </table>
   
   <p align="left">
-    当系统退出登录时，只需简单地调用session.removeAttribute(“listener”);
+    当系统退出登录时，只需简单地调用session.removeAttribute("listener");
  即可自动调用监听器的valueUnbound方法。或者，当Session Time Out的时候也会调用此方法。
  登录人数的统计：
   

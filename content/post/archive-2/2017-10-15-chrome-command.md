@@ -1,6 +1,6 @@
 ---
 title: chrome command
-author: wiloon
+author: w1100n
 type: post
 date: 2017-10-15T07:04:28+00:00
 url: /?p=11277
@@ -36,13 +36,13 @@ Chrome 有很多的特性在界面菜单中是没有体现的，你可以通过 
 
   1. chrome://memory
 
-该命令将重定向到 “chrome://memory-redirect/”. 它将显示浏览器使用内存的情况，以及系统中运行的其他浏览器，包括 firefox。同时还显示浏览器进程的详细信息。
+该命令将重定向到 "chrome://memory-redirect/". 它将显示浏览器使用内存的情况，以及系统中运行的其他浏览器，包括 firefox。同时还显示浏览器进程的详细信息。
 
   1. chrome://net-internals
 
 该命令显示网络相关信息，用来捕获浏览器生成的网络事件，可导出数据，可查看DNS主机解析缓存。
 
-其中一个很重要的功能就是“测试”，如果你无法访问某个网址，那么可以使用 “chrome://net-internals” -> 点击“Tests” tab -> 输入网址，并点击开始测试，Chrome 将报告具体的问题所在。
+其中一个很重要的功能就是"测试"，如果你无法访问某个网址，那么可以使用 "chrome://net-internals" -> 点击"Tests" tab -> 输入网址，并点击开始测试，Chrome 将报告具体的问题所在。
 
   1. chrome://quota-internals
 

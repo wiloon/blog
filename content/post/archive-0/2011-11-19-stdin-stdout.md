@@ -1,6 +1,6 @@
 ---
 title: STDIN STDOUT…
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-19T07:35:23+00:00
 url: /?p=1543

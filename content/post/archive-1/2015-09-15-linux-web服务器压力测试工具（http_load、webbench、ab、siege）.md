@@ -1,6 +1,6 @@
 ---
 title: Web服务 压力测试工具，goreplay gor, http_load、webbench、apabhe ab、siege
-author: wiloon
+author: w1100n
 type: post
 date: 2015-09-15T07:13:48+00:00
 url: /?p=8261
@@ -52,7 +52,7 @@ http_load以并行复用的方式运行，用以测试web服务器的吞吐量�
   
 </blockquote>
 
-<iframe title="《VPS服务器的选择》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv" data-secret="iAUiVVmnMv" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv
 
 <blockquote class="wp-embedded-content" data-secret="cLrZu8rncf">
   
@@ -68,7 +68,7 @@ https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf
   
 </blockquote>
 
-<iframe title="《DiaVPS 4月最新优惠》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d" data-secret="aK3vT9Oj6d" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d
 
 <blockquote class="wp-embedded-content" data-secret="GisBcCy5FH">
   
@@ -76,7 +76,7 @@ https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf
   
 </blockquote>
 
-<iframe title="《VPS主机上备份网站和数据库》—VPS侦探" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.vpser.net/security/vps-backup-web-mysql.html/embed#?secret=GisBcCy5FH" data-secret="GisBcCy5FH" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://www.vpser.net/security/vps-backup-web-mysql.html/embed#?secret=GisBcCy5FH
   
 例如：
   
@@ -168,7 +168,7 @@ webbench -c 5000 -t 120 http://www.163.com
   
 -e csv-file
   
-产生一个以逗号分隔的(CSV)文件， 其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。 由于这种格式已经“二进制化”，所以比'gnuplot'格式更有用。
+产生一个以逗号分隔的(CSV)文件， 其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。 由于这种格式已经"二进制化"，所以比'gnuplot'格式更有用。
   
 -g gnuplot-file
   
@@ -482,7 +482,7 @@ Shortest transaction: 0.00 //每次传输所花最短时间
   
 </blockquote>
 
-<iframe title="《十个免费的Web压力测试工具》—酷 壳 - CoolShell" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5" data-secret="No65LHIzR5" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5
   
 http://www.cnblogs.com/shipengzhi/archive/2012/10/09/2716766.html
   

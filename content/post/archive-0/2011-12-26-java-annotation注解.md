@@ -1,6 +1,6 @@
 ---
 title: Java Annotation/注解
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-26T05:36:33+00:00
 url: /?p=2003
@@ -20,7 +20,7 @@ Annotation其实是一种接口。通过Java的反射机制相关的API来访问
 
 annotation是不会影响程序代码的执行，无论annotation怎么变化，代码都始终如一地执行。
 
-Java语言解释器在工作时会忽略这些annotation，因此在JVM 中这些annotation是“不起作用”的，只能通过配套的工具才能对这些annontaion类型的信息进行访问和处理。
+Java语言解释器在工作时会忽略这些annotation，因此在JVM 中这些annotation是"不起作用"的，只能通过配套的工具才能对这些annontaion类型的信息进行访问和处理。
 
 Annotation与interface的异同：
 
@@ -56,7 +56,7 @@ java.lang.Override 是一个marker annotation类型，它被用作标注方法�
 
 (2) Deprecated
 
-Deprecated也是一种marker annotation。当一个类型或者类型成员使用@Deprecated修饰的话，编译器将不鼓励使用这个被标注的程序元素。所以使用这种修饰具有一定的 “延续性”：如果我们在代码中通过继承或者覆盖的方式使用了这个过时的类型或者成员，虽然继承或者覆盖后的类型或者成员并不是被声明为 @Deprecated，但编译器仍然要报警。
+Deprecated也是一种marker annotation。当一个类型或者类型成员使用@Deprecated修饰的话，编译器将不鼓励使用这个被标注的程序元素。所以使用这种修饰具有一定的 "延续性"：如果我们在代码中通过继承或者覆盖的方式使用了这个过时的类型或者成员，虽然继承或者覆盖后的类型或者成员并不是被声明为 @Deprecated，但编译器仍然要报警。
 
 注意：@Deprecated这个annotation类型和javadoc中的 @deprecated这个tag是有区别的：前者是java编译器识别的，而后者是被javadoc工具所识别用来生成文档(包含程序成员为什么已经过时、它应当如何被禁止或者替代的描述)。
   
@@ -72,21 +72,21 @@ annotation语法允许在annotation名后跟括号，括号中是使用逗号分
 
 代码：
 
-@SuppressWarnings(value={“unchecked”,”fallthrough”})
+@SuppressWarnings(value={"unchecked","fallthrough"})
   
 public void lintTrap() { /\* sloppy method body omitted \*/ }
   
 在这个例子中SuppressWarnings annotation类型只定义了一个单一的成员，所以只有一个简单的value={…}作为name=value对。又由于成员值是一个数组，故使用大括号来声明数组值。
 
-注意：我们可以在下面的情况中缩写annotation：当annotation只有单一成员，并成员命名为”value=”。这时可以省去”value=”。比如将上面的SuppressWarnings annotation进行缩写：
+注意：我们可以在下面的情况中缩写annotation：当annotation只有单一成员，并成员命名为"value="。这时可以省去"value="。比如将上面的SuppressWarnings annotation进行缩写：
 
 代码：
 
-@SuppressWarnings({“unchecked”,”fallthrough”})
+@SuppressWarnings({"unchecked","fallthrough"})
   
 如果SuppressWarnings所声明的被禁止警告个数为一个时，可以省去大括号：
 
-@SuppressWarnings(“unchecked”)
+@SuppressWarnings("unchecked")
   
 　　四、自定义annontation示例
 
@@ -176,17 +176,17 @@ String value();
 
 package com.magc.annotation;
   
-@Description(value = “这是一个有用的工具类”)
+@Description(value = "这是一个有用的工具类")
   
 public class Utility {
   
-@Author(name = “haoran_202″,group=”com.magc”)
+@Author(name = "haoran_202″,group="com.magc")
   
 public String work()
   
 {
   
-return “work over!”;
+return "work over!";
   
 }
   
@@ -218,7 +218,7 @@ try {
   
 //通过运行时反射API获得annotation信息
   
-Class rt_class = Class.forName(“com.magc.annotation.Utility”);
+Class rt_class = Class.forName("com.magc.annotation.Utility");
   
 Method[] methods = rt_class.getMethods();
   
@@ -230,7 +230,7 @@ if(flag)
   
 Description description = (Description)rt_class.getAnnotation(Description.class);
   
-System.out.println(“Utility's Description—>”+description.value());
+System.out.println("Utility's Description—>"+description.value());
   
 for (Method method : methods) {
   
@@ -238,7 +238,7 @@ if(method.isAnnotationPresent(Author.class)) {
   
 Author author = (Author)method.getAnnotation(Author.class);
   
-System.out.println(“Utility's Author—>”+author.name()+” from “+author.group());
+System.out.println("Utility's Author—>"+author.name()+" from "+author.group());
   
 }
   

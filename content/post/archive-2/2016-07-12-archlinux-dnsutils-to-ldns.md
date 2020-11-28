@@ -1,6 +1,6 @@
 ---
 title: 'dns tool, dig/drill   , dnsutils to ldns dig -> dirll'
-author: wiloon
+author: w1100n
 type: post
 date: 2016-07-12T05:16:26+00:00
 url: /?p=9125
@@ -17,7 +17,9 @@ sudo pacman -S ldns
 yum install bind-utils
 
 # install drill
+#ubuntu
 sudo apt install ldnsutils
+#alpine
 apk add drill
 
 dig +trace wiloon.com
@@ -46,4 +48,4 @@ While dnsutils provided three similar DNS query tools (dig, host, nslookup), ldn
   
 </blockquote>
 
-<iframe title="《《dig挖出DNS的秘密》-linux命令五分钟系列之三十四》—Linux大棚" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://roclinux.cn/?p=2449&embed=true#?secret=9AchPRSDEE" data-secret="9AchPRSDEE" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://roclinux.cn/?p=2449&embed=true#?secret=9AchPRSDEE

@@ -1,6 +1,6 @@
 ---
 title: Java Iterator 迭代器
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-28T05:45:10+00:00
 url: /?p=6298
@@ -16,7 +16,7 @@ http://jnotnull.iteye.com/blog/262379
 
 <span style="font-family: Arial;">迭代器（Iterator）
 
-<span style="font-family: Arial;">　　迭代器是一种设计模式，它是一个对象，它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为“轻量级”对象，因为创建它的代价小。
+<span style="font-family: Arial;">　　迭代器是一种设计模式，它是一个对象，它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为"轻量级"对象，因为创建它的代价小。
 
 <span style="font-family: Arial;">　　Java中的Iterator功能比较简单，并且只能单向移动：
 

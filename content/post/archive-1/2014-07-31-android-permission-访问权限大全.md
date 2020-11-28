@@ -1,6 +1,6 @@
 ---
 title: Android permission
-author: wiloon
+author: w1100n
 type: post
 date: 2014-07-31T01:36:04+00:00
 url: /?p=6856
@@ -45,7 +45,7 @@ android:label="@string/app_name"
 
 android.permission.ACCESS\_CHECKIN\_PROPERTIES
 
-允许读写访问”properties”表在 checkin数据库中，改值可以修改上传( Allows read/write access to the “properties” table in the checkin database, to change values that get uploaded)
+允许读写访问"properties"表在 checkin数据库中，改值可以修改上传( Allows read/write access to the "properties" table in the checkin database, to change values that get uploaded)
 
 android.permission.ACCESS\_COARSE\_LOCATION
 

@@ -1,6 +1,6 @@
 ---
 title: iptables调试， raw表， LOG
-author: wiloon
+author: w1100n
 type: post
 date: 2018-04-09T16:04:45+00:00
 url: /?p=12128
@@ -166,7 +166,7 @@ https://www.howtoing.com/enable-logging-in-iptables-on-linux
   
 </blockquote>
 
-<iframe title=""iptables debugging" - 1" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO" data-secret="GkDsoEKKiO" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://backreference.org/2010/06/11/iptables-debugging/embed/#?secret=GkDsoEKKiO
   
 http://blog.51cto.com/flymanhi/1276331
   

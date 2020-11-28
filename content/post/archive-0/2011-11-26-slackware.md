@@ -1,6 +1,6 @@
 ---
 title: slackware
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-26T06:36:29+00:00
 url: /?p=1605
@@ -10,17 +10,11 @@ categories:
   - Linux
 
 ---
+# Slackware Linux
 <http://baike.baidu.com/view/10899.htm>
+Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世界上依然存活的最久的Linux发行版，在它的辉煌时期，曾经在所有发行版中拥有最多的用户数量。但是，随着 Linux商业化的浪潮，Redhat、Mandrake 和Suse 这些产品通过大规模的商业推广，占据了广大的市场；Debian作为一个社区发行版，也拥有很大的用户群。相比之下，Slackware的不事声张，使得它从许多人(尤其是使用Linux的新用户)的视野中消失了。
 
-# <span class="Apple-style-span" style="font-size: 13px; font-weight: normal;">Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世界上依然存活的最久的Linux发行版，在它的辉煌时期，曾经在所有发行版中拥有最多的用户数量。但是，随着 Linux商业化的浪潮，Redhat、Mandrake 和Suse 这些产品通过大规模的商业推广，占据了广大的市场；Debian作为一个社区发行版，也拥有很大的用户群。相比之下，Slackware的不事声张，使得它从许多人(尤其是使用Linux的新用户)的视野中消失了。
-
-<div id="lemmaContent-0">
-  
-    
-      Slackware Linux
-  
-  
-    Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本（Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等）不同的道路，它力图成为“UNIX风格”的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。
+    Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本（Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等）不同的道路，它力图成为"UNIX风格"的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。
   
   
   
@@ -38,7 +32,7 @@ categories:
   
   
   
-    “Slackware”这个名字借用自Church of the SubGenius中的术语“Slack”。
+    "Slackware"这个名字借用自Church of the SubGenius中的术语"Slack"。
   
   
   
@@ -46,7 +40,7 @@ categories:
   
   
   
-    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 ：这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样“新”（up-to-date），当时许多其他发行版本的版本号为 6 。
+    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 ：这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样"新"（up-to-date），当时许多其他发行版本的版本号为 6 。
   
   
   
@@ -80,273 +74,7 @@ categories:
   
   
   
-  <table>
-    <tr>
-      <td>
-        版本名称
-      </td>
-      
-      <td>
-        发布日期
-      </td>
-      
-      <td>
-        版本名称
-      </td>
-      
-      <td>
-        发布日期
-      </td>
-      
-      <td>
-        版本名称
-      </td>
-      
-      <td>
-        发布日期
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        1.0
-      </td>
-      
-      <td>
-        1993年7月16日
-      </td>
-      
-      <td>
-        7.1
-      </td>
-      
-      <td>
-        2000年6月22日
-      </td>
-      
-      <td>
-        12.0
-      </td>
-      
-      <td>
-        2007年7月2日
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        2.0
-      </td>
-      
-      <td>
-        1994年7月2日
-      </td>
-      
-      <td>
-        8.0
-      </td>
-      
-      <td>
-        2001年7月1日
-      </td>
-      
-      <td>
-        12.1
-      </td>
-      
-      <td>
-        2008年5月2日
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        3.0
-      </td>
-      
-      <td>
-        1995年11月30日
-      </td>
-      
-      <td>
-        8.1
-      </td>
-      
-      <td>
-        2002年6月18日
-      </td>
-      
-      <td>
-        12.2
-      </td>
-      
-      <td>
-        2008年12月11日
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        3.1
-      </td>
-      
-      <td>
-        1996年6月3日
-      </td>
-      
-      <td>
-        9.0
-      </td>
-      
-      <td>
-        2003年3月19日
-      </td>
-      
-      <td>
-        13.0
-      </td>
-      
-      <td>
-        2009年8月28日
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        3.2
-      </td>
-      
-      <td>
-        1997年2月17日
-      </td>
-      
-      <td>
-        9.1
-      </td>
-      
-      <td>
-        2003年9月26日
-      </td>
-      
-      <td>
-        13.1
-      </td>
-      
-      <td>
-        2010年5月24日
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        3.3
-      </td>
-      
-      <td>
-        1997年6月11日
-      </td>
-      
-      <td>
-        10.0
-      </td>
-      
-      <td>
-        2004年6月23日
-      </td>
-      
-      <td>
-        13.37
-      </td>
-      
-      <td>
-        2011年4月27日
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        3.5
-      </td>
-      
-      <td>
-        1998年6月9日
-      </td>
-      
-      <td>
-        10.1
-      </td>
-      
-      <td>
-        2005年2月2日
-      </td>
-      
-      <td>
-      </td>
-      
-      <td>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        4.0
-      </td>
-      
-      <td>
-        1999年5月17日
-      </td>
-      
-      <td>
-        10.2
-      </td>
-      
-      <td>
-        2005年9月14日
-      </td>
-      
-      <td>
-      </td>
-      
-      <td>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        7.0
-      </td>
-      
-      <td>
-        1999年10月25日
-      </td>
-      
-      <td>
-        11.0
-      </td>
-      
-      <td>
-        2006年10月02日
-      </td>
-      
-      <td>
-      </td>
-      
-      <td>
-      </td>
-    </tr>
-  </table>
-  
-    <a name="2_3"></a>
-  
-  <h2>
-    <a name="3"></a>设计理念
-  </h2>
-  
-  <h2>
-    <span class="Apple-style-span" style="font-size: 13px; font-weight: normal;">Slackware
-  </h2>
-  
-    KISS， 代表“保持简洁，笨拙”（Keep it Simple, Stupid），是一个可以解释很多Slackware中设计选择的概念。在这个文本中，“简洁”（'simple'）指系统设计的观点，而不是指易用性。与大多数其他的发行版不同，KISS(Keep it simple,stupid)是Slackware一贯坚持的原则，尽量保持系统的简洁，从而实现稳定、高效和安全。在KISS哲学里面，简单(Simple)指的是系统设计的简洁性，而不是用户友好(User friendly)。这可能会在一定程度上牺牲了系统的易用性，但却提高了系统的透明性和灵活性。
+    KISS， 代表"保持简洁，笨拙"（Keep it Simple, Stupid），是一个可以解释很多Slackware中设计选择的概念。在这个文本中，"简洁"（'simple'）指系统设计的观点，而不是指易用性。与大多数其他的发行版不同，KISS(Keep it simple,stupid)是Slackware一贯坚持的原则，尽量保持系统的简洁，从而实现稳定、高效和安全。在KISS哲学里面，简单(Simple)指的是系统设计的简洁性，而不是用户友好(User friendly)。这可能会在一定程度上牺牲了系统的易用性，但却提高了系统的透明性和灵活性。
   
   
   
@@ -378,7 +106,7 @@ categories:
   
   
   
-    关于追踪或者无视依赖关系孰优孰劣的争论并不很热闹，这多少让人想起了持续甚久的"vi 对 Emacs" 的“宗教战争”。 Slackware解决问题的方法被技巧熟练的用户群很好的接受了。
+    关于追踪或者无视依赖关系孰优孰劣的争论并不很热闹，这多少让人想起了持续甚久的"vi 对 Emacs" 的"宗教战争"。 Slackware解决问题的方法被技巧熟练的用户群很好的接受了。
   
   
     <a name="3_4"></a>简单灵活的软件包管理机制
@@ -396,7 +124,7 @@ categories:
   
   
   
-    由于tgz格式的软件相对来说比较少，使用Slackware时经常需要从源代码自行编译软件。但有趣的是，尽管在软件包管理上Slackware基本上采取的是“放任自流”的方式，但编译软件时极少遇到缺这个库、少那个库的问题，大多数情况下是非常顺利的。
+    由于tgz格式的软件相对来说比较少，使用Slackware时经常需要从源代码自行编译软件。但有趣的是，尽管在软件包管理上Slackware基本上采取的是"放任自流"的方式，但编译软件时极少遇到缺这个库、少那个库的问题，大多数情况下是非常顺利的。
   
   
   
@@ -418,7 +146,7 @@ categories:
   
   
   
-    历史上，Slackware确实存在对中文支持不太好的问题，但这是在Linux国际化程度比较差的大环境下，几乎所有发行版都存在的普遍问题。在当时，这促成市场上涌现出了几种以中文处理为优势的“国产”Linux。
+    历史上，Slackware确实存在对中文支持不太好的问题，但这是在Linux国际化程度比较差的大环境下，几乎所有发行版都存在的普遍问题。在当时，这促成市场上涌现出了几种以中文处理为优势的"国产"Linux。
   
   
   
@@ -444,7 +172,7 @@ categories:
   
   
   
-    在系统的配置方面， Slackware 不遮掩内部细节， 它将系统“真实”的一面毫不隐藏的呈现给用户，让人们看到“真正的”Linux。 这要求用户需要拥有一定量的基础知识， 才能跨过使用Slackware的门槛， 否则难以驾驭此系统。 对此， 批评者认为， 这让很多事做起来太费劲；而支持者回应到这提高了系统的灵活性和透明性， 使得系统趋向于简洁。　在一些人眼中，Slackware似乎没有对Linux社区做出什么贡献，它只是把现有的软件绑在一起。但是，Slackware既然能成为目前存活时间最长的发行版，拥有一批忠实的用户，是它一直坚持KISS原则、保持自己独特的风格的结果，这种坚持给用户带来一个简洁、高效和稳定的系统。
+    在系统的配置方面， Slackware 不遮掩内部细节， 它将系统"真实"的一面毫不隐藏的呈现给用户，让人们看到"真正的"Linux。 这要求用户需要拥有一定量的基础知识， 才能跨过使用Slackware的门槛， 否则难以驾驭此系统。 对此， 批评者认为， 这让很多事做起来太费劲；而支持者回应到这提高了系统的灵活性和透明性， 使得系统趋向于简洁。　在一些人眼中，Slackware似乎没有对Linux社区做出什么贡献，它只是把现有的软件绑在一起。但是，Slackware既然能成为目前存活时间最长的发行版，拥有一批忠实的用户，是它一直坚持KISS原则、保持自己独特的风格的结果，这种坚持给用户带来一个简洁、高效和稳定的系统。
   
   
   
@@ -452,8 +180,8 @@ categories:
   
   
   
-    由于Slackware在系统管理上的简单、透明，以及“不太友好”的配置工具，用户在进行系统管理时，需要对系统有更加深入的了解，更容易真正理解Linux的运行机制。
+    由于Slackware在系统管理上的简单、透明，以及"不太友好"的配置工具，用户在进行系统管理时，需要对系统有更加深入的了解，更容易真正理解Linux的运行机制。
   
   
   
-    正是由于上述的原因，从Slackware入手学习Linux，虽然门槛稍为有点高，但是更容易接触到Linux系统的本质。在Slackware社区，最经常被引用的一句话就是："When you know Slackware you know Linux. When you know Red Hat, all you know is Red Hat.”
+    正是由于上述的原因，从Slackware入手学习Linux，虽然门槛稍为有点高，但是更容易接触到Linux系统的本质。在Slackware社区，最经常被引用的一句话就是："When you know Slackware you know Linux. When you know Red Hat, all you know is Red Hat."

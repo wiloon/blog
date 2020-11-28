@@ -1,6 +1,6 @@
 ---
 title: yaml
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-19T02:34:08+00:00
 url: /?p=450

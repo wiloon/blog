@@ -1,6 +1,6 @@
 ---
 title: micro service 微服务
-author: wiloon
+author: w1100n
 type: post
 date: 2016-10-10T04:39:13+00:00
 url: /?p=9264
@@ -8,6 +8,15 @@ categories:
   - Uncategorized
 
 ---
+### 微服务
+微服务是一种分布式系统解决方案。  
+
+### 分布式系统
+什么是分布式系统  
+　　分布式系统是由一组通过网络进行通信、为了完成共同的任务而协调工作的计算机节点组成的系统。分布式系统的出现是为了用廉价的、普通的机器完成单个计算机无法完成的计算、存储任务。其目的是利用更多的机器，处理更多的数据。
+
+　　首先需要明确的是，只有当单个节点的处理能力无法满足日益增长的计算、存储任务的时候，且硬件的提升（加内存、加磁盘、使用更好的CPU）高昂到得不偿失的时候，应用程序也不能进一步优化的时候，我们才需要考虑分布式系统。因为，分布式系统要解决的问题本身就是和单机系统一样的，而由于分布式系统多节点、通过网络通信的拓扑结构，会引入很多单机系统没有的问题，为了解决这些问题又会引入更多的机制、协议，带来更多的问题。。。  
+
 ### 复杂性
 
 流量管理（Traffic management）：超时、重试、负载均衡；
@@ -65,7 +74,8 @@ categories:
 外部监控：可通过外部服务监控服务运行状况并酌情更新注册表。很多微服务平台使用这种方法，通常还会用这种外部服务负责服务的整个生命周期管理。
 
  
+---
 
-https://www.zybuluo.com/liuhui0803/note/490701
-  
-http://www.infoq.com/cn/articles/best-practice-of-constructing-micro-service-system
+https://www.zybuluo.com/liuhui0803/note/490701  
+http://www.infoq.com/cn/articles/best-practice-of-constructing-micro-service-system  
+https://www.cnblogs.com/xybaby/p/7787034.html    

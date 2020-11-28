@@ -1,6 +1,6 @@
 ---
 title: golang unit test
-author: wiloon
+author: w1100n
 type: post
 date: 2016-07-13T00:45:41+00:00
 url: /?p=9130
@@ -138,7 +138,7 @@ return n
   
 return Fibonacci(n-1) + Fibonacci(n-2)
   
-fibonacci\_test.go就是测试的文件了，golang需要测试文件一律用”\_test”结尾，测试的函数都用Test开头，代码如下：
+fibonacci\_test.go就是测试的文件了，golang需要测试文件一律用"\_test"结尾，测试的函数都用Test开头，代码如下：
   
 package lib
 

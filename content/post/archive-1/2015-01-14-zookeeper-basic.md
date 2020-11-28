@@ -1,6 +1,6 @@
 ---
 title: zookeeper basic
-author: wiloon
+author: w1100n
 type: post
 date: 2015-01-14T09:32:00+00:00
 url: /?p=7242
@@ -195,9 +195,9 @@ Name Service 已经是 Zookeeper 内置的功能，你只要调用 Zookeeper 的
 
 集群管理（Group Membership）
   
-Zookeeper 能够很容易的实现集群管理的功能，如有多台 Server 组成一个服务集群，那么必须要一个“总管”知道当前集群中每台机器的服务状态，一旦有机器不能提供服务，集群中其它集群必须知道，从而做出调整重新分配服务策略。同样当增加集群的服务能力时，就会增加一台或多台 Server，同样也必须让“总管”知道。
+Zookeeper 能够很容易的实现集群管理的功能，如有多台 Server 组成一个服务集群，那么必须要一个"总管"知道当前集群中每台机器的服务状态，一旦有机器不能提供服务，集群中其它集群必须知道，从而做出调整重新分配服务策略。同样当增加集群的服务能力时，就会增加一台或多台 Server，同样也必须让"总管"知道。
   
-Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态，而且能够帮你选出一个“总管”，让这个总管来管理集群，这就是 Zookeeper 的另一个功能 Leader Election。
+Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态，而且能够帮你选出一个"总管"，让这个总管来管理集群，这就是 Zookeeper 的另一个功能 Leader Election。
   
 它们的实现方式都是在 Zookeeper 上创建一个 EPHEMERAL 类型的目录节点，然后每个 Server 在它们创建目录节点的父目录节点上调用 getChildren(String path, boolean watch) 方法并设置 watch 为 true，由于是 EPHEMERAL 目录节点，当创建它的 Server 死去，这个目录节点也随之被删除，所以 Children 将会变化，这时 getChildren上的 Watch 将会被调用，所以其它 Server 就知道已经有某台 Server 死去了。新增 Server 也是同样的原理。
   
@@ -229,7 +229,7 @@ FIFO 队列用 Zookeeper 实现思路如下：
   
 imok
   
-那么我看见zookeeper回答我们“I'm OK”。下表中是所有的zookeeper的命名，都是由4个字符组成。
+那么我看见zookeeper回答我们"I'm OK"。下表中是所有的zookeeper的命名，都是由4个字符组成。
 
 ZooKeeper在数据一致性上实现了如下几个方面：
   
@@ -355,9 +355,9 @@ Zookeeper 从设计模式角度来看，是一个基于观察者模式设计的�
 
 集群管理（Group Membership）
 
-Zookeeper 能够很容易的实现集群管理的功能，如有多台 Server 组成一个服务集群，那么必须要一个“总管”知道当前集群中每台机器的服务状态，一旦有机器不能提供服务，集群中其它集群必须知道，从而做出调整重新分配服务策略。同样当增加集群的服务能力时，就会增加一台或多台 Server，同样也必须让“总管”知道。
+Zookeeper 能够很容易的实现集群管理的功能，如有多台 Server 组成一个服务集群，那么必须要一个"总管"知道当前集群中每台机器的服务状态，一旦有机器不能提供服务，集群中其它集群必须知道，从而做出调整重新分配服务策略。同样当增加集群的服务能力时，就会增加一台或多台 Server，同样也必须让"总管"知道。
 
-Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态，而且能够帮你选出一个“总管”，让这个总管来管理集群，这就是 Zookeeper 的另一个功能 Leader Election。
+Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态，而且能够帮你选出一个"总管"，让这个总管来管理集群，这就是 Zookeeper 的另一个功能 Leader Election。
 
 它们的实现方式都是在 Zookeeper 上创建一个 EPHEMERAL 类型的目录节点，然后每个 Server 在它们创建目录节点的父目录节点上调用getChildren(String path, boolean watch) 方法并设置 watch 为 true，由于是 EPHEMERAL 目录节点，当创建它的 Server 死去，这个目录节点也随之被删除，所以 Children 将会变化，这时 getChildren上的 Watch 将会被调用，所以其它 Server 就知道已经有某台 Server 死去了。新增 Server 也是同样的原理。
 

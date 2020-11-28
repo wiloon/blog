@@ -1,6 +1,6 @@
 ---
 title: javaEE project
-author: wiloon
+author: w1100n
 type: post
 date: 2014-03-09T02:56:05+00:00
 url: /?p=6383
@@ -10,7 +10,7 @@ tags:
   - JavaEE
 
 ---
-[shell]
+```bash
   
 mkdir javaEELab
   
@@ -30,4 +30,4 @@ cd javaEELab
   
 gradle init -typeb java-library
   
-[/shell]
+```

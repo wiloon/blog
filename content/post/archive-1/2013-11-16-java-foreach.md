@@ -1,6 +1,6 @@
 ---
 title: 'java 循环/loop  while,for,foreach'
-author: wiloon
+author: w1100n
 type: post
 date: 2013-11-16T07:52:48+00:00
 url: /?p=5965
@@ -54,7 +54,7 @@ foreach语句是java5的新特征之一，在遍历数组、集合方面，forea
   
 foreach语句是for语句的特殊简化版本，但是foreach语句并不能完全取代for语句，然而，任何的foreach语句都可以改写为for语句版本。
   
-foreach并不是一个关键字，习惯上将这种特殊的for语句格式称之为“foreach”语句。从英文字面意思理解foreach也就是“for 每一个”的意思。实际上也就是这个意思。
+foreach并不是一个关键字，习惯上将这种特殊的for语句格式称之为"foreach"语句。从英文字面意思理解foreach也就是"for 每一个"的意思。实际上也就是这个意思。
   
 foreach的语句格式：
   
@@ -114,7 +114,7 @@ public void test1() {
   
 int arr[] = {2, 3, 1};
   
-System.out.println(“—-1—-排序前的一维数组”);
+System.out.println("—-1—-排序前的一维数组");
   
 for (int x : arr) {
   
@@ -128,7 +128,7 @@ Arrays.sort(arr);
 
 //利用java新特性for each循环输出数组
   
-System.out.println(“—-1—-排序后的一维数组”);
+System.out.println("—-1—-排序后的一维数组");
   
 for (int x : arr) {
   
@@ -150,15 +150,15 @@ public void listToArray() {
   
 List<String> list = new ArrayList<String>();
   
-list.add(“1”);
+list.add("1");
   
-list.add(“3”);
+list.add("3");
   
-list.add(“4”);
+list.add("4");
 
 //利用froeach语句输出集合元素
   
-System.out.println(“—-2—-froeach语句输出集合元素”);
+System.out.println("—-2—-froeach语句输出集合元素");
   
 for (String x : list) {
   
@@ -172,7 +172,7 @@ Object s[] = list.toArray();
 
 //利用froeach语句输出集合元素
   
-System.out.println(“—-2—-froeach语句输出集合转换而来的数组元素”);
+System.out.println("—-2—-froeach语句输出集合转换而来的数组元素");
   
 for (Object x : s) {
   
@@ -192,7 +192,7 @@ public void testArray2() {
   
 int arr2[][] = {{4, 3}, {1, 2}};
   
-System.out.println(“—-3—-foreach输出二维数组测试”);
+System.out.println("—-3—-foreach输出二维数组测试");
   
 for (int x[] : arr2) {
   
@@ -222,7 +222,7 @@ int arr\[][\]\[\] = {
   
 };
 
-System.out.println(“—-4—-foreach输出三维数组测试”);
+System.out.println("—-4—-foreach输出三维数组测试");
   
 for (int[][] a2 : arr) {
   
@@ -282,7 +282,7 @@ public static void main(String args[]) {
   
 int arr[] = new int[4];
   
-System.out.println(“—-未赋值前输出刚刚定义的数组—-“);
+System.out.println("—-未赋值前输出刚刚定义的数组—-");
   
 for (int x : arr) {
   
@@ -292,7 +292,7 @@ System.out.println(x);
 
 //通过索引给数组元素赋值
   
-System.out.println(“—-通过循环变量给数组元素赋值—-“);
+System.out.println("—-通过循环变量给数组元素赋值—-");
   
 for (int i = 3; i > 0; i–) {
   
@@ -302,7 +302,7 @@ arr[i] = i;
   
 //循环输出创建的数组
   
-System.out.println(“—-赋值后，foreach输出创建好的数组—-“);
+System.out.println("—-赋值后，foreach输出创建好的数组—-");
   
 for (int x : arr) {
   

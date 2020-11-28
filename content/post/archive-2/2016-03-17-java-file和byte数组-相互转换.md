@@ -1,6 +1,6 @@
 ---
 title: 'java 读文件到Byte[]数组'
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-17T09:23:41+00:00
 url: /?p=8806
@@ -13,9 +13,9 @@ http://blog.sina.com.cn/s/blog_ae48aad6010177ns.html
 ```java
 public class Test {  
    public static void main(String[] args){  
-       String filePath = “E:\\softoon\\workspace_softoon\\TestMobile\\src\\1.docx”;  
-       String outFilePath = “E:\\softoon\\workspace_softoon\\TestMobile\\src”;  
-       String outFileName = “2.docx”;  
+       String filePath = "E:\\softoon\\workspace_softoon\\TestMobile\\src\\1.docx";  
+       String outFilePath = "E:\\softoon\\workspace_softoon\\TestMobile\\src";  
+       String outFileName = "2.docx";  
 
        getFile(getBytes(filePath),outFilePath,outFileName);  
    }  
@@ -53,7 +53,7 @@ public class Test {
            if(!dir.exists()&&dir.isDirectory()){//判断文件目录是否存在  
                dir.mkdirs();  
            }  
-           file = new File(filePath+”\\”+fileName);  
+           file = new File(filePath+"\\"+fileName);  
            fos = new FileOutputStream(file);  
            bos = new BufferedOutputStream(fos);  
            bos.write(bfile);  

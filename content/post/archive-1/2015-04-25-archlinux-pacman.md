@@ -1,6 +1,6 @@
 ---
 title: pacman
-author: wiloon
+author: w1100n
 type: post
 date: 2015-04-25T03:37:27+00:00
 url: /?p=7501
@@ -38,7 +38,7 @@ Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 
 ```bash
 --noconfirm
-Bypass any and all “Are you sure?” messages. It's not a good idea to do this unless you want to run pacman from a script.
+Bypass any and all "Are you sure?" messages. It's not a good idea to do this unless you want to run pacman from a script.
 ```
 
 ### archlinux key could not be looked up remotely
@@ -51,7 +51,7 @@ pacman -Rdd package_name
 
 ```
 
-### Fix “unable to lock database”
+### Fix "unable to lock database"
 
 sudo rm /var/lib/pacman/db.lck
 
@@ -241,7 +241,7 @@ pacman -Rs $(pacman -Qtdq)
   
 重新安装你系统中所有的软件包（仓库中已有的）：
   
-pacman -S $(pacman -Qq | grep -v “$(pacman -Qmq)”)
+pacman -S $(pacman -Qq | grep -v "$(pacman -Qmq)")
   
 获取本地软件包和它们大小的一个已排序清单列表：
   

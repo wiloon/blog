@@ -1,6 +1,6 @@
 ---
 title: Guava Multimap
-author: wiloon
+author: w1100n
 type: post
 date: 2017-10-18T02:41:52+00:00
 url: /?p=11283
@@ -159,7 +159,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
   
 　　4.keys视图返回的是个Multiset，这个Multiset是以不重复的键对应的个数作为视图。这个Multiset可以通过支持移除操作而不是添加操作来修改Multimap。
   
-　　5.values()视图能把Multimap里的所有值“平展”成一个Collection<V>。这个操作和Iterables.concat(multimap.asMap().values())很相似，只是它返回的是一个完整的Collection。
+　　5.values()视图能把Multimap里的所有值"平展"成一个Collection<V>。这个操作和Iterables.concat(multimap.asMap().values())很相似，只是它返回的是一个完整的Collection。
 
 　　尽管Multimap的实现用到了Map，但Multimap<K, V>不是Map<K, Collection<V>>。因为两者有明显区别：
   

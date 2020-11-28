@@ -1,6 +1,6 @@
 ---
 title: javascript 取字符串长度
-author: wiloon
+author: w1100n
 type: post
 date: 2011-06-04T14:52:43+00:00
 url: /?p=209

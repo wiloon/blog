@@ -1,6 +1,6 @@
 ---
 title: lsattr,chattr, 管理文件和目录属性
-author: wiloon
+author: w1100n
 type: post
 date: 2017-08-01T07:23:08+00:00
 url: /?p=10967
@@ -44,7 +44,7 @@ rm: cannot remove 'dummy_data': Operation not permitted
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk" data-secret="D3gPzD1nWk" width="600" height="338" title="《（总结）Linux的chattr与lsattr命令详解》—服务器运维架构|深度学习" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk
 
 PS：有时候你发现用root权限都不能修改某个文件，大部分原因是曾经用chattr命令锁定该文件了。chattr命令的作用很大，其中一些功能是由Linux内核版本来支持的，不过现在生产绝大部分跑的linux系统都是2.6以上内核了。通过chattr命令修改属性能够提高系统的安全性，但是它并不适合所有的目录。chattr命令不能保护/、/dev、/tmp、/var目录。lsattr命令是显示chattr命令设置的文件属性。
 
@@ -107,4 +107,4 @@ https://linux.cn/article-5590-1.html
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk" data-secret="D3gPzD1nWk" width="600" height="338" title="《（总结）Linux的chattr与lsattr命令详解》—服务器运维架构|深度学习" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.ha97.com/5172.html/embed#?secret=D3gPzD1nWk

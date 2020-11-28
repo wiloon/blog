@@ -1,6 +1,6 @@
 ---
 title: 电脑通过USB共享android手机网络访问Internet
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-25T05:42:24+00:00
 url: /?p=6284
@@ -20,7 +20,7 @@ categories:
 
 3.使用手机附带的 USB 线连接手机与计算机。
   
-4.Windows XP 的“新硬件向导”打开后，选择否，暂时不，然后点击下一步。
+4.Windows XP 的"新硬件向导"打开后，选择否，暂时不，然后点击下一步。
   
 5.选择从列表或指定位置安装，然后点击下一步。
   

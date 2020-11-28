@@ -1,6 +1,6 @@
 ---
 title: maven profile
-author: wiloon
+author: w1100n
 type: post
 date: 2016-01-06T03:01:01+00:00
 url: /?p=8651
@@ -24,9 +24,9 @@ profile可以让我们定义一系列的配置信息，然后指定其激活条�
 
 （1）    针对于特定项目的profile配置我们可以定义在该项目的pom.xml中。
 
-（2）    针对于特定用户的profile配置，我们可以在用户的settings.xml文件中定义profile。该文件在用户家目录下的“.m2”目录下。
+（2）    针对于特定用户的profile配置，我们可以在用户的settings.xml文件中定义profile。该文件在用户家目录下的".m2"目录下。
 
-（3）    全局的profile配置。全局的profile是定义在Maven安装目录下的“conf/settings.xml”文件中的。
+（3）    全局的profile配置。全局的profile是定义在Maven安装目录下的"conf/settings.xml"文件中的。
 
 4.3     profile中能定义的信息
   
@@ -214,7 +214,7 @@ Cmd代码
   
 Mvn package –P !profileTest1
   
-这里假设profileTest1是在settings.xml中使用activeProfile标记的处于激活状态的profile，那么当我们使用“-P !profile”的时候就表示在当前操作中该profile将不处于激活状态。
+这里假设profileTest1是在settings.xml中使用activeProfile标记的处于激活状态的profile，那么当我们使用"-P !profile"的时候就表示在当前操作中该profile将不处于激活状态。
 
 4.4.4根据环境来激活profile
   

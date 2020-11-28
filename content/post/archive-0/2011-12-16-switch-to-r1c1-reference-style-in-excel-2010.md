@@ -1,6 +1,6 @@
 ---
 title: Switch to R1C1 Reference Style in Excel 2010
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-16T04:17:46+00:00
 url: /?p=1897
@@ -14,4 +14,4 @@ tags:
 
 **Answer:
   
-** In Excel 2010, you would go to Formula section of the Excel Options dialog box.   Go to File->Options, click on “Formula” on the left side.  On the right side, under “Working with Formulas” section, you will find the checkbox for switching to R1C1 reference style.
+** In Excel 2010, you would go to Formula section of the Excel Options dialog box.   Go to File->Options, click on "Formula" on the left side.  On the right side, under "Working with Formulas" section, you will find the checkbox for switching to R1C1 reference style.

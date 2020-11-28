@@ -1,6 +1,6 @@
 ---
 title: windows basic
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-14T05:20:22+00:00
 url: /?p=1040
@@ -52,3 +52,13 @@ netstat -ano|findstr 8080
 
 ### LTSC
 Windows Server vNext Long-Term Servicing Channel (LTSC)
+
+### 启动项
+把bat脚本复制到以下目录
+#### 系统级
+    C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+#### 用户级
+    Win+R
+    输入: shell:startup
+    系统自动打开以下目录
+    C:\Users\user0\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup

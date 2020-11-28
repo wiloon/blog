@@ -1,6 +1,6 @@
 ---
 title: oracle create user
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-02T07:05:15+00:00
 url: /?p=1433
@@ -16,7 +16,7 @@ connect to oracle with sqlplus
 
 http://www.wiloon.com/wordpress/?p=5560
 
-[shell]
+```bash
 
 create user user0 identified by password0;
 
@@ -24,7 +24,7 @@ grant connect, resource to user0;
 
 drop user user0 cascade;
 
-[/shell]
+```
 
 oracle create user, pl sql developer
 

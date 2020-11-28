@@ -1,6 +1,6 @@
 ---
 title: JPA EntityManager
-author: wiloon
+author: w1100n
 type: post
 date: 2014-04-30T03:21:18+00:00
 url: /?p=6571
@@ -47,9 +47,9 @@ tags:
 
 在JavaSE和JavaEE环境下创建应用程序管理的EntityManager的不同之处，并非创建EntityManager的方式不同，而是获得创建EntityManager的EntityManagerFactory的方式不同。
 
-JavaSE环境：Persistence.createEntityManager(“APU”).createEntityManager();
+JavaSE环境：Persistence.createEntityManager("APU").createEntityManager();
 
-JavaEE 环境：使用@PersistenceUnit(unitName=”APU”)标注EntityManagerFactory属性。然后通过调用 emf.createEntityManager()获得EntityManager。由于EntityManager是开发者显式创建并管理的，因此需 要在用完之后调用em.close()方法将之关闭。EntityManagerFactory是容器注入的，不需要也不应该调用emf.close() 方法。
+JavaEE 环境：使用@PersistenceUnit(unitName="APU")标注EntityManagerFactory属性。然后通过调用 emf.createEntityManager()获得EntityManager。由于EntityManager是开发者显式创建并管理的，因此需 要在用完之后调用em.close()方法将之关闭。EntityManagerFactory是容器注入的，不需要也不应该调用emf.close() 方法。
 
 在JavaSE环境下，Persistence类有两个重载的createEntityManagerFactory()方法：
 
@@ -78,9 +78,9 @@ Java事务API（JTA）：可用于管理分布式事务，管理多数据源的�
 
 对于容器管理的EntityManager，在同一事务中必须使用相同的持久化上下文。
 
-事 务范围内的持久化上下文：事务范围内的持久化上下文将其生命周期绑定到某个事务，在需要的时候，事务范围内的持久化上下文由事务范围内的 EntityManager负责创建，之所以说“在需要的时候”，是因为事务范围内的持久化上下文是“懒加载”的，只有在EntityManager实例 调用相关的数据访问方法并且当前不存在可用的持久化上下文的时候，才会创建持久化上下文。
+事 务范围内的持久化上下文：事务范围内的持久化上下文将其生命周期绑定到某个事务，在需要的时候，事务范围内的持久化上下文由事务范围内的 EntityManager负责创建，之所以说"在需要的时候"，是因为事务范围内的持久化上下文是"懒加载"的，只有在EntityManager实例 调用相关的数据访问方法并且当前不存在可用的持久化上下文的时候，才会创建持久化上下文。
 
-扩展的持久化上下文：扩展的持久化上下文与有状态会 话Bean绑定。不同于事务范围内的持久化上下文为每一个事务创建一个新的持久化上下文，有状态会话Bean中扩展的EntityManager总是使用 相同的持久化上下文。有状态会话Bean总是只和一个持久化上下文绑定，并且在有状态会话Bean创建时创建该持久化上下文，在有状态会话Bean销毁时 注销该持久化上下文。也就是说，不同于事务范围内的持久化上下文，扩展的持久化上下文不是“懒加载”的。
+扩展的持久化上下文：扩展的持久化上下文与有状态会 话Bean绑定。不同于事务范围内的持久化上下文为每一个事务创建一个新的持久化上下文，有状态会话Bean中扩展的EntityManager总是使用 相同的持久化上下文。有状态会话Bean总是只和一个持久化上下文绑定，并且在有状态会话Bean创建时创建该持久化上下文，在有状态会话Bean销毁时 注销该持久化上下文。也就是说，不同于事务范围内的持久化上下文，扩展的持久化上下文不是"懒加载"的。
 
 持久化上下文的冲突：当调用某个方法 时有若干个持久化上下文，则会出现持久化上下文冲突，抛出异常。有个特殊情况，即在一个有状态会话Bean的扩展持久化上下文中调用另一个有状态会话 Bean的方法，并且被调用的会话Bean也使用扩展持久化上下文，这样当调用被调用的会话Bean中方法时虽有两个持久化上下文可用，但并不会出现冲 突。被调用的会话Bean继承调用者的持久化上下文。
 

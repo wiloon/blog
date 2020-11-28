@@ -1,6 +1,6 @@
 ---
 title: debian 6 wlan wpa/psk
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-03T15:02:24+00:00
 url: /?p=1728

@@ -1,6 +1,6 @@
 ---
 title: supervisor
-author: wiloon
+author: w1100n
 type: post
 date: 2017-08-11T08:21:18+00:00
 url: /?p=11029
@@ -8,6 +8,10 @@ categories:
   - Uncategorized
 
 ---
+
+    supevisorctl restart all
+
+
 http://liyangliang.me/posts/2015/06/using-supervisor/
 
 使用 supervisor 管理进程
@@ -30,7 +34,7 @@ Supervisor 相当强大，提供了很丰富的功能，不过我们可能只需
   
 echo\_supervisord\_conf > /etc/supervisord.conf
   
-去除里面大部分注释和“不相关”的部分，我们可以先看这些配置：
+去除里面大部分注释和"不相关"的部分，我们可以先看这些配置：
   
 [unix\_http\_server]
   

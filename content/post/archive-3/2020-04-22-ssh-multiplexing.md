@@ -1,6 +1,6 @@
 ---
 title: ssh Multiplexing
-author: wiloon
+author: w1100n
 type: post
 date: 2020-04-21T16:48:13+00:00
 url: /?p=16030
@@ -82,7 +82,7 @@ ControlPath 用来指定muliplexing共用socket文件的路径，path支持~来�
   
 %u The local username.
   
-ControlPersist When used in conjunction with ControlMaster, specifies that the master connection should remain open in the background (waiting for future client connections) after the initial client connection has been closed. If set to no, then the master connection will not be placed into the background, and will close as soon as the initial client connection is closed. If set to yes or 0, then the master connection will remain in the background indefinitely (until killed or closed via a mechanism such as the “ssh -O exit”). If set to a time in seconds, or a time in any of the formats documented in sshd_config(5), then the backgrounded master connection will automatically terminate after it has remained idle (with no client connections) for the specified time.
+ControlPersist When used in conjunction with ControlMaster, specifies that the master connection should remain open in the background (waiting for future client connections) after the initial client connection has been closed. If set to no, then the master connection will not be placed into the background, and will close as soon as the initial client connection is closed. If set to yes or 0, then the master connection will remain in the background indefinitely (until killed or closed via a mechanism such as the "ssh -O exit"). If set to a time in seconds, or a time in any of the formats documented in sshd_config(5), then the backgrounded master connection will automatically terminate after it has remained idle (with no client connections) for the specified time.
 
 ControlPersist用来指定socket的有效时间，设置为yes会等待最后一个session关闭时释放连接，设置为no会在第一个session关闭时释放连接，设置为具体的时间X时，会在等待X时间结束时释放连接
 

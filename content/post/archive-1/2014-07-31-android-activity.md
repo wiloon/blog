@@ -1,6 +1,6 @@
 ---
 title: Android Activity
-author: wiloon
+author: w1100n
 type: post
 date: 2014-07-31T02:25:30+00:00
 url: /?p=6864
@@ -71,7 +71,7 @@ ACTION\_SCREEN\_ON broadcast receiver The screen has been turned on.
   
 ACTION\_TIMEZONE\_CHANGED broadcast receiver The setting for the time zone has changed.
 
-当然，也可以自定义动作（自定义的动作在使用时，需要加上包名作为前缀，如"com.example.project.SHOW_COLOR”），并可定义相应的Activity来处理我们的自定义动作。
+当然，也可以自定义动作（自定义的动作在使用时，需要加上包名作为前缀，如"com.example.project.SHOW_COLOR"），并可定义相应的Activity来处理我们的自定义动作。
 
 （2）Data，也就是执行动作要操作的数据
 
@@ -95,7 +95,7 @@ CATEGORY_PREFERENCE The target activity is a preference panel.
 
 （5）component（组件），指定Intent的的目标组件的类名称。通常 Android会根据Intent 中包含的其它属性的信息，比如action、data/type、category进行查找，最终找到一个与之匹配的目标组件。但是，如果 component这个属性有指定的话，将直接使用它指定的组件，而不再执行上述查找过程。指定了这个属性以后，Intent的其它所有属性都是可选的。
 
-（6）extras（附加信息），是其它所有附加信息的集合。使用extras可以为组件提供扩展信息，比如，如果要执行“发送电子邮件”这个动作，可以将电子邮件的标题、正文等保存在extras里，传给电子邮件发送组件。
+（6）extras（附加信息），是其它所有附加信息的集合。使用extras可以为组件提供扩展信息，比如，如果要执行"发送电子邮件"这个动作，可以将电子邮件的标题、正文等保存在extras里，传给电子邮件发送组件。
 
 理解Intent的关键之一是理解清楚Intent的两种基本用法：一种是显式的Intent，即在构造Intent对象时就指定接收者；另一种是隐式的Intent，即Intent的发送者在构造Intent对象时，并不知道也不关心接收者是谁，有利于降低发送者和接收者之间的耦合。
 
@@ -179,7 +179,7 @@ Bundle bundle=new Bundle();
   
 bundle.putString("name", "This is from MainActivity!");
   
-it.putExtras(bundle); // it.putExtra(“test”, "shuju”);
+it.putExtras(bundle); // it.putExtra("test", "shuju");
   
 startActivity(it); // startActivityForResult(it,REQUEST_CODE);
 

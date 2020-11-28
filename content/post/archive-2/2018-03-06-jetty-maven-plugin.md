@@ -1,6 +1,6 @@
 ---
 title: jetty-maven-plugin, jetty maven plugin
-author: wiloon
+author: w1100n
 type: post
 date: 2018-03-06T07:10:51+00:00
 url: /?p=11958
@@ -14,18 +14,19 @@ categories:
 <plugin>
     <groupId>org.eclipse.jetty</groupId>
     <artifactId>jetty-maven-plugin</artifactId>
-    <version>9.4.6.v20170531</version>
+    <version>9.4.33.v20201020</version>
     <configuration>
         <stopKey>stop</stopKey>
         <stopPort>5599</stopPort>
         <webApp>
-            <contextPath>/app0</contextPath>
+            <!-- <contextPath>/app0</contextPath> -->
+            <contextPath>/</contextPath>
             <defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
         </webApp>
         <scanIntervalSeconds>2</scanIntervalSeconds>
 
         <httpConnector>
-            <port>8081</port>
+            <port>8080</port>
         </httpConnector>
     </configuration>
 </plugin>

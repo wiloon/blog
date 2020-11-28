@@ -1,6 +1,6 @@
 ---
 title: java float double
-author: wiloon
+author: w1100n
 type: post
 date: 2011-07-02T12:59:21+00:00
 url: /?p=261

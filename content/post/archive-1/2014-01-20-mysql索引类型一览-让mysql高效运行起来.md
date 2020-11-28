@@ -1,6 +1,6 @@
 ---
 title: MySQL 索引
-author: wiloon
+author: w1100n
 type: post
 date: 2014-01-20T10:43:03+00:00
 url: /?p=6243
@@ -98,7 +98,7 @@ Full-text (全文索引)：全文索引也是MyISAM的一种特殊索引类型�
   
 3.尽量选择区分度高的列作为索引,区分度的公式是count(distinct col)/count(*)，表示字段不重复的比例，比例越大我们扫描的记录数越少，唯一键的区分度是1，而一些状态、性别字段可能在大数据面前区分度就是0，那可能有人会问，这个比例有什么经验值吗？使用场景不同，这个值也很难确定，一般需要join的字段我们都要求是0.1以上，即平均1条扫描10条记录
   
-4.索引列不能参与计算，保持列“干净”，比如from\_unixtime(create\_time) = '2014-05-29'就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create\_time = unix\_timestamp('2014-05-29');
+4.索引列不能参与计算，保持列"干净"，比如from\_unixtime(create\_time) = '2014-05-29'就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create\_time = unix\_timestamp('2014-05-29');
   
 5.尽量的扩展索引，不要新建索引。比如表中已经有a的索引，现在要加(a,b)的索引，那么只需要修改原来的索引即可
 
@@ -120,7 +120,7 @@ username VARCHAR(16) NOT NULL
 
 我们随机向里面插入了10000条记录，其中有一条：5555, admin。
 
-在查找username=”admin”的记录 SELECT * FROM mytable WHERE username='admin';时，如果在username上已经建立了索引，MySQL无须任何扫描，即准确可找到该记录。相反，MySQL会扫描所有记录，即要查询10000条记录。
+在查找username="admin"的记录 SELECT * FROM mytable WHERE username='admin';时，如果在username上已经建立了索引，MySQL无须任何扫描，即准确可找到该记录。相反，MySQL会扫描所有记录，即要查询10000条记录。
 
 索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索引包含多个列。
 
@@ -228,17 +228,17 @@ usernname,city
   
 usernname
 
-为什么没有 city，age这样的组合索引呢？这是因为MySQL组合索引“最左前缀”的结果。简单的理解就是只从最左面的开始组合。并不是只要包含这三列的查询都会用到该组合索引，下面的几个SQL就会用到这个组合索引：
+为什么没有 city，age这样的组合索引呢？这是因为MySQL组合索引"最左前缀"的结果。简单的理解就是只从最左面的开始组合。并不是只要包含这三列的查询都会用到该组合索引，下面的几个SQL就会用到这个组合索引：
   
-SELECT * FROM mytable WHREE username=”admin” AND city=”郑州”
+SELECT * FROM mytable WHREE username="admin" AND city="郑州"
   
-SELECT * FROM mytable WHREE username=”admin”
+SELECT * FROM mytable WHREE username="admin"
 
 而下面几个则不会用到：
   
-SELECT * FROM mytable WHREE age=20 AND city=”郑州”
+SELECT * FROM mytable WHREE age=20 AND city="郑州"
   
-SELECT * FROM mytable WHREE city=”郑州”
+SELECT * FROM mytable WHREE city="郑州"
 
 （5）建立索引的时机
   
@@ -290,7 +290,7 @@ MySQL查询只使用一个索引，因此如果where子句中已经使用了索�
 
 ◆like语句操作
   
-一般情况下不鼓励使用like操作，如果非使用不可，如何使用也是一个问题。like “%aaa%” 不会使用索引而like “aaa%”可以使用索引。
+一般情况下不鼓励使用like操作，如果非使用不可，如何使用也是一个问题。like "%aaa%" 不会使用索引而like "aaa%"可以使用索引。
 
 ◆不要在列上进行运算
   

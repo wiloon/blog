@@ -1,6 +1,6 @@
 ---
 title: yarn basic
-author: wiloon
+author: w1100n
 type: post
 date: 2017-09-30T06:01:42+00:00
 url: /?p=11228
@@ -8,12 +8,21 @@ categories:
   - Uncategorized
 
 ---
+### Yarn是什么？
+"Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ，正如官方文档中写的，Yarn 是为了弥补 npm 的一些缺陷而出现的。
+
 ### build
    yarn build
    yarn build --report // 会在dist目录下生成一个report.html
 
-### npm > yarn
+### npm, yarn  命令对照
 https://classic.yarnpkg.com/zh-Hans/docs/migrating-from-npm/
+### npm命令简写
+https://www.jianshu.com/p/455f74669ce9
+
+    npm install本身有一个别名，即npm i
+    -S --save，缩写为-S，表示安装的包将写入package.json里面的dependencies。
+
 ```bash
 npm install
 yarn install
@@ -24,8 +33,8 @@ yarn add algoliasearch/lite
 npm install --save-dev
 yarn add -dev
 
-npm install packagename --save-dev 或 -D
-yarn add [package] --dev
+npm install package0 --save-dev 或 -D
+yarn add [package0] --dev
 
 npm install --global http-server
 yarn global add http-server
@@ -33,11 +42,8 @@ yarn global add http-server
 
 ### 打印依赖
     yarn list
-### Yarn是什么？
-“Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ，正如官方文档中写的，Yarn 是为了弥补 npm 的一些缺陷而出现的。
 
 ### yarn 国内加速，修改镜像源
-
 #### 以下命令查看当前使用的镜像源
 yarn config get registry
 # 临时修改
@@ -47,19 +53,18 @@ yarn config set registry https://registry.npm.taobao.org/
 
 yarn add @angular-devkit/build-angular --dev
 
-# debian install yarn
-
+#### debian install yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn
 
 https://yarnpkg.com/zh-Hans/docs/install#debian-stable
 
-# archlinux
+#### archlinux
 sudo pacman -S yarn
 
-# 查看版本
-yarn --version
+### 查看版本
+    yarn --version
 
 yarn global add @angular/cli
 
@@ -88,7 +93,7 @@ yarn config set registry "https://registry.npm.taobao.org"
 # -> success Set "registry" to "https://registry.npm.taobao.org".
 
 # -> Done in 0.04s.
-
+```
 https://my.oschina.net/jiangxinxin/blog/775326
 
 yarn vs npm

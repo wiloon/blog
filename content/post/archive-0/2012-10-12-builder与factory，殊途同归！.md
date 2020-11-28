@@ -1,6 +1,6 @@
 ---
 title: Builder, Factory
-author: wiloon
+author: w1100n
 type: post
 date: 2012-10-12T08:26:55+00:00
 url: /?p=4449
@@ -35,7 +35,7 @@ tags:
     
     
     
-      [java]
+      ```java
  public interface IBuilder
  {
  void BuildPart1();
@@ -72,7 +72,7 @@ tags:
  builder.BuildPart2();
  }
  }
- [/java]
+ ```
     
     
     
@@ -80,7 +80,7 @@ tags:
     
     
     
-      [java]
+      ```java
  public class Client
  {
  public void Run()
@@ -92,7 +92,7 @@ tags:
  product.Show();
  }
  }
- [/java]
+ ```
     
     
     
@@ -110,7 +110,7 @@ tags:
     
     
     
-      [java]
+      ```java
  public class Client
  {
  public void Run()
@@ -127,7 +127,7 @@ tags:
     
     
     
-      [/java]
+      ```
     
     
     
@@ -135,7 +135,7 @@ tags:
     
     
     
-      [java]
+      ```java
  public class BuilderA : IBuilder
  {
  private Product product;
@@ -171,7 +171,7 @@ tags:
     
     
     
-      [/java]
+      ```
     
     
     
@@ -187,7 +187,7 @@ tags:
     
     
     
-      [java]
+      ```java
  //Create method in Buider
  public Product Create()
  {
@@ -201,7 +201,7 @@ tags:
     
     
     
-      [/java]
+      ```
     
     
     
@@ -209,7 +209,7 @@ tags:
     
     
     
-      [java]
+      ```java
  //Create method in Buider
  public Product Create()
  {
@@ -231,7 +231,7 @@ tags:
     
     
     
-      [/java]
+      ```
   
   
     好了，通过对Builder模式向Factory的一步步演化，我们可以看到两者实质上并没有太多的区别，这也就是本文想要阐述的观点，也许很多朋友这时会反驳我了，说两者怎么会没有区别呢？
@@ -287,7 +287,7 @@ tags:
     既然我们不是为了学习设计模式而学习，而是为了学习OOD的精髓，能够编写出更加灵活，适用于需求变化的软件。那么对于需求变化，我们不妨再来看看两个模式是如何应对的。Builder模式适用场景中的第3条提到了"变化"二字：对象内部的构建通常面临着复杂的变化。就拿PartA为例，现在这个对象发生了剧烈的变化，对于Builder来讲，修改BuildPartA()方法显然是违反OCP的，于是采取第二种方法，从抽象Builder派生一个新的NewBuilder类，为这个新的Builder添加变化后的BuildPartA()方法，其余BuildPart方法不变。代码如下。
   
   
-    [java]
+    ```java
  public class NewBuilder : IBuilder
  {
  private Product product;
@@ -338,7 +338,7 @@ tags:
  return product;
  }
  }
- [/java]
+ ```
   
 
 你可能会认为，我改造后的Factory就不叫Factory了，已经失去了Factory的本意，好吧，那我们暂且抛开它的名称，换个角度来看看Builder与Factory，Builder具有Factory应付不了的情况吗？没有！因为对象很复杂，所以使用Builder构建对象功能更强大，更具有灵活性吗？没有！客户对于取得产品的过程，以及最终产品的使用有区别吗？没有！因此Builder仅仅是在代码的结构上与Factory产生了一些异同，使得用户可以在取得产品前对产品进行一定的初始化工作。如果这也能够称为新模式的话，那么只能说个人对于设计间区别的理解不同。

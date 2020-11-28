@@ -1,6 +1,6 @@
 ---
 title: generate delete sql
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-25T09:19:07+00:00
 url: /?p=1598

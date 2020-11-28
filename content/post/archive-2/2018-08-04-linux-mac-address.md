@@ -1,6 +1,6 @@
 ---
 title: systemd-networkd MAC address spoofing
-author: wiloon
+author: w1100n
 type: post
 date: 2018-08-03T16:03:01+00:00
 url: /?p=12491
@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-https://wiki.archlinux.org/index.php/MAC\_address\_spoofing
+https://wiki.archlinux.org/index.php/MAC_address_spoofing
 
 ```bash
 vim /etc/systemd/network/00-default.link

@@ -1,6 +1,6 @@
 ---
 title: systemd 添加开机启动运行shell脚本
-author: wiloon
+author: w1100n
 type: post
 date: 2019-01-01T03:05:58+00:00
 url: /?p=13278

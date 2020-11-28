@@ -1,6 +1,6 @@
 ---
 title: fdisk for linux
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-04T09:53:34+00:00
 url: /?p=7609
@@ -83,7 +83,7 @@ e   extended
   
 p   primary partition (1-4)
 
-p  #选择“增加主分区“
+p  #选择"增加主分区"
   
 Partition number (1-4):1     #选择作为1号分区
 

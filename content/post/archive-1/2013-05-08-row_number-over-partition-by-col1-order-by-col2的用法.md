@@ -1,6 +1,6 @@
 ---
 title: Row_number () over (partition by col1 order by col2)的用法
-author: wiloon
+author: w1100n
 type: post
 date: 2013-05-08T03:13:29+00:00
 url: /?p=5430

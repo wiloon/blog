@@ -1,6 +1,6 @@
 ---
 title: jetty tomcat
-author: wiloon
+author: w1100n
 type: post
 date: 2012-12-16T03:53:57+00:00
 url: /?p=4909
@@ -21,7 +21,7 @@ Tomcat 经过长时间的发展，它已经广泛的被市场接受和认可，�
 
 从架构上来说，显然 Jetty 比 Tomcat 更加简单，如果你对 Tomcat 的架构还不是很了解的话，建议你先看一下 《Tomcat系统架构与设计模式》这篇文章。
 
-Jetty 的架构从前面的分析可知，它的所有组件都是基于 Handler 来实现，当然它也支持 JMX。但是主要的功能扩展都可以用 Handler 来实现。可以说 Jetty 是面向 Handler 的架构，就像 Spring 是面向 Bean 的架构，iBATIS 是面向 statement 一样，而 Tomcat 是以多级容器构建起来的，它们的架构设计必然都有一个“元神”，所有以这个“元神“构建的其它组件都是肉身。
+Jetty 的架构从前面的分析可知，它的所有组件都是基于 Handler 来实现，当然它也支持 JMX。但是主要的功能扩展都可以用 Handler 来实现。可以说 Jetty 是面向 Handler 的架构，就像 Spring 是面向 Bean 的架构，iBATIS 是面向 statement 一样，而 Tomcat 是以多级容器构建起来的，它们的架构设计必然都有一个"元神"，所有以这个"元神"构建的其它组件都是肉身。
 
 从设计模板角度来看 Handler 的设计实际上就是一个责任链模式，接口类 HandlerCollection 可以帮助开发者构建一个链，而另一个接口类 ScopeHandler 可以帮助你控制这个链的访问顺序。另外一个用到的设计模板就是观察者模式，用这个设计模式控制了整个 Jetty 的生命周期，只要继承了 LifeCycle 接口，你的对象就可以交给 Jetty 来统一管理了。所以扩展 Jetty 非常简单，也很容易让人理解，整体架构上的简单也带来了无比的好处，Jetty 可以很容易被扩展和裁剪。
 

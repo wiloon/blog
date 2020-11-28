@@ -1,6 +1,6 @@
 ---
 title: archlinux 登录后启动xfce4
-author: wiloon
+author: w1100n
 type: post
 date: 2016-04-25T05:51:34+00:00
 url: /?p=8940

@@ -1,6 +1,6 @@
 ---
 title: linux apps
-author: wiloon
+author: w1100n
 type: post
 date: 2018-09-23T05:52:02+00:00
 url: /?p=12667
@@ -72,6 +72,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | gpick                 | 颜色拾取工具                                                 |
 |	telegram-desktop| 	telegram|
 |apper|pacman GUI|
+|dstat|查看系统性能的工具 dstat -cdlmnpsy|
+|sl|小火车|
 
 ### pacman, dev
 
@@ -90,6 +92,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |termite|支持32位色的终端|
 |neovim|用户体验更好的vim|
 |adobe-source-code-pro-fonts|adobe 的编程字体|
+|tmux||
 
 
 ### AUR, yay:
@@ -121,6 +124,9 @@ sudo pacman -S powerdevil kmix kscreen ark
 | tableplus|mysql client|
 | procmon| 微软的进程监控工具|
 |webstorm-jre| yay -S webstorm webstorm-jre|
+|platformio||
+|clion||
+|slurm|网络监控|
 
 ### KDE
 
@@ -132,6 +138,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | ark        | 压缩包管理器         |
 | gwenview   | 图片查看             |
 | kscreen    | kde 多显示器管理工具 |
+|kcolorchooser|颜色拾取|
 
 ### KDE widget
 
@@ -147,6 +154,13 @@ sudo pacman -S powerdevil kmix kscreen ark
 | Name          | Comments |
 | ------------- | -------- |
 | openjdk-8-jdk |          |
+|openjdk-8-source||
+|git-svn        |             |
+|nautilus           |ubuntu默认的文件管理器|
+|ttf-wqy-microhei   |文泉驿-微米黑|
+|ttf-wqy-zenhei     |文泉驿-正黑|
+|xfonts-wqy         |文泉驿-点阵宋体|
+|keepassxc          ||
 
 ### xfce4
 file-roller

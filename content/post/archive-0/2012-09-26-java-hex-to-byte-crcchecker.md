@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-[java]
+```java
 
 public final String byte2Hex(final byte[] btSrc) throws Exception {
    
@@ -118,12 +118,12 @@ return blRtn;
    
 }
 
-[/java]
+```
 
 
 CRCChecker.java
 
-[java]
+```java
 
 import java.io.File;
   
@@ -213,5 +213,5 @@ return lngRtn;
 
 }
 
-[/java]
+```
 

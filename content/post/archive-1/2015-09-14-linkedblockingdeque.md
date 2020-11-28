@@ -1,6 +1,6 @@
 ---
 title: LinkedBlockingDeque
-author: wiloon
+author: w1100n
 type: post
 date: 2015-09-14T06:21:51+00:00
 url: /?p=8256
@@ -12,7 +12,7 @@ http://www.cnblogs.com/linjiqin/p/3214725.html
 
 Java多线程-新特征-阻塞栈LinkedBlockingDeque
   
-对于阻塞栈，与阻塞队列相似。不同点在于栈是“后入先出”的结构，每次操作的是栈顶，而队列是“先进先出”的结构，每次操作的是队列头。
+对于阻塞栈，与阻塞队列相似。不同点在于栈是"后入先出"的结构，每次操作的是栈顶，而队列是"先进先出"的结构，每次操作的是队列头。
 
 这里要特别说明一点的是，阻塞栈是Java6的新特征。、
 

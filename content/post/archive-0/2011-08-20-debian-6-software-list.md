@@ -1,6 +1,6 @@
 ---
 title: Debian install
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-20T18:43:35+00:00
 url: /?p=462
@@ -47,15 +47,11 @@ update time zone: select shanghai. System.administration.Time and date
 
 #install Xmarks for chrome, download all bookmarks then switch profile to HOME
    
-#create folder named “opt” in /home/wiloon/
+#create folder named "opt" in /home/wiloon/
 
 #create a link…
    
 sudo ln -s /home/wiloon/.emacs /root/.emacs
-   
-#axel
-   
-sudo apt-get install axel
 
 Firefox
 

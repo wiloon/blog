@@ -1,6 +1,6 @@
 ---
 title: 使用 arpalert 来做被动式arp防火墙
-author: wiloon
+author: w1100n
 type: post
 date: 2012-09-19T23:55:18+00:00
 url: /?p=4111
@@ -117,7 +117,7 @@ usleep($ival);
   
 (调整了一下)
 
-[shell]
+```bash
   
 #
   
@@ -399,7 +399,7 @@ alert on flood   = false
   
 mod on flood = true
   
-[/shell]
+```
 
 sudo visudo
   
@@ -408,6 +408,6 @@ sudo visudo
   代码:
 
 
-  [shell]
+  ```bash
  arpalert ALL=NOPASSWD: /usr/local/sbin/arpdef.pl *
- [/shell]
+ ```

@@ -1,6 +1,6 @@
 ---
 title: Thymeleaf
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-23T02:03:53+00:00
 url: /?p=9869
@@ -43,7 +43,7 @@ href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
 
 </html>
 
-这是一段标准的HTML代码，这也就意味着通过浏览器直接打开它是可以正确解析它的结构并看到页面的样子。相比去其他的模板引擎在指定的位置通过${}等表达式进行渲染，Thymeleaf则是一种针对HTML/XML定制的模板语言（当然它可以被扩展），它通过标签中的th:text属性来填充该标签的一段内容。上例中，<p th:text="#{home.welcome}">Welcome to our grocery store!意味着标签中的内容会被表达式#{home.welcome}的值所替代，无论模板中它的内容是什么，之所以在模板中“多此一举“地填充它的内容，完全是为了它能够作为原型在浏览器中直接显示出来。
+这是一段标准的HTML代码，这也就意味着通过浏览器直接打开它是可以正确解析它的结构并看到页面的样子。相比去其他的模板引擎在指定的位置通过${}等表达式进行渲染，Thymeleaf则是一种针对HTML/XML定制的模板语言（当然它可以被扩展），它通过标签中的th:text属性来填充该标签的一段内容。上例中，<p th:text="#{home.welcome}">Welcome to our grocery store!意味着标签中的内容会被表达式#{home.welcome}的值所替代，无论模板中它的内容是什么，之所以在模板中"多此一举"地填充它的内容，完全是为了它能够作为原型在浏览器中直接显示出来。
 
 标准表达式语法
   

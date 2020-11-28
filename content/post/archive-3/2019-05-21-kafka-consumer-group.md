@@ -1,6 +1,6 @@
 ---
-title: kafka consumer group
-author: wiloon
+title: kafka consumer, group
+author: w1100n
 type: post
 date: 2019-05-21T02:54:18+00:00
 url: /?p=14377
@@ -8,6 +8,25 @@ categories:
   - Uncategorized
 
 ---
+### kafka consumer
+https://blog.csdn.net/lishuangzhe7047/article/details/74530417
+
+    properties.put("enable.auto.commit", "true");
+    properties.put("auto.commit.interval.ms", "1000");
+    properties.put("auto.offset.reset", "latest");
+    properties.put("session.timeout.ms", "30000");
+    properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+    properties.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
+
+    auto.offset.reset
+    earliest
+    当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+    latest
+    当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
+    none
+    topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
+
+
 https://www.cnblogs.com/huxi2b/p/6223228.html
 
 Kafka消费组(consumer group)
@@ -20,13 +39,13 @@ Kafka消费组(consumer group)
   
 1 Kafka的版本
 
-很多人在Kafka中国社区(替群主做个宣传，QQ号：162272557)提问时的开头经常是这样的：“我使用的kafka版本是2.10/2.11, 现在碰到一个奇怪的问题。。。。” 无意冒犯，但这里的2.10/2.11不是kafka的版本，而是编译kafka的Scala版本。Kafka的server端代码是由Scala语言编写的，目前Scala主流的3个版本分别是2.10、2.11和2.12。实际上Kafka现在每个PULL request都已经自动增加了这三个版本的检查。下图是我的一个PULL request，可以看到这个fix会同时使用3个scala版本做编译检查：
+很多人在Kafka中国社区(替群主做个宣传，QQ号：162272557)提问时的开头经常是这样的："我使用的kafka版本是2.10/2.11, 现在碰到一个奇怪的问题。。。。" 无意冒犯，但这里的2.10/2.11不是kafka的版本，而是编译kafka的Scala版本。Kafka的server端代码是由Scala语言编写的，目前Scala主流的3个版本分别是2.10、2.11和2.12。实际上Kafka现在每个PULL request都已经自动增加了这三个版本的检查。下图是我的一个PULL request，可以看到这个fix会同时使用3个scala版本做编译检查：
 
 目前广泛使用kafka的版本应该是这三个大版本：0.8.x， 0.9.x和0.10.* 。 这三个版本对于consumer和consumer group来说都有很大的变化，我们后面会详谈。
 
 2 新版本 VS 老版本
 
-“我的kafkaoffsetmonitor为什么无法监控到offset了？”——这是我在Kafka中国社区见到最多的问题，没有之一！实际上，Kafka 0.9开始提供了新版本的consumer及consumer group，位移的管理与保存机制发生了很大的变化——新版本consumer默认将不再保存位移到zookeeper中，而目前kafkaoffsetmonitor还没有应对这种变化(虽然已经有很多人在要求他们改了，详见https://github.com/quantifind/KafkaOffsetMonitor/issues/79)，所以很有可能是因为你使用了新版本的consumer才无法看到的。关于新旧版本，这里统一说明一下：kafka0.9以前的consumer是使用Scala编写的，包名结构是kafka.consumer._，分为high-level consumer和low-level consumer两种。我们熟知的ConsumerConnector、ZookeeperConsumerConnector以及SimpleConsumer就是这个版本提供的；自0.9版本开始，Kafka提供了java版本的consumer，包名结构是o.a.k.clients.consumer._，熟知的类包括KafkaConsumer和ConsumerRecord等。新版本的consumer可以单独部署，不再需要依赖server端的代码。
+"我的kafkaoffsetmonitor为什么无法监控到offset了？"——这是我在Kafka中国社区见到最多的问题，没有之一！实际上，Kafka 0.9开始提供了新版本的consumer及consumer group，位移的管理与保存机制发生了很大的变化——新版本consumer默认将不再保存位移到zookeeper中，而目前kafkaoffsetmonitor还没有应对这种变化(虽然已经有很多人在要求他们改了，详见https://github.com/quantifind/KafkaOffsetMonitor/issues/79)，所以很有可能是因为你使用了新版本的consumer才无法看到的。关于新旧版本，这里统一说明一下：kafka0.9以前的consumer是使用Scala编写的，包名结构是kafka.consumer._，分为high-level consumer和low-level consumer两种。我们熟知的ConsumerConnector、ZookeeperConsumerConnector以及SimpleConsumer就是这个版本提供的；自0.9版本开始，Kafka提供了java版本的consumer，包名结构是o.a.k.clients.consumer._，熟知的类包括KafkaConsumer和ConsumerRecord等。新版本的consumer可以单独部署，不再需要依赖server端的代码。
 
 二、消费者组 (Consumer Group)
 
@@ -88,7 +107,7 @@ rebalance本质上是一种协议，规定了一个consumer group下的所有con
 
 Kafka提供了一个角色：coordinator来执行对于consumer group的管理。坦率说kafka对于coordinator的设计与修改是一个很长的故事。最新版本的coordinator也与最初的设计有了很大的不同。这里我只想提及两次比较大的改变。
 
-首先是0.8版本的coordinator，那时候的coordinator是依赖zookeeper来实现对于consumer group的管理的。Coordinator监听zookeeper的/consumers/<group>/ids的子节点变化以及/brokers/topics/<topic>数据变化来判断是否需要进行rebalance。group下的每个consumer都自己决定要消费哪些分区，并把自己的决定抢先在zookeeper中的/consumers/<group>/owners/<topic>/<partition>下注册。很明显，这种方案要依赖于zookeeper的帮助，而且每个consumer是单独做决定的，没有那种“大家属于一个组，要协商做事情”的精神。
+首先是0.8版本的coordinator，那时候的coordinator是依赖zookeeper来实现对于consumer group的管理的。Coordinator监听zookeeper的/consumers/<group>/ids的子节点变化以及/brokers/topics/<topic>数据变化来判断是否需要进行rebalance。group下的每个consumer都自己决定要消费哪些分区，并把自己的决定抢先在zookeeper中的/consumers/<group>/owners/<topic>/<partition>下注册。很明显，这种方案要依赖于zookeeper的帮助，而且每个consumer是单独做决定的，没有那种"大家属于一个组，要协商做事情"的精神。
 
 基于这些潜在的弊端，0.9版本的kafka改进了coordinator的设计，提出了group coordinator——每个consumer group都会被分配一个这样的coordinator用于组管理和位移管理。这个group coordinator比原来承担了更多的责任，比如组成员管理、位移提交保护机制等。当新版本consumer group的第一个consumer启动的时候，它会去和kafka server确定谁是它们组的coordinator。之后该group内的所有成员都会和该coordinator进行协调通信。显而易见，这种coordinator设计不再需要zookeeper了，性能上可以得到很大的提升。后面的所有部分我们都将讨论最新版本的coordinator设计。
 
@@ -104,7 +123,7 @@ Kafka提供了一个角色：coordinator来执行对于consumer group的管理�
   
 4.6 Rebalance Generation
 
-JVM GC的分代收集就是这个词(严格来说是generational)，我这里把它翻译成“届”好了，它表示了rebalance之后的一届成员，主要是用于保护consumer group，隔离无效offset提交的。比如上一届的consumer成员是无法提交位移到新一届的consumer group中。我们有时候可以看到ILLEGAL_GENERATION的错误，就是kafka在抱怨这件事情。每次group进行rebalance之后，generation号都会加1，表示group进入到了一个新的版本，如下图所示： Generation 1时group有3个成员，随后成员2退出组，coordinator触发rebalance，consumer group进入Generation 2，之后成员4加入，再次触发rebalance，group进入Generation 3.
+JVM GC的分代收集就是这个词(严格来说是generational)，我这里把它翻译成"届"好了，它表示了rebalance之后的一届成员，主要是用于保护consumer group，隔离无效offset提交的。比如上一届的consumer成员是无法提交位移到新一届的consumer group中。我们有时候可以看到ILLEGAL_GENERATION的错误，就是kafka在抱怨这件事情。每次group进行rebalance之后，generation号都会加1，表示group进入到了一个新的版本，如下图所示： Generation 1时group有3个成员，随后成员2退出组，coordinator触发rebalance，consumer group进入Generation 2，之后成员4加入，再次触发rebalance，group进入Generation 3.
 
 4.7 协议(protocol)
 
@@ -124,7 +143,7 @@ Coordinator在rebalance的时候主要用到了前面4种请求。
   
 4.8 liveness
 
-consumer如何向coordinator证明自己还活着？ 通过定时向coordinator发送Heartbeat请求。如果超过了设定的超时时间，那么coordinator就认为这个consumer已经挂了。一旦coordinator认为某个consumer挂了，那么它就会开启新一轮rebalance，并且在当前其他consumer的心跳response中添加“REBALANCE\_IN\_PROGRESS”，告诉其他consumer：不好意思各位，你们重新申请加入组吧！
+consumer如何向coordinator证明自己还活着？ 通过定时向coordinator发送Heartbeat请求。如果超过了设定的超时时间，那么coordinator就认为这个consumer已经挂了。一旦coordinator认为某个consumer挂了，那么它就会开启新一轮rebalance，并且在当前其他consumer的心跳response中添加"REBALANCE\_IN\_PROGRESS"，告诉其他consumer：不好意思各位，你们重新申请加入组吧！
 
 4.9 Rebalance过程
 

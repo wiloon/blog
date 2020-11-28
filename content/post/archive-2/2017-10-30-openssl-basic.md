@@ -1,6 +1,6 @@
 ---
 title: openssl basic
-author: wiloon
+author: w1100n
 type: post
 date: 2017-10-30T09:16:49+00:00
 url: /?p=11332
@@ -8,17 +8,21 @@ categories:
   - Uncategorized
 
 ---
-```bash
-# openssl 解密  
-openssl pkeyutl -inkey xxx-pri.pem -decrypt -pkeyopt rsa\_padding\_mode:oaep -pkeyopt rsa\_oaep\_md:sha256 -in foo.bin -out result.dec
+### 查看https证书
+    openssl s_client -showcerts -connect www.baidu.com:443
+    # 证书链是倒序的, 从上面数第一个是叶子节点, 跟浏览器里看到的证书顺序相反.
 
-# 查看公钥内容  
+```bash
+# openssl 解密
+    openssl pkeyutl -inkey xxx-pri.pem -decrypt -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -in foo.bin -out result.dec
+
+# 查看公钥内容
 openssl rsa -inform PEM -in xxx-pub.pem -pubin -text
 
-# generate private key  
+# generate private key
 openssl genrsa -out pri2048.key 2048
 
-# generate public key  
+# generate public key
 openssl rsa -inform PEM -outform PEM -in pri2048.key -out pub2048.key -pubout
 
 # 查看证书信息

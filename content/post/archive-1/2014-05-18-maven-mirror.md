@@ -1,6 +1,6 @@
 ---
 title: maven mirror, repository
-author: wiloon
+author: w1100n
 type: post
 date: 2014-05-18T09:11:15+00:00
 url: /?p=6635

@@ -1,6 +1,6 @@
 ---
 title: Nginx config, 配置, nginx.conf
-author: wiloon
+author: w1100n
 type: post
 date: 2013-07-09T05:59:32+00:00
 url: /?p=5626
@@ -20,7 +20,7 @@ categories:
   
 官方解释如下，个人认为是每一个worker进程能并发处理（发起）的最大连接数（包含所有连接数）。
 
-### worker\_rlimit\_nofile
+### worker_rlimit_nofile
 
 #一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
   
@@ -92,7 +92,8 @@ tcp_nodelay on;
 
 TCP\_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP\_CORK，Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率。
 
-TCP\_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms（Nagle 算法原理是：在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp\_nodelay。
+### TCP_NODELAY
+TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms（Nagle 算法原理是：在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp\_nodelay。
 
 可以看到 TCP\_NOPUSH 是要等数据包累积到一定大小才发送，TCP\_NODELAY 是要尽快发送，二者相互矛盾。实际上，它们确实可以一起用，最终的效果是先填满包，再尽快发送。
 
@@ -296,7 +297,7 @@ location ~ ._.(js|css)?$
 
 更详细的模块参数请参考：http://wiki.nginx.org/Main
 
-### proxy_pass结尾有无“/”的区别
+### proxy_pass结尾有无"/"的区别
 转载自：http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html
 见配置，摘自nginx.conf 里的server 段：
 
@@ -332,7 +333,7 @@ proxy_pass http://ent.163.com/ ;
 }
 当访问 http://abc.163.com/star/ 的时候，nginx 会代理访问到 http://ent.163.com/ ，并返回给我们。
 
-这两段配置，分别在于， proxy_pass http://ent.163.com/ ; 这个”/”，令到出来的结果完全不同。
+这两段配置，分别在于， proxy_pass http://ent.163.com/ ; 这个"/"，令到出来的结果完全不同。
 
 前者，相当于告诉nginx，我这个location，是代理访问到http://ent.163.com 这个server的，我的location是什么，nginx 就把location 加在proxy_pass 的 server 后面，这里是/star/，所以就相当于 http://ent.163.com/star/。如果是location /blog/ ，就是代理访问到 http://ent.163.com/blog/。
 
@@ -340,7 +341,7 @@ proxy_pass http://ent.163.com/ ;
 
 这样，也可以解释了上面那个location / 的例子，/ 嘛，加在server 的后面，仍然是 / ，所以，两种写法出来的结果是一样的。
 
-PS: 如果是 location ~* ^/start/(.*).html 这种正则的location，是不能写”/”上去的，nginx -t 也会报错的了。因为，路径都需要正则匹配了嘛，并不是一个相对固定的locatin了，必然要代理到一个server。
+PS: 如果是 location ~* ^/start/(.*).html 这种正则的location，是不能写"/"上去的，nginx -t 也会报错的了。因为，路径都需要正则匹配了嘛，并不是一个相对固定的locatin了，必然要代理到一个server。
 
 ### location匹配顺序
 https://www.jianshu.com/p/38810b49bc29
@@ -351,7 +352,7 @@ https://www.jianshu.com/p/38810b49bc29
   
 </blockquote>
 
-<iframe title=""nginx.conf" - w1100n" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm" data-secret="1NahDK0zlm" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm
 
 client\_max\_body_size 20m; 20m为允许最大上传的大小。
    
@@ -785,11 +786,11 @@ keepalive_timeout
 
 上下文 http server location
 
-说明 第一个参数指定了与client的keep-alive连接超时时间。服务器将会在这个时间后关闭连接。可选的第二个参数指定了在响应头Keep-Alive: timeout=time中的time值。这个头能够让一些浏览器主动关闭连接，这样服务器就不必要去关闭连接了。没有这个参数，nginx不会发送Keep-Alive响应头（尽管并不是由这个头来决定连接是否“keep-alive”）
+说明 第一个参数指定了与client的keep-alive连接超时时间。服务器将会在这个时间后关闭连接。可选的第二个参数指定了在响应头Keep-Alive: timeout=time中的time值。这个头能够让一些浏览器主动关闭连接，这样服务器就不必要去关闭连接了。没有这个参数，nginx不会发送Keep-Alive响应头（尽管并不是由这个头来决定连接是否"keep-alive"）
 
 两个参数的值可并不相同
 
-注意不同浏览器怎么处理“keep-alive”头
+注意不同浏览器怎么处理"keep-alive"头
 
 MSIE和Opera忽略掉"Keep-Alive: timeout=<N>" header.
 
@@ -831,7 +832,7 @@ client\_header\_timeout
 
 上下文 http server
 
-说明 指定等待client发送一个请求头的超时时间（例如：GET / HTTP/1.1）.仅当在一次read中，没有收到请求头，才会算成超时。如果在超时时间内，client没发送任何东西，nginx返回HTTP状态码408(“Request timed out”)
+说明 指定等待client发送一个请求头的超时时间（例如：GET / HTTP/1.1）.仅当在一次read中，没有收到请求头，才会算成超时。如果在超时时间内，client没发送任何东西，nginx返回HTTP状态码408("Request timed out")
 
 client\_body\_timeout
 
@@ -841,7 +842,7 @@ client\_body\_timeout
 
 上下文 http server location
 
-说明 该指令设置请求体（request body）的读超时时间。仅当在一次readstep中，没有得到请求体，就会设为超时。超时后，nginx返回HTTP状态码408(“Request timed out”)
+说明 该指令设置请求体（request body）的读超时时间。仅当在一次readstep中，没有得到请求体，就会设为超时。超时后，nginx返回HTTP状态码408("Request timed out")
 
 lingering_timeout
 

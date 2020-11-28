@@ -1,6 +1,6 @@
 ---
 title: java io PrintStream
-author: wiloon
+author: w1100n
 type: post
 date: 2017-02-04T04:32:31+00:00
 url: /?p=9705
@@ -33,19 +33,19 @@ PrintStream 函数列表
   
 */
   
-// 将“输出流out”作为PrintStream的输出流，不会自动flush，并且采用默认字符集
+// 将"输出流out"作为PrintStream的输出流，不会自动flush，并且采用默认字符集
   
-// 所谓“自动flush”，就是每次执行print(), println(), write()函数，都会调用flush()函数；
+// 所谓"自动flush"，就是每次执行print(), println(), write()函数，都会调用flush()函数；
   
-// 而“不自动flush”，则需要我们手动调用flush()接口。
+// 而"不自动flush"，则需要我们手动调用flush()接口。
   
 PrintStream(OutputStream out)
   
-// 将“输出流out”作为PrintStream的输出流，自动flush，并且采用默认字符集。
+// 将"输出流out"作为PrintStream的输出流，自动flush，并且采用默认字符集。
   
 PrintStream(OutputStream out, boolean autoFlush)
   
-// 将“输出流out”作为PrintStream的输出流，自动flush，采用charsetName字符集。
+// 将"输出流out"作为PrintStream的输出流，自动flush，采用charsetName字符集。
   
 PrintStream(OutputStream out, boolean autoFlush, String charsetName)
   
@@ -65,129 +65,129 @@ PrintStream(String fileName)
   
 PrintStream(String fileName, String charsetName)
 
-// 将“字符c”追加到“PrintStream输出流中”
+// 将"字符c"追加到"PrintStream输出流中"
   
 PrintStream append(char c)
   
-// 将“字符序列从start(包括)到end(不包括)的全部字符”追加到“PrintStream输出流中”
+// 将"字符序列从start(包括)到end(不包括)的全部字符"追加到"PrintStream输出流中"
   
 PrintStream append(CharSequence charSequence, int start, int end)
   
-// 将“字符序列的全部字符”追加到“PrintStream输出流中”
+// 将"字符序列的全部字符"追加到"PrintStream输出流中"
   
 PrintStream append(CharSequence charSequence)
   
-// flush“PrintStream输出流缓冲中的数据”，并检查错误
+// flush"PrintStream输出流缓冲中的数据"，并检查错误
   
 boolean checkError()
   
-// 关闭“PrintStream输出流”
+// 关闭"PrintStream输出流"
   
 synchronized void close()
   
-// flush“PrintStream输出流缓冲中的数据”。
+// flush"PrintStream输出流缓冲中的数据"。
   
 // 例如，PrintStream装饰的是FileOutputStream，则调用flush时会将数据写入到文件中
   
 synchronized void flush()
   
-// 根据“Locale值(区域属性)”来格式化数据
+// 根据"Locale值(区域属性)"来格式化数据
   
 PrintStream format(Locale l, String format, Object... args)
   
-// 根据“默认的Locale值(区域属性)”来格式化数据
+// 根据"默认的Locale值(区域属性)"来格式化数据
   
 PrintStream format(String format, Object... args)
   
-// 将“float数据f对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"float数据f对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(float f)
   
-// 将“double数据d对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"double数据d对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(double d)
   
-// 将“字符串数据str”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"字符串数据str"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 synchronized void print(String str)
   
-// 将“对象o对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"对象o对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(Object o)
   
-// 将“字符c对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"字符c对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(char c)
   
-// 将“字符数组chars对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"字符数组chars对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(char[] chars)
   
-// 将“long型数据l对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"long型数据l对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(long l)
   
-// 将“int数据i对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"int数据i对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(int i)
   
-// 将“boolean数据b对应的字符串”写入到“PrintStream输出流”中，print实际调用的是write函数
+// 将"boolean数据b对应的字符串"写入到"PrintStream输出流"中，print实际调用的是write函数
   
 void print(boolean b)
   
-// 将“数据args”根据“Locale值(区域属性)”按照format格式化，并写入到“PrintStream输出流”中
+// 将"数据args"根据"Locale值(区域属性)"按照format格式化，并写入到"PrintStream输出流"中
   
 PrintStream printf(Locale l, String format, Object... args)
   
-// 将“数据args”根据“默认Locale值(区域属性)”按照format格式化，并写入到“PrintStream输出流”中
+// 将"数据args"根据"默认Locale值(区域属性)"按照format格式化，并写入到"PrintStream输出流"中
   
 PrintStream printf(String format, Object... args)
   
-// 将“换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println()
   
-// 将“float数据对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"float数据对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(float f)
   
-// 将“int数据对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"int数据对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(int i)
   
-// 将“long数据对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"long数据对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(long l)
   
-// 将“对象o对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"对象o对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(Object o)
   
-// 将“字符数组chars对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"字符数组chars对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(char[] chars)
   
-// 将“字符串str+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"字符串str+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 synchronized void println(String str)
   
-// 将“字符c对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"字符c对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(char c)
   
-// 将“double数据对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"double数据对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(double d)
   
-// 将“boolean数据对应的字符串+换行符”写入到“PrintStream输出流”中，println实际调用的是write函数
+// 将"boolean数据对应的字符串+换行符"写入到"PrintStream输出流"中，println实际调用的是write函数
   
 void println(boolean b)
   
-// 将数据oneByte写入到“PrintStream输出流”中。oneByte虽然是int类型，但实际只会写入一个字节
+// 将数据oneByte写入到"PrintStream输出流"中。oneByte虽然是int类型，但实际只会写入一个字节
   
 synchronized void write(int oneByte)
   
-// 将“buffer中从offset开始的length个字节”写入到“PrintStream输出流”中。
+// 将"buffer中从offset开始的length个字节"写入到"PrintStream输出流"中。
   
 void write(byte[] buffer, int offset, int length)
 
@@ -225,27 +225,27 @@ PrintStream和DataOutputStream异同点
 
 不同点：
 
-(01) PrintStream和DataOutputStream 都可以将数据格式化输出；但它们在“输出字符串”时的编码不同。
+(01) PrintStream和DataOutputStream 都可以将数据格式化输出；但它们在"输出字符串"时的编码不同。
 
 PrintStream是输出时采用的是用户指定的编码(创建PrintStream时指定的)，若没有指定，则采用系统默认的字符编码。而DataOutputStream则采用的是UTF-8。
   
-关于UTF-8的字符编码可以参考“字符编码(ASCII，Unicode和UTF-8) 和 大小端”
+关于UTF-8的字符编码可以参考"字符编码(ASCII，Unicode和UTF-8) 和 大小端"
   
-关于DataOutputStream的更多内容，可以参考“java io系列15之 DataOutputStream(数据输出流)的认知、源码和示例”
+关于DataOutputStream的更多内容，可以参考"java io系列15之 DataOutputStream(数据输出流)的认知、源码和示例"
 
 (02) 它们的写入数据时的异常处理机制不同。
 
-DataOutputStream在通过write()向“输出流”中写入数据时，若产生IOException，会抛出。
+DataOutputStream在通过write()向"输出流"中写入数据时，若产生IOException，会抛出。
   
-而PrintStream在通过write()向“输出流”中写入数据时，若产生IOException，则会在write()中进行捕获处理；并设置trouble标记(用于表示产生了异常)为true。用户可以通过checkError()返回trouble值，从而检查输出流中是否产生了异常。
+而PrintStream在通过write()向"输出流"中写入数据时，若产生IOException，则会在write()中进行捕获处理；并设置trouble标记(用于表示产生了异常)为true。用户可以通过checkError()返回trouble值，从而检查输出流中是否产生了异常。
 
 (03) 构造函数不同
 
-DataOutputStream的构造函数只有一个：DataOutputStream(OutputStream out)。即它只支持以输出流out作为“DataOutputStream的输出流”。
+DataOutputStream的构造函数只有一个：DataOutputStream(OutputStream out)。即它只支持以输出流out作为"DataOutputStream的输出流"。
   
-而PrintStream的构造函数有许多：和DataOutputStream一样，支持以输出流out作为“PrintStream输出流”的构造函数；还支持以“File对象”或者“String类型的文件名对象”的构造函数。
+而PrintStream的构造函数有许多：和DataOutputStream一样，支持以输出流out作为"PrintStream输出流"的构造函数；还支持以"File对象"或者"String类型的文件名对象"的构造函数。
   
-而且，在PrintStream的构造函数中，能“指定字符集”和“是否支持自动flush()操作”。
+而且，在PrintStream的构造函数中，能"指定字符集"和"是否支持自动flush()操作"。
 
 (04) 目的不同
 
@@ -280,7 +280,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 13 public static void main(String[] args) {
   
-15 // 下面3个函数的作用都是一样：都是将字母“abcde”写入到文件“file.txt”中。
+15 // 下面3个函数的作用都是一样：都是将字母"abcde"写入到文件"file.txt"中。
   
 16 // 任选一个执行即可！
   
@@ -302,7 +302,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 27 *
   
-28 * 函数的作用，就是将字母“abcde”写入到文件“file.txt”中
+28 * 函数的作用，就是将字母"abcde"写入到文件"file.txt"中
   
 29 */
   
@@ -314,7 +314,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 33 try {
   
-34 // 创建文件“file.txt”的File对象
+34 // 创建文件"file.txt"的File对象
   
 35 File file = new File("file.txt");
   
@@ -324,7 +324,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 38 new FileOutputStream(file));
   
-39 // 将“字节数组arr”全部写入到输出流中
+39 // 将"字节数组arr"全部写入到输出流中
   
 40 out.write(arr);
   
@@ -346,7 +346,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 50 *
   
-51 * 函数的作用，就是将字母“abcde”写入到文件“file.txt”中
+51 * 函数的作用，就是将字母"abcde"写入到文件"file.txt"中
   
 52 */
   
@@ -378,7 +378,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 67 *
   
-68 * 函数的作用，就是将字母“abcde”写入到文件“file.txt”中
+68 * 函数的作用，就是将字母"abcde"写入到文件"file.txt"中
   
 69 */
   
@@ -420,7 +420,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 89 PrintStream out = new PrintStream("other.txt");
   
-91 // 将字符串“hello PrintStream”+回车符，写入到输出流中
+91 // 将字符串"hello PrintStream"+回车符，写入到输出流中
   
 92 out.println("hello PrintStream");
   
@@ -460,7 +460,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 112 }
 
-运行上面的代码，会在源码所在目录生成两个文件“file.txt”和“other.txt”。
+运行上面的代码，会在源码所在目录生成两个文件"file.txt"和"other.txt"。
   
 file.txt的内容如下：
 

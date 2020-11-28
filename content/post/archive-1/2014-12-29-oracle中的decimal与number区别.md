@@ -1,6 +1,6 @@
 ---
 title: Oracle中的decimal与Number区别
-author: wiloon
+author: w1100n
 type: post
 date: 2014-12-29T07:51:44+00:00
 url: /?p=7139

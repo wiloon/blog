@@ -1,6 +1,6 @@
 ---
 title: mysql SQL_NO_CACHE,sql_cache,RESET QUERY CACHE
-author: wiloon
+author: w1100n
 type: post
 date: 2017-11-24T06:51:17+00:00
 url: /?p=11488
@@ -68,13 +68,13 @@ explain select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853
 
 总结
 
-'Using Index'的意思是“覆盖索引”，它是使上面sql性能提升的关键
+'Using Index'的意思是"覆盖索引"，它是使上面sql性能提升的关键
 
-一个包含查询所需字段的索引称为“覆盖索引”
+一个包含查询所需字段的索引称为"覆盖索引"
 
 MySQL只需要通过索引就可以返回查询所需要的数据，而不必在查到索引之后进行回表操作，减少IO，提高了效率
 
-例如上面的sql，查询条件是user_id，可以使用联合索引，要查询的字段是picname smallimg，这两个字段也在联合索引中，这就实现了“覆盖索引”，可以根据这个联合索引一次性完成查询工作，所以提升了性能。
+例如上面的sql，查询条件是user_id，可以使用联合索引，要查询的字段是picname smallimg，这两个字段也在联合索引中，这就实现了"覆盖索引"，可以根据这个联合索引一次性完成查询工作，所以提升了性能。
 
 扩展研究
 
@@ -100,7 +100,7 @@ You may use RESET QUERY CACHE to remove all queries from the cache and then your
 
 have\_query\_cache
   
-是否支持查询缓存区 “YES”表是支持查询缓存区
+是否支持查询缓存区 "YES"表是支持查询缓存区
 
 query\_cache\_limit
   
@@ -206,6 +206,6 @@ SELECT id FROM article ORDER BY created DESC LIMIT 10000, 10
   
 ) AS page USING(id)
   
-此时，建立复合索引”created, id”（只要建立created索引就可以吧，Innodb是会在辅助索引里面存储主键值的），就可以在子查询里利用上Covering Index，快速定位id，查询效率嗷嗷的
+此时，建立复合索引"created, id"（只要建立created索引就可以吧，Innodb是会在辅助索引里面存储主键值的），就可以在子查询里利用上Covering Index，快速定位id，查询效率嗷嗷的
 
 注：本文是参考《Mysql性能优化案例 - 覆盖索引》 的一篇文章借题发挥，参考了原文的知识点，自己做了一点的发挥和研究，原文被多次转载，不知作者何许人也，也不知出处在哪个，如需原文请自行搜索。

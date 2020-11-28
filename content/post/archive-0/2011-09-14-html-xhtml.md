@@ -1,6 +1,6 @@
 ---
 title: HTML XHTML
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-14T05:56:22+00:00
 url: /?p=785

@@ -1,6 +1,6 @@
 ---
 title: 消息队列/message queue/MQ,CORBA、DCOM、RMI,RPC
-author: wiloon
+author: w1100n
 type: post
 date: 2012-11-15T03:41:46+00:00
 url: /?p=4686

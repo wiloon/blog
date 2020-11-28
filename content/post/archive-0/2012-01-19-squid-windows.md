@@ -1,6 +1,6 @@
 ---
 title: squid windows
-author: wiloon
+author: w1100n
 type: post
 date: 2012-01-19T06:41:32+00:00
 url: /?p=2157
@@ -12,7 +12,7 @@ categories:
   
 先来说一下Squid for Windows的安装，需求：你要拥有一台可联网的、运行着Windows NT/2000/XP/Server 2003的计算机，还要有Squid
 
-for windows的软件包。从网上下载的Squid for windows的二进制文件是压缩到zip文件里的，首先来解压缩这个文件，加压后会生成一个Squid的文件夹，将此文件夹拷贝到C:，至此Squid for Windows算是被“安装”到你的Windows计算机了。（备注:Squid for windows的默认安装是在C:squid下，当然，可以把Squid放到其他的路径，但是需要大量的配置squid配置文件中的路径信息，那样会比较麻烦）Unix Like的操作系统下的大部分软件都是基于命令行的，使用文本文件进行配置，这样虽说对一些用惯了Windows下软件的朋友们会有些复杂的感觉，但是这样的软件还是有好处的，毕竟其没有Gui会有更高的性能，配置文件的编写更具灵活性，下面我们来看一下具体怎么配置squid for windows。首先，单击[开始]，选择“运行”，输入 cmd 打开Windows的“命令提示符” 窗口，在命令提示符窗口内输入以下命令:
+for windows的软件包。从网上下载的Squid for windows的二进制文件是压缩到zip文件里的，首先来解压缩这个文件，加压后会生成一个Squid的文件夹，将此文件夹拷贝到C:，至此Squid for Windows算是被"安装"到你的Windows计算机了。（备注:Squid for windows的默认安装是在C:squid下，当然，可以把Squid放到其他的路径，但是需要大量的配置squid配置文件中的路径信息，那样会比较麻烦）Unix Like的操作系统下的大部分软件都是基于命令行的，使用文本文件进行配置，这样虽说对一些用惯了Windows下软件的朋友们会有些复杂的感觉，但是这样的软件还是有好处的，毕竟其没有Gui会有更高的性能，配置文件的编写更具灵活性，下面我们来看一下具体怎么配置squid for windows。首先，单击[开始]，选择"运行"，输入 cmd 打开Windows的"命令提示符" 窗口，在命令提示符窗口内输入以下命令:
 
 C:>cd c:squidetc
   
@@ -24,13 +24,13 @@ C:squidetc>copy mime.conf.default mime.conf     **将mime.conf.default复制
   
 首先，我们找到TAG: acl段，这里是定义访问Squid的IP地址及其对应的名称
   
-我们在此段acl Safe_ports port 777 #multiling http后增加一个新行，写 “acl 名称 src IP地址”
+我们在此段acl Safe_ports port 777 #multiling http后增加一个新行，写 "acl 名称 src IP地址"
 
 示例:acl name1 src 192.168.100.0 #定义所有来自192.168.100.*的机器对应的名称为name1
 
 然后我们找到TAG: http_access段，这里是定义允许访问squid的列表
   
-我们在此段http\_access deny CONNECT !SSL\_ports后增加一个新行，写“http_access allow/deny 名称”，allow表示允许访问，deny表示拒
+我们在此段http\_access deny CONNECT !SSL\_ports后增加一个新行，写"http_access allow/deny 名称"，allow表示允许访问，deny表示拒
 
 绝访问。
 
@@ -64,10 +64,10 @@ visible_hostname 机器名（随便起） 这么一行，就搞定了。
   
 c:>cd c:squidsbin
   
-C:squidsbin>squid -i    (注册Squid为Windows的服务，默认的服务名为SquidNT，可以使用“管理工具”中的“服务”来启动／停用服务)
+C:squidsbin>squid -i    (注册Squid为Windows的服务，默认的服务名为SquidNT，可以使用"管理工具"中的"服务"来启动／停用服务)
   
 C:squidsbin>squid -z    (生成高速缓存的目录)
   
-C:squidsbin>squid       (启动squid服务，另一种比较好的方法是在“管理工具”，“服务”中选择SquidNT，然后选择启动服务)
+C:squidsbin>squid       (启动squid服务，另一种比较好的方法是在"管理工具"，"服务"中选择SquidNT，然后选择启动服务)
 
 以上简明说明了squid for Windows的安装，配置，启动，此文应用在Unix/Linux下的对Squid的简单配置也是可行的。

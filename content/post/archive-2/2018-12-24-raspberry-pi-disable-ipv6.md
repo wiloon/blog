@@ -1,6 +1,6 @@
 ---
 title: raspberry pi disable ipv6
-author: wiloon
+author: w1100n
 type: post
 date: 2018-12-24T15:16:49+00:00
 url: /?p=13205
@@ -21,4 +21,4 @@ blacklist ipv6
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://www.cesareriva.com/disable-ipv6-on-raspberry-pi3/embed/#?secret=RVErZNYd3W" data-secret="RVErZNYd3W" width="600" height="338" title="Embedded WordPress Post" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://www.cesareriva.com/disable-ipv6-on-raspberry-pi3/embed/#?secret=RVErZNYd3W

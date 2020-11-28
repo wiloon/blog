@@ -1,6 +1,6 @@
 ---
 title: eclipse中java项目转换为web项目
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-27T07:13:39+00:00
 url: /?p=3264
@@ -30,4 +30,4 @@ http://hi.baidu.com/starhuo/blog/item/cddb59eeec8cd7f7b3fb955f.html
 
 5、在项目上点右键，进入属性（properties）
 
-6、在左侧列表项目中点击选择“Project Facets”，在右侧选择“Dynamic Web Module”和"Java"，点击OK保存即可。
+6、在左侧列表项目中点击选择"Project Facets"，在右侧选择"Dynamic Web Module"和"Java"，点击OK保存即可。

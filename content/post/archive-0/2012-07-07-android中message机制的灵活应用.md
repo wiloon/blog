@@ -1,6 +1,6 @@
 ---
 title: Android中Message机制的灵活应用
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-07T03:15:51+00:00
 url: /?p=3769
@@ -26,7 +26,7 @@ MessageQueue的removeMessages函数根据上面的接收的Message的队列的�
 
 Looper对象的创建是通过prepare函数，而且每一个Looper对象会和一个线程关联
 
-[java]
+```java
 
 public static final void prepare() {
 
@@ -40,11 +40,11 @@ sThreadLocal.set(new Looper());
 
 }
 
-[/java]
+```
 
 Looper对象创建时会创建一个MessageQueue，主线程默认会创建一个Looper从而有MessageQueue，其他线程默认是没有 MessageQueue的不能接收Message，如果需要接收Message则需要通过prepare函数创建一个MessageQueue。具体操作请见示例代码。
 
-[java]
+```java
 
 private Looper() {
 
@@ -56,11 +56,11 @@ mThread = Thread.currentThread();
 
 }
 
-[/java]
+```
 
 prepareMainLooper函数只给主线程调用（系统处理，程序员不用处理），它会调用prepare建立Looper对象和MessageQueue。
 
-[java]
+```java
 
 public static final void prepareMainLooper() {
 
@@ -76,11 +76,11 @@ myLooper().mQueue.mQuitAllowed = false;
 
 }
 
-[/java]
+```
 
 Loop函数从MessageQueue中从前往后取出Message，然后通过Handler的dispatchMessage函数进行消息的处理（可见消息的处理是Handler负责的），消息处理完了以后通过Message对象的recycle函数放到Message Pool中，以便下次使用，通过Pool的处理提供了一定的内存管理从而加速消息对象的获取。至于需要定时处理的消息如何做到定时处理，请见 MessageQueue的next函数，它在取Message来进行处理时通过判断MessageQueue里面的Message是否符合时间要求来决定是否需要把Message取出来做处理，通过这种方式做到消息的定时处理。
 
-[java]
+```java
 
 public static final void loop() {
 
@@ -126,7 +126,7 @@ msg.recycle();
 
 }
 
-[/java]
+```
 
  
 
@@ -134,7 +134,7 @@ msg.recycle();
 
 Handler的构造函数表示Handler会有成员变量指向Looper和MessageQueue，后面我们会看到为什么需要这些引用；至于callback是实现了Callback接口的对象，后面会看到这个对象的作用。
 
-[java]
+```java
 
 public Handler(Looper looper, Callback callback) {
 
@@ -152,11 +152,11 @@ public boolean handleMessage(Message msg);
 
 }
 
-[/java]
+```
 
 获取消息：直接通过Message的obtain方法获取一个Message对象。
 
-[java]
+```java
 
 public final Message obtainMessage(int what, int arg1, int arg2, Object obj){
 
@@ -164,11 +164,11 @@ return Message.obtain(this, what, arg1, arg2, obj);
 
 }
 
-[/java]
+```
 
 发送消息：通过MessageQueue的enqueueMessage把Message对象放到MessageQueue的接收消息队列中
 
-[java]
+```java
 
 public boolean sendMessageAtTime(Message msg, long uptimeMillis){
 
@@ -194,11 +194,11 @@ return sent;
 
 }
 
-[/java]
+```
 
 线程如何处理MessageQueue中接收的消息：在Looper的loop函数中循环取出MessageQueue的接收消息队列中的消息，然后调用 Hander的dispatchMessage函数对消息进行处理，至于如何处理（相应消息）则由用户指定（三个方法，优先级从高到低：Message里面的Callback，一个实现了Runnable接口的对象，其中run函数做处理工作；Handler里面的mCallback指向的一个实现了 Callback接口的对象，里面的handleMessage进行处理；处理消息Handler对象对应的类继承并实现了其中 handleMessage函数，通过这个实现的handleMessage函数处理消息）。
 
-[java]
+```java
 
 public void dispatchMessage(Message msg) {
 
@@ -224,7 +224,7 @@ handleMessage(msg);
 
 }
 
-[/java]
+```
 
 Runnable说明：Runnable只是一个接口，实现了这个接口的类对应的对象也只是个普通的对象，并不是一个Java中的Thread。Thread类经常使用Runnable，很多人有误解，所以这里澄清一下。
 
@@ -240,7 +240,7 @@ Runnable说明：Runnable只是一个接口，实现了这个接口的类对应�
 
 程序代码如下，后面部分有代码说明：
 
-[java]
+```java
 
 package com.android.messageexample;
 
@@ -708,7 +708,7 @@ Looper.loop();
 
 }
 
-[/java]
+```
 
 说明（代码详细解释请见后文）：
 

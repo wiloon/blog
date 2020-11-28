@@ -1,6 +1,6 @@
 ---
 title: linux mount, invalid argument, no such device
-author: wiloon
+author: w1100n
 type: post
 date: 2016-07-02T03:28:59+00:00
 url: /?p=9109

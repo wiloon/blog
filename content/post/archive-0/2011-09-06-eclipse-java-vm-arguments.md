@@ -1,6 +1,6 @@
 ---
 title: eclipse java VM arguments
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-06T06:18:21+00:00
 url: /?p=678

@@ -1,6 +1,6 @@
 ---
 title: send post request with soapui
-author: wiloon
+author: w1100n
 type: post
 date: 2015-12-09T02:55:40+00:00
 url: /?p=8545

@@ -1,6 +1,6 @@
 ---
 title: go语言的模板，text/template包
-author: wiloon
+author: w1100n
 type: post
 date: 2019-06-14T05:29:13+00:00
 url: /?p=14513
@@ -128,11 +128,11 @@ tmpl, err = tmpl.New("english")
   
 tmpl, err = tmpl.Parse(muban_eng)
   
-//将struct与模板合成，用名字是china的模板进行合成，结果放到os.Stdout里，内容为“wool做了17个项目”
+//将struct与模板合成，用名字是china的模板进行合成，结果放到os.Stdout里，内容为"wool做了17个项目"
   
 err = tmpl.ExecuteTemplate(os.Stdout, "china", sweaters)
   
-//将struct与模板合成，用名字是china的模板进行合成，结果放到os.Stdout里，内容为“17 items are made of wool”
+//将struct与模板合成，用名字是china的模板进行合成，结果放到os.Stdout里，内容为"17 items are made of wool"
   
 err = tmpl.ExecuteTemplate(os.Stdout, "english", sweaters)
 
@@ -320,8 +320,8 @@ hi false{{end}}
   
 关于{{with .Gift}},意思是如果Gift不是为空的话，就打印整行，如果为空，就不打印
   
-只有这样写法，with对应的end要写在第2行，才会把“Thank you”这句后面带一个回车进去，这样写法，就像“Thank you”这句是插在正文下面的
+只有这样写法，with对应的end要写在第2行，才会把"Thank you"这句后面带一个回车进去，这样写法，就像"Thank you"这句是插在正文下面的
   
-只有这样写，不管有没有“Thank you”，正文和Best wishes,之间始终只有1行空白
+只有这样写，不管有没有"Thank you"，正文和Best wishes,之间始终只有1行空白
 
 https://my.oschina.net/u/943306/blog/153156

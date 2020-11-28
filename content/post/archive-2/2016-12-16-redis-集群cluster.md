@@ -1,6 +1,6 @@
 ---
 title: redis 集群/cluster
-author: wiloon
+author: w1100n
 type: post
 date: 2016-12-16T02:55:44+00:00
 url: /?p=9561

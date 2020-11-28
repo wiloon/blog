@@ -1,6 +1,6 @@
 ---
 title: gitignore
-author: wiloon
+author: w1100n
 type: post
 date: 2012-02-25T13:43:36+00:00
 url: /?p=2410

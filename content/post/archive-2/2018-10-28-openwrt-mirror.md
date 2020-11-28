@@ -1,6 +1,6 @@
 ---
 title: openwrt mirror
-author: wiloon
+author: w1100n
 type: post
 date: 2018-10-28T15:48:43+00:00
 url: /?p=12831

@@ -1,6 +1,6 @@
 ---
 title: java maven 可执行 jar/ executable jar
-author: wiloon
+author: w1100n
 type: post
 date: 2016-12-16T07:45:40+00:00
 url: /?p=9566
@@ -46,8 +46,8 @@ com.wiloon.xxx.xxx.xxx
 [/xml]
 
 
-[shell]
+```bash
 
 mvn assembly:assembly
 
-[/shell]
+```

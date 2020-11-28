@@ -1,6 +1,6 @@
 ---
 title: RPC 远程过程调用（Remote Procedure Call）
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-14T10:10:45+00:00
 url: /?p=1878

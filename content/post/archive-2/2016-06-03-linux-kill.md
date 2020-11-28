@@ -1,6 +1,6 @@
 ---
 title: linux kill,pkill
-author: wiloon
+author: w1100n
 type: post
 date: 2016-06-03T04:24:01+00:00
 url: /?p=9037
@@ -78,21 +78,17 @@ kill -l
     kill -9 -1
   
     终止你拥有的全部进程。 
-  2. killall
-  
-    作用：通过程序的名字，直接杀死所有进程
-  
-    用法：killall 正在运行的程序名
-  
-    举例：
-  
-    [root@localhost beinan]# pgrep -l gaim 2979 gaim
-  
-    [root@localhost beinan]# killall gaim
-  
-    注意：该命令可以使用 -9 参数来强制杀死进程
+### killall
+作用：通过程序的名字，直接杀死所有进程  
+用法：killall 正在运行的程序名  
+举例：
 
-  3. pkill
+    pgrep -l gaim 2979 gaim
+    killall gaim
+  
+注意：该命令可以使用 -9 参数来强制杀死进程
+
+### pkill
   
     作用：通过程序的名字，直接杀死所有进程
   

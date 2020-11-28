@@ -1,6 +1,6 @@
 ---
 title: java thread
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-22T11:27:10+00:00
 url: /?p=3615
@@ -14,7 +14,7 @@ Thread.currendThread().getName()
 
 设置线程名
 
-[java]
+```java
 
 public class Thread3 {
   
@@ -44,4 +44,4 @@ t2.start();
   
 }
 
-[/java]
+```

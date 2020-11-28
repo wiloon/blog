@@ -1,6 +1,6 @@
 ---
 title: hyperv archlinux
-author: wiloon
+author: w1100n
 type: post
 date: 2019-04-01T06:53:10+00:00
 url: /?p=14064
@@ -160,12 +160,8 @@ options video=hyperv_fb:1920x1080 root=PARTUUID=xxxx-xxxx rw
    
     exec startxfce4
 
-
 #### 以管理员身份运行powershell 并执行
     Set-VM -VMName arch -EnhancedSessionTransportType HvSocket
 
-
-
 https://wiki.archlinux.org/index.php/Hyper-V
-
 https://x410.dev/cookbook/command-line-switches/

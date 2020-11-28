@@ -1,6 +1,6 @@
 ---
 title: linux ec2 ssh
-author: wiloon
+author: w1100n
 type: post
 date: 2012-05-29T13:04:13+00:00
 url: /?p=3291
@@ -11,7 +11,7 @@ categories:
 ---
 将相应的pem保存到 .ssh 文件夹。在该文件内建立config文件，输入以下配置内容：
 
-[shell]
+```bash
   
 Host aws
   
@@ -25,7 +25,7 @@ CompressionLevel 6
   
 DynamicForward localhost:3128
   
-[/shell]
+```
 
 Host 为设定一个名字给该连接，可任意选，此处用aws；
   
@@ -61,7 +61,7 @@ Google了一圈，现总结如下：
 
   * 在**Firefox**地址栏输入 **about:config **
   * 有安全提示，点击继续；
-  * 找到“**network.proxy.socks\_remote\_dns**”，双击改为**True**（默认False）；
+  * 找到"**network.proxy.socks\_remote\_dns**"，双击改为**True**（默认False）；
   * 可能需要重启Firefox。
 
   已验证可行。

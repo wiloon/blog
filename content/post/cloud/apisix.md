@@ -80,3 +80,6 @@ convert multi line pem to single line pem with following command
         "key": "-----BEGIN PRIVATE KEY-----\nM<base64 pem private key>\n-----END PRIVATE KEY-----\n",
         "sni": "*.wiloon.com"
     }'
+
+### get route config
+    curl "http://127.0.0.1:9080/apisix/admin/upstreams/53" -H 'X-API-KEY: 'edd1c9f034335f136f87ad84b625c8f1 -X GET

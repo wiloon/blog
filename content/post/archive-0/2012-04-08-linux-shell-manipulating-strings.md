@@ -1,6 +1,6 @@
 ---
 title: linux shell Manipulating Strings
-author: wiloon
+author: w1100n
 type: post
 date: 2012-04-08T06:13:32+00:00
 url: /?p=2862
@@ -13,7 +13,7 @@ categories:
 
 连接字符串
 
-[shell]
+```bash
 
 a="abc"
 
@@ -21,7 +21,7 @@ b="def"
 
 echo $a$b
 
-[/shell]
+```
 
 expr index $string $substring
 :   Numerical position in $string of first character in $substring that matches. 

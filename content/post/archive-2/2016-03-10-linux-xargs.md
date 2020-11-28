@@ -1,6 +1,6 @@
 ---
 title: linux xargs
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-10T10:02:41+00:00
 url: /?p=8789

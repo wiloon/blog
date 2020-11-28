@@ -1,6 +1,6 @@
 ---
 title: 华为云CCE, docker 实例发监控数据到influxdb
-author: wiloon
+author: w1100n
 type: post
 date: 2020-04-22T14:37:43+00:00
 url: /?p=16053

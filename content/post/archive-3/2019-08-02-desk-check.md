@@ -1,6 +1,6 @@
 ---
 title: Desk Check
-author: wiloon
+author: w1100n
 type: post
 date: 2019-08-02T05:17:38+00:00
 url: /?p=14759
@@ -14,7 +14,7 @@ categories:
   
 </blockquote>
 
-<iframe title="《敏捷实践之Desk Check》—ThoughtWorks洞见" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://insights.thoughtworkers.org/desk-check/embed/#?secret=5PpVVMPtJf" data-secret="5PpVVMPtJf" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://insights.thoughtworkers.org/desk-check/embed/#?secret=5PpVVMPtJf
 
 开发人员在完成需求之后，快速在本地开发环境建立功能验证条件。
 
@@ -22,7 +22,7 @@ categories:
 
 BA的职责是：验证开发之前提出的需求是否实现，是否有跟开发人员理解不一致的地方，是否有遗漏的需求。
 
-QA的职责是：从测试人员的视角评估这个功能有没有“ready for testing”，并且做一个快速的测试，验证是否有Sad Path没有考虑周全。
+QA的职责是：从测试人员的视角评估这个功能有没有"ready for testing"，并且做一个快速的测试，验证是否有Sad Path没有考虑周全。
 
 不管怎么说Desk Check还是处于developing的阶段，在这个阶段矫正一下需求，修复一些快速的defects，这样才能让功能ready进入下一个阶段：测试环境的测试。
 

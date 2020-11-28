@@ -1,6 +1,6 @@
 ---
 title: archlinux, adb
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-30T00:06:20+00:00
 url: /?p=7731

@@ -1,6 +1,6 @@
 ---
 title: systemctl start networking.service
-author: wiloon
+author: w1100n
 type: post
 date: 2018-07-08T03:22:30+00:00
 url: /?p=12409

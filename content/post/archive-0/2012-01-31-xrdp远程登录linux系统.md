@@ -1,6 +1,6 @@
 ---
 title: linux remote desktop server, xrdp
-author: wiloon
+author: w1100n
 type: post
 date: 2012-01-31T08:19:29+00:00
 url: /?p=2199
@@ -44,7 +44,6 @@ Use YUM command to install xrdp package on CentOS 7 / RHEL 7.
 -> Finished Dependency Resolution
 
 ### install tigervnc
-
 # Package Arch Version Repository Size
 
 Installing:
@@ -175,7 +174,7 @@ Install xrdp on CentOS 7 - Accept the Certificate
   
 Install xrdp on CentOS 7 – Accept the Certificate
   
-You would be asked to enter the username and password. You can either use root or any user that you have it on the system. Make sure you use module “Xvnc“.
+You would be asked to enter the username and password. You can either use root or any user that you have it on the system. Make sure you use module "Xvnc".
 
 Install xrdp on CentOS 7 - xrdp Login Page
   

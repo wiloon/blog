@@ -1,6 +1,6 @@
 ---
 title: 设计模式 – Decorator
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-22T07:48:49+00:00
 url: /?p=847
@@ -16,7 +16,7 @@ tags:
 ---
 Decorator设计模式是典型的结构型模式
   
-装饰模式:Decorator常被翻译成”装饰”,我觉得翻译成”油漆工”更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.
+装饰模式:Decorator常被翻译成"装饰",我觉得翻译成"油漆工"更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.
 
 Decorator定义:
   
@@ -30,9 +30,9 @@ Decorator Pattern――Attaches additional responsibilities to an object dynamic
 
 GOF的那本Bible中关于装饰器模式列举的是一个文本组件与边框的例子
   
-下面举一个“三明治”的例子！
+下面举一个"三明治"的例子！
 
-很多人都吃过三明治，都会知道三明治必不可少的是两块面包片，然后可以在夹层里加上蔬菜、沙拉、咸肉等等，外面可以涂上奶油之类的。假如现在你要为一个三明治小店构造一个程序，其中要设计各种三明治的对象。可能你已经创建了一个简单的Sandwich对象，现在要产生带蔬菜的就是继承原有的Sandwich添加一个蔬菜的成员变量，看起来很“正点”的做法，以后我还要带咸肉的、带奶油的、带蔬菜的又分为带青菜的、带芹菜的、生菜的……还是一个一个继承是吧！假如我们还需要即带蔬菜又带其它肉类，设置我们还要求这些添加成分的任意组合，那你就慢慢继承吧！
+很多人都吃过三明治，都会知道三明治必不可少的是两块面包片，然后可以在夹层里加上蔬菜、沙拉、咸肉等等，外面可以涂上奶油之类的。假如现在你要为一个三明治小店构造一个程序，其中要设计各种三明治的对象。可能你已经创建了一个简单的Sandwich对象，现在要产生带蔬菜的就是继承原有的Sandwich添加一个蔬菜的成员变量，看起来很"正点"的做法，以后我还要带咸肉的、带奶油的、带蔬菜的又分为带青菜的、带芹菜的、生菜的……还是一个一个继承是吧！假如我们还需要即带蔬菜又带其它肉类，设置我们还要求这些添加成分的任意组合，那你就慢慢继承吧！
   
 读过几年书的会下面这个算术，我们有n种成分，在做三明治的时候任意搭配，那么有多少种方案呢？！算算吧！你会有惊人的发现。N种成分，什么都不要是Cn0种方案吧！要1种是Cn1吧！…..要n种是Cnn吧！加起来不就是吗？Cn0+Cn1+……+Cnn-1+Cnn还不会啊！牛顿莱布尼兹公式记得吧！（可惜Word的公式编辑器安装不了）总共2的n次方案。有可能前面10天写了K个类，老板让你再加一种成分你就得再干10天，下一次再加一种你可得干20天哦！同时你可以发现你的类库急剧地膨胀！（老板可能会说你：XXX前K天你加了n个成分，怎么现在这么不上进呢？后K天只加了1个成分啊？！！可能你会拿个比给老板算算，老板那么忙会睬你吗？！有可能你的老板会说：不管怎么样我就要你加，K天你还给我加n个成分！！呵呵，怎么办啊！跳槽啊!跳槽了也没人要你！！人家一看就知道你没学设计模式）。下面我们就使用装饰器模式来设计这个库吧！
 
@@ -311,10 +311,10 @@ compound.printDescription();
   3. Decorator装饰器模式中的核心对象，所有具体装饰器对象的父类，完成装饰器的部分职能。在上面的例子中Decorator类和这里的对应。该类可以只做一些简单的包裹被装饰的对象，也可以还包含对Component中方法的实现……他有一个鲜明的特点：继承至Component，同时包含一个Component作为其成员变量。装饰器模式动机中的动态地增加功能是在这里实现的。
   4. ConcreteDecoratorA和ConcreteDecoratorB是两个具体的装饰器对象，他们完成具体的装饰功能。装饰功能的实现是通过调用被装饰对象对应的方法，加上装饰对象自身的方法。这是装饰器模式动机中的添加额外功能的关键。
 
-从上面图中你可能还会发现：ConcreteDecoratorA和ConcreteDecoratorB的方法不一样，这就是一般设计模式中谈及装饰器模式的“透明装饰器”和“不透明装饰器”。“透明装饰器”就是整个Decorator的结构中所有的类都保持同样的“接口”（这里是共同方法的意思），这是一种极其理想的状况，就像餐饮的例子一样。现实中绝大多数装饰器都是“不透明装饰器”，他们的“接口”在某些子类中得到增强，主要看这个类与顶层的抽象类或者接口是否有同样的公共方法。IO中的ByteArrayInputStream就比Inputstrem抽象类多一些方法，因此IO中的装饰器是一个“不通明装饰器”。下面是IO中输入字节流部分的装饰器的结构图。
+从上面图中你可能还会发现：ConcreteDecoratorA和ConcreteDecoratorB的方法不一样，这就是一般设计模式中谈及装饰器模式的"透明装饰器"和"不透明装饰器"。"透明装饰器"就是整个Decorator的结构中所有的类都保持同样的"接口"（这里是共同方法的意思），这是一种极其理想的状况，就像餐饮的例子一样。现实中绝大多数装饰器都是"不透明装饰器"，他们的"接口"在某些子类中得到增强，主要看这个类与顶层的抽象类或者接口是否有同样的公共方法。IO中的ByteArrayInputStream就比Inputstrem抽象类多一些方法，因此IO中的装饰器是一个"不通明装饰器"。下面是IO中输入字节流部分的装饰器的结构图。
 
   1. InputStream是装饰器的顶层类，一个抽象类！包括一些共有的方法，如：1.读方法――read（3个）；2.关闭流的方法――close；3.mark相关的方法――mark、reset和markSupport；4.跳跃方法――skip；5.查询是否还有元素方法――available。图中红色的表示。
-  2. FileInputStream、PipedInputStream…五个紫色的，是具体的被装饰对象。从他们的“接口”中可以看出他们一般都有额外的方法。
+  2. FileInputStream、PipedInputStream…五个紫色的，是具体的被装饰对象。从他们的"接口"中可以看出他们一般都有额外的方法。
   3. FilterInputStream是装饰器中的核心，Decorator对象，图中蓝色的部分。
   4. DataInputStream、BufferedInputStream…四个是具体的装饰器，他们保持了和InputStream同样的接口。
   5. ObjectInputStream是IO字节输入流中特殊的装饰器，他不是FilterInputStream的子类（不知道Sun处于何种意图不作为FileterInputStream的子类，其中流中也有不少的例子）。他和其他FilterInputStream的子类功能相似都可以装饰其他对象。
@@ -325,7 +325,7 @@ compound.printDescription();
   
 我们通常可以使用继承来实现功能的拓展,如果这些需要拓展的功能的种类很繁多,那么势必生成很多子类,增加系统的复杂性,同时,使用继承实现功能拓展,我们必须可预见这些拓展功能,这些功能是编译时就确定了,是静态的.
 
-使用Decorator的理由是:这些功能需要由用户动态决定加入的方式和时机.Decorator提供了”即插即用”的方法,在运行期间决定何时增加何种功能.
+使用Decorator的理由是:这些功能需要由用户动态决定加入的方式和时机.Decorator提供了"即插即用"的方法,在运行期间决定何时增加何种功能.
 
 如何使用?
   
@@ -347,7 +347,7 @@ public class SquarePeg implements Work{
   
 public void insert(){
   
-System.out.println(“方形桩插入”);
+System.out.println("方形桩插入");
   
 }
   
@@ -355,7 +355,7 @@ System.out.println(“方形桩插入”);
   
 现在有一个应用:需要在桩打入前,挖坑,在打入后,在桩上钉木板,这些额外的功能是动态,可能随意增加调整修改,比如,可能又需要在打桩之后钉架子(只是比喻).
 
-那么我们使用Decorator模式,这里方形桩SquarePeg是decoratee(被刷油漆者),我们需要在decoratee上刷些”油漆”,这些油漆就是那些额外的功能.
+那么我们使用Decorator模式,这里方形桩SquarePeg是decoratee(被刷油漆者),我们需要在decoratee上刷些"油漆",这些油漆就是那些额外的功能.
 
 public class Decorator implements Work{
 
@@ -373,9 +373,9 @@ public Decorator(Work work)
   
 this.work=work;
 
-others.add(“挖坑”);
+others.add("挖坑");
 
-others.add(“钉木板”);
+others.add("钉木板");
   
 }
 
@@ -407,7 +407,7 @@ while (listIterator.hasNext())
   
 {
   
-System.out.println(((String)(listIterator.next())) + ” 正在进行”);
+System.out.println(((String)(listIterator.next())) + " 正在进行");
   
 }
 
@@ -437,7 +437,7 @@ BufferedReader br = new BufferedReader(fr);
 
 Jive中的Decorator实现
   
-在论坛系统中,有些特别的字是不能出现在论坛中如”打倒XXX”,我们需要过滤这些”反动”的字体.不让他们出现或者高亮度显示.
+在论坛系统中,有些特别的字是不能出现在论坛中如"打倒XXX",我们需要过滤这些"反动"的字体.不让他们出现或者高亮度显示.
 
 在IBM Java专栏中专门谈Jive的文章中,有谈及Jive中ForumMessageFilter.java使用了Decorator模式,其实,该程序并没有真正使用Decorator,而是提示说:针对特别论坛可以设计额外增加的过滤功能,那么就可以重组ForumMessageFilter作为Decorator模式了.
 

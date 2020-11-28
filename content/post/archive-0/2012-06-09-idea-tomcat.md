@@ -1,6 +1,6 @@
 ---
 title: idea tomcat
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-09T11:38:35+00:00
 url: /?p=3456

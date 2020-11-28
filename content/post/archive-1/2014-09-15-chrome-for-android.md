@@ -1,6 +1,6 @@
 ---
 title: chrome for android
-author: wiloon
+author: w1100n
 type: post
 date: 2014-09-15T03:32:03+00:00
 url: /?p=6984

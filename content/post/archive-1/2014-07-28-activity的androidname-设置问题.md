@@ -1,6 +1,6 @@
 ---
 title: activity的android:name 设置问题
-author: wiloon
+author: w1100n
 type: post
 date: 2014-07-28T08:50:05+00:00
 url: /?p=6830
@@ -49,7 +49,7 @@ categories:
   　　如果activity的实现类是在默认包的子包里面，则这个 "." 是必须有的，比如activity的实现是com.android.sample.app.DialogActivity，则android:name必须写成.app.DialogActivity或者com.android.sample.app.DialogActivity。如果只写app.DialogActivity，则会报错。
 
 <p style="color: #4b4b4b;">
-  　　不论Activity的子类是否在默认package下，还是在默认包的子包下，类名的简写方式统统采用“.ClassName”的方式，可避免类似问题！
+  　　不论Activity的子类是否在默认package下，还是在默认包的子包下，类名的简写方式统统采用".ClassName"的方式，可避免类似问题！
 
 <p style="color: #4b4b4b;">
   参考：

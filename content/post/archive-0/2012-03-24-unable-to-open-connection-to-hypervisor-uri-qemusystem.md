@@ -1,6 +1,6 @@
 ---
 title: virt-manager error
-author: wiloon
+author: w1100n
 type: post
 date: 2012-03-24T05:41:48+00:00
 url: /?p=2614
@@ -11,7 +11,7 @@ tags:
   - KVM
 
 ---
-After I finished the install of the “kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-manager”. I want to connect to my vms through the virt-manager .But I come to this error:
+After I finished the install of the "kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-manager". I want to connect to my vms through the virt-manager .But I come to this error:
 
 > Unable to open a connection to the libvirt management daemon.
 > 
@@ -29,11 +29,11 @@ After I finished the install of the “kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-
   
 > Traceback (most recent call last):
   
-> File “/usr/share/virt-manager/virtManager/connection.py”, line 971, in \_try\_open
+> File "/usr/share/virt-manager/virtManager/connection.py", line 971, in \_try\_open
   
 > None], flags)
   
-> File “/usr/lib/python2.6/dist-packages/libvirt.py”, line 111, in openAuth
+> File "/usr/lib/python2.6/dist-packages/libvirt.py", line 111, in openAuth
   
 > if ret is None:raise libvirtError('virConnectOpenAuth() failed')
   

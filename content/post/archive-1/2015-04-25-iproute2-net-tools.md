@@ -1,6 +1,6 @@
 ---
 title: 'iproute2 < net-tools'
-author: wiloon
+author: w1100n
 type: post
 date: 2015-04-25T03:02:55+00:00
 url: /?p=7497
@@ -10,7 +10,7 @@ tags:
   - linux
 
 ---
-[shell]
+```bash
   
 #Delete all IPv4 addresses on interface wlp3s0
   
@@ -42,7 +42,7 @@ ip link show
   
 ip addr show dev eth1
 
-[/shell]
+```
 
 $ ifconfig eth1
   

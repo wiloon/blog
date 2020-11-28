@@ -1,17 +1,20 @@
 ---
 title: kafka basic,command
-author: wiloon
+author: w1100n
 date: 2018-05-07T08:44:53.000+00:00
 url: "/?p=12205"
 categories:
 - Uncategorized
 
 ---
+### kafka package 
+    https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+
 ### group
 
     # list all group
     bin/kafka-consumer-groups.sh \
-    --bootstrap-server localhost:9092 --list 
+    --bootstrap-server localhost:9092 --list
     
     # list group detail
     bin/kafka-consumer-groups.sh \
@@ -30,13 +33,11 @@ categories:
     --state
 
 ## topic
-### list topic
-
+### list topic, 查看kafka topic列表，使用--list参数
     bin/kafka-topics.sh --list \
     --zookeeper localhost:2181
 
 ### 查看topic详细信息
-
     bin/kafka-topics.sh \
     --zookeeper 127.0.0.1:2181 \
     --topic topic0 \
@@ -46,7 +47,6 @@ replication-factor: 副本数, partitions: 分区数
 topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
-
     # cloudera kafka
     /opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \
     --zookeeper 127.0.0.1:2181 \
@@ -133,44 +133,44 @@ zookeeper.connect=localhost:2181
 ### 删除topic
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
-\#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
-\#start kafka server
-bin/kafka-server-start.sh config/server.properties
+    \#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
+    \#start kafka server
+    bin/kafka-server-start.sh config/server.properties
 
-\#start kafka server as daemon
-bin/kafka-server-start.sh -daemon config/server.properties
+    \#start kafka server as daemon
+    bin/kafka-server-start.sh -daemon config/server.properties
 
-bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
+    bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0
+    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic0 --from-beginning --property "parse.key=true" --property "key.separator=:"
 
-./bin/kafka-server-start.sh config/server.properties
+    ./bin/kafka-server-start.sh config/server.properties
 
-查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
-bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
-bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
+    查看不可用分区 ./kafka-topics.sh --topic test --describe --unavailable-partitions --zookeeper
+    bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
+    bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
 
 bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --from-beginning
 
-# 会只消费 N 条数据，如果配合 --from-beginning，就会消费最早 N 条数据。
-
-bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
+    # 会只消费 N 条数据，如果配合 --from-beginning，就会消费最早 N 条数据。
+    bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
 
     
-    ### 调整 ReplicationFactor
+### 调整 ReplicationFactor
     
-    ```bash
+```bash
 cat increase-replication-factor.json
     
     {"version":1,
-    "partitions":\[{"topic":"connect-configs","partition":0,"replicas":\[0,1,2\]}\]
+    "partitions":[{"topic":"connect-configs","partition":0,"replicas":[0,1,2]}]
     }
     
     bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
-    
+```
 
 ### consumer
 
-```bash/opt/cloudera/parcels/KAFKA/bin/kafka-console-consumer --bootstrap-server 192.168.0.1:9092,192.168.0.2:9092,192.168.0.3:9092 --topic topic0
+```bash
+/opt/cloudera/parcels/KAFKA/bin/kafka-console-consumer --bootstrap-server 192.168.0.1:9092,192.168.0.2:9092,192.168.0.3:9092 --topic topic0
 ```
 
 ### install
@@ -200,7 +200,7 @@ docker run  -d --name kafka \
 ```bash
 
 ```
-    ### server.properties
+### server.properties
     
     advertised.host.name：是注册到zookeeper，client要访问的broker地址。（可能producer也是拿这个值，没有验证）
     
@@ -226,7 +226,7 @@ docker run  -d --name kafka \
     
     Kafka当前支持四种协议类型的访问：PLAINTEXT、SSL、SASL_PLAINTEXT、SASL_SSL。
     
-    Kafka服务启动时，默认会启动PLAINTEXT和SASL_PLAINTEXT两种协议类型的访问监听。可通过设置Kafka服务配置“ssl.mode.enable”为“true”，来启动SSL和SASL_SSL两种协议类型的访问监听。
+    Kafka服务启动时，默认会启动PLAINTEXT和SASL_PLAINTEXT两种协议类型的访问监听。可通过设置Kafka服务配置"ssl.mode.enable"为"true"，来启动SSL和SASL_SSL两种协议类型的访问监听。
     
     下表是四中协议类型的简单说明：
     

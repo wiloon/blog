@@ -1,6 +1,6 @@
 ---
 title: JPA criteria 查询,更新，删除
-author: wiloon
+author: w1100n
 type: post
 date: 2015-02-22T04:00:55+00:00
 url: /?p=7360

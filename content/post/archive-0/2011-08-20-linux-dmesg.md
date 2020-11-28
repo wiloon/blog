@@ -1,6 +1,6 @@
 ---
 title: linux dmesg
-author: wiloon
+author: w1100n
 type: post
 date: 2011-08-20T19:58:44+00:00
 url: /?p=466
@@ -16,8 +16,8 @@ dmesg[1] - print or control the kernel ring buffer
   
 dmesg用于检测和控制内核环缓冲。程序用来帮助用户了解系统的启动信息
   
-[shell]
+```bash
   
 dmesg |grep scsi -A 3
   
-[/shell]
+```

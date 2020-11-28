@@ -1,6 +1,6 @@
 ---
 title: linux enca 编码并转换
-author: wiloon
+author: w1100n
 type: post
 date: 2017-10-31T12:53:47+00:00
 url: /?p=11354
@@ -12,7 +12,7 @@ enca -list languages
   
 enca -L zh_CN file 检查文件的编码
   
-enca -L zh_CN -x UTF-8 file 将文件编码转换为”UTF-8″编码
+enca -L zh_CN -x UTF-8 file 将文件编码转换为"UTF-8″编码
   
 enca -L zh_CN -x UTF-8 < file1 > file2 如果不想覆盖原文件可以这样
   

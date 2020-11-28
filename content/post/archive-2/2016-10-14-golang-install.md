@@ -1,6 +1,6 @@
 ---
 title: golang install
-author: wiloon
+author: w1100n
 type: post
 date: 2016-10-14T00:15:50+00:00
 url: /?p=9295
@@ -28,7 +28,7 @@ GOPATH:
 
 linux:
   
-[shell]
+```bash
 
 mkdir -p /home/wiloon/my-projects/golang/lib/
 
@@ -40,7 +40,7 @@ export GOPATH="/home/wiloon/my-projects/golang/lib/:/home/wiloon/my-projects/gol
   
 go version
   
-[/shell]
+```
 
 windows:
   

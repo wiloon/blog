@@ -1,6 +1,6 @@
 ---
 title: 'golang  unsigned shift, 无符号右移'
-author: wiloon
+author: w1100n
 type: post
 date: 2020-02-11T09:06:44+00:00
 url: /?p=15522

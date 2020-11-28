@@ -1,6 +1,6 @@
 ---
 title: linux shell split string
-author: wiloon
+author: w1100n
 type: post
 date: 2012-07-04T09:03:48+00:00
 url: /?p=3728
@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-[shell]
+```bash
   
 sentence="This is   a sentence."
   
@@ -20,11 +20,11 @@ echo $word
   
 done
   
-[/shell]
+```
 
 ``
 
-[shell]This
+```bashThis
   
 is
   
@@ -32,4 +32,4 @@ a
   
 sentence.
   
-[/shell]
+```

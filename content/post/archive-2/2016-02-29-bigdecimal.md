@@ -1,6 +1,6 @@
 ---
 title: BigDecimal
-author: wiloon
+author: w1100n
 type: post
 date: 2016-02-29T01:10:18+00:00
 url: /?p=8751
@@ -54,17 +54,17 @@ NumberFormat percent = NumberFormat.getPercentInstance(); //建立百分比格�
   
 percent.setMaximumFractionDigits(3); //百分比小数点最多3位
 
-BigDecimal loanAmount = new BigDecimal(“15000.48”); //贷款金额
+BigDecimal loanAmount = new BigDecimal("15000.48"); //贷款金额
   
-BigDecimal interestRate = new BigDecimal(“0.008”); //利率
+BigDecimal interestRate = new BigDecimal("0.008"); //利率
   
 BigDecimal interest = loanAmount.multiply(interestRate); //相乘
 
-System.out.println(“贷款金额:\t” + currency.format(loanAmount));
+System.out.println("贷款金额:\t" + currency.format(loanAmount));
   
-System.out.println(“利率:\t” + percent.format(interestRate));
+System.out.println("利率:\t" + percent.format(interestRate));
   
-System.out.println(“利息:\t” + currency.format(interest));
+System.out.println("利息:\t" + currency.format(interest));
   
 }
 
@@ -82,11 +82,11 @@ BigDecimal是通过使用compareTo(BigDecimal)来比较的，具体比较情况�
   
 public static void main(String[] args) {
   
-BigDecimal a = new BigDecimal(“1”);
+BigDecimal a = new BigDecimal("1");
   
-BigDecimal b = new BigDecimal(“2”);
+BigDecimal b = new BigDecimal("2");
   
-BigDecimal c = new BigDecimal(“1”);
+BigDecimal c = new BigDecimal("1");
   
 int result1 = a.compareTo(b);
   

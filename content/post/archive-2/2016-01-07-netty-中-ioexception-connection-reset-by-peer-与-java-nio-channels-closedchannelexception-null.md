@@ -1,6 +1,6 @@
 ---
 title: 'Netty 中 IOException: Connection reset by peer 与 java.nio.channels.ClosedChannelException: null'
-author: wiloon
+author: w1100n
 type: post
 date: 2016-01-07T00:48:19+00:00
 url: /?p=8657

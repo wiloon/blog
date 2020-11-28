@@ -1,6 +1,6 @@
 ---
 title: debian thinkpad 指纹
-author: wiloon
+author: w1100n
 type: post
 date: 2011-12-15T15:06:41+00:00
 url: /?p=1894
@@ -22,6 +22,6 @@ deb http://ppa.launchpad.net/fingerprint/fingerprint-gui/ubuntu/ lucid main
   
 二、设置：
   
-安装好后，进入“系统->首选项->Fingerprint GUI”，然后按提示初始化输入你的指纹，建议多输入几个手指的。到此为止，设置就完成了。
+安装好后，进入"系统->首选项->Fingerprint GUI"，然后按提示初始化输入你的指纹，建议多输入几个手指的。到此为止，设置就完成了。
   
 然后尝试注销再登录，或是在控制台运行sudo命令，应该会有指纹识别的框弹出以验证身份，当然你也还可以通过输入密码的方式验证身份.

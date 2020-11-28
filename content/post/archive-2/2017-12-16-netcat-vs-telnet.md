@@ -1,6 +1,6 @@
 ---
 title: 'test for a specific port from Linux,  shell>telnet  >netcat > Socat'
-author: wiloon
+author: w1100n
 type: post
 date: 2017-12-16T06:59:25+00:00
 url: /?p=11601
@@ -47,7 +47,7 @@ socat是一個netcat(nc)的替代產品，可以稱得上nc++。socat的特點�
 
 http://blog.csdn.net/zhu_xun/article/details/16885333
 
-Telnet有“标准输入文件结束符(standard input EOF)”问题，
+Telnet有"标准输入文件结束符(standard input EOF)"问题，
   
 所以需要在脚本中延迟计算以便等待网络输出结束。这就是netcat持续运行直
   
@@ -101,6 +101,6 @@ Telnet有“标准输入文件结束符(standard input EOF)”问题，
   
 </blockquote>
 
-<iframe title=""Stop using telnet and start using netcat" - scottlinux.com | Linux Blog" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2" data-secret="mR1NgJH6y2" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://scottlinux.com/2013/12/19/stop-using-telnet-and-start-using-netcat/embed/#?secret=mR1NgJH6y2
   
 https://stackoverflow.com/questions/47844060/how-to-test-a-remote-port-is-reachable-with-socat

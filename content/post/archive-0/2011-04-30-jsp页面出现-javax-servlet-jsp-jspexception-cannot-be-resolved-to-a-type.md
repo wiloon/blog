@@ -1,6 +1,6 @@
 ---
 title: jsp error JspException cannot be resolved to a type
-author: wiloon
+author: w1100n
 type: post
 date: 2011-04-30T09:02:38+00:00
 url: /?p=146

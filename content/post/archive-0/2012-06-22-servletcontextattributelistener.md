@@ -1,6 +1,6 @@
 ---
 title: ServletContextAttributeListener
-author: wiloon
+author: w1100n
 type: post
 date: 2012-06-22T03:26:20+00:00
 url: /?p=3588
@@ -12,7 +12,7 @@ categories:
 
 <span style="color: #ff0000;"> context.setAttribute("attrName", "attrValue");
 
-[java]
+```java
 
 
   import javax.servlet.ServletContext;
@@ -156,4 +156,4 @@ categories:
   }
 
 
-  [/java]
+  ```

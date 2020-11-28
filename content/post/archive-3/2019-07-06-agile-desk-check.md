@@ -1,6 +1,6 @@
 ---
 title: agile, desk check
-author: wiloon
+author: w1100n
 type: post
 date: 2019-07-06T11:28:49+00:00
 url: /?p=14638
@@ -18,4 +18,4 @@ categories:
   
 </blockquote>
 
-<iframe title="《你要专业》—ThoughtWorks洞见" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH" data-secret="CuWoU1KPNH" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+https://insights.thoughtworks.cn/professional/embed/#?secret=CuWoU1KPNH

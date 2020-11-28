@@ -1,6 +1,6 @@
 ---
 title: JAVA读取文件的两种方法：JAVA.IO和JAVA.LANG.CLASSLOADER
-author: wiloon
+author: w1100n
 type: post
 date: 2013-01-03T03:40:04+00:00
 url: /?p=4961
@@ -88,13 +88,13 @@ http://www.matrix.org.cn/thread.shtml?topicId=6d0bbeed-9157-11db-ab77-2bbe780ebf
 
 一、相对于当前用户目录的相对路径
   
-就是相对于System.getProperty(“user.dir”)返回的路径。
+就是相对于System.getProperty("user.dir")返回的路径。
   
 对于一般项目，这是项目的根路径。对于JavaEE服务器，这可能是服务器的某个路径。这个并没有统一的
 
 规范！
   
-所以，绝对不要使用“相对于当前用户目录的相对路径”。然而：
+所以，绝对不要使用"相对于当前用户目录的相对路径"。然而：
   
 默认情况下，java.io 包中的类总是根据当前用户目录来分析相对路径名。此目录由系统属性 user.dir指定，通常是 Java 虚拟机的调用目录。
   

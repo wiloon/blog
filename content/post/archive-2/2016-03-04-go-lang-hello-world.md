@@ -1,6 +1,6 @@
 ---
 title: The Go Programming Language
-author: wiloon
+author: w1100n
 type: post
 date: 2016-03-04T04:53:20+00:00
 url: /?p=8776

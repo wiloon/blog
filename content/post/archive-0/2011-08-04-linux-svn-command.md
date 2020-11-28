@@ -1,13 +1,9 @@
 ---
-title: svn command
-author: wiloon
+title: svn basic, command
+author: w1100n
 type: post
 date: 2011-08-04T02:41:54+00:00
 url: /?p=395
-bot_views:
-  - 4
-categories:
-  - Linux
 
 ---
 ### svn merge

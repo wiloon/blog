@@ -1,6 +1,6 @@
 ---
 title: android activity切换
-author: wiloon
+author: w1100n
 type: post
 date: 2014-07-28T08:54:45+00:00
 url: /?p=6838

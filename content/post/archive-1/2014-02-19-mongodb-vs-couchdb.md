@@ -1,6 +1,6 @@
 ---
 title: MongoDB vs CouchDB
-author: wiloon
+author: w1100n
 type: post
 date: 2014-02-19T05:54:45+00:00
 url: /?p=6257
@@ -33,7 +33,7 @@ MongoDB与CouchDB的一大区别就是CouchDB是一个MVCC的系统，而MongoDB
 
 **5.数据可靠性**
 
-CouchDB是一个”crash-only”的系统，你可以在任何时候停掉CouchDB并能保证数据的一致性。而MongoDB在不正常的停掉后需要运repairDatabase()命令来修复数据文件，在1.7.5版本后支持单机可靠的–dur命令。
+CouchDB是一个"crash-only"的系统，你可以在任何时候停掉CouchDB并能保证数据的一致性。而MongoDB在不正常的停掉后需要运repairDatabase()命令来修复数据文件，在1.7.5版本后支持单机可靠的–dur命令。
 
 **6.Map/Reduce**
 

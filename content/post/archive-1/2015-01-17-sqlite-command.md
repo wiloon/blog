@@ -1,6 +1,6 @@
 ---
 title: sqlite command
-author: wiloon
+author: w1100n
 type: post
 date: 2015-01-17T04:46:52+00:00
 url: /?p=7250
@@ -28,7 +28,7 @@ select name from sqlite_master where type='table' order by name;
   
 PRAGMA table_info([tablename])
 
-cur.execute(“PRAGMA table_info(table)”)
+cur.execute("PRAGMA table_info(table)")
   
 print cur.fetchall()
   

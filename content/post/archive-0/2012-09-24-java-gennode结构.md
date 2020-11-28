@@ -10,7 +10,7 @@ categories:
 ---
 GenNode.java
 
-[java]
+```java
 
 package com.http;
 
@@ -742,11 +742,11 @@ return elements;
   
 }
 
-[/java]
+```
   
 NodePath.java
   
-[java]
+```java
   
 package com.http;
 
@@ -836,11 +836,11 @@ this.index = index;
 
 }
   
-[/java]
+```
   
 NodeUtil.java
   
-[java]
+```java
   
 package com.http;
 
@@ -1054,11 +1054,11 @@ return path;
 
 }
   
-[/java]
+```
   
 GenNodeHandler.java
   
-[java]
+```java
   
 package com.http;
 
@@ -1220,11 +1220,11 @@ node.setValue(value);
 
 }
   
-[/java]
+```
   
 XMLParser.java
   
-[java]
+```java
   
 package com.http;
 
@@ -1290,4 +1290,4 @@ return node;
   
 }
   
-[/java]
+```

@@ -1,6 +1,6 @@
 ---
 title: linux tail
-author: wiloon
+author: w1100n
 type: post
 date: 2016-08-14T15:41:25+00:00
 url: /?p=9182

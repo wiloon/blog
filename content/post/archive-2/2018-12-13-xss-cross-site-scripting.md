@@ -1,6 +1,6 @@
 ---
 title: XSS, Cross Site Scripting, CSRF, Cross-site request forgery
-author: wiloon
+author: w1100n
 date: 2018-12-13T06:38:16.000+00:00
 url: "/?p=13058"
 categories:

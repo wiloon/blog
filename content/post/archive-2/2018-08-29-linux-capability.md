@@ -1,6 +1,6 @@
 ---
 title: Linux capability
-author: wiloon
+author: w1100n
 type: post
 date: 2018-08-29T07:06:54+00:00
 url: /?p=12608

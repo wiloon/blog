@@ -1,6 +1,6 @@
 ---
 title: Wireshark
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-22T15:04:44+00:00
 url: /?p=1235
@@ -15,13 +15,10 @@ Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分
   
   
   
-  <h2>
-    应用<a name="2"></a>
-  </h2>
-  
+###     应用  
     Wireshark使用目的以下是一些使用Wireshark目的的例子：
 
-    网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用Wireshark来学习网络协定的相关知识当然，有的人也会“居心叵测”的用它来寻找一些敏感信息……
+    网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用Wireshark来学习网络协定的相关知识当然，有的人也会"居心叵测"的用它来寻找一些敏感信息……
   
   
   
@@ -39,3 +36,8 @@ Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分
   
     自此之后，数以千计的人开始参与Ethereal的开发，多半是因为希望能让Ethereal撷取特定的，尚未包含在Ethereal默认的网络协定的封包而参予新的开发。2006年6月，因为商标的问题，Ethereal更名为Wireshark。
   
+[TCP Window Full] ：服务端向客户端发送的一种窗口警告，表示已经发送到数据接收端的极限了。
+[TCP Window Update]：缓冲区已释放为所示的大小，因此请恢复传输。
+[Zero Window] ：客户端向服务端发送的一种窗口警告，告诉发送者你的接收窗口已满，暂时停止发送。
+
+https://www.codenong.com/cs106112955/

@@ -1,6 +1,6 @@
 ---
 title: debian 6 (squeeze) 源列表
-author: wiloon
+author: w1100n
 type: post
 date: 2011-11-26T10:00:24+00:00
 url: /?p=1644
@@ -37,7 +37,7 @@ deb http://security.debian.org/ squeeze/updates main
   
 \# 先下载公钥 debian-multimedia-keyring ，再取得root权限，
   
-\# 最后安装该公钥文件“dpkg -i debian-multimedia-keyring\_2010.12.26\_all.deb”（版本号可能会不断更新）
+\# 最后安装该公钥文件"dpkg -i debian-multimedia-keyring\_2010.12.26\_all.deb"（版本号可能会不断更新）
   
 \# 更详细的请参考它的官网页面一开头的说明，地址：http://www.debian-multimedia.org/
   

@@ -1,6 +1,6 @@
 ---
 title: golang map set
-author: wiloon
+author: w1100n
 type: post
 date: 2016-11-23T07:14:53+00:00
 url: /?p=9419
@@ -9,7 +9,6 @@ categories:
 
 ---
 ### map 清空
-
 清空 map 中的所有元素
   
 有意思的是，Go语言中并没有为 map 提供任何清空所有元素的函数、方法，清空 map 的唯一办法就是重新 make 一个新的 map，不用担心垃圾回收的效率，Go语言中的并行垃圾回收效率比写一个清空函数要高效的多。
@@ -169,7 +168,7 @@ func main() {
   
 原文链接：http://www.jianshu.com/p/32b839e99289
   
-著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
+著作权归作者所有，转载请联系作者获得授权，并标注"简书作者"。
   
 http://www.jianshu.com/p/32b839e99289
 

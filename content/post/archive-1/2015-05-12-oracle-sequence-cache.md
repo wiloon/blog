@@ -1,6 +1,6 @@
 ---
 title: Oracle Sequence cache
-author: wiloon
+author: w1100n
 type: post
 date: 2015-05-12T06:49:08+00:00
 url: /?p=7658
@@ -29,7 +29,7 @@ http://blog.itpub.net/17203031/viewspace-717042/
 在以后每次请求nextval的时候，Oracle就从服务器缓存中去获取序列值。而不需要更新数据字典信息。只有在分配到缓存的10个数字都已经分配完，或者因为缓存刷新操作剩余数字被清理的情况下，才会再次调用sequence分配机制，再次分出cache个数字。
 
 
-在cache问题上，我们经常会疑惑为什么我们sequence生成的数字序列会“跳号”。这种跳号现象实际上就是因为cache的数字在缓存中因为各种原因被flush出，这样才导致生成的数字序列不连续。
+在cache问题上，我们经常会疑惑为什么我们sequence生成的数字序列会"跳号"。这种跳号现象实际上就是因为cache的数字在缓存中因为各种原因被flush出，这样才导致生成的数字序列不连续。
 
 
 注意：在有cache的情况下，sequence只能保证每次获取到的数字都是唯一、递增的，从来没有保证过数字的连续性。

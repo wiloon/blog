@@ -1,6 +1,6 @@
 ---
 title: How to get the design view of ASP.NET in Visual Studio 2010
-author: wiloon
+author: w1100n
 type: post
 date: 2013-02-19T06:14:59+00:00
 url: /?p=5198

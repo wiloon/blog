@@ -1,6 +1,6 @@
 ---
 title: go command
-author: wiloon
+author: w1100n
 type: post
 date: 2017-11-16T02:54:01+00:00
 url: /?p=11440

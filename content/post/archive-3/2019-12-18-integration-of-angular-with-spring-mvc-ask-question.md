@@ -1,6 +1,6 @@
 ---
 title: 'Integration of Angular  with Spring MVC'
-author: wiloon
+author: w1100n
 type: post
 date: 2019-12-18T09:53:42+00:00
 url: /?p=15220
@@ -24,13 +24,13 @@ and then
 
 or use 'ng build -prod' for production build.
   
-this command will create a “dist” folder, copy all files including all folders.
+this command will create a "dist" folder, copy all files including all folders.
 
 <ol start="4">
   <li>
     Paste those files and folders into 'WebContent' directory.
   </li>
   <li>
-    Last thing, you need to change basehref=”./” in index.html.
+    Last thing, you need to change basehref="./" in index.html.
   </li>
 </ol>

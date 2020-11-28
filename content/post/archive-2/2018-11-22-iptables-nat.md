@@ -1,6 +1,6 @@
 ---
 title: iptables nat
-author: wiloon
+author: w1100n
 type: post
 date: 2018-11-22T13:58:38+00:00
 url: /?p=12911

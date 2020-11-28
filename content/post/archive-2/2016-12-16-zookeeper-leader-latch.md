@@ -1,6 +1,6 @@
 ---
 title: zookeeper leader latch
-author: wiloon
+author: w1100n
 type: post
 date: 2016-12-16T04:59:05+00:00
 url: /?p=9564

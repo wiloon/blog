@@ -1,6 +1,6 @@
 ---
 title: Debian/在Debian上安装Apache Mysql PHP
-author: wiloon
+author: w1100n
 type: post
 date: 2013-11-24T03:39:29+00:00
 url: /?p=5987
@@ -10,7 +10,7 @@ categories:
 ---
 ## 安装Apache Mysql PHP
 
-安装之前，保证你的版本是最新的。使用命令：（“#”表示你应该以root的身份来运行）。
+安装之前，保证你的版本是最新的。使用命令：（"#"表示你应该以root的身份来运行）。
 
 # aptitude update && aptitude upgrade
 

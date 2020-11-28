@@ -1,6 +1,6 @@
 ---
 title: '输出重定向 Linux Shell 1>/dev/null 2>&1'
-author: wiloon
+author: w1100n
 type: post
 date: 2018-08-31T02:21:50+00:00
 url: /?p=12625

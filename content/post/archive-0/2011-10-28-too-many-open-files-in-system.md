@@ -1,6 +1,6 @@
 ---
 title: Too many open files in system
-author: wiloon
+author: w1100n
 type: post
 date: 2011-10-28T04:37:22+00:00
 url: /?p=1332

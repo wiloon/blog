@@ -1,6 +1,6 @@
 ---
 title: 进入safepoint时如何让Java线程全部阻塞
-author: wiloon
+author: w1100n
 type: post
 date: 2013-09-13T10:49:30+00:00
 url: /?p=5807
@@ -14,7 +14,7 @@ http://blog.csdn.net/iter_zc/article/details/41892567
 
 那么当Java线程运行到safepoint的时候，JVM如何让Java线程挂起呢？这是一个复杂的操作。很多文章里面说了JIT编译模式下，编译器会把很多safepoint检查的操作插入到编译偶的指令中，比如下面的指令来自内存篇：JVM内存回收理论与实现
   
-[java] view plain copy
+```java view plain copy
   
 0x01b6d627: call 0x01b2b210 ; OopMap{[60]=Oop off=460}
                                          
@@ -60,7 +60,7 @@ safepoint机制可以stop the world，不仅仅是在GC的时候用，有很多�
   
 看一下OpenJDK里面关于safepoint的一些说明
 
-[java] view plain copy
+```java view plain copy
   
 // Begin the process of bringing the system to a safepoint.
   
@@ -147,7 +147,7 @@ JVM采用的后者，因为内存屏障是一个很重的操作，要强制刷�
 
 为什么要做线程同步呢，这篇 请教hotspot源码中关于Serialization Page的问题 解释了这个问题：
 
-[java] view plain copy
+```java view plain copy
   
 AddressLiteral sync\_state(SafepointSynchronize::address\_of_state());
   
@@ -202,7 +202,7 @@ __ cmp(G3\_scratch, SafepointSynchronize::\_not_synchronized);
   
 ) 。这是mprotect的man page
 
-[java] view plain copy
+```java view plain copy
   
 "If the calling process tries to access memory in a manner that violates the protection, then the kernel generates a SIGSEGV
   
@@ -210,7 +210,7 @@ signal for the process."
 
 再看一下JVM如何处理SIGSEGV信号的 hotspot/src/os\_cpu/linux\_x86/vm/os\_linux\_x86.cpp
   
-[java] view plain copy
+```java view plain copy
   
 // Check to see if we caught the safepoint code in the
       
@@ -238,7 +238,7 @@ JVM要阻塞全部的Java线程的时候，要先检查所有的Java线程所处
 
 这个话题还涉及到JVM性能分析的一些场景。通过设置JVM参数 -XX:+PrintGCApplicationStoppedTime 会打出系统停止的时间，类似的日志如下面
 
-[java] view plain copy
+```java view plain copy
   
 Total time for which application threads were stopped: 0.0041000 seconds
   

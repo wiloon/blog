@@ -1,6 +1,6 @@
 ---
 title: is not in the sudoers file
-author: wiloon
+author: w1100n
 type: post
 date: 2011-09-23T09:33:02+00:00
 url: /?p=902
@@ -34,6 +34,6 @@ your\_user\_name ALL=(ALL) ALL
   
 4、按Esc
   
-5、输入“:w”(保存文件)
+5、输入":w"(保存文件)
   
-6、输入“:q”(退出)
+6、输入":q"(退出)
