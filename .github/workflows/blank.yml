@@ -62,7 +62,7 @@ jobs:
       - name: Deploy to vm-aws
         uses: easingthemes/ssh-deploy@v2.1.2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_AWS }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
           REMOTE_HOST: "34.212.58.83"

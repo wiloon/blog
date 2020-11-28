@@ -310,6 +310,8 @@ https://github.com/ElementUI/vue-cli-plugin-element
 
     Vue.use(ElementUI)
 
+### package.json
+
 ----
 
 https://cli.vuejs.org/zh/guide/prototyping.html

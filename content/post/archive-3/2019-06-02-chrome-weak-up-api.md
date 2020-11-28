@@ -9,44 +9,59 @@ categories:
 
 ---
 ### chrome 74
-chrome://flags/#enable-experimental-web-platform-features
-
-Note: Like most other powerful web APIs, the Wake Lock API is only available when served over HTTPS.
-
-```
-let wakeLock;
-let wakeLockRequest;
-
-async function toggleWakeLock() {
-  if ('getWakeLock' in navigator) {
-    console.log('', 'navigator.getWakeLock is supported');
-    try {
-      wakeLock = await navigator.getWakeLock("screen");
-      updateStatus(wakeLock);
-      // Listen for changes to the wakeLock
-      wakeLock.addEventListener('activechange', (e) => {
-        updateStatus(wakeLock);
-      });
-      wakeLockRequest = wakeLock.createRequest();
-    } catch (ex) {
-
-      console.error(ex);
-    }
-  } else {
-    console.warn('navigator.getWakeLock is not supported');
-
-  }
-
-}
-
-function updateStatus(wakeLock) {
-  console.log(wakeLock);
-}
-
-```
+chrome://flags/#enable-experimental-web-platform-features  
+Note: Like most other powerful web APIs, the Wake Lock API is only available when served over HTTPS.  
 
 ### chrome 79+
+Chrome Updates Experimental Wake Lock API Support  
 https://www.infoq.com/news/2019/11/chrome-wakelock-api/#:~:text=The%20Wake%20Lock%20API%20prevents%20some%20aspect%20of,this%20feature%2C%20adding%20promises%20and%20wake%20lock%20types.
+
+To use the Wake Lock API, developers need to enable the #enable-experimental-web-platform-features flag in chrome://flags.
+
+chrome://flags
+#enable-experimental-web-platform-features
+
+### keep-screen-on.js
+
+```javascript
+export function wakeLock () {
+  if ('wakeLock' in navigator && 'request' in navigator.wakeLock) {
+    console.log('wakeLock supported')
+    try {
+      navigator.wakeLock.request('screen')
+      console.log('Wake Lock is active')
+    } catch (e) {
+      console.error(`${e.name}, ${e.message}`)
+    }
+  } else {
+    console.log('no wakeLock support')
+  }
+}
+```
+
+### vue script
+```typescript
+<script lang="ts">
+import HelloWorld from './components/HelloWorld.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import { wakeLock } from './assets/keep-screen-on.js'
+
+@Component({
+  components: { HelloWorld }
+})
+export default class App extends Vue {
+  drawer = false
+  foo = ''
+
+  mounted () {
+    this.$vuetify.theme.dark = true
+    wakeLock()
+  }
+}
+</script>
+
+```
+
 #### demo 
     https://wake-lock-demo.glitch.me/
 
