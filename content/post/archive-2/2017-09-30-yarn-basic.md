@@ -25,7 +25,7 @@ https://www.jianshu.com/p/455f74669ce9
 
 ```bash
 npm install
-yarn install
+yarn add
 
 npm install --save algoliasearch/lite
 yarn add algoliasearch/lite 

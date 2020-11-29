@@ -312,6 +312,14 @@ https://github.com/ElementUI/vue-cli-plugin-element
 
 ### package.json
 
+### viser
+    npm install viser-vue
+    yarn add viser-vue
+
+    # main.js
+    import Viser from 'viser-vue'
+    Vue.use(Viser)
+    
 ----
 
 https://cli.vuejs.org/zh/guide/prototyping.html

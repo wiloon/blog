@@ -86,6 +86,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | intellij-idea-community-edition | IDEA社区版       |
 | maven                           |                  |
 | gradle                          |                  |
+|gradle-src| |
 | git                             |                  |
 | rust                            | rust-lang        |
 |iperf3|网络测试工具|
