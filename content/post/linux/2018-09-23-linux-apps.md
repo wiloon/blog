@@ -72,6 +72,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | gpick                 | 颜色拾取工具                                                 |
 |	telegram-desktop| 	telegram|
 |apper|pacman GUI|
+|dstat|查看系统性能的工具 dstat -cdlmnpsy|
+|sl|小火车|
 
 ### pacman, dev
 
@@ -84,12 +86,14 @@ sudo pacman -S powerdevil kmix kscreen ark
 | intellij-idea-community-edition | IDEA社区版       |
 | maven                           |                  |
 | gradle                          |                  |
+|gradle-src| |
 | git                             |                  |
 | rust                            | rust-lang        |
 |iperf3|网络测试工具|
 |termite|支持32位色的终端|
 |neovim|用户体验更好的vim|
 |adobe-source-code-pro-fonts|adobe 的编程字体|
+|tmux||
 
 
 ### AUR, yay:
@@ -123,6 +127,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |webstorm-jre| yay -S webstorm webstorm-jre|
 |platformio||
 |clion||
+|slurm|网络监控|
 
 ### KDE
 

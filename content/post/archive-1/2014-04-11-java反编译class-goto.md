@@ -1,15 +1,31 @@
 ---
-title: Java反编译class goto
+title: Java反编译, jad, jd-gui
 author: w1100n
 type: post
 date: 2014-04-11T06:46:31+00:00
 url: /?p=6518
-categories:
-  - Uncategorized
-tags:
-  - Java
 
 ---
+### Jadclipse
+JadClipse是Jad的Eclipse插件
+### jad
+jad是一款使用非常广泛地Java反编译工具，上面这款Jadclipse就是基于jad的反编译插件，JAD 文件包含 MIDlet 套件的标题信息，例如开发应用程序的公司、应用程序名称和大小。
+
+官方网站：http://varaneckas.com/jad/
+### JD-GUI
+JD-GUI 是一个用 C++ 开发的 Java 反编译工具，由 Pavel Kouznetsov开发，支持Windows、Linux和苹果Mac Os三个平台。而且提供了Eclipse平台下的插件JD-Eclipse。JD-GUI不需要安装，直接点击运行，可以反编译jar,class文件。
+
+官方网站：http://jd.benow.ca/
+
+### jdec
+http://jdec.sourceforge.net/
+
+### uuDeJava
+http://www.uuware.com/uudejava_cn.htm
+### Minjava
+### Java Decompiler
+http://jd.benow.ca/
+
 工具使用jad(还有joda,jd等工具)
 
 

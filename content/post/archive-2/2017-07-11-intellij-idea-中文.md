@@ -8,11 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<blockquote class="wp-embedded-content" data-secret="ZFT4esKgN4">
-  
     <a href="https://www.4spaces.org/what-is-intellij-idea-jbr/">IntelliJ IDEA Windows JBR是什么</a>
-  
-</blockquote>
 
 https://www.4spaces.org/what-is-intellij-idea-jbr/embed/#?secret=ZFT4esKgN4
 
