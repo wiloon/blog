@@ -60,8 +60,8 @@ unzip -o -d /home/sunny myfile.zip
 ls *.zip | xargs -n1 unzip -o
 
 # -o：不必先询问用户，unzip执行后覆盖原有的文件；
-
 # -P<密码>：使用zip的密码选项；
+# -d 指定解压的目标目录
 
 # 解压最近4天的zip文件
 

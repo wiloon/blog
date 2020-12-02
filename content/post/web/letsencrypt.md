@@ -4,6 +4,8 @@ date = "2020-06-04T08:55:49Z"
 title = "letsencrypt, certbot, acme.sh"
 
 +++
+https://certbot.eff.org/docs/intro.html
+
 因为 Google Chrome 和运营商劫持干扰访问者体验的努力推动了大型网站加速应用全站 HTTPS，而 Let’s Encrypt 这个项目通过自动化把配置和维护 HTTPS 变得更加简单，Let’s Encrypt 设计了一个 ACME 协议目前版本是 v2，并在 2018 年支持通配符证书 Wildcard Certificate Support is Live。  
 官网主推的客户端是Certbot，任何人都可以基于 ACME 协议实现一个客户端，比如大名鼎鼎的acme.sh。
 
