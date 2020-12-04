@@ -85,6 +85,7 @@ ip link set wg0 up
 
 ### peer B
     sudo ip link add dev wg0 type wireguard
+    # ip要改一下...
     sudo ip addr add 192.168.53.2/24 dev wg0
     sudo wg set wg0 private-key ./privatekey
 
@@ -92,8 +93,10 @@ ip link set wg0 up
     sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 
     
     # 所有的ip包都 会被 发往 peer_A
+    # endpoint 对端的地址,ip或域名
+    # PEER_A_PUBLIC_KEY 对端公钥
     sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
-    ip link set wg0 up
+    sudo ip link set wg0 up
 
 ### 添加路由
 
