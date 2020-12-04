@@ -6,6 +6,9 @@ date: 2011-11-20T07:58:09+00:00
 url: /?p=1548
 
 ---
+### command
+    gradle build
+    
 ### install
 download latest version of gradle from http://www.gradle.org/downloads.html
   
