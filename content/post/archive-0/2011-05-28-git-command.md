@@ -175,8 +175,10 @@ git ls-files -d | xargs git checkout --
 
 ```bash
 #checkout tag/branch
-git clone -b v1.30.0 https://github.com/foo/bar
 git clone --branch <tag_name> <repo_url>
+git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
+git clone -b v1.30.0 https://github.com/foo/bar
+
 
 git clean -fd
 
