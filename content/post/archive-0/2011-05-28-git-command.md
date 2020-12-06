@@ -78,7 +78,6 @@ git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:wiloon/go-angular-x.git
 git push -u origin master
-```
 
 ### tag
 ```bash
