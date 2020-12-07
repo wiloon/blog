@@ -4,6 +4,11 @@ date = "2020-06-04T08:55:49Z"
 title = "letsencrypt, certbot, acme.sh"
 
 +++
+### Couldn't download https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto. <urlopen error [Errno 110] Connection timed out>
+
+ 如果希望将其锁定到特定版本并且不接收自动更新，只需在命令后加 --no-self-upgrade 即可。即：
+certbot-auto renew --no-self-upgrade
+
 https://certbot.eff.org/docs/intro.html
 
 因为 Google Chrome 和运营商劫持干扰访问者体验的努力推动了大型网站加速应用全站 HTTPS，而 Let’s Encrypt 这个项目通过自动化把配置和维护 HTTPS 变得更加简单，Let’s Encrypt 设计了一个 ACME 协议目前版本是 v2，并在 2018 年支持通配符证书 Wildcard Certificate Support is Live。  
@@ -36,12 +41,16 @@ alternatives --set python /usr/bin/python3
         certbot-auto certonly  -d wiloon.com -d *.wiloon.com --manual --preferred-challenges dns  --manual-auth-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"
 
 ### renew 所有证书
+        certbot-auto renew --no-self-upgrade --manual-public-ip-logging-ok
+
         certbot-auto renew  --manual --manual-public-ip-logging-ok --preferred-challenges dns --manual-auth-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"
 
 ### renew 某一个证书
     certbot-auto renew --cert-name simplehttps.com  --manual-auth-hook "/脚本目录/au.sh php aly add" --manual-cleanup-hook "/脚本目录/au.sh php aly clean"
+    
 ### check cert
-    certbot-auto certificates
+    certbot-auto certificates --no-self-upgrade
+
 能看到有两个证书
 
         /etc/letsencrypt/live/wiloon.com-0001/fullchain.pem -- *.wiloon.com 泛域名证书
