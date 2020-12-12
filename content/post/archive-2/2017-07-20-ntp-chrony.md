@@ -17,6 +17,8 @@ sudo pacman -S chrony
 # for centos
 yum install chrony
 
+# ubuntu
+apt install chrony
 ```
 
 ### chrony 配置
