@@ -18,8 +18,8 @@ uuid的目的是让分布式系统中的所有元素，都能有唯一的辨识�
 
 A universally unique identifier (UUID) is a 128-bit number used to identify information in computer systems.
 
-例如Java中生成uuid：
-
+### Java
+```java
     package com.mytest;
       
     import java.util.UUID;
@@ -33,9 +33,9 @@ A universally unique identifier (UUID) is a 128-bit number used to identify info
     System.out.println(uuid);
       
     }}
-
-c++中生成uuid：
-
+```
+### c++中生成uuid：
+```c
     #pragma comment(lib, "rpcrt4.lib")
       
     #include <windows.h>
@@ -63,7 +63,7 @@ c++中生成uuid：
     return 0;
       
     }
-
+```
 github.com/satori/go.uuid
 
 目前，golang中的uuid还没有纳入标准库，我们使用github上的开源库：
@@ -71,7 +71,7 @@ github.com/satori/go.uuid
 go get -u github.com/satori/go.uuid
 
 使用：
-
+```go
     package main
 
     import (
@@ -100,7 +100,7 @@ go get -u github.com/satori/go.uuid
         
 
     }
-
+```
 uuid在websocket中使用
 
 这里就是一个简单的使用而已，在websocket中为每一个连接的客户端分配一个uuid。
