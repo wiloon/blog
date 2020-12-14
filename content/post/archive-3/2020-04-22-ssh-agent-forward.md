@@ -104,7 +104,7 @@ The ssh daemon on the server looks in the user's authorized_keys file, construct
 
 2.png
   
-Step3，SSH client收到后，在本地茶韵privatekey（默认id_rsa文件），此时如果有密码，会要求输入密码。
+Step3，SSH client收到后，在本地查询privatekey（默认id_rsa文件），此时如果有密码，会要求输入密码。
 
 3.png
   
