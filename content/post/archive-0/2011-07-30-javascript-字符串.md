@@ -39,6 +39,11 @@ tags:
     var str="字符串字节长度为" ;
     alert(str.length);
 
+### JS字符串拼接/连接
+    var s1 = "abc";
+    var s2 = s1.concat("d" , "e" , "f");  //调用concat()连接字符串
+    console.log(s2);  //返回字符串“abcdef”
+
 ### indexOf
     stringObject.indexOf(searchvalue,fromindex)
 
@@ -107,3 +112,61 @@ stringObject.replace(regexp/substr,replacement)
 
 replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
 
+### js获取url参数值
+采用正则表达式获取地址栏参数 (代码简洁，重点正则）
+
+function getQueryString(name) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    let r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return decodeURIComponent(r[2]);
+    };
+    return null;
+ }
+
+split拆分法 (代码较复杂，较易理解)
+
+function GetRequest() {
+   const url = location.search; //获取url中"?"符后的字串
+   let theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      let str = url.substr(1);
+      strs = str.split("&");
+      for(let i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+   }
+   return theRequest;
+}
+
+split拆分法(易于理解，代码中规)
+
+function getQueryVariable(variable){
+       let query = window.location.search.substring(1);
+       let vars = query.split("&");
+       for (let i=0;i<vars.length;i++) {
+               let pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
+### 如何检查JavaScript中的字符串是否包含子字符串
+ (ES6) includes -去回答(不支持IE)
+
+    var string ="foo",
+        substring ="oo";
+    string.includes(substring);
+
+### JS对url进行编码和解码
+https://segmentfault.com/a/1190000013236956
+
+    escape(str0)
+
+
+---
+
+作者：大小伍
+链接：https://www.jianshu.com/p/708c915fb905
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
