@@ -5,5 +5,4 @@ title = "chrome basic"
 
 +++
 ### 清除dns缓存
-
     chrome://net-internals/#dns
