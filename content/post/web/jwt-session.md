@@ -55,22 +55,14 @@ Session token（又称 Session cookie）：标准的、可被签名的 Session I
 ![](https://user-gold-cdn.xitu.io/2017/12/27/160984b7052cf619?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 ##### 优势
-
-> 相比JWT，最大的优势就在于可以主动清除session了
-
-> session保存在服务器端，相对较为安全
-
-> 结合cookie使用，较为灵活，兼容性较好
-
+相比JWT，最大的优势就在于可以主动清除session了
+session保存在服务器端，相对较为安全
+结合cookie使用，较为灵活，兼容性较好
 ##### 弊端
-
-> cookie + session在跨域场景表现并不好
-
-> 如果是分布式部署，需要做多机共享session机制，实现方法可将session存储到数据库中或者redis中
-
-> 基于 cookie 的机制很容易被 CSRF
-
-> 查询session信息可能会有数据库查询操作
+cookie + session在跨域场景表现并不好
+如果是分布式部署，需要做多机共享session机制，实现方法可将session存储到数据库中或者redis中
+基于 cookie 的机制很容易被 CSRF
+查询session信息可能会有数据库查询操作
 
 ##### session、cookie、sessionStorage、localstorage的区别
 
@@ -325,3 +317,28 @@ https://zhuanlan.zhihu.com/p/52300092
 https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/#silent_refresh
 https://usthe.com/2018/04/%E7%AD%BE%E5%8F%91%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81token%E8%B6%85%E6%97%B6%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5/
 https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
+
+
+所以... JWT 适合做什么？
+在本文之初，我就提到 JWT 虽然不适合作为 Session 机制，但在其它方面的确有它的用武之地。该主张依旧成立，JWT 特别有效的使用例子通常是作为一次性的授权令牌。
+
+引用 JSON Web Token specification：
+
+JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties. [...] enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.
+
+在此上下文中，「Claim」可能是一条「命令」，一次性的认证，或是基本上能够用以下句子描述的任何情况：
+
+你好，服务器 B，服务器 A 告诉我我可以 <...Claim...>，这是我的证据：< ... 密钥... >。
+
+举个例子，你有个文件服务，用户必须认证后才能下载文件，但文件本身存储在一台完全分离且无状态的「下载服务器」内。在这种情况下，你可能想要「应用服务器（服务器 A）」颁发一次性的「下载 Tokens」，用户能够使用它去「下载服务器（服务器 B）」获取需要的文件。
+
+以这种方式使用 JWT，具备几个明确的特性：
+
+Tokens 生命期较短。它们只需在几分钟内可用，让客户端能够开始下载。
+Tokens 仅单次使用。应用服务器应当在每次下载时颁发新的 Token。所以任何 Token 只用于一次请求就会被抛弃，不存在任何持久化的状态。
+应用服务器依旧使用 Sessions。仅仅下载服务器使用 Tokens 来授权每次下载，因为它不需要任何持久化状态。
+正如以上你所看到的，结合 Sessions 和 JWT Tokens 有理有据。它们分别拥有各自的目的，有时候你需要两者一起使用。只是不要把 JWT 用作 持久的、长期的 数据就好。
+
+---
+
+https://learnku.com/articles/22616

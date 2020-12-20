@@ -1,5 +1,5 @@
 ---
-title: archlinux 截图
+title: archlinux basic
 author: w1100n
 type: post
 date: 2016-04-24T13:27:38+00:00
@@ -8,6 +8,14 @@ categories:
   - Uncategorized
 
 ---
+### 查看pci设备
+    lspci -k
+    
+### 磁盘清理
+    sudo pacman -Scc
+    sudo yay -Scc
+
+
 scrot
 
 pacman -S scrot
