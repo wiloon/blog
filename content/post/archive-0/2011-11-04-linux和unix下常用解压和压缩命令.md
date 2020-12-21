@@ -17,12 +17,13 @@ url: "/?p=1444"
     rar a FileName.rar
 
 ### .gz
+    # 压缩
+    gzip FileName
     # 解压1
     gunzip FileName.gz
     # 解压2
     gzip -d FileName.gz
-    # 压缩
-    gzip FileName
+
 
 ### .7z
 ```bash
