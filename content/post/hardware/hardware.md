@@ -66,8 +66,9 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2系列
 金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列
 
-### PC:
+### PC
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+wifi: Intel Corporation Wireless 7260 (rev 5b)
 
 ### Pixelbook
 CPU: i5  

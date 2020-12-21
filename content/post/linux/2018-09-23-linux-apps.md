@@ -100,7 +100,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                                  | comments                                    |
 | :------------------------------------ | ------------------------------------------- |
-| deepin-wine-wechat                    | 微信                                        |
+| deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
 | google-chrome-beta                    |                                             |
 | redis-desktop-manager                 | rdm                                         |
 | wps-office                            | 依赖                                        |
