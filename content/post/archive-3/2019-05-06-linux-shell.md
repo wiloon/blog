@@ -4,12 +4,42 @@ author: w1100n
 type: post
 date: 2019-05-06T04:27:52+00:00
 url: /?p=14295
-categories:
-  - Uncategorized
 
 ---
-### 查看当前使用的shell
+### sleep
+休眠5分钟,  s 为秒，m 为 分钟，h 为小时，d 为日数
+sleep 5m
 
+### 数组
+```bash
+my_array=(A B "C" D)
+
+for element in ${my_array[@]}
+#也可以写成for element in ${my_array[*]}
+do
+echo $element
+done
+
+```
+### 单引号内引入变量
+```bash
+#!/bin/bash
+
+i=10
+echo $i
+echo '$i'
+echo '$i is : '$i''
+
+执行结果
+
+# ./test.sh 
+10
+$i
+$i is : 10
+单引号内嵌套单引号即可使用变量。
+```
+
+### 查看当前使用的shell
 ```bash
 echo $SHELL
 ps |  grep $$  |  awk '{print $4}'

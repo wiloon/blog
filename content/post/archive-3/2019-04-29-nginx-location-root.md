@@ -14,10 +14,8 @@ https://blog.csdn.net/u011510825/article/details/50531864
 
 nginx指定文件路径有两种方式root和alias，这两者的用法区别，使用方法总结了下，方便大家在应用过程中，快速响应。root与alias主要区别在于nginx如何解释location后面的uri，这会使两者分别以不同的方式将请求映射到服务器文件上。
 
-[root]
-  
-语法：root path
-  
+### root
+语法：root path  
 默认值：root html
   
 配置段：http、server、location、if
