@@ -9,7 +9,6 @@ categories:
 
 ---
 ### worker_processes, nginx进程数，建议设置为等于CPU总核心数。
-
     worker_processes 8;
   
 官方英文版wiki配置说明中的描述如下，个人理解为worker角色的进程个数（nginx启动后有多少个worker处理http请求。master不处理请求，而是根据相应配置文件信息管理worker进程. master进程主要负责对外揽活（即接收客户端的请求），并将活儿合理的分配给多个worker，每个worker进程主要负责干活（处理请求））。
