@@ -50,8 +50,7 @@ del key1 key2
 exists key_name
 
 ### 查看key的类型
-
-type key0
+    type key0
 
 ### 删除 key
 DEL key [key ...]
@@ -61,8 +60,7 @@ DEL key [key ...]
 EXPIRE key0 10
 
 ### ttl: 返回给定 key 的剩余生存时间(TTL, time to live)
-
-TTL key
+    TTL key
   
 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。
   
