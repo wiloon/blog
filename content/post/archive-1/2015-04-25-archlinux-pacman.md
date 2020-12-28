@@ -10,6 +10,11 @@ tags:
   - linux
 
 ---
+### 参数
+#### 查询数据库获知目前你的文件系统中某个文件是属于哪个软件包。
+pacman -Qo /path/to/a/file
+
+
 ### Enabling multilib
 
 To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
@@ -191,9 +196,7 @@ pacman -Qi package
 
 pacman -Ql package
   
-你也可以通过查询数据库获知目前你的文件系统中某个文件是属于哪个软件包。
 
-pacman -Qo /path/to/a/file
   
 要罗列所有不再作为依赖的软件包(孤立orphans)：
 
