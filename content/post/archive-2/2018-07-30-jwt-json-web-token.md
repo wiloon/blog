@@ -1,5 +1,5 @@
 ---
-title: JWT JSON Web Token
+title: JWT, JSON Web Token
 author: w1100n
 type: post
 date: 2018-07-30T12:02:39+00:00
@@ -75,3 +75,20 @@ JWT（其实还有SAML）最适合的应用场景就是"开票"，或者"签字"
 员工李雷和韩梅梅因工外出需要使用公司汽车一天，于是填写用车申请单，签字后李雷将申请单交给车队司机老王，乘坐老王驾驶的车辆外出办事，同时老王将用车申请单收回并存档。
   
 在以上的两个例子中，"请假申请单"和"用车申请单"就是JWT中的payload，领导签字就是base64后的数字签名，领导是issuer，"HR部门的韩梅梅"和"司机老王"即为JWT的audience，audience需要验证领导签名是否合法，验证合法后根据payload中请求的资源给予相应的权限，同时将JWT收回。
+
+### aud
+https://stackoverflow.com/questions/28418360/jwt-json-web-token-audience-aud-versus-client-id-whats-the-difference
+
+As it turns out, my suspicions were right. The audience aud claim in a JWT is meant to refer to the Resource Servers that should accept the token.
+
+As this post simply puts it:
+
+The audience of a token is the intended recipient of the token.
+
+The audience value is a string -- typically, the base address of the resource being accessed, such as https://contoso.com.
+
+The client_id in OAuth refers to the client application that will be requesting resources from the Resource Server.
+
+The Client app (e.g. your iOS app) will request a JWT from your Authentication Server. In doing so, it passes it's client_id and client_secret along with any user credentials that may be required. The Authorization Server validates the client using the client_id and client_secret and returns a JWT.
+
+The JWT will contain an aud claim that specifies which Resource Servers the JWT is valid for. If the aud contains www.myfunwebapp.com, but the client app tries to use the JWT on www.supersecretwebapp.com, then access will be denied because that Resource Server will see that the JWT was not meant for it.
