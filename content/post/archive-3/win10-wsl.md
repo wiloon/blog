@@ -1,76 +1,77 @@
 ---
-title: win10 wsl2, 搭建WSL开发环境
+title: win10 wsl2
 author: w1100n
 date: 2019-03-28T09:40:51.000+00:00
 url: "/?p=13982"
-categories:
-- Uncategorized
 
 ---
 # wsl2
-### ms doc
+### 微软的官方安装文档
 https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 ### 步骤 1 - 启用适用于 Linux 的 Windows 子系统
     dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-
-### confirm windows version
+### 检查windows的版本
     winver
 ### 步骤 3 - 启用虚拟机功能
     dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-### install ubuntu from microsoft store
-### 步骤 4 - 下载 Linux 内核更新包
+### 从windows应用商店安装ubuntu20.4
+### 步骤 4 - 下载 Linux 内核更新包, 并安装
 ### 步骤 5 - 将 WSL 2 设置为默认版本
-        wsl --set-default-version 2
-        wsl --set-version Ubuntu-20.04 2
+    wsl --set-default-version 2
+### 把前面安装的wsl转换成wsl2
+    wsl --set-version Ubuntu-20.04 2
 ### 步骤 6 - 安装所选的 Linux 分发
-------
-
-### ubuntu aliyun mirror
+## 进入wsl2 的 ubuntu
+### 配置ubuntu 镜像源, aliyun mirror
 https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0
 
     vim /etc/apt/source.list
-	
-        deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-        deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 
-        deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-        deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+### 用以下内容覆盖/etc/apt/source.list
+    deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 
-        deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-        deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
 
-        deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-        deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
 
-        deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-        deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
 
+    deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 
-### nodejs, npm, golang
-        sudo apt update
-        sudo apt upgrade
+### 更新系统
+    sudo apt update
+    sudo apt upgrade
+
+### 安装 golang java python和各种依赖包
+https://www.jianshu.com/p/572c86b55a68
+
+    sudo apt install golang git python make maven openjdk-8-jdk ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
 
 ### 安装nodejs
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-
-sudo apt install golang git python make maven openjdk-8-jdk
-### config maven setting
-    mkdir ~/.m2
-    vim ~/.m2/settingxxxx
-### config golang proxy
-
-export GO111MODULE=on
-export GOPROXY=https://goproxy.cn
+https://github.com/nodesource/distributions/blob/master/README.md
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
 
 ### config npm mirror
-npm install -g mirror-config-china --registry=http://registry.npm.taobao.org
+    npm install -g mirror-config-china --registry=http://registry.npm.taobao.org
 
-### check version
+### maven 配置
+    mkdir ~/.m2
+    vim ~/.m2/settingxxxx
+### golang proxy
+    vim .bashrc
+    export GO111MODULE=on
+    export GOPROXY=https://goproxy.cn
+
+### 检查各种包的版本
     node -v && npm -v && go version
 
-	### maven sprint boot run 
+### maven sprint boot run 
 	  mvn spring-boot:run
 	  
 ### 固定ip
@@ -80,7 +81,7 @@ vim .zshrc
 
     export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 
-	### windows firewall
+### windows firewall
 	advanced rule add rule: tcp port 0
 	
 	
