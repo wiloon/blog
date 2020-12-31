@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2016-10-31T06:32:26+00:00
 url: /?p=9349
-categories:
-  - Uncategorized
 
 ---
 
@@ -55,7 +53,6 @@ sudo iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE
 ```
 
 ### hostapd config
-
 ```bash
 #edit /etc/hostapd/hostapd.conf
 

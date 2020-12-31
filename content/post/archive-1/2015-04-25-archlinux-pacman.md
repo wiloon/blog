@@ -10,6 +10,17 @@ tags:
   - linux
 
 ---
+### pacman mirror list
+```bash
+vim  /etc/pacman.d/mirrorlist
+
+# /etc/pacman.d/mirrorlist
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+Server = http://mirrors.neusoft.edu.cn/archlinux/
+Server = http://mirrors.lug.mtu.edu/archlinux/
+Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
+```
+
 ### 参数
 #### 查询数据库获知目前你的文件系统中某个文件是属于哪个软件包。
 pacman -Qo /path/to/a/file
@@ -19,24 +30,15 @@ pacman -Qo /path/to/a/file
 
 To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
 
-<code class="line-numbers">/etc/pacman.conf
+```
+/etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
 
-### config pacman mirror
-
 
 
 ```bash
-vim  /etc/pacman.d/mirrorlist
-
-# /etc/pacman.d/mirrorlist
-Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
-Server = http://mirrors.neusoft.edu.cn/archlinux/
-Server = http://mirrors.lug.mtu.edu/archlinux/
-Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
-
 # for downgrade
 #Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
 ```
