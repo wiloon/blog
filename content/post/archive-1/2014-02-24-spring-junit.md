@@ -139,9 +139,6 @@ public class UserAssignServiceTest extends BaseJunit4Test{
                   u.setQudao("2");
     </li>
     <li>
-                  u.setTelephone("13013701997");
-    </li>
-    <li>
                   u.setUsername("张"+i);
     </li>
     <li>
