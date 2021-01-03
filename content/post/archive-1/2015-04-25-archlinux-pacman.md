@@ -22,12 +22,13 @@ Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 ```
 
 ### 参数
-#### 查询数据库获知目前你的文件系统中某个文件是属于哪个软件包。
+#### 查询文件系统中某个文件是属于哪个软件包
 pacman -Qo /path/to/a/file
 
+#### 按名字找包
+    pacman -Sl |grep jdk
 
 ### Enabling multilib
-
 To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
 
 ```
@@ -75,8 +76,6 @@ pacman -Syu
 pacman -Su -ignore postgresql -ignore libpqxx
 
 查看软件包依赖
-  
-yaourt -S pkgtools
   
 whoneeds package-name
 

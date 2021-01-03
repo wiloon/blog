@@ -1,9 +1,14 @@
 +++
 author = "w1100n"
 date = "2020-05-16T05:53:01Z"
-title = "tree command"
+title = "tree, 以树形结构显示文件目录结构"
 
 +++
+以树形结构显示文件目录结构
+
+sudo pacman -S tree
+sudo apt-get install tree
+
     tree -aI .git
     tree -I '*svn|*node_module*'
 
@@ -38,3 +43,8 @@ Linux tree命令用于以树状图列出目录的内容。
 * -u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。
 * -x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。
 -I pattern Do not list those files that match the wild-card pattern.
+
+
+---
+
+https://blog.csdn.net/xuehuafeiwu123/article/details/53817161
