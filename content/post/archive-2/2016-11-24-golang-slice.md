@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2016-11-24T01:41:36+00:00
 url: /?p=9429
-categories:
-  - Uncategorized
 
 ---
 ### 切片/slice
@@ -26,7 +24,6 @@ cap(sl)
 ```
 
 ### 清空slice
-
 ```golang
 
 func SliceClear(s *[]interface{}) {
@@ -43,7 +40,16 @@ func SliceClear(s *[]interface{}) {
 func SliceClear2(s *[]interface{}) {
 *s = (*s)[0:0]
 ```
+### 0 ~ index
+    dir1 := path[:sepIndex]
+  
+### index ~ end
+    dir1 := path[:sepIndex]
 
+###  Full Slice Expression, 后续的 append() 操作将会导致重新分配内存。
+https://coolshell.cn/articles/21128.html
+
+    dir1 := path[:sepIndex:sepIndex]
 ### 数组
 
 array是固定长度的数组，使用前必须确定数组长度
