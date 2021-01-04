@@ -4,15 +4,26 @@ author: w1100n
 type: post
 date: 2011-09-06T05:33:25+00:00
 url: /?p=676
-bot_views:
-  - 6
-categories:
-  - Java
-tags:
-  - Java
 
 ---
-     https://blog.csdn.net/oschina_40188932/article/details/78833754
+### 查看 openjdk 版本
+http://openjdk.java.net/projects/jdk/
+
+### install
+#### archlinux
+    sudo pacman -S 	jdk-openjdk
+    sudo pacman -S 	openjdk-src
+
+### 切换jdk版本
+    archlinux-java help
+    archlinux-java status
+    archlinux-java set  java-14-openjdk
+
+### 查看当前 java 版本
+    java -version
+    sudo archlinux-java status
+
+
 ```java
     //java getResource
 
@@ -61,3 +72,5 @@ Java ATK Wrapper is a implementation of ATK by using JNI technic.
 It converts Java Swing events into ATK events, and sends these events to
 ATK-Bridge.
 https://developer.gnome.org/accessibility-devel-guide/stable/dev-start-5.html.zh_CN
+
+https://blog.csdn.net/oschina_40188932/article/details/78833754
