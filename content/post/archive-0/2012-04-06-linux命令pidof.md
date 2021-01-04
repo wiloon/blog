@@ -52,8 +52,6 @@ pidof用于找出正在运行的程序的进程PID（find the process ID of a ru
 
 [root@smsgw root]# pidof bash
   
-8681 17650 28223 16840
-  
 [root@smsgw root]# pidof man
 
 [root@smsgw root]# pidof java
