@@ -44,3 +44,5 @@ nextcloud
 | Name                                | Comments |
 | ----------------------------------- | -------- |
 | Minimalist Markdown Editor Markdown | 编辑软件     |
+|Secure Shell App||
+|crosh|window|
