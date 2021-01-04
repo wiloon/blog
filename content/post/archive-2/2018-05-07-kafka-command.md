@@ -37,7 +37,7 @@ categories:
     bin/kafka-topics.sh --list \
     --zookeeper localhost:2181
 
-### 查看topic详细信息
+### 查看topic详细信息, 如: 分区数, replication 
     bin/kafka-topics.sh \
     --zookeeper 127.0.0.1:2181 \
     --topic topic0 \
@@ -112,7 +112,7 @@ zookeeper.connect=localhost:2181
     --broker-list localhost:9092 \
     --topic topic0
 
-### consume
+### consumer
 
     bin/kafka-console-consumer.sh \
     --bootstrap-server localhost:9092 \
