@@ -1,5 +1,5 @@
 ---
-title: golang http proxy
+title: golang http 
 author: w1100n
 type: post
 date: 2020-02-23T15:26:04+00:00
@@ -8,6 +8,24 @@ categories:
   - Uncategorized
 
 ---
+### http post
+
+        func httpPostForm() {
+        // params:=url.Values{}
+        // params.Set("hello","fdsfs")  //这两种都可以
+        params= url.Values{"key": {"Value"}, "id": {"123"}}
+            resp, _:= http.PostForm("http://baidu.com",
+            body)
+        
+            defer resp.Body.Close()
+            body, _:= ioutil.ReadAll(resp.Body)
+            
+            fmt.Println(string(body))
+        
+        }
+
+
+### proxy
 https://www.flysnow.org/2016/12/24/golang-http-proxy.html
 
 ```golang
@@ -88,3 +106,8 @@ func handleClientRequest(client net.Conn) {
 }
 
 ```
+
+
+---
+
+https://segmentfault.com/a/1190000013262746

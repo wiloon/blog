@@ -4,12 +4,12 @@ author: w1100n
 type: post
 date: 2017-07-31T01:27:35+00:00
 url: /?p=10959
-categories:
-  - Uncategorized
 
 ---
+### 创建一个指定时间的日期对象
+    start := time.Date(2021, 1, 7, 12, 0, 0, 0, time.Local)
+    
 ### 比较
-
 先把当前时间格式化成相同格式的字符串,然后使用time的Before, After, Equal 方法即可.
 
 ```golang
@@ -25,10 +25,10 @@ time1 := "2015-03-20 08:50:29"
 ```
 
 ### layout
-
 ```bash
 # 时区
 2006-01-02T15:04:05Z07:00
+2006-01-02T15:04:05Z
 Mon, 2 Jan 2006 15:04:05 MST
 20060102150405.000
 # 毫秒
@@ -36,7 +36,6 @@ Mon, 2 Jan 2006 15:04:05 MST
 ```
 
 ### unix nano > time
-
 ```golang
 unixnano:=int64(1570603226000000000)
 t:=time.Unix(0,unixnano)
@@ -44,7 +43,6 @@ fmt.Println(t)
 ```
 
 ### 毫秒, get microsecond, mill second
-
 ```golang
 time.Now().UnixNano() / int64(time.Millisecond)
 ```
@@ -59,7 +57,6 @@ func main() {
 ```
 
 ### days between two dates
-
 ```golang
 func main() {
     // The leap year 2016 had 366 days.
@@ -75,7 +72,6 @@ func Date(year, month, day int) time.Time {
 ```
 
 ### date > string
-
 ```golang
 // 格式化日期 - RFC3339
 time.Now().Format("2006-01-02T15:04:05Z07:00")
@@ -92,7 +88,6 @@ time.Now().Format("2006-01-02T15:04:05Z07:00")
 ```
 
 ### string > date
-
 在windows下，time.Parse()的时区和time.Format()的时区是一致的。
   
 但是在linux环境下，time.Parse()的默认时区是UTC，time.Format()的时区默认是本地, 使用ParseInLocation 解决时区问题
@@ -103,7 +98,6 @@ localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:
 ```
 
 ### 时区
-
 ```golang
  now := time.Now()
     local1, err1 := time.LoadLocation("") //等同于"UTC"
@@ -129,7 +123,6 @@ localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:
 ```
 
 ### 时间计算
-
     h, _ := time.ParseDuration("-1h")
 	start := time.Now().Add(h)
     

@@ -8,29 +8,19 @@ categories:
   - Uncategorized
 
 ---
-http://blog.leapoahead.com/2015/09/06/understanding-jwt/
-
 JSON Web Token (JWT)是一种基于 token 的认证方案。
 
 JSON Web Token 的结构
 
 一个 JWT token 看起来是这样的:
 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-
-eyJleHAiOjEzODY4OTkxMzEsImlzcyI6ImppcmE6MTU0ODk1OTUiLCJxc2
-
-giOiI4MDYzZmY0Y2ExZTQxZGY3YmM5MGM4YWI2ZDBmNjIwN2Q0OTFjZj
-
-ZkYWQ3YzY2ZWE3OTdiNDYxNGI3MTkyMmU5IiwiaWF0IjoxMzg2ODk4OTUxfQ.
-
-uKqU9dTB6gKwG6jQCuXYAiMNdfNRw98Hw_IWuA5MaMo
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjEzODY4OTkxMzEsImlzcyI6ImppcmE6MTU0ODk1OTUiLCJxc2giOiI4MDYzZmY0Y2ExZTQxZGY3YmM5MGM4YWI2ZDBmNjIwN2Q0OTFjZjZkYWQ3YzY2ZWE3OTdiNDYxNGI3MTkyMmU5IiwiaWF0IjoxMzg2ODk4OTUxfQ.uKqU9dTB6gKwG6jQCuXYAiMNdfNRw98Hw_IWuA5MaMo
 
 可以简化为下面这样的结构:
 
-base64url\_encode(Header) + '.' + base64url\_encode(Claims) + '.' + base64url_encode(Signature)
+    base64url_encode(Header) + '.' + base64url_encode(Claims) + '.' + base64url_encode(Signature)
 
-Header
+### Header
 
 Header 包含了一些元数据，至少会表明 token 类型以及 签名方法。比如
 
@@ -92,3 +82,8 @@ The client_id in OAuth refers to the client application that will be requesting 
 The Client app (e.g. your iOS app) will request a JWT from your Authentication Server. In doing so, it passes it's client_id and client_secret along with any user credentials that may be required. The Authorization Server validates the client using the client_id and client_secret and returns a JWT.
 
 The JWT will contain an aud claim that specifies which Resource Servers the JWT is valid for. If the aud contains www.myfunwebapp.com, but the client app tries to use the JWT on www.supersecretwebapp.com, then access will be denied because that Resource Server will see that the JWT was not meant for it.
+
+
+---
+
+http://blog.leapoahead.com/2015/09/06/understanding-jwt/

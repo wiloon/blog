@@ -1,7 +1,7 @@
 +++
 author = "w1100n"
 date = "2020-09-29 10:48:23" 
-title = "java script"
+title = "javascript"
 
 +++
 
