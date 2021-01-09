@@ -42,7 +42,7 @@ tags:
 ### JS字符串拼接/连接
     var s1 = "abc";
     var s2 = s1.concat("d" , "e" , "f");  //调用concat()连接字符串
-    console.log(s2);  //返回字符串“abcdef”
+    console.log(s2);  //返回字符串"abcdef"
 
 ### indexOf
     stringObject.indexOf(searchvalue,fromindex)

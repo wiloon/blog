@@ -6,7 +6,7 @@ title = "gdb"
 +++
 
 GDB是什么
-GDB 全称“GNU symbolic debugger”，从名称上不难看出，它诞生于 GNU 计划（同时诞生的还有 GCC、Emacs 等），是 Linux 下常用的程序调试器。发展至今，GDB 已经迭代了诸多个版本，当下的 GDB 支持调试多种编程语言编写的程序，包括 C、C++、Go、Objective-C、OpenCL、Ada 等。实际场景中，GDB 更常用来调试 C 和 C++ 程序。
+GDB 全称"GNU symbolic debugger"，从名称上不难看出，它诞生于 GNU 计划（同时诞生的还有 GCC、Emacs 等），是 Linux 下常用的程序调试器。发展至今，GDB 已经迭代了诸多个版本，当下的 GDB 支持调试多种编程语言编写的程序，包括 C、C++、Go、Objective-C、OpenCL、Ada 等。实际场景中，GDB 更常用来调试 C 和 C++ 程序。
 Windows 操作系统中，人们更习惯使用一些已经集成好的开发环境（IDE），如 VS、VC、Dev-C++ 等，它们的内部已经嵌套了相应的调试器。
 
 GDB的吉祥物：弓箭鱼
