@@ -194,3 +194,11 @@ func main(){
 
 ### command
         go env
+
+## date time
+    time.Now()
+### 时间差
+    t2.Sub(t1)
+
+### sha256
+     sum := sha256.Sum256([]byte("hello world\n"))

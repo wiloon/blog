@@ -35,6 +35,7 @@ tags:
             // Handle all the error things
         }
 
+## 字符串
 ### 字符串长度
     var str="字符串字节长度为" ;
     alert(str.length);
