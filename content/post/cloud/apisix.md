@@ -56,7 +56,7 @@ title = "apisix"
 curl "http://192.168.50.101:9080/apisix/admin/routes/5" -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
 {
     "uri": "/*",
-    "host": "grafana.wiloon.com",
+    "host": "foo.wiloon.com",
     "plugins": {
     },
     "upstream_id": 50

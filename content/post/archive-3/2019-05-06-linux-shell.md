@@ -950,6 +950,8 @@ http://fyan.iteye.com/blog/1130034
 版权声明：本文为博主原创文章，转载请附上博文链接！
 本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy
 
-https://www.shellscript.sh/functions.html
+---
 
-<http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html>{.wp-editor-md-post-content-link}
+https://www.shellscript.sh/functions.html
+http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html
+https://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html
