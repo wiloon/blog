@@ -12,9 +12,9 @@ title = "spring security"
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
 
-.authorizeRequests()
+### .authorizeRequests()
 通过 authorizeRequests() 方法来开始请求权限配置。
-authorizeRequests()方法有多个子节点，每个macher按照他们的声明顺序执行 
+authorizeRequests()方法有多个子节点，每个macher按照他们的声明顺序执行  
 可以在authorizeRequests() 后定义多个antMatchers()配置器来控制不同的url接受不同权限的用户访问，而其中permitAll() 方法是运行所有权限用户包含匿名用户访问。
 而hasRole("权限")则是允许这个url给与参数中相等的权限访问。
 access("hasRole('权限') and hasRole('权限')") 是指允许访问这个url必须同时拥有参数中多个身份权限才可以访问。
