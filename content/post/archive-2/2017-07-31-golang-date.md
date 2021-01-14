@@ -201,6 +201,39 @@ parsing time "8:41PM" as "Mon Jan _2 15:04:05 2006": cannot parse "8:41PM" as "M
 10:39PM
 
 
+### 字符串毫秒转时间格式
+```golang
+package main
+
+import (
+    "fmt"
+    "strconv"
+    "time"
+)
+
+func main() {
+    fmt.Println(msToTime("1489582166978"))
+}
+
+func msToTime(ms string) (time.Time, error) {
+    msInt, err := strconv.ParseInt(ms, 10, 64)
+    if err != nil {
+        return time.Time{}, err
+    }
+
+    tm := time.Unix(0, msInt*int64(time.Millisecond))
+
+    fmt.Println(tm.Format("2006-02-01 15:04:05.000"))
+
+    return tm, nil
+}
+
+```
+
+
+---
+
+
 https://blog.csdn.net/CodyGuo/article/details/53009451
   
 https://www.kancloud.cn/itfanr/go-by-example/81698

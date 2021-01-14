@@ -4,12 +4,11 @@ author: w1100n
 type: post
 date: 2014-04-29T03:45:23+00:00
 url: /?p=6567
-categories:
-  - Uncategorized
-tags:
-  - Spring
 
 ---
+### spring-security-jwt-guide
+https://github.com/Snailclimb/spring-security-jwt-guide
+
 spring-boot-starter-data-redis
 基础依赖，其他依赖根据使用不同的缓存技术选择加入，默认情况下使用 ConcurrentMapCache不需要引用任何依赖
 
