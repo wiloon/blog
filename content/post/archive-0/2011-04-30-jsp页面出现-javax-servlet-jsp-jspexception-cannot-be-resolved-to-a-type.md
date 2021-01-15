@@ -4,13 +4,6 @@ author: w1100n
 type: post
 date: 2011-04-30T09:02:38+00:00
 url: /?p=146
-views:
-  - 14
-bot_views:
-  - 35
-categories:
-  - Eclipse
-  - Web
 
 ---
 jsp页面出现

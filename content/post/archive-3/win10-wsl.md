@@ -6,6 +6,15 @@ url: "/?p=13982"
 
 ---
 # wsl2
+
+### command
+    wsl --shutdown
+    wsl --list --verbose
+    wsl -l -v
+
+    # reboot, 先shutdown再打开就行了...
+
+
 ### 微软的官方安装文档
 https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 ### 步骤 1 - 启用适用于 Linux 的 Windows 子系统
@@ -128,13 +137,6 @@ https://blog.csdn.net/manbu_cy/article/details/108476859
 #### 修改 wsl 字体
     左上角图标-->属性-->字体-->Noto Mono for powerline
 
-### command
-    wsl --shutdown
-    wsl --list --verbose
-    wsl -l -v
-
-    # reboot, 先shutdown再打开就行了...
-
 ### c 安装
 从SourceForge上面下载最新版本的VcXsrv  
 
@@ -242,6 +244,29 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 ### auto start service
     https://github.com/shayne/wsl2-hacks/blob/master/README.md
 
+### Windows Terminal 中 WSL2 默认打开路径(startingDirectory)
+打开Windows Terminal。鼠标点击进入设置，或者同时按ctrl和逗号。  
+
+找到如下内容：
+
+            {
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": false,
+                "name": "Ubuntu-20.04",
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": "//wsl$/Ubuntu-20.04/home/wiloon",
+            },
+添加/修改如下行：
+
+"startingDirectory": "//wsl$/Ubuntu/home/<yourname>/",
+
+### 修改 Windows Terminal 默认打开的 Shell
+修改 defaultProfile 的值为对应的 guid 即可。
+
+例如：
+
+"defaultProfile": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+guid 需要替换为自己配置文件中的相应值。
 ---
 
 [https://discourse.ubuntu.com/t/getting-graphical-applications-to-work-on-wsl2/11868](https://discourse.ubuntu.com/t/getting-graphical-applications-to-work-on-wsl2/11868 "https://discourse.ubuntu.com/t/getting-graphical-applications-to-work-on-wsl2/11868")

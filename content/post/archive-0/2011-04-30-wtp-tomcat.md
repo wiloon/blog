@@ -4,11 +4,6 @@ author: w1100n
 type: post
 date: 2011-04-30T06:22:49+00:00
 url: /?p=130
-bot_views:
-  - 7
-categories:
-  - Eclipse
-  - Web
 
 ---
 download "Eclipse IDE for Java EE Developers" include WTP.
