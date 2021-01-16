@@ -5,6 +5,16 @@ type: post
 date: 2011-10-14T05:20:22+00:00
 url: /?p=1040
 ---
+### bat脚本控制网卡启用禁用
+    netsh interface set interface "eth0" disabled
+    netsh interface set interface "eth0" enabled
+
+### Windows 命令行（批处理文件）延迟（sleep）方法, 使用ping 的定时功能，精度1秒
+    ping -n 3 127.0.0.1>nul
+
+说明：3为ping包发送次数，可作为延迟秒数进行使用，需要延迟几秒就设置几。   
+>nul避免屏幕输出，将输出输入到空设备，因为不需要结果，仅用到其定时功能。   
+
 ### 查看开放端口
 netstat -an|find "61616"
 
@@ -59,3 +69,8 @@ Windows Server vNext Long-Term Servicing Channel (LTSC)
     输入: shell:startup
     系统自动打开以下目录
     C:\Users\user0\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+
+
+    ---
+
+    https://blog.csdn.net/hongweigg/article/details/41517025
