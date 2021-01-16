@@ -4,8 +4,7 @@ author: w1100n
 type: post
 date: 2016-04-21T15:26:01+00:00
 url: /?p=8913
-categories:
-  - Uncategorized
+tags: archlinux install init
 
 ---
 ### config network by systemd-networkd
@@ -90,8 +89,10 @@ http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin
   
 <https://wiki.archlinux.org/index.php/VirtualBox>
 https://bbs.archlinux.org/viewtopic.php?id=118986
+```
 
-
+### sddm
+    systemctl enable sddm
 
 removed "SigLevel = RecquiredPackage" from /etc/pacman.conf and now it's O.K.
 
