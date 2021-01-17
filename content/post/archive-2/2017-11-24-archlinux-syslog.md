@@ -26,6 +26,8 @@ SystemMaxUse=1024M
 # 最近一次重新引导后收集到的日志
 journalctl -b
 
+sudo journalctl /usr/lib/systemd/systemd -b
+
 # 查看系统上全部来自Nginx单元的日志
 journalctl -u nginx.service
 journalctl -u nginx.service --since today
