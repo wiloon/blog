@@ -16,6 +16,7 @@ categories:
 |internet speed meter lite|网速监控|
 |随手记||
 |Cellular-Z|移动信号监测|
+|PingTools Network Utilities||
 |炼妖壶  |流氓软件管理|
 ---
 

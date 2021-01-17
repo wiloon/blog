@@ -67,9 +67,14 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列
 
 ### PC
-Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
-wifi: Intel Corporation Wireless 7260 (rev 5b)
-
+2015-09-05    
+华硕（ASUS）Z170M-PLUS 主板 （Intel Z170/LGA 1151）   
+Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz   
+Kingston DDR4 2133 16GB(8Gx2条)  
+wifi: Intel Corporation Wireless 7260 (rev 5b)  
+    最高速度            300/867 Mbps
+    Wi-Fi CERTIFIED*    802.11ac
+    
 ### Pixelbook
 CPU: i5  
 MEM: 8G  
@@ -95,9 +100,10 @@ Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz
         Single spatial stream up to a 72 Mbps data rate
         https://www.broadcom.cn/products/wireless/wireless-lan-bluetooth/bcm43013
 
-### R7800
+### Netgear R7800
     CPU: Qualcomm Atheros IPQ8065 ARMv7 32bit
-    802.11ac
+    IEEE® 802.11 b/g/n 2.4 GHz–256 QAM support
+    IEEE® 802.11 a/n/ac 5.0 GHz
     2.4G 800Mbps
     5G 1733Mbps
     128MB闪存
@@ -107,7 +113,12 @@ Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz
     有线网络 QCA8337
 
 ### Dell Latitude 3450
+https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us
 https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers
+Network adapter	10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
+Wireless	
+Wi-Fi 802.11 b/g/n and 802.11a/b/g/n/ac
+Bluetooth 4.0
 
 ### WNDR4300 v1
     WNDR4300  
