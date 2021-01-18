@@ -26,8 +26,10 @@ git checkout master
 ### git config
 #### 查看 
 config 配置有system级别 global（用户级别） 和local（当前仓库）三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
-
+    
+    git config --lis
     git config --system --list
+    git config --global core.editor vim
 
 查看当前用户（global）配置
 
@@ -70,7 +72,7 @@ git log --oneline
 
 echo "# project name" >> README.md
 
-# 初始化的 Git 仓库
+### 初始化的 Git 仓库
 
 git init
 git add README.md
@@ -128,33 +130,40 @@ git checkout tag_name
 
 #git分析指定的tag标签创建分支的命令
 git checkout -b branch_name tag_name
+```
+### 分支, branch
+最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比git checkout要更容易理解。  
+#### 查看本地所有分支, 当前分支前面会标一个*号。
+    git branch
+    # check branch detail
+    git branch -v
+#### 查看远程所有分支
+    git branch -r 
+#### 查看所有的分支    
+    git branch -a
+#### 新建分支
+    git branch branch0
+#### 切换到分支
+    git checkout branch0
+    git switch branch0
+#### 新建并切换到分支
+    git checkout -b branch0
+    git switch -c dev
+#### 删除分支
+    git branch -d branch0
+#### #删除远程的todo branch
+    git branch -d -r origin/todo
+#### 分支合并, git merge命令用于合并指定分支到当前分支。
+    git merge branch1 -M "MSG0"
 
-# 新建分支
+### git pull
+    git pull
+    git pull origin branch0
+    git pull origin master
 
-git branch iss53
 
-# 切换到分支
+```
 
-git checkout iss53
-
-# 新建并切换到分支
-
-git checkout -b branch0
-\#删除分支
-git branch -d branch0
-\#分支合并
-git merge branch1
-
-\#查看本地所有分支
-git branch
-
-\#查看远程所有分支
-git branch -r
-
-\#查看所有的分支
-git branch -a
-
-git branch -d -r origin/todo  #删除远程的todo branch
 git log
 git reflog
 git log --pretty=oneline
@@ -219,14 +228,12 @@ git log master..origin/master
 
 git am –show-current-patch
 
+---
+
 http://zensheno.blog.51cto.com/2712776/490748
-
 http://blog.csdn.net/ithomer/article/details/7529841
-
 http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html
-
 http://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6
-
 http://yijiebuyi.com/blog/eacf4d053fad77affffae397d9af7172.html
-
 http://www.ruanyifeng.com/blog/2014/06/git_remote.html
+https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424
