@@ -33,6 +33,9 @@ https://chocolatey.org/packages
 |puyyt||
 |telegraf||
 
+### 录屏
+    https://www.v1tx.com/post/best-screen-recorder/
+    
 ### apps
 
 | Name             | Comments |
