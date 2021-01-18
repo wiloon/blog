@@ -16,8 +16,8 @@ choco install keepassxc
 choco upgrade keepassxc
 ```
 
-<https://blog.wiloon.com/?p=8340>
-<https://chocolatey.org/packages>
+https://blog.wiloon.com/?p=8340  
+https://chocolatey.org/packages  
 
 ### chocolatey packages
 
