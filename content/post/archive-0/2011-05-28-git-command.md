@@ -154,7 +154,7 @@ git checkout -b branch_name tag_name
 #### #删除远程的todo branch
     git branch -d -r origin/todo
 #### 分支合并, git merge命令用于合并指定分支到当前分支。
-    git merge branch1 -M "MSG0"
+    git merge branch1 -m "MSG0"
 
 ### git pull
     git pull
