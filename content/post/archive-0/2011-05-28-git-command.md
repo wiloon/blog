@@ -7,6 +7,8 @@ tags:
 - Git
 
 ---
+### checkout 指定版本
+    git checkout 788258e49531eb24bfd347a600d69a16f966c495
 
 ### 放弃本地未提交的修改
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
