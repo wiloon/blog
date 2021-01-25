@@ -22,7 +22,6 @@ yarn global add @vue/cli
 Jest
 #### E2E test
 Cypress
-
 ### run 
 yarn serve
 

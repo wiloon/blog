@@ -10,6 +10,7 @@ url: "/?p=1444"
     gunzip *.gz
 
 ### .rar
+    # 解压
     unrar x foo.rar
     # 压缩
     rar e FileName.rar
