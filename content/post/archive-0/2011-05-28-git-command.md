@@ -7,6 +7,8 @@ tags:
 - Git
 
 ---
+### checkout 指定版本
+    git checkout 788258e49531eb24bfd347a600d69a16f966c495
 
 ### 放弃本地未提交的修改
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
@@ -154,7 +156,7 @@ git checkout -b branch_name tag_name
 #### #删除远程的todo branch
     git branch -d -r origin/todo
 #### 分支合并, git merge命令用于合并指定分支到当前分支。
-    git merge branch1 -M "MSG0"
+    git merge branch1 -m "MSG0"
 
 ### git pull
     git pull
