@@ -70,7 +70,11 @@ Windows Server vNext Long-Term Servicing Channel (LTSC)
     系统自动打开以下目录
     C:\Users\user0\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
+### windows凭据
+    控制面板\用户帐户\凭据管理器 > windows凭据
 
-    ---
 
-    https://blog.csdn.net/hongweigg/article/details/41517025
+---
+
+
+https://blog.csdn.net/hongweigg/article/details/41517025
