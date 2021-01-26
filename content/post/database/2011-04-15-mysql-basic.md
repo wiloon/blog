@@ -58,16 +58,13 @@ grant all privileges on enlab.* to wiloon@'%' identified by 'password';
 
 退出后用wiloon登录, 然后show databases; 应该可以看到enlab了.
 
-
 ### 查看建表语句
-
 ```sql
     show create table table0;
     SHOW CREATE TABLE table0 \G;
 ```
 
 ### 查看版本
-
 ```sql
 select version();
 -- 查看sql_model参数命令：
