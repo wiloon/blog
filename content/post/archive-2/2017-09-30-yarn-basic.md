@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2017-09-30T06:01:42+00:00
 url: /?p=11228
-categories:
-  - Uncategorized
 
 ---
 
