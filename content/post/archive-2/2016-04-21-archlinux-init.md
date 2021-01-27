@@ -4,7 +4,6 @@ author: w1100n
 type: post
 date: 2016-04-21T15:26:01+00:00
 url: /?p=8913
-tags: archlinux
 
 ---
 ### config network by systemd-networkd
