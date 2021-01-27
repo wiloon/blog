@@ -4,10 +4,34 @@ author: w1100n
 type: post
 date: 2016-11-23T07:14:53+00:00
 url: /?p=9419
-categories:
-  - Uncategorized
 
 ---
+### map
+
+#### 直接创建
+    m2 := make(map[string]string)
+    // 然后赋值
+    m2["a"] = "aa"
+    m2["b"] = "bb"
+
+#### 初始化 + 赋值一体化
+    m3 := map[string]string{
+        "a": "aa",
+        "b": "bb",
+    }
+
+#### 查找键值是否存在
+if v, ok := m1["a"]; ok {
+	fmt.Println(v)
+} else {
+	fmt.Println("Key Not Found")
+}
+
+#### 遍历map
+for k, v := range m1 {
+	fmt.Println(k, v)
+}
+
 ### map 清空
 清空 map 中的所有元素
   
