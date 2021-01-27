@@ -6,6 +6,9 @@ date: 2016-07-01T08:06:08+00:00
 url: /?p=9096
 
 ---
+### commands
+    go get -u xorm.io/xorm
+
 ### install
 #### ubuntu
     sudo add-apt-repository ppa:longsleep/golang-backports
