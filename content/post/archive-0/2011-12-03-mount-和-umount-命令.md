@@ -4,14 +4,12 @@ author: w1100n
 type: post
 date: 2011-12-03T08:52:06+00:00
 url: /?p=1693
-views:
-  - 1
-bot_views:
-  - 2
-categories:
-  - Linux
 
 ---
+### commands
+    showmount -e 192.168.50.227
+    mount -t nfs 192.168.50.227:/data1t /mnt/nas
+
 ### mount iso
 
 ```bash
@@ -31,7 +29,8 @@ mount [选项]  [-o 挂载选项]
 
 在本例中，我们首先会将分区临时挂载在 /mnt (或您选择的任何其它挂载点：请记住，挂载点必须已经存在)。挂载我们新创建的分区的命令是：
 
-```bash$ mount -t ext3 /dev/hdb1 /mnt
+```bash
+mount -t ext3 /dev/hdb1 /mnt
 ```
 
 -t 选项用于指定分区上文件系统的类型。您最常遇到的文件系统应该是 ext2(GNU/Linux 文件系统)或 ext3(改进了日志性能的 ext2FS)，vfat (适用于所有 DOS/Windows® 分区：FAT 12, 16 or 32)以及 ISO9660(CD-ROM 文件系统), ntfs.
