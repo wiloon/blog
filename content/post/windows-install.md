@@ -7,6 +7,9 @@ title = "windows install"
 ### WoeUSB,  linux制作windows安装盘
 WoeUSB 是一款主要用于在 Linux 下制作 Windows 启动 U 盘的开源软件
 
+### run woeusb gui
+    woeusbgui
+
 ### wsl2
 https://docs.microsoft.com/en-us/windows/wsl/install-win10
 https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-kernel
