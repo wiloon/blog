@@ -37,3 +37,6 @@ vscode 发http请求
 
 ### Insert Date String
 插入当前日期时间
+
+### hexdump
+hex viewer

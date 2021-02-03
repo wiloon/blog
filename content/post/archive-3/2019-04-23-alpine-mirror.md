@@ -4,15 +4,12 @@ author: w1100n
 type: post
 date: 2019-04-23T06:24:28+00:00
 url: /?p=14227
-categories:
-  - Uncategorized
 
 ---
-alpine mirror
+### alpine mirror
+    vi /etc/apk/repositories
   
-vim /etc/apk/repositories
-  
-http://mirrors.ustc.edu.cn/
+b. 将里面 dl-cdn.alpinelinux.org 的 改成 mirrors.aliyun.com ; 保存退出即可
 
 ### alpine install telnet
 
