@@ -40,6 +40,7 @@ https://chocolatey.org/packages
 
 | Name             | Comments |
 | ---------------- | -------- |
+|rufus|创建启动盘 |
 |搜狗五笔||
 |微信||
 |企业微信||

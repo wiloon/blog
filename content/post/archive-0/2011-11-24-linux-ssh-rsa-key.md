@@ -35,3 +35,6 @@ this command will generating public/private rsa key pair.
 Your identification has been saved in /root/.ssh/id_rsa
   
 Your public key has been saved in /root/.ssh/id_rsa.pub
+
+### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+    ssh-keygen -f "/home/wiloon/.ssh/known_hosts" -R "192.168.1.2"

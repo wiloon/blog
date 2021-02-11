@@ -9,8 +9,8 @@ categories:
 
 ---
 ### install whistle
-
-yarn global add whistle
+    yarn global add whistle
+    npm install -g whistle
 
 ```bash
 w2 help

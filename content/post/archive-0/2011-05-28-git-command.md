@@ -7,6 +7,8 @@ tags:
 - Git
 
 ---
+### 打印当前版本
+    git rev-parse HEAD
 ### checkout 指定版本
     git checkout 788258e49531eb24bfd347a600d69a16f966c495
 
@@ -134,7 +136,9 @@ git checkout tag_name
 git checkout -b branch_name tag_name
 ```
 ### 分支, branch
-最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比git checkout要更容易理解。  
+最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比git checkout要更容易理解。
+### 打印当前分支名
+     git symbolic-ref --short HEAD  
 #### 查看本地所有分支, 当前分支前面会标一个*号。
     git branch
     # check branch detail
