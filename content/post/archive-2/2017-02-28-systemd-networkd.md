@@ -99,7 +99,8 @@ DNS=192.168.1.254
 
 ### check network config
 
-```bashnetworkctl status -a
+```bash
+networkctl status -a
 ```
 
 <blockquote class="wp-embedded-content" data-secret="GLctgxboIR">
