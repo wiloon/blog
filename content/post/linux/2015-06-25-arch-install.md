@@ -47,7 +47,6 @@ systemctl start sshd
 
 ### config pacman mirror
 <https://blog.wiloon.com/?p=7501>
-
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 ```bash
 pacman -Sy
@@ -62,7 +61,7 @@ pacman -Sy
 
 ```bash
 # Mount the partitions
-mkdir /mnt/t
+mkdir /mnt/tmp
 
 pacstrap /mnt/tmp base linux linux-firmware
 # if command not found, see http://www.wiloon.com/wordpress/?p=8443

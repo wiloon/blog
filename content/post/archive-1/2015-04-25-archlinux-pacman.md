@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2015-04-25T03:37:27+00:00
 url: /?p=7501
-categories:
-  - Uncategorized
 tags:
   - linux
 
