@@ -1,5 +1,5 @@
 ---
-title: opkg command
+title: opkg command, openwrt
 author: w1100n
 type: post
 date: 2018-03-24T02:00:02+00:00

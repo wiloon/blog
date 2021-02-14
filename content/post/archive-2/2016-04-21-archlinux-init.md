@@ -6,6 +6,10 @@ date: 2016-04-21T15:26:01+00:00
 url: /?p=8913
 
 ---
+### before ansible script
+   pacman -Syu && pacman -S git ansible
+### clone ansible script
+    git clone git@github.com:wiloon/ansible.git
 ### config network by systemd-networkd
 <http://blog.wiloon.com/?p=9881>
 
@@ -31,7 +35,6 @@ systemctl enable sshd
 
 ### ntp, chrony
 <http://blog.wiloon.com/?p=10869>
-
 ### 监控, telegraf
 ### install apps
 <https://blog.wiloon.com/?p=12667>

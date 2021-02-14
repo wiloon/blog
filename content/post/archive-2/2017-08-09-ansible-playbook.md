@@ -76,7 +76,8 @@ categories:
 
 ansible playbook 传参数
 
-```bashansible-playbook foo.yml -e h=192.168.0.2
+```bash
+ansible-playbook foo.yml -e h=192.168.0.2
 
 # 传多个参数时, 参数列表加引号, 参数之前用空格分隔，
 ansible-playbook foo.yml -e "host=192.168.0.2 app=foo"

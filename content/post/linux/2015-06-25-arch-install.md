@@ -62,6 +62,10 @@ pacman -Sy
 ```bash
 # Mount the partitions
 mkdir /mnt/tmp
+mkdir /mnt/tmp/boot
+
+mount /dev/sdx1 /mnt/tmp/boot
+mount /dev/sdx2 /mnt/tmp
 
 pacstrap /mnt/tmp base linux linux-firmware
 # if command not found, see http://www.wiloon.com/wordpress/?p=8443
@@ -160,7 +164,7 @@ cp /etc/wpa_supplicant/wpa_supplicant-*.conf /mnt/tmp/etc/wpa_supplicant
 arch-chroot /mnt/tmp
 systemctl enable wpa_supplicant@wlanx
 exit
- poweroff
+poweroff
 ```
 
 ### 拔掉U盘开机

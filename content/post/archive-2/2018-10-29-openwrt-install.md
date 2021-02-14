@@ -36,7 +36,7 @@ burn
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=12761&embed=true#?secret=XiBcmLWKRM" data-secret="XiBcmLWKRM" width="600" height="338" title=""openwrt lan 改网段" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://blog.wiloon.com/?p=12761&embed=true#?secret=XiBcmLWKRM
 
 openvpn
   
