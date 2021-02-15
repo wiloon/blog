@@ -32,7 +32,7 @@ HostKey
                
 主机私钥文件的位置。如果权限不对，sshd(8) 可能会拒绝启动。
                
-SSH-1默认是 /etc/ssh/ssh\_host\_key 。
+SSH-1默认是 /etc/ssh/ssh\_host\_key
                
 SSH-2默认是 /etc/ssh/ssh\_host\_rsa\_key 和 /etc/ssh/ssh\_host\_dsa\_key 。
                
