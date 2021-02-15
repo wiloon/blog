@@ -1,12 +1,30 @@
 +++
 author = "w1100n"
 date = "2020-06-04T08:55:49Z"
-title = "letsencrypt, certbot, acme.sh"
+title = "letsencrypt, certbot, certbot-auto, acme.sh"
 
 +++
+### certbot, certbot-auto, acme.sh
+certbot: recommended by the offical website.
+certbot-auto: no longer supported.
+acme.sh: acme.sh 实现了 acme 协议.
+
+### install certbot
+    dnf remove certbot
+    dnf install epel-release
+    dnf install snapd
+    systemctl enable --now snapd.socket
+    snap install core
+    snap refresh core
+    ln -s /var/lib/snapd/snap /snap
+    snap install --classic certbot
+    ln -s /snap/bin/certbot /usr/bin/certbot
+    snap set certbot trust-plugin-with-root=ok
+
+
 ### Couldn't download https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto. <urlopen error [Errno 110] Connection timed out>
 
- 如果希望将其锁定到特定版本并且不接收自动更新，只需在命令后加 --no-self-upgrade 即可。即：
+如果希望将其锁定到特定版本并且不接收自动更新，只需在命令后加 --no-self-upgrade 即可。即：
 certbot-auto renew --no-self-upgrade
 
 https://certbot.eff.org/docs/intro.html
@@ -78,3 +96,4 @@ acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书.
 
 ---
 https://wsgzao.github.io/post/certbot/
+https://certbot-dns-google.readthedocs.io/en/stable/
