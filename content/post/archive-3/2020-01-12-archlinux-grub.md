@@ -4,10 +4,9 @@ author: w1100n
 type: post
 date: 2020-01-12T07:22:08+00:00
 url: /?p=15345
-categories:
-  - Uncategorized
 
 ---
+### parted flag
 For parted set/activate the flag bios_grub on the partition.
 
 ```bash
@@ -19,6 +18,9 @@ pacman -S grub
 grub-install --target=i386-pc /dev/sdX
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+### exit arch-chroot
+exit
 
 # 重启
 reboot
