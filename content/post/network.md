@@ -38,8 +38,9 @@ getting the original destination address is racy.)
     iptables -t mangle -A chain0 -p udp -j TPROXY --on-port 12345 --tproxy-mark 1
     iptables -t mangle -A PREROUTING -j chain0
 
-    ip rule add fwmark 1 table 100
     ip route add local 0.0.0.0/0 dev lo table 100
+    ip rule add fwmark 1 table 100
+    
 ```
 ---
 
