@@ -132,7 +132,7 @@ O(log(N)+M)
 
 ### ZRANGEBYSCORE, 返回有序集合中指定分数区间的成员列表 - 正序
 
-  * ZRANGEBYSCORE key min max \[WITHSCORES\] \[LIMIT offset count\]
+  * ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
   
     返回有序集key中，所有score值介于min和max之间(包括等于min或max)的成员。有序集成员按score值递增(从小到大)次序排列。
 
@@ -146,7 +146,7 @@ O(log(N)+M)
 
 ### ZREVRANGEBYSCORE, 返回分数在指定范围内的成员列表 - 倒序
 
-  * ZREVRANGEBYSCORE key max min \[WITHSCORES\] \[LIMIT offset count\]
+  * ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]
   
     返回有序集key中，score值介于max和min之间(默认包括等于max或min)的所有的成员。有序集成员按score值递减(从大到小)的次序排列。
 

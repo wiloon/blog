@@ -120,7 +120,7 @@ private String[] generalsTypes = new String[] { "魏", "蜀", "吴" };
   
 //子视图显示文字
   
-private String\[][] generals = new String[\]\[\] {
+private String[][] generals = new String[][] {
   
 { "夏侯惇", "甄姬", "许褚", "郭嘉", "司马懿", "杨修" },
   
@@ -132,7 +132,7 @@ private String\[][] generals = new String[\]\[\] {
   
 //子视图图片
   
-public int\[][] generallogos = new int[\]\[\] {
+public int[][] generallogos = new int[][] {
   
 { R.drawable.xiahoudun, R.drawable.zhenji,
   
@@ -224,7 +224,7 @@ public Object getChild(int groupPosition, int childPosition) {
   
 // TODO Auto-generated method stub
   
-return generals\[groupPosition\]\[childPosition\];
+return generals[groupPosition][childPosition];
   
 }
 
@@ -302,7 +302,7 @@ ExpandableList.this);
   
 generallogo
   
-.setImageResource(generallogos\[groupPosition\]\[childPosition\]);
+.setImageResource(generallogos[groupPosition][childPosition]);
   
 ll.addView(generallogo);
   

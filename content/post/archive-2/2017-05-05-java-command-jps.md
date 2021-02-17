@@ -65,7 +65,7 @@ hollis@hos:/tmp/hsperfdata_hollis$ jps -help
   
 usage: jps [-help]
          
-jps \[-q\] \[-mlvV\] [<hostid>]
+jps [-q] [-mlvV] [<hostid>]
 
 Definitions:
       

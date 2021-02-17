@@ -52,7 +52,7 @@ OMXplayer支持硬解码，因此是一个非常不错的选择。
 
 $ omxplayer –help
   
-Usage: omxplayer \[OPTIONS\] \[FILE\]
+Usage: omxplayer [OPTIONS] [FILE]
   
 Options :
   

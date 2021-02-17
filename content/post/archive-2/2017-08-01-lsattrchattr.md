@@ -50,7 +50,7 @@ PS：有时候你发现用root权限都不能修改某个文件，大部分原�
 
 这两个命令是用来查看和改变文件、目录属性的，与chmod这个命令相比，chmod只是改变文件的读写、执行权限，更底层的属性控制是由chattr来改变的。
 
-chattr命令的用法：chattr \[ -RVf \] \[ -v version \] [ mode ] files…
+chattr命令的用法：chattr [ -RVf ] [ -v version ] [ mode ] files…
   
 最关键的是在[mode]部分，[mode]部分是由+-=和[ASacDdIijsTtu]这些字符组合的，这部分是用来控制文件的
   

@@ -358,15 +358,15 @@ HTML transferred: 1055666 bytes
   
 //整个场景中的HTML内容传输量
   
-Requests per second: 122.12 \[#/sec\] (mean)
+Requests per second: 122.12 [#/sec] (mean)
   
 //大家最关心的指标之一，相当于 LR 中的 每秒事务数 ，后面括号中的 mean 表示这是一个平均值
   
-Time per request: 8188.731 \[ms\] (mean)
+Time per request: 8188.731 [ms] (mean)
   
 //大家最关心的指标之二，相当于 LR 中的 平均事务响应时间 ，后面括号中的 mean 表示这是一个平均值
   
-Time per request: 8.189 \[ms\] (mean, across all concurrent requests)
+Time per request: 8.189 [ms] (mean, across all concurrent requests)
   
 //每个请求实际运行时间的平均值
   

@@ -24,7 +24,7 @@ MAIN 与 LAUNCHER 并不是单纯的各管各的事情；
 
 可见，Main和LAUNCHER同时设定才有意义，如果多个activity同时设定，则会出现两个图标，分别先进入不同的activity.如下图：Lift\_cycles 01 与 Lift\_cycles 02
 
-\[html\]\[/html\] view plaincopy
+[html][/html] view plaincopy
 
 <activity android:name=".Life_CyclesActivity"
 

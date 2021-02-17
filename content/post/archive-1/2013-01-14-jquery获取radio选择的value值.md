@@ -14,7 +14,7 @@ jQuery获取Radio选择的Value值:
 
 var\_name = $("input[name='radio\_name']:checked").val();
 
-1. $("input\[name='radio_name'\]\[checked\]").val();  //选择被选中Radio的Value值
+1. $("input[name='radio_name'][checked]").val();  //选择被选中Radio的Value值
   
 2. $("#text\_id").focus(function(){//code...});  //事件 当对象text\_id获取焦点时触发
   
@@ -22,13 +22,13 @@ var\_name = $("input[name='radio\_name']:checked").val();
   
 4. $("#text_id").select();  //使文本框的Vlaue值成选中状态
   
-5. $("input\[name='radio_name'\]\[value='要中Radio的Value值'\]").attr("checked",true);   jQuery获取CheckBox选择的Value
+5. $("input[name='radio_name'][value='要中Radio的Value值']").attr("checked",true);   jQuery获取CheckBox选择的Value
 
 语法解释：
   
-1. $("input\[name='checkbox_name'\]\[checked\]");  //选择被选中CheckBox元素的集合 如果你想得到Value值，你需要遍历
+1. $("input[name='checkbox_name'][checked]");  //选择被选中CheckBox元素的集合 如果你想得到Value值，你需要遍历
   
-2. $($("input\[name='checkbox_name'\]\[checked\]")).each(function(){arrChk+=this.value + ',';});  //遍历被选中CheckBox元素的集合 得到Value值
+2. $($("input[name='checkbox_name'][checked]")).each(function(){arrChk+=this.value + ',';});  //遍历被选中CheckBox元素的集合 得到Value值
   
 3. $("#checkbox_id").attr("checked");  //获取一个CheckBox的状态(有没有被选中,返回true/false)
   
@@ -112,7 +112,7 @@ jQuery设置Select选择的Text和Value:
   
 3. $("#select_id option
 
-\[text language="jQuery"\]\[/text\]
+[text language="jQuery"][/text]
 
 ").attr("selected", true);   //设置Select的Text值为jQuery的项选中
 
@@ -136,7 +136,7 @@ jQuery添加/删除Select的Option项：
   
 5. $("#select_id option
 
-\[text language="4"\]\[/text\]
+[text language="4"][/text]
 
 ").remove();  //删除Select中Text='4'的Option
 
@@ -146,7 +146,7 @@ jquery radio取值，checkbox取值，select取值，radio选中，checkbox选�
   
 获取一组radio被选中项的值
   
-var item = $('input\[@name=items\]\[@checked\]').val();
+var item = $('input[@name=items][@checked]').val();
   
 获取select被选中项的文本
   
@@ -166,7 +166,7 @@ $('input[@name=items]').get(1).checked = true;
   
 多选框checkbox：$("#checkbox_id").attr("value")；
   
-单选组radio：   $("input\[@type=radio\]\[@checked\]").val();
+单选组radio：   $("input[@type=radio][@checked]").val();
   
 下拉框select： $('#sel').val();
   
@@ -246,15 +246,15 @@ $("<option value='1'>1111</option>").appendTo("#select")//添加下拉框的opti
 
 2,单选框:
   
-$("input\[@type=radio\]\[@checked\]").val(); //得到单选框的选中项的值(注意中间没有空格)
+$("input[@type=radio][@checked]").val(); //得到单选框的选中项的值(注意中间没有空格)
   
-$("input\[@type=radio\]\[@value=2\]").attr("checked",'checked'); //设置单选框value=2的为选中状态.(注意中间没有空格)
+$("input[@type=radio][@value=2]").attr("checked",'checked'); //设置单选框value=2的为选中状态.(注意中间没有空格)
 
 3,复选框:
   
-$("input\[@type=checkbox\]\[@checked\]").val(); //得到复选框的选中的第一项的值
+$("input[@type=checkbox][@checked]").val(); //得到复选框的选中的第一项的值
   
-$("input\[@type=checkbox\]\[@checked\]").each(function(){ //由于复选框一般选中的是多个,所以可以循环输出
+$("input[@type=checkbox][@checked]").each(function(){ //由于复选框一般选中的是多个,所以可以循环输出
   
 alert($(this).val());
   
@@ -304,7 +304,7 @@ $("#selectTest").attr("value", "2");
   
 jquery radio取值，checkbox取值，select取值，radio选中，checkbox选中，select选中，及其相关获取一组radio被选中项的值
   
-var item = $('input\[@name=items\]\[@checked\]').val();
+var item = $('input[@name=items][@checked]').val();
   
 获取select被选中项的文本
   
@@ -324,7 +324,7 @@ $('input[@name=items]').get(1).checked = true;
   
 多选框checkbox：$("#checkbox_id").attr("value")；
   
-单选组radio： $("input\[@type=radio\]\[@checked\]").val();
+单选组radio： $("input[@type=radio][@checked]").val();
   
 下拉框select： $('#sel').val();
   
@@ -350,7 +350,7 @@ $("#sel").empty()；//清空下拉框
 
 获取一组radio被选中项的值
   
-var item = $('input\[@name=items\]\[@checked\]').val();
+var item = $('input[@name=items][@checked]').val();
   
 获取select被选中项的文本
   
@@ -370,7 +370,7 @@ $('input[@name=items]').get(1).checked = true;
   
 多选框checkbox：$("#checkbox_id").attr("value")；
   
-单选组radio： $("input\[@type=radio\]\[@checked\]").val();
+单选组radio： $("input[@type=radio][@checked]").val();
   
 下拉框select： $('#sel').val();
   

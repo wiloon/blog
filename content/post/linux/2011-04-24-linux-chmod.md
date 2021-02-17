@@ -17,7 +17,7 @@ chmod a+x 1.sh
 chmod og+rwx 1.sh
 ```
 
-格式: \[ugoa...\]\[+-=\]\[rwxX...\]\[,...\]
+格式: [ugoa...][+-=][rwxX...][,...]
   
 u 拥有者
   

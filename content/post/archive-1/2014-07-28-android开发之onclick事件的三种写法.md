@@ -86,7 +86,7 @@ Ev1.setText(strTmp);
   
 }
 
-\[html\]\[/html\]
+[html][/html]
 
 view plaincopy
   

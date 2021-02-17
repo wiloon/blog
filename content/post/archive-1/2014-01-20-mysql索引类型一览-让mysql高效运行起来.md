@@ -148,7 +148,7 @@ ID INT NOT NULL,
   
 username VARCHAR(16) NOT NULL,
   
-INDEX \[indexName\] (username(length))
+INDEX [indexName] (username(length))
   
 );
 
@@ -176,7 +176,7 @@ ID INT NOT NULL,
   
 username VARCHAR(16) NOT NULL,
   
-UNIQUE \[indexName\] (username(length))
+UNIQUE [indexName] (username(length))
   
 );
 

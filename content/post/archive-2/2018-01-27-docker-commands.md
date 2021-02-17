@@ -149,7 +149,7 @@ docker build -f /path/to/Dockerfile .
 
 创建一个新的容器并运行一个命令
   
-docker run \[OPTIONS] IMAGE [COMMAND\] \[ARG...\]
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```bash
 docker run -it --rm ubuntu bash

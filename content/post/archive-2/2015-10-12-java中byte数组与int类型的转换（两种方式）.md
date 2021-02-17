@@ -13,7 +13,7 @@ http://blog.csdn.net/zhouyong0/article/details/8078619
 java中byte数组与int类型的转换，在网络编程中这个算法是最基本的算法，我们都知道，在socket传输中，发送、者接收的数据都是 byte数组，但是int类型是4个byte组成的，如何把一个整形int转换成byte数组，同时如何把一个长度为4的byte数组转换为int类型。下面有两种方式。
 
 
-\[java\]\[/java\] view plaincopy
+[java][/java] view plaincopy
 
 public static byte[] int2byte(int res) {
   
@@ -31,7 +31,7 @@ return targets;
   
 }
   
-\[java\]\[/java\] view plaincopy
+[java][/java] view plaincopy
 
 public static int byte2int(byte[] res) {
   
@@ -47,7 +47,7 @@ return targets;
   
 第二种
 
-\[java\]\[/java\] view plaincopy
+[java][/java] view plaincopy
 
 public static void main(String[] args) {
   

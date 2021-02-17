@@ -30,7 +30,7 @@ https://www.jianshu.com/p/21df1811133f
 
 挂载命
 
-sudo mount -t vboxsf \[你的windows共享目录\] \[Ubuntu共享目录\]
+sudo mount -t vboxsf [你的windows共享目录] [Ubuntu共享目录]
 
 我是的：
 

@@ -41,7 +41,7 @@ PL/SQL运行时引擎
 用户自定义异常是在PL/SQL块的声明部分声明的。像变量一样，异常也有一个类型（EXCEPTION）和有效范围。例如：
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 DECLARE
 
@@ -56,7 +56,7 @@ Exception_name EXCEPTION;
 
 与异常相关联的错误发生的时候，就会引发相应的异常。用户自定义异常是通过RAISE语句显式引发的，而预定义异常则是在它们关联的ORACLE错误发生的时候隐式引发的。如果发生了一个还没有和异常进行关联的ORACLE错误的时候，也会引发一个异常。该异常可以使用OTHERS子程序进行捕获。预定义的异常也可以使用RAISE进行显式地引发，如果需要这样做的话。
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 …
 
@@ -73,7 +73,7 @@ RAISE exception_name;
 
 异常处理部分的语法如下：
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 EXCEPTION
 
@@ -114,7 +114,7 @@ PL/SQL使用两个内置函数SQLCODE和SQLERRM提供错误信息。SQLCODE返�
 下面是一个使用SQLCODE和SQLERRM的例子
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 DECLARE
 
@@ -240,7 +240,7 @@ v_ErrorText := SQLERRM;
 通过下面这个例子我们看看错误号和相应的错误消息文本之间的关系
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 set serveroutput on
 
@@ -313,7 +313,7 @@ PRAGMA EXCEPTION\_INIT(exception\_name,Oracle\_error\_number);
 下面这个例子在运行时刻如果遇到"ORA-1400:mandatory NOT NULL column missing or NULL during insert"错误时将引发e_MissingNull-用户定义的异常。
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 DECLARE
 
@@ -360,7 +360,7 @@ error\_number是从-200000到-20999之间的参数，error\_message是与此错�
 例如下面的这个例子将在为一个新的学生注册以前检查是否在班级中有足够的地方容纳他。
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 CREATE OR REPLACE PROCEDURE Register (
 
@@ -492,7 +492,7 @@ END Register;
 异常像变量一样，也是有一定范围的。如果用户自定义异常传播到它的范围之外，就不能再通过名称引用它。
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 BEGIN
 
@@ -544,7 +544,7 @@ END;
 如下例所示
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 CREATE OR REPLACE PACKAGE Globals AS
 
@@ -619,7 +619,7 @@ END;
 如下例所示
 
 
-\[php\]\[/php\] view plaincopy
+[php][/php] view plaincopy
 
 DECLARE
 
@@ -664,7 +664,7 @@ END;
 由于整个代码块都使用同一个异常处理部分检查并处理异常，所以很难确定引发这个错误的是哪一条SQL语句。考虑下面示例
 
 
-\[python\]\[/python\] view plaincopy
+[python][/python] view plaincopy
 
 BEGIN
 

@@ -28,7 +28,7 @@ tags:
   
 Demo
 
-\[html\]\[/html\]
+[html][/html]
 
 view plaincopy
   
@@ -92,7 +92,7 @@ view plaincopy
   
 </form>
 
-\[javascript\]\[/javascript\]
+[javascript][/javascript]
 
 view plaincopy
   

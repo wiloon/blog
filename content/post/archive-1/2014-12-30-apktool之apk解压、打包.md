@@ -45,7 +45,7 @@ Usage: apktool [-q|-quiet OR -v|-verbose] COMMAND [...]
 
 COMMANDs are:
 
-d\[ecode\] \[OPTS\] <file.apk> [<dir>]
+d[ecode] [OPTS] <file.apk> [<dir>]
   
 Decode <file.apk> to <dir>.
 
@@ -81,7 +81,7 @@ want to decode them anyway, even with errors. You will have to
   
 fix them manually before building.
   
-b\[uild\] \[OPTS\] \[<app\_path>\] \[<out\_file>\]
+b[uild] [OPTS] [<app\_path>] [<out\_file>]
   
 Build an apk from already decoded application located in <app_path>.
 

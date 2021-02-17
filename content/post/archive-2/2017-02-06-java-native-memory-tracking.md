@@ -18,7 +18,7 @@ NMT for Hotspot VM is turned off by default. Turn this feature on using JVM comm
 
 JDK提供了jcmd命令来访问NMT数据:
 
-jcmd <pid> VM.native_memory \[summary | detail | baseline | summary.diff | detail.diff | shutdown\] \[scale= KB | MB | GB\]
+jcmd <pid> VM.native_memory [summary | detail | baseline | summary.diff | detail.diff | shutdown] [scale= KB | MB | GB]
   
 配置项 说明
   

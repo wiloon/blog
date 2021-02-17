@@ -564,21 +564,21 @@ grep -E '219|216' data.doc
   
 可以使用国际模式匹配的类名：
   
-\[[:upper:]\] \[A-Z\]
+[[:upper:]] [A-Z]
   
-\[[:lower:]\] \[a-z\]
+[[:lower:]] [a-z]
   
-\[[:digit:]\] \[0-9\]
+[[:digit:]] [0-9]
   
-\[[:alnum:]\] \[0-9a-zA-Z\]
+[[:alnum:]] [0-9a-zA-Z]
   
 [[:space:]] 空格或tab
   
-\[[:alpha:]\] \[a-zA-Z\]
+[[:alpha:]] [a-zA-Z]
 
 (1)使用
   
-grep '5\[[:upper:]\]\[[:upper:\]]' data.doc #查询以5开头以两个大写字母结尾的行
+grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母结尾的行
 
 <ol start="5">
   <li>

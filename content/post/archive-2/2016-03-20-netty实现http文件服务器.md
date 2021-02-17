@@ -88,7 +88,7 @@ HttpMethod GET = new HttpMethod("GET");
 
 private String url;
 
-private final Pattern ALLOWED\_FILE\_NAME = Pattern.compile("\[A-Za-z0-9\]\[-_A-Za-z0-9\\.\]*");
+private final Pattern ALLOWED\_FILE\_NAME = Pattern.compile("[A-Za-z0-9][-_A-Za-z0-9\\.]*");
 
 private final Pattern INSECURE_URI = Pattern.compile(".\*[<>&\"].\*");
 

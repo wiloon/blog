@@ -20,7 +20,7 @@ route print
              
 2.语法详解
          
-route \[-f\] \[-p\] \[command [destination\] \[mask netmask\] [gateway] [metric
+route [-f] [-p] [command [destination] [mask netmask] [gateway] [metric
          
 metric] [if interface]
              
@@ -144,7 +144,7 @@ route delete–使用本命令可以从路由表中删除路由。例如：route
   
 可以使用 Route 命令行工具查看并编辑计算机的 IP 路由表。Route 命令和语法如下所示：
   
-route \[-f\] \[-p\] \[Command [Destination\] \[mask Netmask\] \[Gateway\] \[metric Metric\]] [if Interface]]
+route [-f] [-p] [Command [Destination] [mask Netmask] [Gateway] [metric Metric]] [if Interface]]
   
 -f
   

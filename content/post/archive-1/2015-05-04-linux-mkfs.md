@@ -26,7 +26,7 @@ linux mkfs
   
 使用权限 : 超级使用者
   
-使用方式 : mkfs \[-V\] \[-t fstype\] \[fs-options] filesys [blocks\] \[-L Lable\]
+使用方式 : mkfs [-V] [-t fstype] [fs-options] filesys [blocks] [-L Lable]
   
 说明 ： 建立 linux 档案系统在特定的 partition 上
   

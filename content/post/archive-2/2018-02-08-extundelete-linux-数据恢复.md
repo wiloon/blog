@@ -66,7 +66,7 @@ extundelete -help
 
 命令格式:
 
-extundelete \[options\] \[action\] device-file
+extundelete [options] [action] device-file
   
 其中参数（options）有：
 

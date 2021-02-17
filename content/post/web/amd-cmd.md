@@ -183,7 +183,7 @@ define(id?, dependencies?, factory);
 3. factory：工厂方法，模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值  
    在页面上使用require函数加载模块
 
-require(\[dependencies\], function(){});  
+require([dependencies], function(){});  
 require()函数接受两个参数
 
 1. 第一个参数是一个数组，表示所依赖的模块

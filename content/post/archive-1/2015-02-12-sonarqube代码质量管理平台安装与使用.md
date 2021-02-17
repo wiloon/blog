@@ -112,7 +112,7 @@ mysql> FLUSH PRIVILEGES;
   
 #vi sonar.properties
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
   
@@ -132,7 +132,7 @@ sonar.jdbc.driverClassName:                com.mysql.jdbc.Driver
   
 根据实际使用数据库情况取消相应注释
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
   
@@ -208,7 +208,7 @@ sonar作为Linux服务并开机自启动
   
 新建文件/etc/init.d/sonar，输入如下内容：
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
   
@@ -272,7 +272,7 @@ sudo chkconfig -add sonar
   
 以android项目为例：
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
   
