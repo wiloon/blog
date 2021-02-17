@@ -61,11 +61,8 @@ iptables -t mangle -A chain1 -j MARK --set-mark 1
 iptables -t mangle -A OUTPUT -p tcp -j chain1
 iptables -t mangle -A OUTPUT -p udp -j chain1
 
-
-    
-    
-    
 ```
+
 ---
 
 https://www.jianshu.com/p/91a084e91ed2
