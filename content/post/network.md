@@ -28,18 +28,42 @@ getting the original destination address is racy.)
 路由规则定义去向
 代理程序监听，通过特殊的参数可以响应非本机的 IP(因为包的目的地址没改嘛)
 
+### 安装依赖 
+    opkg install sudo iptables-mod-tproxy iptables-mod-extra libopenssl ca-certificates
 ### 策略路由
 ```bash
-    # 创建链 chain0
-    iptables -t mangle -N chain0
-    # 端口12345的tcp数据打标记 1
-    iptables -t mangle -A chain0 -p tcp -j TPROXY --on-port 12345 --tproxy-mark 1
-    # 端口12345的udp数据打标记 1
-    iptables -t mangle -A chain0 -p udp -j TPROXY --on-port 12345 --tproxy-mark 1
-    iptables -t mangle -A PREROUTING -j chain0
+ip rule add fwmark 1 table 100
+ip route add local 0.0.0.0/0 dev lo table 100
 
-    ip route add local 0.0.0.0/0 dev lo table 100
-    ip rule add fwmark 1 table 100
+# 创建链 chain0
+iptables -t mangle -N chain0
+iptables -t mangle -A chain0 ! -s 192.168.1.0/24 -j RETURN
+iptables -t mangle -A chain0 ! -s 192.168.50.0/24 -j RETURN
+# 所有目标地址在网关所在网段的请求直连
+iptables -t mangle -A chain0 -d 192.168.50.0/24 -j RETURN
+iptables -t mangle -A chain0 -d 192.168.1.0/24 -j RETURN
+# 目标地址为组播IP的请求直连
+iptables -t mangle -A chain0 -d 224.0.0.0/4 -j RETURN
+iptables -t mangle -A chain0 -d 255.255.255.255/32 -j RETURN
+# 端口12345的tcp数据打标记 1
+iptables -t mangle -A chain0 -p tcp -j TPROXY --on-port 12345 --tproxy-mark 1
+# 端口12345的udp数据打标记 1
+iptables -t mangle -A chain0 -p udp -j TPROXY --on-port 12345 --tproxy-mark 1
+iptables -t mangle -A PREROUTING -j chain0
+
+iptables -t mangle -N chain1
+iptables -t mangle -A chain1 -d 192.168.50.0/24 -j RETURN
+iptables -t mangle -A chain1 -d 192.168.1.0/24 -j RETURN
+iptables -t mangle -A chain1 -d 224.0.0.0/4 -j RETURN
+iptables -t mangle -A chain1 -d 255.255.255.255/32 -j RETURN
+iptables -t mangle -A chain1 -d <remote_ip_0>/32 -j RETURN
+iptables -t mangle -A chain1 -j MARK --set-mark 1
+iptables -t mangle -A OUTPUT -p tcp -j chain1
+iptables -t mangle -A OUTPUT -p udp -j chain1
+
+
+    
+    
     
 ```
 ---

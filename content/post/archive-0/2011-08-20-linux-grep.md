@@ -21,6 +21,7 @@ grep "foo\|bar" foo.txt
 
 # -r: 搜索子目录
 # -l: 查询多文件时只输出包含匹配字符的文件名.
+# -w pattern files ：只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')，
 
 # 统计某个字符串出现的次数
 grep -o objStr  filename|wc -l
