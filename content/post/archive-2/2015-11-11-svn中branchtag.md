@@ -26,9 +26,9 @@ tag，是用来做一个milestone的，不管是不是release，都是一个可�
   
 branch，是用来做并行开发的，这里的并行是指和trunk进行比较。
 
-比如，3.0开发完成，这个时候要做一个tag，tag\_release\_3\_0，然后基于这个tag做release，比如安装程序等。trunk进入 3.1的开发，但是3.0发现了bug，那么就需要基于tag\_release\_3\_0做一个branch，branch\_bugfix\_3\_0，基于这 个branch进行bugfix，等到bugfix结束，做一个tag，tag\_release\_3\_0\_1，然后，根据需要决定 branch\_bugfix\_3\_0是否并入trunk。
+比如，3.0开发完成，这个时候要做一个tag，tag_release_3_0，然后基于这个tag做release，比如安装程序等。trunk进入 3.1的开发，但是3.0发现了bug，那么就需要基于tag_release_3_0做一个branch，branch_bugfix_3_0，基于这 个branch进行bugfix，等到bugfix结束，做一个tag，tag_release_3_0_1，然后，根据需要决定 branch_bugfix_3_0是否并入trunk。
 
-对于svn还要注意的一点，就是它是全局版本号，其实这个就是一个tag的标记，所以我们经常可以看到，什么什么release，基于xxx项目的 2xxxx版本。就是这个意思了。但是，它还明确的给出一个tag的概念，就是因为这个更加的可读，毕竟记住tag\_release\_1_0要比记住一个 很大的版本号容易的多。
+对于svn还要注意的一点，就是它是全局版本号，其实这个就是一个tag的标记，所以我们经常可以看到，什么什么release，基于xxx项目的 2xxxx版本。就是这个意思了。但是，它还明确的给出一个tag的概念，就是因为这个更加的可读，毕竟记住tag_release_1_0要比记住一个 很大的版本号容易的多。
 
 
 svn中建立branch或者tag的方法比较简单，totoiseSVN中的操作是:

@@ -213,7 +213,7 @@ Host的配置
 
 其中，appBase属性指定Web应用所在的目录，默认值是webapps，这是一个相对路径，代表Tomcat根目录下webapps文件夹。
 
-xmlBase属性指定Web应用的XML配置文件所在的目录，默认值为conf/<engine_name>/<host\_name>，例如第一部分的例子中，主机localhost的xmlBase的默认值是$TOMCAT\_HOME/conf/Catalina/localhost。
+xmlBase属性指定Web应用的XML配置文件所在的目录，默认值为conf/<engine_name>/<host_name>，例如第一部分的例子中，主机localhost的xmlBase的默认值是$TOMCAT_HOME/conf/Catalina/localhost。
 
 检查Web应用更新
 
@@ -459,7 +459,7 @@ GlobalNamingResources元素定义了全局资源，通过配置可以看出，�
   
 在第一部分的例子中，Host元素内定义了Valve组件：
 
-<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost\_access\_log." suffix=".txt" pattern="%h %l %u %t "%r" %s %b" />
+<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log." suffix=".txt" pattern="%h %l %u %t "%r" %s %b" />
   
 单词Valve的意思是"阀门"，在Tomcat中代表了请求处理流水线上的一个组件；Valve可以与Tomcat的容器(Engine、Host或Context)关联。
 

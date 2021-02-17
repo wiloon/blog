@@ -73,7 +73,7 @@ ls -lu filename 列出文件的 atime（最后存取时间）
   
 ls -l filename 列出文件的 mtime （最后修改时间）
 
-在linux中stat函数中，用st\_atime表示文件数据最近的存取时间(last accessed time)；用st\_mtime表示文件数据最近的修改时间(last modified time)；使用st_ctime表示文件inode数据最近的修改时间(last i-node's status changed time)。
+在linux中stat函数中，用st_atime表示文件数据最近的存取时间(last accessed time)；用st_mtime表示文件数据最近的修改时间(last modified time)；使用st_ctime表示文件inode数据最近的修改时间(last i-node's status changed time)。
 
 字段 说明 例子 ls(-l)
   

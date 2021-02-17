@@ -168,7 +168,7 @@ Windows和Linux采用动态链接库技术目的是基本一致的，但由于�
 (2)不同系统独有的头文件。在Windows系统中，通常会包括 windows.h头文件，如果调用底层的通信函数，则会包含winsock..h头文件。因此在移植到Linux系统时，要注释掉这些Windows系 统独有的头文件以及一些windows系统的常量定义说明，增加Linux都底层通信的支持的头文件等。
 
 
-(3) 数据类型。VC++具有许多独有的数据类型，如\_\_int16，\_\_int32，TRUE，SOCKET等，gcc编译器不支持它们。通常做法是需要将 windows.h和basetypes.h中对这些数据进行定义的语句复制到一个头文件中，再在Linux中包含这个头文件。例如将套接字的类型为 SOCKET改为int。
+(3) 数据类型。VC++具有许多独有的数据类型，如__int16，__int32，TRUE，SOCKET等，gcc编译器不支持它们。通常做法是需要将 windows.h和basetypes.h中对这些数据进行定义的语句复制到一个头文件中，再在Linux中包含这个头文件。例如将套接字的类型为 SOCKET改为int。
 
 
 (4)关键字。VC++中具有许多标准C中所没有采用的关键字，如BOOL，BYTE，DWORD，__asm等，通常在为了移植方便，尽量不使用它们，如果实在无法避免可以采用#ifdef 和#endif为LINUX和WINDOWS编写两个版本。
@@ -226,9 +226,9 @@ gcc x.c y.c z.c -fPIC -shared -o libtest.so
 gcc main.c -L. -ltest -o main
 
 
-\# 输出LD\_LIBRARY\_PATH环境变量，一边动态库装载器能够找到需要的动态库
+\# 输出LD_LIBRARY_PATH环境变量，一边动态库装载器能够找到需要的动态库
 
-export LD\_LIBRARY\_PATH=$LD\_LIBRARY\_PATH:.
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
 
 
 \# 测试是否动态连接，如果列出libtest.so，那么应该是连接正常了
@@ -245,8 +245,8 @@ ldd main
 -ltest：编译器查找动态连接库时有隐含的命名规则，即在给出的名字前面加上lib，后面加上.so来确定库的名称
 
 
-LD\_LIBRARY\_PATH：这个环境变量指示动态连接器可以装载动态库的路径。
+LD_LIBRARY_PATH：这个环境变量指示动态连接器可以装载动态库的路径。
 
 当然如果有root权限的话，可以修改/etc/ld.so.conf文件，然后调用
 
-/sbin/ldconfig来达到同样的目的，不过如果没有root权限，那么只能采用输出LD\_LIBRARY\_PATH的方法了。
+/sbin/ldconfig来达到同样的目的，不过如果没有root权限，那么只能采用输出LD_LIBRARY_PATH的方法了。

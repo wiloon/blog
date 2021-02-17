@@ -56,7 +56,7 @@ Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred w
   
 ys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12019
   
-12019       ERROR\_INTERNET\_INCORRECT\_HANDLE\_STATE
+12019       ERROR_INTERNET_INCORRECT_HANDLE_STATE
   
 The requested operation cannot be carried out because the
   

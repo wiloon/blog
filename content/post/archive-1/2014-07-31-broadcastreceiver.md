@@ -44,7 +44,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
 // action 名称
   
-String SMS\_RECEIVED = "android.provider.Telephony.SMS\_RECEIVED" ;
+String SMS_RECEIVED = "android.provider.Telephony.SMS_RECEIVED" ;
 
 public void onReceive(Context context, Intent intent) {
 

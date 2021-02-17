@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-在[Oracle][1]数据库中，Oracle to\_date()函数是我们经常使用的函数，下面就为您详细介绍Oracle to\_date()函数的用法，希望可以对您有所启迪。
+在[Oracle][1]数据库中，Oracle to_date()函数是我们经常使用的函数，下面就为您详细介绍Oracle to_date()函数的用法，希望可以对您有所启迪。
 
 to_date()与24小时制表示法及mm分钟的显示：
 
@@ -26,7 +26,7 @@ to_date()与24小时制表示法及mm分钟的显示：
   
 select to_char(sysdate,'yyyy-MM-dd HH24:mi:ss') from dual;//mi是分钟
   
-select to\_char(sysdate,'yyyy-MM-dd HH24:mm:ss') from dual;//mm会显示月份  oracle中的to\_date参数含义
+select to_char(sysdate,'yyyy-MM-dd HH24:mm:ss') from dual;//mm会显示月份  oracle中的to_date参数含义
 
 1.日期格式参数 含义说明
   
@@ -115,30 +115,30 @@ select sysdate,sysdate - 8 *interval '2' hour from dual
   
 -返回当前时间 年月日小时分秒毫秒
   
-select to\_char(current\_timestamp(5),'DD-MON-YYYY HH24:MI:SSxFF') from dual;
+select to_char(current_timestamp(5),'DD-MON-YYYY HH24:MI:SSxFF') from dual;
   
 -返回当前 时间的秒毫秒，可以指定秒后面的精度(最大=9)
   
-select to\_char(current\_timestamp(9),'MI:SSxFF') from dual;
+select to_char(current_timestamp(9),'MI:SSxFF') from dual;
 
 6.计算程序运行的时间(ms)
 
   1. declare
   2. type rc is ref cursor;
   3. l_rc rc;
-  4. l\_dummy all\_objects.object_name%type;
-  5. l\_start number default dbms\_utility.get_time;
+  4. l_dummy all_objects.object_name%type;
+  5. l_start number default dbms_utility.get_time;
   6. begin
   7. for I in 1 .. 1000
   8. loop
   9. open l_rc for
- 10. 'select object\_name from all\_objects '||
+ 10. 'select object_name from all_objects '||
  11. 'where object_id = ' || i;
- 12. fetch l\_rc into l\_dummy;
+ 12. fetch l_rc into l_dummy;
  13. close l_rc;
  14. end loop;
- 15. dbms\_output.put\_line
- 16. ( round( (dbms\_utility.get\_time-l_start)/100, 2 ) ||
+ 15. dbms_output.put_line
+ 16. ( round( (dbms_utility.get_time-l_start)/100, 2 ) ||
  17. ' seconds...' );
  18. end;
 

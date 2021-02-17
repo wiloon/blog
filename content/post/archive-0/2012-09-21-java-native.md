@@ -66,9 +66,9 @@ new CheckFile().displayHelloWorld();
 
 然后在classes或bin之类的class根目录下执行javah -jni com.hode.hodeframework.modelupdate.CheckFile，
 
-就会在根目录下得到一个com\_hode\_hodeframework\_modelupdate\_CheckFile.h的文件
+就会在根目录下得到一个com_hode_hodeframework_modelupdate_CheckFile.h的文件
 
-然后根据头文件的内容编写com\_hode\_hodeframework\_modelupdate\_CheckFile.c文件
+然后根据头文件的内容编写com_hode_hodeframework_modelupdate_CheckFile.c文件
 
 #include "CheckFile.h"
 
@@ -76,7 +76,7 @@ new CheckFile().displayHelloWorld();
 
 #include
 
-JNIEXPORT void JNICALL Java\_com\_hode\_hodeframework\_modelupdate\_CheckFile\_displayHelloWorld(JNIEnv *env, jobject obj)
+JNIEXPORT void JNICALL Java_com_hode_hodeframework_modelupdate_CheckFile_displayHelloWorld(JNIEnv *env, jobject obj)
 
 {
 
@@ -88,6 +88,6 @@ return;
 
 之后编译生成DLL文件如"test.dll"，名称与System.loadLibrary("test")中的名称一致
 
-vc的编译方法：cl -I%java\_home%include -I%java\_home%includewin32 -LD com\_hode\_hodeframework\_modelupdate\_CheckFile.c -Fetest.dll
+vc的编译方法：cl -I%java_home%include -I%java_home%includewin32 -LD com_hode_hodeframework_modelupdate_CheckFile.c -Fetest.dll
 
 最后在运行时加参数-Djava.library.path=[dll存放的路径]

@@ -32,7 +32,7 @@ metric] [if interface]
          
 -p
          
-与Add命令共同使用时，指定路由被添加到注册表并在启动TCP/IP协议的时候初始化IP路由表。默认情况下，启动TCP/IP协议时不会保存添加的路由,与Print命令一起使用时，则显示永久路由列表。所有其他的命令都忽略此参数。永久路由存储在注册表中的位置是 HKEY\_LOCAL\_MACHSYSTEMCurrentControlSetServicesTcpipParametersPersistentRoutes。
+与Add命令共同使用时，指定路由被添加到注册表并在启动TCP/IP协议的时候初始化IP路由表。默认情况下，启动TCP/IP协议时不会保存添加的路由,与Print命令一起使用时，则显示永久路由列表。所有其他的命令都忽略此参数。永久路由存储在注册表中的位置是 HKEY_LOCAL_MACHSYSTEMCurrentControlSetServicesTcpipParametersPersistentRoutes。
          
 command 指定要运行的命令。下表列出了有效的命令。
          

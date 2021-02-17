@@ -18,7 +18,7 @@ https://github.com/buger/goreplay
   
 http_load以并行复用的方式运行，用以测试web服务器的吞吐量与负载。但是它不同于大多数压力测试工具，它可以以一个单一的进程运行，一般不会把客户机搞死。还可以测试HTTPS类的网站请求。
 
-下载地址：http://soft.vpser.net/test/http\_load/http\_load-12mar2006.tar.gz
+下载地址：http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz
 
 安装
   

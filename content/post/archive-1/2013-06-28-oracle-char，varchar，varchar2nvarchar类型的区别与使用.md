@@ -130,7 +130,7 @@ sysname 是系统提供的用户定义数据类型，除了不可为空值外，
 
 为使用 nchar 或 nvarchar 的对象分配的是默认的数据库排序规则，但可使用 COLLATE 子句分配特定的排序规则。
 
-SET ANSI\_PADDING ON 永远适用于 nchar 和 nvarchar。SET ANSI\_PADDING OFF 不适用于 nchar 或 nvarchar 数据类型。
+SET ANSI_PADDING ON 永远适用于 nchar 和 nvarchar。SET ANSI_PADDING OFF 不适用于 nchar 或 nvarchar 数据类型。
 
 在Oracle中CHAR,NCHAR,VARCHAR,VARCHAR2,NVARCHAR2这五种类型的区别
 

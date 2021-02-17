@@ -70,11 +70,11 @@ ADDR         XIDUSN    XIDSLOT     XIDSQN
 
 //锁对象信息
 
-SQL> select xidusn,xidslot,xidsqn,object\_id,session\_id, oracle\_username from v$locked\_object;
+SQL> select xidusn,xidslot,xidsqn,object_id,session_id, oracle_username from v$locked_object;
 
  
 
-XIDUSN    XIDSLOT     XIDSQN  OBJECT\_ID SESSION\_ID ORACLE_USERNAME
+XIDUSN    XIDSLOT     XIDSQN  OBJECT_ID SESSION_ID ORACLE_USERNAME
 
 * * *
 
@@ -82,7 +82,7 @@ XIDUSN    XIDSLOT     XIDSQN  OBJECT\_ID SESSION\_ID ORACLE_USERNAME
 
 //
 
-SQL> select owner,object\_name from dba\_objects where object_id=73181;
+SQL> select owner,object_name from dba_objects where object_id=73181;
 
  
 
@@ -176,7 +176,7 @@ SQL> select * from dba_waiters;
 
  
 
-WAITING\_SESSION HOLDING\_SESSION LOCK\_TYPE                  MODE\_HELD                                MODE\_REQUESTED                             LOCK\_ID1   LOCK_ID2
+WAITING_SESSION HOLDING_SESSION LOCK_TYPE                  MODE_HELD                                MODE_REQUESTED                             LOCK_ID1   LOCK_ID2
 
 * * *
 
@@ -264,7 +264,7 @@ B7E1C2E8         36 TM        73181          0     
 
  
 
-SQL> select owner,object\_name from dba\_objects where object_id=73179;
+SQL> select owner,object_name from dba_objects where object_id=73179;
 
  
 

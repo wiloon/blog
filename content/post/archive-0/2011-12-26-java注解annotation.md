@@ -187,7 +187,7 @@ System.out.println("Test( method = " + method.getName() + " , id = "
   
 输出结果如下：
 
-Test( method = method\_1 , id = 1 , description = hello method\_1 )
+Test( method = method_1 , id = 1 , description = hello method_1 )
   
 Test( method = method_2 , id = 2 , description = no description )
   
@@ -283,13 +283,13 @@ public enum ElementType {
   
 TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR,
   
-LOCAL\_VARIABLE, ANNOTATION\_TYPE,PACKAGE
+LOCAL_VARIABLE, ANNOTATION_TYPE,PACKAGE
   
 }
   
 ```
 
-＠Target里面的ElementType是用来指定Annotation类型可以用在哪一些元素上的.说明一下：TYPE(类型), FIELD(属性), METHOD(方法), PARAMETER(参数), CONSTRUCTOR(构造函数),LOCAL\_VARIABLE(局部变量), ANNOTATION\_TYPE,PACKAGE(包),其中的TYPE(类型)是指可以用在Class,Interface,Enum和 Annotation类型上.
+＠Target里面的ElementType是用来指定Annotation类型可以用在哪一些元素上的.说明一下：TYPE(类型), FIELD(属性), METHOD(方法), PARAMETER(参数), CONSTRUCTOR(构造函数),LOCAL_VARIABLE(局部变量), ANNOTATION_TYPE,PACKAGE(包),其中的TYPE(类型)是指可以用在Class,Interface,Enum和 Annotation类型上.
   
 另外,从1的源代码可以看出,@Target自己也用了自己来声明自己,只能用在ANNOTATION_TYPE之上.
   

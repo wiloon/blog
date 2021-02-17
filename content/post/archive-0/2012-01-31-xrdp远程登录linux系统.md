@@ -48,7 +48,7 @@ Use YUM command to install xrdp package on CentOS 7 / RHEL 7.
 
 Installing:
    
-tigervnc-server x86\_64 1.8.0-2.el7\_4 updates 213 k
+tigervnc-server x86_64 1.8.0-2.el7_4 updates 213 k
    
 xrdp x86_64 1:0.9.5-1.el7 epel 413 k
   
@@ -66,13 +66,13 @@ Installed size: 2.7 M
   
 Downloading packages:
   
-warning: /var/cache/yum/x86\_64/7/epel/packages/xrdp-0.9.5-1.el7.x86\_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+warning: /var/cache/yum/x86_64/7/epel/packages/xrdp-0.9.5-1.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
   
 Public key for xrdp-0.9.5-1.el7.x86_64.rpm is not installed
   
 (1/3): xrdp-0.9.5-1.el7.x86_64.rpm | 413 kB 00:00:01
   
-(2/3): tigervnc-server-1.8.0-2.el7\_4.x86\_64.rpm | 213 kB 00:00:01
+(2/3): tigervnc-server-1.8.0-2.el7_4.x86_64.rpm | 213 kB 00:00:01
 
 ## (3/3): xorgxrdp-0.2.5-3.el7.x86_64.rpm | 61 kB 00:00:01
 
@@ -104,17 +104,17 @@ Installing : xorgxrdp-0.2.5-3.el7.x86_64 1/3
     
 Installing : 1:xrdp-0.9.5-1.el7.x86_64 2/3
     
-Installing : tigervnc-server-1.8.0-2.el7\_4.x86\_64 3/3
+Installing : tigervnc-server-1.8.0-2.el7_4.x86_64 3/3
     
 Verifying : xorgxrdp-0.2.5-3.el7.x86_64 1/3
     
-Verifying : tigervnc-server-1.8.0-2.el7\_4.x86\_64 2/3
+Verifying : tigervnc-server-1.8.0-2.el7_4.x86_64 2/3
     
 Verifying : 1:xrdp-0.9.5-1.el7.x86_64 3/3
 
 Installed:
     
-tigervnc-server.x86\_64 0:1.8.0-2.el7\_4 xrdp.x86_64 1:0.9.5-1.el7
+tigervnc-server.x86_64 0:1.8.0-2.el7_4 xrdp.x86_64 1:0.9.5-1.el7
 
 Dependency Installed:
     

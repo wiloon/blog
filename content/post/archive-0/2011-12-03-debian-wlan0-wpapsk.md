@@ -51,7 +51,7 @@ wpa-psk fcb3717c5f66e893d9010a6872436b34686618a3e8fa2833d56bb98b41be5c8d
 
 [code]
   
-wpa\_passphrase <your\_essid> <your\_assic\_key>
+wpa_passphrase <your_essid> <your_assic_key>
   
 ```
 

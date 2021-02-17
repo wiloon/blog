@@ -36,11 +36,11 @@ systemtap 的安装
   
 我们重新编译内核让其支持systemtap，首先你想让内核中有调试信息，编译内核时需要加上 -g 标志；其次，你还需要在配置内核时将 Kprobe 和 debugfs 开关打开。最终效果是，你能在内核 .config 文件中看到下面四个选项是设置的：
 
-CONFIG\_DEBUG\_INFO
+CONFIG_DEBUG_INFO
     
 CONFIG_KPROBES
     
-CONFIG\_DEBUG\_FS
+CONFIG_DEBUG_FS
     
 CONFIG_RELAY
   
@@ -64,9 +64,9 @@ git clone git://sources.redhat.com/git/systemtap.git
 
 由于发行版的内核默认无内核调试信息，所以我们还需要一个调试内核镜像，在http://ddebs.ubuntu.com/pool/main/l/linux/ 找到你的内核版本相对应的内核调试镜像（版本号包括后面的发布次数、硬件体系等都必须一致），如针对我上面的内核版本，就可以用如下命令下载安装内核调试镜像：
 
-$ wget http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-debug-3.8.0-30-generic\_dbgsym\_3.8.0-30.43_i386.ddeb
+$ wget http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-debug-3.8.0-30-generic_dbgsym_3.8.0-30.43_i386.ddeb
   
-$ sudo dpkg -i linux-image-debug-3.8.0-30-generic\_dbgsym\_3.8.0-30.43_i386.ddeb
+$ sudo dpkg -i linux-image-debug-3.8.0-30-generic_dbgsym_3.8.0-30.43_i386.ddeb
   
 一般这种方法下，你只需要使用apt在线安装systemtap即可：
 
@@ -90,9 +90,9 @@ Pass 1: parsed user script and 96 library script(s) using 55100virt/26224res/207
   
 Pass 2: analyzed script: 1 probe(s), 2 function(s), 0 embed(s), 0 global(s) using 55496virt/27016res/2172shr/25568data kb, in 0usr/0sys/4real ms.
   
-Pass 3: translated to C into "/tmp/stapYqNuF9/stap\_e2d1c1c9962c809ee9477018c642b661\_939_src.c" using 55624virt/27380res/2488shr/25696data kb, in 0usr/0sys/0real ms.
+Pass 3: translated to C into "/tmp/stapYqNuF9/stap_e2d1c1c9962c809ee9477018c642b661_939_src.c" using 55624virt/27380res/2488shr/25696data kb, in 0usr/0sys/0real ms.
   
-Pass 4: compiled C into "stap\_e2d1c1c9962c809ee9477018c642b661\_939.ko" in 1230usr/160sys/1600real ms.
+Pass 4: compiled C into "stap_e2d1c1c9962c809ee9477018c642b661_939.ko" in 1230usr/160sys/1600real ms.
   
 Pass 5: starting run.
   

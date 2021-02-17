@@ -90,7 +90,7 @@ cat a.txt | sort | uniq | sort > a_u.txt
   
 cat b.txt | sort | uniq | sort > b_u.txt
   
-comm -23 a\_u.txt b\_u.txt > c.txt
+comm -23 a_u.txt b_u.txt > c.txt
 
 # END
 
@@ -188,7 +188,7 @@ cat a.txt | sort | uniq | sort > a_u.txt
   
 cat b.txt | sort | uniq | sort > b_u.txt
   
-diff a\_u.txt b\_u.txt | grep /< | awk ' $1 = " " ' > c.txt
+diff a_u.txt b_u.txt | grep /< | awk ' $1 = " " ' > c.txt
 
 # END
 

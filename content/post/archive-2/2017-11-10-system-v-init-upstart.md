@@ -10,4 +10,4 @@ categories:
 ---
 http://monklof.com/post/14/
   
-https://www.ibm.com/developerworks/cn/linux/1407\_liuming\_init2/index.html
+https://www.ibm.com/developerworks/cn/linux/1407_liuming_init2/index.html

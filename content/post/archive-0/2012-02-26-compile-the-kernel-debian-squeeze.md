@@ -86,7 +86,7 @@ sudo aptitude install hardinfo
 
 <http://www.kernel.org/>
 
-[http://www.howtoforge.com/kernel\_compilation\_debian_etch][1]
+[http://www.howtoforge.com/kernel_compilation_debian_etch][1]
 
 <http://forum.ubuntu.org.cn/viewtopic.php?t=110461>
 

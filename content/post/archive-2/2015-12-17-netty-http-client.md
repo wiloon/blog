@@ -158,7 +158,7 @@ import static io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
   
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
   
-import static io.netty.handler.codec.http.HttpVersion.HTTP\_1\_1;
+import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 import org.apache.commons.logging.Log;
   
@@ -218,7 +218,7 @@ buf.release();
 
 String res = "I am OK";
   
-FullHttpResponse response = new DefaultFullHttpResponse(HTTP\_1\_1,
+FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1,
   
 OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8")));
   

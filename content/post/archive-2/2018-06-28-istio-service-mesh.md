@@ -24,7 +24,7 @@ Istio是由Google/IBM/Lyft共同开发的新一代Service Mesh开源项目
 
 控制平面由三个组件组成：Pilot、Mixer 和 Citadel，它们组合配置 Envoy 以便于路由流量、执行策略和收集遥测数据。
 
-[http://www.infoq.com/cn/articles/istio-future-service-mesh?utm\_campaign=infoq\_content&utm\_source=infoq&utm\_medium=feed&utm_term=global][1]
+[http://www.infoq.com/cn/articles/istio-future-service-mesh?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global][1]
   
 <https://servicemesh.gitbooks.io/awesome-servicemesh/mesh/2017/service-mesh-next-generation-of-microservice/>
 

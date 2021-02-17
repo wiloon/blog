@@ -22,17 +22,17 @@ MySQL有很多可以导入数据的方法，然而这些只是数据传输中的
 
 mysqldump工具很多方面类似相反作用的工具mysqlimport。它们有一些同样的选项。但mysqldump能够做更多的事情。它可以把整个数据库装载到一个单独的文本文件中。这个文件包含有所有重建您的数据库所需要的SQL命令。这个命令取得所有的模式（Schema，后面有解释）并且将其转换成DDL语法（CREATE语句，即数据库定义语句），取得所有的数据，并且从这些数据中创建INSERT语句。这个工具将您的数据库中所有的设计倒转。因为所有的东西都被包含到了一个文本文件中。这个文本文件可以用一个简单的批处理和一个合适SQL语句导回到MySQL中。这个工具令人难以置信地简单而快速。决不会有半点让人头疼地地方。
 
-因此，如果您像装载整个数据库Meet\_A\_Geek的内容到一个文件中，可以使用下面的命令：
+因此，如果您像装载整个数据库Meet_A_Geek的内容到一个文件中，可以使用下面的命令：
 
-bin/mysqldump –p Meet\_A\_Geek > MeetAGeek\_Dump\_File.txt
+bin/mysqldump –p Meet_A_Geek > MeetAGeek_Dump_File.txt
 
-这个语句也允许您指定一个表进行dump(备份/导出/装载?)。如果您只是希望把数据库Meet\_A\_Geek中的表Orders中的整个内容导出到一个文件，可以使用下面的命令：
+这个语句也允许您指定一个表进行dump(备份/导出/装载?)。如果您只是希望把数据库Meet_A_Geek中的表Orders中的整个内容导出到一个文件，可以使用下面的命令：
 
-bin/mysqldump –p Meet\_A\_Geek Orders >MeetAGeek_Orders.txt
+bin/mysqldump –p Meet_A_Geek Orders >MeetAGeek_Orders.txt
 
 这个非常的灵活，您甚至可以使用WHERE从句来选择您需要的记录导出到文件中。要达到这样的目的，可以使用类似于下面的命令：
 
-bin/mysqldump –p –where="Order\_ID > 2000" Meet\_A\_Geek Orders > Special\_Dump.txt
+bin/mysqldump –p –where="Order_ID > 2000" Meet_A_Geek Orders > Special_Dump.txt
 
 mysqldump工具有大量的选项，部分选项如下表：
 
@@ -72,7 +72,7 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 -q or -quick 这个选项使得MySQL不会把整个导出的内容读入内存再执行导出，而是在读到的时候就写入导文件中。
 
--T path or -tab = path 这个选项将会创建两个文件，一个文件包含DDL语句或者表创建语句，另一个文件包含数据。DDL文件被命名为table\_name.sql,数据文件被命名为table\_name.txt.路径名是存放这两个文件的目录。目录必须已经存在，并且命令的使用者有对文件的特权。
+-T path or -tab = path 这个选项将会创建两个文件，一个文件包含DDL语句或者表创建语句，另一个文件包含数据。DDL文件被命名为table_name.sql,数据文件被命名为table_name.txt.路径名是存放这两个文件的目录。目录必须已经存在，并且命令的使用者有对文件的特权。
 
 -w "WHERE Clause" or -where = "Where clause "
 
@@ -82,7 +82,7 @@ mysqldump工具有大量的选项，部分选项如下表：
 
 bin/mysqldump –p –where "Order_Date >='2000-01-01'"
   
-–tab = /home/mark –no-create-info –fields-terminated-by=, Meet\_A\_Geek Orders
+–tab = /home/mark –no-create-info –fields-terminated-by=, Meet_A_Geek Orders
 
 这将会得到您想要的结果。
 
@@ -106,7 +106,7 @@ mysqladmin ping用于检测mysqld的状态，is alive说明正在运行，出错
 
 4. 启动MySQL 监听程序.
 
-5. bin/mysql –p Meet\_A\_Geek；// 进入mysql命令行，并且打开数据库Meet\_A\_Geek,需要输入密码
+5. bin/mysql –p Meet_A_Geek；// 进入mysql命令行，并且打开数据库Meet_A_Geek,需要输入密码
 
 6. 在命令行中，输入一下命令:
 
@@ -126,17 +126,17 @@ WHERE Order_Date >= '2000-01-01'
 
 在mysql目录建立一个名为Report_G.rpt 的文本文件，加入下面的行：
 
-USE Meet\_A\_Geek;
+USE Meet_A_Geek;
   
-INSERT INTO Customers (Customer\_ID, Last\_Name, First_Name)
+INSERT INTO Customers (Customer_ID, Last_Name, First_Name)
   
 VALUES (NULL, "Kinnard", "Vicky");
   
-INSERT INTO Customers (Customer\_ID, Last\_Name, First_Name)
+INSERT INTO Customers (Customer_ID, Last_Name, First_Name)
   
 VALUES (NULL, "Kinnard", "Steven");
   
-INSERT INTO Customers (Customer\_ID, Last\_Name, First_Name)
+INSERT INTO Customers (Customer_ID, Last_Name, First_Name)
   
 VALUES (NULL, "Brown", "Sam");
   

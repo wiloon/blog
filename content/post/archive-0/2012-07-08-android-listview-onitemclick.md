@@ -24,7 +24,7 @@ categories:
 > 
 > listCats=(ListView)findViewById(R.id.HymnsCatsListView);
   
-> listCats.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple\_list\_item_1 , catsName));
+> listCats.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 , catsName));
   
 > listCats.setTextFilterEnabled(true);
   

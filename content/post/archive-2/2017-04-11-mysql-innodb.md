@@ -32,7 +32,7 @@ InnoDB有这么多特性，比MyISAM来的优秀多了，还犹豫什么，果�
 
 #InnoDB存储数据字典、内部数据结构的缓冲池，16MB 已经足够大了。
   
-innodb\_additional\_mem\_pool\_size = 16M
+innodb_additional_mem_pool_size = 16M
 
 #InnoDB用于缓存数据、索引、锁、插入缓冲、数据字典等
   
@@ -42,35 +42,35 @@ innodb\_additional\_mem\_pool\_size = 16M
   
 #默认值是8M，非常坑X，这也是导致很多人觉得InnoDB不如MyISAM好用的缘故
   
-innodb\_buffer\_pool_size = 4G
+innodb_buffer_pool_size = 4G
 
 #InnoDB共享表空间初始化大小，默认是 10MB，也非常坑X，改成 1GB，并且自动扩展
   
-innodb\_data\_file_path = ibdata1:1G:autoextend
+innodb_data_file_path = ibdata1:1G:autoextend
 
 #如果不了解本选项，建议设置为1，能较好保护数据可靠性，对性能有一定影响，但可控
   
-innodb\_flush\_log\_at\_trx_commit = 1
+innodb_flush_log_at_trx_commit = 1
 
 #InnoDB的log buffer，通常设置为 64MB 就足够了
   
-innodb\_log\_buffer_size = 64M
+innodb_log_buffer_size = 64M
 
 #InnoDB redo log大小，通常设置256MB 就足够了
   
-innodb\_log\_file_size = 256M
+innodb_log_file_size = 256M
 
 #InnoDB redo log文件组，通常设置为 2 就足够了
   
-innodb\_log\_files\_in\_group = 2
+innodb_log_files_in_group = 2
 
 #启用InnoDB的独立表空间模式，便于管理
   
-innodb\_file\_per_table = 1
+innodb_file_per_table = 1
 
 #启用InnoDB的status file，便于管理员查看以及监控等
   
-innodb\_status\_file = 1
+innodb_status_file = 1
 
 #设置事务隔离级别为 READ-COMMITED，提高事务效率，通常都满足事务一致性要求
   
@@ -86,39 +86,39 @@ max_connections = 60
 
 #最大连接错误次数，可适当加大，防止频繁连接错误后，前端host被mysql拒绝掉
   
-max\_connect\_errors = 100000
+max_connect_errors = 100000
 
 #设置慢查询阀值，建议设置最小的 1 秒
   
-long\_query\_time = 1
+long_query_time = 1
 
-#设置临时表最大值，这是每次连接都会分配，不宜设置过大 max\_heap\_table\_size 和 tmp\_table_size 要设置一样大
+#设置临时表最大值，这是每次连接都会分配，不宜设置过大 max_heap_table_size 和 tmp_table_size 要设置一样大
   
-max\_heap\_table_size = 96M
+max_heap_table_size = 96M
   
-tmp\_table\_size = 96M
+tmp_table_size = 96M
 
 #每个连接都会分配的一些排序、连接等缓冲，一般设置为 2MB 就足够了
   
-sort\_buffer\_size = 2M
+sort_buffer_size = 2M
   
-join\_buffer\_size = 2M
+join_buffer_size = 2M
   
-read\_buffer\_size = 2M
+read_buffer_size = 2M
   
-read\_rnd\_buffer_size = 2M
+read_rnd_buffer_size = 2M
 
 #建议关闭query cache，有些时候对性能反而是一种损害
   
-query\_cache\_size = 0
+query_cache_size = 0
 
-#如果是以InnoDB引擎为主的DB，专用于MyISAM引擎的 key\_buffer\_size 可以设置较小，8MB 已足够
+#如果是以InnoDB引擎为主的DB，专用于MyISAM引擎的 key_buffer_size 可以设置较小，8MB 已足够
   
 #如果是以MyISAM引擎为主，可设置较大，但不能超过4G
   
 #在这里，强烈建议不使用MyISAM引擎，默认都是用InnoDB引擎
   
-key\_buffer\_size = 8M
+key_buffer_size = 8M
 
 #设置连接超时阀值，如果前端程序采用短连接，建议缩短这2个值
   
@@ -154,7 +154,7 @@ wait_timeout = 120
 
 (root:imysql.cn:Thu Oct 15 09:16:22 2009)[mysql]>
   
-CREATE TABLE my\_innodb\_talbe(
+CREATE TABLE my_innodb_talbe(
   
 id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   

@@ -14,11 +14,11 @@ http://blog.51cto.com/janephp/1318705
 
 减少碎片：
   
-合适的query\_cache\_min\_res\_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query\_cache\_size - Qcache\_free\_memory）除以Qcache\_queries\_in_cache计算平均缓存大小。
+合适的query_cache_min_res_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query_cache_size - Qcache_free_memory）除以Qcache_queries_in_cache计算平均缓存大小。
   
-可以通过Qcache\_free\_blocks来观察碎片，这个值反应了剩余的空闲块，如果这个值很多，但是
+可以通过Qcache_free_blocks来观察碎片，这个值反应了剩余的空闲块，如果这个值很多，但是
   
-Qcache\_lowmem\_prunes却不断增加，则说明碎片太多了。可以使用flush query cache整理碎片，重新排序，但不会清楚，清空命令是reset query cache。整理碎片期间，查询缓存无法被访问，可能导致服务器僵死一段时间，所以查询缓存不宜太大
+Qcache_lowmem_prunes却不断增加，则说明碎片太多了。可以使用flush query cache整理碎片，重新排序，但不会清楚，清空命令是reset query cache。整理碎片期间，查询缓存无法被访问，可能导致服务器僵死一段时间，所以查询缓存不宜太大
 
 场景
 
@@ -40,13 +40,13 @@ select picname, smallimg from pics where user_id = xxx;
 
 执行查询语句（为了查看真实执行时间，强制不使用缓存，为了防止在测试时因为读取了缓存造成对时间上的差别）
 
-select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853;
+select SQL_NO_CACHE picname, smallimg from pics where user_id=17853;
   
 执行了10次，平均耗时在40ms左右
 
 使用explain进行分析：
 
-explain select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853
+explain select SQL_NO_CACHE picname, smallimg from pics where user_id=17853
   
 这里写图片描述
 
@@ -56,7 +56,7 @@ explain select SQL\_NO\_CACHE picname, smallimg from pics where user_id=17853
 
 因为这个语句太简单，sql本身没有什么优化空间，就考虑了索引
 
-修改索引结构，建立一个(user\_id,picname,smallimg)的联合索引：uid\_pic
+修改索引结构，建立一个(user_id,picname,smallimg)的联合索引：uid_pic
 
 重新执行10次，平均耗时降到了30ms左右
 
@@ -78,15 +78,15 @@ MySQL只需要通过索引就可以返回查询所需要的数据，而不必在
 
 扩展研究
 
-一、Mysql缓存，SQL\_NO\_CACHE和SQL_CACHE 的区别
+一、Mysql缓存，SQL_NO_CACHE和SQL_CACHE 的区别
 
-上边在进行测试的时候，为了防止读取缓存造成对实验结果的影响使用到了SQL\_NO\_CACHE这个功能，对于SQL\_NO\_CACHE的介绍官网如下：
+上边在进行测试的时候，为了防止读取缓存造成对实验结果的影响使用到了SQL_NO_CACHE这个功能，对于SQL_NO_CACHE的介绍官网如下：
 
-SQL\_NO\_CACHE means that the query result is not cached. It does not mean that the cache is not used to answer the query.
+SQL_NO_CACHE means that the query result is not cached. It does not mean that the cache is not used to answer the query.
 
 You may use RESET QUERY CACHE to remove all queries from the cache and then your next query should be slow again. Same effect if you change the table, because this makes all cached queries invalid.
   
-当我们想用SQL\_NO\_CACHE来禁止结果缓存时发现结果和我们的预期不一样，查询执行的结果仍然是缓存后的结果。其实，SQL\_NO\_CACHE的真正作用是禁止缓存查询结果，但并不意味着cache不作为结果返回给query。
+当我们想用SQL_NO_CACHE来禁止结果缓存时发现结果和我们的预期不一样，查询执行的结果仍然是缓存后的结果。其实，SQL_NO_CACHE的真正作用是禁止缓存查询结果，但并不意味着cache不作为结果返回给query。
 
 在说白点就是，不是本次查询不使用缓存，而是本次查询结果不做为下次查询的缓存。
 
@@ -98,29 +98,29 @@ You may use RESET QUERY CACHE to remove all queries from the cache and then your
 
 其中各项的含义为：
 
-have\_query\_cache
+have_query_cache
   
 是否支持查询缓存区 "YES"表是支持查询缓存区
 
-query\_cache\_limit
+query_cache_limit
   
 可缓存的Select查询结果的最大值 1048576 byte /1024 = 1024kB 即最大可缓存的select查询结果必须小于 1024KB
 
-query\_cache\_min\_res\_unit
+query_cache_min_res_unit
   
 每次给query cache结果分配内存的大小 默认是 4096 byte 也即 4kB
 
-query\_cache\_size
+query_cache_size
   
-如果你希望禁用查询缓存，设置 query\_cache\_size=0。禁用了查询缓存，将没有明显的开销
+如果你希望禁用查询缓存，设置 query_cache_size=0。禁用了查询缓存，将没有明显的开销
 
-query\_cache\_type
+query_cache_type
   
 查询缓存的方式(默认是 ON)
 
 1、完整查询的过程如下
 
-当查询进行的时候，Mysql把查询结果保存在qurey cache中，但是有时候要保存的结果比较大，超过了query\_cache\_min\_res\_unit的值 ，这时候mysql将一边检索结果，一边进行慢慢保存结果，所以，有时候并不是把所有结果全部得到后再进行一次性保存，而是每次分配一块query\_cache\_min\_res\_unit 大小的内存空间保存结果集，使用完后，接着再分配一个这样的块，如果还不不够，接着再分配一个块，依此类推，也就是说，有可能在一次查询中，mysql要进行多次内存分配的操作，而我们应该知道，频繁操作内存都是要耗费时间的。
+当查询进行的时候，Mysql把查询结果保存在qurey cache中，但是有时候要保存的结果比较大，超过了query_cache_min_res_unit的值 ，这时候mysql将一边检索结果，一边进行慢慢保存结果，所以，有时候并不是把所有结果全部得到后再进行一次性保存，而是每次分配一块query_cache_min_res_unit 大小的内存空间保存结果集，使用完后，接着再分配一个这样的块，如果还不不够，接着再分配一个块，依此类推，也就是说，有可能在一次查询中，mysql要进行多次内存分配的操作，而我们应该知道，频繁操作内存都是要耗费时间的。
 
 2、内存碎片的产生
 
@@ -132,43 +132,43 @@ query\_cache\_type
 
 这里写图片描述
 
-Qcache\_total\_blocks 表示所有的块
+Qcache_total_blocks 表示所有的块
 
-Qcache\_free\_blocks 表示未使用的块
+Qcache_free_blocks 表示未使用的块
   
 这个值比较大，那意味着，内存碎片比较多，用flush query cache清理后，为被使用的块其值应该为1或0 ，因为这时候所有的内存都做为一个连续的快在一起了.
 
-Qcache\_free\_memory 表示查询缓存区现在还有多少的可用内存
+Qcache_free_memory 表示查询缓存区现在还有多少的可用内存
 
 Qcache_hits 表示查询缓存区的命中个数，也就是直接从查询缓存区作出响应处理的查询个数
 
 Qcache_inserts 表示查询缓存区此前总过缓存过多少条查询命令的结果
 
-Qcache\_lowmem\_prunes 表示查询缓存区已满而从其中溢出和删除的查询结果的个数
+Qcache_lowmem_prunes 表示查询缓存区已满而从其中溢出和删除的查询结果的个数
 
-Qcache\_not\_cached 表示没有进入查询缓存区的查询命令个数
+Qcache_not_cached 表示没有进入查询缓存区的查询命令个数
 
-Qcache\_queries\_in_cache 查询缓存区当前缓存着多少条查询命令的结果
+Qcache_queries_in_cache 查询缓存区当前缓存着多少条查询命令的结果
 
 优化提示：
 
-如果Qcache\_lowmem\_prunes 值比较大，表示查询缓存区大小设置太小，需要增大。
+如果Qcache_lowmem_prunes 值比较大，表示查询缓存区大小设置太小，需要增大。
 
-如果Qcache\_free\_blocks 较多，表示内存碎片较多，需要清理，flush query cache
+如果Qcache_free_blocks 较多，表示内存碎片较多，需要清理，flush query cache
 
-关于query\_cache\_min\_res\_unit大小的调优，书中给出了一个计算公式，可以供调优设置参考：
+关于query_cache_min_res_unit大小的调优，书中给出了一个计算公式，可以供调优设置参考：
 
-query\_cache\_min\_res\_unit = (query\_cache\_size - Qcache\_free\_memory) /Qcache\_queries\_in_cache
+query_cache_min_res_unit = (query_cache_size - Qcache_free_memory) /Qcache_queries_in_cache
   
 还要注意一点的是，FLUSH QUERY CACHE 命令可以用来整理查询缓存区的碎片，改善内存使用状况，但不会清理查询缓存区的内容，这个要和RESET QUERY CACHE相区别，不要混淆，后者才是清除查询缓存区中的所有的内容。
   
-可以在 SELECT 语句中指定查询缓存的选项，对于那些肯定要实时的从表中获取数据的查询，或者对于那些一天只执行一次的查询，我们都可以指定不进行查询缓存，使用 SQL\_NO\_CACHE 选项。
+可以在 SELECT 语句中指定查询缓存的选项，对于那些肯定要实时的从表中获取数据的查询，或者对于那些一天只执行一次的查询，我们都可以指定不进行查询缓存，使用 SQL_NO_CACHE 选项。
   
 对于那些变化不频繁的表，查询操作很固定，我们可以将该查询操作缓存起来，这样每次执行的时候不实际访问表和执行查询，只是从缓存获得结果，可以有效地改善查询的性能，使用 SQL_CACHE 选项。
   
-下面是使用 SQL\_NO\_CACHE 和 SQL_CACHE 的例子：
+下面是使用 SQL_NO_CACHE 和 SQL_CACHE 的例子：
 
-mysql> select sql\_no\_cache id,name from test3 where id < 2;
+mysql> select sql_no_cache id,name from test3 where id < 2;
   
 mysql> select sql_cache id,name from test3 where id < 2;
   
@@ -188,9 +188,9 @@ mysql> select sql_cache id,name from test3 where id < 2;
 
 Innodb的辅助索引叶子节点包含的是主键列，所以主键一定是被索引覆盖的。
 
-（1）例如，在sakila的inventory表中，有一个组合索引(store\_id,film\_id)，对于只需要访问这两列的查 询，MySQL就可以使用索引，如下：
+（1）例如，在sakila的inventory表中，有一个组合索引(store_id,film_id)，对于只需要访问这两列的查 询，MySQL就可以使用索引，如下：
 
-mysql> EXPLAIN SELECT store\_id, film\_id FROM sakila.inventory\G
+mysql> EXPLAIN SELECT store_id, film_id FROM sakila.inventory\G
   
 （2）再比如说在文章系统里分页显示的时候，一般的查询是这样的：
 

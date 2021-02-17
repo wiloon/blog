@@ -26,7 +26,7 @@ brk(0) = 0xab1000
   
 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
   
-mmap(NULL, 8192, PROT\_READ|PROT\_WRITE, MAP\_PRIVATE|MAP\_ANONYMOUS, -1, 0) = 0x7f29379a7000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f29379a7000
   
 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
   

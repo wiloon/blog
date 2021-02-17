@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-https://wiki.archlinux.org/index.php/VirtualBox#Shared\_Folders\_as\_Arch\_Linux_Guest
+https://wiki.archlinux.org/index.php/VirtualBox#Shared_Folders_as_Arch_Linux_Guest
 
 ```bash
   

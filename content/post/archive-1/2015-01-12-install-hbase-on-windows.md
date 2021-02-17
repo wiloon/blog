@@ -18,9 +18,9 @@ cd hbase-2.0.0-SNAPSHOT/
 
 #edit hbase-env.sh
   
-#export JAVA\_HOME=/home/xxx/apps/jdk1.8.0\_111/
+#export JAVA_HOME=/home/xxx/apps/jdk1.8.0_111/
   
-#export HBASE\_MANAGES\_ZK=false
+#export HBASE_MANAGES_ZK=false
 
 #edit hbase-site.xml
   

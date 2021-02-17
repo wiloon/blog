@@ -35,7 +35,7 @@ As indicated by the name, MEMORY tables are stored in memory. They use hash inde
   
 其它特性：
   
-内存表是有大小限制的，这主要取决于两个参数，一个是max\_rows，另一个是max\_heap\_table\_size.max\_rows在创建表时可以指定(也可以 ALTER TABLE tbl\_name MAX\_ROWS= MAX\_ROWS)，这样在往表中写数据时，如果写入的数据超过了规定的数目，就会报The table is full的提示，这里需要注意的是，我测试发现如果用insert into table values(xx),(yy)..这种一次带多个插入值的形式，可以插入超过max_rows数量的记录。
+内存表是有大小限制的，这主要取决于两个参数，一个是max_rows，另一个是max_heap_table_size.max_rows在创建表时可以指定(也可以 ALTER TABLE tbl_name MAX_ROWS= MAX_ROWS)，这样在往表中写数据时，如果写入的数据超过了规定的数目，就会报The table is full的提示，这里需要注意的是，我测试发现如果用insert into table values(xx),(yy)..这种一次带多个插入值的形式，可以插入超过max_rows数量的记录。
   
 其它特性：
   
@@ -45,7 +45,7 @@ As indicated by the name, MEMORY tables are stored in memory. They use hash inde
   
 注：操作符 "<=>" 说明：NULL-safe equal.这个操作符和"="操作符执行相同的比较操作，不过在两个操作码均为NULL时，其所得值为1而不为NULL，而当一个操作码为NULL时，其所得值为0而不为NULL。
   
-3.HEAP表使用一个固定的记录长度格式。默认情况下max\_rows依赖于max\_heap\_table\_size.
+3.HEAP表使用一个固定的记录长度格式。默认情况下max_rows依赖于max_heap_table_size.
   
 4.HEAP不支持BLOB/TEXT列。
 

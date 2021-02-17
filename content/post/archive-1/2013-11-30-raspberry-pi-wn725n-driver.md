@@ -10,7 +10,7 @@ categories:
 ---
 <http://www.raspberrypi.org/phpBB3/viewtopic.php?t=55779>
 
-[http://lukin.cn/p/Raspberry\_Pi\_TP-LINK\_WN725N\_V2.html][1]
+[http://lukin.cn/p/Raspberry_Pi_TP-LINK_WN725N_V2.html][1]
 
 wget https://dl.dropboxusercontent.com/u/80256631/8188eu-20130209.tar.gz
 

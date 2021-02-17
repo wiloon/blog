@@ -29,11 +29,11 @@ pthread_create是UNIX环境创建线程函数头文件
   
 #include<pthread.h>函数声明
   
-int pthread\_create(pthread\_t\*restrict tidp,const pthread\_attr\_t \*restrict\_attr,void\*（\*start\_rtn)(void\*),void \*restrict arg);返回值
+int pthread_create(pthread_t\*restrict tidp,const pthread_attr_t \*restrict_attr,void\*（\*start_rtn)(void\*),void \*restrict arg);返回值
   
 若成功则返回0，否则返回出错编号
   
-返回成功时，由tidp指向的内存单元被设置为新创建线程的线程ID。attr参数用于制定各种不同的线程属性。新创建的线程从start\_rtn函数的地址开始运行，该函数只有一个万能指针参数arg，如果需要向start\_rtn函数传递的参数不止一个，那么需要把这些参数放到一个结构中，然后把这个结构的地址作为arg的参数传入。
+返回成功时，由tidp指向的内存单元被设置为新创建线程的线程ID。attr参数用于制定各种不同的线程属性。新创建的线程从start_rtn函数的地址开始运行，该函数只有一个万能指针参数arg，如果需要向start_rtn函数传递的参数不止一个，那么需要把这些参数放到一个结构中，然后把这个结构的地址作为arg的参数传入。
   
 linux下用C开发多线程程序，Linux系统下的多线程遵循POSIX线程接口，称为pthread。
   
@@ -95,7 +95,7 @@ int main(void)
   
 int err;
   
-err = pthread\_create(&ntid, NULL, thr\_fn, NULL);
+err = pthread_create(&ntid, NULL, thr_fn, NULL);
   
 if (err != 0)
   

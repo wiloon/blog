@@ -30,13 +30,13 @@ supervisord 配置
   
 Supervisor 相当强大，提供了很丰富的功能，不过我们可能只需要用到其中一小部分。安装完成之后，可以编写配置文件，来满足自己的需求。为了方便，我们把配置分成两部分：supervisord（supervisor 是一个 C/S 模型的程序，这是 server 端，对应的有 client 端：supervisorctl）和应用程序（即我们要管理的程序）。
   
-首先来看 supervisord 的配置文件。安装完 supervisor 之后，可以运行echo\_supervisord\_conf 命令输出默认的配置项，也可以重定向到一个配置文件里：
+首先来看 supervisord 的配置文件。安装完 supervisor 之后，可以运行echo_supervisord_conf 命令输出默认的配置项，也可以重定向到一个配置文件里：
   
-echo\_supervisord\_conf > /etc/supervisord.conf
+echo_supervisord_conf > /etc/supervisord.conf
   
 去除里面大部分注释和"不相关"的部分，我们可以先看这些配置：
   
-[unix\_http\_server]
+[unix_http_server]
   
 file=/tmp/supervisor.sock ; UNIX socket 文件，supervisorctl 会使用
   
@@ -44,7 +44,7 @@ file=/tmp/supervisor.sock ; UNIX socket 文件，supervisorctl 会使用
   
 ;chown=nobody:nogroup ; socket 文件的 owner，格式： uid:gid
 
-;[inet\_http\_server] ; HTTP 服务器，提供 web 管理界面
+;[inet_http_server] ; HTTP 服务器，提供 web 管理界面
   
 ;port=127.0.0.1:9001 ; Web 管理后台运行的 IP 和端口，如果开放到公网，需要注意安全性
   
@@ -78,11 +78,11 @@ minprocs=200 ; 可以打开的进程数的最小值，默认 200
   
 [rpcinterface:supervisor]
   
-supervisor.rpcinterface\_factory = supervisor.rpcinterface:make\_main_rpcinterface
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [supervisorctl]
   
-serverurl=unix:///tmp/supervisor.sock ; 通过 UNIX socket 连接 supervisord，路径与 unix\_http\_server 部分的 file 一致
+serverurl=unix:///tmp/supervisor.sock ; 通过 UNIX socket 连接 supervisord，路径与 unix_http_server 部分的 file 一致
   
 ;serverurl=http://127.0.0.1:9001 ; 通过 HTTP 的方式连接 supervisord
 
@@ -136,13 +136,13 @@ user = leon ; 用哪个用户启动
   
 redirect_stderr = true ; 把 stderr 重定向到 stdout，默认 false
   
-stdout\_logfile\_maxbytes = 20MB ; stdout 日志文件大小，默认 50MB
+stdout_logfile_maxbytes = 20MB ; stdout 日志文件大小，默认 50MB
   
-stdout\_logfile\_backups = 20 ; stdout 日志文件备份数
+stdout_logfile_backups = 20 ; stdout 日志文件备份数
   
 ; stdout 日志文件，需要注意当指定目录不存在时无法正常启动，所以需要手动创建目录（supervisord 会自动创建日志文件）
   
-stdout\_logfile = /data/logs/usercenter\_stdout.log
+stdout_logfile = /data/logs/usercenter_stdout.log
 
 ; 可以通过 environment 来添加需要的环境变量，一种常见的用法是修改 PYTHONPATH
   

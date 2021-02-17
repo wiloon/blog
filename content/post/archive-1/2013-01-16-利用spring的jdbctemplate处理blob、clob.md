@@ -13,7 +13,7 @@ tags:
 ---
 spring定义了一个以统一的方式操作各种数据库的Lob类型数据的LobCreator(保存的时候用),同时提供了一个LobHandler为操作二进制字段和大文本字段提供统一接口访问。
   
-举例，例子里面的t\_post表中post\_text字段是CLOB类型,而post_attach是BLOG类型：
+举例，例子里面的t_post表中post_text字段是CLOB类型,而post_attach是BLOG类型：
 
 public class PostJdbcDao extends JdbcDaoSupport implements PostDao {
   
@@ -35,7 +35,7 @@ this.lobHandler = lobHandler;
   
 public void addPost(final Post post) {
   
-String sql = " INSERT INTO t\_post(post\_id,user\_id,post\_text,post_attach)"
+String sql = " INSERT INTO t_post(post_id,user_id,post_text,post_attach)"
   
 + " VALUES(?,?,?,?)";
   
@@ -119,7 +119,7 @@ lazy-init="true" />
 
 public List getAttachs(final int userId){
   
-String sql = "SELECT post\_id,post\_attach FROM t\_post where user\_id =? and post_attach is not null";
+String sql = "SELECT post_id,post_attach FROM t_post where user_id =? and post_attach is not null";
   
 return getJdbcTemplate().query(
   

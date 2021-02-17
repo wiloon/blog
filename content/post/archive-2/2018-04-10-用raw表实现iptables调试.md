@@ -42,7 +42,7 @@ modprobe xt_LOG
 
 #### TRACE
 
-TRACE This target marks packes so that the kernel will log every rule which match the packets as those traverse the tables, chains, rules. (The ipt\_LOG or ip6t\_LOG module is required for the logging.) The packets are logged with the string prefix:
+TRACE This target marks packes so that the kernel will log every rule which match the packets as those traverse the tables, chains, rules. (The ipt_LOG or ip6t_LOG module is required for the logging.) The packets are logged with the string prefix:
 
 "TRACE: tablename:chainname:type:rulenum " where type can be "rule" for plain rule, "return" for implicit rule at the end of a user defined chain and "policy" for the policy of the built in chains. It can only be used in the raw table.
 

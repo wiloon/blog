@@ -149,7 +149,7 @@ Pacman包管理器是ArchLinux的一大亮点。它汲取了其他Linux版本软
   
 安装或者升级单个软件包，或者一列软件包（包含依赖包），使用如下命令：
 
-pacman -S package\_name1 package\_name2
+pacman -S package_name1 package_name2
   
 有时候在不同的软件仓库中，一个软件包有多个版本（比如extra和testing）。你可以选择一个来安装：
 

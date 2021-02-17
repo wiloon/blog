@@ -32,7 +32,7 @@ CREATE
      
 [ALGORITHM = {MERGE | TEMPTABLE | UNDEFINED}]
   
-VIEW [database\_name].[view\_name]
+VIEW [database_name].[view_name]
   
 AS
   

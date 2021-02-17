@@ -23,7 +23,7 @@ HBase中可以通过设置WAL的持久化等级决定是否开启WAL机制、以
 
   4. FSYNC_WAL：同步将数据写入日志文件并强制落盘。最严格的日志写入等级，可以保证数据不会丢失，但是性能相对比较差。
 
-  5. USER\_DEFAULT：默认如果用户没有指定持久化等级，HBase使用SYNC\_WAL等级持久化数据。
+  5. USER_DEFAULT：默认如果用户没有指定持久化等级，HBase使用SYNC_WAL等级持久化数据。
 
 用户可以通过客户端设置WAL持久化等级，代码：put.setDurability(Durability. SYNC_WAL );
 

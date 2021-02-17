@@ -69,13 +69,13 @@ default_type application/octet-stream; #默认文件类型
   
 #charset utf-8; #默认编码
   
-server\_names\_hash\_bucket\_size 128; #服务器名字的hash表大小
+server_names_hash_bucket_size 128; #服务器名字的hash表大小
   
-client\_header\_buffer_size 32k; #上传文件大小限制
+client_header_buffer_size 32k; #上传文件大小限制
   
-large\_client\_header_buffers 4 64k; #设定请求缓
+large_client_header_buffers 4 64k; #设定请求缓
   
-client\_max\_body_size 8m; #设定请求缓
+client_max_body_size 8m; #设定请求缓
 
 autoindex on; #开启目录列表访问，合适下载服务器，默认关闭。
 
@@ -89,42 +89,42 @@ tcp_nopush on;
   
 tcp_nodelay on;
 
-TCP\_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP\_CORK，Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率。
+TCP_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP_CORK，Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率。
 
 ### TCP_NODELAY
-TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms（Nagle 算法原理是：在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp\_nodelay。
+TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms（Nagle 算法原理是：在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp_nodelay。
 
-可以看到 TCP\_NOPUSH 是要等数据包累积到一定大小才发送，TCP\_NODELAY 是要尽快发送，二者相互矛盾。实际上，它们确实可以一起用，最终的效果是先填满包，再尽快发送。
+可以看到 TCP_NOPUSH 是要等数据包累积到一定大小才发送，TCP_NODELAY 是要尽快发送，二者相互矛盾。实际上，它们确实可以一起用，最终的效果是先填满包，再尽快发送。
 
 keepalive_timeout 120; #长连接超时时间，单位是秒
 
 #FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
   
-fastcgi\_connect\_timeout 300;
+fastcgi_connect_timeout 300;
   
-fastcgi\_send\_timeout 300;
+fastcgi_send_timeout 300;
   
-fastcgi\_read\_timeout 300;
+fastcgi_read_timeout 300;
   
-fastcgi\_buffer\_size 64k;
+fastcgi_buffer_size 64k;
   
 fastcgi_buffers 4 64k;
   
-fastcgi\_busy\_buffers_size 128k;
+fastcgi_busy_buffers_size 128k;
   
-fastcgi\_temp\_file\_write\_size 128k;
+fastcgi_temp_file_write_size 128k;
 
 #gzip模块设置
   
 gzip on; #开启gzip压缩输出
   
-gzip\_min\_length 1k; #最小压缩文件大小
+gzip_min_length 1k; #最小压缩文件大小
   
 gzip_buffers 4 16k; #压缩缓冲区
   
-gzip\_http\_version 1.0; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
+gzip_http_version 1.0; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
   
-gzip\_comp\_level 2; #压缩等级
+gzip_comp_level 2; #压缩等级
   
 gzip_types text/plain application/x-javascript text/css application/xml;
   
@@ -132,7 +132,7 @@ gzip_types text/plain application/x-javascript text/css application/xml;
   
 gzip_vary on;
   
-#limit\_zone crawler $binary\_remote_addr 10m; #开启限制IP连接数的时候需要使用
+#limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用
 
 upstream blog.ha97.com {
   
@@ -198,11 +198,11 @@ expires 1h;
   
 #日志格式设定
   
-log\_format access '$remote\_addr - $remote\_user [$time\_local] "$request" '
+log_format access '$remote_addr - $remote_user [$time_local] "$request" '
   
-'$status $body\_bytes\_sent "$http_referer" '
+'$status $body_bytes_sent "$http_referer" '
   
-'"$http\_user\_agent" $http\_x\_forwarded_for';
+'"$http_user_agent" $http_x_forwarded_for';
   
 #定义本虚拟主机的访问日志
   
@@ -216,33 +216,33 @@ proxy_pass http://127.0.0.1:88;
   
 proxy_redirect off;
   
-proxy\_set\_header X-Real-IP $remote_addr;
+proxy_set_header X-Real-IP $remote_addr;
   
 #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
   
-proxy\_set\_header X-Forwarded-For $proxy\_add\_x\_forwarded\_for;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   
 #以下是一些反向代理的配置，可选。
   
-proxy\_set\_header Host $host;
+proxy_set_header Host $host;
   
-client\_max\_body_size 10m; #允许客户端请求的最大单文件字节数
+client_max_body_size 10m; #允许客户端请求的最大单文件字节数
   
-client\_body\_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，
+client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，
   
-proxy\_connect\_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)
+proxy_connect_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)
   
-proxy\_send\_timeout 90; #后端服务器数据回传时间(代理发送超时)
+proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)
   
-proxy\_read\_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)
+proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)
   
-proxy\_buffer\_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小
+proxy_buffer_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小
   
-proxy\_buffers 4 32k; #proxy\_buffers缓冲区，网页平均在32k以下的设置
+proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置
   
-proxy\_busy\_buffers\_size 64k; #高负荷下缓冲大小（proxy\_buffers*2）
+proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）
   
-proxy\_temp\_file\_write\_size 64k;
+proxy_temp_file_write_size 64k;
   
 #设定缓存文件夹大小，大于这个值，将从upstream服务器传
   
@@ -258,7 +258,7 @@ access_log on;
   
 auth_basic "NginxStatus";
   
-auth\_basic\_user_file conf/htpasswd;
+auth_basic_user_file conf/htpasswd;
   
 #htpasswd文件的内容可以用apache提供的htpasswd工具来产生。
   
@@ -270,11 +270,11 @@ auth\_basic\_user_file conf/htpasswd;
   
 location ~ .(jsp|jspx|do)?$ {
   
-proxy\_set\_header Host $host;
+proxy_set_header Host $host;
   
-proxy\_set\_header X-Real-IP $remote_addr;
+proxy_set_header X-Real-IP $remote_addr;
   
-proxy\_set\_header X-Forwarded-For $proxy\_add\_x\_forwarded\_for;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   
 proxy_pass http://127.0.0.1:8080;
   
@@ -353,7 +353,7 @@ https://www.jianshu.com/p/38810b49bc29
 
 https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm
 
-client\_max\_body_size 20m; 20m为允许最大上传的大小。
+client_max_body_size 20m; 20m为允许最大上传的大小。
    
 use epoll;
    
@@ -363,7 +363,7 @@ multi_accept 告诉nginx收到一个新连接通知后接受尽可能多的连�
 
 multi_accept
   
-multi\_accept可以让nginx worker进程尽可能多地接受请求。它的作用是让worker进程一次性地接受监听队列里的所有请求，然后处理。如果multi\_accept的值设为off，那么worker进程必须一个一个地接受监听队列里的请求。
+multi_accept可以让nginx worker进程尽可能多地接受请求。它的作用是让worker进程一次性地接受监听队列里的所有请求，然后处理。如果multi_accept的值设为off，那么worker进程必须一个一个地接受监听队列里的请求。
 
 events {
    
@@ -373,23 +373,23 @@ multi_accept on;
   
 默认Nginx没有开启multi_accept。
 
-如果web服务器面对的是一个持续的请求流，那么启用multi\_accept可能会造成worker进程一次接受的请求大于worker\_connections指定可以接受的请求数。这就是overflow，这个overflow会造成性能损失，overflow这部分的请求不会受到处理。
+如果web服务器面对的是一个持续的请求流，那么启用multi_accept可能会造成worker进程一次接受的请求大于worker_connections指定可以接受的请求数。这就是overflow，这个overflow会造成性能损失，overflow这部分的请求不会受到处理。
 
 Nginx的缓冲配置
   
 请求缓冲在Nginx请求处理中扮演了重要的角色。当收到一条请求时，Nginx将请求写入缓冲当中。缓冲中的数据成为Nginx的变量，比如$request_body。如果缓冲容量比请求容量小，那么多出来的请求会被写入硬盘，这时便会有I/O操作。Nginx提供了多个directive来修改请求缓冲。
 
-client\_body\_buffer_size
+client_body_buffer_size
   
-这个directive设定了request body的缓冲大小。如果body超过了缓冲的大小，那么整个body或者部分body将被写入一个临时文件。如果Nginx被设置成使用文件缓冲而不使用内存缓冲，那么这个dirctive就无效。client\_body\_buffer_size在32位系统上默认是8k，在64位系统上默认是16k。可以在http, server 和 location模块中指定，如下：
+这个directive设定了request body的缓冲大小。如果body超过了缓冲的大小，那么整个body或者部分body将被写入一个临时文件。如果Nginx被设置成使用文件缓冲而不使用内存缓冲，那么这个dirctive就无效。client_body_buffer_size在32位系统上默认是8k，在64位系统上默认是16k。可以在http, server 和 location模块中指定，如下：
 
 server {
           
-client\_body\_buffer_size 8k;
+client_body_buffer_size 8k;
   
 }
   
-client\_max\_body_size
+client_max_body_size
   
 这个directive设定Nginx可以处理的最大request body大小。如果收到的请求大于指定的大小，那么Nginx会回复HTTP 413错误（Request Entity too large）。如果web服务器提供大文件上传的话，那么设置好这个directive很重要。
 
@@ -397,11 +397,11 @@ Nginx默认为这个directive设定的值是1m，可以在http, server 和 locat
 
 server {
      
-client\_max\_body_size 2m;
+client_max_body_size 2m;
   
 }
   
-client\_body\_in\_file\_only
+client_body_in_file_only
   
 启用这个directive会关闭Nginx的请求缓冲，将request body存储在临时文件当中，在http, server 和 location模块中定义。它可以有三个值：
 
@@ -415,49 +415,49 @@ on: request body将被写入文件，但文件在请求处理完成后不会被�
 
 http {
       
-client\_body\_in\_file\_only clean;
+client_body_in_file_only clean;
   
 }
   
 这个directive对于错误调试很有用处，但并不建议在生产环境下使用它。
 
-client\_body\_in\_single\_buffer
+client_body_in_single_buffer
   
 这个directive让Nginx将所有的request body存储在一个缓冲当中，它的默认值是off。启用它可以优化读取$request_body变量时的I/O性能。可以在http, server 和 location模块中定义。
 
 server {
       
-client\_body\_in\_single\_buffer on;
+client_body_in_single_buffer on;
   
 }
   
-client\_body\_temp_path
+client_body_temp_path
   
-这个directive指定存储request body的临时文件路径。另外，它可以指定目录层次。Nginx默认在Nginx的安装目录下面的client\_body\_temp子目录下面创建临时文件。这个directive可以在http, server 和 location 模块中定义。
+这个directive指定存储request body的临时文件路径。另外，它可以指定目录层次。Nginx默认在Nginx的安装目录下面的client_body_temp子目录下面创建临时文件。这个directive可以在http, server 和 location 模块中定义。
 
 server {
        
-client\_body\_temp\_pathtemp\_files 1 2;
+client_body_temp_pathtemp_files 1 2;
   
 }
   
-client\_header\_buffer_size
+client_header_buffer_size
   
-这个directive类似于client\_body\_buffer_size。它给request header分配缓冲。默认的值是1k，可以在http 和 server模块中定义。
+这个directive类似于client_body_buffer_size。它给request header分配缓冲。默认的值是1k，可以在http 和 server模块中定义。
 
 http {
     
-client\_header\_buffer_size 1m;
+client_header_buffer_size 1m;
   
 }
   
-large\_client\_header_buffers
+large_client_header_buffers
   
 这个directive指定request header缓冲的数量和大小。只有当默认的缓冲不够用时，它才能被使用。当请求处理完成后或者连接进入keep-alive状态时，它被释放。可以在http 和 server模块中定义。
 
 http {
      
-large\_client\_header_buffers 4 8k;
+large_client_header_buffers 4 8k;
   
 }
   
@@ -539,23 +539,23 @@ send_timeout 30s;
   
 }
   
-client\_body\_timeout
+client_body_timeout
   
 这条directive设定客户端与服务器建立连接后发送request body的超时时间。如果客户端在此时间内没有发送任何内容，那么Nginx返回HTTP 408错误（Request Timed Out）。它的默认值是60秒，在http, server 和 location模块中定义。
 
 server {
       
-client\_body\_timeout 30s;
+client_body_timeout 30s;
   
 }
   
-client\_header\_timeout
+client_header_timeout
   
 这条directive设定客户端向服务器发送一个完整的request header的超时时间。如果客户端在此时间内没有发送一个完整的request header，那么Nginx返回HTTP 408错误（Request Timed Out）。它的默认值是60秒，在http 和 server模块中定义。
 
 server {
      
-client\_header\_timeout 30s;
+client_header_timeout 30s;
   
 }
   
@@ -563,9 +563,9 @@ Nginx的压缩配置（compression）
   
 压缩可以减少服务器发送的数据包大小，从而加快了网页的加载速度。
 
-ngx\_http\_gzip_module
+ngx_http_gzip_module
   
-Nginx的gzip压缩依赖于这个模块。服务器先压缩数据，然后将压缩后的数据发送给客户端。压缩的效果对于文本内容最明显，而gzip对于JPEG, GIF, MP3这些不可压缩的内容就没什么用处。另外，如果压缩水平太高，那么需要的CPU时间更多。ngx\_http\_gzip_module模块提供了下面的directive来配置gzip压缩。
+Nginx的gzip压缩依赖于这个模块。服务器先压缩数据，然后将压缩后的数据发送给客户端。压缩的效果对于文本内容最明显，而gzip对于JPEG, GIF, MP3这些不可压缩的内容就没什么用处。另外，如果压缩水平太高，那么需要的CPU时间更多。ngx_http_gzip_module模块提供了下面的directive来配置gzip压缩。
 
 gzip
   
@@ -577,23 +577,23 @@ gzip on;
   
 }
   
-gzip\_comp\_level
+gzip_comp_level
   
 这条directive设定gzip的压缩水平，压缩水平可以是1到9。太高的压缩水平对性能提升并没有太大好处，因为这需要更多的CPU时间。默认值是1，其中1到3是比较好的压缩水平，因为它们在最终的压缩数据大小和需要花费的CPU时间之间做出了很好的平衡。可以在http, server 和 location模块中定义。
 
 http {
       
-gzip\_comp\_level 2;
+gzip_comp_level 2;
   
 }
   
-gzip\_min\_length
+gzip_min_length
   
 这条directive指定了压缩数据的最小长度，只有大于或等于最小长度才会对其压缩。它从Content-Length中获取数据的长度。默认值是20字节，在http, server 和 location中定义。
 
 http {
      
-gzip\_min\_length 1000;
+gzip_min_length 1000;
   
 }
   
@@ -609,13 +609,13 @@ gzip_types text/html text/css text/plain;
   
 text/html类型总是会被压缩，text/html, text/css和text/plain这些是MIME类型。
 
-gzip\_http\_version
+gzip_http_version
   
 这条directive指定一个HTTP版本。只有当请求的HTTP版本比这个版本更高或一样，Nginx才会压缩数据。默认值是1.1，在http, server 和 location模块中定义。
 
 http {
      
-gzip\_http\_versioin 1.1;
+gzip_http_versioin 1.1;
   
 }
   
@@ -639,15 +639,15 @@ gzip_disable "MSIE [1-6]&#46;";
   
 }
   
-ngx\_http\_gzip\_static\_module
+ngx_http_gzip_static_module
   
-这个模块可以让Nginx发送一个已经压缩好的.gz文件，而不发送普通文件。Nginx并不会自己生成.gz文件，而是寻找是否有已经存在.gz文件。如果有，就发送那个.gz文件。这可以节省CPU时间。默认这个模块没有启用，可以在编译Nginx时加上–with-http\_gzip\_static_module选项来启用。下面是这个模块提供的directive。
+这个模块可以让Nginx发送一个已经压缩好的.gz文件，而不发送普通文件。Nginx并不会自己生成.gz文件，而是寻找是否有已经存在.gz文件。如果有，就发送那个.gz文件。这可以节省CPU时间。默认这个模块没有启用，可以在编译Nginx时加上–with-http_gzip_static_module选项来启用。下面是这个模块提供的directive。
 
 gzip_static
   
-这个就是让Nginx发送.gz压缩文件的directive。默认值是off。gzip\_static的值设为on之后，Nginx会先判断客户端是否支持.gz文件，如果支持就发送.gz文件，不支持就发送普通文件。另外也可以将gzip\_static的值设为always，这时Nginx总是发送.gz文件（如果.gz文件存在的话），而不会检查客户端是否支持.gz文件。
+这个就是让Nginx发送.gz压缩文件的directive。默认值是off。gzip_static的值设为on之后，Nginx会先判断客户端是否支持.gz文件，如果支持就发送.gz文件，不支持就发送普通文件。另外也可以将gzip_static的值设为always，这时Nginx总是发送.gz文件（如果.gz文件存在的话），而不会检查客户端是否支持.gz文件。
 
-gzip\_static也会查看gzip\_http\_version, gzip\_proxied和gzip_disable的值来确定客户端是否支持压缩。它的值在http, server 和 location中定义。
+gzip_static也会查看gzip_http_version, gzip_proxied和gzip_disable的值来确定客户端是否支持压缩。它的值在http, server 和 location中定义。
 
 server {
       
@@ -655,9 +655,9 @@ gzip_static always;
   
 }
   
-ngx\_http\_gunzip_module
+ngx_http_gunzip_module
   
-这个模块让Nginx发送一个经解压的文件给那些不支持gzip的客户端，并且经常与ngx\_http\_gzip\_static\_module搭配使用。后者可以让Nginx发送一个已经压缩好文件，而前者可以解压文件以让Nginx发送给不支持压缩的客户端。这个模块默认没有启用，可以在编译Nginx时加上–with-http\_gunzip\_module选项来启用。
+这个模块让Nginx发送一个经解压的文件给那些不支持gzip的客户端，并且经常与ngx_http_gzip_static_module搭配使用。后者可以让Nginx发送一个已经压缩好文件，而前者可以解压文件以让Nginx发送给不支持压缩的客户端。这个模块默认没有启用，可以在编译Nginx时加上–with-http_gunzip_module选项来启用。
 
 gzip_proxied expired no-cache no-store private auth;
   
@@ -779,7 +779,7 @@ nginx超时配置参数说明：
   
 keepalive_timeout
 
-语法 keepalive\_timeout timeout [ header\_timeout ]
+语法 keepalive_timeout timeout [ header_timeout ]
 
 默认值 75s
 
@@ -801,9 +801,9 @@ Mozilla keeps the connection alive for N plus about 1-10 seconds.
 
 Konqueror保持长连接N秒
 
-proxy\_connect\_timeout
+proxy_connect_timeout
 
-语法 proxy\_connect\_timeout time
+语法 proxy_connect_timeout time
 
 默认值 60s
 
@@ -811,11 +811,11 @@ proxy\_connect\_timeout
 
 说明 该指令设置与upstream server的连接超时时间，有必要记住，这个超时不能超过75秒。
 
-这个不是等待后端返回页面的时间，那是由proxy\_read\_timeout声明的。如果你的upstream服务器起来了，但是hanging住了（例如，没有足够的线程处理请求，所以把你的请求放到请求池里稍后处理），那么这个声明是没有用的，由于与upstream服务器的连接已经建立了。
+这个不是等待后端返回页面的时间，那是由proxy_read_timeout声明的。如果你的upstream服务器起来了，但是hanging住了（例如，没有足够的线程处理请求，所以把你的请求放到请求池里稍后处理），那么这个声明是没有用的，由于与upstream服务器的连接已经建立了。
 
-proxy\_read\_timeout
+proxy_read_timeout
 
-语法 proxy\_read\_timeout time
+语法 proxy_read_timeout time
 
 默认值 60s
 
@@ -823,9 +823,9 @@ proxy\_read\_timeout
 
 说明 该指令设置与代理服务器的读超时时间。它决定了nginx会等待多长时间来获得请求的响应。这个时间不是获得整个response的时间，而是两次reading操作的时间。
 
-client\_header\_timeout
+client_header_timeout
 
-语法 client\_header\_timeout time
+语法 client_header_timeout time
 
 默认值 60s
 
@@ -833,9 +833,9 @@ client\_header\_timeout
 
 说明 指定等待client发送一个请求头的超时时间（例如：GET / HTTP/1.1）.仅当在一次read中，没有收到请求头，才会算成超时。如果在超时时间内，client没发送任何东西，nginx返回HTTP状态码408("Request timed out")
 
-client\_body\_timeout
+client_body_timeout
 
-语法 client\_body\_timeout time
+语法 client_body_timeout time
 
 默认值 60s
 
@@ -851,7 +851,7 @@ lingering_timeout
 
 上下文 http server location
 
-说明 lingering\_close生效后，在关闭连接前，会检测是否有用户发送的数据到达服务器，如果超过lingering\_timeout时间后还没有数据可读，就直接关闭连接；否则，必须在读取完连接缓冲区上的数据并丢弃掉后才会关闭连接。
+说明 lingering_close生效后，在关闭连接前，会检测是否有用户发送的数据到达服务器，如果超过lingering_timeout时间后还没有数据可读，就直接关闭连接；否则，必须在读取完连接缓冲区上的数据并丢弃掉后才会关闭连接。
 
 resolver_timeout
 
@@ -863,9 +863,9 @@ resolver_timeout
 
 说明 该指令设置DNS解析超时时间
 
-proxy\_send\_timeout
+proxy_send_timeout
 
-语法 proxy\_send\_timeout time
+语法 proxy_send_timeout time
 
 默认值 60s
 
@@ -873,7 +873,7 @@ proxy\_send\_timeout
 
 说明 这个指定设置了发送请求给upstream服务器的超时时间。超时设置不是为了整个发送期间，而是在两次write操作期间。如果超时后，upstream没有收到新的数据，nginx会关闭连接
 
-proxy\_upstream\_fail\_timeout（fail\_timeout）
+proxy_upstream_fail_timeout（fail_timeout）
 
 语法 server address [fail_timeout=30s]
 

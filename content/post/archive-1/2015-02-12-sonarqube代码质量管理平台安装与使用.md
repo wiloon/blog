@@ -86,7 +86,7 @@ SonarQube安装
   
 #mysql -u root -p
 
-mysql> CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8\_general\_ci;
+mysql> CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
   
 mysql> CREATE USER 'sonar' IDENTIFIED BY 'sonar';
   
@@ -102,7 +102,7 @@ mysql> FLUSH PRIVILEGES;
   
 将下载的sonar-runner-dist-2.3.zip包解压某路径/usr/local
   
-添加SONAR\_HOME、SONAR\_RUNNER\_HOME环境变量，并将SONAR\_RUNNER_HOME加入PATH
+添加SONAR_HOME、SONAR_RUNNER_HOME环境变量，并将SONAR_RUNNER_HOME加入PATH
 
 修改sonar配置文件
   

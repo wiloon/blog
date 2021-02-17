@@ -53,7 +53,7 @@ e;
 e.printStackTrace();
 
 
-break MISSING\_BLOCK\_LABEL_67;
+break MISSING_BLOCK_LABEL_67;
 
 
 e;
@@ -62,7 +62,7 @@ e;
 e.printStackTrace();
 
 
-break MISSING\_BLOCK\_LABEL_67;
+break MISSING_BLOCK_LABEL_67;
 
 
 e;
@@ -71,7 +71,7 @@ e;
 e.printStackTrace();
 
 
-break MISSING\_BLOCK\_LABEL_67;
+break MISSING_BLOCK_LABEL_67;
 
 
 e;
@@ -101,7 +101,7 @@ i++;
 _L1:
 
 
-if(i < 4) goto \_L3; else goto \_L2
+if(i < 4) goto _L3; else goto _L2
 
 
 _L2:
@@ -218,7 +218,7 @@ iter = datalist.iterator();
 goto _L1
 
 
-if(iter.hasNext()) goto \_L3; else goto \_L2
+if(iter.hasNext()) goto _L3; else goto _L2
 
 
 上面的代码可以利用类型2来翻译出来，但是这里会有个地方需要修改，那就是if必须换成while，而else中是一些异常处理而已。这里常见的隐含问题在于，在代码段L3中，常常含有break，continue等跳转语句，一定要分析清楚，不然很容易出现难以排查的逻辑错误，使得反编译出来的代码运行结果不正确。

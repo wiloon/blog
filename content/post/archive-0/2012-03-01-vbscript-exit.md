@@ -87,7 +87,7 @@ table: index1
   
 type: ref
   
-possible\_keys: index1\_id
+possible_keys: index1_id
   
 key: index1_id
   
@@ -101,7 +101,7 @@ Extra:
   
 1 row in set (0.00 sec)
   
-上面结果显示，possible\_keys和key处的值都为index1\_id。说明index1_id索引已经存在，而且已经开始起作用。
+上面结果显示，possible_keys和key处的值都为index1_id。说明index1_id索引已经存在，而且已经开始起作用。
 
 2．创建唯一性索引
 

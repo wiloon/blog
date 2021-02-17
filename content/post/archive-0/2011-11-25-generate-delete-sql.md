@@ -12,4 +12,4 @@ categories:
   - DataBase
 
 ---
-select 'delete from ' || ut.table\_name || ';' from user\_tables ut;
+select 'delete from ' || ut.table_name || ';' from user_tables ut;

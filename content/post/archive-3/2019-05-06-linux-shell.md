@@ -131,7 +131,7 @@ Bourne Again Shell 用来替代Bourne shell，也是目前大多数Linux系统�
   
 Bourne Shell 是一个比较老的shell，目前已经被/bin/bash所取代，在很多linux系统上，sh已经是一个指向bash的链接了。 下面是CentOS release 6.5 的系统
 
-sh\_to\_bash
+sh_to_bash
 
 3.3、csh／tcsh
   
@@ -443,19 +443,19 @@ if :; then echo "always true"; fi
 
 echo "Is it morning? Please answer yes or no."
   
-read YES\_OR\_NO
+read YES_OR_NO
   
-if [ "$YES\_OR\_NO" = "yes" ]; then
+if [ "$YES_OR_NO" = "yes" ]; then
     
 echo "Good morning!"
   
-elif [ "$YES\_OR\_NO" = "no" ]; then
+elif [ "$YES_OR_NO" = "no" ]; then
     
 echo "Good afternoon!"
   
 else
     
-echo "Sorry, $YES\_OR\_NO not recognized. Enter yes or no."
+echo "Sorry, $YES_OR_NO not recognized. Enter yes or no."
     
 exit 1
   
@@ -779,7 +779,7 @@ shell字符串比较、判断是否为数字
   
 #!/bin/bash
 
-file='folder\_url\_top24/url\_usa\_top24_0'
+file='folder_url_top24/url_usa_top24_0'
   
 fileSize=`ls -l folder_url_top24/url_usa_top24_0 | awk -F '[" "]' '{print $5}'`
   

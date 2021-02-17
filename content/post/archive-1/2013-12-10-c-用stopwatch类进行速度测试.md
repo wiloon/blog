@@ -21,7 +21,7 @@ stress
 
   * stress <https://www.hi-linux.com/posts/59095.html>
   
-    https://www.infoq.cn/article/5jjIdOPx12RWWvGX\_H9J?utm\_source=rss&utm_medium=article
+    https://www.infoq.cn/article/5jjIdOPx12RWWvGX_H9J?utm_source=rss&utm_medium=article
   
     http://9leg.com/java/2016/08/09/cpu-consumption-analysis.html
 

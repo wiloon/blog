@@ -55,7 +55,7 @@ GestureDetector.OnGestureListener：用来通知普通的手势事件，该接�
 
 public class ViewFlipperActivity extends Activity implements OnGestureListener {
 
-private static final int FLING\_MIN\_DISTANCE = 100;
+private static final int FLING_MIN_DISTANCE = 100;
 
 private ViewFlipper flipper;
 
@@ -147,7 +147,7 @@ public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 
 float velocityY) {
 
-if (e1.getX() - e2.getX() > FLING\_MIN\_DISTANCE) {
+if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE) {
 
 //设置View进入和退出的动画效果
 
@@ -165,7 +165,7 @@ return true;
 
 }
 
-if (e1.getX() - e2.getX() < -FLING\_MIN\_DISTANCE) {
+if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE) {
 
 this.flipper.setInAnimation(AnimationUtils.loadAnimation(this,
 

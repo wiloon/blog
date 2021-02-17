@@ -10,7 +10,7 @@ categories:
 ---
 <http://www.cnblogs.com/yan5lang/archive/2011/05/24/2055867.html>
 
-Eclipse的启动由$ECLIPSE\_HOME/eclipse.ini控制，如果$ECLIPSE\_HOME 没有被定义，则Eclipse安装目录下的默认eclipse.ini会生效。
+Eclipse的启动由$ECLIPSE_HOME/eclipse.ini控制，如果$ECLIPSE_HOME 没有被定义，则Eclipse安装目录下的默认eclipse.ini会生效。
 
 eclipse.ini是一个文本文件，其内容相当于在Eclipse运行时添加到 Eclipse.exe之后的命令行参数。
 

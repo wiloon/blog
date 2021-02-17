@@ -10,9 +10,9 @@ categories:
 ---
 ```bash
   
-jcmd 40019 VM.check\_commercial\_features
+jcmd 40019 VM.check_commercial_features
   
-jcmd 40019 VM.unlock\_commercial\_features
+jcmd 40019 VM.unlock_commercial_features
   
 jcmd 40019 JFR.check
   

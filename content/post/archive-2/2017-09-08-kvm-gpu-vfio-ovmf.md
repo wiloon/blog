@@ -10,8 +10,8 @@ categories:
 ---
 https://www.linuxserver.io/2017/04/28/how-to-setup-vfio-gpu-passthrough-using-ovmf-and-kvm-on-arch-linux/
   
-https://wiki.archlinux.org/index.php/PCI\_passthrough\_via_OVMF
+https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF
   
 https://github.com/IronicBadger/arch-vfio-ovmf
   
-https://wiki.archlinux.org/index.php/PCI\_passthrough\_via\_OVMF#Plain\_QEMU\_without\_libvirt
+https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Plain_QEMU_without_libvirt

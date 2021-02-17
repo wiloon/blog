@@ -60,7 +60,7 @@ Reference：
 
 http://www.javamex.com/tutorials/synchronization_volatile.shtml
 
-http://www.javamex.com/tutorials/synchronization\_volatile\_java_5.shtml
+http://www.javamex.com/tutorials/synchronization_volatile_java_5.shtml
 
 http://www.ibm.com/developerworks/cn/java/j-jtp06197.html
 

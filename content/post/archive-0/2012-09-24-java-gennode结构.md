@@ -972,7 +972,7 @@ index = 0;
    
 if(name!=null && !name.trim().isEmpty()){
    
-path = name + LEFT\_BRACKETS + index + RIGHT\_BRACKETS;
+path = name + LEFT_BRACKETS + index + RIGHT_BRACKETS;
    
 }
    

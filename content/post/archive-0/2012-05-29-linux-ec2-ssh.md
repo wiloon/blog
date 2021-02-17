@@ -61,7 +61,7 @@ Google了一圈，现总结如下：
 
   * 在**Firefox**地址栏输入 **about:config **
   * 有安全提示，点击继续；
-  * 找到"**network.proxy.socks\_remote\_dns**"，双击改为**True**（默认False）；
+  * 找到"**network.proxy.socks_remote_dns**"，双击改为**True**（默认False）；
   * 可能需要重启Firefox。
 
   已验证可行。

@@ -26,7 +26,7 @@ sudo useradd git
 
   1. 创建证书登录：
 
-收集所有需要登录的用户的公钥，就是他们自己的id\_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized\_keys文件里，一行一个。
+收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。
 
   1. 初始化Git仓库：
 
@@ -92,7 +92,7 @@ su - git
   
 cd /home/git
   
-echo 'PUB\_KEY\_TEXT' > /home/git/.ssh/authorized_keys
+echo 'PUB_KEY_TEXT' > /home/git/.ssh/authorized_keys
 
 #Initialized empty Git repository
   

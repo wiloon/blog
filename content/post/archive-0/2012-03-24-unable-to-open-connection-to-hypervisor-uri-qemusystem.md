@@ -29,7 +29,7 @@ After I finished the install of the "kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-ma
   
 > Traceback (most recent call last):
   
-> File "/usr/share/virt-manager/virtManager/connection.py", line 971, in \_try\_open
+> File "/usr/share/virt-manager/virtManager/connection.py", line 971, in _try_open
   
 > None], flags)
   

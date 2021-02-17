@@ -56,9 +56,9 @@ set long 90000;
 
 spool DEPT.sql
   
-select dbms\_metadata.get\_ddl('TABLE','DEPT','SCOTT') from dual;
+select dbms_metadata.get_ddl('TABLE','DEPT','SCOTT') from dual;
   
-select dbms\_metadata.get\_ddl('INDEX','DEPT_IDX','SCOTT') from dual;
+select dbms_metadata.get_ddl('INDEX','DEPT_IDX','SCOTT') from dual;
   
 spool off;
 
@@ -76,9 +76,9 @@ spool scott_schema.sql
   
 connect scott/tiger;
   
-SELECT DBMS\_METADATA.GET\_DDL('TABLE',u.table\_name) FROM USER\_TABLES u;
+SELECT DBMS_METADATA.GET_DDL('TABLE',u.table_name) FROM USER_TABLES u;
   
-SELECT DBMS\_METADATA.GET\_DDL('INDEX',u.index\_name) FROM USER\_INDEXES u;
+SELECT DBMS_METADATA.GET_DDL('INDEX',u.index_name) FROM USER_INDEXES u;
   
 spool off;
 
@@ -88,11 +88,11 @@ connect brucelau /brucelau;
   
 spool procedures.sql
 
-select DBMS\_METADATA.GET\_DDL('PROCEDURE',u.object\_name) from user\_objects u where object_type = 'PROCEDURE';
+select DBMS_METADATA.GET_DDL('PROCEDURE',u.object_name) from user_objects u where object_type = 'PROCEDURE';
   
 spool off;
 
-另：dbms\_metadata.get\_ddl('TABLE','TAB1','USER1')
+另：dbms_metadata.get_ddl('TABLE','TAB1','USER1')
   
 三个参数中，第一个指定导出DDL定义的对象类型（此例中为表类型），第二个是对象名（此例中即表名），第三个是对象所在的用户名。
 
@@ -102,21 +102,21 @@ from: 把Oracle表里的数据导成insert语句
 
 有些时候我们需要把oracle里的数据导入其他数据库里。生成insert into 表名 .... 是一种很简单直接的方法。
 
-今年六月份从www.arikaplan.com/oracle.html看到一个可以生成insert into 表名 ....语句的存储过程genins\_output。按中文习惯的时间格式YYYY-MM-DD HH24:MI:SS改了改，并新写了一个存储过程genins\_file.sql。
+今年六月份从www.arikaplan.com/oracle.html看到一个可以生成insert into 表名 ....语句的存储过程genins_output。按中文习惯的时间格式YYYY-MM-DD HH24:MI:SS改了改，并新写了一个存储过程genins_file.sql。
 
 它可以把小于16383条记录表里的数据导成(insert into 表名 ....)OS下文件。
 
-调用它之前，DBA要看看数据库的初始化参数 UTL\_FILE\_DIR 是否已经正确地设置:
+调用它之前，DBA要看看数据库的初始化参数 UTL_FILE_DIR 是否已经正确地设置:
 
-SQL> show parameters utl\_file\_dir;
+SQL> show parameters utl_file_dir;
   
 可以看到该参数的当前设置。
 
-如果没有值，必须修改数据库的initsid.ora文件，将utl\_file\_dir 指向一个你想用PL/SQL file I/O 的路径。重新启动数据库。此参数才生效。
+如果没有值，必须修改数据库的initsid.ora文件，将utl_file_dir 指向一个你想用PL/SQL file I/O 的路径。重新启动数据库。此参数才生效。
 
 调用它，可以把表里的数据生成(insert into 表名 ....)OS下文件的过程genins_file方法:
 
-SQL>exec genins\_file('emp','/oracle/logs','insert\_emp.sql');
+SQL>exec genins_file('emp','/oracle/logs','insert_emp.sql');
   
 |　　　 |　　　　　　|
   
@@ -124,7 +124,7 @@ SQL>exec genins\_file('emp','/oracle/logs','insert\_emp.sql');
   
 |
   
-utl\_file\_dir路径名,不变(我设置的是/oracle/logs)
+utl_file_dir路径名,不变(我设置的是/oracle/logs)
 
 可以在OS目录/oracle/logs下看到insert_emp.sql文件。
   
@@ -140,17 +140,17 @@ CREATE OR REPLACE PROCEDURE genins_file(
   
 p_table     IN varchar2,
   
-p\_output\_folder IN VARCHAR2,
+p_output_folder IN VARCHAR2,
   
-p\_output\_file   IN VARCHAR2)
+p_output_file   IN VARCHAR2)
   
 IS
   
 -
   
-l\_column\_list       VARCHAR2(32767);
+l_column_list       VARCHAR2(32767);
   
-l\_value\_list        VARCHAR2(32767);
+l_value_list        VARCHAR2(32767);
   
 l_query             VARCHAR2(32767);
   
@@ -162,11 +162,11 @@ l_insertline1          varchar2(32767);
   
 l_insertline2          varchar2(32767);
   
-cmn\_file\_handle       UTL\_FILE.file\_type;
+cmn_file_handle       UTL_FILE.file_type;
 
 -
 
-FUNCTION get\_cols(p\_table VARCHAR2)
+FUNCTION get_cols(p_table VARCHAR2)
   
 RETURN VARCHAR2
   
@@ -174,13 +174,13 @@ IS
   
 l_cols VARCHAR2(32767);
   
-CURSOR l\_col\_cur(c_table VARCHAR2) IS
+CURSOR l_col_cur(c_table VARCHAR2) IS
   
 SELECT column_name
   
-FROM   user\_tab\_columns
+FROM   user_tab_columns
   
-WHERE  table\_name = upper(c\_table)
+WHERE  table_name = upper(c_table)
   
 ORDER BY column_id;
   
@@ -188,21 +188,21 @@ BEGIN
   
 l_cols := null;
   
-FOR rec IN l\_col\_cur(p_table)
+FOR rec IN l_col_cur(p_table)
   
 LOOP
   
-l\_cols := l\_cols || rec.column_name || ',';
+l_cols := l_cols || rec.column_name || ',';
   
 END LOOP;
   
-RETURN substr(l\_cols,1,length(l\_cols)-1);
+RETURN substr(l_cols,1,length(l_cols)-1);
   
 END;
 
 -
 
-FUNCTION get\_query(p\_table IN VARCHAR2)
+FUNCTION get_query(p_table IN VARCHAR2)
   
 RETURN VARCHAR2
   
@@ -210,21 +210,21 @@ IS
   
 l_query VARCHAR2(32767);
   
-CURSOR l\_query\_cur(c_table VARCHAR2) IS
+CURSOR l_query_cur(c_table VARCHAR2) IS
   
 SELECT 'decode('||column_name||',null,"null",'||
   
-decode(data\_type,'VARCHAR2',""""'||'||column\_name ||'||""""'
+decode(data_type,'VARCHAR2',""""'||'||column_name ||'||""""'
   
-,'DATE',""""'||to\_char('||column\_name||',"YYYY-MM-DD HH24:MI:SS")||""""'
+,'DATE',""""'||to_char('||column_name||',"YYYY-MM-DD HH24:MI:SS")||""""'
   
 ,column_name
   
 ) || ')' column_query
   
-FROM user\_tab\_columns
+FROM user_tab_columns
   
-WHERE table\_name = upper(c\_table)
+WHERE table_name = upper(c_table)
   
 ORDER BY column_id;
   
@@ -232,17 +232,17 @@ BEGIN
   
 l_query := 'SELECT ';
   
-FOR rec IN l\_query\_cur(p_table)
+FOR rec IN l_query_cur(p_table)
   
 LOOP
   
-l\_query := l\_query || rec.column_query || '||","||';
+l_query := l_query || rec.column_query || '||","||';
   
 END LOOP;
   
-l\_query := substr(l\_query,1,length(l_query)-7);
+l_query := substr(l_query,1,length(l_query)-7);
   
-RETURN l\_query || ' FROM ' || p\_table;
+RETURN l_query || ' FROM ' || p_table;
   
 END;
 
@@ -250,39 +250,39 @@ END;
 
 BEGIN
   
-l\_column\_list  := get\_cols(p\_table);
+l_column_list  := get_cols(p_table);
   
-l\_query        := get\_query(p_table);
+l_query        := get_query(p_table);
   
-l\_cursor := dbms\_sql.open_cursor;
+l_cursor := dbms_sql.open_cursor;
   
-DBMS\_SQL.PARSE(l\_cursor, l\_query, DBMS\_SQL.native);
+DBMS_SQL.PARSE(l_cursor, l_query, DBMS_SQL.native);
   
-DBMS\_SQL.DEFINE\_COLUMN(l\_cursor, 1, l\_value_list, 32767);
+DBMS_SQL.DEFINE_COLUMN(l_cursor, 1, l_value_list, 32767);
   
-ignore := DBMS\_SQL.EXECUTE(l\_cursor);
+ignore := DBMS_SQL.EXECUTE(l_cursor);
 
 -
 
-IF NOT UTL\_FILE.IS\_OPEN(cmn\_file\_handle) THEN
+IF NOT UTL_FILE.IS_OPEN(cmn_file_handle) THEN
   
-cmn\_file\_handle := UTL\_FILE.FOPEN (p\_output\_folder, p\_output_file, 'a',32767);
+cmn_file_handle := UTL_FILE.FOPEN (p_output_folder, p_output_file, 'a',32767);
   
 END IF;
 
 LOOP
   
-IF DBMS\_SQL.FETCH\_ROWS(l_cursor)>0 THEN
+IF DBMS_SQL.FETCH_ROWS(l_cursor)>0 THEN
   
-DBMS\_SQL.COLUMN\_VALUE(l\_cursor, 1, l\_value_list);
+DBMS_SQL.COLUMN_VALUE(l_cursor, 1, l_value_list);
   
-l\_insertline1:='INSERT INTO '||p\_table||' ('||l\_column\_list||')';
+l_insertline1:='INSERT INTO '||p_table||' ('||l_column_list||')';
   
-l\_insertline2:=' VALUES ('||l\_value_list||');';
+l_insertline2:=' VALUES ('||l_value_list||');';
   
-UTL\_FILE.put\_line (cmn\_file\_handle, l_insertline1);
+UTL_FILE.put_line (cmn_file_handle, l_insertline1);
   
-UTL\_FILE.put\_line (cmn\_file\_handle, l_insertline2);
+UTL_FILE.put_line (cmn_file_handle, l_insertline2);
   
 ELSE
   
@@ -292,9 +292,9 @@ END IF;
   
 END LOOP;
   
-IF NOT UTL\_FILE.IS\_OPEN(cmn\_file\_handle) THEN
+IF NOT UTL_FILE.IS_OPEN(cmn_file_handle) THEN
   
-UTL\_FILE.FCLOSE (cmn\_file_handle);
+UTL_FILE.FCLOSE (cmn_file_handle);
   
 END IF;
   

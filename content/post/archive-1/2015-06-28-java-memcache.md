@@ -51,7 +51,7 @@ lrwxrwxrwx   1 root    root          21 2009-07-19 08:45 libevent-
   
 -rw-r-r-   1 root    root      386638 2009-07-19 08:45 libevent.a
   
-lrwxrwxrwx   1 root    root          26 2009-07-19 08:45 libevent\_core-1.4.so.2 -> libevent\_core-1.4.so.2.1.3
+lrwxrwxrwx   1 root    root          26 2009-07-19 08:45 libevent_core-1.4.so.2 -> libevent_core-1.4.so.2.1.3
   
 -rwxr-xr-x   1 root    root      115721 2009-07-19 08:45 libevent_core-1.4.so.2.1.3
   
@@ -59,9 +59,9 @@ lrwxrwxrwx   1 root    root          26 2009-07-19 08:45 libevent\
   
 -rwxr-xr-x   1 root    root         860 2009-07-19 08:45 libevent_core.la
   
-lrwxrwxrwx   1 root    root          26 2009-07-19 08:45 libevent\_core.so -> libevent\_core-1.4.so.2.1.3
+lrwxrwxrwx   1 root    root          26 2009-07-19 08:45 libevent_core.so -> libevent_core-1.4.so.2.1.3
   
-lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent\_extra-1.4.so.2 -> libevent\_extra-1.4.so.2.1.3
+lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent_extra-1.4.so.2 -> libevent_extra-1.4.so.2.1.3
   
 -rwxr-xr-x   1 root    root      239933 2009-07-19 08:45 libevent_extra-1.4.so.2.1.3
   
@@ -69,7 +69,7 @@ lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent\
   
 -rwxr-xr-x   1 root    root         867 2009-07-19 08:45 libevent_extra.la
   
-lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent\_extra.so -> libevent\_extra-1.4.so.2.1.3
+lrwxrwxrwx   1 root    root          27 2009-07-19 08:45 libevent_extra.so -> libevent_extra-1.4.so.2.1.3
   
 -rwxr-xr-x   1 root    root         825 2009-07-19 08:45 libevent.la
   
@@ -687,7 +687,7 @@ XMemcached也使用得比较广泛，而且有较详细的中文API文档，具�
   
 1)      memcached client for java
   
-从前面介绍的Java环境的Memcached客户端程序项目网址里，下载最新版的客户端程序包：java\_memcached-release\_2.5.1.zip，解压后，文件夹里找到java\_memcached-release\_2.5.1.jar，这个就是客户端的JAR包。将此JAR包添加到项目的构建路径里，则项目中，就可以使用Memcached了。
+从前面介绍的Java环境的Memcached客户端程序项目网址里，下载最新版的客户端程序包：java_memcached-release_2.5.1.zip，解压后，文件夹里找到java_memcached-release_2.5.1.jar，这个就是客户端的JAR包。将此JAR包添加到项目的构建路径里，则项目中，就可以使用Memcached了。
 
 示例代码如下：
 
@@ -987,7 +987,7 @@ memcached: error while loading shared libraries: libevent-1.2.so.1: cannot open 
 
 5427:      search cache=/etc/ld.so.cache
 
-5427: search        path=/lib64/tls/x86\_64:/lib64/tls:/lib64/x86\_64:/lib64:/usr/lib64/tls/x86\_64:/usr/lib64/tls:/usr/lib64/x86\_64:
+5427: search        path=/lib64/tls/x86_64:/lib64/tls:/lib64/x86_64:/lib64:/usr/lib64/tls/x86_64:/usr/lib64/tls:/usr/lib64/x86_64:
 
 /usr/lib64              (system search path)
 
@@ -1021,7 +1021,7 @@ memcached 1.2.0
 
 -s <file>     unix socket path to listen on (disables network support)
 
--l <ip\_addr>  interface to listen on, default is INDRR\_ANY
+-l <ip_addr>  interface to listen on, default is INDRR_ANY
 
 -d            run as a daemon
 
@@ -1105,7 +1105,7 @@ memcached 1.2.0
   
 Memcache的默认启动时的参数可能不满足实际生产环境的需要，于是就想到直接修改windows服务的启动参数，操作如下：
 
-打开注册表，找到：HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\memcached Server
+打开注册表，找到：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\memcached Server
 
 其中的ImagePath项的值为： c:\memcached\memcached.exe" -d runservice
 
@@ -1147,7 +1147,7 @@ view plain   copy
   
 4、配置环境变量
 
-进入用户宿主目录，编辑.bash\_profile，为系统环境变量LD\_LIBRARY_PATH增加新的目录，需要增加的内容如下：
+进入用户宿主目录，编辑.bash_profile，为系统环境变量LD_LIBRARY_PATH增加新的目录，需要增加的内容如下：
 
 \# vi .bash_profile
 
@@ -1155,7 +1155,7 @@ view plain   copy
   
 MEMCACHED_HOME=/etc/memcached
   
-export LD\_LIBRARY\_PATH=$LD\_LIBRARY\_PATH:$MEMCACHED_HOME/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MEMCACHED_HOME/lib
   
 刷新用户环境变量：# source .bash_profile
 
@@ -1213,7 +1213,7 @@ username="root"                 # 运行程序的用户身份
   
 max_memory=64                   # default: 64M | 最大使用内存
   
-max\_simul\_conn=1024             # default: 1024 | 最大同时连接数
+max_simul_conn=1024             # default: 1024 | 最大同时连接数
   
 #maxcon=51200
   
@@ -1229,7 +1229,7 @@ start() {
   
 echo -n $"Starting service: $prog"
   
-$cmd -d -m $max\_memory -u $username -l $ipaddr -p $port -c $max\_simul_conn -P $pidfile
+$cmd -d -m $max_memory -u $username -l $ipaddr -p $port -c $max_simul_conn -P $pidfile
   
 RETVAL=$?
   

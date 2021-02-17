@@ -34,7 +34,7 @@ tags:
 
 日志越详细，主从一致性越容易保证；
 
-（2）延时性：延时表现为behind\_master\_pos后面的数字，其实并不准确；
+（2）延时性：延时表现为behind_master_pos后面的数字，其实并不准确；
 
 5.5.30以前版本都属于异步复制，因此都有延时。因为是主库执行完成后从库才执行，一先一后就有了延迟；
 
@@ -56,7 +56,7 @@ bug不常见，笔者碰到过一次，分享如下：
 
 表现：从库复制时重复执行两秒之内的日志；
 
-从库show slave status\G，behind\_master\_pos在60000和0之间循环，每两秒一次；
+从库show slave status\G，behind_master_pos在60000和0之间循环，每两秒一次；
 
 **<span lang="EN-US">2， <span lang="EN-US">mysql中<span lang="EN-US">myisam与<span lang="EN-US">innodb的区别，至少<span lang="EN-US">5点。**
 

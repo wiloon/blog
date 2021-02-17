@@ -44,4 +44,4 @@ Demo 3 117.18.73.62:443
 
 尝试一下在登录MT4时，服务器地址的位置输入
 
-https://nordfx-chinese.com/faq\_trade\_platforms.html
+https://nordfx-chinese.com/faq_trade_platforms.html

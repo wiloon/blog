@@ -169,7 +169,7 @@ select length(xxx) from txxx;
   
 +——————-+——-+
   
-Threads\_connected 跟show processlist结果相同，表示当前连接数。准确的来说，Threads\_running是代表当前并发数
+Threads_connected 跟show processlist结果相同，表示当前连接数。准确的来说，Threads_running是代表当前并发数
   
 这是是查询数据库当前设置的最大连接数
   
@@ -213,7 +213,7 @@ set password
 
 SET PASSWORD FOR wordpressuser@localhost= PASSWORD("password");
   
-#注意后面这句话 "COLLATE utf8\_general\_ci",大致意思是在排序时根据utf8变码格式来排序
+#注意后面这句话 "COLLATE utf8_general_ci",大致意思是在排序时根据utf8变码格式来排序
 
 授权之后该用户才能用他自己的用户名密码访问mysql.
 
@@ -225,7 +225,7 @@ SELECT  * FROM  table  order by time desc LIMIT  n;
   
 ##auto_increment
 
-alter table tb\_name modify id int auto\_increment primary key;
+alter table tb_name modify id int auto_increment primary key;
 
 ##export one table
 
@@ -253,7 +253,7 @@ drop table table_name ;
   
 表, 增加字段
 
-ALTER TABLE table\_name ADD field\_name field_type;
+ALTER TABLE table_name ADD field_name field_type;
   
 alter table tbl_user add email varchar(2255);
   
@@ -265,7 +265,7 @@ desc table_name;
 
 自增字段必须设成主键.
 
-alter table tbl\_log modify column id integer not null auto\_increment, add primary key (id);
+alter table tbl_log modify column id integer not null auto_increment, add primary key (id);
 
 systemdate(), now()
   
@@ -315,7 +315,7 @@ mysqldump -uwiloon -pPASSWORD -default-character-set=utf8 enlab >enlab.sql
   
 导入
 
-mysql -uusername -ppassword db\_name < db\_name.sql
+mysql -uusername -ppassword db_name < db_name.sql
   
 ### 日期格式化函数date_format()
 ```sql
@@ -349,7 +349,7 @@ Server version: 5.1.30-community MySQL Community Server (GPL)
 
 Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
 
-mysql> CREATE DATABASE test DEFAULT CHARACTER SET utf8 COLLATE utf8\_general\_ci;
+mysql> CREATE DATABASE test DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
   
 Query OK, 1 row affected (0.06 sec)
 

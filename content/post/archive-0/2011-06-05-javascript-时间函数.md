@@ -30,4 +30,4 @@ var ms=a.getMilliseconds()+ "- ";
   
 var mssss= getTime();
 
-http://www.w3school.com.cn/js/jsref\_obj\_date.asp
+http://www.w3school.com.cn/js/jsref_obj_date.asp

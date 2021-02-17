@@ -27,7 +27,7 @@ IDEA提供idea64.exe的启动器，该启动器使用64位的JDK（需要单独�
   
 4.强制使用64位的JDK
 
-.bat脚本默认使用32位的JDK（IDEA安装文件的jre 目录下），可以通过环境变量强制使用64位的JDK，变量的值取决于你使用的产品，IDEA\_JDK for IntelliJ IDEA, WEBIDE\_JDK for PhpStorm and WebStorm, PYCHARM\_JDK for PyCharm, RUBYMINE\_SDK for RubyMine. 参考选择合适的JDK。
+.bat脚本默认使用32位的JDK（IDEA安装文件的jre 目录下），可以通过环境变量强制使用64位的JDK，变量的值取决于你使用的产品，IDEA_JDK for IntelliJ IDEA, WEBIDE_JDK for PhpStorm and WebStorm, PYCHARM_JDK for PyCharm, RUBYMINE_SDK for RubyMine. 参考选择合适的JDK。
   
 5.卸载不常用的应用程序
 

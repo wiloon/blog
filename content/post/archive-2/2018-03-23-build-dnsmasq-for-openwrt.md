@@ -36,7 +36,7 @@ packageslede-ipq806x-R7800-squashfs-factory.img lede-ipq806x-ubifs-root.img
   
 sha256sums其中lede-ipq806x-R7800-squashfs-factory.img即为R7800的工厂固件， lede-ipq806x-R7800-squashfs-sysupgrade.tar为升级固件
 
-download https://downloads.openwrt.org/releases/17.01.4/targets/bcm53xx/generic/lede-sdk-17.01.4-bcm53xx\_gcc-5.4.0\_musl-1.1.16\_eabi.Linux-x86\_64.tar.xz
+download https://downloads.openwrt.org/releases/17.01.4/targets/bcm53xx/generic/lede-sdk-17.01.4-bcm53xx_gcc-5.4.0_musl-1.1.16_eabi.Linux-x86_64.tar.xz
   
 cd openwrt
   

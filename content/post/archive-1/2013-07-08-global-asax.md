@@ -52,7 +52,7 @@ Response.Write("页面执行时间:"+ ts.Milliseconds +" 毫秒");
 
 3 Global.asax文件的执行
 
-例如,IIS现在接到一个访问ASP.NET应用程序的请求，这时候IIS会将这个请求映射给aspnet\_isapi.dll，当aspnet\_isapi.dll接到这个请求后，会新建一个aspnet_wp.exe的进程（windows server 2003下是w3wp.exe进程），这个进程会将请求传递给一个被指定的AppDomain，当这个AppDomain被创建时，就会去加载一些配置文件中的信息（加载顺序是从machine.config文件到web.config文件中的一些相关配置），而当这些信息都被加载以后，AppDomain会去获得一个HttpApplication的实例，这个时候global类就会被编译加载了，接下来AppDomain会做一些相关的处理创建Page类的实例，最后这个页面呈现到客户端浏览器上。但这里有一点问题需要注意，当配置文件被加载的时候，并不是表示AppDomain会加载配置文件中所有的信息，而仅是加载一些需要的信息。而有些配置信息是在需要时，才会被AppDomain加载。例如我们在web.config文件中配置了很多HttpModule，但是仅当每一个HttpModule被访问到时，AppDomain才会去加载并处理这些信息。所以说web.config文件和global没有先后执行的顺序，只是视具体的信息什么时候会被加载和处理。
+例如,IIS现在接到一个访问ASP.NET应用程序的请求，这时候IIS会将这个请求映射给aspnet_isapi.dll，当aspnet_isapi.dll接到这个请求后，会新建一个aspnet_wp.exe的进程（windows server 2003下是w3wp.exe进程），这个进程会将请求传递给一个被指定的AppDomain，当这个AppDomain被创建时，就会去加载一些配置文件中的信息（加载顺序是从machine.config文件到web.config文件中的一些相关配置），而当这些信息都被加载以后，AppDomain会去获得一个HttpApplication的实例，这个时候global类就会被编译加载了，接下来AppDomain会做一些相关的处理创建Page类的实例，最后这个页面呈现到客户端浏览器上。但这里有一点问题需要注意，当配置文件被加载的时候，并不是表示AppDomain会加载配置文件中所有的信息，而仅是加载一些需要的信息。而有些配置信息是在需要时，才会被AppDomain加载。例如我们在web.config文件中配置了很多HttpModule，但是仅当每一个HttpModule被访问到时，AppDomain才会去加载并处理这些信息。所以说web.config文件和global没有先后执行的顺序，只是视具体的信息什么时候会被加载和处理。
 
 4 Global.asax.cs中的方法的含义
 
@@ -64,7 +64,7 @@ Application_Error：所有没有处理的错误都会导致这个方法的执行
 
 Application_Start：在程序初始化的时候执行。在Web应用程序的生命周期里就执行一次，这里只能放一些公用的信息，比如HttpApplicationState。
 
-Application\_End：应用程序结束时，在最后一个HttpApplication销毁之后执行。对应Application\_Start，在整个生命周期里面也是只执行一次。
+Application_End：应用程序结束时，在最后一个HttpApplication销毁之后执行。对应Application_Start，在整个生命周期里面也是只执行一次。
 
 Session_Start：会话开始时执行。
 

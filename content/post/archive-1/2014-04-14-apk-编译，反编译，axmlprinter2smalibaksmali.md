@@ -42,9 +42,9 @@ view plaincopy
 
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="1" android:layout\_width="-1" android:layout\_height="-1" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="1" android:layout_width="-1" android:layout_height="-1" >
 
-<WebView android:id="@7F050000" android:layout\_width="-1" android:layout\_height="-2" >
+<WebView android:id="@7F050000" android:layout_width="-1" android:layout_height="-2" >
 
 </WebView>
 
@@ -62,9 +62,9 @@ view plaincopy
 
 android:orientation="vertical"
 
-android:layout\_width="fill\_parent"
+android:layout_width="fill_parent"
 
-android:layout\_height="fill\_parent"
+android:layout_height="fill_parent"
 
 >
 
@@ -72,9 +72,9 @@ android:layout\_height="fill\_parent"
 
 android:id="@+id/apk_web"
 
-android:layout\_height="wrap\_content"
+android:layout_height="wrap_content"
 
-android:layout\_width="fill\_parent"
+android:layout_width="fill_parent"
 
 />
 

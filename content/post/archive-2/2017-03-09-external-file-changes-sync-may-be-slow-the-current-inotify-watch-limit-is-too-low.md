@@ -10,7 +10,7 @@ categories:
 ---
 http://ggarcia.me/2016/07/12/intellij-inotify-arch.html
 
-To fix the warning about **fs.inotify.max\_user\_watches** the IntelliJ shows, it is necessary to set a value for the **fs.inotify.max\_user\_watches** and then apply the change.
+To fix the warning about **fs.inotify.max_user_watches** the IntelliJ shows, it is necessary to set a value for the **fs.inotify.max_user_watches** and then apply the change.
 
 Here are the commands necessary to fix the issue on ArchLinux:
 

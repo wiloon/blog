@@ -26,4 +26,4 @@ JDK在1.3之后提供了Java Runtime.addShutdownHook(Thread hook)方法，可以
 
 http://blog.csdn.net/hemingwang0902/article/details/6207682
 
-http://www.cnblogs.com/nexiyi/p/java\_add\_ShutdownHook.html
+http://www.cnblogs.com/nexiyi/p/java_add_ShutdownHook.html

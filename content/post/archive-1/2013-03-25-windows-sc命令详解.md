@@ -182,7 +182,7 @@ C:WINDOWSsystem32>sc delete mirror binPath= "D:Ftp新建文件夹mirror.exe" typ
   
 三. SC QC
   
-这个SC QC"询问配置"命令可以列出一个服务的配置信息和QUERY\_SERVICE\_CONFIG结构。
+这个SC QC"询问配置"命令可以列出一个服务的配置信息和QUERY_SERVICE_CONFIG结构。
   
 语法1
   
@@ -196,9 +196,9 @@ Buffersize，可选择的，列出缓冲区的尺寸。
   
 Comments
   
-SC QC命令显示了QUERY\_SERVICE\_CONFIG结构的内容。
+SC QC命令显示了QUERY_SERVICE_CONFIG结构的内容。
   
-以下是QUERY\_SERVICE\_CONFIG相应的区域。
+以下是QUERY_SERVICE_CONFIG相应的区域。
   
 TYPE--dwServiceType
   
@@ -206,9 +206,9 @@ START_TYPE--dwStartType
   
 ERROR_CONTROL--dwErrorControl
   
-BINARY\_PATH\_NAME-lpBinaryPathName
+BINARY_PATH_NAME-lpBinaryPathName
   
-LOAD\_ORDER\_GROUP-lpLoadOrderGroup
+LOAD_ORDER_GROUP-lpLoadOrderGroup
   
 TAG--dwTagId
   
@@ -216,7 +216,7 @@ DISPLAY_NAME--lpDisplayName
   
 DEPENDENCIES--lpDependencies
   
-SERVICE\_START\_NAME-lpServiceStartName
+SERVICE_START_NAME-lpServiceStartName
   
 例1
   
@@ -228,15 +228,15 @@ sc显示下面的信息：
   
 SERVICE_NAME: mirror
           
-TYPE : 10 WIN32\_OWN\_PROCESS
+TYPE : 10 WIN32_OWN_PROCESS
           
-START\_TYPE : 2 AUTO\_START
+START_TYPE : 2 AUTO_START
           
 ERROR_CONTROL : 1 NORMAL
           
-BINARY\_PATH\_NAME : D:Ftp
+BINARY_PATH_NAME : D:Ftp
           
-LOAD\_ORDER\_GROUP :
+LOAD_ORDER_GROUP :
           
 TAG : 0
           
@@ -244,7 +244,7 @@ DISPLAY_NAME : mirror
           
 DEPENDENCIES :
           
-SERVICE\_START\_NAME : LocalSystem
+SERVICE_START_NAME : LocalSystem
   
 mirror有能力和其他的服务共享一个进程。这个服务 不依靠与其它的的服务，而且运行在lcoalsystem的安全上下关系中。这些都是调用QueryServiceStatus基本的返回，如果还需要更多的细节届时，可以看看API函数文件。 mirror
   
@@ -294,15 +294,15 @@ TYPE--dwServiceType
   
 STATE--dwCurrentState, dwControlsAccepted
   
-WIN32\_EXIT\_CODE--dwWin32ExitCode
+WIN32_EXIT_CODE--dwWin32ExitCode
   
-SERVICE\_EXIT\_CODE-dwServiceSpecificExitCode
+SERVICE_EXIT_CODE-dwServiceSpecificExitCode
   
 CHECKPOINT--dwCheckPoint
   
 WAIT_HINT--dwWaitHint
   
-在启动计算机后，使用SC QUERY命令会告诉你是否，或者不是一个启动服务的尝试。如果这个服务成功启动，WIN32\_EXIT\_CODE区间会将会包含一个0，当尝试不成功时，当它意识到这个服务不能够启动时，这个区间也会提供一个退出码给服务。
+在启动计算机后，使用SC QUERY命令会告诉你是否，或者不是一个启动服务的尝试。如果这个服务成功启动，WIN32_EXIT_CODE区间会将会包含一个0，当尝试不成功时，当它意识到这个服务不能够启动时，这个区间也会提供一个退出码给服务。
   
 例子
   
@@ -314,15 +314,15 @@ sc query mirror
   
 SERVICE_NAME: mirror
           
-TYPE : 10 WIN32\_OWN\_PROCESS
+TYPE : 10 WIN32_OWN_PROCESS
           
 STATE : 1 STOPPED
                                   
-(NOT\_STOPPABLE,NOT\_PAUSABLE,IGNORES_SHUTDOWN
+(NOT_STOPPABLE,NOT_PAUSABLE,IGNORES_SHUTDOWN
           
-WIN32\_EXIT\_CODE : 0 (0x0)
+WIN32_EXIT_CODE : 0 (0x0)
           
-SERVICE\_EXIT\_CODE : 0 (0x0)
+SERVICE_EXIT_CODE : 0 (0x0)
           
 CHECKPOINT : 0x0
           

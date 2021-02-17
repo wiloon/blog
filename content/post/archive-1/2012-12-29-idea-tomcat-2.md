@@ -17,7 +17,7 @@ categories:
 
 通常我们部署一个应用是将该应用打包成war或者ear，而通常开发阶段是构建成Server指定的目录结构来部署到Server上，如果每次要copy来copy去，那麻烦死了。所以我们要想办法减少不必要的copy。
 
-  * **第一种方法**：在Server部署目录下设置构建输出目录，以tomcat为例，就是在%tomcat\_home%webapps目录下建立一个新的目录，目录名就是你的应用context，具体就是打开项目设置界面（ctrl+alt+shift+S，v8.0），选择Modules，将你的应用Exploded Directory设置为%tomcat\_home%webappsyourContext。同时，将你各个Module的编译输出路径设置为%tomcat_home%webappsyourContextWEB-INFclasses（可能需要你预先手动建立），这样class文件就自动生成到该目录下。
+  * **第一种方法**：在Server部署目录下设置构建输出目录，以tomcat为例，就是在%tomcat_home%webapps目录下建立一个新的目录，目录名就是你的应用context，具体就是打开项目设置界面（ctrl+alt+shift+S，v8.0），选择Modules，将你的应用Exploded Directory设置为%tomcat_home%webappsyourContext。同时，将你各个Module的编译输出路径设置为%tomcat_home%webappsyourContextWEB-INFclasses（可能需要你预先手动建立），这样class文件就自动生成到该目录下。
   * **第二种方法**：现在一些Server都支持重定向，以tomcat为例，可以在%tomcat_home%confCatalinalocalhost下创建一个xml配置文件将部署目录指定为你的构建输出目录。代码片段如：<Context path="/myApp" docBase="D:workspacemyProjectoutexplodedmyApp" />。这样每次修改了java文件之后comile一下修改的文件，对于jsp需要make一下，就能达到热部署的目的。其实现在Intellj Idea默认设置使用的就是这种方法，只不过这个重定向的配置文件在你的Documents and Settings里面，所以你如果你使用这样方法，不必自己设置。
 
 其实，这两种方法是异曲同工。

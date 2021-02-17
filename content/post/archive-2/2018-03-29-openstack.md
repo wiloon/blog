@@ -24,7 +24,7 @@ openstack是云管理平台，其本身并不提供虚拟化功能，真正的�
 
 OpenStack与KVM的区别与联系
   
-转：https://www.aliyun.com/zixun/content/2\_6\_280418.html
+转：https://www.aliyun.com/zixun/content/2_6_280418.html
 
 OpenStack与KVM都是目前IT界比较热门的两个词汇。它们都是开源的，都与Linux有着千丝万缕的关系。但这两者还是有很大的差别呢。
 

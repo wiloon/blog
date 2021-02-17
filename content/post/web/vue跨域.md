@@ -43,7 +43,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 大部分教程到这里就停止了，但是我在这里做一个扩展，为了让读者理解这里的配置是如何起作用的（以下内容整理自`http-proxy-middleware`的[npm描述](https://github.com/chimurai/http-proxy-middleware#context-matching)里，`http-proxy-middleware`是一个npm模块，是proxy的底层原理实现）。
 
              foo://example.com:8042/over/there?name=ferret#nose
-             \_/   \______________/\_________/ \_________/ \__/
+             _/   ______________/_________/ _________/ __/
               |           |            |            |        |
            scheme     authority       path        query   fragment
     复制代码

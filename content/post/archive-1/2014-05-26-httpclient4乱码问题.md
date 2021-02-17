@@ -36,8 +36,8 @@ baos.write(b, 0, len);
   
 System.out.println("baos="+new String(baos.toByteArray()));
   
-这次不乱了，查看了下EntityUtils.toString源码，发现如果不指定编码，EntityUtils默认会使用ISO\_8859\_1进行编码，所以如果服务端直接返回 是UTF-8编码的值可以进行如下转码：
+这次不乱了，查看了下EntityUtils.toString源码，发现如果不指定编码，EntityUtils默认会使用ISO_8859_1进行编码，所以如果服务端直接返回 是UTF-8编码的值可以进行如下转码：
 
-String result = new String(EntityUtils.toString(entity).getBytes("ISO\_8859\_1"),"UTF-8");
+String result = new String(EntityUtils.toString(entity).getBytes("ISO_8859_1"),"UTF-8");
   
 这样可以直接使用EntityUtils.toString方法了！

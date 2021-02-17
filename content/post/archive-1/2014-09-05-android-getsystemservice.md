@@ -26,7 +26,7 @@ getSystemService是Android很重要的一个API，它是Activity的一个方法�
   
 WINDOW_SERVICE WindowManager 管理打开的窗口程序
 
-LAYOUT\_INFLATER\_SERVICE LayoutInflater 取得xml里定义的view
+LAYOUT_INFLATER_SERVICE LayoutInflater 取得xml里定义的view
 
 ACTIVITY_SERVICE ActivityManager 管理应用程序的系统状态
 
@@ -56,7 +56,7 @@ WINDOW_SERVICE ("window")
   
 The top-level window manager in which you can place custom windows. The returned object is a WindowManager.
 
-LAYOUT\_INFLATER\_SERVICE ("layout_inflater")
+LAYOUT_INFLATER_SERVICE ("layout_inflater")
   
 A LayoutInflater for inflating layout resources in this context.
 
@@ -100,11 +100,11 @@ WIFI_SERVICE ("wifi")
   
 A WifiManager for management of Wi-Fi connectivity.
 
-INPUT\_METHOD\_SERVICE ("input_method")
+INPUT_METHOD_SERVICE ("input_method")
   
 An InputMethodManager for management of input methods.
 
-UI\_MODE\_SERVICE ("uimode")
+UI_MODE_SERVICE ("uimode")
   
 An UiModeManager for controlling UI modes.
 
@@ -132,17 +132,17 @@ StringBuffer inf = new StringBuffer();
   
 switch(tm.getSimState()){ //getSimState()取得sim的状态 有下面6中状态
   
-case TelephonyManager.SIM\_STATE\_ABSENT :inf.append("无卡");return inf.toString();
+case TelephonyManager.SIM_STATE_ABSENT :inf.append("无卡");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_UNKNOWN :inf.append("未知状态");return inf.toString();
+case TelephonyManager.SIM_STATE_UNKNOWN :inf.append("未知状态");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_NETWORK_LOCKED :inf.append("需要NetworkPIN解锁");return inf.toString();
+case TelephonyManager.SIM_STATE_NETWORK_LOCKED :inf.append("需要NetworkPIN解锁");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_PIN_REQUIRED :inf.append("需要PIN解锁");return inf.toString();
+case TelephonyManager.SIM_STATE_PIN_REQUIRED :inf.append("需要PIN解锁");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_PUK_REQUIRED :inf.append("需要PUK解锁");return inf.toString();
+case TelephonyManager.SIM_STATE_PUK_REQUIRED :inf.append("需要PUK解锁");return inf.toString();
   
-case TelephonyManager.SIM\_STATE\_READY :break;
+case TelephonyManager.SIM_STATE_READY :break;
   
 }
 

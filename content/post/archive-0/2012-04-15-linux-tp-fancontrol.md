@@ -22,7 +22,7 @@ OS: Debian 6
 
 /etc/modprobe.d/thinkpad_acpi.conf
 
-options thinkpad\_acpi fan\_control=1 experimental=1
+options thinkpad_acpi fan_control=1 experimental=1
 
 <del>add the following to <tt>/etc/modprobe.d/options</tt></del>
 
@@ -30,7 +30,7 @@ options thinkpad\_acpi fan\_control=1 experimental=1
 
 重新加载模块:
 
-sudo modprobe -r thinkpad\_acpi && sudo modprobe thinkpad\_acpi
+sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi
 
 然后就可以控制风扇了:
 
@@ -44,9 +44,9 @@ sudo modprobe -r thinkpad\_acpi && sudo modprobe thinkpad\_acpi
 
 第292行报错, 被我改成了
 
-#echo "watchdog $WATCHDOG\_DELAY" > $IBM\_ACPI/fan
+#echo "watchdog $WATCHDOG_DELAY" > $IBM_ACPI/fan
   
-echo watchdog $WATCHDOG\_DELAY | sudo tee $IBM\_ACPI/fan
+echo watchdog $WATCHDOG_DELAY | sudo tee $IBM_ACPI/fan
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=685070>
 

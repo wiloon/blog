@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-debug1: expecting SSH2\_MSG\_KEX\_ECDH\_REPLY
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
 
 设置网卡接口的MTU值，改成：1200
 

@@ -61,7 +61,7 @@ setfacl -R -m u:1000:rwx /dai
 
 https://github.com/dnschneid/crouton/wiki/How-to-mount-network-shares-on-Chromebook-(sshfs,-cifs,-nfs-etc)
 
-https://wiki.archlinux.org/index.php/NFS#Mount\_using\_autofs
+https://wiki.archlinux.org/index.php/NFS#Mount_using_autofs
   
 https://wiki.archlinux.org/index.php/Autofs#Configuration
 
@@ -73,4 +73,4 @@ https://wiki.archlinux.org/index.php/Autofs#Configuration
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://gudaoyufu.com/?p=1113&embed=true#?secret=QDWVDOBQOH" data-secret="QDWVDOBQOH" width="600" height="338" title="《NFS文件共享权限问题与autofs的自动挂载等》—孤岛鱼夫" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   
-https://mp.weixin.qq.com/s?_\_biz=MjM5NjQ4MjYwMQ==&mid=2664612263&idx=1&sn=d4a4ca2b1bf2692debb3db5cd65f1d17&chksm=bdcefae18ab973f75335ed34dd8ecd8ad411dc004db0ef7d8053e503e8b71326c30a4f696d44&scene=0&subscene=131&ascene=7&devicetype=android-26&version=26070333&nettype=WIFI&abtest\_cookie=AwABAAoACwATAAMAJZceAFmZHgBgmR4AAAA%3D&lang=zh\_CN&pass\_ticket=ImdQ85AP2YJJffE%2BSgUyrxOrtw39rlqAByjKnj6v4bE%3D&wx_header=1
+https://mp.weixin.qq.com/s?__biz=MjM5NjQ4MjYwMQ==&mid=2664612263&idx=1&sn=d4a4ca2b1bf2692debb3db5cd65f1d17&chksm=bdcefae18ab973f75335ed34dd8ecd8ad411dc004db0ef7d8053e503e8b71326c30a4f696d44&scene=0&subscene=131&ascene=7&devicetype=android-26&version=26070333&nettype=WIFI&abtest_cookie=AwABAAoACwATAAMAJZceAFmZHgBgmR4AAAA%3D&lang=zh_CN&pass_ticket=ImdQ85AP2YJJffE%2BSgUyrxOrtw39rlqAByjKnj6v4bE%3D&wx_header=1

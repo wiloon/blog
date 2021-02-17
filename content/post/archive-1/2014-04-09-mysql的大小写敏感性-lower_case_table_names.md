@@ -11,7 +11,7 @@ tags:
 
 ---
 
-MySQL的大小写敏感性 lower\_case\_table_names
+MySQL的大小写敏感性 lower_case_table_names
 
 在 MySQL 中，数据库和表对就于那些目录下的目录和文件。因而，操作系统的敏感性决定数据库和表命名的大小写敏感。这就意味着数据库和表名在 Windows 中是大小写不敏感的，而在大多数类型的 Unix 系统中是大小写敏感的。
 
@@ -19,11 +19,11 @@ MySQL的大小写敏感性 lower\_case\_table_names
 
 要避免这个问题，你最好在定义数据库命名规则的时候就全部采用小写字母加下划线的组合，而不使用任何的大写字母。
 
-或者也可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 -defaults-file=...\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
+或者也可以强制以 -O lower_case_table_names=1 参数启动 mysqld（如果使用 -defaults-file=...\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower_case_table_names=1）。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
 
 当你更改这个选项时，你必须在启动 mysqld 前首先将老的表名转换为小写字母。
 
-换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置： lower\_case\_table_names=0 。否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样（在Windows下所有的大写字符都变成小写了）。
+换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置： lower_case_table_names=0 。否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样（在Windows下所有的大写字符都变成小写了）。
 
 <table id="table5" border="1" cellpadding="0">
   <tr>
@@ -67,23 +67,23 @@ MySQL的大小写敏感性 lower\_case\_table_names
 </table>
 
 
-MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower\_case\_table\_names=1 参数启动 mysqld（如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower\_case\_table\_names=1）。
+MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower_case_table_names=1 参数启动 mysqld（如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 mysqld 的话，你需要在配置文件的 [mysqld] 区段下增加一行 lower_case_table_names=1）。
   
 这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名）。
   
 当你更改这个选项时，你必须在启动 mysqld 前首先将老的表名转换为小写字母。
   
-换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置0： lower\_case\_table_names=1 。
+换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置0： lower_case_table_names=1 。
   
 否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样（在Windows下所有的大写字符都变成小写了）。
   
 注意：
   
-在Win32上，尽管数据库和表名是忽略Mysql大小写的，你不应该在同一个查询中使用不同的大小写来引用一个给定的数据库和表。下列查询将不工作，因为它作为my\_table和作为MY\_TABLE引用一个表：
+在Win32上，尽管数据库和表名是忽略Mysql大小写的，你不应该在同一个查询中使用不同的大小写来引用一个给定的数据库和表。下列查询将不工作，因为它作为my_table和作为MY_TABLE引用一个表：
   
 代码如下 复制代码
   
-1.Mysql> SELECT * FROM my\_table WHERE MY\_TABLE.col=1;
+1.Mysql> SELECT * FROM my_table WHERE MY_TABLE.col=1;
   
 2、列名
   
@@ -95,9 +95,9 @@ MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强�
   
 代码如下 复制代码
   
-1.Mysql> SELECT col\_name FROM tbl\_name AS a
+1.Mysql> SELECT col_name FROM tbl_name AS a
   
-2.WHERE a.col\_name = 1 OR A.col\_name = 2;
+2.WHERE a.col_name = 1 OR A.col_name = 2;
   
 4、列的别名
   
@@ -105,7 +105,7 @@ MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强�
   
 5、字符串比较和模式匹配
   
-缺省地，Mysql搜索是大小写不敏感的(尽管有一些字符集从来不是忽略Mysql大小写的，例如捷克语)。这意味着，如果你用col\_name LIKE 'a%'搜寻，你将得到所有以A或a开始的列值。如果你想要使这个搜索大小写敏感，使用象INDEX(col\_name, "A")=0检查一个前缀。或如果列值必须确切是"A"，使用STRCMP(col_name, "A") = 0。
+缺省地，Mysql搜索是大小写不敏感的(尽管有一些字符集从来不是忽略Mysql大小写的，例如捷克语)。这意味着，如果你用col_name LIKE 'a%'搜寻，你将得到所有以A或a开始的列值。如果你想要使这个搜索大小写敏感，使用象INDEX(col_name, "A")=0检查一个前缀。或如果列值必须确切是"A"，使用STRCMP(col_name, "A") = 0。
   
 简单的比较操作(>=、>、= 、< 、<=、排序和聚合)是基于每个字符的"排序值"。有同样排序值的字符(象E，e)被视为相同的字符!
   

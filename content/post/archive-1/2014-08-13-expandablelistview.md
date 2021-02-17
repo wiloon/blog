@@ -28,9 +28,9 @@ android:listSelector="#00000000" ，可以去除选中时的黄色底色
   
 2 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   
-3 android:layout\_width="fill\_parent"
+3 android:layout_width="fill_parent"
   
-4 android:layout\_height="fill\_parent"
+4 android:layout_height="fill_parent"
   
 5 android:orientation="vertical" >
   
@@ -38,9 +38,9 @@ android:listSelector="#00000000" ，可以去除选中时的黄色底色
   
 7 android:id="@+id/list"
   
-8 android:layout\_width="fill\_parent"
+8 android:layout_width="fill_parent"
   
-9 android:layout\_height="fill\_parent"
+9 android:layout_height="fill_parent"
   
 10 android:background="#ffffff"
   
@@ -104,7 +104,7 @@ protected void onCreate(Bundle savedInstanceState) {
   
 super.onCreate(savedInstanceState);
   
-requestWindowFeature(Window.FEATURE\_NO\_TITLE);
+requestWindowFeature(Window.FEATURE_NO_TITLE);
   
 setContentView(R.layout.main);
 

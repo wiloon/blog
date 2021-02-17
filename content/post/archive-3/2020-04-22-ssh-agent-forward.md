@@ -26,7 +26,7 @@ XiaoleideMacBook-Pro:~ professor$ go-node1
   
 XiaoleideMacBook-Pro:~ professor$ source .bashrc
   
--bash: SSH\_AUTH\_SOCK=/var/folders/9x/7zl7w59n55s3wb_wjg7d5zfh0000gn/T//ssh-XpUY3kpYkJnP/agent.9483;: No such file or directory
+-bash: SSH_AUTH_SOCK=/var/folders/9x/7zl7w59n55s3wb_wjg7d5zfh0000gn/T//ssh-XpUY3kpYkJnP/agent.9483;: No such file or directory
   
 XiaoleideMacBook-Pro:~ professor$ go-node1
 
@@ -68,7 +68,7 @@ ForwardAgent yes
       
 ForwardX11 yes
   
-XiaoleideMacBook-Pro:ssh professor$ echo "$SSH\_AUTH\_SOCK"
+XiaoleideMacBook-Pro:ssh professor$ echo "$SSH_AUTH_SOCK"
   
 /private/tmp/com.apple.launchd.xkodPCHoTj/Listeners
   

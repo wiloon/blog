@@ -119,5 +119,5 @@ ntpdate
 
 https://chrony.tuxfamily.org/documentation.html
   
-https://wiki.archlinux.org/index.php/Network\_Time\_Protocol_daemon
+https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon
 https://www.ntppool.org/en/use.html

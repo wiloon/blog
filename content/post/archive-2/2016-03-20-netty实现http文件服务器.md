@@ -88,7 +88,7 @@ HttpMethod GET = new HttpMethod("GET");
 
 private String url;
 
-private final Pattern ALLOWED\_FILE\_NAME = Pattern.compile("[A-Za-z0-9][-_A-Za-z0-9\\.]*");
+private final Pattern ALLOWED_FILE_NAME = Pattern.compile("[A-Za-z0-9][-_A-Za-z0-9\\.]*");
 
 private final Pattern INSECURE_URI = Pattern.compile(".\*[<>&\"].\*");
 
@@ -112,7 +112,7 @@ return;
 
 if (request.getMethod() != HttpMethod.GET) {
   
-sendError(ctx, HttpResponseStatus.METHOD\_NOT\_ALLOWED);
+sendError(ctx, HttpResponseStatus.METHOD_NOT_ALLOWED);
   
 return;
   
@@ -180,7 +180,7 @@ return;
   
 long fileLength = randomAccessFile.length();
   
-HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP\_1\_1, HttpResponseStatus.OK);
+HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
   
 HttpHeaders.setContentLength(response, fileLength);
   
@@ -228,7 +228,7 @@ System.err.println(future.channel() + " transfer progress : " + progress + " / "
   
 });
 
-ChannelFuture lastContentFuture = ctx.writeAndFlush(LastHttpContent.EMPTY\_LAST\_CONTENT);
+ChannelFuture lastContentFuture = ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
   
 if (!HttpHeaders.isKeepAlive(request)) {
   
@@ -246,7 +246,7 @@ cause.printStackTrace();
   
 if (ctx.channel().isActive()) {
   
-sendError(ctx, HttpResponseStatus.INTERNAL\_SERVER\_ERROR);
+sendError(ctx, HttpResponseStatus.INTERNAL_SERVER_ERROR);
   
 }
   
@@ -254,7 +254,7 @@ sendError(ctx, HttpResponseStatus.INTERNAL\_SERVER\_ERROR);
 
 private void sendError(ChannelHandlerContext ctx, HttpResponseStatus status) {
   
-FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP\_1\_1, status, Unpooled.copiedBuffer(
+FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, status, Unpooled.copiedBuffer(
   
 "Failure :" + status + "\r\n", CharsetUtil.UTF_8));
   
@@ -308,7 +308,7 @@ return System.getProperty("user.dir") + File.separator + uri;
 
 public final void sendList(ChannelHandlerContext ctx, File file) {
   
-FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP\_1\_1, HttpResponseStatus.OK);
+FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
   
 response.headers().set(HttpHeaders.Names.CONTENT_TYPE, "text/html; charset=UTF-8");
   
@@ -346,7 +346,7 @@ continue;
   
 String name = f.getName();
   
-if (!ALLOWED\_FILE\_NAME.matcher(name).matches()) {
+if (!ALLOWED_FILE_NAME.matcher(name).matches()) {
   
 continue;
   
@@ -380,7 +380,7 @@ ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
 
 public void sendRedirect(ChannelHandlerContext ctx, String newUri) {
   
-FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP\_1\_1, HttpResponseStatus.FOUND);
+FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.FOUND);
   
 response.headers().set(HttpHeaders.Names.LOCATION, newUri);
   

@@ -81,7 +81,7 @@ want to decode them anyway, even with errors. You will have to
   
 fix them manually before building.
   
-b[uild] [OPTS] [<app\_path>] [<out\_file>]
+b[uild] [OPTS] [<app_path>] [<out_file>]
   
 Build an apk from already decoded application located in <app_path>.
 
@@ -91,7 +91,7 @@ needed steps only.
 
 If you omit <app_path> then current directory will be used.
   
-If you omit <out\_file> then <app\_path>/dist/<name\_of\_original.apk>
+If you omit <out_file> then <app_path>/dist/<name_of_original.apk>
   
 will be used.
 

@@ -25,7 +25,7 @@ add /\***/jdk1.6.0_25/bin to path
 
 add ...
   
-JAVA\_HOME=/\***/jdk1.6.0\_25
+JAVA_HOME=/\***/jdk1.6.0_25
   
 CLASSPATH=.:/\***/jdk1.6.0_25/lib
 

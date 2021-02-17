@@ -85,9 +85,9 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 
 （插入数据的位置为0x70处）
 
-3、修改解壳程序DEX头中checksum、signature、file\_size、header\_size、string\_ids\_off、type\_ids\_off、proto\_ids\_off、field\_ids\_off、
+3、修改解壳程序DEX头中checksum、signature、file_size、header_size、string_ids_off、type_ids_off、proto_ids_off、field_ids_off、
 
-method\_ids\_off、class\_defs\_off和data\_off相关项。 分析map\_off 数据，修改相关的数据偏移量。
+method_ids_off、class_defs_off和data_off相关项。 分析map_off 数据，修改相关的数据偏移量。
 
 4、修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。
 

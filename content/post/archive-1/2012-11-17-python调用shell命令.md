@@ -25,7 +25,7 @@ python调用shell命令的方法有许多
 
 使用os.popen()函数执行command命令并返回一个元组(status,output)，分别表示command命令执行的返回状态和执行结果。对command的执行实际上是按照{command;} 2>&1的方式，所以output中包含控制台输出信息或者错误信息。output中不包含尾部的换行符。
 
-2.1   subprocess.call(["some\_command","some\_argument","another\_argument\_or_path"])
+2.1   subprocess.call(["some_command","some_argument","another_argument_or_path"])
 
 subprocess.call(command,shell=True)
 

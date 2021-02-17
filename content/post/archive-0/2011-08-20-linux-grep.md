@@ -438,7 +438,7 @@ case "$1" in
       
 > > if [ $startnfsd -ne 0 ]; then
       
-> > elif [ ! -n "$\_INIT\_RUN_LEVEL" ]; then
+> > elif [ ! -n "$_INIT_RUN_LEVEL" ]; then
       
 > > while [ $wtime -gt 0 ]; do
       
@@ -484,7 +484,7 @@ the test file
 
 1,简介
   
-使用正则表达式的一个多用途文本搜索工具.这个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t\_tag">命令本来是ed行编辑器中的一个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t\_tag">命令/过滤器:
+使用正则表达式的一个多用途文本搜索工具.这个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">命令本来是ed行编辑器中的一个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">命令/过滤器:
   
 g/re/p — global – regular expression – print.
   

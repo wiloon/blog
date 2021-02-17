@@ -56,7 +56,7 @@ sudo emacs /etc/apache2/mods-enabled/jk.load
 
 [bash]
   
-LoadModule jk\_module /usr/lib/apache2/modules/mod\_jk.so
+LoadModule jk_module /usr/lib/apache2/modules/mod_jk.so
 
 JkWorkersFile /etc/apache2/workers.properties
   
@@ -94,7 +94,7 @@ sudo emacs /etc/apache2/workers.properties
   
 workers.tomcat_home=/xxx/xxx/apache-tomcat-7.0.xx
   
-workers.java\_home=/xxx/xx/jvm/jdk1.6.0\_25
+workers.java_home=/xxx/xx/jvm/jdk1.6.0_25
   
 ps=/
   

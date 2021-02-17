@@ -12,13 +12,13 @@ http://www.cnblogs.com/tangself/archive/2010/04/14/1711684.html
 
 jQuery获取Radio选择的Value值:
 
-var\_name = $("input[name='radio\_name']:checked").val();
+var_name = $("input[name='radio_name']:checked").val();
 
 1. $("input[name='radio_name'][checked]").val();  //选择被选中Radio的Value值
   
-2. $("#text\_id").focus(function(){//code...});  //事件 当对象text\_id获取焦点时触发
+2. $("#text_id").focus(function(){//code...});  //事件 当对象text_id获取焦点时触发
   
-3. $("#text\_id").blur(function(){//code...});  //事件 当对象text\_id失去焦点时触发
+3. $("#text_id").blur(function(){//code...});  //事件 当对象text_id失去焦点时触发
   
 4. $("#text_id").select();  //使文本框的Vlaue值成选中状态
   
@@ -36,7 +36,7 @@ var\_name = $("input[name='radio\_name']:checked").val();
   
 5. $("#checkbox_id").attr("checked",false);  //设置一个CheckBox的状态为不选中(checked=false)
   
-6. $("input[name='checkbox\_name']").attr("checked",$("#checkbox\_id").attr("checked"));
+6. $("input[name='checkbox_name']").attr("checked",$("#checkbox_id").attr("checked"));
 
 7. $("#text_id").val().split(",");  //将Text的Value值以','分隔 返回一个数组
 
@@ -44,33 +44,33 @@ var\_name = $("input[name='radio\_name']:checked").val();
 
 用JavaScript使页面上的一组checkbox全选/取消全选，逻辑很简单，实现代码也没有太难的语法。但使用jQuery实现则更简单，代码也很简洁，精辟！
   
-<input type="checkbox" name="chk\_list" id="chk\_list_1" value="1" />1<br />
+<input type="checkbox" name="chk_list" id="chk_list_1" value="1" />1<br />
   
-<input type="checkbox" name="chk\_list" id="chk\_list_2" value="2" />2<br />
+<input type="checkbox" name="chk_list" id="chk_list_2" value="2" />2<br />
   
-<input type="checkbox" name="chk\_list" id="chk\_list_3" value="3" />3<br />
+<input type="checkbox" name="chk_list" id="chk_list_3" value="3" />3<br />
   
-<input type="checkbox" name="chk\_list" id="chk\_list_4" value="4" />4<br />
+<input type="checkbox" name="chk_list" id="chk_list_4" value="4" />4<br />
   
-<input type="checkbox" name="chk\_all" id="chk\_all" />全选/取消全选
+<input type="checkbox" name="chk_all" id="chk_all" />全选/取消全选
   
 <script type="text/javascript">
 
-$("#chk\_all").click(function() {  $("input[name='chk\_list']").attr("checked",$(this).attr("checked"));});
+$("#chk_all").click(function() {  $("input[name='chk_list']").attr("checked",$(this).attr("checked"));});
   
 </script>
 
 jQuery.attr  获取/设置对象的属性值,如：
 
-$("input[name='chk\_list']").attr("checked");     //读取所有name为'chk\_list'对象的状态（是否选中）
+$("input[name='chk_list']").attr("checked");     //读取所有name为'chk_list'对象的状态（是否选中）
 
-$("input[name='chk\_list']").attr("checked",true);      //设置所有name为'chk\_list'对象的checked为true
+$("input[name='chk_list']").attr("checked",true);      //设置所有name为'chk_list'对象的checked为true
 
 再如：
 
-$("#img\_1").attr("src","test.jpg");    //设置ID为img\_1的<img>src的值为'test.jpg'
+$("#img_1").attr("src","test.jpg");    //设置ID为img_1的<img>src的值为'test.jpg'
   
-$("#img\_1").attr("src");     //读取ID为img\_1的<img>src值
+$("#img_1").attr("src");     //读取ID为img_1的<img>src值
 
 下面的代码是获取上面实例中选中的checkbox的value值:
   

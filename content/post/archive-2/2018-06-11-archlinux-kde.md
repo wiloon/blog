@@ -31,11 +31,11 @@ fi
 
 ```
 
-[https://wiki.archlinux.org/index.php/Xinit#Autostart\_X\_at_login][1]{.wp-editor-md-post-content-link}
+[https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login][1]{.wp-editor-md-post-content-link}
 
 sddm
   
-https://wiki.archlinux.org/index.php/Display\_manager#Loading\_the\_display\_manager
+https://wiki.archlinux.org/index.php/Display_manager#Loading_the_display_manager
 
  [1]: https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login "https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login"
 

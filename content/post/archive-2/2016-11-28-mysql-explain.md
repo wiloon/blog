@@ -16,7 +16,7 @@ mysql> explain select * from servers;
   
 +—-+————-+———+——+—————+——+———+——+——+——-+
   
-| id | select\_type | table | type | possible\_keys | key | key_len | ref | rows | Extra |
+| id | select_type | table | type | possible_keys | key | key_len | ref | rows | Extra |
   
 +—-+————-+———+——+—————+——+———+——+——+——-+
   
@@ -26,7 +26,7 @@ mysql> explain select * from servers;
   
 1 row in set (0.03 sec)
 
-expain出来的信息有10列，分别是 id、select\_type、table、type、possible\_keys、key、key_len、ref、rows、Extra,下面对这些字段出现的可能进行解释：
+expain出来的信息有10列，分别是 id、select_type、table、type、possible_keys、key、key_len、ref、rows、Extra,下面对这些字段出现的可能进行解释：
 
 ### id
 
@@ -68,7 +68,7 @@ mysql> explain select \* from (select \* from ( select * from t1 where id=2602) 
   
 +—-+————-+————+——–+——————-+———+———+——+——+——-+
   
-| id | select\_type | table | type | possible\_keys | key | key_len | ref | rows | Extra |
+| id | select_type | table | type | possible_keys | key | key_len | ref | rows | Extra |
   
 +—-+————-+————+——–+——————-+———+———+——+——+——-+
   
@@ -76,7 +76,7 @@ mysql> explain select \* from (select \* from ( select * from t1 where id=2602) 
   
 | 2 | DERIVED | <derived3> | system | NULL | NULL | NULL | NULL | 1 | |
   
-| 3 | DERIVED | t1 | const | PRIMARY,idx\_t1\_id | PRIMARY | 4 | | 1 | |
+| 3 | DERIVED | t1 | const | PRIMARY,idx_t1_id | PRIMARY | 4 | | 1 | |
   
 +—-+————-+————+——–+——————-+———+———+——+——+——-+
 
@@ -90,7 +90,7 @@ mysql> explain select \* from (select \* from ( select * from t1 where id=2602) 
   
 依次从好到差：
   
-system，const，eq\_ref，ref，fulltext，ref\_or\_null，index\_merge, unique\_subquery，index\_subquery，range，index，ALL
+system，const，eq_ref，ref，fulltext，ref_or_null，index_merge, unique_subquery，index_subquery，range，index，ALL
   
 除了all之外，其他的type都可以使用到索引，除了index_merge之外，其他的type只可以用到一个索引
   
@@ -98,7 +98,7 @@ system，const，eq\_ref，ref，fulltext，ref\_or\_null，index\_merge, unique
   
 - index: 索引全表扫描，把索引从头到尾扫一遍，常见于使用索引列就可以处理不需要读取数据文件的查询、可以使用索引排序或者分组的查询。
   
-- index\_merge：表示查询使用了两个以上的索引，最后取交集或者并集，常见and ，or的条件使用了不同的索引，官方排序这个在ref\_or_null之后，但是实际上由于要读取所个索引，性能可能大部分时间都不如range
+- index_merge：表示查询使用了两个以上的索引，最后取交集或者并集，常见and ，or的条件使用了不同的索引，官方排序这个在ref_or_null之后，但是实际上由于要读取所个索引，性能可能大部分时间都不如range
   
 - range: 索引范围扫描，常见于使用>,<,is null,between ,in ,like等运算符的查询中。只检索给定范围的行，使用一个索引来选择行
   
@@ -106,7 +106,7 @@ system，const，eq\_ref，ref，fulltext，ref\_or\_null，index\_merge, unique
   
 - unique_subquery：用于where中的in形式子查询，子查询返回不重复值唯一值
   
-- ref\_or\_null：与ref方法类似，只是增加了null值的比较。实际用的不多。
+- ref_or_null：与ref方法类似，只是增加了null值的比较。实际用的不多。
   
 - fulltext：全文索引检索，要注意，全文索引的优先级很高，若全文索引和普通索引同时存在时，mysql不管代价，优先选择使用全文索引
 
@@ -140,7 +140,7 @@ SELECT * FROM ref_table,other_table
   AND ref_table.key_column_part2=1;
 ```
 
-  * eq\_ref: 出现在要连接过个表的查询计划中，驱动表只返回一行数据，且这行数据是第二个表的主键或者唯一索引，且必须为not null，唯一索引和主键是多列时，只有所有的列都用作比较时才会出现eq\_ref
+  * eq_ref: 出现在要连接过个表的查询计划中，驱动表只返回一行数据，且这行数据是第二个表的主键或者唯一索引，且必须为not null，唯一索引和主键是多列时，只有所有的列都用作比较时才会出现eq_ref
   * const：使用唯一索引或者主键，返回记录一定是1行记录的等值where条件时，通常type是const。其他数据库也叫做唯一索引扫描
   * system：表中只有一行数据或者是空表，且只能用于myisam和memory表。如果是Innodb引擎表，type列在这个情况通常都是all或者index
   * NULL: MySQL在优化过程中分解语句，执行时甚至不用访问表或索引，例如从一个索引列里选取最小值可以通过单独索引查找完成。
@@ -157,7 +157,7 @@ SELECT * FROM ref_table,other_table
 
 ### Key
 
-查询真正使用到的索引，select\_type为index\_merge时，这里可能出现两个以上的索引，其他的select_type这里只会出现一个。
+查询真正使用到的索引，select_type为index_merge时，这里可能出现两个以上的索引，其他的select_type这里只会出现一个。
   
 key列显示MySQL实际决定使用的键（索引）
   
@@ -165,7 +165,7 @@ key列显示MySQL实际决定使用的键（索引）
 
 ### key_len
 
-表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度（key\_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key\_len是根据表定义计算而得，不是通过表内检索出的）
+表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度（key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len是根据表定义计算而得，不是通过表内检索出的）
   
 不损失精确性的情况下，长度越短越好
 

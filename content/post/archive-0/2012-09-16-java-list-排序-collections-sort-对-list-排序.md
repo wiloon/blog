@@ -120,7 +120,7 @@ for (int i=0;i<userlist.size();i++){
 
 User user_temp=(User)userlist.get(i);
 
-System.out.println(user\_temp.getAge()+","+user\_temp.getName());
+System.out.println(user_temp.getAge()+","+user_temp.getName());
 
 }
 

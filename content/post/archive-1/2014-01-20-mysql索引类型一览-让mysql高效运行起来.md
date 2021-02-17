@@ -24,19 +24,19 @@ CREATE INDEX indexName ON mytable(username(length));
 
 - 该语句添加一个主键，这意味着索引值必须是唯一的，且不能为NULL。
   
-ALTER TABLE tbl\_name ADD PRIMARY KEY (column\_list);
+ALTER TABLE tbl_name ADD PRIMARY KEY (column_list);
 
 - 这条语句创建索引的值必须是唯一的（除了NULL外，NULL可能会出现多次）。
   
-ALTER TABLE tbl\_name ADD UNIQUE index\_name (column_list): 
+ALTER TABLE tbl_name ADD UNIQUE index_name (column_list): 
 
 - 添加普通索引，索引值可出现多次。
   
-ALTER TABLE tbl\_name ADD INDEX index\_name (column_list): 
+ALTER TABLE tbl_name ADD INDEX index_name (column_list): 
 
 - 该语句指定了索引为 FULLTEXT ，用于全文索引。
   
-ALTER TABLE tbl\_name ADD FULLTEXT index\_name (column_list):
+ALTER TABLE tbl_name ADD FULLTEXT index_name (column_list):
 
 ALTER TABLE testalter_tbl DROP PRIMARY KEY;
   
@@ -52,7 +52,7 @@ Non_unique：如果索引不能包括重复词，则为0。如果可以，则为
   
 Key_name：索引的名称
   
-Seq\_in\_index：索引中的列序列号，从1开始
+Seq_in_index：索引中的列序列号，从1开始
   
 Column_name：列名称
   
@@ -98,7 +98,7 @@ Full-text (全文索引)：全文索引也是MyISAM的一种特殊索引类型�
   
 3.尽量选择区分度高的列作为索引,区分度的公式是count(distinct col)/count(*)，表示字段不重复的比例，比例越大我们扫描的记录数越少，唯一键的区分度是1，而一些状态、性别字段可能在大数据面前区分度就是0，那可能有人会问，这个比例有什么经验值吗？使用场景不同，这个值也很难确定，一般需要join的字段我们都要求是0.1以上，即平均1条扫描10条记录
   
-4.索引列不能参与计算，保持列"干净"，比如from\_unixtime(create\_time) = '2014-05-29'就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create\_time = unix\_timestamp('2014-05-29');
+4.索引列不能参与计算，保持列"干净"，比如from_unixtime(create_time) = '2014-05-29'就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create_time = unix_timestamp('2014-05-29');
   
 5.尽量的扩展索引，不要新建索引。比如表中已经有a的索引，现在要加(a,b)的索引，那么只需要修改原来的索引即可
 
@@ -214,7 +214,7 @@ age INT NOT NULL
 
 为了进一步榨取MySQL的效率，就要考虑建立组合索引。就是将 name, city, age建到一个索引里：
   
-ALTER TABLE mytable ADD INDEX name\_city\_age (name(10),city,age);
+ALTER TABLE mytable ADD INDEX name_city_age (name(10),city,age);
 
 建表时，usernname长度为 16，这里用 10。这是因为一般情况下名字的长度不会超过10，这样会加速索引查询速度，还会减少索引文件的大小，提高INSERT的更新速度。
 

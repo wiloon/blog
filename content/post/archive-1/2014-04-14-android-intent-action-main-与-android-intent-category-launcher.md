@@ -22,7 +22,7 @@ MAIN 与 LAUNCHER 并不是单纯的各管各的事情；
 
 我测试的结果是，如果一个应用没有LAUNCHER则该apk仍能安装到设备上，但是在桌面中图标中看不到。如果给那个Activity 设定了LAUNCHER，且同时设定了Main,则这个Activity就可出现在程序图标中；如果没有Main，则不知启动哪个Activity，故也不会有图标出现。可见，Main指的是，点击图标后启动哪个Activity。当然，Main可以给多个Activity设定，但只设定Main不设定LAUNCHER，仍然无法进入activity。
 
-可见，Main和LAUNCHER同时设定才有意义，如果多个activity同时设定，则会出现两个图标，分别先进入不同的activity.如下图：Lift\_cycles 01 与 Lift\_cycles 02
+可见，Main和LAUNCHER同时设定才有意义，如果多个activity同时设定，则会出现两个图标，分别先进入不同的activity.如下图：Lift_cycles 01 与 Lift_cycles 02
 
 [html][/html] view plaincopy
 

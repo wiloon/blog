@@ -484,11 +484,11 @@ System.out.println("已经改回为原始值！");
 
 而类：AtomicMarkableReference和AtomicStampedReference功能差不多，有点区别的是：它描述更加简单的是与否的关系，通常ABA问题只有两种状态，而AtomicStampedReference是多种状态，那么为什么还要有AtomicMarkableReference呢，因为它在处理是与否上面更加具有可读性，而AtomicStampedReference过于随意定义状态，并不便于阅读大量的是和否的关系，它可以被认为是一个计数器或状态列表等信息，java提倡通过类名知道其意义，所以这个类的存在也是必要的，它的定义就是将数据变换为true|false如下：
 
-public final static AtomicMarkableReference <String>ATOMIC\_MARKABLE\_REFERENCE = new AtomicMarkableReference<String>("abc" , false);
+public final static AtomicMarkableReference <String>ATOMIC_MARKABLE_REFERENCE = new AtomicMarkableReference<String>("abc" , false);
 
 操作时使用：
   
-ATOMIC\_MARKABLE\_REFERENCE.compareAndSet("abc", "abc2", false, true);
+ATOMIC_MARKABLE_REFERENCE.compareAndSet("abc", "abc2", false, true);
 
 好了，reference的三个类的种类都介绍了，我们下面要开始说Atomic的数组用法，因为我们开始说到的都是一些简单变量和基本数据，操作数组呢？如果你来设计会怎么设计，Atomic的数组要求不允许修改长度等，不像集合类那么丰富的操作，不过它可以让你的数组上每个元素的操作绝对安全的，也就是它细化的力度还是到数组上的元素，为你做了二次包装，所以如果你来设计，就是在原有的操作上增加一个下标访问即可，我们来模拟一个Integer类型的数组，即：AtomicIntegerArray
 
@@ -524,7 +524,7 @@ public class AtomicIntegerArrayTest {
        
 */
       
-private final static AtomicIntegerArray ATOMIC\_INTEGER\_ARRAY = new AtomicIntegerArray(new int[]{1,2,3,4,5,6,7,8,9,10}); 
+private final static AtomicIntegerArray ATOMIC_INTEGER_ARRAY = new AtomicIntegerArray(new int[]{1,2,3,4,5,6,7,8,9,10}); 
 
 public static void main(String []args) throws InterruptedException {
           
@@ -540,7 +540,7 @@ threads[i] = new Thread() {
                   
 public void run() {
                       
-int result = ATOMIC\_INTEGER\_ARRAY.addAndGet(index, index + 1);
+int result = ATOMIC_INTEGER_ARRAY.addAndGet(index, index + 1);
                       
 System.out.println("线程编号为：" + threadNum + " , 对应的原始值为：" + (index + 1) + "，增加后的结果为：" + result);
                   
@@ -560,9 +560,9 @@ thread.join();
           
 System.out.println("=========================>\n执行已经完成，结果列表：");
           
-for(int i = 0 ; i < ATOMIC\_INTEGER\_ARRAY.length() ; i++) {
+for(int i = 0 ; i < ATOMIC_INTEGER_ARRAY.length() ; i++) {
               
-System.out.println(ATOMIC\_INTEGER\_ARRAY.get(i));
+System.out.println(ATOMIC_INTEGER_ARRAY.get(i));
           
 }
       
@@ -700,7 +700,7 @@ volatile int intValue = 100;
        
 */
       
-public final static AtomicIntegerFieldUpdater <A>ATOMIC\_INTEGER\_UPDATER = AtomicIntegerFieldUpdater.newUpdater(A.class, "intValue"); 
+public final static AtomicIntegerFieldUpdater <A>ATOMIC_INTEGER_UPDATER = AtomicIntegerFieldUpdater.newUpdater(A.class, "intValue"); 
 
 public static void main(String []args) {
           
@@ -714,7 +714,7 @@ new Thread() {
                   
 public void run() {
                       
-if(ATOMIC\_INTEGER\_UPDATER.compareAndSet(a, 100, 120)) {
+if(ATOMIC_INTEGER_UPDATER.compareAndSet(a, 100, 120)) {
                           
 System.out.println("我是线程：" + num + " 我对对应的值做了修改！");
                       
@@ -744,7 +744,7 @@ volatile String stringValue = "abc";
   
 }
 
-AtomicReferenceFieldUpdater <A ,String>ATOMIC\_REFERENCE\_FIELD_UPDATER = AtomicReferenceFieldUpdater.newUpdater(A.class, String.class, "stringValue");
+AtomicReferenceFieldUpdater <A ,String>ATOMIC_REFERENCE_FIELD_UPDATER = AtomicReferenceFieldUpdater.newUpdater(A.class, String.class, "stringValue");
 
 可以看到，这里传递的参数增加了一个属性的类型，因为引用的是一个对象，对象本身也有一个类型。
 

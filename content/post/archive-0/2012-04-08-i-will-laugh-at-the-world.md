@@ -98,6 +98,6 @@ I will be the greatest salesman the world has ever known.
 我要成为世上最伟大的推销员。
 
 
-[http://smilejay.com/i\_will\_laugh\_at\_the_world/][1]
+[http://smilejay.com/i_will_laugh_at_the_world/][1]
 
  [1]: http://smilejay.com/i_will_laugh_at_the_world/

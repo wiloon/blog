@@ -56,6 +56,6 @@ vsftpd-2.0.5-12.el5
   
 /etc/vsftpd/vsftpd.conf
   
-/etc/vsftpd/vsftpd\_conf\_migrate.sh
+/etc/vsftpd/vsftpd_conf_migrate.sh
   
 [root@linux01 ~]#

@@ -175,19 +175,19 @@ poweroff
 
 * * *
 
-https://wiki.archlinux.org/index.php/Install\_from\_existing_Linux
+https://wiki.archlinux.org/index.php/Install_from_existing_Linux
   
 https://wiki.archlinux.org/index.php/Installation_guide
   
-https://wiki.archlinux.org/index.php/Installing\_Arch\_Linux\_on\_a\_USB\_key
+https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key
   
-https://wiki.archlinux.org/index.php/Installing\_Arch\_Linux\_on\_a\_USB\_key_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
   
 http://www.linuxidc.com/Linux/2014-04/99749.htm
   
 https://wiki.archlinux.org/index.php/Syslinux
   
-https://wiki.archlinux.org/index.php/syslinux#Installation\_on\_BIOS
+https://wiki.archlinux.org/index.php/syslinux#Installation_on_BIOS
 
 * * *
 

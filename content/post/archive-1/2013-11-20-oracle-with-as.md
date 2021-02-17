@@ -118,11 +118,11 @@ select /\*+ materialize \*/
   
 count(*) nbr_stores from stores
   
-sales\_by\_store AS
+sales_by_store AS
   
 select /\*+ materialize \*/
   
-store\_name, sum(quantity) store\_sales from
+store_name, sum(quantity) store_sales from
   
 store natural join sales
   
@@ -138,11 +138,11 @@ sum_sales,
   
 number_stores,
   
-sales\_by\_store
+sales_by_store
   
 where
   
-store\_sales > (all\_sales / nbr_stores)
+store_sales > (all_sales / nbr_stores)
   
 ;
 

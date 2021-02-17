@@ -108,9 +108,9 @@ class PlatformParker : public CHeapObj<mtInternal> {
     
 protected:
       
-pthread\_mutex\_t _mutex [1] ;
+pthread_mutex_t _mutex [1] ;
       
-pthread\_cond\_t _cond [1] ;
+pthread_cond_t _cond [1] ;
       
 ...
   
@@ -120,7 +120,7 @@ pthread\_cond\_t _cond [1] ;
 
 在Parker类里的_counter字段，就是用来记录所谓的"许可"的。
 
-当调用park时，先尝试直接能否直接拿到"许可"，即\_counter>0时，如果成功，则把\_counter设置为0,并返回：
+当调用park时，先尝试直接能否直接拿到"许可"，即_counter>0时，如果成功，则把_counter设置为0,并返回：
 
 void Parker::park(bool isAbsolute, jlong time) {
     
@@ -138,7 +138,7 @@ void Parker::park(bool isAbsolute, jlong time) {
     
 if (Atomic::xchg(0, &_counter) > 0) return;
   
-如果不成功，则构造一个ThreadBlockInVM，然后检查\_counter是不是>0，如果是，则把\_counter设置为0，unlock mutex并返回：
+如果不成功，则构造一个ThreadBlockInVM，然后检查_counter是不是>0，如果是，则把_counter设置为0，unlock mutex并返回：
 
 ThreadBlockInVM tbivm(jt);
   
@@ -146,31 +146,31 @@ if (_counter > 0) { // no wait needed
     
 _counter = 0;
     
-status = pthread\_mutex\_unlock(_mutex);
+status = pthread_mutex_unlock(_mutex);
   
-否则，再判断等待的时间，然后再调用pthread\_cond\_wait函数等待，如果等待返回，则把_counter设置为0，unlock mutex并返回：
+否则，再判断等待的时间，然后再调用pthread_cond_wait函数等待，如果等待返回，则把_counter设置为0，unlock mutex并返回：
 
 if (time == 0) {
     
-status = pthread\_cond\_wait (\_cond, \_mutex) ;
+status = pthread_cond_wait (_cond, _mutex) ;
   
 }
   
 _counter = 0 ;
   
-status = pthread\_mutex\_unlock(_mutex) ;
+status = pthread_mutex_unlock(_mutex) ;
   
 assert_status(status == 0, status, "invariant") ;
   
 OrderAccess::fence();
   
-当unpark时，则简单多了，直接设置\_counter为1，再unlock mutext返回。如果\_counter之前的值是0，则还要调用pthread\_cond\_signal唤醒在park中等待的线程：
+当unpark时，则简单多了，直接设置_counter为1，再unlock mutext返回。如果_counter之前的值是0，则还要调用pthread_cond_signal唤醒在park中等待的线程：
 
 void Parker::unpark() {
     
 int s, status ;
     
-status = pthread\_mutex\_lock(_mutex);
+status = pthread_mutex_lock(_mutex);
     
 assert (status == 0, "invariant") ;
     
@@ -182,21 +182,21 @@ if (s < 1) {
        
 if (WorkAroundNPTLTimedWaitHang) {
           
-status = pthread\_cond\_signal (_cond) ;
+status = pthread_cond_signal (_cond) ;
           
 assert (status == 0, "invariant") ;
           
-status = pthread\_mutex\_unlock(_mutex);
+status = pthread_mutex_unlock(_mutex);
           
 assert (status == 0, "invariant") ;
        
 } else {
           
-status = pthread\_mutex\_unlock(_mutex);
+status = pthread_mutex_unlock(_mutex);
           
 assert (status == 0, "invariant") ;
           
-status = pthread\_cond\_signal (_cond) ;
+status = pthread_cond_signal (_cond) ;
           
 assert (status == 0, "invariant") ;
        
@@ -204,7 +204,7 @@ assert (status == 0, "invariant") ;
     
 } else {
       
-pthread\_mutex\_unlock(_mutex);
+pthread_mutex_unlock(_mutex);
       
 assert (status == 0, "invariant") ;
     
@@ -214,13 +214,13 @@ assert (status == 0, "invariant") ;
   
 简而言之，是用mutex和condition保护了一个_counter的变量，当park时，这个变量置为了0，当unpark时，这个变量置为1。
   
-值得注意的是在park函数里，调用pthread\_cond\_wait时，并没有用while来判断，所以posix condition里的"Spurious wakeup"一样会传递到上层Java的代码里。
+值得注意的是在park函数里，调用pthread_cond_wait时，并没有用while来判断，所以posix condition里的"Spurious wakeup"一样会传递到上层Java的代码里。
 
 关于"Spurious wakeup"，参考上一篇blog：http://blog.csdn.net/hengyunabc/article/details/27969613
 
 if (time == 0) {
     
-status = pthread\_cond\_wait (\_cond, \_mutex) ;
+status = pthread_cond_wait (_cond, _mutex) ;
   
 }
   

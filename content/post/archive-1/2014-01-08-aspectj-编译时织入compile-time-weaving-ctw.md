@@ -395,13 +395,13 @@ catch(Throwable throwable)
 
 {
 
-SampleAspect.aspectOf().ajc$after$org\_opoo\_samples\_aspectj\_SampleAspect$3$8192077e(ajc$tjp_0);
+SampleAspect.aspectOf().ajc$after$org_opoo_samples_aspectj_SampleAspect$3$8192077e(ajc$tjp_0);
 
 throw throwable;
 
 }
 
-SampleAspect.aspectOf().ajc$after$org\_opoo\_samples\_aspectj\_SampleAspect$3$8192077e(ajc$tjp_0);
+SampleAspect.aspectOf().ajc$after$org_opoo_samples_aspectj_SampleAspect$3$8192077e(ajc$tjp_0);
 
 return k;
 

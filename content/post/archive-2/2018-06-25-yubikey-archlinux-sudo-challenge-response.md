@@ -22,9 +22,9 @@ vim /etc/pam.d/sudo
   
 add line
   
-auth sufficient /usr/lib/security/pam\_yubico.so mode=challenge-response debug chalresp\_path=/data/yubikey
+auth sufficient /usr/lib/security/pam_yubico.so mode=challenge-response debug chalresp_path=/data/yubikey
   
-auth sufficient /usr/lib/security/pam\_yubico.so mode=challenge-response chalresp\_path=/data/yubikey
+auth sufficient /usr/lib/security/pam_yubico.so mode=challenge-response chalresp_path=/data/yubikey
 
 ```bash
 pacman -S yubico-pam

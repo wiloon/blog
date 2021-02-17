@@ -35,7 +35,7 @@ private static void createAndShowGUI() {
   
 JFrame jFrame = new JFrame("HelloWorld Swing");
   
-jFrame.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);
+jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   
 JLabel helloLabel = new JLabel("Hello World!");
   
@@ -67,6 +67,6 @@ We can execute the above GUI application using both java.exe and javaw.exe If we
 
 javaws.exe
   
-javaws.exe is used to launch a java application that is distributed through web. We have a jnlp\_url associated with such application. We can use as "javaws jnlp\_url" to launch the application. It downloads the application from the url and launches it. It is useful to distribute application to users and gives central control to provide updates and ensures all the users are using the latest software. When the application is invoked, it is cached in the local computer. Every time it is launched, it checks if there is any update available from the distributor.
+javaws.exe is used to launch a java application that is distributed through web. We have a jnlp_url associated with such application. We can use as "javaws jnlp_url" to launch the application. It downloads the application from the url and launches it. It is useful to distribute application to users and gives central control to provide updates and ensures all the users are using the latest software. When the application is invoked, it is cached in the local computer. Every time it is launched, it checks if there is any update available from the distributor.
 
 This Core Java tutorial was added on 07/08/2012.

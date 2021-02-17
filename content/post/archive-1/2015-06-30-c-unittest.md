@@ -317,7 +317,7 @@ at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:90
   
 at java.lang.Thread.run(Thread.java:662)
   
-1）"TIMED\_WAITING (parking)"中的 timed\_waiting 指等待状态，但这里指定了时间，到达指定的时间后自动退出等待状态；parking指线程处于挂起中。
+1）"TIMED_WAITING (parking)"中的 timed_waiting 指等待状态，但这里指定了时间，到达指定的时间后自动退出等待状态；parking指线程处于挂起中。
   
 2）"waiting on condition"需要与堆栈中的"parking to wait for <0x00000000acd84de8> (a java.util.concurrent.SynchronousQueue$TransferStack)" 结合来看。首先，本线程肯定是在等待某个条件的发生，来把自己唤醒。其次，SynchronousQueue 并不是一个队列，只是线程之间移交信息的机制，当我们把一个元素放入到 SynchronousQueue 中时必须有另一个线程正在等待接受移交的任务，因此这就是本线程在等待的条件。
 

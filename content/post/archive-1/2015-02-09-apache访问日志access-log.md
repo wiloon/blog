@@ -16,7 +16,7 @@ http://blog.csdn.net/zhuying_linux/article/details/6773912
   
 Apache内建了记录服务器活动的功能，这就是它的日志功能。这个《Apache日志》系列文章介绍的就是Apache的访问日志、错误日志，以及如何分析日志数据，如何定制Apache日志，如何从日志数据生成统计报表等内容。
   
-如果Apache的安装方式是默认安装，服务器一运行就会有两个日志文件生成。这两个文件是access\_log（在Windows上是access.log）和error\_log（在Windows上是error.log）。采用默认安装方式时，这些文件可以在/usr/local/apache/logs下找到；对于Windows系统，这些日志文件将保存在Apache安装目录的logs子目录。不同的包管理器会把日志文件放到各种不同的位置，所以你可能需要找找其他的地方，或者通过配置文件查看这些日志文件配置到了什么地方。
+如果Apache的安装方式是默认安装，服务器一运行就会有两个日志文件生成。这两个文件是access_log（在Windows上是access.log）和error_log（在Windows上是error.log）。采用默认安装方式时，这些文件可以在/usr/local/apache/logs下找到；对于Windows系统，这些日志文件将保存在Apache安装目录的logs子目录。不同的包管理器会把日志文件放到各种不同的位置，所以你可能需要找找其他的地方，或者通过配置文件查看这些日志文件配置到了什么地方。
   
 正如其名字所示，访问日志access_log记录了所有对Web服务器的访问活动。下面是访问日志中一个典型的记录：
   
@@ -184,7 +184,7 @@ Syslog设备依据两个重要的文件：/etc/syslogd（守护进程）和/etc/
   
 LOG_AUTH-认证系统：login、su、getty等
   
-LOG\_AUTHPRIV-同LOG\_AUTH，但只登录到所选择的单个用户可读的文件中
+LOG_AUTHPRIV-同LOG_AUTH，但只登录到所选择的单个用户可读的文件中
   
 LOG_CRON-cron守护进程
   
@@ -206,7 +206,7 @@ LOG_USER-随机用户进程产生的消息
   
 LOG_UUCP-UUCP子系统
   
-LOG\_LOCAL0~LOG\_LOCAL7-为本地使用保留
+LOG_LOCAL0~LOG_LOCAL7-为本地使用保留
   
 Syslog为每个事件赋予几个不同的优先级：
   
@@ -278,4 +278,4 @@ alert消息应该写到root和tiger的个人账号中：
   
 五、程序日志
   
-许多程序通过维护日志来反映系统的安全状态。su命令允许用户获得另一个用户的权限，所以它的安全很重要，它的文件为sulog。同样的还有sudolog。另外，想Apache有两个日志：access\_log和error\_log。
+许多程序通过维护日志来反映系统的安全状态。su命令允许用户获得另一个用户的权限，所以它的安全很重要，它的文件为sulog。同样的还有sudolog。另外，想Apache有两个日志：access_log和error_log。

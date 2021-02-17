@@ -81,4 +81,4 @@ pacman -S yaourt
 yaourt用起来很简单，而且类似于Pacman的命令，下面是常用的一些命令：  
 yaourt -S package_name – 从AUR安装软件包
 
-https://linux.cn/article-9925-1.html?utm\_source=rss&utm\_medium=rss
+https://linux.cn/article-9925-1.html?utm_source=rss&utm_medium=rss

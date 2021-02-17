@@ -54,7 +54,7 @@ System.out.print("Enter keyword (e.g. volatile): ");
           
 String keyword = in.nextLine();
           
-final int FILE\_QUEUE\_SIZE = 10;// 阻塞队列大小
+final int FILE_QUEUE_SIZE = 10;// 阻塞队列大小
           
 final int SEARCH_THREADS = 100;// 关键字搜索线程个数
           
@@ -62,7 +62,7 @@ final int SEARCH_THREADS = 100;// 关键字搜索线程个数
           
 BlockingQueue<File> queue = new ArrayBlockingQueue<File>(
                   
-FILE\_QUEUE\_SIZE);
+FILE_QUEUE_SIZE);
           
 //只启动一个线程来搜索目录
           

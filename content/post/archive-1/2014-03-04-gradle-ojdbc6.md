@@ -40,6 +40,6 @@ url 'file:///D:/dev/mavenRepo/'
   
 ```
 
-http://forums.gradle.org/gradle/topics/access\_a\_oracle\_db\_runs\_no\_more\_with\_gradle\_1\_0\_rc\_3
+http://forums.gradle.org/gradle/topics/access_a_oracle_db_runs_no_more_with_gradle_1_0_rc_3
 
 http://blog.csdn.net/howdy_world/article/details/25650281

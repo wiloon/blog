@@ -12,5 +12,5 @@ categories:
 
 apt-get install automake
 
-error: possibly undefined macro: AC\_PROG\_LIBTOOL
+error: possibly undefined macro: AC_PROG_LIBTOOL
 

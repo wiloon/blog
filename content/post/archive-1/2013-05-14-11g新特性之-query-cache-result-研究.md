@@ -58,7 +58,7 @@ result_cache_remote_expiration          INTEGER     0
 
 几个重要的参数：
 
-**result\_cache\_mode**
+**result_cache_mode**
   
 该参数是最为重要的，其属性有manual和force 两种。
   
@@ -89,11 +89,11 @@ NO_RESULT_CACHE                          11.1.0.6
 
 当设置为force时，oracle 优化就能自动识别了，不需要使用hint，相反，如果当设置为force时，同时
   
-你又不想某个sql或应用使用该特性，那么可以使用NO\_RESUIT\_CACHE  hint来进行避规。
+你又不想某个sql或应用使用该特性，那么可以使用NO_RESUIT_CACHE  hint来进行避规。
   
 至于说，当启动该特性时，oracle是如何来实现的？这个问题需要进一步研究。
   
-**result\_cache\_max_size **
+**result_cache_max_size **
   
 该参数控制着使用该特性的内存大小，当该参数设置为0，那么也就意味着关闭了该特性。
   
@@ -103,23 +103,23 @@ NO_RESULT_CACHE                          11.1.0.6
   
 0.5% of SGA_TARGET or
   
-1% of SHARED\_POOL\_SIZE
+1% of SHARED_POOL_SIZE
   
 上面的关系应该是一目了然了，如何解释？我暂且不说，给大家留个问题。
   
-**result\_cache\_max_result**
+**result_cache_max_result**
   
 该参数是控制单个result所能占据query cache的大小比例，注意是一个百分比。
   
 该参数默认是是5%，取值范围当然是1% ~ 100% 了。
   
-**result\_cache\_remote_expiration**
+**result_cache_remote_expiration**
   
 该参数的作用是根据远程数据库对象设置缓存过期的时间，默认值为0.
   
 也就是说，默认情况下，远程数据库对象不会被进行cache的。
 
-**\_result\_cache_global**
+**_result_cache_global**
   
 顾名思义，该参数肯定是针对Rac集群而设计的，这样可以大大的降低经典的gc等待。
   

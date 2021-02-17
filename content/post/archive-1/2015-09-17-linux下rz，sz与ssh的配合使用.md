@@ -82,7 +82,7 @@ A、从windows中拷贝/下载文件到Linux（开发板）：
 
 B、将Linux中的文件拷贝到Windows中某个文件夹：
 
-执行sz file\_name 就可以将Linux当前文件夹下的文件file\_name拷贝到Windows的对应目录中了，其中，Windows目录是由你当前运行的工具中设定的。
+执行sz file_name 就可以将Linux当前文件夹下的文件file_name拷贝到Windows的对应目录中了，其中，Windows目录是由你当前运行的工具中设定的。
 
 此处我用的是SecureCRT，具体的更改 rz上传/sz下载 的默认的路径的方法：
 

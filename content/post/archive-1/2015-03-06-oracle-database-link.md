@@ -124,7 +124,7 @@ sql>select * from 表名@ora9i.us.oracle.com;
 
 查看所有的数据库链接，进入系统管理员SQL>操作符下，运行命令：
 
-SQL>select owner,object\_name from dba\_objects where object_type='DATABASE LINK';
+SQL>select owner,object_name from dba_objects where object_type='DATABASE LINK';
 
 <span style="font-family: Verdana;">http://hi.baidu.com/mataoxf/blog/item/86e2be51db2a538e8d54306a.html
 

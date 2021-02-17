@@ -94,17 +94,17 @@ view plaincopy
   
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   
-android:layout\_width="fill\_parent"
+android:layout_width="fill_parent"
   
-android:layout\_height="fill\_parent"
+android:layout_height="fill_parent"
   
 android:orientation="vertical" >
 
 <TextView
   
-android:layout\_width="fill\_parent"
+android:layout_width="fill_parent"
   
-android:layout\_height="wrap\_content"
+android:layout_height="wrap_content"
   
 android:text="@string/hello" />
 
@@ -112,9 +112,9 @@ android:text="@string/hello" />
   
 android:id="@+id/button1"
   
-android:layout\_width="wrap\_content"
+android:layout_width="wrap_content"
   
-android:layout\_height="wrap\_content"
+android:layout_height="wrap_content"
   
 android:text="Button1" />
 
@@ -122,9 +122,9 @@ android:text="Button1" />
   
 android:id="@+id/button2"
   
-android:layout\_width="wrap\_content"
+android:layout_width="wrap_content"
   
-android:layout\_height="wrap\_content"
+android:layout_height="wrap_content"
   
 android:text="Button2" />
 
@@ -132,9 +132,9 @@ android:text="Button2" />
   
 android:id="@+id/button3"
   
-android:layout\_width="wrap\_content"
+android:layout_width="wrap_content"
   
-android:layout\_height="wrap\_content"
+android:layout_height="wrap_content"
   
 android:text="Button3"
   
@@ -144,9 +144,9 @@ android:onClick="Btn3OnClick"/>
   
 android:id="@+id/editText1"
   
-android:layout\_width="match\_parent"
+android:layout_width="match_parent"
   
-android:layout\_height="wrap\_content" >
+android:layout_height="wrap_content" >
 
 <requestFocus />
   

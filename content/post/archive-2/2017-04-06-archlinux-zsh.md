@@ -52,7 +52,7 @@ export SAVEHIST=10000
 
 ### theme, random 模式使用theme列表
 
-使用random模式时经常会随机到系统不支持的主题， 使用ZSH\_THEME\_RANDOM_CANDIDATES 配置， 可以把随机主题控制在一定范围内。
+使用random模式时经常会随机到系统不支持的主题， 使用ZSH_THEME_RANDOM_CANDIDATES 配置， 可以把随机主题控制在一定范围内。
 
 ```bash
 zSH_THEME_RANDOM_CANDIDATES=(

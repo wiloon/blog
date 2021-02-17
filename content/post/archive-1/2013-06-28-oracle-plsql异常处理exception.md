@@ -81,19 +81,19 @@ EXCEPTION
 WHEN exception_name THEN
 
 
-Sequence\_of\_statements1;
+Sequence_of_statements1;
 
 
 WHEN exception_name THEN
 
 
-Sequence\_of\_statements2;
+Sequence_of_statements2;
 
 
 [WHEN OTHERS THEN
 
 
-Sequence\_of\_statements3;]
+Sequence_of_statements3;]
 
 
 END;
@@ -140,10 +140,10 @@ v_Author3 books.author3%TYPE;
 - Code and text of other runtime errors
 
 
-v\_ErrorCode log\_table.code%TYPE;
+v_ErrorCode log_table.code%TYPE;
 
 
-v\_ErrorText log\_table.message%TYPE;
+v_ErrorText log_table.message%TYPE;
 
 
 BEGIN
@@ -155,7 +155,7 @@ BEGIN
 SELECT author1, author2, author3
 
 
-INTO v\_Author1, v\_Author2, v_Author3
+INTO v_Author1, v_Author2, v_Author3
 
 
 FROM books
@@ -167,10 +167,10 @@ WHERE title = 'Oracle9i DBA 101';
 /\* Ensure that there are no duplicates \*/
 
 
-IF (v\_Author1 = v\_Author2) OR (v\_Author1 = v\_Author3) OR
+IF (v_Author1 = v_Author2) OR (v_Author1 = v_Author3) OR
 
 
-(v\_Author2 = v\_Author3) THEN
+(v_Author2 = v_Author3) THEN
 
 
 RAISE e_DuplicateAuthors;
@@ -218,7 +218,7 @@ v_ErrorText := SUBSTR(SQLERRM, 1, 200);
 INSERT INTO log_table (code, message, info) VALUES
 
 
-(v\_ErrorCode, v\_ErrorText, 'Oracle error occurred');
+(v_ErrorCode, v_ErrorText, 'Oracle error occurred');
 
 
 END;
@@ -248,22 +248,22 @@ set serveroutput on
 BEGIN
 
 
-DBMS\_OUTPUT.PUT\_LINE('SQLERRM(0): ' || SQLERRM(0));
+DBMS_OUTPUT.PUT_LINE('SQLERRM(0): ' || SQLERRM(0));
 
 
-DBMS\_OUTPUT.PUT\_LINE('SQLERRM(100): ' || SQLERRM(100));
+DBMS_OUTPUT.PUT_LINE('SQLERRM(100): ' || SQLERRM(100));
 
 
-DBMS\_OUTPUT.PUT\_LINE('SQLERRM(10): ' || SQLERRM(10));
+DBMS_OUTPUT.PUT_LINE('SQLERRM(10): ' || SQLERRM(10));
 
 
-DBMS\_OUTPUT.PUT\_LINE('SQLERRM: ' || SQLERRM);
+DBMS_OUTPUT.PUT_LINE('SQLERRM: ' || SQLERRM);
 
 
-DBMS\_OUTPUT.PUT\_LINE('SQLERRM(-1): ' || SQLERRM(-1));
+DBMS_OUTPUT.PUT_LINE('SQLERRM(-1): ' || SQLERRM(-1));
 
 
-DBMS\_OUTPUT.PUT\_LINE('SQLERRM(-54): ' || SQLERRM(-54));
+DBMS_OUTPUT.PUT_LINE('SQLERRM(-54): ' || SQLERRM(-54));
 
 
 END;
@@ -304,10 +304,10 @@ EXCEPTION_INIT pragma
 你可以将一个经过命名的异常和一个特别的ORACLE错误相关联。这会使你专门能够捕获此错误，而不是通过WHEN OTHERS处理器来进行捕获。EXCEPTION_INIT pragma的语法如下：
 
 
-PRAGMA EXCEPTION\_INIT(exception\_name,Oracle\_error\_number);
+PRAGMA EXCEPTION_INIT(exception_name,Oracle_error_number);
 
 
-这里，exception\_name是在PRAGMA前面声明的异常的名字，而Oracle\_error_number是与此命名异常相关的所需错误代码。这个PRAGMA必须在声明部分。
+这里，exception_name是在PRAGMA前面声明的异常的名字，而Oracle_error_number是与此命名异常相关的所需错误代码。这个PRAGMA必须在声明部分。
 
 
 下面这个例子在运行时刻如果遇到"ORA-1400:mandatory NOT NULL column missing or NULL during insert"错误时将引发e_MissingNull-用户定义的异常。
@@ -321,7 +321,7 @@ DECLARE
 e_MissingNull EXCEPTION;
 
 
-PRAGMA EXCEPTION\_INIT(e\_MissingNull, -1400);
+PRAGMA EXCEPTION_INIT(e_MissingNull, -1400);
 
 
 BEGIN
@@ -346,15 +346,15 @@ END;
 
 每次发生PRAGMA EXCEPTION_INIT时，一个Oracle错误只能和一个用户自定义异常相关联。在异常处理内部，SQLCODE和SQLERRM将会返回发生Oracle错误的代码和错误消息，但是不会返回用户定义的消息。
 
-使用RAISE\_APPLICATION\_ERROR
+使用RAISE_APPLICATION_ERROR
 
-你可以使用内置函数RAISE\_APPLICATION\_ERROR以创建自己的错误消息，这可能要比已命名的异常更具说明性。用户定义消息从块中传递到调用环境中的方式和ORACLE错误是一样的。语法如下：
-
-
-RAISE\_APPLICATION\_ERROR(error\_number,error\_message,[keep_errors]);
+你可以使用内置函数RAISE_APPLICATION_ERROR以创建自己的错误消息，这可能要比已命名的异常更具说明性。用户定义消息从块中传递到调用环境中的方式和ORACLE错误是一样的。语法如下：
 
 
-error\_number是从-200000到-20999之间的参数，error\_message是与此错误相关的正文，不能多于512个字节。而keep_errors是一个布尔值，是可选的，如果为TRUE，那么新的错误将被添加到已经引发的错误列表中（如果有的话）。如果为FALSE（这是缺省的设置），那么新的错误将替换错误的当前列表。
+RAISE_APPLICATION_ERROR(error_number,error_message,[keep_errors]);
+
+
+error_number是从-200000到-20999之间的参数，error_message是与此错误相关的正文，不能多于512个字节。而keep_errors是一个布尔值，是可选的，如果为TRUE，那么新的错误将被添加到已经引发的错误列表中（如果有的话）。如果为FALSE（这是缺省的设置），那么新的错误将替换错误的当前列表。
 
 
 例如下面的这个例子将在为一个新的学生注册以前检查是否在班级中有足够的地方容纳他。
@@ -368,7 +368,7 @@ CREATE OR REPLACE PROCEDURE Register (
 /* Registers the student identified by the p_StudentID parameter in the class
 
 
-identified by the p\_Department and p\_Course parameters. Before calling
+identified by the p_Department and p_Course parameters. Before calling
 
 
 ClassPackage.AddStudent, which actually adds the student to the class, this
@@ -404,10 +404,10 @@ BEGIN
 number of students allowed to register. */
 
 
-SELECT current\_students, max\_students
+SELECT current_students, max_students
 
 
-INTO v\_CurrentStudents, v\_MaxStudents
+INTO v_CurrentStudents, v_MaxStudents
 
 
 FROM classes
@@ -422,13 +422,13 @@ AND department = p_Department;
 /\* Make sure there is enough room for this additional student. \*/
 
 
-IF v\_CurrentStudents + 1 > v\_MaxStudents THEN
+IF v_CurrentStudents + 1 > v_MaxStudents THEN
 
 
-RAISE\_APPLICATION\_ERROR(-20000, 'Can"t add more students to ' ||
+RAISE_APPLICATION_ERROR(-20000, 'Can"t add more students to ' ||
 
 
-p\_Department || ' ' || p\_Course);
+p_Department || ' ' || p_Course);
 
 
 END IF;
@@ -437,13 +437,13 @@ END IF;
 /\* Add the student to the class. \*/
 
 
-ClassPackage.AddStudent(p\_StudentID, p\_Department, p_Course);
+ClassPackage.AddStudent(p_StudentID, p_Department, p_Course);
 
 
 EXCEPTION
 
 
-WHEN NO\_DATA\_FOUND THEN
+WHEN NO_DATA_FOUND THEN
 
 
 /* Class information passed to this procedure doesn't exist. Raise an error
@@ -452,7 +452,7 @@ WHEN NO\_DATA\_FOUND THEN
 to let the calling program know of this. */
 
 
-RAISE\_APPLICATION\_ERROR(-20001, p\_Department || ' ' || p\_Course ||
+RAISE_APPLICATION_ERROR(-20001, p_Department || ' ' || p_Course ||
 
 
 ' doesn"t exist!');
@@ -538,7 +538,7 @@ END;
 
 /
 
-一般而言，如果打算将用户自定义的错误传播到代码块之外，最好的方法就是在包中定义该异常，以使其在该代码块之外仍可见，或使用RAISE\_APPLICATION\_ERROR引发该异常。如果创建一个成为GLOBALS的包，并在其中定义了一个e_UserDefinedException异常，那么这个异常在外部块中仍然可见。
+一般而言，如果打算将用户自定义的错误传播到代码块之外，最好的方法就是在包中定义该异常，以使其在该代码块之外仍可见，或使用RAISE_APPLICATION_ERROR引发该异常。如果创建一个成为GLOBALS的包，并在其中定义了一个e_UserDefinedException异常，那么这个异常在外部块中仍然可见。
 
 
 如下例所示
@@ -654,7 +654,7 @@ INSERT INTO log_table(code,message,info)
 VALUES
 
 
-(v\_errornumber,v\_errortext,'Oracle error occurred at'||TO_CHAR(SYSDATE,'DD-MON-YY HH24:MI:SS'));
+(v_errornumber,v_errortext,'Oracle error occurred at'||TO_CHAR(SYSDATE,'DD-MON-YY HH24:MI:SS'));
 
 
 END;
@@ -681,7 +681,7 @@ SELECT…
 EXCEPTION
 
 
-WHEN NO\_DATA\_FOUND THEN
+WHEN NO_DATA_FOUND THEN
 
 
 -which select statement raised the exception?
@@ -720,10 +720,10 @@ SELECT…
 EXCEPTION
 
 
-WHEN NO\_DATA\_FOUND THEN
+WHEN NO_DATA_FOUND THEN
 
 
-INSERT INTO log\_table(info) VALUES('NO DATA FOUND IN SELECT'||v\_selectcounter);
+INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT'||v_selectcounter);
 
 
 END;
@@ -744,7 +744,7 @@ SELECT…
 EXCEPTION
 
 
-WHEN NO\_DATA\_FOUND THEN
+WHEN NO_DATA_FOUND THEN
 
 
 INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT 1');
@@ -762,7 +762,7 @@ SELECT…
 EXCEPTION
 
 
-WHEN NO\_DATA\_FOUND THEN
+WHEN NO_DATA_FOUND THEN
 
 
 INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT 2');
@@ -780,7 +780,7 @@ SELECT…
 EXCEPTION
 
 
-WHEN NO\_DATA\_FOUND THEN
+WHEN NO_DATA_FOUND THEN
 
 
 INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT 3');
@@ -794,10 +794,10 @@ END;
 7、异常代码的编写风格
 
 
-1）RAISE\_APPLICATION\_ERROR和RAISE的比较
+1）RAISE_APPLICATION_ERROR和RAISE的比较
 
 
-RAISE\_APPLICATION\_ERROR
+RAISE_APPLICATION_ERROR
 
 RAISE
 
@@ -810,7 +810,7 @@ RAISE
 可以使用已命名的处理子程序捕获该异常，只要该异常在它自己的异常范围内即可
 
 
-通常而言，推荐对设计给终端用户看的错误，使用RAISE\_APPLICATION\_ERROR。因为对于他们而言，具体的错误编号和描述性文本非常有用。而另一方面，对设计为由程序直接进行处理的异常，推荐使用RAISE。
+通常而言，推荐对设计给终端用户看的错误，使用RAISE_APPLICATION_ERROR。因为对于他们而言，具体的错误编号和描述性文本非常有用。而另一方面，对设计为由程序直接进行处理的异常，推荐使用RAISE。
 
 
 2）将异常作为控制语句

@@ -39,4 +39,4 @@ https://wiki.archlinux.org/index.php/Yaourt_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%8
 
 http://forum.antergos.com/topic/450/psa-chrome-chromium-npapi-deprecation-april-2014/3
 
-https://wiki.archlinux.org/index.php/Chromium#Flash\_Player\_plugin
+https://wiki.archlinux.org/index.php/Chromium#Flash_Player_plugin

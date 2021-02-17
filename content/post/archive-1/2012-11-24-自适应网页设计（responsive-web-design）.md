@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-[http://www.ruanyifeng.com/blog/2012/05/responsive\_web\_design.html][1]
+[http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html][1]
 
 作者： [阮一峰][2]
 

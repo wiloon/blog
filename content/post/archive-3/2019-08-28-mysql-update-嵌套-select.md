@@ -18,13 +18,13 @@ UPDATE A a SET a.val = 2
   
 WHERE a.id IN ( SELECT a.id FROM A
                   
-LEFT JOIN B ON b.key\_id = a.key\_id
+LEFT JOIN B ON b.key_id = a.key_id
                   
 WHERE b.satisfy = 1)
   
 解决思路 1： 使用 INNER JOIN (最简洁)
 
-UPDATE A a INNER JOIN B b ON b.key\_id = a.key\_id
+UPDATE A a INNER JOIN B b ON b.key_id = a.key_id
   
 SET a.val = 2 WHERE b.satisfy = 1
   
@@ -32,7 +32,7 @@ SET a.val = 2 WHERE b.satisfy = 1
 
 UPDATE A a, (SELECT A.id from A
                
-LEFT JOIN B ON B.key\_id= A.key\_id
+LEFT JOIN B ON B.key_id= A.key_id
                
 WHERE B.satisfy = 1) b
   

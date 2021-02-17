@@ -17,7 +17,7 @@ Emacs平台很强大，已经不只是一个编辑器这么简单了，它被移
 因为，按Windows7系统本身的HOME目录配置的话，C:Users<username>AppDataRoaming 这个HOME目录太深了，而且默认状态下AppData目录是隐藏的，最最关键的是：如果系统盘一旦出问题，之前的.emacs配置文件和.el的扩展都得重新配置和下载。
 
 
-还有另外两咱方法，更改HOME目录：一是添加HOME系统环境变量，这个有个很大的弊端，如果系统里同时还安装有java sdk、Cygwin等，那就可想而知了，这些软件"找不到北的"；二是添加 HKEY\_LOCAL\_MACHINESOFTWAREGNUEmacsHOME=%emacs_dir% 注册表项，好是好，你得重启系统啊。。。
+还有另外两咱方法，更改HOME目录：一是添加HOME系统环境变量，这个有个很大的弊端，如果系统里同时还安装有java sdk、Cygwin等，那就可想而知了，这些软件"找不到北的"；二是添加 HKEY_LOCAL_MACHINESOFTWAREGNUEmacsHOME=%emacs_dir% 注册表项，好是好，你得重启系统啊。。。
 
 
 本文给大家介绍一个个人认为最佳的方式：
