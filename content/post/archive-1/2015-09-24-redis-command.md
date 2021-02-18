@@ -17,7 +17,7 @@ download redis rpm from https://pkgs.org/download/redis
   
 下载Redis的依赖包：libjemalloc
 
-下载地址：https://pkgs.org/centos-6/atomic-x86\_64/jemalloc-3.6.0-1.el6.art.x86\_64.rpm.html
+下载地址：https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html
 
 ```bash
 rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm

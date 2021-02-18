@@ -283,15 +283,15 @@ exp [user]/[passwd]@[servername] file=文件路径 log=日志路径
 
 1. oracle用户查看自己的权限和角色
   
-select * from user\_tab\_privs;
+select * from user_tab_privs;
   
-select * from user\_role\_privs;
+select * from user_role_privs;
 
 2. sys用户查看任一用户的权限和角色
   
-select * from dba\_tab\_privs;
+select * from dba_tab_privs;
   
-select * from dba\_role\_privs;
+select * from dba_role_privs;
 
 
 Oracle怎样进行远程备份

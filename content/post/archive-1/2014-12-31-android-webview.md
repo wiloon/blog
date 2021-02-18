@@ -20,9 +20,9 @@ A.       webview组件如何使用
 
 android:id="@+id/wv"
 
-android:layout\_width="fill\_parent"
+android:layout_width="fill_parent"
 
-android:layout\_height="fill\_parent"
+android:layout_height="fill_parent"
 
 android:text="@string/hello"
 
@@ -40,7 +40,7 @@ requestFocus();
   
 取消滚动条
   
-this.setScrollBarStyle(SCROLLBARS\_OUTSIDE\_OVERLAY);
+this.setScrollBarStyle(SCROLLBARS_OUTSIDE_OVERLAY);
   
 4)             设置WevView要显示的网页：
   

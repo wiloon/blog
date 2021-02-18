@@ -26,7 +26,7 @@ linux mkfs
   
 使用权限 : 超级使用者
   
-使用方式 : mkfs \[-V\] \[-t fstype\] \[fs-options] filesys [blocks\] \[-L Lable\]
+使用方式 : mkfs [-V] [-t fstype] [fs-options] filesys [blocks] [-L Lable]
   
 说明 ： 建立 linux 档案系统在特定的 partition 上
   
@@ -40,7 +40,7 @@ device ： 预备检查的硬盘 partition，例如：/dev/sda1
   
 -c : 在制做档案系统前，检查该partition 是否有坏轨
   
--l bad\_blocks\_file : 将有坏轨的block资料加到 bad\_blocks\_file 里面
+-l bad_blocks_file : 将有坏轨的block资料加到 bad_blocks_file 里面
   
 block : 给定 block 的大小
   

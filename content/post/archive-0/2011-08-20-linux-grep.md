@@ -21,6 +21,7 @@ grep "foo\|bar" foo.txt
 
 # -r: 搜索子目录
 # -l: 查询多文件时只输出包含匹配字符的文件名.
+# -w pattern files ：只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')，
 
 # 统计某个字符串出现的次数
 grep -o objStr  filename|wc -l
@@ -438,7 +439,7 @@ case "$1" in
       
 > > if [ $startnfsd -ne 0 ]; then
       
-> > elif [ ! -n "$\_INIT\_RUN_LEVEL" ]; then
+> > elif [ ! -n "$_INIT_RUN_LEVEL" ]; then
       
 > > while [ $wtime -gt 0 ]; do
       
@@ -484,7 +485,7 @@ the test file
 
 1,简介
   
-使用正则表达式的一个多用途文本搜索工具.这个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t\_tag">命令本来是ed行编辑器中的一个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t\_tag">命令/过滤器:
+使用正则表达式的一个多用途文本搜索工具.这个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">命令本来是ed行编辑器中的一个php?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">命令/过滤器:
   
 g/re/p — global – regular expression – print.
   
@@ -564,21 +565,21 @@ grep -E '219|216' data.doc
   
 可以使用国际模式匹配的类名：
   
-\[[:upper:]\] \[A-Z\]
+[[:upper:]] [A-Z]
   
-\[[:lower:]\] \[a-z\]
+[[:lower:]] [a-z]
   
-\[[:digit:]\] \[0-9\]
+[[:digit:]] [0-9]
   
-\[[:alnum:]\] \[0-9a-zA-Z\]
+[[:alnum:]] [0-9a-zA-Z]
   
 [[:space:]] 空格或tab
   
-\[[:alpha:]\] \[a-zA-Z\]
+[[:alpha:]] [a-zA-Z]
 
 (1)使用
   
-grep '5\[[:upper:]\]\[[:upper:\]]' data.doc #查询以5开头以两个大写字母结尾的行
+grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母结尾的行
 
 <ol start="5">
   <li>

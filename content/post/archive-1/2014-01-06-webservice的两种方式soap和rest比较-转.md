@@ -196,15 +196,15 @@ YouTube：
   
 <user_profile>
   
-<first\_name>YouTube</first\_name>
+<first_name>YouTube</first_name>
   
-<last\_name>User</last\_name>
+<last_name>User</last_name>
   
-<about\_me>YouTube rocks!!</about\_me>
+<about_me>YouTube rocks!!</about_me>
   
 <age>30</age>
   
-<video\_upload\_count>7</video\_upload\_count>
+<video_upload_count>7</video_upload_count>
   
 </user_profile>
   

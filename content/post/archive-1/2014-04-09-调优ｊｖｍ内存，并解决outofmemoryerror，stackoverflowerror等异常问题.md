@@ -126,7 +126,7 @@ Specifies the maximum amount of memory in bytes that the Java™ NIO library can
 
 http://arthur503.github.io/blog/2013/10/10/Java-OutOfMemoryError-and-StackOverflowError.html
 
-http://java.sun.com/javase/technologies/hotspot/gc/gc\_tuning\_6.html#par_gc.oom
+http://java.sun.com/javase/technologies/hotspot/gc/gc_tuning_6.html#par_gc.oom
 
 http://java.sun.com/docs/books/jvms/second_edition/html/Overview.doc.html
 

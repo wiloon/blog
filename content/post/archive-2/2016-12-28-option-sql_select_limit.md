@@ -10,9 +10,9 @@ categories:
 ---
 http://lucifer119.blog.51cto.com/2914308/1344253
 
-You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OPTION SQL\_SELECT\_LIMIT=DEFAULT' at line 1
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OPTION SQL_SELECT_LIMIT=DEFAULT' at line 1
 
-You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OPTION SQL\_SELECT\_LIMIT=DEFAULT' at line 1
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OPTION SQL_SELECT_LIMIT=DEFAULT' at line 1
 
 原因：
 
@@ -22,7 +22,7 @@ mysql-connector-java-5.1.15.jar
 
 mysql数据库版本为5.6
 
-jdbc在连接数据库时候会发送测试语句SET OPTION SQL\_SELECT\_LIMIT=DEFAULT
+jdbc在连接数据库时候会发送测试语句SET OPTION SQL_SELECT_LIMIT=DEFAULT
 
 这在mysql5.6以下版本是可以的 ，但是5.6不再支持SET...
   

@@ -24,23 +24,23 @@ select userenv('language') from dual;
 
 在我们的客户端需要和服务器端的编码保持一致。
 
-因此在客户端，需要设置环境变量： NLS\_LANG = AMERICAN\_AMERICA.US7ASCII 即可。
+因此在客户端，需要设置环境变量： NLS_LANG = AMERICAN_AMERICA.US7ASCII 即可。
 
 以上是默认编码
 
 GBK如下：
 
-在windows中创建一个名为"NLS\_LANG"的系统环境变量，设置其值为"SIMPLIFIED CHINESE\_CHINA.ZHS16GBK"，然后重新启动 pl/sql developer，这样检索出来的中文内容就不会是乱码了。
+在windows中创建一个名为"NLS_LANG"的系统环境变量，设置其值为"SIMPLIFIED CHINESE_CHINA.ZHS16GBK"，然后重新启动 pl/sql developer，这样检索出来的中文内容就不会是乱码了。
 
 UTF-8如下：
 
-如果想转换为UTF8字符集，可以赋予"NLS\_LANG"为 "AMERICAN\_AMERICA.UTF8"，然后重新启动 pl/sql developer。
+如果想转换为UTF8字符集，可以赋予"NLS_LANG"为 "AMERICAN_AMERICA.UTF8"，然后重新启动 pl/sql developer。
 
 其它字符集设置同上。
   
 NLS_LANG格式：
   
-NLS\_LANG = language\_territory.charset
+NLS_LANG = language_territory.charset
   
 有三个组成部分（语言、地域和字符集），每个成分控制了NLS子集的特性。其中：language 指定服务器消息的语言。territory 指定服务器的日期和数字格式。charset 指定字符集。
 
@@ -48,9 +48,9 @@ NLS\_LANG = language\_territory.charset
 
 如何设置客户端字符集与服务器端字符集一致:
 
-运行REGEDIT,第一步选HKEY\_LOCAL\_MACHINE,第二步选择SOFTWARE，第三步选择 Oracle，第四步选择NLS_LANG，键入与服务器端相同的字符集。
+运行REGEDIT,第一步选HKEY_LOCAL_MACHINE,第二步选择SOFTWARE，第三步选择 Oracle，第四步选择NLS_LANG，键入与服务器端相同的字符集。
 
-例如:AMERICAN\_AMERICA.UTF8或者SIMPLIFIED CHINESE\_CHINA.ZHS16GBK
+例如:AMERICAN_AMERICA.UTF8或者SIMPLIFIED CHINESE_CHINA.ZHS16GBK
 
 oracle 10g装上后,建了个表写入中文数据,发现通过工具PL/SQL Developer中文不能正常显示.
 
@@ -68,7 +68,7 @@ select * from v$nls_parameters;
 
 LANG=zh_CN.GBK
   
-NLS\_LANG="SIMPLIFIED CHINESE\_CHINA.ZHS16GBK"
+NLS_LANG="SIMPLIFIED CHINESE_CHINA.ZHS16GBK"
 
 2.设置本地客户端编码:
 
@@ -76,7 +76,7 @@ NLS\_LANG="SIMPLIFIED CHINESE\_CHINA.ZHS16GBK"
 
 LANG=zh_CN.GBK
   
-NLS\_LANG="SIMPLIFIED CHINESE\_CHINA.ZHS16GBK"
+NLS_LANG="SIMPLIFIED CHINESE_CHINA.ZHS16GBK"
 
 如图:
   

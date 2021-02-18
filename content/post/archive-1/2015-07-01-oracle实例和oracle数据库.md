@@ -87,9 +87,9 @@ PGA包含单个服务器进程或单个后台进程的数据和控制信息,与�
 
 系统全局区是动态的，由参数SGA＿MAX＿SIZE决定。
 
-查看当前系统的SGA大小：show parameter sga\_max\_size;
+查看当前系统的SGA大小：show parameter sga_max_size;
 
-要修改：alter system set sga\_max\_size=1200m scope=spfile;
+要修改：alter system set sga_max_size=1200m scope=spfile;
 
 因为实例内存的分配是在数据库启动时进行的，所以要让修改生效，要重启数据库。
 
@@ -103,11 +103,11 @@ sga_target设为。
 
 数据缓冲区(Database buffer cache):存储从数据文件中获得的数据块的镜像
 
-大小由db\_cache\_size 决定
+大小由db_cache_size 决定
 
-查看：show parameter db\_cache\_size;
+查看：show parameter db_cache_size;
 
-设置：alter system set db\_cache\_size=800M;
+设置：alter system set db_cache_size=800M;
 
 
 重做日志缓冲区(Redo log buffer):对数据库的任何修改都按顺序被记录在该缓冲，然后由LGWR进程将
@@ -121,18 +121,18 @@ sga_target设为。
 
 定何时释放共享池中的sql。
 
-库缓存大小由shared\_pool\_size 决定
+库缓存大小由shared_pool_size 决定
 
-查看：show parameter shared\_pool\_size
+查看：show parameter shared_pool_size
 
-修改：alter system set shared\_pool\_size=120m;
+修改：alter system set shared_pool_size=120m;
 
 
 数据字典缓存：
 
 存储数据库中数据文件、表、索引、列、用户和其它数据对象的定义和权限信息
 
-大小由shared\_pool\_size 决定，不能单独指定
+大小由shared_pool_size 决定，不能单独指定
 
 
 大池(Large pool):是一个可选的区域，用于一些大型的进程如Oracle的备份恢复操作、IO服务器进程等
@@ -160,7 +160,7 @@ PGA包括了以下几个结构：
 
 （）堆栈区
 
-由参数：pga\_aggregate\_target 决定
+由参数：pga_aggregate_target 决定
 
 
 3.几类进程：用户进程，服务器进程，后台进程，其它可选进程
@@ -236,7 +236,7 @@ DBWn(数据库写进程)
 
 可以修改数据写进程的数量
 
-alter system set db\_writer\_processes=3 scope=spfile;
+alter system set db_writer_processes=3 scope=spfile;
 
 PMON(程序监控进程)
 
@@ -303,7 +303,7 @@ CKPT会更新数据文件/控制文件的头信息
 
 数据库用immediate ，transaction ，normal选项shutdown数据库的时候
 
-根据初始话文件LOG\_CHECKPOINT\_INTERVAL、LOG\_CHECKPOINT\_TIMEOUT、FAST\_START\_IO_TARGET 的设置的数值来确定
+根据初始话文件LOG_CHECKPOINT_INTERVAL、LOG_CHECKPOINT_TIMEOUT、FAST_START_IO_TARGET 的设置的数值来确定
 
 用户触发
 
@@ -392,7 +392,7 @@ initSID.ora或init.ora文件,通常位于：$ORACLE_BASE/admin/<SID>/pfile
 
 告警日志文件：报警日志文件(alert.log或alrt.ora），记录数据库启动，关闭和一些重要的出错信息
 
-查看路径：select value from v$PARAMETER where name ='background\_dump\_dest';
+查看路径：select value from v$PARAMETER where name ='background_dump_dest';
 
 
 7.数据库逻辑组织结构

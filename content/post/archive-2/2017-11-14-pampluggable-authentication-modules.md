@@ -24,7 +24,7 @@ Linux中pam_cracklib.so的minlen和credit参数 11 June 2014
   
 Linux中的PAM(Pluggable Authentication Modules)包含很多有用的模块，其中pam_cracklib.so模块可以配置密码长度复杂度的需求。一般需要同时配置/etc/pam.d/目录中的system-auth和password-auth文件，例如下面
 
-password requisite pam\_cracklib.so try\_first_pass retry=3 type= ocredit=2 minlen=10
+password requisite pam_cracklib.so try_first_pass retry=3 type= ocredit=2 minlen=10
   
 限定密码长度主要涉及minlen参数,以及ucredit lcredit dcredit ocredit这四个credit参数，分别表示大写字符、小写字符、数字、其它字符的额外credit值。
 

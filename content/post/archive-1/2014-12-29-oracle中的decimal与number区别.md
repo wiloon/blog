@@ -157,13 +157,13 @@ Actual Data   Specified As  Stored As
 
 [sql] view plaincopy
   
-SELECT (CASE WHEN tt1.statistics\_date is not null THEN tt1.statistics\_date ELSE tt2.statistics\_date END) AS statistics\_date, NVL(tt1.actuser,0) AS actuser, NVL(tt2.new\_user,0) AS new\_user
+SELECT (CASE WHEN tt1.statistics_date is not null THEN tt1.statistics_date ELSE tt2.statistics_date END) AS statistics_date, NVL(tt1.actuser,0) AS actuser, NVL(tt2.new_user,0) AS new_user
   
 FROM
   
 (
   
-SELECT t.statistics\_date, SUM(t.actuser) AS actuser FROM pdt\_stat\_act\_1133\_i t WHERE t.statistics\_date like '2013-04%' and t.statistics\_month = '2013-04' GROUP BY t.statistics\_date
+SELECT t.statistics_date, SUM(t.actuser) AS actuser FROM pdt_stat_act_1133_i t WHERE t.statistics_date like '2013-04%' and t.statistics_month = '2013-04' GROUP BY t.statistics_date
   
 ) tt1
   
@@ -171,6 +171,6 @@ FULL JOIN
   
 (
   
-SELECT t2.statistics\_date, SUM(t2.new\_user) OVER(ORDER BY t2.statistics\_date) AS new\_user FROM (SELECT statistics\_date AS statistics\_date, SUM(new\_user) AS new\_user FROM pdt\_stat\_newuser\_1133\_i WHERE statistics\_date like '2013-04%' GROUP BY statistics\_date) t2
+SELECT t2.statistics_date, SUM(t2.new_user) OVER(ORDER BY t2.statistics_date) AS new_user FROM (SELECT statistics_date AS statistics_date, SUM(new_user) AS new_user FROM pdt_stat_newuser_1133_i WHERE statistics_date like '2013-04%' GROUP BY statistics_date) t2
   
-) tt2 ON tt1.statistics\_date = tt2.statistics\_date
+) tt2 ON tt1.statistics_date = tt2.statistics_date

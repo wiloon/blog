@@ -44,7 +44,7 @@ alias /www/root/html/new_t/;
   
 }
   
-如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/new\_t/a.html的文件。注意这里是new\_t，因为alias会把location后面配置的路径丢弃掉，把当前匹配到的目录指向到指定的目录。
+如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/new_t/a.html的文件。注意这里是new_t，因为alias会把location后面配置的路径丢弃掉，把当前匹配到的目录指向到指定的目录。
   
 注意：
 

@@ -264,13 +264,13 @@ try {
   
 InitialContext ic = new InitialContext();
   
-//动态装入CATALOG\_DAO\_CLASS
+//动态装入CATALOG_DAO_CLASS
   
-//可以定义自己的CATALOG\_DAO\_CLASS，从而在无需变更太多代码
+//可以定义自己的CATALOG_DAO_CLASS，从而在无需变更太多代码
   
 //的前提下，完成系统的巨大变更。
   
-String className =(String) ic.lookup(JNDINames.CATALOG\_DAO\_CLASS);
+String className =(String) ic.lookup(JNDINames.CATALOG_DAO_CLASS);
   
 catDao = (CatalogDAO) Class.forName(className).newInstance();
   
@@ -300,7 +300,7 @@ return catDao;
   
 ```
 
-CatalogDAOFactory是典型的工厂方法，catDao是通过动态类装入器className获得CatalogDAOFactory具体实现子类，这个实现子类在Java宠物店是用来操作catalog数据库，用户可以根据数据库的类型不同，定制自己的具体实现子类，将自己的子类名给与CATALOG\_DAO\_CLASS变量就可以。
+CatalogDAOFactory是典型的工厂方法，catDao是通过动态类装入器className获得CatalogDAOFactory具体实现子类，这个实现子类在Java宠物店是用来操作catalog数据库，用户可以根据数据库的类型不同，定制自己的具体实现子类，将自己的子类名给与CATALOG_DAO_CLASS变量就可以。
   
 由此可见，工厂方法确实为系统结构提供了非常灵活强大的动态扩展机制，只要我们更换一下具体的工厂方法，系统其他地方无需一点变换，就有可能将系统功能进行改头换面的变化。
 

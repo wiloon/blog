@@ -30,7 +30,7 @@ $visudo //切记，此处没有vi和sudo之间没有空格
   
 3、输入
   
-your\_user\_name ALL=(ALL) ALL
+your_user_name ALL=(ALL) ALL
   
 4、按Esc
   

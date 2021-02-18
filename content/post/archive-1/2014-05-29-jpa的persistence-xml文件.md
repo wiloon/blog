@@ -29,7 +29,7 @@ persistence.xml:
   
 4 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
   
-5 http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd">
+5 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   
 7 <!-必须要有name属性，不能为空 ->
   
@@ -89,7 +89,7 @@ persistence.xml:
   
 36 <!-设置外连接抓取树的最大深度 ->
   
-37 <property name="hibernate.max\_fetch\_depth" value="3" />
+37 <property name="hibernate.max_fetch_depth" value="3" />
   
 38 <!-自动输出schema创建DDL语句 ->
   
@@ -103,7 +103,7 @@ persistence.xml:
   
 复制代码
 
-xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence\_2\_0.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 
 要注意使用的是2.0规范
 
@@ -113,7 +113,7 @@ JPA2.0规范要求每一个持久化单元必须有一个名字，不能为空�
 
 transaction-type
 
-使用的事务类型。有JTA和RESOURCE\_LOCAL两种类型可以选择。在JavaEE环境中默认为JTA,在JavaSE环境中默认为RESOURCE\_LOCAL。当在persistent.xml文件使用<jta-data-source>,默认就是JTA事务，使用<non-jta-data-source>，默认就是使用RESOURCE_LOCAL事务。这两种事务的区别不在这里讨论。
+使用的事务类型。有JTA和RESOURCE_LOCAL两种类型可以选择。在JavaEE环境中默认为JTA,在JavaSE环境中默认为RESOURCE_LOCAL。当在persistent.xml文件使用<jta-data-source>,默认就是JTA事务，使用<non-jta-data-source>，默认就是使用RESOURCE_LOCAL事务。这两种事务的区别不在这里讨论。
 
 provider
 
@@ -137,7 +137,7 @@ class
 
 shared-cache-mode
 
-缓存模式。加了@Cacheable注解的默认为二级缓存。有四种模式：ALL-缓存所有实体；NONE-禁止缓存；ENABLE\_SELECTIVE-如果加了缓存的标识，是默认的选选　　　　　　　　项；DISABLE\_SELECTIVE- enable caching unless explicitly marked as @Cacheable(false) (not recommended)
+缓存模式。加了@Cacheable注解的默认为二级缓存。有四种模式：ALL-缓存所有实体；NONE-禁止缓存；ENABLE_SELECTIVE-如果加了缓存的标识，是默认的选选　　　　　　　　项；DISABLE_SELECTIVE- enable caching unless explicitly marked as @Cacheable(false) (not recommended)
 
 validation-mode
 

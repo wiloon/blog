@@ -146,7 +146,7 @@ Result "sleepAWhile":
     
 (min, avg, max) = (501.256, 502.811, 504.352), stdev = 1.427
     
-CI (99.9%): \[497.316, 508.306\] (assumes normal distribution)
+CI (99.9%): [497.316, 508.306] (assumes normal distribution)
 
 # Run complete. Total time: 00:00:12
 

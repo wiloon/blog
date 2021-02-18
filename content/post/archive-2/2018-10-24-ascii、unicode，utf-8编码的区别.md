@@ -261,7 +261,7 @@ if( ord(substr($str,$i,1)) > 0xa0 )
               
 $i += $len_step - 1;
               
-$substr\_len += $len\_step;
+$substr_len += $len_step;
           
 }else{ //否则，为英文字符，加1个字节
               
@@ -273,7 +273,7 @@ $len_i ++;
       
 }
       
-$result\_str = substr($str,0,$substr\_len );
+$result_str = substr($str,0,$substr_len );
       
 return $result_str;
   
@@ -336,7 +336,7 @@ fmt.Printf("%X", []byte(str)) // EFBFBD，即字符「�」
 
 https://liudanking.com/golang/utf-8_replacement_character/
 
-参考链接1：http://www.ruanyifeng.com/blog/2007/10/ascii\_unicode\_and_utf-8.html
+参考链接1：http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
                       
 https://my.oschina.net/darionyaphet/blog/221124
               
@@ -345,4 +345,4 @@ http://blog.csdn.net/u012223913/article/details/51772610
 参考链接2：http://blog.csdn.net/u012223913/article/details/51772610
 http://www.cnblogs.com/malecrab/p/5300503.html
   
-http://www.ruanyifeng.com/blog/2007/10/ascii\_unicode\_and_utf-8.html
+http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html

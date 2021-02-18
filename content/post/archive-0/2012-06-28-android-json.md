@@ -317,7 +317,7 @@ jsonParser.next(8); //married"
 
 以下是一个标准的JSON请求实现过程：
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
 
@@ -353,7 +353,7 @@ String token = result.get("token");
 
 下面这个是自己修改别人的小例子，主要是加一些注释和讲解，这个例子主要是使用android进行json解析。
 
-\[html\]\[/html\]
+[html][/html]
 
 view plaincopy
 
@@ -371,7 +371,7 @@ view plaincopy
 
 下面的类主要是解析单个数据parseJson（）和多个数据的方法parseJsonMulti（）:
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
 

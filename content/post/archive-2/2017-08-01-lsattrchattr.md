@@ -50,7 +50,7 @@ PS：有时候你发现用root权限都不能修改某个文件，大部分原�
 
 这两个命令是用来查看和改变文件、目录属性的，与chmod这个命令相比，chmod只是改变文件的读写、执行权限，更底层的属性控制是由chattr来改变的。
 
-chattr命令的用法：chattr \[ -RVf \] \[ -v version \] [ mode ] files…
+chattr命令的用法：chattr [ -RVf ] [ -v version ] [ mode ] files…
   
 最关键的是在[mode]部分，[mode]部分是由+-=和[ASacDdIijsTtu]这些字符组合的，这部分是用来控制文件的
   
@@ -79,7 +79,7 @@ chattr命令的用法：chattr \[ -RVf \] \[ -v version \] [ mode ] files…
   
     u：与s相反，当设定为u时，数据内容其实还存在磁盘中，可以用于undeletion。
   
-    各参数选项中常用到的是a和i。a选项强制只可添加不可删除，多用于日志系统的安全设定。而i是更为严格的安全设定，只有superuser (root) 或具有CAP\_LINUX\_IMMUTABLE处理能力（标识）的进程能够施加该选项。
+    各参数选项中常用到的是a和i。a选项强制只可添加不可删除，多用于日志系统的安全设定。而i是更为严格的安全设定，只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力（标识）的进程能够施加该选项。
 
 应用举例：
 

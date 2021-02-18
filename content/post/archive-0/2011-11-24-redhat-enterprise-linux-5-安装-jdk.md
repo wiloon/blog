@@ -29,7 +29,7 @@ tags:
 
 解压完毕后，回到/opt/jdk目录，键入dir。会发现多出了一个解压好的安装文件：jdk-6u21-linux-amd64.rpm
 
-执行   rpm  -ivh  jdk-1\_5\_0_17-linux-i586.rpm
+执行   rpm  -ivh  jdk-1_5_0_17-linux-i586.rpm
 
 此时，系统会开始安装JDK。安装结束后可以在/usr目录下发现新增了一个名为java的文件夹。该文件夹就是安装好的JDK目录。
 
@@ -41,13 +41,13 @@ tags:
 
 找到export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE INPUTRC，在该语句的**上面**添加以下语句：
 
-set  JAVA\_HOME="/usr/java/jdk1.5.0\_17"
+set  JAVA_HOME="/usr/java/jdk1.5.0_17"
 
 export   JAVA_HOME
 
 [注意："="两侧不能有空格]
 
-export  CLASSPATH="/usr/java/jdk1.5.0\_17/lib:/usr/java/jdk1.5.0\_17/jre/lib"
+export  CLASSPATH="/usr/java/jdk1.5.0_17/lib:/usr/java/jdk1.5.0_17/jre/lib"
 
 [注意："="两侧不能有空格；":"是冒号，同样不要有空格出现]
 

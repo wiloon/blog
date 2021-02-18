@@ -22,7 +22,7 @@ tags:
 
 $(function(){
   
-$('#box\_btn').click(function(){ //给box\_btn绑定一个鼠标点击的事件
+$('#box_btn').click(function(){ //给box_btn绑定一个鼠标点击的事件
    
 $.blockUI({ //当点击事件发生时调用弹出层
    

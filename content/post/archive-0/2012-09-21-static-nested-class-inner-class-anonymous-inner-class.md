@@ -20,7 +20,7 @@ categories:
 
 <span style="font-size: medium;">内部类被继承<span style="font-family: 'Times New Roman';">,由于内部类有一个指向外围类对象的秘密引用，所以在继承内部类的时候，该秘密引用必须被初始化。解决方法是<span style="font-family: 'Times New Roman';">enclosingClassReference.super();语法，看一下代码：
 
-<p align="left">
+
   class Outer
  {
  class Inner

@@ -19,7 +19,7 @@ JDK 默认提供了如下几种ClassLoader
 
 Bootstrp loader
   
-Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA\_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA\_HOME%/jre/classes中的类。
+Bootstrp加载器是用C++语言写的，用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。
 
 
 ExtClassLoader

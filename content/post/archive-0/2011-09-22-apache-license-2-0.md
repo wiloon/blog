@@ -371,7 +371,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
     
     identification within third-party archives.
     
-    Copyright \[yyyy\] \[name of copyright owner\]
+    Copyright [yyyy] [name of copyright owner]
     
     Licensed under the Apache License, Version 2.0 (the "License");
   

@@ -34,7 +34,7 @@ insert ON table_name FOR EACH ROW
   
 begin
   
-select sequence\_name.nextval into:New.column\_name from dual;
+select sequence_name.nextval into:New.column_name from dual;
   
 end;
 

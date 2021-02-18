@@ -214,7 +214,7 @@ System.out.println(e); //逐个输出数组元素的值
   
 public void testArray3() {
   
-int arr\[][\]\[\] = {
+int arr[][][] = {
   
 {{1, 2}, {3, 4}},
   

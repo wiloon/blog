@@ -42,9 +42,9 @@ sudo apt-get install firmware-realtek
   
 如果你的树莓派现在不能上网，那么你可以去镜像站点中下载相关驱动。我推荐阿里云的镜像站点，速度比较快。http://mirrors.aliyun.com/raspbian/raspbian/pool/non-free/f/firmware-nonfree
 
-下载firmware-realtek\_0.43\_all.deb，用winscp上传到树莓派的/tmp目录中。输入命令安装：
+下载firmware-realtek_0.43_all.deb，用winscp上传到树莓派的/tmp目录中。输入命令安装：
 
-sudo dpkg -i /tmp/firmware-realtek\_0.43\_all.deb
+sudo dpkg -i /tmp/firmware-realtek_0.43_all.deb
   
 三、配置无线网络
   
@@ -64,7 +64,7 @@ allow-hotplug wlan0
   
 iface wlan0 inet manual
   
-wpa-roam /etc/wpa\_supplicant/wpa\_supplicant.conf
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
   
 iface default inet dhcp
   
@@ -86,7 +86,7 @@ iface wlan0 inet dhcp
   
 wpa-conf /etc/wpa.conf
   
-#wpa-roam /etc/wpa\_supplicant/wpa\_supplicant.conf
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
   
 iface default inet dhcp
   

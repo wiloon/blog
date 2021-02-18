@@ -36,15 +36,15 @@ java -jar AXMLPrinter2.jar main.xml > main.txt. (如下图所示)
 
 打开main.txt代码如下(是不是有个123了呵呵~):
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
 
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="1" android:layout\_width="-1" android:layout\_height="-1" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="1" android:layout_width="-1" android:layout_height="-1" >
 
-<WebView android:id="@7F050000" android:layout\_width="-1" android:layout\_height="-2" >
+<WebView android:id="@7F050000" android:layout_width="-1" android:layout_height="-2" >
 
 </WebView>
 
@@ -52,7 +52,7 @@ view plaincopy
 
 为了比对打开源程序中的main.xml代码如下(大家比对一下吧):
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
 
@@ -62,9 +62,9 @@ view plaincopy
 
 android:orientation="vertical"
 
-android:layout\_width="fill\_parent"
+android:layout_width="fill_parent"
 
-android:layout\_height="fill\_parent"
+android:layout_height="fill_parent"
 
 >
 
@@ -72,9 +72,9 @@ android:layout\_height="fill\_parent"
 
 android:id="@+id/apk_web"
 
-android:layout\_height="wrap\_content"
+android:layout_height="wrap_content"
 
-android:layout\_width="fill\_parent"
+android:layout_width="fill_parent"
 
 />
 
@@ -92,7 +92,7 @@ java -jar baksmali.jar -o classout/ classes.dex .(如下图所示:)
 
 下面我们看一下ApkInstaller.smali内容是什么，如以下代码：
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
 
@@ -190,7 +190,7 @@ return-void
 
 同样为了比对我们看一下ApkInstaller.java的源代码如下:
 
-\[java\]\[/java\]
+[java][/java]
 
 view plaincopy
 

@@ -14,7 +14,7 @@ translate user and group names into ids. Part of this translation involves
   
 performing an upcall to userspace to request the information.
 
-fs.nfs.idmap\_cache\_timeout
+fs.nfs.idmap_cache_timeout
   
 设置idmapper缓存项的最大寿命，单位是秒
 

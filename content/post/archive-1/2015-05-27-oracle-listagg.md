@@ -189,7 +189,7 @@ DEPTNO EMPLOYEES ---- -------------------- 10 CLARK(A); KING(A); MILLER 20 SMITH
 
 listagg聚合的结果列大小限制在varchar2类型的最大值内（比如4000），例如：
   
-SQL> SELECT LISTAGG(object\_name) WITHIN GROUP (ORDER BY NULL) 2 FROM all\_objects;
+SQL> SELECT LISTAGG(object_name) WITHIN GROUP (ORDER BY NULL) 2 FROM all_objects;
   
 FROM all_objects * ERROR at line 2: ORA-01489: result of string concatenation is too long
   
@@ -213,7 +213,7 @@ MODEL SQL (10g).
   
 为了性能比较，下面将建立一张有2000个分组，100万行数据的表，具体如下：
 
-SQL> CREATE TABLE t 2 AS 3 SELECT ROWNUM AS id 4 , MOD(ROWNUM,2000) AS grp 5 , DBMS\_RANDOM.STRING('u',5) AS val 6 , DBMS\_RANDOM.STRING('u',30) AS pad 7 FROM dual 8 CONNECT BY ROWNUM <= 1000000;
+SQL> CREATE TABLE t 2 AS 3 SELECT ROWNUM AS id 4 , MOD(ROWNUM,2000) AS grp 5 , DBMS_RANDOM.STRING('u',5) AS val 6 , DBMS_RANDOM.STRING('u',30) AS pad 7 FROM dual 8 CONNECT BY ROWNUM <= 1000000;
   
 Table created.
   
@@ -221,7 +221,7 @@ SQL> SELECT COUNT(*) FROM t;
   
 COUNT(*) ---- 1000000 1 row selected.
   
-SQL> exec DBMS\_STATS.GATHER\_TABLE_STATS(USER, 'T');
+SQL> exec DBMS_STATS.GATHER_TABLE_STATS(USER, 'T');
   
 PL/SQL procedure successfully completed.
   
@@ -244,7 +244,7 @@ stragg/wm_concat
 
 下面将使用广为流传的字符串聚合，Tom Kyte的定义的聚合函数STRAGG。在 oracle的10g版本中，oracle在WMSYS的用户下实现了类似功能的函数，这里直接使用这个函数来测试。注：STRAGG函数不支持字符串的排序。
 
-SQL> SELECT grp 2 , WMSYS.WM\_CONCAT(val) AS vals -<- WM\_CONCAT ~= STRAGG 3 FROM t 4 GROUP BY 5 grp;
+SQL> SELECT grp 2 , WMSYS.WM_CONCAT(val) AS vals -<- WM_CONCAT ~= STRAGG 3 FROM t 4 GROUP BY 5 grp;
   
 2000 rows selected. Elapsed: 00:00:19.45 Statistics -------------------- 1 recursive calls 0 db block gets 7206 consistent gets 0 physical reads 0 redo size 6039067 bytes sent via SQL\*Net to client 552 bytes received via SQL\*Net from client 5 SQL*Net roundtrips to/from client 1 sorts (memory) 0 sorts (disk) 2000 rows processed
   
@@ -254,7 +254,7 @@ collect（without ordering）
   
 当10g发布的时候，我就立即使用collect函数和一个"collection-to-string"PL/SQL函数来替代STRAGG。不过10g版本中的collect没有排序功能。注；To_STRING的源码可以在相关文档中查到。
 
-SQL> SELECT grp 2 , TO\_STRING( 3 CAST(COLLECT(val) AS varchar2\_ntt) 4 ) AS vals 5 FROM t 6 GROUP BY 7 grp;
+SQL> SELECT grp 2 , TO_STRING( 3 CAST(COLLECT(val) AS varchar2_ntt) 4 ) AS vals 5 FROM t 6 GROUP BY 7 grp;
   
 2000 rows selected. Elapsed: 00:00:02.90 Statistics -------------------- 10 recursive calls 0 db block gets 7197 consistent gets 0 physical reads 0 redo size 6039067 bytes sent via SQL\*Net to client 552 bytes received via SQL\*Net from client 5 SQL*Net roundtrips to/from client 1 sorts (memory) 0 sorts (disk) 2000 rows processed
   
@@ -262,7 +262,7 @@ SQL> SELECT grp 2 , TO\_STRING( 3 CAST(COLLECT(val) AS varchar2\_ntt) 4 ) AS val
   
 collect (with ordering)
 
-公平起见，在collect中引入排序（11g中的一个新特性），如下；SQL> SELECT grp 2 , TO\_STRING( 3 CAST(COLLECT(val ORDER BY val) AS varchar2\_ntt) 4 ) AS vals 5 FROM t 6 GROUP BY 7 grp;
+公平起见，在collect中引入排序（11g中的一个新特性），如下；SQL> SELECT grp 2 , TO_STRING( 3 CAST(COLLECT(val ORDER BY val) AS varchar2_ntt) 4 ) AS vals 5 FROM t 6 GROUP BY 7 grp;
   
 2000 rows selected. Elapsed: 00:00:07.08 Statistics -------------------- 10 recursive calls 0 db block gets 7197 consistent gets 0 physical reads 0 redo size 6039067 bytes sent via SQL\*Net to client 552 bytes received via SQL\*Net from client 5 SQL*Net roundtrips to/from client 1 sorts (memory) 0 sorts (disk) 2000 rows processed 这次，引入了排序后，collect方法确实比listagg慢多了。
   
@@ -278,7 +278,7 @@ SQL> SELECT grp 2 , vals 3 FROM ( 4 SELECT grp 5 , RTRIM(vals, ',') AS vals 6 , 
 
 MODEL字符串聚合方法的执行计划如下：
 
---------------------- | Id | Operation | Name | Rows | Bytes |TempSpc| --------------------- | 0 | SELECT STATEMENT | | | | | | 1 | SORT ORDER BY | | 1000K| 1934M| 1953M| |* 2 | VIEW | | 1000K| 1934M| | | 3 | SQL MODEL ORDERED | | 1000K| 9765K| | | 4 | WINDOW SORT | | 1000K| 9765K| 19M| | 5 | TABLE ACCESS FULL| T | 1000K| 9765K| | --------------------- Predicate Information (identified by operation id): ----------------- 2 - filter("RN"=1) 通过SQL的监控报告（使用DBMS\_SQLTUNE.REPORT\_SQL_MONITOR）在SQL MODEL操作的第三步中，数据的排序使用4Gb的临时空间，在Gary Myers' Sydney Oracle Lab blog中也阐述了这个现象。
+--------------------- | Id | Operation | Name | Rows | Bytes |TempSpc| --------------------- | 0 | SELECT STATEMENT | | | | | | 1 | SORT ORDER BY | | 1000K| 1934M| 1953M| |* 2 | VIEW | | 1000K| 1934M| | | 3 | SQL MODEL ORDERED | | 1000K| 9765K| | | 4 | WINDOW SORT | | 1000K| 9765K| 19M| | 5 | TABLE ACCESS FULL| T | 1000K| 9765K| | --------------------- Predicate Information (identified by operation id): ----------------- 2 - filter("RN"=1) 通过SQL的监控报告（使用DBMS_SQLTUNE.REPORT_SQL_MONITOR）在SQL MODEL操作的第三步中，数据的排序使用4Gb的临时空间，在Gary Myers' Sydney Oracle Lab blog中也阐述了这个现象。
   
 性能总结
 

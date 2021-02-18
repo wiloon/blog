@@ -32,19 +32,19 @@ setup模块用于收集远程主机的一些基本信息。
       
 "ansible_facts": {
           
-"ansible\_all\_ipv4_addresses": [
+"ansible_all_ipv4_addresses": [
               
 "211.127.129.182"
           
 ],
           
-"ansible\_all\_ipv6_addresses": [],
+"ansible_all_ipv6_addresses": [],
           
-"ansible\_architecture": "x86\_64",
+"ansible_architecture": "x86_64",
           
-"ansible\_bios\_date": "09/21/2014",
+"ansible_bios_date": "09/21/2014",
           
-"ansible\_bios\_version": "6.00",
+"ansible_bios_version": "6.00",
           
 "ansible_cmdline": {
               
@@ -58,7 +58,7 @@ OUTPUT OMITTED.
   
 因显示篇幅过长，这列只列举一些常用项目
 
-"ansible\_all\_ipv4_addresses": [
+"ansible_all_ipv4_addresses": [
               
 "211.97.148.137",
               
@@ -68,17 +68,17 @@ OUTPUT OMITTED.
   
 #@这里列出了所有IPv4地址
   
-"ansible\_architecture": "x86\_64",
+"ansible_architecture": "x86_64",
   
 #@操作系统架构
   
 "ansible_distribution": "RedHat",
   
-"ansible\_distribution\_major_version": "5",
+"ansible_distribution_major_version": "5",
   
-"ansible\_distribution\_release": "Tikanga",
+"ansible_distribution_release": "Tikanga",
   
-"ansible\_distribution\_version": "5.8",
+"ansible_distribution_version": "5.8",
   
 #@操作系统版本信息
   
@@ -116,23 +116,23 @@ OUTPUT OMITTED.
 
 "ansible_distribution": "RedHat",
   
-"ansible\_distribution\_major_version": "5",
+"ansible_distribution_major_version": "5",
   
-"ansible\_distribution\_release": "Tikanga",
+"ansible_distribution_release": "Tikanga",
   
-"ansible\_distribution\_version": "5.8",
+"ansible_distribution_version": "5.8",
   
-"ansible\_os\_family": "RedHat",
+"ansible_os_family": "RedHat",
   
 "ansible_distribution": "CentOS",
   
-"ansible\_distribution\_major_version": "6",
+"ansible_distribution_major_version": "6",
   
-"ansible\_distribution\_release": "Final",
+"ansible_distribution_release": "Final",
   
-"ansible\_distribution\_version": "6.4",
+"ansible_distribution_version": "6.4",
   
-"ansible\_os\_family": "RedHat",
+"ansible_os_family": "RedHat",
   
 接下来我们就可以编写playbook
 
@@ -151,20 +151,20 @@ OUTPUT OMITTED.
   
         lineinfile: dest=/etc/rsyslog.conf line="_._ @{{ logserver }}"
   
-        when: ansible\_distribution == 'CentOS' and ansible\_distribution\_major\_version == "6"
+        when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == "6"
       * name: restart syslog @CentOS6
   
-        when: ansible\_distribution == 'CentOS' and ansible\_distribution\_major\_version == "6"
+        when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == "6"
   
         service: name=rsyslog state=restarted
       * name: add conf to config files to RedHat 5
   
         lineinfile: dest=/etc/syslog.conf line="_._ @{{ logserver }}"
   
-        when: ansible\_distribution == 'RedHat' and ansible\_distribution\_major\_version == "5"
+        when: ansible_distribution == 'RedHat' and ansible_distribution_major_version == "5"
       * name: restart syslog @RedHat 5
   
-        when: ansible\_distribution == 'RedHat' and ansible\_distribution\_major\_version == "5"
+        when: ansible_distribution == 'RedHat' and ansible_distribution_major_version == "5"
   
         service: name=syslog state=restarted
   
@@ -180,7 +180,7 @@ OUTPUT OMITTED.
 
   * name: restart syslog @CentOS6
   
-    when: ansible\_distribution == 'CentOS' and ansible\_distribution\_major\_version == "6"
+    when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == "6"
   
     lineinfile: dest=/etc/rsyslog.conf line="_._ @{{ logserver }}"
   

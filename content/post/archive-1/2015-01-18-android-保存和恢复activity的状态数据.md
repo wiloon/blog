@@ -53,9 +53,9 @@ System.out.println("onResume: temp = " + temp);
   
 // 切换屏幕方向会导致activity的摧毁和重建
   
-if (getRequestedOrientation() == ActivityInfo.SCREEN\_ORIENTATION\_UNSPECIFIED) {
+if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) {
   
-setRequestedOrientation(ActivityInfo.SCREEN\_ORIENTATION\_LANDSCAPE);
+setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
   
 System.out.println("屏幕切换");
   

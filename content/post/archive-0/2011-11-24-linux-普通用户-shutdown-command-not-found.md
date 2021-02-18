@@ -16,7 +16,7 @@ shutdown是最安全的关机和重启命令，平时使用时推荐使用shutdo
   
 shutdown
 
-【语法】shutdown \[选项\] \[参数\]
+【语法】shutdown [选项] [参数]
   
 【详解】shutdown是最安全的关机和重启命令，平时使用时推荐使用shutdown命令关机。而且该命令支持定时操作。
   

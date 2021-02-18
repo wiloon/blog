@@ -75,13 +75,13 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
   
 5 [salt]
   
-6 salt-master  ansible\_ssh\_user=lixc ansible\_ssh\_pass=123456
+6 salt-master  ansible_ssh_user=lixc ansible_ssh_pass=123456
   
 7 10.240.162.112  ansible_connection=paramiko
   
 9 [leihuo]
   
-10  lixc ansible\_ssh\_host=192.168.131.203 ansible\_ssh\_port=21100
+10  lixc ansible_ssh_host=192.168.131.203 ansible_ssh_port=21100
   
 11  10.240.162.11[1:9]:22
   
@@ -131,7 +131,7 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
   
 9 [leihuo]
   
-10  lixc ansible\_ssh\_host=192.168.131.203 ansible\_ssh\_port=21100
+10  lixc ansible_ssh_host=192.168.131.203 ansible_ssh_port=21100
   
 11  10.240.162.11[1:9]:22
   
@@ -149,7 +149,7 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
 
 我们把上面定义的变量写进文件。
 
-lixc@ansible:~$ for dir in {host\_vars,group\_vars};do ls /etc/ansible/${dir};done
+lixc@ansible:~$ for dir in {host_vars,group_vars};do ls /etc/ansible/${dir};done
   
 10.240.162.112  salt-master
   
@@ -167,7 +167,7 @@ mysql-port: 3306
   
 基本格式：
 
-ansible <pattern\_goes\_here> -m <module_name> -a <arguments>
+ansible <pattern_goes_here> -m <module_name> -a <arguments>
   
 匹配所有主机
 

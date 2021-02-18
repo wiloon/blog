@@ -40,9 +40,9 @@ Process: 340 ExecStart=/usr/bin/netctl-auto start %I (code=exited, status=0/SUCC
   
 CGroup: /system.slice/system-netctl\x2dauto.slice/netctl-auto@wlan0.service
   
-├─402 wpa\_supplicant -B -P /run/wpa\_supplicant\_wlan0.pid -i wlan0 -D nl80211,wext -c/run/network/wpa\_supplicant_wlan0.conf -W
+├─402 wpa_supplicant -B -P /run/wpa_supplicant_wlan0.pid -i wlan0 -D nl80211,wext -c/run/network/wpa_supplicant_wlan0.conf -W
   
-├─404 wpa\_actiond -p /run/wpa\_supplicant -i wlan0 -P /run/network/wpa\_actiond\_wlan0.pid -a /usr/lib/network/auto.action
+├─404 wpa_actiond -p /run/wpa_supplicant -i wlan0 -P /run/network/wpa_actiond_wlan0.pid -a /usr/lib/network/auto.action
   
 └─501 dhcpcd -4 -q -t 30 -K -L wlan0
   

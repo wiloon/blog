@@ -66,9 +66,9 @@ import org.apache.http.util.EntityUtils;
   
 public class HttpHelper {
 
-/*\* The Constant MAX\_NUMBER\_OF_CONNECTIONS. \*/
+/*\* The Constant MAX_NUMBER_OF_CONNECTIONS. \*/
    
-private static final int MAX\_NUMBER\_OF_CONNECTIONS = 200;
+private static final int MAX_NUMBER_OF_CONNECTIONS = 200;
 
 /*\* The http client. \*/
    
@@ -284,7 +284,7 @@ if (httpClient == null) {
    
 ThreadSafeClientConnManager cm =new ThreadSafeClientConnManager();
    
-cm.setMaxTotal(MAX\_NUMBER\_OF_CONNECTIONS);
+cm.setMaxTotal(MAX_NUMBER_OF_CONNECTIONS);
    
 httpClient = new DefaultHttpClient(cm);
    
@@ -306,7 +306,7 @@ ctx.init(null, new TrustManager[] { tm }, null);
    
 SSLSocketFactory ssf = new SSLSocketFactory(ctx,
    
-SSLSocketFactory.ALLOW\_ALL\_HOSTNAME_VERIFIER);
+SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
    
 ClientConnectionManager ccm = httpClient.getConnectionManager();
    

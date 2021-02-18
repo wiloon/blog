@@ -110,7 +110,7 @@ wrapper.ntservice.displayname=AgentService
   
 wrapper.ntservice.description=AgentService
 
-\# 配置系统服务的启动方式，取值范围是AUTO\_START或DEMAND\_START
+\# 配置系统服务的启动方式，取值范围是AUTO_START或DEMAND_START
   
 wrapper.ntservice.starttype=AUTO_START
 

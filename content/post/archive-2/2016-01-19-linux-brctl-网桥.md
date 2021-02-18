@@ -39,7 +39,7 @@ nft list ruleset > /etc/nftables.conf
 
 ```
 
-[http://wiki.nftables.org/wiki-nftables/index.php/Performing\_Network\_Address\_Translation\_(NAT)][1]
+[http://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_(NAT)][1]
 ```bash
 sudo brctl addbr br0
 sudo brctl show

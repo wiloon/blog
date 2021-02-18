@@ -29,7 +29,7 @@ categories:
   
 input a jdk name :jdk1.6
   
-input JAVA\_HOME:/usr/java/jdk1.6.0\_21
+input JAVA_HOME:/usr/java/jdk1.6.0_21
   
 [Maven]
   

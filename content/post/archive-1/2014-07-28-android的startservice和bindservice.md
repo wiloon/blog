@@ -404,7 +404,7 @@ Intent intent = new Intent(UseBrider.this, CountService.class);
   
 /*\* 进入Activity开始服务 \*/
   
-bindService(intent, conn, Context.BIND\_AUTO\_CREATE);
+bindService(intent, conn, Context.BIND_AUTO_CREATE);
 
 }
   

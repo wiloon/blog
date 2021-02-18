@@ -14,7 +14,7 @@ ansible-pull
 
 ansible-pull命令使用格式如下：
   
-ansible-pull \[options\] \[playbook.yml\]
+ansible-pull [options] [playbook.yml]
   
 通过ansible-pull结合Git和crontab一并实现，其原理如下：通过crontab定期拉取指定的Git版本到本地，并以指定模式自动运行预先制订好的指令。
 

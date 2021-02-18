@@ -70,9 +70,9 @@ sequenceName="my_sequence"
   
 package org.hibernate.test.metadata;
 
-如果在org.hibernate.test.metadata包下面的 package-info.java文件用于初始化EJB配置, 那么该文件中定义的 EMP\_GEN 和SEQ\_GEN都是应用级的生成器. EMP\_GEN定义了一个使用hilo算法 (max\_lo为20)的id生成器(该生成器将id的信息存在数据库的某个表中.). id的hi值保存在GENERATOR_TABLE中. 在该表中 pkColumnName"key"等价于 pkColumnValue "EMP", 而valueColumnName "hi"中存储的是下一个要使用的最大值.
+如果在org.hibernate.test.metadata包下面的 package-info.java文件用于初始化EJB配置, 那么该文件中定义的 EMP_GEN 和SEQ_GEN都是应用级的生成器. EMP_GEN定义了一个使用hilo算法 (max_lo为20)的id生成器(该生成器将id的信息存在数据库的某个表中.). id的hi值保存在GENERATOR_TABLE中. 在该表中 pkColumnName"key"等价于 pkColumnValue "EMP", 而valueColumnName "hi"中存储的是下一个要使用的最大值.
 
-SEQ\_GEN则定义了一个sequence 生成器, 其对应的sequence名为 my\_sequence. 注意目前Hibernate Annotations还不支持sequence 生成器中的 initialValue和 allocationSize参数.
+SEQ_GEN则定义了一个sequence 生成器, 其对应的sequence名为 my_sequence. 注意目前Hibernate Annotations还不支持sequence 生成器中的 initialValue和 allocationSize参数.
 
 下面这个例子展示了定义在类范围(class scope)的sequence生成器:
 
@@ -96,7 +96,7 @@ public Long getId() { return id; }
   
 }
 
-在这个例子中,Store类使用名为my\_sequence的sequence,并且SEQ\_STORE 生成器对于其他类是不可见的. 注意在org.hibernate.test.metadata.id包下的测试代码有更多演示Hibernate Annotations用法的例子..
+在这个例子中,Store类使用名为my_sequence的sequence,并且SEQ_STORE 生成器对于其他类是不可见的. 注意在org.hibernate.test.metadata.id包下的测试代码有更多演示Hibernate Annotations用法的例子..
 
 下面是定义组合主键的几种语法:
 

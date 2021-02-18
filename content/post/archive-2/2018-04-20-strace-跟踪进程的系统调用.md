@@ -26,7 +26,7 @@ brk(0) = 0xab1000
   
 access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
   
-mmap(NULL, 8192, PROT\_READ|PROT\_WRITE, MAP\_PRIVATE|MAP\_ANONYMOUS, -1, 0) = 0x7f29379a7000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f29379a7000
   
 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
   
@@ -76,7 +76,7 @@ access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
   
 指定一个表达式,用来控制如何跟踪.格式如下:
   
-\[qualifier=\]\[!\]value1[,value2]...
+[qualifier=][!]value1[,value2]...
   
 qualifier只能是 trace,abbrev,verbose,raw,signal,read,write其中之一.value是用来限定的符号或数字.默认的 qualifier是 trace.感叹号是否定符号.例如:
   

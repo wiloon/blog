@@ -52,7 +52,7 @@ Compare sorted files FILE1 and FILE2 line by line.
 
 功能说明：比较两个已排过序的文件。（使用sort排序）
   
-语　　法：comm \[-123\]\[-help\]\[-version\]\[第1个文件\][第2个文件]
+语　　法：comm [-123][-help][-version][第1个文件][第2个文件]
   
 补充说明：这项指令会一列列地比较两个已排序文件的差异，并将其结果显示出来，如果没有指定任何参数，则会把结果分成3栏显示：第1栏仅是在第1个文件中出现过的记录，第2栏是仅在第2个文件中出现过的记录，第3栏则是在第1与第2个文件里都出现过的记录。若给予的文件名改为"-"，则comm指令会从标准输入设备读取数据。
   
@@ -90,7 +90,7 @@ cat a.txt | sort | uniq | sort > a_u.txt
   
 cat b.txt | sort | uniq | sort > b_u.txt
   
-comm -23 a\_u.txt b\_u.txt > c.txt
+comm -23 a_u.txt b_u.txt > c.txt
 
 # END
 
@@ -98,7 +98,7 @@ comm -23 a\_u.txt b\_u.txt > c.txt
   
 功能说明：比较文件的差异。
 
-　　语　　法：diff \[-abBcdefHilnNpPqrstTuvwy\]\[-<行数>\]\[-C <行数>\]\[-D <巨集名称>\]\[-I <字符或字符串>\]\[-S <文件>\]\[-W <宽度>\]\[-x <文件或目录>\]\[-X <文件>\]\[-help\]\[-left-column\]\[-suppress-common-line\]\[文件或目录1\]\[文件或目录2\]
+　　语　　法：diff [-abBcdefHilnNpPqrstTuvwy][-<行数>][-C <行数>][-D <巨集名称>][-I <字符或字符串>][-S <文件>][-W <宽度>][-x <文件或目录>][-X <文件>][-help][-left-column][-suppress-common-line][文件或目录1][文件或目录2]
 
 　　补充说明：diff以逐行的方式，比较文本文件的异同处。所是指定要比较目录，则diff会比较目录中相同文件名的文件，但不会比较其中子目录。
 
@@ -188,7 +188,7 @@ cat a.txt | sort | uniq | sort > a_u.txt
   
 cat b.txt | sort | uniq | sort > b_u.txt
   
-diff a\_u.txt b\_u.txt | grep /< | awk ' $1 = " " ' > c.txt
+diff a_u.txt b_u.txt | grep /< | awk ' $1 = " " ' > c.txt
 
 # END
 

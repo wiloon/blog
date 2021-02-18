@@ -14,7 +14,7 @@ Eclipse Mosquitto是一个开源（EPL / EDL许可）消息代理，它实现了
 
 MQTT协议提供了一种使用发布/订阅模型执行消息传递的轻量级方法。这使其适用于物联网消息传递，例如低功率传感器或移动设备，如电话，嵌入式计算机或微控制器。
 
-Mosquitto项目还提供了用于实现MQTT客户端的C库，以及非常流行的mosquitto\_pub和mosquitto\_sub命令行MQTT客户端。
+Mosquitto项目还提供了用于实现MQTT客户端的C库，以及非常流行的mosquitto_pub和mosquitto_sub命令行MQTT客户端。
 
 Mosquitto是Eclipse Foundation的一部分，是一个iot.eclipse.org项目。
 

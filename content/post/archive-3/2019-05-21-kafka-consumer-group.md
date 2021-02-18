@@ -75,11 +75,11 @@ Kafka默认是定期帮你自动提交位移的(enable.auto.commit = true)，你
 
 3.2 位移提交
 
-老版本的位移是提交到zookeeper中的，图就不画了，总之目录结构是：/consumers/<group.id>/offsets/<topic>/<partitionId>，但是zookeeper其实并不适合进行大批量的读写操作，尤其是写操作。因此kafka提供了另一种解决方案：增加\_\_consumeroffsets topic，将offset信息写入这个topic，摆脱对zookeeper的依赖(指保存offset这件事情)。\_\_consumer_offsets中的消息保存了每个consumer group某一时刻提交的offset信息。依然以上图中的consumer group为例，格式大概如下：
+老版本的位移是提交到zookeeper中的，图就不画了，总之目录结构是：/consumers/<group.id>/offsets/<topic>/<partitionId>，但是zookeeper其实并不适合进行大批量的读写操作，尤其是写操作。因此kafka提供了另一种解决方案：增加__consumeroffsets topic，将offset信息写入这个topic，摆脱对zookeeper的依赖(指保存offset这件事情)。__consumer_offsets中的消息保存了每个consumer group某一时刻提交的offset信息。依然以上图中的consumer group为例，格式大概如下：
 
-_\_consumers\_offsets topic配置了compact策略，使得它总是能够保存最新的位移信息，既控制了该topic总体的日志容量，也能实现保存最新offset的目的。compact的具体原理请参见：Log Compaction
+__consumers_offsets topic配置了compact策略，使得它总是能够保存最新的位移信息，既控制了该topic总体的日志容量，也能实现保存最新offset的目的。compact的具体原理请参见：Log Compaction
 
-至于每个group保存到\_\_consumers\_offsets的哪个分区，如何查看的问题请参见这篇文章：Kafka 如何读取offset topic内容 (\\_\_consumer_offsets)
+至于每个group保存到__consumers_offsets的哪个分区，如何查看的问题请参见这篇文章：Kafka 如何读取offset topic内容 (\__consumer_offsets)
 
 4 Rebalance
 
@@ -115,9 +115,9 @@ Kafka提供了一个角色：coordinator来执行对于consumer group的管理�
 
 上面简单讨论了新版coordinator的设计，那么consumer group如何确定自己的coordinator是谁呢？ 简单来说分为两步：
 
-确定consumer group位移信息写入_\_consumers\_offsets的哪个分区。具体计算公式：
+确定consumer group位移信息写入__consumers_offsets的哪个分区。具体计算公式：
   
-　　_\_consumers\_offsets partition# = Math.abs(groupId.hashCode() % groupMetadataTopicPartitionCount) 注意：groupMetadataTopicPartitionCount由offsets.topic.num.partitions指定，默认是50个分区。
+　　__consumers_offsets partition# = Math.abs(groupId.hashCode() % groupMetadataTopicPartitionCount) 注意：groupMetadataTopicPartitionCount由offsets.topic.num.partitions指定，默认是50个分区。
   
 该分区leader所在的broker就是被选定的coordinator
   
@@ -143,7 +143,7 @@ Coordinator在rebalance的时候主要用到了前面4种请求。
   
 4.8 liveness
 
-consumer如何向coordinator证明自己还活着？ 通过定时向coordinator发送Heartbeat请求。如果超过了设定的超时时间，那么coordinator就认为这个consumer已经挂了。一旦coordinator认为某个consumer挂了，那么它就会开启新一轮rebalance，并且在当前其他consumer的心跳response中添加"REBALANCE\_IN\_PROGRESS"，告诉其他consumer：不好意思各位，你们重新申请加入组吧！
+consumer如何向coordinator证明自己还活着？ 通过定时向coordinator发送Heartbeat请求。如果超过了设定的超时时间，那么coordinator就认为这个consumer已经挂了。一旦coordinator认为某个consumer挂了，那么它就会开启新一轮rebalance，并且在当前其他consumer的心跳response中添加"REBALANCE_IN_PROGRESS"，告诉其他consumer：不好意思各位，你们重新申请加入组吧！
 
 4.9 Rebalance过程
 
@@ -169,7 +169,7 @@ consumer如何向coordinator证明自己还活着？ 通过定时向coordinator�
 
 简单说明下图中的各个状态：
 
-Dead：组内已经没有任何成员的最终状态，组的元数据也已经被coordinator移除了。这种状态响应各种请求都是一个response： UNKNOWN\_MEMBER\_ID
+Dead：组内已经没有任何成员的最终状态，组的元数据也已经被coordinator移除了。这种状态响应各种请求都是一个response： UNKNOWN_MEMBER_ID
   
 Empty：组内无成员，但是位移信息还没有过期。这种状态只能响应JoinGroup请求
   

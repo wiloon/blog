@@ -20,6 +20,7 @@ acme.sh: acme.sh 实现了 acme 协议.
     snap install --classic certbot
     ln -s /snap/bin/certbot /usr/bin/certbot
     snap set certbot trust-plugin-with-root=ok
+    certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com
 
 
 ### Couldn't download https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto. <urlopen error [Errno 110] Connection timed out>

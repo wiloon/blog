@@ -87,7 +87,7 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out c
     openssl x509 -outform der -in certificate.pem -out certificate.der
 
 ### pem to jks
-    https://docs.oracle.com/cd/E35976\_01/server.740/es\_admin/src/tadm\_ssl\_convert\_pem\_to_jks.html
+    https://docs.oracle.com/cd/E35976_01/server.740/es_admin/src/tadm_ssl_convert_pem_to_jks.html
 
 ---
 https://www.cnblogs.com/guogangj/p/4118605.html

@@ -10,9 +10,9 @@ tags:
   - Raspberry Pi
 
 ---
-omxplayer.bin: SubtitleRenderer.cpp:154: SubtitleRenderer::load\_glyph(SubtitleRenderer::InternalChar)::<lambda(FT\_Face, VGFont, bool)>: Assertion \`!vgGetError()' failed.
+omxplayer.bin: SubtitleRenderer.cpp:154: SubtitleRenderer::load_glyph(SubtitleRenderer::InternalChar)::<lambda(FT_Face, VGFont, bool)>: Assertion \`!vgGetError()' failed.
   
-/usr/bin/omxplayer: line 67: 5199 Aborted LD\_LIBRARY\_PATH="$OMXPLAYER\_LIBS${LD\_LIBRARY\_PATH:+:$LD\_LIBRARY\_PATH}" $OMXPLAYER\_BIN "$@"
+/usr/bin/omxplayer: line 67: 5199 Aborted LD_LIBRARY_PATH="$OMXPLAYER_LIBS${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" $OMXPLAYER_BIN "$@"
 
 
 run raspi-config and up the gpu mem to 128

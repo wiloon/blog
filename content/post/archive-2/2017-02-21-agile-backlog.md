@@ -18,4 +18,4 @@ categories:
   
 质量价值（缓解风险）
 
-http://www.infoq.com/cn/articles/product-owner-raison?utm\_campaign=infoq\_content&utm\_source=infoq&utm\_medium=feed&utm_term=global
+http://www.infoq.com/cn/articles/product-owner-raison?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global

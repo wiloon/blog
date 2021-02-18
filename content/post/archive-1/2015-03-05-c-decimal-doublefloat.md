@@ -58,7 +58,7 @@ lock record里的owner指针指向object mark word的作用是为了在接下里
 
 下图直观地描述了交换指针的操作。
 
-exchange\_pointer\_1
+exchange_pointer_1
 
 最后一步unlock中，我们发现，JVM同样使用了CAS来验证object mark word在持有锁到释放锁之间，有无被其他线程访问。
   

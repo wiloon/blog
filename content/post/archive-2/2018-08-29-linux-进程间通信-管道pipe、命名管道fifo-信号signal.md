@@ -33,7 +33,7 @@ FIFO读写规则
 
 2.从FIFO中写入数据： 约定：如果一个进程为了向FIFO中写入数据而阻塞打开FIFO，那么称该进程内的写操作为设置了阻塞标志的写操作。
 
-详见：http://blog.csdn.net/MONKEY\_D\_MENG/article/details/5570468
+详见：http://blog.csdn.net/MONKEY_D_MENG/article/details/5570468
 
 ### 信号（Signal）
 

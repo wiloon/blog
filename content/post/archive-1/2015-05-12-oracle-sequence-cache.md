@@ -500,7 +500,7 @@ SQL> oradebug event 10046 trace name context off;
 
 SQL> oradebug tracefile_name
 
-c:\tool\oracle\oracle\product\10.2.0\admin\ots\udump\ots\_ora\_5932.trc
+c:\tool\oracle\oracle\product\10.2.0\admin\ots\udump\ots_ora_5932.trc
 
 打开跟踪文件，我们首先分析nocache的几次调用片段。
 
@@ -781,10 +781,10 @@ value=113487
 
 Bind#6在undate语句中对应字段highwater，显然是表示当前sequence对象达到的最大数值，也就是更新之后的修改值。Bind#9表示的obj#编号，应该对应的11387就是我们的nocache实验sequence编号。
 
-SQL> select object\_type, object\_id from dba\_objects where wner='SCOTT' and object\_name='SEQ_NOCACHE';
+SQL> select object_type, object_id from dba_objects where wner='SCOTT' and object_name='SEQ_NOCACHE';
 
 
-OBJECT\_TYPE          OBJECT\_ID
+OBJECT_TYPE          OBJECT_ID
 
 ------- ----
 

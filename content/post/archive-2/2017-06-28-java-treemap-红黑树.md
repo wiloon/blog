@@ -365,9 +365,9 @@ private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代�
 
 2、红黑二叉树详解及理论分析 ：http://blog.csdn.net/kartorz/article/details/8865997
 
-3、教你透彻了解红黑树 ：blog.csdn.net/v\_july\_v/article/details/6105630
+3、教你透彻了解红黑树 ：blog.csdn.net/v_july_v/article/details/6105630
 
-4、经典算法研究系列：五、红黑树算法的实现与剖析 ：http://blog.csdn.net/v\_JULY\_v/article/details/6109153
+4、经典算法研究系列：五、红黑树算法的实现与剖析 ：http://blog.csdn.net/v_JULY_v/article/details/6109153
 
 5、示例，红黑树插入和删除过程：http://saturnman.blog.163.com/blog/static/557611201097221570/
 

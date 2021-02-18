@@ -28,7 +28,7 @@ JAVA_HOME="/opt/jvm/jdk1.7.0"
   
 TOMCAT_HOME="/home/wiloon/program/apache-tomcat-7.0.xx"
   
-CLASSPATH: %JAVA\_HOME%/lib;%TOMCAT\_HOME%/lib
+CLASSPATH: %JAVA_HOME%/lib;%TOMCAT_HOME%/lib
 
 Tomcat的环境变量就配置完毕了，下面检验Tomcat是否能够运行：转到/home/wiloon/program/apache-tomcat-7.0.xx/bin这个目录，运行sh startup.sh，在浏览器中输入http://localhost:8080，出现欢迎界面，则表示Tomcat没问题了。然后写入你的第一个Servlet。
 

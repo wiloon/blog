@@ -29,7 +29,7 @@ jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当�
 
 jdk中的jps命令可以显示当前运行的java进程以及相关参数，它的实现机制如下：
   
-java程序在启动以后，会在java.io.tmpdir指定的目录下，就是临时文件夹里，生成一个类似于hsperfdata\_User的文件夹，这个文件夹里（在Linux中为/tmp/hsperfdata\_{userName}/），有几个文件，名字就是java进程的pid，因此列出当前运行的java进程，只是把这个目录里的文件名列一下而已。 至于系统的参数什么，就可以解析这几个文件获得。
+java程序在启动以后，会在java.io.tmpdir指定的目录下，就是临时文件夹里，生成一个类似于hsperfdata_User的文件夹，这个文件夹里（在Linux中为/tmp/hsperfdata_{userName}/），有几个文件，名字就是java进程的pid，因此列出当前运行的java进程，只是把这个目录里的文件名列一下而已。 至于系统的参数什么，就可以解析这几个文件获得。
 
 hollis@hos:/tmp/hsperfdata_hollis$ pwd
   
@@ -65,7 +65,7 @@ hollis@hos:/tmp/hsperfdata_hollis$ jps -help
   
 usage: jps [-help]
          
-jps \[-q\] \[-mlvV\] [<hostid>]
+jps [-q] [-mlvV] [<hostid>]
 
 Definitions:
       
@@ -123,9 +123,9 @@ hollis@hos:/tmp/hsperfdata_hollis$ jps -l
 
 hollis@hos:/tmp/hsperfdata_hollis$ jps -v
   
-2679 org.eclipse.equinox.launcher\_1.3.0.v20130327-1440.jar -Djava.library.path=/usr/lib/jni:/usr/lib/x86\_64-linux-gnu/jni -Dosgi.requiredJavaVersion=1.6 -XX:MaxPermSize=256m -Xms40m -Xmx512m
+2679 org.eclipse.equinox.launcher_1.3.0.v20130327-1440.jar -Djava.library.path=/usr/lib/jni:/usr/lib/x86_64-linux-gnu/jni -Dosgi.requiredJavaVersion=1.6 -XX:MaxPermSize=256m -Xms40m -Xmx512m
   
-13157 Jps -Denv.class.path=/home/hollis/tools/java/jdk1.7.0\_71/lib:/home/hollis/tools/java/jdk1.7.0\_71/jre/lib: -Dapplication.home=/home/hollis/tools/java/jdk1.7.0_71 -Xms8m
+13157 Jps -Denv.class.path=/home/hollis/tools/java/jdk1.7.0_71/lib:/home/hollis/tools/java/jdk1.7.0_71/jre/lib: -Dapplication.home=/home/hollis/tools/java/jdk1.7.0_71 -Xms8m
   
 13083 JpsDemo -Dfile.encoding=UTF-8
   

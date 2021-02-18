@@ -26,7 +26,7 @@ chkconfig命令主要用来更新（启动或停止）和查询系统服务的�
 
 使用语法：
   
-chkconfig \[-add\]\[-del\]\[-list\]\[系统服务\] 或 chkconfig \[-level <等级代号>\]\[系统服务\][on/off/reset]
+chkconfig [-add][-del][-list][系统服务] 或 chkconfig [-level <等级代号>][系统服务][on/off/reset]
 
 chkconfig在没有参数运行时，显示用法。如果加上服务名，那么就检查这个服务是否在当前运行级启动。如果是，返回true，否则返回false。如果在服务名后面指定了on，off或者reset，那么chkconfi 会改变指定服务的启动信息。on和off分别指服务被启动和停止，reset指重置服务的启动信息，无论有问题的初始化脚本指定了什么。on和off开关，系统默认只对运行级3，4，5有效，但是reset可以对所有运行级有效。
 

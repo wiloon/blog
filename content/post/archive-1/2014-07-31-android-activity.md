@@ -63,13 +63,13 @@ ACTION_MAIN activity Start up as the initial activity of a task, with no data in
   
 ACTION_SYNC activity Synchronize data on a server with data on the mobile device.
   
-ACTION\_BATTERY\_LOW broadcast receiver A warning that the battery is low.
+ACTION_BATTERY_LOW broadcast receiver A warning that the battery is low.
   
-ACTION\_HEADSET\_PLUG broadcast receiver A headset has been plugged into the device, or unplugged from it.
+ACTION_HEADSET_PLUG broadcast receiver A headset has been plugged into the device, or unplugged from it.
   
-ACTION\_SCREEN\_ON broadcast receiver The screen has been turned on.
+ACTION_SCREEN_ON broadcast receiver The screen has been turned on.
   
-ACTION\_TIMEZONE\_CHANGED broadcast receiver The setting for the time zone has changed.
+ACTION_TIMEZONE_CHANGED broadcast receiver The setting for the time zone has changed.
 
 当然，也可以自定义动作（自定义的动作在使用时，需要加上包名作为前缀，如"com.example.project.SHOW_COLOR"），并可定义相应的Activity来处理我们的自定义动作。
 
@@ -79,7 +79,7 @@ Android中采用指向数据的一个URI来表示，如在联系人应用中，�
 
 （3）type（数据类型），显式指定Intent的数据类型（MIME）。一般Intent的数据类型能够根据数据本身进行判定，但是通过设置这个属性，可以强制采用显式指定的类型而不再进行推导。
 
-（4）category（类别），被执行动作的附加信息。例如 LAUNCHER\_CATEGORY 表示Intent 的接受者应该在Launcher中作为顶级应用出现；而ALTERNATIVE\_CATEGORY表示当前的Intent是一系列的可选动作中的一个，这些动作可以在同一块数据上执行。还有其他的为
+（4）category（类别），被执行动作的附加信息。例如 LAUNCHER_CATEGORY 表示Intent 的接受者应该在Launcher中作为顶级应用出现；而ALTERNATIVE_CATEGORY表示当前的Intent是一系列的可选动作中的一个，这些动作可以在同一块数据上执行。还有其他的为
 
 Constant Meaning
   
@@ -109,7 +109,7 @@ Intent解析机制主要是通过查找已注册在AndroidManifest.xml中的所�
   
 如果Intent中的数据不是content: 类型的URI，而且Intent也没有明确指定它的type，将根据Intent中数据的scheme （比如 http: 或者mailto:） 进行匹配。同上，Intent 的scheme必须出现在目标组件的scheme列表中。
   
-如果Intent指定了一个或多个category，这些类别必须全部出现在组建的类别列表中。比如Intent中包含了两个类别：LAUNCHER\_CATEGORY 和 ALTERNATIVE\_CATEGORY，解析得到的目标组件必须至少包含这两个类别。
+如果Intent指定了一个或多个category，这些类别必须全部出现在组建的类别列表中。比如Intent中包含了两个类别：LAUNCHER_CATEGORY 和 ALTERNATIVE_CATEGORY，解析得到的目标组件必须至少包含这两个类别。
   
 Intent-Filter的定义
 
@@ -127,7 +127,7 @@ Intent-Filter的定义
   
 完整的实例
 
-<activity android:name="NotesList" android:label="@string/title\_notes\_list">
+<activity android:name="NotesList" android:label="@string/title_notes_list">
   
 <intent-filter>
   
@@ -389,7 +389,7 @@ it.setType("audio/mp3");
   
 startActivity(it);
   
-Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL\_CONTENT\_URI, "1");
+Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL_CONTENT_URI, "1");
   
 Intent it = new Intent(Intent.ACTION_VIEW, uri);
   

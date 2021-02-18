@@ -13,13 +13,13 @@ http://database.51cto.com/art/201010/231193.htm
 
 [sql]
 
-select to\_char(to\_date('2015/1/1', 'yyyy/mm/dd'),'iw') from dual;
+select to_char(to_date('2015/1/1', 'yyyy/mm/dd'),'iw') from dual;
   
-select to\_char(to\_date('2015/1/5', 'yyyy/mm/dd'),'iw') from dual;
+select to_char(to_date('2015/1/5', 'yyyy/mm/dd'),'iw') from dual;
 
 [/sql]
 
-在Oracle数据库中，Oracle to\_date()函数是我们经常使用的函数，下面就为您详细介绍Oracle to\_date()函数的用法，希望可以对您有所启迪。
+在Oracle数据库中，Oracle to_date()函数是我们经常使用的函数，下面就为您详细介绍Oracle to_date()函数的用法，希望可以对您有所启迪。
 
 to_date()与24小时制表示法及mm分钟的显示：
 
@@ -37,7 +37,7 @@ select to_date('2005-01-01 13:14:20','yyyy-MM-dd HH24:mi:ss') from dual;
   
 select to_char(sysdate,'yyyy-MM-dd HH24:mi:ss') from dual;//mi是分钟
   
-select to\_char(sysdate,'yyyy-MM-dd HH24:mm:ss') from dual;//mm会显示月份  oracle中的to\_date参数含义
+select to_char(sysdate,'yyyy-MM-dd HH24:mm:ss') from dual;//mm会显示月份  oracle中的to_date参数含义
 
 1.日期格式参数 含义说明
   
@@ -131,11 +131,11 @@ select to_char(trunc(sysdate ,'YYYY'),'YYYY') from dual
   
 -返回当前时间 年月日小时分秒毫秒
   
-select to\_char(current\_timestamp(5),'DD-MON-YYYY HH24:MI:SSxFF') from dual;
+select to_char(current_timestamp(5),'DD-MON-YYYY HH24:MI:SSxFF') from dual;
   
 -返回当前 时间的秒毫秒，可以指定秒后面的精度(最大=9)
   
-select to\_char(current\_timestamp(9),'MI:SSxFF') from dual;
+select to_char(current_timestamp(9),'MI:SSxFF') from dual;
 
 6.计算程序运行的时间(ms)
 
@@ -145,9 +145,9 @@ type rc is ref cursor;
   
 l_rc rc;
   
-l\_dummy all\_objects.object_name%type;
+l_dummy all_objects.object_name%type;
   
-l\_start number default dbms\_utility.get_time;
+l_start number default dbms_utility.get_time;
   
 begin
   
@@ -157,19 +157,19 @@ loop
   
 open l_rc for
   
-'select object\_name from all\_objects '||
+'select object_name from all_objects '||
   
 'where object_id = ' || i;
   
-fetch l\_rc into l\_dummy;
+fetch l_rc into l_dummy;
   
 close l_rc;
   
 end loop;
   
-dbms\_output.put\_line
+dbms_output.put_line
   
-( round( (dbms\_utility.get\_time-l_start)/100, 2 ) ||
+( round( (dbms_utility.get_time-l_start)/100, 2 ) ||
   
 ' seconds...' );
   

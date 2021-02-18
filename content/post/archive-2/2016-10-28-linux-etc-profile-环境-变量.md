@@ -68,15 +68,15 @@ fi
   
 换句话说，任何匹配/etc/profile.d/_.sh的可读内容都会被当作变量来源。这个非常重要，因为它表明直接编辑/etc/profile从来都不是实际需要的（所以恢复你之前的备份）。上面定义的任何变量都可以通过在一个单独的文件中配置，然后覆盖/etc/profile中的设置。这样做的好处是：它允许系统升级时自动添加相应的变更到/etc/profile文件中。因为Debian的Apt包管理系统通常不会修改默认的配置文件。
 
-~/.bash\_profile, ~/.bash\_login, and ~/.profile
+~/.bash_profile, ~/.bash_login, and ~/.profile
   
-/etc/profile存在的一个潜在问题是，它位于系统范围的路径中。这意味着修改它会影响这个系统上的所有用户。在个人计算机上，这可能不是太大的问题，但是修改它同时还需要root权限。由于这些原因，每个单独的Bash用户账户可以创建~/.bash\_profile, ~/.bash\_login 和 ~/.profil这几个文件中的任意一个作为Bash的配置文件来源。在列出的顺序中第一个被找到的文件会被作为配置文件，其余的都会被忽略。
+/etc/profile存在的一个潜在问题是，它位于系统范围的路径中。这意味着修改它会影响这个系统上的所有用户。在个人计算机上，这可能不是太大的问题，但是修改它同时还需要root权限。由于这些原因，每个单独的Bash用户账户可以创建~/.bash_profile, ~/.bash_login 和 ~/.profil这几个文件中的任意一个作为Bash的配置文件来源。在列出的顺序中第一个被找到的文件会被作为配置文件，其余的都会被忽略。
 
 其他的shell，例如Dash，支持相似的东西，但是只会查找~/.profile文件。这允许用户为Bash特定的应用场景配置单独的.bash_profile文件，如果在某些时候需要切换到Dash或其他shell作为登录shell（例如通过chsh -s dash命令）。可以保留~/.profile作为这些shell的配置文件。
 
-需要牢记的一点是，默认的Debian框架目录（/etc/skel，用于存放要复制到新用户账户主目录的文件和目录）包含.profile文件，但不包含.bash\_profile和.bash\_login文件。此外Debian使用Bash作为默认的shell，因此，许多Debian用户习惯于将他们的Bash 登录shell设置放在.profile文件中。
+需要牢记的一点是，默认的Debian框架目录（/etc/skel，用于存放要复制到新用户账户主目录的文件和目录）包含.profile文件，但不包含.bash_profile和.bash_login文件。此外Debian使用Bash作为默认的shell，因此，许多Debian用户习惯于将他们的Bash 登录shell设置放在.profile文件中。
 
-我曾经看到过一些项目的安装说明，例如RVN，这个项目建议用户创建一个.bash\_profile文件，但是这样做是非常危险的，根据上面提到的知识我们知道，这个会改变用户的shell环境。即使用户没有修改.profile文件，它也可能利用默认~/.profile功能，将~/bin添加到$PATH环境变量。一个可能提高安全性的选项是，在创建用户的账户之前，将.bash\_profile作为.bash_rc的符号链接文件，放到/etc/skel目录中。
+我曾经看到过一些项目的安装说明，例如RVN，这个项目建议用户创建一个.bash_profile文件，但是这样做是非常危险的，根据上面提到的知识我们知道，这个会改变用户的shell环境。即使用户没有修改.profile文件，它也可能利用默认~/.profile功能，将~/bin添加到$PATH环境变量。一个可能提高安全性的选项是，在创建用户的账户之前，将.bash_profile作为.bash_rc的符号链接文件，放到/etc/skel目录中。
 
 如果我们查看Debian Jessie的默认.profile脚本，我们可以看到下面的代码片段：
 
@@ -110,7 +110,7 @@ fi
 
 Debian Jessie包含一个名叫40×11-common_xsessionrc的文件，这个文件做的工作就是检查~/.xsessionrc是不是可读的，如果是就用它作为配置文件的来源。这就使得~/.xsessions是一个加载环境变量或者运行一个一次性使用程序（例如xrandr或xmodmap）的完美位置（仅适用于X会话）。如果你希望的话，你同样可以将/etc/profile或~/.profile作为来源。那么任何指定的环境变量也都会被你的会话管理器继承（如果还没有继承的话）。请注意，默认情况下.xsessionrc是不存在的，需要你自己创建这个文件。
 
-如果我们继续浏览/etc/X11/Xsession中的文件， 我们会发现50×11-common\_determine-startup会决定加载哪个会话管理器。如果~/.xsessions文件存在而且是可执行的，它会被保存并且随后作为99×11-common\_start的一部分执行，当~/.xsession用于运行会话管理器，X会话将会被注销。并且当这个脚本终止时，你会返回到显示管理器登录界面。
+如果我们继续浏览/etc/X11/Xsession中的文件， 我们会发现50×11-common_determine-startup会决定加载哪个会话管理器。如果~/.xsessions文件存在而且是可执行的，它会被保存并且随后作为99×11-common_start的一部分执行，当~/.xsession用于运行会话管理器，X会话将会被注销。并且当这个脚本终止时，你会返回到显示管理器登录界面。
 
 和~/.xsessionrc相似，~/.xsession默认也是不存在的，在你需要的时候你可以创建一个。你可能会创建一个类似下面给的简单的.xsession脚本
 

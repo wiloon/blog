@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-http://www.cnblogs.com/zhaojiedi1992/p/zhaojiedi\_linux\_039\_fdisk\_gdisk_parted.html
+http://www.cnblogs.com/zhaojiedi1992/p/zhaojiedi_linux_039_fdisk_gdisk_parted.html
 
 ### 两种分区结构简介
   

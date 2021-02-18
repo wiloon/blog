@@ -16,13 +16,13 @@ MaxAuthTries 20
 
 http://matt-u.iteye.com/blog/851158
 
-linux ssh\_config和sshd\_config配置文件
+linux ssh_config和sshd_config配置文件
   
 转载190019892011-08-22 09:34:11评论(1)63053人阅读
    
 现在远程管理linux系统基本上都要使用到ssh，原因很简单：telnet、FTP等传输方式是&#x200d;以明文传送用户认证信息，本质上是不安全的，存在被网络窃听的危险。SSH（Secure Shell）目前较可靠，是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题，透过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
 
-ssh\_config和sshd\_config都是ssh服务器的配置文件，二者区别在于，前者是针对客户端的配置文件，后者则是针对服务端的配置文件。两个配置文件都允许你通过设置不同的选项来改变客户端程序的运行方式。下面列出来的是两个配置文件中最重要的一些关键词，每一行为"关键词&值"的形式，其中"关键词"是忽略大小写的。
+ssh_config和sshd_config都是ssh服务器的配置文件，二者区别在于，前者是针对客户端的配置文件，后者则是针对服务端的配置文件。两个配置文件都允许你通过设置不同的选项来改变客户端程序的运行方式。下面列出来的是两个配置文件中最重要的一些关键词，每一行为"关键词&值"的形式，其中"关键词"是忽略大小写的。
   
 &#x200d;&#x200d;1、编辑 /etc/ssh/ssh_config 文件
 
@@ -138,7 +138,7 @@ ListenAddress 192.168.1.1
   
 "ListenAddress"设置sshd服务器绑定的IP地址。
   
-HostKey /etc/ssh/ssh\_host\_key
+HostKey /etc/ssh/ssh_host_key
   
 "HostKey"设置包含计算机私人密匙的文件。
   

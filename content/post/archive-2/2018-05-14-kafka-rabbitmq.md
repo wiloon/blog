@@ -8,4 +8,4 @@ categories:
   - Uncategorized
 
 ---
-http://www.infoq.com/cn/articles/kafka-vs-rabbitmq?utm\_campaign=infoq\_content&utm\_source=infoq&utm\_medium=feed&utm_term=global
+http://www.infoq.com/cn/articles/kafka-vs-rabbitmq?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global

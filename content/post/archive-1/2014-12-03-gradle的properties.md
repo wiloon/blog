@@ -253,7 +253,7 @@ gradle.properties文件可以放在root project根目录下，也可以放在用
 # 参考链接 {#toc_6}
 
   1. <http://www.gradle.org/docs/current/dsl/>
-  2. [http://www.gradle.org/docs/current/userguide/tutorial\_this\_and_that.html][8]
+  2. [http://www.gradle.org/docs/current/userguide/tutorial_this_and_that.html][8]
 
  [1]: http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternative-android-build-tools.html#toc_0
  [2]: http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternative-android-build-tools.html#toc_1

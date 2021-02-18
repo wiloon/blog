@@ -12,23 +12,23 @@ http://www.cnblogs.com/tangself/archive/2010/04/14/1711684.html
 
 jQuery获取Radio选择的Value值:
 
-var\_name = $("input[name='radio\_name']:checked").val();
+var_name = $("input[name='radio_name']:checked").val();
 
-1. $("input\[name='radio_name'\]\[checked\]").val();  //选择被选中Radio的Value值
+1. $("input[name='radio_name'][checked]").val();  //选择被选中Radio的Value值
   
-2. $("#text\_id").focus(function(){//code...});  //事件 当对象text\_id获取焦点时触发
+2. $("#text_id").focus(function(){//code...});  //事件 当对象text_id获取焦点时触发
   
-3. $("#text\_id").blur(function(){//code...});  //事件 当对象text\_id失去焦点时触发
+3. $("#text_id").blur(function(){//code...});  //事件 当对象text_id失去焦点时触发
   
 4. $("#text_id").select();  //使文本框的Vlaue值成选中状态
   
-5. $("input\[name='radio_name'\]\[value='要中Radio的Value值'\]").attr("checked",true);   jQuery获取CheckBox选择的Value
+5. $("input[name='radio_name'][value='要中Radio的Value值']").attr("checked",true);   jQuery获取CheckBox选择的Value
 
 语法解释：
   
-1. $("input\[name='checkbox_name'\]\[checked\]");  //选择被选中CheckBox元素的集合 如果你想得到Value值，你需要遍历
+1. $("input[name='checkbox_name'][checked]");  //选择被选中CheckBox元素的集合 如果你想得到Value值，你需要遍历
   
-2. $($("input\[name='checkbox_name'\]\[checked\]")).each(function(){arrChk+=this.value + ',';});  //遍历被选中CheckBox元素的集合 得到Value值
+2. $($("input[name='checkbox_name'][checked]")).each(function(){arrChk+=this.value + ',';});  //遍历被选中CheckBox元素的集合 得到Value值
   
 3. $("#checkbox_id").attr("checked");  //获取一个CheckBox的状态(有没有被选中,返回true/false)
   
@@ -36,7 +36,7 @@ var\_name = $("input[name='radio\_name']:checked").val();
   
 5. $("#checkbox_id").attr("checked",false);  //设置一个CheckBox的状态为不选中(checked=false)
   
-6. $("input[name='checkbox\_name']").attr("checked",$("#checkbox\_id").attr("checked"));
+6. $("input[name='checkbox_name']").attr("checked",$("#checkbox_id").attr("checked"));
 
 7. $("#text_id").val().split(",");  //将Text的Value值以','分隔 返回一个数组
 
@@ -44,33 +44,33 @@ var\_name = $("input[name='radio\_name']:checked").val();
 
 用JavaScript使页面上的一组checkbox全选/取消全选，逻辑很简单，实现代码也没有太难的语法。但使用jQuery实现则更简单，代码也很简洁，精辟！
   
-<input type="checkbox" name="chk\_list" id="chk\_list_1" value="1" />1<br />
+<input type="checkbox" name="chk_list" id="chk_list_1" value="1" />1<br />
   
-<input type="checkbox" name="chk\_list" id="chk\_list_2" value="2" />2<br />
+<input type="checkbox" name="chk_list" id="chk_list_2" value="2" />2<br />
   
-<input type="checkbox" name="chk\_list" id="chk\_list_3" value="3" />3<br />
+<input type="checkbox" name="chk_list" id="chk_list_3" value="3" />3<br />
   
-<input type="checkbox" name="chk\_list" id="chk\_list_4" value="4" />4<br />
+<input type="checkbox" name="chk_list" id="chk_list_4" value="4" />4<br />
   
-<input type="checkbox" name="chk\_all" id="chk\_all" />全选/取消全选
+<input type="checkbox" name="chk_all" id="chk_all" />全选/取消全选
   
 <script type="text/javascript">
 
-$("#chk\_all").click(function() {  $("input[name='chk\_list']").attr("checked",$(this).attr("checked"));});
+$("#chk_all").click(function() {  $("input[name='chk_list']").attr("checked",$(this).attr("checked"));});
   
 </script>
 
 jQuery.attr  获取/设置对象的属性值,如：
 
-$("input[name='chk\_list']").attr("checked");     //读取所有name为'chk\_list'对象的状态（是否选中）
+$("input[name='chk_list']").attr("checked");     //读取所有name为'chk_list'对象的状态（是否选中）
 
-$("input[name='chk\_list']").attr("checked",true);      //设置所有name为'chk\_list'对象的checked为true
+$("input[name='chk_list']").attr("checked",true);      //设置所有name为'chk_list'对象的checked为true
 
 再如：
 
-$("#img\_1").attr("src","test.jpg");    //设置ID为img\_1的<img>src的值为'test.jpg'
+$("#img_1").attr("src","test.jpg");    //设置ID为img_1的<img>src的值为'test.jpg'
   
-$("#img\_1").attr("src");     //读取ID为img\_1的<img>src值
+$("#img_1").attr("src");     //读取ID为img_1的<img>src值
 
 下面的代码是获取上面实例中选中的checkbox的value值:
   
@@ -112,7 +112,7 @@ jQuery设置Select选择的Text和Value:
   
 3. $("#select_id option
 
-\[text language="jQuery"\]\[/text\]
+[text language="jQuery"][/text]
 
 ").attr("selected", true);   //设置Select的Text值为jQuery的项选中
 
@@ -136,7 +136,7 @@ jQuery添加/删除Select的Option项：
   
 5. $("#select_id option
 
-\[text language="4"\]\[/text\]
+[text language="4"][/text]
 
 ").remove();  //删除Select中Text='4'的Option
 
@@ -146,7 +146,7 @@ jquery radio取值，checkbox取值，select取值，radio选中，checkbox选�
   
 获取一组radio被选中项的值
   
-var item = $('input\[@name=items\]\[@checked\]').val();
+var item = $('input[@name=items][@checked]').val();
   
 获取select被选中项的文本
   
@@ -166,7 +166,7 @@ $('input[@name=items]').get(1).checked = true;
   
 多选框checkbox：$("#checkbox_id").attr("value")；
   
-单选组radio：   $("input\[@type=radio\]\[@checked\]").val();
+单选组radio：   $("input[@type=radio][@checked]").val();
   
 下拉框select： $('#sel').val();
   
@@ -246,15 +246,15 @@ $("<option value='1'>1111</option>").appendTo("#select")//添加下拉框的opti
 
 2,单选框:
   
-$("input\[@type=radio\]\[@checked\]").val(); //得到单选框的选中项的值(注意中间没有空格)
+$("input[@type=radio][@checked]").val(); //得到单选框的选中项的值(注意中间没有空格)
   
-$("input\[@type=radio\]\[@value=2\]").attr("checked",'checked'); //设置单选框value=2的为选中状态.(注意中间没有空格)
+$("input[@type=radio][@value=2]").attr("checked",'checked'); //设置单选框value=2的为选中状态.(注意中间没有空格)
 
 3,复选框:
   
-$("input\[@type=checkbox\]\[@checked\]").val(); //得到复选框的选中的第一项的值
+$("input[@type=checkbox][@checked]").val(); //得到复选框的选中的第一项的值
   
-$("input\[@type=checkbox\]\[@checked\]").each(function(){ //由于复选框一般选中的是多个,所以可以循环输出
+$("input[@type=checkbox][@checked]").each(function(){ //由于复选框一般选中的是多个,所以可以循环输出
   
 alert($(this).val());
   
@@ -304,7 +304,7 @@ $("#selectTest").attr("value", "2");
   
 jquery radio取值，checkbox取值，select取值，radio选中，checkbox选中，select选中，及其相关获取一组radio被选中项的值
   
-var item = $('input\[@name=items\]\[@checked\]').val();
+var item = $('input[@name=items][@checked]').val();
   
 获取select被选中项的文本
   
@@ -324,7 +324,7 @@ $('input[@name=items]').get(1).checked = true;
   
 多选框checkbox：$("#checkbox_id").attr("value")；
   
-单选组radio： $("input\[@type=radio\]\[@checked\]").val();
+单选组radio： $("input[@type=radio][@checked]").val();
   
 下拉框select： $('#sel').val();
   
@@ -350,7 +350,7 @@ $("#sel").empty()；//清空下拉框
 
 获取一组radio被选中项的值
   
-var item = $('input\[@name=items\]\[@checked\]').val();
+var item = $('input[@name=items][@checked]').val();
   
 获取select被选中项的文本
   
@@ -370,7 +370,7 @@ $('input[@name=items]').get(1).checked = true;
   
 多选框checkbox：$("#checkbox_id").attr("value")；
   
-单选组radio： $("input\[@type=radio\]\[@checked\]").val();
+单选组radio： $("input[@type=radio][@checked]").val();
   
 下拉框select： $('#sel').val();
   
@@ -658,196 +658,196 @@ $('#stsoft').val("1");
 
 Js代码
 
-<p align="left">
+
   1.     /**
 
-<p align="left">
+
   2.     fromid:源list的id.
 
-<p align="left">
+
   3.     toid:目标list的id.
 
-<p align="left">
+
   4.     moveOrAppend参数("move"或者是"append"):
 
-<p align="left">
+
   5.     move - 源list中选中的option会删除.源list中选中的option移动到目标list中,若目标list中已存在则该option不添加.
 
-<p align="left">
+
   6.     append - 源list中选中的option不会删除.源list中选中的option添加到目标list的后面,若目标list中已存在则该option不添加.
 
-<p align="left">
+
   7.
 
-<p align="left">
+
   8.     isAll参数(true或者false):是否全部移动或添加
 
-<p align="left">
+
   9.     */
 
-<p align="left">
+
   10. jQuery.listTolist = function(fromid,toid,moveOrAppend,isAll) {
 
-<p align="left">
+
   11.     if(moveOrAppend.toLowerCase() == "move") {  //移动
 
-<p align="left">
+
   12.         if(isAll == true) { //全部移动
 
-<p align="left">
+
   13.             $("#"+fromid+" option").each(function() {
 
-<p align="left">
+
   14.                 //将源list中的option添加到目标list,当目标list中已有该option时不做任何操作.
 
-<p align="left">
+
   15.                 $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   16.             });
 
-<p align="left">
+
   17.             $("#"+fromid).empty();  //清空源list
 
-<p align="left">
+
   18.         }
 
-<p align="left">
+
   19.         else if(isAll == false) {
 
-<p align="left">
+
   20.             $("#"+fromid+" option:selected").each(function() {
 
-<p align="left">
+
   21.                 //将源list中的option添加到目标list,当目标list中已有该option时不做任何操作.
 
-<p align="left">
+
   22.                 $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   23.                 //目标list中已经存在的option并没有移动,仍旧在源list中,将其清空.
 
-<p align="left">
+
   24.                 if($("#"+fromid+" option[value="+$(this).val()+"]").length > 0) {
 
-<p align="left">
+
   25.                     $("#"+fromid).get(0)
 
-<p align="left">
+
   26.                     .removeChild($("#"+fromid+" option[value="+$(this).val()+"]").get(0));
 
-<p align="left">
+
   27.                 }
 
-<p align="left">
+
   28.             });
 
-<p align="left">
+
   29.         }
 
-<p align="left">
+
   30.     }
 
-<p align="left">
+
   31.     else if(moveOrAppend.toLowerCase() == "append") {
 
-<p align="left">
+
   32.         if(isAll == true) {
 
-<p align="left">
+
   33.             $("#"+fromid+" option").each(function() {
 
-<p align="left">
+
   34.                 $("<option></option>")
 
-<p align="left">
+
   35.                 .val($(this).val())
 
-<p align="left">
+
   36.                 .text($(this).text())
 
-<p align="left">
+
   37.                 .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   38.             });
 
-<p align="left">
+
   39.         }
 
-<p align="left">
+
   40.         else if(isAll == false) {
 
-<p align="left">
+
   41.             $("#"+fromid+" option:selected").each(function() {
 
-<p align="left">
+
   42.                 $("<option></option>")
 
-<p align="left">
+
   43.                 .val($(this).val())
 
-<p align="left">
+
   44.                 .text($(this).text())
 
-<p align="left">
+
   45.                 .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   46.             });
 
-<p align="left">
+
   47.         }
 
-<p align="left">
+
   48.     }
 
-<p align="left">
+
   49. };   /**
 
-<p align="left">
+
   50. 功能大体同上("move").
 
-<p align="left">
+
   51. 不同之处在于当源list中的选中option在目标list中存在时,源list中的option不会删除.
 
-<p align="left">
+
   52. isAll参数(true或者false):是否全部移动或添加
 
-<p align="left">
+
   53. jQuery.list2list = function(fromid,toid,isAll) {
 
-<p align="left">
+
   54.     if(isAll == true) {
 
-<p align="left">
+
   55.         $("#"+fromid+" option").each(function() {
 
-<p align="left">
+
   56.             $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   57.         });
 
-<p align="left">
+
   58.     }
 
-<p align="left">
+
   59.     else if(isAll == false) {
 
-<p align="left">
+
   60.         $("#"+fromid+" option:selected").each(function() {
 
-<p align="left">
+
   61.             $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   62.         });
 
-<p align="left">
+
   63.     }
 
-<p align="left">
+
   64. };
 
 isAllif(isAll == true) { //$("#"+fromid+" option").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });     $("#"+fromid).empty(); //}    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));      //if($("#"+fromid+" option[value="+$(this).val()+"]").length > 0) {       $("#"+fromid).get(0)       .removeChild($("#"+fromid+" option[value="+$(this).val()+"]").get(0));      }     });    }  }  else if(moveOrAppend.toLowerCase() == "append") {    if(isAll == true) {     $("#"+fromid+" option").each(function() {      $("<option></option>")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      $("<option></option>")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }  } }; /** isAll$("#"+fromid+" option").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  }  else if(isAll == false) {    $("#"+fromid+" option:selected").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  } };

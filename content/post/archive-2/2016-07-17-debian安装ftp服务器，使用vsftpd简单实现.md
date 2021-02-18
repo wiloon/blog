@@ -30,13 +30,13 @@ apt-get install vsftpd
   
 nano /etc/vsftpd.conf
 
-打开后我们找到anonymous\_enable=YES 替换成anonymous\_enable=NO
+打开后我们找到anonymous_enable=YES 替换成anonymous_enable=NO
   
 找到local_enable=YES，将前面的#去掉
   
 找到Write_enable=NO将前面的#去掉，改成YES
   
-然后在配置文件的最后一行加上：chroot\_local\_user=YES 目的是让登陆用户锁定在指定目录里面！放置用户可以返回上层目录！
+然后在配置文件的最后一行加上：chroot_local_user=YES 目的是让登陆用户锁定在指定目录里面！放置用户可以返回上层目录！
 
 接下来创建用户组：
   

@@ -12,6 +12,6 @@ categories:
   
 #archlinux
   
-echo fs.inotify.max\_user\_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl -system
+echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl -system
 
 ```

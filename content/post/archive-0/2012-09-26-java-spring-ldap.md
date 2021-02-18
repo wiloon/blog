@@ -56,19 +56,19 @@ private Map<String, String> ldapPropertiesMap=new HashMap<String, String>();
 
 // LDAP Settings
    
-public static final String LDAP\_PROVIDER\_URL = "ldap.provider.url";
+public static final String LDAP_PROVIDER_URL = "ldap.provider.url";
    
-public static final String LDAP\_SECURITY\_AUTHENTICATION = "ldap.security.authentication";
+public static final String LDAP_SECURITY_AUTHENTICATION = "ldap.security.authentication";
    
-public static final String LDAP\_SECURITY\_PRINCIPAL = "ldap.security.principal";
+public static final String LDAP_SECURITY_PRINCIPAL = "ldap.security.principal";
    
-public static final String LDAP\_SECURITY\_CREDENTIALS = "ldap.security.credentials";
+public static final String LDAP_SECURITY_CREDENTIALS = "ldap.security.credentials";
    
-public static final String LDAP\_ADMIN\_OU = "ldap.admin.ou";
+public static final String LDAP_ADMIN_OU = "ldap.admin.ou";
    
-public static final String LDAP\_USER\_OU = "ldap.user.ou";
+public static final String LDAP_USER_OU = "ldap.user.ou";
    
-public static final String LDAP\_USER\_FILTER = "ldap.user.filter";
+public static final String LDAP_USER_FILTER = "ldap.user.filter";
 
 private DirContextSource dirCtxSrc;
    
@@ -76,23 +76,23 @@ private String userAuthority;
    
 private static final String ldapFactory = "com.sun.jndi.ldap.LdapCtxFactory";
 
-private static final String DEFAULT\_USER\_FILTER = "uid";
+private static final String DEFAULT_USER_FILTER = "uid";
 
 public LDAPService() throws Exception {
    
-ldapPropertiesMap.put(LDAP\_PROVIDER\_URL, "ldap://10.0.1.1:10389/ou=system");
+ldapPropertiesMap.put(LDAP_PROVIDER_URL, "ldap://10.0.1.1:10389/ou=system");
    
-ldapPropertiesMap.put(LDAP\_SECURITY\_AUTHENTICATION, "simple");
+ldapPropertiesMap.put(LDAP_SECURITY_AUTHENTICATION, "simple");
    
-ldapPropertiesMap.put(LDAP\_SECURITY\_PRINCIPAL, "uid=admin,ou=system");
+ldapPropertiesMap.put(LDAP_SECURITY_PRINCIPAL, "uid=admin,ou=system");
    
-ldapPropertiesMap.put(LDAP\_SECURITY\_CREDENTIALS, "secret");
+ldapPropertiesMap.put(LDAP_SECURITY_CREDENTIALS, "secret");
    
-ldapPropertiesMap.put(LDAP\_ADMIN\_OU, "ou=admins,ou=system");
+ldapPropertiesMap.put(LDAP_ADMIN_OU, "ou=admins,ou=system");
    
-ldapPropertiesMap.put(LDAP\_USER\_OU, "ou=users,ou=system");
+ldapPropertiesMap.put(LDAP_USER_OU, "ou=users,ou=system");
    
-ldapPropertiesMap.put(LDAP\_USER\_FILTER, "uid=?");
+ldapPropertiesMap.put(LDAP_USER_FILTER, "uid=?");
    
 this.init();
    
@@ -102,31 +102,31 @@ private void init() throws Exception {
    
 Hashtable<String, String> env = new Hashtable<String, String>();
 
-env.put(Context.INITIAL\_CONTEXT\_FACTORY, ldapFactory);
+env.put(Context.INITIAL_CONTEXT_FACTORY, ldapFactory);
    
-env.put(Context.PROVIDER\_URL, ldapPropertiesMap.get(LDAP\_PROVIDER_URL));
+env.put(Context.PROVIDER_URL, ldapPropertiesMap.get(LDAP_PROVIDER_URL));
    
 env.put(Context.SECURITY_AUTHENTICATION,
    
-ldapPropertiesMap.get(LDAP\_SECURITY\_AUTHENTICATION));
+ldapPropertiesMap.get(LDAP_SECURITY_AUTHENTICATION));
    
 env.put(Context.SECURITY_PRINCIPAL,
    
-ldapPropertiesMap.get(LDAP\_SECURITY\_PRINCIPAL));
+ldapPropertiesMap.get(LDAP_SECURITY_PRINCIPAL));
    
 env.put(Context.SECURITY_CREDENTIALS,
    
-ldapPropertiesMap.get(LDAP\_SECURITY\_CREDENTIALS));
+ldapPropertiesMap.get(LDAP_SECURITY_CREDENTIALS));
 
 dirCtxSrc = new DirContextSource();
    
 dirCtxSrc.setBaseEnvironmentProperties(env);
    
-dirCtxSrc.setUserDn(ldapPropertiesMap.get(LDAP\_SECURITY\_PRINCIPAL));
+dirCtxSrc.setUserDn(ldapPropertiesMap.get(LDAP_SECURITY_PRINCIPAL));
    
-dirCtxSrc.setPassword(ldapPropertiesMap.get(LDAP\_SECURITY\_CREDENTIALS));
+dirCtxSrc.setPassword(ldapPropertiesMap.get(LDAP_SECURITY_CREDENTIALS));
    
-dirCtxSrc.setUrl(ldapPropertiesMap.get(LDAP\_PROVIDER\_URL));
+dirCtxSrc.setUrl(ldapPropertiesMap.get(LDAP_PROVIDER_URL));
    
 dirCtxSrc.afterPropertiesSet();
    
@@ -162,9 +162,9 @@ result = authenticate(userDn, password);
 
 if (result) {
    
-String adminGroup = ldapPropertiesMap.get(LDAP\_ADMIN\_OU);
+String adminGroup = ldapPropertiesMap.get(LDAP_ADMIN_OU);
    
-String userGroup = ldapPropertiesMap.get(LDAP\_USER\_OU);
+String userGroup = ldapPropertiesMap.get(LDAP_USER_OU);
    
 if (adminGroup != null
    
@@ -230,7 +230,7 @@ LdapTemplate ldapTemplate = new LdapTemplate(dirCtxSrc);
 
 // Filter
    
-String userFilter = ldapPropertiesMap.get(LDAP\_USER\_FILTER);
+String userFilter = ldapPropertiesMap.get(LDAP_USER_FILTER);
    
 if (userFilter != null && !userFilter.isEmpty()) {
    
@@ -238,7 +238,7 @@ userFilter = userFilter.replaceAll("\?", uid);
    
 } else {
    
-userFilter = "(" + DEFAULT\_USER\_FILTER + "=" + uid + ")";
+userFilter = "(" + DEFAULT_USER_FILTER + "=" + uid + ")";
    
 }
    
@@ -292,13 +292,13 @@ DirContext ctx = null;
 
 Hashtable<String, String> env = new Hashtable<String, String>();
 
-String providerUrl = (ldapPropertiesMap.get(LDAP\_PROVIDER\_URL));
+String providerUrl = (ldapPropertiesMap.get(LDAP_PROVIDER_URL));
    
 String securityAuth = (ldapPropertiesMap
    
-.get(LDAP\_SECURITY\_AUTHENTICATION));
+.get(LDAP_SECURITY_AUTHENTICATION));
 
-env.put(Context.INITIAL\_CONTEXT\_FACTORY,
+env.put(Context.INITIAL_CONTEXT_FACTORY,
    
 "com.sun.jndi.ldap.LdapCtxFactory");
    

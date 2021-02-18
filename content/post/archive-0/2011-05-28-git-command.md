@@ -206,7 +206,7 @@ $ git push origin test:test // 提交本地test分支作为远程的test分支
 # 删除远程分支：
 
 git push --delete origin devel
-To git@github.com:zrong/quick-cocos2d-x.git - \[deleted\] devel
+To git@github.com:zrong/quick-cocos2d-x.git - [deleted] devel
 
 # git pull命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。它的完整格式稍稍有点复杂。
 

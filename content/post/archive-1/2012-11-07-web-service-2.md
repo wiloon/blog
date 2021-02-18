@@ -9,9 +9,8 @@ categories:
 
 ---
 ## 简介
-
-<div data-layout="right">
-  <a title="查看图片" href="http://baike.baidu.com/albums/67105/67105/0/0.html#0$11794d437a7d7f519213c675" target="_blank">  </a><a href="http://baike.baidu.com/albums/67105/67105/0/0.html#0$11794d437a7d7f519213c675" target="_blank"><img title="Web Service" src="http://b.hiphotos.baidu.com/baike/s%3D220/sign=391664414c086e066ea8384932097b5a/eaf81a4c510fd9f956a5ad19252dd42a2834a414.jpg" alt="Web Service" width="220" height="146" /></a>Web Service
+http://baike.baidu.com/albums/67105/67105/0/0.html#0$11794d437a7d7f519213c675
+Web Service
 
 Web service是一个平台独立的，<a href="http://baike.baidu.com/view/1343493.htm" target="_blank">松耦合</a>的，自包含的、基于可编程的web的应用程序，可使用开放的XML标准来描述、发布、发现、协调和配置这些应用程序，用于开发分布式的互操作的应用程序。<sup>[1]</sup><a name="ref_[1]_67105"></a>
 

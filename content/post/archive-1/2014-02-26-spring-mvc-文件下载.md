@@ -86,7 +86,7 @@ public ResponseEntity<byte[]> download() throws IOException {
 
 HttpHeaders headers = new HttpHeaders();
 
-headers.setContentType(MediaType.APPLICATION\_OCTET\_STREAM);
+headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
 
 headers.setContentDispositionFormData("attachment", "dict.txt");
 

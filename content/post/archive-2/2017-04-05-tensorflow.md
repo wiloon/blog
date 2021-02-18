@@ -33,4 +33,4 @@ docker run -it gcr.io/tensorflow/tensorflow bash
 
 https://www.tensorflow.org/install/install_linux#InstallingDocker
 
-https://www.tensorflow.org/get\_started/get\_started
+https://www.tensorflow.org/get_started/get_started

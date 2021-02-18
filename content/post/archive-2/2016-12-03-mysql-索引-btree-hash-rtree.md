@@ -65,19 +65,19 @@ r-tree在mysql很少使用，仅支持geometry数据类型，支持该类型的�
 
 有时候mysql query optimizer会认为使用索引并不是最优计划,所以不使用索引。可以在sql语句里可以用use,force index,当然有时候使用也不会比不用快,所以需要忽略掉index方法是ignore index.
 
-关闭查询缓存sql\_no\_cache
+关闭查询缓存sql_no_cache
 
-select sql\_no\_cache * from table_name;
+select sql_no_cache * from table_name;
 
 这样可以让一些很少使用的语句不放在缓存里，查找的时候不会去缓存里找；对应的是强制缓存sql_cache
 
-select sql\_cache * from table\_name;
+select sql_cache * from table_name;
 
-另外，在my.cnf中如果设置query\_cache\_type=2的话，那么只有在使用sql_cache后才会使用缓存;
+另外，在my.cnf中如果设置query_cache_type=2的话，那么只有在使用sql_cache后才会使用缓存;
 
 还有mysql里的优先操作hight_priority让mysql优先操作这个语句
 
-select high\_priority * fromtable\_name;
+select high_priority * fromtable_name;
 
 与其对应的是low_priority;
 
@@ -93,18 +93,18 @@ insert delayed into table_name....;
 
 SELECT TABLE1.FIELD1, TABLE2.FIELD2 FROM TABLE1 STRAIGHT_JOIN TABLE2 WHERE …
 
-由上面的SQL语句可知，通过STRAIGHT\_JOIN强迫MySQL按TABLE1、TABLE2的顺序连接表。如果你认为按自己的顺序比MySQL推荐的顺序进行连接的效率高的话，就可以通过STRAIGHT\_JOIN来确定连接顺序。
+由上面的SQL语句可知，通过STRAIGHT_JOIN强迫MySQL按TABLE1、TABLE2的顺序连接表。如果你认为按自己的顺序比MySQL推荐的顺序进行连接的效率高的话，就可以通过STRAIGHT_JOIN来确定连接顺序。
 
-2. 强制使用临时表： SQL\_BUFFER\_RESULT
+2. 强制使用临时表： SQL_BUFFER_RESULT
 
-SELECT SQL\_BUFFER\_RESULT * FROM TABLE1 WHERE …
+SELECT SQL_BUFFER_RESULT * FROM TABLE1 WHERE …
 
-当我们查询的结果集中的数据比较多时，可以通过SQL\_BUFFER\_RESULT，选项强制将结果集放到临时表中，这样就可以很快地释放MySQL的表锁（这样其它的SQL语句就可以对这些记录进行查询了），并且可以长时间地为客户端提供大记录集。
+当我们查询的结果集中的数据比较多时，可以通过SQL_BUFFER_RESULT，选项强制将结果集放到临时表中，这样就可以很快地释放MySQL的表锁（这样其它的SQL语句就可以对这些记录进行查询了），并且可以长时间地为客户端提供大记录集。
 
-3. 分组使用临时表 SQL\_BIG\_RESULT和SQL\_SMALL\_RESULT
+3. 分组使用临时表 SQL_BIG_RESULT和SQL_SMALL_RESULT
 
-SELECT SQL\_BUFFER\_RESULT FIELD1, COUNT(*) FROM TABLE1 GROUP BY FIELD1;
+SELECT SQL_BUFFER_RESULT FIELD1, COUNT(*) FROM TABLE1 GROUP BY FIELD1;
 
-一般用于分组或DISTINCT关键字，这个选项通知MySQL，如果有必要，就将查询结果放到临时表中，甚至在临时表中进行排序。SQL\_SMALL\_RESULT比起SQL\_BIG\_RESULT差不多，很少使用。
+一般用于分组或DISTINCT关键字，这个选项通知MySQL，如果有必要，就将查询结果放到临时表中，甚至在临时表中进行排序。SQL_SMALL_RESULT比起SQL_BIG_RESULT差不多，很少使用。
 
 转载声明： 本文转自 http://apps.hi.baidu.com/share/detail/23985447

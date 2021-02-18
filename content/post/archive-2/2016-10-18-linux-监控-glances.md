@@ -92,6 +92,6 @@ print s.getSystem()
 
 $ python test.py
   
-{"linux\_distro": "Ubuntu 12.04", "platform": "64bit", "os\_name": "Linux", "hostname": "vpsee.com", "os_version": "3.2.0-23-virtual"}
+{"linux_distro": "Ubuntu 12.04", "platform": "64bit", "os_name": "Linux", "hostname": "vpsee.com", "os_version": "3.2.0-23-virtual"}
 
 <http://www.vpsee.com/2013/07/a-new-system-monitoring-tool-glances-installation-and-usage/>

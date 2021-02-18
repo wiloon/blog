@@ -94,13 +94,13 @@ $ file * | grep ASCII | cut -d":" -f1 | xargs wc -l
 
 47853 alert_DBA102.log
   
-19 dba102\_cjq0\_14493.trc
+19 dba102_cjq0_14493.trc
   
-29053 dba102\_mmnl\_14497.trc
+29053 dba102_mmnl_14497.trc
   
-154 dba102\_reco\_14491.trc
+154 dba102_reco_14491.trc
   
-43 dba102\_rvwr\_14518.trc
+43 dba102_rvwr_14518.trc
   
 77122 total
   
@@ -126,9 +126,9 @@ $ file * | grep ASCII | cut -d":" -f1 | xargs vi
   
 $ file * | grep ASCII | cut -d":" -f1 | xargs -p vi
 
-vi alert\_DBA102.log dba102\_cjq0\_14493.trc dba102\_mmnl_14497.trc
+vi alert_DBA102.log dba102_cjq0_14493.trc dba102_mmnl_14497.trc
 
-dba102\_reco\_14491.trc dba102\_rvwr\_14518.trc ?...
+dba102_reco_14491.trc dba102_rvwr_14518.trc ?...
 
 此处的 xarg 要求您在运行每个命令之前进行确认。如果您按下 "y"，则执行命令。当您对文件进行某些可能有破坏且不可恢复的操作（如删除或覆盖）时，您会发现该选项非常有用。
 
@@ -158,9 +158,9 @@ $ file * | grep SSSSSS | cut -d":" -f1 | xargs -t -r wc -l $
 
 $ file * | grep ASCII | cut -d":" -f1 | xargs -t -n2 ls -ltr
 
-ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
+ls -ltr alert_DBA102.log dba102_cjq0_14493.trc
 
--rw-r-- 1 oracle dba 738 Aug 10 19:18 dba102\_cjq0\_14493.trc
+-rw-r-- 1 oracle dba 738 Aug 10 19:18 dba102_cjq0_14493.trc
 
 -rw-r-r- 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
 
@@ -168,18 +168,18 @@ ls -ltr alert\_DBA102.log dba102\_cjq0_14493.trc
 
  
 
-ls -ltr dba102\_mmnl\_14497.trc dba102\_reco\_14491.trc
+ls -ltr dba102_mmnl_14497.trc dba102_reco_14491.trc
 
--rw-r-- 1 oracle dba 5386163 Aug 10 17:55 dba102\_mmnl\_14497.trc
+-rw-r-- 1 oracle dba 5386163 Aug 10 17:55 dba102_mmnl_14497.trc
 
--rw-r-- 1 oracle dba 6808 Aug 13 05:21 dba102\_reco\_14491.trc
-
- 
+-rw-r-- 1 oracle dba 6808 Aug 13 05:21 dba102_reco_14491.trc
 
  
 
-ls -ltr dba102\_rvwr\_14518.trc
+ 
 
--rw-r-- 1 oracle dba 2087 Aug 10 04:30 dba102\_rvwr\_14518.trc
+ls -ltr dba102_rvwr_14518.trc
+
+-rw-r-- 1 oracle dba 2087 Aug 10 04:30 dba102_rvwr_14518.trc
 
 使用该方法，您可以快速重命名目录中的文件。

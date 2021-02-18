@@ -31,7 +31,7 @@ BatchHandler handler2 = new MyBatchHandler2();
   
 BatchHandler handler3 = new MyBatchHandler3()
   
-RingBuffer ringBuffer = new RingBuffer(ENTRY\_FACTORY, RING\_BUFFER_SIZE);
+RingBuffer ringBuffer = new RingBuffer(ENTRY_FACTORY, RING_BUFFER_SIZE);
   
 ConsumerBarrier consumerBarrier1 = ringBuffer.createConsumerBarrier();
   
@@ -67,7 +67,7 @@ BatchHandler handler3 = new MyBatchHandler3();
   
 DisruptorWizard dw = new DisruptorWizard(ENTRY_FACTORY,
   
-RING\_BUFFER\_SIZE, executor);
+RING_BUFFER_SIZE, executor);
   
 dw.consumeWith(handler1, handler2).then(handler3);
   

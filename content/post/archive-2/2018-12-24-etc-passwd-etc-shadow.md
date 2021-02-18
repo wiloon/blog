@@ -86,4 +86,4 @@ letuknowit:$1$cPf/cIvr$sCws95uSip2ljTK052DDB.:15400:5:60:7:2:15490:
   
 　　8、无论如何，到了2012年5月29日，该账号都将失效
 
-http://cn.linux.vbird.org/linux\_basic/0410accountmanager\_1.php
+http://cn.linux.vbird.org/linux_basic/0410accountmanager_1.php

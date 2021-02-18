@@ -166,7 +166,7 @@ tar --use-compress-program=pigz -xvpf package.tgz -C ./package
 
 ```bash-c, --create #建立新的存档
 \-v, --verbose #详细显示处理的文件
-\-f, --file \[HOSTNAME:\]F #指定存档或设备 (缺省为 /dev/rmt0)
+\-f, --file [HOSTNAME:]F #指定存档或设备 (缺省为 /dev/rmt0)
 \-z, --gzip, --ungzip #用 gzip 对存档压缩或解压
 \-x, --extract, --get #从存档展开文件
 ```
@@ -198,7 +198,7 @@ unrar x /media/data/homes-backup.rar homes-backup/
 
 tar可以为文件和目录创建档案。利用tar，用户可以为某一特定文件创建档案（备份文件），也可以在档案中改变文件，或者向档案中加入新的文件。tar 最初被用来在磁带上创建档案，现在，用户可以在任何设备上创建档案，如软盘。利用tar命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文 件或将几个文件组合成为一个文件以便于网络传输是非常有用的。Linux上的tar是GNU版本的。
 
-语法：tar \[主选项+辅选项\] 文件或者目录
+语法：tar [主选项+辅选项] 文件或者目录
 
 使用该命令时，主选项是必须要有的，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。
 
@@ -421,7 +421,7 @@ lha请到：http://www.infor.kanazawa-it.ac.jp/…/lhaunix/下载！
 
 > 解压后请将lha拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：
 
-> \[root@www2 tmp\]# cp lha /usr/bin/
+> [root@www2 tmp]# cp lha /usr/bin/
 
 > ———————————————
 
@@ -443,7 +443,7 @@ lha请到：http://www.infor.kanazawa-it.ac.jp/…/lhaunix/下载！
 
 > 解压后请将sEx拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：
 
-> \[root@www2 tmp\]# cp sEx /usr/bin/
+> [root@www2 tmp]# cp sEx /usr/bin/
 
 ---
 

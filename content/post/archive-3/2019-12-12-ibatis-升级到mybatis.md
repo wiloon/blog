@@ -187,7 +187,7 @@ int resetSyncLabel(long bookId);
 
 <sql id="selectSyncLabelForm">
     
- select FID, FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime from t\_sync\_label 
+ select FID, FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime from t_sync_label 
    
 </sql>
 
@@ -195,7 +195,7 @@ int resetSyncLabel(long bookId);
       
 <![CDATA[
          
-insert into t\_sync\_label (FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime)
+insert into t_sync_label (FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime)
          
 values (#userName:VARCHAR#, #bookId:LONG#, #restored#, #label:VARCHAR#, #mirror#, #syncCount#, #lastModifyTime:TIMESTAMP#)
       
@@ -203,7 +203,7 @@ values (#userName:VARCHAR#, #bookId:LONG#, #restored#, #label:VARCHAR#, #mirror#
       
 <selectKey keyProperty="id" resultClass="int">
          
-SELECT LAST\_INSERT\_ID() as value
+SELECT LAST_INSERT_ID() as value
       
 </selectKey>
    
@@ -231,7 +231,7 @@ SELECT LAST\_INSERT\_ID() as value
 
 <update id="modifySyncLabel" parameterClass="syncLabelClass">
     
-update t\_sync\_label
+update t_sync_label
     
 set FLabel = #label:VARCHAR#, FTimestamp = #timestamp:LONG#,
     
@@ -251,7 +251,7 @@ where FID = #id:INTEGER#
 
 <update id="resetSyncLabel" parameterClass="java.util.Map">
     
-update t\_sync\_label set FLabel = "", FTimestamp = 0 ,fmirror = null
+update t_sync_label set FLabel = "", FTimestamp = 0 ,fmirror = null
     
 <dynamic prepend="WHERE">
      
@@ -279,7 +279,7 @@ FBookId = #bookId#
 
 <insert id="insertBookSyncCount" parameterClass="java.util.Map">
        
-insert into t\_sync\_book (FSyncCount, FSyncType, FTradingEntity, FCreateTime, FLastModifyTime)
+insert into t_sync_book (FSyncCount, FSyncType, FTradingEntity, FCreateTime, FLastModifyTime)
        
 values (#syncCount#, #syncType#, #bookId#, now(), now())
    
@@ -287,7 +287,7 @@ values (#syncCount#, #syncType#, #bookId#, now(), now())
 
 <delete id="deleteLabel" parameterClass="java.lang.Long">
     
-DELETE FROM t\_sync\_label WHERE FID = #labelId#
+DELETE FROM t_sync_label WHERE FID = #labelId#
    
 </delete>
   
@@ -320,7 +320,7 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
 
 <sql id="selectSyncLabelForm">
     
- select FID, FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime from t\_sync\_label 
+ select FID, FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime from t_sync_label 
    
 </sql>
 
@@ -331,7 +331,7 @@ DELETE FROM t\_sync\_label WHERE FID = #labelId#
        
 <![CDATA[
          
-insert into t\_sync\_label (FUserName, FBookId,
+insert into t_sync_label (FUserName, FBookId,
          
 FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime)
          
@@ -343,7 +343,7 @@ values (#{userName,jdbcType=VARCHAR}, #{bookId,jdbcType=BIGINT},
        
 <selectKey keyProperty="id" resultType="int">
          
-SELECT LAST\_INSERT\_ID() as value
+SELECT LAST_INSERT_ID() as value
        
 </selectKey>
    
@@ -371,7 +371,7 @@ SELECT LAST\_INSERT\_ID() as value
 
 <update id="modifySyncLabel" parameterType="SyncLabel">
     
-update t\_sync\_label
+update t_sync_label
     
 set FLabel = #{label,jdbcType=VARCHAR}, FTimestamp = #{timestamp,jdbcType=BIGINT},
     
@@ -391,7 +391,7 @@ where FID = #{id,jdbcType=INTEGER}
    
 <update id="resetSyncLabel" parameterType="java.util.Map">
     
-update t\_sync\_label set FLabel = "", FTimestamp = 0 ,fmirror = null
+update t_sync_label set FLabel = "", FTimestamp = 0 ,fmirror = null
     
 <where>
      
@@ -419,7 +419,7 @@ and FBookId = #{bookId}
 
 <insert id="insertBookSyncCount" parameterType="java.util.Map">
        
-insert into t\_sync\_book (FSyncCount, FSyncType,
+insert into t_sync_book (FSyncCount, FSyncType,
        
 FTradingEntity, FCreateTime, FLastModifyTime)
        
@@ -429,7 +429,7 @@ values (#{syncCount}, #{syncType}, #{bookId}, now(), now())
 
 <delete id="deleteLabel" parameterType="java.lang.Long">
     
-DELETE FROM t\_sync\_label WHERE FID = #{labelId}
+DELETE FROM t_sync_label WHERE FID = #{labelId}
    
 </delete>
   

@@ -259,7 +259,7 @@ iptables -I FORWARD \
   
 -j DROP
 
-该例子在一条规则里使用了两个集合。如果源地址匹配limited\_hosts 目的地址不匹配allowed\_sites，数据包就被丢弃。
+该例子在一条规则里使用了两个集合。如果源地址匹配limited_hosts 目的地址不匹配allowed_sites，数据包就被丢弃。
 
 注意该规则被添加到了FORWARD链，它不会影响防火墙主机自己的通信。
 

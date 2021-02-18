@@ -8,11 +8,11 @@ categories:
   - DataBase
 
 ---
-因为新的SQL SERVER 使用了英文版, 使用了默认的排序规则是:SQL\_Latin1\_General\_CP1\_CI_AS
+因为新的SQL SERVER 使用了英文版, 使用了默认的排序规则是:SQL_Latin1_General_CP1_CI_AS
 
-但旧的数据使用的是中文版, 使用的排序规则是 Chinese\_PRC\_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
+但旧的数据使用的是中文版, 使用的排序规则是 Chinese_PRC_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
 
-Cannot resolve the collation conflict between "SQL\_Latin1\_General\_CP1\_CI\_AS" and "Chinese\_PRC\_CI\_AS" in the equal to operation.
+Cannot resolve the collation conflict between "SQL_Latin1_General_CP1_CI_AS" and "Chinese_PRC_CI_AS" in the equal to operation.
 
 <wbr />
 
@@ -59,11 +59,11 @@ select * from ::fn_helpcollations()
   
 如：
   
-Chinese\_PRC\_CS\_AI\_WS
+Chinese_PRC_CS_AI_WS
   
-前半部份：指UNICODE字符集，Chinese\_PRC\_指针对大陆简体字UNICODE的排序规则，按拼音排序。
+前半部份：指UNICODE字符集，Chinese_PRC_指针对大陆简体字UNICODE的排序规则，按拼音排序。
   
-Chinese\_PRC\_Stroke 表示按汉字笔画排序；
+Chinese_PRC_Stroke 表示按汉字笔画排序；
   
 排序规则的后半部份即后缀 含义：
   
@@ -93,13 +93,13 @@ _WI(WS) 是否区分宽度 WI不区分，WS区分(width-insensitive/width-sensit
   
 ALTER TABLE tb
   
-ALTER COLUMN colname nvarchar(100) COLLATE Chinese\_PRC\_CI_AS
+ALTER COLUMN colname nvarchar(100) COLLATE Chinese_PRC_CI_AS
 
 --修改数据库的排序规则
   
 ALTER DATABASE database
   
-COLLATE Chinese\_PRC\_CS_AS
+COLLATE Chinese_PRC_CS_AS
 
 --查看某个表的排序规则
   
@@ -125,7 +125,7 @@ union all select 3,'人'
   
 union all select 4,'阿'
 
-select * from #t order by name collate Chinese\_PRC\_CS\_AS\_KS_WS
+select * from #t order by name collate Chinese_PRC_CS_AS_KS_WS
   
 drop table #t
   
@@ -159,7 +159,7 @@ union all select 4,'一'
   
 union all select 5,'十'
   
-select * from #t order by name collate Chinese\_PRC\_Stroke\_CS\_AS\_KS\_WS
+select * from #t order by name collate Chinese_PRC_Stroke_CS_AS_KS_WS
   
 drop table #t
   
@@ -189,13 +189,13 @@ id          name
 
 create table #t1(
   
-name varchar(20) collate Albanian\_CI\_AI_WS,
+name varchar(20) collate Albanian_CI_AI_WS,
   
 value int)
 
 create table #t2(
   
-name varchar(20) collate Chinese\_PRC\_CI\_AI\_WS,
+name varchar(20) collate Chinese_PRC_CI_AI_WS,
   
 value int )
 
@@ -217,7 +217,7 @@ select *
   
 from #t1 A inner join #t2 B
   
-on A.name=B.name collate Chinese\_PRC\_CI\_AI\_WS
+on A.name=B.name collate Chinese_PRC_CI_AI_WS
 
 示例2：
 
@@ -227,9 +227,9 @@ CREATE TABLE TestTab (
 
 id int,
 
-GreekCol nvarchar(10) COLLATE greek\_ci\_as,
+GreekCol nvarchar(10) COLLATE greek_ci_as,
 
-LatinCol nvarchar(10) COLLATE latin1\_general\_cs_as
+LatinCol nvarchar(10) COLLATE latin1_general_cs_as
 
 )
 
@@ -259,7 +259,7 @@ SELECT *
 
 FROM TestTab
 
-WHERE GreekCol = LatinCol COLLATE greek\_ci\_as
+WHERE GreekCol = LatinCol COLLATE greek_ci_as
 
 还需注意的是，尽管 LatinCol 通常有一个区分大小写的排序规则，但表达式不区分大小写的排序规则会将其覆盖，从而使"A"的大写和小写被视为等同。
 

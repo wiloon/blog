@@ -18,7 +18,7 @@ https://github.com/buger/goreplay
   
 http_load以并行复用的方式运行，用以测试web服务器的吞吐量与负载。但是它不同于大多数压力测试工具，它可以以一个单一的进程运行，一般不会把客户机搞死。还可以测试HTTPS类的网站请求。
 
-下载地址：http://soft.vpser.net/test/http\_load/http\_load-12mar2006.tar.gz
+下载地址：http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz
 
 安装
   
@@ -358,15 +358,15 @@ HTML transferred: 1055666 bytes
   
 //整个场景中的HTML内容传输量
   
-Requests per second: 122.12 \[#/sec\] (mean)
+Requests per second: 122.12 [#/sec] (mean)
   
 //大家最关心的指标之一，相当于 LR 中的 每秒事务数 ，后面括号中的 mean 表示这是一个平均值
   
-Time per request: 8188.731 \[ms\] (mean)
+Time per request: 8188.731 [ms] (mean)
   
 //大家最关心的指标之二，相当于 LR 中的 平均事务响应时间 ，后面括号中的 mean 表示这是一个平均值
   
-Time per request: 8.189 \[ms\] (mean, across all concurrent requests)
+Time per request: 8.189 [ms] (mean, across all concurrent requests)
   
 //每个请求实际运行时间的平均值
   

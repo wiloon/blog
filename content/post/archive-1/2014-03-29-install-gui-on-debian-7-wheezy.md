@@ -170,9 +170,9 @@ Enlightenment
 
 Enlightenment is not only one desktop environment for Linux, but it has an entirely libraries to assist you to produce gorgeous end user interfaces together with a lesser amount of computer resource as compared to doing it the particular traditional way, it also helping together with classic toolkits, not forgetting an old-fashioned window manager.
 
-\# wget -c www.debe17.com/debian/debe17-svn\_1.1.1-0\_all.deb
+\# wget -c www.debe17.com/debian/debe17-svn_1.1.1-0_all.deb
 
-\# dpkg -i debe17-svn\_1.1.1-0\_all.deb
+\# dpkg -i debe17-svn_1.1.1-0_all.deb
 
 XFCE
 

@@ -14,7 +14,7 @@ Diagnostics – ODX, OTX, UDS and other market standards
   
 Posted on 01/07/2015 by Stephan Obermüller
   
-Diagnose\_Icon\_626_251
+Diagnose_Icon_626_251
   
 A large number of today's innovations are based on software developments, and vehicles are no exception. Software innovations improve vehicle performance and increase both the safety and sustainability of mobility. The number of ECUs and the associated networking are continually increasing in the process. The associated growing complexity must be mastered over a vehicle's entire lifetime. In addition to actual control functions, diagnostics is increasingly a focal point in development. Although diagnostics was originally only intended for checking that legal emissions standards were being adhered to, it now takes its place before engineering in the entire value chain.
 

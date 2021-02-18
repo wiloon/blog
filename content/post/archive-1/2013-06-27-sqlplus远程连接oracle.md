@@ -48,6 +48,6 @@ sqlplus system/manager@192.168.208.120:1521/orcl
   
 如果上述方法试验没有成功，用下面的方式最直接了
   
-Sqlplus system/manager@'(description=(address\_list=(address=(proto=tcp)(host=192.168.208.120)(port=1521)))(connect\_data=(service_name=orcl)))'
+Sqlplus system/manager@'(description=(address_list=(address=(proto=tcp)(host=192.168.208.120)(port=1521)))(connect_data=(service_name=orcl)))'
   
 以上使用sqlplus的方法被转载n次。

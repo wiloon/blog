@@ -73,7 +73,7 @@ sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
 ```
 
 ### start win10
-第一次启动要挂载virtio-win\_x86\_64.vfd，启动之后到win里面安装网卡驱动。
+第一次启动要挂载virtio-win_x86_64.vfd，启动之后到win里面安装网卡驱动。
 
 ```bash
 #start kvm with virtio net (install eth)
@@ -106,8 +106,8 @@ Make sure that each virtual machine has a unique link-level address, but it shou
 
 https://blog.csdn.net/liqiangxo/article/details/62443481
   
-https://wiki.archlinux.org/index.php/KVM#How\_to\_use_KVM
+https://wiki.archlinux.org/index.php/KVM#How_to_use_KVM
   
 https://wiki.archlinux.org/index.php/Internet_sharing
   
-https://wiki.archlinux.org/index.php/QEMU#Installing\_virtio\_drivers
+https://wiki.archlinux.org/index.php/QEMU#Installing_virtio_drivers

@@ -83,15 +83,15 @@ VMThread: JVM中C++定义的类，这个类和用户创建的线程无关，是J
 
 其中主要的状态是这5种:
 
-\_thread\_new: 新创建的线程
+_thread_new: 新创建的线程
 
-\_thread\_in_Java: 在运行Java代码
+_thread_in_Java: 在运行Java代码
 
-\_thread\_in_vm: 在运行JVM本身的代码
+_thread_in_vm: 在运行JVM本身的代码
 
-\_thread\_in_native: 在运行native代码
+_thread_in_native: 在运行native代码
 
-\_thread\_blocked: 线程被阻塞了，包括等待一个锁，等待一个条件，sleep，执行一个阻塞的IO等
+_thread_blocked: 线程被阻塞了，包括等待一个锁，等待一个条件，sleep，执行一个阻塞的IO等
 
 从OSThread的角度，JVM还定义了一些线程状态给外部使用，比如用jstack输出的线程堆栈信息中线程的状态:
 

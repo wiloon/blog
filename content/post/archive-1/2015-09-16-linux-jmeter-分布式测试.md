@@ -57,7 +57,7 @@ jmeter-server正常启动会提示"创建远程服务"
   
 <boolProp name="ThreadGroup.scheduler">true</boolProp>
   
-<stringProp name="ThreadGroup.on\_sample\_error">continue</stringProp>
+<stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
   
 <stringProp name="ThreadGroup.duration">60</stringProp>
   

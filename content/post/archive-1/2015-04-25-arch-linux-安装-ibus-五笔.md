@@ -18,11 +18,11 @@ $ ibus-setup
 
 $ vim ~/.bashrc
   
-export GTK\_IM\_MODULE=ibus
+export GTK_IM_MODULE=ibus
   
 export XMODIFIERS=@im=ibus
   
-export QT\_IM\_MODULE=ibus
+export QT_IM_MODULE=ibus
 
 第二步
   
@@ -70,4 +70,4 @@ $ sudo make install
 
 http://www.cnblogs.com/skyivben/archive/2012/09/18/2691006.html
 
-http://blog.unlink.link/Linux/install\_wubi86\_of\_ibus\_on_archlinux.html
+http://blog.unlink.link/Linux/install_wubi86_of_ibus_on_archlinux.html

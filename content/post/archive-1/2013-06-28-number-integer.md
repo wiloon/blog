@@ -63,12 +63,12 @@ select  LOG(256,10)*126   from dual
   
 定义变量的时候，也不要使用integer;
   
-可以用binary\_integer 或pls\_integer ；11g里还出了个新的整形，效率更高，叫simple_integer，反正最好不用integer就是了。
+可以用binary_integer 或pls_integer ；11g里还出了个新的整形，效率更高，叫simple_integer，反正最好不用integer就是了。
 
-效率测试下来：simple\_integer>pls\_integer>binary_integer>integer;
+效率测试下来：simple_integer>pls_integer>binary_integer>integer;
 
 
-### SIMPLE\_INTEGER Subtype of PLS\_INTEGER {#autoId14}
+### SIMPLE_INTEGER Subtype of PLS_INTEGER {#autoId14}
 
 <a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint"][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
 

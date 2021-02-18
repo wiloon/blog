@@ -143,17 +143,17 @@ SQL> CREATE TABLE s_dept
   
 (id NUMBER(7)
   
-CONSTRAINT s\_dept\_id_pk PRIMARY KEY,
+CONSTRAINT s_dept_id_pk PRIMARY KEY,
   
 name VARCHAR2(25)
   
-CONSTRAINT s\_dept\_name_nn NOT NULL,
+CONSTRAINT s_dept_name_nn NOT NULL,
   
 region_id NUMBER(7)
   
-CONSTRAINT s\_dept\_region\_id\_fk REFERENCES region (id),
+CONSTRAINT s_dept_region_id_fk REFERENCES region (id),
   
-CONSTRAINT s\_dept\_name\_region\_id\_uk UNIQUE(name, region\_id));
+CONSTRAINT s_dept_name_region_id_uk UNIQUE(name, region_id));
 
 8. 较复杂的创建表例子
   
@@ -161,19 +161,19 @@ SQL> CREATE TABLE s_emp
   
 (id NUMBER(7)
   
-CONSTRAINT s\_emp\_id_pk PRIMARY KEY,
+CONSTRAINT s_emp_id_pk PRIMARY KEY,
   
 last_name VARCHAR2(25)
   
-CONSTRAINT s\_emp\_last\_name\_nn NOT NULL,
+CONSTRAINT s_emp_last_name_nn NOT NULL,
   
 first_name VARCHAR2(25),
   
 userid VARCHAR2(8)
   
-CONSTRAINT s\_emp\_userid_nn NOT NULL
+CONSTRAINT s_emp_userid_nn NOT NULL
   
-CONSTRAINT s\_emp\_userid_uk UNIQUE,
+CONSTRAINT s_emp_userid_uk UNIQUE,
   
 start_date DATE DEFAULT SYSDATE,
   
@@ -185,13 +185,13 @@ title VARCHAR2(25),
   
 dept_id NUMBER(7)
   
-CONSTRAINT s\_emp\_dept\_id\_fk REFERENCES s_dept(id),
+CONSTRAINT s_emp_dept_id_fk REFERENCES s_dept(id),
   
 salary NUMBER(11,2),
   
 commission_pct NUMBER(4,2)
   
-CONSTRAINT s\_emp\_commission\_pct\_ck CHECK
+CONSTRAINT s_emp_commission_pct_ck CHECK
   
 (commission_pct IN(10,12.5,15,17.5,20)));
 
@@ -199,9 +199,9 @@ CONSTRAINT s\_emp\_commission\_pct\_ck CHECK
   
 通过子查询建表的例子
   
-SQL>CREATE TABLE emp\_41 AS SELECT id, last\_name, userid, start_date
+SQL>CREATE TABLE emp_41 AS SELECT id, last_name, userid, start_date
   
-FROM s\_emp WHERE dept\_id = 41;
+FROM s_emp WHERE dept_id = 41;
 
 SQL> CREATE TABLE A as select * from B where 1=2;
   
@@ -229,7 +229,7 @@ ON DELETE CASCADE它的含义是如果删除外键主表里的内容，子表里
   
 SQL> CREATE SYNONYM d_sum
   
-2 FOR dept\_sum\_vu;
+2 FOR dept_sum_vu;
 
 SQL> CREATE PUBLIC SYNONYM s_dept
   

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-https://wiki.archlinux.org/index.php/Arch\_Linux\_Archive
+https://wiki.archlinux.org/index.php/Arch_Linux_Archive
 
 replacing your /etc/pacman.d/mirrorlist with the following content:
 

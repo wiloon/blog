@@ -78,7 +78,7 @@ http.proxyPassword=yourPassword
   
 Tomcat Settings: catalina.bat
 
-Add all the parameters defined above in the ${CATALINA\_HOME}/bin/catalina.bat (for Windows) or ${CATALINA\_HOME}/bin/catalina.bat (for *nix):
+Add all the parameters defined above in the ${CATALINA_HOME}/bin/catalina.bat (for Windows) or ${CATALINA_HOME}/bin/catalina.bat (for *nix):
 
 JAVA_OPTS="-Dhttp.proxyHost=yourProxyURL ..."
   

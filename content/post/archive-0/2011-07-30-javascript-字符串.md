@@ -56,23 +56,23 @@ var the_word = "monkey";
   
 //让我们从单词 "monkey"开始。
   
-var location\_of\_m = the_word.indexOf("m");
+var location_of_m = the_word.indexOf("m");
   
-//location\_of\_m(字母m的位置)将为0，因为字母m位于该字符串的起始位置。
+//location_of_m(字母m的位置)将为0，因为字母m位于该字符串的起始位置。
   
-var location\_of\_o = the_word.indexOf("o");
+var location_of_o = the_word.indexOf("o");
   
-//location\_of\_o(字母o的位置)将为1。
+//location_of_o(字母o的位置)将为1。
   
-var location\_of\_key = the_word.indexOf("key");
+var location_of_key = the_word.indexOf("key");
   
-//location\_of\_key(key的位置)将为3因为子字符串"key"以字母k开始，而k
+//location_of_key(key的位置)将为3因为子字符串"key"以字母k开始，而k
 
 在单词monkey中的位置是3。
   
-var location\_of\_y = the_word.indexOf("y");
+var location_of_y = the_word.indexOf("y");
   
-//location\_of\_y)字母y的位置)是5。
+//location_of_y)字母y的位置)是5。
   
 var cheeky = the_word.indexOf("q");
   
@@ -82,9 +82,9 @@ indexOf更实用之处:
   
 var the_email = prompt("What's your email address?", "");
   
-var the\_at\_is\_at = the\_email.indexOf("@");
+var the_at_is_at = the_email.indexOf("@");
   
-if (the\_at\_is_at == -1)
+if (the_at_is_at == -1)
   
 {
   

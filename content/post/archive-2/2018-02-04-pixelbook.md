@@ -45,7 +45,7 @@ MrChromebox.com
 
 enable legacy boot
   
-sudo crossystem dev\_boot\_usb=1 dev\_boot\_legacy=1
+sudo crossystem dev_boot_usb=1 dev_boot_legacy=1
 
 ```bash
 sudo enter-chroot

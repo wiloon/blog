@@ -26,6 +26,7 @@ dig +trace wiloon.com
 dirll -T wiloon.com
 
 drill wiloon.com @192.168.50.1
+drill wangyue.dev NS
 ```
 
 dig，其实是一个缩写，即Domain Information Groper。

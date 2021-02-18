@@ -15,17 +15,17 @@ An Eclipse User Library can be used to represent a set of jar files. This user
 
 To create a user library, you can go to Window → Preferences and go to Java → Build Path → User Libraries. I'll click the New button to create a new user library.
 
-I named my new user library "TOMCAT\_6.0.14\_LIBRARY" and clicked OK.
+I named my new user library "TOMCAT_6.0.14_LIBRARY" and clicked OK.
 
-I selected TOMCAT\_6.0.14\_LIBRARY and clicked the "Add JARs" button.
+I selected TOMCAT_6.0.14_LIBRARY and clicked the "Add JARs" button.
 
 I browsed to my Tomcat bin directory and selected 3 jar files, including the bootstrap.jar file. I added these to my user library.
 
 Next, I clicked Add JARs again and this time browsed to my Tomcat lib directory and selected several jar files, shown below.
 
-When done, my TOMCAT\_6.0.14\_LIBRARY consisted of several jar files, shown below. I clicked OK to save this library.
+When done, my TOMCAT_6.0.14_LIBRARY consisted of several jar files, shown below. I clicked OK to save this library.
 
-After doing this, if I have a web application project that will run in Tomcat in Eclipse, I can add the TOMCAT\_6.0.14\_LIBRARY to the classpath to have all the necessary Tomcat jar files automatically added to the project's classpath.
+After doing this, if I have a web application project that will run in Tomcat in Eclipse, I can add the TOMCAT_6.0.14_LIBRARY to the classpath to have all the necessary Tomcat jar files automatically added to the project's classpath.
 
 I'd like to update my project's pom.xml file so that if I execute the eclipse:eclipse goal on my project, it will update the project's classpathW to include the Tomcat user library.
 
@@ -55,7 +55,7 @@ Here is the "mywebapp" project's original pom.xml file.
   </build>
 </project>
 
-I'll update the "mywebapp" project's pom.xml file to include a plugin reference to the maven-eclipse-plugin. I add a configuration section that specifies that the "org.eclipse.jdt.launching.JRE\_CONTAINER" and "org.eclipse.jdt.USER\_LIBRARY/TOMCAT\_6.0.14\_LIBRARY" classpath containers will be added to the classpath when eclipse:eclipse is executed. The JRE\_CONTAINER is specified since it is there already. Notice the format in which the Tomcat user library is specified (it begins with "org.eclipse.jdt.USER\_LIBRARY/").
+I'll update the "mywebapp" project's pom.xml file to include a plugin reference to the maven-eclipse-plugin. I add a configuration section that specifies that the "org.eclipse.jdt.launching.JRE_CONTAINER" and "org.eclipse.jdt.USER_LIBRARY/TOMCAT_6.0.14_LIBRARY" classpath containers will be added to the classpath when eclipse:eclipse is executed. The JRE_CONTAINER is specified since it is there already. Notice the format in which the Tomcat user library is specified (it begins with "org.eclipse.jdt.USER_LIBRARY/").
 
 ### updated pom.xml
 
@@ -119,7 +119,7 @@ After running eclipse:eclipse, the "mywebapp" .classpath file was updated to loo
   <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
 </classpath>
 
-The "mywebapp" project now has the TOMCAT\_6.0.14\_LIBRARY user library included in its classpath!
+The "mywebapp" project now has the TOMCAT_6.0.14_LIBRARY user library included in its classpath!
 
 So, let's get started. First of all, I need to add a Context entry to my Tomcat's server.xml file for the "mywebapp" project. In Eclipse, I have a "_stuff" project that contains a link to my Tomcat's server.xml file for convenience. So, I'll double-click the server.xml link to open up the server.xml file in Eclipse's XMLWeditor.
 

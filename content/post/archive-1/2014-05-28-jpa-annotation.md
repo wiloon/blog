@@ -54,11 +54,11 @@ Address是Hotel不可分割的一部分，没有ID, 并且不会被存储在分�
   
 .secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字。
 
-@Column(name = "user\_code", nullable = false, length=32)//设置属性userCode对应的字段为user\_code，长度为32，非空
+@Column(name = "user_code", nullable = false, length=32)//设置属性userCode对应的字段为user_code，长度为32，非空
   
 private String userCode;
   
-@Column(name = "user\_wages", nullable = true, precision=12, scale=2)//设置属性wages对应的字段为user\_wages，12位数字可保留两位小数，可以为空
+@Column(name = "user_wages", nullable = true, precision=12, scale=2)//设置属性wages对应的字段为user_wages，12位数字可保留两位小数，可以为空
   
 private double wages;
   
@@ -115,7 +115,7 @@ private int userId;
 
 7.一对多映射关系
   
-有T\_One和T\_Many两个表，他们是一对多的关系，注解范例如下
+有T_One和T_Many两个表，他们是一对多的关系，注解范例如下
   
 主Pojo
 
@@ -161,7 +161,7 @@ private String manyId;
   
 private String description;
 
-@JoinColumn(name = "ONE\_ID", referencedColumnName = "ONE\_ID")//设置对应数据表的列名和引用的数据表的列名
+@JoinColumn(name = "ONE_ID", referencedColumnName = "ONE_ID")//设置对应数据表的列名和引用的数据表的列名
   
 @ManyToOne//设置在"一方"pojo的外键字段上
   
@@ -195,7 +195,7 @@ private String description;
   
 @ManyToMany
   
-@JoinTable(name = "TMANY1\_TMANY2", joinColumns = {@JoinColumn(name = "MANYA\_ID", referencedColumnName = "MANYA\_ID")}, inverseJoinColumns = {@JoinColumn(name = "MANYB\_ID", referencedColumnName = "MANYB_ID")})
+@JoinTable(name = "TMANY1_TMANY2", joinColumns = {@JoinColumn(name = "MANYA_ID", referencedColumnName = "MANYA_ID")}, inverseJoinColumns = {@JoinColumn(name = "MANYB_ID", referencedColumnName = "MANYB_ID")})
   
 private Collection<ManyB> manybIdCollection;
 
@@ -269,7 +269,7 @@ private String oneaId;
   
 private String description;
   
-@JoinColumn(name = "ONEA\_ID", referencedColumnName = "ONEA\_ID", insertable = false, updatable = false)//设置从方指向主方的关联外键，这个ONEA\_ID其实是表T\_ONEA的主键
+@JoinColumn(name = "ONEA_ID", referencedColumnName = "ONEA_ID", insertable = false, updatable = false)//设置从方指向主方的关联外键，这个ONEA_ID其实是表T_ONEA的主键
   
 @OneToOne
   

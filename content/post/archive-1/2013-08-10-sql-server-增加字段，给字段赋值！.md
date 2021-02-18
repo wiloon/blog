@@ -16,7 +16,7 @@ alter table mailtable default character set utf8;//修改表的字符集
 
 增加字段
   
-ALTER TABLE wap\_lenovo\_bookmark ADD free BIT NOT NULL DEFAULT 0
+ALTER TABLE wap_lenovo_bookmark ADD free BIT NOT NULL DEFAULT 0
 
 alter table MemailNodeDefine add action varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL default 'admin';
 
@@ -24,9 +24,9 @@ alter table MemailNodeDefine add action varchar(50) CHARACTER SET utf8 COLLATE u
   
 UPDATE "表格名" SET "栏位1" = [新值] WHERE {条件}
 
-UPDATE wap\_lenovo\_bookmark set type = 'other'
+UPDATE wap_lenovo_bookmark set type = 'other'
 
-ALTER TABLE wap\_lenovo\_bookmark ADD groupid INT NOT NULL DEFAULT 0
+ALTER TABLE wap_lenovo_bookmark ADD groupid INT NOT NULL DEFAULT 0
 
 mysql 修改字段
   
@@ -34,11 +34,11 @@ alter   table   employee   change   column   employeeID   empID   
 
 修改
   
-ALTER   TABLE   TableName   CHANGE   Field\_name\_tobe\_change   new\_Name   VARCHAR   (32);
+ALTER   TABLE   TableName   CHANGE   Field_name_tobe_change   new_Name   VARCHAR   (32);
   
 删除
   
-ALTER   TABLE   TableName   DROP   Field\_name\_tobe_delete
+ALTER   TABLE   TableName   DROP   Field_name_tobe_delete
   
 重命名
   
@@ -54,7 +54,7 @@ mysql alter 语句用法,添加、修改、删除字段等
 
 //主键549830479
 
-alter table tabelname add new\_field\_id int(5) unsigned default 0 not null auto\_increment ,add primary key (new\_field_id);
+alter table tabelname add new_field_id int(5) unsigned default 0 not null auto_increment ,add primary key (new_field_id);
   
 //增加一个新列549830479
 
@@ -104,12 +104,12 @@ mysql>alter table tablename drop index emp_name;
 
 增加字段：549830479
 
-mysql> ALTER TABLE table\_name ADD field\_name field_type;
+mysql> ALTER TABLE table_name ADD field_name field_type;
   
 修改原字段名称及类型：549830479
 
-mysql> ALTER TABLE table\_name CHANGE old\_field\_name new\_field\_name field\_type;
+mysql> ALTER TABLE table_name CHANGE old_field_name new_field_name field_type;
   
 删除字段：549830479
 
-mysql> ALTER TABLE table\_name DROP field\_name;
+mysql> ALTER TABLE table_name DROP field_name;

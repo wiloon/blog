@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-https://wiki.archlinux.org/index.php/Chrome\_OS\_devices/Crostini
+https://wiki.archlinux.org/index.php/Chrome_OS_devices/Crostini
 
 ### Enabling Linux support
 
@@ -115,15 +115,15 @@ sommelier -X --x-display=1 --scale=2 bash -c 'echo Xft.dpi: 192 | xrdb -merge; f
 
 https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/
   
-https://www.reddit.com/r/Crostini/comments/94wenl/how\_to\_get\_other\_chromeos\_keyboard\_shortcuts/
+https://www.reddit.com/r/Crostini/comments/94wenl/how_to_get_other_chromeos_keyboard_shortcuts/
   
-https://www.reddit.com/r/Crostini/comments/8nt9js/connect\_to\_vpn\_from\_the\_linux\_container/
+https://www.reddit.com/r/Crostini/comments/8nt9js/connect_to_vpn_from_the_linux_container/
 
 https://pixelbook.silentselene.com/index.php/archives/33/
 
-https://wiki.archlinux.org/index.php/Chromebook\_Pixel\_2
+https://wiki.archlinux.org/index.php/Chromebook_Pixel_2
   
-https://wiki.archlinux.org/index.php/Chrome\_OS\_devices#Installing\_Arch\_Linux
+https://wiki.archlinux.org/index.php/Chrome_OS_devices#Installing_Arch_Linux
   
 https://wiki.archlinux.org/index.php/Installation_guide
 
@@ -135,4 +135,4 @@ https://wiki.archlinux.org/index.php/Installation_guide
 
 http://blog.wiloon.com/?p=7821
   
-https://chromium.googlesource.com/chromiumos/docs/+/master/containers\_and\_vms.md
+https://chromium.googlesource.com/chromiumos/docs/+/master/containers_and_vms.md

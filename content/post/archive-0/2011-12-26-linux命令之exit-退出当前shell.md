@@ -50,7 +50,7 @@ exit命令用于退出当前shell，在shell脚本中可以终止当前脚本执
 
 man 3 exit 写道
   
-The C standard specifies two constants, EXIT\_SUCCESS and EXIT\_FAILURE, that may be passed to exit() to indicate
+The C standard specifies two constants, EXIT_SUCCESS and EXIT_FAILURE, that may be passed to exit() to indicate
   
 successful or unsuccessful termination, respectively.
 

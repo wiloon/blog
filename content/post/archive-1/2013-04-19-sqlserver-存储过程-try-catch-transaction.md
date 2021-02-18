@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-本文来自CSDN博客，转载请标明出处：[http://blog.csdn.net/WeiZhang\_son\_Ding/archive/2010/02/05/5291732.aspx][1]
+本文来自CSDN博客，转载请标明出处：[http://blog.csdn.net/WeiZhang_son_Ding/archive/2010/02/05/5291732.aspx][1]
 
 CREATE PROCEDURE YourProcedure <wbr /> <wbr /> <wbr /> <wbr />
 
@@ -174,33 +174,33 @@ BEGIN
   
 END;
 
-CREATE TABLE \[dbo].[ErrorLog\](
+CREATE TABLE [dbo].[ErrorLog](
   
-<wbr /> <wbr /> <wbr /> \[ErrorLogID\] \[int\] IDENTITY(1,1) NOT NULL,
+<wbr /> <wbr /> <wbr /> [ErrorLogID] [int] IDENTITY(1,1) NOT NULL,
   
-<wbr /> <wbr /> <wbr /> \[ErrorTime\] \[datetime\] NOT NULL CONSTRAINT [DF\_ErrorLog\_ErrorTime] <wbr /> DEFAULT (getdate()),
+<wbr /> <wbr /> <wbr /> [ErrorTime] [datetime] NOT NULL CONSTRAINT [DF_ErrorLog_ErrorTime] <wbr /> DEFAULT (getdate()),
   
-<wbr /> <wbr /> <wbr /> \[UserName\] \[sysname\] COLLATE Chinese\_PRC\_CI_AS NOT NULL,
+<wbr /> <wbr /> <wbr /> [UserName] [sysname] COLLATE Chinese_PRC_CI_AS NOT NULL,
   
-<wbr /> <wbr /> <wbr /> \[ErrorNumber\] \[int\] NOT NULL,
+<wbr /> <wbr /> <wbr /> [ErrorNumber] [int] NOT NULL,
   
-<wbr /> <wbr /> <wbr /> \[ErrorSeverity\] \[int\] NULL,
+<wbr /> <wbr /> <wbr /> [ErrorSeverity] [int] NULL,
   
-<wbr /> <wbr /> <wbr /> \[ErrorState\] \[int\] NULL,
+<wbr /> <wbr /> <wbr /> [ErrorState] [int] NULL,
   
-<wbr /> <wbr /> <wbr /> \[ErrorProcedure] [nvarchar\](126) COLLATE Chinese\_PRC\_CI_AS NULL,
+<wbr /> <wbr /> <wbr /> [ErrorProcedure] [nvarchar](126) COLLATE Chinese_PRC_CI_AS NULL,
   
-<wbr /> <wbr /> <wbr /> \[ErrorLine\] \[int\] NULL,
+<wbr /> <wbr /> <wbr /> [ErrorLine] [int] NULL,
   
-<wbr /> <wbr /> <wbr /> \[ErrorMessage] [nvarchar\](4000) COLLATE Chinese\_PRC\_CI_AS NOT NULL,
+<wbr /> <wbr /> <wbr /> [ErrorMessage] [nvarchar](4000) COLLATE Chinese_PRC_CI_AS NOT NULL,
   
-<wbr />CONSTRAINT [PK\_ErrorLog\_ErrorLogID] PRIMARY KEY CLUSTERED <wbr />
+<wbr />CONSTRAINT [PK_ErrorLog_ErrorLogID] PRIMARY KEY CLUSTERED <wbr />
   
 (
   
 <wbr /> <wbr /> <wbr /> [ErrorLogID] ASC
   
-)WITH (IGNORE\_DUP\_KEY = OFF) ON [PRIMARY]
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
   
 ) ON [PRIMARY]
 

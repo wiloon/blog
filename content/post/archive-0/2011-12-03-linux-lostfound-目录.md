@@ -24,7 +24,7 @@ fsck的命令的几个使用方法
 
 使用权限 : 超级使用者
 
-使用方式 : fsck \[-sACVRP\] \[-t fstype\] \[–\] \[fsck-options\] filesys […]
+使用方式 : fsck [-sACVRP] [-t fstype] [–] [fsck-options] filesys […]
 
 说明 ： 检查与修复 Linux 档案系统，可以同时检查一个或多个 Linux 档案系统
 

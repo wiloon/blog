@@ -22,7 +22,7 @@ libstdc++.so.6 => /usr/lib64/libstdc++.so.6 (0x00000039a7e00000)
   
 libm.so.6 => /lib64/libm.so.6 (0x0000003996400000)
   
-libgcc\_s.so.1 => /lib64/libgcc\_s.so.1 (0x00000039a5600000)
+libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00000039a5600000)
   
 libc.so.6 => /lib64/libc.so.6 (0x0000003995800000)
   

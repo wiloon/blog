@@ -439,7 +439,7 @@ Out of the box ,hibernate验证器将把你为你的实体定义的约束传进�
 
 如果 ，因为某些原因，这些特征需要禁用，设置
 
-hibernate.validator.apply\_to\_ddl 为 false
+hibernate.validator.apply_to_ddl 为 false
 
 2.2 ORM 集成
 

@@ -18,9 +18,9 @@ tags:
 
 Calendar cal = Calendar.getInstance();//使用默认时区和语言环境获得一个日历。
   
-cal.add(Calendar.DAY\_OF\_MONTH, -1);//取当前日期的前一天.
+cal.add(Calendar.DAY_OF_MONTH, -1);//取当前日期的前一天.
   
-cal.add(Calendar.DAY\_OF\_MONTH, +1);//取当前日期的后一天.
+cal.add(Calendar.DAY_OF_MONTH, +1);//取当前日期的后一天.
   
 //通过格式化输出日期
   

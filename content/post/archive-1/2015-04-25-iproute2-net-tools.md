@@ -1,51 +1,16 @@
 ---
-title: 'iproute2 < net-tools'
+title: net-tools
 author: w1100n
 type: post
 date: 2015-04-25T03:02:55+00:00
 url: /?p=7497
-categories:
-  - Uncategorized
 tags:
   - linux
 
 ---
-```bash
-  
-#Delete all IPv4 addresses on interface wlp3s0
-  
-sudo ip -f inet addr del dev wlp3s0
-  
-#为网络接口分配IPv4地址
-  
-#使用这些命令配置网络接口的IPv4地址。
-  
-sudo ip addr add 10.0.0.1/24 dev eth1
-
-#查端口
-  
-ss -ntlp | grep ",1234,"
-
-sudo ip link set down eth1
-  
-sudo ip link set up eth1
-
-#查所有网卡的ip
-  
-ip addr show
-
-#查看所有网卡
-  
-ip link show
-
-#查看某一个网卡的ip
-  
-ip addr show dev eth1
-
-```
+### Deprecated @See iproute2
 
 $ ifconfig eth1
-  
 使用iproute2：
 
 同样，如果接口分配了多个IP地址，iproute2会显示出所有地址，而net-tools只能显示一个IP地址。

@@ -14,7 +14,7 @@ categories:
   
 but it's base on your table analysis strategy,may be not accurate
   
-select 'analyze table '||S.TABLE\_NAME||' compute statistics;' from  user\_tables s;
+select 'analyze table '||S.TABLE_NAME||' compute statistics;' from  user_tables s;
 
 翻译如下:
   
@@ -22,7 +22,7 @@ select 'analyze table '||S.TABLE\_NAME||' compute statistics;' from  use
   
 如果你要准确，可以
   
-select 'analyze table '||S.TABLE\_NAME||' compute statistics;' from  user\_tables s;
+select 'analyze table '||S.TABLE_NAME||' compute statistics;' from  user_tables s;
   
 后的所有脚本，再运行统计行数。
 

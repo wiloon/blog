@@ -18,13 +18,13 @@ pam模块文件内容看，可以将pam配置文件分为四列，
   
 第四列代表模块参数
 
-Module\_type 将为 Service\_name 字段中的相应服务指定模块类型（auth/account/session/passwd）。
+Module_type 将为 Service_name 字段中的相应服务指定模块类型（auth/account/session/passwd）。
   
 Control_flag 将指定模块的堆栈行为。它可以获取诸如 requisite、required、sufficient 和 optional 之类的值。
   
 Module_path 将指定实现模块的库对象的路径名称。默认情况下，它将被设为 /lib/security。
   
-Module\_options/module\_args（可选字段）将指定可以传递给服务模块的选项或实参。
+Module_options/module_args（可选字段）将指定可以传递给服务模块的选项或实参。
 
 PAM模块接口(模块管理组)
   
@@ -54,9 +54,9 @@ auth        required      pam_env.so        //登录后的环�
   
 auth        sufficient    pam_fprintd.so     //指纹认证。
   
-auth        sufficient    pam\_unix.so nullok try\_first\_pass //验证用户密码的有效性。如果使用nullok参数，用户不输入密码就可以获得系统提供的服务。同时，也允许用户密码为空时更改用户密码。try\_first_pass尝试在提示用户输入密码前，使用前面一个堆叠的auth模块提供的密码认证用户。
+auth        sufficient    pam_unix.so nullok try_first_pass //验证用户密码的有效性。如果使用nullok参数，用户不输入密码就可以获得系统提供的服务。同时，也允许用户密码为空时更改用户密码。try_first_pass尝试在提示用户输入密码前，使用前面一个堆叠的auth模块提供的密码认证用户。
   
-auth        requisite     pam\_succeed\_if.so uid >= 500 quiet //允许uid大于500的用户在通过密码验证的情况下登录。
+auth        requisite     pam_succeed_if.so uid >= 500 quiet //允许uid大于500的用户在通过密码验证的情况下登录。
   
 auth        required      pam_deny.so     //对所有不满足上述任意条件的登录请求直接拒绝。
 
@@ -64,15 +64,15 @@ account     required      pam_unix.so //主要执行建立用户帐号�
   
 account     sufficient    pam_localuser.so //要求将用户列于 /etc/passwd 中。
   
-account     sufficient    pam\_succeed\_if.so uid < 500 quiet    //对用户的登录条件做一些限制，表示允许uid大于500的用户在通过密码验证的情况下登录。
+account     sufficient    pam_succeed_if.so uid < 500 quiet    //对用户的登录条件做一些限制，表示允许uid大于500的用户在通过密码验证的情况下登录。
   
 account     required      pam_permit.so
   
  
   
-password    requisite     pam\_cracklib.so try\_first_pass retry=3type=    //对用户密码提供强健性检测。
+password    requisite     pam_cracklib.so try_first_pass retry=3type=    //对用户密码提供强健性检测。
   
-password    sufficient    pam\_unix.so md5 shadow nullok try\_first\_pass use\_authtok //让用户更改密码的任务。
+password    sufficient    pam_unix.so md5 shadow nullok try_first_pass use_authtok //让用户更改密码的任务。
   
 password    required      pam_deny.so    //对所有不满足上述任意条件的登录请求直接拒绝。
   
@@ -80,9 +80,9 @@ password    required      pam_deny.so    //对所有不满足上述�
   
 session     optional      pam_keyinit.so revoke  //表示当用户登录的时候为其建立相应的密钥环，并在用户登出的时候予以撤销。optional表示即便该行所涉及的模块验证失败用户仍能通过认证
   
-session     required      pam\_limits.so     //限制用户登录时的会话连接资源，相关pam\_limit.so配置文件是/etc/security/limits.conf，默认情况下对每个登录用户都没有限制。
+session     required      pam_limits.so     //限制用户登录时的会话连接资源，相关pam_limit.so配置文件是/etc/security/limits.conf，默认情况下对每个登录用户都没有限制。
   
-session     [success=1 default=ignore]pam\_succeed\_if.so service in crond quiet use_uid   //success=1时执行本行。default=ignore用来设置上面的返回值是无法达的行为时，那么这个模块的返回值将被忽略，不会被应用程序知道。对用户的登录条件做一些限制
+session     [success=1 default=ignore]pam_succeed_if.so service in crond quiet use_uid   //success=1时执行本行。default=ignore用来设置上面的返回值是无法达的行为时，那么这个模块的返回值将被忽略，不会被应用程序知道。对用户的登录条件做一些限制
   
 session     required      pam_unix.so //记录用户名和服务名到日志文件的工作，只不过最后返回错误
 
@@ -104,7 +104,7 @@ pam_access 将使用登录名/域名，根据 /etc/security/access.conf 中的�
   
 pam_cracklib 将根据密码规则检查密码。
   
-pam\_env sets/unsets 环境变量来自 /etc/security/pam\_env_conf。
+pam_env sets/unsets 环境变量来自 /etc/security/pam_env_conf。
   
 pam_debug 将调试 PAM。
   

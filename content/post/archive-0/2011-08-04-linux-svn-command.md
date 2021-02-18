@@ -110,8 +110,8 @@ http://my.oschina.net/shelllife/blog/142257
   
 http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.revert.html
   
-http://riaoo.com/subpages/svn\_cmd\_reference.html#commit
+http://riaoo.com/subpages/svn_cmd_reference.html#commit
   
-http://riaoo.com/subpages/svn\_cmd\_reference.html
+http://riaoo.com/subpages/svn_cmd_reference.html
   
 https://www.cnblogs.com/zhenjing/archive/2012/12/22/svn_usage.html

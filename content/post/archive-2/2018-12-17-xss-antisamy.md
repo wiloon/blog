@@ -10,7 +10,7 @@ categories:
 ---
 https://blog.csdn.net/zhujq_icode/article/details/79154063
   
-https://www.owasp.org/index.php/Category:OWASP\_AntiSamy\_Project
+https://www.owasp.org/index.php/Category:OWASP_AntiSamy_Project
   
 https://github.com/GDSSecurity/AntiXSS-for-Java
 

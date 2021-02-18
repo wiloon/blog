@@ -61,7 +61,7 @@ fprintf(stdout,"alloc %lum mem\n",total);
         2、每次申请的block大小比较有讲究，Linux内核分为LowMemroy和HighMemroy，LowMemory为内存紧张资源，LowMemroy有个阀值，通过free -lm和
     
 
-/proc/sys/vm/lowmem\_reserve\_ratio来查看当前low大小和阀值low大小。低于阀值时候才会触发oom killer，所以这里block的分配小雨默认的256M，否则如果每次申请512M(大于128M)，malloc可能会被底层的brk这个syscall阻塞住，内核触发page cache回写或slab回收。
+/proc/sys/vm/lowmem_reserve_ratio来查看当前low大小和阀值low大小。低于阀值时候才会触发oom killer，所以这里block的分配小雨默认的256M，否则如果每次申请512M(大于128M)，malloc可能会被底层的brk这个syscall阻塞住，内核触发page cache回写或slab回收。
 
        测试：
     
@@ -78,31 +78,31 @@ Apr 18 16:56:16 v125000100.bja kernel: : [22254383.898423] Out of memory: Kill p
   
 Apr 18 16:56:16 v125000100.bja kernel: : [22254383.899708] Killed process 24894, UID 55120, (big_mm) total-vm:2301932kB, anon-rss:2228452kB, file-rss:24kB
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738942] big\_mm invoked oom-killer: gfp\_mask=0x280da, order=0, oom\_adj=0, oom\_score_adj=0
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738942] big_mm invoked oom-killer: gfp_mask=0x280da, order=0, oom_adj=0, oom_score_adj=0
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738947] big\_mm cpuset=/ mems\_allowed=0
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738947] big_mm cpuset=/ mems_allowed=0
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738950] Pid: 24893, comm: big\_mm Not tainted 2.6.32-220.23.2.ali878.el6.x86\_64 #1
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738950] Pid: 24893, comm: big_mm Not tainted 2.6.32-220.23.2.ali878.el6.x86_64 #1
   
 Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738952] Call Trace:
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738961] [<ffffffff810c35e1>] ? cpuset\_print\_task\_mems\_allowed+0x91/0xb0
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738961] [<ffffffff810c35e1>] ? cpuset_print_task_mems_allowed+0x91/0xb0
   
 Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738968] [<ffffffff81114d70>] ? dump_header+0x90/0x1b0
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738973] [<ffffffff810e1b2e>] ? _\_delayacct\_freepages_end+0x2e/0x30
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738973] [<ffffffff810e1b2e>] ? __delayacct_freepages_end+0x2e/0x30
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738979] [<ffffffff81213ffc>] ? security\_real\_capable_noaudit+0x3c/0x70
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738979] [<ffffffff81213ffc>] ? security_real_capable_noaudit+0x3c/0x70
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738982] [<ffffffff811151fa>] ? oom\_kill\_process+0x8a/0x2c0
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738982] [<ffffffff811151fa>] ? oom_kill_process+0x8a/0x2c0
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738985] [<ffffffff81115131>] ? select\_bad\_process+0xe1/0x120
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738985] [<ffffffff81115131>] ? select_bad_process+0xe1/0x120
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738989] [<ffffffff81115650>] ? out\_of\_memory+0x220/0x3c0
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738989] [<ffffffff81115650>] ? out_of_memory+0x220/0x3c0
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738995] [<ffffffff81125929>] ? _\_alloc\_pages_nodemask+0x899/0x930
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738995] [<ffffffff81125929>] ? __alloc_pages_nodemask+0x899/0x930
   
-Apr 18 16:56:18 v125000100.bja kernel: : [22254386.739001] [<ffffffff81159c6a>] ? alloc\_pages\_vma+0x9a/0x150
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.739001] [<ffffffff81159c6a>] ? alloc_pages_vma+0x9a/0x150
 
        通过标红的部分可以看到big_mm占用了2301932K，anon-rss全部是mmap分配的大内存块。后面红色的CallTrace标识出来kernel oom-killer的stack，后面我们会针对该call trace分析一下oom killer的代码。
     
@@ -127,27 +127,27 @@ oom killer机制分析
 
 [plain] view plain copy
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758297\] \[ pid \] uid tgid total\_vm rss cpu oom\_adj oom\_score\_adj name
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758297] [ pid ] uid tgid total_vm rss cpu oom_adj oom_score_adj name
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758311\] \[ 399\] 0 399 2709 133 2 -17 -1000 udevd
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758311] [ 399] 0 399 2709 133 2 -17 -1000 udevd
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758314\] \[ 810\] 0 810 2847 43 0 0 0 svscanboot
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758314] [ 810] 0 810 2847 43 0 0 0 svscanboot
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758317\] \[ 824\] 0 824 1039 21 0 0 0 svscan
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758317] [ 824] 0 824 1039 21 0 0 0 svscan
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758320\] \[ 825\] 0 825 993 17 1 0 0 readproctitle
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758320] [ 825] 0 825 993 17 1 0 0 readproctitle
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758322\] \[ 826\] 0 826 996 16 0 0 0 supervise
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758322] [ 826] 0 826 996 16 0 0 0 supervise
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758325\] \[ 827\] 0 827 996 17 0 0 0 supervise
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758325] [ 827] 0 827 996 17 0 0 0 supervise
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758327\] \[ 828\] 0 828 996 16 0 0 0 supervise
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758327] [ 828] 0 828 996 16 0 0 0 supervise
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758330\] \[ 829\] 0 829 996 17 2 0 0 supervise
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758330] [ 829] 0 829 996 17 2 0 0 supervise
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758333\] \[ 830\] 0 830 6471 152 0 0 0 run
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758333] [ 830] 0 830 6471 152 0 0 0 run
   
-Apr 18 16:56:18 v125000100.bja kernel: : \[22254386.758335\] \[ 831\] 99 831 1032 21 0 0 0 multilog
+Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758335] [ 831] 99 831 1032 21 0 0 0 multilog
 
         所以，如果想修改被oom killer选中的概率，修改上树参数即可。
     
@@ -156,25 +156,25 @@ oom killer 代码分析
                
 上面已经给出了相应策略，下面剖析一下kernel对应的代码，有个清晰认识。代码选择的是kernel 3.0.12的代码，源码文件 mm/oom_kill.c，首先看一下call trace调用关系：
                
-_\_alloc\_pages\_nodemask分配内存 -> 发现内存不足(或低于low memory)out\_of\_memory -> 选中一个得分最高的processor进行select\_bad_process -> kill
+__alloc_pages_nodemask分配内存 -> 发现内存不足(或低于low memory)out_of_memory -> 选中一个得分最高的processor进行select_bad_process -> kill
 
 [cpp] view plain copy
   
 /**
    
-* out\_of\_memory - kill the "best" process when we run out of memory
+* out_of_memory - kill the "best" process when we run out of memory
    
 */
   
-void out\_of\_memory(struct zonelist *zonelist, gfp\_t gfp\_mask,
+void out_of_memory(struct zonelist *zonelist, gfp_t gfp_mask,
           
-int order, nodemask\_t *nodemask, bool force\_kill)
+int order, nodemask_t *nodemask, bool force_kill)
   
 {
       
 // 等待notifier调用链返回，如果有内存了则返回
       
-blocking\_notifier\_call\_chain(&oom\_notify_list, 0, &freed);
+blocking_notifier_call_chain(&oom_notify_list, 0, &freed);
       
 if (freed > 0)
           
@@ -239,7 +239,7 @@ out:
    
 */
   
-unsigned long oom\_badness(struct task\_struct \*p, struct mem_cgroup \*memcg,
+unsigned long oom_badness(struct task_struct \*p, struct mem_cgroup \*memcg,
                 
 const nodemask_t *nodemask, unsigned long totalpages)
   

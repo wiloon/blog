@@ -30,7 +30,7 @@ C:squidetc>copy mime.conf.default mime.conf     **将mime.conf.default复制
 
 然后我们找到TAG: http_access段，这里是定义允许访问squid的列表
   
-我们在此段http\_access deny CONNECT !SSL\_ports后增加一个新行，写"http_access allow/deny 名称"，allow表示允许访问，deny表示拒
+我们在此段http_access deny CONNECT !SSL_ports后增加一个新行，写"http_access allow/deny 名称"，allow表示允许访问，deny表示拒
 
 绝访问。
 

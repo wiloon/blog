@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-http://tech.meituan.com/in\_depth\_understanding\_string\_intern.html
+http://tech.meituan.com/in_depth_understanding_string_intern.html
   
 john_yang ·2014-03-06 17:10
   
@@ -88,7 +88,7 @@ String#intern方法中看到，这个方法是一个 native 的方法，但注�
   
 \openjdk7\jdk\src\share\native\java\lang\String.c
 
-Java\_java\_lang\_String\_intern(JNIEnv *env, jobject this)
+Java_java_lang_String_intern(JNIEnv *env, jobject this)
   
 {
       
@@ -112,7 +112,7 @@ JVM_InternString(JNIEnv *env, jstring str);
 
 // String support ///////////////////////////////////////////////////////////////////////////
   
-JVM\_ENTRY(jstring, JVM\_InternString(JNIEnv *env, jstring str))
+JVM_ENTRY(jstring, JVM_InternString(JNIEnv *env, jstring str))
     
 JVMWrapper("JVM_InternString");
     
@@ -120,7 +120,7 @@ JvmtiVMObjectAllocEventCollector oam;
     
 if (str == NULL) return NULL;
     
-oop string = JNIHandles::resolve\_non\_null(str);
+oop string = JNIHandles::resolve_non_null(str);
     
 oop result = StringTable::intern(string, CHECK_NULL);
     
@@ -130,13 +130,13 @@ JVM_END
   
 \openjdk7\hotspot\src\share\vm\classfile\symbolTable.cpp
 
-oop StringTable::intern(Handle string\_or\_null, jchar* name,
+oop StringTable::intern(Handle string_or_null, jchar* name,
                           
 int len, TRAPS) {
     
-unsigned int hashValue = java\_lang\_String::hash_string(name, len);
+unsigned int hashValue = java_lang_String::hash_string(name, len);
     
-int index = the\_table()->hash\_to_index(hashValue);
+int index = the_table()->hash_to_index(hashValue);
     
 oop string = the_table()->lookup(index, name, len, hashValue);
     
@@ -146,7 +146,7 @@ if (string != NULL) return string;
     
 // Otherwise, add to symbol to table
     
-return the\_table()->basic\_add(index, string\_or\_null, name, len,
+return the_table()->basic_add(index, string_or_null, name, len,
                                   
 hashValue, CHECK_NULL);
   
@@ -162,7 +162,7 @@ for (HashtableEntry<oop>* l = bucket(index); l != NULL; l = l->next()) {
       
 if (l->hash() == hash) {
         
-if (java\_lang\_String::equals(l->literal(), name, len)) {
+if (java_lang_String::equals(l->literal(), name, len)) {
           
 return l->literal();
         
@@ -310,9 +310,9 @@ long t = System.currentTimeMillis();
       
 for (int i = 0; i < MAX; i++) {
           
-//arr[i] = new String(String.valueOf(DB\_DATA[i % DB\_DATA.length]));
+//arr[i] = new String(String.valueOf(DB_DATA[i % DB_DATA.length]));
            
-arr[i] = new String(String.valueOf(DB\_DATA[i % DB\_DATA.length])).intern();
+arr[i] = new String(String.valueOf(DB_DATA[i % DB_DATA.length])).intern();
       
 }
 
@@ -424,7 +424,7 @@ if (security != null) {
               
 security.checkPermission(
                   
-SecurityConstants.GET\_STACK\_TRACE_PERMISSION);
+SecurityConstants.GET_STACK_TRACE_PERMISSION);
           
 }
           
@@ -434,7 +434,7 @@ SecurityConstants.GET\_STACK\_TRACE_PERMISSION);
           
 if (!isAlive()) {
               
-return EMPTY\_STACK\_TRACE;
+return EMPTY_STACK_TRACE;
           
 } StackTraceElement[][] stackTraceArray = dumpThreads(new Thread[] {this});
           
@@ -446,7 +446,7 @@ StackTraceElement[] stackTrace = stackTraceArray[0];
           
 if (stackTrace == null) {
               
-stackTrace = EMPTY\_STACK\_TRACE;
+stackTrace = EMPTY_STACK_TRACE;
           
 }
           

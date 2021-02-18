@@ -290,7 +290,7 @@ Change the finalName element value to ROOT
 
 At this point, you can perform a mvn install on your project and take the generated war files for admin and site and place them in [jboss installation]/standalone/deployments so that the JBoss deployment scanner can pick them up and perform the deployment. You may see the following exception during startup:
 
-WARN \[org.jboss.as.ee\] (MSC service thread 1-1) JBAS011006: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to exception: org.jboss.as.server.deployment.DeploymentUnitProcessingException: JBAS011054: Could not find default constructor for class org.springframework.web.context.request.async.StandardServletAsyncWebRequest
+WARN [org.jboss.as.ee] (MSC service thread 1-1) JBAS011006: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to exception: org.jboss.as.server.deployment.DeploymentUnitProcessingException: JBAS011054: Could not find default constructor for class org.springframework.web.context.request.async.StandardServletAsyncWebRequest
 
 This warning is innocuous and can be ignored. This will likely be resolved in a future version of the Spring framework.
 

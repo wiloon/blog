@@ -21,7 +21,7 @@ DATE数据类型
 
 我见到的大多数人陷入的麻烦就是计算两个时间的间隔年数、月数、天数、小时数和秒数。你需要明白的是，当你进行两个日期的相减运算的时候，得到的是天数。你需要乘上每天的秒数（1天=86400秒），然后，你可以再次计算得到你想要的间隔数。下面就是我的解决方法，可以精确计算出两个时间的间隔。我明白这个例子可以更简短些，但是我是为了显示所有的数字来强调计算方式。
   
-SELECT TO\_CHAR(date1,'MMDDYYYY:HH24:MI:SS') date1, TO\_CHAR(date2,'MMDDYYYY:HH24:MI:SS') date2,
+SELECT TO_CHAR(date1,'MMDDYYYY:HH24:MI:SS') date1, TO_CHAR(date2,'MMDDYYYY:HH24:MI:SS') date2,
   
 trunc(86400\*(date2-date1))-60\*(trunc((86400\*(date2-date1))/60))  seconds,   trunc((86400\*(date2-date1))/60)-60\*(trunc(((86400\*(date2-date1))/60)/60)) minutes,   trunc(((86400\*(date2-date1))/60)/60)-24\*(trunc((((86400\*(date2-date1))/60)/60)/24)) hours,   trunc((((86400\*(date2-date1))/60)/60)/24) days,   trunc(((((86400*(date2-date1))/60)/60)/24)/7) weeks   FROM date_table
   
@@ -31,7 +31,7 @@ TIMESTAMP 数据类型
   
 DATE数据类型的主要问题是它粒度不能足够区别出两个事件哪个先发生。ORACLE已经在DATE数据类型上扩展出来了TIMESTAMP数据类型，它包括了所有DATE数据类型的年月日时分秒的信息，而且包括了小数秒的信息。如果你想把DATE类型转换成TIMESTAMP类型，就使用CAST函数。
 
-正如你看到的，在转换后的时间段尾部有了一段".000000"。这是因为从date转换过来的时候，没有小数秒的信息，缺省为0。而且显示格式是按照参数NLS\_TIMESTAMP\_FORMAT定的缺省格式显示。当你把一个表中date类型字段的数据移到另一个表的timestamp类型字段中去的时候，可以直接写INSERT SELECT语句，oracle会自动为你做转换的。
+正如你看到的，在转换后的时间段尾部有了一段".000000"。这是因为从date转换过来的时候，没有小数秒的信息，缺省为0。而且显示格式是按照参数NLS_TIMESTAMP_FORMAT定的缺省格式显示。当你把一个表中date类型字段的数据移到另一个表的timestamp类型字段中去的时候，可以直接写INSERT SELECT语句，oracle会自动为你做转换的。
   
 TIMESTAMP数据的格式化显示和DATE 数据一样。注意，to_char函数支持date和timestamp，但是trunc却不支持TIMESTAMP数据类型。这已经清楚表明了在当两个时间的差别极度重要的情况下，使用TIMESTAMP数据类型要比DATE数据类型更确切     如果你想显示TIMESTAMP的小数秒信息，参考下面：
 
@@ -43,7 +43,7 @@ SELECT time1,  time2,
   
 substr((time2-time1),instr((time2-time1),' ')+7,2)   seconds,   substr((time2-time1),instr((time2-time1),' ')+4,2)   minutes,   substr((time2-time1),instr((time2-time1),' ')+1,2)   hours,
   
-trunc(to\_number(substr((time2-time1),1,instr(time2-time1,' '))))  days,   trunc(to\_number(substr((time2-time1),1,instr(time2-time1,' ')))/7) weeks FROM date_table
+trunc(to_number(substr((time2-time1),1,instr(time2-time1,' '))))  days,   trunc(to_number(substr((time2-time1),1,instr(time2-time1,' ')))/7) weeks FROM date_table
   
 TIME1  TIME2   SECONDS   MINUTES   HOURS   DAYS   WEEKS   ---------  --------- --- --- -- -- --
   
@@ -55,7 +55,7 @@ TIME1  TIME2   SECONDS   MINUTES   HOURS   DAYS   WEEKS   --
 
 为了得到系统时间，返回成timestamp数据类型。你可以使用systimestamp函数。
 
-你可以设置初始化参数FIXED\_DATE指定sysdate函数返回一个固定值。这用在测试日期和时间敏感的代码。注意，这个参数对于systimestamp函数无效。   SQL> ALTER SYSTEM SET fixed\_date = '2003-01-01-10:00:00';
+你可以设置初始化参数FIXED_DATE指定sysdate函数返回一个固定值。这用在测试日期和时间敏感的代码。注意，这个参数对于systimestamp函数无效。   SQL> ALTER SYSTEM SET fixed_date = '2003-01-01-10:00:00';
 
 System altered.
   

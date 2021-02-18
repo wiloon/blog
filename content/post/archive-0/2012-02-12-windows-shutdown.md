@@ -23,7 +23,7 @@ shutdown.exe /s /t 3
 
 该命令的语法格式如下：
 
-shutdown \[-i |-l|-s |-r |-a\] \[-f\] \[-m [\ComputerName]\] \[-t xx\] \[-c "message"\] \[-d[p\]:xx:yy]
+shutdown [-i |-l|-s |-r |-a] [-f] [-m [\ComputerName]] [-t xx] [-c "message"] [-d[p]:xx:yy]
 
 其中，各参数的含义为：
 

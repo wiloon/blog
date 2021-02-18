@@ -22,6 +22,6 @@ Hidden 对象代表一个 HTML 表单中的某个隐藏输入域。
 
 您可通过遍历表单的 elements[] 数组来访问某个隐藏输入域，或者通过使用document.getElementById()。
 
-http://www.w3school.com.cn/jsref/dom\_obj\_hidden.asp
+http://www.w3school.com.cn/jsref/dom_obj_hidden.asp
 
 http://www.wiloon.com/wordpress/?p=6529

@@ -62,7 +62,7 @@ Via the terminal, run the following commands:
   
 ** 
   
-**tar -xzvf SDL\_image-1.2.11.tar.gz -C ~/ && cd SDL\_image-1.2.11**
+**tar -xzvf SDL_image-1.2.11.tar.gz -C ~/ && cd SDL_image-1.2.11**
   
 **
   
@@ -86,7 +86,7 @@ Run the following commands:
   
 ** 
   
-**tar -xzvf SDL\_mixer-1.2.12.tar.gz -C ~/ && cd SDL\_mixer-1.2.12**
+**tar -xzvf SDL_mixer-1.2.12.tar.gz -C ~/ && cd SDL_mixer-1.2.12**
   
 **
   
@@ -110,7 +110,7 @@ Issue these commands:
   
 ** 
   
-**tar -xzvf SDL\_net-1.2.8.tar.gz -C ~/ && cd SDL\_net-1.2.8**
+**tar -xzvf SDL_net-1.2.8.tar.gz -C ~/ && cd SDL_net-1.2.8**
   
 **
   

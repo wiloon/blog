@@ -201,7 +201,7 @@ Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态，而�
   
 它们的实现方式都是在 Zookeeper 上创建一个 EPHEMERAL 类型的目录节点，然后每个 Server 在它们创建目录节点的父目录节点上调用 getChildren(String path, boolean watch) 方法并设置 watch 为 true，由于是 EPHEMERAL 目录节点，当创建它的 Server 死去，这个目录节点也随之被删除，所以 Children 将会变化，这时 getChildren上的 Watch 将会被调用，所以其它 Server 就知道已经有某台 Server 死去了。新增 Server 也是同样的原理。
   
-Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。和前面的一样每台 Server 创建一个 EPHEMERAL 目录节点，不同的是它还是一个 SEQUENTIAL 目录节点，所以它是个 EPHEMERAL\_SEQUENTIAL 目录节点。之所以它是 EPHEMERAL\_SEQUENTIAL 目录节点，是因为我们可以给每台 Server 编号，我们可以选择当前是最小编号的 Server 为 Master，假如这个最小编号的 Server 死去，由于是 EPHEMERAL 节点，死去的 Server 对应的节点也被删除，所以当前的节点列表中又出现一个最小编号的节点，我们就选择这个节点为当前 Master。这样就实现了动态选择 Master，避免了传统意义上单 Master 容易出现单点故障的问题。
+Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。和前面的一样每台 Server 创建一个 EPHEMERAL 目录节点，不同的是它还是一个 SEQUENTIAL 目录节点，所以它是个 EPHEMERAL_SEQUENTIAL 目录节点。之所以它是 EPHEMERAL_SEQUENTIAL 目录节点，是因为我们可以给每台 Server 编号，我们可以选择当前是最小编号的 Server 为 Master，假如这个最小编号的 Server 死去，由于是 EPHEMERAL 节点，死去的 Server 对应的节点也被删除，所以当前的节点列表中又出现一个最小编号的节点，我们就选择这个节点为当前 Master。这样就实现了动态选择 Master，避免了传统意义上单 Master 容易出现单点故障的问题。
 
 共享锁（Locks）
   
@@ -217,7 +217,7 @@ Zookeeper 可以处理两种类型的队列：
   
 同步队列用 Zookeeper 实现的实现思路如下：
   
-创建一个父目录 /synchronizing，每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在，然后每个成员都加入这个队列，加入队列的方式就是创建 /synchronizing/member\_i 的临时目录节点，然后每个成员获取 / synchronizing 目录的所有目录节点，也就是 member\_i。判断 i 的值是否已经是成员的个数，如果小于成员个数等待 /synchronizing/start 的出现，如果已经相等就创建 /synchronizing/start。
+创建一个父目录 /synchronizing，每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在，然后每个成员都加入这个队列，加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点，然后每个成员获取 / synchronizing 目录的所有目录节点，也就是 member_i。判断 i 的值是否已经是成员的个数，如果小于成员个数等待 /synchronizing/start 的出现，如果已经相等就创建 /synchronizing/start。
 
 FIFO 队列用 Zookeeper 实现思路如下：
   
@@ -275,9 +275,9 @@ HADOOP_HOME=/home/hadoop/hadoop-1.1.1
   
 JAVA_HOME=/home/hadoop/jdk1.7.0
   
-PATH=$JAVA\_HOME/bin:$ZOOKEEPER\_HOME/bin:$PIG\_HOME/bin:$MAHOUT\_HOME/bin:$HBASE\_HOME/bin:$HIVE\_HOME/bin:$HADOOP\_HOME/bin:$HADOOP\_HOME/conf:$PATH
+PATH=$JAVA_HOME/bin:$ZOOKEEPER_HOME/bin:$PIG_HOME/bin:$MAHOUT_HOME/bin:$HBASE_HOME/bin:$HIVE_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/conf:$PATH
   
-CLASSPATH=.:$JAVA\_HOME/lib/dt.jar:$ZOOKEEPER\_HOME/lib:$HBASE\_HOME/lib:$MAHOUT\_HOME/lib:$PIG\_HOME/lib:$HIVE\_HOME/lib:$JAVA_HOME/lib/tools.jar
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$ZOOKEEPER_HOME/lib:$HBASE_HOME/lib:$MAHOUT_HOME/lib:$PIG_HOME/lib:$HIVE_HOME/lib:$JAVA_HOME/lib/tools.jar
   
 export ZOOKEEPER_HOME
   
@@ -327,9 +327,9 @@ ZooKeeper的基本运转流程：
   
 HBase内置有ZooKeeper，也可以使用外部ZooKeeper。
   
-让HBase使用一个已有的不被HBase托管的Zookeep集群，需要设置 conf/hbase env sh文件中的HBASE\_MANAGES\_ZK 属性为 false
+让HBase使用一个已有的不被HBase托管的Zookeep集群，需要设置 conf/hbase env sh文件中的HBASE_MANAGES_ZK 属性为 false
   
-… # Tell HBase whether it should manage it's own instance of Zookeeper or not. export HBASE\_MANAGES\_ZK=false
+… # Tell HBase whether it should manage it's own instance of Zookeeper or not. export HBASE_MANAGES_ZK=false
   
 接下来，指明Zookeeper的host和端口。可以在 hbase-site.xml中设置, 也可以在HBase的CLASSPATH下面加一个zoo.cfg配置文件。 HBase 会优先加载 zoo.cfg 里面的配置，把hbase-site.xml里面的覆盖掉.
   
@@ -337,7 +337,7 @@ HBase内置有ZooKeeper，也可以使用外部ZooKeeper。
   
 ${HBASE_HOME}/bin/hbase-daemons sh {start,stop} zookeeper
   
-你可以用这条命令启动ZooKeeper而不启动HBase. HBASE\_MANAGES\_ZK 的值是 false， 如果你想在HBase重启的时候不重启ZooKeeper,你可以这样做
+你可以用这条命令启动ZooKeeper而不启动HBase. HBASE_MANAGES_ZK 的值是 false， 如果你想在HBase重启的时候不重启ZooKeeper,你可以这样做
   
 对于独立Zoopkeeper的问题，你可以在 Zookeeper启动得到帮助.[5]
 
@@ -361,7 +361,7 @@ Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态，而�
 
 它们的实现方式都是在 Zookeeper 上创建一个 EPHEMERAL 类型的目录节点，然后每个 Server 在它们创建目录节点的父目录节点上调用getChildren(String path, boolean watch) 方法并设置 watch 为 true，由于是 EPHEMERAL 目录节点，当创建它的 Server 死去，这个目录节点也随之被删除，所以 Children 将会变化，这时 getChildren上的 Watch 将会被调用，所以其它 Server 就知道已经有某台 Server 死去了。新增 Server 也是同样的原理。
 
-Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。和前面的一样每台 Server 创建一个 EPHEMERAL 目录节点，不同的是它还是一个 SEQUENTIAL 目录节点，所以它是个 EPHEMERAL\_SEQUENTIAL 目录节点。之所以它是 EPHEMERAL\_SEQUENTIAL 目录节点，是因为我们可以给每台 Server 编号，我们可以选择当前是最小编号的 Server 为 Master，假如这个最小编号的 Server 死去，由于是 EPHEMERAL 节点，死去的 Server 对应的节点也被删除，所以当前的节点列表中又出现一个最小编号的节点，我们就选择这个节点为当前 Master。这样就实现了动态选择 Master，避免了传统意义上单 Master 容易出现单点故障的问题。
+Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。和前面的一样每台 Server 创建一个 EPHEMERAL 目录节点，不同的是它还是一个 SEQUENTIAL 目录节点，所以它是个 EPHEMERAL_SEQUENTIAL 目录节点。之所以它是 EPHEMERAL_SEQUENTIAL 目录节点，是因为我们可以给每台 Server 编号，我们可以选择当前是最小编号的 Server 为 Master，假如这个最小编号的 Server 死去，由于是 EPHEMERAL 节点，死去的 Server 对应的节点也被删除，所以当前的节点列表中又出现一个最小编号的节点，我们就选择这个节点为当前 Master。这样就实现了动态选择 Master，避免了传统意义上单 Master 容易出现单点故障的问题。
 
 共享锁（Locks）
 
@@ -377,7 +377,7 @@ Zookeeper 可以处理两种类型的队列：
   
 同步队列用 Zookeeper 实现的实现思路如下：
 
-创建一个父目录 /synchronizing，每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在，然后每个成员都加入这个队列，加入队列的方式就是创建 /synchronizing/member\_i 的临时目录节点，然后每个成员获取 / synchronizing 目录的所有目录节点，也就是 member\_i。判断 i 的值是否已经是成员的个数，如果小于成员个数等待 /synchronizing/start 的出现，如果已经相等就创建 /synchronizing/start。
+创建一个父目录 /synchronizing，每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在，然后每个成员都加入这个队列，加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点，然后每个成员获取 / synchronizing 目录的所有目录节点，也就是 member_i。判断 i 的值是否已经是成员的个数，如果小于成员个数等待 /synchronizing/start 的出现，如果已经相等就创建 /synchronizing/start。
 
 Zookeeper 作为 Hadoop 项目中的一个子项目，是 Hadoop 集群管理的一个必不可少的模块，它主要用来控制集群中的数据，如它管理 Hadoop 集群中的 NameNode，还有 Hbase 中 Master Election、Server 之间状态同步等。
 

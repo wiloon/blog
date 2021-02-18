@@ -58,7 +58,7 @@ func Test_Division_2(t *testing.T) {
    
 func BenchmarkXXX(b _testing.B) { ... }
   
-go test不会默认执行压力测试的函数，如果要执行压力测试需要带上参数-test.bench,语法：-test.bench="test\_name\_regex",例如go test.bench="."_ 表示测试全部的压力测试函数
+go test不会默认执行压力测试的函数，如果要执行压力测试需要带上参数-test.bench,语法：-test.bench="test_name_regex",例如go test.bench="."_ 表示测试全部的压力测试函数
   
 在压力测试用例中，请记得在循环体内使用testing.B.N，以使测试可以正常运行
   
@@ -138,7 +138,7 @@ return n
   
 return Fibonacci(n-1) + Fibonacci(n-2)
   
-fibonacci\_test.go就是测试的文件了，golang需要测试文件一律用"\_test"结尾，测试的函数都用Test开头，代码如下：
+fibonacci_test.go就是测试的文件了，golang需要测试文件一律用"_test"结尾，测试的函数都用Test开头，代码如下：
   
 package lib
 

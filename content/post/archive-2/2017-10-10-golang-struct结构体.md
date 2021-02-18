@@ -18,6 +18,6 @@ type Student struct {
 }
 ```
 
-https://github.com/jemygraw/TechDoc/blob/master/Go%E8%BD%BB%E6%9D%BE%E5%AD%A6/go\_tutorial\_8\_struct\_interface.md
+https://github.com/jemygraw/TechDoc/blob/master/Go%E8%BD%BB%E6%9D%BE%E5%AD%A6/go_tutorial_8_struct_interface.md
   
 https://blog.csdn.net/books1958/article/details/22720033

@@ -20,9 +20,9 @@ categories:
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' increment by '||increment_by|| <wbr /> <wbr /> <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (case when cache\_size=0 then ' nocache' else ' cache '||cache\_size end) ||';' <wbr /> <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (case when cache_size=0 then ' nocache' else ' cache '||cache_size end) ||';' <wbr /> <wbr />
   
-from dba\_sequences where sequence\_owner='HR' <wbr /> <wbr />
+from dba_sequences where sequence_owner='HR' <wbr /> <wbr />
   
 注意：其中的HR，是需要导出sequence的用户，貌似必须大写的说！并且使用该脚本的用户需要有访问dba_sequences的权限。
 
@@ -30,7 +30,7 @@ from dba\_sequences where sequence\_owner='HR' <wbr /> <wbr />
 
 <wbr />create sequence HIBERNATE_SEQUENCE minvalue 1 maxvalue 999999999999999999999999<wbr />999 start with 1 increment by 1 cache 20; <wbr />
 
-create sequence MIAGENTVERSION\_VERSION\_SEQ minvalue 1 maxvalue 999999999999999999999999<wbr />start with 121 increment by 1 cache 20;
+create sequence MIAGENTVERSION_VERSION_SEQ minvalue 1 maxvalue 999999999999999999999999<wbr />start with 121 increment by 1 cache 20;
 
 ---------------------------
 
@@ -46,6 +46,6 @@ select 'create sequence '||sequence_name|| <wbr /> <wbr />
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' increment by '||increment_by|| <wbr /> <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (case when cache\_size=0 then ' nocache' else ' cache '||cache\_size end) ||';' <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (case when cache_size=0 then ' nocache' else ' cache '||cache_size end) ||';' <wbr />
   
 from user_sequences
