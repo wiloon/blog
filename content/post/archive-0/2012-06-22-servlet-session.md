@@ -97,286 +97,286 @@ categories:
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       <tr>
         <td>
-          <p align="left">
+          
             // SessionListener.java
           
           
-          <p align="left">
+          
             import java.io.*;
           
           
-          <p align="left">
+          
             import java.util.*;
           
           
-          <p align="left">
+          
             import javax.servlet.http.*;
           
           
-          <p align="left">
+          
             //监听登录的整个过程
           
           
-          <p align="left">
+          
             public class SessionListener implements HttpSessionBindingListener
           
           
-          <p align="left">
+          
             {
           
           
-          <p align="left">
+          
             public String privateInfo=""; //生成监听器的初始化参数字符串
           
           
-          <p align="left">
+          
             private String logString=""; //日志记录字符串
           
           
-          <p align="left">
+          
             private int count=0; //登录人数计数器
           
           
-          <p align="left">
+          
             public SessionListener(String info){
           
           
-          <p align="left">
+          
             this.privateInfo=info;
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             public int getCount(){
           
           
-          <p align="left">
+          
             return count;
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             public void valueBound(HttpSessionBindingEvent event)
           
           
-          <p align="left">
+          
             {
           
           
-          <p align="left">
+          
             count++;
           
           
-          <p align="left">
+          
             if (privateInfo.equals("count"))
           
           
-          <p align="left">
+          
             {
           
           
-          <p align="left">
+          
             return;
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             try{
           
           
-          <p align="left">
+          
             Calendar calendar=new GregorianCalendar();
           
           
-          <p align="left">
+          
             System.out.println("LOGIN:"+privateInfo+" TIME:"+calendar.getTime());
           
           
-          <p align="left">
+          
             logString="nLOGIN:"+privateInfo+" TIME:"+calendar.getTime()+"n";
           
           
-          <p align="left">
+          
             for(int i=1;i<1000;i++){
           
           
-          <p align="left">
+          
             File file=new File("yeeyoo.log"+i);
           
           
-          <p align="left">
+          
             if(!(file.exists()))
           
           
-          <p align="left">
+          
             file.createNewFile(); //如果文件不存在，创建此文件
           
           
-          <p align="left">
+          
             if(file.length()>1048576) //如果文件大于1M，重新创建一个文件
           
           
-          <p align="left">
+          
             continue;
           
           
-          <p align="left">
+          
             FileOutputStream foo=new FileOutputStream("yeeyoo.log"+i,true);
           
           
-          <p align="left">
+          
             //以append方式打开创建文件
           
           
-          <p align="left">
+          
             foo.write(logString.getBytes(),0,logString.length()); //写入日志字符串
           
           
-          <p align="left">
+          
             foo.close();
           
           
-          <p align="left">
+          
             break;//退出
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             }catch(FileNotFoundException e){}
           
           
-          <p align="left">
+          
             catch(IOException e){}
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             public void valueUnbound(HttpSessionBindingEvent event)
           
           
-          <p align="left">
+          
             {
           
           
-          <p align="left">
+          
             count-;
           
           
-          <p align="left">
+          
             if (privateInfo.equals("count"))
           
           
-          <p align="left">
+          
             {
           
           
-          <p align="left">
+          
             return;
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             try{
           
           
-          <p align="left">
+          
             Calendar calendar=new GregorianCalendar();
           
           
-          <p align="left">
+          
             System.out.println("LOGOUT:"+privateInfo+" TIME:"+calendar.getTime());
           
           
-          <p align="left">
+          
             logString="nLOGOUT:"+privateInfo+" TIME:"+calendar.getTime()+"n";
           
           
-          <p align="left">
+          
             for(int i=1;i<1000;i++){
           
           
-          <p align="left">
+          
             File file=new File("yeeyoo.log"+i);
           
           
-          <p align="left">
+          
             if(!(file.exists()))
           
           
-          <p align="left">
+          
             file.createNewFile(); //如果文件不存在，创建此文件
           
           
-          <p align="left">
+          
             if(file.length()>1048576) //如果文件大于1M，重新创建一个文件
           
           
-          <p align="left">
+          
             continue;
           
           
-          <p align="left">
+          
             FileOutputStream foo=new FileOutputStream("yeeyoo.log"+i,true);
           
           
-          <p align="left">
+          
             //以append方式打开创建文件
           
           
-          <p align="left">
+          
             foo.write(logString.getBytes(),0,logString.length()); //写入日志字符串
           
           
-          <p align="left">
+          
             foo.close();
           
           
-          <p align="left">
+          
             break;//退出
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             }catch(FileNotFoundException e){}
           
           
-          <p align="left">
+          
             catch(IOException e){}
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             }
           
         </td>
       </tr>
     </table>
   
-  <p align="left">
+  
     登录日志的实现：
  下面再来看看我们的登录Servlet中使用这个监听器的部分源代码：
   
@@ -384,54 +384,54 @@ categories:
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       <tr>
         <td>
-          <p align="left">
+          
             ……
           
           
-          <p align="left">
+          
             HttpSession session = req.getSession (true);
           
           
-          <p align="left">
+          
             ……
           
           
-          <p align="left">
+          
             //////////////////////////////////////////////////////////////////
           
           
-          <p align="left">
+          
             SessionListener sessionListener=
           
           
-          <p align="left">
+          
                new SessionListener("IP:"+req.getRemoteAddr());
           
           
-          <p align="left">
+          
             //对于每一个会话过程均启动一个监听器
           
           
-          <p align="left">
+          
             session.setAttribute("listener",sessionListener);
           
           
-          <p align="left">
+          
             //将监听器植入HttpSession，这将激发监听器调用valueBound方法，
           
           
-          <p align="left">
+          
             //从而记录日志文件。
           
           
-          <p align="left">
+          
             //////////////////////////////////////////////////////////////////
           
         </td>
       </tr>
     </table>
   
-  <p align="left">
+  
     当系统退出登录时，只需简单地调用session.removeAttribute("listener");
  即可自动调用监听器的valueUnbound方法。或者，当Session Time Out的时候也会调用此方法。
  登录人数的统计：
@@ -440,81 +440,81 @@ categories:
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       <tr>
         <td>
-          <p align="left">
+          
             ServletContext session1=getServletConfig().getServletContext();
           
           
-          <p align="left">
+          
             //取得ServletContext对象实例
           
           
-          <p align="left">
+          
             if((SessionListener)session1.getAttribute("listener1")==null)
           
           
-          <p align="left">
+          
             {
           
           
-          <p align="left">
+          
             SessionListener sessionListener1=new SessionListener("count");
           
           
-          <p align="left">
+          
             //只设置一次，不同于上面日志文件的记录每次会话均设置。
           
           
-          <p align="left">
+          
             //即当第一个客户连接到服务器时启动一个全局变量，
           
           
-          <p align="left">
+          
             //此后所有的客户将使用相同的上下文。
           
           
-          <p align="left">
+          
             session1.setAttribute("listener1",sessionListener1);
           
           
-          <p align="left">
+          
             //将监听器对象设置成ServletContext的属性，具有全局范围有效性，
           
           
-          <p align="left">
+          
             //即所有的客户均可以取得它的实例。
           
           
-          <p align="left">
+          
             }
           
           
-          <p align="left">
+          
             session.setAttribute("listener1",(SessionListener)session1.
           
           
-          <p align="left">
+          
             getAttribute("listener1"));
           
           
-          <p align="left">
+          
             //取出此全局对象，并且将此对象绑定到某个会话中，
           
           
-          <p align="left">
+          
             //此举将促使监听器调用valueBound，计数器加一。
           
         </td>
       </tr>
     </table>
   
-  <p align="left">
+  
     在此后的程序中随时可以用以下代码取得当前的登录人数：
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       <tr>
         <td>
-          <p align="left">
+          
             ((SessionListener)session.getAttribute("listener1")).getCount()
           
         </td>

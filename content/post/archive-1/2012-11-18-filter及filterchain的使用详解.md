@@ -207,121 +207,121 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 1、   编写EncodingFilter类
 
-<p align="left">
+
   package test.filter;
 
-<p align="left">
+
   import java.io.IOException;
 
-<p align="left">
+
   import javax.servlet.Filter;
 
-<p align="left">
+
   import javax.servlet.FilterChain;
 
-<p align="left">
+
   import javax.servlet.FilterConfig;
 
-<p align="left">
+
   import javax.servlet.ServletContext;
 
-<p align="left">
+
   import javax.servlet.ServletException;
 
-<p align="left">
+
   import javax.servlet.ServletRequest;
 
-<p align="left">
+
   import javax.servlet.ServletResponse;
 
-<p align="left">
+
   public class EncodingFilter implements Filter {
 
-<p align="left">
+
       private FilterConfig filterConfig = null;
 
-<p align="left">
+
       private String encoding = null;
 
-<p align="left">
+
       //实现销毁方法
 
-<p align="left">
+
       public void destroy() {
 
-<p align="left">
+
            encoding = null;
 
-<p align="left">
+
        }
 
-<p align="left">
+
       //进行具体的过滤
 
-<p align="left">
+
       public void doFilter(ServletRequest request, ServletResponse response,
 
-<p align="left">
+
                FilterChain chain) throws IOException, ServletException {
 
-<p align="left">
+
           // 获取ServletContext 对象，用于记录日志
 
-<p align="left">
+
            ServletContext context =this.filterConfig.getServletContext();
 
-<p align="left">
+
            context.log("开始设置编码格式");
 
-<p align="left">
+
            String encoding = getEncoding();
 
-<p align="left">
+
            if (encoding == null){
 
-<p align="left">
+
                encoding = "gb2312";
 
-<p align="left">
+
            }
 
-<p align="left">
+
            // 在请求里设置上指定的编码
 
-<p align="left">
+
            request.setCharacterEncoding(encoding);
 
-<p align="left">
+
            chain.doFilter(request, response);
 
-<p align="left">
+
            context.log("成功设置了编码格式");
 
-<p align="left">
+
        }
 
-<p align="left">
+
       //初始化配置
 
-<p align="left">
+
       public void init(FilterConfig filterConfig) throwsServletException {
 
-<p align="left">
+
           this.filterConfig = filterConfig;
 
-<p align="left">
+
           this.encoding = filterConfig.getInitParameter("encoding");
 
-<p align="left">
+
        }
 
-<p align="left">
+
       private String getEncoding() {
 
-<p align="left">
+
           return this.encoding;
 
-<p align="left">
+
        }
 
 }
@@ -370,127 +370,127 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 1、   编写身份认证SecurityFilter类
 
-<p align="left">
+
   package test.filter;
 
-<p align="left">
+
   import java.io.IOException;
 
-<p align="left">
+
   import javax.servlet.Filter;
 
-<p align="left">
+
   import javax.servlet.FilterChain;
 
-<p align="left">
+
   import javax.servlet.FilterConfig;
 
-<p align="left">
+
   import javax.servlet.ServletContext;
 
-<p align="left">
+
   import javax.servlet.ServletException;
 
-<p align="left">
+
   import javax.servlet.ServletRequest;
 
-<p align="left">
+
   import javax.servlet.ServletResponse;
 
-<p align="left">
+
   import javax.servlet.http.HttpServletRequest;
 
-<p align="left">
+
   import javax.servlet.http.HttpServletResponse;
 
-<p align="left">
+
   import javax.servlet.http.HttpSession;
 
-<p align="left">
+
   public class SecurityFilter implements Filter {
 
-<p align="left">
+
       private FilterConfig filterConfig;
 
-<p align="left">
+
       //初始化方法实现
 
-<p align="left">
+
       @Override
 
-<p align="left">
+
       public void init(FilterConfig filterConfig) throwsServletException {
 
-<p align="left">
+
           this.filterConfig = filterConfig;
 
-<p align="left">
+
       }
 
-<p align="left">
+
       //身份认证的过滤
 
-<p align="left">
+
       @Override
 
-<p align="left">
+
       public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 
-<p align="left">
+
               throws IOException, ServletException {
 
-<p align="left">
+
           ServletContext context =this.filterConfig.getServletContext();
 
-<p align="left">
+
           HttpServletRequest req = (HttpServletRequest) request;
 
-<p align="left">
+
           HttpServletResponse res = (HttpServletResponse) response;
 
-<p align="left">
+
           HttpSession session = req.getSession();
 
-<p align="left">
+
           //登录后才能进入下一步处理，否则直接进入错误提示页面
 
-<p align="left">
+
           if (session.getAttribute("username") != null) {
 
-<p align="left">
+
               context.log("身份认证通过，进入下一步处理 ");
 
-<p align="left">
+
               chain.doFilter(request, response);
 
-<p align="left">
+
           } else {
 
-<p align="left">
+
               context.log("身份认证失败，直接返回");
 
-<p align="left">
+
               res.sendRedirect("../failure.jsp");
 
-<p align="left">
+
           }
 
-<p align="left">
+
       }
 
-<p align="left">
+
       //实现销毁方法
 
-<p align="left">
+
       @Override
 
-<p align="left">
+
       public void destroy() {
 
-<p align="left">
+
           this.filterConfig = null;
 
-<p align="left">
+
       }
 
 }
@@ -527,32 +527,32 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 通过上述步骤的操作，此时就可以通过URI进行访问。此时如果能够取得Session中的username值时，会直接进入下一步处理，否则直接进入错误页面。
 
-<p align="left">
+
   二、过滤链FilterChain
 
-<p align="left">
+
   两个过滤器，EncodingFilter负责设置编码，SecurityFilter负责控制权限，服务器会按照web.xml中过滤器定义的先后循序组装成一条链，然后一次执行其中的doFilter()方法。执行的顺序就如下图所示，执行第一个过滤器的chain.doFilter()之前的代码，第二个过滤器的chain.doFilter()之前的代码，请求的资源，第二个过滤器的chain.doFilter()之后的代码，第一个过滤器的chain.doFilter()之后的代码，最后返回响应。
 
-<p align="left">
+
   执行的代码顺序是：
 
-<p align="left">
+
   l  执行EncodingFilter.doFilter()中chain.doFilter()之前的部分；request.setCharacterEncoding(encoding);
 
-<p align="left">
+
   l  执行SecurityFilter.doFilter()中chain.doFilter()之前的部分：判断用户是否已登录。
 
-<p align="left">
+
   l  如果用户已登录，则访问请求的资源。
 
-<p align="left">
+
   l  如果用户未登录，则页面重定向到：/failure.jsp。
 
-<p align="left">
+
   l  执行SecurityFilter.doFilter()中chain.doFilter()之后的部分：这里没有代码。
 
-<p align="left">
+
   l  执行EncodingFilter.doFilter()中chain.doFilter()之后的部分：写入已经完成的日志。
 
-<p align="left">
+
   过滤链的好处是，执行过程中任何时候都可以打断，只要不执行chain.doFilter()就不会再执行后面的过滤器和请求的内容。而在实际使用时，就要特别注意过滤链的执行顺序问题，像EncodingFilter就一定要放在所有Filter之前，这样才能确保在使用请求中的数据前设置正确的编码。

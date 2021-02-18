@@ -658,196 +658,196 @@ $('#stsoft').val("1");
 
 Js代码
 
-<p align="left">
+
   1.     /**
 
-<p align="left">
+
   2.     fromid:源list的id.
 
-<p align="left">
+
   3.     toid:目标list的id.
 
-<p align="left">
+
   4.     moveOrAppend参数("move"或者是"append"):
 
-<p align="left">
+
   5.     move - 源list中选中的option会删除.源list中选中的option移动到目标list中,若目标list中已存在则该option不添加.
 
-<p align="left">
+
   6.     append - 源list中选中的option不会删除.源list中选中的option添加到目标list的后面,若目标list中已存在则该option不添加.
 
-<p align="left">
+
   7.
 
-<p align="left">
+
   8.     isAll参数(true或者false):是否全部移动或添加
 
-<p align="left">
+
   9.     */
 
-<p align="left">
+
   10. jQuery.listTolist = function(fromid,toid,moveOrAppend,isAll) {
 
-<p align="left">
+
   11.     if(moveOrAppend.toLowerCase() == "move") {  //移动
 
-<p align="left">
+
   12.         if(isAll == true) { //全部移动
 
-<p align="left">
+
   13.             $("#"+fromid+" option").each(function() {
 
-<p align="left">
+
   14.                 //将源list中的option添加到目标list,当目标list中已有该option时不做任何操作.
 
-<p align="left">
+
   15.                 $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   16.             });
 
-<p align="left">
+
   17.             $("#"+fromid).empty();  //清空源list
 
-<p align="left">
+
   18.         }
 
-<p align="left">
+
   19.         else if(isAll == false) {
 
-<p align="left">
+
   20.             $("#"+fromid+" option:selected").each(function() {
 
-<p align="left">
+
   21.                 //将源list中的option添加到目标list,当目标list中已有该option时不做任何操作.
 
-<p align="left">
+
   22.                 $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   23.                 //目标list中已经存在的option并没有移动,仍旧在源list中,将其清空.
 
-<p align="left">
+
   24.                 if($("#"+fromid+" option[value="+$(this).val()+"]").length > 0) {
 
-<p align="left">
+
   25.                     $("#"+fromid).get(0)
 
-<p align="left">
+
   26.                     .removeChild($("#"+fromid+" option[value="+$(this).val()+"]").get(0));
 
-<p align="left">
+
   27.                 }
 
-<p align="left">
+
   28.             });
 
-<p align="left">
+
   29.         }
 
-<p align="left">
+
   30.     }
 
-<p align="left">
+
   31.     else if(moveOrAppend.toLowerCase() == "append") {
 
-<p align="left">
+
   32.         if(isAll == true) {
 
-<p align="left">
+
   33.             $("#"+fromid+" option").each(function() {
 
-<p align="left">
+
   34.                 $("<option></option>")
 
-<p align="left">
+
   35.                 .val($(this).val())
 
-<p align="left">
+
   36.                 .text($(this).text())
 
-<p align="left">
+
   37.                 .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   38.             });
 
-<p align="left">
+
   39.         }
 
-<p align="left">
+
   40.         else if(isAll == false) {
 
-<p align="left">
+
   41.             $("#"+fromid+" option:selected").each(function() {
 
-<p align="left">
+
   42.                 $("<option></option>")
 
-<p align="left">
+
   43.                 .val($(this).val())
 
-<p align="left">
+
   44.                 .text($(this).text())
 
-<p align="left">
+
   45.                 .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   46.             });
 
-<p align="left">
+
   47.         }
 
-<p align="left">
+
   48.     }
 
-<p align="left">
+
   49. };   /**
 
-<p align="left">
+
   50. 功能大体同上("move").
 
-<p align="left">
+
   51. 不同之处在于当源list中的选中option在目标list中存在时,源list中的option不会删除.
 
-<p align="left">
+
   52. isAll参数(true或者false):是否全部移动或添加
 
-<p align="left">
+
   53. jQuery.list2list = function(fromid,toid,isAll) {
 
-<p align="left">
+
   54.     if(isAll == true) {
 
-<p align="left">
+
   55.         $("#"+fromid+" option").each(function() {
 
-<p align="left">
+
   56.             $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   57.         });
 
-<p align="left">
+
   58.     }
 
-<p align="left">
+
   59.     else if(isAll == false) {
 
-<p align="left">
+
   60.         $("#"+fromid+" option:selected").each(function() {
 
-<p align="left">
+
   61.             $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));
 
-<p align="left">
+
   62.         });
 
-<p align="left">
+
   63.     }
 
-<p align="left">
+
   64. };
 
 isAllif(isAll == true) { //$("#"+fromid+" option").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });     $("#"+fromid).empty(); //}    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      //$(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));      //if($("#"+fromid+" option[value="+$(this).val()+"]").length > 0) {       $("#"+fromid).get(0)       .removeChild($("#"+fromid+" option[value="+$(this).val()+"]").get(0));      }     });    }  }  else if(moveOrAppend.toLowerCase() == "append") {    if(isAll == true) {     $("#"+fromid+" option").each(function() {      $("<option></option>")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }    else if(isAll == false) {     $("#"+fromid+" option:selected").each(function() {      $("<option></option>")      .val($(this).val())      .text($(this).text())      .appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));     });    }  } }; /** isAll$("#"+fromid+" option").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  }  else if(isAll == false) {    $("#"+fromid+" option:selected").each(function() {     $(this).appendTo($("#"+toid+":not(:has(option[value="+$(this).val()+"]))"));    });  } };
