@@ -27,15 +27,18 @@ grep "foo\|bar" foo.txt
 grep -o objStr  filename|wc -l
 ```
 
-  * -A, –after-context=NUM print NUM lines of trailing context
-  * -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
-  * -C 显示file文件里匹配foo字串那行以及上下5行
-  * -r, -recursive
-  * -l, -files-with-matches
-  * -G, -basic-regexp BRE 模式，也是默认的模式
-  * -E, -extended-regexp ERE 模式
-  * -h, 查询多文件时不显示文件名。
-  * -a, --text: 强制作为文本文件处理， 报错：Binary file [some_file] matches 的时候可以用。
+### 参数
+- -i: 忽略大小写
+- -A, –after-context=NUM print NUM lines of trailing context
+- -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
+- -C 显示file文件里匹配foo字串那行以及上下5行
+- -r, -recursive
+- -l, -files-with-matches
+- -G, -basic-regexp BRE 模式，也是默认的模式
+- -E, -extended-regexp ERE 模式
+- -h, 查询多文件时不显示文件名。
+- -a, --text: 强制作为文本文件处理， 报错：Binary file [some_file] matches 的时候可以用。
+
 
 ### grep正则
 
@@ -52,7 +55,7 @@ grep -o objStr  filename|wc -l
   
     -q: 静默模式, 不输出任何结果(stderr 除外. 常用以获取 return value, 符合为 true, 否则为false .)
   
-    -i: 忽略大小写.
+
   
     -w: 整词比对, 类似 <word> .
   
