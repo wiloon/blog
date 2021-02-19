@@ -4,10 +4,6 @@ author: w1100n
 type: post
 date: 2011-12-11T03:46:11+00:00
 url: /?p=1845
-bot_views:
-  - 2
-views:
-  - 3
 categories:
   - Linux
 

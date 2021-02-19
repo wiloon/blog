@@ -8,6 +8,11 @@ tags:
   - linux
 
 ---
+### downgrade one package
+    yay -S downgrade
+    sudo downgrade cmake
+    #输入要降级到的版本前面的数字并回车。
+
 ### pacman mirror list
 ```bash
 vim  /etc/pacman.d/mirrorlist
