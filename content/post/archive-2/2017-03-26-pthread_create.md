@@ -1,24 +1,49 @@
 ---
-title: pthread_create
+title: pthread
 author: w1100n
 type: post
 date: 2017-03-26T09:13:38+00:00
 url: /?p=9971
-categories:
-  - Uncategorized
+
 
 ---
-http://blog.csdn.net/liangxanhai/article/details/7767430
+### code
+```c
+    #include <pthread.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <unistd.h>
 
+    void* xc(void* arg){
+              char* c=(char*)arg;
+              printf("参数%s \n",c);
+              int i=0;
+            for (;i<10;i++){
+                    printf("循环%d\n",i);
+                      if(i==5){
+                          pthread_exit(1090000000);
+                  }
+          }
+                return 100000222;
+    }
 
-pthread_create函数的详细讲解(包括向线程函数传递参数详解)
+    void main(){
+            
+            pthread_t tid;
+            pthread_create(&tid,NULL,xc,"线程！！！！");
+
+            void *status;
+            pthread_join(tid,&status);
+            printf("返回%d\n",(int)status);
+    }
+```
+### pthread_create
   
 标签： threadinclude编译器nulllinuxgcc
   
 2012-07-20 14:52 56250人阅读 评论(4) 收藏 举报
   
 分类：
-  
 unix高级编程学习（6）
   
 版权声明：本文为博主原创文章，未经博主允许不得转载。
@@ -210,3 +235,20 @@ pstru = ( struct parameter *) arg;
 然后在这个函数中就可以使用指针来使用相应的变量的值了。
   
 }
+
+### pthread_join
+pthread_join函数介绍：
+函数pthread_join用来等待一个线程的结束,线程间同步的操作。头文件 ： #include <pthread.h>
+函数定义： int pthread_join(pthread_t thread, void **retval);
+描述 ：pthread_join()函数，以阻塞的方式等待thread指定的线程结束。当函数返回时，被等待线程的资源被收回。如果线程已经结束，那么该函数会立即返回。并且thread指定的线程必须是joinable的。
+参数 ：thread: 线程标识符，即线程ID，标识唯一线程。retval: 用户定义的指针，用来存储被等待线程的返回值。
+返回值 ： 0代表成功。 失败，返回的则是错误号。
+
+
+
+---
+
+http://blog.csdn.net/liangxanhai/article/details/7767430  
+https://blog.csdn.net/qq_37858386/article/details/78185064
+https://www.jianshu.com/p/88fdd500cf44
+
