@@ -78,5 +78,5 @@ categories:
     
   </blockquote>
   
-    <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://coolshell.cn/articles/9606.html/embed#?secret=NbrQHz1OQo" data-secret="NbrQHz1OQo" width="600" height="338" title="《疫苗：Java HashMap的死循环》—酷 壳 - CoolShell" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://coolshell.cn/articles/9606.html/embed#?secret=NbrQHz1OQo
   

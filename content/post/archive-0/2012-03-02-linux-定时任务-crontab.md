@@ -4,7 +4,6 @@ author: w1100n
 type: post
 date: 2012-03-02T15:36:38+00:00
 url: /?p=2515
-
 ---
 
 ```bash
@@ -12,7 +11,7 @@ yum install cronie
 pacman -S cronie
 ```
 
-```
+```bash
     # Use the hash sign to prefix a comment
     # +—————- minute (0 – 59)
     # |  +————- hour (0 – 23)
@@ -28,8 +27,23 @@ pacman -S cronie
 ### 配置自动生效
 cron will then examine the modification time on all crontabs and reload those which have changed. Thus cron need not be restarted whenever a crontab file is modified
 ```
+### 在线crontab表达式执行时间计算
+https://www.matools.com/crontab
 
+### 示例
+```bash
+# 双数周的周一
+50 9 * * 1 [ $(expr $(date +%W) \% 2) -eq 0 ] && /path/to/foo.sh
+00 10 * * 1 [ $(expr $(date +%W) \% 2) -eq 0 ] && /path/to/foo.sh
+# 单数周的周一
+50 10 * * 1 [ $(expr $(date +%W) \% 2) -eq 1 ] && /path/to/foo.sh
+00 11 * * 1 [ $(expr $(date +%W) \% 2) -eq 1 ] && /path/to/foo.sh
+# 每周二,三,四,五
+50 10 * * 2,3,4,5 /path/to/foo.sh
+00 11 * * 2,3,4,5 /path/to/foo.sh
 ```
+
+```bash
     # 每周一，三，五，13:55分
     55 13 * * 1,3,5 metting-notification.sh
 ```

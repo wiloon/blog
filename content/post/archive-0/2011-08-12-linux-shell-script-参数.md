@@ -4,12 +4,6 @@ author: w1100n
 type: post
 date: 2011-08-12T05:32:00+00:00
 url: /?p=419
-views:
-  - 5
-bot_views:
-  - 4
-categories:
-  - Linux
 
 ---
 在shell编程时.可以使用参数。Shell有位置参数和内部参数
