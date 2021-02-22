@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2019-03-21T02:43:54+00:00
 url: /?p=13890
-categories:
-  - Uncategorized
 
 ---
 ##bytes.buffer是 bytes.buffer是一个缓冲byte类型的缓冲器，这个缓冲器里存放着都是byte
@@ -37,8 +35,6 @@ buf5:=bytes.NewBuffer([]byte{})
 如果buffer在new的时候是空的也没关系，因为可以用Write来写入，写在尾部
 
 ##写入到缓冲器（缓冲器变大） ###Write-- func (b *Buffer) Write(p []byte) (n int, err error) 使用Write方法，将一个byte类型的slice放到缓冲器的尾部
-
-
 
     package main
 
