@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2017-02-17T08:32:04+00:00
 url: /?p=9832
-categories:
-  - Uncategorized
 
 ---
 https://meiriyitie.com/2015/05/26/diagnosing-network-issues-with-mtr/
