@@ -10,8 +10,6 @@ tags:
   - MySQL
 
 ---
-<div id="blog_content">
-  
      SELECT * FROM table  LIMIT [offset,] rows | rows OFFSET offset
   
   
@@ -28,24 +26,15 @@ tags:
   
 
   
-    //为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
- <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />mysql> SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last.
- <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
- <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />//如果只给定一个参数，它表示返回最大的记录行数目：
- <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />mysql> SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
- <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
- <img title="点击图片可在新窗口打开" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />//换句话说，LIMIT n 等价于 LIMIT 0,n。
-  
-  
-    
-    
-    
-    
-      如果是oracle 可以用rownum实现相同的功能。
-  
-  
-  
-  
-    http://www.phpweblog.net/peiyinjin/archive/2008/04/15/3199.html
+//为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
+SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last.
+//如果只给定一个参数，它表示返回最大的记录行数目：
+SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
+//换句话说，LIMIT n 等价于 LIMIT 0,n。
+如果是oracle 可以用rownum实现相同的功能。
+
+---
+
+http://www.phpweblog.net/peiyinjin/archive/2008/04/15/3199.html
   
   
