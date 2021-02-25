@@ -73,6 +73,10 @@ Windows Server vNext Long-Term Servicing Channel (LTSC)
 ### windows凭据
     控制面板\用户帐户\凭据管理器 > windows凭据
 
+### 域用户
+windows设置>控制面板>更改账户类型>添加>
+用户名: <域用户名>
+域: <域>
 
 ---
 
