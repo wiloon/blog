@@ -3,9 +3,7 @@ title: AKKA
 author: w1100n
 type: post
 date: 2015-12-15T11:39:45+00:00
-url: /?p=8560
-categories:
-  - Uncategorized
+url: /?p=8560kjn
 
 ---
 http://sunxiang0918.cn/2016/01/10/Akka-in-JAVA-1/
