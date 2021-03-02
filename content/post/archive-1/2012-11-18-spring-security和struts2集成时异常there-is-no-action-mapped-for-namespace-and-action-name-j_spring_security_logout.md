@@ -1,5 +1,5 @@
 ---
-title: 'golang  方法, 接口'
+title: golang  方法, 接口
 author: w1100n
 type: post
 date: 2012-11-18T15:12:11+00:00

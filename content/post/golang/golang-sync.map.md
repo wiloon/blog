@@ -1,10 +1,9 @@
-+++
+---
 author = "w1100n"
 date = "2020-05-19T07:21:29Z"
 title = "golang sync.Map"
 
-+++
-[https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD](https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD "https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD")
+---
 
 ```golang
 func main() {
@@ -202,3 +201,4 @@ Go 1.9源代码中提供了性能的测试： [map_bench_test.go](https://github
 `LoadOrStore`方法如果提供的key存在，则返回已存在的值(Load)，否则保存提供的键值(Store)。
 
 https://juejin.im/post/5d36a7cbf265da1bb47da444
+https://colobu.com/2017/07/11/dive-into-sync-Map/#sync-Map%E7%9A%84%E6%80%A7%E8%83%BD

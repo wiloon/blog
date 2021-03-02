@@ -125,3 +125,10 @@ Bluetooth 4.0
     Flash容量: 128 MiB NAND  
     RAM: 128 MiB  
     mips, not mipsle  
+
+### nuc8i5beh
+https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html
+
+    i5-8259U 
+    Intel® Iris® Plus Graphics 655
+    Memory Types DDR4-2400 1.2V SO-DIMM
