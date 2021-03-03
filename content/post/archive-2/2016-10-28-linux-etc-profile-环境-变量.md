@@ -1,13 +1,30 @@
 ---
-title: 'linux   环境 变量'
+title: linux 环境 变量, /etc/profile
 author: w1100n
 type: post
 date: 2016-10-28T04:34:33+00:00
 url: /?p=9346
-categories:
-  - Uncategorized
 
 ---
+### /etc/profile.d/ 目录
+在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本，比如vim等命令的一些附加设置，在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件，这些脚本文件的环境变量能够被生效，是因为在 /etc/profile 被读取的时候，会使用一个for循环语句来调用 /etc/profile.d 下的脚本，这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了，cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码：
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+从上面的代码不难理解，/etc/profile.d/ 目录下设置环境变量和 /etc/profile 效果是一样的，都是全局环境变量，一旦生效后也都是永久环境变量； /etc/profile.d/ 比 /etc/profile 好维护，不想要的环境变量从 /etc/profile.d/ 目录中移除即可，创建好的环境变量拷贝文件就轻松的移植到其他的计算机，不用每次去改动 /etc/profile 文件。
+
+根据上面描述可以推理出：
+
+/etc/profile.d 目录下的环境变量是 /etc/profile 启动时一起被读取，那么想要在当前shell终端临时生效可以使用 source /etc/profile，要全局生效则需要注销重登录或者直接重启系统，和 /etc/profile 原理一样；
+/etc/profile.d 目录下的环境变量和 /etc/profile 的环境变量优先级，根据环境变量在 /etc/profile 的for循环语句调用 /etc/profile.d 的前面还是后面，在前则被 /etc/profile.d 目录下的环境变量覆盖，在后则被 /etc/profile 的环境变量覆盖
+关于/etc/profile.d 目录，我使用我的Ubuntu 14.04.5系统，切换到 /etc/profile.d 目录，再使用 ls 命令列出目录下的所有脚本文件：
+
 ```bash
   
 unset key
