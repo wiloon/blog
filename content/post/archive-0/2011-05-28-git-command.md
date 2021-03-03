@@ -7,6 +7,9 @@ tags:
 - Git
 
 ---
+### 指定ssh 私钥
+    GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
+
 ### 打印当前版本
     git rev-parse HEAD
 ### checkout 指定版本
@@ -16,7 +19,7 @@ tags:
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
 
 ```bash
-git reset --hard
+    git reset --hard
 ```
 
 ### 指定克隆深度
@@ -279,11 +282,12 @@ git am –show-current-patch
 
 ---
 
-http://zensheno.blog.51cto.com/2712776/490748
-http://blog.csdn.net/ithomer/article/details/7529841
-http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html
-http://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6
-http://yijiebuyi.com/blog/eacf4d053fad77affffae397d9af7172.html
-http://www.ruanyifeng.com/blog/2014/06/git_remote.html
-https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424
-https://blog.csdn.net/riddle1981/article/details/74938111
+http://zensheno.blog.51cto.com/2712776/490748  
+http://blog.csdn.net/ithomer/article/details/7529841  
+http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html  
+http://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6  
+http://yijiebuyi.com/blog/eacf4d053fad77affffae397d9af7172.html  
+http://www.ruanyifeng.com/blog/2014/06/git_remote.html  
+https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424  
+https://blog.csdn.net/riddle1981/article/details/74938111  
+https://blog.csdn.net/SCHOLAR_II/article/details/72191042  

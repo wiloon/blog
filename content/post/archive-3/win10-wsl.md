@@ -6,7 +6,6 @@ url: "/?p=13982"
 
 ---
 # wsl2
-
 ### command
     wsl --shutdown
     wsl --list --verbose
@@ -267,6 +266,10 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 
 "defaultProfile": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
 guid 需要替换为自己配置文件中的相应值。
+
+### keepassxc win10 wsl2
+    title: keepassxc
+
 ---
 
 [https://discourse.ubuntu.com/t/getting-graphical-applications-to-work-on-wsl2/11868](https://discourse.ubuntu.com/t/getting-graphical-applications-to-work-on-wsl2/11868 "https://discourse.ubuntu.com/t/getting-graphical-applications-to-work-on-wsl2/11868")
