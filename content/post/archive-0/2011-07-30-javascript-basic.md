@@ -8,6 +8,43 @@ tags:
   - javascript
 
 ---
+### window.event.keyCode ascii
+    //check if ESC pressed
+    
+    if (window.event.keyCode == 27) {
+            
+    $("#english").val(");
+        
+    }
+
+    //check if enter pressed
+    
+    keyCode == 13
+### 日期时间函数
+var a=new Date();
+  
+var y = a.getFullYear()+ "- ";
+  
+var m = a.getMonth()+ "- ";
+  
+var d = a.getDate()+ "- ";
+  
+var h = a.getHours()+ "- ";
+  
+var x = a.getMinutes()+ "- ";
+  
+var s = a.getSeconds()+ "- ";
+  
+var ms=a.getMilliseconds()+ "- ";
+  
+var mssss= getTime();
+
+http://www.w3school.com.cn/js/jsref_obj_date.asp
+
+### 取字符串长度
+    var pig ="ttttt"
+    alert(pig.length) ;
+
 ### substring
     stringObject.substring(start,stop)
 ### 正则

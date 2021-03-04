@@ -1,18 +1,15 @@
 ---
-title: eclipse java 方法 注释
+title: eclipse basic
 author: w1100n
 type: post
 date: 2011-06-05T03:07:03+00:00
 url: /?p=223
-views:
-  - 26
-bot_views:
-  - 29
 categories:
   - Eclipse
   - Java
 
 ---
+### java 方法 注释
 设置方法注释模板：选择eclipse菜单栏中【窗口】下的【首选项】，展开左边树状结构, 到Java->代码样式->代码模板，展开右边出现的对话框中的注释->方法，点击右边的【编辑】按钮。编辑其中的内容。也可以点击下面的【插入变量】按钮添加变量。例如：
   
 /**
