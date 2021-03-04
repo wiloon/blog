@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2018-12-26T14:35:39+00:00
 url: /?p=13214
-categories:
-  - Uncategorized
 
 ---
 https://raspberrypi.stackexchange.com/questions/78787/howto-migrate-from-networking-to-systemd-networkd-with-dynamic-failover

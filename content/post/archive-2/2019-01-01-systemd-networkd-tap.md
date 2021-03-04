@@ -1,18 +1,16 @@
 ---
-title: TAP, systemd-networkd
+title: systemd-networkd, TAP
 author: w1100n
 type: post
 date: 2019-01-01T04:16:00+00:00
 url: /?p=13281
-categories:
-  - Uncategorized
 
 ---
 - 手动创建tap
 - 开机自动创建tap
 
+### 手动创建tap0
 ```bash
-# 手动创建tap0
 sudo ip tuntap add dev tap0 mode tap
 # set ip
 sudo ip addr add 192.168.60.1/24 dev tap0
@@ -24,8 +22,8 @@ sudo ip link set tap0 up
 sudo ip addr del 192.168.60.1/24 dev tap0
 ```
 
+### 启动时由systemd自动创建tap0
 ```bash
-#启动时由systemd自动创建tap0
 sudo vim /etc/systemd/network/90-tap0.netdev
 [NetDev]
 Description=description0

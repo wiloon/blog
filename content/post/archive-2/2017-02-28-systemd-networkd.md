@@ -4,43 +4,29 @@ author: w1100n
 type: post
 date: 2017-02-28T09:08:28+00:00
 url: /?p=9881
-categories:
-  - Uncategorized
 
 ---
 ### dhcp
-networkd内置了dhcp client。如果需要更新resolv.conf，则需要启动resolved：
-
-在吃掉 udev 和谋划收编 dbus 后, systemd 又将它的魔爪伸向了网络管理方面. 虽然这已经是 systemd 209 时候的旧闻, 不过因为整个功能太过不完善 (被吐槽有超多 bug, 以及各种基本功能缺失) 以及没有文档, 上游一直没有大力推广.
-
-本文仅就最为简单普通的有线网络连接介绍 systemd-networkd 的打开方式. (wifi 呀, ppp 呀, vpn 呀之类的复杂配置现在都不支持哦) (大部分信息翻译自 ArchWiki)
+networkd内置了dhcp client。如果需要更新resolv.conf，则需要启动 systemd-resolved.service
 
 配置文件存放在 /usr/lib/systemd/network (上游提供的配置), /run/systemd/network (运行时配置), 以及 /etc/systemd/network (本地配置). 其中 /etc/systemd/network 有着最高的优先级.
 
-有三类配置文件:
+### 有三类配置文件:
+- .link 文件: 当一个网络设备出现时, udev 会寻找第一个匹配到的 .link 文件.
+- .network 文件: 给匹配到的设备应用一个网络配置
+- .netdev 文件: 给匹配到的环境创建一个虚拟的网络设备
 
-.network 文件: 给匹配到的设备应用一个网络配置
-  
-.netdev 文件: 给匹配到的环境创建一个虚拟的网络设备
-  
-.link 文件: 当一个网络设备出现时, udev 会寻找第一个匹配到的 .link 文件.
   
 他们都遵循一些相同的规则:
 
-如果 [Match] 部分满足了条件, 在接下来的段落中的配置会被应用
-  
-[Match] 部分可以接受不止一项条目. 在这种情况下, 只有当每一个条目都被满足时, 这个配置才会被启用
-  
-空白的 [Match] 部分表示这个配置在任何情况下都会被应用
-  
-每一项条目都是 KEY=VALUE 格式的键值对
-  
-所有的配置文件会被收集并按字典序排序后再处理, 无论它们在哪个目录
-  
+如果 [Match] 部分满足了条件, 在接下来的段落中的配置会被应用  
+[Match] 部分可以接受不止一项条目. 在这种情况下, 只有当每一个条目都被满足时, 这个配置才会被启用  
+空白的 [Match] 部分表示这个配置在任何情况下都会被应用  
+每一项条目都是 KEY=VALUE 格式的键值对  
+所有的配置文件会被收集并按字典序排序后再处理, 无论它们在哪个目录  
 相同名字的配置文件会相互替代
 
 ### .network 配置
-
     [Match]
     Name= 设备名 (比如Br0, enp4s0, 也可以用通配符, 比如 en*)
     Host= 匹配的 hostname
@@ -64,13 +50,6 @@ systemctl start systemd-networkd
 systemctl enable systemd-resolved.service
 systemctl start systemd-resolved.service
 
-# for eth0
-vim  /etc/systemd/network/eth.network
-[Match]
-Name=en*
-[Network]
-DHCP=yes
-
 # for wifi
 vim  /etc/systemd/network/wifi.network
 
@@ -85,32 +64,47 @@ network={
  psk="xxxxxxxx"
 }
 
-    sudo systemctl start wpa_supplicant@wlp2s0
+sudo systemctl start wpa_supplicant@wlp2s0
 
-# 一个简单的静态 IP 配置
-[Match]
-Name=ens3
 
-[Network]
-Address=192.168.1.87/24
-Gateway=192.168.1.254
-DNS=192.168.1.254
 ```
+### DHCP
+# for eth0, vim  /etc/systemd/network/eth.network
+    [Match]
+    Name=en*
+    [Network]
+    DHCP=yes
+
+### 静态 IP 
+    [Match]
+    Name=ens3
+
+    [Network]
+    Address=192.168.1.87/24
+    Gateway=192.168.1.254
+    DNS=192.168.1.254
+
+### 把网卡加入网桥 /etc/systemd/network/10-eth1.network
+    [Match]
+    Name=enp3s0
+
+    [Network]
+    Bridge=br0
 
 ### check network config
-
 ```bash
-networkctl status -a
+   networkctl status -a
 ```
 
-<blockquote class="wp-embedded-content" data-secret="GLctgxboIR">
-  
-    <a href="https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/">尝鲜: 新的网络连接管理工具 systemd-networkd</a>
-  
-</blockquote>
+---
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/embed/#?secret=GLctgxboIR" data-secret="GLctgxboIR" width="600" height="338" title=""尝鲜: 新的网络连接管理工具 systemd-networkd" - Felix's Blog" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-  
-https://zhuanlan.zhihu.com/p/19770401
-  
-https://linux.cn/article-6629-1.html
+在吃掉 udev 和谋划收编 dbus 后, systemd 又将它的魔爪伸向了网络管理方面. 虽然这已经是 systemd 209 时候的旧闻, 不过因为整个功能太过不完善 (被吐槽有超多 bug, 以及各种基本功能缺失) 以及没有文档, 上游一直没有大力推广.
+
+本文仅就最为简单普通的有线网络连接介绍 systemd-networkd 的打开方式. (wifi 呀, ppp 呀, vpn 呀之类的复杂配置现在都不支持哦) (大部分信息翻译自 ArchWiki)
+
+---
+
+https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/  
+https://blog.felixc.at/2014/04/try-new-network-configuration-tool-systemd-networkd/embed/#?secret=GLctgxboIR   
+https://zhuanlan.zhihu.com/p/19770401  
+https://linux.cn/article-6629-1.html  
