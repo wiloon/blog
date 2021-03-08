@@ -5,7 +5,7 @@ type: post
 date: 2015-06-25T09:18:44+00:00
 url: /?p=7821
 tags:
-  - archlinux install
+  - archlinux
 
 ---
 ### Arch Linux Fast Installer
@@ -27,6 +27,7 @@ sudo dd bs=4M if=archlinux-2020.03.01-x86_64.iso of=/dev/sdx status=progress && 
 setup network with shell script https://gist.github.com/wiloon/xxxxxx
 
 #### or  
+title: systemd-networkd  
 <https://blog.wiloon.com/?p=9881>
 
 ```bash
@@ -46,6 +47,7 @@ systemctl start sshd
 ```
 
 ### config pacman mirror
+title: pacman 
 <https://blog.wiloon.com/?p=7501>
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 ```bash
@@ -54,6 +56,7 @@ pacman -Sy
 
 ## 分区并格式化硬盘
 #### 用 parted 分区
+title: parted  
 <http://blog.wiloon.com/?p=8416>
 
 #### 用 fdisk 分区
@@ -64,6 +67,7 @@ pacman -Sy
 mkdir /mnt/tmp
 mkdir /mnt/tmp/boot
 
+# 先挂载/boot, 再挂载/
 mount /dev/sdx1 /mnt/tmp/boot
 mount /dev/sdx2 /mnt/tmp
 

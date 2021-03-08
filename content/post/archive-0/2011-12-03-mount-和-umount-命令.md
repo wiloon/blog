@@ -45,7 +45,7 @@ $ (cd /usr && tar cf - .) | (cd /mnt && tar xpvf -)
   
 文件都已经复制完了，现在可以卸下分区了。要卸下分区，请使用 umount 命令。语法很简单：
 
-umount
+### umount
   
 所以，要卸下我们的新分区，应该输入：
 

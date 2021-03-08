@@ -7,11 +7,8 @@ title = "pve basic"
 ### 创建安装盘 U盘
     dd bs=1M conv=fdatasync if=./proxmox-ve_*.iso of=/dev/XYZ
 
-### 安装vim
-    apt install vim
-
 ### 更新源
-vim /etc/apt/sources.list
+vi /etc/apt/sources.list
 
     #deb http://ftp.debian.org/debian buster main contrib
     #deb http://ftp.debian.org/debian buster-updates main contrib
@@ -32,17 +29,24 @@ vim /etc/apt/sources.list.d/pve-enterprise.list
 
     #deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
 
-### 访问管理页面
-    https://192.168.50.216:8006
+### 安装vim
+    apt update && apt install vim
 
-### 改ip
-     vi /etc/network/interfaces
+### 访问管理页面
+    https://192.168.50.xxx:8006
 
 ### create vm
+#### 上传iso
 把ISO上传到Proxmox宿主机的存储里
-pve-->local(pve)-->Content-->Upload
+Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
+### 创建虚拟机
+    create vm > 
+        general > name: foo
+        general > advanced
+        general > start at boot
+        OS>use cd/dvd disc image file
 
-create vm > general > name: foo
+
 create vm > system > qemu agent: select
 
 ### qemu agent
@@ -57,6 +61,12 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 1、正确关闭虚拟机，而不是依赖ACPI命令或Windows策略
 
 2、在进行备份时冻结来宾文件系统（在Windows上，使用卷影复制服务VSS）。
+
+### 改ip
+     vi /etc/network/interfaces
+
+### 显卡直通
+https://www.10bests.com/win10-htpc-on-pve/
 
 ---
 
