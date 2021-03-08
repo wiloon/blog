@@ -11,3 +11,6 @@ title = "english basic"
 
 ###
 A learning experience is what you get when you don't get what you want.
+
+### 单周,双周
+Single week Dual weeks

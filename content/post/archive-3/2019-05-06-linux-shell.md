@@ -6,6 +6,14 @@ date: 2019-05-06T04:27:52+00:00
 url: /?p=14295
 
 ---
+### 判断单双周
+```bash
+if [ $(expr $(date +%W) \% 2) -eq 0 ] ; then
+    echo "foo"
+else
+    echo "bar"
+fi
+```
 ### shell脚本中echo显示内容带颜色
 
 shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用参数-e 
@@ -73,8 +81,6 @@ shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用
 　　\33[u 恢复光标位置 
 　　\33[?25l 隐藏光标 
 　　\33[?25h 显示光标
-
-
 
 ### sleep
 休眠5分钟,  s 为秒，m 为 分钟，h 为小时，d 为日数
