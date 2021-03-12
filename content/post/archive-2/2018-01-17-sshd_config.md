@@ -4,10 +4,9 @@ author: w1100n
 type: post
 date: 2018-01-17T08:50:28+00:00
 url: /?p=11742
-categories:
-  - Uncategorized
 
 ---
+
 vim .ssh/authorized_keys
 
 ClientAliveInterval
