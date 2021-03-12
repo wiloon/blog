@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2018-03-22T16:08:42+00:00
 url: /?p=12034
-categories:
-  - Uncategorized
 
 ---
 在ubuntu上安装如下软件包：
