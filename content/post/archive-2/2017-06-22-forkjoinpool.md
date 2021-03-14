@@ -4,10 +4,9 @@ author: w1100n
 type: post
 date: 2017-06-22T02:11:10+00:00
 url: /?p=10628
-categories:
-  - Uncategorized
 
 ---
+
 http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/
 
 Java 1.7 引入了一种新的并发框架—— Fork/Join Framework。

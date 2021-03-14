@@ -24,7 +24,7 @@ sudo pacman -S wine rdesktop pulseaudio
 sudo pacman -S powerdevil kmix kscreen ark
 ```
 
-### pacman:
+### archlinux pacman:
 
 | name                  | comments                                                     |
 | :-------------------- | :----------------------------------------------------------- |
@@ -163,6 +163,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |ttf-wqy-zenhei     |文泉驿-正黑|
 |xfonts-wqy         |文泉驿-点阵宋体|
 |keepassxc          ||
+|eog|图片查看|
 
 ### xfce4
 file-roller

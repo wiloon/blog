@@ -9,6 +9,8 @@ categories:
 
 ---
 ```bash
+docker restart foo
+
 # 列出所有的容器 ID
 docker ps -aq
 # 停止所有的容器
@@ -23,6 +25,8 @@ docker rmi $(docker images -q)
 
 docker cp mycontainer:/opt/file.txt /opt/local/
 docker cp /opt/local/file.txt mycontainer:/opt/
+
+
 ```
 
 ### docker port

@@ -4,14 +4,6 @@ author: w1100n
 type: post
 date: 2011-09-06T07:30:27+00:00
 url: /?p=682
-views:
-  - 1
-bot_views:
-  - 8
-categories:
-  - Java
-tags:
-  - Java
 
 ---
 日期计算
