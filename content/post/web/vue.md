@@ -50,7 +50,6 @@ yarn serve
 ### 使用 axios 访问 API
     yarn add axios
     
-    
 ```bash
 yarn global add @vue/cli-service
 yarn global add @vue/cli-plugin-babel

@@ -29,11 +29,8 @@ yarn add
 npm install --save algoliasearch/lite
 yarn add algoliasearch/lite 
 
-npm install --save-dev
-yarn add -dev
-
-npm install package0 --save-dev 或 -D
-yarn add [package0] --dev
+npm install --save-dev 或 -D
+yarn add <package...> [--dev/-D]
 
 npm install --global http-server
 yarn global add http-server
