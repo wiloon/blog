@@ -67,6 +67,8 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 
 ### 显卡直通
 https://www.10bests.com/win10-htpc-on-pve/
+#### virtio-win.iso
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/
 
 ---
 
