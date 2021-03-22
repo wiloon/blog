@@ -13,6 +13,8 @@ REDIRECT 把数据包的目标 IP 改成了 127.0.0.1，端口改成了--to-port
 https://unix.stackexchange.com/questions/166692/how-does-a-transparent-socks-proxy-know-which-destination-ip-to-use
 
 #### TPROXY
+https://www.jianshu.com/p/76cea3ef249d
+
 TPROXY开启TCP/IP IP_TRANSPARENT标志，数据在两个SOCKTS间复制, 这种场景不走kernel,不需要开启ip_forward,不需要开启connection_tracking。  
 TPROXY比REDIRECT新的特性，它能做到不修改数据包，应用只需一点改动就能实现REDIRECT所有的功能，内核文档里有如下说明：
 
@@ -35,7 +37,7 @@ TPROXY比REDIRECT新的特性，它能做到不修改数据包，应用只需一
 ### 策略路由
 ```bash
 ip rule add fwmark 1 table 100
-ip route add local 0.0.0.0/0 dev lo table 100
+ip route add local 0.0.0.0/0 dev lo table 100 # 把所有的流量发到本地端口
 
 # 创建链 chain0
 iptables -t mangle -N chain0
@@ -47,9 +49,9 @@ iptables -t mangle -A chain0 -d 192.168.1.0/24 -j RETURN
 # 目标地址为组播IP的请求直连
 iptables -t mangle -A chain0 -d 224.0.0.0/4 -j RETURN
 iptables -t mangle -A chain0 -d 255.255.255.255/32 -j RETURN
-# 端口12345的tcp数据打标记 1
+#
 iptables -t mangle -A chain0 -p tcp -j TPROXY --on-port 12345 --tproxy-mark 1
-# 端口12345的udp数据打标记 1
+# 给 TCP 打标记 1，转发至 12345 端口, 数据包内部的dst等信息不变
 iptables -t mangle -A chain0 -p udp -j TPROXY --on-port 12345 --tproxy-mark 1
 iptables -t mangle -A PREROUTING -j chain0
 
