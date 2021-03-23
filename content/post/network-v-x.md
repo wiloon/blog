@@ -36,8 +36,8 @@ TPROXY比REDIRECT新的特性，它能做到不修改数据包，应用只需一
     opkg install sudo iptables-mod-tproxy iptables-mod-extra libopenssl ca-certificates
 ### 策略路由
 ```bash
-ip rule add fwmark 1 table 100
-ip route add local 0.0.0.0/0 dev lo table 100 # 把所有的流量发到本地端口
+ip rule add fwmark 1 table 100 # 如果mark 为1 则参考路由表100 将数据送出
+ip route add local 0.0.0.0/0 dev lo table 100 # 把所有的流量发到本地
 
 # 创建链 chain0
 iptables -t mangle -N chain0
