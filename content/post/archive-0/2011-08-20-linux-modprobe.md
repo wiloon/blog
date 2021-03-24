@@ -16,8 +16,7 @@ modprobe可载入指定的个别模块，或是载入一组相依的模块。mod
 
 https://blog.csdn.net/future_fighter/article/details/3862795
 
-# 列出内核已载入模块的状态
-
+### 列出内核已载入模块的状态
 lsmod
   
 功能：
@@ -26,13 +25,14 @@ lsmod
   
 描述:
       
-lsmod 以美观的方式列出/proc/modules的内容。
+lsmod 列出/proc/modules的内容。
       
 输出为：
       
 Module(模块名) Size(模块大小) Used by(被...使用)
 
-```bashmodinfo module_name
+```bash
+modinfo module_name
 systool -v -m module_name
 
 modprobe --show-depends
@@ -48,5 +48,10 @@ modprobe --show-depends
 
 # rmmod module_name
 ```
+
+### modinfo 查看内核模块的信息，包括开发人员信息，依赖信息
+    modinfo module_name
+
+---
 
 https://wiki.archlinux.org/index.php/Kernel_modules_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)

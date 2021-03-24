@@ -10,7 +10,8 @@ categories:
 ---
 https://community.home-assistant.io/t/how-to-install-openvpn-on-raspberry-pi-with-home-assistant/59002
 
-```bashsudo -s  #  **rest of the instructions assume you've already done this
+```bash
+sudo -s  #  **rest of the instructions assume you've already done this
 apt-get update
 apt-get upgrade
 
@@ -36,7 +37,8 @@ vim /etc/openvpn/server/server.conf
 
 Enable Packet Forwarding
 
-```bashbash -c 'echo 1 > /proc/sys/net/ipv4/ip_forward'
+```bash
+bash -c 'echo 1 > /proc/sys/net/ipv4/ip_forward'
 
 # Make this change perminant by un-commenting net.ipv4.ip_forward=1
 vim /etc/sysctl.conf
