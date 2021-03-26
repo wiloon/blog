@@ -1,7 +1,7 @@
 +++
 author = "w1100n"
 date = "2021-02-17 13:32:57" 
-title = "network, v, x"
+title = "network, x"
 
 +++
 ### Dnat VS Redirect VS Tproxy
