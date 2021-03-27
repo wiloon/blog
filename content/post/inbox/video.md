@@ -80,3 +80,6 @@ ffprobe -show_frames pm.mp4
 4. 查看包信息
 
 ffprobe -show_packets pm.mp4
+
+### 转换 input.mp4 视频文件到 output.mp3 音频文件。
+    ffmpeg -i input.mp4 -vn output.mp3
