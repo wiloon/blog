@@ -14,7 +14,8 @@ tcp_syn_retries
   
 tcp_synack_retries
 
-```bashsysctl -a | grep tcp_synack_retries
+```bash
+sysctl -a | grep tcp_synack_retries
 ```
 
 http://www.cnitblog.com/Scripts/archive/2009/05/20/57350.html

@@ -4,13 +4,11 @@ author: w1100n
 type: post
 date: 2014-03-03T02:41:06+00:00
 url: /?p=6309
-categories:
-  - Uncategorized
 tags:
   - JavaScript
 
 ---
-<div class="line number1 index0 alt2">
+
   location.href，可以点击浏览器的后退按钮返回本页。
 
 location.assign(URL)

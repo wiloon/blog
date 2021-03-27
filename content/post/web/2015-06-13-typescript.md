@@ -37,7 +37,8 @@ let user = "Jane User";
 document.body.textContent = greeter(user);
 ```
 
-```bashtsc greeter.ts
+```bash
+tsc greeter.ts
 ```<pre data-language=HTML>
 
 ```xml

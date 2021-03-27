@@ -28,11 +28,7 @@ categories:
  我们可以利用Servlet规范中定义的事件监听器（Listener）来解决这个问题，实现更准确的在线人数统计功能。对每一个正在访问的用户，J2EE应用服务器会为其建立一个对应的HttpSession对象。当一个浏览器第一次访问网站的时候，J2EE应用服务器会新建一个HttpSession对象 ，并触发 HttpSession创建事件 ，如果注册了HttpSessionListener事件监听器，则会调用HttpSessionListener事件监听器的sessionCreated方法。相反，当这个浏览器访问结束超时的时候，J2EE应用服务器会销毁相应的HttpSession对象，触发 HttpSession销毁事件，同时调用所注册HttpSessionListener事件监听器的sessionDestroyed方法。
   
   <div id="">
-    
-      
-        Java代码  <a title="收藏这段代码"><img src="http://uule.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-      
-    
+ 
     
     <ol start="1">
       <li>
@@ -143,10 +139,7 @@ categories:
   
   <div id="">
     
-      
-        Java代码  <a title="收藏这段代码"><img src="http://uule.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-      
-    
+  
     
     <ol start="1">
       <li>
@@ -167,10 +160,7 @@ categories:
   
   <div id="">
     
-      
-        Java代码  <a title="收藏这段代码"><img src="http://uule.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-      
-    
+  
     
     <ol start="1">
       <li>
@@ -204,11 +194,7 @@ categories:
  会话超时时间可以在web.xml中进行设置，为了容易看到超时效果，我们将超时时间设置为最小值。
   
   <div id="">
-    
-      
-        Java代码  <a title="收藏这段代码"><img src="http://uule.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-      
-    
+ 
     
     <ol start="1">
       <li>
@@ -236,15 +222,7 @@ categories:
     这是类代表一个web应用程序内更改会话事件通知。
   
   
-  
-  
-  <div id="">
-    
-      
-        Java代码  <a title="收藏这段代码"><img src="http://uule.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-      
-    
-    
+ 
     <ol start="1">
       <li>
         public class ShopSessionListener implements HttpSessionListener {

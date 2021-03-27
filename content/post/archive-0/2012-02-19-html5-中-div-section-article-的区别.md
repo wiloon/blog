@@ -125,7 +125,7 @@ div section article ，语义是从无到有，逐渐增强的。div 无任何�
 
 推荐各位多读几遍 [HTML5 设计原理][1]，这才是纷繁世界背后的最终奥义。
 
-作者: <a title="访问糖伴西红柿的博客" href="http://gaowhen.com/" target="_blank">糖伴西红柿</a>
+http://gaowhen.com/
 
 <http://www.qianduan.net/html5-differences-in-the-div-section-article.html>
 

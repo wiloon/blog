@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-### chrony
+### chrony install
 
 ```bash
 # install chrony - arch
@@ -24,18 +24,18 @@ apt install chrony
 ### chrony 配置
 #号和！号都 代表注释
 
-        vim  /etc/chrony.conf
-        # ubuntu 
-         vim  /etc/chrony/chrony.conf
+    vim  /etc/chrony.conf
+    # ubuntu 
+      vim  /etc/chrony/chrony.conf
 
-         # 中国ntp服务
-        server 0.cn.pool.ntp.org iburst
-        server 1.cn.pool.ntp.org iburst
-        server 2.cn.pool.ntp.org iburst
-        server 3.cn.pool.ntp.org iburst
+      # 中国ntp服务
+    server 0.cn.pool.ntp.org iburst
+    server 1.cn.pool.ntp.org iburst
+    server 2.cn.pool.ntp.org iburst
+    server 3.cn.pool.ntp.org iburst
 
-        # 北美
-        north-america.pool.ntp.org
+    # 北美
+    north-america.pool.ntp.org
 
 ```bash
 # chronyd service
@@ -78,7 +78,8 @@ https://www.zfl9.com/chrony.html
 
 ### ntp
 
-```bashsudo pacman -S ntp
+```bash
+sudo pacman -S ntp
 
 sudo systemctl start ntpd.service
 sudo systemctl enable ntpd.service

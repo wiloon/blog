@@ -26,12 +26,14 @@ Server = http://repo.archlinuxcn.org/$arch
 
 install yaourt
 
-```bashpacman -Syu yaourt```
+```bash
+pacman -Syu yaourt```
 
 install flash plugin 
 
 
-```bashyaourt -S chromium-pepper-flash```
+```bash
+yaourt -S chromium-pepper-flash```
 
 Enable the plugin in <code>chrome://plugins</code>.
 

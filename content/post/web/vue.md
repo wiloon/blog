@@ -9,6 +9,9 @@ title = "vue basic"
 ```bash
 sudo pacman -S nodejs
 sudo pacman -S yarn
+
+npm install -g @vue/cli
+
 yarn global add vue
 yarn global remove vue-cli
 yarn global add @vue/cli
@@ -49,7 +52,6 @@ yarn serve
 
 ### 使用 axios 访问 API
     yarn add axios
-    
     
 ```bash
 yarn global add @vue/cli-service

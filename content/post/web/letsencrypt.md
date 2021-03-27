@@ -20,7 +20,9 @@ acme.sh: acme.sh 实现了 acme 协议.
     snap install --classic certbot
     ln -s /snap/bin/certbot /usr/bin/certbot
     snap set certbot trust-plugin-with-root=ok
-    certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com
+
+### certonly
+    certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
 
 
 ### Couldn't download https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto. <urlopen error [Errno 110] Connection timed out>
@@ -34,15 +36,7 @@ https://certbot.eff.org/docs/intro.html
 官网主推的客户端是Certbot，任何人都可以基于 ACME 协议实现一个客户端，比如大名鼎鼎的acme.sh。
 
 ### 安装 certbot
-        sudo dnf install certbot
         sudo apt install certbot
-
-### 安装 certbot-auto
-        wget https://dl.eff.org/certbot-auto
-        sudo mv certbot-auto /usr/local/bin/certbot-auto
-        sudo chown root /usr/local/bin/certbot-auto
-        sudo chmod 0755 /usr/local/bin/certbot-auto
-        /usr/local/bin/certbot-auto --help
 
 alternatives --set python /usr/bin/python3
 

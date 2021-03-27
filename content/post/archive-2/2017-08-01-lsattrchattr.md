@@ -35,7 +35,8 @@ rm: cannot remove 'dummy_data': Operation not permitted
   
 -bash: dummy_data: Permission denied
 
-```bashchattr -ai /etc/passed
+```bash
+chattr -ai /etc/passed
 ```
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">

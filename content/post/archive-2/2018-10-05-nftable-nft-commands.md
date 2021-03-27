@@ -82,5 +82,6 @@ nft list ruleset> /etc/nftables.conf
 
 ### 从文件加载规则
 
-```bashnft -f /etc/nftables.conf
+```bash
+nft -f /etc/nftables.conf
 ```

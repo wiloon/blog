@@ -126,7 +126,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | tableplus|mysql client|
 | procmon| 微软的进程监控工具|
 |webstorm-jre| yay -S webstorm webstorm-jre|
-|platformio||
+|platformio|物联网开发的开源生态系统|
 |clion||
 |slurm|网络监控|
 
@@ -173,3 +173,9 @@ file-roller
 | Name          | Comments |
 | ------------- | -------- |
 | Ventoy | 各种iso安装盘引导工具         |
+
+### openwrt
+| Name          | Comments |
+| ------------- | -------- |
+| drill |  |
+| openwrt |  |
