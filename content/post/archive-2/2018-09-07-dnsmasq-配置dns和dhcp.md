@@ -105,7 +105,17 @@ nameserver 223.6.6.6
 address=/.phobos.apple.com/202.175.5.114
 
     dnsmasq --test
-    
+
+### isc-dhcp-server vs. DNSMASQ
+Depends on your prior experience with a particular program I guess.
+Dnsmasq is generally simple to get working, uses little resources, is reliable and well maintained. An extremely valuable piece of software, IMHO.
+In addition, if you start looking for "advanced" features, you'll find out that dnsmasq is quite capable.
+(like the dns-dhcp update, where dhcp clients get automatically resolvable via DNS. Dnsmasq gives it to you, when doing the same with ISC dhcpd + bind9 is something you'll remember...)
+
+https://www.raspberrypi.org/forums/viewtopic.php?t=182032
+
+---
+
 https://www.hi-linux.com/posts/30947.html
 
 http://wppurking.github.io/2012/10/01/li-yong-dnsmasq-da-jian-zi-ji-de-dns-fu-wu-qi.html

@@ -38,8 +38,8 @@ systemctl start systemd-networkd
 systemctl enable systemd-networkd
 ```
 
+###  vim /etc/hostapd/hostapd.conf
 ```bash
-vim /etc/hostapd/hostapd.conf
 interface=wlan0
 ssid=ssid0
 hw_mode=g
@@ -56,19 +56,19 @@ wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ```
 
-```bas
-hvim /etc/default/hostapd
+### vim /etc/default/hostapd
+```bash
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
 
 systemctl restart hostapd
 
+### vim /etc/dnsmasq.conf
 ```bash
-sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
-sudo vim /etc/dnsmasq.conf
-interface=wlan0                                     # Use interface wlan0
+sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
+interface=wlan0                                     # dhcp,dns 服务监听的网络接口地址
 listen-address=192.168.55.1                         # Explicitly specify the address to listen on
-bind-interfaces                                     # Bind to the interface to make sure we aren't sending things elsewhere
+bind-interfaces                                     # Bind to the interface to make sure we aren't sending things elsewhere,绑定了网卡之后会保证dnsmasq不去骚扰其他网卡，保证请求不乱发，一般跟interface一起使用
 server=223.5.5.5                                    # Forward DNS requests to Google DNS
 domain-needed                                       # Don't forward short names
 bogus-priv                                          # Never forward addresses in the non-routed address spaces.
@@ -76,7 +76,6 @@ dhcp-range=192.168.55.10,192.168.55.20,12h          # Assign IP addresses betwee
 ```
 
 vim /etc/sysctl.conf
-  
 net.ipv4.ip_forward=1
   
 重启后生效
