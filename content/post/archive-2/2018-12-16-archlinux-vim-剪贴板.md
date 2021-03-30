@@ -8,7 +8,8 @@ categories:
   - Uncategorized
 
 ---
-```bashsudo pacman -S gvim
+```bash
+sudo pacman -S gvim
 
 #复制到系统粘贴板
 "+y

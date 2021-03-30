@@ -6,6 +6,13 @@ date: 2019-05-06T04:27:52+00:00
 url: /?p=14295
 
 ---
+### 文件,目录 
+```bash
+#如果文件夹不存在，创建文件夹
+if [ ! -d "/myfolder" ]; then
+  mkdir /myfolder
+fi
+```
 ### 判断单双周
 ```bash
 if [ $(expr $(date +%W) \% 2) -eq 0 ] ; then
@@ -424,7 +431,8 @@ if/else
   
 和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如
 
-```bashif [ -f ~/.bashrc ]; then
+```bash
+if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 ```

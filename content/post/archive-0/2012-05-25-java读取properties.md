@@ -1,5 +1,5 @@
 ---
-title: Java读取properties
+title: Java读取properties, getResourceAsStream
 author: w1100n
 type: post
 date: 2012-05-25T07:57:43+00:00
@@ -13,8 +13,12 @@ http://lavasoft.blog.51cto.com/62575/62174
 Java读取properties文件的方法比较多，网上我最多的文章是"Java读取properties文件的六种方法"，但在Java应用中，最常用还是通过java.lang.Class类的getResourceAsStream(String name) 方法来实现，但我见到众多读取properties文件的代码中，都会这么干：
 
 ```java
-  
+
+// java object
 InputStream in = getClass().getResourceAsStream("资源Name");
+
+// static method
+Class.class.getClassLoader().getResourceAsStream("foo.toml");
   
 ```
 

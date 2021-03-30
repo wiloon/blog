@@ -7,7 +7,6 @@ url: /?p=15419
 
 ---
 ### 安装 graphviz
-    
     sudo apt-get install -y graphviz
 
 VS-Code扩展
@@ -17,7 +16,6 @@ VS-Code扩展
 vim foo.md
 
 ### content
-
 ```puml
 @startuml
 
@@ -29,7 +27,7 @@ component [Last\ncomponent] as Comp4
 @enduml
 ```
 
-### vs code 快捷键
+### vs code渲染uml的快捷键
     alt+d
 
 https://www.jianshu.com/p/ed0e979657f4
@@ -46,5 +44,18 @@ else (no)
 endif
 
 stop
+@enduml
+```
+
+### 类图
+```puml
+@startuml
+class Foo
+note left: parent
+
+class Bar
+
+Foo<|--Bar
+note left: child
 @enduml
 ```
