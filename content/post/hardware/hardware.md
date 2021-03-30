@@ -4,6 +4,10 @@ date = "2020-05-27T15:30:45Z"
 title = "hardware"
 
 +++
+
+https://www.passmark.com/
+
+
 ### QNAP TS453Bmini
 
 ### pixel3
