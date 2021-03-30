@@ -25,38 +25,16 @@ decimal dd=345.545454879.....//可以支持28位，对最后一位四舍五入�
 
 由于对float或double 的使用不当，可能会出现精度丢失的问题。问题大概情况可以通过如下代码理解:
 
-  <ol>
-    <li>
       public class FloatDoubleTest {
-    </li>
-    <li>
       public static void main(String[] args) {
-    </li>
-    <li>
       float f = 20014999;
-    </li>
-    <li>
       double d = f;
-    </li>
-    <li>
       double d2 = 20014999;
-    </li>
-    <li>
       System.out.println("f=" + f);
-    </li>
-    <li>
       System.out.println("d=" + d);
-    </li>
-    <li>
       System.out.println("d2=" + d2);
-    </li>
-    <li>
       }
-    </li>
-    <li>
       }
-    </li>
-  </ol>
 
 
 得到的结果如下：
