@@ -59,6 +59,7 @@ sudo pacman -S xf86-video-fbdev #for hyper v
 sudo pacman -S xfce4
 sudo pacman -S xfce4-goodies
 
+# wenquanyi
 sudo pacman -S wqy-microhei
 #font for terminal
 sudo pacman -S ttf-inconsolata

@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2020-04-03T02:02:29+00:00
 url: /?p=15873
-categories:
-  - Uncategorized
 
 ---
 ```bash
