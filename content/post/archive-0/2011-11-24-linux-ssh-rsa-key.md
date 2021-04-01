@@ -16,6 +16,12 @@ ssh-keygen -t rsa -b 4096
 ssh-keygen -t ecdsa -b 521
 # -t type 指定要创建的密钥类型。可以使用："rsa1"(SSH-1) "rsa"(SSH-2) "dsa"(SSH-2)
 
+ssh-keygen -t rsa -C "Michael Ledin" -b 4096 -m "PEM"
+
+# -C comment
+# -b key 长度
+# -t 类型: dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa
+
 scp /root/.ssh/id_rsa.pub root@192.168.10.184:/root
 ssh 192.168.10.184
 cat /root/id_rsa.pub >> /root/.ssh/authorized_keys

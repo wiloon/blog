@@ -7,6 +7,12 @@ tags:
 - Git
 
 ---
+### 设置默认的分支名
+    git config --global init.defaultBranch <name>
+    git config --global init.defaultBranch main
+    # The just-created branch can be renamed via this command
+    git branch -m main
+
 ### 指定ssh 私钥
     GIT_SSH_COMMAND="ssh -i ~/tmp/id_rsa" git clone git@github.com:wiloon/foo.git
 
@@ -141,14 +147,7 @@ git merge tmp
 //合并temp分支到本地的master分支
 git branch -d temp
 //如果不想保留temp分支 可以用这步删除
-1
-2
-3
-4
-5
-6
-7
-8
+
 （1）如果直接使用git fetch，则步骤如下：
 
 创建并更新本 地远程分支。即创建并更新origin/xxx 分支，拉取代码到origin/xxx分支上。
@@ -184,7 +183,7 @@ git checkout -b branch_name tag_name
 ### 分支, branch
 最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比git checkout要更容易理解。
 ### 打印当前分支名
-     git symbolic-ref --short HEAD  
+    git symbolic-ref --short HEAD  
 #### 查看本地所有分支, 当前分支前面会标一个*号。
     git branch
     # check branch detail
@@ -207,6 +206,9 @@ git checkout -b branch_name tag_name
     git branch -d -r origin/todo
 #### 分支合并, git merge命令用于合并指定分支到当前分支。
     git merge branch1 -m "MSG0"
+
+### 本地分支重命名(还没有推送到远程)
+    git branch -m oldName newName
 
 ### git pull
     git pull
@@ -280,6 +282,22 @@ git log master..origin/master
 
 git am –show-current-patch
 
+
+### core.autocrlf
+core.autocrlf配置
+假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。
+
+Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF:
+$ git config --global core.autocrlf true
+Linux或Mac系统使用LF作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉 Git 在提交时把CRLF转换成LF，签出时不转换：
+$ git config --global core.autocrlf input
+这样会在Windows系统上的签出文件中保留CRLF，会在Mac和Linux系统上，包括仓库中保留LF。
+
+如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：
+
+$ git config --global core.autocrlf false
+ 
+
 ---
 
 http://zensheno.blog.51cto.com/2712776/490748  
@@ -291,3 +309,4 @@ http://www.ruanyifeng.com/blog/2014/06/git_remote.html
 https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424  
 https://blog.csdn.net/riddle1981/article/details/74938111  
 https://blog.csdn.net/SCHOLAR_II/article/details/72191042  
+https://www.jianshu.com/p/38f04aef1c9d
