@@ -6,6 +6,16 @@ date: 2020-04-21T17:24:23+00:00
 url: /?p=16034
 
 ---
+### 开启ssh forward
+#### vim /etc/ssh/ssh_config
+    Host *
+            ForwardAgent yes
+
+### 重启sshd
+    sudo systemctl restart sshd
+
+---
+
 https://www.jianshu.com/p/12de50582e63
 
 ssh到node1
@@ -52,23 +62,6 @@ hzlixiaolei@node1:~$go-node2
 
 正确配置ssh-agent forwardi配置即可成功：
 
-1，配置本地ssh-agent forwarding，及测试结果
-  
-ForwardAgent yes
-  
-打开本地ssh client的forwardAgent
-
-XiaoleideMacBook-Pro:~ professor$:vi /etc/ssh/ssh_config
-  
-Host *
-      
-ForwardAgent yes
-      
-ForwardX11 yes
-  
-XiaoleideMacBook-Pro:ssh professor$ echo "$SSH_AUTH_SOCK"
-  
-/private/tmp/com.apple.launchd.xkodPCHoTj/Listeners
   
 2， 配置云主机的SSH-agent forwarding
   
@@ -84,78 +77,36 @@ XiaoleideMacBook-Pro:ssh professor$ ssh-add -L
   
 好了，问题解决。
 
-SSH, SSH agent & SSH agent Forwarding
-  
-这里，必须需要说下这三者的联系。以便于大家理论上理解。图文并茂介绍下：
+### SSH, SSH agent & SSH agent Forwarding
+这里，必须需要说下这三者的联系。
 
-1，我们常用的SSH工作原理
-  
-通过publickey access：
-  
-Step1，用户发起连接，携带者用户名
-
-1.png
-  
-Step2，ssh守护进程（sshd）在Server上查看authorized_keys文件，基于publickey构造一个口令盘问发送给SSH client
-  
+#### 我们常用的SSH工作原理,通过publickey access：
+- Step1，用户发起连接，携带者用户名
+- Step2，ssh守护进程（sshd）在Server上查看authorized_keys文件，基于publickey构造一个口令盘问发送给SSH client 
 The ssh daemon on the server looks in the user's authorized_keys file, constructs a challenge based on the public key found there, and sends this challenge back to the user's ssh client.
+- Step3，SSH client收到后，在本地查询privatekey（默认id_rsa文件），此时如果有密码，会要求输入密码。
+- Step4，ssh client通过privatekey构造一个响应。发送给sshd。注意：这里并不会发送privatekey本身。
+- Step5，验证，授权成功
 
-2.png
-  
-Step3，SSH client收到后，在本地查询privatekey（默认id_rsa文件），此时如果有密码，会要求输入密码。
-
-3.png
-  
-Step4，ssh client通过privatekey构造一个响应。发送给sshd。注意：这里并不会发送privatekey本身。
-  
-Step5，验证，授权成功
-
-4.png
-  
-2，SSH agent是干嘛的
-  
+### SSH agent是干嘛的
 如果每次我们都SSH到某个server，我们如果privatekey有密码，如果没有ssh agent，每次我们都会需要被告知要输入密码。有了ssh Agent，就不需要了。因为它负责管理key。
 
 与上面相比，唯一的区别在第三步和第四步：
-
-5.png
   
-6.png
-  
-如图所示，根据privatekey构造响应的操作有ssh-agent来做了。ssh client没有和privatekey有联系。所以后面的访问，都是ssh-agent来管理，又因为我们之前输入过密码，ssh-agent仍然记录这个状态，所以之后就不用再输入密码了。
+根据privatekey构造响应的操作有ssh-agent来做了。ssh client没有和privatekey有联系。所以后面的访问，都是ssh-agent来管理，又因为我们之前输入过密码，ssh-agent仍然记录这个状态，所以之后就不用再输入密码了。
   
 可谓一劳永逸。
 
-3，ssh agent forwarding
-  
+### ssh agent forwarding
 简单来说，agent forwarding运行一串的ssh连接。将sshd的口令盘问直接发送到最初始的ssh client，而不需要任何中间集群的认证。
   
 如果按照我们上面的配置，配置好了agent forwarding，它是如何工作的：
   
-Step1，基于上面的ssh到server1，用户在server1上开始发起到server2的链接（这一步和之前一样）
+- Step1，基于上面的ssh到server1，用户在server1上开始发起到server2的链接（这一步和之前一样）
+- Step2: server2的sshd查询用户的authorized_keys文件，并像之前一样构造一个口令盘问发回给server1的ssh。下面神奇的事情就发生了：server1的ssh发送给自己的sshd，并再一次relay给我们pc的ssh。
+- Step3: 后面的步骤就是PC的ssh agent根据privatekey构造key response并串行的发到server2的sshd上。然后完成鉴权。
+- Step4：如果需要在往Server3，4，N，仍然有效。
 
-7.png
-  
-8.png
-  
-Step2: server2的sshd查询用户的authorized_keys文件，并像之前一样构造一个口令盘问发回给server1的ssh。下面神奇的事情就发生了：server1的ssh发送给自己的sshd，并再一次relay给我们pc的ssh。
+---
 
-9.png
-  
-10.png
-  
-Step3: 后面的步骤就是PC的ssh agent根据privatekey构造key response并串行的发到server2的sshd上。然后完成鉴权。
-
-11.png
-  
-12.png
-  
-Step4：如果需要在往Server3，4，N，仍然有效。
-
-作者：professorLea
-  
-链接：https://www.jianshu.com/p/12de50582e63
-  
-来源：简书
-  
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+https://www.jianshu.com/p/12de50582e63

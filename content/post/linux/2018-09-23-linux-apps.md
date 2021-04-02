@@ -76,7 +76,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |sl|小火车|
 |inkscape |矢量图形创建和编辑程序,svg|
 
-### pacman, dev
+### pacman, development
 
 | name                            | comments         |
 | :------------------------------ | :--------------- |

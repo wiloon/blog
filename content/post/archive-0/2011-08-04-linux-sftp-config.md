@@ -1,5 +1,5 @@
 ---
-title: linux sftp config
+title: sftp config
 author: w1100n
 type: post
 date: 2011-08-04T03:47:31+00:00

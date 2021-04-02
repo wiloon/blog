@@ -18,45 +18,30 @@ linux ssh_config和sshd_config配置文件
   
 转载190019892011-08-22 09:34:11评论(1)63053人阅读
    
-现在远程管理linux系统基本上都要使用到ssh，原因很简单：telnet、FTP等传输方式是&#x200d;以明文传送用户认证信息，本质上是不安全的，存在被网络窃听的危险。SSH（Secure Shell）目前较可靠，是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题，透过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
+现在远程管理linux系统基本上都要使用到ssh，原因很简单：telnet、FTP等传输方式是以明文传送用户认证信息，本质上是不安全的，存在被网络窃听的危险。SSH（Secure Shell）目前较可靠，是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题，透过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
 
 ssh_config和sshd_config都是ssh服务器的配置文件，二者区别在于，前者是针对客户端的配置文件，后者则是针对服务端的配置文件。两个配置文件都允许你通过设置不同的选项来改变客户端程序的运行方式。下面列出来的是两个配置文件中最重要的一些关键词，每一行为"关键词&值"的形式，其中"关键词"是忽略大小写的。
   
-&#x200d;&#x200d;1、编辑 /etc/ssh/ssh_config 文件
+1、编辑 /etc/ssh/ssh_config 文件
 
 # Site-wide defaults for various options
 
-Host *
-          
-ForwardAgent no
-          
-ForwardX11 no
-          
+Host *  
+ForwardAgent no     
+ForwardX11 no  
 RhostsAuthentication no
-          
 RhostsRSAAuthentication no
-      
-&#x200d; RSAAuthentication yes
-          
-          
-FallBackToRsh no
-          
+RSAAuthentication yes 
+FallBackToRsh no  
 UseRsh no
-          
 BatchMode no
-          
 CheckHostIP yes
-          
 StrictHostKeyChecking no
-          
 IdentityFile ~/.ssh/identity
-          
-Port 22
-          
+Port 22 
 Cipher blowfish
-          
 EscapeChar ~
-  
+
 下面对上述选项参数逐进行解释：
 
 # Site-wide defaults for various options
@@ -67,9 +52,8 @@ Host *
   
 "Host"只对匹配后面字串的计算机有效，"_"表示所有的计算机。从该项格式前置一些可以看出，这是一个类似于全局的选项，表示下面缩进的选项都适用于该设置，可以指定某计算机替换_号使下面选项只针对该算机器生效。
   
-ForwardAgent no
-  
-"ForwardAgent"设置连接是否经过验证代理（如果存在）转发给远程计算机。
+### ForwardAgent no
+连接是否经过验证代理（如果存在）转发给远程计算机。
   
 ForwardX11 no
   

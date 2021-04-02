@@ -10,6 +10,10 @@ tags:
   - EC2
 
 ---
+Ubuntu Server
+t2.nano
+
+
 kernel ID:default
 
 ram disk :default

@@ -1,5 +1,5 @@
 ---
-title: linux netstat, 端口
+title: netstat, 端口
 author: w1100n
 type: post
 date: 2011-07-28T11:21:11+00:00

@@ -1,5 +1,5 @@
 ---
-title: linux 彩色 echo
+title: shell 彩色 echo
 author: w1100n
 type: post
 date: 2011-07-28T04:34:33+00:00

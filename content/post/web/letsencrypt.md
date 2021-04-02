@@ -10,6 +10,7 @@ certbot-auto: no longer supported.
 acme.sh: acme.sh 实现了 acme 协议.
 
 ### install certbot
+#### centos
     dnf remove certbot
     dnf install epel-release
     dnf install snapd
@@ -20,6 +21,16 @@ acme.sh: acme.sh 实现了 acme 协议.
     snap install --classic certbot
     ln -s /snap/bin/certbot /usr/bin/certbot
     snap set certbot trust-plugin-with-root=ok
+    snap install certbot-dns-google
+
+#### ubuntu
+    # for ubuntu snap is pre-installed
+    sudo apt-get remove certbot
+    sudo snap install --classic certbot
+    sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    snap set certbot trust-plugin-with-root=ok
+    snap install certbot-dns-google
+
 
 ### certonly
     certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
