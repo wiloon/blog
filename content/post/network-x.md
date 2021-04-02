@@ -114,6 +114,10 @@ iptables -t mangle -A OUTPUT -p udp -j chain1
 
 ```
 
+### disable chain0,1
+    iptables -t mangle -D PREROUTING 1
+    iptables -t mangle -D OUTPUT 2
+    iptables -t mangle -D OUTPUT 1
 
 ### openwrt policy route config
 https://openwrt.org/docs/guide-user/network/ip_rules

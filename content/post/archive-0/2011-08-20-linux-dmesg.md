@@ -1,5 +1,5 @@
 ---
-title: linux dmesg
+title: dmesg
 author: w1100n
 type: post
 date: 2011-08-20T19:58:44+00:00

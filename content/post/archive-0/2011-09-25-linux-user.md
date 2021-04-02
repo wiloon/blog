@@ -9,6 +9,11 @@ categories:
 
 ---
 
+cat /etc/passwd
+
+wyue:x:513:513::/home/wyue:/bin/bash  
+看第三个参数：500以上的，就是后面建的用户了。其它则为系统的用户。
+
 ### 用户
 
 ```bash

@@ -4,43 +4,22 @@ author: w1100n
 type: post
 date: 2013-11-08T15:28:48+00:00
 url: /?p=5910
-categories:
-  - Uncategorized
 tags:
   - linux
 
 ---
 ### sddm
+    gdm - GNOME Display Manager
+    kdm - KDE Display Manager
+    xdm - X Display Manager 
 
- gdm - GNOME Display Manager
- kdm - KDE Display Manager
- xdm - X Display Manager 
-  
-    1、我们先不讨论xdm/gdm/kdm这些东西。而是先看看启动X最直接的方式。首先来认识两个重要的文件，一个是X视窗启动文件-xinitrc，另外一个就是X视窗资源文件-Xdefaults.
-  
-  
-    [1]X视窗启动文件-xinitrc
-  
-  
-    事实上，我们一般执行startx来启动X Window System，其中startx就是xinit的前端界面[front-end].倘若我们以startx或xinit启动X，这指令会启动X server并且会执行$HOME/.xinitrc文件内的所设置的指令。倘若 $HOME没有这个文件，则系统会使用内定的的配置文件/etc/X11/xinit/xinitrc。而事实上xinitrc文件一般只包含有启动X时所要执行clients的shell script,里面定义一些指令和shell script，让X启动时，可以遵照里面的shell script来启动必要的应用程序。
- 例如我的简单而又实用的的$HOME/.xinitrc的内容如下：
- 代码:
-  
-  <div id="">
-    
-      
-        Java代码   
-      
-    
-    
-    <ol start="1">
-      <li>
-        # more .xinitrc
-      </li>
-      <li>
+我们先不讨论xdm/gdm/kdm这些东西。而是先看看启动X最直接的方式。首先来认识两个重要的文件，一个是X视窗启动文件-xinitrc，另外一个就是X视窗资源文件-Xdefaults.
+
+### X视窗启动文件-xinitrc
+事实上，我们一般执行startx来启动X Window System，其中startx就是xinit的前端界面[front-end].倘若我们以startx或xinit启动X，这指令会启动X server并且会执行$HOME/.xinitrc文件内的所设置的指令。倘若 $HOME没有这个文件，则系统会使用内定的的配置文件/etc/X11/xinit/xinitrc。而事实上xinitrc文件一般只包含有启动X时所要执行clients的shell script,里面定义一些指令和shell script，让X启动时，可以遵照里面的shell script来启动必要的应用程序。
+例如我的简单而又实用的的$HOME/.xinitrc的内容如下：
+
         LANG=zh_CN.GB2312
-      </li>
-      <li>
         LC_ALL=zh_CN.GB2312
       </li>
       <li>
@@ -76,18 +55,12 @@ tags:
   
     呵呵，在xterm视窗中按有一个小技巧：你按住Ctrl+鼠标右键会跳出一些字体等设置的东西，按住Ctrl+鼠标左键会跳出显示xterm应用程序的主菜单。另外，除了.Xdefaults资源可用处，还有一些应用程序会自己产生的的资源文件，一般放在
  /usr/XR116/lib/X11/app-defaults中，并以这些程序名称的大写文件名命名。比如，Xclok时钟程序的资源文件就是Xclock。其它的你自己看一下就会明白了。你可以直接修改这些应用程序的的资源文件，作为系统内定的应用程序的样式。不一定都要非得修改. Xdefaults来完成。因为.Xdefaults通常是个人爱好而使用环境来设置的东西。
-  
-  
-    2、启动我们的X Window System
-  
-  
-    X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行"X"启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm(X Display Manager)/gdm(GNOME Display Manager)/kdm(KDE Display Manager)启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出X Window Manager，你可以xterm中执行init 3离开。
-  
-  
-    [1]以xinit/startx来启动X
-  
-  
-    这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和"X"并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的xterm而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了：
+
+2、启动我们的X Window System
+X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行"X"启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm/gdm/kdm启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出X Window Manager，你可以xterm中执行init 3离开。
+
+### 以xinit/startx来启动X
+这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和"X"并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的xterm而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了：
   
   
     1)xinit启动X server程序；
@@ -114,10 +87,8 @@ tags:
     7)接下来，在xinitrc唤起X server后，xinit会启动xterm程序。呵呵，xterm就是X Window terminal的缩写吧。它对X server而言是一个X Clietn程序而已。要求X server建立一个视窗，而且会告知X server在这个视窗中的鼠标和键盘的输入状态(Event)，因而启动xterm时便会视窗执行一个shell，内定的就是bash。当指标被移至视窗之内时，xterm便准备接受输入。键盘输入会被关到xterm中的shell就如同真的终端机输入一般。而从shell本身或其副程序的输出则借着 xterm显示在视窗上，xterm也接受输入，便得你能设置不同的程序操作参数和进行文本的一些操作，比如copy或paste.对于这些操作，你可以通过在xterm中执行ps auxw命令来观察到系统执行这些命令的详细步骤。
   
   
-    [2]以xdm/gdm来启动你的X。
-  
-  
-    上面说到了以startx来启动你的X，也可通过xdm/gdm来启动你的X来启动你的X，这正是其它一些发行版本的采用的方式。比如 Redhat是gdm，而Mandrake用kdm。一般的情况，如果你要用调整你系统的run-level。比如修改你的/etc/inittab，把 id:3:initdefault中的3改为5。
+### 以xdm/gdm来启动你的X。
+上面说到了以startx来启动你的X，也可通过xdm/gdm来启动你的X来启动你的X，这正是其它一些发行版本的采用的方式。比如 Redhat是gdm，而Mandrake用kdm。一般的情况，如果你要用调整你系统的run-level。比如修改你的/etc/inittab，把 id:3:initdefault中的3改为5。
   
   
     当系统以xdm/gdm来启动X Windows System。大约的步骤就是这些了:
@@ -139,14 +110,7 @@ tags:
   
   
     如果你想修改xdm/gdm执行时所采用的color depth(色深？)，可以修改/etc/X11/xdm/Xservers中的内容。我的Mandrake90中的是这样的：
-  
-  <div id="">
-    
-      
-        Java代码  
-      
-    
-    
+ 
     <ol start="1">
       <li>
         # more Xservers
@@ -240,10 +204,7 @@ tags:
   
   
     6）如果你喜欢那种方式Display Manager，你都可以选择嘛，修改成自己喜欢的东西。例如我的mandrake90中有/etc/X11/prefdm是目前系统内定使用的Display Manager。你看到它是只是一个/usr/bin/gdm一个连接而已。你还可以在/etc/inittab文件中最后定义像下面的，
-  
-  <div id="">
-    
-      
+ 
         Java代码  
       
     

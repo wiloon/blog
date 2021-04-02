@@ -17,6 +17,17 @@ title = "X Server, XServer"
 export DISPLAY=192.168.97.183:0
 ```
 
+~/.xinitrc是X的配置文件，在
+
+/etc/skel/.xinitrc
+有它的模板，可以把它copy到用户目录下面：
+$ cp /etc/skel/.xinitrc ~
+
+
+以“.”开头的文件，通常是隐藏文件，用普通的“ls”是查看不到的，若想查看，需要用“ls -A”命令。
+
+其次，以“rc”结尾的文件代表它是运行的命令行或者是配置文件。又因为它通常控制着程序的运行，所以也通常叫着“run control”
+
 ---
 
 https://blog.csdn.net/vic_qxz/article/details/79073558
