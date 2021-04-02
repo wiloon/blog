@@ -25,7 +25,7 @@ vi /etc/apt/sources.list
     deb https://mirrors.ustc.edu.cn/proxmox/debian/pve buster pve-no-subscription
 
 ### 去除Proxmox企业源
-vim /etc/apt/sources.list.d/pve-enterprise.list
+vi /etc/apt/sources.list.d/pve-enterprise.list
 
     #deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
 
