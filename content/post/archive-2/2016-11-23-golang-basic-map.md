@@ -38,12 +38,31 @@ for k, v := range m1 {
 有意思的是，Go语言中并没有为 map 提供任何清空所有元素的函数、方法，清空 map 的唯一办法就是重新 make 一个新的 map，不用担心垃圾回收的效率，Go语言中的并行垃圾回收效率比写一个清空函数要高效的多。
 
 ### set
-
-golang没有内置Set类型
-  
+golang没有内置Set类型  
 这个gods项目 实现了各种数据类型，其中就有set
   
 https://github.com/emirpasic/gods#hashset
+
+```golang
+package main
+
+import "github.com/emirpasic/gods/sets/hashset"
+
+func main() {
+	set := hashset.New()   // empty
+	set.Add(1)             // 1
+	set.Add(2, 2, 3, 4, 5) // 3, 1, 2, 4, 5 (random order, duplicates ignored)
+	set.Remove(4)          // 5, 3, 2, 1 (random order)
+	set.Remove(2, 3)       // 1, 5 (random order)
+	set.Contains(1)        // true
+	set.Contains(1, 5)     // true
+	set.Contains(1, 6)     // false
+	_ = set.Values()       // []int{5,1} (random order)
+	set.Clear()            // empty
+	set.Empty()            // true
+	set.Size()             // 0
+}
+```
 
 或者可以实现。
   
