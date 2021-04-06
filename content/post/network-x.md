@@ -41,7 +41,7 @@ TPROXY比REDIRECT新的特性，它能做到不修改数据包，应用只需一
     sudo -u x_tproxy id # 检查用户是否添加成功
 ```
 
-### 服务启动脚本 /etc/init.d/xxxx
+### 服务启动脚本 /etc/init.d/xxxx, 用服务名替换掉xxxx, 替换掉opkg 安装 的启动脚本。
 ```bash
 #!/bin/sh /etc/rc.common
 
@@ -86,10 +86,7 @@ ip route add local 0.0.0.0/0 dev lo table 100 # 把所有的流量发到本地
 iptables -t mangle -N chain0
 # 所有目标地址在网关所在网段的请求直连
 iptables -t mangle -A chain0 -d 127.0.0.0/24 -j RETURN
-iptables -t mangle -A chain0 -d 192.168.1.0/24 -j RETURN
-iptables -t mangle -A chain0 -d 192.168.50.0/24 -j RETURN
-iptables -t mangle -A chain0 -d 192.168.96.0/24 -j RETURN
-iptables -t mangle -A chain0 -d 192.168.97.0/24 -j RETURN
+iptables -t mangle -A chain0 -d 192.168.0.0/16 -j RETURN
 # 目标地址为组播IP的请求直连
 iptables -t mangle -A chain0 -d 224.0.0.0/4 -j RETURN
 iptables -t mangle -A chain0 -d 255.255.255.255/32 -j RETURN

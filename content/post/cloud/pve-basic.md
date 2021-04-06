@@ -70,6 +70,10 @@ https://www.10bests.com/win10-htpc-on-pve/
 #### virtio-win.iso
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/
 
+### 创建网桥
+system>network>linux bridge
+bridge ports: 支持同时添加多个网口，用空格分隔
+
 ---
 
 https://pve.proxmox.com/wiki/Main_Page
