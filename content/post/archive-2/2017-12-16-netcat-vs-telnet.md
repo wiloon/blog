@@ -93,7 +93,7 @@ Telnet有"标准输入文件结束符(standard input EOF)"问题，
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2" data-secret="xAPNTA4aj2" width="600" height="338" title=""Use Netcat - not Telnet - to test network connectivity" - Terminal Inflection" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.terminalinflection.com/use-netcat-not-telnet-to-test-network-connectivity/embed/#?secret=xAPNTA4aj2
 
 <blockquote class="wp-embedded-content" data-secret="mR1NgJH6y2">
   

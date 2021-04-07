@@ -6,7 +6,10 @@ date: 2011-04-23T08:54:55+00:00
 url: /?p=101
 
 ---
+### list memory slot
+https://blog.csdn.net/yongqingcloud/article/details/8489710
 
+    sudo dmidecode|grep -P -A5 "Memory\s+Device"|grep Size|grep -v Range
 ### delete folder
     rm -rf \***
 

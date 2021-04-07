@@ -25,7 +25,7 @@ vi /etc/apt/sources.list
     deb https://mirrors.ustc.edu.cn/proxmox/debian/pve buster pve-no-subscription
 
 ### 去除Proxmox企业源
-vim /etc/apt/sources.list.d/pve-enterprise.list
+vi /etc/apt/sources.list.d/pve-enterprise.list
 
     #deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
 
@@ -69,6 +69,10 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 https://www.10bests.com/win10-htpc-on-pve/
 #### virtio-win.iso
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/
+
+### 创建网桥
+system>network>linux bridge
+bridge ports: 支持同时添加多个网口，用空格分隔
 
 ---
 
