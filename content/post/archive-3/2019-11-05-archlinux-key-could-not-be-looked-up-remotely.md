@@ -11,11 +11,9 @@ url: /?p=15111
     sudo pacman -S gnome-keyring  libsecret
 
 ### vim .bashrc
-    if [ -n "$DESKTOP_SESSION" ];then
-            eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-            export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
-            dbus-update-activation-environment --systemd DISPLAY
-    fi
+    eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+    export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+    dbus-update-activation-environment --systemd DISPLAY
 
 ### secret-tool, 用secret-tool测试gnome keyring daemon是否正常
     secret-tool store --label='Label' foo bar
