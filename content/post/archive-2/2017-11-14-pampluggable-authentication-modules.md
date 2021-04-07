@@ -20,7 +20,7 @@ system-auth文件是PAM模块的重要配置文件，它主要负责用户登录
 
 http://www.infoq.com/cn/articles/linux-pam-one
 
-Linux中pam_cracklib.so的minlen和credit参数 11 June 2014
+Linux中pam_cracklib.so的minlen和credit参数
   
 Linux中的PAM(Pluggable Authentication Modules)包含很多有用的模块，其中pam_cracklib.so模块可以配置密码长度复杂度的需求。一般需要同时配置/etc/pam.d/目录中的system-auth和password-auth文件，例如下面
 

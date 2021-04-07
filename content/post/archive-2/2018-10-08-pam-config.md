@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2018-10-08T11:12:47+00:00
 url: /?p=12764
-categories:
-  - Uncategorized
 
 ---
 pam模块文件内容看，可以将pam配置文件分为四列，

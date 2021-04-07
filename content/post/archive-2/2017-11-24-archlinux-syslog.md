@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2017-11-24T09:34:51+00:00
 url: /?p=11503
-categories:
-  - Uncategorized
 
 ---
 Arch Linux启用systemd后，很多服务都被替换掉了，当然syslog也不例外，被Systemd Journal所替代。
