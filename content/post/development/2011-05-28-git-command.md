@@ -40,7 +40,7 @@ git checkout master
 #### 查看 
 config 配置有system级别 global（用户级别） 和local（当前仓库）三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
     
-    git config --lis
+    git config --list
     git config --system --list
     git config --global core.editor vim
 
