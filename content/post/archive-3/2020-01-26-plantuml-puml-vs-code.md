@@ -54,6 +54,8 @@ class Foo
 note left: parent
 
 class Bar
+Bar : String field0
+Bar : String method0()
 
 Foo<|--Bar
 note left: child
