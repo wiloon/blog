@@ -36,10 +36,10 @@ passwd
 
 # 启动sshd
 systemctl start sshd
-# openssh  默认已安装, 没有的话 安装 一下 pacman -S openssh
-# sshd已经配置允许root登录, 有问题的话, 去改一下配置文件/etc/ssh/sshd_config,  PermitRootLogin yes
+# openssh  默认已安装, 没有的话 安装一下 pacman -S openssh
+# sshd已经默认配置允许root登录, 有问题的话, 去修改配置文件/etc/ssh/sshd_config,  PermitRootLogin yes
 
-# ssh login to continue
+# ssh 登录以后执行以下操作
 
 # 查看当前的引导模式，uefi or bios
  ls /sys/firmware/efi/efivars
