@@ -1,13 +1,35 @@
 ---
-title: ssh Multiplexing
+title: ssh Multiplexing,mux
 author: w1100n
 type: post
 date: 2020-04-21T16:48:13+00:00
 url: /?p=16030
-categories:
-  - Uncategorized
 
 ---
+
+
+### 管理multiplexing
+  
+#### 查看当前的状态
+ssh -O check machine1
+ssh -O stop machine1
+
+$ ssh -O check root@47.91._._
+  
+Master running (pid=91057)
+  
+###停止接受新的会话
+  
+$ ssh -O stop root@47.91._._
+  
+Stop listening request sent.
+  
+###退出所有会话
+  
+$ ssh -O exit root@47.91._._
+  
+Exit request sent.
+
 #### Session Multiplexing
 
 ```bash
@@ -106,22 +128,3 @@ $file ssh-root@47.91._._
   
 ssh-root@47.91._._: socket
   
-管理multiplexing
-  
-###查看当前的状态
-  
-$ ssh -O check root@47.91._._
-  
-Master running (pid=91057)
-  
-###停止接受新的会话
-  
-$ ssh -O stop root@47.91._._
-  
-Stop listening request sent.
-  
-###退出所有会话
-  
-$ ssh -O exit root@47.91._._
-  
-Exit request sent.
