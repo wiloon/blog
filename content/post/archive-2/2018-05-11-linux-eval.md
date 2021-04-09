@@ -4,13 +4,8 @@ author: w1100n
 type: post
 date: 2018-05-11T01:05:54+00:00
 url: /?p=12232
-categories:
-  - Uncategorized
 
 ---
-https://blog.csdn.net/vizts/article/details/47043695
-
-linux shell中的eval命令
 
 语法：eval cmdLine
   
@@ -38,7 +33,7 @@ eval echo "\$$#"
   
 得到的结果为44
   
-转自：http://www.2cto.com/os/201311/255577.html
+
 
 1.eval命令将会首先扫描命令行进行所有的替换，然后再执行命令。该命令使用于那些一次扫描无法实现其功能的变量。该命令对变量进行两次扫描。这些需要进行两次扫描的变量有时候被称为复杂变量。
 
@@ -66,4 +61,8 @@ echo "Last argument is $(eval echo \$$#)"
 
 echo "Last argument is $(eval echo $#)"
 
+---
+
+转自：http://www.2cto.com/os/201311/255577.html
 转自：http://www.cnblogs.com/xdzone/archive/2011/03/15/1984971.html
+https://blog.csdn.net/vizts/article/details/47043695
