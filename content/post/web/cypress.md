@@ -4,6 +4,11 @@ date = "2021-03-16 16:47:40"
 title = "cypress"
 
 +++
+### install cypress for project
+    npm install --save-dev cypress
+    # 执行cypress install, 把cypress安装到 ~/.cache/Cypress
+    node_modules/cypress/bin/cypress install
+
 ### install mysql
     npm install mysql  --save-dev
 
