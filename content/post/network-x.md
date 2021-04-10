@@ -122,14 +122,6 @@ iptables -t mangle -A OUTPUT -p udp -j chain1
     iptables -t mangle -D OUTPUT 2
     iptables -t mangle -D OUTPUT 1
 
-### openwrt policy route config
-https://openwrt.org/docs/guide-user/network/ip_rules
-
-    config rule
-        option mark   '0xFF'
-        option in     'lan'
-        option dest   '172.16.0.0/16'
-        option lookup '100'
 ---
 
 https://www.jianshu.com/p/91a084e91ed2
