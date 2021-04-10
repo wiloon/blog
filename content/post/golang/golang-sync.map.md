@@ -1,9 +1,10 @@
----
++++
 author = "w1100n"
 date = "2020-05-19T07:21:29Z"
 title = "golang sync.Map"
 
----
++++
+
 
 ```golang
 func main() {
