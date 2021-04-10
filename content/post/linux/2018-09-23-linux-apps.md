@@ -28,12 +28,12 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                     |
 | :-------------------- | :----------------------------------------------------------- |
-| screenfetch           | 发行版的logo                                                 |
+| screenfetch           | 发行版的logo                                                  |
 | keepassxc             |                                                              |
 | sqlectron-gui         |                                                              |
 | hyper                 |                                                              |
 | code                  | visual studio code                                           |
-| rsibreak              | 番茄钟                                                       |
+| rsibreak              | 番茄钟                                                        |
 | libreoffice-fresh     |                                                              |
 | ark                   | kde dolphin extract zip,gz                                   |
 | neofetch              |                                                              |
@@ -67,80 +67,81 @@ sudo pacman -S powerdevil kmix kscreen ark
 | podman                |                                                              |
 | v2ray                 |                                                              |
 | nethogs               |                                                              |
-| flameshot             | 截图工具,screenshot                                                 |
+| flameshot             | 截图工具,screenshot                                          |
 | ttf-jetbrains-mono    | jetbrain的mono字体                                           |
 | gpick                 | 颜色拾取工具                                                 |
-|	telegram-desktop| 	telegram|
-|apper|pacman GUI|
-|dstat|查看系统性能的工具 dstat -cdlmnpsy|
-|sl|小火车|
-|inkscape |矢量图形创建和编辑程序,svg|
+| telegram-desktop      | telegram                                                     |
+| apper                 | pacman GUI                                                   |
+| dstat                 | 查看系统性能的工具 dstat -cdlmnpsy                           |
+| sl                    | 小火车                                                       |
+| inkscape              | 矢量图形创建和编辑程序,svg                                   |
 
 ### pacman, development
 
-| name                            | comments         |
-| :------------------------------ | :--------------- |
-| graphviz                        |                  |
-| jdk-openjdk                     | latest openjdk   |
-| jdk8-openjdk                    | openjdk 8        |
-| openjdk8-src                    | openjdk 8 source |
-| intellij-idea-community-edition | IDEA社区版       |
-| maven                           |                  |
-| gradle                          |                  |
-|gradle-src| |
-| git                             |                  |
-| rust                            | rust-lang        |
-|iperf3|网络测试工具|
-|termite|支持32位色的终端|
-|neovim|用户体验更好的vim|
-|adobe-source-code-pro-fonts|adobe 的编程字体|
-|tmux||
+| name                            | comments          |
+| :------------------------------ | :---------------- |
+| graphviz                        |                   |
+| jdk-openjdk                     | latest openjdk    |
+| jdk8-openjdk                    | openjdk 8         |
+| openjdk8-src                    | openjdk 8 source  |
+| intellij-idea-community-edition | IDEA社区版        |
+| maven                           |                   |
+| gradle                          |                   |
+| gradle-src                      |                   |
+| git                             |                   |
+| rust                            | rust-lang         |
+| iperf3                          | 网络测试工具      |
+| termite                         | 支持32位色的终端  |
+| neovim                          | 用户体验更好的vim |
+| adobe-source-code-pro-fonts     | adobe 的编程字体  |
+| tmux                            |                   |
 
 
 ### AUR, yay:
 
-| name                                  | comments                                    |
-| :------------------------------------ | ------------------------------------------- |
+| name                                  | comments                                                       |
+| :------------------------------------ | -------------------------------------------------------------- |
+| clion                                 |                                                                |
 | deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
-| google-chrome-beta                    |                                             |
-| redis-desktop-manager                 | rdm                                         |
-| wps-office                            | 依赖                                        |
-| ttf-wps-fonts                         | wps字体                                     |
-| heidisql                              |                                             |
-| nixnote2-git                          | evernote linux 客户端                       |
-| gitkraken                             | git GUI clinet, Free for non-commercial use |
-| github-desktop-bin                    | MIT Linense                                 |
-| heidisql                              | mysql客户端                                 |
-| jd-gui-bin                            | java反编译                                  |
-| eclipse-mat                           | Eclipse Memory Analyzer (MAT)               |
-| dingtalk                              | 钉钉                                        |
-| menulibre                             | xfce的系统菜单管理工具                      |
-| ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                     |
-| goland                                | yay -S goland goland-jre, 两个一起安装| 
-| zoom                                  |                                             |
-| shutter                               |                                             |
-| perl-goo-canvas                       | shutter 的画线插件                          |
-| google-chrome-dev                     |                                             |
-| intellij-idea-community-edition-jre   | idea with jre                               |
-| telegraf                              |                                             |
-| tableplus|mysql client|
-| procmon| 微软的进程监控工具|
-|webstorm-jre| yay -S webstorm webstorm-jre|
-|platformio|物联网开发的开源生态系统|
-|clion||
+| google-chrome-beta                    |                                                                |
+| redis-desktop-manager                 | rdm                                                            |
+| wps-office                            | 依赖                                                           |
+| ttf-wps-fonts                         | wps字体                                                        |
+| heidisql                              |                                                                |
+| nixnote2-git                          | evernote linux 客户端                                          |
+| gitkraken                             | git GUI clinet, Free for non-commercial use                    |
+| github-desktop-bin                    | MIT Linense                                                    |
+| heidisql                              | mysql客户端                                                    |
+| jd-gui-bin                            | java反编译                                                     |
+| eclipse-mat                           | Eclipse Memory Analyzer (MAT)                                  |
+| dingtalk                              | 钉钉                                                           |
+| menulibre                             | xfce的系统菜单管理工具                                         |
+| ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                                        |
+| goland                                | yay -S goland goland-jre, 两个一起安装                         |
+| zoom                                  |                                                                |
+| shutter                               |                                                                |
+| perl-goo-canvas                       | shutter 的画线插件                                             |
+| google-chrome-dev                     |                                                                |
+| intellij-idea-community-edition-jre   | idea with jre                                                  |
+| telegraf                              |                                                                |
+| tableplus                             | mysql client                                                   |
+| procmon                               | 微软的进程监控工具                                             |
+| webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
+| platformio                            | 物联网开发的开源生态系统                                       |
+
 |slurm|网络监控|
 
 ### KDE
 
-| name       | comments             |
-| ---------- | -------------------- |
-| powerdevil | 电源管理，休眠按钮   |
-| kscreen    | 多显示器配置         |
-| kmix       | 音量调节             |
-| ark        | 压缩包管理器         |
-| gwenview   | 图片查看             |
-| kscreen    | kde 多显示器管理工具 |
-|kcolorchooser|颜色拾取|
+| name          | comments             |
+| ------------- | -------------------- |
+| powerdevil    | 电源管理，休眠按钮   |
+| kscreen       | 多显示器配置         |
+| kmix          | 音量调节             |
+| ark           | 压缩包管理器         |
+| gwenview      | 图片查看             |
+| kscreen       | kde 多显示器管理工具 |
+| kcolorchooser | 颜色拾取             |
 
 ### KDE widget
 
@@ -153,29 +154,29 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 ## ubuntu
 
-| Name          | Comments |
-| ------------- | -------- |
-| openjdk-8-jdk |          |
-|openjdk-8-source||
-|git-svn        |             |
-|nautilus           |ubuntu默认的文件管理器|
-|ttf-wqy-microhei   |文泉驿-微米黑|
-|ttf-wqy-zenhei     |文泉驿-正黑|
-|xfonts-wqy         |文泉驿-点阵宋体|
-|keepassxc          ||
-|eog|图片查看|
+| Name             | Comments               |
+| ---------------- | ---------------------- |
+| openjdk-8-jdk    |                        |
+| openjdk-8-source |                        |
+| git-svn          |                        |
+| nautilus         | ubuntu默认的文件管理器 |
+| ttf-wqy-microhei | 文泉驿-微米黑          |
+| ttf-wqy-zenhei   | 文泉驿-正黑            |
+| xfonts-wqy       | 文泉驿-点阵宋体        |
+| keepassxc        |                        |
+| eog              | 图片查看               |
 
 ### xfce4
 file-roller
 
 ### downlaod tar
 
-| Name          | Comments |
-| ------------- | -------- |
-| Ventoy | 各种iso安装盘引导工具         |
+| Name   | Comments              |
+| ------ | --------------------- |
+| Ventoy | 各种iso安装盘引导工具 |
 
 ### openwrt
-| Name          | Comments |
-| ------------- | -------- |
-| drill |  |
-| openwrt |  |
+| Name    | Comments |
+| ------- | -------- |
+| drill   |          |
+| openwrt |          |

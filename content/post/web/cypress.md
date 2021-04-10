@@ -4,6 +4,11 @@ date = "2021-03-16 16:47:40"
 title = "cypress"
 
 +++
+### install cypress for project
+    npm install --save-dev cypress
+    # 执行cypress install, 把cypress安装到 ~/.cache/Cypress
+    node_modules/cypress/bin/cypress install
+
 ### install mysql
     npm install mysql  --save-dev
 
@@ -63,7 +68,26 @@ title = "cypress"
     }
 
 ### command
+#### timeout
     cy.visit('/', { timeout: 3000 })
+#### type
     cy.get('[data-cy=user-name]').type('user0')
+#### click
     cy.get('[data-cy=login]').click()
+#### contains
     cy.get('[data-cy=list]').find('tbody>tr').first().contains('td', 'id0')
+#### clear
+    cy.get('[data-cy=plate]').clear()
+
+#### 页面元素数量, 3个 text0 文字
+    cy.contains('span', 'text0').should('have.length', 3)
+
+#### 比较文本
+    cy.get('[data-cy=foo]').should('have.text',"0")
+    cy.get('[data-cy=foo]').should('not.have.text',"0")
+### sql
+    cy.task('queryDb', 'DELETE FROM `table0`').then(res => { cy.log(res) })
+#### count
+    cy.task('queryDb', 'SELECT COUNT(*) AS count FROM table0 WHERE field0=\'value0\'').then(res => {
+      expect(res[0].count).to.equal(1)
+    })
