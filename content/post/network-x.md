@@ -94,18 +94,24 @@ iptables -t mangle -A chain0 -d 255.255.255.255/32 -j RETURN
 iptables -t mangle -A chain0 -p tcp -j TPROXY --on-port 12345 --tproxy-mark 1
 # udp
 iptables -t mangle -A chain0 -p udp -j TPROXY --on-port 12345 --tproxy-mark 1
-iptables -t mangle -A PREROUTING -j chain0
 
 iptables -t mangle -N chain1
 iptables -t mangle -A chain1 -m owner --gid-owner 23333 -j RETURN
 iptables -t mangle -A chain1 -d 127.0.0.0/24 -j RETURN
-iptables -t mangle -A chain1 -d 192.168.1.0/24 -j RETURN
-iptables -t mangle -A chain1 -d 192.168.50.0/24 -j RETURN
-iptables -t mangle -A chain1 -d 192.168.96.0/24 -j RETURN
-iptables -t mangle -A chain1 -d 192.168.97.0/24 -j RETURN
+iptables -t mangle -A chain1 -d 192.168.0.0/16 -j RETURN
 iptables -t mangle -A chain1 -d 224.0.0.0/4 -j RETURN
 iptables -t mangle -A chain1 -d 255.255.255.255/32 -j RETURN
-iptables -t mangle -A chain1 -j MARK --set-mark 1
+iptables -t mangle -A chain1 -j MARK --set-mark 1 # Netfilter特性，在OUTPUT链给包打标记为1后相应的包会重路由到PREROUTING链上
+
+# 把192.168.10.0/24 网段的数据发到chain0
+iptables -t mangle -A PREROUTING -s 192.168.10.0/24 -j chain0
+
+# 把所有数据发到chain0
+iptables -t mangle -A PREROUTING -j chain0
+# 或， 把来自192.168.10.224的数据发到chain0
+iptables -t mangle -A PREROUTING -s 192.168.10.224 -j chain0
+
+
 iptables -t mangle -A OUTPUT -p tcp -j chain1
 iptables -t mangle -A OUTPUT -p udp -j chain1
 
@@ -116,14 +122,6 @@ iptables -t mangle -A OUTPUT -p udp -j chain1
     iptables -t mangle -D OUTPUT 2
     iptables -t mangle -D OUTPUT 1
 
-### openwrt policy route config
-https://openwrt.org/docs/guide-user/network/ip_rules
-
-    config rule
-        option mark   '0xFF'
-        option in     'lan'
-        option dest   '172.16.0.0/16'
-        option lookup '100'
 ---
 
 https://www.jianshu.com/p/91a084e91ed2
