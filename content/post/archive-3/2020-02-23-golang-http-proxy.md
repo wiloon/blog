@@ -8,6 +8,9 @@ categories:
   - Uncategorized
 
 ---
+### get
+    resp, err := http.Get("http://example.com/")
+    
 ### http post
 
         func httpPostForm() {

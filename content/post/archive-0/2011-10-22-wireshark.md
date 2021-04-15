@@ -15,7 +15,7 @@ Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分
   
   
   
-###     应用  
+### 应用  
     Wireshark使用目的以下是一些使用Wireshark目的的例子：
 
     网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用Wireshark来学习网络协定的相关知识当然，有的人也会"居心叵测"的用它来寻找一些敏感信息……
@@ -23,13 +23,9 @@ Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分
   
   
     Wireshark不是入侵侦测软件（Intrusion DetectionSoftware,IDS）。对于网络上的异常流量行为，Wireshark不会产生警示或是任何提示。然而，仔细分析Wireshark撷取的封包能够帮助使用者对于网络行为有更清楚的了解。Wireshark不会对网络封包产生内容的修改，它只会反映出目前流通的封包资讯。 Wireshark本身也不会送出封包至网络上。
-  
-  
-  
-  <h2>
-    发展简史
-  </h2>
-  
+ 
+### 发展简史
+ 
     1997年底，GeraldCombs需要一个能够追踪网络流量的工具软件作为其工作上的辅助。因此他开始撰写Ethereal软件。Ethereal在经过几次中断开发的事件过后，终于在1998年7月释出其第一个版本v0.2.0。自此之后，Combs收到了来自全世界的修补程式、错误回报与鼓励信件。Ethereal的发展就此开始。不久之后，GilbertRamirez看到了这套软件的开发潜力并开始参予低阶程式的开发。1998年10月，来自NetworkAppliance公司的GuyHarris在寻找一套比tcpview（另外一套网络封包撷取程式）更好的软件。于是他也开始参与Ethereal的开发工作。1998年底，一位在教授TCP/IP课程的讲师RichardSharpe，看到了这套软件的发展潜力，而后开始参与开发与加入新协定的功能。在当时，新的通讯协定的制定并不复杂，因此他开始在Ethereal上新增的封包撷取功能，几乎包含了当时所有通讯协定。
   
   
