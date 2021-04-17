@@ -804,10 +804,9 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  分组符号，如：love(able|rs)ov+匹配loveable或lovers，匹配一个或多个ov。
  x,x,x
  作用同x,x,x
-  </li>
-  <li>
+ 
     
-      POSIX字符类
+### POSIX字符类
  为了在不同国家的字符编码中保持一至，POSIX(The Portable Operating System Interface)增加了特殊的字符类，如[:alnum:]是A-Za-z0-9的另一个写法。要把它们放到[]号内才能成为正则表达式，如[A- Za-z0-9]或[[:alnum:]]。在Linux下的grep除fgrep外，都支持POSIX的字符类。
  [:alnum:]
  文字数字字符

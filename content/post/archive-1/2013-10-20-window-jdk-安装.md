@@ -29,7 +29,11 @@ JDK一般有三种版本：SE（J2SE），standard edition，标准版，是我�
 ◆Jdb：Java调试器，可以逐行执行程序，设置断点和检查变量。
 
 ◆Javah：产生可以调用Java过程的C过程，或建立能被Java程序调用的C过程的头文件。
+javah命令主要用于在JNI开发的时，把java代码声明的JNI方法转化成C\C++头文件，以便进行JNI的C\C++端程序的开发。
 
+但是需要注意的是javah命令对Android编译生成的类文件并不能正常工作。如果对于Android的JNI要想生成C\C++头文件的话，可能只有先写个纯的java代码来进行JNI定义，接着用JDK编译，然后再用javah命令生成JNI的C\C++头文件。当然你也可以不用javah命令，直接手写JNI的C\C++头文件。
+
+使用javah或javah -help将看到javah命令的语法信息。
 ◆Javap：Java反汇编器，显示编译类文件中的可访问功能和数据，同时显示字节代码含义。
 
 JRE

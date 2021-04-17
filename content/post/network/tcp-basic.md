@@ -51,18 +51,7 @@ UTO(User Timeout) UTO指的是发送SYN，收到ACK的超时时间，如果在UT
 
 正常情况下，tcp的建立需要进行3次握手，tcp断开需要进行4次挥手。抓包看下建立连接和断开过程，通过抓取22端口报文，用telnent远程连接22端口测试，测试命令如下：
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
+ 
     heidong@HEIDONGVM:~$ sudo tcpdump -i eth0 port 22 -s 0 -w tcpdump-est-fin.cap
 
     heidong@HEIDONGVM:~$ telnet 192.168.1.101 22
@@ -121,23 +110,7 @@ TCP终止连接的4次挥手过程是帧6到9
 异常情况
 建立连接异常 1.1 建立连接端口不存在 如果对端的端口不存在，那么在报文中回应RST标志，表示连接不可达。事实上发送端在需要重复一次SYN报文，对端才会响应RST。如:
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
+ 
 heidong@HEIDONGVM:~$ telnet 192.168.1.101 9900
 Trying 192.168.1.101...
 telnet: Unable to connect to remote host: Connection refused
@@ -163,29 +136,7 @@ heidong@HEIDONGVM:~$
     6
 重连重试的是时间分别是。2^X-1秒。如:
 
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
+ 
     heidong@HEIDONGVM:~$ telnet 192.168.1.101 9900
     Trying 192.168.1.101...
     telnet: Unable to connect to remote host: Connection refused
@@ -260,5 +211,7 @@ tcpdump 使用参考： https://luoguochun.cn/2015/07/25/tcpdump-usage/ 完。
 一些参考： TCP_DEFER_ACCEPT TFO–TCP Fast Open – 由于存在安全隐患而没有广泛使用。
 
 
+---
 
 https://coolshell.cn/articles/11564.html
+https://www.cnblogs.com/liwei0526vip/p/14587300.html

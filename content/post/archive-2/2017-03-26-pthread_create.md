@@ -38,27 +38,21 @@ url: /?p=9971
     }
 ```
 ### pthread_create
+pthread.h是UNIX环境创建线程函数头文件
   
-标签： threadinclude编译器nulllinuxgcc
+#include<pthread.h>
   
-2012-07-20 14:52 56250人阅读 评论(4) 收藏 举报
+int pthread_create(pthread_t *restrict tidp,const pthread_attr_t  *restrict_attr,void  *（ *start_rtn)(void *),void  *restrict arg);返回值
   
-分类：
-unix高级编程学习（6）
-  
-版权声明：本文为博主原创文章，未经博主允许不得转载。
-
-目录(?)[+]
-
-pthread_create是UNIX环境创建线程函数头文件
-  
-#include<pthread.h>函数声明
-  
-int pthread_create(pthread_t\*restrict tidp,const pthread_attr_t \*restrict_attr,void\*（\*start_rtn)(void\*),void \*restrict arg);返回值
-  
+        extern int pthread_create (pthread_t *__restrict __newthread,
+                                const pthread_attr_t *__restrict __attr,
+                                void *(*__start_routine) (void *),
+                                void *__restrict __arg) __THROWNL __nonnull ((1, 3));
+                                
 若成功则返回0，否则返回出错编号
   
-返回成功时，由tidp指向的内存单元被设置为新创建线程的线程ID。attr参数用于制定各种不同的线程属性。新创建的线程从start_rtn函数的地址开始运行，该函数只有一个万能指针参数arg，如果需要向start_rtn函数传递的参数不止一个，那么需要把这些参数放到一个结构中，然后把这个结构的地址作为arg的参数传入。
+返回成功时，由 __newthread 指向的内存单元被设置为新创建线程的线程ID。   
+__attr 参数用于制定各种不同的线程属性。新创建的线程从start_rtn函数的地址开始运行，该函数只有一个万能指针参数arg，如果需要向start_rtn函数传递的参数不止一个，那么需要把这些参数放到一个结构中，然后把这个结构的地址作为arg的参数传入。
   
 linux下用C开发多线程程序，Linux系统下的多线程遵循POSIX线程接口，称为pthread。
   

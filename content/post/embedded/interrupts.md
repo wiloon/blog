@@ -1,7 +1,7 @@
 +++
 author = "w1100n"
 date = "2020-10-22 15:24:45" 
-title = "interrupts, 中断"
+title = "中断, interrupts"
 
 +++
 
@@ -14,7 +14,7 @@ title = "interrupts, 中断"
 ### 什么是中断，为什么要用中断？
 https://blog.csdn.net/oathevil/article/details/6007655
 
-一、中断是什么 
+#### 中断是什么 
 
 中断的汉语解释是半中间发生阻隔、停顿或故障而断开。那么，在计算机系统中，我们为什么需要"阻隔、停顿和断开"呢？ 
 
