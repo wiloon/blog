@@ -6,17 +6,16 @@ date: 2018-02-11T15:40:49+00:00
 url: /?p=11872
 
 ---
-https://segmentfault.com/a/1190000014822400
 
-sshd_config
-  
+
+### /etc/ssh/sshd_config
+#### 鉴权重试次数
 MaxAuthTries 20
 
 http://matt-u.iteye.com/blog/851158
 
 linux ssh_config和sshd_config配置文件
-  
-转载190019892011-08-22 09:34:11评论(1)63053人阅读
+
    
 现在远程管理linux系统基本上都要使用到ssh，原因很简单：telnet、FTP等传输方式是以明文传送用户认证信息，本质上是不安全的，存在被网络窃听的危险。SSH（Secure Shell）目前较可靠，是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题，透过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
 
@@ -188,3 +187,8 @@ PermitEmptyPasswords no
 AllowUsers admin
   
 "AllowUsers"的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。
+
+
+---
+
+https://segmentfault.com/a/1190000014822400

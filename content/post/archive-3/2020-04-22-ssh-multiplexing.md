@@ -18,15 +18,15 @@ $ ssh -O check root@47.91._._
   
 Master running (pid=91057)
   
-###停止接受新的会话
+### 停止接受新的会话
   
 $ ssh -O stop root@47.91._._
   
 Stop listening request sent.
   
-###退出所有会话
+### 退出所有会话
   
-$ ssh -O exit root@47.91._._
+    ssh -O exit root@47.91._._
   
 Exit request sent.
 
@@ -128,3 +128,5 @@ $file ssh-root@47.91._._
   
 ssh-root@47.91._._: socket
   
+### ssh agnet not working
+https://superuser.com/questions/840340/ssh-agent-forwarding-not-working-even-when-using-ssh-a
