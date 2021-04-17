@@ -7,3 +7,4 @@ title = "ios apps"
 |name|comments|
 |-|-|
 |Strongbox  |keepassxc的ios实现|
+|英语轻松读||
