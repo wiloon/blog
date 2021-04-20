@@ -4,10 +4,6 @@ author: w1100n
 type: post
 date: 2011-11-09T05:46:13+00:00
 url: /?p=1470
-views:
-  - 7
-bot_views:
-  - 6
 categories:
   - Java
 tags:
@@ -210,6 +206,26 @@ Vector 是同步的。这个类中的一些方法保证了Vector中的对象是�
 这意味着，你只是查找特定位置的元素或只在集合的末端增加、移除元素，那么使用Vector或ArrayList都可以。如果是其他操作，你最好选择其他的集合操作类。比如，LinkList集合类在增加或移除集合中任何位置的元素所花费的时间都是一样的?O(1)，但它在索引一个元素的使用缺比较慢－O(i),其中i是索引的位置.使用 ArrayList也很容易，因为你可以简单的使用索引来代替创建iterator对象的操作。LinkList也会为每个插入的元素创建对象，所有你要明白它也会带来额外的开销。
 
 最后，在《Practical Java》一书中Peter Haggar建议使用一个简单的数组（Array）来代替Vector或ArrayList。尤其是对于执行效率要求高的程序更应如此。因为使用数组(Array)避免了同步、额外的方法调用和不必要的重新分配空间的操作。
+
+### 为什么java.util.concurrent 包里没有并发的ArrayList实现？
+
+问：JDK 5在java.util.concurrent里引入了ConcurrentHashMap，在需要支持高并发的场景，我们可以使用它代替HashMap。但是为什么没有ArrayList的并发实现呢？难道在多线程场景下我们只有Vector这一种线程安全的数组实现可以选择么？为什么在java.util.concurrent 没有一个类可以代替Vector呢？
+
+答：我认为在java.util.concurrent包中没有加入并发的ArrayList实现的主要原因是：很难去开发一个通用并且没有并发瓶颈的线程安全的List。
+
+像ConcurrentHashMap这样的类的真正价值（The real point / value of classes）并不是它们保证了线程安全。而在于它们在保证线程安全的同时不存在并发瓶颈。举个例子，ConcurrentHashMap采用了锁分段技术和弱一致性的Map迭代器去规避并发瓶颈。
+
+所以问题在于，像"Array List"这样的数据结构，你不知道如何去规避并发的瓶颈。拿contains() 这样一个操作来说，当你进行搜索的时候如何避免锁住整个list？
+
+另一方面，Queue 和Deque (基于Linked List)有并发的实现是因为他们的接口相比List的接口有更多的限制，这些限制使得实现并发成为可能。
+
+CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作（如get/contains）并发的瓶颈，但是它为了做到这点，在修改操作中做了很多工作和修改可见性规则。 此外，修改操作还会锁住整个List，因此这也是一个并发瓶颈。所以从理论上来说，CopyOnWriteArrayList并不算是一个通用的并发List。
+
+---
+
+https://twiceyuan.com/2016/06/09/ArrayList-is-not-thread-safe/  
+http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/  
+http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/embed/#?secret=zLAPktQzUL  
 
 <http://blog.csdn.net/mandymai/article/details/3966667/>
 

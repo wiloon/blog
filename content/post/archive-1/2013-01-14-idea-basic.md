@@ -8,6 +8,9 @@ categories:
   - Java
 
 ---
+###
+https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC
+
 ### settings repository
     mkdir local-jetbrain-setting-repo
     cd local-jetbrain-setting-repo
