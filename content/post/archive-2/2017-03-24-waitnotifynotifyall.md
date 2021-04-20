@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-notifyAll是一个重的方法，它会带来大量的上下文切换和锁竞争。
+notifyAll 是一个重的方法，它会带来大量的上下文切换和锁竞争。
 
 wait(),notify(),notifyAll()不属于Thread类,而是属于Object基础类,也就是说每个对像都有wait(),notify(),notifyAll()的功能.因为都个对像都有锁,锁是每个对像的基础,当然操作锁的方法也是最基础了。
   

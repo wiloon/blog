@@ -26,6 +26,6 @@ Erlang并非一门新语言，它出现于1987年，只是当时对并发、分�
 目前，随着网络应用的兴起，对高并发、分布部署、持续服务的需求增多，Erlang的特性刚好满足这些需求，于是Erlang开始得到更多人的关注
 
 ### Trac
-**Trac**是Edgewall公司开发并维护的开放源码网页界面项目管理、缺陷追踪软件。Trac的灵感来自于CVSTrac，因为能够与Subversion接口，所以最初叫做svntrac。
+Trac是Edgewall公司开发并维护的开放源码网页界面项目管理、缺陷追踪软件。Trac的灵感来自于CVSTrac，因为能够与Subversion接口，所以最初叫做svntrac。
 
-Trac使用Python编程语言开发。在2005年中以前，Trac以GPL发行；直到 0.9 版开始使用修改过的BSD许可证释出<sup id="cite_ref-license_0-0">[1]</sup>。基本上都是属于自由软件的许可证。
+Trac使用Python编程语言开发。在2005年中以前，Trac以GPL发行；直到 0.9 版开始使用修改过的BSD许可证释出[1]。基本上都是属于自由软件的许可证。
