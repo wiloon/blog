@@ -151,16 +151,22 @@ stringObject.replace(regexp/substr,replacement)
 replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
 
 ### js获取url参数值
-采用正则表达式获取地址栏参数 (代码简洁，重点正则）
+#### 现代浏览器web api
+    let params = (new URL(document.location)).searchParams; 
+    let code = params.get("code")
+    let state = params.get("state")
 
-function getQueryString(name) {
-    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-    let r = window.location.search.substr(1).match(reg);
-    if (r != null) {
-        return decodeURIComponent(r[2]);
-    };
-    return null;
- }
+
+#### 采用正则表达式获取地址栏参数 (代码简洁，重点正则）
+
+    function getQueryString(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        let r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURIComponent(r[2]);
+        };
+        return null;
+    }
 
 split拆分法 (代码较复杂，较易理解)
 
