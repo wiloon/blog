@@ -14,7 +14,9 @@ Pmap 提供了进程的内存映射，pmap命令用于显示一个或多个进�
 
 语法或用法
   
-#pmap PID 或者 #pmap [options] PID
+    pmap PID 
+    # 或者 
+    pmap [options] PID
 
 在输出中它显示全部的地址，kbytes,mode还有mapping。
 
