@@ -5,7 +5,7 @@ title = "UART"
 
 +++
 
-串口通信（UART
+串口通信 UART
 
 用异步收发传输器(Universal Asynchronous Receiver/Transmitter)，通常称作UART，是一种异步收发传输器。
 
