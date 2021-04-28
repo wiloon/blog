@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2019-01-06T10:56:09+00:00
 url: /?p=13338
-categories:
-  - Uncategorized
 
 ---
 ```bash
@@ -13,6 +11,7 @@ keytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
 
 sudo /usr/lib/jvm/java-8-openjdk/bin/keytool -importcert -keystore /usr/lib/jvm/java-8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt  -file xxx.crt -alias "xxx.crt"
 
+# jdk 导入 证书
 keytool.exe -importcert -keystore "C:\Program Files\Java\jdk1.8.0_201\jre\lib\security\cacerts" -storepass changeit -noprompt  -file E:\xxx.cer -alias "xxx"
 ```
 

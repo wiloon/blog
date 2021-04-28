@@ -227,7 +227,9 @@ https://github.com/microsoft/WSL/issues/4210
 With the latest update, you can access remote ports(WSL2) as local on Windows Host
 
 ### .wslconfig
-%UserProfile%\.wslconfig
+    %UserProfile%\.wslconfig
+    C:\Users\user0\.wslconfig
+
 
     [wsl2]
     kernel=<path>              # An absolute Windows path to a custom Linux kernel.

@@ -46,7 +46,6 @@ redis-server --version
 del key1 key2
 
 ### 判断key是否存在
-
 exists key_name
 
 ### 查看key的类型

@@ -8,6 +8,9 @@ categories:
   - Java
 
 ---
+###
+https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC
+
 ### settings repository
     mkdir local-jetbrain-setting-repo
     cd local-jetbrain-setting-repo
@@ -44,3 +47,10 @@ ctl+alt+S setting
     git branch -m main # 默认创建
     git remote add origin git@github.com:wiloon/jetbrain-idea-setting.git
     git push origin main
+
+
+### 解决 Intellij IDEA Cannot Resolve Symbol ‘XXX’ 问题
+
+清除缓存
+
+  点击菜单中的 “File” -> “Invalidate Caches / Restart”，然后点击对话框中的 “Invalidate and Restart”，清空 cache 并且重启。
