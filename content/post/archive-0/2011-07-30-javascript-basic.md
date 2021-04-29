@@ -196,7 +196,7 @@ function getQueryVariable(variable){
 }
 
 ### 如何检查JavaScript中的字符串是否包含子字符串
- (ES6) includes -去回答(不支持IE)
+ (ES6) includes
 
     var string ="foo",
         substring ="oo";
@@ -207,7 +207,18 @@ https://segmentfault.com/a/1190000013236956
 
     escape(str0)
 
+### String.length
+var x = "Mozilla";
+var empty = "";
 
+console.log("Mozilla is " + x.length + " code units long");
+
+
+### base64
+    let str = 'foo'
+    let base64Str = btoa(str)
+
+    let str = atob(base64Str)
 ---
 
 作者：大小伍
