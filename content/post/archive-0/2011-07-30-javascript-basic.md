@@ -208,6 +208,10 @@ https://segmentfault.com/a/1190000013236956
     escape(str0)
 
 
+### 替换地址栏url
+      let stateObj = { foo: "bar" };
+      window.history.pushState(stateObj, '', 'foo');
+
 ---
 
 作者：大小伍
