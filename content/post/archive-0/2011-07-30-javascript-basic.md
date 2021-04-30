@@ -211,6 +211,10 @@ https://segmentfault.com/a/1190000013236956
 var x = "Mozilla";
 var empty = "";
 
+### 替换地址栏url
+      let stateObj = { foo: "bar" };
+      window.history.pushState(stateObj, '', 'foo');
+
 console.log("Mozilla is " + x.length + " code units long");
 
 
@@ -219,9 +223,28 @@ console.log("Mozilla is " + x.length + " code units long");
     let base64Str = btoa(str)
 
     let str = atob(base64Str)
+
+
+### window.location 对象所包含的属性
+
+属性	描述
+hash	从井号 (#) 开始的 URL（锚）
+host	主机名和当前 URL 的端口号
+hostname	当前 URL 的主机名
+href	完整的 URL
+pathname	当前 URL 的路径部分
+port	当前 URL 的端口号
+protocol	当前 URL 的协议
+search	从问号 (?) 开始的 URL（查询部分）
+
+
 ---
 
 作者：大小伍
 链接：https://www.jianshu.com/p/708c915fb905
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+————————————————
+版权声明：本文为CSDN博主「请叫我大师兄__」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_27093465/article/details/50731087
