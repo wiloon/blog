@@ -103,6 +103,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | :------------------------------------ | -------------------------------------------------------------- |
 | clion                                 |                                                                |
 | deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
+|google-chrome||
 | google-chrome-beta                    |                                                                |
 | redis-desktop-manager                 | rdm                                                            |
 | wps-office                            | 依赖                                                           |

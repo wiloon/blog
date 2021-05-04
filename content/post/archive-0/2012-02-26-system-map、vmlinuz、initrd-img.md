@@ -8,12 +8,7 @@ categories:
   - Linux
 
 ---
-<span style="font-size: small;">from: http://blog.chinaunix.net/u2/64845/showart_510751.html
-
-<div id="detail">
-  
-    <span style="font-size: small;">
- 一、vmlinuz
+ 一 vmlinuz
  1.vmlinuz是可引导的、压缩的内核。"vm"代表"Virtual Memory"。Linux
  支持虚拟内存，不像老的操作系统比如DOS有640KB内存的限制。Linux能够使用硬盘空间作为虚拟内存，因此得名"vm"。vmlinuz是可执行 的Linux内核，它位于/boot/vmlinuz，它一般是一个软链接，比如图中是vmlinuz-2.4.7-10的软链接。
  vmlinuz的建立有两种方式。一是编译内核时通过"make zImage"创建，然后通过:"cp
