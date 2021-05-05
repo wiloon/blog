@@ -755,50 +755,7 @@ struct sysv_shm sysvshm;
 /* hung task detection */
 unsigned long last_switch_count;
 #endif
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
+
 字段	描述
 utime/stime	用于记录进程在用户态/内核态下所经过的节拍数（定时器）
 prev_utime/prev_stime	先前的运行时间，请参考LKML的补丁说明
