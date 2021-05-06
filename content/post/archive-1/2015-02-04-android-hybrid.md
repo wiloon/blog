@@ -8,13 +8,6 @@ categories:
   - Uncategorized
 
 ---
-cordova invoke native code to support android service
-
-http://www.apkbus.com/android-88040-1-1.html
-
-
-cordova sqlite
-
 http://lin-xi.diandian.com/post/2013-12-08/40060383406
 
 http://blog.csdn.net/offbye/article/details/32321791
