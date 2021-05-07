@@ -1,5 +1,5 @@
 ---
-title: Golang goroutines
+title: goroutines
 author: w1100n
 type: post
 date: 2016-07-01T09:20:33+00:00
@@ -8,6 +8,10 @@ categories:
   - Uncategorized
 
 ---
+
+https://juejin.cn/post/6844904056918376456
+
+
 http://eleme.io/blog/2014/goroutine-1/
 
 
