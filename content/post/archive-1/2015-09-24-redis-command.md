@@ -144,7 +144,7 @@ redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster
 
 删除节点
 
-redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b80409106cb36be3c7ba41f3b603ff
+redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba41f3b603ff
 说明：指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
 
 ```
