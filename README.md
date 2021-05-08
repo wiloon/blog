@@ -1,2 +1,6 @@
 # wiloon.com
-    ls -lR /home/wiloon/projects/wiloon.com/content/post |grep '\.md'|wc -l
+    ls -lR content/post |grep '\.md'|wc -l
+
+### history
+- 2021-05-08 16:41:28 3222
+- 

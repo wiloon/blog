@@ -6,6 +6,8 @@ date: 2017-03-24T15:52:22+00:00
 url: /?p=9925
 
 ---
+https://xie.infoq.cn/article/cef6d2931a54f85142d863db7
+
 ### 调度器
 
 ### 进程
@@ -115,8 +117,6 @@ Goroutine是Golang中轻量级线程的实现，由Go Runtime管理。Golang在�
 产生器: 它有助于输入／输出和对数据结构的通用遍历。
   
 颜开总结的支持协程的常见的语言和平台，可做参考，但应深入调研下才好。
-  
- 
 
 四、go中的Goroutine
 
