@@ -12,7 +12,7 @@ http://blog.csdn.net/xlgen157387/article/details/50767725
   
 http://blog.51cto.com/janephp/1318705
 
-减少碎片：
+减少碎片: 
   
 合适的query_cache_min_res_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query_cache_size - Qcache_free_memory）除以Qcache_queries_in_cache计算平均缓存大小。
   
@@ -24,7 +24,7 @@ Qcache_lowmem_prunes却不断增加，则说明碎片太多了。可以使用flu
 
 产品中有一张图片表pics，数据量将近100万条，有一条相关的查询语句，由于执行频次较高，想针对此语句进行优化
 
-表结构很简单，主要字段：
+表结构很简单，主要字段: 
 
 user_id 用户ID
   
@@ -32,7 +32,7 @@ picname 图片名称
   
 smallimg 小图名称
   
-一个用户会有多条图片记录，现在有一个根据user_id建立的索引：uid，查询语句也很简单：取得某用户的图片集合：
+一个用户会有多条图片记录，现在有一个根据user_id建立的索引: uid，查询语句也很简单: 取得某用户的图片集合: 
 
 select picname, smallimg from pics where user_id = xxx;
   
@@ -44,7 +44,7 @@ select SQL_NO_CACHE picname, smallimg from pics where user_id=17853;
   
 执行了10次，平均耗时在40ms左右
 
-使用explain进行分析：
+使用explain进行分析: 
 
 explain select SQL_NO_CACHE picname, smallimg from pics where user_id=17853
   
@@ -56,7 +56,7 @@ explain select SQL_NO_CACHE picname, smallimg from pics where user_id=17853
 
 因为这个语句太简单，sql本身没有什么优化空间，就考虑了索引
 
-修改索引结构，建立一个(user_id,picname,smallimg)的联合索引：uid_pic
+修改索引结构，建立一个(user_id,picname,smallimg)的联合索引: uid_pic
 
 重新执行10次，平均耗时降到了30ms左右
 
@@ -80,7 +80,7 @@ MySQL只需要通过索引就可以返回查询所需要的数据，而不必在
 
 一、Mysql缓存，SQL_NO_CACHE和SQL_CACHE 的区别
 
-上边在进行测试的时候，为了防止读取缓存造成对实验结果的影响使用到了SQL_NO_CACHE这个功能，对于SQL_NO_CACHE的介绍官网如下：
+上边在进行测试的时候，为了防止读取缓存造成对实验结果的影响使用到了SQL_NO_CACHE这个功能，对于SQL_NO_CACHE的介绍官网如下: 
 
 SQL_NO_CACHE means that the query result is not cached. It does not mean that the cache is not used to answer the query.
 
@@ -92,11 +92,11 @@ You may use RESET QUERY CACHE to remove all queries from the cache and then your
 
 还有就是，mysql本身是有对sql语句缓存的机制的，合理设置我们的mysql缓存可以降低数据库的io资源，因此，这里我们有必要再看一下如何控制这个比较安逸的功能。
 
-看图如下：
+看图如下: 
 
 这里写图片描述
 
-其中各项的含义为：
+其中各项的含义为: 
 
 have_query_cache
   
@@ -128,7 +128,7 @@ query_cache_type
 
 3.内存块的概念
 
-先看下这个：
+先看下这个: 
 
 这里写图片描述
 
@@ -150,13 +150,13 @@ Qcache_not_cached 表示没有进入查询缓存区的查询命令个数
 
 Qcache_queries_in_cache 查询缓存区当前缓存着多少条查询命令的结果
 
-优化提示：
+优化提示: 
 
 如果Qcache_lowmem_prunes 值比较大，表示查询缓存区大小设置太小，需要增大。
 
 如果Qcache_free_blocks 较多，表示内存碎片较多，需要清理，flush query cache
 
-关于query_cache_min_res_unit大小的调优，书中给出了一个计算公式，可以供调优设置参考：
+关于query_cache_min_res_unit大小的调优，书中给出了一个计算公式，可以供调优设置参考: 
 
 query_cache_min_res_unit = (query_cache_size - Qcache_free_memory) /Qcache_queries_in_cache
   
@@ -166,37 +166,37 @@ query_cache_min_res_unit = (query_cache_size - Qcache_free_memory) /Qcache_queri
   
 对于那些变化不频繁的表，查询操作很固定，我们可以将该查询操作缓存起来，这样每次执行的时候不实际访问表和执行查询，只是从缓存获得结果，可以有效地改善查询的性能，使用 SQL_CACHE 选项。
   
-下面是使用 SQL_NO_CACHE 和 SQL_CACHE 的例子：
+下面是使用 SQL_NO_CACHE 和 SQL_CACHE 的例子: 
 
 mysql> select sql_no_cache id,name from test3 where id < 2;
   
 mysql> select sql_cache id,name from test3 where id < 2;
   
-注意：查询缓存的使用还需要配合相应得服务器参数的设置。
+注意: 查询缓存的使用还需要配合相应得服务器参数的设置。
 
 二、覆盖索引（偷懒整理一下，来自百度百科）
 
-理解方式一：就是select的数据列只用从索引中就能够取得，不必读取数据行，换句话说查询列要被所建的索引覆盖。
+理解方式一: 就是select的数据列只用从索引中就能够取得，不必读取数据行，换句话说查询列要被所建的索引覆盖。
 
-理解方式二：索引是高效找到行的一个方法，但是一般数据库也能使用索引找到一个列的数据，因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据；当能通过读取索引就可以得到想要的数据，那就不需要读取行了。一个索引包含了（或覆盖了）满足查询结果的数据就叫做覆盖索引。
+理解方式二: 索引是高效找到行的一个方法，但是一般数据库也能使用索引找到一个列的数据，因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据；当能通过读取索引就可以得到想要的数据，那就不需要读取行了。一个索引包含了（或覆盖了）满足查询结果的数据就叫做覆盖索引。
 
-理解方式三：是非聚集复合索引的一种形式，它包括在查询里的Select、Join和Where子句用到的所有列（即建索引的字段正好是覆盖查询条件中所涉及的字段，也即，索引包含了查询正在查找的数据）。
+理解方式三: 是非聚集复合索引的一种形式，它包括在查询里的Select、Join和Where子句用到的所有列（即建索引的字段正好是覆盖查询条件中所涉及的字段，也即，索引包含了查询正在查找的数据）。
 
-作用：
+作用: 
 
 如果你想要通过索引覆盖select多列，那么需要给需要的列建立一个多列索引，当然如果带查询条件，where条件要求满足最左前缀原则。
 
 Innodb的辅助索引叶子节点包含的是主键列，所以主键一定是被索引覆盖的。
 
-（1）例如，在sakila的inventory表中，有一个组合索引(store_id,film_id)，对于只需要访问这两列的查 询，MySQL就可以使用索引，如下：
+（1）例如，在sakila的inventory表中，有一个组合索引(store_id,film_id)，对于只需要访问这两列的查 询，MySQL就可以使用索引，如下: 
 
 mysql> EXPLAIN SELECT store_id, film_id FROM sakila.inventory\G
   
-（2）再比如说在文章系统里分页显示的时候，一般的查询是这样的：
+（2）再比如说在文章系统里分页显示的时候，一般的查询是这样的: 
 
 SELECT id, title, content FROM article ORDER BY created DESC LIMIT 10000, 10;
   
-通常这样的查询会把索引建在created字段（其中id是主键），不过当LIMIT偏移很大时，查询效率仍然很低，改变一下查询：
+通常这样的查询会把索引建在created字段（其中id是主键），不过当LIMIT偏移很大时，查询效率仍然很低，改变一下查询: 
 
 SELECT id, title, content FROM article
   
@@ -208,4 +208,4 @@ SELECT id FROM article ORDER BY created DESC LIMIT 10000, 10
   
 此时，建立复合索引"created, id"（只要建立created索引就可以吧，Innodb是会在辅助索引里面存储主键值的），就可以在子查询里利用上Covering Index，快速定位id，查询效率嗷嗷的
 
-注：本文是参考《Mysql性能优化案例 - 覆盖索引》 的一篇文章借题发挥，参考了原文的知识点，自己做了一点的发挥和研究，原文被多次转载，不知作者何许人也，也不知出处在哪个，如需原文请自行搜索。
+注: 本文是参考《Mysql性能优化案例 - 覆盖索引》 的一篇文章借题发挥，参考了原文的知识点，自己做了一点的发挥和研究，原文被多次转载，不知作者何许人也，也不知出处在哪个，如需原文请自行搜索。

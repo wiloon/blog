@@ -15,7 +15,7 @@ Port 22
 port用来设置sshd监听的端口，为了安全起见，建议更改默认的22端口为5位以上陌生端口
 
 AddressFamily
-指定 sshd(8) 应当使用哪种地址族。取值范围是："any"(默认)、"inet"(仅IPv4)、"inet6"(仅IPv6)。
+指定 sshd(8) 应当使用哪种地址族。取值范围是: "any"(默认)、"inet"(仅IPv4)、"inet6"(仅IPv6)。
   
 #ListenAddress 0.0.0.0
   
@@ -38,20 +38,20 @@ SSH-2默认是 /etc/ssh/ssh_host_rsa_key 和 /etc/ssh/ssh_host_dsa_key 。
 一台主机可以拥有多个不同的私钥。"rsa1"仅用于SSH-1，"dsa"和"rsa"仅用于SSH-2。
 
 ### PermitRootLogin
-是否允许 root 登录。可用值如下：
+是否允许 root 登录。可用值如下: 
 默认值是"prohibit-password"
 如果这个选项设置为"prohibit-password"、"without-password"，通过密码和键盘交互的授权方式对 root 用户禁用。
 
 - "without-password"表示禁止使用密码认证登录。
 - "forced-commands-only"表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
-- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式：用户名密码认证，公钥认证）
+- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证，公钥认证）
 
 
 AuthorizedKeysFile
   
 存放该用户可以用来登录的 RSA/DSA 公钥。
   
-该指令中可以使用下列根据连接时的实际情况进行展开的符号：
+该指令中可以使用下列根据连接时的实际情况进行展开的符号: 
   
 %% 表示'%'、%h 表示用户的主目录、%u 表示该用户的用户名。
   
@@ -83,7 +83,7 @@ AllowUsers
                
 如果指定了 USER@HOST 模式的用户，那么 USER 和 HOST 将同时被检查。
                
-这里只允许使用用户的名字而不允许使用UID。相关的 allow/deny 指令按照下列顺序处理：
+这里只允许使用用户的名字而不允许使用UID。相关的 allow/deny 指令按照下列顺序处理: 
                
 DenyUsers, AllowUsers, DenyGroups, AllowGroups
 

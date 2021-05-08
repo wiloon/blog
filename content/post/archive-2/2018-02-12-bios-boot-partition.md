@@ -38,8 +38,8 @@ bios boot分区的大小非常小，可以小到只有31kB(由于第一个扇区
 
 在Example 2中，grub 2在bios boot分区中存储它的core.img。
 
-[译注1]gnu grub：现在使用的grub都是gnu山寨出来的grub，原始的grub早已消失在历史中。
+[译注1]gnu grub: 现在使用的grub都是gnu山寨出来的grub，原始的grub早已消失在历史中。
 
-[译注2]：也就是bios MBR和gpt混用的模式。
+[译注2]: 也就是bios MBR和gpt混用的模式。
 
-转载请注明出处：http://www.cnblogs.com/f-ck-need-u/p/7084627.html
+转载请注明出处: http://www.cnblogs.com/f-ck-need-u/p/7084627.html

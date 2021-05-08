@@ -20,16 +20,16 @@ Redmine默认使用Textile作为wiki的文本格式过滤器, 当然你也可以
 
 Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面的超链接。
 
-  * 链接到问题： #124 (显示 #124, 如果此问题已经关闭则显示删除线)
-  * 链接到变更集：r758 (显示 r758)
-  * 使用非数字的哈希值链接到变更集： commit:c6f4d0fd(显示c6f4d0fd)。该特征出现在主线 1236。
+  * 链接到问题:  #124 (显示 #124, 如果此问题已经关闭则显示删除线)
+  * 链接到变更集: r758 (显示 r758)
+  * 使用非数字的哈希值链接到变更集:  commit:c6f4d0fd(显示c6f4d0fd)。该特征出现在主线 1236。
 
 
 ### wiki链接
 
-  * [[Guide]] 显示一个链接到"Guide"的链接：Guide
-  * [[Guide|Use manual]] 显示指向同一页面的链接，链接显示的文本是：Use manual
-  * [[Guide#Use-guide|Use guide]] 显示指向同一页面头的链接，链接显示的文本是：Use guide
+  * [[Guide]] 显示一个链接到"Guide"的链接: Guide
+  * [[Guide|Use manual]] 显示指向同一页面的链接，链接显示的文本是: Use manual
+  * [[Guide#Use-guide|Use guide]] 显示指向同一页面头的链接，链接显示的文本是: Use guide
 
 
 ### 可以加入指向其它项目wiki页面的链接
@@ -37,18 +37,18 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
   * [[sandbox:some page]] 显示一个指向Sandbox项目名称为"Some page"的wiki页面的链接。
   * [[sandbox:]] 显示一个指向Sandbox项目Wiki主页面的链接。
 
-如果Wiki还不存在，则连接将显示为红色，例如： Nonexistent page.
+如果Wiki还不存在，则连接将显示为红色，例如:  Nonexistent page.
 
 
-### 链接到其他资源：
+### 链接到其他资源: 
 
-**文档：**
+**文档: **
 
   * document#17 (链接到ID为17的文档）
   * document:Geetings (链接到标题为"Geetings"的文档）
   * document:"Some document" (当文档标题含有空格时需要使用双引号）
 
-**版本：**
+**版本: **
 
   * vesion#3 (链接到ID为3的版本)
   * vesion:1.0.0 (链接到名称为"1.0.0"的版本)
@@ -70,7 +70,7 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
 
 **转意字符:**
 
-如果您不希望Redmine将上述标记解释为链接，可以在它们前面添加一个感叹号：!
+如果您不希望Redmine将上述标记解释为链接，可以在它们前面添加一个感叹号: !
 
 
 ### 外部链接

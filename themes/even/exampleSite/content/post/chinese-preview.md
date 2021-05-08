@@ -13,7 +13,7 @@ contentCopyright: '<a rel="license noopener" href="https://en.wikipedia.org/wiki
 
 >《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。
 
-# 第一段：贵妃受宠爱
+# 第一段: 贵妃受宠爱
 
 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。
 
@@ -31,7 +31,7 @@ contentCopyright: '<a rel="license noopener" href="https://en.wikipedia.org/wiki
 
 缓歌慢舞凝丝竹，尽日君王看不足。渔阳鼙鼓动地来，惊破霓裳羽衣曲。
 
-# 第二段：马嵬惊变
+# 第二段: 马嵬惊变
 
 九重城阙烟尘生，千乘万骑西南行。翠华摇摇行复止，西出都门百余里。
 
@@ -43,7 +43,7 @@ contentCopyright: '<a rel="license noopener" href="https://en.wikipedia.org/wiki
 
 行宫见月伤心色，夜雨闻铃肠断声。
 
-# 第三段：玄宗皇帝思念
+# 第三段: 玄宗皇帝思念
 
 天旋地转回龙驭，到此踌躇不能去。马嵬坡下泥土中，不见玉颜空死处。
 
@@ -57,7 +57,7 @@ contentCopyright: '<a rel="license noopener" href="https://en.wikipedia.org/wiki
 
 鸳鸯瓦冷霜华重，翡翠衾寒谁与共。悠悠生死别经年，魂魄不曾来入梦。
 
-# 第四段：仙界寻妃
+# 第四段: 仙界寻妃
 
 临邛道士鸿都客，能以精诚致魂魄。为感君王辗转思，遂教方士殷勤觅。
 

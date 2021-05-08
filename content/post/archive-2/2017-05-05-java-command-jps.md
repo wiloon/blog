@@ -11,7 +11,7 @@ jps位于jdk的bin目录下，其作用是显示当前系统的java进程情况�
     -h: help
     -l: 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名
     -m: 输出传递给main 方法的参数，在嵌入式jvm上可能是null， 在这里，在启动main方法的时候，我给String[] args传递两个参数。hollis,chuang,执行jsp -m:
-    -v: 输出传递给JVM的参数 在这里，在启动main方法的时候，我给jvm传递一个参数：-Dfile.encoding=UTF-8,执行jps -v：
+    -v: 输出传递给JVM的参数 在这里，在启动main方法的时候，我给jvm传递一个参数: -Dfile.encoding=UTF-8,执行jps -v: 
 
 
 
@@ -27,7 +27,7 @@ jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当�
 
 原理
 
-jdk中的jps命令可以显示当前运行的java进程以及相关参数，它的实现机制如下：
+jdk中的jps命令可以显示当前运行的java进程以及相关参数，它的实现机制如下: 
   
 java程序在启动以后，会在java.io.tmpdir指定的目录下，就是临时文件夹里，生成一个类似于hsperfdata_User的文件夹，这个文件夹里（在Linux中为/tmp/hsperfdata_{userName}/），有几个文件，名字就是java进程的pid，因此列出当前运行的java进程，只是把这个目录里的文件名列一下而已。 至于系统的参数什么，就可以解析这几个文件获得。
 
@@ -47,7 +47,7 @@ drwxrwxrwt 7 root root 12288 4月 16 10:56 ../
   
 hollis@hos:/tmp/hsperfdata_hollis$
   
-上面的内容就是我机器中/tmp/hsperfdata_hollis目录下的内容，其中2679就是我机器上当前运行中的java的进程的pid，我们执行jps验证一下：
+上面的内容就是我机器中/tmp/hsperfdata_hollis目录下的内容，其中2679就是我机器上当前运行中的java的进程的pid，我们执行jps验证一下: 
 
 hollis@hos:/tmp/hsperfdata_hollis$ jps
   
@@ -59,7 +59,7 @@ hollis@hos:/tmp/hsperfdata_hollis$ jps
 
 使用
 
-想要学习一个命令，先来看看帮助，使用jps -help查看帮助：
+想要学习一个命令，先来看看帮助，使用jps -help查看帮助: 
 
 hollis@hos:/tmp/hsperfdata_hollis$ jps -help
   
@@ -71,7 +71,7 @@ Definitions:
       
 <hostid>: <hostname>[:<port>]
   
-接下来，为了详细介绍这些参数，我们编写几个类，在main方法里写一个while(true)的循环，查看java进程情况。代码如下：
+接下来，为了详细介绍这些参数，我们编写几个类，在main方法里写一个while(true)的循环，查看java进程情况。代码如下: 
 
 package com.JavaCommand;
   
@@ -119,7 +119,7 @@ hollis@hos:/tmp/hsperfdata_hollis$ jps -l
   
 12329 com.JavaCommand.JpsDemo
   
--v 输出传递给JVM的参数 在这里，在启动main方法的时候，我给jvm传递一个参数：-Dfile.encoding=UTF-8,执行jps -v：
+-v 输出传递给JVM的参数 在这里，在启动main方法的时候，我给jvm传递一个参数: -Dfile.encoding=UTF-8,执行jps -v: 
 
 hollis@hos:/tmp/hsperfdata_hollis$ jps -v
   
@@ -135,11 +135,11 @@ jps是我最常用的java命令。使用jps可以查看当前有哪些Java进程
 
 JPS失效处理
 
-现象： 用ps -ef|grep java能看到启动的java进程，但是用jps查看却不存在该进程的id。待会儿解释过之后就能知道在该情况下，jconsole、jvisualvm可能无法监控该进程，其他java自带工具也可能无法使用
+现象:  用ps -ef|grep java能看到启动的java进程，但是用jps查看却不存在该进程的id。待会儿解释过之后就能知道在该情况下，jconsole、jvisualvm可能无法监控该进程，其他java自带工具也可能无法使用
 
-分析： jps、jconsole、jvisualvm等工具的数据来源就是这个文件（/tmp/hsperfdata_userName/pid)。所以当该文件不存在或是无法读取时就会出现jps无法查看该进程号，jconsole无法监控等问题
+分析:  jps、jconsole、jvisualvm等工具的数据来源就是这个文件（/tmp/hsperfdata_userName/pid)。所以当该文件不存在或是无法读取时就会出现jps无法查看该进程号，jconsole无法监控等问题
 
-原因：
+原因: 
 
 （1）、磁盘读写、目录权限问题 若该用户没有权限写/tmp目录或是磁盘已满，则无法创建/tmp/hsperfdata_userName/pid文件。或该文件已经生成，但用户没有读权限
 
@@ -149,7 +149,7 @@ JPS失效处理
 
 （3）、java进程信息文件存储地址被设置，不在/tmp目录下 上面我们在介绍时说默认会在/tmp/hsperfdata_userName目录保存进程信息，但由于以上1、2所述原因，可能导致该文件无法生成或是丢失，所以java启动时提供了参数(-Djava.io.tmpdir)，可以对这个文件的位置进行设置，而jps、jconsole都只会从/tmp目录读取，而无法从设置后的目录读物信息，这是我第二次碰到该现象的原因
 
-附：
+附: 
 
 1.如何给main传递参数 在eclipse中，鼠标右键->Run As->Run COnfiguations->Arguments->在Program arguments中写下要传的参数值
 

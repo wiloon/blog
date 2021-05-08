@@ -11,11 +11,11 @@ JadClipse是Jad的Eclipse插件
 ### jad
 jad是一款使用非常广泛地Java反编译工具，上面这款Jadclipse就是基于jad的反编译插件，JAD 文件包含 MIDlet 套件的标题信息，例如开发应用程序的公司、应用程序名称和大小。
 
-官方网站：http://varaneckas.com/jad/
+官方网站: http://varaneckas.com/jad/
 ### JD-GUI
 JD-GUI 是一个用 C++ 开发的 Java 反编译工具，由 Pavel Kouznetsov开发，支持Windows、Linux和苹果Mac Os三个平台。而且提供了Eclipse平台下的插件JD-Eclipse。JD-GUI不需要安装，直接点击运行，可以反编译jar,class文件。
 
-官方网站：http://jd.benow.ca/
+官方网站: http://jd.benow.ca/
 
 ### jdec
 http://jdec.sourceforge.net/
@@ -41,7 +41,7 @@ http://jd.benow.ca/
 1、异常错误
 
 
-反编译之后出入类似如下代码：
+反编译之后出入类似如下代码: 
 
 
 DocumentException e;
@@ -110,7 +110,7 @@ _L2:
 g.dispose();
 
 
-上面的代码实际上就是如下的代码：
+上面的代码实际上就是如下的代码: 
 
 
 i=0;
@@ -185,7 +185,7 @@ this.sRand += rand;
 (new StringBuilder(String.valueOf(prefix))).append(file).toString();
 
 
-上面的这种代码，实际代码如下：
+上面的这种代码，实际代码如下: 
 
 
 prefix + file
@@ -224,7 +224,7 @@ if(iter.hasNext()) goto _L3; else goto _L2
 上面的代码可以利用类型2来翻译出来，但是这里会有个地方需要修改，那就是if必须换成while，而else中是一些异常处理而已。这里常见的隐含问题在于，在代码段L3中，常常含有break，continue等跳转语句，一定要分析清楚，不然很容易出现难以排查的逻辑错误，使得反编译出来的代码运行结果不正确。
 
 
-还原之后的代码如下：
+还原之后的代码如下: 
 
 
 try {
@@ -248,7 +248,7 @@ e.printStackTrace();
 }
 
 
-还有一种没有错误的译法如下：
+还有一种没有错误的译法如下: 
 
 
 for(Iterator iterrisk = tRiskLIst.iterator(); iterrisk.hasNext();)
@@ -260,7 +260,7 @@ for(Iterator iterrisk = tRiskLIst.iterator(); iterrisk.hasNext();)
 }
 
 
-这种译法没有错误，只不过是看着不习惯而已，原程序程序通常如下：
+这种译法没有错误，只不过是看着不习惯而已，原程序程序通常如下: 
 
 
 Iterator iterrisk = tRiskLIst.iterator();

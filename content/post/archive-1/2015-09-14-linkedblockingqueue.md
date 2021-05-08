@@ -26,17 +26,17 @@ LinkedBlockingQueue
   
 2:此对象是 线程阻塞-安全的
   
-3：不接受 null 元素
+3: 不接受 null 元素
   
 4:它实现了BlockingQueue接口。
   
 5:实现了 Collection 和 Iterator 接口的所有可选 方法。
   
-6：在JDK5/6中，LinkedBlockingQueue和ArrayBlocingQueue等对象的poll(long timeout, TimeUnit unit)存在内存泄露Leak的对象AbstractQueuedSynchronizer.Node，据称JDK5会在Update12里Fix，JDK6会在Update2里Fix
+6: 在JDK5/6中，LinkedBlockingQueue和ArrayBlocingQueue等对象的poll(long timeout, TimeUnit unit)存在内存泄露Leak的对象AbstractQueuedSynchronizer.Node，据称JDK5会在Update12里Fix，JDK6会在Update2里Fix
   
-下面介绍几种常用的方法：
+下面介绍几种常用的方法: 
 
-定义一个输出方法：
+定义一个输出方法: 
 
 static void v(Object s){System.out.println(s.toString());}
   
@@ -64,7 +64,7 @@ bq.clear() 从队列彻底移除所有元素。
 
 bq.peek()检索，但是不移除此队列的头，如果此队列为空，则返回 null。
 
-//区别一下几种方法：
+//区别一下几种方法: 
 
 1.　offer(E e) offer(E e,long timeout,TimeUnit unit)
 
@@ -88,11 +88,11 @@ LinkedBlockingQueue的put,add和offer的区别
   
 最近在学习<<Java并发编程实践>>，有很多java.util.concurrent包下的新类。LinkedBlockingQueue就是其中之一，顾名思义这是一个阻塞的线程安全的队列，底层应该采用链表实现。
 
-看其API的时候发现，添加元素的方法竟然有三个：add,put,offer。
+看其API的时候发现，添加元素的方法竟然有三个: add,put,offer。
 
 且这三个元素都是向队列尾部添加元素的意思。于是我产生了兴趣，要仔细探究一下他们之间的差别。
 
-1.首先看一下add方法：
+1.首先看一下add方法: 
 
 Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
 
@@ -100,7 +100,7 @@ This implementation returns true if offer succeeds, else throws an IllegalStateE
 
 LinkedBlockingQueue构造的时候若没有指定大小，则默认大小为Integer.MAX_VALUE，当然也可以在构造函数的参数中指定大小。LinkedBlockingQueue不接受null。
 
-add方法在添加元素的时候，若超出了度列的长度会直接抛出异常：
+add方法在添加元素的时候，若超出了度列的长度会直接抛出异常: 
 
 public static void main(String args[]){
   
@@ -124,7 +124,7 @@ e.printStackTrace();
   
 }
   
-//运行结果：
+//运行结果: 
   
 java.lang.IllegalStateException: Queue full
   
@@ -132,7 +132,7 @@ at java.util.AbstractQueue.add(Unknown Source)
   
 at com.wjy.test.GrandPather.main(GrandPather.java:12)
   
-2.再来看一下put方法：
+2.再来看一下put方法: 
 
 Inserts the specified element at the tail of this queue, waiting if necessary for space to become available.
 
@@ -162,13 +162,13 @@ e.printStackTrace();
   
 }
   
-//运行结果：
+//运行结果: 
   
 //在queue.put("yes")处发生阻塞
   
 //下面的"yes"无法输出
 
-3.最后看一下offer方法：
+3.最后看一下offer方法: 
 
 Inserts the specified element at the tail of this queue if it is possible to do so immediately without exceeding the queue's capacity, returning true upon success and false if this queue is full. When using a capacity-restricted queue, this method is generally preferable to method add, which can fail to insert an element only by throwing an exception.
 
@@ -204,7 +204,7 @@ e.printStackTrace();
   
 }
   
-//运行结果：
+//运行结果: 
   
 [hello, world]
   
@@ -216,7 +216,7 @@ false
   
 好了，竟然说了这么多了，就把从队列中取元素的方法也顺便一说。
 
-从队列中取出并移除头元素的方法有：poll，remove，take。
+从队列中取出并移除头元素的方法有: poll，remove，take。
   
 poll: 若队列为空，返回null。
 

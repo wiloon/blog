@@ -39,7 +39,7 @@ journalctl --disk-usage
 
 journalctl --vacuum-time=2d
 
-#如果使用–vacuum-size选项，则可硬性指定日志的总体体积，意味着其会不断删除旧有记录直到所占容量符合要求：
+#如果使用–vacuum-size选项，则可硬性指定日志的总体体积，意味着其会不断删除旧有记录直到所占容量符合要求: 
 sudo journalctl --vacuum-size=1G
 
 # 修改配置文件之后需要重启
@@ -48,7 +48,7 @@ systemctl restart systemd-journald.service
 #检查journal是否运行正常以及日志文件是否完整无损坏
 journalctl --verify
 
-显示特地时间区间内的日志：
+显示特地时间区间内的日志: 
 
 #journalctl --since=yesterday
 #journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
@@ -59,7 +59,7 @@ journalctl --verify
 显示特定进程的所有消息:
 
 # journalctl _PID=1
-显示与指定用户相关的日志：
+显示与指定用户相关的日志: 
 
 # journalctl _UID=70
 # journalctl _UID=70 _UID=71
@@ -74,7 +74,7 @@ $ sudo journalctl --vacuum-time=1years
 
 大家可以配置自己的服务器以限定journal所能占用的最高容量。要实现这一点，我们需要编辑/etc/systemd/journald.conf文件。
 
-以下条目可用于限定journal体积的膨胀速度：
+以下条目可用于限定journal体积的膨胀速度: 
 
 SystemMaxUse=: 指定journal所能使用的最高持久存储容量。
   
@@ -96,7 +96,7 @@ systemd journal本身未提供日志分发功能。
   
 另外在systemd-193添加了systemd-journal-gatewayd.service，服务器开启此服务之后，将监听本地19531端口，其他机器可通过HTTP或JSON协议访问服务器得到后者日志，详细介绍(登录验证等)请查看systemd-journal-gatewayd.service。
   
-注：systemd-212引入了 systemd-journal-remote >systemd-journal-remote is a command to receive serialized journal events and store them to the journal.
+注: systemd-212引入了 systemd-journal-remote >systemd-journal-remote is a command to receive serialized journal events and store them to the journal.
 
 <blockquote data-secret="ObA611VJvT" class="wp-embedded-content">
   

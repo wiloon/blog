@@ -8,6 +8,6 @@ categories:
   - DataBase
 
 ---
-需要在SQL*PLUS环境中设定如下命令：
+需要在SQL*PLUS环境中设定如下命令: 
   
 SQLPLUS> set serveroutput on

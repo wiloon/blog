@@ -40,13 +40,13 @@ top.window.location.href("${pageContext.request.contextPath}/Login_goBack");
 
 二、window.location.href和window.location.replace的区别
 
-1.window.location.href="url"：改变url地址；
+1.window.location.href="url": 改变url地址；
 
 2.
 
 三、强制页面刷新
 
-1.window.location.reload()：强制刷新页面，从服务器重新请求！
+1.window.location.reload(): 强制刷新页面，从服务器重新请求！
 
 ============================================================================================
 
@@ -80,7 +80,7 @@ window.close()相当于self属性是当前窗口
   
 window.parent.close()是parent属性是当前窗口或框架的框架组
   
-页面实现跳转的九种方法实例：
+页面实现跳转的九种方法实例: 
   
 <html>
   
@@ -150,7 +150,7 @@ setTimeout('location.replace("top.html")',2000);
   
 </html>
 
-解释：
+解释: 
   
 location是个对象，比如本页的document.location和window.location的属性有
   

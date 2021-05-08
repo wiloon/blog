@@ -17,7 +17,7 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
   
 由于红黑树本质上就是一棵二叉查找树，所以在了解红黑树之前，咱们先来看下二叉查找树。
 
-二叉查找树（Binary Search Tree），也称有序二叉树（ordered binary tree）,排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：
+二叉查找树（Binary Search Tree），也称有序二叉树（ordered binary tree）,排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树: 
 
 若任意结点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；
   
@@ -35,7 +35,7 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
   
 前面我们已经说过，红黑树，本质上来说就是一棵二叉查找树，但它在二叉查找树的基础上增加了着色和相关的性质使得红黑树相对平衡，从而保证了红黑树的查找、插入、删除的时间复杂度最坏为O(log n)。
 
-但它是如何保证一棵n个结点的红黑树的高度始终保持在h = logn的呢？这就引出了红黑树的5条性质：
+但它是如何保证一棵n个结点的红黑树的高度始终保持在h = logn的呢？这就引出了红黑树的5条性质: 
 
 1）每个结点要么是红的，要么是黑的。
   

@@ -16,7 +16,7 @@ AQS 和 synchronized
   
 在介绍 AQS 的使用之前，需要首先说明一点，AQS 同步和 synchronized 关键字同步（以下简称 synchronized 同步）是采用的两种不同的机制。首先看下 synchronized 同步，synchronized 关键字经过编译之后，会在同步块的前后分别形成 monitorenter 和 monitorexit 这两个字节码指令，这两个字节码需要关联到一个监视对象，当线程执行 monitorenter 指令时，需要首先获得获得监视对象的锁，这里监视对象锁就是进入同步块的凭证，只有获得了凭证才可以进入同步块，当线程离开同步块时，会执行 monitorexit 指令，释放对象锁。
 
-在 AQS 同步中，使用一个 int 类型的变量 state 来表示当前同步块的状态。以独占式同步（一次只能有一个线程进入同步块）为例，state 的有效值有两个 0 和 1，其中 0 表示当前同步块中没有线程，1 表示同步块中已经有线程在执行。当线程要进入同步块时，需要首先判断 state 的值是否为 0，假设为 0，会尝试将 state 修改为 1，只有修改成功了之后，线程才可以进入同步块。注意上面提到的两个条件：
+在 AQS 同步中，使用一个 int 类型的变量 state 来表示当前同步块的状态。以独占式同步（一次只能有一个线程进入同步块）为例，state 的有效值有两个 0 和 1，其中 0 表示当前同步块中没有线程，1 表示同步块中已经有线程在执行。当线程要进入同步块时，需要首先判断 state 的值是否为 0，假设为 0，会尝试将 state 修改为 1，只有修改成功了之后，线程才可以进入同步块。注意上面提到的两个条件: 
 
 state 为 0，证明当前同步块中没有线程在执行，所以当前线程可以尝试获得进入同步块的凭证，而这里的凭证就是是否成功将 state 修改为 1（在 synchronized 同步中，我们说的凭证是对象锁，但是对象锁的最终实现是否和这种方式类似，没有找到相关的资料）
   
@@ -28,7 +28,7 @@ state 为 0，证明当前同步块中没有线程在执行，所以当前线程
   
 本节摘自 Java 并发编程的艺术
 
-AQS 的设计是基于模板方法的，使用者需要继承 AQS 并重写指定的方法。在后续的流程中，AQS 提供的模板方法会调用重写的方法。一般来说，我们需要重写的方法主要有下面 5 个：
+AQS 的设计是基于模板方法的，使用者需要继承 AQS 并重写指定的方法。在后续的流程中，AQS 提供的模板方法会调用重写的方法。一般来说，我们需要重写的方法主要有下面 5 个: 
 
 方法名称 描述
   
@@ -42,7 +42,7 @@ protected boolean tryReleaseShared(int) 共享式释放锁
   
 protected boolean isHeldExclusively() 判断调用该方法的线程是否持有互斥锁
   
-在自定义的同步组件中，我们一般会调用 AQS 提供的模板方法。AQS 提供的模板方法基本上分为 3 类： 独占式获取与释放锁、共享式获取与释放锁以及查询同步队列中的等待线程情况。下面是相关的模板方法：
+在自定义的同步组件中，我们一般会调用 AQS 提供的模板方法。AQS 提供的模板方法基本上分为 3 类:  独占式获取与释放锁、共享式获取与释放锁以及查询同步队列中的等待线程情况。下面是相关的模板方法: 
 
 方法名称 描述
   
@@ -64,7 +64,7 @@ boolean releaseShared(int) 共享式释放锁
   
 Collection getQueuedThreads() 获得同步队列中等待的线程集合
   
-自定义组件通过使用同步器提供的模板方法来实现自己的同步语义。下面我们通过两个示例，看下如何借助于 AQS 来实现锁的同步语义。我们首先实现一个独占锁（排它锁），独占锁就是说在某个时刻内，只能有一个线程持有独占锁，只有持有锁的线程释放了独占锁，其他线程才可以获取独占锁。下面是具体实现：
+自定义组件通过使用同步器提供的模板方法来实现自己的同步语义。下面我们通过两个示例，看下如何借助于 AQS 来实现锁的同步语义。我们首先实现一个独占锁（排它锁），独占锁就是说在某个时刻内，只能有一个线程持有独占锁，只有持有锁的线程释放了独占锁，其他线程才可以获取独占锁。下面是具体实现: 
 
 import java.util.concurrent.TimeUnit;
   
@@ -376,7 +376,7 @@ Thread-1: j =60000
   
 Thread-1: j =80000
   
-下面在看一个共享锁的示例。在该示例中，我们定义两个共享资源，即同一时间内允许两个线程同时执行。我们将同步变量的初始状态 state 设为 2，当一个线程获取了共享锁之后，将 state 减 1，线程释放了共享锁后，将 state 加 1。状态的合法范围是 0、1 和 2，其中 0 表示已经资源已经用光了，此时线程再要获得共享锁就需要进入同步序列等待。下面是具体实现：
+下面在看一个共享锁的示例。在该示例中，我们定义两个共享资源，即同一时间内允许两个线程同时执行。我们将同步变量的初始状态 state 设为 2，当一个线程获取了共享锁之后，将 state 减 1，线程释放了共享锁后，将 state 加 1。状态的合法范围是 0、1 和 2，其中 0 表示已经资源已经用光了，此时线程再要获得共享锁就需要进入同步序列等待。下面是具体实现: 
 
 import java.util.concurrent.TimeUnit;
   
@@ -608,7 +608,7 @@ memory[valueAddress] = newValue;
   
 }
   
-在上面的流程中，其实涉及到了两个操作，比较以及替换，为了确保程序正确，需要确保这两个操作的原子性（也就是说确保这两个操作同时进行，中间不会有其他线程干扰）。现在的 CPU 中，提供了相关的底层 CAS 指令，即 CPU 底层指令确保了比较和交换两个操作作为一个原子操作进行（其实在这一点上还是有排他锁的. 只是比起用synchronized, 这里的排他时间要短的多.），Java 中的 CAS 函数是借助于底层的 CAS 指令来实现的。更多关于 CPU 底层实现的原理可以参考 这篇文章。我们来看下 Java 中对于 CAS 函数的定义：
+在上面的流程中，其实涉及到了两个操作，比较以及替换，为了确保程序正确，需要确保这两个操作的原子性（也就是说确保这两个操作同时进行，中间不会有其他线程干扰）。现在的 CPU 中，提供了相关的底层 CAS 指令，即 CPU 底层指令确保了比较和交换两个操作作为一个原子操作进行（其实在这一点上还是有排他锁的. 只是比起用synchronized, 这里的排他时间要短的多.），Java 中的 CAS 函数是借助于底层的 CAS 指令来实现的。更多关于 CPU 底层实现的原理可以参考 这篇文章。我们来看下 Java 中对于 CAS 函数的定义: 
 
 /**
    
@@ -646,7 +646,7 @@ public final native boolean compareAndSwapInt(Object o, long offset, int expecte
   
 public final native boolean compareAndSwapLong(Object o, long offset, long expected, long x);
   
-上面三个函数定义在 sun.misc.Unsafe 类中，使用该类可以进行一些底层的操作，例如直接操作原生内存，更多关于 Unsafe 类的文章可以参考 这篇。以 compareAndSwapInt 为例，我们看下如何使用 CAS 函数：
+上面三个函数定义在 sun.misc.Unsafe 类中，使用该类可以进行一些底层的操作，例如直接操作原生内存，更多关于 Unsafe 类的文章可以参考 这篇。以 compareAndSwapInt 为例，我们看下如何使用 CAS 函数: 
 
 import sun.misc.Unsafe;
   
@@ -726,7 +726,7 @@ System.out.println(casIntTest.count);
   
 }
   
-在 CASIntTest 类中，我们定义一个 count 变量，其中 increment 方法是将 count 的值加 1。下面是 increase 方法的代码：
+在 CASIntTest 类中，我们定义一个 count 变量，其中 increment 方法是将 count 的值加 1。下面是 increase 方法的代码: 
 
 int previous = count;
   
@@ -768,11 +768,11 @@ unsafe.compareAndSwapInt(this, offset, previous, previous + 1);
   
 public native long objectFieldOffset(Field f);
   
-下面我们再看一下 compareAndSwapInt 的函数原型。我们知道 CAS 操作需要知道 3 个信息：内存中的值，期望的旧值以及要修改的新值。通过前面的分析，我们知道通过 o 和 offset 我们可以确定属性在内存中的地址，也就是知道了属性在内存中的值。expected 对应期望的旧址，而 x 就是要修改的新值。
+下面我们再看一下 compareAndSwapInt 的函数原型。我们知道 CAS 操作需要知道 3 个信息: 内存中的值，期望的旧值以及要修改的新值。通过前面的分析，我们知道通过 o 和 offset 我们可以确定属性在内存中的地址，也就是知道了属性在内存中的值。expected 对应期望的旧址，而 x 就是要修改的新值。
 
 public final native boolean compareAndSwapInt(Object o, long offset, int expected, int x);
   
-compareAndSwapInt 函数首先比较一下 expected 是否和内存中的值相同，如果不同证明其他线程修改了属性值，那么就不会执行更新操作，但是程序如果就此返回了，似乎不太符合我们的期望，我们是希望程序可以执行更新操作的，如果其他线程先进行了更新，那么就在更新后的值的基础上进行修改，所以我们一般使用循环配合 CAS 函数，使程序在更新操作完成之后再返回，如下所示：
+compareAndSwapInt 函数首先比较一下 expected 是否和内存中的值相同，如果不同证明其他线程修改了属性值，那么就不会执行更新操作，但是程序如果就此返回了，似乎不太符合我们的期望，我们是希望程序可以执行更新操作的，如果其他线程先进行了更新，那么就在更新后的值的基础上进行修改，所以我们一般使用循环配合 CAS 函数，使程序在更新操作完成之后再返回，如下所示: 
 
 long before = counter;
   
@@ -782,7 +782,7 @@ before = counter;
   
 }
   
-下面是使用 CAS 函数实现计数器的一个实例：
+下面是使用 CAS 函数实现计数器的一个实例: 
 
 import sun.misc.Unsafe;
   
@@ -904,7 +904,7 @@ System.out.printf("CASCounter is %d \nintCounter is %d\n", casCounter.getCounter
   
 }
   
-在 AQS 中，对原始的 CAS 函数封装了一下，省去了获得变量地址的步骤，如下面的形式：
+在 AQS 中，对原始的 CAS 函数封装了一下，省去了获得变量地址的步骤，如下面的形式: 
 
 private static final long waitStatusOffset;
   
@@ -930,7 +930,7 @@ return unsafe.compareAndSwapInt(node, waitStatusOffset, expect, update);
   
 同步队列
   
-AQS 依赖内部的同步队列（一个 FIFO的双向队列）来完成同步状态的管理，当前线程获取同步状态失败时，同步器会将当前线程以及等待状态等信息构造成一个节点（Node）并将其加入同步队列，同时会阻塞当前线程，当同步状态释放时，会把队列中第一个等待节点线程唤醒（下图中的 Node1），使其再次尝试获取同步状态。同步队列的结构如下所示：
+AQS 依赖内部的同步队列（一个 FIFO的双向队列）来完成同步状态的管理，当前线程获取同步状态失败时，同步器会将当前线程以及等待状态等信息构造成一个节点（Node）并将其加入同步队列，同时会阻塞当前线程，当同步状态释放时，会把队列中第一个等待节点线程唤醒（下图中的 Node1），使其再次尝试获取同步状态。同步队列的结构如下所示: 
 
 图片来自 http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer
 
@@ -938,7 +938,7 @@ Head 节点本身不保存等待线程的信息，它通过 next 变量指向第
 
 Node 类
   
-首先看在节点所对应的 Node 类：
+首先看在节点所对应的 Node 类: 
 
 static final class Node {
       
@@ -1048,17 +1048,17 @@ this.thread = thread;
   
 }
   
-在 Node 类中定义了四种等待状态：
+在 Node 类中定义了四种等待状态: 
 
-CANCELED： 1，因为等待超时 （timeout）或者中断（interrupt），节点会被置为取消状态。处于取消状态的节点不会再去竞争锁，也就是说不会再被阻塞。节点会一直保持取消状态，而不会转换为其他状态。处于 CANCELED 的节点会被移出队列，被 GC 回收。
+CANCELED:  1，因为等待超时 （timeout）或者中断（interrupt），节点会被置为取消状态。处于取消状态的节点不会再去竞争锁，也就是说不会再被阻塞。节点会一直保持取消状态，而不会转换为其他状态。处于 CANCELED 的节点会被移出队列，被 GC 回收。
   
-SIGNAL： -1，表明当前的后继结点正在或者将要被阻塞（通过使用 LockSupport.pack 方法），因此当前的节点被释放（release）或者被取消时（cancel）时，要唤醒它的后继结点（通过 LockSupport.unpark 方法）。
+SIGNAL:  -1，表明当前的后继结点正在或者将要被阻塞（通过使用 LockSupport.pack 方法），因此当前的节点被释放（release）或者被取消时（cancel）时，要唤醒它的后继结点（通过 LockSupport.unpark 方法）。
   
-CONDITION： -2，表明当前节点在条件队列中，因为等待某个条件而被阻塞。
+CONDITION:  -2，表明当前节点在条件队列中，因为等待某个条件而被阻塞。
   
-PROPAGATE： -3，在共享模式下，可以认为资源有多个，因此当前线程被唤醒之后，可能还有剩余的资源可以唤醒其他线程。该状态用来表明后续节点会传播唤醒的操作。需要注意的是只有头节点才可以设置为该状态（This is set (for head node only) in doReleaseShared to ensure propagation continues, even if other operations have since intervened.）。
+PROPAGATE:  -3，在共享模式下，可以认为资源有多个，因此当前线程被唤醒之后，可能还有剩余的资源可以唤醒其他线程。该状态用来表明后续节点会传播唤醒的操作。需要注意的是只有头节点才可以设置为该状态（This is set (for head node only) in doReleaseShared to ensure propagation continues, even if other operations have since intervened.）。
   
-0：新创建的节点会处于这种状态
+0: 新创建的节点会处于这种状态
   
 独占锁的获取和释放
   
@@ -1066,7 +1066,7 @@ PROPAGATE： -3，在共享模式下，可以认为资源有多个，因此当�
 
 独占锁获取
 
-下面是获取独占锁的流程图：
+下面是获取独占锁的流程图: 
 
 我们通过 acquire 方法来获取独占锁，下面是方法定义
 
@@ -1120,7 +1120,7 @@ return node;
   
 }
   
-addWaiter 方法会首先调用 if 方法，来判断能否成功将节点添加到队列尾部，如果添加失败，再调用 enq 方法（使用循环不断重试）进行添加，下面是 enq 方法的实现：
+addWaiter 方法会首先调用 if 方法，来判断能否成功将节点添加到队列尾部，如果添加失败，再调用 enq 方法（使用循环不断重试）进行添加，下面是 enq 方法的实现: 
 
 private Node enq(final Node node) {
       
@@ -1158,7 +1158,7 @@ return t;
   
 }
   
-addWaiter 仅仅是将节点加到了同步队列的末尾，并没有阻塞线程，线程阻塞的操作是在 acquireQueued 方法中完成的，下面是 acquireQueued 的实现：
+addWaiter 仅仅是将节点加到了同步队列的末尾，并没有阻塞线程，线程阻塞的操作是在 acquireQueued 方法中完成的，下面是 acquireQueued 的实现: 
 
 final boolean acquireQueued(final Node node, int arg) {
       
@@ -1214,7 +1214,7 @@ cancelAcquire(node);
   
 }
   
-acquireQueued 会首先检查当前节点的前继节点是否为 head，如果为 head，将使用自旋的方式不断的请求锁，如果不是 head，则调用 shouldParkAfterFailedAcquire 查看是否应该挂起当前节点关联的线程，下面是 shouldParkAfterFailedAcquire 的实现：
+acquireQueued 会首先检查当前节点的前继节点是否为 head，如果为 head，将使用自旋的方式不断的请求锁，如果不是 head，则调用 shouldParkAfterFailedAcquire 查看是否应该挂起当前节点关联的线程，下面是 shouldParkAfterFailedAcquire 的实现: 
 
 private static boolean shouldParkAfterFailedAcquire(Node pred, Node node) {
       
@@ -1264,7 +1264,7 @@ return false;
   
 }
   
-shouldParkAfterFailedAcquire 会检查前继节点的等待状态，如果前继节点状态为 SIGNAL，则可以将当前节点关联的线程挂起，如果不是 SIGNAL，会做一些其他的操作，在当前循环中不会挂起线程。如果确定了可以挂起线程，就调用 parkAndCheckInterrupt 方法对线程进行阻塞：
+shouldParkAfterFailedAcquire 会检查前继节点的等待状态，如果前继节点状态为 SIGNAL，则可以将当前节点关联的线程挂起，如果不是 SIGNAL，会做一些其他的操作，在当前循环中不会挂起线程。如果确定了可以挂起线程，就调用 parkAndCheckInterrupt 方法对线程进行阻塞: 
 
 private final boolean parkAndCheckInterrupt() {
       
@@ -1288,9 +1288,9 @@ return Thread.interrupted();
   
 独占锁释放
 
-下面是释放独占锁的流程：
+下面是释放独占锁的流程: 
 
-通过 release 方法，我们可以释放互斥锁。下面是 release 方法的实现：
+通过 release 方法，我们可以释放互斥锁。下面是 release 方法的实现: 
 
 public final boolean release(int arg) {
       
@@ -1312,7 +1312,7 @@ return false;
   
 }
   
-在独占模式下释放锁时，是没有其他线程竞争的，所以处理会简单一些。首先尝试释放锁，如果失败就直接返回（失败不是因为多线程竞争，而是线程本身就不拥有锁）。如果成功的话，会检查 h 的状态，然后调用 unparkSuccessor 方法来唤醒后续线程。下面是 unparkSuccessor 的实现：
+在独占模式下释放锁时，是没有其他线程竞争的，所以处理会简单一些。首先尝试释放锁，如果失败就直接返回（失败不是因为多线程竞争，而是线程本身就不拥有锁）。如果成功的话，会检查 h 的状态，然后调用 unparkSuccessor 方法来唤醒后续线程。下面是 unparkSuccessor 的实现: 
 
 private void unparkSuccessor(Node node) {
       
@@ -1366,9 +1366,9 @@ LockSupport.unpark(s.thread);
 
 共享锁释放
 
-下面是释放共享锁的流程：
+下面是释放共享锁的流程: 
 
-通过 releaseShared 方法会释放共享锁，下面是具体的实现：
+通过 releaseShared 方法会释放共享锁，下面是具体的实现: 
 
 public final boolean releaseShared(int releases) {
       
@@ -1384,7 +1384,7 @@ return false;
   
 }
   
-releases 是要释放的共享资源数量，其中 tryReleaseShared 的方法由我们自己重写，该方法的主要功能就是修改共享资源的数量（state + releases），因为可能会有多个线程同时释放资源，所以实现的时候，一般采用循环加 CAS 操作的方式，如下面的形式：
+releases 是要释放的共享资源数量，其中 tryReleaseShared 的方法由我们自己重写，该方法的主要功能就是修改共享资源的数量（state + releases），因为可能会有多个线程同时释放资源，所以实现的时候，一般采用循环加 CAS 操作的方式，如下面的形式: 
 
 protected boolean tryReleaseShared(int releases) {
       
@@ -1406,7 +1406,7 @@ return true;
   
 }
   
-当共享资源数量修改了之后，会调用 doReleaseShared 方法，该方法主要唤醒同步队列中的第一个等待节点（head.next），下面是具体实现：
+当共享资源数量修改了之后，会调用 doReleaseShared 方法，该方法主要唤醒同步队列中的第一个等待节点（head.next），下面是具体实现: 
 
 private void doReleaseShared() {
       
@@ -1494,7 +1494,7 @@ break;
   
 从上面的实现中，doReleaseShared 的主要作用是用来唤醒阻塞的节点并且一次只唤醒一个，让该节点关联的线程去重新竞争锁，它既不修改同步队列，也不修改共享资源。
 
-当多个线程同时释放资源时，可以确保两件事：
+当多个线程同时释放资源时，可以确保两件事: 
 
 共享资源的数量能正确的累加
   
@@ -1506,7 +1506,7 @@ break;
 
 下面是获取共享锁的流程
 
-通过 acquireShared 方法，我们可以申请共享锁，下面是具体的实现：
+通过 acquireShared 方法，我们可以申请共享锁，下面是具体的实现: 
 
 public final void acquireShared(int arg) {
       
@@ -1518,7 +1518,7 @@ doAcquireShared(arg);
   
 }
   
-如果没有获取到共享资源，就会执行 doAcquireShared 方法，下面是该方法的具体实现：
+如果没有获取到共享资源，就会执行 doAcquireShared 方法，下面是该方法的具体实现: 
 
 private void doAcquireShared(int arg) {
       
@@ -1574,7 +1574,7 @@ cancelAcquire(node);
   
 }
   
-从上面的代码中可以看到，只有前置节点为 head 的节点才有可能去竞争锁，这点和独占模式的处理是一样的，所以即便唤醒了多个线程，也只有一个线程能进入竞争锁的逻辑，其余线程会再次进入 park 状态，当线程获取到共享锁之后，会执行 setHeadAndPropagate 方法，下面是具体的实现：
+从上面的代码中可以看到，只有前置节点为 head 的节点才有可能去竞争锁，这点和独占模式的处理是一样的，所以即便唤醒了多个线程，也只有一个线程能进入竞争锁的逻辑，其余线程会再次进入 park 状态，当线程获取到共享锁之后，会执行 setHeadAndPropagate 方法，下面是具体的实现: 
 
 private void setHeadAndPropagate(Node node, long propagate) {
       
@@ -1658,7 +1658,7 @@ doReleaseShared();
 
 中断
   
-在获取锁时还可以设置响应中断，独占锁和共享锁的处理逻辑类似，这里我们以独占锁为例。使用 acquireInterruptibly 方法，在获取独占锁时可以响应中断，下面是具体的实现：
+在获取锁时还可以设置响应中断，独占锁和共享锁的处理逻辑类似，这里我们以独占锁为例。使用 acquireInterruptibly 方法，在获取独占锁时可以响应中断，下面是具体的实现: 
 
 public final void acquireInterruptibly(int arg) throws InterruptedException {
       
@@ -1716,7 +1716,7 @@ cancelAcquire(node);
   
 }
   
-从上面的代码中我们可以看出，acquireInterruptibly 和 acquire 的逻辑类似，只是在下面的代码处有所不同：当线程因为中断而退出阻塞状态时，会直接抛出 InterruptedException 异常。
+从上面的代码中我们可以看出，acquireInterruptibly 和 acquire 的逻辑类似，只是在下面的代码处有所不同: 当线程因为中断而退出阻塞状态时，会直接抛出 InterruptedException 异常。
 
 if (shouldParkAfterFailedAcquire(p, node) && parkAndCheckInterrupt()) {
       
@@ -1726,7 +1726,7 @@ throw new InterruptedException();
   
 }
   
-我们知道，不管是抛出异常还是方法返回，程序都会执行 finally 代码，而 failed 肯定为 true，所以抛出异常之后会执行 cancelAcquire 方法，cancelAcquire 方法主要将节点从同步队列中移除。下面是具体的实现：
+我们知道，不管是抛出异常还是方法返回，程序都会执行 finally 代码，而 failed 肯定为 true，所以抛出异常之后会执行 cancelAcquire 方法，cancelAcquire 方法主要将节点从同步队列中移除。下面是具体的实现: 
 
 private void cancelAcquire(Node node) {
       
@@ -1802,7 +1802,7 @@ node.next = node; // help GC
   
 }
   
-从上面的代码可以看出，节点的删除分为三种情况：
+从上面的代码可以看出，节点的删除分为三种情况: 
 
 删除节点为尾节点，直接将该节点的第一个有效前置节点置为尾节点
   
@@ -1818,7 +1818,7 @@ node.prev = pred = pred.prev;
 
 超时
   
-超时是在中断的基础上加了一层时间的判断，这里我们还是以独占锁为例。 tryAcquireNanos 支持获取锁的超时处理，下面是具体实现：
+超时是在中断的基础上加了一层时间的判断，这里我们还是以独占锁为例。 tryAcquireNanos 支持获取锁的超时处理，下面是具体实现: 
 
 public final boolean tryAcquireNanos(int arg, long nanosTimeout) throws InterruptedException {
       
@@ -1830,7 +1830,7 @@ return tryAcquire(arg) || doAcquireNanos(arg, nanosTimeout);
   
 }
   
-当获取锁失败之后，会执行 doAcquireNanos 方法，下面是具体实现：
+当获取锁失败之后，会执行 doAcquireNanos 方法，下面是具体实现: 
 
 private boolean doAcquireNanos(int arg, long nanosTimeout) throws InterruptedException {
       
@@ -1910,7 +1910,7 @@ ReentrantLock的lock-unlock流程详解
   
 深入JVM锁机制2-Lock
   
-深度解析Java 8：JDK1.8 AbstractQueuedSynchronizer的实现分析（上）
+深度解析Java 8: JDK1.8 AbstractQueuedSynchronizer的实现分析（上）
   
 AbstractQueuedSynchronizer源码分析
   
@@ -1918,6 +1918,6 @@ AbstractQueuedSynchronizer源码分析
   
 AbstractQueuedSynchronizer (AQS)
   
-并发编程实践二：AbstractQueuedSynchronizer
+并发编程实践二: AbstractQueuedSynchronizer
 
  [1]: http://con.zhangjikai.com/

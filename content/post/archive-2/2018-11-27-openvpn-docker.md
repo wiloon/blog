@@ -11,7 +11,7 @@ categories:
 ```bash
 export  OVPN_DATA="ovpn-data"
 docker volume create --name $OVPN_DATA
-# volume默认位置：/var/lib/docker/volumes/ovpn-data
+# volume默认位置: /var/lib/docker/volumes/ovpn-data
 
 # gen config
 docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm mjenz/rpi-openvpn ovpn_genconfig -u udp://xxx.wiloon.com

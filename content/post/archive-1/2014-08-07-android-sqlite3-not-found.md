@@ -14,7 +14,7 @@ http://panxq0809.iteye.com/blog/1264785
   
 网上找了下问题的原因——模拟器或真机中的 /system/xbin 目录下少了sqlite3 这个文件。
 
-解决方法，步骤如下：
+解决方法，步骤如下: 
   
 （1）让/system文件夹可读写
   

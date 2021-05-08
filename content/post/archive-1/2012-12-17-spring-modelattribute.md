@@ -19,7 +19,7 @@ SpringMVC 文档提到了 @SessionAttributes annotation，和 @ModelAttribute �
 答案就是我们可以在需要访问 Session 属性的 controller 上加上 @SessionAttributes，然后在 action 需要的 User 参数上加上 @ModelAttribute，并保证两者的属性名称一致。SpringMVC 就会自动将 @SessionAttributes 定义的属性注入到 ModelMap 对象，在 setup action 的参数列表时，去 ModelMap 中取到这样的对象，再添加到参数列表。只要我们不去调用 SessionStatus 的 setComplete() 方法，这个对象就会一直保留在 Session 中，从而实现 Session 信息的共享。
 
 
-controller的代码如下：
+controller的代码如下: 
 
 
 @Controller

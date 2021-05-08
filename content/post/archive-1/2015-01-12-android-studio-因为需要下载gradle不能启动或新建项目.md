@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/likebamboo/article/details/19474893
   
-分类： android 工具介绍2014-02-19 10:00 3201人阅读 评论(1) 收藏 举报
+分类:  android 工具介绍2014-02-19 10:00 3201人阅读 评论(1) 收藏 举报
   
 android studiogradle启动不了新建项目
 
@@ -23,13 +23,13 @@ android studiogradle启动不了新建项目
 
 其实这时候android studio 还是在下载 gradle ,但是由于被墙的原因, gradle 下载不了，所以建立不了项目。这时候我们只能在 任务管理器 中关闭android studio。
 
-解决方案是：
+解决方案是: 
   
-1. Windows XP ：
+1. Windows XP : 
 
 打开 C:\Documents and Settings\<用户名>\.gradle\wrapper\dists\  。
 
-Windows 7 ：
+Windows 7 : 
 
 打开 C:\Users\<用户名>\.gradle\wrapper\dists 。
 

@@ -19,7 +19,7 @@ Java Unix Domain Sockets (JUDS) 提供了 Java 的方法用来访问 Unix domain
    <version>0.94.1</version>
 </dependency>
 
-示例代码：
+示例代码: 
 
 package com.google.code.juds.test;
 

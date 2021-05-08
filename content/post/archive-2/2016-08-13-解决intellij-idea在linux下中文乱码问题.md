@@ -12,7 +12,7 @@ categories:
 
 ## Problem
 
-但是打开project的源码发现之前写的中文注释乱码：
+但是打开project的源码发现之前写的中文注释乱码: 
 
 > 中文变成了口口口口口
 
@@ -24,7 +24,7 @@ categories:
 
 ## Solution {#Solution}
 
-一个快速而有效的方法是：
+一个快速而有效的方法是: 
 
   * 在<a href="http://www.myfontfree.com/microsoft-yahei-myfontfreecom66f594.htm" target="_blank" rel="external">这里</a>点download下载yahei字体的ttf
   * 在ubuntu 下可以执行下面操作安装该字体<figure class="highlight plain"> 

@@ -16,19 +16,19 @@ categories:
 
 前端的JavaScript其实是由ECMAScript、DOM、BOM组合而成。
 
-#### JavaScript：
-- ECMAScript(语言基础，如：语法、数据类型结构以及一些内置对象)
+#### JavaScript: 
+- ECMAScript(语言基础，如: 语法、数据类型结构以及一些内置对象)
 - DOM（一些操作页面元素的方法）
 - BOM（一些操作浏览器的方法）
 上面是JavaScript的组成部分，那么Nodejs呢？
 
-#### Nodejs：
-- ECMAScript(语言基础，如：语法、数据类型结构以及一些内置对象)
+#### Nodejs: 
+- ECMAScript(语言基础，如: 语法、数据类型结构以及一些内置对象)
 - os(操作系统)
 - file(文件系统)
 - net(网络系统)
 - database(数据库)
-分析：很容易看出，前端和后端的js相同点就是，他们的语言基础都是ECMAScript，只是他们所扩展的东西不同，前端需要操作页面元素，于是扩展了DOM，也需要操作浏览器，于是就扩展了BOM。而服务端的js则也是基于ECMAScript扩展出了服务端所需要的一些API，稍微了解后台的童鞋肯定知道，后台语音有操作系统的能力，于是扩展os，需要有操作文件的能力，于是扩展出file文件系统、需要操作网络，于是扩展出net网络系统，需要操作数据，于是要扩展出database的能力。
+分析: 很容易看出，前端和后端的js相同点就是，他们的语言基础都是ECMAScript，只是他们所扩展的东西不同，前端需要操作页面元素，于是扩展了DOM，也需要操作浏览器，于是就扩展了BOM。而服务端的js则也是基于ECMAScript扩展出了服务端所需要的一些API，稍微了解后台的童鞋肯定知道，后台语音有操作系统的能力，于是扩展os，需要有操作文件的能力，于是扩展出file文件系统、需要操作网络，于是扩展出net网络系统，需要操作数据，于是要扩展出database的能力。
 
 #### 总结:
 其实npm是nodejs的包管理器（package manager）。
@@ -58,9 +58,9 @@ https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 ### list version 
   node -v
 
-作者：合肥懒皮
-链接：https://www.jianshu.com/p/857ef827fbd4
-来源：简书
+作者: 合肥懒皮
+链接: https://www.jianshu.com/p/857ef827fbd4
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 http://www.alloyteam.com/2016/03/master-npm/

@@ -127,7 +127,7 @@ m := map[string]string{} // 声明并初始化
 
 m := make(map[string]string) // 使用make来初始化
   
-大部分类型都能做key，某些类型是不能的，共同的特点是：不能使用==来比较，包括: slice, map, function
+大部分类型都能做key，某些类型是不能的，共同的特点是: 不能使用==来比较，包括: slice, map, function
 
 get,set,delete
   
@@ -173,7 +173,7 @@ for k, v := range m {
   
 }
   
-在迭代的过程中是可以对map进行删除和更新操作的，规则如下：
+在迭代的过程中是可以对map进行删除和更新操作的，规则如下: 
 
 迭代是无序的，跟插入是的顺序无关
   
@@ -209,7 +209,7 @@ func main() {
 
 文／icexin（简书作者）
   
-原文链接：http://www.jianshu.com/p/32b839e99289
+原文链接: http://www.jianshu.com/p/32b839e99289
   
 著作权归作者所有，转载请联系作者获得授权，并标注"简书作者"。
   

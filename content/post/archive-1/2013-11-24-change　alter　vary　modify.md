@@ -14,7 +14,7 @@ change　alter　vary　modify
   
 这组动词的一般含义是"改变"或"变化".
   
-change 是通用词，它有两层基本含义："变"和"换"."变"可以指和原来的样子或性质稍有不同，也可以指有本质的差异。
+change 是通用词，它有两层基本含义: "变"和"换"."变"可以指和原来的样子或性质稍有不同，也可以指有本质的差异。
   
 At first，she decided to go to the police，but fearing that she would never see Rastus again-the letter had made that quite clear-she changed her mind.
   
@@ -24,7 +24,7 @@ He then changed into overalls and spent the next eight hours as a d
   
 然后他换上工装裤，作为清洁工人度过接下去的八小时。
   
-alter 所表示的"改变"只是细节的，或外表的变化，并不表示本质的改变。如：把一件衣服改小一些或只把衣袖稍放肥一些，但衣服的式样仍然不变，这时用alter便很确当
+alter 所表示的"改变"只是细节的，或外表的变化，并不表示本质的改变。如: 把一件衣服改小一些或只把衣袖稍放肥一些，但衣服的式样仍然不变，这时用alter便很确当
   
 He may gently reprimand an official or even suggest to parliament that a law be alltered.
   
@@ -46,19 +46,19 @@ change alter vary
   
 都含"改变"的意思 .
   
-change 指"使改变得与原物完全不同"或"使发生以新代旧的变化"，如：
+change 指"使改变得与原物完全不同"或"使发生以新代旧的变化"，如: 
   
 The appearance of the town is quite changed.
   
 这个城镇的外观变化颇大。
   
-alter 指"局部的、外表的变化， 但特点不变"， 如：
+alter 指"局部的、外表的变化， 但特点不变"， 如: 
   
 This coat should be altered.
   
 这件外套应该改改。
   
-vary 指"不规则或连续地改变"， 如：
+vary 指"不规则或连续地改变"， 如: 
   
 Customs vary with the times.
   

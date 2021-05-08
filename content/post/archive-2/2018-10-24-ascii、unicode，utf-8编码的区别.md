@@ -86,7 +86,7 @@ GBK 是在 GB2312 基础上扩容后兼容 GB2312 的标准.
 
 https://blog.csdn.net/weiwenjuan0923/article/details/52713387
 
-摘要总结：
+摘要总结: 
 
 ASCII编码是128个字符
 
@@ -96,7 +96,7 @@ Unicode是为了解决各国乱码的，但浪费存储空间
 
 UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6字节，英文字母是1字节，汉字通常是3字节，生僻字符是4-6字节
 
-简单归纳：
+简单归纳: 
   
 编码 大小 支持语言
   
@@ -106,7 +106,7 @@ Unicode 2个字节（生僻字4个） 所有语言
   
 UTF-8 1-6个字节，英文字母1个字节，汉字3个字节，生僻字4-6个字节 所有语言
   
-具体解释：
+具体解释: 
   
 最早只有127个字母被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。
   
@@ -118,7 +118,7 @@ UTF-8 1-6个字节，英文字母1个字节，汉字3个字节，生僻字4-6个
   
 Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。
   
-新的问题又出现了：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。
+新的问题又出现了: 如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。
   
 所以，本着节约的精神，又出现了把Unicode编码转化为"可变长编码"的UTF-8编码。
   
@@ -128,7 +128,7 @@ UTF-8编码有一个额外的好处，就是ASCII编码实际上可以被看成�
   
 所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。
 
-理论解释：
+理论解释: 
 
 1、ASCII码
   
@@ -176,7 +176,7 @@ UTF-8最大的一个特点，就是它是一种变长的编码方式。
   
 它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。
   
-UTF-8的编码规则很简单，只有二条：
+UTF-8的编码规则很简单，只有二条: 
   
 1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。
   
@@ -287,7 +287,7 @@ return $result_str;
   
 $str = "空格 也算一个字符";
   
-echo "截取后的字符串：".left($str,14);
+echo "截取后的字符串: ".left($str,14);
   
 //ord()是返回ASCII值；在ASCII中，0xa0表示汉字的开始
   
@@ -336,13 +336,13 @@ fmt.Printf("%X", []byte(str)) // EFBFBD，即字符「�」
 
 https://liudanking.com/golang/utf-8_replacement_character/
 
-参考链接1：http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
+参考链接1: http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
                       
 https://my.oschina.net/darionyaphet/blog/221124
               
 http://blog.csdn.net/u012223913/article/details/51772610
   
-参考链接2：http://blog.csdn.net/u012223913/article/details/51772610
+参考链接2: http://blog.csdn.net/u012223913/article/details/51772610
 http://www.cnblogs.com/malecrab/p/5300503.html
   
 http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html

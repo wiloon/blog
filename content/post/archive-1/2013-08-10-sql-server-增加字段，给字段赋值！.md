@@ -100,16 +100,16 @@ mysql> alter table tablename add unique emp_name2(cardnumber);
 
 mysql>alter table tablename drop index emp_name;
   
-修改表：549830479
+修改表: 549830479
 
-增加字段：549830479
+增加字段: 549830479
 
 mysql> ALTER TABLE table_name ADD field_name field_type;
   
-修改原字段名称及类型：549830479
+修改原字段名称及类型: 549830479
 
 mysql> ALTER TABLE table_name CHANGE old_field_name new_field_name field_type;
   
-删除字段：549830479
+删除字段: 549830479
 
 mysql> ALTER TABLE table_name DROP field_name;

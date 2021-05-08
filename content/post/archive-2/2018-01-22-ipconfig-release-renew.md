@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-在Windows系统下IPconfig命令，后面带/release和 /renew参数可以实现从DHCP服务器重新获取IP地址：
+在Windows系统下IPconfig命令，后面带/release和 /renew参数可以实现从DHCP服务器重新获取IP地址: 
 
 1、ipconfig /release 释放当前网卡获取的IP地址，使用该命令后，网卡（IPv4地址）此时IP地址为空。
 

@@ -15,7 +15,7 @@ Thymeleaf是一款用于渲染XML/XHTML/HTML5内容的模板引擎。类似JSP�
 
 Thymeleaf初探
   
-相比于其他的模板引擎，Thymeleaf最大的特点是通过HTML的标签属性渲染标签内容，以下是一个Thymeleaf模板例子：
+相比于其他的模板引擎，Thymeleaf最大的特点是通过HTML的标签属性渲染标签内容，以下是一个Thymeleaf模板例子: 
 
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
@@ -49,19 +49,19 @@ href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
   
 变量
   
-Thymeleaf模板引擎在进行模板渲染时，还会附带一个Context存放进行模板渲染的变量，在模板中定义的表达式本质上就是从Context中获取对应的变量的值：
+Thymeleaf模板引擎在进行模板渲染时，还会附带一个Context存放进行模板渲染的变量，在模板中定义的表达式本质上就是从Context中获取对应的变量的值: 
 
 Today is: <span th:text="${today}">13 february 2011.
 
-假设today的值为2015年8月14日，那么渲染结果为：Today is: 2015年8月14日.。可见Thymeleaf的基本变量和JSP一样，都使用${.}表示获取变量的值。
+假设today的值为2015年8月14日，那么渲染结果为: Today is: 2015年8月14日.。可见Thymeleaf的基本变量和JSP一样，都使用${.}表示获取变量的值。
 
 URL
   
-URL在Web应用模板中占据着十分重要的地位，需要特别注意的是Thymeleaf对于URL的处理是通过语法@{...}来处理的。Thymeleaf支持绝对路径URL：
+URL在Web应用模板中占据着十分重要的地位，需要特别注意的是Thymeleaf对于URL的处理是通过语法@{...}来处理的。Thymeleaf支持绝对路径URL: 
 
 <a th:href="@{http://www.thymeleaf.org}">Thymeleaf</a>
 
-同时也能够支持相对路径URL：
+同时也能够支持相对路径URL: 
 
 当前页面相对路径URL——user/login.html，通常不推荐这样写。
   
@@ -83,7 +83,7 @@ th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
   
 <a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
 
-几点说明：
+几点说明: 
 
 上例中URL最后的(orderId=${o.id})表示将括号内的内容作为URL参数处理，该语法避免使用字符串拼接，大大提高了可读性
   
@@ -93,11 +93,11 @@ th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
   
 字符串替换
   
-很多时候可能我们只需要对一大段文字中的某一处地方进行替换，可以通过字符串拼接操作完成：
+很多时候可能我们只需要对一大段文字中的某一处地方进行替换，可以通过字符串拼接操作完成: 
 
 <span th:text="'Welcome to our application, ' + ${user.name} + '!'">
 
-一种更简洁的方式是：
+一种更简洁的方式是: 
 
 <span th:text="|Welcome to our application, ${user.name}!|">
 
@@ -109,7 +109,7 @@ th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
 
 th:with="isEven=(${prodStat.count} % 2 == 0)"
 
-逻辑运算符>, <, <=,>=，==,!=都可以使用，唯一需要注意的是使用<,>时需要用它的HTML转义符：
+逻辑运算符>, <, <=,>=，==,!=都可以使用，唯一需要注意的是使用<,>时需要用它的HTML转义符: 
 
 th:if="${prodStat.count} > 1"
   
@@ -117,7 +117,7 @@ th:text="'Execution mode is ' + ( (${execMode} == 'dev')? 'Development' : 'Produ
 
 循环
   
-渲染列表数据是一种非常常见的场景，例如现在有n条记录需要渲染成一个表格<table>，该数据集合必须是可以遍历的，使用th:each标签：
+渲染列表数据是一种非常常见的场景，例如现在有n条记录需要渲染成一个表格<table>，该数据集合必须是可以遍历的，使用th:each标签: 
 
 <body>
   
@@ -158,7 +158,7 @@ th:text="'Execution mode is ' + ( (${execMode} == 'dev')? 'Development' : 'Produ
   
 If/Unless
   
-Thymeleaf中使用th:if和th:unless属性进行条件判断，下面的例子中，<a>标签只有在th:if中条件成立时才显示：
+Thymeleaf中使用th:if和th:unless属性进行条件判断，下面的例子中，<a>标签只有在th:if中条件成立时才显示: 
 
 <a th:href="@{/login}" th:unless=${session.user != null}>Login</a>
 
@@ -166,7 +166,7 @@ th:unless于th:if恰好相反，只有表达式中的条件不成立，才会显
 
 Switch
   
-Thymeleaf同样支持多路选择Switch结构：
+Thymeleaf同样支持多路选择Switch结构: 
 
 <div th:switch="${user.role}">
   
@@ -175,7 +175,7 @@ Thymeleaf同样支持多路选择Switch结构：
 <p th:case="#{roles.manager}">User is a manager
   
 
-默认属性default可以用*表示：
+默认属性default可以用*表示: 
 
 <div th:switch="${user.role}">
   
@@ -188,7 +188,7 @@ Thymeleaf同样支持多路选择Switch结构：
 
 Utilities
   
-为了模板更加易用，Thymeleaf还提供了一系列Utility对象（内置于Context中），可以通过#直接访问：
+为了模板更加易用，Thymeleaf还提供了一系列Utility对象（内置于Context中），可以通过#直接访问: 
 
 #dates
   
@@ -208,7 +208,7 @@ maps
   
 ...
   
-下面用一段代码来举例一些常用的方法：
+下面用一段代码来举例一些常用的方法: 
 
 #dates
   

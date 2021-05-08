@@ -24,7 +24,7 @@ cron - 是一个用于运行计划任务如系统备份、更新等的守护进�
 
 命令/脚本被写在 cron 任务脚本中，它是在 crontab 文件中被安排的。系统默认的 crontab 文件是 /etc/crontab，但是每个用户也可以创建自己的 crontab 文件来在特定时间运行用户定义的命令。
 
-要创建一份个人 crontab 文件，只要输入：
+要创建一份个人 crontab 文件，只要输入: 
 
 $ crontab -e
   
@@ -32,7 +32,7 @@ $ crontab -e
   
 anacron 用于以天为单位的频率运行命令。它的工作与 cron 稍有不同，它假设机器不会一直开机。
 
-cron 也适合在那些不会 24X7 运行如笔记本以及桌面电脑的机器上运行每日、每周以及每月的计划任务（LCTT 译注：不适合按小时、分钟执行任务）。
+cron 也适合在那些不会 24X7 运行如笔记本以及桌面电脑的机器上运行每日、每周以及每月的计划任务（LCTT 译注: 不适合按小时、分钟执行任务）。
 
 假设你有一个计划任务（比如备份脚本）要使用 cron 在每天半夜运行，也许你以及睡着，那时你的桌面/笔记本电脑已经关机。你的备份脚本就不会被运行。
 
@@ -44,9 +44,9 @@ anacron 任务被列在 /etc/anacrontab 中，任务可以使用下面的格式�
 
 period delay job-identifier command
   
-从上面的格式中：
+从上面的格式中: 
 
-period - 这是任务的频率，以天来指定，或者是 @daily、@weekly、@monthly 代表每天、每周、每月一次。你也可以使用数字：1 - 每天、7 - 每周、30 - 每月，或者 N - 几天。
+period - 这是任务的频率，以天来指定，或者是 @daily、@weekly、@monthly 代表每天、每周、每月一次。你也可以使用数字: 1 - 每天、7 - 每周、30 - 每月，或者 N - 几天。
   
 delay - 这是在执行一个任务前等待的分钟数。
   
@@ -54,7 +54,7 @@ job-id - 这是写在日志文件中任务的独特名字。
   
 command - 这是要执行的命令或 shell 脚本。
   
-要浏览示例文件，输入：
+要浏览示例文件，输入: 
 
 $ ls -l /var/spool/anacron/
   
@@ -66,19 +66,19 @@ total 12
   
 -rw--- 1 root root 9 May 30 10:28 cron.weekly
   
-这是实际发生的：
+这是实际发生的: 
 
 anacron 会检查任务是否已经在 period 字段指定的时间被被执行了。如果没有，则在等待 delay 字段中指定的分钟数后，执行 command 字段中指定的命令。
   
 一旦任务被执行了，它会使用 job-id（时间戳文件名）字段中指定的名称将日期记录在 /var/spool/anacron 目录中的时间戳文件中。
   
-现在让我们看一个例子。这个会每天运行 /home/aaronkilik/bin/backup.sh 脚本：
+现在让我们看一个例子。这个会每天运行 /home/aaronkilik/bin/backup.sh 脚本: 
 
 @daily 10 example.daily /bin/bash /home/aaronkilik/bin/backup.sh
   
 当机器在 backup.sh 期望被运行时是关机的，anacron 会在机器开机十分钟之后运行它，而不用再等待 7 天。
 
-这里有两个你应该理解的 anacrontab 文件的重要变量：
+这里有两个你应该理解的 anacrontab 文件的重要变量: 
 
 START_HOURS_RANGE - 这个设置任务开始运行的时间范围（也就是任务只在这几个小时内运行）。
 
@@ -86,7 +86,7 @@ RANDOM_DELAY - 这定义添加到用户定义的任务延迟的最大随机延�
 
 这是你的 anacrontab 文件可能看上去的样子。
 
-Anacron – /etc/anacrontab：
+Anacron – /etc/anacrontab: 
 
 # /etc/anacrontab: configuration file for anacron
 

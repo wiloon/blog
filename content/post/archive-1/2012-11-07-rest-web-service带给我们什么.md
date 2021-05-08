@@ -24,7 +24,7 @@ SOAP 的Web Service看起来是很完美的解决方案，但是往往看起来�
 
 REST的Web Service彻底摒弃了SOAP协议。它的数据格式简单，一般都直接采用对象XML序列化的数据作为返回结果。这样就极大的降低了数据传输量，提高了效率。而且这种XML数据可以直接用IE打开，很容易阅读理解。
 
-随着WCF和VS 2008的发布，MS首次加入了对架构REST Web Service的支持，虽然还很不完全，但是有总比没有好！现在，你只需：
+随着WCF和VS 2008的发布，MS首次加入了对架构REST Web Service的支持，虽然还很不完全，但是有总比没有好！现在，你只需: 
 
 1，添加Data Contract
 

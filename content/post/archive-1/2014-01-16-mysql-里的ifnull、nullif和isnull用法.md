@@ -10,11 +10,11 @@ tags:
   - MySQL
 
 ---
-今天用到了MySql里的isnull才发现他和MSSQL里的还是有点区别，现在简单总结一下：
+今天用到了MySql里的isnull才发现他和MSSQL里的还是有点区别，现在简单总结一下: 
 
-**mysql中isnull,ifnull,nullif的用法如下：**
+**mysql中isnull,ifnull,nullif的用法如下: **
 
-**isnull(expr) 的用法：**
+**isnull(expr) 的用法: **
   
 如expr 为null，那么isnull() 的返回值为 1，否则返回值为 0。
   
@@ -30,7 +30,7 @@ mysql> select isnull(1/0);
 
 isnull() 函数同 is null比较操作符具有一些相同的特性。请参见有关is null 的说明。
 
-**IFNULL(expr1,expr2)的用法：**
+**IFNULL(expr1,expr2)的用法: **
 
 假如expr1   不为   <a name="baidusnap2"></a>**NULL**，则   IFNULL()   的返回值为   expr1;
   
@@ -56,13 +56,13 @@ IFNULL(1/0,'yes');
 
 IFNULL(expr1,expr2)的默认结果值为两个表达式中更加"通用"的一个，顺序为STRING、   REAL或
   
-INTEGER。假设一个基于表达式的表的情况，     或**MySQL**必须在内存储器中储存一个临时表中IFNULL()的返回值：
+INTEGER。假设一个基于表达式的表的情况，     或**MySQL**必须在内存储器中储存一个临时表中IFNULL()的返回值: 
   
 CREATE   TABLE   tmp   SELECT   IFNULL(1,'test')   AS   test；
   
 在这个例子中，测试列的类型为   CHAR(4)。
   
-**NULLIF(expr1,expr2)  的用法：  **
+**NULLIF(expr1,expr2)  的用法:   **
   
 如果expr1
   

@@ -14,7 +14,7 @@ tags:
   
 只是简单环境中使用。它使用JPA PersistenceProvider自动检测机制( according to JPA's Java SE bootstrapping )，并且大多数情况下，你只能定义一下persistence unit name
 
-例如：
+例如: 
 
 <beans>
   
@@ -30,7 +30,7 @@ tags:
   
 这个选项是当你应用发布在javaee5的服务器中。你可以参阅自己应用服务器文档，如何发布一个自定义的JPA provider到你的应用服务器中。
 
-例：
+例: 
 
 <beans>
   
@@ -40,7 +40,7 @@ tags:
   
 当javaee服务器启动时，会自动检测persistence units。实际上，是检测应用包中的META-INF/persistence.xml 文件和web.xml中的persistence-unit-ref，以及定义的environment naming。我理解就是JNDI的name。
 
-一般应用情景是：
+一般应用情景是: 
 
 在META-INF/persistence.xml中 使用<jta-data-source>java:/ MySqlDS</jta-data-source> 获取容器发布的Datesource。
 
@@ -50,7 +50,7 @@ transactions是使用的javaee容器支持的JTA系统，例如tomcat中，可�
   
 1）jndi配置，可以把jndi的配置放置在 tomcat/conf/Catalina/域名(如localhost)/项目名.xml
   
-文件的Context节点下，如下：
+文件的Context节点下，如下: 
   
 <Resource name="" auth="Container" type="javax.sql.DataSource"
   
@@ -66,7 +66,7 @@ jndi也可以配置在server.xml，context.xml中
   
 2)jta UserTransaction配置
   
-在server.xml文件GlobalNamingResources节点下配置如下：
+在server.xml文件GlobalNamingResources节点下配置如下: 
   
 <!- Resource configuration for UserTransaction
   
@@ -80,7 +80,7 @@ factory="org.objectweb.jotm.UserTransactionFactory"
   
 jotm.timeout="60"/>
   
-然后在 项目名.xml 文件的context节点下加：
+然后在 项目名.xml 文件的context节点下加: 
   
 <ResourceLink name="UserTransaction"
   
@@ -114,7 +114,7 @@ LocalContainerEntityManagerFactoryBean会根据persistence.xml创造一个Persis
   
 不是所有的JPA provider都需要load-time weaving。hibernate就不需要。呵呵。 <property name="loadTimeWeaver">这个就不是必须的了。。
 
-Persistence.xml配置：
+Persistence.xml配置: 
 
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
   
@@ -175,7 +175,7 @@ Persistence.xml配置：
 dataSources中的key是persistence.xml中配置的datasource名字，value-ref是spring管理的数据源。
 
 
-另外：
+另外: 
 
 EntityManagerFactory是线程安全的，但是EntityManager不是。
 

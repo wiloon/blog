@@ -20,11 +20,11 @@ http://www.importnew.com/19191.html
 
 最基本的情况下
 
-分配HeapByteBuffer的方法是：
+分配HeapByteBuffer的方法是: 
 
 ByteBuffer.allocate(int capacity);参数大小为字节的数量
   
-分配DirectByteBuffer的方法是：
+分配DirectByteBuffer的方法是: 
 
 ByteBuffer.allocateDirect(int capacity);//可以看到分配内存是通过unsafe.allocateMemory()来实现的，这个unsafe默认情况下java代码是没有能力可以调用到的，不过你可以通过反射的手段得到实例进而做操作，当然你需要保证的是程序的稳定性，既然叫unsafe的，就是告诉你这不是安全的，其实并不是不安全，而是交给程序员来操作，它可能会因为程序员的能力而导致不安全，而并非它本身不安全。
 
@@ -46,7 +46,7 @@ return new HeapByteBuffer(capacity, capacity);
 
 DirectByteBuffer
   
-对于这种Bytebuffer的创建，我们可以看一下底层源码：
+对于这种Bytebuffer的创建，我们可以看一下底层源码: 
 
 public static ByteBuffer allocateDirect(int capacity) {
           
@@ -56,7 +56,7 @@ return new DirectByteBuffer(capacity);
 
 同样是new出来的对象，我们也认为是在jvm堆上分配的存储空间
 
-但是我们可以查看到DirectByteBuffer底层的实现：
+但是我们可以查看到DirectByteBuffer底层的实现: 
 
 public native long allocateMemory(long var1);
   

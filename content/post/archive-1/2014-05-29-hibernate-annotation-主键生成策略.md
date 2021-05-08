@@ -124,4 +124,4 @@ uuid 最终被编码成一个32位16进制数的字符串，
 
 @GeneratedValue(generator = "idGenerator")
 
-[ 随笔均原创，转载请注明出处：http://www.blogjava.net/fancydeepin ]
+[ 随笔均原创，转载请注明出处: http://www.blogjava.net/fancydeepin ]

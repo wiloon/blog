@@ -11,7 +11,7 @@ categories:
 
 ```java
         TreeMap<String,Integer> treeMap = new TreeMap<String,Integer>();
-        System.out.println("初始化后,TreeMap元素个数为：" + treeMap.size());
+        System.out.println("初始化后,TreeMap元素个数为: " + treeMap.size());
 
         //新增元素:
         treeMap.put("hello",1);
@@ -21,7 +21,7 @@ https://www.jianshu.com/p/2dcff3634326
 
 http://www.cnblogs.com/chenssy/p/3746600.html
 
-TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对红黑树有一定的了解,其实这篇博文的名字叫做：根据红黑树的算法来分析TreeMap的实现，但是为了与Java提高篇系列博文保持一致还是叫做TreeMap比较好。通过这篇博文你可以获得如下知识点：
+TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对红黑树有一定的了解,其实这篇博文的名字叫做: 根据红黑树的算法来分析TreeMap的实现，但是为了与Java提高篇系列博文保持一致还是叫做TreeMap比较好。通过这篇博文你可以获得如下知识点: 
 
 1、红黑树的基本概念。
 
@@ -37,13 +37,13 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 红黑树又称红-黑二叉树，它首先是一颗二叉树，它具体二叉树所有的特性。同时红黑树更是一颗自平衡的排序二叉树。
 
-我们知道一颗基本的二叉树他们都需要满足一个基本性质-即树中的任何节点的值大于它的左子节点，且小于它的右子节点。按照这个基本性质使得树的检索效率大大提高。我们知道在生成二叉树的过程是非常容易失衡的，最坏的情况就是一边倒（只有右/左子树），这样势必会导致二叉树的检索效率大大降低（O(n)），所以为了维持二叉树的平衡，大牛们提出了各种实现的算法，如：AVL，SBT，伸展树，TREAP ，红黑树等等。
+我们知道一颗基本的二叉树他们都需要满足一个基本性质-即树中的任何节点的值大于它的左子节点，且小于它的右子节点。按照这个基本性质使得树的检索效率大大提高。我们知道在生成二叉树的过程是非常容易失衡的，最坏的情况就是一边倒（只有右/左子树），这样势必会导致二叉树的检索效率大大降低（O(n)），所以为了维持二叉树的平衡，大牛们提出了各种实现的算法，如: AVL，SBT，伸展树，TREAP ，红黑树等等。
 
-平衡二叉树必须具备如下特性：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。也就是说该二叉树的任何一个等等子节点，其左右子树的高度都相近。
+平衡二叉树必须具备如下特性: 它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。也就是说该二叉树的任何一个等等子节点，其左右子树的高度都相近。
 
 2014051700001
 
-红黑树顾名思义就是节点是红色或者黑色的平衡二叉树，它通过颜色的约束来维持着二叉树的平衡。对于一棵有效的红黑树二叉树而言我们必须增加如下规则：
+红黑树顾名思义就是节点是红色或者黑色的平衡二叉树，它通过颜色的约束来维持着二叉树的平衡。对于一棵有效的红黑树二叉树而言我们必须增加如下规则: 
 
 1、每个节点都只能是红色或者黑色
 
@@ -59,17 +59,17 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 2014051700002
 
-对于红黑二叉树而言它主要包括三大基本操作：左旋、右旋、着色。
+对于红黑二叉树而言它主要包括三大基本操作: 左旋、右旋、着色。
 
 2014051700004 2014051700005
 
 左旋 右旋
 
-（图片来自：http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html）
+（图片来自: http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html）
 
-本节参考文献：http://baike.baidu.com/view/133754.htm?fr=aladdin--百度百科
+本节参考文献: http://baike.baidu.com/view/133754.htm?fr=aladdin--百度百科
 
-注：由于本文主要是讲解Java中TreeMap，所以并没有对红黑树进行非常深入的了解和研究，如果诸位想对其进行更加深入的研究Lz提供几篇较好的博文：
+注: 由于本文主要是讲解Java中TreeMap，所以并没有对红黑树进行非常深入的了解和研究，如果诸位想对其进行更加深入的研究Lz提供几篇较好的博文: 
 
 1、红黑树系列集锦
 
@@ -79,23 +79,23 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 二、TreeMap数据结构
 
-> > > > > > 回归主角：TreeMap<<<<<< 
+> > > > > > 回归主角: TreeMap<<<<<< 
 
-TreeMap的定义如下：
+TreeMap的定义如下: 
 
 public class TreeMap<K,V> extends AbstractMap<K,V> implements NavigableMap<K,V>, Cloneable, java.io.Serializable
   
 TreeMap继承AbstractMap，实现NavigableMap、Cloneable、Serializable三个接口。其中AbstractMap表明TreeMap为一个Map即支持key-value的集合， NavigableMap（更多）则意味着它支持一系列的导航方法，具备针对给定搜索目标返回最接近匹配项的导航方法 。
 
-TreeMap中同时也包含了如下几个重要的属性：
+TreeMap中同时也包含了如下几个重要的属性: 
 
 //比较器，因为TreeMap是有序的，通过comparator接口我们可以对TreeMap的内部排序进行精密的控制 private final Comparator<? super K> comparator; //TreeMap红-黑节点，为TreeMap的内部类 private transient Entry<K,V> root = null; //容器大小 private transient int size = 0; //TreeMap修改次数 private transient int modCount = 0; //红黑树的节点颜色-红色 private static final boolean RED = false; //红黑树的节点颜色-黑色 private static final boolean BLACK = true;
   
-对于叶子节点Entry是TreeMap的内部类，它有几个重要的属性：
+对于叶子节点Entry是TreeMap的内部类，它有几个重要的属性: 
 
 //键 K key; //值 V value; //左孩子 Entry<K,V> left = null; //右孩子 Entry<K,V> right = null; //父亲 Entry<K,V> parent; //颜色 boolean color = BLACK;
   
-注：前面只是开胃菜，下面是本篇博文的重中之重，在下面两节我将重点讲解treeMap的put()、delete()方法。通过这两个方法我们会了解红黑树增加、删除节点的核心算法。
+注: 前面只是开胃菜，下面是本篇博文的重中之重，在下面两节我将重点讲解treeMap的put()、delete()方法。通过这两个方法我们会了解红黑树增加、删除节点的核心算法。
 
 三、TreeMap put()方法
 
@@ -107,7 +107,7 @@ TreeMap中同时也包含了如下几个重要的属性：
 
 2014051700007
 
-对于新节点的插入有如下三个关键地方：
+对于新节点的插入有如下三个关键地方: 
 
 1、插入新节点总是红色节点 。
   
@@ -115,7 +115,7 @@ TreeMap中同时也包含了如下几个重要的属性：
   
 3、如果插入节点的父节点是红色, 破坏了性质. 故插入算法就是通过重新着色或旋转, 来维持性质 。
   
-为了保证下面的阐述更加清晰和根据便于参考，我这里将红黑树的五点规定再贴一遍：
+为了保证下面的阐述更加清晰和根据便于参考，我这里将红黑树的五点规定再贴一遍: 
 
 1、每个节点都只能是红色或者黑色
 
@@ -161,9 +161,9 @@ TreeMap中同时也包含了如下几个重要的属性：
 
 TreeMap put()方法实现分析
 
-在TreeMap的put()的实现方法中主要分为两个步骤，第一：构建排序二叉树，第二：平衡二叉树。
+在TreeMap的put()的实现方法中主要分为两个步骤，第一: 构建排序二叉树，第二: 平衡二叉树。
 
-对于排序二叉树的创建，其添加节点的过程如下：
+对于排序二叉树的创建，其添加节点的过程如下: 
 
 1、以根节点为初始节点进行检索。
 
@@ -173,7 +173,7 @@ TreeMap put()方法实现分析
 
 4、将新增节点与3步骤中找到的节点进行比对，如果新增节点较大，则添加为右子节点；否则添加为左子节点。
 
-按照这个步骤我们就可以将一个新增节点添加到排序二叉树中合适的位置。如下：
+按照这个步骤我们就可以将一个新增节点添加到排序二叉树中合适的位置。如下: 
 
 复制代码
   
@@ -181,7 +181,7 @@ public V put(K key, V value) { //用t表示二叉树的当前节点 Entry<K,V> t
   
 复制代码
   
-上面代码中do{}代码块是实现排序二叉树的核心算法，通过该算法我们可以确认新增节点在该树的正确位置。找到正确位置后将插入即可，这样做了其实还没有完成，因为我知道TreeMap的底层实现是红黑树，红黑树是一棵平衡排序二叉树，普通的排序二叉树可能会出现失衡的情况，所以下一步就是要进行调整。fixAfterInsertion(e); 调整的过程务必会涉及到红黑树的左旋、右旋、着色三个基本操作。代码如下：
+上面代码中do{}代码块是实现排序二叉树的核心算法，通过该算法我们可以确认新增节点在该树的正确位置。找到正确位置后将插入即可，这样做了其实还没有完成，因为我知道TreeMap的底层实现是红黑树，红黑树是一棵平衡排序二叉树，普通的排序二叉树可能会出现失衡的情况，所以下一步就是要进行调整。fixAfterInsertion(e); 调整的过程务必会涉及到红黑树的左旋、右旋、着色三个基本操作。代码如下: 
   
 复制代码
   
@@ -191,9 +191,9 @@ public V put(K key, V value) { //用t表示二叉树的当前节点 Entry<K,V> t
   
 对这段代码的研究我们发现,其处理过程完全符合红黑树新增节点的处理过程。所以在看这段代码的过程一定要对红黑树的新增节点过程有了解。在这个代码中还包含几个重要的操作。左旋(rotateLeft())、右旋（rotateRight()）、着色（setColor()）。
 
-左旋：rotateLeft()
+左旋: rotateLeft()
 
-所谓左旋转，就是将新增节点（N）当做其父节点（P），将其父节点P当做新增节点（N）的左子节点。即：G.left -> N ,N.left -> P。
+所谓左旋转，就是将新增节点（N）当做其父节点（P），将其父节点P当做新增节点（N）的左子节点。即: G.left -> N ,N.left -> P。
 
 复制代码
   
@@ -201,7 +201,7 @@ private void rotateLeft(Entry<K,V> p) { if (p != null) { //获取P的右子节�
   
 复制代码
   
-右旋：rotateRight()
+右旋: rotateRight()
 
 所谓右旋转即，P.right -> G、G.parent -> P。
 
@@ -211,15 +211,15 @@ private void rotateRight(Entry<K,V> p) { if (p != null) { //将L设置为P的左
   
 复制代码
   
-左旋、右旋的示意图如下：
+左旋、右旋的示意图如下: 
 
 2014051700004 2014051700005
 
 （左旋） （右旋）
 
-（图片来自：http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html）
+（图片来自: http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html）
 
-着色：setColor()
+着色: setColor()
 
 着色就是改变该节点的颜色，在红黑树中，它是依靠节点的颜色来维持平衡的。
 
@@ -229,13 +229,13 @@ private static <K,V> void setColor(Entry<K,V> p, boolean c) { if (p != null) p.c
 
 红黑树删除节点
 
-针对于红黑树的增加节点而言，删除显得更加复杂，使原本就复杂的红黑树变得更加复杂。同时删除节点和增加节点一样，同样是找到删除的节点，删除之后调整红黑树。但是这里的删除节点并不是直接删除，而是通过走了"弯路"通过一种捷径来删除的：找到被删除的节点D的子节点C，用C来替代D，不是直接删除D，因为D被C替代了，直接删除C即可。所以这里就将删除父节点D的事情转变为了删除子节点C的事情，这样处理就将复杂的删除事件简单化了。子节点C的规则是：右分支最左边，或者 左分支最右边的。
+针对于红黑树的增加节点而言，删除显得更加复杂，使原本就复杂的红黑树变得更加复杂。同时删除节点和增加节点一样，同样是找到删除的节点，删除之后调整红黑树。但是这里的删除节点并不是直接删除，而是通过走了"弯路"通过一种捷径来删除的: 找到被删除的节点D的子节点C，用C来替代D，不是直接删除D，因为D被C替代了，直接删除C即可。所以这里就将删除父节点D的事情转变为了删除子节点C的事情，这样处理就将复杂的删除事件简单化了。子节点C的规则是: 右分支最左边，或者 左分支最右边的。
 
 20140517000012
 
 红-黑二叉树删除节点，最大的麻烦是要保持 各分支黑色节点数目相等。 因为是删除，所以不用担心存在颜色冲突问题——插入才会引起颜色冲突。
 
-红黑树删除节点同样会分成几种情况，这里是按照待删除节点有几个儿子的情况来进行分类：
+红黑树删除节点同样会分成几种情况，这里是按照待删除节点有几个儿子的情况来进行分类: 
 
 1、没有儿子，即为叶结点。直接把父结点的对应儿子指针设为NULL，删除儿子结点就OK了。
 
@@ -243,7 +243,7 @@ private static <K,V> void setColor(Entry<K,V> p, boolean c) { if (p != null) p.c
 
 3、有两个儿子。这种情况比较复杂，但还是比较简单。上面提到过用子节点C替代代替待删除节点D，然后删除子节点C即可。
 
-下面就论各种删除情况来进行图例讲解，但是在讲解之前请允许我再次啰嗦一句，请时刻牢记红黑树的5点规定：
+下面就论各种删除情况来进行图例讲解，但是在讲解之前请允许我再次啰嗦一句，请时刻牢记红黑树的5点规定: 
 
 1、每个节点都只能是红色或者黑色
 
@@ -255,9 +255,9 @@ private static <K,V> void setColor(Entry<K,V> p, boolean c) { if (p != null) p.c
 
 5、从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。
 
-（注：已经讲三遍了，再不记住我就怀疑你是否适合搞IT了 O(∩_∩)O~）
+（注: 已经讲三遍了，再不记住我就怀疑你是否适合搞IT了 O(∩_∩)O~）
 
-诚然，既然删除节点比较复杂，那么在这里我们就约定一下规则：
+诚然，既然删除节点比较复杂，那么在这里我们就约定一下规则: 
 
 1、下面要讲解的删除节点一定是实际要删除节点的后继节点（N），如前面提到的C。
 
@@ -289,7 +289,7 @@ private static <K,V> void setColor(Entry<K,V> p, boolean c) { if (p != null) p.c
 
 情况3.1、N的兄弟节点W为红色
 
-W为红色，那么其子节点X1、X2必定全部为黑色，父节点P也为黑色。处理策略是：改变W、P的颜色，然后进行一次左旋转。这样处理就可以使得红黑性质得以继续保持。N的新兄弟new w是旋转之前w的某个孩子，为黑色。这样处理后将情况3.1、转变为3.2、3.3、3.4中的一种。如下：
+W为红色，那么其子节点X1、X2必定全部为黑色，父节点P也为黑色。处理策略是: 改变W、P的颜色，然后进行一次左旋转。这样处理就可以使得红黑性质得以继续保持。N的新兄弟new w是旋转之前w的某个孩子，为黑色。这样处理后将情况3.1、转变为3.2、3.3、3.4中的一种。如下: 
 
 20140517000014
 
@@ -323,7 +323,7 @@ W为红色，那么其子节点X1、X2必定全部为黑色，父节点P也为�
 
 TreeMap deleteEntry()方法实现分析
 
-通过上面的分析我们确认删除节点的步骤是：找到一个替代子节点C来替代P，然后直接删除C，最后调整这棵红黑树。下面代码是寻找替代节点、删除替代节点。
+通过上面的分析我们确认删除节点的步骤是: 找到一个替代子节点C来替代P，然后直接删除C，最后调整这棵红黑树。下面代码是寻找替代节点、删除替代节点。
 
 复制代码
   
@@ -331,11 +331,11 @@ private void deleteEntry(Entry<K,V> p) { modCount++; //修改次数 +1 size-; //
   
 复制代码
   
-（1）除是寻找替代节点replacement，其实现方法为successor()。如下：
+（1）除是寻找替代节点replacement，其实现方法为successor()。如下: 
 
 static <K,V> TreeMap.Entry<K,V> successor(Entry<K,V> t) { if (t == null) return null; /\* \* 寻找右子树的最左子树 _/ else if (t.right != null) { Entry<K,V> p = t.right; while (p.left != null) p = p.left; return p; } /_ \* 选择左子树的最右子树 \*/ else { Entry<K,V> p = t.parent; Entry<K,V> ch = t; while (p != null && ch == p.right) { ch = p; p = p.parent; } return p; } }
   
-（2）处是删除该节点过程。它主要分为上面提到的三种情况，它与上面的if…else if… else一一对应 。如下：
+（2）处是删除该节点过程。它主要分为上面提到的三种情况，它与上面的if…else if… else一一对应 。如下: 
 
 1、有两个儿子。这种情况比较复杂，但还是比较简单。上面提到过用子节点C替代代替待删除节点D，然后删除子节点C即可。
 
@@ -343,11 +343,11 @@ static <K,V> TreeMap.Entry<K,V> successor(Entry<K,V> t) { if (t == null) return 
 
 3、只有一个儿子。那么把父结点的相应儿子指针指向儿子的独生子，删除儿子结点也OK了。
 
-删除完节点后，就要根据情况来对红黑树进行复杂的调整：fixAfterDeletion()。
+删除完节点后，就要根据情况来对红黑树进行复杂的调整: fixAfterDeletion()。
 
 复制代码
   
-private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代，知道 直到 x 不是根节点，且 x 的颜色是黑色 while (x != root && colorOf(x) == BLACK) { if (x == leftOf(parentOf(x))) { //若X节点为左节点 //获取其兄弟节点 Entry<K,V> sib = rightOf(parentOf(x)); /\* \* 如果兄弟节点为红色--（情况3.1） * 策略：改变W、P的颜色，然后进行一次左旋转 _/ if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateLeft(parentOf(x)); sib = rightOf(parentOf(x)); } /_ \* 若兄弟节点的两个子节点都为黑色--（情况3.2） \* 策略：将兄弟节点编程红色 _/ if (colorOf(leftOf(sib)) == BLACK && colorOf(rightOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { /_ \* 如果兄弟节点只有右子树为黑色--（情况3.3） \* 策略：将兄弟节点与其左子树进行颜色互换然后进行右转 * 这时情况会转变为3.4 _/ if (colorOf(rightOf(sib)) == BLACK) { setColor(leftOf(sib), BLACK); setColor(sib, RED); rotateRight(sib); sib = rightOf(parentOf(x)); } /_ \*--情况3.4 \*策略：交换兄弟节点和父节点的颜色， \*同时将兄弟节点右子树设置为黑色，最后左旋转 \*/ setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(rightOf(sib), BLACK); rotateLeft(parentOf(x)); x = root; } } /*\* \* X节点为右节点与其为做节点处理过程差不多，这里就不在累述了 */ else { Entry<K,V> sib = leftOf(parentOf(x)); if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateRight(parentOf(x)); sib = leftOf(parentOf(x)); } if (colorOf(rightOf(sib)) == BLACK && colorOf(leftOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { if (colorOf(leftOf(sib)) == BLACK) { setColor(rightOf(sib), BLACK); setColor(sib, RED); rotateLeft(sib); sib = leftOf(parentOf(x)); } setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(leftOf(sib), BLACK); rotateRight(parentOf(x)); x = root; } } } setColor(x, BLACK); }
+private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代，知道 直到 x 不是根节点，且 x 的颜色是黑色 while (x != root && colorOf(x) == BLACK) { if (x == leftOf(parentOf(x))) { //若X节点为左节点 //获取其兄弟节点 Entry<K,V> sib = rightOf(parentOf(x)); /\* \* 如果兄弟节点为红色--（情况3.1） * 策略: 改变W、P的颜色，然后进行一次左旋转 _/ if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateLeft(parentOf(x)); sib = rightOf(parentOf(x)); } /_ \* 若兄弟节点的两个子节点都为黑色--（情况3.2） \* 策略: 将兄弟节点编程红色 _/ if (colorOf(leftOf(sib)) == BLACK && colorOf(rightOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { /_ \* 如果兄弟节点只有右子树为黑色--（情况3.3） \* 策略: 将兄弟节点与其左子树进行颜色互换然后进行右转 * 这时情况会转变为3.4 _/ if (colorOf(rightOf(sib)) == BLACK) { setColor(leftOf(sib), BLACK); setColor(sib, RED); rotateRight(sib); sib = rightOf(parentOf(x)); } /_ \*--情况3.4 \*策略: 交换兄弟节点和父节点的颜色， \*同时将兄弟节点右子树设置为黑色，最后左旋转 \*/ setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(rightOf(sib), BLACK); rotateLeft(parentOf(x)); x = root; } } /*\* \* X节点为右节点与其为做节点处理过程差不多，这里就不在累述了 */ else { Entry<K,V> sib = leftOf(parentOf(x)); if (colorOf(sib) == RED) { setColor(sib, BLACK); setColor(parentOf(x), RED); rotateRight(parentOf(x)); sib = leftOf(parentOf(x)); } if (colorOf(rightOf(sib)) == BLACK && colorOf(leftOf(sib)) == BLACK) { setColor(sib, RED); x = parentOf(x); } else { if (colorOf(leftOf(sib)) == BLACK) { setColor(rightOf(sib), BLACK); setColor(sib, RED); rotateLeft(sib); sib = leftOf(parentOf(x)); } setColor(sib, colorOf(parentOf(x))); setColor(parentOf(x), BLACK); setColor(leftOf(sib), BLACK); rotateRight(parentOf(x)); x = root; } } } setColor(x, BLACK); }
   
 复制代码
   
@@ -359,24 +359,24 @@ private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代�
 
 同时这篇博文我写了四天，看了、参考了大量的博文。同时不免会有些地方存在借鉴之处，在这里对其表示感谢。LZ大二开始学习数据结构，自认为学的不错，现在发现数据结构我还有太多的地方需要学习了，同时也再一次体味了算法的魅力！！！！
 
-参考资料：
+参考资料: 
 
-1、红黑树数据结构剖析：http://www.cnblogs.com/fanzhidongyzby/p/3187912.html
+1、红黑树数据结构剖析: http://www.cnblogs.com/fanzhidongyzby/p/3187912.html
 
-2、红黑二叉树详解及理论分析 ：http://blog.csdn.net/kartorz/article/details/8865997
+2、红黑二叉树详解及理论分析 : http://blog.csdn.net/kartorz/article/details/8865997
 
-3、教你透彻了解红黑树 ：blog.csdn.net/v_july_v/article/details/6105630
+3、教你透彻了解红黑树 : blog.csdn.net/v_july_v/article/details/6105630
 
-4、经典算法研究系列：五、红黑树算法的实现与剖析 ：http://blog.csdn.net/v_JULY_v/article/details/6109153
+4、经典算法研究系列: 五、红黑树算法的实现与剖析 : http://blog.csdn.net/v_JULY_v/article/details/6109153
 
-5、示例，红黑树插入和删除过程：http://saturnman.blog.163.com/blog/static/557611201097221570/
+5、示例，红黑树插入和删除过程: http://saturnman.blog.163.com/blog/static/557611201097221570/
 
-6、红黑二叉树详解及理论分析 ：http://blog.csdn.net/kartorz/article/details/8865997
+6、红黑二叉树详解及理论分析 : http://blog.csdn.net/kartorz/article/details/8865997
 
 PS:如果你觉得文章对你有所帮助，别忘了推荐或者分享，因为有你的支持，才是我续写下篇的动力和源泉！
   
-作者： chenssy
+作者:  chenssy
   
-出处： http://www.cnblogs.com/chenssy/
+出处:  http://www.cnblogs.com/chenssy/
   
 本文版权归作者和博客园共有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。

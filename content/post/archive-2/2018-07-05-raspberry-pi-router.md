@@ -89,7 +89,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 ```bash
 iptables-save > /etc/iptables.ipv4.nat
 vim /etc/rc.local
-# 在这个文件的exit 0这行的上面加入下面的内容：
+# 在这个文件的exit 0这行的上面加入下面的内容: 
 
 iptables-restore < /etc/iptables.ipv4.nat
 ```

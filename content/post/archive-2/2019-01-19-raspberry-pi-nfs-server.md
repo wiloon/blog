@@ -13,7 +13,7 @@ categories:
 sudo apt install nfs-kernel-server
 
 vim /etc/exports
-# 添加如下内容以允许所有可以访问 NAS 云盘的设备挂载存储：
+# 添加如下内容以允许所有可以访问 NAS 云盘的设备挂载存储: 
 /nas/data *(rw,sync,no_subtree_check)
 
 # restart nfs server
@@ -49,13 +49,13 @@ setfacl -R -m u:1000:rwx /nas/data
 
 共享目录权限问题
   
-默认情况下，root用户被映射成nfsnobody用户，对于客户端机器上和NFS服务器上UID相同的用户会对应映射，其它非root用户被映射成nobody用户。当root用户访问共享目录时是以nfsnobody用户访问共享目录的，这时客户端用户无法正常读写文件，如果要让客户端用户具有读写权限，需要做如下操作：
+默认情况下，root用户被映射成nfsnobody用户，对于客户端机器上和NFS服务器上UID相同的用户会对应映射，其它非root用户被映射成nobody用户。当root用户访问共享目录时是以nfsnobody用户访问共享目录的，这时客户端用户无法正常读写文件，如果要让客户端用户具有读写权限，需要做如下操作: 
 
-在nfs服务端，对共享目录添加facl文件权限给与客户端要执行读写操作的用户一样的UID文件权限；如下：
+在nfs服务端，对共享目录添加facl文件权限给与客户端要执行读写操作的用户一样的UID文件权限；如下: 
   
-客户端用户 yufu 要对 服务端的 /dai 共享目录具有读写权限，那么：查看yufu 的uid 执行 ： id yufu （查看uid为1000）
+客户端用户 yufu 要对 服务端的 /dai 共享目录具有读写权限，那么: 查看yufu 的uid 执行 :  id yufu （查看uid为1000）
 
-到nfs服务端，给 /dai 目录添加facl文件权限给这个用户ID执行如下操作：
+到nfs服务端，给 /dai 目录添加facl文件权限给这个用户ID执行如下操作: 
    
 setfacl -R -m u:1000:rwx /dai
 

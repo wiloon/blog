@@ -19,7 +19,7 @@ http://aofengblog.blog.163.com/blog/static/631702120148573851740/
 
 使用多个虚拟机，将开发环境和工作沟通环境分开（即时通，办公系统都只能在windows下使用…），将开发环境的服务提供给外部访问时，需要在主机上通过代理配置数据转发。
 
-VirtualBox提供了端口转发的功能，可以将主机中的端口转发至指定IP的虚拟机中的端口，支持TCP协议和UDP协议。但有一个缺点：需要重启虚拟主机才生效。
+VirtualBox提供了端口转发的功能，可以将主机中的端口转发至指定IP的虚拟机中的端口，支持TCP协议和UDP协议。但有一个缺点: 需要重启虚拟主机才生效。
 
 其实在Windows中，如果想做端口转发，可以使用Windows自身携带的服务:netsh，使用netsh interface portproxy指令，新增和修改配置信息后，即时生效，并且重启系统后配置信息仍然存在，非常方便。适用于WindowsXP、Windows7，其他的版本还没有试过，支持IPv4和IPv6，但是只支持TCP协议。
   
@@ -37,7 +37,7 @@ netsh interface portproxy add v6tov6 - 添加通过 IPv6 的 IPv6 和代理连�
   
 2、命令语法
   
-以netsh interface portproxy add v4tov4为例，其语法格式如下：
+以netsh interface portproxy add v4tov4为例，其语法格式如下: 
 
 netsh interface portproxy add v4tov4 [listenport=]<integer>|<servicename>
   
@@ -93,7 +93,7 @@ netsh interface portproxy show v6tov6 - 显示 IPv6 代理连接到另一个 IPv
   
 netsh interface portproxy show all
   
-控制台显示如下信息：
+控制台显示如下信息: 
   
 侦听 ipv4:                 连接到 ipv4:
   
@@ -119,7 +119,7 @@ netsh interface portproxy set v6tov6     - 更新通过 IPv6 的 IPv6 和代
   
 2、命令语法
   
-以netsh interface portproxy set v4tov4为例，其语法格式如下：
+以netsh interface portproxy set v4tov4为例，其语法格式如下: 
 
 netsh interface portproxy set v4tov4 [listenport=]<integer>|<servicename>
   
@@ -167,7 +167,7 @@ netsh interface portproxy delete v6tov6  - 删除通过 IPv6 的 IPv6 和代理
   
 2、命令语法
   
-以netsh interface portproxy delete v4tov4为例，其语法格式如下：
+以netsh interface portproxy delete v4tov4为例，其语法格式如下: 
 
 netsh interface portproxy delete v4tov4 [listenport=]<integer>|<servicename>
   
@@ -197,8 +197,8 @@ netsh interface portproxy delete v4tov4 listenport=9090
 
 文章声明
 
-作者：傲风(aofengblog@163.com)       编写时间：2014年09月05日
+作者: 傲风(aofengblog@163.com)       编写时间: 2014年09月05日
 
-网址：http://aofengblog.blog.163.com
+网址: http://aofengblog.blog.163.com
 
 作者保留所有权利，转载请保留文章全部内容或者说明原作者和转载地址！

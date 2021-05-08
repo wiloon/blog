@@ -16,7 +16,7 @@ Web.config 文件是一个xml文本文件，它用来储存 asp.NET Web 应用�
   
 1.配置节处理程序声明
   
-特点：位于配置文件的顶部，包含在<configSections>标志中。
+特点: 位于配置文件的顶部，包含在<configSections>标志中。
   
 2.特定应用程序配置
   

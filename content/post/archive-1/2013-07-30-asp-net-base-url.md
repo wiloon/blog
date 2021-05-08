@@ -20,7 +20,7 @@ http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/
 
 挂载共享文件夹
   
-重新进入虚拟Ubuntu，在命令行终端下输入：
+重新进入虚拟Ubuntu，在命令行终端下输入: 
 
 sudo mkdir /mnt/shared
   
@@ -40,7 +40,7 @@ gongxiang /mnt/shared vboxsf rw,gid=username,uid=username,auto 0 0
   
 sudo umount -f /mnt/shared
   
-注意：
+注意: 
   
 共享文档夹的名称千万不要和挂载点的名称相同。
 

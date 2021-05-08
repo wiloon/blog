@@ -25,7 +25,7 @@ InetAddress对域名进行解析是使用本地机器配置或者网络命名服
   
 1.2. InetAddress对象的获取
 
-InetAddress的构造函数不是公开的（public），所以需要通过它提供的静态方法来获取，有以下的方法：
+InetAddress的构造函数不是公开的（public），所以需要通过它提供的静态方法来获取，有以下的方法: 
 
 static InetAddress[] getAllByName(String host)
 
@@ -41,7 +41,7 @@ static InetAddress getLocalHost()
 
 InetAddress address=InetAddress.getByName("www.baidu.com");
 
-注意到这些方法可能会抛出的异常。如果安全管理器不允许访问DNS服务器或禁止网络连接，SecurityException会抛出，如果找不到对应主机的IP地址，或者发生其他网络I/O错误，这些方法会抛出UnknowHostException。所以需要写如下的代码：
+注意到这些方法可能会抛出的异常。如果安全管理器不允许访问DNS服务器或禁止网络连接，SecurityException会抛出，如果找不到对应主机的IP地址，或者发生其他网络I/O错误，这些方法会抛出UnknowHostException。所以需要写如下的代码: 
 
 try
 
@@ -61,7 +61,7 @@ e.printStackTrace();
 
 }
 
-下面是一则完整的例子：
+下面是一则完整的例子: 
 
 package org.dakiler.javanet.chapter1;
   
@@ -103,7 +103,7 @@ System.out.println(addr);
 
 }
 
-运行结果如下：
+运行结果如下: 
 
 www.baidu.com/119.75.213.61
 
@@ -117,7 +117,7 @@ www.baidu.com/119.75.216.30
 
 getAllByName()方法是根据主机名返回其可能的所有InetAddress对象，保存在一个数组中。在这个例子中，输出的结果中，www.baidu.com有两个ip地址分别为119.75.213.61以及119.75.216.30。
 
-另外一个静态常用的静态方法是getLocalHost()，返回的是本地地址，如下例：
+另外一个静态常用的静态方法是getLocalHost()，返回的是本地地址，如下例: 
 
 package org.dakiler.javanet.chapter1;
   
@@ -139,14 +139,14 @@ System.out.println(address);
 
 }
 
-这个例子首先是根据InetAddress.getLocalHost()方法获取本地IP地址，然后通过System.out.println()打印出来，结果如下：
+这个例子首先是根据InetAddress.getLocalHost()方法获取本地IP地址，然后通过System.out.println()打印出来，结果如下: 
   
 dakiler/192.168.1.102
   
-作者：Leo Chin
+作者: Leo Chin
   
-出处：http://www.cnblogs.com/hnrainll/
+出处: http://www.cnblogs.com/hnrainll/
   
 本博客文章,大多系网络中收集,转载请注明出处
   
-相关标签：嵌入式培训、嵌入式开发、嵌入式学习
+相关标签: 嵌入式培训、嵌入式开发、嵌入式学习

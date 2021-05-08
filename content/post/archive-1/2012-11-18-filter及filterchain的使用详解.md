@@ -25,11 +25,11 @@ l  向过去的代码添加新功能。
 
 过滤器放在容器结构的什么位置？
 
-过滤器放在web资源之前，可以在请求抵达它所应用的web资源(可以是一个Servlet、一个Jsp页面，甚至是一个HTML页面)之前截获进入的请求，并且在它返回到客户之前截获输出请求。Filter：用来拦截请求，处于客户端与被请求资源之间，目的是重用代码。Filter链，在web.xml中哪个先配置，哪个就先调用。在filter中也可以配置一些初始化参数。
+过滤器放在web资源之前，可以在请求抵达它所应用的web资源(可以是一个Servlet、一个Jsp页面，甚至是一个HTML页面)之前截获进入的请求，并且在它返回到客户之前截获输出请求。Filter: 用来拦截请求，处于客户端与被请求资源之间，目的是重用代码。Filter链，在web.xml中哪个先配置，哪个就先调用。在filter中也可以配置一些初始化参数。
 
 Java中的Filter 并不是一个标准的Servlet ，它不能处理用户请求，也不能对客户端生成响应。 主要用于对HttpServletRequest 进行预处理，也可以对HttpServletResponse 进行后处理，是个典型的处理链。
 
-Filter 有如下几个用处：
+Filter 有如下几个用处: 
 
 l  在HttpServletRequest 到达Servlet 之前，拦截客户的HttpServletRequest 。
 
@@ -39,7 +39,7 @@ l  在HttpServletResponse 到达客户端之前，拦截HttpServletResponse 
 
 l  根据需要检查HttpServletResponse ，可以修改HttpServletResponse 头和数据。
 
-Filter 有如下几个种类：
+Filter 有如下几个种类: 
 
 l  用户授权的Filter: Filter 负责检查用户请求，根据请求过滤用户非法请求。
 
@@ -65,13 +65,13 @@ l  能改变XML 内容的XSLTFilter 等。
   
 • void doFilter(ServletRequest request, ServletResponse response,FilterChain chain): 实现过滤功能，该方法就是对每个请求及响应增加的额外处理。
 
-过滤器Filter也具有生命周期：init()->doFilter()->destroy()，由部署文件中的filter元素驱动。在servlet2.4中，过滤器同样可以用于请求分派器，但须在web.xml中声明，<dispatcher>INCLUDE或FORWARD或REQUEST或ERROR</dispatcher>该元素位于filter-mapping中。
+过滤器Filter也具有生命周期: init()->doFilter()->destroy()，由部署文件中的filter元素驱动。在servlet2.4中，过滤器同样可以用于请求分派器，但须在web.xml中声明，<dispatcher>INCLUDE或FORWARD或REQUEST或ERROR</dispatcher>该元素位于filter-mapping中。
 
-Filter常用的场景：
+Filter常用的场景: 
 
 例一、  日志的记录，当有请求到达时，在该过滤器中进行日志的记录。处理完成后，进入后续的Filter或者处理。
 
-步骤1：编写Filter类
+步骤1: 编写Filter类
 
 **package** test.filter;
 
@@ -159,7 +159,7 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 在上面的请求Filter中，仅在日志中记录请求的URL，对所有的请求都执行chain.doFilter(request，reponse)方法，当Filter 对请求过滤后，依然将请求发送到目的地址。
 
-步骤2：在web.xml中配置Filter
+步骤2: 在web.xml中配置Filter
 
 <!- 定义Filter ->
 
@@ -189,7 +189,7 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 </filter-mapping>
 
-通过上述步骤的操作，此时就可以通过URI进行访问。具体访问后会在log文件中的localhost文件中产生具体的访问日志。如下所示：
+通过上述步骤的操作，此时就可以通过URI进行访问。具体访问后会在log文件中的localhost文件中产生具体的访问日志。如下所示: 
 
 2010-12-28 21:12:50 org.apache.catalina.core.ApplicationContext log
 
@@ -326,7 +326,7 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 }
 
-步骤2：在web.xml中配置Filter
+步骤2: 在web.xml中配置Filter
 
 <!- 定义Filter ->
 
@@ -495,7 +495,7 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
 
 }
 
-步骤2：在web.xml中配置Filter
+步骤2: 在web.xml中配置Filter
 
 <!- 定义Filter ->
 
@@ -534,25 +534,25 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestU
   两个过滤器，EncodingFilter负责设置编码，SecurityFilter负责控制权限，服务器会按照web.xml中过滤器定义的先后循序组装成一条链，然后一次执行其中的doFilter()方法。执行的顺序就如下图所示，执行第一个过滤器的chain.doFilter()之前的代码，第二个过滤器的chain.doFilter()之前的代码，请求的资源，第二个过滤器的chain.doFilter()之后的代码，第一个过滤器的chain.doFilter()之后的代码，最后返回响应。
 
 
-  执行的代码顺序是：
+  执行的代码顺序是: 
 
 
   l  执行EncodingFilter.doFilter()中chain.doFilter()之前的部分；request.setCharacterEncoding(encoding);
 
 
-  l  执行SecurityFilter.doFilter()中chain.doFilter()之前的部分：判断用户是否已登录。
+  l  执行SecurityFilter.doFilter()中chain.doFilter()之前的部分: 判断用户是否已登录。
 
 
   l  如果用户已登录，则访问请求的资源。
 
 
-  l  如果用户未登录，则页面重定向到：/failure.jsp。
+  l  如果用户未登录，则页面重定向到: /failure.jsp。
 
 
-  l  执行SecurityFilter.doFilter()中chain.doFilter()之后的部分：这里没有代码。
+  l  执行SecurityFilter.doFilter()中chain.doFilter()之后的部分: 这里没有代码。
 
 
-  l  执行EncodingFilter.doFilter()中chain.doFilter()之后的部分：写入已经完成的日志。
+  l  执行EncodingFilter.doFilter()中chain.doFilter()之后的部分: 写入已经完成的日志。
 
 
   过滤链的好处是，执行过程中任何时候都可以打断，只要不执行chain.doFilter()就不会再执行后面的过滤器和请求的内容。而在实际使用时，就要特别注意过滤链的执行顺序问题，像EncodingFilter就一定要放在所有Filter之前，这样才能确保在使用请求中的数据前设置正确的编码。

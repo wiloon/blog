@@ -12,9 +12,9 @@ https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html
 
 ldd
   
-作用：用来查看程式运行所需的共享库,常用来解决程式因缺少某个库文件而不能运行的一些问题。
+作用: 用来查看程式运行所需的共享库,常用来解决程式因缺少某个库文件而不能运行的一些问题。
   
-示例：查看test程序运行所依赖的库:
+示例: 查看test程序运行所依赖的库:
 
 /opt/app/todeav1/test$ldd test
   

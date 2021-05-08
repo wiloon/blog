@@ -22,23 +22,23 @@ categories:
 
 PL/SQL编译器
 
-交互式地处理：编译器报告错误，你必须更正这些错误
+交互式地处理: 编译器报告错误，你必须更正这些错误
 
 运行时错误
 
 PL/SQL运行时引擎
 
-程序化地处理：异常由异常处理子程序引发并进行捕获
+程序化地处理: 异常由异常处理子程序引发并进行捕获
 
 2、异常的声明
 
-有两种异常：用户自定义异常和预定义异常
+有两种异常: 用户自定义异常和预定义异常
 
 
 用户自定义异常就是由程序员自己定义的一个错误。该错误还不是非常重要，所以并没有将整个错误包含在Oracle的错误中。例如，它可能是一个与数据有关的错误。而预定义异常则对应于一般的SQL和PL/SQL错误。
 
 
-用户自定义异常是在PL/SQL块的声明部分声明的。像变量一样，异常也有一个类型（EXCEPTION）和有效范围。例如：
+用户自定义异常是在PL/SQL块的声明部分声明的。像变量一样，异常也有一个类型（EXCEPTION）和有效范围。例如: 
 
 
 [php][/php] view plaincopy
@@ -71,7 +71,7 @@ RAISE exception_name;
 发生异常的时候，程序的控制就会转移到代码块的异常处理部分。异常处理部分是由异常处理子程序组成的，这些异常处理子程序可以是针对某些异常的，也可以是针对所有异常的。与该异常相关联的错误发生，并引发了该异常的时候，就会执行异常处理部分的代码。
 
 
-异常处理部分的语法如下：
+异常处理部分的语法如下: 
 
 [php][/php] view plaincopy
 
@@ -301,7 +301,7 @@ PL/SQL procedure successfully completed.
 EXCEPTION_INIT pragma
 
 
-你可以将一个经过命名的异常和一个特别的ORACLE错误相关联。这会使你专门能够捕获此错误，而不是通过WHEN OTHERS处理器来进行捕获。EXCEPTION_INIT pragma的语法如下：
+你可以将一个经过命名的异常和一个特别的ORACLE错误相关联。这会使你专门能够捕获此错误，而不是通过WHEN OTHERS处理器来进行捕获。EXCEPTION_INIT pragma的语法如下: 
 
 
 PRAGMA EXCEPTION_INIT(exception_name,Oracle_error_number);
@@ -348,7 +348,7 @@ END;
 
 使用RAISE_APPLICATION_ERROR
 
-你可以使用内置函数RAISE_APPLICATION_ERROR以创建自己的错误消息，这可能要比已命名的异常更具说明性。用户定义消息从块中传递到调用环境中的方式和ORACLE错误是一样的。语法如下：
+你可以使用内置函数RAISE_APPLICATION_ERROR以创建自己的错误消息，这可能要比已命名的异常更具说明性。用户定义消息从块中传递到调用环境中的方式和ORACLE错误是一样的。语法如下: 
 
 
 RAISE_APPLICATION_ERROR(error_number,error_message,[keep_errors]);
@@ -468,7 +468,7 @@ END Register;
 
 1）在执行部分引发的异常
 
-当一个异常是在块的执行部分引发的，PL/SQL使用下面的方法决定要激活哪个异常处理器：
+当一个异常是在块的执行部分引发的，PL/SQL使用下面的方法决定要激活哪个异常处理器: 
 
 如果当前块对该异常设置了处理器，那么执行它并成功完成该块的执行，然后控制会转给包含块。
 
@@ -570,7 +570,7 @@ END Globals;
 /
 
 
--有了这个和GLOBALS包以后，就可以重写前面的代码：
+-有了这个和GLOBALS包以后，就可以重写前面的代码: 
 
 
 BEGIN
@@ -690,7 +690,7 @@ WHEN NO_DATA_FOUND THEN
 END;
 
 
--解决上述问题的方法有两种。第一种是添加一个标识该SQL语句的计数器：
+-解决上述问题的方法有两种。第一种是添加一个标识该SQL语句的计数器: 
 
 
 DECLARE
@@ -729,7 +729,7 @@ INSERT INTO log_table(info) VALUES('NO DATA FOUND IN SELECT'||v_selectcounter);
 END;
 
 
--另一种方法是将每一条语句都放置在它自己的子块中：
+-另一种方法是将每一条语句都放置在它自己的子块中: 
 
 
 BEGIN

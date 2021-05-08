@@ -26,7 +26,7 @@ var row = $("#template").clone();
 
 //after() 方法在被选元素后插入指定的内容。
 
-//语法：
+//语法: 
   
 $(selector).after(content)
 

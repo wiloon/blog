@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-Chrome 有很多的特性在界面菜单中是没有体现的，你可以通过 chrome:// 命令来访问。本文介绍 12 个非常有用的 chrome:// 命令：
+Chrome 有很多的特性在界面菜单中是没有体现的，你可以通过 chrome:// 命令来访问。本文介绍 12 个非常有用的 chrome:// 命令: 
 
   1. chrome://flags
 
@@ -62,7 +62,7 @@ Chrome 有很多的特性在界面菜单中是没有体现的，你可以通过 
 
 最后，如果你想查看 chrome 所有的命令，可使用 chrome://about/
 
-另外，请注意，上面提及的所有命令也可使用 about:xxx 命令，将会自动重定向到 chrome://，例如：
+另外，请注意，上面提及的所有命令也可使用 about:xxx 命令，将会自动重定向到 chrome://，例如: 
 
 about:dns
   

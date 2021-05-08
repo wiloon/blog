@@ -14,7 +14,7 @@ OAuth与SSO、REST有哪些区别与联系
   
 2015-04-20 10:31:10
   
-标签：SSO REST OAuth OAuth2.0
+标签: SSO REST OAuth OAuth2.0
   
 原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://favccxx.blog.51cto.com/2890523/1635938
       

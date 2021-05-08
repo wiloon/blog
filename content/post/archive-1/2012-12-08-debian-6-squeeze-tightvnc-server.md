@@ -40,7 +40,7 @@ categories:
     
     
     
-      编号在这句中：New 'X' desktop is wqvm-debian:2
+      编号在这句中: New 'X' desktop is wqvm-debian:2
     
     
     

@@ -22,9 +22,9 @@ Proxies Valve是代理Valve，其作用是可以对负载均衡代理服务器�
 
 1.X-Forwarded-For等http头字段
 
-在我们现实的真正的场景中，通常Tomcat直接和用户接触的场景不多，主要是通过代理转发机制进行，如下：
+在我们现实的真正的场景中，通常Tomcat直接和用户接触的场景不多，主要是通过代理转发机制进行，如下: 
 
-真正的用户客户端是Client1，代理转发服务器采用的是Nginx，Proxy1，那么在此场景下，如果在Tomcat中进行获取客户端的地址：
+真正的用户客户端是Client1，代理转发服务器采用的是Nginx，Proxy1，那么在此场景下，如果在Tomcat中进行获取客户端的地址: 
 
 request.getRemoteAddr，获得的IP地址绝对是Proxy1的，也就是负载均衡的地址；
 
@@ -40,7 +40,7 @@ X-Forwarded-For: client1, proxy1, proxy2, proxy3
 
 最左边(client1)是最原始客户端的IP地址, 代理服务器每成功收到一个请求，就把请求来源IP地址添加到右边。
 
-在上面这个例子中，这个请求成功通过了三台代理服务器：proxy1, proxy2 及 proxy3。请求由client1发出，到达了proxy3(proxy3可能是请求的终点)。请求刚从client1中发出时，XFF是空的，请求被发往proxy1；通过proxy1的时候，client1被添加到XFF中，之后请求被发往proxy2;通过proxy2的时候，proxy1被添加到XFF中，之后请求被发往proxy3；通过proxy3时，proxy2被添加到XFF中，之后请求的的去向不明，如果proxy3不是请求终点，请求会被继续转发。
+在上面这个例子中，这个请求成功通过了三台代理服务器: proxy1, proxy2 及 proxy3。请求由client1发出，到达了proxy3(proxy3可能是请求的终点)。请求刚从client1中发出时，XFF是空的，请求被发往proxy1；通过proxy1的时候，client1被添加到XFF中，之后请求被发往proxy2;通过proxy2的时候，proxy1被添加到XFF中，之后请求被发往proxy3；通过proxy3时，proxy2被添加到XFF中，之后请求的的去向不明，如果proxy3不是请求终点，请求会被继续转发。
 
 鉴于伪造这一字段非常容易，应该谨慎使用X-Forwarded-For字段。正常情况下XFF中最后一个IP地址是最后一个代理服务器的IP地址, 这通常是一个比较可靠的信息来源。[1]
 
@@ -154,7 +154,7 @@ If true, the value returned by ServletRequest.getLocalPort() and ServletRequest.
 
 我们可以从属性推断，Tomcat实际是通过http头的属性，来找到原始IP地址，proxy地址的；
 
-上述属性中需要区分的是internalProxies,trustProxies两个属性，这两个属性都是过滤的：
+上述属性中需要区分的是internalProxies,trustProxies两个属性，这两个属性都是过滤的: 
 
 3.invoke方法源码解析
 

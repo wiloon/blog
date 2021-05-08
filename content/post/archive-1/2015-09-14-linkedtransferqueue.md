@@ -18,9 +18,9 @@ Doug Lea说LinkedTransferQueue是一个聪明的队列，他是ConcurrentLinkedQ
   
 SynchronousQueue (in "fair" mode), and unbounded LinkedBlockingQueue的超集。
 
-有一篇论文讨论了其算法与性能：地址：http://www.cs.rice.edu/~wns1/papers/2006-PPoPP-SQ.pdf
+有一篇论文讨论了其算法与性能: 地址: http://www.cs.rice.edu/~wns1/papers/2006-PPoPP-SQ.pdf
 
-LinkedTransferQueue实现了一个重要的接口TransferQueue,该接口含有下面几个重要方法：
+LinkedTransferQueue实现了一个重要的接口TransferQueue,该接口含有下面几个重要方法: 
   
 1. transfer(E e)
   
@@ -50,7 +50,7 @@ LinkedTransferQueue实现了一个重要的接口TransferQueue,该接口含有�
   
 元素传送。SynchronousQueue在执行offer操作时，如果没有其他线程执行poll，则直接返回false.线程之间元素传送正是通过transfer方法完成的。
 
-有一个使用案例，我们知道ThreadPoolExecutor调节线程的原则是：先调整到最小线程，最小线程用完后，他会将优先将任务放入缓存队列(offer(task)),等缓冲队列用完了，才会向最大线程数调节。这似乎与我们所理解的线程池模型有点不同。我们一般采用增加到最大线程后，才会放入缓冲队列中，以达到最大性能。ThreadPoolExecutor代码段：
+有一个使用案例，我们知道ThreadPoolExecutor调节线程的原则是: 先调整到最小线程，最小线程用完后，他会将优先将任务放入缓存队列(offer(task)),等缓冲队列用完了，才会向最大线程数调节。这似乎与我们所理解的线程池模型有点不同。我们一般采用增加到最大线程后，才会放入缓冲队列中，以达到最大性能。ThreadPoolExecutor代码段: 
 
 public void execute(Runnable command) {
   
@@ -78,11 +78,11 @@ reject(command); // is shutdown or saturated
   
 如果我们采用SynchronousQueue作为ThreadPoolExecuto的缓冲队列时，在没有线程执行poll时(即存在等待线程)，则workQueue.offer(command)返回false,这时ThreadPoolExecutor就会增加线程，最快地达到最大线程数。但也仅此而已，也因为SynchronousQueue本身不存在容量,也决定了我们一般无法采用SynchronousQueue作为ThreadPoolExecutor的缓存队列。而一般采用LinkedBlockingQueue的offer方法来实现。最新的LinkedTransferQueue也许可以帮我们解决这个问题，后面再说。
 
-transfer算法比较复杂，实现很难看明白。大致的理解是采用所谓双重数据结构(dual data structures)。之所以叫双重，其原因是方法都是通过两个步骤完成：
+transfer算法比较复杂，实现很难看明白。大致的理解是采用所谓双重数据结构(dual data structures)。之所以叫双重，其原因是方法都是通过两个步骤完成: 
   
 保留与完成。比如消费者线程从一个队列中取元素，发现队列为空，他就生成一个空元素放入队列,所谓空元素就是数据项字段为空。然后消费者线程在这个字段上旅转等待。这叫保留。直到一个生产者线程意欲向队例中放入一个元素，这里他发现最前面的元素的数据项字段为NULL，他就直接把自已数据填充到这个元素中，即完成了元素的传送。大体是这个意思，这种方式优美了完成了线程之间的高效协作。
 
-对于LinkedTransferQueue,Doug Lea进行了尽乎极致的优化。Grizzly的采用了PaddedAtomicReference：
+对于LinkedTransferQueue,Doug Lea进行了尽乎极致的优化。Grizzly的采用了PaddedAtomicReference: 
   
 public LinkedTransferQueue() {
   

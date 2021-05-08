@@ -66,7 +66,7 @@ categories:
             
             
               See, Microsoft knowledge base article for further information on how to Detach and Attach databases in SQL Server.
- 参考：
+ 参考: 
             
             
             

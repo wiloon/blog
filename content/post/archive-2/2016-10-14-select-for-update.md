@@ -18,7 +18,7 @@ Select … for update语句是我们经常使用手工加锁语句。通常情�
 
  
 
-下面是采自Oracle官方文档《SQL Language Reference》中关于for update子句的说明：(请双击点开图片查看)
+下面是采自Oracle官方文档《SQL Language Reference》中关于for update子句的说明: (请双击点开图片查看)
 
  
 
@@ -26,7 +26,7 @@ Select … for update语句是我们经常使用手工加锁语句。通常情�
 
  
 
-从for update子句的语法状态图中，我们可以看出该子句分为两个部分：加锁范围子句和加锁行为子句。下面我们分别针对两个方面的进行介绍。
+从for update子句的语法状态图中，我们可以看出该子句分为两个部分: 加锁范围子句和加锁行为子句。下面我们分别针对两个方面的进行介绍。
 
  
 
@@ -142,7 +142,7 @@ SQL> select * from emp where empno=7369 for update;
 
  
 
-此时系统中状态，切换到另一个用户下进行观察：
+此时系统中状态，切换到另一个用户下进行观察: 
 
  
 
@@ -186,7 +186,7 @@ WAITING_SESSION HOLDING_SESSION LOCK_TYPE                  MODE
 
  
 
-由此，我们可以获取到结论：for update子句的默认行为就是自动启动一个事务，借助事务的锁机制将数据进行锁定。
+由此，我们可以获取到结论: for update子句的默认行为就是自动启动一个事务，借助事务的锁机制将数据进行锁定。
 
  
 

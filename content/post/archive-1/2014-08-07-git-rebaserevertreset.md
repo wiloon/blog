@@ -12,9 +12,9 @@ tags:
 ---
 http://zhaojunde1976.blog.163.com/blog/static/12199866820136119201752/
 
-git中的后悔方法：rebase,revert,reset
+git中的后悔方法: rebase,revert,reset
 
-2013-07-11 09:24:06| 分类： 技术 | 标签：git |举报|字号 订阅
+2013-07-11 09:24:06| 分类:  技术 | 标签: git |举报|字号 订阅
   
 如果git中提交了错误代码，怎么办？有三种选择 rebase, revert, reset
   

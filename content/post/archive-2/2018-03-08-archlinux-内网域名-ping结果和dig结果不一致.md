@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-确认/etc/resolv.conf配置是否正确：没问题；
+确认/etc/resolv.conf配置是否正确: 没问题；
 
-确认/etc/hosts中是否添加了额外域名：没问题；
+确认/etc/hosts中是否添加了额外域名: 没问题；
 
 确认域名服务器中正确的内网域名对应的IP，并和同事确认发现内网域名更新过，ping的结果指向了旧的IP，nslookup的解析结果正确；
   

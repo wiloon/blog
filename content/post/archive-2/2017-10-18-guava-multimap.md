@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-　在日常的开发工作中，我们有的时候需要构造像Map<K, List<V>>或者Map<K, Set<V>>这样比较复杂的集合类型的数据结构，以便做相应的业务逻辑处理。例如：
+　在日常的开发工作中，我们有的时候需要构造像Map<K, List<V>>或者Map<K, Set<V>>这样比较复杂的集合类型的数据结构，以便做相应的业务逻辑处理。例如: 
 
 复制代码
   
@@ -73,13 +73,13 @@ int score;
   
 复制代码
   
-　　说明：想 Map<String, List<StudentScore>> StudentScoreMap = new HashMap<String, List<StudentScore>>()这样的数据结构，自己实现起来太麻烦，你需要检查key是否存在，不存在时则创建一个，存在时在List后面添加上一个。这个过程是比较痛苦的，如果你希望检查List中的对象是否存在，删除一个对象，或者遍历整个数据结构，那么则需要更多的代码来实现。
+　　说明: 想 Map<String, List<StudentScore>> StudentScoreMap = new HashMap<String, List<StudentScore>>()这样的数据结构，自己实现起来太麻烦，你需要检查key是否存在，不存在时则创建一个，存在时在List后面添加上一个。这个过程是比较痛苦的，如果你希望检查List中的对象是否存在，删除一个对象，或者遍历整个数据结构，那么则需要更多的代码来实现。
 
 　　Multimap
 
 　　Guava的Multimap就提供了一个方便地把一个键对应到多个值的数据结构。让我们可以简单优雅的实现上面复杂的数据结构，让我们的精力和时间放在实现业务逻辑上，而不是在数据结构上，下面我们具体来看看Multimap的相关知识点。
 
-　　上面的代码和数据结构用Multimap来实现，代码结构清晰简单了很多吧，具体代码如下：
+　　上面的代码和数据结构用Multimap来实现，代码结构清晰简单了很多吧，具体代码如下: 
 
 复制代码
   
@@ -109,7 +109,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
   
 复制代码
   
-　　调用Multimap.get(key)会返回这个键对应的值的集合的视图（view），没有对应集合就返回空集合。对于ListMultimap来说，这个方法会返回一个List，对于SetMultimap来说，这个方法就返回一个Set。修改数据是通过修改底层Multimap来实现的。例如：
+　　调用Multimap.get(key)会返回这个键对应的值的集合的视图（view），没有对应集合就返回空集合。对于ListMultimap来说，这个方法会返回一个List，对于SetMultimap来说，这个方法就返回一个Set。修改数据是通过修改底层Multimap来实现的。例如: 
 
 复制代码
   
@@ -149,7 +149,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
 
 复制代码
    
-　 Multimap也支持一系列强大的视图功能：
+　 Multimap也支持一系列强大的视图功能: 
   
 　　1.asMap把自身Multimap<K, V>映射成Map<K, Collection<V>>视图。这个Map视图支持remove和修改操作，但是不支持put和putAll。严格地来讲，当你希望传入参数是不存在的key，而且你希望返回的是null而不是一个空的可修改的集合的时候就可以调用asMap().get(key)。（你可以强制转型asMap().get(key)的结果类型－对SetMultimap的结果转成Set，对ListMultimap的结果转成List型－但是直接把ListMultimap转成Map<K, List<V>>是不行的。）
   
@@ -161,7 +161,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
   
 　　5.values()视图能把Multimap里的所有值"平展"成一个Collection<V>。这个操作和Iterables.concat(multimap.asMap().values())很相似，只是它返回的是一个完整的Collection。
 
-　　尽管Multimap的实现用到了Map，但Multimap<K, V>不是Map<K, Collection<V>>。因为两者有明显区别：
+　　尽管Multimap的实现用到了Map，但Multimap<K, V>不是Map<K, Collection<V>>。因为两者有明显区别: 
   
 　　1.Multimap.get(key)一定返回一个非null的集合。但这不表示Multimap使用了内存来关联这些键，相反，返回的集合只是个允许添加元素的视图。
   
@@ -231,7 +231,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
   
 　　Multimap的实现
 
-　　Multimap提供了丰富的实现，所以你可以用它来替代程序里的Map<K, Collection<V>>，具体的实现如下：
+　　Multimap提供了丰富的实现，所以你可以用它来替代程序里的Map<K, Collection<V>>，具体的实现如下: 
   
 　　Implementation Keys 的行为类似 　　　Values的行为类似
   

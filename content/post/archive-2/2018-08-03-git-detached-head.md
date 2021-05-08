@@ -82,7 +82,7 @@ $ git branch -d temp
   
 Deleted branch temp (was 3e74a7a).
   
-但是与道友不同的是，使用 git checkout origin/master制造的detached HEAD的情况，再次使用切换分支就会消失：
+但是与道友不同的是，使用 git checkout origin/master制造的detached HEAD的情况，再次使用切换分支就会消失: 
 
 $ git checkout master //master或者任意已知分支
   

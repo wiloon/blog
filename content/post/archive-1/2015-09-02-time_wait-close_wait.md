@@ -13,14 +13,14 @@ tags:
 http://blog.csdn.net/kobejayandy/article/details/17655739
 
 
-在服务器的日常维护过程中，会经常用到下面的命令：
+在服务器的日常维护过程中，会经常用到下面的命令: 
 
 
 [plain][/plain] view plaincopy
   
 netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
   
-它会显示例如下面的信息：
+它会显示例如下面的信息: 
 
 TIME_WAIT 814
   
@@ -34,9 +34,9 @@ SYN_RECV 2
   
 LAST_ACK 1
   
-常用的三个状态是：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。
+常用的三个状态是: ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。
 
-TCP协议规定，对于已经建立的连接，网络双方要进行四次握手才能成功断开连接，如果缺少了其中某个步骤，将会使连接处于假死状态，连接本身占用的资源不会被释放。网络服务器程序要同时管理大量连接，所以很有必要保证无用连接完全断开，否则大量僵死的连接会浪费许多服务器资源。在众多TCP状态中，最值得注意的状态有两个：CLOSE_WAIT和TIME_WAIT。
+TCP协议规定，对于已经建立的连接，网络双方要进行四次握手才能成功断开连接，如果缺少了其中某个步骤，将会使连接处于假死状态，连接本身占用的资源不会被释放。网络服务器程序要同时管理大量连接，所以很有必要保证无用连接完全断开，否则大量僵死的连接会浪费许多服务器资源。在众多TCP状态中，最值得注意的状态有两个: CLOSE_WAIT和TIME_WAIT。
 
 TIME_WAIT
   
@@ -56,7 +56,7 @@ CLOSE_WAIT是被动关闭连接是形成的。根据TCP状态机，服务器端�
 
 TIME_WAIT 和CLOSE_WAIT状态socket过多
   
-如果服务器出了异常，百分之八九十都是下面两种情况：
+如果服务器出了异常，百分之八九十都是下面两种情况: 
 
 1.服务器保持了大量TIME_WAIT状态
 

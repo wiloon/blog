@@ -14,7 +14,7 @@ thread join 之后，主线程的状态是waiting
 
 1.join方法定义在Thread类中，则调用者必须是一个线程，
 
-例如：
+例如: 
 
 Thread t = new CustomThread();//这里一般是自定义的线程类
 
@@ -38,7 +38,7 @@ customThread.join();
 
 三、join方法的作用
 
-在网上看到有人说"将两个线程合并"。这样解释我觉得理解起来还更麻烦。不如就借鉴下API里的说法：
+在网上看到有人说"将两个线程合并"。这样解释我觉得理解起来还更麻烦。不如就借鉴下API里的说法: 
 
 "等待该线程终止。"
 
@@ -46,14 +46,14 @@ customThread.join();
 
 四、用实例来理解
 
-写一个简单的例子来看一下join()的用法，一共三个类：
+写一个简单的例子来看一下join()的用法，一共三个类: 
 
 1.CustomThread 类
 
   1. CustomThread1类 
   2. JoinTestDemo 类，main方法所在的类。
 
-代码1：
+代码1: 
 
 ```java view plain copy
   
@@ -173,7 +173,7 @@ System.out.println(threadName + " end!");
   
 }
 
-打印结果：
+打印结果: 
 
 main start.//main方法所在的线程起动，但没有马上结束，因为调用t.join();，所以要等到t结束了，此线程才能向下执行。
 
@@ -197,7 +197,7 @@ main start.//main方法所在的线程起动，但没有马上结束，因为调
 
 main end!//线程CustomThread结束，此线程在t.join();阻塞处起动，向下继续执行的结果。
 
-修改一下代码，得到代码2：(这里只写出修改的部分)
+修改一下代码，得到代码2: (这里只写出修改的部分)
 
 ```java view plain copy
   
@@ -235,7 +235,7 @@ System.out.println(threadName + " end!");
   
 }
 
-打印结果：
+打印结果: 
 
 main start. // main方法所在的线程起动，但没有马上结束，这里并不是因为join方法，而是因为Thread.sleep(2000);
 
@@ -261,7 +261,7 @@ main end!// Thread.sleep(2000);结束，虽然在线程CustomThread执行了t1.j
 
 五、从源码看join()方法
 
-在CustomThread的run方法里，执行了t1.join();，进入看一下它的JDK源码：
+在CustomThread的run方法里，执行了t1.join();，进入看一下它的JDK源码: 
 
 ```java view plain copy
   
@@ -271,7 +271,7 @@ n(0);
   
 }
 
-然后进入join(0)方法：
+然后进入join(0)方法: 
 
 ```java view plain copy
      

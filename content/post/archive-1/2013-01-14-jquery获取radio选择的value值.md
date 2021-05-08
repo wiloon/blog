@@ -24,7 +24,7 @@ var_name = $("input[name='radio_name']:checked").val();
   
 5. $("input[name='radio_name'][value='要中Radio的Value值']").attr("checked",true);   jQuery获取CheckBox选择的Value
 
-语法解释：
+语法解释: 
   
 1. $("input[name='checkbox_name'][checked]");  //选择被选中CheckBox元素的集合 如果你想得到Value值，你需要遍历
   
@@ -60,13 +60,13 @@ $("#chk_all").click(function() {  $("input[name='chk_list']").attr("checked",$
   
 </script>
 
-jQuery.attr  获取/设置对象的属性值,如：
+jQuery.attr  获取/设置对象的属性值,如: 
 
 $("input[name='chk_list']").attr("checked");     //读取所有name为'chk_list'对象的状态（是否选中）
 
 $("input[name='chk_list']").attr("checked",true);      //设置所有name为'chk_list'对象的checked为true
 
-再如：
+再如: 
 
 $("#img_1").attr("src","test.jpg");    //设置ID为img_1的<img>src的值为'test.jpg'
   
@@ -90,7 +90,7 @@ var arrChk=$("input[name='chk_list']:checked"); $(arrChk).each(function() { �
 
 jQuery获取Select选择的Text和Value:
 
-语法解释：
+语法解释: 
   
 1. $("#select_id").change(function(){//code...});   //为Select添加事件，当选择其中一项时触发
   
@@ -104,7 +104,7 @@ jQuery获取Select选择的Text和Value:
   
 jQuery设置Select选择的Text和Value:
   
-语法解释：
+语法解释: 
   
 1. $("#select_id ").get(0).selectedIndex=1;  //设置Select索引值为1的项选中
   
@@ -116,7 +116,7 @@ jQuery设置Select选择的Text和Value:
 
 ").attr("selected", true);   //设置Select的Text值为jQuery的项选中
 
-jQuery添加/删除Select的Option项：
+jQuery添加/删除Select的Option项: 
 
 点击一次，Select将追加一个Option
   
@@ -160,31 +160,31 @@ radio单选组的第二个元素为当前选中值
   
 $('input[@name=items]').get(1).checked = true;
   
-获取值：
+获取值: 
   
-文本框，文本区域：$("#txt").attr("value")；
+文本框，文本区域: $("#txt").attr("value")；
   
-多选框checkbox：$("#checkbox_id").attr("value")；
+多选框checkbox: $("#checkbox_id").attr("value")；
   
-单选组radio：   $("input[@type=radio][@checked]").val();
+单选组radio:    $("input[@type=radio][@checked]").val();
   
-下拉框select： $('#sel').val();
+下拉框select:  $('#sel').val();
   
-控制表单元素：
+控制表单元素: 
   
-文本框，文本区域：$("#txt").attr("value",");//清空内容
+文本框，文本区域: $("#txt").attr("value",");//清空内容
   
 $("#txt").attr("value",'11');//填充内容
   
-多选框checkbox： $("#chk1").attr("checked",");//不打勾
+多选框checkbox:  $("#chk1").attr("checked",");//不打勾
   
 $("#chk2").attr("checked",true);//打勾
   
 if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
 
-单选组radio：    $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
+单选组radio:     $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
   
-下拉框select：   $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
+下拉框select:    $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
   
 $("<option value='1'>1111</option><option value='2'>2222</option>").appendTo("#sel")//添加下拉框的option
   
@@ -222,7 +222,7 @@ $(#testSelect option:selected').text();
   
 //////////////////////////////////////////////////////////////////
   
-记性不好的可以收藏下：
+记性不好的可以收藏下: 
   
 1,下拉框:
 
@@ -318,31 +318,31 @@ radio单选组的第二个元素为当前选中值
   
 $('input[@name=items]').get(1).checked = true;
   
-获取值：
+获取值: 
   
-文本框，文本区域：$("#txt").attr("value")；
+文本框，文本区域: $("#txt").attr("value")；
   
-多选框checkbox：$("#checkbox_id").attr("value")；
+多选框checkbox: $("#checkbox_id").attr("value")；
   
-单选组radio： $("input[@type=radio][@checked]").val();
+单选组radio:  $("input[@type=radio][@checked]").val();
   
-下拉框select： $('#sel').val();
+下拉框select:  $('#sel').val();
   
-控制表单元素：
+控制表单元素: 
   
-文本框，文本区域：$("#txt").attr("value",");//清空内容
+文本框，文本区域: $("#txt").attr("value",");//清空内容
   
 $("#txt").attr("value",'11');//填充内容
   
-多选框checkbox： $("#chk1").attr("checked",");//不打勾
+多选框checkbox:  $("#chk1").attr("checked",");//不打勾
   
 $("#chk2").attr("checked",true);//打勾
   
 if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
   
-单选组radio： $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
+单选组radio:  $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
   
-下拉框select： $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
+下拉框select:  $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
   
 $("<optionvalue='1'>1111</option><optionvalue='2'>2222</option>").appendTo("#sel")//添加下拉框的option
   
@@ -364,31 +364,31 @@ radio单选组的第二个元素为当前选中值
   
 $('input[@name=items]').get(1).checked = true;
   
-获取值：
+获取值: 
   
-文本框，文本区域：$("#txt").attr("value")；
+文本框，文本区域: $("#txt").attr("value")；
   
-多选框checkbox：$("#checkbox_id").attr("value")；
+多选框checkbox: $("#checkbox_id").attr("value")；
   
-单选组radio： $("input[@type=radio][@checked]").val();
+单选组radio:  $("input[@type=radio][@checked]").val();
   
-下拉框select： $('#sel').val();
+下拉框select:  $('#sel').val();
   
-控制表单元素：
+控制表单元素: 
   
-文本框，文本区域：$("#txt").attr("value",");//清空内容
+文本框，文本区域: $("#txt").attr("value",");//清空内容
   
 $("#txt").attr("value",'11');//填充内容
   
-多选框checkbox： $("#chk1").attr("checked",");//不打勾
+多选框checkbox:  $("#chk1").attr("checked",");//不打勾
   
 $("#chk2").attr("checked",true);//打勾
   
 if($("#chk1").attr('checked')==undefined) //判断是否已经打勾
   
-单选组radio： $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
+单选组radio:  $("input[@type=radio]").attr("checked",'2');//设置value=2的项目为当前选中项
   
-下拉框select： $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
+下拉框select:  $("#sel").attr("value",'-sel3');//设置value=-sel3的项目为当前选中项
   
 $("<option value='1'>1111</option><option value='2'>2222</option>").appendTo("#sel")//添加下拉框的option
   
@@ -402,7 +402,7 @@ $("#sel").empty()；//清空下拉框
 
 那么jQuery("#select1").text();就是取得的文本。
 
-这是不正确的，正确做法是：
+这是不正确的，正确做法是: 
 
 jQuery("#select1  option:selected").text();
 
@@ -636,7 +636,7 @@ $("#fselect")[0].options[index] = null;
   
 </script>
 
-其他有关select的取值或赋值方式：
+其他有关select的取值或赋值方式: 
   
 获取select被选中项的文本
   

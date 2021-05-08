@@ -11,7 +11,7 @@ categories:
 
 建表的时候，如果是浮点数，一般设置为 number(m,n )[m为精度，n为小数位数，所以整数为m-n位],  整数设置为integer;
 
-比如：
+比如: 
 
 create table abc
   
@@ -43,7 +43,7 @@ d和a,b,c有什么区别呢，首先d可以放小数，另外它的范围同样�
 
 因为一个字节最大表示256，那么N个字节最大表示power(256,n)>=power(10,126)
 
-现在求这个N：解法是：
+现在求这个N: 解法是: 
   
 select  LOG(256,10)*126   from dual
   
@@ -65,7 +65,7 @@ select  LOG(256,10)*126   from dual
   
 可以用binary_integer 或pls_integer ；11g里还出了个新的整形，效率更高，叫simple_integer，反正最好不用integer就是了。
 
-效率测试下来：simple_integer>pls_integer>binary_integer>integer;
+效率测试下来: simple_integer>pls_integer>binary_integer>integer;
 
 
 ### SIMPLE_INTEGER Subtype of PLS_INTEGER {#autoId14}

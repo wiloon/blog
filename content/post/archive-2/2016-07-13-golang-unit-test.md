@@ -14,7 +14,7 @@ fibonacci.go
   
 fibonacci_test.go
 
-单元测试文件必须遵守下面原则：
+单元测试文件必须遵守下面原则: 
   
 文件名必须是_test.go结尾，这样执行go test的时候才会执行到相应的代码
   
@@ -26,7 +26,7 @@ fibonacci_test.go
   
 测试函数的参数是testing.T,我们可以使用该类型来记录错误或者是测试状态
   
-测试函数格式：*func TestXxx(t testing.T),Xxx部分可以任意字母数字的组合，但是首字母不能是小写
+测试函数格式: *func TestXxx(t testing.T),Xxx部分可以任意字母数字的组合，但是首字母不能是小写
   
 函数中通过调用testing.T 的Error，Errorf，FailNow,Fatal,FatalIf方法，说明测试不通过，调用Log方法来记录测试信息
 
@@ -52,13 +52,13 @@ func Test_Division_2(t *testing.T) {
 
 如何编写压力测试
   
-压力测试用来检测函数的性能的，和编写单元功能的测试的方法类似，压力测试必须注意以下几点：
+压力测试用来检测函数的性能的，和编写单元功能的测试的方法类似，压力测试必须注意以下几点: 
 
 压力测试用例必须遵循如下格式，其中XXX可以是任意字母数字组合，但是首字母不能是小写字母
    
 func BenchmarkXXX(b _testing.B) { ... }
   
-go test不会默认执行压力测试的函数，如果要执行压力测试需要带上参数-test.bench,语法：-test.bench="test_name_regex",例如go test.bench="."_ 表示测试全部的压力测试函数
+go test不会默认执行压力测试的函数，如果要执行压力测试需要带上参数-test.bench,语法: -test.bench="test_name_regex",例如go test.bench="."_ 表示测试全部的压力测试函数
   
 在压力测试用例中，请记得在循环体内使用testing.B.N，以使测试可以正常运行
   
@@ -100,11 +100,11 @@ go test -test.bench=".*"
 go test -test.bench=".*" -count=5
 ```
 
-作者：Carrism
+作者: Carrism
   
-链接：https://www.jianshu.com/p/41cdfd4a5707
+链接: https://www.jianshu.com/p/41cdfd4a5707
   
-来源：简书
+来源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -116,7 +116,7 @@ golang中的单元测试不单有功能测试，也还提供了性能测试，�
 
 功能测试
   
-在golang的src目录下新建目录math，测试目录结构如下：
+在golang的src目录下新建目录math，测试目录结构如下: 
 
 golang单元测试目录
   
@@ -138,7 +138,7 @@ return n
   
 return Fibonacci(n-1) + Fibonacci(n-2)
   
-fibonacci_test.go就是测试的文件了，golang需要测试文件一律用"_test"结尾，测试的函数都用Test开头，代码如下：
+fibonacci_test.go就是测试的文件了，golang需要测试文件一律用"_test"结尾，测试的函数都用Test开头，代码如下: 
   
 package lib
 
@@ -186,7 +186,7 @@ Fibonacci(10)
   
 }
   
-接下来执行这个性能测试：
+接下来执行这个性能测试: 
 
 $ go test -bench=. lib
   
@@ -198,7 +198,7 @@ ok lib 2.608s
   
 其中第二行输出表示这个函数运行了5000000次，平均运行一次的时间是436ns。
 
-这个性能测试只测试参数为10的情况。如果有需要可以测试多个参数：
+这个性能测试只测试参数为10的情况。如果有需要可以测试多个参数: 
 
 //测试参数为5的性能
   
@@ -224,7 +224,7 @@ Fibonacci(20)
   
 }
   
-运行一下：
+运行一下: 
 
 $ go test -bench=. lib
   
@@ -238,7 +238,7 @@ BenchmarkFibonacci20 50000 44688 ns/op
   
 ok lib 7.824s
   
-如果性能测试的方法非常多，那需要的时间就会比较久。可以通过-bench=参数设置需要运行的性能测试行数：
+如果性能测试的方法非常多，那需要的时间就会比较久。可以通过-bench=参数设置需要运行的性能测试行数: 
 
 $ go test -bench=Fibonacci20 lib
   

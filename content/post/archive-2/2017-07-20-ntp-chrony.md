@@ -64,7 +64,7 @@ chronyc activity -v
 ## 查看 ntp 详细信息
 chronyc tracking -v
 
-可以通过运行chronyc命令来修改设置，命令如下：
+可以通过运行chronyc命令来修改设置，命令如下: 
 accheck - 检查NTP访问是否对特定主机可用
 add server - 手动添加一台新的NTP服务器。
 clients - 在客户端报告已访问到服务器
@@ -100,7 +100,7 @@ ntpq -4p
 
 chrony的优势
   
-Chrony 的优势包括：
+Chrony 的优势包括: 
 
 更快的同步只需要数分钟而非数小时时间，从而最大程度减少了时间和频率误差，这对于并非全天 24 小时运行的台式计算机或系统而言非常有用。
   

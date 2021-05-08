@@ -92,7 +92,7 @@ beacon_int=100
 dtim_period=2
 # 允许最大连接数
 max_num_sta=5
-# Bit 字段：bit0 = WPA, bit1 = WPA2
+# Bit 字段: bit0 = WPA, bit1 = WPA2
 wpa=2
 rts_threshold=-1
 fragm_threshold=-1
@@ -178,7 +178,7 @@ sudo nft add rule nat post ip saddr 192.168.49.0/24 oif enp2s0 snat 172.16.xxx.x
 sudo hostapd /etc/hostapd/hostapd.conf
 sudo hostapd -B /etc/hostapd/hostapd.conf
 sudo systemctl start hostapd.service 
-#设置无线接入点IP地址，命令模式如下：
+#设置无线接入点IP地址，命令模式如下: 
   
 sudo ip addr add 192.168.49.1/24 dev wlp2s0b1  
 sudo ip link set wlp2s0b1 up

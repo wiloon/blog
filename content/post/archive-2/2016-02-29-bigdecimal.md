@@ -68,7 +68,7 @@ System.out.println("利息:\t" + currency.format(interest));
   
 }
 
-运行结果如下：
+运行结果如下: 
 
 贷款金额: ￥15,000.48
   
@@ -78,7 +78,7 @@ System.out.println("利息:\t" + currency.format(interest));
   
 五、BigDecimal比较
   
-BigDecimal是通过使用compareTo(BigDecimal)来比较的，具体比较情况如下：
+BigDecimal是通过使用compareTo(BigDecimal)来比较的，具体比较情况如下: 
   
 public static void main(String[] args) {
   
@@ -102,7 +102,7 @@ System.out.println(result3);
 
 }
 
-打印结果是：-1、0、1，即左边比右边数大，返回1，相等返回0，比右边小返回-1。
+打印结果是: -1、0、1，即左边比右边数大，返回1，相等返回0，比右边小返回-1。
   
 注意不能使用equals方法来比较大小。
 

@@ -42,17 +42,17 @@ zookeeper提供了很多方便的功能，方便我们查看服务器的状态�
   
 还提供了一系列四字命令，方便我们跟服务器进行各种交互，来确认服务器当前的工作情况（这也是服务器监控告警的基础）。
   
-本文所讲的zkCli.sh和zkServer.sh均位于以下目录中：
+本文所讲的zkCli.sh和zkServer.sh均位于以下目录中: 
   
 /usr/local/zookeeper-server1
   
-目录分布情况请参考我的另一篇文章：
+目录分布情况请参考我的另一篇文章: 
   
 zookeeper集群搭建 - http://www.cnblogs.com/linuxbug/p/4840137.html
   
 zkServer.sh
   
-提供的主要功能如下：
+提供的主要功能如下: 
 
 1、查看服务器状态
 

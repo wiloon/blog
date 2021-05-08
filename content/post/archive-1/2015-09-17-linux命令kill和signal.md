@@ -18,15 +18,15 @@ kill命令用于终止指定的进程（terminate a process），是Unix/Linux�
   
 一 常用参数
   
-格式：kill <pid>
+格式: kill <pid>
   
-格式：kill -TERM <pid>
+格式: kill -TERM <pid>
   
 发送SIGTERM信号到指定进程，如果进程没有捕获该信号，则进程终止（If no signal is specified, the TERM signal is sent.  The TERM signal will kill processes which do not catch this signal.）
 
-格式：kill -l
+格式: kill -l
   
-列出所有信号名称（Print a list of signal names.  These are found in /usr/include/linux/signal.h）。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。下面是常用的信号：
+列出所有信号名称（Print a list of signal names.  These are found in /usr/include/linux/signal.h）。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。下面是常用的信号: 
 
 HUP    1    终端断线
 INT    2    中断（同 Ctrl + C）
@@ -36,20 +36,20 @@ KILL   9    强制终止
 CONT   18   继续（与STOP相反， fg/bg命令）
 STOP   19   暂停（同 Ctrl + Z）
 
-格式：kill -l <signame>
+格式: kill -l <signame>
 显示指定信号的数值。
 
-格式：kill -9 <pid>
-格式：kill -KILL <pid>
+格式: kill -9 <pid>
+格式: kill -KILL <pid>
 强制杀掉指定进程，无条件终止指定进程。
 
-格式：kill %<jobid>
-格式：kill -9 %<jobid>
+格式: kill %<jobid>
+格式: kill -9 %<jobid>
 杀掉指定的任务（使用jobs命令可以列出）
 
-格式：kill -QUIT <pid>
+格式: kill -QUIT <pid>
 
-格式：kill -3 <pid>
+格式: kill -3 <pid>
 
 使得程序正常的退出。
 
@@ -72,15 +72,15 @@ root      3370  2822  0 16:21 pts/0    00:00:00 grep vim
 
 2）init进程是不可杀的。
   
-参考：
+参考: 
   
 http://codingstandards.iteye.com/blog/847299
   
 完！
 
-作者：iTech
+作者: iTech
   
-出处：http://itech.cnblogs.com/
+出处: http://itech.cnblogs.com/
 
 
 
@@ -107,11 +107,11 @@ kill -l
 
 列出所有信号名称（Print a list of signal names. These are found in /usr/include/linux/signal.h）。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。
 
-作者：cityhash123
+作者: cityhash123
   
-链接：http://www.jianshu.com/p/966d18eac17e
+链接: http://www.jianshu.com/p/966d18eac17e
   
-來源：简书
+來源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
@@ -119,15 +119,15 @@ kill -l
 
   1. kill
   
-    作用：根据进程号杀死进程
+    作用: 根据进程号杀死进程
   
-    用法： kill ［信号代码］ 进程ID
+    用法:  kill ［信号代码］ 进程ID
   
-    举例：
+    举例: 
   
     [root@localhost ~]# ps auxf |grep httpd
   
-    注意：kill -9 来强制终止退出
+    注意: kill -9 来强制终止退出
   
     举例 [root@localhost ~]# ps aux |grep gaim
   
@@ -137,7 +137,7 @@ kill -l
   
     [root@localhost ~]# kill -9 5031
   
-    特殊用法：
+    特殊用法: 
   
     kill -STOP [pid]
   
@@ -155,22 +155,22 @@ kill -l
   
     终止你拥有的全部进程。 
 ### killall
-作用：通过程序的名字，直接杀死所有进程  
-用法：killall 正在运行的程序名  
-举例：
+作用: 通过程序的名字，直接杀死所有进程  
+用法: killall 正在运行的程序名  
+举例: 
 
     pgrep -l gaim 2979 gaim
     killall gaim
   
-注意：该命令可以使用 -9 参数来强制杀死进程
+注意: 该命令可以使用 -9 参数来强制杀死进程
 
 ### pkill
   
-    作用：通过程序的名字，直接杀死所有进程
+    作用: 通过程序的名字，直接杀死所有进程
   
-    用法：#pkill 正在运行的程序名
+    用法: #pkill 正在运行的程序名
   
-    举例：
+    举例: 
   
     [root@localhost beinan]# pgrep -l gaim 2979 gaim
   
@@ -178,19 +178,19 @@ kill -l
 
   4. xkill
   
-    作用：杀死桌面图形界面的程序。
+    作用: 杀死桌面图形界面的程序。
   
-    应用情形实例：firefox出现崩溃不能退出时，点鼠标就能杀死firefox 。
+    应用情形实例: firefox出现崩溃不能退出时，点鼠标就能杀死firefox 。
   
     当xkill运行时出来和个人脑骨的图标，哪个图形程序崩溃一点就OK了。
   
     如果您想终止xkill ，就按右键取消；
   
-    调用方法：
+    调用方法: 
   
     [root@localhost ~]# xkill
 
-◆注：
+◆注: 
   
 KILLALL
   
@@ -258,7 +258,7 @@ http://os.51cto.com/art/200910/158639.htm
   
 的确这个两个命令都能做到这些，而且我们平时一般知道进程名需要杀死进程的时候也都是用的这两个命令。可是他叫我用kill 命令来完成这个一操作。我们知道kill 要杀死进程是需要知道进程的id的即进程号，其实这个思路就是需要通过其他命令获取相应进程的进程号，然后用kill 杀掉。
   
-这里提供两个方法：
+这里提供两个方法: 
   
 1、#kill -9 $(ps -ef|grep 进程名关键字|gawk '$0 !~/grep/ {print $2}' |tr -s '\n' ' ')这个是利用管道和替换将 进程名对应的进程号提出来作为kill的参数。
   

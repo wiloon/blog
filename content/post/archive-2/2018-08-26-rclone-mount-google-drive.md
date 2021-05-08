@@ -68,7 +68,7 @@ name0 # enter name
 #enter webdav url
 
 #列出目录内容
-# 注意： rclone 挂载点名字后面有冒号
+# 注意:  rclone 挂载点名字后面有冒号
 rclone lsl
 ```
 
@@ -133,9 +133,9 @@ windows vbs脚本后台挂载
 
 ```bash著作权归作者所有。
 商业转载请联系作者获得授权，非商业转载请注明出处。
-作者：Rhilip
-链接：https://blog.rhilip.info/archives/874/
-来源：https://blog.rhilip.info/
+作者: Rhilip
+链接: https://blog.rhilip.info/archives/874/
+来源: https://blog.rhilip.info/
 
 Option Explicit
 Dim WMIService, Process, Processes, Flag, WS

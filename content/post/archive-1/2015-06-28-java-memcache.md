@@ -41,7 +41,7 @@ Ubuntu下安装Memcached
 
 Libevent是一个异步事件处理软件函式库，以BSD许可证释出。Memcached依赖Libevent，因此必须先编译安装Libevent。
   
-检测libevent 安装是否成功，输入：# ls -al /usr/lib | grep libevent  会出现如下结果（不同的机器可能有不同的输出）：
+检测libevent 安装是否成功，输入: # ls -al /usr/lib | grep libevent  会出现如下结果（不同的机器可能有不同的输出）: 
 
 yangfei@yangfei-laptop:~$ ls -al /usr/lib |grep libevent
   
@@ -94,11 +94,11 @@ make install
 
 sudo apt-get install memcached
 
-安装完Memcache服务端以后，我们需要启动该服务：
+安装完Memcache服务端以后，我们需要启动该服务: 
 
 memcached -d -m 128 -p 11111 -u root
   
-这里需要说明一下memcached服务的启动参数：
+这里需要说明一下memcached服务的启动参数: 
 
 -p 监听的端口
   
@@ -145,7 +145,7 @@ version
 
 …
 
-对Memcached缓存服务的状态查询，可以先telnet连接上服务：telnet 127.0.0.1 11211 ，然后使用 stats命令查看缓存服务的状态，会返回如下的数据：
+对Memcached缓存服务的状态查询，可以先telnet连接上服务: telnet 127.0.0.1 11211 ，然后使用 stats命令查看缓存服务的状态，会返回如下的数据: 
   
 time:    1255537291                               服务器当前的unix时间戳
   
@@ -191,7 +191,7 @@ curr_items:    28                              
   
 Ok,安装memcached1.4.5成功。
 
-初始化：memcache
+初始化: memcache
   
 Java代码
   
@@ -207,13 +207,13 @@ pool.initialize();
   
 }
   
-创建一个client对象：
+创建一个client对象: 
   
 Java代码
   
 MemCachedClient mc = new MemCachedClient();
 
-创建一个缓存：
+创建一个缓存: 
   
 Java代码
   
@@ -225,7 +225,7 @@ Object value = SomeClass.getObject();
   
 mc.set(key, value);
 
-通过key删除一个缓存：
+通过key删除一个缓存: 
   
 Java代码
   
@@ -235,7 +235,7 @@ String key = "cacheKey1";
   
 mc.delete(key);
 
-通过key获取缓存对象：
+通过key获取缓存对象: 
   
 Java代码
   
@@ -245,7 +245,7 @@ String key = "key";
   
 Object value = mc.get(key);
 
-获取多个缓存对象：
+获取多个缓存对象: 
   
 Java代码
   
@@ -255,7 +255,7 @@ String[] keys = { "key", "key1", "key2" };
   
 Map<Object> values = mc.getMulti(keys);
 
-刷新全部缓存：
+刷新全部缓存: 
   
 Java代码
   
@@ -265,21 +265,21 @@ mc.flushAll();
 
 3. 如何在Java开发中使用Memcache
 
-在Java开发中使用Memcache，一般要用到以下几个程序：
+在Java开发中使用Memcache，一般要用到以下几个程序: 
 
 1)      Memcached
 
 该程序用来在Linux或Windows服务器上建立和管理缓存。
 
-其项目网址为：http://danga.com/memcached/。
+其项目网址为: http://danga.com/memcached/。
 
 2)      Magent
 
-Magent是一款开源的Memcached代理服务器软件，使用它可以搭建高可用性的集群应用的Memcached服务，其项目网址为：http://code.google.com/p/memagent/。
+Magent是一款开源的Memcached代理服务器软件，使用它可以搭建高可用性的集群应用的Memcached服务，其项目网址为: http://code.google.com/p/memagent/。
 
 3)      Memcached客户端程序
 
-至于Memcached的客户端程序，一般推荐用memcached client for java，为什么推荐用这种客户端，后面会讲到具体的原因，其项目的网址为：http://github.com/gwhalin/Memcached-Java-Client/。
+至于Memcached的客户端程序，一般推荐用memcached client for java，为什么推荐用这种客户端，后面会讲到具体的原因，其项目的网址为: http://github.com/gwhalin/Memcached-Java-Client/。
 
 4)      其它程序
   
@@ -287,21 +287,21 @@ i.              Libevent
 
 在Linux环境下应用Memcache时，Memcache用到了libevent这个库，用于Socket的处理，所以还需要安装libevent。libevent的最新版本是libevent-1.4.13。（如果你的系统已经安装了libevent，可以不用安装）。
 
-官网：http://www.monkey.org/~provos/libevent/
+官网: http://www.monkey.org/~provos/libevent/
 
-下载：http://www.monkey.org/~provos/libevent-1.4.13-stable.tar.gz
+下载: http://www.monkey.org/~provos/libevent-1.4.13-stable.tar.gz
 
 ii.              Windows下的安装程序
 
-Memcache也可以安装在Windows服务器下，安装程序：memcached-1.2.1-win32.zip
+Memcache也可以安装在Windows服务器下，安装程序: memcached-1.2.1-win32.zip
 
-可以从这里下载：http://jehiah.cz/projects/memcached-win32/。
+可以从这里下载: http://jehiah.cz/projects/memcached-win32/。
 
 四、            原理与部署
   
 1. magent的hash算法
 
-magent采用的是：Consistent Hashing原理，Consistent Hashing如下所示：首先求出memcached服务器（节点）的哈希值， 并将其配置到0～232的圆（continuum）上。 然后用同样的方法求出存储数据的键的哈希值，并映射到圆上。然后从数据映射到的位置开始顺时针查找，将数据保存到找到的第一个服务器上。 如果超过232仍然找不到服务器，就会保存到第一台memcached服务器上。
+magent采用的是: Consistent Hashing原理，Consistent Hashing如下所示: 首先求出memcached服务器（节点）的哈希值， 并将其配置到0～232的圆（continuum）上。 然后用同样的方法求出存储数据的键的哈希值，并映射到圆上。然后从数据映射到的位置开始顺时针查找，将数据保存到找到的第一个服务器上。 如果超过232仍然找不到服务器，就会保存到第一台memcached服务器上。
 
 从上图的状态中添加一台memcached服务器。余数分布式算法由于保存键的服务器会发生巨大变化 而影响缓存的命中率，但Consistent Hashing中，只有在continuum上增加服务器的地点逆时针方向的第一台服务器上的键会受到影响。
 
@@ -312,15 +312,15 @@ Java开发中的Memcache原理及实现（四）原理与部署
 
 3. 搭建memcache集群服务
 
-利用magent实现对memecache的分布式管理，搭建一套memcache集群服务：
+利用magent实现对memecache的分布式管理，搭建一套memcache集群服务: 
 
 ?  前端java对magent的访问跟对memcache访问相同，不需要做任何更改，对于插入的key，magent会把值散列到各个memcache服务上，只操作magent，不用关心后端处理；
 
-?  项目应用：以深圳电信为例，其商呼系统如图部署三台机器做为集群，假设IP分别是：10.11.15.31， 10.11.15.32， 10.11.15.33；
+?  项目应用: 以深圳电信为例，其商呼系统如图部署三台机器做为集群，假设IP分别是: 10.11.15.31， 10.11.15.32， 10.11.15.33；
 
 ?  每个前端安装memcached服务（大内存机器可以启动多个服务），如端口都为12001，每个前端都安装magent服务，端口都为12000，后端挂载全部机器的memcached服务，
 
-?  启动参数示例：magent -p 12000 -s 10.11.15.31:12001 -s 10.11.15.32:12001 -s 10.11.15.33:12001，这里将三台机器都配置进来，如集集群增加了机器，只需要在启动参数里添加进来即可。所有前端配置都是相同的，任何一个前端只需访问本地端口的magent，这样的memcache集群对应用带来很大便利。
+?  启动参数示例: magent -p 12000 -s 10.11.15.31:12001 -s 10.11.15.32:12001 -s 10.11.15.33:12001，这里将三台机器都配置进来，如集集群增加了机器，只需要在启动参数里添加进来即可。所有前端配置都是相同的，任何一个前端只需访问本地端口的magent，这样的memcache集群对应用带来很大便利。
 
 ?  这种部署可以解决session共享的应用
 
@@ -332,13 +332,13 @@ Java开发中的Memcache原理及实现（四）原理与部署
 
 1. 启动Memcached及代理
 
-启动两个memcached进程，端口分别为11211和11212：
+启动两个memcached进程，端口分别为11211和11212: 
 
 memcached -m 1 -u root -d -l 127.0.0.1 -p 11211
 
 memcached -m 1 -u root -d -l 127.0.0.1 -p 11212
 
-再启动两个magent进程，端口分别为10000和11000：
+再启动两个magent进程，端口分别为10000和11000: 
 
 magent -u root -n 51200 -l 127.0.0.1 -p 10000 -s 127.0.0.1:11211 -b 127.0.0.1:11212
 
@@ -346,7 +346,7 @@ magent -u root -n 51200 -l 127.0.0.1 -p 11000 -s 127.0.0.1:11212 -b 127.0.0.1:11
 
 -s 为要写入的memcached， -b 为备份用的memcached。
 
-说明：测试环境用magent和memached的不同端口来实现，在生产环境中可以将magent和memached作为一组放到两台服务器上。也就是说通过magent能够写入两个memcached。
+说明: 测试环境用magent和memached的不同端口来实现，在生产环境中可以将magent和memached作为一组放到两台服务器上。也就是说通过magent能够写入两个memcached。
 
 2. 数据读写测试
 
@@ -653,7 +653,7 @@ Connection closed by foreign host.
   
 七、            Memcached客户端程序
   
-Memcached的java客户端已经存在三种了：
+Memcached的java客户端已经存在三种了: 
 
 ?  官方提供的基于传统阻塞io由Greg Whalin维护的客户端
 
@@ -679,7 +679,7 @@ XMemcached同样是基于java nio的客户端，java nio相比于传统阻塞io�
   
 由于memcached client for java发布了新版本，性能上有所提高，并且运行稳定，所以建议使用memcached client for java。
 
-XMemcached也使用得比较广泛，而且有较详细的中文API文档，具有如下特点：高性能、支持完整的协议、支持客户端分布、允许设置节点权重、动态增删节点、支持JMX、与Spring框架和Hibernate-memcached的集成、客户端连接池、可扩展性好等。
+XMemcached也使用得比较广泛，而且有较详细的中文API文档，具有如下特点: 高性能、支持完整的协议、支持客户端分布、允许设置节点权重、动态增删节点、支持JMX、与Spring框架和Hibernate-memcached的集成、客户端连接池、可扩展性好等。
 
 下面给出这三种客户端的示例程序。
   
@@ -687,9 +687,9 @@ XMemcached也使用得比较广泛，而且有较详细的中文API文档，具�
   
 1)      memcached client for java
   
-从前面介绍的Java环境的Memcached客户端程序项目网址里，下载最新版的客户端程序包：java_memcached-release_2.5.1.zip，解压后，文件夹里找到java_memcached-release_2.5.1.jar，这个就是客户端的JAR包。将此JAR包添加到项目的构建路径里，则项目中，就可以使用Memcached了。
+从前面介绍的Java环境的Memcached客户端程序项目网址里，下载最新版的客户端程序包: java_memcached-release_2.5.1.zip，解压后，文件夹里找到java_memcached-release_2.5.1.jar，这个就是客户端的JAR包。将此JAR包添加到项目的构建路径里，则项目中，就可以使用Memcached了。
 
-示例代码如下：
+示例代码如下: 
 
 package temp;
 
@@ -772,9 +772,9 @@ System.out.println(String.format("get( %d ): %s", i, result));
   
 2)      spymemcached
   
-spymemcached当前版本是2.5版本，官方网址是：http://code.google.com/p/spymemcached/。可以从地址：http://spymemcached.googlecode.com/files/memcached-2.5.jar下载最新版本来使用。
+spymemcached当前版本是2.5版本，官方网址是: http://code.google.com/p/spymemcached/。可以从地址: http://spymemcached.googlecode.com/files/memcached-2.5.jar下载最新版本来使用。
 
-示例代码如下：
+示例代码如下: 
 
 package temp;
 
@@ -845,9 +845,9 @@ ex.printStackTrace();
   
 3)      xmemcached
   
-Xmemcached的官方网址是：http://code.google.com/p/xmemcached/，可以从其官网上下载最新版本的1.2.4来使用。地址是：http://xmemcached.googlecode.com/files/xmemcached-1.2.4-src.tar.gz。
+Xmemcached的官方网址是: http://code.google.com/p/xmemcached/，可以从其官网上下载最新版本的1.2.4来使用。地址是: http://xmemcached.googlecode.com/files/xmemcached-1.2.4-src.tar.gz。
 
-示例代码如下：
+示例代码如下: 
 
 package temp;
 
@@ -935,11 +935,11 @@ e.printStackTrace();
 
 1)   确认libevent安装
 
-查看libevent是否安装成功：
+查看libevent是否安装成功: 
 
 \# ls -al /usr/lib | grep libevent
 
-在命令行出现如下信息，表明安装成功：
+在命令行出现如下信息，表明安装成功: 
 
 lrwxrwxrwx   1 root root     21 Mar 22 18:41 libevent-1.2.so.1 -> libevent-1.2.so.1.0.3
 
@@ -953,11 +953,11 @@ lrwxrwxrwx   1 root root     21 Mar 22 18:41 libevent.so -> libevent-1.2.s
 
 2)   确认memcache安装
 
-查看memcache是否安装成功：
+查看memcache是否安装成功: 
 
 \# ls -al /usr /bin/mem*
 
-在命令行出现如下信息，表明安装成功：
+在命令行出现如下信息，表明安装成功: 
 
 -rwxr-xr-x  1 root root 114673 Mar 22 18:52 /usr/local/src/memcached
 
@@ -967,21 +967,21 @@ lrwxrwxrwx   1 root root     21 Mar 22 18:41 libevent.so -> libevent-1.2.s
   
 1)   问题
 
-安装完成了，现在我们看一下memcache的帮助：
+安装完成了，现在我们看一下memcache的帮助: 
 
 #/usr/local/src/memecached -h
 
-这时候出现了如下错误：
+这时候出现了如下错误: 
 
 memcached: error while loading shared libraries: libevent-1.2.so.1: cannot open shared    object file: No such file or directory
 
 2)   修复
 
-下面说下修复过程：
+下面说下修复过程: 
 
 #LD_DEBUG=libs memcached -v #查看memcached的libs的路径
 
-在命令上出现了如下信息：
+在命令上出现了如下信息: 
 
 5427:     find library=libevent-1.2.so.1 [0]; searching
 
@@ -1055,7 +1055,7 @@ memcached 1.2.0
 
 说明memcached安装成功。（应该是机器是64位的原因，所以将so文件放到了lib64下面，而不是lib下面，使得memcached找不到了so文件）。
 
-下面，我们来启动一个Memcached的服务器端：
+下面，我们来启动一个Memcached的服务器端: 
 
 \# /usr/local/src/memcached -d -m 10  -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid
   
@@ -1063,13 +1063,13 @@ memcached 1.2.0
   
 1.  安装
   
-在这里简单介绍一下Windows下的Memcache的安装：
+在这里简单介绍一下Windows下的Memcache的安装: 
 
 1. 下载memcache的windows稳定版，解压放某个盘下面，比如在c:\memcached
 
 2. 在终端（也即cmd命令界面）下输入'c:\memcached\memcached.exe -d install'安装
 
-3. 再输入：'c:\memcached\memcached.exe -d start'启动。NOTE: 以后memcached将作为windows的一个服务每次开机时自动启动。这样服务器端已经安装完毕了。
+3. 再输入: 'c:\memcached\memcached.exe -d start'启动。NOTE: 以后memcached将作为windows的一个服务每次开机时自动启动。这样服务器端已经安装完毕了。
   
 2.  memcached的基本设置
   
@@ -1103,13 +1103,13 @@ memcached 1.2.0
   
 3.  设置Memcache缓存大小和端口
   
-Memcache的默认启动时的参数可能不满足实际生产环境的需要，于是就想到直接修改windows服务的启动参数，操作如下：
+Memcache的默认启动时的参数可能不满足实际生产环境的需要，于是就想到直接修改windows服务的启动参数，操作如下: 
 
-打开注册表，找到：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\memcached Server
+打开注册表，找到: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\memcached Server
 
-其中的ImagePath项的值为： c:\memcached\memcached.exe" -d runservice
+其中的ImagePath项的值为:  c:\memcached\memcached.exe" -d runservice
 
-改成：c:\memcached\memcached.exe" -p 12345 -m 128 -d runservice
+改成: c:\memcached\memcached.exe" -p 12345 -m 128 -d runservice
 
 其中，-p就是端口，-m就是缓存大小，以M为单位。
 
@@ -1123,7 +1123,7 @@ view plain   copy
   
 2、下载并解压memcached-1.4.5
 
-memcached官方网站是：http://memcached.org/
+memcached官方网站是: http://memcached.org/
 
 view plain   copy
   
@@ -1147,7 +1147,7 @@ view plain   copy
   
 4、配置环境变量
 
-进入用户宿主目录，编辑.bash_profile，为系统环境变量LD_LIBRARY_PATH增加新的目录，需要增加的内容如下：
+进入用户宿主目录，编辑.bash_profile，为系统环境变量LD_LIBRARY_PATH增加新的目录，需要增加的内容如下: 
 
 \# vi .bash_profile
 
@@ -1157,13 +1157,13 @@ MEMCACHED_HOME=/etc/memcached
   
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MEMCACHED_HOME/lib
   
-刷新用户环境变量：# source .bash_profile
+刷新用户环境变量: # source .bash_profile
 
 5、编写memcached服务启停脚本
 
 \# cd /etc/init.d
 
-vi memcached，脚本内容如下：
+vi memcached，脚本内容如下: 
 
 view plain   copy
   
@@ -1329,7 +1329,7 @@ esac
 
 exit $RETVAL
   
-设置脚本可被执行：# chmod +x memcached
+设置脚本可被执行: # chmod +x memcached
 
 6、设置memcached随系统启动
 
@@ -1351,7 +1351,7 @@ view plain   copy
   
 \-p 11211 -c 1024 -P /etc/memcached/memcached.pid
   
-查看memcached是否启动：
+查看memcached是否启动: 
 
 \# ps -ef | grep memcached
 

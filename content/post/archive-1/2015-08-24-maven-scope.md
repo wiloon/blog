@@ -12,7 +12,7 @@ maven依赖关系中Scope的作用
 
 Dependency Scope
 
-在POM 4中，<dependency>中还引入了<scope>，它主要管理依赖的部署。目前<scope>可以使用5个值：
+在POM 4中，<dependency>中还引入了<scope>，它主要管理依赖的部署。目前<scope>可以使用5个值: 
 
 * compile，缺省值，适用于所有阶段，会随着项目一起发布。
   

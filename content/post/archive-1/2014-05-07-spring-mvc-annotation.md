@@ -11,7 +11,7 @@ tags:
 
 ---
   * 参数处理（明确指定参数 匹配 自动转换类型） 
-    >>普通属性和对象及属性：@RequestParam("id")注解，所以它将和id的URL参数绑定</li> 
+    >>普通属性和对象及属性: @RequestParam("id")注解，所以它将和id的URL参数绑定</li> 
     
       * 
       * **@RequestBody** 将HTTP请求正文转换为适合的HttpMessageConverter对象。
@@ -34,7 +34,7 @@ tags:
       </ol>
     
     
-    <br style="color: #000000;" /><br style="color: #000000;" /><span style="color: #000000;">{id}在这个请求的URL里就是个变量，可以使用@PathVariable来获取 <br style="color: #000000;" /><span style="color: #000000;">@PathVariable和@RequestParam的区别就在于：@RequestParam用来获得静态的URL请求入参
+    <br style="color: #000000;" /><br style="color: #000000;" /><span style="color: #000000;">{id}在这个请求的URL里就是个变量，可以使用@PathVariable来获取 <br style="color: #000000;" /><span style="color: #000000;">@PathVariable和@RequestParam的区别就在于: @RequestParam用来获得静态的URL请求入参
     
     
     
@@ -42,7 +42,7 @@ tags:
     
     当使用@RequestMapping URI template 样式映射时， 即 someUrl/{paramId}, 这时的paramId可通过 @Pathvariable注解绑定它传过来的值到方法的参数上。
     
-    示例代码：
+    示例代码: 
     
     <wbr />
     

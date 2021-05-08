@@ -87,7 +87,7 @@ nameserver 223.5.5.5
 nameserver 223.6.6.6
 ```
 
-### DNSMasq支持泛域名，比如在hosts中需要配2000条：
+### DNSMasq支持泛域名，比如在hosts中需要配2000条: 
 
 # apple app store
 202.175.5.114 a1.phobos.apple.com
@@ -98,7 +98,7 @@ nameserver 223.6.6.6
   
 202.175.5.114 a2000.phobos.apple.com
   
-而DNSMasq只需要1条：
+而DNSMasq只需要1条: 
 
 #apple app store
   

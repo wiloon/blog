@@ -10,7 +10,7 @@ categories:
 ---
 http://wxl24life.iteye.com/blog/1919359
 
-java.lang.NoClassDefFoundError 和 java.lang.ClassNotFoundException 都是 Java 语言定义的标准异常。从异常类的名称看似乎都跟类的定义找不到有关，但是还是有些差异。我们先来看一下 java 规范中对这两个异常的说明：
+java.lang.NoClassDefFoundError 和 java.lang.ClassNotFoundException 都是 Java 语言定义的标准异常。从异常类的名称看似乎都跟类的定义找不到有关，但是还是有些差异。我们先来看一下 java 规范中对这两个异常的说明: 
 
 java.lang.NoClassDefFoundError:
 
@@ -46,9 +46,9 @@ but no definition for the class with the specified name could be found.
 
 ———-
 
-前两天我也碰到了一个类似场景导致的 java.lang.NoClassDefFoundError： Could not initialize class xxx 异常，下面详细记录一下。
+前两天我也碰到了一个类似场景导致的 java.lang.NoClassDefFoundError:  Could not initialize class xxx 异常，下面详细记录一下。
 
-我定义了一个类，为了使用 log4j 打印日志，调用 org.slf4j.LoggerFactory 创建了一个 Logger，并作为类的 static 属性，除此之外无其他的成员属性，代码如下：
+我定义了一个类，为了使用 log4j 打印日志，调用 org.slf4j.LoggerFactory 创建了一个 Logger，并作为类的 static 属性，除此之外无其他的成员属性，代码如下: 
 
 Java代码
   
@@ -60,7 +60,7 @@ private static Logger logger = LoggerFactory.getLogger(Foo.class);
   
 }
   
-在另一个类里创建 Foo 实例：
+在另一个类里创建 Foo 实例: 
 
 Java代码
   
@@ -76,7 +76,7 @@ Foo foo = new Foo();
   
 }
   
-在执行 new Foo() 时抛异常 java.lang.NoClassDefFoundError： Could not initialize class Foo。经过一番排查，这个异常最后的原因出在了 LoggerFactory.getLogger(Foo.class) 调用抛错，关于 这条语句为什么会抛错，我会在另一篇文章里详细描述，在这里只是简单的说下原因：由于 slf4j-api.jar 和 slf4j 的某个 binding jar 版本不兼容所致。
+在执行 new Foo() 时抛异常 java.lang.NoClassDefFoundError:  Could not initialize class Foo。经过一番排查，这个异常最后的原因出在了 LoggerFactory.getLogger(Foo.class) 调用抛错，关于 这条语句为什么会抛错，我会在另一篇文章里详细描述，在这里只是简单的说下原因: 由于 slf4j-api.jar 和 slf4j 的某个 binding jar 版本不兼容所致。
 
 —-
 

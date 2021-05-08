@@ -14,9 +14,9 @@ fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
 
 fmt包实现了格式化的I/O函数，这点类似Ｃ语言中的printf和scanf，但是更加简单．
   
-占位符：
+占位符: 
 
-通用占位符：
+通用占位符: 
 
 %v 值的默认格式。当打印结构体时，"加号"标记（%+v）会添加字段名
   
@@ -26,7 +26,7 @@ fmt包实现了格式化的I/O函数，这点类似Ｃ语言中的printf和scanf
   
 %% 字面上的百分号，并非值的占位符
   
-用法如下：
+用法如下: 
 
 view plain copy
   
@@ -62,15 +62,15 @@ fmt.Printf("%#v\n", *s) // main.Sample{a:1, str:"hello"}
   
 fmt.Printf("%T\n", *s) // main.Sample
   
-fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1) <span style="color:#FF0000;"> 注：暂时还没有明白其用法
+fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1) <span style="color:#FF0000;"> 注: 暂时还没有明白其用法
   
 }
 
-布尔值：
+布尔值: 
   
 %t true 或 false
   
-整数值：
+整数值: 
   
 %b 二进制表示, 以二进制打印整数.
   
@@ -86,9 +86,9 @@ fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1) <span style="color:#FF0000;"> 注�
   
 %X 十六进制表示，字母形式为大写 A-F
   
-%U Unicode格式：U+1234，等同于 "U+%04X"
+%U Unicode格式: U+1234，等同于 "U+%04X"
   
-浮点数及复数：
+浮点数及复数: 
 
 %b 无小数部分的，指数为二的幂的科学计数法，与 strconv.FormatFloat中的 'b' 转换格式一致。例如 -123456p-78
   
@@ -102,7 +102,7 @@ fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1) <span style="color:#FF0000;"> 注�
   
 %G 根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0）输出
   
-字符串和bytes的slice表示：
+字符串和bytes的slice表示: 
 
 %s 字符串或切片的无解译字节
   
@@ -112,13 +112,13 @@ fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1) <span style="color:#FF0000;"> 注�
   
 %X 十六进制，大写字母，每字节两个字符
   
-指针：
+指针: 
 
 %p 十六进制表示，前缀 0x
   
 这里没有 'u' 标记。若整数为无符号类型，他们就会被打印成无符号的。类似地，这里也不需要指定操作数的大小（int8，int64）。
 
-对于％ｖ来说默认的格式是：
+对于％ｖ来说默认的格式是: 
 
 bool: %t
   
@@ -136,7 +136,7 @@ pointer: %p
   
 由此可以看出，默认的输出格式可以使用%v进行指定，除非输出其他与默认不同的格式，否则都可以使用%v进行替代（但是不推荐使用）
 
-对于复合对象，里面的元素使用如下规则进行打印：
+对于复合对象，里面的元素使用如下规则进行打印: 
 
 struct: {field0 field1 …}
   
@@ -146,9 +146,9 @@ maps: map[key1:value1 key2:value2]
   
 pointer to above: &{}, &[], &map[]
   
-宽度和精度：
+宽度和精度: 
 
-宽度是在％之后的值，如果没有指定，则使用该值的默认值，精度是跟在宽度之后的值，如果没有指定，也是使用要打印的值的默认精度．例如：％９.２f，宽度９，精度２
+宽度是在％之后的值，如果没有指定，则使用该值的默认值，精度是跟在宽度之后的值，如果没有指定，也是使用要打印的值的默认精度．例如: ％９.２f，宽度９，精度２
 
 %f: default width, default precision
   
@@ -194,13 +194,13 @@ fmt.Printf("%_._s\n", 1, 2, c) //as，利用'*'支持宽度和精度的输入，
   
 }
   
-其他标志：
+其他标志: 
 
   * 总打印数值的正负号；对于%q（%+q）保证只输出ASCII编码的字符。
   
     – 左对齐
   
-    备用格式：为八进制添加前导 0（%#o），为十六进制添加前导 0x（%#x）或0X（%#X），为 %p（%#p）去掉前导 0x；对于 %q，若 strconv.CanBackquote
+    备用格式: 为八进制添加前导 0（%#o），为十六进制添加前导 0x（%#x）或0X（%#X），为 %p（%#p）去掉前导 0x；对于 %q，若 strconv.CanBackquote
   
     返回 true，就会打印原始（即反引号围绕的）字符串；如果是可打印字符，%U（%#U）会写出该字符的Unicode编码形式（如字符 x 会被打印成 U+0078 'x'）。
   
@@ -218,7 +218,7 @@ fmt.Printf("%+010d\n", a) //+000000123，利用０来补齐位数，而不是空
 
 对于每一个 Printf 类的函数，都有一个 Print 函数，该函数不接受任何格式化，它等价于对每一个操作数都应用 %v。另一个变参函数 Println 会在操作数之间插入空白，并在末尾追加一个换行符
 
-不考虑占位符的话，如果操作数是接口值，就会使用其内部的具体值，而非接口本身。如下所示：
+不考虑占位符的话，如果操作数是接口值，就会使用其内部的具体值，而非接口本身。如下所示: 
 
 view plain copy
   
@@ -246,9 +246,9 @@ fmt.Printf("%v\n", i)　　　　　　//{1 a}
   
 }
   
-显示参数占位符：
+显示参数占位符: 
 
-go中支持显示参数占位符，通过在输出格式中指定其输出的顺序即可，如下所示：
+go中支持显示参数占位符，通过在输出格式中指定其输出的顺序即可，如下所示: 
 
 view plain copy
   
@@ -258,7 +258,7 @@ fmt.Printf("%[2]d, %[1]d\n", 11, 22) //22, 11，先输出第二个值，再输�
   
 }
   
-格式化错误：
+格式化错误: 
 
 如果给占位符提供了无效的实参（如将一个字符串提供给％d），便会出现格式化错误．所有的错误都始于"%!"，有时紧跟着单个字符（占位符），并以小括号括住的描述结尾。
 
@@ -278,7 +278,7 @@ Scanning
 
 Scanf、Fscanf 和 Sscanf 根据格式字符串解析实参，类似于 Printf。例如，%x会将一个整数扫描为十六进制数，而 %v 则会扫描该值的默认表现格式。
 
-格式化类似于 Printf，但也有例外，如下所示：
+格式化类似于 Printf，但也有例外，如下所示: 
 
 %p 没有实现
   
@@ -292,7 +292,7 @@ Scanf、Fscanf 和 Sscanf 根据格式字符串解析实参，类似于 Printf�
   
 在输入Scanf中，宽度可以理解成输入的文本（％5s表示输入５个字符），而Scanf没有精度这种说法（没有%5.2f，只有 %5f）
   
-函数：
+函数: 
   
 func Errorf(format string, a …interface{}) error
 
@@ -336,7 +336,7 @@ func Fscanf(r io.Reader, format string, a …interface{}) (n int, err error) //F
   
 func Fscanln(r io.Reader, a …interface{}) (n int, err error) //Fscanln 类似于 Sscan，但它在换行符处停止扫描，且最后的条目之后必须为换行符或 EOF。
 
-注：Fscan类的也是由空格进行分割的．
+注: Fscan类的也是由空格进行分割的．
 
 view plain copy
   
@@ -428,7 +428,7 @@ func Sscanf(str string, format string, a …interface{}) (n int, err error) //Sc
   
 func Sscanln(str string, a …interface{}) (n int, err error) //Sscanln 类似于 Sscan，但它在换行符处停止扫描，且最后的条目之后必须为换行符或 EOF。
 
-注：Sscanf有固定格式去进行分割读取数值，而Sscan和Sscanln靠空格进行分割进行值存储．
+注: Sscanf有固定格式去进行分割读取数值，而Sscan和Sscanln靠空格进行分割进行值存储．
 
 view plain copy
   
@@ -544,7 +544,7 @@ String() string
   
 }
   
-示例如下：
+示例如下: 
 
 view plain copy
   
@@ -568,7 +568,7 @@ switch c {
   
 case 'm', 'M':
   
-f.Write([]byte(us + "\n扩展标记：["))
+f.Write([]byte(us + "\n扩展标记: ["))
   
 if f.Flag('-') {
   
@@ -604,13 +604,13 @@ f.Write([]byte(" ]\n"))
   
 if w, wok := f.Width(); wok {
   
-f.Write([]byte("宽度值：" + fmt.Sprint(w) + "\n"))
+f.Write([]byte("宽度值: " + fmt.Sprint(w) + "\n"))
   
 }
   
 if p, pok := f.Precision(); pok {
   
-f.Write([]byte("精度值：" + fmt.Sprint(p)))
+f.Write([]byte("精度值: " + fmt.Sprint(p)))
   
 }
   
@@ -642,11 +642,11 @@ fmt.Printf("% 0-+#8.5m\n", us)
   
 // Hello World!
   
-// 扩展标记：[ – + # space 0 ]
+// 扩展标记: [ – + # space 0 ]
   
-// 宽度值：8
+// 宽度值: 8
   
-// 精度值：5
+// 精度值: 5
   
 fmt.Println(us)
   
@@ -658,11 +658,11 @@ fmt.Printf("%#v\n", us)
   
 }
 
-参考：
+参考: 
   
-Golang学习-fmt包：http://www.cnblogs.com/golove/p/3286303.html
+Golang学习-fmt包: http://www.cnblogs.com/golove/p/3286303.html
 
-go语言官网：http://golang.org/pkg/fmt/
+go语言官网: http://golang.org/pkg/fmt/
 
 http://blog.csdn.net/chenbaoke/article/details/39932845
 

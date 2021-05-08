@@ -14,23 +14,23 @@ https://www.zhihu.com/question/54447067
 
 openstack是云管理平台，其本身并不提供虚拟化功能，真正的虚拟化能力是由底层的hypervisor（如KVM、Qemu、Xen等）提供。所谓管理平台，就是为了方便使用而已。打一个不恰当的比方，订单管理平台之类的产品，其实就是整合了一系列的sql调用而已。类似的，如果没有openstack，一样可以通过virsh、virt-manager来实现创建虚拟机的操作，只不过敲命令行的方式需要一定的学习成本，对于普通用户不是很友好。
 
-作者：Zongrong Zheng
+作者: Zongrong Zheng
   
-链接：https://www.zhihu.com/question/54447067/answer/292892408
+链接: https://www.zhihu.com/question/54447067/answer/292892408
   
-来源：知乎
+来源: 知乎
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 OpenStack与KVM的区别与联系
   
-转：https://www.aliyun.com/zixun/content/2_6_280418.html
+转: https://www.aliyun.com/zixun/content/2_6_280418.html
 
 OpenStack与KVM都是目前IT界比较热门的两个词汇。它们都是开源的，都与Linux有着千丝万缕的关系。但这两者还是有很大的差别呢。
 
-OpenStack：开源管理项目
+OpenStack: 开源管理项目
 
-OpenStack是一个旨在为公共及私有云的建设与管理提供软件的开源项目。它不是一个软件，而是由几个主要的组件组合起来完成一些具体的工作。OpenStack由以下五个相对独立的组件构成：
+OpenStack是一个旨在为公共及私有云的建设与管理提供软件的开源项目。它不是一个软件，而是由几个主要的组件组合起来完成一些具体的工作。OpenStack由以下五个相对独立的组件构成: 
 
 lOpenStack Compute(Nova)是一套控制器，用于虚拟机计算或使用群组启动虚拟机实例；
 
@@ -44,7 +44,7 @@ lOpenStack Horizon，基于Django的仪表板接口，是个图形化管理前�
 
 这个起初由美国国家航空航天局和Rackspace在2010年末合作研发的开源项目，旨在打造易于部署、功能丰富且易于扩展的云计算平台。OpenStack项目的首要任务是简化云的部署过程并为其带来良好的可扩展性，企图成为数据中心的操作系统，即云操作系统。
 
-KVM：开放虚拟化技术
+KVM: 开放虚拟化技术
 
 KVM（Kernel-based Virtual Machine）是一个开源的系统虚拟化模块，它需要硬件支持，如Intel VT技术或者AMD V技术，是基于硬件的完全虚拟化，完全内置于Linux。
 
@@ -68,7 +68,7 @@ KVM是一个脱颖而出的开放虚拟化技术。它是由一个大型的、�
 
 OpenStack与KVM的解决方案
 
-在去年9月22日发布Diablo之后，OpenStack社区随即开始着手新版本的设计和开发，新版本开发代号为Essex。此前发布有四个版本：Austin、Bexar、Cactus与Diablo。新版本发布包含云计算控制中心Nova、镜像服务Glance、认证服务Keystone和Dashboard项目Horizon，也包括对象存储项目Swift。
+在去年9月22日发布Diablo之后，OpenStack社区随即开始着手新版本的设计和开发，新版本开发代号为Essex。此前发布有四个版本: Austin、Bexar、Cactus与Diablo。新版本发布包含云计算控制中心Nova、镜像服务Glance、认证服务Keystone和Dashboard项目Horizon，也包括对象存储项目Swift。
 
 由此可以看出，OpenStack是一个框架，一个可以建立公有云和私有云的基础架构。它并不是一个现成的产品，要想开展基础架构方面的工作，企业需要顾问和开发人员。很多时候还需要第三方的集成工具。
 

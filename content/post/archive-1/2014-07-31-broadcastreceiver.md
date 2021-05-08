@@ -12,11 +12,11 @@ http://yangguangfu.iteye.com/blog/1063732
 
 Android 中的BroadCastReceiver
 
-作者：阿福
+作者: 阿福
   
 BroadCastReceiver 简介 （末尾有源码）
   
-BroadCastReceiver 源码位于： framework/base/core/java/android.content.BroadcastReceiver.java
+BroadCastReceiver 源码位于:  framework/base/core/java/android.content.BroadcastReceiver.java
 
 广播接收者（ BroadcastReceiver ）用于接收广播 Intent ，广播 Intent 的发送是通过调用 Context.sendBroadcast() 、 Context.sendOrderedBroadcast() 来实现的。通常一个广播 Intent 可以被订阅了此 Intent 的多个广播接收者所接收。
 
@@ -30,13 +30,13 @@ BroadCastReceiver 的机制
   
 1. 机制
   
-在 Android 里面有各种各样的广播，比如电池的使用状态，电话的接收和短信的接收都会产生一个广播，应用程序开发者也可以监听这些广播并做出程序逻辑的处理。如图：
+在 Android 里面有各种各样的广播，比如电池的使用状态，电话的接收和短信的接收都会产生一个广播，应用程序开发者也可以监听这些广播并做出程序逻辑的处理。如图: 
 
 2. 实现
   
-用接收短信举例：
+用接收短信举例: 
 
-第一种方式 ：
+第一种方式 : 
   
 实现
   
@@ -58,7 +58,7 @@ if (intent.getAction().equals( SMS_RECEIVED )) {
   
 }
   
-系统注册：在 AndroidManifest.xml 中注册
+系统注册: 在 AndroidManifest.xml 中注册
   
 < receiver android:name = ".MyBroadcastReceiver" >
   
@@ -68,13 +68,13 @@ if (intent.getAction().equals( SMS_RECEIVED )) {
   
 </ intent-filter >
   
-</ receiver > 当然了需要权限 ：
+</ receiver > 当然了需要权限 : 
 
 < uses-permission android:name = "android.permission.RECEIVE_SMS" />
   
 < uses-permission android:name = "android.permission.SEND_SMS" />
 
-第二种方式：
+第二种方式: 
 
 // 广播接收者 - 广播的接收
   
@@ -90,7 +90,7 @@ public void onReceive(Context context, Intent intent) {
 
 };
 
-代码中注册：
+代码中注册: 
   
 IntentFilter intentFilter = new IntentFilter( "android.provider.Telephony.SMS_RECEIVED " );
   
@@ -98,7 +98,7 @@ registerReceiver( mBatteryInfoReceiver , intentFilter);
 
 3. 生命周期
 
-描述了 Android 中广播的生命周期，其次它并不像 Activity 一样复杂，运行原理很简单如下图：
+描述了 Android 中广播的生命周期，其次它并不像 Activity 一样复杂，运行原理很简单如下图: 
 
 生命周期只有十秒左右，如果在 onReceive() 内做超过十秒内的事情，就会报错 。
 
@@ -106,7 +106,7 @@ registerReceiver( mBatteryInfoReceiver , intentFilter);
   
 BroadcastReceiver 里不能做一些比较耗时的操作 , 否侧会弹出 ANR(Application No
   
-Response) 的对话框 . 。（如图）：
+Response) 的对话框 . 。（如图）: 
 
 怎么用好 BroadcastReceiver ？
   

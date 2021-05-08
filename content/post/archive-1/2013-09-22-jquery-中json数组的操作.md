@@ -22,7 +22,7 @@ var arrayObj = new Array([size]);　//创建一个数组并指定长度，注意
 
 var arrayObj = new Array([element0[, element1[, ...[, elementN]]]]);　创建一个数组并赋值
 
-要说明的是，虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是变长的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的，注意：这时长度会随之改变。
+要说明的是，虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是变长的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的，注意: 这时长度会随之改变。
 
 **2、数组的元素的访问**
 
@@ -68,6 +68,6 @@ arrayObj.sort(); //对数组元素排序，返回数组地址
 
 arrayObj.join(separator); //返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开。
 
-toLocaleString 、toString 、valueOf：可以看作是join的特殊用法，不常用
+toLocaleString 、toString 、valueOf: 可以看作是join的特殊用法，不常用
 
 <http://www.cnblogs.com/hrh0627/archive/2011/01/07/1930424.html>

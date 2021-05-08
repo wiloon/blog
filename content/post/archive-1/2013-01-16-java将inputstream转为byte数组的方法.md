@@ -10,7 +10,7 @@ categories:
 ---
 首先请查看一下JavaAPI，可以看到InputStream读取流有三个方法，分别为read()，read(byte[] b),read(byte[] b, int off, int len)。其中read()方法是一次读取一个字节，鬼都知道效率是非常低的。所以最好是使用后面两个方法。
   
-例如以下代码：
+例如以下代码: 
   
 Java代码 收藏代码
   
@@ -50,7 +50,7 @@ return outSteam.toByteArray();
   
 }
 
-我们来测试一下：
+我们来测试一下: 
   
 Java代码 收藏代码
   
@@ -80,7 +80,7 @@ e.printStackTrace();
   
 这个方法的意思是返回此输入流下一个方法调用可以不受阻塞地从此输入流读取（或跳过）的估计字节数。为什么需要这个方法？因为在一些网络应用中，数据流并不是一次性就能传递的，如果我们还是像上面那样去将这个流转换，会出问题的。我们来做一个例子，这是一个Socket编程的简单例子，具体Socket内容我会在后面文章中解释的。
   
-首先编写两个类，一个用户初始化Socket服务，并且处理每个请求都有新的线程去处理，代码如下：
+首先编写两个类，一个用户初始化Socket服务，并且处理每个请求都有新的线程去处理，代码如下: 
   
 Java代码 收藏代码
   
@@ -122,7 +122,7 @@ e.printStackTrace();
   
 }
   
-那么处理类我们也来看一下：
+那么处理类我们也来看一下: 
   
 Java代码 收藏代码
   
@@ -158,7 +158,7 @@ byte[] bt = StreamTool.readStream(ips);
                   
 String str = new String(bt);
                   
-System.out.println("主机收到信息：" + str);
+System.out.println("主机收到信息: " + str);
                   
 String restr = "你好，主机已经收到信息！";
                   
@@ -178,7 +178,7 @@ e.printStackTrace();
   
 }
    
-至于工具类，我就直接给代码了：
+至于工具类，我就直接给代码了: 
   
 Java代码 收藏代码
   
@@ -246,7 +246,7 @@ return outSteam.toByteArray();
    
 你可以直接运行这个类，会看到流被转换的效果。
   
-我们来写一个Socket客户端测试一下：
+我们来写一个Socket客户端测试一下: 
   
 Java代码 收藏代码
   
@@ -286,7 +286,7 @@ byte[] rebyte = StreamTool.readStream(ips);
               
 String remess = new String(rebyte);
               
-System.out.println("收到主机消息：" + remess);
+System.out.println("收到主机消息: " + remess);
               
 socket.close();
           
@@ -306,7 +306,7 @@ Java代码 收藏代码
   
 while ((len = inStream.read(buffer)) != -1) {
   
-这行代码上面。这就是在网络应用中会造成的后果。那么如何解决呢？有的人给出了如下代码：
+这行代码上面。这就是在网络应用中会造成的后果。那么如何解决呢？有的人给出了如下代码: 
   
 Java代码 收藏代码
   
@@ -316,7 +316,7 @@ byte[] b = new byte[count];
   
 in.read(b);
   
-可是在进行网络操作时往往出错，因为你调用available()方法时，对发发送的数据可能还没有到达，你得到的count是0。需要做如下修改，是我们的读取流方法改成如下：
+可是在进行网络操作时往往出错，因为你调用available()方法时，对发发送的数据可能还没有到达，你得到的count是0。需要做如下修改，是我们的读取流方法改成如下: 
   
 Java代码 收藏代码
   
@@ -352,7 +352,7 @@ return b;
   
 下面你在运行，会看到服务端和客户端都收到了消息。
 
-关于InputStream.read(byte[] b)和InputStream.read(byte[] b,int off,int len)这两个方法都是用来从流里读取多个字节的，有经验的程序员就会发现，这两个方法经常 读取不到自己想要读取的个数的字节。比如第一个方法，程序员往往希望程序能读取到b.length个字节，而实际情况是，系统往往读取不了这么多。仔细阅读Java的API说明就发现了，这个方法 并不保证能读取这么多个字节，它只能保证最多读取这么多个字节(最少1个)。因此，如果要让程序读取count个字节，最好用以下代码：
+关于InputStream.read(byte[] b)和InputStream.read(byte[] b,int off,int len)这两个方法都是用来从流里读取多个字节的，有经验的程序员就会发现，这两个方法经常 读取不到自己想要读取的个数的字节。比如第一个方法，程序员往往希望程序能读取到b.length个字节，而实际情况是，系统往往读取不了这么多。仔细阅读Java的API说明就发现了，这个方法 并不保证能读取这么多个字节，它只能保证最多读取这么多个字节(最少1个)。因此，如果要让程序读取count个字节，最好用以下代码: 
   
 Java代码 收藏代码
   

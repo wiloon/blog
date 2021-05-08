@@ -34,7 +34,7 @@ varchar/varchar2适用于长度不固定的，一般不含中文的情况
 
 nvarchar和nvarchar2是长度不固定的
 
-nvarchar不区分中英文，比如说：你定义了nvarchar(20),你可以存入20个英文字母/汉字或中英文组合，这个20定义的是字符数而不是字节数
+nvarchar不区分中英文，比如说: 你定义了nvarchar(20),你可以存入20个英文字母/汉字或中英文组合，这个20定义的是字符数而不是字节数
 
 nvarchar2基本上等同于nvarchar，不同在于nvarchar2中存的英文字母也占两个字节
 
@@ -58,7 +58,7 @@ varchar [ ( n | max ) ]
   
 当执行 CREATE TABLE 或 ALTER TABLE 时，如果 SET ANSI_PADDING 为 OFF，则定义为 NULL 的 char 列将作为 varchar 处理。
   
-另外帮助理解的，只供参考：转自http://www.51testing.com/?uid-258885-action-viewspace-itemid-141197
+另外帮助理解的，只供参考: 转自http://www.51testing.com/?uid-258885-action-viewspace-itemid-141197
   
 也可参照学习http://ce.sysu.edu.cn/garden/dispbbs.asp?boardid=26&ID=8774&replyID=18180&skin=1
   
@@ -90,7 +90,7 @@ b. 对于增加列的宽度而言，char与varchar有非常明显的效率差异
 
 选择char还是选择varchar的建议
 
-1.适宜于char的情况：
+1.适宜于char的情况: 
 
 a. 列中的各行数据长度基本一致，长度变化不超过50字节；
 

@@ -12,7 +12,7 @@ sqlplus system/manager@192.168.208.120:1521/orcl
 
 sqlplus sys/PASSWORD@ip:port/orcl as sysdba
 
-tnsnames.ora示例如下：
+tnsnames.ora示例如下: 
   
 ORCL =
   

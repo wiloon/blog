@@ -17,7 +17,7 @@ tags:
 
 ### X视窗启动文件-xinitrc
 事实上，我们一般执行startx来启动X Window System，其中startx就是xinit的前端界面[front-end].倘若我们以startx或xinit启动X，这指令会启动X server并且会执行$HOME/.xinitrc文件内的所设置的指令。倘若 $HOME没有这个文件，则系统会使用内定的的配置文件/etc/X11/xinit/xinitrc。而事实上xinitrc文件一般只包含有启动X时所要执行clients的shell script,里面定义一些指令和shell script，让X启动时，可以遵照里面的shell script来启动必要的应用程序。
-例如我的简单而又实用的的$HOME/.xinitrc的内容如下：
+例如我的简单而又实用的的$HOME/.xinitrc的内容如下: 
 
         LANG=zh_CN.GB2312
         LC_ALL=zh_CN.GB2312
@@ -46,21 +46,21 @@ tags:
     </ol>
   
   
-    对于更为详细的$HOME/.xinitrc，你可以找更专业的书籍来看，我的目标是越简单越好。前面的大家应该都比较清楚吧。先设一些环境变量，再设下一些输入法(我用的是智能五笔)， 接下来是启动视窗管理程序kde3，注意了：kde3用shell script的exec描述所执行的，这造成执行xinit程序的shell会被执行kde3的shell所取代。所以一旦kde3程序结束，就会跳出 shell，相对地，xinit将会跟着结束，X Server将关闭。这正是X Window Manager执行的方式。必须确定在.xinitrc中最后执行的是指令是以exec为开头的的命令执行X Windows Manager,而且不应该加上&放在一些背景执行，不然，那些指令也毫无意义。后面的killall chinput是告诉要结束chinput，不然极有可能会因为chinput的原因，会造成一些问题。这是最为简单的桌面设置。倘若你还要启动更多的程序和设置，都可以在前面加的。只要你在你的$HOME/.xinitrc文件中稍加增加便可做到，但要记住加在X Window Manager执行段落之前。
+    对于更为详细的$HOME/.xinitrc，你可以找更专业的书籍来看，我的目标是越简单越好。前面的大家应该都比较清楚吧。先设一些环境变量，再设下一些输入法(我用的是智能五笔)， 接下来是启动视窗管理程序kde3，注意了: kde3用shell script的exec描述所执行的，这造成执行xinit程序的shell会被执行kde3的shell所取代。所以一旦kde3程序结束，就会跳出 shell，相对地，xinit将会跟着结束，X Server将关闭。这正是X Window Manager执行的方式。必须确定在.xinitrc中最后执行的是指令是以exec为开头的的命令执行X Windows Manager,而且不应该加上&放在一些背景执行，不然，那些指令也毫无意义。后面的killall chinput是告诉要结束chinput，不然极有可能会因为chinput的原因，会造成一些问题。这是最为简单的桌面设置。倘若你还要启动更多的程序和设置，都可以在前面加的。只要你在你的$HOME/.xinitrc文件中稍加增加便可做到，但要记住加在X Window Manager执行段落之前。
   
   
     [2]X视窗资源文件-Xdefaults
- 在X的文献中，resources有两种意义。第一种是指被server管理或建立桌面应用程序使用的东西，例如：视窗、光标、字体等均属于这种意义。另外的一种又是指一种可以传递预设置值、参数和其它值给应用程序的方法，比如，可以定义视窗的大小、前景颜色、显示字体、快捷键等。而在X Window System的操作应用过程中，泛指的resources的意义也局限于第二种，主要是采用resources功能。在X Window System 的资源文件Xdefaults中，主要是设置合适自己喜欢的应用程序的操作操控环境或界面。一般会执行X后，会自动读取$ HOME/.Xdefaults.
+ 在X的文献中，resources有两种意义。第一种是指被server管理或建立桌面应用程序使用的东西，例如: 视窗、光标、字体等均属于这种意义。另外的一种又是指一种可以传递预设置值、参数和其它值给应用程序的方法，比如，可以定义视窗的大小、前景颜色、显示字体、快捷键等。而在X Window System的操作应用过程中，泛指的resources的意义也局限于第二种，主要是采用resources功能。在X Window System 的资源文件Xdefaults中，主要是设置合适自己喜欢的应用程序的操作操控环境或界面。一般会执行X后，会自动读取$ HOME/.Xdefaults.
   
   
-    呵呵，在xterm视窗中按有一个小技巧：你按住Ctrl+鼠标右键会跳出一些字体等设置的东西，按住Ctrl+鼠标左键会跳出显示xterm应用程序的主菜单。另外，除了.Xdefaults资源可用处，还有一些应用程序会自己产生的的资源文件，一般放在
+    呵呵，在xterm视窗中按有一个小技巧: 你按住Ctrl+鼠标右键会跳出一些字体等设置的东西，按住Ctrl+鼠标左键会跳出显示xterm应用程序的主菜单。另外，除了.Xdefaults资源可用处，还有一些应用程序会自己产生的的资源文件，一般放在
  /usr/XR116/lib/X11/app-defaults中，并以这些程序名称的大写文件名命名。比如，Xclok时钟程序的资源文件就是Xclock。其它的你自己看一下就会明白了。你可以直接修改这些应用程序的的资源文件，作为系统内定的应用程序的样式。不一定都要非得修改. Xdefaults来完成。因为.Xdefaults通常是个人爱好而使用环境来设置的东西。
 
 2、启动我们的X Window System
 X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行"X"启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm/gdm/kdm启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出X Window Manager，你可以xterm中执行init 3离开。
 
 ### 以xinit/startx来启动X
-这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和"X"并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的xterm而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了：
+这是一般的方法:我在Debain也是经常以这种方式来启动X的。就是执行/usr/XR116/bin/startx.事实上这个方法就是与直接执行/usr/X11R6/bin/xinit或是/usr/X11R6/bin/X是无异的。差别在于xinit和"X"并不会去执行读取读资源文件而去执行X Window Manager，所以一般的情况你得到的X视窗系统是个非常简朴的的一个X型鼠标指针与简朴的xterm而已。但xinit就是最标准的X启动方法，估计是绝大部分的系统X Window System都会支持。它是X Window System核心的程序，而startx仅是个启动xinit的shell script而已，里面同样定义执行xinit命令以启动X视窗系统。当一般执行startx时，X启动的过程大约就是这些东西了: 
   
   
     1)xinit启动X server程序；
@@ -81,7 +81,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     6)在X server执行的期间，它一直控制着你的鼠标的键盘。
   
   
-    这就是你能在屏幕上移动光标的原因，但由于目前还没有任何X client程序要求键盘和鼠标的输入。所以X server只是和鼠标一直移动而已。而其它的键盘或鼠标输入虽然都经过X server处理，但均被视为无作用(因为没有什么x clinet程序所接收)。这也是X启动的初期，按键盘或鼠标都没有反应的原因。但如果你能送信号给X server和X client的话，这下就有会作用了。比如：Ctrl+Alt+Backspace即是送给X Server的中断信号,当X启动到中途或者是执行时，只要按下这组合键，便会立即结束X server，跳回到command prompt terminal的状态。
+    这就是你能在屏幕上移动光标的原因，但由于目前还没有任何X client程序要求键盘和鼠标的输入。所以X server只是和鼠标一直移动而已。而其它的键盘或鼠标输入虽然都经过X server处理，但均被视为无作用(因为没有什么x clinet程序所接收)。这也是X启动的初期，按键盘或鼠标都没有反应的原因。但如果你能送信号给X server和X client的话，这下就有会作用了。比如: Ctrl+Alt+Backspace即是送给X Server的中断信号,当X启动到中途或者是执行时，只要按下这组合键，便会立即结束X server，跳回到command prompt terminal的状态。
   
   
     7)接下来，在xinitrc唤起X server后，xinit会启动xterm程序。呵呵，xterm就是X Window terminal的缩写吧。它对X server而言是一个X Clietn程序而已。要求X server建立一个视窗，而且会告知X server在这个视窗中的鼠标和键盘的输入状态(Event)，因而启动xterm时便会视窗执行一个shell，内定的就是bash。当指标被移至视窗之内时，xterm便准备接受输入。键盘输入会被关到xterm中的shell就如同真的终端机输入一般。而从shell本身或其副程序的输出则借着 xterm显示在视窗上，xterm也接受输入，便得你能设置不同的程序操作参数和进行文本的一些操作，比如copy或paste.对于这些操作，你可以通过在xterm中执行ps auxw命令来观察到系统执行这些命令的详细步骤。
@@ -109,7 +109,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     这就完成了一个xdm/gdm的过程。但细心的人会发现，startx会读取$HOME/.xinitrc，而xdm/gdm为什么不会读取这个呢，它又是如何设置根视窗口背景及你的logo和X Window Manager的呢。其中的原因是因为xdm/gdm改用了/etc/X11/xdm/Setup_0来设置的。其中xsetroot是设置根视窗颜色的，并执行xconsole设置系统登录画面的登录位置(geometry)。
   
   
-    如果你想修改xdm/gdm执行时所采用的color depth(色深？)，可以修改/etc/X11/xdm/Xservers中的内容。我的Mandrake90中的是这样的：
+    如果你想修改xdm/gdm执行时所采用的color depth(色深？)，可以修改/etc/X11/xdm/Xservers中的内容。我的Mandrake90中的是这样的: 
  
     <ol start="1">
       <li>
@@ -169,7 +169,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     </ol>
   
   
-    显然我的是采用16 bites颜色的。当然，你没有必要那么复杂，可以简单点儿，比如,我有时采用：
+    显然我的是采用16 bites颜色的。当然，你没有必要那么复杂，可以简单点儿，比如,我有时采用: 
   
   <div id="">
     
@@ -247,14 +247,14 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
   
     1. XDM
- 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行：
+ 前面说了，老大XDM比较随和。我们可以修改/etc/ttys文件，将下面的一行: 
  代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon" xterm off secure 中的off改为on。
  代码: ttyv8 "/usr/X11R6/bin/xdm -nodaemon" xterm on secure 重新启动系统，就会自动进入XDM，输入账号和密码，就会进入你原来设置好的KDE或GNOME桌面了。
  XDM确实够丑的，相信没有人想多看两眼的。裁判，换人！
   
   
     2. KDM
- 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为：
+ 为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为: 
  代码: ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件"/usr/X11R6/lib/X11/xdm/Xsession"。把中间的这段文字，
   
   <div id="">
@@ -397,9 +397,9 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
   
     第三点，拉拉关系，搞好配置。这得修改 "/usr/X11R6/share/gnome/gdm/gdm.conf"才行，
- ServAuthDir=/usr/X11R6/share/gnome/gdm 改为：
+ ServAuthDir=/usr/X11R6/share/gnome/gdm 改为: 
  ServAuthDir=/var/gdm
- 再改Greeter=/usr/X11R6/bin/gdmlogin 为：
+ 再改Greeter=/usr/X11R6/bin/gdmlogin 为: 
  Greeter=/usr/X11R6/bin/gdmgreeter
  另外，下面的这三行，是true还是改成false，随便你了。
   
@@ -459,7 +459,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
   
     第五点，现在该给老三让位了。用gdm替换kdm，这又要改"/etc/ttys"中的
- ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 为：
+ ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 为: 
  ttyv8 "/usr/X11R6/bin/gdm -nodaemon" xterm on secure
  做完上面的工作，重新启动系统。终于GDM总算给了面子，揭开了那漂亮的面纱，原来这GDM是她不是他，难怪难怪。忍不住要多看上几眼。
  辛劳的工作，由漂亮的DM开始，心情真好！

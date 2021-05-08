@@ -10,11 +10,11 @@ categories:
 ---
 ConcurrentHashMap Collections.synchronizedMap和Hashtable讨论
   
-标签： listhashmapiteratorjdkjava优化
+标签:  listhashmapiteratorjdkjava优化
   
 2011-12-30 17:14 4134人阅读 评论(1) 收藏 举报
   
-分类： javaSE（21）
+分类:  javaSE（21）
   
 在Java类库中出现的第一个关联的集合类是Hashtable，它是JDK1.0的一部分。 Hashtable提供了一种易于使用的、线程安全的、关联的map功能，这当然也是方便的。然而，线程安全性是凭代价换来的――Hashtable的所有方法都是同步的。此时，无竞争的同步会导致可观的性能代价。Hashtable的后继者HashMap是作为JDK1.2中的集合框架的一部分出现的，它通过提供一个不同步的基类和一个同步的包装器Collections.synchronizedMap，解决了线程安全性问题。
   
@@ -32,7 +32,7 @@ ConcurrentHashMap Collections.synchronizedMap和Hashtable讨论
   
 1 针对吞吐量进行优化
   
-ConcurrentHashMap使用了几个技巧来获得高程度的并发以及避免锁定，包括为不同的hashbucket（桶）使用多个写锁和使用JMM的不确定性来最小化锁被保持的时间——或者根本避免获取锁。对于大多数一般用法来说它是经过优化的，这些用法往往会检索一个很可能在map中已经存在的值。事实上，多数成功的get()操作根本不需要任何锁定就能运行。（警告：不要自己试图这样做！想比JMM聪明不像看上去的那么容易。util.concurrent类是由并发专家编写的，并且在JMM安全性方面经过了严格的同行评审。）
+ConcurrentHashMap使用了几个技巧来获得高程度的并发以及避免锁定，包括为不同的hashbucket（桶）使用多个写锁和使用JMM的不确定性来最小化锁被保持的时间——或者根本避免获取锁。对于大多数一般用法来说它是经过优化的，这些用法往往会检索一个很可能在map中已经存在的值。事实上，多数成功的get()操作根本不需要任何锁定就能运行。（警告: 不要自己试图这样做！想比JMM聪明不像看上去的那么容易。util.concurrent类是由并发专家编写的，并且在JMM安全性方面经过了严格的同行评审。）
   
 2 多个写锁
   

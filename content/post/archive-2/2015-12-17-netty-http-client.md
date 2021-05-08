@@ -12,11 +12,11 @@ http://www.cnblogs.com/luxiaoxun/p/3959450.html
 
 基于Netty4的HttpServer和HttpClient的简单实现
 
-Netty的主页：http://netty.io/index.html
+Netty的主页: http://netty.io/index.html
 
-使用的Netty的版本：netty-4.0.23.Final.tar.bz2 ‐ 15-Aug-2014 (Stable, Recommended)
+使用的Netty的版本: netty-4.0.23.Final.tar.bz2 ‐ 15-Aug-2014 (Stable, Recommended)
 
-Http 消息格式：
+Http 消息格式: 
 
 Http request:
 
@@ -38,7 +38,7 @@ Header-name-2: value2
 
 Optional response body
   
-实现一个简单的Http请求及响应过程：
+实现一个简单的Http请求及响应过程: 
 
 1、Client向Server发送http请求。
 
@@ -48,13 +48,13 @@ Optional response body
 
 4、Client对http响应进行解析。
 
-Netty中Http request消息格式：
+Netty中Http request消息格式: 
 
-Netty中Http response消息格式：
+Netty中Http response消息格式: 
 
-代码实例：
+代码实例: 
 
-Http Server：
+Http Server: 
   
 package com.netty.test;
 
@@ -146,7 +146,7 @@ server.start(8844);
   
 }
 
-响应请求的HttpServerInboundHandler：
+响应请求的HttpServerInboundHandler: 
   
 package com.netty.test;
 
@@ -262,19 +262,19 @@ ctx.close();
 
 }
 
-Http Client：
+Http Client: 
 
 按 Ctrl+C 复制代码
   
 按 Ctrl+C 复制代码
   
-处理Server响应的HttpClientInboundHandler：
+处理Server响应的HttpClientInboundHandler: 
 
 按 Ctrl+C 复制代码
   
 按 Ctrl+C 复制代码
   
-log4j的配置：
+log4j的配置: 
 
 \# Root logger option
   

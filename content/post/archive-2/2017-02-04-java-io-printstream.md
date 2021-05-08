@@ -13,7 +13,7 @@ http://www.cnblogs.com/skywang12345/p/io_16.html
 
 本章介绍PrintStream以及 它与DataOutputStream的区别。我们先对PrintStream有个大致认识，然后再深入学习它的源码，最后通过示例加深对它的了解。
 
-转载请注明出处：http://www.cnblogs.com/skywang12345/p/io_16.html
+转载请注明出处: http://www.cnblogs.com/skywang12345/p/io_16.html
 
 PrintStream 介绍
   
@@ -191,7 +191,7 @@ synchronized void write(int oneByte)
   
 void write(byte[] buffer, int offset, int length)
 
-注意：print()和println()都是将其中参数转换成字符串之后，再写入到输入流。
+注意: print()和println()都是将其中参数转换成字符串之后，再写入到输入流。
   
 例如，
 
@@ -214,16 +214,16 @@ PrintStream 源码分析(基于jdk1.7.40)
   
 View Code
   
-说明：
+说明: 
   
 PrintStream的源码比较简单，请上文的注释进行阅读。若有不明白的地方，建议先看看后面的PrintStream使用示例；待搞清它的作用和用法之后，再来阅读源码。
 
 
 PrintStream和DataOutputStream异同点
   
-相同点：都是继承与FileOutputStream，用于包装其它输出流。
+相同点: 都是继承与FileOutputStream，用于包装其它输出流。
 
-不同点：
+不同点: 
 
 (01) PrintStream和DataOutputStream 都可以将数据格式化输出；但它们在"输出字符串"时的编码不同。
 
@@ -241,22 +241,22 @@ DataOutputStream在通过write()向"输出流"中写入数据时，若产生IOEx
 
 (03) 构造函数不同
 
-DataOutputStream的构造函数只有一个：DataOutputStream(OutputStream out)。即它只支持以输出流out作为"DataOutputStream的输出流"。
+DataOutputStream的构造函数只有一个: DataOutputStream(OutputStream out)。即它只支持以输出流out作为"DataOutputStream的输出流"。
   
-而PrintStream的构造函数有许多：和DataOutputStream一样，支持以输出流out作为"PrintStream输出流"的构造函数；还支持以"File对象"或者"String类型的文件名对象"的构造函数。
+而PrintStream的构造函数有许多: 和DataOutputStream一样，支持以输出流out作为"PrintStream输出流"的构造函数；还支持以"File对象"或者"String类型的文件名对象"的构造函数。
   
 而且，在PrintStream的构造函数中，能"指定字符集"和"是否支持自动flush()操作"。
 
 (04) 目的不同
 
-DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配合使用：允许应用程序以与机器无关的方式从底层输入流中读写java数据类型。
+DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配合使用: 允许应用程序以与机器无关的方式从底层输入流中读写java数据类型。
   
 而PrintStream的作用虽然也是装饰其他输出流，但是它的目的不是以与机器无关的方式从底层读写java数据类型；而是为其它输出流提供打印各种数据值表示形式，使其它输出流能方便的通过print(), println()或printf()等输出各种格式的数据。
 
 
 示例代码
   
-关于PrintStream中API的详细用法，参考示例代码(PrintStreamTest.java)：
+关于PrintStream中API的详细用法，参考示例代码(PrintStreamTest.java): 
   
 1 import java.io.PrintStream;
   
@@ -280,7 +280,7 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
   
 13 public static void main(String[] args) {
   
-15 // 下面3个函数的作用都是一样：都是将字母"abcde"写入到文件"file.txt"中。
+15 // 下面3个函数的作用都是一样: 都是将字母"abcde"写入到文件"file.txt"中。
   
 16 // 任选一个执行即可！
   
@@ -462,11 +462,11 @@ DataOutputStream的作用是装饰其它的输出流，它和DataInputStream配�
 
 运行上面的代码，会在源码所在目录生成两个文件"file.txt"和"other.txt"。
   
-file.txt的内容如下：
+file.txt的内容如下: 
 
 abcde
   
-other.txt的内容如下：
+other.txt的内容如下: 
 
 hello PrintStream
   

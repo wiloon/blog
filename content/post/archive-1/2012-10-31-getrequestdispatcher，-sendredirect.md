@@ -14,7 +14,7 @@ tags:
 
 RequestDispatcher 对象从客户端获取请求request，并把它们传递给服务器上的servlet,html或jsp。
 
-它有两个方法：forward()和include()具体如下
+它有两个方法: forward()和include()具体如下
 
 void forward(ServletRequest request,ServletResponse response) 用来传递request的，可以一个Servlet接收request请求，另一个Servlet用这个request请求来产生response。request传递的请求，response是客户端返回的信息。forward要在response到达客户端之前调用，也就是 before response body output has been flushed。如果不是的话，它会报出异常。
 
@@ -24,7 +24,7 @@ request.getRequestDispatcher(url).forward(request,response)是直接将请求转
 
 forward 发生在服务器内部, 在浏览器完全不知情的情况下发给了浏览器另外一个页面的response. 这时页面收到的request不是从浏览器直接发来了,可能己经放了数据。
 
-请求转发时如果要传递参数可以这样用：
+请求转发时如果要传递参数可以这样用: 
 
 request.setAttribute("name","Michael");
 
@@ -40,7 +40,7 @@ request.getAttribute("name");
 
 3.ServletContext.sendRedirect(String url)中的url只能使用绝对路径; 而ServletRequest.getRequestDispatcher(String url)中的url可以使用相对路径。h这是因为ServletRequest具有相对路径的概念;而ServletContext对象无此概念。
 
-PS:如果需要把请求转移到另外一个WebApp中的某个地址，可以按下面的步骤做法：
+PS:如果需要把请求转移到另外一个WebApp中的某个地址，可以按下面的步骤做法: 
 
 获得另外一个WebApp的ServletConext对象(currentServletContext.getContext(uripath)).
 

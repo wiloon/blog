@@ -10,7 +10,7 @@ categories:
 ---
 <http://www.cnblogs.com/LeneJay/archive/2011/11/14/2248218.html>
 
-JavaWeb 默认的语法，除HTML 外，共有：
+JavaWeb 默认的语法，除HTML 外，共有: 
 
 1、<% 可以使用Java语言 %>
 
@@ -43,11 +43,11 @@ JSTL 是 JSP2.0 后引入的默认标签库，记得默认语法中，第五条�
 
 Struts2.x 中的 OGNL 可以说是取代了 默认的EL表达式，它自身本就是 EL 表达式，它与默认的EL表达式语言，区别共有多少，我没有仔细去了解，只能说说大致了解的。
 
-1、  取值范围：
+1、  取值范围: 
 
-a)         默认的EL表达式的格式 ${ }，它能单独使用，默认取值范围在 ：page (PageContext)
+a)         默认的EL表达式的格式 ${ }，它能单独使用，默认取值范围在 : page (PageContext)
 
-b)        OGNL 表达式常用的格式为 # ，还有 $ % 等，默认的取值范围是：valueStack 值栈。
+b)        OGNL 表达式常用的格式为 # ，还有 $ % 等，默认的取值范围是: valueStack 值栈。
 
 2、   使用范围
 

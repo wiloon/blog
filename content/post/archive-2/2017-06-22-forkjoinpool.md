@@ -13,7 +13,7 @@ Java 1.7 引入了一种新的并发框架—— Fork/Join Framework。
 
 本文的主要目的是介绍 ForkJoinPool 的适用场景，实现原理，以及示例代码。
 
-TLDR; 如果觉得文章太长的话，以下就是结论：
+TLDR; 如果觉得文章太长的话，以下就是结论: 
 
 ForkJoinPool 不是为了替代 ExecutorService，而是它的补充，在某些应用场景下性能比 ExecutorService 更好。（见 Java Tip: When to use ForkJoinPool vs ExecutorService ）
   
@@ -192,7 +192,7 @@ private ForkJoinPool pool;
     }
     
     public ForkJoinCalculator() {
-        // 也可以使用公用的 ForkJoinPool：
+        // 也可以使用公用的 ForkJoinPool: 
         // pool = ForkJoinPool.commonPool()
         pool = new ForkJoinPool();
     }
@@ -211,11 +211,11 @@ private ForkJoinPool pool;
 
 如果你除了 ForkJoinPool 的用法以外，对 ForkJoinPoll 的原理也感兴趣的话，那么请接着阅读这一节。在这一节中，我会结合 ForkJoinPool 的作者 Doug Lea 的论文——《A Java Fork/Join Framework》，尽可能通俗地解释 Fork/Join Framework 的原理。
 
-我一直以为，要理解一样东西的原理，最好就是自己尝试着去实现一遍。根据上面的示例代码，可以看出 fork() 和 join() 是 Fork/Join Framework "魔法"的关键。我们可以根据函数名假设一下 fork() 和 join() 的作用：
+我一直以为，要理解一样东西的原理，最好就是自己尝试着去实现一遍。根据上面的示例代码，可以看出 fork() 和 join() 是 Fork/Join Framework "魔法"的关键。我们可以根据函数名假设一下 fork() 和 join() 的作用: 
 
-fork()：开启一个新线程（或是重用线程池内的空闲线程），将任务交给该线程处理。
+fork(): 开启一个新线程（或是重用线程池内的空闲线程），将任务交给该线程处理。
   
-join()：等待该任务的处理线程处理完毕，获得返回值。
+join(): 等待该任务的处理线程处理完毕，获得返回值。
   
 以上模型似乎可以（？）解释 ForkJoinPool 能够多线程执行的事实，但有一个很明显的问题
 
@@ -235,7 +235,7 @@ pool = new ForkJoinPool(1);
   
 这个矛盾可以导出，我们的假设是错误的，并不是每个 fork() 都会促成一个新线程被创建，而每个 join() 也不是一定会造成线程被阻塞。Fork/Join Framework 的实现算法并不是那么"显然"，而是一个更加复杂的算法——这个算法的名字就叫做 work stealing 算法。
 
-work stealing 算法在 Doung Lea 的论文中有详细的描述，以下是我在结合 Java 1.8 代码的阅读以后——现有代码的实现有一部分相比于论文中的描述发生了变化——得到的相对通俗的解释：
+work stealing 算法在 Doung Lea 的论文中有详细的描述，以下是我在结合 Java 1.8 代码的阅读以后——现有代码的实现有一部分相比于论文中的描述发生了变化——得到的相对通俗的解释: 
 
 基本思想
 
@@ -249,11 +249,11 @@ ForkJoinPool 的每个工作线程都维护着一个工作队列（WorkQueue）�
   
 在既没有自己的任务，也没有可以窃取的任务时，进入休眠。
   
-下面来介绍一下关键的两个函数：fork() 和 join() 的实现细节，相比来说 fork() 比 join() 简单很多，所以先来介绍 fork()。
+下面来介绍一下关键的两个函数: fork() 和 join() 的实现细节，相比来说 fork() 比 join() 简单很多，所以先来介绍 fork()。
 
 fork
 
-fork() 做的工作只有一件事，既是把任务推入当前工作线程的工作队列里。可以参看以下的源代码：
+fork() 做的工作只有一件事，既是把任务推入当前工作线程的工作队列里。可以参看以下的源代码: 
 
 public final ForkJoinTask<V> fork() {
       
@@ -287,7 +287,7 @@ join() 的工作则复杂得多，也是 join() 可以使得线程免于被阻�
   
 递归地执行第5步。
   
-将上述流程画成序列图的话就是这个样子：
+将上述流程画成序列图的话就是这个样子: 
 
 以上就是 fork() 和 join() 的原理，这可以解释 ForkJoinPool 在递归过程中的执行逻辑，但还有一个问题
 
@@ -303,9 +303,9 @@ submit() 和 fork() 其实没有本质区别，只是提交对象变成了 submi
 
 总结
 
-在了解了 Fork/Join Framework 的工作原理之后，相信很多使用上的注意事项就可以从原理中找到原因。例如：为什么在 ForkJoinTask 里最好不要存在 I/O 等会阻塞线程的行为？，这个我姑且留作思考题吧 🙂
+在了解了 Fork/Join Framework 的工作原理之后，相信很多使用上的注意事项就可以从原理中找到原因。例如: 为什么在 ForkJoinTask 里最好不要存在 I/O 等会阻塞线程的行为？，这个我姑且留作思考题吧 🙂
 
-还有一些延伸阅读的内容，在此仅提及一下：
+还有一些延伸阅读的内容，在此仅提及一下: 
 
 ForkJoinPool 有一个 Async Mode ，效果是工作线程在处理本地任务时也使用 FIFO 顺序。这种模式下的 ForkJoinPool 更接近于是一个消息队列，而不是用来处理递归式的任务。
   
@@ -319,4 +319,4 @@ Java 1.8 新增加的 CompletableFuture 类可以实现类似于 Javascript 的 
 
 I've come to the conclusion that people forget about regular Java objects because they haven't got a fancy name. That's why, while preparing for a talk in 2000, Rebecca Parsons, Josh Mackenzie, and I gave them one: POJOs (plain old Java objects).
 
-我得出一个结论：人们之所以总是忘记使用标准的 Java 对象是因为缺少一个足够装逼的名字（译注：类似于 Java Bean 这样的名字）。因此，在准备2000年的演讲时，Rebecca Parsons，Josh Mackenzie 和我给他们起了一个名字叫做 POJO （平淡无奇的 Java 对象）。
+我得出一个结论: 人们之所以总是忘记使用标准的 Java 对象是因为缺少一个足够装逼的名字（译注: 类似于 Java Bean 这样的名字）。因此，在准备2000年的演讲时，Rebecca Parsons，Josh Mackenzie 和我给他们起了一个名字叫做 POJO （平淡无奇的 Java 对象）。

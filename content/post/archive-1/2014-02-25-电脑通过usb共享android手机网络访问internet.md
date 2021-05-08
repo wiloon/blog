@@ -12,7 +12,7 @@ categories:
 
 【设置】->【无线和网络设置】->【绑定与便携式热点】->【USB绑定】
 
-详细内容参见：https://support.google.com/android/answer/182134#usb
+详细内容参见: https://support.google.com/android/answer/182134#usb
 
 2.下载驱动安装信息
 

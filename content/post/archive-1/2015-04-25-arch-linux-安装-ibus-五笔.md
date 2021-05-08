@@ -36,7 +36,7 @@ yaourt -S ibus-table-chinese
 
 ```
   
-或者：
+或者: 
 
 ```bash
 
@@ -66,7 +66,7 @@ $ sudo make install
 
 2. 在屏幕右上角的 IBus 输入法框架 上点击鼠标右键，选择"首选项"，在"输入法"选项卡中添加"汉语 - 极点五笔86"。
 
-其他未尽事宜，请参阅：ArchWiki: IBus(简体中文)
+其他未尽事宜，请参阅: ArchWiki: IBus(简体中文)
 
 http://www.cnblogs.com/skyivben/archive/2012/09/18/2691006.html
 

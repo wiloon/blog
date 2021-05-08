@@ -10,11 +10,11 @@ categories:
 ---
 **<http://www.killdb.com/2011/07/31/11g%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8B-query-cache-result-%E7%A0%94%E7%A9%B6.html>**
 
-**本站文章除注明转载外，均为本站原创：** 转载自[love wife & love life —Roger 提供oracle技术支持服务][1]
+**本站文章除注明转载外，均为本站原创: ** 转载自[love wife & love life —Roger 提供oracle技术支持服务][1]
 
 **本文链接地址:** [11g新特性之–Query Cache Result 研究][2]
 
-该特性是11gR1引入的，关于query result cache特性，主要有2种：
+该特性是11gR1引入的，关于query result cache特性，主要有2种: 
 
 1. PL/SQL Function Result Cache –针对plsql而言
   
@@ -22,7 +22,7 @@ categories:
 
 我们都知道oracle通常是通过参数来进行控制某个功能的，当然这个也不例外，
   
-首先我们来介绍跟该特性有关的几个参数(包括隐含参数）：
+首先我们来介绍跟该特性有关的几个参数(包括隐含参数）: 
 
   <table>
     <tr>
@@ -56,7 +56,7 @@ result_cache_remote_expiration          INTEGER     0
     </tr>
   </table>
 
-几个重要的参数：
+几个重要的参数: 
 
 **result_cache_mode**
   
@@ -64,7 +64,7 @@ result_cache_remote_expiration          INTEGER     0
   
 manual是默认属性，也就是说我们要启用该特性，那么必须通过hint来实现，不然oracle的优化器
   
-是无法认知的，那么是什么hint呢？ 如下：
+是无法认知的，那么是什么hint呢？ 如下: 
 
   <table>
     <tr>
@@ -97,7 +97,7 @@ NO_RESULT_CACHE                          11.1.0.6
   
 该参数控制着使用该特性的内存大小，当该参数设置为0，那么也就意味着关闭了该特性。
   
-该部分内存是从SGA中分配的，至于分配的比例关系，metalink提供了如下的数据：
+该部分内存是从SGA中分配的，至于分配的比例关系，metalink提供了如下的数据: 
   
 0.25% of MEMORY_TARGET or
   

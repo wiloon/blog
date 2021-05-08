@@ -12,7 +12,7 @@ tags:
 ---
 这是IGT笔试的题目，分别写出可以造成两种错误的代码。由于之前测试过HashMap的容量的时候出现过内存不足的错误，所以能写出来，但StackOverflowError没什么印象了。
 
-回来查了下StackOverflowError的资料，在德问社区上有人发帖子java产生StackOverflowError的原因是什么?询问：
+回来查了下StackOverflowError的资料，在德问社区上有人发帖子java产生StackOverflowError的原因是什么?询问: 
 
 请问java.lang.StackOverflowError产生的原因有什么?
 
@@ -20,11 +20,11 @@ tags:
 
 谢谢
 
-有人回复说：
+有人回复说: 
 
 死循环本身是不会StackOverflow的，只有无限递归的时候会出现。原则上循环嵌套次数本身是没有限制的，限制的是占用的栈空间，如果你的函数里定义了很多很多变量，栈空间就会用完得比较快。
 
-还有人讲的更详细：
+还有人讲的更详细: 
 
 JVM里会有两种StackOverflowError, 一种是对应JVM stack, 一种是对应Native Method stack. 我们一般说的都是JVM stack.
 

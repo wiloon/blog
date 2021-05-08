@@ -87,7 +87,7 @@ public class TestSemaphore {
 
 }
 
-执行结果如下：
+执行结果如下: 
 
 Accessing: 0
 

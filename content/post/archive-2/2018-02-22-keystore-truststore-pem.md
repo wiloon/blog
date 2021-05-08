@@ -12,8 +12,8 @@ X.509 - 是一种常见通用的证书标准,主要定义了证书中应该包�
 X.509是常见通用的证书格式。所有的证书都符合为Public Key Infrastructure (PKI) 制定的 ITU-T X509 国际标准。  
 证书标准
 
-X.509 DER 编码(ASCII)的后缀是： .DER .CER .CRT  
-X.509 PEM 编码(Base64)的后缀是： .PEM .CER .CRT  
+X.509 DER 编码(ASCII)的后缀是:  .DER .CER .CRT  
+X.509 PEM 编码(Base64)的后缀是:  .PEM .CER .CRT  
 .cer/.crt是用于存放证书，它是2进制形式存放的，不含私钥。  
 .pem跟crt/cer的区别是它以Ascii来表示。  
 
@@ -92,8 +92,8 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out c
 ---
 https://www.cnblogs.com/guogangj/p/4118605.html
 
-作者：刘长元  
-链接：https://www.zhihu.com/question/29620953/answer/45012411  
-来源：知乎  
+作者: 刘长元  
+链接: https://www.zhihu.com/question/29620953/answer/45012411  
+来源: 知乎  
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。  
 https://www.zhihu.com/question/29620953

@@ -90,7 +90,7 @@ java -jar baksmali.jar -o classout/ classes.dex .(如下图所示:)
 
 从上面看出除了Android本身资源的类R开头的，我的源程序里只有一个ApkInstaller.java，完全吻合，真TMD的猥琐呵呵~
 
-下面我们看一下ApkInstaller.smali内容是什么，如以下代码：
+下面我们看一下ApkInstaller.smali内容是什么，如以下代码: 
 
 [java][/java]
 

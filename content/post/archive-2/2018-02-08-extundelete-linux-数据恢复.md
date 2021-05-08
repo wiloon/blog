@@ -14,7 +14,7 @@ Linux下高效数据恢复软件extundelete应用实战 推荐
   
 原创南非蚂蚁2014-10-22 17:58:11评论(8)11866人阅读
   
-推荐：10年技术力作：《高性能Linux服务器构建实战Ⅱ》全网发行，附试读章节和全书实例源码下载！
+推荐: 10年技术力作: 《高性能Linux服务器构建实战Ⅱ》全网发行，附试读章节和全书实例源码下载！
 
 作为一名运维人员，保证数据的安全是根本职责，所以在维护系统的时候，要慎之又慎，但是有时难免会出现数据被误删除的情况，在这个时候改如何快速、有效地恢复数据呢？本文我们就来介绍一下Linux系统下常用的几个数据恢复工具。
 
@@ -30,7 +30,7 @@ Linux下高效数据恢复软件extundelete应用实战 推荐
 
 三、extundelete的恢复原理
 
-在介绍使用extundelete进行恢复数据之前，简单介绍下关于inode的知识。在Linux下可以通过"ls –id"命令来查看某个文件或者目录的inode值，例如查看根目录的inode值，可以输入：
+在介绍使用extundelete进行恢复数据之前，简单介绍下关于inode的知识。在Linux下可以通过"ls –id"命令来查看某个文件或者目录的inode值，例如查看根目录的inode值，可以输入: 
 
 [root@cloud1 ~]# ls -id /
   
@@ -44,7 +44,7 @@ Linux下高效数据恢复软件extundelete应用实战 推荐
 
 extundelete的官方网站是http://extundelete.sourceforge.net/ ，其目前的稳定版本是extundelete-0.2.4。，在安装extundelete之前需要安装e2fsprogs和e2fsprogs-libs两个依赖包。
 
-e2fsprogs和e2fsprogs-libs安装非常简单，这里不做介绍。下面是extundelete的编译安装过程：
+e2fsprogs和e2fsprogs-libs安装非常简单，这里不做介绍。下面是extundelete的编译安装过程: 
 
 [root@cloud1 app]#tar jxvf extundelete-0.2.4.tar.bz2
   
@@ -60,7 +60,7 @@ e2fsprogs和e2fsprogs-libs安装非常简单，这里不做介绍。下面是ext
 
 五、extundelete用法详解
 
-extundelete安装完成后，就可以执行数据恢复操作了，本节详细介绍下extundelete每个参数的含义。extundelete用法如下：
+extundelete安装完成后，就可以执行数据恢复操作了，本节详细介绍下extundelete每个参数的含义。extundelete用法如下: 
 
 extundelete -help
 
@@ -68,7 +68,7 @@ extundelete -help
 
 extundelete [options] [action] device-file
   
-其中参数（options）有：
+其中参数（options）有: 
 
 -version, -[vV]，显示软件版本号。
 
@@ -82,7 +82,7 @@ extundelete [options] [action] device-file
 
 -before dtime，时间参数，表示在某段时间之前被删的文件或目录。
 
-动作（action）有：
+动作（action）有: 
 
 -inode ino，显示节点"ino"的信息。
 
@@ -102,7 +102,7 @@ extundelete [options] [action] device-file
 
 -B blocksize，表示使用数据块大小来打开文件系统，一般用于查看已经知道大小的文件。
 
-六、实战：extundelete恢复数据的过程
+六、实战: extundelete恢复数据的过程
 
 在数据被误删除后，第一时间要做的是卸载被删除数据所在的磁盘或磁盘分区，如果是系统根分区的数据遭到误删除，就需要将系统进入单用户，并且将根分区以只读模式挂载。这样做的原因很简单，因为将文件删除后，仅仅是将文件的inode结点中的扇区指针清零，实际文件还存储在磁盘上，如果磁盘以读写模式挂载，这些已删除的文件的数据块就可能被操作系统重新分配出去，在这些数据块被新的数据覆盖后，这些数据就真的丢失了，恢复工具也回力无天。所以，以只读模式挂载磁盘可以尽量降低数据块中数据被覆盖的风险，以提高恢复数据成功的比率。
 
@@ -110,7 +110,7 @@ extundelete [options] [action] device-file
 
 1.模拟数据误删除环境
 
-在演示通过extundelete恢复数据之前，我们首先要模拟一个数据误删除环境，这里我们以ext3文件系统为例，在ext4文件系统下的恢复方式与此完全一样。简单的模拟操作过程如下：
+在演示通过extundelete恢复数据之前，我们首先要模拟一个数据误删除环境，这里我们以ext3文件系统为例，在ext4文件系统下的恢复方式与此完全一样。简单的模拟操作过程如下: 
 
 [root@cloud1 ~]#mkdir /data
   
@@ -140,7 +140,7 @@ eb42e4b3f953ce00e78e11bf50652a80 test/mytest.txt
   
 2.卸载磁盘分区
 
-在将数据误删除后，立刻需要做的就是卸载这块磁盘分区：
+在将数据误删除后，立刻需要做的就是卸载这块磁盘分区: 
 
 [root@cloud1 data]#cd /mnt
   
@@ -148,7 +148,7 @@ eb42e4b3f953ce00e78e11bf50652a80 test/mytest.txt
   
 3.查询可恢复的数据信息
 
-通过extundelete命令可以查询/dev/sdc1分区可恢复的数据信息：
+通过extundelete命令可以查询/dev/sdc1分区可恢复的数据信息: 
 
 [root@cloud1 /]# extundelete /dev/sdc1 -inode 2
   
@@ -172,7 +172,7 @@ ganglia-3.4.0 245761 Deleted
 
 4.恢复单个文件
 
-执行如下命令开始恢复文件：
+执行如下命令开始恢复文件: 
 
 [root@cloud1 /]# extundelete /dev/sdc1 -restore-file passwd
   
@@ -202,7 +202,7 @@ extundelete恢复单个文件的参数是"-restore-file"，这里需要注意的
 
 extundelete除了支持恢复单个文件，也支持恢复单个目录，在需要恢复目录时，通过 "-restore-directory"选项即可恢复指定目录的所有数据。
 
-继续在上面模拟的误删除数据环境下操作，现在要恢复/data目录下的ganglia-3.4.0文件夹，操作如下：
+继续在上面模拟的误删除数据环境下操作，现在要恢复/data目录下的ganglia-3.4.0文件夹，操作如下: 
 
 [root@cloud1 mnt]# extundelete /dev/sdc1 -restore-directory /ganglia-3.4.0
   
@@ -228,13 +228,13 @@ RECOVERED_FILES
   
 ganglia-3.4.0
   
-可以看到之前删除的目录ganglia-3.4.0已经成功恢复了，进入这个目录检查发现：所有文件内容和大小都正常。
+可以看到之前删除的目录ganglia-3.4.0已经成功恢复了，进入这个目录检查发现: 所有文件内容和大小都正常。
 
 6.3 通过extundelete恢复所有误删除数据
 
 当需要恢复的数据较多时，一个个地指定文件或目录将是一个非常繁重和耗时的工作，不过，extundelete考虑到了这点，此时可以通过"-restore-all"选项来恢复所有被删除的文件或文件夹。
 
-仍然在上面模拟的误删除数据环境下操作，现在要恢复/data目录下所有数据，操作过程如下：
+仍然在上面模拟的误删除数据环境下操作，现在要恢复/data目录下所有数据，操作过程如下: 
 
 [root@cloud1 mnt]# extundelete /dev/sdc1 -restore-all
   
@@ -276,7 +276,7 @@ ganglia-3.4.0 passwd test
 
 下面通过一个简单示例，描述下如何恢复某个时间段内的数据。
 
-我们首先假定在/data目录下有个刚刚创建的压缩文件ganglia-3.4.0.tar.gz，然后删除此文件，接着卸载/data分区，开始恢复一小时内的文件，操作如下：
+我们首先假定在/data目录下有个刚刚创建的压缩文件ganglia-3.4.0.tar.gz，然后删除此文件，接着卸载/data分区，开始恢复一小时内的文件，操作如下: 
 
 [root@cloud1 ~]#cd /data/
   

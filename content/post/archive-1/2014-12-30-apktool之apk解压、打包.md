@@ -11,11 +11,11 @@ categories:
 http://blog.csdn.net/caszhao/article/details/6030425
 
 
-博客分类： java
+博客分类:  java
   
 apktoolandroidjava
   
-简介：
+简介: 
   
 Android apktool是一个用来处理APK文件的工具,可以对APK进行反编译生成程序的源代码和图片、XML配置、语言资源等文件,也可以添加新的功能到APK文件中。用该工具来汉化Android软件然后重新打包发布是相当简单的。
   
@@ -23,7 +23,7 @@ Android apktool是一个用来处理APK文件的工具,可以对APK进行反编�
   
 1）.首先安装需要JAVA环境，先下载JDK/JRE，点击下载，已经有JAVA环境的可跳过此步
 
-2）.到code.google上下载apktool.jar以及相关文件：http://code.google.com/p/android-apktool/downloads/list
+2）.到code.google上下载apktool.jar以及相关文件: http://code.google.com/p/android-apktool/downloads/list
   
 点击下载apktool1.4.3.tar.bz2 和 apktool-install-windows-r04-brut1.tar.bz2
 
@@ -117,9 +117,9 @@ For additional info, see: http://code.google.com/p/android-apktool/
   
 D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool d F:\document\APK\PushAd.apk F:\document\app
   
-源文件：F:\document\APK\PushAd.apk
+源文件: F:\document\APK\PushAd.apk
   
-解压目录：F:\document\app
+解压目录: F:\document\app
   
 Java代码 收藏代码
   
@@ -145,9 +145,9 @@ I: Copying assets and libs...
   
 D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool b F:\document\app F:\\document\\app.apk
   
-源文件：F:\\document\\app
+源文件: F:\\document\\app
   
-打包目录：F:\document\app.apk
+打包目录: F:\document\app.apk
   
 Java代码 收藏代码
   

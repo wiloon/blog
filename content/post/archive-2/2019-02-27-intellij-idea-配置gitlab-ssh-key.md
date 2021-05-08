@@ -28,10 +28,10 @@ https://blog.csdn.net/u010348570/article/details/81204371
 
 ## 7 选择 VCS -> Checkout from Version Control -> Git，将gitlab上面项目的ssh路径复制，点击Test，提示Connection successful，后面一路点击next即可。
 
-作者：叫我放猪之人
+作者: 叫我放猪之人
   
-来源：CSDN
+来源: CSDN
   
-原文：https://blog.csdn.net/u010348570/article/details/81204371
+原文: https://blog.csdn.net/u010348570/article/details/81204371
   
-版权声明：本文为博主原创文章，转载请附上博文链接！
+版权声明: 本文为博主原创文章，转载请附上博文链接！

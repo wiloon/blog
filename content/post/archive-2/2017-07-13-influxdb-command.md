@@ -100,7 +100,7 @@ systemctl start influxdb
 #or
 sudo influxd
 
-#connect via cli, rfc3339：日期格式YYYY-MM-DDTHH:MM:SS.nnnnnnnnnZ
+#connect via cli, rfc3339: 日期格式YYYY-MM-DDTHH:MM:SS.nnnnnnnnnZ
 influx -precision rfc3339
 
 

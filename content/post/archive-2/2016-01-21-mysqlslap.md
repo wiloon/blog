@@ -13,7 +13,7 @@ mysqlslap -uuser0 -ppassword0 -concurrency=1 -iterations=1 -engine=innodb -numbe
 
 MySQL数据库基准压力测试工具之MySQLSlap使用实例 2013-05-20 19:04:09
   
-分类： Mysql/postgreSQL
+分类:  Mysql/postgreSQL
   
 http://www.2cto.com/database/201303/195303.html
 
@@ -25,9 +25,9 @@ mysqlslap是MySQL5.1之后自带的benchmark基准测试工具，类似Apache Be
   
 二、使用方法介绍
   
-可以使用mysqlslap -help来显示使用方法：
+可以使用mysqlslap -help来显示使用方法: 
   
-1) -concurrency代表并发数量，多个可以用逗号隔开,例如：concurrency=10,50,100, 并发连接线程数分别是10、50、100个并发。
+1) -concurrency代表并发数量，多个可以用逗号隔开,例如: concurrency=10,50,100, 并发连接线程数分别是10、50、100个并发。
   
 2) -engines代表要测试的引擎，可以有多个，用分隔符隔开。
   
@@ -41,7 +41,7 @@ mysqlslap是MySQL5.1之后自带的benchmark基准测试工具，类似Apache Be
   
 7) -debug-info 代表要额外输出CPU以及内存的相关信息。
   
-8) -number-int-cols ：创建测试表的 int 型字段数量
+8) -number-int-cols : 创建测试表的 int 型字段数量
   
 9) -auto-generate-sql-add-autoincrement : 代表对生成的表自动添加auto_increment列，从5.1.18版本开始
   
@@ -57,13 +57,13 @@ mysqlslap是MySQL5.1之后自带的benchmark基准测试工具，类似Apache Be
   
 下面我们使用几个demo实例来进行测试
   
-1、Demo1：
+1、Demo1: 
   
 [root@localhost ~]# mysqlslap -uroot -p123abc -concurrency=100 -iterations=1 -auto-generate-sql -auto-generate-sql-load-type=mixed -auto-generate-sql-add-autoincrement -engine=myisam -number-of-queries=10 -debug-info
   
 #备注本次测试以100个并发线程、测试1次，自动生成SQL测试脚本、读、写、更新混合测试、自增长字段、测试引擎为myisam、共运行10次查询，输出cpu资源信息
   
-返回信息如下所示：
+返回信息如下所示: 
   
 rement -engine=myisam -number-of-queries=10 -debug-info
   
@@ -91,13 +91,13 @@ Blocks in 0 out 0, Messages in 0 out 0, Signals 0
   
 Voluntary context switches 27221, Involuntary context switches 4241
   
-2、Demo2：指定数据库和sql语句
+2、Demo2: 指定数据库和sql语句
   
 mysqlslap -h192.168.202.84 -P3309 -concurrency=100 -iterations=1 -create-schema='mms_sdmtv' -query='select * from role;' -number-of-queries=10 -debug-info -uroot -p123abc
   
 #备注使用mysqlslap指定sql语句进行测试
   
-3、Demo3：测试用例
+3、Demo3: 测试用例
   
 [root@localhost /]# mysqlslap -concurrency=50,100,200 -iterations=20 -number-int-cols=4 -number-char-cols=35 -auto-generate-sql -auto-generate-sql-add-autoincrement -auto-generate-sql-load-type=read -engine=myisam,innodb -number-of-queries=200 -verbose -socket=/var/lib/mysql/mysql.sock -uroot -p123abc
   

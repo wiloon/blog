@@ -14,7 +14,7 @@ You have an error in your SQL syntax; check the manual that corresponds to your 
 
 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OPTION SQL_SELECT_LIMIT=DEFAULT' at line 1
 
-原因：
+原因: 
 
 项目中我用的jdbc驱动版本
 
@@ -26,10 +26,10 @@ jdbc在连接数据库时候会发送测试语句SET OPTION SQL_SELECT_LIMIT=DEF
 
 这在mysql5.6以下版本是可以的 ，但是5.6不再支持SET...
   
-解决：
+解决: 
 
 升级驱动版本,我改成了mysql-connector-java-5.1.25.jar  问题解决
 
 -------
 
-注意：版本要匹配才行，否则会出错。
+注意: 版本要匹配才行，否则会出错。

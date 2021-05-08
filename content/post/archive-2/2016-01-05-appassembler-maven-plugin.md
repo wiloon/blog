@@ -17,7 +17,7 @@ categories:
 
 maven 自动生成运行脚本插件appassembler-maven-plugin
   
-博客分类：maven
+博客分类: maven
 
 appassembler-maven-plugin可以自动生成跨平台的启动脚本，省去了手工写脚本的麻烦，而且还可以生成jsw的后台运行程序。
 
@@ -87,25 +87,25 @@ Xml代码
 
 一些配置说明
 
-configurationDirectory：生成配置文件路径
+configurationDirectory: 生成配置文件路径
 
-configurationSourceDirectory：配置文件原路径，默认为src/main/config
+configurationSourceDirectory: 配置文件原路径，默认为src/main/config
 
 assembleDirectory:整体包目录
 
-extraJvmArguments：jvm参数
+extraJvmArguments: jvm参数
 
-binFileExtensions：生成脚本的后缀
+binFileExtensions: 生成脚本的后缀
 
-platforms：生成哪几种平台
+platforms: 生成哪几种平台
 
-repositoryName：依赖包目录，默认repo
+repositoryName: 依赖包目录，默认repo
 
-programs：这个必须参数，启动的主class
+programs: 这个必须参数，启动的主class
 
 生成jsw也是一个简单的配置
 
-eg：
+eg: 
 
 
 Xml代码

@@ -20,7 +20,7 @@ goroutine和channel是Go语言非常棒的特色，它们提供了一种非常�
 
 通过Channel传递退出信号
   
-Go的一大设计哲学就是：通过Channel共享数据，而不是通过共享内存共享数据。主流程可以通过channel向任何goroutine发送停止信号，就像下面这样：
+Go的一大设计哲学就是: 通过Channel共享数据，而不是通过共享内存共享数据。主流程可以通过channel向任何goroutine发送停止信号，就像下面这样: 
 
 func run(done chan int) {
   
@@ -70,7 +70,7 @@ fmt.Println("main exited")
   
 2 使用waitgroup
   
-sync包中的Waitgroup结构，是Go语言为我们提供的多个goroutine之间同步的好刀。下面是官方文档对它的描述：
+sync包中的Waitgroup结构，是Go语言为我们提供的多个goroutine之间同步的好刀。下面是官方文档对它的描述: 
 
 A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for.
   
@@ -86,7 +86,7 @@ Then each of the goroutines runs and calls Done when finished. At the same time,
   
 在等待所有goroutine的地方调用wg.Wait()，它在所有执行了wg.Add(1)的goroutine都调用完wg.Done()前阻塞，当所有goroutine都调用完wg.Done()之后它会返回。
   
-那么，如果我们的goroutine是一匹不知疲倦的牛，一直孜孜不倦地工作的话，如何在主流程中告知并等待它退出呢？像下面这样做：
+那么，如果我们的goroutine是一匹不知疲倦的牛，一直孜孜不倦地工作的话，如何在主流程中告知并等待它退出呢？像下面这样做: 
 
 type Service struct {
   

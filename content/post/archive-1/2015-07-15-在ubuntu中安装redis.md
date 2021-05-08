@@ -12,17 +12,17 @@ tags:
 ---
 R利剑NoSQL系列文章，主要介绍通过R语言连接使用nosql数据库。涉及的NoSQL产品，包括Redis, MongoDB, HBase, Hive, Cassandra, Neo4j。希望通过我的介绍让广大的R语言爱好者，有更多的开发选择，做出更多地激动人心的应用。
 
-关于作者：
+关于作者: 
 
 张丹(Conan), 程序员Java,R,PHP,Javascript
   
-weibo：@Conan_Z
+weibo: @Conan_Z
   
 blog: http://blog.fens.me
   
 email: bsspirit@gmail.com
   
-转载请注明出处：
+转载请注明出处: 
   
 http://blog.fens.me/linux-redis-install/
 
@@ -42,11 +42,11 @@ Redis在Linux Ubuntu中安装
   
 1. Redis在Windows中安装
   
-在Windows系统上安装Redis数据库是件非常简单的事情，下载可执行安装文件(exe)，双击安装即可。下载地址：https://github.com/rgl/redis/downloads
+在Windows系统上安装Redis数据库是件非常简单的事情，下载可执行安装文件(exe)，双击安装即可。下载地址: https://github.com/rgl/redis/downloads
 
-Redis服务器运行命令：Redis安装目录/redis-server.exe
+Redis服务器运行命令: Redis安装目录/redis-server.exe
   
-Redis客户端运行命令：Redis安装目录/redis-cli.exe
+Redis客户端运行命令: Redis安装目录/redis-cli.exe
   
 2. Redis在Linux Ubuntu中安装
   
@@ -362,6 +362,6 @@ redis 192.168.1.199:6379> keys *
 
 远程访问正常。通过上面的操作，我们就把Redis数据库服务器，在Linux Ubuntu中的系统安装完成。
 
-转载请注明出处：
+转载请注明出处: 
   
 http://blog.fens.me/linux-redis-install/

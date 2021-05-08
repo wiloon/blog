@@ -14,11 +14,11 @@ Http介绍
   
 Http(超文本传输协议)协议是建立在TCP传输协议之上的应用成协议,Http由于便捷、快速的方式，适用于分布式超媒体信息系统。Http是目前Web开发的主流协议，基于Http的应用非常广泛，因此掌握HTTP的开发非常重要。由于netty的HTTP协议栈是基于netty的NIO通信框架开发的，所以netty的HTTP协议也是异步非阻塞的。
 
-具体的关于HTTP及Netyy的实现细节在以后的章节在写，先上实例代码：
+具体的关于HTTP及Netyy的实现细节在以后的章节在写，先上实例代码: 
 
 实例代码
   
-服务端：
+服务端: 
   
 public class HttpFileServer {
 
@@ -56,7 +56,7 @@ ch.pipeline().addLast("fileServerHandler", new HttpFileServerHandler(url));
   
 ChannelFuture cf =boot.bind("127.0.0.1",port).sync();
   
-System.out.println("Http文件目录服务器启动：http://127.0.0.1:"+port+url);
+System.out.println("Http文件目录服务器启动: http://127.0.0.1:"+port+url);
   
 cf.channel().closeFuture().sync();
 
@@ -322,13 +322,13 @@ sb.append("<html><head><title>");
   
 sb.append(dirPath);
   
-sb.append("目录：");
+sb.append("目录: ");
   
 sb.append("</title></head><body>\r\n");
   
 sb.append("");
   
-sb.append(dirPath).append("目录：");
+sb.append(dirPath).append("目录: ");
   
 sb.append("\r\n");
 

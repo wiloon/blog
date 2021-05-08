@@ -14,7 +14,7 @@ chmod命令可以把文件权限分为u,g,o三个组，而setfacl可以对每一
   
 换句话说，setfacl可以更精确的控制权限的分配。
   
-比如：让某一个用户对某一个文件具有某种权限。
+比如: 让某一个用户对某一个文件具有某种权限。
 
 这种独立于传统的u,g,o的rwx权限之外的具体权限设置叫ACL（Access Control List）
   
@@ -62,7 +62,7 @@ Usage: setfacl [-bkndRLP] { -m|-M|-x|-X ... } file ...
     
 -h, -help this help text
 
-例子：在/test 下建立一个test文件 将权限改为777 并查看其ACL设置
+例子: 在/test 下建立一个test文件 将权限改为777 并查看其ACL设置
   
 [root@localhost ~]# cd /test/
   
@@ -122,7 +122,7 @@ mask::rwx
   
 other::rwx
 
-通过handsome用户验证一下：
+通过handsome用户验证一下: 
   
 [root@localhost test]# su - handsome
   
@@ -132,11 +132,11 @@ other::rwx
   
 -bash: /test/test.txt: 权限不够
 
-除了对某个文件的单个用户进行权限设置外，还可以对某个组进行同样的设置：g:[用户组]:[rwx]
+除了对某个文件的单个用户进行权限设置外，还可以对某个组进行同样的设置: g:[用户组]:[rwx]
 
-还能对有效权限（mask）进行设置：有效权限(mask) 即用户或组所设置的权限必须要存在于mask的权限设置范围内才会生效
+还能对有效权限（mask）进行设置: 有效权限(mask) 即用户或组所设置的权限必须要存在于mask的权限设置范围内才会生效
 
-最后取消ACL权限：
+最后取消ACL权限: 
   
 [root@localhost test]# setfacl -x u:handsome test.txt
   

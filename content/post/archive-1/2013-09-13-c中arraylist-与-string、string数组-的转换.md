@@ -12,7 +12,7 @@ http://blog.csdn.net/iter_zc/article/details/41892567
 
 在这篇聊聊JVM（六）理解JVM的safepoint 中说了safepoint的基本概念，VM thread在进行GC前，必须要让所有的Java线程阻塞，从而stop the world，开始标记。JVM采用了主动式阻塞的方式，Java线程不是随时都可以进入阻塞，需要运行到特定的点，叫safepoint，在这些点的位置Java线程可以被全部阻塞，整个堆的状态是一个暂时稳定的状态，OopMap指出了这个时刻，寄存器和栈内存的哪些具体的地址是引用，从而可以快速找到GC roots来进行对象的标记操作。
 
-那么当Java线程运行到safepoint的时候，JVM如何让Java线程挂起呢？这是一个复杂的操作。很多文章里面说了JIT编译模式下，编译器会把很多safepoint检查的操作插入到编译偶的指令中，比如下面的指令来自内存篇：JVM内存回收理论与实现
+那么当Java线程运行到safepoint的时候，JVM如何让Java线程挂起呢？这是一个复杂的操作。很多文章里面说了JIT编译模式下，编译器会把很多safepoint检查的操作插入到编译偶的指令中，比如下面的指令来自内存篇: JVM内存回收理论与实现
   
 ```java view plain copy
   
@@ -145,7 +145,7 @@ JVM采用的后者，因为内存屏障是一个很重的操作，要强制刷�
 
 说白了，就是在Java线程从执行native code状态返回的时候要作线程同步，采用serialtion page的方式做了线程同步，而不是采用内存屏障的方式。熟悉Java内存模型的同学知道，类似volatie这种轻量级同步变量采用的就是内存屏障的方式。
 
-为什么要做线程同步呢，这篇 请教hotspot源码中关于Serialization Page的问题 解释了这个问题：
+为什么要做线程同步呢，这篇 请教hotspot源码中关于Serialization Page的问题 解释了这个问题: 
 
 ```java view plain copy
   
@@ -266,7 +266,7 @@ Total time for which application threads were stopped: 0.0098720 seconds
 
 Points on Safepoints
   
-内存篇：JVM内存回收理论与实现
+内存篇: JVM内存回收理论与实现
   
 请教hotspot源码中关于Serialization Page的问题
   

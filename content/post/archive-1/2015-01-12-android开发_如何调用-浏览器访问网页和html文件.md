@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/mengweiqi33/article/details/7679467
   
-分类： Android学习笔记2012-06-20 13:41 5291人阅读 评论(0) 收藏 举报
+分类:  Android学习笔记2012-06-20 13:41 5291人阅读 评论(0) 收藏 举报
   
 浏览器androidhtmlurlfilescheme
   
@@ -34,7 +34,7 @@ startActivity(intent);
   
 1、指定android自带的浏览器访问
 
-（ "com.android.browser"：packagename   ；"com.android.browser.BrowserActivity"：启动主activity）
+（ "com.android.browser": packagename   ；"com.android.browser.BrowserActivity": 启动主activity）
   
 Intent intent= new Intent();
   
@@ -55,11 +55,11 @@ startActivity(intent);
 
 intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
 
-uc浏览器"："com.uc.browser", "com.uc.browser.ActivityUpdate"
+uc浏览器": "com.uc.browser", "com.uc.browser.ActivityUpdate"
 
-opera    ："com.opera.mini.android", "com.opera.mini.android.Browser"
+opera    : "com.opera.mini.android", "com.opera.mini.android.Browser"
   
-qq浏览器："com.tencent.mtt", "com.tencent.mtt.MainActivity"
+qq浏览器: "com.tencent.mtt", "com.tencent.mtt.MainActivity"
 
 
 三、打开本地html文件
@@ -83,7 +83,7 @@ startActivity(intent);
 
 以前有在win32编程的朋友，可能会觉得用这种形式"file://sccard/help.html"是否可以，可以很肯定的跟你说，默认的浏览器设置是没有对"file"这个进行解析的，如果要让你的默认android浏览器有这个功能需要自己到android源码修改manifest.xml文件，然后自己编译浏览器代码生成相应的apk包来重新在机器上安装。
 
-大体的步骤如下：
+大体的步骤如下: 
 
 1、打开 packages/apps/Browser/AndroidManifest.xml文件把加到相应的<intent-filter>后面就可以了
 

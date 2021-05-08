@@ -17,7 +17,7 @@ yay -S apache-tools
 sudo yum -y install httpd-tools
 ```
 
-```bash格式：ab [options] [http://]hostname[:port]/path
+```bash格式: ab [options] [http://]hostname[:port]/path
 
 # get 请求， 不带 -p参数时  发get请求
 ab -n 1 -c 1   -T 'application/x-www-form-urlencoded' "http://127.0.0.1:7000/"
@@ -26,7 +26,7 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/x-www-form-urlencoded' "http://127.0.
 ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
 ```
 
-参数：
+参数: 
   
 -n requests Number of requests to perform
   
@@ -70,7 +70,7 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
   
 //-C cookie-name=value 对请求附加一个Cookie:行。 其典型形式是name=value的一个参数对。此参数可以重复，用逗号分割。
   
-提示：可以借助session实现原理传递 JSESSIONID参数， 实现保持会话的功能，如
+提示: 可以借助session实现原理传递 JSESSIONID参数， 实现保持会话的功能，如
 
 -C " c1=1234,c2=2,c3=3, JSESSIONID=FF056CD16DA9D71CB131C1D56F0319F8″ 。
   
@@ -108,7 +108,7 @@ are a colon separated username and password.
 
 # ab -c 5000 -n 600 http://127.0.0.1/index.php
 
-ApacheBench用法详解：
+ApacheBench用法详解: 
 
 在Linux系统，一般安装好Apache后可以直接执行；
 
@@ -128,7 +128,7 @@ ApacheBench用法详解：
 
 ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant
 
-解释：-p:包含post请求的参数文件。文件内容类似：sk=1babb55a0b4b4dd2a&apitype=restaurant&p=tJoLaT4mon
+解释: -p:包含post请求的参数文件。文件内容类似: sk=1babb55a0b4b4dd2a&apitype=restaurant&p=tJoLaT4mon
 
 -T:content-type 。请求内容类型
 

@@ -10,13 +10,13 @@ categories:
 ---
 ## 安装Apache Mysql PHP
 
-安装之前，保证你的版本是最新的。使用命令：（"#"表示你应该以root的身份来运行）。
+安装之前，保证你的版本是最新的。使用命令: （"#"表示你应该以root的身份来运行）。
 
 # aptitude update && aptitude upgrade
 
   * mysql
 
-使用下面的命令来安装mysql：
+使用下面的命令来安装mysql: 
 
 # aptitude install mysql-server mysql-client
 

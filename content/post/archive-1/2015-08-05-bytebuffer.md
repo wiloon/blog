@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-ByteBuffer是NIO里用得最多的Buffer，它包含两个实现方式：HeapByteBuffer是基于Java堆的实现，而DirectByteBuffer则使用了unsafe的API进行了堆外的实现。这里只说HeapByteBuffer。
+ByteBuffer是NIO里用得最多的Buffer，它包含两个实现方式: HeapByteBuffer是基于Java堆的实现，而DirectByteBuffer则使用了unsafe的API进行了堆外的实现。这里只说HeapByteBuffer。
 
 Buffer 类
   
@@ -18,7 +18,7 @@ Buffer 类
   
 值得注意的是Buffer及其子类都不是线程安全的。
 
-每个Buffer都有以下的属性：
+每个Buffer都有以下的属性: 
   
 capacity
   
@@ -42,11 +42,11 @@ mark
   
 置为mark的值。mark的值总是小于等于position的值，如果将position的值设的比mark小，当前的mark值会被抛弃掉。
 
-这些属性总是满足以下条件：
+这些属性总是满足以下条件: 
   
 0 <= mark <= position <= limit <= capacity
 
-limit和position的值除了通过limit()和position()函数来设置，也可以通过下面这些函数来改变：
+limit和position的值除了通过limit()和position()函数来设置，也可以通过下面这些函数来改变: 
 
 Buffer clear()
   
@@ -66,7 +66,7 @@ isReadOnly()方法可以用来判断一个Buffer是否只读。
 
 Buffer是一个抽象的基类
   
-派生类：ByteBuffer, CharBuffer, DoubleBuffer, FloatBuffer, IntBuffer, LongBuffer, ShortBuffer
+派生类: ByteBuffer, CharBuffer, DoubleBuffer, FloatBuffer, IntBuffer, LongBuffer, ShortBuffer
 
 ByteBuffer 类
   
@@ -74,7 +74,7 @@ ByteBuffer 类
   
 操作基本上都是围绕ByteBuffer展开的。
 
-ByteBuffer定义了4个static方法来做创建工作：
+ByteBuffer定义了4个static方法来做创建工作: 
 
 ByteBuffer allocate(int capacity) //创建一个指定capacity的ByteBuffer。
   
@@ -84,7 +84,7 @@ ByteBuffer wrap(byte [] array)
   
 ByteBuffer wrap(byte [] array, int offset, int length) //把一个byte数组或byte数组的一部分包装成ByteBuffer。
 
-ByteBuffer定义了一系列get和put操作来从中读写byte数据，如下面几个：
+ByteBuffer定义了一系列get和put操作来从中读写byte数据，如下面几个: 
   
 byte get()
   
@@ -104,7 +104,7 @@ ByteBuffer put(int index, byte b)
   
 些参数和返回值的类型。
 
-除了读写byte类型数据的函数，ByteBuffer的一个特别之处是它还定义了读写其它primitive数据的方法，如：
+除了读写byte类型数据的函数，ByteBuffer的一个特别之处是它还定义了读写其它primitive数据的方法，如: 
 
 int getInt() //从ByteBuffer中读出一个int值。
   
@@ -112,13 +112,13 @@ ByteBuffer putInt(int value) // 写入一个int值到ByteBuffer中。
 
 读写其它类型的数据牵涉到字节序问题，ByteBuffer会按其字节序（大字节序或小字节序）写入或读出一个其它
   
-类型的数据（int,long…）。字节序可以用order方法来取得和设置：
+类型的数据（int,long…）。字节序可以用order方法来取得和设置: 
   
 ByteOrder order() //返回ByteBuffer的字节序。
   
 ByteBuffer order(ByteOrder bo) // 设置ByteBuffer的字节序。
 
-ByteBuffer另一个特别的地方是可以在它的基础上得到其它类型的buffer。如：
+ByteBuffer另一个特别的地方是可以在它的基础上得到其它类型的buffer。如: 
   
 CharBuffer asCharBuffer()
   
@@ -134,7 +134,7 @@ CharBuffer asCharBuffer()
 
 ByteOrder
   
-用来表示ByteBuffer字节序的类，可将其看成java中的enum类型。主要定义了下面几个static方法和属性：
+用来表示ByteBuffer字节序的类，可将其看成java中的enum类型。主要定义了下面几个static方法和属性: 
   
 ByteOrder BIG_ENDIAN 代表大字节序的ByteOrder。
   
@@ -148,7 +148,7 @@ ByteBuffer的子类，是文件内容在内存中的映射。这个类的实例�
 
 接下来看看一个使用ByteBuffer的例子，这个例子从标准输入不停地读入字符，当读满一行后，将收集的字符
   
-写到标准输出：
+写到标准输出: 
 
     public static void main(String [] args)
        throws IOException
@@ -192,25 +192,25 @@ Netty所用的堆外内存只是Java NIO的 DirectByteBuffer类,还有一些sun.
 
 http://calvin1978.blogcn.com/articles/directbytebuffer.html
 
-ByteBuffer是NIO里用得最多的Buffer，它包含两个实现方式：HeapByteBuffer是基于Java堆的实现，而DirectByteBuffer则使用了unsafe的API进行了堆外的实现。这里只说HeapByteBuffer。
+ByteBuffer是NIO里用得最多的Buffer，它包含两个实现方式: HeapByteBuffer是基于Java堆的实现，而DirectByteBuffer则使用了unsafe的API进行了堆外的实现。这里只说HeapByteBuffer。
 
 使用
 
 ByteBuffer最核心的方法是put(byte)和get()。分别是往ByteBuffer里写一个字节，和读一个字节。
 
-值得注意的是，ByteBuffer的读写模式是分开的，正常的应用场景是：往ByteBuffer里写一些数据，然后flip()，然后再读出来。
+值得注意的是，ByteBuffer的读写模式是分开的，正常的应用场景是: 往ByteBuffer里写一些数据，然后flip()，然后再读出来。
 
 这里插两个Channel方面的对象，以便更好的理解Buffer。
 
-ReadableByteChannel是一个从Channel中读取数据，并保存到ByteBuffer的接口，它包含一个方法：
+ReadableByteChannel是一个从Channel中读取数据，并保存到ByteBuffer的接口，它包含一个方法: 
 
 public int read(ByteBuffer dst) throws IOException;
   
-WritableByteChannel则是从ByteBuffer中读取数据，并输出到Channel的接口：
+WritableByteChannel则是从ByteBuffer中读取数据，并输出到Channel的接口: 
 
 public int write(ByteBuffer src) throws IOException;
   
-那么，一个ByteBuffer的使用过程是这样的：
+那么，一个ByteBuffer的使用过程是这样的: 
 
 byteBuffer = ByteBuffer.allocate(N);
   
@@ -226,7 +226,7 @@ byteBuffer.flip();
   
 writableByteChannel.write(byteBuffer);
   
-看到这里，一般都不太明白flip()干了什么事，先从ByteBuffer结构说起：
+看到这里，一般都不太明白flip()干了什么事，先从ByteBuffer结构说起: 
 
 ByteBuffer内部字段
 
@@ -274,13 +274,13 @@ Netty作为一个优秀网络框架，其高效的内存操作也是使其变得
 
 ByteBuf API
   
-对于任意一个ByteBuf对象，都拥有三个非常重要的属性：
+对于任意一个ByteBuf对象，都拥有三个非常重要的属性: 
 
-readerIndex：读索引
+readerIndex: 读索引
   
-writerIndex：写索引
+writerIndex: 写索引
   
-capacity：对象容量
+capacity: 对象容量
   
 ByteBuf对象每读取一个byte的数据，readerIndex就会往前推进，直到readerIndex到达capacity的值，所有的数据的数据都被读取完，ByteBuf不可再被读取。可以通过readableBytes()方法获取readerIndex的值。
 
@@ -292,7 +292,7 @@ ByteBuf对象每读取一个byte的数据，readerIndex就会往前推进，直�
 
 几种ByteBuf模式
   
-Netty的"Zero-Copy"设计非常出名，这主要就是依赖了Netty中ByteBuf的设计。ByteBuf主要有以下几种模式：
+Netty的"Zero-Copy"设计非常出名，这主要就是依赖了Netty中ByteBuf的设计。ByteBuf主要有以下几种模式: 
 
 1.Heap Buffer模式
   
@@ -438,7 +438,7 @@ return cb.array();
   
 }
   
-通道也就是FileChannel，可以由FileInputStream，FileOutputStream，RandomAccessFile三个类来产生，例如：FileChannel fc = new FileInputStream().getChannel();与通道交互的一般方式就是使用缓冲器，可以把通道比如为煤矿(数据区)，而把缓冲器比如为运煤车，想要得到煤一般都通过运煤车来获取，而不是直接和煤矿取煤。用户想得到数据需要经过几个步骤：
+通道也就是FileChannel，可以由FileInputStream，FileOutputStream，RandomAccessFile三个类来产生，例如: FileChannel fc = new FileInputStream().getChannel();与通道交互的一般方式就是使用缓冲器，可以把通道比如为煤矿(数据区)，而把缓冲器比如为运煤车，想要得到煤一般都通过运煤车来获取，而不是直接和煤矿取煤。用户想得到数据需要经过几个步骤: 
 
 一、用户与ByteBuffer的交互
 
@@ -446,11 +446,11 @@ return cb.array();
 
 ByteBuffer buff = ByteBuffer.allocate(BSIZE);
 
-a)  buff  =  ByteBuffer.wrap("askjfasjkf".getBytes())注意：wrap方法是静态函数且只能接收byte类型的数据，任何其他类型的数据想通过这种方式传递，需要进行类型的转换。
+a)  buff  =  ByteBuffer.wrap("askjfasjkf".getBytes())注意: wrap方法是静态函数且只能接收byte类型的数据，任何其他类型的数据想通过这种方式传递，需要进行类型的转换。
 
 b)  buff.put();可以根据数据类型做相应调整，如buff.putChar(chars),buff.putDouble(double)等
 
-二、FileChannel 与 ByteBuffer的交互：
+二、FileChannel 与 ByteBuffer的交互: 
 
 缓冲器向通道输入数据
 

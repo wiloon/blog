@@ -10,7 +10,7 @@ categories:
 ---
 http://blog.csdn.net/zm1313/article/details/875700
 
-分类： Oracle-Sql 2006-07-04 16:19 12869人阅读 评论(1) 收藏 举报
+分类:  Oracle-Sql 2006-07-04 16:19 12869人阅读 评论(1) 收藏 举报
 
 // 如果column_4 = 'IT_PROG' 那么 输出 1.10 * column_3
 

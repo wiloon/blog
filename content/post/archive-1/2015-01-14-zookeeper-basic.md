@@ -81,7 +81,7 @@ syncLimit=2
 ##Leader服务器和Follower之间进行心跳检测的最大延时时间，默认值5，表示tickTime的5倍
 autopurge.purgeInterval=1
   
-从3.4.0开始，zookeeper提供了自动清理snapshot和事务日志的功能，通过配置 autopurge.snapRetainCount 和 autopurge.purgeInterval 这两个参数能够实现定时清理了。这两个参数都是在zoo.cfg中配置的：
+从3.4.0开始，zookeeper提供了自动清理snapshot和事务日志的功能，通过配置 autopurge.snapRetainCount 和 autopurge.purgeInterval 这两个参数能够实现定时清理了。这两个参数都是在zoo.cfg中配置的: 
 
 autopurge.purgeInterval 这个参数指定了清理频率，单位是小时，需要填写一个1或更大的整数，默认是0，表示不开启自己清理功能。
 
@@ -101,11 +101,11 @@ mkdir /data/zookeeper
 
 **修改配置文件zoo.cfg**
   
-tickTime：这个时间是作为 Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。
+tickTime: 这个时间是作为 Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。
   
-dataDir：datadir是zookeeper持久化数据存放的目录， 默认情况下，Zookeeper 将写数据的日志文件也保存在这个目录里。默认为/tmp/zookeeper， 改成/data/zookeeper
+dataDir: datadir是zookeeper持久化数据存放的目录， 默认情况下，Zookeeper 将写数据的日志文件也保存在这个目录里。默认为/tmp/zookeeper， 改成/data/zookeeper
   
-clientPort：clientPort是zookeeper监听客户端连接的端口，默认是2181.
+clientPort: clientPort是zookeeper监听客户端连接的端口，默认是2181.
 
 ```bash
 #start zookeeper
@@ -115,7 +115,7 @@ zkServer.sh start
 ### 集群模式
 Zookeeper 不仅可以单机提供服务，同时也支持多机组成集群来提供服务。实际上 Zookeeper 还支持另外一种伪集群的方式，也就是可以在一台物理机上运行多个 Zookeeper 实例，下面将介绍集群模式的安装和配置。
   
-Zookeeper 的集群模式的安装和配置也不是很复杂，所要做的就是增加几个配置项。集群模式除了上面的三个配置项还要增加下面几个配置项：
+Zookeeper 的集群模式的安装和配置也不是很复杂，所要做的就是增加几个配置项。集群模式除了上面的三个配置项还要增加下面几个配置项: 
    
 initLimit=5
    
@@ -125,11 +125,11 @@ server.1=192.168.211.1:2888:3888
    
 server.2=192.168.211.2:2888:3888
   
-initLimit：这个配置项是用来配置 Zookeeper 接受客户端（这里所说的客户端不是用户连接 Zookeeper 服务器的客户端，而是 Zookeeper 服务器集群中连接到 Leader 的 Follower 服务器）初始化连接时最长能忍受多少个心跳时间间隔数。当已经超过 10 个心跳的时间（也就是 tickTime）长度后 Zookeeper 服务器还没有收到客户端的返回信息，那么表明这个客户端连接失败。总的时间长度就是 5_2000=10 秒
+initLimit: 这个配置项是用来配置 Zookeeper 接受客户端（这里所说的客户端不是用户连接 Zookeeper 服务器的客户端，而是 Zookeeper 服务器集群中连接到 Leader 的 Follower 服务器）初始化连接时最长能忍受多少个心跳时间间隔数。当已经超过 10 个心跳的时间（也就是 tickTime）长度后 Zookeeper 服务器还没有收到客户端的返回信息，那么表明这个客户端连接失败。总的时间长度就是 5_2000=10 秒
   
-syncLimit：这个配置项标识 Leader 与 Follower 之间发送消息，请求和应答时间长度，最长不能超过多少个 tickTime 的时间长度，总的时间长度就是 2_2000=4 秒
+syncLimit: 这个配置项标识 Leader 与 Follower 之间发送消息，请求和应答时间长度，最长不能超过多少个 tickTime 的时间长度，总的时间长度就是 2_2000=4 秒
   
-server.A=B：C：D：其中 A 是一个数字，表示这个是第几号服务器；B 是这个服务器的 ip 地址；C 表示的是这个服务器与集群中的 Leader 服务器交换信息的端口；D 表示的是万一集群中的 Leader 服务器挂了，需要一个端口来重新进行选举，选出一个新的 Leader，而这个端口就是用来执行选举时服务器相互通信的端口。如果是伪集群的配置方式，由于 B 都是一样，所以不同的 Zookeeper 实例通信端口号不能一样，所以要给它们分配不同的端口号。
+server.A=B: C: D: 其中 A 是一个数字，表示这个是第几号服务器；B 是这个服务器的 ip 地址；C 表示的是这个服务器与集群中的 Leader 服务器交换信息的端口；D 表示的是万一集群中的 Leader 服务器挂了，需要一个端口来重新进行选举，选出一个新的 Leader，而这个端口就是用来执行选举时服务器相互通信的端口。如果是伪集群的配置方式，由于 B 都是一样，所以不同的 Zookeeper 实例通信端口号不能一样，所以要给它们分配不同的端口号。
   
 除了修改 zoo.cfg 配置文件，集群模式下还要配置一个文件 myid，这个文件在 dataDir 目录下，这个文件里面就有一个数据就是 A 的值，Zookeeper 启动时会读取这个文件，拿到里面的数据与 zoo.cfg 里面的配置信息比较从而判断到底是那个 server。
 
@@ -137,7 +137,7 @@ server.A=B：C：D：其中 A 是一个数字，表示这个是第几号服务�
   
 Zookeeper 会维护一个具有层次关系的数据结构，它非常类似于一个标准的文件系统，
 
-Zookeeper 这种数据结构有如下这些特点：
+Zookeeper 这种数据结构有如下这些特点: 
   
 每个子目录项如 NameService 都被称作为 znode，这个 znode 是被它所在的路径唯一标识，如 Server1 这个 znode 的标识为 /NameService/Server1
 
@@ -209,21 +209,21 @@ Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。�
 
 队列管理
   
-Zookeeper 可以处理两种类型的队列：
+Zookeeper 可以处理两种类型的队列: 
   
 当一个队列的成员都聚齐时，这个队列才可用，否则一直等待所有成员到达，这种是同步队列。
   
 队列按照 FIFO 方式进行入队和出队操作，例如实现生产者和消费者模型。
   
-同步队列用 Zookeeper 实现的实现思路如下：
+同步队列用 Zookeeper 实现的实现思路如下: 
   
 创建一个父目录 /synchronizing，每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在，然后每个成员都加入这个队列，加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点，然后每个成员获取 / synchronizing 目录的所有目录节点，也就是 member_i。判断 i 的值是否已经是成员的个数，如果小于成员个数等待 /synchronizing/start 的出现，如果已经相等就创建 /synchronizing/start。
 
-FIFO 队列用 Zookeeper 实现思路如下：
+FIFO 队列用 Zookeeper 实现思路如下: 
   
 实现的思路也非常简单，就是在特定的目录下创建 SEQUENTIAL 类型的子目录 /queue_i，这样就能保证所有成员加入队列时都是有编号的，出队列时通过 getChildren( ) 方法可以返回当前所有的队列中的元素，然后消费其中最小的一个，这样就能保证 FIFO。
 
-通过nc或者telnet命令访问2181端口，通过执行ruok（Are you OK?）命令来检查zookeeper是否启动成功：
+通过nc或者telnet命令访问2181端口，通过执行ruok（Are you OK?）命令来检查zookeeper是否启动成功: 
   
 % echo ruok | nc localhost 2181
   
@@ -231,7 +231,7 @@ imok
   
 那么我看见zookeeper回答我们"I'm OK"。下表中是所有的zookeeper的命名，都是由4个字符组成。
 
-ZooKeeper在数据一致性上实现了如下几个方面：
+ZooKeeper在数据一致性上实现了如下几个方面: 
   
 顺序一直性
   
@@ -299,9 +299,9 @@ export CLASSPATH
 
 ZooKeeper是一个分布式的，开放源码的应用程序协调服务，为分布式应用提供一致性服务,是Google的Chubby一个开源的实现(根据google发表的The Chubby lock service for loosely-coupled distributed systems 论文实现)，是开源的Hadoop项目中的一个子项目,是Hadoop和Hbase的重要组件。
   
-提供的功能包括：配置维护、名字服务、分布式同步、组服务等。
+提供的功能包括: 配置维护、名字服务、分布式同步、组服务等。
   
-它主要是用来解决分布式应用中经常遇到的一些数据管理问题，如：统一命名服务、状态同步服务、集群管理、分布式应用配置项的管理等。
+它主要是用来解决分布式应用中经常遇到的一些数据管理问题，如: 统一命名服务、状态同步服务、集群管理、分布式应用配置项的管理等。
   
 Zookeeper 的典型的应用场景（配置文件的管理、集群管理、同步锁、Leader 选举、队列管理等）
 
@@ -311,7 +311,7 @@ ZooKeeper包含一个简单的原语集，[1] 提供Java和C的接口。
   
 ZooKeeper代码版本中，提供了分布式独享锁、选举、队列的接口，代码在zookeeper-3.4.3\src\recipes。其中分布锁和队列有Java和C两个版本，选举只有Java版本。ZooKeeper是以Fast Paxos算法为基础的，paxos算法存在活锁的问题，即当有多个proposer交错提交时，有可能互相排斥导致没有一个proposer能提交成功，而Fast Paxos作了一些优化，通过选举产生一个leader，只有leader才能提交propose，具体算法可见Fast Paxos。因此，要想弄懂ZooKeeper首先得对Fast Paxos有所了解。[3]
   
-ZooKeeper的基本运转流程：
+ZooKeeper的基本运转流程: 
   
 1、选举Leader。
   
@@ -323,7 +323,7 @@ ZooKeeper的基本运转流程：
   
 5、集群中大多数的机器得到响应并follow选出的Leader。[3] 在Zookeeper中，znode是一个跟Unix文件系统路径相似的节点，可以往这个节点存储或获取数据。如果在创建znode时Flag设置为EPHEMERAL，那么当创建这个znode的节点和Zookeeper失去连接后，这个znode将不再存在在Zookeeper里，Zookeeper使用Watcher察觉事件信息。当客户端接收到事件信息，比如连接超时、节点数据改变、子节点改变，可以调用相应的行为来处理数据。Zookeeper的Wiki页面展示了如何使用Zookeeper来处理事件通知，队列，优先队列，锁，共享锁，可撤销的共享锁，两阶段提交。
   
-那么Zookeeper能作什么事情呢，简单的例子：假设我们有20个搜索引擎的服务器(每个负责总索引中的一部分的搜索任务)和一个总服务器(负责向这20个搜索引擎的服务器发出搜索请求并合并结果集)，一个备用的总服务器(负责当总服务器宕机时替换总服务器)，一个web的cgi(向总服务器发出搜索请求)。搜索引擎的服务器中的15个服务器提供搜索服务，5个服务器正在生成索引。这20个搜索引擎的服务器经常要让正在提供搜索服务的服务器停止提供服务开始生成索引，或生成索引的服务器已经把索引生成完成可以搜索提供服务了。使用Zookeeper可以保证总服务器自动感知有多少提供搜索引擎的服务器并向这些服务器发出搜索请求，当总服务器宕机时自动启用备用的总服务器。[4] HBase和ZooKeeper
+那么Zookeeper能作什么事情呢，简单的例子: 假设我们有20个搜索引擎的服务器(每个负责总索引中的一部分的搜索任务)和一个总服务器(负责向这20个搜索引擎的服务器发出搜索请求并合并结果集)，一个备用的总服务器(负责当总服务器宕机时替换总服务器)，一个web的cgi(向总服务器发出搜索请求)。搜索引擎的服务器中的15个服务器提供搜索服务，5个服务器正在生成索引。这20个搜索引擎的服务器经常要让正在提供搜索服务的服务器停止提供服务开始生成索引，或生成索引的服务器已经把索引生成完成可以搜索提供服务了。使用Zookeeper可以保证总服务器自动感知有多少提供搜索引擎的服务器并向这些服务器发出搜索请求，当总服务器宕机时自动启用备用的总服务器。[4] HBase和ZooKeeper
   
 HBase内置有ZooKeeper，也可以使用外部ZooKeeper。
   
@@ -369,13 +369,13 @@ Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。�
 
 队列管理
 
-Zookeeper 可以处理两种类型的队列：
+Zookeeper 可以处理两种类型的队列: 
 
 当一个队列的成员都聚齐时，这个队列才可用，否则一直等待所有成员到达，这种是同步队列。
   
 队列按照 FIFO 方式进行入队和出队操作，例如实现生产者和消费者模型。
   
-同步队列用 Zookeeper 实现的实现思路如下：
+同步队列用 Zookeeper 实现的实现思路如下: 
 
 创建一个父目录 /synchronizing，每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在，然后每个成员都加入这个队列，加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点，然后每个成员获取 / synchronizing 目录的所有目录节点，也就是 member_i。判断 i 的值是否已经是成员的个数，如果小于成员个数等待 /synchronizing/start 的出现，如果已经相等就创建 /synchronizing/start。
 

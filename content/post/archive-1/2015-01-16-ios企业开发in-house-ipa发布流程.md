@@ -30,7 +30,7 @@ func NewReaderSize(rd io.Reader, size int) *Reader
   
 func NewReader(rd io.Reader) *Reader
 
-// bufio.Reader 实现了如下接口：
+// bufio.Reader 实现了如下接口: 
   
 // io.Reader
   
@@ -54,7 +54,7 @@ func (b *Reader) Peek(n int) ([]byte, error)
   
 // 如果缓存不为空，则只能读出缓存中的数据，不会从底层 io.Reader
   
-// 中提取数据，如果缓存为空，则：
+// 中提取数据，如果缓存为空，则: 
   
 // 1、len(p) >= 缓存大小，则跳过缓存，直接从底层 io.Reader 中读
   
@@ -88,7 +88,7 @@ func (b *Reader) Discard(n int) (discarded int, err error)
   
 // 如果找到 delim，则返回查找结果，err 返回 nil。
   
-// 如果未找到 delim，则：
+// 如果未找到 delim，则: 
   
 // 1、缓存不满，则将缓存填满后再次查找。
   
@@ -128,7 +128,7 @@ func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
   
 // 如果找到行尾标记，则返回查找结果，isPrefix 返回 false。
   
-// 如果未找到行尾标记，则：
+// 如果未找到行尾标记，则: 
   
 // 1、缓存不满，则将缓存填满后再次查找。
   
@@ -162,7 +162,7 @@ func (b *Reader) Reset(r io.Reader)
 
 * * *
 
-// 示例：Peek、Read、Discard、Buffered
+// 示例: Peek、Read、Discard、Buffered
   
 func main() {
       
@@ -195,7 +195,7 @@ b := make([]byte, 10)
 
 * * *
 
-// 示例：ReadLine
+// 示例: ReadLine
   
 func main() {
       
@@ -241,7 +241,7 @@ buf := bufio.NewReaderSize(sr, 0)
 
 * * *
 
-// 示例：ReadSlice
+// 示例: ReadSlice
   
 func main() {
       
@@ -288,7 +288,7 @@ func NewWriterSize(wr io.Writer, size int) *Writer
   
 func NewWriter(wr io.Writer) *Writer
 
-// bufio.Writer 实现了如下接口：
+// bufio.Writer 实现了如下接口: 
   
 // io.Writer
   
@@ -324,7 +324,7 @@ func (b *Writer) Reset(w io.Writer)
 
 * * *
 
-// 示例：Available、Buffered、WriteString、Flush
+// 示例: Available、Buffered、WriteString、Flush
   
 func main() {
       
@@ -377,7 +377,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 //
   
-// Scan 在遇到下面的情况时会终止扫描并返回 false（扫描一旦终止，将无法再继续）：
+// Scan 在遇到下面的情况时会终止扫描并返回 false（扫描一旦终止，将无法再继续）: 
   
 // 1、遇到 io.EOF
   
@@ -471,7 +471,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 // ScanRunes 是一个"匹配函数"，用来找出 data 中单个 UTF8 字符的编码。如果 UTF8 编
   
-// 码错误，则 token 会返回 "\xef\xbf\xbd"（即：U+FFFD），但只消耗 data 中的一个字节。
+// 码错误，则 token 会返回 "\xef\xbf\xbd"（即: U+FFFD），但只消耗 data 中的一个字节。
   
 // 这使得调用者无法区分"真正的U+FFFD字符"和"解码错误的返回值"。
   
@@ -491,7 +491,7 @@ func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 * * *
 
-// 示例：扫描
+// 示例: 扫描
   
 func main() {
       
@@ -555,7 +555,7 @@ fmt.Fprintln(os.Stderr, "reading input:", err)
 
 * * *
 
-// 示例：带检查扫描
+// 示例: 带检查扫描
   
 func main() {
       

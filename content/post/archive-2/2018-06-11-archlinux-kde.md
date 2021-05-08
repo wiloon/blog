@@ -44,13 +44,13 @@ https://wiki.archlinux.org/index.php/Display_manager#Loading_the_display_manager
  https://chubuntu.com/questions/28565/how-to-display-kde-lock-screen-time-in-24-hour-format.html
  ```bash
 vim  /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml
-找到这一行：
+找到这一行: 
 
 text: Qt.formatTime(timeSource.data["Local"]["DateTime"])
 并将其更改为
 
 text: Qt.formatTime(timeSource.data["Local"]["DateTime"], "hh:mm:ss")
-对于ISO日期更改，请找到以下行：
+对于ISO日期更改，请找到以下行: 
 
 text: Qt.formatDate(timeSource.data["Local"]["DateTime"], Qt.DefaultLocaleLongDate);
 并将其更改为

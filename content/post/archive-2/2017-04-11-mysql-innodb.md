@@ -10,7 +10,7 @@ categories:
 ---
 http://wulijun.github.io/2012/09/29/mysql-innodb-intro.html
   
-InnoDB是MySQL下使用最广泛的引擎，它是基于MySQL的高可扩展性和高性能存储引擎，从5.5版本开始，它已经成为了默认引擎。 InnODB引擎支持众多特性：
+InnoDB是MySQL下使用最广泛的引擎，它是基于MySQL的高可扩展性和高性能存储引擎，从5.5版本开始，它已经成为了默认引擎。 InnODB引擎支持众多特性: 
 
 支持ACID，简单地说就是支持事务完整性、一致性；
   
@@ -28,7 +28,7 @@ InnoDB有这么多特性，比MyISAM来的优秀多了，还犹豫什么，果�
   
 可以选择官方版本，或者Percona的分支，如果不知道在哪下载，就google吧。安装完MySQL后，需要适当修改下my.cnf配置文件，针对InnoDB相关的选项做 一些调整，才能较好的运行InnoDB。
 
-相关的选项有：
+相关的选项有: 
 
 #InnoDB存储数据字典、内部数据结构的缓冲池，16MB 已经足够大了。
   
@@ -76,7 +76,7 @@ innodb_status_file = 1
   
 transaction_isolation = READ-COMMITTED
   
-在这里，其他配置选项也需要注意：
+在这里，其他配置选项也需要注意: 
 
 #设置最大并发连接数，如果前端程序是PHP，可适当加大，但不可过大
   
@@ -138,7 +138,7 @@ wait_timeout = 120
   
 -rw-rw-- 1 mysql mysql 256M Sep 21 10:50 ib_logfile1
 
-登录MySQL后，执行命令，确认已启用InnoDB引擎：
+登录MySQL后，执行命令，确认已启用InnoDB引擎: 
 
 (root:imysql.cn:Thu Oct 15 09:16:22 2009)[mysql]> show engines;
   
@@ -150,7 +150,7 @@ wait_timeout = 120
   
 | InnoDB | YES | Supports transactions, row-level locking, and foreign keys | YES | YES | YES |
 
-接下来创建一个InnoDB表：
+接下来创建一个InnoDB表: 
 
 (root:imysql.cn:Thu Oct 15 09:16:22 2009)[mysql]>
   
@@ -168,7 +168,7 @@ UNIQUE KEY \`idx_name\`(name)
   
 ) ENGINE = InnoDB;
 
-有几个和MySQL(尤其是InnoDB引擎)数据表设计相关的建议，希望开发者朋友能遵循：
+有几个和MySQL(尤其是InnoDB引擎)数据表设计相关的建议，希望开发者朋友能遵循: 
 
 所有InnoDB数据表都创建一个和业务无关的自增数字型作为主键，对保证性能很有帮助；
   
@@ -184,4 +184,4 @@ IPV4 地址建议用 INT UNSIGNED 类型存储；
   
 最后，在使用InnoDB过程中如果碰到什么问题，欢迎交流!
 
-原文链接：http://imysql.com/2012/09/21/mysql-faq-setup-innodb-quickly.html
+原文链接: http://imysql.com/2012/09/21/mysql-faq-setup-innodb-quickly.html

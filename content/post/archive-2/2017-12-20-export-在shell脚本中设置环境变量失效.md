@@ -10,7 +10,7 @@ categories:
 ---
 shell脚本中设定的路径和环境变量只对改shell和其子shell有效。 对其父shell和其它shell无效。
 
-解决方法：
+解决方法: 
 
 source filename.sh
 

@@ -22,7 +22,7 @@ Sprint Retrospective会议主要是整个Team讨论过去的一个Sprint的运�
 
 Scrum并不是一种方法，而是给软件开发流程提供了一种框架，在整个框架下，不同的项目、团队需要根据具体条件，适时调整实践方法。而Retrospective会议正是一个Scrum团队自我调整的机会。
 
-会议的参加者包括整个Scrum团队、Scrum Master和Product Owner。会议由Scrum Master主持，一般以下边两个问题开始：
+会议的参加者包括整个Scrum团队、Scrum Master和Product Owner。会议由Scrum Master主持，一般以下边两个问题开始: 
 
   1. 过去的一个Sprint里，我们有哪些好的方面？
   2. 过去一个Sprint存在哪些问题？

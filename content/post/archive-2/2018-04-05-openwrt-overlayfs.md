@@ -68,7 +68,7 @@ Administration>syslog-ng
   
 make -j8 V=s #(build OpenWRT with console logging, you can see where build failed.).
 
-编译出来的img到这找： bin/targets/ipq806x/generic/lede-17.01.4-ipq806x-R7800-squashfs-factory.img
+编译出来的img到这找:  bin/targets/ipq806x/generic/lede-17.01.4-ipq806x-R7800-squashfs-factory.img
 
 sudo ip link set enp0s31f6 up
   

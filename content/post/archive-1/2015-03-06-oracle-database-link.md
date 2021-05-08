@@ -14,11 +14,11 @@ categories:
 
 链接字符串的配置参见《客户端连接服务器》一节。
   
-数据库全局名称可以用以下命令查出：
+数据库全局名称可以用以下命令查出: 
 
 SELECT * FROM GLOBAL_NAME;
 
-修改可以用以下语句来修改参数值：
+修改可以用以下语句来修改参数值: 
 
 ALTER SYSTEM SET GLOBAL_NAME=TRUE/FALSE;
 
@@ -26,7 +26,7 @@ ALTER SYSTEM SET GLOBAL_NAME=TRUE/FALSE;
 
 oracle数据库之间进行连接通讯。
   
-创建数据库链接的语法如下：
+创建数据库链接的语法如下: 
   
 CREATE [PUBLIC] DATABASE LINK link
 
@@ -34,7 +34,7 @@ CONNECT TO username IDENTIFIED BY password
 
 USING 'connectstring'
 
-其中：
+其中: 
   
 -demona为用net8 easy config创建的连接字符串
   
@@ -44,11 +44,11 @@ USING 'connectstring'
   
 或者用sys用户执行
 
-注意：创建数据库链接的帐号必须有CREATE DATABASE LINK或CREATE PUBLIC DATABASE LINK的系统权限，用来登录到远程数据库的帐号必须有CREATE SESSION权限。这两种权限都包含在CONNECT角色中（CREATE PUBLIC DATABASE LINK权限在DBA中）。
+注意: 创建数据库链接的帐号必须有CREATE DATABASE LINK或CREATE PUBLIC DATABASE LINK的系统权限，用来登录到远程数据库的帐号必须有CREATE SESSION权限。这两种权限都包含在CONNECT角色中（CREATE PUBLIC DATABASE LINK权限在DBA中）。
 
 一个公用数据库链接对于数据库中的所有用户都是可用的，而一个私有链接仅对创建它的用户可用。由一个用户给另外一个用户授权私有数据库链接是不可能的，一个数据库链接要么是公用的，要么是私有的。
 
-创建数据库链接时，还可以使用缺省登录方式，即不指定远程数据库的用户名和密码：
+创建数据库链接时，还可以使用缺省登录方式，即不指定远程数据库的用户名和密码: 
 
 create public database link zrhs_link
 
@@ -58,27 +58,27 @@ using 'zrhs';
 
 USING后面指定的是链接字符串，也就是远程数据库的网络服务名，这个服务名保存在TNSNAMES.ORA文件中，在该文件中定义了协议、主机名、端口和数据库名。
 
-删除数据库链接的语句是：
+删除数据库链接的语句是: 
 
 DROP [PUBLIC] DATABASE LINK zrhs_link
 
 数据库链接的引用
 
-一般情况下引用数据库链接，可以直接将其放到调用的表名或视图名称后面，中间使用一个 @ 作为分割符：
+一般情况下引用数据库链接，可以直接将其放到调用的表名或视图名称后面，中间使用一个 @ 作为分割符: 
 
 SELECT * FROM [<span style="color: #800080;">worker@zrhs_link][1];
 
-对于经常使用的数据库链接，可以建立一个本地的同义词，方便使用：
+对于经常使用的数据库链接，可以建立一个本地的同义词，方便使用: 
 
 CREATE SYNONYM worker_syn FOR [<span style="color: #800080;">worker@zrhs_link][1];
 
-还可以建立一个本地的远程视图，方便使用：
+还可以建立一个本地的远程视图，方便使用: 
 
 CREATE VIEW worker AS SELECT * FROM [<span style="color: #800080;">worker@zrhs_link][1] where… ;
 
 现在本视图可与本地数据库中的任何其它视图一样对待，也可以授权给其它用户，访问此视图，但该用户必须有访问数据库链接的权限。
 
-对于另外一种情况，所要访问的表不在数据库链接中指定的远程帐户下，但该帐户有访问该表的权限，那么我们在表名前要加上该表的用户名：
+对于另外一种情况，所要访问的表不在数据库链接中指定的远程帐户下，但该帐户有访问该表的权限，那么我们在表名前要加上该表的用户名: 
 
 SELECT * FROM <camel.worker@zrhs_link> ;
 
@@ -90,7 +90,7 @@ SELECT * FROM GLOBAL_NAME;
 
 atabase link(dblink)-数据库链路
   
-创建dblink的语法：
+创建dblink的语法: 
   
 sql>create database link 数据库链路名
   
@@ -98,7 +98,7 @@ connect to 用户名 identified by 口令
   
 using '主机字符串名';
   
-如：
+如: 
   
 sql>create database link ora9i.us.oracle.com ### 这里的us.oracle.com为oracle默认域名 ###
   
@@ -116,13 +116,13 @@ using 'sun';
   
 然后，你就可以通过dblink访问远程数据库了。
   
-如：
+如: 
   
 sql>select * from 表名@ora9i.us.oracle.com;
   
 还可以建立快照(snapshot)通过dblink实现远程数据自动传输。
 
-查看所有的数据库链接，进入系统管理员SQL>操作符下，运行命令：
+查看所有的数据库链接，进入系统管理员SQL>操作符下，运行命令: 
 
 SQL>select owner,object_name from dba_objects where object_type='DATABASE LINK';
 

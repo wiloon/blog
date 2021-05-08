@@ -12,9 +12,9 @@ categories:
 
 A.       webview组件如何使用
   
-1)             添加权限：AndroidManifest.xml中必须使用许可"android.permission.INTERNET",否则会出Web page not available错误。
+1)             添加权限: AndroidManifest.xml中必须使用许可"android.permission.INTERNET",否则会出Web page not available错误。
   
-2)             在要Activity中生成一个WebView组件：WebView webView = new WebView(this);或者可以在activity的layout文件里添加webview控件：
+2)             在要Activity中生成一个WebView组件: WebView webView = new WebView(this);或者可以在activity的layout文件里添加webview控件: 
   
 <WebView
 
@@ -28,7 +28,7 @@ android:text="@string/hello"
 
 />
 
-3)             设置WebView基本信息：
+3)             设置WebView基本信息: 
   
 如果访问的页面中有Javascript，则webview必须设置支持Javascript。
   
@@ -42,15 +42,15 @@ requestFocus();
   
 this.setScrollBarStyle(SCROLLBARS_OUTSIDE_OVERLAY);
   
-4)             设置WevView要显示的网页：
+4)             设置WevView要显示的网页: 
   
-互联网用：webView.loadUrl("http://www.google.com");
+互联网用: webView.loadUrl("http://www.google.com");
   
-本地文件用：webView.loadUrl("file:///android_asset/XX.html");    本地文件存放在：assets文件中
+本地文件用: webView.loadUrl("file:///android_asset/XX.html");    本地文件存放在: assets文件中
   
-5)             如果希望点击链接由自己处理，而不是新开Android的系统browser中响应该链接。给WebView添加一个事件监听对象（WebViewClient)并重写其中的一些方法：
+5)             如果希望点击链接由自己处理，而不是新开Android的系统browser中响应该链接。给WebView添加一个事件监听对象（WebViewClient)并重写其中的一些方法: 
   
-shouldOverrideUrlLoading ：对网页中超链接按钮的响应。当按下某个连接时WebViewClient会调用这个方法，并传递参数：按下的url。比如当webview内嵌网页的某个数字被点击时，它会自动认为这是一个电话请求，会传递url：tel:123,如果你不希望如此可通过重写shouldOverrideUrlLoading 函数解决：
+shouldOverrideUrlLoading : 对网页中超链接按钮的响应。当按下某个连接时WebViewClient会调用这个方法，并传递参数: 按下的url。比如当webview内嵌网页的某个数字被点击时，它会自动认为这是一个电话请求，会传递url: tel:123,如果你不希望如此可通过重写shouldOverrideUrlLoading 函数解决: 
   
 ```java view plaincopy
   
@@ -150,7 +150,7 @@ wv.loadUrl("javascript:wave("+jsonText+")");
 
 通过以上代码，即可实现在其内嵌网页中触发window.demo.clickOnAndroid(str)事件并传参数str给webview。Webview接收到str之后，可以通过以上代码触发其内嵌页面中的js函数wave(str)。这样就可以实现网页触发webview的事件并传参数，webview接收参数并调用js函数。
 
-下面看我的Html脚本：
+下面看我的Html脚本: 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
 
@@ -194,7 +194,7 @@ $("#fromclient").text(str.name);
 
 <br/>
 
-输入一个字符串：<br/>
+输入一个字符串: <br/>
 
 <input id="val" />
 
@@ -204,14 +204,14 @@ onclick="toclient();"/>
 
 <br />
 
-显示返回：<label id="fromclient"></label>
+显示返回: <label id="fromclient"></label>
 
 </body>
 
 </html>
 
 
-通过脚本看到wave（str）函数是负责将原来传给webview的数据重新拿回页面，效果图如下：
+通过脚本看到wave（str）函数是负责将原来传给webview的数据重新拿回页面，效果图如下: 
   
 另外，如果你想获取页面的一些处理数据并交给webview客户端处理，可在wave函数里将数据alert，然后webview中重写WebChromeClient的onJsAlert函数，具体代码如下
 

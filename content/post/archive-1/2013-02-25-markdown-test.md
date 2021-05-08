@@ -28,7 +28,7 @@ categories:
 
   * Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing.
 
-这是一个普通段落：
+这是一个普通段落: 
 
     这是一个代码区块。fhgfjhgfj
     

@@ -61,7 +61,7 @@ state域能够取5个互为排斥的值（通俗一点就是这五个值任意�
 
 状态	描述
 TASK_RUNNING	表示进程要么正在执行，要么正要准备执行（已经就绪），正在等待cpu时间片的调度
-TASK_INTERRUPTIBLE	进程因为等待一些条件而被挂起（阻塞）而所处的状态。这些条件主要包括：硬中断、资源、一些信号……，一旦等待的条件成立，进程就会从该状态（阻塞）迅速转化成为就绪状态TASK_RUNNING
+TASK_INTERRUPTIBLE	进程因为等待一些条件而被挂起（阻塞）而所处的状态。这些条件主要包括: 硬中断、资源、一些信号……，一旦等待的条件成立，进程就会从该状态（阻塞）迅速转化成为就绪状态TASK_RUNNING
 TASK_UNINTERRUPTIBLE	意义与TASK_INTERRUPTIBLE类似，除了不能通过接受一个信号来唤醒以外，对于处于TASK_UNINTERRUPIBLE状态的进程，哪怕我们传递一个信号或者有一个外部中断都不能唤醒他们。只有它所等待的资源可用的时候，他才会被唤醒。这个标志很少用，但是并不代表没有任何用处，其实他的作用非常大，特别是对于驱动刺探相关的硬件过程很重要，这个刺探过程不能被一些其他的东西给中断，否则就会让进城进入不可预测的状态
 TASK_STOPPED	进程被停止执行，当进程接收到SIGSTOP、SIGTTIN、SIGTSTP或者SIGTTOU信号之后就会进入该状态
 TASK_TRACED	表示进程被debugger等进程监视，进程执行被调试程序所停止，当一个进程被另外的进程所监视，每一个信号都会让进城进入该状态
@@ -82,7 +82,7 @@ EXIT_DEAD	进程的最终状态
 新增睡眠状态
 参见
 
-TASK_KILLABLE：Linux 中的新进程状态
+TASK_KILLABLE: Linux 中的新进程状态
 
 如前所述，进程状态 TASK_UNINTERRUPTIBLE 和 TASK_INTERRUPTIBLE 都是睡眠状态。现在，我们来看看内核如何将进程置为睡眠状态。
 
@@ -107,7 +107,7 @@ Linux Kernel 2.6.25 引入了一种新的进程睡眠状态，
 
 状态	描述
 TASK_KILLABLE	当进程处于这种可以终止的新睡眠状态中，它的运行原理类似于 TASK_UNINTERRUPTIBLE，只不过可以响应致命信号
-它定义如下：
+它定义如下: 
 
 #define TASK_WAKEKILL           128 /** wake on signals that are deadly **/
 
@@ -174,7 +174,7 @@ Linux把thread_info（线程描述符）和内核态的线程堆栈存放在一�
 
 需要注意的是，内核态堆栈仅用于内核例程，Linux内核另外为中断提供了单独的硬中断栈和软中断栈
 
-下图中显示了在物理内存中存放两种数据结构的方式。线程描述符驻留与这个内存区的开始，而栈顶末端向下增长。 下图摘自ULK3,进程内核栈与进程描述符的关系如下图：
+下图中显示了在物理内存中存放两种数据结构的方式。线程描述符驻留与这个内存区的开始，而栈顶末端向下增长。 下图摘自ULK3,进程内核栈与进程描述符的关系如下图: 
 
 
 
@@ -193,7 +193,7 @@ thread_info是体系结构相关的，结构的定义在thread_info.h中
 x86	linux-4.5/arch/x86/include/asm/thread_info.h, line 55
 arm	linux-4.5arch/arm/include/asm/thread_info.h, line 49
 arm64	linux/4.5/arch/arm64/include/asm/thread_info.h, line 47
-Linux内核中使用一个联合体来表示一个进程的线程描述符和内核栈：
+Linux内核中使用一个联合体来表示一个进程的线程描述符和内核栈: 
 
 union thread_union
 {
@@ -226,7 +226,7 @@ THREAD_SIZE为8K，二进制的表示为0000 0000 0000 0000 0010 0000 0000 0000�
 
 ~(THREAD_SIZE-1)的结果刚好为1111 1111 1111 1111 1110 0000 0000 0000，第十三位是全为零，也就是刚好屏蔽了esp的低十三位，最终得到的是thread_info的地址。
 
-进程最常用的是进程描述符结构task_struct而不是thread_info结构的地址。为了获取当前CPU上运行进程的task_struct结构，内核提供了current宏，由于task_struct *task在thread_info的起始位置，该宏本质上等价于current_thread_info()->task，在include/asm-generic/current.h中定义：
+进程最常用的是进程描述符结构task_struct而不是thread_info结构的地址。为了获取当前CPU上运行进程的task_struct结构，内核提供了current宏，由于task_struct *task在thread_info的起始位置，该宏本质上等价于current_thread_info()->task，在include/asm-generic/current.h中定义: 
 
 #define get_current() (current_thread_info()->task)
 #define current get_current()
@@ -234,7 +234,7 @@ THREAD_SIZE为8K，二进制的表示为0000 0000 0000 0000 0010 0000 0000 0000�
 2
 这个定义是体系结构无关的，当然linux也为各个体系结构定义了更加方便或者快速的current
 
-请参见 ：http://lxr.free-electrons.com/ident?v=4.5;i=current
+请参见 : http://lxr.free-electrons.com/ident?v=4.5;i=current
 
 分配和销毁thread_info
 进程通过alloc_thread_info_node函数分配它的内核栈，通过free_thread_info函数释放所分配的内核栈。
@@ -436,7 +436,7 @@ siginfo_t *last_siginfo; /* For ptrace use.  */
 8
 9
 10
-成员ptrace被设置为0时表示不需要被跟踪，它的可能取值如下：
+成员ptrace被设置为0时表示不需要被跟踪，它的可能取值如下: 
 
 参见
 
@@ -580,7 +580,7 @@ se	普通进程的调用实体，每个进程都有其中之一的实体
 rt	实时进程的调用实体，每个进程都有其中之一的实体
 cpus_allowed	用于控制进程可以在哪里处理器上运行
 调度策略
-policy表示进程的调度策略，目前主要有以下五种：
+policy表示进程的调度策略，目前主要有以下五种: 
 
 参见
 
@@ -608,13 +608,13 @@ http://lxr.free-electrons.com/source/include/uapi/linux/sched.h？v=4.5#L36
 10
 字段	描述	所在调度器类
 SCHED_NORMAL	（也叫SCHED_OTHER）用于普通进程，通过CFS调度器实现。SCHED_BATCH用于非交互的处理器消耗型进程。SCHED_IDLE是在系统负载很低时使用	CFS
-SCHED_BATCH	SCHED_NORMAL普通进程策略的分化版本。采用分时策略，根据动态优先级(可用nice()API设置），分配 CPU 运算资源。注意：这类进程比上述两类实时进程优先级低，换言之，在有实时进程存在时，实时进程优先调度。但针对吞吐量优化	CFS
+SCHED_BATCH	SCHED_NORMAL普通进程策略的分化版本。采用分时策略，根据动态优先级(可用nice()API设置），分配 CPU 运算资源。注意: 这类进程比上述两类实时进程优先级低，换言之，在有实时进程存在时，实时进程优先调度。但针对吞吐量优化	CFS
 SCHED_IDLE	优先级最低，在系统空闲时才跑这类进程(如利用闲散计算机资源跑地外文明搜索，蛋白质结构分析等任务，是此调度策略的适用者）	CFS
 SCHED_FIFO	先入先出调度算法（实时调度策略），相同优先级的任务先到先服务，高优先级的任务可以抢占低优先级的任务	RT
 SCHED_RR	轮流调度算法（实时调度策略），后 者提供 Roound-Robin 语义，采用时间片，相同优先级的任务当用完时间片会被放到队列尾部，以保证公平性，同样，高优先级的任务可以抢占低优先级的任务。不同要求的实时任务可以根据需要用sched_setscheduler()API 设置策略	RT
 SCHED_DEADLINE	新支持的实时进程调度策略，针对突发型计算，且对延迟和完成时间高度敏感的任务适用。基于Earliest Deadline First (EDF) 调度算法	
 调度类
-sched_class结构体表示调度类，目前内核中有实现以下四种：
+sched_class结构体表示调度类，目前内核中有实现以下四种: 
 
 extern const struct sched_class stop_sched_class;
 extern const struct sched_class dl_sched_class;
@@ -627,10 +627,10 @@ extern const struct sched_class idle_sched_class;
 4
 5
 调度器类	描述
-idle_sched_class	每个cup的第一个pid=0线程：swapper，是一个静态线程。调度类属于：idel_sched_class，所以在ps里面是看不到的。一般运行在开机过程和cpu异常的时候做dump
-stop_sched_class	优先级最高的线程，会中断所有其他线程，且不会被其他任务打断。作用：1.发生在cpu_stop_cpu_callback 进行cpu之间任务migration；2.HOTPLUG_CPU的情况下关闭任务。
-rt_sched_class	RT，作用：实时线程
-fair_sched_class	CFS（公平），作用：一般常规线程
+idle_sched_class	每个cup的第一个pid=0线程: swapper，是一个静态线程。调度类属于: idel_sched_class，所以在ps里面是看不到的。一般运行在开机过程和cpu异常的时候做dump
+stop_sched_class	优先级最高的线程，会中断所有其他线程，且不会被其他任务打断。作用: 1.发生在cpu_stop_cpu_callback 进行cpu之间任务migration；2.HOTPLUG_CPU的情况下关闭任务。
+rt_sched_class	RT，作用: 实时线程
+fair_sched_class	CFS（公平），作用: 一般常规线程
 目前系統中,Scheduling Class的优先级顺序为StopTask > RealTime > Fair > IdleTask
 
 开发者可以根据己的设计需求,來把所属的Task配置到不同的Scheduling Class中.
@@ -887,7 +887,7 @@ struct list_head tasks;
 1
 2
 3
-补丁说明请参考：http://lkml.indiana.edu/hypermail/linux/kernel/0808.3/0503.html
+补丁说明请参考: http://lkml.indiana.edu/hypermail/linux/kernel/0808.3/0503.html
 
 （12）、防止内核堆栈溢出 
 1
@@ -1141,7 +1141,7 @@ endif
 4
 5
 6
-在Ubuntu 11.04上，执行cat获得进程1的I/O计数如下：
+在Ubuntu 11.04上，执行cat获得进程1的I/O计数如下: 
 
 
 
@@ -1295,8 +1295,8 @@ struct list_head    *scm_work_list;
     unsigned long trace_recursion;  
 #endif /* CONFIG_TRACING */  
 ————————————————
-版权声明：本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/gatieme/article/details/51383272
+版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/gatieme/article/details/51383272
 
 
 
@@ -1309,17 +1309,17 @@ Linux下的进程控制块 (PCB(process control block)
 说明
 进程控制块(PCB)（系统为了管理进程设置的一个专门的数据结构，用它来记录进程的外部特征，描述进程的运动变化过程。系统利用PCB来控和管理进程，所以PCB是系统感知进程存在的唯一标志。进程与PCB是一一对应的）在不同的操作系统中对进程的控制和管理机制不同，PCB中的信息多少不一样，通常PCB应包含如下一些信息。
 
-1、进程标识符 name：每个进程都必须有一个唯一的标识符，可以是字符串，也可以是一个数字。
+1、进程标识符 name: 每个进程都必须有一个唯一的标识符，可以是字符串，也可以是一个数字。
 
-2、进程当前状态 status：说明进程当前所处的状态。为了管理的方便，系统设计时会将相同的状态的进程组成一个队列，如就绪进程队列，等待进程则要根据等待的事件组成多个等待队列，如等待打印机队列、等待磁盘I/O完成队列等等。
+2、进程当前状态 status: 说明进程当前所处的状态。为了管理的方便，系统设计时会将相同的状态的进程组成一个队列，如就绪进程队列，等待进程则要根据等待的事件组成多个等待队列，如等待打印机队列、等待磁盘I/O完成队列等等。
 
 3、进程相应的程序和数据地址，以便把PCB与其程序和数据联系起来。
 
 4、进程资源清单。列出所拥有的除CPU外的资源记录，如拥有的I/O设备，打开的文件列表等。
 
-5、进程优先级 priority：进程的优先级反映进程的紧迫程度，通常由用户指定和系统设置。
+5、进程优先级 priority: 进程的优先级反映进程的紧迫程度，通常由用户指定和系统设置。
 
-6、CPU现场保护区 cpustatus：当进程因某种原因不能继续占用CPU时（如等待打印机），释放CPU，这时就要将CPU的各种状态信息保护起来，为将来再次得到处理机恢复CPU的各种状态，继续运行。
+6、CPU现场保护区 cpustatus: 当进程因某种原因不能继续占用CPU时（如等待打印机），释放CPU，这时就要将CPU的各种状态信息保护起来，为将来再次得到处理机恢复CPU的各种状态，继续运行。
 
 7、进程同步与通信机制 用于实现进程间互斥、同步和通信所需的信号量等。
 

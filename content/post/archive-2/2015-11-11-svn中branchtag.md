@@ -12,7 +12,7 @@ http://blog.csdn.net/adupt/article/details/4203133
 
 SVN中Branch/tag的比较
   
-分类： SVN2009-05-20 10:23 8700人阅读 评论(0) 收藏 举报
+分类:  SVN2009-05-20 10:23 8700人阅读 评论(0) 收藏 举报
   
 svnbranchmergetortoisesvnurl测试
   

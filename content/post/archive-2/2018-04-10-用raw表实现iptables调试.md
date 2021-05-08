@@ -46,7 +46,7 @@ TRACE This target marks packes so that the kernel will log every rule which matc
 
 "TRACE: tablename:chainname:type:rulenum " where type can be "rule" for plain rule, "return" for implicit rule at the end of a user defined chain and "policy" for the policy of the built in chains. It can only be used in the raw table.
 
-policy 是指iptables内置的规则如：accept
+policy 是指iptables内置的规则如: accept
   
 policy 会跟用户定义的rule放在一起排序，如果用户定义了6条规则，那么链默认的accept 规则的number会是7， 日志里会打印成policy:7
 

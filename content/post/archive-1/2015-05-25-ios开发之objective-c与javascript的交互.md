@@ -18,7 +18,7 @@ LockSupport.park()和unpark()，与object.wait()和notify()的区别？
 
 阻塞和唤醒是对于线程来说的，LockSupport的park/unpark更符合这个语义，以"线程"作为方法的参数， 语义更清晰，使用起来也更方便。而wait/notify的实现使得"线程"的阻塞/唤醒对线程本身来说是被动的，要准确的控制哪个线程、什么时候阻塞/唤醒很困难， 要不随机唤醒一个线程（notify）要不唤醒所有的（notifyAll）。
 
-LockSupport.park()（以下简称 park() ）可能是 java.util.concurrent 包最重要的函数了，因为很多 java.util.concurrent 中的功能类都是利用 park() 来实现它们各自的阻塞。在 park() 之前 Java 也有过类似功能的函数——suspend()，相应的唤醒函数是 resume()。不过 suspend() 有个严重的问题是父线程有可能在调用 suspend() 之前子线程已经调用了 resume()，那么这个 resume() 并不会解除在它之后的 suspend()，因此父线程就会陷入永久的等待中。相比于 suspend()，park() 可以在以下几种情况解除线程的等待状态：
+LockSupport.park()（以下简称 park() ）可能是 java.util.concurrent 包最重要的函数了，因为很多 java.util.concurrent 中的功能类都是利用 park() 来实现它们各自的阻塞。在 park() 之前 Java 也有过类似功能的函数——suspend()，相应的唤醒函数是 resume()。不过 suspend() 有个严重的问题是父线程有可能在调用 suspend() 之前子线程已经调用了 resume()，那么这个 resume() 并不会解除在它之后的 suspend()，因此父线程就会陷入永久的等待中。相比于 suspend()，park() 可以在以下几种情况解除线程的等待状态: 
 
 在 park() 前曾经调用过该线程的 unpark() 进而获得了一次"继续执行的权利"，此时调用 park() 会立即返回，并且消耗掉相应的"继续执行的权利"。
   
@@ -46,7 +46,7 @@ condition = true;
   
 LockSupport.unpark(Thread1);
 
-LockSupport类是Java6(JSR166-JUC)引入的一个类，提供了基本的线程同步原语。LockSupport实际上是调用了Unsafe类里的函数，归结到Unsafe里，只有两个函数：
+LockSupport类是Java6(JSR166-JUC)引入的一个类，提供了基本的线程同步原语。LockSupport实际上是调用了Unsafe类里的函数，归结到Unsafe里，只有两个函数: 
 
 public native void unpark(Thread jthread);
   
@@ -84,7 +84,7 @@ park/unpark模型真正解耦了线程之间的同步，线程之间不再需要
 
 HotSpot里park/unpark的实现
 
-每个java线程都有一个Parker实例，Parker类是这样定义的：
+每个java线程都有一个Parker实例，Parker类是这样定义的: 
 
 class Parker : public os::PlatformParker {
   
@@ -120,7 +120,7 @@ pthread_cond_t _cond [1] ;
 
 在Parker类里的_counter字段，就是用来记录所谓的"许可"的。
 
-当调用park时，先尝试直接能否直接拿到"许可"，即_counter>0时，如果成功，则把_counter设置为0,并返回：
+当调用park时，先尝试直接能否直接拿到"许可"，即_counter>0时，如果成功，则把_counter设置为0,并返回: 
 
 void Parker::park(bool isAbsolute, jlong time) {
     
@@ -138,7 +138,7 @@ void Parker::park(bool isAbsolute, jlong time) {
     
 if (Atomic::xchg(0, &_counter) > 0) return;
   
-如果不成功，则构造一个ThreadBlockInVM，然后检查_counter是不是>0，如果是，则把_counter设置为0，unlock mutex并返回：
+如果不成功，则构造一个ThreadBlockInVM，然后检查_counter是不是>0，如果是，则把_counter设置为0，unlock mutex并返回: 
 
 ThreadBlockInVM tbivm(jt);
   
@@ -148,7 +148,7 @@ _counter = 0;
     
 status = pthread_mutex_unlock(_mutex);
   
-否则，再判断等待的时间，然后再调用pthread_cond_wait函数等待，如果等待返回，则把_counter设置为0，unlock mutex并返回：
+否则，再判断等待的时间，然后再调用pthread_cond_wait函数等待，如果等待返回，则把_counter设置为0，unlock mutex并返回: 
 
 if (time == 0) {
     
@@ -164,7 +164,7 @@ assert_status(status == 0, status, "invariant") ;
   
 OrderAccess::fence();
   
-当unpark时，则简单多了，直接设置_counter为1，再unlock mutext返回。如果_counter之前的值是0，则还要调用pthread_cond_signal唤醒在park中等待的线程：
+当unpark时，则简单多了，直接设置_counter为1，再unlock mutext返回。如果_counter之前的值是0，则还要调用pthread_cond_signal唤醒在park中等待的线程: 
 
 void Parker::unpark() {
     
@@ -216,7 +216,7 @@ assert (status == 0, "invariant") ;
   
 值得注意的是在park函数里，调用pthread_cond_wait时，并没有用while来判断，所以posix condition里的"Spurious wakeup"一样会传递到上层Java的代码里。
 
-关于"Spurious wakeup"，参考上一篇blog：http://blog.csdn.net/hengyunabc/article/details/27969613
+关于"Spurious wakeup"，参考上一篇blog: http://blog.csdn.net/hengyunabc/article/details/27969613
 
 if (time == 0) {
     
@@ -224,7 +224,7 @@ status = pthread_cond_wait (_cond, _mutex) ;
   
 }
   
-这也就是为什么Java dos里提到，当下面三种情况下park函数会返回：
+这也就是为什么Java dos里提到，当下面三种情况下park函数会返回: 
 
 Some other thread invokes unpark with the current thread as the target; or
   
@@ -232,7 +232,7 @@ Some other thread interrupts the current thread; or
   
 The call spuriously (that is, for no reason) returns.
   
-相关的实现代码在：
+相关的实现代码在: 
 
 http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/share/vm/runtime/park.hpp
 
@@ -242,7 +242,7 @@ http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/os/linux/vm/o
 
 http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/81d815b05abb/src/os/linux/vm/os_linux.cpp
 
-其它的一些东东：
+其它的一些东东: 
 
 Parker类在分配内存时，使用了一个技巧，重载了new函数来实现了cache line对齐。
 
@@ -254,7 +254,7 @@ Parker类在分配内存时，使用了一个技巧，重载了new函数来实�
 
 void * operator new (size_t sz) ;
   
-Parker里使用了一个无锁的队列在分配释放Parker实例：
+Parker里使用了一个无锁的队列在分配释放Parker实例: 
 
 volatile int Parker::ListLock = 0 ;
   

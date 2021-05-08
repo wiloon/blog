@@ -20,7 +20,7 @@ b.使用步骤a中产生的key对apk签名
 
 **3.具体操作**
 
-_**方法一： 命令行下对apk签名（原理）**_
+_**方法一:  命令行下对apk签名（原理）**_
   
 创建key，需要用到keytool.exe (位于jdk1.6.0_24\jre\bin目录下)，使用产生的key对apk签名用到的是jarsigner.exe (位于jdk1.6.0_24\bin目录下)，把上两个软件所在的目录添加到环境变量path后，打开cmd输入
 
@@ -36,7 +36,7 @@ _**方法一： 命令行下对apk签名（原理）**_
               
               
               <div class="line number2 index1 alt1">
-                <code class="fsharp plain">/*说明：-genkey 产生密钥</code>
+                <code class="fsharp plain">/*说明: -genkey 产生密钥</code>
               
               
               <div class="line number3 index2 alt2">
@@ -60,7 +60,7 @@ _**方法一： 命令行下对apk签名（原理）**_
               
               
               <div class="line number8 index7 alt1">
-                <code class="fsharp plain">/*说明：-verbose 输出签名的详细信息</code>
+                <code class="fsharp plain">/*说明: -verbose 输出签名的详细信息</code>
               
               
               <div class="line number9 index8 alt2">
@@ -76,4 +76,4 @@ _**方法一： 命令行下对apk签名（原理）**_
       </table>
   
 
-注意事项：android工程的bin目录下的demo.apk默认是已经使用debug用户签名的，所以不能使用上述步骤对此文件再次签名。正确步骤应该是:在工程点击右键->Anroid Tools-Export Unsigned Application Package导出的apk采用上述步骤签名。
+注意事项: android工程的bin目录下的demo.apk默认是已经使用debug用户签名的，所以不能使用上述步骤对此文件再次签名。正确步骤应该是:在工程点击右键->Anroid Tools-Export Unsigned Application Package导出的apk采用上述步骤签名。

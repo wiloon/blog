@@ -54,11 +54,11 @@ https://www.right.com.cn/forum/thread-342918-1-1.html
   
     但是！刷了 Breed 就等于解锁了，下面的流程仅供强迫症患者使用！
   
-    如果需要真正解锁，例如重新刷回 pb-boot，那么可以使用以下方法解锁：
+    如果需要真正解锁，例如重新刷回 pb-boot，那么可以使用以下方法解锁: 
   
     a) 进入 Breed 命令行，通过串口(TTL)或者 Telnet
   
-    b) 执行 newifid2 unlock 即可解锁，此时依然可以恢复为未解锁状态：
+    b) 执行 newifid2 unlock 即可解锁，此时依然可以恢复为未解锁状态: 
       
     如果要恢复成未解锁状态，执行 newifid2 lock 即可
       

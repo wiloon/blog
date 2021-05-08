@@ -34,7 +34,7 @@ A universally unique identifier (UUID) is a 128-bit number used to identify info
       
     }}
 ```
-### c++中生成uuid：
+### c++中生成uuid: 
 ```c
     #pragma comment(lib, "rpcrt4.lib")
       
@@ -66,11 +66,11 @@ A universally unique identifier (UUID) is a 128-bit number used to identify info
 ```
 github.com/satori/go.uuid
 
-目前，golang中的uuid还没有纳入标准库，我们使用github上的开源库：
+目前，golang中的uuid还没有纳入标准库，我们使用github上的开源库: 
 
 go get -u github.com/satori/go.uuid
 
-使用：
+使用: 
 ```go
     package main
 
@@ -107,7 +107,7 @@ uuid在websocket中使用
 
 golang中可以使用github.com/gorilla/websocket为我们提供的websocket开发包。
 
-声明一个客户端结构体：
+声明一个客户端结构体: 
 
 type Client struct {
       
@@ -119,6 +119,6 @@ send chan []byte
   
 }
 
-使用：
+使用: 
 
 client := &Client{id: uuid.NewV4().String(), socket: conn, send: make(chan []byte)}

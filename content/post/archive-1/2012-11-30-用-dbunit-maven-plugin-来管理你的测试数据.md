@@ -16,7 +16,7 @@ http://newwhx2011.iteye.com/blog/1089559
 
 这里我们来看 dbunit 怎么实现准备测试数据的，它可以用来导出数据库数据到数据文件中，从数据文件中导入干净的数据到数据库中，比较数据库与数据文件、或增量的插入记录等等。
 
-dbunit 最初为 ant 提供了 antask，当然可以编程使用，如今 maven 大行其道，所以也就有了 maven 的 dbunit 插件，相似功能的插件有两个：
+dbunit 最初为 ant 提供了 antask，当然可以编程使用，如今 maven 大行其道，所以也就有了 maven 的 dbunit 插件，相似功能的插件有两个: 
 
 1. <a href="http://mojo.codehaus.org/dbunit-maven-plugin" target="_blank">dbunit-maven-plugin</a>
   

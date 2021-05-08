@@ -68,7 +68,7 @@ make 是 Linux 开发套件里面自动化编译的一个控制程序，
 
 来进行一些测试），这一步一般需要你有 root 权限（因为要向系统写入文件）
 
-Q1: 安装原码程序时，都要执行三步：
+Q1: 安装原码程序时，都要执行三步: 
   
 1./configure
   
@@ -114,7 +114,7 @@ mips64 gcc-mips64
   
 Linux CC与Linux GCC的区别概括介绍。从名字上看，老的unix系统的CC程序叫做C Compiler。但GCC这个名字按GNU的说法叫做Gnu Compiler Collection。因为gcc包含很多编译器(C, C++, Objective-C, Ada, Fortran,and 　 Java)。所以它们是不一样的，一个是一个古老的C编译器，一个是编译器的Gnu的编译器的集合(Gcc里的C编译器比CC强大太多了，所以你没必要用CC)。当你调用gcc时不一定是调用的C/C++编译器，是gcc根据文件扩展名自动识别并调用对应的编译器，具体可查阅$man gcc。
   
-你是下载不到CC的，原因是：CC来自于昂贵的Unix系统，CC是商业软件，要想用你需要打电话，写订单，而不是打开你的Browser去download。
+你是下载不到CC的，原因是: CC来自于昂贵的Unix系统，CC是商业软件，要想用你需要打电话，写订单，而不是打开你的Browser去download。
   
 linux下的cc是gcc的符号链接。可以通过$ls –l /usr/bin/cc来简单察看.而编译时看到的控制台输出CC则是一个指向gcc的变量，该变量是make程序的内建变量，就算你在Makefile中没有CC= ，该变量也会存在，并默认指向gcc。cc的符号链接和变量存在的意义在于源码的移植性，可以方便的用GCC来编译老的用cc编译的unix软件，甚至连Makefile都不要改。而且也便于linux程序在unix下编译。
   
@@ -124,7 +124,7 @@ Q3:
   
 make 和 make install 中的mark是系统自带的命令还是可执行程序文件？。 make install中，是不是可以认为 install是mark的参数？？？
   
-install 不是make的参数，而是在makefile（Makefile）中有如：install:的语句。如果用make install，那么就执行install:后面的语句。
+install 不是make的参数，而是在makefile（Makefile）中有如: install:的语句。如果用make install，那么就执行install:后面的语句。
   
 Q4:
   

@@ -37,7 +37,7 @@ func (m *Mutex) Unlock()用于解锁m，如果在使用Unlock()前未加锁，�
 
 已经锁定的Mutex并不与特定的goroutine相关联，这样可以利用一个goroutine对其加锁，再利用其他goroutine对其解锁．
 
-正常运行例子：
+正常运行例子: 
 
 ```golang
 package main  
@@ -77,7 +77,7 @@ func main() {
 }
 ```
 
-运行结果： panic: sync: unlock of unlocked mutex
+运行结果:  panic: sync: unlock of unlocked mutex
 
 当在解锁之前再次进行加锁，便会死锁状态
 
@@ -125,11 +125,11 @@ func main() {
 }
 ```
 
-运行结果：panic: sync: unlock of unlocked mutex
+运行结果: panic: sync: unlock of unlocked mutex
       
 func (rw *RWMutex) RLock() 读锁，当有写锁时，无法加载读锁，当只有读锁或者没有锁时，可以加载读锁，读锁可以加载多个，所以适用于＂读多写少＂的场景
 
-func (rw *RWMutex)RUnlock()　读锁解锁，RUnlock 撤销单次 RLock 调用，它对于其它同时存在的读取器则没有效果。若 rw 并没有为读取而锁定，调用 RUnlock 就会引发一个运行时错误(注：这种说法在go1.3版本中是不对的，例如下面这个例子)。
+func (rw *RWMutex)RUnlock()　读锁解锁，RUnlock 撤销单次 RLock 调用，它对于其它同时存在的读取器则没有效果。若 rw 并没有为读取而锁定，调用 RUnlock 就会引发一个运行时错误(注: 这种说法在go1.3版本中是不对的，例如下面这个例子)。
 
 ```golang
 package main  
@@ -148,11 +148,11 @@ func main() {
 }  
 ```
 
-运行结果：１
+运行结果: １
   
 但是程序中先尝试 解锁读锁，然后才加读锁，但是没有报错，并且能够正常输出．
 
-分析：go1.3版本中出现这种情况的原因分析，通过阅读源码可以很清晰的得到结果
+分析: go1.3版本中出现这种情况的原因分析，通过阅读源码可以很清晰的得到结果
 
 ```golang
 func (rw *RWMutex) RUnlock() {  
@@ -174,7 +174,7 @@ func (rw *RWMutex) RUnlock() {
 }  
 ```
 
-当RUnlock多于RLock多个时，便会报错，进入死锁．实例如下：
+当RUnlock多于RLock多个时，便会报错，进入死锁．实例如下: 
 
 ```golang
 package main  
@@ -197,14 +197,14 @@ func main() {
 }
 ```
 
-运行结果：
+运行结果: 
   
 1
 
 fatal error: all goroutines are asleep - deadlock!
   
-总结：
+总结: 
 
-所以在go1.3版本中，运行过程中允许RUnLock早于RLock一个，也只能早于１个（注：虽然代码允许，但是强烈不推荐使用），并且在早于之后必须利用RLock进行加锁才可以继续使用
+所以在go1.3版本中，运行过程中允许RUnLock早于RLock一个，也只能早于１个（注: 虽然代码允许，但是强烈不推荐使用），并且在早于之后必须利用RLock进行加锁才可以继续使用
 
 https://blog.csdn.net/chenbaoke/article/details/41957725

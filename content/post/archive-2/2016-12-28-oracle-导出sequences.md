@@ -24,9 +24,9 @@ categories:
   
 from dba_sequences where sequence_owner='HR' <wbr /> <wbr />
   
-注意：其中的HR，是需要导出sequence的用户，貌似必须大写的说！并且使用该脚本的用户需要有访问dba_sequences的权限。
+注意: 其中的HR，是需要导出sequence的用户，貌似必须大写的说！并且使用该脚本的用户需要有访问dba_sequences的权限。
 
-导出结果如下：
+导出结果如下: 
 
 <wbr />create sequence HIBERNATE_SEQUENCE minvalue 1 maxvalue 999999999999999999999999<wbr />999 start with 1 increment by 1 cache 20; <wbr />
 
@@ -34,7 +34,7 @@ create sequence MIAGENTVERSION_VERSION_SEQ minvalue 1 maxvalue 99999999999999999
 
 ---------------------------
 
-如果你只想导出本用户的sequence那就不要那么复杂的写，只写如下语句就可以了：
+如果你只想导出本用户的sequence那就不要那么复杂的写，只写如下语句就可以了: 
 
 select 'create sequence '||sequence_name|| <wbr /> <wbr />
   

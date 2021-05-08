@@ -56,46 +56,46 @@ Response.Write("页面执行时间:"+ ts.Milliseconds +" 毫秒");
 
 4 Global.asax.cs中的方法的含义
 
-Application_Init：在每一个HttpApplication实例初始化的时候执行
+Application_Init: 在每一个HttpApplication实例初始化的时候执行
 
-Application_Disposed：在每一个HttpApplication实例被销毁之前执行
+Application_Disposed: 在每一个HttpApplication实例被销毁之前执行
 
-Application_Error：所有没有处理的错误都会导致这个方法的执行
+Application_Error: 所有没有处理的错误都会导致这个方法的执行
 
-Application_Start：在程序初始化的时候执行。在Web应用程序的生命周期里就执行一次，这里只能放一些公用的信息，比如HttpApplicationState。
+Application_Start: 在程序初始化的时候执行。在Web应用程序的生命周期里就执行一次，这里只能放一些公用的信息，比如HttpApplicationState。
 
-Application_End：应用程序结束时，在最后一个HttpApplication销毁之后执行。对应Application_Start，在整个生命周期里面也是只执行一次。
+Application_End: 应用程序结束时，在最后一个HttpApplication销毁之后执行。对应Application_Start，在整个生命周期里面也是只执行一次。
 
-Session_Start：会话开始时执行。
+Session_Start: 会话开始时执行。
 
-Session_End：会话结束或过期时执行。
+Session_End: 会话结束或过期时执行。
 
-Application_BeginRequest：BeginRequest是在收到Request时第一个触发的事件，这个方法第一个执行。
+Application_BeginRequest: BeginRequest是在收到Request时第一个触发的事件，这个方法第一个执行。
 
-Application_AuthenticateRequest：当安全模块已经建立了当前用户的标识后执行。
+Application_AuthenticateRequest: 当安全模块已经建立了当前用户的标识后执行。
 
-Application_AuthorizeRequest：当安全模块已经验证了当前用户的授权时执行。
+Application_AuthorizeRequest: 当安全模块已经验证了当前用户的授权时执行。
 
-Application_ResolveRequestCache：当ASP.NET完成授权事件以使缓存模块从缓存中为请求提供服务时发生，从而跳过处理程序（页面或者是WebService）的执行。这样做可以改善网站的性能，这个事件还可以用来判断正文是不是从Cache中得到的。
+Application_ResolveRequestCache: 当ASP.NET完成授权事件以使缓存模块从缓存中为请求提供服务时发生，从而跳过处理程序（页面或者是WebService）的执行。这样做可以改善网站的性能，这个事件还可以用来判断正文是不是从Cache中得到的。
 
-Application_AcquireRequestState：当ASP.NET获取当前请求所关联的当前状态（如Session）时执行。
+Application_AcquireRequestState: 当ASP.NET获取当前请求所关联的当前状态（如Session）时执行。
 
-Application_PreRequestHandlerExecute：当ASP.Net即将把请求发送到处理程序对象（页面或者是WebService）之前执行。这个时候，Session就可以用了。
+Application_PreRequestHandlerExecute: 当ASP.Net即将把请求发送到处理程序对象（页面或者是WebService）之前执行。这个时候，Session就可以用了。
 
-Application_PostRequestHandlerExecute：当处理程序对象工作完成后执行。
+Application_PostRequestHandlerExecute: 当处理程序对象工作完成后执行。
 
-Application_ReleaseRequestState：在ASP.NET执行完所有请求处理程序后执行。ReleaseRequestState事件将使当前状态数据被保存。
+Application_ReleaseRequestState: 在ASP.NET执行完所有请求处理程序后执行。ReleaseRequestState事件将使当前状态数据被保存。
 
-Application_UpdateRequestCache：在ASP.NET执行完处理程序后为了后续的请求而更新响应缓存时执行。
+Application_UpdateRequestCache: 在ASP.NET执行完处理程序后为了后续的请求而更新响应缓存时执行。
 
-Application_EndRequest：同上，EndRequest是在响应Request时最后一个触发的事件，这个方法自然就是最后一个执行的了。
+Application_EndRequest: 同上，EndRequest是在响应Request时最后一个触发的事件，这个方法自然就是最后一个执行的了。
 
-Application_PreSendRequestHeaders：向客户端发送Http标头之前执行。
+Application_PreSendRequestHeaders: 向客户端发送Http标头之前执行。
 
-Application_PreSendRequestContent：向客户端发送Http正文之前执行。
+Application_PreSendRequestContent: 向客户端发送Http正文之前执行。
 
-Request相应的事件执行顺序：
+Request相应的事件执行顺序: 
 
 1.BeginRequest 2.AuthenticateRequest 3.AuthorizeRequest 4.ResolveRequestCache 5.AcquireRequestState 6.PreRequestHandlerExecute 7.PostRequestHandlerExecute 8.ReleaseRequestState 9.UpdateRequestCache 10.EndRequest
 
-转自：http://hi.baidu.com/mycolorwind/blog/item/45384980228cbfdf9023d960.html
+转自: http://hi.baidu.com/mycolorwind/blog/item/45384980228cbfdf9023d960.html

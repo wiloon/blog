@@ -13,16 +13,16 @@ categories:
       如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是Natvie方法，这个计数器值则为空（Undefined）。此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。
     
 
-以上描述截取自：
+以上描述截取自: 
 
-## 《深入理解Java虚拟机:JVM高级特性与最佳实践》 作者： 周志明
+## 《深入理解Java虚拟机:JVM高级特性与最佳实践》 作者:  周志明
 
 Each thread of a running program has its own pc register, or program counter, which is created when the thread is started. The pc register is one word in size, so it can hold both a native pointer and a returnValue. As a thread executes a Java method, the pc register contains the address of the current instruction being executed by the thread. An "address" can be a native pointer or an offset from the beginning of a method's bytecodes. If a thread is executing a native method, the value of the pc register is undefined.
   
 对于一个运行中的Java程序而言，其中的每一个线程都有它自己的PC（程序计数器），在线程启动时创建。大小是一个字长。因此它既能持有一个本地指针，也能够持有一个returnAddress。当线程执行某个Java方法时，PC的内容总是下一条将被指向指令的"地址"。这里的"地址"可以是一个本地指针，也可以是在方法字节码中相对于该方法起始指令的偏移量。如果该线程正在执行一个本地方法，那么此时PC寄存器的值为"undefined"。
 
-以上描述截取自：
+以上描述截取自: 
   
-《Inside the Java Virtual Machine 2nd Edition》 作者：Bill Venners
+《Inside the Java Virtual Machine 2nd Edition》 作者: Bill Venners
 
 http://denverj.iteye.com/blog/1218120

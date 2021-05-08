@@ -15,9 +15,9 @@ tags:
 #### rpm
 download redis rpm from https://pkgs.org/download/redis
   
-下载Redis的依赖包：libjemalloc
+下载Redis的依赖包: libjemalloc
 
-下载地址：https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html
+下载地址: https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html
 
 ```bash
 rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
@@ -63,11 +63,11 @@ EXPIRE key0 10
   
 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。
   
-可用版本：>= 1.0.0
+可用版本: >= 1.0.0
   
-时间复杂度：O(1)
+时间复杂度: O(1)
   
-返回值：
+返回值: 
   
 当 key 不存在时，返回 -2 。
   
@@ -93,10 +93,10 @@ client kill ip:port
 redis-cli keys *xxx* |grep "" -c
 
 批量删除Redis下特定pattern的keys
-可以使用linux的xargs来做到如：
+可以使用linux的xargs来做到如: 
 */redis-cli keys "prefix*" | xargs */redis-cli del 
 
-如果是访问特定的数据库，则可以：
+如果是访问特定的数据库，则可以: 
 */redis-cli -n 0 keys "prefix*" | xargs */redis-cli -n 0 del
 
 set set key0 value0 
@@ -136,16 +136,16 @@ redis-cli --cluster fix 192.168.163.132:6384 --cluster-search-multiple-owners
 # 添加集群主节点
 
 redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 
-说明：为一个指定集群添加节点，需要先连到该集群的任意一个节点IP（192.168.163.132:6379），再把新节点加入。该2个参数的顺序有要求：新加入的节点放前
+说明: 为一个指定集群添加节点，需要先连到该集群的任意一个节点IP（192.168.163.132:6379），再把新节点加入。该2个参数的顺序有要求: 新加入的节点放前
 # 添加集群从节点
 
 redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster-slave --cluster-master-id 117457eab5071954faab5e81c3170600d5192270
-说明：把6382节点加入到6379节点的集群中，并且当做node_id为 117457eab5071954faab5e81c3170600d5192270 的从节点。如果不指定 --cluster-master-id 会随机分配到任意一个主节点。
+说明: 把6382节点加入到6379节点的集群中，并且当做node_id为 117457eab5071954faab5e81c3170600d5192270 的从节点。如果不指定 --cluster-master-id 会随机分配到任意一个主节点。
 
 删除节点
 
 redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba41f3b603ff
-说明：指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
+说明: 指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
 
 ```
 

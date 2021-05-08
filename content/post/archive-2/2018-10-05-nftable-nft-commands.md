@@ -17,7 +17,7 @@ sudo systemctl enable nftables
 ```
 
 ### 增
-#### 增加表, Adding tables：
+#### 增加表, Adding tables: 
 ```bash
 nft add table [<family>] <name>
 nft add table ip foo
@@ -25,7 +25,7 @@ nft add table ip foo
 
 family 参数是可选的，如果不指定 family，默认是 IPv4
 
-#### 增加链,add chain：
+#### 增加链,add chain: 
 ```bash
 nft add chain [<family>] <table-name> <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
 nft add chain filter input { type filter hook input priority 0 \; } # 要和hook（钩子）相关连

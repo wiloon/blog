@@ -5,9 +5,9 @@ title = "ap"
 
 +++
 
-商用AP厂家里，产品做的最好三家是：思科、aruba， ruckus。
+商用AP厂家里，产品做的最好三家是: 思科、aruba， ruckus。
 
-ruckus的unleashed系列AP，unleashed系列最大的优势是：
+ruckus的unleashed系列AP，unleashed系列最大的优势是: 
 
 Wi-Fi非常稳定，快速漫游、无缝切换、 5G占比调节等都是基本操作
 配置界面非常友好，由浅入深、简单易懂，即使是新手也完全可以应付的来

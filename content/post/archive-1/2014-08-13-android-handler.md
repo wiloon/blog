@@ -12,7 +12,7 @@ http://www.cnblogs.com/devinzhang/archive/2011/12/30/2306980.html
 
 Android之Handler用法总结
 
-方法一：(java习惯，在android平台开发时这样是不行的，因为它违背了单线程模型）
+方法一: (java习惯，在android平台开发时这样是不行的，因为它违背了单线程模型）
 
 刚刚开始接触android线程编程的时候，习惯好像java一样，试图用下面的代码解决问题
 
@@ -26,9 +26,9 @@ myView.invalidate();
   
 }).start();
   
-可以实现功能，刷新UI界面。但是这样是不行的，因为它违背了单线程模型：Android UI操作并不是线程安全的并且这些操作必须在UI线程中执行。
+可以实现功能，刷新UI界面。但是这样是不行的，因为它违背了单线程模型: Android UI操作并不是线程安全的并且这些操作必须在UI线程中执行。
 
-方法二：（Thread+Handler)
+方法二: （Thread+Handler)
 
 查阅了文档和apidemo后，发觉常用的方法是利用Handler来实现UI线程的更新的。
 
@@ -92,7 +92,7 @@ Thread.currentThread().interrupt();
   
 以上方法demo看:http://rayleung.javaeye.com/blog/411860
 
-方法三：（java习惯。Android平台中，这样做是不行的，这跟Android的线程安全有关）
+方法三: （java习惯。Android平台中，这样做是不行的，这跟Android的线程安全有关）
 
 在Android平台中需要反复按周期执行方法可以使用Java上自带的TimerTask类，TimerTask相对于Thread来说对于资源消耗的更低，除了使用Android自带的AlarmManager使用Timer定时器是一种更好的解决方法。 我们需要引入import java.util.Timer; 和 import java.util.TimerTask;
 
@@ -126,7 +126,7 @@ timer.schedule(task, 10000);
   
 复制代码
 
-方法四：(TimerTask + Handler)
+方法四: (TimerTask + Handler)
 
 通过配合Handler来实现timer功能的！
 
@@ -184,7 +184,7 @@ timer.schedule(task, 10000);
   
 复制代码
 
-方法五：( Runnable + Handler.postDelayed(runnable,time) )
+方法五: ( Runnable + Handler.postDelayed(runnable,time) )
 
 在Android里定时更新 UI，通常使用的是 java.util.Timer, java.util.TimerTask, android.os.Handler组合。实际上Handler 自身已经提供了定时的功能。
 
@@ -218,11 +218,11 @@ handler.post(myRunnable);
 
 handler.post(myRunnable,time);
 
-案例看：http://shaobin0604.javaeye.com/blog/515820
+案例看: http://shaobin0604.javaeye.com/blog/515820
 
 ====================================================================
 
-知识点总结补充：
+知识点总结补充: 
 
 很多初入Android或Java开发的新手对Thread、Looper、Handler和Message仍然比较迷惑，衍生的有HandlerThread、java.util.concurrent、Task、AsyncTask由于目前市面上的书籍等资料都没有谈到这些问题，今天就这一问题做更系统性的总结。我们创建的Service、Activity以及Broadcast均是一个主线程处理，这里我们可以理解为UI线程。但是在操作一些耗时操作时，比如I/O读写的大文件读写，数据库操作以及网络下载需要很长时间，为了不阻塞用户界面，出现ANR的响应提示窗口，这个时候我们可以考虑使用Thread线程来解决。
 
@@ -240,4 +240,4 @@ handler.post(myRunnable,time);
 
 6. 在Android中还提供了一种有别于线程的处理方式，就是Task以及AsyncTask，从开源代码中可以看到是针对Concurrent的封装，开发人员可以方便的处理这些异步任务。
 
-摘录自：http://www.cnblogs.com/playing/archive/2011/03/24/1993583.html
+摘录自: http://www.cnblogs.com/playing/archive/2011/03/24/1993583.html

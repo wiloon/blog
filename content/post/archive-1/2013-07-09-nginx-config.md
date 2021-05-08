@@ -81,7 +81,7 @@ autoindex on; #开启目录列表访问，合适下载服务器，默认关闭�
 
 sendfile on;
   
-sendfile 开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。
+sendfile 开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意: 如果图片显示不正常把这个改成off。
   
 sendfile 配置可以提高 Nginx 静态资源托管效率。 sendfile 是一个系统调用，直接在内核空间完成文件发送，不需要先 read 再 write，没有上下文切换开销。
   
@@ -92,13 +92,13 @@ tcp_nodelay on;
 TCP_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP_CORK，Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率。
 
 ### TCP_NODELAY
-TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms（Nagle 算法原理是：在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp_nodelay。
+TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms（Nagle 算法原理是: 在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp_nodelay。
 
 可以看到 TCP_NOPUSH 是要等数据包累积到一定大小才发送，TCP_NODELAY 是要尽快发送，二者相互矛盾。实际上，它们确实可以一起用，最终的效果是先填满包，再尽快发送。
 
 keepalive_timeout 120; #长连接超时时间，单位是秒
 
-#FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
+#FastCGI相关参数是为了改善网站的性能: 减少资源占用，提高访问速度。下面参数看字面意思都能理解。
   
 fastcgi_connect_timeout 300;
   
@@ -294,11 +294,11 @@ location ~ ._.(js|css)?$
   
 }
 
-更详细的模块参数请参考：http://wiki.nginx.org/Main
+更详细的模块参数请参考: http://wiki.nginx.org/Main
 
 ### proxy_pass结尾有无"/"的区别
-转载自：http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html
-见配置，摘自nginx.conf 里的server 段：
+转载自: http://www.cnblogs.com/naniannayue/archive/2010/08/07/1794520.html
+见配置，摘自nginx.conf 里的server 段: 
 
 server {
 listen 80;
@@ -310,7 +310,7 @@ location /star/ {
 proxy_pass http://ent.163.com ;
 }
 }
-里面有两个location，我先说第一个，/ 。其实这里有两种写法，分别是：
+里面有两个location，我先说第一个，/ 。其实这里有两种写法，分别是: 
 
 location / {
 proxy_pass http://ent.163.com/ ;
@@ -381,7 +381,7 @@ Nginx的缓冲配置
 
 client_body_buffer_size
   
-这个directive设定了request body的缓冲大小。如果body超过了缓冲的大小，那么整个body或者部分body将被写入一个临时文件。如果Nginx被设置成使用文件缓冲而不使用内存缓冲，那么这个dirctive就无效。client_body_buffer_size在32位系统上默认是8k，在64位系统上默认是16k。可以在http, server 和 location模块中指定，如下：
+这个directive设定了request body的缓冲大小。如果body超过了缓冲的大小，那么整个body或者部分body将被写入一个临时文件。如果Nginx被设置成使用文件缓冲而不使用内存缓冲，那么这个dirctive就无效。client_body_buffer_size在32位系统上默认是8k，在64位系统上默认是16k。可以在http, server 和 location模块中指定，如下: 
 
 server {
           
@@ -393,7 +393,7 @@ client_max_body_size
   
 这个directive设定Nginx可以处理的最大request body大小。如果收到的请求大于指定的大小，那么Nginx会回复HTTP 413错误（Request Entity too large）。如果web服务器提供大文件上传的话，那么设置好这个directive很重要。
 
-Nginx默认为这个directive设定的值是1m，可以在http, server 和 location模块中定义，例如：
+Nginx默认为这个directive设定的值是1m，可以在http, server 和 location模块中定义，例如: 
 
 server {
      
@@ -403,7 +403,7 @@ client_max_body_size 2m;
   
 client_body_in_file_only
   
-启用这个directive会关闭Nginx的请求缓冲，将request body存储在临时文件当中，在http, server 和 location模块中定义。它可以有三个值：
+启用这个directive会关闭Nginx的请求缓冲，将request body存储在临时文件当中，在http, server 和 location模块中定义。它可以有三个值: 
 
 off: 禁止文件写入
   
@@ -411,7 +411,7 @@ clean: request body将被写入文件，文件在请求处理完成后删除
   
 on: request body将被写入文件，但文件在请求处理完成后不会被删除
   
-默认这个directive的值是off。我们可以将它设为off，例如：
+默认这个directive的值是off。我们可以将它设为off，例如: 
 
 http {
       
@@ -489,7 +489,7 @@ keepalive_timeout 20s;
   
 }
   
-这个directive有另外一个可选的时间参数，例如：
+这个directive有另外一个可选的时间参数，例如: 
 
 http {
       
@@ -671,7 +671,7 @@ gzip_types text/plain application/xml;
   
 至于为什么会存在这么一个配置？
   
-官方文档是这么举例的：For example, it is reasonable to compress responses only to requests that will not be cached on the proxy server.
+官方文档是这么举例的: For example, it is reasonable to compress responses only to requests that will not be cached on the proxy server.
   
 那为什么是reasonable呢？哈哈，我也不确定，但网上的一种说法是对于一些可缓存的静态内容可以不启用压缩，因为这些静态内容大多都是经过压缩优化，gzip难以对其继续压缩，即使进行了意义也不大。
   
@@ -751,7 +751,7 @@ NGINX配置超时时间 原
 
 二、主要参数
         
-使用nginx服务器如果遇到timeou情况时可以如下设置参数，使用fastcgi：
+使用nginx服务器如果遇到timeou情况时可以如下设置参数，使用fastcgi: 
 
          fastcgi_connect_timeout 75;  链接
     
@@ -775,7 +775,7 @@ keepalive_timeout 600; 连接超时时间，1分钟，具体时间可以根据�
         proxy_read_timeout 600;    1分钟
     
 
-nginx超时配置参数说明：
+nginx超时配置参数说明: 
   
 keepalive_timeout
 
@@ -831,7 +831,7 @@ client_header_timeout
 
 上下文 http server
 
-说明 指定等待client发送一个请求头的超时时间（例如：GET / HTTP/1.1）.仅当在一次read中，没有收到请求头，才会算成超时。如果在超时时间内，client没发送任何东西，nginx返回HTTP状态码408("Request timed out")
+说明 指定等待client发送一个请求头的超时时间（例如: GET / HTTP/1.1）.仅当在一次read中，没有收到请求头，才会算成超时。如果在超时时间内，client没发送任何东西，nginx返回HTTP状态码408("Request timed out")
 
 client_body_timeout
 
@@ -885,9 +885,9 @@ proxy_upstream_fail_timeout（fail_timeout）
 
 四、其他说明
      
-针对这两个常用参数，还可以设置一定的规则，例如单独针对后台，设置读取超时时间。规则可以类似这：/admin/*
+针对这两个常用参数，还可以设置一定的规则，例如单独针对后台，设置读取超时时间。规则可以类似这: /admin/*
 
-具体可参考这个：http://www.cnblogs.com/discuss/articles/1866851.html
+具体可参考这个: http://www.cnblogs.com/discuss/articles/1866851.html
 
 五、nginx基本配置与参数说明
   
@@ -899,10 +899,10 @@ https://my.oschina.net/xsh1208/blog/199674
   
 https://blog.51cto.com/liuqunying/1420556
 
-作者：skyesx
+作者: skyesx
   
-链接：https://hacpai.com/article/1447946179819
+链接: https://hacpai.com/article/1447946179819
   
-来源：黑客派
+来源: 黑客派
   
-协议：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+协议: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/

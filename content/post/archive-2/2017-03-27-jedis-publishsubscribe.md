@@ -114,7 +114,7 @@ jedis.close();
   
 在上面的代码中，我们从JedisPool获取一个Jedis实例，并使用这个Jedis实例进行subscribe的操作。
   
-Jedis的subscribe的声明如下：
+Jedis的subscribe的声明如下: 
 
 public void subscribe(final JedisPubSub jedisPubSub, final String… channels)
   

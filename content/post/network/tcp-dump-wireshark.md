@@ -8,23 +8,23 @@ title = "tcp dump, wireshark"
 ### TCP segment of a reassembled PDU
 关于"TCP segment of a reassembled PDU"
 
-标签：TCP segment of a reaPDUreassembled PDU
+标签: TCP segment of a reaPDUreassembled PDU
 
 http://blog.csdn.net/dog250/article/details/51809566
 
-版权声明：本文为博主原创，无版权，未经博主允许可以随意转载，无需注明出处，随意修改或保持可作为原创！
+版权声明: 本文为博主原创，无版权，未经博主允许可以随意转载，无需注明出处，随意修改或保持可作为原创！
 
 为什么大家看到这个以后总是会往MSS，TSO上联系呢？也许第一个解释这个的人是个高手，而且以MSS/MTU/TSO的观点解释了这个问题，还有一种可能就是TSO等技术让人觉得太牛逼，毕竟是底层硬件机制吧，抓包机制又是作用于网卡层面的，所以很自然会觉得TSO会有关联。
 
 事实上，这个跟TSO没有关系！跟MSS有一定的关系但不是全部因果关系，在阐述"TCP segment of a reassembled PDU"之前，先把TSO理清再说。当有人问题"这个包会不会被TSO分段"这类问题时，只要看该TCP数据包的长度，拿它跟MTU比较，如果数据长度更长，则就是TSO。
 
-那么，"TCP segment of a reassembled PDU"究竟是什么呢？答案是，这要向上看，这个跟应用层有关，而与底层关系不大！我用Wireshark的抓包例子来解释这个问题。首先看一个抓包，我们以网络测试工具baidu为例，抓取一个访问其服务器https://14.215.177.38/的一个HTTPS连接的包：
+那么，"TCP segment of a reassembled PDU"究竟是什么呢？答案是，这要向上看，这个跟应用层有关，而与底层关系不大！我用Wireshark的抓包例子来解释这个问题。首先看一个抓包，我们以网络测试工具baidu为例，抓取一个访问其服务器https://14.215.177.38/的一个HTTPS连接的包: 
 
 
-网上很多人在解释这个"TCP segment of a reassembled PDU"的时候(基本都是转载)，都说什么"ACK了同一笔数据就会是reassembled PDU"，"同一个GET请求的response"云云...但是很显然，上述我抓包的截图中，402到405号包都有ACK了同一个序列号，但是为什么只有一个"TCP segment of a reassembled PDU"呢？？在没有标识reassembled PDU的数据包中，另外标识了TLSv1.2的协议原语。此时，我来做一个动作，按下"Ctrl-Shift-E"组合键，事实上就是点击"分析"菜单，进入"已启用的协议"界面：
+网上很多人在解释这个"TCP segment of a reassembled PDU"的时候(基本都是转载)，都说什么"ACK了同一笔数据就会是reassembled PDU"，"同一个GET请求的response"云云...但是很显然，上述我抓包的截图中，402到405号包都有ACK了同一个序列号，但是为什么只有一个"TCP segment of a reassembled PDU"呢？？在没有标识reassembled PDU的数据包中，另外标识了TLSv1.2的协议原语。此时，我来做一个动作，按下"Ctrl-Shift-E"组合键，事实上就是点击"分析"菜单，进入"已启用的协议"界面: 
 
 
-反选SSL协议，不再识别SSL协议之后，我们再看402到405号数据包：
+反选SSL协议，不再识别SSL协议之后，我们再看402到405号数据包: 
 
 
 没有了"TCP segment of a reassembled PDU"这些，除了没有这些"修饰语"之外，其它的协议层面的数据完全和之前识别SSL协议的时候相符合。我们的结论是，关掉了对SSL协议的识别，就没有了reassembled PDU的修饰，这恰恰是因为SSL协议让Wireshark知道403号包是一个reassembled PDU！如果你不知道这是个SSL协议，你就无法判断出这是不是一个reassembled PDU！
@@ -35,9 +35,9 @@ http://blog.csdn.net/dog250/article/details/51809566
 
 本质上来讲，reassembled PDU要向上看，而不是去考虑什么底层的MTU，TSO什么的。Wireshark根据它能识别的应用层协议，告诉你哪些数据是属于一个应用层消息的。就这么简单。
 
-作者：守望者_1065
-链接：https://www.jianshu.com/p/d4d1d76c3956
-来源：简书
+作者: 守望者_1065
+链接: https://www.jianshu.com/p/d4d1d76c3956
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
@@ -55,12 +55,12 @@ LLC子层实现数据链路层与硬件无关的功能，比如流量控制、�
 MAC子层负责把物理层的"0"、"1"比特流组建成帧，并通过帧尾部的错误校验信息进行错误校验；提供对共享介质的访问方法，包括以太网的带冲突检测的载波侦听多路访问（CSMA/CD）、令牌环（Token Ring）、光纤分布式数据接口（FDDI）等 。
 MAC子层分配单独的局域网地址，就是通常所说的MAC地址（物理地址）。MAC子层将目标计算机的物理地址添加到数据帧上，当此数据帧传递到对端的MAC子层后，它检查该地址是否与自己的地址相匹配，如果帧中的地址与自己的地址不匹配，就将这一帧抛弃；如果相匹配，就将它发送到上一层中
 
-（二）LLC子层的主要功能包括：
+（二）LLC子层的主要功能包括: 
 
 传输可靠性保障和控制；
 数据包的分段与重组；
 数据包的顺序传输。
-LLC子层提供三种服务：
+LLC子层提供三种服务: 
 
 1、无确认无连接的服务。这是数据包类型的服务。
 2、连接方式的服务。这种服务类似于HDLC提供的服务。
@@ -68,9 +68,9 @@ LLC子层提供三种服务：
 
 LLC子层维护一张以DSAP为索引的函数列表，每接收到一个数据包，以DSAP为索引调用相应的函数，该函数把数据包挂到相应接收队列。
 
-作者：赛亚人之神
-链接：https://www.jianshu.com/p/7af3c034929e
-来源：简书
+作者: 赛亚人之神
+链接: https://www.jianshu.com/p/7af3c034929e
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
@@ -79,7 +79,7 @@ LLC子层维护一张以DSAP为索引的函数列表，每接收到一个数据�
 
 发送端认为发送的package已经丢失了，所以重传了，尽管此时接收端已经发送了对这些包的确认。
 
-指实际上并没有超时，但看起来超时了，导致虚假超时重传的原因有很多种：
+指实际上并没有超时，但看起来超时了，导致虚假超时重传的原因有很多种: 
 
 （1）对于部分移动网络，当网络发生切换时会导致网络延时突增
 

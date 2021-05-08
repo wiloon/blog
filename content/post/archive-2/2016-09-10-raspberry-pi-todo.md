@@ -69,11 +69,11 @@ sudo apt-get install xfonts-wqy
 apt-get install git
 
 ### mirror
-    # 编辑 `/etc/apt/sources.list` 文件，删除原文件所有内容，用以下内容取代：
+    # 编辑 `/etc/apt/sources.list` 文件，删除原文件所有内容，用以下内容取代: 
     deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
     deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
 
-    # 编辑 `/etc/apt/sources.list.d/raspi.list` 文件，删除原文件所有内容，用以下内容取代：
+    # 编辑 `/etc/apt/sources.list.d/raspi.list` 文件，删除原文件所有内容，用以下内容取代: 
     deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
 
 ### mirror backup

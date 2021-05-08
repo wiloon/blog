@@ -16,7 +16,7 @@ https://unix.stackexchange.com/questions/166692/how-does-a-transparent-socks-pro
 https://www.jianshu.com/p/76cea3ef249d
 
 TPROXY开启TCP/IP IP_TRANSPARENT标志，数据在两个SOCKTS间复制, 这种场景不走kernel,不需要开启ip_forward,不需要开启connection_tracking。  
-TPROXY比REDIRECT新的特性，它能做到不修改数据包，应用只需一点改动就能实现REDIRECT所有的功能，内核文档里有如下说明：
+TPROXY比REDIRECT新的特性，它能做到不修改数据包，应用只需一点改动就能实现REDIRECT所有的功能，内核文档里有如下说明: 
 
     TPROXY (Transparent proxying) often involves "intercepting" traffic on a router. This is
     usually done with the iptables REDIRECT target; however, there are serious
@@ -26,7 +26,7 @@ TPROXY比REDIRECT新的特性，它能做到不修改数据包，应用只需一
     be able to find out the original destination address. Even in case of TCP
     getting the original destination address is racy.)
 
-从这段说明里似乎 UDP 并没有内核状态来记录更改前的 IP 地址，这与这篇博客所说所说的有些矛盾，我目前的理解还是 UDP 在内核没有状态记录。TPROXY得以实现归结为三个要点：
+从这段说明里似乎 UDP 并没有内核状态来记录更改前的 IP 地址，这与这篇博客所说所说的有些矛盾，我目前的理解还是 UDP 在内核没有状态记录。TPROXY得以实现归结为三个要点: 
 
 将流量重定向到本地路由
 路由规则定义去向

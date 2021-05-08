@@ -13,7 +13,7 @@ http://blog.csdn.net/leshami/article/details/5529239
 
 Oracle实例和Oracle数据库(Oracle体系结构)
   
-分类： Oracle 体系结构2010-04-26 11:47 26118人阅读 评论(13) 收藏 举报
+分类:  Oracle 体系结构2010-04-26 11:47 26118人阅读 评论(13) 收藏 举报
   
 oracle数据库sql server服务器server系统监控
   
@@ -42,9 +42,9 @@ oracle数据库sql server服务器server系统监控
 
 即一台SQL server服务器上可以存在多个不同的实例。一个实例下可以存在多个不同的数据库。
 
-对于不同实例下的数据库的访问，使用ServerName/InstanceName：PortNo即可实现访问，缺省实例
+对于不同实例下的数据库的访问，使用ServerName/InstanceName: PortNo即可实现访问，缺省实例
 
-为ServerName：PortNo。
+为ServerName: PortNo。
 
 2.对不同的实例配置IP地址，相关的访问协议，端口等等。
 
@@ -60,13 +60,13 @@ oracle数据库sql server服务器server系统监控
 
 一个Oracle Server由一个Oracle实例和一个Oracle数据库组成。
 
-即：Oracle Server = Oracle Instance + Oracle Database
+即: Oracle Server = Oracle Instance + Oracle Database
 
 Oracle实例
 
 包括了内存结构(SGA)和一系列后台进程(Background Process),两者合起来称为一个Oracle实例
 
-即：Oracle Instance = SGA + Background Process
+即: Oracle Instance = SGA + Background Process
 
 Oracle内存结构
 
@@ -87,9 +87,9 @@ PGA包含单个服务器进程或单个后台进程的数据和控制信息,与�
 
 系统全局区是动态的，由参数SGA＿MAX＿SIZE决定。
 
-查看当前系统的SGA大小：show parameter sga_max_size;
+查看当前系统的SGA大小: show parameter sga_max_size;
 
-要修改：alter system set sga_max_size=1200m scope=spfile;
+要修改: alter system set sga_max_size=1200m scope=spfile;
 
 因为实例内存的分配是在数据库启动时进行的，所以要让修改生效，要重启数据库。
 
@@ -105,9 +105,9 @@ sga_target设为。
 
 大小由db_cache_size 决定
 
-查看：show parameter db_cache_size;
+查看: show parameter db_cache_size;
 
-设置：alter system set db_cache_size=800M;
+设置: alter system set db_cache_size=800M;
 
 
 重做日志缓冲区(Redo log buffer):对数据库的任何修改都按顺序被记录在该缓冲，然后由LGWR进程将
@@ -123,12 +123,12 @@ sga_target设为。
 
 库缓存大小由shared_pool_size 决定
 
-查看：show parameter shared_pool_size
+查看: show parameter shared_pool_size
 
-修改：alter system set shared_pool_size=120m;
+修改: alter system set shared_pool_size=120m;
 
 
-数据字典缓存：
+数据字典缓存: 
 
 存储数据库中数据文件、表、索引、列、用户和其它数据对象的定义和权限信息
 
@@ -138,10 +138,10 @@ sga_target设为。
 大池(Large pool):是一个可选的区域，用于一些大型的进程如Oracle的备份恢复操作、IO服务器进程等
 
 
-Java 池：该程序缓冲区就是为Java 程序保留的。如果不用Java程序没有必要改变该缓冲区的默认大小
+Java 池: 该程序缓冲区就是为Java 程序保留的。如果不用Java程序没有必要改变该缓冲区的默认大小
 
 
-流池(Stream pool)：被Oracle流所使用
+流池(Stream pool): 被Oracle流所使用
 
 
 2.PGA
@@ -150,7 +150,7 @@ Java 池：该程序缓冲区就是为Java 程序保留的。如果不用Java程
 
 进程创建时分配，进程结束时释放，只能被一个进程使用
 
-PGA包括了以下几个结构：
+PGA包括了以下几个结构: 
 
 （）排序区
 
@@ -160,10 +160,10 @@ PGA包括了以下几个结构：
 
 （）堆栈区
 
-由参数：pga_aggregate_target 决定
+由参数: pga_aggregate_target 决定
 
 
-3.几类进程：用户进程，服务器进程，后台进程，其它可选进程
+3.几类进程: 用户进程，服务器进程，后台进程，其它可选进程
 
 用户进程
 
@@ -201,7 +201,7 @@ LGWr       ->日志写进程
 CKPT       ->检查点进程
 
 
-可选进程：
+可选进程: 
 
 ARCN       归档进程
 
@@ -216,7 +216,7 @@ DBWn(数据库写进程)
 
 负责将修改过的数据块从数据库缓冲区高速缓存写入磁盘上的数据文件中
 
-写入条件：
+写入条件: 
 
 发生检查点
 
@@ -272,7 +272,7 @@ LGWr(日志写进程)
 
 将重做日志缓冲区中的更改写入在线重做日志文件
 
-条件：
+条件: 
 
 提交的时候（commit)
 
@@ -297,7 +297,7 @@ DBWR/LGWR的工作原理，造成了数据文件，日志文件，控制文件�
 
 CKPT会更新数据文件/控制文件的头信息
 
-条件：
+条件: 
 
 在日志切换的时候
 
@@ -312,7 +312,7 @@ ARCN(归档进程)
 
 在每次日志切换时把已满的日志组进行备份或归档
 
-条件：
+条件: 
 
 数据库以归档方式运行的时候
 
@@ -328,16 +328,16 @@ Server Process(服务进程)
 
 分为专用服务进程(Dedicated Server Process)和共享服务进程(MultiTreaded Server Process)
 
-专用服务进程：一个服务进程对应多个用户进程，轮流为用户进程服务。
+专用服务进程: 一个服务进程对应多个用户进程，轮流为用户进程服务。
 
 
 用户进程(User Process)、服务进程(Server Process)、后台进程(Background Processes)的启动
 
 用户进程: 数据库用户请求Oralce server会话时被启动
 
-服务进程：当用户会话启动后，连接到Oracle实例时该进程被启动
+服务进程: 当用户会话启动后，连接到Oracle实例时该进程被启动
 
-后台进程：当Oracle实例被启动时，启动相关的后台进程
+后台进程: 当Oracle实例被启动时，启动相关的后台进程
 
 
 三、Oracle 数据库
@@ -346,7 +346,7 @@ Server Process(服务进程)
 
 包括控制文件、数据文件、联机日志文件、参数文件、密码文件等
 
-即：Oracle Database = Controlfile + datafile + logfiel + spfile +..
+即: Oracle Database = Controlfile + datafile + logfiel + spfile +..
 
 1.控制文件(controlfile)
 
@@ -381,18 +381,18 @@ Oracle可以运行在两种模式之中，归档模式和非归档模式。在�
 
 5.参数文件(pfile和spfile)
 
-initSID.ora或init.ora文件,通常位于：$ORACLE_BASE/admin/<SID>/pfile
+initSID.ora或init.ora文件,通常位于: $ORACLE_BASE/admin/<SID>/pfile
 
 初始化文件记载了许多数据库的启动参数，如内存，控制文件，进程数等，在数据库启动的时候加载(Nomount时加载)
 
 
 6.其他文件
 
-密码文件：用于Oracle 的具有sysdba权限用户的认证.
+密码文件: 用于Oracle 的具有sysdba权限用户的认证.
 
-告警日志文件：报警日志文件(alert.log或alrt.ora），记录数据库启动，关闭和一些重要的出错信息
+告警日志文件: 报警日志文件(alert.log或alrt.ora），记录数据库启动，关闭和一些重要的出错信息
 
-查看路径：select value from v$PARAMETER where name ='background_dump_dest';
+查看路径: select value from v$PARAMETER where name ='background_dump_dest';
 
 
 7.数据库逻辑组织结构

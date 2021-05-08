@@ -18,12 +18,12 @@ http://www.cnblogs.com/brainy/archive/2012/08/29/2662295.html
 
 而且不能保证所有数据都能同时插入。（有可能部分插入成功，另外一部分失败，后续还得删除。太麻烦）
 
-解决方法：
+解决方法: 
 
 添加事务处理，把5000条插入作为一个事务
 
 
-我们使用SQLite的事务进行控制：
+我们使用SQLite的事务进行控制: 
 
 db.beginTransaction();  //手动设置开始事务
 
@@ -53,7 +53,7 @@ db.endTransaction(); //处理完成
 
 1.使用SQLiteDatabase的beginTransaction()方法可以开启一个事务，程序执行到endTransaction() 方法时会检查事务的标志是否为成功，如果程序执行到endTransaction()之前调用了setTransactionSuccessful() 方法设置事务的标志为成功，则所有从beginTransaction（）开始的操作都会被提交，如果没有调用setTransactionSuccessful() 方法则回滚事务。
 
-2.使用例子如下：下面两条SQL语句在同一个事务中执行。
+2.使用例子如下: 下面两条SQL语句在同一个事务中执行。
 
 Java代码
 

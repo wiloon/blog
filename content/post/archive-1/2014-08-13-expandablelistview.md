@@ -57,7 +57,7 @@ android:listSelector="#00000000" ，可以去除选中时的黄色底色
 复制代码
 
 
-java代码：
+java代码: 
 
 
 复制代码

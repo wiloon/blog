@@ -36,7 +36,7 @@ Class hierarchy
   
 另外还有一个重要的类OSThread不在这个继承关系里，它以组合的方式被Thread类所使用
 
-这些类构成了JVM的线程模型，其中最主要的是下面几个类：
+这些类构成了JVM的线程模型，其中最主要的是下面几个类: 
 
 java.lang.Thread: 这个是Java语言里的线程类，由这个Java类创建的instance都会 1:1 映射到一个操作系统的osthread
 
@@ -51,7 +51,7 @@ VMThread: JVM中C++定义的类，这个类和用户创建的线程无关，是J
   1. new java.lang.Thread().start() 
   2. 使用JNI将一个native thread attach到JVM中
 
-针对 new java.lang.Thread().start()这种方式，只有调用start()方法的时候，才会真正的在JVM中去创建线程，主要的生命周期步骤有：
+针对 new java.lang.Thread().start()这种方式，只有调用start()方法的时候，才会真正的在JVM中去创建线程，主要的生命周期步骤有: 
 
   1. 创建对应的JavaThread的instance 
   2. 创建对应的OSThread的instance
@@ -66,7 +66,7 @@ VMThread: JVM中C++定义的类，这个类和用户创建的线程无关，是J
 
   7. 释放JVM相关的thread的资源，清除对应的JavaThread和OSThread
 
-针对JNI将一个native thread attach到JVM中，主要的步骤有：
+针对JNI将一个native thread attach到JVM中，主要的步骤有: 
 
   1. 通过JNI call AttachCurrentThread申请连接到执行的JVM实例 
   2. JVM创建相应的JavaThread和OSThread对象

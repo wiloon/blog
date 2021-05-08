@@ -15,7 +15,7 @@ http://www.cnblogs.com/alipayhutu/archive/2013/04/18/3029171.html
 
 为节约键盘敲击次数，记PreparedStatement为PS， PreparedStatementCache为PSCache，并且所有的SQL使用的绑定变量。
 
-原理：
+原理: 
 
 http://www.dbafree.net/?p=287
 
@@ -24,7 +24,7 @@ http://agapple.iteye.com/blog/838286
 http://singleant.iteye.com/blog/1298837
 
 
-使用：
+使用: 
 
 1. 使用ps.
 
@@ -63,7 +63,7 @@ sql语句，被发送到DB server端，经一系列处理（语法解析、语�
 
 可以理解为一个非状态的公共方法，就可以了，多个线程直接调用，复用这个方法，不存在瓶颈。
 
-本质上来说，是oracle底层"包揽了"。底层逻辑：
+本质上来说，是oracle底层"包揽了"。底层逻辑: 
 
 1) 根据sql（String及参数类型等各种信息），计算出一个key，看它在pscache里是否存在。
   

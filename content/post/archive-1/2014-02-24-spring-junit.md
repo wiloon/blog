@@ -13,7 +13,7 @@ tags:
 ---
 **一.首先讲下注解,autowire 与 resource的区别**
   
-@Autowired是按类型装配依赖对象，默认情况下，要求依赖对象必须存在，若允许null值，可以设置它的required属性为false。如果想使用按名称装配，可以结合@Qualifier注解一起使用。如：
+@Autowired是按类型装配依赖对象，默认情况下，要求依赖对象必须存在，若允许null值，可以设置它的required属性为false。如果想使用按名称装配，可以结合@Qualifier注解一起使用。如: 
   
 @Autowired @Qualifier("xmlBean1")
   
@@ -27,7 +27,7 @@ private XMLBean xmlBean;//用于字段上
 
 **二.讲解spring测试套件的好处:**
   
-在开发基于Spring的应用时，如果你还直接使用Junit进行单元测试，那你就错过了Spring为我们所提供的饕餮大餐了。使用Junit直接进行单元测试有以下四大不足：
+在开发基于Spring的应用时，如果你还直接使用Junit进行单元测试，那你就错过了Spring为我们所提供的饕餮大餐了。使用Junit直接进行单元测试有以下四大不足: 
 
 1）导致多次Spring容器初始化问题
 

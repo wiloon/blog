@@ -16,9 +16,9 @@ Java多线程-新特征-阻塞栈LinkedBlockingDeque
 
 这里要特别说明一点的是，阻塞栈是Java6的新特征。、
 
-Java为阻塞栈定义了接口：java.util.concurrent.BlockingDeque，其实现类也比较多，具体可以查看JavaAPI文档。
+Java为阻塞栈定义了接口: java.util.concurrent.BlockingDeque，其实现类也比较多，具体可以查看JavaAPI文档。
 
-下面看一个简单例子：
+下面看一个简单例子: 
   
 package cn.thread;
 

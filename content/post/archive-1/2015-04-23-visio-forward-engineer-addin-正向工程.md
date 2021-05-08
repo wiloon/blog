@@ -33,25 +33,25 @@ http://www.it165.net/pro/html/201303/5237.html
 点选【Forward Engineer】功能区块，您会看到两个按钮，其中【Validate Data Model】是用来验证您的数据库模型是否正确无误。
 
 
-验证如果没问题您将看到如下图的画面：
+验证如果没问题您将看到如下图的画面: 
 
 
 【Forward Engineer】 则是用来产生模型的相对应的数据库对象指令码。
 
 
-在进行正向工程时必须在 Forward Engineer to SQL Server 窗口设定下列信息： www.it165.net
+在进行正向工程时必须在 Forward Engineer to SQL Server 窗口设定下列信息:  www.it165.net
 
-1. Database Name：搭配 Generate CREATE DATABAE 选项，用来让 Visio Forward Engineer Addin 帮您建立数据库，预设是以您的 VISIO 文件名称当作数据库名称。
+1. Database Name: 搭配 Generate CREATE DATABAE 选项，用来让 Visio Forward Engineer Addin 帮您建立数据库，预设是以您的 VISIO 文件名称当作数据库名称。
 
-2. Output file name：指定您的指令码的路径及文件名称。
+2. Output file name: 指定您的指令码的路径及文件名称。
 
-3. Append Code：是否将 Forward Engineer Addin 产生的指令码附加到指定的档案中。
+3. Append Code: 是否将 Forward Engineer Addin 产生的指令码附加到指定的档案中。
 
-4. Generate DROP DATABASE：选择是否产生移除数据库的指令码。
+4. Generate DROP DATABASE: 选择是否产生移除数据库的指令码。
 
-5. Generate CREATE DATABASE：选择是否产生建立数据库的指令码。
+5. Generate CREATE DATABASE: 选择是否产生建立数据库的指令码。
 
-6. Open generated script when finished：选择是否在指令码建立后开启档案。
+6. Open generated script when finished: 选择是否在指令码建立后开启档案。
 
 下图的设定为为笔者示范之用，您可以依照您的实际需求设定选项内容。
 
@@ -59,7 +59,7 @@ http://www.it165.net/pro/html/201303/5237.html
 输入相关信息后按 Ok，若您的 *.sql 指令码档案预设是以 SSMS 开启，您应该在产生指令码成功后，会直接开启 SSMS 要求输入连接到数据库的服务器名称及验证信息（如下图）。
 
 
-此时只要按下【F5】即可将 Visio 画好的数据库模型部署到您指定的 SQL Server 之中，执行完毕之后透过数据库图表来查看数据表的关联是否和数据库模型相同，结果如下：
+此时只要按下【F5】即可将 Visio 画好的数据库模型部署到您指定的 SQL Server 之中，执行完毕之后透过数据库图表来查看数据表的关联是否和数据库模型相同，结果如下: 
 
 
 【结论】

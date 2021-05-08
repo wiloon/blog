@@ -11,7 +11,7 @@ tags:
 ### Deprecated @See iproute2
 
 $ ifconfig eth1
-使用iproute2：
+使用iproute2: 
 
 同样，如果接口分配了多个IP地址，iproute2会显示出所有地址，而net-tools只能显示一个IP地址。
 
@@ -33,11 +33,11 @@ http://linux.cn/article-4326-1.html
   
 下面的命令显示出所有可用网络接口的列表（无论接口是否激活）。
 
-使用net-tools：
+使用net-tools: 
 
 $ ifconfig -a
   
-使用iproute2：
+使用iproute2: 
 
 $ ip link show
 
@@ -45,13 +45,13 @@ $ ip link show
   
 使用这些命令来激活或停用某个指定的网络接口。
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo ifconfig eth1 up
   
 $ sudo ifconfig eth1 down
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip link set down eth1
   
@@ -69,11 +69,11 @@ $ sudo ip addr add 10.0.0.3/24 broadcast 10.0.0.255 dev eth1
   
 就IP地址的移除而言，除了给接口分配全0地址外，net-tools没有提供任何合适的方法来移除网络接口的IPv4地址。相反，iproute2则能很好地完全。
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo ifconfig eth1 0
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip addr del 10.0.0.1/24 dev eth1
   
@@ -81,16 +81,16 @@ $ sudo ip addr del 10.0.0.1/24 dev eth1
   
 按照如下操作可查看某个指定网络接口的IPv4地址。
 
-使用net-tools：
+使用net-tools: 
 
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo ifconfig eth1 inet6 add 2002:0db5:0:f102::1/64
   
 $ sudo ifconfig eth1 inet6 add 2003:0db5:0:f102::1/64
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip -6 addr add 2002:0db5:0:f102::1/64 dev eth1
   
@@ -100,11 +100,11 @@ $ sudo ip -6 addr add 2003:0db5:0:f102::1/64 dev eth1
   
 按照如下操作可显示某个指定网络接口的IPv6地址。net-tools和iproute2都可以显示出所有已分配的IPv6地址。
 
-使用net-tools：
+使用net-tools: 
 
 $ ifconfig eth1
   
-使用iproute2：
+使用iproute2: 
 
 $ ip -6 addr show dev eth1
 
@@ -112,11 +112,11 @@ $ ip -6 addr show dev eth1
   
 使用这些命令可移除接口中不必要的IPv6地址。
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo ifconfig eth1 inet6 del 2002:0db5:0:f102::1/64
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip -6 addr del 2002:0db5:0:f102::1/64 dev eth1
   
@@ -124,25 +124,25 @@ $ sudo ip -6 addr del 2002:0db5:0:f102::1/64 dev eth1
   
 使用下面的命令可篡改网络接口的MAC地址，请注意在更改MAC地址前，需要停用接口。
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo ifconfig eth1 hw ether 08:00:27:75:2a:66
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip link set dev eth1 address 08:00:27:75:2a:67
   
 查看IP路由表
   
-net-tools中有两个选择来显示内核的IP路由表：route和netstat。在iproute2中，使用命令ip route。
+net-tools中有两个选择来显示内核的IP路由表: route和netstat。在iproute2中，使用命令ip route。
 
-使用net-tools：
+使用net-tools: 
 
 $ route -n
 
 $ netstat -rn
   
-使用iproute2：
+使用iproute2: 
 
 $ ip route show
 
@@ -150,7 +150,7 @@ $ ip route show
   
 这里的命令用来添加或修改内核IP路由表中的默认路由规则。请注意在net-tools中可通过添加新的默认路由、删除旧的默认路由来实现修改默认路由。在iproute2使用ip route命令来代替。
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo route add default gw 192.168.1.2 eth0
   
@@ -166,13 +166,13 @@ $ sudo ip route replace default via 192.168.1.2 dev eth0
   
 使用下面命令添加或移除一个静态路由。
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo route add -net 172.16.32.0/24 gw 192.168.1.1 dev eth0
   
 $ sudo route del -net 172.16.32.0/24
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip route add 172.16.32.0/24 via 192.168.1.1 dev eth0
   
@@ -182,13 +182,13 @@ $ sudo ip route del 172.16.32.0/24
   
 这里的命令用来查看套接字统计信息（比如活跃或监听状态的TCP/UDP套接字）。
 
-使用net-tools：
+使用net-tools: 
 
 $ netstat
   
 $ netstat -l
   
-使用iproute2：
+使用iproute2: 
 
 $ ss
   
@@ -210,13 +210,13 @@ $ ip neigh
   
 按照如下操作在本地ARP表中添加或删除一个静态ARP项。
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo arp -s 192.168.1.100 00:0c:29:c0:5a:ef
   
 $ sudo arp -d 192.168.1.100
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip neigh add 192.168.1.100 lladdr 00:0c:29:c0:5a:ef dev eth0
   
@@ -236,7 +236,7 @@ $ ipmaddr show dev eth0
   
 $ netstat -g
   
-使用iproute2：
+使用iproute2: 
 
 $ sudo ip maddr add 33:44:00:00:00:01 dev eth0
   
@@ -245,8 +245,8 @@ $ sudo ip maddr del 33:44:00:00:00:01 dev eth0
 $ ip maddr list dev eth0
 
 
-使用net-tools：
+使用net-tools: 
 
 $ sudo ifconfig eth1 10.0.0.1/24
   
-使用iproute2：
+使用iproute2: 

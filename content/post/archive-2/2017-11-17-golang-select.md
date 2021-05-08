@@ -10,7 +10,7 @@ categories:
 ---
 select 语句的行为
   
-为了便于理解，我们首先给出一个代码片段：
+为了便于理解，我们首先给出一个代码片段: 
 
 // https://talks.golang.org/2012/concurrency.slide#32
   
@@ -34,7 +34,7 @@ fmt.Printf("no one was ready to communicate\n")
   
 }
   
-上面这段代码中，select 语句有四个 case 子语句，前两个是 receive 操作，第三个是 send 操作，最后一个是默认操作。代码执行到 select 时，case 语句会按照源代码的顺序被评估，且只评估一次，评估的结果会出现下面这几种情况：
+上面这段代码中，select 语句有四个 case 子语句，前两个是 receive 操作，第三个是 send 操作，最后一个是默认操作。代码执行到 select 时，case 语句会按照源代码的顺序被评估，且只评估一次，评估的结果会出现下面这几种情况: 
 
 除 default 外，如果只有一个 case 语句评估通过，那么就执行这个case里的语句；
 
@@ -50,7 +50,7 @@ https://yanyiwu.com/work/2014/11/08/golang-select-typical-usage.html
 
 golang 的 select 的功能和 select, poll, epoll 相似， 就是监听 IO 操作，当 IO 操作发生时，触发相应的动作。
 
-示例：
+示例: 
 
 ch1 := make (chan int, 1)
   
@@ -76,7 +76,7 @@ fmt.Println("ch2 pop one element")
 
 【使用 select 实现 timeout 机制】
 
-如下：
+如下: 
 
 timeout := make (chan bool, 1)
   
@@ -104,7 +104,7 @@ fmt.Println("timeout!")
 
 下面这个更有意思一点。
 
-当 select 语句带有 default 的时候：
+当 select 语句带有 default 的时候: 
 
 ch1 := make (chan int, 1)
   
@@ -130,7 +130,7 @@ fmt.Println("default")
 
 就是因为这个 default 特性， 我们可以使用 select 语句来检测 chan 是否已经满了。
 
-如下：
+如下: 
 
 ch := make (chan int, 1)
   

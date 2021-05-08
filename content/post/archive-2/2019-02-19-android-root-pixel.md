@@ -26,7 +26,7 @@ Download the TWRP Recovery
 
 首先，前往 TWRP 官网 Devices 下载最新版 TWRP 压缩包（.zip）和临时 TWRP 镜像文件（.img）。
 
-我的Pixel对应选择从这个页面 Download TWRP for sailfish 下载的 3.2.3-1 版本：
+我的Pixel对应选择从这个页面 Download TWRP for sailfish 下载的 3.2.3-1 版本: 
 
 twrp-pixel-installer-sailfish-3.2.3-1.zip （永久twrp）
   

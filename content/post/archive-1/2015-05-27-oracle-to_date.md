@@ -21,13 +21,13 @@ select to_char(to_date('2015/1/5', 'yyyy/mm/dd'),'iw') from dual;
 
 在Oracle数据库中，Oracle to_date()函数是我们经常使用的函数，下面就为您详细介绍Oracle to_date()函数的用法，希望可以对您有所启迪。
 
-to_date()与24小时制表示法及mm分钟的显示：
+to_date()与24小时制表示法及mm分钟的显示: 
 
-一、在使用Oracle的to_date函数来做日期转换时，很多Java程序员也许会直接的采用"yyyy-MM-dd HH:mm:ss"的格式作为格式进行转换，但是在Oracle中会引起错误："ORA 01810 格式代码出现两次"。
+一、在使用Oracle的to_date函数来做日期转换时，很多Java程序员也许会直接的采用"yyyy-MM-dd HH:mm:ss"的格式作为格式进行转换，但是在Oracle中会引起错误: "ORA 01810 格式代码出现两次"。
 
 select to_date('2005-01-01 13:14:20','yyyy-MM-dd HH24:mm:ss') from dual;
   
-如：
+如: 
   
 原因是SQL中不区分大小写，MM和mm被认为是相同的格式代码，所以Oracle的SQL采用了mi代替分钟。
 

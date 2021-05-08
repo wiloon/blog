@@ -63,7 +63,7 @@ func do (m sync.Map) {
 
 它使用嵌入struct为map增加一个读写锁。
 
-读数据的时候很方便的加锁：
+读数据的时候很方便的加锁: 
 
 | --- | --- |
 | 1234 | counter.RLock()n := counter.m["some_key"]counter.RUnlock()fmt.Println("some_key:", n) |
@@ -77,7 +77,7 @@ func do (m sync.Map) {
 
 可以说，上面的解决方案相当简洁，并且利用读写锁而不是Mutex可以进一步减少读写的时候因为锁带来的性能。
 
-但是，它在一些场景下也有问题，如果熟悉Java的同学，可以对比一下java的`ConcurrentHashMap`的实现，在map的数据非常大的情况下，一把锁会导致大并发的客户端共争一把锁，Java的解决方案是`shard`, 内部使用多个锁，每个区间共享一把锁，这样减少了数据共享一把锁带来的性能影响，[orcaman](https://github.com/orcaman)提供了这个思路的一个实现： [concurrent-map](https://github.com/orcaman/concurrent-map)，他也询问了Go相关的开发人员是否在Go中也实现这种[方案](https://github.com/golang/go/issues/20360)，由于实现的复杂性，答案是`Yes, we considered it.`,但是除非有特别的性能提升和应用场景，否则没有进一步的开发消息。
+但是，它在一些场景下也有问题，如果熟悉Java的同学，可以对比一下java的`ConcurrentHashMap`的实现，在map的数据非常大的情况下，一把锁会导致大并发的客户端共争一把锁，Java的解决方案是`shard`, 内部使用多个锁，每个区间共享一把锁，这样减少了数据共享一把锁带来的性能影响，[orcaman](https://github.com/orcaman)提供了这个思路的一个实现:  [concurrent-map](https://github.com/orcaman/concurrent-map)，他也询问了Go相关的开发人员是否在Go中也实现这种[方案](https://github.com/golang/go/issues/20360)，由于实现的复杂性，答案是`Yes, we considered it.`,但是除非有特别的性能提升和应用场景，否则没有进一步的开发消息。
 
 那么，在Go 1.9中`sync.Map`是怎么实现的呢？它是如何解决并发提升性能的呢？
 
@@ -92,16 +92,16 @@ func do (m sync.Map) {
 
 下面我们介绍`sync.Map`的重点代码，以便理解它的实现思想。
 
-首先，我们看一下`sync.Map`的数据结构：
+首先，我们看一下`sync.Map`的数据结构: 
 
 | --- | --- |
 | 123456789101112131415161718 | type Map struct { // 当涉及到dirty数据的操作的时候，需要使用这个锁 mu Mutex // 一个只读的数据结构，因为只读，所以不会有读写冲突。 // 所以从这个数据中读取总是安全的。 // 实际上，实际也会更新这个数据的entries,如果entry是未删除的(unexpunged), 并不需要加锁。如果entry已经被删除了，需要加锁，以便更新dirty数据。 read atomic.Value // readOnly // dirty数据包含当前的map包含的entries,它包含最新的entries(包括read中未删除的数据,虽有冗余，但是提升dirty字段为read的时候非常快，不用一个一个的复制，而是直接将这个数据结构作为read字段的一部分),有些数据还可能没有移动到read字段中。 // 对于dirty的操作需要加锁，因为对它的操作可能会有读写竞争。 // 当dirty为空的时候， 比如初始化或者刚提升完，下一次的写操作会复制read字段中未删除的数据到这个数据中。 dirty map[interface{}]*entry // 当从Map中读取entry的时候，如果read中不包含这个entry,会尝试从dirty中读取，这个时候会将misses加一， // 当misses累积到 dirty的长度的时候， 就会将dirty提升为read,避免从dirty中miss太多次。因为操作dirty需要加锁。 misses int} |
 
-它的数据结构很简单，值包含四个字段：`read`、`mu`、`dirty`、`misses`。
+它的数据结构很简单，值包含四个字段: `read`、`mu`、`dirty`、`misses`。
 
 它使用了冗余的数据结构`read`、`dirty`。`dirty`中会包含`read`中为删除的entries，新增加的entries会加入到`dirty`中。
 
-`read`的数据结构是：
+`read`的数据结构是: 
 
 | --- | --- |
 | 1234 | type readOnly struct { m map[interface{}]*entry amended bool // 如果Map.dirty有些数据不在中的时候，这个值为true} |
@@ -117,17 +117,17 @@ func do (m sync.Map) {
 | --- | --- |
 | 123 | type entry struct { p unsafe.Pointer // *interface{}} |
 
-p有三种值：
+p有三种值: 
 
 * nil: entry已被删除了，并且m.dirty为nil
 * expunged: entry已被删除了，并且m.dirty不为nil，而且这个entry不存在于m.dirty中
-* 其它： entry是一个正常的值
+* 其它:  entry是一个正常的值
 
 以上是`sync.Map`的数据结构，下面我们重点看看`Load`、`Store`、`Delete`、`Range`这四个方法，其它辅助方法可以参考这四个方法来理解。
 
 #### Load
 
-加载方法，也就是提供一个键`key`,查找对应的值`value`,如果不存在，通过`ok`反映：
+加载方法，也就是提供一个键`key`,查找对应的值`value`,如果不存在，通过`ok`反映: 
 
 | --- | --- |
 | 123456789101112131415161718192021222324252627 | func (m *Map) Load(key interface{}) (value interface{}, ok bool) { // 1.首先从m.read中得到只读readOnly,从它的map中查找，不需要加锁 read, _ := m.read.Load().(readOnly) e, ok := read.m[key] // 2. 如果没找到，并且m.dirty中有新数据，需要从m.dirty查找，这个时候需要加锁 if !ok && read.amended { m.mu.Lock() // 双检查，避免加锁的时候m.dirty提升为m.read,这个时候m.read可能被替换了。 read, _ = m.read.Load().(readOnly) e, ok = read.m[key] // 如果m.read中还是不存在，并且m.dirty中有新数据 if !ok && read.amended { // 从m.dirty查找 e, ok = m.dirty[key] // 不管m.dirty中存不存在，都将misses计数加一 // missLocked()中满足条件后就会提升m.dirty m.missLocked() } m.mu.Unlock() } if !ok { return nil, false } return e.load()} |
@@ -172,7 +172,7 @@ p有三种值：
 
 同样，删除操作还是从`m.read`中开始， 如果这个entry不存在于`m.read`中，并且`m.dirty`中有新数据，则加锁尝试从`m.dirty`中删除。
 
-注意，还是要双检查的。 从`m.dirty`中直接删除即可，就当它没存在过，但是如果是从`m.read`中删除，并不会直接删除，而是打标记：
+注意，还是要双检查的。 从`m.dirty`中直接删除即可，就当它没存在过，但是如果是从`m.read`中删除，并不会直接删除，而是打标记: 
 
 | --- | --- |
 | 12345678910111213 | func (e *entry) delete() (hadValue bool) { for { p := atomic.LoadPointer(&e.p) // 已标记为删除 if p == nil \|\| p == expunged { return false } // 原子操作，e.p标记为nil if atomic.CompareAndSwapPointer(&e.p, p, nil) { return true } }} |
@@ -188,7 +188,7 @@ Range方法调用前可能会做一个`m.dirty`的提升，不过提升`m.dirty`
 
 ### sync.Map的性能
 
-Go 1.9源代码中提供了性能的测试： [map_bench_test.go](https://github.com/golang/go/blob/master/src/sync/map_bench_test.go)、[map_reference_test.go](https://github.com/golang/go/blob/master/src/sync/map_reference_test.go)
+Go 1.9源代码中提供了性能的测试:  [map_bench_test.go](https://github.com/golang/go/blob/master/src/sync/map_bench_test.go)、[map_reference_test.go](https://github.com/golang/go/blob/master/src/sync/map_reference_test.go)
 
 我也基于这些代码修改了一下，得到下面的测试数据，相比较以前的解决方案，性能多少回有些提升，如果你特别关注性能，可以考虑`sync.Map`。
 

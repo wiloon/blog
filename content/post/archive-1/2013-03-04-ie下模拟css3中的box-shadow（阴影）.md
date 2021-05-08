@@ -8,15 +8,15 @@ categories:
   - Web
 
 ---
-css3中的box-shadow（阴影）可以查看：http://www.css88.com/archives/2136或者http://www.css88.com/tool/css3Preview/Box-Shadow.html
+css3中的box-shadow（阴影）可以查看: http://www.css88.com/archives/2136或者http://www.css88.com/tool/css3Preview/Box-Shadow.html
   
 在ie下模拟css3中的box-shadow（阴影）可以使用ie的Shadow（阴影）滤镜
   
-基本语法：filter: progid:DXImageTransform.Microsoft.Shadow(color='颜色值', Direction=阴影角度（数值）, Strength=阴影半径（数值）);
+基本语法: filter: progid:DXImageTransform.Microsoft.Shadow(color='颜色值', Direction=阴影角度（数值）, Strength=阴影半径（数值）);
   
-注意：该滤镜必须配合background属性一起使用，否则该滤镜失效。
+注意: 该滤镜必须配合background属性一起使用，否则该滤镜失效。
   
-IE下模拟css3中的box-shadow（阴影）代码：
+IE下模拟css3中的box-shadow（阴影）代码: 
   
 .box-shadow{
   
@@ -44,4 +44,4 @@ box-shadow:2px 2px 5px #969696;/_opera或ie9_/
 
 }
   
-演示地址：http://www.css88.com/demo/box-shadow/
+演示地址: http://www.css88.com/demo/box-shadow/

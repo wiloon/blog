@@ -48,7 +48,7 @@ CLH锁
 
 <iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=10307&embed=true#?secret=qftAW3eZtB" data-secret="qftAW3eZtB" width="600" height="338" title=""CLH" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
-差异：
+差异: 
 
 从代码实现来看，CLH比MCS要简单得多。
   
@@ -58,7 +58,7 @@ CLH锁
   
 CLH锁释放时只需要改变自己的属性，MCS锁释放则需要改变后继节点的属性。
   
-注意：这里实现的锁都是独占的，且不能重入的。
+注意: 这里实现的锁都是独占的，且不能重入的。
 
 <blockquote data-secret="S6ykvE6LpW" class="wp-embedded-content">
   

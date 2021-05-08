@@ -28,4 +28,4 @@ IEEE 802.11ac，是一个802.11无线局域网（WLAN）通信标准，它通过
 
 
 
-802.11ac是802.11n的继承者。它采用并扩展了源自802.11n的空中接口（air interface）概念，包括：更宽的RF带宽（提升至160MHz），更多的MIMO空间流（spaTIal streams）（增加到 8），多用户的 MIMO，以及更高阶的调制（modulaTIon）（达到 256QAM）。
+802.11ac是802.11n的继承者。它采用并扩展了源自802.11n的空中接口（air interface）概念，包括: 更宽的RF带宽（提升至160MHz），更多的MIMO空间流（spaTIal streams）（增加到 8），多用户的 MIMO，以及更高阶的调制（modulaTIon）（达到 256QAM）。

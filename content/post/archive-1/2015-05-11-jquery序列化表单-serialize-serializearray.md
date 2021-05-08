@@ -12,17 +12,17 @@ tags:
 ---
 1、serialize()方法
 
-描述：序列化表单内容为字符串,用于Ajax请求。
+描述: 序列化表单内容为字符串,用于Ajax请求。
 
-格式：var data = $("form").serialize();
+格式: var data = $("form").serialize();
 
 2.serializeArray()方法
 
-描述：序列化表单元素(类似'.serialize()'方法)返回JSON数据结构数据。
+描述: 序列化表单元素(类似'.serialize()'方法)返回JSON数据结构数据。
 
 注意,此方法返回的是JSON对象而非JSON字符串。需要使用插件或者<a>第三方库</a>进行字符串化操作。
 
-格式：var jsonData = $("form").serializeArray();
+格式: var jsonData = $("form").serializeArray();
 
 在使用ajax提交表单数据时,以上两种方法都可以将data参数设置为$("form").serialize()或$("form").serializeArray()。
   

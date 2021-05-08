@@ -16,7 +16,7 @@ john_yang ·2014-03-06 17:10
   
 在 JAVA 语言中有8中基本类型和一种比较特殊的类型String。这些类型为了使他们在运行过程中速度更快，更节省内存，都提供了一种常量池的概念。常量池就类似一个JAVA系统级别提供的缓存。
 
-8种基本类型的常量池都是系统协调的，String类型的常量池比较特殊。它的主要使用方法有两种：
+8种基本类型的常量池都是系统协调的，String类型的常量池比较特殊。它的主要使用方法有两种: 
 
 直接使用双引号声明出来的String对象会直接存储在常量池中。
   
@@ -182,7 +182,7 @@ JAVA 使用 jni 调用c++实现的StringTable的intern方法, StringTable的inte
 
 要注意的是，String的String Pool是一个固定大小的Hashtable，默认值大小长度是1009，如果放进String Pool的String非常多，就会造成Hash冲突严重，从而导致链表会很长，而链表长了后直接会造成的影响就是当调用String.intern时性能会大幅下降（因为要一个一个找）。
 
-在 jdk6中StringTable是固定的，就是1009的长度，所以如果常量池中的字符串过多就会导致效率下降很快。在jdk7中，StringTable的长度可以通过一个参数指定：
+在 jdk6中StringTable是固定的，就是1009的长度，所以如果常量池中的字符串过多就会导致效率下降很快。在jdk7中，StringTable的长度可以通过一个参数指定: 
 
 -XX:StringTableSize=99991
   
@@ -190,7 +190,7 @@ JAVA 使用 jni 调用c++实现的StringTable的intern方法, StringTable的inte
   
 相信很多 JAVA 程序员都做做类似 String s = new String("abc")这个语句创建了几个对象的题目。 这种题目主要就是为了考察程序员对字符串对象的常量池掌握与否。上述的语句中是创建了2个对象，第一个对象是"abc"字符串存储在常量池中，第二个对象在JAVA Heap中的 String 对象。
 
-来看一段代码：
+来看一段代码: 
 
 public static void main(String[] args) {
       
@@ -236,7 +236,7 @@ System.out.println(s == s2);
 
 }
   
-打印结果为：
+打印结果为: 
 
 jdk6 下false false
   
@@ -246,7 +246,7 @@ jdk7 下false false
 
 jdk6图
 
-注：图中绿色线条代表 string 对象的内容指向。 黑色线条代表地址指向。
+注: 图中绿色线条代表 string 对象的内容指向。 黑色线条代表地址指向。
 
 如上图所示。首先说一下 jdk6中的情况，在 jdk6中上述的所有打印都是 false 的，因为 jdk6中的常量池是放在 Perm 区中的，Perm 区和正常的 JAVA Heap 区域是完全分开的。上面说过如果是使用引号声明的字符串都是会直接在字符串常量池中生成，而 new 出来的 String 对象是放在 JAVA Heap 区域。所以拿一个 JAVA Heap 区域的对象地址和字符串常量池的对象地址进行比较肯定是不相同的，即使调用String.intern方法也是没有任何关系的。
 
@@ -276,7 +276,7 @@ jdk7图2
   
 ####小结
   
-从上述的例子代码可以看出 jdk7 版本对 intern 操作和常量池都做了一定的修改。主要包括2点：
+从上述的例子代码可以看出 jdk7 版本对 intern 操作和常量池都做了一定的修改。主要包括2点: 
 
 将String常量池 从 Perm 区移动到了 Java Heap区
   
@@ -288,7 +288,7 @@ String#intern 方法时，如果存在堆中的对象，会直接保存对象的
   
 接下来我们来看一下一个比较常见的使用String#intern方法的例子。
 
-代码如下：
+代码如下: 
 
 static final int MAX = 1000 * 10000;
   
@@ -322,7 +322,7 @@ arr[i] = new String(String.valueOf(DB_DATA[i % DB_DATA.length])).intern();
 
 }
   
-运行的参数是：-Xmx2g -Xms2g -Xmn1500M 上述代码是一个演示代码，其中有两条语句不一样，一条是使用 intern，一条是未使用 intern。结果如下图
+运行的参数是: -Xmx2g -Xms2g -Xmn1500M 上述代码是一个演示代码，其中有两条语句不一样，一条是使用 intern，一条是未使用 intern。结果如下图
 
 2160ms
   
@@ -464,7 +464,7 @@ return (new Exception()).getStackTrace();
 
 private native static StackTraceElement[][] dumpThreads(Thread[] threads);
   
-下载 openJdk7的源码查询 jdk 的 native 实现代码，列表如下【这里因为篇幅问题，不详细罗列涉及到的代码，有兴趣的可以根据文件名称和行号查找相关代码】：
+下载 openJdk7的源码查询 jdk 的 native 实现代码，列表如下【这里因为篇幅问题，不详细罗列涉及到的代码，有兴趣的可以根据文件名称和行号查找相关代码】: 
 
 \openjdk7\jdk\src\share\native\java\lang\Thread.c
   
@@ -550,7 +550,7 @@ return new String(buffer, offset, len);
   
 本文大体的描述了 String#intern和字符串常量池的日常使用，jdk 版本的变化和String#intern方法的区别，以及不恰当使用导致的危险等内容，让大家对系统级别的 String#intern有一个比较深入的认识。让我们在使用和接触它的时候能避免出现一些 bug，增强系统的健壮性。
 
-引用：
+引用: 
   
 以下是几个比较关键的几篇博文。感谢！
 

@@ -46,41 +46,41 @@ ALTER TABLE testalter_tbl DROP INDEX c;
 
 SHOW INDEX FROM table_name;
   
-Table：表的名称
+Table: 表的名称
   
-Non_unique：如果索引不能包括重复词，则为0。如果可以，则为1
+Non_unique: 如果索引不能包括重复词，则为0。如果可以，则为1
   
-Key_name：索引的名称
+Key_name: 索引的名称
   
-Seq_in_index：索引中的列序列号，从1开始
+Seq_in_index: 索引中的列序列号，从1开始
   
-Column_name：列名称
+Column_name: 列名称
   
-Collation：列以什么方式存储在索引中。在MySQL中，有值'A'（升序）或NULL（无分类）。
+Collation: 列以什么方式存储在索引中。在MySQL中，有值'A'（升序）或NULL（无分类）。
   
-Cardinality：索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没有必要是精确的。基数越大，当进行联合时，MySQL使用该索引的机会就越大。
+Cardinality: 索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没有必要是精确的。基数越大，当进行联合时，MySQL使用该索引的机会就越大。
   
-Sub_part：如果列只是被部分地编入索引，则为被编入索引的字符的数目。如果整列被编入索引，则为NULL。
+Sub_part: 如果列只是被部分地编入索引，则为被编入索引的字符的数目。如果整列被编入索引，则为NULL。
   
-Packed：指示关键字如何被压缩。如果没有被压缩，则为NULL。
+Packed: 指示关键字如何被压缩。如果没有被压缩，则为NULL。
   
-Null：如果列含有NULL，则含有YES。如果没有，则该列含有NO。
+Null: 如果列含有NULL，则含有YES。如果没有，则该列含有NO。
   
-Index_type：用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）。
+Index_type: 用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）。
   
-Comment：更多评注。
+Comment: 更多评注。
 
 索引的存储分类
   
 索引是在MYSQL的存储引擎层中实现的，而不是在服务层实现的。所以每种存储引擎的索引都不一定完全相同，也不是所有的存储引擎都支持所有的索引类型。MYSQL目前提供了一下4种索引。
 
-B-Tree 索引：最常见的索引类型，大部分引擎都支持B树索引。
+B-Tree 索引: 最常见的索引类型，大部分引擎都支持B树索引。
   
-HASH 索引：只有Memory引擎支持，使用场景简单。
+HASH 索引: 只有Memory引擎支持，使用场景简单。
   
-R-Tree 索引(空间索引)：空间索引是MyISAM的一种特殊索引类型，主要用于地理空间数据类型。
+R-Tree 索引(空间索引): 空间索引是MyISAM的一种特殊索引类型，主要用于地理空间数据类型。
   
-Full-text (全文索引)：全文索引也是MyISAM的一种特殊索引类型，主要用于全文索引，InnoDB从MYSQL5.6版本提供对全文索引的支持。
+Full-text (全文索引): 全文索引也是MyISAM的一种特殊索引类型，主要用于全文索引，InnoDB从MYSQL5.6版本提供对全文索引的支持。
 
 一般的应用系统，读写比例在10:1左右，而且插入操作和一般的更新操作很少出现性能问题，遇到最多的，也是最容易出问题的，还是一些复杂的查询操作，所以查询语句的优化显然是重中之重。
 
@@ -108,7 +108,7 @@ Full-text (全文索引)：全文索引也是MyISAM的一种特殊索引类型�
 
 索引是快速搜索的关键。MySQL索引的建立对于MySQL的高效运行是很重要的。下面介绍几种常见的MySQL索引类型。
 
-在数据库表中，对字段建立索引可以大大提高查询速度。假如我们创建了一个 mytable表：
+在数据库表中，对字段建立索引可以大大提高查询速度。假如我们创建了一个 mytable表: 
 
 CREATE TABLE mytable(
   
@@ -118,17 +118,17 @@ username VARCHAR(16) NOT NULL
   
 );
 
-我们随机向里面插入了10000条记录，其中有一条：5555, admin。
+我们随机向里面插入了10000条记录，其中有一条: 5555, admin。
 
 在查找username="admin"的记录 SELECT * FROM mytable WHERE username='admin';时，如果在username上已经建立了索引，MySQL无须任何扫描，即准确可找到该记录。相反，MySQL会扫描所有记录，即要查询10000条记录。
 
 索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索引包含多个列。
 
-MySQL索引类型包括：
+MySQL索引类型包括: 
   
 （1）普通索引
   
-这是最基本的索引，它没有任何限制。它有以下几种创建方式：
+这是最基本的索引，它没有任何限制。它有以下几种创建方式: 
   
 ◆创建索引
   
@@ -152,13 +152,13 @@ INDEX [indexName] (username(length))
   
 );
 
-删除索引的语法：
+删除索引的语法: 
   
 DROP INDEX [indexName] ON mytable;
 
 （2）唯一索引
   
-它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：
+它与前面的普通索引类似，不同的就是: 索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式: 
   
 ◆创建索引
   
@@ -182,7 +182,7 @@ UNIQUE [indexName] (username(length))
 
 （3）主键索引
   
-它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引：
+它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引: 
 
 CREATE TABLE mytable(
   
@@ -194,11 +194,11 @@ PRIMARY KEY(ID)
   
 );
 
-当然也可以用 ALTER 命令。记住：一个表只能有一个主键。
+当然也可以用 ALTER 命令。记住: 一个表只能有一个主键。
 
 （4）组合索引
   
-为了形象地对比单列索引和组合索引，为表添加多个字段：
+为了形象地对比单列索引和组合索引，为表添加多个字段: 
 
 CREATE TABLE mytable(
   
@@ -212,7 +212,7 @@ age INT NOT NULL
   
 );
 
-为了进一步榨取MySQL的效率，就要考虑建立组合索引。就是将 name, city, age建到一个索引里：
+为了进一步榨取MySQL的效率，就要考虑建立组合索引。就是将 name, city, age建到一个索引里: 
   
 ALTER TABLE mytable ADD INDEX name_city_age (name(10),city,age);
 
@@ -220,7 +220,7 @@ ALTER TABLE mytable ADD INDEX name_city_age (name(10),city,age);
 
 如果分别在 usernname，city，age上建立单列索引，让该表有3个单列索引，查询时和上述的组合索引效率也会大不一样，远远低于我们的组合索引。虽然此时有了三个索引，但MySQL只能用到其中的那个它认为似乎是最有效率的单列索引。
 
-建立这样的组合索引，其实是相当于分别建立了下面三组组合索引：
+建立这样的组合索引，其实是相当于分别建立了下面三组组合索引: 
   
 usernname,city,age
   
@@ -228,13 +228,13 @@ usernname,city
   
 usernname
 
-为什么没有 city，age这样的组合索引呢？这是因为MySQL组合索引"最左前缀"的结果。简单的理解就是只从最左面的开始组合。并不是只要包含这三列的查询都会用到该组合索引，下面的几个SQL就会用到这个组合索引：
+为什么没有 city，age这样的组合索引呢？这是因为MySQL组合索引"最左前缀"的结果。简单的理解就是只从最左面的开始组合。并不是只要包含这三列的查询都会用到该组合索引，下面的几个SQL就会用到这个组合索引: 
   
 SELECT * FROM mytable WHREE username="admin" AND city="郑州"
   
 SELECT * FROM mytable WHREE username="admin"
 
-而下面几个则不会用到：
+而下面几个则不会用到: 
   
 SELECT * FROM mytable WHREE age=20 AND city="郑州"
   
@@ -242,7 +242,7 @@ SELECT * FROM mytable WHREE city="郑州"
 
 （5）建立索引的时机
   
-到这里我们已经学会了建立索引，那么我们需要在什么情况下建立索引呢？一般来说，在WHERE和JOIN中出现的列需要建立索引，但也不完全如此，因为MySQL只对<，<=，=，>，>=，BETWEEN，IN，以及某些时候的LIKE才会使用索引。例如：
+到这里我们已经学会了建立索引，那么我们需要在什么情况下建立索引呢？一般来说，在WHERE和JOIN中出现的列需要建立索引，但也不完全如此，因为MySQL只对<，<=，=，>，>=，BETWEEN，IN，以及某些时候的LIKE才会使用索引。例如: 
 
 SELECT t.Name
   
@@ -252,11 +252,11 @@ ON t.Name=m.username WHERE m.age=20 AND m.city='郑州'
 
 此时就需要对city和age建立索引，由于mytable表的userame也出现在了JOIN子句中，也有对它建立索引的必要。
   
-刚才提到只有某些时候的LIKE才需建立索引。因为在以通配符%和_开头作查询时，MySQL不会使用索引。例如下句会使用索引：
+刚才提到只有某些时候的LIKE才需建立索引。因为在以通配符%和_开头作查询时，MySQL不会使用索引。例如下句会使用索引: 
   
 SELECT * FROM mytable WHERE username like'admin%'
 
-而下句就不会使用：
+而下句就不会使用: 
   
 SELECT * FROM mytable WHEREt Name like'%admin'
   
@@ -264,7 +264,7 @@ SELECT * FROM mytable WHEREt Name like'%admin'
 
 （6）索引的不足之处
   
-上面都在说使用索引的好处，但过多的使用索引将会造成滥用。因此索引也会有它的缺点：
+上面都在说使用索引的好处，但过多的使用索引将会造成滥用。因此索引也会有它的缺点: 
   
 ◆虽然索引大大提高了查询速度，同时却会降低更新表的速度，如对表进行INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件。
   
@@ -274,7 +274,7 @@ SELECT * FROM mytable WHEREt Name like'%admin'
 
 （7）使用索引的注意事项
   
-使用索引时，有以下一些技巧和注意事项：
+使用索引时，有以下一些技巧和注意事项: 
   
 ◆索引不会包含有NULL值的列
   

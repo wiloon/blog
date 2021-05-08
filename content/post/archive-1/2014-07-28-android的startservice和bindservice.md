@@ -14,31 +14,31 @@ http://www.cnblogs.com/yejiurui/p/3429451.html
 
 一、首先，让我们确认下什么是service？
   
-service就是android系统中的服务，它有这么几个特点：它无法与用户直接进行交互、它必须由用户或者其他程序显式的启动、它的优先级比较高，它比处于前台的应用优先级低，但是比后台的其他应用优先级高，这就决定了当系统因为缺少内存而销毁某些没被利用的资源时，它被销毁的概率很小哦。
+service就是android系统中的服务，它有这么几个特点: 它无法与用户直接进行交互、它必须由用户或者其他程序显式的启动、它的优先级比较高，它比处于前台的应用优先级低，但是比后台的其他应用优先级高，这就决定了当系统因为缺少内存而销毁某些没被利用的资源时，它被销毁的概率很小哦。
   
 二、那么，什么时候，我们需要使用service呢？
   
 我们知道，service是运行在后台的应用，对于用户来说失去了被关注的焦点。这就跟我们打开了音乐播放之后，便想去看看图片，这时候我们还不想音乐停止，这里就会用到service；又例如，我们打开了一个下载链接之后，我们肯定不想瞪着眼睛等他下载完再去做别的事情，对吧？这时候如果我们想手机一边在后台下载，一边可以让我去看看新闻啥的，就要用到service。
   
-三、service分类：
+三、service分类: 
   
 一般我们认为service分为两类，本地service和远程service。
   
 本地service顾名思义，那就是和当前应用在同一个进程中的service，彼此之间拥有共同的内存区域，所以对于某些数据的共享特别的方便和简单；
   
-远程service：主要牵扯到不同进程间的service访问。因为android的系统安全的原因导致了我们在不同的进程间无法使用一般的方式共享数据。在这里android为我们提供了一个AIDL工具。（android interface description language）android接口描述语言。在后边我们将会对其进行详细的介绍。
+远程service: 主要牵扯到不同进程间的service访问。因为android的系统安全的原因导致了我们在不同的进程间无法使用一般的方式共享数据。在这里android为我们提供了一个AIDL工具。（android interface description language）android接口描述语言。在后边我们将会对其进行详细的介绍。
   
-四、service生命周期：
+四、service生命周期: 
   
 和Activity相比，service的生命周期已经简单的不能再简单了，只有onCreate()->onStart()->onDestroy()三个方法。
   
-Activity中和service有关的方法：
+Activity中和service有关的方法: 
   
-startService(Intent intent)：启动一个service
+startService(Intent intent): 启动一个service
   
 stopService(Intent intent) :停止一个service
   
-如果我们想使用service中的一些数据或者访问其中的一些方法，那么我们就要通过下面的方法：
+如果我们想使用service中的一些数据或者访问其中的一些方法，那么我们就要通过下面的方法: 
   
 public boolean bindService(Intent intent, ServiceConnection conn, int flags) ；
   
@@ -49,13 +49,13 @@ intent是跳转到service的intent，如 Intent intent = new Intent(); intent.se
 conn则是一个代表与service连接状态的类，当我们连接service成功或失败时，会主动触发其内部的onServiceConnected或onServiceDisconnected方法。如果我们想要访问service中的数据，可以在onServiceConnected()方法中进行实现，
 
 
-使用service的步骤：
+使用service的步骤: 
   
-第一步：我们要继承service类，实现自己的service。
+第一步: 我们要继承service类，实现自己的service。
   
 如果想要访问service中的某些值，我们通常会提供一个继承了Binder的内部类，通过onBund()方法返回给service请求。这里实际上巧妙的利用了内部类能够访问外部类属性的特点。
   
-第二步：在androidManifest.xml中进行注册，如：
+第二步: 在androidManifest.xml中进行注册，如: 
   
 <!- service配置开始 ->
   
@@ -63,7 +63,7 @@ conn则是一个代表与service连接状态的类，当我们连接service成�
   
 <!- service配置结束->
   
-第三步：在activity中进行启动、绑定、解绑或者停止service。
+第三步: 在activity中进行启动、绑定、解绑或者停止service。
   
 （很多书上说，service与用户是不能交互的，其实这话很不正确，我们完全可以通过activity与service进行交互！我认为，确切的说法应该是service与用户不能进行直接的交互）。
 
@@ -79,7 +79,7 @@ service通过Context.startService()方法开始，通过Context.stopService()方
 
 客户端建立一个与Service的连接，并使用此连接与Service进行通话，通过Context.bindService()方法来绑定服务，Context.unbindService()方法来关闭服务。多个客户端可以绑定同一个服务，如果Service还未被启动，bindService()方法可以启动服务。
 
-上面startService()和bindService()两种模式是完全独立的。你可以绑定一个已经通过startService()方法启动的服务。例如：一个后台播放音乐服务可以通过startService(intend)对象来播放音乐。可能用户在播放过程中要执行一些操作比如获取歌曲的一些信息，此时activity可以通过调用bindServices()方法与Service建立连接。这种情况下，stopServices()方法实际上不会停止服务，直到最后一次绑定关闭。
+上面startService()和bindService()两种模式是完全独立的。你可以绑定一个已经通过startService()方法启动的服务。例如: 一个后台播放音乐服务可以通过startService(intend)对象来播放音乐。可能用户在播放过程中要执行一些操作比如获取歌曲的一些信息，此时activity可以通过调用bindServices()方法与Service建立连接。这种情况下，stopServices()方法实际上不会停止服务，直到最后一次绑定关闭。
 
 如果没有程序停止它或者它自己停止，service将一直运行。在这种模式下，service开始于调用Context.startService() ，停止于Context.stopService(). service可以通过调用Android Service 生命周期() 或 Service.stopSelfResult()停止自己。不管调用多少次startService() ，只需要调用一次 stopService() 就可以停止service。
 
@@ -93,7 +93,7 @@ context.bindService() ——> onCreate() ——> onBind() ——> Service runnin
 
 onBind()将返回给客户端一个IBind接口实例，IBind允许客户端回调服务的方法，比如得到Service的实例、运行状态或其他操作。这个时候把调用者（Context，例如Activity）会和Service绑定在一起，Context退出了，Srevice就会调用onUnbind->onDestroy相应退出。
 
-所以调用bindService的生命周期为：onCreate -> onBind(只一次，不可多次绑定) -> onUnbind -> onDestory。
+所以调用bindService的生命周期为: onCreate -> onBind(只一次，不可多次绑定) -> onUnbind -> onDestory。
 
 在Service每一次的开启关闭过程中，只有onStart可被多次调用(通过多次startService调用)，其他onCreate，onBind，onUnbind，onDestory在一个生命周期中只能被调用一次。
 
@@ -107,7 +107,7 @@ void onStart(Intent intent)
 
 void onDestroy()
 
-通过实现这三个生命周期方法，你可以监听service的两个嵌套循环的生命周期：
+通过实现这三个生命周期方法，你可以监听service的两个嵌套循环的生命周期: 
 
 1、整个生命周期
 
@@ -115,12 +115,12 @@ service的整个生命周期是在onCreate()和onDestroy()方法之间。和acti
 
 2、活动的生命周期
 
-service的活动生命周期是在onStart()之后，这个方法会处理通过startServices()方法传递来的Intent对象。音乐service可以通过开打intent对象来找到要播放的音乐，然后开始后台播放。注： service停止时没有相应的回调方法，即没有onStop()方法，只有onDestroy()销毁方法。
+service的活动生命周期是在onStart()之后，这个方法会处理通过startServices()方法传递来的Intent对象。音乐service可以通过开打intent对象来找到要播放的音乐，然后开始后台播放。注:  service停止时没有相应的回调方法，即没有onStop()方法，只有onDestroy()销毁方法。
 
 onCreate()方法和onDestroy()方法是针对所有的services，无论它们是否启动，通过Context.startService()和Context.bindService()方法都可以访问执行。然而，只有通过startService()方法启动service服务时才会调用onStart()方法。
 
 
-如果一个service允许别人绑定，那么需要实现以下额外的方法：
+如果一个service允许别人绑定，那么需要实现以下额外的方法: 
 
 IBinder onBind(Intent intent)
 
@@ -134,7 +134,7 @@ onUnbind()会处理传递给unbindService()的intent对象。如果service允许
 
 如果建立了一个新的客户端与服务的连接，onUnbind()方法可以请求调用onRebind()方法。
 
-记住： 任何服务无论它怎样建立，默认客户端都可以连接，所以任何service都能够接收onBind()和onUnbind()方法
+记住:  任何服务无论它怎样建立，默认客户端都可以连接，所以任何service都能够接收onBind()和onUnbind()方法
 
 四、bindService和startservice示例
 
@@ -446,7 +446,7 @@ Log.v("MainStadyServics", "out");
   
 复制代码
   
-注意：这个地方有朋友可能会出现onServiceConnected不调用的情况。
+注意: 这个地方有朋友可能会出现onServiceConnected不调用的情况。
 
 这个问题当调用bindService方法后就会回调Activity的onServiceConnected，在这个方法中会向Activity中传递一个IBinder的实例，Acitity需要保存这个实例
 
@@ -454,7 +454,7 @@ Log.v("MainStadyServics", "out");
 
 在OnBind（）方法中需返回一个IBinder实例，不然onServiceConnected方法不会调用。
 
-不过，我在这里传递null也能够调用，大家根据情况进行判定吧，如果是返回一个ibinder实例的话，示例代码如下：
+不过，我在这里传递null也能够调用，大家根据情况进行判定吧，如果是返回一个ibinder实例的话，示例代码如下: 
 
 复制代码
   
@@ -477,7 +477,7 @@ return result;
 复制代码
 
 
-至于startservice和bindservice的使用场景，有网友这么说：
+至于startservice和bindservice的使用场景，有网友这么说: 
 
 1.通过startservice开启的服务.一旦服务开启, 这个服务和开启他的调用者之间就没有任何的关系了.
   
@@ -488,8 +488,8 @@ return result;
 一旦调用者挂掉了.service也会跟着挂掉 .
 
 
-示例下载地址：http://pan.baidu.com/share/link?shareid=1614272126&uk=1428765741
+示例下载地址: http://pan.baidu.com/share/link?shareid=1614272126&uk=1428765741
 
-还有一个多样化的demo学习地址：http://pan.baidu.com/share/link?shareid=1616100229&uk=1428765741
+还有一个多样化的demo学习地址: http://pan.baidu.com/share/link?shareid=1616100229&uk=1428765741
 
 http://liangruijun.blog.51cto.com/3061169/647804

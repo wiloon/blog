@@ -16,7 +16,7 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
 
 2.解析
   
-查看java.lang.System的源代码，我们可以找到System.exit(status)这个方法的说明，代码如下：
+查看java.lang.System的源代码，我们可以找到System.exit(status)这个方法的说明，代码如下: 
   
 /**
   
@@ -70,7 +70,7 @@ System.exit(0)是将你的整个虚拟机里的内容都停掉了 ，而dispose(
   
 System.exit(0)是正常退出程序，而System.exit(1)或者说非0表示非正常退出程序
   
-System.exit(status)不管status为何值都会退出程序。和return 相比有以下不同点：return是回到上一层，而System.exit(status)是回到最上层
+System.exit(status)不管status为何值都会退出程序。和return 相比有以下不同点: return是回到上一层，而System.exit(status)是回到最上层
   
 3.示例
   

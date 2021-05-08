@@ -14,7 +14,7 @@ RHEL/CentOS/Fedora各种源(EPEL、Remi、RPMForge、RPMFusion)配置
 
 CentOS默认自带CentOS-Base.repo源，但官方源中去除了很多有版权争议的软件，而且安装的软件也不是最新的稳定版。Fedora自带的源中也找不到很多多媒体软件，如果需要安装，必需先添加其他源，如RPMFusion和RPMForge等第三方软件库。
 
-下面GoFace来一一介绍各种第三方软件库，以下软件库适用于与RHEL完全兼容的linux发行版，如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生，它与CentOS类似，是RedHat Linux的克隆版，GoFace之前有过介绍：http://blog.51osos.com/linux/scientific-linux/ 。
+下面GoFace来一一介绍各种第三方软件库，以下软件库适用于与RHEL完全兼容的linux发行版，如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生，它与CentOS类似，是RedHat Linux的克隆版，GoFace之前有过介绍: http://blog.51osos.com/linux/scientific-linux/ 。
 
 EPEL源
   
@@ -24,9 +24,9 @@ EPEL,即Extra Packages for Enterprise Linux,是由 Fedora 社区创建维护，�
 
 wiki:http://fedoraproject.org/wiki/EPEL
 
-Fedora EPEL 下载：http://mirrors.fedoraproject.org/publiclist/EPEL/
+Fedora EPEL 下载: http://mirrors.fedoraproject.org/publiclist/EPEL/
 
-EPEL 下载地址：http://download.fedora.redhat.com/pub/epel/
+EPEL 下载地址: http://download.fedora.redhat.com/pub/epel/
 
 请针对不同的版本下载相应的包。
 
@@ -42,7 +42,7 @@ Remi源
   
 Remi源大家或许很少听说，不过Remi源GoFace强烈推荐，尤其对于不想编译最新版的linux使用者，因为Remi源中的软件几乎都是最新稳定版。或许您会怀疑稳定不？放心吧，这些都是Linux骨灰级的玩家编译好放进源里的，他们对于系统环境和软件编译参数的熟悉程度毋庸置疑。
 
-Remi下载地址：http://rpms.famillecollet.com/
+Remi下载地址: http://rpms.famillecollet.com/
 
 您也需要针对不同的版本号下载。
 
@@ -58,13 +58,13 @@ RPMForge源
 
 RPMForge是CentOS系统下的软件仓库，拥有4000多种的软件包，被CentOS社区认为是最安全也是最稳定的一个软件仓库。
 
-RPMForge官方网站：http://repoforge.org/
+RPMForge官方网站: http://repoforge.org/
 
-RPMForge下载地址：
+RPMForge下载地址: 
 
-32位：http://apt.sw.be/redhat/el6/en/i386/rpmforge/RPMS/
+32位: http://apt.sw.be/redhat/el6/en/i386/rpmforge/RPMS/
 
-64位：http://apt.sw.be/redhat/el6/en/x86_64/rpmforge/RPMS/
+64位: http://apt.sw.be/redhat/el6/en/x86_64/rpmforge/RPMS/
 
 例如CentOS6.5添加官方的RPMForge源
 
@@ -80,7 +80,7 @@ RPMFusion源
 
 CentOS官方说RPMFusion软件库里面的软件稳定性不如rpmforge。
 
-RPMFusion官网：http://rpmfusion.org/
+RPMFusion官网: http://rpmfusion.org/
 
 例如CentOS6.5添加阿里云的RPMFusion源
 
@@ -94,11 +94,11 @@ yum localinstall -nogpgcheck http://download1.rpmfusion.org/free/el/updates/6/i3
   
 yum localinstall -nogpgcheck http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
   
-注意：在安装RPMFusion源之前需要先安装 epel-release
+注意: 在安装RPMFusion源之前需要先安装 epel-release
 
 yum localinstall http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
   
-其他版本请详见：http://rpmfusion.org/Configuration
+其他版本请详见: http://rpmfusion.org/Configuration
 
 如何使用各种源
   
@@ -110,7 +110,7 @@ priority=N （N为1到99的正整数，数值越小越优先）
   
 [CentOSplus],[contrib] … priority=2
   
-其他第三的软件源为：priority=N （推荐N>10）
+其他第三的软件源为: priority=N （推荐N>10）
 
 #vi CentOS-Base.repo
 

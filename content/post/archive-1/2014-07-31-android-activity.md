@@ -19,7 +19,7 @@ Android中，Activity是所有程序的根本，所有程序的流程都运行�
 
 activity_lifecycle
 
-Activity中常用的函数有SetContentView() findViewById() finish() startActivity()，其生命周期涉及的函数有：
+Activity中常用的函数有SetContentView() findViewById() finish() startActivity()，其生命周期涉及的函数有: 
 
 void onCreate(Bundle savedInstanceState)
   
@@ -39,7 +39,7 @@ void onDestroy()
 
 Intent
 
-Android中提供了Intent机制来协助应用间的交互与通讯，Intent负责对应用中一次操作的动作、动作涉及数据、附加数据进行描述，Android则根据此Intent的描述，负责找到对应的组件，将 Intent传递给调用的组件，并完成组件的调用。Intent不仅可用于应用程序之间，也可用于应用程序内部的Activity/Service之间的交互。因此，Intent在这里起着一个媒体中介的作用，专门提供组件互相调用的相关信息，实现调用者与被调用者之间的解耦。在SDK中给出了Intent作用的表现形式为：
+Android中提供了Intent机制来协助应用间的交互与通讯，Intent负责对应用中一次操作的动作、动作涉及数据、附加数据进行描述，Android则根据此Intent的描述，负责找到对应的组件，将 Intent传递给调用的组件，并完成组件的调用。Intent不仅可用于应用程序之间，也可用于应用程序内部的Activity/Service之间的交互。因此，Intent在这里起着一个媒体中介的作用，专门提供组件互相调用的相关信息，实现调用者与被调用者之间的解耦。在SDK中给出了Intent作用的表现形式为: 
 
 通过Context.startActivity() orActivity.startActivityForResult() 启动一个Activity；
   
@@ -47,7 +47,7 @@ Android中提供了Intent机制来协助应用间的交互与通讯，Intent负�
   
 通过广播方法(比如 Context.sendBroadcast(),Context.sendOrderedBroadcast(), Context.sendStickyBroadcast()) 发给broadcast receivers。
   
-Intent属性的设置，包括以下几点：（以下为XML中定义，当然也可以通过Intent类的方法来获取和设置）
+Intent属性的设置，包括以下几点: （以下为XML中定义，当然也可以通过Intent类的方法来获取和设置）
 
 （1）Action，也就是要执行的动作
 
@@ -75,7 +75,7 @@ ACTION_TIMEZONE_CHANGED broadcast receiver The setting for the time zone has cha
 
 （2）Data，也就是执行动作要操作的数据
 
-Android中采用指向数据的一个URI来表示，如在联系人应用中，一个指向某联系人的URI可能为：content://contacts/1。对于不同的动作，其URI数据的类型是不同的（可以设置type属性指定特定类型数据），如ACTION_EDIT指定Data为文件URI，打电话为tel:URI，访问网络为http:URI，而由content provider提供的数据则为content: URIs。
+Android中采用指向数据的一个URI来表示，如在联系人应用中，一个指向某联系人的URI可能为: content://contacts/1。对于不同的动作，其URI数据的类型是不同的（可以设置type属性指定特定类型数据），如ACTION_EDIT指定Data为文件URI，打电话为tel:URI，访问网络为http:URI，而由content provider提供的数据则为content: URIs。
 
 （3）type（数据类型），显式指定Intent的数据类型（MIME）。一般Intent的数据类型能够根据数据本身进行判定，但是通过设置这个属性，可以强制采用显式指定的类型而不再进行推导。
 
@@ -97,11 +97,11 @@ CATEGORY_PREFERENCE The target activity is a preference panel.
 
 （6）extras（附加信息），是其它所有附加信息的集合。使用extras可以为组件提供扩展信息，比如，如果要执行"发送电子邮件"这个动作，可以将电子邮件的标题、正文等保存在extras里，传给电子邮件发送组件。
 
-理解Intent的关键之一是理解清楚Intent的两种基本用法：一种是显式的Intent，即在构造Intent对象时就指定接收者；另一种是隐式的Intent，即Intent的发送者在构造Intent对象时，并不知道也不关心接收者是谁，有利于降低发送者和接收者之间的耦合。
+理解Intent的关键之一是理解清楚Intent的两种基本用法: 一种是显式的Intent，即在构造Intent对象时就指定接收者；另一种是隐式的Intent，即Intent的发送者在构造Intent对象时，并不知道也不关心接收者是谁，有利于降低发送者和接收者之间的耦合。
 
 对于显式Intent，Android不需要去做解析，因为目标组件已经很明确，Android需要解析的是那些隐式Intent，通过解析，将 Intent映射给可以处理此Intent的Activity、IntentReceiver或Service。
 
-Intent解析机制主要是通过查找已注册在AndroidManifest.xml中的所有IntentFilter及其中定义的Intent，最终找到匹配的Intent。在这个解析过程中，Android是通过Intent的action、type、category这三个属性来进行判断的，判断方法如下：
+Intent解析机制主要是通过查找已注册在AndroidManifest.xml中的所有IntentFilter及其中定义的Intent，最终找到匹配的Intent。在这个解析过程中，Android是通过Intent的action、type、category这三个属性来进行判断的，判断方法如下: 
 
 如果Intent指明定了action，则目标组件的IntentFilter的action列表中就必须包含有这个action，否则不能匹配；
   
@@ -109,11 +109,11 @@ Intent解析机制主要是通过查找已注册在AndroidManifest.xml中的所�
   
 如果Intent中的数据不是content: 类型的URI，而且Intent也没有明确指定它的type，将根据Intent中数据的scheme （比如 http: 或者mailto:） 进行匹配。同上，Intent 的scheme必须出现在目标组件的scheme列表中。
   
-如果Intent指定了一个或多个category，这些类别必须全部出现在组建的类别列表中。比如Intent中包含了两个类别：LAUNCHER_CATEGORY 和 ALTERNATIVE_CATEGORY，解析得到的目标组件必须至少包含这两个类别。
+如果Intent指定了一个或多个category，这些类别必须全部出现在组建的类别列表中。比如Intent中包含了两个类别: LAUNCHER_CATEGORY 和 ALTERNATIVE_CATEGORY，解析得到的目标组件必须至少包含这两个类别。
   
 Intent-Filter的定义
 
-一些属性设置的例子：
+一些属性设置的例子: 
 
 <action android:name="com.example.project.SHOW_CURRENT" />
   
@@ -183,7 +183,7 @@ it.putExtras(bundle); // it.putExtra("test", "shuju");
   
 startActivity(it); // startActivityForResult(it,REQUEST_CODE);
 
-对于数据的获取可以采用：
+对于数据的获取可以采用: 
 
 Bundle bundle=getIntent().getExtras();
   

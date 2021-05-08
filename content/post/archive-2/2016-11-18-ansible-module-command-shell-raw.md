@@ -165,7 +165,7 @@ mysql-port: 3306
   
 下面总结下，ansible的patterns，ansible目标的匹配相对来说还是比较简单，单一的，不像salt很强大，grains，pillar，正则等等都可以用来匹配目标。
   
-基本格式：
+基本格式: 
 
 ansible <pattern_goes_here> -m <module_name> -a <arguments>
   

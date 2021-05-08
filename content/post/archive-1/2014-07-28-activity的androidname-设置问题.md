@@ -40,7 +40,7 @@ categories:
   测试验证结果 "ApiDemos" 与 ".ApiDemos" 的写法都能正确运行程序。明明文档中说明的是 ".ClassName" 格式啊, 难道类名前有 "." 与没有 "." 是一样的？！于是把其它的Activity的android:name的值字符串中的第一个 "."去掉，再运行程序，却不行.
 
 <p style="color: #4b4b4b;">
-  　　反复的测试，发现了一个规则：
+  　　反复的测试，发现了一个规则: 
 
 <p style="color: #4b4b4b;">
   　　如果manifest中指定了package属性，比如指定为"com.example.android.apis"，如果activity的实现类ApiDemos 也在这个package下，则android:name为实现的类名，这个类名前加不加点都没有关系，
@@ -52,7 +52,7 @@ categories:
   　　不论Activity的子类是否在默认package下，还是在默认包的子包下，类名的简写方式统统采用".ClassName"的方式，可避免类似问题！
 
 <p style="color: #4b4b4b;">
-  参考：
+  参考: 
 
 <p style="color: #4b4b4b;">
   　　<a style="color: #4371a6;" href="http://blog.csdn.net/fuxiaohui/article/details/9348677">http://blog.csdn.net/fuxiaohui/article/details/9348677</a>

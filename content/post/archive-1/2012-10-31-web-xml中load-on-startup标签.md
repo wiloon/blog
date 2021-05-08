@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-在servlet的配置当中，<load-on-startup>5</load-on-startup>的含义是：
+在servlet的配置当中，<load-on-startup>5</load-on-startup>的含义是: 
 
 标记容器是否在启动的时候就加载这个servlet。
 

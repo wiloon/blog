@@ -24,7 +24,7 @@ decimal类型从根本上说应该是数字类型的,因为oracle内部的数据
   
 的数字，当Oracle中的数学表达式的值>=1.0*10(126)时，Oracle就会报错。
 
-Number的数据声明如下：
+Number的数据声明如下: 
 
 表示
   
@@ -50,7 +50,7 @@ Number
   
 其精度为38，要注意的是scale的值没有应用，也就是说scale的指不能简单的理解为0，或者其他的数。
   
-定点数的精度(p)和刻度(s)遵循以下规则：
+定点数的精度(p)和刻度(s)遵循以下规则: 
 
 当一个数的整数部分的长度> p-s 时，Oracle就会报错
 
@@ -62,23 +62,23 @@ Number
 
 NUMBER类型细讲
 
-Oracle number datatype 语法：NUMBER[(precision [, scale])]
+Oracle number datatype 语法: NUMBER[(precision [, scale])]
   
-简称：precision -> p
+简称: precision -> p
   
 scale     -> s
 
 NUMBER(p, s)
   
-范围：1 <= p <=38, -84 <= s <= 127
+范围: 1 <= p <=38, -84 <= s <= 127
   
-保存数据范围：-1.0e-130 <= number value < 1.0e+126
+保存数据范围: -1.0e-130 <= number value < 1.0e+126
   
-保存在机器内部的范围：1 ~ 22 bytes
+保存在机器内部的范围: 1 ~ 22 bytes
 
-有效位：从左边第一个不为0的数算起的位数。
+有效位: 从左边第一个不为0的数算起的位数。
   
-s的情况：
+s的情况: 
   
 s > 0
   
@@ -152,7 +152,7 @@ Actual Data   Specified As  Stored As
 
 三、Oracle语句距离
 
-项目中的语句：
+项目中的语句: 
 
 
 [sql] view plaincopy

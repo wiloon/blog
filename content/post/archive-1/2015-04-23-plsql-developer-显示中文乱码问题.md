@@ -13,38 +13,38 @@ http://dw008.blog.51cto.com/2050259/934741
 
 PL/SQL Developer 显示中文乱码问题
 
-简单版本：
+简单版本: 
 
 首先，通过
 
 select userenv('language') from dual;
 
-查询oracle服务器端的编码， 如为： AMERICAN_AMERICA.US7ASCII 显示什么编码 就设置什么编码
+查询oracle服务器端的编码， 如为:  AMERICAN_AMERICA.US7ASCII 显示什么编码 就设置什么编码
 
 
 在我们的客户端需要和服务器端的编码保持一致。
 
-因此在客户端，需要设置环境变量： NLS_LANG = AMERICAN_AMERICA.US7ASCII 即可。
+因此在客户端，需要设置环境变量:  NLS_LANG = AMERICAN_AMERICA.US7ASCII 即可。
 
 以上是默认编码
 
-GBK如下：
+GBK如下: 
 
 在windows中创建一个名为"NLS_LANG"的系统环境变量，设置其值为"SIMPLIFIED CHINESE_CHINA.ZHS16GBK"，然后重新启动 pl/sql developer，这样检索出来的中文内容就不会是乱码了。
 
-UTF-8如下：
+UTF-8如下: 
 
 如果想转换为UTF8字符集，可以赋予"NLS_LANG"为 "AMERICAN_AMERICA.UTF8"，然后重新启动 pl/sql developer。
 
 其它字符集设置同上。
   
-NLS_LANG格式：
+NLS_LANG格式: 
   
 NLS_LANG = language_territory.charset
   
-有三个组成部分（语言、地域和字符集），每个成分控制了NLS子集的特性。其中：language 指定服务器消息的语言。territory 指定服务器的日期和数字格式。charset 指定字符集。
+有三个组成部分（语言、地域和字符集），每个成分控制了NLS子集的特性。其中: language 指定服务器消息的语言。territory 指定服务器的日期和数字格式。charset 指定字符集。
 
-详细版本：
+详细版本: 
 
 如何设置客户端字符集与服务器端字符集一致:
 
@@ -54,7 +54,7 @@ NLS_LANG = language_territory.charset
 
 oracle 10g装上后,建了个表写入中文数据,发现通过工具PL/SQL Developer中文不能正常显示.
 
-要正常显示中文,就必须得服务器和客户端编码一致才行。于是检查：
+要正常显示中文,就必须得服务器和客户端编码一致才行。于是检查: 
 
 1.检查服务器编码:
 

@@ -14,13 +14,13 @@ http://blog.sina.com.cn/s/blog_90bb205c0101ceza.html
   
 (2013-02-26 15:47:23) 转载▼
   
-标签：affect
+标签: affect
   
 influence
   
 impact
   
-分类： 词汇学习
+分类:  词汇学习
   
 affect 作主语通常是物而不是人，指一物对另一物产生的消极影响。
 
@@ -55,7 +55,7 @@ These costs will impact on our profitability.
 这些费用会影响到我们的利润。《简明英汉词典》
 
 
-另：have an effect / influence / impact on对……有影响
+另: have an effect / influence / impact on对……有影响
 
 The surroundings in which a child grows up may have an effect on his development.
 

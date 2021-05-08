@@ -14,7 +14,7 @@ http://www.cnblogs.com/mengdd/archive/2013/01/11/2856374.html
 
 fragment可以通过getActivity() 方法来获得Activity的实例，然后就可以调用一些例如findViewById()之类的方法。
 
-如：
+如: 
 
 View listView = getActivity().findViewById(R.id.list);
   
@@ -25,7 +25,7 @@ View listView = getActivity().findViewById(R.id.list);
 
 获得fragment的引用要用FragmentManager，之后可以调用findFragmentById() 或者 findFragmentByTag().
 
-比如：
+比如: 
 
 ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentById(R.id.example_fragment);
 
@@ -39,7 +39,7 @@ ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentBy
 
 所以当一个文章被选择的时候，fragment A必须通知activity，然后activity通知fragment B，让它显示这篇文章。
 
-这个情况下，在fragment A中声明一个这样的接口OnArticleSelectedListener：
+这个情况下，在fragment A中声明一个这样的接口OnArticleSelectedListener: 
   
 public static class FragmentA extends ListFragment {
   
@@ -59,7 +59,7 @@ public void onArticleSelected(Uri articleUri);
 
 之后包含这个fragment的activity实现这个OnArticleSelectedListener接口，用覆写的onArticleSelected()方法将fragment A中发生的事通知fragment B。
 
-为了确保宿主activity实现这个接口，fragment A的onAttach() 方法（这个方法在fragment 被加入到activity中时由系统调用）中通过将传入的activity强制类型转换，实例化一个OnArticleSelectedListener对象：
+为了确保宿主activity实现这个接口，fragment A的onAttach() 方法（这个方法在fragment 被加入到activity中时由系统调用）中通过将传入的activity强制类型转换，实例化一个OnArticleSelectedListener对象: 
   
 public static class FragmentA extends ListFragment {
   
@@ -121,7 +121,7 @@ mListener.onArticleSelected(noteUri);
   
 三种停留状态
 
-管理fragment的生命周期和管理activity的生命周期类似，和activity一样，fragment可以在三种状态下停留：
+管理fragment的生命周期和管理activity的生命周期类似，和activity一样，fragment可以在三种状态下停留: 
 
 Resumed
 
@@ -154,7 +154,7 @@ Fragment和Activity的生命周期
 
 宿主activity的声明周期直接影响到fragment的生命周期，比如activity生命周期的回调函数调用时，所有在其中的fragment的相同的回调函数会同时被调用。
 
-Fragment还有一些额外的生命周期回调函数：
+Fragment还有一些额外的生命周期回调函数: 
 
 onAttach()
 
@@ -176,7 +176,7 @@ onDetach()
 
 当fragment和activity去关联时调用。
 
-如图：
+如图: 
 
 
 从这个图上可以看出activity的状态决定了fragment可能接收到的回调函数。

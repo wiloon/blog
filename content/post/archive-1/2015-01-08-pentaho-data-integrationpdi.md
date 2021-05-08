@@ -12,7 +12,7 @@ http://www.cnblogs.com/wukenaihe/p/3209618.html
 
 Spoon是构建ETL Jobs和Transformations的工具。Spoon可以以拖拽的方式图形化设计，能够通过spoon调用专用的数据集成引擎或者集群。
 
-Data Integration Server是一个专用的ETL Server，它的主要功能有：
+Data Integration Server是一个专用的ETL Server，它的主要功能有: 
 
 <table class="-11" border="1" cellspacing="0" cellpadding="0">
   <tr>

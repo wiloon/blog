@@ -48,7 +48,7 @@ public LeaderLatch(CuratorFramework client, String latchPath, String id)
 
 public boolean hasLeadership()
   
-类似JDK的CountDownLatch， LeaderLatch在请求成为leadership时有block方法：
+类似JDK的CountDownLatch， LeaderLatch在请求成为leadership时有block方法: 
   
 public void await()
   
@@ -97,7 +97,7 @@ http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/
 
 <blockquote class="wp-embedded-content" data-secret="mwCqdwnDV0">
   
-    <a href="http://ifeve.com/zookeeper-leader/">跟着实例学习ZooKeeper的用法： Leader选举</a>
+    <a href="http://ifeve.com/zookeeper-leader/">跟着实例学习ZooKeeper的用法:  Leader选举</a>
   
 </blockquote>
 

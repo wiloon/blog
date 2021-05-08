@@ -13,7 +13,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o eth0 -j MASQUERADE
 ```
 
-nat表需要的三个链：
+nat表需要的三个链: 
   
 1. PREROUTING:可以在这里定义进行目的NAT的规则，因为路由器进行路由时只检查数据包的目的ip地址，所以为了使数据包得以正确路由，我们必须在路由之前就进行目的NAT;
   
@@ -21,7 +21,7 @@ nat表需要的三个链：
   
 3. OUTPUT:定义对本地产生的数据包的目的NAT规则。
 
-需要用到的几个动作选项：（真实环境中用大写）
+需要用到的几个动作选项: （真实环境中用大写）
   
 redirect 将数据包重定向到另一台主机的某个端口，通常用实现透明代理和对外开放内网某些服务。
   

@@ -32,23 +32,23 @@ La.Leggenda.Del.Pianista.Sull.Oceano.1998.BluRay.1080p.2Audio.DTS-HD.MA.5.1.x264
   
 #-font 字体文件
   
-omxplayer中文乱码可以直接在omxplayer中指定字体，直接使用wqy字体即可：
+omxplayer中文乱码可以直接在omxplayer中指定字体，直接使用wqy字体即可: 
   
 $omxplayer -t 1 -p -r -font /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc -align center -o hdmi test.avi
   
 omxplayer不支持外置字幕目前新版本omxplayer已经支持外置字幕，可以去网站上下载5，不过目前好像只支持utf-8，不行只能通过enca转码。
 
-标准Raspbian版本中支持树莓派的GPU的播放器好像只有omxplayer，是个命令行程序，没有界面的，也不能拖动。它有很多参数，最常用的是-o，选项有local和hdmi，表示声音输出到audio out还是hdmi，omxplayer后面跟着要播放的文件名称，不支持wmv，不支持外置字幕。打开终端窗口，出现提示符后输入：
+标准Raspbian版本中支持树莓派的GPU的播放器好像只有omxplayer，是个命令行程序，没有界面的，也不能拖动。它有很多参数，最常用的是-o，选项有local和hdmi，表示声音输出到audio out还是hdmi，omxplayer后面跟着要播放的文件名称，不支持wmv，不支持外置字幕。打开终端窗口，出现提示符后输入: 
 
 omxplayer -o hdmi 文件名
 
 OMXplayer支持硬解码，因此是一个非常不错的选择。
   
-支持格式目前知道的有：MKV、AVI、FLV、MP4
+支持格式目前知道的有: MKV、AVI、FLV、MP4
 
-如果想用全屏播放，参数是：-r
+如果想用全屏播放，参数是: -r
 
-如果想用HDMI输出声音，参数是：-o hdmi，并且有个前提：/boot/config.txt 里面设置HDMI_DRIVER=2
+如果想用HDMI输出声音，参数是: -o hdmi，并且有个前提: /boot/config.txt 里面设置HDMI_DRIVER=2
 
 $ omxplayer –help
   

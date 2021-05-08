@@ -13,7 +13,7 @@ tags:
 ---
 spring定义了一个以统一的方式操作各种数据库的Lob类型数据的LobCreator(保存的时候用),同时提供了一个LobHandler为操作二进制字段和大文本字段提供统一接口访问。
   
-举例，例子里面的t_post表中post_text字段是CLOB类型,而post_attach是BLOG类型：
+举例，例子里面的t_post表中post_text字段是CLOB类型,而post_attach是BLOG类型: 
 
 public class PostJdbcDao extends JdbcDaoSupport implements PostDao {
   
@@ -67,7 +67,7 @@ lobCreator.setBlobAsBytes(ps, 4, post.getPostAttach());
   
 }
 
-设置相对应的配置文件(Oracle 9i版本),Oracle的数据库最喜欢搞搞特别的东西啦：
+设置相对应的配置文件(Oracle 9i版本),Oracle的数据库最喜欢搞搞特别的东西啦: 
 
 <bean id="nativeJdbcExtractor"
 
@@ -95,7 +95,7 @@ lazy-init="true">
   
 </bean>
 
-Oracle 10g或其他数据库如下设置：
+Oracle 10g或其他数据库如下设置: 
 
 <bean id="defaultLobHandler"
 
@@ -115,7 +115,7 @@ lazy-init="true" />
   
 </bean>
 
-读取BLOB/CLOB块,举例：
+读取BLOB/CLOB块,举例: 
 
 public List getAttachs(final int userId){
   

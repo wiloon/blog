@@ -12,15 +12,15 @@ https://github.com/polaris1119/The-Golang-Standard-Library-by-Example/blob/maste
 
 strconv — 字符串和基本数据类型之间转换
 
-这里的基本数据类型包括：布尔、整型（包括有/无符号、二进制、八进制、十进制和十六进制）和浮点型等。
+这里的基本数据类型包括: 布尔、整型（包括有/无符号、二进制、八进制、十进制和十六进制）和浮点型等。
 
 2.3.1 strconv 包转换错误处理
 
 介绍具体的转换之前，先看看 strconv 中的错误处理。
 
-由于将字符串转为其他数据类型可能会出错，strconv 包定义了两个 error 类型的变量：ErrRange 和 ErrSyntax。其中，ErrRange 表示值超过了类型能表示的最大范围，比如将 "128" 转为 int8 就会返回这个错误；ErrSyntax 表示语法错误，比如将 "" 转为 int 类型会返回这个错误。
+由于将字符串转为其他数据类型可能会出错，strconv 包定义了两个 error 类型的变量: ErrRange 和 ErrSyntax。其中，ErrRange 表示值超过了类型能表示的最大范围，比如将 "128" 转为 int8 就会返回这个错误；ErrSyntax 表示语法错误，比如将 "" 转为 int 类型会返回这个错误。
 
-然而，在返回错误的时候，不是直接将上面的变量值返回，而是通过构造一个 NumError 类型的 error 对象返回。NumError 结构的定义如下：
+然而，在返回错误的时候，不是直接将上面的变量值返回，而是通过构造一个 NumError 类型的 error 对象返回。NumError 结构的定义如下: 
 
 // A NumError records a failed conversion.
   
@@ -34,7 +34,7 @@ Err error // the reason the conversion failed (ErrRange, ErrSyntax)
   
 }
   
-可见，该结构记录了转换过程中发生的错误信息。该结构不仅包含了一个 error 类型的成员，记录具体的错误信息，而且它自己也实现了 error 接口：
+可见，该结构记录了转换过程中发生的错误信息。该结构不仅包含了一个 error 类型的成员，记录具体的错误信息，而且它自己也实现了 error 接口: 
 
 func (e *NumError) Error() string {
       
@@ -42,7 +42,7 @@ return "strconv." + e.Func + ": " + "parsing " + Quote(e.Num) + ": " + e.Err.Err
   
 }
   
-包的实现中，定义了两个便捷函数，用于构造 NumError 对象：
+包的实现中，定义了两个便捷函数，用于构造 NumError 对象: 
 
 func syntaxError(fn, str string) *NumError {
       
@@ -62,7 +62,7 @@ return &NumError{fn, str, ErrRange}
 
 2.3.2.1 字符串转为整型
 
-包括三个函数：ParseInt、ParseUint 和 Atoi，函数原型如下：
+包括三个函数: ParseInt、ParseUint 和 Atoi，函数原型如下: 
 
 func ParseInt(s string, base int, bitSize int) (i int64, err error)
   
@@ -72,21 +72,21 @@ func Atoi(s string) (i int, err error)
   
 其中，Atoi 是 ParseInt 的便捷版，内部通过调用 ParseInt(s, 10, 0) 来实现的；ParseInt 转为有符号整型；ParseUint 转为无符号整型，着重介绍 ParseInt。
 
-参数 base 代表字符串按照给定的进制进行解释。一般的，base 的取值为 2~36，如果 base 的值为 0，则会根据字符串的前缀来确定 base 的值："0x" 表示 16 进制； "0" 表示 8 进制；否则就是 10 进制。
+参数 base 代表字符串按照给定的进制进行解释。一般的，base 的取值为 2~36，如果 base 的值为 0，则会根据字符串的前缀来确定 base 的值: "0x" 表示 16 进制； "0" 表示 8 进制；否则就是 10 进制。
 
 参数 bitSize 表示的是整数取值范围，或者说整数的具体类型。取值 0、8、16、32 和 64 分别代表 int、int8、int16、int32 和 int64。
 
 这里有必要说一下，当 bitSize==0 时的情况。
 
-Go中，int/uint 类型，不同系统能表示的范围是不一样的，目前的实现是，32 位系统占 4 个字节；64 位系统占 8 个字节。当 bitSize==0 时，应该表示 32 位还是 64 位呢？这里没有利用 runtime.GOARCH 之类的方式，而是巧妙的通过如下表达式确定 intSize：
+Go中，int/uint 类型，不同系统能表示的范围是不一样的，目前的实现是，32 位系统占 4 个字节；64 位系统占 8 个字节。当 bitSize==0 时，应该表示 32 位还是 64 位呢？这里没有利用 runtime.GOARCH 之类的方式，而是巧妙的通过如下表达式确定 intSize: 
 
 const intSize = 32 << uint(^uint(0)>>63)
   
 const IntSize = intSize // number of bits in int, uint (32 or 64)
   
-主要是 ^uint(0)>>63 这个表达式。操作符 ^ 在这里是一元操作符 按位取反，而不是 按位异或。更多解释可以参考：Go位运算：取反和异或。
+主要是 ^uint(0)>>63 这个表达式。操作符 ^ 在这里是一元操作符 按位取反，而不是 按位异或。更多解释可以参考: Go位运算: 取反和异或。
 
-问题：下面的代码 n 和 err 的值分别是什么？
+问题: 下面的代码 n 和 err 的值分别是什么？
 
 n, err := strconv.ParseInt("128", 10, 8)
   
@@ -94,7 +94,7 @@ n, err := strconv.ParseInt("128", 10, 8)
 
 另外，ParseInt 返回的是 int64，这是为了能够容纳所有的整型，在实际使用中，可以根据传递的 bitSize，然后将结果转为实际需要的类型。
 
-转换的基本原理（以 "128" 转 为 10 进制 int 为例）：
+转换的基本原理（以 "128" 转 为 10 进制 int 为例）: 
 
 s := "128"
   
@@ -110,7 +110,7 @@ n *= 10 + s[i] // base
 
 2.3.2.2 整型转为字符串
 
-实际应用中，我们经常会遇到需要将字符串和整型连接起来，在Java中，可以通过操作符 "+" 做到。不过，在Go语言中，你需要将整型转为字符串类型，然后才能进行连接。这个时候，strconv 包中的整型转字符串的相关函数就派上用场了。这些函数签名如下：
+实际应用中，我们经常会遇到需要将字符串和整型连接起来，在Java中，可以通过操作符 "+" 做到。不过，在Go语言中，你需要将整型转为字符串类型，然后才能进行连接。这个时候，strconv 包中的整型转字符串的相关函数就派上用场了。这些函数签名如下: 
 
 func FormatUint(i uint64, base int) string // 无符号整型转字符串
   
@@ -120,7 +120,7 @@ func Itoa(i int) string
   
 其中，Itoa 内部直接调用 FormatInt(i, 10) 实现的。base 参数可以取 2~36（0-9，a-z）。
 
-转换的基本原理（以 10 进制的 127 转 string 为例） ：
+转换的基本原理（以 10 进制的 127 转 string 为例） : 
 
 const digits = "0123456789abcdefghijklmnopqrstuvwxyz"
   
@@ -152,9 +152,9 @@ return string(a[1:])
 
 具体实现时，当 base 是 2 的幂次方时，有优化处理（移位和掩码）；十进制也做了优化。
 
-标准库还提供了另外两个函数：AppendInt 和 AppendUint，这两个函数不是将整数转为字符串，而是将整数转为字符数组 append 到目标字符数组中。（最终，我们也可以通过返回的 []byte 得到字符串）
+标准库还提供了另外两个函数: AppendInt 和 AppendUint，这两个函数不是将整数转为字符串，而是将整数转为字符数组 append 到目标字符数组中。（最终，我们也可以通过返回的 []byte 得到字符串）
 
-除了使用上述方法将整数转为字符串外，经常见到有人使用 fmt 包来做这件事。如：
+除了使用上述方法将整数转为字符串外，经常见到有人使用 fmt 包来做这件事。如: 
 
 fmt.Sprintf("%d", 127)
   
@@ -184,17 +184,17 @@ fmt.Println(time.Now().Sub(startTime))
 
 Sprintf 性能差些可以预见，因为它接收的是 interface，需要进行反射等操作。个人建议使用 strconv 包中的方法进行转换。
 
-注意：别想着通过 string(65) 这种方式将整数转为字符串，这样实际上得到的会是 ASCCII 值为 65 的字符，即 'A'。
+注意: 别想着通过 string(65) 这种方式将整数转为字符串，这样实际上得到的会是 ASCCII 值为 65 的字符，即 'A'。
 
-思考：
+思考: 
 
 给定一个 40 以内的正整数，如何快速判断其是否是 2 的幂次方？
   
-提示：在 strconv 包源码 itoa.go 文件中找答案
+提示: 在 strconv 包源码 itoa.go 文件中找答案
 
 2.3.3 字符串和布尔值之间的转换
 
-Go中字符串和布尔值之间的转换比较简单，主要有三个函数：
+Go中字符串和布尔值之间的转换比较简单，主要有三个函数: 
 
 // 接受 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False 等字符串；
   
@@ -208,13 +208,13 @@ func FormatBool(b bool) string
   
 // 将 "true" 或 "false" append 到 dst 中
   
-// 这里用了一个 append 函数对于字符串的特殊形式：append(dst, "true"...)
+// 这里用了一个 append 函数对于字符串的特殊形式: append(dst, "true"...)
   
 func AppendBool(dst []byte, b bool)
   
 2.3.4 字符串和浮点数之间的转换
 
-类似的，包含三个函数：
+类似的，包含三个函数: 
 
 func ParseFloat(s string, bitSize int) (f float64, err error)
   
@@ -224,13 +224,13 @@ func AppendFloat(dst []byte, f float64, fmt byte, prec int, bitSize int)
   
 函数的命名和作用跟上面讲解的其他类型一致。
 
-关于 FormatFloat 的 fmt 参数， 在第一章第三节格式化IO中有详细介绍。而 prec 表示有效数字（对 fmt='b' 无效），对于 'e', 'E' 和 'f'，有效数字用于小数点之后的位数；对于 'g' 和 'G'，则是所有的有效数字。例如：
+关于 FormatFloat 的 fmt 参数， 在第一章第三节格式化IO中有详细介绍。而 prec 表示有效数字（对 fmt='b' 无效），对于 'e', 'E' 和 'f'，有效数字用于小数点之后的位数；对于 'g' 和 'G'，则是所有的有效数字。例如: 
 
-strconv.FormatFloat(1223.13252, 'e', 3, 32) // 结果：1.223e+03
+strconv.FormatFloat(1223.13252, 'e', 3, 32) // 结果: 1.223e+03
   
-strconv.FormatFloat(1223.13252, 'g', 3, 32) // 结果：1.22e+03
+strconv.FormatFloat(1223.13252, 'g', 3, 32) // 结果: 1.22e+03
   
-由于浮点数有精度的问题，精度不一样，ParseFloat 和 FormatFloat 可能达不到互逆的效果。如：
+由于浮点数有精度的问题，精度不一样，ParseFloat 和 FormatFloat 可能达不到互逆的效果。如: 
 
 s := strconv.FormatFloat(1234.5678, 'g', 6, 64)
   
@@ -244,18 +244,18 @@ strconv.ParseFloat(s, 64)
 
 2.3.5 其他导出的函数
 
-如果要输出这样一句话：This is "studygolang.com" website. 该如何做？
+如果要输出这样一句话: This is "studygolang.com" website. 该如何做？
 
 So easy:
 
 fmt.Println(`This is "studygolang.com" website`)
   
-如果没有 " 符号，该怎么做？转义：
+如果没有 " 符号，该怎么做？转义: 
 
 fmt.Println("This is \"studygolang.com\" website")
   
 除了这两种方法，strconv 包还提供了函数这做件事（Quote 函数）。我们称 "studygolang.com" 这种用双引号引起来的字符串为 Go 语言字面值字符串（Go string literal）。
 
-上面的一句话可以这么做：
+上面的一句话可以这么做: 
 
 fmt.Println("This is", strconv.Quote("studygolang.com"), "website")

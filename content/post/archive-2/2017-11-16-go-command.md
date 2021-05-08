@@ -44,13 +44,13 @@ go build
 
 go build hellogo.go
 
-当然我们也 可以通过-o选项来指定其他名字：
+当然我们也 可以通过-o选项来指定其他名字: 
   
 go build -o myfirstgo hellogo.go
 
 go build -x -v hellogo.go
 
-如果我们在go-examples目录下直接执行go build命令，后面不带文件名，我们将得到一个与目录名同名的可执行文件：
+如果我们在go-examples目录下直接执行go build命令，后面不带文件名，我们将得到一个与目录名同名的可执行文件: 
 
 $ go build
   
@@ -68,6 +68,6 @@ go install将可执行文件安装到与src同级别的bin目录下，bin目录�
   
 go install将可执行文件依赖的各种package编译后，放在与src同级别的pkg目录下.
   
-参考资料：
+参考资料: 
 
 http://tonybai.com/2012/08/17/hello-go/

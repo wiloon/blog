@@ -24,7 +24,7 @@ http://www.yrom.net/blog/2015/02/07/change-gradle-maven-repo-url/
 
 如果能切换到国内的Maven镜像仓库，如开源中国的Maven库，又或者是换成自建的Maven私服，那想必是极好的。
 
-一个简单的办法，修改项目根目录下的build.gradle，将jcenter()或者mavenCentral()替换掉即可：
+一个简单的办法，修改项目根目录下的build.gradle，将jcenter()或者mavenCentral()替换掉即可: 
 
 allprojects {
   

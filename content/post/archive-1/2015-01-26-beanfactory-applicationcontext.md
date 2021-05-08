@@ -19,7 +19,7 @@ org.springframework.beans.factory.BeanFactory 是Spring IoC容器的实际代表
 IoC容器负责容纳此前所描述的bean，并对bean进行管理。
 
 
-在Spring中，BeanFactory是IoC容器的核心接口。 它的职责包括：实例化、定位、配置
+在Spring中，BeanFactory是IoC容器的核心接口。 它的职责包括: 实例化、定位、配置
 
 
 应用程序中的对象及建立这些对象间的依赖。

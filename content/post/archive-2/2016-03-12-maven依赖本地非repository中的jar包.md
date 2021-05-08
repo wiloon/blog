@@ -12,11 +12,11 @@ maven依赖本地非repository中的jar包
   
 http://www.cnblogs.com/piaolingxue/archive/2011/10/12/2208871.html
   
-博客分类：
+博客分类: 
   
 MAVEN
   
-今天在使用maven编译打包一个web应用的时候，碰到一个问题：
+今天在使用maven编译打包一个web应用的时候，碰到一个问题: 
   
 项目在开发是引入了依赖jar包，放在了WEB-INF/lib目录下，并通过buildpath中将web libariary导入。
   
@@ -26,7 +26,7 @@ MAVEN
   
 于是将这个目录添加进去，还是不好使。无赖，先把这个jar包安装到本地库中，然后添加dependency。
 
-后来google了下，发现maven提供了scope为system的依赖，文档的原文如下：
+后来google了下，发现maven提供了scope为system的依赖，文档的原文如下: 
   
 system
   

@@ -20,7 +20,7 @@ http://jiajun.iteye.com/blog/810150
   
 如果从 GUI shell 启动，找到 JDK 安装路径，打开 bin 文件夹，双击 jconsole 。
       
-当分析工具弹出时（取决于正在运行的 Java 版本以及正在运行的 Java 程序数量），可能会出现一个对话框，要求输入一个进程的 URL 来连接，也可能列出许多不同的本地 Java 进程（有时包含 JConsole 进程本身）来连接。如图所示：
+当分析工具弹出时（取决于正在运行的 Java 版本以及正在运行的 Java 程序数量），可能会出现一个对话框，要求输入一个进程的 URL 来连接，也可能列出许多不同的本地 Java 进程（有时包含 JConsole 进程本身）来连接。如图所示: 
 
 想分析那个程序就双击那个进程。
   
@@ -28,7 +28,7 @@ http://jiajun.iteye.com/blog/810150
   
 本地程序（相对于开启JConsole的计算机），无需设置任何参数就可以被本地开启的JConsole连接（Java SE 6开始无需设置，之前还是需要设置运行时参数 -Dcom.sun.management.jmxremote ）
   
-无认证连接 (下面的设置表示：连接的端口为8999、无需认证就可以被连接)
+无认证连接 (下面的设置表示: 连接的端口为8999、无需认证就可以被连接)
   
 Java代码 收藏代码
   
@@ -38,7 +38,7 @@ Java代码 收藏代码
   
 -Dcom.sun.management.jmxremote.ssl=false
 
-如果考虑到安全因素，需要认证，需要安全连接，也是可以搞定的。参考：http://download.oracle.com/javase/6/docs/technotes/guides/management/agent.html#gdenv
+如果考虑到安全因素，需要认证，需要安全连接，也是可以搞定的。参考: http://download.oracle.com/javase/6/docs/technotes/guides/management/agent.html#gdenv
   
 四、JConsole如何连接远程机器的JAVA程序（举例说明）
   
@@ -50,15 +50,15 @@ java -cp . -Dcom.sun.management.jmxremote.port=8999 -Dcom.sun.managent.jmxremote
 
 2、另外一台机器进行连接
   
-可以直接使用命令：
+可以直接使用命令: 
   
 Java代码 收藏代码
   
 jconsole.exe 192.168.0.181:8999
    
-也可以在已经打开的JConsole界面操作 连接->新建连接->选择远程进程->输入远程主机IP和端口号->点击"连接"，如图：
+也可以在已经打开的JConsole界面操作 连接->新建连接->选择远程进程->输入远程主机IP和端口号->点击"连接"，如图: 
 
-然后就会进入分析界面：
+然后就会进入分析界面: 
   
 性能分析
   
@@ -90,9 +90,9 @@ MBeans: 显示 MBeans.
 
 GC的算法和参数对性能有显著的影响，注意垃圾回收次数、时间、以及partial GC和full GC，调整你所使用的不同GC和以及各个GC下的参数，然后在这个视图下观察，以得到好的性能。
 
-这里贴一下 Java HotSpot VM garbage collector 下generational GC 的各代的划分图：
+这里贴一下 Java HotSpot VM garbage collector 下generational GC 的各代的划分图: 
 
-关于GC，可以参考：http://www.oracle.com/technetwork/java/gc-tuning-5-138395.html
+关于GC，可以参考: http://www.oracle.com/technetwork/java/gc-tuning-5-138395.html
   
 线程
 

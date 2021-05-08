@@ -12,7 +12,7 @@ SC命令详解(一个很有用的command)
   
 作为一个命令行工具，SC.exe可以用来测试你自己的系统，你可以设置一个批处理文件来使用不同的参数调用 SC.exe来控制服务。
   
-一.SC使用这样的语法：
+一.SC使用这样的语法: 
   
 1. SC [Servername] command Servicename [Optionname= Optionvalues]
   
@@ -24,7 +24,7 @@ SC命令详解(一个很有用的command)
   
 Servername
   
-可选择：可以使用双斜线，如&#92;myserver，也可以是&#92;192.168.1.223来操作远程计算机。如果在本地计算机上操作
+可选择: 可以使用双斜线，如&#92;myserver，也可以是&#92;192.168.1.223来操作远程计算机。如果在本地计算机上操作
   
 就不用添加任何参数。
   
@@ -220,11 +220,11 @@ SERVICE_START_NAME-lpServiceStartName
   
 例1
   
-下面这个例子询问了在上面例子中建立的"mirror"服务的配置：
+下面这个例子询问了在上面例子中建立的"mirror"服务的配置: 
   
 sc qc
   
-sc显示下面的信息：
+sc显示下面的信息: 
   
 SERVICE_NAME: mirror
           
@@ -252,11 +252,11 @@ mirror有能力和其他的服务共享一个进程。这个服务 不依靠与�
   
 SC QUERY命令可以获得服务的信息。
   
-语法：
+语法: 
   
 sc [Servername] query { Servicename | ptionname= Optionvalues... }
   
-参数：
+参数: 
   
 servername, servicename, optionname, optionvalues不在解释。只谈一下这个命令提供的数值。
   
@@ -288,7 +288,7 @@ Comments
   
 SC QUERY命令可以显示SERVICE_STATUS结构的内容。
   
-下面是SERVICE_STATUS结构相应的信息：
+下面是SERVICE_STATUS结构相应的信息: 
   
 TYPE--dwServiceType
   
@@ -306,11 +306,11 @@ WAIT_HINT--dwWaitHint
   
 例子
   
-查询"mirror'服务状态，键入：
+查询"mirror'服务状态，键入: 
   
 sc query mirror
   
-显示一下信息：
+显示一下信息: 
   
 SERVICE_NAME: mirror
           
@@ -328,47 +328,47 @@ CHECKPOINT : 0x0
           
 WAIT_HINT : 0x0
   
-注意，这里存在一个给这个服务的退出码，即使这个服务部不在运行，键入net helpmsg 1077，将会得到对1077错误信息的说明：
+注意，这里存在一个给这个服务的退出码，即使这个服务部不在运行，键入net helpmsg 1077，将会得到对1077错误信息的说明: 
   
 上次启动之后，仍未尝试引导服务。
   
 所以，这里我想说一句，希望大家可以活用net helpmsg，这会对你的学习有很大的帮助。
   
-下面在对SC query的命令在说明一下：
+下面在对SC query的命令在说明一下: 
   
-列举活动服务和驱动程序状态，使用以下命令：
+列举活动服务和驱动程序状态，使用以下命令: 
   
 sc query
   
-显示messenger服务，使用以下命令：
+显示messenger服务，使用以下命令: 
   
 sc query messenger
   
-只列举活动的驱动程序，使用以下命令：
+只列举活动的驱动程序，使用以下命令: 
   
 sc query type= driver
   
-列举Win32服务，使用以下命令：
+列举Win32服务，使用以下命令: 
   
 sc query type= service
   
-列举所有的服务和驱动程序，使用以下命令：
+列举所有的服务和驱动程序，使用以下命令: 
   
 sc query state= all
   
-用50 byte的缓冲区来进行列举，使用以下命令：
+用50 byte的缓冲区来进行列举，使用以下命令: 
   
 sc query bufsize= 50
   
-在恢复列举时使用index=14，使用以下命令：
+在恢复列举时使用index=14，使用以下命令: 
   
 sc query ri=14
   
-列举所有的交互式服务，使用以下命令：
+列举所有的交互式服务，使用以下命令: 
   
 sc query type= service type= interact
   
-五、sc命令启动已经禁用的服务,例如：启动telnet服务
+五、sc命令启动已经禁用的服务,例如: 启动telnet服务
   
 sc config tlntsvr start= auto
   

@@ -16,7 +16,7 @@ https://github.com/GDSSecurity/AntiXSS-for-Java
 
 AntiSamy 策略文件
   
-antisamy-tinymce.xml，这种策略只允许传送纯文本到后台（这样做真的好吗？个人觉得这个规则太过严格）,并且对请求头和请求参数都做了XSS转码。请注意这里，我们相对于参考链接中源码不同的处理方式在于：我们对请求头也进行了编码处理。
+antisamy-tinymce.xml，这种策略只允许传送纯文本到后台（这样做真的好吗？个人觉得这个规则太过严格）,并且对请求头和请求参数都做了XSS转码。请注意这里，我们相对于参考链接中源码不同的处理方式在于: 我们对请求头也进行了编码处理。
 
 antisamy-slashdot.xml
   
@@ -24,7 +24,7 @@ Slashdot (http://www.slashdot.org/)是一个提供技术新闻的网站，它允
   
 Slashdot不仅仅是目前同类中最酷的网站之一，而且同时也曾是最容易被成功攻击的网站之一。更不幸的是，导致大部分用户遭受攻击的原由是臭名昭着的goatse.cx 图片(请你不要刻意去看)。
   
-Slashdot的安全策略非常严格：用户只能提交下列的html标签：<pre data-language=HTML>
+Slashdot的安全策略非常严格: 用户只能提交下列的html标签: <pre data-language=HTML>
 
 ```xml
 , <u>, <i>, <a>, <blockquote>
@@ -51,10 +51,10 @@ antisamy-ebay.xml
   我也很难说出一个用这个策略文件的用例。如果你想允许所有有效的HTML和CSS元素输入（但能拒绝JavaScript或跟CSS相关的网络钓鱼攻击），你可以使用这个策略文件。其实即使MySpace也没有这么疯狂。然而，它确实提供了一个很好的参考，因为它包含了对于每个元素的基本规则，所以你在裁剪其它策略文件的时候可以把它作为一个知识库。
 </h2>
 
-  作者：系统信息
- 来源：CSDN
- 原文：https://blog.csdn.net/softwave/article/details/53761796
- 版权声明：本文为博主原创文章，转载请附上博文链接
+  作者: 系统信息
+ 来源: CSDN
+ 原文: https://blog.csdn.net/softwave/article/details/53761796
+ 版权声明: 本文为博主原创文章，转载请附上博文链接
 
 
   https://www.cnblogs.com/Kidezyq/p/9862547.html

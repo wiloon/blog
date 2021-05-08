@@ -10,11 +10,11 @@ categories:
 ---
 PL/SQL Developer中直接打一些特别的字母，然后按空格键来补全为你想要的如SELECT * FROM 这样的语句。
 
-如下设置：
+如下设置: 
 
 Tools-Preferences-User Interface-Editor
 
-右边界面中，AutoReplace，Edit按钮，在里面可以写例如：
+右边界面中，AutoReplace，Edit按钮，在里面可以写例如: 
 
 S=SELECT * FROM
 

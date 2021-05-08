@@ -22,7 +22,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 <a name="3.1.需求描述|outline"></a>需求描述
 
-这是一个在线的用户管理模块，负责用户信息的创建，修改，删除，查询。用户的信息主要包括：
+这是一个在线的用户管理模块，负责用户信息的创建，修改，删除，查询。用户的信息主要包括: 
 
   * 用户名（唯一标志在系统中的用户）
   * 头衔
@@ -30,7 +30,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
   * EMAIL
   * 描述
 
-需求用例图如下：
+需求用例图如下: 
   
 <a name="3.1.1.图 1. 需求用例图 .|outline"></a>**图 1. 需求用例图**
   
@@ -47,7 +47,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 我们将采用遵循 REST 设计原则的 ROA（Resource-Oriented Architecture，面向资源的体系架构）进行设计。ROA 是什么？简单点说，ROA 是一种把实际问题转换成 REST 式 Web 服务的方法，它使得 URI、HTTP 和 XML 具有跟其他 Web 应用一样的工作方式。
 
-在使用 ROA 进行设计时，我们需要把真实的应用需求转化成 ROA 中的资源，基本上遵循以下的步骤：
+在使用 ROA 进行设计时，我们需要把真实的应用需求转化成 ROA 中的资源，基本上遵循以下的步骤: 
 
   * 分析应用需求中的数据集。
   * 映射数据集到 ROA 中的资源。
@@ -57,7 +57,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 接下来我们按照以上的步骤来设计本文的应用案例。
 
-在线用户管理所涉及的数据集就是用户信息，如果映射到 ROA 资源，主要包括两类资源：用户及用户列表。用户资源的 URI 用`http://localhost:8182/v1/users/{username}` 表示，用户列表资源的 URI 用 `http://localhost:8182/v1/users` 表示。它们的 Representation 如下，它们都采用了如清单 1 和清单 2 所示的 XML 表述方式。
+在线用户管理所涉及的数据集就是用户信息，如果映射到 ROA 资源，主要包括两类资源: 用户及用户列表。用户资源的 URI 用`http://localhost:8182/v1/users/{username}` 表示，用户列表资源的 URI 用 `http://localhost:8182/v1/users` 表示。它们的 Representation 如下，它们都采用了如清单 1 和清单 2 所示的 XML 表述方式。
   
 <a name="4.1.1.清单 1. 用户列表资源 Representation|outline"></a>**清单 1. 用户列表资源 Representation**
 
@@ -105,7 +105,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 <a name="4.2.Restful Web 服务架构|outline"></a>Restful Web 服务架构
 
-首先给出 Web 服务使用 REST 风格实现的整体架构图，如下图所示：
+首先给出 Web 服务使用 REST 风格实现的整体架构图，如下图所示: 
   
 <a name="4.2.1.图 2. REST 实现架构|outline"></a>**图 2. REST 实现架构**
   
@@ -117,7 +117,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 <a name="4.3.客户端实现|outline"></a>客户端实现
 
-清单 3 给出的是客户端的核心实现部分，其主要由四部分组成：使用 HTTP PUT 增加、修改用户资源，使用 HTTP GET 得到某一具体用户资源，使用 HTTP DELETE 删除用户资源，使用 HTTP GET 得到用户列表资源。而这四部分也正对应了图 2 关于架构描述的四对 HTTP 消息来回。关于 UserRestHelper 类的完整实现，请读者参见本文所附的代码示例。
+清单 3 给出的是客户端的核心实现部分，其主要由四部分组成: 使用 HTTP PUT 增加、修改用户资源，使用 HTTP GET 得到某一具体用户资源，使用 HTTP DELETE 删除用户资源，使用 HTTP GET 得到用户列表资源。而这四部分也正对应了图 2 关于架构描述的四对 HTTP 消息来回。关于 UserRestHelper 类的完整实现，请读者参见本文所附的代码示例。
   
 <a name="4.3.1.清单 3. 客户端实现|outline"></a>**清单 3. 客户端实现**
 
@@ -281,13 +281,13 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 <a name="5.1.SOAP Web 服务架构|outline"></a>SOAP Web 服务架构
 
-同样，首先给出 SOAP 实现的整体架构图，如下图所示：
+同样，首先给出 SOAP 实现的整体架构图，如下图所示: 
   
 <a name="5.1.1.图 3. SOAP 实现架构|outline"></a>**图 3. SOAP 实现架构**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/3.jpg" alt="REST" width="567" height="406" />
 
-可以看到，与 REST 架构相比，SOAP 架构图明显不同的是：所有的 SOAP 消息发送都使用 HTTP POST 方法，并且所有 SOAP 消息的 URI 都是一样的，这是基于 SOAP 的 Web 服务的基本实践特征。
+可以看到，与 REST 架构相比，SOAP 架构图明显不同的是: 所有的 SOAP 消息发送都使用 HTTP POST 方法，并且所有 SOAP 消息的 URI 都是一样的，这是基于 SOAP 的 Web 服务的基本实践特征。
 
 <a name="5.2.获得用户信息列表|outline"></a>获得用户信息列表
 
@@ -310,7 +310,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 </table>
 
 
-客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI，SOAP SERVER 收到该 HTTP POST 请求，通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用，返回如下的响应：
+客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI，SOAP SERVER 收到该 HTTP POST 请求，通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用，返回如下的响应: 
   
 <a name="5.2.2.清单 6. getUserListResponse 消息|outline"></a>**清单 6. getUserListResponse 消息**
 
@@ -357,7 +357,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 </table>
 
 
-同样地，客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI，SOAP SERVER 处理后返回的 Response 如下：
+同样地，客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI，SOAP SERVER 处理后返回的 Response 如下: 
   
 <a name="5.3.2.清单 8. getUserByNameResponse SOAP 消息|outline"></a>**清单 8. getUserByNameResponse SOAP 消息**
 
@@ -395,33 +395,33 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 RESTful Web 服务使用标准的 HTTP 方法 (GET/PUT/POST/DELETE) 来抽象所有 Web 系统的服务能力，而不同的是，SOAP 应用都通过定义自己个性化的接口方法来抽象 Web 服务，这更像我们经常谈到的 RPC。例如本例中的 getUserList 与 getUserByName 方法。
 
-RESTful Web 服务使用标准的 HTTP 方法优势，从大的方面来讲：标准化的 HTTP 操作方法，结合其他的标准化技术，如 URI，HTML，XML 等，将会极大提高系统与系统之间整合的互操作能力。尤其在 Web 应用领域，RESTful Web 服务所表达的这种抽象能力更加贴近 Web 本身的工作方式，也更加自然。
+RESTful Web 服务使用标准的 HTTP 方法优势，从大的方面来讲: 标准化的 HTTP 操作方法，结合其他的标准化技术，如 URI，HTML，XML 等，将会极大提高系统与系统之间整合的互操作能力。尤其在 Web 应用领域，RESTful Web 服务所表达的这种抽象能力更加贴近 Web 本身的工作方式，也更加自然。
 
-同时，使用标准 HTTP 方法实现的 RRESTful Web 服务也带来了 HTTP 方法本身的一些优势：
+同时，使用标准 HTTP 方法实现的 RRESTful Web 服务也带来了 HTTP 方法本身的一些优势: 
 
   * **_无状态性（Stateless）_**
 
-HTTP 协议从本质上说是一种无状态的协议，客户端发出的 HTTP 请求之间可以相互隔离，不存在相互的状态依赖。基于 HTTP 的 ROA，以非常自然的方式来实现无状态服务请求处理逻辑。对于分布式的应用而言，任意给定的两个服务请求 Request 1 与 Request 2, 由于它们之间并没有相互之间的状态依赖，就不需要对它们进行相互协作处理，其结果是：Request 1 与 Request 2 可以在任何的服务器上执行，这样的应用很容易在服务器端支持负载平衡 (load-balance)。
+HTTP 协议从本质上说是一种无状态的协议，客户端发出的 HTTP 请求之间可以相互隔离，不存在相互的状态依赖。基于 HTTP 的 ROA，以非常自然的方式来实现无状态服务请求处理逻辑。对于分布式的应用而言，任意给定的两个服务请求 Request 1 与 Request 2, 由于它们之间并没有相互之间的状态依赖，就不需要对它们进行相互协作处理，其结果是: Request 1 与 Request 2 可以在任何的服务器上执行，这样的应用很容易在服务器端支持负载平衡 (load-balance)。
 
   * **_安全操作与幂指相等特性（Safety /Idempotence）_**
 
-HTTP 的 GET、HEAD 请求本质上应该是安全的调用，即：GET、HEAD 调用不会有任何的副作用，不会造成服务器端状态的改变。对于服务器来说，客户端对某一 URI 做 n 次的 GET、HAED 调用，其状态与没有做调用是一样的，不会发生任何的改变。
+HTTP 的 GET、HEAD 请求本质上应该是安全的调用，即: GET、HEAD 调用不会有任何的副作用，不会造成服务器端状态的改变。对于服务器来说，客户端对某一 URI 做 n 次的 GET、HAED 调用，其状态与没有做调用是一样的，不会发生任何的改变。
 
-HTTP 的 PUT、DELTE 调用，具有幂指相等特性 , 即：客户端对某一 URI 做 n 次的 PUT、DELTE 调用，其效果与做一次的调用是一样的。HTTP 的 GET、HEAD 方法也具有幂指相等特性。
+HTTP 的 PUT、DELTE 调用，具有幂指相等特性 , 即: 客户端对某一 URI 做 n 次的 PUT、DELTE 调用，其效果与做一次的调用是一样的。HTTP 的 GET、HEAD 方法也具有幂指相等特性。
 
 HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性，以帮助构建更加健壮的分布式系统。
 
 <a name="6.2.安全控制|outline"></a>安全控制
 
-为了说明问题，基于上面的在线用户管理系统，我们给定以下场景：
+为了说明问题，基于上面的在线用户管理系统，我们给定以下场景: 
 
 参考一开始我们给出的用例图，对于客户端 Client2，我们只希望它能以只读的方式访问 User 和 User List 资源，而 Client1 具有访问所有资源的所有权限。
 
 如何做这样的安全控制？
 
-通行的做法是：所有从客户端 Client2 发出的 HTTP 请求都经过代理服务器 (Proxy Server)。代理服务器制定安全策略：所有经过该代理的访问 User 和 User List 资源的请求只具有读取权限，即：允许 GET/HEAD 操作，而像具有写权限的 PUT/DELTE 是不被允许的。
+通行的做法是: 所有从客户端 Client2 发出的 HTTP 请求都经过代理服务器 (Proxy Server)。代理服务器制定安全策略: 所有经过该代理的访问 User 和 User List 资源的请求只具有读取权限，即: 允许 GET/HEAD 操作，而像具有写权限的 PUT/DELTE 是不被允许的。
 
-如果对于 REST，我们看看这样的安全策略是如何部署的。如下图所示：
+如果对于 REST，我们看看这样的安全策略是如何部署的。如下图所示: 
   
 <a name="6.2.1.图 4. REST 与代理服务器 (Proxy Servers)|outline"></a>**图 4. REST 与代理服务器 (Proxy Servers)**
   
@@ -431,7 +431,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
 
 当发现类似于（http://localhost:8182/v1/users/{username}，DELETE）这样的请求时，予以拒绝。
 
-对于 SOAP，如果我们想借助于既有的代理服务器进行安全控制，会比较尴尬，如下图：
+对于 SOAP，如果我们想借助于既有的代理服务器进行安全控制，会比较尴尬，如下图: 
   
 <a name="6.2.2.图 5. SOAP 与代理服务器 (Proxy Servers)|outline"></a>**图 5. SOAP 与代理服务器 (Proxy Servers)**
   
@@ -443,7 +443,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
 
 众所周知，对于基于网络的分布式应用，网络传输是一个影响应用性能的重要因素。如何使用缓存来节省网络传输带来的开销，这是每一个构建分布式网络应用的开发人员必须考虑的问题。
 
-HTTP 协议带条件的 HTTP GET 请求 (Conditional GET) 被设计用来节省客户端与服务器之间网络传输带来的开销，这也给客户端实现 Cache 机制 ( 包括在客户端与服务器之间的任何代理 ) 提供了可能。HTTP 协议通过 HTTP HEADER 域：If-Modified-Since/Last- Modified，If-None-Match/ETag 实现带条件的 GET 请求。
+HTTP 协议带条件的 HTTP GET 请求 (Conditional GET) 被设计用来节省客户端与服务器之间网络传输带来的开销，这也给客户端实现 Cache 机制 ( 包括在客户端与服务器之间的任何代理 ) 提供了可能。HTTP 协议通过 HTTP HEADER 域: If-Modified-Since/Last- Modified，If-None-Match/ETag 实现带条件的 GET 请求。
 
 REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客户端第一次发送 HTTP GET 请求给服务器获得内容后，该内容可能被缓存服务器 (Cache Server) 缓存。当下一次客户端请求同样的资源时，缓存可以直接给出响应，而不需要请求远程的服务器获得。而这一切对客户端来说都是透明的。
   
@@ -459,7 +459,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/7.jpg" alt="REST" width="569" height="115" />
 
-两个因素决定了基于 SOAP 应用的缓存机制要远比 REST 复杂：
+两个因素决定了基于 SOAP 应用的缓存机制要远比 REST 复杂: 
 
 其一、所有经过缓存服务器的 SOAP 消息总是 HTTP POST，缓存服务器如果不解码 SOAP 消息体，没法知道该 HTTP 请求是否是想从服务器获得数据。
 
@@ -471,7 +471,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
 
 getUserList SOAP 消息获得所有的用户列表后，仍然无法通过既有的信息得到某个具体的用户信息。唯一的方法只有通过 WSDL 的指示，通过调用 getUserByName 获得，getUserList 与 getUserByName 是彼此孤立的。
 
-而对于 REST，情况是完全不同的：通过 `http://localhost:8182/v1/users` URI 获得用户列表，然后再通过用户列表中所提供的 LINK 属性，例如 `<link>http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式，非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面，并不依赖任何第三方的信息。
+而对于 REST，情况是完全不同的: 通过 `http://localhost:8182/v1/users` URI 获得用户列表，然后再通过用户列表中所提供的 LINK 属性，例如 `<link>http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式，非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面，并不依赖任何第三方的信息。
 
 
 <a name="7.总结|outline"></a>总结

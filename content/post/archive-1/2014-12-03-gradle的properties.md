@@ -12,7 +12,7 @@ tags:
 ---
 http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternative-android-build-tools.html
 
-# 目录：<nav> 
+# 目录: <nav> 
 
   * [问题背景][1]
   * [解决方案][2] 
@@ -98,19 +98,19 @@ http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternati
 
 Gradle支持三种Properties, 这三种Properties的作用域和初始化阶段都不一样，下面分别列出了其部分特点。:
 
-  1. _System Properties：_ 
+  1. _System Properties: _ 
       1. 可通过gradle.properties文件，环境变量或命令行-D参数设置 2. 可在setting.gradle或build.gradle中动态修改，在setting.gradle中的修改对buildscript block可见；
       2. 所有工程可见，不建议在build.gradle中修改
       3. 多子工程项目中，子工程的gradle.properties会被忽略掉，只有root工程的gradle.properties有效；
-  2. _Project Properties：_ 
+  2. _Project Properties: _ 
       1. 可通过gradle.properties文件，环境变量或命令行-P参数设置，优先级是:
       2. 可在build.gradle中动态修改，但引用不存在的project properties会立即抛错
       3. 动态修改过的project properties在buildscript block中不可见
-  3. _Project ext properties：_ 
+  3. _Project ext properties: _ 
       1. 可在项目的build.gradle中声明和使用，本工程和子工程可见
       2. 不能在setting.gradle中访问
 
-如果有多处设置，加载次序如下（注意：gradle 2.0是这样的, 1.10~1.12有bug）, 后面的覆盖前面的设置
+如果有多处设置，加载次序如下（注意: gradle 2.0是这样的, 1.10~1.12有bug）, 后面的覆盖前面的设置
 
   1. from gradle.properties located in project build dir.
   2. from gradle.properties located in gradle user home.
@@ -228,7 +228,7 @@ Gradle支持三种Properties, 这三种Properties的作用域和初始化阶段�
 
 ## 在gradle.properties文件中重载版本号 {#toc_4}
 
-gradle.properties文件内容如下：
+gradle.properties文件内容如下: 
 
 <ol class="linenums">
   <li class="L0">

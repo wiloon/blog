@@ -24,7 +24,7 @@ setup模块用于收集远程主机的一些基本信息。
 
 这样在后面的playbook里面可以调用并进行一些判断和对照。
 
-使用方法如下：
+使用方法如下: 
 
 [root@ansible test]$ansible all -m setup |more
   
@@ -112,7 +112,7 @@ OUTPUT OMITTED.
   
 现在有这样一个需求，生产环境现在有Redhat 5 和CentOS 6 两种操作系统环境，都需要在syslog配置文件添加一个远程syslog服务器，并且添加完成后重启服务器。
 
-所以我们收集了两个操作系统相关的参数如下：
+所以我们收集了两个操作系统相关的参数如下: 
 
 "ansible_distribution": "RedHat",
   
@@ -194,4 +194,4 @@ OUTPUT OMITTED.
   
 http://sapser.github.io/ansible/2014/07/21/ansible-conditionals/
 
-转载请注明：IPCPU-网络之路 » Ansible入门setup模块和条件判断
+转载请注明: IPCPU-网络之路 » Ansible入门setup模块和条件判断

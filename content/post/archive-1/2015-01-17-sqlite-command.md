@@ -14,13 +14,13 @@ tags:
 sudo pacman -S sqlite
 ```
 
-在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如：
+在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如: 
 
 sqlite> .mode column
 
 显示 列名.header on
 
-查出所有的表：
+查出所有的表: 
   
 select name from sqlite_master where type='table' order by name;
 

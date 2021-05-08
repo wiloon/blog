@@ -20,7 +20,7 @@ bytejdkclassstream存储socket
 ByteArrayOutputStream的用法
 
 
-以下是JDK中的记载：
+以下是JDK中的记载: 
 
 
 public class ByteArrayOutputStream extends OutputStream
@@ -35,7 +35,7 @@ public class ByteArrayOutputStream extends OutputStream
 我的个人理解是ByteArrayOutputStream是用来缓存数据的（数据写入的目标（output stream原义）），向它的内部缓冲区写入数据，缓冲区自动增长，当写入完成时可以从中提取数据。由于这个原因，ByteArrayOutputStream常用于存储数据以用于一次写入。
 
 
-实例：
+实例: 
 
 
 从文件中读取二进制数据，全部存储到ByteArrayOutputStream中。
@@ -74,7 +74,7 @@ byte retArr[]=baos.toByteArray();
 ByteArrayInputStream的用法
 
 
-相对而言，ByteArrayInputStream比较少见。先看JDK文档中的介绍：
+相对而言，ByteArrayInputStream比较少见。先看JDK文档中的介绍: 
 
 
 public class ByteArrayInputStreamextends InputStreamByteArrayInputStream 包含一个内部缓冲区，该缓冲区包含从流中读取的字节。内部计数器跟踪 read 方法要提供的下一个字节。
@@ -83,7 +83,7 @@ public class ByteArrayInputStreamextends InputStreamByteArrayInputStream 包含�
 关闭 ByteArrayInputStream 无效。此类中的方法在关闭此流后仍可被调用，而不会产生任何 IOException。
 
 
-构造函数：
+构造函数: 
 
 
 ByteArrayInputStream(byte[] buf)
@@ -98,7 +98,7 @@ ByteArrayInputStream(byte[] buf)
 个人认为一个比较好的用途是在网络中读取数据包，由于数据包一般是定长的，我们可以先分配一个够大的byte数组，比如byte buf[]=new byte[1024];
 
 
-然后调用某个方法得到网络中的数据包，例如：
+然后调用某个方法得到网络中的数据包，例如: 
 
 
 Socket s=...;

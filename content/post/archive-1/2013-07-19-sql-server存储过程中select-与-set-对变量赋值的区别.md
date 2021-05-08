@@ -77,7 +77,7 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
   </tr>
 </table>
 
-下面以具体示例来说明问题：
+下面以具体示例来说明问题: 
 
 create table chinadba1(
   

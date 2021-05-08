@@ -19,7 +19,7 @@ tasklist
   
 3、查看调用某一Dll的所有进程 tasklist -m MSVCP60.DLL，有时候不得以需要删除文件夹，老是提示dll文件受保护，不能删除文件夹，找到进程结束掉，regsvr32 -u *.dll注销dll文件，删除。这样应该可以了。
   
-4、查看进程详细信息 tasklist -v："进程名","PID","会话名 ","会话#","内存使用 ","状态  ","用户名","CPU 时间","窗口标题 "
+4、查看进程详细信息 tasklist -v: "进程名","PID","会话名 ","会话#","内存使用 ","状态  ","用户名","CPU 时间","窗口标题 "
   
 5、筛选器查找进程
 
@@ -77,19 +77,19 @@ tasklist
     1、利用进程的PID结束进程
   
   
-    　　命令格式：ntsd -c q -p pid
+    　　命令格式: ntsd -c q -p pid
   
   
-    　　命令范例： ntsd -c q -p 1332 （结束explorer.exe进程）
+    　　命令范例:  ntsd -c q -p 1332 （结束explorer.exe进程）
   
   
     2、利用进程名结束进程
   
   
-    　　命令格式：ntsd -c q -pn ***.exe （***.exe 为进程名,exe不能省）
+    　　命令格式: ntsd -c q -pn ***.exe （***.exe 为进程名,exe不能省）
   
   
-    　　命令范例：ntsd -c q -pn explorer.exe
+    　　命令范例: ntsd -c q -pn explorer.exe
   
 
 

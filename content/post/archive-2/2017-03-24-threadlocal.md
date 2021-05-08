@@ -152,13 +152,13 @@ t.threadLocals = new ThreadLocalMap(this, firstValue);
   
 }
   
-总结：实际上ThreadLocal的值是放入了当前线程的一个ThreadLocalMap实例中，所以只能在本线程中访问，其他线程无法访问。
+总结: 实际上ThreadLocal的值是放入了当前线程的一个ThreadLocalMap实例中，所以只能在本线程中访问，其他线程无法访问。
 
 对象存放在哪里
   
 在Java中，栈内存归属于单个线程，每个线程都会有一个栈内存，其存储的变量只能在其所属线程中可见，即栈内存可以理解成线程的私有内存。而堆内存中的对象对所有线程可见。堆内存中的对象可以被所有线程访问。
 
-问：那么是不是说ThreadLocal的实例以及其值存放在栈上呢？
+问: 那么是不是说ThreadLocal的实例以及其值存放在栈上呢？
   
 其实不是，因为ThreadLocal实例实际上也是被其创建的类持有（更顶端应该是被线程持有）。而ThreadLocal的值其实也是被线程实例持有。
 
@@ -276,7 +276,7 @@ Object value;
 
 }
   
-所以实际上从ThreadLocal设计角度来说是不会导致内存泄露的。关于弱引用，了解更多，请访问译文：理解Java中的弱引用
+所以实际上从ThreadLocal设计角度来说是不会导致内存泄露的。关于弱引用，了解更多，请访问译文: 理解Java中的弱引用
 
 使用场景
   
@@ -286,7 +286,7 @@ Object value;
   
 承载一些线程相关的数据，避免在方法中来回传递参数
   
-注意：Android的ThreadLocal与Java实现略有不同，但是原理是一致的。
+注意: Android的ThreadLocal与Java实现略有不同，但是原理是一致的。
 
 参考文章
   

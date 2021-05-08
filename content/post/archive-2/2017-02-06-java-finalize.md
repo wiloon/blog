@@ -24,7 +24,7 @@ Java提供finalize()方法，垃圾回收器准备释放内存的时候，会先
 
 要给一个类增加收尾（finalizer ），你只要定义finalize ( ) 方法即可。Java 回收该类的一个对象时，就会调用这个方法。在finalize ( )方法中，你要指定在一个对象被撤消前必须执行的操作。垃圾回收周期性地运行，检查对象不再被运行状态引用或间接地通过其他对象引用。就在对象被释放之前，Java 运行系统调用该对象的finalize( ) 方法。
 
-finalize()方法的通用格式如下：
+finalize()方法的通用格式如下: 
 
 protected void finalize( )
   
@@ -38,7 +38,7 @@ protected void finalize( )
 
 理解finalize( ) 正好在垃圾回收以前被调用非常重要。例如当一个对象超出了它的作用域时，finalize( ) 并不被调用。这意味着你不可能知道何时——甚至是否——finalize( ) 被调用。因此，你的程序应该提供其他的方法来释放由对象使用的系统资源，而不能依靠finalize( ) 来完成程序的正常操作。
 
-注意：如果你熟悉C ，那你知道C 允许你为一个类定义一个撤消函数（destructor ），它在对象正好出作用域之前被调用。Java不支持这个想法也不提供撤消函数。finalize() 方法只和撤消函数的功能接近。当你对Java 有丰富经验时，你将看到因为Java使用垃圾回收子系统，几乎没有必要使用撤消函数。
+注意: 如果你熟悉C ，那你知道C 允许你为一个类定义一个撤消函数（destructor ），它在对象正好出作用域之前被调用。Java不支持这个想法也不提供撤消函数。finalize() 方法只和撤消函数的功能接近。当你对Java 有丰富经验时，你将看到因为Java使用垃圾回收子系统，几乎没有必要使用撤消函数。
   
 理解finalize()-析构函数的替代者
   
@@ -68,7 +68,7 @@ by Tim Gooch
 
 在以上的描述中，有一些重要的事情需要注意。首先，只有当垃圾回收器释放该对象的内存时，才会执行finalize()。如果在 Applet 或应用程序退出之前垃圾回收器没有释放内存，垃圾回收器将不会调用finalize()。
 
-其次，除非垃圾回收器认为你的 Applet 或应用程序需要额外的内存，否则它不会试图释放不再使用的对象的内存。换句话说，这是完全可能的：一个 Applet 给少量的对象分配内存，没有造成严重的内存需求，于是垃圾回收器没有释放这些对象的内存就退出了。
+其次，除非垃圾回收器认为你的 Applet 或应用程序需要额外的内存，否则它不会试图释放不再使用的对象的内存。换句话说，这是完全可能的: 一个 Applet 给少量的对象分配内存，没有造成严重的内存需求，于是垃圾回收器没有释放这些对象的内存就退出了。
 
 显然，如果你为某个对象定义了finalize() 方法，JVM 可能不会调用它，因为垃圾回收器不曾释放过那些对象的内存。调用System.gc() 也不会起作用，因为它仅仅是给 JVM 一个建议而不是命令。
 
@@ -92,7 +92,7 @@ Java 1.1 通过提供一个System.runFinalizersOnExit() 方法部分地解决了
 
 当你完成代码的输入后，配置Internet 浏览器将System.out 的输出信息写到Javalog.txt 文件中。（在IE 选项对话框的高级页面中选择起用 Java Logging。）
 
-编译并运行该 Applet。然后，等待 Applet 运行（你将在状态栏中看到 Applet 已启动的信息），退出浏览器，并打开Javalog.txt 文件。你将会发现类似于下列行的信息：
+编译并运行该 Applet。然后，等待 Applet 运行（你将在状态栏中看到 Applet 已启动的信息），退出浏览器，并打开Javalog.txt 文件。你将会发现类似于下列行的信息: 
 
 1000 things constructed
 
@@ -100,7 +100,7 @@ Java 1.1 通过提供一个System.runFinalizersOnExit() 方法部分地解决了
 
 正如你能够看到的那样，建立了1,000个对象仍然没有迫使垃圾回收器开始回收空间，即使在 Applet 退出时也没有对象被使用。
 
-现在，删除在stop() 方法第一行中的注释符以起用System.gc() 方法。再次编译并运行该 Applet ，等待 Applet 完成运行，并退出浏览器。当你再次打开Javalog.txt 文件，你将看到下列行：
+现在，删除在stop() 方法第一行中的注释符以起用System.gc() 方法。再次编译并运行该 Applet ，等待 Applet 完成运行，并退出浏览器。当你再次打开Javalog.txt 文件，你将看到下列行: 
 
 1000 things constructed
 
@@ -132,11 +132,11 @@ super.finalize();
 
 因此，你不应当依靠finalize() 来执行你的 Applet 和应用程序的资源清除工作。取而代之，你应当明确的清除那些资源或创建一个try...finally 块（或类似的机制）来实现。
 
-finalize方法是与Java编程中的垃圾回收器有关系。即：当一个对象变成一个垃圾对象的时候，如果此对象的内存被回收，那么就可以调用系统中定义的finalize方法来完成
+finalize方法是与Java编程中的垃圾回收器有关系。即: 当一个对象变成一个垃圾对象的时候，如果此对象的内存被回收，那么就可以调用系统中定义的finalize方法来完成
 
 当然，Java的内存回收可以由JVM来自动完成。如果你手动使用，则可以使用上面的方法。
 
-举例说明：
+举例说明: 
   
 view plain
   
@@ -180,7 +180,7 @@ System.out.println("Cake Object " + id + "is disposed");
   
 }
   
-结果运行：
+结果运行: 
   
 view plain
   
@@ -217,4 +217,4 @@ Java中所有类都从Object类中继承finalize()方法。
 
 那么finalize()究竟是做什么的呢？它最主要的用途是回收特殊渠道申请的内存。Java程序有垃圾回收器，所以一般情况下内存问题不用程序员操心。但有一种JNI(Java Native Interface)调用non-Java程序（C或C++），finalize()的工作就是回收这部分的内存。
 
-仅供学习参考，原文出自：http://blog.csdn.net/carolzhang8406/article/details/6705831
+仅供学习参考，原文出自: http://blog.csdn.net/carolzhang8406/article/details/6705831

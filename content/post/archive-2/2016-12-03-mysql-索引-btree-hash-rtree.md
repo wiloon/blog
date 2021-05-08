@@ -10,7 +10,7 @@ categories:
 ---
 一、MySQL索引类型
 
-mysql里目前只支持4种索引分别是：full-text，b-tree，hash，r-tree
+mysql里目前只支持4种索引分别是: full-text，b-tree，hash，r-tree
 
 b-tree索引应该是mysql里最广泛的索引的了，除了archive基本所有的存储引擎都支持它.
 
@@ -25,7 +25,7 @@ full-text主要是用来代替like "%\***%"效率低下的问题
 
 b-tree在myisam里的形式和innodb稍有不同
 
-在 innodb里，有两种形态：一是primary key形态，其leaf node里存放的是数据，而且不仅存放了索引键的数据，还存放了其他字段的数据。二是secondary index，其leaf node和普通的b-tree差不多，只是还存放了指向主键的信息.
+在 innodb里，有两种形态: 一是primary key形态，其leaf node里存放的是数据，而且不仅存放了索引键的数据，还存放了其他字段的数据。二是secondary index，其leaf node和普通的b-tree差不多，只是还存放了指向主键的信息.
 
 而在myisam里，主键和其他的并没有太大区别。不过和innodb不太一样的地方是在myisam里，leaf node里存放的不是主键的信息，而是指向数据文件里的对应数据行的信息.
 
@@ -33,7 +33,7 @@ b-tree在myisam里的形式和innodb稍有不同
 
 目前我所知道的就只有memory和ndb cluster支持这种索引.
 
-hash索引由于其结构，所以在每次查询的时候直接一次到位，不像b-tree那样一点点的前进。所以hash索引的效率高于b-tree，但hash也有缺点，主要如下：
+hash索引由于其结构，所以在每次查询的时候直接一次到位，不像b-tree那样一点点的前进。所以hash索引的效率高于b-tree，但hash也有缺点，主要如下: 
 
 (1)由于存放的是hash值，所以仅支持<=>以及in操作.
 
@@ -89,13 +89,13 @@ insert delayed into table_name....;
 
 三、几个技巧
 
-1. 强制连接顺序： STRAIGHT_JOIN
+1. 强制连接顺序:  STRAIGHT_JOIN
 
 SELECT TABLE1.FIELD1, TABLE2.FIELD2 FROM TABLE1 STRAIGHT_JOIN TABLE2 WHERE …
 
 由上面的SQL语句可知，通过STRAIGHT_JOIN强迫MySQL按TABLE1、TABLE2的顺序连接表。如果你认为按自己的顺序比MySQL推荐的顺序进行连接的效率高的话，就可以通过STRAIGHT_JOIN来确定连接顺序。
 
-2. 强制使用临时表： SQL_BUFFER_RESULT
+2. 强制使用临时表:  SQL_BUFFER_RESULT
 
 SELECT SQL_BUFFER_RESULT * FROM TABLE1 WHERE …
 
@@ -107,4 +107,4 @@ SELECT SQL_BUFFER_RESULT FIELD1, COUNT(*) FROM TABLE1 GROUP BY FIELD1;
 
 一般用于分组或DISTINCT关键字，这个选项通知MySQL，如果有必要，就将查询结果放到临时表中，甚至在临时表中进行排序。SQL_SMALL_RESULT比起SQL_BIG_RESULT差不多，很少使用。
 
-转载声明： 本文转自 http://apps.hi.baidu.com/share/detail/23985447
+转载声明:  本文转自 http://apps.hi.baidu.com/share/detail/23985447

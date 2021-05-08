@@ -36,7 +36,7 @@ if(stringParam.equals("MyStringValue")) {
 
 }
 
-这个可能有NullPointerException出现，那么有几个办法处理：
+这个可能有NullPointerException出现，那么有几个办法处理: 
 
 Java代码 收藏代码
 
@@ -64,7 +64,7 @@ if("MyStringValue".equals(stringParam))
 
 }
 
-我本人不喜欢上面的两个方法，第一个看起来太臃肿，第二个看起来像错误的。这里我们就可以用一些StringUtils类了，这个类提供的equals方法是空指针安全的，不用担心传递给他的是什么参数，他不会抛出空指针异常，这样写：
+我本人不喜欢上面的两个方法，第一个看起来太臃肿，第二个看起来像错误的。这里我们就可以用一些StringUtils类了，这个类提供的equals方法是空指针安全的，不用担心传递给他的是什么参数，他不会抛出空指针异常，这样写: 
 
 Java代码 收藏代码
 
@@ -84,7 +84,7 @@ if(StringUtils.equals(stringParam,"MyStringValue))
 
 2）isEmpty,isNotEmpty,isBlank,isNotBlank
 
-和前面一样，这些方法相对于jdk提供的isEmpty方法来说，多了一个"空指针安全"，即不用考虑传递参数的空值问题，让我们来看一个例子：
+和前面一样，这些方法相对于jdk提供的isEmpty方法来说，多了一个"空指针安全"，即不用考虑传递参数的空值问题，让我们来看一个例子: 
 
 Java代码 收藏代码
 
@@ -104,7 +104,7 @@ if(StringUtils.isNotEmpty(myString)) { // 好多了吧
 
 Blank和empty的区别
 
-isBlank将在字符串含有空白字符的时候，返回true，例如：
+isBlank将在字符串含有空白字符的时候，返回true，例如: 
 
 Java代码 收藏代码
 
@@ -136,7 +136,7 @@ System.out.println(result.length); // 0
 
 4）public static String join(Iterable iterable,String separator）
 
-这个方法确实很实用，因为jdk自身没有提供，简单使用方法：
+这个方法确实很实用，因为jdk自身没有提供，简单使用方法: 
 
 Java代码 收藏代码
 

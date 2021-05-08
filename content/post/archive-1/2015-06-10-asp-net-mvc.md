@@ -24,7 +24,7 @@ HOCON（Human-Optimized Config Object Notation）是一个易于使用的配置�
   
 一个 comment 以 # 或者 // 开头，通常用于提供反馈或说明
   
-示例：
+示例: 
 
 yellow-thing: "Sponge"
   
@@ -34,7 +34,7 @@ yellow-thing: "Sponge"
   
 HOCON 要比 JSON（JavaScript Object Notation）更灵活，因为书写一个合法的 HOCON 的方式要更多。下面是两个合法的 HOCON 的例子。
 
-示例一：
+示例一: 
 
 player: {
       
@@ -44,7 +44,7 @@ level: 30
   
 }
   
-示例二：
+示例二: 
 
 player {
       

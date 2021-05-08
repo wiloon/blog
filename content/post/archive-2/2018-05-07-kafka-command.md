@@ -44,7 +44,7 @@ categories:
     --describe
 
 replication-factor: 副本数, partitions: 分区数
-topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
     # cloudera kafka
@@ -92,7 +92,7 @@ topic名中有. 或 _ 会提示： WARNING: Due to limitations in metric names, 
 
 ### 查看kafka版本
 
-到kafka/libs 目录下查看kafka包的文件名，如：
+到kafka/libs 目录下查看kafka包的文件名，如: 
 
 kafka_2.10-0.8.2-beta.jar, where 2.10 is Scala version and 0.8.2-beta is Kafka version.
 
@@ -202,11 +202,11 @@ docker run  -d --name kafka \
 ```
 ### server.properties
     
-    advertised.host.name：是注册到zookeeper，client要访问的broker地址。（可能producer也是拿这个值，没有验证）
+    advertised.host.name: 是注册到zookeeper，client要访问的broker地址。（可能producer也是拿这个值，没有验证）
     
     如果advertised.host.name没有设，会用host.name的值注册到zookeeper，如果host.name也没有设，则会使用JVM拿到的本机hostname注册到zk。
     
-    这里有两个坑要注意：
+    这里有两个坑要注意: 
     
     如果advertised.host.name没有设，host.name不能设为0.0.0.0，否则client通过zk拿到的broker地址就是0.0.0.0。
     
@@ -224,11 +224,11 @@ docker run  -d --name kafka \
     
     ### Kafka 访问协议说明
     
-    Kafka当前支持四种协议类型的访问：PLAINTEXT、SSL、SASL_PLAINTEXT、SASL_SSL。
+    Kafka当前支持四种协议类型的访问: PLAINTEXT、SSL、SASL_PLAINTEXT、SASL_SSL。
     
     Kafka服务启动时，默认会启动PLAINTEXT和SASL_PLAINTEXT两种协议类型的访问监听。可通过设置Kafka服务配置"ssl.mode.enable"为"true"，来启动SSL和SASL_SSL两种协议类型的访问监听。
     
-    下表是四中协议类型的简单说明：
+    下表是四中协议类型的简单说明: 
     
     协议类型
     

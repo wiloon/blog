@@ -10,7 +10,7 @@ categories:
 ---
 http://www.blogjava.net/ldd600/archive/2009/09/25/296397.html
 
-星期一早上到了公司，据称产品环境抛出了最可爱的异常—OutOfMemory, 它是这样来描述他自己的：
+星期一早上到了公司，据称产品环境抛出了最可爱的异常—OutOfMemory, 它是这样来描述他自己的: 
 
 java.lang.OutOfMemoryError: unable to create new native thread
 
@@ -18,11 +18,11 @@ java.lang.OutOfMemoryError: unable to create new native thread
 
 那可爱的OOM是如何产生的呢？直接原因是创建的线程太多了，根本原因是某个地方的内存限制了。
 
-搜罗了一下在网上找到了一个计算公式：
+搜罗了一下在网上找到了一个计算公式: 
 
 (MaxProcessMemory - JVMMemory – ReservedOsMemory) / (ThreadStackSize) = Number of threads
 
-MaxProcessMemory：进程最大的寻址空间，但我想这个值应该也不会超过虚拟内存和物理内存的总和吧。关于不同系统的进程可寻址的最大空间，可参考下面表格：
+MaxProcessMemory: 进程最大的寻址空间，但我想这个值应该也不会超过虚拟内存和物理内存的总和吧。关于不同系统的进程可寻址的最大空间，可参考下面表格: 
 
 Maximum Address Space Per Process
   
@@ -56,9 +56,9 @@ Terabytes
   
 JVMMemory: Heap + PermGen
 
-ReservedOSMemory：Native heap，JNI
+ReservedOSMemory: Native heap，JNI
 
-便可推导出单个JVM Instance可支持的最大线程数的估计值：
+便可推导出单个JVM Instance可支持的最大线程数的估计值: 
 
 (MaxProcessMemory<固定值> – Xms<初始化值，最小值> – XX:PermSize<初始化值，最小值> – 100m<估算值>) / Xss = Number of threads<最大值>
 
@@ -68,7 +68,7 @@ ReservedOSMemory：Native heap，JNI
 
 ·         max thread，linux2.6似乎是32000
 
-·         最大可用内存：物理内存+虚拟内存
+·         最大可用内存: 物理内存+虚拟内存
 
 ·         配置，在linux可以限制可用资源的大小，show一下这些参数
 

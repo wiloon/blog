@@ -80,7 +80,7 @@ yarn config get registry
 
 # -> https://registry.yarnpkg.com
 
-可以改成 taobao 的源：
+可以改成 taobao 的源: 
 
 yarn config set registry "https://registry.npm.taobao.org"
 

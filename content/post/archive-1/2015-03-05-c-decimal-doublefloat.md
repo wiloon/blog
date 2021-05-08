@@ -40,7 +40,7 @@ Java Object Model中定义，Object Header是一个2字（1 word = 4 byte）长�
   
 在本文的范围内，我们只关注第二和第三项即可。
 
-为了能直观的理解lock，unlock与mark word之间的联系，我画了一张流程图：
+为了能直观的理解lock，unlock与mark word之间的联系，我画了一张流程图: 
 
 在图中，提到了拷贝object mark word，由于脱离了原始mark word，官方将它冠以displaced前缀，即displaced mark word(置换标记字)。
   
@@ -66,4 +66,4 @@ exchange_pointer_1
   
 此时，unlock后就需要唤醒被挂起的线程。
 
-转载请注明原文链接：http://kenwublog.com/theory-of-lightweight-locking-upon-cas
+转载请注明原文链接: http://kenwublog.com/theory-of-lightweight-locking-upon-cas

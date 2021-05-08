@@ -12,7 +12,7 @@ categories:
 
 SQL Server中的标识列又称标识符列,习惯上又叫自增列。
   
-该种列具有以下三种特点：
+该种列具有以下三种特点: 
 
 1、列的数据类型为不带小数的数值类型
   
@@ -28,7 +28,7 @@ SQL Server中的标识列又称标识符列,习惯上又叫自增列。
   
 1、类型（type）
   
-在SQL Server 2000中，标识列类型必须是数值类型，如下：
+在SQL Server 2000中，标识列类型必须是数值类型，如下: 
   
 decimal、int、numeric、smallint、bigint 、tinyint
   
@@ -126,13 +126,13 @@ SELECT * FROM T_test WHERE ID=1
 
 6、获取标识列的种子值
 
-可使用函数IDENT_SEED,用法：
+可使用函数IDENT_SEED,用法: 
   
 SELECT IDENT_SEED ('表名')
 
 7、获取标识列的递增量
 
-可使用函数IDENT_INCR ,用法：
+可使用函数IDENT_INCR ,用法: 
   
 SELECT IDENT_INCR('表名')
 
@@ -142,13 +142,13 @@ SELECT IDENT_INCR('表名')
   
 SELECT IDENT_CURRENT('表名')
   
-注意事项：当包含标识列的表刚刚创建,为经过任何插入操作时，使用IDENT_CURRENT函数得到的值为标识列的种子值，这一点在开发数据库应用程序的时候尤其应该注意。
+注意事项: 当包含标识列的表刚刚创建,为经过任何插入操作时，使用IDENT_CURRENT函数得到的值为标识列的种子值，这一点在开发数据库应用程序的时候尤其应该注意。
 
 9.[SQL Server]关于标识列从1开始计数的问题
   
 在SQL Server中,  我们有时需要在清空数据表之后，重新添加记录时，标识列重新从1开始计数。
   
-我们只需要在插入记录之前，执行下面的命令：
+我们只需要在插入记录之前，执行下面的命令: 
   
 DBCC CHECKIDENT (表名,  RESEED, 0)
   

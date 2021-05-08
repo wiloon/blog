@@ -12,17 +12,17 @@ http://www.jianshu.com/p/e45cea3e1723
 
 runtime 调度器是个非常有用的东西，关于 runtime 包几个方法:
 
-Gosched：让当前线程让出 cpu 以让其它线程运行,它不会挂起当前线程，因此当前线程未来会继续执行
+Gosched: 让当前线程让出 cpu 以让其它线程运行,它不会挂起当前线程，因此当前线程未来会继续执行
 
-NumCPU：返回当前系统的 CPU 核数量
+NumCPU: 返回当前系统的 CPU 核数量
 
-GOMAXPROCS：设置最大的可同时使用的 CPU 核数
+GOMAXPROCS: 设置最大的可同时使用的 CPU 核数
 
-Goexit：退出当前 goroutine(但是defer语句会照常执行)
+Goexit: 退出当前 goroutine(但是defer语句会照常执行)
 
-NumGoroutine：返回正在执行和排队的任务总数
+NumGoroutine: 返回正在执行和排队的任务总数
 
-GOOS：目标操作系统
+GOOS: 目标操作系统
 
 NumCPU
 
@@ -46,7 +46,7 @@ fmt.Println("archive:", runtime.GOOS)
   
 }
   
-运行结果：
+运行结果: 
 
 GOMAXPROCS
 
@@ -122,9 +122,9 @@ fmt.Println("b")
 
 }
   
-结果：
+结果: 
 
-使用多核测试：
+使用多核测试: 
 
 package main
 
@@ -170,8 +170,8 @@ fmt.Println("b")
 
 }
   
-结果：
+结果: 
 
-根据你机器来设定运行时的核数，但是运行结果不一定与上面相同，或者在 main 函数的最后加上 select{} 让程序阻塞，则结果如下：
+根据你机器来设定运行时的核数，但是运行结果不一定与上面相同，或者在 main 函数的最后加上 select{} 让程序阻塞，则结果如下: 
 
 多核比较适合那种 CPU 密集型程序，如果是 IO 密集型使用多核会增加 CPU 切换的成本。

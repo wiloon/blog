@@ -16,7 +16,7 @@ MySQL View
   
 MySQL从5.x版本支持视图，并且基本符合SQL: 2003标准。
   
-MySQL中执行查询视图的方式有一下两种：
+MySQL中执行查询视图的方式有一下两种: 
 
 MySQL会合并输入的查询语句和视图的查询声明然后执行合并后的语句并返回结果。
   
@@ -26,7 +26,7 @@ MySQL会基于视图的查询声明创建一个temporary table, 当执行查询�
 
 Create View
   
-创建MySQL视图可以使用CREATE VIEW声明：
+创建MySQL视图可以使用CREATE VIEW声明: 
 
 CREATE
      
@@ -38,7 +38,7 @@ AS
   
 [SELECT statement]
   
-ALGORITHM：
+ALGORITHM: 
   
 MySQL有三种视图执行策略, 分别是MERGE, TEMPTABLE, UNDEFINED.
 
@@ -48,11 +48,11 @@ MySQL有三种视图执行策略, 分别是MERGE, TEMPTABLE, UNDEFINED.
   
 使用UNDEFINED策略，如果创建视图的时候不指定策略，MySQL默认使用此策略。UNDEFINED策略会自动选择使用上述两种策略中的一个，优先选择MERGE策略，无法使用则转为TEMPTABLE策略。
 
-作者：孙进不后退
+作者: 孙进不后退
   
-链接：https://www.jianshu.com/p/b11430bc4fba
+链接: https://www.jianshu.com/p/b11430bc4fba
   
-來源：简书
+來源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 

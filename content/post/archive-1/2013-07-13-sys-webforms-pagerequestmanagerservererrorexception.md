@@ -24,19 +24,19 @@ A.在Web.Config
 
 B.在 ScriptManager  内添加 EnablePartialRendering="false" 显示详细的错误信息。
   
-如下：
+如下: 
   
 <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="false"/>
 
 一般的原因都是页面存在潜在的危险字符  在 页首加入 ValidateRequest="false"
   
-如下：
+如下: 
   
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/CompanyManage.master" AutoEventWireup="true" CodeFile="CompanyIntroEdit.aspx.cs" Inherits="CompanyIntroEdit" Title="Untitled Page" ValidateRequest="false" %>
 
 C、去掉updatepanel，看是否有代码错误。代码错误改正，再重新添加。
 
-我的解决办法：
+我的解决办法: 
 
 google搜的结果前两页，不管中文英文都看过了，依然解决不了。用A方法，不可以。用B方法引起二次错误"Extender controls may not be registered before PreRender" 二次错误，也解决不了。用C方法，取出ajax控件，我的代码依然可以用，没有什么错误。
 

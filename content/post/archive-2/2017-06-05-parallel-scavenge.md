@@ -14,7 +14,7 @@ Parallel Scavenge收集器的特点是它的关注点与其他收集器不同，
 
 Parallel Scavenge收集器提供了两个参数用于精确控制吞吐量，分别是控制最大垃圾收集停顿时间的-XX:MaxGCPauseMillis参数及直接设置吞吐量大小的 -XX:GCTimeRatio参数。
 
-MaxGCPauseMillis参数允许的值是一个大于0的毫秒数，收集器将尽力保证内存回收花费的时间不超过设定值。不过大家不要异想天开地认为如果把这个参数的值设置得稍小一点就能使得系统的垃圾收集速度变得更快，GC停顿时间缩短是以牺牲吞吐量和新生代空间来换取的：系统把新生代调小一些，收集300MB新生代肯定比收集500MB快吧，这也直接导致垃圾收集发生得更频繁一些，原来10秒收集一次、每次停顿100毫秒，现在变成5秒收集一次、每次停顿70毫秒。停顿时间的确在下降，但吞吐量也降下来了。
+MaxGCPauseMillis参数允许的值是一个大于0的毫秒数，收集器将尽力保证内存回收花费的时间不超过设定值。不过大家不要异想天开地认为如果把这个参数的值设置得稍小一点就能使得系统的垃圾收集速度变得更快，GC停顿时间缩短是以牺牲吞吐量和新生代空间来换取的: 系统把新生代调小一些，收集300MB新生代肯定比收集500MB快吧，这也直接导致垃圾收集发生得更频繁一些，原来10秒收集一次、每次停顿100毫秒，现在变成5秒收集一次、每次停顿70毫秒。停顿时间的确在下降，但吞吐量也降下来了。
 
 GCTimeRatio参数的值应当是一个大于0小于100的整数，也就是垃圾收集时间占总时间的比率，相当于是吞吐量的倒数。如果把此参数设置为19，那允许的最大GC时间就占总时间的5%（即1 /（1+19）），默认值为99，就是允许最大1%（即1 /（1+99））的垃圾收集时间。
 
@@ -32,7 +32,7 @@ ParallelScavenge（PS）的young collector就如其名字所示，是并行的�
 
 能与PS系兼容的并行old collector可以通过-XX:+UseParallelOldGC来开启，但（不幸的是）它的collector名字显示出来也是PS MarkSweep。
 
-还有这种代码增添混乱程度：
+还有这种代码增添混乱程度: 
   
 C++代码 收藏代码
   
@@ -42,7 +42,7 @@ return UseParallelOldGC ? "ParOldGen" : "PSOldGen";
   
 }
 
-HotSpot VM的GC组老人之一Jon Masamitsu很久之前就写过blog讲解这个：https://blogs.oracle.com/jonthecollector/entry/our_collectors
+HotSpot VM的GC组老人之一Jon Masamitsu很久之前就写过blog讲解这个: https://blogs.oracle.com/jonthecollector/entry/our_collectors
 
 简单来说，有这么多东西反映了HotSpot VM的开发历史和实现细节。我在写篇东西讲述这部分历史，哪天写完的话在这边也放个链接嗯。
 
@@ -66,7 +66,7 @@ Scavenge或者叫scavenging GC，其实就是copying GC的另一种叫法而已�
 
 ================================
 
-ParallelScavenge和ParNew都是并行GC，主要是并行收集young gen，目的和性能其实都差不多。最明显的区别有下面几点：
+ParallelScavenge和ParNew都是并行GC，主要是并行收集young gen，目的和性能其实都差不多。最明显的区别有下面几点: 
   
 1、PS以前是广度优先顺序来遍历对象图的，JDK6的时候改为默认用深度优先顺序遍历，并留有一个UseDepthFirstScavengeOrder参数来选择是用深度还是广度优先。在JDK6u18之后这个参数被去掉，PS变为只用深度优先遍历。ParNew则是一直都只用广度优先顺序来遍历
   

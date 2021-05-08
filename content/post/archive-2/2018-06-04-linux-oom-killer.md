@@ -14,7 +14,7 @@ Linux - 内存控制之oom killer机制及代码分析
   
 2014年04月18日 15:04:29
   
-阅读数：28048
+阅读数: 28048
             
 最近，线上一些内存占用比较敏感的应用，在访问峰值的时候，偶尔会被kill掉，导致服务重启。发现是Linux的out-of-memory kiiler的机制触发的。
 
@@ -25,7 +25,7 @@ Linux - 内存控制之oom killer机制及代码分析
 
 oom killer初探
           
-一个简单分配heap memroy的代码片段(big_mm.c)：
+一个简单分配heap memroy的代码片段(big_mm.c): 
   
 [cpp] view plain copy
   
@@ -55,7 +55,7 @@ fprintf(stdout,"alloc %lum mem\n",total);
       
 }
 
-        这里有2个地方需要注意：
+        这里有2个地方需要注意: 
     
         1、malloc是分配虚拟地址空间，如果不memset或者bzero，那么就不会触发physical allocate，不会映射物理地址，所以这里用bzero填充
         2、每次申请的block大小比较有讲究，Linux内核分为LowMemroy和HighMemroy，LowMemory为内存紧张资源，LowMemroy有个阀值，通过free -lm和
@@ -63,13 +63,13 @@ fprintf(stdout,"alloc %lum mem\n",total);
 
 /proc/sys/vm/lowmem_reserve_ratio来查看当前low大小和阀值low大小。低于阀值时候才会触发oom killer，所以这里block的分配小雨默认的256M，否则如果每次申请512M(大于128M)，malloc可能会被底层的brk这个syscall阻塞住，内核触发page cache回写或slab回收。
 
-       测试：
+       测试: 
     
        gcc big_mm.c -o big_mm ; ./big_mm & ./big_mm & ./big_mm &
     
        (同时启动多个big_mm进程争抢内存)       
     
-       启动后，部分big_mm被killed，在/var/log/message下tail -n 1000 | grep -i oom 看到：
+       启动后，部分big_mm被killed，在/var/log/message下tail -n 1000 | grep -i oom 看到: 
     
 
 [cpp] view plain copy
@@ -109,13 +109,13 @@ Apr 18 16:56:18 v125000100.bja kernel: : [22254386.739001] [<ffffffff81159c6a>] 
 
 oom killer机制分析
   
-我们触发了oom killer的机制，那么oom killer是计算出选择哪个进程kill呢？我们先来看一下kernel提供给用户态的/proc下的一些参数：
+我们触发了oom killer的机制，那么oom killer是计算出选择哪个进程kill呢？我们先来看一下kernel提供给用户态的/proc下的一些参数: 
           
 /proc/[pid]/oom_adj ，该pid进程被oom killer杀掉的权重，介于 [-17,15]之间，越高的权重，意味着更可能被oom killer选中，-17表示禁止被kill掉。
 
         /proc/[pid]/oom_score，当前该pid进程的被kill的分数，越高的分数意味着越可能被kill，这个数值是根据oom_adj运算后的结果，是oom_killer的主要参考。
     
-        sysctl 下有2个可配置选项：
+        sysctl 下有2个可配置选项: 
     
                 vm.panic_on_oom = 0         #内存不够时内核是否直接panic
                 vm.oom_kill_allocating_task = 1        #oom-killer是否选择当前正在申请内存的进程进行kill
@@ -154,7 +154,7 @@ Apr 18 16:56:18 v125000100.bja kernel: : [22254386.758335] [ 831] 99 831 1032 21
 
 oom killer 代码分析
                
-上面已经给出了相应策略，下面剖析一下kernel对应的代码，有个清晰认识。代码选择的是kernel 3.0.12的代码，源码文件 mm/oom_kill.c，首先看一下call trace调用关系：
+上面已经给出了相应策略，下面剖析一下kernel对应的代码，有个清晰认识。代码选择的是kernel 3.0.12的代码，源码文件 mm/oom_kill.c，首先看一下call trace调用关系: 
                
 __alloc_pages_nodemask分配内存 -> 发现内存不足(或低于low memory)out_of_memory -> 选中一个得分最高的processor进行select_bad_process -> kill
 
@@ -226,7 +226,7 @@ out:
 
 }
 
-        select_bad_process() 调用oom_badness计算权值：
+        select_bad_process() 调用oom_badness计算权值: 
     
 
 [cpp] view plain copy

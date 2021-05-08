@@ -1,5 +1,5 @@
 ---
-title: IDEA无法启动：Failed to create JVM：error code -4
+title: IDEA无法启动: Failed to create JVM: error code -4
 author: w1100n
 type: post
 date: 2014-12-10T01:49:51+00:00
@@ -12,7 +12,7 @@ tags:
 ---
 http://blog.csdn.net/twlkyao/article/details/24534505
 
-发生该错误的原因是因为IDEA需要使用的连续内存空间没有得到满足，解决方案：
+发生该错误的原因是因为IDEA需要使用的连续内存空间没有得到满足，解决方案: 
 
 1.减小-Xmx和-XX:PermSize的值
   
@@ -33,4 +33,4 @@ IDEA提供idea64.exe的启动器，该启动器使用64位的JDK（需要单独�
 
 通过卸载不常用的应用程序来减少应用分割进城地址空间。
   
-参考资料：点击打开链接
+参考资料: 点击打开链接

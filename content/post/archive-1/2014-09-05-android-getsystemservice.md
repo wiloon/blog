@@ -12,7 +12,7 @@ http://blog.sina.com.cn/s/blog_7cb2c5d50101c26t.html
 
 android中getSystemService详解 (2012-07-23 10:53:52)转载▼
   
-标签： java android it 分类： android
+标签:  java android it 分类:  android
   
 http://blog.sina.com.cn/s/blog_71d1e4fc0100o8qr.html
   
@@ -114,9 +114,9 @@ A DownloadManager for requesting HTTP downloads
 
 Note: System services obtained via this API may be closely associated with the Context in which they are obtained from. In general, do not share the service objects between various different contexts (Activities, Applications, Services, Providers, etc.)
 
-一个例子：
+一个例子: 
   
-在android 获取手机信息的时候用到这样一段代码：
+在android 获取手机信息的时候用到这样一段代码: 
 
 public class BasicInfo {
 
@@ -156,9 +156,9 @@ return phoneNumber;
 
 getSystemService这个方法基于context,只有存在TextView控件的窗体中这个方法才会被激活~
 
-于是：
+于是: 
   
-1. 给BasicInfo 添加一个带参数Context的构造函数：
+1. 给BasicInfo 添加一个带参数Context的构造函数: 
   
 public BasicInfo (Context context)
   
@@ -168,7 +168,7 @@ this.context = context;
   
 }
 
-2. getPhoneNumber()函数里面改成：
+2. getPhoneNumber()函数里面改成: 
   
 context.getSystemService(Context.TELEPHONY_SERVIC);
 

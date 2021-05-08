@@ -12,7 +12,7 @@ categories:
 
 ---
 
-目的： A.java 是主界面，B.java 是子功能模块，要从A启动B，B干完活之后把结果汇报给A
+目的:  A.java 是主界面，B.java 是子功能模块，要从A启动B，B干完活之后把结果汇报给A
   
 先看 A.java 的相关代码
   

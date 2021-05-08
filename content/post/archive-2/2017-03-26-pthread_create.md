@@ -132,13 +132,13 @@ $ gcc main.c -lpthread
   
 $ ./a.out
 
-向线程函数传递参数详解：
+向线程函数传递参数详解: 
 
-向线程函数传递参数分为两种：
+向线程函数传递参数分为两种: 
 
-（1）线程函数只有一个参数的情况：直接定义一个变量通过应用传给线程函数。
+（1）线程函数只有一个参数的情况: 直接定义一个变量通过应用传给线程函数。
 
-例子：
+例子: 
 
 #include <iostream>
   
@@ -174,11 +174,11 @@ pthread_join(thread, NULL);
   
 }
   
-2、线程函数有多个参数的情况：这种情况就必须申明一个结构体来包含所有的参数，然后在传入线程函数，具体如下：
+2、线程函数有多个参数的情况: 这种情况就必须申明一个结构体来包含所有的参数，然后在传入线程函数，具体如下: 
   
-例子：
+例子: 
 
-首先定义一个结构体：
+首先定义一个结构体: 
 
 struct  parameter
 
@@ -199,7 +199,7 @@ int count;
 struct parameter arg;
 
 
-通过如下的方式来调用函数：
+通过如下的方式来调用函数: 
   
 pthread_create(&ntid, NULL, fn,& (arg));
   
@@ -231,12 +231,12 @@ pstru = ( struct parameter *) arg;
 }
 
 ### pthread_join
-pthread_join函数介绍：
-函数pthread_join用来等待一个线程的结束,线程间同步的操作。头文件 ： #include <pthread.h>
-函数定义： int pthread_join(pthread_t thread, void **retval);
-描述 ：pthread_join()函数，以阻塞的方式等待thread指定的线程结束。当函数返回时，被等待线程的资源被收回。如果线程已经结束，那么该函数会立即返回。并且thread指定的线程必须是joinable的。
-参数 ：thread: 线程标识符，即线程ID，标识唯一线程。retval: 用户定义的指针，用来存储被等待线程的返回值。
-返回值 ： 0代表成功。 失败，返回的则是错误号。
+pthread_join函数介绍: 
+函数pthread_join用来等待一个线程的结束,线程间同步的操作。头文件 :  #include <pthread.h>
+函数定义:  int pthread_join(pthread_t thread, void **retval);
+描述 : pthread_join()函数，以阻塞的方式等待thread指定的线程结束。当函数返回时，被等待线程的资源被收回。如果线程已经结束，那么该函数会立即返回。并且thread指定的线程必须是joinable的。
+参数 : thread: 线程标识符，即线程ID，标识唯一线程。retval: 用户定义的指针，用来存储被等待线程的返回值。
+返回值 :  0代表成功。 失败，返回的则是错误号。
 
 
 

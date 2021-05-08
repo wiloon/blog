@@ -82,7 +82,7 @@ This is a functional interface and can therefore be used as the assignment targe
 
 接口最终有确定的类实现， 而类的最终父类是Object。 因此函数式接口可以定义Object的public方法。
   
-如以下的接口依然是函数式接口：
+如以下的接口依然是函数式接口: 
 
 @FunctionalInterface
   
@@ -97,7 +97,7 @@ void count(int i);
 
 }
   
-为什么限定public类型的方法呢？因为接口中定义的方法都是public类型的。 举个例子，下面的接口就不是函数式接口：
+为什么限定public类型的方法呢？因为接口中定义的方法都是public类型的。 举个例子，下面的接口就不是函数式接口: 
 
 interface WrongObjectMethodFunctionalInterface {
       
@@ -240,11 +240,11 @@ InterfaceWithDefaultMethod仍然是一个函数式接口。
 
 泛型及继承关系
 
-接口可以继承接口。 如果父接口是一个函数接口， 那么子接口也可能是一个函数式接口。 判断标准依据下面的条件：
+接口可以继承接口。 如果父接口是一个函数接口， 那么子接口也可能是一个函数式接口。 判断标准依据下面的条件: 
 
 对于接口I, 假定M是接口成员里的所有抽象方法的继承(包括继承于父接口的方法)， 除去具有和Object的public的实例方法签名的方法， 那么我们可以依据下面的条件判断一个接口是否是函数式接口， 这样可以更精确的定义函数式接口。
   
-如果存在一个一个方法m， 满足：
+如果存在一个一个方法m， 满足: 
 
 m的签名（subsignature）是M中每一个方法签名的子签名（signature）
   
@@ -282,7 +282,7 @@ interface Y { int m(Iterable<Integer> arg); }
   
 interface Z extends X, Y {}
   
-编译出错， 没有一个方法的签名是所有方法的子签名：
+编译出错， 没有一个方法的签名是所有方法的子签名: 
 
 4)
 

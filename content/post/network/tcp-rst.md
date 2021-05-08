@@ -61,7 +61,7 @@ cli.close关闭服务端连接，当前服务端连接处于FIN_WAIT2状态，�
 
 最近在工作中遇到一个由于服务端accept()调用过慢导致的已连接队列满，而客户端是半开打(Half Open)连接的情况下产生rst。
 
-注：为了方便模拟已连接队列满的情况，将listen socket的backlog参数设置为1。
+注: 为了方便模拟已连接队列满的情况，将listen socket的backlog参数设置为1。
 
 
 服务端监听6000端口，并不进行accept。

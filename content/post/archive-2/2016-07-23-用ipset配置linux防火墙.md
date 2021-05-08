@@ -115,7 +115,7 @@ ipset是iptables的match扩展。如果要使用它，需要使用ipset命令行
   
 一个集合是一个方便有效快速查询的地址列表。
   
-下面有两个常见的iptables命令，这两个命令阻止从1.1.1.1和2.2.2.2进入主机的数据包：
+下面有两个常见的iptables命令，这两个命令阻止从1.1.1.1和2.2.2.2进入主机的数据包: 
   
 iptables -A INPUT -s 1.1.1.1 -j DROP
   
@@ -123,7 +123,7 @@ iptables -A INPUT -s 2.2.2.2 -j DROP
   
 match 部分语法 -s 1.1.1.1 表示"匹配源地址是1.1.1.1的数据包"。
   
-下面的ipset/iptables命令同样可以达到上面的目的：
+下面的ipset/iptables命令同样可以达到上面的目的: 
   
 ipset -N myset iphash
   
@@ -155,7 +155,7 @@ Advantages of ipset
   
 除了性能优势，一些情况下ipset允许更直接的配置方法。
   
-如果你想定义一个防火墙环境，该环境不会处理来自1.1.1.1和2.2.2.2的包，并且处理过程包含在mychain中，注意下面的方法是无效的：
+如果你想定义一个防火墙环境，该环境不会处理来自1.1.1.1和2.2.2.2的包，并且处理过程包含在mychain中，注意下面的方法是无效的: 
   
 iptables -A INPUT -s ! 1.1.1.1 -g mychain
   
@@ -185,7 +185,7 @@ Outbound NAT (SNAT 或 IP 伪装)允许私有局域网内的主机访问internet
 
 NAT自动跟踪活动的连接，所以它能将返回的包发送给正确的内网主机（通过将数据包的目的地址修改为内部主机地址）。
 
-下面是一个简单的outbound NAT规则，10.0.0.0/24是内部局域网：
+下面是一个简单的outbound NAT规则，10.0.0.0/24是内部局域网: 
 
 iptables -t nat -A POSTROUTING \
   
@@ -207,7 +207,7 @@ iptables -t nat -A POSTROUTING \
 
 通过匹配物理接口来设计的防火墙规则可以使用在一些人为限制方面，并且依赖网络拓扑。
 
-后来发现，ipset还有另一个应用。假设有一个本地LAN (10.0.0.0/24)需要连接到internet，除此之外还有三个本地网络(10.30.30.0/24, 10.40.40.0/24, 192.168.4.0/23 和 172.22.0.0/22)，执行下面的命令：
+后来发现，ipset还有另一个应用。假设有一个本地LAN (10.0.0.0/24)需要连接到internet，除此之外还有三个本地网络(10.30.30.0/24, 10.40.40.0/24, 192.168.4.0/23 和 172.22.0.0/22)，执行下面的命令: 
   
 ipset -N routed_nets nethash
   
@@ -233,7 +233,7 @@ Limiting Certain PCs to Have Access Only to Certain Public Hosts
 
 假设老板较关心员工上班时间上网问题，请你限制员工的PC只能访问指定的几个网站，但是不想所有的内部PC都受到限制。
 
-限制3台PC (10.0.0.5, 10.0.0.6 and 10.0.0.7)只能访问worksite1.com，worksite2.com 和 worksite3.com。执行下面的命令：
+限制3台PC (10.0.0.5, 10.0.0.6 and 10.0.0.7)只能访问worksite1.com，worksite2.com 和 worksite3.com。执行下面的命令: 
   
 ipset -N limited_hosts iphash
   
@@ -313,7 +313,7 @@ iptables -I FORWARD \
 
 使用第二个ipset集合代替标记的方法是不可能完成上面的要求的，因为ipset没有machash集合类型，只有集合类型，但是他要求同时匹配IP和MAC，而不是只匹配MAC地址。
 
-警告：在大多数实际环境里，这个方法可能不可行，应为大部分你需要屏蔽的网站他们的主机都有多个ip地址(比如 Facebook, MySpace 等等)，而且这些ip会频繁的更换。iptables/ipset的一个限制是主机名只有被解析为单个ip地址时才能使用。
+警告: 在大多数实际环境里，这个方法可能不可行，应为大部分你需要屏蔽的网站他们的主机都有多个ip地址(比如 Facebook, MySpace 等等)，而且这些ip会频繁的更换。iptables/ipset的一个限制是主机名只有被解析为单个ip地址时才能使用。
 
 而且，主机名lookup只有在命令执行时发生，所以如果ip地址改变了，防火墙是不会意识到的，而是仍然使用以前的ip地址。基于这个原因，一个完成Web访问限制的更好的方法是使用HTTP代理，比如Squid。
 
@@ -321,7 +321,7 @@ Automatically Ban Hosts That Attempt to Access Invalid Services
 
 ipset为iptables提供了目标扩展功能，它提供了一种向集合动态添加和删除目标的机制。不必手动使用ipset命令添加目标，而是在运行时通过iptables自动添加。
 
-比如，如果远程主机尝试连接端口25，但是你并没有运行SMTP服务，我们怀疑对方不怀好意，所以我们在对方还没有干什么坏事前就组织他的其他尝试，使用下面的规则：
+比如，如果远程主机尝试连接端口25，但是你并没有运行SMTP服务，我们怀疑对方不怀好意，所以我们在对方还没有干什么坏事前就组织他的其他尝试，使用下面的规则: 
 
 ipset -N banned_hosts iphash
   
@@ -337,7 +337,7 @@ iptables -A INPUT \
   
 -j DROP
 
-如果从端口25接收到数据包，假设来源地址是1.1.1.1，那么该地址马上就被添加到banned_hosts集合，和下面的例子等效：
+如果从端口25接收到数据包，假设来源地址是1.1.1.1，那么该地址马上就被添加到banned_hosts集合，和下面的例子等效: 
 
 ipset -A banned_hosts 1.1.1.1
 
@@ -347,7 +347,7 @@ ipset -A banned_hosts 1.1.1.1
   
 Clearing the Running Config
 
-如果你想清除ipset和iptables的配置，将防火墙reset，运行下面的命令：
+如果你想清除ipset和iptables的配置，将防火墙reset，运行下面的命令: 
 
 iptables -P INPUT ACCEPT
   
@@ -383,7 +383,7 @@ Netfilter/iptables Project Home Page: http://www.netfilter.org
 
 ipset Home Page: http://ipset.netfilter.org
 
-原文地址：http://www.linuxjournal.com/content/advanced-firewall-configurations-ipset?page=0,0
+原文地址: http://www.linuxjournal.com/content/advanced-firewall-configurations-ipset?page=0,0
   
 http://blog.chinaunix.net/uid-21706718-id-3561951.html
   

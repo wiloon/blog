@@ -31,7 +31,7 @@ ctrl+7
 
 ### 安装fcitx
     sudo pacman -S fcitx
-    #图形界面的配置程序：KDE 中的 kcm-fcitx
+    #图形界面的配置程序: KDE 中的 kcm-fcitx
     sudo pacman -S  kcm-fcitx
 
 #### gtk3 config tool

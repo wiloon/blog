@@ -10,9 +10,9 @@ categories:
 ---
 http://hubingforever.blog.163.com/blog/static/17104057920129249497980/
 
-英文原文：http://tools.android.com/tips/lint
+英文原文: http://tools.android.com/tips/lint
   
-参照文章：http://blog.csdn.net/thl789/article/details/8037473
+参照文章: http://blog.csdn.net/thl789/article/details/8037473
   
 一、简介
   
@@ -20,7 +20,7 @@ Android Lint是SDK Tools 16 (ADT 16)之后才引入的工具，通过它对Andro
   
 由于Android Lint在最初设计时就考虑到了independent于IDE,所以它可以很方便的与项目中的其他自动系统（配置/ Build / 测试等）集成.
   
-Android Lint主要用于检查以下这些错误：
+Android Lint主要用于检查以下这些错误: 
   
 1、Missing translations (and unused translations)没有翻译的文本
   

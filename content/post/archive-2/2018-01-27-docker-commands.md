@@ -164,7 +164,7 @@ docker run -it --rm ubuntu bash
 # -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp)
 # -d, --detach=false        Run container in background and print container ID(后台运行)并返回容器ID；
 # --rm 容器退出后随之将其删除
-# bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 bash
+# bash: 放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 bash
 # --name="nginx-lb" : 为容器指定一个名称；
 # -p 80:80 映射端口, hostPort:containerPort
 # --privileged=true, 大约在0.6版，privileged被引入docker。使用该参数，container内的root拥有真正的root权限。

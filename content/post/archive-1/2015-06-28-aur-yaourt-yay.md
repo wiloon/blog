@@ -28,18 +28,18 @@ makepkg -si
 ```bash
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 ```
-修改的配置文件位于 ~/.config/yay/config.json ，还可通过以下命令查看修改过的配置：
+修改的配置文件位于 ~/.config/yay/config.json ，还可通过以下命令查看修改过的配置: 
 
 ```bash
 yay -P -g
 ```
 
-### 使用 yay：
+### 使用 yay: 
 ```bash
-# 搜索：
+# 搜索: 
 yay -Ss <package-name>
 
-# 安装：
+# 安装: 
 yay -S <package-name>
 ```
 
@@ -68,7 +68,7 @@ SigLevel = Optional TrustAll #Optional TrustedOnly
   
 Server = http://repo.archlinuxcn.org/$arch
   
-同步并安装：
+同步并安装: 
   
 pacman -Sy
   
@@ -76,7 +76,7 @@ pacman -S yaourt
 
 如何使用yaourt?
   
-yaourt用起来很简单，而且类似于Pacman的命令，下面是常用的一些命令：  
+yaourt用起来很简单，而且类似于Pacman的命令，下面是常用的一些命令:   
 yaourt -S package_name – 从AUR安装软件包
 
 https://linux.cn/article-9925-1.html?utm_source=rss&utm_medium=rss

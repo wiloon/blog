@@ -58,7 +58,7 @@ categories:
 # service module
   - name: ensure apache is running
     service: name=httpd state=started
-  handlers:       #notify通知这里的task执行，谨记：定义在handlers下的task只有在notify触发的时候才会执行
+  handlers:       #notify通知这里的task执行，谨记: 定义在handlers下的task只有在notify触发的时候才会执行
     - name: restart apache
       service: name=httpd state=restarted
     - name: modify monit config file

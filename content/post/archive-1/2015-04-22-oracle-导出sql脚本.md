@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-大体的分为三种方法：
+大体的分为三种方法: 
 
 一、可以通过toad、plsql develop等第三方工具进行导出DLL操作，用这种办法的好处在于操作简单方便，但需要安装，下面简单介绍一下用这两个工具获得DLL语句的操作。
 
@@ -18,7 +18,7 @@ Oracle提供的最原始最实用的导入导出工具，我们大体上可以�
 
 a. 通过imp指定indexfile参数，但这种办法不爽在于有每行前会有REM
 
-语法大体如下：
+语法大体如下: 
 
 exp userid=... tables=emp rows=n file=emp.dmp
   
@@ -26,13 +26,13 @@ imp userid=... file=emp.dmp indexfile=emp.sql
 
 b. 通过imp指定show=y，同时指定log参数，格式上也不是很爽，在格式上很美观的还是通过工具导出的比较美观
 
-语法大体如下：
+语法大体如下: 
 
 exp userid=... tables=emp rows=n file= emp.dmp
   
 imp userid=... file= emp.dmp show=y log=emp.sql
 
-c. 利用unix下有strings命令,语法大体如下，这种方法比较野蛮：
+c. 利用unix下有strings命令,语法大体如下，这种方法比较野蛮: 
 
 exp userid=... tables=tab1 rows=n file=tab1.dmp
   
@@ -42,7 +42,7 @@ emp.sql中就有DLL语句了
 
 三、通过9i的DBMS_METADATA包得到DLL语句
 
-基本上用到的语法如下：
+基本上用到的语法如下: 
 
 a. 获取单个的建表和建索引的语法
   
@@ -62,7 +62,7 @@ select dbms_metadata.get_ddl('INDEX','DEPT_IDX','SCOTT') from dual;
   
 spool off;
 
-b.获取一个SCHEMA下的所有建表和建索引的语法，以scott为例：
+b.获取一个SCHEMA下的所有建表和建索引的语法，以scott为例: 
 
 set pagesize 0
   
@@ -92,7 +92,7 @@ select DBMS_METADATA.GET_DDL('PROCEDURE',u.object_name) from user_objects u wher
   
 spool off;
 
-另：dbms_metadata.get_ddl('TABLE','TAB1','USER1')
+另: dbms_metadata.get_ddl('TABLE','TAB1','USER1')
   
 三个参数中，第一个指定导出DDL定义的对象类型（此例中为表类型），第二个是对象名（此例中即表名），第三个是对象所在的用户名。
 
@@ -130,7 +130,7 @@ utl_file_dir路径名,不变(我设置的是/oracle/logs)
   
 注意事项: 生成(insert into 表名 ....)OS下文件最多32767行。因为我一条insert分成两行,所以最多处理16383条记录的表。
 
-附：genins_file.sql
+附: genins_file.sql
 
 code:
   
