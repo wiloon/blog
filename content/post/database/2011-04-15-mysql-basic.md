@@ -4,10 +4,6 @@ author: w1100n
 type: post
 date: 2011-04-15T14:42:09+00:00
 url: /?p=7
-categories:
-  - DataBase
-tags:
-  - MySQL
 
 ---
 ### 配置文件位置
@@ -73,7 +69,7 @@ SELECT @@GLOBAL.sql_mode;
 SELECT @@SESSION.sql_mode;
 ```
 
-### docker server
+### podmn
 
 ```bash
     podman run    -d \
