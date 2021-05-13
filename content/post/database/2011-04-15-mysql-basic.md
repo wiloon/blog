@@ -23,7 +23,9 @@ MySQL管理员用户名: root
   
 密码安装mysql时指定.
   
-登录MySQL: mysql -u root -p
+登录MySQL: 
+
+    mysql -u root -p
 
 提示输入密码.... 输入密码后回车...
 
@@ -50,7 +52,7 @@ create database mydb character set utf8;
   
 ```
 
-### 授权用户wiloon 拥有数据库enlab 的所有权限.
+### 授权用户wiloon 拥有数据库 enx 的所有权限.
 
 ```sql
 grant all privileges on enlab.* to wiloon@'%' identified by 'password';
