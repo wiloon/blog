@@ -206,3 +206,15 @@ func main(){
 ### sha256
      sum := sha256.Sum256([]byte("hello world\n"))
 
+
+### csv
+https://cloud.tencent.com/developer/article/1059643
+
+### bytes.Buffer, io.Writer
+import "bufio"
+import "bytes"
+
+func main() {
+    var b bytes.Buffer
+    foo := bufio.NewWriter(&b)
+}
