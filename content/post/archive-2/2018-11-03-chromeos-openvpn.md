@@ -12,3 +12,8 @@ categories:
     chrome://sys-internals/
 ### openvpn
 https://docs.google.com/document/d/18TU22gueH5OKYHZVJ5nXuqHnk2GN6nDvfu2Hbrb4YLE/pub#h.bta4pj6t7nhs
+
+
+your profile can not be used... ...
+
+rm -rf /home/wiloon/.config/google-chrome/Default

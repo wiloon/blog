@@ -32,7 +32,7 @@ title = "nginx config, tls"
         ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
         ssl_ciphers         HIGH:!aNULL:!MD5;
         #...
-        }
+    }
 
 ### 静态网站
 

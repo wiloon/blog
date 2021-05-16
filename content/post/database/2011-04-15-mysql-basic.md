@@ -49,7 +49,7 @@ create database mydb character set utf8;
 ### 授权用户wiloon 拥有数据库enlab 的所有权限.
 
 ```sql
-grant all privileges on enlab.* to wiloon@'%' identified by 'password';
+    grant all privileges on enlab.* to wiloon@'%' identified by 'password';
 ```
 
 退出后用wiloon登录, 然后show databases; 应该可以看到enlab了.

@@ -1,13 +1,16 @@
 ---
-title: chrome weak up api
+title: chrome weak up api, keep screen on
 author: w1100n
 type: post
 date: 2019-06-02T14:19:27+00:00
 url: /?p=14434
-categories:
-  - Uncategorized
 
 ---
+- enable-experimental-web-platform-features
+- web页面支持https才能使用wake lock api
+- android系统开启开发者模式
+
+
 ### chrome 74
 chrome://flags/#enable-experimental-web-platform-features  
 Note: Like most other powerful web APIs, the Wake Lock API is only available when served over HTTPS.  

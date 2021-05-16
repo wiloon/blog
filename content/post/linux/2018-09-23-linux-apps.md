@@ -101,14 +101,15 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                                  | comments                                                       |
 | :------------------------------------ | -------------------------------------------------------------- |
+| goland                                | yay -S goland goland-jre, 两个一起安装                         |
+| webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
 | clion                                 |                                                                |
 | deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
-|google-chrome||
+| google-chrome||
 | google-chrome-beta                    |                                                                |
 | redis-desktop-manager                 | rdm                                                            |
 | wps-office                            | 依赖                                                           |
 | ttf-wps-fonts                         | wps字体                                                        |
-| heidisql                              |                                                                |
 | nixnote2-git                          | evernote linux 客户端                                          |
 | gitkraken                             | git GUI clinet, Free for non-commercial use                    |
 | github-desktop-bin                    | MIT Linense                                                    |
@@ -118,7 +119,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | dingtalk                              | 钉钉                                                           |
 | menulibre                             | xfce的系统菜单管理工具                                         |
 | ttf-consolas-with-yahei-powerline-git | Consolas-with-Yahei字体                                        |
-| goland                                | yay -S goland goland-jre, 两个一起安装                         |
 | zoom                                  |                                                                |
 | shutter                               |                                                                |
 | perl-goo-canvas                       | shutter 的画线插件                                             |
@@ -127,10 +127,9 @@ sudo pacman -S powerdevil kmix kscreen ark
 | telegraf                              |                                                                |
 | tableplus                             | mysql client                                                   |
 | procmon                               | 微软的进程监控工具                                             |
-| webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
 | platformio                            | 物联网开发的开源生态系统                                       |
-
 |slurm|网络监控|
+|joplin||
 
 ### KDE
 

@@ -58,6 +58,22 @@ alternatives --set python /usr/bin/python3
         sudo apt-get remove certbo
         sudo snap install --classic certbot
 
+### google dns
+    certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wangyue.dev -d *.wangyue.dev
+### aliyun
+https://github.com/tengattack/certbot-dns-aliyun
+
+
+    sudo dnf install python3
+    pip3 install certbot-dns-aliyun
+
+    certbot certonly -a dns-aliyun \
+    --certbot-dns-aliyun:dns-aliyun-credentials /root/apps/credentials.ini \
+    -d wiloon.com \
+    -d "*.wiloon.com"
+
+---
+
 ### dry run
         certbot-auto certonly  -d wiloon.com -d *.wiloon.com --manual --preferred-challenges dns --dry-run  --manual-auth-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"
 

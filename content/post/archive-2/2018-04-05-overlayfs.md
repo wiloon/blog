@@ -26,7 +26,7 @@ Docker存储驱动之OverlayFS简介
   
 　　自从Docker1.12起，Docker也支持overlay2存储驱动，相比于overlay来说，overlay2在inode优化上更加高效。但overlay2驱动只兼容Linux kernel4.0以上的版本。
   
-　　注意: 自从OverlayFS加入kernel主线后，它在kernel模块中的名称就被从overlayfs改为overlay了。但是为了在本文中区别，我们使用OverlayFS代表整个文件系统，而overlay/overlay2表示Docker的存储驱动。ggjjj
+　　注意: 自从OverlayFS加入kernel主线后，它在kernel模块中的名称就被从overlayfs改为overlay了。但是为了在本文中区别，我们使用OverlayFS代表整个文件系统，而overlay/overlay2表示Docker的存储驱动
 
 overlay和overlay2
   

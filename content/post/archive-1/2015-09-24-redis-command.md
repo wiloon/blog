@@ -1,11 +1,9 @@
 ---
-title: redis basic,command
+title: redis basic, command
 author: w1100n
 type: post
 date: 2015-09-24T08:09:01+00:00
 url: /?p=8345
-categories:
-  - Uncategorized
 tags:
   - Redis
 
@@ -24,7 +22,7 @@ rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
 rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ```
 
-### docker
+### podman
 
 ```bash
 podman run \
