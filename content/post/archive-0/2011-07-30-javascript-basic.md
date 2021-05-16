@@ -41,6 +41,14 @@ var mssss= getTime();
 
 http://www.w3school.com.cn/js/jsref_obj_date.asp
 
+### 日期计算
+```javascript
+    this.dateStart = new Date().toISOString().substr(0, 10)
+    const d = new Date()
+    d.setDate(d.getDate() + 1)
+    this.dateEnd = d.toISOString().substr(0, 10)
+```
+
 ### 取字符串长度
     var pig ="ttttt"
     alert(pig.length) ;

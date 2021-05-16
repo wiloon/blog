@@ -87,6 +87,57 @@ mysql> explain select \* from (select \* from ( select * from t1 where id=2602) 
 - ref_or_null: 与ref方法类似，只是增加了null值的比较。实际用的不多。
 - fulltext: 全文索引检索，要注意，全文索引的优先级很高，若全文索引和普通索引同时存在时，mysql不管代价，优先选择使用全文索引
 
+#### ref
+All rows with matching index values are read from this table for each combination of rows from the previous tables. ref is used if the join uses only a leftmost prefix of the key or if the key is not a PRIMARY KEY or UNIQUE index (in other words, if the join cannot select a single row based on the key value). If the key that is used matches only a few rows, this is a good join type.
+
+第一句没理解透，先理解到多行匹配吧。
+
+触发条件：触发联合索引最左原则（不知道的搜下），或者这个索引不是主键，也不是唯一索引（换句话说，如果这个在这个索引基础之上查询的结果多于一行）。
+
+如果使用那个索引只匹配到非常少的行，也是不错的。
+
+ref can be used for indexed columns that are compared using the = or <=> operator. In the following examples, MySQL can use a ref join to process ref_table:
+
+在对已经建立索引列进行=或者<=>操作的时候，ref会被使用到。与eq_ref不同的是匹配到了多行
+
+##### 根据索引（非主键，非唯一索引），匹配到多行
+SELECT * FROM ref_table WHERE key_column=expr;
+
+##### 多表关联查询，单个索引，多行匹配
+SELECT * FROM ref_table,other_table
+  WHERE ref_table.key_column=other_table.column;
+
+##### 多表关联查询，联合索引，多行匹配
+SELECT * FROM ref_table,other_table
+  WHERE ref_table.key_column_part1=other_table.column
+  AND ref_table.key_column_part2=1;
+
+#### eq_ref
+One row is read from this table for each combination of rows from the previous tables. Other than the system and const types, this is the best possible join type. It is used when all parts of an index are used by the join and the index is a PRIMARY KEY or UNIQUE NOT NULL index.
+
+触发条件：只匹配到一行的时候。除了system和const之外，这是最好的连接类型了。当我们使用主键索引或者唯一索引的时候，且这个索引的所有组成部分都被用上，才能是该类型。
+
+eq_ref can be used for indexed columns that are compared using the = operator. The comparison value can be a constant or an expression that uses columns from tables that are read before this table. In the following examples, MySQL can use an eq_ref join to process ref_table
+
+在对已经建立索引列进行=操作的时候，eq_ref会被使用到。比较值可以使用一个常量也可以是一个表达式。这个表达示可以是其他的表的行。
+
+##### 多表关联查询，单行匹配
+SELECT * FROM ref_table,other_table
+  WHERE ref_table.key_column=other_table.column;
+
+##### 多表关联查询，联合索引，多行匹配
+SELECT * FROM ref_table,other_table
+  WHERE ref_table.key_column_part1=other_table.column
+  AND ref_table.key_column_part2=1;
+
+
+
+* eq_ref: 出现在要连接过个表的查询计划中，驱动表只返回一行数据，且这行数据是第二个表的主键或者唯一索引，且必须为not null，唯一索引和主键是多列时，只有所有的列都用作比较时才会出现eq_ref
+* const: 使用唯一索引或者主键，返回记录一定是1行记录的等值where条件时，通常type是const。其他数据库也叫做唯一索引扫描
+* system: 表中只有一行数据或者是空表，且只能用于myisam和memory表。如果是Innodb引擎表，type列在这个情况通常都是all或者index
+* NULL: MySQL在优化过程中分解语句，执行时甚至不用访问表或索引，例如从一个索引列里选取最小值可以通过单独索引查找完成。
+
+
 ### possible_keys
 查询可能使用到的索引都会在这里列出来, 指出MySQL能使用哪个索引在表中找到记录，查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询使用
   
@@ -104,47 +155,6 @@ key列显示MySQL实际决定使用的键（索引）
 ### key_len
 表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度（key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len是根据表定义计算而得，不是通过表内检索出的）, 不损失精确性的情况下，长度越短越好
 
-#### ref
-The ref column shows which columns or constants are compared to the index named in the key column to select rows from the table.
-  
-If the value is func, the value used is the result of some function. To see which function, use SHOW WARNINGS following EXPLAIN to see the extended EXPLAIN output. The function might actually be an operator such as an arithmetic operator.
-  
-ref列显示查询的时候哪些列或常量用于跟索引比较.
-  
-表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值
-
-不像eq_ref那样要求连接顺序，也没有主键和唯一索引的要求，只要使用相等条件检索时就可能出现，常见与辅助索引的等值查找。或者多列主键、唯一索引中，使用第一个列之外的列作为等值查找也会出现，总之，返回数据不唯一的等值查找就可能出现
-
-All rows with matching index values are read from this table for each combination of rows from the previous tables. ref is used if the join uses only a leftmost prefix of the key or if the key is not a PRIMARY KEY or UNIQUE index (in other words, if the join cannot select a single row based on the key value). If the key that is used matches only a few rows, this is a good join type.
-
-第一句没理解透，先理解到多行匹配吧。
-
-触发条件: 触发联合索引最左原则（不知道的搜下），或者这个索引不是主键，也不是唯一索引（换句话说，如果这个在这个索引基础之上查询的结果多于一行）。
-
-如果使用那个索引只匹配到非常少的行，也是不错的。
-
-ref can be used for indexed columns that are compared using the = or <=> operator. In the following examples, MySQL can use a ref join to process ref_table:
-
-在对已经建立索引列进行=或者<=>操作的时候，ref会被使用到。与eq_ref不同的是匹配到了多行
-
-```sql
--- 根据索引（非主键，非唯一索引），匹配到多行
-SELECT * FROM ref_table WHERE key_column=expr;
-
--- 多表关联查询，单个索引，多行匹配
-SELECT * FROM ref_table,other_table
-  WHERE ref_table.key_column=other_table.column;
-
--- 多表关联查询，联合索引，多行匹配
-SELECT * FROM ref_table,other_table
-  WHERE ref_table.key_column_part1=other_table.column
-  AND ref_table.key_column_part2=1;
-```
-
-* eq_ref: 出现在要连接过个表的查询计划中，驱动表只返回一行数据，且这行数据是第二个表的主键或者唯一索引，且必须为not null，唯一索引和主键是多列时，只有所有的列都用作比较时才会出现eq_ref
-* const: 使用唯一索引或者主键，返回记录一定是1行记录的等值where条件时，通常type是const。其他数据库也叫做唯一索引扫描
-* system: 表中只有一行数据或者是空表，且只能用于myisam和memory表。如果是Innodb引擎表，type列在这个情况通常都是all或者index
-* NULL: MySQL在优化过程中分解语句，执行时甚至不用访问表或索引，例如从一个索引列里选取最小值可以通过单独索引查找完成。
 
 ### rows
 表示MySQL根据表统计信息及索引选用情况，估算的找到所需的记录所需要读取的行数

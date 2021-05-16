@@ -6,6 +6,10 @@ date: 2019-03-21T02:43:54+00:00
 url: /?p=13890
 
 ---
+```golang
+buf := bytes.NewBuffer([]byte{})
+```
+
 ##bytes.buffer是 bytes.buffer是一个缓冲byte类型的缓冲器，这个缓冲器里存放着都是byte
 
 ##创建一个缓冲器 ###NewBuffer

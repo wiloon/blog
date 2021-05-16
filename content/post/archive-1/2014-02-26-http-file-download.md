@@ -1,15 +1,51 @@
 ---
-title: ajax 文件下载
+title: http 文件下载
 author: w1100n
 type: post
 date: 2014-02-26T06:23:12+00:00
 url: /?p=6291
-categories:
-  - Uncategorized
-tags:
-  - JavaScript
 
 ---
+
+### golang + gin
+
+```golang
+	c.Writer.WriteHeader(http.StatusOK)
+	c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=%s.bin", "foo"))
+	c.Header("Content-Type", "application/octet-stream")
+	c.Header("Content-Transfer-Encoding", "binary")
+	c.Header("Accept-Ranges", "bytes")
+	c.Header("Connection", "keep-alive")
+	c.Header("Content-Length", fmt.Sprintf("%d", len(paramsBytes)))
+
+	c.Writer.Write(paramsBytes)
+```
+
+### vuetify
+```typescript
+    import fileDownload from 'js-file-download'
+    exportCsv (): void {
+      Axios.get('/export',
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('JWT_TOKEN')
+          },
+          params: {
+            foo: this.foo,
+            start: this.dateStart + ' ' + this.timeStart,
+            end: this.dateEnd + ' ' + this.timeEnd
+          },
+          responseType: 'blob'
+        }).then(response => {
+        const fileName = response.headers['content-disposition'].match(/filename=(.*)/)[1]
+        console.log('data: ' + response.data)
+        fileDownload(response.data, fileName)
+      }).catch(error => {
+        console.log({ error })
+      })
+    }
+```
+
 http://blog.csdn.net/androidmylove/article/details/8881573
 
 查了好多资料，发现还是不全，干脆自己整理吧，至少保证在我的做法正确的，以免误导读者，也是给自己做个记录吧！
