@@ -39,16 +39,17 @@ url: /?p=9971
 ```
 ### pthread_create
 pthread.h是UNIX环境创建线程函数头文件
-  
+```c
 #include<pthread.h>
   
-int pthread_create(pthread_t *restrict tidp,const pthread_attr_t  *restrict_attr,void  *（ *start_rtn)(void *),void  *restrict arg);返回值
+int pthread_create(pthread_t *restrict tidp,const pthread_attr_t  *restrict_attr,void  *（ *start_rtn)(void *),void  *restrict arg);
   
-        extern int pthread_create (pthread_t *__restrict __newthread,
-                                const pthread_attr_t *__restrict __attr,
-                                void *(*__start_routine) (void *),
-                                void *__restrict __arg) __THROWNL __nonnull ((1, 3));
-                                
+extern int pthread_create (pthread_t *__restrict __newthread,
+                        const pthread_attr_t *__restrict __attr,
+                        void *(*__start_routine) (void *),
+                        void *__restrict __arg) __THROWNL __nonnull ((1, 3));
+```
+
 若成功则返回0，否则返回出错编号
   
 返回成功时，由 __newthread 指向的内存单元被设置为新创建线程的线程ID。   
@@ -237,8 +238,6 @@ pthread_join函数介绍:
 描述 : pthread_join()函数，以阻塞的方式等待thread指定的线程结束。当函数返回时，被等待线程的资源被收回。如果线程已经结束，那么该函数会立即返回。并且thread指定的线程必须是joinable的。
 参数 : thread: 线程标识符，即线程ID，标识唯一线程。retval: 用户定义的指针，用来存储被等待线程的返回值。
 返回值 :  0代表成功。 失败，返回的则是错误号。
-
-
 
 ---
 

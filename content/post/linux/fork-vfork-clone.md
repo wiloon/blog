@@ -482,7 +482,7 @@ Child process ,The value of a is 1,b is 2,the address a 0xbfb73d90,b 0xbfb73d8c
 
 　　用于有选择地设置父子进程之间需共享的资源 
 
-　　四、fork，vfork，clone的区别 
+### fork，vfork，clone的区别 
 
 　　1. fork出来的子进程是父进程的一个拷贝，即，子进程从父进程得到了数据段和堆栈段的拷贝，这些需要分配新的内存；而对于只读的代码段，通常使用共享内存的方式访问；而vfork则是子进程与父进程共享内存空间, 子进程对虚拟地址空间任何数据的修改同样为父进程所见；clone则由用户通过参clone_flags 的设置来决定哪些资源共享，哪些资源拷贝。 
 

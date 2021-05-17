@@ -6,8 +6,6 @@ date: 2017-03-24T15:52:22+00:00
 url: /?p=9925
 
 ---
-https://xie.infoq.cn/article/cef6d2931a54f85142d863db7
-
 ### 调度器
 
 ### 进程
@@ -138,7 +136,9 @@ goroutine的并发问题: goroutine在共享内存中运行，通信网络可能
 
  
 
-参考资料: 
+---
+
+https://xie.infoq.cn/article/cef6d2931a54f85142d863db7
 
 《现代操作系统》《分布式系统原理与范型》《深入理解linux内核》《go程序设计语言》
 

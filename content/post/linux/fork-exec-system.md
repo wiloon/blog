@@ -511,7 +511,7 @@ Linux也有自己的多线程函数pthread，它既不同于Linux的进程，也
 
  
 
-　　4 鸣谢
+4 鸣谢
 
 　　本文作者:winnxm
 
