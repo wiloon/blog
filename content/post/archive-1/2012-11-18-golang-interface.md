@@ -4,9 +4,6 @@ author: w1100n
 type: post
 date: 2012-11-18T15:12:11+00:00
 url: /?p=4716
-categories:
-  - Java
-  - Web
 
 ---
 http://www.cnblogs.com/chenny7/p/4497969.html
@@ -97,8 +94,6 @@ rect1 := NewRect(1,2,10,20)
 fmt.Println(rect1.width)
   
 }
-  
-复制代码
 
 ### 匿名组合, 继承
 
@@ -138,44 +133,30 @@ func main() {
 
 组合的类型和被组合的类型包含同名成员时， 会不会有问题呢？可以参考下面的例子: 
 
-复制代码
-  
+
+```golang
 type Base struct {
-      
-name string
-      
-age int
-  
+    name string 
+    age int
 }
 
 func (base *Base) Set(myname string, myage int) {
-      
-base.name = myname
-      
-base.age = myage
-  
+    base.name = myname
+    base.age = myage
 }
 
 type Derived struct {
-      
-Base
-      
-name string
-  
+    Base 
+    name string
 }
 
-func main() {
-      
-b := &Derived{}
-
+func main() { 
+    b := &Derived{}
     b.Set("sina", 30)
     fmt.Println("b.name =",b.name, "\tb.Base.name =", b.Base.name)
     fmt.Println("b.age =",b.age, "\tb.Base.age =", b.Base.age)
-    
-
 }
-  
-复制代码
+```
 
 值语义和引用语义
   
@@ -474,7 +455,9 @@ v.SetFloat(7.1)
   
 上面只是对反射的简单介绍，更深入的理解还需要自己在编程中不断的实践。
 
-参考文档: 
+----
+
+https://hackthology.com/golangzhong-de-mian-xiang-dui-xiang-ji-cheng.html
 
 http://se77en.cc/2014/05/05/methods-interfaces-and-embedded-types-in-golang/
   

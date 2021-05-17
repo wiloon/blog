@@ -175,3 +175,5 @@ https://studygolang.com/articles/9611
 http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html
   
 https://www.zhihu.com/question/20511233
+https://www.zhihu.com/question/21483863  
+https://zhuanlan.zhihu.com/p/25513336  
