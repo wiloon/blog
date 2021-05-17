@@ -134,8 +134,7 @@ TASK_KILLABLE	当进程处于这种可以终止的新睡眠状态中，它的运
 进程标识符（PID）
 pid_t pid;  
 pid_t tgid;  
-1
-2
+
 Unix系统通过pid来标识进程，linux把不同的pid与系统中每个进程或轻量级线程关联，而unix程序员希望同一组线程具有共同的pid，遵照这个标准linux引入线程组的概念。一个线程组所有线程与领头线程具有相同的pid，存入tgid字段，getpid()返回当前进程的tgid值而不是pid的值。
 
 在CONFIG_BASE_SMALL配置为0的情况下，PID的取值范围是0到32767，即系统中的进程数最大为32768个。
