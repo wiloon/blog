@@ -276,7 +276,7 @@ LGWr(日志写进程)
 
 提交的时候（commit)
 
-redo log buffer达到1／3满
+redo log buffer达到1/3满
 
 每隔3秒
 

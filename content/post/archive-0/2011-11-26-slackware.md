@@ -70,7 +70,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    Slackware的测试／开发版本称为 '-current' ，这是为了可以使用更多超前的配置。
+    Slackware的测试/开发版本称为 '-current' ，这是为了可以使用更多超前的配置。
   
   
   

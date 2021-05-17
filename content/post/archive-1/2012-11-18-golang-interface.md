@@ -1,5 +1,5 @@
 ---
-title: golang  方法, 接口
+title: golang  方法, 接口, 继承
 author: w1100n
 type: post
 date: 2012-11-18T15:12:11+00:00
@@ -454,6 +454,22 @@ v := p.Elem()
 v.SetFloat(7.1)
   
 上面只是对反射的简单介绍，更深入的理解还需要自己在编程中不断的实践。
+
+### 继承机制
+继承机制的简化版 上面的实现方案的一个问题是*IntegerConstant的方法调用中，出现了重复造轮子的问题。但是我们可以使用Go内建的嵌入机制来避免此类情况的出现。嵌入机制(匿名嵌入)允许类型之前共享代码和数据。
+type IntegerConstant struct {
+  Token
+  value uint64
+}
+
+func (i *IntegerConstant) Value() uint64 {
+  return i.value
+}
+IntegerConstant中匿名嵌入了Token类型，使得IntegerConstant"继承"了Token的字段和方法。
+
+
+相比于Java，Go在继承和聚合之间的界限是很模糊的。Go中没有extends关键词。在语法的层次上，继承看上去与聚合没有什么区别。Go中聚合跟继承唯一的不同在于，继承自其他结构体的struct类型可以直接访问父类结构体的字段和方法。
+
 
 ----
 

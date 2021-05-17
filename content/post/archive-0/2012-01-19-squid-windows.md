@@ -64,7 +64,7 @@ visible_hostname 机器名（随便起） 这么一行，就搞定了。
   
 c:>cd c:squidsbin
   
-C:squidsbin>squid -i    (注册Squid为Windows的服务，默认的服务名为SquidNT，可以使用"管理工具"中的"服务"来启动／停用服务)
+C:squidsbin>squid -i    (注册Squid为Windows的服务，默认的服务名为SquidNT，可以使用"管理工具"中的"服务"来启动/停用服务)
   
 C:squidsbin>squid -z    (生成高速缓存的目录)
   

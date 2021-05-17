@@ -218,3 +218,8 @@ func main() {
     var b bytes.Buffer
     foo := bufio.NewWriter(&b)
 }
+
+### math
+func Dim(x, y float64) float64
+函数返回x-y和0中的最大值
+

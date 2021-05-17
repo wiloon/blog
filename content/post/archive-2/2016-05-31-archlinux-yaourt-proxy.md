@@ -42,7 +42,7 @@ rsync -r d1/ d2
   
 rsync -anv dir1/ dir2
 
-\# 注意上面的dir1/中的"／"不能少，它代表同步目录下文件， 如果没有"/" 代表同步这个目录。
+\# 注意上面的dir1/中的"/"不能少，它代表同步目录下文件， 如果没有"/" 代表同步这个目录。
 
 ```
 
@@ -52,9 +52,9 @@ rsync -anv dir1/ dir2
 
 把本地目录同步到远程主机: 
 
-$ rsync -a dir1／ root@blog.topspeedsnail.com:~/dir2
+$ rsync -a dir1/ root@blog.topspeedsnail.com:~/dir2
   
-$ rsync -a dir1／ root@blog.topspeedsnail.com:~/dir2
+$ rsync -a dir1/ root@blog.topspeedsnail.com:~/dir2
   
 把远程主机目录同步到本地: 
 

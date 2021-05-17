@@ -207,7 +207,7 @@ func main() {
 }
 ```
 
-文／icexin（简书作者）
+文/icexin（简书作者）
   
 原文链接: http://www.jianshu.com/p/32b839e99289
   

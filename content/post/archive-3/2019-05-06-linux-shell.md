@@ -130,7 +130,7 @@ ps |  grep $$  |  awk '{print $4}'
 
 命令行式shell（Command Line Interface shell ，即CLI shell）
   
-也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe（命令提示字符）和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh／zsh等 一般情况下，习惯把命令行shell（CLI shell）直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
+也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe（命令提示字符）和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh/zsh等 一般情况下，习惯把命令行shell（CLI shell）直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
 
 ```bash
 cat /etc/shells
@@ -146,7 +146,7 @@ Bourne Shell 是一个比较老的shell，目前已经被/bin/bash所取代，�
 
 sh_to_bash
 
-3.3、csh／tcsh
+3.3、csh/tcsh
   
 C shell 使用的是"类C"语法,csh是具有C语言风格的一种shell，tcsh是增强版本的csh，目前csh已经很少使用了。
 

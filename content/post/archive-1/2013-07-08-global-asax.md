@@ -38,7 +38,7 @@ Response.Write("页面执行时间:"+ ts.Milliseconds +" 毫秒");
 
 如果是０５版本中，就要手动添加了，自己在App_Code中添加Global.asax.cs，然后设置Global.asax的属性Inherits="Global"或CodeBehind="Global.asax.cs"即可<%@ Application Language="C#" Codebehind="Global.asax.cs" %>
 
-以上测试在０３／０５均通过．
+以上测试在０３/０５均通过．
 
 以下转对Global.asax文件的了解
 

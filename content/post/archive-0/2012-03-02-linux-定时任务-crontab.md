@@ -283,7 +283,7 @@ crontab -u UserName -e
   
 它会定时去读取这个档案，并依其内容执行指令。
   
-而指令的执行结果（标准输出／错误输出，stdout/stderr）会以邮件方式寄给系统管理者，
+而指令的执行结果（标准输出/错误输出，stdout/stderr）会以邮件方式寄给系统管理者，
   
 即 /etc/aliases 档案中的 root : UserName 。
 
