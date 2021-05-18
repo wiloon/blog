@@ -239,6 +239,10 @@ pthread_join函数介绍:
 参数 : thread: 线程标识符，即线程ID，标识唯一线程。retval: 用户定义的指针，用来存储被等待线程的返回值。
 返回值 :  0代表成功。 失败，返回的则是错误号。
 
+
+
+
+
 ---
 
 http://blog.csdn.net/liangxanhai/article/details/7767430  

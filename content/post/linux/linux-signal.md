@@ -11,7 +11,7 @@ title = "linux signal"
 信号(signal)是一种软中断，信号机制是进程间通信的一种方式，采用异步通信方式
 
 信号的名字和编号：
-每个信号都有一个名字和编号，这些名字都以“SIG”开头，例如“SIGIO ”、“SIGCHLD”等等。
+每个信号都有一个名字和编号，这些名字都以“SIG"开头，例如“SIGIO "、“SIGCHLD"等等。
 信号定义在signal.h头文件中，信号名都定义为正整数。
 具体的信号名称可以使用kill -l来查看信号的名字以及序号，信号是从1开始编号的，不存在0号信号。kill对于信号0又特殊的应用。
 
@@ -224,7 +224,7 @@ SIGTTOU
   类似于SIGTTIN, 但在写终端(或修改终端模式)时收到。具体见上面SIGTTIN
 
 SIGURG
-  SIGURG, urgent, 紧急的。有”紧急”数据或out-of-band数据到达socket时产生.
+  SIGURG, urgent, 紧急的。有"紧急"数据或out-of-band数据到达socket时产生.
 
 SIGXCPU
   超过CPU时间资源限制. 这个限制可以由getrlimit/setrlimit来读取/改变。

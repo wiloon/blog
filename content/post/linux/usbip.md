@@ -8,7 +8,7 @@ title = "usbip"
 https://github.com/cezanne/usbip-win/releases
 
 ### 安装证书
-右键usbip_test.pfx -> 安装PFX，选择“本地计算机”，而不是“当前用户”，证书密码 usbip，存储位置选择 “受信任的证书颁发机构”  
+右键usbip_test.pfx -> 安装PFX，选择“本地计算机"，而不是“当前用户"，证书密码 usbip，存储位置选择 “受信任的证书颁发机构"  
 
 开启驱动测试签名
 bcdedit.exe /set TESTSIGNING ON
