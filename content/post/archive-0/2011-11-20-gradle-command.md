@@ -83,5 +83,8 @@ compile("comxxx:xxx:xxx") {
 exclude group: 'ch.qos.logback', module: 'logback-classic'
   
 }
-  
+
+### gralde > maven
+https://www.huaweicloud.com/articles/5a4acb62fa2204db2dc7b08b8b151d32.html
+
 http://stackoverflow.com/questions/20707543/gradle-how-to-exclude-jar-from-a-war
