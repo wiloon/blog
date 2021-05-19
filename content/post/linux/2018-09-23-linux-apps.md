@@ -28,6 +28,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                     |
 | :-------------------- | :----------------------------------------------------------- |
+| neofetch              |  系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制  |
 | screenfetch           | 发行版的logo                                                  |
 | keepassxc             |                                                              |
 | sqlectron-gui         |                                                              |
@@ -36,7 +37,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | rsibreak              | 番茄钟                                                        |
 | libreoffice-fresh     |                                                              |
 | ark                   | kde dolphin extract zip,gz                                   |
-| neofetch              |  系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制  |
 | wine                  | 需要开启Multilib仓库                                         |
 | qalculate-gtk         | 全宇宙最好用的计算器                                         |
 | simplescreenrecorder  | 录屏                                                         |

@@ -5,6 +5,8 @@ date: 2019-03-28T09:40:51.000+00:00
 url: "/?p=13982"
 
 ---
+### WSL 
+windows subsystem for Linux
 # wsl2
 ### command
     wsl --shutdown
