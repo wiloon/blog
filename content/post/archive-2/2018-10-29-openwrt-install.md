@@ -14,7 +14,7 @@ build
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=12113&embed=true#?secret=Z4x4I19l6b" data-secret="Z4x4I19l6b" width="600" height="338" title=""R7800, Build custom Netgear R7800 firmware for a larger flash size/root space" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://blog.wiloon.com/?p=12113&embed=true#?secret=Z4x4I19l6b
 
 burn
 
@@ -24,16 +24,12 @@ burn
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=12826&embed=true#?secret=G3qiDnmUJx" data-secret="G3qiDnmUJx" width="600" height="338" title=""netgear  刷机, factory.img, sysupgrade.bin" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://blog.wiloon.com/?p=12826&embed=true#?secret=G3qiDnmUJx
 
 改网段
-
-<blockquote class="wp-embedded-content" data-secret="XiBcmLWKRM">
-  
-    <a href="http://blog.wiloon.com/?p=12761">openwrt lan 改网段</a>
-  
-</blockquote>
-
+ 
+ openwrt lan 改网段
+ 
 http://blog.wiloon.com/?p=12761&embed=true#?secret=XiBcmLWKRM
 
 openvpn
