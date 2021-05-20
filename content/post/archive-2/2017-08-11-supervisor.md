@@ -4,13 +4,10 @@ author: w1100n
 type: post
 date: 2017-08-11T08:21:18+00:00
 url: /?p=11029
-categories:
-  - Uncategorized
 
 ---
 
-    supevisorctl restart all
-
+    supervisorctl restart all
 
 http://liyangliang.me/posts/2015/06/using-supervisor/
 
@@ -172,17 +169,12 @@ supervisorctl -c /etc/supervisord.conf
     
 > 上面这些命令都有相应的输出，除了进入 supervisorctl 的 shell 界面，也可以直接在 bash 终端运行: 
     
-> $ supervisorctl status
-    
-> $ supervisorctl stop usercenter
-    
-> $ supervisorctl start usercenter
-    
-> $ supervisorctl restart usercenter
-    
-> $ supervisorctl reread
-    
-> $ supervisorctl update
+    supervisorctl status
+    supervisorctl stop usercenter
+    supervisorctl start usercenter
+    supervisorctl restart usercenter
+    supervisorctl reread
+    supervisorctl update
     
 > 其它
     

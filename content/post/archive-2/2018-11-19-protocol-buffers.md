@@ -3,10 +3,15 @@ title: protocol buffers, protobuf
 author: w1100n
 date: 2018-11-19T02:11:42.000+00:00
 url: "/?p=12891"
-categories:
-- Uncategorized
 
 ---
+
+### install protoc
+    # archlinux 可以从仓库直接安装
+    pacman -S protoc
+    # 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
+    https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
+
 ### define message formates in a .proto file
 ```protobuf
     syntax = "proto3";
@@ -28,17 +33,12 @@ categories:
         }
     }
 ```
-    
-### install protoc
-      
-    https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
 
-    pacman -S protoc
 
 ### generate java/golang code
 ```bash
 export SRC_DIR=/pathToSrcDir
-export DST_DIR=/pathToSrcDir
+export DST_DIR=$SRC_DIR
 
 # Java, generate java code
 protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
@@ -48,8 +48,7 @@ protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
 go get -u github.com/golang/protobuf/protoc-gen-go
 
 # generate golang code
-protoc -I=$SRC_DIR \
---go_out=$DST_DIR $SRC_DIR/proto0.proto
+protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/proto0.proto
 ```
 
 ### protobuf > json

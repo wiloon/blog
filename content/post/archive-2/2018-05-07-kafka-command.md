@@ -3,8 +3,6 @@ title: kafka basic,command
 author: w1100n
 date: 2018-05-07T08:44:53.000+00:00
 url: "/?p=12205"
-categories:
-- Uncategorized
 
 ---
 ### kafka package 
