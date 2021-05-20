@@ -35,7 +35,7 @@ https://developer.aliyun.com/mirror/maven
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app \
+mvn archetype:generate -DgroupId=com.wiloon.java -DartifactId=javaJpms \
 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 
 # local catalog
