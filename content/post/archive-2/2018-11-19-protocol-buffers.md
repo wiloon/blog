@@ -3,10 +3,15 @@ title: protocol buffers, protobuf
 author: w1100n
 date: 2018-11-19T02:11:42.000+00:00
 url: "/?p=12891"
-categories:
-- Uncategorized
 
 ---
+
+### install protoc
+    # archlinux 可以从仓库直接安装
+    pacman -S protoc
+    # 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
+    https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
+
 ### define message formates in a .proto file
 ```protobuf
     syntax = "proto3";
@@ -28,27 +33,12 @@ categories:
         }
     }
 ```
-    
-### install protoc
-      
-    https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
 
-    pacman -S protoc
-    
-### maven 引入protobuf依赖
-    
-```xml
-    <dependency>
-        <groupId>com.google.protobuf</groupId>
-        <artifactId>protobuf-java</artifactId>
-        <version>3.12.4</version>
-    </dependency>
-```
 
 ### generate java/golang code
 ```bash
 export SRC_DIR=/pathToSrcDir
-export DST_DIR=/pathToSrcDir
+export DST_DIR=$SRC_DIR
 
 # Java, generate java code
 protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
@@ -58,8 +48,7 @@ protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
 go get -u github.com/golang/protobuf/protoc-gen-go
 
 # generate golang code
-protoc -I=$SRC_DIR \
---go_out=$DST_DIR $SRC_DIR/proto0.proto
+protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/proto0.proto
 ```
 
 ### protobuf > json
@@ -89,7 +78,9 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
 在pom.xml中配置
 ```xml
 <properties>
-    <protobuf.version>3.5.0</protobuf.version>
+    <protobuf.version>3.17.0</protobuf.version>
+    <os-maven-plugin.version>1.7.0</os-maven-plugin.version>
+    <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
 </properties>
 
 <dependencies>
@@ -105,14 +96,14 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
         <extension>
             <groupId>kr.motd.maven</groupId>
             <artifactId>os-maven-plugin</artifactId>
-            <version>1.5.0.Final</version>
+            <version>${os-maven-plugin.version}</version>
         </extension>
     </extensions>
     <plugins>
         <plugin>
             <groupId>org.xolstice.maven.plugins</groupId>
             <artifactId>protobuf-maven-plugin</artifactId>
-            <version>0.5.1</version>
+            <version>${protobuf-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
                 <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
@@ -129,4 +120,5 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
     </plugins>
 </build>
 ```
-通过mvn compile,就可以在target/generated-sources 下看到生成的源码了
+通过mvn compile, 就可以在target/generated-sources 下看到生成的源码了  
+reload maven 工程, idea会自动 识别生成的java代码, maven>reload project  

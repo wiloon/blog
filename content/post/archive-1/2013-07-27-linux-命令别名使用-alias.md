@@ -8,6 +8,18 @@ categories:
   - Linux
 
 ---
+### 查看所有的alias
+    alias
+    alias -p
+
+### 显示已定义的别名（假设当前环境存在以下别名）
+    alias ls
+    alias ls grep
+
+### 在命令行直接输入后缀为 html 的文件名，会在 vim 中打开 (zsh)
+    alias -s html=vim
+    alias -s gz='tar -xzvf'
+
 ```bash
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'

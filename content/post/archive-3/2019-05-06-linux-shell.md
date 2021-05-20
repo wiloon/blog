@@ -6,6 +6,7 @@ date: 2019-05-06T04:27:52+00:00
 url: /?p=14295
 
 ---
+
 ### 文件,目录 
 ```bash
 #如果文件夹不存在，创建文件夹
@@ -132,6 +133,7 @@ ps |  grep $$  |  awk '{print $4}'
   
 也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe（命令提示字符）和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh/zsh等 一般情况下，习惯把命令行shell（CLI shell）直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
 
+### 查看系统里有几种shell
 ```bash
 cat /etc/shells
 ```
