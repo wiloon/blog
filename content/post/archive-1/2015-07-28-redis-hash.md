@@ -15,53 +15,44 @@ Redis hash是一个string类型的field和value的映射表.一个key可对应�
 
 hash操作命令如下: 
 
-### delete hash key
-
-del key
+### 删除key
+    del key
 
 ### hset
-
 向名称为key的hash中添加元素
-  
-hset key field value
+
+    hset key field value
 
 ### hget
-
-hget(key, field) 返回名称为key的hash中field对应的value hsetnx HSETNX key field value 将哈希表key中的域field的值设置为value，当且仅当域field不存在。若域field已经存在，该操作无效。如果key不存在，一个新哈希表被创建并执行h#setnx命令。
+    hget(key, field) 返回名称为key的hash中field对应的value hsetnx HSETNX key field value 将哈希表key中的域field的值设置为value，当且仅当域field不存在。若域field已经存在，该操作无效。如果key不存在，一个新哈希表被创建并执行h#setnx命令。
 
 ### hmget
-
-hmget(key, field1, …,field N)
+    hmget(key, field1, …,field N)
 
 返回名称为key的hash中field i对应的value
 
 ### hmset
-
-hmset(key, field1, value1,…,field N, value N)
+    hmset(key, field1, value1,…,field N, value N)
 
 向名称为key的hash中添加元素field i<—>value i
 
 ### hincrby
-
-hincrby(key, field, integer)
+    hincrby(key, field, integer)
   
 将名称为key的hash中field的value增加integer
 
 ### hexists
-
-hexists(key, field)
+    hexists(key, field)
   
 名称为key的hash中是否存在键为field的域
 
-### hdel
-
-hdel(key, field)
+### hdel, 删除字段
+    hdel(key, field)
   
 删除名称为key的hash中键为field的域
 
 ### hlen
-
-hlen(key)
+    hlen(key)
 
 返回名称为key的hash中元素个数
 
@@ -83,6 +74,7 @@ hgetall(key)
 
 返回名称为key的hash中所有的键（field）及其对应的value
 
-http://blog.csdn.net/shamohua/article/details/7001501
-  
-http://blog.csdn.net/enson16855/article/details/13298841
+---
+
+http://blog.csdn.net/shamohua/article/details/7001501  
+http://blog.csdn.net/enson16855/article/details/13298841  
