@@ -7,7 +7,7 @@ url: "/?p=13982"
 ---
 ### WSL 
 windows subsystem for Linux
-# wsl2
+### wsl2
 ### command
     wsl --shutdown
     wsl --list --verbose
@@ -273,6 +273,9 @@ guid 需要替换为自己配置文件中的相应值。
 
 ### keepassxc win10 wsl2
     title: keepassxc
+
+### windows 访问wsl2文件
+    \\wsl$\Ubuntu-20.04\usr\bin\git
 
 ---
 

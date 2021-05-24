@@ -6,6 +6,8 @@ date: 2011-10-14T05:20:22+00:00
 url: /?p=1040
 
 ---
+### 查看windows的版本
+    winver
 ### bat脚本控制网卡启用禁用
     netsh interface set interface "eth0" disabled
     netsh interface set interface "eth0" enabled
