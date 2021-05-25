@@ -24,17 +24,15 @@ url: /?p=7991
         at java.util.TimerThread.run(Timer.java:505)
 
 以上依次是:   
-
-    "resin-22129" 线程名称: 如果使用 java.lang.Thread 类生成一个线程的时候，线程名称为 Thread-(数字) 的形式，这里是resin生成的线程；
-    daemon 线程类型: 线程分为守护线程 (daemon) 和非守护线程 (non-daemon) 两种，通常都是守护线程；
-    prio=10 线程优先级: 默认为5，数字越大优先级越高；
-    tid=0x00007fbe5c34e000 JVM线程的id: JVM内部线程的唯一标识，通过 java.lang.Thread.getId()获取，通常用自增的方式实现；
-    nid=0x4cb1 系统线程id: 对应的系统线程id（Native Thread ID)，可以通过 top 命令进行查看，现场id是十六进制的形式；
-    waiting on condition 系统线程状态: 这里是系统的线程状态，具体的含义见下面 系统线程状态 部分；
-    [0x00007fbe4ff7c000] 起始栈地址: 线程堆栈调用的其实内存地址；
-    java.lang.Thread.State: WAITING (parking) JVM线程状态: 这里标明了线程在代码级别的状态，详细的内容见下面的 JVM线程运行状态 部分。
-    线程调用栈信息: 下面就是当前线程调用的详细栈信息，用于代码的分析。堆栈信息应该从下向上解读，因为程序调用的顺序是从下向上的。
-
+- "resin-22129" 线程名称: 如果使用 java.lang.Thread 类生成一个线程的时候，线程名称为 Thread-(数字) 的形式，这里是resin生成的线程；
+- daemon 线程类型: 线程分为守护线程 (daemon) 和非守护线程 (non-daemon) 两种，通常都是守护线程；
+- prio=10 线程优先级: 默认为5，数字越大优先级越高；
+- tid=0x00007fbe5c34e000 JVM线程的id: JVM内部线程的唯一标识，通过 java.lang.Thread.getId()获取，通常用自增的方式实现；
+- nid=0x4cb1 系统线程id: 对应的系统线程id（Native Thread ID)，可以通过 top 命令进行查看，现场id是十六进制的形式；
+- waiting on condition 系统线程状态: 这里是系统的线程状态，具体的含义见下面 系统线程状态部分；
+- [0x00007fbe4ff7c000] 起始栈地址: 线程堆栈调用的其实内存地址；
+- java.lang.Thread.State: WAITING (parking) JVM线程状态: 这里标明了线程在代码级别的状态，详细的内容见下面的 JVM线程运行状态 部分。
+- 线程调用栈信息: 下面就是当前线程调用的详细栈信息，用于代码的分析。堆栈信息应该从下向上解读，因为程序调用的顺序是从下向上的。
 
 https://www.javatang.com/archives/2017/10/25/36441958.html
 
@@ -53,7 +51,7 @@ JAVA多线程涉及到2个问题，一个是线程的调度，另一个是线程
 线程的状态: new、runnable、running、waiting、timed_waiting、blocked、dead
 
 New
-  
+
 The thread is in new state if you create an instance of Thread class but before the invocation of start() method.
   
 当执行new Thread(Runnable r)后，新创建出来的线程处于new状态
