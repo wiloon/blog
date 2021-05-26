@@ -27,11 +27,11 @@ lsof  -i@172.16.12.5
 #使用@host:port显示基于主机与端口的连接
 lsof  -i@172.16.12.5:22
  
-#找出正等候连接的端口，你也可以grep “LISTEN"来完成该任务。
+#找出正等候连接的端口，你也可以grep "LISTEN"来完成该任务。
 lsof  -i -sTCP:LISTEN
 lsof  -i |  grep  -i LISTEN
  
-#找出已建立的连接, 也可以通过grep搜索“ESTABLISHED"来完成该任务
+#找出已建立的连接, 也可以通过grep搜索"ESTABLISHED"来完成该任务
 lsof  -i -sTCP:ESTABLISHED
 
 

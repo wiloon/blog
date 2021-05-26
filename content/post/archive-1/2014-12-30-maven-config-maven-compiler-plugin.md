@@ -1,5 +1,5 @@
 ---
-title: maven-compiler-plugin
+title: maven config, maven-compiler-plugin
 author: w1100n
 type: post
 date: 2014-12-30T05:56:31+00:00
@@ -20,17 +20,16 @@ maven-compiler-plugin 3.6和更高版本提供了一种新方法
     </configuration>
 </plugin>
 
-
 也可以只声明：
 
 <properties>
-    <maven.compiler.release>9</maven.compiler.release>
+    <maven.compiler.release>16</maven.compiler.release>
 </properties>
 
 maven-compiler-plugin 从3.6开始可以只配置 maven.compiler.release, 来替代maven.compiler.source and maven.compiler.target
 maven-compiler-plugin 会从 <properties> 里读取maven.compiler.release, 可以不配置到plugin>configuration下
 
-“maven.compiler.release” as an replacement for source and target
+"maven.compiler.release" as an replacement for source and target
 
 http://blog.csdn.net/zhaoyongnj2012/article/details/23970451
 

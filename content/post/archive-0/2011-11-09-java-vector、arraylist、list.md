@@ -208,7 +208,6 @@ Vector 是同步的。这个类中的一些方法保证了Vector中的对象是�
 最后，在《Practical Java》一书中Peter Haggar建议使用一个简单的数组（Array）来代替Vector或ArrayList。尤其是对于执行效率要求高的程序更应如此。因为使用数组(Array)避免了同步、额外的方法调用和不必要的重新分配空间的操作。
 
 ### 为什么java.util.concurrent 包里没有并发的ArrayList实现？
-
 问：JDK 5在java.util.concurrent里引入了ConcurrentHashMap，在需要支持高并发的场景，我们可以使用它代替HashMap。但是为什么没有ArrayList的并发实现呢？难道在多线程场景下我们只有Vector这一种线程安全的数组实现可以选择么？为什么在java.util.concurrent 没有一个类可以代替Vector呢？
 
 答：我认为在java.util.concurrent包中没有加入并发的ArrayList实现的主要原因是：很难去开发一个通用并且没有并发瓶颈的线程安全的List。

@@ -1,5 +1,5 @@
 ---
-title: kafka basic,command
+title: kafka basic, command
 author: w1100n
 date: 2018-05-07T08:44:53.000+00:00
 url: "/?p=12205"
@@ -89,13 +89,11 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
     --to-datetime 2017-08-04T14:30:00.000
 
 ### 查看kafka版本
-
 到kafka/libs 目录下查看kafka包的文件名，如: 
 
 kafka_2.10-0.8.2-beta.jar, where 2.10 is Scala version and 0.8.2-beta is Kafka version.
 
 ### config kafka server
-
 edit config/server.properties
 
 broker.id=0

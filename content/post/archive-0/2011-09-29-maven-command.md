@@ -53,12 +53,12 @@ mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plug
 #-U,--update-snapshots                  Forces a check for missing                                        releases and updated snapshots on
 mvn clean compile -U
 ```
-### 检测包冲突工具
+### 检测包冲突
     mvn dependency:help
     mvn dependency:analyze
     mvn dependency:tree
     mvn dependency:tree -Dverbose
-    
+
 ```bash
 # upload jar to nexus
 mvn deploy:deploy-file -Dfile=xxx.pom -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=pom -DrepositoryId=repo0 -Durl=https://maven.wiloon.com/repository/snapshot/
@@ -70,8 +70,6 @@ mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plug
 
 # maven-assembly-plugin 打包
 mvn assembly:assembly
-
-
 
 #Generates JSW based daemon wrappers.
 mvn appassembler:generate-daemons 
@@ -169,7 +167,6 @@ mvn idea:clean
 ```bash
   
 #maven install jar
-  
 mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -Dfile=/home/wiloon/Downloads/ojdbc6.jar
   
 ```
@@ -180,7 +177,7 @@ os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和
 ### Maven项目的标准目录结构
     src 
       main
-        -java 源文件 
+          java 源文件 
           resources 资源文件
           filters 资源过滤文件
           config 配置文件
@@ -265,9 +262,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
 
 
 3.5 安全和部署配置
-
-
-<tt>在一个project中，该项目将要使用哪个Repository，是在<distributionmanagement></distributionmanagement>setting.xml中指定的。然而，你却不能将用户名和</tt>
+在一个project中，该项目将要使用哪个Repository，是在<distributionmanagement></distributionmanagement>setting.xml中指定的。然而，你却不能将用户名和
 码以及其它的安全设定也放在该project中。因此，你可能会在你自己的设定中定义一个server,给它指定一个id, 该id
 与project将要使用那个Repository相对应。
 另外，有些repository在下载时可能需要用户名和密码，这些也可以在server element中以相同的方式指定。配置如下
