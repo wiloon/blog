@@ -340,6 +340,9 @@ vue-router是什么
 来源：掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
+### for index
+    <div class="item" v-for="(user,index) in datalist" :key='index' >
+    
 ----
 
 https://cli.vuejs.org/zh/guide/prototyping.html
