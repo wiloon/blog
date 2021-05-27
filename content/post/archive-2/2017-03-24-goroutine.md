@@ -67,7 +67,6 @@ Goroutine是Golang中轻量级线程的实现，由Go Runtime管理。Golang在�
 
  
 ### 进程、线程、轻量级进程、协程和go中的Goroutine 那些事儿
-  
 虽然用python时候在Eurasia和eventlet里了解过协程，但自己对协程的概念也就是轻量级线程，还有一个很通俗的红绿灯说法: 线程要守规则，协程看到红灯但是没有车仍可以通行。现在总结各个资料，从个人理解上说明下 进程 线程 轻量级进程 协程 go中的goroutine 那些事儿。
 
 ### 进程

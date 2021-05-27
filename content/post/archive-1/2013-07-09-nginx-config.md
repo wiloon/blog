@@ -4,10 +4,11 @@ author: w1100n
 type: post
 date: 2013-07-09T05:59:32+00:00
 url: /?p=5626
-categories:
-  - Uncategorized
 
 ---
+### nginx 414 Request-URI Too Large
+    client_header_buffer_size 128k;
+
 ### worker_processes, nginx进程数，建议设置为等于CPU总核心数。
     worker_processes 8;
   
