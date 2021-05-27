@@ -1,5 +1,5 @@
 ---
-title: java interview
+title: java basic
 author: w1100n
 type: post
 date: 2012-09-20T02:59:54+00:00
@@ -145,24 +145,18 @@ Java 提供两种不同的类型：引用类型和原始类型（或内置类�
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4120&embed=true#?secret=3QUltjLSBh" data-secret="3QUltjLSBh" width="600" height="338" title=""引用类型 基本类型" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.wiloon.com/wordpress/?p=4120&embed=true#?secret=3QUltjLSBh
 
 
 ### String ，StringBuffer, StringBuilder
 
 JAVA平台提供了两个类：String和StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String类提供了数值不可改变的字符串。而StringBuffer类提供的字符串允许进行修改。当你知道字符数据要改变的时候你就可以使用StringBuffer。典型地，你可以使用 StringBuffers来动态构造字符数据。
 
-<blockquote data-secret="FB8flsCPiN" class="wp-embedded-content">
-  
-    <a href="http://www.wiloon.com/wordpress/?p=4123">JAVA String, StringBuffer, StringBuilder</a>
-  
-</blockquote>
-
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4123&embed=true#?secret=FB8flsCPiN" data-secret="FB8flsCPiN" width="600" height="338" title=""JAVA String, StringBuffer, StringBuilder" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.wiloon.com/wordpress/?p=4123  
+http://www.wiloon.com/wordpress/?p=4123&embed=true#?secret=FB8flsCPiN  
 
 
 ### 异常
-
 异常表示程序运行过程中可能出现的非正常状态，运行时异常表示虚拟机的通常操作中可能遇到的异常，是一种常见运行错误。java编译器要求方法必须声明抛出可能发生的非运行时异常，但是并不要求必须声明抛出未被捕获的运行时异常。
 
 error 表示恢复不是不可能但很困难的情况下的一种严重问题。比如说内存溢出。不可能指望程序能处理这样的情况。 exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。
