@@ -6,6 +6,9 @@ date: 2016-07-01T08:06:08+00:00
 url: /?p=9096
 
 ---
+### go process, exec
+    https://colobu.com/2020/12/27/go-with-os-exec/
+    
 ### commands
     go get -u xorm.io/xorm
 
