@@ -186,30 +186,29 @@ os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和
       test
           java 测试源文件
           resources 测试资源文件
-            filters 测试资源过滤文件
-            it 集成测试
-            assembly assembly descriptors
-            site Site
-  
-            target
-  
-            generated-sources
-  
-            classes
-  
-            generated-test-sources
-  
-            test-classes
-  
-            xxx.jar
-  
-            pom.xml
-  
-            LICENSE.txt
-  
-            NOTICE.txt
-  
-            README.txt
+          filters 测试资源过滤文件
+          it 集成测试
+          assembly assembly descriptors
+          site Site
+          target
+
+          generated-sources
+
+          classes
+
+          generated-test-sources
+
+          test-classes
+
+          xxx.jar
+
+          pom.xml
+
+          LICENSE.txt
+
+          NOTICE.txt
+
+          README.txt
 
 ### pom
 #### extensions
