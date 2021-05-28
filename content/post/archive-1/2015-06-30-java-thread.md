@@ -65,6 +65,14 @@ b、进程与线程的联系与区别
 - [0x00007fbe4ff7c000] 起始栈地址: 线程堆栈调用的其实内存地址；
 - java.lang.Thread.State: WAITING (parking) JVM线程状态: 这里标明了线程在代码级别的状态，详细的内容见下面的 JVM线程运行状态 部分。
 - 线程调用栈信息: 下面就是当前线程调用的详细栈信息，用于代码的分析。堆栈信息应该从下向上解读，因为程序调用的顺序是从下向上的。
+ 
+### java 线程创建
+- 继承Thread类
+- 实现 Runnable 接口
+- 使用 Callable 和 Future 创建线程
+- 使用线程池创建线程 Executors
+
+---
 
 在Java程序中，JVM负责线程的调度。线程调度是指按照特定的机制为多个线程分配CPU的使用权。
   
@@ -776,4 +784,7 @@ https://www.javatang.com/archives/2017/10/25/36441958.html
 
 
 https://blog.csdn.net/nalanmingdian/article/details/77748326
+
+
+https://www.huaweicloud.com/articles/c0553b1cde014350e91620af1ce89f68.html
 
