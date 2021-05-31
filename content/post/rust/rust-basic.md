@@ -30,3 +30,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     cargo new hello-rust
     cargo run
     
+### vscode plugin
+- rust-anlyzer（RA）
+- Rust 语言服务器（RLS）
