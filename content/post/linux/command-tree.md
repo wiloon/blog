@@ -1,8 +1,8 @@
 +++
 author = "w1100n"
 date = "2020-05-16T05:53:01Z"
-title = "tree, 以树形结构显示文件目录结构"
-
+title = "tree, 以树形结构显示文件目录结构, 目录树"
+tags = "command"
 +++
 以树形结构显示文件目录结构
 
@@ -42,7 +42,7 @@ Linux tree命令用于以树状图列出目录的内容。
 * -t 用文件和目录的更改时间排序。
 * -u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。
 * -x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。
--I pattern Do not list those files that match the wild-card pattern.
+    -I pattern Do not list those files that match the wild-card pattern.
 
 
 ---

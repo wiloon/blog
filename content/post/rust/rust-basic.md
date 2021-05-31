@@ -4,8 +4,14 @@ date = "2021-01-01 23:23:06"
 title = "rust basic"
 
 +++
-### install
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+### install, 
+#### wsl, ubuntu install rust
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+### 查看版本
+    rustc --version
+### 更新rust 版本
+    rustup update
 
 ### RUSTUP_HOME
     /home/wiloon/.rustup
@@ -15,9 +21,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   /home/wiloon/.profile
   /home/wiloon/.bashrc
   /home/wiloon/.zshenv
-
-### uninstall 
-    rustup self uninstall
 
 ### commands
     rustup update
@@ -33,3 +36,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ### vscode plugin
 - rust-anlyzer（RA）
 - Rust 语言服务器（RLS）
+
+### hello world
+    cargo new hello-rust

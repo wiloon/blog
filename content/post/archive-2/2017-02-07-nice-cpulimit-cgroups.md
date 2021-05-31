@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2017-02-07T06:57:16+00:00
 url: /?p=9746
-categories:
-  - Uncategorized
 
 ---
 3种控制进程运行时间的方法: 
@@ -20,8 +18,7 @@ categories:
   
 https://caffinc.github.io/2016/03/cpu-load-generator/
 
-nice命令
-  
+### nice命令
 下面介绍一下nice命令的使用方法，nice命令可以修改进程的优先级，这样就可以让进程运行得不那么频繁。 这个功能在运行cpu密集型的后台进程或批处理作业时尤为有用。 nice值的取值范围是[-20,19],-20表示最高优先级，而19表示最低优先级。 Linux进程的默认nice值为0。使用nice命令（不带任何参数时）可以将进程的nice值设置为10。这样调度器就会将此进程视为较低优先级的进程，从而减少cpu资源的分配。
 
 下面来看一个例子，我们同时运行两个 matho-primes 进程，一个使用nice命令来启动运行，而另一个正常启动运行: 
@@ -36,6 +33,9 @@ matho-primes 0 9999999999 > /dev/null &
 
 在实际使用中，如果你要运行一个CPU密集型的程序，那么最好用nice命令来启动它，这样就可以保证其他进程获得更高的优先级。 也就是说，即使你的服务器或者台式机在重载的情况下，也可以快速响应。
 
+### renice
+    renice -n 1 -p 14459
+
 nice 还有一个关联命令叫做 renice，它可以在运行时调整进程的 nice 值。使用 renice 命令时，要先找出进程的 PID。下面是一个例子: 
 
 renice +10 1234
@@ -44,7 +44,64 @@ renice +10 1234
 
 测试完 nice 和 renice 命令后，记得要将 matho-primes 进程全部杀掉。
 
-cpulimit命令
+
+Nice调整限制:
+
+nice 值可调整的范围为 -20 ~ 19 ；
+
+Useful priorities are: 20 (the affected processes will run only when nothing else
+
+in the system wants to), 0 (the ''base'' scheduling priority), anything negative (to make things go very fast).
+
+root 可随意调整自己或他人程序的 Nice 值，且范围为 -20 ~ 19 ；
+
+一般使用者仅可调整自己程序的 Nice 值，且范围仅为 0 ~ 19 (避免一般用户抢占系统资源)；
+
+一般使用者仅可将 nice 值越调越高，例如本来 nice 为 5 ，则未来仅能调整到大于 5；
+
+3. Nice调整方法
+
+3.1新执行的指令即给予新的 nice 值
+
+[root@www ~]# nice [-n 数字] command
+
+选项与参数：
+
+-n  ：后面接一个数值，数值的范围 -20 ~ 19。
+
+用ps -l查的话，里面显示的PRI就是PRI(new)，核心会自动调整，不是PRI(old) + nice的值，会调高一点点
+
+3.2 已存在程序的 nice 重新调整
+
+renice [number] PID
+
+4. 设置某用户的所有进程优先级
+
+修改/etc/security/limits.conf, 增加一行
+
+userxxx - nice 19
+
+要使 limits.conf 文件配置生效，必须要确保 pam_limits.so 文件被加入到启动文件中。查看 /etc/pam.d/login 文件中有：
+
+session required /lib/security/pam_limits.so
+
+注释：
+
+如果要改nice值的话（就是改优先级），可以用上述一样的命令：
+
+renice -n (nice值) -p (process进程值) :改单一进程优先级；
+
+renice -n (nice值) -g (group组名）:改整个组员的优先级；
+
+renice -n (nice值) -u (user用户名）:改用户的优先级；
+
+作者：richard520
+链接：https://www.jianshu.com/p/c5ac9ade3e68
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+### cpulimit
   
 sudo pacman -S cpulimit
 
@@ -142,6 +199,10 @@ cpulimit在运行cpu密集型任务且要保持系统的响应性时会很有用
   
 cgroups是资源管理的瑞士军刀，同时在使用上也很灵活。
 
+---
+
 http://blog.scoutapp.com/articles/2014/11/04/restricting-process-cpu-usage-using-nice-cpulimit-and-cgroups
 
-https://www.oschina.net/translate/restricting-process-cpu-usage-using-nice-cpulimit-and-cgroups
+https://www.oschina.net/translate/restricting-process-cpu-usage-using-nice-cpulimit-and-cgroups  
+
+https://www.jianshu.com/p/c5ac9ade3e68
