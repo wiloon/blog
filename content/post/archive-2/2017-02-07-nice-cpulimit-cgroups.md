@@ -19,6 +19,10 @@ url: /?p=9746
 https://caffinc.github.io/2016/03/cpu-load-generator/
 
 ### nice命令
+    nice -n 10 bash
+    # 不带后缀,查看当前nice值 
+    nice
+
 下面介绍一下nice命令的使用方法，nice命令可以修改进程的优先级，这样就可以让进程运行得不那么频繁。 这个功能在运行cpu密集型的后台进程或批处理作业时尤为有用。 nice值的取值范围是[-20,19],-20表示最高优先级，而19表示最低优先级。 Linux进程的默认nice值为0。使用nice命令（不带任何参数时）可以将进程的nice值设置为10。这样调度器就会将此进程视为较低优先级的进程，从而减少cpu资源的分配。
 
 下面来看一个例子，我们同时运行两个 matho-primes 进程，一个使用nice命令来启动运行，而另一个正常启动运行: 
@@ -135,8 +139,9 @@ cpulimit -l 50 -p 1234
   
 其中，1234是进程的 PID。
 
-cgroups 命令集
-  
+### cgroups
+    apt-get install cgroup-bin
+
 最后介绍，功能最为强大的控制组（cgroups）的用法。cgroups 是 Linux 内核提供的一种机制，利用它可以指定一组进程的资源分配。 具体来说，使用 cgroups，用户能够限定一组进程的 cpu 占用率、系统内存消耗、网络带宽，以及这几种资源的组合。
 
 对比nice和cpulimit，cgroups 的优势在于它可以控制一组进程，不像前者仅能控制单进程。同时，nice 和 cpulimit 只能限制 cpu 使用率，而 cgroups 则可以限制其他进程资源的使用。
@@ -206,3 +211,5 @@ http://blog.scoutapp.com/articles/2014/11/04/restricting-process-cpu-usage-using
 https://www.oschina.net/translate/restricting-process-cpu-usage-using-nice-cpulimit-and-cgroups  
 
 https://www.jianshu.com/p/c5ac9ade3e68
+
+https://www.cnblogs.com/opama/p/4712139.html

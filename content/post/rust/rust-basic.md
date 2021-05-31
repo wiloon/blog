@@ -39,3 +39,9 @@ title = "rust basic"
 
 ### hello world
     cargo new hello-rust
+
+
+---
+
+https://kaisery.github.io/trpl-zh-cn/ch01-01-installation.html
+
