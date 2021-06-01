@@ -1,13 +1,17 @@
 ---
-title: linux date
+title: shell date
 author: w1100n
 type: post
 date: 2018-06-20T07:38:39+00:00
 url: /?p=12334
-categories:
-  - Uncategorized
+tags:
+  - command
 
 ---
+
+### 日期格式化
+    date '+%Y-%m-%d %H:%M:%S'
+
 ```bash
 # output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600
 date -R
