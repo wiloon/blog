@@ -249,6 +249,24 @@ md5sum : compute and check MD5 message digest
 
 ### 一行信息对应一个文件，所以也就是文件的个数。
 
+### chrt
+chrt命令 – 更改调度策略
+chrt是用来操纵进程的实时属性，所有优先级值在0-99范围内的，都是实时进程，所以这个优先级范围也可以叫做实时进程优先级，而100-139范围内的是非实时进程。在系统中可以使用chrt命令来查看、设置一个进程的实时优先级状态。
+
+语法格式：chrt [参数]
+
+常用参数：
+
+-m/--max	显示最小和最大有效优先级
+-p/--pid	对现有的给定pid进行操作
+
+-h/--help	显示此帮助
+-V/--version	显示版本
+
+---
+
+
 http://blog.chinaunix.net/uid-20355427-id-1700516.html
 
-http://blog.csdn.net/zhouleiblog/article/details/9325913
+http://blog.csdn.net/zhouleiblog/article/details/9325913  
+https://www.linuxcool.com/chrt  

@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2018-09-23T05:52:02+00:00
 url: /?p=12667
-categories:
-  - Uncategorized
 
 ---
 ### application list
@@ -166,6 +164,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | keepassxc        |                        |
 | eog              | 图片查看               |
 |neofetch|发行版logo|
+|tree|以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层|
 
 ### xfce4
 file-roller

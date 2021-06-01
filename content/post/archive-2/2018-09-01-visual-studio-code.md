@@ -23,6 +23,24 @@ https://blog.csdn.net/u011127019/article/details/74039598
 2. 在目标linux(B)上配置ssh密钥
 3. A, 点击vscode左下角,选择 remote-ssh: connect to host
 
+### 快捷键
+    Ctrl + ,  Settings
+
+### 字体 
+打开 VSCode，Windows 下按 Ctrl + ,，macOS 下按 Cmd + ,，进入设定。在上方搜索框搜索 editor.fontFamily，在
+
+Editor: Font Family
+Controls the font family.
+下方的框框填入 font-family 即可。
+
+默认的是 Consolas, 'Courier New', monospace。
+
+我喜欢萍方所以就 Consolas, 'Courier New', monospace,"萍方-简"。
+
+还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', monospace,"微软雅黑" 这样。
+
 ---
 
-https://code.visualstudio.com/docs/remote/ssh-tutorial
+https://code.visualstudio.com/docs/remote/ssh-tutorial 
+
+https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode

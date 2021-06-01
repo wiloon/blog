@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2014-11-12T07:42:50+00:00
 url: /?p=7007
-categories:
-  - Uncategorized
 tags:
   - Java
 
@@ -22,7 +20,6 @@ RandomAccessFile不属于InputStream和OutputStream类系的。实际上，除�
 
 RandomAccessFile的绝大多数功能，但不是全部，已经被JDK 1.4的nio的"内存映射文件(memory-mapped files)"给取代了，你该考虑一下是不是用"内存映射文件"来代替RandomAccessFile了。
 
-view plaincopy
 
 import java.io.IOException;
   

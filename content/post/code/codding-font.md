@@ -1,11 +1,15 @@
 +++
 author = "w1100n"
 date = "2020-08-12 17:14:20" 
-title = "编程字体"
+title = "字体 , 编程字体, 等宽字体"
 
 +++
+### ubunti install 微软雅黑
+    sudo apt-get install ttf-mscorefonts-installer
+    # 更新字体缓存
+    sudo fc-cache -f -v
 
-
+### 编程字体, 等宽字体
 对于程序员来说，好的字体应该满足的基本条件: 
 
 字母和数字易于分辨,如: 英文字母o 和 阿拉伯数字 0 ,或者 英文字母 l 和 阿拉伯数字 1 ，两个单引号 '' 和双引号 ".
@@ -28,3 +32,19 @@ JetBrain Mono
 
 ### FiraCode
     https://github.com/tonsky/FiraCode
+
+
+### 等宽字体
+#status { /\*width: auto;\*/
+	  
+background: #ffff99;
+	  
+/\* -webkit-border-radius: 6px; \*/
+	  
+padding: 1px 3px 1px 3px;
+	  
+display: none;
+	  
+font-family: "Courier", "Arial", "Verdana", "sans-serif";
+  
+}
