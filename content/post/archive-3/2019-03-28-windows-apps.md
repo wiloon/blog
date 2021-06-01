@@ -40,7 +40,8 @@ https://chocolatey.org/packages
 
 | Name             | Comments |
 | ---------------- | -------- |
-|rufus|创建启动盘 |
+|chrome||
+|rufus|创建启动盘,iso to usb |
 |搜狗五笔||
 |微信||
 |企业微信||
@@ -48,31 +49,22 @@ https://chocolatey.org/packages
 |foxmail||
 |TortoiseSVN||
 |powershell||
-| gradle           |          |
-| notepad++        |          |
-| wlstty           |          |
-| docker desktop   |          |
-| eclipse          |          |
-| subclipse        |          |
-| alacritty        |          |
-| Windows Terminal |          |
-| wsl2             |          |
-|x410              |windows x server|
-|rufus|iso to usb|
+| gradle           |                    |
+| notepad++        |                    |
+| wlstty           |                    |
+| docker desktop   |                    |
+| eclipse          |                    |
+| subclipse        |                    |
+| alacritty        |                    |
+| Windows Terminal |                    |
+| wsl2             |                    |
+|x410              | windows x server   |
+|T-Clock           | 可以显示周数的任务栏时钟, 格式模板: "mm-dd HH:nn \nW Wi ddd", https://github.com/White-Tiger/T-Clock |
+|VcXsrc            |x server|
 
 choco install heidisql
 MobaXterm
-  
-VcXsrc
-  
-qq
-  
-foxmail
-  
-xshell
-  
-chrome
-  
+
 wps/liberoffice
   
 xmind
@@ -115,23 +107,8 @@ shougou
 
 avirnt
 
-youku
-
-cctv
-
-kugou
-
-
-网易云音乐
-
-qq
-
-qq game
-
 wechat
 
 steam
-
-* * *
 
 cooledit

@@ -102,3 +102,7 @@ To convert such an unwieldy number of seconds back to a more readable form, use 
 date -d '1970-01-01 946684800 sec' +"%Y-%m-%d %T %z"
   
 2000-01-01 00:00:00 +0000
+
+---
+
+https://blog.csdn.net/shanliangliuxing/article/details/16821175
