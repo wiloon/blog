@@ -1,5 +1,5 @@
 ---
-title: Golang JSON
+title: golang JSON
 author: w1100n
 type: post
 date: 2012-04-25T08:50:44+00:00

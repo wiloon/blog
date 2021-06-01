@@ -44,7 +44,7 @@ tsc greeter.ts
 ```xml
 <!DOCTYPE html>
 <html>
-    <head><title>TypeScript Greeter</title></head>
+    <head><title>title0</title></head>
     <body>
         <script src="greeter.js"></script>
     </body>

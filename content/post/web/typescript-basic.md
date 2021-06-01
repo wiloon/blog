@@ -63,6 +63,23 @@ every和some也都是JavaScript的循环语法，TypeScript作为JavaScript的�
         // Return false will quit the iteration
     });
 
+
+### 类
+class Car { 
+    // 字段 
+    engine:string; 
+ 
+    // 构造函数 
+    constructor(engine:string) { 
+        this.engine = engine 
+    }  
+ 
+    // 方法 
+    disp():void { 
+        console.log("发动机为 :   "+this.engine) 
+    } 
+}
+
 ---
 
 https://blog.csdn.net/alvachien/article/details/52475745
