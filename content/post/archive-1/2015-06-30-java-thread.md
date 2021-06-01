@@ -86,7 +86,7 @@ Thread类实际上也是实现了Runnable接口的类。
 
 JAVA多线程涉及到2个问题，一个是线程的调度，另一个是线程的同步
 
-线程的状态: new、runnable、running、waiting、timed_waiting、blocked、dead
+线程的状态: new runnable、running、waiting、timed_waiting、blocked、dead
 
 New
 
