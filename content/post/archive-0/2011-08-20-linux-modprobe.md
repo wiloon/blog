@@ -4,21 +4,18 @@ author: w1100n
 type: post
 date: 2011-08-20T20:06:06+00:00
 url: /?p=471
-bot_views:
-  - 5
-views:
-  - 1
 categories:
   - Linux
 
 ---
+### modprobe
 modprobe可载入指定的个别模块，或是载入一组相依的模块。modprobe会根据depmod所产生的相依关系，决定要载入哪些模块。若在载入过程中发生错误，在modprobe会卸载整组的模块
 
 https://blog.csdn.net/future_fighter/article/details/3862795
 
 ### 列出内核已载入模块的状态
 lsmod
-  
+
 功能：
   
 用法：lsmod

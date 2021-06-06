@@ -35,12 +35,18 @@ Controls the font family.
 
 默认的是 Consolas, 'Courier New', monospace。
 
+#### 改成
+    Consolas,'Courier New',"微软雅黑",monospace
+
 我喜欢萍方所以就 Consolas, 'Courier New', monospace,"萍方-简"。
 
-还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', monospace,"微软雅黑" 这样。
+还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', "微软雅黑", monospace 这样。
 
 ---
 
 https://code.visualstudio.com/docs/remote/ssh-tutorial 
 
-https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode
+https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode 
+
+
+个

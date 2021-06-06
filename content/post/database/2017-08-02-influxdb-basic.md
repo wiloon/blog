@@ -85,7 +85,7 @@ podman run -d \
 -v influxdb-config:/etc/influxdb:ro \
 -v influxdb-storage:/var/lib/influxdb \
 -v /etc/localtime:/etc/localtime:ro \
-influxdb:1.8.5-alpine
+influxdb:1.8.6-alpine
 
 # in pod
 podman run -d \
