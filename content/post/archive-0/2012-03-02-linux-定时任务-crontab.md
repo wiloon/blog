@@ -7,8 +7,29 @@ url: /?p=2515
 ---
 
 ```bash
-yum install cronie
-pacman -S cronie
+# check status
+service crond status
+
+yum list installed |grep cron
+yum install cronie    # vixie-cron 已经不再维护, 建议安装cronie
+
+service crond reload # 重新载入配置
+
+```
+
+### archlinux 
+    pacman -S cronie
+
+```bash
+service crond start # 启动服务
+service crond stop # 关闭服务
+service crond restart # 重启服务
+
+crontab -l #列出某个用户cron服务的详细内容
+crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， c r o n会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
+crontab -e -u 用户名  # 配置指定用户 的定时任务
+crontab -u #设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
+crontab -r #删除没个用户的cron服务
 ```
 
 ```bash
@@ -47,7 +68,8 @@ https://www.matools.com/crontab
     # 每周一，三，五，13:55分
     55 13 * * 1,3,5 metting-notification.sh
 ```
-
+### 每三分钟
+    */3 * * * * echo "foo" >> /tmp/foo.txt
 ### 每两个小时
     0 */2 * * * echo "foo" >> /tmp/foo.txt
 ### 每天早上5点运行
@@ -65,25 +87,6 @@ run-parts
     22 4 * * 0 root run-parts /etc/cron.weekly 
   
 42 4 1 * * root run-parts /etc/cron.monthly //每个月去执行一遍/etc/cron.monthly内的脚本
-
-```bash
-yum list installed |grep cron
-yum install vixie-cron
-
-# check status
-service crond status
-service crond reload # 重新载入配置
-service crond start # 启动服务
-service crond stop # 关闭服务
-service crond restart # 重启服务
-
-crontab -l #列出某个用户cron服务的详细内容
-crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， c r o n会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
-crontab -e -u 用户名  # 配置指定用户 的定时任务
-crontab -u #设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
-crontab -r #删除没个用户的cron服务
-
-```
 
 ```bash
 #centos
@@ -292,3 +295,8 @@ crontab -u UserName -e
 crontab FileName
   
 来将要执行的指令写入 /var/spool/cron/crontabs/UserName 这一个档案中
+
+
+---
+
+https://wiki.gentoo.org/wiki/Cron

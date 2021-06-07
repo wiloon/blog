@@ -10,6 +10,8 @@ tags:
   - RedHat
 
 ---
+### strings
+strings命令在对象文件或二进制文件中查找可打印的字符串。字符串是4个或更多可打印字符的任意序列，以换行符或空字符结束。 strings命令对识别随机对象文件很有用。
 ### wc
 wc(Word Count)命令用来统计文件内容信息,包括行数、字符数等
 
@@ -106,3 +108,4 @@ start x
 
 https://blog.csdn.net/q_l_s/article/details/54897684  
 https://blog.csdn.net/wangjunjun2008/article/details/19844755  
+https://man.linuxde.net/strings  
