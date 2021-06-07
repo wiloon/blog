@@ -43,7 +43,7 @@ mtu: 1200
     apt install wireguard
 
 ### 生成密钥 peer A / peer B
-```
+```bash
 # 生成私钥
 wg genkey > peer_A.key
 chmod 600 peer_A.key
@@ -53,6 +53,7 @@ wg pubkey < peer_A.key > peer_A.pub
 # 同时生成私钥公钥
 wg genkey | tee peer_A.key | wg pubkey > peer_A.pub
 
+### optional, pre-shared key
 wg genpsk > peer_A-peer_B.psk
 ```
 
@@ -73,13 +74,15 @@ wg genpsk > peer_A-peer_B.psk
 ```bash
 sudo ip link add dev wg0 type wireguard
 sudo ip addr add 192.168.53.1/24 dev wg0
-sudo wg set wg0 private-key ./privatekey
-sudo wg set wg0 listen-port 9000
+sudo wg set wg0 private-key ./peer_A.key
+sudo wg set wg0 listen-port 51900
 
 # 做为服务端使用时，peer_B 的ip 和端口一般是动态的，不配置endpoint  
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
 # peer b 有确定的端口和IP时， 可以配置endpoint
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32  endpoint 192.168.50.115:9000
+
+### set interface up
 ip link set wg0 up
 ```
 

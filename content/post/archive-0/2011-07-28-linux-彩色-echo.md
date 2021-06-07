@@ -44,7 +44,7 @@ echo -e:enable interpretation of backslash escapes
   
 ```
 
--e "允许 反斜杠 (对字符)的转义"
+    -e "允许 反斜杠 (对字符)的转义"
   
 e[32;1m: 控制字体和背景颜色的转义字符，30~37是字体颜色、40~47是背景颜色
   
