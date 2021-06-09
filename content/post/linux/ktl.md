@@ -6,11 +6,10 @@ title = "kernel thread, 内核线程， KTL"
 +++
 
 ### 内核线程
-内核线程
 为什么需要内核线程
-Linux内核可以看作一个服务进程(管理软硬件资源，响应用户进程的种种合理以及不合理的请求)。
+Linux内核可以看作一个服务进程(管理软硬件资源，响应用户进程的种种合理以及不合理的请求).
 
-内核需要多个执行流并行，为了防止可能的阻塞，支持多线程是必要的。
+内核需要多个执行流并行，为了防止可能的阻塞，支持多线程是必要的.
 
 内核线程就是内核的分身，一个分身可以处理一件特定事情。内核线程的调度由内核负责，一个内核线程处于阻塞状态时不影响其他的内核线程，因为其是调度的基本单位。
 
@@ -53,13 +52,7 @@ struct task_struct
     struct mm_struct *avtive_mm;
     //...
 };
-1
-2
-3
-4
-5
-6
-7
+
 大多数计算机上系统的全部虚拟地址空间分为两个部分: 供用户态程序访问的虚拟地址空间和供内核访问的内核空间。每当内核执行上下文切换时, 虚拟地址空间的用户层部分都会切换, 以便当前运行的进程匹配, 而内核空间不会放生切换。
 
 对于普通用户进程来说，mm指向虚拟地址空间的用户空间部分，而对于内核线程，mm为NULL。
@@ -116,8 +109,6 @@ Linux workqueue工作原理
 
 使用ps -eo pid,ppid,command
 
-
-
 kernel_thread
 kernel_thread是最基础的创建内核线程的接口, 它通过将一个函数直接传递给内核来创建一个进程, 创建的进程运行在内核空间, 并且与其他进程线程共享内核虚拟地址空间
 
@@ -146,8 +137,7 @@ http://lxr.free-electrons.com/ident?v=2.4.37;i=arch_kernel_thread
 
 //  http://lxr.free-electrons.com/source/include/linux/sched.h?v=2.4.37#L800
 extern void daemonize(void);
-1
-2
+
 定义在kernel/sched.c
 
 http://lxr.free-electrons.com/source/kernel/sched.c?v=2.4.37#L1326
@@ -185,11 +175,7 @@ pid_t kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
     return _do_fork(flags|CLONE_VM|CLONE_UNTRACED, (unsigned long)fn,
             (unsigned long)arg, NULL, NULL, 0);
 }
-1
-2
-3
-4
-5
+
 kthread_create
 struct task_struct *kthread_create_on_node(int (*threadfn)(void *data),
                                            void *data,
@@ -198,13 +184,7 @@ struct task_struct *kthread_create_on_node(int (*threadfn)(void *data),
 
 #define kthread_create(threadfn, data, namefmt, arg...) \
        kthread_create_on_node(threadfn, data, NUMA_NO_NODE, namefmt, ##arg)
-1
-2
-3
-4
-5
-6
-7
+
 创建内核更常用的方法是辅助函数kthread_create，该函数创建一个新的内核线程。最初线程是停止的，需要使用wake_up_process启动它。
 
 kthread_run
@@ -225,24 +205,7 @@ kthread_run
             wake_up_process(__k);                                      \
     __k;                                                               \
 })
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
+
 使用kthread_run，与kthread_create不同的是，其创建新线程后立即唤醒它，其本质就是先用kthread_create创建一个内核线程，然后通过wake_up_process唤醒它
 
 内核线程的退出
@@ -272,21 +235,37 @@ exit_code()
 {
      kthread_stop(_task);   //发信号给task，通知其可以退出了
 }
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
+
 这种退出机制很温和，一切尽在thread_func()的掌控之中，线程在退出时可以从容地释放资源，而不是莫名其妙地被人"暗杀"。
 ————————————————
 版权声明：本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/gatieme/article/details/51589205
+
+
+
+kthreadd进程由idle通过kernel_thread创建，并始终运行在内核空间, 负责所有内核线程的调度和管理
+
+它的任务就是管理和调度其他内核线程kernel_thread, 会循环执行一个kthreadd的函数，该函数的作用就是运行kthread_create_list全局链表中维护的kthread, 当我们调用kernel_thread创建的内核线程会被加入到此链表中，因此所有的内核线程都是直接或者间接的以kthreadd为父进程
+————————————————
+版权声明：本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/gatieme/article/details/51566690
+
+
+### ksoftirq/n
+处理软中断  
+http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/  
+
+
+### kworker
+kworker意思是’Linux kernel doing work’(系统调用，processing system calls)，它是内核工作线程的’占位符’进程，它实际上执行内核的大部分工作，如中断、计时器、I/O等，CPU中’system’时间大部分由此产生。在系统中，一般会出现多个kworker进程，如kworker/0:1跟第一个cpu核心有关，依次类推。
+
+在日常维护中，kworker进程有时会占用大量的io或cpu。
+
+### migration
+migration：每个处理器核对应一个migration内核线程，主要作用是作为相应CPU核的迁移进 程，用来执行进程迁移操作，内核中的函数是migration_thread()。属于2.6内核的负载平衡系统，该进程在系统启动时自动加载（每个 cpu 一个），并将自己设为 SCHED_FIFO 的实时进程，然后检查 runqueue::migration_queue 中是否有请求等待处理，如果没有，就在 TASK_INTERRUPTIBLE 中休眠，直至被唤醒后再次检查。migration_queue仅在set_cpu_allowed() 中添加，当进程（比如通过 APM 关闭某 CPU 时）调用set_cpu_allowed()改变当前可用 cpu，从而使某进程不适于继续在当前 cpu 上运行时，就会构造一个迁移请求数据结构 migration_req_t，将其植入进程所在 cpu 就绪队列的migration_queue 中，然后唤醒该就绪队列的迁移 daemon（记录在runqueue::migration_thread 属性中），将该进程迁移到合适的cpu上去在目前的实现中，目的 cpu 的选择和负载无关，而是"any_online_cpu(req->task->cpus_allowed)"，也就是按 CPU 编号顺序的第一个 allowed 的CPU。所以，和 load_balance() 与调度器、负载平衡策略密切相关不同，migration_thread() 应该说仅仅是一个 CPU 绑定以及 CPU 电源管理等功能的一个接口。这个线程是调度系统的重要组成部分，也不能被关闭。
+
+### watchdog
+每个处理器核对应一个watchdog 内核线程，watchdog用于监视系统的运行，在系统出现故障时自动重新启动系统，包括一个内核 watchdog module 和一个用户空间的 watchdog 程序。在Linux 内核下, watchdog的基本工作原理是：当watchdog启动后(即/dev/watchdog设备被打开后)，如果在某一设定的时间间隔（1分钟）内 /dev/watchdog没有被执行写操作, 硬件watchdog电路或软件定时器就会重新启动系统，每次写操作会导致重新设定定时器。/dev/watchdog是一个主设备号为10， 从设备号130的字符设备节点。 Linux内核不仅为各种不同类型的watchdog硬件电路提供了驱动，还提供了一个基于定时器的纯软件watchdog驱动。如果不需要这种故障处理 机制，或者有相应的替代方案，可以在menuconfig的
+   Device Drivers —>
+      Watchdog Timer Support
+处取消watchdog功能。

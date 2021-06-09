@@ -6,6 +6,9 @@ date: 2016-07-01T08:06:08+00:00
 url: /?p=9096
 
 ---
+### math
+   float64 保留2位小数
+   value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
 ### go process, exec
     https://colobu.com/2020/12/27/go-with-os-exec/
     
@@ -225,9 +228,6 @@ func main() {
 ### math
 func Dim(x, y float64) float64
 函数返回x-y和0中的最大值
-
-
-
 
 ### go build
 
