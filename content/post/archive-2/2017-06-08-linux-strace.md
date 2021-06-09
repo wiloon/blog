@@ -20,7 +20,7 @@ strace常用来跟踪进程执行时的系统调用和所接收的信号。 在L
 
 $strace cat /dev/null
   
-execve("/bin/cat", ["cat", "/dev/null"], [/\* 22 vars \*/]) = 0
+execve("/bin/cat", ["cat", "/dev/null"], [/* 22 vars */]) = 0
   
 brk(0) = 0xab1000
   

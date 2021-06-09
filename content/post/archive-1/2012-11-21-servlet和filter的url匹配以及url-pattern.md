@@ -24,7 +24,7 @@ Servlet和filter是J2EE开发中常用的技术，使用方便，配置简单，
 
 1. 精确路径匹配。例子: 比如servletA 的url-pattern为 /test，servletB的url-pattern为 /* ，这个时候，如果我访问的url为http://localhost/test ，这个时候容器就会先 进行精确路径匹配，发现/test正好被servletA精确匹配，那么就去调用servletA，也不会去理会其他的servlet了。<o:p></o:p>
 
-2. 最长路径匹配。例子: servletA的url-pattern为/test/\*，而servletB的url-pattern为/test/a/\*，此时访问http://localhost/test/a时，容器会选择路径最长的servlet来匹配，也就是这里的servletB。<o:p></o:p>
+2. 最长路径匹配。例子: servletA的url-pattern为/test/*，而servletB的url-pattern为/test/a/*，此时访问http://localhost/test/a时，容器会选择路径最长的servlet来匹配，也就是这里的servletB。<o:p></o:p>
 
 3. 扩展匹配，如果url最后一段包含扩展，容器将会根据扩展选择合适的servlet。例子: servletA的url-pattern: *.action<o:p></o:p>
 

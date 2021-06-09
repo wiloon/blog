@@ -74,7 +74,7 @@ annotation语法允许在annotation名后跟括号，括号中是使用逗号分
 
 @SuppressWarnings(value={"unchecked","fallthrough"})
   
-public void lintTrap() { /\* sloppy method body omitted \*/ }
+public void lintTrap() { /* sloppy method body omitted */ }
   
 在这个例子中SuppressWarnings annotation类型只定义了一个单一的成员，所以只有一个简单的value={…}作为name=value对。又由于成员值是一个数组，故使用大括号来声明数组值。
 

@@ -239,7 +239,7 @@ byte classData[];
    
 System.out.println(" >>>>>> Load class : "+className);
    
-/\* Check our local cache of classes \*/
+/* Check our local cache of classes */
    
 result = (Class)classes.get(className);
    
@@ -257,7 +257,7 @@ The code above is the first section of the loadClass method. As you can see, it 
 
 ```java
   
-/\* Check with the primordial class loader \*/
+/* Check with the primordial class loader */
    
 try {
    
@@ -279,7 +279,7 @@ As you can see in the code above, the next step is to check if the primordial cl
 
 ```java
   
-/\* Try to load it from our repository \*/
+/* Try to load it from our repository */
    
 classData = getClassImplFromDataBase(className);
    

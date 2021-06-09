@@ -66,27 +66,27 @@ import org.apache.http.util.EntityUtils;
   
 public class HttpHelper {
 
-/*\* The Constant MAX_NUMBER_OF_CONNECTIONS. \*/
+/*\* The Constant MAX_NUMBER_OF_CONNECTIONS. */
    
 private static final int MAX_NUMBER_OF_CONNECTIONS = 200;
 
-/*\* The http client. \*/
+/*\* The http client. */
    
 private DefaultHttpClient httpClient;
 
-/*\* The http context. \*/
+/*\* The http context. */
    
 private BasicHttpContext httpContext;
 
-/*\* The target host. \*/
+/*\* The target host. */
    
 private HttpHost targetHost;
 
-/*\* The proxy host. \*/
+/*\* The proxy host. */
    
 private HttpHost proxyHost;
    
-/*\* The X509TrustManager. \*/
+/*\* The X509TrustManager. */
    
 protected static X509TrustManager tm = new X509TrustManager() {
    

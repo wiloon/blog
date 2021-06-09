@@ -45,9 +45,9 @@ struct sockaddr结构类型是用来保存socket信息的:
   
 struct sockaddr {
   
-unsigned short sa_family; /\* 地址族， AF_xxx \*/
+unsigned short sa_family; /* 地址族， AF_xxx */
   
-char sa_data[14]; /\* 14 字节的协议地址 \*/
+char sa_data[14]; /* 14 字节的协议地址 */
   
 };
   
@@ -57,13 +57,13 @@ sa_family一般为AF_INET，代表Internet（TCP/IP）地址族；sa_data则包�
   
 struct sockaddr_in {
   
-short int sin_family; /\* 地址族 \*/
+short int sin_family; /* 地址族 */
   
-unsigned short int sin_port; /\* 端口号 \*/
+unsigned short int sin_port; /* 端口号 */
   
-struct in_addr sin_addr; /\* IP地址 \*/
+struct in_addr sin_addr; /* IP地址 */
   
-unsigned char sin_zero[8]; /\* 填充0 以保持和struct sockaddr同样大小 \*/
+unsigned char sin_zero[8]; /* 填充0 以保持和struct sockaddr同样大小 */
   
 };
   
@@ -71,9 +71,9 @@ unsigned char sin_zero[8]; /\* 填充0 以保持和struct sockaddr同样大小 \
   
 使用bind函数时，能够用下面的赋值实现自动获得本机IP地址和随机获取一个没有被占用的端口号: 
   
-my_addr.sin_port = 0; /\* 系统随机选择一个未被使用的端口号 \*/
+my_addr.sin_port = 0; /* 系统随机选择一个未被使用的端口号 */
   
-my_addr.sin_addr.s_addr = INADDR_ANY; /\* 填入本机IP地址 \*/
+my_addr.sin_addr.s_addr = INADDR_ANY; /* 填入本机IP地址 */
   
 通过将my_addr.sin_port置为0，函数会自动为您选择一个未占用的端口来使用。同样，通过将my_addr.sin_addr.s_addr置为INADDR_ANY，系统会自动填入本机IP地址。
   
@@ -209,19 +209,19 @@ Socket编程实例
   
 #include
   
-#define SERVPORT 3333 /\*服务器监听端口号 \*/
+#define SERVPORT 3333 /*服务器监听端口号 */
   
-#define BACKLOG 10 /\* 最大同时连接请求数 \*/
+#define BACKLOG 10 /* 最大同时连接请求数 */
   
 main()
   
 {
   
-int sockfd,client_fd; /\*sock_fd: 监听socket；client_fd: 数据传输socket \*/
+int sockfd,client_fd; /*sock_fd: 监听socket；client_fd: 数据传输socket */
   
-struct sockaddr_in my_addr; /\* 本机地址信息 \*/
+struct sockaddr_in my_addr; /* 本机地址信息 */
   
-struct sockaddr_in remote_addr; /\* 客户端地址信息 \*/
+struct sockaddr_in remote_addr; /* 客户端地址信息 */
   
 if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
   
@@ -267,7 +267,7 @@ continue;
   
 printf("received a connection from %s\n", inet_ntoa(remote_addr.sin_addr));
   
-if (!fork()) { /\* 子进程代码段 \*/
+if (!fork()) { /* 子进程代码段 */
   
 if (send(client_fd, "Hello, you are connected!\n", 26, 0) == -1)
   
@@ -311,7 +311,7 @@ close(client_fd);
   
 #define SERVPORT 3333
   
-#define MAXDATASIZE 100 /\*每次最大数据传输量 \*/
+#define MAXDATASIZE 100 /*每次最大数据传输量 */
   
 main(int argc, char *argv[]){
   
@@ -363,19 +363,19 @@ struct hostent \*gethostbyname(const char \*name);
   
 struct hostent {
   
-char \*h_name; /\* 主机的官方域名 */
+char \*h_name; /* 主机的官方域名 */
   
-char *\*h_aliases; /\* 一个以NULL结尾的主机别名数组 */
+char *\*h_aliases; /* 一个以NULL结尾的主机别名数组 */
   
-int h_addrtype; /\* 返回的地址类型，在Internet环境下为AF-INET \*/
+int h_addrtype; /* 返回的地址类型，在Internet环境下为AF-INET */
   
-int h_length; /\* 地址的字节长度 \*/
+int h_length; /* 地址的字节长度 */
   
-char *\*h_addr_list; /\* 一个以0结尾的数组，包含该主机的任何地址*/
+char *\*h_addr_list; /* 一个以0结尾的数组，包含该主机的任何地址*/
   
 };
   
-#define h_addr h_addr_list[0] /\*在h-addr-list中的第一个地址\*/
+#define h_addr h_addr_list[0] /*在h-addr-list中的第一个地址*/
   
 当 gethostname()调用成功时，返回指向struct hosten的指针，当调用失败时返回-1。当调用gethostbyname时，您不能使用perror()函数来输出错误信息，而应该使用herror()函数来输出。
   
@@ -417,9 +417,9 @@ Timeout参数是个指向struct timeval类型的指针，他能够使select()在
   
 struct timeval {
   
-int tv_sec; /\* seconds \*/
+int tv_sec; /* seconds */
   
-int tv_usec; /\* microseconds \*/
+int tv_usec; /* microseconds */
   
 };
   
@@ -547,9 +547,9 @@ struct sockaddr结构类型是用来保存socket信息的:
   
 struct sockaddr {
   
-unsigned short sa_family; /\* 地址族， AF_xxx \*/
+unsigned short sa_family; /* 地址族， AF_xxx */
   
-char sa_data[14]; /\* 14 字节的协议地址 \*/
+char sa_data[14]; /* 14 字节的协议地址 */
   
 };
   
@@ -561,13 +561,13 @@ sa_family一般为AF_INET，代表Internet（TCP/IP）地址族；sa_data则包�
   
 struct sockaddr_in {
   
-short int sin_family; /\* 地址族 \*/
+short int sin_family; /* 地址族 */
   
-unsigned short int sin_port; /\* 端口号 \*/
+unsigned short int sin_port; /* 端口号 */
   
-struct in_addr sin_addr; /\* IP地址 \*/
+struct in_addr sin_addr; /* IP地址 */
   
-unsigned char sin_zero[8]; /\* 填充0 以保持和struct sockaddr同样大小 \*/
+unsigned char sin_zero[8]; /* 填充0 以保持和struct sockaddr同样大小 */
   
 };
   
@@ -717,11 +717,11 @@ int main()
   
 {
   
-/\* delete the socket file \*/
+/* delete the socket file */
   
 unlink("server_socket");
 
-/\* create a socket \*/
+/* create a socket */
   
 int server_sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
 
@@ -731,11 +731,11 @@ server_addr.sun_family = AF_UNIX;
   
 strcpy(server_addr.sun_path, "server_socket");
 
-/\* bind with the local file \*/
+/* bind with the local file */
   
 bind(server_sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr));
 
-/\* listen \*/
+/* listen */
   
 listen(server_sockfd, 5);
 
@@ -753,11 +753,11 @@ while(1)
   
 printf("server waiting:\n");
 
-/\* accept a connection \*/
+/* accept a connection */
   
 client_sockfd = accept(server_sockfd, (struct sockaddr *)&client_addr, &len);
 
-/\* exchange data \*/
+/* exchange data */
   
 read(client_sockfd, &ch, 1);
   
@@ -767,7 +767,7 @@ printf("get char from client: %c\n", ch);
   
 write(client_sockfd, &ch, 1);
 
-/\* close the socket \*/
+/* close the socket */
   
 close(client_sockfd);
   
@@ -798,7 +798,7 @@ int main()
   
 {
   
-/\* create a socket \*/
+/* create a socket */
   
 int sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
 
@@ -808,7 +808,7 @@ address.sun_family = AF_UNIX;
   
 strcpy(address.sun_path, "server_socket");
 
-/\* connect to the server \*/
+/* connect to the server */
   
 int result = connect(sockfd, (struct sockaddr *)&address, sizeof(address));
   
@@ -822,7 +822,7 @@ exit(1);
   
 }
 
-/\* exchange data \*/
+/* exchange data */
   
 char ch = 'A';
   
@@ -832,7 +832,7 @@ read(sockfd, &ch, 1);
   
 printf("get char from server: %c\n", ch);
 
-/\* close the socket \*/
+/* close the socket */
   
 close(sockfd);
 
@@ -882,9 +882,9 @@ struct sockaddr_un
   
 {
   
-sa_family_t sun_family;  /\* AF_UNIX \*/
+sa_family_t sun_family;  /* AF_UNIX */
   
-char sun_path[];         /\* pathname \*/
+char sun_path[];         /* pathname */
   
 }
 
@@ -892,11 +892,11 @@ struct sockaddr_in
   
 {
   
-short int sin_family;          /\* AF_INET \*/
+short int sin_family;          /* AF_INET */
   
-unsigned short int sin_port;   /\* port number \*/
+unsigned short int sin_port;   /* port number */
   
-struct in_addr sin_addr;       /\* internet address \*/
+struct in_addr sin_addr;       /* internet address */
   
 }
 

@@ -24,7 +24,7 @@ import android.widget.EditText;
 
 public class AActivity extends Activity {
   
-/*\* Called when the activity is first created. \*/
+/*\* Called when the activity is first created. */
 
 EditText Ev1;
 

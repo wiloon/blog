@@ -108,19 +108,19 @@ WITH
   
 sum_sales AS
   
-select /\*+ materialize \*/
+select /*+ materialize */
   
 sum(quantity) all_sales from stores
   
 number_stores AS
   
-select /\*+ materialize \*/
+select /*+ materialize */
   
 count(*) nbr_stores from stores
   
 sales_by_store AS
   
-select /\*+ materialize \*/
+select /*+ materialize */
   
 store_name, sum(quantity) store_sales from
   
