@@ -34,7 +34,7 @@ sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi
 
 然后就可以控制风扇了:
 
-\# (maximum speed)
+# (maximum speed)
 
 `echo level 7 | sudo tee /proc/acpi/ibm/fan`
 

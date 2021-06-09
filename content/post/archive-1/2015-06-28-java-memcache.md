@@ -937,7 +937,7 @@ e.printStackTrace();
 
 查看libevent是否安装成功: 
 
-\# ls -al /usr/lib | grep libevent
+# ls -al /usr/lib | grep libevent
 
 在命令行出现如下信息，表明安装成功: 
 
@@ -955,7 +955,7 @@ lrwxrwxrwx   1 root root     21 Mar 22 18:41 libevent.so -> libevent-1.2.s
 
 查看memcache是否安装成功: 
 
-\# ls -al /usr /bin/mem*
+# ls -al /usr /bin/mem*
 
 在命令行出现如下信息，表明安装成功: 
 
@@ -1011,7 +1011,7 @@ memcached: error while loading shared libraries: libevent-1.2.so.1: cannot open 
 
 现在应该记录下来libs的位置，我选择的是trying file=/usr/lib64/libevent-1.2.so.1，现在我们利用这个来做个符号链接:
 
-\# ln -s /usr/lib/libevent-1.4.so.2 /usr/lib64/libevent-1.4.so.2
+# ln -s /usr/lib/libevent-1.4.so.2 /usr/lib64/libevent-1.4.so.2
 
 下面我们继续使用memcached -h做下测试，终于出现了如下信息:
 
@@ -1057,7 +1057,7 @@ memcached 1.2.0
 
 下面，我们来启动一个Memcached的服务器端: 
 
-\# /usr/local/src/memcached -d -m 10  -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid
+# /usr/local/src/memcached -d -m 10  -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid
   
 (九)    Windows下的Memcache安装
   
@@ -1149,7 +1149,7 @@ view plain   copy
 
 进入用户宿主目录，编辑.bash_profile，为系统环境变量LD_LIBRARY_PATH增加新的目录，需要增加的内容如下: 
 
-\# vi .bash_profile
+# vi .bash_profile
 
 view plain   copy
   
@@ -1161,7 +1161,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MEMCACHED_HOME/lib
 
 5、编写memcached服务启停脚本
 
-\# cd /etc/init.d
+# cd /etc/init.d
 
 vi memcached，脚本内容如下: 
 
@@ -1335,9 +1335,9 @@ exit $RETVAL
 
 view plain   copy
   
-\# chkconfig -add memcached
+# chkconfig -add memcached
   
-\# chkconfig -level 35 memcached on
+# chkconfig -level 35 memcached on
   
 启动memcached
   
@@ -1353,7 +1353,7 @@ view plain   copy
   
 查看memcached是否启动: 
 
-\# ps -ef | grep memcached
+# ps -ef | grep memcached
 
 memcached命令参数解释
   

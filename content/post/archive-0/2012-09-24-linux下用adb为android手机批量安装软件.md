@@ -12,9 +12,9 @@ categories:
   
 首先把以前安装的软件备份到电脑，比如~/backup/，接着，打开电脑上的终端，取得root权限，
   
-\# cd adb
+# cd adb
   
-\# ./adb start-server
+# ./adb start-server
   
 打开另一个终端，默认用户权限
   
@@ -24,6 +24,6 @@ $ sh install.sh <wbr> (-sh里面的内容如这样：./adb install ~/backup/**
   
 ok，等着吧，安装完，切换到第一个终端，执行
   
-\# ./adb kill-server
+# ./adb kill-server
   
 安全移除手机，看看手机上是不是已经显示你安装的软件了，呵呵</wbr>

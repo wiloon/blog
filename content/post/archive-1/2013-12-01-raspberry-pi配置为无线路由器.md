@@ -194,7 +194,7 @@ netmask 255.255.255.0
 
 network={
 ssid="Daochen_AP"
-\#psk="DaochenShi"
+#psk="DaochenShi"
 psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 }
 

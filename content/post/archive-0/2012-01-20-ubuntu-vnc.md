@@ -24,7 +24,7 @@ Verify:\*****
 
 第四步，启动VNC server
 
-\# vncserver
+# vncserver
 
 第五步，通过客户端连接
 
@@ -50,11 +50,11 @@ gedit /.vnc/xstartup
    
 #!/bin/sh
    
-\# Uncomment the following two lines for normal desktop:
+# Uncomment the following two lines for normal desktop:
    
-\# unset SESSION_MANAGER
+# unset SESSION_MANAGER
    
-\# exec /etc/X11/xinit/xinitrc
+# exec /etc/X11/xinit/xinitrc
    
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
    
@@ -78,7 +78,7 @@ x-window-manager &
    
 #!/bin/sh
    
-\# Uncomment the following two lines for normal desktop:
+# Uncomment the following two lines for normal desktop:
    
 unset SESSION_MANAGER
    

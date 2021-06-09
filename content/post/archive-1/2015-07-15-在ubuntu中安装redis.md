@@ -60,7 +60,7 @@ Redis客户端运行命令: Redis安装目录/redis-cli.exe
 
 安装完成后，Redis服务器会自动启动，我们检查Redis服务器程序
   
-\# 检查Redis服务器系统进程
+# 检查Redis服务器系统进程
   
 ~ ps -aux|grep redis
   
@@ -68,13 +68,13 @@ redis 4162 0.1 0.0 10676 1420 ? Ss 23:24 0:00 /usr/bin/redis-server /etc/redis/r
   
 conan 4172 0.0 0.0 11064 924 pts/0 S+ 23:26 0:00 grep -color=auto redis
 
-\# 通过启动命令检查Redis服务器状态
+# 通过启动命令检查Redis服务器状态
   
 ~ netstat -nlt|grep 6379
   
 tcp 0 0 127.0.0.1:6379 0.0.0.0:* LISTEN
 
-\# 通过启动命令检查Redis服务器状态
+# 通过启动命令检查Redis服务器状态
   
 ~ sudo /etc/init.d/redis-server status
   
@@ -90,7 +90,7 @@ redis-server is running
   
 redis 127.0.0.1:6379>
 
-\# 命令行的帮助
+# 命令行的帮助
   
 redis 127.0.0.1:6379> help
   
@@ -104,7 +104,7 @@ Type: "help @" to get a list of commands in
   
 "quit" to exit
   
-\# 查看所有的key列表
+# 查看所有的key列表
   
 redis 127.0.0.1:6379> keys *
   
@@ -114,13 +114,13 @@ redis 127.0.0.1:6379> keys *
 
 增加一条字符串记录key1
   
-\# 增加一条记录key1
+# 增加一条记录key1
   
 redis 127.0.0.1:6379> set key1 "hello"
   
 OK
 
-\# 打印记录
+# 打印记录
   
 redis 127.0.0.1:6379> get key1
   
@@ -128,13 +128,13 @@ redis 127.0.0.1:6379> get key1
 
 增加一条数字记录key2
   
-\# 增加一条数字记录key2
+# 增加一条数字记录key2
   
 set key2 1
   
 OK
 
-\# 让数字自增
+# 让数字自增
   
 redis 127.0.0.1:6379> INCR key2
   
@@ -144,7 +144,7 @@ redis 127.0.0.1:6379> INCR key2
   
 (integer) 3
 
-\# 打印记录
+# 打印记录
   
 redis 127.0.0.1:6379> get key2
   
@@ -152,25 +152,25 @@ redis 127.0.0.1:6379> get key2
 
 增加一条列表记录key3
   
-\# 增加一个列表记录key3
+# 增加一个列表记录key3
   
 redis 127.0.0.1:6379> LPUSH key3 a
   
 (integer) 1
 
-\# 从左边插入列表
+# 从左边插入列表
   
 redis 127.0.0.1:6379> LPUSH key3 b
   
 (integer) 2
 
-\# 从右边插入列表
+# 从右边插入列表
   
 redis 127.0.0.1:6379> RPUSH key3 c
   
 (integer) 3
 
-\# 打印列表记录，按从左到右的顺序
+# 打印列表记录，按从左到右的顺序
   
 redis 127.0.0.1:6379> LRANGE key3 0 3
   
@@ -182,25 +182,25 @@ redis 127.0.0.1:6379> LRANGE key3 0 3
 
 增加一条哈希表记录key4
   
-\# 增加一个哈希记表录key4
+# 增加一个哈希记表录key4
   
 redis 127.0.0.1:6379> HSET key4 name "John Smith"
   
 (integer) 1
 
-\# 在哈希表中插入，email的Key和Value的值
+# 在哈希表中插入，email的Key和Value的值
   
 redis 127.0.0.1:6379> HSET key4 email "abc@gmail.com"
   
 (integer) 1
 
-\# 打印哈希表中，name为key的值
+# 打印哈希表中，name为key的值
   
 redis 127.0.0.1:6379> HGET key4 name
   
 "John Smith"
 
-\# 打印整个哈希表
+# 打印整个哈希表
   
 redis 127.0.0.1:6379> HGETALL key4
   
@@ -214,13 +214,13 @@ redis 127.0.0.1:6379> HGETALL key4
 
 增加一条哈希表记录key5
   
-\# 增加一条哈希表记录key5，一次插入多个Key和value的值
+# 增加一条哈希表记录key5，一次插入多个Key和value的值
   
 redis 127.0.0.1:6379> HMSET key5 username antirez password P1pp0 age 3
   
 OK
 
-\# 打印哈希表中，username和age为key的值
+# 打印哈希表中，username和age为key的值
   
 redis 127.0.0.1:6379> HMGET key5 username age
   
@@ -228,7 +228,7 @@ redis 127.0.0.1:6379> HMGET key5 username age
   
 2) "3"
 
-\# 打印完整的哈希表记录
+# 打印完整的哈希表记录
   
 redis 127.0.0.1:6379> HGETALL key5
   
@@ -246,7 +246,7 @@ redis 127.0.0.1:6379> HGETALL key5
 
 删除记录
   
-\# 查看所有的key列表
+# 查看所有的key列表
   
 redis 127.0.0.1:6379> keys *
   
@@ -260,7 +260,7 @@ redis 127.0.0.1:6379> keys *
   
 5) "key1"
 
-\# 删除key1,key5
+# 删除key1,key5
   
 redis 127.0.0.1:6379> del key1
   
@@ -270,7 +270,7 @@ redis 127.0.0.1:6379> del key5
   
 (integer) 1
 
-\# 查看所有的key列表
+# 查看所有的key列表
   
 redis 127.0.0.1:6379> keys *
   

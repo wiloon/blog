@@ -234,7 +234,7 @@ mail.* /var/log/maillog
   
 其他设备也有自己的日志。UUCP和news设备能产生许多外部消息。它把这些消息存到自己的日志（/var/log/spooler）中并把级别限为"err"或更高。例如: 
   
-\# Save mail and news errors of level err and higher in aspecial file.
+# Save mail and news errors of level err and higher in aspecial file.
   
 uucp,news.crit /var/log/spooler
   

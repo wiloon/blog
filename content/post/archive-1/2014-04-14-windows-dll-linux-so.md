@@ -208,27 +208,27 @@ unix具体编译的例子:
 源文件为main.c, x.c, y.c, z.c,头文件为x.h,y.h,z.h
 
 
-\# 声称动代连接库，假设名称为libtest.so
+# 声称动代连接库，假设名称为libtest.so
 
 gcc x.c y.c z.c -fPIC -shared -o libtest.so
 
 
-\# 将main.c和动态连接库进行连接生成可执行文件
+# 将main.c和动态连接库进行连接生成可执行文件
 
 gcc main.c -L. -ltest -o main
 
 
-\# 输出LD_LIBRARY_PATH环境变量，一边动态库装载器能够找到需要的动态库
+# 输出LD_LIBRARY_PATH环境变量，一边动态库装载器能够找到需要的动态库
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
 
 
-\# 测试是否动态连接，如果列出libtest.so，那么应该是连接正常了
+# 测试是否动态连接，如果列出libtest.so，那么应该是连接正常了
 
 ldd main
 
 
--fPIC: 表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动态载入时是通 过 代码拷贝的方式来满足不同进程的需要，而不能达到真正代码段共享的目的。
+-fPIC: 表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动态载入时是通 过 代码拷贝的方式来满足不同进程的需要，而不能达到真正代码片段共享的目的。
 
 
 -L.: 表示要连接的库在当前目录中

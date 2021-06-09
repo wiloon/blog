@@ -18,7 +18,7 @@ categories:
   
 打包：tar cvf FileName.tar DirName
   
-\# 注：tar是打包，不是压缩！
+# 注：tar是打包，不是压缩！
 
 ```
 
