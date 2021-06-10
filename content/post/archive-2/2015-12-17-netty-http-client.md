@@ -276,11 +276,11 @@ Http Client:
   
 log4j的配置: 
 
-\# Root logger option
+# Root logger option
   
 log4j.rootLogger=INFO, stdout, file
 
-\# Direct log messages to stdout
+# Direct log messages to stdout
   
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
   

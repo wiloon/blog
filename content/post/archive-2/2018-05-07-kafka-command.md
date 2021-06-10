@@ -129,11 +129,11 @@ zookeeper.connect=localhost:2181
 ### 删除topic
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
-    \#edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
-    \#start kafka server
+    #edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS
+    #start kafka server
     bin/kafka-server-start.sh config/server.properties
 
-    \#start kafka server as daemon
+    #start kafka server as daemon
     bin/kafka-server-start.sh -daemon config/server.properties
 
     bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic0

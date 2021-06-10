@@ -102,11 +102,11 @@ view plaincopy
 
 .source "ApkInstaller.java"
 
-\# instance fields
+# instance fields
 
 .field private apkWeb:Landroid/webkit/WebView;
 
-\# direct methods
+# direct methods
 
 .method public constructor <init>()V
 
@@ -122,7 +122,7 @@ return-void
 
 .end method
 
-\# virtual methods
+# virtual methods
 
 .method public onCreate(Landroid/os/Bundle;)V
 

@@ -300,7 +300,7 @@ sonar.profile=Android Lint
   
 切换到项目源码根目录，执行命令
   
-\# sonar-runner
+# sonar-runner
   
 分析成功后访问http:\\localhost:9000即可查看分析结果
 

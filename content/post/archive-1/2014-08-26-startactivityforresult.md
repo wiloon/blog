@@ -50,7 +50,7 @@ Bundle b=data.getExtras(); //data为B中回传的Intent
   
 String str=b.getString("ListenB");//str即为回传的值"Hello, this is B speaking"
   
-/\* 得到B回传的数据后做什么... 略 \*/
+/* 得到B回传的数据后做什么... 略 */
   
 break;
   
@@ -70,7 +70,7 @@ break;
   
 Intent aintent = new Intent(B.this, A.class);
   
-/\* 将数据打包到aintent Bundle 的过程略 \*/
+/* 将数据打包到aintent Bundle 的过程略 */
   
 setResut(RESULT_OK,aintent); //这理有2个参数(int resultCode, Intent intent)
   

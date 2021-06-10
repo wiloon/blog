@@ -149,7 +149,7 @@ v_ErrorText log_table.message%TYPE;
 BEGIN
 
 
-/\* Find the IDs for the 3 authors of 'Oracle9i DBA 101' \*/
+/* Find the IDs for the 3 authors of 'Oracle9i DBA 101' */
 
 
 SELECT author1, author2, author3
@@ -164,7 +164,7 @@ FROM books
 WHERE title = 'Oracle9i DBA 101';
 
 
-/\* Ensure that there are no duplicates \*/
+/* Ensure that there are no duplicates */
 
 
 IF (v_Author1 = v_Author2) OR (v_Author1 = v_Author3) OR
@@ -203,7 +203,7 @@ VALUES ('Oracle9i DBA 101 has duplicate authors');
 WHEN OTHERS THEN
 
 
-/\* Handler which executes for all other errors. \*/
+/* Handler which executes for all other errors. */
 
 
 v_ErrorCode := SQLCODE;
@@ -419,7 +419,7 @@ WHERE course = p_Course
 AND department = p_Department;
 
 
-/\* Make sure there is enough room for this additional student. \*/
+/* Make sure there is enough room for this additional student. */
 
 
 IF v_CurrentStudents + 1 > v_MaxStudents THEN
@@ -434,7 +434,7 @@ p_Department || ' ' || p_Course);
 END IF;
 
 
-/\* Add the student to the class. \*/
+/* Add the student to the class. */
 
 
 ClassPackage.AddStudent(p_StudentID, p_Department, p_Course);
@@ -558,7 +558,7 @@ be visible via qualified references for any other blocks or procedures.
 Note that this package does not have a package body. */
 
 
-/\* A user-defined exception. \*/
+/* A user-defined exception. */
 
 
 e_UserDefinedException EXCEPTION;

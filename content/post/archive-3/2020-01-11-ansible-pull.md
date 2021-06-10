@@ -20,6 +20,6 @@ ansible-pull [options] [playbook.yml]
 
 具体示例参考如下：
   
-\*/20 \* \* \* * root /usr/local/bin/ansible-pull -o -C 2.1.0 -d /srv/www/king-gw/ -i /etc/ansible/hosts -U git:// git.kingifa.com/king-gw-ansiblepull >> /var/log/ansible-pull.log 2>&1
+*/20 \* \* \* * root /usr/local/bin/ansible-pull -o -C 2.1.0 -d /srv/www/king-gw/ -i /etc/ansible/hosts -U git:// git.kingifa.com/king-gw-ansiblepull >> /var/log/ansible-pull.log 2>&1
   
 ansible-pull通常在配置大批量机器的场景下会使用，灵活性稍有欠缺，但效率几乎可以\***提升，对运维人员的技术水平和前瞻性规划有较高要求。

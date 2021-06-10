@@ -164,7 +164,7 @@ regiestListener();
   
 }
 
-/*\* 获得组件 \*/
+/*\* 获得组件 */
   
 public void getWidget() {
   
@@ -176,7 +176,7 @@ shutDownServiceButton = (Button) findViewById(R.id.sutdownServerButton);
   
 }
 
-/*\* 为按钮添加监听 \*/
+/*\* 为按钮添加监听 */
   
 public void regiestListener() {
   
@@ -188,13 +188,13 @@ startBindServiceButton.setOnClickListener(startBinderService);
   
 }
 
-/*\* 启动服务的事件监听 \*/
+/*\* 启动服务的事件监听 */
   
 public Button.OnClickListener startService = new Button.OnClickListener() {
   
 public void onClick(View view) {
   
-/*\* 单击按钮时启动服务 \*/
+/*\* 单击按钮时启动服务 */
   
 Intent intent = new Intent(MainActivity.this,
   
@@ -208,19 +208,19 @@ Log.v("MainStadyServics", "start Service");
   
 };
   
-/*\* 关闭服务 \*/
+/*\* 关闭服务 */
   
 public Button.OnClickListener shutdownService = new Button.OnClickListener() {
   
 public void onClick(View view) {
   
-/*\* 单击按钮时启动服务 \*/
+/*\* 单击按钮时启动服务 */
   
 Intent intent = new Intent(MainActivity.this,
   
 CountService.class);
   
-/*\* 退出Activity是，停止服务 \*/
+/*\* 退出Activity是，停止服务 */
   
 stopService(intent);
   
@@ -230,13 +230,13 @@ Log.v("MainStadyServics", "shutDown serveice");
   
 };
   
-/*\* 打开绑定服务的Activity \*/
+/*\* 打开绑定服务的Activity */
   
 public Button.OnClickListener startBinderService = new Button.OnClickListener() {
   
 public void onClick(View view) {
   
-/*\* 单击按钮时启动服务 \*/
+/*\* 单击按钮时启动服务 */
   
 Intent intent = new Intent(MainActivity.this, UseBrider.class);
   
@@ -268,7 +268,7 @@ return true;
   
 package com.example.testservice;
 
-/*\*引入包\*/
+/*\*引入包*/
   
 import android.app.Service;// 服务的类
   
@@ -280,11 +280,11 @@ import android.content.Intent;
   
 import android.util.Log;
 
-/*\* 计数的服务 \*/
+/*\* 计数的服务 */
   
 public class CountService extends Service {
   
-/*\* 创建参数 \*/
+/*\* 创建参数 */
   
 boolean threadDisable;
   
@@ -300,7 +300,7 @@ public void onCreate() {
   
 super.onCreate();
   
-/*\* 创建一个线程，每秒计数器加一，并在控制台进行Log输出 \*/
+/*\* 创建一个线程，每秒计数器加一，并在控制台进行Log输出 */
   
 new Thread(new Runnable() {
   
@@ -332,7 +332,7 @@ public void onDestroy() {
   
 super.onDestroy();
   
-/*\* 服务停止时，终止计数进程 \*/
+/*\* 服务停止时，终止计数进程 */
   
 this.threadDisable = true;
   
@@ -366,7 +366,7 @@ return CountService.this;
   
 package com.example.testservice;
 
-/*\*引入包\*/
+/*\*引入包*/
   
 import android.app.Activity;
   
@@ -384,11 +384,11 @@ import android.os.IBinder;
   
 import android.util.Log;
 
-/*\* 通过bindService和unBindSerivce的方式启动和结束服务 \*/
+/*\* 通过bindService和unBindSerivce的方式启动和结束服务 */
   
 public class UseBrider extends Activity {
   
-/*\* 参数设置 \*/
+/*\* 参数设置 */
   
 CountService countService;
 
@@ -402,7 +402,7 @@ setContentView(new UseBriderFace(this));
 
 Intent intent = new Intent(UseBrider.this, CountService.class);
   
-/*\* 进入Activity开始服务 \*/
+/*\* 进入Activity开始服务 */
   
 bindService(intent, conn, Context.BIND_AUTO_CREATE);
 
@@ -410,7 +410,7 @@ bindService(intent, conn, Context.BIND_AUTO_CREATE);
   
 private ServiceConnection conn = new ServiceConnection() {
   
-/*\* 获取服务对象时的操作 \*/
+/*\* 获取服务对象时的操作 */
   
 public void onServiceConnected(ComponentName name, IBinder service) {
   
@@ -420,7 +420,7 @@ countService = ((CountService.ServiceBinder) service).getService();
 
 }
 
-/*\* 无法获取到服务对象时的操作 \*/
+/*\* 无法获取到服务对象时的操作 */
   
 public void onServiceDisconnected(ComponentName name) {
   

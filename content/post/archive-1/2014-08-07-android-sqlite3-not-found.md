@@ -20,20 +20,20 @@ http://panxq0809.iteye.com/blog/1264785
   
 #adb shell
   
-\# mount -o remount,rw -t yaffs2 /dev/block/mtdblock3 /system
+# mount -o remount,rw -t yaffs2 /dev/block/mtdblock3 /system
 
 （2）导入所需的sqlite3文件到/system/xbin目录。
   
 （可以新建个模拟器，从/system/xbin中导出sqlite3，即可得到sqlite3文件;或者从另外一个有sqlite3文件的机器中导出获得）
   
-\# adb push sqlite3 /system/xbin
+# adb push sqlite3 /system/xbin
 
 （3）修改 sqlite3 权限
   
-\# chmod 4755 /system/xbin/sqlite3
+# chmod 4755 /system/xbin/sqlite3
 
 （4）设置 /system为只读文件
   
-\# mount -o remount,ro -t yaffs2 /dev/block/mtdblock3 /system
+# mount -o remount,ro -t yaffs2 /dev/block/mtdblock3 /system
 
 （5）至此，就可以使用 sqlite3 命令来操作 SQLite 数据库了。

@@ -10,9 +10,9 @@ categories:
 ---
 **安装特定版本的软件**
 
-\# emerge "=python-3.2"
+# emerge "=python-3.2"
   
-\# emerge "<python-3.2"
+# emerge "<python-3.2"
 
 You can also manually edit the /etc/portage/package.keywords file to unmask keyword_masked packages
   

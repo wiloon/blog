@@ -18,7 +18,7 @@ add the following line like :
 
 #
   
-\# List of providers and their preference orders (see above):
+# List of providers and their preference orders (see above):
   
 #
   

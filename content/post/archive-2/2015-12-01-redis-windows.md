@@ -26,7 +26,7 @@ https://github.com/MSOpenTech/redis/releases
 redis.windows.conf ,搜索 maxheap , 然后直接指定好内容即可.
 
 
-\# maxheap <bytes>
+# maxheap <bytes>
 
 maxheap 1024000000
 

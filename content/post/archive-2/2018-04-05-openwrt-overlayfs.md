@@ -42,19 +42,19 @@ target/linux/ipq806x/files/arch/arm/boot/dts/qcom-ipq8065-r7800.dts
   
 #3. extend ubi partition to the end of original netgear partition.
 
-\# luci support
+# luci support
   
 ./scripts/feeds update packages luci
   
 ./scripts/feeds install -a -p luci
 
-\# make menuconfig 不要用root账号
+# make menuconfig 不要用root账号
   
 make menuconfig #set "Target System", "Subtarget", "Target Profile";
   
 make defconfig #恢复默认配置
 
-\# 选了dnsmasq-full就不要选dnsmasq了， 编译的时候会冲突
+# 选了dnsmasq-full就不要选dnsmasq了， 编译的时候会冲突
   
 Base system> dnsmasq-full>Build with IPset support.
 
@@ -64,7 +64,7 @@ kernel modules>Netfilter Extensions>kmod-ipt-debug
   
 Administration>syslog-ng
 
-\# make -j8 V=s不要用root账号
+# make -j8 V=s不要用root账号
   
 make -j8 V=s #(build OpenWRT with console logging, you can see where build failed.).
 

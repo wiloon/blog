@@ -16,15 +16,15 @@ filco 配对 ctrl+alt+fn
   
 #mac of bluetooth keyboard
   
-\# 00:18:00:3C:A4:C5
+# 00:18:00:3C:A4:C5
 
 bluetoothctl
 
-\# show help info
+# show help info
   
 help
 
-\# show keyboard info, paired, trusted, connected
+# show keyboard info, paired, trusted, connected
   
 info 00:18:00:3C:A4:C5
 
