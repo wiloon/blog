@@ -8,6 +8,9 @@ categories:
   - Uncategorized
 
 ---
+###  批量删除镜像
+     docker rmi $(docker images | grep "name0" | awk '{print $3}') 
+
 ```bash
 docker restart foo
 
