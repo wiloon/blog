@@ -52,23 +52,23 @@ add following lines to the file.
 
 ```bash
   
-\### BEGIN INIT INFO
+### BEGIN INIT INFO
   
-\# Provides: tomcat
+# Provides: tomcat
   
-\# Required-Start: $remote_fs $syslog
+# Required-Start: $remote_fs $syslog
   
-\# Required-Stop: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
   
-\# Default-Start: 2 3 4 5
+# Default-Start: 2 3 4 5
   
-\# Default-Stop: 0 1 6
+# Default-Stop: 0 1 6
   
-\# Short-Description: Start tomcat at boot time
+# Short-Description: Start tomcat at boot time
   
-\# Description: Enable service provided by tomcat.
+# Description: Enable service provided by tomcat.
   
-\### END INIT INFO
+### END INIT INFO
   
 CATALINA_HOME=/xxx/xxx/xxx/apache-tomcat-7.0.22
   

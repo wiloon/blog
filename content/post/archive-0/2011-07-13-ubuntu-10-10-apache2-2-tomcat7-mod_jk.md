@@ -36,7 +36,7 @@ sudo a2enmod
   
 jk
 
-\# if no jk,
+# if no jk,
 
 [bash]
   
@@ -88,7 +88,7 @@ sudo emacs /etc/apache2/workers.properties
   
 [/bash]
 
-\# Then write following lines
+# Then write following lines
 
 [bash]
   
@@ -118,7 +118,7 @@ restart all server.
   
 #restart tomcat
 
-\# Then access to the page with your browser
+# Then access to the page with your browser
 
 [bash]
   

@@ -20,15 +20,15 @@ CENTOS6中的VNC SERVER已更換成tightvnc
 
 [cent@root ]$ vncpasswd
   
-\# set VNC password
+# set VNC password
 
 [cent@root ]$ Password:
   
-\# input password
+# input password
 
 [cent@root ]$ Verify:
   
-\# confirm password
+# confirm password
 
 啟動vncserver
   

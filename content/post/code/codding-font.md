@@ -35,11 +35,11 @@ JetBrain Mono
 
 
 ### 等宽字体
-#status { /\*width: auto;\*/
+#status { /*width: auto;*/
 	  
 background: #ffff99;
 	  
-/\* -webkit-border-radius: 6px; \*/
+/* -webkit-border-radius: 6px; */
 	  
 padding: 1px 3px 1px 3px;
 	  

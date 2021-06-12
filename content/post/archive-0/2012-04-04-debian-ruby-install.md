@@ -56,6 +56,6 @@ http://ruby.taobao.org
   
 ```
   
-\# 请确保只有 ruby.taobao.org
+# 请确保只有 ruby.taobao.org
 
 sudo gem install rails

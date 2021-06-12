@@ -345,7 +345,7 @@ Connection: keep-alive
   
 If-None-Match: "a54907f38b306fe3ae4f32c003ddd507"
   
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
   
 If-Modified-Since: Mon, 10 Feb 2014 18:08:48 GMT
   
@@ -367,7 +367,7 @@ header 的作用是向服务器传递一些额外的辅助信息，它的内容�
 
 下面是一些常见的header信息:
 
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
   
 Accept-Language: en-us
 
@@ -429,11 +429,11 @@ User-Agent: curl/7.30.0
   
 Host: www.apple.com
   
-Accept: \*/\*
+Accept: */*
 
 这个请求与之前 Safari 发的请求很类似。但是 curl 请求的 header 信息中没有 If-None-Match，所以服务器必须将请求结果返回。
 
-此处 curl 头信息中声明的 Accept: \*/\* 表示可以接收任何媒体类型。
+此处 curl 头信息中声明的 Accept: */* 表示可以接收任何媒体类型。
 
 来自 www.apple.com 的响应: 
 

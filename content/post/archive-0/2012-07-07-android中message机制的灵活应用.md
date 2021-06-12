@@ -296,7 +296,7 @@ private final String sTag = "MessageExample";
 
 private boolean postRunnable = false;
 
-/*\* Called when the activity is first created. \*/
+/*\* Called when the activity is first created. */
 
 @Override
 

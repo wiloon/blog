@@ -377,7 +377,7 @@ view plaincopy
 
 </pre><pre name="code" class="java" style="text-align: left; font-family: Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Consolas, 'Courier New', monospace; line-height: 18px; ">public class JsonActivity extends Activity {
 
-/*\* Called when the activity is first created. \*/
+/*\* Called when the activity is first created. */
 
 private TextView tvJson;
 

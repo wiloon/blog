@@ -137,7 +137,7 @@ class Thread implements Runnable {
       
 /* ThreadLocal values pertaining to this thread. This map is maintained
        
-\* by the ThreadLocal class. \*/
+\* by the ThreadLocal class. */
 
     ThreadLocal.ThreadLocalMap threadLocals = null;
     
@@ -219,7 +219,7 @@ this.inheritableThreadLocals =
                   
 ThreadLocal.createInheritedMap(parent.inheritableThreadLocals);
           
-/\* Stash the specified stack size in case the VM cares \*/
+/* Stash the specified stack size in case the VM cares */
           
 this.stackSize = stackSize;
 
@@ -263,7 +263,7 @@ static class ThreadLocalMap {
       
 static class Entry extends WeakReference<ThreadLocal<?>> {
           
-/*\* The value associated with this ThreadLocal. \*/
+/*\* The value associated with this ThreadLocal. */
           
 Object value;
 

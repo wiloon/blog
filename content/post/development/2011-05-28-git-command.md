@@ -243,7 +243,7 @@ git clone -b v1.30.0 https://github.com/foo/bar
 
 git clean -fd
 
-\#rebase
+#rebase
 git rebase
 
 git stash
@@ -270,7 +270,7 @@ git commit -m "***"
 git push git@localhost:ET.git master
 
 git clone git@DomainName:ET.git
-\#need port 22
+#need port 22
 
 git commit -m "xxx"
 git push origin master

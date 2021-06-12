@@ -14,17 +14,17 @@ Xfce is a lightweight desktop environment system for linux, and is a good altern
 
 In this post I am going to show you how to install xfce on debian. It is available in the debian default repositories and can be installed right away.
 
-\# apt-get install xfce4
+# apt-get install xfce4
 
 This will install the xfce desktop with all the necessary applications. The download size is around 20.4 MB and should finish in a few minutes on a fast broadband connection.
 
 Along with the main xfce4 package you can also install additional useful applications by installing the package named xfce4-goodies.
 
-\# sudo apt-get install xfce4-goodies
+# sudo apt-get install xfce4-goodies
 
 If you want to install all the application of the xfce desktop suite then use the following command instead
 
-\# apt-get install xfce4-*
+# apt-get install xfce4-*
 
 It will install a lot more applications. The download size is around 99MB and would take more time to complete.
 
@@ -40,15 +40,15 @@ I personally find the greybird and bluebird themes to be great looking when it c
 
 Its easy, just run the following commands
 
-\# add-apt-repository 'deb http://ppa.launchpad.net/shimmerproject/ppa/ubuntu quantal main'
+# add-apt-repository 'deb http://ppa.launchpad.net/shimmerproject/ppa/ubuntu quantal main'
 
-\# apt-get update
+# apt-get update
 
-\# aptitude search shimmer
+# aptitude search shimmer
 
 p shimmer-themes-greybird - Greybird Theme from the Shimmer Project
 
-\# apt-get install shimmer-themes-greybird
+# apt-get install shimmer-themes-greybird
 
 Now go to
 

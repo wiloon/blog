@@ -104,13 +104,13 @@ Xml代码
   
 <param-name>contextConfigLocation</param-name>
   
-<param-value>classpath\*:\*\*/applicationContext-\*.xml</param-value>
+<param-value>classpath\*:\**/applicationContext-\*.xml</param-value>
   
 </context-param>
 
 "**/"表示的是任意目录；
   
-"*\*/applicationContext-\*.xml"表示任意目录下的以"applicationContext-"开头的XML文件。
+"**/applicationContext-\*.xml"表示任意目录下的以"applicationContext-"开头的XML文件。
   
 你自己可以根据需要修改。最好把所有Spring配置文件都放在一个统一的目录下，如：
 

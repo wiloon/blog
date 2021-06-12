@@ -758,11 +758,11 @@ package com.http;
   
 public class NodePath {
 
-/*\* The key. \*/
+/*\* The key. */
    
 private String key;
 
-/*\* The index. \*/
+/*\* The index. */
    
 private int index;
 
@@ -856,15 +856,15 @@ import java.util.List;
   
 public class NodeUtil {
 
-/*\* The Constant SEPARATOR. \*/
+/*\* The Constant SEPARATOR. */
    
 public static final String SEPARATOR = "_";
 
-/*\* The Constant LEFT_BRACKETS. \*/
+/*\* The Constant LEFT_BRACKETS. */
    
 public static final String LEFT_BRACKETS = "[";
 
-/*\* The Constant RIGHT_BRACKETS. \*/
+/*\* The Constant RIGHT_BRACKETS. */
    
 public static final String RIGHT_BRACKETS = "]";
 

@@ -10,7 +10,7 @@ categories:
 ---
 public class ConnEnv {
 
-/*\* The instance. \*/
+/*\* The instance. */
   
 private static ConnEnv instance;
 

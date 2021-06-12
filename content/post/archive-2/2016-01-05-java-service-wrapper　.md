@@ -74,47 +74,47 @@ agent
 
 步骤3: 配置agent/conf/wrapper.conf的参数
   
-\# 配置java命令路径
+# 配置java命令路径
   
 wrapper.java.command=jre/bin/java
 
-\# 配置CLASSPATH路径（并不会修改全局的环境变量）
+# 配置CLASSPATH路径（并不会修改全局的环境变量）
   
-\# 若原有项目还依赖其他jar包，均需要添加进来
+# 若原有项目还依赖其他jar包，均需要添加进来
   
 wrapper.java.classpath.1=../lib/wrapper.jar
   
 wrapper.java.classpath.2=.
 
-\# 配置lib路径
+# 配置lib路径
   
 wrapper.java.library.path.1=../lib
 
-\# 配置服务的main class（就是原有项目的程序入口类）
+# 配置服务的main class（就是原有项目的程序入口类）
   
 wrapper.app.parameter.1=agent.Daemon
 
-\# 配置wrapper日志文件
+# 配置wrapper日志文件
   
 wrapper.logfile=logs/Agent.log
 
-\# 配置系统服务名称
+# 配置系统服务名称
   
 wrapper.ntservice.name=AgentService
 
-\# 配置系统服务显示的名称
+# 配置系统服务显示的名称
   
 wrapper.ntservice.displayname=AgentService
 
-\# 配置系统服务描述
+# 配置系统服务描述
   
 wrapper.ntservice.description=AgentService
 
-\# 配置系统服务的启动方式，取值范围是AUTO_START或DEMAND_START
+# 配置系统服务的启动方式，取值范围是AUTO_START或DEMAND_START
   
 wrapper.ntservice.starttype=AUTO_START
 
-\# 配置内存溢出则重启服务
+# 配置内存溢出则重启服务
   
 wrapper.filter.trigger.1001=Exception in thread "*" java.lang.OutOfMemoryError
   

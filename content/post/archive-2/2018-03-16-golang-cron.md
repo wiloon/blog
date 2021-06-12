@@ -78,7 +78,7 @@ i := 0
       
 c := cron.New()
       
-spec := "\*/5 \* \* \* * ?"
+spec := "*/5 \* \* \* * ?"
       
 c.AddFunc(spec, func() {
           

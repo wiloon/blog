@@ -179,6 +179,9 @@ p有三种值:
 
 #### Range
 
+    foo.Range(func(key, value interface{}) bool {
+	}
+
 因为`for ... range map`是内建的语言特性，所以没有办法使用`for range`遍历`sync.Map`, 但是可以使用它的`Range`方法，通过回调的方式遍历。
 
 | --- | --- |

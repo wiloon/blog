@@ -319,19 +319,19 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 public final class HttpParameterKey {
 
-/*\* The port. \*/
+/*\* The port. */
    
 private int port;
 
-/*\* The protocol. \*/
+/*\* The protocol. */
    
 private String protocol;
 
-/*\* The user name. \*/
+/*\* The user name. */
    
 private String userName;
 
-/*\* The password. \*/
+/*\* The password. */
    
 private String password;
 
