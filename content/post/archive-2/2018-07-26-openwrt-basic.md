@@ -4,7 +4,13 @@ author: w1100n
 type: post
 date: 2018-07-26T05:04:27+00:00
 url: /?p=12449
+
 ---
+
+### ssh port
+   vim /etc/init.d/dropbear
+
+   validate_section_dropbear > port
 
 ### ssh public key
    vim /etc/dropbear/authorized_keys

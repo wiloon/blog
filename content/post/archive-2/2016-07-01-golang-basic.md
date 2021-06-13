@@ -54,7 +54,7 @@ var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为
 变量声明语句不需要使用分号作为结束符。与C语言相比,Go语言摒弃了语句必须以分号作为语句结束标记的习惯。
   
 ### 变量初始化
-对于声明变量时需要进行初始化的场景,var关键字可以保留,但不再是必要的元素,如下 : 
+对于声明变量时需要进行初始化的场景,var关键字可以保留,但不再是必要的元素,如下: 
 
 ```golang
 var v1 int = 10 // 正确的使用方式1
@@ -293,3 +293,28 @@ go install将可执行文件依赖的各种package编译后，放在与src同级
 
 http://tonybai.com/2012/08/17/hello-go/
 
+
+### 一个函数可以作为参数传递给另一个函数
+
+```go
+package main
+
+import "fmt"
+
+func dd(i func(int, int) int) int {
+    fmt.Printf("i type: %T\n", i)
+    return i(1, 2)
+}
+
+func main() {
+    ee := func(x, y int) int {
+        return x + y
+    }
+    fmt.Printf("ee type: %T\n", ee)
+    fmt.Println(dd(ee))
+}
+```
+
+---
+
+https://cyent.github.io/golang/datatype/funcvalue_parameter/
