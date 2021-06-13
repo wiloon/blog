@@ -267,7 +267,7 @@ continue;
   
 printf("received a connection from %s\n", inet_ntoa(remote_addr.sin_addr));
   
-if (!fork()) { /* 子进程代码段 */
+if (!fork()) { /* 子进程代码片段 */
   
 if (send(client_fd, "Hello, you are connected!\n", 26, 0) == -1)
   

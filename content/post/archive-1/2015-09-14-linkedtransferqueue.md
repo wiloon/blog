@@ -50,7 +50,7 @@ LinkedTransferQueue实现了一个重要的接口TransferQueue,该接口含有�
   
 元素传送。SynchronousQueue在执行offer操作时，如果没有其他线程执行poll，则直接返回false.线程之间元素传送正是通过transfer方法完成的。
 
-有一个使用案例，我们知道ThreadPoolExecutor调节线程的原则是: 先调整到最小线程，最小线程用完后，他会将优先将任务放入缓存队列(offer(task)),等缓冲队列用完了，才会向最大线程数调节。这似乎与我们所理解的线程池模型有点不同。我们一般采用增加到最大线程后，才会放入缓冲队列中，以达到最大性能。ThreadPoolExecutor代码段: 
+有一个使用案例，我们知道ThreadPoolExecutor调节线程的原则是: 先调整到最小线程，最小线程用完后，他会将优先将任务放入缓存队列(offer(task)),等缓冲队列用完了，才会向最大线程数调节。这似乎与我们所理解的线程池模型有点不同。我们一般采用增加到最大线程后，才会放入缓冲队列中，以达到最大性能。ThreadPoolExecutor代码片段: 
 
 public void execute(Runnable command) {
   
