@@ -229,7 +229,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
   
     这个大家都会了吧。最简单的就是选择X Window Manager中的exit或logout或相关的就可以了。
- 呵呵，还记前面介绍的个#HOME/.xinitrc文件吧，是就在结束.xinitrc文件吧，执行了一个叫exec kde3的程序，这样的好处就是结束X Window Manager的时候，会连同x-server一起结束。另外的就是按CRTL+ALT+Backspace来结束你的X Window Manager吧，它就是把中断信号送给X-server结束X回到console terminal。
+ 呵呵，还记前面介绍的个 HOME/.xinitrc文件吧，是就在结束.xinitrc文件吧，执行了一个叫exec kde3的程序，这样的好处就是结束X Window Manager的时候，会连同x-server一起结束。另外的就是按CRTL+ALT+Backspace来结束你的X Window Manager吧，它就是把中断信号送给X-server结束X回到console terminal。
   
   
     上面的情况是针对用startx启动X的，如果你是用xdm/kdm/gdm来启动你的X的话，你按上面的方法是又会回到X视窗的登录界面的，X -server并不会结束。你可以在console下，运行init 3就会结束你的X-server，如果你是init 5的话，那X-server又回来了。
