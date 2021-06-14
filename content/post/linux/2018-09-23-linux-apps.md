@@ -127,7 +127,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | procmon                               | 微软的进程监控工具                                             |
 | platformio                            | 物联网开发的开源生态系统                                       |
 |slurm|网络监控|
-|joplin||
+|joplin-desktop||
 
 ### KDE
 

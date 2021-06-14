@@ -4,8 +4,6 @@ author: w1100n
 type: post
 date: 2013-12-27T02:52:17+00:00
 url: /?p=6077
-categories:
-  - Uncategorized
 
 ---
 https://github.com/crvdgc/Consolas-with-Yahei

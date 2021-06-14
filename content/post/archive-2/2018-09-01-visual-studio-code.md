@@ -36,7 +36,7 @@ Controls the font family.
 默认的是 Consolas, 'Courier New', monospace。
 
 #### 改成
-    Consolas,'Courier New',"微软雅黑",monospace
+    Consolas,'Courier New','微软雅黑',monospace
 
 我喜欢萍方所以就 Consolas, 'Courier New', monospace,"萍方-简"。
 
