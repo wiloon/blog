@@ -74,7 +74,7 @@ SELECT @@SESSION.sql_mode;
 ### podmn
 
 ```bash
-    podman run    -d \
+    podman run -d \
     --name mariadb \
     -p 3306:3306 \
     -v /etc/localtime:/etc/localtime:ro \

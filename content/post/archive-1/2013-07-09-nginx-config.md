@@ -7,7 +7,7 @@ url: /?p=5626
 
 ---
 ### nginx 414 Request-URI Too Large
-    client_header_buffer_size 128k;
+    client_header_buffer_size 512k;
 
 ### worker_processes, nginx进程数，建议设置为等于CPU总核心数。
     worker_processes 8;
