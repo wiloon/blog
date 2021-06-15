@@ -11,11 +11,9 @@ categories:
 ```java
   
 Thread.sleep(3000);
-  
 TimeUnit.SECONDS.sleep(random.nextInt(10));
-
 this.wait(2000);
-  
+
 ```
 
 sleep是Thread类的方法,sleep()使当前线程进入停滞状态（阻塞当前线程），让出CUP的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;
