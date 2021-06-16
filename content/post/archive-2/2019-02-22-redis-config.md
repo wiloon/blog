@@ -4,10 +4,12 @@ author: w1100n
 type: post
 date: 2019-02-22T11:26:25+00:00
 url: /?p=13678
-categories:
-  - Uncategorized
 
 ---
+
+https://raw.githubusercontent.com/redis/redis/6.0/redis.conf
+
+
 ```bash
 bind 0.0.0.0
 #参数是为了禁止外网访问redis，如果启用了，则只能够通过lookback ip（127.0.0.1）访问Redis
@@ -177,5 +179,7 @@ client-output-buffer-limit pubsub 32mb 8mb 60
 hz 10
 aof-rewrite-incremental-fsync yes
 ```
+
+---
 
 https://blog.csdn.net/pengjunlee/article/details/81269596
