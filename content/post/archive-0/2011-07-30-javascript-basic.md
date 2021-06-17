@@ -91,6 +91,8 @@ http://www.w3school.com.cn/js/jsref_obj_date.asp
     console.log(s2);  //返回字符串"abcdef"
 
 ### indexOf
+indexOf() 方法返回调用它的 String 对象中第一次出现的指定值的索引，从 fromIndex 处进行搜索。如果未找到该值，则返回 -1。
+
     stringObject.indexOf(searchvalue,fromindex)
 
 indexOf用于发现一系列的字符在一个字符串中等位置并告诉你子字符串的起始位置。如果一个字符串中不包含该子字符串则indexOf返回"-1".
