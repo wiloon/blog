@@ -1,5 +1,5 @@
 ---
-title: windows apps
+title: windows apps, win apps
 author: w1100n
 type: post
 date: 2019-03-28T02:03:39+00:00
@@ -32,6 +32,7 @@ https://chocolatey.org/packages
 |notepadplusplus||
 |puyyt||
 |telegraf||
+|redis-desktop-manager||
 
 ### 录屏
     https://www.v1tx.com/post/best-screen-recorder/
