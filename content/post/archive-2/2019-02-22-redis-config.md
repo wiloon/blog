@@ -17,13 +17,13 @@ port 6379
 #tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度，当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值，默认是511，而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候，可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其Send-Q就是这个accept queue队列的最大值. 只有server端执行了accept后才会从这个队列中移除这个连接. 这个值的大小是受somaxconn影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的somaxconn值.建议修改为 2048
 tcp-backlog 511
 
-# 设置客户端连接时的超时时间，单位为秒。当客户端在这段时间内没有发出任何指令，那么关闭该连接
+# timeout, 设置客户端连接时的超时时间，单位为秒。当客户端在这段时间内没有发出任何指令，那么关闭该连接
 # 0是关闭此设置
 timeout
-#tcp keepalive参数。如果设置不为0，就使用配置tcp的SO_KEEPALIVE值，使用keepalive有两个好处:检测挂掉的对端。降低中间设备出问题而导致网络看似连接却已经与对端端口的问题。在Linux内核中，设置了keepalive，redis会定时给对端发送ack。检测到对端关闭需要两倍的设置值。
+#tcp keepalive参数。如果设置不为0，就使用配置tcp的SO_KEEPALIVE值，使用keepalive有两个好处:检测挂掉的对端。降低中间设备出问题而导致网络看似连接却已经与对端断开的问题。在Linux内核中，设置了keepalive，redis会定时给对端发送ack。检测到对端关闭需要两倍的设置值。
 tcp-keepalive 0
 
-#是否守护线程
+# 是否守护线程
 daemonize yes
 
 # If you run Redis from upstart or systemd, Redis can interact with your
@@ -116,8 +116,12 @@ dbfilename dump.rdb
 #
 slave-serve-stale-data yes
 
+# slave-read-only 
+# 如果为 yes，代表为只读状态，但并不表示客户端用集群方式以从节点为入口连入集群时，不可以进行 set 操作，且 set 操作的数据不会被放在从节点的槽上，会被放到某主节点的槽上
 slave-read-only yes
+# 无硬盘复制
 repl-diskless-sync no
+# 无硬盘复制, 配置当收到第一个请求时，等待多个slave一起来请求之间的间隔时间
 repl-diskless-sync-delay 5
 
 # 当 repl-disable-tcp-nodelay 被设置为 "yes" ，Redis 将使用更小的 TCP 包和更少的带宽向从节点发送数据。
