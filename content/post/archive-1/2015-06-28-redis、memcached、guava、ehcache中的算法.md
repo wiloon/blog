@@ -1,5 +1,5 @@
 ---
-title: Redis、Memcached、Guava、Ehcache中的算法
+title: Redis、Memcached、Guava、Ehcache 中的算法
 author: w1100n
 type: post
 date: 2015-06-28T03:19:50+00:00
@@ -16,8 +16,7 @@ tags:
 在看所有的细节之前，可以看一篇相当专业的《缓存算法》，世界真宽阔，算法真奇妙。
 
 
-1. LRU
-  
+### LRU
 简单粗暴的Redis
   
 今天看Redis3.0的发行通告里说，LRU算法大幅提升了，就翻开源码来八卦一下，结果哭笑不得，这旧版的"近似LRU"算法，实在太简单，太偷懒，太Redis了。
@@ -51,7 +50,7 @@ Guava Cache同样做了一个双向的Queue，见LocalCache中的AccessQueue类�
 后来，根据@刘少壮同学的提示，JBoss的InfiniSpan里还实现了比LRU更高级的LIRS算法，可以避免一些冷数据因为某个原因被大量访问后，把热数据挤占掉。
 
 
-2. 过期键删除
+### 过期键删除
   
 如果能为每一个设置了过期的元素启动一个Timer，一到时间就触发把它删掉，那无疑是能最快删除过期键最省空间的，在Java里用一条DeplayQueue存着，开条线程不断的读取就能做到。但因为该线程消耗CPU较多，在内存不紧张时有点浪费，似乎大家都不用这个方法。
 

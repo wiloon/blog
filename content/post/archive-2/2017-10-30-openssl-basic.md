@@ -12,6 +12,9 @@ categories:
     openssl s_client -showcerts -connect www.baidu.com:443
     # 证书链是倒序的, 从上面数第一个是叶子节点, 跟浏览器里看到的证书顺序相反.
 
+### 查看pem证书内容
+    openssl x509 -in certificate.pem -text -noout
+
 ```bash
 # openssl 解密
     openssl pkeyutl -inkey xxx-pri.pem -decrypt -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -in foo.bin -out result.dec

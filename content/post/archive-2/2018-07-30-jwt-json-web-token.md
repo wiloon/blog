@@ -8,6 +8,40 @@ categories:
   - Uncategorized
 
 ---
+### 会话
+会话跟踪技术是一种在客户端与服务器间保持 HTTP 状态的解决方案，我们所熟知的有 Cookie + Session、URL 重写、Token 等。
+
+### jwt
+JWT 的全称是 Json Web Token，是一种基于 JSON 的、用于在网络上声明某种主张的令牌（token）规范。
+
+JWT 由三部分组成：head、payload、signature，各部分通过 ‘ . ’ 连接
+xxxx . yyyy . zzzz
+
+ 
+#### HEAD
+头部是一个 JSON 对象，包含了一些元数据, 存储描述数据类型（JWT）和签名算法（HSA256、RSA256），通过 Base64UrlEncode 编码后生成 head 。
+```json
+{
+  "typ" : "JWT",
+  "alg" : "HS256"
+}
+```
+
+type: 必需。token 类型，JWT表示是 JSON Web Token.  
+alg: 必需。token 所使用的签名算法，可用的值在这里有规定。  
+
+#### PAYLOAD
+负载存放一些传输的有效声明，可以使用官方提供的声明，也可以自定义声明。同样通过 Base64UrlEncode 编码后生成 payload。
+ 
+声明可以分为三种类型：
+
+Registered claims:
+
+官方预定义的、非强制性的但是推荐使用的、有助于交互的声明(注意使用这些声明只能是三个字符)。
+
+
+----
+
 JSON Web Token (JWT)是一种基于 token 的认证方案。
 
 JSON Web Token 的结构
@@ -20,35 +54,36 @@ JSON Web Token 的结构
 
     base64url_encode(Header) + '.' + base64url_encode(Claims) + '.' + base64url_encode(Signature)
 
-### Header
-
-Header 包含了一些元数据，至少会表明 token 类型以及 签名方法。比如
-
-{
-
-"typ" : "JWT",
-
-"alg" : "HS256"
-
-}
-
-type: 必需。token 类型，JWT表示是 JSON Web Token.
-
-alg: 必需。token 所使用的签名算法，可用的值在这里有规定。
-
 Claims (Payload)
 
 Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准规定了一些字段，下面节选一些字段:
 
-iss: The issuer of the token，token 是给谁的
+- iss: The issuer of the token，token 签发人
+- sub: The subject of the token，token 主题
+- aud: audience 受众
+- exp: Expiration Time。 token 过期时间，Unix 时间戳格式
+- nbf: Not Before 生效时间
+- iat: Issued At。 token 创建时间， Unix 时间戳格式, 签发时间
+- jti: JWT ID。编号, 针对当前 token 的唯一标识
 
-sub: The subject of the token，token 主题
+#### 其它 claim name, IANA JSON Web Token Registry中定义的关键字。
+    https://www.iana.org/assignments/jwt/jwt.xhtml
 
-exp: Expiration Time。 token 过期时间，Unix 时间戳格式
+#### Public claims：
+保留给 JWT 的使用者自定义。但是需要注意避免使用IANA JSON Web Token Registry中定义的关键字。
 
-iat: Issued At。 token 创建时间， Unix 时间戳格式
+#### Private claims:
+保留给 JWT 的使用者自定义，用来传送传输双方约定好的消息。
 
-jti: JWT ID。针对当前 token 的唯一标识
+#### SIGNATURE
+数据签名是 JWT 的核心部分，构成较为复杂，且无法被反编码。
+
+signature 可以选择对称加密算法或者非对称加密算法，常用的就是 HS256、RS256。
+对称加密： 加密方和解密方利用同一个秘钥对数据进行加密和解密。
+非对称加密： 加密方用私钥加密，并把公钥告诉解密方用于解密。
+
+---
+
 
 https://www.jianshu.com/p/15572dfa4ccd
 
@@ -86,4 +121,8 @@ The JWT will contain an aud claim that specifies which Resource Servers the JWT 
 
 ---
 
-http://blog.leapoahead.com/2015/09/06/understanding-jwt/
+http://blog.leapoahead.com/2015/09/06/understanding-jwt/  
+
+JWT(auth0)：RS256非对称加密算法实现Token的签发、验证
+原文链接： https://xie.infoq.cn/article/e55bb7e46be860902e39f9280?utm_source=rss&utm_medium=article
+
