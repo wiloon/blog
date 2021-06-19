@@ -85,6 +85,7 @@ cp /etc/systemd/network/wifi.network  /mnt/tmp/etc/systemd/network/
 ```bash
 arch-chroot /mnt/tmp
 
+# config host name
 echo hostname0 > /etc/hostname
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
