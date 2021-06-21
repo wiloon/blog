@@ -5,15 +5,23 @@ title = "hugo, envoy, github actions"
 +++
 ### install
     sudo pacman -S hugo
+
+    hugo new site quickstart
+    cd quickstart
+    git init
+    git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+    echo theme = \"ananke\" >> config.toml
+    hugo new posts/my-first-post.md
+    hugo server -D
+
+
     hugo new site wiloon.com
     cd wiloon.com
     git init
-    git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-    git submodule add https://github.com/olOwOlo/hugo-theme-even themes/even
-    echo theme = \"even\" >> config.toml
-    hugo new posts/my-first-post.md
-
-
+    git clone https://github.com/olOwOlo/hugo-theme-even themes/even
+    cp themes/even/exampleSite/config.toml   config.toml 
+    hugo new post/my-first-post.md
+    hugo server -D
 
 ### hugo pages, nginx server simple
     podman run -d \
