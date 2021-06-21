@@ -1,5 +1,5 @@
 ---
-title: 'Swapping Developer Roles: A Lesson in Empathy and Cross Disciplinary Work'
+title: 'Swapping Developer Roles,A Lesson in Empathy and Cross Disciplinary Work'
 author: w1100n
 type: post
 date: 2013-07-20T08:19:10+00:00

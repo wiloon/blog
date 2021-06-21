@@ -1,5 +1,5 @@
 ---
-title: 'Scrum: Sprint Review Meeting'
+title: 'Scrum,Sprint Review Meeting'
 author: w1100n
 type: post
 date: 2013-02-27T15:44:04+00:00

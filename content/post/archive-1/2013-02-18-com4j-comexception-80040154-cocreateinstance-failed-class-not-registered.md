@@ -1,5 +1,5 @@
 ---
-title: 'com4j.ComException: 80040154 CoCreateInstance failed : Class not registered'
+title: 'com4j.ComException,80040154 CoCreateInstance failed,Class not registered'
 author: w1100n
 type: post
 date: 2013-02-18T07:02:11+00:00

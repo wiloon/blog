@@ -1,5 +1,5 @@
 ---
-title: 'java.lang.OutOfMemoryError: PermGen space'
+title: 'java.lang.OutOfMemoryError, PermGen space'
 author: w1100n
 type: post
 date: 2012-05-28T02:21:45+00:00

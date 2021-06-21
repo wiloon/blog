@@ -1,5 +1,5 @@
 ---
-title: idea maven mvn archetype:generate 速度缓慢问题
+title: idea maven mvn archetype,generate 速度缓慢问题
 author: w1100n
 type: post
 date: 2017-02-22T06:39:15+00:00

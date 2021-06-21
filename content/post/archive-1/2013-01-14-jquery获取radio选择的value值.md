@@ -1,5 +1,5 @@
 ---
-title: 'jQuery获取Radio选择的Value值:'
+title: 'jQuery获取Radio选择的Value值'
 author: w1100n
 type: post
 date: 2013-01-14T05:31:27+00:00

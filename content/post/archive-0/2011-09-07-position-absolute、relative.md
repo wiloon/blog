@@ -1,5 +1,5 @@
 ---
-title: 'position: absolute、relative'
+title: 'position,absolute、relative'
 author: w1100n
 type: post
 date: 2011-09-07T14:35:07+00:00

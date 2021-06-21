@@ -1,5 +1,5 @@
 ---
-title: 'Android  sqlite3 : not found'
+title: 'Android  sqlite3,not found'
 author: w1100n
 type: post
 date: 2014-08-07T03:08:29+00:00

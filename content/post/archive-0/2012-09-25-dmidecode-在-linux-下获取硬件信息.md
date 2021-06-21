@@ -1,5 +1,5 @@
 ---
-title: 'Dmidecode: 在 Linux 下获取硬件信息'
+title: 'Dmidecode,在 Linux 下获取硬件信息'
 author: lcf
 type: post
 date: 2012-09-25T05:35:24+00:00

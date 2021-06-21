@@ -1,5 +1,5 @@
 ---
-title: 'Emacs: How to Define Keyboard Shortcuts'
+title: 'Emacs, How to Define Keyboard Shortcuts'
 author: w1100n
 type: post
 date: 2012-01-20T10:39:22+00:00

@@ -1,5 +1,5 @@
 ---
-title: Maven类包冲突终极三大解决技巧 mvn dependency:tree
+title: Maven类包冲突终极三大解决技巧 mvn dependency,tree
 author: w1100n
 type: post
 date: 2016-02-17T01:13:13+00:00

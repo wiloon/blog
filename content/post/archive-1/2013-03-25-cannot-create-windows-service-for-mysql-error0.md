@@ -1,5 +1,5 @@
 ---
-title: Cannot create Windows Service for MySQL.Error:0
+title: Cannot create Windows Service for MySQL.Error,0
 author: w1100n
 type: post
 date: 2013-03-25T04:50:29+00:00
