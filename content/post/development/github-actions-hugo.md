@@ -3,6 +3,18 @@ date = "2020-05-12T15:03:55Z"
 title = "hugo, envoy, github actions"
 
 +++
+### install
+    sudo pacman -S hugo
+    hugo new site wiloon.com
+    cd wiloon.com
+    git init
+    git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+    git submodule add https://github.com/olOwOlo/hugo-theme-even themes/even
+    echo theme = \"even\" >> config.toml
+    hugo new posts/my-first-post.md
+
+
+
 ### hugo pages, nginx server simple
     podman run -d \
     --name hugo   \
