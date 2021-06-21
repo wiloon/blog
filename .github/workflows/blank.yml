@@ -44,6 +44,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
-          REMOTE_HOST: "wiloon.com"
+          REMOTE_HOST: "wangyue.dev"
           REMOTE_USER: "blog"
           TARGET: "/home/blog/public/"
