@@ -32,3 +32,15 @@ Trac使用Python编程语言开发。在2005年中以前，Trac以GPL发行；�
 
 ### ISP
 互联网服务供应商 (Internet service provider)
+
+### RTFM
+RTFM，是一个英文缩写，意思是：“去读那些他妈的手册”（Read The Fucking Manual），这句话通常用在回复那些只要查阅文件就可以解决，拿出来提问只是浪费别人时间的问题[1]。而为了避免这个缩写单词，因为用了“fuck”（他妈的）这个单词而攻击性、火药味太重，RTFM也被解释成“去读那些愚蠢的手册”（Read The Foolish Manual）；有的时候也解释成“去读那些友善的手册”（Read The Friendly Manual）或“去读那些写得不错的手册”（Read The Fine Manual）。另外，有时候就干脆把“F”拿掉，直接写成RTM（去读手册，Read The Manual）。
+
+### STFW
+STFW是Search The Fu**ing Web的意思。
+
+### MIS
+（管理信息系统--Management Information System）系统
+
+### WAF
+（Web 应用程序防火墙）
