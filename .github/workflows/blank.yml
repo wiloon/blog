@@ -30,20 +30,14 @@ jobs:
       - run: yarn global dir
       - run: /home/runner/.yarn/bin/hugo-algolia -s
       
-      # deploy to github pages
-      #- name: Deploy
-      #  uses: peaceiris/actions-gh-pages@v3
-      #  with:
-      #    deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-      #    publish_dir: ./public
-      
-      # Deploy to vm
-      - name: Deploy to vm
+      # Deploy to vm-bwg
+      - name: Deploy to vm-bwg
         uses: easingthemes/ssh-deploy@v2.1.2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_BWG }}
           ARGS: "-avz --delete"
           SOURCE: "public/"
-          REMOTE_HOST: "wangyue.dev"
+          REMOTE_HOST: "67.216.209.168"
+          REMOTE_PORT: 38785
           REMOTE_USER: "blog"
           TARGET: "/home/blog/public/"
