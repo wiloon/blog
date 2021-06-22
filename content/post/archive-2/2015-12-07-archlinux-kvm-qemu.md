@@ -1,6 +1,6 @@
 ---
 title: archlinux kvm qemu gentoo
-author: w1100n
+author: "-"
 type: post
 date: 2015-12-07T14:37:48+00:00
 url: /?p=8534

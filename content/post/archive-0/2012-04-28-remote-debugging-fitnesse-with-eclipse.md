@@ -1,6 +1,6 @@
 ---
 title: Remote Debugging | Fitnesse with Eclipse
-author: w1100n
+author: "-"
 type: post
 date: 2012-04-28T02:15:43+00:00
 url: /?p=3042

@@ -1,6 +1,6 @@
 ---
 title: 'pacstrap,command not found'
-author: w1100n
+author: "-"
 type: post
 date: 2015-11-01T10:39:10+00:00
 url: /?p=8443

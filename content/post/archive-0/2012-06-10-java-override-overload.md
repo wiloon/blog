@@ -1,6 +1,6 @@
 ---
 title: 'Java Override   Overload  重写、覆盖、重载、多态'
-author: w1100n
+author: "-"
 type: post
 date: 2012-06-10T10:25:22+00:00
 url: /?p=3502

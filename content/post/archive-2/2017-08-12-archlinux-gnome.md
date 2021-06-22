@@ -1,6 +1,6 @@
 ---
 title: archlinux gnome
-author: w1100n
+author: "-"
 type: post
 date: 2017-08-12T13:38:24+00:00
 url: /?p=11032

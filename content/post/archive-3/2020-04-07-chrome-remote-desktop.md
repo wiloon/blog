@@ -1,6 +1,6 @@
 ---
 title: chrome remote desktop
-author: w1100n
+author: "-"
 type: post
 date: 2020-04-07T01:23:59+00:00
 url: /?p=15904

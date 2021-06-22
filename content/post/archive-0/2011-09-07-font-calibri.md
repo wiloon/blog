@@ -1,6 +1,6 @@
 ---
 title: Calibri
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-07T05:08:28+00:00
 url: /?p=701

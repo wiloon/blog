@@ -1,6 +1,6 @@
 ---
 title: redis config
-author: w1100n
+author: "-"
 type: post
 date: 2019-02-22T11:26:25+00:00
 url: /?p=13678
@@ -133,7 +133,7 @@ repl-diskless-sync-delay 5
 # By default we optimize for low latency, but in very high traffic conditions
 # or when the master and slaves are many hops away, turning this to "yes" may
 # be a good idea.
-repl-disable-tcp-nodelay no
+repl-disable-tcp-nodelay no 
 
 # 优先级数字越小的从节点会被认为是更应被提拔，
 # 所以如果有三个优先级数字分别为 10 、100、25的从节点的话，将会选择提拔优先级数字为 10 的从节点，

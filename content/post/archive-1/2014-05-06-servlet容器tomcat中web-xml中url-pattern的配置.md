@@ -1,6 +1,6 @@
 ---
 title: Servlet容器Tomcat中web.xml中url-pattern的配置
-author: w1100n
+author: "-"
 type: post
 date: 2014-05-06T11:31:21+00:00
 url: /?p=6582

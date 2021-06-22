@@ -1,6 +1,6 @@
 ---
 title: System.exit(n)
-author: w1100n
+author: "-"
 type: post
 date: 2017-01-06T06:55:57+00:00
 url: /?p=9642

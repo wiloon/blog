@@ -1,6 +1,6 @@
 ---
 title: squid windows
-author: w1100n
+author: "-"
 type: post
 date: 2012-01-19T06:41:32+00:00
 url: /?p=2157

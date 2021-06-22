@@ -1,6 +1,6 @@
 ---
 title: mysql string to date
-author: w1100n
+author: "-"
 type: post
 date: 2011-04-16T09:44:29+00:00
 url: /?p=61

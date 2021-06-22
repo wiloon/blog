@@ -1,6 +1,6 @@
 ---
 title: Android开发之onClick事件的三种写法
-author: w1100n
+author: "-"
 type: post
 date: 2014-07-28T08:52:43+00:00
 url: /?p=6833

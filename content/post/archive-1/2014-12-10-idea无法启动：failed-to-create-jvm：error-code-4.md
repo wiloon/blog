@@ -1,6 +1,6 @@
 ---
 title: IDEA无法启动,Failed to create JVM,error code -4
-author: w1100n
+author: "-"
 type: post
 date: 2014-12-10T01:49:51+00:00
 url: /?p=7107

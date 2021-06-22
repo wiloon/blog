@@ -1,6 +1,6 @@
 ---
 title: RedHat Enterprise Linux 5 安装 JDK
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-24T06:24:24+00:00
 url: /?p=1584

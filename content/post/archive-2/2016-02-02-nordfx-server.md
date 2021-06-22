@@ -1,6 +1,6 @@
 ---
 title: nordfx server
-author: w1100n
+author: "-"
 type: post
 date: 2016-02-02T04:43:00+00:00
 url: /?p=8728

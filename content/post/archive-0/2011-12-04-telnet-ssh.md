@@ -1,6 +1,6 @@
 ---
 title: Telnet, SSH
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-04T06:43:49+00:00
 url: /?p=1769

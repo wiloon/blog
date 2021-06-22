@@ -1,6 +1,6 @@
 ---
 title: archlinux init
-author: w1100n
+author: "-"
 type: post
 date: 2016-04-21T15:26:01+00:00
 url: /?p=8913

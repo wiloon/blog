@@ -1,6 +1,6 @@
 ---
 title: sshd config
-author: w1100n
+author: "-"
 type: post
 date: 2018-01-17T08:50:28+00:00
 url: /?p=11742

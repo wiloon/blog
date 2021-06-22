@@ -1,6 +1,6 @@
 ---
 title: virt-manager error
-author: w1100n
+author: "-"
 type: post
 date: 2012-03-24T05:41:48+00:00
 url: /?p=2614

@@ -1,6 +1,6 @@
 ---
 title: 内存数据库
-author: w1100n
+author: "-"
 type: post
 date: 2014-01-15T05:05:46+00:00
 url: /?p=6205

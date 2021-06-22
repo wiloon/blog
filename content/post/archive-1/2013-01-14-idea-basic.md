@@ -1,6 +1,6 @@
 ---
 title: idea basic, command
-author: w1100n
+author: "-"
 type: post
 date: 2013-01-14T07:37:05+00:00
 url: /?p=5018

@@ -1,6 +1,6 @@
 ---
 title: apache portable run time libraries
-author: w1100n
+author: "-"
 type: post
 date: 2018-02-23T09:41:04+00:00
 url: /?p=11915

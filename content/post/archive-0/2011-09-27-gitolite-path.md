@@ -1,6 +1,6 @@
 ---
 title: gitolite path
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-27T13:50:49+00:00
 url: /?p=939

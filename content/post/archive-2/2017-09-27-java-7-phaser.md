@@ -1,6 +1,6 @@
 ---
 title: 'Java 7   Phaser'
-author: w1100n
+author: "-"
 type: post
 date: 2017-09-27T06:05:52+00:00
 url: /?p=11214

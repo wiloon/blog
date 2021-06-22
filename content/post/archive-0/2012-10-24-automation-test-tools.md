@@ -1,6 +1,6 @@
 ---
 title: automation test tools
-author: w1100n
+author: "-"
 type: post
 date: 2012-10-24T07:15:07+00:00
 url: /?p=4537

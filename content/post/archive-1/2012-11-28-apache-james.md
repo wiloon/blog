@@ -1,6 +1,6 @@
 ---
 title: Apache James
-author: w1100n
+author: "-"
 type: post
 date: 2012-11-28T09:19:45+00:00
 url: /?p=4788

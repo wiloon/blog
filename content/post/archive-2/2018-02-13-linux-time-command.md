@@ -1,6 +1,6 @@
 ---
 title: linux time command
-author: w1100n
+author: "-"
 type: post
 date: 2018-02-13T04:33:45+00:00
 url: /?p=11884

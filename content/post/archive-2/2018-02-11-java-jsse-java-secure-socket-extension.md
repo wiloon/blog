@@ -1,6 +1,6 @@
 ---
 title: Java tls, JSSE
-author: w1100n
+author: "-"
 type: post
 date: 2018-02-11T05:31:05+00:00
 url: /?p=11866

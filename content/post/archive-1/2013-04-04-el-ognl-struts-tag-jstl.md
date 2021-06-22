@@ -1,6 +1,6 @@
 ---
 title: EL, Ognl, Struts Tag, JSTL
-author: w1100n
+author: "-"
 type: post
 date: 2013-04-04T11:06:30+00:00
 url: /?p=5377

@@ -1,6 +1,6 @@
 ---
 title: 'chromeos linux,  crostini'
-author: w1100n
+author: "-"
 type: post
 date: 2018-05-11T16:49:21+00:00
 url: /?p=12236

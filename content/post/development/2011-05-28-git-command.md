@@ -1,6 +1,6 @@
 ---
 title: git basic, command
-author: w1100n
+author: "-"
 date: 2011-05-28T13:01:51.000+00:00
 url: "/?p=202"
 tags:

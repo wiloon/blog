@@ -1,6 +1,6 @@
 ---
 title: input file 文件上传控件隐藏后用button触发 click事件
-author: w1100n
+author: "-"
 type: post
 date: 2013-01-14T04:47:29+00:00
 url: /?p=5010

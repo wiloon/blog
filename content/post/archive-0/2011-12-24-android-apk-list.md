@@ -1,6 +1,6 @@
 ---
 title: android app, apk list
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-24T07:04:18+00:00
 url: /?p=1945

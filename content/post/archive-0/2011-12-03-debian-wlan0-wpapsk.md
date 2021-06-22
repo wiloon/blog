@@ -1,6 +1,6 @@
 ---
 title: debian wlan0 wpa/psk
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-03T14:18:27+00:00
 url: /?p=1723

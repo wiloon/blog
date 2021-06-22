@@ -1,6 +1,6 @@
 ---
 title: 自旋锁/spin lock, 排队自旋锁、MCS锁、CLH锁, 
-author: w1100n
+author: "-"
 type: post
 date: 2014-12-05T01:05:56+00:00
 url: /?p=7099

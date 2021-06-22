@@ -1,6 +1,6 @@
 ---
 title: Android Studio 因为需要下载gradle不能启动或新建项目
-author: w1100n
+author: "-"
 type: post
 date: 2015-01-12T03:53:40+00:00
 url: /?p=7217

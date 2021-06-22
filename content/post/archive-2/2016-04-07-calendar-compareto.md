@@ -1,6 +1,6 @@
 ---
 title: Calendar compareTo
-author: w1100n
+author: "-"
 type: post
 date: 2016-04-07T10:47:30+00:00
 url: /?p=8859

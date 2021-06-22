@@ -1,6 +1,6 @@
 ---
 title: Spring annoation
-author: w1100n
+author: "-"
 type: post
 date: 2012-12-18T04:27:33+00:00
 url: /?p=4925

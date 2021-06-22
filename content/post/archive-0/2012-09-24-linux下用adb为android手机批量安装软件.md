@@ -1,6 +1,6 @@
 ---
 title: linux下用adb为android手机批量安装软件
-author: w1100n
+author: "-"
 type: post
 date: 2012-09-24T14:58:35+00:00
 url: /?p=4235

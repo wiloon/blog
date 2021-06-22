@@ -1,6 +1,6 @@
 ---
 title: java openjdk JMH
-author: w1100n
+author: "-"
 type: post
 date: 2014-09-03T01:04:10+00:00
 url: /?p=6973

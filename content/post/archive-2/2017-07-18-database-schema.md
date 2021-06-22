@@ -1,6 +1,6 @@
 ---
 title: database schema
-author: w1100n
+author: "-"
 type: post
 date: 2017-07-18T08:27:02+00:00
 url: /?p=10866

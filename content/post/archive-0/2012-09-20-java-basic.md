@@ -1,6 +1,6 @@
 ---
 title: java basic
-author: w1100n
+author: "-"
 type: post
 date: 2012-09-20T02:59:54+00:00
 url: /?p=4117

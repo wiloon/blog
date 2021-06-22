@@ -1,6 +1,6 @@
 ---
 title: google pixel
-author: w1100n
+author: "-"
 type: post
 date: 2019-08-04T14:55:11+00:00
 url: /?p=14766

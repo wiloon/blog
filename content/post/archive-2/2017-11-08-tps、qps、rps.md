@@ -1,6 +1,6 @@
 ---
 title: TPS、QPS、RPS
-author: w1100n
+author: "-"
 type: post
 date: 2017-11-08T00:40:29+00:00
 url: /?p=11375

@@ -1,6 +1,6 @@
 ---
 title: There are no resources that can be added or removed from the server
-author: w1100n
+author: "-"
 type: post
 date: 2012-01-08T08:50:31+00:00
 url: /?p=2123

@@ -1,6 +1,6 @@
 ---
 title: 程序计数器/The Program Counter
-author: w1100n
+author: "-"
 type: post
 date: 2013-09-27T05:25:40+00:00
 url: /?p=5826

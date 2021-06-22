@@ -1,6 +1,6 @@
 ---
 title: cron, anacron
-author: w1100n
+author: "-"
 type: post
 date: 2017-09-02T01:18:12+00:00
 url: /?p=11094

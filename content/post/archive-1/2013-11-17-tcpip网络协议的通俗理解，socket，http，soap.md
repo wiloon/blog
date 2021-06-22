@@ -1,6 +1,6 @@
 ---
 title: TCP/IP网络协议的通俗理解，socket，http，soap
-author: w1100n
+author: "-"
 type: post
 date: 2013-11-17T09:03:02+00:00
 url: /?p=5979

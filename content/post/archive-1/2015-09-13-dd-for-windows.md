@@ -1,6 +1,6 @@
 ---
 title: dd for windows
-author: w1100n
+author: "-"
 type: post
 date: 2015-09-13T01:55:51+00:00
 url: /?p=8245

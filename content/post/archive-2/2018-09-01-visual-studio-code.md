@@ -1,6 +1,6 @@
 ---
 title: visual studio code, vscode basic
-author: w1100n
+author: "-"
 type: post
 date: 2018-09-01T03:34:42+00:00
 url: /?p=12630

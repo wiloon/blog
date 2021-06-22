@@ -1,6 +1,6 @@
 ---
 title: java spi, ServiceLoader
-author: w1100n
+author: "-"
 type: post
 date: 2017-11-07T09:24:25+00:00
 url: /?p=11372

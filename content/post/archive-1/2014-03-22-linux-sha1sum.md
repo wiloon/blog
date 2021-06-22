@@ -1,6 +1,6 @@
 ---
 title: linux sha1sum
-author: w1100n
+author: "-"
 type: post
 date: 2014-03-22T05:50:14+00:00
 url: /?p=6438

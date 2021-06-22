@@ -1,6 +1,6 @@
 ---
 title: ConcurrentLinkedDeque
-author: w1100n
+author: "-"
 type: post
 date: 2019-10-23T05:20:33+00:00
 url: /?p=15053

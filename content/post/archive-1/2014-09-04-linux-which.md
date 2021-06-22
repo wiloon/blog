@@ -1,6 +1,6 @@
 ---
 title: linux which
-author: w1100n
+author: "-"
 type: post
 date: 2014-09-04T04:57:19+00:00
 url: /?p=6976

@@ -1,6 +1,6 @@
 ---
 title: java io PrintStream
-author: w1100n
+author: "-"
 type: post
 date: 2017-02-04T04:32:31+00:00
 url: /?p=9705

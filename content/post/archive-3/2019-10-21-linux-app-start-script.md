@@ -1,6 +1,6 @@
 ---
 title: application start script
-author: w1100n
+author: "-"
 type: post
 date: 2019-10-21T02:56:24+00:00
 url: /?p=15026

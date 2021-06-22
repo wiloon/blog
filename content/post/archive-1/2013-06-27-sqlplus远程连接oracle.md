@@ -1,6 +1,6 @@
 ---
 title: sqlplus远程连接oracle
-author: w1100n
+author: "-"
 type: post
 date: 2013-06-27T02:39:43+00:00
 url: /?p=5560

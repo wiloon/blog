@@ -1,6 +1,6 @@
 ---
 title: nginx gzip
-author: w1100n
+author: "-"
 type: post
 date: 2019-05-16T11:59:41+00:00
 url: /?p=14346

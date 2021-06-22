@@ -1,6 +1,6 @@
 ---
 title: java.io.tmpdir
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-08T08:42:47+00:00
 url: /?p=1003

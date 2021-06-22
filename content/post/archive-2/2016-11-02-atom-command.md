@@ -1,6 +1,6 @@
 ---
 title: atom command
-author: w1100n
+author: "-"
 type: post
 date: 2016-11-02T00:26:27+00:00
 url: /?p=9356

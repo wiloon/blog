@@ -1,6 +1,6 @@
 ---
 title: plantuml, puml + vs code
-author: w1100n
+author: "-"
 type: post
 date: 2020-01-26T04:41:00+00:00
 url: /?p=15419

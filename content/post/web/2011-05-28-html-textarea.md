@@ -1,6 +1,6 @@
 ---
 title: html textarea
-author: w1100n
+author: "-"
 type: post
 date: 2011-05-28T00:50:00+00:00
 url: /?p=195

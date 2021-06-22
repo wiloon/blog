@@ -1,6 +1,6 @@
 ---
 title: chrome os, crostini, 开发环境
-author: w1100n
+author: "-"
 type: post
 date: 2020-02-17T05:36:02+00:00
 url: /?p=15562

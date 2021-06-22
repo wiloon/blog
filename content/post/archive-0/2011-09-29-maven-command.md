@@ -1,6 +1,6 @@
 ---
 title: mvn maven basic, command
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-29T04:34:14+00:00
 url: /?p=959

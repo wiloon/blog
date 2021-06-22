@@ -1,6 +1,6 @@
 ---
 title: 关于SQL SERVER排序规则
-author: w1100n
+author: "-"
 type: post
 date: 2013-09-02T09:14:01+00:00
 url: /?p=5788

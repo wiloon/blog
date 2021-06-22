@@ -1,6 +1,6 @@
 ---
 title: Theme, epic,feature,user story
-author: w1100n
+author: "-"
 type: post
 date: 2019-05-05T09:04:15+00:00
 url: /?p=14291

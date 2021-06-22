@@ -1,6 +1,6 @@
 ---
 title: 'Linux下的DOS环境  (DOSEMU)'
-author: w1100n
+author: "-"
 type: post
 date: 2012-04-02T14:03:09+00:00
 url: /?p=2735

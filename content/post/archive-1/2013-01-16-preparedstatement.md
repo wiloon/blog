@@ -1,6 +1,6 @@
 ---
 title: PreparedStatement
-author: w1100n
+author: "-"
 type: post
 date: 2013-01-16T04:30:38+00:00
 url: /?p=5027

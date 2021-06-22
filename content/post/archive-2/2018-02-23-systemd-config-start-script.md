@@ -1,6 +1,6 @@
 ---
 title: systemd service config, start script
-author: w1100n
+author: "-"
 type: post
 date: 2018-02-23T07:17:35+00:00
 url: /?p=11911

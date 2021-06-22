@@ -1,6 +1,6 @@
 ---
 title: debian 6 smplayer 声音小
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-27T14:49:28+00:00
 url: /?p=596

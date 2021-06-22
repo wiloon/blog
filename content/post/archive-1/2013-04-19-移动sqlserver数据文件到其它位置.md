@@ -1,6 +1,6 @@
 ---
 title: 移动SQLSERVER数据文件到其它位置
-author: w1100n
+author: "-"
 type: post
 date: 2013-04-19T09:31:31+00:00
 url: /?p=5414

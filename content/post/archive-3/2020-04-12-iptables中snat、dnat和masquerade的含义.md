@@ -1,6 +1,6 @@
 ---
 title: IPtables中SNAT、DNAT和MASQUERADE的含义
-author: w1100n
+author: "-"
 type: post
 date: 2020-04-12T14:12:10+00:00
 url: /?p=15927

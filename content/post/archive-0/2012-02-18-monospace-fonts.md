@@ -1,6 +1,6 @@
 ---
 title: Monospace fonts
-author: w1100n
+author: "-"
 type: post
 date: 2012-02-18T10:54:04+00:00
 url: /?p=2341

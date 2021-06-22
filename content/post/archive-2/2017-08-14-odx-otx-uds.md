@@ -1,6 +1,6 @@
 ---
 title: ODX, OTX, UDS
-author: w1100n
+author: "-"
 type: post
 date: 2017-08-14T04:23:33+00:00
 url: /?p=11045

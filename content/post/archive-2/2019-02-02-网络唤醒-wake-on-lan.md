@@ -1,6 +1,6 @@
 ---
 title: 网络唤醒 Wake On LAN
-author: w1100n
+author: "-"
 type: post
 date: 2019-02-02T06:47:47+00:00
 url: /?p=13531

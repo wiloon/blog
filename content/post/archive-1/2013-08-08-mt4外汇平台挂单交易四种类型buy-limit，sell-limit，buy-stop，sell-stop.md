@@ -1,6 +1,6 @@
 ---
 title: MT4外汇平台挂单交易四种类型buy limit，sell limit，buy stop，sell stop
-author: w1100n
+author: "-"
 type: post
 date: 2013-08-07T16:11:10+00:00
 url: /?p=5762

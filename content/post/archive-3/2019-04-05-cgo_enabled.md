@@ -1,6 +1,6 @@
 ---
 title: golang, cgo, CGO_ENABLED
-author: w1100n
+author: "-"
 type: post
 date: 2019-04-05T14:23:16+00:00
 url: /?p=14106

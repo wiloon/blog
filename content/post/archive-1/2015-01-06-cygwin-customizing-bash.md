@@ -1,6 +1,6 @@
 ---
 title: Cygwin Customizing bash
-author: w1100n
+author: "-"
 type: post
 date: 2015-01-06T03:29:57+00:00
 url: /?p=7184

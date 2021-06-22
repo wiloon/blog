@@ -1,6 +1,6 @@
 ---
 title: Debian install
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-20T18:43:35+00:00
 url: /?p=462

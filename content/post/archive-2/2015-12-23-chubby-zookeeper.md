@@ -1,6 +1,6 @@
 ---
 title: Chubby , Zookeeper
-author: w1100n
+author: "-"
 type: post
 date: 2015-12-23T02:46:04+00:00
 url: /?p=8590

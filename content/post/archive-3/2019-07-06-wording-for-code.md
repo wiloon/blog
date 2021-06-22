@@ -1,6 +1,6 @@
 ---
 title: wording for code
-author: w1100n
+author: "-"
 type: post
 date: 2019-07-06T11:38:21+00:00
 url: /?p=14640

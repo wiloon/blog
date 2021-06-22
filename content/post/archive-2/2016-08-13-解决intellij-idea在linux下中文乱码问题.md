@@ -1,6 +1,6 @@
 ---
 title: 解决Intellij Idea在linux下中文乱码问题
-author: w1100n
+author: "-"
 type: post
 date: 2016-08-13T05:30:48+00:00
 url: /?p=9176

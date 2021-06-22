@@ -1,6 +1,6 @@
 ---
 title: mysql int length
-author: w1100n
+author: "-"
 type: post
 date: 2019-08-06T04:57:47+00:00
 url: /?p=14770

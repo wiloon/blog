@@ -1,6 +1,6 @@
 ---
 title: linux search
-author: w1100n
+author: "-"
 type: post
 date: 2012-04-04T07:54:19+00:00
 url: /?p=2780

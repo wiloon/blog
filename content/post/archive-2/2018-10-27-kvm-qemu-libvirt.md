@@ -1,6 +1,6 @@
 ---
 title: KVM-Qemu-Libvirt
-author: w1100n
+author: "-"
 type: post
 date: 2018-10-27T03:36:21+00:00
 url: /?p=12820

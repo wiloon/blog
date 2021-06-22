@@ -1,6 +1,6 @@
 ---
 title: archlinux add root ca
-author: w1100n
+author: "-"
 type: post
 date: 2018-09-03T08:17:29+00:00
 url: /?p=12633

@@ -1,6 +1,6 @@
 ---
 title: JRE和JDK的区别
-author: w1100n
+author: "-"
 type: post
 date: 2013-10-20T04:59:53+00:00
 url: /?p=5857

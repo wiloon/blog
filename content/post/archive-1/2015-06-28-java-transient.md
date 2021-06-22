@@ -1,6 +1,6 @@
 ---
 title: java transient
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-28T08:37:35+00:00
 url: /?p=7964

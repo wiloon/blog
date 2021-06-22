@@ -1,6 +1,6 @@
 ---
 title: HTTP Header ETag
-author: w1100n
+author: "-"
 type: post
 date: 2015-09-07T06:09:17+00:00
 url: /?p=8221

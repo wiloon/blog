@@ -1,6 +1,6 @@
 ---
 title: SQL Server 函数（RAND，CHECKSUM, NEWID）
-author: w1100n
+author: "-"
 type: post
 date: 2013-02-21T03:35:36+00:00
 url: /?p=5216

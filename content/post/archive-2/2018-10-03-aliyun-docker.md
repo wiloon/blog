@@ -1,6 +1,6 @@
 ---
 title: aliyun docker
-author: w1100n
+author: "-"
 type: post
 date: 2018-10-03T08:56:36+00:00
 url: /?p=12733

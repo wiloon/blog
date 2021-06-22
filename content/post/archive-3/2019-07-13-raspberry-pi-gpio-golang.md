@@ -1,6 +1,6 @@
 ---
 title: raspberry pi, gpio, golang
-author: w1100n
+author: "-"
 type: post
 date: 2019-07-13T08:00:44+00:00
 url: /?p=14679

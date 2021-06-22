@@ -1,6 +1,6 @@
 ---
 title: kafka basic, command
-author: w1100n
+author: "-"
 date: 2018-05-07T08:44:53.000+00:00
 url: "/?p=12205"
 

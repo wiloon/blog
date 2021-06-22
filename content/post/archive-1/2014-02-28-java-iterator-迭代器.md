@@ -1,6 +1,6 @@
 ---
 title: Java Iterator 迭代器
-author: w1100n
+author: "-"
 type: post
 date: 2014-02-28T05:45:10+00:00
 url: /?p=6298

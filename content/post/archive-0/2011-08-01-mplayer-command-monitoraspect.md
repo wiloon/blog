@@ -1,6 +1,6 @@
 ---
 title: mplayer command monitoraspect
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-01T15:43:50+00:00
 url: /?p=392

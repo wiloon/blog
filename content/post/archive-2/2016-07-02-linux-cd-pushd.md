@@ -1,6 +1,6 @@
 ---
 title: linux cd Pushd
-author: w1100n
+author: "-"
 type: post
 date: 2016-07-02T02:05:53+00:00
 url: /?p=9105

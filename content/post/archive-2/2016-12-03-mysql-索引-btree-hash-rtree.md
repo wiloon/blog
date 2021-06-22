@@ -1,6 +1,6 @@
 ---
 title: 'MySQL 索引  btree hash rtree'
-author: w1100n
+author: "-"
 type: post
 date: 2016-12-03T12:46:15+00:00
 url: /?p=9451

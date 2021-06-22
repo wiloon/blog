@@ -1,6 +1,6 @@
 ---
 title: Gentoo emerge命令
-author: w1100n
+author: "-"
 type: post
 date: 2015-10-05T04:39:37+00:00
 url: /?p=8379

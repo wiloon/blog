@@ -1,6 +1,6 @@
 ---
 title: float double NaN
-author: w1100n
+author: "-"
 type: post
 date: 2015-12-04T05:26:35+00:00
 url: /?p=8516

@@ -1,6 +1,6 @@
 ---
 title: VirtualBox
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-26T07:16:06+00:00
 url: /?p=1617

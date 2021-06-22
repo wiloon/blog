@@ -1,6 +1,6 @@
 ---
 title: xss, AntiSamy
-author: w1100n
+author: "-"
 type: post
 date: 2018-12-17T07:33:13+00:00
 url: /?p=13123

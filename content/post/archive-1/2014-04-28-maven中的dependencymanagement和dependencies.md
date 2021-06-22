@@ -1,6 +1,6 @@
 ---
 title: Maven中的DependencyManagement和Dependencies
-author: w1100n
+author: "-"
 type: post
 date: 2014-04-28T05:52:59+00:00
 url: /?p=6564

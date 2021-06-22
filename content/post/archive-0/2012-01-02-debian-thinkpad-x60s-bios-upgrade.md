@@ -1,6 +1,6 @@
 ---
 title: debian, thinkpad x60s, bios upgrade
-author: w1100n
+author: "-"
 type: post
 date: 2012-01-02T09:24:52+00:00
 url: /?p=2086

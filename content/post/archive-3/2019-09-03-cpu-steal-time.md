@@ -1,6 +1,6 @@
 ---
 title: CPU steal time
-author: w1100n
+author: "-"
 type: post
 date: 2019-09-03T10:06:04+00:00
 url: /?p=14896

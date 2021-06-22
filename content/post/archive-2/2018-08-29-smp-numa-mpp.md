@@ -1,6 +1,6 @@
 ---
 title: smp, NUMA, MPP
-author: w1100n
+author: "-"
 type: post
 date: 2018-08-29T08:54:06+00:00
 url: /?p=12612

@@ -1,6 +1,6 @@
 ---
 title: ExpandableListView
-author: w1100n
+author: "-"
 type: post
 date: 2014-08-13T07:33:32+00:00
 url: /?p=6936

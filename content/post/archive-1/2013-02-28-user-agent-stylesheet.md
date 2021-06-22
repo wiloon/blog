@@ -1,6 +1,6 @@
 ---
 title: User Agent Stylesheet
-author: w1100n
+author: "-"
 type: post
 date: 2013-02-28T02:10:22+00:00
 url: /?p=5282

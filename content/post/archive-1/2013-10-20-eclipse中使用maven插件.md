@@ -1,6 +1,6 @@
 ---
 title: Eclipse中使用Maven插件
-author: w1100n
+author: "-"
 type: post
 date: 2013-10-20T04:58:58+00:00
 url: /?p=5855

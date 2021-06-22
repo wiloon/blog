@@ -1,6 +1,6 @@
 ---
 title: 'Oracle 导入/导出  imp/exp 备份 恢复 dump'
-author: w1100n
+author: "-"
 type: post
 date: 2012-01-12T01:33:09+00:00
 url: /?p=2136

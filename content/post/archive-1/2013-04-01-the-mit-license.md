@@ -1,6 +1,6 @@
 ---
 title: The MIT License
-author: w1100n
+author: "-"
 type: post
 date: 2013-04-01T15:36:34+00:00
 url: /?p=5362

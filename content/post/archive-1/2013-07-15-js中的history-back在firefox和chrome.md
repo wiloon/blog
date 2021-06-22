@@ -1,6 +1,6 @@
 ---
 title: Js中的history.back()在FireFox和Chrome
-author: w1100n
+author: "-"
 type: post
 date: 2013-07-15T11:11:59+00:00
 url: /?p=5665

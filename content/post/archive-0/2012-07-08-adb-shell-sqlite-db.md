@@ -1,6 +1,6 @@
 ---
 title: adb shell sqlite DB
-author: w1100n
+author: "-"
 type: post
 date: 2012-07-08T08:48:36+00:00
 url: /?p=3813

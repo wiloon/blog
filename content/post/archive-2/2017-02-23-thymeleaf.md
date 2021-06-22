@@ -1,6 +1,6 @@
 ---
 title: Thymeleaf
-author: w1100n
+author: "-"
 type: post
 date: 2017-02-23T02:03:53+00:00
 url: /?p=9869

@@ -1,6 +1,6 @@
 ---
 title: javascript 判断浏览器类型
-author: w1100n
+author: "-"
 type: post
 date: 2013-01-14T04:44:46+00:00
 url: /?p=5008

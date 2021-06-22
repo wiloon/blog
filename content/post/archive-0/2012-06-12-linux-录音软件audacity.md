@@ -1,6 +1,6 @@
 ---
 title: linux 录音软件audacity
-author: w1100n
+author: "-"
 type: post
 date: 2012-06-12T12:44:17+00:00
 url: /?p=3521

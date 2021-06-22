@@ -1,6 +1,6 @@
 ---
 title: font
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-07T04:51:02+00:00
 url: /?p=699

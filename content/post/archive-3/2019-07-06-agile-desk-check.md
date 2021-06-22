@@ -1,6 +1,6 @@
 ---
 title: agile, desk check
-author: w1100n
+author: "-"
 type: post
 date: 2019-07-06T11:28:49+00:00
 url: /?p=14638

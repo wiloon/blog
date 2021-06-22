@@ -1,6 +1,6 @@
 ---
 title: Eclipse keys(schema=Emacs)
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-29T02:31:00+00:00
 url: /?p=622

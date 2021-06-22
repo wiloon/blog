@@ -1,6 +1,6 @@
 ---
 title: linux touch
-author: w1100n
+author: "-"
 type: post
 date: 2011-05-01T09:02:03+00:00
 url: /?p=168

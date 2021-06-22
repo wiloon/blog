@@ -1,6 +1,6 @@
 ---
 title: Java注解(Annotation)
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-26T06:15:58+00:00
 url: /?p=2007

@@ -1,6 +1,6 @@
 ---
 title: redis sort set, 有序集
-author: w1100n
+author: "-"
 type: post
 date: 2017-02-13T08:48:39+00:00
 url: /?p=9803

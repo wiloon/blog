@@ -1,6 +1,6 @@
 ---
 title: '配置文件  HOCON'
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-10T03:20:17+00:00
 url: /?p=7776

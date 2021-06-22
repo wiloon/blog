@@ -1,6 +1,6 @@
 ---
 title: 伪共享（false sharing）
-author: w1100n
+author: "-"
 type: post
 date: 2020-01-13T08:31:31+00:00
 url: /?p=15356

@@ -1,6 +1,6 @@
 ---
 title: wordpress install
-author: w1100n
+author: "-"
 type: post
 date: 2012-05-23T13:28:46+00:00
 url: /?p=3184

@@ -1,6 +1,6 @@
 ---
 title: Servlet Session
-author: w1100n
+author: "-"
 type: post
 date: 2012-06-22T06:08:16+00:00
 url: /?p=3594

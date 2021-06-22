@@ -1,6 +1,6 @@
 ---
 title: servlet init()
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-30T08:47:06+00:00
 url: /?p=1401

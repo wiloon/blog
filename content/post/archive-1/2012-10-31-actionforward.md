@@ -1,6 +1,6 @@
 ---
 title: Retrofit
-author: w1100n
+author: "-"
 type: post
 date: 2012-10-31T07:13:50+00:00
 url: /?p=4589

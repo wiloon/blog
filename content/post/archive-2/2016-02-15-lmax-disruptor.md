@@ -1,6 +1,6 @@
 ---
 title: LMAX Disruptor
-author: w1100n
+author: "-"
 type: post
 date: 2016-02-15T03:05:53+00:00
 url: /?p=8734

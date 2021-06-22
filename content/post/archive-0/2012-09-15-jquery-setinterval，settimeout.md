@@ -1,6 +1,6 @@
 ---
 title: 'jQuery  setInterval，setTimeout'
-author: w1100n
+author: "-"
 type: post
 date: 2012-09-15T15:14:37+00:00
 url: /?p=4041

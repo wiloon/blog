@@ -1,6 +1,6 @@
 ---
 title: BigDecimal
-author: w1100n
+author: "-"
 type: post
 date: 2016-02-29T01:10:18+00:00
 url: /?p=8751

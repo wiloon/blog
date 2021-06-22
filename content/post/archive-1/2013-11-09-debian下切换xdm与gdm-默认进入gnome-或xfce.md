@@ -1,6 +1,6 @@
 ---
 title: DEBIAN下切换xdm与gdm 默认进入gnome 或Xfce
-author: w1100n
+author: "-"
 type: post
 date: 2013-11-09T06:43:47+00:00
 url: /?p=5913

@@ -1,6 +1,6 @@
 ---
 title: Underscore
-author: w1100n
+author: "-"
 type: post
 date: 2013-02-02T06:12:47+00:00
 url: /?p=5094

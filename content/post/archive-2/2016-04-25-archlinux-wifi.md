@@ -1,6 +1,6 @@
 ---
 title: archlinux netctl wifi
-author: w1100n
+author: "-"
 type: post
 date: 2016-04-25T06:39:09+00:00
 url: /?p=8945

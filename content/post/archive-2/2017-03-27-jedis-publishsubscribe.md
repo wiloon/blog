@@ -1,6 +1,6 @@
 ---
 title: Jedis Publish/Subscribe
-author: w1100n
+author: "-"
 type: post
 date: 2017-03-27T05:34:06+00:00
 url: /?p=9976

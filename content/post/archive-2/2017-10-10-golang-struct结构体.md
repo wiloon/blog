@@ -1,6 +1,6 @@
 ---
 title: golang struct/结构体
-author: w1100n
+author: "-"
 type: post
 date: 2017-10-10T14:52:35+00:00
 url: /?p=11245

@@ -1,6 +1,6 @@
 ---
 title: vscode, Visual Studio Code, plugin
-author: w1100n
+author: "-"
 type: post
 date: 2019-05-05T07:42:04+00:00
 url: /?p=14288

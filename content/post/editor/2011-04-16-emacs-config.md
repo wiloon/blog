@@ -1,6 +1,6 @@
 ---
 title: emacs 配置/config
-author: w1100n
+author: "-"
 type: post
 date: 2011-04-16T02:28:41+00:00
 url: /?p=41

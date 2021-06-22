@@ -1,6 +1,6 @@
 ---
 title: applicationContext.xml 配置文件位置
-author: w1100n
+author: "-"
 type: post
 date: 2014-02-24T06:44:56+00:00
 url: /?p=6277

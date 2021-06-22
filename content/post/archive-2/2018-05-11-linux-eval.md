@@ -1,6 +1,6 @@
 ---
 title: linux eval
-author: w1100n
+author: "-"
 type: post
 date: 2018-05-11T01:05:54+00:00
 url: /?p=12232

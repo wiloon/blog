@@ -1,6 +1,6 @@
 ---
 title: fdisk for linux
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-04T09:53:34+00:00
 url: /?p=7609

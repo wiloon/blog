@@ -1,6 +1,6 @@
 ---
 title: openJPA enhancement error
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-28T04:18:46+00:00
 url: /?p=2041

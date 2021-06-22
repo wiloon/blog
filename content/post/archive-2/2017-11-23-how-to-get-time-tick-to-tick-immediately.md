@@ -1,6 +1,6 @@
 ---
 title: 'go,  time.Tick, tick immediately'
-author: w1100n
+author: "-"
 type: post
 date: 2017-11-23T05:28:42+00:00
 url: /?p=11472

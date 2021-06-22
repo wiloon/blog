@@ -1,6 +1,6 @@
 ---
 title: path, absolute path, and canonical path
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-13T11:39:24+00:00
 url: /?p=772

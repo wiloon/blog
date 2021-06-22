@@ -1,6 +1,6 @@
 ---
 title: ssh_config, sshd_config
-author: w1100n
+author: "-"
 type: post
 date: 2018-02-11T15:40:49+00:00
 url: /?p=11872

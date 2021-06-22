@@ -1,6 +1,6 @@
 ---
 title: maven plugins, pluginManagement
-author: w1100n
+author: "-"
 type: post
 date: 2018-03-06T06:40:17+00:00
 url: /?p=11959

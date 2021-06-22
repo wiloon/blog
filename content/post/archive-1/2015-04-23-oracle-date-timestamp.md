@@ -1,6 +1,6 @@
 ---
 title: oracle date timestamp
-author: w1100n
+author: "-"
 type: post
 date: 2015-04-23T01:02:43+00:00
 url: /?p=7481

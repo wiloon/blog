@@ -1,6 +1,6 @@
 ---
 title: 应用springMVC时 JS等文件找不到错误
-author: w1100n
+author: "-"
 type: post
 date: 2013-01-23T12:50:54+00:00
 url: /?p=5061

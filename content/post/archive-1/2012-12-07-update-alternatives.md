@@ -1,6 +1,6 @@
 ---
 title: update-alternatives
-author: w1100n
+author: "-"
 type: post
 date: 2012-12-07T14:26:28+00:00
 url: /?p=4844

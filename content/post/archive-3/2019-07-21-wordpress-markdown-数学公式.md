@@ -1,6 +1,6 @@
 ---
 title: wordpress markdown 数学公式
-author: w1100n
+author: "-"
 type: post
 date: 2019-07-21T12:08:33+00:00
 url: /?p=14706

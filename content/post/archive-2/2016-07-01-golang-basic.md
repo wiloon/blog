@@ -1,6 +1,6 @@
 ---
 title: golang basic
-author: w1100n
+author: "-"
 type: post
 date: 2016-07-01T08:06:08+00:00
 url: /?p=9096

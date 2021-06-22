@@ -1,6 +1,6 @@
 ---
 title: sql server 临时表
-author: w1100n
+author: "-"
 type: post
 date: 2013-07-08T07:40:14+00:00
 url: /?p=5619

@@ -1,6 +1,6 @@
 ---
 title: 'archlinux  downgrading'
-author: w1100n
+author: "-"
 type: post
 date: 2018-06-19T08:46:56+00:00
 url: /?p=12328

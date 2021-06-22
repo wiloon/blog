@@ -1,6 +1,6 @@
 ---
 title: Oracle CHAR，VARCHAR，VARCHAR2,nvarchar类型的区别与使用
-author: w1100n
+author: "-"
 type: post
 date: 2013-06-28T02:32:01+00:00
 url: /?p=5600

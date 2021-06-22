@@ -1,6 +1,6 @@
 ---
 title: Seam Security
-author: w1100n
+author: "-"
 type: post
 date: 2012-11-15T05:08:17+00:00
 url: /?p=4688

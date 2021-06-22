@@ -1,6 +1,6 @@
 ---
 title: emacs elpa
-author: w1100n
+author: "-"
 type: post
 date: 2017-10-27T04:57:46+00:00
 url: /?p=11315

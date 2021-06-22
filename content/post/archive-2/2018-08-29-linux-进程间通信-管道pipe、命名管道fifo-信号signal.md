@@ -1,6 +1,6 @@
 ---
 title: Linux 进程间通信, 管道(pipe)、命名管道(FIFO), 信号(Signal)
-author: w1100n
+author: "-"
 type: post
 date: 2018-08-29T05:24:21+00:00
 url: /?p=12606

@@ -1,6 +1,6 @@
 ---
 title: 执行 Linux Shell 脚本
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-26T08:30:07+00:00
 url: /?p=2028

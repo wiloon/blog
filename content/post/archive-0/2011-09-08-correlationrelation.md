@@ -1,6 +1,6 @@
 ---
 title: correlation,relation
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-08T11:00:47+00:00
 url: /?p=738

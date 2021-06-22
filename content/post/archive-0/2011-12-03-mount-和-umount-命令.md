@@ -1,6 +1,6 @@
 ---
 title: mount, umount
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-03T08:52:06+00:00
 url: /?p=1693

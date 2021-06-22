@@ -1,6 +1,6 @@
 ---
 title: kvm虚拟机vnc开启音频+rdp
-author: w1100n
+author: "-"
 type: post
 date: 2012-09-13T13:35:41+00:00
 url: /?p=4031

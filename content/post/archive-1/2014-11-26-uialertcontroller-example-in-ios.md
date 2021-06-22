@@ -1,6 +1,6 @@
 ---
 title: Java assert
-author: w1100n
+author: "-"
 type: post
 date: 2014-11-26T06:40:20+00:00
 url: /?p=7038

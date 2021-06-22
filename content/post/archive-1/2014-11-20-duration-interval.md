@@ -1,6 +1,6 @@
 ---
 title: duration ,interval
-author: w1100n
+author: "-"
 type: post
 date: 2014-11-20T02:15:56+00:00
 url: /?p=7029

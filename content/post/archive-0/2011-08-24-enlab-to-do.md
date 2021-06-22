@@ -1,6 +1,6 @@
 ---
 title: Commons Math
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-24T01:27:47+00:00
 url: /?p=541

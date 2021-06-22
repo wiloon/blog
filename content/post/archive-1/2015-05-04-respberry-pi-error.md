@@ -1,6 +1,6 @@
 ---
 title: respberry pi error
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-04T03:56:10+00:00
 url: /?p=7599

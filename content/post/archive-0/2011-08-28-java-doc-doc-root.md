@@ -1,6 +1,6 @@
 ---
 title: java doc, doc root
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-28T06:02:31+00:00
 url: /?p=606

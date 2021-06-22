@@ -1,6 +1,6 @@
 ---
 title: debian ruby install
-author: w1100n
+author: "-"
 type: post
 date: 2012-04-04T08:27:10+00:00
 url: /?p=2785

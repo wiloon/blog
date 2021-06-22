@@ -1,6 +1,6 @@
 ---
 title: UTC、CST、GMT
-author: w1100n
+author: "-"
 type: post
 date: 2016-03-09T01:58:55+00:00
 url: /?p=8786

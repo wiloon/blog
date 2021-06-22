@@ -1,6 +1,6 @@
 ---
 title: linux more
-author: w1100n
+author: "-"
 type: post
 date: 2015-09-17T01:31:48+00:00
 url: /?p=8279

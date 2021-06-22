@@ -1,6 +1,6 @@
 ---
 title: Javascript异步编程
-author: w1100n
+author: "-"
 type: post
 date: 2015-02-11T01:41:28+00:00
 url: /?p=7346

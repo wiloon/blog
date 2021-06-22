@@ -1,6 +1,6 @@
 ---
 title: MySQL 存储引擎 Memory
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-28T06:19:57+00:00
 url: /?p=7947

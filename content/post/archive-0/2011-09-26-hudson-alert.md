@@ -1,6 +1,6 @@
 ---
 title: hudson i18n alert
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-26T15:22:26+00:00
 url: /?p=933

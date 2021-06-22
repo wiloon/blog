@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi配置为无线路由器
-author: w1100n
+author: "-"
 date: 2013-12-01T11:55:37.000+00:00
 url: "/?p=5999"
 categories:

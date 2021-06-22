@@ -1,6 +1,6 @@
 ---
 title: KVM的-nographic与-display选项
-author: w1100n
+author: "-"
 type: post
 date: 2019-03-31T02:18:40+00:00
 url: /?p=14053

@@ -1,6 +1,6 @@
 ---
 title: Redis、Memcached、Guava、Ehcache 中的算法
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-28T03:19:50+00:00
 url: /?p=7929

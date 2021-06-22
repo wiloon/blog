@@ -1,6 +1,6 @@
 ---
 title: Yahei Consolas Hybrid
-author: w1100n
+author: "-"
 type: post
 date: 2013-12-27T02:52:17+00:00
 url: /?p=6077
