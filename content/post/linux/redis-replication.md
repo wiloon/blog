@@ -1,7 +1,7 @@
 +++
 author = "w1100n"
 date = "2021-06-18 18:00:23" 
-title = "Redis Replication"
+title = "Redis Replication, sentinel"
 
 +++
 
