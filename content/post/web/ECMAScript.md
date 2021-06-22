@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-12-03 11:18:50" 
 title = "ECMAScript, javascript basic"
 

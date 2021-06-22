@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-22 21:40:31" 
 title = "icebox"
 

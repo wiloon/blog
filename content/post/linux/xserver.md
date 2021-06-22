@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2021-03-29 18:02:06" 
 title = "X Server, XServer"
 

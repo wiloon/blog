@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2021-01-01 23:23:06" 
 title = "rust basic"
 

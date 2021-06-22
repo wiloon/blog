@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-12 14:18:49" 
 title = "xterm"
 

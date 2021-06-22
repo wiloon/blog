@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-07-08 16:52:26"
 title = "debian ubuntu ca"
 

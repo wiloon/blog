@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-09 14:34:24" 
 title = "ubuntu basic"
 

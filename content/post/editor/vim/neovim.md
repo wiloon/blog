@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "" 
 title = "neovim"
 

@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2021-06-20 14:19:01" 
 title = "Ruckus R310"
 

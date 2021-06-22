@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-11-07 23:20:14" 
 title = "tcp window scaling"
 

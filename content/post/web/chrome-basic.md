@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-06-27T04:11:36Z"
 title = "chrome basic"
 

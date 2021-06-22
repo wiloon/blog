@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2021-02-22 21:58:52" 
 title = "readme"
 

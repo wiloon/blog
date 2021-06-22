@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-08-28 13:10:45" 
 title = "fork"
 

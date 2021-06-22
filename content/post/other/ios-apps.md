@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-11-09 21:39:23" 
 title = "ios apps"
 

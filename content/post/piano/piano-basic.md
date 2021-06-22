@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-08 15:17:35" 
 title = "piano basic"
 

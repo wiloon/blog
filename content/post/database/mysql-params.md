@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-08-25 19:04:36" 
 title = "Mysql自定义变量"
 

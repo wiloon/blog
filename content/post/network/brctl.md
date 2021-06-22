@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-08-09 15:34:27" 
 title = "brctl"
 
