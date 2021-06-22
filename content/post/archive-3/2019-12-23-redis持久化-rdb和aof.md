@@ -8,6 +8,50 @@ categories:
   - Uncategorized
 
 ---
+### RDB
+RDB 持久化
+执行 rdb 持久化时, Redis 会fork出一个子进程, 子进程将内存中数据写入到一个紧凑的文件中, 因此它保存的是某个时间点的完整数据。
+
+如有需要，可以保存最近24小时的每小时备份文件，以及每个月每天的备份文件，便于遇到问题时恢复。
+
+Redis 启动时会从 rdb 文件中恢复数据到内存， 因此恢复数据时只需将redis关闭后，将备份的rdb文件替换当前的rdb文件，再启动Redis即可。
+
+优点
+rdb文件体积比较小， 适合备份及传输
+性能会比 aof 好（aof 需要写入日志到文件中）
+rdb 恢复比 aof 要更快
+缺点
+服务器故障时会丢失最后一次备份之后的数据
+Redis 保存rdb时， fork子进程的这个操作期间, Redis服务会停止响应(一般是毫秒级)，但如果数据量大且cpu时间紧张，则停止响应的时间可能长达1秒
+
+### AOF 持久化
+AOF 其实就是将客户端每一次操作记录追加到指定的aof（日志）文件中，在aof文件体积多大时可以自动在后台重写aof文件（期间不影响正常服务，中途磁盘写满或停机等导致失败也不会丢失数据）
+
+aof 持久化的fsync策略支持：
+
+不执行 fsync：由操作系统保证数据同步到磁盘(linux 默认30秒)， 速度最快
+每秒1次：最多丢失最近1s的数据（推荐）
+每条命令：绝对保证数据持久化（影响性能）
+fsync：同步内存中所有已修改的文件数据到储存设备
+aof 文件是一个只追加的文件, 若写入了不完整的命令(磁盘满, 停机...)时, 可用自带的 redis-check-aof 工具轻易修复问题：执行redis-check-aof --fix
+
+aof文件过大时会触发自动重写, 重写后的新aof文件包含了恢复当前数据集所需的最少的命令集合.
+
+客户端多次对同一个键 incr 时, 操作N次则会写入N条, 但实际上只需一条 set 命令就可以保存该值, 重建就是生成足够重建当前数据集的最少命令。
+Redis 重写aof操作同样是通过 fork 子进程来处理的.
+Redis 运行时打开 aof:
+
+redis-cli> CONFIG SET appendonly yes
+仅当前实例生命周期内有效
+优点
+充分保证数据的持久化，正确的配置一般最多丢失1秒的数据
+aof 文件内容是以Redis协议格式保存， 易读
+缺点
+aof 文件通常大于 rdb 文件
+速度会慢于rdb, 具体得看具体fsyn策略
+重新启动redis时会极低的概率会导致无法将数据集恢复成保存时的原样(概率极低, 但确实出现过)
+
+
 ```bash
 ############### rdb ###############
 save 600 1
@@ -107,8 +151,55 @@ dir /data/redisdata
 
 http://www.open-open.com/lib/view/open1487736984424.html
   
-————————————————
-  
+
+### AOF持久化
+AOF（Append-Only-File）持久化即记录所有变更数据库状态的指令，以append的形式追加保存到AOF文件中。在服务器下次启动时，就可以通过载入和执行AOF文件中保存的命令，来还原服务器关闭前的数据库状态。
+
+redis.conf中AOF持久化配置如下
+
+# 默认关闭AOF，若要开启将no改为yes
+appendonly no
+
+# append文件的名字
+appendfilename "appendonly.aof"
+
+# 每隔一秒将缓存区内容写入文件 默认开启的写入方式
+appendfsync everysec 
+
+# 当AOF文件大小的增长率大于该配置项时自动开启重写（这里指超过原大小的100%）。
+auto-aof-rewrite-percentage 100
+
+# 当AOF文件大小大于该配置项时自动开启重写
+auto-aof-rewrite-min-size 64mb
+AOF持久化的实现包括3个步骤:
+
+命令追加：将命令追加到AOF缓冲区
+文件写入：缓冲区内容写到AOF文件
+文件保存：AOF文件保存到磁盘
+其中后两步的频率通过appendfsync来配置，appendfsync的选项包括
+
+always， 每执行一个命令就保存一次，安全性最高，最多只丢失一个命令的数据，但是性能也最低（频繁的磁盘IO）
+everysec，每一秒保存一次，推荐使用，在安全性与性能之间折中，最多丢失一秒的数据
+no， 依赖操作系统来执行（一般大概30s一次的样子），安全性最低，性能最高，丢失操作系统最后一次对AOF文件触发SAVE操作之后的数据
+AOF通过保存命令来持久化，随着时间的推移，AOF文件会越来越大，Redis通过AOF文件重写来解决AOF文件不断增大的问题（可以减少文件的磁盘占有量，加快数据恢复的速度），原理如下：
+
+调用fork，创建一个子进程
+
+子进程读取当前数据库的状态来“重写”一个新的AOF文件（这里虽然叫“重写”，但实际并没有对旧文件进行任何读取，而是根据数据库的当前状态来形成指令）
+
+主进程持续将新的变动同时写到AOF重写缓冲区与原来的AOF缓冲区中
+
+主进程获取到子进程重写AOF完成的信号，调用信号处理函数将AOF重写缓冲区内容写入新的AOF文件中，并对新文件进行重命名，原子地覆盖原有AOF文件，完成新旧文件的替换
+
+AOF的重写也分为手动触发与自动触发
+
+手动触发： 直接调用bgrewriteaof命令
+自动触发： 根据auto-aof-rewrite-min-size和auto-aof-rewrite-percentage参数确定自动触发时机。其中auto-aof-rewrite-min-size表示运行AOF重写时文件最小体积，默认为64MB。auto-aof-rewrite-percentage表示当前AOF文件大小（aof_current_size）和上一次重写后AOF文件大小（aof_base_size）的比值。自动触发时机为 aof_current_size > auto-aof-rewrite-min-size &&（aof_current_size - aof_base_size）/aof_base_size> = auto-aof-rewrite-percentage
+
+---
+
 版权声明：本文为CSDN博主「ljheee」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
 原文链接：https://blog.csdn.net/ljheee/article/details/76284082
+
+https://zhuanlan.zhihu.com/p/98497789
