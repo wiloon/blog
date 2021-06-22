@@ -3,9 +3,7 @@ title: redis 集群/cluster
 author: "-"
 type: post
 date: 2016-12-16T02:55:44+00:00
-url: /?p=9561
-categories:
-  - Uncategorized
+url: /redis-cluster
 
 ---
 ```bash
@@ -170,3 +168,5 @@ OK：集群可以正常工作，负责处理全部16384个槽节点中，没有�
 http://greemranqq.iteye.com/blog/2229640
 
 http://redis.cn/topics/cluster-tutorial.html
+
+

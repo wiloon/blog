@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2015-04-25T06:47:39+00:00
 url: /?p=7507
-categories:
-  - Uncategorized
 tags:
   - Arch Linux
 
@@ -69,5 +67,3 @@ $ sudo make install
 其他未尽事宜，请参阅: ArchWiki: IBus(简体中文)
 
 http://www.cnblogs.com/skyivben/archive/2012/09/18/2691006.html
-
-http://blog.unlink.link/Linux/install_wubi86_of_ibus_on_archlinux.html

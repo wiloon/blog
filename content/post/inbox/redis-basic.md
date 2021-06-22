@@ -33,7 +33,8 @@ download redis rpm from https://pkgs.org/download/redis
 rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
 rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ```
-
+### ubuntu
+    sudo apt-get install redis-server
 ### podman, 单机redis
 ```bash
 podman run \
@@ -60,7 +61,8 @@ redis:6.2.4 redis-server /usr/local/etc/redis/redis.conf
 ```bash
 redis-server --version
 ```
-
+### list all keys
+    keys *
 ### delete key
 del key1 key2
 
