@@ -66,6 +66,8 @@ redis-server --version
 ### delete key
 del key1 key2
 
+### unlink
+    unlink key [key ...]
 ### 判断key是否存在
 exists key_name
 
@@ -171,4 +173,45 @@ redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster
 redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba41f3b603ff
 说明: 指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
 
+
+
 ```
+
+
+### unlink 命令
+    unlink key [key ...]
+    该命令和DEL十分相似：删除指定的key(s),若key不存在则该key被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来：仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
+
+释放key代价计算函数lazyfreeGetFreeEffort()，集合类型键，且满足对应编码，cost就是集合键的元数个数，否则cost就是1.
+    List：4.0只有一种编码，quicklist，所以编码无限制，直接返回element个数。
+    Set：非hash table编码，即intset编码时返回1.当一个集合只包含整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用intset作为集合键的底层实现。
+    Hash：同上。
+        当hash键值满足下面任意条件编码为hash table：
+    ->element count > "hash-max-ziplist-entries",default 512. ->value length > "hash-max-ziplist-value",default 64
+    Zset：非skiplist编码，返回1.
+       当zset键值满足下面任意条件编码为hash table：
+    ->element count >"zset-max-ziplist-entries"，default 128 ->value length > "zset-max-ziplist-value", default 64
+     举例： 1 一个包含100元素的list key, 它的free cost就是100 2 一个512MB的string key, 它的free cost是
+     
+    总结：
+    
+        不管是del还是unlink，key都是同步删除的。
+        使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据effort的值来决定是否做异步删除。
+        使用unlink命令时，由于string类型的effort一直返回的是1，z所以string类型不会做异步删除。
+
+作者：willcat
+链接：https://juejin.cn/post/6844903810792423432
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+### FLUSHALL
+可用版本： >= 1.0.0
+时间复杂度： O(N)
+清空整个 Redis 服务器的数据(删除所有数据库的所有 key )。
+
+### FLUSHALL ASYNC (Redis 4.0.0 or greater)
+Redis is now able to delete keys in the background in a different thread without blocking the server. An ASYNC option was added to FLUSHALL and FLUSHDB in order to let the entire dataset or a single database to be freed asynchronously.
+
+### flushdb 
+执行删除在某个db环境下执行的话，只删除当前db的数据

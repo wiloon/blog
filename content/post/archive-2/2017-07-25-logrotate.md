@@ -74,6 +74,7 @@ logrotate --force /etc/logrotate.d/nginx
     42 4 1 * * root run-parts /etc/cron.monthly
 
 
+
 run-parts命令位于/usr/bin/run-parts，内容是很简单的一个shell脚本，就是遍历目标文件夹，执行第一层目录下的可执行权限的文件。
 
 
