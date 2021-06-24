@@ -8,23 +8,19 @@ categories:
   - Uncategorized
 
 ---
-确认cronie已经安装并启动
-  
-<http://blog.wiloon.com/?p=2515>
+确认 cronie 已经安装并启动
 
-全局配置
-  
+<http://wiloon.com/cron>
+
+### 全局配置
 /etc/logrotate.conf
 
-不同应用的具体配置则在
-  
+### 不同应用的具体配置则在
 /etc/logrotate.d/*
 
-配置文件内容
-
+### 配置文件内容
+### vim /etc/logrotate.d/ansiblelog
 ```bash
-vim /etc/logrotate.d/ansiblelog
-
 /var/log/ansible.log {
     daily
     rotate 7
@@ -35,7 +31,8 @@ vim /etc/logrotate.d/ansiblelog
 }
 
 /var/log/nginx/*.log /var/log/tomcat/*log {   # 可以指定多个路径
-    daily                      # 日志轮询周期，weekly,monthly,yearly
+    su root root               # 切换到root用户操作文件
+    daily                      # 日志轮转周期，weekly, monthly, yearly, daily
     rotate 30                  # 保存30天数据，超过的则删除
     size +100M                 # 超过100M时分割，单位K,M,G，优先级高于daily
     compress                   # 切割后压缩，也可以为nocompress
@@ -57,11 +54,11 @@ vim /etc/logrotate.d/ansiblelog
 # logrotate status
 cat /var/lib/logrotate/logrotate.status
 
+# 显示详细的信息；而且 --debug/-d 实际上不会操作具体文件 (Dry Run)
+logrotate --debug --verbose --force /etc/logrotate.d/nginx
+
 # 启用debug模式
 logrotate -d
-
-# 显示详细的信息；而且--debug/-d实际上不会操作具体文件(Dry Run)
-logrotate --debug --verbose --force /etc/logrotate.d/nginx
 
 # 强制滚动日志, 手动执行
 logrotate -f /etc/logrotate.conf
@@ -69,6 +66,16 @@ logrotate --force /etc/logrotate.d/nginx
 # -f,--force
 
 ```
+
+### /etc/crontab
+    01 * * * * root run-parts /etc/cron.hourly
+    02 4 * * * root run-parts /etc/cron.daily
+    22 4 * * 0 root run-parts /etc/cron.weekly
+    42 4 1 * * root run-parts /etc/cron.monthly
+
+
+run-parts命令位于/usr/bin/run-parts，内容是很简单的一个shell脚本，就是遍历目标文件夹，执行第一层目录下的可执行权限的文件。
+
 
 日志实在是太有用了，它记录了程序运行时各种信息。通过日志可以分析用户行为，记录运行轨迹，查找程序问题。可惜磁盘的空间是有限的，就像飞机里的黑匣子，记录的信息再重要也只能记录最后一段时间发生的事。为了节省空间和整理方便，日志文件经常需要按时间或大小等维度分成多份，删除时间久远的日志文件。这就是通常说的日志滚动(log rotation)。
 
@@ -78,7 +85,8 @@ logrotate --force /etc/logrotate.d/nginx
 
 logrotate在很多Linux发行版上都是默认安装的。系统会定时运行logrotate，一般是每天一次。系统是这么实现按天执行的。crontab会每天定时执行/etc/cron.daily目录下的脚本，而这个目录下有个文件叫logrotate。在centos上脚本内容是这样的: 
 
-```bash/usr/sbin/logrotate /etc/logrotate.conf >/dev/null 2>&1
+```bash
+/usr/sbin/logrotate /etc/logrotate.conf >/dev/null 2>&1
 EXITVALUE=$?
 if [ $EXITVALUE != 0 ]; then
     /usr/bin/logger -t logrotate "ALERT exited abnormally with [$EXITVALUE]"

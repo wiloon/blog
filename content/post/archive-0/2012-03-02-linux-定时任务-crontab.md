@@ -3,7 +3,7 @@ title: cron, crond, crontab, linux 定时任务, cronie
 author: "-"
 type: post
 date: 2012-03-02T15:36:38+00:00
-url: /?p=2515
+url: /cron
 ---
 
 ```bash
