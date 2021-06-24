@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2019-12-23T08:00:59+00:00
 url: /?p=15236
-categories:
-  - Uncategorized
 
 ---
 RDB快照持久化
