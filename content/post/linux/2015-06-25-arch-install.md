@@ -42,12 +42,12 @@ systemctl start sshd
 # ssh 登录以后执行以下操作
 
 # 查看当前的引导模式，uefi or bios
- ls /sys/firmware/efi/efivars
+ls /sys/firmware/efi/efivars
  # 如果提示文件不存在， 那么当前系统就不是efi引用的， 可能 是bios或CSM
 ```
 
 ### config pacman mirror
-title: pacman 
+title: pacman
 <https://blog.wiloon.com/?p=7501>
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 ```bash
@@ -172,7 +172,6 @@ poweroff
 ```
 
 ### 拔掉U盘开机
-
 ## archlinux init
 
 <http://blog.wiloon.com/?p=8913>
