@@ -37,5 +37,3 @@ UPDATE TABLE SET c=c+1 WHERE a=1;
 这个语法和适合用在需要 判断记录是否存在,不存在则插入存在则更新的场景.
   
 可以参考语法:
-  
-http://dev.mysql.com/doc/refman/5.1/zh/sql-syntax.html#insert

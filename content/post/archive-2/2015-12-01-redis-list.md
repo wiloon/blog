@@ -60,9 +60,7 @@ Redis的列表经常被用作队列(queue)，用于在不同程序之间有序�
 ### RPOPLPUSH source destination
 
 ### LINDEX key index
-
 ### LINSERT key BEFORE|AFTER pivot value
-
 ### LPUSHX key value
 
 RPUSHX key value
