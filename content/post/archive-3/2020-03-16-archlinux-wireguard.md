@@ -90,11 +90,8 @@ ip link set wg0 up
     iptables -A FORWARD -i wg0 -j ACCEPT
     iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
 
-<<<<<<< HEAD
 ### 添加路由
-=======
     # ipv4
->>>>>>> 03f12be2bbcc27bf1c797f8037f25f6afb21885b
     ip route add 192.168.50.0/24 dev wg0
     # ipv6
     ip route add fd7b:d0bd:7a6e::/64 dev wg0
