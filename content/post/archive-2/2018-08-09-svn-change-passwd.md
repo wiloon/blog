@@ -1,6 +1,6 @@
 ---
 title: svn change passwd
-author: w1100n
+author: "-"
 type: post
 date: 2018-08-09T06:27:13+00:00
 url: /?p=12505

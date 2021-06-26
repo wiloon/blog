@@ -1,6 +1,6 @@
 ---
 title: putty emacs, right Alt
-author: w1100n
+author: "-"
 type: post
 date: 2011-07-18T04:47:44+00:00
 url: /?p=358

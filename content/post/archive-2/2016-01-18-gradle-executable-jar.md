@@ -1,6 +1,6 @@
 ---
 title: gradle application plugin 打可执行jar, gradle executable/runnable jar
-author: w1100n
+author: "-"
 type: post
 date: 2016-01-18T09:26:01+00:00
 url: /?p=8674

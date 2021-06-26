@@ -1,6 +1,6 @@
 ---
 title: SQL SERVER 存储过程学习笔记
-author: w1100n
+author: "-"
 type: post
 date: 2012-11-15T10:17:04+00:00
 url: /?p=4700

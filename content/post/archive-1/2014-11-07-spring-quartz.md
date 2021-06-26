@@ -1,6 +1,6 @@
 ---
 title: spring quartz
-author: w1100n
+author: "-"
 type: post
 date: 2014-11-07T01:15:44+00:00
 url: /?p=7002

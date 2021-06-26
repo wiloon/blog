@@ -1,6 +1,6 @@
 ---
 title: chained invocation（链式调用）或者Method chaining
-author: w1100n
+author: "-"
 type: post
 date: 2019-06-21T05:49:29+00:00
 url: /?p=14542

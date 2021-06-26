@@ -1,6 +1,6 @@
 ---
 title: 'MTR/traceroute  诊断网络问题'
-author: w1100n
+author: "-"
 type: post
 date: 2017-02-17T08:32:04+00:00
 url: /?p=9832

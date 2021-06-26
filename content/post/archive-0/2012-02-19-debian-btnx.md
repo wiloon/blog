@@ -1,6 +1,6 @@
 ---
 title: debian btnx
-author: w1100n
+author: "-"
 type: post
 date: 2012-02-19T11:39:24+00:00
 url: /?p=2371

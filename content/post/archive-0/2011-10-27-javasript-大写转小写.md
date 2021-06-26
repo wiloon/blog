@@ -1,6 +1,6 @@
 ---
 title: JAVASRIPT 大写转小写
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-27T01:21:39+00:00
 url: /?p=1321

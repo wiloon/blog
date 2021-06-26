@@ -1,6 +1,6 @@
 ---
 title: java classloader
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-09T09:16:20+00:00
 url: /?p=666

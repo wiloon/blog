@@ -1,6 +1,6 @@
 ---
 title: ConcurrentHashMap Collections.synchronizedMap
-author: w1100n
+author: "-"
 type: post
 date: 2015-12-24T09:45:37+00:00
 url: /?p=8599

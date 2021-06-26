@@ -1,6 +1,6 @@
 ---
 title: '绝对路径${pageContext.request.contextPath}'
-author: w1100n
+author: "-"
 type: post
 date: 2012-10-31T07:21:27+00:00
 url: /?p=4591

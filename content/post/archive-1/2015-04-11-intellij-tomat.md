@@ -1,6 +1,6 @@
 ---
 title: IntelliJ tomat
-author: w1100n
+author: "-"
 type: post
 date: 2015-04-11T03:18:35+00:00
 url: /?p=7457

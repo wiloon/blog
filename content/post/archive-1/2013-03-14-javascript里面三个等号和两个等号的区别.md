@@ -1,6 +1,6 @@
 ---
 title: JavaScript里面三个等号和两个等号的区别
-author: w1100n
+author: "-"
 type: post
 date: 2013-03-14T10:55:36+00:00
 url: /?p=5322

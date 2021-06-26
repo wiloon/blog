@@ -1,6 +1,6 @@
 ---
 title: jboss port
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-30T02:52:07+00:00
 url: /?p=975

@@ -1,6 +1,6 @@
 ---
 title: tomcat server.xml
-author: w1100n
+author: "-"
 type: post
 date: 2012-06-02T02:54:38+00:00
 url: /?p=3318

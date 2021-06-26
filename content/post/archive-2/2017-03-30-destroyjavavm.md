@@ -1,6 +1,6 @@
 ---
 title: jvm thread DestroyJavaVM
-author: w1100n
+author: "-"
 type: post
 date: 2017-03-30T07:30:51+00:00
 url: /?p=9996

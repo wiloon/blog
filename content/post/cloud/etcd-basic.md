@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-06-14T05:25:48Z"
 title = "etcd basic"
 

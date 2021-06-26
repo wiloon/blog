@@ -1,11 +1,9 @@
 ---
 title: unix domain socket
-author: w1100n
+author: "-"
 type: post
 date: 2015-08-26T00:50:32+00:00
 url: /?p=8156
-categories:
-  - Uncategorized
 
 ---
 http://blog.csdn.net/bingqingsuimeng/article/details/8470029

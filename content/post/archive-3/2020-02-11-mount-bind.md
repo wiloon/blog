@@ -1,6 +1,6 @@
 ---
 title: mount –bind
-author: w1100n
+author: "-"
 type: post
 date: 2020-02-11T01:31:18+00:00
 url: /?p=15511

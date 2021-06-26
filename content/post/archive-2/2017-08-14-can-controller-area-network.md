@@ -1,6 +1,6 @@
 ---
 title: CAN, Controller Area Network
-author: w1100n
+author: "-"
 type: post
 date: 2017-08-14T01:42:56+00:00
 url: /?p=11034

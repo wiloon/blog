@@ -1,6 +1,6 @@
 ---
 title: redis cluster哈希槽数量
-author: w1100n
+author: "-"
 type: post
 date: 2019-12-23T10:44:56+00:00
 url: /?p=15242

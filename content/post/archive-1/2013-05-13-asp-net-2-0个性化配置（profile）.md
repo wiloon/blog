@@ -1,6 +1,6 @@
 ---
 title: Java 取当前类名, 方法名
-author: w1100n
+author: "-"
 type: post
 date: 2013-05-13T04:54:06+00:00
 url: /?p=5462

@@ -1,6 +1,6 @@
 ---
 title: Trusting additional CAs in Centos
-author: w1100n
+author: "-"
 type: post
 date: 2018-10-30T06:33:06+00:00
 url: /?p=12839

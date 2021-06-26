@@ -1,6 +1,6 @@
 ---
 title: Triggering a hudson build to run when git is updated
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-27T14:37:51+00:00
 url: /?p=941

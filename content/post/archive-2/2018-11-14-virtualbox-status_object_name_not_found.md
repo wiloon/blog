@@ -1,6 +1,6 @@
 ---
 title: virtualbox STATUS_OBJECT_NAME_NOT_FOUND
-author: w1100n
+author: "-"
 type: post
 date: 2018-11-14T02:10:42+00:00
 url: /?p=12881

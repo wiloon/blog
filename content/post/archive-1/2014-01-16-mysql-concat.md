@@ -1,6 +1,6 @@
 ---
 title: 'mysql 字符串连接  CONCAT()'
-author: w1100n
+author: "-"
 type: post
 date: 2014-01-16T05:03:31+00:00
 url: /?p=6221

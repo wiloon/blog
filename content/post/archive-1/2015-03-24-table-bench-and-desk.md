@@ -1,6 +1,6 @@
 ---
 title: table bench and desk
-author: w1100n
+author: "-"
 type: post
 date: 2015-03-24T00:56:47+00:00
 url: /?p=7422

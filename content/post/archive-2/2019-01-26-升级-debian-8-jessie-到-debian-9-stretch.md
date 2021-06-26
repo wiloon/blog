@@ -1,6 +1,6 @@
 ---
 title: 升级 Debian 8 (Jessie) 到 Debian 9 (Stretch)
-author: w1100n
+author: "-"
 type: post
 date: 2019-01-26T10:55:56+00:00
 url: /?p=13495

@@ -1,6 +1,6 @@
 ---
 title: javascript api, jquery api
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-11T08:53:14+00:00
 url: /?p=7793

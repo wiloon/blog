@@ -1,6 +1,6 @@
 ---
 title: emacs nXML
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-11T10:41:36+00:00
 url: /?p=1018

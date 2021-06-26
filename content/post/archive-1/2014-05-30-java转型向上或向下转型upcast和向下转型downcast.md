@@ -1,6 +1,6 @@
 ---
 title: Java转型(向上或向下转型)upcast)和向下转型(downcast)
-author: w1100n
+author: "-"
 type: post
 date: 2014-05-30T01:48:04+00:00
 url: /?p=6700

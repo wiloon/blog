@@ -1,6 +1,6 @@
 ---
 title: Maven OutOfMemory
-author: w1100n
+author: "-"
 type: post
 date: 2012-05-08T03:34:21+00:00
 url: /?p=3094

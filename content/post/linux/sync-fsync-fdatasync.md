@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-11-02 15:57:36" 
 title = "sync、fsync、fdatasync"
 

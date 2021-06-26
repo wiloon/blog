@@ -1,6 +1,6 @@
 ---
 title: linux stat, 文件创建时间, 修改时间
-author: w1100n
+author: "-"
 type: post
 date: 2017-03-25T02:32:27+00:00
 url: /?p=9935

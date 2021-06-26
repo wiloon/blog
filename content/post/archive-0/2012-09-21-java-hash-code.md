@@ -1,6 +1,6 @@
 ---
 title: java hash code
-author: w1100n
+author: "-"
 type: post
 date: 2012-09-21T09:03:40+00:00
 url: /?p=4169

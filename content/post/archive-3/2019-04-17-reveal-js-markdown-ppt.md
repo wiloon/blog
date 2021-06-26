@@ -1,6 +1,6 @@
 ---
 title: 'reveal.js, markdown > PPT'
-author: w1100n
+author: "-"
 type: post
 date: 2019-04-16T16:03:17+00:00
 url: /?p=14189

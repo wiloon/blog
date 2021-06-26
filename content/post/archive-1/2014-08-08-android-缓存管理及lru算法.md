@@ -1,6 +1,6 @@
 ---
 title: android 缓存管理及LRU算法
-author: w1100n
+author: "-"
 type: post
 date: 2014-08-08T07:35:43+00:00
 url: /?p=6912

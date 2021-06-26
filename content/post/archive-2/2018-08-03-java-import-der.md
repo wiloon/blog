@@ -1,6 +1,6 @@
 ---
 title: java import cert
-author: w1100n
+author: "-"
 type: post
 date: 2018-08-03T02:55:02+00:00
 url: /?p=12484

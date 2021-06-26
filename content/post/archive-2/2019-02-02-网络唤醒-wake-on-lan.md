@@ -1,6 +1,6 @@
 ---
 title: 网络唤醒 Wake On LAN
-author: w1100n
+author: "-"
 type: post
 date: 2019-02-02T06:47:47+00:00
 url: /?p=13531
@@ -10,7 +10,7 @@ android client
 
 TX ToolBox
 
-Name：填写一个别名就可以，例如：HomePC
+Name：填写一个别名就可以，例如: foo
 Mac Address：填写电脑网卡MAC地址（注意是主板上有线网卡），这个要填写正确，如何获得? 进入命令行运行：ipconfig /all,然后查看对应的物理地址即可，共6组2字节十六进制字符；
 
 Broadcast IP/Hostname/FQDN

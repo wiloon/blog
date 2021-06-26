@@ -1,6 +1,6 @@
 ---
 title: 'nftable, nft  basic, commands'
-author: w1100n
+author: "-"
 type: post
 date: 2018-10-05T06:43:04+00:00
 url: /?p=12735

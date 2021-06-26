@@ -1,6 +1,6 @@
 ---
 title: aliyun oss
-author: w1100n
+author: "-"
 type: post
 date: 2019-01-30T15:26:11+00:00
 url: /?p=13522

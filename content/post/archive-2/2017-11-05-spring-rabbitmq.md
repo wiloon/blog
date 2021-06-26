@@ -1,6 +1,6 @@
 ---
 title: spring rabbitmq
-author: w1100n
+author: "-"
 type: post
 date: 2017-11-05T03:24:30+00:00
 url: /?p=11365

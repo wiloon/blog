@@ -1,6 +1,6 @@
 ---
 title: serialVersionUID
-author: w1100n
+author: "-"
 type: post
 date: 2012-12-07T05:29:59+00:00
 url: /?p=4834

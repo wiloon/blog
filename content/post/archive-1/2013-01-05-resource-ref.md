@@ -1,6 +1,6 @@
 ---
 title: resource-ref
-author: w1100n
+author: "-"
 type: post
 date: 2013-01-05T02:22:14+00:00
 url: /?p=4972

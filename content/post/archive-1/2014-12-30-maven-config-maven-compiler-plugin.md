@@ -1,6 +1,6 @@
 ---
 title: maven config, maven-compiler-plugin
-author: w1100n
+author: "-"
 type: post
 date: 2014-12-30T05:56:31+00:00
 url: /?p=7155

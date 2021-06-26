@@ -1,6 +1,6 @@
 ---
 title: nginx basic, command, docker
-author: w1100n
+author: "-"
 type: post
 date: 2017-10-26T06:17:15+00:00
 url: /?p=11308

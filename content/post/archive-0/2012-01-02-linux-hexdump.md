@@ -1,6 +1,6 @@
 ---
 title: linux hexdump
-author: w1100n
+author: "-"
 type: post
 date: 2012-01-02T10:42:27+00:00
 url: /?p=2092
@@ -8,6 +8,11 @@ categories:
   - Linux
 
 ---
+
+### 
+    hexdump -e '16/1 "%02X " "\n"'
+    hexdump -C
+
 hexdump命令一般用来查看"二进制"文件的十六进制编码，但实际上它的用途不止如此，手册页上的说法是"ascii, decimal, hexadecimal, octal dump"，这也就是本文标题为什么要将"十六"给引起来的原因，而且它能查看任何文件，而不只限于二进制文件了。另外还有xxd和od也可以做类似的事情，但是我从未用过。在程序输出二进制格式的文件时，常用hexdump来检查输出是否正确。当然也可以使用Windows上的UltraEdit32之类的工具查看文件的十六进制编码，但Linux上有现成的工具，何不拿来用呢。
 
 ## 参数
@@ -216,6 +221,3 @@ tmp.wav: RIFF (little-endian) data, WAVE audio, ITU G.711 a-law, mono 8000 Hz
   
 00000c00  d5 55 55 55 55 d5 d5 d5  55 55 55 55 55 d5 d5 55  |.UUUU...UUUUU..U|
   
-:q
-
-[root@web186 root]#

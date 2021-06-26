@@ -1,6 +1,6 @@
 ---
 title: centos audit.log
-author: w1100n
+author: "-"
 type: post
 date: 2018-09-25T02:02:50+00:00
 url: /?p=12690

@@ -1,6 +1,6 @@
 ---
 title: linux watch
-author: w1100n
+author: "-"
 type: post
 date: 2017-08-08T07:32:15+00:00
 url: /?p=11010

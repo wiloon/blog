@@ -1,6 +1,6 @@
 ---
 title: MySQL basic
-author: w1100n
+author: "-"
 type: post
 date: 2011-04-15T14:42:09+00:00
 url: /?p=7
@@ -20,7 +20,6 @@ MySQL管理员用户名: root
 密码安装mysql时指定.
   
 登录MySQL: 
-
     mysql -u root -p
 
 提示输入密码.... 输入密码后回车...
@@ -43,9 +42,7 @@ create database mydb;
 创建数据库指定数据库的字符集
 
 ```sql
-   
 create database mydb character set utf8;
-  
 ```
 
 ### 授权用户wiloon 拥有数据库 enx 的所有权限.
@@ -151,12 +148,21 @@ show status like 'Threads%';
 select length(xxx) from txxx;
 ```
 
+### insert
+```sql
+    INSERT INTO items (name,city,price,number,picture) VALUES ('耐克运动鞋','广州',500,1000,'003.jpg');
+
+    INSERT INTO 
+    items(name,city,price,number,picture) 
+    VALUES
+    ('耐克运动鞋','广州',500,1000,'003.jpg'),
+    ('耐克运动鞋2','广州2',500,1000,'002.jpg');
+```
+
 +——————-+——-+
-  
 | Variable_name | Value |
-  
 +——————-+——-+
-  
+
 | Threads_cached | 58 |
   
 | Threads_connected | 57 | ###这个数值指的是打开的连接数

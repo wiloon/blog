@@ -1,6 +1,6 @@
 ---
 title: kill a process in one line using bash
-author: w1100n
+author: "-"
 type: post
 date: 2018-08-25T09:01:59+00:00
 url: /?p=12563

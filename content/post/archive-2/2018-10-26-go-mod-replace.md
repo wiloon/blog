@@ -1,6 +1,6 @@
 ---
 title: go mod replace
-author: w1100n
+author: "-"
 type: post
 date: 2018-10-26T01:35:45+00:00
 url: /?p=12808

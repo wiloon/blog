@@ -1,6 +1,6 @@
 ---
 title: 'Android Studio 1.x  问题  Fetching android sdk component information加载过长问题'
-author: w1100n
+author: "-"
 type: post
 date: 2015-02-04T01:29:04+00:00
 url: /?p=7300

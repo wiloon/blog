@@ -1,6 +1,6 @@
 ---
 title: docker registry
-author: w1100n
+author: "-"
 type: post
 date: 2019-03-25T15:01:06+00:00
 url: /?p=13951

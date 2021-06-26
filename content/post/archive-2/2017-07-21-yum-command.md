@@ -1,6 +1,6 @@
 ---
 title: yum command
-author: w1100n
+author: "-"
 type: post
 date: 2017-07-21T01:42:58+00:00
 url: /?p=10878

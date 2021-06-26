@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-14 10:37:00" 
 title = "embedded basic"
 +++

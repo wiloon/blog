@@ -1,6 +1,6 @@
 ---
 title: Android App签名
-author: w1100n
+author: "-"
 type: post
 date: 2014-12-30T09:09:43+00:00
 url: /?p=7159

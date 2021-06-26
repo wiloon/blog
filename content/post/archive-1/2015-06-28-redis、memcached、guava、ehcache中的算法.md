@@ -1,6 +1,6 @@
 ---
 title: Redis、Memcached、Guava、Ehcache 中的算法
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-28T03:19:50+00:00
 url: /?p=7929
@@ -11,7 +11,7 @@ tags:
   - MemCache
 
 ---
-缓存那些事，一是内存爆了要用LRU(最近最少使用)、LFU(最少访问次数)、FIFO的算法清理一些；二是设置了超时时间的键过期便要删除，用主动或惰性的方法。
+缓存那些事，一是内存爆了要用LRU(最近最少使用, Least Recently Used)、LFU(最少访问次数, Least Frequently Used)、FIFO的算法清理一些；二是设置了超时时间的键过期便要删除，用主动或惰性的方法。
 
 在看所有的细节之前，可以看一篇相当专业的《缓存算法》，世界真宽阔，算法真奇妙。
 

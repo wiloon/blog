@@ -1,6 +1,6 @@
 ---
 title: google authenticator databases
-author: w1100n
+author: "-"
 type: post
 date: 2019-03-06T14:45:20+00:00
 url: /?p=13759

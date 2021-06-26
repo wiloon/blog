@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-11-27 14:34:57" 
 title = "xorm"
 

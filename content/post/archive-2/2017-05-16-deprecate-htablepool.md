@@ -1,6 +1,6 @@
 ---
 title: Deprecate HTablePool
-author: w1100n
+author: "-"
 type: post
 date: 2017-05-16T07:29:20+00:00
 url: /?p=10281

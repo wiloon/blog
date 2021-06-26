@@ -1,6 +1,6 @@
 ---
-title: 'java.lang.OutOfMemoryError: unable to create new native thread'
-author: w1100n
+title: 'java.lang.OutOfMemoryError,unable to create new native thread'
+author: "-"
 type: post
 date: 2015-10-27T01:42:13+00:00
 url: /?p=8434

@@ -1,6 +1,6 @@
 ---
 title: plsql developer 连 Oracle 的配置文件 tnsnames.ora
-author: w1100n
+author: "-"
 type: post
 date: 2015-01-14T01:21:06+00:00
 url: /?p=7237

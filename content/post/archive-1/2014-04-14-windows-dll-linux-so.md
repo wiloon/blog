@@ -1,6 +1,6 @@
 ---
 title: 'windows dll， Linux so'
-author: w1100n
+author: "-"
 type: post
 date: 2014-04-14T05:24:47+00:00
 url: /?p=6544

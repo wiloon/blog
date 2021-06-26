@@ -1,6 +1,6 @@
 ---
 title: emacs org mode
-author: w1100n
+author: "-"
 type: post
 date: 2012-02-17T02:32:36+00:00
 url: /?p=2327

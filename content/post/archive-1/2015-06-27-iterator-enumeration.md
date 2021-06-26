@@ -1,6 +1,6 @@
 ---
 title: Iterator, Enumeration
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-27T14:56:25+00:00
 url: /?p=7910

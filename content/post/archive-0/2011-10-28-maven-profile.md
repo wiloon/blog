@@ -1,6 +1,6 @@
 ---
 title: Maven profile
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-28T01:35:50+00:00
 url: /?p=1330

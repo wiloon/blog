@@ -1,6 +1,6 @@
 ---
 title: ansible create file
-author: w1100n
+author: "-"
 type: post
 date: 2018-01-25T04:42:29+00:00
 url: /?p=11786

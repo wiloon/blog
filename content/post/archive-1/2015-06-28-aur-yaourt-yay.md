@@ -1,6 +1,6 @@
 ---
 title: 'archlinux AUR,  yay,  Yaourt'
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-28T07:02:07+00:00
 url: /?p=7953

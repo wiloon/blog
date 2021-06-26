@@ -1,6 +1,6 @@
 ---
 title: ODX(Open Diagnostic Data Exchange)
-author: w1100n
+author: "-"
 type: post
 date: 2015-11-25T00:40:28+00:00
 url: /?p=8469

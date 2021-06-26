@@ -1,6 +1,6 @@
 ---
 title: Windows Power Shell
-author: w1100n
+author: "-"
 type: post
 date: 2012-03-12T04:28:25+00:00
 url: /?p=2534

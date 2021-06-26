@@ -1,6 +1,6 @@
 ---
 title: oracle 导出sequences
-author: w1100n
+author: "-"
 type: post
 date: 2016-12-28T04:58:01+00:00
 url: /?p=7432

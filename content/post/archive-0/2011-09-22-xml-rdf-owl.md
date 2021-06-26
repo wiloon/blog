@@ -1,6 +1,6 @@
 ---
 title: XML RDF OWL
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-22T05:28:50+00:00
 url: /?p=832

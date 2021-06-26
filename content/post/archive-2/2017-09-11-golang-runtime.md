@@ -1,6 +1,6 @@
 ---
 title: Golang runtime
-author: w1100n
+author: "-"
 type: post
 date: 2017-09-11T05:01:44+00:00
 url: /?p=11160

@@ -1,6 +1,6 @@
 ---
 title: 进入safepoint时如何让Java线程全部阻塞
-author: w1100n
+author: "-"
 type: post
 date: 2013-09-13T10:49:30+00:00
 url: /?p=5807

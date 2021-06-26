@@ -1,6 +1,6 @@
 ---
 title: debian command
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-03T13:10:25+00:00
 url: /?p=7589

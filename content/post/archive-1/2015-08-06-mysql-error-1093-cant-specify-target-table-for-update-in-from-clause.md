@@ -1,6 +1,6 @@
 ---
 title: MySQL Error 1093 – Can't specify target table for update in FROM clause
-author: w1100n
+author: "-"
 type: post
 date: 2015-08-06T11:22:19+00:00
 url: /?p=8067

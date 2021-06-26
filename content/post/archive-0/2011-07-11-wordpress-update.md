@@ -1,6 +1,6 @@
 ---
 title: WordPress upgrade
-author: w1100n
+author: "-"
 type: post
 date: 2011-07-11T14:36:49+00:00
 url: /?p=341

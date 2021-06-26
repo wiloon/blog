@@ -1,6 +1,6 @@
 ---
 title: mysqldump
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-03T08:38:40+00:00
 url: /?p=1691

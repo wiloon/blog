@@ -1,6 +1,6 @@
 ---
 title: nexus docker repo
-author: w1100n
+author: "-"
 type: post
 date: 2020-03-14T17:55:29+00:00
 url: /?p=15753

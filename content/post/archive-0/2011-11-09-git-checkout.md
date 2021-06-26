@@ -1,6 +1,6 @@
 ---
 title: git checkout
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-09T03:32:44+00:00
 url: /?p=1464

@@ -1,6 +1,6 @@
 ---
 title: mysql explain, 执行计划, Query Execution Plan
-author: w1100n
+author: "-"
 type: post
 date: 2016-11-28T02:24:33+00:00
 url: /?p=9439

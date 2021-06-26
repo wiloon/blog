@@ -1,6 +1,6 @@
 ---
 title: mysql, sql_mode
-author: w1100n
+author: "-"
 type: post
 date: 2019-05-16T05:26:24+00:00
 url: /?p=14344

@@ -1,6 +1,6 @@
 ---
 title: angular pwa
-author: w1100n
+author: "-"
 type: post
 date: 2019-06-09T15:35:23+00:00
 url: /?p=14484

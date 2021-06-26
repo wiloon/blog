@@ -1,6 +1,6 @@
 ---
 title: Eclipse keys backup
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-29T02:18:19+00:00
 url: /?p=618

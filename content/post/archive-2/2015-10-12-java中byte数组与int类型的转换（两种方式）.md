@@ -1,6 +1,6 @@
 ---
 title: java中byte数组与int类型的转换（两种方式）
-author: w1100n
+author: "-"
 type: post
 date: 2015-10-12T08:58:05+00:00
 url: /?p=8392

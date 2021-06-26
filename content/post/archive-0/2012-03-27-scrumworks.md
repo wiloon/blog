@@ -1,6 +1,6 @@
 ---
 title: scrumWorks
-author: w1100n
+author: "-"
 type: post
 date: 2012-03-27T03:05:55+00:00
 url: /?p=2642

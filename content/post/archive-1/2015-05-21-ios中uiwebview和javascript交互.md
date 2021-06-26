@@ -1,6 +1,6 @@
 ---
 title: Java Object Layout(jol)
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-21T05:59:42+00:00
 url: /?p=7701

@@ -1,6 +1,6 @@
 ---
 title: openwrt basic, opkg basic
-author: w1100n
+author: "-"
 type: post
 date: 2018-07-26T05:04:27+00:00
 url: /?p=12449

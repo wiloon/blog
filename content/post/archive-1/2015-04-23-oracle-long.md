@@ -1,6 +1,6 @@
 ---
 title: Oracle LONG
-author: w1100n
+author: "-"
 type: post
 date: 2015-04-23T01:46:24+00:00
 url: /?p=7483

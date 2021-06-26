@@ -1,6 +1,6 @@
 ---
 title: libvirt、virsh、virt-manager
-author: w1100n
+author: "-"
 type: post
 date: 2018-03-29T09:00:41+00:00
 url: /?p=12089

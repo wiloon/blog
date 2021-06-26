@@ -1,6 +1,6 @@
 ---
 title: rsa ssh keygen
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-24T04:41:17+00:00
 url: /?p=1580

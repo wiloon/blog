@@ -1,6 +1,6 @@
 ---
 title: 'markdown > PPT'
-author: w1100n
+author: "-"
 type: post
 date: 2019-05-31T04:54:09+00:00
 url: /?p=14428

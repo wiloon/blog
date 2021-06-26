@@ -1,6 +1,6 @@
 ---
 title: zookeeper curator watcher/listener
-author: w1100n
+author: "-"
 type: post
 date: 2017-07-11T07:02:42+00:00
 url: /?p=6881

@@ -1,6 +1,6 @@
 ---
 title: Android ViewFlipper
-author: w1100n
+author: "-"
 type: post
 date: 2012-07-23T04:54:14+00:00
 url: /?p=3875

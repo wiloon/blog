@@ -1,6 +1,6 @@
 ---
 title: srt,ass,ssa 字幕
-author: w1100n
+author: "-"
 type: post
 date: 2019-04-27T13:47:43+00:00
 url: /?p=14243

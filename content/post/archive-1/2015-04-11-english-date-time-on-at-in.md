@@ -1,6 +1,6 @@
 ---
 title: english date time on at in
-author: w1100n
+author: "-"
 type: post
 date: 2015-04-11T02:16:56+00:00
 url: /?p=7453

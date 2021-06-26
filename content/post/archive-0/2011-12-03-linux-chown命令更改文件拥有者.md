@@ -1,6 +1,6 @@
 ---
 title: chown 更改文件拥有者
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-03T09:34:13+00:00
 url: /?p=1705

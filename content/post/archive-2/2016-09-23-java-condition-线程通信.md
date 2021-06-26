@@ -1,6 +1,6 @@
 ---
 title: 线程通信
-author: w1100n
+author: "-"
 type: post
 date: 2016-09-23T05:13:57+00:00
 url: /?p=9219

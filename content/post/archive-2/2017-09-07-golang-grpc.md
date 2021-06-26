@@ -1,6 +1,6 @@
 ---
 title: golang grpc
-author: w1100n
+author: "-"
 type: post
 date: 2017-09-07T04:25:32+00:00
 url: /?p=11125

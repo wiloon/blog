@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-22 15:24:45" 
 title = "中断, interrupts"
 

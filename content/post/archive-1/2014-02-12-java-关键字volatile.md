@@ -1,6 +1,6 @@
 ---
 title: java – volatile
-author: w1100n
+author: "-"
 type: post
 date: 2014-02-12T02:12:30+00:00
 url: /?p=6250

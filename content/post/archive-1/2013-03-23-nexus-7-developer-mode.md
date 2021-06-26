@@ -1,6 +1,6 @@
 ---
 title: nexus 7 developer mode
-author: w1100n
+author: "-"
 type: post
 date: 2013-03-23T02:06:16+00:00
 url: /?p=5337

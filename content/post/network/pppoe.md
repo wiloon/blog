@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-08-02 11:58:43" 
 title = "pppoe"
 

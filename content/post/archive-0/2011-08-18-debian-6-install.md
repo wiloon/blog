@@ -1,6 +1,6 @@
 ---
 title: Debian 6 installation, BootUsb
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-18T02:19:41+00:00
 url: /?p=422

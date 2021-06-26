@@ -1,6 +1,6 @@
 ---
 title: modprobe
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-20T20:06:06+00:00
 url: /?p=471
@@ -13,20 +13,13 @@ modprobe可载入指定的个别模块，或是载入一组相依的模块。mod
 
 https://blog.csdn.net/future_fighter/article/details/3862795
 
-### 列出内核已载入模块的状态
+### lsmod
 lsmod
 
-功能：
-  
-用法：lsmod
-  
-描述:
-      
-lsmod 列出/proc/modules的内容。
-      
-输出为：
-      
-Module(模块名) Size(模块大小) Used by(被...使用)
+    功能：列出内核已载入模块的状态
+    用法：lsmod
+    描述: lsmod 列出/proc/modules的内容。
+    输出为：Module(模块名) Size(模块大小) Used by(被...使用)
 
 ```bash
 modinfo module_name
@@ -37,17 +30,26 @@ modprobe --show-depends
 手动加载卸载
 控制内核模块载入/移除的命令是kmod 软件包提供的, 要手动装入模块的话，执行:
 
-# modprobe module_name
+    modprobe module_name
+
 如果要移除一个模块：
 
-# modprobe -r module_name
+    modprobe -r module_name
+
 或者:
 
-# rmmod module_name
+    rmmod module_name
+
 ```
 
 ### modinfo 查看内核模块的信息，包括开发人员信息，依赖信息
     modinfo module_name
+
+### load kernel module at boot
+    vim /etc/modules-load.d/wireguard.conf
+
+    #load wireguard at boot
+    wireguard
 
 ---
 

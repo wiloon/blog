@@ -1,6 +1,6 @@
 ---
 title: fav app
-author: w1100n
+author: "-"
 type: post
 date: 2017-02-11T03:31:21+00:00
 url: /?p=9775

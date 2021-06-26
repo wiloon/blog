@@ -1,6 +1,6 @@
 ---
 title: mbr, gpt
-author: w1100n
+author: "-"
 type: post
 date: 2018-05-10T06:15:35+00:00
 url: /?p=12223

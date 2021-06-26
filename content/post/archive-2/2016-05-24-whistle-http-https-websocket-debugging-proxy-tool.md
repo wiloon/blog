@@ -1,6 +1,6 @@
 ---
 title: http proxy, whistle HTTP, HTTPS, Websocket debugging proxy tool in linux, like Fiddler for windows
-author: w1100n
+author: "-"
 type: post
 date: 2016-05-24T15:24:24+00:00
 url: /?p=9019

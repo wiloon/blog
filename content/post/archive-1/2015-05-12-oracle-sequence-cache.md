@@ -1,6 +1,6 @@
 ---
 title: Oracle Sequence cache
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-12T06:49:08+00:00
 url: /?p=7658

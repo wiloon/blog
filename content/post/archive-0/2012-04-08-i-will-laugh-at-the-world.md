@@ -1,6 +1,6 @@
 ---
 title: I will laugh at the world.
-author: w1100n
+author: "-"
 type: post
 date: 2012-04-08T12:50:39+00:00
 url: /?p=2890

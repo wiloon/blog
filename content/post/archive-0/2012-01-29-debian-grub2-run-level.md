@@ -1,6 +1,6 @@
 ---
 title: debian, grub2, run level
-author: w1100n
+author: "-"
 type: post
 date: 2012-01-29T11:41:16+00:00
 url: /?p=2189

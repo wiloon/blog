@@ -1,6 +1,6 @@
 ---
 title: armv6, armv7, rm处理器中a5 a8 a9，v6 v7，arm7 arm9 arm11
-author: w1100n
+author: "-"
 type: post
 date: 2019-03-27T15:36:51+00:00
 url: /?p=13967

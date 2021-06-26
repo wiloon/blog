@@ -1,6 +1,6 @@
 ---
 title: golang mysql
-author: w1100n
+author: "-"
 type: post
 date: 2016-11-23T07:03:04+00:00
 url: /?p=9415

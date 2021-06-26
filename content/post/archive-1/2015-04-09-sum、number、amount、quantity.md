@@ -1,6 +1,6 @@
 ---
 title: sum、number、amount、quantity
-author: w1100n
+author: "-"
 type: post
 date: 2015-04-09T02:30:39+00:00
 url: /?p=7444

@@ -1,6 +1,6 @@
 ---
 title: java Delegate
-author: w1100n
+author: "-"
 type: post
 date: 2012-10-08T09:05:13+00:00
 url: /?p=4386

@@ -1,6 +1,6 @@
 ---
 title: toad command
-author: w1100n
+author: "-"
 type: post
 date: 2015-04-27T01:27:38+00:00
 url: /?p=7524

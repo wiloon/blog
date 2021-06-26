@@ -1,6 +1,6 @@
 ---
-title: 'debug1: expecting SSH2_MSG_KEX_ECDH_REPLY'
-author: w1100n
+title: 'debug1,expecting SSH2_MSG_KEX_ECDH_REPLY'
+author: "-"
 type: post
 date: 2019-06-22T05:23:23+00:00
 url: /?p=14558

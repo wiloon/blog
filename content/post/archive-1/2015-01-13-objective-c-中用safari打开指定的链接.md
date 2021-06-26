@@ -1,6 +1,6 @@
 ---
 title: thread join
-author: w1100n
+author: "-"
 type: post
 date: 2015-01-13T05:52:17+00:00
 url: /?p=7232

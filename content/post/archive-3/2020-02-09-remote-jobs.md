@@ -1,6 +1,6 @@
 ---
 title: remote jobs
-author: w1100n
+author: "-"
 type: post
 date: 2020-02-09T07:23:58+00:00
 url: /?p=15506

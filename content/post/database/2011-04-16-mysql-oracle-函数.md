@@ -1,6 +1,6 @@
 ---
 title: MySQL 函数
-author: w1100n
+author: "-"
 type: post
 date: 2011-04-16T09:33:27+00:00
 url: /?p=59

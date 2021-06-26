@@ -1,6 +1,6 @@
 ---
 title: 网络地址转换 NAT,Network Address Translation
-author: w1100n
+author: "-"
 type: post
 date: 2013-11-10T05:24:44+00:00
 url: /?p=5924

@@ -1,6 +1,6 @@
 ---
 title: ConcurrentLinkedQueue
-author: w1100n
+author: "-"
 type: post
 date: 2018-01-03T13:52:10+00:00
 url: /?p=11670

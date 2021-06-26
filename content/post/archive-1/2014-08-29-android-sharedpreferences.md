@@ -1,6 +1,6 @@
 ---
 title: Android SharedPreferences
-author: w1100n
+author: "-"
 type: post
 date: 2014-08-29T06:14:34+00:00
 url: /?p=6966

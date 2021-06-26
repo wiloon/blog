@@ -1,6 +1,6 @@
 ---
 title: oracle commands
-author: w1100n
+author: "-"
 type: post
 date: 2015-01-14T01:19:57+00:00
 url: /?p=7235

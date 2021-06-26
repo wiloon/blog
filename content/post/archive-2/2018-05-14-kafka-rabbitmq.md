@@ -1,6 +1,6 @@
 ---
 title: kafka, rabbitmq
-author: w1100n
+author: "-"
 type: post
 date: 2018-05-14T04:53:27+00:00
 url: /?p=12252

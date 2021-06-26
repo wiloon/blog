@@ -1,6 +1,6 @@
 ---
 title: openwrt install
-author: w1100n
+author: "-"
 type: post
 date: 2018-10-29T15:15:57+00:00
 url: /?p=12830

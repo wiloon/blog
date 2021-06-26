@@ -1,6 +1,6 @@
 ---
 title: golang fmt/print
-author: w1100n
+author: "-"
 type: post
 date: 2016-10-14T00:09:01+00:00
 url: /?p=9293

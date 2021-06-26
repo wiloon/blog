@@ -1,6 +1,6 @@
 ---
 title: raspberry source list
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-02T04:59:51+00:00
 url: /?p=7566

@@ -1,6 +1,6 @@
 ---
 title: mysql INNODB
-author: w1100n
+author: "-"
 type: post
 date: 2017-04-11T06:46:30+00:00
 url: /?p=10053

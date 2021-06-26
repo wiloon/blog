@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-11-06 16:07:26" 
 title = "tcp rst"
 

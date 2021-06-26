@@ -1,6 +1,6 @@
 ---
 title: go module proxy, goproxy, goproxy.io, goproxy.cn, athens
-author: w1100n
+author: "-"
 type: post
 date: 2019-06-20T06:16:22+00:00
 url: /?p=14531

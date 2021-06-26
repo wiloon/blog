@@ -1,6 +1,6 @@
 ---
 title: idea file
-author: w1100n
+author: "-"
 type: post
 date: 2016-12-24T11:50:49+00:00
 url: /?p=9621

@@ -1,6 +1,6 @@
 ---
 title: tomcat upgrade
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-23T09:33:05+00:00
 url: /?p=1285

@@ -1,6 +1,6 @@
 ---
 title: welcome-file-list
-author: w1100n
+author: "-"
 type: post
 date: 2012-06-10T04:51:55+00:00
 url: /?p=3479

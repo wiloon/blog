@@ -1,6 +1,6 @@
 ---
 title: Bootstrap
-author: w1100n
+author: "-"
 type: post
 date: 2012-11-23T04:35:07+00:00
 url: /?p=4749

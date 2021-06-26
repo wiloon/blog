@@ -1,6 +1,6 @@
 ---
 title: java 代码块
-author: w1100n
+author: "-"
 type: post
 date: 2013-06-27T01:58:46+00:00
 url: /?p=5552

@@ -1,6 +1,6 @@
 ---
 title: Disruptor
-author: w1100n
+author: "-"
 type: post
 date: 2015-08-28T09:07:53+00:00
 url: /?p=8181

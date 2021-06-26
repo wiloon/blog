@@ -1,6 +1,6 @@
 ---
 title: HttpSessionActivationListener
-author: w1100n
+author: "-"
 type: post
 date: 2012-06-22T08:24:12+00:00
 url: /?p=3605

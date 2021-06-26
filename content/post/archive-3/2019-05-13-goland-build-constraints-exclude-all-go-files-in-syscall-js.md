@@ -1,6 +1,6 @@
 ---
 title: goland build constraints exclude all go files in syscall/js
-author: w1100n
+author: "-"
 type: post
 date: 2019-05-13T12:27:04+00:00
 url: /?p=14336

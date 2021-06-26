@@ -1,6 +1,6 @@
 ---
 title: Select For update
-author: w1100n
+author: "-"
 type: post
 date: 2016-10-14T10:21:55+00:00
 url: /?p=9300

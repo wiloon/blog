@@ -1,6 +1,6 @@
 ---
 title: android http proxy
-author: w1100n
+author: "-"
 type: post
 date: 2012-08-17T02:51:41+00:00
 url: /?p=3905

@@ -1,6 +1,6 @@
 ---
 title: andorid screen unlock pattern
-author: w1100n
+author: "-"
 type: post
 date: 2011-09-18T13:20:02+00:00
 url: /?p=802

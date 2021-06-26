@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-19 16:43:49" 
 title = "typescript basic"
 

@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-06-25T05:33:56Z"
 title = "github action"
 

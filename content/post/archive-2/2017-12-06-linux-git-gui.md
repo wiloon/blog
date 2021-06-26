@@ -1,6 +1,6 @@
 ---
 title: linux git gui
-author: w1100n
+author: "-"
 type: post
 date: 2017-12-06T09:14:19+00:00
 url: /?p=11546

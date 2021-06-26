@@ -1,6 +1,6 @@
 ---
 title: database conn string
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-25T06:07:07+00:00
 url: /?p=1974

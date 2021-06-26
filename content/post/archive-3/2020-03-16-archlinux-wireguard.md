@@ -1,9 +1,10 @@
 ---
 title: wireguard
-author: w1100n
+author: "-"
 type: post
 date: 2020-03-15T16:20:26+00:00
 url: /?p=15763
+tag: vpn
 
 ---
 ## server install
@@ -23,7 +24,7 @@ archlinux 如果使用的是新版本的内核的话，就不需要单独安装w
     apt update
     apt install wireguard
 
-### 生成密钥 peer A / peer B
+### 生成密钥 peer A & peer B
 ```bash
 # 生成私钥
 wg genkey > peer_A.key
@@ -37,7 +38,7 @@ wg genkey | tee peer_A.key | wg pubkey > peer_A.pub
 ### optional, pre-shared key
 wg genpsk > peer_A-peer_B.psk
 ```
-
+A
 ### 参数
     # 设置可以被路由到对端的ip/段
     allowed-ips
@@ -51,6 +52,9 @@ wg genpsk > peer_A-peer_B.psk
     # 路由多个ip/段到对端 
     allowed-ips 192.168.53.1/32,192.168.50.0/24
 
+    # endpoint
+    对端的ip和端口
+
 #### Peer A setup
 ```bash
 sudo ip link add dev wg0 type wireguard
@@ -58,9 +62,9 @@ sudo ip addr add 192.168.53.1/24 dev wg0
 sudo wg set wg0 private-key ./peer_A.key
 sudo wg set wg0 listen-port 51900
 
-# 做为服务端使用时，peer_B 的ip 和端口一般是动态的，不配置endpoint  
+# peer A 做为服务端使用时，peer_B 的ip 和端口一般是动态的，所以peer A 不配置 endpoint  
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32
-# peer b 有确定的端口和IP时， 可以配置endpoint
+# peer b 有确定的端口和IP时， peer A 可以配置endpoint
 sudo wg set wg0 peer <PEER_B_PUBLIC_KEY> persistent-keepalive 25 allowed-ips 192.168.53.2/32  endpoint 192.168.50.115:9000
 
 ### set interface up
@@ -86,8 +90,13 @@ ip link set wg0 up
     iptables -A FORWARD -i wg0 -j ACCEPT
     iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
 
+<<<<<<< HEAD
 ### 添加路由
+=======
+    # ipv4
+>>>>>>> 03f12be2bbcc27bf1c797f8037f25f6afb21885b
     ip route add 192.168.50.0/24 dev wg0
+    # ipv6
     ip route add fd7b:d0bd:7a6e::/64 dev wg0
 
 ### remove peer
@@ -106,6 +115,17 @@ ip link set wg0 up
     systemd-resolvconf  
     openresolv
 
+### iptables
+
+    iptables -A FORWARD -i wg0 -j ACCEPT
+    iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+
+
+### chromeos>crostini
+chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
+又ccighervkevururvkfggtlhrvtuclinuntecvikn
+~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
+~~<https://tunsafe.com/user-guide/linux>~~  
 
 ### systemd-networkd, 用systemd-networkd配置wireguard,开机自动加载wireguard配置
 #### vim /etc/systemd/network/99-wg0.netdev

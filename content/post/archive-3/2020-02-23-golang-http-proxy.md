@@ -1,6 +1,6 @@
 ---
 title: golang http 
-author: w1100n
+author: "-"
 type: post
 date: 2020-02-23T15:26:04+00:00
 url: /?p=15616

@@ -1,6 +1,6 @@
 ---
 title: fcitx
-author: w1100n
+author: "-"
 date: 2017-01-12T04:50:30.000+00:00
 url: "/?p=9650"
 categories:

@@ -1,6 +1,6 @@
 ---
 title: linux 命令, linux command
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-21T04:51:03+00:00
 url: /?p=1568

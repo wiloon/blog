@@ -1,6 +1,6 @@
 ---
 title: net-tools
-author: w1100n
+author: "-"
 type: post
 date: 2015-04-25T03:02:55+00:00
 url: /?p=7497

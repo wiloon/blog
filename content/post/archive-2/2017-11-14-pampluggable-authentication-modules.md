@@ -1,6 +1,6 @@
 ---
 title: PAM(Pluggable Authentication Modules)
-author: w1100n
+author: "-"
 type: post
 date: 2017-11-14T06:38:43+00:00
 url: /?p=11431

@@ -1,6 +1,6 @@
 ---
-title: '/dev/net/tun: No such device'
-author: w1100n
+title: '/dev/net/tun,No such device'
+author: "-"
 type: post
 date: 2017-06-30T05:19:10+00:00
 url: /?p=10724

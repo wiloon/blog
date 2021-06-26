@@ -1,6 +1,6 @@
 ---
 title: boot debian to the command mode directly
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-11T03:12:57+00:00
 url: /?p=1839

@@ -1,6 +1,6 @@
 ---
 title: pam config
-author: w1100n
+author: "-"
 type: post
 date: 2018-10-08T11:12:47+00:00
 url: /?p=12764

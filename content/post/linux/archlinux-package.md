@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2021-01-09 14:32:27" 
 title = "archlinux package"
 

@@ -1,6 +1,6 @@
 ---
 title: linux audio, 音量,静音
-author: w1100n
+author: "-"
 type: post
 date: 2014-03-30T12:10:53+00:00
 url: /?p=6452

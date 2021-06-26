@@ -1,6 +1,6 @@
 ---
 title: redis list
-author: w1100n
+author: "-"
 type: post
 date: 2015-12-01T02:32:24+00:00
 url: /?p=8479
@@ -60,9 +60,7 @@ Redis的列表经常被用作队列(queue)，用于在不同程序之间有序�
 ### RPOPLPUSH source destination
 
 ### LINDEX key index
-
 ### LINSERT key BEFORE|AFTER pivot value
-
 ### LPUSHX key value
 
 RPUSHX key value

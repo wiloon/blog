@@ -1,6 +1,6 @@
 ---
 title: LinkedBlockingDeque
-author: w1100n
+author: "-"
 type: post
 date: 2015-09-14T06:21:51+00:00
 url: /?p=8256

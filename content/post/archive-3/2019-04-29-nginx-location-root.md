@@ -1,6 +1,6 @@
 ---
 title: nginx location, root
-author: w1100n
+author: "-"
 type: post
 date: 2019-04-29T02:13:46+00:00
 url: /?p=14262

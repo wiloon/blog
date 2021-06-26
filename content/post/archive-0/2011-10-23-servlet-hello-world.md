@@ -1,6 +1,6 @@
 ---
 title: servlet hello world
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-23T09:52:20+00:00
 url: /?p=1274

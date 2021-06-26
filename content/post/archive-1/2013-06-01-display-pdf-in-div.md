@@ -1,6 +1,6 @@
 ---
 title: display pdf in div
-author: w1100n
+author: "-"
 type: post
 date: 2013-06-01T04:22:28+00:00
 url: /?p=5491

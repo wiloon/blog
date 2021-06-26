@@ -1,6 +1,6 @@
 ---
-title: 'How to: List Current Keyboard Shortcuts'
-author: w1100n
+title: 'How to,List Current Keyboard Shortcuts'
+author: "-"
 type: post
 date: 2013-08-08T08:28:29+00:00
 url: /?p=5764

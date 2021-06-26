@@ -1,6 +1,6 @@
 ---
 title: Four Seasons of a Tree
-author: w1100n
+author: "-"
 type: post
 date: 2013-03-26T15:11:44+00:00
 url: /?p=5351

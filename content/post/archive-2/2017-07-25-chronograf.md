@@ -1,6 +1,6 @@
 ---
 title: Chronograf
-author: w1100n
+author: "-"
 type: post
 date: 2017-07-25T07:32:41+00:00
 url: /?p=10904

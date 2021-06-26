@@ -1,6 +1,6 @@
 ---
 title: NoClassDefFoundError， ClassNotFoundException
-author: w1100n
+author: "-"
 type: post
 date: 2017-03-08T02:41:42+00:00
 url: /?p=9899

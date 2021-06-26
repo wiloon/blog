@@ -1,6 +1,6 @@
 ---
 title: jQuery序列化表单 serialize() serializeArray()
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-11T01:38:18+00:00
 url: /?p=7655

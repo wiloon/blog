@@ -1,6 +1,6 @@
 ---
 title: FreeDOS USB Bootable Drive
-author: w1100n
+author: "-"
 type: post
 date: 2012-04-02T12:39:34+00:00
 url: /?p=2728

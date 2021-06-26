@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-08-08 12:28:15" 
 title = "pve basic"
 
@@ -44,7 +44,10 @@ Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
         general > name: foo
         general > advanced
         general > start at boot
-        OS>use cd/dvd disc image file
+
+        next
+
+        OS>use cd/dvd disc image file > iso image
 
 
 create vm > system > qemu agent: select

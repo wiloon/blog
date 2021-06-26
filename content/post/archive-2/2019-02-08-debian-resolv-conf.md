@@ -1,6 +1,6 @@
 ---
 title: resolv.conf, systemd-resolved
-author: w1100n
+author: "-"
 type: post
 date: 2019-02-08T13:00:54+00:00
 url: /?p=13559

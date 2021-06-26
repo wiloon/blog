@@ -1,6 +1,6 @@
 ---
 title: guava-retrying
-author: w1100n
+author: "-"
 type: post
 date: 2017-07-20T02:45:40+00:00
 url: /?p=10873

@@ -1,6 +1,6 @@
 ---
 title: Android的startservice和bindservice
-author: w1100n
+author: "-"
 type: post
 date: 2014-07-28T09:10:49+00:00
 url: /?p=6841

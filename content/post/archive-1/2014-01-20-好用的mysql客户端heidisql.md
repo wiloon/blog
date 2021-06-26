@@ -1,6 +1,6 @@
 ---
 title: 好用的MySQL客户端HeidiSQL
-author: w1100n
+author: "-"
 type: post
 date: 2014-01-20T09:34:59+00:00
 url: /?p=6241

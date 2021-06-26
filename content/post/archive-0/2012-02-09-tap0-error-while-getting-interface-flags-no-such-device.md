@@ -1,6 +1,6 @@
 ---
-title: 'tap0: ERROR while getting interface flags'
-author: w1100n
+title: 'tap0, ERROR while getting interface flags'
+author: "-"
 type: post
 date: 2012-02-09T14:54:58+00:00
 url: /?p=2284

@@ -1,6 +1,6 @@
 ---
 title: pixel2 root, android root
-author: w1100n
+author: "-"
 type: post
 date: 2020-01-26T10:16:33+00:00
 url: /?p=15417

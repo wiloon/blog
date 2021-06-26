@@ -1,6 +1,6 @@
 ---
 title: nsswitch.conf
-author: w1100n
+author: "-"
 type: post
 date: 2016-12-24T10:31:31+00:00
 url: /?p=9615

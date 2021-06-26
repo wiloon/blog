@@ -1,6 +1,6 @@
 ---
 title: Eclipse WTP 入门
-author: w1100n
+author: "-"
 type: post
 date: 2013-10-20T04:55:30+00:00
 url: /?p=5850

@@ -1,6 +1,6 @@
 ---
 title: servlet中init()和service()方法的区别
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-23T13:06:32+00:00
 url: /?p=1304

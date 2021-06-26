@@ -1,6 +1,6 @@
 ---
 title: elasticsearch
-author: w1100n
+author: "-"
 type: post
 date: 2018-06-12T05:36:22+00:00
 url: /?p=12299

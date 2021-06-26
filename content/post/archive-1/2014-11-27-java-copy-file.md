@@ -1,6 +1,6 @@
 ---
 title: java copy file
-author: w1100n
+author: "-"
 type: post
 date: 2014-11-27T02:53:36+00:00
 url: /?p=7049

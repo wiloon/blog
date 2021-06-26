@@ -1,6 +1,6 @@
 ---
 title: 'System.load  System.loadLibrary'
-author: w1100n
+author: "-"
 type: post
 date: 2014-04-11T07:43:58+00:00
 url: /?p=6524

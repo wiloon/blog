@@ -1,6 +1,6 @@
 ---
 title: jquery attr
-author: w1100n
+author: "-"
 type: post
 date: 2013-06-06T04:12:46+00:00
 url: /?p=5510

@@ -1,6 +1,6 @@
 ---
 title: Chocolatey, choco, Windows 软件包管理系统
-author: w1100n
+author: "-"
 type: post
 date: 2015-09-24T00:07:48+00:00
 url: /?p=8340

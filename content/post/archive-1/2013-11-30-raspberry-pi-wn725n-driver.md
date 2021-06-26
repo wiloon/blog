@@ -1,6 +1,6 @@
 ---
 title: raspberry pi wn725n driver
-author: w1100n
+author: "-"
 type: post
 date: 2013-11-30T09:49:41+00:00
 url: /?p=5994

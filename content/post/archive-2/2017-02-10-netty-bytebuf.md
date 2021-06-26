@@ -1,6 +1,6 @@
 ---
 title: mmap
-author: w1100n
+author: "-"
 type: post
 date: 2017-02-10T00:43:18+00:00
 url: /?p=9763

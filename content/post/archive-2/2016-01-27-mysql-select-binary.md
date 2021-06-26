@@ -1,6 +1,6 @@
 ---
 title: mysql select binary
-author: w1100n
+author: "-"
 type: post
 date: 2016-01-27T04:54:31+00:00
 url: /?p=8712

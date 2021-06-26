@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-09-29 10:48:23" 
 title = "javascript"
 

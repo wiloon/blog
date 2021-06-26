@@ -1,6 +1,6 @@
 ---
 title: ReferenceQueue
-author: w1100n
+author: "-"
 type: post
 date: 2015-06-26T14:11:54+00:00
 url: /?p=7872

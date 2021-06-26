@@ -1,6 +1,6 @@
 ---
 title: sftp config
-author: w1100n
+author: "-"
 type: post
 date: 2011-08-04T03:47:31+00:00
 url: /?p=401

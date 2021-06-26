@@ -1,6 +1,6 @@
 ---
 title: spring MVC 返回JSON数据(Spring3.0 MVC+Jackson+AJAX)
-author: w1100n
+author: "-"
 type: post
 date: 2014-02-21T08:28:19+00:00
 url: /?p=6274

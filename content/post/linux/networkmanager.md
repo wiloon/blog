@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-07-17 17:13:21" 
 title = "network manager"
 

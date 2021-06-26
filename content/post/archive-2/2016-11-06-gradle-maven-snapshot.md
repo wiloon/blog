@@ -1,6 +1,6 @@
 ---
 title: gradle maven snapshot
-author: w1100n
+author: "-"
 type: post
 date: 2016-11-06T03:54:47+00:00
 url: /?p=9362

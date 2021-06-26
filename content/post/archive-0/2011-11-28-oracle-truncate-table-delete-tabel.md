@@ -1,6 +1,6 @@
 ---
 title: Oracle truncate table, delete tabel
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-28T09:22:02+00:00
 url: /?p=1653

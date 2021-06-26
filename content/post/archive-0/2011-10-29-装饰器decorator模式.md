@@ -1,6 +1,6 @@
 ---
 title: cooking
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-29T11:06:23+00:00
 url: /?p=1389

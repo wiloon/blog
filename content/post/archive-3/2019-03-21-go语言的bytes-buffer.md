@@ -1,6 +1,6 @@
 ---
 title: golang bytes.buffer
-author: w1100n
+author: "-"
 type: post
 date: 2019-03-21T02:43:54+00:00
 url: /?p=13890

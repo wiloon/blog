@@ -1,6 +1,6 @@
 ---
 title: chromeos basic
-author: w1100n
+author: "-"
 type: post
 date: 2018-11-03T15:08:31+00:00
 url: /?p=12855

@@ -1,6 +1,6 @@
 ---
 title: RHEL/CentOS/Fedora 源 EPEL、Remi、RPMForge、RPMFusion
-author: w1100n
+author: "-"
 type: post
 date: 2018-04-13T02:44:19+00:00
 url: /?p=12145

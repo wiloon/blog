@@ -1,6 +1,6 @@
 ---
 title: linux, strace
-author: w1100n
+author: "-"
 type: post
 date: 2017-06-08T02:55:24+00:00
 url: /?p=10510

@@ -1,6 +1,6 @@
 ---
 title: 'Linux  oom killer'
-author: w1100n
+author: "-"
 type: post
 date: 2018-06-04T08:32:56+00:00
 url: /?p=12273

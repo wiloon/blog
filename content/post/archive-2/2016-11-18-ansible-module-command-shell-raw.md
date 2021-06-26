@@ -1,6 +1,6 @@
 ---
 title: ansible module
-author: w1100n
+author: "-"
 type: post
 date: 2016-11-18T06:28:45+00:00
 url: /?p=9403

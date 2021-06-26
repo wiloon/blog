@@ -1,6 +1,6 @@
 ---
 title: oracle create user
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-02T07:05:15+00:00
 url: /?p=1433

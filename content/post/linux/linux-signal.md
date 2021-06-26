@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2021-04-30 07:20:01" 
 title = "linux signal"
 

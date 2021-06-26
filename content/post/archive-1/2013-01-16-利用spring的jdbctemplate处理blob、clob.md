@@ -1,6 +1,6 @@
 ---
 title: 利用spring的jdbcTemplate处理blob、clob
-author: w1100n
+author: "-"
 type: post
 date: 2013-01-16T04:41:51+00:00
 url: /?p=5034

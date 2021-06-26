@@ -1,6 +1,6 @@
 ---
 title: CentOS 与 RHEL 的区别
-author: w1100n
+author: "-"
 type: post
 date: 2011-12-11T02:07:25+00:00
 url: /?p=1835

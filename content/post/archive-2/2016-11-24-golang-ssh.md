@@ -1,6 +1,6 @@
 ---
 title: golang ssh
-author: w1100n
+author: "-"
 type: post
 date: 2016-11-24T00:20:17+00:00
 url: /?p=9423

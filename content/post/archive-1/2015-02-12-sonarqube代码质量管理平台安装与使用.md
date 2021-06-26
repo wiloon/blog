@@ -1,6 +1,6 @@
 ---
 title: SonarQube
-author: w1100n
+author: "-"
 type: post
 date: 2015-02-12T09:23:36+00:00
 url: /?p=7354

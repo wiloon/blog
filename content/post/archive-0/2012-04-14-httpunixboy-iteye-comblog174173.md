@@ -1,6 +1,6 @@
 ---
 title: java, JVM flags, params, 参数, xms xmx xmn xss
-author: w1100n
+author: "-"
 type: post
 date: 2012-04-14T11:32:12+00:00
 url: /?p=2904

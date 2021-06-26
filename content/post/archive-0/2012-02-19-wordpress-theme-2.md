@@ -1,6 +1,6 @@
 ---
 title: wordpress theme
-author: w1100n
+author: "-"
 type: post
 date: 2012-02-19T09:10:27+00:00
 url: /?p=2352

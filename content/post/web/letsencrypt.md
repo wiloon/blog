@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-06-04T08:55:49Z"
 title = "letsencrypt, certbot, certbot-auto, acme.sh"
 

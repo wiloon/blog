@@ -1,6 +1,6 @@
 ---
 title: golang uuid
-author: w1100n
+author: "-"
 type: post
 date: 2017-07-27T07:21:37+00:00
 url: /?p=10941

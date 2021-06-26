@@ -1,6 +1,6 @@
 ---
 title: CSS font-style
-author: w1100n
+author: "-"
 type: post
 date: 2012-06-11T13:39:18+00:00
 url: /?p=3518

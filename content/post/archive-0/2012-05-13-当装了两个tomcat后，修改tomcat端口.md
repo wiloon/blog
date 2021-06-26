@@ -1,6 +1,6 @@
 ---
 title: 当装了两个tomcat后，修改tomcat端口
-author: w1100n
+author: "-"
 type: post
 date: 2012-05-13T10:49:12+00:00
 url: /?p=3112

@@ -1,6 +1,6 @@
 ---
 title: maven jvm opts
-author: w1100n
+author: "-"
 type: post
 date: 2014-04-24T07:47:07+00:00
 url: /?p=6557

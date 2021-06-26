@@ -1,6 +1,6 @@
 ---
 title: javascript 逻辑运算符
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-05T12:17:57+00:00
 url: /?p=1452

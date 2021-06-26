@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2021-05-05 08:36:31" 
 title = "kernel thread, 内核线程， KTL"
 

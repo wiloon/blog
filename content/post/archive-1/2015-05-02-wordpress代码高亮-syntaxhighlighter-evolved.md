@@ -1,6 +1,6 @@
 ---
 title: WordPress代码高亮 SyntaxHighlighter Evolved
-author: w1100n
+author: "-"
 type: post
 date: 2015-05-02T04:35:59+00:00
 url: /?p=7563

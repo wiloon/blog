@@ -1,6 +1,6 @@
 ---
 title: linux setcap/getcap
-author: w1100n
+author: "-"
 type: post
 date: 2020-01-18T16:17:30+00:00
 url: /?p=15389

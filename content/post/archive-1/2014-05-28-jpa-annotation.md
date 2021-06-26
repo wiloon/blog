@@ -1,6 +1,6 @@
 ---
 title: jpa annotation, 注解
-author: w1100n
+author: "-"
 type: post
 date: 2014-05-28T09:17:04+00:00
 url: /?p=6678

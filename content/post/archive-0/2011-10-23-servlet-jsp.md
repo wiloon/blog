@@ -1,6 +1,6 @@
 ---
 title: 'Servlet,  JSP'
-author: w1100n
+author: "-"
 type: post
 date: 2011-10-23T08:46:30+00:00
 url: /?p=1270

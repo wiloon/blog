@@ -1,6 +1,6 @@
 ---
 title: redis docker
-author: w1100n
+author: "-"
 type: post
 date: 2018-09-21T05:14:43+00:00
 url: /?p=12652

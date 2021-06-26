@@ -1,6 +1,6 @@
 ---
 title: keepassxc
-author: w1100n
+author: "-"
 type: post
 date: 2018-06-19T02:49:32+00:00
 url: /?p=12319

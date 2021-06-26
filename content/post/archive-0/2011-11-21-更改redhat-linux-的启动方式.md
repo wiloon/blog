@@ -1,6 +1,6 @@
 ---
 title: linux 运行级, runlevel
-author: w1100n
+author: "-"
 type: post
 date: 2011-11-21T04:44:52+00:00
 url: /?p=1566

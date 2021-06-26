@@ -1,5 +1,5 @@
 +++
-author = "w1100n"
+author = "-"
 date = "2020-10-22 16:32:23" 
 title = "服务器三大体系 SMP、NUMA、MPP"
 

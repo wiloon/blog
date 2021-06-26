@@ -1,6 +1,6 @@
 ---
 title: Kubernetes
-author: w1100n
+author: "-"
 type: post
 date: 2016-12-13T04:13:28+00:00
 url: /?p=9543
