@@ -7,29 +7,10 @@ url: /?p=15763
 tag: vpn
 
 ---
-### android client
-安装wireguard
-https://f-droid.org/en/packages/com.wireguard.android/  
-点右下角的加号新建 连接  
-输入连接名 
-点击私钥后面的刷新按钮 新建一对密钥
-把公钥发给对端
-在服务端执行wg set... 配置服务端
-
-#### 客户端
-局域网ip/address: 192.168.53.xx/32
-端口/port: random
-dns: 192.168.50.1
-mtu: 1200
-
-##### 添加节点/add peer
-公钥： 服务端公钥
-预共享密钥：pre-shared key: 可以不填
-对端/endpoint： xxx.wiloon.com:51xxx
-路由的ip地址: 0.0.0.0/0
-
-### server install
+## server install
 #### archlinux
+archlinux 如果使用的是新版本的内核的话，就不需要单独安装wireguard了， wireguard已经被集成进了内核。
+
     pacman -Syu
     # 安装 wireguard管理工具
     pacman -S wireguard-tools
@@ -105,8 +86,11 @@ ip link set wg0 up
     sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
     sudo ip link set wg0 up
 
-### 添加路由
+### iptables, 设置iptables规则，客户端连接之后就能Ping通服务端局域网里的其它ip了。
+    iptables -A FORWARD -i wg0 -j ACCEPT
+    iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
 
+### 添加路由
     # ipv4
     ip route add 192.168.50.0/24 dev wg0
     # ipv6
@@ -114,7 +98,6 @@ ip link set wg0 up
 
 ### remove peer
     wg set wg0 peer PEER_A_PUBLIC_KEY remove  
-
 
 ### 配置文件
     /etc/wireguard/wg0.conf
@@ -141,16 +124,15 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
 ~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
 ~~<https://tunsafe.com/user-guide/linux>~~  
 
-### systemd-networkd
-    vim /etc/systemd/network/99-wg0.netdev
-    # ---
+### systemd-networkd, 用systemd-networkd配置wireguard,开机自动加载wireguard配置
+#### vim /etc/systemd/network/99-wg0.netdev
     [NetDev]
     Name = wg0
     Kind = wireguard
-    Description = WireGuard
+    Description = wireguard
 
     [WireGuard]
-    ListenPort = 54321
+    ListenPort = 51900
     PrivateKey = private-key-0
 
     [WireGuardPeer]
@@ -161,8 +143,7 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     PublicKey = public-key-1
     AllowedIPs = 192.168.xx.xx/32 
 
-    vim /etc/systemd/network/99-wg0.network
-    # --
+#### vim /etc/systemd/network/99-wg0.network
     [Match]
     Name = wg0
 
@@ -172,6 +153,41 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     [Route]
     Gateway = 192.168.53.1
     Destination = 192.168.53.0/24
+
+### config router, add port forward config
+
+## client
+### android client
+安装wireguard
+https://f-droid.org/en/packages/com.wireguard.android/  
+点右下角的加号新建 连接  
+输入连接名 
+点击私钥后面的刷新按钮 新建一对密钥
+把公钥发给对端, 在服务端执行wg set... 配置服务端
+
+#### 客户端
+局域网ip/address: 192.168.53.xx/32
+端口/port: random
+DNS servers: 192.168.50.1
+listen port: random
+mtu: auto
+
+##### 添加节点/add peer
+公钥： 服务端公钥
+预共享密钥/pre-shared key (可以不填)
+对端/endpoint： xxx.wiloon.com:51xxx
+路由的ip地址: 0.0.0.0/0
+
+### chromeos>crostini
+使用android版本的wireguard  
+chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
+
+
+---
+
+### crostini
+~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
+~~<https://tunsafe.com/user-guide/linux>~~  
 
 ### ~~tunsafe  安装~~
     /etc/wireguard/wg0.conf
@@ -184,7 +200,8 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     sudo tunsafe start  TunSafe.conf
     sudo tunsafe start -d TunSafe.conf
 
-#### ~~tunsafe 配置文件~~
+
+#### ~~tunsafe 配置文件(废弃)~~ 
 
     [Interface]
     PrivateKey = <private_key>
@@ -205,6 +222,8 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     Endpoint = <server_ip0:server_port0>
     PersistentKeepalive = 25
 
+
+---
 
 https://www.wireguard.com/install/
 https://www.linode.com/docs/networking/vpn/set-up-wireguard-vpn-on-debian/

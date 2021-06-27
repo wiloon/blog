@@ -7,7 +7,6 @@ title = "hardware"
 
 https://www.passmark.com/
 
-
 ### QNAP TS453Bmini
 
 ### pixel3
@@ -83,13 +82,7 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
 CPU: i5  
 MEM: 8G  
 DISK: 128G  
-display: 2400x1600  
-
-#### software
-chrome
-vscode
-linux in vm
-wireguard
+display: 2400x1600
 
 ### Pixel2
 
