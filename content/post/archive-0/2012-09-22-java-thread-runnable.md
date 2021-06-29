@@ -11,29 +11,33 @@ tags:
   - Thread
 
 ---
-### Runnable接口
+### 竞争条件 Race condition
+什么是竞争条件以及竞争条件为什么会产生漏洞  
+竞争条件是系统中的一种反常现象，由于现代Linux系统中大量使用并发编程，对资源进行共享，如果产生错误的访问模式，便可能产生内存泄露，系统崩溃，数据破坏，甚至安全问题。竞争条件漏洞就是多个进程访问同一资源时产生的时间或者序列的冲突，并利用这个冲突来对系统进行攻击。一个看起来无害的程序如果被恶意攻击者利用，将发生竞争条件漏洞。  
+https://www.cnblogs.com/0xJDchen/p/5988275.html
 
+
+### Runnable接口
 在实际开发中一个多线程的操作很少使用Thread类，而是通过Runnable接口完成。
 
 ```java
-public interface Runnable{
-public void run();
-}
+    public interface Runnable{
+    public void run();
+    }
 ```
 
 例子：
-
 ```java
 class MyThread implements Runnable{
-private String name;
-public MyThread(String name) {
-this.name = name;
-}
-public void run(){
-for(int i=0;i<100;i++){
-System.out.println("线程开始："+this.name+",i="+i);
-}
-}
+    private String name;
+        public MyThread(String name) {
+        this.name = name;
+    }
+    public void run(){
+        for(int i=0;i<100;i++){
+        System.out.println("线程开始："+this.name+",i="+i);
+        }
+    }
 };
 ```
 
