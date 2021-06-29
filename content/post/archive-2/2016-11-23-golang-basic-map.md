@@ -37,6 +37,8 @@ for k, v := range m1 {
   
 有意思的是，Go语言中并没有为 map 提供任何清空所有元素的函数、方法，清空 map 的唯一办法就是重新 make 一个新的 map，不用担心垃圾回收的效率，Go语言中的并行垃圾回收效率比写一个清空函数要高效的多。
 
+### gods > TreeMap
+gods > treemap
 ### set
 golang没有内置Set类型  
 这个gods项目 实现了各种数据类型，其中就有set
