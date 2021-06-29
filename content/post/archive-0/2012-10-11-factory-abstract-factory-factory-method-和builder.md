@@ -30,7 +30,7 @@ public Car createSportCar() {…}
 
 代码片断 1
 
-[<img class="aligncenter size-full wp-image-4431" title="x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA (1)" src="http://www.wiloon.com/wordpress/wp-content/uploads/2012/10/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA-1.gif" alt="" width="294" height="294" />][1]
+http://www.wiloon.com/wordpress/wp-content/uploads/2012/10/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA-1.gif
 
 图1 Factory Pattern
 
@@ -68,7 +68,7 @@ public Car createSportBenzCar() {…}
 
 1 。 客户端需要依赖制造对象的细节。
   
-2. 一系列类似的对象需要被制造出来。
+1. 一系列类似的对象需要被制造出来。
   
 3.      同种对象不同实体需要在不同的地点不同是时间被制造出来。
 

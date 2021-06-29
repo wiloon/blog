@@ -36,6 +36,7 @@ systemctl enable sshd
 ### ntp, chrony
 <http://blog.wiloon.com/?p=10869>
 
+### 监控, telegraf
 ### install apps
 <https://blog.wiloon.com/?p=12667>
 
