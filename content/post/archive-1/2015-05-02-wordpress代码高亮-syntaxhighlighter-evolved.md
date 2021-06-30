@@ -159,7 +159,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
             
             <td class="content">
-              <code class="plain"><div id=</code><code class="string">"_mcePaste"</code><code class="plain">><p><?php </code><code class="functions">echo</code> <code class="string">'Hello World!'</code><code class="plain">; ?></p></div></code>
+              <code class="plain"><div id=</code><code class="string">"_mcePaste"</code><code class="plain">><?php </code><code class="functions">echo</code> <code class="string">'Hello World!'</code><code class="plain">; ?></div></code>
             </td>
           </tr>
         </table>
@@ -173,7 +173,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
             
             <td class="content">
-              <code class="plain"><div id=</code><code class="string">"_mcePaste"</code><code class="plain">><p>This line is highlighted.</p></div></code>
+              <code class="plain"><div id=</code><code class="string">"_mcePaste"</code><code class="plain">>This line is highlighted.</div></code>
             </td>
           </tr>
         </table>
@@ -257,7 +257,7 @@ http://lovesoo.org/wordpress-code-highlight-plugin-syntaxhighlighter-evolved.htm
             </td>
             
             <td class="content">
-              <code class="plain"><div id=</code><code class="string">"_mcePaste"</code><code class="plain">><p><a href=</code><code class="string">"<a href="http://wordpress.org/">http://wordpress.org/</a>"</code><code class="plain">>WordPress</a></p></div></code>
+              <code class="plain"><div id=</code><code class="string">"_mcePaste"</code><code class="plain">><a href=</code><code class="string">"<a href="http://wordpress.org/">http://wordpress.org/</a>"</code><code class="plain">>WordPress</a></div></code>
             </td>
           </tr>
         </table>

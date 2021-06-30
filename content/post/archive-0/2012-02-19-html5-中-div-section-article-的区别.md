@@ -43,16 +43,16 @@ section 不仅仅是一个普通的容器标签。当一个标签只是为了样
   <h1>Apples</h1>
   <h2>Tasty, delicious fruit!</h2>
  </hgroup>
- <p>The apple is the pomaceous fruit of the apple tree.</p>
+ The apple is the pomaceous fruit of the apple tree.
  <section>
   <h1>Red Delicious</h1>
-  <p>These bright red apples are the most common found in many
-  supermarkets.</p>
+  These bright red apples are the most common found in many
+  supermarkets.
  </section>
  <section>
   <h1>Granny Smith</h1>
-  <p>These juicy, green apples make a great filling for
-  apple pies.</p>
+  These juicy, green apples make a great filling for
+  apple pies.
  </section>
 </article>
 
@@ -73,11 +73,11 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 <article>
  <header>
   <h1>The Very First Rule of Life</h1>
-  <p><time pubdate datetime="2009-10-09T14:28-08:00"></time></p>
+  <time pubdate datetime="2009-10-09T14:28-08:00"></time>
  </header>
- <p>If there's a microphone anywhere near you, assume it's hot and
- sending whatever you're saying to the world. Seriously.</p>
- <p>...</p>
+ If there's a microphone anywhere near you, assume it's hot and
+ sending whatever you're saying to the world. Seriously.
+ ...
  <footer>
   <a href="?comments=1">Show comments...</a>
  </footer>
@@ -85,26 +85,26 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 <article>
  <header>
   <h1>The Very First Rule of Life</h1>
-  <p><time pubdate datetime="2009-10-09T14:28-08:00"></time></p>
+  <time pubdate datetime="2009-10-09T14:28-08:00"></time>
  </header>
- <p>If there's a microphone anywhere near you, assume it's hot and
- sending whatever you're saying to the world. Seriously.</p>
- <p>...</p>
+ If there's a microphone anywhere near you, assume it's hot and
+ sending whatever you're saying to the world. Seriously.
+ ...
  <section>
   <h1>Comments</h1>
   <article>
    <footer>
-    <p>Posted by: George Washington</p>
-    <p><time pubdate datetime="2009-10-10T19:10-08:00"></time></p>
+    Posted by: George Washington
+    <time pubdate datetime="2009-10-10T19:10-08:00"></time>
    </footer>
-   <p>Yeah! Especially when talking about your lobbyist friends!</p>
+   Yeah! Especially when talking about your lobbyist friends!
   </article>
   <article>
    <footer>
-    <p>Posted by: George Hammond</p>
-    <p><time pubdate datetime="2009-10-10T19:15-08:00"></time></p>
+    Posted by: George Hammond
+    <time pubdate datetime="2009-10-10T19:15-08:00"></time>
    </footer>
-   <p>Hey, you have the same first name as me.</p>
+   Hey, you have the same first name as me.
   </article>
  </section>
 </article>
