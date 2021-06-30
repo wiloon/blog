@@ -6,6 +6,9 @@ date: 2017-11-08T00:40:29+00:00
 url: /?p=11375
 
 ---
+### PPS
+PPS（Packet Per Second）
+
 ### PCT (percentile)
 PCT99: 99%的响应时间  
 “90th pct/95th pct/99th pct”分别表示测试实例按响应时间从小到大排序后，第90/95/99个测试实例的响应时间。

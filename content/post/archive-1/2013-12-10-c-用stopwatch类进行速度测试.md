@@ -45,7 +45,6 @@ stress
 cpu利用率为cpu在用户进程、内核、中断处理、io等待以及空闲5个部分使用的百分比，这5个值是用来分析cpu消耗的关键指标。 在linux中，可通过top或pidstat方式来查看进程中线程的cpu的消耗状况。
 
 ## top
-    title: top
 
 输入top命令后既可查看cpu的消耗情况，cpu的信息在top视图的上面几行中
 
