@@ -255,6 +255,8 @@ kthreadd进程由idle通过kernel_thread创建，并始终运行在内核空间,
 处理软中断  
 http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/  
 
+softirq实际上也是一种注册回调的机制，ps –elf 可以看到注册的函数由一个守护进程（ksoftirgd）专门来处理，而且是每个cpu一个守护进程。
+
 
 ### kworker
 kworker意思是’Linux kernel doing work’(系统调用，processing system calls)，它是内核工作线程的’占位符’进程，它实际上执行内核的大部分工作，如中断、计时器、I/O等，CPU中’system’时间大部分由此产生。在系统中，一般会出现多个kworker进程，如kworker/0:1跟第一个cpu核心有关，依次类推。
