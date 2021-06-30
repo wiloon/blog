@@ -14,6 +14,7 @@ url: /?p=9096
     
 ### commands
     go get -u xorm.io/xorm
+    go run -race cmd.go // 竞态检测
 
 ### install
 #### ubuntu
