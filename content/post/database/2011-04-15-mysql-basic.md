@@ -3,7 +3,10 @@ title: MySQL basic
 author: "-"
 date: 2011-04-15T14:42:09+00:00
 url: mysql/basic
-
+categories:
+  - mysql
+tags:
+  - mysql
 ---
 ### 配置文件位置
     /etc/my.cnf

@@ -1,10 +1,12 @@
 ---
 title: redis list
 author: "-"
-type: post
 date: 2015-12-01T02:32:24+00:00
-url: /?p=8479
-
+url: /redis/list
+categories:
+  - redis
+tags:
+  - redis
 ---
 
 在Redis中，List类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样，我们可以在其头部(left)和尾部(right)添加新的元素。在插入时，如果该键并不存在，Redis将为该键创建一个新的链表。与此相反，如果链表中所有的元素均被移除，那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是4294967295。
@@ -35,33 +37,40 @@ Redis的列表经常被用作队列(queue)，用于在不同程序之间有序�
 
 二、相关命令列表: 
 
-### LPUSH key value1 [value2]
+### LPUSH
+    LPUSH key value1 [value2]
+    将一个或多个值插入到列表头部
 
-### RPUSH key value1 [value2]
-
+### RPUSH
+    RPUSH key value1 [value2]
+    将一个或多个值value插入到列表key的表尾。
 ### LPOP key
 
-### RPOP key
-
+### RPOP
+    RPOP key
+    移除列表的最后一个元素，返回值为移除的元素。
 ### LLEN key
 
 ### LRANGE key start stop
 
 ### LTRIM key start stop
-
+对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。
 ### LREM key count value
 
-### BLPOP key1 [key2 ] timeout
-
+### BLPOP
+    BLPOP key1 [key2 ] timeout
+    移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
 ### BRPOP key1 [key2 ] timeout
-
+移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
 ### BRPOPLPUSH source destination timeout
-
+从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
 ### RPOPLPUSH source destination
-
+移除列表的最后一个元素，并将该元素添加到另一个列表并返回
 ### LINDEX key index
 ### LINSERT key BEFORE|AFTER pivot value
 ### LPUSHX key value
+    c将值value插入到列表key的表头，当且仅当key存在并且是一个列表。
+    和LPUSH命令相反，当key不存在时，LPUSHX命令什么也不做。
 
 RPUSHX key value
 
