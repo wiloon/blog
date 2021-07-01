@@ -5,7 +5,6 @@ title = "redis basic"
 url = "redis-basic"
 +++
 
-
 ### java sdk
 - redisson
 - jedis
@@ -14,7 +13,7 @@ url = "redis-basic"
     info
 
 ### version
-    prod: 5.0.5
+    current: 5.0.5
     latest: 6.2
 
 ### URLs
