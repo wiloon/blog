@@ -8,7 +8,8 @@ bot_views:
   - 4
 categories:
   - Emacs
-
+tag:
+  - Emacs
 ---
 M-x artist-mode
   
