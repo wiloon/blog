@@ -6,6 +6,8 @@ date: 2012-07-08T08:14:54+00:00
 url: /?p=3805
 categories:
   - Java
+tags:
+  - Lock
 
 ---
 ReentrantLock的实现不仅可以替代隐式的synchronized关键字，而且能够提供超过关键字本身的多种功能。
