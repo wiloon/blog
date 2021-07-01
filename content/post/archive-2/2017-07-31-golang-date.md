@@ -23,7 +23,13 @@ url: /?p=10959
         fmt.Println("true")
     }
 ```
-
+#### duration 比较
+```go
+    func minDuration(a, b time.Duration) time.Duration {
+    if a <= b { return a }
+    return b
+}
+```
 ### layout
 ```bash
 # 时区

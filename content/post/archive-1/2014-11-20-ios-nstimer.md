@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2014-11-20T02:19:52+00:00
 url: /?p=7031
-categories:
-  - Uncategorized
 
 ---
 http://www.jianshu.com/p/5dbb07c8d5d5
