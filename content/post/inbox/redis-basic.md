@@ -2,6 +2,7 @@
 author = "-"
 date = "2021-06-22 16:40:12" 
 title = "redis basic"
+url = "redis-basic"
 +++
 
 
