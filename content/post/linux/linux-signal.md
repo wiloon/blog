@@ -1,14 +1,47 @@
-+++
-author = "-"
-date = "2021-04-30 07:20:01" 
-title = "linux signal"
+---
+title: "signal, 信号"
+author: "-"
+date: "2021-04-30 07:20:01" 
+url: "template"
+categories:
+  - OS
+tags:
+  - OS
+---
 
-+++
-# Linux信号(signal)机制
+# 信号(signal)机制
+信号(Signal)是Linux, 类Unix和其它POSIX兼容的操作系统中用来进程间通讯的一种方式。一个信号就是一个异步的通知，发送给某个进程，或者同进程的某个线程，告诉它们某个事件发生了。
+当信号发送到某个进程中时，操作系统会中断该进程的正常流程，并进入相应的信号处理函数执行操作，完成后再回到中断的地方继续执行。
+如果目标进程先前注册了某个信号的处理程序(signal handler),则此处理程序会被调用，否则缺省的处理程序被调用。
 
-对于 Linux来说，实际信号是软中断，许多重要的程序都需要处理信号。信号，为 Linux 提供了一种处理异步事件的方法。比如，终端用户输入了 ctrl+c 来中断程序，会通过信号机制停止一个程序。
+发送信号
+kill 系统调用(system call)可以用来发送一个特定的信号给进程。
+kill 命令允许用户发送一个特定的信号给进程。
+raise 库函数可以发送特定的信号给当前进程。
 
-信号(signal)是一种软中断，信号机制是进程间通信的一种方式，采用异步通信方式
+在Linux下运行man kill可以查看此命令的介绍和用法。
+
+The command kill sends the specified signal to the specified process or process group. If no signal is specified, the TERM signal is sent. The TERM signal will kill processes which do not catch this signal. For other processes, it may be necessary to use the KILL (9) signal, since this signal cannot be caught.
+
+Most modern shells have a builtin kill function, with a usage rather similar to that of the command described here. The '-a' and '-p' options, and the possibility to specify pids by command name is a local extension.
+
+If sig is 0, then no signal is sent, but error checking is still performed.
+
+一些异常比如除以0或者 segmentation violation 相应的会产生SIGFPE和SIGSEGV信号，缺省情况下导致core dump和程序退出。
+内核在某些情况下发送信号，比如在进程往一个已经关闭的管道写数据时会产生SIGPIPE信号。
+在进程的终端敲入特定的组合键也会导致系统发送某个特定的信号给此进程：
+
+Ctrl-C 发送 INT signal (SIGINT)，通常导致进程结束
+Ctrl-Z 发送 TSTP signal (SIGTSTP); 通常导致进程挂起(suspend)
+Ctrl-\ 发送 QUIT signal (SIGQUIT); 通常导致进程结束 和 dump core.
+Ctrl-T (不是所有的UNIX都支持) 发送INFO signal (SIGINFO); 导致操作系统显示此运行命令的信息
+kill -9 pid 会发送 SIGKILL信号给进程。
+
+
+
+对于 Linux来说，实际信号是软中断，许多重要的程序都需要处理信号。信号为 Linux 提供了一种处理异步事件的方法。比如，终端用户输入了 ctrl+c 来中断程序，会通过信号机制停止一个程序。
+
+信号(signal)是一种软中断，信号机制是进程间异步通信的一种方式
 
 信号的名字和编号：
 每个信号都有一个名字和编号，这些名字都以"SIG"开头，例如"SIGIO "、"SIGCHLD"等等。
@@ -38,11 +71,11 @@ Linux系统共定义了64种信号，分为两大类：可靠信号与不可靠�
 1	SIGHUP	挂起	 
 2	SIGINT	中断, /* interrupt */ 程序终止(interrupt)信号, 在用户键入INTR字符(通常是Ctrl+C)时发出，用于通知前台进程组终止进程。	 
 3	SIGQUIT	退出	 
-4	SIGILL	非法指令	 
+4	SIGILL	       非法指令	 
 5	SIGTRAP	断点或陷阱指令	 
 6	SIGABRT	abort发出的信号	 
-7	SIGBUS	非法内存访问	 
-8	SIGFPE	浮点异常	 
+7	SIGBUS	       非法内存访问	 
+8	SIGFPE	       浮点异常	 
 9	SIGKILL	kill信号	不能被忽略、处理和阻塞
 10	SIGUSR1	用户信号1	 
 11	SIGSEGV	无效内存访问	 
@@ -269,4 +302,7 @@ http://gityuan.com/2015/12/20/signal/
 链接：https://www.jianshu.com/p/f445bfeea40a
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+https://colobu.com/2015/10/09/Linux-Signals/
 

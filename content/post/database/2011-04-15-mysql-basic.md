@@ -1,9 +1,8 @@
 ---
 title: MySQL basic
 author: "-"
-type: post
 date: 2011-04-15T14:42:09+00:00
-url: /?p=7
+url: mysql/basic
 
 ---
 ### 配置文件位置
@@ -104,12 +103,14 @@ sudo systemctl start mariadb.service
 mysql -u root -p
 ```
 
+### 查表字段名
 ```sql
-# 查 表字段名
+select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name';
+select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name' AND COLUMN_NAME='column_name_0'
 select COLUMN_NAME from information_schema.COLUMNS where table_name = 'your_table_name' and table_schema = 'your_db_name';
+```
 
-select COLUMN_KEY,COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where table_name='表名' AND COLUMN_KEY='PRI';
-
+```sql
 -- 查看索引
 show index from tablename;
 
