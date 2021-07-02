@@ -6,18 +6,18 @@ title = "OkHttp"
 https://github.com/square/okhttp
 
 ```java
-        RequestBody body = RequestBody.create(MediaTypeJson, jsonStr0);
-        Request request = new Request.Builder()
-                .url(url0)
-                .post(body)
-                .build();
-        String resp = null;
+    RequestBody body = RequestBody.create(MediaTypeJson, jsonStr0);
+    Request request = new Request.Builder()
+            .url(url0)
+            .post(body)
+            .build();
+    String resp = null;
 
-        try (Response response = client.newCall(request).execute()) {
-            resp = response.body().string();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    try (Response response = client.newCall(request).execute()) {
+        resp = response.body().string();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
 
 ```
 
