@@ -198,11 +198,10 @@ func main(){
 ```
 
 ### 废弃的函数
-
     // Deprecated
     func foo(){}
 
-### command
+### 查看go语言的环境变量
         go env
 
 ## date time
