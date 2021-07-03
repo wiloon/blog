@@ -1,23 +1,38 @@
 ---
 title: redis 集群/cluster
 author: "-"
-type: post
 date: 2016-12-16T02:55:44+00:00
 url: /redis-cluster
 
 ---
-```bash
-#centos
-sudo yum install epel-release
-yum install redis
 
-```
+$ wget https://download.redis.io/releases/redis-6.2.4.tar.gz
+$ tar xzf redis-6.2.4.tar.gz
+$ cd redis-6.2.4
+$ make
 
-mkdir redis-cluster
-  
-cd redis-cluster
-  
+mkdir cluster-test
+cd cluster-test
 mkdir 7000 7001 7002 7003 7004 7005
+
+vim 7000/redis.conf
+
+port 7000
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 5000
+appendonly no
+
+cd 7000
+../redis-server ./redis.conf
+
+redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 \
+127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 \
+--cluster-replicas 1
+
+
+./redis-cli -p 7000 cluster nodes | grep master
+
 
 在文件夹 7000 至 7005 中， 各创建一个 redis.conf 文件， 文件的内容可以使用上面的示例配置文件， 但记得将配置中的端口号从 7000 改为与文件夹名字相同的号码。
 
@@ -164,6 +179,9 @@ OK：集群可以正常工作，负责处理全部16384个槽节点中，没有�
 原文链接：https://blog.csdn.net/yaomingyang/article/details/79081299
 
 
+---
+
+https://redis.io/topics/cluster-spec
 
 http://greemranqq.iteye.com/blog/2229640
 

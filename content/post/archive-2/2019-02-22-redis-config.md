@@ -78,7 +78,10 @@ databases 16
 #   你也可以通过增加一个只有一个空字符串的配置项（如下面的实例）来去掉前面的"save"配置。  
 #  
 #   save ""  
-
+# Snapshotting can be completely disabled with a single empty string argument
+# as in following example:
+#
+# save ""
 save 900 1  
 save 300 10  
 save 60 10000 

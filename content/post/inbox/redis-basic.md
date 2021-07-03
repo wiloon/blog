@@ -22,6 +22,13 @@ url = "redis-basic"
 
 ### install
 
+```bash
+#centos
+sudo yum install epel-release
+yum install redis
+
+```
+
 #### rpm
 download redis rpm from https://pkgs.org/download/redis
   
