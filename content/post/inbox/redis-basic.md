@@ -4,6 +4,23 @@ date = "2021-06-22 16:40:12"
 title = "redis basic"
 url = "redis-basic"
 +++
+### cluster
+    ./redis-cli -p 7000 cluster nodes
+    ./redis-cli -p 7000 CLUSTER FAILOVER
+    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
+    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave
+    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave --cluster-master-id 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+    ./redis-cli -p 7006> cluster replicate 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+    redis-cli --cluster del-node 127.0.0.1:7000 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+    ./redis-cli --cluster check 127.0.0.1:7000
+
+
+### DEBUG SEGFAULT 
+Redis Debug Segfault 命令执行一个非法的内存访问从而让 Redis 崩溃，仅在开发时用于 BUG 调试。制造一次服务器当机。
+
+    redis 127.0.0.1:6379> DEBUG SEGFAULT 
+    redis-cli -p 7002 debug segfault
+
 
 ### java sdk
 - redisson
@@ -31,7 +48,7 @@ yum install redis
 
 #### rpm
 download redis rpm from https://pkgs.org/download/redis
-  
+
 下载Redis的依赖包: libjemalloc
 
 下载地址: https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html
@@ -64,6 +81,8 @@ podman run \
 redis:6.2.4 redis-server /usr/local/etc/redis/redis.conf
 
 ```
+
+
 
 ```bash
 redis-server --version
