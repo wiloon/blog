@@ -177,17 +177,14 @@ int resetSyncLabel(long bookId);
        
 <result column="FLabel" jdbcType="VARCHAR" property="label" />
        
-<result column="FMirror" jdbcType="VARCHAR" property="mirror" />
-       
-<result column="FSyncCount" jdbcType="INTEGER" property="syncCount" />
-       
+<result column="FMirror" jdbcType="VARCHAR" property="mirror" />       
 <result column="FLastModifyTime" jdbcType="TIMESTAMP" property="lastModifyTime" />
    
 </resultMap>
 
 <sql id="selectSyncLabelForm">
     
- select FID, FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime from t_sync_label 
+ select FID, FUserName, FBookId, FRestored, FLabel, FMirror, FLastModifyTime from t_sync_label 
    
 </sql>
 
@@ -195,7 +192,7 @@ int resetSyncLabel(long bookId);
       
 <![CDATA[
          
-insert into t_sync_label (FUserName, FBookId, FRestored, FLabel, FMirror, FSyncCount, FLastModifyTime)
+insert into t_sync_label (FUserName, FBookId, FRestored, FLabel, FMirror, FLastModifyTime)
          
 values (#userName:VARCHAR#, #bookId:LONG#, #restored#, #label:VARCHAR#, #mirror#, #syncCount#, #lastModifyTime:TIMESTAMP#)
       
@@ -240,9 +237,6 @@ FLastModifyTime = #lastModifyTime:TIMESTAMP#,
 FVersion = #version#,
     
 fmirror = #mirror#,
-    
-FSyncCount = #syncCount#,
-    
 FBookId = #bookId#, FRestored = #restored#
     
 where FID = #id:INTEGER#
