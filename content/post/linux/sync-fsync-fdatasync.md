@@ -34,8 +34,6 @@ fsync的功能是确保文件fd所有已修改的内容已经正确同步到硬�
 
 PS：如果采用内存映射文件的方式进行文件IO（使用mmap，将文件的page cache直接映射到进程的地址空间，通过写内存的方式修改文件），也有类似的系统调用来确保修改的内容完全同步到硬盘之上：
 
-1
-2
 #incude <sys/mman.h>
 int msync(void *addr, size_t length, int flags)
 msync需要指定同步的地址区间，如此细粒度的控制似乎比fsync更加高效（因为应用程序通常知道自己的脏页位置），但实际上（Linux）kernel中有着十分高效的数据结构，能够很快地找出文件的脏页，使得fsync只会同步文件的修改内容。
@@ -48,8 +46,6 @@ msync需要指定同步的地址区间，如此细粒度的控制似乎比fsync�
 
 Posix同样定义了fdatasync，放宽了同步的语义以提高性能：
 
-1
-2
 #include <unistd.h>
 int fdatasync(int fd);
 fdatasync的功能与fsync类似，但是仅仅在必要的情况下才会同步metadata，因此可以减少一次IO写操作。那么，什么是"必要的情况"呢？根据man page中的解释：
