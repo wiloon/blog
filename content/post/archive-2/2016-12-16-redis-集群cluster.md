@@ -6,6 +6,14 @@ url: /redis-cluster
 
 ---
 
+### redis cluster哈希槽数量
+16348=16k，用bitmap来压缩心跳包的话，就相当于使用2_8_10=2KB大小的心跳包。而如果用crc16算法(redis使用这个而不是用哈希一致性算法)来确定哈希槽的分配。他的最大值是是2的16次方。用上面的算法换算需要8KB的心跳包来传输，作者自己认为这样不划算。而一个redis节点一般不会有超过1000个master(这个是作者自己说的),用16k来划分是比较合适的
+
+https://www.zhihu.com/question/54817522
+   
+https://github.com/antirez/redis/issues/2576
+
+
 $ wget https://download.redis.io/releases/redis-6.2.4.tar.gz
 $ tar xzf redis-6.2.4.tar.gz
 $ cd redis-6.2.4

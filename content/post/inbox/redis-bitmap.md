@@ -1,31 +1,13 @@
 ---
-title: redis data type, 数据类型
+title: "redis bitmap"
 author: "-"
-type: post
-date: 2015-09-22T08:12:47+00:00
-url: /?p=8329
+date: "2021-07-06 05:56:41"
+url: "redis-bitmap"
 categories:
-  - database
-
+  - inbox
+tags:
+  - inbox
 ---
-<https://redis.io/topics/data-types>
-  
-<https://redis.io/topics/data-types-intro>
-
-  * [String - 字符串][1]
-  * [List - 列表][2]
-  * [Set - 无序集合][3]
-  * [Hashes - 哈希/散列表][4]
-  * [Sorted sets - 有序集合][5]
-  * [Stream - 消息队列][6]
-  * Bitmaps and HyperLogLogs
-
- [1]: http://blog.wiloon.com/?p=12863  
- [2]: http://blog.wiloon.com/?p=8479  
- [3]: http://blog.wiloon.com/?p=8499  
- [4]: http://blog.wiloon.com/?p=8040  
- [5]: http://blog.wiloon.com/?p=9803  
- [6]: https://blog.wiloon.com/?p=14772  
 
 ### BitMap
 https://www.cnblogs.com/54chensongxia/p/13794391.html
@@ -34,8 +16,6 @@ BitMap#
 BitMap 原本的含义是用一个比特位来映射某个元素的状态。由于一个比特位只能表示 0 和 1 两种状态，所以 BitMap 能映射的状态有限，但是使用比特位的优势是能大量的节省内存空间。
 
 在 Redis 中，可以把 Bitmaps 想象成一个以比特位为单位的数组，数组的每个单元只能存储0和1，数组的下标在 Bitmaps 中叫做偏移量。
-
-
 
 需要注意的是：BitMap 在 Redis 中并不是一个新的数据类型，其底层是 Redis 实现。
 
@@ -124,10 +104,3 @@ bitop or dest2 20201009 20201010
 3. 统计用户是否在线
 
 如果需要提供一个查询当前用户是否在线的接口，也可以考虑使用 BitMap 。即节约空间效率又高，只需要一个 key，然后用户 id 为 offset，如果在线就设置为 1，不在线就设置为 0。
-
-
-### Hyperloglog
-https://segmentfault.com/a/1190000020523110
-
-### geospatial
-https://blog.csdn.net/zhang197093/article/details/72979038
