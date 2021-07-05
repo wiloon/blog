@@ -82,3 +82,9 @@ Gossip协议下，没有任何扮演特殊角色的节点（比如leader等）�
 链接：https://www.jianshu.com/p/54eab117e6ae
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+https://cloud.tencent.com/developer/article/1662426
+
+
+
