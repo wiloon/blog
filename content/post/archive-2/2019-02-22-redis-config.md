@@ -78,7 +78,10 @@ databases 16
 #   你也可以通过增加一个只有一个空字符串的配置项（如下面的实例）来去掉前面的"save"配置。  
 #  
 #   save ""  
-
+# Snapshotting can be completely disabled with a single empty string argument
+# as in following example:
+#
+# save ""
 save 900 1  
 save 300 10  
 save 60 10000 
@@ -151,11 +154,12 @@ slave-priority 100
 # 是否开启AOF持久化
 appendonly no
 appendfilename "foo.aof"
-
+# appendfsync
 # always	将 aof_buf 缓冲区中的所有内容写入并同步到 AOF 文件。
 # everysec	将 aof_buf 缓冲区中的所有内容写入到 AOF 文件， 如果上次同步 AOF 文件的时间距离现在超过一秒钟， 那么再次对 AOF 文件进行同步， 并且这个同步操作是由一个线程专门负责执行的。
 # no	    将 aof_buf 缓冲区中的所有内容写入到 AOF 文件， 但并不对 AOF 文件进行同步， 何时同步由操作系统来决定。
 appendfsync everysec
+# no-appendfsync-on-rewrite
 # no，是最安全的方式，不会丢失数据，但是要忍受阻塞的问题。
 # yes, 这就相当于将appendfsync设置为no，这说明并没有执行磁盘操作，只是写入了缓冲区，因此这样并不会造成阻塞（因为没有竞争磁盘），但是如果这个时候redis挂掉，就会丢失数据。丢失多少数据呢？在linux的操作系统的默认设置下，最多会丢失30s的数据。
 no-appendfsync-on-rewrite no
@@ -263,6 +267,7 @@ hz 的默认值是 10,可以通过提高这个值来使得 CPU 在空闲的时�
 
 ### vm-enabled yes
 开启VM, 虚拟内存
+
 ---
 
 https://blog.csdn.net/pengjunlee/article/details/81269596

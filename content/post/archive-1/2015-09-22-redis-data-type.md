@@ -5,7 +5,7 @@ type: post
 date: 2015-09-22T08:12:47+00:00
 url: /?p=8329
 categories:
-  - Uncategorized
+  - database
 
 ---
 <https://redis.io/topics/data-types>
@@ -18,7 +18,8 @@ categories:
   * [Hashes - 哈希/散列表][4]
   * [Sorted sets - 有序集合][5]
   * [Stream - 消息队列][6]
-  * Bitmaps and HyperLogLogs
+  * Bitmaps, url: redis-bitmap
+  * HyperLogLogs
 
  [1]: http://blog.wiloon.com/?p=12863  
  [2]: http://blog.wiloon.com/?p=8479  
@@ -27,8 +28,7 @@ categories:
  [5]: http://blog.wiloon.com/?p=9803  
  [6]: https://blog.wiloon.com/?p=14772  
 
-### BitMap
-https://www.cnblogs.com/54chensongxia/p/13794391.html
+
 
 ### Hyperloglog
 https://segmentfault.com/a/1190000020523110

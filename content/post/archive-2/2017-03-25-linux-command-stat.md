@@ -4,10 +4,14 @@ author: "-"
 type: post
 date: 2017-03-25T02:32:27+00:00
 url: /?p=9935
-categories:
-  - Uncategorized
 
 ---
+### atime, mtime, ctime
+简名	 全名	       中文名	   含义
+atime	access time	访问时间	文件中的数据库最后被访问的时间
+mtime	modify time	修改时间	文件内容被修改的最后时间
+ctime	change time	变化时间	文件的元数据发生变化。比如权限，所有者等
+
 在windows下，一个文件有: 创建时间、修改时间、访问时间。
   
 而在Linux下，一个文件也有三种时间，分别是: 访问时间、修改时间、状态改动时间。
@@ -32,23 +36,18 @@ Tue Aug 4 15:13:44 HKT 2009
   
 -rw-r–r– 1 root root 39 2009-08-04 15:13:44.000000000 +0800 filetime.txt
 
-通过stat filename.txt来查，如: 
+### 通过stat 命令查 atime, mtime, ctime 
+    stat filetime.txt
 
-# stat filetime.txt
-
-File: \`filetime.txt'
-  
-Size: 39 Blocks: 8 IO Block: 4096 Regular File
-  
-Device: 802h/2050d Inode: 17 Links: 1
-  
-Access: (0644/-rw-r–r–) Uid: ( 0/ root) Gid: ( 0/ root)
-  
-Access: 2009-08-04 15:13:44.000000000 +0800
-  
-Modify: 2009-08-04 15:13:44.000000000 +0800
-  
-Change: 2009-08-04 15:13:44.000000000 +0800
+#### output
+      File: filetime.txt
+      Size: 39              Blocks: 8          IO Block: 4096   regular file
+    Device: 803h/2051d      Inode: 16280696    Links: 1
+    Access: (0644/-rw-r--r--)  Uid: ( 1000/  wiloon)   Gid: ( 1000/  wiloon)
+    Access: 2021-07-04 19:17:15.563865369 +0800
+    Modify: 2021-07-04 19:17:15.563865369 +0800
+    Change: 2021-07-04 19:17:15.563865369 +0800
+    Birth: 2021-07-04 19:17:15.563865369 +0800
 
 说明: Access访问时间(存取时间)。Modify修改时间。Change状态改动时间。可以stat *查看这个目录所有文件的状态。
   

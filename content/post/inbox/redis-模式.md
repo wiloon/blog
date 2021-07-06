@@ -1,16 +1,13 @@
-
-Redis模式对比：主从模式 VS 哨兵sentinel模式 VS Redis cluster模式
-Java高级架构师
-Java高级架构师
-热衷技术，交流分享
-​关注他
-11 人赞同了该文章
-推荐观看：
-十年架构师实战Redis—用Redis实现：秒杀/抢购/排行榜/推荐系统/抽奖系统！从Redis到分布式架构，通过Redis学AKF划分原则、CAP定理！
-​
-www.bilibili.com
-模式类型
-
+---
+title: "主从模式 VS 哨兵sentinel模式 VS Redis cluster模式"
+author: "-"
+date: ""
+url: "template"
+categories:
+  - inbox
+tags:
+  - inbox
+---
 主从模式（redis2.8版本之前的模式）、哨兵sentinel模式（redis2.8及之后的模式）、redis cluster模式（redis3.0版本之后）
 
 主从模式原理

@@ -6,6 +6,33 @@ date: 2019-05-06T04:27:52+00:00
 url: /?p=14295
 
 ---
+## string
+### Replace
+用法
+
+${parameter/pattern/string}
+使用
+ 
+$ a=/data/wxnacy/data/log/log.txt
+$ echo ${a/data/User}           # 将第一个 data 替换为 User
+/User/wxnacy/data/log/log.txt
+
+$ echo ${a//data/User}           # 将全部 data 替换为 User
+/User/wxnacy/User/log/log.txt
+
+$ echo ${a/#\/data/\/User}           # 匹配开头 /data 替换为 /User（/ 需要转义）
+/User/wxnacy/data/log/log.txt
+
+$ echo ${a/%log.txt/User}           # 匹配结尾 log.txt 替换为 User
+/data/wxnacy/data/log/User
+其他方法
+
+还有一种方法是利用 sed 来实现
+ 
+$ echo $a | sed -e "s/data/User/g"
+/User/wxnacy/User/log/log.txt
+
+
 ### 16进制转换成10进制
     printf %d 0x45b9
 
@@ -172,7 +199,7 @@ dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
   
 echo "dt=${dt}"
   
-Shell 变量
+### Shell 变量
   
 shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理：
 
@@ -328,6 +355,22 @@ fi
 ```
 
 ### shell变量
+定义变量时，变量名不加美元符号
+
+    key0="value0"
+
+注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：
+
+命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
+中间不能有空格，可以使用下划线（_）。
+不能使用标点符号。
+不能使用bash里的关键字（可用help命令查看保留关键字）。
+
+#### 可以用语句给变量赋值
+
+    for file in `ls /etc`
+    或
+    for file in $(ls /etc)
 
 ```bash
 $var
@@ -975,3 +1018,6 @@ http://fyan.iteye.com/blog/1130034
 https://www.shellscript.sh/functions.html
 http://www.cnblogs.com/barrychiao/archive/2012/10/22/2733210.html
 https://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html
+
+https://wxnacy.com/2018/06/20/shell-replace/
+

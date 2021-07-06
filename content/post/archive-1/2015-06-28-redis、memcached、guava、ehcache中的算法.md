@@ -1,14 +1,14 @@
 ---
-title: Redis、Memcached、Guava、Ehcache 中的算法
+title: Redis, Memcache, Guava, Ehcache 中的算法
 author: "-"
 type: post
 date: 2015-06-28T03:19:50+00:00
 url: /?p=7929
 categories:
-  - Uncategorized
+  - cache
 tags:
-  - Java
-  - MemCache
+  - redis
+  - memcache
 
 ---
 缓存那些事，一是内存爆了要用LRU(最近最少使用, Least Recently Used)、LFU(最少访问次数, Least Frequently Used)、FIFO的算法清理一些；二是设置了超时时间的键过期便要删除，用主动或惰性的方法。
@@ -51,7 +51,6 @@ Guava Cache同样做了一个双向的Queue，见LocalCache中的AccessQueue类�
 
 
 ### 过期键删除
-  
 如果能为每一个设置了过期的元素启动一个Timer，一到时间就触发把它删掉，那无疑是能最快删除过期键最省空间的，在Java里用一条DeplayQueue存着，开条线程不断的读取就能做到。但因为该线程消耗CPU较多，在内存不紧张时有点浪费，似乎大家都不用这个方法。
 
 所以有了惰性检查，就是每次元素被访问时，才去检查它是否已经超时了，这个各家都一样。但如果那个元素后来都没再被访问呢，会永远占着位子吗？所以各家都再提供了一个定期主动删除的方式。
