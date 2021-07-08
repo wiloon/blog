@@ -4,6 +4,27 @@ date = "2021-06-22 16:40:12"
 title = "redis basic"
 url = "redis-basic"
 +++
+### commands
+    # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
+    OBJECT ENCODING key0
+
+### cluster
+    ./redis-cli -p 7000 cluster nodes
+    ./redis-cli -p 7000 CLUSTER FAILOVER
+    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
+    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave
+    redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave --cluster-master-id 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+    ./redis-cli -p 7006> cluster replicate 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+    redis-cli --cluster del-node 127.0.0.1:7000 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+    ./redis-cli --cluster check 127.0.0.1:7000
+
+
+### DEBUG SEGFAULT 
+Redis Debug Segfault 命令执行一个非法的内存访问从而让 Redis 崩溃，仅在开发时用于 BUG 调试。制造一次服务器当机。
+
+    redis 127.0.0.1:6379> DEBUG SEGFAULT 
+    redis-cli -p 7002 debug segfault
+
 
 ### java sdk
 - redisson
@@ -22,9 +43,16 @@ url = "redis-basic"
 
 ### install
 
+```bash
+#centos
+sudo yum install epel-release
+yum install redis
+
+```
+
 #### rpm
 download redis rpm from https://pkgs.org/download/redis
-  
+
 下载Redis的依赖包: libjemalloc
 
 下载地址: https://pkgs.org/centos-6/atomic-x86_64/jemalloc-3.6.0-1.el6.art.x86_64.rpm.html
@@ -57,6 +85,8 @@ podman run \
 redis:6.2.4 redis-server /usr/local/etc/redis/redis.conf
 
 ```
+
+
 
 ```bash
 redis-server --version
@@ -173,14 +203,12 @@ redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster
 redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba41f3b603ff
 说明: 指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
 
-
-
 ```
-
 
 ### unlink 命令
     unlink key [key ...]
-    该命令和DEL十分相似：删除指定的key(s),若key不存在则该key被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来：仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
+
+该命令和DEL十分相似：删除指定的key(s),若key不存在则该key被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来：仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
 
 释放key代价计算函数lazyfreeGetFreeEffort()，集合类型键，且满足对应编码，cost就是集合键的元数个数，否则cost就是1.
     List：4.0只有一种编码，quicklist，所以编码无限制，直接返回element个数。

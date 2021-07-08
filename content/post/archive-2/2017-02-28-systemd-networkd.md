@@ -75,15 +75,16 @@ sudo systemctl start wpa_supplicant@wlp2s0
     [Network]
     DHCP=yes
 
-### 静态 IP 
-    [Match]
-    Name=ens3
+### 静态 IP, vim /etc/systemd/network/eth.network
+```bash
+[Match]
+Name=ens3
 
-    [Network]
-    Address=192.168.1.87/24
-    Gateway=192.168.1.254
-    DNS=192.168.1.254
-
+[Network]
+Address=192.168.50.10/24
+Gateway=192.168.50.1
+DNS=192.168.50.1
+```
 ### 把网卡加入网桥 /etc/systemd/network/10-eth1.network
     [Match]
     Name=enp3s0
