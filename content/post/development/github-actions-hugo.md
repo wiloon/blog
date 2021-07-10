@@ -125,3 +125,27 @@ title = "hugo, envoy, github actions"
 ## 三、运行
 
 把 Workflow 文件提交、推送即可触发，Hugo 站点发布到 GitHub Pages。以后每次推送都会触发，以实现 Hugo 站点的自动发布。
+
+
+### script, blog-new.sh
+
+```bash
+#!/bin/sh
+
+title=$1
+f=${title// /-}
+touch /home/wiloon/projects/wiloon.com/content/post/inbox/$f.md
+d=`date '+%Y-%m-%d %H:%M:%S'`
+cat <<EOF > /home/wiloon/projects/wiloon.com/content/post/inbox/$f.md
+---
+title: "$title"
+author: "-"
+date: "$d"
+url: "$f"
+categories:
+  - inbox
+tags:
+  - inbox
+---
+EOF
+```

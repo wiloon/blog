@@ -1,5 +1,5 @@
 ---
-title: linux 内核 (kernel) 
+title: linux 内核, kernel 
 author: "-"
 type: post
 date: 2012-02-26T06:37:22+00:00
@@ -9,7 +9,7 @@ categories:
 
 ---
 ### kernel doc
-    https://www.kernel.org/doc/html
+    https://www.kernel.org/doc/html/latest/
 
 ### linux内核版本的分类
     Linux内核版本有两种：稳定版和开发版 ，Linux内核版本号由3组数字组成：第一个组数字.第二组数字.第三组数字

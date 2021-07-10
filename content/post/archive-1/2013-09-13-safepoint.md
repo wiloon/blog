@@ -60,8 +60,8 @@ safepoint机制可以stop the world，不仅仅是在GC的时候用，有很多�
   
 看一下OpenJDK里面关于safepoint的一些说明
 
-```java view plain copy
-  
+```java
+ 
 // Begin the process of bringing the system to a safepoint.
   
 // Java threads can be in several different states and are
@@ -133,11 +133,12 @@ safepoint机制可以stop the world，不仅仅是在GC的时候用，有很多�
 // block itself when it attempts transitions to a new state.
   
 //
+```
 
 可以看到JVM在阻塞全部Java线程之前，Java线程可能处在不同的状态，这篇聊聊JVM（五）从JVM角度理解线程 说了JVM里面定义的线程所有的状态。
 
-  1. 当线程在解释模式下执行的时候，让JVM发出请求之后，解释器会把指令跳转到检查safepoint的状态，比如检查某个内存页位置，从而让线程阻塞 
-  2. 当Java线程正在执行native code的时候，这种情况最复杂，篇幅也写的最多。当VM thread看到一个Java线程在执行native code，它不需要等待这个Java线程进入阻塞状态，因为当Java线程从执行native code返回的时候，Java线程会去检查safepoint看是否要block(When returning from the native code, a Java thread must check the safepoint _state to see if we must block)
+1. 当线程在解释模式下执行的时候，让JVM发出请求之后，解释器会把指令跳转到检查safepoint的状态，比如检查某个内存页位置，从而让线程阻塞 
+2. 当Java线程正在执行native code的时候，这种情况最复杂，篇幅也写的最多。当VM thread看到一个Java线程在执行native code，它不需要等待这个Java线程进入阻塞状态，因为当Java线程从执行native code返回的时候，Java线程会去检查safepoint看是否要block(When returning from the native code, a Java thread must check the safepoint _state to see if we must block)
 
 后面说了一大堆关于如何让读写safepoint state和thread state按照严格顺序执行(serialized)，主要用两种做法，一种是加内存屏障(Memeory barrier)，一种是调用mprotected系统调用去强制Java的写操作按顺序执行（The VM thread performs a sequence of mprotect OS calls which forces all previous writes from all Java threads to be serialized. This is done in the os::serialize_thread_states() call）
 
@@ -147,7 +148,7 @@ JVM采用的后者，因为内存屏障是一个很重的操作，要强制刷�
 
 为什么要做线程同步呢，这篇 请教hotspot源码中关于Serialization Page的问题 解释了这个问题: 
 
-```java view plain copy
+```java
   
 AddressLiteral sync_state(SafepointSynchronize::address_of_state());
   
