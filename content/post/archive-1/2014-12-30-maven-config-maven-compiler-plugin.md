@@ -42,7 +42,7 @@ http://blog.csdn.net/zhaoyongnj2012/article/details/23970451
 maven的conf\setting.xml文件中找到jdk配置的地方，修改如下: 
 
 
-[html] view plaincopy
+```xml
   
 <profile>
   
@@ -67,6 +67,7 @@ maven的conf\setting.xml文件中找到jdk配置的地方，修改如下:
 </properties>
   
 </profile>
+```
 
 解决方案2: 修改项目中pom.xml文件，这样避免在导入项目时的jdk版本指定
 
