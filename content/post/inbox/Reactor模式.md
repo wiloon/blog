@@ -23,6 +23,11 @@ handle(socket)
 
 之后，想到了使用多线程，也就是很经典的connection per thread，每一个连接用一个线程处理，类似：
 
+### 多线程IO
+
+
+
+
 https://www.cnblogs.com/crazymakercircle/p/9833847.html
 
 http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf
