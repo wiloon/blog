@@ -9,7 +9,8 @@ tags:
 
 ---
 ### setting>mirror
-https://developer.aliyun.com/mirror/maven
+    https://developer.aliyun.com/mirror/maven
+    https://repo.maven.apache.org/maven2
 
 ### 参数
 对应一个变量值，pom.xml里面配置的有，那么如果你在命令行中 以 -Dmy.filter.value=1 的格式去配置mvn命令，那么将覆盖你pom中的值。

@@ -70,8 +70,6 @@ public class TestZoo {
 
 注意，如果你使用的最新版的IntelliJ IDEA 2020.1版本的话，语言编译版本一定要选择14(Preview),因为这个功能是preview的。
 
-
-
 ---
 
 https://www.cnblogs.com/flydean/p/jdk14-instanceof-pattern-matching.html
