@@ -1,11 +1,10 @@
 ---
-title: linux, strace
+title: strace
 author: "-"
-type: post
 date: 2017-06-08T02:55:24+00:00
-url: /?p=10510
+url: strace
 categories:
-  - Uncategorized
+  - OS
 
 ---
 http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/strace.html
@@ -18,7 +17,7 @@ strace常用来跟踪进程执行时的系统调用和所接收的信号。 在L
   
 每一行都是一条系统调用，等号左边是系统调用的函数名及其参数，右边是该调用的返回值。 strace 显示这些调用的参数并返回符号形式的值。strace 从内核接收信息，而且不需要以任何特殊的方式来构建内核。
 
-$strace cat /dev/null
+    strace cat /dev/null
   
 execve("/bin/cat", ["cat", "/dev/null"], [/* 22 vars */]) = 0
   
@@ -32,7 +31,7 @@ access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
   
 ...
   
-6.2. 参数
+#### 参数
   
 -c 统计每一系统调用的所执行的时间,次数和出错的次数等.
   

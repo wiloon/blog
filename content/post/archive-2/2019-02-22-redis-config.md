@@ -191,7 +191,7 @@ cluster-migration-barrier 1
 # yes: 默认情况下，其中一台主（如果没有做slave） down 机后，集群会显示不可用状态。
 # no: 当 cluster-require-full-coverage 配置成 no 的时候，表示当负责一个槽的主库下线且没有相应的从库进行故障恢复时，集群仍然可用。
 cluster-require-full-coverage no
-# 对执行时间大于多少微秒(microsecond，1秒 = 1,000,000 微秒)的查询进行记录。
+# slowlog-log-slower-than, 对执行时间大于多少微秒(microsecond，1秒 = 1,000,000 微秒)的查询进行记录。
 slowlog-log-slower-than 10000
 # slow log 最多能保存多少条日志， slow log 本身是一个 FIFO 队列，当队列大小超过 slowlog-max-len 时，最旧的一条日志将被删除，而最新的一条日志加入到 slow log 
 slowlog-max-len 128
