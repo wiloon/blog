@@ -8,6 +8,38 @@ url = "redis-basic"
     # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
     OBJECT ENCODING key0
 
+#### 延迟时间
+     redis-cli --latency -h 192.168.50.100 -p 6379
+
+#### sort
+
+https://segmentfault.com/a/1190000002806846
+
+基本使用
+命令格式： SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC|DESC] [ALPHA] [STORE destination]
+
+默认情况下，排序是基于数字的，各个元素将会被转化成双精度浮点数来进行大小比较，这是SORT命令最简单的形式，也就是下面这种形式：
+
+SORT mylist
+
+如果mylist是一个包含了数字元素的列表，那么上面的命令将会返回升序排列的一个列表。如果想要降序排序，要使用DESC描述符，如下所示：
+
+SORT mylist DESC
+
+如果mylist包含的元素是string类型的，想要按字典顺序排列这个列表，那么就要用到ALPHA描述符，如下所示：
+
+#### watchdog
+    CONFIG SET watchdog-period 500
+
+用户通过命令 CONFIG SET 开启软件看门狗
+
+Redis 启动监测程序监测自己的状态
+
+如果 Redis 检测到服务器被某些操作阻塞了，并运行速度不够快，也许是因为延迟导致的，Redis 就会在 log 文件中写入一份关于被阻塞服务器的底层监测数据报表
+
+用户通过 Redis Google Group 发送消息给开发人员，消息包括看门狗报表。
+时间间隔以毫秒为单位。在上面的例子中，我指定了，当服务器检测到 500 毫秒或更大的延迟的时候，才记录延迟事件。最小的时间间隔是 200 毫秒。
+
 ### cluster
     ./redis-cli -p 7000 cluster nodes
     ./redis-cli -p 7000 CLUSTER FAILOVER
@@ -248,3 +280,6 @@ Redis is now able to delete keys in the background in a different thread without
 ---
 
 https://github.com/redis/redis
+
+### Redis 响应延时问题排查
+https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article

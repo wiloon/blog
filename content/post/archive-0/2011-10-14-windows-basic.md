@@ -6,6 +6,12 @@ date: 2011-10-14T05:20:22+00:00
 url: /?p=1040
 
 ---
+### windows iso
+打开页面: https://www.microsoft.com/zh-cn/software-download/windows10
+点击 立即下载工具
+运行 MediaCreationTool21H1.exe
+选择 "为另一台电脑创建安装介质"
+
 ### 查看windows的版本
     winver
 ### bat脚本控制网卡启用禁用
@@ -88,8 +94,6 @@ windows设置>控制面板>更改账户类型>添加>
 
 2、ipconfig /renew 为网卡重新从DHCP服务器上面获取新的IP地址。
 
-
 ---
-
 
 https://blog.csdn.net/hongweigg/article/details/41517025

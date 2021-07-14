@@ -54,8 +54,6 @@ Redis的列表经常被用作队列(queue)，用于在不同程序之间有序�
 
 ### LTRIM key start stop
 对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。
-### LREM key count value
-
 ### BLPOP
     BLPOP key1 [key2 ] timeout
     移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
@@ -160,7 +158,6 @@ O(1)
 返回指定Key关联的链表中元素的数量，如果该Key不存在，则返回0。如果与该Key关联的Value的类型不是链表，则返回相关的错误信息。
 
 ### LREM key count value
-
 从key对应list中删除count个和value相同的元素。
 
 count>0时，按从头到尾的顺序删除
