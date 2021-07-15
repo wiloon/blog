@@ -17,11 +17,12 @@ url: /?p=1945
 |PingTools Network Utilities||
 |炼妖壶  |流氓软件管理|
 |半导小蕊||
+|Live Transcribe & Sound Notifications|语音转文字|
+|RssX||
 
 ---
 
   * producteev
-  * RssX
   * evernote
   * sms backup
   * astro
