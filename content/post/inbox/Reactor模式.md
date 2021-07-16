@@ -1,5 +1,5 @@
 ---
-title: "Reactor模式"
+title: "Reactor, Dispatcher 模式"
 author: "-"
 date: "2021-07-11 09:44:24"
 url: "Reactor模式"
@@ -8,6 +8,19 @@ categories:
 tags:
   - inbox
 ---
+# Reactor / Dispatcher 模式
+了解 Reactor 模式，就要先从事件驱动的开发方式说起。
+
+我们知道，服务器开发，CPU 的处理速度远高于 IO 速度，为了避免 CPU 因为 IO 为阻塞，好一点的方法是多进程或线程处理，但这会带来一些进程切换的开销。
+
+这时先驱者找到了事件驱动，或者叫回调的方法。这种方式就是，应用向一个中间人注册一个回调（Event handler），当 IO 就绪后，这个中间人产生一个事件，并通知此 handler 进行处理。这种回调的方式，也实现了"好莱坞原则" - "Don't call us, we'll call you."
+
+那在 IO 就绪这个事件后，谁来充当这个中间人？Reactor 模式的答案是：有一个不断等待和循环的单独进程（线程）来做这件事，它接受所有 handler 的注册，并负责向操作系统查询 IO 是否就绪，在就绪后用指定的 handler 进行处理，这个角色的名称就叫做 Reactor。
+
+http://www.linkedkeeper.com/12.html
+
+---
+
 
 
 最最原始的网络编程思路就是服务器用一个while循环，不断监听端口是否有新的套接字连接，如果有，那么就调用一个处理函数处理，类似：
