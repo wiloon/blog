@@ -10,6 +10,9 @@ tags:
 ---
 
 ## 什么是IO多路复用
+I/O 多路复用技术会用一个系统调用函数来监听我们所有关心的连接，也就说可以在一个监控线程里面监控很多的连接。
+
+
 一个用机场管理来解释的例子，以及对select、poll、epoll的讲解
 IO 多路复用是什么意思？ - 罗志宇的回答 - 知乎
 
@@ -61,3 +64,8 @@ poll在select的基础上，去掉了select给定的只能最多处理1024个客
 ————————————————
 版权声明：本文为CSDN博主「蓝色枫魂」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/qq_32690999/article/details/80157034
+
+https://www.zhihu.com/question/26943938
+
+https://mp.weixin.qq.com/s/Qpa0qXxuIM8jrBqDaXmVNA
+
