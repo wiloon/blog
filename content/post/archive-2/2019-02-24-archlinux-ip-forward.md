@@ -1,11 +1,13 @@
 ---
-title: archlinux ip forward
+title: archlinux ip forward, ip_forward
 author: "-"
 type: post
 date: 2019-02-24T04:15:04+00:00
-url: /?p=13701
+url: ip-forward
+tags:
+  - network
 categories:
-  - Uncategorized
+  - network
 
 ---
 ### 开启数据包转发

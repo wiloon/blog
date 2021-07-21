@@ -9,34 +9,34 @@ tags:
   - inbox
 ---
 
-127.0.0.1:6379> PFADD  language  "PHP" "Python" "Perl" "Ruby"
-(integer) 1
+    127.0.0.1:6379> PFADD  language  "PHP" "Python" "Perl" "Ruby"
+    (integer) 1
 
-127.0.0.1:6379> PFCOUNT  language
-(integer) 4
+    127.0.0.1:6379> PFCOUNT  language
+    (integer) 4
 
-127.0.0.1:6379> PFADD  language  "PHP"    # Redis 已经存在，不必对估计数量进行更新
-(integer) 0
+    127.0.0.1:6379> PFADD  language  "PHP"    # Redis 已经存在，不必对估计数量进行更新
+    (integer) 0
 
-127.0.0.1:6379> PFCOUNT  language    # 元素估计数量没有变化
-(integer) 4
+    127.0.0.1:6379> PFCOUNT  language    # 元素估计数量没有变化
+    (integer) 4
 
-127.0.0.1:6379> PFADD  language "JAVA"    # 添加一个不存在的元素
-(integer) 1
+    127.0.0.1:6379> PFADD  language "JAVA"    # 添加一个不存在的元素
+    (integer) 1
 
-127.0.0.1:6379> PFCOUNT  language    # 估计数量增一
-5
+    127.0.0.1:6379> PFCOUNT  language    # 估计数量增一
+    5
 
 
 https://juejin.cn/post/6844903785744056333  
 https://www.cnblogs.com/wmyskxz/p/12396393.html 
 http://content.research.neustar.biz/blog/hll.html  
 
-HyperLogLog 算法的原理讲解以及 Redis 是如何应用它的
 
-HyperLogLog
-HyperLogLog，下面简称为HLL，它是 LogLog 算法的升级版，作用是能够提供不精确的去重计数。存在以下的特点：
+### HyperLogLog
+HyperLogLog，下面简称为HLL，它是 LogLog 算法的升级版，作用是能够提供不精确的去重计数。
 
+#### 存在以下的特点：
 代码实现较难。
 能够使用极少的内存来统计巨量的数据，在 Redis 中实现的 HyperLogLog，只需要12K内存就能统计2^64个数据。
 计数存在一定的误差，误差率整体较低。标准误差为 0.81% 。

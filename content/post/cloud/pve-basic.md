@@ -77,6 +77,72 @@ https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/
 system>network>linux bridge
 bridge ports: 支持同时添加多个网口，用空格分隔
 
+### vm  export/import
+
+简介
+利用pve的备份恢复功能进行虚拟机的导入导出
+
+使用备份功能备份为vma文件
+使用WinSCP等软件复制vma备份文件至计算机
+使用WinSCP等软件上传vma备份文件至另一台pve
+使用恢复功能恢复虚拟机
+二、 备份虚拟机
+
+
+登录pve01选择要备份的虚拟机
+点击子菜单中的备份按钮
+点击立即备份按钮
+设置备份到的存储（local的备份路径为：/var/lib/vz/dump）
+设置模式：停止
+设置压缩：无
+等待备份完毕
+
+三、使用WinSCP下载备份
+WinSCP可以使用SFTP连接pve节点
+WinSCP下载地址：WinSCP官网
+
+登录pve01节点
+
+切换远程目录至备份目录（local存储的备份目录为：/var/lib/vz/dump）找到虚拟机备份文件右键点击下载
+
+使用二进制方式下载vma备份文件至本机目录
+
+等待下载完成
+
+四、上传备份
+使用WinSCP登录pve02节点
+本地目录切换至刚下载备份的目录
+右键点击vma备份文件选择上传
+
+输入上传路径/var/lib/vz/dump/.（local存储的备份目录为：/var/lib/vz/dump）并使用二进制方式上传
+
+等待上传完毕
+
+五、恢复虚拟机
+登录pve02节点
+切换至相应的上传存储（local）
+点击子菜单中的内容菜单
+选择刚上传的vma备份文件
+点击恢复按钮
+
+设置恢复到的存储和VM ID
+点击恢复按钮开始恢复
+
+等待恢复完毕
+
+六、测试启动导入的虚拟机
+
+
+
+————————————————
+版权声明：本文为CSDN博主「Halyace」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/lyace2010/article/details/108918070
+
+### create vm from template
+- right click and select "clone"
+- input the name of new vm
+- full clone
+
 ---
 
 https://pve.proxmox.com/wiki/Main_Page

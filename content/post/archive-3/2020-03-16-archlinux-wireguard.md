@@ -38,7 +38,6 @@ wg genkey | tee peer_A.key | wg pubkey > peer_A.pub
 ### optional, pre-shared key
 wg genpsk > peer_A-peer_B.psk
 ```
-A
 ### 参数
     # 设置可以被路由到对端的ip/段
     allowed-ips
@@ -86,9 +85,7 @@ ip link set wg0 up
     sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
     sudo ip link set wg0 up
 
-### iptables, 设置iptables规则，客户端连接之后就能Ping通服务端局域网里的其它ip了。
-    iptables -A FORWARD -i wg0 -j ACCEPT
-    iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
+
 
 ### 添加路由
     # ipv4
@@ -111,10 +108,9 @@ ip link set wg0 up
     systemd-networkd-wait-online.service
     systemd-resolvconf  
     openresolv
-
-### iptables
-
+### iptables, 设置iptables规则，客户端连接之后就能Ping通服务端局域网里的其它ip了。
     iptables -A FORWARD -i wg0 -j ACCEPT
+    iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
     iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 
 
