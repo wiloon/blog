@@ -1,12 +1,13 @@
 ---
-title: supervisor
+title: supervisor, supervisorctl
 author: "-"
 type: post
 date: 2017-08-11T08:21:18+00:00
 url: /?p=11029
 
 ---
-
+    supervisorctl stop all
+    supervisorctl start all
     supervisorctl restart all
 
 http://liyangliang.me/posts/2015/06/using-supervisor/

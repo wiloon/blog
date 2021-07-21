@@ -93,27 +93,6 @@ git commit -m "first commit"
 git remote add origin git@github.com:wiloon/go-angular-x.git
 git push -u origin master
 
-### tag
-```bash
-#list local tags
-git tag
-
-# list remote tags
-git ls-remote --tags origin
-
-# add a tag
-git tag v1.0.0
-
-# commit tag
-git push origin v1.0.0
-
-# delete tag
-git tag -d 1.0.0
-
-# delete remote tag
-git push origin :refs/tags/1.0.0
-```
-
 ```bash
 git rm
 git rm -f
@@ -162,8 +141,7 @@ git pull的用法如下：
 
 git pull <远程主机名> <远程分支名>:<本地分支名>
 //取回远程主机某个分支的更新，再与本地的指定分支合并。
-1
-2
+
 因此，与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge。如果需要有选择的合并git fetch是更好的选择。效果相同时git pull将更为快捷。
 ```bash
 # 查看远程仓库地址
@@ -173,13 +151,34 @@ man git-fetch
 git fetch --prune  #在本地删除在远程不存在的branch
 git fetch --all 告诉 Git 同步所有的远端仓库。
 
-# checkout tag
-
-git checkout tag_name
-
 #git分析指定的tag标签创建分支的命令
 git checkout -b branch_name tag_name
 ```
+
+### tag
+```bash
+#list local tags
+git tag
+
+# list remote tags
+git ls-remote --tags origin
+
+# checkout tag
+git checkout tag_name
+
+# add a tag
+git tag v1.0.0
+
+# commit tag
+git push origin v1.0.0
+
+# delete tag
+git tag -d 1.0.0
+
+# delete remote tag
+git push origin :refs/tags/1.0.0
+```
+
 ### 分支, branch
 最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比git checkout要更容易理解。
 ### 打印当前分支名
@@ -296,8 +295,19 @@ $ git config --global core.autocrlf input
 如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：
 
 $ git config --global core.autocrlf false
- 
 
+### submodule
+当你在一个Git 项目上工作时，你需要在其中使用另外一个Git 项目。也许它是一个第三方开发的Git 库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。
+
+在Git 中你可以用子模块submodule来管理这些项目，submodule允许你将一个Git 仓库当作另外一个Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
+
+添加子模块
+此文中统一将远程项目https://github.com/maonx/vimwiki-assets.git克隆到本地assets文件夹。
+
+
+$ git submodule add https://github.com/maonx/vimwiki-assets.git assets
+
+ 
 ---
 
 http://zensheno.blog.51cto.com/2712776/490748  
@@ -310,3 +320,5 @@ https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424
 https://blog.csdn.net/riddle1981/article/details/74938111  
 https://blog.csdn.net/SCHOLAR_II/article/details/72191042  
 https://www.jianshu.com/p/38f04aef1c9d
+
+https://www.jianshu.com/p/9000cd49822c

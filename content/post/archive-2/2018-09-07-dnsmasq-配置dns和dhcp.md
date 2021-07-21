@@ -3,14 +3,19 @@ title: 'dnsmasq config  配置'
 author: "-"
 type: post
 date: 2018-09-07T02:42:31+00:00
-url: /?p=12638
+url: dnsmasq
 categories:
-  - Uncategorized
+  - network
 
 ---
+
 DNSmasq是一个小巧且方便地用于配置DNS和DHCP的工具，适用于小型网络。它提供了DNS功能和可选择的DHCP功能可以取代dhcpd(DHCPD服务配置)和bind等服务，配置起来更简单，更适用于虚拟化和大数据环境的部署。
 
 检查一下no-hosts前面是不是已经有了#号，默认的情况下是有的，dnsmasq 会首先寻找本地的 hosts 文件再去寻找缓存下来的域名, 最后去上游dns 服务器寻找。
+
+## install 
+### ubuntu
+    apt install dnsmasq
 
 ### docker
 ```bash

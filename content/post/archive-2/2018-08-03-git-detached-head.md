@@ -1,21 +1,29 @@
 ---
-title: Git——detached HEAD
+title: Git detached HEAD
 author: "-"
 type: post
 date: 2018-08-03T02:51:50+00:00
 url: /?p=12482
 categories:
-  - Uncategorized
+  - git
 
 ---
-在学习git的过程中，有些blog提到这种detached HEAD情况，处于好奇，去搜索了相关的文章查看这种情况的具体表现，以及解决方案，在这里作个总结。
+
+git checkout本质上是修改HEAD里面的内容来让它指向不同分支的,而HEAD文件指向的分支就是我们当前的分支,但是有时候HEAD不会指向任何分支,严谨的说是HEAD指向了一个没有分支名字的修订版本,此时恭喜你,已经处于游离状态了(detached HEAD).这时候我们在进行commit操作不会提交到任何分支上去.
+
+这个时候输入git status查看当前状态发现我没有在任何本地分支上也验证了刚才的猜想,而这时候我又作死的进行了commit操作,git提示我
+
+
+使用的是 git checkout < commit id>，即切换到指定的某一次提交，HEAD 就会处于 detached 状态（游离状态）。
+HEAD 游离状态的利与弊
+HEAD 处于游离状态时，我们可以很方便地在历史版本之间互相切换，比如需要回到某次提交，直接 checkout 对应的 commit id 或者 tag 名即可。
+
+它的弊端就是：在这个基础上的提交会新开一个匿名分支！
+也就是说我们的提交是无法可见保存的，一旦切到别的分支，游离状态以后的提交就不可追溯了。
+解决办法就是新建一个分支保存游离状态后的提交：
 
 detached head，即游离的HEAD，HEAD指向了未知的分支，即不在所有已知的分支范围内。
 
-detached HEAD 具体示意图是这样:(网络图片)
-  
-这里写图片描述
-  
 上网看了些资料，道友们是遇到这样的问题然后解决了，但是出于好奇心来了解的我并没有这样的问题，但是仍然按照道友的解决顺序尝试了下，发现执行下面这句代码git checkout origin/master，会产生detached HEAD这种情况.
 
 $ git checkout origin/master
