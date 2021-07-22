@@ -26,10 +26,6 @@ jobs:
       - name: Build
         run: hugo --minify -v
       
-      - run: yarn global add hugo-algolia
-      - run: yarn global dir
-      - run: /home/runner/.yarn/bin/hugo-algolia -s
-      
       # Deploy to vm-bwg
       - name: Deploy to vm-bwg
         uses: easingthemes/ssh-deploy@v2.1.2

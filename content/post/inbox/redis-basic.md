@@ -276,7 +276,23 @@ Redis is now able to delete keys in the background in a different thread without
 ### flushdb 
 执行删除在某个db环境下执行的话，只删除当前db的数据
 
+### RedisBloom
+    podman run -d -p 6379:6379 --name redis-redisbloom redislabs/rebloom:latest
+    BF.ADD newFilter foo
+    BF.EXISTS newFilter foo
+    BF.EXISTS newFilter bar
 
+### module
+     https://redis.io/modules
+
+模块有两种加载方式，一是在配置文件 redis.conf 中使用
+loadmodule /path/to/mymodule.so 在 Redis 启动时加载。
+
+#### list modules
+    module list
+
+### 卸载
+   MODULE UNLOAD panda
 ---
 
 https://github.com/redis/redis
