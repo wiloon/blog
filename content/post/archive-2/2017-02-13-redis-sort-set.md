@@ -1,5 +1,5 @@
 ---
-title: redis sort set, 有序集
+title: redis sort set, 有序集, zset
 author: "-"
 type: post
 date: 2017-02-13T08:48:39+00:00
@@ -14,7 +14,6 @@ Sorted-Sets和Sets类型极为相似，它们都是字符串的集合，都不�
 在Sorted-Set中添加、删除或更新一个成员都是非常快速的操作，其时间复杂度为集合中成员数量的对数。由于Sorted-Sets中的成员在集合中的位置是有序的，因此，即便是访问位于集合中部的成员也仍然非常高效。事实上，Redis所具有的这一特征在很多其它类型的数据库中是很难实现的，换句话说，在该点上要想达到和Redis同样的高效，在其它数据库中进行建模会非常困难。
 
 ## 相关命令列表: 
-
 命令原型,时间复杂度,命令描述,返回值
 
 ### 添加, ZADD
@@ -131,15 +130,11 @@ O(log(N)+M)
   
 返回值: 返回指定的成员列表。
 
-### ZRANGEBYSCORE, 返回有序集合中指定分数区间的成员列表 - 正序
-
-  * ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
-  
+### ZRANGEBYSCORE, 返回有序集合中指定分数区间的成员列表 - 正序, O(log(N)+M)
+    ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
     返回有序集key中，所有score值介于min和max之间(包括等于min或max)的成员。有序集成员按score值递增(从小到大)次序排列。
 
-O(log(N)+M)
-  
-时间复杂度中的N表示Sorted-Set中成员的数量，M则表示返回的成员数量。
+    时间复杂度中的N表示Sorted-Set中成员的数量，M则表示返回的成员数量。
 
 该命令将返回分数在min和max之间的所有成员，即满足表达式min <= score <= max的成员，其中返回的成员是按照其分数从低到高的顺序返回，如果成员具有相同的分数，则按成员的字典顺序返回。可选参数LIMIT用于限制返回成员的数量范围。可选参数offset表示从符合条件的第offset个成员开始返回，同时返回count个成员。可选参数WITHSCORES的含义参照ZRANGE中该选项的说明。最后需要说明的是参数中min和max的规则可参照命令ZCOUNT。
   
