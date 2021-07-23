@@ -136,13 +136,16 @@ O(log(N)+M)
 
     时间复杂度中的N表示Sorted-Set中成员的数量，M则表示返回的成员数量。
 
-该命令将返回分数在min和max之间的所有成员，即满足表达式min <= score <= max的成员，其中返回的成员是按照其分数从低到高的顺序返回，如果成员具有相同的分数，则按成员的字典顺序返回。可选参数LIMIT用于限制返回成员的数量范围。可选参数offset表示从符合条件的第offset个成员开始返回，同时返回count个成员。可选参数WITHSCORES的含义参照ZRANGE中该选项的说明。最后需要说明的是参数中min和max的规则可参照命令ZCOUNT。
+该命令将返回分数在min和max之间的所有成员，即满足表达式min <= score <= max的成员，其中返回的成员是按照其分数从低到高的顺序返回，如果成员具有相同的分数，则按成员的字典顺序返回。可选参数LIMIT用于限制返回成员的数量范围。可选参数offset表示从符合条件的第offset个成员开始返回，同时返回count个成员。
+
+WITHSCORES 参数决定结果集是单单返回有序集的成员，还是将有序集成员及其 score 值一起返回。
+
+最后需要说明的是参数中min和max的规则可参照命令ZCOUNT。
   
 返回值: 返回分数在指定范围内的成员列表。
 
 ### ZREVRANGEBYSCORE, 返回分数在指定范围内的成员列表 - 倒序
-
-  * ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]
+    ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]
   
     返回有序集key中，score值介于max和min之间(默认包括等于max或min)的所有的成员。有序集成员按score值递减(从大到小)的次序排列。
 
