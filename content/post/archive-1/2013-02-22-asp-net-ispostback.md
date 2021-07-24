@@ -492,7 +492,7 @@ oop filename = StringTable::intern(source, CHECK_0);
 
 导致这个 intern 变慢的原因是因为 fastjson 对String#intern方法的使用不当造成的。跟踪 fastjson 中的实现代码发现，
 
-####com.alibaba.fastjson.parser.JSONScanner#scanFieldSymbol()
+com.alibaba.fastjson.parser.JSONScanner#scanFieldSymbol()
 
 if (ch == '\"') {
       

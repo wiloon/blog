@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# stream
 stream是一个看起来比pubsub可靠多的消息队列。pubsub不靠谱？ 很不靠谱，网络一断或buffer一大就会主动清理数据。stream的设计参考了kafka的消费组模型，redis作者antirez也专门写了篇短文描述了这个过程。
 
     说起新鲜的redis streams，其实Antirez在几年前开了一个新项目叫做disque, 也是用来做消息队列的，奈何没怎么有人关注。我作为antirez的粉丝，肯定是用过了，还tmd改过disque python的库。现在redis5的stream里有一些disque的影子。 更多streams的信息 https://redis.io/topics/streams-intro
