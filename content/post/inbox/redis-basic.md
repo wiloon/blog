@@ -312,3 +312,31 @@ https://github.com/redis/redis
 
 ### Redis 响应延时问题排查
 https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article
+
+
+### RESP协议 
+什么是 RESP？
+是基于TCP的应用层协议 RESP(REdis Serialization Protocol)；
+RESP底层采用的是TCP的连接方式，通过tcp进行数据传输，然后根据解析规则解析相应信息,
+
+Redis 的客户端和服务端之间采取了一种独立名为 RESP(REdis Serialization Protocol) 的协议，作者主要考虑了以下几个点：
+
+容易实现
+
+解析快
+
+人类可读
+RESP可以序列化不同的数据类型，如整数，字符串，数组。还有一种特定的错误类型。请求从客户端发送到Redis服务器，作为表示要执行的命令的参数的字符串数组。Redis使用特定于命令的数据类型进行回复。
+RESP是二进制安全的，不需要处理从一个进程传输到另一个进程的批量数据，因为它使用前缀长度来传输批量数据。
+注意：RESP 虽然是为 Redis 设计的，但是同样也可以用于其他 C/S 的软件。Redis Cluster使用不同的二进制协议(gossip)，以便在节点之间交换消息。
+
+关于协议的具体描述，官方文档 https://redis.io/topics/protocol
+
+### pipeline
+可以将多次IO往返的时间缩减为一次，前提是pipeline执行的指令之间没有因果相关性。
+
+---
+
+https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w
+
+https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ
