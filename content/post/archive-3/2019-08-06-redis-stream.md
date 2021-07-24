@@ -5,22 +5,22 @@ type: post
 date: 2019-08-06T10:43:50+00:00
 url: /?p=14772
 categories:
-  - Uncategorized
+  - redis
 
 ---
-# stream
+# redis stream
 stream是一个看起来比pubsub可靠多的消息队列。pubsub不靠谱？ 很不靠谱，网络一断或buffer一大就会主动清理数据。stream的设计参考了kafka的消费组模型，redis作者antirez也专门写了篇短文描述了这个过程。
 
-    说起新鲜的redis streams，其实Antirez在几年前开了一个新项目叫做disque, 也是用来做消息队列的，奈何没怎么有人关注。我作为antirez的粉丝，肯定是用过了，还tmd改过disque python的库。现在redis5的stream里有一些disque的影子。 更多streams的信息 https://redis.io/topics/streams-intro
+说起新鲜的redis streams，其实Antirez在几年前开了一个新项目叫做disque, 也是用来做消息队列的，奈何没怎么有人关注。我作为antirez的粉丝，肯定是用过了，还tmd改过disque python的库。现在redis5的stream里有一些disque的影子。 更多streams的信息 https://redis.io/topics/streams-intro
     
 
 Redis5.0最近被作者突然放出来了，增加了很多新的特色功能。而Redis5.0最大的新特性就是多出了一个数据结构Stream，它是一个新的强大的支持多播的可持久化的消息队列，作者坦言Redis Stream狠狠地借鉴了Kafka的设计。
 
-Redis Stream的结构如上图所示，它有一个消息链表，将所有加入的消息都串起来，每个消息都有一个唯一的ID和对应的内容。消息是持久化的，Redis重启后，内容还在。
+Redis Stream 有一个消息链表，将所有加入的消息都串起来，每个消息都有一个唯一的ID和对应的内容。消息是持久化的，Redis重启后，内容还在。
 
 每个Stream都有唯一的名称，它就是Redis的key，在我们首次使用xadd指令追加消息时自动创建。
 
-每个Stream都可以挂多个消费组，每个消费组会有个游标last_delivered_id在Stream数组之上往前移动，表示当前消费组已经消费到哪条消息了。每个消费组都有一个Stream内唯一的名称，消费组不会自动创建，它需要单独的指令xgroup create进行创建，需要指定从Stream的某个消息ID开始消费，这个ID用来初始化last_delivered_id变量。
+每个Stream都可以挂多个消费组，每个消费组会有个游标 last_delivered_id 在 Stream 数组之上往前移动，表示当前消费组已经消费到哪条消息了。每个消费组都有一个Stream内唯一的名称，消费组不会自动创建，它需要单独的指令 xgroup create进行创建，需要指定从Stream的某个消息ID开始消费，这个ID用来初始化last_delivered_id变量。
 
 每个消费组(Consumer Group)的状态都是独立的，相互不受影响。也就是说同一份Stream内部的消息会被每个消费组都消费到。
 
