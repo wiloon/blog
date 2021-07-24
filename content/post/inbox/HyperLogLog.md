@@ -8,6 +8,8 @@ categories:
 tags:
   - inbox
 ---
+### HyperLogLog
+HyperLogLog，下面简称为HLL，它是 LogLog 算法的升级版，作用是能够提供不精确的去重计数。
 
     127.0.0.1:6379> PFADD  language  "PHP" "Python" "Perl" "Ruby"
     (integer) 1
@@ -33,8 +35,7 @@ https://www.cnblogs.com/wmyskxz/p/12396393.html
 http://content.research.neustar.biz/blog/hll.html  
 
 
-### HyperLogLog
-HyperLogLog，下面简称为HLL，它是 LogLog 算法的升级版，作用是能够提供不精确的去重计数。
+
 
 #### 存在以下的特点：
 代码实现较难。

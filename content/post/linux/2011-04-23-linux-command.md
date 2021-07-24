@@ -175,7 +175,7 @@ ls && ls -l
 sudo mount -t ntfs-3g /dev/sdc10 mnt1
 ls -lt
 ls -lrt
-chown [-R] 账号名称:用户组名称 文件或目录
+chown [-R] 账号名称: 用户组名称 文件或目录
 egrep
 
 yum install lrzsz

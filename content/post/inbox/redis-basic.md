@@ -95,6 +95,7 @@ rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ```
 ### ubuntu
     sudo apt-get install redis-server
+
 ### podman, 单机redis
 ```bash
 podman run \
@@ -276,23 +277,35 @@ Redis is now able to delete keys in the background in a different thread without
 ### flushdb 
 执行删除在某个db环境下执行的话，只删除当前db的数据
 
-### RedisBloom
-    podman run -d -p 6379:6379 --name redis-redisbloom redislabs/rebloom:latest
-    BF.ADD newFilter foo
-    BF.EXISTS newFilter foo
-    BF.EXISTS newFilter bar
+
 
 ### module
      https://redis.io/modules
+#### 下载编译好的 redis module
+     https://app.redislabs.com/
 
-模块有两种加载方式，一是在配置文件 redis.conf 中使用
-loadmodule /path/to/mymodule.so 在 Redis 启动时加载。
+#### redis.conf 中使用 模块有两种加载方式，一是在配置文件 redis.conf 中使用
+    loadmodule /path/to/mymodule.so 在 Redis 启动时加载。
+#### load a module at runtime
+    module load /data/redis/redisbloom.so
 
 #### list modules
     module list
 
 ### 卸载
-   MODULE UNLOAD panda
+   MODULE UNLOAD bf
+
+### RedisBloom
+    https://oss.redislabs.com/redisbloom/
+
+    podman run -d -p 6379:6379 --name redis-redisbloom redislabs/rebloom:latest
+    BF.ADD newFilter foo
+    BF.EXISTS newFilter foo
+    BF.EXISTS newFilter bar
+    BF.MADD myFilter foo bar baz
+    BF.MEXISTS myFilter foo nonexist bar
+    
+
 ---
 
 https://github.com/redis/redis

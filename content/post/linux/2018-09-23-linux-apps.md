@@ -73,6 +73,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | dstat                 | 查看系统性能的工具 dstat -cdlmnpsy                           |
 | sl                    | 小火车                                                       |
 | inkscape              | 矢量图形创建和编辑程序,svg                                   |
+|lrzsz|zmodem|
 
 ### pacman, development
 
