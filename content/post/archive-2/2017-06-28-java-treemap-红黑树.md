@@ -1,5 +1,5 @@
 ---
-title: Java TreeMap, 红黑树, Red–black tree
+title: Java TreeMap, 红黑树, Red–black tree, R-B Tree
 author: "-"
 type: post
 date: 2017-06-28T06:44:53+00:00
@@ -43,11 +43,7 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 这些约束强制了红黑树的关键性质: 从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。结果是这棵树大致上是平衡的。因为操作比如插入、删除和查找某个值的最坏情况时间都要求与树的高度成比例，这个在高度上的理论上限允许红黑树在最坏情况下都是高效的，而不同于普通的二叉查找树。所以红黑树它是复杂而高效的，其检索效率O(log n)。下图为一颗典型的红黑二叉树。
 
-2014051700002
-
 对于红黑二叉树而言它主要包括三大基本操作: 左旋、右旋、着色。
-
-2014051700004 2014051700005
 
 左旋 右旋
 
@@ -65,7 +61,7 @@ TreeMap的实现是红黑树算法的实现，所以要了解TreeMap就必须对
 
 二、TreeMap数据结构
 
-> > > > > > 回归主角: TreeMap<<<<<< 
+>回归主角: TreeMap
 
 TreeMap的定义如下: 
 
@@ -374,4 +370,3 @@ https://www.jianshu.com/p/2dcff3634326
 http://www.cnblogs.com/chenssy/p/3746600.html
 
 https://xieguanglei.github.io/blog/post/red-black-tree.html
-

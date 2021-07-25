@@ -198,7 +198,7 @@ HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都�
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4144&embed=true#?secret=Zea2iEVLs2" data-secret="Zea2iEVLs2" width="600" height="338" title=""HashMap,Hashtable" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.wiloon.com/wordpress/?p=4144&embed=true#?secret=Zea2iEVLs2
 
 <blockquote data-secret="PuZXM3VEiO" class="wp-embedded-content">
   
