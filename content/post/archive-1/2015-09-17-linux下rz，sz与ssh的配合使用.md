@@ -38,7 +38,7 @@ windows端需要支持ZModem的telnet/ssh客户端（比如SecureCRT）
 
 运行命令sz file1 file2就是发文件到windows上（保存的目录是可以配置） 比ftp命令方便多了，而且服务器不用再开FTP服务了
 
-PS: Linux上rz/sz这两个小工具安装lrzsz-x.x.xx.rpm即可。
+PS: Linux上rz/sz这两个小工具安装 lrzsz-x.x.xx.rpm 即可
 
 当然，还可以设置一下目录了: 
 

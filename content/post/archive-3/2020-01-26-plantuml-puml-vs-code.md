@@ -69,3 +69,16 @@ note left: child
 交换关联结束（a -- b→b -- a）
 更改定义的顺序（订单 重要......有时候）
 添加空白节点，背景/边框颜色设置为透明
+
+### 部署图
+```puml
+@startuml
+circle 1
+circle 2
+circle 3
+
+1 -- 2
+1 -- 3
+
+@enduml
+```

@@ -95,6 +95,7 @@ rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ```
 ### ubuntu
     sudo apt-get install redis-server
+
 ### podman, 单机redis
 ```bash
 podman run \
@@ -234,15 +235,14 @@ redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster
 
 redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba41f3b603ff
 说明: 指定IP、端口和node_id 来删除一个节点，从节点可以直接删除，主节点不能直接删除，删除之后，该节点会被shutdown。
-
 ```
 
 ### unlink 命令
     unlink key [key ...]
 
-该命令和DEL十分相似：删除指定的key(s),若key不存在则该key被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来：仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
+该命令和 DEL 十分相似：删除指定的key(s), 若key不存在则该 key 被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来：仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
 
-释放key代价计算函数lazyfreeGetFreeEffort()，集合类型键，且满足对应编码，cost就是集合键的元数个数，否则cost就是1.
+释放 key 代价计算函数 lazyfreeGetFreeEffort()，集合类型键，且满足对应编码，cost就是集合键的元数个数，否则cost就是1.
     List：4.0只有一种编码，quicklist，所以编码无限制，直接返回element个数。
     Set：非hash table编码，即intset编码时返回1.当一个集合只包含整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用intset作为集合键的底层实现。
     Hash：同上。
@@ -254,9 +254,8 @@ redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba
      举例： 1 一个包含100元素的list key, 它的free cost就是100 2 一个512MB的string key, 它的free cost是
      
     总结：
-    
         不管是del还是unlink，key都是同步删除的。
-        使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据effort的值来决定是否做异步删除。
+        使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据 effort 的值来决定是否做异步删除。
         使用unlink命令时，由于string类型的effort一直返回的是1，z所以string类型不会做异步删除。
 
 作者：willcat
@@ -276,26 +275,64 @@ Redis is now able to delete keys in the background in a different thread without
 ### flushdb 
 执行删除在某个db环境下执行的话，只删除当前db的数据
 
-### RedisBloom
-    podman run -d -p 6379:6379 --name redis-redisbloom redislabs/rebloom:latest
-    BF.ADD newFilter foo
-    BF.EXISTS newFilter foo
-    BF.EXISTS newFilter bar
-
 ### module
      https://redis.io/modules
+#### 下载编译好的 redis module
+     https://app.redislabs.com/
 
-模块有两种加载方式，一是在配置文件 redis.conf 中使用
-loadmodule /path/to/mymodule.so 在 Redis 启动时加载。
+#### redis.conf 中使用 模块有两种加载方式，一是在配置文件 redis.conf 中使用
+    loadmodule /path/to/mymodule.so 在 Redis 启动时加载。
+#### load a module at runtime
+    module load /data/redis/redisbloom.so
 
 #### list modules
     module list
 
 ### 卸载
-   MODULE UNLOAD panda
+   MODULE UNLOAD bf
+
+### RedisBloom
+    https://oss.redislabs.com/redisbloom/
+
+    podman run -d -p 6379:6379 --name redis-redisbloom redislabs/rebloom:latest
+    BF.ADD newFilter foo
+    BF.EXISTS newFilter foo
+    BF.EXISTS newFilter bar
+    BF.MADD myFilter foo bar baz
+    BF.MEXISTS myFilter foo nonexist bar
+    
+
 ---
 
 https://github.com/redis/redis
 
 ### Redis 响应延时问题排查
 https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article
+
+
+### RESP协议 
+什么是 RESP？
+是基于TCP的应用层协议 RESP(REdis Serialization Protocol)；
+RESP底层采用的是TCP的连接方式，通过tcp进行数据传输，然后根据解析规则解析相应信息,
+
+Redis 的客户端和服务端之间采取了一种独立名为 RESP(REdis Serialization Protocol) 的协议，作者主要考虑了以下几个点：
+
+容易实现
+
+解析快
+
+人类可读
+RESP可以序列化不同的数据类型，如整数，字符串，数组。还有一种特定的错误类型。请求从客户端发送到Redis服务器，作为表示要执行的命令的参数的字符串数组。Redis使用特定于命令的数据类型进行回复。
+RESP是二进制安全的，不需要处理从一个进程传输到另一个进程的批量数据，因为它使用前缀长度来传输批量数据。
+注意：RESP 虽然是为 Redis 设计的，但是同样也可以用于其他 C/S 的软件。Redis Cluster使用不同的二进制协议(gossip)，以便在节点之间交换消息。
+
+关于协议的具体描述，官方文档 https://redis.io/topics/protocol
+
+### pipeline
+可以将多次IO往返的时间缩减为一次，前提是pipeline执行的指令之间没有因果相关性。
+
+---
+
+https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w
+
+https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ

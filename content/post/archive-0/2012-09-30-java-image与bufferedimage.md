@@ -18,7 +18,7 @@ categories:
   <div id="">
     
       
-        Java代码  <a title="收藏这段代码"><img src="http://javapub.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+http://javapub.iteye.com/images/icon_star.png
       
     
     
@@ -37,10 +37,7 @@ categories:
   
     还有一个方法
   
-  <div id="">
-    
-      
-        Java代码  <a title="收藏这段代码"><img src="http://javapub.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+http://javapub.iteye.com/images/icon_star.png
       
     
     

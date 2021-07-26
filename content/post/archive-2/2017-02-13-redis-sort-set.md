@@ -8,7 +8,7 @@ categories:
   - cache
 
 ---
-
+# sort set, zset
 Sorted-Sets和Sets类型极为相似，它们都是字符串的集合，都不允许重复的成员出现在一个Set中。它们之间的主要差别是Sorted-Sets中的每一个成员都会有一个分数(score)与之关联，Redis正是通过分数来为集合中的成员进行从小到大的排序。然而需要额外指出的是，尽管Sorted-Sets中的成员必须是唯一的，但是分数(score)却是可以重复的
   
 在Sorted-Set中添加、删除或更新一个成员都是非常快速的操作，其时间复杂度为集合中成员数量的对数。由于Sorted-Sets中的成员在集合中的位置是有序的，因此，即便是访问位于集合中部的成员也仍然非常高效。事实上，Redis所具有的这一特征在很多其它类型的数据库中是很难实现的，换句话说，在该点上要想达到和Redis同样的高效，在其它数据库中进行建模会非常困难。
@@ -209,6 +209,18 @@ Sorted-Set中的成员都是按照分数从低到高的顺序存储，该命令�
   
     计算给定的一个或多个有序集的并集，其中给定key的数量必须以numkeys参数指定，并将该并集(结果集)储存到destination。
 
+
+### ziplist, skiplist
+sorted set和ziplist的关系
+Redis中的sorted set，是在skiplist、dict和ziplist基础上构建起来的:
+
+当数据较少时，sorted set是由一个ziplist来实现的。
+当数据多的时候，sorted set是由一个叫zset的数据结构来实现的，这个zset包含一个dict + 一个skiplist。dict用来查询数据(member)到分数(score) 的对应关系，而skiplist用来根据分数或者（分数or排名）范围查询数据。这样skiplist中只需要通过指针来获取对应分数的键member，而不用管键到底占了多大空间，把它交给dict去存储。
+
+
 https://redis.readthedocs.io/en/2.4/sorted_set.html
   
 http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html
+
+https://elsef.com/2019/12/06/%E5%85%B3%E4%BA%8EZipList/
+
