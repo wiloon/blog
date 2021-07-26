@@ -195,7 +195,6 @@ if (factory == null) {
 try {
   
 //动态转载类
-  
 Class c = Class.forName(className);
   
 factory = (ForumFactory)c.newInstance();

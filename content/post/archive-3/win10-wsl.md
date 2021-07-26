@@ -2,7 +2,7 @@
 title: win10 wsl2
 author: "-"
 date: 2019-03-28T09:40:51.000+00:00
-url: "/?p=13982"
+url: "wsl"
 
 ---
 ### WSL 
