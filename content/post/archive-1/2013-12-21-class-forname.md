@@ -5,7 +5,7 @@ type: post
 date: 2013-12-21T13:11:52+00:00
 url: /?p=6067
 categories:
-  - Uncategorized
+  - Java
 tags:
   - Java
 
@@ -16,7 +16,7 @@ Class.forName(xxx.xx.xx) 返回的是一个类
 
 至于什么时候用，你可以考虑一下这个问题，给你一个字符串变量，它代表一个类的包名和类名，你怎么实例化它？只有你提到的这个方法了，不过要再加一点。
   
-A a = (A)Class.forName("pacage.A").newInstance();
+A a = (A)Class.forName("pacage.A").getDeclaredConstructor().newInstance();
   
 这和你
   
@@ -88,7 +88,7 @@ i、加载是指将编译后的java类文件（也就是.class文件）中的二
 
 Class.forName（类的全路径）、实例对象.class(属性)、实例对象getClass()。关于他们的区别将在下面讲到！！！
 
-###另外 ，类加载时类中的静态代码块会得到执行（详见前一篇博客: Class.forName()加载JDBC驱动）
+另外 ，类加载时类中的静态代码块会得到执行（详见前一篇博客: Class.forName()加载JDBC驱动）
 
 ii、在 连接和初始化阶段，其实静态变量经过了两次赋值: 第一次是静态变量类型的默认值；第二次是我们真正赋给静态变量的值。
 

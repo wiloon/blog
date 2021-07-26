@@ -84,7 +84,10 @@ Java堆中对象的对象指针被压缩到32bit
   
 使用堆基地址（如果在低26G内存空间中，为0）即，指针的偏移量针对于堆的基地址
 
-* * *
+### -XX:+TraceClassLoading	-Xlog:class+load=info
+-XX:+TraceClassLoading 显示类的加载信息, jdk 16 里面作废掉了,  用 -Xlog:class+load=info
+
+---
 
 -XX:MaxDirectMemorySize
 
@@ -745,3 +748,6 @@ http://xmlandmore.blogspot.com/2014/08/jdk-8-usecompressedclasspointers-vs.html
 https://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html
   
 https://www.cnblogs.com/zhulin-jun/p/6516292.html
+
+https://docs.oracle.com/en/java/javase/16/migrate/removed-tools-and-components.html#GUID-BBCF36FE-C892-4769-95CB-AB3FFC3A3B13
+

@@ -74,8 +74,8 @@ https://blog.csdn.net/u014801432/article/details/82558380
 https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
 
 
-在src/main/proto下定义proto文件
-在pom.xml中配置
+- 在 src/main/proto 下定义 proto 文件
+- 在 pom.xml 中配置
 ```xml
 <properties>
     <protobuf.version>3.17.0</protobuf.version>
