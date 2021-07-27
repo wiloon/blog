@@ -13,7 +13,7 @@ url: "/?p=12891"
     https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
 
 ### define message formates in a .proto file
-```protobuf
+```
     syntax = "proto3";
     package package0;
     option java_package = "com.wiloon.test.protobuf.package0";

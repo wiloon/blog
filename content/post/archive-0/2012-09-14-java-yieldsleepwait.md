@@ -249,7 +249,7 @@ I am Producer : Produced Item 4
   
 I am Consumer : Consumed Item 4
 
-join()方法
+### join()
   
 join() 定义在Thread.java中。
   
@@ -290,6 +290,56 @@ Condition 类也是在 Java 1.5 之后新加入的并发控制类。如果说 Lo
 Future.get()
   
 使用过 ExecutorService 或者 NIO 的话一定对 Future 不会陌生，而 Future 的 get() 是阻塞方法，内部也是使用 park() 来阻塞调用者的线程。
+
+join()是Thread类的一个方法。根据jdk文档的定义：
+
+public final void join()throws InterruptedException: Waits for this thread to die.
+
+join()方法的作用，是等待这个线程结束；但显然，这样的定义并不清晰。个人认为"Java 7 Concurrency Cookbook"的定义较为清晰：
+
+Waiting for the finalization of a thread
+
+In some situations, we will have to wait for the finalization of a thread. For example, we may have a program that will begin initializing the resources it needs before proceeding with the rest of the execution. We can run the initialization tasks as threads and wait for its finalization before continuing with the rest of the program. For this purpose, we can use the join() method of the Thread class. When we call this method using a thread object, it suspends the execution of the calling thread until the object called finishes its execution.
+
+解释一下，是主线程等待子线程的终止。也就是说主线程的代码块中，如果碰到了t.join()方法，此时主线程需要等待（阻塞），等待子线程结束了(Waits for this thread to die.),才能继续执行t.join()之后的代码块。
+
+ 
+
+ oin方法实现是通过wait（小提示：Object 提供的方法）。 当main线程调用t.join时候，main线程会获得线程对象t的锁（wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，直到该对象唤醒main线程 ，比如退出后。这就意味着main 线程调用t.join时，必须能够拿到线程t对象的锁。
+
+join() 一共有三个重载版本，分别是无参、一个参数、两个参数：
+
+
+(1) 三个方法都被final修饰，无法被子类重写。
+
+(2) join(long), join(long, long) 是synchronized method，同步的对象是当前线程实例。
+
+(2) 无参版本和两个参数版本最终都调用了一个参数的版本。
+
+(3) join() 和 join(0) 是等价的，表示一直等下去；join(非0)表示等待一段时间。
+
+从源码可以看到 join(0) 调用了Object.wait(0)，其中Object.wait(0) 会一直等待，直到被notify/中断才返回。
+
+while(isAlive())是为了防止子线程伪唤醒(spurious wakeup)，只要子线程没有TERMINATED的，父线程就需要继续等下去。
+
+(4) join() 和 sleep() 一样，可以被中断（被中断时，会抛出 InterrupptedException 异常）；不同的是，join() 内部调用了 wait()，会出让锁，而 sleep() 会一直保持锁。
+
+ 
+
+join使用时注意几点：
+1、join与start调用顺序问题
+
+　　上面的讨论大概知道了join的作用了，那么，入股 join在start前调用，会出现什么后果呢？先看下面的测试结果
+
+
+main线程没有等待[BThread]执行完再执行。join方法必须在线程start方法调用之后调用才有意义。这个也很容易理解：如果一个线程都没有start，那它也就无法同步了。
+
+2、join()与异常
+
+在join()过程中，如果当前线程被中断，则当前线程出现异常。(注意是调用thread.join()的线程被中断才会进入异常，比如a线程调用b.join()，a中断会报异常而b中断不会异常)
+
+如下:threadB中启动threadA，并且调用其方法等待threadA完成，此时向threadB发出中断信号，会进入中断异常代码。
+
 
 http://blog.csdn.net/wbchn/article/details/2462112
   

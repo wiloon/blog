@@ -1,9 +1,8 @@
 ---
-title: Java Annotation/注解
+title: Annotation/注解
 author: "-"
-type: post
 date: 2011-12-26T05:36:33+00:00
-url: /?p=2003
+url: annotation
 categories:
   - Java
 
@@ -23,8 +22,7 @@ annotation是不会影响程序代码的执行，无论annotation怎么变化，
 
 Java语言解释器在工作时会忽略这些annotation，因此在JVM 中这些annotation是"不起作用"的，只能通过配套的工具才能对这些 annotation 类型的信息进行访问和处理。
 
-### Annotation 与interface的异同：
-
+### Annotation 与interface的异同
 1. Annotation类型使用关键字@interface而不是interface。
 这个关键字声明隐含了一个信息：它是继承了java.lang.annotation.Annotation接口，并非声明了一个interface。
 
@@ -42,7 +40,6 @@ annotation一般作为一种辅助途径，应用在软件框架或工具中，�
 例如：Junit、Struts、Spring等流行工具框架中均广泛使用了 annotation 。使代码的灵活性大提高。
 
 ### 常见标准的Annotation
-
 从java5版本开始，自带了三种标准 annotation 类型：
 
 1. Override
@@ -105,9 +102,98 @@ Retention注解有一个属性value，是RetentionPolicy类型的，Enum Retenti
 注解@Deprecated，用来表示某个类或属性或方法已经过时，不想别人再用时，在属性和方法上用@Deprecated修饰
 注解@SuppressWarnings用来压制程序中出来的警告，比如在没有用泛型或是方法已经过时的时候
 
+### @Inherited
+在Spring Boot中大量使用了@Inherited注解。我们来了解一下这个注解的用法，注解的源码：
+
+复制代码
+package java.lang.annotation;
+
+/**
+ * Indicates that an annotation type is automatically inherited.  If
+ * an Inherited meta-annotation is present on an annotation type
+ * declaration, and the user queries the annotation type on a class
+ * declaration, and the class declaration has no annotation for this type,
+ * then the class's superclass will automatically be queried for the
+ * annotation type.  This process will be repeated until an annotation for this
+ * type is found, or the top of the class hierarchy (Object)
+ * is reached.  If no superclass has an annotation for this type, then
+ * the query will indicate that the class in question has no such annotation.
+ *
+ * <p>Note that this meta-annotation type has no effect if the annotated
+ * type is used to annotate anything other than a class.  Note also
+ * that this meta-annotation only causes annotations to be inherited
+ * from superclasses; annotations on implemented interfaces have no
+ * effect.
+ *
+ * @author  Joshua Bloch
+ * @since 1.5
+ * @jls 9.6.3.3 @Inherited
+ */
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.ANNOTATION_TYPE)
+public @interface Inherited {
+}
+复制代码
+注解的作用：
+
+当某个注解类在它的类上定义了@Inherited注解，例如SpringBoot中的 @SpringBootApplication注解，@SpringBootApplication注解类就定义了@Inherited注解，看下源码中的红色部分：
+
+复制代码
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters = {
+        @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
+        @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+public @interface SpringBootApplication {
+
+  // .....省略
+
+}
+复制代码
+那么现在有一个我们自己开发的类使用了这个注解，例如：
+
+@SpringBootApplication
+@Service
+public class Person {
+
+}
+然后有个类Employee继承了Person
+
+public class Employee extends Person{
+
+}
+那么现在在判断Employee类上有没有@SpringBootApplication时，通过代码验证：
+
+复制代码
+@Test
+    public void test1(){
+        
+        Class clazz = Employee.class ;
+        if(clazz.isAnnotationPresent(SpringBootApplication.class)){
+            System.out.println("true");     
+        }
+        
+    }
+复制代码
+上面这个测试用例执行将输出true，也就是子类中能查找到@SpringBootApplication ，但同样，你用上述代码查找Employee类上是否有Spring的@Service注解时，会输出false，至此你应该明白@Inherited注解的用意了吧。
+
+经过这样的分析，我们再来读一下JDK的文档，就会比较容易理解了，否则会觉的有些绕，下面列出 @interface注解的中文文档：
+
+指示注释类型被自动继承。如果在注释类型声明中存在 Inherited 元注释，并且用户在某一类声明中查询该注释类型，同时该类声明中没有此类型的注释，则将在该类的超类中自动查询该注释类型。此过程会重复进行，直到找到此类型的注释或到达了该类层次结构的顶层 (Object) 为止。如果没有超类具有该类型的注释，则查询将指示当前类没有这样的注释。
+
+注意，如果使用注释类型注释类以外的任何事物，此元注释类型都是无效的。还要注意，此元注释仅促成从超类继承注释；对已实现接口的注释无效。
+
+
+
 转自：
 http://blog.csdn.net/liuwenbo0920/article/details/7290586
 http://blog.csdn.net/github_35180164/article/details/52118286
+
 ### 自定义 annotation 示例
 示例共涉及四个类：
 
@@ -1232,3 +1318,9 @@ System.out.println("注解的变量名为：" + meth.getName());
 }
   
 ```
+
+---
+
+
+https://www.cnblogs.com/hzhuxin/p/7799899.html
+

@@ -14,6 +14,8 @@ tags:
 ### 线程状态
 [![WhlYxH.jpg](https://z3.ax1x.com/2021/07/26/WhlYxH.jpg)](https://imgtu.com/i/WhlYxH)
 
+[![W5Gb90.png](https://z3.ax1x.com/2021/07/27/W5Gb90.png)](https://imgtu.com/i/W5Gb90)
+
 线程共包括以下5种状态。
 1. 新建状态(New)： 线程对象被创建后，就进入了新建状态。例如，Thread thread = new Thread()。
 2. 就绪状态(Runnable): 也被称为“可执行状态”。线程对象被创建后，其它线程调用了该对象的start()方法，从而来启动该线程。例如，thread.start()。处于就绪状态的线程，随时可能被CPU调度执行。
