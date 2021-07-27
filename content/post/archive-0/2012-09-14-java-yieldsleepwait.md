@@ -324,8 +324,6 @@ while(isAlive())是为了防止子线程伪唤醒(spurious wakeup)，只要子�
 
 (4) join() 和 sleep() 一样，可以被中断（被中断时，会抛出 InterrupptedException 异常）；不同的是，join() 内部调用了 wait()，会出让锁，而 sleep() 会一直保持锁。
 
- 
-
 join使用时注意几点：
 1、join与start调用顺序问题
 
