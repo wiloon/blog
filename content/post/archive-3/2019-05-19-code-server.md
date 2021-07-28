@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+
 ```bash
 docker run -d \
 --name code-server \
