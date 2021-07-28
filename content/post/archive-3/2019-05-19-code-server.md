@@ -17,7 +17,16 @@ codercom/code-server \
 --allow-http --no-auth
 ```
 
-podman run -d --name code-server   -p 8080:8080   -v "code-server-config:/home/coder/.config"    -v "code-server-project:/home/coder/project" -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER"   codercom/code-server:latest --auth none
+```bash
+podman run -d --name code-server \
+-p 8080:8080 \
+-v "code-server-config:/root/.config" \
+-v "code-server-project:/home/coder/project" \
+-v "code-server-ssh:/root/.ssh" \
+-u "$(id -u):$(id -g)" \
+-e "DOCKER_USER=root"  \
+codercom/code-server:latest --auth none
+```
 
 https://github.com/cdr/code-server
   
