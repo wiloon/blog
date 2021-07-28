@@ -9,15 +9,6 @@ categories:
 ---
 
 ```bash
-docker run -d \
---name code-server \
--p 38443:8443 \
--v "code-server-project:/home/coder/project" \
-codercom/code-server \
---allow-http --no-auth
-```
-
-```bash
 podman run -d --name code-server \
 -p 8080:8080 \
 -v "code-server-config:/root/.config" \
