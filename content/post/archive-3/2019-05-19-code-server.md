@@ -1,9 +1,8 @@
 ---
 title: code-server
 author: "-"
-type: post
 date: 2019-05-19T01:52:15+00:00
-url: /?p=14361
+url: code-server
 categories:
   - Uncategorized
 
@@ -29,6 +28,7 @@ podman run -d --name code-server \
 codercom/code-server:latest --auth none
 ```
 
-https://github.com/cdr/code-server
-  
-https://hub.docker.com/r/codercom/code-server
+---
+
+https://github.com/cdr/code-server    
+https://hub.docker.com/r/codercom/code-server  
