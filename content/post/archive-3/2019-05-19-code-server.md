@@ -17,6 +17,8 @@ codercom/code-server \
 --allow-http --no-auth
 ```
 
+podman run -d --name code-server   -p 8080:8080   -v "code-server-config:/home/coder/.config"    -v "code-server-project:/home/coder/project" -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER"   codercom/code-server:latest
+
 https://github.com/cdr/code-server
   
 https://hub.docker.com/r/codercom/code-server

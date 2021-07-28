@@ -1,7 +1,6 @@
 ---
-title: java thread
+title: java thread id, name
 author: "-"
-type: post
 date: 2012-06-22T11:27:10+00:00
 url: /?p=3615
 categories:
