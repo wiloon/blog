@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-  * crostini 的Debian 对snap 支持不全， 不能使用snap 应用
+crostini 的Debian 对snap 支持不全， 不能使用snap 应用
 
 ### terminal
 
