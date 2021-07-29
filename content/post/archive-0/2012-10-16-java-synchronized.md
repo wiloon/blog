@@ -1,13 +1,12 @@
 ---
 title: Java synchronized
 author: "-"
-type: post
 date: 2012-10-16T06:16:48+00:00
-url: /?p=4497
+url: synchronized
 categories:
   - Java
 tags:
-  - Java
+  - lock
 
 ---
 ### 多线程简介
