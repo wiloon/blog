@@ -174,7 +174,6 @@ cat increase-replication-factor.json
 download http://kafka.apache.org/downloads.html
 
 #### install and start zookeeper
-
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 
 #### docker

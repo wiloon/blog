@@ -143,6 +143,13 @@ WinSCP下载地址：WinSCP官网
 - input the name of new vm
 - full clone
 
+### pve cli
+#### 查看一下虚拟机的运行状态
+    pvesh get /cluster/resources
+#### 取得虚拟机当前状态
+    pvesh get /nodes/PVE节点名称/qemu/虚拟机的id/status/current
+#### 启动虚拟机的命令
+    pvesh create /nodes/PVE节点名称/qemu/虚拟机的id/status/start
 ---
 
 https://pve.proxmox.com/wiki/Main_Page
