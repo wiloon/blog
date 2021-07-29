@@ -1,6 +1,6 @@
 ---
 title: win10 wsl2
-author: "-"
+author: "w1100n"
 date: 2019-03-28T09:40:51.000+00:00
 url: "wsl"
 
@@ -139,7 +139,7 @@ https://blog.csdn.net/manbu_cy/article/details/108476859
     左上角图标-->属性-->字体-->Noto Mono for powerline
 
 ### c 安装
-从SourceForge上面下载最新版本的VcXsrv  
+从SourceForge上面下载最新版本的 VcXsrv  
 
     https://sourceforge.net/projects/vcxsrv/files/vcxsrv/
 
