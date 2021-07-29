@@ -1,5 +1,5 @@
 ---
-title: chromeos basic
+title: chrome os, chromeos basic
 author: "-"
 type: post
 date: 2018-11-03T15:08:31+00:00
@@ -8,8 +8,40 @@ categories:
   - Uncategorized
 
 ---
+
+
+### chrome os 多桌面
+    https://support.google.com/chromebook/answer/9594869?hl=en
+
+Drag windows and apps to your preferred desk.
+Or use shortcuts:
+Move a window to a new desk: Right-click the top of a window then, select Move window to another desk.
+Make a window or app available across all desks: Right-click the top of a window, then select Show in all desks.
+### crosh
+
+Crosh stands for “Chrome Shell,” and it lets you run commands that usually don’t have graphical tools. You can do things like installing Crouton for a full Linux OS on your Chromebook or checking the device’s battery health—more “advanced” stuff, to put it crudely. If you’ve ever used the Command Prompt or PowerShell on Windows, Crosh is Chrome OS’ version of that tool.
+
+#### 进入crosh环境
+    ctrl+t
+#### 管理 linux 虚拟机
+```bash
+vmc list
+vmc start termina
+vmc stop termina
+```
+#### crosh 命令
+- top
+- ping
+shell：打开一个完整的bash shell。
+systrace：启动系统跟踪。
+packet_capture：捕获并记录数据包。
+network_diag
+tracepath
+help
+exit
 ### cpu mem monitor
     chrome://sys-internals/
+
 ### openvpn
 https://docs.google.com/document/d/18TU22gueH5OKYHZVJ5nXuqHnk2GN6nDvfu2Hbrb4YLE/pub#h.bta4pj6t7nhs
 
@@ -35,3 +67,7 @@ Google 在79版本（2019年12月20号左右）的更新中又重新启用了Ren
 ---
 
 https://zhuanlan.zhihu.com/p/133243870
+
+https://www.pcpc.me/tech/terminal-commands-chromebook
+
+https://zh.omatomeloanhikaku.com/how-is-crosh-different-than-the-linux-terminal-on-a-chromebook-935

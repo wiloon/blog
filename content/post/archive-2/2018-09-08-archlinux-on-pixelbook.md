@@ -79,13 +79,6 @@ run_container.sh --container_name archlinux --user ymf --lxd_image archlinux/cur
 lxc exec archlinux -- bash
 ```
 
-### crosh
-
-```bash
-vmc list
-vmc start termina
-```
-
 ### openvpn in crostini
 
 ```bash
