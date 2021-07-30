@@ -34,7 +34,8 @@ synchronized，是关键字；它区分为 synchronized 代码块和 synchronize
 
 ```java
     public interface Runnable{
-    public void run();
+      public void run();
+      }
     }
 ```
 
