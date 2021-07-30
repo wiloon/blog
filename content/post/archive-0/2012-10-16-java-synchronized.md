@@ -66,7 +66,7 @@ Mark Word根据最低两位（Tag）的所表示的状态，编码了不同的�
 
 当一个对象被锁定时，mark word 被复制到当前尝试获取锁的线程的线程栈（Execution stack）的锁记录空间（lock record）, 被复制的 mark word 官方称为 displaced mark。
 
-使用CAS操作来尝试使 mark word 指向当前线程的锁记录空间（即在mark word中存入使用当前线程锁记录空间的指针——stack pointer）。
+使用 CAS 操作来尝试使 mark word 指向当前线程的锁记录空间（即在mark word中存入使用当前线程锁记录空间的指针——stack pointer）。
 
 如果CAS操作成功，则线程获得锁。
 
