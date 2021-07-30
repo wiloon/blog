@@ -4,9 +4,9 @@ author: "-"
 date: "2012-09-22 11:22:57+00:00"
 url: java-thread
 tags:
-  - Java
   - Thread
-
+categories:
+  - Java
 ---
 ### 线程状态
 [![WhlYxH.jpg](https://z3.ax1x.com/2021/07/26/WhlYxH.jpg)](https://imgtu.com/i/WhlYxH)  
@@ -283,7 +283,15 @@ b.start();
 
 ```
 ### 通过 java.util.concurrent 包中的线程池 创建线程
-
+```java
+ExecutorService es = Executors.newSingleThreadExecutor();  
+        //创建Callable对象任务  
+        CallableDemo calTask=new CallableDemo();  
+        //提交任务并获取执行结果  
+        Future<Integer> future =es.submit(calTask); 
+```
+### Callable
+Runnable实现的是void run()方法，Callable实现的是 V call()方法，并且可以返回执行结果，其中Runnable可以提交给Thread来包装下，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。通常在开发中结合ExecutorService使用,将任务的提交与任务的执行解耦开,同时也能更好地利用Executor提供的各种特性
 ### 竞争条件 Race condition
 什么是竞争条件以及竞争条件为什么会产生漏洞  
 竞争条件是系统中的一种反常现象， 由于现代Linux系统中大量使用并发编程，对资源进行共享，如果产生错误的访问模式，便可能产生内存泄露， 系统崩溃，数据破坏，甚至安全问题。 竞争条件漏洞就是多个进程访问同一资源时产生的时间或者序列的冲突，并利用这个冲突来对系统进行攻击。 一个看起来无害的程序如果被恶意攻击者利用，将发生竞争条件漏洞  
@@ -387,6 +395,8 @@ safe_transfer(your_account, my_account, 80);  // [B]
 [B]执行结束后，your_account == 20 && my_account == 80，[A]再开始执行，然而条件不满足，转账失败；
 而不会出现[A]和[B]交错执行的情况，从而使数据始终符合系统规定的不变形条件。对应于C++的std::mutex和std::lock_guard，在Java有monitor（通常不用显式声明）＋synchronized的组合。
 
+### ThreadGroup
+
 
 ---
 
@@ -413,4 +423,7 @@ https://blog.csdn.net/gg_18826075157/article/details/72582939
 ————————————————
 版权声明：本文为CSDN博主「烧煤的快感」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/gg_18826075157/article/details/72582939
+
+
+https://www.cnblogs.com/skywang12345/p/java_threads_category.html
 
