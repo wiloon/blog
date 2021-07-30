@@ -1,11 +1,11 @@
 ---
-title: mysql int length
+title: mysql int 长度
 author: "-"
 type: post
 date: 2019-08-06T04:57:47+00:00
 url: /?p=14770
 categories:
-  - Uncategorized
+  - mysql
 
 ---
 "浮点型"的长度是用来限制数字存储范围的. 比如 float(3,2) 只能够写入 0.00~999.99.
