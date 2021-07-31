@@ -50,23 +50,7 @@ Controls the font family.
     ctrl+shift+i - 表格格式化
 #### Settings Sync
 配置同步
-#### Github Markdown Preview
-
-https://github.com/cdr/code-server
-
-```bash
-docker run \
--d \
---name vscode-server \
--p 8443:8443 \
--v /etc/localtime:/etc/localtime:ro \
--v vscode-projects:/home/coder/project \
---restart=always \
-codercom/code-server \
---allow-http \
---no-auth
-
-```
+#### Markdown Preview Github Styling
 
 #### REST Client
 vscode 发http请求
