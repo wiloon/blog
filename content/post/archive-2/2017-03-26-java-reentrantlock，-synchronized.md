@@ -1,5 +1,5 @@
 ---
-title: Java ReentrantLock， synchronized
+title: Java ReentrantLock，synchronized
 author: "-"
 type: post
 date: 2017-03-26T03:00:39+00:00

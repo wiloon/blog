@@ -1,13 +1,14 @@
 ---
-title: Synchronized和java.util.concurrent.locks.Lock的区别
+title: Synchronized 和 java.util.concurrent.locks.Lock 的区别
 author: lcf
-type: post
 date: 2012-09-25T02:06:50+00:00
-url: /?p=4238
+url: synchronized-concurrent-locks
 categories:
   - Java
-
+tags:
+  - lock
 ---
+
 主要相同点：Lock能完成Synchronized所实现的所有功能。
 
 主要不同点：Lock有比Synchronized更精确的县城予以和更好的性能。Synchronized会自动释放锁，但是Lock一定要求程序员手工释放，并且必须在finally从句中释放。

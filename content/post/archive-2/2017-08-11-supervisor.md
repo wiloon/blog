@@ -1,19 +1,18 @@
 ---
 title: supervisor, supervisorctl
 author: "-"
-type: post
 date: 2017-08-11T08:21:18+00:00
-url: /?p=11029
+url: supervisor
 
 ---
+### 常用命令
+    supervisorctl status
+    supervisorctl stop service0
     supervisorctl stop all
     supervisorctl start all
     supervisorctl restart all
 
-http://liyangliang.me/posts/2015/06/using-supervisor/
-
-使用 supervisor 管理进程
-  
+### 使用 supervisor 管理进程
 Supervisor (http://supervisord.org) 是一个用 Python 写的进程管理工具，可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程）。除了对单个进程的控制，还可以同时启动、关闭多个进程，比如很不幸的服务器出问题导致所有应用程序都被杀死，此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
   
 安装
@@ -168,15 +167,14 @@ supervisorctl -c /etc/supervisord.conf
     
 > update ＃ 重启配置文件修改过的程序
     
-> 上面这些命令都有相应的输出，除了进入 supervisorctl 的 shell 界面，也可以直接在 bash 终端运行: 
-    
-    supervisorctl status
+上面这些命令都有相应的输出，除了进入 supervisorctl 的 shell 界面，也可以直接在 bash 终端运行: 
+
     supervisorctl stop usercenter
     supervisorctl start usercenter
     supervisorctl restart usercenter
     supervisorctl reread
     supervisorctl update
-    
+
 > 其它
     
 > 除了 supervisorctl 之外，还可以配置 supervisrod 启动 web 管理界面，这个 web 后台使用 Basic Auth 的方式进行身份认证。
@@ -186,3 +184,7 @@ supervisorctl -c /etc/supervisord.conf
 > 经常查看日志文件，包括 supervisord 的日志和各个 pragram 的日志文件，程序 crash 或抛出异常的信息一半会输出到 stderr，可以查看相应的日志文件来查找问题。
     
 > Supervisor 有很丰富的功能，还有其他很多项配置，可以在官方文档获取更多信息: http://supervisord.org/index.html
+
+
+http://liyangliang.me/posts/2015/06/using-supervisor/
+

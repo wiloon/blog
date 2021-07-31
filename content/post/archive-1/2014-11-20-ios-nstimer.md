@@ -3,7 +3,7 @@ title: synchronized 原理, 偏向锁, 轻量锁, 重量锁
 author: "-"
 type: post
 date: 2014-11-20T02:19:52+00:00
-url: /?p=7031
+url: synchronized
 
 ---
 http://www.jianshu.com/p/5dbb07c8d5d5

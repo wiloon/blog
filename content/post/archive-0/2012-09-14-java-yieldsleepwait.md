@@ -8,102 +8,92 @@ categories:
   - Java
 
 ---
+
+wait()	
+调用该方法的线程进入WAITING状态，只有等待另外线程的通知或被中断才会返回，需要注意，
+
+调用wait()方法后，会释放对象的锁。
+
+wait(long)	超时等待一段时间，这里的参数是毫秒，也就是等待长达n毫秒，如果没有通知就超时返回。
+wait(long, int)	对于超时时间更细粒度的控制，可以达到毫秒。
+
+
 ```java
-  
 Thread.sleep(3000);
 TimeUnit.SECONDS.sleep(random.nextInt(10));
 this.wait(2000);
-
 ```
 
-sleep是Thread类的方法,sleep()使当前线程进入停滞状态（阻塞当前线程），让出CUP的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;
+sleep 是 Thread 类的Static方法, sleep() 使当前线程进入停滞状态 (阻塞当前线程), 让出CUP的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;
   
-sleep()是Thread类的Static(静态)的方法；
+Thread.sleep 不会导致锁行为的改变，如果当前线程是拥有锁的，那么Thread.sleep不会让线程释放锁。
   
-Thread.sleep不会导致锁行为的改变，如果当前线程是拥有锁的，那么Thread.sleep不会让线程释放锁。
+所以当在一个 Synchronized 块中调用 Sleep() 方法时，线程虽然休眠了，但是对象的锁并没有被释放，其他线程无法访问这个对象（即使睡着也持有对象锁）。
   
-所以当在一个Synchronized块中调用Sleep()方法是，线程虽然休眠了，但是对象的锁并没有被释放，其他线程无法访问这个对象（即使睡着也持有对象锁）。
+在 sleep() 休眠时间期满后，该线程不一定会立即执行， 这是因为其它线程可能正在运行而且没有被调度为放弃执行，除非此线程具有更高的优先级。
   
-在sleep()休眠时间期满后，该线程不一定会立即执行，这是因为其它线程可能正在运行而且没有被调度为放弃执行，除非此线程具有更高的优先级。
-  
-如果能够帮助你记忆的话，可以简单认为和锁相关的方法都定义在Object类中，因此调用Thread.sleep是不会影响锁的相关行为。
+如果能够帮助你记忆的话，可以简单认为和锁相关的方法都定义在 Object 类中，因此调用 Thread.sleep 是不会影响锁的相关行为。
 
-wait()方法是Object类里的方法；当一个线程执行到wait()方法时，它就进入到一个和该对象相关的等待池中，同时失去（释放）了对象的锁（暂时失去锁，wait(long timeout)超时时间到后还需要返还对象锁）；
+wait() 方法是 Object 类里的方法； 当一个线程执行到 wait() 方法时，它就进入到一个和该对象相关的等待池中，同时失去（释放）了对象的锁（暂时失去锁，wait(long timeout)超时时间到后还需要返还对象锁）
   
-wait()使用notify或者notifyAlll或者指定睡眠时间来唤醒当前等待池中的线程。
+wait() 使用 notify 或者 notifyAll 或者指定睡眠时间来唤醒当前等待池中的线程。
   
-wiat()必须放在synchronized block中，否则会在program runtime时扔出"java.lang.IllegalMonitorStateException"异常。
+wiat() 必须放在 synchronized block 中，否则会在 program runtime 时扔出 "java.lang.IllegalMonitorStateException" 异常。
 
 wait() 是从 Java 1.0 开始就存在的老牌"等待"函数，在 Java 1.5 以前是最主要的一类用于线程间进行同步的方法。
 
-wait() 的使用方法相对比较"怪异"。首先调用 wait() 的线程需要获得一个用于线程间共享的对象的"锁"（在 Java 术语中称为"监视器"），然后调用 wait() 会首先释放这把锁，并将当前线程暂停，只有在其他进程通过调用共享对象的 notify() 或者 notifyAll() 时才会醒来。但是醒来之后也不是说立即就会得到执行，只是线程会重新加入对锁对象的竞争，只有竞争胜出之后才会获得运行权。
+wait() 的使用方法相对比较 "怪异"。首先调用 wait() 的线程需要获得一个用于线程间共享的对象的 "锁" （在 Java 术语中称为"监视器"），然后调用 wait() 会首先释放这把锁，并将当前线程暂停，只有在其他进程通过调用共享对象的 notify() 或者 notifyAll() 时才会醒来。但是醒来之后也不是说立即就会得到执行，只是线程会重新加入对锁对象的竞争，只有竞争胜出之后才会获得运行权。
 
 典型的使用 wait() 函数的代码是这样的
-
+```java
 // 等待者(Thread1)
-  
 synchronized (lock) {
-      
 while (condition != true) {
-          
-lock.wait()
-      
+    lock.wait() 
+}
+  // do stuff
 }
 
-    // do stuff
-    
-
-}
-
-// 唤醒者(Thread2)
-  
+// 唤醒者(Thread2) 
 synchronized (lock) {
-      
 condition = true;
-      
 lock.notify();
-  
 }
-  
+```
 为什么 wait() 需要配合 synchronized 使用？
 
 在 stackoverflow 上有个帖子对这个问题进行了讨论。我认为最主要的原因是为了防止以下这种情况
-
+```java
 // 等待者(Thread1)
-  
 while (condition != true) { // step.1
-      
-lock.wait() // step.4
-  
+    lock.wait() // step.4
 }
 
 // 唤醒者(Thread2)
-  
 condition = true; // step.2
-  
 lock.notify(); // step.3
+```
+
+在对之前的代码去掉 synchronized 块之后，如果在等待者判断 condition != true 之后而调用 wait() 之前，唤醒者将 condition 修改成了 true 同时调用了 notify() 的话，那么等待者在调用了 wait() 之后就没有机会被唤醒了。
+
+Thread.sleep 和 Object.wait 都会暂停当前的线程，对于CPU资源来说，不管是哪种方式暂停的线程，都表示它暂时不再需要CPU的执行时间。OS会将执行时间分配给其它线程。 区别是， 调用 wait 后， 需要别的线程执行 notify/notifyAll 才能够重新获得CPU执行时间。
+
+线程的状态参考 Thread.State 的定义。 新创建的但是没有执行（还没有调用start()) 的线程处于"新建"，或者说 Thread.State.NEW 状态。
   
-在对之前的代码去掉 synchronized 块之后，如果在等待者判断 condition != true 之后而调用 wait() 之前，唤醒者\*\*将 condition 修改成了 true 同时调用了 notify() \*\*的话，那么等待者在调用了 wait() 之后就没有机会被唤醒了。
+Thread.State.BLOCKED （阻塞） 表示线程正在获取锁时, 因为锁不能获取到而被迫暂停执行下面的指令, 一直等到这个锁被别的线程释放。 BLOCKED 状态下线程， OS 调度机制需要决定下一个能够获取锁的线程是哪个，这种情况下，就是产生锁的争用，无论如何这都是很耗时的操作。
 
-Thread.sleep和Object.wait都会暂停当前的线程，对于CPU资源来说，不管是哪种方式暂停的线程，都表示它暂时不再需要CPU的执行时间。OS会将执行时间分配给其它线程。区别是，调用wait后，需要别的线程执行notify/notifyAll才能够重新获得CPU执行时间。
-
-线程的状态参考 Thread.State的定义。新创建的但是没有执行（还没有调用start())的线程处于"就绪"，或者说Thread.State.NEW状态。
+从操作系统的角度讲，os 会维护一个 ready queue（就绪的线程队列）。  并且在某一时刻 cpu 只 为ready queue 中位于队列头部的线程服务。
   
-Thread.State.BLOCKED（阻塞）表示线程正在获取锁时，因为锁不能获取到而被迫暂停执行下面的指令，一直等到这个锁被别的线程释放。BLOCKED状态下线程，OS调度机制需要决定下一个能够获取锁的线程是哪个，这种情况下，就是产生锁的争用，无论如何这都是很耗时的操作。
+但是当前正在被服务的线程可能觉得 cpu 的服务质量不够好，于是提前退出，这就是 yield
 
-从操作系统的角度讲，os会维护一个ready queue（就绪的线程队列）。并且在某一时刻cpu只为ready queue中位于队列头部的线程服务。
+sleep() 使当前线程进入停滞状态，所以执行 sleep() 的线程在指定的时间内肯定不会执行； yield() 只是使当前线程重新回到可执行状态，所以执行 yield() 的线程有可能在进入到可执行状态后马上又被执行。
   
-但是当前正在被服务的线程可能觉得cpu的服务质量不够好，于是提前退出，这就是yield。
+sleep() 可使优先级低的线程得到执行的机会， 当然也可以让同优先级和高优先级的线程有执行的机会； yield() 只能使同优先级的线程有执行的机会。
 
-sleep()使当前线程进入停滞状态，所以执行sleep()的线程在指定的时间内肯定不会执行；yield()只是使当前线程重新回到可执行状态，所以执行yield()的线程有可能在进入到可执行状态后马上又被执行。
-  
-sleep()可使优先级低的线程得到执行的机会，当然也可以让同优先级和高优先级的线程有执行的机会；yield()只能使同优先级的线程有执行的机会。
+但是 wait() 和 sleep() 都可以通过 interrupt() 方法打断线程的暂停状态，从而使线程立刻抛出 InterruptedException （但不建议使用该方法）。
 
-但是wait()和sleep()都可以通过interrupt()方法打断线程的暂停状态，从而使线程立刻抛出InterruptedException（但不建议使用该方法）。
-
-yield()方法
-  
-理论上，yield意味着放手，放弃，投降。一个调用yield()方法的线程告诉虚拟机它乐意让其他线程占用自己的位置。这表明该线程没有在做一些紧急的事情。注意，这仅是一个暗示，并不能保证不会产生任何影响。
+### yield()
+理论上，yield意味着放手，放弃，投降。一个调用 yield() 方法的线程告诉虚拟机它乐意让其他线程占用自己的位置。这表明该线程没有在做一些紧急的事情。注意，这仅是一个暗示，并不能保证不会产生任何影响。
 
 在Thread.java中yield()定义如下：
 
@@ -350,3 +340,9 @@ http://www.importnew.com/14958.html
 http://www.cnblogs.com/dreamsea/archive/2012/01/16/2263844.html
   
 http://blog.dyngr.com/blog/2016/09/09/how-to-make-a-thread-wait/
+
+————————————————
+版权声明：本文为CSDN博主「DivineH」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_38293564/article/details/80432875
+
+
