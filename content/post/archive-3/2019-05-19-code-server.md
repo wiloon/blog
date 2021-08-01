@@ -30,6 +30,15 @@ podman run -d --name code-server \
 codercom/code-server:latest --auth none
 ```
 
+### nginx 配置
+location / {
+        proxy_pass http://wyse5070.wiloon.com:8080;
+        proxy_set_header Host $host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection upgrade;
+        proxy_set_header Accept-Encoding gzip;
+    }
+
 ---
 
 https://github.com/cdr/code-server    
