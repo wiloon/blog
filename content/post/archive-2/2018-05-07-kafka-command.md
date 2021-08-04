@@ -105,6 +105,12 @@ zookeeper.connect=localhost:2181
     --broker-list localhost:9092 \
     --topic topic0
 
+    bin/kafka-console-producer.sh \
+    --broker-list localhost:9092 \
+    --topic topic0
+    --property parse.key=true
+
+
 ### consumer
     bin/kafka-console-consumer.sh \
     --bootstrap-server localhost:9092 \
