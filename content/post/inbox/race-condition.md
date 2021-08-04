@@ -160,7 +160,7 @@ safe_transfer(your_account, my_account, 80);  // [B]
 
 [A]执行结束后，your_account == my_account == 50，[B]再开始执行，然而条件不满足，转账失败：
 [B]执行结束后，your_account == 20 && my_account == 80，[A]再开始执行，然而条件不满足，转账失败；
-而不会出现[A]和[B]交错执行的情况，从而使数据始终符合系统规定的不变形条件。对应于C++的std::mutex和std::lock_guard，在Java有monitor（通常不用显式声明）＋synchronized的组合。
+而不会出现[A]和[B]交错执行的情况，从而使数据始终符合系统规定的不变形条件。对应于C++的std::mutex和std::lock_guard，在Java有monitor（通常不用显式声明）+synchronized的组合。
 ————————————————
 版权声明：本文为CSDN博主「烧煤的快感」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/gg_18826075157/article/details/72582939
