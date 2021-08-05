@@ -117,9 +117,6 @@ vuze
 add weather tool to task bar
    
 #Firefox
-
-#sopcast
-
 #btnx
 
 calculator
