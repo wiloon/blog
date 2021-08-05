@@ -26,15 +26,15 @@ docker pull registry.wiloon.com/foo:v0.0.1
 
 自签证书
 
-<code class="line-numbers">upstream docker-registry {
+upstream docker-registry {
     server 192.168.50.220:5000;
- }
+}
 
-  ## Set a variable to help us decide if we need to add the
-  ## 'Docker-Distribution-Api-Version' header.
-  ## The registry always sets this header.
-  ## In the case of nginx performing auth, the header is unset
-  ## since nginx is auth-ing before proxying.
+## Set a variable to help us decide if we need to add the
+## 'Docker-Distribution-Api-Version' header.
+## The registry always sets this header.
+## In the case of nginx performing auth, the header is unset
+## since nginx is auth-ing before proxying.
 # map $upstream_http_docker_distribution_api_version $docker_distribution_api_version {
 #   '' 'registry/2.0';
 # }

@@ -128,9 +128,9 @@ JVM启动参数共分为三类：
 ### -Xss, 线程栈 
 Xss越大，每个线程的大小就越大，占用的内存越多，能容纳的线程就越少；Xss越小，则递归的深度越小，容易出现栈溢出 java.lang.StackOverflowError。减少局部变量的声明，可以节省栈帧大小，增加调用深度。不显式设置-Xss或-XX:ThreadStackSize时，在Linux x64上ThreadStackSize的默认值就是1024KB
 
--XX:NewRatio=n:设置年轻代和年老代的比值。如:为3，表示年轻代与年老代比值为1：3，年轻代占整个年轻代年老代和的1/4
+-XX:NewRatio=n: 设置年轻代和年老代的比值。如:为3，表示年轻代与年老代比值为1：3，年轻代占整个年轻代年老代和的1/4
   
--XX:SurvivorRatio=n:年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如：3，表示Eden：Survivor=3：2，一个Survivor区占整个年轻代的1/5
+-XX:SurvivorRatio=n: 年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如：3，表示Eden：Survivor=3：2，一个Survivor区占整个年轻代的1/5
   
 -XX:MaxPermSize=n:设置持久代大小
 
