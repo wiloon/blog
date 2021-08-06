@@ -59,7 +59,7 @@ collection-oriented，面向集合的存储，同一个collection的数据是连
 
 update-in-place直接修改，而非使用MVCC的机制
 
-使用C＋＋编写
+使用C++编写
 
 **10.适用场景**
 

@@ -393,7 +393,7 @@ safe_transfer(your_account, my_account, 80);  // [B]
 
 [A]执行结束后，your_account == my_account == 50，[B]再开始执行，然而条件不满足，转账失败：
 [B]执行结束后，your_account == 20 && my_account == 80，[A]再开始执行，然而条件不满足，转账失败；
-而不会出现[A]和[B]交错执行的情况，从而使数据始终符合系统规定的不变形条件。对应于C++的std::mutex和std::lock_guard，在Java有monitor（通常不用显式声明）＋synchronized的组合。
+而不会出现[A]和[B]交错执行的情况，从而使数据始终符合系统规定的不变形条件。对应于C++的std::mutex和std::lock_guard，在Java有monitor（通常不用显式声明）+synchronized的组合。
 
 ### ThreadGroup
 

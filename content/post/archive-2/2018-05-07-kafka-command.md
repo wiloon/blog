@@ -2,14 +2,13 @@
 title: kafka basic, command
 author: "-"
 date: 2018-05-07T08:44:53.000+00:00
-url: "/?p=12205"
+url: "kafka"
 
 ---
 ### kafka package 
     https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
 
 ### group
-
     # list all group
     bin/kafka-consumer-groups.sh \
     --bootstrap-server localhost:9092 --list
@@ -72,7 +71,6 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
     --partitions 5
 
 ### 重置offset
-
     ./kafka-consumer-groups.sh \
     --bootstrap-server broker_ip_0:9092 \
     --reset-offsets --group <group id> \
@@ -103,13 +101,17 @@ listeners=PLAINTEXT://:9092
 zookeeper.connect=localhost:2181
 
 ### producer
-
     bin/kafka-console-producer.sh \
     --broker-list localhost:9092 \
     --topic topic0
 
-### consumer
+    bin/kafka-console-producer.sh \
+    --broker-list localhost:9092 \
+    --topic topic0
+    --property parse.key=true
 
+
+### consumer
     bin/kafka-console-consumer.sh \
     --bootstrap-server localhost:9092 \
     --topic topic0

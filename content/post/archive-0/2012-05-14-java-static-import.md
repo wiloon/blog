@@ -29,7 +29,7 @@ categories:
   
   
     public static void main(String arsg[]){
- System.out.println("1 ＋ 1 ="+(1+1));
+ System.out.println("1 + 1 ="+(1+1));
  System.out.println("abs(-1)="+abs(-1));
  System.out.println("exp(1.5)="+exp(1.5));
  System.out.println("Pi = "+PI);

@@ -1,9 +1,12 @@
 +++
 author = "-"
 date = "2020-05-18T09:12:08Z"
-title = "java 替换ascii不可见字符"
+title = "java 替换ascii不可见字符, StringEscapeUtils.escapeJava"
 
 +++
+### StringEscapeUtils.escapeJava
+   StringEscapeUtils.escapeJava
+
 ### String.replaceAll 替换成?
 
     my_string.replaceAll("\\p{C}", "?");

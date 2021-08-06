@@ -15,7 +15,6 @@ windows subsystem for Linux
 
     # reboot, 先shutdown再打开就行了...
 
-
 ### 微软的官方安装文档
 https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 ### 步骤 1 - 启用适用于 Linux 的 Windows 子系统
@@ -93,7 +92,6 @@ vim .zshrc
 
 ### windows firewall
 	advanced rule add rule: tcp port 0
-	
 	
 #### windows脚本设置网卡Ip
 https://blog.csdn.net/manbu_cy/article/details/108476859
@@ -173,7 +171,6 @@ https://blog.csdn.net/manbu_cy/article/details/108476859
 
 ### resolv.conf
     sudo vim /etc/resolv.conf
-    ###
 
 #### windows 防火墙配置
 选择 公用网络, 否则 执行startxfce4 后报错 无法连接
@@ -221,7 +218,6 @@ Run powershell.exe as Administrator
     Ubuntu (Default)
 
 ### wsl2 graphical
-
 https://zhuanlan.zhihu.com/p/150555651
 
 ### wsl2的ip每次都 会变的问题, 在windows里可以直接访问 localhost:xxxx, wsl2会把所有端口映射到windows 的 localhost
@@ -257,11 +253,11 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
                 "hidden": false,
                 "name": "Ubuntu-20.04",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "//wsl$/Ubuntu-20.04/home/wiloon",
+                "startingDirectory": "\\wsl$\Ubuntu-20.04\home\wiloon",
             },
 添加/修改如下行：
 
-"startingDirectory": "//wsl$/Ubuntu/home/<yourname>/",
+"startingDirectory": "\\wsl$\Ubuntu-20.04\home\wiloon",
 
 ### 修改 Windows Terminal 默认打开的 Shell
 修改 defaultProfile 的值为对应的 guid 即可。

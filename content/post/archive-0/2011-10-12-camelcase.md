@@ -4,10 +4,6 @@ author: "-"
 type: post
 date: 2011-10-12T13:38:23+00:00
 url: /?p=1026
-views:
-  - 8
-bot_views:
-  - 9
 categories:
   - Java
 
