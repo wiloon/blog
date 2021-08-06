@@ -27,6 +27,9 @@ makepkg -si
 执行以下命令修改 aururl :
 ```bash
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
+yay --aururl "https://aur.archlinux.org" --save
+
+
 ```
 修改的配置文件位于 ~/.config/yay/config.json ，还可通过以下命令查看修改过的配置: 
 

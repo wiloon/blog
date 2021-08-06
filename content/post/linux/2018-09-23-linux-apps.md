@@ -74,6 +74,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | sl                    | 小火车                                                       |
 | inkscape              | 矢量图形创建和编辑程序,svg                                   |
 |lrzsz|zmodem|
+|remmina|GTK 编写的远程桌面客户端|
+|freerdp |remmina的RDP 支持包|
 
 ### pacman, development
 
