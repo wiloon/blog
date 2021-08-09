@@ -1,11 +1,9 @@
 ---
-title: Linux文件系统Ext2,Ext3,Ext4
+title: 文件系统 Ext2, Ext3, Ext4, xfs
 author: "-"
 type: post
 date: 2011-12-03T08:27:03+00:00
 url: /?p=1687
-bot_views:
-  - 1
 categories:
   - Linux
 
@@ -67,3 +65,41 @@ Processor cache line size set to 32 bytes.
 File stride size set to 17 * record size.
   
 测试结果除了表明 Intel SSD 的读写速度快得令人咋舌之外，还可以说明 Ext4 的各方面性能都超过了上一代 Ext3，甚至在大多数情况下，比没有日志功能的 Ext2 还要快出不少：
+
+### ext4, xfs
+centos7.0开始默认文件系统是xfs，centos6是ext4，centos5是ext3
+
+ext3和ext4的最大区别在于，ext3在fsck时需要耗费大量时间（文件越多，时间越长），而ext4在fsck时用的时间会少非常多
+
+fsck（file system check）用来检查和维护不一致的文件系统。若系统掉电或磁盘发生问题，可利用fsck命令对文件系统进行检查
+
+ext4是第四代扩展文件系统（英语：Fourth EXtended filesystem，缩写为ext4）是linux系统下的日志文件系统，是ext3文件系统的后继版本
+ext4的文件系统容量达到1EB，而文件容量则达到16TB，这是一个非常大的数字了。对一般的台式机和服务器而言，这可能并不重要，但对于大型磁盘阵列的用户而言，这就非常重要了。
+ext3目前只支持32000个子目录，而ext4取消了这一限制，理论上支持无限数量的子目录
+
+xfs是一种非常优秀的日志文件系统，它是SGI公司设计的。xfs被称为业界最先进的、最具可升级性的文件系统技术
+
+xfs是一个64位文件系统，最大支持8EB减1字节的单个文件系统，实际部署时取决于宿主操作系统的最大块限制。对于一个32位Linux系统，文件和文件系统的大小会被限制在16TB
+
+xfs在很多方面确实做的比ext4好，ext4受限制于磁盘结构和兼容问题，可扩展性和scalability确实不如xfs，另外xfs经过很多年发展，各种锁的细化做的也比较好。
+
+XFS在很多方面确实做的比Ext4好，Ext4受限制于磁盘结构和兼容问题，可扩展性和scalability确实不如XFS，另外XFS经过很多年发展，各种锁的细化做的也比较好.2. Btrfs 性能太差，稳定性不行，提不上prodcution use..3. 要知道XFS的Mainainer Dave Chineer是受雇于Redhat,而Ext4的Maintainer Ted受雇于google..
+ 
+Ext4 作为传统的文件系统确实非常成熟稳定，但是随着存储需求的越来越大，Ext4 渐渐适应不了了。比如说现在虽然Ext4 目录索引采用了Hash Index Tree, 但是依然限制高度为2. 做过实际测试Ext4的单个目录文件超过200W个，性能下降的就比较厉害了。
+由于历史磁盘结构原因Ext4 的inode 个数限制(32位数)最多只能有大概40多亿文件。而且Ext4的单个文件大小最大只能支持到16T(4K block size) 的话，这些至少对于目前来说已经是瓶颈了...而XFS使用64位管理空间，文件系统规模可以达到EB级别，可以说未来几年XFS彻底取代Ext4是早晚的事情！另外，我看了一下XFS 目前redhat 至少投入了5个Kernel developer 在上面，因为XFS 是基于B+Ttree 管理元数据，即将支持reflink, dedupe等高级特性(Oracle 开发者已经开发了patch)。综上所述，XFS 取代Ext4 已经成为必然。
+
+作者：wangsl
+链接：https://www.zhihu.com/question/24413471/answer/38883787
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+更多对比
+ext4不支持透明压缩、重复数据删除或者透明加密。技术上支持了快照，但该功能还处于实验性阶段。xfs也不能压缩，XFS 是基于B+ Ttree 管理元数据，即将支持reflink, dedupe等高级特性。
+Ext4受限制于磁盘结构和兼容问题，可扩展性和scalability不如XFS。
+虽然Ext4 目录索引采用了Hash Index Tree, 但是依然限制高度为2。
+由于历史磁盘结构原因Ext4 的inode 个数限制(32位数)最多只能有大概40多亿文件。而且Ext4的单个文件大小最大只能支持到16T(4K block size) ，目前来说已经是瓶颈。XFS使用64位管理空间，文件系统规模可以达到EB级别。
+
+XFS文件系统的卷无法被直接收缩，只能通过“备份->重灌->还原”的方式间接进行容量缩减（这也是云端主机供应商会告知存储空间只能增加不能缩减的其中一个原因），在准备多一组存储卷的情况下，有工具可对XFS卷进行上述操作：xfsdump和xfsrestore。
+
+http://xiaqunfeng.cc/2017/07/06/XFS-vs-EXT4/
+
