@@ -12,13 +12,13 @@ url: "kafka"
     # list all group
     bin/kafka-consumer-groups.sh \
     --bootstrap-server localhost:9092 --list
-    
-    # list group detail
+
+    # list group detail, offset
     bin/kafka-consumer-groups.sh \
     --bootstrap-server localhost:9092 \
     --describe \
     --group my-group
-    
+
     bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
     --describe \
     --group my-group
@@ -63,7 +63,6 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
 <https://cloud.tencent.com/developer/article/1436988>
 
 ### 调整分区数
-
     bin/kafka-topics.sh \
     --zookeeper ip0:2181 \
     --alter \
@@ -147,14 +146,13 @@ zookeeper.connect=localhost:2181
     bin/kafka-console-producer.sh --broker-list test-kafka-1:9092 --topic t0
     bin/kafka-console-consumer.sh --bootstrap-server --zookeeper xxx:2181 test-kafka-1:9092 --topic t0 --from-beginning
 
-bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --from-beginning
+    bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --from-beginning
 
     # 会只消费 N 条数据，如果配合 --from-beginning，就会消费最早 N 条数据。
     bin/kafka-console-consumer.sh --bootstrap-server test-kafka-1:9092 --topic t0 --max-messages 10
 
     
 ### 调整 ReplicationFactor
-    
 ```bash
 cat increase-replication-factor.json
     
@@ -163,12 +161,6 @@ cat increase-replication-factor.json
     }
     
     bin/kafka-reassign-partitions.sh --zookeeper localhost:2182 --reassignment-json-file increase-replication-factor.json --execute
-```
-
-### consumer
-
-```bash
-/opt/cloudera/parcels/KAFKA/bin/kafka-console-consumer --bootstrap-server 192.168.0.1:9092,192.168.0.2:9092,192.168.0.3:9092 --topic topic0
 ```
 
 ### install
@@ -198,7 +190,6 @@ docker run  -d --name kafka \
 
 ```
 ### server.properties
-    
     advertised.host.name: 是注册到zookeeper，client要访问的broker地址。（可能producer也是拿这个值，没有验证）
     
     如果advertised.host.name没有设，会用host.name的值注册到zookeeper，如果host.name也没有设，则会使用JVM拿到的本机hostname注册到zk。
@@ -240,17 +231,12 @@ docker run  -d --name kafka \
     支持无认证的明文访问
     
     新API和旧API
-    
-    21005
-    
-    https://www.jianshu.com/p/25a7b0ceb78a
-    
-    https://github.com/wurstmeister/kafka-docker
-    
-    https://juejin.im/entry/5cbfe36b6fb9a032036187aa
-    
-    https://my.oschina.net/u/218540/blog/223501
-    
-    https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html
-    
-    https://blog.csdn.net/lzufeng/article/details/81743521
+
+---
+
+https://www.jianshu.com/p/25a7b0ceb78a  
+https://github.com/wurstmeister/kafka-docker  
+https://juejin.im/entry/5cbfe36b6fb9a032036187aa  
+https://my.oschina.net/u/218540/blog/223501  
+https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html  
+https://blog.csdn.net/lzufeng/article/details/81743521  

@@ -889,9 +889,6 @@ int pthread_cond_broadcast(pthread_cond_t *cond);
 一个进程中的所有线程不仅共享全局变量，而且共享：进程指令、大多数数据、打开的文件（如描述字）、信号处理程序和信号处置、当前工作目录、用户ID和组ID。但是每个线程有自己的线程ID、寄存器集合（包括程序计数器和栈指针）、栈（用于存放局部变量和返回地址）、error、信号掩码、优先级。在Linux中线程编程符合Posix.1标准，称为Pthreads。所有的pthread函数都以pthread_开头。以下先讲述5个基本线程函数，在调用它们前均要包括pthread.h头文件。然后再给出用它们编写的一个TCP客户/服务器程序例子。
 
 第一个函数：
-
- 
-
 int pthread_create (pthread_t ＊tid,const pthread_attr_t ＊attr,void ＊      (＊func)(void ＊),void ＊arg)；
 一个进程中的每个线程都由一个线程ID（thread ID）标识，其数据类型是pthread_t（常常是unsigned int）。如果新的线程创建成功，其ID将通过tid指针返回。
 
