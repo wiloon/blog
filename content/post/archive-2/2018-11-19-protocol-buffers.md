@@ -2,7 +2,7 @@
 title: protocol buffers, protobuf
 author: "-"
 date: 2018-11-19T02:11:42.000+00:00
-url: "/?p=12891"
+url: protobuf
 
 ---
 
