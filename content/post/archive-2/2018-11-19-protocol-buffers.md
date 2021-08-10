@@ -12,6 +12,10 @@ url: protobuf
     # 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
     https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
 
+#### windows
+    download protoc 
+    https://developers.google.com/protocol-buffers/docs/downloads
+
 ### define message formates in a .proto file
 ```
     syntax = "proto3";
@@ -54,7 +58,7 @@ protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/proto0.proto
 ### protobuf > json
 
 ```golang
- import  "github.com/golang/protobuf/jsonpb"
+import  "github.com/golang/protobuf/jsonpb"
 ```
 
 rotobuf是google提供的一个开源序列化框架，类似于XML，JSON这样的数据表示语言，其最大的特点是基于二进制，因此比传统的XML表示高效短小得多。虽然是二进制数据格式，但并没有因此变得复杂，开发人员通过按照一定的语法定义结构化的消息格式，然后送给命令行工具，工具将自动生成相关的类，可以支持java、c++、python等语言环境。通过将这些类包含在项目中，可以很轻松的调用相关方法来完成业务消息的序列化与反序列化工作。
