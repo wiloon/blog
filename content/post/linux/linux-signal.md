@@ -212,7 +212,7 @@ SIGABRT
        ~~~~~~      调用abort函数生成的信号。
 
 SIGBUS
-       ~~~~~~      非法地址, 包括内存地址对齐(alignment)出错。比如访问一个四个字长的整数, 但其地址不是4的倍数。它与SIGSEGV的区别在于后者是由于对合法存储地址的非法访问触发的(如访问不属于自己存储空间或只读存储空间)。
+非法地址, 包括内存地址对齐(alignment)出错。比如访问一个四个字长的整数, 但其地址不是4的倍数。它与SIGSEGV的区别在于后者是由于对合法存储地址的非法访问触发的(如访问不属于自己存储空间或只读存储空间)。
 
 SIGFPE
        ~~~~~~      FPE是floating-point exception（浮点异常）的首字母缩略字。在发生致命的算术运算错误时发出. 不仅包括浮点运算错误, 还包括溢出及除数为0等其它所有的算术的错误。SIGFPE的符号常量在头文件signal.h中定义。
@@ -224,20 +224,29 @@ SIGKILL
 SIGUSR1
        ~~~~~~      留给用户使用
 
-SIGSEGV
-       ~~~~~~      试图访问未分配给自己的内存, 或试图往没有写权限的内存地址写数据.
+### SIGSEGV
+试图访问未分配给自己的内存, 或试图往没有写权限的内存地址写数据.
+SIGSEGV --- Segment Fault. The possible cases of your encountering this error are: 
+
+1. buffer overflow --- usually caused by a pointer reference out of range. 
+2. stack overflow --- please keep in mind that the default stack size is 8192K. 
+3. illegal file access --- file operations are forbidden on our judge system.
+
+#### SIGBUS与SIGSEGV信号的一般区别如下:
+1. SIGBUS(Bus error)意味着指针所对应的地址是有效地址，但总线不能正常使用该指针。通常是未对齐的数据访问所致。
+2. SIGSEGV(Segment fault)意味着指针所对应的地址是无效地址，没有物理内存对应该地址。
 
 SIGUSR2
-       ~~~~~~      留给用户使用
+留给用户使用
 
 SIGPIPE
-       ~~~~~~      管道破裂。这个信号通常在进程间通信产生，比如采用FIFO(管道)通信的两个进程，读管道没打开或者意外终止就往管道写，写进程会收到SIGPIPE信号。此外用Socket通信的两个进程，写进程在写Socket的时候，读进程已经终止。
+管道破裂。这个信号通常在进程间通信产生，比如采用FIFO(管道)通信的两个进程，读管道没打开或者意外终止就往管道写，写进程会收到SIGPIPE信号。此外用Socket通信的两个进程，写进程在写Socket的时候，读进程已经终止。
 
 SIGALRM
-       ~~~~~~      时钟定时信号, 计算的是实际的时间或时钟时间. alarm函数使用该信号.
+时钟定时信号, 计算的是实际的时间或时钟时间. alarm函数使用该信号.
 
 SIGTERM
-       ~~~~~~      程序结束(terminate)信号, 与SIGKILL不同的是该信号可以被阻塞和处理。通常用来要求程序自己正常退出，shell命令kill缺省产生这个信号。如果进程终止不了，我们才会尝试SIGKILL。
+程序结束(terminate)信号, 与SIGKILL不同的是该信号可以被阻塞和处理。通常用来要求程序自己正常退出，shell命令kill缺省产生这个信号。如果进程终止不了，我们才会尝试SIGKILL。
 
 SIGCHLD
        ~~~~~~      子进程（child）结束时, 父进程会收到这个信号。如果父进程没有处理这个信号，也没有等待(wait)子进程，子进程虽然终止，但是还会在内核进程表中占有表项，这 时的子进程称为僵尸进程。这种情 况我们应该避免(父进程或者忽略SIGCHILD信号，或者捕捉它，或者wait它派生的子进程，或者父进程先终止，这时子进程的终止自动由init进程 来接管)。
@@ -311,3 +320,5 @@ http://gityuan.com/2015/12/20/signal/
 
 https://colobu.com/2015/10/09/Linux-Signals/
 
+
+https://blog.csdn.net/brace/article/details/1102422

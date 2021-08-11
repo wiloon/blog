@@ -67,7 +67,6 @@ Object obj = it.next(); // 得到下一个元素
 
 
 ### List接口
-
 List是有序的Collection，使用此接口能够精确的控制每个元素插入的位置。用户能够使用索引（元素在List中的位置，类似于数组下标）来访问List中的元素，这类似于Java的数组。
   
 和下面要提到的Set不同，List允许有相同的元素。
@@ -78,7 +77,6 @@ List是有序的Collection，使用此接口能够精确的控制每个元素插
 
 
 ### LinkedList类
-
 LinkedList实现了List接口，允许null元素。此外LinkedList提供额外的get，remove，insert方法在 LinkedList的首部或尾部。这些操作使LinkedList可被用作堆栈（stack），队列（queue）或双向队列（deque）。
   
 注意LinkedList没有同步方法。如果多个线程同时访问一个List，则必须自己实现访问同步。一种解决方法是在创建List时构造一个同步的List：
@@ -89,7 +87,6 @@ List list = Collections.synchronizedList(new LinkedList(...));
 
 
 ### ArrayList类
-
 ArrayList实现了可变大小的数组。它允许所有元素，包括null。ArrayList没有同步。
   
 size，isEmpty，get，set方法运行时间为常数。但是add方法开销为分摊的常数，添加n个元素需要O(n)的时间。其他的方法运行时间为线性。
@@ -100,7 +97,6 @@ size，isEmpty，get，set方法运行时间为常数。但是add方法开销为
 
 
 ### Vector
-
 对比于Array，当更多的元素被加入进来以至超出其容量时，Vector的size会动态增长，而Array容量是定死的。
 
 Vector在删除一些元素后，其所有下标大于被删除元素的元素都依次前移，并获得新下标比原来的小了。注意：当调用Vector的size()方法时，返回Vector中实际元素的个数。
@@ -109,14 +105,11 @@ Vector内部实际是以Array实现的，也通过元素的整数索引来访问
   
 Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在：Vector is synchronized。即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素），这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
 
-
 ### Stack 类
-
 Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得 Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。
 
 
 ### Set接口
-
 Set是一种不包含重复的元素的Collection，即任意的两个元素e1和e2都有e1.equals(e2)=false，Set最多有一个null元素。
   
 很明显，Set的构造函数有一个约束条件，传入的Collection参数不能包含重复的元素。
@@ -125,12 +118,10 @@ Set是一种不包含重复的元素的Collection，即任意的两个元素e1�
 
 
 ### Map接口
-
 请注意，Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同的key，每个key只能映射一个 value。Map接口提供3种集合的视图，Map的内容可以被当作一组key集合，一组value集合，或者一组key-value映射。
 
 
 ### Hashtable类
-
 Hashtable继承Map接口，实现一个key-value映射的哈希表。任何非空（non-null）的对象都可作为key或者value。
   
 添加数据使用put(key, value)，取出数据使用get(key)，这两个基本操作的时间开销为常数。

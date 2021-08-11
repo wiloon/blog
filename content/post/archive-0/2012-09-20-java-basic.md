@@ -11,9 +11,7 @@ tags:
 
 ---
 ### 面向对象的三个基本特征：封装、继承、多态。
-
 #### 封装:
-
 封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。
 
 封装（Encapsulation）是面向对象方法的重要原则，就是把对象的属性和操作（或服务）结合为一个独立的整体，并尽可能隐藏对象的内部实现细节。
@@ -325,33 +323,21 @@ http://www.wiloon.com/wordpress/?p=4034&embed=true#?secret=RDEPuKfPGA
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=3336&embed=true#?secret=MLUWtzeM61" data-secret="MLUWtzeM61" width="600" height="338" title=""Java 抽象类/接口" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+http://www.wiloon.com/wordpress/?p=3336&embed=true#?secret=MLUWtzeM61
+
+### heap和stack的区别
+栈是一种线性集合，栈按照后进先出的方式进行处理。
+http://www.wiloon.com/wordpress/?p=4151
+
+http://www.wiloon.com/wordpress/?p=4151&embed=true#?secret=20KcOkpGBn
 
 
-### **heap和stack的区别**
-
-**栈是一种线形集合，其添加和删除元素的操作应在同一段完成。栈按照后进先出的方式进行处理。**
-
-<blockquote data-secret="20KcOkpGBn" class="wp-embedded-content">
-  
-    <a href="http://www.wiloon.com/wordpress/?p=4151">Java, Stack栈 Heap堆</a>
-  
-</blockquote>
-
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4151&embed=true#?secret=20KcOkpGBn" data-secret="20KcOkpGBn" width="600" height="338" title=""Java, Stack栈 Heap堆" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-
-
-**24、Static Nested Class 和 Inner Class的不同。**
-
+### Static Nested Class 和 Inner Class的不同。
 Static Nested Class是被声明为静态（static）的内部类，它可以不依赖于外部类实例被实例化。而通常的内部类需要在外部类实例化后才能实例化。
 
-<blockquote data-secret="yj3jOD5DN0" class="wp-embedded-content">
-  
-    <a href="http://www.wiloon.com/wordpress/?p=6474">java内部类的作用分析</a>
-  
-</blockquote>
+http://www.wiloon.com/wordpress/?p=6474
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=6474&embed=true#?secret=yj3jOD5DN0" data-secret="yj3jOD5DN0" width="600" height="338" title=""java内部类的作用分析" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+ http://www.wiloon.com/wordpress/?p=6474&embed=true#?secret=yj3jOD5DN0
 
 
 **assert**
@@ -380,18 +366,15 @@ http://www.wiloon.com/wordpress/?p=4620&embed=true#?secret=hz71dhuu22
 
 
 ### JVM的永久代中会发生垃圾回收么？
-
 垃圾回收不会发生在永久代，如果永久代满了或者是超过了临界值，会触发完全垃圾回收(Full GC)。如果你仔细查看垃圾收集器的输出信息，就会发现永久代也是被回收的。这就是为什么正确的永久代大小对避免Full GC是非常重要的原因。请参考下<a class="external" href="http://www.javacodegeeks.com/2013/02/java-8-from-permgen-to-metaspace.html" target="_blank" rel="nofollow">Java8：从永久代到元数据区</a>
   
 (译者注：Java8中已经移除了永久代，新加了一个叫做元数据区的native内存区)
 
 ### 如何权衡是使用无序的数组还是有序的数组？
-
 有序数组最大的好处在于查找的时间复杂度是O(log n)，而无序数组是O(n)。有序数组的缺点是插入操作的时间复杂度是O(n)，因为值大的元素需要往后移动来给新元素腾位置。相反，无序数组的插入时间复杂度是常量O(1)。
 
 
 ### Java集合类框架的最佳实践有哪些？
-
   * 根据应用的需要正确选择要使用的集合的类型对性能非常重要，比如：假如元素的大小是固定的，而且能事先知道，我们就应该用Array而不是ArrayList。
   * 有些集合类允许指定初始容量。因此，如果我们能估计出存储的元素的数目，我们可以设置初始容量来避免重新计算hash值或者是扩容。
   * 为了类型安全，可读性和健壮性的原因总是要使用泛型。同时，使用泛型还可以避免运行时的ClassCastException。

@@ -203,15 +203,14 @@ __ cmp(G3_scratch, SafepointSynchronize::_not_synchronized);
   
 ) 。这是mprotect的man page
 
-```java view plain copy
   
-"If the calling process tries to access memory in a manner that violates the protection, then the kernel generates a SIGSEGV
+If the calling process tries to access memory in a manner that violates the protection, then the kernel generates a SIGSEGV
   
-signal for the process."
+signal for the process.
 
 再看一下JVM如何处理SIGSEGV信号的 hotspot/src/os_cpu/linux_x86/vm/os_linux_x86.cpp
   
-```java view plain copy
+```java
   
 // Check to see if we caught the safepoint code in the
       

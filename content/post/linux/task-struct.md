@@ -871,22 +871,15 @@ struct list_head tasks;
     /* Canary value for the -fstack-protector gcc feature */  
     unsigned long stack_canary;  
 #endif  
-1
-2
-3
-4
+
 在GCC编译内核时，需要加上-fstack-protector选项。
 
 （13）、PID散列表和链表 
-1
-2
-3
+
 /* PID/PID hash table linkage. */  
 struct pid_link pids[PIDTYPE_MAX];  
 struct list_head thread_group; //线程组中所有进程的链表  
-1
-2
-3
+
 （14）、do_fork函数 
 1
 struct completion *vfork_done;      /* for vfork() */  
