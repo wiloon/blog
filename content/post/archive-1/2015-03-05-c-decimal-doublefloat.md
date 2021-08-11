@@ -3,17 +3,15 @@ title: Java 轻量级锁 (Lightweight Locking)
 author: "-"
 type: post
 date: 2015-03-05T02:32:58+00:00
-url: /?p=7381
+url: lightweight-lock
 categories:
-  - Uncategorized
+  - java
 
 ---
-http://blog.csdn.net/hsuxu/article/details/9472389
 
-Java的多线程安全是基于Lock机制实现的，而Lock的性能往往不如人意。
-  
-原因是，monitorenter与monitorexit这两个控制多线程同步的bytecode原语，是JVM依赖操作系统互斥(mutex)来实现的。
-  
+Java 的多线程安全是基于 Lock 机制实现的，而 Lock 的性能往往不如人意。  
+原因是，monitorenter 与 monitorexit 这两个控制多线程同步的 bytecode 原语，是JVM依赖操作系统互斥(mutex)来实现的。  
+
 互斥是一种会导致线程挂起，并在较短的时间内又需要重新调度回原线程的，较为消耗资源的操作。
 
 为了优化Java的Lock机制，从Java6开始引入了轻量级锁的概念。
@@ -67,3 +65,5 @@ exchange_pointer_1
 此时，unlock后就需要唤醒被挂起的线程。
 
 转载请注明原文链接: http://kenwublog.com/theory-of-lightweight-locking-upon-cas
+
+http://blog.csdn.net/hsuxu/article/details/9472389
