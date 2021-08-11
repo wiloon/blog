@@ -1,5 +1,5 @@
 ---
-title: AbstractQueuedSynchronizer
+title: AbstractQueuedSynchronizer， AQS
 author: "-"
 type: post
 date: 2013-05-15T07:00:21+00:00

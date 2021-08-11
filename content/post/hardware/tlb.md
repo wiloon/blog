@@ -200,7 +200,7 @@ Linux/ia64使用update_mmu_cache()实现了缓存刷新功能，这个在4.6节�
 reload_context()函数负责激活当前CPU上的代表mm context的ASN。逻辑上讲，这个激活动作需要将ASN写入到CPU的asn寄存器，但是实际上这个动作具体怎么做，是依赖于平台的。调用这个函数时，需要保证mm context包含了一个正确的ASN。
 最后，ASN不再使用时，Linux调用destroy_context()释放它。这个调用会标记用mm context表示的ASN可以被其它地址空间再次使用，并且释放在get_mmu_context()中申请的内存。即使调用这个函数之后ASN就可以重用了，TLB仍然可能包含这个ASN的旧转换信息。为了保证正常运行，特定平台代码需要在激活可重用ASN之前清除这些旧的转换信息。通常使用轮转的方式实现，并且在转一圈到第一个可用ASN时，刷新整个TLB。
 
-IA-64实现
+### IA-64实现
 Linux/ia64使用域ID来实现ASN接口。mm结构体中的mm context包含了一个单字(single word)存储地址空间的域ID。0表示未分配ASN。因此init_new_context()函数简单的将mm context清为0。
 IA-64架构定义域ID 24位宽，不过这取决于CPU模式，最少可以支持18位。例如，安腾(Itanium)架构上支持最小的18位宽。在Linux/ia64上，域ID 0是内核保留的，其余的ID可以供get_mmu_context()以轮转的方式使用。最后一个可用的域ID用掉后，会刷新整个TLB，然后计算一个新范围的可用域ID，并使当前正在使用的域ID都在这个范围之外。一旦找到了这个范围，get_mmu_context()就可以以轮转的方式继续分配新的域ID，直到这个范围再次用光，然后再次重复刷新TLB和查找域ID的可用范围。
 域ID有18到24位宽，但是只有15到21位在Linux上是可用的。原因是IA-64要求TLB必须匹配域ID和虚拟页号(请看图4.29)，但是不需要与虚拟域号(vrn)匹配。因此TLB可能区分不了，除非rr1和rr2中的域ID是不同的，比如0x2000000000000000到0x4000000000000000的地址。为了确保这单，Linux/ia64将vrn编码到域ID的三个最低位上。
