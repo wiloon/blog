@@ -135,7 +135,7 @@ drop database db0 ;
 EXPLAIN SELECT * FROM t0 where id=1 \G
 explain partitions select * from t4 where id=1 \G
 
--- create table, http://www.wiloon.com/wordpress/?p=1811
+-- create table, http://www.wiloon.com/?p=1811
 CREATE TABLE t1(id int not null,name char(20),c0 int);
 
 -- primary key
@@ -219,7 +219,7 @@ select now() from dual;
 
 set password
 
-SET PASSWORD FOR wordpressuser@localhost= PASSWORD("password");
+SET PASSWORD FOR user0@localhost= PASSWORD("password");
   
 #注意后面这句话 "COLLATE utf8_general_ci",大致意思是在排序时根据utf8变码格式来排序
 

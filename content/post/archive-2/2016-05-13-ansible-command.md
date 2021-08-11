@@ -84,7 +84,7 @@ ansible group0 -a "/etc/init.d/app0 restart" -f 10 \\重启testhosts组的所有
   
 command比较安全有可预知性，最好用command， 需要用到shell特性的时候，再用shell。
 
-# http://www.wiloon.com/wordpress/?p=9403
+# http://www.wiloon.com/?p=9403
 
 http://liumissyou.blog.51cto.com/4828343/1616462
 

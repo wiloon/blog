@@ -38,7 +38,7 @@ compile("org.springframework:spring-core:$versionSpring",
 
 create web.xml in .../webapp/WEB-INF/
 
-http://www.wiloon.com/wordpress/?p=3459
+http://www.wiloon.com/?p=3459
 
 
 **add context loader listener**

@@ -14,7 +14,7 @@ categories:
 ---
 connect to oracle with sqlplus
 
-http://www.wiloon.com/wordpress/?p=5560
+http://www.wiloon.com/?p=5560
 
 ```bash
 
@@ -25,28 +25,5 @@ grant connect, resource to user0;
 drop user user0 cascade;
 
 ```
-
-oracle create user, pl sql developer
-
-#general
-
-##name xxx
-
-##password xxx
-
-##default tablespace users
-
-##temporary tablespace temp
-
-##profile default
-
-#role privileges
-
-connect, dba, resource
-
-#system privileges
-
-unlimited tablespace
-
 
 http://www.2cto.com/database/201109/103010.html

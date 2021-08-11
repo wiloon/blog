@@ -30,7 +30,7 @@ public Car createSportCar() {…}
 
 代码片断 1
 
-http://www.wiloon.com/wordpress/wp-content/uploads/2012/10/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA-1.gif
+http://www.wiloon.com/wp-content/uploads/2012/10/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA-1.gif
 
 图1 Factory Pattern
 
@@ -162,7 +162,7 @@ public void service() {…}
 
 <http://www.iteye.com/topic/17112>
 
- [1]: http://www.wiloon.com/wordpress/wp-content/uploads/2012/10/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA-1.gif
+ [1]: http://www.wiloon.com/wp-content/uploads/2012/10/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBeu5PDT5UndtcNdt48rY80PV_fd8Ce5pLpHavAj520cgRoVa4EmOhjE5VNS7GnBHl126UUuSSCrcM8YMFLVb3mp_UsivKRLJ1HKESriM5FDQA-1.gif
  [2]: http://storage.msn.com/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBee-TnpMzZc_ZqwZC1doT-cIW-U3P8N2-bwjC3VP-_6SlTcY5iXrrcpDcnU4l-WG2ExsjQnc-bZyr1hx0TfiXjK3YQEsA8ZnsrSglQaBWXZQQ
  [3]: http://storage.msn.com/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBfvnLjsxFYObHTGR9CPTp9UBQ_GxnpRhEDmyikpUU9sqYJUmC-gy1fSl2JMcMWgb-txY8kEBN_QXG-d3HAtxoSpLo_Oz30QnQcLwQI2M5JChg
  [4]: http://storage.msn.com/x1pBG_wmiiVq4fKhMkEoTbjopPcKCE3u0uJjfqcYoYvgBcigtvc1JV34v6wh_gCCn9NXHLLHeWJlj76OiZDZRbf8X_zj_z_ah5oDKF02kC2D7bLcsLOYqw79e8FzS15halIoxPca7kCgYhxoeAXYgeCJQ

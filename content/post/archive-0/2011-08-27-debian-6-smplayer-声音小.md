@@ -16,4 +16,4 @@ Options > preferences > audio > output driver
   
 select "alsa"
 
-<http://www.wiloon.com/wordpress/?p=2850>
+<http://www.wiloon.com/?p=2850>

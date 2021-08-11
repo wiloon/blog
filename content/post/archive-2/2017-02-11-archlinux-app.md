@@ -14,9 +14,9 @@ categories:
   
 sudo pacman -S kcolorchooser
   
-deluged #http://www.wiloon.com/wordpress/?p=6306
+deluged #http://www.wiloon.com/?p=6306
   
-omxplayer #http://www.wiloon.com/wordpress/?p=5417
+omxplayer #http://www.wiloon.com/?p=5417
 
 #android
   

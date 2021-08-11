@@ -54,7 +54,7 @@ https://raspberrypi.stackexchange.com/questions/78787/howto-migrate-from-network
 
 openvpn
   
-<http://www.wiloon.com/wordpress/?p=11072>
+<http://www.wiloon.com/?p=11072>
 
 sudo apt-get update
   

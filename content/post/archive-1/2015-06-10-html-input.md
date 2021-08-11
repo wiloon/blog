@@ -24,4 +24,4 @@ Hidden 对象代表一个 HTML 表单中的某个隐藏输入域。
 
 http://www.w3school.com.cn/jsref/dom_obj_hidden.asp
 
-http://www.wiloon.com/wordpress/?p=6529
+http://www.wiloon.com/?p=6529

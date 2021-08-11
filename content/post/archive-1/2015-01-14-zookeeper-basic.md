@@ -389,6 +389,6 @@ http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html
   
 https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
   
-<http://www.wiloon.com/wordpress/?p=8594>{.wp-editor-md-post-content-link}
+<http://www.wiloon.com/?p=8594>{.wp-editor-md-post-content-link}
   
 https://my.oschina.net/xianggao/blog/531613

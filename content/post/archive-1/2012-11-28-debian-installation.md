@@ -142,6 +142,3 @@ chmod u-w /etc/sudoers
 #########################update source list to 163
 
 http://ubuntu.cn99.com/.help/debian.html
-
-#restart the system and install wordpress
-

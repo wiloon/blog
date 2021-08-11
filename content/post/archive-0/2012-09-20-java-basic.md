@@ -38,7 +38,7 @@ polymorphism
 
 多态性是指允许不同类的对象对同一消息作出响应。多态性包括参数化多态性和包含多态性。多态性语言具有灵活、抽象、行为共享、代码共享的优势，很好的解决了应用程序函数同名问题。
 
-  http://www.wiloon.com/wordpress/?p=7833
+  http://www.wiloon.com/?p=7833
 
 ### 抽象：
 
@@ -63,11 +63,11 @@ Java运行时环境(JRE)是将要执行Java程序的Java虚拟机。它同时也
 
 <blockquote data-secret="c1aIkVgiDE" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=5857">JRE和JDK的区别</a>
+    <a href="http://www.wiloon.com/?p=5857">JRE和JDK的区别</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=5857&embed=true#?secret=c1aIkVgiDE
+http://www.wiloon.com/?p=5857&embed=true#?secret=c1aIkVgiDE
 
 
 ### static 关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？
@@ -78,11 +78,11 @@ Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态�
 
 <blockquote data-secret="W3D9plaZq4" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=720">java static</a>
+    <a href="http://www.wiloon.com/?p=720">java static</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=720&embed=true#?secret=W3D9plaZq4" data-secret="W3D9plaZq4" width="600" height="338" title=""java static" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=720&embed=true#?secret=W3D9plaZq4" data-secret="W3D9plaZq4" width="600" height="338" title=""java static" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### Java 数据类型
@@ -91,11 +91,11 @@ String 不是基本数据类型，基本数据类型包括byte、int、char、lo
 
 <blockquote data-secret="zPf1hjBJE1" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4095">java 基本数据类型</a>
+    <a href="http://www.wiloon.com/?p=4095">java 基本数据类型</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4095&embed=true#?secret=zPf1hjBJE1" data-secret="zPf1hjBJE1" width="600" height="338" title=""java 基本数据类型" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4095&embed=true#?secret=zPf1hjBJE1" data-secret="zPf1hjBJE1" width="600" height="338" title=""java 基本数据类型" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### 什么是自动拆装箱？
@@ -104,11 +104,11 @@ String 不是基本数据类型，基本数据类型包括byte、int、char、lo
 
 <blockquote data-secret="jKQn0c3Ffr" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=324">自动装箱 拆箱</a>
+    <a href="http://www.wiloon.com/?p=324">自动装箱 拆箱</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=324&embed=true#?secret=jKQn0c3Ffr" data-secret="jKQn0c3Ffr" width="600" height="338" title=""自动装箱 拆箱" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=324&embed=true#?secret=jKQn0c3Ffr" data-secret="jKQn0c3Ffr" width="600" height="338" title=""自动装箱 拆箱" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### 什么是构造函数？什么是构造函数重载？什么是复制构造函数？
@@ -139,19 +139,19 @@ Java 提供两种不同的类型：引用类型和原始类型（或内置类�
 
 <blockquote data-secret="3QUltjLSBh" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4120">引用类型 基本类型</a>
+    <a href="http://www.wiloon.com/?p=4120">引用类型 基本类型</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=4120&embed=true#?secret=3QUltjLSBh
+http://www.wiloon.com/?p=4120&embed=true#?secret=3QUltjLSBh
 
 
 ### String ，StringBuffer, StringBuilder
 
 JAVA平台提供了两个类：String和StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String类提供了数值不可改变的字符串。而StringBuffer类提供的字符串允许进行修改。当你知道字符数据要改变的时候你就可以使用StringBuffer。典型地，你可以使用 StringBuffers来动态构造字符数据。
 
-http://www.wiloon.com/wordpress/?p=4123  
-http://www.wiloon.com/wordpress/?p=4123&embed=true#?secret=FB8flsCPiN  
+http://www.wiloon.com/?p=4123  
+http://www.wiloon.com/?p=4123&embed=true#?secret=FB8flsCPiN  
 
 
 ### 异常
@@ -161,11 +161,11 @@ error 表示恢复不是不可能但很困难的情况下的一种严重问题�
 
 <blockquote data-secret="WhSU8ycC17" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4125">运行时异常/一般异常</a>
+    <a href="http://www.wiloon.com/?p=4125">运行时异常/一般异常</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4125&embed=true#?secret=WhSU8ycC17" data-secret="WhSU8ycC17" width="600" height="338" title=""运行时异常/一般异常" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4125&embed=true#?secret=WhSU8ycC17" data-secret="WhSU8ycC17" width="600" height="338" title=""运行时异常/一般异常" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### Java集合类 ArrayList,Vector, LinkedList
@@ -179,11 +179,11 @@ ArrayList 和Vector都是使用数组方式存储数据，此数组元素数大�
 
 <blockquote data-secret="w9FiOFSEW9" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=1470">Java Array, Vector, ArrayList, List, LinkedList</a>
+    <a href="http://www.wiloon.com/?p=1470">Java Array, Vector, ArrayList, List, LinkedList</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=1470&embed=true#?secret=w9FiOFSEW9" data-secret="w9FiOFSEW9" width="600" height="338" title=""Java Array, Vector, ArrayList, List, LinkedList" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=1470&embed=true#?secret=w9FiOFSEW9" data-secret="w9FiOFSEW9" width="600" height="338" title=""Java Array, Vector, ArrayList, List, LinkedList" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### HashMap和Hashtable
@@ -192,19 +192,19 @@ HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都�
 
 <blockquote data-secret="Zea2iEVLs2" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4144">HashMap,Hashtable</a>
+    <a href="http://www.wiloon.com/?p=4144">HashMap,Hashtable</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=4144&embed=true#?secret=Zea2iEVLs2
+http://www.wiloon.com/?p=4144&embed=true#?secret=Zea2iEVLs2
 
 <blockquote data-secret="PuZXM3VEiO" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=6726">HashSet、TreeSet、LinkedHashSet</a>
+    <a href="http://www.wiloon.com/?p=6726">HashSet、TreeSet、LinkedHashSet</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=6726&embed=true#?secret=PuZXM3VEiO
+http://www.wiloon.com/?p=6726&embed=true#?secret=PuZXM3VEiO
 
 ### Iterator和ListIterator的区别是什么？
 
@@ -233,11 +233,11 @@ PriorityQueue是一个基于优先级堆的无界队列，它的元素是按照�
 
 <blockquote data-secret="pxDBhDaJyo" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4142">移位运算符</a>
+    <a href="http://www.wiloon.com/?p=4142">移位运算符</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4142&embed=true#?secret=pxDBhDaJyo" data-secret="pxDBhDaJyo" width="600" height="338" title=""移位运算符" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4142&embed=true#?secret=pxDBhDaJyo" data-secret="pxDBhDaJyo" width="600" height="338" title=""移位运算符" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### 
@@ -253,11 +253,11 @@ finalize是Object类的一个方法，在垃圾收集器执行的时候会调用
 
 <blockquote data-secret="PSMs5c8YqX" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4618">JVM内存管理-Java垃圾回收调优</a>
+    <a href="http://www.wiloon.com/?p=4618">JVM内存管理-Java垃圾回收调优</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=4618&embed=true#?secret=PSMs5c8YqX
+http://www.wiloon.com/?p=4618&embed=true#?secret=PSMs5c8YqX
 
 
 ### 线程的几种可用状态。
@@ -280,11 +280,11 @@ wait是Object类的方法，对此对象调用wait方法导致本线程放弃对
 
 <blockquote data-secret="RDEPuKfPGA" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4034">java 线程 yield(), sleep(), wait(), join()</a>
+    <a href="http://www.wiloon.com/?p=4034">java 线程 yield(), sleep(), wait(), join()</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=4034&embed=true#?secret=RDEPuKfPGA
+http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 
 ### **Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?**
@@ -293,11 +293,11 @@ http://www.wiloon.com/wordpress/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 <blockquote data-secret="n7Qjl48iTg" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=3502">Java Override Overload 重写、覆盖、重载、多态</a>
+    <a href="http://www.wiloon.com/?p=3502">Java Override Overload 重写、覆盖、重载、多态</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=3502&embed=true#?secret=n7Qjl48iTg" data-secret="n7Qjl48iTg" width="600" height="338" title=""Java Override   Overload  重写、覆盖、重载、多态" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=3502&embed=true#?secret=n7Qjl48iTg" data-secret="n7Qjl48iTg" width="600" height="338" title=""Java Override   Overload  重写、覆盖、重载、多态" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### **同步,异步 在什么情况下使用**
@@ -306,11 +306,11 @@ http://www.wiloon.com/wordpress/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 <blockquote data-secret="EdTzoKSmVu" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4130">同步/异步</a>
+    <a href="http://www.wiloon.com/?p=4130">同步/异步</a>
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/wordpress/?p=4130&embed=true#?secret=EdTzoKSmVu" data-secret="EdTzoKSmVu" width="600" height="338" title=""同步/异步" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4130&embed=true#?secret=EdTzoKSmVu" data-secret="EdTzoKSmVu" width="600" height="338" title=""同步/异步" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 
 ### **abstract class interface**
@@ -319,25 +319,25 @@ http://www.wiloon.com/wordpress/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 <blockquote data-secret="MLUWtzeM61" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=3336">Java 抽象类/接口</a>
+    <a href="http://www.wiloon.com/?p=3336">Java 抽象类/接口</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=3336&embed=true#?secret=MLUWtzeM61
+http://www.wiloon.com/?p=3336&embed=true#?secret=MLUWtzeM61
 
 ### heap和stack的区别
 栈是一种线性集合，栈按照后进先出的方式进行处理。
-http://www.wiloon.com/wordpress/?p=4151
+http://www.wiloon.com/?p=4151
 
-http://www.wiloon.com/wordpress/?p=4151&embed=true#?secret=20KcOkpGBn
+http://www.wiloon.com/?p=4151&embed=true#?secret=20KcOkpGBn
 
 
 ### Static Nested Class 和 Inner Class的不同。
 Static Nested Class是被声明为静态（static）的内部类，它可以不依赖于外部类实例被实例化。而通常的内部类需要在外部类实例化后才能实例化。
 
-http://www.wiloon.com/wordpress/?p=6474
+http://www.wiloon.com/?p=6474
 
- http://www.wiloon.com/wordpress/?p=6474&embed=true#?secret=yj3jOD5DN0
+ http://www.wiloon.com/?p=6474&embed=true#?secret=yj3jOD5DN0
 
 
 **assert**
@@ -351,11 +351,11 @@ GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容
 
 <blockquote data-secret="hz71dhuu22" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/wordpress/?p=4620">JVM内存管理和JVM垃圾回收机制</a>
+    <a href="http://www.wiloon.com/?p=4620">JVM内存管理和JVM垃圾回收机制</a>
   
 </blockquote>
 
-http://www.wiloon.com/wordpress/?p=4620&embed=true#?secret=hz71dhuu22
+http://www.wiloon.com/?p=4620&embed=true#?secret=hz71dhuu22
 
 
 ### 你了解大O符号(big-O notation)么？你能给出不同数据结构的例子么？

@@ -72,7 +72,7 @@ mount /dev/sdx1 /mnt/tmp/boot
 mount /dev/sdx2 /mnt/tmp
 
 pacstrap /mnt/tmp base linux linux-firmware
-# if command not found, see http://www.wiloon.com/wordpress/?p=8443
+# if command not found, see http://www.wiloon.com/?p=8443
 
 # 建议使用UUID方式生成fstab和启动管理器配置
 genfstab -p -U /mnt/tmp >> /mnt/tmp/etc/fstab

@@ -10,7 +10,7 @@ categories:
 ---
 [sql]
   
-- http://www.wiloon.com/wordpress/?p=1899
+- http://www.wiloon.com/?p=1899
   
 insert into t1 values (1,'1',1) on duplicate key update c0=c0+1;
 

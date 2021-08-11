@@ -413,9 +413,9 @@ http://blog.csdn.net/ghsau/article/details/7481142
  https://jisonami.github.io/2016/09/04/JavaThread1/
  
 ### 多线程的代价及上下文切换 
-http://www.wiloon.com/wordpress/?p=9968
+http://www.wiloon.com/?p=9968
 
-http://www.wiloon.com/wordpress/?p=9968&embed=true#?secret=Y65uz4t1vN
+http://www.wiloon.com/?p=9968&embed=true#?secret=Y65uz4t1vN
 
 
 https://blog.csdn.net/gg_18826075157/article/details/72582939

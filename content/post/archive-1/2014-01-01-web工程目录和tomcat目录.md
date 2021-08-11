@@ -181,7 +181,7 @@ Maven2也考虑到: 不同类型的项目需要拥有不同的目录结构。如
 
 WebContent (站点根目录)
 
-|-META-INF (META-INF文件夹)<http://www.wiloon.com/wordpress/?p=6102>
+|-META-INF (META-INF文件夹)<http://www.wiloon.com/?p=6102>
 
 | |-MANIFEST.MF (MANIFEST.MF配置清单文件)
 

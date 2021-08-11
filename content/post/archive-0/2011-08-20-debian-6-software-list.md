@@ -81,9 +81,6 @@ system>preference>appearance>font
 #set terminal's font as wqy.
    
 #Audacious: music player.
-   
-#wordpress theme
-   
 #eclipse dic
 
 install software-center

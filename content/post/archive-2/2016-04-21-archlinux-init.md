@@ -80,7 +80,7 @@ sudo pacman -S chromium
 <http://blog.wiloon.com/?p=9650>
 
 #### 输入法ibus
-<http://www.wiloon.com/wordpress/?p=7507>
+<http://www.wiloon.com/?p=7507>
 
 #### for right click extrace package
 pacman -S file-roller
