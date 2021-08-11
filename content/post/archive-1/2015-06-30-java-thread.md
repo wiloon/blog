@@ -56,7 +56,7 @@ Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthrea
 - daemon 线程类型: 线程分为守护线程 (daemon) 和非守护线程 (non-daemon) 两种，通常都是守护线程；
 - prio=10 线程优先级: 默认为5，数字越大优先级越高；
 - tid=0x00007fbe5c34e000 JVM线程的id: JVM内部线程的唯一标识，通过 java.lang.Thread.getId()获取，通常用自增的方式实现；
-- nid=0x4cb1 系统线程id: 对应的系统线程id（Native Thread ID)，可以通过 top 命令进行查看，现场id是十六进制的形式；
+- nid=0x4cb1 操作系统线程id: 对应的系统线程id（Native Thread ID)，可以通过 top 命令进行查看，现场id是十六进制的形式；
 - waiting on condition 系统线程状态: 这里是系统的线程状态，具体的含义见下面 系统线程状态部分；
 - [0x00007fbe4ff7c000] 起始栈地址: 线程堆栈调用的其实内存地址；
 - java.lang.Thread.State: WAITING (parking) JVM线程状态: 这里标明了线程在代码级别的状态，详细的内容见下面的 JVM线程运行状态 部分。
