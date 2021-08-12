@@ -25,7 +25,7 @@ http://www-128.ibm.com/developerworks/cn/java/j-jtp07233/index.html#listing1
 中其他的例子与迭代有关。在第一个例子中， List.size() 的结果在循环的执行期间可能会变得无效，因为另一个线程可以从这个列表中删除条目。如果时机不得当，在刚好进入循环的最后一次迭代之后有一个条目被另一个线程删除了，则 List.get() 将返回 null ，而 doSomething() 则很可能会抛出一个 NullPointerException 异常。那么，采取什么措施才能避免这种情况呢？如果当您正在迭代一个 List 时另一个线程也可能正在访问这个 List ，那么在进行迭代时您必须使用一个 synchronized 块将这个 List 包装起来，在 List 1 上同步，从而锁住整个 List 。这样做虽然解决了数据争用问题，但是在并发性方面付出了更多的代价，因为在迭代期间锁住整个 List 会阻塞其他线程，使它们在很长一段时间内不能访问这个列表。
   
   
-    集合框架引入了迭代器，用于遍历一个列表或者其他集合，从而优化了对一个集合中的元素进行迭代的过程。然而，在 java.util 集合类中实现的迭代器极易崩溃，也就是说，如果在一个线程正在通过一个 Iterator 遍历集合时，另一个线程也来修改这个集合，那么接下来的 Iterator.hasNext() 或 Iterator.next() 调用将抛出 ConcurrentModificationException 异常。就拿刚才这个例子来讲，如果想要防止出现 ConcurrentModificationException 异常，那么当您正在进行迭代时，您必须使用一个在 List l 上同步的 synchronized 块将该 List 包装起来，从而锁住整个 List 。（或者，您也可以调用 List.toArray() ，在不同步的情况下对数组进行迭代，但是如果列表比较大的话这样做代价很高）。
+集合框架引入了迭代器，用于遍历一个列表或者其他集合，从而优化了对一个集合中的元素进行迭代的过程。然而，在 java.util 集合类中实现的迭代器极易崩溃，也就是说，如果在一个线程正在通过一个 Iterator 遍历集合时，另一个线程也来修改这个集合，那么接下来的 Iterator.hasNext() 或 Iterator.next() 调用将抛出 ConcurrentModificationException 异常。就拿刚才这个例子来讲，如果想要防止出现 ConcurrentModificationException 异常，那么当您正在进行迭代时，您必须使用一个在 List l 上同步的 synchronized 块将该 List 包装起来，从而锁住整个 List 。（或者，您也可以调用 List.toArray() ，在不同步的情况下对数组进行迭代，但是如果列表比较大的话这样做代价很高）。
 清单 1. 同步的map中的公用竞争条件
  
 

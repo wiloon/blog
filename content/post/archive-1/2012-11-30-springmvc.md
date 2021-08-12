@@ -5,8 +5,7 @@ type: post
 date: 2012-11-30T08:01:33+00:00
 url: /?p=4812
 categories:
-  - Java
-  - Web
+  - Spring
 
 ---
 http://www.iteye.com/blogs/subjects/springmvc-explore

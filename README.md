@@ -1,5 +1,5 @@
 # wiloon.com
-    date '+%Y-%m-%d %H:%M:%S' && ls -lR content/post |grep '\.md'|wc -l && ls -lR content/post |grep '\.md'|wc -m
+    date '+%Y-%m-%d %H:%M:%S' && ls -lR content/post |grep '\.md'|wc -l && ls -lR content/post |grep '\.md'|wc -m|xargs printf "%'3.0f\n"
 
 ### history
 2021-05-09 17:17:17
@@ -13,3 +13,7 @@
 2021-07-30 23:48:55
 3229
 240913
+
+2021-08-12 10:24:30
+3206
+238,950
