@@ -1,5 +1,5 @@
 ---
-title: Camel Casing
+title: Camel Casing, CamelCase
 author: "-"
 type: post
 date: 2011-10-12T13:38:23+00:00
@@ -16,4 +16,6 @@ categories:
 
 它之所以被叫做"骆驼拼写法"，是因为大小写的区分使得复合词呈现"块状"（bump），看上去就像骆驼的驼峰（hump）。
 
-"骆驼拼写法"又分为两种。第一个词的首字母小写，后面每个词的首字母大写，叫做"小骆驼拼写法"（lowerCamelCase）；第一个词的首字母，以及后面每个词的首字母都大写，叫做"大骆驼拼写法"（UpperCamelCase），又称"帕斯卡拼写法"（PascalCase）。
+"骆驼拼写法"又分为两种。
+- 第一个词的首字母小写，后面每个词的首字母大写，叫做"小骆驼拼写法"（lowerCamelCase）；
+- 第一个词的首字母，以及后面每个词的首字母都大写，叫做"大骆驼拼写法"（UpperCamelCase），又称"帕斯卡拼写法"（PascalCase）。

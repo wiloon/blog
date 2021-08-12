@@ -1,7 +1,6 @@
 ---
 title: java – volatile
 author: "-"
-type: post
 date: 2014-02-12T02:12:30+00:00
 url: /?p=6250
 categories:
@@ -31,9 +30,6 @@ C++中voldatile等于插入编译器级别屏障，因此并不能阻止CPU硬�
 
 C++实践中推荐涉及并发问题都使用std::atomic，只有涉及特殊内存操作的时候才使用volatile关键字。这些情况通常IO相关，防止相关操作被编译器优化，也是volatile关键字发明的本意。
 
-
-
-  
 Volatile 修饰的成员变量在每次被线程访问时，都强迫从共享内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的值是相同的，更简单一点理解就是volatile修饰的变量值发生变化时对于另外的线程是可见的。
 
 如何正确使用volatile可以参考下面这篇文章:  http://www.ibm.com/developerworks/cn/java/j-jtp06197.html Java 理论与实践: 正确使用 Volatile 变量
