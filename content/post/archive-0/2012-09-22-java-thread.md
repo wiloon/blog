@@ -303,6 +303,7 @@ ExecutorService es = Executors.newSingleThreadExecutor();
 ```
 ### Callable
 Runnable实现的是void run()方法，Callable实现的是 V call()方法，并且可以返回执行结果，其中Runnable可以提交给Thread来包装下，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。通常在开发中结合ExecutorService使用,将任务的提交与任务的执行解耦开,同时也能更好地利用Executor提供的各种特性
+
 ### 竞争条件 Race condition
 什么是竞争条件以及竞争条件为什么会产生漏洞  
 竞争条件是系统中的一种反常现象， 由于现代Linux系统中大量使用并发编程，对资源进行共享，如果产生错误的访问模式，便可能产生内存泄露， 系统崩溃，数据破坏，甚至安全问题。 竞争条件漏洞就是多个进程访问同一资源时产生的时间或者序列的冲突，并利用这个冲突来对系统进行攻击。 一个看起来无害的程序如果被恶意攻击者利用，将发生竞争条件漏洞  
