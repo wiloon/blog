@@ -210,8 +210,7 @@ docker run  -d --name kafka \
     
     在zkCli中执行get /brokers/<id>
     
-    ### Kafka 访问协议说明
-    
+### Kafka 访问协议说明
     Kafka当前支持四种协议类型的访问: PLAINTEXT、SSL、SASL_PLAINTEXT、SASL_SSL。
     
     Kafka服务启动时，默认会启动PLAINTEXT和SASL_PLAINTEXT两种协议类型的访问监听。可通过设置Kafka服务配置"ssl.mode.enable"为"true"，来启动SSL和SASL_SSL两种协议类型的访问监听。
