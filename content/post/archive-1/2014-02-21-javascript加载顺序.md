@@ -19,23 +19,7 @@ http://www.benben.cc/blog/?p=9
   <table>
     <tr>
       <td>
-        1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
+
       </td>
       
       <td>
@@ -43,7 +27,7 @@ http://www.benben.cc/blog/?p=9
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>JavaScript</title>
+	<title>js</title>
 	<style type="text/css">body {margin:0;padding:0;}</style>
 	<script>alert("我是头部header里的内部脚本");</script>
 	<script src="header.js"></script>
