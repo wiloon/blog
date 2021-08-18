@@ -134,7 +134,8 @@ CPU执行内核代码和执行用户程序代码没什么区别；
 但是注意到，内核代码对用户参数是充分的不信任。以read/fread的buffer参数为例，fread库函数一般不会检查buffer参数是否合法。就算想要检查，也没这个能力。他不知道buffer是不是个野指针，不知道buffer的大小是否与len不符，不知道buffer指向的这块内存是否可写……他唯一能做的检查只是buffer是否为NULL，可惜这没什么意义。但是通过系统调用进入内核以后，情况就不同了。前面说到的那些检查，统统都要做，并且每次调用都要不厌其烦地做；
 以上几点区别，仅是我目前能够想到的。但是管中窥豹，可见一斑。进入内核以后，要做的事情的确是很多很多。
 
-
+### LINUX SYSTEM CALL TABLE FOR X86 64
+http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
 
 ---
 
