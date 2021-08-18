@@ -7,6 +7,9 @@ categories:
   - OS
 
 ---
+### 统计系统调用的耗时
+     strace -cp <PID>
+
 http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/strace.html
 
 strace 跟踪进程中的系统调用
@@ -32,19 +35,12 @@ access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
 ...
   
 #### 参数
-  
 -c 统计每一系统调用的所执行的时间,次数和出错的次数等.
-  
 -d 输出strace关于标准错误的调试信息.
-  
 -f 跟踪由fork调用所产生的子进程.
-  
 -ff 如果提供-o filename,则所有进程的跟踪结果输出到相应的filename.pid中,pid是各进程的进程号.
-  
 -F 尝试跟踪vfork调用.在-f时,vfork不被跟踪.
-  
 -h 输出简要的帮助信息.
-  
 -i 输出系统调用的入口指针.
   
 -q 禁止输出关于脱离的消息.

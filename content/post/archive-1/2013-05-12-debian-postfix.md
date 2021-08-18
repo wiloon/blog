@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-<span style="color: #000000; font-size: 13px; line-height: 19px;">install postfix
+install postfix
 
 ```bash
   
@@ -17,10 +17,8 @@ sudo apt-get install postfix
 ```
 
 internet site, wiloon.com;
-
-<span style="color: #000000;">sudo dpkg-reconfigure postfix
-
-<span style="color: #000000;">4、编辑main.cf 
+sudo dpkg-reconfigure postfix
+4、编辑main.cf 
 
 ```bash
   
@@ -202,13 +200,13 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
   
     9、给postfix加上如下配置
   
-  smtpd_sasl_type = dovecot
+smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, permit
 broken_sasl_auth_clients = yes
   
-    ################------------------------------------
+################------------------------------------
   
 
 <span style="color: #000000;">#默认情况下，dovecot是不允许plaintext类型的认证的，打开 
@@ -273,7 +271,7 @@ broken_sasl_auth_clients = yes
   
 <span style="color: #000000;">"mydestination = localhost, localhost.example.com, mail.example.com, example.com" 
   
-<span style="color: #000000;">很多人就这样把问题解决了，但似乎谁都不知道原理 🙂
+<span style="color: #000000;">很多人就这样把问题解决了，但似乎谁都不知道原理
 
 <http://goahead2010.iteye.com/blog/1911165>
 
