@@ -19,6 +19,7 @@ url: /?p=1945
 |半导小蕊||
 |Live Transcribe & Sound Notifications|语音转文字|
 |RssX||
+|DevCheck|手机硬件检测工具|
 
 ---
 
