@@ -63,6 +63,8 @@ Google 在79版本（2019年12月20号左右）的更新中又重新启用了Ren
     [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome]
     "RendererCodeIntegrityEnabled"=dword:00000000
 
+### 快捷键
+    https://support.google.com/chromebook/answer/183101
 
 ---
 
