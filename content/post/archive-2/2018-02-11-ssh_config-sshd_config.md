@@ -7,24 +7,21 @@ url: /?p=11872
 
 ---
 
-
 ### /etc/ssh/sshd_config
 #### 鉴权重试次数
 MaxAuthTries 20
 
-http://matt-u.iteye.com/blog/851158
+---
 
 linux ssh_config和sshd_config配置文件
 
-   
 现在远程管理linux系统基本上都要使用到ssh，原因很简单: telnet、FTP等传输方式是以明文传送用户认证信息，本质上是不安全的，存在被网络窃听的危险。SSH（Secure Shell）目前较可靠，是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题，透过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
 
 ssh_config和sshd_config都是ssh服务器的配置文件，二者区别在于，前者是针对客户端的配置文件，后者则是针对服务端的配置文件。两个配置文件都允许你通过设置不同的选项来改变客户端程序的运行方式。下面列出来的是两个配置文件中最重要的一些关键词，每一行为"关键词&值"的形式，其中"关键词"是忽略大小写的。
   
-1、编辑 /etc/ssh/ssh_config 文件
+### 编辑 /etc/ssh/ssh_config 文件
 
 # Site-wide defaults for various options
-
 Host *  
 ForwardAgent no     
 ForwardX11 no  
@@ -106,11 +103,8 @@ Cipher blowfish
 EscapeChar ~
   
 "EscapeChar"设置escape字符。
-  
-    
 
-&#x200d;下面逐行说明上面的选项设置: 
-  
+下面逐行说明上面的选项设置: 
 Port 22
   
 "Port"设置sshd监听的端口号。
@@ -188,7 +182,7 @@ AllowUsers admin
   
 "AllowUsers"的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。
 
-
 ---
 
 https://segmentfault.com/a/1190000014822400
+http://matt-u.iteye.com/blog/851158  

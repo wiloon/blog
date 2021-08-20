@@ -28,6 +28,7 @@ cat /root/id_rsa.pub >> /root/.ssh/authorized_keys
 # ok,you will login 192.168.10.184 without input password.
 
 ```
+
 ### print SHA256 fingerprint
     ssh-keygen -lf /path/to/ssh/key
 
