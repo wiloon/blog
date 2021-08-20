@@ -15,19 +15,18 @@ categories:
   自己一直很慎重于回答这类问题，以免引发不必要的争论甚至矛盾，但还是必须面对这个问题做一定的分析和比较的，否则很多朋友经常会问"到底用哪个好？"，却拿不出完整的答案。
 
 
-  首先看看三个<span style="text-decoration: underline;"><span style="color: #666666;">MTA的历史...
+  首先看看三个MTA的历史...
 
 #### MTAs的发展历史
-
-  <span style="text-decoration: underline;"><span style="color: #666666;">Sendmail
- 毫无疑问，sendmail是最古老的MTA之一。它比<span style="text-decoration: underline;"><span style="color: #666666;">qmail和<span style="text-decoration: underline;"><span style="color: #666666;">postfix要古老得多。最早它诞生的时候，<span style="text-decoration: underline;"><span style="color: #666666;">Internet还没有被标准化，当时主机之间使用的是UUCP技术来交换邮件。
+Sendmail
+ 毫无疑问，sendmail是最古老的MTA之一。它比 qmail和 postfix要古老得多。最早它诞生的时候， Internet还没有被标准化，当时主机之间使用的是UUCP技术来交换邮件。
 
 
   它被设计得比较灵活，便于配置和运行于各种类型的机器。
 
 
   Qmail
- qmail是新生一代的MTA代表，它以速度快、体积小、易配置安装等特性而著称。作者D. J. Bernstein(djb)是一个数学教授，富有传奇色彩。djb于1995年开发qmail，1996年发布0.70版，并使用了多种当时比较先进的<span style="text-decoration: underline;"><span style="color: #666666;">技术，包括Maildir，与sendmail单个binary不同的模块化设计，权限分离，以及使用了大量由djb编写的配套工具，如daemontools，ucsip-tcp等。
+ qmail是新生一代的MTA代表，它以速度快、体积小、易配置安装等特性而著称。作者D. J. Bernstein(djb)是一个数学教授，富有传奇色彩。djb于1995年开发qmail，1996年发布0.70版，并使用了多种当时比较先进的技术，包括Maildir，与sendmail单个binary不同的模块化设计，权限分离，以及使用了大量由djb编写的配套工具，如daemontools，ucsip-tcp等。
 
 
   qmail迅速成为了Internet上最有名的MTA，使用者众。
@@ -51,7 +50,7 @@ categories:
     
     
       sendmail
- sendmai功能非常强大，很多先进功能在sendmail上都最先有实现。sendmail里的Milter技术是一个非常好的<span style="text-decoration: underline;"><span style="color: #666666;">框架，目前postfix及qmail仍然没有官方发布的方案比milter要好。
+ sendmai功能非常强大，很多先进功能在sendmail上都最先有实现。sendmail里的Milter技术是一个非常好的框架，目前postfix及qmail仍然没有官方发布的方案比milter要好。
     
     
     
@@ -81,7 +80,7 @@ categories:
     
     
     
-      但postfix管理及配置的入门依然需要一定的工夫，必须仔细阅读官方文档。postfix另一个优势是至今依然保持活跃的开发<span style="text-decoration: underline;"><span style="color: #666666;">工作，而且稳步发展，适合高流量大负载的系统，扩充能力较强。
+      但postfix管理及配置的入门依然需要一定的工夫，必须仔细阅读官方文档。postfix另一个优势是至今依然保持活跃的开发工作，而且稳步发展，适合高流量大负载的系统，扩充能力较强。
     
     
     
@@ -107,7 +106,7 @@ categories:
     
     
     
-      从我过去的一个<a href="http://www.hzqbbc.com/blog/arch/2003/01/qmailaepostfixc.html"><span style="color: #8fabbe;">qmail vs postfix对比测试</a>中，也可以发现这个问题。
+      从我过去的一个qmail vs postfix对比测试</a>中，也可以发现这个问题。
     
     
     
@@ -116,7 +115,7 @@ categories:
     
     
     
-      此外，Postfix的队列对于<a 'freebsd');"="" href="http://liguxk.blog.51cto.com/'#'"" target="_self"><span style="text-decoration: underline;"><span style="color: #666666;">FreeBSD的softupdate是安全的，而qmail则是不安全的，qmail作者明确警告用户<a href="http://cr.yp.to/qmail/faq/reliability.html"><span style="color: #8fabbe;">不要使用softupdate</a>，除非是有磁盘后写电池。
+      此外，Postfix的队列对于不要使用softupdate</a>，除非是有磁盘后写电池。
     
     
     
@@ -125,11 +124,11 @@ categories:
     
     
     
-      qmail在系统容量扩展上有着独到的设计，配合qmail-ldap补丁，可以充分利用qmqp及分布存储的优势。现今已有各式各样的qmail扩展方案，最著名的是<a href="http://www.nrg4u.com/"><span style="color: #8fabbe;">qmail-ldap</a>。但qmail缺乏类似milter的设计，功能扩展需要各种补丁，而补丁的设计水平参差不齐，配置能力有限。实施起来相对是最复杂的。
+      qmail在系统容量扩展上有着独到的设计，配合qmail-ldap补丁，可以充分利用qmqp及分布存储的优势。现今已有各式各样的qmail扩展方案，最著名的是qmail-ldap</a>。但qmail缺乏类似milter的设计，功能扩展需要各种补丁，而补丁的设计水平参差不齐，配置能力有限。实施起来相对是最复杂的。
     
     
     
-      Postfix同样有着非常好的容量扩充能力，利用LMTP或transport的/alias的<span style="text-decoration: underline;"><span style="color: #666666;">方法，可以分布式的存储邮件，扩充容量。同时postfix的功能扩展也非常强，通过灵活的配置即可实现复杂的功能，这是其最突出的优点之一，是qmail望尘莫及的。此外，类似sendmail的milter，postfix拥有content_filter和policy 两个与外部程序/应用对接的接口，但不如milter那样功能集中和灵活，也没有完整实现qmail的qmqp及类似qmail-ldap的机制。
+      Postfix同样有着非常好的容量扩充能力，利用LMTP或transport的/alias的方法，可以分布式的存储邮件，扩充容量。同时postfix的功能扩展也非常强，通过灵活的配置即可实现复杂的功能，这是其最突出的优点之一，是qmail望尘莫及的。此外，类似sendmail的milter，postfix拥有content_filter和policy 两个与外部程序/应用对接的接口，但不如milter那样功能集中和灵活，也没有完整实现qmail的qmqp及类似qmail-ldap的机制。
     
     
     
@@ -150,12 +149,12 @@ categories:
     
     
     
-      <span style="text-decoration: underline;"><span style="color: #666666;">数据库支持
+      数据库支持
  sendmail通过一些插件/补丁，可以支持mysql/pgsql/oracle等，ldap及小型的dbm/cdb等数据存储格式。
     
     
     
-      qmail默认只支持cdb，需通过补丁才可支持ldap，<span style="text-decoration: underline;"><span style="color: #666666;">mysql，pgsql及oracle等。
+      qmail默认只支持cdb，需通过补丁才可支持ldap，mysql，pgsql及oracle等。
     
     
     
@@ -169,9 +168,9 @@ categories:
     
     
       作者介绍
- sendmail -<a href="http://www.sendmail.org/~eric/"><span style="color: #8fabbe;">Eric Allman</a>Unix专家、学者
- qmail -<a href="http://cr.yp.to/djb.html"><span style="color: #8fabbe;">DJB</a>数学教授，科学家
- Postfix -<a href="http://www.porcupine.org/wietse/"><span style="color: #8fabbe;">wietse venema</a>安全专家 学者
+ sendmail -Eric Allman</a>Unix专家、学者
+ qmail -DJB</a>数学教授，科学家
+ Postfix -wietse venema</a>安全专家 学者
     
     
     <h4>
@@ -187,11 +186,11 @@ categories:
     </h4>
     
     
-      <a href="http://www.hzqbbc.com/blog/arch/2003/01/eccaeaeaepostfi.html"><span style="color: #8fabbe;">在足够好的硬件条件下Postfix比qmail更快的原因分析</a>
- <a href="http://www.hleil.com/do/LeoBoard/topic.cgi?forum=12&topic=17&show=0"><span style="color: #8fabbe;">benchmark，无聊还是骗局？</a>
- <a href="http://anti-spam.org.cn/forums/index.php?showtopic=2758"><span style="color: #8fabbe;">qmail/postfix/sendmail 比较</a>
- <a href="http://www.feep.net/sendmail/tutorial/intro/history.html"><span style="color: #8fabbe;">Sendmail 历史</a>
- <a href="http://lists.debian.org/debian-isp/2002/11/msg00303.html"><span style="color: #8fabbe;">有关mta benchmark</a>
- <a href="http://www.shub-internet.org/brad/papers/sendmail-tuning/"><span style="color: #8fabbe;">Sendmail性能调整</a>
- <a href="http://cr.yp.to/qmail/faq/reliability.html"><span style="color: #8fabbe;">qmail可靠性FAQ</a>
+      在足够好的硬件条件下Postfix比qmail更快的原因分析</a>
+ benchmark，无聊还是骗局？</a>
+ qmail/postfix/sendmail 比较</a>
+ Sendmail 历史</a>
+ 有关mta benchmark</a>
+ Sendmail性能调整</a>
+ qmail可靠性FAQ</a>
   

@@ -14,7 +14,7 @@ tags:
 
 ## 
 
-<div id="cnblogs_post_body">
+
   
     这一篇我们来捋捋在T-SQL中可能会用到的几个特殊的函数
   

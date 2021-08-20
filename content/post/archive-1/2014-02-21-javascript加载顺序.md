@@ -16,13 +16,13 @@ http://www.benben.cc/blog/?p=9
 
 先看html部分的代码: 
 
-  <table>
-    <tr>
-      <td>
-
-      </td>
+  
+    
       
-      <td>
+
+      
+      
+      
         <script>alert("我是html根节点之外的内部脚本");</script>
 <html>
 <head>
@@ -40,57 +40,57 @@ http://www.benben.cc/blog/?p=9
 </body>
 </html>
 <script>alert("我是html根节点之外的内部脚本");</script>
-      </td>
-    </tr>
-  </table>
+      
+    
+  
 
 再看header.js中的代码: 
 
-  <table>
-    <tr>
-      <td>
-        1
-      </td>
+  
+    
       
-      <td>
+        1
+      
+      
+      
         alert("我是header中src外部引用的脚本");
-      </td>
-    </tr>
-  </table>
+      
+    
+  
 
 接着是outer.js中的代码: 
 
-  <table>
-    <tr>
-      <td>
+  
+    
+      
         1
 2
 3
 4
-      </td>
       
-      <td>
+      
+      
         document.write('<script type="text/javascript">');
 document.write('alert("我是header中通过外部通过document.write生成的脚本")');
 //document.write('<script src="outerouter.js"></script>');
 document.write('</script>');
-      </td>
-    </tr>
-  </table>
+      
+    
+  
 
 最后是body.js中的代码
 
-  <table>
-    <tr>
-      <td>
-        1
-      </td>
+  
+    
       
-      <td>
+        1
+      
+      
+      
         alert("我是body中src外部引用的脚本");
-      </td>
-    </tr>
-  </table>
+      
+    
+  
 
 代码的输出顺序如下: 
   

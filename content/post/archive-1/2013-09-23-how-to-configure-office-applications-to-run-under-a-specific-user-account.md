@@ -10,9 +10,9 @@ categories:
 ---
 This article was previously published under Q288367
 
-  <h2>
+  
     SUMMARY
-  </h2>
+  
   
     We do not recommend or support automation to a Microsoft Office application from an unattended user account. For additional information on why Microsoft does not recommend automation under this context, click the following article number to view the article in the Microsoft Knowledge Base:<a href="http://support.microsoft.com/default.aspx?kbid=257757">257757</a> Considerations for server-side automation of Office
   
@@ -21,9 +21,9 @@ This article was previously published under Q288367
   
 
 
-  <h2>
+  
     MORE INFORMATION
-  </h2>
+  
   
     Caution Automation of any Office application from an unattended, non-interactive user account is risky and unstable. A single error in code or configuration can result in a dialog box that can cause the client process to stop responding (hang), that can corrupt data, or that can even crash the calling process (which could bring down your Web server if the client is ASP).
   
@@ -188,9 +188,9 @@ This article was previously published under Q288367
                 </li></ol>  
                 
                 
-                  <h2>
+                  
                     REFERENCES
-                  </h2>
+                  
                   
                   
                     For additional information, click the following article numbers to view the articles in the Microsoft Knowledge Base:<a href="http://support.microsoft.com/default.aspx?kbid=169321">169321</a> COM servers activation and NT Windows stations

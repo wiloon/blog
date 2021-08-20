@@ -12,7 +12,7 @@ categories:
 <div id="header">
 
   
-    <div id="cnblogs_post_body">
+    
       
         登录后第一次点击正确,鼠标放在链接上，出现正确url-----http://localhost:8080/ibatisORM/listuser/2
       
@@ -26,7 +26,7 @@ categories:
       
       
       
-        --<a href="${pageContext.request.contextPath}/listuser/1" style="font-size:13px;">首页</a>
+        --首页</a>
       
       
       

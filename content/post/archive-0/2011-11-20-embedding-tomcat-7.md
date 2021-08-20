@@ -53,13 +53,13 @@ server.join();
   To switch to Tomcat 7, add these dependencies to your build.gradle:
 
 
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat:tomcat-catalina:7.0.22"
+  compile "org.apache.tomcat:tomcat-catalina:7.0.22"
 
 
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat.embed:tomcat-embed-core:7.0.22"
+  compile "org.apache.tomcat.embed:tomcat-embed-core:7.0.22"
 
 
-  <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">compile "org.apache.tomcat:tomcat-jasper:7.0.22"
+  compile "org.apache.tomcat:tomcat-jasper:7.0.22"
 
 
   Here is the Tomcat 7 version:

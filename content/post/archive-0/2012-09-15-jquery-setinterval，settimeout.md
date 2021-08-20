@@ -12,7 +12,7 @@ categories:
     <a href="http://hi.baidu.com/ruhaole/item/65ed5df334b3080985d278aa">http://hi.baidu.com/ruhaole/item/65ed5df334b3080985d278aa</a>
   
   
-    <em>sliderIntervalID = setInterval(show,3000);</em>
+    sliderIntervalID = setInterval(show,3000);
   
   
     clearInterval(sliderIntervalID);
@@ -26,28 +26,28 @@ categories:
     方法1. 直接在ready中调用其他方法，会提示缺少对象的错误，应用jQuery的扩展可以解决这个问题。
   
   
-    <em>$(document).ready(function(){</em>
+    $(document).ready(function(){
   
   
-    <em>$.extend({
+    $.extend({
  show:function(){
  alert("ready");
  }
  });
  setInterval("$.show()",3000);
- });</em>
+ });
   
   
     方法2. 指定定时执行的函数时不要使用引号和括号。
   
   
-    <em>function show(){
+    function show(){
  alert("ready");
  }
- setInterval(show,3000);// 注意函数名没有引号和括弧！</em>
+ setInterval(show,3000);// 注意函数名没有引号和括弧！
   
   
-    <em>-------</em>
+    -------
   
   
     setTimeout(表达式,延迟时间); 单位:ms(毫秒)；1s=1000ms;

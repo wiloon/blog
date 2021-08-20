@@ -10,4 +10,4 @@ tags:
   - English
 
 ---
-Thank you is more formal than thanks.<br style="color: #000000;" /><br style="color: #000000;" />Thank you very much is fine for a more formal setting.<br style="color: #000000;" /><br style="color: #000000;" />Thank you so much is enthusiastic.<br style="color: #000000;" /><br style="color: #000000;" />Thanks a lot is relatively informal.<br style="color: #000000;" /><br style="color: #000000;" />Thanks a bunch is extremely informal.
+Thank you is more formal than thanks.Thanks a bunch is extremely informal.

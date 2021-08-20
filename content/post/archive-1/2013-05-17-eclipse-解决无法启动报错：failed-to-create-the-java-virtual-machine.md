@@ -229,7 +229,7 @@ Google了一下，有一篇文章说是修改eclipse.ini文件中的
 
 Xml代码
 
-<span style="font-size: small;">-launcher.XXMaxPermSize
+-launcher.XXMaxPermSize
 
 256M
 
@@ -247,7 +247,7 @@ eclipse failed to create the java virtual machine 问题图文解析
 
 Xml代码
 
-<span style="font-size: small;">-vm
+-vm
 
 D:Javajdk1.6.0_29binjavaw.exe
 

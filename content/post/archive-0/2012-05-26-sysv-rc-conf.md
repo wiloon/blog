@@ -9,12 +9,12 @@ categories:
 
 ---
 
-  <div data-nslog-type="72">
+  
     
       　　sysv-rc-conf是一个强大的服务管理程序，群众的意见是sysv-rc-conf比chkconfig好用。
   
 
-<div id="lemmaContent-0">
+
   
     <a name="2_1"></a><a name="sub2521377_2_1"></a>Ubuntu运行级别
   
@@ -61,9 +61,9 @@ categories:
   
   
   
-  <h2>
+  
     <a name="3"></a><a name="sub2521377_3"></a>三、Linux 系统主要启动步骤:
-  </h2>
+  
   
     <a name="3_1"></a><a name="sub2521377_3_1"></a>1. 读取 MBR 的信息,启动 Boot Manager
   
@@ -136,17 +136,17 @@ categories:
   
   
   
-  <h2>
+  
     <a name="4"></a><a name="sub2521377_4"></a>四、安装sysv-rc-conf
-  </h2>
+  
   
     sudo apt-get install sysv-rc-conf
   
   
   
-  <h2>
+  
     <a name="5"></a><a name="sub2521377_5"></a>五、使用sysv-rc-conf
-  </h2>
+  
   
     sudo sysv-rc-conf
   
@@ -156,9 +156,9 @@ categories:
   
   
   
-  <h2>
+  
     <a name="6"></a><a name="sub2521377_6"></a>六 、部分服务优化推荐及介绍
-  </h2>
+  
   
     acpi-support 这个是关于电源支持的默认是1,2,3,4,5下启动，我认为你可以把它调整到s级别。
   
@@ -368,7 +368,7 @@ categories:
   
   
 
-<div id="lemmaContent-0">
+
   　　xorg-common 设置x服务ice socket。不用管它。
 
 

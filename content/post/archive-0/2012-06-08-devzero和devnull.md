@@ -9,7 +9,7 @@ categories:
 
 ---
 
-  <span style="font-size: small;">
+  
  
 
 <div id="blog_content">

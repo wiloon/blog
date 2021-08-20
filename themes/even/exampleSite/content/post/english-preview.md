@@ -956,14 +956,14 @@ $ vi themes/zafta/layouts/index.html
   <h1>posts</h1>
   {{ range first 10 .Data.Pages }}
     {{ if eq .Type "post"}}
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
     {{ end }}
   {{ end }}
 
   <h1>pages</h1>
   {{ range .Data.Pages }}
     {{ if eq .Type "page" }}
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
     {{ end }}
   {{ end }}
 </body>
@@ -1043,14 +1043,14 @@ $ vi themes/zafta/layouts/index.html
   <h1>posts</h1>
   {{ range first 10 .Data.Pages }}
     {{ if eq .Type "post"}}
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
     {{ end }}
   {{ end }}
 
   <h1>pages</h1>
   {{ range .Data.Pages }}
     {{ if or (eq .Type "page") (eq .Type "about") }}
-      <h2><a href="{{ .Permalink }}">{{ .Type }} - {{ .Title }} - {{ .RelPermalink }}</a></h2>
+      <a href="{{ .Permalink }}">{{ .Type }} - {{ .Title }} - {{ .RelPermalink }}</a>
     {{ end }}
   {{ end }}
 
@@ -1094,7 +1094,7 @@ $ vi themes/zafta/layouts/_default/single.html
 {{ partial "header.html" . }}
 
   <h1>{{ .Title }}</h1>
-  <h2>{{ .Date.Format "Mon, Jan 2, 2006" }}</h2>
+  {{ .Date.Format "Mon, Jan 2, 2006" }}
   {{ .Content }}
 
 {{ partial "footer.html" . }}
@@ -1130,7 +1130,7 @@ $ vi themes/zafta/layouts/post/single.html
 {{ partial "header.html" . }}
 
   <h1>{{ .Title }}</h1>
-  <h2>{{ .Date.Format "Mon, Jan 2, 2006" }}</h2>
+  {{ .Date.Format "Mon, Jan 2, 2006" }}
   {{ .Content }}
 
 {{ partial "footer.html" . }}

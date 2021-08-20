@@ -10,7 +10,7 @@ categories:
 ---
 一、
   
-Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: <span style="color: #ff0000;">500错误解决办法
+Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: 500错误解决办法
 
 转载的解决办法:
 
@@ -45,7 +45,7 @@ google搜的结果前两页，不管中文英文都看过了，依然解决不�
 
 二、
   
-Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : <span style="color: #ff0000;">12031
+Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12031
  原因是查询出的数据超出web.config中的最大大小（默认4MB）
   
 解决办法
@@ -70,7 +70,7 @@ Please refer to this: <a href="http://support.microsoft.com/kb/193625" rel="nof
   
 三、
   
-用IE浏览器查看NetFlow的时候出现 Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: <span style="color: #ff0000;">404错误。这个错误出现是因为 .NET Framework 3.5 SP1 升级产生的。Firefox不会出现错误。
+用IE浏览器查看NetFlow的时候出现 Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: 404错误。这个错误出现是因为 .NET Framework 3.5 SP1 升级产生的。Firefox不会出现错误。
 
 解决方法为打开 InetpubSolarWindsOrionMasterPage.master ，找到
   

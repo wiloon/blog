@@ -14,7 +14,7 @@ categories:
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.zhyea.com/2017/03/15/using-of-bufferedmutator.html/embed#?secret=dTFsANiQAP" data-secret="dTFsANiQAP" width="600" height="338" title="《使用BufferedMutator》—ZY笔记" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 org.apache.hadoop.hbase.client.BufferedMutator主要用来对HBase的单个表进行操作。它和Put类的作用差不多，但是主要用来实现批量的异步写操作。
 

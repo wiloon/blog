@@ -12,16 +12,16 @@ tags:
 ---
 ## 
 
-<div id="cnblogs_post_body">
-   将常用的或很复杂的工作，预先用SQL语句写好并用一个指定的名称存储起来, 那么以后要叫数据库提供与已定义好的存储过程的功能相同的服务时,只需调用execute,即可自动完成命令。<span style="color: #ff0000; font-size: large;">                  存储过程的优点 
+
+   将常用的或很复杂的工作，预先用SQL语句写好并用一个指定的名称存储起来, 那么以后要叫数据库提供与已定义好的存储过程的功能相同的服务时,只需调用execute,即可自动完成命令。                  存储过程的优点 
   
-    <span style="color: #ff0000; font-size: large;"><span style="font-size: small;">    1.存储过程只在创造时进行编译，以后每次执行存储过程都不需再重新编译，而一般SQL语句每执行一次就编译一次,所以使用存储过程可提高数据库执行速度。
+        1.存储过程只在创造时进行编译，以后每次执行存储过程都不需再重新编译，而一般SQL语句每执行一次就编译一次,所以使用存储过程可提高数据库执行速度。
  2.当对数据库进行复杂操作时(如对多个表进行Update,Insert,Query,Delete时），可将此复杂操作用存储过程封装起来与数据库提供的事务处理结合一起使用。
  3.存储过程可以重复使用,可减少数据库开发人员的工作量
  4.安全性高,可设定只有某此用户才具有对指定存储过程的使用权
   
   
-    <span style="color: #ff0000; font-size: large;"><span style="font-size: small;">                      <span style="color: #ff0000; font-size: large;"> 创建存储过程
+     创建存储过程
  *************************************************
   
   <h5>
@@ -29,10 +29,10 @@ tags:
   </h5>
   
   <h5>
-    CREATE PROC[ EDURE ] [ <em>owner</em>. ] <em>procedure_name </em>[ ; <em>number </em>]
- [ { @<em>parameter data_type </em>}<em>
- </em>[ VARYING ] [ = <em>default </em>] [ OUTPUT ] 
-     ] [ ,...<em>n </em>] 
+    CREATE PROC[ EDURE ] [ owner. ] procedure_name [ ; number ]
+ [ { @parameter data_type }
+ [ VARYING ] [ = default ] [ OUTPUT ] 
+     ] [ ,...n ] 
     
     
       [ WITH
@@ -44,22 +44,22 @@ tags:
     
     
     
-      AS <em>sql_statement</em> [ ...<em>n </em>]</h5> 
+      AS sql_statement [ ...n ]</h5> 
       
       
-        <span style="color: #ff0000; font-size: small;">参数
-      
-      
-      
-        <em>owner</em>
+        参数
       
       
       
-            拥有存储过程的用户 ID 的名称。<em>owner</em> 必须是当前用户的名称或当前用户所属的角色的名称。
+        owner
       
       
       
-        <em>procedure_name</em>
+            拥有存储过程的用户 ID 的名称。owner 必须是当前用户的名称或当前用户所属的角色的名称。
+      
+      
+      
+        procedure_name
       
       
       
@@ -67,15 +67,15 @@ tags:
       
       
       
-        ;<em>number</em>
+        ;number
       
       
       
-            是可选的整数，用来对同名的过程分组，以便用一条 DROP PROCEDURE 语句即可将同组的过程一起除去。例如，名为 orders 的应用程序使用的过程可以命名为 orderproc;1、orderproc;2 等。DROP PROCEDURE orderproc 语句将除去整个组。如果名称中包含定界标识符，则数字不应包含在标识符中，只应在 <em>procedure_name</em> 前后使用适当的定界符。
+            是可选的整数，用来对同名的过程分组，以便用一条 DROP PROCEDURE 语句即可将同组的过程一起除去。例如，名为 orders 的应用程序使用的过程可以命名为 orderproc;1、orderproc;2 等。DROP PROCEDURE orderproc 语句将除去整个组。如果名称中包含定界标识符，则数字不应包含在标识符中，只应在 procedure_name 前后使用适当的定界符。
       
       
       
-        @<em>parameter</em>
+        @parameter
       
       
       
@@ -87,7 +87,7 @@ tags:
       
       
       
-        <em>data_type</em>
+        data_type
       
       
       
@@ -103,7 +103,7 @@ tags:
       
       
       
-        <em>default</em>
+        default
       
       
       
@@ -119,7 +119,7 @@ tags:
       
       
       
-        <em>n</em>
+        n
       
       
       
@@ -155,7 +155,7 @@ tags:
       
       
       
-        <em>sql_statement</em>
+        sql_statement
       
       
       
@@ -163,7 +163,7 @@ tags:
       
       
       
-        <em>n</em>
+        n
       
       
       

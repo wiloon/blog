@@ -179,8 +179,8 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
 
 下面我们重点介绍几种常用的存储引擎并对比各个存储引擎之间的区别和推荐使用方式。
 
-<table>
-  <tr>
+
+  
     <th>
       特点
     </th>
@@ -204,345 +204,345 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
     <th>
       Archive
     </th>
-  </tr>
   
-  <tr>
-    <td>
+  
+  
+    
       存储限制
-    </td>
     
-    <td>
+    
+    
       没有
-    </td>
     
-    <td>
+    
+    
       没有
-    </td>
     
-    <td>
+    
+    
       有
-    </td>
     
-    <td>
+    
+    
       64TB
-    </td>
     
-    <td>
+    
+    
       没有
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       事务安全
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
-  </tr>
+    
+    
+    
   
-  <tr>
-    <td>
+  
+  
+    
       锁机制
-    </td>
     
-    <td>
+    
+    
       表锁
-    </td>
     
-    <td>
+    
+    
       页锁
-    </td>
     
-    <td>
+    
+    
       表锁
-    </td>
     
-    <td>
-      行锁
-    </td>
     
-    <td>
+    
       行锁
-    </td>
-  </tr>
+    
+    
+    
+      行锁
+    
   
-  <tr>
-    <td>
+  
+  
+    
       B树索引
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
-  </tr>
+    
+    
+    
   
-  <tr>
-    <td>
+  
+  
+    
       哈希索引
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
+    
+    
       支持
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
-  </tr>
+    
+    
+    
   
-  <tr>
-    <td>
+  
+  
+    
       全文索引
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
-  </tr>
+    
+    
+    
+    
+    
+    
+    
+    
+    
   
-  <tr>
-    <td>
+  
+  
+    
       集群索引
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
+    
+    
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
-  </tr>
+    
+    
+    
   
-  <tr>
-    <td>
+  
+  
+    
       数据缓存
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
+    
+    
       支持
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
-  </tr>
+    
+    
+    
   
-  <tr>
-    <td>
+  
+  
+    
       索引缓存
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
       支持
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
-  </tr>
+    
+    
+    
   
-  <tr>
-    <td>
+  
+  
+    
       数据可压缩
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
+    
+    
+    
+    
       支持
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       空间使用
-    </td>
     
-    <td>
+    
+    
       低
-    </td>
     
-    <td>
+    
+    
       低
-    </td>
     
-    <td>
+    
+    
       N/A
-    </td>
     
-    <td>
+    
+    
       高
-    </td>
     
-    <td>
+    
+    
       非常低
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       内存使用
-    </td>
     
-    <td>
+    
+    
       低
-    </td>
     
-    <td>
+    
+    
       低
-    </td>
     
-    <td>
+    
+    
       中等
-    </td>
     
-    <td>
+    
+    
       高
-    </td>
     
-    <td>
+    
+    
       低
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       批量插入的速度
-    </td>
     
-    <td>
+    
+    
       高
-    </td>
     
-    <td>
+    
+    
       高
-    </td>
     
-    <td>
+    
+    
       高
-    </td>
     
-    <td>
+    
+    
       低
-    </td>
     
-    <td>
+    
+    
       非常高
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       支持外键
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
-    </td>
     
-    <td>
+    
+    
+    
+    
+    
+    
+    
+    
       支持
-    </td>
     
-    <td>
-    </td>
-  </tr>
-</table>
+    
+    
+    
+  
+
 
 **最常使用的2种存储引擎: **
 
@@ -586,7 +586,7 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
 ## MyISAM vs Innodb – Quick comparison Table | 快速比较表:
 
 <table border="1">
-  <tr>
+  
     <th>
       MyISAM
     </th>
@@ -594,78 +594,78 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
     <th>
       Innodb
     </th>
-  </tr>
   
-  <tr>
-    <td>
+  
+  
+    
       Not *ACID compliant and non-transactional
-    </td>
     
-    <td>
+    
+    
       *ACID compliant and hence fully transactional with ROLLBACK and COMMIT and support for Foreign Keys
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       MySQL 5.0 Default Engine
-    </td>
     
-    <td>
+    
+    
       Rackspace Cloud Default Engine
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      Offers Compression
-    </td>
     
-    <td>
-      Offers Compression
-    </td>
-  </tr>
   
-  <tr>
-    <td>
+  
+  
+    
+      Offers Compression
+    
+    
+    
+      Offers Compression
+    
+  
+  
+  
+    
       Requires full repair/rebuild of indexes/tables
-    </td>
     
-    <td>
+    
+    
       Auto recovery from crash via replay of logs
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       Changed Db pages written to disk instantly
-    </td>
     
-    <td>
+    
+    
       Dirty pages converted from random to sequential before commit and flush to disk
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       No ordering in storage of data
-    </td>
     
-    <td>
+    
+    
       Row data stored in pages in PK order
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      Table level locking
-    </td>
     
-    <td>
+  
+  
+  
+    
+      Table level locking
+    
+    
+    
       Row level locking
-    </td>
-  </tr>
-</table>
+    
+  
+
 :     * ACID – Atomicity, Consistency, Isolation, Durability (read more on it here:<a class="external free" title="http://en.wikipedia.org/wiki/ACID" href="http://en.wikipedia.org/wiki/ACID" rel="nofollow">http://en.wikipedia.org/wiki/ACID</a>)
 
 在StackOverflow上的小总结: 
@@ -686,7 +686,7 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
               2
             
           
-        </td>
+        
         
         <td class="crayon-code">
           <div class="crayon-pre">
@@ -698,9 +698,9 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
               <span class="crayon-v">Full<span class="crayon-o">-<span class="crayon-e">text <span class="crayon-e">search <span class="crayon-st">in <span class="crayon-v">MySQL <span class="crayon-o">&<span class="crayon-v">lt<span class="crayon-sy">;<span class="crayon-o">= <span class="crayon-cn">5.5<span class="crayon-h">      <span class="crayon-o">=&<span class="crayon-v">gt<span class="crayon-sy">; <span class="crayon-v">MyISAM
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 InnoDB的设计目标是处理大容量数据库系统，它的CPU利用率是其它基于磁盘的关系数据库引擎所不能比的。

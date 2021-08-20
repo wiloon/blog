@@ -40,7 +40,7 @@ CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRI
 
 3. 使用以下语句更改,但不适用于临时表
 
-ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medium;">Chinese_PRC_CI_AS**
+ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**Chinese_PRC_CI_AS**
 
 
 一、排序规则简介: 

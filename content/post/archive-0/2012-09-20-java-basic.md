@@ -82,7 +82,7 @@ Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态�
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=720&embed=true#?secret=W3D9plaZq4" data-secret="W3D9plaZq4" width="600" height="338" title=""java static" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### Java 数据类型
@@ -95,7 +95,7 @@ String 不是基本数据类型，基本数据类型包括byte、int、char、lo
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4095&embed=true#?secret=zPf1hjBJE1" data-secret="zPf1hjBJE1" width="600" height="338" title=""java 基本数据类型" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### 什么是自动拆装箱？
@@ -108,7 +108,7 @@ String 不是基本数据类型，基本数据类型包括byte、int、char、lo
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=324&embed=true#?secret=jKQn0c3Ffr" data-secret="jKQn0c3Ffr" width="600" height="338" title=""自动装箱 拆箱" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### 什么是构造函数？什么是构造函数重载？什么是复制构造函数？
@@ -165,7 +165,7 @@ error 表示恢复不是不可能但很困难的情况下的一种严重问题�
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4125&embed=true#?secret=WhSU8ycC17" data-secret="WhSU8ycC17" width="600" height="338" title=""运行时异常/一般异常" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### Java集合类 ArrayList,Vector, LinkedList
@@ -183,7 +183,7 @@ ArrayList 和Vector都是使用数组方式存储数据，此数组元素数大�
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=1470&embed=true#?secret=w9FiOFSEW9" data-secret="w9FiOFSEW9" width="600" height="338" title=""Java Array, Vector, ArrayList, List, LinkedList" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### HashMap和Hashtable
@@ -237,7 +237,7 @@ PriorityQueue是一个基于优先级堆的无界队列，它的元素是按照�
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4142&embed=true#?secret=pxDBhDaJyo" data-secret="pxDBhDaJyo" width="600" height="338" title=""移位运算符" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### 
@@ -297,7 +297,7 @@ http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=3502&embed=true#?secret=n7Qjl48iTg" data-secret="n7Qjl48iTg" width="600" height="338" title=""Java Override   Overload  重写、覆盖、重载、多态" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### **同步,异步 在什么情况下使用**
@@ -310,7 +310,7 @@ http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://www.wiloon.com/?p=4130&embed=true#?secret=EdTzoKSmVu" data-secret="EdTzoKSmVu" width="600" height="338" title=""同步/异步" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 
 ### **abstract class interface**

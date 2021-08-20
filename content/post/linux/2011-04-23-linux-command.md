@@ -251,7 +251,7 @@ md5sum : compute and check MD5 message digest
 
 ### ls -lR|grep "^d"|wc -l
 
-<span style="color: #006666; font-family: 宋体; font-size: medium;">说明：
+说明：
 
 ### ls -l
 
