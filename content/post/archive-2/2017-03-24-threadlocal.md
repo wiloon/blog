@@ -295,3 +295,4 @@ ThreadLocal in Java – Example Program and Tutorial
 
 https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/
 
+https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666
