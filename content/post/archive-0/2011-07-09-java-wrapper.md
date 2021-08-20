@@ -214,7 +214,7 @@ false？没错，它就是false，自动装箱时，对于值从-128-127之间�
         
         
         
-          <span style="color: #000000;">String str=obj.toString();
+          String str=obj.toString();
         
         
         
@@ -227,7 +227,7 @@ false？没错，它就是false，自动装箱时，对于值从-128-127之间�
         
         
         
-          <span style="color: #000000;">String str=String.valueOf(5);
+          String str=String.valueOf(5);
  在一定的场合,运用java包装类来解决问题,能大大提高编程效率.
         
         

@@ -14,9 +14,7 @@ categories:
   https://www.oschina.net/news/77354/http-get-post-differenthttp://blog.csdn.net/gideal_wang/article/details/4316691
 
   一 原理区别
-
-<div id="article_content">
-  
+ 
         一般在浏览器中输入网址访问资源都是通过GET方式；在FORM提交中，可以通过Method指定提交方式为GET或者POST，默认为GET提交
   
   
@@ -159,7 +157,7 @@ categories:
  Content-type设置为: text/xml   任何数据都可以xml化
   
   
-    三 HTTP响应 
+### HTTP响应 
  1．HTTP响应格式：
  <status line>
  <headers>

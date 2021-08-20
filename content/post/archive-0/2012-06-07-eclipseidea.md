@@ -68,9 +68,7 @@ outline - structure, Ctrl+F12
 
 3、优化文件保存和工程加载
   
-    
-      Java代码  <a title="收藏这段代码"><img src="http://gagi.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-  
+ 
   
   <ol>
     <li>

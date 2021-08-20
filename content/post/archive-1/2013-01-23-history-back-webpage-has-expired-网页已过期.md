@@ -34,7 +34,7 @@ http://blog.sina.com.cn/s/blog_4b3c4bfa0100vz7h.html
   我的page A的表单提交方式是post.　这本身没有问题,但是浏览器有一个机制防止重复提交表单(只针对post),于是在浏览器端会条出来什么网页过期啊,重复提交警告之类的.　找了一下,有一个Post/Redirect/Get的设计模式.
 
 
-  <span style="color: #990030;">Page A 把表单Post给Page B, Page B拿到后Redirect用户去Pace C.在Page C显示结果.
+Page A 把表单Post给Page B, Page B拿到后Redirect用户去Pace C.在Page C显示结果.
 
 
   从Page C返回的话,会回到Page A.(浏览器不记录Page B,因为对于浏览器来说,他只做了一个Redirect操作).
