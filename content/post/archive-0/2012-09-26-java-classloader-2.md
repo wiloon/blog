@@ -174,16 +174,16 @@ At its simplest, a class loader creates a flat name space of class bodies that a
 
   <div id="highlighter_62595" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
+      
         <td class="code">
           <div class="container">
             <div class="line number1 index0 alt2">
               <code class="java plain">Class r = loadClass(String className, </code><code class="java keyword">boolean</code> <code class="java plain">resolveIt);</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 The variable className contains a string that is understood by the class loader and is used to uniquely identify a class implementation. The variable resolveIt is a flag to tell the class loader that classes referenced by this class name should be resolved (that is, any referenced class should be loaded as well).
@@ -228,7 +228,7 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
 
   <div id="highlighter_496219" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
+      
         <td class="code">
           <div class="container">
             <div class="line number1 index0 alt2">
@@ -275,16 +275,16 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
   <div id="highlighter_688537" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
+      
         <td class="code">
           <div class="container">
             <div class="line number1 index0 alt2">
@@ -319,16 +319,16 @@ The code above is the first section of the loadClass method. As you can see, it 
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 As you can see in the code above, the next step is to check if the primordial class loader can resolve this class name. This check is essential to both the sanity and security of the system. For example, if you return your own instance of java.lang.Object to the caller, then this object will share no common superclass with any other object! The security of the system can be compromised if your class loader returned its own value of java.lang.SecurityManager, which did not have the same checks as the real one did.
 
   <div id="highlighter_844302" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
+      
         <td class="code">
           <div class="container">
             <div class="line number1 index0 alt2">
@@ -351,9 +351,9 @@ As you can see in the code above, the next step is to check if the primordial cl
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 After the initial checks, we come to the code above which is where the simple class loader gets an opportunity to load an implementation of this class. As you can see from the source code, the SimpleClassLoader has a method getClassImplFromDataBase() which in our simple example merely prefixes the directory "store" to the class name and appends the extension ".impl". I chose this technique in the example so that there would be no question of the primordial class loader finding our class. Note that the sun.applet.AppletClassLoader prefixes the codebase URL from the HTML page where an applet lives to the name and then does an HTTP get request to fetch the bytecodes.
@@ -372,7 +372,7 @@ Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的clas
 
   <div id="highlighter_340310" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
+      
         <td class="code">
           <div class="container">
             <div class="line number1 index0 alt2">
@@ -383,9 +383,9 @@ Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的clas
               <code class="java comments">//实例化一个Student类的对象stu</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 AppClassLoader首先会到classpath下去寻找Student.class文件。（找不到则会抛出ClassNotFoundException异常）找到之后便会把Student这个类以二进制的形式存储到内存中。这个过程也就是对Student类加载的过程。然后用我们加载到内存中的Student类去实例化一个Student对象stu。
@@ -406,7 +406,7 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
 
   <div id="highlighter_147823" class="syntaxhighlighter nogutter java">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
+      
         <td class="code">
           <div class="container">
             <div class="line number1 index0 alt2">
@@ -472,9 +472,9 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 https://my.oschina.net/aminqiao/blog/262601

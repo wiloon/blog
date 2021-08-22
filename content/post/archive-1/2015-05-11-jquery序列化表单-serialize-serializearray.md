@@ -34,35 +34,35 @@ view plaincopy
   
 <form id="myform">
   
-<table>
+
   
-<tr>
+
   
-<td>姓名:</td>
+姓名:
   
-<td> <input type="text" name="name" /> </td>
+ <input type="text" name="name" /> 
   
-</tr>
+
   
-<tr>
+
   
-<td>性别:</td>
+性别:
   
-<td>
+
   
 <input type="radio" name="sex" value="1"> 男
   
 <input type="radio" name="sex" value="0"> 女
   
-</td>
+
   
-</tr>
+
   
-<tr>
+
   
-<td>年龄:</td>
+年龄:
   
-<td>
+
   
 <select name="age">
   
@@ -74,21 +74,21 @@ view plaincopy
   
 </select>
   
-</td>
+
   
-</tr>
+
   
-<tr>
+
   
 <td colspan="2">
   
 <input type="button" id="ajaxBtn" value="提交" />
   
-</td>
+
   
-</tr>
+
   
-</table>
+
   
 </form>
 

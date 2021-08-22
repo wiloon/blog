@@ -21,6 +21,12 @@ https://github.com/square/okhttp
 
 ```
 
+### proxy
+```java
+    static Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 8899));
+    static OkHttpClient client = new OkHttpClient.Builder().proxy(proxy).build();
+```
+
 ### 1. 历史上Http请求库优缺点
 
 在讲述OkHttp之前, 我们看下没有OkHttp的时代, 我们是如何完成http请求的.  
@@ -57,3 +63,6 @@ https://github.com/square/okhttp
 链接：[https://www.jianshu.com/p/ca8a982a116b](https://www.jianshu.com/p/ca8a982a116b "https://www.jianshu.com/p/ca8a982a116b")  
 来源：简书  
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+https://zhuanlan.zhihu.com/p/338207928
+

@@ -34,13 +34,13 @@ SELECT Title **COLLATE DATABASE_DEFAULT**,
   
 FirstName **COLLATE DATABASE_DEFAULT**, <wbr /> MiddleName **COLLATE DATABASE_DEFAULT,** EmailAddress**COLLATE DATABASE_DEFAULT**
 
-**<span style="color: #000000;">2. 在建表时直接更改表的排序规则:**
+**2. 在建表时直接更改表的排序规则:**
 
 CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**<span>Chinese_PRC_CI_AS**)
 
-<span style="color: #000000;">3. 使用以下语句更改,但不适用于临时表
+3. 使用以下语句更改,但不适用于临时表
 
-ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**<span style="font-size: medium;">Chinese_PRC_CI_AS**
+ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**Chinese_PRC_CI_AS**
 
 
 一、排序规则简介: 

@@ -19,7 +19,7 @@ androidjavaactivityonSaveInstanceStateBundle
 
 Java代码
   
-<span style="font-size: small;">public class MainActivity extends Activity {
+public class MainActivity extends Activity {
   
 public static final int SECOND_ACTIVITY = 0;
   

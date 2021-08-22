@@ -38,17 +38,17 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
   
 4. 如果既没有指定name，又没有指定type，则自动按照byName方式进行装配；如果没有匹配，则回退为一个原始类型进行匹配，如果匹配则自动装配；
 
-<span style="font-size: small;">@Autowired 与@Resource的区别: 
+@Autowired 与@Resource的区别: 
 
 
-<span style="font-size: small;">1、 @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。
+1、 @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。
 
-<span style="font-size: small;">2、 @Autowired默认按类型装配（这个注解是属业spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，如: @Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用，如下: 
+2、 @Autowired默认按类型装配（这个注解是属业spring的），默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，如: @Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用，如下: 
 
   <div id="highlighter_297578">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
+      
+        
           
             1
           
@@ -56,9 +56,9 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
           
             2
           
-        </td>
         
-        <td>
+        
+        
           
             
               <code>@Autowired</code><code>() </code><code>@Qualifier</code><code>(</code><code>"baseDao"</code><code>)</code>
@@ -68,17 +68,17 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
               <code>private</code> <code>BaseDao baseDao;</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 3、@Resource（这个注解属于J2EE的），默认安装名称进行装配，名称可以通过name属性进行指定，如果没有指定name属性，当注解写在字段上时，默认取字段名进行安装名称查找，如果注解写在setter方法上默认取属性名进行装配。当找不到与名称匹配的bean时才按照类型进行装配。但是需要注意的是，如果name属性一旦指定，就只会按照名称进行装配。
 
   <div id="highlighter_917272">
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
+      
+        
           
             1
           
@@ -86,9 +86,9 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
           
             2
           
-        </td>
         
-        <td>
+        
+        
           
             
               <code>@Resource</code><code>(name=</code><code>"baseDao"</code><code>)</code>
@@ -98,9 +98,9 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
               <code>private</code> <code>BaseDao baseDao;</code>
             
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 推荐使用: @Resource注解在字段上，这样就不用写setter方法了，并且这个注解是属于J2EE的，减少了与spring的耦合。这样代码看起就比较优雅。
@@ -110,8 +110,8 @@ Resource 注释类位于 Spring 发布包的 lib/j2ee/common-annotations.jar 类
 **清单 16. 使用 @Resource 注释的 Boss.java**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 package com.baobaotao;
 
@@ -126,22 +126,22 @@ public class Boss {
     @Resource(name = "office")
     private Office office;
 }
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 一般情况下，我们无需使用类似于 `@Resource(type=Car.class)` 的注释方式，因为 Bean 的类型信息可以通过 Java 反射从代码中获取。
 
 要让 JSR-250 的注释生效，除了在 Bean 类中标注这些注释外，还需要在 Spring 容器中注册一个负责处理这些注释的 `BeanPostProcessor`: 
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       <bean
  />
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 `CommonAnnotationBeanPostProcessor` 实现了 `BeanPostProcessor` 接口，它负责扫描使用了 JSR-250 注释的 Bean，并对它们进行相应的操作。
 
@@ -154,8 +154,8 @@ JSR-250 为初始化之后/销毁之前方法的指定定义了两个注释类�
 **清单 17. 使用 @PostConstruct 和 @PreDestroy 注释的 Boss.java**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 package com.baobaotao;
 
@@ -181,9 +181,9 @@ public class Boss {
     }
     …
 }
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 您只需要在方法前标注 `@PostConstruct` 或 `@PreDestroy`，这些方法就会在 Bean 初始化后或销毁之前被 Spring 容器执行了。
 
@@ -194,8 +194,8 @@ public class Boss {
 **清单 18. 测试类代码**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 package com.baobaotao;
 
@@ -212,9 +212,9 @@ public class AnnoIoCTest {
         ctx.destroy();// 关闭 Spring 容器，以触发 Bean 销毁方法的执行
     }
 }
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 这时，您将看到标注了 `@PostConstruct` 的 `postConstruct1()` 方法将在 Spring 容器启动时，创建 `Boss` Bean 的时候被触发执行，而标注了 `@PreDestroy` 注释的 `preDestroy1()` 方法将在 Spring 容器关闭前销毁 `Boss`Bean 的时候被触发执行。
 

@@ -25,240 +25,240 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
 设备
 
 <table border="1" cellspacing="0" cellpadding="0">
-  <tr>
+  
     <td valign="top" width="274">
                设备描述
-    </td>
+    
     
     <td valign="top" width="274">
                设备名
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       来自login等用户身份验证类程序的消息
-    </td>
+    
     
     <td valign="top" width="274">
         auth
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       特殊目的（私有）用户身份验证消息
-    </td>
+    
     
     <td valign="top" width="274">
         auth-priv
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       来自cron程序的消息（用于控制自动化得，调度后的任务）
-    </td>
+    
     
     <td valign="top" width="274">
         cron
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       来自未在此处列出的所有标准守护进程或服务器的消息
-    </td>
+    
     
     <td valign="top" width="274">
         deamon
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       内核消息（由klogd捕捉）
-    </td>
+    
     
     <td valign="top" width="274">
         kern
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       打印服务器消息
-    </td>
+    
     
     <td valign="top" width="274">
         lpr
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       邮件服务器消息（来自mail transfer agent）
-    </td>
+    
     
     <td valign="top" width="274">
         mail
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       新闻服务器消息
-    </td>
+    
     
     <td valign="top" width="274">
         news
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       关于系统登录进程本身的消息
-    </td>
+    
     
     <td valign="top" width="274">
         syslog
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       来自终端用户所启动程序的消息
-    </td>
+    
     
     <td valign="top" width="274">
         user
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       来自uucp程序的消息
-    </td>
+    
     
     <td valign="top" width="274">
         uucp
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="274">
       八个特定用途的类别信息，linux销售商和编程人员可能需要使用这些消息来定义通常类别信息之外的特定需求
-    </td>
+    
     
     <td valign="top" width="274">
         local0到local7
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 优先级
 
 <table border="1" cellspacing="0" cellpadding="0">
-  <tr>
+  
     <td valign="top" width="284">
                优先级描述
-    </td>
+    
     
     <td valign="top" width="263">
             优先级名
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       无优先级
-    </td>
+    
     
     <td valign="top" width="263">
         none
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       调试信息
-    </td>
+    
     
     <td valign="top" width="263">
         debug
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       关于程序当前状态的报告消息
-    </td>
+    
     
     <td valign="top" width="263">
         info
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       程序运行中产生了值得注意的事件
-    </td>
+    
     
     <td valign="top" width="263">
         notice
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       程序中存在潜在问题的警告信息
-    </td>
+    
     
     <td valign="top" width="263">
         waring
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       程序存在错误的通告
-    </td>
+    
     
     <td valign="top" width="263">
         err
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       错误消息，可能会导致程序关闭的事件
-    </td>
+    
     
     <td valign="top" width="263">
         crit
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       严重错误消息，会导致程序关闭并可能影响其他程序
-    </td>
+    
     
     <td valign="top" width="263">
         alert
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td valign="top" width="284">
       发生严重事件，并有导致系统崩溃的潜在危险
-    </td>
+    
     
     <td valign="top" width="263">
         emerg
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 简单动作大概如下：
 

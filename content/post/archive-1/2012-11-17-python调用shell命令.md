@@ -53,10 +53,10 @@ print handle.communicate()[0]
 既想获取状态值，也想获取打印的内容？
 
 
-<span style="color: #333333; font-family: Arial;">import commands
+import commands
 
-<span style="color: #333333; font-family: Arial;">stat, content = commands.getstatusoutput( cmd )
+stat, content = commands.getstatusoutput( cmd )
 
-<span style="color: #333333; font-family: Arial;"># stat is the exit code
+# stat is the exit code
 
-<span style="color: #333333; font-family: Arial;"># content is the content for printing
+# content is the content for printing

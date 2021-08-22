@@ -10,12 +10,8 @@ tags:
   - SQLServer
 
 ---
-## <http://www.cnblogs.com/chenxizhang/archive/2009/06/26/1511898.html>{#cb_post_title_url}
+<http://www.cnblogs.com/chenxizhang/archive/2009/06/26/1511898.html>
 
-## 
-
-<div id="cnblogs_post_body">
-  
     这一篇我们来捋捋在T-SQL中可能会用到的几个特殊的函数
   
   

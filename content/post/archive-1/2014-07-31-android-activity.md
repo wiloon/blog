@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<p style="color: #000000;" align="justify">
+
   http://www.cnblogs.com/feisky/archive/2010/01/16/1649081.html
 
 Activity

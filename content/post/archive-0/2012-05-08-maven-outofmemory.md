@@ -42,11 +42,11 @@ categories:
   
     解决的方法是调整java的堆大小的值。
   
-  <h2>
-    Windows环境中
-  </h2>
   
-    找到文件<em>%M2_HOME%binmvn.bat</em> ，这就是启动Maven的脚本文件，在该文件中你能看到有一行注释为：
+    Windows环境中
+  
+  
+    找到文件%M2_HOME%binmvn.bat ，这就是启动Maven的脚本文件，在该文件中你能看到有一行注释为：
   
   
     @REM set MAVEN_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE...
@@ -71,29 +71,29 @@ categories:
   
     我们看到，配置的Maven选项生效了，OutOfMemoryError也能得以相应的解决。
   
-  <h2>
-    Linux环境中
-  </h2>
   
-    也可以通过设置环境变量解决该问题， 如，编辑文件<em> /etc/profile</em> 如下
+    Linux环境中
+  
+  
+    也可以通过设置环境变量解决该问题， 如，编辑文件 /etc/profile 如下
   
   
   
     MAVEN_OPTS=-Xmx512m
  export JAVA_HOME MAVEN_HOME MAVEN_OPTS JAVA_BIN PATH CLASSPATH
   
-  <h2>
+  
     如果你使用Hudson
-  </h2>
+  
   
     用 Hudson + Maven做持续集成，并不幸也遇到了类似的错误，那么上述两种方式都将不再起作用了，因为Hudson使用自己的maven-agent来启动Maven，不会去调用Maven的脚本，自然相应的配置也就无效了。
   
   
     好在Hudson也给为我们提供了配置点，在Hudson的项目配置页面中，有一块Build区域，这里我们已经设置了Root Pom和Goals。注意该区域的右下角有一个"Advanced..."按钮，点击会看到JVM Options输入框，这里输入"-Xmx1024m"就OK了。
   
-  <h2>
+  
     m2eclipse中
-  </h2>
+  
   
     类似以上的方法都会失效，所幸m2eclipse提供了配置点。步骤如下：
   

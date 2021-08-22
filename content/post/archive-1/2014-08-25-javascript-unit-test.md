@@ -86,11 +86,11 @@ equal( sum, "2", "We expect value to be 2" );
   
 <h1 id="qunit-header">QUnit example</h1>
   
-<h2 id="qunit-banner"></h2>
+<h2 id="qunit-banner">
   
 <div id="qunit-testrunner-toolbar">
   
-<h2 id="qunit-userAgent"></h2>
+<h2 id="qunit-userAgent">
   
 <ol id="qunit-tests"></ol>
   

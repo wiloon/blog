@@ -63,6 +63,6 @@ rdesktop -r sound:local:alsa host.domain.com
       <a href="http://coolex.info/blog/121.html">http://coolex.info/blog/121.html</a>
     
     
-    <h2>
+    
       <a href="http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop">http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop</a>
-    </h2>
+    

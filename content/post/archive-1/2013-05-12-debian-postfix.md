@@ -54,7 +54,7 @@ sudo passwd user1
   
 ```
 
-<span style="color: #000000;">在mydestination后加上wiloon.com，成为这个样子:  
+在mydestination后加上wiloon.com，成为这个样子:  
 
 myhostname
 
@@ -93,7 +93,7 @@ dovecot
 
 安装POP3和IMAP支持
 
-sudo apt-get install dovecot-imapd dovecot-pop3d<span style="color: #000000; font-size: 13px; line-height: 19px;">
+sudo apt-get install dovecot-imapd dovecot-pop3d
  
 
 ### dovecot配置
@@ -209,51 +209,51 @@ broken_sasl_auth_clients = yes
 ################------------------------------------
   
 
-<span style="color: #000000;">#默认情况下，dovecot是不允许plaintext类型的认证的，打开 
+#默认情况下，dovecot是不允许plaintext类型的认证的，打开 
 
-<span style="color: #000000;">------ 
+------ 
   
-<span style="color: #000000;">重启postfix和dovecot。至此，postfix可以收信，并且foxmail可以pop3取信。测试。 
+重启postfix和dovecot。至此，postfix可以收信，并且foxmail可以pop3取信。测试。 
   
-<span style="color: #000000;">到现在foxmail还不能连接到postfix发信，原因是postfix不进行open relay，OR可不能打开，太危险了。 
+到现在foxmail还不能连接到postfix发信，原因是postfix不进行open relay，OR可不能打开，太危险了。 
   
-<span style="color: #000000;">两种解决方案:  
+两种解决方案:  
   
-<span style="color: #000000;">a、在mail.cf里的mynetworks字段加上foxmail所在的网段。默认情况下mynetworks字段只有127.0.0.0/8，所以你telnet mail.example.com 25 后，是可以发信的。如果你确定foxmail所在的网段，加上即可。 
+a、在mail.cf里的mynetworks字段加上foxmail所在的网段。默认情况下mynetworks字段只有127.0.0.0/8，所以你telnet mail.example.com 25 后，是可以发信的。如果你确定foxmail所在的网段，加上即可。 
   
-<span style="color: #000000;">b、很多情况下发信客户ip是不能确定的，所以打开sasl认证。 
+b、很多情况下发信客户ip是不能确定的，所以打开sasl认证。 
   
-<span style="color: #000000;">接下来配置sasl认证 
+接下来配置sasl认证 
   
-<span style="color: #000000;">------ 
+------ 
 
-<span style="color: #000000;">8、编辑dovecot.conf 
+8、编辑dovecot.conf 
   
-<span style="color: #000000;">在mechanisms字段加上login，成为这个样子:  
+在mechanisms字段加上login，成为这个样子:  
 
-<span style="color: #000000;">mechanisms = plain login 
+mechanisms = plain login 
 
-<span style="color: #000000;">编辑socket listen字段，成为这个样子:  
+编辑socket listen字段，成为这个样子:  
 
-<span style="color: #000000;">引用: 
+引用: 
   
-<span style="color: #000000;">socket listen { 
+socket listen { 
   
-<span style="color: #000000;">client { 
+client { 
   
-<span style="color: #000000;">path = /var/spool/postfix/private/auth-client 
+path = /var/spool/postfix/private/auth-client 
   
-<span style="color: #000000;">mode = 0660 
+mode = 0660 
   
-<span style="color: #000000;">user = postfix 
+user = postfix 
   
-<span style="color: #000000;">group = postfix 
+group = postfix 
   
-<span style="color: #000000;">} 
+} 
   
-<span style="color: #000000;">} 
+} 
 
-<span style="color: #000000;">9、给postfix加上如下配置 
+9、给postfix加上如下配置 
 
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
@@ -261,17 +261,17 @@ smtpd_sasl_auth_enable = yes
 smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, permit
 broken_sasl_auth_clients = yes
 
-<span style="color: #000000;">10、重起postfix（sudo service postfix restart）和dovecot（sudo service dovecot restart）。不出意外的话，已经可以通过foxmail正常收发邮件了 
+10、重起postfix（sudo service postfix restart）和dovecot（sudo service dovecot restart）。不出意外的话，已经可以通过foxmail正常收发邮件了 
 
-<span style="color: #000000;">注:  
+注:  
   
-<span style="color: #000000;">1、这样的配置对认证过程不加密，如果害怕密码被监听，就进一步加上ssl好了。 
+1、这样的配置对认证过程不加密，如果害怕密码被监听，就进一步加上ssl好了。 
   
-<span style="color: #000000;">2、如果被hotmail等退信的话。大部分情况下有两种可能: a、没有PTR记录，找你的ISP做。b、你的IP属于垃圾邮件监控地址(俗称上榜，呵呵)，去查查看。比如www.spamhaus.org(hotmail就是用这个的)，如果属于pbl，申请取消就好了，如果sbl这些，那就只能找你的ISP解决了。gmail则比较奇怪。如果gmail退信的话，试着改一下mail.cf中mydestination的顺序，把localhost改到前面。改成这个样子:  
+2、如果被hotmail等退信的话。大部分情况下有两种可能: a、没有PTR记录，找你的ISP做。b、你的IP属于垃圾邮件监控地址(俗称上榜，呵呵)，去查查看。比如www.spamhaus.org(hotmail就是用这个的)，如果属于pbl，申请取消就好了，如果sbl这些，那就只能找你的ISP解决了。gmail则比较奇怪。如果gmail退信的话，试着改一下mail.cf中mydestination的顺序，把localhost改到前面。改成这个样子:  
   
-<span style="color: #000000;">"mydestination = localhost, localhost.example.com, mail.example.com, example.com" 
+"mydestination = localhost, localhost.example.com, mail.example.com, example.com" 
   
-<span style="color: #000000;">很多人就这样把问题解决了，但似乎谁都不知道原理
+很多人就这样把问题解决了，但似乎谁都不知道原理
 
 <http://goahead2010.iteye.com/blog/1911165>
 

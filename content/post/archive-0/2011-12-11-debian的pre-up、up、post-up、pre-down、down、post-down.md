@@ -13,63 +13,62 @@ categories:
 
 ---
 <table border="0">
-  <tr>
-    <td>
+  
+    
       pre-up
-    </td>
     
-    <td>
+    
+    
       网卡启用前的动作
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       up
-    </td>
     
-    <td>
+    
+    
       启用时候的动作
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       post-up
-    </td>
     
-    <td>
+    
+    
       启用后的动作
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       pre-down
-    </td>
     
-    <td>
+    
+    
       关闭前的动作
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       down
-    </td>
     
-    <td>
+    
+    
       关闭时动作
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      post-down
-    </td>
     
-    <td>
+  
+  
+  
+    
+      post-down
+    
+    
+    
       关闭后动作
-    </td>
-  </tr>
-</table>
+    
+  

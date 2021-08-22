@@ -13,7 +13,7 @@ categories:
 
 ---
 
-  <div data-nslog-type="72">
+  
     
       
         VirtualBox 是一款开源 x86 虚拟机软件。Oracle VM VirtualBox 是由Sun Microsystems公司出品的软件，原由德国innotek公司开发，2008年Sun收购了Innotek，而Sun于2010年被Oracle收购，2010年1月21日改名成 Oracle VM VirtualBox。2007 年1月InnoTek 以 GNU General Public License (GPL) 释出 VirtualBox，并提供二进位版本及开放源码版本的代码。VirtualBox 可在 Linux 和 Windows 主机中运行，并支持在其中安装 Windows (NT 4.0、2000、XP、Server 2003、Vista)、DOS/Windows 3.x、Linux (2.4 和 2.6)、OpenBSD 等系列的客户操作系统。
@@ -23,10 +23,10 @@ categories:
     
   
 
-<div id="lemmaContent-0">
-  <h2>
+
+  
     简介
-  </h2>
+  
   
     2008年2月12日，Sun Microsystems宣布将以购买股票的方式收购德国Innotek软件公司，新版不再叫做Innotek VirtualBox，而改叫Sun xVM VirtualBox。
   

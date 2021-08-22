@@ -29,7 +29,7 @@ categories:
     会话标识符以Cookie的形式在服务器和浏览器之间传送。如果客户端不支持cookie，运用url改写机制来保证会话标识符传回服务器。
   
   
-    二、           <span style="font-size: medium;">Servlet Session事件侦听
+    二、           Servlet Session事件侦听
   
   
     HttpSessionBindingEvent类
@@ -95,8 +95,8 @@ categories:
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
+      
+        
           
             // SessionListener.java
           
@@ -372,9 +372,9 @@ categories:
           
             }
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
   
     登录日志的实现：
@@ -382,8 +382,8 @@ categories:
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
+      
+        
           
             ……
           
@@ -427,9 +427,9 @@ categories:
           
             //////////////////////////////////////////////////////////////////
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
   
     当系统退出登录时，只需简单地调用session.removeAttribute("listener");
@@ -438,8 +438,8 @@ categories:
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
+      
+        
           
             ServletContext session1=getServletConfig().getServletContext();
           
@@ -503,23 +503,23 @@ categories:
           
             //此举将促使监听器调用valueBound，计数器加一。
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
   
     在此后的程序中随时可以用以下代码取得当前的登录人数：
   
   <div align="center">
     <table width="540" border="1" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
+      
+        
           
             ((SessionListener)session.getAttribute("listener1")).getCount()
           
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
   
     Servlet Session中的getCount()是监听器的一个方法，即取得当前计数器的值也就是登录人数了。

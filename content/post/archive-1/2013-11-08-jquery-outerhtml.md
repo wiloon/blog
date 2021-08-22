@@ -12,7 +12,7 @@ categories:
 
 prop('outerHTML')
 
-<div id="cnblogs_post_body">
+
   
     1、今天获取元素的html,而firefox却不支持如下代码
   

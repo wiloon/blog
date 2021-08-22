@@ -18,13 +18,13 @@ Log4J是一个功能很强大的日志记录组件，它提供了丰富的日志
 
 commons-logging组建使用具体的Log组建的顺序如下
 
-1、<span style="font-family: 宋体;">如果定义了org.apache.commons.logging.Log系统参数，则使用指定的Logging实现；
+1、如果定义了org.apache.commons.logging.Log系统参数，则使用指定的Logging实现；
 
-<span style="font-family: 宋体;">2、如果在CLASSPATH里发现了Log4J，则使用Log4J；
+2、如果在CLASSPATH里发现了Log4J，则使用Log4J；
 
-<span style="font-family: 宋体;">3、如果使用的是JDK1.4，则使用JDK1.4内置的Logging框架；
+3、如果使用的是JDK1.4，则使用JDK1.4内置的Logging框架；
 
-<span style="font-family: 宋体;">4、如果都没有找到，则使用Commons Logging内置的简单Log实现。
+4、如果都没有找到，则使用Commons Logging内置的简单Log实现。
 
 
 

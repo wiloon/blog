@@ -3,17 +3,15 @@ title: ThreadLocal
 author: "-"
 type: post
 date: 2017-03-24T09:14:42+00:00
-url: /?p=9917
+url: ThreadLocal
 categories:
-  - Uncategorized
+  - java
 
 ---
 提到ThreadLocal，有些Android或者Java程序员可能有所陌生，可能会提出种种问题，它是做什么的，是不是和线程有关，怎么使用呢？等等问题，本文将总结一下我对ThreadLocal的理解和认识，希望让大家理解ThreadLocal更加透彻一些。
 
-ThreadLocal是什么
-  
+### ThreadLocal是什么
 ThreadLocal是一个关于创建线程局部变量的类。
-
 通常情况下，我们创建的变量是可以被任何一个线程访问并修改的。而使用ThreadLocal创建的变量只能被当前线程访问，其他线程则无法访问和修改。
 
 Global && Local
@@ -37,15 +35,12 @@ mStringThreadLocal.set("droidyue.com");
 get方法
 
 mStringThreadLocal.get();
-  
-完整的使用示例
 
+```java
 private void testThreadLocal() {
       
 Thread t = new Thread() {
-          
 ThreadLocal<String> mStringThreadLocal = new ThreadLocal<>();
-
         @Override
         public void run() {
             super.run();
@@ -53,12 +48,10 @@ ThreadLocal<String> mStringThreadLocal = new ThreadLocal<>();
             mStringThreadLocal.get();
         }
     };
-    
     t.start();
-    
-
 }
-  
+```
+
 ThreadLocal初始值
   
 为ThreadLocal设置默认的get初始值，需要重写initialValue方法，下面是一段代码，我们将默认值修改成了线程的名字
@@ -298,4 +291,8 @@ Java Thread Local – How to use and code sample
   
 ThreadLocal in Java – Example Program and Tutorial
 
+---
+
 https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/
+
+https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666

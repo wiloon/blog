@@ -8,9 +8,9 @@ categories:
   - Linux
 
 ---
-# <span style="font-size: 13px;">1 安装
+# 1 安装
 
-  <div id="cnblogs_post_body">
+  
     
       如果已经安装了图形用户界面，只需要在bash中apt-get install tightvncserver。
     

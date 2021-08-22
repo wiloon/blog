@@ -27,38 +27,38 @@ expr index $string $substring
 :   Numerical position in $string of first character in $substring that matches. 
     
     <table width="90%" border="0" bgcolor="#E0E0E0">
-      <tr>
-        <td>
+      
+        
              1 stringZ=abcABC123ABCabc
    2 echo `expr index "$stringZ" C12`             # 6
    3                                              # C position.
    4 
    5 echo `expr index "$stringZ" 1c`              # 3
    6 # 'c' (in #3 position) matches before '1'.
-        </td>
-      </tr>
-    </table>
+        
+      
+    
     
     This is the near equivalent of _strchr()_ in C.
     
     **ength of Matching Substring at Beginning of String**
     
     expr match "$string" '$substring'
-    :   <tt><em>$substring</em></tt> is a [regular expression][1].
+    :   <tt>$substring</tt> is a [regular expression][1].
     
     expr "$string" : '$substring'
-    :   <tt><em>$substring</em></tt> is a regular expression. 
+    :   <tt>$substring</tt> is a regular expression. 
         
         <table width="90%" border="0" bgcolor="#E0E0E0">
-          <tr>
-            <td>
+          
+            
                  1 stringZ=abcABC123ABCabc
    2 #       |------|
    3 
    4 echo `expr match "$stringZ" 'abc[A-Z]*.2'`   # 8
    5 echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8
-            </td>
-          </tr>
-        </table>
+            
+          
+        
 
  [1]: http://www.faqs.org/docs/abs/HTML/regexp.html#REGEXREF

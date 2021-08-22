@@ -15,19 +15,19 @@ categories:
     Several keyboard mapping schemes are available in the IDE. You can change keyboard mapping schemes on the Keyboard page, under the Environment folder of theOptions dialog box. For more information, see <a href="http://msdn.microsoft.com/en-us/library/5zwses53(v=vs.100).aspx">How to: Work with Keyboard Shortcuts</a>.
   
   
-    <table>
-      <tr>
+    
+      
         <th>
           <img id="alert_note" title="Note" alt="Note" src="http://i.msdn.microsoft.com/areas/global/content/clear.gif" />Note
         </th>
-      </tr>
       
-      <tr>
-        <td>
+      
+      
+        
           The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition. To change your settings, clickImport and Export Settings on the Tools menu. For more information, see <a href="http://msdn.microsoft.com/en-us/library/zbhkx167(v=vs.100).aspx">Working with Settings</a>.
-        </td>
-      </tr>
-    </table>
+        
+      
+    
   
 
 ### To list current keyboard shortcut mappings

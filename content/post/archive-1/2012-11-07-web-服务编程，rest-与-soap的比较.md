@@ -62,8 +62,8 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <a name="4.1.1.清单 1. 用户列表资源 Representation|outline"></a>**清单 1. 用户列表资源 Representation**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
@@ -76,15 +76,15 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 			<link>http://localhost:8182/v1/users/tester1</link>
 	</user>
 </users>
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 <a name="4.1.2.清单 2. 用户资源 Representation|outline"></a>**清单 2. 用户资源 Representation**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <user>
@@ -94,9 +94,9 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 	<email>tester@cn.ibm.com</email>
 	<description>testing!</description>
 </user>
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <link>http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
@@ -122,26 +122,26 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 <a name="4.3.1.清单 3. 客户端实现|outline"></a>**清单 3. 客户端实现**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 public class UserRestHelper {
 //The root URI of our ROA implementation.
-public static final tring <em>APPLICATION_URI</em> = "http://localhost:8182/v1";
+public static final tring APPLICATION_URI = "http://localhost:8182/v1";
 
 //Get the URI of user resource by user name.
 private static String getUserUri(String name) {
-	return <em>APPLICATION_URI</em> + "/users/" + name;
+	return APPLICATION_URI + "/users/" + name;
 }
 
 //Get the URI of user list resource.
 private static String getUsersUri() {
-	return <em>APPLICATION_URI</em> + "/users";
+	return APPLICATION_URI + "/users";
 }
 //Delete user resource from server by user name.
 //使用 HTTP DELETE 方法经由 URI 删除用户资源
 public static void deleteFromServer(String name) {
-	Response response = new Client(Protocol.<em>HTTP</em>).delete(<em>getUserUri</em>(name));
+	Response response = new Client(Protocol.HTTP).delete(getUserUri(name));
 	……
 }
 //Put user resource to server.
@@ -153,46 +153,46 @@ public static void putToServer(User user) {
  	form.add("user[company]", user.getCompany());
  	form.add("user[email]", user.getEmail());
  	form.add("user[description]", user.getDescription());
-	Response putResponse = new Client(Protocol.<em>HTTP</em>).put(
-	<em>getUserUri</em>(user.getName()), form.getWebRepresentation());
+	Response putResponse = new Client(Protocol.HTTP).put(
+	getUserUri(user.getName()), form.getWebRepresentation());
  	……
 }
 //Output user resource to console.
 public static void printUser(String name) {
-	<em>printUserByURI</em>(<em>getUserUri</em>(name));
+	printUserByURI(getUserUri(name));
 }
 
 //Output user list resource to console.
 //使用 HTTP GET 方法经由 URI 显示用户列表资源
 public static void printUserList() {
-	Response getResponse = new Client(Protocol.<em>HTTP</em>).get(<em>getUsersUri</em>());
+	Response getResponse = new Client(Protocol.HTTP).get(getUsersUri());
 	if (getResponse.getStatus().isSuccess()) {
 			DomRepresentation result = getResponse.getEntityAsDom();
  //The following code line will explore this XML document and output
  //each user resource to console.
 			……
 	} else {
-	 	System.<em>out</em>.println("Unexpected status:"+ getResponse.getStatus());
+	 	System.out.println("Unexpected status:"+ getResponse.getStatus());
 	}
 }
 
 //Output user resource to console.
 //使用 HTTP GET 方法经由 URI 显示用户资源
 private static void printUserByURI(String uri) {
-	Response getResponse = new Client(Protocol.<em>HTTP</em>).get(uri);
+	Response getResponse = new Client(Protocol.HTTP).get(uri);
 	if (getResponse.getStatus().isSuccess()) {
  		DomRepresentation result = getResponse.getEntityAsDom();
  		//The following code line will explore this XML document and output
  //current user resource to console.
  ……
  	} else {
- 		System.<em>out</em>.println("unexpected status:"+ getResponse.getStatus());
+ 		System.out.println("unexpected status:"+ getResponse.getStatus());
  	}
 }
 }
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 <a name="4.4.服务器端实现|outline"></a>服务器端实现
@@ -202,8 +202,8 @@ private static void printUserByURI(String uri) {
 <a name="4.4.1.清单 4. 服务器端实现 |outline"></a>**清单 4. 服务器端实现**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 public class UserResource extends Resource {
 private User _user;
@@ -266,9 +266,9 @@ private Document createDocument(User user) {
 //The remaining methods here
 ……
 }
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 UserResource 类是对用户资源类的抽象，包括了对该资源的创建修改（put 方法），读取（handleGet 方法 ）和删除（delete 方法），被创建出来的 UserResource 类实例被 Restlet 框架所托管，所有操纵资源的方法会在相应的 HTTP 请求到达后被自动回调。
@@ -296,8 +296,8 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <a name="5.2.1.清单 5. getUserList SOAP 消息|outline"></a>**清单 5. getUserList SOAP 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -305,9 +305,9 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 		<p:getUserList xmlns:p="http://www.exmaple.com"/>
 	</soap:Body>
 </soap:Envelope>
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI，SOAP SERVER 收到该 HTTP POST 请求，通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用，返回如下的响应: 
@@ -315,8 +315,8 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <a name="5.2.2.清单 6. getUserListResponse 消息|outline"></a>**清单 6. getUserListResponse 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -331,9 +331,9 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 				<p: getUserListResponse >
 	</soap:Body>
 </soap:Envelope>
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 <a name="5.3.获得某一具体用户信息|outline"></a>获得某一具体用户信息
@@ -341,8 +341,8 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <a name="5.3.1.清单 7. getUserByName SOAP 消息|outline"></a>**清单 7. getUserByName SOAP 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -352,9 +352,9 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 				</p:getUserByName >
 	</soap:Body>
 </soap:Envelope>
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 同样地，客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI，SOAP SERVER 处理后返回的 Response 如下: 
@@ -362,8 +362,8 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 <a name="5.3.2.清单 8. getUserByNameResponse SOAP 消息|outline"></a>**清单 8. getUserByNameResponse SOAP 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+  
+    
       
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -377,9 +377,9 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 	</p:getUserByNameResponse>
 </soap:Body>
 </soap:Envelope>
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 实际上，创建新的用户，过程也比较类似，在这里，就不一一列出，因为这两个例子对于本文在选定的点上对比 REST 与 SOAP 已经足够了。

@@ -1,7 +1,7 @@
 +++
 author = "-"
 date = "" 
-title = "http method"
+title = "http method, get, head, post, options, put, delte, trace, connect"
 
 +++
 
@@ -12,7 +12,7 @@ HTTP Method的历史：
 
 HTTP 0.9 这个版本只有GET方法
 HTTP 1.0 这个版本有GET HEAD POST这三个方法
-HTTP 1.1 这个版本是当前版本，包含GET HEAD POST OPTIONS PUT DELETE TRACE CONNECT这8个方法
+HTTP 1.1 这个版本是当前版本，包含GET HEAD POST OPTIONS PUT DELETE TRACE CONNECT 这8个方法
 我们先看看HTTP 1.1 规范的中文翻译
 
 方法定义（Method Definitions）
@@ -21,7 +21,7 @@ HTTP/1.1常用方法的定义如下。虽然方法可以被展开，但新加的
 Hst请求头域（见13.23节）必须能在所有的HTTP/1.1请求里出现。
 
 9.1 安全和等幂（Idempotent）方法
-9.1.1安全方法（Safe Methods）
+9.1.1 安全方法（Safe Methods）
 实现者应当知道软件是代表用户在互联网上进行交互，并且应该小心地允许用户知道任何它们可能采取的动作(action)，这些动作可能给他们自己或他人带来无法预料的结果。
 
 特别的，GET和HEAD方法仅仅应该获取资源而不是执行动作（action）。这些方法应该被考虑是"安全"的。可以让用户代理用其他的方法，如：POST，PUT，DELETE，这样用户代理就能知道这些方法可能会执行不安全的动作。
@@ -33,7 +33,7 @@ Hst请求头域（见13.23节）必须能在所有的HTTP/1.1请求里出现。
 
 根据定义，一个序列如果没有副作用，那么此序列是等幂的（假设在资源集上没有并行的操作）。
 
-9.2 OPTIONS（选项）
+### OPTIONS（选项）
 OPTIONS方法表明请求想得到请求/响应链上关于此请求里的URI（Request-URI）指定资源的通信选项信息。此方法允许客户端去判定请求资源的选项和/或需求，或者服务器的能力，而不需要利用一个资源动作（译注：使用POST，PUT，DELETE方法）或一个资源获取（译注：用GET方法）方法。
 
 这种方法的响应是不能缓存的.。
@@ -48,7 +48,7 @@ OPTIONS方法表明请求想得到请求/响应链上关于此请求里的URI（
 
 Max-Forwards请求头域可能会被用于针对请求链中特定的代理。当代理接收到一个OPTIONS请求，且此请求的URI为absoluteURI，并且此请求是可以被转发的，那么代理必须要检测Max-Forwards头域。如果Max-Forwards头域的值为"0"，那么此代理不能转发此消息；而是，代理应该以它自己的通信选项响应。如果Max-Forwards头域是比0大的整数值，那么代理必须递减此值当它转发此请求时。如果没有Max-Forwards头域出现在请求里，那么代理转发此请求时不能包含Max-Forwards头域。
 
-9.3 GET
+### GET
 GET方法意思是获取被请求URI（Request-URI）指定的信息（以实体的格式）。如果请求URI涉及到一个数据生成过程，那么这个生成的数据应该被作为实体在响应中返回，但这并不是过程的资源文本，除非资源文本恰好是过程的输出（译注：URI指示的资源是动态生成的）。
 
 如果请求消息包含 If-Modified-Since,，If-Unmodified-Since，If-Match,，If-None-Match,或者 If-Range头域,，GET的语义将变成"条件（conditionall） GET"。一个条件GET方法会请求满足条件头域的实体。条件GET方法的目的是为了减少不必要的网络使用，这通过利用缓存的实体的更新，从而不用多次请求或传输客户已经拥有的数据。.
@@ -59,12 +59,12 @@ GET请求的响应是可缓存的（cacheable）如果此响应满足第13节HTT
 
 看15.1.3节关于GET请求用于表单时安全考虑。
 
-9.4 HEAD
+### HEAD
 HEAD方法和GET方法一致，除了服务器不能在响应里返回消息主体。HEAD请求响应里HTTP头域里的元信息应该和GET请求响应里的元信息一致。此方法被用来获取请求实体的元信息而不需要传输实体主体（entity-body）。此方法经常被用来测试超文本链接的有效性，可访问性，和最近的改变。.
 
 HEAD请求的响应是可缓存的，因为响应里的信息可能被用于更新以前的那个资源的缓存实体.。如果出现一个新的域值指明了缓存实体和当前源服务器上实体的不同（可能因为Content-Length，Content-MD5，ETag或Last-Modified值的改变），那么缓存（cache）必须认为此缓存项是过时的（stale）。
 
-9.5 POST
+### POST
 POST 方法被用于请求源服务器接受请求中的实体作为请求资源的一个新的从属物。POST被设计涵盖下面的功能。
 
 -已存在的资源的注释；
@@ -87,7 +87,7 @@ POST 请求必须遵循8.2节里指明的消息传输需求。
 
 参见15.1.3节关于安全性的考虑.
 
-9.6 PUT
+### PUT
 PUT方法请求服务器去把请求里的实体存储在请求URI（Request-URI）标识下。如果请求URI（Request-URI）指定的的资源已经在源服务器上存在，那么此请求里的实体应该被当作是源服务器此URI所指定资源实体的修改版本。如果请求URI（Request-URI）指定的资源不存在，并且此URI被用户代理（user agent，译注：用户代理可认为是客户浏览器）定义为一个新资源，那么源服务器就应该根据请求里的实体创建一个此URI所标识下的资源。如果一个新的资源被创建了，源服务器必须能向用户代理（user agent） 发送201（已创建）响应。如果已存在的资源被改变了，那么源服务器应该发送200（Ok）或者204（无内容）响应。如果资源不能根据请求URI创建或者改变，一个合适的错误响应应该给出以反应问题的性质。实体的接收者不能忽略任何它不理解的Content-*（如：Content-Range）头域，并且必须返回501（没有被实现）响应。
 
 如果请求穿过一个缓存（cache），并且此请求URI（Request-URI）指示了一个或多个当前缓存的实体，那么这些实体应该被看作是旧的。PUT方法的响应不应该被缓存。
@@ -102,25 +102,30 @@ PUT请求必须遵循8.2节中的消息传输要求。
 
 除非特别指出，PUT方法请求里的实体头域应该被用于资源的创建或修改。
 
-9.7 DELETE（删除）
+### DELETE（删除）
 DELETE方法请求源服务器删除请求URI指定的资源。此方法可能会在源服务器上被人为的干涉（或其他方法）。客户端不能保证此操作能被执行，即使源服务器返回成功状态码。然而，服务器不应该指明成功除非它打算删除资源或把此资源移到一个不可访问的位置。
 
 如果响应里包含描述成功的实体，响应应该是200（Ok）；如果DELETE动作没有通过，应该以202（已接受）响应；如果DELETE方法请求已经通过了，但响应不包含实体，那么应该以204（无内容）响应。
 
 如果请求穿过缓存，并且请求URI（Request-URI）指定一个或多个缓存当前实体，那么这些缓存项应该被认为是旧的。DELETE方法的响应是不能被缓存的。
 
-9.8 TRACE
+### TRACE
 TRACE方法被用于激发一个远程的，应用层的请求消息回路（译注：TRACE方法让客户端测试到服务器的网络通路，回路的意思如发送一个请返回一个响应，这就是一个请求响应回路，）。最后的接收者或者是接收请求里Max-Forwards头域值为0源服务器或者是代理服务器或者是网关。TRACE请求不能包含一个实体。
 
 TRACE方法允许客户端知道请求链的另一端接收什么，并且利用那些数据去测试或诊断。Via头域值（见14.45）有特殊的用途，因为它可以作为请求链的跟踪信息。利用Max-Forwards头域允许客户端限制请求链的长度去测试一串代理服务器是否在无限回路里转发消息。
 
 如果请求是有效的，响应应该在响应实体主体里包含整个请求消息，并且响应应该包含一个Content-Type头域值为"message/http"的头域。TRACE方法的响应不能不缓存。
 
-9.9 CONNECT（连接）
+### CONNECT （连接）
 HTTP1.1协议规范保留了CONNECT方法，此方法是为了能用于能动态切换到隧道的代理服务器（proxy，译注：可以为代理，也可以是代理服务器）。
 
 上边的内容对HTTP Method 说的已经很详细了，但幂等这个概念可能不太容易理解。下边我们就着重介绍下：
 
+在 HTTP 协议中，CONNECT 方法可以开启一个客户端与所请求资源之间的双向沟通的通道。它可以用来创建隧道（tunnel）。
+
+例如，CONNECT 可以用来访问采用了 SSL (en-US) (HTTPS)  协议的站点。客户端要求代理服务器将 TCP 连接作为通往目的主机隧道。之后该服务器会代替客户端与目的主机建立连接。连接建立好之后，代理服务器会面向客户端发送或接收 TCP 消息流。
+
+### 幂等性
 在HTTP/1.1规范中幂等性的定义是：
 
 Methods can also have the property of "idempotence" in that (aside from error or expiration issues) the side-effects of N > 0 identical requests is the same as for a single request.
@@ -130,7 +135,7 @@ Methods can also have the property of "idempotence" in that (aside from error or
 为什么需要幂等性呢？我们先从一个例子说起，假设有一个从账户取钱的远程API（可以是HTTP的，也可以不是），我们暂时用类函数的方式记为：
 
 bool withdraw(account_id, amount)
-withdraw的语义是从account_id对应的账户中扣除amount数额的钱；如果扣除成功则返回true，账户余额减少amount；如果扣除失败则返回false，账户余额不变。值得注意的是：和本地环境相比，我们不能轻易假设分布式环境的可靠性。一种典型的情况是withdraw请求已经被服务器端正确处理，但服务器端的返回结果由于网络等原因被掉丢了，导致客户端无法得知处理结果。如果是在网页上，一些不恰当的设计可能会使用户认为上一次操作失败了，然后刷新页面，这就导致了withdraw被调用两次，账户也被多扣了一次钱。如图1所示：
+withdraw的语义是从account_id对应的账户中扣除amount数额的钱；如果扣除成功则返回true，账户余额减少amount；如果扣除失败则返回false，账户余额不变。值得注意的是：和本地环境相比，我们不能轻易假设分布式环境的可靠性。一种典型的情况是withdraw请求已经被服务器端正确处理，但服务器端的返回结果由于网络等原因被掉丢了，导致客户端无法得知处理结果。如果是在网页上，一些不恰当的设计可能会使用户认为上一次操作失败了，然后刷新页面，这就导致了withdraw被调用两次，账户也被多扣了一次钱。
 
 
 这个问题的解决方案一是采用分布式事务，通过引入支持分布式事务的中间件来保证withdraw功能的事务性。分布式事务的优点是对于调用者很简单，复杂性都交给了中间件来管理。缺点则是一方面架构太重量级，容易被绑在特定的中间件上，不利于异构系统的集成；另一方面分布式事务虽然能保证事务的ACID性质，而但却无法提供性能和可用性的保证。
@@ -183,4 +188,5 @@ POST所对应的URI并非创建的资源本身，而是资源的接收者。比�
 https://www.quora.com/What-is-the-history-of-HTTP-verbs-PUT-GET-POST-and-DELETE
 http://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html
 http://www.360doc.com/content/15/1124/19/29350465_515532644.shtml
-https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html  
+https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/CONNECT  

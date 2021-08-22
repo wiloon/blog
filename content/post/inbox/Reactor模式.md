@@ -28,7 +28,6 @@ Reactor 对象通过 select （IO 多路复用接口） 监听事件，收到事
 
 
 ### 多 Reactor 多进程 / 线程
-
 主线程中的 MainReactor 对象通过 select 监控连接建立事件，收到事件后通过 Acceptor 对象中的 accept 获取连接，将新的连接分配给某个子线程；子线程中的 SubReactor 对象将 MainReactor 对象分配的连接加入 select 继续进行监听，并创建一个 Handler 用于处理连接的响应事件。如果有新的事件发生时，SubReactor 对象会调用当前连接对应的 Handler 对象来进行响应。Handler 对象通过 read -> 业务处理 -> send 的流程来完成完整的业务流程。多 Reactor 多线程的方案虽然看起来复杂的，但是实际实现时比单 Reactor 多线程的方案要简单的多，原因如下：主线程和子线程分工明确，主线程只负责接收新连接，子线程负责完成后续的业务处理。主线程和子线程的交互很简单，主线程只需要把新连接传给子线程，子线程无须返回数据，直接就可以在子线程将处理结果发送给客户端。大名鼎鼎的两个开源软件 Netty 和 Memcache 都采用了「多 Reactor 多线程」的方案。采用了「多 Reactor 多进程」方案的开源软件是 Nginx，不过方案与标准的多 Reactor 多进程有些差异。具体差异表现在主进程中仅仅用来初始化 socket，并没有创建 mainReactor 来 accept 连接，而是由子进程的 Reactor 来 accept 连接，通过锁来控制一次只有一个子进程进行 accept（防止出现惊群现象），子进程 accept 新连接后就放到自己的 Reactor 进行处理，不会再分配给其他子进程。
 
 ### 阻塞、非阻塞、同步、异步 I/O

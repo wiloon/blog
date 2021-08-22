@@ -21,61 +21,61 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
 下表列出 SET 与 SELECT 的区别。请特别注意红色部分。
 
 <table width="509" border="2">
-  <tr>
-    <td>
-    </td>
+  
     
-    <td>
+    
+    
+    
       set
-    </td>
     
-    <td>
+    
+    
       select
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       同时对多个变量同时赋值
-    </td>
     
-    <td>
+    
+    
       不支持
-    </td>
     
-    <td>
+    
+    
       支持
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       表达式返回多个值时
-    </td>
     
-    <td>
+    
+    
       出错
-    </td>
     
-    <td>
-      <span style="color: #ff0000;">将返回的最后一个值赋给变量
-    </td>
-  </tr>
+    
+    
+      将返回的最后一个值赋给变量
+    
   
-  <tr>
-    <td>
+  
+  
+    
       表达式未返回值
-    </td>
     
-    <td>
+    
+    
       变量被赋null值
-    </td>
     
-    <td>
-      <span style="color: #ff0000;">变量保持原值
-    </td>
-  </tr>
-</table>
+    
+    
+      变量保持原值
+    
+  
+
 
 下面以具体示例来说明问题: 
 

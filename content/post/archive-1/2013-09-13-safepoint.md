@@ -250,7 +250,7 @@ Total time for which application threads were stopped: 0.0056040 seconds
   
 Total time for which application threads were stopped: 0.0051020 seconds
   
-<span style="color:#FF0000;">Total time for which application threads were stopped: 8.2834300 seconds
+Total time for which application threads were stopped: 8.2834300 seconds
   
 Total time for which application threads were stopped: 0.0110790 seconds
   

@@ -15,7 +15,7 @@ tags:
 
 ServletContextListener处理Web应用的 servlet上下文(context)的变化的通知。这可以解释为，好像有个人在服务器旁不断地通知我们服务器在发生什么事件。那当然需要监听者了。因 此，在通知上下文(context)初始化和销毁的时候，ServletContextListner非常有用。
 
-<div id="cnblogs_post_body">
+
   import javax.servlet.ServletContextListener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.*;

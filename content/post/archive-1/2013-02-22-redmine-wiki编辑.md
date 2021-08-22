@@ -188,8 +188,8 @@ bq. 这是块引用的示例
 
 显示为:
 
-<table>
-  <tr>
+
+  
     <th>
       UserID
     </th>
@@ -201,52 +201,52 @@ bq. 这是块引用的示例
     <th>
       Group
     </th>
-  </tr>
   
-  <tr>
+  
+  
     <td colspan="3">
       IT
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      1
-    </td>
     
-    <td>
+  
+  
+  
+    
+      1
+    
+    
+    
       张三
-    </td>
+    
     
     <td rowspan="2">
       Users
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       2
-    </td>
     
-    <td>
+    
+    
       李四
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       3
-    </td>
     
-    <td>
+    
+    
       王五
-    </td>
     
-    <td>
+    
+    
       Admin
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 
 ### 内容列表
