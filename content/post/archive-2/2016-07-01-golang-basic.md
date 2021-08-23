@@ -201,9 +201,11 @@ func main(){
     // Deprecated
     func foo(){}
 
+## go env
 ### 查看go语言的环境变量
-        go env
-
+    go env
+### 设置 go env
+    go env -w GO111MODULE=on
 ## date time
     time.Now()
 ### 时间差
