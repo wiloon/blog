@@ -3,7 +3,7 @@ title: visual studio code, vscode basic
 author: "-"
 type: post
 date: 2018-09-01T03:34:42+00:00
-url: /?p=12630
+url: vscode
 
 ---
 ### debian install visual studio code
@@ -62,11 +62,14 @@ vscode 发http请求
 ### hexdump
 hex viewer
 
+### 显示空格
+打开setting,在搜索框中输入renderControlCharacters,选中勾选框,即可显示tab.  
+在搜索框中输入renderWhitespace,选择all,即可显示空格.  
+
 ---
 
-https://code.visualstudio.com/docs/remote/ssh-tutorial 
-
-https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode 
-
+https://code.visualstudio.com/docs/remote/ssh-tutorial  
+https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode  
+https://blog.csdn.net/bmzk123/article/details/86501706  
 
  
