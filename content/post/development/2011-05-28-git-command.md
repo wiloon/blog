@@ -307,7 +307,11 @@ $ git config --global core.autocrlf false
 
 $ git submodule add https://github.com/maonx/vimwiki-assets.git assets
 
- 
+### [0x7FFA0BF6E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
+导致这个问题的原因之一，是因为电脑安装了浪潮的 IP-GUARD 监控软件。
+卸载电脑原先的Git，安装32位Git。
+或者卸载监控软件
+
 ---
 
 http://zensheno.blog.51cto.com/2712776/490748  

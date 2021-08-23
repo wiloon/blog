@@ -1,5 +1,5 @@
 ---
-title: golang basic
+title: go basic
 author: "-"
 type: post
 date: 2016-07-01T08:06:08+00:00

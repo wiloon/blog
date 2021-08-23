@@ -10,11 +10,16 @@ categories:
 ---
 ```bash
 # goproxy.io 有遇到过connection reset by peer, 换goproxy.cn
-export GOPROXY=https://goproxy.io
+export GOPROXY=https://goproxy.io,direct
+
 export GOPROXY=https://goproxy.cn
 ```
 
 ### athens
+
+---
+
+https://goproxy.io/zh/
 
 <https://blog.wiloon.com/?p=15941>
 
