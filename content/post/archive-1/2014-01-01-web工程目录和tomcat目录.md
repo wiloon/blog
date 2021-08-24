@@ -15,146 +15,146 @@ tags:
 好的目录结构可以使开发人员更容易理解项目，为以后的维护工作也打下良好的基础。Maven2根据业界公认的最佳目录结构，为开发者提供了缺省的标准目录模板。Maven2的标准目录结构如下: 
 
 <table border="0">
-  <tr>
+  
     <td align="left">
       <tt>src/main/java</tt>
-    </td>
+    
     
     <td align="left">
       Application/Library sources
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/main/resources</tt>
-    </td>
+    
     
     <td align="left">
       Application/Library resources
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/main/webapp</tt>
-    </td>
+    
     
     <td align="left">
       Web application sources
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/test/java</tt>
-    </td>
+    
     
     <td align="left">
       Test sources
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/test/resources</tt>
-    </td>
+    
     
     <td align="left">
       Test resources
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/main/filters</tt>
-    </td>
+    
     
     <td align="left">
       Resource filter files
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/main/assembly</tt>
-    </td>
+    
     
     <td align="left">
       Assembly descriptors
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/main/config</tt>
-    </td>
+    
     
     <td align="left">
       Configuration files
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/main/scripts</tt>
-    </td>
+    
     
     <td align="left">
       Application/Library scripts
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/test/filters</tt>
-    </td>
+    
     
     <td align="left">
       Test resource filter files
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>src/site</tt>
-    </td>
+    
     
     <td align="left">
       Site
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>LICENSE.txt</tt>
-    </td>
+    
     
     <td align="left">
       Project's license
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>NOTICE.txt</tt>
-    </td>
+    
     
     <td align="left">
       Notices and attributions required by libraries that the project depends on
-    </td>
-  </tr>
+    
   
-  <tr>
+  
+  
     <td align="left">
       <tt>README.txt</tt>
-    </td>
+    
     
     <td align="left">
       Project's readme
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 使用目录模板，可以使 pom.xml 更简洁。因为 Maven2 已经根据缺省目录，预定义了相关的动作，而无需人工的干预。以 resources 目录为例: 
 

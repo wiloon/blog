@@ -10,7 +10,7 @@ tags:
   - JPA
 
 ---
-<span style="line-height: 1.5em;">1. 持久化上下文（Persistence Context ）
+1. 持久化上下文（Persistence Context ）
 
 
 一个持久化单元（Persistence Unit ）就是关于一组Entity 类的命名配置。持久化单元是一个静态的概念。

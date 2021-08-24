@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-<pre class="bz_comment_text" style="color: #000000;">A fatal error has been detected by the Java Runtime Environment:
+A fatal error has been detected by the Java Runtime Environment:
 #
 # SIGSEGV (0xb) at pc=0x00007f19358e673f, pid=18619, tid=139746828388096
 #

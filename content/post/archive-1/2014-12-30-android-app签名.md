@@ -28,7 +28,7 @@ _**方法一:  命令行下对apk签名（原理）**_
   
     <div id="highlighter_790413" class="syntaxhighlighter nogutter  fsharp">
       <table border="0" cellspacing="0" cellpadding="0">
-        <tr>
+        
           <td class="code">
             <div class="container">
               <div class="line number1 index0 alt2">
@@ -71,9 +71,9 @@ _**方法一:  命令行下对apk签名（原理）**_
                 <code class="fsharp spaces">       </code><code class="fsharp plain">-signedjar demor_signed.apk demo.apk demo.keystore 正式签名，三个参数中依次为签名后产生的文件demo_signed，要签名的文件demo.apk和密钥库demo.keystore.*/</code>
               
             
-          </td>
-        </tr>
-      </table>
+          
+        
+      
   
 
 注意事项: android工程的bin目录下的demo.apk默认是已经使用debug用户签名的，所以不能使用上述步骤对此文件再次签名。正确步骤应该是:在工程点击右键->Anroid Tools-Export Unsigned Application Package导出的apk采用上述步骤签名。

@@ -10,6 +10,6 @@ tags:
   - JavaScript
 
 ---
-The <span style="font-weight: bold;">Bootstrap Filestyle is a plugin for jquery-based component library could <span style="font-weight: bold;">Twitter Bootstrap, used to style the file fields of the forms.
+The Twitter Bootstrap, used to style the file fields of the forms.
 
 This plugin has an interesting way to present a form for sending files so attractive, while being simple and efficient.

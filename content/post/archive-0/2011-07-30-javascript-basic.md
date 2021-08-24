@@ -252,6 +252,9 @@ protocol	当前 URL 的协议
 search	从问号 (?) 开始的 URL（查询部分）
 
 
+### JAVASRIPT 大写转小写
+    str.toLowerCase()
+
 ---
 
 作者：大小伍

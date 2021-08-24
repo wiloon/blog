@@ -16,7 +16,7 @@ http://bbs.csdn.net/topics/320156312
 
  <BODY>
 
- <div id="tt" style="position:relative;">
+ 
 
  <input type="button" value="添加附件" onmouseover="floatFile()">
 
@@ -24,7 +24,7 @@ http://bbs.csdn.net/topics/320156312
 
  <div id="div1">
 
- <div id="file1text" ><input id="file1" name="myfile" type="file" onchange="showText(this)" style="position:absolute;filter:alpha(opacity=50);width:30px;opacity: 0.5;" hidefocus>
+ 
 
  
 
@@ -78,7 +78,7 @@ http://bbs.csdn.net/topics/320156312
 
  //直接追加innerHTML(innerHTML+=)会清空原来file中的内容
 
- $("div"+(fileNum-1)).insertAdjacentHTML('AfterEnd','<div id="div'+fileNum+'"><div id="file'+fileNum+'text" ><input id="file'+fileNum+'" name="myfile" type="file" onchange="showText(this)" style="position:absolute;filter:alpha(opacity=0);width:30px;"hidefocus>');
+ $("div"+(fileNum-1)).insertAdjacentHTML('AfterEnd','');
 
  }
 

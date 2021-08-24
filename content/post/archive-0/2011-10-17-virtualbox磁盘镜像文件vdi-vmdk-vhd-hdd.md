@@ -16,7 +16,7 @@ tags:
 ---
 (1)由VirtualBox的虚拟磁盘映像（VDI）的文件作为其自己的容器格式为主机硬盘。这是当用户创建一个新的虚拟机与一个新的磁盘将用于的格式。
   
-(2)VirtualBox也支持<span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">VMware的VMDK容器格式。这种格式是颇为流行，和其他虚拟化软件使用。
+(2)VirtualBox也支持VMware的VMDK容器格式。这种格式是颇为流行，和其他虚拟化软件使用。
 
 (3)微软的VHD格式也完全由VirtualBox的支持；Microsoft Virtual PC的默认格式。
 

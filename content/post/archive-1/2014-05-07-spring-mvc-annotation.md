@@ -18,23 +18,23 @@ tags:
       * **@ResponseBody** 将内容或对象作为 HTTP 响应正文返回，并调用适合HttpMessageConverter的Adapter转换对象，写入输出流。
       * @PathVariable</ul> 
     
-    <span style="color: #000000;">@PathVariable是用来对指定请求的URL路径里面的变量 <br style="color: #000000;" /><span style="color: #000000;">eg: 
+    @PathVariable是用来对指定请求的URL路径里面的变量 eg: 
     
-    <div id="" class="dp-highlighter" style="color: #000000;">
+    
       <div class="bar">
-        <div class="tools" style="font-weight: bold;">
-          Java代码  <a style="color: #108ac6;" title="收藏这段代码"><img class="star" src="http://yeak2001.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+        
+          Java代码  <img class="star" src="http://yeak2001.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
         
       
       
-      <ol class="dp-j" style="color: #2b91af;" start="1">
+      
         <li>
-          <span style="color: black;"><span class="annotation" style="color: #646464;">@RequestMapping(value = <span class="string" style="color: blue;">"form/{id}/apply", method = {RequestMethod.PUT, RequestMethod.POST})  
+          "form/{id}/apply", method = {RequestMethod.PUT, RequestMethod.POST})  
         </li>
       </ol>
     
     
-    <br style="color: #000000;" /><br style="color: #000000;" /><span style="color: #000000;">{id}在这个请求的URL里就是个变量，可以使用@PathVariable来获取 <br style="color: #000000;" /><span style="color: #000000;">@PathVariable和@RequestParam的区别就在于: @RequestParam用来获得静态的URL请求入参
+    @PathVariable和@RequestParam的区别就在于: @RequestParam用来获得静态的URL请求入参
     
     
     
@@ -48,7 +48,7 @@ tags:
     
     
       
-        <div style="color: silver;">
+        
           
             ```java```
           
@@ -62,33 +62,33 @@ http://blog.csdn.net/walkerjong/article/details/7946109#
         
       
       
-      <ol style="color: #5c5c5c;" start="1">
-        <li style="color: inherit;">
-          <span style="color: black;"><span style="color: #646464;">@Controller <wbr /> <wbr />
+      
+        
+          @Controller <wbr /> <wbr />
         </li>
         <li>
-          <span style="color: black;"><span style="color: #646464;">@RequestMapping(<span style="color: blue;">"/owners/{ownerId}") <wbr /> <wbr />
+          "/owners/{ownerId}") <wbr /> <wbr />
         </li>
-        <li style="color: inherit;">
-          <span style="color: black;"><span style="font-weight: bold; color: #006699;">public <wbr /><span style="font-weight: bold; color: #006699;">class <wbr />RelativePathUriTemplateC<wbr />ontroller <wbr />{ <wbr /> <wbr />
-        </li>
-        <li>
-          <span style="color: black;"> <wbr /> <wbr />
-        </li>
-        <li style="color: inherit;">
-          <span style="color: black;"> <wbr /> <wbr /><span style="color: #646464;">@RequestMapping(<span style="color: blue;">"/pets/{petId}") <wbr /> <wbr />
+        
+          class <wbr />RelativePathUriTemplateC<wbr />ontroller <wbr />{ <wbr /> <wbr />
         </li>
         <li>
-          <span style="color: black;"> <wbr /> <wbr /><span style="font-weight: bold; color: #006699;">public <wbr /><span style="font-weight: bold; color: #006699;">void <wbr />findPet(<span style="color: #646464;">@PathVariable <wbr />String <wbr />ownerId, <wbr /><span style="color: #646464;">@PathVariable <wbr />String <wbr />petId, <wbr />Model <wbr />model) <wbr />{ <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr />
+           <wbr /> <wbr />
         </li>
-        <li style="color: inherit;">
-          <span style="color: black;"> <wbr /> <wbr /> <wbr /> <wbr /><span style="color: #008200;">// <wbr />implementation <wbr />omitted <wbr /> <wbr />
+        
+          "/pets/{petId}") <wbr /> <wbr />
         </li>
         <li>
-          <span style="color: black;"> <wbr /> <wbr />} <wbr /> <wbr />
+          @PathVariable <wbr />String <wbr />petId, <wbr />Model <wbr />model) <wbr />{ <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr />
         </li>
-        <li style="color: inherit;">
-          <span style="color: black;">} <wbr /> <wbr />
+        
+          // <wbr />implementation <wbr />omitted <wbr /> <wbr />
+        </li>
+        <li>
+           <wbr /> <wbr />} <wbr /> <wbr />
+        </li>
+        
+          } <wbr /> <wbr />
         </li>
       </ol>
     

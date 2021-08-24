@@ -1,13 +1,16 @@
 ---
-title: 'SSH 密钥类型  RSA， DSA  ,ecdsa'
+title: SSH 密钥类型 RSA, DSA, ecdsa
 author: "-"
 type: post
 date: 2018-05-13T16:02:13+00:00
-url: /?p=12248
+url: rsa
 categories:
-  - Uncategorized
+  - ssh
 
 ---
+### RSA
+1977年，三位数学家Rivest、Shamir 和 Adleman 设计了一种算法，可以实现非对称加密。这种算法用他们三个人的名字命名，叫做RSA算法。
+
 在用 ssh-keygen 生成密钥对时，通常会面临是使用RSA还是DSA的选择: RSA or DSA, this is a question! 今天在这里分析一下: 
 
 原理与安全性
@@ -91,3 +94,6 @@ ECDHE 密钥交换、ECDSA 签名；
 3）http://msdn.microsoft.com/zh-cn/library/ms978415.aspx
   
 http://blog.sina.com.cn/s/blog_6f31085901015agu.html
+
+https://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html
+

@@ -27,7 +27,6 @@ private AtomicInteger ticketNum = new AtomicInteger(); // 排队号
 public int lock() {
            
 // 首先原子性地获得一个排队号
-           
 int myTicketNum = ticketNum.getAndIncrement();
 
 // 只要当前服务号不是自己的就不断轮询

@@ -29,19 +29,19 @@ categories:
   * 在<a href="http://www.myfontfree.com/microsoft-yahei-myfontfreecom66f594.htm" target="_blank" rel="external">这里</a>点download下载yahei字体的ttf
   * 在ubuntu 下可以执行下面操作安装该字体<figure class="highlight plain"> 
 
-<table>
-  <tr>
+
+  
     <td class="gutter">
       <span class="line">1
-    </td>
+    
     
     <td class="code">
       <span class="line">sudo mkdir /usr/share/fonts/truetype/yahei
 sudo cp yahei.ttf  /usr/share/fonts/truetype/yahei
 fc-cache -f -v
-    </td>
-  </tr>
-</table></figure> 
+    
+  
+</figure> 
 
 这里的yahei.ttf是刚刚下载的文件的名字
 

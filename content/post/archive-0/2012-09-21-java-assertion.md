@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-<a name="1"></a>as<http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html>
+as<http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html>
 
 sertion的语法和语义
 
@@ -66,202 +66,202 @@ javac -source 1.4 test.java
     -ea和-da的全名为-enableassertions和-disenableassertions，全名和缩写名有同样的功能。
   
     下面表格表示了参数及其含义，并有例子说明如何使用。 <table width="60%" border="1">
-      <tr>
-        <td>
+      
+        
           参数
-        </td>
         
-        <td>
+        
+        
           例子
-        </td>
         
-        <td>
+        
+        
           说明
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -ea
-        </td>
         
-        <td>
+        
+        
           java -ea
-        </td>
         
-        <td>
+        
+        
           打开所有用户类的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -da
-        </td>
         
-        <td>
+        
+        
           java -da
-        </td>
         
-        <td>
+        
+        
           关闭所有用户类的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -ea:<classname>
-        </td>
         
-        <td>
+        
+        
           java -ea:MyClass1
-        </td>
         
-        <td>
+        
+        
           打开MyClass1的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -da:<classname>
-        </td>
         
-        <td>
+        
+        
           java -da: MyClass1
-        </td>
         
-        <td>
+        
+        
           关闭MyClass1的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -ea:<packagename>
-        </td>
         
-        <td>
+        
+        
           java -ea:pkg1
-        </td>
         
-        <td>
+        
+        
           打开pkg1包的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -da:<packagename>
-        </td>
         
-        <td>
+        
+        
           java -da:pkg1
-        </td>
         
-        <td>
+        
+        
           关闭pkg1包的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -ea:...
-        </td>
         
-        <td>
+        
+        
           java -ea:...
-        </td>
         
-        <td>
+        
+        
           打开缺省包(无名包)的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -da:...
-        </td>
         
-        <td>
+        
+        
           java -da:...
-        </td>
         
-        <td>
+        
+        
           关闭缺省包(无名包)的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -ea:<packagename>...
-        </td>
         
-        <td>
+        
+        
           java -ea:pkg1...
-        </td>
         
-        <td>
+        
+        
           打开pkg1包和其子包的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -da:<packagename>...
-        </td>
         
-        <td>
+        
+        
           java -da:pkg1...
-        </td>
         
-        <td>
+        
+        
           关闭pkg1包和其子包的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -esa
-        </td>
         
-        <td>
+        
+        
           java -esa
-        </td>
         
-        <td>
+        
+        
           打开系统类的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           -dsa
-        </td>
         
-        <td>
+        
+        
           java -dsa
-        </td>
         
-        <td>
+        
+        
           关闭系统类的assertion
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           综合使用
-        </td>
         
-        <td>
+        
+        
           java -dsa:MyClass1:pkg1
-        </td>
         
-        <td>
+        
+        
           关闭MyClass1和pkg1包的assertion
-        </td>
-      </tr>
-    </table>
+        
+      
+    
     
     其中...代表，此包和其子包的含义。例如我们有两个包为pkg1和pkg1.subpkg。那么pkg1...就代表pkg1和pkg1.subpkg两个包。
   
@@ -304,8 +304,8 @@ javac -source 1.4 test.java
     下面的例子将显示如果一个assert语句在父类，而当它的子类调用它时，该assert为false。我们看看在不同的情况下，该assertion是否被处理。
     
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
+      
+        
           class Base
 {
   public void baseMethod()
@@ -336,97 +336,97 @@ class Derived
     }
   }
 }
-        </td>
-      </tr>
-    </table>
+        
+      
+    
     
     
     
     <table width="60%" border="1">
-      <tr>
-        <td>
+      
+        
           运行命令
-        </td>
         
-        <td>
+        
+        
           含义
-        </td>
         
-        <td>
+        
+        
           结果
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           Java Derived
-        </td>
         
-        <td>
+        
+        
           不启用assertion
-        </td>
         
-        <td>
+        
+        
           Base MethodDerived Method
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           Java -ea Derived
-        </td>
         
-        <td>
+        
+        
           开启所有assertion
-        </td>
         
-        <td>
+        
+        
           Java.lang.AssertionError:Assertion Failed:This is base
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           Java -da Derived
-        </td>
         
-        <td>
+        
+        
           关闭所有assertion
-        </td>
         
-        <td>
+        
+        
           Base MethodDerived Method
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           Java -ea:Base Derived
-        </td>
         
-        <td>
+        
+        
           仅打开Base的assertion
-        </td>
         
-        <td>
+        
+        
           Java.lang.AssertionError:Assertion Failed:This is base
-        </td>
-      </tr>
+        
       
-      <tr>
-        <td>
+      
+      
+        
           Java -ea:Derived Derived
-        </td>
         
-        <td>
+        
+        
           仅打开Derived的assertion
-        </td>
         
-        <td>
+        
+        
           Base MethodJava.lang.AssertionError:Assertion Failed:This is derived
-        </td>
-      </tr>
-    </table>
+        
+      
+    
     
     从这个例子我们可以看出，父类的assert语句将只有在父类的assert开启才起作用，如果仅仅开启子类的assert，父类的assert仍然不运行。例如，我们执行java -ea:Derived Derived的时候，Base类的assert语句并不执行。因此，我们可以认为，assert语句不具有继承功能。
     
@@ -442,17 +442,17 @@ class Derived
       1. 检查控制流； 在if-then-else和swith-case语句中，我们可以在不应该发生的控制支流上加上assert false语句。如果这种情况发生了，assert能够检查出来。 例如：x取值只能使1,2,3，我们的程序可以如下表示
   
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td>
+          
+            
               	switch (x)
  	{ case 1: …;
           case 2: …;
           case 3: …
 	  default: assert false:"x value is invalid: "+x;
 }
-            </td>
-          </tr>
-        </table>
+            
+          
+        
     
       2. 在私有函数计算前，检查输入参数是否有效；对于一私有些函数，要求输入满足一些特定的条件，那么我们可以在函数开始处使用assert进行参数检查。对于公共函数，我们通常不使用assertion检查，因为一般来说，公共函数必须对无效的参数进行检查和处理。而私有函数往往是直接使用的。
   
@@ -460,26 +460,26 @@ class Derived
       3. 在函数计算后，检查函数结果是否有效；对于一些计算函数，函数运行完成后，某些值需要保证一定的性质，因此我们可以通过assert检查该值。 例如，我们有一个计算绝对值的函数，那么我们就可以在函数的结果处，加上一个语句：
   
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td>
+          
+            
               assert  value>=0:"Value should be bigger than 0:"+value;
-            </td>
-          </tr>
-        </table>
+            
+          
+        
         
         通过这种方式，我们可以对函数计算完的结果进行检查。</li> 
         
           * 检查程序不变量；有些程序中，存在一些不变量，在程序的运行生命周期，这些不变量的值都是不变的。这些不变量可能是一个简单表达式，也可能是一个复杂的表达式。对于一些关键的不变量，我们可以通过assert进行检查。 例如，在一个财会系统中，公司的支出和收入必须保持一定的平衡关系，因此我们可以编写一个表达式检查这种平衡关系，如下表示。
   
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td>
+              
+                
                         private boolean isBalance() {
            ……
          }
-                </td>
-              </tr>
-            </table>
+                
+              
+            
             
             在这个系统中，在一些可能影响这种平衡关系的方法的前后，我们都可以加上assert验证： `assert isBalance():"balance is destoried";`</li> </ol> 
             

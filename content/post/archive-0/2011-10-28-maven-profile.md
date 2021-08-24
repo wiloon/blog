@@ -137,18 +137,13 @@ tags:
   </ol>
 
 2. 通过命令行参数激活。
-
 这是最直接和最简单的方式，比如你定义了一个名为 myProfile 的 profile，你只需要在命令行输入 **mvn clean install -Pmyprofile** 就能将其激活，这种方式的好处很明显，但是有一个很大的弊端，当 profile 比较多的时候，在命令行输入这写 -P 参数会让人觉得厌烦，所以，如果你一直用这种方式，觉得厌烦了，可以考虑使用其它自动激活的方式。
 
 3. 配置默认自动激活。
 
 方法很简单，在配置 profile 的时候加上一条属性就可以了，如：
-
-<div id="">
   
-    
-      Xml代码  <a title="收藏这段代码" href="http://juvenshun.iteye.com/blog/208714"><img src="http://juvenshun.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
-  
+http://juvenshun.iteye.com/blog/208714
   
   <ol start="1">
     <li>
@@ -176,7 +171,7 @@ tags:
 
 在一个特殊的环境下，配置默认自动激活的 profile 覆盖默认的 POM 配置，非常简单有效。
 
-4. 配置 settings.xml 文件 profile 激活。
+1. 配置 settings.xml 文件 profile 激活。
 
 settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为服务，也可以在 M2_HOME/conf 目录下，为整台机器的所有用户服务。而前者的配置会覆盖后者。同理，由 settings.xml 激活的 profile 意在为用户或者整个机器提供特定环境配置，比如，你可以在某台机器上配置一个指向本地数据库 URL 的 profile，然后使用该机器的 settings.xml 激活它。激活方式如下：
 

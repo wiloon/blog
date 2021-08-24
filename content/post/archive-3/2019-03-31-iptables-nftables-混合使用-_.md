@@ -22,7 +22,7 @@ archlinux nftables 默认规则 禁止转发 （forward）
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=12128&embed=true#?secret=iTzOKBoIhX" data-secret="iTzOKBoIhX" width="600" height="338" title=""iptables调试， raw表， LOG" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>
 
 ### nftables trace
 
@@ -32,4 +32,4 @@ archlinux nftables 默认规则 禁止转发 （forward）
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.wiloon.com/?p=14030&embed=true#?secret=Qo3n5H6Ki8" data-secret="Qo3n5H6Ki8" width="600" height="338" title=""nftables trace" - w1100n" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>

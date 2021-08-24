@@ -27,7 +27,7 @@ categories:
       </form>
     </li>
     <li>
-      <iframe name="theID" style="display: none;"></iframe>
+      </iframe>
     </li>
   </ol>
 

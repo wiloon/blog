@@ -14,8 +14,8 @@ tags:
   - JavaScript
 
 ---
-<table>
-  <tr>
+
+  
     <th>
       运算符
     </th>
@@ -27,148 +27,147 @@ tags:
     <th>
       例子
     </th>
-  </tr>
   
-  <tr>
-    <td>
+  
+  
+    
       ==
-    </td>
     
-    <td>
+    
+    
       等于
-    </td>
     
-    <td>
+    
+    
       x==8 为 false
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       ===
-    </td>
     
-    <td>
+    
+    
       全等（值和类型）
-    </td>
     
-    <td>
+    
+    
       x===5 为 true；x==="5" 为 false
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       !=
-    </td>
     
-    <td>
+    
+    
       不等于
-    </td>
     
-    <td>
+    
+    
       x!=8 为 true
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       >
-    </td>
     
-    <td>
+    
+    
       大于
-    </td>
     
-    <td>
+    
+    
       x>8 为 false
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       <
-    </td>
     
-    <td>
+    
+    
       小于
-    </td>
     
-    <td>
+    
+    
       x<8 为 true
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       >=
-    </td>
     
-    <td>
+    
+    
       大于或等于
-    </td>
     
-    <td>
+    
+    
       x>=8 为 false
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       <=
-    </td>
     
-    <td>
+    
+    
       小于或等于
-    </td>
     
-    <td>
+    
+    
       x<=8 为 true
-    </td>
-  </tr>
-</table>
+    
+  
 
 
-<table>
-  <tr>
-    <td>
+
+
+  
+    
       &&
-    </td>
     
-    <td>
+    
+    
       and
-    </td>
     
-    <td>
+    
+    
       (x < 10 && y > 1) 为 true
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       ||
-    </td>
     
-    <td>
+    
+    
       or
-    </td>
     
-    <td>
+    
+    
       (x==5 || y==5) 为 false
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       !
-    </td>
     
-    <td>
+    
+    
       not
-    </td>
     
-    <td>
+    
+    
       !(x==y) 为 true
-    </td>
-  </tr>
-</table>
+    
+  

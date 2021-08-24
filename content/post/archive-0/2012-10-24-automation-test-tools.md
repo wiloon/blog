@@ -12,7 +12,7 @@ categories:
 
 1 测试 **WEB**
 
-<span style="text-decoration: underline;">SELENIUM可以说是测试WEB最全面的开源自动化工具， 它可以在WINDOWS， LINUX, MAC 和 SOLARIS 上运行， 而且可以几乎用任何一种编程语言进行构建， 你可以用你熟悉的语言包括 JAVA， C＃， PERL， PHP， PYTHON 和 RUBY。 它可以测试的浏览器有IE， FIREFOX， OPERA 和 SAFARI。
+SELENIUM可以说是测试WEB最全面的开源自动化工具， 它可以在WINDOWS， LINUX, MAC 和 SOLARIS 上运行， 而且可以几乎用任何一种编程语言进行构建， 你可以用你熟悉的语言包括 JAVA， C＃， PERL， PHP， PYTHON 和 RUBY。 它可以测试的浏览器有IE， FIREFOX， OPERA 和 SAFARI。
 
 SELENIUM 家族成员有：SELENIUM， SELENIUM RC， SELENIUM IDE， SELENIUM CORE， SELENIUM GRID 和 SELENIUM ON RAILS。
 

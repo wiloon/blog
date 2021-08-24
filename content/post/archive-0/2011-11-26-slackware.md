@@ -157,7 +157,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     Slackware的当前版本已经可以做到通过安装中文字体、修改配置文件、安装中文输入法这几个简单的步骤，就很容易地实现中文显示和输入。系统级的中文打印和LaTeX的中文支持，也能够用比较简单的步骤实现。
   
   
-     <a style="font-size: 20px; font-weight: bold;" name="4"></a><span class="Apple-style-span" style="font-size: 20px; font-weight: bold;">总结
+     总结
   
   
     在历史上， Slackware曾经对中文支持方面较差， 结果是Slackware的中文用户数量远远低于其他名气大的发行版。国内 的用户数量少，使得Slackware被蒙上了一层神秘的面纱，直至今日， 一些不准确的传言，如难安装、中文支持不好、易用性差等等，依然让很多用户不敢轻易尝试。

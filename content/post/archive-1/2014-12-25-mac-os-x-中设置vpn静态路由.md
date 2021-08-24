@@ -65,8 +65,8 @@ Mac OSX 中可以设置成启动项, 每次开机自动运行, 方法是:
 ============================================
 
 <div class="wp_syntax">
-  <table>
-    <tr>
+  
+    
       <td class="code">
         <pre class="php">#!/bin/sh
 
@@ -94,9 +94,9 @@ RestartService ()
 }
  
 RunService "$1"
-      </td>
-    </tr>
-  </table>
+      
+    
+  
 
 ==================================================
 
@@ -107,8 +107,8 @@ RunService "$1"
 ===================================
 
 <div class="wp_syntax">
-  <table>
-    <tr>
+  
+    
       <td class="code">
         <pre class="php">{
         Description     = "Set static routing tables";
@@ -116,9 +116,9 @@ RunService "$1"
         Requires        = ("Network");
         OrderPreference = "None";
 }
-      </td>
-    </tr>
-  </table>
+      
+    
+  
 
 ====================================
 

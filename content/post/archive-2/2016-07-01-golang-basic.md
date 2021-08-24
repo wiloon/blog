@@ -1,5 +1,5 @@
 ---
-title: golang basic
+title: go basic
 author: "-"
 type: post
 date: 2016-07-01T08:06:08+00:00
@@ -201,9 +201,11 @@ func main(){
     // Deprecated
     func foo(){}
 
+## go env
 ### 查看go语言的环境变量
-        go env
-
+    go env
+### 设置 go env
+    go env -w GO111MODULE=on
 ## date time
     time.Now()
 ### 时间差

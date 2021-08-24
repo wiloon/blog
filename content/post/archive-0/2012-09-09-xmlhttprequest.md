@@ -26,90 +26,90 @@ XMLHttpRequest 对象还没有标准化，但是 W3C 已经开始了标准化的
 HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的值从 0 开始，直到接收到完整的 HTTP 响应，这个值增加到 4。
 
 
-<table>
-  <tr>
-    <td>
+
+  
+    
       状态
-    </td>
     
-    <td>
+    
+    
       名称
-    </td>
     
-    <td>
+    
+    
       描述
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-    </td>
     
-    <td>
+  
+  
+  
+    
+    
+    
+    
       Uninitialized
-    </td>
     
-    <td>
+    
+    
       初始化状态。XMLHttpRequest 对象已创建或已被 abort() 方法重置。
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       1
-    </td>
     
-    <td>
+    
+    
       Open
-    </td>
     
-    <td>
+    
+    
       open() 方法已调用，但是 send() 方法未调用。请求还没有被发送。
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       2
-    </td>
     
-    <td>
+    
+    
       Send
-    </td>
     
-    <td>
+    
+    
       Send() 方法已调用，HTTP 请求已发送到 Web 服务器。未接收到响应。
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       3
-    </td>
     
-    <td>
+    
+    
       Receiving
-    </td>
     
-    <td>
+    
+    
       所有响应头部都已经接收到。响应体开始接收但未完成。
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       4
-    </td>
     
-    <td>
+    
+    
       Loaded
-    </td>
     
-    <td>
+    
+    
       HTTP 响应已经完全接收。
-    </td>
-  </tr>
-</table>
+    
+  
+
 
 5 个状态中每一个都有一个相关联的非正式的名称，下表列出了状态、名称和含义：
 

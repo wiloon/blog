@@ -46,31 +46,31 @@ categories:
     
     
     
-      <span style="font-size: small;">　　initrd是linux在系统引导过程中使用的一个临时的根文件系统，用来支持两阶段的引导过程。
+      　　initrd是linux在系统引导过程中使用的一个临时的根文件系统，用来支持两阶段的引导过程。
     
     
     
-      <span style="font-size: small;">　　直白一点，initrd就是一个带有根文件系统的虚拟RAM盘，里面包含了根目录'/'，以及其他的目录，比如：bin，dev，proc，sbin，sys等linux启动时必须的目录，以及在bin目录下加入了一下必须的可执行命令。
+      　　直白一点，initrd就是一个带有根文件系统的虚拟RAM盘，里面包含了根目录'/'，以及其他的目录，比如：bin，dev，proc，sbin，sys等linux启动时必须的目录，以及在bin目录下加入了一下必须的可执行命令。
     
     
     
-      <span style="font-size: small;">     PC或者服务器linux内核使用这个initrd来挂载真正的根文件系统，然后将此initrd从内存中 卸掉，这种情况下initrd其实就是一个过渡使用的东西。 在现在的许多简单嵌入式linux中一般是不卸载这个initrd的，而是直接将其作为根文件系统使用，在这之前就需要把所需要的程序，命令还有其它文件 都安装到这个文件系统中。其实现在的大多数嵌入式系统也是有自己的磁盘的，所以，initrd在现在大多数的嵌入式系统中也和一般的linux中的作用一 样只是起过渡使用。
+           PC或者服务器linux内核使用这个initrd来挂载真正的根文件系统，然后将此initrd从内存中 卸掉，这种情况下initrd其实就是一个过渡使用的东西。 在现在的许多简单嵌入式linux中一般是不卸载这个initrd的，而是直接将其作为根文件系统使用，在这之前就需要把所需要的程序，命令还有其它文件 都安装到这个文件系统中。其实现在的大多数嵌入式系统也是有自己的磁盘的，所以，initrd在现在大多数的嵌入式系统中也和一般的linux中的作用一 样只是起过渡使用。
     
     
     
-      <span style="font-size: small;">　　Initrd的引导过程：'第二阶段引导程序'，常用的是grub将内核解压缩并拷贝到内存中，然后内 核接管了CPU开始执行，然后内核调用init()函数，注意，此init函数并不是后来的init进程！！！然后内核调用函数 initrd_load()来在内存中加载initrd根文件系统。Initrd_load()函数又调用了一些其他的函数来为RAM磁盘分配空间，并计 算CRC等操作。然后对RAM磁盘进行解压，并将其加载到内存中。现在，内存中就有了initrd的映象。
+      　　Initrd的引导过程：'第二阶段引导程序'，常用的是grub将内核解压缩并拷贝到内存中，然后内 核接管了CPU开始执行，然后内核调用init()函数，注意，此init函数并不是后来的init进程！！！然后内核调用函数 initrd_load()来在内存中加载initrd根文件系统。Initrd_load()函数又调用了一些其他的函数来为RAM磁盘分配空间，并计 算CRC等操作。然后对RAM磁盘进行解压，并将其加载到内存中。现在，内存中就有了initrd的映象。
     
     
     
-      <span style="font-size: small;">　　然后内核会调用mount_root()函数来创建真正的根分区文件系统，然后调用sys_mount()函数来加载真正的根文件系统，然后chdir到这个真正的根文件系统中。
+      　　然后内核会调用mount_root()函数来创建真正的根分区文件系统，然后调用sys_mount()函数来加载真正的根文件系统，然后chdir到这个真正的根文件系统中。
     
     
     
-      <span style="font-size: small;">　　最后，init函数调用run_init_process函数，利用execve来启动init进程，从而进入init的运行过程。
+      　　最后，init函数调用run_init_process函数，利用execve来启动init进程，从而进入init的运行过程。
     
     
     
-      <span style="font-size: small;"> 
+       
       
       
         三、System.map

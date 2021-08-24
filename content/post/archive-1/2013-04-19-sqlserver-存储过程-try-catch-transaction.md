@@ -209,8 +209,8 @@ CREATE TABLE [dbo].[ErrorLog](
 
 下面系统函数在CATCH块有效.可以用来得到更多的错误信息:
 
-<table>
-  <tr>
+
+  
     <th>
       函数
     </th>
@@ -218,67 +218,67 @@ CREATE TABLE [dbo].[ErrorLog](
     <th>
       描述
     </th>
-  </tr>
   
-  <tr>
-    <td>
+  
+  
+    
       ERROR_NUMBER()
-    </td>
     
-    <td>
+    
+    
       返回导致运行 CATCH 块的错误消息的错误号。
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       ERROR_SEVERITY()
-    </td>
     
-    <td>
+    
+    
       返回导致 CATCH 块运行的错误消息的严重级别
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       ERROR_STATE()
-    </td>
     
-    <td>
+    
+    
       返回导致 CATCH 块运行的错误消息的状态号
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       ERROR_PROCEDURE()
-    </td>
     
-    <td>
+    
+    
       返回出现错误的存储过程名称
-    </td>
-  </tr>
+    
   
-  <tr>
-    <td>
+  
+  
+    
       ERROR_LINE()
-    </td>
     
-    <td>
+    
+    
       返回发生错误的行号
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      ERROR_MESSAGE()
-    </td>
     
-    <td>
+  
+  
+  
+    
+      ERROR_MESSAGE()
+    
+    
+    
       返回导致 CATCH 块运行的错误消息的完整文本
-    </td>
-  </tr>
-</table>
+    
+  
+
 
  [1]: http://blog.csdn.net/WeiZhang_son_Ding/archive/2010/02/05/5291732.aspx

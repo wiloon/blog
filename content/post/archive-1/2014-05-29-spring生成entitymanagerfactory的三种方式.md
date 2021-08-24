@@ -102,7 +102,7 @@ LocalContainerEntityManagerFactoryBean会根据persistence.xml创造一个Persis
   
 <property name="dataSource" ref="someDataSource"/>
   
-<span style="color: #ff0000;"><property name="loadTimeWeaver">
+<property name="loadTimeWeaver">
   
 <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
   
@@ -146,7 +146,7 @@ Persistence.xml配置:
   
 </property>
   
-<span style="color: #ff0000;"><property name="dataSources">
+<property name="dataSources">
   
 <map>
   

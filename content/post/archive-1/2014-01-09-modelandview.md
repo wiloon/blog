@@ -142,7 +142,7 @@ ModelAndView
   
   <ol start="1">
     <li>
-      <span style="font-size: small;">public ModelAndView handleRequestInternal(
+      public ModelAndView handleRequestInternal(
     </li>
     <li>
               HttpServletRequest request,

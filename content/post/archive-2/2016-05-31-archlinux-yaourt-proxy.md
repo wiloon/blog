@@ -84,4 +84,4 @@ Share the post "使用rsync命令同步本地目录和远程主机目录"
   
 </blockquote>
 
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" src="http://blog.topspeedsnail.com/archives/2668/embed#?secret=S2qcdaISDp" data-secret="S2qcdaISDp" width="600" height="338" title="《使用rsync命令同步本地目录和远程主机目录》—WTF Daily Blog" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</iframe>

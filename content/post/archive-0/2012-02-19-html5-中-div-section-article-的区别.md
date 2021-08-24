@@ -41,7 +41,7 @@ section 不仅仅是一个普通的容器标签。当一个标签只是为了样
 <article>
  <hgroup>
   <h1>Apples</h1>
-  <h2>Tasty, delicious fruit!</h2>
+  Tasty, delicious fruit!
  </hgroup>
  The apple is the pomaceous fruit of the apple tree.
  <section>

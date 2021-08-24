@@ -2,12 +2,16 @@
 title: MySQL basic
 author: "-"
 date: 2011-04-15T14:42:09+00:00
-url: mysql/basic
+url: mysql-basic
 categories:
   - mysql
 tags:
   - mysql
 ---
+### mysql heidisql 变量
+    SET @total_count := 10;
+    select @total_count;
+
 ### 配置文件位置
     /etc/my.cnf
 
@@ -89,7 +93,7 @@ SELECT @@SESSION.sql_mode;
     --rm mariadb mysql -h 127.0.0.1 -u root -p password0
 ```
 
-### mysql client
+### mysql client, conn
 
 ```bash
 sudo pacman -S mariadb-clients
