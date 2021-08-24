@@ -4,6 +4,7 @@ date = "2020-09-29 10:33:30"
 title = "promise"
 
 +++
+
 ECMAscript 6 原生提供了 Promise 对象。
 
 Promise 对象代表了未来将要发生的事件，用来传递异步操作的消息。
