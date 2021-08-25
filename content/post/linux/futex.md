@@ -4,9 +4,9 @@ author: "-"
 date: ""
 url: "futex"
 categories:
-  - inbox
+  - OS
 tags:
-  - inbox
+  - lock
 ---
 
 Futex，Fast Userspace muTEXes，作为linux下的一种快速同步（互斥）机制，已经存在了很长一段时间了（since linux 2.5.7）。它有什么优势？又提供了怎样一些功能，本文就简单探讨一下。
