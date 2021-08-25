@@ -2,7 +2,7 @@
 title: ""
 author: "-"
 date: ""
-url: "template"
+url: ""
 categories:
   - inbox
 tags:
