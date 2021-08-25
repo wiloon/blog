@@ -2,7 +2,7 @@
 title: "cat"
 author: "-"
 date: "2021-08-25 12:49:10"
-url: "template"
+url: "cat"
 categories:
   - inbox
 tags:
