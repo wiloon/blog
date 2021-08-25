@@ -2,7 +2,7 @@
 title: "sasl"
 author: "-"
 date: "2021-08-13 17:00:11"
-url: "template"
+url: ""
 categories:
   - inbox
 tags:
