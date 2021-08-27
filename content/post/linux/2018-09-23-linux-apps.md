@@ -166,7 +166,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | xfonts-wqy       | 文泉驿-点阵宋体        |
 | keepassxc        |                        |
 | eog              | 图片查看               |
-|neofetch|发行版logo|
+|neofetch          |发行版logo|
 |tree|以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层|
 
 ### xfce4

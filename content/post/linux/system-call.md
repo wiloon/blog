@@ -33,22 +33,21 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
 
 Linux 的系统调用主要有以下这些：
 
-Task	Commands
+Task	   Commands
 进程控制	fork(); exit(); wait();
 进程通信	pipe(); shmget(); mmap();
 文件操作	open(); read(); write();
 设备操作	ioctl(); read(); write();
 信息维护	getpid(); alarm(); sleep();
-安全	chmod(); umask(); chown();
+安全	    chmod(); umask(); chown();
 
 
 
 ### 从"read"看系统调用的耗时
-
-1、fread和read有何不同
+1. fread和read有何不同
 先看两段代码：
-fread
-
+#### fread
+```c
 #include<stdio.h>
 #include<stdlib.h>
 FILE* pf = fopen("test.txt", "r");
@@ -58,9 +57,9 @@ do
 {
 	ret = fread(buf, 1, 1, pf);
 } while (ret);
- 
-read
-
+```
+#### read
+```c
 #include<stdio.h>
 #include<stdlib.h>
 FILE* pf = fopen("test.txt", "r");
@@ -70,15 +69,15 @@ do
 {
 	ret = read(buf, 1, 1, pf);
 } while (ret);
- 
-两个文件的功能完全一样，打开同一个名为test.file的文件，并逐字节地读取整个文件。
-将它们编译后得到的可执行程序fread和read分别在同一台PC（linux系统）上执行，得到的如果如下：
-在这里插入图片描述
-发现没有？fread与read的耗时相差数十倍之多！可见啊~read一个字节这种写法是相当不可取的！
+```
 
-2、是什么引起的差异
+两个文件的功能完全一样，打开同一个名为test.file的文件，并逐字节地读取整个文件。
+将它们编译后得到的可执行程序fread和read分别在同一台PC（linux系统）上执行，
+fread与read的耗时相差数十倍之多！可见啊~read一个字节这种写法是相当不可取的！
+
+2. 是什么引起的差异
 但是，事情为什么会是这样的呢？让我们用strace来看看：
-在这里插入图片描述
+
 看到了吧~fread库函数在内部做了缓存，每次读取4096个字节；而read就老老实实一个字节一个字节地读……
 
 那么再想想，我们读的是什么？是磁盘。难道上面提到的差异，就是因为这4096倍的读磁盘次数差而引起的吗？并不是这样。
@@ -91,10 +90,10 @@ do
 
 由此可见，系统调用比起普通函数调用有很大的开销，编写代码时应当注意避免滥用系统调用。
 
-3、进一步提高效率
+3. 进一步提高效率
 为了进一步减少系统调用的次数，关于读文件的这个问题，我们还可以这样做：
 mmap
-
+```c
 #include<stdio.h>
 #include<stdlib.h>
 #include<sys/types.h>
@@ -112,6 +111,7 @@ do
 {
 	*buf = start[ret++];
 } while (ret < statbuf.st_size);
+```
 
 同样是遍历整个文件，但是读文件的过程中不需要使用系统调用，直接把文件当成内存buffer来读就行了。其原理是：mmap的执行，仅仅是在内核中建立了文件与虚拟内存空间的映射关系。用户访问这些虚拟内存空间时，页表里面并没有这些空间的表项，于是CPU产生缺页异常。内核捕捉这些异常，逐渐将文件读入内存，并建立相关的页表项。（省略细节若干……）
 
@@ -119,7 +119,7 @@ do
 在这里插入图片描述
 mmap方式与fread方式相比，耗时又减少了好几倍。
 
-4、为什么
+4. 为什么
 看到这里，我们不禁要问，系统调用为什么就这么耗时呢？系统调用与普通函数调用到底有什么不同？
 
 两者都是在调用处进行跳转，转到被调用的代码中去执行；
@@ -138,6 +138,11 @@ CPU执行内核代码和执行用户程序代码没什么区别；
 http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
 
 ---
+
+### 从"read"看系统调用的耗时
+https://codeleading.com/article/19673469609/
+### 一次系统调用开销到底有多大
+https://cloud.tencent.com/developer/article/1760744
 
 https://www.cnblogs.com/jiading/p/12606978.html
 https://blog.csdn.net/gatieme/article/details/50779184
