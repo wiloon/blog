@@ -8,7 +8,7 @@ tags:
 
 ---
 ### 将指定的提交（commit）应用于其他分支
-   git cherry-pick <commitHash>
+    git cherry-pick <commitHash>
 
 https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
 

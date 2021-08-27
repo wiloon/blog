@@ -9,9 +9,17 @@ tags:
   - lock
 ---
 
+### 什么是Futex
+Futex 是Fast Userspace muTexes的缩写，由Hubertus Franke, Matthew Kirkwood, Ingo Molnar and Rusty Russell共同设计完成。几位都是linux领域的专家，其中可能Ingo Molnar大家更熟悉一些，毕竟是O(1)调度器和CFS的实现者。
+
+Futex按英文翻译过来就是快速用户空间互斥体。其设计思想其实 不难理解，在传统的Unix系统中，System V IPC(inter process communication)，如 semaphores, msgqueues, sockets还有文件锁机制(flock())等进程间同步机制都是对一个内核对象操作来完成的，这个内核对象对要同步的进程都是可见的，其提供了共享 的状态信息和原子操作。当进程间要同步的时候必须要通过系统调用(如semop())在内核中完成。可是经研究发现，很多同步是无竞争的，即某个进程进入 互斥区，到再从某个互斥区出来这段时间，常常是没有进程也要进这个互斥区或者请求同一同步变量的。但是在这种情况下，这个进程也要陷入内核去看看有没有人 和它竞争，退出的时侯还要陷入内核去看看有没有进程等待在同一同步变量上。这些不必要的系统调用(或者说内核陷入)造成了大量的性能开销。为了解决这个问 题，Futex就应运而生，Futex是一种用户态和内核态混合的同步机制。首先，同步的进程间通过mmap共享一段内存，futex变量就位于这段共享 的内存中且操作是原子的，当进程尝试进入互斥区或者退出互斥区的时候，先去查看共享内存中的futex变量，如果没有竞争发生，则只修改futex,而不 用再执行系统调用了。当通过访问futex变量告诉进程有竞争发生，则还是得执行系统调用去完成相应的处理(wait 或者 wake up)。简单的说，futex就是通过在用户态的检查，（motivation）如果了解到没有竞争就不用陷入内核了，大大提高了low-contention时候的效率。 Linux从2.5.7开始支持Futex。
+
+>https://cloud.tencent.com/developer/article/1176832
+
+
 Futex，Fast Userspace muTEXes，作为linux下的一种快速同步（互斥）机制，已经存在了很长一段时间了（since linux 2.5.7）。它有什么优势？又提供了怎样一些功能，本文就简单探讨一下。
 
-### futex诞生之前
+### futex 诞生之前
 在futex诞生之前，linux下的同步机制可以归为两类：用户态的同步机制 和 内核态同步机制. 用户态的同步机制基本上就是利用原子指令实现的 spinlock。最简单的实现就是使用一个整型数，0表示未上锁，1表示已上锁。trylock操作就利用原子指令尝试将0改为1
 ```c
 bool trylock(int lockval) {
@@ -29,7 +37,7 @@ spinlock的lock操作则是一个死循环，不断尝试trylock，直到成功�
 内核提供的同步机制，诸如 semaphore、等，其实骨子里也是利用原子指令实现的 spinlock, 内核在此基础上实现了进程的睡眠与唤醒。
 使用这样的锁，能很好的支持进程挂起等待。但是最大的缺点是每次 lock 与 unlock 都是一次系统调用，即使没有锁冲突，也必须要通过系统调用进入内核之后才能识别。（关于系统调用开销大的问题，可以参阅：《从"read"看系统调用的耗时》。）
 
-理想的同步机制应该是在没有锁冲突的情况下在用户态利用原子指令就解决问题，而需要挂起等待时再使用内核提供的系统调用进行睡眠与唤醒。换句话说，用户态的spinlock在trylock失败时，能不能让进程挂起，并且由持有锁的线程在unlock时将其唤醒？
+理想的同步机制应该是在没有锁冲突的情况下在用户态利用原子指令就解决问题，而需要挂起等待时再使用内核提供的系统调用进行睡眠与唤醒。换句话说，用户态的 spinlock 在 trylock 失败时，能不能让进程挂起，并且由持有锁的线程在 unlock 时将其唤醒？
 如果你没有较深入地考虑过这个问题，很可能想当然的认为类似于这样就行了：
 
 void lock(int lockval) {
@@ -37,9 +45,9 @@ void lock(int lockval) {
         wait();  // 如：raise(SIGSTOP)
     }
 }
-但是如果这样做的话，检测锁的trylock操作和挂起进程的wait操作之间会存在一个窗口，如果其间lock发生变化（比如锁的持有者释放了锁），调用者将进入不必要的wait，甚至于wait之后再没有人能将它唤醒。（详见《linux线程同步浅析》的讨论。）
+但是如果这样做的话，检测锁的trylock操作和挂起进程的wait操作之间会存在一个窗口，如果其间 lock 发生变化（比如锁的持有者释放了锁），调用者将进入不必要的 wait，甚至于wait之后再没有人能将它唤醒。（详见《linux线程同步浅析》的讨论。）
 
-在futex诞生之前，要实现我们理想中的锁会非常别扭。比如可以考虑用sigsuspend系统调用来实现进程挂起：
+在futex诞生之前，要实现我们理想中的锁会非常别扭。比如可以考虑用 sigsuspend 系统调用来实现进程挂起：
 
 class mutex {
 private:
@@ -64,11 +72,14 @@ public:
     }
 }
 注意，这里的sigsuspend不同于简单的raise(SIGSTOP)之类wait操作。如果unlock时用于唤醒的kill操作先于sigsuspend发生，sigsuspend也一样能被唤醒。（详见《linux线程同步浅析》的讨论。）
-这样的实现有点类似于老版本的phread_cond，应该还是能work的。有些不太爽的地方，比如sigsuspend系统调用是全局的，并不单单考虑某一把锁。也就是说，lockA的unlock可以将等待lockB的进程唤醒。尽管进程被唤醒之后会继续trylock，并不影响正确性；尽管多数情况下lockA.unlock也并不会试图去唤醒等待lockB的进程（除了一些竞争情况下），因为后者很可能并不在lockA的等待队列中。
+这样的实现有点类似于老版本的 phread_cond，应该还是能 work 的。有些不太爽的地方，比如 sigsuspend 系统调用是全局的，并不单单考虑某一把锁。也就是说，lockA 的 unlock 可以将等待 lockB 的进程唤醒。尽管进程被唤醒之后会继续trylock，并不影响正确性；尽管多数情况下lockA.unlock也并不会试图去唤醒等待lockB的进程（除了一些竞争情况下），因为后者很可能并不在lockA的等待队列中。
 另一方面，用户态实现的等待队列也不太爽。它对进程的生命周期是无法感知的，很可能进程挂了，pid却还留在队列中（甚至于一段时间之后又有另一个不相干的进程重用了这个pid，以至于它可能会收到莫名其妙的信号）。所以，unlock的时候如果仅仅给队列中的一个进程发信号，很可能唤醒不了任何等待者。保险的做法只能是全部唤醒，从而引发“惊群“现象。不过，如果仅仅用在多线程（同一进程内部）倒也没关系，毕竟多线程不存在某个线程挂掉的情况（如果线程挂掉，整个进程都会挂掉），而对于线程响应信号而主动退出的情况也是可以在主动退出前注意处理一下等待队列清理的问题。
 
-futex来了
-现在看来，要实现我们想要的锁，对内核就有两点需求：1、支持一种锁粒度的睡眠与唤醒操作；2、管理进程挂起时的等待队列。
+### futex 来了
+现在看来，要实现我们想要的锁，对内核就有两点需求：
+1. 支持一种锁粒度的睡眠与唤醒操作；
+2. 管理进程挂起时的等待队列。
+
 于是futex就诞生了。futex主要有futex_wait和futex_wake两个操作：
 
 // 在uaddr指向的这个锁变量上挂起等待（仅当*uaddr==val时）
@@ -190,4 +201,5 @@ futex_cmp_requeue_pi是带优先级继承版本的futex_cmp_requeue，futex_wait
 
 ---
 
-https://developer.aliyun.com/article/6043
+https://developer.aliyun.com/article/6043  
+https://blog.csdn.net/ctthuangcheng/article/details/8915169  
