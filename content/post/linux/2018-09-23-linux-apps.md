@@ -160,14 +160,14 @@ sudo pacman -S powerdevil kmix kscreen ark
 | openjdk-8-jdk    |                        |
 | openjdk-8-source |                        |
 | git-svn          |                        |
-| nautilus         | ubuntu默认的文件管理器 |
-| ttf-wqy-microhei | 文泉驿-微米黑          |
-| ttf-wqy-zenhei   | 文泉驿-正黑            |
-| xfonts-wqy       | 文泉驿-点阵宋体        |
+| nautilus         | ubuntu默认的文件管理器  |
+| ttf-wqy-microhei | 文泉驿-微米黑           |
+| ttf-wqy-zenhei   | 文泉驿-正黑             |
+| xfonts-wqy       | 文泉驿-点阵宋体         |
 | keepassxc        |                        |
-| eog              | 图片查看               |
-|neofetch          |发行版logo|
-|tree|以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层|
+| eog              | Eye of Gnome, 图片查看                |
+| neofetch         | 发行版logo |
+| tree             |以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层|
 
 ### xfce4
 file-roller
