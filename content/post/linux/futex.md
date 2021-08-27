@@ -12,7 +12,7 @@ tags:
 Futex，Fast Userspace muTEXes，作为linux下的一种快速同步（互斥）机制，已经存在了很长一段时间了（since linux 2.5.7）。它有什么优势？又提供了怎样一些功能，本文就简单探讨一下。
 
 ### futex诞生之前
-在futex诞生之前，linux下的同步机制可以归为两类：用户态的同步机制 和 内核态同步机制。 用户态的同步机制基本上就是利用原子指令实现的 spinlock。最简单的实现就是使用一个整型数，0表示未上锁，1表示已上锁。trylock操作就利用原子指令尝试将0改为1：
+在futex诞生之前，linux下的同步机制可以归为两类：用户态的同步机制 和 内核态同步机制. 用户态的同步机制基本上就是利用原子指令实现的 spinlock。最简单的实现就是使用一个整型数，0表示未上锁，1表示已上锁。trylock操作就利用原子指令尝试将0改为1
 ```c
 bool trylock(int lockval) {
     int old;
@@ -20,7 +20,7 @@ bool trylock(int lockval) {
     return old == 0;
 }
 ```
-无论spinlock事先有没有被上锁，经历trylock之后，它肯定是已经上锁了。所以lock变量一定被置1。而trylock是否成功，取决于spinlock是事先就被上了锁的（old==1），还是这次trylock上锁的(old==0)。而使用原子指令则可以避免多个进程同时看到old==0，并且都认为是自己把它改为1的。
+无论 spinlock 事先有没有被上锁，经历trylock之后，它肯定是已经上锁了。所以lock变量一定被置1。而trylock是否成功，取决于spinlock是事先就被上了锁的（old==1），还是这次trylock上锁的(old==0). 而使用原子指令则可以避免多个进程同时看到old==0，并且都认为是自己把它改为1的。
 
 spinlock的lock操作则是一个死循环，不断尝试trylock，直到成功。
 对于一些很小的临界区，使用spinlock是很高效的。因为trylock失败时，可以预期持有锁的线程（进程）会很快退出临界区（释放锁）。所以死循环的忙等待很可能要比进程挂起等待更高效。

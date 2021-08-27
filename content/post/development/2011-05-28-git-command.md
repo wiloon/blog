@@ -2,11 +2,17 @@
 title: git basic, command
 author: "-"
 date: 2011-05-28T13:01:51.000+00:00
-url: "/?p=202"
+url: "git"
 tags:
 - Git
 
 ---
+### 将指定的提交（commit）应用于其他分支
+   git cherry-pick <commitHash>
+
+https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
+
+
 ### 设置默认的分支名
     git config --global init.defaultBranch <name>
     git config --global init.defaultBranch main
@@ -23,6 +29,18 @@ tags:
 
 ### 放弃本地未提交的修改
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
+
+
+### git reset
+
+git reset ** file0
+
+彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
+
+    git reset -hard file0
+
+    git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
+    git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
 
 ```bash
     git reset --hard
@@ -65,17 +83,6 @@ config 配置有system级别 global（用户级别） 和local（当前仓库）
     #确认在 Git 中正确设置了电子邮件地址
     git config --global user.email
     git config --local  user.email
-
-### git reset
-
-git reset ** file0
-
-彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
-
-    git reset -hard file0
-
-    git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-    git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
 
 ### git log
 
