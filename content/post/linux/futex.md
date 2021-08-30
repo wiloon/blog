@@ -78,14 +78,14 @@ public:
 1. 支持一种锁粒度的睡眠与唤醒操作；
 2. 管理进程挂起时的等待队列。
 
-于是futex就诞生了。futex主要有futex_wait和futex_wake两个操作：
+于是futex就诞生了。futex主要有 futex_wait 和futex_wake两个操作：
 
 // 在uaddr指向的这个锁变量上挂起等待（仅当*uaddr==val时）
 int futex_wait(int *uaddr, int val);
 // 唤醒n个在uaddr指向的锁变量上挂起等待的进程
 int futex_wake(int *uaddr, int n);
 内核会动态维护一个跟uaddr指向的锁变量相关的等待队列。
-注意futex_wait的第二个参数,由于用户态trylock与调用futex_wait之间存在一个窗口,其间lockval可能发生变化（比如正好有人unlock了）。所以用户态应该将自己看到的*uaddr的值作为第二个参数传递进去,futex_wait真正将进程挂起之前一定得检查lockval是否发生了变化,并且检查过程跟进程挂起的过程得放在同一个临界区中。（参见《linux线程同步浅析》的讨论。）如果futex_wait发现lockval发生了变化,则会立即返回,由用户态继续trylock。
+注意futex_wait的第二个参数, 由于用户态trylock与调用futex_wait之间存在一个窗口,其间lockval可能发生变化（比如正好有人unlock了）。所以用户态应该将自己看到的*uaddr的值作为第二个参数传递进去,futex_wait真正将进程挂起之前一定得检查lockval是否发生了变化,并且检查过程跟进程挂起的过程得放在同一个临界区中。（参见《linux线程同步浅析》的讨论。）如果futex_wait发现lockval发生了变化,则会立即返回,由用户态继续trylock。
 
 futex实现了锁粒度的等待队列,而这个锁却并不需要事先向内核申明。任何时候,用户态调用futex_wait传入一个uaddr,内核就会维护起与之配对的等待队列。
 这件事情听上去好像很复杂,实际上却很简单。其实它并不需要为每一个uaddr单独维护一个队列,futex只维护一个总的队列就行了,所有挂起的进程都放在里面。当然,队列中的节点需要能标识出相应进程在等待的是哪一个uaddr。这样,当用户态调用futex_wake时,只需要遍历这个等待队列,把带有相同uaddr的节点所对应的进程唤醒就行了。
@@ -195,7 +195,6 @@ int futex_cmp_requeue_pi(int *uaddr, int n1, int *uaddr2, int n2, int val);
 Priority Inheritance,优先级继承,是解决优先级反转的一种办法。
 futex_lock_pi/futex_trylock_pi/futex_unlock_pi,是带优先级继承的futex锁操作。
 futex_cmp_requeue_pi是带优先级继承版本的futex_cmp_requeue,futex_wait_requeue_pi是与之配套使用的,用于替代普通的futex_wait。
-
 
 ---
 
