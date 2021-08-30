@@ -3,7 +3,7 @@ title: linux apps
 author: "-"
 type: post
 date: 2018-09-23T05:52:02+00:00
-url: /?p=12667
+url: linux-apps
 
 ---
 ### application list
@@ -153,7 +153,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | Plasma Week Number | 显示周数                   |
 | rsibreak           | 蕃茄钟, install via pacman |
 
-## ubuntu
+### ubuntu
 
 | Name             | Comments               |
 | ---------------- | ---------------------- |
@@ -168,6 +168,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | eog              | Eye of Gnome, 图片查看                |
 | neofetch         | 发行版logo |
 | tree             |以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层|
+|x11-apps|xclock, xserver 测试用|
 
 ### xfce4
 file-roller

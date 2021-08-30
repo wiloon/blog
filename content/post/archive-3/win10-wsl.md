@@ -77,7 +77,7 @@ https://github.com/nodesource/distributions/blob/master/README.md
     export GO111MODULE=on
     export GOPROXY=https://goproxy.cn
 
-### 检查各种包的版本
+### 检查包的版本
     node -v && npm -v && go version
 
 ### maven sprint boot run 
