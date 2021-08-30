@@ -17,7 +17,7 @@ categories:
 keytool -genkey -alias tlsServer -keysize 2048 -validity 365 -keyalg RSA \
 -dname "CN=wiloon" -keypass password0 -storepass password0 -keystore server.jks
 
-#生成客户端的密钥对和证书仓库, 用于将服务端的证书保存到客户端的授信证书仓库中，命令如下: 
+#生成客户端的密钥对和证书仓库, 用于将服务端的证书保存到客户端的授信证书仓库中,命令如下: 
 keytool -genkey -alias tlsClient -keysize 2048 -validity 365 -keyalg RSA \
 -dname "CN=localhost" -keypass password0 -storepass password0 -keystore client.jks
 

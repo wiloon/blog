@@ -31,7 +31,7 @@ echo >/dev/tcp/192.168.1.15/22
 
 ## nc
 
-telnet 只能测试 tcp端口， 测试udp端口需要用nc
+telnet 只能测试 tcp端口, 测试udp端口需要用nc
 
 ```bash
 # centos
@@ -43,49 +43,49 @@ nc -vuz host 124
 
 http://www.oschina.net/news/48357/socat-1-7-2-3
 
-socat是一個netcat(nc)的替代產品，可以稱得上nc++。socat的特點就是在兩個流之間建立一個雙向的 通道。socat的地址類型很 多，有ip, tcp, udp, ipv6, pipe,exec,system,open,proxy,openssl,等等
+socat是一個netcat(nc)的替代產品,可以稱得上nc++。socat的特點就是在兩個流之間建立一個雙向的 通道。socat的地址類型很 多,有ip, tcp, udp, ipv6, pipe,exec,system,open,proxy,openssl,等等
 
 http://blog.csdn.net/zhu_xun/article/details/16885333
 
-Telnet有"标准输入文件结束符(standard input EOF)"问题，
+Telnet有"标准输入文件结束符(standard input EOF)"问题,
   
 所以需要在脚本中延迟计算以便等待网络输出结束。这就是netcat持续运行直
   
-到连接被关闭的主要原因。Telnet也不能传输任意的二进制数据，因为一些特
+到连接被关闭的主要原因。Telnet也不能传输任意的二进制数据,因为一些特
   
 定的字符会被解释为Telnet的参数而被从数据流中去除。Telnet还将它的一些
   
-诊断信息显示到标准输出上，而NetCat会将这信息与它的输出分开以不改变真
+诊断信息显示到标准输出上,而NetCat会将这信息与它的输出分开以不改变真
   
-实数据的传输，除非你要求它这么做。当然了，Telnet也不能监听端口，也不
+实数据的传输,除非你要求它这么做。当然了,Telnet也不能监听端口,也不
   
-能使用UDP。 NetCat没有这些限制，比Telnet更小巧和快捷，而且还有一些其
+能使用UDP。 NetCat没有这些限制,比Telnet更小巧和快捷,而且还有一些其
   
 它的功能。
 
 　　NetCat的一些主要功能: 
 
-*支持连出和连入(outbound and inbound connection)，TCP和UDP，任意源和目的端口
+*支持连出和连入(outbound and inbound connection),TCP和UDP,任意源和目的端口
   
-*全部DNS正向/反向检查，给出恰当的警告
+*全部DNS正向/反向检查,给出恰当的警告
   
 *使用任何源端口
   
 *使用任何本地设置的网络资源地址
   
-*内建端口扫描功能，带有随机数发生器
+*内建端口扫描功能,带有随机数发生器
   
 *内建loose source-routing功能
   
 *可能标准输入读取命令行参数
   
-*慢发送模式，每N秒发送一行
+*慢发送模式,每N秒发送一行
   
 *以16进制显示传送或接收的数据
   
-*允许其它程序服务建立连接，可选
+*允许其它程序服务建立连接,可选
   
-*对Telnet应答，可选
+*对Telnet应答,可选
 
 <blockquote class="wp-embedded-content" data-secret="xAPNTA4aj2">
   

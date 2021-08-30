@@ -10,7 +10,7 @@ categories:
 ---
 Pmap 命令: 查看进程用了多少内存
 
-Pmap 提供了进程的内存映射，pmap命令用于显示一个或多个进程的内存状态。其报告进程的地址空间和内存状态信息。Pmap实际上是一个Sun OS上的命令，linux仅支持其有限的功能。但是它还是对查看完整的进程地址空间很有帮助。我们需要PID或者运行的进程的唯一进程ID来查看进程内存状态，我们可以通过/proc或者常规命令比如top或ps得到它。
+Pmap 提供了进程的内存映射,pmap命令用于显示一个或多个进程的内存状态。其报告进程的地址空间和内存状态信息。Pmap实际上是一个Sun OS上的命令,linux仅支持其有限的功能。但是它还是对查看完整的进程地址空间很有帮助。我们需要PID或者运行的进程的唯一进程ID来查看进程内存状态,我们可以通过/proc或者常规命令比如top或ps得到它。
 
 语法或用法
   
@@ -18,7 +18,7 @@ Pmap 提供了进程的内存映射，pmap命令用于显示一个或多个进�
     # 或者 
     pmap [options] PID
 
-在输出中它显示全部的地址，kbytes,mode还有mapping。
+在输出中它显示全部的地址,kbytes,mode还有mapping。
 
 选项
   
@@ -160,7 +160,7 @@ Address Kbytes RSS Dirty Mode Mapping
   
 total kB 8232 – – –
   
-这里的Address，Kbyte，Dirty，RSS，mode还有mapping的说明如下
+这里的Address,Kbyte,Dirty,RSS,mode还有mapping的说明如下
 
 扩展和设备格式区域
   

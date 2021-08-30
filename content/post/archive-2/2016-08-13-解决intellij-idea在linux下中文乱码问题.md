@@ -18,9 +18,9 @@ categories:
 
 网上搜到的大部分答案说
 
-> 进入File Settings 里的 Appearance项，选中Override default fonts by ，把 Name 设置为 微软雅黑
+> 进入File Settings 里的 Appearance项,选中Override default fonts by ,把 Name 设置为 微软雅黑
 
-之前默认的font是ubuntu，很好看，换成微软雅黑整个界面丑了不止一个档次！所以，如果只是想让源码中的中文能正常显示的话，只能另寻他路。
+之前默认的font是ubuntu,很好看,换成微软雅黑整个界面丑了不止一个档次！所以,如果只是想让源码中的中文能正常显示的话,只能另寻他路。
 
 ## Solution {#Solution}
 
@@ -45,4 +45,4 @@ fc-cache -f -v
 
 这里的yahei.ttf是刚刚下载的文件的名字
 
-  * 重启Intellij Idea，发现中文已经可以正常显示了！
+  * 重启Intellij Idea,发现中文已经可以正常显示了！

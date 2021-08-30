@@ -17,10 +17,10 @@ interface: eth*2, wlan*1
 配置
 接入点的设置包含两个主要部分:
 
-设置Wi-Fi链路层，这样无线客户端可以与电脑的"软件接入点"建立连接，从而同电脑进行通信。
+设置Wi-Fi链路层,这样无线客户端可以与电脑的"软件接入点"建立连接,从而同电脑进行通信。
 配置电脑上的网络, 使电脑可以在 Internet 和无线客户端之间有效地转发IP包。
 
-hostapd能够使得无线网卡切换为master模式，模拟AP（路由器）功能
+hostapd能够使得无线网卡切换为master模式,模拟AP（路由器）功能
 
 ### systemd-networkd config
 ```bash
@@ -178,7 +178,7 @@ sudo nft add rule nat post ip saddr 192.168.49.0/24 oif enp2s0 snat 172.16.xxx.x
 sudo hostapd /etc/hostapd/hostapd.conf
 sudo hostapd -B /etc/hostapd/hostapd.conf
 sudo systemctl start hostapd.service 
-#设置无线接入点IP地址，命令模式如下: 
+#设置无线接入点IP地址,命令模式如下: 
   
 sudo ip addr add 192.168.49.1/24 dev wlp2s0b1  
 sudo ip link set wlp2s0b1 up

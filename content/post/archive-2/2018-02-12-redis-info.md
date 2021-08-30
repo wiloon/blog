@@ -19,7 +19,7 @@ keyspace_misses : 查找数据库键失败的次数。
   
 latest_fork_usec : 最近一次 fork() 操作耗费的毫秒数。
 
-lru_clock : 以分钟为单位进行自增的时钟，用于 LRU 管理
+lru_clock : 以分钟为单位进行自增的时钟,用于 LRU 管理
   
 master_repl_offset The replication offset of master (in ms)
   
@@ -27,4 +27,4 @@ mem_fragmentation_ratio : used_memory_rss 和 used_memory 之间的比率
   
 migrate_cached_sockets Current amount of cached sockets
   
-rdb_changes_since_last_save : 距离最近一次成功创建持久化文件之后，经过了多少秒。
+rdb_changes_since_last_save : 距离最近一次成功创建持久化文件之后,经过了多少秒。

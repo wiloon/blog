@@ -23,13 +23,13 @@ url: /?p=9096
     sudo apt install golang-go
 
 ### 环境变量
-    # 设置不走 proxy 的私有仓库，多个用逗号相隔（可选）
+    # 设置不走 proxy 的私有仓库,多个用逗号相隔（可选）
     export GOPRIVATE=*.corp.example.com
     export GOPRIVATE=git.wiloon.com
 
 ### internal package
-Go语言1.4版本增加了 Internal packages 特征用于控制包的导入，即internal package只能被特定的包导入。
-内部包的规范约定: 导出路径包含internal关键字的包，只允许internal的父级目录及父级目录的子包导入，其它包无法导入。
+Go语言1.4版本增加了 Internal packages 特征用于控制包的导入,即internal package只能被特定的包导入。
+内部包的规范约定: 导出路径包含internal关键字的包,只允许internal的父级目录及父级目录的子包导入,其它包无法导入。
 
 ### 变量
 变量是几乎所有编程语言中最基本的组成元素。从根本上说,变量相当于是对一块数据存储空间的命名,程序可以通过定义一个变量来申请一块数据存储空间,之后可以通过引用变量名来使用这块存储空间。
@@ -139,7 +139,7 @@ const Home = os.GetEnv("HOME")
   
 预定义常量
 
-Go语言预定义了这些常量:true、false和iota。iota比较特殊,可以被认为是一个可被编译器修改的常量,在每一个const关键字出现时被常量定义，
+Go语言预定义了这些常量:true、false和iota。iota比较特殊,可以被认为是一个可被编译器修改的常量,在每一个const关键字出现时被常量定义,
 
 通过const关键字,你可以给字面常量指定一个友好的名字:
 
@@ -235,13 +235,13 @@ func Dim(x, y float64) float64
 
 ```bash
 # -a
-强行对所有涉及到的代码包（包含标准库中的代码包）进行重新构建，即使它们已经是最新的了。
+强行对所有涉及到的代码包（包含标准库中的代码包）进行重新构建,即使它们已经是最新的了。
 # -installsuffix
-为了使当前的输出目录与默认的编译输出目录分离，可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实，如果使用了-race标记，这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix，那么在-installsuffix标记的值的后面会再被追加_race，并以此来作为实际使用的后缀。
+为了使当前的输出目录与默认的编译输出目录分离,可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实,如果使用了-race标记,这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix,那么在-installsuffix标记的值的后面会再被追加_race,并以此来作为实际使用的后缀。
 #### -x
 打印详细信息
 #### -n
-查看具体操作，不执行
+查看具体操作,不执行
 #### -i
 安装归档文件
 #### -v
@@ -263,7 +263,7 @@ go mod init github.com/you/hello
 
 go build
   
-通过go build加上要编译的Go源文件名，我们即可得到一个可执行文件，默认情况下这个文件的名字为源文件名字去掉.go后缀。
+通过go build加上要编译的Go源文件名,我们即可得到一个可执行文件,默认情况下这个文件的名字为源文件名字去掉.go后缀。
 
 go build hellogo.go
 
@@ -273,7 +273,7 @@ go build -o myfirstgo hellogo.go
 
 go build -x -v hellogo.go
 
-如果我们在go-examples目录下直接执行go build命令，后面不带文件名，我们将得到一个与目录名同名的可执行文件: 
+如果我们在go-examples目录下直接执行go build命令,后面不带文件名,我们将得到一个与目录名同名的可执行文件: 
 
 $ go build
   
@@ -283,13 +283,13 @@ go-examples hellogo.go
 
 go install
   
-与build命令相比，install命令在编译源码后还会将可执行文件或库文件安装到约定的目录下。
+与build命令相比,install命令在编译源码后还会将可执行文件或库文件安装到约定的目录下。
 
 go install编译出的可执行文件以其所在目录名(DIR)命名
   
-go install将可执行文件安装到与src同级别的bin目录下，bin目录由go install自动创建
+go install将可执行文件安装到与src同级别的bin目录下,bin目录由go install自动创建
   
-go install将可执行文件依赖的各种package编译后，放在与src同级别的pkg目录下.
+go install将可执行文件依赖的各种package编译后,放在与src同级别的pkg目录下.
   
 参考资料: 
 

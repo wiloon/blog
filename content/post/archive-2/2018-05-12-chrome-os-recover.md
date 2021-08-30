@@ -16,15 +16,15 @@ open chrome and install Chromebook Recovery Utility
   
 在出现错误的 Chromebook 上: 
 
-如果您在这台 Chromebook 上连接了任何设备（例如鼠标或外部硬盘），请将其取下。
+如果您在这台 Chromebook 上连接了任何设备（例如鼠标或外部硬盘）,请将其取下。
   
 进入恢复模式: 
   
-Chromebook: 按住 Esc + Refresh 刷新，然后按"电源"电源。之后，松开"电源"。当屏幕上显示一条消息后，再松开其他键。
+Chromebook: 按住 Esc + Refresh 刷新,然后按"电源"电源。之后,松开"电源"。当屏幕上显示一条消息后,再松开其他键。
   
-Chromebox: 首先，关闭 Chromebox。使用回形针或类似物体按住"恢复"按钮。按"电源"按钮以重新开启 Chromebox。当您在屏幕上看到一条消息后，释放"恢复"按钮。
+Chromebox: 首先,关闭 Chromebox。使用回形针或类似物体按住"恢复"按钮。按"电源"按钮以重新开启 Chromebox。当您在屏幕上看到一条消息后,释放"恢复"按钮。
   
-Chromebit: 首先，将 Chromebit 断电。使用回形针或类似物体按住"恢复"按钮。为 Chromebit 重新接通电源。当您在屏幕上看到一条消息后，释放"恢复"按钮。
+Chromebit: 首先,将 Chromebit 断电。使用回形针或类似物体按住"恢复"按钮。为 Chromebit 重新接通电源。当您在屏幕上看到一条消息后,释放"恢复"按钮。
   
 您会看到以下某条消息: 
   

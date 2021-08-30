@@ -18,13 +18,13 @@ Download the TWRP Recovery
 
 刷入第三方Recovery:TWRP及Root
   
-由于Pixel及Pixel XL都采用A/B升级系统，因而可以理解为手机里有2个系统，如果你按照传统刷入Twrp的方法刷入的话，那么你并不会获得一个永久的Twrp。所以需要先刷入一个临时的Twrp，在通过临时的Twrp来刷入永久的Twrp从而来获取Root权限。
+由于Pixel及Pixel XL都采用A/B升级系统,因而可以理解为手机里有2个系统,如果你按照传统刷入Twrp的方法刷入的话,那么你并不会获得一个永久的Twrp。所以需要先刷入一个临时的Twrp,在通过临时的Twrp来刷入永久的Twrp从而来获取Root权限。
 
 下载必要软件
   
 需要下载临时的Twrp、永久Twrp及Magisk三个文件。
 
-首先，前往 TWRP 官网 Devices 下载最新版 TWRP 压缩包（.zip）和临时 TWRP 镜像文件（.img）。
+首先,前往 TWRP 官网 Devices 下载最新版 TWRP 压缩包（.zip）和临时 TWRP 镜像文件（.img）。
 
 我的Pixel对应选择从这个页面 Download TWRP for sailfish 下载的 3.2.3-1 版本: 
 

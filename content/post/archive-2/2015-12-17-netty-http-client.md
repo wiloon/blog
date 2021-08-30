@@ -104,11 +104,11 @@ b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
   
 public void initChannel(SocketChannel ch) throws Exception {
   
-// server端发送的是httpResponse，所以要使用HttpResponseEncoder进行编码
+// server端发送的是httpResponse,所以要使用HttpResponseEncoder进行编码
   
 ch.pipeline().addLast(new HttpResponseEncoder());
   
-// server端接收到的是httpRequest，所以要使用HttpRequestDecoder进行解码
+// server端接收到的是httpRequest,所以要使用HttpRequestDecoder进行解码
   
 ch.pipeline().addLast(new HttpRequestDecoder());
   

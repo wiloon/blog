@@ -21,7 +21,7 @@ url: openwrt
 $ cat /etc/resolv.conf
 search lan
 nameserver 127.0.0.1
-发现使用的是本机 DNS 服务器，即 dnsmasq。
+发现使用的是本机 DNS 服务器,即 dnsmasq。
 
 查看 dnsmasq 配置: 
 
@@ -54,24 +54,24 @@ crontab -l
     https://downloads.openwrt.org/releases/19.07.6/targets/x86/
 
 #### 64 (推荐使用)
-64用于现代PC硬件（大约在2007年以后的产品），它是为具有64位功能的计算机而构建的，并支持现代CPU功能。除非有充分的理由，否则请选择此选项。
+64用于现代PC硬件（大约在2007年以后的产品）,它是为具有64位功能的计算机而构建的,并支持现代CPU功能。除非有充分的理由,否则请选择此选项。
 ### Generic  
-仅适用于32位硬件（旧硬件或某些Atom处理器），应为i586 Linux体系结构，将在Pentium 4及更高版本上运行。仅当您的硬件无法运行64位版本时才使用此功能。
+仅适用于32位硬件（旧硬件或某些Atom处理器）,应为i586 Linux体系结构,将在Pentium 4及更高版本上运行。仅当您的硬件无法运行64位版本时才使用此功能。
 ### Legacy
-用于奔腾4之前的非常旧的PC硬件，在Linux体系结构支持中称为i386。它会错过许多现代硬件上想要/需要的功能，例如多核支持以及对超过1GB RAM的支持，但实际上会在较旧的硬件上运行，而其他版本则不会。
+用于奔腾4之前的非常旧的PC硬件,在Linux体系结构支持中称为i386。它会错过许多现代硬件上想要/需要的功能,例如多核支持以及对超过1GB RAM的支持,但实际上会在较旧的硬件上运行,而其他版本则不会。
 ### Geode
-是为Geode SoC定制的自定义旧版目标，Geode SoC仍在许多（老化的）网络设备中使用，例如PCEngines的较旧Alix板
+是为Geode SoC定制的自定义旧版目标,Geode SoC仍在许多（老化的）网络设备中使用,例如PCEngines的较旧Alix板
 
 
 ### x86/64/
 #### combined-ext4.img.gz (推荐使用)
-: 包含vmlinuz rootfs（ext4）、引导信息以及相关分区信息的img，一般是两个分区，可以把它看成是硬盘镜像，直接dd到某个磁盘
-此磁盘映像使用单个读写ext4分区，没有只读squashfs根文件系统，因此可以扩大分区。故障安全模式或出厂重置等功能将不可用，因为它们需要只读的squashfs分区才能起作用。
+: 包含vmlinuz rootfs（ext4）、引导信息以及相关分区信息的img,一般是两个分区,可以把它看成是硬盘镜像,直接dd到某个磁盘
+此磁盘映像使用单个读写ext4分区,没有只读squashfs根文件系统,因此可以扩大分区。故障安全模式或出厂重置等功能将不可用,因为它们需要只读的squashfs分区才能起作用。
 #### Combined-squashfs.img.gz
-该磁盘映像使用传统的OpenWrt布局，一个squashfs只读根文件系统和一个读写分区，在其中存储您安装的设置和软件包。由于此映像的组装方式，您只有230 兆MB的空间来存储其他程序包和配置，而Extroot不起作用。
+该磁盘映像使用传统的OpenWrt布局,一个squashfs只读根文件系统和一个读写分区,在其中存储您安装的设置和软件包。由于此映像的组装方式,您只有230 兆MB的空间来存储其他程序包和配置,而Extroot不起作用。
 
 #### rootfs-ext4.img.gz
-rootfs分区镜像，可以直接dd到某个分区，或者mount -o到某个目录
+rootfs分区镜像,可以直接dd到某个分区,或者mount -o到某个目录
 
 #### rootfs-squashfs.img.gz
 同上
@@ -82,7 +82,7 @@ kernel
 #### generic-rootfs.tar.gz
 rootfs用gz打包后的文件
 
-要让系统启动，需要引导器（x86是使用grub，好比是路由中的uboot，当然uboot管的内容更多）、kernel、rootfs三者。
+要让系统启动,需要引导器（x86是使用grub,好比是路由中的uboot,当然uboot管的内容更多）、kernel、rootfs三者。
 
 ### mirror
     sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
@@ -92,7 +92,7 @@ openwrt 里访问 使用let's encrypt 签发的证书站点报错:
 
     x509: certificate signed by unknown authority
 
-安装最新的 ca-certificates 包也解决不了， 可能是因为 ca-certificates 里也没有 let's encrypt 的根证书。  
+安装最新的 ca-certificates 包也解决不了, 可能是因为 ca-certificates 里也没有 let's encrypt 的根证书。  
 浏览器访问站点手动导出证书后放到这个目录下解决。
 
     vim vim /etc/ssl/certs/foo.crt
@@ -107,7 +107,7 @@ https://www.cnblogs.com/double-win/p/3841017.html
   
 vim /etc/config/network
 
-config 'interface' 'lan' #LAN口，用于路由器子网设置
+config 'interface' 'lan' #LAN口,用于路由器子网设置
           
 option 'ifname' 'eth0'
           
@@ -212,7 +212,7 @@ openwrt添加开机运行脚本
         ip rule add fwmark 2 table 200
     }
 
-START的值决定这个脚本的启动顺序，这里为99
+START的值决定这个脚本的启动顺序,这里为99
 start()里执行增加的功能脚步或者写脚本启动自己的程序
 3.给脚本添加可执行权限
 

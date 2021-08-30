@@ -10,15 +10,15 @@ categories:
 ---
 System.gc:
   
-告诉垃圾收集器打算进行垃圾收集，而垃圾收集器进不进行收集是不确定的。只是建议进行回收。
+告诉垃圾收集器打算进行垃圾收集,而垃圾收集器进不进行收集是不确定的。只是建议进行回收。
   
-jvm有自己的gc策略，不建议手动调用。
+jvm有自己的gc策略,不建议手动调用。
   
 system.gc其实是做一次full gc
   
 system.gc会暂停整个进程
   
-system.gc一般情况下我们要禁掉，使用-XX:+DisableExplicitGC
+system.gc一般情况下我们要禁掉,使用-XX:+DisableExplicitGC
   
 system.gc在cms gc下我们通过-XX:+ExplicitGCInvokesConcurrent来做一次稍微高效点的GC(效果比Full GC要好些)
   
@@ -38,7 +38,7 @@ Runtime.getRuntime().runFinalization()
 
 java中的finalize()方法
   
-当垃圾收集器认为没有指向对象实例的引用时，会在销毁该对象之前调用finalize()方法。该方法最常见的作用是确保释放实例占用的全部资源。java并不保证定时为对象实例调用该方法，甚至不保证方法会被调用，所以该方法不应该用于正常内存处理。
+当垃圾收集器认为没有指向对象实例的引用时,会在销毁该对象之前调用finalize()方法。该方法最常见的作用是确保释放实例占用的全部资源。java并不保证定时为对象实例调用该方法,甚至不保证方法会被调用,所以该方法不应该用于正常内存处理。
 
 http://www.weyye.me/detail/System-gc-not-called/
   

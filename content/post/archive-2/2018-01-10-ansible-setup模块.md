@@ -20,7 +20,7 @@ Ansible入门setup模块和条件判断.md
   
 setup模块用于收集远程主机的一些基本信息。
   
-而在playbook中，默认参数"gather_facts: True"的含义就是在远程主机运行setup模块，并将收集的信息记录起来。
+而在playbook中,默认参数"gather_facts: True"的含义就是在远程主机运行setup模块,并将收集的信息记录起来。
 
 这样在后面的playbook里面可以调用并进行一些判断和对照。
 
@@ -56,7 +56,7 @@ setup模块用于收集远程主机的一些基本信息。
   
 OUTPUT OMITTED.
   
-因显示篇幅过长，这列只列举一些常用项目
+因显示篇幅过长,这列只列举一些常用项目
 
 "ansible_all_ipv4_addresses": [
               
@@ -106,11 +106,11 @@ OUTPUT OMITTED.
   
 #@内核版本
   
-如果使用ansible操作不同的操作系统例如Redhat和Debian，使用前需要对照好相关的输出项，找出不同的地方和相同的地方才能准确使用。
+如果使用ansible操作不同的操作系统例如Redhat和Debian,使用前需要对照好相关的输出项,找出不同的地方和相同的地方才能准确使用。
 
 二、条件判断
   
-现在有这样一个需求，生产环境现在有Redhat 5 和CentOS 6 两种操作系统环境，都需要在syslog配置文件添加一个远程syslog服务器，并且添加完成后重启服务器。
+现在有这样一个需求,生产环境现在有Redhat 5 和CentOS 6 两种操作系统环境,都需要在syslog配置文件添加一个远程syslog服务器,并且添加完成后重启服务器。
 
 所以我们收集了两个操作系统相关的参数如下: 
 
@@ -168,15 +168,15 @@ OUTPUT OMITTED.
   
         service: name=syslog state=restarted
   
-        在这里我们进行了操作系统的判断，如果是CentOS 6 则修改rsyslog.conf并重启rsyslog服务。
+        在这里我们进行了操作系统的判断,如果是CentOS 6 则修改rsyslog.conf并重启rsyslog服务。
   
-        如果是RedHat 5 则修改syslog.conf，并重启syslog服务。
+        如果是RedHat 5 则修改syslog.conf,并重启syslog服务。
 
-在修改文件时采用了lineinfile模块，只要文件中有语句存在，下次运行就不会改变，所以playbook可以多次运行。
+在修改文件时采用了lineinfile模块,只要文件中有语句存在,下次运行就不会改变,所以playbook可以多次运行。
 
 一点疑惑
   
-有同学要问，为什么要进行四次when判断，两次不就够了，写成这样
+有同学要问,为什么要进行四次when判断,两次不就够了,写成这样
 
   * name: restart syslog @CentOS6
   
@@ -186,7 +186,7 @@ OUTPUT OMITTED.
   
     service: name=rsyslog state=restarted
   
-    这是不行的，ansible要求每一个play里面智能使用一个模块，使用多个会报错
+    这是不行的,ansible要求每一个play里面智能使用一个模块,使用多个会报错
   
     ERROR: multiple actions specified in task
 

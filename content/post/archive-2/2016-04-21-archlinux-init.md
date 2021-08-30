@@ -18,7 +18,7 @@ url: /?p=8913
 pacman -Syu
 
 ### create user and set password
-yay 不能在root下执行， 需要新建个用户
+yay 不能在root下执行, 需要新建个用户
 <http://blog.wiloon.com/?p=911>
 
 pacman -S sudo emacs
@@ -89,7 +89,7 @@ pacman -S file-roller
 http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin
 
 # for virtualbox
-在virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils， 可以获得更流畅的图形界面,如virtual的无缝模式。
+在virtual box 内安装的archlinux, 需要安装 virtualbox-guest-utils, 可以获得更流畅的图形界面,如virtual的无缝模式。
   
 <https://wiki.archlinux.org/index.php/VirtualBox>
 https://bbs.archlinux.org/viewtopic.php?id=118986

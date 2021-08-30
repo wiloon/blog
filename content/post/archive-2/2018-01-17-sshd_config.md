@@ -12,7 +12,7 @@ vim .ssh/authorized_keys
 ClientAliveInterval
   
 Port 22  
-port用来设置sshd监听的端口，为了安全起见，建议更改默认的22端口为5位以上陌生端口
+port用来设置sshd监听的端口,为了安全起见,建议更改默认的22端口为5位以上陌生端口
 
 AddressFamily
 指定 sshd(8) 应当使用哪种地址族。取值范围是: "any"(默认)、"inet"(仅IPv4)、"inet6"(仅IPv6)。
@@ -29,22 +29,22 @@ Protocol
 
 HostKey
                
-主机私钥文件的位置。如果权限不对，sshd(8) 可能会拒绝启动。
+主机私钥文件的位置。如果权限不对,sshd(8) 可能会拒绝启动。
                
 SSH-1默认是 /etc/ssh/ssh_host_key
                
 SSH-2默认是 /etc/ssh/ssh_host_rsa_key 和 /etc/ssh/ssh_host_dsa_key 。
                
-一台主机可以拥有多个不同的私钥。"rsa1"仅用于SSH-1，"dsa"和"rsa"仅用于SSH-2。
+一台主机可以拥有多个不同的私钥。"rsa1"仅用于SSH-1,"dsa"和"rsa"仅用于SSH-2。
 
 ### PermitRootLogin
 是否允许 root 登录。可用值如下: 
 默认值是"prohibit-password"
-如果这个选项设置为"prohibit-password"、"without-password"，通过密码和键盘交互的授权方式对 root 用户禁用。
+如果这个选项设置为"prohibit-password"、"without-password",通过密码和键盘交互的授权方式对 root 用户禁用。
 
 - "without-password"表示禁止使用密码认证登录。
 - "forced-commands-only"表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
-- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证，公钥认证）
+- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证）
 
 AuthorizedKeysFile
   
@@ -54,7 +54,7 @@ AuthorizedKeysFile
   
 %% 表示'%'、%h 表示用户的主目录、%u 表示该用户的用户名。
   
-经过扩展之后的值必须要么是绝对路径，要么是相对于用户主目录的相对路径。
+经过扩展之后的值必须要么是绝对路径,要么是相对于用户主目录的相对路径。
   
 默认值是".ssh/authorized_keys"。
 
@@ -64,23 +64,23 @@ UsePrivilegeSeparation
   
 是否让 sshd(8) 通过创建非特权子进程处理接入请求的方法来进行权限分离。默认值是"yes"。
                
-认证成功后，将以该认证用户的身份创建另一个子进程。
+认证成功后,将以该认证用户的身份创建另一个子进程。
                
-这样做的目的是为了防止通过有缺陷的子进程提升权限，从而使系统更加安全。
+这样做的目的是为了防止通过有缺陷的子进程提升权限,从而使系统更加安全。
 
 PermitUserEnvironment
                
 指定是否允许 sshd(8) 处理 ~/.ssh/environment 以及 ~/.ssh/authorized_keys 中的 environment= 选项。
                
-默认值是"no"。如果设为"yes"可能会导致用户有机会使用某些机制(比如 LD_PRELOAD)绕过访问控制，造成安全漏洞。
+默认值是"no"。如果设为"yes"可能会导致用户有机会使用某些机制(比如 LD_PRELOAD)绕过访问控制,造成安全漏洞。
 
 AllowUsers
                
 这个指令后面跟着一串用空格分隔的用户名列表(其中可以使用"*"和"?"通配符)。默认允许所有用户登录。
                
-如果使用了这个指令，那么将仅允许这些用户登录，而拒绝其它所有用户。
+如果使用了这个指令,那么将仅允许这些用户登录,而拒绝其它所有用户。
                
-如果指定了 USER@HOST 模式的用户，那么 USER 和 HOST 将同时被检查。
+如果指定了 USER@HOST 模式的用户,那么 USER 和 HOST 将同时被检查。
                
 这里只允许使用用户的名字而不允许使用UID。相关的 allow/deny 指令按照下列顺序处理: 
                

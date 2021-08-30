@@ -10,7 +10,7 @@ url: /?p=11228
     yarn serve
 
 ### Yarn是什么？
-"Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ，正如官方文档中写的，Yarn 是为了弥补 npm 的一些缺陷而出现的。
+"Yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具 ,正如官方文档中写的,Yarn 是为了弥补 npm 的一些缺陷而出现的。
 
 ### build
    yarn build
@@ -21,8 +21,8 @@ https://classic.yarnpkg.com/zh-Hans/docs/migrating-from-npm/
 ### npm命令简写
 https://www.jianshu.com/p/455f74669ce9
 
-    npm install本身有一个别名，即npm i
-    -S --save，缩写为-S，表示安装的包将写入package.json里面的dependencies。
+    npm install本身有一个别名,即npm i
+    -S --save,缩写为-S,表示安装的包将写入package.json里面的dependencies。
 
 ```bash
 npm install
@@ -41,7 +41,7 @@ yarn global add http-server
 ### 打印依赖
     yarn list
 
-### yarn 国内加速，修改镜像源
+### yarn 国内加速,修改镜像源
 #### 以下命令查看当前使用的镜像源
 yarn config get registry
 # 临时修改

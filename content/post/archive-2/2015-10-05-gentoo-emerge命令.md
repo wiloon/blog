@@ -8,15 +8,15 @@ categories:
   - Uncategorized
 
 ---
-Gentoo的包管理工具称为portage。emerge是这个portage的字符界面管理工具，图形界面工具还有portato，porthole，kuroo，himerge等。
+Gentoo的包管理工具称为portage。emerge是这个portage的字符界面管理工具,图形界面工具还有portato,porthole,kuroo,himerge等。
 
 ebuild
 
-ebuild是Portage包管理程序的根本。它是一个纯文本文件，而每一个ebuild都会对应一个包（软件包）。ebuild会告诉 portage要下载的文件、该包可运行的平台、如何编译它、它所依赖的ebuild和一些修补代码的patch。Portage内有一个ebuild大集合，称为Portage tree，是gentoo网站所提供的ebuild。它包含了大部份常用的包，并会不时更新。如果要使用的包不在其内，也可以手动加入。
+ebuild是Portage包管理程序的根本。它是一个纯文本文件,而每一个ebuild都会对应一个包（软件包）。ebuild会告诉 portage要下载的文件、该包可运行的平台、如何编译它、它所依赖的ebuild和一些修补代码的patch。Portage内有一个ebuild大集合,称为Portage tree,是gentoo网站所提供的ebuild。它包含了大部份常用的包,并会不时更新。如果要使用的包不在其内,也可以手动加入。
 
 USE标志
 
-USE标志的设置位于Gentoo系统的/etc/make.conf文档中，作用是使得Emerge在处理依赖关系的时候可以做到不安装不需要的软件包（例如安装Gnome的用户没有必要因为一个软件包的依赖关系而安装KDE与Qt），而安装指定的软件包（同样以Gnome举例，Gnome的用户基本上都会安装GTK+），把系统的设置专注化。
+USE标志的设置位于Gentoo系统的/etc/make.conf文档中,作用是使得Emerge在处理依赖关系的时候可以做到不安装不需要的软件包（例如安装Gnome的用户没有必要因为一个软件包的依赖关系而安装KDE与Qt）,而安装指定的软件包（同样以Gnome举例,Gnome的用户基本上都会安装GTK+）,把系统的设置专注化。
 
 Gentoo的emerge命令参数用法详解
 
@@ -32,13 +32,13 @@ emerge -S mozilla
   
 emerge -searchdesc mozilla
 
-使用本地编好的包，没有就下源码(尽量避免编译)
+使用本地编好的包,没有就下源码(尽量避免编译)
 
 emerge -k mozilla
   
 emerge -usepkg mozilla
 
-只使用本地编好的，否则不安装(绝对不编译，所有依赖的包都有binary才装)
+只使用本地编好的,否则不安装(绝对不编译,所有依赖的包都有binary才装)
 
 emerge -K mozilla
   
@@ -66,7 +66,7 @@ emerge -pretend -changelog mozilla
 
 查看依赖关系(这个包还没装)
   
-(–pretend保证这一次操作实际上不做任何事情，可以跟任何options组合)
+(–pretend保证这一次操作实际上不做任何事情,可以跟任何options组合)
 
 emerge -p mozilla
   
@@ -94,9 +94,9 @@ emerge -g mozilla
   
 emerge -getbinpkg mozilla
 
-(注意，实际上没有任何binary包存在于官方的mirror中
+(注意,实际上没有任何binary包存在于官方的mirror中
   
-所以这个基本上是无用，在manpage也没有出现。除非自
+所以这个基本上是无用,在manpage也没有出现。除非自
   
 己用livecd来setup一个这样的站点。不知道以后会不会
   
@@ -114,7 +114,7 @@ emerge -ep opera
   
 emerge -emptytree -pretend opera
 
-(不用pretend会重新编译这所有依赖的包，glibc因为安全关系没有列出)
+(不用pretend会重新编译这所有依赖的包,glibc因为安全关系没有列出)
 
 不使用依赖关系安装软件
 

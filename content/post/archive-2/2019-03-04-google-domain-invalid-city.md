@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-填写联系人资料的时候国家选择中国，填写城市 的时候要写成 Dalian Shi
+填写联系人资料的时候国家选择中国,填写城市 的时候要写成 Dalian Shi
 
 <blockquote class="wp-embedded-content" data-secret="2UAujlnd36">
   

@@ -14,13 +14,13 @@ tags:
 flag.String("port", ":8080", "http listen port")
 ```
 
-像flag.Int、flag.Bool、flag.String这样的函数格式都是一样的，第一个参数表示参数名称，第二个参数表示默认值，第三个参数表示使用说明和描述。flag.StringVar这样的函数第一个参数换成了变量地址，后面的参数和flag.String是一样的。
+像flag.Int、flag.Bool、flag.String这样的函数格式都是一样的,第一个参数表示参数名称,第二个参数表示默认值,第三个参数表示使用说明和描述。flag.StringVar这样的函数第一个参数换成了变量地址,后面的参数和flag.String是一样的。
 
 flag.Parse()
   
-解析函数将会在碰到第一个非flag命令行参数时停止，非flag命令行参数是指不满足命令行语法的参数，如命令行参数为cmd -flag=true abc则第一个非flag命令行参数为"abc"
+解析函数将会在碰到第一个非flag命令行参数时停止,非flag命令行参数是指不满足命令行语法的参数,如命令行参数为cmd -flag=true abc则第一个非flag命令行参数为"abc"
 
-使用flag来操作命令行参数，支持的格式如下: 
+使用flag来操作命令行参数,支持的格式如下: 
 
 ```bash-id=1
 --id=1

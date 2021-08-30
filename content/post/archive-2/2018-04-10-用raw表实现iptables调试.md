@@ -1,5 +1,5 @@
 ---
-title: iptables调试， raw表， LOG
+title: iptables调试, raw表, LOG
 author: "-"
 type: post
 date: 2018-04-09T16:04:45+00:00
@@ -18,13 +18,13 @@ iptables -t nat -I PREROUTING -p tcp -s 192.168.50.115 --dport 80 -j LOG --log-p
 iptables -t raw -I OUTPUT -d 10.254.51.153 -j LOG --log-level 7 --log-prefix "raw out: "
 ```
 
-iptables有5个链: PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING，4个表: filter, nat, mangle, raw
+iptables有5个链: PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING,4个表: filter, nat, mangle, raw
 
-raw表使用PREROUTING和OUTPUT两个链，因此raw可以覆盖所有包。在raw表中支持一个特殊的目标:TRACE，使内核记录下每条匹配该包的对应iptables规则信息。使用raw表内的TRACE target即可实现对iptables规则的跟踪调试。
+raw表使用PREROUTING和OUTPUT两个链,因此raw可以覆盖所有包。在raw表中支持一个特殊的目标:TRACE,使内核记录下每条匹配该包的对应iptables规则信息。使用raw表内的TRACE target即可实现对iptables规则的跟踪调试。
 
 配置
   
-假设需要对ipv4的ICMP包进行跟踪调试，抓取所有流经本机的ICMP包
+假设需要对ipv4的ICMP包进行跟踪调试,抓取所有流经本机的ICMP包
 
 ```bash
 iptables -t raw -A OUTPUT -p icmp -j TRACE
@@ -38,7 +38,7 @@ modprobe ipt_LOG
 modprobe xt_LOG
 ```
 
-日志输出在journalctl 里查看， 用journalctl -f 查看调试日志。
+日志输出在journalctl 里查看, 用journalctl -f 查看调试日志。
 
 #### TRACE
 
@@ -48,7 +48,7 @@ TRACE This target marks packes so that the kernel will log every rule which matc
 
 policy 是指iptables内置的规则如: accept
   
-policy 会跟用户定义的rule放在一起排序，如果用户定义了6条规则，那么链默认的accept 规则的number会是7， 日志里会打印成policy:7
+policy 会跟用户定义的rule放在一起排序,如果用户定义了6条规则,那么链默认的accept 规则的number会是7, 日志里会打印成policy:7
 
 for openwrt > iptables
 
@@ -64,7 +64,7 @@ iptables -t raw -I PREROUTING 1 -p tcp -d 216.58.193.196 -j TRACE
 
 调试
   
-在vm内对外部作ping操作，vm的ip为10.0.0.4
+在vm内对外部作ping操作,vm的ip为10.0.0.4
 
 [root@10-0-0-4 ~]# ping -c 1 192.168.0.19
   
@@ -100,7 +100,7 @@ Apr 1811:50:23 openstack-network kernel: [1038991.870979] TRACE: nat:POSTROUTING
   
 Apr 1811:50:23 openstack-network kernel: [1038991.870985] TRACE: nat:quantum-l3-agent-POSTROUTING:rule:1IN= OUT=br-ex SRC=10.0.0.4 DST=192.168.0.19 LEN=84TOS=0x00 PREC=0x00 TTL=63ID=0 DF PROTO=ICMP TYPE=8CODE=0ID=28976SEQ=1
   
-可见数据包流在nat表的quantum-l3-agent-POSTROUTING的第一条规则处被截断了，查看iptables中的nat表的规则如下
+可见数据包流在nat表的quantum-l3-agent-POSTROUTING的第一条规则处被截断了,查看iptables中的nat表的规则如下
 
 *nat
   
@@ -156,7 +156,7 @@ COMMIT
 
 -A quantum-l3-agent-POSTROUTING !-i qg-91757ded-c4 !-o qg-91757ded-c4 -m conntrack !-ctstate DNAT -j ACCEPT
   
-把这条规则删掉后重启iptables，vm能顺利连接外网，问题解决。
+把这条规则删掉后重启iptables,vm能顺利连接外网,问题解决。
 
 https://www.howtoing.com/enable-logging-in-iptables-on-linux
 

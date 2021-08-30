@@ -39,9 +39,9 @@ DATE=`date +%Y%m%d` +号后面是定义格式为年月日
 
 显示前一天为
 
-DATE1=`date -d '1 days ago' +%Y%m%d` 加-d参数可以设置与当前日期的计算时间，同样，前2天为'2 days ago'，去掉ago则为当前日期之后多少天
+DATE1=`date -d '1 days ago' +%Y%m%d` 加-d参数可以设置与当前日期的计算时间,同样,前2天为'2 days ago',去掉ago则为当前日期之后多少天
 
-以下内容就是网上看到的一篇不错的文章，出自http://www.labri.fr/perso/strandh/Teaching/USI/Common/Sh-utils/sh-utils_65.html
+以下内容就是网上看到的一篇不错的文章,出自http://www.labri.fr/perso/strandh/Teaching/USI/Common/Sh-utils/sh-utils_65.html
 
 Here are a few examples. Also see the documentation for the \`-d' option in the previous section.
 

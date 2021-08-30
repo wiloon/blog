@@ -50,7 +50,7 @@ text: Qt.formatTime(timeSource.data["Local"]["DateTime"])
 并将其更改为
 
 text: Qt.formatTime(timeSource.data["Local"]["DateTime"], "hh:mm:ss")
-对于ISO日期更改，请找到以下行: 
+对于ISO日期更改,请找到以下行: 
 
 text: Qt.formatDate(timeSource.data["Local"]["DateTime"], Qt.DefaultLocaleLongDate);
 并将其更改为

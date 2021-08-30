@@ -12,7 +12,7 @@ NMT for Hotspot VM is turned off by default. Turn this feature on using JVM comm
   
 -XX:NativeMemoryTracking=[off | summary | detail]
   
-注意，根据Java官方文档，开启NMT会有5%－10%的性能损耗；
+注意,根据Java官方文档,开启NMT会有5%－10%的性能损耗；
 
 访问NMT数据
 
@@ -26,15 +26,15 @@ summary 只打印打印按分类汇总的内存
   
 detail 打印按分类汇总的内存用法、virtual memory map和每次内存分配调用
   
-baseline 创建内存快照，以比较不同时间的内存差异
+baseline 创建内存快照,以比较不同时间的内存差异
   
-summary.diff 打印自上次baseline到现在的内存差异，显示汇总信息
+summary.diff 打印自上次baseline到现在的内存差异,显示汇总信息
   
 detail.diff 打印自上次baseline到现在的内存差异, 显示详细信息
   
 shutdown 关闭NMT功能,NMT can be shutdown using jcmd utility, but can not start/restart using jcmd
   
-scale 指定内存单位，默认为KB
+scale 指定内存单位,默认为KB
 
 ```bash
   
