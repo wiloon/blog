@@ -1,17 +1,22 @@
 ---
 title: ThreadLocal
 author: "-"
-type: post
 date: 2017-03-24T09:14:42+00:00
-url: ThreadLocal
+url: threadlocal
 categories:
   - java
+tags:
+  - thread
 
 ---
-提到ThreadLocal,有些Android或者Java程序员可能有所陌生,可能会提出种种问题,它是做什么的,是不是和线程有关,怎么使用呢？等等问题,本文将总结一下我对ThreadLocal的理解和认识,希望让大家理解ThreadLocal更加透彻一些。
+# ThreadLocal
+- 弱引用
+- 避免内存溢出的操作
+- 开放地址法解决hash 冲突
+- 各种内部类
 
-### ThreadLocal是什么
-ThreadLocal是一个关于创建线程局部变量的类。
+### ThreadLocal 是什么
+ThreadLocal是线程的局部变量, 也就是说这个变量是线程独有的。
 通常情况下,我们创建的变量是可以被任何一个线程访问并修改的。而使用ThreadLocal创建的变量只能被当前线程访问,其他线程则无法访问和修改。
 
 变量是同一个，但是每个线程都使用同一个初始值，也就是使用同一个变量的一个新的副本，这种情况下TreadLocal就非常有用。
@@ -28,6 +33,13 @@ Object get（）返回当前线程所对用的线程局部变量。
 void remove() 将当前线程局部变量的值删除，目的是为了减少内存的占用，线程结束后，局部变量自动被GC
 Object initValue() 返回该线程局部变量的初始值，使用protected修饰，显然是为了让子类覆盖而设计的。
 
+### ThreadLocalMap
+1.  HashMap 的数据结构是数组+链表
+2.  ThreadLocalMap的数据结构仅仅是数组
+3.  HashMap 是通过链地址法解决hash 冲突的问题
+4.  ThreadLocalMap 是通过开放地址法来解决hash 冲突的问题
+5.  HashMap 里面的Entry 内部类的引用都是强引用
+6.  ThreadLocalMap里面的Entry 内部类中的key 是弱引用，value 是强引用
 #### 对象存放在哪里
 在Java中，栈内存归属于单个线程，每个线程都会有一个栈内存，其存储的变量只能在其所属线程中可见，即栈内存可以理解成线程的私有内存。而堆内存中的对象对所有线程可见。堆内存中的对象可以被所有线程访问。
 
@@ -344,6 +356,19 @@ key 使用弱引用：引用的ThreadLocal的对象被回收了，由于ThreadLo
 
 每个ThreadLocal只能保存一个变量副本，如果想要上线一个线程能够保存多个副本以上，就需要创建多个ThreadLocal。
 ThreadLocal内部的ThreadLocalMap键为弱引用，会有内存泄漏的风险。
+
+### 魔数0x61c88647
+魔数0x61c88647与碰撞解决#
+机智的读者肯定发现ThreadLocalMap并没有使用链表或红黑树去解决hash冲突的问题，而仅仅只是使用了数组来维护整个哈希表，那么重中之重的散列性要如何保证就是一个很大的考验
+ThreadLocalMap通过结合三个巧妙的设计去解决这个问题：
+1.Entry的key设计成弱引用，因此key随时可能被GC（也就是失效快），尽量多的面对空槽
+2.(单个ThreadLocal时)当遇到碰撞时，通过线性探测的开放地址法解决冲突问题
+3.(多个ThreadLocal时)引入了神奇的0x61c88647，增强其的散列性，大大减少碰撞几率
+之所以不用累加而用该值，笔者认为可能跟其找最近的空槽有关（跳跃查找比自增1查找用来找空槽可能更有效一些，因为有了更多可选择的空间spreading out），同时也跟其良好的散列性有关
+0x61c88647与黄金比例、Fibonacci 数有关，读者可参见What is the meaning of 0x61C88647 constant in ThreadLocal.java
+
+>https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java
+>https://web.archive.org/web/20161121124236/http://brpreiss.com/books/opus4/html/page214.html
 
 ---
 
