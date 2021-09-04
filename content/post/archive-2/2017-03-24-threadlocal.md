@@ -1,21 +1,55 @@
 ---
 title: ThreadLocal
 author: "-"
-type: post
 date: 2017-03-24T09:14:42+00:00
-url: ThreadLocal
+url: threadlocal
 categories:
   - java
+tags:
+  - thread
 
 ---
-提到ThreadLocal,有些Android或者Java程序员可能有所陌生,可能会提出种种问题,它是做什么的,是不是和线程有关,怎么使用呢？等等问题,本文将总结一下我对ThreadLocal的理解和认识,希望让大家理解ThreadLocal更加透彻一些。
+# ThreadLocal
+- 弱引用
+- 避免内存溢出的操作
+- 开放地址法解决hash 冲突
+- 各种内部类
 
-### ThreadLocal是什么
-ThreadLocal是一个关于创建线程局部变量的类。
+### ThreadLocal 是什么
+ThreadLocal是线程的局部变量, 也就是说这个变量是线程独有的。
 通常情况下,我们创建的变量是可以被任何一个线程访问并修改的。而使用ThreadLocal创建的变量只能被当前线程访问,其他线程则无法访问和修改。
 
-Global && Local
-  
+变量是同一个，但是每个线程都使用同一个初始值，也就是使用同一个变量的一个新的副本，这种情况下TreadLocal就非常有用。
+
+应用场景: 当很多线程需要多次使用同一个对象，并且需要该对象具有相同初始值的时候，最适合使用TreadLocal。
+
+事实上，从本质上讲，就是每个线程都维持一个MAP，而这个map的key就是TreadLocal,而值就是我们set的那个值，每次线程在get的时候，都从自己的变量中取值，既然从自己的变量中取值，那就肯定不存在线程安全的问题。总体来讲，TreadLocal这个变量的状态根本没有发生变化。它仅仅是充当了一个key的角色，另外提供给每一个线程一个初始值。如果允许的话，我们自己就能实现一个这样的功能，只不过恰好JDK就已经帮助我们做了这个事情。
+
+使用TreadLocal维护变量时，TreadLocal为每个使用该变量的线程提供独立地变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其他线程所对应的副本。从线程的角度看，目标变量对象是线程的本地变量，这也是类名中Local所需要表达的意思。
+
+#### TreadLocal的四个方法: 
+void set(Object val),设置当前线程的线程局部变量的值
+Object get（）返回当前线程所对用的线程局部变量。
+void remove() 将当前线程局部变量的值删除，目的是为了减少内存的占用，线程结束后，局部变量自动被GC
+Object initValue() 返回该线程局部变量的初始值，使用protected修饰，显然是为了让子类覆盖而设计的。
+
+### ThreadLocalMap
+1.  HashMap 的数据结构是数组+链表
+2.  ThreadLocalMap的数据结构仅仅是数组
+3.  HashMap 是通过链地址法解决hash 冲突的问题
+4.  ThreadLocalMap 是通过开放地址法来解决hash 冲突的问题
+5.  HashMap 里面的Entry 内部类的引用都是强引用
+6.  ThreadLocalMap里面的Entry 内部类中的key 是弱引用，value 是强引用
+#### 对象存放在哪里
+在Java中，栈内存归属于单个线程，每个线程都会有一个栈内存，其存储的变量只能在其所属线程中可见，即栈内存可以理解成线程的私有内存。而堆内存中的对象对所有线程可见。堆内存中的对象可以被所有线程访问。
+
+问: 那么是不是说ThreadLocal的实例以及其值存放在栈上呢？
+
+其实不是，因为ThreadLocal实例实际上也是被其创建的类持有（更顶端应该是被线程持有）。而ThreadLocal的值其实也是被线程实例持有。
+
+它们都是位于堆上，只是通过一些技巧将可见性修改成了线程可见。
+
+### Global && Local
 上面的两个修饰看似矛盾,实则不然。
 
 Global 意思是在当前线程中,任何一个点都可以访问到ThreadLocal的值。
@@ -291,8 +325,56 @@ Java Thread Local – How to use and code sample
   
 ThreadLocal in Java – Example Program and Tutorial
 
+
+### Hash冲突怎么解决
+和HashMap的最大的不同在于，ThreadLocalMap结构非常简单，没有next引用，也就是说ThreadLocalMap中解决Hash冲突的方式并非链表的方式，而是采用线性探测的方式，所谓线性探测，就是根据初始key的hashcode值确定元素在table数组中的位置，如果发现这个位置上已经有其他key值的元素被占用，则利用固定的算法寻找一定步长的下个位置，依次判断，直至找到能够存放的位置。
+
+ThreadLocalMap解决Hash冲突的方式就是简单的步长加1或减1，寻找下一个相邻的位置。
+
+显然ThreadLocalMap采用线性探测的方式解决Hash冲突的效率很低，如果有大量不同的ThreadLocal对象放入map中时发送冲突，或者发生二次冲突，则效率很低。
+
+所以这里引出的良好建议是：每个线程只存一个变量，这样的话所有的线程存放到map中的Key都是相同的ThreadLocal，如果一个线程要保存多个变量，就需要创建多个ThreadLocal，多个ThreadLocal放入Map中时会极大的增加Hash冲突的可能。
+
+ 
+
+ThreadLocalMap的问题
+ThreadLocal在ThreadLocalMap中是以一个弱引用身份被Entry中的Key引用的
+
+由于Entry的key是弱引用，而Value是强引用。这就导致了一个问题，ThreadLocal在没有外部对象强引用时，发生GC时弱引用Key会被回收，而Value不会回收，如果创建ThreadLocal的线程一直持续运行，那么这个Entry对象中的value就有可能一直得不到回收，发生内存泄露。
+
+为什么使用弱引用？
+key 使用强引用：引用的ThreadLocal的对象被回收了，但是ThreadLocalMap还持有ThreadLocal的强引用，如果没有手动删除，ThreadLocal不会被回收，导致Entry内存泄漏。
+key 使用弱引用：引用的ThreadLocal的对象被回收了，由于ThreadLocalMap持有ThreadLocal的弱引用，即使没有手动删除，ThreadLocal也会被回收。value在下一次ThreadLocalMap调用set,get，remove的时候会被清除。
+
+比较两种情况，我们可以发现：由于ThreadLocalMap的生命周期跟Thread一样长，如果都没有手动删除对应key，都会导致内存泄漏，但是使用弱引用可以多一层保障：弱引用ThreadLocal不会内存泄漏，对应的value在下一次ThreadLocalMap调用set,get,remove的时候会被清除。
+ 
+
+如何避免泄漏
+既然Key是弱引用，那么我们要做的事，就是在调用ThreadLocal的get()、set()方法时完成后再调用remove方法，将Entry节点和Map的引用关系移除，这样整个Entry对象在GC Roots分析后就变成不可达了，下次GC的时候就可以被回收。
+
+如果使用ThreadLocal的set方法之后，没有显示的调用remove方法，就有可能发生内存泄露，所以养成良好的编程习惯十分重要，使用完ThreadLocal之后，记得调用remove方法。
+
+每个ThreadLocal只能保存一个变量副本，如果想要上线一个线程能够保存多个副本以上，就需要创建多个ThreadLocal。
+ThreadLocal内部的ThreadLocalMap键为弱引用，会有内存泄漏的风险。
+
+### 魔数0x61c88647
+魔数0x61c88647与碰撞解决#
+机智的读者肯定发现ThreadLocalMap并没有使用链表或红黑树去解决hash冲突的问题，而仅仅只是使用了数组来维护整个哈希表，那么重中之重的散列性要如何保证就是一个很大的考验
+ThreadLocalMap通过结合三个巧妙的设计去解决这个问题：
+1.Entry的key设计成弱引用，因此key随时可能被GC（也就是失效快），尽量多的面对空槽
+2.(单个ThreadLocal时)当遇到碰撞时，通过线性探测的开放地址法解决冲突问题
+3.(多个ThreadLocal时)引入了神奇的0x61c88647，增强其的散列性，大大减少碰撞几率
+之所以不用累加而用该值，笔者认为可能跟其找最近的空槽有关（跳跃查找比自增1查找用来找空槽可能更有效一些，因为有了更多可选择的空间spreading out），同时也跟其良好的散列性有关
+0x61c88647与黄金比例、Fibonacci 数有关，读者可参见What is the meaning of 0x61C88647 constant in ThreadLocal.java
+
+>https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java
+>https://web.archive.org/web/20161121124236/http://brpreiss.com/books/opus4/html/page214.html
+
 ---
 
+https://zhuanlan.zhihu.com/p/139214244  
 https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/
 
-https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666
+https://www.liaoxuefeng.com/wiki/1252599548343744/1306581251653666  
+https://blog.csdn.net/Summer_And_Opencv/article/details/104632272  
+https://juejin.cn/post/6844903974454329358  

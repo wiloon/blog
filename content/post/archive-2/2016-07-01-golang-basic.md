@@ -1,11 +1,17 @@
 ---
-title: go basic
+title: go, golang, basic
 author: "-"
-type: post
 date: 2016-07-01T08:06:08+00:00
-url: /?p=9096
+url: go
 
 ---
+# golang
+## version
+### latest 
+1.17
+### current 
+1.15
+
 ### math
    float64 保留2位小数
    value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
@@ -320,3 +326,8 @@ func main() {
 ---
 
 https://cyent.github.io/golang/datatype/funcvalue_parameter/
+
+## release notes
+### 1.17 
+https://tip.golang.org/doc/go1.17
+    
