@@ -131,6 +131,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | platformio                            | 物联网开发的开源生态系统                                       |
 |slurm|网络监控|
 |joplin-desktop||
+|typora| markdown 编辑器，joplin 外部编辑器|
 
 ### KDE
 

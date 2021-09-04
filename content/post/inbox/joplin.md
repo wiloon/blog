@@ -15,3 +15,9 @@ title = "joplin"
     joplin desktop > setting>web clipper > enable web clipper service
 
 打开vscode setting 搜索joplin, 填写 web clipper 端口， jplin路径 ， token， 重启vscode 
+
+## typora
+打开Joplin，然后点击菜单栏的工具，在弹出的菜单中选择选项
+
+Tools>Options>General>Text editor command>Path
+填写typora 可执行文件的位置。
