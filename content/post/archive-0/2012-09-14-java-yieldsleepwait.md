@@ -240,21 +240,19 @@ I am Producer : Produced Item 4
 I am Consumer : Consumed Item 4
 
 ### join()
-join() 定义在 Thread.java 中。
-  
-join() 的作用：让"主线程"等待"子线程" 结束之后才能继续运行。这句话可能有点晦涩，我们还是通过例子去理解：
-  
+join() 定义在 Thread.java 中  
+join() 的作用：让"主线程"等待"子线程" 结束之后才能继续运行。这句话可能有点晦涩，我们还是通过例子去理解：  
 线程实例的方法 join()方法可以使得一个线程在另一个线程结束后再执行。如果join()方法在一个线程实例上调用，当前运行着的线程将阻塞直到这个线程实例完成了执行。
   
 <http://www.wiloon.com/?p=7232>
 
 #### 让线程停下来的方法
-    函数                版本  消耗CPU   能否被Interrupt 核心方法 线程状态 备注
+    函数                版本  消耗CPU   能否被Interrupt 核心方法 线程状态       备注
     spinlock            1.0   是        否              native RUNNABLE
     wait()              1.0   否        是              native WAITING
-    LockSupport.park()  1.5   否        是 native WAITING
-    sleep()             1.0   否        是 native TIMED_WAITING
-    join()              1.0   否        是 wait() WAITING
+    LockSupport.park()  1.5   否        是              native WAITING
+    sleep()             1.0   否        是              native TIMED_WAITING
+    join()              1.0   否        是              wait() WAITING
   
 suspend() 1.0 否 否 native WAITING 已弃用
   

@@ -14,4 +14,4 @@ U2F(Universal 2 Factor)标准是由Yubico公司和Google发起的FIDO(Fast IDent
 
 U2F的物理层可以是USB-HID, 也可以是NFC(目前Yubikey Neo支持)http://scateu.me/2016/11/30/u2f-zero.html
 
-FIDO U2F规范，U2F (Universal 2nd Factor) 是 Yubico, Yahoo 和 Google 联合开发的基于物理设备的双因素认证协议，目前已经完成标准化，从属于 FIDO (Fast Identity Online) 联盟名下。
+FIDO U2F规范,U2F (Universal 2nd Factor) 是 Yubico, Yahoo 和 Google 联合开发的基于物理设备的双因素认证协议,目前已经完成标准化,从属于 FIDO (Fast Identity Online) 联盟名下。

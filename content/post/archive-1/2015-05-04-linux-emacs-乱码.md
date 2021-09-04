@@ -12,7 +12,7 @@ tags:
 ---
 其实就是编码字符不是utf-8的问题导致。什么年代了，这么多软件也不往通用标准靠，非要使用所谓的中文编码。射手网下载的东东几乎都是这个毛病。
 
-在<a title="Ubuntu" href="http://www.linuxidc.com/topicnews.aspx?tid=2" target="_blank">Ubuntu</a>下用Emacs打开的时候看到的也是乱码，不过好解决，在~/.emacs.d/init.el文件中添加一行设置: 
+在Ubuntu下用Emacs打开的时候看到的也是乱码，不过好解决，在~/.emacs.d/init.el文件中添加一行设置: 
 
 (set-language-environment "Chinese-GB")
 

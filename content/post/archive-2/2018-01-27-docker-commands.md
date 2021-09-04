@@ -34,7 +34,7 @@ docker cp /opt/local/file.txt mycontainer:/opt/
 
 ### docker port
 
-docker port :列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口。
+docker port :列出指定的容器的端口映射,或者查找将PRIVATE_PORT NAT到面向公众的端口。
   
 docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]
 
@@ -104,7 +104,7 @@ docker volume create --name influxdb-config
 docker volume rm influxdb-config
 ```
 
-容器创建后不能再新增volume, 可以先commit到镜像， 再创建新的容器。
+容器创建后不能再新增volume, 可以先commit到镜像, 再创建新的容器。
 
 ### 时区问题
 
@@ -136,7 +136,7 @@ docker container update --restart=always <containername>
 ```bash
 # 构建镜像
 # docker build [选项] <上下文路径/URL/->
-# --tag, -t: 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。
+# --tag, -t: 镜像的名字及标签,通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。
 # --add-host=foo.wiloon.com:192.168.xx.xxx    # /etc/hosts
 
 docker build -t dnsmasq:v1.0.0 .
@@ -159,21 +159,21 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```bash
 docker run -it --rm ubuntu bash
-# -i, --interactive=false   打开STDIN，用于控制台交互
-# -t, --tty=false           分配tty设备，该可以支持终端登录，默认为false
+# -i, --interactive=false   打开STDIN,用于控制台交互
+# -t, --tty=false           分配tty设备,该可以支持终端登录,默认为false
 # -t -a stdout              Outputs the container logs on the standard output
 # -P, --publish-all=false   Docker自动分配一个未被使用的端口
 # -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp)
 # -d, --detach=false        Run container in background and print container ID(后台运行)并返回容器ID；
 # --rm 容器退出后随之将其删除
-# bash: 放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 bash
+# bash: 放在镜像名后的是命令,这里我们希望有个交互式 Shell,因此用的是 bash
 # --name="nginx-lb" : 为容器指定一个名称；
 # -p 80:80 映射端口, hostPort:containerPort
-# --privileged=true, 大约在0.6版，privileged被引入docker。使用该参数，container内的root拥有真正的root权限。
+# --privileged=true, 大约在0.6版,privileged被引入docker。使用该参数,container内的root拥有真正的root权限。
 # --restart=always
 # --cap-add=SYS_TIME
 # -e, --env=[]                    Set environment variables(设置环境变量)
-# --link 用来链接2个容器，使得源容器（被链接的容器）和接收容器（主动去链接的容器）之间可以互相通信，并且接收容器可以获取源容器的一些数据，如源容器的环境变量。--link <name or id>:alias 其中，name和id是源容器的name和id，alias是源容器在link下的别名。
+# --link 用来链接2个容器,使得源容器（被链接的容器）和接收容器（主动去链接的容器）之间可以互相通信,并且接收容器可以获取源容器的一些数据,如源容器的环境变量。--link <name or id>:alias 其中,name和id是源容器的name和id,alias是源容器在link下的别名。
 # --cpus=2
 # --cpuset-cpus="0" --cpu-shares=512
 
@@ -222,7 +222,7 @@ sudo docker search [image name]
 docker --version #查看版本
 docker-compose --version #查看版本
 docker-machine --version #查看版本
-docker version #查看client和server端版本，并可以查看是否开启体验功能
+docker version #查看client和server端版本,并可以查看是否开启体验功能
 
 sudo docker-compose up
 

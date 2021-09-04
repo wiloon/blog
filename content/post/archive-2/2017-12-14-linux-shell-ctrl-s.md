@@ -16,7 +16,7 @@ ctrl+s 暂停屏幕输出
   
 ctrl+q 恢复屏幕输出
   
-ctrl+l 清屏，【是字母L的小写】等同于Clear
+ctrl+l 清屏,【是字母L的小写】等同于Clear
 
 http://www.tsingpost.com/articles/201405/828.html
   

@@ -10,7 +10,7 @@ categories:
 ---
 
 ### Cozy Cloud
-Cozy Cloud是一个开源的个人私有云，可以用于阅读电子邮件，或者管理和同步联系人、文件或日历，同时会有相关的应用商店和社区作为素材库，它可以将所有Web服务都放在同一个私有的个人平台，通过此平台，用户的网页应用和设备可以轻松地进行数据分享。
+Cozy Cloud是一个开源的个人私有云,可以用于阅读电子邮件,或者管理和同步联系人、文件或日历,同时会有相关的应用商店和社区作为素材库,它可以将所有Web服务都放在同一个私有的个人平台,通过此平台,用户的网页应用和设备可以轻松地进行数据分享。
 
 语言: Go
 操作系统: Linux/Unix
@@ -48,7 +48,7 @@ nextcloud
 
 home-port: 63585
 
-nginx代理nextcloud时， nextcloud需要配置
+nginx代理nextcloud时, nextcloud需要配置
 
 ```bash'trusted_proxies'   => ['127.0.0.1'],
 'overwritehost'     => 'xxx.wiloon.com',

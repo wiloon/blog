@@ -23,7 +23,7 @@ nft add table [<family>] <name>
 nft add table ip foo
 ```
 
-family 参数是可选的，如果不指定 family，默认是 IPv4
+family 参数是可选的,如果不指定 family,默认是 IPv4
 
 #### 增加链,add chain: 
 ```bash

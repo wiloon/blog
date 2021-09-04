@@ -12,7 +12,7 @@ http://wuzhangshu927.blog.163.com/blog/static/1142246872010113093426574/
 
   1. USING()
 
-using可用在join语句相同字段连接，起到和ON相同作用，inner join 和left join中都可以使用
+using可用在join语句相同字段连接,起到和ON相同作用,inner join 和left join中都可以使用
 
 示例: 
 
@@ -28,7 +28,7 @@ LEFT JOIN 正常写法:
 
   1. HAVING
 
-mysql中的where和having子句都可以实现筛选记录的功能,having 可以认为是对where的补充,因为它可以对分组数据进行再次判断,一般跟在group by 后面，并可以使用聚集函数(sum,min,max,avg,count)
+mysql中的where和having子句都可以实现筛选记录的功能,having 可以认为是对where的补充,因为它可以对分组数据进行再次判断,一般跟在group by 后面,并可以使用聚集函数(sum,min,max,avg,count)
 
 示例: 
 

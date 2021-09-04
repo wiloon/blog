@@ -21,15 +21,15 @@ MySQL数据库基准压力测试工具之MySQLSlap使用实例
 
 一、Mysqlslap介绍
   
-mysqlslap是MySQL5.1之后自带的benchmark基准测试工具，类似Apache Bench负载产生工具，生成schema，装载数据，执行benckmark和查询数据，语法简单，灵活，容易使用。该工具可以模拟多个客户端同时并发的向服务器发出查询更新，给出了性能测试数据而且提供了多种引擎的性能比较。mysqlslap为mysql性能优化前后提供了直观的验证依据，笔者建议系统运维人员应该掌握一些常见的压力测试工具，这样才能较为准确的掌握线上系统能够支撑的用户流量上限及其抗压性等问题。  www.2cto.com
+mysqlslap是MySQL5.1之后自带的benchmark基准测试工具,类似Apache Bench负载产生工具,生成schema,装载数据,执行benckmark和查询数据,语法简单,灵活,容易使用。该工具可以模拟多个客户端同时并发的向服务器发出查询更新,给出了性能测试数据而且提供了多种引擎的性能比较。mysqlslap为mysql性能优化前后提供了直观的验证依据,笔者建议系统运维人员应该掌握一些常见的压力测试工具,这样才能较为准确的掌握线上系统能够支撑的用户流量上限及其抗压性等问题。  www.2cto.com
   
 二、使用方法介绍
   
 可以使用mysqlslap -help来显示使用方法: 
   
-1) -concurrency代表并发数量，多个可以用逗号隔开,例如: concurrency=10,50,100, 并发连接线程数分别是10、50、100个并发。
+1) -concurrency代表并发数量,多个可以用逗号隔开,例如: concurrency=10,50,100, 并发连接线程数分别是10、50、100个并发。
   
-2) -engines代表要测试的引擎，可以有多个，用分隔符隔开。
+2) -engines代表要测试的引擎,可以有多个,用分隔符隔开。
   
 3) -iterations代表要运行这些测试多少次。
   
@@ -43,15 +43,15 @@ mysqlslap是MySQL5.1之后自带的benchmark基准测试工具，类似Apache Be
   
 8) -number-int-cols : 创建测试表的 int 型字段数量
   
-9) -auto-generate-sql-add-autoincrement : 代表对生成的表自动添加auto_increment列，从5.1.18版本开始
+9) -auto-generate-sql-add-autoincrement : 代表对生成的表自动添加auto_increment列,从5.1.18版本开始
   
 10) -number-char-cols 创建测试表的 char 型字段数量。
   
-11) -create-schema 测试的schema，MySQL中schema也就是database。
+11) -create-schema 测试的schema,MySQL中schema也就是database。
   
-12) -query  使用自定义脚本执行测试，例如可以调用自定义的一个存储过程或者sql语句来执行测试。
+12) -query  使用自定义脚本执行测试,例如可以调用自定义的一个存储过程或者sql语句来执行测试。
   
-13) -only-print 如果只想打印看看SQL语句是什么，可以用这个选项。
+13) -only-print 如果只想打印看看SQL语句是什么,可以用这个选项。
   
 三、Demo实例
   
@@ -61,7 +61,7 @@ mysqlslap是MySQL5.1之后自带的benchmark基准测试工具，类似Apache Be
   
 [root@localhost ~]# mysqlslap -uroot -p123abc -concurrency=100 -iterations=1 -auto-generate-sql -auto-generate-sql-load-type=mixed -auto-generate-sql-add-autoincrement -engine=myisam -number-of-queries=10 -debug-info
   
-#备注本次测试以100个并发线程、测试1次，自动生成SQL测试脚本、读、写、更新混合测试、自增长字段、测试引擎为myisam、共运行10次查询，输出cpu资源信息
+#备注本次测试以100个并发线程、测试1次,自动生成SQL测试脚本、读、写、更新混合测试、自增长字段、测试引擎为myisam、共运行10次查询,输出cpu资源信息
   
 返回信息如下所示: 
   
@@ -101,7 +101,7 @@ mysqlslap -h192.168.202.84 -P3309 -concurrency=100 -iterations=1 -create-schema=
   
 [root@localhost /]# mysqlslap -concurrency=50,100,200 -iterations=20 -number-int-cols=4 -number-char-cols=35 -auto-generate-sql -auto-generate-sql-add-autoincrement -auto-generate-sql-load-type=read -engine=myisam,innodb -number-of-queries=200 -verbose -socket=/var/lib/mysql/mysql.sock -uroot -p123abc
   
-#系统脚本测试，增加int型 4列char 型35列，测试2种引擎myisam,innodb读的性能，分别用50，100，200个客户端对服务器进行测试总共200个查询语句 执行20次查询
+#系统脚本测试,增加int型 4列char 型35列,测试2种引擎myisam,innodb读的性能,分别用50,100,200个客户端对服务器进行测试总共200个查询语句 执行20次查询
   
 Benchmark
   

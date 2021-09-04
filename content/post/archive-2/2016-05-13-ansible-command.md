@@ -49,7 +49,7 @@ ansible-playbook foo.yml --tags tag0 -l host0 --list-hosts
 # by user
 ansible 192.168.1.1 -m shell -a 'date' -u user0
 
-# 按网段，ip段
+# 按网段,ip段
 ansible "192.168.2.1*" -a 'ls -l'
 ansible "192.168.2.1?" -a 'ls -l'
 
@@ -71,7 +71,7 @@ sudo ansible 192.168.1.11 -m copy -a 'src=/home/roy/xxx/x.jar dest=/home/ansible
 #fetch 模块
 ansible 192.168.1.11 -m fetch -a 'src=/data/logs/xxx/debug.log dest=./' --sudo
 
-ansible group0 -a "/etc/init.d/app0 restart" -f 10 \\重启testhosts组的所有机器，每次重启10台
+ansible group0 -a "/etc/init.d/app0 restart" -f 10 \\重启testhosts组的所有机器,每次重启10台
 ```
 
 -m后面接调用module的名字
@@ -80,9 +80,9 @@ ansible group0 -a "/etc/init.d/app0 restart" -f 10 \\重启testhosts组的所有
 
 -m shell 使用shell模块
   
-如果不加-m 参数，默认使用command模块。
+如果不加-m 参数,默认使用command模块。
   
-command比较安全有可预知性，最好用command， 需要用到shell特性的时候，再用shell。
+command比较安全有可预知性,最好用command, 需要用到shell特性的时候,再用shell。
 
 # http://www.wiloon.com/?p=9403
 

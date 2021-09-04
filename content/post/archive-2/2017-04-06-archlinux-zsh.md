@@ -36,7 +36,7 @@ chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-oh-my-zsh 是一个著名的，社区驱动的框架，它拥有很多有用的函数，helpers，插件，主题，可以用来简化复杂的 Zsh 配置。
+oh-my-zsh 是一个著名的,社区驱动的框架,它拥有很多有用的函数,helpers,插件,主题,可以用来简化复杂的 Zsh 配置。
   
 config zsh history size
 
@@ -52,7 +52,7 @@ export SAVEHIST=10000
 
 ### theme, random 模式使用theme列表
 
-使用random模式时经常会随机到系统不支持的主题， 使用ZSH_THEME_RANDOM_CANDIDATES 配置， 可以把随机主题控制在一定范围内。
+使用random模式时经常会随机到系统不支持的主题, 使用ZSH_THEME_RANDOM_CANDIDATES 配置, 可以把随机主题控制在一定范围内。
 
 ```bash
 zSH_THEME_RANDOM_CANDIDATES=(

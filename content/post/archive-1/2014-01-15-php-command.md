@@ -20,6 +20,6 @@ Dt(T)属于DB。若在任意时刻t，均有:
   
 成立，则称DBS为一个内存数据库系统，简称为MMDBS;DB为一个内存数据库，简称为MMDB。
   
-常见的例子有MySQL的MEMORY存储引擎、eXtremeDB、TT、FastDB、SQLite、Microsoft SQL Server Compact等
+常见的例子有MySQL的MEMORY存储引擎、eXtremeDB、TT、FastDB、SQLite、Microsoft SQL Server Compact,Redis
 
 http://baike.baidu.com/view/1210875.htm

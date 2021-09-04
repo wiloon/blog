@@ -29,7 +29,7 @@ drill wiloon.com @192.168.50.1
 drill wangyue.dev NS
 ```
 
-dig，其实是一个缩写，即Domain Information Groper。
+dig,其实是一个缩写,即Domain Information Groper。
 
 dig @8.8.8.8 www.baidu.com A //命令格式为dig @dnsserver name querytype
 

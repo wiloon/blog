@@ -9,10 +9,8 @@ categories:
   - Web
 
 ---
-<p align="center">
-  <a href="http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html">http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html</a>
+http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html
 
-<p align="center">
   第一章           设计一个简单的web service接口
 
 本章主要内容： 你将学会如何设计一个简单的web service接口

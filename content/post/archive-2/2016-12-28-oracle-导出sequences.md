@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-如下脚本，可以将某个用户的全部sequence查询出来，并拼成创建语句。
+如下脚本,可以将某个用户的全部sequence查询出来,并拼成创建语句。
 
 <wbr />select 'create sequence '||sequence_name|| <wbr /> <wbr /> <wbr />
   
@@ -24,7 +24,7 @@ categories:
   
 from dba_sequences where sequence_owner='HR' <wbr /> <wbr />
   
-注意: 其中的HR，是需要导出sequence的用户，貌似必须大写的说！并且使用该脚本的用户需要有访问dba_sequences的权限。
+注意: 其中的HR,是需要导出sequence的用户,貌似必须大写的说！并且使用该脚本的用户需要有访问dba_sequences的权限。
 
 导出结果如下: 
 
@@ -34,7 +34,7 @@ create sequence MIAGENTVERSION_VERSION_SEQ minvalue 1 maxvalue 99999999999999999
 
 ---------------------------
 
-如果你只想导出本用户的sequence那就不要那么复杂的写，只写如下语句就可以了: 
+如果你只想导出本用户的sequence那就不要那么复杂的写,只写如下语句就可以了: 
 
 select 'create sequence '||sequence_name|| <wbr /> <wbr />
   

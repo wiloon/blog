@@ -14,7 +14,7 @@ https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-develop
   
 hold the Esc, Refresh, and power button for a little while and the laptop reboots into Recovery Mode. Once you're there, you hit Ctrl-D to boot into Developer Mode.
   
-同时按esc refresh, poeer button, 直到出现recovery mode, 就是提示插入u盘的界面，这个时候按ctrl-d(不需要插入u盘， 插入u盘会自动进入恢复模式。)
+同时按esc refresh, poeer button, 直到出现recovery mode, 就是提示插入u盘的界面,这个时候按ctrl-d(不需要插入u盘, 插入u盘会自动进入恢复模式。)
   
 开启 开发者模式会清空数据。
 

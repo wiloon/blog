@@ -8,7 +8,7 @@ url: /?p=12034
 ---
 在ubuntu上安装如下软件包: 
   
-gcc， g++, binutils, bzip2, flex, python, perl, make,find, grep, diff, unzip, gawk, getopt, subversion, libz-dev and libc 头文件
+gcc, g++, binutils, bzip2, flex, python, perl, make,find, grep, diff, unzip, gawk, getopt, subversion, libz-dev and libc 头文件
   
 sudo apt-get updatesudo apt-get install gcc g++ build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip
   
@@ -32,7 +32,7 @@ lede-ipq806x-squashfs-root.img
   
 packageslede-ipq806x-R7800-squashfs-factory.img lede-ipq806x-ubifs-root.img
   
-sha256sums其中lede-ipq806x-R7800-squashfs-factory.img即为R7800的工厂固件， lede-ipq806x-R7800-squashfs-sysupgrade.tar为升级固件
+sha256sums其中lede-ipq806x-R7800-squashfs-factory.img即为R7800的工厂固件, lede-ipq806x-R7800-squashfs-sysupgrade.tar为升级固件
 
 download https://downloads.openwrt.org/releases/17.01.4/targets/bcm53xx/generic/lede-sdk-17.01.4-bcm53xx_gcc-5.4.0_musl-1.1.16_eabi.Linux-x86_64.tar.xz
   

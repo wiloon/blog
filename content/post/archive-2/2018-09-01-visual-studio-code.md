@@ -14,7 +14,7 @@ https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/
 https://code.visualstudio.com/#
 
 ### vscode 列编辑
-Alt+Shift+鼠标左键拖动，选中拖动的区域内容
+Alt+Shift+鼠标左键拖动,选中拖动的区域内容
 
 https://blog.csdn.net/u011127019/article/details/74039598
 
@@ -30,7 +30,7 @@ https://blog.csdn.net/u011127019/article/details/74039598
     Ctrl + `
 
 ### 字体 
-打开 VSCode，Windows 下按 Ctrl + ,，macOS 下按 Cmd + ,，进入设定。在上方搜索框搜索 editor.fontFamily，在
+打开 VSCode,Windows 下按 Ctrl + ,,macOS 下按 Cmd + ,,进入设定。在上方搜索框搜索 editor.fontFamily,在
 
 Editor: Font Family
 Controls the font family.

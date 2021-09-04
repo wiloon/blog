@@ -9,9 +9,9 @@ categories:
 
 ---
 
-DNSmasq是一个小巧且方便地用于配置DNS和DHCP的工具，适用于小型网络。它提供了DNS功能和可选择的DHCP功能可以取代dhcpd(DHCPD服务配置)和bind等服务，配置起来更简单，更适用于虚拟化和大数据环境的部署。
+DNSmasq是一个小巧且方便地用于配置DNS和DHCP的工具,适用于小型网络。它提供了DNS功能和可选择的DHCP功能可以取代dhcpd(DHCPD服务配置)和bind等服务,配置起来更简单,更适用于虚拟化和大数据环境的部署。
 
-检查一下no-hosts前面是不是已经有了#号，默认的情况下是有的，dnsmasq 会首先寻找本地的 hosts 文件再去寻找缓存下来的域名, 最后去上游dns 服务器寻找。
+检查一下no-hosts前面是不是已经有了#号,默认的情况下是有的,dnsmasq 会首先寻找本地的 hosts 文件再去寻找缓存下来的域名, 最后去上游dns 服务器寻找。
 
 ## install 
 ### ubuntu
@@ -56,7 +56,7 @@ dhcp服务
 vim /etc/dnsmasq.conf
 
 # 配置上游服务器地址
-# resolv-file配置Dnsmasq额外的上游的DNS服务器，如果不开启就使用Linux主机默认的/etc/resolv.conf里的nameserver。
+# resolv-file配置Dnsmasq额外的上游的DNS服务器,如果不开启就使用Linux主机默认的/etc/resolv.conf里的nameserver。
 
 # 通过下面的选项指定其他文件来管理上游的DNS服务器
 resolv-file=/etc/resolv.dnsmasq.conf
@@ -92,7 +92,7 @@ nameserver 223.5.5.5
 nameserver 223.6.6.6
 ```
 
-### DNSMasq支持泛域名，比如在hosts中需要配2000条: 
+### DNSMasq支持泛域名,比如在hosts中需要配2000条: 
 
 # apple app store
 202.175.5.114 a1.phobos.apple.com

@@ -7,7 +7,7 @@ url: /?p=9881
 
 ---
 ### dhcp
-networkd内置了dhcp client。如果需要更新resolv.conf，则需要启动 systemd-resolved.service
+networkd内置了dhcp client。如果需要更新resolv.conf,则需要启动 systemd-resolved.service
 
 配置文件存放在 /usr/lib/systemd/network (上游提供的配置), /run/systemd/network (运行时配置), 以及 /etc/systemd/network (本地配置). 其中 /etc/systemd/network 有着最高的优先级.
 

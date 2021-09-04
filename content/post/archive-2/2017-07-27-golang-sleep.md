@@ -14,11 +14,11 @@ golang随机time.sleep的Duration问题
    
 2016-3-23 Golang rfyiamcool 5,894 views
   
-碰到一个Golang time.Sleep()的问题，这golang的time.sleep的功能貌似要比python ruby都要精细些，python的等待只是time.sleep()而已，而golang可以time.Sleep(10 * time.Second) 毫秒、秒分时等不同日期来搞… 大事不干，净整些没用的…
+碰到一个Golang time.Sleep()的问题,这golang的time.sleep的功能貌似要比python ruby都要精细些,python的等待只是time.sleep()而已,而golang可以time.Sleep(10 * time.Second) 毫秒、秒分时等不同日期来搞… 大事不干,净整些没用的…
 
-该文章写的有些乱，欢迎来喷 ! 另外文章后续不断更新中，请到原文地址查看更新http://xiaorui.cc/?p=3034
+该文章写的有些乱,欢迎来喷 ! 另外文章后续不断更新中,请到原文地址查看更新http://xiaorui.cc/?p=3034
 
-重现一下问题，用math/rannd得到10以内的随机数，然后time.sleep()等待…
+重现一下问题,用math/rannd得到10以内的随机数,然后time.sleep()等待…
 
 num := rand.Int31n(10)
   
@@ -48,7 +48,7 @@ time.Sleep(time.Duration(num) * time.Second)
   
 time.Sleep(time.Duration(num) * time.Second)
   
-期初原因以为是rand随机数有问题，简单看了rand的函数说明感觉没问题！ 下面是产生的原因:
+期初原因以为是rand随机数有问题,简单看了rand的函数说明感觉没问题！ 下面是产生的原因:
 
 func Sleep(d Duration)
       
@@ -60,7 +60,7 @@ Sleep pauses the current goroutine for at least the duration d. A negative or ze
   
 int32 and time.Duration are different types. You need to convert the int32 to a time.Duration, such as time.Sleep(time.Duration(rand.Int31n(1000)) * time.Millisecond).
 
-下面是个完整的golang随机数，然后time.sleep()的例子:
+下面是个完整的golang随机数,然后time.sleep()的例子:
 
 package main
 
@@ -118,7 +118,7 @@ time.Sleep(time.Duration(x) * time.Second)
   
 }
   
-Golang的time.sleep虽然可以直接用数字，但不能是float浮点型.
+Golang的time.sleep虽然可以直接用数字,但不能是float浮点型.
 
 time.Sleep(1 * time.Second) //可以
   

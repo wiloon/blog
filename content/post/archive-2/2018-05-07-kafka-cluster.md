@@ -28,7 +28,7 @@ log.dirs=/data/logs/kafka-logs
   
 zookeeper.connect=test-zookeeper-1:2181,test-zookeeper-2:2181,test-zookeeper-3:2181
 
-replication策略是基于partition。kafka通过创建topic时可以通过 replication-factor配置partition副本数。配置副本之后, 每个partition都有一个唯一的leader，有0个或多个follower。
+replication策略是基于partition。kafka通过创建topic时可以通过 replication-factor配置partition副本数。配置副本之后, 每个partition都有一个唯一的leader,有0个或多个follower。
 
 install kafka manager
   

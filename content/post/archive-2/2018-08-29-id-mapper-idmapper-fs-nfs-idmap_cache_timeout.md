@@ -16,7 +16,7 @@ performing an upcall to userspace to request the information.
 
 fs.nfs.idmap_cache_timeout
   
-设置idmapper缓存项的最大寿命，单位是秒
+设置idmapper缓存项的最大寿命,单位是秒
 
 https://www.kernel.org/doc/Documentation/filesystems/nfs/idmapper.txt
   

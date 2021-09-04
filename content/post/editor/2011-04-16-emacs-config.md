@@ -14,7 +14,7 @@ categories:
 ---
 中文环境
   
-之后，在~/.Xresources（如果没有的话，自己建一个），加入下面内容: 
+之后,在~/.Xresources（如果没有的话,自己建一个）,加入下面内容: 
   
 Xft.antialias: 1
   
@@ -22,7 +22,7 @@ Xft.hinting: 1
   
 Xft.hintstyle: hintfull
   
-调用X Window系统中的字体，并且开启抗锯齿。
+调用X Window系统中的字体,并且开启抗锯齿。
 
 之后在~/.emacs下面加入
 
@@ -90,11 +90,11 @@ Xft.hintstyle: hintfull
 
 ;; Set font
   
-;;设置DejaVu Sans Mono为默认情况下的字体，字号为12号。
+;;设置DejaVu Sans Mono为默认情况下的字体,字号为12号。
   
-;;然后再设置一个字符集，设置字符集字体为WenQuanYi Micro Hei(文泉驿微米黑)，当编码为非拉丁字母时，
+;;然后再设置一个字符集,设置字符集字体为WenQuanYi Micro Hei(文泉驿微米黑),当编码为非拉丁字母时,
   
-;;系统自动会在/etc/fonts/cond.avail中寻找编码，比如汉字，就对应han，泰文就对应thai，等等.
+;;系统自动会在/etc/fonts/cond.avail中寻找编码,比如汉字,就对应han,泰文就对应thai,等等.
   
 (set-default-font "DejaVu Sans Mono-11")
   
@@ -146,7 +146,7 @@ Xft.hintstyle: hintfull
 
 (global-set-key "\C-zi" 'open-init-file) 
 
-;;启用ibuffer支持，增强\*buffer\*
+;;启用ibuffer支持,增强\*buffer\*
   
 (require \`ibuffer)
   

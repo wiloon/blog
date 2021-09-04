@@ -21,7 +21,7 @@ pacman -S linux-atm
 pacman -S bridge-utils
 
 在主机上创建桥
-创建桥的原因是虚拟机间，虚拟机与主机间的互联
+创建桥的原因是虚拟机间,虚拟机与主机间的互联
 $ sudo brctl addbr br0
 ip tuntap
 
