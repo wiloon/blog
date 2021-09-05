@@ -7,6 +7,9 @@ tags:
 - Git
 
 ---
+### 查看远程仓库地址
+    git remote -v
+
 ### 将指定的提交（commit）应用于其他分支
     git cherry-pick <commitHash>
 
@@ -150,9 +153,10 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 //取回远程主机某个分支的更新，再与本地的指定分支合并。
 
 因此，与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge。如果需要有选择的合并git fetch是更好的选择。效果相同时git pull将更为快捷。
+
+
 ```bash
-# 查看远程仓库地址
-git remote -v
+
 
 man git-fetch
 git fetch --prune  #在本地删除在远程不存在的branch
