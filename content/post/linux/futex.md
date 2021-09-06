@@ -229,6 +229,112 @@ futex_cmp_requeue_pi是带优先级继承版本的futex_cmp_requeue,futex_wait_r
 
 >https://www.cnblogs.com/lixiaofei1987/p/3208414.html
 
+### mutex, futex, java
+首先，futex不是个完整的锁，它是“支持实现userspace的锁的building block“。也就是说，如果你想实现一个mutex，但不想把整个mutex都弄到内核里面去，可以通过futex来实现。但futex本身主要就是俩系统调用futex_wait和futex_wake.
+
+java中的synchronized和linux系统的futex到底什么个关系？
+
+为了更好的解释这个问题，这里先梳理下锁本身是怎么工作的。
+
+一个完整的锁需要解决几个问题：
+
+争抢到一个内存，如果抢到了就算是得到了锁，可以继续干活；
+如果没抢到，可以选择：
+继续抢（spin）
+调用某个系统调用把自己挂起来排队
+别的线程释放锁后，会通知排队挂起来的一个或几个线程。醒过来的线程再去重复第一步。
+早期的锁，所有这些步骤都是内核态的。但后来大家发现，步骤1用CAS在用户态就可以干了。而多线程大部分的时候抢锁都是没有竞争的，一抢就能抢到。一下子没抢到多抢几次大概率也能抢到了。
+
+那么能不能用一直做spin，永远不做2.2和3呢？答案是不行的。如果遇到了竞争，这也就意味着大量空耗CPU。
+
+因此后来的锁的设计一般都优化成了这样：
+
+1. 在用户态写一段代码来抢锁，典型的实现是用CAS把一个指定的变量从0变成1。如果抢到了就结束了。此时是用户态的。
+
+2. 如果抢不到，就看看是不是锁的持有者就是自己。如果是，也算是抢到了（当然要对变量做特殊的标记）。否则就spin几次重新抢。这也是用户态的。
+
+3. 如果重试了N次，实在抢不到，此时调用futex_wait进入内核态，去把自己挂起+排队，等着被释放锁的线程futex_wake。
+
+所以只有3进入内核态了。考虑到大部分情况都不是竞争很激烈的情况下，3根本就不用做。这样的锁的设计避免了由于系统调用导致的上下文切换，无疑很大的提高了效率。
+
+Ok, 回到Java。Java的synchronized用JVM的monitor实现。而monitor实现内部用到了pthread_mutex和pthread_cond。这俩是pthread标准接口，实现在glibc里。而这俩的内部实现在Linux上目前都用到了futex。所以整体可以理解为futex帮助Java在Linux上实现了synchronized在内核那部分阻塞的功能；同时用户态的抢锁，重入控制等功能由JVM自己实现。两块代码共同提供了完整的synchronized功能。
+
+所以当我们随便写一段synchornized会阻塞的Java代码：
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+public class TestFutex {
+     private Integer a = new Integer(1);
+ 
+     synchronized void showA() {
+         System.out.println(a);
+         try {
+             Thread.sleep(3000);
+         } catch(InterruptedException e) {
+ 
+         }
+     }
+     class T extends Thread {
+         @Override
+         public void run() {
+             showA();
+         }
+     }
+ 
+     public T newThread() {
+         return new T();
+     }
+ 
+     public static void main(String[] args) {
+         TestFutex tf = new TestFutex();
+         T t1 = tf.newThread();
+         T t2 = tf.newThread();
+         t1.start();
+         t2.start();
+     }
+ }
+并用strace去查看效果，你就会看到：
+
+1
+2
+3
+4
+root@ba32a8cedf75:/test# strace -e futex java TestFutex
+futex(0x7f8dacc130c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x7f8dad64e9d0, FUTEX_WAIT, 97, NULL1
+……
+顺便说一句，基于AQS实现的JUC的那些ReentrantLock，Semaphore等内部也是类似的。其LockSupport.park内部用的也是这套东西。
+
+>https://www.codenong.com/cs106084621/
+
 ---
 
 https://developer.aliyun.com/article/6043  
