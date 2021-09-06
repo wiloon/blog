@@ -9,11 +9,25 @@ tags:
   - lock
 ---
 
+futex (fast userspace mutex) 是Linux的一个基础构件，可以用来构建各种更高级别的同步机制，比如锁或者信号量等等，POSIX信号量就是基于futex构建的。大多数时候编写应用程序并不需要直接使用futex，一般用基于它所实现的系统库就够了。
+
+futex的性能非常优异，它是怎样做到的呢？这要从它的设计思想谈起。传统的SystemV IPC(inter process communication)进程间同步机制都是通过内核对象来实现的，以 semaphore 为例，当进程间要同步的时候，必须通过系统调用semop(2)进入内核进行PV操作。系统调用的缺点是开销很大，需要从user mode切换到kernel mode、保存寄存器状态、从user stack切换到kernel stack、等等，通常要消耗上百条指令。事实上，有一部分系统调用是可以避免的，因为现实中很多同步操作进行的时候根本不存在竞争，即某个进程从持有semaphore直至释放semaphore的这段时间内，常常没有其它进程对同一semaphore有需求，在这种情况下，内核的参与本来是不必要的，可是在传统机制下，持有semaphore必须先调用semop(2)进入内核去看看有没有人和它竞争，释放semaphore也必须调用semop(2)进入内核去看看有没有人在等待同一semaphore，这些不必要的系统调用造成了大量的性能损耗。futex就为了解决这个问题而生的，它的办法是：在无竞争的情况下，futex的操作完全在user space进行，不需要系统调用，仅在发生竞争的时候进入内核去完成相应的处理(wait 或者 wake up)。所以说，futex是一种user mode和kernel mode混合的同步机制，需要两种模式合作才能完成，futex变量必须位于user space，而不是内核对象，futex的代码也分为user mode和kernel mode两部分，无竞争的情况下在user mode，发生竞争时则通过sys_futex系统调用进入kernel mode进行处理，具体来说：
+
+futex变量是位于user space的一个整数，支持原子操作。futex同步操作都是从user space开始的：
+
+当要求持有futex的时候，对futex变量执行”down”操作，即原子递减，如果变量变为0，则意味着没有竞争发生，进程成功持有futex并继续在user mode运行；如果变量变为负数，则意味着有竞争发生，需要通过sys_futex系统调用进入内核执行futex_wait操作，让进程进入休眠等待。
+当释放futex的时候，对futex变量进行”up”操作，即原子递增，如果变量变成1，则意味着没有竞争发生，进程成功释放futex并继续在user mode执行；否则意味着有竞争，需要通过sys_futex系统调用进入内核执行futex_wake操作，唤醒正在等待的进程。
+如果需要在多个进程之间共享futex，那就必须把futex变量放在共享内存中，并确保这些进程都有访问共享内存的权限；如果仅需在线程之间使用futex的话，那么futex变量可以位于进程的私有内存中，比如普通的全局变量即可。
+
+更详细的信息请参阅futex作者的论文：
+Fuss, Futexes and Furwocks: Fast Userlevel Locking in Linux
+>http://linuxperf.com/?p=23
+
 ### 什么是Futex
 Futex,作为linux下的一种快速同步（互斥）机制
 Futex 是Fast Userspace muTexes的缩写,由Hubertus Franke, Matthew Kirkwood, Ingo Molnar and Rusty Russell共同设计完成。几位都是linux领域的专家,其中可能Ingo Molnar大家更熟悉一些,毕竟是O(1)调度器和CFS的实现者。
 
-Futex按英文翻译过来就是快速用户空间互斥体。其设计思想其实 不难理解,在传统的Unix系统中,System V IPC(inter process communication),如 semaphores, msgqueues, sockets还有文件锁机制(flock())等进程间同步机制都是对一个内核对象操作来完成的,这个内核对象对要同步的进程都是可见的,其提供了共享 的状态信息和原子操作。当进程间要同步的时候必须要通过系统调用(如semop())在内核中完成。可是经研究发现,很多同步是无竞争的,即某个进程进入 互斥区,到再从某个互斥区出来这段时间,常常是没有进程也要进这个互斥区或者请求同一同步变量的。但是在这种情况下,这个进程也要陷入内核去看看有没有人 和它竞争,退出的时侯还要陷入内核去看看有没有进程等待在同一同步变量上。这些不必要的系统调用(或者说内核陷入)造成了大量的性能开销。为了解决这个问 题,Futex就应运而生,Futex是一种用户态和内核态混合的同步机制。首先,同步的进程间通过mmap共享一段内存,futex变量就位于这段共享 的内存中且操作是原子的,当进程尝试进入互斥区或者退出互斥区的时候,先去查看共享内存中的futex变量,如果没有竞争发生,则只修改futex,而不用再执行系统调用了。当通过访问futex变量告诉进程有竞争发生,则还是得执行系统调用去完成相应的处理(wait 或者 wake up)。简单的说,futex就是通过在用户态的检查,（motivation）如果了解到没有竞争就不用陷入内核了,大大提高了low-contention时候的效率。 Linux从2.5.7开始支持Futex。
+Futex 按英文翻译过来就是快速用户空间互斥体。其设计思想其实 不难理解,在传统的Unix系统中,System V IPC(inter process communication),如 semaphores, msgqueues, sockets还有文件锁机制(flock())等进程间同步机制都是对一个内核对象操作来完成的, 这个内核对象对要同步的进程都是可见的, 其提供了共享 的状态信息和原子操作。当进程间要同步的时候必须要通过系统调用 (如semop())在内核中完成。可是经研究发现,很多同步是无竞争的, 即某个进程进入 互斥区,到再从某个互斥区出来这段时间,常常是没有进程也要进这个互斥区或者请求同一同步变量的。但是在这种情况下,这个进程也要陷入内核去看看有没有人和它竞争,退出的时侯还要陷入内核去看看有没有进程等待在同一同步变量上。这些不必要的系统调用(或者说内核陷入)造成了大量的性能开销。为了解决这个问 题,Futex就应运而生,Futex是一种用户态和内核态混合的同步机制。首先,同步的进程间通过mmap共享一段内存,futex变量就位于这段共享 的内存中且操作是原子的,当进程尝试进入互斥区或者退出互斥区的时候,先去查看共享内存中的futex变量,如果没有竞争发生,则只修改futex,而不用再执行系统调用了。当通过访问futex变量告诉进程有竞争发生,则还是得执行系统调用去完成相应的处理(wait 或者 wake up)。简单的说,futex就是通过在用户态的检查,（motivation）如果了解到没有竞争就不用陷入内核了,大大提高了low-contention时候的效率。 Linux从2.5.7开始支持Futex。
 
 >https://cloud.tencent.com/developer/article/1176832
 
@@ -26,9 +40,10 @@ bool trylock(int lockval) {
     return old == 0;
 }
 ```
+
 无论 spinlock 事先有没有被上锁,经历trylock之后,它肯定是已经上锁了。所以lock变量一定被置1。而trylock是否成功,取决于spinlock是事先就被上了锁的（old==1）,还是这次trylock上锁的(old==0). 而使用原子指令则可以避免多个进程同时看到old==0,并且都认为是自己把它改为1的。
 
-spinlock的lock操作则是一个死循环,不断尝试trylock,直到成功。
+spinlock的lock操作则是一个死循环,不断尝试 trylock, 直到成功。
 对于一些很小的临界区,使用spinlock是很高效的。因为trylock失败时,可以预期持有锁的线程（进程）会很快退出临界区（释放锁）。所以死循环的忙等待很可能要比进程挂起等待更高效。
 但是 spinlock 的应用场景有限,对于大的临界区,忙等待则是件很恐怖的事情,特别是当同步机制运用于等待某一事件时（比如服务器工作线程等待客户端发起请求）。所以很多情况下进程挂起等待是很有必要的。
 
@@ -46,7 +61,7 @@ void lock(int lockval) {
 但是如果这样做的话,检测锁的trylock操作和挂起进程的wait操作之间会存在一个窗口,如果其间 lock 发生变化（比如锁的持有者释放了锁）,调用者将进入不必要的 wait,甚至于wait之后再没有人能将它唤醒。（详见《linux线程同步浅析》的讨论。）
 
 在futex诞生之前,要实现我们理想中的锁会非常别扭。比如可以考虑用 sigsuspend 系统调用来实现进程挂起：
-
+```c
 class mutex {
 private:
     int lockval;
@@ -69,6 +84,7 @@ public:
         }
     }
 }
+```
 注意,这里的sigsuspend不同于简单的raise(SIGSTOP)之类wait操作。如果unlock时用于唤醒的kill操作先于sigsuspend发生,sigsuspend也一样能被唤醒。（详见《linux线程同步浅析》的讨论。）
 这样的实现有点类似于老版本的 phread_cond,应该还是能 work 的。有些不太爽的地方,比如 sigsuspend 系统调用是全局的,并不单单考虑某一把锁。也就是说,lockA 的 unlock 可以将等待 lockB 的进程唤醒。尽管进程被唤醒之后会继续trylock,并不影响正确性；尽管多数情况下lockA.unlock也并不会试图去唤醒等待lockB的进程（除了一些竞争情况下）,因为后者很可能并不在lockA的等待队列中。
 另一方面,用户态实现的等待队列也不太爽。它对进程的生命周期是无法感知的,很可能进程挂了,pid却还留在队列中（甚至于一段时间之后又有另一个不相干的进程重用了这个pid,以至于它可能会收到莫名其妙的信号）。所以,unlock的时候如果仅仅给队列中的一个进程发信号,很可能唤醒不了任何等待者。保险的做法只能是全部唤醒,从而引发“惊群“现象。不过,如果仅仅用在多线程（同一进程内部）倒也没关系,毕竟多线程不存在某个线程挂掉的情况（如果线程挂掉,整个进程都会挂掉）,而对于线程响应信号而主动退出的情况也是可以在主动退出前注意处理一下等待队列清理的问题。
@@ -195,6 +211,23 @@ int futex_cmp_requeue_pi(int *uaddr, int n1, int *uaddr2, int n2, int val);
 Priority Inheritance,优先级继承,是解决优先级反转的一种办法。
 futex_lock_pi/futex_trylock_pi/futex_unlock_pi,是带优先级继承的futex锁操作。
 futex_cmp_requeue_pi是带优先级继承版本的futex_cmp_requeue,futex_wait_requeue_pi是与之配套使用的,用于替代普通的futex_wait。
+
+### semop 
+信号量的操作——semop函数
+信号量的值与相应资源的使用情况有关，当它的值大于 0 时，表示当前可用的资源数的数量；当它的值小于 0 时，其绝对值表示等待使用该资源的进程个数。信号量的值仅能由 PV 操作来改变。
+
+ 
+     在 Linux 下，PV 操作通过调用semop函数来实现。该函数定义在头文件 sys/sem.h中，原型如下：
+     int  semop（int  semid，struct sembuf  *sops，size_t nsops）；
+     函数的参数 semid 为信号量集的标识符；参数 sops 指向进行操作的结构体数组的首地址；参数 nsops 指出将要进行操作的信号的个数。semop 函数调用成功返回 0，失败返回 -1。
+     semop 的第二个参数 sops 指向的结构体数组中，每个 sembuf 结构体对应一个特定信号的操作。因此对信号量进行操作必须熟悉该数据结构，该结构定义在 linux/sem.h，如下所示：
+     struct  sembuf{
+         unsigned short   sem_num;      //信号在信号集中的索引，0代表第一个信号，1代表第二个信号  
+         short            sem_op;      //操作类型
+         short            sem_flg;    //操作标志
+     };
+
+>https://www.cnblogs.com/lixiaofei1987/p/3208414.html
 
 ---
 
