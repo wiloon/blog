@@ -8,10 +8,7 @@ categories:
   - Java
 
 ---
-
-
-<div id="blog_content">
-  转自：<a href="http://topic.csdn.net/t/20061223/10/5250896.html" target="_blank">http://topic.csdn.net/t/20061223/10/5250896.html</a> 
+http://topic.csdn.net/t/20061223/10/5250896.html
   
     任何一个ArrayList对象都有一个capacity属性，用来指示该ArrayList的最小容量，用"容量"这个词容易引起像本贴楼主那样的误解，我觉得用"容纳能力"比较贴切。
   

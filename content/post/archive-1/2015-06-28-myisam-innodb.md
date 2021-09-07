@@ -11,7 +11,6 @@ tags:
 
 ---
 ## 什么是存储引擎？
-
 关系数据库表是用于存储和组织信息的数据结构，可以将表理解为由行和列组成的表格，类似于Excel的电子表格的形式。有的表简单，有的表复杂，有的表根本不用来存储任何长期的数据，有的表读取时非常快，但是插入数据时去很差；而我们在实际开发过程中，就可能需要各种各样的表，不同的表，就意味着存储不同类型的数据，数据的处理上也会存在着差异，那么。对于MySQL来说，它提供了很多种类型的存储引擎，我们可以根据对数据处理的需求，选择不同的存储引擎，从而最大限度的利用MySQL强大的功能。这篇博文将总结和分析各个引擎的特点，以及适用场合，并不会纠结于更深层次的东西。我的学习方法是先学会用，懂得怎么用，再去知道到底是如何能用的。下面就对MySQL支持的存储引擎进行简单的介绍。
 
 ### MyISAM
@@ -663,46 +662,10 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
     
     
       Row level locking
-    
-  
-
-:     * ACID – Atomicity, Consistency, Isolation, Durability (read more on it here:<a class="external free" title="http://en.wikipedia.org/wiki/ACID" href="http://en.wikipedia.org/wiki/ACID" rel="nofollow">http://en.wikipedia.org/wiki/ACID</a>)
+ACID – Atomicity, Consistency, Isolation, Durability (read more on it here: http://en.wikipedia.org/wiki/ACID
 
 在StackOverflow上的小总结: 
-
-<div id="crayon-558f8b0e9051a898827726" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover">
-  <div class="crayon-plain-wrap">
-  
-  <div class="crayon-main">
-    <table class="crayon-table">
-      <tr class="crayon-row">
-        <td class="crayon-nums " data-settings="show">
-          <div class="crayon-nums-content">
-            <div class="crayon-num" data-line="crayon-558f8b0e9051a898827726-1">
-              1
-            
-            
-            <div class="crayon-num crayon-striped-num" data-line="crayon-558f8b0e9051a898827726-2">
-              2
-            
-          
-        
-        
-        <td class="crayon-code">
-          <div class="crayon-pre">
-            <div id="crayon-558f8b0e9051a898827726-1" class="crayon-line">
-              <span class="crayon-e">Frequent <span class="crayon-v">reading<span class="crayon-sy">, <span class="crayon-e">almost <span class="crayon-e">no <span class="crayon-i">writing 常有读取操作，几乎没有写操作<span class="crayon-o">=&<span class="crayon-v">gt<span class="crayon-sy">; <span class="crayon-e">MyISAM
-            
-            
-            <div id="crayon-558f8b0e9051a898827726-2" class="crayon-line crayon-striped-line">
-              <span class="crayon-v">Full<span class="crayon-o">-<span class="crayon-e">text <span class="crayon-e">search <span class="crayon-st">in <span class="crayon-v">MySQL <span class="crayon-o">&<span class="crayon-v">lt<span class="crayon-sy">;<span class="crayon-o">= <span class="crayon-cn">5.5<span class="crayon-h">      <span class="crayon-o">=&<span class="crayon-v">gt<span class="crayon-sy">; <span class="crayon-v">MyISAM
-            
-          
-        
-      
-    
-  
-
+ 
 InnoDB的设计目标是处理大容量数据库系统，它的CPU利用率是其它基于磁盘的关系数据库引擎所不能比的。
 
 

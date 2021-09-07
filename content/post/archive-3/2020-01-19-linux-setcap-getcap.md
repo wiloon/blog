@@ -1,5 +1,5 @@
 ---
-title: linux setcap/getcap
+title: linux capability, setcap/getcap
 author: "-"
 type: post
 date: 2020-01-18T16:17:30+00:00
@@ -8,6 +8,28 @@ categories:
   - Uncategorized
 
 ---
+
+http://www.cnblogs.com/iamfy/archive/2012/09/20/2694977.html
+
+一)概述:
+  
+1)从2.1版开始,Linux内核有了能力(capability)的概念,即它打破了UNIX/LINUX操作系统中超级用户/普通用户的概念,由普通用户也可以做只有超级用户可以完成的工作.
+  
+2)capability可以作用在进程上(受限),也可以作用在程序文件上,它与sudo不同,sudo只针对用户/程序/文件的概述,即sudo可以配置某个用户可以执行某个命令,可以更改某个文件,而capability是让某个程序拥有某种能力,例如:
+  
+capability让/tmp/testkill程序可以kill掉其它进程,但它不能mount设备节点到目录,也不能重启系统,因为我们只指定了它kill的能力,即使程序有问题也不会超出能力范围.
+  
+3)每个进程有三个和能力有关的位图:inheritable(I),permitted(P)和effective(E),对应进程描述符task_struct(include/linux/sched.h)里面的cap_effective, cap_inheritable, cap_permitted,所以我们可以查看/proc/PID/status来查看进程的能力.
+  
+4)cap_effective:当一个进程要进行某个特权操作时,操作系统会检查cap_effective的对应位是否有效,而不再是检查进程的有效UID是否为0.
+  
+例如,如果一个进程要设置系统的时钟,Linux的内核就会检查cap_effective的CAP_SYS_TIME位(第25位)是否有效.
+  
+5)cap_permitted:表示进程能够使用的能力,在cap_permitted中可以包含cap_effective中没有的能力，这些能力是被进程自己临时放弃的,也可以说cap_effective是cap_permitted的一个子集.
+  
+6)cap_inheritable:表示能够被当前进程执行的程序继承的能力.
+
+
 Linux是一种安全操作系统，它给普通用户尽可能低的权限，而把全部的系统权限赋予一个单一的帐户-root。root帐户用来管理系统、安装软件、管理帐户、运行某些服务、安装/卸载文件系统、管理用户、安装软件等。另外，普通用户的很多操作也需要root权限，这通过setuid实现。
 
 这种依赖单一帐户执行特权操作的方式加大了系统的面临风险，而需要root权限的程序可能只是为了一个单一的操作，例如：绑定到特权端口、打开一个

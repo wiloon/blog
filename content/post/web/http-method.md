@@ -126,6 +126,10 @@ HTTP1.1协议规范保留了CONNECT方法，此方法是为了能用于能动态
 例如，CONNECT 可以用来访问采用了 SSL (en-US) (HTTPS)  协议的站点。客户端要求代理服务器将 TCP 连接作为通往目的主机隧道。之后该服务器会代替客户端与目的主机建立连接。连接建立好之后，代理服务器会面向客户端发送或接收 TCP 消息流。
 
 ### 幂等性
+幂等的数学定义为
+
+f(f(x)) = f(x)
+
 在HTTP/1.1规范中幂等性的定义是：
 
 Methods can also have the property of "idempotence" in that (aside from error or expiration issues) the side-effects of N > 0 identical requests is the same as for a single request.
