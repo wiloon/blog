@@ -30,6 +30,7 @@ openssl rsa -inform PEM -outform PEM -in pri2048.key -out pub2048.key -pubout
 
 # 查看证书信息
 openssl x509 -noout -text -in ca.crt
+openssl x509 -noout -text -in foo.pem
 
 # 验证证书
 openssl verify selfsign.crt
