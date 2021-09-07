@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+https://wiki.archlinux.org/title/Chromebook_Pixel_2
 https://wiki.archlinux.org/index.php/Chrome_OS_devices/Crostini
 
 ### Enabling Linux support

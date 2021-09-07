@@ -8,6 +8,9 @@ tags:
   - javascript
 
 ---
+### 打印对象类型
+    foo.getClass()
+
 ### window.event.keyCode ascii
     //check if ESC pressed
 
