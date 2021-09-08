@@ -8,12 +8,20 @@ categories:
   - Linux
 
 ---
-
+### /dev/null
+    在类Unix系统中，<tt>/dev/null</tt>，或称空设备，是一个特殊的设备文件，它丢弃一切写入其中的数据（但报告写入操作成功），读取它则会立即得到一个EOF<sup id="cite_ref-uxman_0-0">[1]</sup>。
   
- 
 
-<div id="blog_content">
-  
+在程序员行话，尤其是Unix行话中，`/dev/null`被称为bit bucket<sup id="cite_ref-1">[2]</sup>或者黑洞。使用
+
+空设备通常被用于丢弃不需要的输出流，或作为用于输入流的空文件。这些操作通常由重定向完成。
+
+<tt>/dev/null</tt>是一个特殊_文件_，而不是目录，因此不能使用Unix命令<tt>mv</tt> 将文件移动到其中。使用<tt>rm</tt>命令才是Unix中删除文件的正确方法。
+
+本概念大致相当于CP/M，DOS和Microsoft Windows中的<tt>NUL:</tt>或单纯的<tt>NUL</tt>设备，Windows NT及其后续系统中的<tt>DeviceNull</tt>或<tt>NUL</tt>，Amiga中的<tt>NIL:</tt>，以及OpenVMS中的<tt>NL:</tt>。在基于.NET的Windows PowerShell中，相同的概念为$null。
+
+---
+### /dev/zero
     /dev/zero,是一个输入设备，你可你用它来初始化文件。
  /dev/zero--该设备无穷尽地提供0(是ASCII 0 就是NULL)，可以使用任何你需要的数目——设备提供的要多的多。他可以用于向设备或文件写入NULL。
  使用/dev/zero
