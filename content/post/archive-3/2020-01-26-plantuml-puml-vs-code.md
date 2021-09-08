@@ -1,9 +1,8 @@
 ---
 title: plantuml, puml + vs code
 author: "-"
-type: post
 date: 2020-01-26T04:41:00+00:00
-url: /?p=15419
+url: plantuml
 
 ---
 ### 安装 graphviz
@@ -92,5 +91,25 @@ Bob --> Alice: Authentication Response
 Alice -> Bob: Another authentication Request
 Alice <-- Bob: Another authentication Response
 
+@enduml
+```
+
+### 组件图
+```puml
+@startuml
+skinparam componentStyle rectangle
+
+[component0] as c0
+[component1] as c1
+[component2] as c2
+[component3] as c3
+[component4] as c4
+
+c0 -- c1
+c0--c2
+c1--c3
+c0--c3
+
+c2--c4
 @enduml
 ```
