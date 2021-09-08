@@ -48,6 +48,8 @@ Controls the font family.
 ### plugin
 #### Markdown All in One
     ctrl+shift+i - 表格格式化
+    ctrl+b: 粗体
+    命令: Format Document: 格式化表格
 #### Settings Sync
 配置同步
 #### Markdown Preview Github Styling

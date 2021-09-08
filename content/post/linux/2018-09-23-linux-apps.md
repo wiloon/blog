@@ -24,58 +24,58 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 ### archlinux pacman:
 
-| name                  | comments                                                     |
-| :-------------------- | :----------------------------------------------------------- |
-| neofetch              |  系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制  |
-| screenfetch           | 发行版的logo                                                  |
-| keepassxc             |                                                              |
-| sqlectron-gui         |                                                              |
-| hyper                 |                                                              |
-| code                  | visual studio code                                           |
-| rsibreak              | 番茄钟                                                        |
-| libreoffice-fresh     |                                                              |
-| ark                   | kde dolphin extract zip,gz                                   |
-| wine                  | 需要开启Multilib仓库                                         |
-| qalculate-gtk         | 全宇宙最好用的计算器                                         |
-| simplescreenrecorder  | 录屏                                                         |
-| openvpn               |                                                              |
-| rdesktop              |                                                              |
-| pulseaudio            |                                                              |
-| hexyl                 | 彩色hex编辑器                                                |
-| nftables              |                                                              |
-| zeitgeist             |                                                              |
-| catfish               |                                                              |
-| thunar-archive-plugin | thunar 右键解压文件                                          |
-| file-roller           | zip 7z rar support                                           |
-| zstd                  | 多线程，速度比较快的压缩工具, archlinux在用                  |
-| digikam               | ：KDE 环境下最好的选择                                       |
-| chromium              | 开源版chrome                                                 |
-| kvm                   |                                                              |
-| kotlin                |                                                              |
-| docker                |                                                              |
-| hdparm                | 磁盘参数查看工具                                             |
-| Deluge                | bt client docker                                             |
-| aria2                 | 下载工具                                                     |
-| axel                  | 下载工具                                                     |
-| inetutils             | telnet client                                                |
-| zeal                  | 离线文档                                                     |
-| wireshark-qt          | Wireshark                                                    |
-| lsof                  |                                                              |
-| playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序 |
-| podman                |                                                              |
-| v2ray                 |                                                              |
-| nethogs               |                                                              |
-| flameshot             | 截图工具,screenshot                                          |
-| ttf-jetbrains-mono    | jetbrain的mono字体                                           |
-| gpick                 | 颜色拾取工具                                                 |
-| telegram-desktop      | telegram                                                     |
-| apper                 | pacman GUI                                                   |
-| dstat                 | 查看系统性能的工具 dstat -cdlmnpsy                           |
-| sl                    | 小火车                                                       |
-| inkscape              | 矢量图形创建和编辑程序,svg                                   |
-|lrzsz|zmodem|
-|remmina|GTK 编写的远程桌面客户端|
-|freerdp |remmina的RDP 支持包|
+| name                  | comments                                                                                |
+| :-------------------- | :-------------------------------------------------------------------------------------- |
+| neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制 |
+| screenfetch           | 发行版的logo                                                                            |
+| keepassxc             |                                                                                         |
+| sqlectron-gui         |                                                                                         |
+| hyper                 |                                                                                         |
+| code                  | visual studio code                                                                      |
+| rsibreak              | 番茄钟                                                                                  |
+| libreoffice-fresh     |                                                                                         |
+| ark                   | kde dolphin extract zip,gz                                                              |
+| wine                  | 需要开启Multilib仓库                                                                    |
+| qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
+| simplescreenrecorder  | 录屏                                                                                    |
+| openvpn               |                                                                                         |
+| rdesktop              |                                                                                         |
+| pulseaudio            |                                                                                         |
+| hexyl                 | 彩色hex编辑器                                                                           |
+| nftables              |                                                                                         |
+| zeitgeist             |                                                                                         |
+| catfish               |                                                                                         |
+| thunar-archive-plugin | thunar 右键解压文件                                                                     |
+| file-roller           | zip 7z rar support                                                                      |
+| zstd                  | 多线程，速度比较快的压缩工具, archlinux在用                                             |
+| digikam               | ：KDE 环境下最好的选择                                                                  |
+| chromium              | 开源版chrome                                                                            |
+| kvm                   |                                                                                         |
+| kotlin                |                                                                                         |
+| docker                |                                                                                         |
+| hdparm                | 磁盘参数查看工具                                                                        |
+| Deluge                | bt client docker                                                                        |
+| aria2                 | 下载工具                                                                                |
+| axel                  | 下载工具                                                                                |
+| inetutils             | telnet client                                                                           |
+| zeal                  | 离线文档                                                                                |
+| wireshark-qt          | Wireshark                                                                               |
+| lsof                  |                                                                                         |
+| playonlinux           | Wine软件兼容层的图形前端，允许Linux安装基于Windows的应用程序                            |
+| podman                |                                                                                         |
+| v2ray                 |                                                                                         |
+| nethogs               |                                                                                         |
+| flameshot             | 截图工具,screenshot                                                                     |
+| ttf-jetbrains-mono    | jetbrain的mono字体                                                                      |
+| gpick                 | 颜色拾取工具                                                                            |
+| telegram-desktop      | telegram                                                                                |
+| apper                 | pacman GUI                                                                              |
+| dstat                 | 查看系统性能的工具 dstat -cdlmnpsy                                                      |
+| sl                    | 小火车                                                                                  |
+| inkscape              | 矢量图形创建和编辑程序,svg                                                              |
+| lrzsz                 | zmodem                                                                                  |
+| remmina               | GTK 编写的远程桌面客户端                                                                |
+| freerdp               | remmina 的RDP 支持包                                                                     |
 
 ### pacman, development
 
@@ -106,7 +106,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
 | clion                                 |                                                                |
 | deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
-| google-chrome||
+| google-chrome                         |                                                                |
 | google-chrome-beta                    |                                                                |
 | redis-desktop-manager                 | rdm                                                            |
 | wps-office                            | 依赖                                                           |
@@ -129,10 +129,10 @@ sudo pacman -S powerdevil kmix kscreen ark
 | tableplus                             | mysql client                                                   |
 | procmon                               | 微软的进程监控工具                                             |
 | platformio                            | 物联网开发的开源生态系统                                       |
-|slurm|网络监控|
-|joplin-desktop||
-|typora| markdown 编辑器，joplin 外部编辑器|
-|feishu |飞书|
+| slurm                                 | 网络监控                                                       |
+| joplin-desktop                        |                                                                |
+| typora                                | markdown 编辑器，joplin 外部编辑器                             |
+| feishu                                | 飞书                                                           |
 
 ### KDE
 
@@ -157,20 +157,20 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 ### ubuntu
 
-| Name             | Comments               |
-| ---------------- | ---------------------- |
-| openjdk-8-jdk    |                        |
-| openjdk-8-source |                        |
-| git-svn          |                        |
-| nautilus         | ubuntu默认的文件管理器  |
-| ttf-wqy-microhei | 文泉驿-微米黑           |
-| ttf-wqy-zenhei   | 文泉驿-正黑             |
-| xfonts-wqy       | 文泉驿-点阵宋体         |
-| keepassxc        |                        |
-| eog              | Eye of Gnome, 图片查看                |
-| neofetch         | 发行版logo |
-| tree             |以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层|
-|x11-apps|xclock, xserver 测试用|
+| Name             | Comments                                                    |
+| ---------------- | ----------------------------------------------------------- |
+| openjdk-8-jdk    |                                                             |
+| openjdk-8-source |                                                             |
+| git-svn          |                                                             |
+| nautilus         | ubuntu默认的文件管理器                                      |
+| ttf-wqy-microhei | 文泉驿-微米黑                                               |
+| ttf-wqy-zenhei   | 文泉驿-正黑                                                 |
+| xfonts-wqy       | 文泉驿-点阵宋体                                             |
+| keepassxc        |                                                             |
+| eog              | Eye of Gnome, 图片查看                                      |
+| neofetch         | 发行版logo                                                  |
+| tree             | 以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层 |
+| x11-apps         | xclock, xserver 测试用                                      |
 
 ### xfce4
 file-roller

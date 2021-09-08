@@ -34,7 +34,7 @@ ByteBuf 支持 slice 操作, 因此可以将 ByteBuf 分解为多个共享同一
 
 下面我们就来简单了解一下这几种常见的零拷贝操作.
 
-通过 CompositeByteBuf 实现零拷贝
+### 通过 CompositeByteBuf 实现零拷贝
   
 假设我们有一份协议数据, 它由头部和消息体组成, 而头部和消息体是分别存放在两个 ByteBuf 中的, 即:
 
@@ -90,7 +90,7 @@ ByteBuf body = ...
 
 ByteBuf allByteBuf = Unpooled.wrappedBuffer(header, body);
   
-通过 wrap 操作实现零拷贝
+### 通过 wrap 操作实现零拷贝
   
 例如我们有一个 byte 数组, 我们希望将它转换为一个 ByteBuf 对象, 以便于后续的操作, 那么传统的做法是将此 byte 数组拷贝到 ByteBuf 中, 即:
 
@@ -132,7 +132,7 @@ public static ByteBuf wrappedBuffer(int maxNumComponents, ByteBuffer... buffers)
   
 这些方法可以将一个或多个 buffer 包装为一个 ByteBuf 对象, 从而避免了拷贝操作.
 
-通过 slice 操作实现零拷贝
+### 通过 slice 操作实现零拷贝
   
 slice 操作和 wrap 操作刚好相反, Unpooled.wrappedBuffer 可以将多个 ByteBuf 合并为一个, 而 slice 操作可以将一个 ByteBuf 切片 为多个共享一个存储区域的 ByteBuf 对象.
   
@@ -154,7 +154,7 @@ ByteBuf body = byteBuf.slice(5, 10);
   
 用 slice 方法产生 header 和 body 的过程是没有拷贝操作的, header 和 body 对象在内部其实是共享了 byteBuf 存储空间的不同部分而已. 即:
 
-通过 FileRegion 实现零拷贝
+### 通过 FileRegion 实现零拷贝
   
 Netty 中使用 FileRegion 实现文件传输的零拷贝, 不过在底层 FileRegion 是依赖于 Java NIO FileChannel.transfer 的零拷贝功能.
 
