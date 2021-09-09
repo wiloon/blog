@@ -66,7 +66,6 @@ etcd认为写入请求被Leader节点处理并分发给了多数节点后，就�
 通常，一个用户的请求发送过来，会经由 HTTP Server 转发给 Store 进行具体的事务处理，如果涉及到节点的修改，则交给 Raft 模块进行状态的变更、日志的记录，然后再同步给别的 etcd 节点以确认数据提交，最后进行数据的提交，再次同步。
 
 ### etcd vs zookeeper
-
 zookeeper 使用 ZAB 协议作为其一致性协议。 zookeeper 通过团队的形式工作，一组 node 一起工作，来提供分布式能力，这组 node 的数量需要是奇数。
 
 第一个节点与其他节点沟通，选举出一个 leader，获取多数票数的成为 leader，这就是为什么需要奇数个 node，其他节点被称为follower。
