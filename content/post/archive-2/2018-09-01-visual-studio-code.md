@@ -61,6 +61,11 @@ vscode 发http请求
 ### Insert Date String
 插入当前日期时间
 
+#### PlantUML
+config plant uml rander server
+File>Preferences>Extensions>PlantUML config>Rander: server
+File>Preferences>Extensions>PlantUML config>Server: http://plantuml.wiloon.com
+
 ### hexdump
 hex viewer
 
