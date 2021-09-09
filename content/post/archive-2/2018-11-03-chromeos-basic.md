@@ -18,7 +18,6 @@ Or use shortcuts:
 Move a window to a new desk: Right-click the top of a window then, select Move window to another desk.
 Make a window or app available across all desks: Right-click the top of a window, then select Show in all desks.
 ### crosh
-
 Crosh stands for “Chrome Shell,” and it lets you run commands that usually don’t have graphical tools. You can do things like installing Crouton for a full Linux OS on your Chromebook or checking the device’s battery health—more “advanced” stuff, to put it crudely. If you’ve ever used the Command Prompt or PowerShell on Windows, Crosh is Chrome OS’ version of that tool.
 
 #### 进入crosh环境
