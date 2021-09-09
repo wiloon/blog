@@ -113,3 +113,12 @@ c0--c3
 c2--c4
 @enduml
 ```
+
+### plantuml server
+```bash
+podman run -d \
+--name plantuml-server \
+-p 30001:8080 plantuml/plantuml-server:jetty
+```
+
+>https://github.com/plantuml/plantuml-server
