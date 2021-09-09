@@ -186,9 +186,6 @@ docker run  -d --name kafka \
 -t wurstmeister/kafka
 ```
 
-```bash
-
-```
 ### server.properties
     advertised.host.name: 是注册到zookeeper,client要访问的broker地址。（可能producer也是拿这个值,没有验证）
     

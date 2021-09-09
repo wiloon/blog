@@ -1,5 +1,5 @@
 ---
-title: Chubby , Zookeeper
+title: Zookeeper
 author: "-"
 type: post
 date: 2015-12-23T02:46:04+00:00
@@ -8,6 +8,20 @@ categories:
   - Uncategorized
 
 ---
+# zookeeper
+- 分布式的K/V存储
+- 分布式协调系统
+- 微服务注册中心
+- 服务发现
+
+zookeeper 起源于 Hadoop 生态系统
+zookeeper 使用 ZAB 协议作为其一致性协议  
+znode只能存1M以内的数据  
+写入性能低，为保证一致性，每次需要n/2+1的写入完成才算完成  
+zookeeper的数据是全部存储在内存,只适合存元数据  
+Zookeeper的使用场景是有高一致性的  
+
+### Chubby
 http://www.cnblogs.com/linhaohong/archive/2012/11/26/2789394.html
 
 随着云计算的推广，云平台的设计和实现越来越复杂，很多系统属性如一致性和可靠性往往是在系统迭代开发时才被考虑到。如果在原生的系统上重复的实现复杂的一致性算法，这样不仅会破坏原有设计的结构，而且还带来很多开发上的负担。因此很多系统开发人员和架构师努力地进行系统划分，将系统分割成很多组件，分层设计，模块调用，从而最大限度地提高软件复用能力，降低系统设计和开发的难度。
