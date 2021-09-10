@@ -5,6 +5,34 @@ date: 2018-05-07T08:44:53.000+00:00
 url: "kafka"
 
 ---
+### consumer
+    bin/kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic topic0
+
+    bin/kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic topic0 \
+    --from-beginning \
+    --property "parse.key=true" \
+    --property "key.separator=:"
+
+    bin/kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic topic0 \
+    --from-beginning
+
+### producer
+    bin/kafka-console-producer.sh \
+    --broker-list localhost:9092 \
+    --topic topic0
+
+    bin/kafka-console-producer.sh \
+    --broker-list localhost:9092 \
+    --topic topic0
+    --property parse.key=true
+
+
 ### kafka package 
     https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
 
@@ -99,33 +127,9 @@ listeners=PLAINTEXT://:9092
 
 zookeeper.connect=localhost:2181
 
-### producer
-    bin/kafka-console-producer.sh \
-    --broker-list localhost:9092 \
-    --topic topic0
-
-    bin/kafka-console-producer.sh \
-    --broker-list localhost:9092 \
-    --topic topic0
-    --property parse.key=true
 
 
-### consumer
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
-    --topic topic0
 
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
-    --topic topic0 \
-    --from-beginning \
-    --property "parse.key=true" \
-    --property "key.separator=:"
-
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
-    --topic topic0 \
-    --from-beginning
 
 ### 删除topic
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1

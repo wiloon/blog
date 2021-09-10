@@ -4,8 +4,9 @@ date = "2021-04-17 23:00:27"
 title = "task_struct, 进程描述符, 进程控制块 (PCB)"
 
 +++
+# task_struct
+>https://github.com/torvalds/linux/blob/master/include/linux/sched.h
 
-进程
 进程是资源分配的基本单位。
 
 进程控制块 (Process Control Block, PCB) 描述进程的基本信息和运行状态，所谓的创建进程和撤销进程，都是指对 PCB 的操作。
@@ -623,19 +624,7 @@ struct task_rss_stat    rss_stat;
 #ifdef CONFIG_COMPAT_BRK
 unsigned brk_randomized:1;
 #endif
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
+
 字段	描述
 mm	进程所拥有的用户空间内存描述符，内核线程无的mm为NULL
 active_mm	active_mm指向进程运行时所使用的内存描述符， 对于普通进程而言，这两个指针变量的值相同。但是内核线程kernel thread是没有进程地址空间的，所以内核线程的tsk->mm域是空（NULL）。但是内核必须知道用户空间包含了什么，因此它的active_mm成员被初始化为前一个运行进程的active_mm值。
@@ -1311,7 +1300,7 @@ struct task_struct
  
 	 //进程的调度策略,有三种,实时进程:SCHED_FIFO,SCHED_RR, 分时进程:SCHED_OTHER
 	 unsigned long policy;
-	 struct mm_struct *mm;    //进程内存管理信息
+	 struct mm_struct *mm; //进程内存管理信息
  
 	 int processor;
 	 //若进程不在任何CPU上运行, cpus_runnable 的值是0，否则是1 这个值在运行队列被锁时更新
