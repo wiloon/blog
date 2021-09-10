@@ -118,7 +118,7 @@ max memory size         (kbytes, -m) unlimited
 
 stack size              (kbytes, -s) 10240
 
-最后发现只有max user processes 和virtual memory对总的线程数有影响,我把max user processes降到2048后,发现此时只能创建 2000左右个线程了(Xms64m, Xss1m),进一步地把virtual memory下调到2048000K发现能创建的就更少了1679（Xms64m, Xss1m）,而它只会对当前shell起作用,而多个application server应该是不同的shell,所以他是打酱油的。另外两个参数好像就是来做做俯卧撑的,操作系统stack size是不应该会有什么影响,我们把它上调到102400,还是可以创建2000左右的线程数（max user processes）,因为java有自己的线程模型,它的栈的大小是用Xss来控制的。Max memory size不知道是啥东东,照理说如果是最大内存应该不会只在旁边做俯卧撑,那这个参数到底是春哥还是曾哥,查了一下man ulimit,有下面解释
+最后发现只有max user processes 和virtual memory对总的线程数有影响,我把max user processes降到2048后,发现此时只能创建 2000左右个线程了(Xms64m, Xss1m),进一步地把virtual memory下调到2048000K发现能创建的就更少了1679（Xms64m, Xss1m）,而它只会对当前shell起作用,而多个application server应该是不同的shell,所以他是打酱油的。另外两个参数好像就是来做做俯卧撑的,操作系统stack size是不应该会有什么影响,我们把它上调到102400,还是可以创建2000左右的线程数（max user processes）,因为java有自己的线程模型,它的栈的大小是用Xss来控制的。Max memory size不知道是啥东西,照理说如果是最大内存应该不会只在旁边做俯卧撑,那这个参数到底是春哥还是曾哥,查了一下man ulimit,有下面解释
 
 -a     All current limits are reported
 

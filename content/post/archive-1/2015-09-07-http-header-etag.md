@@ -33,7 +33,7 @@ HTTP协议规格说明定义ETag为"被请求变量的实体值"。另一种说�
   
 优势
   
-1、有些URL是多语言的网页，相同的URL会返回不同的东东。还有不同的Session有不同的Cookie也就有不同的内容。这种情况下如果过 Proxy，Proxy就无法区分导致串门，只能简单的取消cache功能。Etag解决了这个问题，因为它能区分相同URL不同的对象。
+1、有些URL是多语言的网页，相同的URL会返回不同的东西。还有不同的Session有不同的Cookie也就有不同的内容。这种情况下如果过 Proxy，Proxy就无法区分导致串门，只能简单的取消cache功能。Etag解决了这个问题，因为它能区分相同URL不同的对象。
   
 2、老的HTTP标准里有个Last-Modified+If-Modified-Since表明URL对象是否改变。Etag也具有这种功能，因为对象改变也造成Etag改变，并且它的控制更加准确。Etag有两种用法 If-Match/If-None-Match，就是如果服务器的对象和客户端的对象ID（不）匹配才执行。这里的If-Match/If-None- Match都能一次提交多个Etag。If-Match可以在Etag未改变时断线重传。If-None-Match可以刷新对象（在有新的Etag时返回）。
   

@@ -323,6 +323,10 @@ func main() {
 }
 ```
 
+### humanize
+github.com/dustin/go-humanize
+
+
 ---
 
 https://cyent.github.io/golang/datatype/funcvalue_parameter/
@@ -330,4 +334,8 @@ https://cyent.github.io/golang/datatype/funcvalue_parameter/
 ## release notes
 ### 1.17 
 https://tip.golang.org/doc/go1.17
-    
+
+### Go 程序是怎样跑起来的
+>https://zhuanlan.zhihu.com/p/71993748
+### go程序启动过程
+>https://juejin.cn/post/6942509882281033764

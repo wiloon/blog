@@ -64,7 +64,7 @@ validate :
   
 </properties>
   
-结果在测试时，老是发现数据库表数据丢失。这个参数以前没怎么用，查了一圈其它的东东，最后才定位到这个上面。赶紧查了一下Hibernate的参数配置，解释如下: 
+结果在测试时，老是发现数据库表数据丢失。这个参数以前没怎么用，查了一圈其它的东西，最后才定位到这个上面。赶紧查了一下Hibernate的参数配置，解释如下: 
 
 hibernate.hbm2ddl.auto Automatically validate or export schema DDL to the database when the SessionFactory is created. With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly. eg. validate | update | create | create-drop
 

@@ -9,8 +9,6 @@ categories:
 
 ---
 
-<div id="article_content">
-  
     jdk1.5 static import
  static import
  static import就是允许在代码中直接引用别的类的static变量和方法（当然，在权限许可范围内），我们可以简单的把它当成import的延续。
