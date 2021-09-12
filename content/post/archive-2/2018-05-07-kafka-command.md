@@ -7,28 +7,28 @@ url: "kafka"
 ---
 ### consumer
     bin/kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
+    --bootstrap-server kafka.wiloon.com:9092 \
     --topic topic0
 
     bin/kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
+    --bootstrap-server kafka.wiloon.com:9092 \
     --topic topic0 \
     --from-beginning \
     --property "parse.key=true" \
     --property "key.separator=:"
 
     bin/kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
+    --bootstrap-server kafka.wiloon.com:9092 \
     --topic topic0 \
     --from-beginning
 
 ### producer
     bin/kafka-console-producer.sh \
-    --broker-list localhost:9092 \
+    --broker-list kafka.wiloon.com:9092 \
     --topic topic0
 
     bin/kafka-console-producer.sh \
-    --broker-list localhost:9092 \
+    --broker-list kafka.wiloon.com:9092 \
     --topic topic0
     --property parse.key=true
 
@@ -39,11 +39,11 @@ url: "kafka"
 ### group
     # list all group
     bin/kafka-consumer-groups.sh \
-    --bootstrap-server localhost:9092 --list
+    --bootstrap-server kafka.wiloon.com:9092 --list
 
     # list group detail, offset
     bin/kafka-consumer-groups.sh \
-    --bootstrap-server localhost:9092 \
+    --bootstrap-server kafka.wiloon.com:9092 \
     --describe \
     --group my-group
 
@@ -64,7 +64,7 @@ url: "kafka"
 
 ### 查看topic详细信息, 如: 分区数, replication 
     bin/kafka-topics.sh \
-    --zookeeper 127.0.0.1:2181 \
+    --zookeeper zookeeper.wiloon.com:2181 \
     --topic topic0 \
     --describe
 
@@ -86,6 +86,13 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
     --zookeeper test-zookeeper-1,test-zookeeper-2 \
     --replication-factor 3 \
     --partitions 5 \
+    --topic topic0
+
+    # kafka
+    bin/kafka-topics.sh --create \
+    --zookeeper zookeeper.wiloon.com:2181 \
+    --replication-factor 1 \
+    --partitions 1 \
     --topic topic0
 
 <https://cloud.tencent.com/developer/article/1436988>
@@ -189,6 +196,25 @@ docker run  -d --name kafka \
 -v kafka-data:/kafka \
 -t wurstmeister/kafka
 ```
+### podman
+```bash
+podman run  -d --name kafka \
+-p 9092:9092 \
+-e KAFKA_BROKER_ID=0 \
+-e KAFKA_ZOOKEEPER_CONNECT=zookeeper.wiloon.com:2181 \
+-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \
+-e KAFKA_ADVERTISED_HOST_NAME=kafka-0 \
+-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka.wiloon.com:9092 \
+-e KAFKA_AUTO_CREATE_TOPICS_ENABLE=false \
+-v kafka-data:/kafka \
+-t wurstmeister/kafka
+
+# kafka 的监听地址
+# KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
+# kafka对外发布的连接地址
+# KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka.wiloon.com:9092
+```
+
 
 ### server.properties
     advertised.host.name: 是注册到zookeeper,client要访问的broker地址。（可能producer也是拿这个值,没有验证）
@@ -232,6 +258,14 @@ docker run  -d --name kafka \
     
     新API和旧API
 
+### kafka manager
+```bash
+podman run -d --name cmak\
+     -p 9000:9000  \
+     -e ZK_HOSTS="zookeeper.wiloon.com:2181" \
+     hlebalbau/kafka-manager:stable
+```
+
 ---
 
 https://www.jianshu.com/p/25a7b0ceb78a  
@@ -240,3 +274,4 @@ https://juejin.im/entry/5cbfe36b6fb9a032036187aa
 https://my.oschina.net/u/218540/blog/223501  
 https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html  
 https://blog.csdn.net/lzufeng/article/details/81743521  
+>https://www.jianshu.com/p/26495e334613
