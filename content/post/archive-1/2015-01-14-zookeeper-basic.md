@@ -1,9 +1,8 @@
 ---
 title: zookeeper basic
 author: "-"
-type: post
 date: 2015-01-14T09:32:00+00:00
-url: /?p=7242
+url: zookeeper-basic
 
 ---
 ### 向zookeeper 发送 stat命令 查询zookeeper版本
