@@ -44,6 +44,10 @@ title = "vuetify"
 ### replace google font,mdi font with local resource
 注释掉public/index.html中引用的字体
 
+### 颜色
+>https://vuetifyjs.com/zh-Hans/styles/colors/#material-82725f698868
+
+---
 
 https://blog.csdn.net/lpwmm/article/details/104659448
 

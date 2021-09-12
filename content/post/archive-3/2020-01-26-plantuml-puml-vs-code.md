@@ -95,18 +95,21 @@ Alice <-- Bob: Another authentication Response
 ```
 
 ### 组件图
+- 别名后面可以标注颜色
+- 修改线和箭头的颜色
+
 ```puml
 @startuml
 skinparam componentStyle rectangle
 
-[component0] as c0
+[component0] as c0 #ff0000
 [component1] as c1
 [component2] as c2
 [component3] as c3
 [component4] as c4
 
 c0 -- c1
-c0--c2
+c0-[#00ff00]-c2
 c1--c3
 c0--c3
 

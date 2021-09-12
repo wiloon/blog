@@ -66,21 +66,32 @@ delete /k0
 download zookeeper
 cp zoo_sample.cfg zoo.cfg
 
-vim zoo.cfg
+### 配置， vim zoo.cfg
+```bash
+#zookeeper 服务器心跳时间，单位为ms
 tickTime=2000
-##Zookeeper最小时间单元，单位毫秒(ms)，默认值为2000
+##Zookeeper最小时间单元，单位毫秒(ms)，默认值为2000, #投票选举新 leader 的初始化时间
 initLimit=5
 ##Leader服务器等待Follower启动并完成数据同步的时间，默认值10，表示tickTime的10倍
+
+# syncLimit, Leader服务器和Follower之间进行心跳检测的最大延时时间，默认值5，表示tickTime的5倍
+#leader 与 follower 心跳检测最大容忍时间，响应超过 tickTime * syncLimit，认为 leader 丢失该 follower
+syncLimit=2
+#dataDir, 数据目录
+##Zookeeper 服务器存储快照文件的目录，必须配置
 dataDir=/data/server/zookeeper/data
-##Zookeeper服务器存储快照文件的目录，必须配置
+
 dataLogDir=/data/logs/zookeeper
 ##Zookeeper服务器存储事务日志的目录，默认为dataDir
+
+# clientPort, 服务器对外服务端口，一般设置为2181
 clientPort=2181
-##服务器对外服务端口，一般设置为2181
-syncLimit=2
-##Leader服务器和Follower之间进行心跳检测的最大延时时间，默认值5，表示tickTime的5倍
+
+
+
+
 autopurge.purgeInterval=1
-  
+```
 从3.4.0开始，zookeeper提供了自动清理snapshot和事务日志的功能，通过配置 autopurge.snapRetainCount 和 autopurge.purgeInterval 这两个参数能够实现定时清理了。这两个参数都是在zoo.cfg中配置的: 
 
 autopurge.purgeInterval 这个参数指定了清理频率，单位是小时，需要填写一个1或更大的整数，默认是0，表示不开启自己清理功能。
@@ -392,3 +403,4 @@ https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
 <http://www.wiloon.com/?p=8594>{.wp-editor-md-post-content-link}
   
 https://my.oschina.net/xianggao/blog/531613
+>https://www.jianshu.com/p/30bcaf55f451
