@@ -48,7 +48,7 @@ http_load以并行复用的方式运行，用以测试web服务器的吞吐量�
 
 <blockquote class="wp-embedded-content" data-secret="iAUiVVmnMv">
   
-    <a href="https://www.vpser.net/other/choose-vps.html">VPS服务器的选择</a>
+    VPS服务器的选择
   
 </blockquote>
 
@@ -56,7 +56,7 @@ https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv
 
 <blockquote class="wp-embedded-content" data-secret="cLrZu8rncf">
   
-    <a href="https://www.vpser.net/vps-cp/hypervm-tutorial.html">HyperVM使用教程/手册</a>
+    HyperVM使用教程/手册
   
 </blockquote>
 
@@ -64,7 +64,7 @@ https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf
 
 <blockquote class="wp-embedded-content" data-secret="aK3vT9Oj6d">
   
-    <a href="https://www.vpser.net/coupons/diavps-april-coupons.html">DiaVPS 4月最新优惠</a>
+    DiaVPS 4月最新优惠
   
 </blockquote>
 
@@ -72,7 +72,7 @@ https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d
 
 <blockquote class="wp-embedded-content" data-secret="GisBcCy5FH">
   
-    <a href="https://www.vpser.net/security/vps-backup-web-mysql.html">VPS主机上备份网站和数据库</a>
+    VPS主机上备份网站和数据库
   
 </blockquote>
 
@@ -478,7 +478,7 @@ Shortest transaction: 0.00 //每次传输所花最短时间
 
 <blockquote class="wp-embedded-content" data-secret="No65LHIzR5">
   
-    <a href="https://coolshell.cn/articles/2589.html">十个免费的Web压力测试工具</a>
+    十个免费的Web压力测试工具
   
 </blockquote>
 

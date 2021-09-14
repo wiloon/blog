@@ -12,5 +12,5 @@ https://bbs.archlinux.org/viewtopic.php?id=128682
 
 set up in pacman.conf
 
-<div class="codebox">
+
   <code>SigLevel = Optional TrustAll```

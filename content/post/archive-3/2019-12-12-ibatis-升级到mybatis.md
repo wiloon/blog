@@ -32,7 +32,7 @@ mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一�
     
 <groupId>org.mybatis</groupId>
     
-<artifactId>mybatis</artifactId>
+mybatis</artifactId>
     
 <version>3.4.6</version>
    
@@ -42,7 +42,7 @@ mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一�
     
 <groupId>org.mybatis</groupId>
     
-<artifactId>mybatis-spring</artifactId>
+mybatis-spring</artifactId>
     
 <version>1.3.2</version>
    

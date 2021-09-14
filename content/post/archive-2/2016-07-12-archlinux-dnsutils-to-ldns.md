@@ -45,7 +45,7 @@ While dnsutils provided three similar DNS query tools (dig, host, nslookup), ldn
 
 <blockquote class="wp-embedded-content" data-secret="9AchPRSDEE">
   
-    <a href="http://roclinux.cn/?p=2449">《dig挖出DNS的秘密》-linux命令五分钟系列之三十四</a>
+    《dig挖出DNS的秘密》-linux命令五分钟系列之三十四
   
 </blockquote>
 

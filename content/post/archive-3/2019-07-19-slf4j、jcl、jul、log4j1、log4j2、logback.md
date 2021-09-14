@@ -13,17 +13,17 @@ log4j-core:log4j2 上述API的实现
 ```xml
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-api</artifactId>
+    log4j-api</artifactId>
     <version>2.13.3</version>
 </dependency>
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-core</artifactId>
+    log4j-core</artifactId>
     <version>2.13.3</version>
 </dependency>
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-slf4j-impl</artifactId>
+    log4j-slf4j-impl</artifactId>
     <version>2.13.3</version>
 </dependency>
 
@@ -38,7 +38,7 @@ log4j-slf4j-impl slf4j到log4j2的桥梁
 ```xml
     <dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>log4j-over-slf4j</artifactId>
+        log4j-over-slf4j</artifactId>
         <version>1.7.28</version>
     </dependency>
 ``` 
@@ -54,7 +54,7 @@ org.apache.logging.log4j:log4j-jcl: commons-logging 桥接到 log4j2
 <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jcl -->
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-jcl</artifactId>
+    log4j-jcl</artifactId>
     <version>2.13.3</version>
 </dependency>
 ```
@@ -73,7 +73,7 @@ https://my.oschina.net/pingpangkuangmo/blog/410224?p=2
 ### jul>slf4j>log4j2
     <dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>jul-to-slf4j</artifactId>
+        jul-to-slf4j</artifactId>
         <version>1.7.25</version>
     </dependency>
     

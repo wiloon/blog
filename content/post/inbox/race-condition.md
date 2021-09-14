@@ -64,7 +64,7 @@ racy_transfer(your_account, my_account, 80);
 运行上面的的代码后，不光我们双方账号的余额不可预测，甚至整个系统会发生什么事情都无法保证。
 
 3.2.竞态条件的例子
-#include <atomic>
+#include 
 std::atomic<int> my_account = 0; //我的账户余额
 std::atomic<int> your_account = 100;  //你的账户余额
 

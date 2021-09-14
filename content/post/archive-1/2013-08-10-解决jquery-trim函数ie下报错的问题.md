@@ -12,10 +12,10 @@ categories:
   
 其主要原因是写法不对，下面是错误的写法
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
@@ -34,10 +34,10 @@ categories:
   
 正确的写法应该为
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
@@ -54,10 +54,10 @@ categories:
 
 或者为:
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" /></a>
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
@@ -72,5 +72,5 @@ categories:
     </li>
   </ol>
   
-    <a href="http://vsp.iteye.com/blog/1262441">http://vsp.iteye.com/blog/1262441</a>
+    http://vsp.iteye.com/blog/1262441
   

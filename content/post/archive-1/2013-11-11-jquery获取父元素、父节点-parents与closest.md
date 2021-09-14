@@ -15,11 +15,11 @@ tags:
 
 <ul class="box" name="a">
 
-<li name="b" class="li_moito"><a href="#" class="moto">Hello Moto*</a></li>
+<li name="b" class="li_moito">Hello Moto*</li>
 
-<li><a href="#" class="kitty">Hello Kitty*</a></li>
+<li>Hello Kitty*</li>
 
-<li><a href="#" class="world">Hello World*</a></li>
+<li>Hello World*</li>
 
 </ul>
 
@@ -86,6 +86,6 @@ $(".moto").closest(".li_moito");
 
 本文参考资源: 
 
-<a href="http://www.cnblogs.com/weixing/archive/2012/03/20/2407618.html" target="_blank">http://www.cnblogs.com/weixing/archive/2012/03/20/2407618.html</a>
+http://www.cnblogs.com/weixing/archive/2012/03/20/2407618.html
 
 <http://hi.baidu.com/zhangqian04062/item/4f4656f5d3ef6743922af27a>

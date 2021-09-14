@@ -145,7 +145,7 @@ false？没错，它就是false，自动装箱时，对于值从-128-127之间�
 
   
     
-      <div id="blog_text">
+      
         
           java是一种面向对象语言,java中的类把方法与数据连接在一起,并构成了自包含式的处理单元.但在java中不能定义基本类型(primitive type),为了能将基本类型视为对象来处理,并能连接相关的方法,java为每个基本类型都提供了包装类,这样,我们便可以把这些基本类型转化为对象来处理了.这些包装类有:Boolean,Byte,Short,Character,Integer,Long,Float,Double,Void共9个(注意：Date不是，无其基本类型).
         

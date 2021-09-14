@@ -90,7 +90,7 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
 <dependencies>
     <dependency>
         <groupId>com.google.protobuf</groupId>
-        <artifactId>protobuf-java</artifactId>
+        protobuf-java</artifactId>
         <version>${protobuf.version}</version>
     </dependency>
 </dependencies>
@@ -99,14 +99,14 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
     <extensions>
         <extension>
             <groupId>kr.motd.maven</groupId>
-            <artifactId>os-maven-plugin</artifactId>
+            os-maven-plugin</artifactId>
             <version>${os-maven-plugin.version}</version>
         </extension>
     </extensions>
     <plugins>
         <plugin>
             <groupId>org.xolstice.maven.plugins</groupId>
-            <artifactId>protobuf-maven-plugin</artifactId>
+            protobuf-maven-plugin</artifactId>
             <version>${protobuf-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>

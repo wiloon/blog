@@ -11,7 +11,7 @@ categories:
   1. DestroyJavaVM is a thread that unloads the Java VM on program exit. Most of the time it should be waiting, until apocalypse of your VM.
   2. Signal Dispatcher is a thread that handles the native signals sent by the OS to your jvm.
   3. Finalizer threads pull objects from the finalization queue and calls it finalize method.
-  4. Reference Handler is a high-priority thread to enqueue pending <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ref/Reference.html" rel="noreferrer">References</a>. Its defined in java.lang.ref.References.java
+  4. Reference Handler is a high-priority thread to enqueue pending References. Its defined in java.lang.ref.References.java
 
 
 This happens because most applications are run in threads.

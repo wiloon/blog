@@ -53,7 +53,7 @@ select  LOG(256,10)*126   from dual
 
 特别是某些人对于boolean类型的处理；
 
-因为<a href="http://www.itpub.net/pubtree/?node=1" target="_blank">Oracle</a>的表结构中没有布尔类型，所以很多人干脆用integer 代替布尔类型，这个感觉有点"奢侈"；
+因为Oracle的表结构中没有布尔类型，所以很多人干脆用integer 代替布尔类型，这个感觉有点"奢侈"；
 
 我一般都用char(1）表示布尔型；'0'表示false,'1'表示true
 
@@ -70,7 +70,7 @@ select  LOG(256,10)*126   from dual
 
 ### SIMPLE_INTEGER Subtype of PLS_INTEGER {#autoId14}
 
-<a id="sthref278" name="sthref278"></a>`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint"][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
+`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint"][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
 
 If you know that a variable will never have the value `NULL` or need overflow checking, declare it as `SIMPLE_INTEGER` rather than `PLS_INTEGER`. Without the overhead of checking for nullness and overflow, `SIMPLE_INTEGER` performs significantly better than `PLS_INTEGER`.
 

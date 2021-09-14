@@ -67,7 +67,7 @@ https://wiki.archlinux.org/index.php/Autofs#Configuration
 
 <blockquote class="wp-embedded-content" data-secret="QDWVDOBQOH">
   
-    <a href="http://gudaoyufu.com/?p=1113">NFS文件共享权限问题与autofs的自动挂载等</a>
+    NFS文件共享权限问题与autofs的自动挂载等
   
 </blockquote>
 

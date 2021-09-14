@@ -12,7 +12,7 @@ categories:
     Use this procedure to create a macro that generates a list of all the commands in the integrated development environment (IDE) and any shortcut keys mapped to those commands according to the current keyboard mapping scheme.
   
   
-    Several keyboard mapping schemes are available in the IDE. You can change keyboard mapping schemes on the Keyboard page, under the Environment folder of theOptions dialog box. For more information, see <a href="http://msdn.microsoft.com/en-us/library/5zwses53(v=vs.100).aspx">How to: Work with Keyboard Shortcuts</a>.
+    Several keyboard mapping schemes are available in the IDE. You can change keyboard mapping schemes on the Keyboard page, under the Environment folder of theOptions dialog box. For more information, see How to: Work with Keyboard Shortcuts.
   
   
     
@@ -24,7 +24,7 @@ categories:
       
       
         
-          The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition. To change your settings, clickImport and Export Settings on the Tools menu. For more information, see <a href="http://msdn.microsoft.com/en-us/library/zbhkx167(v=vs.100).aspx">Working with Settings</a>.
+          The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition. To change your settings, clickImport and Export Settings on the Tools menu. For more information, see Working with Settings.
         
       
     
@@ -49,7 +49,7 @@ categories:
       Double-click KeyboardShortcuts to open the file in the editor.
     </li>
     <li>
-      Paste the following code in the file after Public Module KeyboardShortcuts: <div id="code-snippet-1">
+      Paste the following code in the file after Public Module KeyboardShortcuts: 
         
         
         
@@ -57,7 +57,7 @@ categories:
           
           
           
-          <div dir="ltr" id="CodeSnippetContainerCode_5caf603c-61bf-4bff-b2e9-fbb55e05b63f">
+          
             
               Sub GetAllCommands()
 
@@ -142,5 +142,5 @@ End Sub
             Commands and their shortcut key combinations appear in the Output window. You can copy this information and paste it into another application, such as Microsoft Office Excel, for additional formatting and printing options.</li> </ol> 
             
             
-              <a href="http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx">http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx</a>
+              http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx
             

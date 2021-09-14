@@ -26,10 +26,10 @@ Open /usr/share/polkit-1/actions/org.freedesktop.NetworkManager.policy with root
 <message>System policy prevents modification of network settings for all users</message>
 A few lines below that should be this:
 
-<allow_active>auth_admin_keep</allow_active>
+auth_admin_keep</allow_active>
 Change it to:
 
-<allow_active>yes</allow_active>
+yes</allow_active>
 Save the file and restart your computer.
 
 设置取值有：

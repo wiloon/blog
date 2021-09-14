@@ -115,7 +115,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
       <li>
         配置DHCP，也就是编辑文件/etc/udhcpd.conf ，基本上按照下列内容来做： 
           
-            <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+            <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
           
           
           start 192.168.42.2 # This is the range of IPs that the hostspot will give to client devices.
@@ -129,7 +129,7 @@ opt router 192.168.42.1 # The Pi's IP address on wlan0 which we will set up shor
 opt lease 864000 # 10 day DHCP lease time in seconds
 
           
-            <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+            <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
           
         
         
@@ -187,7 +187,7 @@ netmask 255.255.255.0
             
             
               
-                <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+                <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
               
               
               pi@raspberrypi ~ $ wpa_passphrase Daochen_AP DaochenShi
@@ -199,7 +199,7 @@ psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 }
 
               
-                <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+                <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
               
             
             
@@ -213,7 +213,7 @@ psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
             
             
               
-                <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+                <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
               
               
               interface=wlan0
@@ -225,7 +225,7 @@ auth_algs=1
 wmm_enabled=0
 
               
-                <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+                <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
               
             
             
@@ -346,9 +346,9 @@ Failed to bring up wlan0.
                       
                       
                       
-                        <a href="https://github.com/jenssegers/RTL8188-hostapd">https://github.com/jenssegers/RTL8188-hostapd</a>
+                        https://github.com/jenssegers/RTL8188-hostapd
                       
                       
                       
-                        <a href="http://azug.minpet.unibas.ch/~lukas/bricol/olinuxino-imx233/index.html">http://azug.minpet.unibas.ch/~lukas/bricol/olinuxino-imx233/index.html</a>
+                        http://azug.minpet.unibas.ch/~lukas/bricol/olinuxino-imx233/index.html
                        

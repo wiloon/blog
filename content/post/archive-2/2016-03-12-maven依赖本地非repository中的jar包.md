@@ -44,7 +44,7 @@ Xml代码
   
 <groupId>org.apache</groupId>
   
-<artifactId>test</artifactId>
+test</artifactId>
   
 <version>1.0</version>
   

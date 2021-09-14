@@ -11,7 +11,7 @@ categories:
 ---
 **saveOrUpdateCopy，merge和update区别**
 
-  <div id="content">
+  
     
       首先说明merge是用来代替saveOrUpdateCopy的，然后比较update和merge,update的作用上边说了，这里说一下merge的,如果session中存在相同持久化标识（identifier）的实例，用用户给出的对象的状态覆盖旧有的持久实例,如果session没有相应的持久实例，则尝试从数据库中加载，或创建新的持久化实例，最后返回该持久实例,用户给出的这个对象没有被关联到session上，它依旧是脱管的。重点是最后一句：
     

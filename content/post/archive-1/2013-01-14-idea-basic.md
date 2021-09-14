@@ -65,7 +65,7 @@ windows
 
 修改IntelliJ IDEA 7.0/bin下idea.exe.vmoptions
 
-<div id="article_content">
+
   
         -server
  -Xverify:none

@@ -38,8 +38,8 @@ Sendmail
 
   Postfix以替代sendmail为目的，并提供了一个更安全、更高性能的灵活的体系。它同样也采用模块化设计，使用了大量优秀的技术，以达到安全的目的。由于作者的设计理念独到，经过7，8年时间，Postfix现今已发展成为功能非常丰富，扩展性和安全性强的优秀MTA。
 
-<div id="a000058more">
-  <div id="more">
+
+  
     <h4>
       概括的比较
     </h4>
@@ -106,7 +106,7 @@ Sendmail
     
     
     
-      从我过去的一个qmail vs postfix对比测试</a>中，也可以发现这个问题。
+      从我过去的一个qmail vs postfix对比测试中，也可以发现这个问题。
     
     
     
@@ -115,7 +115,7 @@ Sendmail
     
     
     
-      此外，Postfix的队列对于不要使用softupdate</a>，除非是有磁盘后写电池。
+      此外，Postfix的队列对于不要使用softupdate，除非是有磁盘后写电池。
     
     
     
@@ -124,7 +124,7 @@ Sendmail
     
     
     
-      qmail在系统容量扩展上有着独到的设计，配合qmail-ldap补丁，可以充分利用qmqp及分布存储的优势。现今已有各式各样的qmail扩展方案，最著名的是qmail-ldap</a>。但qmail缺乏类似milter的设计，功能扩展需要各种补丁，而补丁的设计水平参差不齐，配置能力有限。实施起来相对是最复杂的。
+      qmail在系统容量扩展上有着独到的设计，配合qmail-ldap补丁，可以充分利用qmqp及分布存储的优势。现今已有各式各样的qmail扩展方案，最著名的是qmail-ldap。但qmail缺乏类似milter的设计，功能扩展需要各种补丁，而补丁的设计水平参差不齐，配置能力有限。实施起来相对是最复杂的。
     
     
     
@@ -168,9 +168,9 @@ Sendmail
     
     
       作者介绍
- sendmail -Eric Allman</a>Unix专家、学者
- qmail -DJB</a>数学教授，科学家
- Postfix -wietse venema</a>安全专家 学者
+ sendmail -Eric AllmanUnix专家、学者
+ qmail -DJB数学教授，科学家
+ Postfix -wietse venema安全专家 学者
     
     
     <h4>
@@ -186,11 +186,11 @@ Sendmail
     </h4>
     
     
-      在足够好的硬件条件下Postfix比qmail更快的原因分析</a>
- benchmark，无聊还是骗局？</a>
- qmail/postfix/sendmail 比较</a>
- Sendmail 历史</a>
- 有关mta benchmark</a>
- Sendmail性能调整</a>
- qmail可靠性FAQ</a>
+      在足够好的硬件条件下Postfix比qmail更快的原因分析
+ benchmark，无聊还是骗局？
+ qmail/postfix/sendmail 比较
+ Sendmail 历史
+ 有关mta benchmark
+ Sendmail性能调整
+ qmail可靠性FAQ
   

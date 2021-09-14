@@ -21,12 +21,12 @@ curator4 默认依赖zookeeper 3.5
 ```xml
 <dependency>
     <groupId>org.apache.curator</groupId>
-    <artifactId>curator-recipes</artifactId>
+    curator-recipes</artifactId>
     <version>${curator-version}</version>
     <exclusions>
         <exclusion>
             <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
+            zookeeper</artifactId>
         </exclusion>
     </exclusions>
 </dependency>
@@ -75,11 +75,11 @@ LeaderLatch用户必须考虑导致leadershi丢失的连接问题。 强烈推�
  ```xml
 <dependency>
             <groupId>org.apache.curator</groupId>
-            <artifactId>curator-recipes</artifactId>
+            curator-recipes</artifactId>
             <version>${curator.version}</version>
             <exclusions>
                 <exclusion>
-                    <artifactId>log4j</artifactId>
+                    log4j</artifactId>
                     <groupId>log4j</groupId>
                 </exclusion>
             </exclusions>
@@ -99,7 +99,7 @@ http://colobu.com/2014/12/12/zookeeper-recipes-by-example-1/
 
 <blockquote class="wp-embedded-content" data-secret="mwCqdwnDV0">
   
-    <a href="http://ifeve.com/zookeeper-leader/">跟着实例学习ZooKeeper的用法:  Leader选举</a>
+    跟着实例学习ZooKeeper的用法:  Leader选举
   
 </blockquote>
 

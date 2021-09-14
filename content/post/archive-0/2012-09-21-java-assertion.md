@@ -18,7 +18,7 @@ assertion(断言)在软件开发中是一种常用的调试方式，很多开发
 
 在实现中，assertion就是在程序中的一条语句，它对一个boolean表达式进行检查，一个正确程序必须保证这个boolean表达式的值为true；如果该值为false，说明程序已经处于不正确的状态下，系统将给出警告或退出。一般来说，assertion用于保证程序最基本、关键的正确性。assertion检查通常在开发和测试时开启。为了提高性能，在软件发布后，assertion检查通常是关闭的。下面简单介绍一下Java中assertion的实现。
 
-<a name="N1005C"></a>1．1) 语法表示
+1．1) 语法表示
 
 在语法上，为了支持assertion，Java增加了一个关键字assert。它包括两种表达式，分别如下：
 
@@ -27,13 +27,13 @@ assertion(断言)在软件开发中是一种常用的调试方式，很多开发
 
 在两种表达式中，expression1表示一个boolean表达式，expression2表示一个基本类型或者是一个对象(Object) ，基本类型包括boolean,char,double,float,int和long。由于所有类都为Object的子类，因此这个参数可以用于所有对象。
 
-<a name="N10073"></a>1．2) 语义含义
+1．2) 语义含义
 
 在运行时，如果关闭了assertion功能，这些语句将不起任何作用。如果打开了assertion功能，那么expression1的值将被计算，如果它的值为false，该语句强抛出一个AssertionError对象。如果assertion语句包括expression2参数，程序将计算出expression2的结果，然后将这个结果作为AssertionError的构造函数的参数，来创建AssertionError对象，并抛出该对象；如果expression1值为true，expression2将不被计算。
 
 一种特殊情况是，如果在计算表达式时，表达式本身抛出Exception，那么assert将停止运行，而抛出这个Exception。
 
-<a name="N10081"></a>1．3) 一些assertion例子
+1．3) 一些assertion例子
 
 下面是一些Assert的例子。
 
@@ -42,7 +42,7 @@ assertion(断言)在软件开发中是一种常用的调试方式，很多开发
   3. assert　　ref != null:"ref doesn't equal null";
   4. assert　　isBalanced();
 
-<a name="N1009B"></a>1．4) 编译
+1．4) 编译
 
 由于assert是一个新关键字，使用老版本的JDK是无法编译带有assert的源程序。因此，我们必须使用JDK1.4(或者更新)的Java编译器，在使用Javac命令时，我们必须加上-source 1.4作为参数。-source 1.4表示使用JDK 1.4版本的方式来编译源代码，否则编译就不能通过，因为缺省的Javac编译器使用JDK1.3的语法规则。
 
@@ -50,7 +50,7 @@ assertion(断言)在软件开发中是一种常用的调试方式，很多开发
 
 javac -source 1.4 test.java
 
-<a name="N100AC"></a>1．5) 运行
+1．5) 运行
 
 由于带有assert语句的程序运行时，使用了新的ClassLoader和Class类，因此，这种程序必须在JDK1.4(或者更高版本)的JRE下运行，而不能在老版本的JRE下运行。
 
@@ -282,7 +282,7 @@ javac -source 1.4 test.java
     
     [回页首][1]
     
-    <a name="2"></a>assertion的设计问题
+    assertion的设计问题
     
     首先，我们认为assertion是必要的。因为，如果没有统一的assertion机制，Java程序通常使用if-then-else或者switch-case语句进行assertion检查，而且检查的数据类型也不完全相同。assertion机制让Java程序员用统一的方式处理assertion问题，而不是按自己的方式处理。另外，如果用户使用自己的方式进行检查，那么这些代码在发布以后仍然将起作用，这可能会影响程序的性能。而从语言言层次支持assertion功能，这将把assertion对性能带来的负面影响降到最小。
     
@@ -297,7 +297,7 @@ javac -source 1.4 test.java
     
     [回页首][1]
     
-    <a name="3"></a>assertion与继承
+    assertion与继承
     
     在本节，我们将考虑assertion与继承的关系，研究assert是如何定位的。如果开启一个子类的assertion，那么它的父类的assertion是否执行？
     
@@ -435,7 +435,7 @@ class Derived
     
     [回页首][1]
     
-    <a name="4"></a>assertion的使用
+    assertion的使用
     
     assertion的使用是一个复杂的问题，因为这将涉及到程序的风格，assertion运用的目标，程序的性质等问题。通常来说，assertion用于检查一些关键的值，并且这些值对整个程序，或者局部功能的完成有很大的影响，并且这种错误不容易恢复的。assertion表达式应该短小、易懂，如果需要评估复杂的表达式，应该使用函数计算。以下是一些使用assertion的情况的例子，这些方式可以让java程序的可靠性更高。
     
@@ -488,31 +488,31 @@ class Derived
             
             [回页首][1]
             
-            <a name="5"></a>结论
+            结论
             
             assertion为开发人员提供了一种灵活地调试和测试机制，它的使用也非常简单、方便。但是，如何规范、系统地使用assertion(特别是在Java语言中)仍然是一个亟待研究的问题。
             
             
             
-            <a name="resources"></a>参考资料
+            参考资料
             
               1. JSR 41 A Simple Assertion Facility <http://jcp.org/jsr/detail/41.jsp>
               2. Wm. Paul Rogers, J2SE 1.4 premieres Java's assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
               3. J2SE 1.4 Documents, Programming With Assertions <http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html>
               4. John Zukowski, Mastering Java 2, J2SE 1.4
             
-            <a name="author"></a>作者简介
+            作者简介
             
             
               
                 
-                  <a name="author1"></a>欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 <a href="mailto:yeekee@sina.com?cc=yeekee@sina.com">yeekee@sina.com</a>
+                  欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 yeekee@sina.com
                 
               
               
               
                 
-                  <a name="author2"></a>周欣，北京大学计算机系在读博士生，主要研究方向：程序理解、逆向工程及软件度量，联系方式 <a href="mailto:zhouxin@sei.pku.edu.cn?cc=zhouxin@sei.pku.edu.cn">zhouxin@sei.pku.edu.cn</a>。
+                  周欣，北京大学计算机系在读博士生，主要研究方向：程序理解、逆向工程及软件度量，联系方式 zhouxin@sei.pku.edu.cn。
                 
               
             

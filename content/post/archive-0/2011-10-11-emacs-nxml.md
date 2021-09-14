@@ -12,7 +12,7 @@ categories:
   - Emacs
 
 ---
-download nXML from <a href="http://www.thaiopensource.com/nxml-mode/">http://www.thaiopensource.com/nxml-mode/</a>
+download nXML from http://www.thaiopensource.com/nxml-mode/
 
 To get things automatically loaded each time you start Emacs, add
 (load "~/nxml-mode-200YMMDD/rng-auto.el")

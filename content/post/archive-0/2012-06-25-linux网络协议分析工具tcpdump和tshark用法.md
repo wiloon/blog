@@ -13,13 +13,13 @@ categories:
   
   
 
-<div id="content">
-  <a href="http://www.tcpdump.org/" target="_blank">Tcpdump</a>是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具<a href="http://www.wireshark.org/" target="_blank">wireshark</a> （原名叫ethereal）的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见<a href="http://www.tcpdump.org/pcap.htm" target="_blank">libpcap编程教程</a>）进行网络截包。 
+
+  Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具wireshark （原名叫ethereal）的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见libpcap编程教程）进行网络截包。 
   
     TCPDUMP
   
   
-    详细manpage参见<a href="http://www.tcpdump.org/tcpdump_man.html" target="_blank">tcpdump网站</a>。
+    详细manpage参见tcpdump网站。
   
   
     基本用法 
@@ -202,7 +202,7 @@ sudo pacman -S wireshark-cli
 #安装后可以使用 tshark 命令
 ```
   
-    详细参数参见tshark的<a href="http://www.wireshark.org/docs/man-pages/tshark.html" target="_blank">manpage</a>。
+    详细参数参见tshark的manpage。
   
   
     // 列出可监听流量的网络接口列表。tshark使用1,2,...等数字来标识eth0,eth1...
@@ -227,4 +227,4 @@ sudo pacman -S wireshark-cli
  c:Program FilesWiresharktshark.exe -i 4 -n -f "tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420" -T fields -e http.host -e http.request.uri -a duration:10
   
   
-    关于各种协议的具体字段参数参见 <a href="http://www.wireshark.org/docs/dfref/" target="_blank">http://www.wireshark.org/docs/dfref/</a>
+    关于各种协议的具体字段参数参见 http://www.wireshark.org/docs/dfref/

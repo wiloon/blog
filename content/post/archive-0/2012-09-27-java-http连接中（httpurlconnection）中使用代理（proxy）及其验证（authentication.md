@@ -18,7 +18,7 @@ System.setProperty("http.proxyPort", "8080");
 
 使用Java的HttpURLConnection类可以实现HttpClient的功能，而不需要依赖任何其他类库。所有有时候大家就直接使用它来完成一些简单（或复杂）的功能。但是你活在伟大的{print G.F.W}后面，如果你需要访问的网站被墙了，那HttpURLConnection类就会出现连接超时的错误。这时候就需要给他设置代理（Proxy）了。
 
-<div id="article_content">
+
   
           设置代理（Proxy）可以有两种方式：
   
@@ -26,7 +26,7 @@ System.setProperty("http.proxyPort", "8080");
     1、通过设置系统属性(System.setPropery(String key, String value)的方式
   
   
-    首先你可以在这里看到<a href="http://download.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html">Java支持的属性</a>。我们可以使用其中的http.proxyHost，http.proxyPort这两个属性。顾名思义，就是分别设置代理服务器地址和代理端口。
+    首先你可以在这里看到Java支持的属性。我们可以使用其中的http.proxyHost，http.proxyPort这两个属性。顾名思义，就是分别设置代理服务器地址和代理端口。
   
   
     
@@ -35,10 +35,10 @@ System.setProperty("http.proxyPort", "8080");
   
   
   
-    替换上面的<a href="http://www.proxy.com/">www.proxy.com</a>为你的代理服务器地址或IP地址，以及相应的端口为真实端口，Http连接及可以工作了。需要注意的是如果你设置了这些属性，那么所有的Http请求都会通过代理服务器。这些属性是JVM级别的，设置了以后对所有的同类请求都有效。比如上面的是关于http的，还有关于ftp的等等。
+    替换上面的www.proxy.com为你的代理服务器地址或IP地址，以及相应的端口为真实端口，Http连接及可以工作了。需要注意的是如果你设置了这些属性，那么所有的Http请求都会通过代理服务器。这些属性是JVM级别的，设置了以后对所有的同类请求都有效。比如上面的是关于http的，还有关于ftp的等等。
   
   
-    如果你的代理服务器不需要验证，那到此就结束了。但一般都是需要验证的。但是你要是看了上面<a href="http://download.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html">Java支持的属性列表</a>，你就会发现那里面并没有期望中的
+    如果你的代理服务器不需要验证，那到此就结束了。但一般都是需要验证的。但是你要是看了上面Java支持的属性列表，你就会发现那里面并没有期望中的
   
   
     

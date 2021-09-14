@@ -22,7 +22,7 @@ http://bbs.csdn.net/topics/320156312
 
  
 
- <div id="div1">
+ 
 
  
 
@@ -70,7 +70,7 @@ http://bbs.csdn.net/topics/320156312
 
  {
 
- $(obj.id+"text").innerHTML=obj.value+" <a href='javascript:del("+fileNum+")'>删除</a>";
+ $(obj.id+"text").innerHTML=obj.value+" 删除";
 
  $("file"+fileNum).style.display='none';
 

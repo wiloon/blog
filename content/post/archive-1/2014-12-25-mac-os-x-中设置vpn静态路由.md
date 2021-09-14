@@ -64,7 +64,7 @@ Mac OSX 中可以设置成启动项, 每次开机自动运行, 方法是:
   
 ============================================
 
-<div class="wp_syntax">
+
   
     
       <td class="code">
@@ -106,7 +106,7 @@ RunService "$1"
   
 ===================================
 
-<div class="wp_syntax">
+
   
     
       <td class="code">

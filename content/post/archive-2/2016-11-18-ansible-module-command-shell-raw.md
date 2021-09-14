@@ -167,7 +167,7 @@ mysql-port: 3306
   
 基本格式: 
 
-ansible <pattern_goes_here> -m <module_name> -a <arguments>
+ansible <pattern_goes_here> -m <module_name> -a 
   
 匹配所有主机
 

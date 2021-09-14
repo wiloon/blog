@@ -50,7 +50,7 @@ A -> E -> ( D 1.0 )
       
 <groupId>org.apache.commons</groupId>
       
-<artifactId>commons-math3</artifactId>
+commons-math3</artifactId>
       
 <version>[3.+,)</version>
   

@@ -12,7 +12,7 @@ tags:
 ---
 从JDK1.3开始，Java就引入了动态代理的概念。动态代理（Dynamic Proxy）可以帮助你减少代码行数，真正提高代码的可复用度。例如，你不必为所有的类的方法里面都写上相同的Log代码行，取而代之的是实用类的动态代理类。当然，这种便利是有条件的。本文简单介绍Java动态代理的原理，并实现一个被代理的Servlet创建，和调用的过程。
 
-<div id="article_content">
+
   
   
     1．代理模式（Proxy Pattern）
@@ -555,7 +555,7 @@ tags:
  ```
   
   
-    其中的ServletConfig保存Servlet相关信息。ServletContext保存所有的Servlet对象。WebAppClassLoader为自定义class loader,参见<a href="http://blog.csdn.net/tyrone1979/archive/2006/09/03/1164262.aspx">http://blog.csdn.net/tyrone1979/archive/2006/09/03/1164262.aspx</a>。
+    其中的ServletConfig保存Servlet相关信息。ServletContext保存所有的Servlet对象。WebAppClassLoader为自定义class loader,参见http://blog.csdn.net/tyrone1979/archive/2006/09/03/1164262.aspx。
   
   
   
@@ -864,97 +864,97 @@ tags:
   
     测试结果如下
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:Init servlet starting...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:Running init
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:Init servlet ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Init servlet starting...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Running init
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Init servlet ending...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service starting...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:Do UserSErvlet Get
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.DefaultServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service ending...
   
-  <div align="left">
+  
     org.colimas.servlet.UserServlet:service ending...
   
   

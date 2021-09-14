@@ -29,5 +29,5 @@ categories:
     
   </blockquote>
   
-    <a href="http://www.krizka.net/2007/08/20/howto-bootchart-with-bsd-process-accounting-on-gentoo/">http://www.krizka.net/2007/08/20/howto-bootchart-with-bsd-process-accounting-on-gentoo/</a>
+    http://www.krizka.net/2007/08/20/howto-bootchart-with-bsd-process-accounting-on-gentoo/
   

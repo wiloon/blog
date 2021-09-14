@@ -11,7 +11,7 @@ categories:
 
   <classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 
-<div id="blog_content">
+
   
     每个新建java工程(Project)都默认存在的。
   
@@ -49,7 +49,7 @@ categories:
   
     Since you are using m2eclipse, the .project file in your project contains
   
-  <code><buildCommand> <name>org.maven.ide.eclipse.maven2Builder</name> <arguments> </arguments> </buildCommand> ```
+  <code><buildCommand> <name>org.maven.ide.eclipse.maven2Builder</name>  </arguments> </buildCommand> ```
   
     This is overriding the Java builder, and copying the folders in /src/main/resources into the /target/classes directory.
   
@@ -81,11 +81,11 @@ categories:
     excluding表示该path下的符合excluding后面的值的文件不被包含在classpath下，
   
   
-    <a href="http://jinguo.iteye.com/blog/716693">http://jinguo.iteye.com/blog/716693</a>
+    http://jinguo.iteye.com/blog/716693
   
   
-    <a href="http://stackoverflow.com/questions/3630460/eclipse-classpath-exlusion-pattern">http://stackoverflow.com/questions/3630460/eclipse-classpath-exlusion-pattern</a>
+    http://stackoverflow.com/questions/3630460/eclipse-classpath-exlusion-pattern
   
   
-    <a href="http://yangblog.iteye.com/blog/949131">http://yangblog.iteye.com/blog/949131</a>
+    http://yangblog.iteye.com/blog/949131
   

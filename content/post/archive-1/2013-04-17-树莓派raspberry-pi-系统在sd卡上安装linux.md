@@ -14,7 +14,7 @@ sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img of=/dev/sdx
 
 刚刚拿到一只Simon同学出借的树莓派(raspberry pi) ，准备一张4GB的SD卡，准备跑一下Linux。
 
-在Windows 7上用 工具 <a href="https://launchpad.net/win32-image-writer/+download" target="_blank">Win32DiskImager</a>写入img到SD卡上，报错，失败。
+在Windows 7上用 工具 Win32DiskImager写入img到SD卡上，报错，失败。
 
 好在俺有Linux vmware虚拟机，在虚拟机上搞，执行命令 sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img  of=/dev/sdb
 

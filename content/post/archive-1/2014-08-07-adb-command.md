@@ -67,7 +67,7 @@ export PATH=${PATH}:<你的sdk目录>/tools
   </li>
 </ol>
 
-adb install <apk文件路径>
+adb install 
   
 3. 卸载软件
 

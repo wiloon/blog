@@ -118,7 +118,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 <groupId>org.unitils</groupId>
   
-<artifactId>unitils-dbmaintainer</artifactId>
+unitils-dbmaintainer</artifactId>
   
 <version>${unitils.version}</version>
   
@@ -126,7 +126,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 <exclusion>
   
-<artifactId>dbunit</artifactId>
+dbunit</artifactId>
   
 <groupId>org.dbunit</groupId>
   
@@ -136,7 +136,7 @@ mvn dependency:tree -Dverbose -Dincludes=asm:asm
   
 <exclusion>
   
-<artifactId>asm</artifactId>
+asm</artifactId>
   
 <groupId>asm</groupId>
   

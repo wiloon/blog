@@ -63,7 +63,7 @@ Java运行时环境(JRE)是将要执行Java程序的Java虚拟机。它同时也
 
 <blockquote data-secret="c1aIkVgiDE" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=5857">JRE和JDK的区别</a>
+    JRE和JDK的区别
   
 </blockquote>
 
@@ -78,7 +78,7 @@ Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态�
 
 <blockquote data-secret="W3D9plaZq4" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=720">java static</a>
+    java static
   
 </blockquote>
 
@@ -91,7 +91,7 @@ String 不是基本数据类型，基本数据类型包括byte、int、char、lo
 
 <blockquote data-secret="zPf1hjBJE1" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4095">java 基本数据类型</a>
+    java 基本数据类型
   
 </blockquote>
 
@@ -104,7 +104,7 @@ String 不是基本数据类型，基本数据类型包括byte、int、char、lo
 
 <blockquote data-secret="jKQn0c3Ffr" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=324">自动装箱 拆箱</a>
+    自动装箱 拆箱
   
 </blockquote>
 
@@ -139,7 +139,7 @@ Java 提供两种不同的类型：引用类型和原始类型（或内置类�
 
 <blockquote data-secret="3QUltjLSBh" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4120">引用类型 基本类型</a>
+    引用类型 基本类型
   
 </blockquote>
 
@@ -161,7 +161,7 @@ error 表示恢复不是不可能但很困难的情况下的一种严重问题�
 
 <blockquote data-secret="WhSU8ycC17" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4125">运行时异常/一般异常</a>
+    运行时异常/一般异常
   
 </blockquote>
 
@@ -179,7 +179,7 @@ ArrayList 和Vector都是使用数组方式存储数据，此数组元素数大�
 
 <blockquote data-secret="w9FiOFSEW9" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=1470">Java Array, Vector, ArrayList, List, LinkedList</a>
+    Java Array, Vector, ArrayList, List, LinkedList
   
 </blockquote>
 
@@ -192,7 +192,7 @@ HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都�
 
 <blockquote data-secret="Zea2iEVLs2" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4144">HashMap,Hashtable</a>
+    HashMap,Hashtable
   
 </blockquote>
 
@@ -200,7 +200,7 @@ http://www.wiloon.com/?p=4144&embed=true#?secret=Zea2iEVLs2
 
 <blockquote data-secret="PuZXM3VEiO" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=6726">HashSet、TreeSet、LinkedHashSet</a>
+    HashSet、TreeSet、LinkedHashSet
   
 </blockquote>
 
@@ -233,7 +233,7 @@ PriorityQueue是一个基于优先级堆的无界队列，它的元素是按照�
 
 <blockquote data-secret="pxDBhDaJyo" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4142">移位运算符</a>
+    移位运算符
   
 </blockquote>
 
@@ -253,7 +253,7 @@ finalize是Object类的一个方法，在垃圾收集器执行的时候会调用
 
 <blockquote data-secret="PSMs5c8YqX" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4618">JVM内存管理-Java垃圾回收调优</a>
+    JVM内存管理-Java垃圾回收调优
   
 </blockquote>
 
@@ -280,7 +280,7 @@ wait是Object类的方法，对此对象调用wait方法导致本线程放弃对
 
 <blockquote data-secret="RDEPuKfPGA" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4034">java 线程 yield(), sleep(), wait(), join()</a>
+    java 线程 yield(), sleep(), wait(), join()
   
 </blockquote>
 
@@ -293,7 +293,7 @@ http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 <blockquote data-secret="n7Qjl48iTg" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=3502">Java Override Overload 重写、覆盖、重载、多态</a>
+    Java Override Overload 重写、覆盖、重载、多态
   
 </blockquote>
 
@@ -306,7 +306,7 @@ http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 <blockquote data-secret="EdTzoKSmVu" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4130">同步/异步</a>
+    同步/异步
   
 </blockquote>
 
@@ -319,7 +319,7 @@ http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 <blockquote data-secret="MLUWtzeM61" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=3336">Java 抽象类/接口</a>
+    Java 抽象类/接口
   
 </blockquote>
 
@@ -351,7 +351,7 @@ GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容
 
 <blockquote data-secret="hz71dhuu22" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=4620">JVM内存管理和JVM垃圾回收机制</a>
+    JVM内存管理和JVM垃圾回收机制
   
 </blockquote>
 
@@ -366,7 +366,7 @@ http://www.wiloon.com/?p=4620&embed=true#?secret=hz71dhuu22
 
 
 ### JVM的永久代中会发生垃圾回收么？
-垃圾回收不会发生在永久代，如果永久代满了或者是超过了临界值，会触发完全垃圾回收(Full GC)。如果你仔细查看垃圾收集器的输出信息，就会发现永久代也是被回收的。这就是为什么正确的永久代大小对避免Full GC是非常重要的原因。请参考下<a class="external" href="http://www.javacodegeeks.com/2013/02/java-8-from-permgen-to-metaspace.html" target="_blank" rel="nofollow">Java8：从永久代到元数据区</a>
+垃圾回收不会发生在永久代，如果永久代满了或者是超过了临界值，会触发完全垃圾回收(Full GC)。如果你仔细查看垃圾收集器的输出信息，就会发现永久代也是被回收的。这就是为什么正确的永久代大小对避免Full GC是非常重要的原因。请参考下Java8：从永久代到元数据区
   
 (译者注：Java8中已经移除了永久代，新加了一个叫做元数据区的native内存区)
 

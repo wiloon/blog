@@ -172,12 +172,12 @@ Classes are introduced into the Java environment when they are referenced by nam
 
 At its simplest, a class loader creates a flat name space of class bodies that are referenced by a string name. The method definition is:
 
-  <div id="highlighter_62595" class="syntaxhighlighter nogutter java">
+  
     <table border="0" cellspacing="0" cellpadding="0">
       
         <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
+          
+            
               <code class="java plain">Class r = loadClass(String className, </code><code class="java keyword">boolean</code> <code class="java plain">resolveIt);</code>
             
           
@@ -226,52 +226,52 @@ Return the class to the caller.
 
 Some Java code that implements this flow is taken from the file SimpleClassLoader and appears as follows with descriptions about what it does interspersed with the code.
 
-  <div id="highlighter_496219" class="syntaxhighlighter nogutter java">
+  
     <table border="0" cellspacing="0" cellpadding="0">
       
         <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
+          
+            
               <code class="java keyword">public</code> <code class="java keyword">synchronized</code> <code class="java plain">Class loadClass(String className, </code><code class="java keyword">boolean</code> <code class="java plain">resolveIt)</code>
             
             
-            <div class="line number2 index1 alt1">
+            
               <code class="java spaces"> </code><code class="java keyword">throws</code> <code class="java plain">ClassNotFoundException {</code>
             
             
-            <div class="line number3 index2 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">Class result;</code>
             
             
-            <div class="line number4 index3 alt1">
+            
               <code class="java spaces"> </code><code class="java keyword">byte</code> <code class="java plain">classData[];</code>
             
             
-            <div class="line number5 index4 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> Load class : "</code><code class="java plain">+className);</code>
             
             
-            <div class="line number6 index5 alt1">
+            
               <code class="java spaces"> </code><code class="java comments">/* Check our local cache of classes */</code>
             
             
-            <div class="line number7 index6 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">result = (Class)classes.get(className);</code>
             
             
-            <div class="line number8 index7 alt1">
+            
               <code class="java spaces"> </code><code class="java keyword">if</code> <code class="java plain">(result != </code><code class="java keyword">null</code><code class="java plain">) {</code>
             
             
-            <div class="line number9 index8 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> returning cached result."</code><code class="java plain">);</code>
             
             
-            <div class="line number10 index9 alt1">
+            
               <code class="java spaces"> </code><code class="java keyword">return</code> <code class="java plain">result;</code>
             
             
-            <div class="line number11 index10 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           
@@ -282,40 +282,40 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
 
 The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
-  <div id="highlighter_688537" class="syntaxhighlighter nogutter java">
+  
     <table border="0" cellspacing="0" cellpadding="0">
       
         <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
+          
+            
               <code class="java comments">/* Check with the primordial class loader */</code>
             
             
-            <div class="line number2 index1 alt1">
+            
               <code class="java spaces"> </code><code class="java keyword">try</code> <code class="java plain">{</code>
             
             
-            <div class="line number3 index2 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">result = </code><code class="java keyword">super</code><code class="java plain">.findSystemClass(className);</code>
             
             
-            <div class="line number4 index3 alt1">
+            
               <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> returning system class (in CLASSPATH)."</code><code class="java plain">);</code>
             
             
-            <div class="line number5 index4 alt2">
+            
               <code class="java spaces"> </code><code class="java keyword">return</code> <code class="java plain">result;</code>
             
             
-            <div class="line number6 index5 alt1">
+            
               <code class="java spaces"> </code><code class="java plain">} </code><code class="java keyword">catch</code> <code class="java plain">(ClassNotFoundException e) {</code>
             
             
-            <div class="line number7 index6 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">System.out.println(</code><code class="java string">" >>>>>> Not a system class."</code><code class="java plain">);</code>
             
             
-            <div class="line number8 index7 alt1">
+            
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           
@@ -326,28 +326,28 @@ The code above is the first section of the loadClass method. As you can see, it 
 
 As you can see in the code above, the next step is to check if the primordial class loader can resolve this class name. This check is essential to both the sanity and security of the system. For example, if you return your own instance of java.lang.Object to the caller, then this object will share no common superclass with any other object! The security of the system can be compromised if your class loader returned its own value of java.lang.SecurityManager, which did not have the same checks as the real one did.
 
-  <div id="highlighter_844302" class="syntaxhighlighter nogutter java">
+  
     <table border="0" cellspacing="0" cellpadding="0">
       
         <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
+          
+            
               <code class="java comments">/* Try to load it from our repository */</code>
             
             
-            <div class="line number2 index1 alt1">
+            
               <code class="java spaces"> </code><code class="java plain">classData = getClassImplFromDataBase(className);</code>
             
             
-            <div class="line number3 index2 alt2">
+            
               <code class="java spaces"> </code><code class="java keyword">if</code> <code class="java plain">(classData == </code><code class="java keyword">null</code><code class="java plain">) {</code>
             
             
-            <div class="line number4 index3 alt1">
+            
               <code class="java spaces"> </code><code class="java keyword">throw</code> <code class="java keyword">new</code> <code class="java plain">ClassNotFoundException();</code>
             
             
-            <div class="line number5 index4 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           
@@ -370,16 +370,16 @@ Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的clas
 
 简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候：
 
-  <div id="highlighter_340310" class="syntaxhighlighter nogutter java">
+  
     <table border="0" cellspacing="0" cellpadding="0">
       
         <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
+          
+            
               <code class="java plain">Student stu = </code><code class="java keyword">new</code> <code class="java plain">Student();</code>
             
             
-            <div class="line number2 index1 alt1">
+            
               <code class="java comments">//实例化一个Student类的对象stu</code>
             
           
@@ -404,71 +404,71 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
   
 我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考：
 
-  <div id="highlighter_147823" class="syntaxhighlighter nogutter java">
+  
     <table border="0" cellspacing="0" cellpadding="0">
       
         <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
+          
+            
               <code class="java keyword">import</code> <code class="java plain">java.net.MalformedURLException;</code>
             
             
-            <div class="line number2 index1 alt1">
+            
               <code class="java spaces"> </code><code class="java keyword">import</code> <code class="java plain">java.net.URL;</code>
             
             
-            <div class="line number3 index2 alt2">
             
             
-            <div class="line number4 index3 alt1">
+            
+            
               <code class="java keyword">class</code> <code class="java plain">MyClassLoader {</code>
             
             
-            <div class="line number5 index4 alt2">
+            
               <code class="java spaces"> </code><code class="java keyword">public</code> <code class="java keyword">static</code> <code class="java keyword">void</code> <code class="java plain">main(String[] args) </code><code class="java keyword">throws</code> <code class="java plain">MalformedURLException,</code>
             
             
-            <div class="line number6 index5 alt1">
+            
               <code class="java spaces"> </code><code class="java plain">ClassNotFoundException {</code>
             
             
-            <div class="line number7 index6 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">URL url1 = </code><code class="java keyword">new</code> <code class="java plain">URL(</code><code class="java string">"file:/d:/workspace/"</code><code class="java plain">);</code>
             
             
-            <div class="line number8 index7 alt1">
+            
               <code class="java spaces"> </code><code class="java comments">// 指定路径，相当于classpath的意思。</code>
             
             
-            <div class="line number9 index8 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">myClassLoader myClassLoader = </code><code class="java keyword">new</code> <code class="java plain">MyClassLoader(</code><code class="java keyword">new</code> <code class="java plain">URL[] { url1 });</code>
             
             
-            <div class="line number10 index9 alt1">
+            
               <code class="java spaces"> </code><code class="java comments">// 用这个路径创建一个myClassLoader对象。这里随你所定义的ClassLoader而定。</code>
             
             
-            <div class="line number11 index10 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">Class c1 = myClassLoader.loadClass(</code><code class="java string">"Student"</code><code class="java plain">);</code>
             
             
-            <div class="line number12 index11 alt1">
+            
               <code class="java spaces"> </code><code class="java comments">// 用自定义的类加载器，去显式的加载一个类。返回一个Class对象。</code>
             
             
-            <div class="line number13 index12 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">Student stu = c1.newInstance();</code>
             
             
-            <div class="line number14 index13 alt1">
+            
               <code class="java spaces"> </code><code class="java comments">// 用这个Class对象就可以产生一个ClassLoaderTest的实例。</code>
             
             
-            <div class="line number15 index14 alt2">
+            
               <code class="java spaces"> </code><code class="java plain">}</code>
             
             
-            <div class="line number16 index15 alt1">
+            
               <code class="java spaces"> </code><code class="java plain">}</code>
             
           

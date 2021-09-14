@@ -38,7 +38,7 @@ section 应用的典型场景有文章的章节、标签对话框中的标签页
 
 section 不仅仅是一个普通的容器标签。当一个标签只是为了样式化或者方便脚本使用时，应该使用 div 。一般来说，当元素内容明确地出现在文档大纲中时，section 就是适用的。
 
-<article>
+
  <hgroup>
   <h1>Apples</h1>
   Tasty, delicious fruit!
@@ -70,7 +70,7 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 
 例子：
 
-<article>
+
  <header>
   <h1>The Very First Rule of Life</h1>
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
@@ -79,10 +79,10 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
  sending whatever you're saying to the world. Seriously.
  ...
  <footer>
-  <a href="?comments=1">Show comments...</a>
+  Show comments...
  </footer>
 </article>
-<article>
+
  <header>
   <h1>The Very First Rule of Life</h1>
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
@@ -92,14 +92,14 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
  ...
  <section>
   <h1>Comments</h1>
-  <article>
+  
    <footer>
     Posted by: George Washington
     <time pubdate datetime="2009-10-10T19:10-08:00"></time>
    </footer>
    Yeah! Especially when talking about your lobbyist friends!
   </article>
-  <article>
+  
    <footer>
     Posted by: George Hammond
     <time pubdate datetime="2009-10-10T19:15-08:00"></time>

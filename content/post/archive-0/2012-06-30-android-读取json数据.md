@@ -13,7 +13,7 @@ categories:
   
 
 
-  <a href="http://tangshanxj.blog.163.com/blog/static/30113717201010282318941/">http://tangshanxj.blog.163.com/blog/static/30113717201010282318941/</a>
+  http://tangshanxj.blog.163.com/blog/static/30113717201010282318941/
 
 
       public String getJson(){

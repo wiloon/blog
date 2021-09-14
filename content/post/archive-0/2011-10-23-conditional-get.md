@@ -19,7 +19,7 @@ categories:
     HTTP条件Get是HTTP协议为了减少不必要的带宽浪费，提出的一种方案。详见http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html 
   
 
-<div id="article_content">
+
   
     HTTP条件Get使用的时机：
   

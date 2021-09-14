@@ -46,7 +46,7 @@ background: 'none'
    
 }
    
-}); <a href="http://zwitserlandcasino.ch/">casino spiele online</a>
+}); casino spiele online
    
 $('.blockOverlay').attr('title','单击关闭').click($.unblockUI); //遮罩层属性的设置以及当鼠标单击遮罩层可以关闭弹出层
    

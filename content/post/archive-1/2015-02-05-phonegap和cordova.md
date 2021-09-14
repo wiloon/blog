@@ -42,6 +42,6 @@ http://www.smallhead.cn/knowledge/422.html
 
 《深入浅出PhoneGap》饶侠，张坚，赵丽萍编著
 
-PhoneGap官方博客<a href="http://phonegap.com/2012/03/19/phonegap-cordova-and-what%E2%80%99s-in-a-name/" rel="external nofollow">http://phonegap.com/2012/03/19/phonegap-cordova-and-what%E2%80%99s-in-a-name/</a>
+PhoneGap官方博客http://phonegap.com/2012/03/19/phonegap-cordova-and-what%E2%80%99s-in-a-name/
 
 百度百科——Cordova

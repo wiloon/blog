@@ -127,7 +127,7 @@ export class AppComponent {
 ### app.component.html<pre data-language=HTML>
 
 ```xml
-<div echarts [options]="chartOption" class="chart"></div>
+</div>
 ``` 
 
 ### app.component.css

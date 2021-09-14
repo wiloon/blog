@@ -24,7 +24,7 @@ Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模�
   
 **Prototype模式提供一种方法，让类的对象可以实现对自身的复制。**
 
-<div id="tf_edit_html_title">
+
   Prototype模式的应用场景：
 
 - 在创建对象的时候，我们不只是希望被创建的对象继承其基类的基本结构，还希望继承原型对象的数据。
@@ -37,7 +37,7 @@ Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模�
   
 生物细胞的自身复制；根据产品模型生产产品等等
 
-<div id="tf_edit_html_title">
+
   Prototype模式的模型定义：
 
 Prototype {
@@ -48,7 +48,7 @@ Prototype {
   
 即：原型类Prototype 提供clone()方法，实现对对象自身的复制（克隆）。
 
-<div id="tf_edit_html_title">
+
   Prototype模式的实现范例
 
 下面我们使用Prototype模式来实现细胞（Cell）的自身复制过程。

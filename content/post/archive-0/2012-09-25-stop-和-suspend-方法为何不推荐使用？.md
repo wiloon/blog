@@ -9,7 +9,7 @@ categories:
 
 ---
 
-  <a href="http://blog.csdn.net/yakihappy/article/details/3979912">http://blog.csdn.net/yakihappy/article/details/3979912</a>
+  http://blog.csdn.net/yakihappy/article/details/3979912
 
 
   反对使用stop()，是因为它不安全。它会解除由线程获取的所有锁定，当在一个线程对象上调用stop()方法时，这个线程对象所运行的线程就会立即停止，假如一个线程正在执行：synchronized void { x = 3; y = 4;}　由于方法是同步的，多个线程访问时总能保证x,y被同时赋值，而如果一个线程正在执行到x = 3;时，被调用了 stop()方法，即使在同步块中，它也干脆地stop了，这样就产生了不完整的残废数据。而多线程编程中最最基础的条件要保证数据的完整性，所以请忘记线程的stop方法，以后我们再也不要说"停止线程"了。而且如果对象处于一种不连贯状态，那么其他线程能在那种状态下检查和修改它们。结果 很难检查出真正的问题所在。

@@ -10,7 +10,7 @@ categories:
 ---
 先列出正确的写法，如果你只想马上改错就先复制吧，
   
-    <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+    <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
   
   
         protected void deleteDataRow(int RowID,DataTable dt)
@@ -23,7 +23,7 @@ categories:
  }
   
   
-    <a title="复制代码"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" /></a>
+    <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
   
 
 

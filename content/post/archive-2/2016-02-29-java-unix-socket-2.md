@@ -10,7 +10,7 @@ categories:
 ---
 <dependency>
    <groupId>uk.co.caprica</groupId>
-   <artifactId>juds</artifactId>
+   juds</artifactId>
    <version>0.94.1</version>
 </dependency>
 

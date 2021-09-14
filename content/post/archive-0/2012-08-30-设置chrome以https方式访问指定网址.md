@@ -10,10 +10,10 @@ categories:
 ---
 
 
-<div id="blog_content">
+
   1、打开Chrome，在地址栏键入 chrome://net-internals 回车
 
-<div id="blog_content">
+
   
     2、在HSTS选项卡下的Domain中输入你想要实现这个强制跳转的域名，如 google.com.hk
   

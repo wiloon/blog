@@ -17,7 +17,7 @@ blacklist ipv6
 
 <blockquote class="wp-embedded-content" data-secret="RVErZNYd3W">
   
-    <a href="https://www.cesareriva.com/disable-ipv6-on-raspberry-pi3/">Disable IPv6 on Raspberry Pi3+</a>
+    Disable IPv6 on Raspberry Pi3+
   
 </blockquote>
 

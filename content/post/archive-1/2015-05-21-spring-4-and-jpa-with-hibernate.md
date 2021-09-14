@@ -227,7 +227,7 @@ In addition to Spring Core and persistence dependencies – show in detail in th
   
 <groupId>org.hibernate</groupId>
   
-<artifactId>hibernate-entitymanager</artifactId>
+hibernate-entitymanager</artifactId>
   
 <version>4.3.5.Final</version>
   
@@ -239,7 +239,7 @@ In addition to Spring Core and persistence dependencies – show in detail in th
   
 <groupId>mysql</groupId>
   
-<artifactId>mysql-connector-java</artifactId>
+mysql-connector-java</artifactId>
   
 <version>5.1.30</version>
   

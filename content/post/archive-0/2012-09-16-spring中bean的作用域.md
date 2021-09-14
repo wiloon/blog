@@ -11,14 +11,14 @@ categories:
 ---
 [http://blog.csdn.net/ProvidenceZY/article/details/1878582 ][1]
 
-<div id="article_content">
+
   
     如何使用spring的作用域：
   
-  <div align="left">
+  
     <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
   
-  <div align="left">
+  
     这里的scope就是用来配置spring bean的作用域，它标识bean的作用域。
   
   
@@ -33,13 +33,13 @@ categories:
   
     配置实例：
   
-  <div align="left">
+  
     <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
   
-  <div align="left">
+  
     或者
   
-  <div align="left">
+  
     <bean id="role" class="spring.chapter2.maryGame.Role" singleton="true"/>
   
   
@@ -51,16 +51,16 @@ categories:
   
     配置实例：
   
-  <div align="left">
+  
     <bean id="role" class="spring.chapter2.maryGame.Role" scope="prototype"/>
   
-  <div align="left">
+  
     或者
   
-  <div align="left">
+  
     <beanid="role" class="spring.chapter2.maryGame.Role" singleton="false"/>
   
-  <div align="left">
+  
   
   
     3、request
@@ -109,7 +109,7 @@ categories:
       接着既可以配置bean的作用域了：
   
   
-  <div align="left">
+  
     <bean id="role" class="spring.chapter2.maryGame.Role" scope="request"/>
   
   
@@ -124,7 +124,7 @@ categories:
   
     和request配置实例的前提一样，配置好web启动文件就可以如下配置：
   
-  <div align="left">
+  
     <bean id="role" class="spring.chapter2.maryGame.Role" scope="session"/>
   
   
@@ -139,7 +139,7 @@ categories:
   
     和request配置实例的前提一样，配置好web启动文件就可以如下配置：
   
-  <div align="left">
+  
     <bean id="role" class="spring.chapter2.maryGame.Role" scope="global session"/>
   
   

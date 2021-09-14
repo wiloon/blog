@@ -10,7 +10,7 @@ categories:
 ---
 source命令：
 
-<div id="article_content">
+
   
     source是bash的内置命令，不需要（也没有）绝对路径.
   

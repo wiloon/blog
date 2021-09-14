@@ -26,7 +26,7 @@ tags:
       
       http://www.cnblogs.com/shenfx318/archive/2007/01/16/621237.html
       
-      抽象工厂</a>的文章。故本文中所提的Factory模式皆指的是工厂方法（Factory Method）。
+      抽象工厂的文章。故本文中所提的Factory模式皆指的是工厂方法（Factory Method）。
     
     
     

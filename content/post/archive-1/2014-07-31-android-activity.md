@@ -35,7 +35,7 @@ void onStop()
   
 void onDestroy()
 
-注意的是，Activity的使用需要在Manifest文件中添加相应的<Activity>，并设置其属性和intent-filter。
+注意的是，Activity的使用需要在Manifest文件中添加相应的，并设置其属性和intent-filter。
 
 Intent
 
@@ -115,7 +115,7 @@ Intent-Filter的定义
 
 一些属性设置的例子: 
 
-<action android:name="com.example.project.SHOW_CURRENT" />
+
   
 <category android:name="android.intent.category.DEFAULT" />
   
@@ -127,11 +127,11 @@ Intent-Filter的定义
   
 完整的实例
 
-<activity android:name="NotesList" android:label="@string/title_notes_list">
+
   
 <intent-filter>
   
-<action android:name="android.intent.action.MAIN" />
+
   
 <category android:name="android.intent.category.LAUNCHER" />
   
@@ -139,11 +139,11 @@ Intent-Filter的定义
   
 <intent-filter>
   
-<action android:name="android.intent.action.VIEW" />
+
   
-<action android:name="android.intent.action.EDIT" />
+
   
-<action android:name="android.intent.action.PICK" />
+
   
 <category android:name="android.intent.category.DEFAULT" />
   
@@ -153,7 +153,7 @@ Intent-Filter的定义
   
 <intent-filter>
   
-<action android:name="android.intent.action.GET_CONTENT" />
+
   
 <category android:name="android.intent.category.DEFAULT" />
   

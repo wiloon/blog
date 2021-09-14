@@ -12,7 +12,7 @@ android,ios: Scrum Poker Cards (Agile)
 
 <blockquote class="wp-embedded-content" data-secret="jkb2vbmib7">
   
-    <a href="https://artarmin.com/">Home</a>
+    Home
   
 </blockquote>
 

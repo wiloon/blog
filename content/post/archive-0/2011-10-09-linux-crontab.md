@@ -24,7 +24,7 @@ https://blog.csdn.net/u011781521/article/details/79052725
     ${project.version}
 
     <plugin>
-      <artifactId>maven-resources-plugin</artifactId>
+      maven-resources-plugin</artifactId>
       <version>3.2.0</version>
       <executions>
           <execution>

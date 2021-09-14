@@ -26,7 +26,7 @@ B.在 ScriptManager  内添加 EnablePartialRendering="false" 显示详细的�
   
 如下: 
   
-<asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="false"/>
+
 
 一般的原因都是页面存在潜在的危险字符  在 页首加入 ValidateRequest="false"
   
@@ -62,11 +62,11 @@ The requested operation cannot be carried out because the
   
 handle supplied is not in the correct state.
 
-Please refer to this: <a href="http://support.microsoft.com/kb/193625" rel="nofollow">http://support.microsoft.com/kb/193625</a>
+Please refer to this: http://support.microsoft.com/kb/193625
   
 这里有这个问题的论坛
   
-<a href="http://forums.asp.net/p/1126173/2746307.aspx" rel="nofollow">http://forums.asp.net/p/1126173/2746307.aspx</a> <a href="http://forums.asp.net/t/1123365.aspx" rel="nofollow">http://forums.asp.net/t/1123365.aspx</a>
+http://forums.asp.net/p/1126173/2746307.aspx http://forums.asp.net/t/1123365.aspx
   
 三、
   

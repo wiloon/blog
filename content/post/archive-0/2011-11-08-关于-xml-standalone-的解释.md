@@ -11,7 +11,7 @@ categories:
 
 ---
 
-  <a href="http://www.blogjava.net/javafuns/articles/257525.html">http://www.blogjava.net/javafuns/articles/257525.html</a>
+  http://www.blogjava.net/javafuns/articles/257525.html
 
 XML standalone 定义了外部定义的 DTD 文件的存在性. standalone element 有效值是 yes 和 no. 如下是一个例子:
 

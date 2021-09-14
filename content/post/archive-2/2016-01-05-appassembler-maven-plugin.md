@@ -32,7 +32,7 @@ Xml代码
   
 <groupId>org.codehaus.mojo</groupId>
   
-<artifactId>appassembler-maven-plugin</artifactId>
+appassembler-maven-plugin</artifactId>
   
 <version>1.2.1</version>
   
@@ -46,7 +46,7 @@ Xml代码
   
 <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
   
-<assembleDirectory>${project.build.directory}/chj-search-client</assembleDirectory>
+${project.build.directory}/chj-search-client</assembleDirectory>
   
 <extraJvmArguments>-Xms128m</extraJvmArguments>
   
@@ -114,7 +114,7 @@ Xml代码
   
 <groupId>org.codehaus.mojo</groupId>
   
-<artifactId>appassembler-maven-plugin</artifactId>
+appassembler-maven-plugin</artifactId>
   
 <version>1.2.1</version>
   

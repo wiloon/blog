@@ -9,7 +9,7 @@ title = "spring security"
     <dependency>
         <!-- 由于我使用的spring boot所以我是引入spring-boot-starter-security而且我使用了spring io所以不需要填写依赖的版本号 -->
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-security</artifactId>
+        spring-boot-starter-security</artifactId>
     </dependency>
 
 ### .authorizeRequests()

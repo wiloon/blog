@@ -80,7 +80,7 @@ Share the post "使用rsync命令同步本地目录和远程主机目录"
 
 <blockquote class="wp-embedded-content" data-secret="S2qcdaISDp">
   
-    <a href="http://blog.topspeedsnail.com/archives/2668">使用rsync命令同步本地目录和远程主机目录</a>
+    使用rsync命令同步本地目录和远程主机目录
   
 </blockquote>
 

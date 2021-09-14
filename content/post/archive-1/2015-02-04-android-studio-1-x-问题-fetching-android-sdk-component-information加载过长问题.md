@@ -20,6 +20,6 @@ categories:
   
 3）关闭Android Studio后重新启动，便可进入界面。
 
-这是由cnblog的@<a href="http://home.cnblogs.com/u/sonyi/" target="_blank">sonyi</a>提供的方案，可用。
+这是由cnblog的@sonyi提供的方案，可用。
 
 其实是如果不做这个修改， Android Studio每次启动都会去检查更新。

@@ -10,7 +10,7 @@ categories:
 ---
 <blockquote class="wp-embedded-content" data-secret="dymLQPYWmm">
   
-    <a href="https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/">Root Android Q on Google Pixel 2, Google Pixel</a>
+    Root Android Q on Google Pixel 2, Google Pixel
   
 </blockquote>
 
@@ -20,7 +20,7 @@ https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/
 
 <blockquote class="wp-embedded-content" data-secret="Im4BCxWQUv">
   
-    <a href="http://blog.wiloon.com/?p=7296">安卓线刷升级 flash factory image for android device</a>
+    安卓线刷升级 flash factory image for android device
   
 </blockquote>
 

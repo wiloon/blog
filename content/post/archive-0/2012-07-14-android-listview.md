@@ -169,7 +169,7 @@ main.xml代码如下，很简单，也不需要多做解释了：
   
   
   
-    <a href="http://www.vogella.com/articles/AndroidListView/article.html">http://www.vogella.com/articles/AndroidListView/article.html</a>
+    http://www.vogella.com/articles/AndroidListView/article.html
   
   
     http://www.iteye.com/topic/540423

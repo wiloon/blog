@@ -9,10 +9,10 @@ categories:
 
 ---
   
-    <a href="http://juvenshun.iteye.com/blog/240257">http://juvenshun.iteye.com/blog/240257</a>
+    http://juvenshun.iteye.com/blog/240257
   
 
-<div id="blog_content">
+
   
     当Maven项目很大，或者你运行诸如 mvn site 这样的命令的时候，maven运行需要很大的内存，在默认配置下，就可能遇到java的堆溢出。如：
   

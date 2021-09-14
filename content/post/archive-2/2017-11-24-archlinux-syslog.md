@@ -100,7 +100,7 @@ systemd journal本身未提供日志分发功能。
 
 <blockquote data-secret="ObA611VJvT" class="wp-embedded-content">
   
-    <a href="https://www.nenew.net/arch-linux-enable-systemd-fix-syslog-error.html">Arch Linux启用Systemd后syslog无法正常工作解决方法</a>
+    Arch Linux启用Systemd后syslog无法正常工作解决方法
   
 </blockquote>
 

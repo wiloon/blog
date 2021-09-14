@@ -317,7 +317,7 @@ categories:
   
   
   
-  <div id="intro">
+  
     
       两种最常用的 HTTP 方法是：GET 和 POST。
   

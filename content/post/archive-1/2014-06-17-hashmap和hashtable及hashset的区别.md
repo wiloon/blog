@@ -28,21 +28,21 @@ HashMap和HashSet的区别是Java面试中最常被问到的问题。如果没�
 
 首先让我们来看看什么是HashMap和HashSet，然后再来比较它们之间的分别。
 
-### <a class="external" href="https://github.com/stephanietang/ImportNew/blob/master/Java/Difference%20between%20HashMap%20and%20HashSet%20in%20Java.md#%E4%BB%80%E4%B9%88%E6%98%AFhashset" target="_blank" rel="nofollow" name="%E4%BB%80%E4%B9%88%E6%98%AFhashset"></a>什么是HashSet
+### 什么是HashSet
 
 HashSet实现了Set接口，它不允许集合中有重复的值，当我们提到HashSet时，第一件事情就是在将对象存储在HashSet之前，要先确保对象重写equals()和hashCode()方法，这样才能比较对象的值是否相等，以确保set中没有储存相等的对象。如果我们没有重写这两个方法，将会使用这个方法的默认实现。
 
 public boolean add(Object o)方法用来在Set中添加元素，当元素值重复时则会立即返回false，如果成功添加的话会返回true。
 
-### <a href="https://github.com/stephanietang/ImportNew/blob/master/Java/Difference%20between%20HashMap%20and%20HashSet%20in%20Java.md#%E4%BB%80%E4%B9%88%E6%98%AFhashmap" name="%E4%BB%80%E4%B9%88%E6%98%AFhashmap"></a>什么是HashMap
+### 什么是HashMap
 
 HashMap实现了Map接口，Map接口对键值对进行映射。Map中不允许重复的键。Map接口有两个基本的实现，HashMap和TreeMap。TreeMap保存了对象的排列次序，而HashMap则不能。HashMap允许键和值为null。HashMap是非synchronized的，但collection框架提供方法能保证HashMap synchronized，这样多个线程同时访问HashMap时，能保证只有一个线程更改Map。
 
 public Object put(Object Key,Object value)方法用来将元素添加到map中。
 
-你可以阅读<a href="http://www.importnew.com/7099.html" target="_blank">这篇文章</a>看看HashMap的工作原理，以及<a href="http://www.importnew.com/7010.html" target="_blank">这篇文章</a>看看HashMap和HashTable的区别。
+你可以阅读这篇文章看看HashMap的工作原理，以及这篇文章看看HashMap和HashTable的区别。
 
-### <a class="external" href="https://github.com/stephanietang/ImportNew/blob/master/Java/Difference%20between%20HashMap%20and%20HashSet%20in%20Java.md#hashset%E5%92%8Chashmap%E7%9A%84%E5%8C%BA%E5%88%AB" target="_blank" rel="nofollow" name="hashset%E5%92%8Chashmap%E7%9A%84%E5%8C%BA%E5%88%AB"></a>HashSet和HashMap的区别
+### HashSet和HashMap的区别
 
 
   

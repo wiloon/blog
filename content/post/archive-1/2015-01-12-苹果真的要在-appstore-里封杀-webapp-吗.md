@@ -8,14 +8,14 @@ categories:
   - Uncategorized
 
 ---
-<div class="blog_title">
+
   
     http://fins.iteye.com/blog/1685886
   
-  <div class="news_tag">
+  
   
 
-<div id="blog_content" class="blog_content">
+
   苹果真的要在 AppStore 里封杀 WebApp 吗 ? 
   
     最近几个月, 苹果AppStore似乎加强了对WebApp的管控, 很多过去能上架的 使用WebApp+Native壳的应用陆陆续续的都被拒了.
@@ -30,10 +30,10 @@ categories:
   
     先来看一看让广大HTML5/WebApp开发者 感动忧虑的那段苹果的原文吧:
   
-  <div class="quote_title">
+  
     引用
   
-  <div class="quote_div">
+  
     If you cannot – or choose not to – revise your app to be in compliance with the App Store Review Guidelines, you may wish to build an HTML5 web app instead. You can distribute web apps directly on your web site; the App Store does not accept or distribute web apps.
   
   

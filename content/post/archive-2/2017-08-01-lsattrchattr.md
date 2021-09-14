@@ -41,7 +41,7 @@ chattr -ai /etc/passed
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
   
-    <a href="http://www.ha97.com/5172.html">（总结）Linux的chattr与lsattr命令详解</a>
+    （总结）Linux的chattr与lsattr命令详解
   
 </blockquote>
 
@@ -104,7 +104,7 @@ https://linux.cn/article-5590-1.html
 
 <blockquote class="wp-embedded-content" data-secret="D3gPzD1nWk">
   
-    <a href="http://www.ha97.com/5172.html">（总结）Linux的chattr与lsattr命令详解</a>
+    （总结）Linux的chattr与lsattr命令详解
   
 </blockquote>
 

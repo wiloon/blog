@@ -12,7 +12,7 @@ categories:
 
 <blockquote class="wp-embedded-content" data-secret="57KOUtczxY">
   
-    <a href="http://blog.oa25.org/?p=472">Raspberry Pi 的GPIO接口电路</a>
+    Raspberry Pi 的GPIO接口电路
   
 </blockquote>
 

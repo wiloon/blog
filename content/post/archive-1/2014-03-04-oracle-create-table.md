@@ -12,9 +12,9 @@ http://zhoujian0610.blog.163.com/blog/static/56567658201052815913549/
 
 创建表(Create table)语法详解
   
-1. <a href="http://www.51xit.com/www/c45_1.html" target="_blank" rel="nofollow">ORACLE</a>常用的字段类型
+1. ORACLE常用的字段类型
   
-<a href="http://www.51xit.com/www/c45_1.html" target="_blank" rel="nofollow">ORACLE</a>常用的字段类型有
+ORACLE常用的字段类型有
   
 VARCHAR2 (size) 可变长度的字符串, 必须规定长度
   
@@ -32,7 +32,7 @@ CLOB 超长文本字符串
   
 BLOB 超长二进制字符串
   
-BFILE 超长二进制字符串, 保存在<a href="http://www.51xit.com/www/c32_1.html" target="_blank" rel="nofollow">数据库</a>外的文件里是只读的.
+BFILE 超长二进制字符串, 保存在数据库外的文件里是只读的.
 
 数字字段类型位数及其四舍五入的结果
   
@@ -223,7 +223,7 @@ ON DELETE CASCADE它的含义是如果删除外键主表里的内容，子表里
   
 如果没有ON DELETE CASCADE参数，子表里有内容，父表里的主关键字记录不能被删除掉.
 
-12. 如果<a href="http://www.51xit.com/www/c32_1.html" target="_blank" rel="nofollow">数据库</a>表里有不满足的记录存在，建立约束条件将不会成功.
+12. 如果数据库表里有不满足的记录存在，建立约束条件将不会成功.
 
 13. 给表创建和删除同义词的例子
   

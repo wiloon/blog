@@ -14,7 +14,7 @@ This article was previously published under Q288367
     SUMMARY
   
   
-    We do not recommend or support automation to a Microsoft Office application from an unattended user account. For additional information on why Microsoft does not recommend automation under this context, click the following article number to view the article in the Microsoft Knowledge Base:<a href="http://support.microsoft.com/default.aspx?kbid=257757">257757</a> Considerations for server-side automation of Office
+    We do not recommend or support automation to a Microsoft Office application from an unattended user account. For additional information on why Microsoft does not recommend automation under this context, click the following article number to view the article in the Microsoft Knowledge Base:257757 Considerations for server-side automation of Office
   
   
     If there is no choice but to automate Office from an unattended user account, the following steps can be used to configure the computer to run the Office application as a specific user, giving the application a fixed identity when it is started for Automation.
@@ -57,10 +57,10 @@ This article was previously published under Q288367
     If the problems listed here are too great for your design, or cause other unidentified problems, it is possible to configure Office differently and still allow it to start from an unattended process or service.
   
   
-    For additional information, click the following article numbers to view the articles in the Microsoft Knowledge Base:<a href="http://theether.net/download/Microsoft/kb/288366.html">288366</a> How To Configure Office Applications to Run Under the Interactive User Account
+    For additional information, click the following article numbers to view the articles in the Microsoft Knowledge Base:288366 How To Configure Office Applications to Run Under the Interactive User Account
   
   
-    <a href="http://theether.net/download/Microsoft/kb/288368.html">288368</a> How To Configure Office Applications for Automation from a COM+/MTS Package
+    288368 How To Configure Office Applications for Automation from a COM+/MTS Package
   
   
     Configuring Office as a Specific User
@@ -181,7 +181,7 @@ This article was previously published under Q288367
                 
                 <li>
                   To avoid registry conflicts, install and run an NT service. Set the identity of the service to run as OfficeAutomationUser, and select Automatic as the startup type. For more information on creating a sample Visual C++ NT Service, see the following Microsoft Developer Network (MSDN) Web site:Creating a Simple Win32 Service in C++
- <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp" target="_top">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp</a>
+ http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp
                 </li>
                 <li>
                   Restart the system. This is required.
@@ -193,23 +193,23 @@ This article was previously published under Q288367
                   
                   
                   
-                    For additional information, click the following article numbers to view the articles in the Microsoft Knowledge Base:<a href="http://support.microsoft.com/default.aspx?kbid=169321">169321</a> COM servers activation and NT Windows stations
+                    For additional information, click the following article numbers to view the articles in the Microsoft Knowledge Base:169321 COM servers activation and NT Windows stations
                   
                   
                   
-                    <a href="http://theether.net/download/Microsoft/kb/158508.html">158508</a> COM security frequently asked questions
+                    158508 COM security frequently asked questions
                   
                   
                   
-                    <a href="http://support.microsoft.com/default.aspx?kbid=184291">184291</a> COM objects fail to print when called from ASP
+                    184291 COM objects fail to print when called from ASP
                   
                   
                   
                     For more information about automation from Internet scripts, visit the following Microsoft Web site:Office Automation With Internet Scripting
- <a href="http://support.microsoft.com/default.aspx?scid=%2fsupport%2fofficedev%2fInetASP.asp" target="_top">http://support.microsoft.com/support/officedev/InetASP.asp</a>
+ http://support.microsoft.com/support/officedev/InetASP.asp
                   
                   
                   
-                    <a href="http://theether.net/download/Microsoft/kb/288367.html">http://theether.net/download/Microsoft/kb/288367.html</a>
+                    http://theether.net/download/Microsoft/kb/288367.html
                   
                 

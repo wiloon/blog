@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-    <a href="https://www.4spaces.org/what-is-intellij-idea-jbr/">IntelliJ IDEA Windows JBR是什么</a>
+    IntelliJ IDEA Windows JBR是什么
 
 https://www.4spaces.org/what-is-intellij-idea-jbr/embed/#?secret=ZFT4esKgN4
 

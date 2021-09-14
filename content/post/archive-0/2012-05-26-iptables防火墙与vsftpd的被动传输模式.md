@@ -67,5 +67,5 @@ categories:
   
   
   
-    <a href="http://zhangxugg-163-com.iteye.com/blog/867422">http://zhangxugg-163-com.iteye.com/blog/867422</a>
+    http://zhangxugg-163-com.iteye.com/blog/867422
   

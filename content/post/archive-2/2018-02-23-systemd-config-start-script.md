@@ -298,7 +298,7 @@ https://blog.csdn.net/fu_wayne/article/details/38018825
 
 <blockquote class="wp-embedded-content" data-secret="rpemgAP8dW">
   
-    <a href="https://www.pocketdigi.com/20180131/1593.html">systemctl开机启动zookeeper</a>
+    systemctl开机启动zookeeper
   
 </blockquote>
 

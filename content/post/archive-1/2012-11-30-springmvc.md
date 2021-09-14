@@ -12,7 +12,7 @@ http://www.iteye.com/blogs/subjects/springmvc-explore
 
 ### [《Struts2技术内幕][1]>>
 
-本文是专栏文章（<a href="http://www.iteye.com/blogs/subjects/springmvc-explore" target="_blank">SpringMVC深度探险</a>）系列的文章之一，博客地址为: <a href="http://downpour.iteye.com/blog/1330537" target="_blank">http://downpour.iteye.com/blog/1330537</a>
+本文是专栏文章（SpringMVC深度探险）系列的文章之一，博客地址为: http://downpour.iteye.com/blog/1330537
 
 在我们熟知的建立在三层结构（表示层、业务逻辑层、持久层）基础之上的J2EE应用程序开发之中，表示层的解决方案最多。因为在表示层自身的知识触角很多，需要解决的问题也不少，这也就难免造成与之对应的解决方案层出不穷。
 
@@ -43,10 +43,10 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
 首先，我们将用户注册场景中最为核心的"用户类"定义出来: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -75,10 +75,10 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
 紧接着是一个简单的JSP表单: 
 
-<div id="">
+
   
     
-      Html代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -103,10 +103,10 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
 如果使用SpringMVC，那么Controller的代码看上去就像这样: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -145,10 +145,10 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
 如果使用Struts2，那么Controller的代码看上去就稍有不同: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -193,15 +193,15 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
 除此之外，Struts2还需要在某个配置文件中进行请求映射的配置: 
 
-<div id="">
+
   
     
-      Xml代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Xml代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     <li>
-      <action name="register" class="com.demo2do.sandbox.web.UserController" method="register">
+      
     </li>
     <li>
           <result name="success">/register-success.jsp</result>
@@ -233,10 +233,10 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
 
 首先，我们来看看请求页面的情况: 
 
-<div id="">
+
   
     
-      Html代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -261,10 +261,10 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
 
 接着我们来看看服务器端响应程序: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -337,7 +337,7 @@ _在上面的例子中，从页面组件到服务器端的响应程序之间的�
 
 之前我们已经谈到，MVC模型是一种以服务器响应程序（也就是Controller）为核心进行程序设计的，因而**所有的MVC框架的历史发展进程实际上是一个围绕着Controller不断进行重构和改造的过程。**而在这个过程中，不同的MVC框架也就表现出了不同的表现形态。接下来，我们就给出一些具有代表意义的MVC框架表现形态。
 
-_注: 笔者在这里将提到三种不同的MVC框架的表现形态，实际上与请求-响应的实现模式有着密切的联系，有关这一方面的内容，请参阅另外一篇博文的内容: <a href="http://downpour.iteye.com/blog/1219164" target="_blank">《Struts2技术内幕》 新书部分篇章连载（五）—— 请求响应哲学</a>_
+_注: 笔者在这里将提到三种不同的MVC框架的表现形态，实际上与请求-响应的实现模式有着密切的联系，有关这一方面的内容，请参阅另外一篇博文的内容: 《Struts2技术内幕》 新书部分篇章连载（五）—— 请求响应哲学_
 
 【Servlet】
 
@@ -378,10 +378,10 @@ Struts1.X是一个较为早期的MVC框架实现，它的历史最早可以追�
 
 对于Struts1.X，我们还是把关注的重点放在Struts中的Controller层的定义上: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -412,10 +412,10 @@ MVC模型发展到了这里，我们可以看到响应方法中的"返回值"已
 
 从整个过程中，我们可以发现，**Webwork2和Struts2是一脉相承的Web层解决方案。**而两者能够在一个相当长的时间段内占据开发市场主导地位的重要原因在于其技术上的领先优势。而这一技术上的领先优势，突出表现为对Controller的彻底改造: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -460,7 +460,7 @@ MVC模型发展到了这里，我们可以看到响应方法中的"返回值"已
 
 当然，这种改造的前提条件在于Webwork2 / Struts2引入了另外一个重要的编程概念: ThreadLocal模式。使得Controller成为一个线程安全的对象被Servlet模型所调用，这也就突破了传统Servlet体系下，Servlet对象并非一个线程安全的对象的限制条件。
 
-_注: 有关ThreadLocal模式相关的话题，请参考另外一篇博文: <a href="http://downpour.iteye.com/blog/1335991" target="_blank">《Struts2技术内幕》 新书部分篇章连载（七）—— ThreadLocal模式</a>_
+_注: 有关ThreadLocal模式相关的话题，请参考另外一篇博文: 《Struts2技术内幕》 新书部分篇章连载（七）—— ThreadLocal模式_
 
 从引入新的编程元素的角度来说，Webwork2 / Struts2无疑也是成功的。因为在传统Servlet模式中的禁地Controller中的属性变量被合理利用了起来作为请求处理过程中的数据部分。这样的改造不仅使得表达式引擎能够得到最大限度的发挥，同时使得整个Controller看起来更像是一个POJO。因而，这种表现形态被笔者冠以的名称是: **POJO实现模式**。
 
@@ -472,10 +472,10 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
 
 我们可以看看目前最新版本的SpringMVC中对于Controller的定义: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">

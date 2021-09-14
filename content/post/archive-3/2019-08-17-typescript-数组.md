@@ -74,7 +74,7 @@ var twoM;
 
 也可以用Array
   
-let twoM : Array<Array<string>>;
+let twoM : Array>;
 
 建议声明数组用Array, 代码比较清晰.
   

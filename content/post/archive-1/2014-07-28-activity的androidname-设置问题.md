@@ -13,28 +13,28 @@ categories:
  2     package="com.example.android.apis"> 
  3 
  4 
- 5 <activity android:name="ApiDemos"> 
+ 5  
  6             <intent-filter> 
- 7                 <action android:name="android.intent.action.MAIN" /> 
+ 7                  
  8                 <category android:name="android.intent.category.DEFAULT" /> 
  9                 <category android:name="android.intent.category.LAUNCHER" /> 
 10             </intent-filter> 
 11 </activity> 
 12 
 13 
-14 <activity android:name=".app.HelloWorld" android:label="@string/activity_hello_world"> 
+14  
 15             <intent-filter> 
-16                 <action android:name="android.intent.action.MAIN" /> 
+16                  
 17                 <category android:name="android.intent.category.SAMPLE_CODE" /> 
 18             </intent-filter> 
 19 </activity>
   
-  <div class="cnblogs_code_toolbar">
-    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a>
+  
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
-  　　activity 组件的 android:name 属性采用类名的简写方式，查看文档类名的简写格式为 ".ClassName", 但为什么<activity android:name="ApiDemos">里的android:anem="ApiDemos"，而不是android:anem=".ApiDemos"呢？ 而后面的所有Activity组件的android:name的值都是".ClassName"格式呢？google查询android:name属性值的说明，但未查到有类名前不加 "." 的说明!
+  　　activity 组件的 android:name 属性采用类名的简写方式，查看文档类名的简写格式为 ".ClassName", 但为什么里的android:anem="ApiDemos"，而不是android:anem=".ApiDemos"呢？ 而后面的所有Activity组件的android:name的值都是".ClassName"格式呢？google查询android:name属性值的说明，但未查到有类名前不加 "." 的说明!
 
 
   测试验证结果 "ApiDemos" 与 ".ApiDemos" 的写法都能正确运行程序。明明文档中说明的是 ".ClassName" 格式啊, 难道类名前有 "." 与没有 "." 是一样的？！于是把其它的Activity的android:name的值字符串中的第一个 "."去掉，再运行程序，却不行.
@@ -55,4 +55,4 @@ categories:
   参考: 
 
 
-  　　http://blog.csdn.net/fuxiaohui/article/details/9348677</a>
+  　　http://blog.csdn.net/fuxiaohui/article/details/9348677

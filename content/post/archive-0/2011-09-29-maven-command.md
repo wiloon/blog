@@ -217,7 +217,7 @@ os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和
     <extensions>
         <extension>
             <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
+            commons-io</artifactId>
             <version>2.4</version>
         </extension>
     </extensions>
@@ -232,7 +232,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
 
 对指定用户的配置。user configuration可以在<tt>${user.home}/.m2/settings.xml中指定。注: 该文件不是必须的，当该文件找不到时，maven会使用默认的配置。</tt>
 
-<tt>关于该文件的具体配置可以参考: <a href="http://maven.apache.org/ref/2.0.4/maven-settings/settings.html">http://maven.apache.org/ref/2.0.4/maven-settings/settings.html</a>。</tt>
+<tt>关于该文件的具体配置可以参考: http://maven.apache.org/ref/2.0.4/maven-settings/settings.html。</tt>
 
 3.4  <tt>配置本地Repository</tt>
 
@@ -249,7 +249,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
 <tt>在maven2.0中，可以为http request配置代理。同样在user configuration中配置，配置如下: </tt>
 <settings></settings>     <proxy>
       <id>optional</id>
-      <active>true</active>
+      true</active>
       <protocol>http</protocol>
       <username>proxyuser</username>
       <password>proxypass</password>
@@ -258,7 +258,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
       <nonProxyHosts>local.net,some.host.com</nonProxyHosts>
     </proxy>
 
-详见: <a href="http://maven.apache.org/guides/mini/guide-proxies.html">http://maven.apache.org/guides/mini/guide-proxies.html</a>
+详见: http://maven.apache.org/guides/mini/guide-proxies.html
 
 
 3.5 安全和部署配置
@@ -272,7 +272,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
       <password>repopwd</password>
     </server>
 
-<a href="http://liwanchun-xd.iteye.com/blog/144047">http://liwanchun-xd.iteye.com/blog/144047</a>
+http://liwanchun-xd.iteye.com/blog/144047
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

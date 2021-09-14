@@ -26,10 +26,10 @@ jackson-mapper-asl-1.9.2.jar
 
 **2、spring-servlet.xml中加入：**
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
+      Java代码  <img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
@@ -65,10 +65,10 @@ jackson-mapper-asl-1.9.2.jar
 
 **3、Controller中的使用**
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" /></a>
+      Java代码  <img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
@@ -131,6 +131,6 @@ jackson-mapper-asl-1.9.2.jar
 
 --------------
   
-参考：<a href="http://digdata.me/archives/96/" target="_blank">http://digdata.me/archives/96/</a>
+参考：http://digdata.me/archives/96/
 
 http://angelbill3.iteye.com/blog/1985075

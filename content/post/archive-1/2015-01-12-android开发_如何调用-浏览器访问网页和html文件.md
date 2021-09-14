@@ -90,7 +90,7 @@ startActivity(intent);
 
 <intent-filter>
   
-<action android:name="android.intent.action.VIEW" />
+
   
 <category android:name="android.intent.category.DEFAULT" />
   

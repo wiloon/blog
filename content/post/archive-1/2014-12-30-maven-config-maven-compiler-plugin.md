@@ -13,7 +13,7 @@ maven-compiler-plugin 3.6和更高版本提供了一种新方法
 
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
+    maven-compiler-plugin</artifactId>
     <version>3.8.0</version>
     <configuration>
         <release>9</release>
@@ -48,9 +48,9 @@ maven的conf\setting.xml文件中找到jdk配置的地方，修改如下:
   
 <id>jdk1.6</id>
   
-<activation>
+
   
-<activeByDefault>true</activeByDefault>
+true</activeByDefault>
   
 <jdk>1.6</jdk>
   
@@ -84,7 +84,7 @@ maven的conf\setting.xml文件中找到jdk配置的地方，修改如下:
   
 <groupId>org.apache.maven.plugins</groupId>
   
-<artifactId>maven-compiler-plugin</artifactId>
+maven-compiler-plugin</artifactId>
   
 <configuration>
   

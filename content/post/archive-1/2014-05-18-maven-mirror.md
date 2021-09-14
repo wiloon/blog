@@ -171,8 +171,8 @@ PS: Maven仓库示意图
   <profiles>
         <profile>
             <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
+            
+                true</activeByDefault>
             </activation>
             <repositories>
                 <repository>

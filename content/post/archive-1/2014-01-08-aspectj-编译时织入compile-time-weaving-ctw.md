@@ -53,7 +53,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.opoo.samples</groupId>
 
-<artifactId>aspectj-sample</artifactId>
+aspectj-sample</artifactId>
 
 <version>1.0-SNAPSHOT</version>
 
@@ -75,7 +75,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.aspectj</groupId>
 
-<artifactId>aspectjrt</artifactId>
+aspectjrt</artifactId>
 
 <version>1.6.11</version>
 
@@ -85,7 +85,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.aspectj</groupId>
 
-<artifactId>aspectjweaver</artifactId>
+aspectjweaver</artifactId>
 
 <version>1.6.11</version>
 
@@ -95,7 +95,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>junit</groupId>
 
-<artifactId>junit</artifactId>
+junit</artifactId>
 
 <version>4.4</version>
 
@@ -113,7 +113,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.apache.maven.plugins</groupId>
 
-<artifactId>maven-compiler-plugin</artifactId>
+maven-compiler-plugin</artifactId>
 
 <version>2.4</version>
 
@@ -135,7 +135,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.codehaus.mojo</groupId>
 
-<artifactId>aspectj-maven-plugin</artifactId>
+aspectj-maven-plugin</artifactId>
 
 <version>1.4</version>
 
@@ -159,17 +159,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <outxml>true</outxml>
 
-<aspectLibraries>
+
 
 <!- 此处定义外部的aspect包，例如spring的事务aspect包 。这里引用的包必须在依赖中声明 ->
 
 <!-
 
-<aspectLibrary>
+
 
 <groupId>org.springframework</groupId>
 
-<artifactId>spring-aspects</artifactId>
+spring-aspects</artifactId>
 
 </aspectLibrary>
 
@@ -201,13 +201,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.apache.maven.plugins</groupId>
 
-<artifactId>maven-eclipse-plugin</artifactId>
+maven-eclipse-plugin</artifactId>
 
 <version>2.6</version>
 
 <configuration>
 
-<ajdtVersion>1.6.11</ajdtVersion>
+1.6.11</ajdtVersion>
 
 </configuration>
 

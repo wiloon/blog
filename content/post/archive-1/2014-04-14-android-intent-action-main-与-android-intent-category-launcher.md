@@ -32,7 +32,7 @@ android:label="Lift_cycles 01">
 
 <intent-filter>
 
-<action android:name="android.intent.action.MAIN" />
+
 
 <category android:name="android.intent.category.LAUNCHER" />
 
@@ -46,7 +46,7 @@ android:label="Lift_cycles 02">
 
 <intent-filter>
 
-<action android:name="android.intent.action.MAIN" />
+
 
 <category android:name="android.intent.category.LAUNCHER" />
 

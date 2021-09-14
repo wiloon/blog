@@ -160,9 +160,9 @@ c)         JET编译成EXE
   
 道理虽然简单，但是在这过程中还是有很多细节需要注意的，哪一个细节注意不到，操作都不会成功。
 
-<div align="center">
+
   
-    <div align="left">
+    
       package test;
  public class A{
  public static void main(String args[]){

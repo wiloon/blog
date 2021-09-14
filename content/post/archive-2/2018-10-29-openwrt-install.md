@@ -10,7 +10,7 @@ build
 
 <blockquote class="wp-embedded-content" data-secret="Z4x4I19l6b">
   
-    <a href="http://blog.wiloon.com/?p=12113">R7800, Build custom Netgear R7800 firmware for a larger flash size/root space</a>
+    R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
   
 </blockquote>
 
@@ -20,7 +20,7 @@ burn
 
 <blockquote class="wp-embedded-content" data-secret="G3qiDnmUJx">
   
-    <a href="http://blog.wiloon.com/?p=12826">netgear 刷机, factory.img, sysupgrade.bin</a>
+    netgear 刷机, factory.img, sysupgrade.bin
   
 </blockquote>
 

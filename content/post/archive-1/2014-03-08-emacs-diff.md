@@ -20,11 +20,11 @@ tags:
 
 对于后面两种文件，两个要比较的文件共有一个原始的文件。此种情况下, `diff3` 程序会轻松的帮你创建一个文件，文件内容是对原始文件所做的修改记录。
 
-### <a id="sec2" name="sec2"></a>Ediff
+### Ediff
 
 除非两个文件的不同之处很少，否则 `diff` 的输出将会很难阅读。幸运的是, `Emacs` 提供了一个 `diff` 的接口，称为 `Ediff` ,将此工作变得简单。不仅将 `diff` 的输出变得可读之外， `Emacs` 还提供了合并文件函数以及其他的应用补丁，更多的细节信息，可以参考`Ediff` 的 `info` 文档。 `Emacs` 还能比较不同文件夹下的两个文件，若你在不同地方工作，这个功能可能会非常有用(如你的Lisp配置文件。
 
-### <a id="sec3" name="sec3"></a>用 Ediff 来比较文件
+### 用 Ediff 来比较文件
 
 `Ediff` 比较的项目有: ( 可用 M-x 来启动 )
 
@@ -80,7 +80,7 @@ tags:
   
 
 
-### <a id="sec4" name="sec4"></a>一些Ediff 控制命令
+### 一些Ediff 控制命令
 
 在 control buffer 中，按键。
 
@@ -380,7 +380,7 @@ tags:
   
 
 
-### <a id="sec5" name="sec5"></a>比较三个文件
+### 比较三个文件
 
 此种需要大都发生在两个文件共有一个原始的文件。假设 C —> A, C —> B. A与B可能都对C进行了修改，你需要知晓，究竟A和B哪个对C做了什么修改。此时就需要比较三个文件了。
 
@@ -465,14 +465,14 @@ tags:
 
 以此类推，在 Buffer-A , Buffer-B, Buffer-C之间的操作可以很容易猜出。
 
-### <a id="sec6" name="sec6"></a>Ediff Session
+### Ediff Session
 
 你可能同时要比较好多对文件，你可以同时拥有多个 `Ediff` `Session` 。按 `z` 挂起当前 `Ediff` `session` ,然后启动另一个 `Ediff``session` 就可以了。 此时，在 `control` `buffer` 中按 `R` 或是按下 M-x eregistry, 将会打开一个 `*Ediff` `Registry*` 的缓冲区，此缓冲区包含当前运行的所有 `Ediff` `Sessions`.可以选择一个 `Ediff` `session` 来进入。
 
-### <a id="sec7" name="sec7"></a>合并文件
+### 合并文件
 
-### <a id="sec8" name="sec8"></a>比较文件目录
+### 比较文件目录
 
-### <a id="sec9" name="sec9"></a>与版本控制系统(VC) 一块儿工作
+### 与版本控制系统(VC) 一块儿工作
 
 <http://caobeixingqiu.is-programmer.com/posts/6783.html>

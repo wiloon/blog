@@ -20,7 +20,7 @@ tags:
 
 描述: 序列化表单元素(类似'.serialize()'方法)返回JSON数据结构数据。
 
-注意,此方法返回的是JSON对象而非JSON字符串。需要使用插件或者<a>第三方库</a>进行字符串化操作。
+注意,此方法返回的是JSON对象而非JSON字符串。需要使用插件或者第三方库进行字符串化操作。
 
 格式: var jsonData = $("form").serializeArray();
 

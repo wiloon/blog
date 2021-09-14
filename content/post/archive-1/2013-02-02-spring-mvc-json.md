@@ -21,7 +21,7 @@ http://blog.csdn.net/skmbw/article/details/12263253
   
 <groupId>org.codehaus.jackson</groupId>
   
-<artifactId>jackson-core-lgpl</artifactId>
+jackson-core-lgpl</artifactId>
   
 <version>1.9.11</version>
   
@@ -31,7 +31,7 @@ http://blog.csdn.net/skmbw/article/details/12263253
   
 <groupId>org.codehaus.jackson</groupId>
   
-<artifactId>jackson-mapper-lgpl</artifactId>
+jackson-mapper-lgpl</artifactId>
   
 <version>1.9.11</version>
   

@@ -93,7 +93,7 @@ categories:
  举例说明：
  实现一个监听器：
   
-  <div align="center">
+  
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       
         
@@ -380,7 +380,7 @@ categories:
     登录日志的实现：
  下面再来看看我们的登录Servlet中使用这个监听器的部分源代码：
   
-  <div align="center">
+  
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       
         
@@ -436,7 +436,7 @@ categories:
  即可自动调用监听器的valueUnbound方法。或者，当Session Time Out的时候也会调用此方法。
  登录人数的统计：
   
-  <div align="center">
+  
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       
         
@@ -510,7 +510,7 @@ categories:
   
     在此后的程序中随时可以用以下代码取得当前的登录人数：
   
-  <div align="center">
+  
     <table width="540" border="1" cellspacing="0" cellpadding="0">
       
         

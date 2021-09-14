@@ -14,7 +14,7 @@ categories:
   
 /**
   
-*see the <a href={@docroot}/copyright.html>copyright</a>
+*see the copyright
   
 "*/
   

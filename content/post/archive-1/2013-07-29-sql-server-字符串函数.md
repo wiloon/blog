@@ -10,9 +10,9 @@ categories:
 ---
 #  {#docTitle}
 
-<div id="docInfo">
 
-<div id="docContent">
+
+
   
     我们这里对 SQL Server 字符串函数进行分门别类地列出，便于查阅和记忆，相信大家都在其它方面有高深的编程基础，从字面上来说大家都知道这些函数的意义，就不对这些函数作过多的解释了，主要谈些经验，具体请参见联机丛书。
   
@@ -58,5 +58,5 @@ categories:
  QUOTENAME(character_string[, quote_character])  返回带有分隔符的 UNICODE 字符串
   
   
-    <a href="http://www.cftea.com/c/2006/08/QK16SO3ZL14X15L9.asp">http://www.cftea.com/c/2006/08/QK16SO3ZL14X15L9.asp</a>
+    http://www.cftea.com/c/2006/08/QK16SO3ZL14X15L9.asp
   

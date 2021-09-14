@@ -351,7 +351,7 @@ racy_transfer(your_account, my_account, 80);
 
 ### 竞态条件的例子
 ```c
-#include <atomic>
+#include 
 std::atomic<int> my_account = 0; //我的账户余额
 std::atomic<int> your_account = 100;  //你的账户余额
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-## <a href="http://linuxconfig.org/add-iso-image-to-apt-sourceslist">http://linuxconfig.org/add-iso-image-to-apt-sourceslist</a>
+## http://linuxconfig.org/add-iso-image-to-apt-sourceslist
 
 Here is a way how to include Debian/Ubuntu ISO image into your /etc/apt/sources.list file. This kind of hack can prove handy in terms of reducing package download during the installation or if you do not have CD/DVD drive available ( or is broken ) on your system.
   

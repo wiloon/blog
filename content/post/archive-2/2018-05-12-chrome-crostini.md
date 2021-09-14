@@ -32,7 +32,7 @@ Launch a container run_container.sh -container_name=stretch -user=wiloon -shell
 
 <blockquote class="reddit-card" >
   
-    <a href="https://www.reddit.com/r/Crostini/comments/89q1cu/crostini_101/?ref_source=embed&ref=share">Crostini 101</a> from <a href="https://www.reddit.com/r/Crostini/">Crostini</a>
+    Crostini 101 from Crostini
   
 </blockquote>
   

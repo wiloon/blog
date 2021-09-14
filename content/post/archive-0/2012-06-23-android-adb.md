@@ -711,7 +711,7 @@ adb shell
       
       
       <p class="PreformattedText">
-        adb wait-for-device install <app>.apk
+        adb wait-for-device install .apk
       
       
       <p class="TableContents">

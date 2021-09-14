@@ -40,7 +40,7 @@ JMH 是一个由 OpenJDK/Oracle 里面那群开发了 Java 编译器的大牛们
           
 <groupId>org.openjdk.jmh</groupId>
           
-<artifactId>jmh-core</artifactId>
+jmh-core</artifactId>
           
 <version>${jmh.version}</version>
       
@@ -50,7 +50,7 @@ JMH 是一个由 OpenJDK/Oracle 里面那群开发了 Java 编译器的大牛们
           
 <groupId>org.openjdk.jmh</groupId>
           
-<artifactId>jmh-generator-annprocess</artifactId>
+jmh-generator-annprocess</artifactId>
           
 <version>${jmh.version}</version>
           

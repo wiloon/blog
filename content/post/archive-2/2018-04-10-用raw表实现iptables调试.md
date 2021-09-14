@@ -162,7 +162,7 @@ https://www.howtoing.com/enable-logging-in-iptables-on-linux
 
 <blockquote class="wp-embedded-content" data-secret="GkDsoEKKiO">
   
-    <a href="https://backreference.org/2010/06/11/iptables-debugging/">iptables debugging</a>
+    iptables debugging
   
 </blockquote>
 

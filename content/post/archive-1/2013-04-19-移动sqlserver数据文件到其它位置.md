@@ -10,7 +10,7 @@ categories:
 ---
 ### 
 
-  <div id="main-content">
+  
     
       
         Follow the steps outlined below to move the SQL Server Data File(s):
@@ -70,13 +70,13 @@ categories:
             
             
             
-              <a href="http://support.microsoft.com/kb/965095/en-us">http://support.microsoft.com/kb/965095/en-us</a>
+              http://support.microsoft.com/kb/965095/en-us
             
             
             
-              <a href="http://server.chinabyte.com/216/11420716.shtml">http://server.chinabyte.com/216/11420716.shtml</a>
+              http://server.chinabyte.com/216/11420716.shtml
             
             
             
-              <a href="http://support.microsoft.com/?scid=kb;zh-cn;224071&spid=2852&sid=521">http://support.microsoft.com/?scid=kb;zh-cn;224071&spid=2852&sid=521</a>
+              http://support.microsoft.com/?scid=kb;zh-cn;224071&spid=2852&sid=521
               

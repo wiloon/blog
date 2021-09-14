@@ -12,7 +12,7 @@ categories:
   - Java
 
 ---
-<div id="csuid2_wpcpcd">
+
   操作系统不同 这个系统属性所表示的目录也不同
 
 

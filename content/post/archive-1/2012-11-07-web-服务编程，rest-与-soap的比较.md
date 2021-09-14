@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<a name="2.REST 简介|outline"></a>REST 简介
+REST 简介
 
 在开始我们的正式讨论之前，让我们简单看一下 REST 的定义。
 
@@ -16,11 +16,11 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 关于 REST 本身，本文就不再这里过多地讨论，读者可以参考 developerWorks 上其它介绍 REST 的文章。本文的重点在于通过 REST 与 SOAP Web 服务的对比，帮助读者更深刻理解 REST 架构风格的特点，优势。
 
-<a name="3.应用场景介绍（在线用户管理）|outline"></a>应用场景介绍（在线用户管理）
+应用场景介绍（在线用户管理）
 
 本文将借助于一个应用场景，通过基于 REST 和 SOAP Web 服务的不同实现，来对两者进行对比。该应用场景的业务逻辑会尽量保持简单且易于理解，以有助于把我们的重心放在 REST 和 SOAP Web 服务技术特质对比上。
 
-<a name="3.1.需求描述|outline"></a>需求描述
+需求描述
 
 这是一个在线的用户管理模块，负责用户信息的创建，修改，删除，查询。用户的信息主要包括: 
 
@@ -32,18 +32,18 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 需求用例图如下: 
   
-<a name="3.1.1.图 1. 需求用例图 .|outline"></a>**图 1. 需求用例图**
+**图 1. 需求用例图**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/1.jpg" alt="REST" width="393" height="345" />
 
 如图 1 所示，客户端 1（Client1）与客户端 2（Client2）对于信息的存取具有不同的权限，客户端 1 可以执行所有的操作，而客户端 2 只被允许执行用户查询（Query User）与用户列表查询（Query User List）。关于这一点，我们在对 REST Web 服务与 SOAP Web 服务安全控制对比时会具体谈到。下面我们将分别向您介绍如何使用 REST 和 SOAP 架构实现 Web 服务。
 
 
-<a name="4.使用 REST 实现 Web 服务|outline"></a>使用 REST 实现 Web 服务
+使用 REST 实现 Web 服务
 
 本部分将基于 Restlet 框架来实现该应用。Restlet 为那些要采用 REST 结构体系来构建应用程序的 Java 开发者提供了一个具体的解决方案。关于更多的 Restlet 相关内容，本文不做深入讨论，请见参考资源列表。
 
-<a name="4.1.设计|outline"></a>设计
+设计
 
 我们将采用遵循 REST 设计原则的 ROA（Resource-Oriented Architecture，面向资源的体系架构）进行设计。ROA 是什么？简单点说，ROA 是一种把实际问题转换成 REST 式 Web 服务的方法，它使得 URI、HTTP 和 XML 具有跟其他 Web 应用一样的工作方式。
 
@@ -59,7 +59,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 在线用户管理所涉及的数据集就是用户信息，如果映射到 ROA 资源，主要包括两类资源: 用户及用户列表。用户资源的 URI 用`http://localhost:8182/v1/users/{username}` 表示，用户列表资源的 URI 用 `http://localhost:8182/v1/users` 表示。它们的 Representation 如下，它们都采用了如清单 1 和清单 2 所示的 XML 表述方式。
   
-<a name="4.1.1.清单 1. 用户列表资源 Representation|outline"></a>**清单 1. 用户列表资源 Representation**
+**清单 1. 用户列表资源 Representation**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -80,7 +80,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
   
 
 
-<a name="4.1.2.清单 2. 用户资源 Representation|outline"></a>**清单 2. 用户资源 Representation**
+**清单 2. 用户资源 Representation**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -101,13 +101,13 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <link>http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
 
-<a name="OLE_LINK1"></a>
 
-<a name="4.2.Restful Web 服务架构|outline"></a>Restful Web 服务架构
+
+Restful Web 服务架构
 
 首先给出 Web 服务使用 REST 风格实现的整体架构图，如下图所示: 
   
-<a name="4.2.1.图 2. REST 实现架构|outline"></a>**图 2. REST 实现架构**
+**图 2. REST 实现架构**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/2.jpg" alt="REST" width="540" height="553" />
 
@@ -115,11 +115,11 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 下面的章节中，我们将给出 REST Web 服务实现的核心代码片段。关于完整的代码清单，读者可以通过资源列表下载。
 
-<a name="4.3.客户端实现|outline"></a>客户端实现
+客户端实现
 
 清单 3 给出的是客户端的核心实现部分，其主要由四部分组成: 使用 HTTP PUT 增加、修改用户资源，使用 HTTP GET 得到某一具体用户资源，使用 HTTP DELETE 删除用户资源，使用 HTTP GET 得到用户列表资源。而这四部分也正对应了图 2 关于架构描述的四对 HTTP 消息来回。关于 UserRestHelper 类的完整实现，请读者参见本文所附的代码示例。
   
-<a name="4.3.1.清单 3. 客户端实现|outline"></a>**清单 3. 客户端实现**
+**清单 3. 客户端实现**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -195,11 +195,11 @@ private static void printUserByURI(String uri) {
 
 
 
-<a name="4.4.服务器端实现|outline"></a>服务器端实现
+服务器端实现
 
 清单 4 给出的是服务器端对于用户资源类（UserResourc）的实现，其核心的功能是响应有关用户资源的 HTTP GET/PUT/DELETE 请求，而这些请求响应逻辑正对应了 UserRestHelper 类中关于用户资源类的 HTTP 请求。
   
-<a name="4.4.1.清单 4. 服务器端实现 |outline"></a>**清单 4. 服务器端实现**
+**清单 4. 服务器端实现**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -279,21 +279,21 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 本文对于 SOAP 实现，就不再像 REST 那样，具体到代码级别的实现。本节将主要通过 URI,HTTP 和 XML 来宏观上表述 SOAP Web 服务实现的技术本质，为下一节 REST Web 服务与 SOAP Web 服务的对比做铺垫。
 
-<a name="5.1.SOAP Web 服务架构|outline"></a>SOAP Web 服务架构
+SOAP Web 服务架构
 
 同样，首先给出 SOAP 实现的整体架构图，如下图所示: 
   
-<a name="5.1.1.图 3. SOAP 实现架构|outline"></a>**图 3. SOAP 实现架构**
+**图 3. SOAP 实现架构**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/3.jpg" alt="REST" width="567" height="406" />
 
 可以看到，与 REST 架构相比，SOAP 架构图明显不同的是: 所有的 SOAP 消息发送都使用 HTTP POST 方法，并且所有 SOAP 消息的 URI 都是一样的，这是基于 SOAP 的 Web 服务的基本实践特征。
 
-<a name="5.2.获得用户信息列表|outline"></a>获得用户信息列表
+获得用户信息列表
 
 基于 SOAP 的客户端创建如清单 5 所示的 SOAP XML 文档，它通过类 RPC 方式来获得用户列表信息。
   
-<a name="5.2.1.清单 5. getUserList SOAP 消息|outline"></a>**清单 5. getUserList SOAP 消息**
+**清单 5. getUserList SOAP 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -312,7 +312,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI，SOAP SERVER 收到该 HTTP POST 请求，通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用，返回如下的响应: 
   
-<a name="5.2.2.清单 6. getUserListResponse 消息|outline"></a>**清单 6. getUserListResponse 消息**
+**清单 6. getUserListResponse 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -336,9 +336,9 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 
 
-<a name="5.3.获得某一具体用户信息|outline"></a>获得某一具体用户信息
+获得某一具体用户信息
   
-<a name="5.3.1.清单 7. getUserByName SOAP 消息|outline"></a>**清单 7. getUserByName SOAP 消息**
+**清单 7. getUserByName SOAP 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -359,7 +359,7 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 同样地，客户端将使用 HTTP 的 POST 方法，将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI，SOAP SERVER 处理后返回的 Response 如下: 
   
-<a name="5.3.2.清单 8. getUserByNameResponse SOAP 消息|outline"></a>**清单 8. getUserByNameResponse SOAP 消息**
+**清单 8. getUserByNameResponse SOAP 消息**
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
@@ -387,11 +387,11 @@ UserResource 类是对用户资源类的抽象，包括了对该资源的创建�
 
 [回页首][1]
 
-<a name="6.REST 与 SOAP 比较|outline"></a>REST 与 SOAP 比较
+REST 与 SOAP 比较
 
 本节从以下几个方面来对比上面两节给出 REST 实现与 SOAP 实现。
 
-<a name="6.1.接口抽象|outline"></a>接口抽象
+接口抽象
 
 RESTful Web 服务使用标准的 HTTP 方法 (GET/PUT/POST/DELETE) 来抽象所有 Web 系统的服务能力，而不同的是，SOAP 应用都通过定义自己个性化的接口方法来抽象 Web 服务，这更像我们经常谈到的 RPC。例如本例中的 getUserList 与 getUserByName 方法。
 
@@ -411,7 +411,7 @@ HTTP 的 PUT、DELTE 调用，具有幂指相等特性 , 即: 客户端对某一
 
 HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性，以帮助构建更加健壮的分布式系统。
 
-<a name="6.2.安全控制|outline"></a>安全控制
+安全控制
 
 为了说明问题，基于上面的在线用户管理系统，我们给定以下场景: 
 
@@ -423,7 +423,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
 
 如果对于 REST，我们看看这样的安全策略是如何部署的。如下图所示: 
   
-<a name="6.2.1.图 4. REST 与代理服务器 (Proxy Servers)|outline"></a>**图 4. REST 与代理服务器 (Proxy Servers)**
+**图 4. REST 与代理服务器 (Proxy Servers)**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/4.jpg" alt="REST" width="547" height="187" />
 
@@ -433,13 +433,13 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
 
 对于 SOAP，如果我们想借助于既有的代理服务器进行安全控制，会比较尴尬，如下图: 
   
-<a name="6.2.2.图 5. SOAP 与代理服务器 (Proxy Servers)|outline"></a>**图 5. SOAP 与代理服务器 (Proxy Servers)**
+**图 5. SOAP 与代理服务器 (Proxy Servers)**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/5.jpg" alt="REST" width="569" height="206" />
 
 所有的 SOAP 消息经过代理服务器，只能看到（`http://localhost:8182/v1/soap/servlet/messagerouter`, HTTP POST）这样的信息，如果代理服务器想知道当前的 HTTP 请求具体做的是什么，必须对 SOAP 的消息体解码，这样的话，意味着要求第三方的代理服务器需要理解当前的 SOAP 消息语义，而这种 SOAP 应用与代理服务器之间的紧耦合关系是不合理的。
 
-<a name="6.3.关于缓存|outline"></a>关于缓存
+关于缓存
 
 众所周知，对于基于网络的分布式应用，网络传输是一个影响应用性能的重要因素。如何使用缓存来节省网络传输带来的开销，这是每一个构建分布式网络应用的开发人员必须考虑的问题。
 
@@ -447,7 +447,7 @@ HTTP 协议带条件的 HTTP GET 请求 (Conditional GET) 被设计用来节省�
 
 REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客户端第一次发送 HTTP GET 请求给服务器获得内容后，该内容可能被缓存服务器 (Cache Server) 缓存。当下一次客户端请求同样的资源时，缓存可以直接给出响应，而不需要请求远程的服务器获得。而这一切对客户端来说都是透明的。
   
-<a name="6.3.1.图 6. REST 与缓存服务器 (Cache Server)|outline"></a>**图 6. REST 与缓存服务器 (Cache Server)**
+**图 6. REST 与缓存服务器 (Cache Server)**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/6.jpg" alt="REST" width="530" height="204" />
 
@@ -455,7 +455,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
 
 使用 HTTP 协议的 SOAP，由于其设计原则上并不像 REST 那样强调与 Web 的工作方式相一致，所以，基于 SOAP 应用很难充分发挥 HTTP 本身的缓存能力。
   
-<a name="6.3.2.图 7. SOAP 与缓存服务器 (Cache Server)|outline"></a>**图 7. SOAP 与缓存服务器 (Cache Server)**
+**图 7. SOAP 与缓存服务器 (Cache Server)**
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/7.jpg" alt="REST" width="569" height="115" />
 
@@ -465,7 +465,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
 
 其二、SOAP 消息所使用的 URI 总是指向 SOAP 的服务器，如本文例子中的`http://localhost:8182/v1/soap/servlet/messagerouter`，这并没有表达真实的资源 URI，其结果是缓存服务器根本不知道那个资源正在被请求，更不用谈进行缓存处理。
 
-<a name="6.4.关于连接性|outline"></a>关于连接性
+关于连接性
 
 在一个纯的 SOAP 应用中，URI 本质上除了用来指示 SOAP 服务器外，本身没有任何意义。与 REST 的不同的是，无法通过 URI 驱动 SOAP 方法调用。例如在我们的例子中，当我们通过
 
@@ -474,7 +474,7 @@ getUserList SOAP 消息获得所有的用户列表后，仍然无法通过既有
 而对于 REST，情况是完全不同的: 通过 `http://localhost:8182/v1/users` URI 获得用户列表，然后再通过用户列表中所提供的 LINK 属性，例如 `<link>http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式，非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面，并不依赖任何第三方的信息。
 
 
-<a name="7.总结|outline"></a>总结
+总结
 
 典型的基于 SOAP 的 Web 服务以操作为中心，每个操作接受 XML 文档作为输入，提供 XML 文档作为输出。在本质上讲，它们是 RPC 风格的。而在遵循 REST 原则的 ROA 应用中，服务是以资源为中心的，对每个资源的操作都是标准化的 HTTP 方法。
 

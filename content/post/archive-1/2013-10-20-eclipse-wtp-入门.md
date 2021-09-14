@@ -23,10 +23,10 @@ tags:
   The Eclipse Web Tools Platform (WTP) project extends the Eclipse platform with tools for developing Web and Java EE applications. It includes source and graphical editors for a variety of languages, wizards and built-in applications to simplify development, and tools and APIs to support deploying, running, and testing apps.
 
 
-  更多使用文档: <a href="http://www.eclipse.org/webtools/documentation/">http://www.eclipse.org/webtools/documentation/</a>
+  更多使用文档: http://www.eclipse.org/webtools/documentation/
 
 
-  下载地址: <a href="http://download.eclipse.org/webtools/downloads/">http://download.eclipse.org/webtools/downloads/</a>
+  下载地址: http://download.eclipse.org/webtools/downloads/
 
   我的环境配置: 
 
@@ -144,7 +144,7 @@ tags:
                        <name>org.eclipse.wst.common.project.facet.core.builder</name>
 
 
-                       <arguments>
+                       
 
 
                        </arguments>
@@ -159,7 +159,7 @@ tags:
                        <name>org.eclipse.wst.validation.validationbuilder</name>
 
 
-                       <arguments>
+                       
 
 
                        </arguments>
@@ -170,4 +170,4 @@ tags:
 
   右键刷新项目后->项目->右键->Properties->Project Facets->Modify Project在弹出的面板中，选择Java和Dynamic Web Module 下一步是配置Context Root 和Content Directory 以及源码路径->finish.
 
-  <a href="http://blog.csdn.net/sunyujia/article/details/2614073">http://blog.csdn.net/sunyujia/article/details/2614073</a>
+  http://blog.csdn.net/sunyujia/article/details/2614073

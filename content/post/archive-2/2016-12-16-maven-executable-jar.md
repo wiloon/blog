@@ -15,11 +15,11 @@ tags:
 
 <plugin>
   
-<artifactId>maven-assembly-plugin</artifactId>
+maven-assembly-plugin</artifactId>
   
 <configuration>
   
-<archive>
+
   
 <manifest>
   

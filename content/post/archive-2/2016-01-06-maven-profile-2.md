@@ -86,9 +86,9 @@ Xml代码
   
 </properties>
   
-<activation>
+
   
-<activeByDefault>true</activeByDefault>
+true</activeByDefault>
   
 </activation>
   
@@ -148,9 +148,9 @@ Xml代码
 
 Xml代码
   
-<activeProfiles>
+
   
-<activeProfile>profileTest1</activeProfile>
+profileTest1</activeProfile>
   
 </activeProfiles>
   
@@ -158,11 +158,11 @@ Xml代码
 
 Xml代码
   
-<activeProfiles>
+
   
-<activeProfile>profileTest1</activeProfile>
+profileTest1</activeProfile>
   
-<activeProfile>profileTest2</activeProfile>
+profileTest2</activeProfile>
   
 </activeProfiles>
   
@@ -264,7 +264,7 @@ Xml代码
   
 <id>profileTest1</id>
   
-<activation>
+
   
 <os>
   
@@ -272,7 +272,7 @@ Xml代码
   
 <family>Windows</family>
   
-<arch>x86</arch>
+x86</arch>
   
 <version>5.1.2600</version>
   
@@ -296,7 +296,7 @@ Xml代码
   
 <id>profileTest1</id>
   
-<activation>
+
   
 <property>
   
@@ -328,7 +328,7 @@ Xml代码
   
 <id>profileTest1</id>
   
-<activation>
+
   
 <property>
   
@@ -352,7 +352,7 @@ Xml代码
   
 <id>profileTest1</id>
   
-<activation>
+
   
 <file>
   
@@ -376,7 +376,7 @@ Xml代码
   
 <id>profileTest1</id>
   
-<activation>
+
   
 <file>
   
@@ -406,7 +406,7 @@ Xml代码
   
 <id>profileTest1</id>
   
-<activation>
+
   
 <file>
   
@@ -420,9 +420,9 @@ Xml代码
   
 </profiles>
 
-<activeProfiles>
+
   
-<activeProfile>profileTest1</activeProfile>
+profileTest1</activeProfile>
   
 </activeProfiles>
   

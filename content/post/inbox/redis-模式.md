@@ -192,13 +192,13 @@ Redis Sentinel 与Redis Cluster 使用需要引入如下jar包
 
 <dependency>
     <groupId>redis.clients</groupId>
-    <artifactId>jedis</artifactId>
+    jedis</artifactId>
     <version>2.9.0</version>
 </dependency>
  
 <dependency>
     <groupId>org.apache.commons</groupId>
-    <artifactId>commons-pool2</artifactId>
+    commons-pool2</artifactId>
     <version>2.5.0</version>
 </dependency>
 1、Redis Sentinel 使用

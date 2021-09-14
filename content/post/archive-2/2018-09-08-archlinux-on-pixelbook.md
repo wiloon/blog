@@ -123,7 +123,7 @@ https://wiki.archlinux.org/index.php/Installation_guide
 
 <blockquote class="wp-embedded-content" data-secret="FlRlWw6ut3">
   
-    <a href="http://blog.wiloon.com/?p=7821">archlinux install</a>
+    archlinux install
   
 </blockquote>
 

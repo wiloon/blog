@@ -112,7 +112,7 @@ http://rdc.taobao.com/team/jm/archives/1719 这两文章。做JAVA，如果想�
 
 <blockquote data-secret="3afyjw9a6J" class="wp-embedded-content">
   
-    <a href="http://ifeve.com/java-transfer-queue/">Java 7中的TransferQueue</a>
+    Java 7中的TransferQueue
   
 </blockquote>
 

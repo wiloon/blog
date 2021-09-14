@@ -52,7 +52,7 @@ public	class MyListener implements ServletContextListener {
 	<servlet/>
 	<servlet-mapping/>
 </web-app>
-----------------------------------------转载<a href="http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx">http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx</a>
+----------------------------------------转载http://blog.csdn.net/ezerg/archive/2004/09/24/115894.aspx
   
     ServletContextListener接口有两方需要实现的方法:contextInitialized()和contextDestroyed();
   

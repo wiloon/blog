@@ -32,7 +32,7 @@ for (Iterator iter = feed.getEntries().iterator(); iter.hasNext(); ) {
   
 SyndEntry entry = (SyndEntry) iter.next();
   
-System.out.println("<a href=" + entry.getLink() + ">" + entry.getTitle() + "</a>[" + entry.getPublishedDate() + "]");
+System.out.println("" + entry.getTitle() + "[" + entry.getPublishedDate() + "]");
   
 }
 
@@ -66,7 +66,7 @@ for (Iterator iter = rss.getChannel().getItems().iterator(); iter.hasNext();) {
   
 Item item = (Item)iter.next();
   
-System.out.println("<a href=" + item.getLink() + "</a>" + item.getTitle() + " " + item.getPubDate());
+System.out.println("" + item.getTitle() + " " + item.getPubDate());
   
 }
 

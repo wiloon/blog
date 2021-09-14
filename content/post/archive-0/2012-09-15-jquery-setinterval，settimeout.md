@@ -9,7 +9,7 @@ categories:
 
 ---
   
-    <a href="http://hi.baidu.com/ruhaole/item/65ed5df334b3080985d278aa">http://hi.baidu.com/ruhaole/item/65ed5df334b3080985d278aa</a>
+    http://hi.baidu.com/ruhaole/item/65ed5df334b3080985d278aa
   
   
     sliderIntervalID = setInterval(show,3000);
@@ -18,7 +18,7 @@ categories:
     clearInterval(sliderIntervalID);
   
 
-<div id="content">
+
   
     当遇到setInterval,setTimeout与jquery混用的问题 时，直接按JavaScript中的语法写并不起作用，有以下两种解决方法。
   

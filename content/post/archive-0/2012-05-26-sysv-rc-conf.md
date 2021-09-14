@@ -16,13 +16,13 @@ categories:
 
 
   
-    <a name="2_1"></a><a name="sub2521377_2_1"></a>Ubuntu运行级别
+    Ubuntu运行级别
   
   
     Linux 系统任何时候都运行在一个指定的运行级上，并且不同的运行级的程序和服务都不同，所要完成的工作和要达到的目的都不同，系统可以在这些运行级之间进行切换，以完成不同的工作。
   
   
-    <a name="2_2"></a><a name="sub2521377_2_2"></a>Ubuntu 的系统运行级别：
+    Ubuntu 的系统运行级别：
   
   
     0 系统停机状态
@@ -40,7 +40,7 @@ categories:
     6 重新启动
   
   
-    <a name="2_3"></a><a name="sub2521377_2_3"></a>查看当前运行级别,执行命令：
+    查看当前运行级别,执行命令：
   
   
     runlevel
@@ -50,7 +50,7 @@ categories:
     （ runlevel 显示上次的运行级别和当前的运行级别，"N"表示没有上次的运行级别。）
   
   
-    <a name="2_4"></a><a name="sub2521377_2_4"></a>切换运行级别，执行命令：
+    切换运行级别，执行命令：
   
   
     init [0123456Ss]
@@ -62,10 +62,10 @@ categories:
   
   
   
-    <a name="3"></a><a name="sub2521377_3"></a>三、Linux 系统主要启动步骤:
+    三、Linux 系统主要启动步骤:
   
   
-    <a name="3_1"></a><a name="sub2521377_3_1"></a>1. 读取 MBR 的信息,启动 Boot Manager
+    1. 读取 MBR 的信息,启动 Boot Manager
   
   
     Windows 使用 NTLDR 作为 Boot Manager,如果您的系统中安装多个
@@ -79,13 +79,13 @@ categories:
     Linux 通常使用功能强大,配置灵活的 GRUB 作为 Boot Manager。
   
   
-    <a name="3_2"></a><a name="sub2521377_3_2"></a>2. 加载系统内核,启动 init 进程
+    2. 加载系统内核,启动 init 进程
   
   
     init 进程是 Linux 的根进程,所有的系统进程都是它的子进程。
   
   
-    <a name="3_3"></a><a name="sub2521377_3_3"></a>3. 进程读取
+    3. 进程读取
   
   
     init 进程读取 /etc/inittab 文件中的信息,并进入预设的运行级别,
@@ -111,7 +111,7 @@ categories:
     目录为 /etc/rc3.d/ 。
   
   
-    <a name="3_4"></a><a name="sub2521377_3_4"></a>4. 根据对应脚本启动服务器
+    4. 根据对应脚本启动服务器
   
   
     根据 /etc/rcS.d/ 文件夹中对应的脚本启动 Xwindow 服务器 xorg
@@ -121,7 +121,7 @@ categories:
     Xwindow 为 Linux 下的图形用户界面系统。
   
   
-    <a name="3_5"></a><a name="sub2521377_3_5"></a>5. 启动登录管理器,等待用户登录
+    5. 启动登录管理器,等待用户登录
   
   
     Ubuntu 系统默认使用 GDM 作为登录管理器,您在登录管理器界面中
@@ -137,7 +137,7 @@ categories:
   
   
   
-    <a name="4"></a><a name="sub2521377_4"></a>四、安装sysv-rc-conf
+    四、安装sysv-rc-conf
   
   
     sudo apt-get install sysv-rc-conf
@@ -145,7 +145,7 @@ categories:
   
   
   
-    <a name="5"></a><a name="sub2521377_5"></a>五、使用sysv-rc-conf
+    五、使用sysv-rc-conf
   
   
     sudo sysv-rc-conf
@@ -157,7 +157,7 @@ categories:
   
   
   
-    <a name="6"></a><a name="sub2521377_6"></a>六 、部分服务优化推荐及介绍
+    六 、部分服务优化推荐及介绍
   
   
     acpi-support 这个是关于电源支持的默认是1,2,3,4,5下启动，我认为你可以把它调整到s级别。
@@ -372,4 +372,4 @@ categories:
   　　xorg-common 设置x服务ice socket。不用管它。
 
 
-  <a href="http://baike.baidu.com/view/2521377.htm?fromTaglist">http://baike.baidu.com/view/2521377.htm?fromTaglist</a>
+  http://baike.baidu.com/view/2521377.htm?fromTaglist

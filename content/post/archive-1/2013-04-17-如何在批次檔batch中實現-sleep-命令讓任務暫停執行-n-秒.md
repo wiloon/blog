@@ -82,7 +82,7 @@ CHOICE 命令在 Windows XP 中找不到，但在 Windows Server 2003 或 Vista 
   @CHOICE /C YN /N /T 5 /D y > nul
 
 
-**3. 安裝 **<a href="http://www.microsoft.com/Downloads/details.aspx?FamilyID=9d467a69-57ff-4ae7-96ee-b18c4790cffd&displaylang=en" target="_blank" rel="nofollow">Windows Server 2003 Resource Kit Tools</a>** 即可獲得 sleep.exe 工具**
+**3. 安裝 **Windows Server 2003 Resource Kit Tools** 即可獲得 sleep.exe 工具**
 
 預設安裝路徑在 **C:Program FilesWindows Resource KitsTools** 目錄下會有個 sleep.exe 執行檔
 
@@ -93,7 +93,7 @@ CHOICE 命令在 Windows XP 中找不到，但在 Windows Server 2003 或 Vista 
 TIMEOUT 命令在 Windows Server 2003 或 Vista 之後都有內建。
 
   timeout /t 5
-<a href="http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx">http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx</a>
+http://blog.miniasp.com/post/2009/06/24/Sleep-command-in-Batch.aspx
 
 ### setlocal enabledelayedexpansion: 设置本地为延迟扩展
 setlocal enabledelayedexpansion: 设置本地为延迟扩展

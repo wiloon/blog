@@ -37,7 +37,7 @@ Here is the "mywebapp" project's original pom.xml file.
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.maventest</groupId>
-  <artifactId>mywebapp</artifactId>
+  mywebapp</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>mywebapp Maven Webapp</name>
@@ -45,7 +45,7 @@ Here is the "mywebapp" project's original pom.xml file.
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
@@ -63,7 +63,7 @@ I'll update the "mywebapp" project's pom.xml file to include a plugin reference 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.maventest</groupId>
-	<artifactId>mywebapp</artifactId>
+	mywebapp</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>mywebapp Maven Webapp</name>
@@ -71,7 +71,7 @@ I'll update the "mywebapp" project's pom.xml file to include a plugin reference 
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
@@ -81,7 +81,7 @@ I'll update the "mywebapp" project's pom.xml file to include a plugin reference 
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
+				maven-eclipse-plugin</artifactId>
 				<inherited>true</inherited>
 				<configuration>
 					<classpathContainers>
@@ -139,7 +139,7 @@ On the Arguments tab, I specified the working directory to be my Tomcat home dir
     I went to a web browser and attempted to hit my "mywebapp" web application via http://localhost:8080/mywebapp. It worked!
   
   
-    <a href="http://www.avajava.com/tutorials/lessons/how-do-i-run-a-maven-web-application-in-tomcat-from-eclipse.html?page=1">http://www.avajava.com/tutorials/lessons/how-do-i-run-a-maven-web-application-in-tomcat-from-eclipse.html?page=1</a>
+    http://www.avajava.com/tutorials/lessons/how-do-i-run-a-maven-web-application-in-tomcat-from-eclipse.html?page=1
   
 
 http://www.avajava.com/tutorials/lessons/how-do-i-create-an-eclipse-user-library-for-the-tomcat-jar-files.html

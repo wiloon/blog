@@ -171,7 +171,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     显然我的是采用16 bites颜色的。当然，你没有必要那么复杂，可以简单点儿，比如,我有时采用: 
   
-  <div id="">
+  
     
       
         Java代码  
@@ -257,7 +257,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
  为了老二KDM能够出场，我再次修改/etc/ttys文件。还是那一行，这次改为: 
  代码: ttyv8 "/usr/local/bin/kdm -nodaemon" xterm on secure 要让KDM自动在KDE和GNOME中切换，还要修改文件"/usr/X11R6/lib/X11/xdm/Xsession"。把中间的这段文字，
   
-  <div id="">
+  
     
       
         Java代码  
@@ -294,7 +294,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     改成这样，
   
-  <div id="">
+  
     
       
         Java代码  
@@ -356,7 +356,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
  老三GDM的大名，早有耳闻，在Linux家里也见到过，但把它请到咱FreeBSD家里来，我可是花了三个晚上，敲了无数次的门，才让它露出了真容。下面就是它提出来的条件。
  第一点，GDM好贱，需要一个特定的系统的账户，据说是为了安全。
   
-  <div id="">
+  
     
       
         Java代码  
@@ -376,7 +376,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     如此，新建了一个gdm的Group，GID是42，一个gdm的User，UID是42。GID和UID，必须是没有被系统中其它账号占用，假如已被占 用，改用其它小于1000的。
  第二点，GDM需要一个有安全门的单间，还得过户到它的名下。
   
-  <div id="">
+  
     
       
         Java代码  
@@ -403,7 +403,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
  Greeter=/usr/X11R6/bin/gdmgreeter
  另外，下面的这三行，是true还是改成false，随便你了。
   
-  <div id="">
+  
     
       
         Java代码  
@@ -425,7 +425,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     第四点，GNOME和KDE都要支持。GDM是从GNOME那里来的，支持GNOME没什么问题。要支持KDE的Session，就比较啰嗦一点了。用ee编辑器写一段下面的命令，
   
-  <div id="">
+  
     
       
         Java代码  
@@ -444,7 +444,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     保存为文件 "/usr/X11R6/share/gnome/gdm/Sessions/Kde"，然后修改属性，
   
-  <div id="">
+  
     
       
         Java代码  
@@ -466,4 +466,4 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
 
 
-<div id="bottoms">
+

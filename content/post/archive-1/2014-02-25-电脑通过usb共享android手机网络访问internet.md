@@ -16,7 +16,7 @@ categories:
 
 2.下载驱动安装信息
 
-从android官网下载驱动程序信息文件 <a href="http://www.android.com/drivers/tetherxp.inf" target="_blank">tetherxp.inf</a> ( http://www.android.com/drivers/tetherxp.inf )
+从android官网下载驱动程序信息文件 tetherxp.inf ( http://www.android.com/drivers/tetherxp.inf )
 
 3.使用手机附带的 USB 线连接手机与计算机。
   

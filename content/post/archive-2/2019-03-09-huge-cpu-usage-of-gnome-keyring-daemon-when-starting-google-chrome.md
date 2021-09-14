@@ -14,7 +14,7 @@ google-chrome --password-store:basic
 
 <blockquote class="wp-embedded-content" data-secret="NSkQcrRM22">
   
-    <a href="https://www.andreafortuna.org/technology/linux/how-to-prevent-the-huge-cpu-usage-of-gnome-keyring-daemon-when-starting-google-chrome/">How to prevent the huge CPU usage of gnome-keyring-daemon when starting Google Chrome</a>
+    How to prevent the huge CPU usage of gnome-keyring-daemon when starting Google Chrome
   
 </blockquote>
 

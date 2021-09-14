@@ -18,7 +18,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    <a name="2_1"></a>Slackware的历史
+    Slackware的历史
   
   
     第一个 Slackware 的版本1.00 在1993年
@@ -55,7 +55,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     贯穿Slackware的历史，出现一些在Slackware基础上制作的发行版本和LiveCD。一些流行的发行版本就起源于 Slackware ，包括SUSE， College Linux 和 Slax。
   
   
-    <a name="2_2"></a>Slackware X86发布名称
+    Slackware X86发布名称
   
   
     Slackware 主要为x86 PC 开发。然而曾经存在一些官方的移植 ，像针对DEC Alpha 和 SPARC 架构的。从2005年起，开始出现针对System/390架构的官方移植。同时也存在一些非官方的移植，ARM，Alpha，SPARC，PowerPC 和 x86-64。
@@ -81,7 +81,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     正是一直以来对KISS原则的坚持，Slackware赢得了简洁、安全、稳定、高效的名声，也赢得了一大批的忠实用户。
   
   
-    <a name="3_2"></a>启动脚本
+    启动脚本
   
   
     Slackware 使用BSD风格的初始化脚本，其他的Linux发行版本大多使用 System V 风格的初始化脚本。基本上 System V 风格的每个运行级都是存放初始化脚本的子目录，而BSD 风格仅为每个运行级提供一个脚本。BSD 风格的拥护者认为这样更佳，因为系统可以更容易找到，读取，编辑，和维护脚本。System V的拥护者认为System V 的结构强大和灵活。
@@ -91,7 +91,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     但这些都无关紧要，System V初始化兼容在7.0版本之后被引入了 Slackware 中。
   
   
-    <a name="3_3"></a>软件套件管理
+    软件套件管理
   
   
     Slackware的软件套件管理系统很独特。它的软件套件管理系统和别的发行版本一样可以很容易的安装、升级、移除包。但是它不会试着去追踪或者管理涉及哪些依赖关系（也就是保证系统拥有所有的安装包内的程序需要的系统库）。如果所需要的先决条件不能满足，在程序执行之前不会有提醒和指示。
@@ -109,7 +109,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     关于追踪或者无视依赖关系孰优孰劣的争论并不很热闹，这多少让人想起了持续甚久的"vi 对 Emacs" 的"宗教战争"。 Slackware解决问题的方法被技巧熟练的用户群很好的接受了。
   
   
-    <a name="3_4"></a>简单灵活的软件包管理机制
+    简单灵活的软件包管理机制
   
   
     Slackware在软件包管理上的独树一帜也是KISS原则的体现。
@@ -135,7 +135,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     为了满足一些用户对自动解决软件依赖性的需求， 目前已出现了Swaret、Slapt-get和SlackUpdate等等第三方项目。
   
   
-    <a name="3_5"></a>Slackware 的中文化支持
+    Slackware 的中文化支持
   
   
     能否很好地支持中文，是中文用户选择Linux发行版的一个重要标准。

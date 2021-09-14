@@ -14,7 +14,7 @@ categories:
    
 <groupId>org.jboss.as.plugins</groupId>
    
-<artifactId>jboss-as-maven-plugin</artifactId>
+jboss-as-maven-plugin</artifactId>
    
 <version>7.5.Final</version>
    

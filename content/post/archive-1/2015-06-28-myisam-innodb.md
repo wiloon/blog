@@ -565,10 +565,10 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
 
 **参考文献: **
 
-  * <a href="http://drizzlewalk.blog.51cto.com/2203401/443266" target="_blank">http://drizzlewalk.blog.51cto.com/2203401/443266</a>
-  * <a href="http://www.rackspace.com/knowledge_center/article/mysql-engines-myisam-vs-innodb" target="_blank">http://www.rackspace.com/knowledge_center/article/mysql-engines-myisam-vs-innodb</a>
-  * <a href="http://stackoverflow.com/questions/20148/myisam-versus-innodb" target="_blank">http://stackoverflow.com/questions/20148/myisam-versus-innodb</a>
-  * <a href="http://www.pureweber.com/article/myisam-vs-innodb/" target="_blank">http://www.pureweber.com/article/myisam-vs-innodb/</a>
+  * http://drizzlewalk.blog.51cto.com/2203401/443266
+  * http://www.rackspace.com/knowledge_center/article/mysql-engines-myisam-vs-innodb
+  * http://stackoverflow.com/questions/20148/myisam-versus-innodb
+  * http://www.pureweber.com/article/myisam-vs-innodb/
 
 **什么是MyISAM?**
 

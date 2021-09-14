@@ -35,7 +35,7 @@ as snapshot versions will always look for a later update, whereas
   
 release versions are deemed to be stable and updates are not expected for the same version number.
 
-Secondly, assuming that you are working on a LAN, I would suggest that you install a local maven repository manager such as <a href="http://nexus.sonatype.org/" rel="nofollow">Nexus</a>, and then redirect your artifact requests by setting
+Secondly, assuming that you are working on a LAN, I would suggest that you install a local maven repository manager such as Nexus, and then redirect your artifact requests by setting
   
 `<mirrorOf>*</mirrorOf>` in your ${user.home}/.m2/settings.xml
 

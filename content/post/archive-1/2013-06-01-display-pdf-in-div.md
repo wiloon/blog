@@ -14,7 +14,7 @@ categories:
   
 <object data="test.pdf" type="application/pdf" width="300" height="200">
   
-alt : <a href="test.pdf">test.pdf</a>
+alt : test.pdf
   
 </object>
   

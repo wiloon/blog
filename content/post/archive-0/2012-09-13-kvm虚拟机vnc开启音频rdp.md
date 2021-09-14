@@ -13,7 +13,7 @@ categories:
     为了方便使用virt-manager来创建和管理kvm的虚拟机。默认创建好的windows xp虚拟机，用vnc连接的时候会没有声音，用rdesktop连接的时候声音是正常的。
   
   
-    查了一些发行版的bugzilla，发现相关的bug还真有不少，在fedora的wiki上找到了解决方法（原始链接在<a href="https://fedoraproject.org/wiki/How_to_debug_Virtualization_problems#Audio_output">这里</a>）：
+    查了一些发行版的bugzilla，发现相关的bug还真有不少，在fedora的wiki上找到了解决方法（原始链接在这里）：
   
   
     修改/etc/libvirt/qemu.conf文件中的vnc_allow_host_audio为1，然后重启libvirtd服务，就OK了。不过这样设置以后，即使不打开virt-manager的vnc客户端，也能够听到虚拟机中发出的声音。
@@ -44,7 +44,7 @@ Note that the Windows volume control on the task bar will still show maximum sou
 That did it for me THANKS a million!!!
 
 <p align="right">
-  <a href="mailto:ff@member.org">ff</a>
+  ff
  Tue, 22 Feb 2011 15:21:06 +0000
 
 It's not a bug.
@@ -60,9 +60,9 @@ rdesktop -r sound:local:alsa host.domain.com
 <p align="right">
   <p align="right">
     <p align="right">
-      <a href="http://coolex.info/blog/121.html">http://coolex.info/blog/121.html</a>
+      http://coolex.info/blog/121.html
     
     
     
-      <a href="http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop">http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop</a>
+      http://www.gearhack.com/Forums/DisplayComments.php?file=Computer/Linux/Getting_Sound_Through_rdesktop
     

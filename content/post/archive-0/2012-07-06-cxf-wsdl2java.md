@@ -35,4 +35,4 @@ wsdl2java -p com -d src -all  aa.wsdl
   
 -all 生成所有开始端点代码：types,service proxy,,service interface, server mainline, client mainline, implementation object, and an Ant build.xml file.
   
-详细用法见：<a href="http://cwiki.apache.org/CXF20DOC/wsdl-to-java.html" target="_blank">http://cwiki.apache.org/CXF20DOC/wsdl-to-java.html</a>
+详细用法见：http://cwiki.apache.org/CXF20DOC/wsdl-to-java.html

@@ -14,7 +14,7 @@ tags:
 
 有时git clone下来会出现很多branch，更麻烦的是如果主分支没代码那你就只能看到.git目录了。如下面的这个:
 
-> `$ git clone <a href="git://gitorious.org/android-eeepc/mesa.git">git://gitorious.org/android-eeepc/mesa.git</a>`
+> `$ git clone git://gitorious.org/android-eeepc/mesa.git`
 
 发现本地就只有一个.git目录，那么这个时候就需要checkout了。
 

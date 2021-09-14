@@ -14,7 +14,7 @@ categories:
 
 <blockquote class="wp-embedded-content" data-secret="CuWoU1KPNH">
   
-    <a href="https://insights.thoughtworks.cn/professional/">你要专业</a>
+    你要专业
   
 </blockquote>
 

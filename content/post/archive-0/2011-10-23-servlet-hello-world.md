@@ -80,7 +80,7 @@ out.println("＜/body＞＜/html＞");
 	  
 <groupId>org.apache.tomcat</groupId>
 	  
-<artifactId>tomcat-servlet-api</artifactId>
+tomcat-servlet-api</artifactId>
 	  
 <version>7.0.xx</version>
   

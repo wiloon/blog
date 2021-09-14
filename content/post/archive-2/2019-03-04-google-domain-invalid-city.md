@@ -12,7 +12,7 @@ categories:
 
 <blockquote class="wp-embedded-content" data-secret="2UAujlnd36">
   
-    <a href="http://www.flaskfox.com/2015/11/16/google-domain-%e5%a1%ab%e5%86%99%e5%87%ba%e9%94%99/">Google Domain 填写出错</a>
+    Google Domain 填写出错
   
 </blockquote>
 

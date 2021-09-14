@@ -32,7 +32,7 @@ isnull() 函数同 is null比较操作符具有一些相同的特性。请参见
 
 **IFNULL(expr1,expr2)的用法: **
 
-假如expr1   不为   <a name="baidusnap2"></a>**NULL**，则   IFNULL()   的返回值为   expr1;
+假如expr1   不为   **NULL**，则   IFNULL()   的返回值为   expr1;
   
 否则其返回值为   expr2。IFNULL()的返回值是数字或是字符串，具体情况取决于其所使用的语境。
 

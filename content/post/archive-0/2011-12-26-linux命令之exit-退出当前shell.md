@@ -132,7 +132,7 @@ if [ "$#" -ne "2" ]; then
       
 echo "usage: $0 
 
-<area />
+
 <hours>"
 
       

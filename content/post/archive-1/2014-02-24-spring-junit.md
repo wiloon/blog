@@ -77,7 +77,7 @@ public class BaseJunit4Test {
 
 public class UserAssignServiceTest extends BaseJunit4Test{
 
-<div id="">
+
   <ol start="1">
     <li>
           @Resource  //自动注入,默认按名称

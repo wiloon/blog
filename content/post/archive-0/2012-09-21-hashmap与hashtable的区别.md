@@ -50,7 +50,7 @@ int i = indexFor(hash, table.length);
  HashMap对null的操作
   
 
-<div id="bottoms">
+
   
     HashMap可以看作三个视图：key的Set，value的Collection，Entry的Set。 这里HashSet就是其实就是HashMap的一个视图。HashSet内部就是使用Hashmap实现的，和Hashmap不同的是它不需要Key和Value两个值。
   

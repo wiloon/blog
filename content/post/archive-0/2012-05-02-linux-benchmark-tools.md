@@ -17,7 +17,7 @@ categories:
   
   
     
-      <a href="http://www.linuxlinks.com/article/20120428063315595/PhoronixTestSuite.html">Phoronix Test Suite</a>
+      Phoronix Test Suite
     
     
     
@@ -27,7 +27,7 @@ categories:
   
   
     
-      <a href="http://www.linuxlinks.com/article/20120428070005215/IOzone.html">IOzone</a>
+      IOzone
     
     
     
@@ -37,7 +37,7 @@ categories:
   
   
     
-      <a href="http://www.linuxlinks.com/article/2012042808393045/netperf.html">netperf</a>
+      netperf
     
     
     
@@ -47,7 +47,7 @@ categories:
   
   
     
-      <a href="http://www.linuxlinks.com/article/20120429003043955/LLCbench.html">LLCbench</a>
+      LLCbench
     
     
     
@@ -57,7 +57,7 @@ categories:
   
   
     
-      <a href="http://www.linuxlinks.com/article/20120428061858850/HardInfo.html">HardInfo</a>
+      HardInfo
     
     
     
@@ -67,7 +67,7 @@ categories:
   
   
     
-      <a href="http://www.linuxlinks.com/article/20120429010112631/GtkPerf.html">GtkPerf</a>
+      GtkPerf
     
     
     

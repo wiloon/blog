@@ -13,7 +13,7 @@ categories:
 ```xml
 <plugin>
     <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-maven-plugin</artifactId>
+    jetty-maven-plugin</artifactId>
     <version>9.4.33.v20201020</version>
     <configuration>
         <stopKey>stop</stopKey>

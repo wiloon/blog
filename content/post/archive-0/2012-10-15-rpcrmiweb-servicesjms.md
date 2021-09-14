@@ -10,7 +10,7 @@ categories:
 ---
 1. RPC：RPC本身没有规范,但基本的工作机制是一样的，即：serialization/deserialization+stub+skeleton
 
-<div id="article_content">
+
   
     宽泛的讲，只要能实现远程调用，都是RPC，如:rmi .net-remoting ws/soap/rest hessian xmlrpc thrift potocolbuffer
   

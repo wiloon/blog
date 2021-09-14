@@ -119,7 +119,7 @@ https://rclone.org/webdav/
 
 <blockquote class="wp-embedded-content" data-secret="JYXAHPlYuh">
   
-    <a href="https://www.jamescoyle.net/how-to/3116-rclone-systemd-startup-mount-script">rclone Systemd startup mount script</a>
+    rclone Systemd startup mount script
   
 </blockquote>
 

@@ -10,7 +10,7 @@ categories:
 ---
 <blockquote data-secret="dTFsANiQAP" class="wp-embedded-content">
   
-    <a href="http://www.zhyea.com/2017/03/15/using-of-bufferedmutator.html">使用BufferedMutator</a>
+    使用BufferedMutator
   
 </blockquote>
 

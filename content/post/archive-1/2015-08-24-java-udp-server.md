@@ -83,7 +83,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
   * 通过socket服务发送 （send()方法）
   * 关闭资源
 
-<div class="highlighter dp-highlighter">
+
   <ol class="highlighter-j" start="1">
     <li>
       <span class="comment">/**
@@ -185,7 +185,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
   </ol>
 
 
-<div class="highlighter dp-highlighter">
+
   <ol class="highlighter-j" start="1">
     <li>
       <span class="comment">/**

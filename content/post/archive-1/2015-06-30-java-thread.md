@@ -395,7 +395,7 @@ https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503
 
 <blockquote data-secret="1A90iIEGUv" class="wp-embedded-content">
   
-    <a href="http://www.wiloon.com/?p=2057">Linux系统日志–syslog</a>
+    Linux系统日志–syslog
   
 </blockquote>
 

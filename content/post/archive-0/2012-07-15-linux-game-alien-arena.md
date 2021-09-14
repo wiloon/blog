@@ -17,7 +17,7 @@ Alien Arena 2011 7.50版本发布,这款开源的游戏新版本带来了以下�
 > 
 > 
 > 
->   更多的介绍:<a href="http://zh.wikipedia.org/zh/Alien_Arena">http://zh.wikipedia.org/zh/Alien_Arena</a>
+>   更多的介绍:http://zh.wikipedia.org/zh/Alien_Arena
 > 
 
   1 编译:

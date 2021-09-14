@@ -69,7 +69,7 @@ Specify the GORA backend in $NUTCH_HOME/conf/nutch-site.xml
 
 
   * <p class="line862">
-      Ensure that HBaseStore is set as the default datastore in $NUTCH_HOME/conf/gora.properties. Other documentation for HBaseStore can be found <a class="http" href="http://gora.apache.org/current/gora-hbase.html">here</a>.<span id="line-34" class="anchor"><span id="line-35" class="anchor">
+      Ensure that HBaseStore is set as the default datastore in $NUTCH_HOME/conf/gora.properties. Other documentation for HBaseStore can be found here.<span id="line-34" class="anchor"><span id="line-35" class="anchor">
     
 
 <span id="line-1-2" class="anchor">    gora.datastore.default=org.apache.gora.hbase.store.HBaseStore

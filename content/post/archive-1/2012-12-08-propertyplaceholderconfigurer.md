@@ -14,7 +14,7 @@ categories:
 
 PropertyPlaceholderConfigurer，允许在spring的配置文件中加入properties文件，可以将一些动态参数移到properties中．
 
-<div id="">
+
   
     ```java
  
@@ -29,10 +29,10 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
 
 经过查看源码，发现可以使用locations属性定义多个配置文件: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -58,10 +58,10 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
 
 使用外部属性后如下: 
 
-<div id="">
+
   
     
-      Java代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -81,10 +81,10 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
 
 PropertyOverrideConfigurer: 在spring所有的bean初使化以后，将bean的值强行改变
 
-<div id="">
+
   
     
-      Xml代码  <a title="收藏这段代码"><img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+      Xml代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">

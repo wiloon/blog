@@ -30,7 +30,7 @@ title = "vuetify"
 
 ### 模板中使用
     <template>
-      <div class="home">
+      
         <v-icon>mdi-account-circle</v-icon>
       </div>
     </template>

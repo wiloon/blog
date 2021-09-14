@@ -12,7 +12,7 @@ categories:
 
 **SDL** (**Simple DirectMedia Layer**) is a multi-platform multimedia library used by many app/game developers in creating emulators, games, MPEG playback software, etc. Also, when installing some games or software requiring SDL under Ubuntu, you may get these errors while compiling them:
   
-<a name="more"></a>
+
   
 **configure: error: \*** SDL version 1.2.0 not found! **
   

@@ -10,7 +10,7 @@ categories:
 ---
 ### 
 
-<div id="article_content">
+
    1.网页说明编码格式 <meta http-equiv="Content-Type" content="text/html;charset=gb2312"> 
   
   <p dir="ltr">

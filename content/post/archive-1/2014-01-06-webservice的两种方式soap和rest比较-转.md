@@ -166,7 +166,7 @@ xsi:schemaLocation="urn:yahoo:maps http://local.yahooapis.com/MapsService/V1/Geo
   
 <Longitude>-122.024853</Longitude>
   
-<Address>701 FIRST AVE</Address>
+701 FIRST AVE</Address>
   
 <City>SUNNYVALE</City>
   
@@ -200,9 +200,9 @@ YouTube:
   
 <last_name>User</last_name>
   
-<about_me>YouTube rocks!!</about_me>
+YouTube rocks!!</about_me>
   
-<age>30</age>
+30</age>
   
 <video_upload_count>7</video_upload_count>
   

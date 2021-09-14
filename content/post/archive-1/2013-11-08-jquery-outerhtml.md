@@ -35,5 +35,5 @@ prop('outerHTML')
     希望本文能对你有所帮助！
   
   
-    <a href="http://www.cnblogs.com/cxd4321/archive/2011/11/01/2231063.html">http://www.cnblogs.com/cxd4321/archive/2011/11/01/2231063.html</a>
+    http://www.cnblogs.com/cxd4321/archive/2011/11/01/2231063.html
   

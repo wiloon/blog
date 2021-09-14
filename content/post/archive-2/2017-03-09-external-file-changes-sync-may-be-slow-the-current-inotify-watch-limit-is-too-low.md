@@ -14,12 +14,12 @@ To fix the warning about **fs.inotify.max_user_watches** the IntelliJ shows, it 
 
 Here are the commands necessary to fix the issue on ArchLinux:
 
-<div class="language-shell highlighter-rouge">
+
   <pre class="highlight"><code>sudo <span class="nb">echo <span class="s1">'fs.inotify.max_user_watches = 524288' >>/usr/lib/sysctl.d/50-default.conf
 sudo sysctl -p --system
 ```
 
-More information about this can be found in <a href="https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit" target="_blank" rel="noopener noreferrer">here</a> and in <a href="https://bbs.archlinux.org/viewtopic.php?id=193020" target="_blank" rel="noopener noreferrer">here</a>.
+More information about this can be found in here and in here.
 
 
 https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit

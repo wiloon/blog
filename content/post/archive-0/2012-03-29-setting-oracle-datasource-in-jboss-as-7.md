@@ -13,9 +13,9 @@ tags:
 ---
 srikanth.s.nair
 
-  <a href="http://www.javaworld.com/community/node/8184">http://www.javaworld.com/community/node/8184</a>
+  http://www.javaworld.com/community/node/8184
 
-<div id="nodezone">
+
   
     Here are step by step directions on how to configure JBoss AS 7 to communicate with Oracle XE.
   

@@ -8,15 +8,15 @@ categories:
   - Web
 
 ---
-<div id="art_demo">
+
   http://www.jb51.net/article/20928.htm
 
 
   如果你读过很多行业杂志和 ASP.NET 示例，你会发现，大多数人使用 Response.Redirect 将用户引导到另一个页面，而另一些人好像偏爱于神秘的 Server.Transfer，那么，这二者有什么区别？
 
-<div id="con_all">
 
-<div id="art_content">
+
+
   Response.Redirect 简单地发送一条消息到浏览器，告诉浏览器定位到另一个页面。你可以使用下面的代码将用户引导到另一个页面：
  Response.Redirect("WebForm2.aspx")
  或者

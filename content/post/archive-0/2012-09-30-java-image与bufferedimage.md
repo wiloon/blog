@@ -10,12 +10,12 @@ categories:
 ---
 
 
-<div id="blog_content">
+
   Image是一个抽象列，BufferedImage是Image的实现。
  Image和BufferedImage的主要作用就是将一副图片加载到内存中。
  Java将一副图片加载到内存中的方法是： 
   
-  <div id="">
+  
     
       
 http://javapub.iteye.com/images/icon_star.png
@@ -54,4 +54,4 @@ http://javapub.iteye.com/images/icon_star.png
     但该方法不能把图片加载到内存中，仅仅是得到图片，所以也就不能获得图片的信息，图片的长宽信息都无法拿到。
   
   
-    文章地址：<a href="http://javapub.iteye.com/blog/683944" target="_blank">http://javapub.iteye.com/blog/683944</a>
+    文章地址：http://javapub.iteye.com/blog/683944

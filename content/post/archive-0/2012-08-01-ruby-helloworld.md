@@ -89,5 +89,5 @@ You can either execute using "ruby helloworld.rb" or "./helloworld.rb".
  ```
   
   
-    <a href="http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/">http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/</a>
+    http://www.thegeekstuff.com/2009/10/ruby-hello-world-example-how-to-write-and-execute-ruby-program-on-unix-os/
   

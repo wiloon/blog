@@ -14,10 +14,10 @@ categories:
 
 ---
   
-    <a href="http://pengjiaheng.iteye.com/blog/566843">http://pengjiaheng.iteye.com/blog/566843</a>
+    http://pengjiaheng.iteye.com/blog/566843
   
 
-<div id="blog_content">
+
   
         所谓"工欲善其事必先利其器"，程序写多了，对于快捷键总有些特别的偏爱。在众多编辑器中，Eclipse算是用的比较多，也是最熟的。
   

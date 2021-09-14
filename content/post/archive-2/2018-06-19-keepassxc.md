@@ -41,7 +41,7 @@ Set-Service sshd -StartupType Automatic
 
 
 ### systemd user service
-    <a href="https://blog.wiloon.com/?p=13028">systemd/User ssh-agent</a>
+    systemd/User ssh-agent
 
 https://github.com/rupor-github/wsl-ssh-agent
 https://github.com/jstarks/npiperelay  

@@ -41,7 +41,7 @@ https://my.oschina.net/u/4257408/blog/3662569
   
 <groupId>org.springframework</groupId>
   
-<artifactId>spring-core</artifactId>
+spring-core</artifactId>
   
 <version>3.2.8.RELEASE</version>
   
@@ -51,7 +51,7 @@ https://my.oschina.net/u/4257408/blog/3662569
   
 <groupId>org.springframework</groupId>
   
-<artifactId>spring-context</artifactId>
+spring-context</artifactId>
   
 <version>3.2.8.RELEASE</version>
   
@@ -61,7 +61,7 @@ https://my.oschina.net/u/4257408/blog/3662569
   
 <groupId>org.springframework</groupId>
   
-<artifactId>spring-web</artifactId>
+spring-web</artifactId>
   
 <version>3.2.8.RELEASE</version>
   

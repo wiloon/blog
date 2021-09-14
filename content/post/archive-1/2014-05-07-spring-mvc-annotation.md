@@ -21,9 +21,9 @@ tags:
     @PathVariable是用来对指定请求的URL路径里面的变量 eg: 
     
     
-      <div class="bar">
+      
         
-          Java代码  <img class="star" src="http://yeak2001.iteye.com/images/icon_star.png" alt="收藏代码" /></a>
+          Java代码  <img class="star" src="http://yeak2001.iteye.com/images/icon_star.png" alt="收藏代码" />
         
       
       

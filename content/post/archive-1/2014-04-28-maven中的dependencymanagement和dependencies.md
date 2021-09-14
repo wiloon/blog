@@ -31,7 +31,7 @@ Xml代码 收藏代码
 
 <groupId>mysql</groupId>
 
-<artifactId>mysql-connector-java</artifactId>
+mysql-connector-java</artifactId>
 
 <version>5.1.2</version>
 
@@ -54,7 +54,7 @@ Xml代码 收藏代码
 
 <groupId>mysql</groupId>
 
-<artifactId>mysql-connector-java</artifactId>
+mysql-connector-java</artifactId>
 
 </dependency>
 

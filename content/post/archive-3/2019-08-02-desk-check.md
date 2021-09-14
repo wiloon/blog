@@ -10,7 +10,7 @@ categories:
 ---
 <blockquote class="wp-embedded-content" data-secret="5PpVVMPtJf">
   
-    <a href="http://insights.thoughtworkers.org/desk-check/">敏捷实践之Desk Check</a>
+    敏捷实践之Desk Check
   
 </blockquote>
 

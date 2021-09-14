@@ -17,6 +17,6 @@ http://blog.csdn.net/chifengxin/article/details/14521093
 https://www.ibm.com/developerworks/cn/web/1112_huangxa_websocket/
 
 
-如何理解 TCP/IP, SPDY, WebSocket 三者之间的关系？<a class="zu-edit-button" name="edit"></a><i class="zu-edit-button-icon"></i>
+如何理解 TCP/IP, SPDY, WebSocket 三者之间的关系？<i class="zu-edit-button-icon"></i>
 
 http://www.zhihu.com/question/20097129
