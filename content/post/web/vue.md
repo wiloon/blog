@@ -342,7 +342,11 @@ vue-router是什么
 
 ### for index
     <div class="item" v-for="(user,index) in datalist" :key='index' >
-    
+
+### vue xxx admin
+>https://github.com/NelsonEAX/vue-vuetify-admin
+>https://panjiachen.github.io/vue-element-admin-site/zh/
+
 ----
 
 https://cli.vuejs.org/zh/guide/prototyping.html
