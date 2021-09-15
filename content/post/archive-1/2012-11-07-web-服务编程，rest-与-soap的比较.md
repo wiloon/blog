@@ -61,7 +61,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
   
 **清单 1. 用户列表资源 Representation**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       
@@ -82,7 +82,7 @@ REST（Representational State Transfer）是 Roy Fielding 提出的一个描述�
 
 **清单 2. 用户资源 Representation**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       
@@ -121,7 +121,7 @@ Restful Web 服务架构
   
 **清单 3. 客户端实现**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       
@@ -201,7 +201,7 @@ private static void printUserByURI(String uri) {
   
 **清单 4. 服务器端实现**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       
@@ -295,7 +295,7 @@ SOAP Web 服务架构
   
 **清单 5. getUserList SOAP 消息**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       
@@ -314,7 +314,7 @@ SOAP Web 服务架构
   
 **清单 6. getUserListResponse 消息**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       
@@ -340,7 +340,7 @@ SOAP Web 服务架构
   
 **清单 7. getUserByName SOAP 消息**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       
@@ -361,7 +361,7 @@ SOAP Web 服务架构
   
 **清单 8. getUserByNameResponse SOAP 消息**
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
   
     
       

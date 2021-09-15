@@ -304,25 +304,25 @@ adb shell
 
   
     
-      <p class="TableHeading">
+      
         Category
       
     
     
     
-      <p class="TableHeading">
+      
         Command
       
     
     
     
-      <p class="TableHeading">
+      
         Description
       
     
     
     
-      <p class="TableHeading">
+      
         Comments
       
     
@@ -330,25 +330,25 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         Options
       
     
     
     
-      <p class="TableContents">
+      
         -d
       
     
     
     
-      <p class="TableContents">
+      
         仅仅通过USB接口来管理abd
       
     
     
     
-      <p class="TableContents">
+      
         如果不只是用USB接口来管理则返回错误
       
     
@@ -356,19 +356,19 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         -e
       
     
     
     
-      <p class="TableContents">
+      
         仅仅通过模拟器实例来管理adb
       
     
     
     
-      <p class="TableContents">
+      
         如果不是仅仅通过模拟器实例管理则返回错误
       
     
@@ -376,19 +376,19 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         -s <serialNumber>
       
     
     
     
-      <p class="TableContents">
+      
         通过模拟器/设备的允许命令号码来发送命令来管理adb (如 "emulator-5556″)
       
     
     
     
-      <p class="TableContents">
+      
         如果没有指定号码，则会报错
       
     
@@ -396,25 +396,25 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         General
       
     
     
     
-      <p class="TableContents">
+      
         devices
       
     
     
     
-      <p class="TableContents">
+      
         查看所有连接模拟器/设备的设施的清单
       
     
     
     
-      <p class="TableContents">
+      
         查看 Querying for Emulator/Device Instances 获取更多相关信息
       
     
@@ -422,13 +422,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         help
       
     
     
     
-      <p class="TableContents">
+      
         查看adb所支持的所有命令
       
     
@@ -439,13 +439,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         version
       
     
     
     
-      <p class="TableContents">
+      
         查看adb的版本序列号
       
     
@@ -456,19 +456,19 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         Debug
       
     
     
     
-      <p class="TableContents">
+      
         logcat [<option>] [<filter-specs>]
       
     
     
     
-      <p class="TableContents">
+      
         将日志数据输出到屏幕上
       
     
@@ -479,13 +479,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         bugreport
       
     
     
     
-      <p class="TableContents">
+      
         查看bug的报告，如dumpsys ,dumpstate ,和logcat 信息
       
     
@@ -496,19 +496,19 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         jdwp
       
     
     
     
-      <p class="TableContents">
+      
         查看指定设施的可用的JDWP信息
       
     
     
     
-      <p class="TableContents">
+      
         可以用 forward jdwp:<pid>端口映射信息来连接指定的JDWP进程，例如：
  adb forward tcp:8000 jdwp:472
  jdb -attach localhost:8000
@@ -518,19 +518,19 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         Data
       
     
     
     
-      <p class="TableContents">
+      
         install <path-to-apk>
       
     
     
     
-      <p class="TableContents">
+      
         安装Android为（可以模拟器/设施的数据文件.apk指定完整的路径）
       
     
@@ -541,13 +541,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         pull <remote> <local>
       
     
     
     
-      <p class="TableContents">
+      
         将指定的文件从模拟器/设施拷贝到计算机上
       
     
@@ -558,13 +558,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         push <local> <remote>
       
     
     
     
-      <p class="TableContents">
+      
         将指定的文件从计算机上拷贝到模拟器/设备中
       
     
@@ -575,25 +575,25 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         Ports and Networking
       
     
     
     
-      <p class="TableContents">
+      
         forward <local> <remote>
       
     
     
     
-      <p class="TableContents">
+      
         用本地指定的端口通过Socket方法远程连接模拟器/设施
       
     
     
     
-      <p class="TableContents">
+      
         端口需要描述下列信息:
       
       
@@ -616,13 +616,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         ppp <tty> [parm]…
       
     
     
     
-      <p class="TableContents">
+      
         通过USB运行ppp：
       
       
@@ -635,7 +635,7 @@ adb shell
         </li>
       </ul>
       
-      <p class="TableContents">
+      
         需要提醒的不能自动启动PDP连接
       
     
@@ -646,25 +646,25 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         Scripting
       
     
     
     
-      <p class="TableContents">
+      
         get-serialno
       
     
     
     
-      <p class="TableContents">
+      
         查看adb实例的序列号
       
     
     
     
-      <p class="TableContents">
+      
         查看 Querying for Emulator/Device Instances 可以获得更多信息
       
     
@@ -672,13 +672,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         get-state
       
     
     
     
-      <p class="TableContents">
+      
         查看模拟器/设施的当前状态
       
     
@@ -686,35 +686,35 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         wait-for-device
       
     
     
     
-      <p class="TableContents">
+      
         如果设备不联机就不让执行,也就是实例状态是 device 时
       
     
     
     
-      <p class="TableContents">
+      
         可以提前把命令转载在adb的命令器中,在命令器中的命令在模拟器/设备连接之前是不会执行其他命令的，示例如下:
       
       
-      <p class="PreformattedText">
+      
         adb wait-for-device shell getprop
       
       
-      <p class="TableContents">
+      
         需要提醒的是，这些命令在所有的系统启动起来之前是不会启动adb的，所以在所有的系统启动起来之前也不能执行其他的命令，例如，运用install 的时候就需要Android包，这些包需要系统完全启动，例如：
       
       
-      <p class="PreformattedText">
+      
         adb wait-for-device install .apk
       
       
-      <p class="TableContents">
+      
         上面的命令只有连接上了模拟器/设备连接上了adb服务才会被执行，而在Android系统完全启动前执行就会有错误发生
       
     
@@ -722,19 +722,19 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         Server
       
     
     
     
-      <p class="TableContents">
+      
         start-server
       
     
     
     
-      <p class="TableContents">
+      
         选择服务是否启动adb服务进程
       
     
@@ -745,13 +745,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         kill-server
       
     
     
     
-      <p class="TableContents">
+      
         终止adb服务进程
       
     
@@ -762,25 +762,25 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         Shell
       
     
     
     
-      <p class="TableContents">
+      
         shell
       
     
     
     
-      <p class="TableContents">
+      
         通过远程Shell命令来控制模拟器/设备实例
       
     
     
     
-      <p class="TableContents">
+      
         查看获取更多信息 for more information
       
     
@@ -788,13 +788,13 @@ adb shell
   
   
     
-      <p class="TableContents">
+      
         shell [<shellCommand>]
       
     
     
     
-      <p class="TableContents">
+      
         连接模拟器/设施执行Shell命令，执行完毕后退出远程Shell端l
       
     

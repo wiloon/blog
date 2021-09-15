@@ -364,7 +364,7 @@ categories:
       GET 方法
     
     
-    <p class="marked">
+    
       请注意，查询字符串（名称/值对）是在 GET 请求的 URL 中发送的：
     
     
@@ -400,7 +400,7 @@ categories:
       POST 方法
     
     
-    <p class="marked">
+    
       请注意，查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的：
     
     
@@ -437,7 +437,7 @@ name1=value1&name2=value2
       下面的表格比较了两种 HTTP 方法：GET 和 POST。
     
     
-    <table class="dataintable">
+    
       
         <th>
         </th>
@@ -587,7 +587,7 @@ name1=value1&name2=value2
                 下面的表格列出了其他一些 HTTP 请求方法：
               
               
-              <table class="dataintable">
+              
                 
                   <th>
                     方法

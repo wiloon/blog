@@ -14,143 +14,143 @@ tags:
 
 好的目录结构可以使开发人员更容易理解项目，为以后的维护工作也打下良好的基础。Maven2根据业界公认的最佳目录结构，为开发者提供了缺省的标准目录模板。Maven2的标准目录结构如下: 
 
-<table border="0">
+
   
-    <td align="left">
+    
       <tt>src/main/java</tt>
     
     
-    <td align="left">
+    
       Application/Library sources
     
   
   
   
-    <td align="left">
+    
       <tt>src/main/resources</tt>
     
     
-    <td align="left">
+    
       Application/Library resources
     
   
   
   
-    <td align="left">
+    
       <tt>src/main/webapp</tt>
     
     
-    <td align="left">
+    
       Web application sources
     
   
   
   
-    <td align="left">
+    
       <tt>src/test/java</tt>
     
     
-    <td align="left">
+    
       Test sources
     
   
   
   
-    <td align="left">
+    
       <tt>src/test/resources</tt>
     
     
-    <td align="left">
+    
       Test resources
     
   
   
   
-    <td align="left">
+    
       <tt>src/main/filters</tt>
     
     
-    <td align="left">
+    
       Resource filter files
     
   
   
   
-    <td align="left">
+    
       <tt>src/main/assembly</tt>
     
     
-    <td align="left">
+    
       Assembly descriptors
     
   
   
   
-    <td align="left">
+    
       <tt>src/main/config</tt>
     
     
-    <td align="left">
+    
       Configuration files
     
   
   
   
-    <td align="left">
+    
       <tt>src/main/scripts</tt>
     
     
-    <td align="left">
+    
       Application/Library scripts
     
   
   
   
-    <td align="left">
+    
       <tt>src/test/filters</tt>
     
     
-    <td align="left">
+    
       Test resource filter files
     
   
   
   
-    <td align="left">
+    
       <tt>src/site</tt>
     
     
-    <td align="left">
+    
       Site
     
   
   
   
-    <td align="left">
+    
       <tt>LICENSE.txt</tt>
     
     
-    <td align="left">
+    
       Project's license
     
   
   
   
-    <td align="left">
+    
       <tt>NOTICE.txt</tt>
     
     
-    <td align="left">
+    
       Notices and attributions required by libraries that the project depends on
     
   
   
   
-    <td align="left">
+    
       <tt>README.txt</tt>
     
     
-    <td align="left">
+    
       Project's readme
     
   

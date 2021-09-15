@@ -15,7 +15,7 @@ categories:
 
   
   
-  <table border="1" cellpadding="4">
+  
     
       
         Apt-get commands

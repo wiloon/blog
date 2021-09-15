@@ -17,71 +17,71 @@ Web层面的框架学习了三个Struts1和2，SpringMVC，那他们之间肯定
 
 
   
-    <td width="103">
+    
       名称
     
     
-    <td width="92">
+    
       性能排名
     
     
-    <td width="373">
+    
       结论
     
   
   
   
-    <td width="103">
+    
       Jsp
     
     
-    <td width="92">
+    
       1
     
     
-    <td width="373">
+    
       越原始效率越高
     
   
   
   
-    <td width="103">
+    
       Struts1
     
     
-    <td width="92">
+    
       2
     
     
-    <td width="373">
+    
       采用单例Action模式，且本身的封装相比struts2简单，性能稳定高效。
     
   
   
   
-    <td width="103">
+    
       SpringMVC
     
     
-    <td width="92">
+    
       2.5(略逊于struts1)
     
     
-    <td width="373">
+    
       springMVC有着不比struts2差的开发效率和解耦度，但性能却是struts2的好几倍。
     
   
   
   
-    <td width="103">
+    
       Struts2
     
     
-    <td width="92">
+    
       3
     
     
-    <td width="373">
+    
       <ol>
         <li>
           由于采用值栈、OGNL表达式、拦截器等技术对请求参数的映射和返回结果进行了处理，另外还采用大量的标签库等，这些都增加了处理的时间；
@@ -122,52 +122,52 @@ Jsp当然是入门，如果这个都不懂，谈学习成本也毫无意义，�
 
 
   
-    <td width="284">
+    
       Struts2
     
     
-    <td width="284">
+    
       Spring MVC
     
   
   
   
-    <td width="284">
+    
       类级别的拦截，一个类对应一个request上下文，很难实现restful url，而struts2的架构实现起来要费劲，因为action的一个方法可以对应一个url，而其类属性却被所有方法共享，这也就无法用注解或其他方式标识其所属方法了
     
     
-    <td width="284">
+    
       方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应，所以说从架构本身上spring3 mvc就容易实现restful url
     
   
   
   
-    <td width="284">
+    
       比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码读程序时带来麻烦；Struts2在接受参数的时候，可以用属性来接受参数，这就说明参数是让多个方法共享的
     
     
-    <td width="284">
+    
       方法之间基本上独立的，独享request response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量
     
   
   
   
-    <td width="284">
+    
       支持手动验证凭借validate方法和XWork验证框架
     
     
-    <td width="284">
+    
       验证也是一个亮点，支持JSR303 
       
       
         处理ajax的请求更是方便只需一个注解@ResponseBody，然后直接返回响应文本即可  
         
         
-          <td width="284">
+          
             入口是filter
           
           
-          <td width="284">
+          
             入口是servlet
           
         </tbody>  

@@ -23,85 +23,85 @@ Servlet中的Listener和Event:
   
 在JSP 2.0/Servlet 2.4中，共有八个Listener接口，六个Event类别。
 
-<table border="1" cellspacing="0" cellpadding="0">
+
   
-    <td valign="top" width="284">
+    
       Listener接口
     
     
-    <td valign="top" width="284">
+    
       Event类
     
   
   
   
-    <td valign="top" width="284">
+    
       ServletContextListener
     
     
-    <td valign="top" width="284">
+    
       ServletContextEvent
     
   
   
   
-    <td valign="top" width="284">
+    
       ServletContextAttributeListener
     
     
-    <td valign="top" width="284">
+    
       ServletContextAttributeEvent
     
   
   
   
-    <td valign="top" width="284">
+    
       HttpSessionListener
     
     
-    <td rowspan="2" valign="top" width="284">
+    
       HttpSessionEvent
     
   
   
   
-    <td valign="top" width="284">
+    
       HttpSessionActivationListener
     
   
   
   
-    <td valign="top" width="284">
+    
       HttpSessionAttributeListener
     
     
-    <td rowspan="2" valign="top" width="284">
+    
       HttpSessionBindingEvent
     
   
   
   
-    <td valign="top" width="284">
+    
       HttpSessionBindingListener
     
   
   
   
-    <td valign="top" width="284">
+    
       ServletRequestListener
     
     
-    <td valign="top" width="284">
+    
       ServletRequestEvent
     
   
   
   
-    <td valign="top" width="284">
+    
       ServletRequestAttributeListener
     
     
-    <td valign="top" width="284">
+    
       ServletRequestAttributeEvent
     
   

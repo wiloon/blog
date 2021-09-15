@@ -94,7 +94,7 @@ categories:
  实现一个监听器：
   
   
-    <table width="540" border="1" cellspacing="0" cellpadding="0">
+    
       
         
           
@@ -381,7 +381,7 @@ categories:
  下面再来看看我们的登录Servlet中使用这个监听器的部分源代码：
   
   
-    <table width="540" border="1" cellspacing="0" cellpadding="0">
+    
       
         
           
@@ -437,7 +437,7 @@ categories:
  登录人数的统计：
   
   
-    <table width="540" border="1" cellspacing="0" cellpadding="0">
+    
       
         
           
@@ -511,7 +511,7 @@ categories:
     在此后的程序中随时可以用以下代码取得当前的登录人数：
   
   
-    <table width="540" border="1" cellspacing="0" cellpadding="0">
+    
       
         
           

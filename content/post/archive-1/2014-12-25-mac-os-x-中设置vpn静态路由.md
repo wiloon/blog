@@ -67,7 +67,7 @@ Mac OSX 中可以设置成启动项, 每次开机自动运行, 方法是:
 
   
     
-      <td class="code">
+      
         <pre class="php">#!/bin/sh
 
 # Set up static routing tables 
@@ -109,7 +109,7 @@ RunService "$1"
 
   
     
-      <td class="code">
+      
         <pre class="php">{
         Description     = "Set static routing tables";
         Provides        = ("SetRoutes");

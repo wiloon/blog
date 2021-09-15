@@ -13,7 +13,7 @@ tags:
 # 
 
 
-  <p id="ctrlfssummary">
+  
     核心提示：overflow:hidden这个CSS样式是大家常用到的CSS样式，但是大多数人对这个样式的理解仅仅局限于隐藏溢出，而对于清除浮动这个含义不是很了解。
   
   

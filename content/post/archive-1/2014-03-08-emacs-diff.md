@@ -28,7 +28,7 @@ tags:
 
 `Ediff` 比较的项目有: ( 可用 M-x 来启动 )
 
-<table border="2" cellpadding="5">
+
   
     <th>
       比较项目
@@ -84,7 +84,7 @@ tags:
 
 在 control buffer 中，按键。
 
-<table border="2" cellpadding="5">
+
   
     <th>
       快捷键
@@ -395,7 +395,7 @@ tags:
 
 有两个函数
 
-<table border="2" cellpadding="5">
+
   
     <th>
       函数
@@ -431,7 +431,7 @@ tags:
 
 比较两个文件或缓冲区的所有操作，几乎都适于三个比较。不过在进行缓冲区差异区从A到B拷贝的操作略有不同: 
 
-<table border="2" cellpadding="5">
+
   
     <th>
       快捷键

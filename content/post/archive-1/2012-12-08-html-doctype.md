@@ -18,10 +18,10 @@ tags:
 
 HTML5 不基于 SGML，所以不需要引用 DTD。
 
-<p class="tip">
+
   添加 <!DOCTYPE> 声明，这样浏览器才能获知文档类型。
 
-<p class="tip">
+
   
     HTML Transitional DTD
   
@@ -45,10 +45,10 @@ HTML5 不基于 SGML，所以不需要引用 DTD。
   
     [/html]
   
-  <p class="note">
+  
     <!DOCTYPE> 声明没有结束标签。
   
-  <p class="tip">
+  
     <!DOCTYPE> 声明对大小写不敏感。
   
   

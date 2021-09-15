@@ -173,9 +173,9 @@ Classes are introduced into the Java environment when they are referenced by nam
 At its simplest, a class loader creates a flat name space of class bodies that are referenced by a string name. The method definition is:
 
   
-    <table border="0" cellspacing="0" cellpadding="0">
+    
       
-        <td class="code">
+        
           
             
               <code class="java plain">Class r = loadClass(String className, </code><code class="java keyword">boolean</code> <code class="java plain">resolveIt);</code>
@@ -227,9 +227,9 @@ Return the class to the caller.
 Some Java code that implements this flow is taken from the file SimpleClassLoader and appears as follows with descriptions about what it does interspersed with the code.
 
   
-    <table border="0" cellspacing="0" cellpadding="0">
+    
       
-        <td class="code">
+        
           
             
               <code class="java keyword">public</code> <code class="java keyword">synchronized</code> <code class="java plain">Class loadClass(String className, </code><code class="java keyword">boolean</code> <code class="java plain">resolveIt)</code>
@@ -283,9 +283,9 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
 The code above is the first section of the loadClass method. As you can see, it takes a class name and searches a local hash table that our class loader is maintaining of classes it has already returned. It is important to keep this hash table around since you must return the same class object reference for the same class name every time you are asked for it. Otherwise the system will believe there are two different classes with the same name and will throw a ClassCastException whenever you assign an object reference between them. It's also important to keep a cache because the loadClass() method is called recursively when a class is being resolved, and you will need to return the cached result rather than chase it down for another copy.
 
   
-    <table border="0" cellspacing="0" cellpadding="0">
+    
       
-        <td class="code">
+        
           
             
               <code class="java comments">/* Check with the primordial class loader */</code>
@@ -327,9 +327,9 @@ The code above is the first section of the loadClass method. As you can see, it 
 As you can see in the code above, the next step is to check if the primordial class loader can resolve this class name. This check is essential to both the sanity and security of the system. For example, if you return your own instance of java.lang.Object to the caller, then this object will share no common superclass with any other object! The security of the system can be compromised if your class loader returned its own value of java.lang.SecurityManager, which did not have the same checks as the real one did.
 
   
-    <table border="0" cellspacing="0" cellpadding="0">
+    
       
-        <td class="code">
+        
           
             
               <code class="java comments">/* Try to load it from our repository */</code>
@@ -371,9 +371,9 @@ Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的clas
 简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候：
 
   
-    <table border="0" cellspacing="0" cellpadding="0">
+    
       
-        <td class="code">
+        
           
             
               <code class="java plain">Student stu = </code><code class="java keyword">new</code> <code class="java plain">Student();</code>
@@ -405,9 +405,9 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
 我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考：
 
   
-    <table border="0" cellspacing="0" cellpadding="0">
+    
       
-        <td class="code">
+        
           
             
               <code class="java keyword">import</code> <code class="java plain">java.net.MalformedURLException;</code>

@@ -26,7 +26,7 @@ echo $a$b
 expr index $string $substring
 :   Numerical position in $string of first character in $substring that matches. 
     
-    <table width="90%" border="0" bgcolor="#E0E0E0">
+    
       
         
              1 stringZ=abcABC123ABCabc
@@ -49,7 +49,7 @@ expr index $string $substring
     expr "$string" : '$substring'
     :   <tt>$substring</tt> is a regular expression. 
         
-        <table width="90%" border="0" bgcolor="#E0E0E0">
+        
           
             
                  1 stringZ=abcABC123ABCabc

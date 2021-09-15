@@ -27,9 +27,9 @@ _**方法一:  命令行下对apk签名（原理）**_
 
   
     
-      <table border="0" cellspacing="0" cellpadding="0">
+      
         
-          <td class="code">
+          
             
               
                 <code class="fsharp plain">D:\>keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore</code>

@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-<table border="0">
+
   
     
       pre-up

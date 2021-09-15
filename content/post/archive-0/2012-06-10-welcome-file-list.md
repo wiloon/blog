@@ -11,7 +11,7 @@ tags:
   - Servlet
 
 ---
-<p id="lemmaTitle-1002819">
+
   　　当用户在浏览器中输入的URL不包含某个servlet名或JSP页面时，welcome-file-list元素可指定显示的默认文件。
 
 

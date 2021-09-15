@@ -65,7 +65,7 @@ javac -source 1.4 test.java
   
     -ea和-da的全名为-enableassertions和-disenableassertions，全名和缩写名有同样的功能。
   
-    下面表格表示了参数及其含义，并有例子说明如何使用。 <table width="60%" border="1">
+    下面表格表示了参数及其含义，并有例子说明如何使用。 
       
         
           参数
@@ -303,7 +303,7 @@ javac -source 1.4 test.java
     
     下面的例子将显示如果一个assert语句在父类，而当它的子类调用它时，该assert为false。我们看看在不同的情况下，该assertion是否被处理。
     
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    
       
         
           class Base
@@ -342,7 +342,7 @@ class Derived
     
     
     
-    <table width="60%" border="1">
+    
       
         
           运行命令
@@ -441,7 +441,7 @@ class Derived
     
       1. 检查控制流； 在if-then-else和swith-case语句中，我们可以在不应该发生的控制支流上加上assert false语句。如果这种情况发生了，assert能够检查出来。 例如：x取值只能使1,2,3，我们的程序可以如下表示
   
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        
           
             
               	switch (x)
@@ -459,7 +459,7 @@ class Derived
         例如：某函数可能要求输入的参数必须不为null。那么我们可以在函数的一开始加上 `assert parameter1!=null : "paramerter is null in test method";`
       3. 在函数计算后，检查函数结果是否有效；对于一些计算函数，函数运行完成后，某些值需要保证一定的性质，因此我们可以通过assert检查该值。 例如，我们有一个计算绝对值的函数，那么我们就可以在函数的结果处，加上一个语句：
   
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        
           
             
               assert  value>=0:"Value should be bigger than 0:"+value;
@@ -471,7 +471,7 @@ class Derived
         
           * 检查程序不变量；有些程序中，存在一些不变量，在程序的运行生命周期，这些不变量的值都是不变的。这些不变量可能是一个简单表达式，也可能是一个复杂的表达式。对于一些关键的不变量，我们可以通过assert进行检查。 例如，在一个财会系统中，公司的支出和收入必须保持一定的平衡关系，因此我们可以编写一个表达式检查这种平衡关系，如下表示。
   
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            
               
                 
                         private boolean isBalance() {

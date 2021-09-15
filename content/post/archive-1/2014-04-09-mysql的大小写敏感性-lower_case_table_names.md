@@ -25,7 +25,7 @@ MySQL的大小写敏感性 lower_case_table_names
 
 换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置:  lower_case_table_names=0 。否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样（在Windows下所有的大写字符都变成小写了）。
 
-<table id="table5" border="1" cellpadding="0">
+
   
     
       值

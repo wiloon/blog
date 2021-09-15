@@ -80,7 +80,7 @@ view plaincopy
   
 
   
-<td colspan="2">
+
   
 <input type="button" id="ajaxBtn" value="提交" />
   

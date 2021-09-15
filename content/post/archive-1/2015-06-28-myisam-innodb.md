@@ -584,7 +584,7 @@ Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。�
 
 ## MyISAM vs Innodb – Quick comparison Table | 快速比较表:
 
-<table border="1">
+
   
     <th>
       MyISAM

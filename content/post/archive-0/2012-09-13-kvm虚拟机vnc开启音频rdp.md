@@ -31,19 +31,19 @@ rdesktop -r sound -r sound host.domain.com
 
 Easy, eh? Once you have the sound pass-through enabled, you can test with the slider to see that it sticks after clicking the "Apply" button. Now you have sound forwarded to your Linux box.
 
-<p align="right">
+
   Chieh Cheng
  Mon, 19 Apr 2010 23:02:45 +0000
 
 Note that the Windows volume control on the task bar will still show maximum sound volume even if sound is disabled through rdesktop.
 
-<p align="right">
+
   Chieh Cheng
  Mon, 26 Apr 2010 17:18:41 +0000
 
 That did it for me THANKS a million!!!
 
-<p align="right">
+
   ff
  Tue, 22 Feb 2011 15:21:06 +0000
 
@@ -53,13 +53,13 @@ It will work correct if you use it like this:
 
 rdesktop -r sound:local:alsa host.domain.com
 
-<p align="right">
+
   yong
  Fri, 17 Jun 2011 07:31:25 +0000
 
-<p align="right">
-  <p align="right">
-    <p align="right">
+
+  
+    
       http://coolex.info/blog/121.html
     
     

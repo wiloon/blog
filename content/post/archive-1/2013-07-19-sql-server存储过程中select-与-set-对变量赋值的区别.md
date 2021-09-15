@@ -20,7 +20,7 @@ SQL Server推荐使用 SET 而不是 SELECT 对变量进行赋值。
 
 下表列出 SET 与 SELECT 的区别。请特别注意红色部分。
 
-<table width="509" border="2">
+
   
     
     

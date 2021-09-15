@@ -46,7 +46,7 @@ Edit the file <tt class="backtick">conf/regex-urlfilter.txt</tt> and replace
 # accept anything else
 <span id="line-2-2" class="anchor">+.
 
-<p class="line862">
+
   with a regular expression matching the domain you wish to crawl. For example, if you wished to limit the crawl to the <tt class="backtick">nutch.apache.org</tt> domain, the line should read:<span id="line-113" class="anchor"><span id="line-114" class="anchor">
 
 <span id="line-1-7" class="anchor"> +^http://([a-z0-9]*\.)*nutch.apache.org/
@@ -68,7 +68,7 @@ Specify the GORA backend in $NUTCH_HOME/conf/nutch-site.xml
 <span id="line-3-1" class="anchor">    <dependency org="org.apache.gora" name="gora-hbase" rev="0.4" conf="*->default" />
 
 
-  * <p class="line862">
+  * 
       Ensure that HBaseStore is set as the default datastore in $NUTCH_HOME/conf/gora.properties. Other documentation for HBaseStore can be found here.<span id="line-34" class="anchor"><span id="line-35" class="anchor">
     
 
