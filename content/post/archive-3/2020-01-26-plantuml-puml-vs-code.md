@@ -49,6 +49,8 @@ stop
 ### 类图
 ```puml
 @startuml
+skinparam classFontColor red
+
 class Foo
 note left: parent
 
@@ -61,6 +63,20 @@ note left: child
 @enduml
 ```
 
+```puml
+@startuml
+
+skinparam class {
+	BackgroundColor Lightblue
+	ArrowColor #0ACF97
+	BorderColor #d5d5d5
+}
+
+skinparam stereotypeCBackgroundColor YellowGreen
+
+Class101 <|.. Class102
+@enduml
+```
 ### 线路径
 添加隐藏行a -[hidden]- b
 延长线a --- b的长度（更多破折号，更长的线）
@@ -97,13 +113,15 @@ Alice <-- Bob: Another authentication Response
 ### 组件图
 - 别名后面可以标注颜色
 - 修改线和箭头的颜色
+- 文字颜色
 
 ```puml
 @startuml
 skinparam componentStyle rectangle
+skinparam ParticipantFontColor #A9DCDF
 
 [component0] as c0 #ff0000
-[component1] as c1
+[<color:#ff0000>component1</color>] as c1
 [component2] as c2
 [component3] as c3
 [component4] as c4
