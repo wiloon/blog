@@ -122,8 +122,6 @@ clientPort: clientPort是zookeeper监听客户端连接的端口，默认是2181
 zkServer.sh start
 ```
 
-
-
 https://holynull.gitbooks.io/zookeeper/content/
   
 http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html

@@ -25,9 +25,7 @@ cd hbase-2.0.0-SNAPSHOT/
 #edit hbase-site.xml
   
 ```
-
-[xml]
-  
+```xml  
 <configuration>
     
 <property>
@@ -56,7 +54,7 @@ cd hbase-2.0.0-SNAPSHOT/
   
 </configuration>
   
-[/xml]
+```
 
 ```bash
   
