@@ -132,6 +132,10 @@ c1--c3
 c0--c3
 
 c2--c4
+
+note left of c0
+note0
+end note
 @enduml
 ```
 
