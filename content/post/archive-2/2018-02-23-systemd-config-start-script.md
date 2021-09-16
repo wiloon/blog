@@ -87,12 +87,11 @@ Unit文件专门用于systemd下控制资源,这些资源包括服务(service)�
   
 所有的unit文件都应该配置[Unit]或者[Install]段.由于通用的信息在[Unit]和[Install]中描述,每一个unit应该有一个指定类型段,例如[Service]来对应后台服务类型unit.
 
-unit 类型如下: 
-  
+### unit 类型如下: 
 service : 守护进程的启动、停止、重启和重载是此类 unit 中最为明显的几个类型。
   
-socket : 此类 unit 封装系统和互联网中的一个socket。当下,systemd支持流式, 数据报和连续包的AF&#95;INET,AF&#95;INET6,AF&#95;UNIXsocket 。也支持传统的 FIFOs 传输模式。每一个 socket unit 都有一个相应的服务 unit 。相应的服务在第一个"连接"进入 socket 或 FIFO 时就会启动(例如: nscd.socket 在有新连接后便启动 nscd.service)。
-   
+socket : 此类 unit 封装系统和互联网中的一个 socket。当下, systemd支持流式，数据报和连续包的 AF_INET，AF_INET6，AF_UNIX socket 也支持传统的 FIFOs 传输模式。每一个 socket unit 都有一个相应的服务 unit 。相应的服务在第一个"连接"进入 socket 或 FIFO 时就会启动 (例如: nscd.socket 在有新连接后便启动 nscd.service)。
+
 device : 此类 unit 封装一个存在于 Linux设备树中的设备。每一个使用 udev 规则标记的设备都将会在 systemd 中作为一个设备 unit 出现。udev 的属性设置可以作为配置设备 unit 依赖关系的配置源。
 
 mount : 此类 unit 封装系统结构层次中的一个挂载点。

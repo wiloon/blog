@@ -7,7 +7,7 @@ categories:
   - OS
 
 ---
-https://www.cnblogs.com/biyeymyhjob/archive/2012/11/03/2751593.html  
+
 Unix IPC(进程间通信（IPC,Inter-Process Communication）)包括: 管道(pipe)、命名管道(FIFO)与信号(Signal)  
 
 ### 管道(pipe), 匿名管道
@@ -25,7 +25,12 @@ Unix IPC(进程间通信（IPC,Inter-Process Communication）)包括: 管道(pip
 
 从原理上,管道利用fork机制建立,从而让两个进程可以连接到同一个PIPE上。最开始的时候,上面的两个箭头都连接在同一个进程上。当fork复制进程的时候,会将这两个连接也复制到新的进程。随后,每个进程关闭自己不需要的一个连接 ,这样,剩下的红色连接就构成了PIPE。
 
-#### 命名管道(named PIPE)
+#### 命名管道, named pipe(FIFO)
+In computing, a named pipe (also known as a FIFO for its behavior)   
+
+A FIFO special file (a named pipe) is similar to a pipe
+>https://man7.org/linux/man-pages/man7/fifo.7.html
+
 命名管道：允许无亲缘关系的进程间传输数据。  
 由于基于fork机制,所以管道只能用于父进程和子进程之间,或者拥有相同祖先的两个子进程之间 (有亲缘关系的进程之间)。为了解决这一问题,Linux提供了FIFO方式连接进程。FIFO又叫做命名管道(named PIPE)。
 
@@ -96,8 +101,9 @@ SIGCLD信号的作用是唤醒一个睡眠在可被中断优先级上的进程�
 
 信号生命周期
 
-参考资料:    
+### 参考资料:    
 http://www.cnblogs.com/vamei/archive/2012/10/10/2715398.html  
 http://bbs.chinaunix.net/thread-1947211-1-1.html  
 https://blog.dusing.top/posts/3097150806.html  
 https://blog.dusing.top/posts/3097150806.html  
+>https://www.cnblogs.com/biyeymyhjob/archive/2012/11/03/2751593.html

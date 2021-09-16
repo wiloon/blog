@@ -193,7 +193,7 @@ cluster-migration-barrier 1
 cluster-require-full-coverage no
 # slowlog-log-slower-than, 对执行时间大于多少微秒(microsecond,1秒 = 1,000,000 微秒)的查询进行记录。
 slowlog-log-slower-than 10000
-# slow log 最多能保存多少条日志, slow log 本身是一个 FIFO 队列,当队列大小超过 slowlog-max-len 时,最旧的一条日志将被删除,而最新的一条日志加入到 slow log 
+# slow log 最多能保存多少条日志, slow log 本身是一个 FIFO 队列, 当队列大小超过 slowlog-max-len 时,最旧的一条日志将被删除,而最新的一条日志加入到 slow log 
 slowlog-max-len 128
 # 延迟监控, latency monitor, 单位：毫秒, 需要注意的是:latency-monitor的阈值不能大于slowlog的值, 如果将 latency-monitor-threshold 的值设置为 0,则表示关闭延迟监控。
 latency-monitor-threshold 0

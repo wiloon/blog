@@ -571,16 +571,7 @@ http://lxr.free-electrons.com/source/include/uapi/linux/sched.h？v=4.5#L36
 /* SCHED_ISO: reserved but not implemented yet */
 #define SCHED_IDLE              5
 #define SCHED_DEADLINE          6
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+
 字段	描述	所在调度器类
 SCHED_NORMAL	（也叫SCHED_OTHER）用于普通进程，通过CFS调度器实现。SCHED_BATCH用于非交互的处理器消耗型进程。SCHED_IDLE是在系统负载很低时使用	CFS
 SCHED_BATCH	SCHED_NORMAL普通进程策略的分化版本。采用分时策略，根据动态优先级(可用nice()API设置），分配 CPU 运算资源。注意: 这类进程比上述两类实时进程优先级低，换言之，在有实时进程存在时，实时进程优先调度。但针对吞吐量优化	CFS
