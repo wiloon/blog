@@ -32,4 +32,4 @@ scrumWorks Pro是一个敏捷项目管理工具，它能够帮助团队跟踪每
 
 根据 Victor的观点，或许最重要的改变是对MySQL的支持，企业用户希望工具能够支持更大的部署需求规模，而不是使用一个内嵌的数据库。
 
- [1]: http://www.oschina.net/p/mysql
+ [1]: http://www.oschina.net/p/MySQL

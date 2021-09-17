@@ -297,23 +297,23 @@ lsof -u username
 
 命令: 
 
-lsof -c mysql
+lsof -c MySQL
 
 说明:
 
--c 选项将会列出所有以mysql这个进程开头的程序的文件,其实你也可以写成 lsof | grep mysql, 但是第一种方法明显比第二种方法要少打几个字符了
+-c 选项将会列出所有以MySQL这个进程开头的程序的文件,其实你也可以写成 lsof | grep MySQL, 但是第一种方法明显比第二种方法要少打几个字符了
 
 实例7: 列出多个进程多个打开的文件信息
 
 命令: 
 
-lsof -c mysql -c apache
+lsof -c MySQL -c apache
 
 实例8: 列出某个用户以及某个进程所打开的文件信息
 
 命令: 
 
-lsof -u test -c mysql
+lsof -u test -c MySQL
 
 说明: 
 

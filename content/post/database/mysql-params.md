@@ -1,20 +1,20 @@
 +++
 author = "-"
 date = "2020-08-25 19:04:36" 
-title = "Mysql自定义变量"
+title = "MySQL自定义变量"
 
 +++
 
 
-Mysql自定义变量的使用
+MySQL自定义变量的使用
  
 用户自定义变量是一个容易被遗忘的MySQL特性，但是如果能用的好，发挥其潜力，在某些场景可以写出非常高效的查询语句。在查询中混合使用过程化和关系化逻辑的时候，自定义变量可能会非常有用。单纯的关系查询将所有的东西都当成无序的数据集合，并且一次性操作它们。MySQL则采用了更加程序化的处理方式。MySQL的这种方式有它的弱点，但如果能够熟练地掌握，则会发现其强大之处，而用户自定义变量也可以给这种方式带来很大的帮助
 
 用户自定义变量是一个用来存储内容的临时容器，在连接MySQL的整个过程中都存在，可以使用下面的SET和SELECT语句来定义它们：
 
-mysql> SET @one := 1;
-mysql> SET @min_actor := (SELECT MIN(actor_id) FROM sakila.actor);
-mysql> SET @last_week := CURRENT_DATE - INTERVAL 1 WEEK;
+MySQL> SET @one := 1;
+MySQL> SET @min_actor := (SELECT MIN(actor_id) FROM sakila.actor);
+MySQL> SET @last_week := CURRENT_DATE - INTERVAL 1 WEEK;
 然后可以在任何可以使用表达式的地方使用这些自定义变量：
 
 SELECT ... WHERE col <= @last_week;

@@ -1,5 +1,5 @@
 ---
-title: mysql, sql_mode
+title: MySQL, sql_mode
 author: "-"
 type: post
 date: 2019-05-16T05:26:24+00:00
@@ -10,11 +10,11 @@ categories:
 ---
 http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html
 
-mysql的sql_mode合理设置
+MySQL的sql_mode合理设置
   
 目录
   
-http://dev.mysql.com/doc/refman/5.7/en/sql-mode.html
+http://dev.MySQL.com/doc/refman/5.7/en/sql-mode.html
   
 http://blog.csdn.net/wyzxg/article/details/8787878
   
@@ -26,7 +26,7 @@ SELECT @@GLOBAL.sql_mode;
   
 SELECT @@SESSION.sql_mode;
   
-mysql> SELECT @@GLOBAL.sql_mode;
+MySQL> SELECT @@GLOBAL.sql_mode;
   
 +---------------+
   
@@ -40,7 +40,7 @@ mysql> SELECT @@GLOBAL.sql_mode;
   
 1 row in set (0.00 sec)
 
-mysql> SELECT @@SESSION.sql_mode;
+MySQL> SELECT @@SESSION.sql_mode;
   
 +---------------+
   
@@ -62,7 +62,7 @@ SET SESSION sql_mode = 'modes...';
   
 my.cnf中配置sql-mode
   
-[mysqld]
+[MySQLd]
   
 #set the SQL mode to strict
   
@@ -90,7 +90,7 @@ NO_ZERO_IN_DATE：
 
 NO_ZERO_DATE：
   
-设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告。
+设置该值，MySQL数据库不允许插入零日期，插入零日期会抛出错误而不是警告。
 
 ERROR_FOR_DIVISION_BY_ZERO：
   
@@ -114,9 +114,9 @@ ANSI_QUOTES：
 
 ORACLE的sql_mode设置等同：PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS, NO_TABLE_OPTIONS, NO_FIELD_OPTIONS, NO_AUTO_CREATE_USER.
 
-如果使用mysql，为了继续保留大家使用oracle的习惯，可以对mysql的sql_mode设置如下：在my.cnf添加如下配置
+如果使用MySQL，为了继续保留大家使用oracle的习惯，可以对MySQL的sql_mode设置如下：在my.cnf添加如下配置
 
-[mysqld]
+[MySQLd]
   
 sql_mode='ONLY_FULL_GROUP_BY,NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,
   

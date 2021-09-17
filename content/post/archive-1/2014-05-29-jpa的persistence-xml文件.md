@@ -73,7 +73,7 @@ persistence.xml:
   
 28 <!-配置数据库驱动 ->
   
-29 <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+29 <property name="hibernate.connection.driver_class" value="com.MySQL.jdbc.Driver" />
   
 30 <!-配置数据库用户名 ->
   
@@ -85,7 +85,7 @@ persistence.xml:
   
 34 <!-配置数据库url ->
   
-35 <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jpa?useUnicode=true&characterEncoding=UTF-8" />
+35 <property name="hibernate.connection.url" value="jdbc:MySQL://localhost:3306/jpa?useUnicode=true&characterEncoding=UTF-8" />
   
 36 <!-设置外连接抓取树的最大深度 ->
   

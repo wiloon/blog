@@ -150,15 +150,15 @@ Sendmail
     
     
       数据库支持
- sendmail通过一些插件/补丁，可以支持mysql/pgsql/oracle等，ldap及小型的dbm/cdb等数据存储格式。
+ sendmail通过一些插件/补丁，可以支持MySQL/pgsql/oracle等，ldap及小型的dbm/cdb等数据存储格式。
     
     
     
-      qmail默认只支持cdb，需通过补丁才可支持ldap，mysql，pgsql及oracle等。
+      qmail默认只支持cdb，需通过补丁才可支持ldap，MySQL，pgsql及oracle等。
     
     
     
-      postfix可以支持的数据库应该是最多的，默认就包括了mysql/pgsql/ldap及dbm/cdb和cidr/nis*/btree等一堆。还支持特殊的tcp_table(仅在snapshot里支持)
+      postfix可以支持的数据库应该是最多的，默认就包括了MySQL/pgsql/ldap及dbm/cdb和cidr/nis*/btree等一堆。还支持特殊的tcp_table(仅在snapshot里支持)
     
     
     

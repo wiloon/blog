@@ -1,5 +1,5 @@
 ---
-title: mysql coalesce
+title: MySQL coalesce
 author: "-"
 type: post
 date: 2014-01-16T05:00:18+00:00
@@ -26,7 +26,7 @@ select coalesce(1,"carrot","apple")
 
 友情提示: coalesce里的参数如果是字符串的话，务必用单引号或者双引号廓起来；
 
-这些语句可以直接在mysql里运行。
+这些语句可以直接在MySQL里运行。
 
 
 http://hi.baidu.com/luoganet/item/7ec497dec10c88e2795daa1f

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-http://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause
+http://stackoverflow.com/questions/45494/MySQL-error-1093-cant-specify-target-table-for-update-in-from-clause
 
 
 wrap the condition in one more select

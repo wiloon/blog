@@ -11,7 +11,7 @@ categories:
 http://blog.itpub.net/17203031/viewspace-717042/
 
 
-在Oracle中，我们没有MYSQL和SQL Server可以使用的自增数据类型。大部分场景下，如果我们需要生成业务无关的（Business-Independent）主键列，序列Sequence对象是我们最方便的选择。
+在Oracle中，我们没有MySQL和SQL Server可以使用的自增数据类型。大部分场景下，如果我们需要生成业务无关的（Business-Independent）主键列，序列Sequence对象是我们最方便的选择。
 
 
 定义Sequence是很简单的，如果最大程度利用默认值的话，我们只需要定义sequence对象的名字即可。在序列Sequence对象的定义中，Cache是一个可选择的参数。默认的Sequence对象是有cache选项的，默认取值为20。

@@ -114,7 +114,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | nixnote2-git                          | evernote linux 客户端                                          |
 | gitkraken                             | git GUI clinet, Free for non-commercial use                    |
 | github-desktop-bin                    | MIT Linense                                                    |
-| heidisql                              | mysql客户端                                                    |
+| heidisql                              | MySQL客户端                                                    |
 | jd-gui-bin                            | java反编译                                                     |
 | eclipse-mat                           | Eclipse Memory Analyzer (MAT)                                  |
 | dingtalk                              | 钉钉                                                           |
@@ -126,7 +126,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | google-chrome-dev                     |                                                                |
 | intellij-idea-community-edition-jre   | idea with jre                                                  |
 | telegraf                              |                                                                |
-| tableplus                             | mysql client                                                   |
+| tableplus                             | MySQL client                                                   |
 | procmon                               | 微软的进程监控工具                                             |
 | platformio                            | 物联网开发的开源生态系统                                       |
 | slurm                                 | 网络监控                                                       |

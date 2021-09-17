@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-mysql:
+MySQL:
 
-connURL: jdbc:mysql://localhost:3306/tmp
+connURL: jdbc:MySQL://localhost:3306/tmp
 
-drivername: com.mysql.jdbc.Driver
+drivername: com.MySQL.jdbc.Driver
 
 oracle:
 

@@ -8,11 +8,11 @@ tags:
   - MySQL
 
 ---
-1， mysql的复制原理以及流程。
+1， MySQL的复制原理以及流程。
 先问基本原理流程，3个线程以及之间的关联。
 
 
-  　　答：Mysql复制的三个线程：主库线程，从库I/O线程，从库sql线程；
+  　　答：MySQL复制的三个线程：主库线程，从库I/O线程，从库sql线程；
 
 
   　　　　复制流程：（1）I/O线程向主库发出请求
@@ -54,7 +54,7 @@ bug不常见，笔者碰到过一次，分享如下：
 
 从库show slave status\G，behind_master_pos在60000和0之间循环，每两秒一次；
 
-**<span lang="EN-US">2， <span lang="EN-US">mysql中<span lang="EN-US">myisam与<span lang="EN-US">innodb的区别，至少<span lang="EN-US">5点。**
+**<span lang="EN-US">2， <span lang="EN-US">MySQL中<span lang="EN-US">myisam与<span lang="EN-US">innodb的区别，至少<span lang="EN-US">5点。**
 
 
   　　（1） 问5点不同
@@ -84,7 +84,7 @@ bug不常见，笔者碰到过一次，分享如下：
   　　　　　　8、备份；
 
 
-  　　（2）、问各种不同<span lang="EN-US">mysql版本的<span lang="EN-US">2者的改进；
+  　　（2）、问各种不同<span lang="EN-US">MySQL版本的<span lang="EN-US">2者的改进；
 
 
   　　　　　　最近测5.1.38和5.5.35
@@ -120,7 +120,7 @@ bug不常见，笔者碰到过一次，分享如下：
   　　　　 innodb采用主键将数据进行物理排序存放，新插入的数据根据主键的大小，会修改主键索引的序列；secondary index通过查找主键来查找数据；
 
 
-  3，问mysql中varchar与char的区别以及varchar(30)中的30代表的涵义。
+  3，问MySQL中varchar与char的区别以及varchar(30)中的30代表的涵义。
 
 
   　　（1） varchar与char的区别
@@ -178,7 +178,7 @@ bug不常见，笔者碰到过一次，分享如下：
   　　　　　　事务日志会在innodb_buffer_pool页中标记行是否更新，删除，commit后刷入硬盘，没有commit则不计入磁盘，属于脏数据；
 
 
-  5，问了mysql binlog的几种日志录入格式以及区别
+  5，问了MySQL binlog的几种日志录入格式以及区别
  
 
 
@@ -224,7 +224,7 @@ bug不常见，笔者碰到过一次，分享如下：
         （3）结合第一个问题，每一种日志格式在复制中的优劣。
 
 
-  <span lang="EN-US">6，问了下<span lang="EN-US">mysql数据库<span lang="EN-US">cpu飙升到<span lang="EN-US">500%的话他怎么处理？
+  <span lang="EN-US">6，问了下<span lang="EN-US">MySQL数据库<span lang="EN-US">cpu飙升到<span lang="EN-US">500%的话他怎么处理？
 
 
   　　答：（1）多实例的服务器，先top查看是那一个进程，哪个端口占用CPU多；
@@ -306,11 +306,11 @@ Extra：查询中每一步实现的额外细节信息，主要会是以下内容
            （3）explain中的索引问题。
 
 
-  8,  备份计划，mysqldump以及xtranbackup的实现原理，
+  8,  备份计划，MySQLdump以及xtranbackup的实现原理，
  
 
 
-        答： Mysqldump：先锁所有表，然后把表中每条sql拼接为insert语句，一页为一小段，
+        答： MySQLdump：先锁所有表，然后把表中每条sql拼接为insert语句，一页为一小段，
 
 
                                      备份结构为：表结构+insert
@@ -369,7 +369,7 @@ Extra：查询中每一步实现的额外细节信息，主要会是以下内容
 
   9，  500台db，在最快时间之内重启。
 
-10**，****在当前的工作中，你碰到到的最大的****mysql db****问题是？****
+10**，****在当前的工作中，你碰到到的最大的****MySQL db****问题是？****
   
 ** 
 

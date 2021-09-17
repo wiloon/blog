@@ -1,5 +1,5 @@
 ---
-title: mysql string to date
+title: MySQL string to date
 author: "-"
 type: post
 date: 2011-04-16T09:44:29+00:00
@@ -12,7 +12,7 @@ tags:
   - MySQL
 
 ---
-mysql中DATE_FORMAT(date, format)函数可根据format字符串格式化日期或日期和时间值date，返回结果串。
+MySQL中DATE_FORMAT(date, format)函数可根据format字符串格式化日期或日期和时间值date，返回结果串。
   
 也可用DATE_FORMAT( ) 来格式化DATE 或DATETIME 值，以便得到所希望的格式。根据format字符串格式化date值:
   
@@ -72,27 +72,27 @@ mysql中DATE_FORMAT(date, format)函数可根据format字符串格式化日期�
   
 select date_format(日期字段,'%Y-%m-%d') as '日期' from test
   
-mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%W %M %Y');
+MySQL> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%W %M %Y');
   
 -> 'Saturday October 1997'
   
-mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%H:%i:%s');
+MySQL> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%H:%i:%s');
   
 -> '22:23:00'
   
-mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00',
+MySQL> SELECT DATE_FORMAT('1997-10-04 22:23:00',
   
 '%D %y %a %d %m %b %j');
   
 -> '4th 97 Sat 04 10 Oct 277'
   
-mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00',
+MySQL> SELECT DATE_FORMAT('1997-10-04 22:23:00',
   
 '%H %k %I %r %T %S %w');
   
 -> '22 22 10 10:23:00 PM 22:23:00 00 6'
   
-mysql> SELECT DATE_FORMAT('1999-01-01', '%X %V');
+MySQL> SELECT DATE_FORMAT('1999-01-01', '%X %V');
   
 -> '1998 52'
 

@@ -18,7 +18,7 @@ tags:
 # taskset -cp 1,2,3 2345
 但我尝试没奏效，于是我关掉了MySQL，并用taskset将它启动：
 
-# taskset -c 1,2,3 /etc/init.d/mysql start
+# taskset -c 1,2,3 /etc/init.d/MySQL start
 对于其他进程，也可如此处理（nginx除外，详见下文）。之后用top查看CPU的使用情况，原来空闲的#1 #2 #3，已经在辛勤工作了。
 
 

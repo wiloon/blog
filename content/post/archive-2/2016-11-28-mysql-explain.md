@@ -1,5 +1,5 @@
 ---
-title: mysql explain, 执行计划, Query Execution Plan
+title: MySQL explain, 执行计划, Query Execution Plan
 author: "-"
 type: post
 date: 2016-11-28T02:24:33+00:00
@@ -13,7 +13,7 @@ categories:
 
 在日常工作中,我们会有时会开慢查询去记录一些执行时间比较久的SQL语句,找出这些SQL语句并不意味着完事了,些时我们常常用到explain这个命令来查看一个这些SQL语句的执行计划,查看该SQL语句有没有使用上了索引,有没有做全表扫描,这都可以通过explain命令来查看。所以我们深入了解MySQL的基于开销的优化器,还可以获得很多可能被优化器考虑到的访问策略的细节,以及当运行SQL语句时哪种策略预计会被优化器采用。（QEP: sql生成一个执行计划query Execution plan）
   
-mysql> explain select * from servers;
+MySQL> explain select * from servers;
   
 +—-+————-+———+——+—————+——+———+——+——+——-+
   
@@ -50,7 +50,7 @@ expain出来的信息有10列,分别是 id、select_type、table、type、possib
 ### table
 显示这一行的数据是关于哪张表的,有时不是真实的表名字,看到的是derivedx(x是个数字,我的理解是第几步执行的结果)
   
-mysql> explain select \* from (select \* from ( select * from t1 where id=2602) a) b;
+MySQL> explain select \* from (select \* from ( select * from t1 where id=2602) a) b;
   
     +—-+————-+————+——–+——————-+———+———+——+——+——-+
       
@@ -85,7 +85,7 @@ mysql> explain select \* from (select \* from ( select * from t1 where id=2602) 
 - index_subquery: 用于in形式子查询使用到了辅助索引或者in常数列表,子查询可能返回重复值,可以使用索引将子查询去重。
 - unique_subquery: 用于where中的in形式子查询,子查询返回不重复值唯一值
 - ref_or_null: 与ref方法类似,只是增加了null值的比较。实际用的不多。
-- fulltext: 全文索引检索,要注意,全文索引的优先级很高,若全文索引和普通索引同时存在时,mysql不管代价,优先选择使用全文索引
+- fulltext: 全文索引检索,要注意,全文索引的优先级很高,若全文索引和普通索引同时存在时,MySQL不管代价,优先选择使用全文索引
 
 #### ref
 All rows with matching index values are read from this table for each combination of rows from the previous tables. ref is used if the join uses only a leftmost prefix of the key or if the key is not a PRIMARY KEY or UNIQUE index (in other words, if the join cannot select a single row based on the key value). If the key that is used matches only a few rows, this is a good join type.
@@ -165,7 +165,7 @@ key列显示MySQL实际决定使用的键（索引）
 ### Extra
 该列包含MySQL解决查询的详细信息,有以下几种情况: 
   
-- Using where: 列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的,这发生在对表的全部的请求列都是同一个索引的部分的时候,表示mysql服务器将在存储引擎检索行后再进行过滤
+- Using where: 列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的,这发生在对表的全部的请求列都是同一个索引的部分的时候,表示MySQL服务器将在存储引擎检索行后再进行过滤
 using where 则表示需要查询磁盘里存储的数据,速度会慢很多
 - Using temporary: 表示MySQL需要使用临时表来存储结果集,常见于排序和分组查询
 - Using filesort: MySQL中无法利用索引完成的排序操作称为"文件排序"
@@ -198,18 +198,18 @@ constants,常量
 
 https://www.cnblogs.com/xiaoboluo768/p/5400990.html
   
-http://dev.mysql.com/doc/refman/5.5/en/explain-output.html
+http://dev.MySQL.com/doc/refman/5.5/en/explain-output.html
   
 http://www.cnitblog.com/aliyiyi08/archive/2008/09/09/48878.html
   
-http://www.cnblogs.com/gomysql/p/3720123.html
+http://www.cnblogs.com/goMySQL/p/3720123.html
   
 http://www.cnblogs.com/xuanzhi201111
   
-https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
+https://dev.MySQL.com/doc/refman/5.7/en/explain-output.html
   
 http://www.cnblogs.com/xuanzhi201111/p/4175635.html
   
-https://dev.mysql.com/doc/refman/5.5/en/explain-output.html
+https://dev.MySQL.com/doc/refman/5.5/en/explain-output.html
   
-https://tech.meituan.com/mysql-index.html
+https://tech.meituan.com/MySQL-index.html

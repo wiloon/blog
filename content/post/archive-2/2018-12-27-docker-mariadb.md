@@ -10,7 +10,7 @@ categories:
 ---
 ```bash
 mkdir -p /data/mariadb
-docker run -d --name mariadb -P -v /data/mariadb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password0 mariadb
+docker run -d --name mariadb -P -v /data/mariadb:/var/lib/MySQL -e MySQL_ROOT_PASSWORD=password0 mariadb
 ```
 
 https://www.jianshu.com/p/32542630c2bd

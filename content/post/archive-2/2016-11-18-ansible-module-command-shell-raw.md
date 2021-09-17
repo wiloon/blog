@@ -105,7 +105,7 @@ lixc@ansible:~$ grep "remote_port" /etc/ansible/ansible.cfg
   
 remote_port    = 22
   
-第7行和11行，是俩相同的主机，说明同一主机可以在不同的组中。在现实当中就像我一台服务器即可以装mysql也可以装apache是一个道理。
+第7行和11行，是俩相同的主机，说明同一主机可以在不同的组中。在现实当中就像我一台服务器即可以装MySQL也可以装apache是一个道理。
   
 OK，静态Inventory搞完了，再搞搞吧，变量吧。
 
@@ -125,7 +125,7 @@ lixc@ansible:~$ cat -n /etc/ansible/hosts
   
 5 [salt]
   
-6 salt-master  salt-port=4505 mysql-port=3306
+6 salt-master  salt-port=4505 MySQL-port=3306
   
 7 10.240.162.112  salt-path=/usr/bin/salt-call
   
@@ -161,7 +161,7 @@ alltest
 
 salt-port: 4505
   
-mysql-port: 3306
+MySQL-port: 3306
   
 下面总结下，ansible的patterns，ansible目标的匹配相对来说还是比较简单，单一的，不像salt很强大，grains，pillar，正则等等都可以用来匹配目标。
   
@@ -513,11 +513,11 @@ salt-master | success | rc=0 >>
   
 /tmp/a [error opening dir]
   
-接下来装个mysql吧，顺便玩玩搞包管理，用户管理，服务管理这些东西。
+接下来装个MySQL吧，顺便玩玩搞包管理，用户管理，服务管理这些东西。
 
-OK，先建立个mysql用户吧
+OK，先建立个MySQL用户吧
 
-lixc@ansible:~$ ansible salt-master -m user -a 'name=mysql shell=/sbin/nologin createhome=no' -s
+lixc@ansible:~$ ansible salt-master -m user -a 'name=MySQL shell=/sbin/nologin createhome=no' -s
   
 salt-master | success >> {
   
@@ -529,9 +529,9 @@ salt-master | success >> {
   
 "group": 1002,
   
-"home": "/home/mysql",
+"home": "/home/MySQL",
   
-"name": "mysql",
+"name": "MySQL",
   
 "shell": "/sbin/nologin",
   
@@ -543,15 +543,15 @@ salt-master | success >> {
   
 }
   
-好，安装mysql
+好，安装MySQL
 
-lixc@ansible:~$ ansible salt-master -m apt -a 'name=mysql-server state=installed' -s  >/dev/null
+lixc@ansible:~$ ansible salt-master -m apt -a 'name=MySQL-server state=installed' -s  >/dev/null
   
 lixc@ansible:~$
   
-好，配置/etc/mysql归mysql用户使用
+好，配置/etc/MySQL归MySQL用户使用
 
-lixc@ansible:~$ ansible salt-master -m file -a 'dest=/etc/mysql mode=644 owner=mysql group=mysql' -s
+lixc@ansible:~$ ansible salt-master -m file -a 'dest=/etc/MySQL mode=644 owner=MySQL group=MySQL' -s
   
 salt-master | success >> {
   
@@ -559,13 +559,13 @@ salt-master | success >> {
   
 "gid": 1002,
   
-"group": "mysql",
+"group": "MySQL",
   
 "mode": "0644",
   
-"owner": "mysql",
+"owner": "MySQL",
   
-"path": "/etc/mysql",
+"path": "/etc/MySQL",
   
 "size": 4096,
   
@@ -575,15 +575,15 @@ salt-master | success >> {
   
 }
   
-启动mysql服务
+启动MySQL服务
 
-lixc@ansible:~$ ansible salt-master -m service -a 'name=mysql state=started' -s
+lixc@ansible:~$ ansible salt-master -m service -a 'name=MySQL state=started' -s
   
 salt-master | success >> {
   
 "changed": false,
   
-"name": "mysql",
+"name": "MySQL",
   
 "state": "started"
   
@@ -593,27 +593,27 @@ OK，安装好，再走一遍删除的流程吧
 
 停止服务
 
-lixc@ansible:~$ ansible salt-master -m service -a 'name=mysql state=stopped' -s
+lixc@ansible:~$ ansible salt-master -m service -a 'name=MySQL state=stopped' -s
   
 salt-master | success >> {
   
 "changed": true,
   
-"name": "mysql",
+"name": "MySQL",
   
 "state": "stopped"
   
 }
   
-删除mysql
+删除MySQL
 
-lixc@ansible:~$ ansible salt-master -m apt -a 'name=mysql-server state=absent' -s >/dev/null
+lixc@ansible:~$ ansible salt-master -m apt -a 'name=MySQL-server state=absent' -s >/dev/null
   
 lixc@ansible:~$
   
-删除mysql用户
+删除MySQL用户
 
-lixc@ansible:~$ ansible salt-master -m user -a 'name=mysql state=absent' -s
+lixc@ansible:~$ ansible salt-master -m user -a 'name=MySQL state=absent' -s
   
 salt-master | success >> {
   
@@ -621,7 +621,7 @@ salt-master | success >> {
   
 "force": false,
   
-"name": "mysql",
+"name": "MySQL",
   
 "remove": false,
   

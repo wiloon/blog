@@ -29,9 +29,9 @@ Xml代码 收藏代码
 
 <dependency>
 
-<groupId>mysql</groupId>
+<groupId>MySQL</groupId>
 
-mysql-connector-java</artifactId>
+MySQL-connector-java</artifactId>
 
 <version>5.1.2</version>
 
@@ -43,7 +43,7 @@ mysql-connector-java</artifactId>
 
 </dependencyManagement>
 
-然后在子项目里就可以添加mysql-connector时可以不指定版本号，例如: 
+然后在子项目里就可以添加MySQL-connector时可以不指定版本号，例如: 
 
 
 Xml代码 收藏代码
@@ -52,9 +52,9 @@ Xml代码 收藏代码
 
 <dependency>
 
-<groupId>mysql</groupId>
+<groupId>MySQL</groupId>
 
-mysql-connector-java</artifactId>
+MySQL-connector-java</artifactId>
 
 </dependency>
 

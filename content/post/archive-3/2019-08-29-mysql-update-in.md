@@ -1,5 +1,5 @@
 ---
-title: mysql update in
+title: MySQL update in
 author: "-"
 type: post
 date: 2019-08-29T02:33:10+00:00

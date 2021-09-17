@@ -1,5 +1,5 @@
 ---
-title: Mysql 存储引擎
+title: MySQL 存储引擎
 author: "-"
 type: post
 date: 2015-06-28T05:52:57+00:00
@@ -15,7 +15,7 @@ tags:
 
 ### MyISAM
 
-在mysql客户端中，使用以下命令可以查看MySQL支持的引擎:show engines;
+在MySQL客户端中，使用以下命令可以查看MySQL支持的引擎:show engines;
 
 MyISAM表是独立于操作系统的，这说明可以轻松地将其从Windows服务器移植到Linux服务器；每当我们建立一个MyISAM引擎的表时，就会在本地磁盘上建立三个文件，文件名就是表明。例如，我建立了一个MyISAM引擎的tb_Demo表，那么就会生成以下三个文件: 
 
@@ -42,7 +42,7 @@ InnoDB是一个健壮的事务型存储引擎，这种存储引擎已经被很�
 
 ### MEMORY
 
-使用MySQL Memory存储引擎的出发点是速度。为得到最快的响应时间，采用的逻辑存储介质是系统内存。虽然在内存中存储表数据确实会提供很高的性能，但当mysqld守护进程崩溃时，所有的Memory数据都会丢失。获得速度的同时也带来了一些缺陷。它要求存储在Memory数据表里的数据使用的是长度不变的格式，这意味着不能使用BLOB和TEXT这样的长度可变的数据类型，VARCHAR是一种长度可变的类型，但因为它在MySQL内部当做长度固定不变的CHAR类型，所以可以使用。
+使用MySQL Memory存储引擎的出发点是速度。为得到最快的响应时间，采用的逻辑存储介质是系统内存。虽然在内存中存储表数据确实会提供很高的性能，但当MySQLd守护进程崩溃时，所有的Memory数据都会丢失。获得速度的同时也带来了一些缺陷。它要求存储在Memory数据表里的数据使用的是长度不变的格式，这意味着不能使用BLOB和TEXT这样的长度可变的数据类型，VARCHAR是一种长度可变的类型，但因为它在MySQL内部当做长度固定不变的CHAR类型，所以可以使用。
 
 一般在以下几种情况下使用Memory存储引擎: 
 
@@ -545,7 +545,7 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
 
 **最常使用的2种存储引擎: **
 
-  * Myisam是Mysql的默认存储引擎。当create创建新表时，未指定新表的存储引擎时，默认使用Myisam。每个MyISAM在磁盘上存储成三个文件。文件名都和表名相同，扩展名分别是.frm（存储表定义）、.MYD (MYData，存储数据)、.MYI (MYIndex，存储索引)。数据文件和索引文件可以放置在不同的目录，平均分布io，获得更快的速度。
+  * Myisam是MySQL的默认存储引擎。当create创建新表时，未指定新表的存储引擎时，默认使用Myisam。每个MyISAM在磁盘上存储成三个文件。文件名都和表名相同，扩展名分别是.frm（存储表定义）、.MYD (MYData，存储数据)、.MYI (MYIndex，存储索引)。数据文件和索引文件可以放置在不同的目录，平均分布io，获得更快的速度。
   * InnoDB存储引擎提供了具有提交、回滚和崩溃恢复能力的事务安全。但是对比Myisam的存储引擎，InnoDB写的处理效率差一些并且会占用更多的磁盘空间以保留数据和索引。
 
 ## 如何选择合适的存储引擎
@@ -566,7 +566,7 @@ Archive是归档的意思，在归档之后很多的高级功能就不再支持�
 **参考文献: **
 
   * http://drizzlewalk.blog.51cto.com/2203401/443266
-  * http://www.rackspace.com/knowledge_center/article/mysql-engines-myisam-vs-innodb
+  * http://www.rackspace.com/knowledge_center/article/MySQL-engines-myisam-vs-innodb
   * http://stackoverflow.com/questions/20148/myisam-versus-innodb
   * http://www.pureweber.com/article/myisam-vs-innodb/
 

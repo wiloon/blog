@@ -8,12 +8,12 @@ categories:
   - Agile
 
 ---
-install mysql
+install MySQL
 create user agilefant
 update password in table users, md5
 import example DB
 deply agilefant in tomcat
-fix utf8 encoding(tomcat server.xml, mysql character-set)
+fix utf8 encoding(tomcat server.xml, MySQL character-set)
   
     EL: Effort left
   

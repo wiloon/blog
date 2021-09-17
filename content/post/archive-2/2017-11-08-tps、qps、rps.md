@@ -50,7 +50,7 @@ RPS 代表吞吐率，即 Requests Per Second 的缩写。吞吐率是服务器�
 有人把 RPS 说等效于 QPS。其实可以看作同一个统计方式，只是叫法不同而已。RPS/QPS，可以使用 apache ab 工具进行测量。
 
 
-几个相关的概念: TPS、QPS、RPS,TPS: Transactions Per Second（每秒事务处理数），指服务器每秒处理的事务次数。一般用于评估数据库、交易系统的基准性能。QPS: Queries Per Second（查询量/秒），是服务器每秒能够处理的查询次数，例如域名服务器、Mysql查询性能。RPS: Request Per Second（请求数/秒）RPS（Request Per Second）和QPS可以认为是一回事。RT: Response Time（响应时间）: 客户端发一个请求开始计时，到客户端接收到从服务器端返回的响应结果结束所经历的时间，响应时间由请求发送时间、网络传输时间和服务器处理时间三部分组成。也叫Think Time。并发数与TPS/QPS的关系: QPS（TPS）= 并发数/平均响应时间这里的并发数如果为事务处理请求数，则为TPS，如果为查询请求数，则为QPS。
+几个相关的概念: TPS、QPS、RPS,TPS: Transactions Per Second（每秒事务处理数），指服务器每秒处理的事务次数。一般用于评估数据库、交易系统的基准性能。QPS: Queries Per Second（查询量/秒），是服务器每秒能够处理的查询次数，例如域名服务器、MySQL查询性能。RPS: Request Per Second（请求数/秒）RPS（Request Per Second）和QPS可以认为是一回事。RT: Response Time（响应时间）: 客户端发一个请求开始计时，到客户端接收到从服务器端返回的响应结果结束所经历的时间，响应时间由请求发送时间、网络传输时间和服务器处理时间三部分组成。也叫Think Time。并发数与TPS/QPS的关系: QPS（TPS）= 并发数/平均响应时间这里的并发数如果为事务处理请求数，则为TPS，如果为查询请求数，则为QPS。
 
 作者: 梁川
   

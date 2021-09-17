@@ -1,5 +1,5 @@
 ---
-title: mysql view, MERGE, TEMPTABLE
+title: MySQL view, MERGE, TEMPTABLE
 author: "-"
 type: post
 date: 2018-02-11T01:42:00+00:00
@@ -78,4 +78,4 @@ Refers only to literal values (in this case, there is no underlying table)
 
 https://www.jianshu.com/p/b11430bc4fba
   
-https://dev.mysql.com/doc/refman/5.6/en/view-algorithms.html
+https://dev.MySQL.com/doc/refman/5.6/en/view-algorithms.html

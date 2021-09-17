@@ -10,7 +10,7 @@ categories:
 ---
 http://192.168.60.2:7789/nj4x/ts?wsdl
 
-mysql/heidisql
+MySQL/heidisql
   
 redis
 
@@ -38,7 +38,7 @@ start nj4xx-trader
 
 —
 
-mysql/heidisql
+MySQL/heidisql
 
 zookeeper
 

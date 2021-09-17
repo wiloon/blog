@@ -42,7 +42,7 @@ tags:
 
 一般应用情景是: 
 
-在META-INF/persistence.xml中 使用<jta-data-source>java:/ MySqlDS</jta-data-source> 获取容器发布的Datesource。
+在META-INF/persistence.xml中 使用<jta-data-source>java:/ MySQLDS</jta-data-source> 获取容器发布的Datesource。
 
 transactions是使用的javaee容器支持的JTA系统，例如tomcat中，可以这样
 

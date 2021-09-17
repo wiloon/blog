@@ -17,9 +17,9 @@ Memory存储引擎使用存在内存中的内容来创建表，每个Memory表�
 
 示例：create table memory_tab(id int)engine=memory;
   
-因为memory在mysqld重启后数据就会丢失，为了获得稳定的数据源，可以在启动mysqld时加上—init-file选项，把insert into memory_tab select 或load data infile类似的语句放进去即可。
+因为memory在MySQLd重启后数据就会丢失，为了获得稳定的数据源，可以在启动MySQLd时加上—init-file选项，把insert into memory_tab select 或load data infile类似的语句放进去即可。
   
-另外因为memory表是把数据放到内存中的，所以服务器需要有足够的内存来维持所有在同一时间使用的memory表，注意对连接mysqld的所有用户连接 共享 内存表中的数据，根据应用如果不是在所有连接间共享数据，最好在内存表中加入标志各个连接的ID。当不再需要memory数据时，要记得去删除自己连接的数据。
+另外因为memory表是把数据放到内存中的，所以服务器需要有足够的内存来维持所有在同一时间使用的memory表，注意对连接MySQLd的所有用户连接 共享 内存表中的数据，根据应用如果不是在所有连接间共享数据，最好在内存表中加入标志各个连接的ID。当不再需要memory数据时，要记得去删除自己连接的数据。
   
 对于内存表的官方说明：
   
@@ -49,11 +49,11 @@ As indicated by the name, MEMORY tables are stored in memory. They use hash inde
   
 4.HEAP不支持BLOB/TEXT列。
 
-如果用过oracle的，一般类似的应用我们是用临时表来实现的，但是mysql的临时表与oracle比有一定的不同。
+如果用过oracle的，一般类似的应用我们是用临时表来实现的，但是MySQL的临时表与oracle比有一定的不同。
   
-首先mysql创建临时表：create temporary table temp_tab(id int);
+首先MySQL创建临时表：create temporary table temp_tab(id int);
   
-这里临时表默认使用的存储引擎是服务器指定的存储引擎（默认是myisam）。mysql临时表的定义和数据都是放在内存中，而未放到磁盘中，用show tables是找不到临时表的。
+这里临时表默认使用的存储引擎是服务器指定的存储引擎（默认是myisam）。MySQL临时表的定义和数据都是放在内存中，而未放到磁盘中，用show tables是找不到临时表的。
 
 另外，因为memory的存取速度优于myisam，在用临时表做中间表的应用时，可以将其改为使用memory引擎的临时表。
 
