@@ -12,6 +12,8 @@ url: /?p=1040
 运行 MediaCreationTool21H1.exe
 选择 "为另一台电脑创建安装介质"
 
+### uupdump
+https://uupdump.net/
 ### 查看windows的版本
     winver
 ### bat脚本控制网卡启用禁用
