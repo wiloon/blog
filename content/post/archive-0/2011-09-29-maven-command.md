@@ -8,6 +8,8 @@ tags:
   - maven
 
 ---
+### download
+>https://maven.apache.org/download.cgi
 ### setting>mirror
     https://developer.aliyun.com/mirror/maven
     https://repo.maven.apache.org/maven2
