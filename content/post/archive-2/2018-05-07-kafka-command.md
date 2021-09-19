@@ -98,6 +98,8 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
 <https://cloud.tencent.com/developer/article/1436988>
 
 ### 调整分区数
+注意该命令分区数partitions只能增加，不能减少, --partitions 5: 调整之后的分区数
+
     bin/kafka-topics.sh \
     --zookeeper ip0:2181 \
     --alter \

@@ -25,9 +25,10 @@ podman run -d --name code-server \
 -v "code-server-config:/root/.config" \
 -v "code-server-project:/home/coder/project" \
 -v "code-server-ssh:/root/.ssh" \
+-v "code-server-data:/data" \
 -u "$(id -u):$(id -g)" \
 -e "DOCKER_USER=root"  \
-codercom/code-server:latest --auth none
+codercom/code-server:3.12.0 --auth none
 ```
 
 ### nginx 配置
