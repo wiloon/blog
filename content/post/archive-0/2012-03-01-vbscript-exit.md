@@ -1,5 +1,5 @@
 ---
-title: mysql index
+title: MySQL index
 author: "-"
 type: post
 date: 2012-03-01T10:37:42+00:00
@@ -53,7 +53,7 @@ INDEX ( id)
   
 运行结果显示创建成功，使用SHOW CREATE TABLE语句查看表的结构。显示如下：
 
-mysql> SHOW CREATE TABLE index1 \G
+MySQL> SHOW CREATE TABLE index1 \G
   
 \***\***\***\***\***\***\***\***\*\\*\* 1. row \*\*\***\***\***\***\***\***\***\****
   
@@ -75,7 +75,7 @@ KEY \`index1_id\` (\`id\`)
   
 结果可以看到，id字段上已经建立了一个名为index1_id的索引。使用EXPLAIN语句可以查看索引是否被使用，SQL代码如下：
 
-mysql> EXPLAIN SELECT * FROM index1 where id=1 \G
+MySQL> EXPLAIN SELECT * FROM index1 where id=1 \G
   
 \***\***\***\***\***\***\***\***\*\\*\* 1. row \*\*\***\***\***\***\***\***\***\****
   
@@ -119,7 +119,7 @@ UNIQUE  INDEX  index2_id ( id  ASC)
   
 运行结果显示创建成功，使用SHOW CREATE TABLE语句查看表的结构。显示如下：
 
-mysql> SHOW CREATE TABLE index2 \G
+MySQL> SHOW CREATE TABLE index2 \G
   
 \***\***\***\***\***\***\***\***\*\\*\* 1. row \*\*\***\***\***\***\***\***\***\****
   

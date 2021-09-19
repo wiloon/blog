@@ -12,19 +12,19 @@ tags:
 ---
 http://qqhugo.blogbus.com/logs/15733455.html
   
-安装新的MYSLQ数据库，安装好运行MySQL Server Instance ConfigWizard，在最后一步却发现无法启动服务，出现这样的提示"cannotcreate windows service for mysql.error:0"！
+安装新的MYSLQ数据库，安装好运行MySQL Server Instance ConfigWizard，在最后一步却发现无法启动服务，出现这样的提示"cannotcreate windows service for MySQL.error:0"！
   
 找了很久终于搞到一点资料，解决方法如下: 
   
 原因: 
   
-安装mysql时可能产生cannot create windows service formysql.error:0错误,错误的原因多数由于重新安装mysql或者对mydql升级,使用MySQLConfiguration Wizard而产生.
+安装MySQL时可能产生cannot create windows service forMySQL.error:0错误,错误的原因多数由于重新安装MySQL或者对mydql升级,使用MySQLConfiguration Wizard而产生.
   
 解决方法: 
   
-可以使用mysql以外的服务名,比如mysql11,等.但这不是最好的解决方法,我们可以使用windows的sc程序删除mysql服务.
+可以使用MySQL以外的服务名,比如MySQL11,等.但这不是最好的解决方法,我们可以使用windows的sc程序删除MySQL服务.
   
-C:>sc delete mysql
+C:>sc delete MySQL
   
 [SC] DeleteService SUCCESS
   

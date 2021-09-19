@@ -1,5 +1,5 @@
 ---
-title: mysql INNODB
+title: MySQL INNODB
 author: "-"
 type: post
 date: 2017-04-11T06:46:30+00:00
@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-http://wulijun.github.io/2012/09/29/mysql-innodb-intro.html
+http://wulijun.github.io/2012/09/29/MySQL-innodb-intro.html
   
 InnoDB是MySQL下使用最广泛的引擎,它是基于MySQL的高可扩展性和高性能存储引擎,从5.5版本开始,它已经成为了默认引擎。 InnODB引擎支持众多特性: 
 
@@ -84,7 +84,7 @@ transaction_isolation = READ-COMMITTED
   
 max_connections = 60
 
-#最大连接错误次数,可适当加大,防止频繁连接错误后,前端host被mysql拒绝掉
+#最大连接错误次数,可适当加大,防止频繁连接错误后,前端host被MySQL拒绝掉
   
 max_connect_errors = 100000
 
@@ -132,15 +132,15 @@ wait_timeout = 120
   
 修改完配置文件,即可启动MySQL。启动完毕后,在MySQL的datadir目录下,若产生以下几个文件,则表示应该可以使用InnoDB引擎了。
 
--rw-rw-- 1 mysql mysql 1.0G Sep 21 17:25 ibdata1
+-rw-rw-- 1 MySQL MySQL 1.0G Sep 21 17:25 ibdata1
   
--rw-rw-- 1 mysql mysql 256M Sep 21 17:25 ib_logfile0
+-rw-rw-- 1 MySQL MySQL 256M Sep 21 17:25 ib_logfile0
   
--rw-rw-- 1 mysql mysql 256M Sep 21 10:50 ib_logfile1
+-rw-rw-- 1 MySQL MySQL 256M Sep 21 10:50 ib_logfile1
 
 登录MySQL后,执行命令,确认已启用InnoDB引擎: 
 
-(root:imysql.cn:Thu Oct 15 09:16:22 2009)[mysql]> show engines;
+(root:iMySQL.cn:Thu Oct 15 09:16:22 2009)[MySQL]> show engines;
   
 +----+---+----------------------+-----+--+----+
   
@@ -152,7 +152,7 @@ wait_timeout = 120
 
 接下来创建一个InnoDB表: 
 
-(root:imysql.cn:Thu Oct 15 09:16:22 2009)[mysql]>
+(root:iMySQL.cn:Thu Oct 15 09:16:22 2009)[MySQL]>
   
 CREATE TABLE my_innodb_talbe(
   
@@ -184,4 +184,4 @@ IPV4 地址建议用 INT UNSIGNED 类型存储；
   
 最后,在使用InnoDB过程中如果碰到什么问题,欢迎交流!
 
-原文链接: http://imysql.com/2012/09/21/mysql-faq-setup-innodb-quickly.html
+原文链接: http://iMySQL.com/2012/09/21/MySQL-faq-setup-innodb-quickly.html

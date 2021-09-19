@@ -1,5 +1,5 @@
 ---
-title: MYSQL-实现row_number() over(partition by ) 分组排序功能
+title: MySQL-实现row_number() over(partition by ) 分组排序功能
 author: "-"
 date: 2015-08-06T11:25:24.000+00:00
 url: "/?p=8069"
@@ -11,7 +11,7 @@ http://mrcelite.blog.51cto.com/2977858/745913
 
 原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://mrcelite.blog.51cto.com/2977858/745913
 
-由于MYSQL没有提供类似ORACLE中OVER()这样丰富的分析函数. 所以在MYSQL里需要实现这样的功能,我们只能用一些灵活的办法:
+由于MySQL没有提供类似ORACLE中OVER()这样丰富的分析函数. 所以在MySQL里需要实现这样的功能,我们只能用一些灵活的办法:
 
 1\.首先我们来创建实例数据:
 
@@ -82,7 +82,7 @@ insert into heyf_t10 values
 
 4\. 结果演示
 
-mysql> select empid,deptid,salary,rank from (
+MySQL> select empid,deptid,salary,rank from (
 
 \-> select heyf_tmp.empid,heyf_tmp.deptid,heyf_tmp.salary,@rownum:=@rownum+1 ,
 
@@ -126,7 +126,7 @@ mysql> select empid,deptid,salary,rank from (
 
 9 rows in set (0.00 sec)
 
-MySql中取出每个分组中的前N条记录
+MySQL中取出每个分组中的前N条记录
 
 select a1.* from article a1
 

@@ -2,13 +2,13 @@
 title: MySQL basic
 author: "-"
 date: 2011-04-15T14:42:09+00:00
-url: mysql-basic
+url: MySQL-basic
 categories:
-  - mysql
+  - MySQL
 tags:
-  - mysql
+  - MySQL
 ---
-### mysql heidisql 变量
+### MySQL heidisql 变量
     SET @total_count := 10;
     select @total_count;
 
@@ -23,10 +23,10 @@ tags:
 
 MySQL管理员用户名: root
   
-密码安装mysql时指定.
+密码安装MySQL时指定.
   
 登录MySQL: 
-    mysql -u root -p
+    MySQL -u root -p
 
 提示输入密码.... 输入密码后回车...
 
@@ -81,33 +81,33 @@ SELECT @@SESSION.sql_mode;
     --name mariadb \
     -p 3306:3306 \
     -v /etc/localtime:/etc/localtime:ro \
-    -v mysql-config:/etc/mysql/conf.d \
-    -v mysql-data:/var/lib/mysql \
-    -e MYSQL_ROOT_PASSWORD=password0 \
+    -v MySQL-config:/etc/MySQL/conf.d \
+    -v MySQL-data:/var/lib/MySQL \
+    -e MySQL_ROOT_PASSWORD=password0 \
     mariadb:latest \
     --character-set-server=utf8mb4 \
     --collation-server=utf8mb4_unicode_ci
 
     # docker client
     podman run -it \
-    --rm mariadb mysql -h 127.0.0.1 -u root -p password0
+    --rm mariadb MySQL -h 127.0.0.1 -u root -p password0
 ```
 
-### mysql client, conn
+### MySQL client, conn
 
 ```bash
 sudo pacman -S mariadb-clients
-mysql -u user0 -ppassword0 -h 127.0.0.1 -P 3306 -D mydb
+MySQL -u user0 -ppassword0 -h 127.0.0.1 -P 3306 -D mydb
 mariadb -u user0 -h 127.0.0.1 -P 3306 -D database0 -ppassword0
-# add yum repo https://dev.mysql.com/doc/mysql-repo-excerpt/5.6/en/linux-installation-yum-repo.html
-yum install mysql-community-client
+# add yum repo https://dev.MySQL.com/doc/MySQL-repo-excerpt/5.6/en/linux-installation-yum-repo.html
+yum install MySQL-community-client
 ```
 
 ```bash
 sudo pacman -S mariadb
-sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo MySQL_install_db --user=MySQL --basedir=/usr --datadir=/var/lib/MySQL
 sudo systemctl start mariadb.service
-mysql -u root -p
+MySQL -u root -p
 ```
 
 ### 查表字段名
@@ -185,7 +185,7 @@ Threads_connected 跟show processlist结果相同，表示当前连接数。准�
   
 这是是查询数据库当前设置的最大连接数
   
-mysql> show variables like '%max_connections%';
+MySQL> show variables like '%max_connections%';
   
 +—————–+——-+
   
@@ -199,21 +199,21 @@ mysql> show variables like '%max_connections%';
   
 可以在/etc/my.cnf里面设置数据库的最大连接数
   
-[mysqld]
+[MySQLd]
   
 max_connections = 1000
   
-archlinux start mysql service
+archlinux start MySQL service
 
 select @@tx_isolation;
   
 show full processlist;
 
-systemctl start mysqld.service
+systemctl start MySQLd.service
 
 查看所有用户
 
-use mysql;
+use MySQL;
   
 select * from user;
   
@@ -227,9 +227,9 @@ SET PASSWORD FOR user0@localhost= PASSWORD("password");
   
 #注意后面这句话 "COLLATE utf8_general_ci",大致意思是在排序时根据utf8变码格式来排序
 
-授权之后该用户才能用他自己的用户名密码访问mysql.
+授权之后该用户才能用他自己的用户名密码访问MySQL.
 
-mysql-限制返回记录数limit
+MySQL-限制返回记录数limit
   
 SELECT * FROM table  LIMIT [offset,] rows | rows OFFSET offset
   
@@ -241,7 +241,7 @@ alter table tb_name modify id int auto_increment primary key;
 
 ##export one table
 
-mysqldump -uroot -p DBName TableName> foo.sql
+MySQLdump -uroot -p DBName TableName> foo.sql
 
 创建表:
 
@@ -287,7 +287,7 @@ MySQL添加字段的方法并不复杂，下面将为您详细介绍MySQL添加�
 
 1.登录数据库
 
-mysql -u root -p 数据库名称
+MySQL -u root -p 数据库名称
 
 2.查询所有数据表
 
@@ -323,11 +323,11 @@ alter table 表名称 change 字段原名称 字段新名称 字段类型 [是�
 
 导出
 
-mysqldump -uwiloon -pPASSWORD -default-character-set=utf8 enlab >enlab.sql
+MySQLdump -uwiloon -pPASSWORD -default-character-set=utf8 enlab >enlab.sql
   
 导入
 
-mysql -uusername -ppassword db_name < db_name.sql
+MySQL -uusername -ppassword db_name < db_name.sql
   
 ### 日期格式化函数date_format()
 ```sql
@@ -337,19 +337,19 @@ mysql -uusername -ppassword db_name < db_name.sql
 
 还可以用一个USE db_name语句启动文本文件。在这种情况下，不需要在命令行中指定数据库名：
 
-shell> mysql < text_file
+shell> MySQL < text_file
 
-如果正运行mysql，可以使用source或.命令执行SQL脚本文件：
+如果正运行MySQL，可以使用source或.命令执行SQL脚本文件：
 
-mysql> source filename
+MySQL> source filename
 
-查看mysql版本
+查看MySQL版本
 
-在mysql中：mysql> status;
+在MySQL中：MySQL> status;
 
 eg：
   
-[root@linuxtest test]# mysql -u root -p
+[root@linuxtest test]# MySQL -u root -p
   
 Enter password:
   
@@ -361,11 +361,11 @@ Server version: 5.1.30-community MySQL Community Server (GPL)
 
 Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
 
-mysql> CREATE DATABASE test DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+MySQL> CREATE DATABASE test DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
   
 Query OK, 1 row affected (0.06 sec)
 
-mysql> show databases;
+MySQL> show databases;
   
 +——————–+
   
@@ -377,7 +377,7 @@ mysql> show databases;
   
 | cacti |
   
-| mysql |
+| MySQL |
   
 | test | |
   
@@ -439,9 +439,9 @@ show index from tablename;
   
 show create table pk_tab2;
 
-### ClassNotFoundException: com.mysql.jdbc.Driver
-download and install connector/J , the JDBC driver for MySql.  
-mysql-connector-java-5.1.15-bin.jar
+### ClassNotFoundException: com.MySQL.jdbc.Driver
+download and install connector/J , the JDBC driver for MySQL.  
+MySQL-connector-java-5.1.15-bin.jar
 
 http://blog.sina.com.cn/s/blog_5dc960cd0100ea2h.html
 

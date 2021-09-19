@@ -14,8 +14,8 @@ chkconfig --list
 # 如果这个服务尚未被添加到 chkconfig 列表中,则现需要使用 –-add 参数将其添加进去
 chkconfig –-add postfix
 
-# 比如要将mysqld设置为开机自动启动
-chkconfig mysqld on
+# 比如要将MySQLd设置为开机自动启动
+chkconfig MySQLd on
 
 # 取消 postfix 的自动启动
 chkconfig postfix off

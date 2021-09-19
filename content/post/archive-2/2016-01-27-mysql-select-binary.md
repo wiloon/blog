@@ -1,5 +1,5 @@
 ---
-title: mysql select binary
+title: MySQL select binary
 author: "-"
 type: post
 date: 2016-01-27T04:54:31+00:00
@@ -12,7 +12,7 @@ BINARY不是函数,是类型转换运算符,它用来强制它后面的字符串
   
 如下: 
   
-mysql> select binary 'ABCD'='abcd' COM1, 'ABCD'='abcd' COM2;
+MySQL> select binary 'ABCD'='abcd' COM1, 'ABCD'='abcd' COM2;
   
 +---+----+
   
@@ -62,7 +62,7 @@ insert into usertest (username) VALUES('夏');
 
 例如: select * from usertest where username like '%夏%' ,结果七条记录都出来了,比较郁闷。
 
-如果使用=而不是like的时候,select * from usertest where username = '夏' ,只出现一个结果。因为mysql 的LIKE操作是按照ASCII 操作的,所以LIKE的时候是可能有问题的。问题继续: 如果再加上: 
+如果使用=而不是like的时候,select * from usertest where username = '夏' ,只出现一个结果。因为MySQL 的LIKE操作是按照ASCII 操作的,所以LIKE的时候是可能有问题的。问题继续: 如果再加上: 
 
 insert into usertest (username) VALUES('文');
 

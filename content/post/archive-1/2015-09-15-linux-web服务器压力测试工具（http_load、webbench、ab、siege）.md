@@ -76,7 +76,7 @@ https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d
   
 </blockquote>
 
-https://www.vpser.net/security/vps-backup-web-mysql.html/embed#?secret=GisBcCy5FH
+https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5FH
   
 例如: 
   

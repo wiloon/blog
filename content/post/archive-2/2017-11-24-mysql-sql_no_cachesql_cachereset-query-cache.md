@@ -1,5 +1,5 @@
 ---
-title: mysql SQL_NO_CACHE,sql_cache,RESET QUERY CACHE
+title: MySQL SQL_NO_CACHE,sql_cache,RESET QUERY CACHE
 author: "-"
 type: post
 date: 2017-11-24T06:51:17+00:00
@@ -78,7 +78,7 @@ MySQL只需要通过索引就可以返回查询所需要的数据,而不必在�
 
 扩展研究
 
-一、Mysql缓存,SQL_NO_CACHE和SQL_CACHE 的区别
+一、MySQL缓存,SQL_NO_CACHE和SQL_CACHE 的区别
 
 上边在进行测试的时候,为了防止读取缓存造成对实验结果的影响使用到了SQL_NO_CACHE这个功能,对于SQL_NO_CACHE的介绍官网如下: 
 
@@ -90,7 +90,7 @@ You may use RESET QUERY CACHE to remove all queries from the cache and then your
 
 在说白点就是,不是本次查询不使用缓存,而是本次查询结果不做为下次查询的缓存。
 
-还有就是,mysql本身是有对sql语句缓存的机制的,合理设置我们的mysql缓存可以降低数据库的io资源,因此,这里我们有必要再看一下如何控制这个比较安逸的功能。
+还有就是,MySQL本身是有对sql语句缓存的机制的,合理设置我们的MySQL缓存可以降低数据库的io资源,因此,这里我们有必要再看一下如何控制这个比较安逸的功能。
 
 看图如下: 
 
@@ -120,7 +120,7 @@ query_cache_type
 
 1、完整查询的过程如下
 
-当查询进行的时候,Mysql把查询结果保存在qurey cache中,但是有时候要保存的结果比较大,超过了query_cache_min_res_unit的值 ,这时候mysql将一边检索结果,一边进行慢慢保存结果,所以,有时候并不是把所有结果全部得到后再进行一次性保存,而是每次分配一块query_cache_min_res_unit 大小的内存空间保存结果集,使用完后,接着再分配一个这样的块,如果还不不够,接着再分配一个块,依此类推,也就是说,有可能在一次查询中,mysql要进行多次内存分配的操作,而我们应该知道,频繁操作内存都是要耗费时间的。
+当查询进行的时候,MySQL把查询结果保存在qurey cache中,但是有时候要保存的结果比较大,超过了query_cache_min_res_unit的值 ,这时候MySQL将一边检索结果,一边进行慢慢保存结果,所以,有时候并不是把所有结果全部得到后再进行一次性保存,而是每次分配一块query_cache_min_res_unit 大小的内存空间保存结果集,使用完后,接着再分配一个这样的块,如果还不不够,接着再分配一个块,依此类推,也就是说,有可能在一次查询中,MySQL要进行多次内存分配的操作,而我们应该知道,频繁操作内存都是要耗费时间的。
 
 2、内存碎片的产生
 
@@ -168,9 +168,9 @@ query_cache_min_res_unit = (query_cache_size - Qcache_free_memory) /Qcache_queri
   
 下面是使用 SQL_NO_CACHE 和 SQL_CACHE 的例子: 
 
-mysql> select sql_no_cache id,name from test3 where id < 2;
+MySQL> select sql_no_cache id,name from test3 where id < 2;
   
-mysql> select sql_cache id,name from test3 where id < 2;
+MySQL> select sql_cache id,name from test3 where id < 2;
   
 注意: 查询缓存的使用还需要配合相应得服务器参数的设置。
 
@@ -190,7 +190,7 @@ Innodb的辅助索引叶子节点包含的是主键列,所以主键一定是被�
 
 （1）例如,在sakila的inventory表中,有一个组合索引(store_id,film_id),对于只需要访问这两列的查 询,MySQL就可以使用索引,如下: 
 
-mysql> EXPLAIN SELECT store_id, film_id FROM sakila.inventory\G
+MySQL> EXPLAIN SELECT store_id, film_id FROM sakila.inventory\G
   
 （2）再比如说在文章系统里分页显示的时候,一般的查询是这样的: 
 
@@ -208,4 +208,4 @@ SELECT id FROM article ORDER BY created DESC LIMIT 10000, 10
   
 此时,建立复合索引"created, id"（只要建立created索引就可以吧,Innodb是会在辅助索引里面存储主键值的）,就可以在子查询里利用上Covering Index,快速定位id,查询效率嗷嗷的
 
-注: 本文是参考《Mysql性能优化案例 - 覆盖索引》 的一篇文章借题发挥,参考了原文的知识点,自己做了一点的发挥和研究,原文被多次转载,不知作者何许人也,也不知出处在哪个,如需原文请自行搜索。
+注: 本文是参考《MySQL性能优化案例 - 覆盖索引》 的一篇文章借题发挥,参考了原文的知识点,自己做了一点的发挥和研究,原文被多次转载,不知作者何许人也,也不知出处在哪个,如需原文请自行搜索。

@@ -1,5 +1,5 @@
 ---
-title: mysql using having
+title: MySQL using having
 author: "-"
 type: post
 date: 2017-11-22T06:17:25+00:00
@@ -28,7 +28,7 @@ LEFT JOIN 正常写法:
 
   1. HAVING
 
-mysql中的where和having子句都可以实现筛选记录的功能,having 可以认为是对where的补充,因为它可以对分组数据进行再次判断,一般跟在group by 后面,并可以使用聚集函数(sum,min,max,avg,count)
+MySQL中的where和having子句都可以实现筛选记录的功能,having 可以认为是对where的补充,因为它可以对分组数据进行再次判断,一般跟在group by 后面,并可以使用聚集函数(sum,min,max,avg,count)
 
 示例: 
 

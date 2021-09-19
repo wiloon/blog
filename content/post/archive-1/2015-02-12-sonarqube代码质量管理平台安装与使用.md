@@ -84,17 +84,17 @@ SonarQube安装
   
 进入数据库命令
   
-#mysql -u root -p
+#MySQL -u root -p
 
-mysql> CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
+MySQL> CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
   
-mysql> CREATE USER 'sonar' IDENTIFIED BY 'sonar';
+MySQL> CREATE USER 'sonar' IDENTIFIED BY 'sonar';
   
-mysql> GRANT ALL ON sonar.* TO 'sonar'@'%' IDENTIFIED BY 'sonar';
+MySQL> GRANT ALL ON sonar.* TO 'sonar'@'%' IDENTIFIED BY 'sonar';
   
-mysql> GRANT ALL ON sonar.* TO 'sonar'@'localhost' IDENTIFIED BY 'sonar';
+MySQL> GRANT ALL ON sonar.* TO 'sonar'@'localhost' IDENTIFIED BY 'sonar';
   
-mysql> FLUSH PRIVILEGES;
+MySQL> FLUSH PRIVILEGES;
 
 2.安装sonar与sonar-runner
   
@@ -108,7 +108,7 @@ mysql> FLUSH PRIVILEGES;
   
 编辑<install_directory>/conf/sonar.properties文件，配置数据库设置，默认已经提供了各类数据库的支持
   
-这里使用mysql，因此取消mysql模块的注释
+这里使用MySQL，因此取消MySQL模块的注释
   
 #vi sonar.properties
 
@@ -120,11 +120,11 @@ sonar.jdbc.username:                       sonar
   
 sonar.jdbc.password:                       sonar
   
-sonar.jdbc.url:                            jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
+sonar.jdbc.url:                            jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
 
 # Optional properties
   
-sonar.jdbc.driverClassName:                com.mysql.jdbc.Driver
+sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
   
 修改sonar-runner的配置文件
   
@@ -150,7 +150,7 @@ sonar.host.url=http://localhost:9000
   
 #-- MySQL
   
-sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
+sonar.jdbc.url=jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
   
 #-- Oracle
   

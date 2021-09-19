@@ -8,11 +8,14 @@ categories:
   - Java
 
 ---
+
+[![4MnMpn.png](https://z3.ax1x.com/2021/09/17/4MnMpn.png)](https://imgtu.com/i/4MnMpn)
+
 ### heap, 堆
 堆是线程共享的，所有的对象的实例和数组都存放在堆中，任何线程都可以访问。Java的垃圾自动回收机制就是运用这个区域的。
 
-### Stack(栈), thread stacks, call stack, Execution stack
-栈是线程私有的，每个线程都是自己的栈，每个线程中的每个方法在执行的同时会创建一个栈帧用于存局部变量表、操作数栈、动态链接、方法返回地址等信息。每一个方法从调用到执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。其中局部变量表，存放基本类型（boolean、byte、char、short、int、float）、对象的引用等等，对象的引用不是对象实例本身，而是指向对象实例的一个指针。
+### Stack(栈), thread stacks(线程栈), call stack, Execution stack
+栈是线程私有的，每个线程都是自己的栈，每个线程中的每个方法在执行的同时会创建一个栈帧用于保存 PC(程序计数器) 局部变量表、操作数栈、动态链接、方法返回地址等信息。每一个方法从调用到执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。其中局部变量表，存放基本类型（boolean、byte、char、short、int、float）、对象的引用等等，对象的引用不是对象实例本身，而是指向对象实例的一个指针。
 ————————————————
 版权声明：本文为CSDN博主「万猫学社」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/heihaozi/article/details/102752636

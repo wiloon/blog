@@ -28,7 +28,7 @@ UPDATE wap_lenovo_bookmark set type = 'other'
 
 ALTER TABLE wap_lenovo_bookmark ADD groupid INT NOT NULL DEFAULT 0
 
-mysql 修改字段
+MySQL 修改字段
   
 alter   table   employee   change   column   employeeID   empID   int;
 
@@ -50,7 +50,7 @@ alter   table   语句好像不能对表实行字段删除操作，可以用
   
 ---------------------
   
-mysql alter 语句用法,添加、修改、删除字段等
+MySQL alter 语句用法,添加、修改、删除字段等
 
 //主键549830479
 
@@ -82,34 +82,34 @@ alter table t1 rename t2;
   
 加索引549830479
 
-mysql> alter table tablename change depno depno int(5) not null;
+MySQL> alter table tablename change depno depno int(5) not null;
   
-mysql> alter table tablename add index 索引名 (字段名1[，字段名2 …]);
+MySQL> alter table tablename add index 索引名 (字段名1[，字段名2 …]);
   
-mysql> alter table tablename add index emp_name (name);
+MySQL> alter table tablename add index emp_name (name);
   
 加主关键字的索引549830479
 
-mysql> alter table tablename add primary key(id);
+MySQL> alter table tablename add primary key(id);
   
 加唯一限制条件的索引549830479
 
-mysql> alter table tablename add unique emp_name2(cardnumber);
+MySQL> alter table tablename add unique emp_name2(cardnumber);
   
 删除某个索引549830479
 
-mysql>alter table tablename drop index emp_name;
+MySQL>alter table tablename drop index emp_name;
   
 修改表: 549830479
 
 增加字段: 549830479
 
-mysql> ALTER TABLE table_name ADD field_name field_type;
+MySQL> ALTER TABLE table_name ADD field_name field_type;
   
 修改原字段名称及类型: 549830479
 
-mysql> ALTER TABLE table_name CHANGE old_field_name new_field_name field_type;
+MySQL> ALTER TABLE table_name CHANGE old_field_name new_field_name field_type;
   
 删除字段: 549830479
 
-mysql> ALTER TABLE table_name DROP field_name;
+MySQL> ALTER TABLE table_name DROP field_name;

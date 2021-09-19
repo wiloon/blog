@@ -18,17 +18,17 @@ You have an error in your SQL syntax; check the manual that corresponds to your 
 
 项目中我用的jdbc驱动版本
 
-mysql-connector-java-5.1.15.jar
+MySQL-connector-java-5.1.15.jar
 
-mysql数据库版本为5.6
+MySQL数据库版本为5.6
 
 jdbc在连接数据库时候会发送测试语句SET OPTION SQL_SELECT_LIMIT=DEFAULT
 
-这在mysql5.6以下版本是可以的 ，但是5.6不再支持SET...
+这在MySQL5.6以下版本是可以的 ，但是5.6不再支持SET...
   
 解决: 
 
-升级驱动版本,我改成了mysql-connector-java-5.1.25.jar  问题解决
+升级驱动版本,我改成了MySQL-connector-java-5.1.25.jar  问题解决
 
 -------
 

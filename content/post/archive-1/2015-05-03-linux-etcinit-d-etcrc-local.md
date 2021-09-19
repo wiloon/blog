@@ -64,7 +64,7 @@ sshd
   
 dovecot
   
-mysql
+MySQL
   
 当然，你可能有其他更多常用的脚本，这个取决于你安装了什么linux操作系统。
 

@@ -11,13 +11,13 @@ categories:
 ---
 jdbc driver:
 
-com.mysql.jdbc.Driver
+com.MySQL.jdbc.Driver
 
 oracle.jdbc.driver.OracleDriver
 
 
 jdbc url:
 
-jdbc:mysql://localhost:3306/xxxxxx
+jdbc:MySQL://localhost:3306/xxxxxx
 
 jdbc:oracle:thin:@xxx.xxx.xxx.xxx:1521:xxxxxx

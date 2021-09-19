@@ -1,5 +1,5 @@
 ---
-title: MySql 里的IFNULL、NULLIF和ISNULL用法
+title: MySQL 里的IFNULL、NULLIF和ISNULL用法
 author: "-"
 type: post
 date: 2014-01-16T05:03:08+00:00
@@ -10,19 +10,19 @@ tags:
   - MySQL
 
 ---
-今天用到了MySql里的isnull才发现他和MSSQL里的还是有点区别，现在简单总结一下: 
+今天用到了MySQL里的isnull才发现他和MSSQL里的还是有点区别，现在简单总结一下: 
 
-**mysql中isnull,ifnull,nullif的用法如下: **
+**MySQL中isnull,ifnull,nullif的用法如下: **
 
 **isnull(expr) 的用法: **
   
 如expr 为null，那么isnull() 的返回值为 1，否则返回值为 0。
   
-mysql> select isnull(1+1);
+MySQL> select isnull(1+1);
   
 -> 0
   
-mysql> select isnull(1/0);
+MySQL> select isnull(1/0);
   
 -> 1
   
@@ -36,19 +36,19 @@ isnull() 函数同 is null比较操作符具有一些相同的特性。请参见
   
 否则其返回值为   expr2。IFNULL()的返回值是数字或是字符串，具体情况取决于其所使用的语境。
 
-**mysql**>   SELECT   IFNULL(1,0);
+**MySQL**>   SELECT   IFNULL(1,0);
   
 ->   1
   
-**mysql**>   SELECT   IFNULL(**NULL**,10);
+**MySQL**>   SELECT   IFNULL(**NULL**,10);
   
 ->   10
   
-**mysql**>   SELECT   IFNULL(1/0,10);
+**MySQL**>   SELECT   IFNULL(1/0,10);
   
 ->   10
   
-**mysql**>   SELECT
+**MySQL**>   SELECT
   
 IFNULL(1/0,'yes');
 
@@ -70,13 +70,13 @@ CREATE   TABLE   tmp   SELECT   IFNULL(1,'test')   AS   test；
   
 THEN   **NULL**   ELSE   expr1   END相同。
   
-**mysql**>   SELECT
+**MySQL**>   SELECT
   
 NULLIF(1,1);
 
 ->   **NULL**
   
-**mysql**>   SELECT   NULLIF(1,2);
+**MySQL**>   SELECT   NULLIF(1,2);
   
 ->   1
   

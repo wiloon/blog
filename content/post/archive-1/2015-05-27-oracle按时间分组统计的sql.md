@@ -10,7 +10,7 @@ categories:
 ---
 http://www.programgo.com/article/72675408491/
   
-标签: mysql 按周统计   oracle 按季度查询   oracle date 周
+标签: MySQL 按周统计   oracle 按季度查询   oracle date 周
   
 转自: http://blog.itpub.net/9907339/viewspace-1048055/
   

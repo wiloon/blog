@@ -75,9 +75,9 @@ public DataSource dataSource(){
   
 DriverManagerDataSource dataSource = new DriverManagerDataSource();
   
-dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+dataSource.setDriverClassName("com.MySQL.jdbc.Driver");
   
-dataSource.setUrl("jdbc:mysql://localhost:3306/spring_jpa");
+dataSource.setUrl("jdbc:MySQL://localhost:3306/spring_jpa");
   
 dataSource.setUsername( "tutorialuser" );
   
@@ -175,9 +175,9 @@ http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
   
-<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+<property name="driverClassName" value="com.MySQL.jdbc.Driver" />
   
-<property name="url" value="jdbc:mysql://localhost:3306/spring_jpa" />
+<property name="url" value="jdbc:MySQL://localhost:3306/spring_jpa" />
   
 <property name="username" value="tutorialuser" />
   
@@ -237,9 +237,9 @@ hibernate-entitymanager</artifactId>
 
 <dependency>
   
-<groupId>mysql</groupId>
+<groupId>MySQL</groupId>
   
-mysql-connector-java</artifactId>
+MySQL-connector-java</artifactId>
   
 <version>5.1.30</version>
   

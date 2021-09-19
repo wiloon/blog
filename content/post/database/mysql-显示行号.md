@@ -1,7 +1,7 @@
 +++
 author = "-"
 date = "2020-05-19T03:18:46Z"
-title = "mysql 显示行号，以及分组排序"
+title = "MySQL 显示行号，以及分组排序"
 
 +++
     CREATE TABLE my_tb (

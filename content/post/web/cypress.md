@@ -9,10 +9,10 @@ title = "cypress"
     # 执行cypress install, 把cypress安装到 ~/.cache/Cypress
     node_modules/cypress/bin/cypress install
 
-### install mysql
-    npm install mysql  --save-dev
+### install MySQL
+    npm install MySQL  --save-dev
 
-### 配置mysql连接信息, 修改 cypress.json 成这样.
+### 配置MySQL连接信息, 修改 cypress.json 成这样.
 ```json
 {
   "pluginsFile": "tests/e2e/plugins/index.js",
@@ -28,9 +28,9 @@ title = "cypress"
 ```
 
 ### 配置 tests/e2e/plugins/index.js
-    const mysql = require('mysql')
+    const MySQL = require('MySQL')
     function queryTestDb (query, config) {
-      const connection = mysql.createConnection(config.env.db)
+      const connection = MySQL.createConnection(config.env.db)
       connection.connect()
       return new Promise((resolve, reject) => {
         connection.query(query, (error, results) => {

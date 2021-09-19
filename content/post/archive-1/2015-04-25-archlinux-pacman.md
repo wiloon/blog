@@ -286,7 +286,7 @@ core-核心软件包
   
 extra-其他常用软件
   
-community-社区软件包，譬如Mysql等。
+community-社区软件包，譬如MySQL等。
   
 testing-正在测试阶段，还没有正式加入源的软件包。通常软件版本比较新，但是不是非常稳定
   

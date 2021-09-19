@@ -13,8 +13,8 @@ tags:
 
 ---
 ```sql
-mysql> select date_format(now(),'%Y-%m-%d');
-mysql> select time_format(now(),'%H-%i-%S');
+MySQL> select date_format(now(),'%Y-%m-%d');
+MySQL> select time_format(now(),'%H-%i-%S');
 
 -- 连接字符串, CONCAT
 select CONCAT('My', 'S', 'QL');

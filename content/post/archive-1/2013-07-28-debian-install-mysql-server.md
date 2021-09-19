@@ -1,5 +1,5 @@
 ---
-title: debian install mysql server
+title: debian install MySQL server
 author: "-"
 type: post
 date: 2013-07-28T11:24:15+00:00
@@ -13,6 +13,6 @@ tags:
 ---
 ```bash
 
-sudo apt-get install mysql-server
+sudo apt-get install MySQL-server
 
 ```

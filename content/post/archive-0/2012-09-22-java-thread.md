@@ -15,9 +15,7 @@ java的线程是映射到操作系统原生线程之上的，如果要阻塞或�
 
 如果线程状态切换是一个高频操作时，这将会消耗很多CPU处理时间；
 如果对于那些需要同步的简单的代码块，获取锁挂起操作消耗的时间比用户代码执行的时间还要长，这种同步策略显然非常糟糕的。
-————————————————
-版权声明：本文为CSDN博主「朱清震」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/zqz_zqz/article/details/70233767
+
 
 ### 线程状态
 [![WhlYxH.jpg](https://z3.ax1x.com/2021/07/26/WhlYxH.jpg)](https://imgtu.com/i/WhlYxH)  
@@ -233,7 +231,6 @@ t2.start();
 ```
 
 ### Runnable的代码
-
 ```java
 
 class T implements Runnable{
@@ -302,7 +299,7 @@ ExecutorService es = Executors.newSingleThreadExecutor();
         Future<Integer> future =es.submit(calTask); 
 ```
 ### Callable
-Runnable实现的是void run()方法，Callable实现的是 V call()方法，并且可以返回执行结果，其中Runnable可以提交给Thread来包装下，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。通常在开发中结合ExecutorService使用,将任务的提交与任务的执行解耦开,同时也能更好地利用Executor提供的各种特性
+Runnable实现的是void run() 方法，Callable实现的是 V call() 方法，并且可以返回执行结果，其中Runnable可以提交给Thread来包装下，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。通常在开发中结合ExecutorService使用,将任务的提交与任务的执行解耦开,同时也能更好地利用Executor提供的各种特性
 
 ### 竞争条件 Race condition
 什么是竞争条件以及竞争条件为什么会产生漏洞  
@@ -523,4 +520,4 @@ https://www.cnblogs.com/skywang12345/p/java_threads_category.html
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 http://www.spring4all.com/article/806
-
+>https://blog.csdn.net/zqz_zqz/article/details/70233767

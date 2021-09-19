@@ -1,5 +1,5 @@
 ---
-title: mysql DELETE TRUNCATE drop
+title: MySQL DELETE TRUNCATE drop
 author: "-"
 type: post
 date: 2019-03-18T10:16:04+00:00

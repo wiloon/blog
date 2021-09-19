@@ -1,5 +1,5 @@
 ---
-title: mysql limit
+title: MySQL limit
 author: "-"
 type: post
 date: 2013-02-03T05:07:23+00:00
@@ -22,7 +22,7 @@ tags:
     SELECT  * FROM  table  LIMIT 2,1; //从第2条开始读，读取1条信息。
   
   
-    mysql> SELECT * FROM table LIMIT 5,10;  // 检索 6-15 行
+    MySQL> SELECT * FROM table LIMIT 5,10;  // 检索 6-15 行
   
 
   

@@ -10,14 +10,14 @@ categories:
 ---
 一、MySQL索引类型
 
-mysql里目前只支持4种索引分别是: full-text，b-tree，hash，r-tree
+MySQL里目前只支持4种索引分别是: full-text，b-tree，hash，r-tree
 
-b-tree索引应该是mysql里最广泛的索引的了，除了archive基本所有的存储引擎都支持它.
+b-tree索引应该是MySQL里最广泛的索引的了，除了archive基本所有的存储引擎都支持它.
 
 
 1. full-text索引
 
-full-text在mysql里仅有myisam支持它，而且支持full-text的字段只有char、varchar、text数据类型。
+full-text在MySQL里仅有myisam支持它，而且支持full-text的字段只有char、varchar、text数据类型。
 
 full-text主要是用来代替like "%\***%"效率低下的问题
 
@@ -47,23 +47,23 @@ hash索引由于其结构，所以在每次查询的时候直接一次到位，�
 
 4. r-tree索引
 
-r-tree在mysql很少使用，仅支持geometry数据类型，支持该类型的存储引擎只有myisam、bdb、innodb、ndb、archive几种。
+r-tree在MySQL很少使用，仅支持geometry数据类型，支持该类型的存储引擎只有myisam、bdb、innodb、ndb、archive几种。
 
 相对于b-tree，r-tree的优势在于范围查找.
 
-二、mysql里sql语句值得注意的地方
+二、MySQL里sql语句值得注意的地方
 
 1. myisam里所有键的长度仅支持1000字节，innodb是767.
 
 2. blob和text字段仅支持前缀索引.
 
-3. 使用!=以及<>不等于的时候，mysql不使用索引.
+3. 使用!=以及<>不等于的时候，MySQL不使用索引.
 
-4. 当在字段时候函数的时候，mysql无法使用索引；在join时条件字段类型不一致的时候，mysql无法使用索引；在组合索引里使用非第一个索引时也不使用索引.
+4. 当在字段时候函数的时候，MySQL无法使用索引；在join时条件字段类型不一致的时候，MySQL无法使用索引；在组合索引里使用非第一个索引时也不使用索引.
 
 5. 在使用like的时候，以%开头，即"%\***"的时候无法使用索引；在使用or的时候，要求or前后字段都有索引.
 
-有时候mysql query optimizer会认为使用索引并不是最优计划,所以不使用索引。可以在sql语句里可以用use,force index,当然有时候使用也不会比不用快,所以需要忽略掉index方法是ignore index.
+有时候MySQL query optimizer会认为使用索引并不是最优计划,所以不使用索引。可以在sql语句里可以用use,force index,当然有时候使用也不会比不用快,所以需要忽略掉index方法是ignore index.
 
 关闭查询缓存sql_no_cache
 
@@ -75,17 +75,17 @@ select sql_cache * from table_name;
 
 另外，在my.cnf中如果设置query_cache_type=2的话，那么只有在使用sql_cache后才会使用缓存;
 
-还有mysql里的优先操作hight_priority让mysql优先操作这个语句
+还有MySQL里的优先操作hight_priority让MySQL优先操作这个语句
 
 select high_priority * fromtable_name;
 
 与其对应的是low_priority;
 
-mysql里还有延时插入insert delayed
+MySQL里还有延时插入insert delayed
 
 insert delayed into table_name....;
 
-#当提交之后，mysql返回ok，但不立即插入，而是当mysql有空再插入。假如等待时服务器崩溃，那么所有数据丢失，并且插入不会返回自增id.
+#当提交之后，MySQL返回ok，但不立即插入，而是当MySQL有空再插入。假如等待时服务器崩溃，那么所有数据丢失，并且插入不会返回自增id.
 
 三、几个技巧
 
