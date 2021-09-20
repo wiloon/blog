@@ -1,5 +1,5 @@
 ---
-title: openwrt basic, opkg basic
+title: openwrt basic, opkg basic, ipk
 author: "-"
 type: post
 date: 2018-07-26T05:04:27+00:00
