@@ -37,13 +37,16 @@ yay --aururl "https://aur.archlinux.org" --save
 yay -P -g
 ```
 
-### 使用 yay: 
+### 使用 命令: 
 ```bash
 # 搜索: 
 yay -Ss <package-name>
 
 # 安装: 
 yay -S <package-name>
+
+# 查询软件包安装的文件列表
+yay -Ql <package-name>
 ```
 
 https://mirrors.tuna.tsinghua.edu.cn/help/AUR/

@@ -2,7 +2,7 @@
 title: java – volatile
 author: "-"
 date: 2014-02-12T02:12:30+00:00
-url: /?p=6250
+url: volatile
 categories:
   - Uncategorized
 tags:
@@ -312,3 +312,4 @@ https://my.oschina.net/feinik/blog/914309
 http://aleung.blogbus.com/logs/32090434.html
   
 http://wiki.jikexueyuan.com/project/java-concurrency/synchronized-and-volatile.html
+>https://zhuanlan.zhihu.com/p/144740699
