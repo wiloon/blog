@@ -247,20 +247,21 @@ join() 的作用：让"主线程"等待"子线程" 结束之后才能继续运�
 <http://www.wiloon.com/?p=7232>
 
 #### 让线程停下来的方法
-    函数                版本  消耗CPU   能否被Interrupt 核心方法 线程状态       备注
-    spinlock            1.0   是        否              native RUNNABLE
-    wait()              1.0   否        是              native WAITING
-    LockSupport.park()  1.5   否        是              native WAITING
-    sleep()             1.0   否        是              native TIMED_WAITING
-    join()              1.0   否        是              wait() WAITING
-  
+    函数                版本  消耗CPU   能否被Interrupt   核心方法  线程状态       备注
+    spinlock            1.0   是        否              native  RUNNABLE
+    wait()              1.0   否        是              native  WAITING
+    LockSupport.park()  1.5   否        是              native  WAITING
+    sleep()             1.0   否        是              native  TIMED_WAITING
+    join()              1.0   否        是              wait()  WAITING
+    FutureTask.get()    1.5   否        是              park()  WAITING
+
 suspend() 1.0 否 否 native WAITING 已弃用
   
 ReentrantLock.lock() 1.5 部分是 否 park() WAITING 有可 Interrupt 版本 lockInterruptibly()
   
 Condition.await() 1.5 否 是 park() WAITING 有不可 Interrupt 版本 awaitUninterruptibly()
   
-FutureTask.get() 1.5 否 是 park() WAITING
+
 
 Condition.await()
   
