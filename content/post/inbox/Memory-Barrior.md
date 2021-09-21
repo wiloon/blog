@@ -56,3 +56,26 @@ X86处理器中，由于CPU不会对写-写操作进行重排序，所以StoreSt
 
 ### 编译器指令重排
     compiler-instruction-reordering
+
+
+### 为什么会有内存乱序(memory reording)
+为了加快代码的执行，编译器或CPU通常会对内存操作顺序进行一些修改，这就是memory reording 。因为内存乱序是由编译器或CPU造成的，所以其发生的时间在编译期（compiler reording），或运行期（CPU reording）。即使在多线程的程序中，内存乱序也很少被注意到，这是因为内存乱序有一个基本的原则：不能修改单线程程序的行为。而且，在通常的多线程程序中，通常会通过加锁等方式来保持同步，这些方式通常都会阻止内存乱序的产生。但是，如果一个在多个线程间共享的内存资源没有锁保护的话，内存乱序的效果就会显现。下面这段话具体解释编译器和CPU为什么能通过乱序来加快执行速度： 
+
+Memory access instructions, such as loads and stores, typically take longer to execute than other instructions. Therefore, compilers use registers to hold frequently used values and processors use high speed caches to hold the most frequently used memory locations. Another common optimization is for compilers and processors to rearrange the order that instructions are executed so that the processor does not have to wait for memory accesses to complete. This can result in memory being accessed in a different order than specified in the source code. While this typically will not cause a problem in a single thread of execution, it can cause a problem if the location can also be accessed from another processor or device.
+
+总结一下，就是编译器乱序和CPU乱序的原因大致有两个：(1)局部性原理; (2)CPU乱序则更多的是由于CPU和内存读写的速度差距造成的，当然，归根到底都是CPU和memory的速度差距而引起的优化。
+
+对内存进行操作的指令比如 load, store 一般比其它指令花费更长的时间，所以编译器用寄存器保存使用频率高的变量，处理器用高速缓存保存最近经常访问的内存区域。另外一种常用的优化方法是编译器或cpu对指令重排序，这样cpu不需要一直等待内存操作完成。这样会导致cpu实际访问内存的顺序有可能跟代码里写的不一样。这种重排序的操作一般不会对单线程的程序有影响，但是如果这块内存也同时被其它cpu或设备访问就可能有问题。
+
+#### RISC, CISC 差异
+在RISC
+中，CPU并不会对内存中的数据进行操作，所有的计算都要求在寄存器中完成。而寄存器和内存的通信则由单独的指令来完成。而在CSIC中，CPU是可以直
+接对内存进行操作的，这也是一个比较特别的地方。
+
+更多的寄存器——和CISC
+相比，基于RISC的处理器有更多的通用寄存器可以使用，且每个寄存器都可以进行数据存储或者寻址。
+
+内存访问：X86指令可访问内存地址，而现代RISC CPU则使用LOAD/STORE模式，只有LOAD和STORE指令才能从内存中读取数据到寄存器，所有其他指令只对寄存器中的操作数计算。在CPU的速度是内存速度的5倍或5倍以上的情况下，后一种工作模式才是正途。
+
+>https://cothee.github.io/programming/2019/07/30/memory-reording/
+>https://blog.csdn.net/yongchaocsdn/article/details/57181573

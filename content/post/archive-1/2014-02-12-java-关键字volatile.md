@@ -10,6 +10,8 @@ tags:
 
 ---
 ### volatile 关键字, Volatile ['vɑlətl]
+volatile关键字告诉编译器，去 内存 里面取“最新”值。但是，即使取的是内存里的所谓“最新”值，事实上并不能保证最新。  
+
 voldatile关键字首先具有“易变性”，声明为volatile变量编译器会强制要求读内存，相关语句不会直接使用上一条语句对应的的寄存器内容，而是重新从内存中读取。
 
 其次具有”不可优化”性，volatile告诉编译器，不要对这个变量进行各种激进的优化，甚至将变量直接消除，保证代码中的指令一定会被执行。
@@ -313,3 +315,4 @@ http://aleung.blogbus.com/logs/32090434.html
   
 http://wiki.jikexueyuan.com/project/java-concurrency/synchronized-and-volatile.html
 >https://zhuanlan.zhihu.com/p/144740699
+>https://cothee.github.io/programming/2019/07/30/memory-reording/

@@ -1,11 +1,12 @@
 ---
-title: visual studio code, vscode basic
+title: vscode basic
 author: "-"
 type: post
 date: 2018-09-01T03:34:42+00:00
 url: vscode
 
 ---
+# vscode, visual studio code
 ### debian install visual studio code
 #### install from repo
 https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/
@@ -28,6 +29,8 @@ https://blog.csdn.net/u011127019/article/details/74039598
     Ctrl + ,
 #### terminal
     Ctrl + `
+#### 命令框，查找文件
+    Ctrl + Shift + p
 
 ### 字体 
 打开 VSCode,Windows 下按 Ctrl + ,,macOS 下按 Cmd + ,,进入设定。在上方搜索框搜索 editor.fontFamily,在
