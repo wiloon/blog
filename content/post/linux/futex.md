@@ -261,36 +261,7 @@ Ok, 回到Java。Java的synchronized用JVM的monitor实现。而monitor实现内
 
 所以当我们随便写一段synchornized会阻塞的Java代码：
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
+
 public class TestFutex {
      private Integer a = new Integer(1);
  
@@ -323,10 +294,6 @@ public class TestFutex {
  }
 并用strace去查看效果，你就会看到：
 
-1
-2
-3
-4
 root@ba32a8cedf75:/test# strace -e futex java TestFutex
 futex(0x7f8dacc130c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
 futex(0x7f8dad64e9d0, FUTEX_WAIT, 97, NULL1

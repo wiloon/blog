@@ -8,14 +8,7 @@ categories:
   - Uncategorized
 
 ---
-ConcurrentHashMap Collections.synchronizedMap和Hashtable讨论
-  
-标签:  listhashmapiteratorjdkjava优化
-  
-2011-12-30 17:14 4134人阅读 评论(1) 收藏 举报
-  
-分类:  javaSE（21）
-  
+# ConcurrentHashMap, Collections.synchronizedMap和Hashtable讨论
 在Java类库中出现的第一个关联的集合类是Hashtable,它是JDK1.0的一部分。 Hashtable提供了一种易于使用的、线程安全的、关联的map功能,这当然也是方便的。然而,线程安全性是凭代价换来的――Hashtable的所有方法都是同步的。此时,无竞争的同步会导致可观的性能代价。Hashtable的后继者HashMap是作为JDK1.2中的集合框架的一部分出现的,它通过提供一个不同步的基类和一个同步的包装器Collections.synchronizedMap,解决了线程安全性问题。
   
 通过将基本的功能从线程安全性中分离开来,Collections.synchronizedMap允许需要同步的用户可以拥有同步,而不需要同步的用户则不必为同步付出代价。Hashtable和synchronizedMap所采取的获得同步的简单方法（同步Hashtable中或者同步的Map包装器对象中的每个方法）有两个主要的不足。首先,这种方法对于可伸缩性是一种障碍,因为一次只能有一个线程可以访问hash表。同时,这样仍不足以提供真正的线程安全性,许多公用的混合操作仍然需要额外的同步。

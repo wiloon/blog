@@ -1,9 +1,8 @@
 ---
 title: 'archlinux AUR,  yay,  Yaourt'
 author: "-"
-type: post
 date: 2015-06-28T07:02:07+00:00
-url: /?p=7953
+url: yay
 tags:
   - Arch Linux
 

@@ -9,6 +9,8 @@ tags:
   - inbox
 ---
 
+VarHandle 的出现替代了java.util.concurrent.atomic和sun.misc.Unsafe的部分操作。并且提供了一系列标准的内存屏障操作，用于更加细粒度的控制内存排序。在安全性、可用性、性能上都要优于现有的API。VarHandle 可以与任何字段、数组元素或静态变量关联，支持在不同访问模型下对这些类型变量的访问，包括简单的 read/write 访问，volatile 类型的 read/write 访问，和 CAS(compare-and-swap)等。
+
 Unsafe 是不建议开发者直接使用的，因为 Unsafe 所操作的并不属于Java标准，会容易带来一些安全性的问题。JDK9 之后，官方推荐使用 java.lang.invoke.Varhandle 来替代 Unsafe 大部分功能，对比 Unsafe ，Varhandle 有着相似的功能，但会更加安全，并且，在并发方面也提高了不少性能。
 
 Varhandle是对变量或参数定义的变量系列的动态强类型引用，包括静态字段，非静态字段，数组元素或堆外数据结构的组件。 在各种访问模式下都支持访问这些变量，包括简单的读/写访问，volatile 的读/写访问以及 CAS (compare-and-set)访问。简单来说 Variable 就是对这些变量进行绑定，通过 Varhandle 直接对这些变量进行操作。
@@ -182,3 +184,4 @@ volatile确保程序执行顺序，能保证变量之间的不被重排序。
 >https://zhuanlan.zhihu.com/p/144741342
 >https://zhuanlan.zhihu.com/p/145654924
 >https://mingshan.fun/2018/10/05/use-variablehandles-to-replace-unsafe/
+>https://www.jianshu.com/p/e231042a52dd

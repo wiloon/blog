@@ -130,9 +130,9 @@ YourKit Java Profiler 下载地址: http://www.yourkit.com/download/index.jsp
           
 YourKit Java Profiler 提供了Java 与.NET 两种语言的支持,并且支持基本所有操作系统,目前最新版本为12.0.6。
 
-visualVM Thread state
+### visualVM Thread state
   
-Running:running/runnable
+Running: running/runnable
   
 Sleeping: Thread.sleep()
   
@@ -141,6 +141,8 @@ Wait: wait/timed_wating
 Park: LockSupport.park()
   
 Monitor:Blocked
+
+---
 
 http://my.oschina.net/kone/blog/157239
   

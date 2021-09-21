@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-SkipList(跳表)这种数据结构是由William Pugh于1990年在在 Communications of the ACM June 1990, 33(6) 668-676 发表了Skip lists: a probabilistic alternative to balanced trees，在其中详细描述了他的工作。由论文标题可知，SkipList的设计初衷是作为替换平衡树的一种选择。
+SkipList(跳表)这种数据结构是由 William Pugh 于1990年在在 Communications of the ACM June 1990, 33(6) 668-676 发表了Skip lists: a probabilistic alternative to balanced trees，在其中详细描述了他的工作。由论文标题可知，SkipList 的设计初衷是作为替换 平衡树 的一种选择。
 
 我们都知道，AVL树有着严格的O(logN)的查询效率，但是由于插入过程中可能需要多次旋转，导致插入效率较低，因而才有了在工程界更加实用的红黑树。
 
@@ -18,14 +18,12 @@ SkipList还有一个优势就是实现简单，SkipList的实现只花了2个小
 
 时隔将近三十多年，SkipList 这种数据结构仍在许多途径有用武之地，比如Redis, 还有Google的著名项目 Bigtable.
 
-## **原理及实现**
-
+### 原理及实现
 其实跳表就是在普通单向链表的基础上增加了一些索引，而且这些索引是分层的，从而可以快速地查的到数据。
 
 比如我们要查找key为19的结点，那么我们不需要逐个遍历，而是按照如下步骤:
-
-- 从header出发，从高到低的level进行查找，先索引到9这个结点，发现9 &lt; 19,继续查找(然后在level==2这层)，查找到21这个节点，由于21 &gt; 19, 所以结点不往前走，而是level由2降低到1
-- 然后索引到17这个节点，由于17 &lt; 19, 所以继续往后，索引到21这个结点，发现21&gt;19, 所以level由1降低到0
+- 从header出发，从高到低的level进行查找，先索引到9这个结点，发现9 < 19,继续查找(然后在level==2这层)，查找到21这个节点，由于21 > 19, 所以结点不往前走，而是level由2降低到1
+- 然后索引到17这个节点，由于17 < 19, 所以继续往后，索引到21这个结点，发现21>19, 所以level由1降低到0
 - 在结点17上，level==0索引到19,查找完毕。
 - 如果在level==0这层没有查找到，那么说明不存在key为19的节点，查找失败
 
@@ -34,5 +32,7 @@ https://zhuanlan.zhihu.com/p/33674267
 
 ### skiplist, 红黑树
 skiplist 的复杂度和红黑树一样，而且实现起来更简单。
-在并发环境下红黑树在插入和删除时需要rebalance，性能不如跳表。
+在并发环境下红黑树在插入和删除时需要 rebalance，性能不如跳表。
 
+
+>http://www.cnblogs.com/xuqiang/archive/2011/05/22/2053516.html
