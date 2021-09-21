@@ -18,40 +18,40 @@ tags:
 
 
   <ol start="1">
-    <li>
+    
       <profiles>
-    </li>
-    <li>
+    
+    
         <profile>
-    </li>
-    <li>
+    
+    
           <id>jdk16</id>
-    </li>
-    <li>
+    
+    
           
-    </li>
-    <li>
+    
+    
             <jdk>1.6</jdk>
-    </li>
-    <li>
+    
+    
           </activation>
-    </li>
-    <li>
+    
+    
           <modules>
-    </li>
-    <li>
+    
+    
             <module>simple-script</module>
-    </li>
-    <li>
+    
+    
           </modules>
-    </li>
-    <li>
+    
+    
         </profile>
-    </li>
-    <li>
+    
+    
       </profiles>
-    </li>
-  </ol>
+    
+  
 
 这个 profile 的意思是，当机器上的 JDK 为1.6的时候，构建 simple-script 这个子模块，如果是1.5或者1.4，那就不构建，这个 profile 是由环境自动激活的。
 
@@ -68,73 +68,73 @@ tags:
   
   
   <ol start="1">
-    <li>
+    
       <profile>
-    </li>
-    <li>
+    
+    
         <id>dev</id>
-    </li>
-    <li>
+    
+    
         
-    </li>
-    <li>
+    
+    
           false</activeByDefault>
-    </li>
-    <li>
+    
+    
           <jdk>1.5</jdk>
-    </li>
-    <li>
+    
+    
           <os>
-    </li>
-    <li>
+    
+    
             <name>Windows XP</name>
-    </li>
-    <li>
+    
+    
             <family>Windows</family>
-    </li>
-    <li>
+    
+    
             x86</arch>
-    </li>
-    <li>
+    
+    
             <version>5.1.2600</version>
-    </li>
-    <li>
+    
+    
           </os>
-    </li>
-    <li>
+    
+    
           <property>
-    </li>
-    <li>
+    
+    
             <name>mavenVersion</name>
-    </li>
-    <li>
+    
+    
             <value>2.0.5</value>
-    </li>
-    <li>
+    
+    
           </property>
-    </li>
-    <li>
+    
+    
           <file>
-    </li>
-    <li>
+    
+    
             <exists>file2.properties</exists>
-    </li>
-    <li>
+    
+    
             <missing>file1.properties</missing>
-    </li>
-    <li>
+    
+    
           </file>
-    </li>
-    <li>
+    
+    
         </activation>
-    </li>
-    <li>
+    
+    
         ...
-    </li>
-    <li>
+    
+    
       </profile>
-    </li>
-  </ol>
+    
+  
 
 2. 通过命令行参数激活。
 这是最直接和最简单的方式，比如你定义了一个名为 myProfile 的 profile，你只需要在命令行输入 **mvn clean install -Pmyprofile** 就能将其激活，这种方式的好处很明显，但是有一个很大的弊端，当 profile 比较多的时候，在命令行输入这写 -P 参数会让人觉得厌烦，所以，如果你一直用这种方式，觉得厌烦了，可以考虑使用其它自动激活的方式。
@@ -146,28 +146,28 @@ tags:
 http://juvenshun.iteye.com/blog/208714
   
   <ol start="1">
-    <li>
+    
       <profile>
-    </li>
-    <li>
+    
+    
         <id>dev</id>
-    </li>
-    <li>
+    
+    
         
-    </li>
-    <li>
+    
+    
           true</activeByDefault>
-    </li>
-    <li>
+    
+    
         </activation>
-    </li>
-    <li>
+    
+    
         ...
-    </li>
-    <li>
+    
+    
       </profile>
-    </li>
-  </ol>
+    
+  
 
 在一个特殊的环境下，配置默认自动激活的 profile 覆盖默认的 POM 配置，非常简单有效。
 
@@ -182,25 +182,25 @@ settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为
   
   
   <ol start="1">
-    <li>
+    
       <settings>
-    </li>
-    <li>
+    
+    
         ...
-    </li>
-    <li>
+    
+    
         
-    </li>
-    <li>
+    
+    
           local_db</activeProfile>
-    </li>
-    <li>
+    
+    
         </activeProfiles>
-    </li>
-    <li>
+    
+    
       </settings>
-    </li>
-  </ol>
+    
+  
 
 Maven 提供的 profile 功能非常强大和灵活，用得好的话，可以有效的隔离很多特殊的配置，使得整个项目能在不同环境中顺利的构建。但是，强大和灵活带来得问题是相对难掌握，希望本文能对 Maven 使用者有帮助。
 

@@ -85,200 +85,200 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
 
 
   <ol class="highlighter-j" start="1">
-    <li>
+    
       <span class="comment">/**
-    </li>
+    
     <li class="alt">
       <span class="comment"> *UDPServer
-    </li>
-    <li>
+    
+    
       <span class="comment"> *@author Winty wintys@gmail.com
-    </li>
+    
     <li class="alt">
       <span class="comment"> *@version 2008-12-15
-    </li>
-    <li>
+    
+    
       <span class="comment"> */
-    </li>
+    
     <li class="alt">
       <span class="keyword">import java.io.*;
-    </li>
-    <li>
+    
+    
       <span class="keyword">import java.net.*;
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
       <span class="keyword">class UDPServer{
-    </li>
+    
     <li class="alt">
           <span class="keyword">public <span class="keyword">static <span class="keyword">void main(String[] args)<span class="keyword">throws IOException{
-    </li>
-    <li>
+    
+    
               DatagramSocket  server = <span class="keyword">new DatagramSocket(<span class="number">5050);
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
               <span class="keyword">byte[] recvBuf = <span class="keyword">new <span class="keyword">byte[<span class="number">100];
-    </li>
+    
     <li class="alt">
               DatagramPacket recvPacket
-    </li>
-    <li>
+    
+    
                   = <span class="keyword">new DatagramPacket(recvBuf , recvBuf.length);
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
               server.receive(recvPacket);
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
               String recvStr = <span class="keyword">new String(recvPacket.getData() , <span class="number"> , recvPacket.getLength());
-    </li>
+    
     <li class="alt">
               System.out.println(<span class="string">"Hello World!" + recvStr);
-    </li>
-    <li>
-    </li>
+    
+    
+    
     <li class="alt">
               <span class="keyword">int port = recvPacket.getPort();
-    </li>
-    <li>
+    
+    
               InetAddress addr = recvPacket.getAddress();
-    </li>
+    
     <li class="alt">
               String sendStr = <span class="string">"Hello ! I'm Server";
-    </li>
-    <li>
+    
+    
               <span class="keyword">byte[] sendBuf;
-    </li>
+    
     <li class="alt">
               sendBuf = sendStr.getBytes();
-    </li>
-    <li>
+    
+    
               DatagramPacket sendPacket
-    </li>
+    
     <li class="alt">
                   = <span class="keyword">new DatagramPacket(sendBuf , sendBuf.length , addr , port );
-    </li>
-    <li>
-    </li>
+    
+    
+    
     <li class="alt">
               server.send(sendPacket);
-    </li>
-    <li>
-    </li>
+    
+    
+    
     <li class="alt">
               server.close();
-    </li>
-    <li>
+    
+    
           }
-    </li>
+    
     <li class="alt">
       }
-    </li>
-    <li>
-    </li>
-  </ol>
+    
+    
+    
+  
 
 
 
   <ol class="highlighter-j" start="1">
-    <li>
+    
       <span class="comment">/**
-    </li>
+    
     <li class="alt">
       <span class="comment"> *UDPClient
-    </li>
-    <li>
+    
+    
       <span class="comment"> *@author Winty wintys@gmail.com
-    </li>
+    
     <li class="alt">
       <span class="comment"> *@version 2008-12-15
-    </li>
-    <li>
+    
+    
       <span class="comment"> */
-    </li>
+    
     <li class="alt">
       <span class="keyword">import java.io.*;
-    </li>
-    <li>
+    
+    
       <span class="keyword">import java.net.*;
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
       <span class="keyword">class UDPClient{
-    </li>
+    
     <li class="alt">
           <span class="keyword">public <span class="keyword">static <span class="keyword">void main(String[] args)<span class="keyword">throws IOException{
-    </li>
-    <li>
+    
+    
               DatagramSocket client = <span class="keyword">new DatagramSocket();
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
               String sendStr = <span class="string">"Hello! I'm Client";
-    </li>
+    
     <li class="alt">
               <span class="keyword">byte[] sendBuf;
-    </li>
-    <li>
+    
+    
               sendBuf = sendStr.getBytes();
-    </li>
+    
     <li class="alt">
               InetAddress addr = InetAddress.getByName(<span class="string">"127.0.0.1");
-    </li>
-    <li>
+    
+    
               <span class="keyword">int port = <span class="number">5050;
-    </li>
+    
     <li class="alt">
               DatagramPacket sendPacket
-    </li>
-    <li>
+    
+    
                   = <span class="keyword">new DatagramPacket(sendBuf ,sendBuf.length , addr , port);
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
               client.send(sendPacket);
-    </li>
+    
     <li class="alt">
-    </li>
-    <li>
+    
+    
               <span class="keyword">byte[] recvBuf = <span class="keyword">new <span class="keyword">byte[<span class="number">100];
-    </li>
+    
     <li class="alt">
               DatagramPacket recvPacket
-    </li>
-    <li>
+    
+    
                   = <span class="keyword">new DatagramPacket(recvBuf , recvBuf.length);
-    </li>
+    
     <li class="alt">
               client.receive(recvPacket);
-    </li>
-    <li>
+    
+    
               String recvStr = <span class="keyword">new String(recvPacket.getData() , <span class="number"> ,recvPacket.getLength());
-    </li>
+    
     <li class="alt">
               System.out.println(<span class="string">"收到:" + recvStr);
-    </li>
-    <li>
-    </li>
+    
+    
+    
     <li class="alt">
               client.close();
-    </li>
-    <li>
+    
+    
           }
-    </li>
+    
     <li class="alt">
       }
-    </li>
-  </ol>
+    
+  
   
   
   

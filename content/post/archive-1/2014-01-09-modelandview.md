@@ -141,42 +141,42 @@ ModelAndView
   
   
   <ol start="1">
-    <li>
+    
       public ModelAndView handleRequestInternal(
-    </li>
-    <li>
+    
+    
               HttpServletRequest request,
-    </li>
-    <li>
+    
+    
               HttpServletResponse response) throws Exception {
-    </li>
-    <li>
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
+    
+    
       ModelAndView mav = new ModelAndView("hello");//实例化一个VIew的ModelAndView实例
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       mav.addObject("message", "Hello World!");//添加一个带名的model对象
-    </li>
-    <li>
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
+    
+    
               return mav;
-    </li>
-    <li>
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
+    
+    
       }
-    </li>
-    <li>
+    
+    
       
-    </li>
-  </ol>
+    
+  

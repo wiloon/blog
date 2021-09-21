@@ -9,24 +9,24 @@ categories:
 
 ---
 <ul type="disc">
-  <li>
+  
     project.build.sourceDirectory
-  </li>
-  <li>
+  
+  
     project.build.scriptSourceDirectory
-  </li>
-  <li>
+  
+  
     project.build.testSourceDirectory
-  </li>
-  <li>
+  
+  
     project.build.outputDirectory
-  </li>
-  <li>
+  
+  
     project.build.testOutputDirectory
-  </li>
-  <li>
+  
+  
     project.build.directory
-  </li>
+  
 </ul>
 
 ${project.build.outputDirectory}/META-INF/xxx/xxx

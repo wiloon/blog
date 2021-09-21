@@ -15,11 +15,11 @@ tags:
 
 <ul class="box" name="a">
 
-<li name="b" class="li_moito">Hello Moto*</li>
+<li name="b" class="li_moito">Hello Moto*
 
-<li>Hello Kitty*</li>
+Hello Kitty*
 
-<li>Hello World*</li>
+Hello World*
 
 </ul>
 

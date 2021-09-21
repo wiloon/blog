@@ -32,23 +32,23 @@ categories:
 
 ### To list current keyboard shortcut mappings
 
-  <ol>
-    <li>
+  
+    
       On the Tools menu, point to Macros, and then click Macros IDE.
-    </li>
-    <li>
+    
+    
       In Project Explorer, double-click MyMacros.
-    </li>
-    <li>
+    
+    
       Right-click Module1 and then click Rename.
-    </li>
-    <li>
+    
+    
       Type KeyboardShortcuts as the new name for the module.
-    </li>
-    <li>
+    
+    
       Double-click KeyboardShortcuts to open the file in the editor.
-    </li>
-    <li>
+    
+    
       Paste the following code in the file after Public Module KeyboardShortcuts: 
         
         
@@ -119,27 +119,27 @@ End Sub
           
         
       
-    </li>
     
-    <li>
+    
+    
       On the File menu, click Save MyMacros.
-    </li>
-    <li>
+    
+    
       Switch back to Visual Studio.
-    </li>
-    <li>
+    
+    
       On the Tools menu, point to Macros and then click Macro Explorer.
-    </li>
-    <li>
+    
+    
       Expand MyMacros and then expand KeyboardShortcuts.
-    </li>
-    <li>
+    
+    
       Right-click GetAllCommands and then click Run. 
-        The macro generates a list of all possible commands in the IDE and any keyboard shortcut mappings these commands have in the current keyboard mapping scheme.</li> 
+        The macro generates a list of all possible commands in the IDE and any keyboard shortcut mappings these commands have in the current keyboard mapping scheme. 
         
-        <li>
+        
           On the View menu, click Output. 
-            Commands and their shortcut key combinations appear in the Output window. You can copy this information and paste it into another application, such as Microsoft Office Excel, for additional formatting and printing options.</li> </ol> 
+            Commands and their shortcut key combinations appear in the Output window. You can copy this information and paste it into another application, such as Microsoft Office Excel, for additional formatting and printing options.  
             
             
               http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx

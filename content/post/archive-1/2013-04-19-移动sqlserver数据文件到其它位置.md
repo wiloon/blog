@@ -16,53 +16,53 @@ categories:
         Follow the steps outlined below to move the SQL Server Data File(s):
       
       
-      <ol>
-        <li>
-          Make a backup of all current databases, and the current master databases.
-        </li>
-        <li>
-          Must have System Administrator permissions (SA).
-        </li>
-        <li>
-          Make sure the SQL Server Agent service is not currently running.
-        </li>
-        <li>
-          Run the Detach statement on the desired database: <ul>
-            <li>
-              Use Master
-            </li>
-            <li>
-              GO
-            </li>
-            <li>
-              sp_detach_db 'database name'
-            </li>
-            <li>
-              GO
-            </li>
-          </ul>
-        </li>
+      
         
-        <li>
-          Now, copy the data files and the log files from the correct location to the new location. 
-            NOTE: If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step.</li> 
+          Make a backup of all current databases, and the current master databases.
+        
+        
+          Must have System Administrator permissions (SA).
+        
+        
+          Make sure the SQL Server Agent service is not currently running.
+        
+        
+          Run the Detach statement on the desired database: <ul>
             
-            <li>
+              Use Master
+            
+            
+              GO
+            
+            
+              sp_detach_db 'database name'
+            
+            
+              GO
+            
+          </ul>
+        
+        
+        
+          Now, copy the data files and the log files from the correct location to the new location. 
+            NOTE: If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step. 
+            
+            
               Re-attach the database. Point to the files in the new location <ul>
-                <li>
+                
                   Use Master
-                </li>
-                <li>
+                
+                
                   GO
-                </li>
-                <li>
+                
+                
                   sp_attach_db 'database name', 'D:SQLDATADatabaseName.mdf', 'D:SQLDATADatabaseName.ldf'
-                </li>
-                <li>
+                
+                
                   GO
-                </li>
+                
               </ul>
-            </li></ol> 
+             
             
             
               See, Microsoft knowledge base article for further information on how to Detach and Attach databases in SQL Server.

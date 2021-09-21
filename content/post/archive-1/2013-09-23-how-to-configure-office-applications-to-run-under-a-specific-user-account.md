@@ -37,18 +37,18 @@ This article was previously published under Q288367
     When you automate under a specific user account, you should be aware of the following problems:
   
   <ul>
-    <li>
+    
       Any process that creates an Automation instance of the configured Office application creates the instance under the specific user account, allowing it to run with that user's security credentials.
-    </li>
-    <li>
+    
+    
       Setting the Distributed Componenet Object Model (DCOM) settings to run as a specific user is global to the system. This setting affects all users and programs that automate the Office application on the system. Terminal Server clients may not be able to use Office appropriately. You should not use this setting and the steps in this article on an application Terminal Server.
-    </li>
-    <li>
+    
+    
       Component Object Model (COM) creates a unique WinStation for the new instance of the Office application. Any dialog boxes or warnings that may display do not appear on the interactive desktop. If you set the Visible flag for an application, the interactive user will not see that application. For more information about COM and WinStations, see the "References" section.
-    </li>
-    <li>
+    
+    
       When COM loads a server to run as a specific user account, the registry hive for that user is not loaded. Because the hive is not loaded for that user, the system .DEFAULT hive is used. Because Office has not been run under an account with this hive, you may receive dialog boxes that prompt you for input or the Office CD-ROMs to complete installation. The dialog boxes are not visible on the interactive desktop, so the application appears to stop responding (hang). The dialog boxes may time out and allow the process to continue, but after a noticeable delay in running the program. To work around this situation, install an NT service that runs under the same user account that is set for the DCOM setting. The NT Service Control Manager (SCM) loads the hive for that user when the service starts.
-    </li>
+    
   </ul>
   
     Because the changes in DCOM are global, configuring Office in this manner can have negative side effects for other clients on the system that use Office. It is possible that another client application, or Terminal Server clients, will not be able to use the Office application after the settings are made. Consider carefully what impact this has to your server before you make any changes to the DCOM configuration settings.
@@ -68,46 +68,46 @@ This article was previously published under Q288367
   
     To set up an Office Automation server under a specific user account, follow these steps:
   
-  <ol>
-    <li>
+  
+    
       Log on to the computer as the Administrator and create a new user account that will automate Office. In our example, this account is named OfficeAutomationUser. Create a password for this user account, and select Never expire so that the password does not have to be changed.
-    </li>
-    <li>
+    
+    
       Add the OfficeAutomationUser account to the Administrators group.
-    </li>
-    <li>
+    
+    
       Log in to the computer as OfficeAutomationUser and install (or reinstall) Office using a complete install. For system robustness, it is recommended that you copy the contents of the Office CD-ROM to a local drive and install Office from this location.
-    </li>
-    <li>
+    
+    
       Start the Office application that you intend to automate. This forces the application to register itself.
-    </li>
-    <li>
+    
+    
       After the application is running, press ALT+F11 to load the Microsoft Visual Basic for Applications (VBA) editor. This forces VBA to initialize itself.
-    </li>
-    <li>
+    
+    
       Close the applications, including VBA.
-    </li>
-    <li>
+    
+    
       Click Start, click Run, and then type <kbd>DCOMCNFG</kbd>. Select the application that you want to automate. The application names are listed below:Microsoft Access 97/2002 - Microsoft Access Database
  Microsoft Access 2003 - Microsoft Office Access Application
  Microsoft Excel 97/2000/2002/2003 - Microsoft Excel Application
  Microsoft Word 97 - Microsoft Word Basic
  Microsoft Word 2000/2002/2003 - Microsoft Word Document 
-        Click Properties to open the property dialog box for this application.</li> 
+        Click Properties to open the property dialog box for this application. 
         
-        <li>
+        
           Click the Security tab. Verify that Use Default Access Permissions and Use Default Launch Permissions are selected.
-        </li>
-        <li>
+        
+        
           Click the Identity tab. Select This User and type the username and password for OfficeAutomationUser.
-        </li>
-        <li>
+        
+        
           Click OK to close the property dialog box and return to the main applications list dialog box.
-        </li>
-        <li>
+        
+        
           In the DCOM Configuration dialog box, click the Default Security tab.
-        </li>
-        <li>
+        
+        
           Click Edit Defaults for access permissions. Verify that the following users are listed in the access permissions, or add the users if they are not listed:SYSTEM
  INTERACTIVE
  Everyone
@@ -115,12 +115,12 @@ This article was previously published under Q288367
  OfficeAutomationUser
  IUSR_<machinename>*
  IWAM_<machinename>* 
-            * These accounts exist only if Internet Information Server (IIS) is installed on the computer.</li> 
+            * These accounts exist only if Internet Information Server (IIS) is installed on the computer. 
             
-            <li>
+            
               Make sure that each user is allowed access, and then click OK.
-            </li>
-            <li>
+            
+            
               Click Edit Defaults for launch permissions. Verify that the following users are listed in the launch permissions, or add the users if they are not listed:SYSTEM
  INTERACTIVE
  Everyone
@@ -128,15 +128,15 @@ This article was previously published under Q288367
  OfficeAutomationUser
  IUSR_<machinename>*
  IWAM_<machinename>* 
-                * These accounts exist only if IIS is installed on the computer.</li> 
+                * These accounts exist only if IIS is installed on the computer. 
                 
-                <li>
+                
                   Make sure that each user is allowed access, and then click OK.
-                </li>
-                <li>
+                
+                
                   Click OK to close DCOMCNFG.
-                </li>
-                <li>
+                
+                
                   Start REGEDIT and then verify that the following keys and string values exist for the Office application that you want to automate:Microsoft Access 2000/2002/2003:
  Key: HKEY_CLASSES_ROOTAppIDMSACCESS.EXE
  AppID: {73A4C9C1-D68D-11D0-98BF-00A0C90DC8D9} 
@@ -177,15 +177,15 @@ This article was previously published under Q288367
                   
                   
                   "AppID"="{8CC49940-3146-11CF-97A1-00AA00424A9F}"
-                </li>
                 
-                <li>
+                
+                
                   To avoid registry conflicts, install and run an NT service. Set the identity of the service to run as OfficeAutomationUser, and select Automatic as the startup type. For more information on creating a sample Visual C++ NT Service, see the following Microsoft Developer Network (MSDN) Web site:Creating a Simple Win32 Service in C++
  http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndllpro/html/msdn_ntservic.asp
-                </li>
-                <li>
+                
+                
                   Restart the system. This is required.
-                </li></ol>  
+                  
                 
                 
                   

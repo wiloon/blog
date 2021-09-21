@@ -90,82 +90,82 @@ main.xml代码如下，很简单，也不需要多做解释了：
     http://blog.csdn.net/hellogv/article/details/4542668#
 
   <ol start="1">
-    <li>
+    
       public void onCreate(Bundle savedInstanceState) {
-    </li>
-    <li>
+    
+    
           super.onCreate(savedInstanceState);
-    </li>
-    <li>
+    
+    
           setContentView(R.layout.main);
-    </li>
-    <li>
+    
+    
           //绑定XML中的ListView，作为Item的容器
-    </li>
-    <li>
+    
+    
           ListView list = (ListView) findViewById(R.id.MyListView);
-    </li>
-    <li>
+    
+    
           //生成动态数组，并且转载数据
-    </li>
-    <li>
+    
+    
           ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
-    </li>
-    <li>
+    
+    
           for(int i=0;i<30;i++)
-    </li>
-    <li>
+    
+    
           {
-    </li>
-    <li>
+    
+    
               HashMap<String, String> map = new HashMap<String, String>();
-    </li>
-    <li>
+    
+    
               map.put("ItemTitle", "This is Title.....");
-    </li>
-    <li>
+    
+    
               map.put("ItemText", "This is text.....");
-    </li>
-    <li>
+    
+    
               mylist.add(map);
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
+    
+    
           //生成适配器，数组===》ListItem
-    </li>
-    <li>
+    
+    
           SimpleAdapter mSchedule = new SimpleAdapter(this, //没什么解释
-    </li>
-    <li>
+    
+    
                                                       mylist,//数据来源
-    </li>
-    <li>
+    
+    
                                                       R.layout.my_listitem,//ListItem的XML实现
-    </li>
-    <li>
+    
+    
                                                       //动态数组与ListItem对应的子项
-    </li>
-    <li>
+    
+    
                                                       new String[] {"ItemTitle", "ItemText"},
-    </li>
-    <li>
+    
+    
                                                       //ListItem的XML文件里面的两个TextView ID
-    </li>
-    <li>
+    
+    
                                                       new int[] {R.id.ItemTitle,R.id.ItemText});
-    </li>
-    <li>
+    
+    
           //添加并且显示
-    </li>
-    <li>
+    
+    
           list.setAdapter(mSchedule);
-    </li>
-    <li>
+    
+    
       }
-    </li>
-  </ol>
+    
+  
   
   
   

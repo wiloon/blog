@@ -21,29 +21,29 @@ tags:
 
         LANG=zh_CN.GB2312
         LC_ALL=zh_CN.GB2312
-      </li>
-      <li>
+      
+      
         LC_CTYPE=zh_CN.GB2312
-      </li>
-      <li>
+      
+      
         KDE_LANG=zh_CN.GB2312
-      </li>
-      <li>
+      
+      
         export LANG LC_ALL LC_CTYPE KDE_LANG
-      </li>
-      <li>
+      
+      
         export XMODIFIERS=@im=Chinput
-      </li>
-      <li>
+      
+      
         /usr/bin/chinput &
-      </li>
-      <li>
+      
+      
         exec kde3
-      </li>
-      <li>
+      
+      
         killall chinput
-      </li>
-    </ol>
+      
+    
   
   
     对于更为详细的$HOME/.xinitrc，你可以找更专业的书籍来看，我的目标是越简单越好。前面的大家应该都比较清楚吧。先设一些环境变量，再设下一些输入法(我用的是智能五笔)， 接下来是启动视窗管理程序kde3，注意了: kde3用shell script的exec描述所执行的，这造成执行xinit程序的shell会被执行kde3的shell所取代。所以一旦kde3程序结束，就会跳出 shell，相对地，xinit将会跟着结束，X Server将关闭。这正是X Window Manager执行的方式。必须确定在.xinitrc中最后执行的是指令是以exec为开头的的命令执行X Windows Manager,而且不应该加上&放在一些背景执行，不然，那些指令也毫无意义。后面的killall chinput是告诉要结束chinput，不然极有可能会因为chinput的原因，会造成一些问题。这是最为简单的桌面设置。倘若你还要启动更多的程序和设置，都可以在前面加的。只要你在你的$HOME/.xinitrc文件中稍加增加便可做到，但要记住加在X Window Manager执行段落之前。
@@ -112,61 +112,61 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     如果你想修改xdm/gdm执行时所采用的color depth(色深？)，可以修改/etc/X11/xdm/Xservers中的内容。我的Mandrake90中的是这样的: 
  
     <ol start="1">
-      <li>
+      
         # more Xservers
-      </li>
-      <li>
+      
+      
         # $XConsortium: Xserv.ws.cpp,v 1.3 93/09/28 14:30:30 gildea Exp $
-      </li>
-      <li>
+      
+      
         #
-      </li>
-      <li>
+      
+      
         #
-      </li>
-      <li>
+      
+      
         # $XFree86: xc/programs/xdm/config/Xserv.ws.cpp,v 1.1.1.1.12.2 1998/10/04 15:23:
-      </li>
-      <li>
+      
+      
         14 hohndel Exp $
-      </li>
-      <li>
+      
+      
         #
-      </li>
-      <li>
+      
+      
         # Xservers file, workstation prototype
-      </li>
-      <li>
+      
+      
         #
-      </li>
-      <li>
+      
+      
         # This file should contain an entry to start the server on the
-      </li>
-      <li>
+      
+      
         # local display; if you have more than one display (not screen),
-      </li>
-      <li>
+      
+      
         # you can add entries to the list (one per line).? If you also
-      </li>
-      <li>
+      
+      
         # have some X terminals connected which do not support XDMCP,
-      </li>
-      <li>
+      
+      
         # you can add them here as well.? Each X terminal line should
-      </li>
-      <li>
+      
+      
         # look like:
-      </li>
-      <li>
+      
+      
         #? ? ? ?XTerminalName:0 foreign
-      </li>
-      <li>
+      
+      
         #
-      </li>
-      <li>
+      
+      
         :0 local /bin/nice -n -10 /usr/X11R6/bin/X -deferglyphs 16
-      </li>
-    </ol>
+      
+    
   
   
     显然我的是采用16 bites颜色的。当然，你没有必要那么复杂，可以简单点儿，比如,我有时采用: 
@@ -179,25 +179,25 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         ###使用16色
-      </li>
-      <li>
+      
+      
         :0 local /usr/X11R6/bin/X -bpp 16
-      </li>
-      <li>
+      
+      
         ###使用24色
-      </li>
-      <li>
+      
+      
         :0 local /usr/X11R6/bin/X -bpp 24
-      </li>
-      <li>
+      
+      
         ###使用32色
-      </li>
-      <li>
+      
+      
         :0 local /usr/X11R6/bin/X -bpp 32
-      </li>
-    </ol>
+      
+    
   
   
     5)对于使用何种X Window Manager与载入方式，并不属于Display Manager的范围。Display Manager只要负责启动各种Sessions即可。总这一句话，X Display Manager只管理sessions，想要实现更外层的工作，则可以让sessions自己去做哦。
@@ -210,16 +210,16 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         #hehe,Run gdm in runlevel 5
-      </li>
-      <li>
+      
+      
         #gdm is now for pk'Mandrake separate server
-      </li>
-      <li>
+      
+      
         x:5:respawn:/etc/X11/prefdm -nodaemon
-      </li>
-    </ol>
+      
+    
   
   
     你自己做个你系统有的xdm/gdm的连接就可以了。
@@ -265,31 +265,31 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         case $# in
-      </li>
-      <li>
+      
+      
         1)
-      </li>
-      <li>
+      
+      
         case $1 in
-      </li>
-      <li>
+      
+      
         failsafe)
-      </li>
-      <li>
+      
+      
         exec xterm -geometry 80x24-0-0
-      </li>
-      <li>
+      
+      
         ;;
-      </li>
-      <li>
+      
+      
         esac
-      </li>
-      <li>
+      
+      
         esac
-      </li>
-    </ol>
+      
+    
   
   
     改成这样，
@@ -302,49 +302,49 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         case $# in
-      </li>
-      <li>
+      
+      
         1)
-      </li>
-      <li>
+      
+      
         case $1 in
-      </li>
-      <li>
+      
+      
         kde)
-      </li>
-      <li>
+      
+      
         exec startkde
-      </li>
-      <li>
+      
+      
         ;;
-      </li>
-      <li>
+      
+      
         gnome)
-      </li>
-      <li>
+      
+      
         exec gnome-session
-      </li>
-      <li>
+      
+      
         ;;
-      </li>
-      <li>
+      
+      
         failsafe)
-      </li>
-      <li>
+      
+      
         exec xterm -geometry 80x24-0-0
-      </li>
-      <li>
+      
+      
         ;;
-      </li>
-      <li>
+      
+      
         esac
-      </li>
-      <li>
+      
+      
         esac
-      </li>
-    </ol>
+      
+    
   
   
     如此目标识别已加载，让我们重新开始吧。
@@ -364,13 +364,13 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         pw groupadd –g 42 –n gdm
-      </li>
-      <li>
+      
+      
         pw useradd –c gdm –d /var/gdm –s /bin/sh –u 42 –n gdm
-      </li>
-    </ol>
+      
+    
   
   
     如此，新建了一个gdm的Group，GID是42，一个gdm的User，UID是42。GID和UID，必须是没有被系统中其它账号占用，假如已被占 用，改用其它小于1000的。
@@ -384,16 +384,16 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         mkdir /var/gdm
-      </li>
-      <li>
+      
+      
         chmod 0750 /var/gdm
-      </li>
-      <li>
+      
+      
         chown gdm:gdm /var/gdm
-      </li>
-    </ol>
+      
+    
   
   
     第三点，拉拉关系，搞好配置。这得修改 "/usr/X11R6/share/gnome/gdm/gdm.conf"才行，
@@ -411,16 +411,16 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         ShowGnomeChooserSession=true
-      </li>
-      <li>
+      
+      
         ShowGnomeFailsafeSession=true
-      </li>
-      <li>
+      
+      
         ShowXtermFailsafeSession=true
-      </li>
-    </ol>
+      
+    
   
   
     第四点，GNOME和KDE都要支持。GDM是从GNOME那里来的，支持GNOME没什么问题。要支持KDE的Session，就比较啰嗦一点了。用ee编辑器写一段下面的命令，
@@ -433,13 +433,13 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         #! /bin/sh
-      </li>
-      <li>
+      
+      
         exec /usr/X11R6/lib/X11/xdm/Xsession kde
-      </li>
-    </ol>
+      
+    
   
   
     保存为文件 "/usr/X11R6/share/gnome/gdm/Sessions/Kde"，然后修改属性，
@@ -452,10 +452,10 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     
     
     <ol start="1">
-      <li>
+      
         chmod –w x /usr/X11R6/share/gnome/gdm/Sessions/Kde
-      </li>
-    </ol>
+      
+    
   
   
     第五点，现在该给老三让位了。用gdm替换kdm，这又要改"/etc/ttys"中的

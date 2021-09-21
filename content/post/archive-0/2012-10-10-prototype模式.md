@@ -57,112 +57,112 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
   
 这里我们也通过实现Cloneable接口来说明Prototype模式。
   
-    <ol>
-      <li>
+    
+      
         public   class  Cell  implements  Cloneable {
-      </li>
-      <li>
+      
+      
             //细胞壁
-      </li>
-      <li>
+      
+      
             private  String cellWall;
-      </li>
-      <li>
+      
+      
             //细胞膜
-      </li>
-      <li>
+      
+      
             private  String cellMembrane;
-      </li>
-      <li>
+      
+      
             //细胞组织
-      </li>
-      <li>
+      
+      
             private  String cellularTissue;
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
             ...//这里省略掉了对成员变量的setter/getter方法的定义
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
             //细胞的自身复制
-      </li>
-      <li>
+      
+      
             //这里重载了Obect#clone()方法，为了方便外部调用，把返回值由Object修改为Cell，并把访问级别设置为public
-      </li>
-      <li>
+      
+      
             public  Cell clone() {
-      </li>
-      <li>
+      
+      
                 try  {
-      </li>
-      <li>
+      
+      
                     //只需简单地调用super.clone();即可
-      </li>
-      <li>
+      
+      
                     return  (Cell) super .clone();
-      </li>
-      <li>
+      
+      
                 } catch  (CloneNotSupportedException e) {
-      </li>
-      <li>
+      
+      
                     throw  ( new  InternalError(e.getMessage()));
-      </li>
-      <li>
+      
+      
                 }
-      </li>
-      <li>
+      
+      
             }
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
         }
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
         //调用方：
-      </li>
-      <li>
+      
+      
         public   class  Client {
-      </li>
-      <li>
+      
+      
             public   static   void  main(String[] args) {
-      </li>
-      <li>
+      
+      
                 //准备原型细胞
-      </li>
-      <li>
+      
+      
                 Cell cell = new  Cell();
-      </li>
-      <li>
+      
+      
                 cell.setCellWall("cell wall 1" );
-      </li>
-      <li>
+      
+      
                 ...
-      </li>
-      <li>
+      
+      
                 //克隆原型细胞
-      </li>
-      <li>
+      
+      
                 Cell clonedCell = cell.clone();
-      </li>
-      <li>
+      
+      
                 ...
-      </li>
-      <li>
+      
+      
                 //操作被克隆的细胞（略）
-      </li>
-      <li>
+      
+      
             }
-      </li>
-      <li>
+      
+      
         }
-      </li>
-    </ol>
+      
+    
   
 
 这里使用了一个简单的例子说明了Prototype模式的对象创建过程与方法。里面省略了某些无关紧要的代码。

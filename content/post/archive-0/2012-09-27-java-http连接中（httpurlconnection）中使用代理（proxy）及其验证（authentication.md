@@ -57,13 +57,13 @@ http://blog.csdn.net/redhat456/article/details/6149774#
     
     
     <ol start="1">
-      <li>
+      
         http.proxyUserName=username
-      </li>
-      <li>
+      
+      
         http.proxyPassword=password
-      </li>
-    </ol>
+      
+    
   
   
     这两个属性。 这时就需要java.net.Authenticator类来完成一般的Http验证。但是java.net.Authenticator这个类却是个抽象类，我们要使用还需要实例化一下子自己的类。个人觉得这里很不方便。如下：
@@ -95,10 +95,10 @@ http://blog.csdn.net/redhat456/article/details/6149774#
     
     
     <ol start="1">
-      <li>
+      
         Authenticator.setDefault(new BasicAuthenticator(userName, password));
-      </li>
-    </ol>
+      
+    
   
   
   
@@ -128,13 +128,13 @@ http://blog.csdn.net/redhat456/article/details/6149774#
     
     
     <ol start="1">
-      <li>
+      
         Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(host, port));
-      </li>
-      <li>
+      
+      
         URLConnection conn = url.openConnection(proxy);
-      </li>
-    </ol>
+      
+    
   
   
   
@@ -158,27 +158,27 @@ http://blog.csdn.net/redhat456/article/details/6149774#
     
     
     <ol start="1">
-      <li>
+      
         //格式如下：
-      </li>
-      <li>
+      
+      
         "Proxy-Authorization"= "Basic Base64.encode(user:password)"
-      </li>
-      <li>
+      
+      
         String headerKey = "Proxy-Authorization";
-      </li>
-      <li>
+      
+      
         String headerValue = "Basic " + Base64.encode(user+":"+password);
-      </li>
-      <li>
+      
+      
         conn.setRequestProperty(headerKey, headerValue);
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
         //..........
-      </li>
-    </ol>
+      
+    
   
   
   

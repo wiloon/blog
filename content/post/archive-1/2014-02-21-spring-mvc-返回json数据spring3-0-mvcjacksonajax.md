@@ -33,31 +33,31 @@ jackson-mapper-asl-1.9.2.jar
   
   
   <ol start="1">
-    <li>
+    
       <!- 返回JSON模版 ->
-    </li>
-    <li>
+    
+    
       <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
-    </li>
-    <li>
+    
+    
           <property name="messageConverters">
-    </li>
-    <li>
+    
+    
           <list>
-    </li>
-    <li>
+    
+    
                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
-    </li>
-    <li>
+    
+    
           </list>
-    </li>
-    <li>
+    
+    
           </property>
-    </li>
-    <li>
+    
+    
       </bean>
-    </li>
-  </ol>
+    
+  
 
 我们在SPRING的配置中加入了一个新的适配器：AnnotationMethodHandlerAdapter，通过这个适配器，我们配置了一个属性，messageConverters，其中mappingJacksonHttpMessageConverter这个Bean，它就是用来处理json数据转换的。
   
@@ -72,42 +72,42 @@ jackson-mapper-asl-1.9.2.jar
   
   
   <ol start="1">
-    <li>
+    
       @Controller
-    </li>
-    <li>
+    
+    
       public class SelectController {
-    </li>
-    <li>
+    
+    
           @Resource
-    </li>
-    <li>
+    
+    
           private TypeService typeService;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           @RequestMapping("/type")
-    </li>
-    <li>
+    
+    
           @ResponseBody
-    </li>
-    <li>
+    
+    
           public Object type(){
-    </li>
-    <li>
+    
+    
               List<Type> typelist = this.typeService.getTypeByParentid(Const.TYPE_DAILY);
-    </li>
-    <li>
+    
+    
               return typelist;
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
+    
+    
       }
-    </li>
-  </ol>
+    
+  
 
 在SpringMVC中可以在Controller的某个方法上加**@ResponseBody**注解，表示该方法的返回结果直接写入HTTP response body中。
 

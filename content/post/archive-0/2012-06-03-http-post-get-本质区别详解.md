@@ -351,12 +351,12 @@ categories:
     
     
     <ul>
-      <li>
+      
         GET - 从指定的资源请求数据。
-      </li>
-      <li>
+      
+      
         POST - 向指定的资源提交要被处理的数据
-      </li>
+      
     </ul>
   
   
@@ -375,24 +375,24 @@ categories:
     
     
     <ul>
-      <li>
+      
         GET 请求可被缓存
-      </li>
-      <li>
+      
+      
         GET 请求保留在浏览器历史记录中
-      </li>
-      <li>
+      
+      
         GET 请求可被收藏为书签
-      </li>
-      <li>
+      
+      
         GET 请求不应在处理敏感数据时使用
-      </li>
-      <li>
+      
+      
         GET 请求有长度限制
-      </li>
-      <li>
+      
+      
         GET 请求只应当用于取回数据
-      </li>
+      
     </ul>
   
   
@@ -414,18 +414,18 @@ name1=value1&name2=value2
     
     
     <ul>
-      <li>
+      
         POST 请求不会被缓存
-      </li>
-      <li>
+      
+      
         POST 请求不会保留在浏览器历史记录中
-      </li>
-      <li>
+      
+      
         POST 不能被收藏为书签
-      </li>
-      <li>
+      
+      
         POST 请求对数据长度没有要求
-      </li>
+      
     </ul>
   
   

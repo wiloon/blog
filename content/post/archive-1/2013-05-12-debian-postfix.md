@@ -155,48 +155,48 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
 使用telnet检测110(POP3)和143(IMAP)端口
 
   <ol title="Double click to hide line number.">
-    <li>
+    
       telnet 127.0.0.1 110
-    </li>
-    <li>
+    
+    
       Trying 127.0.0.1...
-    </li>
-    <li>
+    
+    
       Connected to mail.centos.bz (127.0.0.1).
-    </li>
-    <li>
+    
+    
       Escape character is '^]'.
-    </li>
-    <li>
+    
+    
       +OK Dovecot ready.
-    </li>
-    <li>
+    
+    
       quit
-    </li>
-    <li>
+    
+    
       +OK Logging out
-    </li>
-    <li>
+    
+    
       Connection closed by foreign host.
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       telnet 127.0.0.1 143
-    </li>
-    <li>
+    
+    
       Trying 127.0.0.1...
-    </li>
-    <li>
+    
+    
       Connected to mail.centos.bz (127.0.0.1).
-    </li>
-    <li>
+    
+    
       Escape character is '^]'.
-    </li>
-    <li>
+    
+    
       * OK Dovecot ready.
-    </li>
-  </ol>
+    
+  
   
     9、给postfix加上如下配置
   

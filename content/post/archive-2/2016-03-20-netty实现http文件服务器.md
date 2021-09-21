@@ -334,7 +334,7 @@ sb.append("\r\n");
 
 sb.append("<ul>");
   
-sb.append("<li>..</li>\r\n");
+sb.append("..\r\n");
 
 for (File f : file.listFiles()) {
   
@@ -352,7 +352,7 @@ continue;
   
 }
 
-sb.append("<li><a href=\"");
+sb.append("<a href=\"");
   
 sb.append(name);
   
@@ -360,7 +360,7 @@ sb.append("\">");
   
 sb.append(name);
   
-sb.append("</li>\r\n");
+sb.append("\r\n");
 
 }
 

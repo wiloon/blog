@@ -36,25 +36,25 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
   
   
   <ol start="1">
-    <li>
+    
       <property name="locations">
-    </li>
-    <li>
+    
+    
                   <list>
-    </li>
-    <li>
+    
+    
                       <value>classpath:config/maxid.properties</value>
-    </li>
-    <li>
+    
+    
                       <value>classpath:config/jdoserver.properties</value>
-    </li>
-    <li>
+    
+    
                   </list>
-    </li>
-    <li>
+    
+    
       </property>
-    </li>
-  </ol>
+    
+  
 
 使用外部属性后如下: 
 
@@ -65,19 +65,19 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
   
   
   <ol start="1">
-    <li>
+    
       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    </li>
-    <li>
+    
+    
               <property name="driverClassName" value="${jdbc.agent.driver}"/>
-    </li>
-    <li>
+    
+    
               <property name="url" value="${jdbc.agent.main.url}"/>
-    </li>
-    <li>
+    
+    
           </bean>
-    </li>
-  </ol>
+    
+  
 
 PropertyOverrideConfigurer: 在spring所有的bean初使化以后，将bean的值强行改变
 
@@ -88,42 +88,42 @@ PropertyOverrideConfigurer: 在spring所有的bean初使化以后，将bean的�
   
   
   <ol start="1">
-    <li>
+    
       <bean id="configBean"
-    </li>
-    <li>
+    
+    
          class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
-    </li>
-    <li>
+    
+    
                <property name="location">
-    </li>
-    <li>
+    
+    
                    <value>hello.properties</value>
-    </li>
-    <li>
+    
+    
                </property>
-    </li>
-    <li>
+    
+    
            </bean>
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
            <bean id="helloBean" class="com.HelloBean">
-    </li>
-    <li>
+    
+    
                <property name="word">
-    </li>
-    <li>
+    
+    
                    <value>Hello!</value>
-    </li>
-    <li>
+    
+    
                </property>
-    </li>
-    <li>
+    
+    
            </bean>
-    </li>
-  </ol>
+    
+  
 
 定义HelloBean,注入word的值为hello.
 

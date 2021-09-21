@@ -275,7 +275,7 @@ javac -source 1.4 test.java
   
     setClassAssertionStatus: 用于开启/关闭某些类的assertion功能
   
-    clearAssertionStatus：用于关闭assertion功能</li> </ol> 
+    clearAssertionStatus：用于关闭assertion功能  
     
     
     
@@ -467,7 +467,7 @@ class Derived
           
         
         
-        通过这种方式，我们可以对函数计算完的结果进行检查。</li> 
+        通过这种方式，我们可以对函数计算完的结果进行检查。 
         
           * 检查程序不变量；有些程序中，存在一些不变量，在程序的运行生命周期，这些不变量的值都是不变的。这些不变量可能是一个简单表达式，也可能是一个复杂的表达式。对于一些关键的不变量，我们可以通过assert进行检查。 例如，在一个财会系统中，公司的支出和收入必须保持一定的平衡关系，因此我们可以编写一个表达式检查这种平衡关系，如下表示。
   
@@ -481,7 +481,7 @@ class Derived
               
             
             
-            在这个系统中，在一些可能影响这种平衡关系的方法的前后，我们都可以加上assert验证： `assert isBalance():"balance is destoried";`</li> </ol> 
+            在这个系统中，在一些可能影响这种平衡关系的方法的前后，我们都可以加上assert验证： `assert isBalance():"balance is destoried";`  
             
             
             

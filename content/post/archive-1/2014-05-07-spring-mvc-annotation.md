@@ -11,7 +11,7 @@ tags:
 
 ---
   * 参数处理（明确指定参数 匹配 自动转换类型） 
-    >>普通属性和对象及属性: @RequestParam("id")注解，所以它将和id的URL参数绑定</li> 
+    >>普通属性和对象及属性: @RequestParam("id")注解，所以它将和id的URL参数绑定 
     
       * 
       * **@RequestBody** 将HTTP请求正文转换为适合的HttpMessageConverter对象。
@@ -28,10 +28,10 @@ tags:
       
       
       
-        <li>
+        
           "form/{id}/apply", method = {RequestMethod.PUT, RequestMethod.POST})  
-        </li>
-      </ol>
+        
+      
     
     
     @PathVariable和@RequestParam的区别就在于: @RequestParam用来获得静态的URL请求入参
@@ -65,32 +65,32 @@ http://blog.csdn.net/walkerjong/article/details/7946109#
       
         
           @Controller <wbr /> <wbr />
-        </li>
-        <li>
+        
+        
           "/owners/{ownerId}") <wbr /> <wbr />
-        </li>
+        
         
           class <wbr />RelativePathUriTemplateC<wbr />ontroller <wbr />{ <wbr /> <wbr />
-        </li>
-        <li>
+        
+        
            <wbr /> <wbr />
-        </li>
+        
         
           "/pets/{petId}") <wbr /> <wbr />
-        </li>
-        <li>
+        
+        
           @PathVariable <wbr />String <wbr />petId, <wbr />Model <wbr />model) <wbr />{ <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr />
-        </li>
+        
         
           // <wbr />implementation <wbr />omitted <wbr /> <wbr />
-        </li>
-        <li>
+        
+        
            <wbr /> <wbr />} <wbr /> <wbr />
-        </li>
+        
         
           } <wbr /> <wbr />
-        </li>
-      </ol>
+        
+      
     
     
     上面代码把URI template 中变量 ownerId的值和petId的值，绑定到方法的参数上。若方法参数名称和需要绑定的uri template中变量名称不一致，需要在@PathVariable("name")指定uri template中的名称。

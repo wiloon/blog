@@ -79,83 +79,83 @@ public class UserAssignServiceTest extends BaseJunit4Test{
 
 
   <ol start="1">
-    <li>
+    
           @Resource  //自动注入,默认按名称
-    </li>
-    <li>
+    
+    
           private UserAssignService userAssignService;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           @Test   //标明是测试方法
-    </li>
-    <li>
+    
+    
           @Transactional   //标明此方法需使用事务
-    </li>
-    <li>
+    
+    
           @Rollback(false)  //标明使用完此方法后事务不回滚,true时为回滚
-    </li>
-    <li>
+    
+    
           public void testInsertUserAssign() {
-    </li>
-    <li>
+    
+    
               for(int i=0;i<10;i++){
-    </li>
-    <li>
+    
+    
                   UserAssign u=new UserAssign();
-    </li>
-    <li>
+    
+    
                   u.setAmount("7");
-    </li>
-    <li>
+    
+    
                   u.setCity(2);
-    </li>
-    <li>
+    
+    
                   u.setProvince(1);
-    </li>
-    <li>
+    
+    
                   u.setCompany("宜信");
-    </li>
-    <li>
+    
+    
                   u.setCreate_date(DateUtil.getCurrentTimeSecond());
-    </li>
-    <li>
+    
+    
                   u.setCreator(0);
-    </li>
-    <li>
+    
+    
                   u.setEmail("1133@163.com");
-    </li>
-    <li>
+    
+    
                   u.setOper_date(DateUtil.getCurrentTimeSecond());
-    </li>
-    <li>
+    
+    
                   u.setPosition("工人");
-    </li>
-    <li>
+    
+    
                   u.setOperator(0);
-    </li>
-    <li>
+    
+    
                   u.setQudao("2");
-    </li>
-    <li>
+    
+    
                   u.setUsername("张"+i);
-    </li>
-    <li>
+    
+    
                   userAssignService.insertUserAssign(u);
-    </li>
-    <li>
+    
+    
                   Assert.assertNotNull(u.getId());
-    </li>
-    <li>
+    
+    
               }
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       }
-    </li>
-  </ol>
+    
+  

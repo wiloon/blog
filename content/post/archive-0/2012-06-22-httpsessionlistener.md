@@ -31,108 +31,108 @@ categories:
  
     
     <ol start="1">
-      <li>
+      
         import javax.servlet.http.HttpSessionListener;
-      </li>
-      <li>
+      
+      
         import javax.servlet.http.HttpSessionEvent;
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
         public class SessionCounter implements HttpSessionListener {
-      </li>
-      <li>
+      
+      
         private static int activeSessions =0;
-      </li>
-      <li>
+      
+      
         /* Session创建事件 */
-      </li>
-      <li>
+      
+      
         public void sessionCreated(HttpSessionEvent se) {
-      </li>
-      <li>
+      
+      
               ServletContext ctx = event.getSession( ).getServletContext( );
-      </li>
-      <li>
+      
+      
                 Integer numSessions = (Integer) ctx.getAttribute("numSessions");
-      </li>
-      <li>
+      
+      
                 if (numSessions == null) {
-      </li>
-      <li>
+      
+      
                     numSessions = new Integer(1);
-      </li>
-      <li>
+      
+      
                 }
-      </li>
-      <li>
+      
+      
                 else {
-      </li>
-      <li>
+      
+      
                     int count = numSessions.intValue( );
-      </li>
-      <li>
+      
+      
                     numSessions = new Integer(count + 1);
-      </li>
-      <li>
+      
+      
                 }
-      </li>
-      <li>
+      
+      
                 ctx.setAttribute("numSessions", numSessions);
-      </li>
-      <li>
+      
+      
         }
-      </li>
-      <li>
+      
+      
         /* Session失效事件 */
-      </li>
-      <li>
+      
+      
         public void sessionDestroyed(HttpSessionEvent se) {
-      </li>
-      <li>
+      
+      
          ServletContext ctx=se.getSession().getServletContext();
-      </li>
-      <li>
+      
+      
          Integer numSessions = (Integer)ctx.getAttribute("numSessions");
-      </li>
-      <li>
+      
+      
         <span class="oblog_text">        if(numSessions == null)
-      </li>
-      <li>
+      
+      
                     numSessions = new Integer(0);
-      </li>
-      <li>
+      
+      
                 }
-      </li>
-      <li>
+      
+      
                 else {
-      </li>
-      <li>
+      
+      
                     int count = numSessions.intValue( );
-      </li>
-      <li>
+      
+      
                     numSessions = new Integer(count - 1);
-      </li>
-      <li>
+      
+      
                 }
-      </li>
-      <li>
+      
+      
                 ctx.setAttribute("numSessions", numSessions);
-      </li>
-      <li>
-      </li>
-      <li>
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
+      
+      
+      
+      
         }
-      </li>
-      <li>
+      
+      
         }
-      </li>
-    </ol>
+      
+    
   
   
     在这个解决方案中，任何一个Session被创建或者销毁时，都会通知SessionCounter 这个类，当然通知的原因是必须在web.xml文件中做相关的配置工作。如下面的配置代码：
@@ -142,16 +142,16 @@ categories:
   
     
     <ol start="1">
-      <li>
+      
         <listener>
-      </li>
-      <li>
+      
+      
             <listener-class>demo.listener.SessionCounter</listener-class>
-      </li>
-      <li>
+      
+      
         </listener>
-      </li>
-    </ol>
+      
+    
   
   
     以下两种情况下就会发生sessionDestoryed（会话销毁）事件：
@@ -163,28 +163,28 @@ categories:
   
     
     <ol start="1">
-      <li>
+      
         public void doGet(HttpServletRequest request,HttpServletResponse response)
-      </li>
-      <li>
+      
+      
             throws ServletException, IOException {
-      </li>
-      <li>
+      
+      
             // 销毁session
-      </li>
-      <li>
+      
+      
             request.getSession().invalidate();
-      </li>
-      <li>
+      
+      
             // 成功
-      </li>
-      <li>
+      
+      
             response.sendRedirect("index.jsp");
-      </li>
-      <li>
+      
+      
         }
-      </li>
-    </ol>
+      
+    
   
   
   
@@ -197,16 +197,16 @@ categories:
  
     
     <ol start="1">
-      <li>
+      
         <session-config>
-      </li>
-      <li>
+      
+      
             <session-timeout>1</session-timeout>
-      </li>
-      <li>
+      
+      
         </session-config>
-      </li>
-    </ol>
+      
+    
   
   
   
@@ -224,49 +224,49 @@ categories:
   
  
     <ol start="1">
-      <li>
+      
         public class ShopSessionListener implements HttpSessionListener {
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
             public void sessionCreated(HttpSessionEvent se) {
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
             }
-      </li>
-      <li>
+      
+      
             public void sessionDestroyed(HttpSessionEvent se) {
-      </li>
-      <li>
+      
+      
                 String sessionid = se.getSession().getId();
-      </li>
-      <li>
+      
+      
                 EopSite site  =(EopSite)ThreadContextHolder.getSessionContext().getAttribute("site_key");
-      </li>
-      <li>
-      </li>
-      <li>
+      
+      
+      
+      
                 if(site!=null){
-      </li>
-      <li>
+      
+      
                 ICartManager cartManager = SpringContextHolder.getBean("cartManager");
-      </li>
-      <li>
+      
+      
                 cartManager.clean(sessionid,site.getUserid(),site.getId());
-      </li>
-      <li>
+      
+      
                 }
-      </li>
-      <li>
+      
+      
             }
-      </li>
-      <li>
+      
+      
         }
-      </li>
-    </ol>
+      
+    
   
   
   

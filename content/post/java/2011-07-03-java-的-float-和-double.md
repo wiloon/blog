@@ -75,38 +75,38 @@ double(64位):
 
 以下程序可以得出 20014999 在 double 和 float 下的二进制表示方式。
 
-  <ol>
-    <li>
+  
+    
       public class FloatDoubleTest3 {
-    </li>
-    <li>
+    
+    
       public static void main(String[] args) {
-    </li>
-    <li>
+    
+    
       double d = 8;
-    </li>
-    <li>
+    
+    
       long l = Double.doubleToLongBits(d);
-    </li>
-    <li>
+    
+    
       System.out.println(Long.toBinaryString(l));
-    </li>
-    <li>
+    
+    
       float f = 8;
-    </li>
-    <li>
+    
+    
       int i = Float.floatToIntBits(f);
-    </li>
-    <li>
+    
+    
       System.out.println(Integer.toBinaryString(i));
-    </li>
-    <li>
+    
+    
       }
-    </li>
-    <li>
+    
+    
       }
-    </li>
-  </ol>
+    
+  
 
 
 输出结果如下：

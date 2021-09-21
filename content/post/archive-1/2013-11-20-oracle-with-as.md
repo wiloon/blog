@@ -26,37 +26,37 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
   
   
   <ol start="1">
-    <li>
+    
       with
-    </li>
-    <li>
+    
+    
       sql1 as (select to_char(a) s_name from test_tempa),
-    </li>
-    <li>
+    
+    
       sql2 as (select to_char(b) s_name from test_tempb where not exists (select s_name from sql1 where rownum=1))
-    </li>
-    <li>
+    
+    
       select * from sql1
-    </li>
-    <li>
+    
+    
       union all
-    </li>
-    <li>
+    
+    
       select * from sql2
-    </li>
-    <li>
+    
+    
       union all
-    </li>
-    <li>
+    
+    
       select 'no records' from dual
-    </li>
-    <li>
+    
+    
              where not exists (select s_name from sql1 where rownum=1)
-    </li>
-    <li>
+    
+    
              and not exists (select s_name from sql2 where rownum=1);
-    </li>
-  </ol>
+    
+  
 
 再举个简单的例子
 
@@ -180,263 +180,263 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
   
   
   <ol start="1">
-    <li>
+    
       SQL> create table t2(id int);
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       Table created.
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> create table t3(id int);
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       Table created.
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> insert into t2 values(1);
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       1 row created.
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> insert into t2 values(2);
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       1 row created.
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> insert into t3 values(3);
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       1 row created.
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> commit;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       Commit complete.
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> select * from t2;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
               ID
-    </li>
-    <li>
+    
+    
       ----
-    </li>
-    <li>
+    
+    
                1
-    </li>
-    <li>
+    
+    
                2
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> select * from t3;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
               ID
-    </li>
-    <li>
+    
+    
       ----
-    </li>
-    <li>
+    
+    
                3
-    </li>
-    <li>
+    
+    
       SQL> with
-    </li>
-    <li>
+    
+    
         2  sql1 as (select * from t2),
-    </li>
-    <li>
+    
+    
         3  sql2 as (select * from t3)
-    </li>
-    <li>
+    
+    
         4  select * from t2
-    </li>
-    <li>
+    
+    
         5  union
-    </li>
-    <li>
+    
+    
         6  select * from t3;
-    </li>
-    <li>
+    
+    
       sql2 as (select * from t3)
-    </li>
-    <li>
+    
+    
                              *
-    </li>
-    <li>
+    
+    
       ERROR at line 3:
-    </li>
-    <li>
+    
+    
       ORA-32035: unreferenced query name defined in WITH clause
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       -从这里可以看到，你定义了sql1和sql2，就得用它们哦，不然会报错的。
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> with
-    </li>
-    <li>
+    
+    
         2  sql1 as (select * from t2),
-    </li>
-    <li>
+    
+    
         3  sql2 as (select * from t3)
-    </li>
-    <li>
+    
+    
         4  select * from sql1
-    </li>
-    <li>
+    
+    
         5  union
-    </li>
-    <li>
+    
+    
         6  select * from sql2;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
               ID
-    </li>
-    <li>
+    
+    
       ----
-    </li>
-    <li>
+    
+    
                1
-    </li>
-    <li>
+    
+    
                2
-    </li>
-    <li>
+    
+    
                3
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       -下面加个WHERE条件试试
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> with
-    </li>
-    <li>
+    
+    
         2  sql1 as (select * from t2),
-    </li>
-    <li>
+    
+    
         3  sql2 as (select * from t3)
-    </li>
-    <li>
+    
+    
         4  select * from sql1
-    </li>
-    <li>
+    
+    
         5  union
-    </li>
-    <li>
+    
+    
         6  select * from sql2
-    </li>
-    <li>
+    
+    
         7  where id in(2,3);
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
               ID
-    </li>
-    <li>
+    
+    
       ----
-    </li>
-    <li>
+    
+    
                1
-    </li>
-    <li>
+    
+    
                2
-    </li>
-    <li>
+    
+    
                3
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       -奇怪？为什么加了WHERE条件还是输出ID=1的记录了，继续往下看: 
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       SQL> with
-    </li>
-    <li>
+    
+    
         2  sql1 as (select * from t2),
-    </li>
-    <li>
+    
+    
         3  sql2 as (select * from t3)
-    </li>
-    <li>
+    
+    
         4  select * from sql1
-    </li>
-    <li>
+    
+    
         5  where id=3
-    </li>
-    <li>
+    
+    
         6  union
-    </li>
-    <li>
+    
+    
         7  select * from sql2
-    </li>
-    <li>
+    
+    
         8  where id=3;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
               ID
-    </li>
-    <li>
+    
+    
       ----
-    </li>
-    <li>
+    
+    
                3
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       -可以看到，每个条件是要针对每个SELECT语句的。
-    </li>
-  </ol>
+    
+  
 
 好了就先记这些吧，以后看到了新的用法再补充。

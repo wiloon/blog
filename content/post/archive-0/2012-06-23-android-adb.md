@@ -598,18 +598,18 @@ adb shell
       
       
       <ul>
-        <li>
+        
           tcp:<portnum>
-        </li>
-        <li>
+        
+        
           local:<UNIX domain socket name>
-        </li>
-        <li>
+        
+        
           dev:<character device name>
-        </li>
-        <li>
+        
+        
           jdwp:<pid>
-        </li>
+        
       </ul>
     
   
@@ -627,12 +627,12 @@ adb shell
       
       
       <ul>
-        <li>
+        
           <tty> — the tty for PPP stream. For exampledev:/dev/omap_csmi_ttyl.
-        </li>
-        <li>
+        
+        
           [parm]… &mdash zero or more PPP/PPPD options, such as defaultroute ,local , notty , etc.
-        </li>
+        
       </ul>
       
       

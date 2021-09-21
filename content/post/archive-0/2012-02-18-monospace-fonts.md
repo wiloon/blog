@@ -22,27 +22,27 @@ Monospace fonts (Such as Courier or LetterGothic), or "fixed pitch" fonts, conta
   
     
       <ul>
-        <li>
+        
           Crisp clear characters.
-        </li>
-        <li>
+        
+        
           Extended characterset.
-        </li>
-        <li>
+        
+        
           Good use of whitespace.
-        </li>
-        <li>
+        
+        
           'l', '1' and 'i' are easily distinguished
-        </li>
-        <li>
+        
+        
           '0', 'o' and 'O' are easily distinguished
-        </li>
-        <li>
+        
+        
           forward quotes from back quotes are easily distinguished -prefer mirrored appearance
-        </li>
-        <li>
+        
+        
           Clear punctuation characters, especially braces, parenthesis and brackets
-        </li>
+        
       </ul>
     
   

@@ -19,16 +19,16 @@ categories:
   
   
   <ol start="1">
-    <li>
+    
       var content = $('#content').val();
-    </li>
-    <li>
+    
+    
       if(content.trim() == ")
-    </li>
-    <li>
+    
+    
          alert('空');
-    </li>
-  </ol>
+    
+  
 
 上面的写法在firefox下不会报错，但在ie下确会报错
   
@@ -41,16 +41,16 @@ categories:
   
   
   <ol start="1">
-    <li>
+    
       var content = $('#content').val();
-    </li>
-    <li>
+    
+    
       if($.trim(content) == ")
-    </li>
-    <li>
+    
+    
         alert('空');
-    </li>
-  </ol>
+    
+  
 
 或者为:
 
@@ -61,16 +61,16 @@ categories:
   
   
   <ol start="1">
-    <li>
+    
       var content = $('#content').val();
-    </li>
-    <li>
+    
+    
       if(jQuery.trim(content) == ")
-    </li>
-    <li>
+    
+    
        alert('空');
-    </li>
-  </ol>
+    
+  
   
     http://vsp.iteye.com/blog/1262441
   

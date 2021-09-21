@@ -716,7 +716,7 @@ grep -E '219|216' data.doc
 grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母结尾的行
 
 <ol start="5">
-  <li>
+  
     Grep命令选项
  -?
  同时显示匹配行上下的？行，如：grep -2 pattern filename同时显示匹配行的上下2行。
@@ -746,13 +746,13 @@ grep '5[[:upper:]][[:upper:]]' data.doc #查询以5开头以两个大写字母�
  如果被引用，就把表达式做为一个单词搜索。
  -V，–version
  显示软件版本信息。
-  </li>
-  <li>
+  
+  
     
       grep简介
     
-  </li>
-</ol>
+  
+
 
 grep （global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。Linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。
 
@@ -761,7 +761,7 @@ grep的工作方式是这样的，它在一个或多个文件中搜索字符串�
 grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索的状态，如果模板搜索成功，则返回0，如果搜索不成功，则返回1，如果搜索的文件不存在，则返回2。我们利用这些返回值就可进行一些自动化的文本处理工作。
 
 <ol start="2">
-  <li>
+  
     grep正则表达式元字符集（基本集）
  ^
  锚定行的开始 如：'^grep'匹配所有以grep开头的行。
@@ -791,8 +791,8 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  w的反置形式，匹配一个或多个非单词字符，如点号句号等。
  b
  单词锁定符，如: 'bgrepb'只匹配grep。
-  </li>
-  <li>
+  
+  
     用于egrep和 grep -E的元字符扩展集
  +
  匹配一个或多个先前的字符。如：'[a-z]+able'，匹配一个或多个小写字母后跟able的串，如loveable,enable,disable等。
@@ -831,9 +831,9 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  [:xdigit:]
  十六进制数字（0-9，a-f，A-F）
     
-  </li>
   
-  <li>
+  
+  
     
       实例
  要用好grep这个工具，其实就是要写好正则表达式，所以这里不对grep的所有功能进行实例讲解，只列几个例子，讲解一个正则表达式的写法。
@@ -848,8 +848,8 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  $ grep 'w(es)t.' aa
  如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符（.），这些字符后面紧跟着另外一个es（），找到就显示该行。如果用egrep或grep -E，就不用""号进行转义，直接写成'w(es)t.*'就可以了。
     
-  </li>
-</ol>
+  
+
 
 http://www.cnblogs.com/end/archive/2012/02/21/2360965.htm
   

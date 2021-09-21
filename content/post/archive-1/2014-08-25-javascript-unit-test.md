@@ -92,7 +92,7 @@ equal( sum, "2", "We expect value to be 2" );
   
 <h2 id="qunit-userAgent">
   
-<ol id="qunit-tests"></ol>
+<ol id="qunit-tests">
   
 test markup, will be hidden
   

@@ -50,28 +50,28 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
   
   
   <ol start="1">
-    <li>
+    
       public class User {
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           private String email;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           private String password;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           // 省略了setter和getter方法
-    </li>
-    <li>
+    
+    
       }
-    </li>
-  </ol>
+    
+  
 
 紧接着是一个简单的JSP表单: 
 
@@ -82,22 +82,22 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
   
   
   <ol start="1">
-    <li>
+    
       <form method="post" action="/register">
-    </li>
-    <li>
+    
+    
       <label>Email:</label><input type="text" name="email" />
-    </li>
-    <li>
+    
+    
       <label>Password:</label><input type="password" name="password" />
-    </li>
-    <li>
+    
+    
       <input type="submit" value="submit" />
-    </li>
-    <li>
+    
+    
       </form>
-    </li>
-  </ol>
+    
+  
 
 上述这两段代码无论是SpringMVC还是Struts2，都可以共用。而在请求响应处理类（也就是Controller）上的设计差异是两个框架最大的不同。
 
@@ -110,38 +110,38 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
   
   
   <ol start="1">
-    <li>
+    
       @Controller
-    </li>
-    <li>
+    
+    
       @RequestMapping
-    </li>
-    <li>
+    
+    
       public class UserController {
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           @RequestMapping("/register")
-    </li>
-    <li>
+    
+    
           public ModelAndView register(String email, String password) {
-    </li>
-    <li>
+    
+    
               // 在这里调用具体的业务逻辑代码
-    </li>
-    <li>
+    
+    
               return new ModelAndView("register-success");
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       }
-    </li>
-  </ol>
+    
+  
 
 如果使用Struts2，那么Controller的代码看上去就稍有不同: 
 
@@ -152,44 +152,44 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
   
   
   <ol start="1">
-    <li>
+    
       public class UserController {
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           private String email;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           private String password;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           public String register() {
-    </li>
-    <li>
+    
+    
               // 在这里调用具体的业务逻辑代码
-    </li>
-    <li>
+    
+    
               return "register-success";
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           // 这里省略了setter和getter方法
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       }
-    </li>
-  </ol>
+    
+  
 
 除此之外，Struts2还需要在某个配置文件中进行请求映射的配置: 
 
@@ -200,16 +200,16 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
   
   
   <ol start="1">
-    <li>
+    
       
-    </li>
-    <li>
+    
+    
           <result name="success">/register-success.jsp</result>
-    </li>
-    <li>
+    
+    
       </action>
-    </li>
-  </ol>
+    
+  
 
 从上面的代码示例中，我们可以为整个MVC模型的实现总结归纳出一些特点: 
 
@@ -240,22 +240,22 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
   
   
   <ol start="1">
-    <li>
+    
       <form t:type="form" t:id="form">
-    </li>
-    <li>
+    
+    
       <t:label for="email"/>:<input t:type="TextField" t:id="email" t:validate="required,minlength=3" size="30"/>
-    </li>
-    <li>
+    
+    
       <t:label for="password"/>:<input t:type="PasswordField" t:id="password" t:validate="required,minlength=3" size="30"/>
-    </li>
-    <li>
+    
+    
       <input type="submit" value="Login"/>
-    </li>
-    <li>
+    
+    
       </form>
-    </li>
-  </ol>
+    
+  
 
 在这里，请求的页面不再是原生的HTML代码，而是一个扩展后的HTML，这一扩展包含了对HTML标签的扩展（增加了新的标签，例如<t:label>），也包含了对HTML自身标签中属性的扩展（增加新的支持属性，例如t:type，t:validate）。
 
@@ -268,54 +268,54 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
   
   
   <ol start="1">
-    <li>
+    
       public class Register {
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           private String email;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           private String password;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           @Component(id = "password")
-    </li>
-    <li>
+    
+    
           private PasswordField passwordField;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           @Component
-    </li>
-    <li>
+    
+    
           private Form form;
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           String onSuccess() {
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
               return "PostRegister";
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           // 这里省略了setter和getter方法
-    </li>
-  </ol>
+    
+  
 
 从上面的代码示例中，我们可以看到一些与MVC模型截然不同的特点: 
 
@@ -385,10 +385,10 @@ Struts1.X是一个较为早期的MVC框架实现，它的历史最早可以追�
   
   
   <ol start="1">
-    <li>
+    
       public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response);
-    </li>
-  </ol>
+    
+  
 
 如果和之前的Servlet模型加以比较我们就可以发现，Struts1.X对于基本的Servlet模型做了一定的扩展和重构: 
 
@@ -419,37 +419,37 @@ MVC模型发展到了这里，我们可以看到响应方法中的"返回值"已
   
   
   <ol start="1">
-    <li>
+    
       public class UserController {
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           private User user
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           public String execute() {
-    </li>
-    <li>
+    
+    
               // 这里加入业务逻辑代码
-    </li>
-    <li>
+    
+    
               return "success";
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           // 这里省略了setter和getter方法
-    </li>
-    <li>
+    
+    
       }
-    </li>
-  </ol>
+    
+  
 
 从上面的代码中，我们可以看到Webwork2 / Struts2对于Controller最大的改造有两点: 
 
@@ -479,38 +479,38 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
   
   
   <ol start="1">
-    <li>
+    
       @Controller
-    </li>
-    <li>
+    
+    
       @RequestMapping
-    </li>
-    <li>
+    
+    
       public class UserController {
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
           @RequestMapping("/register")
-    </li>
-    <li>
+    
+    
           public ModelAndView register(String email, String password) {
-    </li>
-    <li>
+    
+    
               // 在这里调用具体的业务逻辑代码
-    </li>
-    <li>
+    
+    
               return new ModelAndView("register-success");
-    </li>
-    <li>
+    
+    
           }
-    </li>
-    <li>
-    </li>
-    <li>
+    
+    
+    
+    
       }
-    </li>
-  </ol>
+    
+  
 
 我们在这里引用了在之前的讲解中曾经使用过的代码片段。不过这一代码片段刚刚好可以说明SpringMVC在整个Controller改造中所涉及到的一些要点: 
 

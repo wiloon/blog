@@ -29,10 +29,10 @@ Markdown 模式将常用的编辑命令都绑定到了特定的组合键上，�
   * C-c C-t t 插入 underline 样式的标题，这是一级。
   * C-c C-t s 同上，这是二级。
   * C-c C-a l 插入链接，格式为 [text][/text] 
-    `(url)`。</li> 
+    `(url)`。 
     
       * C-c C-i i 插入图像，格式为 `<code>!`</code>[text][/text] 
-        `(url)`。</li> 
+        `(url)`。 
         
           * C-c C-s b 插入引用内容。
           * C-c C-s c 插入代码。

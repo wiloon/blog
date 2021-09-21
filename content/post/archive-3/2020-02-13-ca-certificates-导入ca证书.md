@@ -45,36 +45,36 @@ Fedora系统可以采用如下命令安装:
 $ yum install ca-certificates
 
 <ol start="2">
-  <li>
+  
     Make sure you have certificates in PEM format, with the .crt extension. For the purpose of this example the certificate file will be named Example Root.ca
-  </li>
-</ol>
+  
+
 
 2.确认您要安装的证书文件是PEM格式，后缀名是.crt。例如Root.ca
 
 <ol start="3">
-  <li>
+  
     Create a subdirectory within the /usr/share/ca-certificates/ directory. For the purpose of this example the directory will be named example.com. Place the certificate authority certificate into this subdirectory.
-  </li>
-</ol>
+  
+
 
 3.建议在 /usr/share/ca-certificates/ 目录下创建单独的目录来保存您的CA证书文件。例如/usr/share/ca-certificates/example.com/Example Root.ca
 
 <ol start="4">
-  <li>
+  
     Append a new line listing the relative path (to the /usr/share/ca-certificates/ directory) to the certificate you just copied to the file /etc/ca-certificates.conf. For the purpose of this example the line will be：
-  </li>
-</ol>
+  
+
 
 4.在 /etc/ca-certificates.conf文件中添加一行：您的证书文件去除 /usr/share/ca-certificates/ 目录后的相对路径。例如针对上面的例子，就只需要添加
   
 example.com/Example Root.ca
 
 <ol start="5">
-  <li>
+  
     Finally, run the update-ca-certificates command as root in order to have it regenerate the /etc/ssl/certs directory to reflect the new changes.
-  </li>
-</ol>
+  
+
 
 5.最后，用root权限运行update-ca-certificates 命令，它会重新收集证书并更新 /etc/ssl/certs/ca-certificates.crt文件
 

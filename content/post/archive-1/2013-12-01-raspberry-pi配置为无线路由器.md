@@ -25,18 +25,18 @@ tags:
     
     
     <ul>
-      <li>
+      
         RaspberryPi B版（就是带有线网卡的那个版），内存512/256都可以，我的是256的。
-      </li>
-      <li>
+      
+      
         一个已经可以正常运行的SD卡，这个如何准备我在我的另外一篇随笔当中提到过，所以这里不再赘述。
-      </li>
-      <li>
+      
+      
         一个可以支持AP模式的无线网卡。
-      </li>
-      <li>
+      
+      
         有线网卡也得联网。
-      </li>
+      
     </ul>
     
     
@@ -44,15 +44,15 @@ tags:
     
     
     <ul>
-      <li>
+      
         如果你是无显示器运行的，则需要会使用nano（vi也可以）
-      </li>
-      <li>
+      
+      
         如果你是有显示器运行的，那么可以在图形界面下面以root或者sudo来运行文本编辑器
-      </li>
-      <li>
+      
+      
         总之，就是你得会编辑文本文件才可以进行下面的操作。
-      </li>
+      
     </ul>
     
     
@@ -60,15 +60,15 @@ tags:
     
     
     <ul>
-      <li>
+      
         Edimax  不支持 Access Point
-      </li>
-      <li>
+      
+      
         AirLink 101 / AWL5088 不支持 Access Point
-      </li>
-      <li>
+      
+      
         Ralink RT5370 支持 Access Point
-      </li>
+      
     </ul>
     
     
@@ -90,29 +90,29 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
     
     
     <ul>
-      <li>
+      
         打开WiFi
-      </li>
-      <li>
+      
+      
         指定IP，也就是建立一个WiFi局域网
-      </li>
-      <li>
+      
+      
         使用NAT，也就是能让你WiFi网络和有线网络可以通信。
-      </li>
+      
     </ul>
     
     
       正文开始了：
     
     
-    <ol>
-      <li>
+    
+      
         安装软件 
           sudo apt-get install hostapd udhcpd
         
-      </li>
       
-      <li>
+      
+      
         配置DHCP，也就是编辑文件/etc/udhcpd.conf ，基本上按照下列内容来做： 
           
             <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
@@ -156,9 +156,9 @@ netmask 255.255.255.0
         
         
         
-          </li> 
+           
           
-          <li>
+          
             配置hostapd。在这一部你就可以创建一个无线网络，可以选加密或者不加密模式。建议选择WPA2加密，那么你需要编辑/etc/hostapd/hostapd.conf文件（若不存在则需要手动创建） 
               
                 按 Ctrl+C 复制代码
@@ -242,9 +242,9 @@ wmm_enabled=0
             
             
             
-              </li> 
+               
               
-              <li>
+              
                 配置NAT，也就是路由了首先编辑/etc/sysctl.conf文件，主要是打开ipv4的转发功能。 
                   net.ipv4.ip_forward=1
                 
@@ -276,9 +276,9 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
                 
                 
                 
-                  </li> 
+                   
                   
-                  <li>
+                  
                     启动服务，看看你的无线是否搭建好了？运行一下命令： 
                       sudo service hostapd start
 
@@ -294,7 +294,7 @@ sudo service udhcpd start
 sudo update-rc.d udhcpd enable
 
                     
-                      </li> </ol> 
+                        
                       
                       
                         当然，最开始用8188CUS的时候参考的是 http://sirlagz.net/2012/08/09/how-to-use-the-raspberry-pi-as-a-wireless-access-pointrouter-part-1/
