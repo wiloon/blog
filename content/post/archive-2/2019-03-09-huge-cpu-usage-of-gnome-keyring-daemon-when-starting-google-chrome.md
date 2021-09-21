@@ -12,10 +12,10 @@ categories:
 google-chrome --password-store:basic
 ```
 
-<blockquote class="wp-embedded-content" data-secret="NSkQcrRM22">
+
   
     How to prevent the huge CPU usage of gnome-keyring-daemon when starting Google Chrome
   
-</blockquote>
+
 
 https://www.andreafortuna.org/technology/linux/how-to-prevent-the-huge-cpu-usage-of-gnome-keyring-daemon-when-starting-google-chrome/embed/#?secret=NSkQcrRM22

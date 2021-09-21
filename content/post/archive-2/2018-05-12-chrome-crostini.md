@@ -30,11 +30,11 @@ Launch a container run_container.sh -container_name=stretch -user=wiloon -shell
 
 <https://www.youtube.com/watch?v=s9mrR2tqVbQ>
 
-<blockquote class="reddit-card" >
+
   
     Crostini 101 from Crostini
   
-</blockquote>
+
   
 https://github.com/lstoll/cros-crostini/blob/master/README.md
   

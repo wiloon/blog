@@ -8,21 +8,21 @@ categories:
   - Uncategorized
 
 ---
-<blockquote class="wp-embedded-content" data-secret="dymLQPYWmm">
+
   
     Root Android Q on Google Pixel 2, Google Pixel
   
-</blockquote>
+
 
 https://www.teamandroid.com/2019/03/17/root-android-q-beta-google-pixel-2-pixel/embed/#?secret=dymLQPYWmm
 
 线刷 android 10
 
-<blockquote class="wp-embedded-content" data-secret="Im4BCxWQUv">
+
   
     安卓线刷升级 flash factory image for android device
   
-</blockquote>
+
 
 http://blog.wiloon.com/?p=7296&embed=true#?secret=Im4BCxWQUv
 

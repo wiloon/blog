@@ -8,11 +8,11 @@ categories:
   - Uncategorized
 
 ---
-<blockquote class="wp-embedded-content" data-secret="5PpVVMPtJf">
+
   
     敏捷实践之Desk Check
   
-</blockquote>
+
 
 http://insights.thoughtworkers.org/desk-check/embed/#?secret=5PpVVMPtJf
 

@@ -1,11 +1,8 @@
 ---
 title: words, wording
 author: "-"
-type: post
 date: 2011-07-29T13:27:07+00:00
-url: /?p=378
-bot_views:
-  - 4
+url: wording
 categories:
   - L
 

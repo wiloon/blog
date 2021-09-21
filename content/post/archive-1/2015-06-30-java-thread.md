@@ -393,13 +393,13 @@ http://www.iteye.com/topic/1119957
   
 https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503
 
-<blockquote data-secret="1A90iIEGUv" class="wp-embedded-content">
+
   
     Linux系统日志–syslog
   
-</blockquote>
 
-</iframe>
+
+
 
  [1]: http://orwbur8sk.bkt.clouddn.com/javaSE_%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E6%96%B9%E6%B3%95%E4%B8%8E%E7%8A%B6%E6%80%81%E5%85%B3%E7%B3%BB%E7%A4%BA%E6%84%8F%E5%9B%BE.png
 

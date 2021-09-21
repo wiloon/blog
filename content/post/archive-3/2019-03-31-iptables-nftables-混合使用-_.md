@@ -16,20 +16,19 @@ archlinux nftables 默认规则 禁止转发 （forward）
 
 ### iptables trace
 
-<blockquote class="wp-embedded-content" data-secret="iTzOKBoIhX">
+
   
     iptables调试， raw表， LOG
   
-</blockquote>
 
-</iframe>
+
+
 
 ### nftables trace
 
-<blockquote class="wp-embedded-content" data-secret="Qo3n5H6Ki8">
+
   
     nftables trace
   
-</blockquote>
 
-</iframe>
+

@@ -121,11 +121,11 @@ https://wiki.archlinux.org/index.php/Chrome_OS_devices#Installing_Arch_Linux
   
 https://wiki.archlinux.org/index.php/Installation_guide
 
-<blockquote class="wp-embedded-content" data-secret="FlRlWw6ut3">
+
   
     archlinux install
   
-</blockquote>
+
 
 http://blog.wiloon.com/?p=7821
   

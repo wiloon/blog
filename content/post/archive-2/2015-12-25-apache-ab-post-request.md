@@ -142,11 +142,11 @@ http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%
 
  
 
-<blockquote class="wp-embedded-content" data-secret="uK0hS4Tawl">
+
   
     （总结）Web性能压力测试工具之ApacheBench（ab）详解
   
-</blockquote>
+
 
 http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl
 

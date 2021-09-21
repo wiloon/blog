@@ -347,11 +347,11 @@ PS: 如果是 location ~* ^/start/(.*).html 这种正则的location，是不能�
 ### location匹配顺序
 https://www.jianshu.com/p/38810b49bc29
 
-<blockquote class="wp-embedded-content" data-secret="1NahDK0zlm">
+
   
     nginx.conf
   
-</blockquote>
+
 
 https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm
 

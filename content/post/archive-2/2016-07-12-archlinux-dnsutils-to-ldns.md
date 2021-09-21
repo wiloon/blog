@@ -43,10 +43,10 @@ Please update your packages to depend on ldns instead (already in [core]).
 
 While dnsutils provided three similar DNS query tools (dig, host, nslookup), ldns provides drill, a near-drop-in replacement for dig (which can therefore easily replace host and nslookup too). To update, you must replace all calls to dig/host/nslookup in your packages to calls to drill. Simple calls such as `dig archlinux.org` can simply be rewritten as `drill archlinux.org`; see `drill -h` for more details and please contact me if you cannot figure out how to migrate.
 
-<blockquote class="wp-embedded-content" data-secret="9AchPRSDEE">
+
   
     《dig挖出DNS的秘密》-linux命令五分钟系列之三十四
   
-</blockquote>
+
 
 http://roclinux.cn/?p=2449&embed=true#?secret=9AchPRSDEE

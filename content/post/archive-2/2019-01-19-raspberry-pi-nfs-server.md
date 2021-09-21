@@ -65,12 +65,12 @@ https://wiki.archlinux.org/index.php/NFS#Mount_using_autofs
   
 https://wiki.archlinux.org/index.php/Autofs#Configuration
 
-<blockquote class="wp-embedded-content" data-secret="QDWVDOBQOH">
+
   
     NFS文件共享权限问题与autofs的自动挂载等
   
-</blockquote>
 
-</iframe>
+
+
   
 https://mp.weixin.qq.com/s?__biz=MjM5NjQ4MjYwMQ==&mid=2664612263&idx=1&sn=d4a4ca2b1bf2692debb3db5cd65f1d17&chksm=bdcefae18ab973f75335ed34dd8ecd8ad411dc004db0ef7d8053e503e8b71326c30a4f696d44&scene=0&subscene=131&ascene=7&devicetype=android-26&version=26070333&nettype=WIFI&abtest_cookie=AwABAAoACwATAAMAJZceAFmZHgBgmR4AAAA%3D&lang=zh_CN&pass_ticket=ImdQ85AP2YJJffE%2BSgUyrxOrtw39rlqAByjKnj6v4bE%3D&wx_header=1

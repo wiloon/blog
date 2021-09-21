@@ -295,10 +295,10 @@ http://www.jinbuguo.com/systemd/systemd.service.html
   
 https://blog.csdn.net/fu_wayne/article/details/38018825
 
-<blockquote class="wp-embedded-content" data-secret="rpemgAP8dW">
+
   
     systemctl开机启动zookeeper
   
-</blockquote>
+
 
 https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW

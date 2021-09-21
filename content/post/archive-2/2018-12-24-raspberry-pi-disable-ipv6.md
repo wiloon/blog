@@ -15,10 +15,10 @@ options ipv6 disable_ipv6=1
 blacklist ipv6
 ```
 
-<blockquote class="wp-embedded-content" data-secret="RVErZNYd3W">
+
   
     Disable IPv6 on Raspberry Pi3+
   
-</blockquote>
+
 
 https://www.cesareriva.com/disable-ipv6-on-raspberry-pi3/embed/#?secret=RVErZNYd3W

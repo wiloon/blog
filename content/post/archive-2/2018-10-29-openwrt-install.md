@@ -8,21 +8,21 @@ url: /?p=12830
 ---
 build
 
-<blockquote class="wp-embedded-content" data-secret="Z4x4I19l6b">
+
   
     R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
   
-</blockquote>
+
 
 http://blog.wiloon.com/?p=12113&embed=true#?secret=Z4x4I19l6b
 
 burn
 
-<blockquote class="wp-embedded-content" data-secret="G3qiDnmUJx">
+
   
     netgear 刷机, factory.img, sysupgrade.bin
   
-</blockquote>
+
 
 http://blog.wiloon.com/?p=12826&embed=true#?secret=G3qiDnmUJx
 

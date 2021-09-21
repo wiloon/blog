@@ -39,11 +39,11 @@ DynamicForward 默认用localhost:3128，在后面的浏览器设置中要用到
 
 到此ssh配置完成。从temnial输入：
 
-  <blockquote>
+  
     
       ssh aws
     
-  </blockquote>
+  
 
 即可看到从远程EC2 Instance返回的登录成功信息。
 

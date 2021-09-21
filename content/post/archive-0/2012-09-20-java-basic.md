@@ -61,11 +61,11 @@ Java被设计成允许应用程序可以运行在任意的平台，而不需要�
 
 Java运行时环境(JRE)是将要执行Java程序的Java虚拟机。它同时也包含了执行applet需要的浏览器插件。Java开发工具包(JDK)是完整的Java软件开发包，包含了JRE，编译器和其他的工具(比如：JavaDoc，Java调试器)，可以让开发者开发、编译、执行Java应用程序。
 
-<blockquote data-secret="c1aIkVgiDE" class="wp-embedded-content">
+
   
     JRE和JDK的区别
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=5857&embed=true#?secret=c1aIkVgiDE
 
@@ -76,39 +76,39 @@ http://www.wiloon.com/?p=5857&embed=true#?secret=c1aIkVgiDE
   
 Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态绑定的，而static方法是编译时静态绑定的。static方法跟类的任何实例都不相关，所以概念上不适用。
 
-<blockquote data-secret="W3D9plaZq4" class="wp-embedded-content">
+
   
     java static
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### Java 数据类型
 
 String 不是基本数据类型，基本数据类型包括byte、int、char、long、float、double、boolean和short。 java.lang.String类是final类型的，因此不可以继承这个类、不能修改这个类。为了提高效率节省空间，我们应该用StringBuffer类.
 
-<blockquote data-secret="zPf1hjBJE1" class="wp-embedded-content">
+
   
     java 基本数据类型
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### 什么是自动拆装箱？
 
 自动装箱是Java编译器在基本数据类型和对应的对象包装类型之间做的一个转化。比如：把int转化成Integer，double转化成double，等等。反之就是自动拆箱。
 
-<blockquote data-secret="jKQn0c3Ffr" class="wp-embedded-content">
+
   
     自动装箱 拆箱
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### 什么是构造函数？什么是构造函数重载？什么是复制构造函数？
@@ -137,11 +137,11 @@ Java 提供两种不同的类型：引用类型和原始类型（或内置类�
 
 引用类型和原始类型的行为完全不同，并且它们具有不同的语义。引用类型和原始类型具有不同的特征和用法，它们包括：大小和速度问题，这种类型以哪种类型的数据结构存储，当引用类型和原始类型用作某个类的实例数据时所指定的缺省值。对象引用实例变量的缺省值为 null，而原始类型实例变量的缺省值与它们的类型有关.
 
-<blockquote data-secret="3QUltjLSBh" class="wp-embedded-content">
+
   
     引用类型 基本类型
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=4120&embed=true#?secret=3QUltjLSBh
 
@@ -159,13 +159,13 @@ http://www.wiloon.com/?p=4123&embed=true#?secret=FB8flsCPiN
 
 error 表示恢复不是不可能但很困难的情况下的一种严重问题。比如说内存溢出。不可能指望程序能处理这样的情况。 exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。
 
-<blockquote data-secret="WhSU8ycC17" class="wp-embedded-content">
+
   
     运行时异常/一般异常
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### Java集合类 ArrayList,Vector, LinkedList
@@ -177,32 +177,32 @@ error 表示恢复不是不可能但很困难的情况下的一种严重问题�
 
 ArrayList 和Vector都是使用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢，Vector由于使用了synchronized方法（线程安全），通常性能上较ArrayList差，而LinkedList使用双向链表实现存储，按序号索引数据需要进行前向或后向遍历，但是插入数据时只需要记录本项的前后项即可，所以插入速度较快。
 
-<blockquote data-secret="w9FiOFSEW9" class="wp-embedded-content">
+
   
     Java Array, Vector, ArrayList, List, LinkedList
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### HashMap和Hashtable
 
 HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都完成了Map接口，主要区别在于HashMap允许空（null）键值（key）Hashtable不允许。HashMap由于非线程安全，效率上可能高于Hashtable。 而 HashMap把Hashtable的contains方法去掉了，改成containsvalue和containsKey。因为contains方法容易让人引起误解。 Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现。 最大的不同是，Hashtable的方法是Synchronize的，而HashMap不是，在多个线程访问Hashtable时，不需要自己为它的方法实现同步，而HashMap 就必须为之提供外同步。 Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差异。
 
-<blockquote data-secret="Zea2iEVLs2" class="wp-embedded-content">
+
   
     HashMap,Hashtable
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=4144&embed=true#?secret=Zea2iEVLs2
 
-<blockquote data-secret="PuZXM3VEiO" class="wp-embedded-content">
+
   
     HashSet、TreeSet、LinkedHashSet
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=6726&embed=true#?secret=PuZXM3VEiO
 
@@ -231,13 +231,13 @@ PriorityQueue是一个基于优先级堆的无界队列，它的元素是按照�
 
 &是位运算符，表示按位与运算，&&是逻辑运算符，表示逻辑与（and）。
 
-<blockquote data-secret="pxDBhDaJyo" class="wp-embedded-content">
+
   
     移位运算符
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### 
@@ -251,11 +251,11 @@ finally是异常处理语句结构的一部分，表示总是执行。
 
 finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。
 
-<blockquote data-secret="PSMs5c8YqX" class="wp-embedded-content">
+
   
     JVM内存管理-Java垃圾回收调优
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=4618&embed=true#?secret=PSMs5c8YqX
 
@@ -278,11 +278,11 @@ sleep是线程类（Thread）的方法，导致此线程暂停执行指定时间
 
 wait是Object类的方法，对此对象调用wait方法导致本线程放弃对象锁，进入等待此对象的等待锁定池，只有针对此对象发出notify方法（或notifyAll）后本线程才进入对象锁定池准备获得对象锁进入运行状态.
 
-<blockquote data-secret="RDEPuKfPGA" class="wp-embedded-content">
+
   
     java 线程 yield(), sleep(), wait(), join()
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
 
@@ -291,37 +291,37 @@ http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
 
 方法的重写Overriding和重载Overloading是Java多态性的不同表现。重写Overriding是父类与子类之间多态性的一种表现，重载Overloading是一个类中多态性的一种表现。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写 (Overriding)。子类的对象使用这个方法时，将调用子类中的定义，对它而言，父类中的定义如同被"屏蔽"了。如果在一个类中定义了多个同名的方法，它们或有不同的参数个数或有不同的参数类型，则称为方法的重载(Overloading)。Overloaded的方法是可以改变返回值的类型。
 
-<blockquote data-secret="n7Qjl48iTg" class="wp-embedded-content">
+
   
     Java Override Overload 重写、覆盖、重载、多态
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### **同步,异步 在什么情况下使用**
 
 如果数据将在线程间共享。例如正在写的数据以后可能被另一个线程读到，或者正在读的数据可能已经被另一个线程写过了，那么这些数据就是共享数据，必须进行同步存取。 当应用程序在对象上调用了一个需要花费很长时间来执行的方法，并且不希望让程序等待方法的返回时，就应该使用异步编程，在很多情况下采用异步途径往往更有效率。
 
-<blockquote data-secret="EdTzoKSmVu" class="wp-embedded-content">
+
   
     同步/异步
   
-</blockquote>
 
-</iframe>
+
+
 
 
 ### **abstract class interface**
 
 声明方法的存在而不去实现它的类被叫做抽象类（abstract class），它用于要创建一个体现某些基本行为的类，并为该类声明方法，但不能在该类中实现该类的情况。不能创建abstract 类的实例。然而可以创建一个变量，其类型是一个抽象类，并让它指向具体子类的一个实例。不能有抽象构造函数或抽象静态方法。Abstract 类的子类为它们父类中的所有抽象方法提供实现，否则它们也是抽象类为。取而代之，在子类中实现该方法。知道其行为的其它类可以在类中实现这些方法。 接口（interface）是抽象类的变体。在接口中，所有方法都是抽象的。多继承性可通过实现这样的接口而获得。接口中的所有方法都是抽象的，没有一个有程序体。接口只可以定义static final成员变量。接口的实现与子类相似，除了该实现类不能从接口定义中继承行为。当类实现特殊接口时，它定义（即将程序体给予）所有这种接口的方法。然后，它可以在实现了该接口的类的任何对象上调用接口的方法。由于有抽象类，它允许使用接口名作为引用变量的类型。通常的动态联编将生效。引用可以转换到接口类型或从接口类型转换，instanceof 运算符可以用来决定某对象的类是否实现了接口。
 
-<blockquote data-secret="MLUWtzeM61" class="wp-embedded-content">
+
   
     Java 抽象类/接口
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=3336&embed=true#?secret=MLUWtzeM61
 
@@ -349,11 +349,11 @@ http://www.wiloon.com/?p=6474
 
 GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致
 
-<blockquote data-secret="hz71dhuu22" class="wp-embedded-content">
+
   
     JVM内存管理和JVM垃圾回收机制
   
-</blockquote>
+
 
 http://www.wiloon.com/?p=4620&embed=true#?secret=hz71dhuu22
 

@@ -38,11 +38,11 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
   
 * the call:
   
-* <blockquote>
+* 
   
 * Runtime.getRuntime().exit(n)
   
-* </blockquote>
+* 
   
 *
   

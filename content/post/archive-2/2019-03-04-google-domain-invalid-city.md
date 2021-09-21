@@ -10,10 +10,10 @@ categories:
 ---
 填写联系人资料的时候国家选择中国,填写城市 的时候要写成 Dalian Shi
 
-<blockquote class="wp-embedded-content" data-secret="2UAujlnd36">
+
   
     Google Domain 填写出错
   
-</blockquote>
+
 
 http://www.flaskfox.com/2015/11/16/google-domain-%e5%a1%ab%e5%86%99%e5%87%ba%e9%94%99/embed/#?secret=2UAujlnd36

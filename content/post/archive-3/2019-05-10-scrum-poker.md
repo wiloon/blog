@@ -10,10 +10,10 @@ categories:
 ---
 android,ios: Scrum Poker Cards (Agile)
 
-<blockquote class="wp-embedded-content" data-secret="jkb2vbmib7">
+
   
     Home
   
-</blockquote>
+
 
 https://artarmin.com/embed/#?secret=jkb2vbmib7

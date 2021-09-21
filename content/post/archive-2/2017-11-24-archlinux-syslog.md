@@ -98,13 +98,13 @@ systemd journal本身未提供日志分发功能。
   
 注: systemd-212引入了 systemd-journal-remote >systemd-journal-remote is a command to receive serialized journal events and store them to the journal.
 
-<blockquote data-secret="ObA611VJvT" class="wp-embedded-content">
+
   
     Arch Linux启用Systemd后syslog无法正常工作解决方法
   
-</blockquote>
 
-</iframe>
+
+
   
 https://huataihuang.gitbooks.io/cloud-atlas/os/linux/redhat/system_administration/systemd/systemd_clear_journalctl.html
   

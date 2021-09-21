@@ -28,11 +28,11 @@ categories:
   
 
 
-  <blockquote>
+  
     
       The default temporary-file directory is specified by the system property java.io.tmpdir. On UNIX systems the default value of this property is typically "/tmp" or "/var/tmp"; on Microsoft Windows systems it is typically "c:temp". A different value may be given to this system property when the Java virtual machine is invoked, but programmatic changes to this property are not guaranteed to have any effect upon the the temporary directory used by this method.
     
-  </blockquote>
+  
   
     To specify the <code>java.io.tmpdir</code> System property, you can invoke the JVM as follows:
   

@@ -46,35 +46,35 @@ http_load以并行复用的方式运行，用以测试web服务器的吞吐量�
   
 准备URL文件: urllist.txt，文件格式是每行一个URL，URL最好超过50－100个测试效果比较好.文件格式如下: 
 
-<blockquote class="wp-embedded-content" data-secret="iAUiVVmnMv">
+
   
     VPS服务器的选择
   
-</blockquote>
+
 
 https://www.vpser.net/other/choose-vps.html/embed#?secret=iAUiVVmnMv
 
-<blockquote class="wp-embedded-content" data-secret="cLrZu8rncf">
+
   
     HyperVM使用教程/手册
   
-</blockquote>
+
 
 https://www.vpser.net/vps-cp/hypervm-tutorial.html/embed#?secret=cLrZu8rncf
 
-<blockquote class="wp-embedded-content" data-secret="aK3vT9Oj6d">
+
   
     DiaVPS 4月最新优惠
   
-</blockquote>
+
 
 https://www.vpser.net/coupons/diavps-april-coupons.html/embed#?secret=aK3vT9Oj6d
 
-<blockquote class="wp-embedded-content" data-secret="GisBcCy5FH">
+
   
     VPS主机上备份网站和数据库
   
-</blockquote>
+
 
 https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5FH
   
@@ -476,11 +476,11 @@ Longest transaction: 29.04 //每次传输所花最长时间
   
 Shortest transaction: 0.00 //每次传输所花最短时间
 
-<blockquote class="wp-embedded-content" data-secret="No65LHIzR5">
+
   
     十个免费的Web压力测试工具
   
-</blockquote>
+
 
 https://coolshell.cn/articles/2589.html/embed#?secret=No65LHIzR5
   

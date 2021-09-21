@@ -110,12 +110,12 @@ PaddedAtomicReference相对于父类AtomicReference只做了一件事情，就�
   
 http://rdc.taobao.com/team/jm/archives/1719 这两文章。做JAVA，如果想成为Doug Lea这样的大师，也要懂体系结构(待续)
 
-<blockquote data-secret="3afyjw9a6J" class="wp-embedded-content">
+
   
     Java 7中的TransferQueue
   
-</blockquote>
 
-</iframe>
+
+
 
 http://guojuanjun.blog.51cto.com/277646/948298

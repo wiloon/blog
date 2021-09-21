@@ -21,13 +21,13 @@ categories:
   
     And enable the following options:
   
-  <blockquote>
+  
     
       General setup —>
  [*] BSD Process Accounting
  [*] BSD Process Accounting version 3 file format
     
-  </blockquote>
+  
   
     http://www.krizka.net/2007/08/20/howto-bootchart-with-bsd-process-accounting-on-gentoo/
   
