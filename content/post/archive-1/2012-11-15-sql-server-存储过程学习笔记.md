@@ -24,11 +24,11 @@ tags:
      创建存储过程
  *************************************************
   
-  <h5>
-    语法
-  </h5>
   
-  <h5>
+    语法
+  
+  
+  
     CREATE PROC[ EDURE ] [ owner. ] procedure_name [ ; number ]
  [ { @parameter data_type }
  [ VARYING ] [ = default ] [ OUTPUT ] 
@@ -44,7 +44,7 @@ tags:
     
     
     
-      AS sql_statement [ ...n ]</h5> 
+      AS sql_statement [ ...n ] 
       
       
         参数

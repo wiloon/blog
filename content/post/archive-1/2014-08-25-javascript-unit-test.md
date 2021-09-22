@@ -84,13 +84,13 @@ equal( sum, "2", "We expect value to be 2" );
   
 <body>
   
-<h1 id="qunit-header">QUnit example</h1>
-  
-<h2 id="qunit-banner">
+QUnit example
   
 
   
-<h2 id="qunit-userAgent">
+
+  
+
   
 <ol id="qunit-tests">
   
