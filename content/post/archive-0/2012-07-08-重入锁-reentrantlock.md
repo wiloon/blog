@@ -1,16 +1,16 @@
 ---
-title: 重入锁 ReentrantLock
+title: 重入锁, ReentrantLock
 author: "-"
 type: post
 date: 2012-07-08T08:14:54+00:00
-url: /?p=3805
+url: reentrant-lock
 categories:
   - Java
 tags:
   - Lock
 
 ---
-ReentrantLock的实现不仅可以替代隐式的synchronized关键字，而且能够提供超过关键字本身的多种功能。
+ReentrantLock 的实现不仅可以替代隐式的 synchronized 关键字，而且能够提供超过关键字本身的多种功能。
   
 这里提到一个锁获取的公平性问题，如果在绝对时间上，先对锁进行获取的请求一定被先满足，那么这个锁是公平的，反之，是不公平的，也就是说等待时间最长的线程最有机会获取锁，也可以说锁的获取是有序的。ReentrantLock这个锁提供了一个构造函数，能够控制这个锁是否是公平的。
   
