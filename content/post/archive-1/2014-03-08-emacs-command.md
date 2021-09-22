@@ -10,6 +10,12 @@ tags:
   - emacs
 
 ---
+
+M-x artist-mode
+  
+M-x artist-mode-off
+
+
 跳转到行
   
 (define-key global-map "\C-c\C-g" 'goto-line)
