@@ -7,4 +7,4 @@ url: /?p=458
 
 ---
 
- Debian 10 "buster"
+- Debian 10 "buster"

@@ -279,7 +279,7 @@ http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html
   
 http://stackoverflow.com/questions/5787957/reentrant-synchronization-behavior-with-synchronized-statements
 
-1、LoggingWidget 的对象调用doSomething方法时，锁对象为LoggingWidget对象 super.doSomething()调用是锁对象是LoggingWidget对象运行程序，查看thread dump发现：调用super.doSomething()时锁对象依然是LoggingWidget对象。
+1. LoggingWidget 的对象调用doSomething方法时，锁对象为LoggingWidget对象 super.doSomething()调用是锁对象是LoggingWidget对象运行程序，查看thread dump发现：调用super.doSomething()时锁对象依然是LoggingWidget对象。
 
 "线程#1" prio=6 tid=0x0bd60400 nid=0x16f8 waiting on condition [0x0bf8f000..0x0bf8fd68]
   
