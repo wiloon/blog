@@ -12,7 +12,7 @@ Netty是一款异步的事件驱动的网络应用框架和工具,用于快速�
   
 Mina: 
 
-Mina(Multipurpose Infrastructure for Network Applications) 是 Apache 组织一个较新的项目,它为开发高性能和高可用性的网络应用程序提供了非常便利的框架。当前发行的 Mina 版本2.04支持基于 Java NIO 技术的 TCP/UDP 应用程序开发、串口通讯程序,Mina 所支持的功能也在进一步的扩展中。目前,正在使用 Mina的应用包括: Apache Directory Project、AsyncWeb、AMQP（Advanced Message Queuing Protocol）、RED5 Server（Macromedia Flash Media RTMP）、ObjectRADIUS、 Openfire等等。
+Mina(Multipurpose Infrastructure for Network Applications) 是 Apache 组织一个较新的项目,它为开发高性能和高可用性的网络应用程序提供了非常便利的框架。当前发行的 Mina 版本2.04支持基于 Java NIO 技术的 TCP/UDP 应用程序开发、串口通讯程序,Mina 所支持的功能也在进一步的扩展中。目前,正在使用 Mina的应用包括: Apache Directory Project、AsyncWeb、AMQP（Advanced Message Queuing Protocol) 、RED5 Server（Macromedia Flash Media RTMP) 、ObjectRADIUS、 Openfire等等。
   
 Grizzly: 
 

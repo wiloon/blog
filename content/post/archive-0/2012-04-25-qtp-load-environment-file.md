@@ -54,7 +54,7 @@ http://www.cnblogs.com/fengbohello/p/4665883.html
   
 Go语言自带的JSON转换库为 encoding/json
   
-1.1）其中把对象转换为JSON的方法（函数）为 json.Marshal()，其函数原型如下
+1.1) 其中把对象转换为JSON的方法（函数) 为 json.Marshal()，其函数原型如下
   
 　　　　func Marshal(v interface{}) ([]byte, error)
 
@@ -72,13 +72,13 @@ Go语言自带的JSON转换库为 encoding/json
 
 　　　　• 结构体会转化为JSON对象，并且只有结构体里边以大写字母开头的可被导出的字段才会被转化输出，而这些可导出的字段会作为JSON对象的字符串索引
 
-　　　　• 转化一个map 类型的数据结构时，该数据的类型必须是 map[string]T（T 可以是encoding/json 包支持的任意数据类型）
+　　　　• 转化一个map 类型的数据结构时，该数据的类型必须是 map[string]T（T 可以是encoding/json 包支持的任意数据类型) 
 
-　　1.2）把 JSON 转换回对象的方法（函数）为 json.Unmarshal()，其函数原型如下
+　　1.2) 把 JSON 转换回对象的方法（函数) 为 json.Unmarshal()，其函数原型如下
 
 　　　　func Unmarshal(data [] byte, v interface{}) error
 
-　　　　这个函数会把传入的 data 作为一个JSON来进行解析，解析后的数据存储在参数 v 中。这个参数 v 也是任意类型的参数（但一定是一个类型的指针），原因是我们在是以此函数进行JSON 解析的时候，这个函数不知道这个传入参数的具体类型，所以它需要接收所有的类型。
+　　　　这个函数会把传入的 data 作为一个JSON来进行解析，解析后的数据存储在参数 v 中。这个参数 v 也是任意类型的参数（但一定是一个类型的指针) ，原因是我们在是以此函数进行JSON 解析的时候，这个函数不知道这个传入参数的具体类型，所以它需要接收所有的类型。
 
 　　　　那么，在进行解析的时候，如果JSON 和 对象的结构不对口会发生什么呢，这就需要解析函数json.Unmarshal()遵循以下规则
 
@@ -110,7 +110,7 @@ Go语言自带的JSON转换库为 encoding/json
 
 2、代码实例
 
-　　假设我们有如下一个类（结构体）student 及其一个实例对象st: 
+　　假设我们有如下一个类（结构体) student 及其一个实例对象st: 
 
 复制代码
   

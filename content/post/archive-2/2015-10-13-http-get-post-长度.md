@@ -46,7 +46,7 @@ Microsoft Internet Information Server(IIS)
 
 能接受最大url的长度为16,384个字符。
 
-通过上面的数据可知,为了让所有的用户都能正常浏览, URL最好不要超过IE的最大长度限制(2083个字符）,当然,如果URL不直接提供给用户,而是提供给程序调用,这时的长度就只受Web服务器影响了。
+通过上面的数据可知,为了让所有的用户都能正常浏览, URL最好不要超过IE的最大长度限制(2083个字符) ,当然,如果URL不直接提供给用户,而是提供给程序调用,这时的长度就只受Web服务器影响了。
 
 注: 对于中文的传递,最终会为urlencode后的编码形式进行传递,如果浏览器的编码为UTF8的话,一个汉字最终编码后的字符长度为9个字符。
 
@@ -56,7 +56,7 @@ Microsoft Internet Information Server(IIS)
 
 理论上讲,POST是没有大小限制的。HTTP协议规范也没有进行大小限制,起限制作用的是服务器的处理程序的处理能力。
 
-如: 在Tomcat下取消POST大小的限制（Tomcat默认2M）；
+如: 在Tomcat下取消POST大小的限制（Tomcat默认2M) ；
 
 打开tomcat目录下的conf目录,打开server.xml 文件,修改
 

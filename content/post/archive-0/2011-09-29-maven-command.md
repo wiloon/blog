@@ -175,7 +175,7 @@ mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2
 ```
 
 ### os-maven-plugin
-os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和 ${os.arch} 属性）的 Maven 插件
+os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和 ${os.arch} 属性) 的 Maven 插件
 
 ### Maven项目的标准目录结构
     src 
@@ -238,7 +238,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
 
 3.4  <tt>配置本地Repository</tt>
 
-<tt>本地Repository的默认值是<tt>${user.home}/.m2/repository/。可以在user configuration(即在${user.home}/.m2/setting.xml）中改变本地Repository。</tt></tt>
+<tt>本地Repository的默认值是<tt>${user.home}/.m2/repository/。可以在user configuration(即在${user.home}/.m2/setting.xml) 中改变本地Repository。</tt></tt>
 
 <tt>配置如下: </tt><settings></settings>
 

@@ -10,7 +10,7 @@ categories:
 ---
 从windows访问linux，除了samba之外，日常操作用得最多的大概就是PuTTY和SecureCRT
 
-Putty是免费的，SecureCRT是收费的（当然，有破解版）。
+Putty是免费的，SecureCRT是收费的（当然，有破解版) 。
   
 Putty缺省配置就很好看很好用，SecureCRT的缺省配置不是为linux准备的而且很难看。
   

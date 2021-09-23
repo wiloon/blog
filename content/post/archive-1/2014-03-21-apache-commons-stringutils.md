@@ -18,7 +18,7 @@ StringUtils是apache commons lang库（http://commons.apache.org/lang)旗下的�
 
 目前StringUtils有两个版本可用,分别是较新的org.apache.commons.lang3.StringUtils和较老的org.apache.commons.lang.StringUtils,他们有比较大的区别,前者需要JAVA 5,我想这个应该是我们希望使用的。
 
-1）public static boolean equals(CharSequence str1,CharSequence str2)
+1) public static boolean equals(CharSequence str1,CharSequence str2)
 
 我们就先从最简单的方法equals开始,和你想的一样,他需要两个字符串参数,当相同的时候返回true,否则返回false。
 
@@ -82,7 +82,7 @@ if(StringUtils.equals(stringParam,"MyStringValue))
 
 这个是我个人的喜好,但是这个确实看起来比较简单易读。前面的两个方法虽然么有什么问题,但是我想StringUtils.equals还是值得考虑的。
 
-2）isEmpty,isNotEmpty,isBlank,isNotBlank
+2) isEmpty,isNotEmpty,isBlank,isNotBlank
 
 和前面一样,这些方法相对于jdk提供的isEmpty方法来说,多了一个"空指针安全",即不用考虑传递参数的空值问题,让我们来看一个例子: 
 
@@ -114,9 +114,9 @@ StringUtils.isEmpty(someWhiteSpace); // false
 
 StringUtils.isBlank(someWhiteSpace); // true
 
-3）public static String[] split(String str,String separatorChars)
+3) public static String[] split(String str,String separatorChars)
 
-当然,这个方法相对于String.split也是空指针安全的,当你尝试split一个null字符串的时候,将返回Null,一个Null的分隔符将按照空白字符分隔字符串,但是,还有一个理由让你可考虑使用StringUtils.split（）方法,就是jdk自带的String.split由于支持正则表达式进行分隔,所以可能带来意想不到的后果,例如:
+当然,这个方法相对于String.split也是空指针安全的,当你尝试split一个null字符串的时候,将返回Null,一个Null的分隔符将按照空白字符分隔字符串,但是,还有一个理由让你可考虑使用StringUtils.split（) 方法,就是jdk自带的String.split由于支持正则表达式进行分隔,所以可能带来意想不到的后果,例如:
 
 Java代码 收藏代码
 
@@ -134,7 +134,7 @@ System.out.println(result.length); // 0
 
 这样,使用StringUtils.split就简单多了,另外,我测试还发现StringUtils.split比jdk自带的split要快四倍。
 
-4）public static String join(Iterable iterable,String separator）
+4) public static String join(Iterable iterable,String separator) 
 
 这个方法确实很实用,因为jdk自身没有提供,简单使用方法: 
 

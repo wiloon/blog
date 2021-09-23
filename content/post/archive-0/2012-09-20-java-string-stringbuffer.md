@@ -16,9 +16,9 @@ Character 是进行单个字符操作的，
 
 **String 字符串常量** 对一串字符进行操作。不可变类。
 
-StringBuffer 也是对一串字符进行操作，但是可变类。**字符串变量（线程安全）**
+StringBuffer 也是对一串字符进行操作，但是可变类。**字符串变量（线程安全) **
 
-**StringBuilder 字符串变量（非线程安全）**
+**StringBuilder 字符串变量（非线程安全) **
 
 
 String:
@@ -56,7 +56,7 @@ String 是final类,即不能被继承.
 
 
   java.lang.StringBuilde
- java.lang.StringBuilder一个可变的字符序列是5.0新增的。此类提供一个与 StringBuffer 兼容的 API，但不保证同步。该类被设计用作 StringBuffer 的一个简易替换，用在字符串缓冲区被单个线程使用的时候（这种情况很普遍）。如果可能，建议优先采用该类，因为在大多数实现中，它比 StringBuffer 要快。两者的方法基本相同。
+ java.lang.StringBuilder一个可变的字符序列是5.0新增的。此类提供一个与 StringBuffer 兼容的 API，但不保证同步。该类被设计用作 StringBuffer 的一个简易替换，用在字符串缓冲区被单个线程使用的时候（这种情况很普遍) 。如果可能，建议优先采用该类，因为在大多数实现中，它比 StringBuffer 要快。两者的方法基本相同。
 
 
   

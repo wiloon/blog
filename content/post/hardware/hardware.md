@@ -54,7 +54,7 @@ TS流输入接口
 S/PDIF, I2S, PCM输入输出接口
 模拟立体声输出
 数字立体麦克风输入
-P授权（可选）
+P授权（可选) 
 Dolby Digital, Dolby Digital Plus
 DTS Digital Surround, DTS HD, DTS Express
 Real, DivX HD
@@ -71,7 +71,7 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 
 ### PC
 2015-09-05    
-华硕（ASUS）Z170M-PLUS 主板 （Intel Z170/LGA 1151）   
+华硕（ASUS) Z170M-PLUS 主板 （Intel Z170/LGA 1151)    
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz   
 Kingston DDR4 2133 16GB(8Gx2条)  
 wifi: Intel Corporation Wireless 7260 (rev 5b)  

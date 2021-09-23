@@ -28,7 +28,7 @@ String str = "a,b,c";
 List<String> str = Arrays.asList(StringUtils.commaDelimitedListToStringArray(str));
 
 将List转换为逗号分隔符
-方法 1:  利用JDK  (好像没有很好的方法，需要一步一步实现）
+方法 1:  利用JDK  (好像没有很好的方法，需要一步一步实现) 
 
 NA
 

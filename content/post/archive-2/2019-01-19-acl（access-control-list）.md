@@ -1,5 +1,5 @@
 ---
-title: ACL（Access Control List）
+title: ACL（Access Control List) 
 author: "-"
 type: post
 date: 2019-01-19T11:04:38+00:00
@@ -16,7 +16,7 @@ chmod命令可以把文件权限分为u,g,o三个组,而setfacl可以对每一�
   
 比如: 让某一个用户对某一个文件具有某种权限。
 
-这种独立于传统的u,g,o的rwx权限之外的具体权限设置叫ACL（Access Control List）
+这种独立于传统的u,g,o的rwx权限之外的具体权限设置叫ACL（Access Control List) 
   
 ACL可以针对单一用户、单一文件或目录来进行r,w,x的权限控制,对于需要特殊权限的使用状况有一定帮助。
   
@@ -134,7 +134,7 @@ other::rwx
 
 除了对某个文件的单个用户进行权限设置外,还可以对某个组进行同样的设置: g:[用户组]:[rwx]
 
-还能对有效权限（mask）进行设置: 有效权限(mask) 即用户或组所设置的权限必须要存在于mask的权限设置范围内才会生效
+还能对有效权限（mask) 进行设置: 有效权限(mask) 即用户或组所设置的权限必须要存在于mask的权限设置范围内才会生效
 
 最后取消ACL权限: 
   

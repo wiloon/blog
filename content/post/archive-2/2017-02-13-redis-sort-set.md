@@ -187,7 +187,7 @@ Sorted-Set中的成员都是按照分数从低到高的顺序存储,该命令将
   
     返回值: 被删除的成员数量。
 
-### ZREMRANGEBYSCORE, 移除有序集中,指定分数（score）区间内的所有成员
+### ZREMRANGEBYSCORE, 移除有序集中,指定分数（score) 区间内的所有成员
 
   * ZREMRANGEBYSCORE key min max
   
@@ -215,7 +215,7 @@ sorted set和ziplist的关系
 Redis中的sorted set, 是在skiplist、dict和ziplist基础上构建起来的:
 
 当数据较少时, sorted set 是由一个ziplist来实现的。
-当数据多的时候,sorted set 是由一个叫 zset 的数据结构来实现的, 这个zset包含一个 dict + 一个 skiplist。 dict用来查询数据(member)到分数(score) 的对应关系,而 skiplist 用来根据分数或者（分数or排名）范围查询数据。这样 skiplist 中只需要通过指针来获取对应分数的键 member, 而不用管键到底占了多大空间, 把它交给dict去存储。
+当数据多的时候,sorted set 是由一个叫 zset 的数据结构来实现的, 这个zset包含一个 dict + 一个 skiplist。 dict用来查询数据(member)到分数(score) 的对应关系,而 skiplist 用来根据分数或者（分数or排名) 范围查询数据。这样 skiplist 中只需要通过指针来获取对应分数的键 member, 而不用管键到底占了多大空间, 把它交给dict去存储。
 
 
 https://redis.readthedocs.io/en/2.4/sorted_set.html

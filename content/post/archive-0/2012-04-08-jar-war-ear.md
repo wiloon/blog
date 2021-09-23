@@ -9,7 +9,7 @@ categories:
 
 ---
 ### jar: Java Archive file  
-扩展名为.Jar 包含Java类的普通库(class)、资源（resources）、辅助文件（auxiliary files）, properties 等部署文件 application-client.xml
+扩展名为.Jar 包含Java类的普通库(class)、资源（resources) 、辅助文件（auxiliary files) , properties 等部署文件 application-client.xml
 
 JAR: Software developers generally use .jar files to distribute Java applications or libraries, in the form. of classes and associated metadata and resources (text, images, etc.) JAR files build on the ZIP file format.
 
@@ -19,7 +19,7 @@ JAR: Software developers generally use .jar files to distribute Java application
 
 
 ### war: Web Archive file/web application archive
-扩展名为.War, 包含全部Web应用程序, Servlet、JSP、JSP标记库、JAR库文件、HTML/XML文档和其他公用资源文件,图片、音频. 一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet）来访问。
+扩展名为.War, 包含全部Web应用程序, Servlet、JSP、JSP标记库、JAR库文件、HTML/XML文档和其他公用资源文件,图片、音频. 一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet) 来访问。
 
 部署文件: web.xml
 
@@ -185,7 +185,7 @@ Main-Class: com/hp/HelloWorld
   
 jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当然也可以test指向文件夹)
   
-**     上述命令执行成功的话，会提示"标明清单（manifest）..."，
+**     上述命令执行成功的话，会提示"标明清单（manifest) ..."，
   
 然后再在当前目录下输入java -jar test.jar 命令，可以看到"test java"。
 
@@ -195,7 +195,7 @@ jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当�
   
 就可以了
 
-方法三: myeclipse工具　（**推荐**）
+方法三: myeclipse工具　（**推荐**) 
   
 右击项目-Export-Jar File-要选择Main-Class
 

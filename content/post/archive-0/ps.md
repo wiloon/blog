@@ -64,32 +64,32 @@ ps -eo pid,ppid,command
     -e,-A  显示所有进程, 默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程, -e 参数会显示系统所有进程
     -f     全部列出，可以和其它UNIX-style 参数同时使用。如: ps -fa or ps -fx and so on; 此参数会打印进程的命令行参数.
     -j     作业格式
-    -l     长格式（有F,wchan,C,PRI,NI 等字段）
+    -l     长格式（有F,wchan,C,PRI,NI 等字段) 
     a      显示现行终端机下的所有程序，包括其他用户的程序。  
     e      列出程序时，显示每个程序所使用的环境变量。  
     f      用ASCII字符显示树状结构，表达程序间的相互关系。  
     u      以用户为主的格式来显示程序状况。  
     x      显示所有程序，不以终端机来区分. 
     -L     Show threads, possibly with LWP and NLWP columns
-    -T     显示线程（Show threads, possibly with SPID column）“SID”栏表示线程ID，而“CMD”栏则显示了线程名称。
+    -T     显示线程（Show threads, possibly with SPID column) “SID”栏表示线程ID，而“CMD”栏则显示了线程名称。
 
 
 ### Head 标头
     F           代表这个程序的旗标 (flag)， 4 代表使用者为 super user  
     S           代表这个程序的状态 (STAT)，关于各 STAT 的意义将在内文介绍  
     USER        用户名  
-    UID         用户ID（User ID）  
-    PID         进程ID（Process ID）  
-    PPID        父进程的进程ID（Parent Process id）  
-    SID         会话ID（Session id）  
+    UID         用户ID（User ID)   
+    PID         进程ID（Process ID)   
+    PPID        父进程的进程ID（Parent Process id)   
+    SID         会话ID（Session id)   
     %CPU        进程的cpu占用率
     C           CPU 使用的资源百分比  
     %MEM        进程的内存占用率  
-    VSZ         进程所使用的虚存的大小（Virtual Size）  
-    RSS         进程使用的驻留集大小或者是实际内存的大小，Kbytes字节。 系统在内存分配的时候，其实并没有申请相应的物理页帧，只有在真正赋值的时候才会申请物理页帧。这也是 VSZ（进程虚拟内存大小）和 RSS（常驻物理内存大小）的最大区别。
+    VSZ         进程所使用的虚存的大小（Virtual Size)   
+    RSS         进程使用的驻留集大小或者是实际内存的大小，Kbytes字节。 系统在内存分配的时候，其实并没有申请相应的物理页帧，只有在真正赋值的时候才会申请物理页帧。这也是 VSZ（进程虚拟内存大小) 和 RSS（常驻物理内存大小) 的最大区别。
 
-    TTY         与进程关联的终端（tty）, 登入者的终端机位置
-    STAT        进程的状态: 进程状态使用字符表示的（STAT的状态码）
+    TTY         与进程关联的终端（tty) , 登入者的终端机位置
+    STAT        进程的状态: 进程状态使用字符表示的（STAT的状态码) 
     START       进程启动时间和日期  
     TIME        进程使用的总cpu时间  
     COMMAND     正在执行的命令行命令  
@@ -116,13 +116,13 @@ ps -eo pid,ppid,command
     D 不可中断    Uninterruptible sleep (ususally IO)    收到信号不唤醒和不可运行, 进程必须等待直到有中断发生。不可中断的睡眠，通常是I/O
     T 终止    Terminate                进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行。 停止或被追踪 terminate终止
     P 等待交换页
-    W 无驻留页    has no resident pages        没有足够的记忆体分页可分配。换出,表示当前页面不在内存（从内核2.6开始无效）
+    W 无驻留页    has no resident pages        没有足够的记忆体分页可分配。换出,表示当前页面不在内存（从内核2.6开始无效) 
     X 死掉的进程
     < 高优先级进程 
     N 低优先级进程 
     L 内存锁页    Lock                有记忆体分页分配并缩在记忆体内
-    s 进程的领导者（在它之下有子进程）；
-    l 多进程的（使用 CLONE_THREAD, 类似 NPTL pthreads）
+    s 进程的领导者（在它之下有子进程) ；
+    l 多进程的（使用 CLONE_THREAD, 类似 NPTL pthreads) 
     + 位于后台的进程组 
 
 ### CPU占用最多的前10个进程: 
@@ -139,13 +139,13 @@ ps auxw -sort=rss
 ps auxw -sort=%cpu
  
 
-串行端口终端（/dev/ttySn）
+串行端口终端（/dev/ttySn) 
   
-伪终端（/dev/pty/）
+伪终端（/dev/pty/) 
   
-控制终端（/dev/tty）
+控制终端（/dev/tty) 
   
-控制台终端（/dev/ttyn,   /dev/console）
+控制台终端（/dev/ttyn,   /dev/console) 
   
 虚拟终端(/dev/pts/n)
  

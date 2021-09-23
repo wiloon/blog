@@ -32,7 +32,7 @@ package com.ljq.test;
 
 定义一个功能简单的枚举类型，跟定义一个简单的类很相似，例如  
 跟类定义一样，枚举类型可以单独放在一个文件里，当一个枚举类型用public修饰时，它对其他包可见，否则只对同一个包中的类可见，这和类定义是一样的。  
-标识符 MONDAY, TUESDAY等就称为枚举常量（enumeration constants）  
+标识符 MONDAY, TUESDAY等就称为枚举常量（enumeration constants)   
 每一个枚举常量被隐式的声明成Day的一个public、static成员，而且其类型为Day，亦就是说这些常量是self-typed的
 
 ```java
@@ -184,7 +184,7 @@ MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 }
 ```
 
-但是当枚举类型有其他定义时，则分号;是必须的 3、声明、使用一个枚举类型:  （1）在同一个包中: 
+但是当枚举类型有其他定义时，则分号;是必须的 3、声明、使用一个枚举类型:  （1) 在同一个包中: 
 
 ```java
 public   class  BasicMainClass
@@ -197,7 +197,7 @@ System.out.println( " Today is  "   +  today.toString().toLowerCase());
 }
 ```
 
-（2）在不同包中: 
+（2) 在不同包中: 
 
 ```java
 import  basic.Day;

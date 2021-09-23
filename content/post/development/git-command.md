@@ -10,7 +10,7 @@ tags:
 ### 查看远程仓库地址
     git remote -v
 
-### 将指定的提交（commit）应用于其他分支
+### 将指定的提交（commit) 应用于其他分支
     git cherry-pick <commitHash>
 
 https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
@@ -59,13 +59,13 @@ git checkout master
 
 ### git config
 #### 查看 
-config 配置有system级别 global（用户级别） 和local（当前仓库）三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
+config 配置有system级别 global（用户级别)  和local（当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
     
     git config --list
     git config --system --list
     git config --global core.editor vim
 
-查看当前用户（global）配置
+查看当前用户（global) 配置
 
     git config --global  --list
 
@@ -114,7 +114,7 @@ git rm -f
 
 ### git fetch
 git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。 
-默认情况下，git fetch取回所有分支（branch）的更新。如果只想取回特定分支的更新，可以指定分支名。  
+默认情况下，git fetch取回所有分支（branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
     git fetch <远程主机名> <分支名>
 
@@ -141,13 +141,13 @@ git merge tmp
 git branch -d temp
 //如果不想保留temp分支 可以用这步删除
 
-（1）如果直接使用git fetch，则步骤如下: 
+（1) 如果直接使用git fetch，则步骤如下: 
 
 创建并更新本 地远程分支。即创建并更新origin/xxx 分支，拉取代码到origin/xxx分支上。
 在FETCH_HEAD中设定当前分支-origin/当前分支对应，如直接到时候git merge就可以将origin/abc合并到abc分支上。
-（2）git fetch origin
+（2) git fetch origin
 只是手动指定了要fetch的remote。在不指定分支时通常默认为master
-（3）git fetch origin dev
+（3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
 git pull : 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge将其与本地的当前分支合并。所以可以认为git pull是git fetch和git merge两个步骤的结合。

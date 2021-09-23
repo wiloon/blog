@@ -38,7 +38,7 @@ sudo ln -s gem1.8 gem
 
 更换gem sources
   
-由于国内网络原因（你懂的），导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。所以你会与遇到 gem install foo 或 bundle install 的时候半天没有响应.
+由于国内网络原因（你懂的) ，导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。所以你会与遇到 gem install foo 或 bundle install 的时候半天没有响应.
   
 http://ruby.taobao.org/是一个完整 rubygems.org 镜像，用这个代替官方版本，同步频率目前为30分钟一次.
   

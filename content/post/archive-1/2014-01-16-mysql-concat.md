@@ -18,7 +18,7 @@ MySQL> SELECT CONCAT('My', 'S', 'QL');
   
 ```
 
-MySQL CONCAT（）函数用于将多个字符串连接成一个字符串
+MySQL CONCAT（) 函数用于将多个字符串连接成一个字符串
 
 MySQL CONCAT(str1,str2,…)
   
@@ -48,6 +48,6 @@ MySQL> SELECT CONCAT_WS(',','First name',NULL,'Last Name');
 
 -> 'First name,Last Name'
 
-MySQL CONCAT_WS()不会忽略任何空字符串。 (然而会忽略所有的 NULL）。
+MySQL CONCAT_WS()不会忽略任何空字符串。 (然而会忽略所有的 NULL) 。
 
 http://database.51cto.com/art/201010/229188.htm

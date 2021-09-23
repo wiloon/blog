@@ -38,7 +38,7 @@ Emacs平台很强大,已经不只是一个编辑器这么简单了,它被移植�
 这个配置意思很明显了,emacs在启动的时候会加载 C:Users<username>AppDataRoaming.emacs 这个配置文件,而该文件又加载另一个 D:/emacs-23.2/.emacs 配置文件。这样,自然就成功实现了配置的转移喽~好了,从现在起就不用进入 C:Users<username>AppDataRoaming.emacs 这个冗的路径喽！
 
 
-上一步,我们把emacs的配置文件用 (load-file ...) 配置已经指向到 D:/emacs-23.2/.emacs 了,那两个就拷贝一个 .emacs 文件放到 D:/emacs-23.2/ 里吧（Windows下好像不能建立以 . 开头的文件吧）。然后,打开D:/emacs-23.2/.emacs,在开头添加如下配置: 
+上一步,我们把emacs的配置文件用 (load-file ...) 配置已经指向到 D:/emacs-23.2/.emacs 了,那两个就拷贝一个 .emacs 文件放到 D:/emacs-23.2/ 里吧（Windows下好像不能建立以 . 开头的文件吧) 。然后,打开D:/emacs-23.2/.emacs,在开头添加如下配置: 
 
 (setenv "HOME" "D:/emacs-23.2")
 

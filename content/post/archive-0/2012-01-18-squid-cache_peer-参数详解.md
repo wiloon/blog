@@ -17,7 +17,7 @@ cache_peer hostname type http_port icp_port
   
 1. hostname:指被请求的同级子代理服务器或父代理服务器。可以用主机名或ip地址表示；
   
-2. type: 指明hostname的类型，是同级子代理服务器还是父代理服务器，也即parent（父） 还是 sibling（子）；
+2. type: 指明hostname的类型，是同级子代理服务器还是父代理服务器，也即parent（父)  还是 sibling（子) ；
   
 3. http_port: hostname的监听端口；
   

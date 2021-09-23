@@ -428,7 +428,7 @@ Child process ,The value of a is 1,b is 2,the address a 0xbfb73d90,b 0xbfb73d8c
 
 从程序的输出结果可以看出:  
 
-　　子进程将文件关闭并将变量修改（调用clone时用到的CLONE_VM、CLONE_FILES标志将使得变量和文件描述符表被共享），父进程随即就感觉到了，这就是clone的特点。由于此处没有设置标志CLONE_VFORK，因此子进程在运行时父进程也不会阻塞，两者同时运行。 
+　　子进程将文件关闭并将变量修改（调用clone时用到的CLONE_VM、CLONE_FILES标志将使得变量和文件描述符表被共享) ，父进程随即就感觉到了，这就是clone的特点。由于此处没有设置标志CLONE_VFORK，因此子进程在运行时父进程也不会阻塞，两者同时运行。 
 
 　　总结 
 
@@ -505,7 +505,7 @@ IPC机制等，另外通过fork创建子进程系统开销很大，需要将上�
 
 制将是一个多余的过程（由于linux中是采取了copy-on-write技术，所以这一步骤的所做的工作只是虚存
 
-管理部分的复制以及页表的创建，而并没有包括物理也面的拷贝）；另外，有时一个进程中具有几个独立
+管理部分的复制以及页表的创建，而并没有包括物理也面的拷贝) ；另外，有时一个进程中具有几个独立
 
 的计算单元，可以在相同的地址空间上基本无冲突进行运算，但是为了把这些计算单元分配到不同的处理
 
@@ -607,7 +607,7 @@ do_fork会检查CLONE_VFORK，如果该位被置1了，子进程会把父进程�
 
 明确了这些概念后，来讲述Linux的线程和clone系统调用。
 
-在许多实现了MT的操作系统中（如: Solaris，Digital Unix等）， 线程和进程通过两种数据结构来
+在许多实现了MT的操作系统中（如: Solaris，Digital Unix等) ， 线程和进程通过两种数据结构来
 
 抽象表示:  进程表项和线程表项，一个进程表项可以指向若干个线程表项， 调度器在进程的时间片内再
 
@@ -714,7 +714,7 @@ c.      void *(*start_rtn)(void *): 指定线程函数指针，该函数返回�
 d.      void *restrict arg: 传入给线程函数的参数
 e.      返回错误值。
 2.      pthread函数在出错的时候不会设置errno，而是直接返回错误值
-3.      在Linux 系统下面，在老的内核中，由于Thread也被看作是一种特殊，可共享地址空间和资源的Process，因此在同一个Process中创建的不同 Thread具有不同的Process ID（调用getpid获得）。而在新的2.6内核之中，Linux采用了NPTL(Native POSIX Thread Library)线程模型（可以参考 http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library和 http://www-128.ibm.com/developerworks/linux/library/l-threading.html?ca=dgr-lnxw07LinuxThreadsAndNPTL），在该线程模型下同一进程下不同线程调用getpid返回同一个PID。
+3.      在Linux 系统下面，在老的内核中，由于Thread也被看作是一种特殊，可共享地址空间和资源的Process，因此在同一个Process中创建的不同 Thread具有不同的Process ID（调用getpid获得) 。而在新的2.6内核之中，Linux采用了NPTL(Native POSIX Thread Library)线程模型（可以参考 http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library和 http://www-128.ibm.com/developerworks/linux/library/l-threading.html?ca=dgr-lnxw07LinuxThreadsAndNPTL) ，在该线程模型下同一进程下不同线程调用getpid返回同一个PID。
 4.      不能对创建的新线程和当前创建者线程的运行顺序作出任何假设
 5 Thread Termination
 1.      exit, _Exit, _exit用于中止当前进程，而非线程
@@ -723,7 +723,7 @@ a.      在线程函数中return
 b.      被同一进程中的另外的线程Cancel掉
 c.      线程调用pthread_exit函数
 3.      pthread_exit和pthread_join函数的用法: 
-a.      线程A调用pthread_join(B, &rval_ptr)，被Block，进入Detached状态（如果已经进入Detached状态，则pthread_join函数返回EINVAL）。如果对B的结束代码不感兴趣，rval_ptr可以传NULL。
+a.      线程A调用pthread_join(B, &rval_ptr)，被Block，进入Detached状态（如果已经进入Detached状态，则pthread_join函数返回EINVAL) 。如果对B的结束代码不感兴趣，rval_ptr可以传NULL。
 b.      线程B调用pthread_exit(rval_ptr)，退出线程B，结束代码为rval_ptr。注意rval_ptr指向的内存的生命周期，不应该指向B的Stack中的数据。
 c.      线程A恢复运行，pthread_join函数调用结束，线程B的结束代码被保存到rval_ptr参数中去。如果线程B被Cancel，那么rval_ptr的值就是PTHREAD_CANCELLED。
 两个函数原型如下: 
@@ -788,7 +788,7 @@ int pthread_detach(pthread_t tid);
 6 Thread Synchronization
 1.      互斥量: Mutex
 a.      用于互斥访问
-b.      类型: pthread_mutex_t，必须被初始化为PTHREAD_MUTEX_INITIALIZER（用于静态分配的mutex，等价于 pthread_mutex_init(…, NULL)）或者调用pthread_mutex_init。Mutex也应该用pthread_mutex_destroy来销毁。这两个函数原型如下: （attr的具体含义下一章讨论）
+b.      类型: pthread_mutex_t，必须被初始化为PTHREAD_MUTEX_INITIALIZER（用于静态分配的mutex，等价于 pthread_mutex_init(…, NULL)) 或者调用pthread_mutex_init。Mutex也应该用pthread_mutex_destroy来销毁。这两个函数原型如下: （attr的具体含义下一章讨论) 
 ＃i nclude <pthread.h>
  
 int pthread_mutex_init(
@@ -839,7 +839,7 @@ pthread_rwlock_unlock: 释放锁，不管是读锁还是写锁都是调用此函
 注意具体实现可能对同时获得读锁的线程个数有限制，所以在调用 pthread_rwlock_rdlock的时候需要检查错误值，而另外两个pthread_rwlock_wrlock和 pthread_rwlock_unlock则一般不用检查，如果我们代码写的正确的话。
 3.      Conditional Variable: 条件
 a.      条件必须被Mutex保护起来
-b.      类型为: pthread_cond_t，必须被初始化为PTHREAD_COND_INITIALIZER（用于静态分配的条件，等价于pthread_cond_init(…, NULL)）或者调用pthread_cond_init
+b.      类型为: pthread_cond_t，必须被初始化为PTHREAD_COND_INITIALIZER（用于静态分配的条件，等价于pthread_cond_init(…, NULL)) 或者调用pthread_cond_init
 ＃i nclude <pthread.h>
  
 int pthread_cond_init(
@@ -848,7 +848,7 @@ int pthread_cond_init(
  
 int pthread_cond_destroy(pthread_cond_t *cond);
  
-c.      pthread_cond_wait 函数用于等待条件发生（=true）。pthread_cond_timedwait类似，只是当等待超时的时候返回一个错误值ETIMEDOUT。超时的时间用timespec结构指定。此外，两个函数都需要传入一个Mutex用于保护条件
+c.      pthread_cond_wait 函数用于等待条件发生（=true) 。pthread_cond_timedwait类似，只是当等待超时的时候返回一个错误值ETIMEDOUT。超时的时间用timespec结构指定。此外，两个函数都需要传入一个Mutex用于保护条件
 ＃i nclude <pthread.h>
  
 int pthread_cond_wait(
@@ -866,7 +866,7 @@ struct timespec {
        long   tv_nsec;      /* nanoseconds */
 };
 注意timespec的时间是绝对时间而非相对时间，因此需要先调用gettimeofday函数获得当前时间，再转换成timespec结构，加上偏移量。
-e.      有两个函数用于通知线程条件被满足（=true）: 
+e.      有两个函数用于通知线程条件被满足（=true) : 
 ＃i nclude <pthread.h>
  
 int pthread_cond_signal(pthread_cond_t *cond);
@@ -874,36 +874,36 @@ int pthread_cond_signal(pthread_cond_t *cond);
 int pthread_cond_broadcast(pthread_cond_t *cond);
 两者的区别是前者会唤醒单个线程，而后者会唤醒多个线程。
  
-在传统的Unix模型中，当一个进程需要由另一个实体执行某件事时，该进程派生（fork）一个子进程，让子进程去进行处理。Unix下的大多数网络服务器程序都是这么编写的，即父进程接受连接，派生子进程，子进程处理与客户的交互。
+在传统的Unix模型中，当一个进程需要由另一个实体执行某件事时，该进程派生（fork) 一个子进程，让子进程去进行处理。Unix下的大多数网络服务器程序都是这么编写的，即父进程接受连接，派生子进程，子进程处理与客户的交互。
 
 虽然这种模型很多年来使用得很好，但是fork时有一些问题: 
 
-1. fork是昂贵的。内存映像要从父进程拷贝到子进程，所有描述字要在子进程中复制等等。目前有的Unix实现使用一种叫做写时拷贝（copy－on－write）的技术，可避免父进程数据空间向子进程的拷贝。尽管有这种优化技术，fork仍然是昂贵的。
+1. fork是昂贵的。内存映像要从父进程拷贝到子进程，所有描述字要在子进程中复制等等。目前有的Unix实现使用一种叫做写时拷贝（copy－on－write) 的技术，可避免父进程数据空间向子进程的拷贝。尽管有这种优化技术，fork仍然是昂贵的。
 
-2. fork子进程后，需要用进程间通信（IPC）在父子进程之间传递信息。Fork之前的信息容易传递，因为子进程从一开始就有父进程数据空间及所有描述字的拷贝。但是从子进程返回信息给父进程需要做更多的工作。
+2. fork子进程后，需要用进程间通信（IPC) 在父子进程之间传递信息。Fork之前的信息容易传递，因为子进程从一开始就有父进程数据空间及所有描述字的拷贝。但是从子进程返回信息给父进程需要做更多的工作。
 
-线程有助于解决这两个问题。线程有时被称为轻权进程（lightweight process），因为线程比进程"轻权"，一般来说，创建一个线程要比创建一个进程快10～100倍。
+线程有助于解决这两个问题。线程有时被称为轻权进程（lightweight process) ，因为线程比进程"轻权"，一般来说，创建一个线程要比创建一个进程快10～100倍。
 
 一个进程中的所有线程共享相同的全局内存，这使得线程很容易共享信息，但是这种简易性也带来了同步问题。
 
-一个进程中的所有线程不仅共享全局变量，而且共享: 进程指令、大多数数据、打开的文件（如描述字）、信号处理程序和信号处置、当前工作目录、用户ID和组ID。但是每个线程有自己的线程ID、寄存器集合（包括程序计数器和栈指针）、栈（用于存放局部变量和返回地址）、error、信号掩码、优先级。在Linux中线程编程符合Posix.1标准，称为Pthreads。所有的pthread函数都以pthread_开头。以下先讲述5个基本线程函数，在调用它们前均要包括pthread.h头文件。然后再给出用它们编写的一个TCP客户/服务器程序例子。
+一个进程中的所有线程不仅共享全局变量，而且共享: 进程指令、大多数数据、打开的文件（如描述字) 、信号处理程序和信号处置、当前工作目录、用户ID和组ID。但是每个线程有自己的线程ID、寄存器集合（包括程序计数器和栈指针) 、栈（用于存放局部变量和返回地址) 、error、信号掩码、优先级。在Linux中线程编程符合Posix.1标准，称为Pthreads。所有的pthread函数都以pthread_开头。以下先讲述5个基本线程函数，在调用它们前均要包括pthread.h头文件。然后再给出用它们编写的一个TCP客户/服务器程序例子。
 
 第一个函数: 
 int pthread_create (pthread_t ＊tid,const pthread_attr_t ＊attr,void ＊      (＊func)(void ＊),void ＊arg)；
-一个进程中的每个线程都由一个线程ID（thread ID）标识，其数据类型是pthread_t（常常是unsigned int）。如果新的线程创建成功，其ID将通过tid指针返回。
+一个进程中的每个线程都由一个线程ID（thread ID) 标识，其数据类型是pthread_t（常常是unsigned int) 。如果新的线程创建成功，其ID将通过tid指针返回。
 
 每个线程都有很多属性: 优先级、起始栈大小、是否应该是一个守护线程等等，当创建线程时，我们可通过初始化一个pthread_attr_t变量说明这些属性以覆盖缺省值。我们通常使用缺省值，在这种情况下，我们将attr参数说明为空指针。
 
-最后，当创建一个线程时，我们要说明一个它将执行的函数。线程以调用该函数开始，然后或者显式地终止（调用pthread_exit）或者隐式地终止（让该函数返回）。函数的地址由func参数指定，该函数的调用参数是一个指针arg，如果我们需要多个调用参数，我们必须将它们打包成一个结构，然后将其地址当作唯一的参数传递给起始函数。
+最后，当创建一个线程时，我们要说明一个它将执行的函数。线程以调用该函数开始，然后或者显式地终止（调用pthread_exit) 或者隐式地终止（让该函数返回) 。函数的地址由func参数指定，该函数的调用参数是一个指针arg，如果我们需要多个调用参数，我们必须将它们打包成一个结构，然后将其地址当作唯一的参数传递给起始函数。
 
-在func和arg的声明中，func函数取一个通用指针（void ＊）参数，并返回一个通用指针（void ＊），这就使得我们可以传递一个指针（指向任何我们想要指向的东西）给线程，由线程返回一个指针（同样指向任何我们想要指向的东西）。调用成功，返回0，出错时返回正Exxx值。Pthread函数不设置errno。
+在func和arg的声明中，func函数取一个通用指针（void ＊) 参数，并返回一个通用指针（void ＊) ，这就使得我们可以传递一个指针（指向任何我们想要指向的东西) 给线程，由线程返回一个指针（同样指向任何我们想要指向的东西) 。调用成功，返回0，出错时返回正Exxx值。Pthread函数不设置errno。
 
 第二个函数: 
 
  
 
 int pthread_join(pthread_t tid,void ＊＊status);
-该函数等待一个线程终止。把线程和进程相比，pthread_creat类似于fork，而 pthread_join类似于waitpid。我们必须要等待线程的tid，很可惜，我们没有办法等待任意一个线程结束。如果status指针非空，线程的返回值（一个指向某个对象的指针）将存放在status指向的位置。
+该函数等待一个线程终止。把线程和进程相比，pthread_creat类似于fork，而 pthread_join类似于waitpid。我们必须要等待线程的tid，很可惜，我们没有办法等待任意一个线程结束。如果status指针非空，线程的返回值（一个指向某个对象的指针) 将存放在status指向的位置。
 
 第三个函数: 
 
@@ -917,7 +917,7 @@ pthread_t pthread_self(void);
  
 
 int pthread_detach(pthread_t tid);
-线程或者是可汇合的（joinable）或者是脱离的（detached）。当可汇合的线程终止时，其线程ID和退出状态将保留，直到另外一个线程调用pthread_join。脱离的线程则像守护进程: 当它终止时，所有的资源都释放，我们不能等待它终止。如果一个线程需要知道另一个线程什么时候终止，最好保留第二个线程的可汇合性。Pthread_detach函数将指定的线程变为脱离的。该函数通常被想脱离自己的线程调用，如: pthread_detach (pthread_self ( ));
+线程或者是可汇合的（joinable) 或者是脱离的（detached) 。当可汇合的线程终止时，其线程ID和退出状态将保留，直到另外一个线程调用pthread_join。脱离的线程则像守护进程: 当它终止时，所有的资源都释放，我们不能等待它终止。如果一个线程需要知道另一个线程什么时候终止，最好保留第二个线程的可汇合性。Pthread_detach函数将指定的线程变为脱离的。该函数通常被想脱离自己的线程调用，如: pthread_detach (pthread_self ( ));
 
  
 
@@ -931,7 +931,7 @@ int pthread_detach(pthread_t tid);
 void pthread_exit(void ＊status);
 该函数终止线程。如果线程未脱离，其线程ID和退出状态将一直保留到调用进程中的某个其他线程调用pthread_join函数。指针status不能指向局部于调用线程的对象，因为线程终止时这些对象也消失。有两种其他方法可使线程终止: 
 
-1. 启动线程的函数（pthread_creat的第3个参数）返回。既然该函数必须说明为返回一个void指针，该返回值便是线程的终止状态。
+1. 启动线程的函数（pthread_creat的第3个参数) 返回。既然该函数必须说明为返回一个void指针，该返回值便是线程的终止状态。
 
 2. 如果进程的main函数返回或者任何线程调用了exit，进程将终止，线程将随之终止。
 
@@ -942,8 +942,8 @@ void pthread_exit(void ＊status);
 堆栈地址、堆栈大小、优先级。默认的属性为非绑定、非分离、缺省的堆栈、与父进程同样级别的优先级。
 
 2．绑定
-关于线程的绑定，牵涉到另外一个概念: 轻进程（LWP: Light Weight Process）。轻进程可以理解为内核线程，它位于用户层和系统层之间。系统对线程资源的分配、对线程的控制是通过轻进程来实现的，一个轻进程可以控制一个或多个线程。默认状况下，启动多少轻进程、哪些轻进程来控制哪些线程是由系统来控制的，这种状况即称为非绑定的。绑定状况下，则顾名思义，即某个线程固定的"绑"在一个轻进程之上。被绑定的线程具有较高的响应速度，这是因为CPU时间片的调度是面向轻进程的，绑定的线程可以保证在需要的时候它总有一个轻进程可用。通过设置被绑定的轻进程的优先级和调度级可以使得绑定的线程满足诸如实时反应之类的要求。
-　　设置线程绑定状态的函数为 pthread_attr_setscope，它有两个参数，第一个是指向属性结构的指针，第二个是绑定类型，它有两个取值:  PTHREAD_SCOPE_SYSTEM（绑定的）和PTHREAD_SCOPE_PROCESS（非绑定的）。下面的代码即创建了一个绑定的线程。
+关于线程的绑定，牵涉到另外一个概念: 轻进程（LWP: Light Weight Process) 。轻进程可以理解为内核线程，它位于用户层和系统层之间。系统对线程资源的分配、对线程的控制是通过轻进程来实现的，一个轻进程可以控制一个或多个线程。默认状况下，启动多少轻进程、哪些轻进程来控制哪些线程是由系统来控制的，这种状况即称为非绑定的。绑定状况下，则顾名思义，即某个线程固定的"绑"在一个轻进程之上。被绑定的线程具有较高的响应速度，这是因为CPU时间片的调度是面向轻进程的，绑定的线程可以保证在需要的时候它总有一个轻进程可用。通过设置被绑定的轻进程的优先级和调度级可以使得绑定的线程满足诸如实时反应之类的要求。
+　　设置线程绑定状态的函数为 pthread_attr_setscope，它有两个参数，第一个是指向属性结构的指针，第二个是绑定类型，它有两个取值:  PTHREAD_SCOPE_SYSTEM（绑定的) 和PTHREAD_SCOPE_PROCESS（非绑定的) 。下面的代码即创建了一个绑定的线程。
 ＃i nclude <pthread.h>
 pthread_attr_t attr;
 pthread_t tid;
@@ -952,7 +952,7 @@ pthread_attr_init(&attr);
 pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM);
 pthread_create(&tid, &attr, (void *) my_function, NULL);
 
-3．线程分离状态                                                                                                                                         线程的分离状态决定一个线程以什么样的方式来终止自己。非分离的线程终止时，其线程ID和退出状态将保留，直到另外一个线程调用 pthread_join.分离的线程在当它终止时，所有的资源将释放，我们不能等待它终止。                                                                                         设置线程分离状态的函数为 pthread_attr_setdetachstate（pthread_attr_t *attr, int detachstate）。第二个参数可选为PTHREAD_CREATE_DETACHED（分离线程）和 PTHREAD _CREATE_JOINABLE（非分离线程）。这里要注意的一点是，如果设置一个线程为分离线程，而这个线程运行又非常快，它很可能在 pthread_create函数返回之前就终止了，它终止以后就可能将线程号和系统资源移交给其他的线程使用，这样调用pthread_create的线程就得到了错误的线程号。要避免这种情况可以采取一定的同步措施，最简单的方法之一是可以在被创建的线程里调用 pthread_cond_timewait函数，让这个线程等待一会儿，留出足够的时间让函数pthread_create返回。设置一段等待时间，是在多线程编程里常用的方法。
+3．线程分离状态                                                                                                                                         线程的分离状态决定一个线程以什么样的方式来终止自己。非分离的线程终止时，其线程ID和退出状态将保留，直到另外一个线程调用 pthread_join.分离的线程在当它终止时，所有的资源将释放，我们不能等待它终止。                                                                                         设置线程分离状态的函数为 pthread_attr_setdetachstate（pthread_attr_t *attr, int detachstate) 。第二个参数可选为PTHREAD_CREATE_DETACHED（分离线程) 和 PTHREAD _CREATE_JOINABLE（非分离线程) 。这里要注意的一点是，如果设置一个线程为分离线程，而这个线程运行又非常快，它很可能在 pthread_create函数返回之前就终止了，它终止以后就可能将线程号和系统资源移交给其他的线程使用，这样调用pthread_create的线程就得到了错误的线程号。要避免这种情况可以采取一定的同步措施，最简单的方法之一是可以在被创建的线程里调用 pthread_cond_timewait函数，让这个线程等待一会儿，留出足够的时间让函数pthread_create返回。设置一段等待时间，是在多线程编程里常用的方法。
 4．优先级                                                                                                                                                 它存放在结构sched_param中。用函数pthread_attr_getschedparam和函数 pthread_attr_setschedparam进行存放，一般说来，我们总是先取优先级，对取得的值修改后再存放回去。下面即是一段简单的例子。
 
 ＃i nclude <pthread.h>
@@ -968,14 +968,14 @@ param.sched_priority=newprio;
 pthread_attr_setschedparam(&attr, &param);
 pthread_create(&tid, &attr, (void *)myfunction, myarg);
 
-二．线程数据处理                                                                                                                                 和进程相比，线程的最大优点之一是数据的共享性，各个进程共享父进程处沿袭的数据段，可以方便的获得、修改数据。但这也给多线程编程带来了许多问题。我们必须当心有多个不同的进程访问相同的变量。许多函数是不可重入的，即同时不能运行一个函数的多个拷贝（除非使用不同的数据段）。在函数中声明的静态变量常常带来问题，函数的返回值也会有问题。因为如果返回的是函数内部静态声明的空间的地址，则在一个线程调用该函数得到地址后使用该地址指向的数据时，别的线程可能调用此函数并修改了这一段数据。在进程中共享的变量必须用关键字volatile来定义，这是为了防止编译器在优化时（如gcc中使用-OX参数）改变它们的使用方式。为了保护变量，我们必须使用信号量、互斥等方法来保证我们对变量的正确使用。
-1．线程数据                                                                                                                                                 在单线程的程序里，有两种基本的数据: 全局变量和局部变量。但在多线程程序里，还有第三种数据类型: 线程数据（TSD: Thread-Specific Data）。它和全局变量很象，在线程内部，各个函数可以象使用全局变量一样调用它，但它对线程外部的其它线程是不可见的。例如我们常见的变量 errno，它返回标准的出错信息。它显然不能是一个局部变量，几乎每个函数都应该可以调用它；但它又不能是一个全局变量，否则在 A线程里输出的很可能是B线程的出错信息。要实现诸如此类的变量，我们就必须使用线程数据。我们为每个线程数据创建一个键，它和这个键相关联，在各个线程里，都使用这个键来指代线程数据，但在不同的线程里，这个键代表的数据是不同的，在同一个线程里，它代表同样的数据内容。
+二．线程数据处理                                                                                                                                 和进程相比，线程的最大优点之一是数据的共享性，各个进程共享父进程处沿袭的数据段，可以方便的获得、修改数据。但这也给多线程编程带来了许多问题。我们必须当心有多个不同的进程访问相同的变量。许多函数是不可重入的，即同时不能运行一个函数的多个拷贝（除非使用不同的数据段) 。在函数中声明的静态变量常常带来问题，函数的返回值也会有问题。因为如果返回的是函数内部静态声明的空间的地址，则在一个线程调用该函数得到地址后使用该地址指向的数据时，别的线程可能调用此函数并修改了这一段数据。在进程中共享的变量必须用关键字volatile来定义，这是为了防止编译器在优化时（如gcc中使用-OX参数) 改变它们的使用方式。为了保护变量，我们必须使用信号量、互斥等方法来保证我们对变量的正确使用。
+1．线程数据                                                                                                                                                 在单线程的程序里，有两种基本的数据: 全局变量和局部变量。但在多线程程序里，还有第三种数据类型: 线程数据（TSD: Thread-Specific Data) 。它和全局变量很象，在线程内部，各个函数可以象使用全局变量一样调用它，但它对线程外部的其它线程是不可见的。例如我们常见的变量 errno，它返回标准的出错信息。它显然不能是一个局部变量，几乎每个函数都应该可以调用它；但它又不能是一个全局变量，否则在 A线程里输出的很可能是B线程的出错信息。要实现诸如此类的变量，我们就必须使用线程数据。我们为每个线程数据创建一个键，它和这个键相关联，在各个线程里，都使用这个键来指代线程数据，但在不同的线程里，这个键代表的数据是不同的，在同一个线程里，它代表同样的数据内容。
 　　和线程数据相关的函数主要有4个: 创建一个键；为一个键指定线程数据；从一个键读取线程数据；删除键。
 　　创建键的函数原型为: 
 　　int pthread_key_create __P ((pthread_key_t *__key,void (*__destr_function) (void *)));                                                                                                                                                 第一个参数为指向一个键值的指针，第二个参数指明了一个destructor函数，如果这个参数不为空，那么当每个线程结束时，系统将调用这个函数来释放绑定在这个键上的内存块。这个函数常和函数pthread_once ((pthread_once_t*once_control, void (*initroutine) (void)))一起使用，为了让这个键只被创建一次。函数pthread_once声明一个初始化函数，第一次调用pthread_once时它执行这个函数，以后的调用将被它忽略。
 int pthread_key_delete(pthread_key_t *key);
 该函数用于删除一个由pthread_key_create 函数调用创建的键。调用成功返回值为0，否则返回错误代码。
-在下面的例子中，我们创建一个键，并将它和某个数据相关联。我们要定义一个函数 createWindow，这个函数定义一个图形窗口（数据类型为Fl_Window *，这是图形界面开发工具FLTK中的数据类型）。由于各个线程都会调用这个函数，所以我们使用线程数据。
+在下面的例子中，我们创建一个键，并将它和某个数据相关联。我们要定义一个函数 createWindow，这个函数定义一个图形窗口（数据类型为Fl_Window *，这是图形界面开发工具FLTK中的数据类型) 。由于各个线程都会调用这个函数，所以我们使用线程数据。
 /* 声明一个键*/
 pthread_key_t myWinKey;
 /* 函数 createWindow */
@@ -1056,7 +1056,7 @@ pthread_delay_np(&delay);
 需要注意的是在使用互斥锁的过程中很有可能会出现死锁: 两个线程试图同时占用两个资源，并按不同的次序锁定相应的互斥锁，例如两个线程都需要锁定互斥锁1和互斥锁2，a线程先锁定互斥锁1，b 线程先锁定互斥锁2，这时就出现了死锁。此时我们可以使用函数 pthread_mutex_trylock，它是函数pthread_mutex_lock的非阻塞版本，当它发现死锁不可避免时，它会返回相应的信息，程序员可以针对死锁做出相应的处理。另外不同的互斥锁类型对死锁的处理不一样，但最主要的还是要程序员自己在程序设计注意这一点。
 3．条件变量
 互斥锁一个明显的缺点是它只有两种状态: 锁定和非锁定。而条件变量通过允许线程阻塞和等待另一个线程发送信号的方法弥补了互斥锁的不足，它常和互斥锁一起使用。使用时，条件变量被用来阻塞一个线程，当条件不满足时，线程往往解开相应的互斥锁并等待条件发生变化。一旦其它的某个线程改变了条件变量，它将通知相应的条件变量唤醒一个或多个正被此条件变量阻塞的线程。这些线程将重新锁定互斥锁并重新测试条件是否满足。一般说来，条件变量被用来进行线承间的同步。
-条件变量的结构为pthread_cond_t，函数pthread_cond_init（）被用来初始化一个条件变量。它的原型为: 
+条件变量的结构为pthread_cond_t，函数pthread_cond_init（) 被用来初始化一个条件变量。它的原型为: 
 
 int pthread_cond_init __P ((pthread_cond_t *__cond,__const pthread_condattr_t *__cond_attr));
           
@@ -1064,10 +1064,10 @@ int pthread_cond_init __P ((pthread_cond_t *__cond,__const pthread_condattr_t *_
 在pthread中，条件变量是一个pthread_cond_t类型的变量，条件变量使用下面两个函数: 
 
 pthread_cond_wait 函数用于阻塞，线程可以被函数pthread_cond_signal和函数    pthread_cond_broadcast唤醒，但是要注意的是，条件变量只是起阻塞和唤醒线程的作用，具体的判断条件还需用户给出，例如一个变量是否为0等等，这一点我们从后面的例子中可以看到。线程被唤醒后，它将重新检查判断条件是否满足，如果还不满足，一般说来线程应该仍阻塞在这里，被等待被下一次唤醒。这个过程一般用while语句实现。
-另一个用来阻塞线程的函数是pthread_cond_timedwait（）它比函数pthread_cond_wait（）多了一个时间参数，经历abstime段时间后，即使条件变量不满足，阻塞也被解除。
-函数pthread_cond_signal（）用来释放被阻塞在条件变量cond上的一个线程。
-函数pthread_cond_broadcast（pthread_cond_t *cond）用来唤醒所有被阻塞在条件变量cond上的线程。这些线程被唤醒后将再次竞争相应的互斥锁，所以必须小心使用这个函数。
-下面是使用函数pthread_cond_wait（）和函数pthread_cond_signal（）的一个简单的例子:
+另一个用来阻塞线程的函数是pthread_cond_timedwait（) 它比函数pthread_cond_wait（) 多了一个时间参数，经历abstime段时间后，即使条件变量不满足，阻塞也被解除。
+函数pthread_cond_signal（) 用来释放被阻塞在条件变量cond上的一个线程。
+函数pthread_cond_broadcast（pthread_cond_t *cond) 用来唤醒所有被阻塞在条件变量cond上的线程。这些线程被唤醒后将再次竞争相应的互斥锁，所以必须小心使用这个函数。
+下面是使用函数pthread_cond_wait（) 和函数pthread_cond_signal（) 的一个简单的例子:
 pthread_mutex_t count_lock;
 pthread_cond_t count_nonzero;
 unsigned count;
@@ -1086,7 +1086,7 @@ pthread_cond_signal(&count_nonzero);
 count=count+1;
 pthread_mutex_unlock(&count_lock);
 }
-count 值为0时， decrement函数在pthread_cond_wait处被阻塞，并打开互斥锁count_lock。此时，当调用到函数 increment_count时，pthread_cond_signal（）函数改变条件变量，告知decrement_count（）停止阻塞。
+count 值为0时， decrement函数在pthread_cond_wait处被阻塞，并打开互斥锁count_lock。此时，当调用到函数 increment_count时，pthread_cond_signal（) 函数改变条件变量，告知decrement_count（) 停止阻塞。
 
 =================================================================================
 
@@ -1121,10 +1121,10 @@ mutex
 pthread_mutex_lock() 函数锁住由mutex 指定的mutex  对象。如果mutex 已经被锁住，调用这个函数的线程阻塞直到mutex 可用为止。这跟函数返回的时候参数mutex 指定的mutex 对象变成锁住状态，同时该函数的调用线程成为该mutex 对象的拥有者。
 如果mutex  对象的type 是 PTHREAD_MUTEX_NORMAL ，不进行deadlock detection( 死锁检测) 。企图进行relock  这个mutex 会导致deadlock. 如果一个线程对未加锁的或已经unlock 的mutex 对象进行unlock 操作，结果是不未知的。
 如果mutex 类型是 PTHREAD_MUTEX_ERRORCHECK ，那么将进行错误检查。如果一个线程企图对一个已经锁住的mutex 进行relock ，将返回一个错误。如果一个线程对未加锁的或已经unlock 的mutex 对象进行unlock 操作，将返回一个错误。
-如果mutex 类型是 PTHREAD_MUTEX_RECURSIVE ，mutex 会有一个锁住次数（lock count ）的概念。当一个线程成功地第一次锁住一个mutex 的时候，锁住次数（lock count ）被设置为1 ，每一次一个线程unlock 这个mutex 的时候，锁住次数（lock count ）就减1 。当锁住次数（lock count ）减少为0 的时候，其他线程就能获得该mutex 锁了。如果一个线程对未加锁的或已经unlock 的mutex 对象进行unlock 操作，将返回一个错误。
+如果mutex 类型是 PTHREAD_MUTEX_RECURSIVE ，mutex 会有一个锁住次数（lock count ) 的概念。当一个线程成功地第一次锁住一个mutex 的时候，锁住次数（lock count ) 被设置为1 ，每一次一个线程unlock 这个mutex 的时候，锁住次数（lock count ) 就减1 。当锁住次数（lock count ) 减少为0 的时候，其他线程就能获得该mutex 锁了。如果一个线程对未加锁的或已经unlock 的mutex 对象进行unlock 操作，将返回一个错误。
 如果mutex 类型是 PTHREAD_MUTEX_DEFAULT ，企图递归的获取这个mutex 的锁的结果是不确定的。unlock 一个不是被调用线程锁住的mutex 的结果也是不确定的。企图unlock 一个未被锁住的mutex 导致不确定的结果。
 pthread_mutex_trylock() 调用在参数 mutex 指定的 mutex 对象当前被锁住的时候立即返回，除此之外， pthread_mutex_trylock() 跟 pthread_mutex_lock() 功能完全一样。
-The  pthread_mutex_unlock() 函数释放有参数 mutex 指定的 mutex 对象的锁。如果被释放取决于该 Mutex 对象的类型属性。如果有多个线程为了获得该 mutex 锁阻塞，调用 pthread_mutex_unlock() 将是该 mutex 可用，一定的调度策略将被用来决定哪个线程可以获得该 mutex 锁。（在 mutex 类型为 PTHREAD_MUTEX_RECURSIVE  的情况下，只有当 lock count  减为 0 并且调用线程在该 mutex 上已经没有锁的时候）（翻译到这里，才觉得我的这个锁概念是多么模糊）
+The  pthread_mutex_unlock() 函数释放有参数 mutex 指定的 mutex 对象的锁。如果被释放取决于该 Mutex 对象的类型属性。如果有多个线程为了获得该 mutex 锁阻塞，调用 pthread_mutex_unlock() 将是该 mutex 可用，一定的调度策略将被用来决定哪个线程可以获得该 mutex 锁。（在 mutex 类型为 PTHREAD_MUTEX_RECURSIVE  的情况下，只有当 lock count  减为 0 并且调用线程在该 mutex 上已经没有锁的时候) （翻译到这里，才觉得我的这个锁概念是多么模糊) 
 如果一个线程在等待一个mutex 锁得时候收到了一个signal, 那么在从signal handler 返回的时候，该线程继续等待该mutex 锁，就像这个线程没有被中断一样。
 返回值
 成功， pthread_mutex_lock()  和  pthread_mutex_unlock()  返回0 ，否则返回一个错误的提示码
@@ -1333,7 +1333,7 @@ int pthread_cancel(pthread_t thread);
 
 当然，线程也不是被动的被别人结束。它可以通过设置自身的属性来决定如何结束。
 
-线程的被动结束分为两种，一种是异步终结，另外一种是同步终结。异步终结就是当其他线程调用 pthread_cancel的时候，线程就立刻被结束。而同步终结则不会立刻终结，它会继续运行，直到到达下一个结束点（cancellation point）。当一个线程被按照默认的创建方式创建，那么它的属性是同步终结。
+线程的被动结束分为两种，一种是异步终结，另外一种是同步终结。异步终结就是当其他线程调用 pthread_cancel的时候，线程就立刻被结束。而同步终结则不会立刻终结，它会继续运行，直到到达下一个结束点（cancellation point) 。当一个线程被按照默认的创建方式创建，那么它的属性是同步终结。
 
 通过调用pthread_setcanceltype()来设置终结状态。
 
@@ -1352,7 +1352,7 @@ int pthread_setcancelstate(int state, int *oldstate);
 最后说一下线程的本质。其实在Linux中，新建的线程并不是在原先的进程中，而是系统通过一个系统调用clone()。该系统copy了一个和原先进程完全一样的进程，并在这个进程中执行线程函数。不过这个copy过程和fork不一样。 copy后的进程和原先的进程共享了所有的变量，运行环境。这样，原先进程中的变量变动在copy后的进程中便能体现出来。
 
 ### pthread_create, 内核线程, 用户线程
-这个事情，还真不是一句话就能回答的，因为涉及到Linux和编译器的版本关于线程的概念不多说了，内核级和用户级线程的定义网上也有，简单的说: 内核级就是操作系统内核支持，用户级就是函数库实现（也就是说，不管你操作系统是不是支持线程的，我都可以在你上面用多线程编程）。好了，那么，我们首先明白一件事: 不管Linux还是什么OS，都可以多线程编程的，怎么多线程编程呢？程序员要创建一个线程，当然需要使用xxx函数，这个函数如果是操作系统本身就提供的系统函数，当然没问题，操作系统创建的线程，自然是内核级的了。如果操作系统没有提供"创建线程"的函数（比如Linux 2.4及以前的版本，因为Linux刚诞生那时候，还没有"线程"的概念，能处理多"进程"就不错了），当然你程序员也没办法在操作系统上创建线程。所以，Linux 2.4内核中不知道什么是"线程"，只有一个"task_struct"的数据结构，就是进程。那么，后来随着科学技术的发展，大家提出线程的概念，而且，线程有时候的确是个好东西，于是，我们希望Linux能加入"多线程"编程。要修改一个操作系统，那是很复杂的事情，特别是当操作系统越来越庞大的时候。怎么才能让Linux支持"多线程"呢？首先，最简单的，就是不去动操作系统的"内核"，而是写一个函数库来"模拟"线程。也就是说，我用C写一个函数，比如 create_thread，这个函数最终在Linux的内核里还是去调用了创建"进程"的函数去创建了一个进程（因为OS没变嘛，没有线程这个东西）。 如果有人要多线程编程，那么你就调用 这个create_thread 去创建线程吧，好了，这个线程，就是用库函数创建的线程，就是所谓的"用户级线程"了。等等，这是神马意思？赤裸裸的欺骗？也不是。为什么不是？因为别人给你提供了这个线程函数，你创建了"线程"，那么，你的线程（虽然本质上还是进程）就有了"线程"的一些"特征"，比如可以共享变量啊什么的，咦？那怎么做到的？当然有一套机制，反正人家给你做好了，你用就行了。这种欺骗自然是不"完美"的，有线程的"一些"特征，但不能完全符合理论上的"线程"的概念(POSIX的要求），比如，这种多线程不能被分配到多核上，用户创建的N个线程，对于着内核里面其实就一个"进程"，导致调度啊，管理啊麻烦.....为什么要采用这种"模拟"的方式呢？改内核不是一天两天的事情，先将就用着吧。内核慢慢来改。怎么干改内核这个艰苦卓越的工作？Linux是开源、免费的，谁愿意来干这个活？有两家公司参与了对LinuxThreads的改进（向他们致敬）: IBM启动的NGTP(Next Generation POSIX Threads)项目，以及红帽Redhat公司的NPTL（Native POSIX Thread Library），IBM那个项目，在2003年因为种种原因放弃了，大家都转到NPTL这个项目来了。最终，当然是成功了，在Linux 2.6的内核版本中，这个NPTL项目怎么做的呢？并不是在Linux内核中加了一个"线程"，仍然和原来一样，进程（其实，进程线程就是个概念，对于计算机，只要能高效的实现这个概念就行，程序员能用就OK，管它究竟怎么实现的），不过，用的clone实现的轻量级进程，内核又增加了若干机制来保证线程的表现和POSIX相同，最关键的一点，用户调用pthread库创建的一个线程，会在内核创建一个"线程"，这就是所谓的1: 1模型。所以，Linux下，是有"内核级"线程的，网上很多说Linux是用户级线程，都是不完整的，说的Linux很早以前的版本（现在Linux已经是4.X的版本了）。还有个 pthread 的问题，pthread是个线程函数库，他提供了一些函数，让程序员可以用它来创建，使用线程。那么问题是，这个函数库里面的函数，比如 pthread_create 创建线程的函数，他是怎么实现的呢？他如果是用以前的方法，那程序员用它来创建的线程，还是"用户级"线程；如果它使用了NPTL方式创建线程，那么，它创建的线程，就是"内核级"线程。OK，结论，如果你  1: 使用2.6的内核的系统平台，2: 你的gcc支持NPTL （现在一般都支持），那么你编译出来的多线程程序，就是"内核级"线程了。所以，现在回答问题，只要你不是很古董级的电脑，Linux下用pthread创建的线程是"内核级线程"最后，这NPTL也并不是完美的，还有一些小问题，像有一些商业操作系统，可以实现混合模型，如1:1，N:M等（就是内核线程和用户线程的对应关系），这就强大了，Linux仍有改进的空间
+这个事情，还真不是一句话就能回答的，因为涉及到Linux和编译器的版本关于线程的概念不多说了，内核级和用户级线程的定义网上也有，简单的说: 内核级就是操作系统内核支持，用户级就是函数库实现（也就是说，不管你操作系统是不是支持线程的，我都可以在你上面用多线程编程) 。好了，那么，我们首先明白一件事: 不管Linux还是什么OS，都可以多线程编程的，怎么多线程编程呢？程序员要创建一个线程，当然需要使用xxx函数，这个函数如果是操作系统本身就提供的系统函数，当然没问题，操作系统创建的线程，自然是内核级的了。如果操作系统没有提供"创建线程"的函数（比如Linux 2.4及以前的版本，因为Linux刚诞生那时候，还没有"线程"的概念，能处理多"进程"就不错了) ，当然你程序员也没办法在操作系统上创建线程。所以，Linux 2.4内核中不知道什么是"线程"，只有一个"task_struct"的数据结构，就是进程。那么，后来随着科学技术的发展，大家提出线程的概念，而且，线程有时候的确是个好东西，于是，我们希望Linux能加入"多线程"编程。要修改一个操作系统，那是很复杂的事情，特别是当操作系统越来越庞大的时候。怎么才能让Linux支持"多线程"呢？首先，最简单的，就是不去动操作系统的"内核"，而是写一个函数库来"模拟"线程。也就是说，我用C写一个函数，比如 create_thread，这个函数最终在Linux的内核里还是去调用了创建"进程"的函数去创建了一个进程（因为OS没变嘛，没有线程这个东西) 。 如果有人要多线程编程，那么你就调用 这个create_thread 去创建线程吧，好了，这个线程，就是用库函数创建的线程，就是所谓的"用户级线程"了。等等，这是神马意思？赤裸裸的欺骗？也不是。为什么不是？因为别人给你提供了这个线程函数，你创建了"线程"，那么，你的线程（虽然本质上还是进程) 就有了"线程"的一些"特征"，比如可以共享变量啊什么的，咦？那怎么做到的？当然有一套机制，反正人家给你做好了，你用就行了。这种欺骗自然是不"完美"的，有线程的"一些"特征，但不能完全符合理论上的"线程"的概念(POSIX的要求) ，比如，这种多线程不能被分配到多核上，用户创建的N个线程，对于着内核里面其实就一个"进程"，导致调度啊，管理啊麻烦.....为什么要采用这种"模拟"的方式呢？改内核不是一天两天的事情，先将就用着吧。内核慢慢来改。怎么干改内核这个艰苦卓越的工作？Linux是开源、免费的，谁愿意来干这个活？有两家公司参与了对LinuxThreads的改进（向他们致敬) : IBM启动的NGTP(Next Generation POSIX Threads)项目，以及红帽Redhat公司的NPTL（Native POSIX Thread Library) ，IBM那个项目，在2003年因为种种原因放弃了，大家都转到NPTL这个项目来了。最终，当然是成功了，在Linux 2.6的内核版本中，这个NPTL项目怎么做的呢？并不是在Linux内核中加了一个"线程"，仍然和原来一样，进程（其实，进程线程就是个概念，对于计算机，只要能高效的实现这个概念就行，程序员能用就OK，管它究竟怎么实现的) ，不过，用的clone实现的轻量级进程，内核又增加了若干机制来保证线程的表现和POSIX相同，最关键的一点，用户调用pthread库创建的一个线程，会在内核创建一个"线程"，这就是所谓的1: 1模型。所以，Linux下，是有"内核级"线程的，网上很多说Linux是用户级线程，都是不完整的，说的Linux很早以前的版本（现在Linux已经是4.X的版本了) 。还有个 pthread 的问题，pthread是个线程函数库，他提供了一些函数，让程序员可以用它来创建，使用线程。那么问题是，这个函数库里面的函数，比如 pthread_create 创建线程的函数，他是怎么实现的呢？他如果是用以前的方法，那程序员用它来创建的线程，还是"用户级"线程；如果它使用了NPTL方式创建线程，那么，它创建的线程，就是"内核级"线程。OK，结论，如果你  1: 使用2.6的内核的系统平台，2: 你的gcc支持NPTL （现在一般都支持) ，那么你编译出来的多线程程序，就是"内核级"线程了。所以，现在回答问题，只要你不是很古董级的电脑，Linux下用pthread创建的线程是"内核级线程"最后，这NPTL也并不是完美的，还有一些小问题，像有一些商业操作系统，可以实现混合模型，如1:1，N:M等（就是内核线程和用户线程的对应关系) ，这就强大了，Linux仍有改进的空间
 
 ---
 

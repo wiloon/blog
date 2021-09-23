@@ -44,20 +44,20 @@ System.getProperty("java.library.path");
 
 默认情况下,在Windows平台下,该值包含如下位置: 
 
-1）和jre相关的一些目录
+1) 和jre相关的一些目录
 
-2）程序当前目录
+2) 程序当前目录
 
-3）Windows目录
+3) Windows目录
 
-4）系统目录（system32）
+4) 系统目录（system32) 
 
-5）系统环境变量path指定目录
+5) 系统环境变量path指定目录
 
 
 4.如果你要载入的库文件静态链接到其它动态链接库,例如TestJNI.dll 静态链接到dependency.dll, 那么你必须注意: 
 
-1）如果你选择
+1) 如果你选择
 
 System.load("C://Documents and Settings// TestJNI.dll");
 
@@ -67,7 +67,7 @@ System.load("C://Documents and Settings// TestJNI.dll");
 
 System.load("C://Documents and Settings// dependency.dll"); 让jvm先载入dependency.dll,然后再调用System.load("C://Documents and Settings// TestJNI.dll");
 
-2）如果你选择
+2) 如果你选择
 
 System. loadLibrary ("TestJNI");
 

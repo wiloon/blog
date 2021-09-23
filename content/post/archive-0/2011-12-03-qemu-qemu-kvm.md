@@ -42,7 +42,7 @@ KVM内核模块本身只能提供CPU和内存的虚拟化，所以它必须结�
   
 qemu-kvm
 
-Qemu将KVM整合进来，通过ioctl调用/dev/kvm接口，将有关CPU指令的部分交由内核模块来做。kvm负责cpu虚拟化+内存虚拟化，实现了cpu和内存的虚拟化，但kvm不能模拟其他设备。qemu模拟IO设备（网卡，磁盘等），kvm加上qemu之后就能实现真正意义上服务器虚拟化。因为用到了上面两个东西，所以称之为qemu-kvm。
+Qemu将KVM整合进来，通过ioctl调用/dev/kvm接口，将有关CPU指令的部分交由内核模块来做。kvm负责cpu虚拟化+内存虚拟化，实现了cpu和内存的虚拟化，但kvm不能模拟其他设备。qemu模拟IO设备（网卡，磁盘等) ，kvm加上qemu之后就能实现真正意义上服务器虚拟化。因为用到了上面两个东西，所以称之为qemu-kvm。
 
 
 Qemu模拟其他的硬件，如Network, Disk，同样会影响这些设备的性能，于是又产生了pass through半虚拟化设备virtio_blk, virtio_net，提高设备性能。
@@ -58,7 +58,7 @@ libvirt是目前使用最为广泛的对KVM虚拟机进行管理的工具和API�
 
 modprobe -l kvm*
 
-另外，KVM还需要修改过的QEMU(EXTRA仓库中的qemu-kvm)来启动和管理虚拟机。 此时，有两个选择（根据你需要，选一个即可，比如你不仅使用kvm还需要使用qemu，则选2,否则，一般选1就够用了。直观的区别就是qemu软件包很大，而qemu-kvm很小，qemu-kvm相当于qemu中的qemu-system-x86_64的一个定制版）: 
+另外，KVM还需要修改过的QEMU(EXTRA仓库中的qemu-kvm)来启动和管理虚拟机。 此时，有两个选择（根据你需要，选一个即可，比如你不仅使用kvm还需要使用qemu，则选2,否则，一般选1就够用了。直观的区别就是qemu软件包很大，而qemu-kvm很小，qemu-kvm相当于qemu中的qemu-system-x86_64的一个定制版) : 
 
 1、安装qemu-kvm，以后要运行kvm的时候，就输入qemu-kvm -enable-kvm这个命令
 

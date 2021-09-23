@@ -19,7 +19,7 @@ deb http://debian.nctu.edu.tw/debian/ squeeze main non-free contrib
 deb http://debian.nctu.edu.tw/debian/ squeeze-proposed-updates main non-free contrib
 
 
-# 这个ftp的源速度很快（将http改为ftp也可）
+# 这个ftp的源速度很快（将http改为ftp也可) 
   
 deb http://ftp.debian.org/debian/ squeeze main non-free contrib
   
@@ -37,7 +37,7 @@ deb http://security.debian.org/ squeeze/updates main
   
 # 先下载公钥 debian-multimedia-keyring ，再取得root权限，
   
-# 最后安装该公钥文件"dpkg -i debian-multimedia-keyring_2010.12.26_all.deb"（版本号可能会不断更新）
+# 最后安装该公钥文件"dpkg -i debian-multimedia-keyring_2010.12.26_all.deb"（版本号可能会不断更新) 
   
 # 更详细的请参考它的官网页面一开头的说明，地址: http://www.debian-multimedia.org/
   

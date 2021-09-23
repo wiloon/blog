@@ -20,7 +20,7 @@ https://uupdump.net/
     netsh interface set interface "eth0" disabled
     netsh interface set interface "eth0" enabled
 
-### Windows 命令行（批处理文件）延迟（sleep）方法, 使用ping 的定时功能，精度1秒
+### Windows 命令行（批处理文件) 延迟（sleep) 方法, 使用ping 的定时功能，精度1秒
     ping -n 3 127.0.0.1>nul
 
 说明: 3为ping包发送次数，可作为延迟秒数进行使用，需要延迟几秒就设置几。   
@@ -93,7 +93,7 @@ windows设置>控制面板>更改账户类型>添加>
 在Windows系统下IPconfig命令，后面带/release和 /renew参数可以实现从DHCP服务器重新获取IP地址: 
 
 #### ipconfig /release 
-释放当前网卡获取的IP地址，使用该命令后，网卡（IPv4地址）此时IP地址为空。
+释放当前网卡获取的IP地址，使用该命令后，网卡（IPv4地址) 此时IP地址为空。
 
 #### ipconfig /renew 
 为网卡重新从DHCP服务器上面获取新的IP地址。

@@ -14,7 +14,7 @@ http://blog.csdn.net/zhaozexin/article/details/282333
 
 我的目标是做一个简单的portlet,每次读取新浪的RSS站点显示最新的新闻条目。
 
-花了一个下午,去sourceforge和google 上搜索 opensource 的 java rss lib,还真有不少（顺便提一下,sourceforget的搜索真的很烂）。简单过滤以后,觉得以下三个类库比较有搞头。Rome 、rssutils和rsslib4j。具体的评测如下: 
+花了一个下午,去sourceforge和google 上搜索 opensource 的 java rss lib,还真有不少（顺便提一下,sourceforget的搜索真的很烂) 。简单过滤以后,觉得以下三个类库比较有搞头。Rome 、rssutils和rsslib4j。具体的评测如下: 
 
 一. Rome
   
@@ -70,7 +70,7 @@ System.out.println("" + item.getTitle() + " " + item.getPubDate());
   
 }
 
-如上所示,代码也是相当简单,没有转码的需求,时间也正确显示（因为根本没做分析,当字符串直接返回）。但是该工具包并非真正对外公布,代码中有些不严谨的地方,如System.out的输出,很不爽。而且如果 RSS 的 xml内容如果缺少部分不常用元素 ,它也会printStackTrace一大串,服了它了。另外还有一个大问题,就是当我用它解析 百度新闻 的时候,直接就报错: org.xml.sax.SAXParseException: 字符转换错误: "Unconvertible UTF-8 character beginning with 0xb0"。网上查了查,可能是 java 修改过的 UTF-8 和标准 UTF-8 些微不兼容导致。详情参看 Java 平台中的增补字符 一文。
+如上所示,代码也是相当简单,没有转码的需求,时间也正确显示（因为根本没做分析,当字符串直接返回) 。但是该工具包并非真正对外公布,代码中有些不严谨的地方,如System.out的输出,很不爽。而且如果 RSS 的 xml内容如果缺少部分不常用元素 ,它也会printStackTrace一大串,服了它了。另外还有一个大问题,就是当我用它解析 百度新闻 的时候,直接就报错: org.xml.sax.SAXParseException: 字符转换错误: "Unconvertible UTF-8 character beginning with 0xb0"。网上查了查,可能是 java 修改过的 UTF-8 和标准 UTF-8 些微不兼容导致。详情参看 Java 平台中的增补字符 一文。
 
 三. rsslib4j
   
@@ -102,21 +102,21 @@ System.out.println(itm.toString());
 
 Rome:
   
-优 - 1）可扩展性好,有前途。2）功能强大,除了用来解析RSS,还可以聚合和构造RSS。
+优 - 1) 可扩展性好,有前途。2) 功能强大,除了用来解析RSS,还可以聚合和构造RSS。
   
-劣 - 1）兼容性待加强,2）绑定jdom。为什么不喜欢 jdom呢,因为它api 老变,还很绝,搞得不兼容。
+劣 - 1) 兼容性待加强,2) 绑定jdom。为什么不喜欢 jdom呢,因为它api 老变,还很绝,搞得不兼容。
 
 rssutils:
   
-优 - 1）代码设计精妙,值得学习。2）附带 taglib 实现,直接可在 jsp 中应用。
+优 - 1) 代码设计精妙,值得学习。2) 附带 taglib 实现,直接可在 jsp 中应用。
   
-劣 - 1）没有源码。 2）兼容性有待加强。 3）功能较弱,只能用来解析RSS,没有聚合和构造RSS功能。
+劣 - 1) 没有源码。 2) 兼容性有待加强。 3) 功能较弱,只能用来解析RSS,没有聚合和构造RSS功能。
 
 rsslib4j:
   
-优 - 1）简单有效,体积小。2）兼容性不错。
+优 - 1) 简单有效,体积小。2) 兼容性不错。
   
-劣 - 1）有小bug。2）功能较弱,只能用来解析RSS,没有聚合和构造RSS功能。
+劣 - 1) 有小bug。2) 功能较弱,只能用来解析RSS,没有聚合和构造RSS功能。
 
 编辑选择:  rsslib4j
   

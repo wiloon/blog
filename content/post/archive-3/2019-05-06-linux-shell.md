@@ -20,7 +20,7 @@ $ echo ${a/data/User}           # 将第一个 data 替换为 User
 $ echo ${a//data/User}           # 将全部 data 替换为 User
 /User/wxnacy/User/log/log.txt
 
-$ echo ${a/#\/data/\/User}           # 匹配开头 /data 替换为 /User（/ 需要转义）
+$ echo ${a/#\/data/\/User}           # 匹配开头 /data 替换为 /User（/ 需要转义) 
 /User/wxnacy/data/log/log.txt
 
 $ echo ${a/%log.txt/User}           # 匹配结尾 log.txt 替换为 User
@@ -160,9 +160,9 @@ echo $SHELL
 ps |  grep $$  |  awk '{print $4}'
 ```
 
-命令行式shell（Command Line Interface shell ，即CLI shell）
+命令行式shell（Command Line Interface shell ，即CLI shell) 
   
-也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe（命令提示字符）和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh/zsh等 一般情况下，习惯把命令行shell（CLI shell）直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
+也就是通过命令行和计算机交互的shell。 Windows NT 系统下有 cmd.exe（命令提示字符) 和近年来微软大力推广的 Windows PowerShell。 Linux下有bash / sh / ksh / csh/zsh等 一般情况下，习惯把命令行shell（CLI shell) 直接称做shell，以后，如果没有特别说明，shell就是指 CLI shell，后文也是主要讲Linux下的 CLI shell。
 
 ### 查看系统里有几种shell
 ```bash
@@ -189,7 +189,7 @@ C shell 使用的是"类C"语法,csh是具有C语言风格的一种shell，tcsh�
 
 3.5、zsh
   
-zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 zsh本身是不兼容bash的，但是他可以使用仿真模式（emulation mode）来模拟bash等，基本可以实现兼容。 在交互式的使用中，目前很多人都是zsh，因为zsh拥有很强大的提示和插件功能，炫酷吊炸天。推荐在终端的交互式使用中使用zsh，再安利一个插件Oh My Zsh 其实我个人的理解是，在终端中使用shell，基本上只是调用各种命令，比如: curl cat ls等等，基本不会使用到zsh的编程，所以终端中使用zsh是可以的。但是在写shell脚本的时候，需要考虑兼容性， 最主流的还是bash shell，所以，后文我们介绍的shell脚本也是bash shell的。
+zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 zsh本身是不兼容bash的，但是他可以使用仿真模式（emulation mode) 来模拟bash等，基本可以实现兼容。 在交互式的使用中，目前很多人都是zsh，因为zsh拥有很强大的提示和插件功能，炫酷吊炸天。推荐在终端的交互式使用中使用zsh，再安利一个插件Oh My Zsh 其实我个人的理解是，在终端中使用shell，基本上只是调用各种命令，比如: curl cat ls等等，基本不会使用到zsh的编程，所以终端中使用zsh是可以的。但是在写shell脚本的时候，需要考虑兼容性， 最主流的还是bash shell，所以，后文我们介绍的shell脚本也是bash shell的。
 
 执行并获取返回结果，有点类似JavaScript 的eval函数。
 
@@ -263,12 +263,12 @@ https://my.oschina.net/u/2428064/blog/3045121
 
 ### 逻辑与，或表达式
     与&&: 
-    1）if [ $str=a -a $str=b ] 
-    2）if [ $str=a ] && [  $str=b ]
+    1) if [ $str=a -a $str=b ] 
+    2) if [ $str=a ] && [  $str=b ]
     
     或||: 
-    1）if [ $str=a -o $str=b ] 
-    2）if [ $str=a ] || [  $str=b ]
+    1) if [ $str=a -o $str=b ] 
+    2) if [ $str=a ] || [  $str=b ]
 
 
 ### 以-分隔取最后一段字符串
@@ -362,9 +362,9 @@ fi
 注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则: 
 
 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
-中间不能有空格，可以使用下划线（_）。
+中间不能有空格，可以使用下划线（_) 。
 不能使用标点符号。
-不能使用bash里的关键字（可用help命令查看保留关键字）。
+不能使用bash里的关键字（可用help命令查看保留关键字) 。
 
 #### 可以用语句给变量赋值
 
@@ -434,12 +434,12 @@ ${var:-newstring}
     $$	当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
 
 ### 参数 
-    -p file] 如果file存在且是一个名字管道（F如果O）则为真 
-    管道是linux里面进程间通信的一种方式，其他的还有像信号（signal）、信号量、消息队列、共享内存、套接字（socket）等。 
+    -p file] 如果file存在且是一个名字管道（F如果O) 则为真 
+    管道是linux里面进程间通信的一种方式，其他的还有像信号（signal) 、信号量、消息队列、共享内存、套接字（socket) 等。 
     [-r file] 如果file存在且是可读的则为真 
     [-s file] 如果file存在且大小不为0则为真 
     [-t FD] 如果文件描述符FD打开且指向一个终端则为真 
-    [-u file] 如果file存在且设置了SUID（set userID）则为真 
+    [-u file] 如果file存在且设置了SUID（set userID) 则为真 
     [-w file] 如果file存在且是可写的则为真 
     [-x file] 如果file存在且是可执行的则为真 
     [-O file] 如果file存在且属有效用户ID则为真 
@@ -486,7 +486,7 @@ if [ -f ~/.bashrc ]; then
 fi
 ```
 
-其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0（表示真），则执行then后面的子命令，如果Exit Status非0（表示假），则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例: 
+其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0（表示真) ，则执行then后面的子命令，如果Exit Status非0（表示假) ，则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例: 
 
 #! /bin/sh
   
@@ -580,7 +580,7 @@ filename1 -nt filename2 如果 filename1 比 filename2 新，则为真 [ /tmp/in
   
 filename1 -ot filename2 如果 filename1 比 filename2 旧，则为真 [ /boot/bzImage -ot arch/i386/boot/bzImage ]
   
-字符串比较运算符 （请注意引号的使用，这是防止空格扰乱代码的好方法）
+字符串比较运算符 （请注意引号的使用，这是防止空格扰乱代码的好方法) 
   
 -z string 如果 string 长度为零，则为真 [ -z "$myvar" ]
   
@@ -630,7 +630,7 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 
 test命令用于检查某个条件是否成立，它可以进行数值、字符和文件3个方面的测试，其测试符和相应的功能分别如下。
 
-（1）数值测试: 
+（1) 数值测试: 
 
 　　-eq 等于则为真。
 
@@ -644,7 +644,7 @@ test命令用于检查某个条件是否成立，它可以进行数值、字符�
 
 　　-le 小于等于则为真。
 
-（2）字串测试: 
+（2) 字串测试: 
 
 　　= 等于则为真。
 
@@ -654,7 +654,7 @@ test命令用于检查某个条件是否成立，它可以进行数值、字符�
 
 　　-n字串 字串长度不伪则为真。
 
-（3）文件测试: 
+（3) 文件测试: 
 
 　　-e文件名 如果文件存在则为真。
 
@@ -862,11 +862,11 @@ done
   
 其中，下面三种整数比较都成立: 
   
-1） while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
+1)  while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
 
-2） while [ ! -f $file -o "$fileSize" -lt 1000 ]
+2)  while [ ! -f $file -o "$fileSize" -lt 1000 ]
 
-3） (("$fileSize" < 1000))
+3)  (("$fileSize" < 1000))
 
 推荐使用第一种
 

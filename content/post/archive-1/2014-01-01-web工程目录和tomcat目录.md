@@ -217,7 +217,7 @@ WebContent (站点根目录)
 
 例如在WEB-INF下的index.htm,客户端无法与对待其他文件夹内的信息一样,通过http://yourserver/yourwebapp/WEB-INF/index.htm访问。WEB-INF文件夹是禁止通过URL访问的。
 
-6. 在WEB-INF目录的classes及lib子目录下,都可以存放Java类文件。在运行时,Servlet容器的类加载器先加载classes目录下的类,再加载lib目录下的JAR文件（Java类库的打包文件）中的类,jar包是许多class文件的集合。因此,如果两个目录下存在同名的类,classes目录下的类具有优先权。
+6. 在WEB-INF目录的classes及lib子目录下,都可以存放Java类文件。在运行时,Servlet容器的类加载器先加载classes目录下的类,再加载lib目录下的JAR文件（Java类库的打包文件) 中的类,jar包是许多class文件的集合。因此,如果两个目录下存在同名的类,classes目录下的类具有优先权。
 
 Tomcat固定的目录结构
 

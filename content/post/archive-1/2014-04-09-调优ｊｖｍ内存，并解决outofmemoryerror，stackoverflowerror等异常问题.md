@@ -94,19 +94,19 @@ Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
 
 当Java程序申请内存，超出VM可分配内存的时候，VM首先可能会GC，如果GC完还是不够，或者申请的直接超过VM可能有的，就会抛出内存溢出异常。从VM规范中我们可以得到，一下几种异常。
 
-java.lang.StackOverflowError:（很少）
+java.lang.StackOverflowError:（很少) 
   
 java.lang.OutOfMemoryError: heap space(比较常见)
   
 java.lang.OutOfMemoryError: PermGen space (经常出现)
   
-java.lang.OutOfMemoryError: GC overhead limit exceeded（某项操作使用大量内存时发生）
+java.lang.OutOfMemoryError: GC overhead limit exceeded（某项操作使用大量内存时发生) 
 
 以下分别解释一下，从最常见的开始: 
   
-java.lang.OutOfMemoryError: PermGen space 这个异常比较常见，是说ＪＶＭ里的Perm内存区的异常溢出，由于JVM在默认的情况下，Perm默认为64M，而很多程序需要大量的Perm区内 存，尤其使用到像Spring等框架的时候，由于需要使用到动态生成类，而这些类不能被GC自动释放，所以导致OutOfMemoryError: PermGen space异常。解决方法很简单，增大JVM的 -XX:MaxPermSize 启动参数，就可以解决这个问题，如过使用的是默认变量通常是64M[5.0 and newer: 64 bit VMs are scaled 30% larger; 1.4 amd64: 96m; 1.3.1 -client: 32m.]，改成128M就可以了，-XX:MaxPermSize=128m。如果已经是128m（Eclipse已经是128m了），就改成 256m。我一般在服务器上为安全起见，改成256m。
+java.lang.OutOfMemoryError: PermGen space 这个异常比较常见，是说ＪＶＭ里的Perm内存区的异常溢出，由于JVM在默认的情况下，Perm默认为64M，而很多程序需要大量的Perm区内 存，尤其使用到像Spring等框架的时候，由于需要使用到动态生成类，而这些类不能被GC自动释放，所以导致OutOfMemoryError: PermGen space异常。解决方法很简单，增大JVM的 -XX:MaxPermSize 启动参数，就可以解决这个问题，如过使用的是默认变量通常是64M[5.0 and newer: 64 bit VMs are scaled 30% larger; 1.4 amd64: 96m; 1.3.1 -client: 32m.]，改成128M就可以了，-XX:MaxPermSize=128m。如果已经是128m（Eclipse已经是128m了) ，就改成 256m。我一般在服务器上为安全起见，改成256m。
 
-java.lang.OutOfMemoryError: heap space或 其它OutOfMemoryError，这个异常实际上跟上面的异常是一个异常，但解决方法不同，所以分开来写。上面那个异常是因为JVM的perm区内 存区分少了引起的（JVM的内 存区分为 young,old,perm三种）。而这个异常是因为JVM堆内 存或者说总体分少了。解决方法是更改 -Xms -Xmx 启动参数，通常是扩大1倍。xms是管理启动时最小内 存量的，xmx是管里JVM最大的内 存量的。
+java.lang.OutOfMemoryError: heap space或 其它OutOfMemoryError，这个异常实际上跟上面的异常是一个异常，但解决方法不同，所以分开来写。上面那个异常是因为JVM的perm区内 存区分少了引起的（JVM的内 存区分为 young,old,perm三种) 。而这个异常是因为JVM堆内 存或者说总体分少了。解决方法是更改 -Xms -Xmx 启动参数，通常是扩大1倍。xms是管理启动时最小内 存量的，xmx是管里JVM最大的内 存量的。
 
 注: OutOfMemoryError可能有很多种原因，根据JVM Specification, 可能有一下几种情况，我先简单列出。stack: stack分区不能动态扩展，或不足以生成新的线程。Heap:需要更多的内 存，而不能获得。Method Area :如果不能满足分配需求。runtime constant pool(从Method Area分配内 存)不足以创建class or interface。native method stacks不能够动态扩展，或生成新的本地线程。
 
@@ -116,7 +116,7 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded，这个是JDK6新添的�
 
 总的来说调优JVM的内 存，组要目的就是在使用内 存尽可能小的，使程序运行正常，不抛出内 纯溢出的bug。而且要调好最小内 存，最大内 存的比，避免GC时浪费太多时间，尤其是要尽量避免FULL GC。
 
-补充: 由于JDK1.4新增了nio，而nio的buffer分配内存比较特殊（读写流可以共享内存）。如果有大量数据交互，也可能导致java.lang.OutOfMemoryError。相应的JDK新增了一个特殊的参数: -XX:MaxDirectMemorySize 默认是64M，可以改大些如128M。
+补充: 由于JDK1.4新增了nio，而nio的buffer分配内存比较特殊（读写流可以共享内存) 。如果有大量数据交互，也可能导致java.lang.OutOfMemoryError。相应的JDK新增了一个特殊的参数: -XX:MaxDirectMemorySize 默认是64M，可以改大些如128M。
 
 -XX:MaxDirectMemorySize=<size>
 

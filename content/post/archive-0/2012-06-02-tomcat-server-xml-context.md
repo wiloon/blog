@@ -103,19 +103,19 @@ server.xml的整体结构如下:
   
 server.xml文件中的元素可以分为以下4类: 
 
-（1）顶层元素: <Server>和<Service>
+（1) 顶层元素: <Server>和<Service>
 
 <Server>元素是整个配置文件的根元素，<Service>元素则代表一个Engine元素以及一组与之相连的Connector元素。
 
-（2）连接器: <Connector>
+（2) 连接器: <Connector>
 
 <Connector>代表了外部客户端发送请求到特定Service的接口；同时也是外部客户端从特定Service接收响应的接口。
 
-（3）容器: <Engine><Host><Context>
+（3) 容器: <Engine><Host><Context>
 
 容器的功能是处理Connector接收进来的请求，并产生相应的响应。Engine、Host和Context都是容器，但它们不是平行的关系，而是父子关系: Engine包含Host，Host包含Context。一个Engine组件可以处理Service中的所有请求，一个Host组件可以处理发向一个特定虚拟主机的所有请求，一个Context组件可以处理一个特定Web应用的所有请求。
 
-（4）内嵌组件: 可以内嵌到容器中的组件。实际上，Server、Service、Connector、Engine、Host和Context是最重要的最核心的Tomcat组件，其他组件都可以归为内嵌组件。
+（4) 内嵌组件: 可以内嵌到容器中的组件。实际上，Server、Service、Connector、Engine、Host和Context是最重要的最核心的Tomcat组件，其他组件都可以归为内嵌组件。
 
 下面将详细介绍Tomcat中各个核心组件的作用，以及相互之间的关系。
 
@@ -147,11 +147,11 @@ Connector的主要功能，是接收连接请求，创建Request和Response对�
   
 <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
   
-（1）通过配置第1个Connector，客户端可以通过8080端口号使用http协议访问Tomcat。其中，protocol属性规定了请求的协议，port规定了请求的端口号，redirectPort表示当强制要求https而请求是http时，重定向至端口号为8443的Connector，connectionTimeout表示连接的超时时间。
+（1) 通过配置第1个Connector，客户端可以通过8080端口号使用http协议访问Tomcat。其中，protocol属性规定了请求的协议，port规定了请求的端口号，redirectPort表示当强制要求https而请求是http时，重定向至端口号为8443的Connector，connectionTimeout表示连接的超时时间。
 
 在这个例子中，Tomcat监听HTTP请求，使用的是8080端口，而不是正式的80端口；实际上，在正式的生产环境中，Tomcat也常常监听8080端口，而不是80端口。这是因为在生产环境中，很少将Tomcat直接对外开放接收请求，而是在Tomcat和客户端之间加一层代理服务器(如nginx)，用于请求的转发、负载均衡、处理静态文件等；通过代理服务器访问Tomcat时，是在局域网中，因此一般仍使用8080端口。
 
-（2）通过配置第2个Connector，客户端可以通过8009端口号使用AJP协议访问Tomcat。AJP协议负责和其他的HTTP服务器(如Apache)建立连接；在把Tomcat与其他HTTP服务器集成时，就需要用到这个连接器。之所以使用Tomcat和其他服务器集成，是因为Tomcat可以用作Servlet/JSP容器，但是对静态资源的处理速度较慢，不如Apache和IIS等HTTP服务器；因此常常将Tomcat与Apache等集成，前者作Servlet容器，后者处理静态资源，而AJP协议便负责Tomcat和Apache的连接。Tomcat与Apache等集成的原理如下图(图片来源): 
+（2) 通过配置第2个Connector，客户端可以通过8009端口号使用AJP协议访问Tomcat。AJP协议负责和其他的HTTP服务器(如Apache)建立连接；在把Tomcat与其他HTTP服务器集成时，就需要用到这个连接器。之所以使用Tomcat和其他服务器集成，是因为Tomcat可以用作Servlet/JSP容器，但是对静态资源的处理速度较慢，不如Apache和IIS等HTTP服务器；因此常常将Tomcat与Apache等集成，前者作Servlet容器，后者处理静态资源，而AJP协议便负责Tomcat和Apache的连接。Tomcat与Apache等集成的原理如下图(图片来源): 
 
 4、Engine
   
@@ -167,19 +167,19 @@ Engine组件在Service组件中有且只有一个；Engine是Service组件中的
 
 5、Host
   
-（1）Engine与Host
+（1) Engine与Host
 
 Host是Engine的子容器。Engine组件中可以内嵌1个或多个Host组件，每个Host组件代表Engine中的一个虚拟主机。Host组件至少有一个，且其中一个的name必须与Engine组件的defaultHost属性相匹配。
 
-（2）Host的作用
+（2) Host的作用
 
-Host虚拟主机的作用，是运行多个Web应用（一个Context代表一个Web应用），并负责安装、展开、启动和结束每个Web应用。
+Host虚拟主机的作用，是运行多个Web应用（一个Context代表一个Web应用) ，并负责安装、展开、启动和结束每个Web应用。
 
 Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如"www.test.com"，或IP地址"116.25.25.25")；为了使用户可以通过网络名连接Tomcat服务器，这个名字应该在DNS服务器上注册。
 
 客户端通常使用主机名来标识它们希望连接的服务器；该主机名也会包含在HTTP请求头中。Tomcat从HTTP头中提取出主机名，寻找名称匹配的主机。如果没有匹配，请求将发送至默认主机。因此默认主机不需要是在DNS服务器中注册的网络名，因为任何与所有Host名称不匹配的请求，都会路由至默认主机。
 
-（3）Host的配置
+（3) Host的配置
 
 在第一部分的例子中，Host的配置如下: 
 
@@ -195,15 +195,15 @@ Host的autoDeploy和appBase属性，与Host内Web应用的自动部署有关；�
 
 6、Context
   
-（1）Context的作用
+（1) Context的作用
 
-Context元素代表在特定虚拟主机上运行的一个Web应用。在后文中，提到Context、应用或Web应用，它们指代的都是Web应用。每个Web应用基于WAR文件，或WAR文件解压后对应的目录（这里称为应用目录）。
+Context元素代表在特定虚拟主机上运行的一个Web应用。在后文中，提到Context、应用或Web应用，它们指代的都是Web应用。每个Web应用基于WAR文件，或WAR文件解压后对应的目录（这里称为应用目录) 。
 
 Context是Host的子容器，每个Host中可以定义任意多的Context元素。
 
 在第一部分的例子中，可以看到server.xml配置文件中并没有出现Context元素的配置。这是因为，Tomcat开启了自动部署，Web应用没有在server.xml中配置静态部署，而是由Tomcat通过特定的规则自动部署。下面介绍一下Tomcat自动部署Web应用的机制。
 
-（2）Web应用自动部署
+（2) Web应用自动部署
 
 Host的配置
 
@@ -251,7 +251,7 @@ reloadable属性指示tomcat是否在运行时监控在WEB-INF/classes和WEB-INF
 
 当我们启动Tomcat后，可以使用http://localhost:8080/来访问Tomcat，其实访问的就是ROOT对应的Web应用；我们也可以通过http://localhost:8080/docs来访问docs应用，同理我们可以访问examples/host-manager/manager这几个Web应用。
 
-（3）server.xml中静态部署Web应用
+（3) server.xml中静态部署Web应用
 
 除了自动部署，我们也可以在server.xml中通过<context>元素静态部署Web应用。静态部署与自动部署是可以共存的。在实际应用中，并不推荐使用静态部署，因为server.xml 是不可动态重加载的资源，服务器一旦启动了以后，要修改这个文件，就得重启服务器才能重新加载。而自动部署可以在Tomcat运行时通过定期的扫描来实现，不需要重启服务器。
 
@@ -281,23 +281,23 @@ Engine、Host和Context都是容器，且 Engine包含Host，Host包含Context�
   
 当请求被发送到Tomcat所在的主机时，如何确定最终哪个Web应用来处理该请求呢？
 
-（1）根据协议和端口号选定Service和Engine
+（1) 根据协议和端口号选定Service和Engine
 
-Service中的Connector组件可以接收特定端口的请求，因此，当Tomcat启动时，Service组件就会监听特定的端口。在第一部分的例子中，Catalina这个Service监听了8080端口（基于HTTP协议）和8009端口（基于AJP协议）。当请求进来时，Tomcat便可以根据协议和端口号选定处理请求的Service；Service一旦选定，Engine也就确定。
+Service中的Connector组件可以接收特定端口的请求，因此，当Tomcat启动时，Service组件就会监听特定的端口。在第一部分的例子中，Catalina这个Service监听了8080端口（基于HTTP协议) 和8009端口（基于AJP协议) 。当请求进来时，Tomcat便可以根据协议和端口号选定处理请求的Service；Service一旦选定，Engine也就确定。
 
 通过在Server中配置多个Service，可以实现通过不同的端口号来访问同一台机器上部署的不同应用。
 
-（2）根据域名或IP地址选定Host
+（2) 根据域名或IP地址选定Host
 
-Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Host处理该请求。如果没有找到，则使用Engine中指定的defaultHost来处理该请求。在第一部分的例子中，由于只有一个Host（name属性为localhost），因此该Service/Engine的所有请求都交给该Host处理。
+Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Host处理该请求。如果没有找到，则使用Engine中指定的defaultHost来处理该请求。在第一部分的例子中，由于只有一个Host（name属性为localhost) ，因此该Service/Engine的所有请求都交给该Host处理。
 
-（3）根据URI选定Context/Web应用
+（3) 根据URI选定Context/Web应用
 
 这一点在Context一节有详细的说明: Tomcat根据应用的 path属性与URI的匹配程度来选择Web应用处理相应请求，这里不再赘述。
 
-（4）举例
+（4) 举例
 
-以请求http://localhost:8080/app1/index.html为例，首先通过协议和端口号（http和8080）选定Service；然后通过主机名（localhost）选定Host；然后通过uri（/app1/index.html）选定Web应用。
+以请求http://localhost:8080/app1/index.html为例，首先通过协议和端口号（http和8080) 选定Service；然后通过主机名（localhost) 选定Host；然后通过uri（/app1/index.html) 选定Web应用。
 
 3、如何配置多个服务
   
@@ -305,19 +305,19 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
 
 在server.xml中配置多服务的方法非常简单，分为以下几步: 
 
-（1）复制<Service>元素，放在当前<Service>后面。
+（1) 复制<Service>元素，放在当前<Service>后面。
 
-（2）修改端口号: 根据需要监听的端口号修改<Connector>元素的port属性；必须确保该端口没有被其他进程占用，否则Tomcat启动时会报错，而无法通过该端口访问Web应用。
+（2) 修改端口号: 根据需要监听的端口号修改<Connector>元素的port属性；必须确保该端口没有被其他进程占用，否则Tomcat启动时会报错，而无法通过该端口访问Web应用。
 
 以Win7为例，可以用如下方法找出某个端口是否被其他进程占用: netstat -aon|findstr "8081″发现8081端口被PID为2064的进程占用，tasklist |findstr "2064″发现该进程为FrameworkService.exe(这是McAfee杀毒软件的进程)。
 
-（3）修改Service和Engine的name属性
+（3) 修改Service和Engine的name属性
 
-（4）修改Host的appBase属性（如webapps2）
+（4) 修改Host的appBase属性（如webapps2) 
 
-（5）Web应用仍然使用自动部署
+（5) Web应用仍然使用自动部署
 
-（6）将要部署的Web应用(WAR包或应用目录)拷贝到新的appBase下。
+（6) 将要部署的Web应用(WAR包或应用目录)拷贝到新的appBase下。
 
 以第一部分的server.xml为例，多个Service的配置如下: 
 
@@ -469,15 +469,15 @@ AccessLogValve的作用是通过日志记录其所在的容器中处理的所有
 
 本例的AccessLogValve属性的配置，使用的是默认的配置；下面介绍AccessLogValve中各个属性的作用: 
 
-（1）className: 规定了Valve的类型，是最重要的属性；本例中，通过该属性规定了这是一个AccessLogValve。
+（1) className: 规定了Valve的类型，是最重要的属性；本例中，通过该属性规定了这是一个AccessLogValve。
 
-（2）directory: 指定日志存储的位置，本例中，日志存储在$TOMCAT_HOME/logs目录下。
+（2) directory: 指定日志存储的位置，本例中，日志存储在$TOMCAT_HOME/logs目录下。
 
-（3）prefix: 指定了日志文件的前缀。
+（3) prefix: 指定了日志文件的前缀。
 
-（4）suffix: 指定了日志文件的后缀。通过directory、prefix和suffix的配置，在$TOMCAT_HOME/logs目录下，可以看到如下所示的日志文件。
+（4) suffix: 指定了日志文件的后缀。通过directory、prefix和suffix的配置，在$TOMCAT_HOME/logs目录下，可以看到如下所示的日志文件。
 
-（5）pattern: 指定记录日志的格式，本例中各项的含义如下: 
+（5) pattern: 指定记录日志的格式，本例中各项的含义如下: 
 
 %h: 远程主机名或IP地址；如果有nginx等反向代理服务器进行请求分发，该主机名/IP地址代表的是nginx，否则代表的是客户端。后面远程的含义与之类似，不再解释。
   

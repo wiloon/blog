@@ -152,7 +152,7 @@ ReentrantLock--mutex
 netty_single_thread--netty
 [堆外内存] as omem
 netty--omem
-[NIO] as NIO #FF8A80
+[NIO] as NIO #C5E1A5
 netty--NIO
 [DirectByteBuffer\n-unsafe] as DirectByteBuffer
 NIO--DirectByteBuffer
@@ -170,6 +170,12 @@ tcp_receive_buffer--socket_read
 socket_read--selector
 [epoll]
 selector--epoll
+[I/O 多路复用] as IO_multiplexing
+epoll--IO_multiplexing
+[poll]
+epoll--poll
+[select]
+epoll--select
 [零拷贝] as zero_copy
 [IO] as io
 [缓存IO] as buffered_io
@@ -244,10 +250,9 @@ java9--jpms
 @enduml
 ```
 
-###
+### palette
 ```
-#AB47BC   Done
+#AB47BC   Point
 #FF8A80   Index
-#9CCC65   Point
-
+#C5E1A5   Done
 ```

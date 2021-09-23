@@ -14,7 +14,7 @@ categories:
   
 
 
-  Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具wireshark （原名叫ethereal）的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见libpcap编程教程）进行网络截包。 
+  Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具wireshark （原名叫ethereal) 的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见libpcap编程教程) 进行网络截包。 
   
     TCPDUMP
   
@@ -25,7 +25,7 @@ categories:
     基本用法 
   
   
-    Tcpdump的参数基本分为两块:选项（options）和过滤器表达式（filter_expression）。
+    Tcpdump的参数基本分为两块:选项（options) 和过滤器表达式（filter_expression) 。
   
   
     # tcpdump [options] [filter_expression]
@@ -42,7 +42,7 @@ categories:
   
     -c 100 指定截取的包的数量
  -i eth0 指定监听哪个网络端口
- -w log 输出到名为log的文件中（libpcap格式）
+ -w log 输出到名为log的文件中（libpcap格式) 
   
   
     filter_expression参数为 tcp dst port 50000，即只监听目标端口为50000的tcp包。
@@ -56,7 +56,7 @@ categories:
   
   
     /*
- 监视除HTTP浏览（端口80/8080）、SSH(22)、 POP3（110)之外的流量，注意在括号(之前添加转义符, -n和-nn的解释见随后
+ 监视除HTTP浏览（端口80/8080) 、SSH(22)、 POP3（110)之外的流量，注意在括号(之前添加转义符, -n和-nn的解释见随后
  */
  # tcpdump -n -nn port not (www or 22 or 110)
  或
@@ -115,7 +115,7 @@ categories:
  -r 　　　从指定的文件中读取包(这些包一般通过-w选项产生)；
  -w 　　　直接将包写入文件中，并不分析和打印出来；
  -T 　　　将监听到的包直接解释为指定的类型的报文，常见的类型有rpc （远程过程
- 调用）和snmp（简单　　　　　　　网络管理协议；）
+ 调用) 和snmp（简单　　　　　　　网络管理协议；) 
   
   
     tcpdump的表达式介绍
@@ -218,8 +218,8 @@ sudo pacman -S wireshark-cli
   
     // 监听接口eth0上目标端口为80的http流量，并将http请求头的host和location打印
  # tshark -f "dst port 80" -T fields -e http.host -e http.location -i 1
- 其中 -f 参数指定过滤表达式（即等同tcpdump的 filter_expression）
- -T fields 指定屏幕输出信息类型为指定的协议字段（用-e添加指定字段），仅在wireshark的0.99.6以后的版本支持。
+ 其中 -f 参数指定过滤表达式（即等同tcpdump的 filter_expression) 
+ -T fields 指定屏幕输出信息类型为指定的协议字段（用-e添加指定字段) ，仅在wireshark的0.99.6以后的版本支持。
  -i 1为指定监听的网络接口为1号
   
   

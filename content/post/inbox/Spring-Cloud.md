@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-Spring Cloud Netflix（Eureka、Hystrix、Zuul、Archaius）、Spring Cloud Config、Spring Cloud Bus、Spring Cloud Cluster、Spring Cloud Consul、Spring Cloud Security、Spring Cloud Sleuth、Spring Cloud Data Flow、Spring Cloud Stream、Spring Cloud Task、Spring Cloud Zookeeper、Spring Cloud Connectors、Spring Cloud Starters、Spring Cloud CLI
+Spring Cloud Netflix（Eureka、Hystrix、Zuul、Archaius) 、Spring Cloud Config、Spring Cloud Bus、Spring Cloud Cluster、Spring Cloud Consul、Spring Cloud Security、Spring Cloud Sleuth、Spring Cloud Data Flow、Spring Cloud Stream、Spring Cloud Task、Spring Cloud Zookeeper、Spring Cloud Connectors、Spring Cloud Starters、Spring Cloud CLI
 
 l Eureka: 服务注册中心，一个基于REST的服务，用于定位服务，以实现微服务架构中服务发现和故障转移。
 
@@ -42,7 +42,7 @@ l Spring Cloud CLI: 基于 Spring Boot CLI，可以让你以命令行方式快�
 
 l Spring Cloud Task: 提供云端计划任务管理、任务调度。
 
-l Spring Cloud Bus: 事件、消息总线，用于在集群（例如，配置变化事件）中传播状态变化，可与Spring Cloud Config联合实现热部署。
+l Spring Cloud Bus: 事件、消息总线，用于在集群（例如，配置变化事件) 中传播状态变化，可与Spring Cloud Config联合实现热部署。
 
 l Spring Cloud Data Flow: 大数据操作工具，作为Spring XD的替代产品，它是一个混合计算模型，结合了流数据与批量数据的处理方式。
 

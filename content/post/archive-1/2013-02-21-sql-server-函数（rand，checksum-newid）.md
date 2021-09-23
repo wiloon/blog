@@ -1,5 +1,5 @@
 ---
-title: SQL Server 函数（RAND，CHECKSUM, NEWID）
+title: SQL Server 函数（RAND，CHECKSUM, NEWID) 
 author: "-"
 type: post
 date: 2013-02-21T03:35:36+00:00
@@ -28,7 +28,7 @@ tags:
     </dt>
     
     <dd>
-      提供种子值的整数表达式（tinyint、smallint 或 int）。如果未指定 <i>seed</i>，则 Microsoft SQL Server 数据库引擎 随机分配种子值。对于指定的种子值，返回的结果始终相同。
+      提供种子值的整数表达式（tinyint、smallint 或 int) 。如果未指定 <i>seed</i>，则 Microsoft SQL Server 数据库引擎 随机分配种子值。对于指定的种子值，返回的结果始终相同。
     </dd>
   </dl>
   

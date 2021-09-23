@@ -79,7 +79,7 @@ WantedBy=multi-user.target
 
 编写systemd下服务脚本
   
-Red Hat Enterprise Linux 7（RHEL 7）已经将服务管理工具从SysVinit和Upstart迁移到了systemd上,相应的服务脚本也需要改变。前面的版本里,所有的启动脚本都是放在/etc/rc.d/init.d/ 目录下。这些脚本都是bash脚本,可以让系统管理员控制这些服务的状态,通常,这些脚本中包含了start,stop,restart这些方法,以提供系统自动调用这些方法。但是在RHEL 7中当中已经完全摒弃了这种方法,而采用了一种叫unit的配置文件来管理服务。
+Red Hat Enterprise Linux 7（RHEL 7) 已经将服务管理工具从SysVinit和Upstart迁移到了systemd上,相应的服务脚本也需要改变。前面的版本里,所有的启动脚本都是放在/etc/rc.d/init.d/ 目录下。这些脚本都是bash脚本,可以让系统管理员控制这些服务的状态,通常,这些脚本中包含了start,stop,restart这些方法,以提供系统自动调用这些方法。但是在RHEL 7中当中已经完全摒弃了这种方法,而采用了一种叫unit的配置文件来管理服务。
 
 Systemd下的unit文件
   
@@ -98,7 +98,7 @@ mount : 此类 unit 封装系统结构层次中的一个挂载点。
   
 automount : 此类 unit 封装系统结构层次中的一个自挂载点。每一个自挂载 unit 对应一个已挂载的挂载 unit (需要在自挂载目录可以存取的情况下尽早挂载)。
   
-target : 此类 unit 为其他 unit 进行逻辑分组。它们本身实际上并不做什么,只是引用其他 unit 而已。这样便可以对 unit 做一个统一的控制。(例如: multi-user.target 相当于在传统使用 SysV 的系统中运行级别5)；bluetooth.target 只有在蓝牙适配器可用的情况下才调用与蓝牙相关的服务,如: bluetooth 守护进程、obex 守护进程等）
+target : 此类 unit 为其他 unit 进行逻辑分组。它们本身实际上并不做什么,只是引用其他 unit 而已。这样便可以对 unit 做一个统一的控制。(例如: multi-user.target 相当于在传统使用 SysV 的系统中运行级别5)；bluetooth.target 只有在蓝牙适配器可用的情况下才调用与蓝牙相关的服务,如: bluetooth 守护进程、obex 守护进程等) 
    
 snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是引用其他 unit 。
 
@@ -110,7 +110,7 @@ snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是�
 
     /etc/systemd/system/*     ――――  供系统管理员和用户使用
     /run/systemd/system/*     ――――  运行时配置文件
-    /usr/lib/systemd/system/*   ――――  安装程序使用（如RPM包安装）
+    /usr/lib/systemd/system/*   ――――  安装程序使用（如RPM包安装) 
     
 
 以下是一段service unit文件的例子,属于/usr/lib/systemd/system/NetworkManager.service文件,它描述的是系统中的网络管理服务。
@@ -157,7 +157,7 @@ Unit主要包含以下内容:
 
 ● Before, After: 定义启动顺序,Before=xxx.service,代表本服务在xxx.service启动之前启动。After=xxx.service,代表本服务在xxx之后启动。
 
-● Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序（启动顺序是另外控制的）,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败（Systemd 没有自动重试）。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
+● Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序（启动顺序是另外控制的) ,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败（Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
 
 ● RequiresOverridable: 跟 Requires 很像。但是如果这条服务是由用户手动启动的,那么 RequiresOverridable 后面的服务即使启动不成功也不报错。跟 Requires 比增加了一定容错性,但是你要确定你的服务是有等待功能的。另外,如果不由用户手动启动而是随系统开机启动,那么依然会有 Requires 面临的问题。
 
@@ -191,7 +191,7 @@ notify,idle类型比较少见,不介绍。
 
 ● ExecStop: 定义停止服务时所执行的命令,定义服务退出前所做的处理。如果没有指定,使用systemctl stop xxx命令时,服务将立即被终结而不做处理。
 
-● Restart: 定义服务何种情况下重启（启动失败,启动超时,进程被终结）。可选选项: no, on-success, on-failure,on-watchdog, on-abort
+● Restart: 定义服务何种情况下重启（启动失败,启动超时,进程被终结) 。可选选项: no, on-success, on-failure,on-watchdog, on-abort
 
 ● SuccessExitStatus: 参考ExecStart中返回值,定义何种情况算是启动成功。
 
@@ -202,7 +202,7 @@ Install主要包含以下内容:
 
 ● WantedBy: 何种情况下,服务被启用。
 
-    eg: WantedBy=multi-user.target（多用户环境下启用）
+    eg: WantedBy=multi-user.target（多用户环境下启用) 
     
 
 ● Alias: 别名

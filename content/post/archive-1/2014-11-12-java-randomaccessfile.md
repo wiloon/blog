@@ -187,13 +187,13 @@ System.out.println(file.readFloat());
     
 //以下演示文件复制操作
     
-System.out.println("——————文件复制（从file到fileCopy）——————");
+System.out.println("——————文件复制（从file到fileCopy) ——————");
     
 file.seek(0);
     
 RandomAccessFile fileCopy=new RandomAccessFile("fileCopy","rw");
     
-int len=(int)file.length();//取得文件长度（字节数）
+int len=(int)file.length();//取得文件长度（字节数) 
     
 byte[] b=new byte[len];
     

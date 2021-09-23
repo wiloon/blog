@@ -16,7 +16,7 @@ http://www.cnblogs.com/brainy/archive/2012/08/29/2662295.html
 
 应用程序初始化时需要批量的向sqlite中插入大量数据，单独的使用for+Insert方法导致应用响应缓慢,因为 sqlite插入数据的时候默认一条语句就是一个事务，有多少条数据就有多少次磁盘操作。我的应用初始5000条记录也就是要5000次读写磁盘操作。
 
-而且不能保证所有数据都能同时插入。（有可能部分插入成功，另外一部分失败，后续还得删除。太麻烦）
+而且不能保证所有数据都能同时插入。（有可能部分插入成功，另外一部分失败，后续还得删除。太麻烦) 
 
 解决方法: 
 
@@ -51,7 +51,7 @@ db.endTransaction(); //处理完成
 
 }
 
-1.使用SQLiteDatabase的beginTransaction()方法可以开启一个事务，程序执行到endTransaction() 方法时会检查事务的标志是否为成功，如果程序执行到endTransaction()之前调用了setTransactionSuccessful() 方法设置事务的标志为成功，则所有从beginTransaction（）开始的操作都会被提交，如果没有调用setTransactionSuccessful() 方法则回滚事务。
+1.使用SQLiteDatabase的beginTransaction()方法可以开启一个事务，程序执行到endTransaction() 方法时会检查事务的标志是否为成功，如果程序执行到endTransaction()之前调用了setTransactionSuccessful() 方法设置事务的标志为成功，则所有从beginTransaction（) 开始的操作都会被提交，如果没有调用setTransactionSuccessful() 方法则回滚事务。
 
 2.使用例子如下: 下面两条SQL语句在同一个事务中执行。
 
@@ -83,7 +83,7 @@ db.setTransactionSuccessful();
   
 }
   
-catch（Exception e）{
+catch（Exception e) {
   
 throw(e);
   

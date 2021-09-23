@@ -15,7 +15,7 @@ Java 1.7 引入了一种新的并发框架—— Fork/Join Framework。
 
 TLDR; 如果觉得文章太长的话,以下就是结论: 
 
-ForkJoinPool 不是为了替代 ExecutorService,而是它的补充,在某些应用场景下性能比 ExecutorService 更好。（见 Java Tip: When to use ForkJoinPool vs ExecutorService ）
+ForkJoinPool 不是为了替代 ExecutorService,而是它的补充,在某些应用场景下性能比 ExecutorService 更好。（见 Java Tip: When to use ForkJoinPool vs ExecutorService ) 
   
 ForkJoinPool 主要用于实现"分而治之"的算法,特别是分治之后递归调用的函数,例如 quick sort 等。
   
@@ -63,7 +63,7 @@ System.out.println(calculator.sumUp(numbers)); // 打印结果500500
   
 }
   
-接下来就是我们的 Plain Old For-loop Calculator,简称 POFLC 的实现了。（这其实是个段子,和主题完全无关,感兴趣的请见文末的彩蛋）
+接下来就是我们的 Plain Old For-loop Calculator,简称 POFLC 的实现了。（这其实是个段子,和主题完全无关,感兴趣的请见文末的彩蛋) 
 
 public class ForLoopCalculator implements Calculator {
       
@@ -213,11 +213,11 @@ private ForkJoinPool pool;
 
 我一直以为,要理解一样东西的原理,最好就是自己尝试着去实现一遍。根据上面的示例代码,可以看出 fork() 和 join() 是 Fork/Join Framework "魔法"的关键。我们可以根据函数名假设一下 fork() 和 join() 的作用: 
 
-fork(): 开启一个新线程（或是重用线程池内的空闲线程）,将任务交给该线程处理。
+fork(): 开启一个新线程（或是重用线程池内的空闲线程) ,将任务交给该线程处理。
   
 join(): 等待该任务的处理线程处理完毕,获得返回值。
   
-以上模型似乎可以（？）解释 ForkJoinPool 能够多线程执行的事实,但有一个很明显的问题
+以上模型似乎可以（？) 解释 ForkJoinPool 能够多线程执行的事实,但有一个很明显的问题
 
 当任务分解得越来越细时,所需要的线程数就会越来越多,而且大部分线程处于等待状态。
 
@@ -239,11 +239,11 @@ work stealing 算法在 Doung Lea 的论文中有详细的描述,以下是我在
 
 基本思想
 
-ForkJoinPool 的每个工作线程都维护着一个工作队列（WorkQueue）,这是一个双端队列（Deque）,里面存放的对象是任务（ForkJoinTask）。
+ForkJoinPool 的每个工作线程都维护着一个工作队列（WorkQueue) ,这是一个双端队列（Deque) ,里面存放的对象是任务（ForkJoinTask) 。
   
-每个工作线程在运行中产生新的任务（通常是因为调用了 fork()）时,会放入工作队列的队尾,并且工作线程在处理自己的工作队列时,使用的是 LIFO 方式,也就是说每次从队尾取出任务来执行。
+每个工作线程在运行中产生新的任务（通常是因为调用了 fork()) 时,会放入工作队列的队尾,并且工作线程在处理自己的工作队列时,使用的是 LIFO 方式,也就是说每次从队尾取出任务来执行。
   
-每个工作线程在处理自己的工作队列同时,会尝试窃取一个任务（或是来自于刚刚提交到 pool 的任务,或是来自于其他工作线程的工作队列）,窃取的任务位于其他线程的工作队列的队首,也就是说工作线程在窃取其他工作线程的任务时,使用的是 FIFO 方式。
+每个工作线程在处理自己的工作队列同时,会尝试窃取一个任务（或是来自于刚刚提交到 pool 的任务,或是来自于其他工作线程的工作队列) ,窃取的任务位于其他线程的工作队列的队首,也就是说工作线程在窃取其他工作线程的任务时,使用的是 FIFO 方式。
   
 在遇到 join() 时,如果需要 join 的任务尚未完成,则会先处理其他任务,并等待其完成。
   
@@ -275,13 +275,13 @@ join
 
 join() 的工作则复杂得多,也是 join() 可以使得线程免于被阻塞的原因——不像同名的 Thread.join()。
 
-检查调用 join() 的线程是否是 ForkJoinThread 线程。如果不是（例如 main 线程）,则阻塞当前线程,等待任务完成。如果是,则不阻塞。
+检查调用 join() 的线程是否是 ForkJoinThread 线程。如果不是（例如 main 线程) ,则阻塞当前线程,等待任务完成。如果是,则不阻塞。
   
 查看任务的完成状态,如果已经完成,直接返回结果。
   
 如果任务尚未完成,但处于自己的工作队列内,则完成它。
   
-如果任务已经被其他的工作线程偷走,则窃取这个小偷的工作队列内的任务（以 FIFO 方式）,执行,以期帮助它早日完成欲 join 的任务。
+如果任务已经被其他的工作线程偷走,则窃取这个小偷的工作队列内的任务（以 FIFO 方式) ,执行,以期帮助它早日完成欲 join 的任务。
   
 如果偷走任务的小偷也已经把自己的任务全部做完,正在等待需要 join 的任务时,则找到小偷的小偷,帮助它完成它的任务。
   
@@ -297,9 +297,9 @@ join() 的工作则复杂得多,也是 join() 可以使得线程免于被阻塞�
 
 submit
 
-其实除了前面介绍过的每个工作线程自己拥有的工作队列以外,ForkJoinPool 自身也拥有工作队列,这些工作队列的作用是用来接收由外部线程（非 ForkJoinThread 线程）提交过来的任务,而这些工作队列被称为 submitting queue 。
+其实除了前面介绍过的每个工作线程自己拥有的工作队列以外,ForkJoinPool 自身也拥有工作队列,这些工作队列的作用是用来接收由外部线程（非 ForkJoinThread 线程) 提交过来的任务,而这些工作队列被称为 submitting queue 。
 
-submit() 和 fork() 其实没有本质区别,只是提交对象变成了 submitting queue 而已（还有一些同步,初始化的操作）。submitting queue 和其他 work queue 一样,是工作线程"窃取"的对象,因此当其中的任务被一个工作线程成功窃取时,就意味着提交的任务真正开始进入执行阶段。
+submit() 和 fork() 其实没有本质区别,只是提交对象变成了 submitting queue 而已（还有一些同步,初始化的操作) 。submitting queue 和其他 work queue 一样,是工作线程"窃取"的对象,因此当其中的任务被一个工作线程成功窃取时,就意味着提交的任务真正开始进入执行阶段。
 
 总结
 
@@ -319,4 +319,4 @@ Java 1.8 新增加的 CompletableFuture 类可以实现类似于 Javascript 的 
 
 I've come to the conclusion that people forget about regular Java objects because they haven't got a fancy name. That's why, while preparing for a talk in 2000, Rebecca Parsons, Josh Mackenzie, and I gave them one: POJOs (plain old Java objects).
 
-我得出一个结论: 人们之所以总是忘记使用标准的 Java 对象是因为缺少一个足够装逼的名字（译注: 类似于 Java Bean 这样的名字）。因此,在准备2000年的演讲时,Rebecca Parsons,Josh Mackenzie 和我给他们起了一个名字叫做 POJO （平淡无奇的 Java 对象）。
+我得出一个结论: 人们之所以总是忘记使用标准的 Java 对象是因为缺少一个足够装逼的名字（译注: 类似于 Java Bean 这样的名字) 。因此,在准备2000年的演讲时,Rebecca Parsons,Josh Mackenzie 和我给他们起了一个名字叫做 POJO （平淡无奇的 Java 对象) 。

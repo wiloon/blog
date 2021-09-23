@@ -12,7 +12,7 @@ categories:
     alias
     alias -p
 
-### 显示已定义的别名（假设当前环境存在以下别名）
+### 显示已定义的别名（假设当前环境存在以下别名) 
     alias ls
     alias ls grep
 

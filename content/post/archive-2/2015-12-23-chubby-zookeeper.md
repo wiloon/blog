@@ -35,7 +35,7 @@ server.1=192.168.211.1:2888:3888
    
 server.2=192.168.211.2:2888:3888
   
-initLimit: 这个配置项是用来配置 Zookeeper 接受客户端（这里所说的客户端不是用户连接 Zookeeper 服务器的客户端,而是 Zookeeper 服务器集群中连接到 Leader 的 Follower 服务器）初始化连接时最长能忍受多少个心跳时间间隔数。当已经超过 10 个心跳的时间（也就是 tickTime）长度后 Zookeeper 服务器还没有收到客户端的返回信息,那么表明这个客户端连接失败。总的时间长度就是 5_2000=10 秒
+initLimit: 这个配置项是用来配置 Zookeeper 接受客户端（这里所说的客户端不是用户连接 Zookeeper 服务器的客户端,而是 Zookeeper 服务器集群中连接到 Leader 的 Follower 服务器) 初始化连接时最长能忍受多少个心跳时间间隔数。当已经超过 10 个心跳的时间（也就是 tickTime) 长度后 Zookeeper 服务器还没有收到客户端的返回信息,那么表明这个客户端连接失败。总的时间长度就是 5_2000=10 秒
   
 syncLimit: 这个配置项标识 Leader 与 Follower 之间发送消息,请求和应答时间长度,最长不能超过多少个 tickTime 的时间长度,总的时间长度就是 2_2000=4 秒
   
@@ -91,19 +91,19 @@ ZooKeeper 典型的应用场景
   
 Zookeeper 从设计模式角度来看,是一个基于观察者模式设计的分布式服务管理框架,它负责存储和管理大家都关心的数据,然后接受观察者的注册,一旦这些数据的状态发生变化,Zookeeper 就将负责通知已经在 Zookeeper 上注册的那些观察者做出相应的反应,从而实现集群中类似 Master/Slave 管理模式
 
-统一命名服务（Name Service）
+统一命名服务（Name Service) 
   
 分布式应用中,通常需要有一套完整的命名规则,既能够产生唯一的名称又便于人识别和记住,通常情况下用树形的名称结构是一个理想的选择,树形的名称结构是一个有层次的目录结构,既对人友好又不会重复。说到这里你可能想到了 JNDI,没错 Zookeeper 的 Name Service 与 JNDI 能够完成的功能是差不多的,它们都是将有层次的目录结构关联到一定资源上,但是 Zookeeper 的 Name Service 更加是广泛意义上的关联,也许你并不需要将名称关联到特定资源上,你可能只需要一个不会重复名称,就像数据库中产生一个唯一的数字主键一样。
   
 Name Service 已经是 Zookeeper 内置的功能,你只要调用 Zookeeper 的 API 就能实现。如调用 create 接口就可以很容易创建一个目录节点。
 
-配置管理（Configuration Management）
+配置管理（Configuration Management) 
   
 配置的管理在分布式应用环境中很常见,例如同一个应用系统需要多台 PC Server 运行,但是它们运行的应用系统的某些配置项是相同的,如果要修改这些相同的配置项,那么就必须同时修改每台运行这个应用系统的 PC Server,这样非常麻烦而且容易出错。
   
 像这样的配置信息完全可以交给 Zookeeper 来管理,将配置信息保存在 Zookeeper 的某个目录节点中,然后将所有需要修改的应用机器监控配置信息的状态,一旦配置信息发生变化,每台应用机器就会收到 Zookeeper 的通知,然后从 Zookeeper 获取新的配置信息应用到系统中。
 
-集群管理（Group Membership）
+集群管理（Group Membership) 
   
 Zookeeper 能够很容易的实现集群管理的功能,如有多台 Server 组成一个服务集群,那么必须要一个"总管"知道当前集群中每台机器的服务状态,一旦有机器不能提供服务,集群中其它集群必须知道,从而做出调整重新分配服务策略。同样当增加集群的服务能力时,就会增加一台或多台 Server,同样也必须让"总管"知道。
   
@@ -113,7 +113,7 @@ Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态,而且
   
 Zookeeper 如何实现 Leader Election,也就是选出一个 Master Server。和前面的一样每台 Server 创建一个 EPHEMERAL 目录节点,不同的是它还是一个 SEQUENTIAL 目录节点,所以它是个 EPHEMERAL_SEQUENTIAL 目录节点。之所以它是 EPHEMERAL_SEQUENTIAL 目录节点,是因为我们可以给每台 Server 编号,我们可以选择当前是最小编号的 Server 为 Master,假如这个最小编号的 Server 死去,由于是 EPHEMERAL 节点,死去的 Server 对应的节点也被删除,所以当前的节点列表中又出现一个最小编号的节点,我们就选择这个节点为当前 Master。这样就实现了动态选择 Master,避免了传统意义上单 Master 容易出现单点故障的问题。
 
-共享锁（Locks）
+共享锁（Locks) 
   
 共享锁在同一个进程中很容易实现,但是在跨进程或者在不同 Server 之间就不好实现了。Zookeeper 却很容易实现这个功能,实现方式也是需要获得锁的 Server 创建一个 EPHEMERAL_SEQUENTIAL 目录节点,然后调用 getChildren方法获取当前的目录节点列表中最小的目录节点是不是就是自己创建的目录节点,如果正是自己创建的,那么它就获得了这个锁,如果不是那么它就调用 exists(String path, boolean watch) 方法并监控 Zookeeper 上目录节点列表的变化,一直到自己创建的节点是列表中最小编号的目录节点,从而获得锁,释放锁很简单,只要删除前面它自己所创建的目录节点就行了。
 
@@ -127,13 +127,13 @@ Zookeeper 可以处理两种类型的队列:
   
 同步队列用 Zookeeper 实现的实现思路如下: 
   
-创建一个父目录 /synchronizing,每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在,然后每个成员都加入这个队列,加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点,然后每个成员获取 / synchronizing 目录的所有目录节点,也就是 member_i。判断 i 的值是否已经是成员的个数,如果小于成员个数等待 /synchronizing/start 的出现,如果已经相等就创建 /synchronizing/start。
+创建一个父目录 /synchronizing,每个成员都监控标志（Set Watch) 位目录 /synchronizing/start 是否存在,然后每个成员都加入这个队列,加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点,然后每个成员获取 / synchronizing 目录的所有目录节点,也就是 member_i。判断 i 的值是否已经是成员的个数,如果小于成员个数等待 /synchronizing/start 的出现,如果已经相等就创建 /synchronizing/start。
 
 FIFO 队列用 Zookeeper 实现思路如下: 
   
 实现的思路也非常简单,就是在特定的目录下创建 SEQUENTIAL 类型的子目录 /queue_i,这样就能保证所有成员加入队列时都是有编号的,出队列时通过 getChildren( ) 方法可以返回当前所有的队列中的元素,然后消费其中最小的一个,这样就能保证 FIFO。
 
-通过nc或者telnet命令访问2181端口,通过执行ruok（Are you OK?）命令来检查zookeeper是否启动成功: 
+通过nc或者telnet命令访问2181端口,通过执行ruok（Are you OK?) 命令来检查zookeeper是否启动成功: 
   
 % echo ruok | nc localhost 2181
   
@@ -213,7 +213,7 @@ ZooKeeper是一个分布式的,开放源码的应用程序协调服务,为分布
   
 它主要是用来解决分布式应用中经常遇到的一些数据管理问题,如: 统一命名服务、状态同步服务、集群管理、分布式应用配置项的管理等。
   
-Zookeeper 的典型的应用场景（配置文件的管理、集群管理、同步锁、Leader 选举、队列管理等）
+Zookeeper 的典型的应用场景（配置文件的管理、集群管理、同步锁、Leader 选举、队列管理等) 
 
 ZooKeeper的目标就是封装好复杂易出错的关键服务,将简单易用的接口和性能高效、功能稳定的系统提供给用户。
   
@@ -257,13 +257,13 @@ Zookeeper 从设计模式角度来看,是一个基于观察者模式设计的分
 
 下面详细介绍这些典型的应用场景,也就是 Zookeeper 到底能帮我们解决那些问题？下面将给出答案。
 
-配置管理（Configuration Management）
+配置管理（Configuration Management) 
 
 配置的管理在分布式应用环境中很常见,例如同一个应用系统需要多台 PC Server 运行,但是它们运行的应用系统的某些配置项是相同的,如果要修改这些相同的配置项,那么就必须同时修改每台运行这个应用系统的 PC Server,这样非常麻烦而且容易出错。
 
 像这样的配置信息完全可以交给 Zookeeper 来管理,将配置信息保存在 Zookeeper 的某个目录节点中,然后将所有需要修改的应用机器监控配置信息的状态,一旦配置信息发生变化,每台应用机器就会收到 Zookeeper 的通知,然后从 Zookeeper 获取新的配置信息应用到系统中。
 
-集群管理（Group Membership）
+集群管理（Group Membership) 
 
 Zookeeper 能够很容易的实现集群管理的功能,如有多台 Server 组成一个服务集群,那么必须要一个"总管"知道当前集群中每台机器的服务状态,一旦有机器不能提供服务,集群中其它集群必须知道,从而做出调整重新分配服务策略。同样当增加集群的服务能力时,就会增加一台或多台 Server,同样也必须让"总管"知道。
 
@@ -273,7 +273,7 @@ Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态,而且
 
 Zookeeper 如何实现 Leader Election,也就是选出一个 Master Server。和前面的一样每台 Server 创建一个 EPHEMERAL 目录节点,不同的是它还是一个 SEQUENTIAL 目录节点,所以它是个 EPHEMERAL_SEQUENTIAL 目录节点。之所以它是 EPHEMERAL_SEQUENTIAL 目录节点,是因为我们可以给每台 Server 编号,我们可以选择当前是最小编号的 Server 为 Master,假如这个最小编号的 Server 死去,由于是 EPHEMERAL 节点,死去的 Server 对应的节点也被删除,所以当前的节点列表中又出现一个最小编号的节点,我们就选择这个节点为当前 Master。这样就实现了动态选择 Master,避免了传统意义上单 Master 容易出现单点故障的问题。
 
-共享锁（Locks）
+共享锁（Locks) 
 
 共享锁在同一个进程中很容易实现,但是在跨进程或者在不同 Server 之间就不好实现了。Zookeeper 却很容易实现这个功能,实现方式也是需要获得锁的 Server 创建一个 EPHEMERAL_SEQUENTIAL 目录节点,然后调用 getChildren方法获取当前的目录节点列表中最小的目录节点是不是就是自己创建的目录节点,如果正是自己创建的,那么它就获得了这个锁,如果不是那么它就调用 exists(String path, boolean watch) 方法并监控 Zookeeper 上目录节点列表的变化,一直到自己创建的节点是列表中最小编号的目录节点,从而获得锁,释放锁很简单,只要删除前面它自己所创建的目录节点就行了。
 
@@ -287,7 +287,7 @@ Zookeeper 可以处理两种类型的队列:
   
 同步队列用 Zookeeper 实现的实现思路如下: 
 
-创建一个父目录 /synchronizing,每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在,然后每个成员都加入这个队列,加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点,然后每个成员获取 / synchronizing 目录的所有目录节点,也就是 member_i。判断 i 的值是否已经是成员的个数,如果小于成员个数等待 /synchronizing/start 的出现,如果已经相等就创建 /synchronizing/start。
+创建一个父目录 /synchronizing,每个成员都监控标志（Set Watch) 位目录 /synchronizing/start 是否存在,然后每个成员都加入这个队列,加入队列的方式就是创建 /synchronizing/member_i 的临时目录节点,然后每个成员获取 / synchronizing 目录的所有目录节点,也就是 member_i。判断 i 的值是否已经是成员的个数,如果小于成员个数等待 /synchronizing/start 的出现,如果已经相等就创建 /synchronizing/start。
 
 Zookeeper 作为 Hadoop 项目中的一个子项目,是 Hadoop 集群管理的一个必不可少的模块,它主要用来控制集群中的数据,如它管理 Hadoop 集群中的 NameNode,还有 Hbase 中 Master Election、Server 之间状态同步等。
 
@@ -299,18 +299,18 @@ http://www.cnblogs.com/linhaohong/archive/2012/11/26/2789394.html
 
 随着云计算的推广,云平台的设计和实现越来越复杂,很多系统属性如一致性和可靠性往往是在系统迭代开发时才被考虑到。如果在原生的系统上重复的实现复杂的一致性算法,这样不仅会破坏原有设计的结构,而且还带来很多开发上的负担。因此很多系统开发人员和架构师努力地进行系统划分,将系统分割成很多组件,分层设计,模块调用,从而最大限度地提高软件复用能力,降低系统设计和开发的难度。
 
-Google在系统的可靠性方面提出了中心化的组件Chubby—粗粒度锁服务,通过锁原语为其他系统实现更高级的服务,比如组成员、域名服务和leader选举等等。Chubby本身也是一个小型的cell（通常由5个chubby结点组成）,cell内部采用类似于状态机副本形式实现可靠容错。Google的Chubby论文在OSDI上发表后引起了很大的反响,原因很多,主要有两个: 第一,chubby很好的解决了分布式开发的一致性问题；
+Google在系统的可靠性方面提出了中心化的组件Chubby—粗粒度锁服务,通过锁原语为其他系统实现更高级的服务,比如组成员、域名服务和leader选举等等。Chubby本身也是一个小型的cell（通常由5个chubby结点组成) ,cell内部采用类似于状态机副本形式实现可靠容错。Google的Chubby论文在OSDI上发表后引起了很大的反响,原因很多,主要有两个: 第一,chubby很好的解决了分布式开发的一致性问题；
 第二,Google Chubby采用Leslie Lamport提出的paxos算法来实现可靠容错,这是业界关于paxos第一个完整可行的实现。正因为Google Chubby,paxos这个一直沉淀在学术研究的协议,终于曝光在工业界中,之后很快地推广开去。
 
 然而,Google Chubby并不是开源的,我们只能通过其论文和其他相关的文档中了解具体的细节。值得庆幸的是,Yahoo！借鉴Chubby的设计思想开发了Zookeeper,并将其开源。和Chubby相比,Zookeeper做了很多突破。不像Chubby的单点服务的结构,zookeeper采用多个server同时处理客户端的请求,异步读同步写,通过primary节点来同步数据的update,这一点大大改善了读服务的性能,当然弱化了客户端与服务器之间的一致性。另外,zookeeper采用block free的服务接口,采用watch机制的方式异步处理请求结果和指定数据的变更。Zookeeper对外提供了更加低级的原语primitive,基于此可以实现更多更加复杂的分布式算法,如queue、barrier和lock等等。如今很多云计算系统或者平台都使用Zookeeper来做可靠容错,进行订阅分发服务,或者其他应用。
 
 和Chubby一样,zookeeper采用paxos的变种来实现消息传输的一致性。Zookeeper开发了原子多播协议 Zab 来实现数据的一致性传输。Zookeeper采用的是primary-backup的结构,primary节点产生non- commutative 事务,通过协议按序的广播到其他backup节点上。在节点无错的情况下,这是非常简单的事情,然而,面对复杂的网络环境,多变的软硬件条件,节点挂掉,重启,数据重复发送,这些异常很常见。Zookeeper如何做到即便是系统出现异常,也能够保证整个系统状态是一致？paxos的变种,Zookeeper的Zab协议很好的保证了这一点。
 
-Zab 协议以epoch的方式执行（相当与序列号）,在每个epoch最多只有一个进程多播数据。如果某个进程执行了协议的的第一阶段,那么进程将不再接受之前还没确定提交的epoch的数据。这样一来就保证了在进程在recovery阶段不会出现丢失已提交的数据的情况。在某个epoch下,所有参加这个epoch的进程必须此epoch之前所有已经提交的数据镜像。为了保证一致性,进程在完全恢复之前必须不能广播新的事务。Zab协议的这几个特点处理了primary异常、新旧primary以及backup节点异常的情况,的确保证了primary进程原子多播的order特性。
+Zab 协议以epoch的方式执行（相当与序列号) ,在每个epoch最多只有一个进程多播数据。如果某个进程执行了协议的的第一阶段,那么进程将不再接受之前还没确定提交的epoch的数据。这样一来就保证了在进程在recovery阶段不会出现丢失已提交的数据的情况。在某个epoch下,所有参加这个epoch的进程必须此epoch之前所有已经提交的数据镜像。为了保证一致性,进程在完全恢复之前必须不能广播新的事务。Zab协议的这几个特点处理了primary异常、新旧primary以及backup节点异常的情况,的确保证了primary进程原子多播的order特性。
 
 整个Zab协议的内容分成三个阶段: Discovery、Synchronization和Broadcast阶段。
 
-Discovery阶段其实是选举leader或者发现leader。在这个阶段里,follower会给（可能是）leader的进程（这里的进程可以是多个）发送当前自己epoch的信息CEPOCH；如果（可能是）leader进程收到大多数的follower的CEPOCH消息,那么leader就会产生一个新epoch的消息NEWEPOCH,其中包含新的leader,并发送给follower；当follower f收到NEWEPOCH时,f会判断其中epoch是否比当前的大,如果是则反馈信息ACK-E,其中包含f所接受的最大事务编号和历史数据；leader会从这些ACK-E中选出最新的历史数据来初始化它当前的系统状态。这个阶段其实就是paxos的执行过程,由于两个大多数集合的交集肯定不为空,所以不可能一个epoch下会选出两个不同的leader。因此Discovery阶段最后的结果肯定只有一个新leader。在整个系统初始的时候,每个节点当前的epoch都为0,这样会给其它节点发送请求,这样有可能会导致paxos死锁,对此,每个zookeeper节点会通过配置获得唯一的id,并根据id的大则优先的原则来推选leader。
+Discovery阶段其实是选举leader或者发现leader。在这个阶段里,follower会给（可能是) leader的进程（这里的进程可以是多个) 发送当前自己epoch的信息CEPOCH；如果（可能是) leader进程收到大多数的follower的CEPOCH消息,那么leader就会产生一个新epoch的消息NEWEPOCH,其中包含新的leader,并发送给follower；当follower f收到NEWEPOCH时,f会判断其中epoch是否比当前的大,如果是则反馈信息ACK-E,其中包含f所接受的最大事务编号和历史数据；leader会从这些ACK-E中选出最新的历史数据来初始化它当前的系统状态。这个阶段其实就是paxos的执行过程,由于两个大多数集合的交集肯定不为空,所以不可能一个epoch下会选出两个不同的leader。因此Discovery阶段最后的结果肯定只有一个新leader。在整个系统初始的时候,每个节点当前的epoch都为0,这样会给其它节点发送请求,这样有可能会导致paxos死锁,对此,每个zookeeper节点会通过配置获得唯一的id,并根据id的大则优先的原则来推选leader。
 
 Synchronization阶段其实就会状态同步,新leader会将其最新状态通知给所有的follower；follower的到leader的状态后,会和自己的进行比较,从中提前还未提交的数据T,并反馈给leader；leader收到大多数确认反馈时,则发送提交命令commit给这些follower；follower收到commit后提交T中的所有数据。
 

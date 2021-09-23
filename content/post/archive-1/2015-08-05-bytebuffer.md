@@ -14,7 +14,7 @@ ByteBuffer是NIO里用得最多的Buffer,它包含两个实现方式: HeapByteBu
 
 Buffer 类
   
-定义了一个可以线性存放primitive type数据的容器接口。Buffer主要包含了与类型（byte, char…）无关的功能。
+定义了一个可以线性存放primitive type数据的容器接口。Buffer主要包含了与类型（byte, char…) 无关的功能。
   
 值得注意的是Buffer及其子类都不是线程安全的。
 
@@ -110,9 +110,9 @@ int getInt() //从ByteBuffer中读出一个int值。
   
 ByteBuffer putInt(int value) // 写入一个int值到ByteBuffer中。
 
-读写其它类型的数据牵涉到字节序问题,ByteBuffer会按其字节序（大字节序或小字节序）写入或读出一个其它
+读写其它类型的数据牵涉到字节序问题,ByteBuffer会按其字节序（大字节序或小字节序) 写入或读出一个其它
   
-类型的数据（int,long…）。字节序可以用order方法来取得和设置: 
+类型的数据（int,long…) 。字节序可以用order方法来取得和设置: 
   
 ByteOrder order() //返回ByteBuffer的字节序。
   
@@ -470,7 +470,7 @@ fc.read( buff);
 
 fc.flip();
 
-四、呈现给用户（三种方式）
+四、呈现给用户（三种方式) 
 
 1)String encoding = System.getProperty("file.encoding");
 

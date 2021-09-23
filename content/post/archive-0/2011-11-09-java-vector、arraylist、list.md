@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-array(数组)和Vector是十分相似的Java构件（constructs），两者全然不同，在选择使用时应根据各自的功能来确定。
+array(数组)和Vector是十分相似的Java构件（constructs) ，两者全然不同，在选择使用时应根据各自的功能来确定。
 
 ### 数组: 
 
@@ -45,7 +45,7 @@ Map
 
 ### Collection接口
 
-Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素（Elements）。一些 Collection允许相同的元素而另一些不行。一些能排序而另一些不行。Java SDK不提供直接继承自Collection的类， Java SDK提供的类都是继承自Collection的"子接口"如List和Set。
+Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素（Elements) 。一些 Collection允许相同的元素而另一些不行。一些能排序而另一些不行。Java SDK不提供直接继承自Collection的类， Java SDK提供的类都是继承自Collection的"子接口"如List和Set。
   
 所有实现Collection接口的类都必须提供两个标准的构造函数: 无参数的构造函数用于创建一个空的Collection，有一个Collection参数的构造函数用于创建一个新的 Collection，这个新的Collection与传入的Collection有相同的元素。后一个构造函数允许用户复制一个Collection。
   
@@ -67,7 +67,7 @@ Object obj = it.next(); // 得到下一个元素
 
 
 ### List接口
-List是有序的Collection，使用此接口能够精确的控制每个元素插入的位置。用户能够使用索引（元素在List中的位置，类似于数组下标）来访问List中的元素，这类似于Java的数组。
+List是有序的Collection，使用此接口能够精确的控制每个元素插入的位置。用户能够使用索引（元素在List中的位置，类似于数组下标) 来访问List中的元素，这类似于Java的数组。
   
 和下面要提到的Set不同，List允许有相同的元素。
   
@@ -77,7 +77,7 @@ List是有序的Collection，使用此接口能够精确的控制每个元素插
 
 
 ### LinkedList类
-LinkedList实现了List接口，允许null元素。此外LinkedList提供额外的get，remove，insert方法在 LinkedList的首部或尾部。这些操作使LinkedList可被用作堆栈（stack），队列（queue）或双向队列（deque）。
+LinkedList实现了List接口，允许null元素。此外LinkedList提供额外的get，remove，insert方法在 LinkedList的首部或尾部。这些操作使LinkedList可被用作堆栈（stack) ，队列（queue) 或双向队列（deque) 。
   
 注意LinkedList没有同步方法。如果多个线程同时访问一个List，则必须自己实现访问同步。一种解决方法是在创建List时构造一个同步的List: 
   
@@ -91,9 +91,9 @@ ArrayList实现了可变大小的数组。它允许所有元素，包括null。A
   
 size，isEmpty，get，set方法运行时间为常数。但是add方法开销为分摊的常数，添加n个元素需要O(n)的时间。其他的方法运行时间为线性。
   
-每个ArrayList实例都有一个容量（Capacity），即用于存储元素的数组的大小。这个容量可随着不断添加新元素而自动增加，但是增长算法并没有定义。当需要插入大量元素时，在插入前可以调用ensureCapacity方法来增加ArrayList的容量以提高插入效率。
+每个ArrayList实例都有一个容量（Capacity) ，即用于存储元素的数组的大小。这个容量可随着不断添加新元素而自动增加，但是增长算法并没有定义。当需要插入大量元素时，在插入前可以调用ensureCapacity方法来增加ArrayList的容量以提高插入效率。
   
-和LinkedList一样，ArrayList也是非同步的（unsynchronized）。
+和LinkedList一样，ArrayList也是非同步的（unsynchronized) 。
 
 
 ### Vector
@@ -103,7 +103,7 @@ Vector在删除一些元素后，其所有下标大于被删除元素的元素�
   
 Vector内部实际是以Array实现的，也通过元素的整数索引来访问元素，但它只能存放java.lang.Object对象，不能用于存放基本类型数据，比如要存放一个整数10,得用new Integer(10)构造出一个Integer包装类对象再放进去。当Vector中的元素个数发生变化时, 其内部的Array必须重新分配并进行拷贝，因此这是一点值得考虑的效率问题。
   
-Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在: Vector is synchronized。即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素），这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
+Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在: Vector is synchronized。即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素) ，这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
 
 ### Stack 类
 Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得 Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。
@@ -113,7 +113,7 @@ Set是一种不包含重复的元素的Collection，即任意的两个元素e1�
   
 很明显，Set的构造函数有一个约束条件，传入的Collection参数不能包含重复的元素。
   
-请注意: 必须小心操作可变对象（Mutable Object）。如果一个Set中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题。
+请注意: 必须小心操作可变对象（Mutable Object) 。如果一个Set中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题。
 
 
 ### Map接口
@@ -121,7 +121,7 @@ Set是一种不包含重复的元素的Collection，即任意的两个元素e1�
 
 
 ### Hashtable类
-Hashtable继承Map接口，实现一个key-value映射的哈希表。任何非空（non-null）的对象都可作为key或者value。
+Hashtable继承Map接口，实现一个key-value映射的哈希表。任何非空（non-null) 的对象都可作为key或者value。
   
 添加数据使用put(key, value)，取出数据使用get(key)，这两个基本操作的时间开销为常数。
   
@@ -149,14 +149,14 @@ System.out.println("two = " + n);
 
 由于作为key的对象将通过计算其散列函数来确定与之对应的value的位置，因此任何作为key的对象都必须实现hashCode和equals方法。hashCode和equals方法继承自根类Object，如果你用自定义的类当作key的话，要相当小心，按照散列函数的定义，如果两个对象相同，即obj1.equals(obj2)=true，则它们的hashCode必须相同，但如果两个对象不同，则它们的hashCode不一定不同，如果两个不同对象的hashCode相同，这种现象称为冲突，冲突会导致操作哈希表的时间开销增大，所以尽量定义好的hashCode()方法，能加快哈希表的操作。
   
-如果相同的对象有不同的hashCode，对哈希表的操作会出现意想不到的结果（期待的get方法返回null），要避免这种问题，只需要牢记一条: 要同时复写equals方法和hashCode方法，而不要只写其中一个。
+如果相同的对象有不同的hashCode，对哈希表的操作会出现意想不到的结果（期待的get方法返回null) ，要避免这种问题，只需要牢记一条: 要同时复写equals方法和hashCode方法，而不要只写其中一个。
   
 Hashtable是同步的。
 
 
 ### HashMap类
 
-HashMap和Hashtable类似，不同之处在于HashMap是非同步的，并且允许null，即null value和null key。，但是将HashMap视为Collection时（values()方法可返回Collection），其迭代子操作时间开销和HashMap的容量成比例。因此，如果迭代操作的性能相当重要的话，不要将HashMap的初始化容量设得过高，或者load factor过低。
+HashMap和Hashtable类似，不同之处在于HashMap是非同步的，并且允许null，即null value和null key。，但是将HashMap视为Collection时（values()方法可返回Collection) ，其迭代子操作时间开销和HashMap的容量成比例。因此，如果迭代操作的性能相当重要的话，不要将HashMap的初始化容量设得过高，或者load factor过低。
 
 
 WeakHashMap类
@@ -191,24 +191,24 @@ Vector 是同步的。这个类中的一些方法保证了Vector中的对象是�
 
 使用模式
   
-在ArrayList和Vector中，从一个指定的位置（通过索引）查找数据或是在集合的末尾增加、移除一个元素所花费的时间是一样的，这个时间我们用O(1)表示。但是，如果在集合的其他位置增加或移除元素那么花费的时间会呈线形增长: O(n-i)，其中n代表集合中元素的个数，i代表元素增加或移除元素的索引位置。为什么会这样呢？以为在进行上述操作的时候集合中第i和第i个元素之后的所有元素都要执行位移的操作。这一切意味着什么呢？
+在ArrayList和Vector中，从一个指定的位置（通过索引) 查找数据或是在集合的末尾增加、移除一个元素所花费的时间是一样的，这个时间我们用O(1)表示。但是，如果在集合的其他位置增加或移除元素那么花费的时间会呈线形增长: O(n-i)，其中n代表集合中元素的个数，i代表元素增加或移除元素的索引位置。为什么会这样呢？以为在进行上述操作的时候集合中第i和第i个元素之后的所有元素都要执行位移的操作。这一切意味着什么呢？
 
 这意味着，你只是查找特定位置的元素或只在集合的末端增加、移除元素，那么使用Vector或ArrayList都可以。如果是其他操作，你最好选择其他的集合操作类。比如，LinkList集合类在增加或移除集合中任何位置的元素所花费的时间都是一样的?O(1)，但它在索引一个元素的使用缺比较慢－O(i),其中i是索引的位置.使用 ArrayList也很容易，因为你可以简单的使用索引来代替创建iterator对象的操作。LinkList也会为每个插入的元素创建对象，所有你要明白它也会带来额外的开销。
 
-最后，在《Practical Java》一书中Peter Haggar建议使用一个简单的数组（Array）来代替Vector或ArrayList。尤其是对于执行效率要求高的程序更应如此。因为使用数组(Array)避免了同步、额外的方法调用和不必要的重新分配空间的操作。
+最后，在《Practical Java》一书中Peter Haggar建议使用一个简单的数组（Array) 来代替Vector或ArrayList。尤其是对于执行效率要求高的程序更应如此。因为使用数组(Array)避免了同步、额外的方法调用和不必要的重新分配空间的操作。
 
 ### 为什么java.util.concurrent 包里没有并发的ArrayList实现？
 问: JDK 5在java.util.concurrent里引入了ConcurrentHashMap，在需要支持高并发的场景，我们可以使用它代替HashMap。但是为什么没有ArrayList的并发实现呢？难道在多线程场景下我们只有Vector这一种线程安全的数组实现可以选择么？为什么在java.util.concurrent 没有一个类可以代替Vector呢？
 
 答: 我认为在java.util.concurrent包中没有加入并发的ArrayList实现的主要原因是: 很难去开发一个通用并且没有并发瓶颈的线程安全的List。
 
-像ConcurrentHashMap这样的类的真正价值（The real point / value of classes）并不是它们保证了线程安全。而在于它们在保证线程安全的同时不存在并发瓶颈。举个例子，ConcurrentHashMap采用了锁分段技术和弱一致性的Map迭代器去规避并发瓶颈。
+像ConcurrentHashMap这样的类的真正价值（The real point / value of classes) 并不是它们保证了线程安全。而在于它们在保证线程安全的同时不存在并发瓶颈。举个例子，ConcurrentHashMap采用了锁分段技术和弱一致性的Map迭代器去规避并发瓶颈。
 
 所以问题在于，像"Array List"这样的数据结构，你不知道如何去规避并发的瓶颈。拿contains() 这样一个操作来说，当你进行搜索的时候如何避免锁住整个list？
 
 另一方面，Queue 和Deque (基于Linked List)有并发的实现是因为他们的接口相比List的接口有更多的限制，这些限制使得实现并发成为可能。
 
-CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作（如get/contains）并发的瓶颈，但是它为了做到这点，在修改操作中做了很多工作和修改可见性规则。 此外，修改操作还会锁住整个List，因此这也是一个并发瓶颈。所以从理论上来说，CopyOnWriteArrayList并不算是一个通用的并发List。
+CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作（如get/contains) 并发的瓶颈，但是它为了做到这点，在修改操作中做了很多工作和修改可见性规则。 此外，修改操作还会锁住整个List，因此这也是一个并发瓶颈。所以从理论上来说，CopyOnWriteArrayList并不算是一个通用的并发List。
 
 ---
 

@@ -10,7 +10,7 @@ categories:
 ---
 Message.obtain函数: 有多个obtain函数，主要功能一样，只是参数不一样。作用是从Message Pool中取出一个Message，如果Message Pool中已经没有Message可取则新建一个Message返回，同时用对应的参数给得到的Message对象赋值。
 
-Message Pool: 大小为10个；通过Message.mPool->（Message并且Message.next）-> （Message并且Message.next）-> （Message并且Message.next）...构造一个Message Pool。Message Pool的第一个元素直接new出来，然后把Message.mPool（static类的static变量）指向它。其他的元素都是使用完的 Message通过Message的recycle函数清理后放到Message Pool（通过Message Pool最后一个Message的next指向需要回收的Message的方式实现）。
+Message Pool: 大小为10个；通过Message.mPool->（Message并且Message.next) -> （Message并且Message.next) -> （Message并且Message.next) ...构造一个Message Pool。Message Pool的第一个元素直接new出来，然后把Message.mPool（static类的static变量) 指向它。其他的元素都是使用完的 Message通过Message的recycle函数清理后放到Message Pool（通过Message Pool最后一个Message的next指向需要回收的Message的方式实现) 。
 
 1.2.MessageQueue
 
@@ -58,7 +58,7 @@ mThread = Thread.currentThread();
 
 ```
 
-prepareMainLooper函数只给主线程调用（系统处理，程序员不用处理），它会调用prepare建立Looper对象和MessageQueue。
+prepareMainLooper函数只给主线程调用（系统处理，程序员不用处理) ，它会调用prepare建立Looper对象和MessageQueue。
 
 ```java
 
@@ -78,7 +78,7 @@ myLooper().mQueue.mQuitAllowed = false;
 
 ```
 
-Loop函数从MessageQueue中从前往后取出Message，然后通过Handler的dispatchMessage函数进行消息的处理（可见消息的处理是Handler负责的），消息处理完了以后通过Message对象的recycle函数放到Message Pool中，以便下次使用，通过Pool的处理提供了一定的内存管理从而加速消息对象的获取。至于需要定时处理的消息如何做到定时处理，请见 MessageQueue的next函数，它在取Message来进行处理时通过判断MessageQueue里面的Message是否符合时间要求来决定是否需要把Message取出来做处理，通过这种方式做到消息的定时处理。
+Loop函数从MessageQueue中从前往后取出Message，然后通过Handler的dispatchMessage函数进行消息的处理（可见消息的处理是Handler负责的) ，消息处理完了以后通过Message对象的recycle函数放到Message Pool中，以便下次使用，通过Pool的处理提供了一定的内存管理从而加速消息对象的获取。至于需要定时处理的消息如何做到定时处理，请见 MessageQueue的next函数，它在取Message来进行处理时通过判断MessageQueue里面的Message是否符合时间要求来决定是否需要把Message取出来做处理，通过这种方式做到消息的定时处理。
 
 ```java
 
@@ -196,7 +196,7 @@ return sent;
 
 ```
 
-线程如何处理MessageQueue中接收的消息: 在Looper的loop函数中循环取出MessageQueue的接收消息队列中的消息，然后调用 Hander的dispatchMessage函数对消息进行处理，至于如何处理（相应消息）则由用户指定（三个方法，优先级从高到低: Message里面的Callback，一个实现了Runnable接口的对象，其中run函数做处理工作；Handler里面的mCallback指向的一个实现了 Callback接口的对象，里面的handleMessage进行处理；处理消息Handler对象对应的类继承并实现了其中 handleMessage函数，通过这个实现的handleMessage函数处理消息）。
+线程如何处理MessageQueue中接收的消息: 在Looper的loop函数中循环取出MessageQueue的接收消息队列中的消息，然后调用 Hander的dispatchMessage函数对消息进行处理，至于如何处理（相应消息) 则由用户指定（三个方法，优先级从高到低: Message里面的Callback，一个实现了Runnable接口的对象，其中run函数做处理工作；Handler里面的mCallback指向的一个实现了 Callback接口的对象，里面的handleMessage进行处理；处理消息Handler对象对应的类继承并实现了其中 handleMessage函数，通过这个实现的handleMessage函数处理消息) 。
 
 ```java
 
@@ -710,7 +710,7 @@ Looper.loop();
 
 ```
 
-说明（代码详细解释请见后文）: 
+说明（代码详细解释请见后文) : 
 
 使用Looper.myLooper静态方法可以取得当前线程的Looper对象。
 
@@ -730,7 +730,7 @@ Looper.loop();
 
 1.5.2.其他线程给主线程发送消息示例
 
-其他线程发送消息（这里是说不使用Runnable作为callback的消息）: 
+其他线程发送消息（这里是说不使用Runnable作为callback的消息) : 
 
 首先 postRunnable设为false，表示不通过Runnable方式进行消息相关的操作。然后启动线程noLooerThread，然后以主线程的Looper对象为参数建立EventHandler的对象mNoLooperThreadHandler，然后获取一个Message并把一个字符串赋值给它的一个成员obj，然后通过mNoLooperThreadHandler把消息发送到主线程的MessageQueue中。
 
@@ -748,11 +748,11 @@ Looper.loop();
 
 其他线程处理接收的消息: 
 
-线程要接收消息需要在run函数中调用Looper.loop()，然后loop函数会从MessageQueue中取出消息交给对应的Handler对象 mOwnLooperThreadHandler处理，在mOwnLooperThreadHandler的handleMessage函数中会把 Message对象中what值为三的消息（上面发送的消息）在Log中打印出来，可以通过Logcat工具查看log。
+线程要接收消息需要在run函数中调用Looper.loop()，然后loop函数会从MessageQueue中取出消息交给对应的Handler对象 mOwnLooperThreadHandler处理，在mOwnLooperThreadHandler的handleMessage函数中会把 Message对象中what值为三的消息（上面发送的消息) 在Log中打印出来，可以通过Logcat工具查看log。
 
 1.5.4.其他线程以Runnable为消息参数给主线程发送消息示例
 
-其他线程发送消息（这里是说使用Runnable作为callback的消息）: 
+其他线程发送消息（这里是说使用Runnable作为callback的消息) : 
 
 首先 postRunnable设为true，表示通过Runnable方式进行消息相关的操作。然后启动线程noLooerThread，然后以主线程的Looper对象为参数建立EventHandler的对象mNoLooperThreadHandler，然后获取一个Message并把一个字符串赋值给它的一个成员obj，然后通过mNoLooperThreadHandler把消息发送到主线程的MessageQueue中。
 
@@ -764,7 +764,7 @@ Looper.loop();
 
 主线程发送消息: 
 
-这里首先要求线程receiveMessageThread运行（在onCreate函数中完成），并且准备好自己的Looper和 MessageQueue（这个通过ReceiveMessageThread中的run函数中的Looper.prepare()调用完成），然后根据建立的Looper对象初始化Handler对象mOtherThreadHandler。然后在onClick的case 105中由mOtherThreadHandler建立一个消息（消息中有一个字符串对象）并且发送到线程receiveMessageThread中的 MessageQueue中。
+这里首先要求线程receiveMessageThread运行（在onCreate函数中完成) ，并且准备好自己的Looper和 MessageQueue（这个通过ReceiveMessageThread中的run函数中的Looper.prepare()调用完成) ，然后根据建立的Looper对象初始化Handler对象mOtherThreadHandler。然后在onClick的case 105中由mOtherThreadHandler建立一个消息（消息中有一个字符串对象) 并且发送到线程receiveMessageThread中的 MessageQueue中。
 
 其他线程处理接收的消息: 
 

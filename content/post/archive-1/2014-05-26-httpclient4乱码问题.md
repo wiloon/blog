@@ -20,7 +20,7 @@ String result = new String(EntityUtils.toString(entity,"UTF-8"));
   
 于是我直接使用: 
 
-String result = new String(EntityUtils.toString(entity)）;
+String result = new String(EntityUtils.toString(entity)) ;
   
 悲剧的是返回值还是乱码！
   

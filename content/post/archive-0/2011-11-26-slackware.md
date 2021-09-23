@@ -14,7 +14,7 @@ categories:
 <http://baike.baidu.com/view/10899.htm>
 Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世界上依然存活的最久的Linux发行版，在它的辉煌时期，曾经在所有发行版中拥有最多的用户数量。但是，随着 Linux商业化的浪潮，Redhat、Mandrake 和Suse 这些产品通过大规模的商业推广，占据了广大的市场；Debian作为一个社区发行版，也拥有很大的用户群。相比之下，Slackware的不事声张，使得它从许多人(尤其是使用Linux的新用户)的视野中消失了。
 
-    Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本（Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等）不同的道路，它力图成为"UNIX风格"的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。
+    Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本（Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等) 不同的道路，它力图成为"UNIX风格"的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。
   
   
   
@@ -40,7 +40,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 : 这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样"新"（up-to-date），当时许多其他发行版本的版本号为 6 。
+    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 : 这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样"新"（up-to-date) ，当时许多其他发行版本的版本号为 6 。
   
   
   
@@ -66,7 +66,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    Slackware 最新稳定发布的版本是 13.37（直到2011年4月27日），其中包括了2.6.37.6和2.6.38.4版本内核，
+    Slackware 最新稳定发布的版本是 13.37（直到2011年4月27日) ，其中包括了2.6.37.6和2.6.38.4版本内核，
   
   
   
@@ -74,7 +74,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    KISS， 代表"保持简洁，笨拙"（Keep it Simple, Stupid），是一个可以解释很多Slackware中设计选择的概念。在这个文本中，"简洁"（'simple'）指系统设计的观点，而不是指易用性。与大多数其他的发行版不同，KISS(Keep it simple,stupid)是Slackware一贯坚持的原则，尽量保持系统的简洁，从而实现稳定、高效和安全。在KISS哲学里面，简单(Simple)指的是系统设计的简洁性，而不是用户友好(User friendly)。这可能会在一定程度上牺牲了系统的易用性，但却提高了系统的透明性和灵活性。
+    KISS， 代表"保持简洁，笨拙"（Keep it Simple, Stupid) ，是一个可以解释很多Slackware中设计选择的概念。在这个文本中，"简洁"（'simple') 指系统设计的观点，而不是指易用性。与大多数其他的发行版不同，KISS(Keep it simple,stupid)是Slackware一贯坚持的原则，尽量保持系统的简洁，从而实现稳定、高效和安全。在KISS哲学里面，简单(Simple)指的是系统设计的简洁性，而不是用户友好(User friendly)。这可能会在一定程度上牺牲了系统的易用性，但却提高了系统的透明性和灵活性。
   
   
   
@@ -94,7 +94,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     软件套件管理
   
   
-    Slackware的软件套件管理系统很独特。它的软件套件管理系统和别的发行版本一样可以很容易的安装、升级、移除包。但是它不会试着去追踪或者管理涉及哪些依赖关系（也就是保证系统拥有所有的安装包内的程序需要的系统库）。如果所需要的先决条件不能满足，在程序执行之前不会有提醒和指示。
+    Slackware的软件套件管理系统很独特。它的软件套件管理系统和别的发行版本一样可以很容易的安装、升级、移除包。但是它不会试着去追踪或者管理涉及哪些依赖关系（也就是保证系统拥有所有的安装包内的程序需要的系统库) 。如果所需要的先决条件不能满足，在程序执行之前不会有提醒和指示。
   
   
   
@@ -102,7 +102,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    相对的，Red Hat的RPM是CPIO档案，Debian的.deb文件是ar档案。他们都包括一些依赖关系的信息，包管理器工具可以使用这些信息来寻找和安装先决条件。他们在先决条件满足前是不会安装新包的（虽然可以强制进行）。
+    相对的，Red Hat的RPM是CPIO档案，Debian的.deb文件是ar档案。他们都包括一些依赖关系的信息，包管理器工具可以使用这些信息来寻找和安装先决条件。他们在先决条件满足前是不会安装新包的（虽然可以强制进行) 。
   
   
   

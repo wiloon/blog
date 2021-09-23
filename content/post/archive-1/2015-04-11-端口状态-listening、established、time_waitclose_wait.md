@@ -16,7 +16,7 @@ TCP协议规定,对于已经建立的连接,网络双方要进行四次握手才
 
   1. LISTENING状态
   
-    FTP服务启动后首先处于侦听（LISTENING）状态。 
+    FTP服务启动后首先处于侦听（LISTENING) 状态。 
   2. ESTABLISHED状态
   
     ESTABLISHED的意思是建立连接。表示两台机器正在通信。

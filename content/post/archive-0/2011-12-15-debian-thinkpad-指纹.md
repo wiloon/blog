@@ -18,7 +18,7 @@ deb http://ppa.launchpad.net/fingerprint/fingerprint-gui/ubuntu/ lucid main
   
 # sudo apt-get install fingerprint-gui policykit-1-fingerprint-gui
   
-注销登录，然后再重新登录（有时可能需要重新启动计算机，以使PolicyKit进程重启）
+注销登录，然后再重新登录（有时可能需要重新启动计算机，以使PolicyKit进程重启) 
   
 二、设置: 
   

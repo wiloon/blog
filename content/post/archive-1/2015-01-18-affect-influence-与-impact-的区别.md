@@ -44,7 +44,7 @@ It's all too easy to be influenced by our parents. 我们容易受父母的影�
 The weather influences crops. 天气影响农作物。
 
 
-impact 是不及物动词,对某物有强烈影响（have a strong effect）（+on）
+impact 是不及物动词,对某物有强烈影响（have a strong effect) （+on) 
 
 High interest rates have impacted on retail spending.
 

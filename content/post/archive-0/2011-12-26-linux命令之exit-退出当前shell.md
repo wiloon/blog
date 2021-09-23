@@ -10,7 +10,7 @@ tags:
   - Shell
 
 ---
-本文链接: http://codingstandards.iteye.com/blog/836625 （转载请注明出处）
+本文链接: http://codingstandards.iteye.com/blog/836625 （转载请注明出处) 
 
 用途说明
   
@@ -20,11 +20,11 @@ exit命令用于退出当前shell，在shell脚本中可以终止当前脚本执
   
 格式: exit n
   
-退出。设置退出码为n。（Cause the shell to exit with a status of n.）
+退出。设置退出码为n。（Cause the shell to exit with a status of n.) 
 
 格式: exit
   
-退出。退出码不变，即为最后一个命令的退出码。（If n is omitted, the exit status is that of the last command executed. ）
+退出。退出码不变，即为最后一个命令的退出码。（If n is omitted, the exit status is that of the last command executed. ) 
 
 格式: $?
   
@@ -32,19 +32,19 @@ exit命令用于退出当前shell，在shell脚本中可以终止当前脚本执
 
 格式: trap "commands" EXIT
   
-退出时执行commands指定的命令。（ A trap on EXIT is executed before the shell terminates.）
+退出时执行commands指定的命令。（ A trap on EXIT is executed before the shell terminates.) 
 
-退出码（exit status，或exit code）的约定: 
+退出码（exit status，或exit code) 的约定: 
   
-0表示成功（Zero - Success）
+0表示成功（Zero - Success) 
   
-非0表示失败（Non-Zero - Failure）
+非0表示失败（Non-Zero - Failure) 
   
-2表示用法不当（Incorrect Usage）
+2表示用法不当（Incorrect Usage) 
   
-127表示命令没有找到（Command Not Found）
+127表示命令没有找到（Command Not Found) 
   
-126表示不是可执行的（Not an executable）
+126表示不是可执行的（Not an executable) 
   
 >=128 信号产生
 

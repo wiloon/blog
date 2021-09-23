@@ -115,7 +115,7 @@ Servlet中的Listener和Event:
 
 [接收事件] ServletContextEvent
 
-[触发场景] 在Container加载Web应用程序时（例如启动 Container之后），会呼叫contextInitialized()，而当容器移除Web应用程序时，会呼叫contextDestroyed()方法。
+[触发场景] 在Container加载Web应用程序时（例如启动 Container之后) ，会呼叫contextInitialized()，而当容器移除Web应用程序时，会呼叫contextDestroyed()方法。
   
 **2. ServletContextAttributeListener**
 
@@ -123,7 +123,7 @@ Servlet中的Listener和Event:
 
 [接收事件] ServletContextAttributeEvent
 
-[触发场景] 若有对象加入为application（ServletContext）对象的属性，则会呼叫attributeAdded()，同理在置换属性与移除属性时，会分别呼叫attributeReplaced()、attributeRemoved()。
+[触发场景] 若有对象加入为application（ServletContext) 对象的属性，则会呼叫attributeAdded()，同理在置换属性与移除属性时，会分别呼叫attributeReplaced()、attributeRemoved()。
   
 **3. HttpSessionListener**
 
@@ -131,7 +131,7 @@ Servlet中的Listener和Event:
 
 [接收事件] HttpSessionEvent
 
-[触发场景] 在session （HttpSession）对象被创建或被消毁时，会分别调用这两个方法。
+[触发场景] 在session （HttpSession) 对象被创建或被消毁时，会分别调用这两个方法。
   
 **4. HttpSessionAttributeListener**
 
@@ -139,7 +139,7 @@ Servlet中的Listener和Event:
 
 [接收事件] HttpSessionBindingEvent
 
-[触发场景] 若有对象加入为session（HttpSession）对象的属性，则会呼叫attributeAdded()，同理在置换属性与移除属性时，会分别呼叫attributeReplaced()、 attributeRemoved()。
+[触发场景] 若有对象加入为session（HttpSession) 对象的属性，则会呼叫attributeAdded()，同理在置换属性与移除属性时，会分别呼叫attributeReplaced()、 attributeRemoved()。
   
 **5. HttpSessionActivationListener**
 
@@ -147,7 +147,7 @@ Servlet中的Listener和Event:
 
 [接收事件] HttpSessionEvent
 
-[触发场景] Activate与Passivate是用于置换对象的动作，当session对象为了资源利用或负载平衡等原因而必须暂时储存至硬盘或其它储存器时（通过对象序列化），所作的动作称之为Passivate，而硬盘或储存器上的session对象重新加载JVM时所采的动作称之为Activate，所以容易理解的，sessionDidActivate()与 sessionWillPassivate()分别于Activeate后与将Passivate前呼叫。
+[触发场景] Activate与Passivate是用于置换对象的动作，当session对象为了资源利用或负载平衡等原因而必须暂时储存至硬盘或其它储存器时（通过对象序列化) ，所作的动作称之为Passivate，而硬盘或储存器上的session对象重新加载JVM时所采的动作称之为Activate，所以容易理解的，sessionDidActivate()与 sessionWillPassivate()分别于Activeate后与将Passivate前呼叫。
   
 **6. ServletRequestListener**
 
@@ -155,7 +155,7 @@ Servlet中的Listener和Event:
 
 [接收事件] RequestEvent
 
-[触发场景] 在request（HttpServletRequest）对象被创建或被消毁时，会分别调用这两个方法。
+[触发场景] 在request（HttpServletRequest) 对象被创建或被消毁时，会分别调用这两个方法。
   
 **7. ServletRequestAttributeListener**
 
@@ -163,7 +163,7 @@ Servlet中的Listener和Event:
 
 [接收事件] HttpSessionBindingEvent
 
-[触发场景] 若有对象加入为request（HttpServletRequest）对象的属性，则会呼叫attributeAdded()，同理在置换属性与移除属性时，会分别呼叫attributeReplaced()、 attributeRemoved()。
+[触发场景] 若有对象加入为request（HttpServletRequest) 对象的属性，则会呼叫attributeAdded()，同理在置换属性与移除属性时，会分别呼叫attributeReplaced()、 attributeRemoved()。
   
 **8. HttpSessionBindingListener**
 
@@ -171,7 +171,7 @@ Servlet中的Listener和Event:
 
 [接收事件] HttpSessionBindingEvent
 
-[触发场景] 实现HttpSessionBindingListener接口的类别，其实例如果被加入至session（HttpSession）对象的属性中，则会呼叫 valueBound()，如果被从session（HttpSession）对象的属性中移除，则会呼叫valueUnbound()，实现 HttpSessionBindingListener接口的类别不需在web.xml中设定。
+[触发场景] 实现HttpSessionBindingListener接口的类别，其实例如果被加入至session（HttpSession) 对象的属性中，则会呼叫 valueBound()，如果被从session（HttpSession) 对象的属性中移除，则会呼叫valueUnbound()，实现 HttpSessionBindingListener接口的类别不需在web.xml中设定。
 
 具体使用方法: 在web.xml中添加如下语句: 
 

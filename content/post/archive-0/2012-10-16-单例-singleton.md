@@ -28,7 +28,7 @@ return SingletonHolder.INSTANCE;
 }
 ```
 
-单例模式（Singleton）
+单例模式（Singleton) 
   
 1.介绍: 也叫单子模式，是一种常用的软件设计模式。在应用这个模式时，单例对象的类必须保证只有一个实例存在。许多时候整个系统只需要拥有一个的全局对象，这样有利于我们协调系统整体的行为。比如在某个服务器程序中，该服务器的配置信息存放在一个文件中，这些配置数据由一个单例对象统一读取，然后服务进程中的其他对象再通过这个单例对象获取这些配置信息。这种方式简化了在复杂环境下的配置管理。
   
@@ -47,7 +47,7 @@ return SingletonHolder.INSTANCE;
 ```java
 /*
 方式一: 饿汉式单例模式
-缺点是它不是一种懒加载模式（lazy initialization），单例会在加载类后一开始就被初始化，即使客户端没有调用 getInstance()方法。
+缺点是它不是一种懒加载模式（lazy initialization) ，单例会在加载类后一开始就被初始化，即使客户端没有调用 getInstance()方法。
 饿汉式的创建方式在一些场景中将无法使用: 譬如 Singleton 实例的创建是依赖参数或者配置文件的，
 在 getInstance() 之前必须调用某个方法设置参数给它，那样这种单例写法就无法使用了。
 */
@@ -107,10 +107,10 @@ public class Singleton {
 
 给 instance 分配内存
 调用 Singleton 的构造函数来初始化成员变量
-将instance对象指向分配的内存空间（执行完这步 instance 就为非 null 了）
+将instance对象指向分配的内存空间（执行完这步 instance 就为非 null 了) 
 但是在 JVM 的即时编译器中存在指令重排序的优化。也就是说上面的第二步和第三步的顺序是不能保证的，
 最终的执行顺序可能是 1-2-3 也可能是 1-3-2。如果是后者，则在 3 执行完毕、2 未执行之前，被线程二抢占了，
-这时 instance 已经是非 null 了（但却没有初始化），所以线程二会直接返回 instance，然后使用，然后顺理成章地报错。 
+这时 instance 已经是非 null 了（但却没有初始化) ，所以线程二会直接返回 instance，然后使用，然后顺理成章地报错。 
 所以这里的 volatile 主要是用来做禁止指令重排序的。
 */
 
@@ -125,7 +125,7 @@ public static Singleton getInstance() {
  }
 
 }
-//在加载singleton时并不加载它的内部类SingletonHolder，而在调用getInstance（）时调用SingletonHolder时才加载SingletonHolder，
+//在加载singleton时并不加载它的内部类SingletonHolder，而在调用getInstance（) 时调用SingletonHolder时才加载SingletonHolder，
 //从而调用singleton的构造函数，实例化singleton，从而达到lazy loading的效果。
 ```
 

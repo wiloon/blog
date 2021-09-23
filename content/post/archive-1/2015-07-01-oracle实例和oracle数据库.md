@@ -94,7 +94,7 @@ PGA包含单个服务器进程或单个后台进程的数据和控制信息,与�
 因为实例内存的分配是在数据库启动时进行的,所以要让修改生效,要重启数据库。
 
 
-ORACLE 10G 引入了ASMM（自动共享内存管理）,DBA只需设置SGA＿TARGET,ORACLE就会
+ORACLE 10G 引入了ASMM（自动共享内存管理) ,DBA只需设置SGA＿TARGET,ORACLE就会
 
 自动的对共享池、JAVA池、大池、数据缓冲区、流池进行自动调配。取消自动调配就是
 
@@ -152,13 +152,13 @@ Java 池: 该程序缓冲区就是为Java 程序保留的。如果不用Java程�
 
 PGA包括了以下几个结构: 
 
-（）排序区
+（) 排序区
 
-（）游标状态区
+（) 游标状态区
 
-（）会话信息区
+（) 会话信息区
 
-（）堆栈区
+（) 堆栈区
 
 由参数: pga_aggregate_target 决定
 
@@ -390,7 +390,7 @@ initSID.ora或init.ora文件,通常位于: $ORACLE_BASE/admin/<SID>/pfile
 
 密码文件: 用于Oracle 的具有sysdba权限用户的认证.
 
-告警日志文件: 报警日志文件(alert.log或alrt.ora）,记录数据库启动,关闭和一些重要的出错信息
+告警日志文件: 报警日志文件(alert.log或alrt.ora) ,记录数据库启动,关闭和一些重要的出错信息
 
 查看路径: select value from v$PARAMETER where name ='background_dump_dest';
 
@@ -439,7 +439,7 @@ Oralce 10g 使用DBCA创建数据库
 Linux (RHEL 5.4)下安装Oracle 10g R2
 
 
-VmWare6.5.2下安装RHEL 5.4（配置Oracle安装环境）
+VmWare6.5.2下安装RHEL 5.4（配置Oracle安装环境) 
 
 
 Oracle相关

@@ -204,7 +204,7 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     DNS = 192.168.50.1
     BlockDNS = true
 
-    # 设置虚拟网卡的内网地址（可选子网掩码）
+    # 设置虚拟网卡的内网地址（可选子网掩码) 
     Address = 192.168.53.3/24
     ;/l.4r5t3677777777
     [Peer]

@@ -34,8 +34,8 @@ title = "rust basic"
     cargo run
     
 ### vscode plugin
-- rust-anlyzer（RA）
-- Rust 语言服务器（RLS）
+- rust-anlyzer（RA) 
+- Rust 语言服务器（RLS) 
 
 ### hello world
     cargo new hello-rust

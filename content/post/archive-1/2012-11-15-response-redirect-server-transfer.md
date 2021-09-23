@@ -29,7 +29,7 @@ categories:
  例: WebForm1.aspx 有一个文本框名为 TextBox1,你利用 preserveForm 为 True 传递到 WebForm2.aspx,你仍然可以用 Request.Form("TextBox1") 来取得文本框的值。
  这种技术对向导式的多页面输入很有用,不过这里有一个你必须注意的问题是,当你使用 preserveForm 参数时,ASP.NET 有一个 bug,通常情况下,当试图传递 form 或 query string 值时会发生错误。请参见: http://support.microsoft.com/default.aspx?id=kb;en-us;Q316920
  非官方的解决办法是在你要传递的目的页面中设置 enableViewStateMac 属性为 True,然后再将其设置回 False。这说明你需要使用 enableViewStateMac 的 False 值才能解决这个问题。
- 总结: Response.Redirect 简单地告诉浏览器访问另一个页面。Server.Transfer 有利于减少服务器请求,保持地址栏 URL 不变,允许你将 query string 和 form 变量传递到另一个页面（有一点小小的缺陷）。
+ 总结: Response.Redirect 简单地告诉浏览器访问另一个页面。Server.Transfer 有利于减少服务器请求,保持地址栏 URL 不变,允许你将 query string 和 form 变量传递到另一个页面（有一点小小的缺陷) 。
  重要提示: 不要混淆了 Server.Transfer 和 Server.Execute,Server.Execute 执行一个页面,并返回结果,在过去 Server.Execute 很有用,不过在 ASP.NET 里,它被 fresher 方法所代替,所以忽略 Server.Execute。 
   
     使用HttpContext.RewritePath来配合Server.Transfer/Execute 
@@ -64,11 +64,11 @@ categories:
     
     
     
-      Server.Transfer（ASP 3.0 以上） 和 Response.Redirect 在以前的 ASP 中就存在了,Page.Navigate 是 ASP.NET Beta 1 提供的新功能,它们之间的区别在于: 
+      Server.Transfer（ASP 3.0 以上)  和 Response.Redirect 在以前的 ASP 中就存在了,Page.Navigate 是 ASP.NET Beta 1 提供的新功能,它们之间的区别在于: 
     
     
     
-      1、Server.Transfer - 用于把处理的控制权从一个页面转移到另一个页面,在转移的过程中,没有离开服务器,内部控件（如: request, session 等）的保存的信息不变,因此,你能从页面 A 跳到页面 B 而不会丢失页面 A 中收集的用户提交信息。此外,在转移的过程中,浏览器的 URL 栏不变。
+      1、Server.Transfer - 用于把处理的控制权从一个页面转移到另一个页面,在转移的过程中,没有离开服务器,内部控件（如: request, session 等) 的保存的信息不变,因此,你能从页面 A 跳到页面 B 而不会丢失页面 A 中收集的用户提交信息。此外,在转移的过程中,浏览器的 URL 栏不变。
     
     
     

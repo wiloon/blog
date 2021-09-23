@@ -14,32 +14,32 @@ categories:
 ---
 http://blog.csdn.net/jiutianhe/article/details/41349649
   
-Section 1 linear 线性代数（矩阵为主）
+Section 1 linear 线性代数（矩阵为主) 
 
-1） Vector 向量
+1)  Vector 向量
 
-2） Matrix 矩阵
+2)  Matrix 矩阵
 
-3） Matrix Decomposition 矩阵分解
+3)  Matrix Decomposition 矩阵分解
 
-Section 2 analysis 数学分析（函数为主）
+Section 2 analysis 数学分析（函数为主) 
 
-1） Function 函数
+1)  Function 函数
 
-2） Polynomial 多项式函数
+2)  Polynomial 多项式函数
 
-3） Interpolation 插值
+3)  Interpolation 插值
 
-4） Integration 积分
+4)  Integration 积分
 
-5） Solver 求解
+5)  Solver 求解
 
 Section 3 Probabilityand Statistics 概率和统计
 
-       1）distribution 分布
+       1) distribution 分布
     
-       2）fraction and complex 分数和复数
+       2) fraction and complex 分数和复数
     
-       3）random and statistics 随机生成和统计初步
+       3) random and statistics 随机生成和统计初步
     
-     4）cluster and regression聚类和回归
+     4) cluster and regression聚类和回归

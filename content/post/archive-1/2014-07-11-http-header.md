@@ -12,12 +12,12 @@ tags:
 
 ---
 ### Connection
-Connection 头（header） 决定当前的事务完成后,是否会关闭网络连接。如果该值是"keep-alive",网络连接就是持久的,不会关闭,使得对同一个服务器的请求可以继续在该连接上完成。
+Connection 头（header)  决定当前的事务完成后,是否会关闭网络连接。如果该值是"keep-alive",网络连接就是持久的,不会关闭,使得对同一个服务器的请求可以继续在该连接上完成。
 ### Content-Length
 消息主体的大小
 
 ### Content-Transfer-Encoding
-从它的命名就可以看出,这个head域是用来描述内容在传输过程中的编码格式。不同于Content-Type,这个域不是必须的。不过,仅仅定义一种Content-Transfer-Encoding也是不可以的。在有效地传输巨大的二进制数据和便于阅读的编码数据之间要有一个折中。所以,至少要有两种编码格式: 易读的,和稠密的（高压缩率的）。Content-Transfer-Encoding就是为这个目的设计的。Content-Transfer-Encoding支持以下数据格式: BASE64, QUOTED-PRINTABLE, 8BIT, 7BIT, BINARY, X-TOKEN。这些值是大小写不敏感的。7BIT是默认值,当不设置Content-Transfer-Encoding的时候,默认就是7BIT。7BIT的含义是所有的数据以ASC-II格式的格式编码,8BIT则可能包含非ASCII字符。BINARY可能不止包含非ASCII字符,还可能不是一个短行（超过1000字符）。
+从它的命名就可以看出,这个head域是用来描述内容在传输过程中的编码格式。不同于Content-Type,这个域不是必须的。不过,仅仅定义一种Content-Transfer-Encoding也是不可以的。在有效地传输巨大的二进制数据和便于阅读的编码数据之间要有一个折中。所以,至少要有两种编码格式: 易读的,和稠密的（高压缩率的) 。Content-Transfer-Encoding就是为这个目的设计的。Content-Transfer-Encoding支持以下数据格式: BASE64, QUOTED-PRINTABLE, 8BIT, 7BIT, BINARY, X-TOKEN。这些值是大小写不敏感的。7BIT是默认值,当不设置Content-Transfer-Encoding的时候,默认就是7BIT。7BIT的含义是所有的数据以ASC-II格式的格式编码,8BIT则可能包含非ASCII字符。BINARY可能不止包含非ASCII字符,还可能不是一个短行（超过1000字符) 。
 
 
 

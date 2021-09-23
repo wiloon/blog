@@ -53,7 +53,7 @@ Kafka消费组(consumer group)
 
 其实对于这些基本概念的普及，网上资料实在太多了。我本不应该再画蛇添足了，但为了本文的完整性，我还是要花一些篇幅来重谈consumer group，至少可以说说我的理解。值得一提的是，由于我们今天基本上只探讨consumer group，对于单独的消费者不做过多讨论。
 
-什么是consumer group? 一言以蔽之，consumer group是kafka提供的可扩展且具有容错性的消费者机制。既然是一个组，那么组内必然可以有多个消费者或消费者实例(consumer instance)，它们共享一个公共的ID，即group ID。组内的所有消费者协调在一起来消费订阅主题(subscribed topics)的所有分区(partition)。当然，每个分区只能由同一个消费组内的一个consumer来消费。（网上文章中说到此处各种炫目多彩的图就会紧跟着抛出来，我这里就不画了，请原谅）。个人认为，理解consumer group记住下面这三个特性就好了: 
+什么是consumer group? 一言以蔽之，consumer group是kafka提供的可扩展且具有容错性的消费者机制。既然是一个组，那么组内必然可以有多个消费者或消费者实例(consumer instance)，它们共享一个公共的ID，即group ID。组内的所有消费者协调在一起来消费订阅主题(subscribed topics)的所有分区(partition)。当然，每个分区只能由同一个消费组内的一个consumer来消费。（网上文章中说到此处各种炫目多彩的图就会紧跟着抛出来，我这里就不画了，请原谅) 。个人认为，理解consumer group记住下面这三个特性就好了: 
 
 consumer group下可以有一个或多个consumer instance，consumer instance可以是一个进程，也可以是一个线程
   

@@ -76,7 +76,7 @@ sudo mount /dev/sdX /mnt
 
 ****＃＃＃这个我没成功, 用了install-mbr 还是不能引导。
   
-用GParted 在优盘上创建一个FAT16的分区（最大4G）
+用GParted 在优盘上创建一个FAT16的分区（最大4G) 
   
 然后使用mkdosfs来创建FAT16文件系统 (可能需要先行安装dosfstools软件包)
   

@@ -77,7 +77,7 @@ Windows PowerShell 将交互式环境和脚本环境组合在一起，从而允�
   
 面向对象
   
-尽管您可以通过以文本方式键入命令与 Windows PowerShell 进行交互，但 Windows PowerShell 是基于对象的，而不是基于文本的。命令的输出即为对象。可以将输出对象发送给另一条命令以作为其输入。因此，Windows PowerShell 为曾使用过其他外壳程序的人员提供了熟悉的界面，同时引入了新的、功能强大的命令行范例。通过允许发送对象（而不是文本），它扩展了在命令之间发送数据的概念。
+尽管您可以通过以文本方式键入命令与 Windows PowerShell 进行交互，但 Windows PowerShell 是基于对象的，而不是基于文本的。命令的输出即为对象。可以将输出对象发送给另一条命令以作为其输入。因此，Windows PowerShell 为曾使用过其他外壳程序的人员提供了熟悉的界面，同时引入了新的、功能强大的命令行范例。通过允许发送对象（而不是文本) ，它扩展了在命令之间发送数据的概念。
   
 易于过渡到脚本
   
@@ -87,9 +87,9 @@ Windows PowerShell 将交互式环境和脚本环境组合在一起，从而允�
   
 使用Set-Location和Get-ChildItem浏览数据 Set-Location用于改变当前目录，以及选择当前的provider，而Get-ChildItem用于获取当前目录或者指定目录下的子对象:  例子:  set-location hkcu:software get-childitem 例子2:  GCI -path HKLM:software
   
-有两种连接WMI服务的方法: l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，"WbemScripting.SWbemLocator"，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数: 用户名，密码，语言代码，验证方法（Kerberos, NTLM等），标志（超时值）。下例中，我们使用New-Object命令，创建了一个"WbemScripting.SWbemLocator"的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间（rootcimv2），ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf（）方法，返回了一系列WMI的CLASS:  $strComputer = "." $wmiNS = "rootcimv2" $strUsr ="" #Blank for current security. DomainUsername $strPWD = "" #Blank for current security. $strLocl = "MS_409" #US English. Can leave blank for current language $strAuth = "" #if specify domain in strUsr this must be blank $iFlag = "0" #only two values allowed: 0 and 128. $objLocator = New-Object -comobject "WbemScripting.SWbemLocator" $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host "There are: " $colItems.count " classes in $wmiNS" foreach ($objItem In $colItems) { $objItem.path_.class }　新脚本语言　由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言: 
+有两种连接WMI服务的方法: l 使用Get-WmiObject可以很容易地连接到WMI服务，并且获取WMI对象。 l 使用一个COM对象，"WbemScripting.SWbemLocator"，可以连接WMI的服务。SWbemLocator对象只有一个方法，就是ConnectServer()。该方法接受5个参数: 用户名，密码，语言代码，验证方法（Kerberos, NTLM等) ，标志（超时值) 。下例中，我们使用New-Object命令，创建了一个"WbemScripting.SWbemLocator"的实例。然后用这个实例的ConnectServer方法连接了到了一个WMI的名字空间（rootcimv2) ，ConnectServer方法返回了一个WMIService对象，接着又用这个对象的subClassesOf（) 方法，返回了一系列WMI的CLASS:  $strComputer = "." $wmiNS = "rootcimv2" $strUsr ="" #Blank for current security. DomainUsername $strPWD = "" #Blank for current security. $strLocl = "MS_409" #US English. Can leave blank for current language $strAuth = "" #if specify domain in strUsr this must be blank $iFlag = "0" #only two values allowed: 0 and 128. $objLocator = New-Object -comobject "WbemScripting.SWbemLocator" $objWMIService = $objLocator.ConnectServer($strComputer, \` $wmiNS, $strUsr, $strPWD, $strLocl, $strAuth, $iFLag) $colItems = $objWMIService.subClassesOf() Write-Host "There are: " $colItems.count " classes in $wmiNS" foreach ($objItem In $colItems) { $objItem.path_.class }　新脚本语言　由于以下原因，Windows PowerShell 使用它自己的语言，而不是重用现有的语言: 
   
-Windows PowerShell 需要用于管理.NET 对象的语言。该语言需要为使用cmdlet 提供一致的环境。该语言需要支持复杂的任务，而不会使简单的任务变得更复杂。 · 该语言需要与在.NET 编程中使用的高级语言（如C#）一致
+Windows PowerShell 需要用于管理.NET 对象的语言。该语言需要为使用cmdlet 提供一致的环境。该语言需要支持复杂的任务，而不会使简单的任务变得更复杂。 · 该语言需要与在.NET 编程中使用的高级语言（如C#) 一致
   
 编辑本段
   
@@ -101,11 +101,11 @@ PowerShell脚本十个基本概念
   
 2、执行权限
   
-为防止恶意脚本的执行，PowerShell有一个执行策略，默认情况下，这个执行策略被设为受限的（Restricted），意味着PowerShell脚本无法执行，你可以使用下面的cmdlet命令确定当前的执行策略: 
+为防止恶意脚本的执行，PowerShell有一个执行策略，默认情况下，这个执行策略被设为受限的（Restricted) ，意味着PowerShell脚本无法执行，你可以使用下面的cmdlet命令确定当前的执行策略: 
   
 Get-ExecutionPolicy 你可以选择使用的执行策略有: 
   
-Restricted - 脚本不能运行。 RemoteSigned - 本地创建的脚本可以运行，但从网上下载的脚本不能运行（除非它们拥有由受信任的发布者签署的数字签名）。 AllSigned – 仅当脚本由受信任的发布者签名才能运行。 Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。
+Restricted - 脚本不能运行。 RemoteSigned - 本地创建的脚本可以运行，但从网上下载的脚本不能运行（除非它们拥有由受信任的发布者签署的数字签名) 。 AllSigned – 仅当脚本由受信任的发布者签名才能运行。 Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。
   
 你可以使用下面的cmdlet命令设置PowerShell的执行策略: 
   
@@ -121,13 +121,13 @@ C:Scriptsaps1 最大的例外是，如果PowerShell脚本文件刚好位于你�
   
 4、管道
   
-管道的作用是将一个命令的输出作为另一个命令的输入，两个命令（或cmdlet）之间只需要用管道符号（|）连接即可。
+管道的作用是将一个命令的输出作为另一个命令的输入，两个命令（或cmdlet) 之间只需要用管道符号（|) 连接即可。
   
 为了帮助你了解管道是如何工作的，我们以一个例子进行说明，假设你想创建运行在服务器上的进程列表，并按进程的ID号进行排序，可以使用Get-Process cmdlet命令获得进程列表，但默认情况下列表不会排序，如果将这个cmdlet命令的输出用管道输送给Sort-Object ID命令，进程列表将会按进程ID号进行排序，如: 
   
 Get-Process | Sort-Object ID 5、变量
   
-虽然可以使用管道将一个命令的输出输送给另一个命令，但管道本身也是有限制的，当你用管道从一个命令向另一个命令传递输出结果时，输出结果立即被使用，但有时候，你可能需要保存输出结果一段时间，以便以后可以使用（或重用），这个时候管道就应该下场，轮到变量上场了。
+虽然可以使用管道将一个命令的输出输送给另一个命令，但管道本身也是有限制的，当你用管道从一个命令向另一个命令传递输出结果时，输出结果立即被使用，但有时候，你可能需要保存输出结果一段时间，以便以后可以使用（或重用) ，这个时候管道就应该下场，轮到变量上场了。
   
 人们很容易将变量想象成一个仓库，但在PowerShell中，变量可以保存命令的完整输出，例如，假设你想保存服务器处于运行中的进程列表，你可以将它赋给一个变量，如: 
   
@@ -137,7 +137,7 @@ $a = Get-Process 在这里，变量被命名为$a，如果你想使用这个变�
   
 $a = (Get-Process | Sort-Object ID) 6、@符号
   
-通过使用@符号，你可以将列表内容转换成一个数组，例如，下面的代码创建了一个名为$Procs的变量，它包含多行文本内容（一个数组）: $procs = @{name="explorer","svchost"}
+通过使用@符号，你可以将列表内容转换成一个数组，例如，下面的代码创建了一个名为$Procs的变量，它包含多行文本内容（一个数组) : $procs = @{name="explorer","svchost"}
   
 使用变量时你也可以使用@符号，为了确保它作为数组而不是单个值处理，例如，下面的代码将在我前面定义的变量上运行Get-Process cmdlet命令: 
   

@@ -48,7 +48,7 @@ transactions是使用的javaee容器支持的JTA系统,例如tomcat中,可以这
 
 如果你的项目准备部署在tomcat上,要支持jta,则需把相关的包放在tomcat/lib包下
   
-1）jndi配置,可以把jndi的配置放置在 tomcat/conf/Catalina/域名(如localhost)/项目名.xml
+1) jndi配置,可以把jndi的配置放置在 tomcat/conf/Catalina/域名(如localhost)/项目名.xml
   
 文件的Context节点下,如下: 
   

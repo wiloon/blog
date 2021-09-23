@@ -18,7 +18,7 @@ Maven对于新手来说,最痛苦的一件事莫过于包之间的冲突,由于M
 
 举例
   
-A依赖于B及C,而B又依赖于X、Y,而C依赖于X、M,则A除引B及C的依赖包下,还会引入X,Y,M的依赖包（一般情况下了,Maven可通过<scope>等若干种方式控制传递依赖）。
+A依赖于B及C,而B又依赖于X、Y,而C依赖于X、M,则A除引B及C的依赖包下,还会引入X,Y,M的依赖包（一般情况下了,Maven可通过<scope>等若干种方式控制传递依赖) 。
   
 这里有一个需要特别注意的,即B和C同时依赖于X,假设B依赖于X的1.0版本,而C依赖于X的2.0版本,A究竟依赖于X的1.0还是2.0版本呢？
   
@@ -162,7 +162,7 @@ asm</artifactId>
 
 第三板斧:查看运行期类来源的JAR包
 
-有时,你以为解决了,但是偏偏还是报类包冲突（典型症状是java.lang.ClassNotFoundException或Method不兼容等异常）,这时你可以设置一个断点,在断点处通过下面这个我做的工具类来查看Class所来源的JAR包: 
+有时,你以为解决了,但是偏偏还是报类包冲突（典型症状是java.lang.ClassNotFoundException或Method不兼容等异常) ,这时你可以设置一个断点,在断点处通过下面这个我做的工具类来查看Class所来源的JAR包: 
 
 package com.ridge.util;
 
@@ -258,7 +258,7 @@ return result.toString();
 
 }
   
-随便写一个测试,设置好断点,在执行到断点处按alt+F8动态执行代码（intelij idea）,假设我们输入: 
+随便写一个测试,设置好断点,在执行到断点处按alt+F8动态执行代码（intelij idea) ,假设我们输入: 
   
 Java代码 收藏代码
 
