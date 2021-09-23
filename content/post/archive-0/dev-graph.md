@@ -160,10 +160,16 @@ NIO--DirectByteBuffer
 NIO--AIO
 [TCP Receive Buffer] as tcp_receive_buffer
 NIO--tcp_receive_buffer
+[Reactor]
+NIO--Reactor
+[Observer]
+Reactor--Observer
 [socket.read()] as socket_read
 tcp_receive_buffer--socket_read
 [selector]
 socket_read--selector
+[epoll]
+selector--epoll
 [零拷贝] as zero_copy
 [IO] as io
 [缓存IO] as buffered_io
