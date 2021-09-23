@@ -40,9 +40,9 @@ Sendmail
 
 
   
-    <h4>
+    
       概括的比较
-    </h4>
+    
     
     
       以下的分析主要基于我在CASA上发的一个小文章，对sendmail/qmail/postfix做了一个概括性的比较。
@@ -92,9 +92,9 @@ Sendmail
       新浪使用qmail，yahoo使用qmail。但这些已经不是普通的qmail了。
     
     
-    <h4>
+    
       技术层面的分析
-    </h4>
+    
     
     
       这里仅探讨一些典型的技术特点，从这些特点可以看出每个MTA设计的异同，主要讨论的焦点是qmail和postfix。
@@ -173,17 +173,17 @@ Sendmail
  Postfix -wietse venema安全专家 学者
     
     
-    <h4>
+    
       Recommentaion - 建议
-    </h4>
+    
     
     
       我建议在使用PostfixMTA，无论是小型系统，还是大中型系统，能带来最高的性价比。
     
     
-    <h4>
+    
       一些有用的link
-    </h4>
+    
     
     
       在足够好的硬件条件下Postfix比qmail更快的原因分析

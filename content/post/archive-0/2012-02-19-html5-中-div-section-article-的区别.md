@@ -40,17 +40,17 @@ section 不仅仅是一个普通的容器标签。当一个标签只是为了样
 
 
  <hgroup>
-  <h1>Apples</h1>
+  Apples
   Tasty, delicious fruit!
  </hgroup>
  The apple is the pomaceous fruit of the apple tree.
  <section>
-  <h1>Red Delicious</h1>
+  Red Delicious
   These bright red apples are the most common found in many
   supermarkets.
  </section>
  <section>
-  <h1>Granny Smith</h1>
+  Granny Smith
   These juicy, green apples make a great filling for
   apple pies.
  </section>
@@ -72,7 +72,7 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 
 
  <header>
-  <h1>The Very First Rule of Life</h1>
+  The Very First Rule of Life
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
  </header>
  If there's a microphone anywhere near you, assume it's hot and
@@ -84,14 +84,14 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 </article>
 
  <header>
-  <h1>The Very First Rule of Life</h1>
+  The Very First Rule of Life
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
  </header>
  If there's a microphone anywhere near you, assume it's hot and
  sending whatever you're saying to the world. Seriously.
  ...
  <section>
-  <h1>Comments</h1>
+  Comments
   
    <footer>
     Posted by: George Washington

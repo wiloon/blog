@@ -113,7 +113,7 @@ categories:
 
    out.println("</title></head><body>");
 
-   out.println("<h1>Hello,World!, Servlet!</h1>");
+   out.println("Hello,World!, Servlet!");
 
    out.println("</body></html>");
 
