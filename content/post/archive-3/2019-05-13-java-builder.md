@@ -18,7 +18,7 @@ Java 中的 Builder 模式和协变返回类型
   
 2018-08-27
   
-原文链接：www.codebelief.com
+原文链接: www.codebelief.com
   
 阅读这篇文章大约需要五到十分钟时间。
 
@@ -44,7 +44,7 @@ public Student(int id, String name, float weight) {} //只填体重（签名重�
 
 构造方法数量过多
   
-接着考虑这么一个场景，你正在设计一个 Person 类，这个类存放了 name、age、sex 等信息，其中 name 是必要信息，而 age 和 sex 是可选信息，那么你可能会编写如下的构造方法：
+接着考虑这么一个场景，你正在设计一个 Person 类，这个类存放了 name、age、sex 等信息，其中 name 是必要信息，而 age 和 sex 是可选信息，那么你可能会编写如下的构造方法: 
 
 public class Person {
       
@@ -64,7 +64,7 @@ private String sex;
   
 我们利用 Java 方法的重载，来实现参数的"可选"，但我们也因此不得不设计很多的构造方法，来应对不同的对象创建需求。而且，上面的例子中只有两个可选参数，当我们需要更多的可选参数时，这种实现方式几乎不可行。
 
-在某些语言中，可以通过"命名可选参数"来解决这个问题，例如 Python 中可以这么实现：
+在某些语言中，可以通过"命名可选参数"来解决这个问题，例如 Python 中可以这么实现: 
 
 class Person:
       
@@ -78,7 +78,7 @@ self.sex = sex
   
 其中 self 和 Java 中的 this 类似，指代当前对象。我们将必须的参数写在前面，将可选参数写在后面（通过给参数赋默认值的方式来表示该参数是可选参数）。
 
-当我们创建 Person 对象时，可以有以下几种写法：
+当我们创建 Person 对象时，可以有以下几种写法: 
 
 Tom = Person("Tom", age=18)
   
@@ -106,7 +106,7 @@ Python 在语言层面已经有了很优雅的解决方法，而 Java 语言层�
   
 我们可以将对象可选参数的设置过程单独拿出来，交给 Builder 来完成，等参数设置好了之后，再根据这些参数创建 Person 对象，得到不可变的 Person 对象。
 
-Person 类及嵌套的 Builder 类：
+Person 类及嵌套的 Builder 类: 
 
 public class Person {
       
@@ -149,7 +149,7 @@ private String sex;
 
 }
   
-创建 Person 对象：
+创建 Person 对象: 
 
 Person person = new Person.Builder("John")
           
@@ -167,11 +167,11 @@ Person person = new Person.Builder("John")
 
 我们继续假设另一个场景，给外卖系统设计一个 Customer 类，由于我们已经有了 Person 类，所以可以直接继承该类，进行扩展。
 
-外卖系统中的 Customer 有三个信息是必须的：姓名、手机号、地址。
+外卖系统中的 Customer 有三个信息是必须的: 姓名、手机号、地址。
 
-可选信息：昵称、个人介绍。
+可选信息: 昵称、个人介绍。
 
-所以 Customer 类设计如下：
+所以 Customer 类设计如下: 
 
 public class Customer extends Person {
       
@@ -221,7 +221,7 @@ private String intro;
 
 }
   
-我们给 Customer 类增加了四个成员变量，也在 Customer.Builder 当中进行了相应的扩展，但是，当我们尝试调用参数设置方法时就会发现问题：
+我们给 Customer 类增加了四个成员变量，也在 Customer.Builder 当中进行了相应的扩展，但是，当我们尝试调用参数设置方法时就会发现问题: 
 
 Customer customer = new Customer.Builder("Tom", 13999999999L, "北京市XXX")
           
@@ -241,7 +241,7 @@ Customer customer = new Customer.Builder("Tom", 13999999999L, "北京市XXX")
   
 协变返回类型（Covariant Return Type），指的是当一个类被继承之后，该类中方法的返回类型变成子类对应的类型，这个改变后的返回类型就叫协变返回类型。
 
-以 Java 中的 Object.clone() 方法为例，该方法在 Object 类中返回的类型是 Object 类型。我们知道，所有类都继承自 Object 类，所以我们在定义类时可以覆写类中的 clone() 方法：
+以 Java 中的 Object.clone() 方法为例，该方法在 Object 类中返回的类型是 Object 类型。我们知道，所有类都继承自 Object 类，所以我们在定义类时可以覆写类中的 clone() 方法: 
 
 public class MyClass {
       
@@ -259,7 +259,7 @@ public MyClass clone() {
 
 协变返回类型并不局限于和类本身相同的类型，只要是存在对应关系，也可以认为是协变返回类型。
 
-下面是 StackOverflow 上的一个例子：
+下面是 StackOverflow 上的一个例子: 
 
 public class Animal {
       
@@ -271,7 +271,7 @@ return new Food();
   
 }
   
-定义一个继承自 Animal 的 Dog 类：
+定义一个继承自 Animal 的 Dog 类: 
 
 public class Dog extends Animal {
       
@@ -334,7 +334,7 @@ return (Builder) super.age(age);
 
 不过，这里使用的泛型参数列表不是简单的 <T>，而是递归的 <T extends Builder<T>>。
 
-首先，将 Person.Builder 定义为泛型类：
+首先，将 Person.Builder 定义为泛型类: 
 
 public class Person {
       
@@ -350,7 +350,7 @@ public static class Builder<T extends Builder<T>> {
 
 该递归参数表示类型 T1 是 Builder<T2> 的子类，由于 T 可以表示任意类型，所以 T2 可以表示 T extends Builder<T>，因此此处的 Builder<T2> 等价于当前泛型类 Builder<T extends Builder<T>>，所以 T1 就可以表示当前泛型类 Person.Builder 的子类。
 
-定义完泛型之后，我们就可以在 Person.Builder 的方法中将 T 作为返回值：
+定义完泛型之后，我们就可以在 Person.Builder 的方法中将 T 作为返回值: 
 
 public class Person {
       
@@ -376,7 +376,7 @@ return (T) this;
 
 }
   
-定义子类 Customer.Builder 时，将当前 Builder 类型传入泛型参数中：
+定义子类 Customer.Builder 时，将当前 Builder 类型传入泛型参数中: 
 
 public class Customer {
       
@@ -394,7 +394,7 @@ public static class Builder extends Person.Builder<Builder> {
 
 我们注意到，父类 Builder 在返回子类类型时，需要将当前的 this 强制转换成子类类型。
 
-我们也可以编写一个 self() 方法，来获得子类类型的实例：
+我们也可以编写一个 self() 方法，来获得子类类型的实例: 
 
 public class Person {
       
@@ -423,7 +423,7 @@ return self();
   
 这样就无需在每一个方法中进行类型转换了。
 
-假设我们不会直接用到 Person 类，使用的都是它的子类，于是我们决定将 Person 声明为一个抽象类，那么可以将 self() 方法声明为抽象方法，让子类去实现它，返回对应的子类实例：
+假设我们不会直接用到 Person 类，使用的都是它的子类，于是我们决定将 Person 声明为一个抽象类，那么可以将 self() 方法声明为抽象方法，让子类去实现它，返回对应的子类实例: 
 
 public abstract class Person {
       
@@ -472,7 +472,7 @@ Java 是如何利用接口避免函数回调的
   
 Java 多线程的竞争条件、互斥和同步
   
-Java GUI：Awt/Swing 实现图片的缩放与滚动查看
+Java GUI: Awt/Swing 实现图片的缩放与滚动查看
   
 Java Swing 编写数据库增删改查 GUI 程序
   

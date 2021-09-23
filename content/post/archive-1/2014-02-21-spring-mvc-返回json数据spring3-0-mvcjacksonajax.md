@@ -14,17 +14,17 @@ tags:
 ---
 本文本的框架为:SpringMVC 3.2.3 \ jackson 1.9.2
 
-传统的返回JSON格式的AJAX,用的方法一般是：在后台先把数据(Object)封装成JSON数据，再用HttpServletResponse返回。
+传统的返回JSON格式的AJAX,用的方法一般是: 在后台先把数据(Object)封装成JSON数据，再用HttpServletResponse返回。
 
 本示例中，SpringMVC可直接支持JSON格式数据的返回。具体如下。
 
-**1、JAR包：SPRINGMVC包需的包，另外还需JACKSON的两个包。**
+**1、JAR包: SPRINGMVC包需的包，另外还需JACKSON的两个包。**
   
 jackson-core-asl-1.9.2.jar
   
 jackson-mapper-asl-1.9.2.jar
 
-**2、spring-servlet.xml中加入：**
+**2、spring-servlet.xml中加入: **
 
 
   
@@ -59,9 +59,9 @@ jackson-mapper-asl-1.9.2.jar
     
   
 
-我们在SPRING的配置中加入了一个新的适配器：AnnotationMethodHandlerAdapter，通过这个适配器，我们配置了一个属性，messageConverters，其中mappingJacksonHttpMessageConverter这个Bean，它就是用来处理json数据转换的。
+我们在SPRING的配置中加入了一个新的适配器: AnnotationMethodHandlerAdapter，通过这个适配器，我们配置了一个属性，messageConverters，其中mappingJacksonHttpMessageConverter这个Bean，它就是用来处理json数据转换的。
   
-注：我的项目中没有乱码现象，这样配即可，若有乱码现象，可以在MappingJacksonHttpMessageConverter的BEAN中配置supportedMediaTypes属性，是用于解决返回的乱码问题。
+注: 我的项目中没有乱码现象，这样配即可，若有乱码现象，可以在MappingJacksonHttpMessageConverter的BEAN中配置supportedMediaTypes属性，是用于解决返回的乱码问题。
 
 **3、Controller中的使用**
 
@@ -113,13 +113,13 @@ jackson-mapper-asl-1.9.2.jar
 
 --------------
   
-**遇到的问题：**
+**遇到的问题: **
 
-用上面的controller，访问：http://localhost:8080/demo/type.htm，报406错如下：
+用上面的controller，访问: http://localhost:8080/demo/type.htm，报406错如下: 
   
-**Failed to load resource: the server responded with a status of 406 (Not Acceptable) ： The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers () **
+**Failed to load resource: the server responded with a status of 406 (Not Acceptable) :  The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers () **
 
-查资料表明，不是JAR的版本问题，网友解答描述：
+查资料表明，不是JAR的版本问题，网友解答描述: 
 
 1、spring 3.2时requestedMediaTypes却为[text language="/html"][/text]的情况报406错误，还有一个原因可能是由于采用的后缀有关，如果使用\*.htm,\*.html等，默认就会采用[text language="/html"][/text]编码，若改成\*.json,\*.shtml等就OK
 
@@ -131,6 +131,6 @@ jackson-mapper-asl-1.9.2.jar
 
 --------------
   
-参考：http://digdata.me/archives/96/
+参考: http://digdata.me/archives/96/
 
 http://angelbill3.iteye.com/blog/1985075

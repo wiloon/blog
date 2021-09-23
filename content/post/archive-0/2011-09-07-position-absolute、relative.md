@@ -14,7 +14,7 @@ tags:
 ---
 position: absolute、relative
   
-CSS2.0 HandBook上的解释：
+CSS2.0 HandBook上的解释: 
   
 设置此属性值为 absolute 会将对象拖离出正常的文档流绝对定位而不考虑它周围内容的布局。假如其他具有不同 z-index 属性的对象已经占据了给定的位置，他们之间不会相互影响，而会在同一位置层叠。此时对象不具有外补丁( margin )，但仍有内补丁( padding )和边框( border )。
   

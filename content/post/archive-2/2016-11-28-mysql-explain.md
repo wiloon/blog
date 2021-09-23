@@ -92,7 +92,7 @@ All rows with matching index values are read from this table for each combinatio
 
 第一句没理解透,先理解到多行匹配吧。
 
-触发条件：触发联合索引最左原则（不知道的搜下）,或者这个索引不是主键,也不是唯一索引（换句话说,如果这个在这个索引基础之上查询的结果多于一行）。
+触发条件: 触发联合索引最左原则（不知道的搜下）,或者这个索引不是主键,也不是唯一索引（换句话说,如果这个在这个索引基础之上查询的结果多于一行）。
 
 如果使用那个索引只匹配到非常少的行,也是不错的。
 
@@ -115,7 +115,7 @@ SELECT * FROM ref_table,other_table
 #### eq_ref
 One row is read from this table for each combination of rows from the previous tables. Other than the system and const types, this is the best possible join type. It is used when all parts of an index are used by the join and the index is a PRIMARY KEY or UNIQUE NOT NULL index.
 
-触发条件：只匹配到一行的时候。除了system和const之外,这是最好的连接类型了。当我们使用主键索引或者唯一索引的时候,且这个索引的所有组成部分都被用上,才能是该类型。
+触发条件: 只匹配到一行的时候。除了system和const之外,这是最好的连接类型了。当我们使用主键索引或者唯一索引的时候,且这个索引的所有组成部分都被用上,才能是该类型。
 
 eq_ref can be used for indexed columns that are compared using the = operator. The comparison value can be a constant or an expression that uses columns from tables that are read before this table. In the following examples, MySQL can use an eq_ref join to process ref_table
 

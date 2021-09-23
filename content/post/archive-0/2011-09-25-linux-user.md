@@ -12,7 +12,7 @@ categories:
 cat /etc/passwd
 
 wyue:x:513:513::/home/wyue:/bin/bash  
-看第三个参数：500以上的，就是后面建的用户了。其它则为系统的用户。
+看第三个参数: 500以上的，就是后面建的用户了。其它则为系统的用户。
 
 ### 用户
 
@@ -35,8 +35,8 @@ sudo useradd user0
     # -r: create system account
     # -d: home dir
     # -r - Make a system user
-    # -g <群组>：指定用户所属的群组；
-    # -G <群组>：指定用户所属的附加群组；
+    # -g <群组>: 指定用户所属的群组；
+    # -G <群组>: 指定用户所属的附加群组；
 
 ### 删除用户
 userdel -r test
@@ -44,8 +44,8 @@ userdel -r test
 
 #创建密码
 sudo passwd user0
-输入密码：一般密码至少要有六个字符，这里输入的密码是看不见的，屏幕没显示
-重新输一次密码：
+输入密码: 一般密码至少要有六个字符，这里输入的密码是看不见的，屏幕没显示
+重新输一次密码: 
 
 #切换用户
 su -
@@ -73,12 +73,12 @@ gpasswd -a ${USER} docker
 
 # 把用户移出docker组
 gpasswd -d ${USER} docker
-# -a：添加用户到组；
-# -d：从组删除用户；
-# -A：指定管理员；
-# -M：指定组成员和-A的用途差不多；
-# -r：删除密码；
-# -R：限制用户登入组，只有组中的成员才可以用newgrp加入该组。
+# -a: 添加用户到组；
+# -d: 从组删除用户；
+# -A: 指定管理员；
+# -M: 指定组成员和-A的用途差不多；
+# -r: 删除密码；
+# -R: 限制用户登入组，只有组中的成员才可以用newgrp加入该组。
 ```
 
 在Linux下创建用户和删除用户，必须在root用户下，如果你当前不是用根用户登录，你可以打开终端，输入"su root"命令，再输入根口令，就可以进入root用户模式下。
@@ -90,17 +90,17 @@ chage -l user0
 
 (su为switch user，即切换用户的简写)
 
-格式：su -l USERNAME（-l为login，即登陆的简写）
+格式: su -l USERNAME（-l为login，即登陆的简写）
 
 -l可以将l省略掉，所以此命令常写为su - USERNAME
 
-如果不指定USERNAME（用户名），默认即为root，所以切换到root的身份的命令即为：su -root或是直接 su -
+如果不指定USERNAME（用户名），默认即为root，所以切换到root的身份的命令即为: su -root或是直接 su -
 
-实例1：普通用户user1知道root账户登录密码，要求用户user1在不注销登录的前提下查看/etc/shadow文件。
+实例1: 普通用户user1知道root账户登录密码，要求用户user1在不注销登录的前提下查看/etc/shadow文件。
 
 su - 与su
 
-通过su切换用户还可以直接使用命令su USERNAME，与su - USERNAME的不同之处如下：
+通过su切换用户还可以直接使用命令su USERNAME，与su - USERNAME的不同之处如下: 
 
 su - USERNAME切换用户后，同时切换到新用户的工作环境中
 
@@ -108,9 +108,9 @@ su USERNAME切换用户后，不改变原用户的工作目录，及其他环境
 
 2、删除用户（userdel命令）
   
-语法：userdel [-r] [要删除的用户的名称]
+语法: userdel [-r] [要删除的用户的名称]
   
-例如：[root@localhost ~]userdel -r aillo
+例如: [root@localhost ~]userdel -r aillo
 
 /usr/sbin/useradd
 
@@ -126,7 +126,7 @@ su USERNAME切换用户后，不改变原用户的工作目录，及其他环境
 
 通过上面的解说，我们能实实在在的感觉到用户（User）配置文件的重要性；其实用户和用户组在系统管理中是不可分割的，但为了说明问题，我们还是 得把用户（User）的配置文件单列出来解说，其中包括/etc/passwd 和/etc/shadow 文件；在这之中，你还能了解UID的重要性；
 
-通过本标题，您可以了解或掌握的内容有：了解/etc/passwd和/etc/shadow；什么UID ；
+通过本标题，您可以了解或掌握的内容有: 了解/etc/passwd和/etc/shadow；什么UID ；
 
 与用户相关的系统配置文件主要有/etc/passwd 和/etc/shadow，其中/etc/shadow是用户资讯的加密文件，比如用户的密码口令的加密保存等；/etc/passwd 和/etc/shadow 文件是互补的；我们可以通过对比两个文件来差看他们的区别；
 
@@ -134,7 +134,7 @@ su USERNAME切换用户后，不改变原用户的工作目录，及其他环境
 
 /etc/passwd 是系统识别用户的一个文件，做个不恰当的比喻，/etc/passwd 是一个花名册，系统所有的用户都在这里有登录记载；当我们以beinan 这个账号登录时，系统首先会查阅 /etc/passwd 文件，看是否有beinan 这个账号，然后确定beinan的UID，通过UID 来确认用户和身份，如果存在则读取/etc/shadow 影子文件中所对应的beinan的密码；如果密码核实无误则登录系统，读取用户的配置文件；
 
-1）/etc/passwd 的内容理解：
+1）/etc/passwd 的内容理解: 
 
 在/etc/passwd 中，每一行都表示的是一个用户的信息；一行有7个段位；每个段位用:号分割，比如下面是我的系统中的/etc/passwd 的两行；
 
@@ -146,21 +146,21 @@ beinan:x:500:500:beinan sun:/home/beinan:/bin/bash
   
 linuxsir:x:501:502::/home/linuxsir:/bin/bash
   
-第一字段：用户名（也被称为登录名）；在上面的例子中，我们看到这两个用户的用户名分别是 beinan 和linuxsir；
+第一字段: 用户名（也被称为登录名）；在上面的例子中，我们看到这两个用户的用户名分别是 beinan 和linuxsir；
   
-第二字段：口令；在例子中我们看到的是一个x，其实密码已被映射到/etc/shadow 文件中；
+第二字段: 口令；在例子中我们看到的是一个x，其实密码已被映射到/etc/shadow 文件中；
   
-第三字段：UID ；请参看本文的UID的解说；
+第三字段: UID ；请参看本文的UID的解说；
   
-第四字段：GID；请参看本文的GID的解说；
+第四字段: GID；请参看本文的GID的解说；
   
-第五字段：用户名全称，这是可选的，可以不设置，在beinan这个用户中，用户的全称是beinan sun ；而linuxsir 这个用户是没有设置全称；
+第五字段: 用户名全称，这是可选的，可以不设置，在beinan这个用户中，用户的全称是beinan sun ；而linuxsir 这个用户是没有设置全称；
   
-第六字段：用户的家目录所在位置；beinan 这个用户是/home/beinan ，而linuxsir 这个用户是/home/linuxsir ；
+第六字段: 用户的家目录所在位置；beinan 这个用户是/home/beinan ，而linuxsir 这个用户是/home/linuxsir ；
   
-第七字段：用户所用SHELL 的类型，beinan和linuxsir 都用的是 bash ；所以设置为/bin/bash ；
+第七字段: 用户所用SHELL 的类型，beinan和linuxsir 都用的是 bash ；所以设置为/bin/bash ；
 
-2）关于UID 的理解：
+2）关于UID 的理解: 
 
 UID 是用户的ID 值，在系统中每个用户的UID的值是唯一的，更确切的说每个用户都要对应一个唯一的UID ，系统管理员应该确保这一规则。系统用户的UID的值从0开始，是一个正整数，至于最大值可以在/etc/login.defs 可以查到，一般Linux发行版约定为60000； 在Linux 中，root的UID是0，拥有系统最高权限；
 
@@ -178,13 +178,13 @@ UID是唯一性，只是要求管理员所做的，其实我们修改/etc/passwd
 
 1）/etc/shadow 概说；
 
-/etc/shadow文件是/etc/passwd 的影子文件，这个文件并不由/etc/passwd 而产生的，这两个文件是应该是对应互补的；shadow内容包括用户及被加密的密码以及其它/etc/passwd 不能包括的信息，比如用户的有效期限等；这个文件只有root权限可以读取和操作，权限如下：
+/etc/shadow文件是/etc/passwd 的影子文件，这个文件并不由/etc/passwd 而产生的，这两个文件是应该是对应互补的；shadow内容包括用户及被加密的密码以及其它/etc/passwd 不能包括的信息，比如用户的有效期限等；这个文件只有root权限可以读取和操作，权限如下: 
 
 -r——– 1 root root 1.5K 10月 16 09:49 /etc/shadow
   
 /etc/shadow 的权限不能随便改为其它用户可读，这样做是危险的。如果您发现这个文件的权限变成了其它用户组或用户可读了，要进行检查，以防系统安全问题的发生；
 
-如果我们以普通用户查看这个文件时，应该什么也查看不到，提示是权限不够：
+如果我们以普通用户查看这个文件时，应该什么也查看不到，提示是权限不够: 
 
 [beinan@localhost ~]$ more /etc/shadow
   
@@ -198,49 +198,49 @@ beinan:$VE.Mq2Xfc9Qi7EQ9JP8GKF8gH7PB1:13072:0:99999:7:::
   
 linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
   
-第一字段：用户名（也被称为登录名），在/etc/shadow中，用户名和/etc/passwd 是相同的，这样就把passwd 和shadow中用的用户记录联系在一起；这个字段是非空的；
+第一字段: 用户名（也被称为登录名），在/etc/shadow中，用户名和/etc/passwd 是相同的，这样就把passwd 和shadow中用的用户记录联系在一起；这个字段是非空的；
   
-第二字段：密码（已被加密），如果是有些用户在这段是x，表示这个用户不能登录到系统；这个字段是非空的；用户组密码，这个段可以是空的或!，如果是空的或有!，表示没有密码,星号代表帐号被锁定,双叹号表示这个密码已经过期了.
+第二字段: 密码（已被加密），如果是有些用户在这段是x，表示这个用户不能登录到系统；这个字段是非空的；用户组密码，这个段可以是空的或!，如果是空的或有!，表示没有密码,星号代表帐号被锁定,双叹号表示这个密码已经过期了.
   
-第三字段：上次修改口令的时间；这个时间是从1970年01月01日算起到最近一次修改口令的时间间隔（天数），您可以通过passwd 来修改用户的密码，然后查看/etc/shadow中此字段的变化；
+第三字段: 上次修改口令的时间；这个时间是从1970年01月01日算起到最近一次修改口令的时间间隔（天数），您可以通过passwd 来修改用户的密码，然后查看/etc/shadow中此字段的变化；
   
-第四字段：两次修改口令间隔最少的天数；如果设置为0,则禁用此功能；也就是说用户必须经过多少天才能修改其口令；此项功能用处不是太大；默认值是通过/etc/login.defs文件定义中获取，PASS_MIN_DAYS 中有定义；
+第四字段: 两次修改口令间隔最少的天数；如果设置为0,则禁用此功能；也就是说用户必须经过多少天才能修改其口令；此项功能用处不是太大；默认值是通过/etc/login.defs文件定义中获取，PASS_MIN_DAYS 中有定义；
   
-第五字段：两次修改口令间隔最多的天数；这个能增强管理员管理用户口令的时效性，应该说在增强了系统的安全性；如果是系统默认值，是在添加用户时由/etc/login.defs文件定义中获取，在PASS_MAX_DAYS 中定义；
+第五字段: 两次修改口令间隔最多的天数；这个能增强管理员管理用户口令的时效性，应该说在增强了系统的安全性；如果是系统默认值，是在添加用户时由/etc/login.defs文件定义中获取，在PASS_MAX_DAYS 中定义；
   
-第六字段：提前多少天警告用户口令将过期；当用户登录系统后，系统登录程序提醒用户口令将要作废；如果是系统默认值，是在添加用户时由/etc/login.defs文件定义中获取，在PASS_WARN_AGE 中定义；
+第六字段: 提前多少天警告用户口令将过期；当用户登录系统后，系统登录程序提醒用户口令将要作废；如果是系统默认值，是在添加用户时由/etc/login.defs文件定义中获取，在PASS_WARN_AGE 中定义；
   
-第七字段：在口令过期之后多少天禁用此用户；此字段表示用户口令作废多少天后，系统会禁用此用户，也就是说系统会不能再让此用户登录，也不会提示用户过期，是完全禁用；
+第七字段: 在口令过期之后多少天禁用此用户；此字段表示用户口令作废多少天后，系统会禁用此用户，也就是说系统会不能再让此用户登录，也不会提示用户过期，是完全禁用；
   
-第八字段：用户过期日期；此字段指定了用户作废的天数（从1970年的1月1日开始的天数），如果这个字段的值为空，帐号永久可用；
+第八字段: 用户过期日期；此字段指定了用户作废的天数（从1970年的1月1日开始的天数），如果这个字段的值为空，帐号永久可用；
   
-第九字段：保留字段，目前为空，以备将来Linux发展之用；
+第九字段: 保留字段，目前为空，以备将来Linux发展之用；
 
 如果更为详细的，请用 man shadow来查看帮助，您会得到更为详尽的资料；
 
-我们再根据实例分析：
+我们再根据实例分析: 
 
 beinan:$VE.Mq2Xfc9Qi7EQ9JP8GKF8gH7PB1:13072:0:99999:7:::
   
 linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
   
-第一字段：用户名（也被称之为登录名），在例子中有峡谷两条记录，也表示有两个用户beinan和linuxsir
+第一字段: 用户名（也被称之为登录名），在例子中有峡谷两条记录，也表示有两个用户beinan和linuxsir
   
-第二字段：被加密的密码，如果有的用户在此字段中是x，表示这个用户不能登录系统，也可以看作是虚拟用户，不过虚拟用户和真实用户都是相对的，系统管理员随时可以对任何用户操作；
+第二字段: 被加密的密码，如果有的用户在此字段中是x，表示这个用户不能登录系统，也可以看作是虚拟用户，不过虚拟用户和真实用户都是相对的，系统管理员随时可以对任何用户操作；
   
-第三字段：表示上次更改口令的天数（距1970年01月01日），上面的例子能说明beinan和linuxsir这两个用户，是在同一天更改了用户密码，当然是通过passwd 命令来更改的，更改密码的时间距1970年01月01日的天数为13072；
+第三字段: 表示上次更改口令的天数（距1970年01月01日），上面的例子能说明beinan和linuxsir这两个用户，是在同一天更改了用户密码，当然是通过passwd 命令来更改的，更改密码的时间距1970年01月01日的天数为13072；
   
-第四字段：禁用两次口令修改之间最小天数的功能，设置为0
+第四字段: 禁用两次口令修改之间最小天数的功能，设置为0
   
-第五字段：两次修改口令间隔最多的天数，在例子中都是99999天；这个值如果在添加用户时没有指定的话，是通过/etc/login.defs来获取默认值，PASS_MAX_DAYS 99999；您可以查看/etc/login.defs来查看，具体的值；
+第五字段: 两次修改口令间隔最多的天数，在例子中都是99999天；这个值如果在添加用户时没有指定的话，是通过/etc/login.defs来获取默认值，PASS_MAX_DAYS 99999；您可以查看/etc/login.defs来查看，具体的值；
   
-第六字段：提 前多少天警告用户口令将过期；当用户登录系统后，系统登录程序提醒用户口令将要作废；如果是系统默认值，是在添加用户时由/etc/login.defs 文件定义中获取，在PASS_WARN_AGE 中定义；在例子中的值是7 ，表示在用户口令将过期的前7天警告用户更改期口令；
+第六字段: 提 前多少天警告用户口令将过期；当用户登录系统后，系统登录程序提醒用户口令将要作废；如果是系统默认值，是在添加用户时由/etc/login.defs 文件定义中获取，在PASS_WARN_AGE 中定义；在例子中的值是7 ，表示在用户口令将过期的前7天警告用户更改期口令；
   
-第七字段：在口令过期之后多少天禁用此用户；此字段表示用户口令作废多少天后，系统会禁用此用户，也就是说系统会不能再让此用户登录，也不会提示用户过期，是完全禁用；在例子中，此字段两个用户的都是空的，表示禁用这个功能；
+第七字段: 在口令过期之后多少天禁用此用户；此字段表示用户口令作废多少天后，系统会禁用此用户，也就是说系统会不能再让此用户登录，也不会提示用户过期，是完全禁用；在例子中，此字段两个用户的都是空的，表示禁用这个功能；
   
-第八字段：用 户过期日期；此字段指定了用户作废的天数（从1970年的1月1日开始的天数），如果这个字段的值为空，帐号永久可用；在例子中，我们看到beinan这 个用户在此字段是空的，表示此用户永久可用；而linuxsir这个用户表示在距1970年01月01日后13108天后过期，算起来也就是2005年 11月21号过期；哈哈，如果有兴趣的的弟兄，自己来算算，大体还是差不多的;)；
+第八字段: 用 户过期日期；此字段指定了用户作废的天数（从1970年的1月1日开始的天数），如果这个字段的值为空，帐号永久可用；在例子中，我们看到beinan这 个用户在此字段是空的，表示此用户永久可用；而linuxsir这个用户表示在距1970年01月01日后13108天后过期，算起来也就是2005年 11月21号过期；哈哈，如果有兴趣的的弟兄，自己来算算，大体还是差不多的;)；
   
-第九字段：保留字段，目前为空，以备将来Linux发展之用；
+第九字段: 保留字段，目前为空，以备将来Linux发展之用；
 
 二、关于用户组；
 
@@ -254,31 +254,31 @@ linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
 
 2、/etc/group 内容具体分析
 
-/etc/group 的内容包括用户组（Group）、用户组口令、GID及该用户组所包含的用户（User），每个用户组一条记录；格式如下：
+/etc/group 的内容包括用户组（Group）、用户组口令、GID及该用户组所包含的用户（User），每个用户组一条记录；格式如下: 
 
 group_name:passwd:GID:user_list
   
-在/etc/group 中的每条记录分四个字段：
+在/etc/group 中的每条记录分四个字段: 
 
-第一字段：用户组名称；
+第一字段: 用户组名称；
   
-第二字段：用户组密码；
+第二字段: 用户组密码；
   
-第三字段：GID
+第三字段: GID
   
-第四字段：用户列表，每个用户之间用,号分割；本字段可以为空；如果字段为空表示用户组为GID的用户名；
+第四字段: 用户列表，每个用户之间用,号分割；本字段可以为空；如果字段为空表示用户组为GID的用户名；
 
-我们举个例子：
+我们举个例子: 
 
-root:x:0:root,linuxsir 注：用户组root，x是密码段，表示没有设置密码，GID是0,root用户组下包括root、linuxsir以及GID为0的其它用户（可以通过/etc/passwd查看）；；
+root:x:0:root,linuxsir 注: 用户组root，x是密码段，表示没有设置密码，GID是0,root用户组下包括root、linuxsir以及GID为0的其它用户（可以通过/etc/passwd查看）；；
   
-beinan:x:500:linuxsir 注：用户组beinan，x是密码段，表示没有设置密码，GID是500,beinan用户组下包括linuxsir用户及GID为500的用户（可以通过/etc/passwd查看）；
+beinan:x:500:linuxsir 注: 用户组beinan，x是密码段，表示没有设置密码，GID是500,beinan用户组下包括linuxsir用户及GID为500的用户（可以通过/etc/passwd查看）；
   
-linuxsir:x:502:linuxsir 注：用户组linuxsir，x是密码段，表示没有设置密码，GID是502,linuxsir用户组下包用户linuxsir及GID为502的用户（可以通过/etc/passwd查看）；
+linuxsir:x:502:linuxsir 注: 用户组linuxsir，x是密码段，表示没有设置密码，GID是502,linuxsir用户组下包用户linuxsir及GID为502的用户（可以通过/etc/passwd查看）；
   
-helloer:x:503: 注：用户组helloer，x是密码段，表示没有设置密码，GID是503,helloer用户组下包括GID为503的用户，可以通过/etc/passwd查看；
+helloer:x:503: 注: 用户组helloer，x是密码段，表示没有设置密码，GID是503,helloer用户组下包括GID为503的用户，可以通过/etc/passwd查看；
   
-而/etc/passwd 对应的相关的记录为：
+而/etc/passwd 对应的相关的记录为: 
 
 root:x:0:0:root:/root:/bin/bash
   
@@ -296,7 +296,7 @@ GID和UID类似，是一个正整数或0，GID从0开始，GID为0的组让系�
 
 我们可以对照/etc/passwd和/etc/group 两个文件；我们会发现有默认用户组之说；我们在 /etc/passwd 中的每条用户记录会发现用户默认的GID ；在/etc/group中，我们也会发现每个用户组下有多少个用户；在创建目录和文件时，会使用默认的用户组；我们还是举个例子；
 
-比如我把linuxsir 加为root用户组，在/etc/passwd 和/etc/group 中的记录相关记录为：
+比如我把linuxsir 加为root用户组，在/etc/passwd 和/etc/group 中的记录相关记录为: 
   
 linuxsir用户在 /etc/passwd 中的记录；我们在这条记录中看到，linuxsir用户默认的GID为502；而502的GID 在/etc/group中查到是linuxsir用户组；
 
@@ -332,43 +332,43 @@ drwxrwxr-x 2 linuxsir linuxsir 4.0K 10月 17 11:42 testdir
   
 groupname:password:admin,admin,…:member,member,…
   
-第一字段：用户组
+第一字段: 用户组
   
-第三字段：用户组管理者，这个字段也可为空，如果有多个用户组管理者，用,号分割；
+第三字段: 用户组管理者，这个字段也可为空，如果有多个用户组管理者，用,号分割；
   
-第四字段：组成员，如果有多个成员，用,号分割；
+第四字段: 组成员，如果有多个成员，用,号分割；
 
-举例：
+举例: 
 
 beinan:!::linuxsir
   
 linuxsir:oUS/q7NH75RhQ::linuxsir
   
-第一字段：这个例子中，有两个用户组beinan用linuxsir
+第一字段: 这个例子中，有两个用户组beinan用linuxsir
   
-第二字段：用户组的密码，beinan用户组无密码；linuxsir用户组有已经，已经加密；
+第二字段: 用户组的密码，beinan用户组无密码；linuxsir用户组有已经，已经加密；
   
-第三字段：用户组管理者，两者都为空；
+第三字段: 用户组管理者，两者都为空；
   
-第 四字段：beinan用户组所拥有的成员是linuxsir ，然后还要对照一下/etc/group和/etc/passwd 查看是否还有其它用户，一般默认添加的用户，有时同时也会创建用户组和用户名同名称； linuxsir 用户组有成员linuxisir ；
+第 四字段: beinan用户组所拥有的成员是linuxsir ，然后还要对照一下/etc/group和/etc/passwd 查看是否还有其它用户，一般默认添加的用户，有时同时也会创建用户组和用户名同名称； linuxsir 用户组有成员linuxisir ；
 
 如何设置用户组的密码？ 我们可以通过 gpasswd 来实现；不过一般的情况下，没有必要设置用户组的密码；不过自己实践一下也有必要；下面是一个为linuxsir用户组设置密码的例子；
 
-gpasswd 的用法： gpasswd 用户组
+gpasswd 的用法:  gpasswd 用户组
 
 root@localhost ~]# gpasswd linuxsir
   
 正在修改 linuxsir 组的密码
   
-新密码：
+新密码: 
   
-请重新输入新密码：
+请重新输入新密码: 
   
-用户组之间的切换，应该用 newgrp ，这个有点象用户之间切换的su ；我先举个例子：
+用户组之间的切换，应该用 newgrp ，这个有点象用户之间切换的su ；我先举个例子: 
   
 [beinan@localhost ~]$ newgrp linuxsir
   
-密码：
+密码: 
   
 [beinan@localhost ~]$ mkdir lingroup
   
@@ -384,7 +384,7 @@ drwxr-xr-x 2 beinan linuxsir 4096 10月 18 15:56 lingroup/
   
 drwxrwxr-x 2 beinan beinan 4096 10月 18 15:56 beinangrouptest
   
-说明：我是以beinan用户组切换到linuxsir用户组，并且建了一个目录，然后再切换回beinan用户组，又建了一个目录，请观察两个目录属用户组的不同；还是自己体会吧；
+说明: 我是以beinan用户组切换到linuxsir用户组，并且建了一个目录，然后再切换回beinan用户组，又建了一个目录，请观察两个目录属用户组的不同；还是自己体会吧；
 
 三、通过用户和用户组配置文件来查询或管理用户；
 
@@ -412,19 +412,19 @@ id 命令用法；
 
 id 选项 用户名
   
-比如：我想查询beinan和linuxsir 用户的UID、GID 以及归属用户组的情况：
+比如: 我想查询beinan和linuxsir 用户的UID、GID 以及归属用户组的情况: 
   
 [root@localhost ~]# id beinan
   
 uid=500(beinan) gid=500(beinan) groups=500(beinan)
   
-注：beinan的UID 是 500，默认用户组是beinan，默认用户组的GID 是500,归属于beinan用户组；
+注: beinan的UID 是 500，默认用户组是beinan，默认用户组的GID 是500,归属于beinan用户组；
   
 [root@localhost ~]# id linuxsir
   
 uid=505(linuxsir) gid=502(linuxsir) groups=502(linuxsir),0(root),500(beinan)
   
-注：linuxsir的UID 是505,默认用户组是linuxsir ，默认用户组的GID 是502，归属于linuxsir（GID为502）、root（GID为0），beinan（GID为500）；
+注: linuxsir的UID 是505,默认用户组是linuxsir ，默认用户组的GID 是502，归属于linuxsir（GID为502）、root（GID为0），beinan（GID为500）；
   
 关于id的详细用法，我会在专门用户查询的文章来介绍；您可以通过man id 来查看用法，用起来还是比较简单的；
 
@@ -462,11 +462,11 @@ linuxsir linuxsir open tty1 22 Oct 18 13:39 linuxsir o +1-389-866-771
 
 [root@localhost ~]# finger beinan linuxsir
   
-Login: beinan 注：用户名（也是登录名） Name: beinan sun （用户名全称）
+Login: beinan 注: 用户名（也是登录名） Name: beinan sun （用户名全称）
   
-Directory: /home/beinan 注：家目录 Shell: /bin/bash 注：所用SHELL类型
+Directory: /home/beinan 注: 家目录 Shell: /bin/bash 注: 所用SHELL类型
   
-On since Tue Oct 18 13:53 (CST) on tty2 10 minutes 55 seconds idle 注：空闲时间；
+On since Tue Oct 18 13:53 (CST) on tty2 10 minutes 55 seconds idle 注: 空闲时间；
   
 On since Tue Oct 18 13:57 (CST) on pts/0 from :0.0
   
@@ -496,7 +496,7 @@ beinan : beinan
   
 linuxsir : linuxsir root beinan
   
-注：这是通过groups 同时查看了用户beinan和linuxsir所归属的组；
+注: 这是通过groups 同时查看了用户beinan和linuxsir所归属的组；
 
 2、通过修改用户（User）和用户组（Group）配置文件的办法来添加；
 
@@ -590,7 +590,7 @@ ls: /home/lanhaitun/: 权限不够
 
 以上各步骤都就序了，我们得为新增用户设置密码了；要通过passwd 命令来生成；这个没有办法通过修改文件解决；
 
-passwd 的用法：
+passwd 的用法: 
 
 passwd 用户
   
@@ -598,11 +598,11 @@ passwd 用户
   
 Changing password for user lanhaitun.
   
-New UNIX password: 注：输入您的密码
+New UNIX password: 注: 输入您的密码
   
 Retype new UNIX password: 再输入一次
   
-passwd: all authentication tokens updated successfully. 注：设置密码成功
+passwd: all authentication tokens updated successfully. 注: 设置密码成功
 
 6）测试添增用户是否成功；
 
@@ -636,7 +636,7 @@ drwxrwxr-x 2 lanhaitun lanhaitun 4.0K 10月 18 15:16 testdir
 
 1）修改用户信息；
 
-lanhaitun:x:508:508::/home/lanhaitun:/bin/bash 注：这是初始记录；
+lanhaitun:x:508:508::/home/lanhaitun:/bin/bash 注: 这是初始记录；
   
 我们可以修改为
   
@@ -692,7 +692,7 @@ uid=508(lanhaitun) gid=508(lanhaitun) groups=508(lanhaitun),0(root)
   
 [root@localhost ~]# userdel -r lanhaitun
   
-注：可以用userdel 来删除lanhaitun 用户，我们看到第二个例子中多了一个参数-r ，第一个例子是说只删除lanhaitun用户，其家目录和mail等仍会保存；加上-r 参数，是删除家目录及mail等；所以要小心操作；用userdel 删除用户的同时，也会把其用户组删除；我们可以通过/etc/passwd 和/etc/group 的内容变化来查看；
+注: 可以用userdel 来删除lanhaitun 用户，我们看到第二个例子中多了一个参数-r ，第一个例子是说只删除lanhaitun用户，其家目录和mail等仍会保存；加上-r 参数，是删除家目录及mail等；所以要小心操作；用userdel 删除用户的同时，也会把其用户组删除；我们可以通过/etc/passwd 和/etc/group 的内容变化来查看；
 
 阅读全文(0次) / 评论 / 丢小纸条 / 文件夹: Linux
 
@@ -700,7 +700,7 @@ uid=508(lanhaitun) gid=508(lanhaitun) groups=508(lanhaitun),0(root)
   
 sinkingship @ 2007-02-01 18:31
 
-昨天在网上找了找资料，在ubuntu上用debootstrap装了个debian，小结一下过程：
+昨天在网上找了找资料，在ubuntu上用debootstrap装了个debian，小结一下过程: 
   
 （1）装好debootstrap:
   
@@ -708,31 +708,31 @@ apt-get install debootstrap
   
 （2）将要用来装debian的硬盘分区格式化好，挂载到任意目录，如/mnt/debinst/
   
-如果想将来的debian系统不只是一个根分区/，而是把根目录下的一些目录从别的分区挂载过来，例如我们经常把/usr/local从别的分区挂过来，这一步就要挂好，例如，下面的命令就是交/usr/local从别的分区挂过来：
+如果想将来的debian系统不只是一个根分区/，而是把根目录下的一些目录从别的分区挂载过来，例如我们经常把/usr/local从别的分区挂过来，这一步就要挂好，例如，下面的命令就是交/usr/local从别的分区挂过来: 
   
 mkdir /mnt/debinst/usr/local -p
   
 mount /dev/hdXX /mnt/debinst/usr/local
   
-（3）用debootstrap在如/mnt/debinst/目录上建立一个基本系统，如：
+（3）用debootstrap在如/mnt/debinst/目录上建立一个基本系统，如: 
   
 debootstrap sarge /mnt/debinst/ http://http.us.debian.org/debia
   
 debootstrap会从网上下载一些文件，使/mnt/debist/成为一个chroot子环境，即一个基本系统。这里说明一点，源的选择很重要，如果源corrupted，安装很可能失败，例如，第一次安时我选了cn99，结果失败了。
 
-这时，/mnt/debinst/已经是个基本系统了，还差一些配置、软件安装和一个可引导的内核。下面就来完成这些工作：
+这时，/mnt/debinst/已经是个基本系统了，还差一些配置、软件安装和一个可引导的内核。下面就来完成这些工作: 
   
-（4）基本系统可能会缺一些设备文件，例如我安装的时候就缺少了一些块文件，如hdX，这可以从主系统中拷贝，如：
+（4）基本系统可能会缺一些设备文件，例如我安装的时候就缺少了一些块文件，如hdX，这可以从主系统中拷贝，如: 
   
 cp /dev/hda* /mnt/debinst/dev/ -ap
   
-（5）chroot到基本系统中：
+（5）chroot到基本系统中: 
   
 chroot /mnt/debinst
   
 （6）配置/etc/fstab，/etc/hostname，/etc/resolv.conf，/etc/network/interfaces，并把文件系统挂载上来。
   
-如果挂载出错，很有可能是因为缺少设备文件，可按（4）解决。各配置文件的样本可以在debian.org找到，我摘抄部分如下：
+如果挂载出错，很有可能是因为缺少设备文件，可按（4）解决。各配置文件的样本可以在debian.org找到，我摘抄部分如下: 
   
 —————————————————————————————————————————————————-
   

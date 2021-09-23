@@ -84,7 +84,7 @@ Date -&amp;gt; Timestamp
 
 &amp;nbsp;&amp;nbsp; 父类不能直接向子类转化，可借助中间的String~~~~
 
-&amp;nbsp;&amp;nbsp; 注：使用以下方式更简洁
+&amp;nbsp;&amp;nbsp; 注: 使用以下方式更简洁
 
 &amp;nbsp;&amp;nbsp; Timestamp ts = new Timestamp(date.getTime());
    
@@ -112,7 +112,7 @@ JAVA字符串转日期或日期转字符串
   
 文章中，用的API是SimpleDateFormat，它是属于java.text.SimpleDateFormat，所以请记得import进来！
 
-用法：
+用法: 
 
 SimpleDateFormat sdf = new SimpleDateFormat( " yyyy-MM-dd HH:mm:ss " );
 
@@ -120,7 +120,7 @@ SimpleDateFormat sdf = new SimpleDateFormat( " yyyy-MM-dd HH:mm:ss " );
 
 ps:为什么有的格式大写，有的格式小写，那是怕避免混淆，例如MM是月份，mm是分；HH是24小时制，而hh是12小时制
 
-1.字符串转日期：
+1.字符串转日期: 
 
 2002-10-8 15:30:22要把它转成日期，可以用
 
@@ -136,7 +136,7 @@ String datestr = sdf.format( new Date());
 
 透过这个API我们便可以随心所欲的将日期转成我们想要的字符串格式，例如希望将日期输出成2002年10月08日，
 
-我们可以这么写：
+我们可以这么写: 
 
 SimpleDateFormat sdf = new SimpleDateFormat( " yyyy年MM月dd日 " );
   

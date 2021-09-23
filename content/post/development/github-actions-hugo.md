@@ -77,7 +77,7 @@ title = "hugo, envoy, github actions"
 
 ## 二、添加配置文件
 
-在 Hugo 项目该位置添加配置文件：`.github/workflows/gh-pages.yml`
+在 Hugo 项目该位置添加配置文件: `.github/workflows/gh-pages.yml`
 
 文件内容照抄 [GitHub Actions for Hugo](https://github.com/peaceiris/actions-hugo)
 

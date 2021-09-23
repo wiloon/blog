@@ -35,28 +35,28 @@ select * from tag;
 
 查看sqlite3表结构的命令
   
-在android下通过adb shell命令可以进入sqlite3的命令行client，见：在android命令行下使用sqlite3。
+在android下通过adb shell命令可以进入sqlite3的命令行client，见: 在android命令行下使用sqlite3。
 
-如果想列出该数据库中的所有表，可：
+如果想列出该数据库中的所有表，可: 
 
 .table
   
-如果想查看这些表的结构：
+如果想查看这些表的结构: 
 
 select * from sqlite_master where type="table";
   
-可以看到类似：
+可以看到类似: 
 
 
-默认情况下，不会出现红框中的表头，需要之前设置，命令为：
+默认情况下，不会出现红框中的表头，需要之前设置，命令为: 
 
 .header on
   
-如果只想查看具体一张表的表结构，比如查看emperors表，命令为：
+如果只想查看具体一张表的表结构，比如查看emperors表，命令为: 
 
 select * from sqlite_master where type="table" and name="emperors";
   
-另外，也可以这样：
+另外，也可以这样: 
 
 sqlite> .schema emperors
   

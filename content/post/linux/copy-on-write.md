@@ -1,17 +1,17 @@
 +++
 author = "-"
 date = "2021-04-18 11:33:40" 
-title = "写时复制（Copy-on-write：COW）"
+title = "写时复制（Copy-on-write: COW）"
 
 +++
 
 
-写入时复制（英语：Copy-on-write，简称COW）是一种计算机程序设计领域的优化策略。其核心思想是，如果有多个调用者（callers）同时请求相同资源（如内存或磁盘上的数据存储），他们会共同获取相同的指针指向相同的资源，直到某个调用者试图修改资源的内容时，系统才会真正复制一份专用副本（private copy）给该调用者，而其他调用者所见到的最初的资源仍然保持不变。这过程对其他的调用者都是透明的（transparently）。此作法主要的优点是如果调用者没有修改该资源，就不会有副本（private copy）被创建，因此多个调用者只是读取操作时可以共享同一份资源。
+写入时复制（英语: Copy-on-write，简称COW）是一种计算机程序设计领域的优化策略。其核心思想是，如果有多个调用者（callers）同时请求相同资源（如内存或磁盘上的数据存储），他们会共同获取相同的指针指向相同的资源，直到某个调用者试图修改资源的内容时，系统才会真正复制一份专用副本（private copy）给该调用者，而其他调用者所见到的最初的资源仍然保持不变。这过程对其他的调用者都是透明的（transparently）。此作法主要的优点是如果调用者没有修改该资源，就不会有副本（private copy）被创建，因此多个调用者只是读取操作时可以共享同一份资源。
 
 在java中的应用举例
  
 
-java中有两个类：CopyOnWriteArrayList、CopyOnWriteArraySet使用了写时复制技术手段，CopyOnWriteArrayList的实现：
+java中有两个类: CopyOnWriteArrayList、CopyOnWriteArraySet使用了写时复制技术手段，CopyOnWriteArrayList的实现: 
 
 A thread-safe variant of java.util.ArrayList in which all mutative operations (add, set, and so on) are implemented by making a fresh copy of the underlying array.
 
@@ -48,7 +48,7 @@ unix操作系统中有两种创建新进程的几种，分别是fork和exec。
 
  
 
-参考：
+参考: 
 
 https://unix.stackexchange.com/questions/58145/how-does-copy-on-write-in-fork-handle-multiple-fork
 
@@ -64,11 +64,11 @@ https://hackerboss.com/copy-on-write-101-part-1-what-is-it/
 
 深入Linux内核架构.pdf
 ————————————————
-版权声明：本文为CSDN博主「A_Beaver」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/doctor_who2004/article/details/103551335
+版权声明: 本文为CSDN博主「A_Beaver」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/doctor_who2004/article/details/103551335
 
 
-vfork()：这个做法更加火爆，内核连子进程的虚拟地址空间结构也不创建了，直接共享了父进程的虚拟空间，当然了，这种做法就顺水推舟的共享了父进程的物理空间
+vfork(): 这个做法更加火爆，内核连子进程的虚拟地址空间结构也不创建了，直接共享了父进程的虚拟空间，当然了，这种做法就顺水推舟的共享了父进程的物理空间
 
 ---
 

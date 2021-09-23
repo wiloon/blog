@@ -37,7 +37,7 @@ categories:
     # tcpdump -c 100 -i eth0 -w log tcp dst port 50000
   
   
-    其中 options部分参数：
+    其中 options部分参数: 
   
   
     -c 100 指定截取的包的数量
@@ -48,7 +48,7 @@ categories:
     filter_expression参数为 tcp dst port 50000，即只监听目标端口为50000的tcp包。
   
   
-    更多的例子：
+    更多的例子: 
   
   
     /* 监视目标地址为除内网地址(192.168.3.1-192.168.3.254)之外的流量 */
@@ -71,18 +71,18 @@ categories:
  # tcpdump src host 192.168.0.1 and dst port not telnet
   
   
-    ip icmp arp rarp 和 tcp、udp、icmp这些选项等都要放到第一个参数的位置，用来过滤数据报的类型。例如：
+    ip icmp arp rarp 和 tcp、udp、icmp这些选项等都要放到第一个参数的位置，用来过滤数据报的类型。例如: 
  # tcpdump ip src…… //只过滤数据-链路层上的IP报头
  # tcpdump udp and src host 192.168.0.1 //只过滤源主机192.168.0.1的所有udp报头
   
   
-    TcpDump提供了很多options参数来让我们选择如何处理得到的数据，如下所示：
+    TcpDump提供了很多options参数来让我们选择如何处理得到的数据，如下所示: 
   
   
     -l 将数据重定向。 如tcpdump -l > tcpcap.txt将得到的数据存入tcpcap.txt文件中。
- -n 不进行IP地址到主机名的转换。如果不使用这一项，当系统中存在某一主机的主机名时，TcpDump会把IP地址转换为主机名显示，就像这样：eth0 ＜ ntc9.1165＞ router.domain.net.telnet，使用-n后变成了：eth0 ＜ 192.168.0.9.1165 ＞ 192.168.0.1.telnet。
- -nn 不进行端口名称的转换。 上面这条信息使用-nn后就变成了：eth0 ＜ ntc9.1165 ＞ router.domain.net.23。
- -N 不打印出默认的域名。 还是这条信息-N 后就是：eth0 ＜ ntc9.1165 ＞ router.telnet。
+ -n 不进行IP地址到主机名的转换。如果不使用这一项，当系统中存在某一主机的主机名时，TcpDump会把IP地址转换为主机名显示，就像这样: eth0 ＜ ntc9.1165＞ router.domain.net.telnet，使用-n后变成了: eth0 ＜ 192.168.0.9.1165 ＞ 192.168.0.1.telnet。
+ -nn 不进行端口名称的转换。 上面这条信息使用-nn后就变成了: eth0 ＜ ntc9.1165 ＞ router.domain.net.23。
+ -N 不打印出默认的域名。 还是这条信息-N 后就是: eth0 ＜ ntc9.1165 ＞ router.telnet。
  -O 不进行匹配代码的优化。
  -t 不打印UNIX时间戳，也就是不显示时间。
  -tt 打印原始的、未格式化过的时间。
@@ -92,7 +92,7 @@ categories:
     参数详解
   
   
-    tcpdump采用命令行方式，它的命令格式为：
+    tcpdump采用命令行方式，它的命令格式为: 
  tcpdump [ -adeflnNOpqStvx ] [ -c 数量 ] [ -F 文件名 ]
  [ -i 网络接口 ] [ -r 文件名] [ -s snaplen ]
  [ -T 类型 ] [ -w 文件名 ] [表达式 ]
@@ -135,20 +135,20 @@ categories:
  ther具有类似的源地址和目的地址，所以可以将fddi协议包当作ether的包进行处理和分析。
  其他的几个关键字就是指明了监听的包的协议内容。如果没有指定任何协议，则tcpdump将会
  监听所有协议的信息包。
- 除了这三种类型的关键字之外，其他重要的关键字如下：gateway, broadcast,less,
+ 除了这三种类型的关键字之外，其他重要的关键字如下: gateway, broadcast,less,
  greater,还有三种逻辑运算，取非运算是 'not ' '! ', 与运算是'and','&&';或运算 是'o
  r' ,'||'；
  这些关键字可以组合起来构成强大的组合条件来满足人们的需要，下面举几个例子来
  说明。
- (1)想要截获所有210.27.48.1 的主机收到的和发出的所有的数据包：
+ (1)想要截获所有210.27.48.1 的主机收到的和发出的所有的数据包: 
  #tcpdump host 210.27.48.1
  (2) 想要截获主机210.27.48.1 和主机210.27.48.2 或210.27.48.3的通信，使用命令
- ：（在命令行中适用　　　括号时，一定要
+ : （在命令行中适用　　　括号时，一定要
  #tcpdump host 210.27.48.1 and (210.27.48.2 or 210.27.48.3 )
  (3) 如果想要获取主机210.27.48.1除了和主机210.27.48.2之外所有主机通信的ip包
- ，使用命令：
+ ，使用命令: 
  #tcpdump ip host 210.27.48.1 and ! 210.27.48.2
- (4)如果想要获取主机210.27.48.1接收或发出的telnet包，使用如下命令：
+ (4)如果想要获取主机210.27.48.1接收或发出的telnet包，使用如下命令: 
  #tcpdump tcp port 23 host 210.27.48.1
   
   
@@ -156,13 +156,13 @@ categories:
  下面我们介绍几种典型的tcpdump命令的输出信息
  (1) 数据链路层头信息
  使用命令#tcpdump -e host ice
- ice 是一台装有linux的主机，她的MAC地址是0：90：27：58：AF：1A
- H219是一台装有SOLARIC的SUN工作站，它的MAC地址是8：0：20：79：5B：46；上一条
- 命令的输出结果如下所示：
+ ice 是一台装有linux的主机，她的MAC地址是0: 90: 27: 58: AF: 1A
+ H219是一台装有SOLARIC的SUN工作站，它的MAC地址是8: 0: 20: 79: 5B: 46；上一条
+ 命令的输出结果如下所示: 
  21:50:12.847509 eth0 < 8:0:20:79:5b:46 0:90:27:58:af:1a ip 60: h219.33357 > ice.
  telne
  t 0:0(0) ack 22535 win 8760 (DF)
- 分析：21：50：12是显示的时间， 847509是ID号，eth0 <表示从网络接口eth0 接受该
+ 分析: 21: 50: 12是显示的时间， 847509是ID号，eth0 <表示从网络接口eth0 接受该
  数据包，eth0 >表示从网络接口设备发送数据包, 8:0:20:79:5b:46是主机H219的MAC地址,它
  表明是从源地址H219发来的数据包. 0:90:27:58:af:1a是主机ICE的MAC地址,表示该数据包的
  目的地址是ICE . ip 是表明该数据包是IP数据包,60 是数据包的长度, h219.33357 > ice.
@@ -172,7 +172,7 @@ categories:
   
     (2) ARP包的TCPDUMP输出信息
  使用命令#tcpdump arp
- 得到的输出结果是：
+ 得到的输出结果是: 
  22:32:42.802509 eth0 > arp who-has route tell ice (0:90:27:58:af:1a)
  22:32:42.802902 eth0 < arp reply route is-at 0:90:27:12:10:66 (0:90:27:58:af
  :1a)
@@ -182,7 +182,7 @@ categories:
   
   
     (3) TCP包的输出信息
- 用TCPDUMP捕获的TCP包的一般输出信息是：
+ 用TCPDUMP捕获的TCP包的一般输出信息是: 
  src > dst: flags data-seqno ack window urgent options
  src > dst:表明从源地址到目的地址, flags是TCP包中的标志信息,S 是SYN标志, F (F
  IN), P (PUSH) , R (RST) "." (没有标记); data-seqno是数据包中的数据的顺序号, ack是
@@ -191,7 +191,7 @@ categories:
   
   
     (4) UDP包的输出信息
- 用TCPDUMP捕获的UDP包的一般输出信息是：
+ 用TCPDUMP捕获的UDP包的一般输出信息是: 
  route.port1 > ice.port2: udp lenth
  UDP十分简单，上面的输出行表明从主机ROUTE的port1端口发出的一个UDP数据包到主机ICE的port2端口，类型是UDP， 包的长度是lenth
   

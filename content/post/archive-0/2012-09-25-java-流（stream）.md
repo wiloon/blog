@@ -8,45 +8,45 @@ categories:
   - Java
 
 ---
-IO流的分类：
+IO流的分类: 
   
-1、根据流的数据对象来分：
+1、根据流的数据对象来分: 
   
-高端流：所有的内存中的流都是高端流，比如：InputStreamReader
+高端流: 所有的内存中的流都是高端流，比如: InputStreamReader
   
-低端流：所有的外界设备中的流都是低端流，比如InputStream，OutputStream
+低端流: 所有的外界设备中的流都是低端流，比如InputStream，OutputStream
   
-如何区分：所有的流对象的后缀中包含Reader或者Writer的都是高端流，反之，则基本上为低端流，不过也有例外，比如PrintStream就是高端流
+如何区分: 所有的流对象的后缀中包含Reader或者Writer的都是高端流，反之，则基本上为低端流，不过也有例外，比如PrintStream就是高端流
 
-2、根据数据的流向来分：
+2、根据数据的流向来分: 
   
-输出流：是用来写数据的，是由程序（内存）->外界设备
+输出流: 是用来写数据的，是由程序（内存）->外界设备
   
-输入流：是用来读数据的，是由外界设备->程序（内存）
+输入流: 是用来读数据的，是由外界设备->程序（内存）
   
-如何区分：一般来说输入流带有Input，输出流带有Output
+如何区分: 一般来说输入流带有Input，输出流带有Output
 
-3、根据流数据的格式来分：
+3、根据流数据的格式来分: 
   
-字节流：处理声音或者图片等二进制的数据的流，比如InputStream
+字节流: 处理声音或者图片等二进制的数据的流，比如InputStream
   
-字符流：处理文本数据（如txt文件）的流，比如InputStreamReader
+字符流: 处理文本数据（如txt文件）的流，比如InputStreamReader
   
-如何区分：可用高低端流来区分，所有的低端流都是字节流，所有的高端流都是字符流
+如何区分: 可用高低端流来区分，所有的低端流都是字节流，所有的高端流都是字符流
 
-4、根据流数据的包装过程来分：
+4、根据流数据的包装过程来分: 
   
-原始流：在实例化流的对象的过程中，不需要传入另外一个流作为自己构造方法的参数的流，称之为原始流。
+原始流: 在实例化流的对象的过程中，不需要传入另外一个流作为自己构造方法的参数的流，称之为原始流。
   
-包装流：在实例化流的对象的过程中，需要传入另外一个流作为自己构造方法发参数的流，称之为包装流。
+包装流: 在实例化流的对象的过程中，需要传入另外一个流作为自己构造方法发参数的流，称之为包装流。
   
-如何区分：所以的低端流都是原始流，所以的高端流都是包装流
+如何区分: 所以的低端流都是原始流，所以的高端流都是包装流
 
 流是 Java 中最重要的基本概念之一。文件读写、网络收发、进程通信，几乎所有需要输入输出的地方，都要用到流。
 
 流是做什么用的呢？就是做输入输出用的。为什么输入输出要用"流"这种方式呢？因为程序输入输出的基本单位是字节，输入就是获取一串字节，输出就是发送一串字节。但是很多情况下，程序不可能接收所有的字节之后再进行处理，而是接收一点处理一点。比方你下载魔兽世界，不可能全部下载到内存里再保存到硬盘上，而是下载一点就保存一点。这时，流这种方式就非常适合。
 
-在 Java 中，每个流都是一个对象。流分为两种：输入流(InputStream)和输出流(OutputStream)。对于输入流，你只要从流当中不停地把字节取出来就是了；而对于输出流，你只要把准备好的字节串传给它就行。
+在 Java 中，每个流都是一个对象。流分为两种: 输入流(InputStream)和输出流(OutputStream)。对于输入流，你只要从流当中不停地把字节取出来就是了；而对于输出流，你只要把准备好的字节串传给它就行。
 
 ____________\__Java 程序____________
   
@@ -58,7 +58,7 @@ ____________\__Java 程序____________
 
 流对象是怎么获得的呢？不同的外部系统，获取流的方式也不同。例如，文件读写就要创建 FileInputStream/FileOutputStream 对象，而网络通信是通过 Socket 对象来获取输入输出流的。一般来说，如果一个类有 getInputStream() 或 getOutputStream() 这样的方法，就表明它是通过流对象来进行输入输出的。
 
-InputStream 是输入流，下面是一个通过 InputStream 读取文件的例子：
+InputStream 是输入流，下面是一个通过 InputStream 读取文件的例子: 
 
 import java.io.File;
   
@@ -184,7 +184,7 @@ return result;
   
 虽然写得很啰嗦，但这确实是 InputStream 的基本用法。注意，这只是一个例子，说明如何从输入流中读取字节串。实际上，Java 提供更简单的方式来读取文本文件。以后将会介绍。
 
-相比从流中读取，使用 OutputStream 输出则是非常简单的事情。下面是一个例子：
+相比从流中读取，使用 OutputStream 输出则是非常简单的事情。下面是一个例子: 
 
 import java.io.OutputStream;
   
@@ -240,7 +240,7 @@ Java将数据于目的地及来源之间的流动抽象化为一个流(Stream)�
 
 图14-1 数据的流动抽象化为流的概念
   
-在Java SE中有两个类用来作流的抽象表示：java.io.InputStream与java.io.OutputStream。
+在Java SE中有两个类用来作流的抽象表示: java.io.InputStream与java.io.OutputStream。
   
 InputStream 是所有表示位输入流的类之父类，它是一个抽象类，继承它的子类要重新定义其中所定义的抽象方法。InputStream是从装置来源地读取数据的抽象表示，例如System中的标准输入流in对象就是一个InputStream类型的实例。在Java程序开始之后，in流对象就会开启，目的是从标准输入装置中读取数据，这个装置通常是键盘或是用户定义的输入装置。
   
@@ -278,7 +278,7 @@ e.printStackTrace();
   
 }
   
-执行结果：
+执行结果: 
   
 输入字符: A
   
@@ -326,7 +326,7 @@ new FileOutputStream(new File(args[1]));
               
 // available()可取得未读取的数据长度
               
-System.out.println("复制文件：" +
+System.out.println("复制文件: " +
                       
 fileInputStream.available() + "字节");
 
@@ -368,15 +368,15 @@ fileInputStream.available() + "字节");
   
 程序中示范了两个read()方法，一个方法可以读入指定长度的数据至数组，另一个方法一次可以读入一个字节。每次读取之后，读取的光标都会往前进，如果读不到数据则返回–1，使用available()方法获得还有多少字节可以读取。除了使用File来建立FileInputStream、 FileOutputStream的实例之外，也可以直接使用字符串指定路径来建立。
   
-// 来源文件FileInputStream fileInputStream = new FileInputStream(args[0]);// 目的文件FileOutputStream fileOutputStream = new FileOutputStream(args[1]);在不使用文件流时，记得使用close()方法自行关闭流，以释放与流相依的系统资源。一个执行的结果范例如下，它将FileDemo.java复制为FileDemo.txt：
+// 来源文件FileInputStream fileInputStream = new FileInputStream(args[0]);// 目的文件FileOutputStream fileOutputStream = new FileOutputStream(args[1]);在不使用文件流时，记得使用close()方法自行关闭流，以释放与流相依的系统资源。一个执行的结果范例如下，它将FileDemo.java复制为FileDemo.txt: 
   
 java onlyfun.caterpillar.FileStreamDemo FileDemo.java FileDemo.txt
   
-复制文件：1723字节
+复制文件: 1723字节
   
 复制完成
   
-FileOutputStream默认会以新建文件的方式来开启流。如果指定的文件名称已经存在，则原文件会被覆盖；如果想以附加的模式来写入文件，则可以在构建FileOutputStream实例时指定为附加模式。例如：
+FileOutputStream默认会以新建文件的方式来开启流。如果指定的文件名称已经存在，则原文件会被覆盖；如果想以附加的模式来写入文件，则可以在构建FileOutputStream实例时指定为附加模式。例如: 
   
 FileOutputStream fileOutputStream = new FileOutputStream(args[1], true);构建方法的第二个append参数如果设置为true，在开启流时如果文件不存在则会新建一个文件，如果文件存在就直接开启流，并将写入的数据附加至文件末端。
 
@@ -426,7 +426,7 @@ new BufferedOutputStream(
                            
 new FileOutputStream(desFile));
               
-System.out.println("复制文件：" +
+System.out.println("复制文件: " +
                                
 srcFile.length() + "字节");
               

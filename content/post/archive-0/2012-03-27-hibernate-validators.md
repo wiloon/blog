@@ -540,4 +540,4 @@ getRootBean() retrieves the root bean instance generating the issue (useful in c
 
 getPropertyPath() retrieves the dotted path of the failing property starting from the root bean
 
-原文来在：http://www.duduwolf.com/wiki/2007/345.html 注意：版权归原作者所有
+原文来在: http://www.duduwolf.com/wiki/2007/345.html 注意: 版权归原作者所有

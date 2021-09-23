@@ -82,7 +82,7 @@ ControlMaster 用来管理是否启用multiplexing，有2个可选参数: auto�
 
 ControlPath Specify the path to the control socket used for connection sharing as described in the ControlMaster section above or the string none to disable connection sharing. Arguments to ControlPath may use the tilde syntax to refer to a user's home directory or the tokens described in the TOKENS section. It is recommended that any ControlPath used for opportunistic connection sharing include at least %h, %p, and %r (or alternatively %C) and be placed in a directory that is not writable by other users. This ensures that shared connections are uniquely identified.
 
-ControlPath 用来指定muliplexing共用socket文件的路径，path支持~来表示home目录，也支持TOKENS：%%, %C, %h, %i, %L, %l, %n, %p, %r, and %u. ControlPath应该尽量保证其他用户对socket文件没有写权限
+ControlPath 用来指定muliplexing共用socket文件的路径，path支持~来表示home目录，也支持TOKENS: %%, %C, %h, %i, %L, %l, %n, %p, %r, and %u. ControlPath应该尽量保证其他用户对socket文件没有写权限
 
 %% A literal '%'.
   

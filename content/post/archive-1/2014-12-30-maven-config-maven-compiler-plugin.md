@@ -20,7 +20,7 @@ maven-compiler-plugin 3.6和更高版本提供了一种新方法
     </configuration>
 </plugin>
 
-也可以只声明：
+也可以只声明: 
 
 <properties>
     <maven.compiler.release>16</maven.compiler.release>

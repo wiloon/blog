@@ -33,13 +33,13 @@ deb http://ftp.debian.org/debian/ squeeze-proposed-updates main non-free contrib
   
 deb http://security.debian.org/ squeeze/updates main
 
-# 这个多媒体的源需要提前准备好额外的公钥，方法是：
+# 这个多媒体的源需要提前准备好额外的公钥，方法是: 
   
 # 先下载公钥 debian-multimedia-keyring ，再取得root权限，
   
 # 最后安装该公钥文件"dpkg -i debian-multimedia-keyring_2010.12.26_all.deb"（版本号可能会不断更新）
   
-# 更详细的请参考它的官网页面一开头的说明，地址：http://www.debian-multimedia.org/
+# 更详细的请参考它的官网页面一开头的说明，地址: http://www.debian-multimedia.org/
   
 deb http://ftp.debian-multimedia.org/ squeeze main non-free
 

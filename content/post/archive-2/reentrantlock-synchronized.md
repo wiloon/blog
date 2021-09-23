@@ -160,14 +160,14 @@ ObjectMonitor() {
 如果其他线程调用 Object#notify() / notifyAll() ,会唤醒_WaitSet中的某个线程,该线程再次尝试获取monitor锁,成功即进入_Owner区域。
 同步方法执行完毕了,线程退出临界区,会将monitor的_owner设为null,并释放监视锁。
 系统调用
-在电脑中,系统调用（英语：system call）,指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务。系统调用提供用户程序与操作系统之间的接口。大多数系统交互式操作需求在内核态运行。如设备IO操作或者进程间通信。
+在电脑中,系统调用（英语: system call）,指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务。系统调用提供用户程序与操作系统之间的接口。大多数系统交互式操作需求在内核态运行。如设备IO操作或者进程间通信。
 说人话就是操作系统像一个黑盒子,运行在计算机硬件之上,你自己写的软件需要调用硬件的某些功能比如从磁盘打开一部电影,你的软件没法和硬盘直接交互的,必须告诉这个黑盒子,让黑盒子去硬盘里面去取,为啥要这样设计？
 
-安全性与稳定性：操作系统的东西你一个应用层软件不能乱碰,碰坏了宕机谁负责？这个能靠应用层软件自觉遵守？那肯定不行,否则就没有那么多病毒程序了,因此操作系统干脆直接不让你碰,只开放了安全的接口（系统调用）提供给你调用。
-屏蔽硬件的复杂性：硬件千奇百怪,各种型号,需要各种匹配的驱动才能运行,一个应用层软件想从硬盘读取数据,如果没有操作系统这个黑盒子给你提供便利（系统调用）,那你要从硬盘驱动开始写？等你写好了塑料花儿都谢了。
+安全性与稳定性: 操作系统的东西你一个应用层软件不能乱碰,碰坏了宕机谁负责？这个能靠应用层软件自觉遵守？那肯定不行,否则就没有那么多病毒程序了,因此操作系统干脆直接不让你碰,只开放了安全的接口（系统调用）提供给你调用。
+屏蔽硬件的复杂性: 硬件千奇百怪,各种型号,需要各种匹配的驱动才能运行,一个应用层软件想从硬盘读取数据,如果没有操作系统这个黑盒子给你提供便利（系统调用）,那你要从硬盘驱动开始写？等你写好了塑料花儿都谢了。
 所以,系统调用开销是很大的,因此在程序中尽量减少系统调用的次数,并且让每次系统调用完成尽可能多的工作,例如每次读写大量的数据而不是每次仅读写一个字符。
 
-那么Linux有哪些系统调用？这里可以查(系统调用表)：http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64
+那么Linux有哪些系统调用？这里可以查(系统调用表): http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64
 
 从系统调用的角度分析
 就一个锁而言,那么关键的东西我认为是如何上锁以及如何让线程阻塞以及唤醒线程,那么就从这三个方面分析
@@ -177,7 +177,7 @@ ReentrantLock
 所谓上锁在ReentrantLock就是给state变量+1,state声明如下,注意是volatile的,也就是在多线程环境下对每个线程都是可见的
 
 private volatile int state;
-那么很多线程都在抢这把锁,只有一个线程能抢到（即能执行state+1成功）,怎么保证线程安全？答案是CAS,CAS是啥？简单来说就是Compare And Swap,即比较并替换：给一个预期值E和一个更新值U,如果当前值A和预期值E相等,则更新A为U。感觉是不是有点像乐观锁？
+那么很多线程都在抢这把锁,只有一个线程能抢到（即能执行state+1成功）,怎么保证线程安全？答案是CAS,CAS是啥？简单来说就是Compare And Swap,即比较并替换: 给一个预期值E和一个更新值U,如果当前值A和预期值E相等,则更新A为U。感觉是不是有点像乐观锁？
 
 int c = getState();//c是state
 if (c == 0) {//锁还没被别人抢
@@ -203,7 +203,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 public final native boolean compareAndSwapInt(Object o, long offset,
                                               int expected,
                                               int x);
-继续跟踪在JVM中的实现,源码位置：http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp
+继续跟踪在JVM中的实现,源码位置: http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/prims/unsafe.cpp
 
 UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, jobject obj, jlong offset, jint e, jint x))
   UnsafeWrapper("Unsafe_CompareAndSwapInt");
@@ -211,7 +211,7 @@ UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, job
   jint* addr = (jint *) index_oop_from_field_offset_long(p, offset);
   return (jint)(Atomic::cmpxchg(x, addr, e)) == e;//此处调用了Atomic::cmpxchg
 UNSAFE_END
-里面又调用了Atomic::cmpxchg,源码位置：http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp
+里面又调用了Atomic::cmpxchg,源码位置: http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp
 
 inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     dest, jint     compare_value) {
   int mp = os::is_MP();
@@ -337,7 +337,7 @@ void Parker::park(bool isAbsolute, jlong time) {
         jt->java_suspend_self();
     }
 }
-其实park方法内部也用了CAS！重点关注一下此调用：pthread_cond_wait,就是调用此函数让线程阻塞的,这是POSIX线程(pthread)函数库中一个函数,感兴趣的可以看下它的源码：https://code.woboq.org/userspace/glibc/nptl/pthread_cond_wait.c.html
+其实park方法内部也用了CAS！重点关注一下此调用: pthread_cond_wait,就是调用此函数让线程阻塞的,这是POSIX线程(pthread)函数库中一个函数,感兴趣的可以看下它的源码: https://code.woboq.org/userspace/glibc/nptl/pthread_cond_wait.c.html
 
 pthread_cond_wait内部调用了futex,而futex里面进行了系统调用sys_futex！那么futex是啥？参考下man 2 futex
 
@@ -351,7 +351,7 @@ futex的使用模式
 为了唤醒等待线程,获取锁的线程在释放锁后,需要调用系统调用,来通知锁释放,内核会唤醒等待者进行竞争锁。
 介绍说明futex不一定会进行系统调用,但是调用LockSupport.park()的时候线程确实阻塞了,没有在自旋（spin重试）,因为自旋会消耗很多CPU资源,但是阻塞不会消耗,文末会证明LockSupport.park()确实进行了系统调用。
 
-总结：
+总结: 
 
 LockSupport.park -> Unsafe.park -> JNI(JVM) -> Parker::park -> pthread_cond_wait -> futex -> sys_futex(系统调用)
 如何唤醒
@@ -364,7 +364,7 @@ if (s != null)
 
 
 /**
- * 源码在：http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
+ * 源码在: http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
  * Unblock the given thread blocked on <tt>park</tt>, or, if it is
  * not blocked, cause the subsequent call to <tt>park</tt> not to
  * block.  Note: this operation is "unsafe" solely because the
@@ -429,7 +429,7 @@ void Parker::unpark() {
 
 int futex(int *uaddr, int op, int val, const struct timespec *timeout,
           int *uaddr2, int val3);
-第二个参数op即operation有下面可选,参考：https://linux.die.net/man/2/futex
+第二个参数op即operation有下面可选,参考: https://linux.die.net/man/2/futex
 
 pthread_cond_wait传参为FUTEX_WAIT,而pthread_cond_signal传参为FUTEX_WAKE
 
@@ -580,7 +580,7 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
                     : "cc", "memory");
   return exchange_value;
 }
-总结：
+总结: 
 
 所谓上锁就是给ObjectMonitor._owner设置为指向获得锁的线程
 
@@ -626,7 +626,7 @@ int os::Linux::safe_cond_timedwait(pthread_cond_t *_cond, pthread_mutex_t *_mute
 }
 看到没有,调用了pthread_cond_timedwait,pthread_cond_timedwait和pthread_cond_wait的区别一个是有超时设置,一个没有
 
-总结：
+总结: 
 
 ObjectMonitor::enter -> os::PlatformEvent::park -> pthread_cond_timedwait -> futex -> sys_futex(系统调用)
 如何唤醒
@@ -745,7 +745,7 @@ public class CASTest {
          * 因为直接拿要抛异常,不信你可以试试看,原因在于直接拿Unsafe会检查当前类加载器是不是Bootstrap加载器
          * 如果不是就抛异常,当前类加载器是AppClassLoader,当然不是Bootstrap ClassLoader,
          * 也就是说,Unsafe只允许JVM的某些系统来拿,但是你非要用,也可以自己通过下面的骚操作拿
-         * 参考：https://blog.csdn.net/a7980718/article/details/83279728
+         * 参考: https://blog.csdn.net/a7980718/article/details/83279728
          */
         Field unsafeField = Unsafe.class.getDeclaredFields()[0];
         unsafeField.setAccessible(true);

@@ -37,7 +37,7 @@ tags:
     3．动态代理Servlet
   
   
-                  虽然Web Application Server的产品很多，但Servlet的处理原理是相似的：动态加载Servlet，调用Servlet的init方法（只被调用一次），并保存到Servlet容器；Servlet使用时，调用Servlet的service方法。本文动态代理Servlet接口，使其init和service被调用时会在控制台打出方法调用前后信息。
+                  虽然Web Application Server的产品很多，但Servlet的处理原理是相似的: 动态加载Servlet，调用Servlet的init方法（只被调用一次），并保存到Servlet容器；Servlet使用时，调用Servlet的service方法。本文动态代理Servlet接口，使其init和service被调用时会在控制台打出方法调用前后信息。
   
   
     首先实现2个Servlet，DefaultServlet和UserServlet

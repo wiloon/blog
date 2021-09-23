@@ -10,7 +10,7 @@ categories:
 ---
 <http://linuxtoy.org/archives/dmidecode.html>
 
-Dmidecode 应该在主流的 Linux 发行版中都可以找到，因此你只需通过所用发行版的包管理器安装即可，如：
+Dmidecode 应该在主流的 Linux 发行版中都可以找到，因此你只需通过所用发行版的包管理器安装即可，如: 
 
 ```bash
   
@@ -24,7 +24,7 @@ emerge -av dmidecode # Gentoo
   
 ```
 
-不带选项执行 `dmidecode` 通常会输出所有的硬件信息，以下是在笔者机器上执行 dmidecode 后所得到的结果（部分）：
+不带选项执行 `dmidecode` 通常会输出所有的硬件信息，以下是在笔者机器上执行 dmidecode 后所得到的结果（部分）: 
 
 # dmidecode 2.10
 SMBIOS 2.3 present.
@@ -45,7 +45,7 @@ Dmidecode 有个很有用的选项 -t，可以按指定类型输出相关信息�
 
     dmidecode -t processor 
 
-输出：
+输出: 
 
 # dmidecode 2.10
 SMBIOS 2.3 present.

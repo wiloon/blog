@@ -46,7 +46,7 @@ tags:
 SASL机制注册由IANA维护:
 http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml
 
-下面说明几个具体的SASL机制：
+下面说明几个具体的SASL机制: 
 
 EXTERNAL:
 EXTERNAL机制允许客户端请求服务器使用其他途径获取的验证信息来验证该客户端。如通过TLS获取的验证信息。以ACAP(Application Configuration Access Protocol)协议来举例:
@@ -90,7 +90,7 @@ C: c=biws,r=fyko+d2lbbFgONRv9qkxdawL3rfcNHYJY1ZVvWVs7j,p=v0X8v3Bz2T0CJGbJQyF0X+H
 S: v=rmF9pqV8S7suAoZWja4dJRkFsKQ=
 SCRAM机制的消息由多个属性构成，每个属性为”a=xxx”的形式，而且属性有顺序要求。
 
-客户端发送的首条消息包括了以下内容：
+客户端发送的首条消息包括了以下内容: 
 
 一个GS2头，它包括一个字符，只能为”n”, “y”, “p”，是通道绑定的标识，和一个授权实体（例子中没有提供，因而为”,,”,当需要指定时使用属性a, 如”a=dummy”）。
 属性n, 表示身份验证的用户名。
@@ -103,7 +103,7 @@ SCRAM机制的消息由多个属性构成，每个属性为”a=xxx”的形式�
 
 服务端验证客户端发送的NONCE值和证明信息(ClientProof)，如果提供了授权实体，则也需要验证是否可以授权给该实体，然后发送服务端末条消息。属性v为服务器签名(ServerSignature)。客户端通过比较计算得到的和从服务端所收到的签名是否相同来对服务器进行身份验证。如果服务器验证失败，将回应属性e, 它可以用来诊断错误原因。
 
-下面介绍客户端和服务器签名的具体算法：
+下面介绍客户端和服务器签名的具体算法: 
 
 SaltedPassword := Hi(Normalize(password), salt, i)
 ClientKey := HMAC(SaltedPassword, "Client Key")

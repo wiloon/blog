@@ -17,11 +17,11 @@ tags:
     
     
     
-      以下是结合上面的参考链接给出的如何将RPi搭建为一个路由器：
+      以下是结合上面的参考链接给出的如何将RPi搭建为一个路由器: 
     
     
     
-      首先是必备材料：
+      首先是必备材料: 
     
     
     <ul>
@@ -40,7 +40,7 @@ tags:
     </ul>
     
     
-      然后是必备技能：
+      然后是必备技能: 
     
     
     <ul>
@@ -56,7 +56,7 @@ tags:
     </ul>
     
     
-      感谢原文给出的驱动提示，这里也抄一下。请确认无线网卡支持AP模式或者Master模式，已知下列网卡的具体情况：
+      感谢原文给出的驱动提示，这里也抄一下。请确认无线网卡支持AP模式或者Master模式，已知下列网卡的具体情况: 
     
     
     <ul>
@@ -86,7 +86,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
     
     
     
-      先说一下大概步骤：
+      先说一下大概步骤: 
     
     
     <ul>
@@ -102,7 +102,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
     </ul>
     
     
-      正文开始了：
+      正文开始了: 
     
     
     
@@ -113,7 +113,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
       
       
       
-        配置DHCP，也就是编辑文件/etc/udhcpd.conf ，基本上按照下列内容来做： 
+        配置DHCP，也就是编辑文件/etc/udhcpd.conf ，基本上按照下列内容来做:  
           
             <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
           
@@ -142,7 +142,7 @@ opt lease 864000 # 10 day DHCP lease time in seconds
         
         
         
-          当然，你需要给无线网卡指定一个地址（静态地址，不会变的），为了达到开机启动就设置好的目的，你需要编辑/etc/network/interfaces：
+          当然，你需要给无线网卡指定一个地址（静态地址，不会变的），为了达到开机启动就设置好的目的，你需要编辑/etc/network/interfaces: 
         
         
         
@@ -182,7 +182,7 @@ netmask 255.255.255.0
             
             
             
-              来进行生成，生成的结果为：（已经修改psk部分，这里仅做示意用）
+              来进行生成，生成的结果为: （已经修改psk部分，这里仅做示意用）
             
             
             
@@ -208,7 +208,7 @@ psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
             
             
             
-              如果你想使用开放网络（不含密码），那么就这样配置：
+              如果你想使用开放网络（不含密码），那么就这样配置: 
             
             
             
@@ -234,7 +234,7 @@ wmm_enabled=0
             
             
             
-              把原来的DAEMON_CONF="/etc/hostapd/hostapd.conf" 变为：
+              把原来的DAEMON_CONF="/etc/hostapd/hostapd.conf" 变为: 
             
             
             
@@ -250,7 +250,7 @@ wmm_enabled=0
                 
                 
                 
-                  那么这就在内核当中开启了ipv4的转发，之后需要设置iptables来让数据包通过：
+                  那么这就在内核当中开启了ipv4的转发，之后需要设置iptables来让数据包通过: 
                 
                 
                 
@@ -260,7 +260,7 @@ sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
                 
-                  为了以后重启之后可以自动加载，因此运行命令来保存为一个文件：
+                  为了以后重启之后可以自动加载，因此运行命令来保存为一个文件: 
                 
                 
                 
@@ -268,7 +268,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
                 
                 
                 
-                  并在/etc/network/interfaces文件的末尾添加这么一句：
+                  并在/etc/network/interfaces文件的末尾添加这么一句: 
                 
                 
                 
@@ -279,13 +279,13 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
                    
                   
                   
-                    启动服务，看看你的无线是否搭建好了？运行一下命令： 
+                    启动服务，看看你的无线是否搭建好了？运行一下命令:  
                       sudo service hostapd start
 
 sudo service udhcpd start
 
                     
-                      如果你想开机启动的话，那么就这么做：
+                      如果你想开机启动的话，那么就这么做: 
                     
                     
                     
@@ -305,7 +305,7 @@ sudo update-rc.d udhcpd enable
                       
                       
                       
-                        我自己遇到了安装好udhcpd之后死活启动不了，报错是：
+                        我自己遇到了安装好udhcpd之后死活启动不了，报错是: 
                       
                       
                       
@@ -313,7 +313,7 @@ sudo update-rc.d udhcpd enable
                       
                       
                       
-                        而且sudo ifup wlan0的时候报错，不过它指出来了错误地点：
+                        而且sudo ifup wlan0的时候报错，不过它指出来了错误地点: 
                       
                       
                       
@@ -338,7 +338,7 @@ Failed to bring up wlan0.
                       
                       
                       
-                        最后，接下来需要做的是：将eth0的ipv6通过类似brouter之类的东西使得无线网也有ipv6. 查过说有ebtables可以，但是具体怎么弄我一直没搞明白过（这个问题1年前就在关注了，但是没做，太懒了……
+                        最后，接下来需要做的是: 将eth0的ipv6通过类似brouter之类的东西使得无线网也有ipv6. 查过说有ebtables可以，但是具体怎么弄我一直没搞明白过（这个问题1年前就在关注了，但是没做，太懒了……
                       
                       
                       

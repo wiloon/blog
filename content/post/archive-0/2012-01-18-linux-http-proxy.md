@@ -31,13 +31,13 @@ export ftp_proxy=http://username:password@proxyserver:port/
 
 export no_proxy="localhost,127.0.0.0/8,*.local"
 
-例如，假设你的代理服务器为192.168.1.1，端口是8080，用户名为cnkker，密码是123456，那么应该这样设置这两个环境变量：
+例如，假设你的代理服务器为192.168.1.1，端口是8080，用户名为cnkker，密码是123456，那么应该这样设置这两个环境变量: 
 
 export http_proxy=http://cnkker:123456@192.168.1.1:8080
   
 export ftp_proxy=http://cnkker:123456@192.168.1.1:8080
 
-如果要使下次生效，需要把导出配置写入~/.bashrc中，这样配置之后，退出再登录一次，或者直接使用下面的命令source一下.bashrc：
+如果要使下次生效，需要把导出配置写入~/.bashrc中，这样配置之后，退出再登录一次，或者直接使用下面的命令source一下.bashrc: 
   
 source ~/.bashrc
   

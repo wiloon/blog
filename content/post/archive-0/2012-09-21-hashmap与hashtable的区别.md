@@ -15,7 +15,7 @@ categories:
     1.HashTable的方法是同步的，HashMap未经同步，所以在多线程场合要手动同步HashMap这个区别就像Vector和ArrayList一样。2.HashTable不允许null值(key和value都不可以),HashMap允许null值(key和value都可以)。3.HashTable有一个contains(Object value)，功能和containsValue(Object value)功能一样。4.HashTable使用Enumeration，HashMap使用Iterator。以上只是表面的不同，它们的实现也有很大的不同。5.HashTable中hash数组默认大小是11，增加的方式是 old*2+1。HashMap中hash数组的默认大小是16，而且一定是2的指数。
   
   
-    6.哈希值的使用不同，HashTable直接使用对象的hashCode，代码是这样的：
+    6.哈希值的使用不同，HashTable直接使用对象的hashCode，代码是这样的: 
   
   
 ```java
@@ -23,7 +23,7 @@ categories:
   
 int hash = key.hashCode();
 int index = (hash & 0x7FFFFFFF) % tab.length;
-//而HashMap重新计算hash值，而且用与代替求模：
+//而HashMap重新计算hash值，而且用与代替求模: 
 int hash = hash(k);
 int i = indexFor(hash, table.length);
   
@@ -52,7 +52,7 @@ int i = indexFor(hash, table.length);
 
 
   
-    HashMap可以看作三个视图：key的Set，value的Collection，Entry的Set。 这里HashSet就是其实就是HashMap的一个视图。HashSet内部就是使用Hashmap实现的，和Hashmap不同的是它不需要Key和Value两个值。
+    HashMap可以看作三个视图: key的Set，value的Collection，Entry的Set。 这里HashSet就是其实就是HashMap的一个视图。HashSet内部就是使用Hashmap实现的，和Hashmap不同的是它不需要Key和Value两个值。
   
   
     往hashset中插入对象其实只不过是内部做了

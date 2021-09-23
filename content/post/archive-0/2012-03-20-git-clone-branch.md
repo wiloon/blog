@@ -22,7 +22,7 @@ tags:
 
 > $ git branch –r
 
-查看branch信息（当然你也可以用git show-branch查看，不过有时并不好用），获得如下branch信息：
+查看branch信息（当然你也可以用git show-branch查看，不过有时并不好用），获得如下branch信息: 
 
 > origin/android
   

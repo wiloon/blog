@@ -14,7 +14,7 @@ categories:
 
 Robots.txt协议并不是一个规范，而只是约定俗成的，所以并不能保证网站的隐私。注意Robots.txt是用字符串比较来确定是否获取URL，所以目录末尾有和没有斜杠"/"这两种表示是不同的URL，也不能用"Disallow: *.gif"这样的通配符。
 
-其他的影响搜索引擎的行为的方法包括使用robots元数据：
+其他的影响搜索引擎的行为的方法包括使用robots元数据: 
 
 <span lang="en" xml:lang="en"><meta name="robots" content="noindex,nofollow" />
 

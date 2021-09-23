@@ -17,7 +17,7 @@ wsdl2java -d src -client http://localhost:9000/helloWorld?wsdl
 
 其作用上面的build.xml作用一样。
   
-附加：wsdl2java用法：
+附加: wsdl2java用法: 
   
 wsdl2java -p com -d src -all  aa.wsdl
   
@@ -33,6 +33,6 @@ wsdl2java -p com -d src -all  aa.wsdl
   
 -ant  生成build.xml文件
   
--all 生成所有开始端点代码：types,service proxy,,service interface, server mainline, client mainline, implementation object, and an Ant build.xml file.
+-all 生成所有开始端点代码: types,service proxy,,service interface, server mainline, client mainline, implementation object, and an Ant build.xml file.
   
-详细用法见：http://cwiki.apache.org/CXF20DOC/wsdl-to-java.html
+详细用法见: http://cwiki.apache.org/CXF20DOC/wsdl-to-java.html

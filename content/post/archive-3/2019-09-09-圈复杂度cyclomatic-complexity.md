@@ -38,7 +38,7 @@ String test1 = case1(1);
 
 圈复杂度主要与分支语句（if、else、，switch 等）的个数成正相关。当一段代码中含有较多的分支语句，其逻辑复杂程度就会增加。
 
-圈复杂度的计算方法，可以参考这篇文章：http://blog.csdn.net/lg707415323/article/details/7790660
+圈复杂度的计算方法，可以参考这篇文章: http://blog.csdn.net/lg707415323/article/details/7790660
 
 可以直接降低圈复杂度的9种重构技术（针对结构化编程）
 
@@ -66,7 +66,7 @@ String test1 = case1(1);
   
 <3>Replace Parameter with Explicit Methods(以明确函数取代参数)
 
-针对面向对象编程：
+针对面向对象编程: 
   
 Replace Conditional with Polymorphism (以多态取代条件式)
 

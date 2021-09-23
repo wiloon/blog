@@ -33,7 +33,7 @@ DATE数据类型的主要问题是它粒度不能足够区别出两个事件哪�
 
 正如你看到的，在转换后的时间段尾部有了一段".000000"。这是因为从date转换过来的时候，没有小数秒的信息，缺省为0。而且显示格式是按照参数NLS_TIMESTAMP_FORMAT定的缺省格式显示。当你把一个表中date类型字段的数据移到另一个表的timestamp类型字段中去的时候，可以直接写INSERT SELECT语句，oracle会自动为你做转换的。
   
-TIMESTAMP数据的格式化显示和DATE 数据一样。注意，to_char函数支持date和timestamp，但是trunc却不支持TIMESTAMP数据类型。这已经清楚表明了在当两个时间的差别极度重要的情况下，使用TIMESTAMP数据类型要比DATE数据类型更确切     如果你想显示TIMESTAMP的小数秒信息，参考下面：
+TIMESTAMP数据的格式化显示和DATE 数据一样。注意，to_char函数支持date和timestamp，但是trunc却不支持TIMESTAMP数据类型。这已经清楚表明了在当两个时间的差别极度重要的情况下，使用TIMESTAMP数据类型要比DATE数据类型更确切     如果你想显示TIMESTAMP的小数秒信息，参考下面: 
 
 在上例中，我只现实了小数点后3位的内容。
   

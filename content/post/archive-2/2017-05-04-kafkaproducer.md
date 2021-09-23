@@ -55,7 +55,7 @@ batch.size是 producer 批量发送的基本单位，默认是16384Bytes，即1
 lingger.ms是sender线程在检查batch是否ready时候，判断有没有过期的参数，默认大小是0ms
 producer会等待buffer的messages数目达到指定值或时间超过x毫秒,才发送数据。减少网络IO,节省带宽之用。原理就是把原本需要多次发送的小batch,通过引入延时的方式合并成大batch发送,减少了网络传输的压力,从而提升吞吐量。当然,也会引入延时.
 
-那么producer是按照batch.size大小批量发送消息呢，还是按照linger.ms的时间间隔批量发送消息呢？这里先说结论：其实满足batch.size和ling.ms之一，producer便开始发送消息。
+那么producer是按照batch.size大小批量发送消息呢，还是按照linger.ms的时间间隔批量发送消息呢？这里先说结论: 其实满足batch.size和ling.ms之一，producer便开始发送消息。
 
 　一个Batch被创建之后，最多过多久，不管这个Batch有没有写满，都必须发送出去了。
 
@@ -72,7 +72,7 @@ Kafka的客户端发送数据到服务器，不是来一条就发一条，而是
 
 　　buffer.memory的本质就是用来约束KafkaProducer能够使用的内存缓冲的大小的，默认值32MB。
 
-　　如果buffer.memory设置的太小，可能导致的问题是：消息快速的写入内存缓冲里，但Sender线程来不及把Request发送到Kafka服务器，会造成内存缓冲很快就被写满。而一旦被写满，就会阻塞用户线程，不让继续往Kafka写消息了。 
+　　如果buffer.memory设置的太小，可能导致的问题是: 消息快速的写入内存缓冲里，但Sender线程来不及把Request发送到Kafka服务器，会造成内存缓冲很快就被写满。而一旦被写满，就会阻塞用户线程，不让继续往Kafka写消息了。 
 
 　　所以“buffer.memory”参数需要结合实际业务情况压测，需要测算在生产环境中用户线程会以每秒多少消息的频率来写入内存缓冲。经过压测，调试出来一个合理值。
 
@@ -86,8 +86,8 @@ available to the Java client for collecting unsent messages. When this
 limit is hit, the producer will block on additional sends for as long
 as max.block.ms before raising an exception.
 ————————————————
-版权声明：本文为CSDN博主「鸭梨山大哎」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/u010711495/article/details/113250402
+版权声明: 本文为CSDN博主「鸭梨山大哎」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/u010711495/article/details/113250402
 
 
 ### max.block.ms
@@ -100,7 +100,7 @@ The buffer.memory controls the total amount of memory available to the producer 
 
 buffer.memory设置决定了Producer缓存区整个可用的内存。如果记录记录发送速度总是比推送到集群速度快，那么缓存区将被耗尽。当缓存区资源耗尽，消息发送send方法调用将被阻塞，阻塞的时间由max.block.ms设定，阻塞超过限定时间会抛出TimeoutException异常。
 
-默认值： 33554432（32MB）
+默认值:  33554432（32MB）
 
 二、max.block.ms 参数
 The configuration controls how long KafkaProducer.send() and KafkaProducer.partitionsFor() will block.These methods can be blocked either because the buffer is full or metadata unavailable.
@@ -157,7 +157,7 @@ Kafka 允许的最大 record batch size，什么是 record batch size ？简单�
 
 
 ### request.timeout.ms
-默认值： 30秒  
+默认值:  30秒  
 这个参数容易和上面的max.block.ms 参数相混淆，这里也一同说明一下。
 
 生产者producer发送消息后等待响应的最大时间，如果在配置时间内没有得到响应，生产者会重试。

@@ -36,11 +36,11 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    在早期的发布版本中，发行版本带有三个用户帐号： "satan", "gonzo" 和 "snake"。它们是作为示例被提供，但是后来的版本中去除了这些帐号，因为它们有潜在的安全漏洞。
+    在早期的发布版本中，发行版本带有三个用户帐号:  "satan", "gonzo" 和 "snake"。它们是作为示例被提供，但是后来的版本中去除了这些帐号，因为它们有潜在的安全漏洞。
   
   
   
-    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 ：这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样"新"（up-to-date），当时许多其他发行版本的版本号为 6 。
+    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 : 这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样"新"（up-to-date），当时许多其他发行版本的版本号为 6 。
   
   
   
@@ -98,7 +98,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    包都经过gzip压缩和tarball打包，但文件扩展名是.tgz，而不是.tar.gz。他们的结构是这样的：当在根目录下解压缩和释放，其中的文件会放置于它们的安装位置。因此可以不使用 Slackware的包工具来安装包，而仅仅使用 tar 和 gzip命令，如果包中有doinst.sh脚本，一定要运行它。
+    包都经过gzip压缩和tarball打包，但文件扩展名是.tgz，而不是.tar.gz。他们的结构是这样的: 当在根目录下解压缩和释放，其中的文件会放置于它们的安装位置。因此可以不使用 Slackware的包工具来安装包，而仅仅使用 tar 和 gzip命令，如果包中有doinst.sh脚本，一定要运行它。
   
   
   
@@ -120,7 +120,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    需要特别指出的是，Slackware的软件包管理系统，并没有提供自动的检测依赖机制，用户需要手动检测软件的依赖性问题。Slackware的理由则是：系统管理员应该知道自己系统里有什么东西，也应该知道要安装什么东西。既然各种软件包管理工具都不可能从根本上杜绝dependency hell的恶梦，不如干脆由用户自己来决定。
+    需要特别指出的是，Slackware的软件包管理系统，并没有提供自动的检测依赖机制，用户需要手动检测软件的依赖性问题。Slackware的理由则是: 系统管理员应该知道自己系统里有什么东西，也应该知道要安装什么东西。既然各种软件包管理工具都不可能从根本上杜绝dependency hell的恶梦，不如干脆由用户自己来决定。
   
   
   
@@ -184,4 +184,4 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    正是由于上述的原因，从Slackware入手学习Linux，虽然门槛稍为有点高，但是更容易接触到Linux系统的本质。在Slackware社区，最经常被引用的一句话就是："When you know Slackware you know Linux. When you know Red Hat, all you know is Red Hat."
+    正是由于上述的原因，从Slackware入手学习Linux，虽然门槛稍为有点高，但是更容易接触到Linux系统的本质。在Slackware社区，最经常被引用的一句话就是: "When you know Slackware you know Linux. When you know Red Hat, all you know is Red Hat."

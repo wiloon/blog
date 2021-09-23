@@ -1,7 +1,6 @@
 ---
 title: qmail sendmail postfix
 author: "-"
-type: post
 date: 2013-07-14T09:14:16+00:00
 url: /?p=5657
 categories:
@@ -171,22 +170,14 @@ Sendmail
  sendmail -Eric AllmanUnix专家、学者
  qmail -DJB数学教授，科学家
  Postfix -wietse venema安全专家 学者
+ 
+Recommentaion - 建议
     
+我建议在使用PostfixMTA，无论是小型系统，还是大中型系统，能带来最高的性价比。
     
-    
-      Recommentaion - 建议
-    
-    
-    
-      我建议在使用PostfixMTA，无论是小型系统，还是大中型系统，能带来最高的性价比。
-    
-    
-    
-      一些有用的link
-    
-    
-    
-      在足够好的硬件条件下Postfix比qmail更快的原因分析
+---
+
+在足够好的硬件条件下Postfix比qmail更快的原因分析
  benchmark，无聊还是骗局？
  qmail/postfix/sendmail 比较
  Sendmail 历史

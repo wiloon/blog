@@ -43,7 +43,7 @@ adb shell
 ```
 
 
-  在SDK的Tools文件夹下包含着Android模拟器操作的重要命令ADB，ADB的全称为Android Debug Bridge，就是调试桥的作用，借助这个工具，我们可以管理设备或手机模拟器的状态 ，还可以进行以下的操作：
+  在SDK的Tools文件夹下包含着Android模拟器操作的重要命令ADB，ADB的全称为Android Debug Bridge，就是调试桥的作用，借助这个工具，我们可以管理设备或手机模拟器的状态 ，还可以进行以下的操作: 
 
 
   （1）快速更新设备或手机模拟器中的代码，如应用或Android系统升级；
@@ -76,7 +76,7 @@ adb shell
   3.卸载已经安装的应用
 
 
-  （1）方法1：
+  （1）方法1: 
 
 
        adb uninstall [-k] <package>。
@@ -93,9 +93,9 @@ adb shell
 
   4.进入设备或模拟器的Shell
  adb shell
- 通过上面的命令，就可以进入设备或模拟器的Shell环境中，在这个Linux Shell中，可以执行各种Linux 的命令，另外如果只想执行一条Shell命令，可以采用以下的方式：
+ 通过上面的命令，就可以进入设备或模拟器的Shell环境中，在这个Linux Shell中，可以执行各种Linux 的命令，另外如果只想执行一条Shell命令，可以采用以下的方式: 
  adb shell [command]
- 如：
+ 如: 
 
 
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb shell df
@@ -143,7 +143,7 @@ adb shell
   adb pull <remote> <local>
 
 
-  将文件或目录复制到模拟器或者设备，使用如下命令：
+  将文件或目录复制到模拟器或者设备，使用如下命令: 
 
 
   adb push <local> <remote>
@@ -152,14 +152,14 @@ adb shell
   在这些命令中， <local> 和<remote> 分别指通向自己的发展机（本地）和模拟器/设备实例（远程）上的目标文件/目录的路径。
 
 
-  下面是一个例子：:
+  下面是一个例子: :
 
 
   adb push foo.txt /sdcard/foo.txt
 
 
   7.搜索模拟器/设备的实例
- 取得当前运行的模拟器/设备的实例的列表及每个实例的状态，如：
+ 取得当前运行的模拟器/设备的实例的列表及每个实例的状态，如: 
 
 
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb devices
@@ -214,7 +214,7 @@ adb shell
 
 
   9.记录无线通讯日志
- 一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录：
+ 一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录: 
 
 
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb shell
@@ -509,7 +509,7 @@ adb shell
     
     
       
-        可以用 forward jdwp:<pid>端口映射信息来连接指定的JDWP进程，例如：
+        可以用 forward jdwp:<pid>端口映射信息来连接指定的JDWP进程，例如: 
  adb forward tcp:8000 jdwp:472
  jdb -attach localhost:8000
       
@@ -623,7 +623,7 @@ adb shell
     
     
       
-        通过USB运行ppp：
+        通过USB运行ppp: 
       
       
       <ul>
@@ -707,7 +707,7 @@ adb shell
       
       
       
-        需要提醒的是，这些命令在所有的系统启动起来之前是不会启动adb的，所以在所有的系统启动起来之前也不能执行其他的命令，例如，运用install 的时候就需要Android包，这些包需要系统完全启动，例如：
+        需要提醒的是，这些命令在所有的系统启动起来之前是不会启动adb的，所以在所有的系统启动起来之前也不能执行其他的命令，例如，运用install 的时候就需要Android包，这些包需要系统完全启动，例如: 
       
       
       

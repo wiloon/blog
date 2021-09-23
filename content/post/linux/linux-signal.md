@@ -29,7 +29,7 @@ If sig is 0, then no signal is sent, but error checking is still performed.
 
 一些异常比如除以0或者 segmentation violation 相应的会产生SIGFPE和SIGSEGV信号，缺省情况下导致core dump和程序退出。
 内核在某些情况下发送信号，比如在进程往一个已经关闭的管道写数据时会产生SIGPIPE信号。
-在进程的终端敲入特定的组合键也会导致系统发送某个特定的信号给此进程：
+在进程的终端敲入特定的组合键也会导致系统发送某个特定的信号给此进程: 
 
 Ctrl-C 发送 INT signal (SIGINT)，通常导致进程结束
 Ctrl-Z 发送 TSTP signal (SIGTSTP); 通常导致进程挂起(suspend)
@@ -43,13 +43,13 @@ kill -9 pid 会发送 SIGKILL信号给进程。
 
 信号(signal)是一种软中断，信号机制是进程间异步通信的一种方式
 
-信号的名字和编号：
+信号的名字和编号: 
 每个信号都有一个名字和编号，这些名字都以"SIG"开头，例如"SIGIO "、"SIGCHLD"等等。
 信号定义在signal.h头文件中，信号名都定义为正整数。
 具体的信号名称可以使用kill -l来查看信号的名字以及序号，信号是从1开始编号的，不存在0号信号。kill对于信号0又特殊的应用。
 
-信号的处理：
-信号的处理有三种方法，分别是：忽略、捕捉和默认动作
+信号的处理: 
+信号的处理有三种方法，分别是: 忽略、捕捉和默认动作
 
 忽略信号，大多数信号可以使用这个方式来处理，但是有两种信号不能被忽略（分别是 SIGKILL和SIGSTOP）。因为他们向内核和超级用户提供了进程终止和停止的可靠方法，如果忽略了，那么这个进程就变成了没人能管理的的进程，显然是内核设计者不希望看到的场景
 捕捉信号，需要告诉内核，用户希望如何处理某一种信号，说白了就是写一个信号处理函数，然后将这个函数告诉内核。当该信号产生时，由内核来调用用户自定义的函数，以此来实现某种信号的处理。
@@ -57,12 +57,12 @@ kill -9 pid 会发送 SIGKILL信号给进程。
 具体的信号默认动作可以使用man 7 signal来查看系统的具体定义。在此，我就不详细展开了，需要查看的，可以自行查看。也可以参考 《UNIX 环境高级编程（第三部）》的 P251——P256中间对于每个信号有详细的说明。
  
 一、信号类型
-Linux系统共定义了64种信号，分为两大类：可靠信号与不可靠信号，前32种信号为不可靠信号，后32种为可靠信号。
+Linux系统共定义了64种信号，分为两大类: 可靠信号与不可靠信号，前32种信号为不可靠信号，后32种为可靠信号。
 
 1.1 概念
-不可靠信号： 也称为非实时信号，不支持排队，信号可能会丢失, 比如发送多次相同的信号, 进程只能收到一次. 信号值取值区间为1~31；
+不可靠信号:  也称为非实时信号，不支持排队，信号可能会丢失, 比如发送多次相同的信号, 进程只能收到一次. 信号值取值区间为1~31；
 
-可靠信号： 也称为实时信号，支持排队, 信号不会丢失, 发多少次, 就可以收到多少次. 信号值取值区间为32~64
+可靠信号:  也称为实时信号，支持排队, 信号不会丢失, 发多少次, 就可以收到多少次. 信号值取值区间为32~64
 
 信号类型
 个平台的信号定义或许有些不同。下面列出了POSIX中定义的信号。
@@ -107,13 +107,13 @@ Windows中没有SIGUSR1,可以用SIGBREAK或者SIGINT代替。
 对于signal信号，绝大部分的默认处理都是终止进程或停止进程，或dump内核映像转储。 上述的31的信号为非实时信号，其他的信号32-64 都是实时信号。
 
 二、信号产生
-信号来源分为硬件类和软件类：
+信号来源分为硬件类和软件类: 
 
 2.1 硬件方式
-用户输入：比如在终端上按下组合键ctrl+C，产生SIGINT信号；
-硬件异常：CPU检测到内存非法访问等异常，通知内核生成相应信号，并发送给发生事件的进程；
+用户输入: 比如在终端上按下组合键ctrl+C，产生SIGINT信号；
+硬件异常: CPU检测到内存非法访问等异常，通知内核生成相应信号，并发送给发生事件的进程；
 2.2 软件方式
-通过系统调用，发送signal信号：kill()，raise()，sigqueue()，alarm()，setitimer()，abort()
+通过系统调用，发送signal信号: kill()，raise()，sigqueue()，alarm()，setitimer()，abort()
 
 kernel,使用 kill_proc_info(）等
 native,使用 kill() 或者raise()等
@@ -125,19 +125,19 @@ java,使用 Procees.sendSignal()等
 非实时信号发送给进程时，如果该信息已经在进程中注册过，不会再次注册，故信号会丢失；
 实时信号发送给进程时，不管该信号是否在进程中注册过，都会再次注册。故信号不会丢失；
 3.2 注销
-非实时信号：不可重复注册，最多只有一个sigqueue结构；当该结构被释放后，把该信号从进程未决信号集中删除，则信号注销完毕；
-实时信号：可重复注册，可能存在多个sigqueue结构；当该信号的所有sigqueue处理完毕后，把该信号从进程未决信号集中删除，则信号注销完毕；
+非实时信号: 不可重复注册，最多只有一个sigqueue结构；当该结构被释放后，把该信号从进程未决信号集中删除，则信号注销完毕；
+实时信号: 可重复注册，可能存在多个sigqueue结构；当该信号的所有sigqueue处理完毕后，把该信号从进程未决信号集中删除，则信号注销完毕；
 四、信号处理
 内核处理进程收到的signal是在当前进程的上下文，故进程必须是Running状态。当进程唤醒或者调度后获取CPU，则会从内核态转到用户态时检测是否有signal等待处理，处理完，进程会把相应的未决信号从链表中去掉。
 
 4.1 处理时机
-signal信号处理时机： 内核态 -> signal信号处理 -> 用户态：
+signal信号处理时机:  内核态 -> signal信号处理 -> 用户态: 
 
 在内核态，signal信号不起作用；
 在用户态，signal所有未被屏蔽的信号都处理完毕；
 当屏蔽信号，取消屏蔽时，会在下一次内核转用户态的过程中执行；
 4.2 处理方式
-进程对信号的处理方式： 有3种
+进程对信号的处理方式:  有3种
 
 默认 接收到信号后按默认的行为处理该信号。 这是多数应用采取的处理方式。
 自定义 用自定义的信号处理函数来执行特定的动作
@@ -147,50 +147,50 @@ signal信号处理时机： 内核态 -> signal信号处理 -> 用户态：
 
 信号安装函数
 
-signal()：不支持信号传递信息，主要用于非实时信号安装；
+signal(): 不支持信号传递信息，主要用于非实时信号安装；
 sigaction():支持信号传递信息，可用于所有信号安装；
 其中 sigaction结构体
 
 sa_handler:信号处理函数
-sa_mask：指定信号处理程序执行过程中需要阻塞的信号；
-sa_flags：标示位
-SA_RESTART：使被信号打断的syscall重新发起。
-SA_NOCLDSTOP：使父进程在它的子进程暂停或继续运行时不会收到 SIGCHLD 信号。
-SA_NOCLDWAIT：使父进程在它的子进程退出时不会收到SIGCHLD信号，这时子进程如果退出也不会成为僵 尸进程。
-SA_NODEFER：使对信号的屏蔽无效，即在信号处理函数执行期间仍能发出这个信号。
-SA_RESETHAND：信号处理之后重新设置为默认的处理方式。
-SA_SIGINFO：使用sa_sigaction成员而不是sa_handler作为信号处理函数。
-函数原型：
+sa_mask: 指定信号处理程序执行过程中需要阻塞的信号；
+sa_flags: 标示位
+SA_RESTART: 使被信号打断的syscall重新发起。
+SA_NOCLDSTOP: 使父进程在它的子进程暂停或继续运行时不会收到 SIGCHLD 信号。
+SA_NOCLDWAIT: 使父进程在它的子进程退出时不会收到SIGCHLD信号，这时子进程如果退出也不会成为僵 尸进程。
+SA_NODEFER: 使对信号的屏蔽无效，即在信号处理函数执行期间仍能发出这个信号。
+SA_RESETHAND: 信号处理之后重新设置为默认的处理方式。
+SA_SIGINFO: 使用sa_sigaction成员而不是sa_handler作为信号处理函数。
+函数原型: 
 
 int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
 
-signum：要操作的signal信号。
-act：设置对signal信号的新处理方式。
-oldact：原来对信号的处理方式。
-返回值：0 表示成功，-1 表示有错误发生。
+signum: 要操作的signal信号。
+act: 设置对signal信号的新处理方式。
+oldact: 原来对信号的处理方式。
+返回值: 0 表示成功，-1 表示有错误发生。
 4.4 信号发送
-kill()：用于向进程或进程组发送信号；
-sigqueue()：只能向一个进程发送信号，不能像进程组发送信号；主要针对实时信号提出，与sigaction()组合使用，当然也支持非实时信号的发送；
-alarm()：用于调用进程指定时间后发出SIGALARM信号；
-setitimer()：设置定时器，计时达到后给进程发送SIGALRM信号，功能比alarm更强大；
-abort()：向进程发送SIGABORT信号，默认进程会异常退出。
-raise()：用于向进程自身发送信号；
+kill(): 用于向进程或进程组发送信号；
+sigqueue(): 只能向一个进程发送信号，不能像进程组发送信号；主要针对实时信号提出，与sigaction()组合使用，当然也支持非实时信号的发送；
+alarm(): 用于调用进程指定时间后发出SIGALARM信号；
+setitimer(): 设置定时器，计时达到后给进程发送SIGALRM信号，功能比alarm更强大；
+abort(): 向进程发送SIGABORT信号，默认进程会异常退出。
+raise(): 用于向进程自身发送信号；
 4.5 信号相关函数
 信号集操作函数
 
-sigemptyset(sigset_t *set)：信号集全部清0；
-sigfillset(sigset_t *set)： 信号集全部置1，则信号集包含linux支持的64种信号；
-sigaddset(sigset_t *set, int signum)：向信号集中加入signum信号；
-sigdelset(sigset_t *set, int signum)：向信号集中删除signum信号；
-sigismember(const sigset_t *set, int signum)：判定信号signum是否存在信号集中。
+sigemptyset(sigset_t *set): 信号集全部清0；
+sigfillset(sigset_t *set):  信号集全部置1，则信号集包含linux支持的64种信号；
+sigaddset(sigset_t *set, int signum): 向信号集中加入signum信号；
+sigdelset(sigset_t *set, int signum): 向信号集中删除signum信号；
+sigismember(const sigset_t *set, int signum): 判定信号signum是否存在信号集中。
 信号阻塞函数
 
 sigprocmask(int how, const sigset_t *set, sigset_t *oldset))； 不同how参数，实现不同功能
-SIG_BLOCK：将set指向信号集中的信号，添加到进程阻塞信号集；
-SIG_UNBLOCK：将set指向信号集中的信号，从进程阻塞信号集删除；
-SIG_SETMASK：将set指向信号集中的信号，设置成进程阻塞信号集；
-sigpending(sigset_t *set))：获取已发送到进程，却被阻塞的所有信号；
-sigsuspend(const sigset_t *mask))：用mask代替进程的原有掩码，并暂停进程执行，直到收到信号再恢复原有掩码并继续执行进程。
+SIG_BLOCK: 将set指向信号集中的信号，添加到进程阻塞信号集；
+SIG_UNBLOCK: 将set指向信号集中的信号，从进程阻塞信号集删除；
+SIG_SETMASK: 将set指向信号集中的信号，设置成进程阻塞信号集；
+sigpending(sigset_t *set)): 获取已发送到进程，却被阻塞的所有信号；
+sigsuspend(const sigset_t *mask)): 用mask代替进程的原有掩码，并暂停进程执行，直到收到信号再恢复原有掩码并继续执行进程。
 
 
 SIGHUP /* hangup */
@@ -263,7 +263,7 @@ SIGTSTP
 SIGTTIN
        ~~~~~~      当后台作业要从用户终端读数据时, 该作业中的所有进程会收到SIGTTIN信号. 缺省时这些进程会停止执行.
        ~~~~~~      Unix环境下，当一个进程以后台形式启动，但尝试去读写控制台终端时，将会触发SIGTTIN（读）和SIGTTOU（写）信号量，接着，进程将会暂停（linux默认情况下），read/write将会返回错误。这个时候，shell将会发送通知给用户，提醒用户切换此进程为前台进程，以便继续执行。由后台切换至前台的方式是fg命令，前台转为后台则为CTRL+Z快捷键。
-  那么问题来了，如何才能在不把进程切换至前台的情况下，读写控制器不会被暂停？答案：只要忽略SIGTTIN和SIGTTOU信号量即可：signal(SIGTTOU, SIG_IGN)。
+  那么问题来了，如何才能在不把进程切换至前台的情况下，读写控制器不会被暂停？答案: 只要忽略SIGTTIN和SIGTTOU信号量即可: signal(SIGTTOU, SIG_IGN)。
   stty stop/-stop命令是用于设置收到SIGTTOU信号量后是否执行暂停，因为有些系统的默认行为不一致，比如mac是默认忽略，而linux是默认启用。stty -a可以查看当前tty的配置参数。
 在这里插入图片描述
 
@@ -297,13 +297,13 @@ SIGPWR
 SIGSYS
   非法的系统调用。
   
-(1)在以上列出的信号中，程序不可捕获、阻塞或忽略的信号有：SIGKILL,SIGSTOP
-不能恢复至默认动作的信号有：
+(1)在以上列出的信号中，程序不可捕获、阻塞或忽略的信号有: SIGKILL,SIGSTOP
+不能恢复至默认动作的信号有: 
 SIGILL,SIGTRAP
-默认会导致进程流产的信号有：SIGABRT,SIGBUS,SIGFPE,SIGILL,SIGIOT,SIGQUIT,SIGSEGV,SIGTRAP,SIGXCPU,SIGXFSZ
-默认会导致进程退出的信号有：SIGALRM,SIGHUP,SIGINT,SIGKILL,SIGPIPE,SIGPOLL,SIGPROF,SIGSYS,SIGTERM,SIGUSR1,SIGUSR2,SIGVTALRM
-默认会导致进程停止的信号有：SIGSTOP,SIGTSTP,SIGTTIN,SIGTTOU
-默认进程忽略的信号有：SIGCHLD,SIGPWR,SIGURG,SIGWINCH
+默认会导致进程流产的信号有: SIGABRT,SIGBUS,SIGFPE,SIGILL,SIGIOT,SIGQUIT,SIGSEGV,SIGTRAP,SIGXCPU,SIGXFSZ
+默认会导致进程退出的信号有: SIGALRM,SIGHUP,SIGINT,SIGKILL,SIGPIPE,SIGPOLL,SIGPROF,SIGSYS,SIGTERM,SIGUSR1,SIGUSR2,SIGVTALRM
+默认会导致进程停止的信号有: SIGSTOP,SIGTSTP,SIGTTIN,SIGTTOU
+默认进程忽略的信号有: SIGCHLD,SIGPWR,SIGURG,SIGWINCH
 此外，SIGIO在SVR4是退出，在4.3BSD中是忽略；SIGCONT在进程挂起时是继续，否则是忽略，不能被阻塞
 
 
@@ -312,9 +312,9 @@ SIGILL,SIGTRAP
 
 http://gityuan.com/2015/12/20/signal/
 
-作者：故事狗
-链接：https://www.jianshu.com/p/f445bfeea40a
-来源：简书
+作者: 故事狗
+链接: https://www.jianshu.com/p/f445bfeea40a
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 

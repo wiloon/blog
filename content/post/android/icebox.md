@@ -17,7 +17,7 @@ pm install -i "com.android.vending" -r /data/local/tmp/icebox.apk
 
 搞定[受虐滑稽]
 
-adb方法：
+adb方法: 
 手机接上电脑，
 执行
 
@@ -30,7 +30,7 @@ adb shell rm /data/local/tmp/icebox.apk
 同样搞定[受虐滑稽][受虐滑稽]
 
 然后你就可以连上谷歌验证购买了
-参考：
+参考: 
 https://medium.com/@pixplicity/setting-the-install-vendor-of-an-app-7d7deacb01ee 
 
 

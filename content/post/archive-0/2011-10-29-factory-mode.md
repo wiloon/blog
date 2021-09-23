@@ -96,7 +96,7 @@ Sample sampleA=Factory.creator(1);
   
 这两个模式区别在于需要创建对象的复杂程度上。如果我们创建对象的方法变得复杂了,如上面工厂方法中是创建一个对象Sample,如果我们还有新的产品接口Sample2.
   
-这里假设：Sample有两个concrete类SampleA和SamleB，而Sample2也有两个concrete类Sample2A和Sample2B
+这里假设: Sample有两个concrete类SampleA和SamleB，而Sample2也有两个concrete类Sample2A和Sample2B
   
 那么，我们就将上例中Factory变成抽象类,将共同部分封装在抽象类中,不同部分使用子类实现，下面就是将上例中的Factory拓展成抽象工厂:
 
@@ -154,7 +154,7 @@ return new Sample2B
 
 从上面看到两个工厂各自生产出一套Sample和Sample2,也许你会疑问，为什么我不可以使用两个工厂方法来分别生产Sample和Sample2?
   
-抽象工厂还有另外一个关键要点，是因为 SimpleFactory内，生产Sample和生产Sample2的方法之间有一定联系，所以才要将这两个方法捆绑在一个类中，这个工厂类有其本身特征，也许制造过程是统一的，比如：制造工艺比较简单，所以名称叫SimpleFactory。
+抽象工厂还有另外一个关键要点，是因为 SimpleFactory内，生产Sample和生产Sample2的方法之间有一定联系，所以才要将这两个方法捆绑在一个类中，这个工厂类有其本身特征，也许制造过程是统一的，比如: 制造工艺比较简单，所以名称叫SimpleFactory。
   
 在实际应用中，工厂方法用得比较多一些，而且是和动态类装入器组合在一起应用，
   

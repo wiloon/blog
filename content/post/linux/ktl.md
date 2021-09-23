@@ -67,7 +67,7 @@ struct task_struct
 
 内核线程的创建
 创建内核线程接口的演变
-内核线程可以通过两种方式实现：
+内核线程可以通过两种方式实现: 
 
 古老的接口 kernel_create和daemonize
 
@@ -219,7 +219,7 @@ kthread_stop() 通过发送信号给线程。
 
 在执行kthread_stop的时候，目标线程必须没有退出，否则会Oops。原因很容易理解，当目标线程退出的时候，其对应的task结构也变得无效，kthread_stop引用该无效task结构就会出错。
 
-为了避免这种情况，需要确保线程没有退出，其方法如代码中所示：
+为了避免这种情况，需要确保线程没有退出，其方法如代码中所示: 
 
 thread_func()
 {
@@ -238,8 +238,8 @@ exit_code()
 
 这种退出机制很温和，一切尽在thread_func()的掌控之中，线程在退出时可以从容地释放资源，而不是莫名其妙地被人"暗杀"。
 ————————————————
-版权声明：本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/gatieme/article/details/51589205
+版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/gatieme/article/details/51589205
 
 
 
@@ -247,8 +247,8 @@ kthreadd进程由idle通过kernel_thread创建，并始终运行在内核空间,
 
 它的任务就是管理和调度其他内核线程kernel_thread, 会循环执行一个kthreadd的函数，该函数的作用就是运行kthread_create_list全局链表中维护的kthread, 当我们调用kernel_thread创建的内核线程会被加入到此链表中，因此所有的内核线程都是直接或者间接的以kthreadd为父进程
 ————————————————
-版权声明：本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/gatieme/article/details/51566690
+版权声明: 本文为CSDN博主「CHENG Jian」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/gatieme/article/details/51566690
 
 
 ### ksoftirq/n
@@ -264,10 +264,10 @@ kworker意思是’Linux kernel doing work’(系统调用，processing system c
 在日常维护中，kworker进程有时会占用大量的io或cpu。
 
 ### migration
-migration：每个处理器核对应一个migration内核线程，主要作用是作为相应CPU核的迁移进程，用来执行进程迁移操作，内核中的函数是migration_thread()。属于2.6内核的负载平衡系统，该进程在系统启动时自动加载（每个 cpu 一个），并将自己设为 SCHED_FIFO 的实时进程，然后检查 runqueue::migration_queue 中是否有请求等待处理，如果没有，就在 TASK_INTERRUPTIBLE 中休眠，直至被唤醒后再次检查。migration_queue仅在set_cpu_allowed() 中添加，当进程（比如通过 APM 关闭某 CPU 时）调用set_cpu_allowed()改变当前可用 cpu，从而使某进程不适于继续在当前 cpu 上运行时，就会构造一个迁移请求数据结构 migration_req_t，将其植入进程所在 cpu 就绪队列的migration_queue 中，然后唤醒该就绪队列的迁移 daemon（记录在runqueue::migration_thread 属性中），将该进程迁移到合适的cpu上去在目前的实现中，目的 cpu 的选择和负载无关，而是"any_online_cpu(req->task->cpus_allowed)"，也就是按 CPU 编号顺序的第一个 allowed 的CPU。所以，和 load_balance() 与调度器、负载平衡策略密切相关不同，migration_thread() 应该说仅仅是一个 CPU 绑定以及 CPU 电源管理等功能的一个接口。这个线程是调度系统的重要组成部分，也不能被关闭。
+migration: 每个处理器核对应一个migration内核线程，主要作用是作为相应CPU核的迁移进程，用来执行进程迁移操作，内核中的函数是migration_thread()。属于2.6内核的负载平衡系统，该进程在系统启动时自动加载（每个 cpu 一个），并将自己设为 SCHED_FIFO 的实时进程，然后检查 runqueue::migration_queue 中是否有请求等待处理，如果没有，就在 TASK_INTERRUPTIBLE 中休眠，直至被唤醒后再次检查。migration_queue仅在set_cpu_allowed() 中添加，当进程（比如通过 APM 关闭某 CPU 时）调用set_cpu_allowed()改变当前可用 cpu，从而使某进程不适于继续在当前 cpu 上运行时，就会构造一个迁移请求数据结构 migration_req_t，将其植入进程所在 cpu 就绪队列的migration_queue 中，然后唤醒该就绪队列的迁移 daemon（记录在runqueue::migration_thread 属性中），将该进程迁移到合适的cpu上去在目前的实现中，目的 cpu 的选择和负载无关，而是"any_online_cpu(req->task->cpus_allowed)"，也就是按 CPU 编号顺序的第一个 allowed 的CPU。所以，和 load_balance() 与调度器、负载平衡策略密切相关不同，migration_thread() 应该说仅仅是一个 CPU 绑定以及 CPU 电源管理等功能的一个接口。这个线程是调度系统的重要组成部分，也不能被关闭。
 
 ### watchdog
-每个处理器核对应一个watchdog 内核线程，watchdog用于监视系统的运行，在系统出现故障时自动重新启动系统，包括一个内核 watchdog module 和一个用户空间的 watchdog 程序。在Linux 内核下, watchdog的基本工作原理是：当watchdog启动后(即/dev/watchdog设备被打开后)，如果在某一设定的时间间隔（1分钟）内 /dev/watchdog没有被执行写操作, 硬件watchdog电路或软件定时器就会重新启动系统，每次写操作会导致重新设定定时器。/dev/watchdog是一个主设备号为10， 从设备号130的字符设备节点。 Linux内核不仅为各种不同类型的watchdog硬件电路提供了驱动，还提供了一个基于定时器的纯软件watchdog驱动。如果不需要这种故障处理 机制，或者有相应的替代方案，可以在menuconfig的
+每个处理器核对应一个watchdog 内核线程，watchdog用于监视系统的运行，在系统出现故障时自动重新启动系统，包括一个内核 watchdog module 和一个用户空间的 watchdog 程序。在Linux 内核下, watchdog的基本工作原理是: 当watchdog启动后(即/dev/watchdog设备被打开后)，如果在某一设定的时间间隔（1分钟）内 /dev/watchdog没有被执行写操作, 硬件watchdog电路或软件定时器就会重新启动系统，每次写操作会导致重新设定定时器。/dev/watchdog是一个主设备号为10， 从设备号130的字符设备节点。 Linux内核不仅为各种不同类型的watchdog硬件电路提供了驱动，还提供了一个基于定时器的纯软件watchdog驱动。如果不需要这种故障处理 机制，或者有相应的替代方案，可以在menuconfig的
    Device Drivers —>
       Watchdog Timer Support
 处取消watchdog功能。

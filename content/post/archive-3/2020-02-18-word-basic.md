@@ -20,13 +20,13 @@ MS Word 中 hyphen后面跟数字, 在换行时会被拆开显示。
   
 · En dash (–)
 
-En dash 的 Unicode 编码是 U+2013，在 MS Word 里可以先输入 2013 再按 Alt + x，更简便的方法是利用 MS Word 的自动更正功能：按空格，按两下「-」，再按空格，例如输入「this is - atest」，将转换为「this is – a test」（当然，要注意 en dash 前后一般是不留空格的）。
+En dash 的 Unicode 编码是 U+2013，在 MS Word 里可以先输入 2013 再按 Alt + x，更简便的方法是利用 MS Word 的自动更正功能: 按空格，按两下「-」，再按空格，例如输入「this is - atest」，将转换为「this is – a test」（当然，要注意 en dash 前后一般是不留空格的）。
   
 En dash 在 Windows 里可以用 Alt + 0150 （即按下 Alt 键的同时依次按下 0150）来输入，在 Mac 里可以用⌥+ - 来输入，在 TeX 里可以用 - 输入，在 HTML 里可以用 – 来输入。
 
 · Em dash (—)
 
-Em dash 的 Unicode 编码是 U+2014，在 MS Word 里可以先输入 2014 再按 Alt + x，更简便的方法是利用 MS Word 的自动更正功能：不加空格，直接按两下「-」，例如
+Em dash 的 Unicode 编码是 U+2014，在 MS Word 里可以先输入 2014 再按 Alt + x，更简便的方法是利用 MS Word 的自动更正功能: 不加空格，直接按两下「-」，例如
   
 输入「this is-a test」，将转换为「this is—a test」
   
@@ -54,9 +54,9 @@ https://www.online-toolz.com/tools/text-unicode-entities-convertor.php
   
 ————————————————
   
-版权声明：本文为CSDN博主「沸腾人生」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+版权声明: 本文为CSDN博主「沸腾人生」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接：https://blog.csdn.net/lhp1331/article/details/7898618
+原文链接: https://blog.csdn.net/lhp1331/article/details/7898618
 
 ### word 中输入负号
 

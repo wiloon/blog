@@ -136,7 +136,7 @@ lerna到底是什么呢？lerna官网上是这样描述的。
 * prettier
 * eslint
   
-作者：破晓前  
-链接：[https://juejin.im/post/5a989fb451882555731b88c2](https://juejin.im/post/5a989fb451882555731b88c2 "https://juejin.im/post/5a989fb451882555731b88c2")  
-来源：掘金  
+作者: 破晓前  
+链接: [https://juejin.im/post/5a989fb451882555731b88c2](https://juejin.im/post/5a989fb451882555731b88c2 "https://juejin.im/post/5a989fb451882555731b88c2")  
+来源: 掘金  
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

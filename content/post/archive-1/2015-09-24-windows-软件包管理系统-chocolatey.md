@@ -26,8 +26,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
     ChocolateyInstall=D:\ChocolateyInstall
 
 ### 用choco安装其它软件
-查询程序是否在数据库中：clist < 程序名>
-安装程序：cinst < 程序名>
+查询程序是否在数据库中: clist < 程序名>
+安装程序: cinst < 程序名>
   
 choco install keepassxc
 

@@ -160,7 +160,7 @@ wiloon ALL=(ALL) NOPASSWD: ALL
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved.service
 
-# 配置网络： https://blog.wiloon.com/?p=9881， /etc/systemd/network/eth.network， 否则有可能启动之后没有网络
+# 配置网络:  https://blog.wiloon.com/?p=9881， /etc/systemd/network/eth.network， 否则有可能启动之后没有网络
 
 systemctl enable fstrim.timer
 # exit to iso

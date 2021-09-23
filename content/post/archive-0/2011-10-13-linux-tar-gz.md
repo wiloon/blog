@@ -14,15 +14,15 @@ categories:
 ---
 ```bash
   
-解包：tar xvf FileName.tar
+解包: tar xvf FileName.tar
   
-打包：tar cvf FileName.tar DirName
+打包: tar cvf FileName.tar DirName
   
-# 注：tar是打包，不是压缩！
+# 注: tar是打包，不是压缩！
 
 ```
 
-必要参数有如下：
+必要参数有如下: 
   
 -A 新增压缩文件到已存在的压缩
   
@@ -56,7 +56,7 @@ categories:
   
 -W 确认压缩文件的正确性
 
-可选参数如下：
+可选参数如下: 
   
 -b 设置区块数目
   

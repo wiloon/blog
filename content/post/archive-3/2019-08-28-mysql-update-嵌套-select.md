@@ -12,7 +12,7 @@ categories:
 
 You can't specify target table 'x' for update in FROM clause。
 
-错误示范 1： A B 有关联同一个key_id , 根据 B表符合条件 -> 更新A表val值。
+错误示范 1:  A B 有关联同一个key_id , 根据 B表符合条件 -> 更新A表val值。
 
 UPDATE A a SET a.val = 2
   
@@ -22,13 +22,13 @@ LEFT JOIN B ON b.key_id = a.key_id
                   
 WHERE b.satisfy = 1)
   
-解决思路 1： 使用 INNER JOIN (最简洁)
+解决思路 1:  使用 INNER JOIN (最简洁)
 
 UPDATE A a INNER JOIN B b ON b.key_id = a.key_id
   
 SET a.val = 2 WHERE b.satisfy = 1
   
-解决思路 2：
+解决思路 2: 
 
 UPDATE A a, (SELECT A.id from A
                
@@ -42,6 +42,6 @@ WHERE a.id = b.id
    
 ————————————————
   
-版权声明：本文为CSDN博主「InitJ」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
+版权声明: 本文为CSDN博主「InitJ」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
   
-原文链接：https://blog.csdn.net/huanjia_h/article/details/78087994
+原文链接: https://blog.csdn.net/huanjia_h/article/details/78087994

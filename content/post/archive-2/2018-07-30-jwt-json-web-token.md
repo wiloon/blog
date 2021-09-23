@@ -14,7 +14,7 @@ categories:
 ### jwt
 JWT 的全称是 Json Web Token,是一种基于 JSON 的、用于在网络上声明某种主张的令牌（token）规范。
 
-JWT 由三部分组成：head、payload、signature,各部分通过 ‘ . ’ 连接
+JWT 由三部分组成: head、payload、signature,各部分通过 ‘ . ’ 连接
 xxxx . yyyy . zzzz
 
 #### HEAD
@@ -32,7 +32,7 @@ alg: 必需。token 所使用的签名算法,可用的值在这里有规定。
 #### PAYLOAD
 负载存放一些传输的有效声明,可以使用官方提供的声明,也可以自定义声明。同样通过 Base64UrlEncode 编码后生成 payload。
  
-声明可以分为三种类型：
+声明可以分为三种类型: 
 
 Registered claims:
 
@@ -47,7 +47,7 @@ JSON Web Token 的结构
 
 一个 JWT token 看起来是这样的:
 
-    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjEzODY4OTkxMzEsImlzcyI6ImppcmE6MTU0ODk1OTUiLCJxc2giOiI4MDYzZmY0Y2ExZTQxZGY3YmM5MGM4YWI2ZDBmNjIwN2Q0OTFjZjZkYWQ3YzY2ZWE3OTdiNDYxNGI3MTkyMmU5IiwiaWF0IjoxMzg2ODk4OTUxfQ.uKqU9dTB6gKwG6jQCuXYAiMNdfNRw98Hw_IWuA5MaMo
+>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjEzODY4OTkxMzEsImlzcyI6ImppcmE6MTU0ODk1OTUiLCJxc2giOiI4MDYzZmY0Y2ExZTQxZGY3YmM5MGM4YWI2ZDBmNjIwN2Q0OTFjZjZkYWQ3YzY2ZWE3OTdiNDYxNGI3MTkyMmU5IiwiaWF0IjoxMzg2ODk4OTUxfQ.uKqU9dTB6gKwG6jQCuXYAiMNdfNRw98Hw_IWuA5MaMo
 
 可以简化为下面这样的结构:
 
@@ -68,7 +68,7 @@ Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准�
 #### 其它 claim name, IANA JSON Web Token Registry中定义的关键字。
     https://www.iana.org/assignments/jwt/jwt.xhtml
 
-#### Public claims：
+#### Public claims: 
 保留给 JWT 的使用者自定义。但是需要注意避免使用IANA JSON Web Token Registry中定义的关键字。
 
 #### Private claims:
@@ -78,8 +78,8 @@ Claims 部分包含了一些跟这个 token 有关的重要信息。 JWT 标准�
 数据签名是 JWT 的核心部分,构成较为复杂,且无法被反编码。
 
 signature 可以选择对称加密算法或者非对称加密算法,常用的就是 HS256、RS256。
-对称加密： 加密方和解密方利用同一个秘钥对数据进行加密和解密。
-非对称加密： 加密方用私钥加密,并把公钥告诉解密方用于解密。
+对称加密:  加密方和解密方利用同一个秘钥对数据进行加密和解密。
+非对称加密:  加密方用私钥加密,并把公钥告诉解密方用于解密。
 
 ---
 
@@ -122,6 +122,6 @@ The JWT will contain an aud claim that specifies which Resource Servers the JWT 
 
 http://blog.leapoahead.com/2015/09/06/understanding-jwt/  
 
-JWT(auth0)：RS256非对称加密算法实现Token的签发、验证
-原文链接： https://xie.infoq.cn/article/e55bb7e46be860902e39f9280?utm_source=rss&utm_medium=article
+JWT(auth0): RS256非对称加密算法实现Token的签发、验证
+原文链接:  https://xie.infoq.cn/article/e55bb7e46be860902e39f9280?utm_source=rss&utm_medium=article
 

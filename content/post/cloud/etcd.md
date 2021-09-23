@@ -16,27 +16,27 @@ etcd 被设计为大型分布式系统的通用基板。这些大型系统需要
 
 ## etcd的特点
 
-* 简单：安装配置简单，而且提供了HTTP API进行交互，使用也很简单
-* 安全：支持SSL证书验证
-* 快速：根据官方提供的benchmark数据，单实例支持每秒2k+读操作
-* 可靠：采用raft算法，实现分布式系统数据的可用性和一致性
+* 简单: 安装配置简单，而且提供了HTTP API进行交互，使用也很简单
+* 安全: 支持SSL证书验证
+* 快速: 根据官方提供的benchmark数据，单实例支持每秒2k+读操作
+* 可靠: 采用raft算法，实现分布式系统数据的可用性和一致性
 
 ## 概念术语
 
-* Raft：etcd所采用的保证分布式系统强一致性的算法。
-* Node：一个Raft状态机实例。
-* Member： 一个etcd实例。它管理着一个Node，并且可以为客户端请求提供服务。
-* Cluster：由多个Member构成可以协同工作的etcd集群。
-* Peer：对同一个etcd集群中另外一个Member的称呼。
-* Client： 向etcd集群发送HTTP请求的客户端。
-* WAL：预写式日志，etcd用于持久化存储的日志格式。
-* snapshot：etcd防止WAL文件过多而设置的快照，存储etcd数据状态。
-* Proxy：etcd的一种模式，为etcd集群提供反向代理服务。
-* Leader：Raft算法中通过竞选而产生的处理所有数据提交的节点。
-* Follower：竞选失败的节点作为Raft中的从属节点，为算法提供强一致性保证。
-* Candidate：当Follower超过一定时间接收不到Leader的心跳时转变为Candidate开始竞选。
-* Term：某个节点成为Leader到下一次竞选时间，称为一个Term。
-* Index：数据项编号。Raft中通过Term和Index来定位数据。
+* Raft: etcd所采用的保证分布式系统强一致性的算法。
+* Node: 一个Raft状态机实例。
+* Member:  一个etcd实例。它管理着一个Node，并且可以为客户端请求提供服务。
+* Cluster: 由多个Member构成可以协同工作的etcd集群。
+* Peer: 对同一个etcd集群中另外一个Member的称呼。
+* Client:  向etcd集群发送HTTP请求的客户端。
+* WAL: 预写式日志，etcd用于持久化存储的日志格式。
+* snapshot: etcd防止WAL文件过多而设置的快照，存储etcd数据状态。
+* Proxy: etcd的一种模式，为etcd集群提供反向代理服务。
+* Leader: Raft算法中通过竞选而产生的处理所有数据提交的节点。
+* Follower: 竞选失败的节点作为Raft中的从属节点，为算法提供强一致性保证。
+* Candidate: 当Follower超过一定时间接收不到Leader的心跳时转变为Candidate开始竞选。
+* Term: 某个节点成为Leader到下一次竞选时间，称为一个Term。
+* Index: 数据项编号。Raft中通过Term和Index来定位数据。
 
 ## 数据读写顺序
 
@@ -44,8 +44,8 @@ etcd 被设计为大型分布式系统的通用基板。这些大型系统需要
 
 用户对于etcd集群所有节点进行读写
 
-* 读取：由于集群所有节点数据是强一致性的，读取可以从集群中随便哪个节点进行读取数据
-* 写入：etcd集群有leader，如果写入往leader写入，可以直接写入，然后然后Leader节点会把写入分发给所有Follower，如果往follower写入，然后Leader节点会把写入分发给所有Follower
+* 读取: 由于集群所有节点数据是强一致性的，读取可以从集群中随便哪个节点进行读取数据
+* 写入: etcd集群有leader，如果写入往leader写入，可以直接写入，然后然后Leader节点会把写入分发给所有Follower，如果往follower写入，然后Leader节点会把写入分发给所有Follower
 
 ## leader选举
 
@@ -63,10 +63,10 @@ etcd认为写入请求被Leader节点处理并分发给了多数节点后，就�
 
 从 etcd 的架构图中我们可以看到，etcd 主要分为四个部分。
 
-* HTTP Server：用于处理用户发送的 API 请求以及其它 etcd 节点的同步与心跳信息请求。
-* Store：用于处理 etcd 支持的各类功能的事务，包括数据索引、节点状态变更、监控与反馈、事件处理与执行等等，是 etcd 对用户提供的大多数 API 功能的具体实现。
-* Raft：Raft 强一致性算法的具体实现，是 etcd 的核心。
-* WAL：Write Ahead Log（预写式日志），是 etcd 的数据存储方式。除了在内存中存有所有数据的状态以及节点的索引以外，etcd 就通过 WAL 进行持久化存储。WAL 中，所有的数据提交前都会事先记录日志。
+* HTTP Server: 用于处理用户发送的 API 请求以及其它 etcd 节点的同步与心跳信息请求。
+* Store: 用于处理 etcd 支持的各类功能的事务，包括数据索引、节点状态变更、监控与反馈、事件处理与执行等等，是 etcd 对用户提供的大多数 API 功能的具体实现。
+* Raft: Raft 强一致性算法的具体实现，是 etcd 的核心。
+* WAL: Write Ahead Log（预写式日志），是 etcd 的数据存储方式。除了在内存中存有所有数据的状态以及节点的索引以外，etcd 就通过 WAL 进行持久化存储。WAL 中，所有的数据提交前都会事先记录日志。
   * Snapshot 是为了防止数据过多而进行的状态快照；
   * Entry 表示存储的具体日志内容。
 

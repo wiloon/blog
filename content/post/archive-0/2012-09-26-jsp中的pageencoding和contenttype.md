@@ -11,11 +11,11 @@ tags:
   - JSP
 
 ---
-JSP页面中的PageEncoding和ContentType两种属性的区别是什么呢？我们先来看一下：
+JSP页面中的PageEncoding和ContentType两种属性的区别是什么呢？我们先来看一下: 
 
-**PageEncoding：**是JSP文件本身的编码
+**PageEncoding: **是JSP文件本身的编码
 
-**ContentType： **ContentType 属性指定响应的 HTTP 内容类型。如果未指定 ContentType，默认为 text/HTML。
+**ContentType:  **ContentType 属性指定响应的 HTTP 内容类型。如果未指定 ContentType，默认为 text/HTML。
 
 ContentType的charset是指服务器发送给客户端时的内容编码
 

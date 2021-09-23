@@ -13,9 +13,9 @@ tags:
 引用队列 ReferenceQueue
 使用SoftReference，WeakReference，PhantomReference 的时候，可以关联一个ReferenceQueue。那么当垃圾回收器准备回收一个被引用包装的对象时，该引用会被加入到关联的ReferenceQueue。程序可以通过判断引用队列中是否已经加入引用,来了解被引用的对象是否被GC回收。
 
-作者：leilifengxingmw
-链接：https://www.jianshu.com/p/6ae4f53a4752
-来源：简书
+作者: leilifengxingmw
+链接: https://www.jianshu.com/p/6ae4f53a4752
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 http://www.iflym.com/index.php/java-programe/201407140001.html

@@ -69,9 +69,9 @@ root 可随意调整自己或他人程序的 Nice 值,且范围为 -20 ~ 19 ；
 
 [root@www ~]# nice [-n 数字] command
 
-选项与参数：
+选项与参数: 
 
--n  ：后面接一个数值,数值的范围 -20 ~ 19。
+-n  : 后面接一个数值,数值的范围 -20 ~ 19。
 
 用ps -l查的话,里面显示的PRI就是PRI(new),核心会自动调整,不是PRI(old) + nice的值,会调高一点点
 
@@ -85,13 +85,13 @@ renice [number] PID
 
 userxxx - nice 19
 
-要使 limits.conf 文件配置生效,必须要确保 pam_limits.so 文件被加入到启动文件中。查看 /etc/pam.d/login 文件中有：
+要使 limits.conf 文件配置生效,必须要确保 pam_limits.so 文件被加入到启动文件中。查看 /etc/pam.d/login 文件中有: 
 
 session required /lib/security/pam_limits.so
 
-注释：
+注释: 
 
-如果要改nice值的话（就是改优先级）,可以用上述一样的命令：
+如果要改nice值的话（就是改优先级）,可以用上述一样的命令: 
 
 renice -n (nice值) -p (process进程值) :改单一进程优先级；
 
@@ -99,9 +99,9 @@ renice -n (nice值) -g (group组名）:改整个组员的优先级；
 
 renice -n (nice值) -u (user用户名）:改用户的优先级；
 
-作者：richard520
-链接：https://www.jianshu.com/p/c5ac9ade3e68
-来源：简书
+作者: richard520
+链接: https://www.jianshu.com/p/c5ac9ade3e68
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 
 

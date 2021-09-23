@@ -12,10 +12,10 @@ tags:
 ---
 outline - structure, Ctrl+F12
 
-本文转自：<http://gagi.iteye.com/blog/633778>
+本文转自: <http://gagi.iteye.com/blog/633778>
 
 
-1、比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下：
+1、比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下: 
  
   
   
@@ -29,7 +29,7 @@ outline - structure, Ctrl+F12
   
   
     
-      修改idea.exe.vmoptions配置文件调整以下内容：
+      修改idea.exe.vmoptions配置文件调整以下内容: 
     
     
       -Xms256m
@@ -80,7 +80,7 @@ outline - structure, Ctrl+F12
     
     
     
-      如何让IntelliJ IDEA动的时候不打开工程文件：Settings->General去掉Reopen last project on startup
+      如何让IntelliJ IDEA动的时候不打开工程文件: Settings->General去掉Reopen last project on startup
     
   
 
@@ -107,7 +107,7 @@ outline - structure, Ctrl+F12
  
   
     
-      如何显示行号：Settings->Editor->Appearance标签项，勾选Show line numbers
+      如何显示行号: Settings->Editor->Appearance标签项，勾选Show line numbers
     
   
 
@@ -117,7 +117,7 @@ outline - structure, Ctrl+F12
   
   
     
-      如果默认代码提示和补全快捷键跟输入法冲突，如何解决：Settings->Keymap
+      如果默认代码提示和补全快捷键跟输入法冲突，如何解决: Settings->Keymap
     
   
 
@@ -136,7 +136,7 @@ outline - structure, Ctrl+F12
   
   
     
-      在包含中文文件名或者文件夹的时候会出现??的乱码，解决方法如下：
+      在包含中文文件名或者文件夹的时候会出现??的乱码，解决方法如下: 
     
     
     
@@ -188,7 +188,7 @@ outline - structure, Ctrl+F12
       Ctrl+Alt+O 优化导入的类和包
     
     
-      Alt+/ 自动补全代码 注：默认与输入法有冲突，在setting->keymap->main menu->code->complete code->basic
+      Alt+/ 自动补全代码 注: 默认与输入法有冲突，在setting->keymap->main menu->code->complete code->basic
     
     
       Ctrl+P 方法参数提示

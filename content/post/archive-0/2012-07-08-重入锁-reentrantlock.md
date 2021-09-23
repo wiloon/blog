@@ -14,7 +14,7 @@ tags:
 ### synchronized
 采用 synchronized 修饰符实现的同步机制叫做互斥锁机制，它所获得的锁叫做互斥锁。每个对象都有一个 monitor (锁标记)，当线程拥有这个锁标记时才能访问这个资源，没有锁标记便进入锁池。任何一个对象系统都会为其创建一个互斥锁，这个锁是为了分配给线程的，防止打断原子操作。每个对象的锁只能分配给一个线程，因此叫做互斥锁。
 
-这里就使用同步机制获取互斥锁的情况，进行几点说明：
+这里就使用同步机制获取互斥锁的情况，进行几点说明: 
 
 1. 如果同一个方法内同时有两个或更多线程，则每个线程有自己的局部变量拷贝。
 2. 类的每个实例都有自己的对象级别锁。当一个线程访问实例对象中的 synchronized 同步代码块或同步方法时，该线程便获取了该实例的对象级别锁，其他线程这时如果要访问 synchronized 同步代码块或同步方法，便需要阻塞等待，直到前面的线程从同步代码块或方法中退出，释放掉了该对象级别锁。
@@ -46,7 +46,7 @@ ReentrantLock这个锁提供了一个构造函数，能够控制这个锁是否�
   
 在ReentrantLock中，对于公平和非公平的定义是通过对同步器AbstractQueuedSynchronizer的扩展加以实现的，也就是在tryAcquire的实现上做了语义的控制。
 
-非公平的获取语义：
+非公平的获取语义: 
    
 final boolean nonfairTryAcquire(int acquires) {
       
@@ -82,7 +82,7 @@ return false;
   
 }
   
-上述逻辑主要包括：
+上述逻辑主要包括: 
 
 如果当前状态为初始状态，那么尝试设置状态；
   
@@ -92,7 +92,7 @@ return false;
   
 如果未设置成功状态且当前线程不是获取锁的线程，那么返回失败。
   
-公平的获取语义：
+公平的获取语义: 
   
 protected final boolean tryAcquire(int acquires) {
   
@@ -160,7 +160,7 @@ return false;
   
 上述逻辑相比较非公平的获取，仅加入了当前线程（Node）之前是否有前置节点在等待的判断。hasQueuedPredecessors()方法命名有些歧义，其实应该是currentThreadHasQueuedPredecessors()更为妥帖一些，也就是说当前面没有人排在该节点（Node）前面时候队且能够设置成功状态，才能够获取锁。
 
-释放语义：
+释放语义: 
   
 protected final boolean tryRelease(int releases) {
   
@@ -208,9 +208,9 @@ return free;
   
 上述逻辑主要主要计算了释放状态后的值，如果为0则完全释放，返回true，反之仅是设置状态，返回false。
   
-下面将主要的笔墨放在公平性和非公平性上，首先看一下二者测试的对比：
+下面将主要的笔墨放在公平性和非公平性上，首先看一下二者测试的对比: 
   
-测试用例如下：
+测试用例如下: 
 
 public class ReentrantLockTest {
   
@@ -420,7 +420,7 @@ lock.unlock();
   
 }
   
-调用非公平的测试方法，返回结果(部分)：
+调用非公平的测试方法，返回结果(部分): 
   
 unfair version
   
@@ -450,7 +450,7 @@ Lock by:1
   
 Lock by:1
   
-调用公平的测试方法，返回结果：
+调用公平的测试方法，返回结果: 
   
 fair version
   
@@ -480,7 +480,7 @@ Lock by:4
   
 通过之前的同步器(AbstractQueuedSynchronizer)的介绍，在锁上是存在一个等待队列，sync队列，我们通过复写ReentrantLock的获取当前锁的sync队列，输出在ReentrantLock被获取时刻，当前的sync队列的状态。
   
-修改测试如下：
+修改测试如下: 
 
 public class ReentrantLockTest {
   
@@ -728,9 +728,9 @@ return super.getQueuedThreads();
   
 }
   
-上述逻辑主要是通过构造ReentrantLock2用来输出在sync队列中的线程内容，而且每个线程的toString方法被重写，这样当一个线程获取到锁时，sync队列里的内容也就可以得知了，运行结果如下：
+上述逻辑主要是通过构造ReentrantLock2用来输出在sync队列中的线程内容，而且每个线程的toString方法被重写，这样当一个线程获取到锁时，sync队列里的内容也就可以得知了，运行结果如下: 
   
-调用非公平方法，返回结果：
+调用非公平方法，返回结果: 
   
 unfair version
   
@@ -752,7 +752,7 @@ Lock by:1 and [0, 4, 2] waits.
   
 Lock by:1 and [0, 4, 2] waits.
   
-调用公平方法，返回结果：
+调用公平方法，返回结果: 
   
 fair version
   
@@ -772,7 +772,7 @@ Lock by:1 and [0, 4, 3, 2] waits.
   
 Lock by:2 and [1, 0, 4, 3] waits.
   
-可以明显看出，在非公平获取的过程中，"插队"现象非常严重，后续获取锁的线程根本不顾及sync队列中等待的线程，而是能获取就获取。反观公平获取的过程，锁的获取就类似线性化的，每次都由sync队列中等待最长的线程（链表的第一个，sync队列是由尾部结点添加，当前输出的sync队列是逆序输出）获取锁。一个 hasQueuedPredecessors方法能够获得公平性的特性，这点实际上是由AbstractQueuedSynchronizer来完成的，看一下acquire方法：
+可以明显看出，在非公平获取的过程中，"插队"现象非常严重，后续获取锁的线程根本不顾及sync队列中等待的线程，而是能获取就获取。反观公平获取的过程，锁的获取就类似线性化的，每次都由sync队列中等待最长的线程（链表的第一个，sync队列是由尾部结点添加，当前输出的sync队列是逆序输出）获取锁。一个 hasQueuedPredecessors方法能够获得公平性的特性，这点实际上是由AbstractQueuedSynchronizer来完成的，看一下acquire方法: 
 
 public final void acquire(int arg) {
   
@@ -788,7 +788,7 @@ selfInterrupt();
   
 可以看到，如果获取状态和在sync队列中排队是短路的判断，也就是说如果tryAcquire成功，那么是不会进入sync队列的，可以通过下图来深刻的认识公平性和AbstractQueuedSynchronizer的获取过程。
   
-非公平的，或者说默认的获取方式如下图所示：
+非公平的，或者说默认的获取方式如下图所示: 
 
 对于状态的获取，可以快速的通过tryAcquire的成功，也就是黄色的Fast路线，也可以由于tryAcquire的失败，构造节点，进入sync队列中排序后再次获取。因此可以理解为Fast就是一个快速通道，当例子中的线程释放锁之后，快速的通过Fast通道再次获取锁，就算当前sync队列中有排队等待的线程也会被忽略。这种模式，可以保证进入和退出锁的吞吐量，但是sync队列中过早排队的线程会一直处于阻塞状态，造成"饥饿"场景。
   

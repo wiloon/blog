@@ -44,7 +44,7 @@ Ubuntu中的运行级别
 
 init [0123456Ss]
   
-例如：init 0 命令关机； init 6 命令重新启动
+例如: init 0 命令关机； init 6 命令重新启动
   
 启动项管理工具
 
@@ -66,9 +66,9 @@ update-rc.d -f ＜basename＞ remove
 
 update-rc.d ＜basename＞ start|stop ＜order＞ ＜runlevels＞
   
-实例：update-rc.d apachectl start 20 2 3 4 5 . stop 20 0 1 6 .
+实例: update-rc.d apachectl start 20 2 3 4 5 . stop 20 0 1 6 .
   
-解析：表示在2、3、4、5这五个运行级别中，由小到大，第20个开始运行apachectl；在 0 1 6这3个运行级别中，第20个关闭apachectl。这是合并起来的写法，注意它有2个点号，效果等于下面方法：
+解析: 表示在2、3、4、5这五个运行级别中，由小到大，第20个开始运行apachectl；在 0 1 6这3个运行级别中，第20个关闭apachectl。这是合并起来的写法，注意它有2个点号，效果等于下面方法: 
 
 update-rc.d apachectl defaults
   

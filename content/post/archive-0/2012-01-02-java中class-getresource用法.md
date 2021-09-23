@@ -50,17 +50,17 @@ file1.txt file2.txt file3.txt file4.txt这四个文件呢？
   
 file3.txt:
   
-方法一：File file3 = new File(Test.class.getResource("file3.txt").getFile());
+方法一: File file3 = new File(Test.class.getResource("file3.txt").getFile());
   
-方法二：File file3 = new File(Test.class.getResource("/javaapplication/file3.txt").getFile());
+方法二: File file3 = new File(Test.class.getResource("/javaapplication/file3.txt").getFile());
   
-方法三：File file3 = new File(Test.class.getClassLoader().getResource("javaapplication/file3.txt").getFile());
+方法三: File file3 = new File(Test.class.getClassLoader().getResource("javaapplication/file3.txt").getFile());
 
 file4.txt:
   
-方法一：File file4 = new File(Test.class.getResource("/file4.txt").getFile());
+方法一: File file4 = new File(Test.class.getResource("/file4.txt").getFile());
   
-方法二：File file4 = new File(Test.class.getClassLoader().getResource("file4.txt").getFile());
+方法二: File file4 = new File(Test.class.getClassLoader().getResource("file4.txt").getFile());
 
 很好，我们可以有多种方法选择，但是file1与file2文件呢？如何获得？
   
@@ -70,15 +70,15 @@ file4.txt:
   
 file1.txt
   
-方法一：File file1 = new File("c:/project/src/javaapplication/file1.txt");
+方法一: File file1 = new File("c:/project/src/javaapplication/file1.txt");
   
-方法二：。。。没有
+方法二: 。。。没有
 
 file2.txt
   
-方法一：File file2 = new File("c:/project/src/file2.txt");
+方法一: File file2 = new File("c:/project/src/file2.txt");
   
-方法二：。。。也没有
+方法二: 。。。也没有
 
 总结一下，就是你想获得文件，你得从最终生成的.class文件为着手点，不要以.java文件的路径为出发点，因为真正使用的就是.class，不会拿个.java文件就使用，因为java是编译型语言嘛
 

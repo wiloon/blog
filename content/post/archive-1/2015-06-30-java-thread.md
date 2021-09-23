@@ -31,7 +31,7 @@ Linux上线程位于libpthread共享库中，因此在编译时要加上-lpthrea
 4. 进程是分配资源（资源管理）的最小单元；而线程是调度资源（程序执行）的最小单元
 5. 线程与线程之间是独立的
 
-实现线程主要有三种方式：使用内核线程实现，使用用户线程实现和使用用户线程加轻量级进程混合实现。
+实现线程主要有三种方式: 使用内核线程实现，使用用户线程实现和使用用户线程加轻量级进程混合实现。
 
 ### java thread
 ### Thread Dump日志的线程信息
@@ -737,8 +737,8 @@ http://www.infoq.com/cn/articles/java-memory-model-6
 https://www.javatang.com/archives/2017/10/25/36441958.html
 
 ————————————————
-版权声明：本文为CSDN博主「mm_hh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/mm_hh/article/details/72587207
+版权声明: 本文为CSDN博主「mm_hh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/mm_hh/article/details/72587207
 
 
 https://blog.csdn.net/nalanmingdian/article/details/77748326

@@ -11,15 +11,15 @@ tags:
 
 futex (fast userspace mutex) 是Linux的一个基础构件，可以用来构建各种更高级别的同步机制，比如锁或者信号量等等，POSIX信号量就是基于futex构建的。大多数时候编写应用程序并不需要直接使用futex，一般用基于它所实现的系统库就够了。
 
-futex的性能非常优异，它是怎样做到的呢？这要从它的设计思想谈起。传统的SystemV IPC(inter process communication)进程间同步机制都是通过内核对象来实现的，以 semaphore 为例，当进程间要同步的时候，必须通过系统调用semop(2)进入内核进行PV操作。系统调用的缺点是开销很大，需要从user mode切换到kernel mode、保存寄存器状态、从user stack切换到kernel stack、等等，通常要消耗上百条指令。事实上，有一部分系统调用是可以避免的，因为现实中很多同步操作进行的时候根本不存在竞争，即某个进程从持有semaphore直至释放semaphore的这段时间内，常常没有其它进程对同一semaphore有需求，在这种情况下，内核的参与本来是不必要的，可是在传统机制下，持有semaphore必须先调用semop(2)进入内核去看看有没有人和它竞争，释放semaphore也必须调用semop(2)进入内核去看看有没有人在等待同一semaphore，这些不必要的系统调用造成了大量的性能损耗。futex就为了解决这个问题而生的，它的办法是：在无竞争的情况下，futex的操作完全在user space进行，不需要系统调用，仅在发生竞争的时候进入内核去完成相应的处理(wait 或者 wake up)。所以说，futex是一种user mode和kernel mode混合的同步机制，需要两种模式合作才能完成，futex变量必须位于user space，而不是内核对象，futex的代码也分为user mode和kernel mode两部分，无竞争的情况下在user mode，发生竞争时则通过sys_futex系统调用进入kernel mode进行处理，具体来说：
+futex的性能非常优异，它是怎样做到的呢？这要从它的设计思想谈起。传统的SystemV IPC(inter process communication)进程间同步机制都是通过内核对象来实现的，以 semaphore 为例，当进程间要同步的时候，必须通过系统调用semop(2)进入内核进行PV操作。系统调用的缺点是开销很大，需要从user mode切换到kernel mode、保存寄存器状态、从user stack切换到kernel stack、等等，通常要消耗上百条指令。事实上，有一部分系统调用是可以避免的，因为现实中很多同步操作进行的时候根本不存在竞争，即某个进程从持有semaphore直至释放semaphore的这段时间内，常常没有其它进程对同一semaphore有需求，在这种情况下，内核的参与本来是不必要的，可是在传统机制下，持有semaphore必须先调用semop(2)进入内核去看看有没有人和它竞争，释放semaphore也必须调用semop(2)进入内核去看看有没有人在等待同一semaphore，这些不必要的系统调用造成了大量的性能损耗。futex就为了解决这个问题而生的，它的办法是: 在无竞争的情况下，futex的操作完全在user space进行，不需要系统调用，仅在发生竞争的时候进入内核去完成相应的处理(wait 或者 wake up)。所以说，futex是一种user mode和kernel mode混合的同步机制，需要两种模式合作才能完成，futex变量必须位于user space，而不是内核对象，futex的代码也分为user mode和kernel mode两部分，无竞争的情况下在user mode，发生竞争时则通过sys_futex系统调用进入kernel mode进行处理，具体来说: 
 
-futex变量是位于user space的一个整数，支持原子操作。futex同步操作都是从user space开始的：
+futex变量是位于user space的一个整数，支持原子操作。futex同步操作都是从user space开始的: 
 
 当要求持有futex的时候，对futex变量执行”down”操作，即原子递减，如果变量变为0，则意味着没有竞争发生，进程成功持有futex并继续在user mode运行；如果变量变为负数，则意味着有竞争发生，需要通过sys_futex系统调用进入内核执行futex_wait操作，让进程进入休眠等待。
 当释放futex的时候，对futex变量进行”up”操作，即原子递增，如果变量变成1，则意味着没有竞争发生，进程成功释放futex并继续在user mode执行；否则意味着有竞争，需要通过sys_futex系统调用进入内核执行futex_wake操作，唤醒正在等待的进程。
 如果需要在多个进程之间共享futex，那就必须把futex变量放在共享内存中，并确保这些进程都有访问共享内存的权限；如果仅需在线程之间使用futex的话，那么futex变量可以位于进程的私有内存中，比如普通的全局变量即可。
 
-更详细的信息请参阅futex作者的论文：
+更详细的信息请参阅futex作者的论文: 
 Fuss, Futexes and Furwocks: Fast Userlevel Locking in Linux
 >http://linuxperf.com/?p=23
 
@@ -32,11 +32,11 @@ Futex 按英文翻译过来就是快速用户空间互斥体。其设计思想�
 >https://cloud.tencent.com/developer/article/1176832
 
 ### futex 诞生之前
-在futex诞生之前,linux下的同步机制可以归为两类：用户态的同步机制 和 内核态同步机制. 用户态的同步机制基本上就是利用原子指令实现的 spinlock。最简单的实现就是使用一个整型数,0表示未上锁,1表示已上锁。trylock操作就利用原子指令尝试将0改为1
+在futex诞生之前,linux下的同步机制可以归为两类: 用户态的同步机制 和 内核态同步机制. 用户态的同步机制基本上就是利用原子指令实现的 spinlock。最简单的实现就是使用一个整型数,0表示未上锁,1表示已上锁。trylock操作就利用原子指令尝试将0改为1
 ```c
 bool trylock(int lockval) {
     int old;
-    atomic { old = lockval; lockval = 1; }  // 如：x86下的xchg指令
+    atomic { old = lockval; lockval = 1; }  // 如: x86下的xchg指令
     return old == 0;
 }
 ```
@@ -48,19 +48,19 @@ spinlock的lock操作则是一个死循环,不断尝试 trylock, 直到成功。
 但是 spinlock 的应用场景有限,对于大的临界区,忙等待则是件很恐怖的事情,特别是当同步机制运用于等待某一事件时（比如服务器工作线程等待客户端发起请求）。所以很多情况下进程挂起等待是很有必要的。
 
 内核提供的同步机制,诸如 semaphore、等,其实骨子里也是利用原子指令实现的 spinlock, 内核在此基础上实现了进程的睡眠与唤醒。
-使用这样的锁,能很好的支持进程挂起等待。但是最大的缺点是每次 lock 与 unlock 都是一次系统调用,即使没有锁冲突,也必须要通过系统调用进入内核之后才能识别。（关于系统调用开销大的问题,可以参阅：《从"read"看系统调用的耗时》。）
+使用这样的锁,能很好的支持进程挂起等待。但是最大的缺点是每次 lock 与 unlock 都是一次系统调用,即使没有锁冲突,也必须要通过系统调用进入内核之后才能识别。（关于系统调用开销大的问题,可以参阅: 《从"read"看系统调用的耗时》。）
 
 理想的同步机制应该是在没有锁冲突的情况下在用户态利用原子指令就解决问题,而需要挂起等待时再使用内核提供的系统调用进行睡眠与唤醒。换句话说,用户态的 spinlock 在 trylock 失败时,能不能让进程挂起,并且由持有锁的线程在 unlock 时将其唤醒？
-如果你没有较深入地考虑过这个问题,很可能想当然的认为类似于这样就行了：
+如果你没有较深入地考虑过这个问题,很可能想当然的认为类似于这样就行了: 
 
 void lock(int lockval) {
     while (!trylock(lockval)) {
-        wait();  // 如：raise(SIGSTOP)
+        wait();  // 如: raise(SIGSTOP)
     }
 }
 但是如果这样做的话,检测锁的trylock操作和挂起进程的wait操作之间会存在一个窗口,如果其间 lock 发生变化（比如锁的持有者释放了锁）,调用者将进入不必要的 wait,甚至于wait之后再没有人能将它唤醒。（详见《linux线程同步浅析》的讨论。）
 
-在futex诞生之前,要实现我们理想中的锁会非常别扭。比如可以考虑用 sigsuspend 系统调用来实现进程挂起：
+在futex诞生之前,要实现我们理想中的锁会非常别扭。比如可以考虑用 sigsuspend 系统调用来实现进程挂起: 
 ```c
 class mutex {
 private:
@@ -90,11 +90,11 @@ public:
 另一方面,用户态实现的等待队列也不太爽。它对进程的生命周期是无法感知的,很可能进程挂了,pid却还留在队列中（甚至于一段时间之后又有另一个不相干的进程重用了这个pid,以至于它可能会收到莫名其妙的信号）。所以,unlock的时候如果仅仅给队列中的一个进程发信号,很可能唤醒不了任何等待者。保险的做法只能是全部唤醒,从而引发“惊群“现象。不过,如果仅仅用在多线程（同一进程内部）倒也没关系,毕竟多线程不存在某个线程挂掉的情况（如果线程挂掉,整个进程都会挂掉）,而对于线程响应信号而主动退出的情况也是可以在主动退出前注意处理一下等待队列清理的问题。
 
 ### futex 来了
-现在看来,要实现我们想要的锁,对内核就有两点需求：
+现在看来,要实现我们想要的锁,对内核就有两点需求: 
 1. 支持一种锁粒度的睡眠与唤醒操作；
 2. 管理进程挂起时的等待队列。
 
-于是futex就诞生了。futex主要有 futex_wait 和futex_wake两个操作：
+于是futex就诞生了。futex主要有 futex_wait 和futex_wake两个操作: 
 
 // 在uaddr指向的这个锁变量上挂起等待（仅当*uaddr==val时）
 int futex_wait(int *uaddr, int val);
@@ -108,8 +108,8 @@ futex实现了锁粒度的等待队列,而这个锁却并不需要事先向内�
 作为优化,futex维护的这个等待队列由若干个带spinlock的链表构成。调用futex_wait挂起的进程,通过其uaddr hash到某一个具体的链表上去。这样一方面能分散对等待队列的竞争、另一方面减小单个队列的长度,便于futex_wake时的查找。每个链表各自持有一把spinlock,将"*uaddr和val的比较操作"与"把进程加入队列的操作"保护在一个临界区中。
 
 另一个问题是关于uaddr参数的比较。futex支持多进程,需要考虑同一个物理内存单元在不同进程中的虚拟地址不同的问题。那么不同进程传递进来的uaddr如何判断它们是否相等,就不是简单数值比较的事情。相同的uaddr不一定代表同一个内存,反之亦然。
-两个进程（线程）要想共享同存,无外乎两种方式：通过文件映射（映射真实的文件或内存文件、ipc shmem,以及有亲缘关系的进程通过带MAP_SHARED标记的匿名映射共享内存）、通过匿名内存映射（比如多线程）,这也是进程使用内存的唯二方式。
-那么futex就应该支持这两种方式下的uaddr比较。匿名映射下,需要比较uaddr所在的地址空间（mm）和uaddr的值本身；文件映射下,需要比较uaddr所在的文件inode和uaddr在该inode中的偏移。注意,上面提到的内存共享方式中,有一种比较特殊：有亲缘关系的进程通过带MAP_SHARED标记的匿名映射共享内存。这种情况下表面上看使用的是匿名映射,但是内核在暗中却会转成到/dev/zero这个特殊文件的文件映射。若非如此,各个进程的地址空间不同,匿名映射下的uaddr永远不可能被futex认为相等。
+两个进程（线程）要想共享同存,无外乎两种方式: 通过文件映射（映射真实的文件或内存文件、ipc shmem,以及有亲缘关系的进程通过带MAP_SHARED标记的匿名映射共享内存）、通过匿名内存映射（比如多线程）,这也是进程使用内存的唯二方式。
+那么futex就应该支持这两种方式下的uaddr比较。匿名映射下,需要比较uaddr所在的地址空间（mm）和uaddr的值本身；文件映射下,需要比较uaddr所在的文件inode和uaddr在该inode中的偏移。注意,上面提到的内存共享方式中,有一种比较特殊: 有亲缘关系的进程通过带MAP_SHARED标记的匿名映射共享内存。这种情况下表面上看使用的是匿名映射,但是内核在暗中却会转成到/dev/zero这个特殊文件的文件映射。若非如此,各个进程的地址空间不同,匿名映射下的uaddr永远不可能被futex认为相等。
 
 futex和它的兄弟姐妹们
 futex_wait和futex_wake就是futex的基本。之后,为了对其他同步方式做各种优化,futex又增加了若干变种。
@@ -121,14 +121,14 @@ int futex_wake_bitset(int *uaddr, int n, int bitset);
 额外传递了一个bitset参数,使用特定bitset进行wait的进程,只能被使用它的bitset超集的wake调用所唤醒。
 这个东西给读写锁很好用,进程挂起的时候通过bitset标记自己是在等待读还是等待写。unlock时决定应该唤醒一个写等待的进程、还是唤醒全部读等待的进程。
 没有bitset这个功能的话,要么只能unlock的时候不区分读等待和写等待,全部唤醒；要么只能搞两个uaddr,读写分别futex_wait其中一个,然后再用spinlock保护一下两个uaddr的同步。
-（参阅：http://locklessinc.com/articles/sleeping_rwlocks/）
+（参阅: http://locklessinc.com/articles/sleeping_rwlocks/）
 
 Requeue系列
 int futex_requeue(int *uaddr, int n, int *uaddr2, int n2);
 int futex_cmp_requeue(int *uaddr, int n, int *uaddr2, int n2, int val);
 功能跟futex_wake有点相似,但不仅仅是唤醒n个等待uaddr的进程,而更进一步,将n2个等待uaddr的进程移到uaddr2的等待队列中（相当于也futex_wake它们,然后强制让它们futex_wait在uaddr2上面）。
 在futex_requeue的基础上,futex_cmp_requeue多了一个判断,仅当*uaddr与val相等时才执行操作,否则直接返回,让用户态去重试。
-这个东西是为pthread_cond_broadcast准备的。还是先来回顾一下pthread_cond的逻辑（列一下,后面会多次用到）：
+这个东西是为pthread_cond_broadcast准备的。还是先来回顾一下pthread_cond的逻辑（列一下,后面会多次用到）: 
 
 pthread_cond_wait(mutex, cond):
     value = cond->value; /* 1 */
@@ -162,19 +162,19 @@ pthread_cond_broadcast跟pthread_cond_signal类似,不过它会唤醒所有（�
 Wake & Operator
 int futex_wake_op(int *uaddr1, int *uaddr2, int n1, int n2, int op);
 这个系统调用有点像CISC的思路,一个调用中搞了很多动作。它尝试在uaddr1的等待队列中唤醒n1个进程,然后修改uaddr2的值,并且在uaddr2的值满足条件的情况下,唤醒uaddr2队列中的n2个进程。uaddr2的值如何修改？又需要满足什么样的条件才唤醒uaddr2？这些逻辑都pack在op参数中。
-int类型的op参数,其实是一个struct：
+int类型的op参数,其实是一个struct: 
 
 struct op {
-    // 修改*uaddr2的方法：SET (*uaddr2=OPARG)、ADD(*uaddr2+=OPARG)、
+    // 修改*uaddr2的方法: SET (*uaddr2=OPARG)、ADD(*uaddr2+=OPARG)、
     // OR(*uaddr2|=OPARG)、ANDN(*uaddr2&=~OPARG)、XOR(*uaddr2^=OPARG)
     int OP     : 4;
-    // 判断*uaddr2是否满足条件的方法：EQ(==)、NE(!=)、LT(<)、LE(<=)、GT(>)、GE(>=)
+    // 判断*uaddr2是否满足条件的方法: EQ(==)、NE(!=)、LT(<)、LE(<=)、GT(>)、GE(>=)
     int CMP    : 4;
     int OPARG  : 12;// 修改*uaddr2的参数
     int CMPARG : 12;// 判断*uaddr2是否满足条件的参数
 }
 futex_wake_op搞这么一套复杂的逻辑,无非是希望一次系统调用里面处理两把锁,相当于用户态调用两次futex_wake。
-假设用户态需要释放uaddr1和uaddr2两把锁（值为0代表未上锁、1代表上锁、2代表上锁且有进程挂起等待）,不使用futex_wake_op的话需要这么写：
+假设用户态需要释放uaddr1和uaddr2两把锁（值为0代表未上锁、1代表上锁、2代表上锁且有进程挂起等待）,不使用futex_wake_op的话需要这么写: 
 
 int old1, old2;
 atomic { old1 = *uaddr1; *uaddr1 = 0; }
@@ -185,13 +185,13 @@ atomic { old2 = *uaddr2; *uaddr2 = 0; }
 if (old2 == 2) {
     futex_wake(uaddr2, n2);
 }
-而使用futex_wake_op的话,只需要这样：
+而使用futex_wake_op的话,只需要这样: 
 
 int old1;
 atomic { old1 = *uaddr1; *uaddr1 = 0; }
 if (old1 == 2) {
     futex_wake_op(uaddr1, n1, uaddr2, n2, {
-        // op参数的意思：设置*uaddr2=0,并且如果old2==2,则执行唤醒
+        // op参数的意思: 设置*uaddr2=0,并且如果old2==2,则执行唤醒
         OP=SET, OPARG=0, CMP=EQ, CMPARG=2
     } );
 }
@@ -217,10 +217,10 @@ futex_cmp_requeue_pi是带优先级继承版本的futex_cmp_requeue,futex_wait_r
 信号量的值与相应资源的使用情况有关，当它的值大于 0 时，表示当前可用的资源数的数量；当它的值小于 0 时，其绝对值表示等待使用该资源的进程个数。信号量的值仅能由 PV 操作来改变。
 
  
-     在 Linux 下，PV 操作通过调用semop函数来实现。该函数定义在头文件 sys/sem.h中，原型如下：
+     在 Linux 下，PV 操作通过调用semop函数来实现。该函数定义在头文件 sys/sem.h中，原型如下: 
      int  semop（int  semid，struct sembuf  *sops，size_t nsops）；
      函数的参数 semid 为信号量集的标识符；参数 sops 指向进行操作的结构体数组的首地址；参数 nsops 指出将要进行操作的信号的个数。semop 函数调用成功返回 0，失败返回 -1。
-     semop 的第二个参数 sops 指向的结构体数组中，每个 sembuf 结构体对应一个特定信号的操作。因此对信号量进行操作必须熟悉该数据结构，该结构定义在 linux/sem.h，如下所示：
+     semop 的第二个参数 sops 指向的结构体数组中，每个 sembuf 结构体对应一个特定信号的操作。因此对信号量进行操作必须熟悉该数据结构，该结构定义在 linux/sem.h，如下所示: 
      struct  sembuf{
          unsigned short   sem_num;      //信号在信号集中的索引，0代表第一个信号，1代表第二个信号  
          short            sem_op;      //操作类型
@@ -236,10 +236,10 @@ java中的synchronized和linux系统的futex到底什么个关系？
 
 为了更好的解释这个问题，这里先梳理下锁本身是怎么工作的。
 
-一个完整的锁需要解决几个问题：
+一个完整的锁需要解决几个问题: 
 
 争抢到一个内存，如果抢到了就算是得到了锁，可以继续干活；
-如果没抢到，可以选择：
+如果没抢到，可以选择: 
 继续抢（spin）
 调用某个系统调用把自己挂起来排队
 别的线程释放锁后，会通知排队挂起来的一个或几个线程。醒过来的线程再去重复第一步。
@@ -247,7 +247,7 @@ java中的synchronized和linux系统的futex到底什么个关系？
 
 那么能不能用一直做spin，永远不做2.2和3呢？答案是不行的。如果遇到了竞争，这也就意味着大量空耗CPU。
 
-因此后来的锁的设计一般都优化成了这样：
+因此后来的锁的设计一般都优化成了这样: 
 
 1. 在用户态写一段代码来抢锁，典型的实现是用CAS把一个指定的变量从0变成1。如果抢到了就结束了。此时是用户态的。
 
@@ -259,7 +259,7 @@ java中的synchronized和linux系统的futex到底什么个关系？
 
 Ok, 回到Java。Java的synchronized用JVM的monitor实现。而monitor实现内部用到了pthread_mutex和pthread_cond。这俩是pthread标准接口，实现在glibc里。而这俩的内部实现在Linux上目前都用到了futex。所以整体可以理解为futex帮助Java在Linux上实现了synchronized在内核那部分阻塞的功能；同时用户态的抢锁，重入控制等功能由JVM自己实现。两块代码共同提供了完整的synchronized功能。
 
-所以当我们随便写一段synchornized会阻塞的Java代码：
+所以当我们随便写一段synchornized会阻塞的Java代码: 
 
 
 public class TestFutex {
@@ -292,7 +292,7 @@ public class TestFutex {
          t2.start();
      }
  }
-并用strace去查看效果，你就会看到：
+并用strace去查看效果，你就会看到: 
 
 root@ba32a8cedf75:/test# strace -e futex java TestFutex
 futex(0x7f8dacc130c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0

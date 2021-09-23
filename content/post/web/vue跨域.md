@@ -18,7 +18,7 @@ title = "Vue 跨域"
 
 Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src`和`./public`文件夹，所以网上很多教程说`config`目录下的`vue.config.js`是说的vue-cli 2.x版本。那么对于Vue-cli 3.x版本，构建也很简单，直接在根目录里建一个`vue.config.js`配置文件就可以了，我们直接看`devServer.proxy`里的代码:
 
-我这里devServer的地址是：localhost:8080/，需要代理的地址是：localhost/index/phpinfo.php （我自己写的一个测试跨域用的php，返回一个'ok'）
+我这里devServer的地址是: localhost:8080/，需要代理的地址是: localhost/index/phpinfo.php （我自己写的一个测试跨域用的php，返回一个'ok'）
 
 下面是根据上面的地址需要配置的proxy对象
 
@@ -58,7 +58,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 
 这个使用任意一个ajax封装的库都是可行的，axios，jquery.ajax或者是vue-resource都是可以的。
 
-在Vue中使用axios，网上有两种方法，一种是将axios加入Vue的原型里，我更推荐第二种方法：
+在Vue中使用axios，网上有两种方法，一种是将axios加入Vue的原型里，我更推荐第二种方法: 
 
     npm install axios vue-axios
 
@@ -67,7 +67,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
     import VueAxios from 'vue-axios';
     Vue.use(VueAxios,axios);
 
-以我上面的proxy配置为基础，想要让代理成功转发到`localhost/index/phpinfo.php`，在Vue实例中axios需要这样写访问地址：
+以我上面的proxy配置为基础，想要让代理成功转发到`localhost/index/phpinfo.php`，在Vue实例中axios需要这样写访问地址: 
 
     this.axios.get('/index/phpinfo.php').then((res)=>{
             console.log(res);

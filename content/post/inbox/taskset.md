@@ -13,10 +13,10 @@ tags:
 在Linux上，可以通过 taskset 命令进行修改。以Ubuntu为例，运行如下命令可以安装taskset工具。
 
 # apt-get install schedutils
-对运行中的进程，文档上说可以用下面的命令，把CPU#1 #2 #3分配给PID为2345的进程：
+对运行中的进程，文档上说可以用下面的命令，把CPU#1 #2 #3分配给PID为2345的进程: 
 
 # taskset -cp 1,2,3 2345
-但我尝试没奏效，于是我关掉了MySQL，并用taskset将它启动：
+但我尝试没奏效，于是我关掉了MySQL，并用taskset将它启动: 
 
 # taskset -c 1,2,3 /etc/init.d/MySQL start
 对于其他进程，也可如此处理（nginx除外，详见下文）。之后用top查看CPU的使用情况，原来空闲的#1 #2 #3，已经在辛勤工作了。
@@ -29,10 +29,10 @@ tags:
 
 刚才说nginx除外，是因为nginx提供了更精确的控制。
 
-在conf/nginx.conf中，有如下一行：
+在conf/nginx.conf中，有如下一行: 
 
 worker_processes  1;
-这是用来配置nginx启动几个工作进程的，默认为1。而nginx还支持一个名为worker_cpu_affinity的配置项，也就是说，nginx可以为每个工作进程绑定CPU。我做了如下配置：
+这是用来配置nginx启动几个工作进程的，默认为1。而nginx还支持一个名为worker_cpu_affinity的配置项，也就是说，nginx可以为每个工作进程绑定CPU。我做了如下配置: 
 
 worker_processes  3;
 worker_cpu_affinity 0010 0100 1000;

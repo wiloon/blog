@@ -19,11 +19,11 @@ hexdump命令一般用来查看"二进制"文件的十六进制编码，但实�
 
 如果要看到较理想的结果，使用-C参数，显示结果分为三列（文件偏移量、字节的十六进制、ASCII字符）。
 
-格式：hexdump -C binfile
+格式: hexdump -C binfile
 
 一般文件都不是太小，最好用less来配合一下。
 
-格式：hexdump -C binfile | less
+格式: hexdump -C binfile | less
 
 ## 使用示例
 
@@ -113,7 +113,7 @@ scale=4;123/321
   
 [root@new55 ~]#
 
-注：常见的ASCII字符的十六进制表示
+注: 常见的ASCII字符的十六进制表示
 
 r      0D
 

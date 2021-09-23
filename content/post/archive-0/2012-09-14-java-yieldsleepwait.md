@@ -95,7 +95,7 @@ sleep() 可使优先级低的线程得到执行的机会， 当然也可以让�
 ### yield()
 理论上，yield意味着放手，放弃，投降。一个调用 yield() 方法的线程告诉虚拟机它乐意让其他线程占用自己的位置。这表明该线程没有在做一些紧急的事情。注意，这仅是一个暗示，并不能保证不会产生任何影响。
 
-在Thread.java中yield()定义如下：
+在Thread.java中yield()定义如下: 
 
 /**
   
@@ -109,7 +109,7 @@ sleep() 可使优先级低的线程得到执行的机会， 当然也可以让�
 
 public static native void yield();
   
-让我们列举一下关于以上定义重要的几点：
+让我们列举一下关于以上定义重要的几点: 
 
 Yield是一个静态的原生(native)方法
   
@@ -195,7 +195,7 @@ Thread.yield();
   
 }
   
-上述程序在没有调用yield()方法情况下的输出：
+上述程序在没有调用yield()方法情况下的输出: 
 
 I am Consumer : Consumed Item 0
   
@@ -217,7 +217,7 @@ I am Producer : Produced Item 3
   
 I am Producer : Produced Item 4
   
-上述程序在调用yield()方法情况下的输出：
+上述程序在调用yield()方法情况下的输出: 
 
 I am Producer : Produced Item 0
   
@@ -241,7 +241,7 @@ I am Consumer : Consumed Item 4
 
 ### join()
 join() 定义在 Thread.java 中  
-join() 的作用：让"主线程"等待"子线程" 结束之后才能继续运行。这句话可能有点晦涩，我们还是通过例子去理解：  
+join() 的作用: 让"主线程"等待"子线程" 结束之后才能继续运行。这句话可能有点晦涩，我们还是通过例子去理解:   
 线程实例的方法 join()方法可以使得一个线程在另一个线程结束后再执行。如果join()方法在一个线程实例上调用，当前运行着的线程将阻塞直到这个线程实例完成了执行。
   
 >wiloon.com/thread-join
@@ -273,11 +273,11 @@ Future.get()
   
 使用过 ExecutorService 或者 NIO 的话一定对 Future 不会陌生，而 Future 的 get() 是阻塞方法，内部也是使用 park() 来阻塞调用者的线程。
 
-join()是Thread类的一个方法。根据jdk文档的定义：
+join()是Thread类的一个方法。根据jdk文档的定义: 
 
 public final void join()throws InterruptedException: Waits for this thread to die.
 
-join()方法的作用，是等待这个线程结束；但显然，这样的定义并不清晰。个人认为"Java 7 Concurrency Cookbook"的定义较为清晰：
+join()方法的作用，是等待这个线程结束；但显然，这样的定义并不清晰。个人认为"Java 7 Concurrency Cookbook"的定义较为清晰: 
 
 Waiting for the finalization of a thread
 
@@ -287,9 +287,9 @@ In some situations, we will have to wait for the finalization of a thread. For e
 
  
 
- oin方法实现是通过wait（小提示：Object 提供的方法）。 当main线程调用t.join时候，main线程会获得线程对象t的锁（wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，直到该对象唤醒main线程 ，比如退出后。这就意味着main 线程调用t.join时，必须能够拿到线程t对象的锁。
+ oin方法实现是通过wait（小提示: Object 提供的方法）。 当main线程调用t.join时候，main线程会获得线程对象t的锁（wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，直到该对象唤醒main线程 ，比如退出后。这就意味着main 线程调用t.join时，必须能够拿到线程t对象的锁。
 
-join() 一共有三个重载版本，分别是无参、一个参数、两个参数：
+join() 一共有三个重载版本，分别是无参、一个参数、两个参数: 
 
 
 (1) 三个方法都被final修饰，无法被子类重写。
@@ -306,13 +306,13 @@ while(isAlive())是为了防止子线程伪唤醒(spurious wakeup)，只要子�
 
 (4) join() 和 sleep() 一样，可以被中断（被中断时，会抛出 InterrupptedException 异常）；不同的是，join() 内部调用了 wait()，会出让锁，而 sleep() 会一直保持锁。
 
-join使用时注意几点：
+join使用时注意几点: 
 1、join与start调用顺序问题
 
 　　上面的讨论大概知道了join的作用了，那么，入股 join在start前调用，会出现什么后果呢？先看下面的测试结果
 
 
-main线程没有等待[BThread]执行完再执行。join方法必须在线程start方法调用之后调用才有意义。这个也很容易理解：如果一个线程都没有start，那它也就无法同步了。
+main线程没有等待[BThread]执行完再执行。join方法必须在线程start方法调用之后调用才有意义。这个也很容易理解: 如果一个线程都没有start，那它也就无法同步了。
 
 2、join()与异常
 
@@ -334,7 +334,7 @@ http://www.cnblogs.com/dreamsea/archive/2012/01/16/2263844.html
 http://blog.dyngr.com/blog/2016/09/09/how-to-make-a-thread-wait/
 
 ————————————————
-版权声明：本文为CSDN博主「DivineH」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_38293564/article/details/80432875
+版权声明: 本文为CSDN博主「DivineH」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/qq_38293564/article/details/80432875
 
 

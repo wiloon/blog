@@ -25,7 +25,7 @@ http://wiki.debian.org/WiFi/HowToUse#wpa_supplicant
    
 ```
 
-2.修改/etc/network/interfaces项，如下：
+2.修改/etc/network/interfaces项，如下: 
 
 [code]
   
@@ -47,7 +47,7 @@ wpa-psk fcb3717c5f66e893d9010a6872436b34686618a3e8fa2833d56bb98b41be5c8d
   
 ```
 
-3.最关键的WPA－PSK项，之前一直无法连接，经google，原来此处不能写入明文密码，需要通过wpa-passphrase转换的，如下：
+3.最关键的WPA－PSK项，之前一直无法连接，经google，原来此处不能写入明文密码，需要通过wpa-passphrase转换的，如下: 
 
 [code]
   
@@ -73,4 +73,4 @@ psk=fcb3717c5f66e893d9010a6872436b34686618a3e8fa2833d56bb98b41be5c8d
   
 ```
 
-原文地址：<http://hi.baidu.com/tanmeng_sino/blog/item/8b3526f5781d65e77709d735.html>
+原文地址: <http://hi.baidu.com/tanmeng_sino/blog/item/8b3526f5781d65e77709d735.html>

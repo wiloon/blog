@@ -12,11 +12,11 @@ offset的保存
   
 在0.10版本后，kafka把这个offset的保存，从zk总剥离，保存在一个名叫__consumeroffsets topic的topic中。写进消息的key由groupid、topic、partition组成，value是偏移量offset。topic配置的清理策略是compact。总是保留最新的key，其余删掉。一般情况下，每个key的offset都是缓存在内存中，查询的时候不用遍历partition，如果没有缓存，第一次就会遍历partition建立缓存，然后查询返回。
 
-作者：123archu
+作者: 123archu
   
-链接：https://www.jianshu.com/p/d3e963ff8b70
+链接: https://www.jianshu.com/p/d3e963ff8b70
   
-来源：简书
+来源: 简书
   
 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
@@ -74,7 +74,7 @@ topic各分区都存在已提交的offset时，从offset后开始消费；只要
 
  
 
-问题：如果在一个时间间隔内，没有提交offset，岂不是要重复读了？
+问题: 如果在一个时间间隔内，没有提交offset，岂不是要重复读了？
 
  
 
@@ -107,12 +107,12 @@ At Least Once:
 
 ## Kafka默认实现了At least once语义
 
-作者：will的猜想
+作者: will的猜想
   
-来源：CSDN
+来源: CSDN
   
-原文：https://blog.csdn.net/u012129558/article/details/80075270
+原文: https://blog.csdn.net/u012129558/article/details/80075270
   
-版权声明：本文为博主原创文章，转载请附上博文链接！
+版权声明: 本文为博主原创文章，转载请附上博文链接！
 
 https://blog.csdn.net/lishuangzhe7047/article/details/74530417

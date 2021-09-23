@@ -18,16 +18,16 @@ tags:
 jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
 jstat -gc -h3 <jvm PID> 3000 -1
 # -gc 显示gc的信息，查看gc的次数，及时间。
-# -h<lines>：即-h跟数字，代表隔几行显示标题
-# interval：毫秒,代表监控间隔时间段，默认毫秒做单位
-# count：代表取数次数
+# -h<lines>: 即-h跟数字，代表隔几行显示标题
+# interval: 毫秒,代表监控间隔时间段，默认毫秒做单位
+# count: 代表取数次数
 ```
 
 Jstat在分析java的内存GC时的应用
   
 jstat可以查看堆内各个部分的使用量，以及加载类的数量。使用时，需加上查看进程的进程id，和所选参数。
 
-参数：
+参数: 
       
 jstat -class pid: Statistics on the behavior of the class loader. 显示加载class的数量，及所占空间等信息;
       
@@ -35,7 +35,7 @@ jstat -compiler pid: Statistics of the behavior of the HotSpot Just-in-Time comp
       
 jstat -gc pid: Statistics of the behavior of the garbage collected heap.可以显示gc的信息，查看gc的次数，及时间。其中最后五项，分别是young gc的次数，young gc的时间，full gc的次数，full gc的时间，gc的总时间。
       
-jstat -gccapacity:可以显示，VM内存中三代（young,old,perm）对象的使用和占用大小，如：PGCMN显示的是最小perm的内存使用量，PGCMX显示的是perm的内存最大使用量，PGC是当前新生成的perm内存占用量，PC是但前perm内存占用量。其他的可以根据这个类推， OC是old内纯的占用量。
+jstat -gccapacity:可以显示，VM内存中三代（young,old,perm）对象的使用和占用大小，如: PGCMN显示的是最小perm的内存使用量，PGCMX显示的是perm的内存最大使用量，PGC是当前新生成的perm内存占用量，PC是但前perm内存占用量。其他的可以根据这个类推， OC是old内纯的占用量。
       
 jstat -gcnew pid:new对象的信息。
       
@@ -51,9 +51,9 @@ jstat -util pid:统计gc信息统计。
       
 jstat -printcompilation pid:当前VM执行的信息。
       
-除了以上一个参数外，还可以同时加上 两个数字，如：jstat -printcompilation 3024 250 6是每250毫秒打印一次，一共打印6次，还可以加上-h3每三行显示一下标题。
+除了以上一个参数外，还可以同时加上 两个数字，如: jstat -printcompilation 3024 250 6是每250毫秒打印一次，一共打印6次，还可以加上-h3每三行显示一下标题。
   
-语法结构：
+语法结构: 
   
 Usage: jstat -help|-options
          
@@ -111,11 +111,11 @@ FGCT Full garbage collection time.
   
 GCT Total garbage collection time.
 
-如：[root@localhost bin]# jstat -gcutil 25332 1000 10 （25332是java的进程号，ps -ef | grep java）
+如: [root@localhost bin]# jstat -gcutil 25332 1000 10 （25332是java的进程号，ps -ef | grep java）
 
-分代概念：
+分代概念: 
 
-分代是Java垃圾收集的一大亮点，根据对象的生命周期长短，把堆分为3个代：Young，Old和Permanent，根据不同代的特点采用不同的收集算法，扬长避短也。
+分代是Java垃圾收集的一大亮点，根据对象的生命周期长短，把堆分为3个代: Young，Old和Permanent，根据不同代的特点采用不同的收集算法，扬长避短也。
 
 Young(Nursery)，年轻代。研究表明大部分对象都是朝生暮死，随生随灭的。因此所有收集器都为年轻代选择了复制算法。
 
@@ -143,7 +143,7 @@ Scavenge GC
 
 Full GC
 
-对整个堆进行整理，包括Young、Tenured和Perm。Full GC比Scavenge GC要慢，因此应该尽可能减少Full GC。有如下原因可能导致Full GC：
+对整个堆进行整理，包括Young、Tenured和Perm。Full GC比Scavenge GC要慢，因此应该尽可能减少Full GC。有如下原因可能导致Full GC: 
 
 Tenured被写满
 

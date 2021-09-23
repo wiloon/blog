@@ -169,9 +169,9 @@ listen port: random
 mtu: auto
 
 ##### 添加节点/add peer
-公钥： 服务端公钥
+公钥:  服务端公钥
 预共享密钥/pre-shared key (可以不填)
-对端/endpoint： xxx.wiloon.com:51xxx
+对端/endpoint:  xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
 
 ### chromeos>crostini

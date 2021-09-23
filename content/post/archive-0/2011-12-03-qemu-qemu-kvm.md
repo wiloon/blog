@@ -16,7 +16,7 @@ categories:
 Qemu是一个模拟器，它向Guest OS模拟CPU和其他硬件，Guest OS认为自己和硬件直接打交道，其实是同Qemu模拟出来的硬件打交道，Qemu将这些指令转译给真正的硬件,由于所有的指令都要从Qemu里面过一手，因而性能较差。
 
 
-KVM是linux内核的模块，它需要CPU的支持，采用硬件辅助虚拟化技术Intel-VT，AMD-V，内存的相关如Intel的EPT和AMD的RVI技术，Guest OS的CPU指令不用再经过Qemu转译，直接运行，大大提高了速度，KVM通过/dev/kvm暴露接口，用户态程序可以通过ioctl函数来访问这个接口。见如下伪代码：
+KVM是linux内核的模块，它需要CPU的支持，采用硬件辅助虚拟化技术Intel-VT，AMD-V，内存的相关如Intel的EPT和AMD的RVI技术，Guest OS的CPU指令不用再经过Qemu转译，直接运行，大大提高了速度，KVM通过/dev/kvm暴露接口，用户态程序可以通过ioctl函数来访问这个接口。见如下伪代码: 
 
 open("/dev/kvm")
   
@@ -58,13 +58,13 @@ libvirt是目前使用最为广泛的对KVM虚拟机进行管理的工具和API�
 
 modprobe -l kvm*
 
-另外，KVM还需要修改过的QEMU(EXTRA仓库中的qemu-kvm)来启动和管理虚拟机。 此时，有两个选择（根据你需要，选一个即可，比如你不仅使用kvm还需要使用qemu，则选2,否则，一般选1就够用了。直观的区别就是qemu软件包很大，而qemu-kvm很小，qemu-kvm相当于qemu中的qemu-system-x86_64的一个定制版）：
+另外，KVM还需要修改过的QEMU(EXTRA仓库中的qemu-kvm)来启动和管理虚拟机。 此时，有两个选择（根据你需要，选一个即可，比如你不仅使用kvm还需要使用qemu，则选2,否则，一般选1就够用了。直观的区别就是qemu软件包很大，而qemu-kvm很小，qemu-kvm相当于qemu中的qemu-system-x86_64的一个定制版）: 
 
 1、安装qemu-kvm，以后要运行kvm的时候，就输入qemu-kvm -enable-kvm这个命令
 
 pacman -S kernel26 qemu-kvm
 
-2、安装qemu >= 0.9.0，和qemu-kvm包冲突，现在也附带了一个可以使用qemu-kvm的，以后要运行kvm的时候就是输入：qemu -enable-kvm。
+2、安装qemu >= 0.9.0，和qemu-kvm包冲突，现在也附带了一个可以使用qemu-kvm的，以后要运行kvm的时候就是输入: qemu -enable-kvm。
 
 pacman -S kernel26 qemu
 

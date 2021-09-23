@@ -15,17 +15,17 @@ url = "redis-basic"
 https://segmentfault.com/a/1190000002806846
 
 基本使用
-命令格式： SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC|DESC] [ALPHA] [STORE destination]
+命令格式:  SORT key [BY pattern] [LIMIT offset count] [GET pattern [GET pattern ...]] [ASC|DESC] [ALPHA] [STORE destination]
 
-默认情况下，排序是基于数字的，各个元素将会被转化成双精度浮点数来进行大小比较，这是SORT命令最简单的形式，也就是下面这种形式：
+默认情况下，排序是基于数字的，各个元素将会被转化成双精度浮点数来进行大小比较，这是SORT命令最简单的形式，也就是下面这种形式: 
 
 SORT mylist
 
-如果mylist是一个包含了数字元素的列表，那么上面的命令将会返回升序排列的一个列表。如果想要降序排序，要使用DESC描述符，如下所示：
+如果mylist是一个包含了数字元素的列表，那么上面的命令将会返回升序排列的一个列表。如果想要降序排序，要使用DESC描述符，如下所示: 
 
 SORT mylist DESC
 
-如果mylist包含的元素是string类型的，想要按字典顺序排列这个列表，那么就要用到ALPHA描述符，如下所示：
+如果mylist包含的元素是string类型的，想要按字典顺序排列这个列表，那么就要用到ALPHA描述符，如下所示: 
 
 #### watchdog
     CONFIG SET watchdog-period 500
@@ -239,33 +239,33 @@ redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba
 ### unlink 命令
     unlink key [key ...]
 
-该命令和 DEL 十分相似：删除指定的key(s), 若key不存在则该 key 被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来：仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
+该命令和 DEL 十分相似: 删除指定的key(s), 若key不存在则该 key 被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来: 仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
 
 释放 key 代价计算函数 lazyfreeGetFreeEffort()，集合类型键，且满足对应编码，cost就是集合键的元数个数，否则cost就是1.
-    List：4.0只有一种编码，quicklist，所以编码无限制，直接返回element个数。
-    Set：非hash table编码，即intset编码时返回1.当一个集合只包含整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用intset作为集合键的底层实现。
-    Hash：同上。
-        当hash键值满足下面任意条件编码为hash table：
+    List: 4.0只有一种编码，quicklist，所以编码无限制，直接返回element个数。
+    Set: 非hash table编码，即intset编码时返回1.当一个集合只包含整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用intset作为集合键的底层实现。
+    Hash: 同上。
+        当hash键值满足下面任意条件编码为hash table: 
     ->element count > "hash-max-ziplist-entries",default 512. ->value length > "hash-max-ziplist-value",default 64
-    Zset：非skiplist编码，返回1.
-       当zset键值满足下面任意条件编码为hash table：
+    Zset: 非skiplist编码，返回1.
+       当zset键值满足下面任意条件编码为hash table: 
     ->element count >"zset-max-ziplist-entries"，default 128 ->value length > "zset-max-ziplist-value", default 64
-     举例： 1 一个包含100元素的list key, 它的free cost就是100 2 一个512MB的string key, 它的free cost是
+     举例:  1 一个包含100元素的list key, 它的free cost就是100 2 一个512MB的string key, 它的free cost是
      
-    总结：
+    总结: 
         不管是del还是unlink，key都是同步删除的。
         使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据 effort 的值来决定是否做异步删除。
         使用unlink命令时，由于string类型的effort一直返回的是1，z所以string类型不会做异步删除。
 
-作者：willcat
-链接：https://juejin.cn/post/6844903810792423432
-来源：掘金
+作者: willcat
+链接: https://juejin.cn/post/6844903810792423432
+来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
 ### FLUSHALL
-可用版本： >= 1.0.0
-时间复杂度： O(N)
+可用版本:  >= 1.0.0
+时间复杂度:  O(N)
 清空整个 Redis 服务器的数据(删除所有数据库的所有 key )。
 
 ### FLUSHALL ASYNC (Redis 4.0.0 or greater)
@@ -314,7 +314,7 @@ https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium
 是基于TCP的应用层协议 RESP(REdis Serialization Protocol)；
 RESP底层采用的是TCP的连接方式，通过tcp进行数据传输，然后根据解析规则解析相应信息,
 
-Redis 的客户端和服务端之间采取了一种独立名为 RESP(REdis Serialization Protocol) 的协议，作者主要考虑了以下几个点：
+Redis 的客户端和服务端之间采取了一种独立名为 RESP(REdis Serialization Protocol) 的协议，作者主要考虑了以下几个点: 
 
 容易实现
 
@@ -323,7 +323,7 @@ Redis 的客户端和服务端之间采取了一种独立名为 RESP(REdis Seria
 人类可读
 RESP可以序列化不同的数据类型，如整数，字符串，数组。还有一种特定的错误类型。请求从客户端发送到Redis服务器，作为表示要执行的命令的参数的字符串数组。Redis使用特定于命令的数据类型进行回复。
 RESP是二进制安全的，不需要处理从一个进程传输到另一个进程的批量数据，因为它使用前缀长度来传输批量数据。
-注意：RESP 虽然是为 Redis 设计的，但是同样也可以用于其他 C/S 的软件。Redis Cluster使用不同的二进制协议(gossip)，以便在节点之间交换消息。
+注意: RESP 虽然是为 Redis 设计的，但是同样也可以用于其他 C/S 的软件。Redis Cluster使用不同的二进制协议(gossip)，以便在节点之间交换消息。
 
 关于协议的具体描述，官方文档 https://redis.io/topics/protocol
 

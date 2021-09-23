@@ -56,7 +56,7 @@ mount -rbind olddir newdir
 
 –bind可以支持一些选项
   
-例如：挂载一个目录。并且让他是只读的：
+例如: 挂载一个目录。并且让他是只读的: 
 
 mount -bind olddir newdir
   

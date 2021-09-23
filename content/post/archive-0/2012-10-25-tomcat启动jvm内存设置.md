@@ -31,6 +31,6 @@ categories:
 
 （2）配置环境变量
 
-　　环境变量中设 变量名：JAVA_OPTS 变量值：-Xms512m -Xmx512m
+　　环境变量中设 变量名: JAVA_OPTS 变量值: -Xms512m -Xmx512m
 
 https://www.cnblogs.com/oskyhg/p/6549877.html

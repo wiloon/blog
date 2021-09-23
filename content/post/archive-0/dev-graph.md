@@ -22,7 +22,7 @@ leveldb--Memtable
 leveldb--Immutable
 [SST] as sst
 leveldb--sst
-[SkipList] as SkipList #9CCC65
+[SkipList] as SkipList #BBDEFB
 Memtable--SkipList  
 [红黑树] as red_black_tree
 SkipList--red_black_tree
@@ -41,7 +41,7 @@ leveldb--AtomicPointer
 callable--Future
 [FutureTask]
 Future--FutureTask
-[VarHandle] as VarHandle #9CCC65
+[VarHandle] as VarHandle #BBDEFB
 FutureTask--VarHandle
 [java9]
 VarHandle--java9
@@ -147,13 +147,23 @@ ReentrantLock--mutex
 [分区] as partition
 [MySQL]
 [ACID] as acid
+[Netty单线程] as netty_single_thread #9CCC65
 [netty] as netty #FF8A80
+netty_single_thread--netty
 [堆外内存] as omem
 netty--omem
-[NIO]
+[NIO] as NIO #FF8A80
 netty--NIO
 [DirectByteBuffer\n-unsafe] as DirectByteBuffer
 NIO--DirectByteBuffer
+[AIO]
+NIO--AIO
+[TCP Receive Buffer] as tcp_receive_buffer
+NIO--tcp_receive_buffer
+[socket.read()] as socket_read
+tcp_receive_buffer--socket_read
+[selector]
+socket_read--selector
 [零拷贝] as zero_copy
 [IO] as io
 [缓存IO] as buffered_io
@@ -171,8 +181,6 @@ NIO--DirectByteBuffer
 [xfs]
 file_system--xfs
 [Paxos] as paxos
- 
- 
  
 [etcd]
 [Raft] as raft
@@ -228,4 +236,12 @@ jvm--gc
 java9--jpms
  
 @enduml
+```
+
+###
+```
+#AB47BC   Done
+#FF8A80   Index
+#9CCC65   Point
+
 ```

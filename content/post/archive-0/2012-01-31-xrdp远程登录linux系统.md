@@ -188,7 +188,7 @@ Install xrdp on CentOS 7 – xrdp CentOS Desktop
   
 That's All. You have successfully configured xRDP on CentOS 7 / RHEL 7.
 
-来源：Linux社区 作者：Finans
+来源: Linux社区 作者: Finans
 
 一般情况下我们用ssh客户端远程登陆Linux系统，至于图形界面下的linux远程登陆工具，我们一般都会想到vnc，但它的安全性不够，在这里，我将介绍XRDP的安装配置方法。
 
@@ -216,7 +216,7 @@ xrdp-control.sh start
 
 5、启动好xrdp，就可以通过客户端的rdp client 连接到服务器上，win下可以用mstsc，linux下可以用rdesktop或者krdp。
   
-module 选择为：sesman-Xvnc
+module 选择为: sesman-Xvnc
 
 6、xrdp的配置文档在/etc/xrdp目录下的xrdp.ini和sesman.ini
 

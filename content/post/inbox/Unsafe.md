@@ -130,9 +130,9 @@ public native Class<?> defineAnonymousClass(Class<?> hostClass, byte[] data, Obj
 api
 //返回对象成员属性在内存地址相对于此对象的内存地址的偏移量
 public native long objectFieldOffset(Field f);
-//获得给定对象的指定地址偏移量的值，与此类似操作还有：getInt，getDouble，getLong，getChar等
+//获得给定对象的指定地址偏移量的值，与此类似操作还有: getInt，getDouble，getLong，getChar等
 public native Object getObject(Object o, long offset);
-//给定对象的指定地址偏移量设值，与此类似操作还有：putInt，putDouble，putLong，putChar等
+//给定对象的指定地址偏移量设值，与此类似操作还有: putInt，putDouble，putLong，putChar等
 public native void putObject(Object o, long offset, Object x);
 //从对象的指定偏移量处获取变量的引用，使用volatile的加载语义
 public native Object getObjectVolatile(Object o, long offset);

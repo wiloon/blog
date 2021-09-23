@@ -8,7 +8,7 @@ Lodash是一个著名的javascript原生库，不需要引入其他第三方依�
  类似的还有Underscore.js和Lazy.js
   
   
-作者：戈德斯文  
-链接：[https://www.jianshu.com/p/d46abfa4ddc9](https://www.jianshu.com/p/d46abfa4ddc9 "https://www.jianshu.com/p/d46abfa4ddc9")  
-来源：简书  
+作者: 戈德斯文  
+链接: [https://www.jianshu.com/p/d46abfa4ddc9](https://www.jianshu.com/p/d46abfa4ddc9 "https://www.jianshu.com/p/d46abfa4ddc9")  
+来源: 简书  
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

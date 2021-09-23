@@ -20,7 +20,7 @@ tags:
 
 (3)微软的VHD格式也完全由VirtualBox的支持；Microsoft Virtual PC的默认格式。
 
-HDD：Parallels的第2版（硬盘格式）的镜像文件也被VirtualBox支持.由于缺乏新的格式（3和4）的文档,所以VirtualBox不支持。但是，可以使用由Parallels提供的工具版本2格式转换镜像文件。
+HDD: Parallels的第2版（硬盘格式）的镜像文件也被VirtualBox支持.由于缺乏新的格式（3和4）的文档,所以VirtualBox不支持。但是，可以使用由Parallels提供的工具版本2格式转换镜像文件。
 
 Windows7的引导程序能够引导vhd格式的虚拟硬盘，而VirtualBox创建的虚拟硬盘文件是vdi格式的，
 

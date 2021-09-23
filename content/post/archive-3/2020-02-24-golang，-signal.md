@@ -67,7 +67,7 @@ go run main.go执行这个程序，敲入ctrl-C会发送SIGINT信号。 此程�
 
 Go网络服务器如果无缝重启
 Go很适合编写服务器端的网络程序。DevOps经常会遇到的一个情况是升级系统或者重新加载配置文件，在这种情况下我们需要重启此网络程序，如果网络程序暂停的时间较长，则给客户的感觉很不好。
-如何实现优雅地重启一个Go网络程序呢。主要要解决两个问题：
+如何实现优雅地重启一个Go网络程序呢。主要要解决两个问题: 
 
 进程重启不需要关闭监听的端口
 既有请求应当完全处理或者超时
@@ -78,9 +78,9 @@ Go很适合编写服务器端的网络程序。DevOps经常会遇到的一个情
 err := endless.ListenAndServe("localhost:4242", mux)
 只需替换 http.ListenAndServe 和 http.ListenAndServeTLS。
 
-它会监听这些信号： syscall.SIGHUP, syscall.SIGUSR1, syscall.SIGUSR2, syscall.SIGINT, syscall.SIGTERM, 和 syscall.SIGTSTP。
+它会监听这些信号:  syscall.SIGHUP, syscall.SIGUSR1, syscall.SIGUSR2, syscall.SIGINT, syscall.SIGTERM, 和 syscall.SIGTSTP。
 
-此文章提到的思路是：
+此文章提到的思路是: 
 
 通过exec.Command fork一个新的进程，同时继承当前进程的打开的文件(输入输出，socket等)
 
@@ -127,7 +127,7 @@ server.Serve(l)
 其它
 graceful shutdown实现非常的简单，通过简单的信号处理就可以实现。本文介绍的是graceful restart,要求无缝重启，所以所用的技术相当的hack。
 
-Facebook的工程师也提供了http和net的实现： facebookgo。
+Facebook的工程师也提供了http和net的实现:  facebookgo。
 
 参考资料
 https://en.wikipedia.org/wiki/Unix_signal

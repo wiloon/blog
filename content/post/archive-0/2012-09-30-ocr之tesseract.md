@@ -20,7 +20,7 @@ categories:
     
     
     
-      转载请注明出处：http://www.cnblogs.com/brooks-dotnet/archive/2010/10/05/1844203.html
+      转载请注明出处: http://www.cnblogs.com/brooks-dotnet/archive/2010/10/05/1844203.html
     
     
     

@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-XMLHttpRequest可以提供不重新加载页面的情况下更新网页，在页面加载后在客户端向服务器请求数据，在页面加载后在服务器端接受数据，在后台向客户端发送数据。XMLHttpRequest 对象提供了对 HTTP 协议的完全的访问，包括做出 POST 和 HEAD 请求以及普通的 GET 请求的能力。XMLHttpRequest 可以同步或异步返回 Web 服务器的响应，并且能以文本或者一个 DOM 文档形式返回内容。尽管名为 XMLHttpRequest，它并不限于和 XML 文档一起使用：它可以接收任何形式的文本文档。XMLHttpRequest 对象是名为 AJAX 的 Web 应用程序架构的一项关键功能。
+XMLHttpRequest可以提供不重新加载页面的情况下更新网页，在页面加载后在客户端向服务器请求数据，在页面加载后在服务器端接受数据，在后台向客户端发送数据。XMLHttpRequest 对象提供了对 HTTP 协议的完全的访问，包括做出 POST 和 HEAD 请求以及普通的 GET 请求的能力。XMLHttpRequest 可以同步或异步返回 Web 服务器的响应，并且能以文本或者一个 DOM 文档形式返回内容。尽管名为 XMLHttpRequest，它并不限于和 XML 文档一起使用: 它可以接收任何形式的文本文档。XMLHttpRequest 对象是名为 AJAX 的 Web 应用程序架构的一项关键功能。
 
 浏览器支持
 
@@ -111,7 +111,7 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
   
 
 
-5 个状态中每一个都有一个相关联的非正式的名称，下表列出了状态、名称和含义：
+5 个状态中每一个都有一个相关联的非正式的名称，下表列出了状态、名称和含义: 
 
    readyState 的值不会递减，除非当一个请求在处理过程中的时候调用了 abort() 或 open() 方法。每次这个属性的值增加的时候，都会触发 onreadystatechange 事件句柄。 
   
@@ -137,12 +137,12 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 
 这个属性用名称而不是数字指定了请求的 HTTP 的状态代码。也就是说，当状态为 200 的时候它是 "OK"，当状态为 404 的时候它是 "Not Found"。和 status 属性一样，当 readyState 小于 3 的时候读取这一属性会导致一个异常。
 
-**onreadystatechange：**
+**onreadystatechange: **
 
 
 每次 readyState 属性改变的时候调用的事件句柄函数。当 readyState 为 3 时，它也可能调用多次。
 
-**onreadystatechange：**
+**onreadystatechange: **
 
 
 每次 readyState 属性改变的时候调用的事件句柄函数。当 readyState 为 3 时，它也可能调用多次。

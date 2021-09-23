@@ -10,7 +10,7 @@ tags:
 
 ---
 
-### Class类简介：
+### Class类简介: 
  Java程序在运行时，Java运行时系统一直对所有的对象进行所谓的运行时类型标识。这项信息纪录了每个对象所属的类。虚拟机通常使用运行时类型信息选准正确方法去执行，用来保存这些类型信息的类是Class类。Class类封装一个对象和接口运行时的状态，当装载类时，Class类型的对象自动创建。
       Class 没有公共构造方法。Class 对象是在加载类时由Java 虚拟机以及通过调用类加载器中的 defineClass 方法自动构造的，因此不能显式地声明一个Class对象。 
       虚拟机为每种类型管理一个独一无二的Class对象。也就是说，每个类（型）都有一个Class对象。运行程序时，Java虚拟机(JVM)首先检查是否所要加载的类对应的Class对象是否已经加载。如果没有加载，JVM就会根据类名查找.class文件，并将其Class对象载入。
@@ -18,20 +18,20 @@ tags:
       每个数组属于被映射为 Class 对象的一个类，所有具有相同元素类型和维数的数组都共享该 Class 对象。
       一般某个类的Class对象被载入内存，它就用来创建这个类的所有对象。
 
-一、如何得到Class的对象呢？有三种方法可以的获取：
+一、如何得到Class的对象呢？有三种方法可以的获取: 
 
-  1、调用Object类的getClass()方法来得到Class对象，这也是最常见的产生Class对象的方法。例如：
+  1、调用Object类的getClass()方法来得到Class对象，这也是最常见的产生Class对象的方法。例如: 
     MyObject x;
     Class c1 = x.getClass();
 
- 2、使用Class类的中静态forName()方法获得与字符串对应的Class对象。例如： 
+ 2、使用Class类的中静态forName()方法获得与字符串对应的Class对象。例如:  
     Class c2=Class.forName("MyObject"),Employee必须是接口或者类的名字。
 
 3、获取Class类型对象的第三个方法非常简单。如果T是一个Java类型，那么T.class就代表了匹配的类对象。例如
     Class cl1 = Manager.class;
     Class cl2 = int.class;
     Class cl3 = Double[].class;
-    注意：Class对象实际上描述的只是类型，而这类型未必是类或者接口。例如上面的int.class是一个Class类型的对象。由于历史原因，数组类型的getName方法会返回奇怪的名字。
+    注意: Class对象实际上描述的只是类型，而这类型未必是类或者接口。例如上面的int.class是一个Class类型的对象。由于历史原因，数组类型的getName方法会返回奇怪的名字。
 
 二、Class类的常用方法
 
@@ -41,7 +41,7 @@ tags:
 
 2、newInstance()
 
-Class还有一个有用的方法可以为类创建一个实例，这个方法叫做newInstance()。例如：
+Class还有一个有用的方法可以为类创建一个实例，这个方法叫做newInstance()。例如: 
     x.getClass.newInstance()，创建了一个同x一样类型的新实例。newInstance()方法调用默认构造器（无参数构造器）初始化新建对象。
 
 3、getClassLoader() 
@@ -62,13 +62,13 @@ Class还有一个有用的方法可以为类创建一个实例，这个方法叫
 1、forName和newInstance结合起来使用，可以根据存储在字符串中的类名创建对象。例如
     Object obj = Class.forName(s).newInstance();
 
-2、虚拟机为每种类型管理一个独一无二的Class对象。因此可以使用==操作符来比较类对象。例如：
+2、虚拟机为每种类型管理一个独一无二的Class对象。因此可以使用==操作符来比较类对象。例如: 
     if(e.getClass() == Employee.class)...
 
 2、 Class.forName()方法:
-Class.forName：返回与给定的字符串名称相关联类或接口的Class对象。
+Class.forName: 返回与给定的字符串名称相关联类或接口的Class对象。
 
-Class.forName是一个静态方法，同样可以用来加载类。该方法有两种形式：Class.forName(String name, boolean initialize, ClassLoader loader)和 Class.forName(String className)。第一种形式的参数 name表示的是类的全名；initialize表示是否初始化类；loader表示加载时使用的类加载器。第二种形式则相当于设置了参数 initialize的值为 true，loader的值为当前类的类加载器。
+Class.forName是一个静态方法，同样可以用来加载类。该方法有两种形式: Class.forName(String name, boolean initialize, ClassLoader loader)和 Class.forName(String className)。第一种形式的参数 name表示的是类的全名；initialize表示是否初始化类；loader表示加载时使用的类加载器。第二种形式则相当于设置了参数 initialize的值为 true，loader的值为当前类的类加载器。
 
 static Class<?>
 
@@ -82,7 +82,7 @@ forName(String name, boolean initialize, ClassLoader loader)
 
 Returns the Class object associated with the class or interface with the given string name, using the given class loader.
 
-说明：
+说明: 
 
 publicstatic Class<?> forName(String className)
 
@@ -110,7 +110,7 @@ the Class object for the classwith the specified name.
 
 Class.forName(className)实际上是调用Class.forName(className,true, this.getClass().getClassLoader())。第二个参数，是指Class被loading后是不是必须被初始化。可以看出，使用Class.forName（className）加载类时则已初始化。
 
-所以Class.forName(className)可以简单的理解为：获得字符串参数中指定的类，并初始化该类。
+所以Class.forName(className)可以简单的理解为: 获得字符串参数中指定的类，并初始化该类。
 
  
 
@@ -141,13 +141,13 @@ Class.forName(className)实际上是调用Class.forName(className,true, this.get
       2.那么为什么会有两种创建对象方式？
 
         这主要考虑到软件的可伸缩、可扩展和可重用等软件设计思想。  
-        Java中工厂模式经常使用newInstance()方法来创建对象，因此从为什么要使用工厂模式上可以找到具体答案。例如：
+        Java中工厂模式经常使用newInstance()方法来创建对象，因此从为什么要使用工厂模式上可以找到具体答案。例如: 
 
            class c = Class.forName(“Example”);  
 
            factory = (ExampleInterface)c.newInstance();  
 
-       其中ExampleInterface是Example的接口，可以写成如下形式：
+       其中ExampleInterface是Example的接口，可以写成如下形式: 
 
           String className = "Example";  
 
@@ -155,7 +155,7 @@ Class.forName(className)实际上是调用Class.forName(className,true, this.get
 
           factory = (ExampleInterface)c.newInstance();  
 
-      进一步可以写成如下形式：
+      进一步可以写成如下形式: 
 
           String className = readfromXMlConfig;//从xml 配置文件中获得字符串
 
@@ -166,7 +166,7 @@ Class.forName(className)实际上是调用Class.forName(className,true, this.get
         上面代码已经不存在Example的类名称，它的优点是，无论Example类怎么变化，上述代码不变，甚至可以更换Example的兄弟类Example2 , Example3 , Example4……，只要他们继承ExampleInterface就可以。  
         3.从JVM的角度看，我们使用关键字new创建一个类的时候，这个类可以没有被加载。  但是使用newInstance()方法的时候，
 
-         就必须保证：
+         就必须保证: 
 
               1、这个类已经加载；
 
@@ -177,27 +177,27 @@ Class.forName(className)实际上是调用Class.forName(className,true, this.get
 
          的灵活性，提供给了一种降耦的手段。  
 
-三.最后用最简单的描述来区分new关键字和newInstance()方法的区别： 
+三.最后用最简单的描述来区分new关键字和newInstance()方法的区别:  
 
 1. newInstance: 弱类型。低效率。只能调用无参构造。  
          2. new: 强类型。相对高效。能调用任何public构造。
 
-3、应用情景：
-情景一：加载数据库驱动的时候
+3、应用情景: 
+情景一: 加载数据库驱动的时候
 
 Class.forName的一个很常见的用法是在加载数据库驱动的时候。
 
-如：
+如: 
 
 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 Connection con=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DatabaseName==JSP","jph","jph");    
 
   为什么在我们加载数据库驱动包的时候有的却没有调用newInstance( )方法呢？
-即有的jdbc连接数据库的写法里是Class.forName(xxx.xx.xx);而有一些：Class.forName(xxx.xx.xx).newInstance()，为什么会有这两种写法呢？ 
+即有的jdbc连接数据库的写法里是Class.forName(xxx.xx.xx);而有一些: Class.forName(xxx.xx.xx).newInstance()，为什么会有这两种写法呢？ 
 
 刚才提到，Class.forName("");的作用是要求JVM查找并加载指定的类，如果在类中有静态初始化器的话，JVM必然会执行该类的静态代码段。
 
-而在JDBC规范中明确要求这个Driver类必须向DriverManager注册自己，即任何一个JDBCDriver的Driver类的代码都必须类似如下： 
+而在JDBC规范中明确要求这个Driver类必须向DriverManager注册自己，即任何一个JDBCDriver的Driver类的代码都必须类似如下:  
           public classMyJDBCDriver implements Driver {
 
     static{
@@ -210,7 +210,7 @@ Connection con=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;Data
 
   既然在静态初始化器的中已经进行了注册，所以我们在使用JDBC时只需要Class.forName(XXX.XXX);就可以了。
 
-情景二：使用AIDL与电话管理Servic进行通信
+情景二: 使用AIDL与电话管理Servic进行通信
 
 Method method =Class.forName("android.os.ServiceManager")
 
@@ -229,13 +229,13 @@ ITelephonytelephony = ITelephony.Stub.asInterface(binder);
 telephony.endCall();
 
 
-参考资料：
+参考资料: 
 
 JDK1.8_API.../docs/api/java/lang/Class.html
 http://www.ibm.com/developerworks/cn/java/j-lo-classloader/
 ————————————————
-版权声明：本文为CSDN博主「CrazyCodeBoy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/fengyuzhengfan/article/details/38086743
+版权声明: 本文为CSDN博主「CrazyCodeBoy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/fengyuzhengfan/article/details/38086743
 
 
 Class.forName(xxx.xx.xx) 返回的是一个类

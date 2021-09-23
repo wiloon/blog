@@ -269,8 +269,6 @@ e.printStackTrace();
 
 利用RandomAccessFile实现文件的多线程下载，即多线程下载一个文件时，将文件分成几块，每块用不同的线程进行下载。下面是一个利用多线程在写文件时的例子，其中预先分配文件所需要的空间，然后在所分配的空间中进行分块，然后写入: 
 
-view plaincopy
-
 import java.io.FileNotFoundException;
   
 import java.io.IOException;
@@ -377,7 +375,7 @@ raf.close();
   
 }
 
-http://www.ibm.com/developerworks/cn/java/l-javaio/
+>http://www.ibm.com/developerworks/cn/java/l-javaio/
   
 http://blog.csdn.net/napolunyishi/article/details/18214929
   

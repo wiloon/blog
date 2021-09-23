@@ -17,7 +17,7 @@ http://book.51cto.com/art/201012/240956.htm
 
 7.2.1  创建表的时候创建索引（1）
 
-创建表时可以直接创建索引，这种方式最简单、方便。其基本形式如下：
+创建表时可以直接创建索引，这种方式最简单、方便。其基本形式如下: 
 
 CREATE TABLE  表名 ( 属性名 数据类型 [完整性约束条件],
   
@@ -39,7 +39,7 @@ CREATE TABLE  表名 ( 属性名 数据类型 [完整性约束条件],
 
 创建一个普通索引时，不需要加任何UNIQUE、FULLTEXT或者SPATIAL参数。
 
-【示例7-1】 下面创建一个表名为index1的表，在表中的id字段上建立索引。SQL代码如下：
+【示例7-1】 下面创建一个表名为index1的表，在表中的id字段上建立索引。SQL代码如下: 
 
 CREATE  TABLE  index1 (id    INT ,
   
@@ -51,7 +51,7 @@ INDEX ( id)
   
 );
   
-运行结果显示创建成功，使用SHOW CREATE TABLE语句查看表的结构。显示如下：
+运行结果显示创建成功，使用SHOW CREATE TABLE语句查看表的结构。显示如下: 
 
 MySQL> SHOW CREATE TABLE index1 \G
   
@@ -73,7 +73,7 @@ KEY \`index1_id\` (\`id\`)
   
 1 row in set (0.00 sec)
   
-结果可以看到，id字段上已经建立了一个名为index1_id的索引。使用EXPLAIN语句可以查看索引是否被使用，SQL代码如下：
+结果可以看到，id字段上已经建立了一个名为index1_id的索引。使用EXPLAIN语句可以查看索引是否被使用，SQL代码如下: 
 
 MySQL> EXPLAIN SELECT * FROM index1 where id=1 \G
   
@@ -107,7 +107,7 @@ Extra:
 
 创建唯一性索引时，需要使用UNIQUE参数进行约束。
 
-【示例7-2】 下面创建一个表名为index2的表，在表中的id字段上建立名为index2_id的唯一性索引，且以升序的形式排列。SQL代码如下：
+【示例7-2】 下面创建一个表名为index2的表，在表中的id字段上建立名为index2_id的唯一性索引，且以升序的形式排列。SQL代码如下: 
 
 CREATE  TABLE  index2 (id    INT  UNIQUE ,
   
@@ -117,7 +117,7 @@ UNIQUE  INDEX  index2_id ( id  ASC)
   
 );
   
-运行结果显示创建成功，使用SHOW CREATE TABLE语句查看表的结构。显示如下：
+运行结果显示创建成功，使用SHOW CREATE TABLE语句查看表的结构。显示如下: 
 
 MySQL> SHOW CREATE TABLE index2 \G
   

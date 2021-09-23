@@ -21,13 +21,13 @@ JAR: Software developers generally use .jar files to distribute Java application
 ### war: Web Archive file/web application archive
 扩展名为.War, 包含全部Web应用程序, Servlet、JSP、JSP标记库、JAR库文件、HTML/XML文档和其他公用资源文件,图片、音频. 一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet）来访问。
 
-部署文件：web.xml
+部署文件: web.xml
 
 ear: Enterprise Archive file
 
 扩展名为.Ear 包含全部企业应用程序:  JAR、WAR，EJB组件。一个企业应用程序被定义为多个jar文件、资源、类和Web应用程序的集合。
 
-部署文件：application.xml
+部署文件: application.xml
 
 jar:封装类
   
@@ -62,11 +62,11 @@ Web modules which contains Servlet class files,JSP FIles,supporting files, GIF a
 ### EAR
 All above files(.jar and .war) are packaged as JAR file with .ear ( enterprise archive) extension and deployed into Application Server.
 
-如果想生成war文件：可以使用如下命令：jar -cvf web1.war *
+如果想生成war文件: 可以使用如下命令: jar -cvf web1.war *
   
-如果想查看web1.war中都有哪些文件，可以使用命令：jar -tf web1.war
+如果想查看web1.war中都有哪些文件，可以使用命令: jar -tf web1.war
   
-如果想直接解压web1.war文件，可以使用命令：jar -xvf web1.war
+如果想直接解压web1.war文件，可以使用命令: jar -xvf web1.war
   
 另外，也可使用winrar软件选择zip压缩方式，并将压缩文件后缀名改为war即可压缩生成war文件；同样使用winrar软件可以强行打开war 文件，或者强行解压war文件
   
@@ -156,7 +156,7 @@ c)         JET编译成EXE
 
 二、实例
 
-方法一：我现在有test/A.java
+方法一: 我现在有test/A.java
   
 道理虽然简单，但是在这过程中还是有很多细节需要注意的，哪一个细节注意不到，操作都不会成功。
 
@@ -189,17 +189,17 @@ jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当�
   
 然后再在当前目录下输入java -jar test.jar 命令，可以看到"test java"。
 
-方法二：
+方法二: 
   
 用简单的jar -cvf test.jar    test目录,jar会自动生成META-INF/mainclass.mf，我们只需要在里面去加一句 Main-Class: com/hp/HelloWorld
   
 就可以了
 
-方法三：myeclipse工具　（**推荐**）
+方法三: myeclipse工具　（**推荐**）
   
 右击项目-Export-Jar File-要选择Main-Class
 
-方法四：ant
+方法四: ant
 
 
 http://www.blogjava.net/junky/archive/2006/05/21/47284.aspx

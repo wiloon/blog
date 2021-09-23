@@ -26,7 +26,7 @@ sonatype/nexus3
 
 default username/password=admin/admin123
   
-Blob Stores/Enable Soft Quota：限制目录大小
+Blob Stores/Enable Soft Quota: 限制目录大小
 
 download nexus-2.14.0-01-bundle.zip
 

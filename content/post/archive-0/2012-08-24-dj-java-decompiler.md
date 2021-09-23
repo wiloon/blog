@@ -28,10 +28,10 @@ DJ Java Decompiler 在 Windows 95、Windows 98、Windows 2000、Windows XP、Win
 
 **另外，DJ Java Decompiler 是一个独立的 windows 应用程序，它不要求安装Java，所以运行使用相当方便，大家不妨试一下。**
 
-个人觉得比较好的功能有：
+个人觉得比较好的功能有: 
 
 1.  可以直接打开jar 档， 查看jar 包里原文件
 
 2.  可以直接保存整个jar 档里的所有原文件。
 
-**官方地址： http://dj.navexpress.com/**
+**官方地址:  http://dj.navexpress.com/**

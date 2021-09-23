@@ -10,7 +10,7 @@ categories:
 ---
 Java不是完美的，Java的不足除了体现在运行速度上要比传统的C++慢许多之外，Java无法直接访问到操作系统底层（如系统硬件等)，为此Java使用native方法来扩展Java程序的功能。
 
-可以将native方法比作Java程序同Ｃ程序的接口，其实现步骤：
+可以将native方法比作Java程序同Ｃ程序的接口，其实现步骤: 
 
 １、在Java中声明native()方法，然后编译；
 
@@ -88,6 +88,6 @@ return;
 
 之后编译生成DLL文件如"test.dll"，名称与System.loadLibrary("test")中的名称一致
 
-vc的编译方法：cl -I%java_home%include -I%java_home%includewin32 -LD com_hode_hodeframework_modelupdate_CheckFile.c -Fetest.dll
+vc的编译方法: cl -I%java_home%include -I%java_home%includewin32 -LD com_hode_hodeframework_modelupdate_CheckFile.c -Fetest.dll
 
 最后在运行时加参数-Djava.library.path=[dll存放的路径]

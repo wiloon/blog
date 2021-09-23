@@ -19,9 +19,9 @@ https://github.com/wekan/wekan
 
 基于ASP.NET and IIS和 SQL。
 
-团队可以使用"V1：敏捷团队"来管理产品和sprint backlog，通过交互式的"任务板（taskboards）"和"测试板（testboards）" 进行每日开发活动，藉由报表和燃烧图查看进度，以及其他活动。
+团队可以使用"V1: 敏捷团队"来管理产品和sprint backlog，通过交互式的"任务板（taskboards）"和"测试板（testboards）" 进行每日开发活动，藉由报表和燃烧图查看进度，以及其他活动。
 
-通过这些功能，"V1：敏捷团队"的用户可以做到：
+通过这些功能，"V1: 敏捷团队"的用户可以做到: 
 
   * 从电子表格中快速导入故事与缺陷，管理合并后的产品backlog。
   * 利用简单的多条目拖放操作，方便地完成计划制定、对故事划分优先级。
@@ -43,7 +43,7 @@ Mingle在ThoughtWorks官方站点可以免费下载，且5个用户以下的可�
 
 Mingle后台存储采用数据库方式，目前仅支持MySQL和Postgres两种数据库版本，这个比 较遗憾，我无法使用现成的Oracle数据库了。
 
-简单用了一下，发现如下很好的Features：
+简单用了一下，发现如下很好的Features: 
 
   * 支持建立"个性化"项目模板，便于复用；
   * 附带项目wiki，便于"项目知识积累和管理"；
@@ -61,7 +61,7 @@ Mingle后台存储采用数据库方式，目前仅支持MySQL和Postgres两种�
     作为一个基于Web的XP团队计划和跟踪工具，要求 Apace Tomcat。
   
   
-    XP 独特的开发概念如iteration、user stories等，XPlanner都提供了相对应的的管理工具，XPlanner支持XP开发流程，并解决利用XP思想来开发项目所碰到的问题。 XPlanner特点包括：简单的模型规划，虚拟笔记卡(Virtual note cards),iterations、user stories与工作记录的追踪，未完成stories将自动迭代，工作时间追踪，生成团队效率，个人工时报表，SOAP界面支持。.
+    XP 独特的开发概念如iteration、user stories等，XPlanner都提供了相对应的的管理工具，XPlanner支持XP开发流程，并解决利用XP思想来开发项目所碰到的问题。 XPlanner特点包括: 简单的模型规划，虚拟笔记卡(Virtual note cards),iterations、user stories与工作记录的追踪，未完成stories将自动迭代，工作时间追踪，生成团队效率，个人工时报表，SOAP界面支持。.
   
 
 **白板**

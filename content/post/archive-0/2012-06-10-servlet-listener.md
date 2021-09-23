@@ -11,13 +11,13 @@ tags:
   - Servlet
 
 ---
-Listener是一种观察者模式的实现：我们在web.xml中配置listener的时候就是把一个被观察者放入的观察者的观察对象队列中，当被观察者触发了注册事件时观察者作出相应的反应。在jsp/servlet中具体的实现是在web.xml中注册Listener，由Container在特定事件发生时呼叫特定的实现Listener的类。
+Listener是一种观察者模式的实现: 我们在web.xml中配置listener的时候就是把一个被观察者放入的观察者的观察对象队列中，当被观察者触发了注册事件时观察者作出相应的反应。在jsp/servlet中具体的实现是在web.xml中注册Listener，由Container在特定事件发生时呼叫特定的实现Listener的类。
   
-总体上说servlet中有主要有3类事件既：
+总体上说servlet中有主要有3类事件既: 
 
 Servlet上下文事件、
 
-会话事件与请求事件总共有8个listener接口，我们在web.xml中注册时对应上自己对相应接口的实现类即可：
+会话事件与请求事件总共有8个listener接口，我们在web.xml中注册时对应上自己对相应接口的实现类即可: 
   
 Servlet中的Listener和Event:
   
@@ -107,7 +107,7 @@ Servlet中的Listener和Event:
   
 
 
-分别介绍：
+分别介绍: 
 
 **１.ServletContextListener**
 
@@ -173,7 +173,7 @@ Servlet中的Listener和Event:
 
 [触发场景] 实现HttpSessionBindingListener接口的类别，其实例如果被加入至session（HttpSession）对象的属性中，则会呼叫 valueBound()，如果被从session（HttpSession）对象的属性中移除，则会呼叫valueUnbound()，实现 HttpSessionBindingListener接口的类别不需在web.xml中设定。
 
-具体使用方法：在web.xml中添加如下语句：
+具体使用方法: 在web.xml中添加如下语句: 
 
 [xml]
    

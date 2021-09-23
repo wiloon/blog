@@ -22,7 +22,7 @@ XML模式是指用来描述XML结构、约束等因素的语言，例如XML Sche
 
 从模式的描述语言来说，XML Schema和XML DTD都属于语法模式。与概念模式不同，语法模式在对同一事物描述时，可以采用不同的语法，例如在对关系模式描述时，无论是使用XML Schema还是XML DTD，都既可以用元素也可以用属性来描述关系模式的列。
 
-模式必须以某种格式来表示，XML Schema的格式与XML DTD的格式有着非常明显的区别，XML Schema事实上也是XML的一种应用，也就是说XML Schema的格式与XML的格式是完全相同的，而作为SGML DTD的一个子集，XML DTD具有着与XML格式完全不同的格式。这种区别会给XML Schema的使用带来许多好处：
+模式必须以某种格式来表示，XML Schema的格式与XML DTD的格式有着非常明显的区别，XML Schema事实上也是XML的一种应用，也就是说XML Schema的格式与XML的格式是完全相同的，而作为SGML DTD的一个子集，XML DTD具有着与XML格式完全不同的格式。这种区别会给XML Schema的使用带来许多好处: 
 
 XML用户在使用XML Schema的时候，不需要为了理解XML Schema而重新学习，节省了时间；
 

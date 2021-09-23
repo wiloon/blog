@@ -9,9 +9,9 @@ tags:
   - lock
 ---
 
-主要相同点：Lock能完成 Synchronized 所实现的所有功能。
+主要相同点: Lock能完成 Synchronized 所实现的所有功能。
 
-主要不同点：Lock有比Synchronized更精确的线程语义和更好的性能。Synchronized会自动释放锁，但是Lock一定要求程序员手工释放，并且必须在finally从句中释放。
+主要不同点: Lock有比Synchronized更精确的线程语义和更好的性能。Synchronized会自动释放锁，但是Lock一定要求程序员手工释放，并且必须在finally从句中释放。
 
 synchronized 修饰方法时 表示同一个对象在不同的线程中 表现为同步队列
 

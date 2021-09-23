@@ -84,49 +84,49 @@ openssl req -new -nodes -x509 -out certs/client.pem -keyout certs/client.key -da
 
 
 ### rsa
-生成2048位rsa私钥，保存为pem格式：
+生成2048位rsa私钥，保存为pem格式: 
 
 openssl genpkey -algorithm rsa -pkeyopt rsa_keygen_bits:2048 -out unencrypted-private.pem
 
-查看私钥内容：
+查看私钥内容: 
 
 openssl pkey -in unencrypted-private.pem -text -noout
 
 
-生成对应的公钥：
+生成对应的公钥: 
 
 openssl pkey -in unencrypted-private.pem -pubout -out pubkey.pem
 
-查看对应的公钥：
+查看对应的公钥: 
 
 openssl pkey -pubin -in pubkey.pem -text -noout
 
 
-生成测试用文件：
+生成测试用文件: 
 
 echo some secret > tos.txt
 
-用私钥给文件签名：
+用私钥给文件签名: 
 
 openssl pkeyutl -sign -in tos.txt -inkey unencrypted-private.pem -out tos.sig
 
-用公钥验证签名：
+用公钥验证签名: 
 
 openssl pkeyutl -verify -in tos.txt -sigfile tos.sig -pubin -inkey pubkey.pem 
 
 Signature Verified Successfully
 
-用公钥恢复签名文件的内容：
+用公钥恢复签名文件的内容: 
 
 openssl pkeyutl -verifyrecover -in tos.sig -pubin -inkey pubkey.pem 
 
 some secret
 
-用公钥加密文件：
+用公钥加密文件: 
 
  openssl pkeyutl -encrypt -in tos.txt -pubin -inkey pubkey.pem -out tos.enc
 
-用私钥解密文件：
+用私钥解密文件: 
 
 openssl pkeyutl -decrypt -in tos.enc -inkey key.pem -out tos.dec
 

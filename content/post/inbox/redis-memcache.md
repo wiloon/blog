@@ -4,7 +4,7 @@ date = "2021-06-22 14:49:14"
 title = "redis, memcache"
 +++
 
-Redis 和 Memcached 都是基于内存的数据存储系统。Memcached是高性能分布式内存缓存服务，其本质上就是一个内存key-value数据库。Redis是一个开源的key-value存储系统。与Memcached类似，Redis将大部分数据存储在内存中，支持的数据类型包括：字符串、哈希表、链表、集合、有序集合以及基于这些数据类型的相关操作。那么，Memcached与Redis有什么区别呢？
+Redis 和 Memcached 都是基于内存的数据存储系统。Memcached是高性能分布式内存缓存服务，其本质上就是一个内存key-value数据库。Redis是一个开源的key-value存储系统。与Memcached类似，Redis将大部分数据存储在内存中，支持的数据类型包括: 字符串、哈希表、链表、集合、有序集合以及基于这些数据类型的相关操作。那么，Memcached与Redis有什么区别呢？
 
 1. 数据操作不同, Redis支持的数据类型要丰富得多
 与Memcached仅支持简单的key-value结构的数据记录不同，Redis支持的数据类型要丰富得多。
@@ -30,7 +30,7 @@ Memcached本身并不支持分布式，因此只能在客户端通过像一致�
 redis支持数据落地持久化存储,可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。 
 memcache不支持数据持久存储 
 
-小结：Redis和Memcached哪个更好？
+小结: Redis和Memcached哪个更好？
 
 Redis更多场景是作为Memcached的替代者来使用，当需要除key-value之外的更多数据类型支持或存储的数据不能被剔除时，使用Redis更合适。如果只做缓存的话，Memcached已经足够应付绝大部分的需求，Redis 的出现只是提供了一个更加好的选择。总的来说，根据使用者自身的需求去选择才是最合适的。
 
@@ -59,7 +59,7 @@ memcache是一个内存缓存，key的长度小于250字符，单个item存储�
 数据一致性不同
 Redis只使用单核，而Memcached可以使用多核，所以平均每一个核上Redis在存储小数据时比Memcached性能更高。而在100k以上的数据中，Memcached性能要高于Redis，虽然Redis最近也在存储大数据的性能上进行优化，但是比起Memcached，还是稍有逊色。 
 redis使用的是单线程模型，保证了数据按顺序提交。
-memcache需要使用cas保证数据一致性。CAS（Check and Set）是一个确保并发一致性的机制，属于“乐观锁”范畴；原理很简单：拿版本号，操作，对比版本号，如果一致就操作，不一致就放弃任何操作 
+memcache需要使用cas保证数据一致性。CAS（Check and Set）是一个确保并发一致性的机制，属于“乐观锁”范畴；原理很简单: 拿版本号，操作，对比版本号，如果一致就操作，不一致就放弃任何操作 
 cpu利用
 redis单线程模型只能使用一个cpu，可以开启多个redis进程
 

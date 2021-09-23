@@ -24,15 +24,15 @@ HTTP动词
 
 常用的HTTP动词有下面五个（括号里是对应的SQL命令）。
 
-GET（SELECT）：从服务器取出资源（一项或多项）。
-POST（CREATE）：在服务器新建一个资源。
-PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
-PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。
-DELETE（DELETE）：从服务器删除资源。
+GET（SELECT）: 从服务器取出资源（一项或多项）。
+POST（CREATE）: 在服务器新建一个资源。
+PUT（UPDATE）: 在服务器更新资源（客户端提供改变后的完整资源）。
+PATCH（UPDATE）: 在服务器更新资源（客户端提供改变的属性）。
+DELETE（DELETE）: 从服务器删除资源。
 还有两个不常用的HTTP动词。
 
-HEAD：获取资源的元数据。
-OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。
+HEAD: 获取资源的元数据。
+OPTIONS: 获取信息，关于资源的哪些属性是客户端可以改变的。
 
 参数命名规范
 query parameter可以采用驼峰命名法，也可以采用下划线命名的方式，推荐采用下划线命名的方式，据说后者比前者的识别度要高，其中，做前端开发基本都后后者，而做服务器接口开发基本用前者。
@@ -41,7 +41,7 @@ http://example.com/api/users/today_login&sort=login_desc 获取今天登陆的�
 
 
 REST API规范
-编写REST API，实际上就是编写处理HTTP请求的async函数，不过，REST请求和普通的HTTP请求有几个特殊的地方：
+编写REST API，实际上就是编写处理HTTP请求的async函数，不过，REST请求和普通的HTTP请求有几个特殊的地方: 
 
 REST请求仍然是标准的HTTP请求，但是，除了GET请求外，POST、PUT等请求的body是JSON数据格式，请求的Content-Type为application/json；
 REST响应返回的结果是JSON数据格式，因此，响应的Content-Type也是application/json。

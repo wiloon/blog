@@ -56,14 +56,14 @@ fi
 ### shell脚本中echo显示内容带颜色
 
 shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用参数-e 
-格式如下： 
+格式如下:  
 
     echo -e "\033[字背景颜色；文字颜色m字符串\033[0m" 
-例如： 
+例如:  
 
     echo -e "\033[41;36m something here \033[0m" 
 其中41的位置代表底色， 36的位置是代表字的颜色 
-注： 
+注:  
 　　1、字背景颜色和文字颜色之间是英文的"" 
 　　2、文字颜色后面有个m 
 　　3、字符串前后可以没有空格，如果有的话，输出也是同样有空格 
@@ -74,7 +74,7 @@ shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用
         echo -e "\033[34m 黄色字 \033[0m" 
         echo -e "\033[41;33m 红底黄字 \033[0m" 
         echo -e "\033[41;37m 红底白字 \033[0m" 
-        字颜色：30—–37 
+        字颜色: 30—–37 
 
 复制代码
 　　echo -e "\033[30m 黑色字 \033[0m" 
@@ -86,7 +86,7 @@ shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用
 　　echo -e "\033[36m 天蓝字 \033[0m" 
 　　echo -e "\033[37m 白色字 \033[0m" 
 复制代码
-字背景颜色范围：40—–47 
+字背景颜色范围: 40—–47 
 
 复制代码
 　　echo -e "\033[40;37m 黑底白字 \033[0m" 
@@ -189,7 +189,7 @@ C shell 使用的是"类C"语法,csh是具有C语言风格的一种shell，tcsh�
 
 3.5、zsh
   
-zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 zsh本身是不兼容bash的，但是他可以使用仿真模式（emulation mode）来模拟bash等，基本可以实现兼容。 在交互式的使用中，目前很多人都是zsh，因为zsh拥有很强大的提示和插件功能，炫酷吊炸天。推荐在终端的交互式使用中使用zsh，再安利一个插件Oh My Zsh 其实我个人的理解是，在终端中使用shell，基本上只是调用各种命令，比如：curl cat ls等等，基本不会使用到zsh的编程，所以终端中使用zsh是可以的。但是在写shell脚本的时候，需要考虑兼容性， 最主流的还是bash shell，所以，后文我们介绍的shell脚本也是bash shell的。
+zsh网上说的目前使用的人很少，但是感觉使用的人比较多。 zsh本身是不兼容bash的，但是他可以使用仿真模式（emulation mode）来模拟bash等，基本可以实现兼容。 在交互式的使用中，目前很多人都是zsh，因为zsh拥有很强大的提示和插件功能，炫酷吊炸天。推荐在终端的交互式使用中使用zsh，再安利一个插件Oh My Zsh 其实我个人的理解是，在终端中使用shell，基本上只是调用各种命令，比如: curl cat ls等等，基本不会使用到zsh的编程，所以终端中使用zsh是可以的。但是在写shell脚本的时候，需要考虑兼容性， 最主流的还是bash shell，所以，后文我们介绍的shell脚本也是bash shell的。
 
 执行并获取返回结果，有点类似JavaScript 的eval函数。
 
@@ -201,7 +201,7 @@ echo "dt=${dt}"
   
 ### Shell 变量
   
-shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理：
+shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理: 
 
 #!/bin/bash
   
@@ -262,11 +262,11 @@ echo $C
 https://my.oschina.net/u/2428064/blog/3045121
 
 ### 逻辑与，或表达式
-    与&&：
+    与&&: 
     1）if [ $str=a -a $str=b ] 
     2）if [ $str=a ] && [  $str=b ]
     
-    或||：
+    或||: 
     1）if [ $str=a -o $str=b ] 
     2）if [ $str=a ] || [  $str=b ]
 
@@ -308,7 +308,7 @@ https://stackoverflow.com/questions/16153446/bash-last-index-of
 
 value=$(pwd)
 
-另一种方法：
+另一种方法: 
 
 value=`pwd`
 
@@ -316,7 +316,7 @@ value=`pwd`
 
 value=$(pwd)
 
-另一种方法：
+另一种方法: 
 
 value=`pwd`
 
@@ -359,7 +359,7 @@ fi
 
     key0="value0"
 
-注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：
+注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则: 
 
 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
 中间不能有空格，可以使用下划线（_）。
@@ -422,7 +422,7 @@ ${var:-newstring}
         或者就是未用""引用的字符串本身,放到[]结构中。虽然一般情况下可 
         以工作,但这是不安全的.习惯于使用""来测试字符串是一种好习惯.
 
-### 特殊变量：Shell $0, $#, $*, $@, $?, $$和命令行参数
+### 特殊变量: Shell $0, $#, $*, $@, $?, $$和命令行参数
 
     变量	含义
     $0	当前脚本的文件名
@@ -459,15 +459,15 @@ ${var:-newstring}
     [arg1 OP arg2] "OP"is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if "arg1"is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to"agr2",respectively."arg1"and "agr2"are integers. 
 
 ---
-版权声明：本文为CSDN博主「无知的蜗牛」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_37998647/java/article/details/79718821
+版权声明: 本文为CSDN博主「无知的蜗牛」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/weixin_37998647/java/article/details/79718821
 
 
 
 
 ## grep
 
-grep操作的返回值：
+grep操作的返回值: 
   
 如果有匹配的字符串，返回值是0， 还会打印出匹配字符串的行。
   
@@ -486,7 +486,7 @@ if [ -f ~/.bashrc ]; then
 fi
 ```
 
-其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0（表示真），则执行then后面的子命令，如果Exit Status非0（表示假），则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例：
+其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0（表示真），则执行then后面的子命令，如果Exit Status非0（表示假），则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例: 
 
 #! /bin/sh
   
@@ -500,7 +500,7 @@ fi
   
 if :; then echo "always true"; fi
   
-:是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子：
+:是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子: 
 
 #! /bin/sh
 
@@ -528,7 +528,7 @@ exit 0
   
 上例中的read命令的作用是等待用户输入一行字符串，将该字符串存到一个Shell变量中。
 
-此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样：
+此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样: 
 
 test "$(whoami)" != 'root' && (echo you are using a non-privileged account; exit 1)
   
@@ -630,7 +630,7 @@ num1 -ge num2 大于或等于 [ 3 -ge $mynum ]
 
 test命令用于检查某个条件是否成立，它可以进行数值、字符和文件3个方面的测试，其测试符和相应的功能分别如下。
 
-（1）数值测试：
+（1）数值测试: 
 
 　　-eq 等于则为真。
 
@@ -644,7 +644,7 @@ test命令用于检查某个条件是否成立，它可以进行数值、字符�
 
 　　-le 小于等于则为真。
 
-（2）字串测试：
+（2）字串测试: 
 
 　　= 等于则为真。
 
@@ -654,7 +654,7 @@ test命令用于检查某个条件是否成立，它可以进行数值、字符�
 
 　　-n字串 字串长度不伪则为真。
 
-（3）文件测试：
+（3）文件测试: 
 
 　　-e文件名 如果文件存在则为真。
 
@@ -764,7 +764,7 @@ fi
 
 以上三个if都为真，所以三个echo都会打印
 
-示例：
+示例: 
 
 ```
  view plain copy
@@ -803,7 +803,7 @@ echo "no"
   
 fi
   
-运行结果：
+运行结果: 
   
 true
 
@@ -860,7 +860,7 @@ echo "down again..."
   
 done
   
-其中，下面三种整数比较都成立：
+其中，下面三种整数比较都成立: 
   
 1） while [ ! -f $file -o "$fileSize" -lt "$FILESIZE" ]
 
@@ -915,7 +915,7 @@ if [ "$a" \< "$b" ]
 
 -n 字符串不为"null"
 
-判断shell传入的参数个数是否为空：
+判断shell传入的参数个数是否为空: 
 
 [python] view plain copy
   
@@ -933,11 +933,11 @@ echo "redis port: $port"
   
 redis-cli -h 172.1628.10.114 -p $port
 
-字符串比较实例：
+字符串比较实例: 
 
 if [ "$var1" = "$var2" ]
 
-代码：
+代码: 
 
 [css] view plain copy
   
@@ -957,9 +957,9 @@ echo "no"
   
 fi
 
-判断子字符串包含关系： =~
+判断子字符串包含关系:  =~
 
-代码：
+代码: 
 
 [python] view plain copy
   
@@ -999,19 +999,19 @@ https://www.linuxquestions.org/questions/programming-9/bash-put-output-from-%60l
 
 ————————————————
   
-版权声明：本文为CSDN博主「DevMaster」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+版权声明: 本文为CSDN博主「DevMaster」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接：https://blog.csdn.net/wncnke/java/article/details/54847140
+原文链接: https://blog.csdn.net/wncnke/java/article/details/54847140
 
 
 参考
 
 http://fyan.iteye.com/blog/1130034   
-作者：翔云翔云  
-来源：CSDN    
-原文：https://blog.csdn.net/lanyang123456/article/details/57416906    
-版权声明：本文为博主原创文章，转载请附上博文链接！
-本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy
+作者: 翔云翔云  
+来源: CSDN    
+原文: https://blog.csdn.net/lanyang123456/article/details/57416906    
+版权声明: 本文为博主原创文章，转载请附上博文链接！
+本文来自 wujiangguizhen 的CSDN 博客 ，全文地址请点击: https://blog.csdn.net/wujiangguizhen/article/details/26992353?utm_source=copy
 
 ---
 

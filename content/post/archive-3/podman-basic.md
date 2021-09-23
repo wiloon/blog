@@ -203,7 +203,7 @@ podman network create \
  cat /etc/cni/net.d/mac1.conflist
 ```
 
-在 host1 运行容器 c1，并指定使用 macvlan 网络：
+在 host1 运行容器 c1，并指定使用 macvlan 网络: 
 ```bash
 podman run -itd --name c1 --ip=192.168.50.99 --network mac1 busybox
 ```

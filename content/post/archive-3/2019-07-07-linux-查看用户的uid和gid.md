@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-方法一：使用 id 命令
+方法一: 使用 id 命令
 
 使用 id 命令可以很轻松的通过用户名查看UID、GID，下面来讲解一下这个命令的用法。
 
@@ -46,7 +46,7 @@ heihaier@heihaier-desktop:~$ id root
   
 uid=0(root) gid=0(root) groups=0(root)
   
-方法二：查看 /etc/password 文件
+方法二: 查看 /etc/password 文件
   
 /etc/password 文件格式
   
@@ -56,19 +56,19 @@ root:x:0:0:root:/root:/bin/bash
 
 上面是这个文件的一行实例，每个域用 : 区分，从左向右分别是
   
-root 用户名：1~32 字节长。
+root 用户名: 1~32 字节长。
   
-x 密码：字符x表示密码被加密保存在 /etc/shadow 文件中。
+x 密码: 字符x表示密码被加密保存在 /etc/shadow 文件中。
   
-0 用户ID(UID)：每个用户必需指定UID。UID 0 是保留给 root 用户的。UID 1~99是保留给其它预定义用户的。 UID 100~999是保留给系统用户的。
+0 用户ID(UID): 每个用户必需指定UID。UID 0 是保留给 root 用户的。UID 1~99是保留给其它预定义用户的。 UID 100~999是保留给系统用户的。
   
-0 组ID(GID)：主组ID（保存在 /etc/group 文件中）。
+0 组ID(GID): 主组ID（保存在 /etc/group 文件中）。
   
-root 用户ID信息：用户备注信息。
+root 用户ID信息: 用户备注信息。
   
-/root 主目录：用户主目录。
+/root 主目录: 用户主目录。
   
-/bin/bash 命令解释器(Shell)：用户默认的命令解释器的路径。
+/bin/bash 命令解释器(Shell): 用户默认的命令解释器的路径。
   
 使用案例
   

@@ -335,7 +335,7 @@ ThreadLocalMap解决Hash冲突的方式就是简单的步长加1或减1，寻找
 
 显然ThreadLocalMap采用线性探测的方式解决Hash冲突的效率很低，如果有大量不同的ThreadLocal对象放入map中时发送冲突，或者发生二次冲突，则效率很低。
 
-所以这里引出的良好建议是：每个线程只存一个变量，这样的话所有的线程存放到map中的Key都是相同的ThreadLocal，如果一个线程要保存多个变量，就需要创建多个ThreadLocal，多个ThreadLocal放入Map中时会极大的增加Hash冲突的可能。
+所以这里引出的良好建议是: 每个线程只存一个变量，这样的话所有的线程存放到map中的Key都是相同的ThreadLocal，如果一个线程要保存多个变量，就需要创建多个ThreadLocal，多个ThreadLocal放入Map中时会极大的增加Hash冲突的可能。
 
  
 
@@ -345,10 +345,10 @@ ThreadLocal在ThreadLocalMap中是以一个弱引用身份被Entry中的Key引�
 由于Entry的key是弱引用，而Value是强引用。这就导致了一个问题，ThreadLocal在没有外部对象强引用时，发生GC时弱引用Key会被回收，而Value不会回收，如果创建ThreadLocal的线程一直持续运行，那么这个Entry对象中的value就有可能一直得不到回收，发生内存泄露。
 
 为什么使用弱引用？
-key 使用强引用：引用的ThreadLocal的对象被回收了，但是ThreadLocalMap还持有ThreadLocal的强引用，如果没有手动删除，ThreadLocal不会被回收，导致Entry内存泄漏。
-key 使用弱引用：引用的ThreadLocal的对象被回收了，由于ThreadLocalMap持有ThreadLocal的弱引用，即使没有手动删除，ThreadLocal也会被回收。value在下一次ThreadLocalMap调用set,get，remove的时候会被清除。
+key 使用强引用: 引用的ThreadLocal的对象被回收了，但是ThreadLocalMap还持有ThreadLocal的强引用，如果没有手动删除，ThreadLocal不会被回收，导致Entry内存泄漏。
+key 使用弱引用: 引用的ThreadLocal的对象被回收了，由于ThreadLocalMap持有ThreadLocal的弱引用，即使没有手动删除，ThreadLocal也会被回收。value在下一次ThreadLocalMap调用set,get，remove的时候会被清除。
 
-比较两种情况，我们可以发现：由于ThreadLocalMap的生命周期跟Thread一样长，如果都没有手动删除对应key，都会导致内存泄漏，但是使用弱引用可以多一层保障：弱引用ThreadLocal不会内存泄漏，对应的value在下一次ThreadLocalMap调用set,get,remove的时候会被清除。
+比较两种情况，我们可以发现: 由于ThreadLocalMap的生命周期跟Thread一样长，如果都没有手动删除对应key，都会导致内存泄漏，但是使用弱引用可以多一层保障: 弱引用ThreadLocal不会内存泄漏，对应的value在下一次ThreadLocalMap调用set,get,remove的时候会被清除。
  
 
 如何避免泄漏
@@ -362,7 +362,7 @@ ThreadLocal内部的ThreadLocalMap键为弱引用，会有内存泄漏的风险�
 ### 魔数0x61c88647
 魔数0x61c88647与碰撞解决#
 机智的读者肯定发现ThreadLocalMap并没有使用链表或红黑树去解决hash冲突的问题，而仅仅只是使用了数组来维护整个哈希表，那么重中之重的散列性要如何保证就是一个很大的考验
-ThreadLocalMap通过结合三个巧妙的设计去解决这个问题：
+ThreadLocalMap通过结合三个巧妙的设计去解决这个问题: 
 1.Entry的key设计成弱引用，因此key随时可能被GC（也就是失效快），尽量多的面对空槽
 2.(单个ThreadLocal时)当遇到碰撞时，通过线性探测的开放地址法解决冲突问题
 3.(多个ThreadLocal时)引入了神奇的0x61c88647，增强其的散列性，大大减少碰撞几率
@@ -374,13 +374,13 @@ ThreadLocalMap通过结合三个巧妙的设计去解决这个问题：
 
 
 ### 链地址法和开放地址法的优缺点
-开放地址法：
+开放地址法: 
 
 容易产生堆积问题，不适于大规模的数据存储。
 散列函数的设计对冲突会有很大的影响，插入时可能会出现多次冲突的现象。
 删除的元素是多个冲突元素中的一个，需要对后面的元素作处理，实现较复杂。
 
-链地址法：
+链地址法: 
 
 处理冲突简单，且无堆积现象，平均查找长度短。
 链表中的结点是动态申请的，适合构造表不能确定长度的情况。
@@ -394,7 +394,7 @@ ThreadLocal 往往存放的数据量不会特别大（而且key 是弱引用又�
 
 
 https://juejin.cn/post/6844903974454329358
-来源：掘金
+来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ---

@@ -16,10 +16,10 @@ https://blog.csdn.net/future_fighter/article/details/3862795
 ### lsmod
 lsmod
 
-    功能：列出内核已载入模块的状态
-    用法：lsmod
+    功能: 列出内核已载入模块的状态
+    用法: lsmod
     描述: lsmod 列出/proc/modules的内容。
-    输出为：Module(模块名) Size(模块大小) Used by(被...使用)
+    输出为: Module(模块名) Size(模块大小) Used by(被...使用)
 
 ```bash
 modinfo module_name
@@ -32,7 +32,7 @@ modprobe --show-depends
 
     modprobe module_name
 
-如果要移除一个模块：
+如果要移除一个模块: 
 
     modprobe -r module_name
 

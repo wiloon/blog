@@ -22,7 +22,7 @@ http://topic.csdn.net/t/20061223/10/5250896.html
     假设ArrayList自动把capacity设为10，每次重建时将长度递增原来的三分之二，那么当我们需要大约存储50个元素到ArrayList中时，就会大约需要重建数组4次，分别是在增加第11、第17、第26、第39个元素的时候进行的。如果我们一开始就让ArrayList的capacity为50，那么不需要任何数组重建就能完成所有插入操作了。
   
   
-    java允许我们在构造ArrayList的同时指定capacity，如new   ArrayList(50)，也允许在以后将它设得更大，而增大capacity就是使用ensureCapacity()方法。注意：capacity只能比原来的更大，而不能比原来的更小，否则java会忽略该操作。ArrayList的初始默认capacity为10，所以给capacity指定小于10的整数是毫无意义的。
+    java允许我们在构造ArrayList的同时指定capacity，如new   ArrayList(50)，也允许在以后将它设得更大，而增大capacity就是使用ensureCapacity()方法。注意: capacity只能比原来的更大，而不能比原来的更小，否则java会忽略该操作。ArrayList的初始默认capacity为10，所以给capacity指定小于10的整数是毫无意义的。
   
   
     最后说说ArrayList的size，前面说过，size一定小于等于capactiy，而且更重要的是，访问超过size的位置将抛出异常，尽管这个位置可能没有超过capacity。ensureCapacity()只可能增加capacity，而不会对size有任何影响。要增加size，只能用add()方法。

@@ -187,7 +187,7 @@ identityHashCode和hashCode的区别是，identityHashCode会返回对象的hash
 
 ### Java对象结构
 Java对象存储在堆（Heap）内存。那么一个Java对象到底包含什么呢？概括起来分为对象头、对象体和对齐字节。
-几个部分的作用：
+几个部分的作用: 
 
 1. 对象头中的Mark Word（标记字）主要用来表示对象的线程锁状态，另外还可以用来配合GC、存放该对象的hashCode；
 2. Klass Word是一个指向方法区中Class信息的指针，意味着该对象可随时知道自己是哪个Class的实例；
@@ -196,12 +196,12 @@ Java对象存储在堆（Heap）内存。那么一个Java对象到底包含什�
 5. 对齐字是为了减少堆内存的碎片空间（不一定准确）。
 
 ————————————————
-版权声明：本文为CSDN博主「六吨代码」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/liudun_cool/article/details/86286872
+版权声明: 本文为CSDN博主「六吨代码」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/liudun_cool/article/details/86286872
 
 ### Mark Word（标记字）
 #### lock
-2位的锁状态标记位，由于希望用尽可能少的二进制位表示尽可能多的信息，所以设置了lock标记。该标记的值不同，整个Mark Word表示的含义不同。biased_lock和lock一起，表达的锁状态含义如下：
+2位的锁状态标记位，由于希望用尽可能少的二进制位表示尽可能多的信息，所以设置了lock标记。该标记的值不同，整个Mark Word表示的含义不同。biased_lock和lock一起，表达的锁状态含义如下: 
 
     biased_lock       lock            状态
     0                 01              无锁
@@ -217,17 +217,17 @@ Java对象存储在堆（Heap）内存。那么一个Java对象到底包含什�
 #### age
 4位的Java对象年龄。在GC中，如果对象在Survivor区复制一次，年龄增加1。当对象达到设定的阈值时，将会晋升到老年代。默认情况下，并行GC的年龄阈值为15，并发GC的年龄阈值为6。由于age只有4位，所以最大值为15，这就是-XX:MaxTenuringThreshold选项最大值为15的原因。
 
-identity_hashcode：31位的对象标识hashCode，采用延迟加载技术。调用方法System.identityHashCode()计算，并会将结果写到该对象头中。当对象加锁后（偏向、轻量级、重量级），MarkWord的字节没有足够的空间保存hashCode，因此该值会移动到管程Monitor中。
+identity_hashcode: 31位的对象标识hashCode，采用延迟加载技术。调用方法System.identityHashCode()计算，并会将结果写到该对象头中。当对象加锁后（偏向、轻量级、重量级），MarkWord的字节没有足够的空间保存hashCode，因此该值会移动到管程Monitor中。
 
-thread：持有偏向锁的线程ID。
+thread: 持有偏向锁的线程ID。
 
-epoch：偏向锁的时间戳。
+epoch: 偏向锁的时间戳。
 
-ptr_to_lock_record：轻量级锁状态下，指向栈中锁记录的指针。
+ptr_to_lock_record: 轻量级锁状态下，指向栈中锁记录的指针。
 
-ptr_to_heavyweight_monitor：重量级锁状态下，指向对象监视器Monitor的指针。
+ptr_to_heavyweight_monitor: 重量级锁状态下，指向对象监视器Monitor的指针。
 
-我们通常说的通过synchronized实现的同步锁，真实名称叫做重量级锁。但是重量级锁会造成线程排队（串行执行），且会使CPU在用户态和核心态之间频繁切换，所以代价高、效率低。为了提高效率，不会一开始就使用重量级锁，JVM在内部会根据需要，按如下步骤进行锁的升级：
+我们通常说的通过synchronized实现的同步锁，真实名称叫做重量级锁。但是重量级锁会造成线程排队（串行执行），且会使CPU在用户态和核心态之间频繁切换，所以代价高、效率低。为了提高效率，不会一开始就使用重量级锁，JVM在内部会根据需要，按如下步骤进行锁的升级: 
 
         1.初期锁对象刚创建时，还没有任何线程来竞争，对象的Mark Word是下图的第一种情形，这偏向锁标识位是0，锁状态01，说明该对象处于无锁状态（无线程竞争它）。
 
@@ -240,7 +240,7 @@ ptr_to_heavyweight_monitor：重量级锁状态下，指向对象监视器Monito
 ### Klass Word（类指针）
 这一部分用于存储对象的类型指针，该指针指向它的类元数据，JVM通过这个指针确定对象是哪个类的实例。该指针的位长度为JVM的一个字大小，即32位的JVM为32位，64位的JVM为64位。
 
-如果应用的对象过多，使用64位的指针将浪费大量内存，统计而言，64位的JVM将会比32位的JVM多耗费50%的内存。为了节约内存可以使用选项+UseCompressedOops开启指针压缩，其中，oop即ordinary object pointer普通对象指针。开启该选项后，下列指针将压缩至32位：
+如果应用的对象过多，使用64位的指针将浪费大量内存，统计而言，64位的JVM将会比32位的JVM多耗费50%的内存。为了节约内存可以使用选项+UseCompressedOops开启指针压缩，其中，oop即ordinary object pointer普通对象指针。开启该选项后，下列指针将压缩至32位: 
 
 每个Class的属性指针（即静态变量）
 每个对象的属性指针（即对象变量）
@@ -250,10 +250,10 @@ ptr_to_heavyweight_monitor：重量级锁状态下，指向对象监视器Monito
  
 
 三、数组长度
-如果对象是一个数组，那么对象头还需要有额外的空间用于存储数组的长度，这部分数据的长度也随着JVM架构的不同而不同：32位的JVM上，长度为32位；64位JVM则为64位。64位JVM如果开启+UseCompressedOops选项，该区域长度也将由64位压缩至32位
+如果对象是一个数组，那么对象头还需要有额外的空间用于存储数组的长度，这部分数据的长度也随着JVM架构的不同而不同: 32位的JVM上，长度为32位；64位JVM则为64位。64位JVM如果开启+UseCompressedOops选项，该区域长度也将由64位压缩至32位
 ————————————————
-版权声明：本文为CSDN博主「六吨代码」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/liudun_cool/article/details/86286872
+版权声明: 本文为CSDN博主「六吨代码」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/liudun_cool/article/details/86286872
 
 
 

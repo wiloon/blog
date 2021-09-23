@@ -38,7 +38,7 @@ ServerKeyBits 1024 #将ServerKey强度改为1024比特
   
 PermitEmptyPasswords no # 禁止空密码进行登录
 
-＃修改完成后，重启ssh服务：
+＃修改完成后，重启ssh服务: 
   
 sudo /etc/init.d/ssh restart
 
@@ -62,7 +62,7 @@ cd gitosis
   
 sudo python setup.py install
   
-注意：如果python setup.py install失败，需要安装python-setuptools
+注意: 如果python setup.py install失败，需要安装python-setuptools
   
 sudo apt-get install python-setuptools
   

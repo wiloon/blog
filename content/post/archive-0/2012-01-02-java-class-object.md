@@ -20,15 +20,15 @@ Class 没有公共构造方法。Class 对象是在加载类时由 Java 虚拟�
         
 一般某个类的Class对象被载入内存，它就用来创建这个类的所有对象。
   
-一、如何得到Class的对象呢？有三种方法可以的获取：
+一、如何得到Class的对象呢？有三种方法可以的获取: 
       
-1、调用Object类的getClass()方法来得到Class对象，这也是最常见的产生Class对象的方法。例如：
+1、调用Object类的getClass()方法来得到Class对象，这也是最常见的产生Class对象的方法。例如: 
       
 MyObject x;
       
 Class c1 = x.getClass();
       
-2、使用Class类的中静态forName()方法获得与字符串对应的Class对象。例如：
+2、使用Class类的中静态forName()方法获得与字符串对应的Class对象。例如: 
       
 Class c2=Class.forName("MyObject"),Employee必须是接口或者类的名字。
       
@@ -40,7 +40,7 @@ Class cl2 = int.class;
       
 Class cl3 = Double[].class;
       
-注意：Class对象实际上描述的只是类型，而这类型未必是类或者接口。例如上面的int.class是一个Class类型的对象。由于历史原因，数组类型的getName方法会返回奇怪的名字。
+注意: Class对象实际上描述的只是类型，而这类型未必是类或者接口。例如上面的int.class是一个Class类型的对象。由于历史原因，数组类型的getName方法会返回奇怪的名字。
   
 二、Class类的常用方法
       
@@ -50,7 +50,7 @@ Class cl3 = Double[].class;
       
 2、newInstance()
       
-Class还有一个有用的方法可以为类创建一个实例，这个方法叫做newInstance()。例如：
+Class还有一个有用的方法可以为类创建一个实例，这个方法叫做newInstance()。例如: 
       
 x.getClass.newInstance()，创建了一个同x一样类型的新实例。newInstance()方法调用默认构造器（无参数构造器）初始化新建对象。
       
@@ -76,19 +76,19 @@ x.getClass.newInstance()，创建了一个同x一样类型的新实例。newInst
       
 Object obj = Class.forName(s).newInstance();
       
-2、虚拟机为每种类型管理一个独一无二的Class对象。因此可以使用==操作符来比较类对象。例如：
+2、虚拟机为每种类型管理一个独一无二的Class对象。因此可以使用==操作符来比较类对象。例如: 
       
 if(e.getClass() == Employee.class)...
 
 在使用反射的API时，经常需要取得Class Object类型的值
   
-在这里总结一下取得这种值的几种常用方法：
+在这里总结一下取得这种值的几种常用方法: 
   
 1.通过getClass()方法取得
   
 这种方式每个Class都具有，因此每个具体的对象都具有该方法
   
-如：
+如: 
   
 Java代码
   
@@ -110,7 +110,7 @@ System.out.println("c2 type name ="+c2.getName()) ;
 
 2.通过getSuperClass()方法
   
-这里应该说是getSuperClass的一种特殊情况吧，也是同样使用于所有Class，注意是Class，通过该方法可以获得给定对象的父类的类型，示例如下：
+这里应该说是getSuperClass的一种特殊情况吧，也是同样使用于所有Class，注意是Class，通过该方法可以获得给定对象的父类的类型，示例如下: 
   
 Java代码
   
@@ -134,7 +134,7 @@ System.out.println("c4 type name = "+c4.getName()) ;
   
 这主要是适用于具体的Class，这里可以用到原生数据类型如int，前面的getClass()方法则不适用于原生数据类型
   
-用法如下：
+用法如下: 
   
 Java代码
   
@@ -158,7 +158,7 @@ System.out.println("c8 type name = "+c8.getName()) ;
 
 5.对于原生的数据类型的包装类，通过.TYPE方式
   
-这种适用方式仅限于原生数据类型的包装类，适用方式如下：
+这种适用方式仅限于原生数据类型的包装类，适用方式如下: 
   
 Java代码
   
@@ -174,7 +174,7 @@ System.out.println("c10 type name = "+c10.getName()) ;
   
 System.out.println("c11 type name = "+c11.getName()) ;
 
-输出的结果分别是：
+输出的结果分别是: 
   
 c9 type name = int
   

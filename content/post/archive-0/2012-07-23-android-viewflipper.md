@@ -19,33 +19,33 @@ ViewFilpper类继承于ViewAnimator类。而ViewAnimator类继承于FrameLayout�
 
 查看ViewAnimator类的源码可以看出此类的作用主要是为其中的View切换提供动画效果。该类有如下几个和动画相关的方法。
 
-setInAnimation：设置View进入屏幕时候使用的动画。该方法有两个重载方法，即可以直接传入Animation对象，也可以传入定义的Animation文件的resourceID。
+setInAnimation: 设置View进入屏幕时候使用的动画。该方法有两个重载方法，即可以直接传入Animation对象，也可以传入定义的Animation文件的resourceID。
 
-setOutAnimation：设置View退出屏幕时候使用的动画。使用方法和setInAnimation方法一样。
+setOutAnimation: 设置View退出屏幕时候使用的动画。使用方法和setInAnimation方法一样。
 
-showNext：调用该方法可以显示FrameLayout里面的下一个View。
+showNext: 调用该方法可以显示FrameLayout里面的下一个View。
 
-showPrevious：调用该方法可以来显示FrameLayout里面的上一个View。
+showPrevious: 调用该方法可以来显示FrameLayout里面的上一个View。
 
 查看ViewFlipper的源码可以看到，ViewFlipper主要用来实现View的自动切换。该类提供了如下几个主要的方法。
 
-setFilpInterval：设置View切换的时间间隔。参数为毫秒。
+setFilpInterval: 设置View切换的时间间隔。参数为毫秒。
 
-startFlipping：开始进行View的切换，时间间隔是上述方法设置的间隔数。切换会循环进行。
+startFlipping: 开始进行View的切换，时间间隔是上述方法设置的间隔数。切换会循环进行。
 
-stopFlipping：停止View切换。
+stopFlipping: 停止View切换。
 
-setAutoStart：设置是否自动开始。如果设置为"true"，当ViewFlipper显示的时候View的切换会自动开始。
+setAutoStart: 设置是否自动开始。如果设置为"true"，当ViewFlipper显示的时候View的切换会自动开始。
 
 一般情况下，我们都会使用ViewFilpper类实现View的切换，而不使用它的父类ViewAnimator类。
 
 2）实现滑动—GestureDetector介绍
 
-如果想要实现滑动翻页的效果，就要了解另外一个类：android.view.GestureDetector类。GestureDetector类中可以用来检测各种手势事件。该类有两个回调接口，分别用来通知具体的事件。
+如果想要实现滑动翻页的效果，就要了解另外一个类: android.view.GestureDetector类。GestureDetector类中可以用来检测各种手势事件。该类有两个回调接口，分别用来通知具体的事件。
 
-GestureDetector.OnDoubleTapListener：用来通知DoubleTap事件，类似于PC上面的鼠标的双击事件。
+GestureDetector.OnDoubleTapListener: 用来通知DoubleTap事件，类似于PC上面的鼠标的双击事件。
 
-GestureDetector.OnGestureListener：用来通知普通的手势事件，该接口有六个回调方法，具体的可以查看API。这里想要实现滑动的判断，就需要用到其中的onFling()方法。
+GestureDetector.OnGestureListener: 用来通知普通的手势事件，该接口有六个回调方法，具体的可以查看API。这里想要实现滑动的判断，就需要用到其中的onFling()方法。
 
 3）具体的实现
 

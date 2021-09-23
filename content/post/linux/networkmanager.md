@@ -32,7 +32,7 @@ Change it to:
 yes</allow_active>
 Save the file and restart your computer.
 
-设置取值有：
+设置取值有: 
 no
 Not authorized.
 yes
