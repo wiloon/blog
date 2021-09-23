@@ -1,7 +1,6 @@
 ---
 title: linux apps
 author: "-"
-type: post
 date: 2018-09-23T05:52:02+00:00
 url: linux-apps
 
