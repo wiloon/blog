@@ -1,19 +1,14 @@
 ---
 title: ForkJoinPool
 author: "-"
-type: post
 date: 2017-06-22T02:11:10+00:00
-url: /?p=10628
+url: ForkJoinPool
 
 ---
 
 http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/
 
 Java 1.7 引入了一种新的并发框架—— Fork/Join Framework。
-
-本文的主要目的是介绍 ForkJoinPool 的适用场景,实现原理,以及示例代码。
-
-TLDR; 如果觉得文章太长的话,以下就是结论: 
 
 ForkJoinPool 不是为了替代 ExecutorService,而是它的补充,在某些应用场景下性能比 ExecutorService 更好。（见 Java Tip: When to use ForkJoinPool vs ExecutorService ) 
   
