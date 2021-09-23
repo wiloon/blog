@@ -12,7 +12,7 @@ categories:
 
 关于PropertyPlaceholderConfigurer与PropertyOverrideConfigurer
 
-PropertyPlaceholderConfigurer，允许在spring的配置文件中加入properties文件，可以将一些动态参数移到properties中．
+PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties文件,可以将一些动态参数移到properties中．
 
 
   
@@ -25,9 +25,9 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
  ```
   
 
-但是好像在属性文件定义中却不支持多个属性文件的定义，比如不能这样用config/*.properties。
+但是好像在属性文件定义中却不支持多个属性文件的定义,比如不能这样用config/*.properties。
 
-经过查看源码，发现可以使用locations属性定义多个配置文件: 
+经过查看源码,发现可以使用locations属性定义多个配置文件: 
 
 
   
@@ -79,7 +79,7 @@ PropertyPlaceholderConfigurer，允许在spring的配置文件中加入propertie
     
   
 
-PropertyOverrideConfigurer: 在spring所有的bean初使化以后，将bean的值强行改变
+PropertyOverrideConfigurer: 在spring所有的bean初使化以后,将bean的值强行改变
 
 
   
@@ -131,4 +131,4 @@ PropertyOverrideConfigurer: 在spring所有的bean初使化以后，将bean的�
 
 helloBean.word=Welcome!
 
-word初使为hello后，当bean全加载完,PropertyOverrideConfigurer将helloBean.word的值改成为welcome.
+word初使为hello后,当bean全加载完,PropertyOverrideConfigurer将helloBean.word的值改成为welcome.

@@ -54,11 +54,11 @@ make menuconfig #set "Target System", "Subtarget", "Target Profile";
   
 make defconfig #恢复默认配置
 
-# 选了dnsmasq-full就不要选dnsmasq了， 编译的时候会冲突
+# 选了dnsmasq-full就不要选dnsmasq了, 编译的时候会冲突
   
 Base system> dnsmasq-full>Build with IPset support.
 
-#调试用的， 选用。
+#调试用的, 选用。
   
 kernel modules>Netfilter Extensions>kmod-ipt-debug
   

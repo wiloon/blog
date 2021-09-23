@@ -24,7 +24,7 @@ MySQL数据库版本为5.6
 
 jdbc在连接数据库时候会发送测试语句SET OPTION SQL_SELECT_LIMIT=DEFAULT
 
-这在MySQL5.6以下版本是可以的 ，但是5.6不再支持SET...
+这在MySQL5.6以下版本是可以的 ,但是5.6不再支持SET...
   
 解决: 
 
@@ -32,4 +32,4 @@ jdbc在连接数据库时候会发送测试语句SET OPTION SQL_SELECT_LIMIT=DEF
 
 -------
 
-注意: 版本要匹配才行，否则会出错。
+注意: 版本要匹配才行,否则会出错。

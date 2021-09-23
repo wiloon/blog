@@ -29,7 +29,7 @@ https://blog.csdn.net/u011127019/article/details/74039598
     Ctrl + ,
 #### terminal
     Ctrl + `
-#### 命令框，查找文件
+#### 命令框,查找文件
     Ctrl + Shift + p
 
 ### 字体 

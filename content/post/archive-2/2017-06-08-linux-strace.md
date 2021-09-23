@@ -14,11 +14,11 @@ http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/strace.html
 
 strace 跟踪进程中的系统调用
   
-strace常用来跟踪进程执行时的系统调用和所接收的信号。 在Linux世界，进程不能直接访问硬件设备，当进程需要访问硬件设备(比如读取磁盘文件，接收网络数据等等)时，必须由用户态模式切换至内核态模式，通过系统调用访问硬件设备。strace可以跟踪到一个进程产生的系统调用,包括参数，返回值，执行消耗的时间。
+strace常用来跟踪进程执行时的系统调用和所接收的信号。 在Linux世界,进程不能直接访问硬件设备,当进程需要访问硬件设备(比如读取磁盘文件,接收网络数据等等)时,必须由用户态模式切换至内核态模式,通过系统调用访问硬件设备。strace可以跟踪到一个进程产生的系统调用,包括参数,返回值,执行消耗的时间。
 
 6.1. 输出参数含义
   
-每一行都是一条系统调用，等号左边是系统调用的函数名及其参数，右边是该调用的返回值。 strace 显示这些调用的参数并返回符号形式的值。strace 从内核接收信息，而且不需要以任何特殊的方式来构建内核。
+每一行都是一条系统调用,等号左边是系统调用的函数名及其参数,右边是该调用的返回值。 strace 显示这些调用的参数并返回符号形式的值。strace 从内核接收信息,而且不需要以任何特殊的方式来构建内核。
 
     strace cat /dev/null
   
@@ -147,10 +147,10 @@ qualifier只能是 trace,abbrev,verbose,raw,signal,read,write其中之一.value�
   
 strace -f -F -o ~/straceout.txt myserver
   
--f -F选项告诉strace同时跟踪fork和vfork出来的进程，-o选项把所有strace输出写到~/straceout.txt里 面，myserver是要启动和调试的程序。
+-f -F选项告诉strace同时跟踪fork和vfork出来的进程,-o选项把所有strace输出写到~/straceout.txt里 面,myserver是要启动和调试的程序。
 
 跟踪服务程序
   
 strace -o output.txt -T -tt -e trace=all -p 28979
   
-跟踪28979进程的所有系统调用（-e trace=all），并统计系统调用的花费时间，以及开始时间（并以可视化的时分秒格式显示），最后将记录结果存在output.txt文件里面。
+跟踪28979进程的所有系统调用（-e trace=all）,并统计系统调用的花费时间,以及开始时间（并以可视化的时分秒格式显示）,最后将记录结果存在output.txt文件里面。

@@ -16,7 +16,7 @@ http://lsscto.blog.51cto.com/779396/904078
   
 标签: nsswitch 文件 conf 休闲 职场
   
-原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://songzai.blog.51cto.com/52048/59678
+原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://songzai.blog.51cto.com/52048/59678
   
 nsswitch.conf是SUN公司开发的一种扩充（name services switch）
   
@@ -106,7 +106,7 @@ nis [NOTFOUND=return] files
   
 * 对查找结果的反应, 如\`[NOTFOUND=return]'.
   
-在有NYS支持的libc5里允许服务规范\`files', \`nis'及\`nisplus',此外，还可以对hosts 指明\`dns' 为额外服务, 对passwd及group 指明
+在有NYS支持的libc5里允许服务规范\`files', \`nis'及\`nisplus',此外,还可以对hosts 指明\`dns' 为额外服务, 对passwd及group 指明
   
 \`compat', 但不能对shadow指明\`compat'.
   
@@ -174,6 +174,6 @@ tryagain: 服务临时不可用. 可能是文件被锁住了或者服务器当�
   
 在Solaris 下, 不能静态连接使用了NSS Service 的程序, 但是在Linux 下, 则毫无问题.
 
-以上是我目前的理解，但感觉还没理解透，还请大家一起来讨论
+以上是我目前的理解,但感觉还没理解透,还请大家一起来讨论
   
-本文出自 "松仔的技术博客" 博客，请务必保留此出处http://songzai.blog.51cto.com/52048/59678
+本文出自 "松仔的技术博客" 博客,请务必保留此出处http://songzai.blog.51cto.com/52048/59678

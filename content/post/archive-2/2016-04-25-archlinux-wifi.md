@@ -33,7 +33,7 @@ categories:
  + IP=dhcp
  + ESSID='wifi-name'
  + Key='wifi-passwd'
- # 注意，必须先完成以上才能进行一下，否则有一系列问题
+ # 注意,必须先完成以上才能进行一下,否则有一系列问题
  netctl enable wireless-wpa
  netctl start wireless-wpa
  reboot

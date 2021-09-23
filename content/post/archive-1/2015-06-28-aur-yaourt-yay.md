@@ -9,7 +9,7 @@ tags:
 ---
 Yaourt 已经不再维护
   
-yay 是下一个最好的 AUR 助手。它使用 Go 语言写成，宗旨是提供最少化用户输入的 pacman 界面、yaourt 式的搜索，而几乎没有任何依赖软件。
+yay 是下一个最好的 AUR 助手。它使用 Go 语言写成,宗旨是提供最少化用户输入的 pacman 界面、yaourt 式的搜索,而几乎没有任何依赖软件。
 
 ### yay 安装
     pacman -S base-devel binutils git
@@ -30,7 +30,7 @@ yay --aururl "https://aur.archlinux.org" --save
 
 
 ```
-修改的配置文件位于 ~/.config/yay/config.json ，还可通过以下命令查看修改过的配置: 
+修改的配置文件位于 ~/.config/yay/config.json ,还可通过以下命令查看修改过的配置: 
 
 ```bash
 yay -P -g
@@ -55,11 +55,11 @@ https://mirrors.tuna.tsinghua.edu.cn/help/AUR/
 https://linux.cn/article-9925-1.html
 
 ### 废弃
-Yaourt (Yet AnOther User Repository Tool)，是社区贡献的一个pacman的一个外壳。在pacman的基础上，它添加了AUR支持，帮助用户轻松从AUR的海量PKGBUILD中选择需要的软件进行编译安装。Yaourt的操作方式类似pacman，易于记忆使用。它提供诸如彩色输出、交互式搜索模式等一系列实用功能。
+Yaourt (Yet AnOther User Repository Tool),是社区贡献的一个pacman的一个外壳。在pacman的基础上,它添加了AUR支持,帮助用户轻松从AUR的海量PKGBUILD中选择需要的软件进行编译安装。Yaourt的操作方式类似pacman,易于记忆使用。它提供诸如彩色输出、交互式搜索模式等一系列实用功能。
 
 yaourt-Yet AnOther User Repository Tool
 
-Yaourt是archlinux方便使用的关键部件之一，但没有被整合到系统安装中的工具。建议在装完系统重启之后，更新完pacman和基本系统之后，就安装这个工具。
+Yaourt是archlinux方便使用的关键部件之一,但没有被整合到系统安装中的工具。建议在装完系统重启之后,更新完pacman和基本系统之后,就安装这个工具。
 
 简便的安装
   
@@ -81,7 +81,7 @@ pacman -S yaourt
 
 如何使用yaourt?
   
-yaourt用起来很简单，而且类似于Pacman的命令，下面是常用的一些命令:   
+yaourt用起来很简单,而且类似于Pacman的命令,下面是常用的一些命令:   
 yaourt -S package_name – 从AUR安装软件包
 
 https://linux.cn/article-9925-1.html?utm_source=rss&utm_medium=rss

@@ -14,7 +14,7 @@ css3中的box-shadow（阴影）可以查看: http://www.css88.com/archives/2136
   
 基本语法: filter: progid:DXImageTransform.Microsoft.Shadow(color='颜色值', Direction=阴影角度（数值）, Strength=阴影半径（数值）);
   
-注意: 该滤镜必须配合background属性一起使用，否则该滤镜失效。
+注意: 该滤镜必须配合background属性一起使用,否则该滤镜失效。
   
 IE下模拟css3中的box-shadow（阴影）代码: 
   

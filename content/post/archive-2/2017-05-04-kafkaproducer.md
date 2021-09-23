@@ -46,35 +46,35 @@ properties props = new Properties();
 
 ### batch.size
 单位: 字节
-batch.size是 producer 批量发送的基本单位，默认是16384Bytes，即16kB；
+batch.size是 producer 批量发送的基本单位,默认是16384Bytes,即16kB；
 
-发往每个分区（Partition）的消息缓存量（消息内容的字节数之和，不是条数）。达到设置的数值时，就会触发一次网络请求，然后Producer客户端把消息批量发往服务器。
+发往每个分区（Partition）的消息缓存量（消息内容的字节数之和,不是条数）。达到设置的数值时,就会触发一次网络请求,然后Producer客户端把消息批量发往服务器。
 
 #### linger.ms
 单位: 毫秒
-lingger.ms是sender线程在检查batch是否ready时候，判断有没有过期的参数，默认大小是0ms
+lingger.ms是sender线程在检查batch是否ready时候,判断有没有过期的参数,默认大小是0ms
 producer会等待buffer的messages数目达到指定值或时间超过x毫秒,才发送数据。减少网络IO,节省带宽之用。原理就是把原本需要多次发送的小batch,通过引入延时的方式合并成大batch发送,减少了网络传输的压力,从而提升吞吐量。当然,也会引入延时.
 
-那么producer是按照batch.size大小批量发送消息呢，还是按照linger.ms的时间间隔批量发送消息呢？这里先说结论: 其实满足batch.size和ling.ms之一，producer便开始发送消息。
+那么producer是按照batch.size大小批量发送消息呢,还是按照linger.ms的时间间隔批量发送消息呢？这里先说结论: 其实满足batch.size和ling.ms之一,producer便开始发送消息。
 
-　一个Batch被创建之后，最多过多久，不管这个Batch有没有写满，都必须发送出去了。
+　一个Batch被创建之后,最多过多久,不管这个Batch有没有写满,都必须发送出去了。
 
-　　比如说batch.size是16KB，但是现在某个低峰时间段，发送消息量很小。这会导致可能Batch被创建之后，有消息进来，但是迟迟无法凑够16KB，难道此时就一直等着吗？
+　　比如说batch.size是16KB,但是现在某个低峰时间段,发送消息量很小。这会导致可能Batch被创建之后,有消息进来,但是迟迟无法凑够16KB,难道此时就一直等着吗？
 
-　　当然不是，假设设置“linger.ms”是50ms，那么只要这个Batch从创建开始到现在已经过了50ms了，哪怕他还没满16KB，也会被发送出去。 
+　　当然不是,假设设置“linger.ms”是50ms,那么只要这个Batch从创建开始到现在已经过了50ms了,哪怕他还没满16KB,也会被发送出去。 
 
-　　所以“linger.ms”决定了消息一旦写入一个Batch，最多等待这么多时间，他一定会跟着Batch一起发送出去。 
+　　所以“linger.ms”决定了消息一旦写入一个Batch,最多等待这么多时间,他一定会跟着Batch一起发送出去。 
 
-　　linger.ms配合batch.size一起来设置，可避免一个Batch迟迟凑不满，导致消息一直积压在内存里发送不出去的情况。
+　　linger.ms配合batch.size一起来设置,可避免一个Batch迟迟凑不满,导致消息一直积压在内存里发送不出去的情况。
 
 ### buffer.memory 缓冲区大小
-Kafka的客户端发送数据到服务器，不是来一条就发一条，而是经过缓冲的，也就是说，通过KafkaProducer发送出去的消息都是先进入到客户端本地的内存缓冲里，然后把很多消息收集成一个一个的Batch，再发送到Broker上去的，这样性能才可能高。
+Kafka的客户端发送数据到服务器,不是来一条就发一条,而是经过缓冲的,也就是说,通过KafkaProducer发送出去的消息都是先进入到客户端本地的内存缓冲里,然后把很多消息收集成一个一个的Batch,再发送到Broker上去的,这样性能才可能高。
 
-　　buffer.memory的本质就是用来约束KafkaProducer能够使用的内存缓冲的大小的，默认值32MB。
+　　buffer.memory的本质就是用来约束KafkaProducer能够使用的内存缓冲的大小的,默认值32MB。
 
-　　如果buffer.memory设置的太小，可能导致的问题是: 消息快速的写入内存缓冲里，但Sender线程来不及把Request发送到Kafka服务器，会造成内存缓冲很快就被写满。而一旦被写满，就会阻塞用户线程，不让继续往Kafka写消息了。 
+　　如果buffer.memory设置的太小,可能导致的问题是: 消息快速的写入内存缓冲里,但Sender线程来不及把Request发送到Kafka服务器,会造成内存缓冲很快就被写满。而一旦被写满,就会阻塞用户线程,不让继续往Kafka写消息了。 
 
-　　所以“buffer.memory”参数需要结合实际业务情况压测，需要测算在生产环境中用户线程会以每秒多少消息的频率来写入内存缓冲。经过压测，调试出来一个合理值。
+　　所以“buffer.memory”参数需要结合实际业务情况压测,需要测算在生产环境中用户线程会以每秒多少消息的频率来写入内存缓冲。经过压测,调试出来一个合理值。
 
 #### buffer.memory与batch.size的区别
 batch.size Kafka producers attempt to collect sent messages into
@@ -86,19 +86,19 @@ available to the Java client for collecting unsent messages. When this
 limit is hit, the producer will block on additional sends for as long
 as max.block.ms before raising an exception.
 ————————————————
-版权声明: 本文为CSDN博主「鸭梨山大哎」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+版权声明: 本文为CSDN博主「鸭梨山大哎」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
 原文链接: https://blog.csdn.net/u010711495/article/details/113250402
 
 
 ### max.block.ms
 buffer.memory 写满之后x毫秒抛异常 TimeoutException
 
-配置控制了KafkaProducer.send（）和KafkaProducer.partitionsFor（）的阻塞时间，这些方法可以由于缓冲区已满或元数据不可用而被阻塞，用户提供的序列化器或分区器中的阻塞将不计入此超时时间 。
+配置控制了KafkaProducer.send（）和KafkaProducer.partitionsFor（）的阻塞时间,这些方法可以由于缓冲区已满或元数据不可用而被阻塞,用户提供的序列化器或分区器中的阻塞将不计入此超时时间 。
 
 
 The buffer.memory controls the total amount of memory available to the producer for buffering. If records are sent faster than they can be transmitted to the server then this buffer space will be exhausted. When the buffer space is exhausted additional send calls will block. The threshold for time to block is determined by max.block.ms after which it throws a TimeoutException.
 
-buffer.memory设置决定了Producer缓存区整个可用的内存。如果记录记录发送速度总是比推送到集群速度快，那么缓存区将被耗尽。当缓存区资源耗尽，消息发送send方法调用将被阻塞，阻塞的时间由max.block.ms设定，阻塞超过限定时间会抛出TimeoutException异常。
+buffer.memory设置决定了Producer缓存区整个可用的内存。如果记录记录发送速度总是比推送到集群速度快,那么缓存区将被耗尽。当缓存区资源耗尽,消息发送send方法调用将被阻塞,阻塞的时间由max.block.ms设定,阻塞超过限定时间会抛出TimeoutException异常。
 
 默认值:  33554432（32MB）
 
@@ -152,15 +152,15 @@ max.message.bytes 参数校验的是批次大小,而不是消息大小。
 
 ### broker
 #### message.max.bytes
-Kafka 允许的最大 record batch size，什么是 record batch size ？简单来说就是 Kafka 的消息集合批次，一个批次当中会包含多条消息，生产者中有个参数 batch.size，指的是生产者可以进行消息批次发送，提高吞吐量
-以上源码可以看出 message.max.bytes 并不是限制消息体大小的，而是限制一个批次的消息大小，所以我们需要注意生产端对于 batch.size 的参数设置需要小于 message.max.bytes。
+Kafka 允许的最大 record batch size,什么是 record batch size ？简单来说就是 Kafka 的消息集合批次,一个批次当中会包含多条消息,生产者中有个参数 batch.size,指的是生产者可以进行消息批次发送,提高吞吐量
+以上源码可以看出 message.max.bytes 并不是限制消息体大小的,而是限制一个批次的消息大小,所以我们需要注意生产端对于 batch.size 的参数设置需要小于 message.max.bytes。
 
 
 ### request.timeout.ms
 默认值:  30秒  
-这个参数容易和上面的max.block.ms 参数相混淆，这里也一同说明一下。
+这个参数容易和上面的max.block.ms 参数相混淆,这里也一同说明一下。
 
-生产者producer发送消息后等待响应的最大时间，如果在配置时间内没有得到响应，生产者会重试。
+生产者producer发送消息后等待响应的最大时间,如果在配置时间内没有得到响应,生产者会重试。
 
 
 Step 1:  序列化+计算目标分区

@@ -33,13 +33,13 @@ maven-compiler-plugin 会从 <properties> 里读取maven.compiler.release, 可�
 
 http://blog.csdn.net/zhaoyongnj2012/article/details/23970451
 
-在maven的默认配置中，对于jdk的配置是1.4版本，那么创建/导入maven工程过程中，工程中未指定jdk版本。
+在maven的默认配置中,对于jdk的配置是1.4版本,那么创建/导入maven工程过程中,工程中未指定jdk版本。
 
-对工程进行maven的update，就会出现工程依赖的JRE System Library会自动变成JavaSE-1.4。
+对工程进行maven的update,就会出现工程依赖的JRE System Library会自动变成JavaSE-1.4。
   
 解决方案1: 修改maven的默认jdk配置
 
-maven的conf\setting.xml文件中找到jdk配置的地方，修改如下: 
+maven的conf\setting.xml文件中找到jdk配置的地方,修改如下: 
 
 
 ```xml
@@ -69,9 +69,9 @@ true</activeByDefault>
 </profile>
 ```
 
-解决方案2: 修改项目中pom.xml文件，这样避免在导入项目时的jdk版本指定
+解决方案2: 修改项目中pom.xml文件,这样避免在导入项目时的jdk版本指定
 
-打开项目中pom.xml文件，修改如下: 
+打开项目中pom.xml文件,修改如下: 
 
 
 [html] view plaincopy

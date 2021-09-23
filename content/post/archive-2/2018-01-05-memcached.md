@@ -28,9 +28,9 @@ memcached -m 16
 
 # 参数说明如下: 
 
-key: 键值 key-value 结构中的 key，用于查找缓存值。
-flags: 可以包括键值对的整型参数，客户机使用它存储关于键值对的额外信息 。
-exptime: 在缓存中保存键值对的时间长度（以秒为单位，0 表示永远）
+key: 键值 key-value 结构中的 key,用于查找缓存值。
+flags: 可以包括键值对的整型参数,客户机使用它存储关于键值对的额外信息 。
+exptime: 在缓存中保存键值对的时间长度（以秒为单位,0 表示永远）
 bytes: 在缓存中存储的字节数
 noreply（可选）:  该参数告知服务器不需要返回数据
 value: 存储的值（始终位于第二行）（可直接理解为key-value结构中的value）
@@ -39,7 +39,7 @@ value: 存储的值（始终位于第二行）（可直接理解为key-value结�
 set foo 0 0 3
 bar
 
-#获取存储在 key(键) 中的 value(数据值) ，如果 key 不存在，则返回空。
+#获取存储在 key(键) 中的 value(数据值) ,如果 key 不存在,则返回空。
 get key
 
 # 删除key
@@ -48,10 +48,10 @@ delete <key>
 #输出各个slab中的item的数目和最老item的年龄(最后一次访问距离现在的秒数) .
 stats items
 
-# 根据<slab_id>输出相同的<slab_id>中的item信息。<limit_num>是输出的个数，当<limit_num>为0是输出所有的item。
+# 根据<slab_id>输出相同的<slab_id>中的item信息。<limit_num>是输出的个数,当<limit_num>为0是输出所有的item。
 stats cachedump <slab_id> <limit_num>
 
-#显示各个slab的信息，包括chunk的大小、数目、使用情况等。
+#显示各个slab的信息,包括chunk的大小、数目、使用情况等。
 stats slabs
 
 ```

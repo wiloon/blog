@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-偶然有一机会发现form表单的target的用法，可以实现当前页表单提交而不进行跳转刷新。代码如下，首页在页面里准备一form表单和一iframe
+偶然有一机会发现form表单的target的用法,可以实现当前页表单提交而不进行跳转刷新。代码如下,首页在页面里准备一form表单和一iframe
 
 
   
@@ -31,7 +31,7 @@ categories:
     
   
 
-提交到action后，action返回一串javascript语句
+提交到action后,action返回一串javascript语句
 
 
   

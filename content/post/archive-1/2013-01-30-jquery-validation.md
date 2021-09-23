@@ -32,7 +32,7 @@ categories:
     
   
 
-**[2]  required( dependency-expression ) **      返回: Boolean 参数 dependency-expression     类型: String    在form上下文中的一个表达式( String )，表单元素是否需要填写依赖于该表达式返回一个或多个元素。 说明: 让表单元素必须填写（选择），依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
+**[2]  required( dependency-expression ) **      返回: Boolean 参数 dependency-expression     类型: String    在form上下文中的一个表达式( String ),表单元素是否需要填写依赖于该表达式返回一个或多个元素。 说明: 让表单元素必须填写（选择）,依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
   
     
       Js代码
@@ -71,7 +71,7 @@ categories:
     
   
 
-**[3]  required( dependency-callback ) **      返回: Boolean 参数 dependency-callback     类型: Callback   该回函数以待验证表单元素作为其唯一的参数。当该回调函数返回true，则该表单元素是必须的。 说明: 让表单元素必须填写（选择），依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
+**[3]  required( dependency-callback ) **      返回: Boolean 参数 dependency-callback     类型: Callback   该回函数以待验证表单元素作为其唯一的参数。当该回调函数返回true,则该表单元素是必须的。 说明: 让表单元素必须填写（选择）,依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
   
     
       Js代码
@@ -128,7 +128,7 @@ categories:
     
   
 
-**[4]  remote( options ) **      返回: Boolean 参数 options      类型: String, Options    请求服务器端资源的url(String)。或$.ajax()方法中的选项(Options)。 说明: 请求服务器端资源验证。 服务器端的资源通过$.ajax (XMLHttpRequest)获取key/value对，响应返回true则表单通过验证。
+**[4]  remote( options ) **      返回: Boolean 参数 options      类型: String, Options    请求服务器端资源的url(String)。或$.ajax()方法中的选项(Options)。 说明: 请求服务器端资源验证。 服务器端的资源通过$.ajax (XMLHttpRequest)获取key/value对,响应返回true则表单通过验证。
   
     
       Js代码
@@ -362,7 +362,7 @@ categories:
     
   
 
-**[11]  email( ) **      返回: Boolean 说明: 确保表单元素的值为一个有效的email地址。 如果值为一个有效的email地址，则返回true。该方法只在文本输入框(text input)下有效。
+**[11]  email( ) **      返回: Boolean 说明: 确保表单元素的值为一个有效的email地址。 如果值为一个有效的email地址,则返回true。该方法只在文本输入框(text input)下有效。
   
     
       Js代码
@@ -395,7 +395,7 @@ categories:
     
   
 
-**[12]  url( ) **      返回: Boolean 说明: 确保表单元素的值为一个有效的URL地址(http://www.mydomain.com)。 如果值为一个有效的url地址，则返回true。该方法只在文本输入框(text input)下有效。
+**[12]  url( ) **      返回: Boolean 说明: 确保表单元素的值为一个有效的URL地址(http://www.mydomain.com)。 如果值为一个有效的url地址,则返回true。该方法只在文本输入框(text input)下有效。
   
     
       Js代码
@@ -467,7 +467,7 @@ categories:
     
   
 
-**[14]  number( )  numberDE()**      返回: Boolean 说明: 用来验证小数。number()的小数点为圆点( . )，numberDE()的小数点为英文逗号( , )。
+**[14]  number( )  numberDE()**      返回: Boolean 说明: 用来验证小数。number()的小数点为圆点( . ),numberDE()的小数点为英文逗号( , )。
   
     
       Js代码
@@ -569,7 +569,7 @@ categories:
     
   
 
-**[17]  accept( [extension] ) **      返回: Boolean 参数 extension(Optional)     类型: String    允许的文件后缀名，用"|"或","分割。默认为"png|jpe?g|gif" 说明: 确保表单元素接收给定的文件后缀名的文件。如果没有指定参数，则只有图片是允许的(png,jpeg,gif)。
+**[17]  accept( [extension] ) **      返回: Boolean 参数 extension(Optional)     类型: String    允许的文件后缀名,用"|"或","分割。默认为"png|jpe?g|gif" 说明: 确保表单元素接收给定的文件后缀名的文件。如果没有指定参数,则只有图片是允许的(png,jpeg,gif)。
   
     
       Js代码

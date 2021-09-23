@@ -22,7 +22,7 @@ impact
   
 分类:  词汇学习
   
-affect 作主语通常是物而不是人，指一物对另一物产生的消极影响。
+affect 作主语通常是物而不是人,指一物对另一物产生的消极影响。
 
 The tax increases have affected us all. 加税已经影响了我们所有的人。《简明英汉词典》
 
@@ -33,7 +33,7 @@ Your attitude will affect how successful you are.
 你的态度会影响你成功的程度。《新牛津英汉双解大词典》
 
 
-influence 侧重在思想、性格、行为等方面所产生的潜移默化的影响，也可指自然力的影响。
+influence 侧重在思想、性格、行为等方面所产生的潜移默化的影响,也可指自然力的影响。
 
 The labour enthusiasm of the workers strongly influenced us.
 
@@ -44,7 +44,7 @@ It's all too easy to be influenced by our parents. 我们容易受父母的影�
 The weather influences crops. 天气影响农作物。
 
 
-impact 是不及物动词，对某物有强烈影响（have a strong effect）（+on）
+impact 是不及物动词,对某物有强烈影响（have a strong effect）（+on）
 
 High interest rates have impacted on retail spending.
 

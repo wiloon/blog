@@ -21,7 +21,7 @@ resolvectl query google.com
 ```bash
 vim /etc/systemd/resolved.conf
 [Resolve]
-# 上游的dns服务器，可以配置多条
+# 上游的dns服务器,可以配置多条
 DNS=192.168.50.1
 FallbackDNS=223.5.5.5 223.6.6.6 114.114.114.114
 #Domains=

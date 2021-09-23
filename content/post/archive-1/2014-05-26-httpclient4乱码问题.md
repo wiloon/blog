@@ -12,11 +12,11 @@ tags:
 ---
 http://my.oschina.net/u/179805/blog/93659
 
-今天在开发调用第三方接口的时候，使用HTTPCLIENT4调用后返回的结果中中文都是乱码，蛋疼的乱码问题又来了！我一开始使用的是: 
+今天在开发调用第三方接口的时候,使用HTTPCLIENT4调用后返回的结果中中文都是乱码,蛋疼的乱码问题又来了！我一开始使用的是: 
 
 String result = new String(EntityUtils.toString(entity,"UTF-8"));
   
-获取返回值的，结果是乱码，咨询了第三方公司后，他们表示他们的返回的结果已经是UTF-8编码,
+获取返回值的,结果是乱码,咨询了第三方公司后,他们表示他们的返回的结果已经是UTF-8编码,
   
 于是我直接使用: 
 
@@ -36,7 +36,7 @@ baos.write(b, 0, len);
   
 System.out.println("baos="+new String(baos.toByteArray()));
   
-这次不乱了，查看了下EntityUtils.toString源码，发现如果不指定编码，EntityUtils默认会使用ISO_8859_1进行编码，所以如果服务端直接返回 是UTF-8编码的值可以进行如下转码: 
+这次不乱了,查看了下EntityUtils.toString源码,发现如果不指定编码,EntityUtils默认会使用ISO_8859_1进行编码,所以如果服务端直接返回 是UTF-8编码的值可以进行如下转码: 
 
 String result = new String(EntityUtils.toString(entity).getBytes("ISO_8859_1"),"UTF-8");
   

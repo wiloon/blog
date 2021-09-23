@@ -12,9 +12,9 @@ http://blog.csdn.net/carolzhang8406/article/details/6726589
   
 一、扫描控制台输入
 
-这个例子是常常会用到，但是如果没有Scanner，你写写就知道多难受了。
+这个例子是常常会用到,但是如果没有Scanner,你写写就知道多难受了。
   
-当通过new Scanner(System.in)创建一个Scanner，控制台会一直等待输入，直到敲回车键结束，把所输入的内容传给Scanner，作为扫描对象。如果要获取输入的内容，则只需要调用Scanner的nextLine()方法即可。
+当通过new Scanner(System.in)创建一个Scanner,控制台会一直等待输入,直到敲回车键结束,把所输入的内容传给Scanner,作为扫描对象。如果要获取输入的内容,则只需要调用Scanner的nextLine()方法即可。
 
 /**
   
@@ -64,13 +64,13 @@ exit
 
 Process finished with exit code 0
 
-先写这里吧，有空再继续完善。
+先写这里吧,有空再继续完善。
 
-二、如果说Scanner使用简便，不如说Scanner的构造器支持多种方式，构建Scanner的对象很方便。
+二、如果说Scanner使用简便,不如说Scanner的构造器支持多种方式,构建Scanner的对象很方便。
 
-可以从字符串（Readable）、输入流、文件等等来直接构建Scanner对象，有了Scanner了，就可以逐段（根据正则分隔式）来扫描整个文本，并对扫描后的结果做想要的处理。
+可以从字符串（Readable）、输入流、文件等等来直接构建Scanner对象,有了Scanner了,就可以逐段（根据正则分隔式）来扫描整个文本,并对扫描后的结果做想要的处理。
 
-三、Scanner默认使用空格作为分割符来分隔文本，但允许你指定新的分隔符
+三、Scanner默认使用空格作为分割符来分隔文本,但允许你指定新的分隔符
 
 使用默认的空格分隔符: 
   
@@ -102,7 +102,7 @@ las
 
 Process finished with exit code 0
 
-将注释行去掉，使用空格或逗号或点号作为分隔符，输出结果如下: 
+将注释行去掉,使用空格或逗号或点号作为分隔符,输出结果如下: 
   
 asdf
   

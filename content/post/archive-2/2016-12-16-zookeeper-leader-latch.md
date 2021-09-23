@@ -34,11 +34,11 @@ curator4 默认依赖zookeeper 3.5
 
 leader latch/leader election
   
-在分布式计算中， leader election是很重要的一个功能， 这个选举过程是这样子的: 指派一个进程作为组织者，将任务分发给各节点。 在任务开始前， 哪个节点都不知道谁是leader或者coordinator. 当选举算法开始执行后，每个节点最终会得到一个唯一的节点作为任务leader.
+在分布式计算中, leader election是很重要的一个功能, 这个选举过程是这样子的: 指派一个进程作为组织者,将任务分发给各节点。 在任务开始前, 哪个节点都不知道谁是leader或者coordinator. 当选举算法开始执行后,每个节点最终会得到一个唯一的节点作为任务leader.
   
-除此之外， 选举还经常会发生在leader意外宕机的情况下，新的leader要被选举出来。
+除此之外, 选举还经常会发生在leader意外宕机的情况下,新的leader要被选举出来。
 
-Curator 有两种选举recipe， 你可以根据你的需求选择合适的。
+Curator 有两种选举recipe, 你可以根据你的需求选择合适的。
 
 public LeaderLatch(CuratorFramework client, String latchPath)
   
@@ -46,11 +46,11 @@ public LeaderLatch(CuratorFramework client, String latchPath, String id)
   
 必须启动LeaderLatch: leaderLatch.start();
   
-一旦启动， LeaderLatch会和其它使用相同latch path的其它LeaderLatch交涉，然后随机的选择其中一个作为leader。 你可以随时查看一个给定的实例是否是leader:
+一旦启动, LeaderLatch会和其它使用相同latch path的其它LeaderLatch交涉,然后随机的选择其中一个作为leader。 你可以随时查看一个给定的实例是否是leader:
 
 public boolean hasLeadership()
   
-类似JDK的CountDownLatch， LeaderLatch在请求成为leadership时有block方法: 
+类似JDK的CountDownLatch, LeaderLatch在请求成为leadership时有block方法: 
   
 public void await()
   
@@ -64,7 +64,7 @@ unless the thread is interrupted or closed.
 
 public boolean await(long timeout,TimeUnit unit)throws InterruptedException
   
-一旦不使用LeaderLatch了，必须调用close方法。 如果它是leader,会释放leadership， 其它的参与者将会选举一个leader。
+一旦不使用LeaderLatch了,必须调用close方法。 如果它是leader,会释放leadership, 其它的参与者将会选举一个leader。
 
 异常处理
   
@@ -111,15 +111,15 @@ zookeeper 通过 Zab（Zookeeper Atomic Broadcast） 协议保持集群间的数
 Zab 协议包括两个阶段: Leader Election 和 Atomic Broadcast 。
 
 Leader Election
-此阶段集群内会选举出一个 leader，余下机器则会成为 follower。leader 会通过 broadcast 通知所有 follower ，当大部分机（> 1/2）器完成了与 leader 的状态同步后，Leader Election 阶段结束。
+此阶段集群内会选举出一个 leader,余下机器则会成为 follower。leader 会通过 broadcast 通知所有 follower ,当大部分机（> 1/2）器完成了与 leader 的状态同步后,Leader Election 阶段结束。
 
-当 leader 失去大多数 follower 时，集群会再次进入 Leader Election 阶段并选举出新的 leader ，使集群回到正确的状态。
+当 leader 失去大多数 follower 时,集群会再次进入 Leader Election 阶段并选举出新的 leader ,使集群回到正确的状态。
 
 Atomic Broadcast
-此阶段 leader 会通过 broadcast 与 follower 通讯，保证 leader 与 follower 具有相同的系统状态。
+此阶段 leader 会通过 broadcast 与 follower 通讯,保证 leader 与 follower 具有相同的系统状态。
 
 作者: jaren
 链接: https://www.jianshu.com/p/30bcaf55f451
 来源: 简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
 

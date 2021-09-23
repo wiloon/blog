@@ -84,7 +84,7 @@ openssl req -new -nodes -x509 -out certs/client.pem -keyout certs/client.key -da
 
 
 ### rsa
-生成2048位rsa私钥，保存为pem格式: 
+生成2048位rsa私钥,保存为pem格式: 
 
 openssl genpkey -algorithm rsa -pkeyopt rsa_keygen_bits:2048 -out unencrypted-private.pem
 
