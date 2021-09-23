@@ -17,7 +17,6 @@ JWT 的全称是 Json Web Token,是一种基于 JSON 的、用于在网络上声
 JWT 由三部分组成：head、payload、signature,各部分通过 ‘ . ’ 连接
 xxxx . yyyy . zzzz
 
- 
 #### HEAD
 头部是一个 JSON 对象,包含了一些元数据, 存储描述数据类型（JWT）和签名算法（HSA256、RSA256）,通过 Base64UrlEncode 编码后生成 head 。
 ```json

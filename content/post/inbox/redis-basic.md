@@ -11,8 +11,7 @@ url = "redis-basic"
 #### 延迟时间
      redis-cli --latency -h 192.168.50.100 -p 6379
 
-#### sort
-
+### sort
 https://segmentfault.com/a/1190000002806846
 
 基本使用

@@ -88,15 +88,19 @@ config 配置有system级别 global（用户级别） 和local（当前仓库）
     git config --local  user.email
 
 ### git log
-
 git log file0
 git log -3 file0
 git log --oneline
 
 echo "# project name" >> README.md
+#### 更改最多的文件
+git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
+
+--pretty。 使用不同于默认格式的方式展示提交历史
+format ，可以定制记录的显示格式。 --pretty=format:"%h - %an, %ar : %s"
+--name-only参数仅显示受影响的文件名。如果你想看看每个文件发生了什么(删除，修改，添加)，请改用--name-status
 
 ### 初始化的 Git 仓库
-
 git init
 git add README.md
 git commit -m "first commit"
@@ -156,8 +160,6 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 
 
 ```bash
-
-
 man git-fetch
 git fetch --prune  #在本地删除在远程不存在的branch
 git fetch --all 告诉 Git 同步所有的远端仓库。

@@ -102,7 +102,7 @@ Linux workqueue工作原理
 
 但是这种方法依然看起来不够优美, 我们何不把这种创建内核线程的工作交给一个特殊的内核线程来做呢？
 
-于是linux-2.6.22引入了kthreadd进程, 并随后演变为2号进程, 它在系统初始化时同1号进程一起被创建(当然肯定是通过kernel_thread), 参见rest_init函数, 并随后演变为创建内核线程的真正建造师, 参见kthreadd和kthreadd函数, 它会循环的是查询工作链表static LIST_HEAD(kthread_create_list);中是否有需要被创建的内核线程, 而我们的通过kthread_create执行的操作, 只是在内核线程任务队列kthread_create_list中增加了一个create任务, 然后会唤醒kthreadd进程来执行真正的创建操作
+于是 linux-2.6.22 引入了 kthreadd 进程, 并随后演变为2号进程, 它在系统初始化时同1号进程一起被创建(当然肯定是通过kernel_thread), 参见rest_init函数, 并随后演变为创建内核线程的真正建造师, 参见kthreadd和kthreadd函数, 它会循环的是查询工作链表static LIST_HEAD(kthread_create_list);中是否有需要被创建的内核线程, 而我们的通过kthread_create执行的操作, 只是在内核线程任务队列kthread_create_list中增加了一个create任务, 然后会唤醒kthreadd进程来执行真正的创建操作
 内核线程会出现在系统进程列表中, 但是在ps的输出中进程名command由方括号包围, 以便与普通进程区分。
 
 如下图所示, 我们可以看到系统中, 所有内核线程都用[]标识, 而且这些进程父进程id均是2, 而2号进程kthreadd的父进程是0号进程
