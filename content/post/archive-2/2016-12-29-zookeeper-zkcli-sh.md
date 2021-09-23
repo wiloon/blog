@@ -38,9 +38,9 @@ get /test
 delete /test
 ```
 
-zookeeper提供了很多方便的功能，方便我们查看服务器的状态，增加，修改，删除数据（入口是zkServer.sh和zkCli.sh）。
+zookeeper提供了很多方便的功能,方便我们查看服务器的状态,增加,修改,删除数据（入口是zkServer.sh和zkCli.sh) 。
   
-还提供了一系列四字命令，方便我们跟服务器进行各种交互，来确认服务器当前的工作情况（这也是服务器监控告警的基础）。
+还提供了一系列四字命令,方便我们跟服务器进行各种交互,来确认服务器当前的工作情况（这也是服务器监控告警的基础) 。
   
 本文所讲的zkCli.sh和zkServer.sh均位于以下目录中: 
   
@@ -92,7 +92,7 @@ dump
   
 envi
   
-输出关于服务环境的详细信息（区别于 conf命令）。
+输出关于服务环境的详细信息（区别于 conf命令) 。
   
 reqs
   
@@ -100,7 +100,7 @@ reqs
   
 ruok
   
-测试服务是否处于正确状态。如果确实如此，那么服务返回"imok "，否则不做任何相应。
+测试服务是否处于正确状态。如果确实如此,那么服务返回"imok ",否则不做任何相应。
   
 stat
   
@@ -112,13 +112,13 @@ wchs
   
 wchc
   
-通过 session列出服务器 watch的详细信息，它的输出是一个与watch相关的会话的列表。
+通过 session列出服务器 watch的详细信息,它的输出是一个与watch相关的会话的列表。
   
 wchp
   
 通过路径列出服务器 watch的详细信息。它输出一个与 session相关的路径。
   
-查看连接到结点上所有的client信息，被选作leader还是follower
+查看连接到结点上所有的client信息,被选作leader还是follower
 
 [root@rocket zookeeper-server1]# echo stat|nc 127.0.0.1 2181
 
@@ -150,7 +150,7 @@ Node count: 4
 
  
 
-测试是否启动了该Server，若回复imok表示已经启动
+测试是否启动了该Server,若回复imok表示已经启动
 
 [root@rocket zookeeper-server1]# echo ruok|nc 127.0.0.1 2181
 

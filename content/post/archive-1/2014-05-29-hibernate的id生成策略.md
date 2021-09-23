@@ -12,17 +12,17 @@ tags:
 ---
 http://www.cnblogs.com/seed_lee/archive/2011/02/14/1954720.html
 
-hibernate的ID生成策略（annotation方式@GeneratedValue）
+hibernate的ID生成策略（annotation方式@GeneratedValue) 
   
 记录hibernate中使用annotation的方式实现主键生成策略: 
 
-一般情况下，hibernate中使用annotation的主键生成策略，都是使用annotation的标准注解（javax.persistence.GeneratedValue），而不是使用hibernate的扩展的annotation方式，当然，使用也是没有错的，推荐使用标准的annotation。
+一般情况下，hibernate中使用annotation的主键生成策略，都是使用annotation的标准注解（javax.persistence.GeneratedValue) ，而不是使用hibernate的扩展的annotation方式，当然，使用也是没有错的，推荐使用标准的annotation。
 
 标准的annotation方式的主键生成策略如下: 
 
 AUTO - 可以是identity column类型,或者sequence类型或者table类型,取决于不同的底层数据库.
   
-TABLE - 使用表保存id值（也就是会为应用的表创建一张专门保存Id的表，记录对应的表的对应最大的ID值,如下图）
+TABLE - 使用表保存id值（也就是会为应用的表创建一张专门保存Id的表，记录对应的表的对应最大的ID值,如下图) 
   
 CPU7@71(TD68TSQ(FD@D}MM
 

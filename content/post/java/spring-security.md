@@ -32,7 +32,7 @@ and()是返回一个securityBuilder对象，formLogin()和httpBasic()是授权�
 .sessionCreationPolicy(SessionCreationPolicy.STATELESS); // 调整为让 Spring Security 不创建和使用 session
 
 
-HttpSecurity 提供的 exceptionHandling() 方法用来提供异常处理。该方法构造出 ExceptionHandlingConfigurer 异常处理配置类。该配置类提供了两个实用接口：
+HttpSecurity 提供的 exceptionHandling() 方法用来提供异常处理。该方法构造出 ExceptionHandlingConfigurer 异常处理配置类。该配置类提供了两个实用接口: 
 
 
 AuthenticationEntryPoint 该类用来统一处理 AuthenticationException 异常
@@ -42,9 +42,9 @@ AccessDeniedHandler  该类用来统一处理 AccessDeniedException 异常
 
 我们只要实现并配置这两个异常处理类即可实现对 Spring Security 认证授权相关的异常进行统一的自定义处理。
 
-作者：码农小胖哥
-链接：https://juejin.cn/post/6844903988895154184
-来源：掘金
+作者: 码农小胖哥
+链接: https://juejin.cn/post/6844903988895154184
+来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 

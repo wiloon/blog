@@ -81,7 +81,7 @@ wait #如果fun里面没有wait，则整个脚本立刻退出，不会等待fun�
   
 echo "all is ending"
   
-输出结果为：
+输出结果为: 
 
 fun is begin.timeNum:10
   
@@ -97,6 +97,6 @@ all is ending
   
 ————————————————
   
-版权声明：本文为CSDN博主「雙湖之梦」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+版权声明: 本文为CSDN博主「雙湖之梦」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接：https://blog.csdn.net/shuanghujushi/article/details/38186303
+原文链接: https://blog.csdn.net/shuanghujushi/article/details/38186303

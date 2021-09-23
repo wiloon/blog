@@ -34,4 +34,4 @@ Window("窗口A").GetRoProperty("text")返回的是:"PPPP"
 Window("窗口A").GetToProperties("text")返回的是用于识别"窗口A"的两个属性和值的集合
 
 
-RO和TO，R，就是Runtime，T就是Testtime，O就是Object。因此顾名思义，RO就是在测试执行时的对象，TO就是录制/编写测试时的对象。是同一个类在不同的时间生成的不同的实例，一般来说TO是静态的，而RO是动态的（每次执行测试都会生成新的实例）。
+RO和TO，R，就是Runtime，T就是Testtime，O就是Object。因此顾名思义，RO就是在测试执行时的对象，TO就是录制/编写测试时的对象。是同一个类在不同的时间生成的不同的实例，一般来说TO是静态的，而RO是动态的（每次执行测试都会生成新的实例) 。

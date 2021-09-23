@@ -29,7 +29,7 @@ for循环其实是标准的C风格语法。
     }
 
 #### 方法三， for…in
-官方文档上强调了for…in和for…of的区别：
+官方文档上强调了for…in和for…of的区别: 
 
     let list = [4, 5, 6];
 
@@ -47,7 +47,7 @@ forEach其实是JavaScript的循环语法，TypeScript作为JavaScript的语法�
     let list = [4, 5, 6];
     list.forEach((val, idx, array) => {
         // val: 当前值
-        // idx：当前index
+        // idx: 当前index
         // array: Array
     });
 
@@ -57,7 +57,7 @@ every和some也都是JavaScript的循环语法，TypeScript作为JavaScript的�
     let list = [4, 5, 6];
     list.every((val, idx, array) => {
         // val: 当前值
-        // idx：当前index
+        // idx: 当前index
         // array: Array
         return true; // Continues
         // Return false will quit the iteration

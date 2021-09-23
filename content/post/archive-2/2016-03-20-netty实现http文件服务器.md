@@ -1,5 +1,5 @@
 ---
-title: netty实现http文件服务器
+title: netty http文件服务器
 author: "-"
 type: post
 date: 2016-03-20T05:58:13+00:00

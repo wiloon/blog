@@ -10,9 +10,9 @@ tags:
   - Spring
 
 ---
-在spring 3.0中，可以通过使用@value，对一些如xxx.properties文件
+在spring 3.0中,可以通过使用@value,对一些如xxx.properties文件
   
-中的文件，进行键值对的注入，例子如下: 
+中的文件,进行键值对的注入,例子如下: 
 
 1 首先在applicationContext.xml中加入: 
   
@@ -22,7 +22,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/util http://www.spring
   
 </beans>
 
-的命名空间，然后
+的命名空间,然后
 
 <util:properties id="settings" location="WEB-INF/classes/META-INF/spring/test.properties" />
 

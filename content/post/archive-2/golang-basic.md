@@ -29,7 +29,7 @@ url: go
     sudo apt install golang-go
 
 ### 环境变量
-    # 设置不走 proxy 的私有仓库,多个用逗号相隔（可选）
+    # 设置不走 proxy 的私有仓库,多个用逗号相隔（可选) 
     export GOPRIVATE=*.corp.example.com
     export GOPRIVATE=git.wiloon.com
 
@@ -106,7 +106,7 @@ const (
 c0 = iota // iota被重设为0 // c0 == 0
 c1 = iota // c1 == 1
 c2 = iota // c2 == 2
-）
+) 
 ```
 
 在Go语言中,常量是指编译期间就已知且不可改变的值。常量可以是数值类型(包括整型、浮点型和复数类型)、布尔类型、字符串类型等 。
@@ -177,7 +177,7 @@ c1 = iota // c1 == 1
   
 c2 = iota // c2 == 2
   
-）
+) 
   
 const (
   
@@ -241,7 +241,7 @@ func Dim(x, y float64) float64
 
 ```bash
 # -a
-强行对所有涉及到的代码包（包含标准库中的代码包）进行重新构建,即使它们已经是最新的了。
+强行对所有涉及到的代码包（包含标准库中的代码包) 进行重新构建,即使它们已经是最新的了。
 # -installsuffix
 为了使当前的输出目录与默认的编译输出目录分离,可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实,如果使用了-race标记,这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix,那么在-installsuffix标记的值的后面会再被追加_race,并以此来作为实际使用的后缀。
 #### -x

@@ -10,7 +10,7 @@ tags:
 ### 查看远程仓库地址
     git remote -v
 
-### 将指定的提交（commit）应用于其他分支
+### 将指定的提交（commit) 应用于其他分支
     git cherry-pick <commitHash>
 
 https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
@@ -42,7 +42,7 @@ git reset ** file0
 
     git reset -hard file0
 
-    git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
+    git reset -mixed: 此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
     git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
 
 ```bash
@@ -59,13 +59,13 @@ git checkout master
 
 ### git config
 #### 查看 
-config 配置有system级别 global（用户级别） 和local（当前仓库）三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
+config 配置有system级别 global（用户级别)  和local（当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
     
     git config --list
     git config --system --list
     git config --global core.editor vim
 
-查看当前用户（global）配置
+查看当前用户（global) 配置
 
     git config --global  --list
 
@@ -88,15 +88,19 @@ config 配置有system级别 global（用户级别） 和local（当前仓库）
     git config --local  user.email
 
 ### git log
-
 git log file0
 git log -3 file0
 git log --oneline
 
 echo "# project name" >> README.md
+#### 更改最多的文件
+git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
+
+--pretty。 使用不同于默认格式的方式展示提交历史
+format ，可以定制记录的显示格式。 --pretty=format:"%h - %an, %ar : %s"
+--name-only参数仅显示受影响的文件名。如果你想看看每个文件发生了什么(删除，修改，添加)，请改用--name-status
 
 ### 初始化的 Git 仓库
-
 git init
 git add README.md
 git commit -m "first commit"
@@ -110,7 +114,7 @@ git rm -f
 
 ### git fetch
 git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。 
-默认情况下，git fetch取回所有分支（branch）的更新。如果只想取回特定分支的更新，可以指定分支名。  
+默认情况下，git fetch取回所有分支（branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
     git fetch <远程主机名> <分支名>
 
@@ -121,12 +125,12 @@ git fetch 命令通常用来查看其他人的进程，因为它取回的代码�
 ### git fetch与git pull
 git fetch和git pull都可以将远端仓库更新至本地那么他们之间有何区别?想要弄清楚这个问题有有几个概念不得不提。
 
-FETCH_HEAD： 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
-commit-id：在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个commit-id，这是一个能唯一标识一个版本的序列号。 在使用git push后，这个序列号还会同步到远程仓库。
+FETCH_HEAD:  是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
+commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个commit-id，这是一个能唯一标识一个版本的序列号。 在使用git push后，这个序列号还会同步到远程仓库。
 
 有了以上的概念再来说说git fetch
-git fetch：这将更新git remote 中所有的远程仓库所包含分支的最新commit-id, 将其记录到.git/FETCH_HEAD文件中
-git fetch更新远程仓库的方式如下：
+git fetch: 这将更新git remote 中所有的远程仓库所包含分支的最新commit-id, 将其记录到.git/FETCH_HEAD文件中
+git fetch更新远程仓库的方式如下: 
 
 git fetch origin master:tmp 
 //在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支
@@ -137,17 +141,17 @@ git merge tmp
 git branch -d temp
 //如果不想保留temp分支 可以用这步删除
 
-（1）如果直接使用git fetch，则步骤如下：
+（1) 如果直接使用git fetch，则步骤如下: 
 
 创建并更新本 地远程分支。即创建并更新origin/xxx 分支，拉取代码到origin/xxx分支上。
 在FETCH_HEAD中设定当前分支-origin/当前分支对应，如直接到时候git merge就可以将origin/abc合并到abc分支上。
-（2）git fetch origin
+（2) git fetch origin
 只是手动指定了要fetch的remote。在不指定分支时通常默认为master
-（3）git fetch origin dev
+（3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
 git pull : 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge将其与本地的当前分支合并。所以可以认为git pull是git fetch和git merge两个步骤的结合。
-git pull的用法如下：
+git pull的用法如下: 
 
 git pull <远程主机名> <远程分支名>:<本地分支名>
 //取回远程主机某个分支的更新，再与本地的指定分支合并。
@@ -156,8 +160,6 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 
 
 ```bash
-
-
 man git-fetch
 git fetch --prune  #在本地删除在远程不存在的branch
 git fetch --all 告诉 Git 同步所有的远端仓库。
@@ -261,7 +263,7 @@ git stash
 $ git push origin test:master // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
 $ git push origin test:test // 提交本地test分支作为远程的test分支
 
-# 删除远程分支：
+# 删除远程分支: 
 
 git push --delete origin devel
 To git@github.com:zrong/quick-cocos2d-x.git - [deleted] devel
@@ -299,16 +301,16 @@ core.autocrlf配置
 
 Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF:
 $ git config --global core.autocrlf true
-Linux或Mac系统使用LF作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉 Git 在提交时把CRLF转换成LF，签出时不转换：
+Linux或Mac系统使用LF作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉 Git 在提交时把CRLF转换成LF，签出时不转换: 
 $ git config --global core.autocrlf input
 这样会在Windows系统上的签出文件中保留CRLF，会在Mac和Linux系统上，包括仓库中保留LF。
 
-如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：
+如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中: 
 
 $ git config --global core.autocrlf false
 
 ### submodule
-当你在一个Git 项目上工作时，你需要在其中使用另外一个Git 项目。也许它是一个第三方开发的Git 库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。
+当你在一个Git 项目上工作时，你需要在其中使用另外一个Git 项目。也许它是一个第三方开发的Git 库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了: 你想将两个项目单独处理但是又需要在其中一个中使用另外一个。
 
 在Git 中你可以用子模块submodule来管理这些项目，submodule允许你将一个Git 仓库当作另外一个Git 仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。
 

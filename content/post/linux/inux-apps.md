@@ -1,7 +1,6 @@
 ---
 title: linux apps
 author: "-"
-type: post
 date: 2018-09-23T05:52:02+00:00
 url: linux-apps
 
@@ -48,7 +47,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | thunar-archive-plugin | thunar 右键解压文件                                                                     |
 | file-roller           | zip 7z rar support                                                                      |
 | zstd                  | 多线程，速度比较快的压缩工具, archlinux在用                                             |
-| digikam               | ：KDE 环境下最好的选择                                                                  |
+| digikam               | : KDE 环境下最好的选择                                                                  |
 | chromium              | 开源版chrome                                                                            |
 | kvm                   |                                                                                         |
 | kotlin                |                                                                                         |

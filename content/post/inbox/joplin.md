@@ -9,7 +9,7 @@ title = "joplin"
     yay -S joplin-desktop
 
 ### vscode install joplin plugin
-    安装 chrome 扩展： Joplin Web Clipper
+    安装 chrome 扩展:  Joplin Web Clipper
 
 ### enable web clipper service
     joplin desktop > setting>web clipper > enable web clipper service

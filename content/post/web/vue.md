@@ -119,7 +119,7 @@ https://www.jianshu.com/p/7de5d4f612d7
 
 Babel 和 webpack 的模块系统
 
-**Modern JavaScript with ES2015/16**：阅读 Babel 的 [**Learn ES2015 guide**](https://babeljs.io/docs/learn-es2015/)。你不需要立刻记住每一个方法，但是你可以
+**Modern JavaScript with ES2015/16**: 阅读 Babel 的 [**Learn ES2015 guide**](https://babeljs.io/docs/learn-es2015/)。你不需要立刻记住每一个方法，但是你可以
 
 [https://babeljs.io/docs/en/learn](https://babeljs.io/docs/en/learn "https://babeljs.io/docs/en/learn")保留这个页面以便后期参考。
 
@@ -262,14 +262,14 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
 程序保存在 Cache Storage 的默认缓存有两个，一个是预缓存一个是运行时缓存。
 
 缓存名的格式是 <prefix>-<Cache ID>-<suffix>，通过修改缓存前缀和后缀，可以让缓存名独一无二，避免在使用 localhost 调试程序时因为端口号相同引发的冲突。
-修改前后缀：
+修改前后缀: 
 
         workbox.core.setCacheNameDetails({
         prefix: 'my-app',
         suffix: 'v1'
         });
 
-        // 一旦激活就开始控制任何现有客户机（通常是与skipWaiting配合使用）
+        // 一旦激活就开始控制任何现有客户机（通常是与skipWaiting配合使用) 
         // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_clientsClaim.mjs
         workbox.core.clientsClaim()
         // 跳过等待期
@@ -335,9 +335,9 @@ vue property decorator 深度依赖了 vue class component 拓展出了很多操
 vue-router是什么
 ​	vue-router就是WebApp的链接路径管理系统。vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。传统的页面应用，是用一些超链接来实现页面切换和跳转的。在vue-router单页面应用中，则是路径之间的切换，也就是组件的切换。路由模块的本质 就是建立起url和页面之间的映射关系。
 
-作者：前端开膛手
-链接：https://juejin.cn/post/6844903816953856007
-来源：掘金
+作者: 前端开膛手
+链接: https://juejin.cn/post/6844903816953856007
+来源: 掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### for index

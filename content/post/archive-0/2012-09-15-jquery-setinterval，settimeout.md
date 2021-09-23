@@ -68,16 +68,16 @@ categories:
     在执行时,它从载入页面后每隔指定的时间执行一个表达式或者是函数;(功能类似于递归函数)；和window.clearInterval一起使用.
   
   
-    1，基本用法：
+    1，基本用法: 
   
   
-    执行一段代码：　 var i=0;
+    执行一段代码: 　 var i=0;
   
   
     setTimeout("i+=1;alert(i)",1000);
   
   
-    执行一个函数：
+    执行一个函数: 
   
   
     var i=0;
@@ -89,7 +89,7 @@ categories:
     //注意比较上面的两种方法的不同。
   
   
-    下面再来一个执行函数的：
+    下面再来一个执行函数的: 
   
   
     <code>　 var i=0;
@@ -104,15 +104,15 @@ alert(i);
 
 setTimeout("test()",1000);
 
-也可以这样：
+也可以这样: 
 
 setTimeout(test,1000);</code>
   
   
-    总结：
+    总结: 
   
   
-    setTimeout的原型是这样的：
+    setTimeout的原型是这样的: 
   
   
     iTimerID = window.setTimeout(vCode, iMilliSeconds [, sLanguage])
@@ -193,7 +193,7 @@ setTimeout("xilou()",1000);
     终于到正题了，其实在类中使用大家遇到的问题都是关于this的，只要解决了这个this的问题就万事无忧了。
   
   
-    呵呵。让我们来分析一 下：
+    呵呵。让我们来分析一 下: 
   
   
     <code>　　function xilou(){
@@ -218,11 +218,11 @@ if(this.num>10){return;}
 
 //下面用四种方法测试,一 个一个轮流测试。
 
-setTimeout("this.count()",1000);//A:当下面的x.count()调用时会发生错 误：对象不支持此属性或方法。
+setTimeout("this.count()",1000);//A:当下面的x.count()调用时会发生错 误: 对象不支持此属性或方法。
 
-setTimeout("count()",1000);//B:错误显示：缺少对象
+setTimeout("count()",1000);//B:错误显示: 缺少对象
 
-setTimeout(count,1000);//C:错误显示：'count'未定义
+setTimeout(count,1000);//C:错误显示: 'count'未定义
 
 //下面是第四种 by 西楼冷月 www.chinacms.org
 
@@ -238,16 +238,16 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
  x.count();
   
   
-    错误分析：
+    错误分析: 
   
   
-    A：中的this其实指是window 对象，并不是指当前实例对象
+    A: 中的this其实指是window 对象，并不是指当前实例对象
   
   
-    B：和C：中的count()和count其实指的是单独的一个名为count()的函数,但也可以是 window.count(),因为window.count()可以省略为count()
+    B: 和C: 中的count()和count其实指的是单独的一个名为count()的函数,但也可以是 window.count(),因为window.count()可以省略为count()
   
   
-    D：将变量self指向当前实例对象，这样 js解析引擎就不会混肴this指的是谁了。
+    D: 将变量self指向当前实例对象，这样 js解析引擎就不会混肴this指的是谁了。
   
   
     话说回来，虽然我们知道setTimeout("this.count()",1000) 中的this指的是window对象，但还是不明白为什么会是
@@ -256,13 +256,13 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
     window对象^_^(有点头晕...)
   
   
-    那我们可以 想象一下这个setTimeout是怎样被定义的：
+    那我们可以 想象一下这个setTimeout是怎样被定义的: 
   
   
-    setTimeout是window的一个方法，全称是这样 的：window.setTimeout()
+    setTimeout是window的一个方法，全称是这样 的: window.setTimeout()
   
   
-    那应该是这样被定义的：
+    那应该是这样被定义的: 
   
   
     <code>　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){

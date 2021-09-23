@@ -53,9 +53,9 @@ http://www.w3school.com.cn/js/jsref_obj_date.asp
 ```javascript
 var timezone = 8; //目标时区时间，东八区
 var offset_GMT = new Date().getTimezoneOffset(); // 本地时间和格林威治的时间差，单位为分钟
-var nowDate = new Date().getTime(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+var nowDate = new Date().getTime(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间) 之间的毫秒数
 var targetDate = new Date(nowDate + offset_GMT * 60 * 1000 + timezone * 60 * 60 * 1000);
-console.log("东8区现在是：" + targetDate);
+console.log("东8区现在是: " + targetDate);
 ```
 ### 取字符串长度
     var pig ="ttttt"
@@ -104,7 +104,7 @@ stringObject.indexOf(searchvalue,fromindex)
 
 indexOf用于发现一系列的字符在一个字符串中等位置并告诉你子字符串的起始位置。如果一个字符串中不包含该子字符串则indexOf返回"-1".
   
-例子：
+例子: 
   
 var the_word = "monkey";
   
@@ -174,7 +174,7 @@ replace() 方法用于在字符串中用一些字符替换另一些字符，或�
     let state = params.get("state")
 
 
-#### 采用正则表达式获取地址栏参数 (代码简洁，重点正则）
+#### 采用正则表达式获取地址栏参数 (代码简洁，重点正则) 
 
     function getQueryString(name) {
         let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -245,14 +245,14 @@ console.log("Mozilla is " + x.length + " code units long");
 ### window.location 对象所包含的属性
 
 属性	描述
-hash	从井号 (#) 开始的 URL（锚）
+hash	从井号 (#) 开始的 URL（锚) 
 host	主机名和当前 URL 的端口号
 hostname	当前 URL 的主机名
 href	完整的 URL
 pathname	当前 URL 的路径部分
 port	当前 URL 的端口号
 protocol	当前 URL 的协议
-search	从问号 (?) 开始的 URL（查询部分）
+search	从问号 (?) 开始的 URL（查询部分) 
 
 
 ### JAVASRIPT 大写转小写
@@ -260,11 +260,11 @@ search	从问号 (?) 开始的 URL（查询部分）
 
 ---
 
-作者：大小伍
-链接：https://www.jianshu.com/p/708c915fb905
-来源：简书
+作者: 大小伍
+链接: https://www.jianshu.com/p/708c915fb905
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ————————————————
-版权声明：本文为CSDN博主「请叫我大师兄__」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_27093465/article/details/50731087
+版权声明: 本文为CSDN博主「请叫我大师兄__」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/qq_27093465/article/details/50731087

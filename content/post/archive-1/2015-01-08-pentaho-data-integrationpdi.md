@@ -10,9 +10,9 @@ categories:
 ---
 http://www.cnblogs.com/wukenaihe/p/3209618.html
 
-Spoon是构建ETL Jobs和Transformations的工具。Spoon可以以拖拽的方式图形化设计，能够通过spoon调用专用的数据集成引擎或者集群。
+Spoon是构建ETL Jobs和Transformations的工具。Spoon可以以拖拽的方式图形化设计,能够通过spoon调用专用的数据集成引擎或者集群。
 
-Data Integration Server是一个专用的ETL Server，它的主要功能有: 
+Data Integration Server是一个专用的ETL Server,它的主要功能有: 
 
 
   
@@ -66,7 +66,7 @@ Data Integration Server是一个专用的ETL Server，它的主要功能有:
     
     
       
-        提供一个集中的资源库，用来管理ETL的作业和转换。资源库包含所有内容和特征的历史版本。
+        提供一个集中的资源库,用来管理ETL的作业和转换。资源库包含所有内容和特征的历史版本。
       
     
   
@@ -86,7 +86,7 @@ Data Integration Server是一个专用的ETL Server，它的主要功能有:
   
 
 
-Enterprise Console提供了一个小型的客户端，用于管理Pentaho Data Integration企业版的部署，包括企业版本的证书管理、监控和控制远程Pentaho Data Integration服务器上的活动、分析已登记的作业和转换的动态绩效。
+Enterprise Console提供了一个小型的客户端,用于管理Pentaho Data Integration企业版的部署,包括企业版本的证书管理、监控和控制远程Pentaho Data Integration服务器上的活动、分析已登记的作业和转换的动态绩效。
 
 ## 2. PDI的组成部分
 
@@ -114,7 +114,7 @@ Enterprise Console提供了一个小型的客户端，用于管理Pentaho Data I
     
     
       
-        通过图形接口，用于编辑作业和转换的桌面应用。
+        通过图形接口,用于编辑作业和转换的桌面应用。
       
     
   
@@ -128,7 +128,7 @@ Enterprise Console提供了一个小型的客户端，用于管理Pentaho Data I
     
     
       
-        一个独立的命令行程序，用于执行由Spoon编辑的转换和作业。
+        一个独立的命令行程序,用于执行由Spoon编辑的转换和作业。
       
     
   
@@ -142,7 +142,7 @@ Enterprise Console提供了一个小型的客户端，用于管理Pentaho Data I
     
     
       
-        一个独立的命令行程序，用于执行由Spoon编辑的作业。
+        一个独立的命令行程序,用于执行由Spoon编辑的作业。
       
     
   
@@ -156,7 +156,7 @@ Enterprise Console提供了一个小型的客户端，用于管理Pentaho Data I
     
     
       
-        Carte是一个轻量级的Web容器，用于建立专用、远程的ETL Server。
+        Carte是一个轻量级的Web容器,用于建立专用、远程的ETL Server。
       
     
   

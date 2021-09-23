@@ -12,7 +12,7 @@ tags:
 ---
 mirror和 repository
 
-1 Repository（仓库）
+1 Repository（仓库) 
   
 1.1 Maven仓库主要有2种: 
 

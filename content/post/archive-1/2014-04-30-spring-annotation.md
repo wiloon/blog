@@ -14,7 +14,7 @@ categories:
 ### @Service
 @Service 用于标注业务层组件,对象名默认是类名 (头字母小写), 如果想自定义，可以@Service("foo")这样来指定，这种bean默认是单例的，如果想改变，可以使用@Service("foo") @Scope("prototype")来改变。
 
-@Controller用于标注控制层组件（如struts中的action）
+@Controller用于标注控制层组件（如struts中的action) 
 
 @Repository用于标注数据访问组件，即DAO组件
 
@@ -39,7 +39,7 @@ JSR-250规范定义的注解
     private double randomNumber; //注入表达式结果
 
     @Value("#{beanInject.another}")
-    private String fromAnotherBean; // 注入其他Bean属性：注入beanInject对象的属性another，类具体定义见下面
+    private String fromAnotherBean; // 注入其他Bean属性: 注入beanInject对象的属性another，类具体定义见下面
 
     @Value("classpath:com/hry/spring/configinject/config.txt")
     private Resource resourceFile; // 注入文件资源
@@ -51,7 +51,7 @@ JSR-250规范定义的注解
 注解在方法上，表示此方法是在Spring实例化该Bean之后马上执行此方法，之后才会去实例化其他Bean，并且一个Bean中@PostConstruct注解的方法可以有多个。
 
 ### @Resource
-@Resource默认按照ByName自动注入，由J2EE提供，需要导入包javax.annotation.Resource。@Resource有两个重要的属性：name和type，而Spring将@Resource注解的name属性解析为bean的名字，而type属性则解析为bean的类型。所以，如果使用name属性，则使用byName的自动注入策略，而使用type属性时则使用byType自动注入策略。如果既不制定name也不制定type属性，这时将通过反射机制使用byName自动注入策略。
+@Resource默认按照ByName自动注入，由J2EE提供，需要导入包javax.annotation.Resource。@Resource有两个重要的属性: name和type，而Spring将@Resource注解的name属性解析为bean的名字，而type属性则解析为bean的类型。所以，如果使用name属性，则使用byName的自动注入策略，而使用type属性时则使用byType自动注入策略。如果既不制定name也不制定type属性，这时将通过反射机制使用byName自动注入策略。
 
 
 http://www.chinasb.org/archives/2011/06/2443.shtml

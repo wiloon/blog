@@ -20,7 +20,7 @@ export DISPLAY=192.168.97.183:0
 ~/.xinitrc是X的配置文件，在
 
 /etc/skel/.xinitrc
-有它的模板，可以把它copy到用户目录下面：
+有它的模板，可以把它copy到用户目录下面: 
 $ cp /etc/skel/.xinitrc ~
 
 

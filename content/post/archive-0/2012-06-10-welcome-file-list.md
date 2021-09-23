@@ -33,7 +33,7 @@ tags:
   
   
   
-    下面是一个包含welcome-file-list元素的部署描述符。该元素包含两个welcome-file元素：第一个指定应用目录中的main.html文件，第二个定义jsp目录下的welcom.jsp文件，jsp目录也在应用目录下。
+    下面是一个包含welcome-file-list元素的部署描述符。该元素包含两个welcome-file元素: 第一个指定应用目录中的main.html文件，第二个定义jsp目录下的welcom.jsp文件，jsp目录也在应用目录下。
   
   
   

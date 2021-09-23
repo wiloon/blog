@@ -10,7 +10,7 @@ categories:
 ---
 COLLATE是用来做什么的？
   
-使用phpmyadmin的开发可能会非常眼熟，因为其中的中文表头已经给出了答案：
+使用phpmyadmin的开发可能会非常眼熟，因为其中的中文表头已经给出了答案: 
   
 phpmyadmin截图
   
@@ -18,7 +18,7 @@ phpmyadmin截图
   
 各种COLLATE的区别
   
-COLLATE通常是和数据编码（CHARSET）相关的，一般来说每种CHARSET都有多种它所支持的COLLATE，并且每种CHARSET都指定一种COLLATE为默认值。例如Latin1编码的默认COLLATE为latin1_swedish_ci，GBK编码的默认COLLATE为gbk_chinese_ci，utf8mb4编码的默认值为utf8mb4_general_ci。
+COLLATE通常是和数据编码（CHARSET) 相关的，一般来说每种CHARSET都有多种它所支持的COLLATE，并且每种CHARSET都指定一种COLLATE为默认值。例如Latin1编码的默认COLLATE为latin1_swedish_ci，GBK编码的默认COLLATE为gbk_chinese_ci，utf8mb4编码的默认值为utf8mb4_general_ci。
   
 这里顺便讲个题外话，MySQL中有utf8和utf8mb4两种编码，在MySQL中请大家忘记**utf8**，永远使用**utf8mb4**。这是MySQL的一个遗留问题，MySQL中的utf8最多只能支持3bytes长度的字符编码，对于一些需要占据4bytes的文字，MySQL的utf8就不支持了，要使用utf8mb4才行。
   
@@ -26,11 +26,11 @@ COLLATE通常是和数据编码（CHARSET）相关的，一般来说每种CHARSE
   
 在MySQL中使用show collation指令可以查看到MySQL所支持的所有COLLATE
 
-作者：腾讯云加社区
+作者: 腾讯云加社区
   
-链接：https://juejin.im/post/5bfe5cc36fb9a04a082161c2
+链接: https://juejin.im/post/5bfe5cc36fb9a04a082161c2
   
-来源：掘金
+来源: 掘金
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
   

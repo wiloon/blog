@@ -21,9 +21,9 @@ $ ifconfig eth1
 
 http://linux.cn/article-4326-1.html
 
-如今很多系统管理员依然通过组合使用诸如ifconfig、route、arp和netstat等命令行工具（统称为net-tools）来配置网络功能，解决网络故障。net-tools起源于BSD的TCP/IP工具箱，后来成为老版本Linux内核中配置网络功能的工具。但自2001年起，Linux社区已经对其停止维护。同时，一些Linux发行版比如Arch Linux和CentOS/RHEL 7则已经完全抛弃了net-tools，只支持iproute2。
+如今很多系统管理员依然通过组合使用诸如ifconfig、route、arp和netstat等命令行工具（统称为net-tools) 来配置网络功能，解决网络故障。net-tools起源于BSD的TCP/IP工具箱，后来成为老版本Linux内核中配置网络功能的工具。但自2001年起，Linux社区已经对其停止维护。同时，一些Linux发行版比如Arch Linux和CentOS/RHEL 7则已经完全抛弃了net-tools，只支持iproute2。
 
-作为网络配置工具的一份子，iproute2的出现旨在从功能上取代net-tools。net-tools通过procfs(/proc)和ioctl系统调用去访问和改变内核网络配置，而iproute2则通过netlink套接字接口与内核通讯。抛开性能而言，iproute2的用户接口比net-tools显得更加直观。比如，各种网络资源（如link、IP地址、路由和隧道等）均使用合适的对象抽象去定义，使得用户可使用一致的语法去管理不同的对象。更重要的是，到目前为止，iproute2仍处在持续开发中。
+作为网络配置工具的一份子，iproute2的出现旨在从功能上取代net-tools。net-tools通过procfs(/proc)和ioctl系统调用去访问和改变内核网络配置，而iproute2则通过netlink套接字接口与内核通讯。抛开性能而言，iproute2的用户接口比net-tools显得更加直观。比如，各种网络资源（如link、IP地址、路由和隧道等) 均使用合适的对象抽象去定义，使得用户可使用一致的语法去管理不同的对象。更重要的是，到目前为止，iproute2仍处在持续开发中。
 
 如果你仍在使用net-tools，而且尤其需要跟上新版Linux内核中的最新最重要的网络特性的话，那么是时候转到iproute2的阵营了。原因就在于使用iproute2可以做很多net-tools无法做到的事情。
 
@@ -31,7 +31,7 @@ http://linux.cn/article-4326-1.html
 
 显示所有已连接的网络接口
   
-下面的命令显示出所有可用网络接口的列表（无论接口是否激活）。
+下面的命令显示出所有可用网络接口的列表（无论接口是否激活) 。
 
 使用net-tools: 
 
@@ -180,7 +180,7 @@ $ sudo ip route del 172.16.32.0/24
   
 查看套接字统计信息
   
-这里的命令用来查看套接字统计信息（比如活跃或监听状态的TCP/UDP套接字）。
+这里的命令用来查看套接字统计信息（比如活跃或监听状态的TCP/UDP套接字) 。
 
 使用net-tools: 
 

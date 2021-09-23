@@ -12,6 +12,6 @@ https://github.com/stianeikeland/go-rpio
   
 https://zhuanlan.zhihu.com/p/40594358
 
-GPIO（General Purpose Input/Output）
+GPIO（General Purpose Input/Output) 
   
 https://www.cnblogs.com/vamei/p/6751992.html

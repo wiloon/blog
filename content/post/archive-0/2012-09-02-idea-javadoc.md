@@ -14,7 +14,7 @@ tags:
 
 在类或者函数前输入 /** 然后回车，就可以生成啦。
 
-Javadoc Sync plugin可以快速生成所有的注释，使用稍微麻烦点，步骤如下：
+Javadoc Sync plugin可以快速生成所有的注释，使用稍微麻烦点，步骤如下: 
   
 1. 打开设置面板，选择inspection，然后找到"javadoc issues"，选择相应的配置项
   

@@ -16,7 +16,7 @@ Cozy Cloud是一个开源的个人私有云,可以用于阅读电子邮件,或�
 操作系统: Linux/Unix
 类型: Groupware
 授权: Agpl 3
-下载地址：https://github.com/cozy/cozy-stack
+下载地址: https://github.com/cozy/cozy-stack
 
 
 ---

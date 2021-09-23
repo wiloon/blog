@@ -29,7 +29,7 @@ https://blog.csdn.net/u011127019/article/details/74039598
     Ctrl + ,
 #### terminal
     Ctrl + `
-#### 命令框，查找文件
+#### 命令框,查找文件
     Ctrl + Shift + p
 
 ### 字体 
@@ -76,10 +76,13 @@ hex viewer
 打开setting,在搜索框中输入renderControlCharacters,选中勾选框,即可显示tab.  
 在搜索框中输入renderWhitespace,选择all,即可显示空格.  
 
+### vscode + wsl 版本更新 
+有新版本时, vscode左下角会有提示,点击更新 windows里安装的vscode, vscode打开 wsl里的目录时,会自动更新wsl里安装的vscode.
+
 ---
 
-https://code.visualstudio.com/docs/remote/ssh-tutorial  
-https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode  
-https://blog.csdn.net/bmzk123/article/details/86501706  
+>https://code.visualstudio.com/docs/remote/ssh-tutorial  
+>https://www.justhx.com/partly-technical/optiumise-chinese-characters-in-vscode  
+>https://blog.csdn.net/bmzk123/article/details/86501706  
 
  

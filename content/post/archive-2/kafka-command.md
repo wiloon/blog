@@ -98,7 +98,7 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
 <https://cloud.tencent.com/developer/article/1436988>
 
 ### 调整分区数
-注意该命令分区数partitions只能增加，不能减少, --partitions 5: 调整之后的分区数, topic可以动态增加分区数。
+注意该命令分区数partitions只能增加,不能减少, --partitions 5: 调整之后的分区数, topic可以动态增加分区数。
 
     bin/kafka-topics.sh \
     --zookeeper ip0:2181 \
@@ -219,7 +219,7 @@ podman run  -d --name kafka \
 
 
 ### server.properties
-    advertised.host.name: 是注册到zookeeper,client要访问的broker地址。（可能producer也是拿这个值,没有验证）
+    advertised.host.name: 是注册到zookeeper,client要访问的broker地址。（可能producer也是拿这个值,没有验证) 
     
     如果advertised.host.name没有设,会用host.name的值注册到zookeeper,如果host.name也没有设,则会使用JVM拿到的本机hostname注册到zk。
     

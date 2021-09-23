@@ -15,8 +15,8 @@ Redis客户端与server的请求/响应模型
 我们通过Redis客户端执行命令，如set key value，客户端遵循RESP协议，将命令的协议串发送给redis-server执行，redis-server执行完成后再同步返回结果。
 手写Redis客户端-实现自己的Jedis 对这一过程进行了重点分析，并遵循RESP实现了自己简易版的Redis客户端。
 
-Redis客户端与server通信，使用的是客户端-服务器（CS）模式；每次交互，都是完整的请求/响应模式。
-这意味着通常情况下一个请求会遵循以下步骤：
+Redis客户端与server通信，使用的是客户端-服务器（CS) 模式；每次交互，都是完整的请求/响应模式。
+这意味着通常情况下一个请求会遵循以下步骤: 
 
 客户端连接服务端，基于特定的端口，发送一个命令，并监听Socket返回，通常是以阻塞模式，等待服务端响应。
 服务端处理命令，并将结果返回给客户端。
@@ -38,10 +38,10 @@ Caused by: java.util.NoSuchElementException: Timeout waiting for idle object
 at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:449)
 如果在指定的等待时间内没有等到idle空闲连接，就报异常了。
 
-尽管使用了池化、将connection进行复用，但不可避免的带来其他问题：
+尽管使用了池化、将connection进行复用，但不可避免的带来其他问题: 
 https://jjlu521016.github.io/2018/12/09/JedisPool常见问题.html
 
-除了池化的connection会被瞬间用完，Redis官网还给出了另外一个性能损耗的原因：
+除了池化的connection会被瞬间用完，Redis官网还给出了另外一个性能损耗的原因: 
 
 It's not just a matter of RTT
 https://redis.io/topics/pipelining
@@ -54,14 +54,14 @@ https://redis.io/topics/pipelining
 pipeline不仅是一种减少往返时间的延迟成本的方法，它实际上还可以极大地提高Redis服务器中每秒可执行的总操作量。
 
 由于网络开销延迟，就算redis-server端有很强的处理能力，也会由于收到的client命令少，而造成吞吐量小。
-当client 使用pipeline 发送命令时，redis-server必须将部分请求放到队列中（使用内存），执行完毕后一次性发送结果。
+当client 使用pipeline 发送命令时，redis-server必须将部分请求放到队列中（使用内存) ，执行完毕后一次性发送结果。
 
 对pipeline的支持
 pipeline(管道)功能在命令行CLI客户端redis-cli中没有提供，也就是我们不能通过终端交互的方式使用pipeline；
 redis的客户端，如jedis，lettuce等都实现了对pipeline的支持。
 
 pipeline为我们节省了哪部分时间？
-pipeline在某些场景下非常有用，比如有多个command需要被“及时的”提交，而且他们对相应结果没有互相依赖，对结果响应也无需立即获得，那么pipeline就可以充当这种“批处理”的工具；而且在一定程度上，可以较大的提升性能：
+pipeline在某些场景下非常有用，比如有多个command需要被“及时的”提交，而且他们对相应结果没有互相依赖，对结果响应也无需立即获得，那么pipeline就可以充当这种“批处理”的工具；而且在一定程度上，可以较大的提升性能: 
 
 我们使用JedisPool连接池，节省了建立连接connection的时间；
 pipeline节省了多条命令的(发送命令到server、server返回结果)往返时间RTT，包括多次网络IO、系统调用的消耗。
@@ -73,7 +73,7 @@ pipeline期间将“独占”connection，此期间将不能进行非“管道�
 
 pipeline实现原理
 
-管道（pipeline）可以一次性发送多条命令并在执行完后一次性将结果返回，pipeline通过减少客户端与redis的通信次数来实现降低往返延时时间。
+管道（pipeline) 可以一次性发送多条命令并在执行完后一次性将结果返回，pipeline通过减少客户端与redis的通信次数来实现降低往返延时时间。
 pipeline 底层实现是队列，队列的先进先出特性，保证了数据的顺序性。 pipeline 的默认的同步的个数为53个，也就是说arges中累加到53条数据时会把数据提交。
 
 需要注意到是用 pipeline方式打包命令发送，redis必须在处理完所有命令前先缓存起所有命令的处理结果。打包的命令越多，缓存消耗内存也越多。所以并不是打包的命令越多越好。具体多少合适需要根据具体情况测试。
@@ -86,7 +86,7 @@ pipeline“打包命令”
 手写Redis客户端-实现自己的Jedis 我们自己实现的Redis客户端，遵循RESP协议拼装了协议串，用socket将协议串发送给redis-server，以此实现和redis-server的通信。
 pipeline并没有什么特殊的地方，只是一次性append追加了多条RESP指令，然后一次性发送出去而已。
 
-1.pipeline减少了RTT，也减少了IO调用次数（IO调用涉及到用户态到内核态之间的切换）
+1.pipeline减少了RTT，也减少了IO调用次数（IO调用涉及到用户态到内核态之间的切换) 
 2.需要控制pipeline的大小，否则会消耗Redis的内存
 Jedis客户端缓存是8192，超过该大小则刷新缓存，或者直接发送。
 
@@ -105,8 +105,8 @@ Redis支持使用multi命令，使用Redis事务。
 但Redis事务属于弱事务，并不像RDBMS一样ACID的特性，详见Redis事务,你真的了解吗
 
 pipeline与Redis事务(multi)
-multi：标记一个事务块的开始。 事务块内的多条命令会按照先后顺序被放进一个队列当中，最后由 EXEC 命令原子性(atomic)地执行。
-pipeline：客户端将执行的命令写入到缓冲中，最后由exec命令一次性发送给redis执行返回。
+multi: 标记一个事务块的开始。 事务块内的多条命令会按照先后顺序被放进一个队列当中，最后由 EXEC 命令原子性(atomic)地执行。
+pipeline: 客户端将执行的命令写入到缓冲中，最后由exec命令一次性发送给redis执行返回。
 
 multi 是redis服务端一次性返回所有命令执行返回结果。
 pipeline管道操作是需要客户端与服务端的支持，客户端将命令写入缓冲，最后再通过exec命令发送给服务端，服务端通过命令拆分，逐个执行返回结果。
@@ -124,7 +124,7 @@ Scripting lua脚本
 Redis 从 2.6 开始内嵌了 Lua 环境来支持用户扩展功能. 通过 Lua 脚本, 我们可以原子化地执行多条 Redis 命令.
 在 Redis 中执行 Lua 脚本需要用到 eval 和 evalsha 和 script 这几个命令。
 
-Redis官方文档：https://redis.io/topics/pipelin
+Redis官方文档: https://redis.io/topics/pipelin
 
 ---
 

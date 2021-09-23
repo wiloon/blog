@@ -12,7 +12,7 @@ http://www.cnblogs.com/devinzhang/archive/2011/12/30/2306980.html
 
 Android之Handler用法总结
 
-方法一: (java习惯，在android平台开发时这样是不行的，因为它违背了单线程模型）
+方法一: (java习惯，在android平台开发时这样是不行的，因为它违背了单线程模型) 
 
 刚刚开始接触android线程编程的时候，习惯好像java一样，试图用下面的代码解决问题
 
@@ -92,7 +92,7 @@ Thread.currentThread().interrupt();
   
 以上方法demo看:http://rayleung.javaeye.com/blog/411860
 
-方法三: （java习惯。Android平台中，这样做是不行的，这跟Android的线程安全有关）
+方法三: （java习惯。Android平台中，这样做是不行的，这跟Android的线程安全有关) 
 
 在Android平台中需要反复按周期执行方法可以使用Java上自带的TimerTask类，TimerTask相对于Thread来说对于资源消耗的更低，除了使用Android自带的AlarmManager使用Timer定时器是一种更好的解决方法。 我们需要引入import java.util.Timer; 和 import java.util.TimerTask;
 

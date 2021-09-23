@@ -48,11 +48,11 @@ http://bbs.csdn.net/topics/320156312
 
  }
 
- //全局变量，记录文件数；
+ //全局变量,记录文件数；
 
  var fileNum=1;
 
- //mouseover时，把input file移到按扭上，保证点击的是file，
+ //mouseover时,把input file移到按扭上,保证点击的是file,
 
  function floatFile()
 
@@ -64,7 +64,7 @@ http://bbs.csdn.net/topics/320156312
 
  }
 
- //选择完一个文件之后，自动创建一个新的div 和 file表单，用于下回使用，hidden刚用过的file
+ //选择完一个文件之后,自动创建一个新的div 和 file表单,用于下回使用,hidden刚用过的file
 
  function showText(obj)
 
@@ -99,7 +99,7 @@ http://bbs.csdn.net/topics/320156312
   [/html]
 
 
-  IE 使用 'filter:alpha(opacity=50);' 通过 Filter 的 alpha 通道滤镜使元素半透明，但元素必须触发 hasLayout 特性。
+  IE 使用 'filter:alpha(opacity=50);' 通过 Filter 的 alpha 通道滤镜使元素半透明,但元素必须触发 hasLayout 特性。
 
   非 IE 浏览器使用 'opacity:0.5;' 这个 CSS3 草案中的 'opacity' 特性使元素半透明。
 

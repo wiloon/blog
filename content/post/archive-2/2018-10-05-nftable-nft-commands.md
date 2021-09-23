@@ -28,7 +28,7 @@ family 参数是可选的,如果不指定 family,默认是 IPv4
 #### 增加链,add chain: 
 ```bash
 nft add chain [<family>]  <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
-nft add chain filter input { type filter hook input priority 0 \; } # 要和hook（钩子）相关连
+nft add chain filter input { type filter hook input priority 0 \; } # 要和hook（钩子) 相关连
 ```
 
 #### 增加规则, add rule:

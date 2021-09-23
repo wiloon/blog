@@ -15,7 +15,7 @@ strings命令在对象文件或二进制文件中查找可打印的字符串。�
 ### wc
 wc(Word Count)命令用来统计文件内容信息,包括行数、字符数等
 
-语法：wc [-lwc] fine_name
+语法: wc [-lwc] fine_name
 
 若不接文件，则统计标准输入
 ```bash
@@ -34,7 +34,7 @@ wc -m filename
 #显示一个文件中的最长行的长度
 wc -L filename
  
-#注意：每行结尾的换行符也算一个字符，空格也算一个字符
+#注意: 每行结尾的换行符也算一个字符，空格也算一个字符
 #采用UTF-8编码，所以一个汉字在这里被转换为3字节
 #当使用-m选项时，一个汉字就作为一个字符计算
 ```
@@ -44,8 +44,8 @@ wc -L filename
     time <command0>
     time dig
 
-user：程序在 User space 执行的时间
-sys：程序在 Kernel space 执行的时间
+user: 程序在 User space 执行的时间
+sys: 程序在 Kernel space 执行的时间
 
 
 

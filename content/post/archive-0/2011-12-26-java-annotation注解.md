@@ -24,10 +24,10 @@ Java语言解释器在工作时会忽略这些annotation，因此在JVM 中这�
 
 ### Annotation 与interface的异同
 1. Annotation类型使用关键字@interface而不是interface。
-这个关键字声明隐含了一个信息：它是继承了java.lang.annotation.Annotation接口，并非声明了一个interface。
+这个关键字声明隐含了一个信息: 它是继承了java.lang.annotation.Annotation接口，并非声明了一个interface。
 
 2. Annotation类型、方法定义是独特的、受限制的。
-Annotation 类型的方法必须声明为无参数、无异常抛出的。这些方法定义了annotation的成员：方法名成为了成员名，而方法返回值成为了成员的类型。方法返回值类型必须为primitive类型、Class类型、枚举类型、annotation类型或者由前面类型之一作为元素的一维数组。方法的后面可以使用 default 和一个默认数值来声明成员的默认值，null 不能作为成员默认值，这与我们在非 annotation 类型中定义方法有很大不同。
+Annotation 类型的方法必须声明为无参数、无异常抛出的。这些方法定义了annotation的成员: 方法名成为了成员名，而方法返回值成为了成员的类型。方法返回值类型必须为primitive类型、Class类型、枚举类型、annotation类型或者由前面类型之一作为元素的一维数组。方法的后面可以使用 default 和一个默认数值来声明成员的默认值，null 不能作为成员默认值，这与我们在非 annotation 类型中定义方法有很大不同。
 
 Annotation 类型和它的方法不能使用 annotation 类型的参数、成员不能是 generic。只有返回值类型是Class的方法可以在annotation类型中使用generic，因为此方法能够用类转换将各种类型转换为Class。
 
@@ -37,10 +37,10 @@ Annotation 类型和它的方法不能使用 annotation 类型的参数、成员
 ### 应用场合
 annotation一般作为一种辅助途径，应用在软件框架或工具中，在这些工具类中根据不同的 annotation 注解信息采取不同的处理过程或改变相应程序元素(类、方法及成员变量等)的行为。
 
-例如：Junit、Struts、Spring等流行工具框架中均广泛使用了 annotation 。使代码的灵活性大提高。
+例如: Junit、Struts、Spring等流行工具框架中均广泛使用了 annotation 。使代码的灵活性大提高。
 
 ### 常见标准的Annotation
-从java5版本开始，自带了三种标准 annotation 类型：
+从java5版本开始，自带了三种标准 annotation 类型: 
 
 1. Override
 java.lang.Override 是一个marker annotation类型，它被用作标注方法。它说明了被标注的方法重载了父类的方法，起到了断言的作用。如果我们使用了这种annotation在一个没有覆盖父类方法的方法时，java编译器将以一个编译错误来警示。
@@ -48,9 +48,9 @@ java.lang.Override 是一个marker annotation类型，它被用作标注方法�
 这个annotaton常常在我们试图覆盖父类方法而确又写错了方法名时加一个保障性的校验过程。
 
 2. Deprecated
-Deprecated也是一种marker annotation。当一个类型或者类型成员使用@Deprecated修饰的话，编译器将不鼓励使用这个被标注的程序元素。所以使用这种修饰具有一定的 "延续性"：如果我们在代码中通过继承或者覆盖的方式使用了这个过时的类型或者成员，虽然继承或者覆盖后的类型或者成员并不是被声明为 @Deprecated，但编译器仍然要报警。
+Deprecated也是一种marker annotation。当一个类型或者类型成员使用@Deprecated修饰的话，编译器将不鼓励使用这个被标注的程序元素。所以使用这种修饰具有一定的 "延续性": 如果我们在代码中通过继承或者覆盖的方式使用了这个过时的类型或者成员，虽然继承或者覆盖后的类型或者成员并不是被声明为 @Deprecated，但编译器仍然要报警。
 
-注意：@Deprecated这个annotation类型和javadoc中的 @deprecated这个tag是有区别的：前者是java编译器识别的，而后者是被javadoc工具所识别用来生成文档(包含程序成员为什么已经过时、它应当如何被禁止或者替代的描述)。
+注意: @Deprecated这个annotation类型和javadoc中的 @deprecated这个tag是有区别的: 前者是java编译器识别的，而后者是被javadoc工具所识别用来生成文档(包含程序成员为什么已经过时、它应当如何被禁止或者替代的描述)。
   
 3. SuppressWarnings
 此注解能告诉Java编译器关闭对类、方法及成员变量的警告。
@@ -59,9 +59,9 @@ Deprecated也是一种marker annotation。当一个类型或者类型成员使�
 
 SuppressWarning不是一个marker annotation。它有一个类型为String[]的成员，这个成员的值为被禁止的警告名。对于javac编译器来讲，被-Xlint选项有效的警告名也同样对@SuppressWarings有效，同时编译器忽略掉无法识别的警告名。
 
-annotation语法允许在annotation名后跟括号，括号中是使用逗号分割的name=value对用于为annotation的成员赋值：
+annotation语法允许在annotation名后跟括号，括号中是使用逗号分割的name=value对用于为annotation的成员赋值: 
 
-代码：
+代码: 
 
 @SuppressWarnings(value={"unchecked","fallthrough"})
   
@@ -69,11 +69,11 @@ public void lintTrap() { /* sloppy method body omitted */ }
   
 在这个例子中SuppressWarnings annotation 类型只定义了一个单一的成员，所以只有一个简单的value={…}作为name=value对。又由于成员值是一个数组，故使用大括号来声明数组值。
 
-注意：我们可以在下面的情况中缩写annotation：当annotation只有单一成员，并成员命名为"value="。这时可以省去"value="。比如将上面的SuppressWarnings annotation进行缩写：
+注意: 我们可以在下面的情况中缩写annotation: 当annotation只有单一成员，并成员命名为"value="。这时可以省去"value="。比如将上面的SuppressWarnings annotation进行缩写: 
 ```java
 @SuppressWarnings({"unchecked","fallthrough"})
 ```
-如果SuppressWarnings所声明的被禁止警告个数为一个时，可以省去大括号：
+如果SuppressWarnings所声明的被禁止警告个数为一个时，可以省去大括号: 
 ```java
 @SuppressWarnings("unchecked")
 ```
@@ -81,21 +81,21 @@ public void lintTrap() { /* sloppy method body omitted */ }
 ### @Documented
 @Documented 的目的就是让这一个Annotation类型的信息能够显示在 javaAPI说明文档上;没有添加的话，使用javadoc生成API文档的时候就会找不到这一个类型生成的信息.
 ### @Target
-@Target里面的ElementType是用来指定Annotation类型可以用在哪一些元素上的.说明一下：TYPE(类型), FIELD(属性), METHOD(方法), PARAMETER(参数), CONSTRUCTOR(构造函数),LOCAL_VARIABLE(局部变量), ANNOTATION_TYPE,PACKAGE(包),其中的TYPE(类型)是指可以用在Class,Interface,Enum和Annotation类型上.
+@Target里面的ElementType是用来指定Annotation类型可以用在哪一些元素上的.说明一下: TYPE(类型), FIELD(属性), METHOD(方法), PARAMETER(参数), CONSTRUCTOR(构造函数),LOCAL_VARIABLE(局部变量), ANNOTATION_TYPE,PACKAGE(包),其中的TYPE(类型)是指可以用在Class,Interface,Enum和Annotation类型上.
 
 ### @Retention
 注解@Retention可以用来修饰注解，是注解的注解，称为元注解。
 Retention注解有一个属性value，是RetentionPolicy类型的，Enum RetentionPolicy是一个枚举类型，
-这个枚举决定了Retention注解应该如何去保持，也可理解为Rentention 搭配 RententionPolicy使用。RetentionPolicy有3个值：CLASS  RUNTIME   SOURCE
-按生命周期来划分可分为3类：
-1、RetentionPolicy.SOURCE：注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；
-2、RetentionPolicy.CLASS：注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；
-3、RetentionPolicy.RUNTIME：注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在；
-这3个生命周期分别对应于：Java源文件(.java文件) ---> .class文件 ---> 内存中的字节码。
+这个枚举决定了Retention注解应该如何去保持，也可理解为Rentention 搭配 RententionPolicy使用。RetentionPolicy有3个值: CLASS  RUNTIME   SOURCE
+按生命周期来划分可分为3类: 
+1、RetentionPolicy.SOURCE: 注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；
+2、RetentionPolicy.CLASS: 注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；
+3、RetentionPolicy.RUNTIME: 注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在；
+这3个生命周期分别对应于: Java源文件(.java文件) ---> .class文件 ---> 内存中的字节码。
 那怎么来选择合适的注解生命周期呢？
 首先要明确生命周期长度 SOURCE < CLASS < RUNTIME ，所以前者能作用的地方后者一定也能作用。
 一般如果需要在运行时去动态获取注解信息，那只能用 RUNTIME 注解，比如@Deprecated使用RUNTIME注解
-如果要在编译时进行一些预处理操作，比如生成一些辅助代码（如 ButterKnife），就用 CLASS注解；
+如果要在编译时进行一些预处理操作，比如生成一些辅助代码（如 ButterKnife) ，就用 CLASS注解；
 如果只是做一些检查性的操作，比如 @Override 和 @SuppressWarnings，使用SOURCE 注解。
 
 注解@Override用在方法上，当我们想重写一个方法时，在方法上加@Override，当我们方法的名字出错时，编译器就会报错
@@ -103,7 +103,7 @@ Retention注解有一个属性value，是RetentionPolicy类型的，Enum Retenti
 注解@SuppressWarnings用来压制程序中出来的警告，比如在没有用泛型或是方法已经过时的时候
 
 ### @Inherited
-在Spring Boot中大量使用了@Inherited注解。我们来了解一下这个注解的用法，注解的源码：
+在Spring Boot中大量使用了@Inherited注解。我们来了解一下这个注解的用法，注解的源码: 
 
 复制代码
 package java.lang.annotation;
@@ -135,9 +135,9 @@ package java.lang.annotation;
 public @interface Inherited {
 }
 复制代码
-注解的作用：
+注解的作用: 
 
-当某个注解类在它的类上定义了@Inherited注解，例如SpringBoot中的 @SpringBootApplication注解，@SpringBootApplication注解类就定义了@Inherited注解，看下源码中的红色部分：
+当某个注解类在它的类上定义了@Inherited注解，例如SpringBoot中的 @SpringBootApplication注解，@SpringBootApplication注解类就定义了@Inherited注解，看下源码中的红色部分: 
 
 复制代码
 @Target(ElementType.TYPE)
@@ -155,7 +155,7 @@ public @interface SpringBootApplication {
 
 }
 复制代码
-那么现在有一个我们自己开发的类使用了这个注解，例如：
+那么现在有一个我们自己开发的类使用了这个注解，例如: 
 
 @SpringBootApplication
 @Service
@@ -167,7 +167,7 @@ public class Person {
 public class Employee extends Person{
 
 }
-那么现在在判断Employee类上有没有@SpringBootApplication时，通过代码验证：
+那么现在在判断Employee类上有没有@SpringBootApplication时，通过代码验证: 
 
 复制代码
 @Test
@@ -182,7 +182,7 @@ public class Employee extends Person{
 复制代码
 上面这个测试用例执行将输出true，也就是子类中能查找到@SpringBootApplication ，但同样，你用上述代码查找Employee类上是否有Spring的@Service注解时，会输出false，至此你应该明白@Inherited注解的用意了吧。
 
-经过这样的分析，我们再来读一下JDK的文档，就会比较容易理解了，否则会觉的有些绕，下面列出 @interface注解的中文文档：
+经过这样的分析，我们再来读一下JDK的文档，就会比较容易理解了，否则会觉的有些绕，下面列出 @interface注解的中文文档: 
 
 指示注释类型被自动继承。如果在注释类型声明中存在 Inherited 元注释，并且用户在某一类声明中查询该注释类型，同时该类声明中没有此类型的注释，则将在该类的超类中自动查询该注释类型。此过程会重复进行，直到找到此类型的注释或到达了该类层次结构的顶层 (Object) 为止。如果没有超类具有该类型的注释，则查询将指示当前类没有这样的注释。
 
@@ -190,12 +190,12 @@ public class Employee extends Person{
 
 
 
-转自：
+转自: 
 http://blog.csdn.net/liuwenbo0920/article/details/7290586
 http://blog.csdn.net/github_35180164/article/details/52118286
 
 ### 自定义 annotation 示例
-示例共涉及四个类：
+示例共涉及四个类: 
 
 #### Author.java
 ```java
@@ -231,7 +231,7 @@ public class Utility {
     }
 }
 ```
-注：这是个普通的Java类，运行了@Description和@Author注解。
+注: 这是个普通的Java类，运行了@Description和@Author注解。
 
 ### AnalysisAnnotation.java
 ```java
@@ -297,9 +297,9 @@ e.printStackTrace();
   
 }
 ```
-注：这是个与自定义@Description和@Author配套的基础框架或工具类，通过此类来获得与普通Java类Utility.java关联的信息,即描述和作者。
+注: 这是个与自定义@Description和@Author配套的基础框架或工具类，通过此类来获得与普通Java类Utility.java关联的信息,即描述和作者。
 
-运行AnalysisAnnotation,输出结果为：
+运行AnalysisAnnotation,输出结果为: 
 
 　　Utility's Description—>这是一个有用的工具类
   
@@ -307,7 +307,7 @@ Utility's Author—>haoran_202 from com.magc
 
 
 
-  注解（Annotation） 为我们在代码中添加信息提供了一种形式化的方法，是我们可以在稍后 某个时刻方便地使用这些数据（通过 解析注解 来使用这些数据）。
+  注解（Annotation)  为我们在代码中添加信息提供了一种形式化的方法，是我们可以在稍后 某个时刻方便地使用这些数据（通过 解析注解 来使用这些数据) 。
 
 注解的语法比较简单，除了@符号的使用以外，它基本上与java的固有语法一致，java内置了三种
 
@@ -343,11 +343,11 @@ import java.lang.annotation.RetentionPolicy;
    
 *
    
-* @Target 表示该注解用于什么地方，可能的 ElemenetType 参数包括：
+* @Target 表示该注解用于什么地方，可能的 ElemenetType 参数包括: 
    
 * ElemenetType.CONSTRUCTOR 构造器声明
    
-* ElemenetType.FIELD 域声明（包括 enum 实例）
+* ElemenetType.FIELD 域声明（包括 enum 实例) 
    
 * ElemenetType.LOCAL_VARIABLE 局部变量声明
    
@@ -357,11 +357,11 @@ import java.lang.annotation.RetentionPolicy;
    
 * ElemenetType.PARAMETER 参数声明
    
-* ElemenetType.TYPE 类，接口（包括注解类型）或enum声明
+* ElemenetType.TYPE 类，接口（包括注解类型) 或enum声明
    
 *
    
-* @Retention 表示在什么级别保存该注解信息。可选的 RetentionPolicy 参数包括：
+* @Retention 表示在什么级别保存该注解信息。可选的 RetentionPolicy 参数包括: 
    
 * RetentionPolicy.SOURCE 注解将被编译器丢弃
    
@@ -483,7 +483,7 @@ System.out.println("Test( method = " + method.getName() + " , id = "
   
 ```
   
-输出结果如下：
+输出结果如下: 
 
 Test( method = method_1 , id = 1 , description = hello method_1 )
   
@@ -545,7 +545,7 @@ public @interface Retention {
 
 看到这里，大家可能都模糊了,都不知道在说什么，别急，往下看一下.
   
-在上面的文件都用到了RetentionPolicy，ElementType这两个字段,你可能就会猜到这是两个java文件.的确，这两个文件的源代码如下：
+在上面的文件都用到了RetentionPolicy，ElementType这两个字段,你可能就会猜到这是两个java文件.的确，这两个文件的源代码如下: 
 
 3、源文件RetentionPolicy.java
   
@@ -587,7 +587,7 @@ LOCAL_VARIABLE, ANNOTATION_TYPE,PACKAGE
   
 ```
 
-＠Target里面的ElementType是用来指定Annotation类型可以用在哪一些元素上的.说明一下：TYPE(类型), FIELD(属性), METHOD(方法), PARAMETER(参数), CONSTRUCTOR(构造函数),LOCAL_VARIABLE(局部变量), ANNOTATION_TYPE,PACKAGE(包),其中的TYPE(类型)是指可以用在Class,Interface,Enum和 Annotation类型上.
+＠Target里面的ElementType是用来指定Annotation类型可以用在哪一些元素上的.说明一下: TYPE(类型), FIELD(属性), METHOD(方法), PARAMETER(参数), CONSTRUCTOR(构造函数),LOCAL_VARIABLE(局部变量), ANNOTATION_TYPE,PACKAGE(包),其中的TYPE(类型)是指可以用在Class,Interface,Enum和 Annotation类型上.
   
 另外,从1的源代码可以看出,@Target自己也用了自己来声明自己,只能用在ANNOTATION_TYPE之上.
   
@@ -793,7 +793,7 @@ System.out.println("创建的社区:"+name.community());
   
 ```
 
-5、运行结果：
+5、运行结果: 
   
 描述:javaeye,做最棒的软件开发交流社区
   
@@ -809,17 +809,17 @@ System.out.println("创建的社区:"+name.community());
 
 Java注解(Annotation)
   
-Annotation(注释)是JDK5.0及以后版本引入的。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。注释是以'@注释名'在代码中存在的，根据注释参数的个数，我们可以将注释分为：标记注释、单值注释、完整注释三类。它们都不会直接影响到程序的语义，只是作为注释（标识）存在，我们可以通过反射机制编程实现对这些元数据的访问。另外，你可以在编译时选择代码里的注释是否只存在于源代码级，或者它也能在class文件中出现。
+Annotation(注释)是JDK5.0及以后版本引入的。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。注释是以'@注释名'在代码中存在的，根据注释参数的个数，我们可以将注释分为: 标记注释、单值注释、完整注释三类。它们都不会直接影响到程序的语义，只是作为注释（标识) 存在，我们可以通过反射机制编程实现对这些元数据的访问。另外，你可以在编译时选择代码里的注释是否只存在于源代码级，或者它也能在class文件中出现。
   
 元数据的作用
   
-如果要对于元数据的作用进行分类，目前还没有明确的定义，不过我们可以根据它所起的作用，大致可分为三类：
+如果要对于元数据的作用进行分类，目前还没有明确的定义，不过我们可以根据它所起的作用，大致可分为三类: 
   
-编写文档：通过代码里标识的元数据生成文档。
+编写文档: 通过代码里标识的元数据生成文档。
   
-代码分析：通过代码里标识的元数据对代码进行分析。
+代码分析: 通过代码里标识的元数据对代码进行分析。
   
-编译检查：通过代码里标识的元数据让编译器能实现基本的编译检查。
+编译检查: 通过代码里标识的元数据让编译器能实现基本的编译检查。
   
 1. 基本内置注释
   
@@ -853,7 +853,7 @@ return "测试注释";
   
 ```
   
-@Deprecated的作用是对不应该在使用的方法添加注释，当编程人员使用这些方法时，将会在编译时显示提示信息，它与javadoc里的@deprecated标记有相同的功能，准确的说，它还不如javadoc @deprecated，因为它不支持参数，使用@Deprecated的示例代码示例如下：
+@Deprecated的作用是对不应该在使用的方法添加注释，当编程人员使用这些方法时，将会在编译时显示提示信息，它与javadoc里的@deprecated标记有相同的功能，准确的说，它还不如javadoc @deprecated，因为它不支持参数，使用@Deprecated的示例代码示例如下: 
   
 ```java
   
@@ -893,7 +893,7 @@ public static void DeprecatedMethod() {
   
 ```
   
-@SuppressWarnings,其参数有：
+@SuppressWarnings,其参数有: 
   
 deprecation，使用了过时的类或方法时的警告
   
@@ -935,7 +935,7 @@ list.add(data);
   
 2. 自定义注释
   
-它类似于新创建一个接口类文件，但为了区分，我们需要将它声明为@interface,如下例：
+它类似于新创建一个接口类文件，但为了区分，我们需要将它声明为@interface,如下例: 
   
 ```java
   
@@ -1139,9 +1139,9 @@ FontColor fontColor() default FontColor.RED;
   
 ```
   
-在Java编译器编译时，它会识别在源代码里添加的注释是否还会保留，这就是RetentionPolicy。下面是Java定义的RetentionPolicy枚举：
+在Java编译器编译时，它会识别在源代码里添加的注释是否还会保留，这就是RetentionPolicy。下面是Java定义的RetentionPolicy枚举: 
   
-编译器的处理有三种策略：
+编译器的处理有三种策略: 
   
 将注释保留在编译后的类文件中，并在第一次加载类时读取它
   
@@ -1195,7 +1195,7 @@ FontColor fontColor() default FontColor.RED;
 
 3.3. 文档化功能
   
-Java提供的Documented元注释跟Javadoc的作用是差不多的，其实它存在的好处是开发人员可以定制Javadoc不支持的文档属性，并在开发中应用。它的使用跟前两个也是一样的，简单代码示例如下：
+Java提供的Documented元注释跟Javadoc的作用是差不多的，其实它存在的好处是开发人员可以定制Javadoc不支持的文档属性，并在开发中应用。它的使用跟前两个也是一样的，简单代码示例如下: 
   
 ```java
   
@@ -1253,7 +1253,7 @@ FontColor fontColor() default FontColor.RED;
   
 属于重点，在系统中用到注解权限时非常有用，可以精确控制权限的粒度
   
-注意： 要想使用反射去读取注解，必须将Retention的值选为Runtime
+注意:  要想使用反射去读取注解，必须将Retention的值选为Runtime
   
 ```java
   
@@ -1295,7 +1295,7 @@ System.out.println(method.getName());
   
 for (Annotation an : annotations) {
   
-System.out.println("方法名为：" + method.getName() + " 其上面的注解为："
+System.out.println("方法名为: " + method.getName() + " 其上面的注解为: "
   
 + an.annotationType().getSimpleName());
   
@@ -1305,7 +1305,7 @@ Method[] meths = an.annotationType().getDeclaredMethods();
   
 for (Method meth : meths) {
   
-System.out.println("注解的变量名为：" + meth.getName());
+System.out.println("注解的变量名为: " + meth.getName());
   
 }
   

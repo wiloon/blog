@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-英文版出处：http://majic.rs/blog/system-wide-installation-of-certificates
+英文版出处: http://majic.rs/blog/system-wide-installation-of-certificates
   
 https://blog.csdn.net/ziyouwayj/article/details/36371747
   
@@ -20,7 +20,7 @@ A lot of tutorials and how-to guides can be found on the Internet regarding the 
 
 Although not all applications under GNU/Linux distributions respect this, the applications very often utilise the certificates located within the /etc/ssl/certs directory. The certificates themselves are usually installed through the ca-certificates package. In order to install the custom CA certificate and integrate it properly into the system so that most applications will be able to find it, several steps should be performed.
 
-虽然不是所有的GNU/ Linux发行版都遵循这一点，但通常linux发行版都从/ etc / ssl下/ certs目录中读取证书。系统自带的证书通常是通过ca-certificates软件包安装的。为了安装自定义的CA证书，并妥善整合到系统中，让大多数应用程序能够找到它，您需要执行以下几个步骤：
+虽然不是所有的GNU/ Linux发行版都遵循这一点，但通常linux发行版都从/ etc / ssl下/ certs目录中读取证书。系统自带的证书通常是通过ca-certificates软件包安装的。为了安装自定义的CA证书，并妥善整合到系统中，让大多数应用程序能够找到它，您需要执行以下几个步骤: 
 
   1. Make sure you have installed the ca-certificates package.
 
@@ -62,11 +62,11 @@ $ yum install ca-certificates
 
 <ol start="4">
   
-    Append a new line listing the relative path (to the /usr/share/ca-certificates/ directory) to the certificate you just copied to the file /etc/ca-certificates.conf. For the purpose of this example the line will be：
+    Append a new line listing the relative path (to the /usr/share/ca-certificates/ directory) to the certificate you just copied to the file /etc/ca-certificates.conf. For the purpose of this example the line will be: 
   
 
 
-4.在 /etc/ca-certificates.conf文件中添加一行：您的证书文件去除 /usr/share/ca-certificates/ 目录后的相对路径。例如针对上面的例子，就只需要添加
+4.在 /etc/ca-certificates.conf文件中添加一行: 您的证书文件去除 /usr/share/ca-certificates/ 目录后的相对路径。例如针对上面的例子，就只需要添加
   
 example.com/Example Root.ca
 
@@ -84,6 +84,6 @@ After these steps many utilities (like wget, for example) will be able to proper
   
 ————————————————
   
-版权声明：本文为CSDN博主「ziyouwaYJ」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+版权声明: 本文为CSDN博主「ziyouwaYJ」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接：https://blog.csdn.net/ziyouwayj/article/details/36371747
+原文链接: https://blog.csdn.net/ziyouwayj/article/details/36371747

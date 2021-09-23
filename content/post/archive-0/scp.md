@@ -17,7 +17,7 @@ tags:
 scp 可以在 2个 linux 主机间复制文件；
 
 ```bash
-# 命令格式：
+# 命令格式: 
 scp [可选参数] file_source file_target
 scp -i identity_file
 scp -i  mykey.pem somefile.txt root@ec2-184-73-72-150.compute-1.amazonaws.com:/home/user/xxx
@@ -40,7 +40,7 @@ scp -i  mykey.pem somefile.txt root@ec2-184-73-72-150.compute-1.amazonaws.com:/h
 
 从 本地 复制到 远程
   
-* 命令格式：
+* 命令格式: 
   
 ```bash
   
@@ -64,7 +64,7 @@ scp local_file remote_ip:remote_file
 
 第3,4个没有指定用户名，命令执行后需要输入用户名和密码，第3个仅指定了远程的目录，文件名字不变，第4个指定了文件名；
 
-  * 例子：
+  * 例子: 
 
 scp /home/space/music/1.mp3 root@www.cumt.edu.cn:/home/root/others/music
 
@@ -74,8 +74,8 @@ scp /home/space/music/1.mp3 www.cumt.edu.cn:/home/root/others/music
 
 scp /home/space/music/1.mp3 www.cumt.edu.cn:/home/root/others/music/001.mp3
 
-  * 复制目录： 
-  * 命令格式：
+  * 复制目录:  
+  * 命令格式: 
 
 scp -r local_folder remote_username@remote_ip:remote_folder
 
@@ -87,7 +87,7 @@ scp -r local_folder remote_ip:remote_folder
 
 第2个没有指定用户名，命令执行后需要输入用户名和密码；
 
-  * 例子：
+  * 例子: 
 
 scp -r /home/space/music/ root@www.cumt.edu.cn:/home/root/others/
 
@@ -99,7 +99,7 @@ scp -r /home/space/music/ www.cumt.edu.cn:/home/root/others/
 
 从 远程 复制到 本地，只要将 从 本地 复制到 远程 的命令 的 后2个参数 调换顺序 即可；
 
-例如：
+例如: 
 
 scp root@www.cumt.edu.cn:/home/root/others/music /home/space/music/1.mp3
 

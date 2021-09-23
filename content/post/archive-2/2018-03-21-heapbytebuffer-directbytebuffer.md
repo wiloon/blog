@@ -16,7 +16,7 @@ http://www.importnew.com/19191.html
 
 而本文要说的一个重点就是HeapByteBuffer与DirectByteBuffer,以及如何合理使用DirectByteBuffer。
 
-1、HeapByteBuffer与DirectByteBuffer,在原理上,前者可以看出分配的buffer是在heap区域的,其实真正flush到远程的时候会先拷贝得到直接内存,再做下一步操作（考虑细节还会到OS级别的内核区直接内存）,其实发送静态文件最快速的方法是通过OS级别的send_file,只会经过OS一个内核拷贝,而不会来回拷贝；在NIO的框架下,很多框架会采用DirectByteBuffer来操作,这样分配的内存不再是在java heap上,而是在C heap上,经过性能测试,可以得到非常快速的网络交互,在大量的网络交互下,一般速度会比HeapByteBuffer要快速好几倍。
+1、HeapByteBuffer与DirectByteBuffer,在原理上,前者可以看出分配的buffer是在heap区域的,其实真正flush到远程的时候会先拷贝得到直接内存,再做下一步操作（考虑细节还会到OS级别的内核区直接内存) ,其实发送静态文件最快速的方法是通过OS级别的send_file,只会经过OS一个内核拷贝,而不会来回拷贝；在NIO的框架下,很多框架会采用DirectByteBuffer来操作,这样分配的内存不再是在java heap上,而是在C heap上,经过性能测试,可以得到非常快速的网络交互,在大量的网络交互下,一般速度会比HeapByteBuffer要快速好几倍。
 
 最基本的情况下
 
@@ -32,7 +32,7 @@ http://blog.csdn.net/u011262847/article/details/76861974
 
 HeapByteBuffer
   
-堆上的ByteBuffer对象,是调用ByteBuffer.allocate（n）所分配出来的,底层是通过new出来的新对象,所以一定在堆上分配的存储空间,属于jvm所能够控制的范围。
+堆上的ByteBuffer对象,是调用ByteBuffer.allocate（n) 所分配出来的,底层是通过new出来的新对象,所以一定在堆上分配的存储空间,属于jvm所能够控制的范围。
 
 public static ByteBuffer allocate(int capacity) {
           
@@ -80,7 +80,7 @@ unsafe.setMemory(base, size, (byte) 0);
   
 ...
 
-关键的是,allocateMemory是一个native方法,并不是jvm能够控制的内存区域,通常称为堆外内存,一般是通过c/c++分配的内存（malloc）。
+关键的是,allocateMemory是一个native方法,并不是jvm能够控制的内存区域,通常称为堆外内存,一般是通过c/c++分配的内存（malloc) 。
 
 也就是说,对于DirectByteBuffer所生成的ByteBuffer对象,一部分是在jvm堆内存上,一部分是操作系统上的堆内存上,那么为了操作堆外内存,一定在jvm堆上的对象有一个堆外内存的引用:
 
@@ -106,4 +106,4 @@ public abstract class Buffer {
 
 在DirectByteBuffer的父类中,可以看到address的一个变量,这个就是表示堆外内存所分配对象的地址,如此一来,jvm堆上的对象就会有一个堆外内存的一个引用,之所以需要这样做,是为了提升堆io的效率。
 
-对于HeapByteBuffer,数据的分配存储都在jvm堆上,当需要和io设备打交道的时候,会将jvm堆上所维护的byte[]拷贝至堆外内存,然后堆外内存直接和io设备交互。如果直接使用DirectByteBuffer,那么就不需要拷贝这一步,将大大提升io的效率,这种称之为零拷贝（zero-copy）。
+对于HeapByteBuffer,数据的分配存储都在jvm堆上,当需要和io设备打交道的时候,会将jvm堆上所维护的byte[]拷贝至堆外内存,然后堆外内存直接和io设备交互。如果直接使用DirectByteBuffer,那么就不需要拷贝这一步,将大大提升io的效率,这种称之为零拷贝（zero-copy) 。

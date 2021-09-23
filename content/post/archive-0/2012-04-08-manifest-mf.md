@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-打开Java的JAR文件我们经常可以看到文件中包含着一个META-INF目录，这个目录下会有一些文件，其中必有一个MANIFEST.MF，这个文件描述了该Jar文件的很多信息，下面将详细介绍MANIFEST.MF文件的内容，先来看struts.jar中包含的MANIFEST.MF文件内容：
+打开Java的JAR文件我们经常可以看到文件中包含着一个META-INF目录，这个目录下会有一些文件，其中必有一个MANIFEST.MF，这个文件描述了该Jar文件的很多信息，下面将详细介绍MANIFEST.MF文件的内容，先来看struts.jar中包含的MANIFEST.MF文件内容: 
 
     Manifest-Version: 1.0
     Created-By: Apache Ant 1.5.1
@@ -22,15 +22,15 @@ categories:
     Implementation-Version: 1.1
     Class-Path:  commons-beanutils.jar commons-collections.jar commons-digester.jar commons-logging.jar commons-validator.jar jakarta-oro.jar struts-legacy.jar
 
-如果我们把MANIFEST中的配置信息进行分类，可以归纳出下面几个大类：
+如果我们把MANIFEST中的配置信息进行分类，可以归纳出下面几个大类: 
 
 ### 一. 一般属性
 
 1. Manifest-Version
-用来定义manifest文件的版本，例如：Manifest-Version: 1.0
+用来定义manifest文件的版本，例如: Manifest-Version: 1.0
 
 2. Created-By
-声明该文件的生成者，一般该属性是由jar命令行工具生成的，例如：Created-By: Apache Ant 1.5.1
+声明该文件的生成者，一般该属性是由jar命令行工具生成的，例如: Created-By: Apache Ant 1.5.1
 
 3. Signature-Version
 定义jar文件的签名版本

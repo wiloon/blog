@@ -16,15 +16,15 @@ mybatis不是ibatis的升级版，只是一个家族出来的，长得像而已�
 
 下面我们就来实际升级一下，毕竟ibatis最终是要淘汰的，同时mybatis也给我们在日常开发中提高了工作效率。
 
-升级流程如下：
+升级流程如下: 
 
-1、移出项目中的ibatis相关包：
+1、移出项目中的ibatis相关包: 
 
-ibatis相关包其实只有一个包，即：ibatis-sqlmap-x.x.x.jar，各项目因版本而；如果项目同时使用了spring集成包spring-orm-x.x.x.jar，也一并移出。
+ibatis相关包其实只有一个包，即: ibatis-sqlmap-x.x.x.jar，各项目因版本而；如果项目同时使用了spring集成包spring-orm-x.x.x.jar，也一并移出。
 
-2、引入mybatis相关包依赖到项目中：
+2、引入mybatis相关包依赖到项目中: 
 
-mybatis相关包其实只有一个包，即：mybatis-x.x.x.jar，但我们一般是和spring一起集成使用mybatis的，这样能方便使用spring提供的事务管理特性，所以还需要引入mybatis-spring-x.x.x.jar
+mybatis相关包其实只有一个包，即: mybatis-x.x.x.jar，但我们一般是和spring一起集成使用mybatis的，这样能方便使用spring提供的事务管理特性，所以还需要引入mybatis-spring-x.x.x.jar
 
 在maven的pom,xml引入配置如下
 
@@ -48,7 +48,7 @@ mybatis-spring</artifactId>
    
 </dependency>
   
-3、移出项目中的ibatis相关配置及文件（与spring集成为样例）：
+3、移出项目中的ibatis相关配置及文件（与spring集成为样例) : 
 
 <bean id="sqlMapClient" class="com.common.sqlmap.DynSqlMapClientFactoryBean"> <property name="configLocations"> <list> <value>classpath:common-sqlmap-config.xml</value>
       
@@ -56,7 +56,7 @@ mybatis-spring</artifactId>
   
 同时移出common-sqlmap-config.xml和ibatis-sqlmap-config.xml
 
-4、在项目中添加mybatis的相关配置及文件：
+4、在项目中添加mybatis的相关配置及文件: 
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -86,15 +86,15 @@ mybatis-config.xml样例
   
 </configuration>
   
-5、创建mybatis的SQL映射文件：
+5、创建mybatis的SQL映射文件: 
 
-mybatis的SQL映射文件可以从原来ibatis的SQL映射文件拷贝过来，做如下升级修改：
+mybatis的SQL映射文件可以从原来ibatis的SQL映射文件拷贝过来，做如下升级修改: 
 
 1、 变为
   
 2、sqlMap 变为 mapper
   
-3、mapper标签命名空间namespace最好是全类名，这样方便扫描配置使用（通过MapperScannerConfigurer）
+3、mapper标签命名空间namespace最好是全类名，这样方便扫描配置使用（通过MapperScannerConfigurer) 
   
 4、typeAlias标签在mybatis的已不支持，可放入公共配置文件的typeAliases标签中
   
@@ -130,11 +130,11 @@ Mapper XML 文件 http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html
 
 6、删除dao的实现类及配置
 
-升级mybatis后是可以不需要dao的实现类的，使用MapperScannerConfigurer扫描加载（见步骤4中的配置），等价升级完dao在service中的使用后，删除dao实现类。
+升级mybatis后是可以不需要dao的实现类的，使用MapperScannerConfigurer扫描加载（见步骤4中的配置) ，等价升级完dao在service中的使用后，删除dao实现类。
 
-注意：dao接口中的方法不支持方法重载，等价升级完dao在service中的使用要注意dao的参数问题，如果接口是多参数，可以转换接口参数为map或对参数使用注解。
+注意: dao接口中的方法不支持方法重载，等价升级完dao在service中的使用要注意dao的参数问题，如果接口是多参数，可以转换接口参数为map或对参数使用注解。
 
-多参数接口方法使用注解样例如下：
+多参数接口方法使用注解样例如下: 
 
 import org.apache.ibatis.annotations.Param;
   
@@ -154,7 +154,7 @@ int resetSyncLabel(long bookId);
   
 }
   
-以下给出升级前后的样例文件：
+以下给出升级前后的样例文件: 
 
 在ibatis中是这样的
 
@@ -429,6 +429,6 @@ DELETE FROM t_sync_label WHERE FID = #{labelId}
   
 </mapper> ————————————————
   
-版权声明：本文为CSDN博主「码类人生」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+版权声明: 本文为CSDN博主「码类人生」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
   
-原文链接：https://blog.csdn.net/u010856276/article/details/82146607
+原文链接: https://blog.csdn.net/u010856276/article/details/82146607

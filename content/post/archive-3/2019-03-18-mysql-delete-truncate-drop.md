@@ -8,13 +8,13 @@ categories:
   - Uncategorized
 
 ---
-相同点：
+相同点: 
 
 1.truncate和不带where子句的delete、以及drop都会删除表内的数据。
 
 2.drop、truncate都是DDL语句(数据定义语言),执行后会自动提交。
 
-不同点：
+不同点: 
 
   1. truncate 和 delete 只删除数据不删除表的结构(定义)
   
@@ -31,7 +31,7 @@ truncate 语句缺省情况下见空间释放到 minextents个 extent，除非�
 
 4.速度，一般来说: drop> truncate > delete
 
-5.安全性：小心使用 drop 和 truncate，尤其没有备份的时候.否则哭都来不及
+5.安全性: 小心使用 drop 和 truncate，尤其没有备份的时候.否则哭都来不及
   
 使用上,想删除部分数据行用 delete，注意带上where子句. 回滚段要足够大.
   
@@ -43,7 +43,7 @@ truncate 语句缺省情况下见空间释放到 minextents个 extent，除非�
 
 6.delete是DML语句,不会自动提交。drop/truncate都是DDL语句,执行后会自动提交。
 
-7、TRUNCATE TABLE 在功能上与不带 WHERE 子句的 DELETE 语句相同：二者均删除表中的全部行。但 TRUNCATE TABLE 比 DELETE 速度快，且使用的系统和事务日志资源少。DELETE 语句每次删除一行，并在事务日志中为所删除的每行记录一项。TRUNCATE TABLE 通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。
+7、TRUNCATE TABLE 在功能上与不带 WHERE 子句的 DELETE 语句相同: 二者均删除表中的全部行。但 TRUNCATE TABLE 比 DELETE 速度快，且使用的系统和事务日志资源少。DELETE 语句每次删除一行，并在事务日志中为所删除的每行记录一项。TRUNCATE TABLE 通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。
 
 8、TRUNCATE TABLE 删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用 DELETE。如果要删除表定义及其数据，请使用 DROP TABLE 语句。
 

@@ -17,7 +17,7 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
   
 由于红黑树本质上就是一棵二叉查找树，所以在了解红黑树之前，咱们先来看下二叉查找树。
 
-二叉查找树（Binary Search Tree），也称有序二叉树（ordered binary tree）,排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树: 
+二叉查找树（Binary Search Tree) ，也称有序二叉树（ordered binary tree) ,排序二叉树（sorted binary tree) ，是指一棵空树或者具有下列性质的二叉树: 
 
 若任意结点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；
   
@@ -25,11 +25,11 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
   
 任意结点的左、右子树也分别为二叉查找树。
   
-没有键值相等的结点（no duplicate nodes）。
+没有键值相等的结点（no duplicate nodes) 。
   
-因为，一棵由n个结点，随机构造的二叉查找树的高度为lgn，所以顺理成章，一般操作的执行时间为O（lgn）.（至于n个结点的二叉树高度为lgn的证明，可参考算法导论 第12章 二叉查找树 第12.4节）。
+因为，一棵由n个结点，随机构造的二叉查找树的高度为lgn，所以顺理成章，一般操作的执行时间为O（lgn) .（至于n个结点的二叉树高度为lgn的证明，可参考算法导论 第12章 二叉查找树 第12.4节) 。
 
-但二叉树若退化成了一棵具有n个结点的线性链后，则此些操作最坏情况运行时间为O（n）。后面我们会看到一种基于二叉查找树-红黑树，它通过一些性质使得树相对平衡，使得最终查找、插入、删除的时间复杂度最坏情况下依然为O（lgn）。
+但二叉树若退化成了一棵具有n个结点的线性链后，则此些操作最坏情况运行时间为O（n) 。后面我们会看到一种基于二叉查找树-红黑树，它通过一些性质使得树相对平衡，使得最终查找、插入、删除的时间复杂度最坏情况下依然为O（lgn) 。
 
 红黑树
   
@@ -37,15 +37,15 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
 
 但它是如何保证一棵n个结点的红黑树的高度始终保持在h = logn的呢？这就引出了红黑树的5条性质: 
 
-1）每个结点要么是红的，要么是黑的。
+1) 每个结点要么是红的，要么是黑的。
   
-2）根结点是黑的。
+2) 根结点是黑的。
   
-3）每个叶结点（叶结点即指树尾端NIL指针或NULL结点）是黑的。
+3) 每个叶结点（叶结点即指树尾端NIL指针或NULL结点) 是黑的。
   
-4）如果一个结点是红的，那么它的俩个儿子都是黑的。
+4) 如果一个结点是红的，那么它的俩个儿子都是黑的。
   
-5）对于任一结点而言，其到叶结点树尾端NIL指针的每一条路径都包含相同数目的黑结点。
+5) 对于任一结点而言，其到叶结点树尾端NIL指针的每一条路径都包含相同数目的黑结点。
 
 正是红黑树的这5条性质，使得一棵n个结点是红黑树始终保持了logn的高度，从而也就解释了上面我们所说的"红黑树的查找、插入、删除的时间复杂度最坏为O(log n)"这一结论的原因。
 
@@ -53,39 +53,39 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
 
 红黑树是不符合AVL树的平衡条件的，即每个节点的左子树和右子树的高度最多差1的二叉查找树。但是提出了为节点增加颜色，红黑是用非严格的平衡来换取增删节点时候旋转次数的降低，任何不平衡都会在三次旋转之内解决，而AVL是严格平衡树，因此在增加或者删除节点的时候，根据不同情况，旋转的次数比红黑树要多。所以红黑树的插入效率更高！！！
 
-这里引用一下知乎上的回答：
+这里引用一下知乎上的回答: 
 
 
-Answer 1：
+Answer 1: 
 1. 如果插入一个node引起了树的不平衡，AVL和RB-Tree都是最多只需要2次旋转操作，即两者都是O(1)；但是在删除node引起树的不平衡时，最坏情况下，AVL需要维护从被删node到root这条路径上所有node的平衡性，因此需要旋转的量级O(logN)，而RB-Tree最多只需3次旋转，只需要O(1)的复杂度。
 
 2. 其次，AVL的结构相较RB-Tree来说更为平衡，在插入和删除node更容易引起Tree的unbalance，因此在大量数据需要插入或者删除时，AVL需要rebalance的频率会更高。因此，RB-Tree在需要大量插入和删除node的场景下，效率更高。自然，由于AVL高度平衡，因此AVL的search效率更高。
 
 3. map的实现只是折衷了两者在search、insert以及delete下的效率。总体来说，RB-tree的统计性能是高于AVL的。
-作者：Acjx
-链接：http://www.zhihu.com/question/20545708/answer/58717264
+作者: Acjx
+链接: http://www.zhihu.com/question/20545708/answer/58717264
 
 
-Answer 2  这个总结比较好：
+Answer 2  这个总结比较好: 
 红黑树的 查询性能略微逊色于AVL树，因为他比avl树会稍微不平衡最多一层，也就是说红黑树的查询性能只比相同内容的avl树最多多一次比较，但是，红黑树在插入和删除上完爆avl树， avl树每次插入删除会进行大量的平衡度计算，而红黑树为了维持红黑性质所做的红黑变换和旋转的开销，相较于avl树为了维持平衡的 开销要小得多
 
-作者：陈智超
-链接：http://www.zhihu.com/question/43744788/answer/98258881
+作者: 陈智超
+链接: http://www.zhihu.com/question/43744788/answer/98258881
 
-Answer 3 ：
+Answer 3 : 
 功能、性能、空间开销的折中结果。
 
 AVL更平衡，结构上更加直观，时间效能针对读取而言更高；维护稍慢，空间开销较大。
 
 红黑树，读取略逊于AVL，维护强于AVL，空间开销与AVL类似，内容极多时略优于AVL，维护优于AVL。
 基本上主要的几种平衡树看来，红黑树有着良好的稳定性和完整的功能，性能表现也很不错，综合实力强，在诸如STL的场景中需要稳定表现。
-作者：Coldwings
-链接：http://www.zhihu.com/question/20545708/answer/44370878
+作者: Coldwings
+链接: http://www.zhihu.com/question/20545708/answer/44370878
 
 所以简单说，如果你的应用中，搜索的次数远远大于插入和删除，那么选择AVL，如果搜索，插入删除次数几乎差不多，应该选择RB。
 
 
-下面的文章来源：http://blog.csdn.net/klarclm/article/details/7780319
+下面的文章来源: http://blog.csdn.net/klarclm/article/details/7780319
 
 1 好处 及 用途
 
@@ -126,7 +126,7 @@ AVL树的定义:
 
 从1这点来看红黑树是牺牲了严格的高度平衡的优越条件为 代价红黑树能够以O(log2 n)的时间复杂度进行搜索、插入、删除操作。此外，由于它的设计，任何不平衡都会在三次旋转之内解决。当然，还有一些更好的，但实现起来更复杂的数据结构 能够做到一步旋转之内达到平衡，但红黑树能够给我们一个比较“便宜”的解决方案。红黑树的算法时间复杂度和AVL相同，但统计性能比AVL树更高. 
 ————————————————
-版权声明：本文为CSDN博主「mmshixing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/mmshixing/article/details/51692892
+版权声明: 本文为CSDN博主「mmshixing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/mmshixing/article/details/51692892
 
 

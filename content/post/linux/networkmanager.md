@@ -32,7 +32,7 @@ Change it to:
 yes</allow_active>
 Save the file and restart your computer.
 
-设置取值有：
+设置取值有: 
 no
 Not authorized.
 yes
@@ -53,7 +53,7 @@ auth_admin_keep
 Like auth_admin but the authorization is kept for a brief period (e.g. five minutes).
 
 
-典型的场景是把allow_active的设置从auth_admin（root密码）改成auth_self（当前用户密码）或者yes（不要密码）。
+典型的场景是把allow_active的设置从auth_admin（root密码) 改成auth_self（当前用户密码) 或者yes（不要密码) 。
 
 
 ### 配置文件

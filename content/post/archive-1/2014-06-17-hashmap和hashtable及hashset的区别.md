@@ -20,7 +20,7 @@ Set接口继承了Collection接口。在set中，不允许有重复的元素。�
   
 HashSet 是使用一个哈希表实现的。元素是无序的。add、remove 及contains 方法的时间复杂度是一个常量 O(1)。
 
-TreeSet 是使用一个树结构（算法书籍上的红黑树）来实现的。元素在set中被排好序，但是add、remove及contains方法的时间复杂度为O(log(n))。它提供了几个方法用来处理有序的set，比如first()，last()，headSet()，tailSet()等等。
+TreeSet 是使用一个树结构（算法书籍上的红黑树) 来实现的。元素在set中被排好序，但是add、remove及contains方法的时间复杂度为O(log(n))。它提供了几个方法用来处理有序的set，比如first()，last()，headSet()，tailSet()等等。
 
 LinkedHashSet介于HashSet与TreeSet之间。它由一个执行hash表的链表实现，因此，它提供顺序插入。基本方法的时间复杂度为O(1)。
 

@@ -68,7 +68,7 @@ systemctl restart hostapd
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
 interface=wlan0                                     # dhcp,dns 服务监听的网络接口地址
 listen-address=192.168.55.1                         # Explicitly specify the address to listen on
-bind-interfaces                                     # Bind to the interface to make sure we aren't sending things elsewhere,绑定了网卡之后会保证dnsmasq不去骚扰其他网卡，保证请求不乱发，一般跟interface一起使用
+bind-interfaces                                     # Bind to the interface to make sure we aren't sending things elsewhere,绑定了网卡之后会保证dnsmasq不去骚扰其他网卡,保证请求不乱发,一般跟interface一起使用
 server=223.5.5.5                                    # Forward DNS requests to Google DNS
 domain-needed                                       # Don't forward short names
 bogus-priv                                          # Never forward addresses in the non-routed address spaces.

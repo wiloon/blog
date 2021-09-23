@@ -8,9 +8,9 @@ categories:
   - Uncategorized
 
 ---
-版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
+版权声明: 本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
   
-本文链接：https://blog.csdn.net/honey199396/article/details/80750408
+本文链接: https://blog.csdn.net/honey199396/article/details/80750408
 
 ### 数组的声明
 
@@ -56,7 +56,7 @@ let popValue = array.pop(); // 弹出
   
 console.log(array) // [1, 2, 3]
 
-array.splice(0, 1); // 删除元素（index, deleteCount）
+array.splice(0, 1); // 删除元素（index, deleteCount) 
   
 console.log(array) // [2, 3]
 

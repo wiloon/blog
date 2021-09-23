@@ -152,11 +152,11 @@ Pacman包管理器是ArchLinux的一大亮点。它汲取了其他Linux版本软
 
 安装软件包
   
-安装或者升级单个软件包，或者一列软件包（包含依赖包），使用如下命令: 
+安装或者升级单个软件包，或者一列软件包（包含依赖包) ，使用如下命令: 
 
 pacman -S package_name1 package_name2
   
-有时候在不同的软件仓库中，一个软件包有多个版本（比如extra和testing）。你可以选择一个来安装: 
+有时候在不同的软件仓库中，一个软件包有多个版本（比如extra和testing) 。你可以选择一个来安装: 
 
 编辑/etc/pacman.d/mirrorlist，重新选择一个源。再pacman -Suy更新系统，或pacman -Syy更新软件库。
 
@@ -174,7 +174,7 @@ pacman -R package_name
 
 pacman -Rs package_name
   
-缺省的，pacman会备份被删除程序的配置文件，将它们加上*.pacsave扩展名。如果你在删除软件包时要同时删除相应的配置文件（这种行为在基于Debian的系统中称为清除purging），你可是使用命令: 
+缺省的，pacman会备份被删除程序的配置文件，将它们加上*.pacsave扩展名。如果你在删除软件包时要同时删除相应的配置文件（这种行为在基于Debian的系统中称为清除purging) ，你可是使用命令: 
 
 pacman -Rn package_name
   
@@ -224,11 +224,11 @@ Pacman是个非常广泛的包管理工具，这里只是它的一些其它主�
   
 pacman -Sw package_name
   
-安装一个'本地'包（不从源里）: 
+安装一个'本地'包（不从源里) : 
   
 pacman -U /path/to/package/package_name-version.pkg.tar.gz
   
-安装一个'远程'包（不从源里）: 
+安装一个'远程'包（不从源里) : 
   
 pacman -U http://url/package_name-version.pkg.tar.gz
   
@@ -246,7 +246,7 @@ Warning: 关于pacman -Scc，仅在你确定不需要做任何软件包降级工
   
 pacman -Rs $(pacman -Qtdq)
   
-重新安装你系统中所有的软件包（仓库中已有的）: 
+重新安装你系统中所有的软件包（仓库中已有的) : 
   
 pacman -S $(pacman -Qq | grep -v "$(pacman -Qmq)")
   

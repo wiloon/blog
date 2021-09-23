@@ -28,7 +28,7 @@ categories:
   
 　　Feature是可以为顾客提供价值的东西，它代表一个产品可以做什么，或提供什么服务;是可以满足用户的需求，为客户服务，为用户带来真正的价值的成果物的特性。PgMp.mypm.net
   
-　　Feature相对复杂，可由一组动宾结构的句子表达，如一个超市的交易可以描述为：blog.mypm.net
+　　Feature相对复杂，可由一组动宾结构的句子表达，如一个超市的交易可以描述为: blog.mypm.net
   
 　　· 扫描条形码项目管理者联盟
   
@@ -54,27 +54,27 @@ categories:
   
 　　一个User Story必须是清晰的，可以为客户增加价值，而且更重要的是能够被估算。因此User Story通常是进行估算的基本单位，通常使用Story Point来进行估算。User Story是在迭代的层级，一个User Story要在一个迭代内完成。项目管理者联盟文章
   
-　　另外，User Story也是进行需求分析的工具。通过询问谁、做什么、为什么，能够简单明了地扑捉客户的需求。因此User Story通常写成以下形式：项目经理圈子
+　　另外，User Story也是进行需求分析的工具。通过询问谁、做什么、为什么，能够简单明了地扑捉客户的需求。因此User Story通常写成以下形式: 项目经理圈子
   
 　　As a , I want , so than .项目管理者联盟
 
-如：项目管理培训
+如: 项目管理培训
   
 　　作为文档编辑者，我希望文档修改后，在退出编辑时提醒我保存文档，以便我不会丢失数据。bbs.mypm.net
   
-　　User Story具有以下六大特点(INVEST)：项目管理者联盟
+　　User Story具有以下六大特点(INVEST): 项目管理者联盟
   
-　　· Independent：独立的项目管理者联盟文章
+　　· Independent: 独立的项目管理者联盟文章
   
-　　· Negotiable：可变的blog.mypm.net
+　　· Negotiable: 可变的blog.mypm.net
   
-　　· Valuable：有价值的项目管理者联盟
+　　· Valuable: 有价值的项目管理者联盟
   
-　　· Estimable：可估算的项目经理圈子
+　　· Estimable: 可估算的项目经理圈子
   
-　　· Small：足够小的service.mypm.net
+　　· Small: 足够小的service.mypm.net
   
-　　· Testable：可验收的/可测试的项目经理博客
+　　· Testable: 可验收的/可测试的项目经理博客
   
 　　由于User Story具有可验收的特性，因此使用User Story来跟踪开发进度更加准确。也可使用Task来跟踪开发进度，但Task的完成度有时不是那么容易清晰的定义或可视的，而User Story的完成度则是可视的。www.mypm.net
   
@@ -82,7 +82,7 @@ categories:
   
 　　4. Task项目管理者联盟
   
-　　项目中可以执行的工作单位，通常就是迭代计划中项目(如Sprint Backlog中的项目)。一个User Story一般会分解为一个或多个Task，通过这些Task来实现。如显示单价这个User Story，可以分解成：项目经理博客
+　　项目中可以执行的工作单位，通常就是迭代计划中项目(如Sprint Backlog中的项目)。一个User Story一般会分解为一个或多个Task，通过这些Task来实现。如显示单价这个User Story，可以分解成: 项目经理博客
   
 　　· 设计讨论会talent.mypm.net
   
@@ -94,7 +94,7 @@ categories:
   
 　　· 客户端显示单价测试
   
-　　当然一项Task也可能不实现任何User Story。如：Release plan meeting。项目管理者联盟
+　　当然一项Task也可能不实现任何User Story。如: Release plan meeting。项目管理者联盟
   
 　　5. Epic Story项目管理者联盟
   
@@ -106,11 +106,11 @@ categories:
   
 　　对于Theme与Epic/Feature的关系，可以在自己的项目中进行明确定义。这取决于项目组成员的喜好。项目管理者联盟
   
-　　因此，从层次上讲，这几个概念的关系应该是：
+　　因此，从层次上讲，这几个概念的关系应该是: 
   
 talent.mypm.net
   
-　　或者是：service.mypm.net
+　　或者是: service.mypm.net
   
 项目经理圈子
   

@@ -40,19 +40,19 @@ Specifies that the class is an entity. This annotation is applied to the entity 
   
 通过@Column注解设置，包含的设置如下
   
-.name：字段名
+.name: 字段名
   
-.unique：是否唯一
+.unique: 是否唯一
   
-.nullable：是否可以为空
+.nullable: 是否可以为空
   
-.inserttable：是否可以插入
+.inserttable: 是否可以插入
   
-.updateable：是否可以更新
+.updateable: 是否可以更新
   
 .columnDefinition: 定义建表时创建此列的DDL
   
-.secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字。
+.secondaryTable: 从表名。如果此列不建在主表上（默认建在主表) ，该属性定义该列所在从表的名字。
 
 @Column(name = "user_code", nullable = false, length=32)//设置属性userCode对应的字段为user_code，长度为32，非空
   
@@ -312,9 +312,9 @@ this.tempValue = value;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 
-Single Table    InheritanceType.SINGLE_TABLE 策略为类的继承体系采用同一个表。表名是基类的名称。例如：
+Single Table    InheritanceType.SINGLE_TABLE 策略为类的继承体系采用同一个表。表名是基类的名称。例如: 
 
-InheritanceType.JOINED策略为类继承体系中的每个类创建不同的表。每个表只包含类中定义的列，因此在load一个子类的时候，JPA实现需要同时查询子类映射的表，以及通过关联查询所有的父类映射的表。PrimaryKeyJoinColumn annotation用来指定子类映射的表如何关联到父类映射的表。它有以下属性：
+InheritanceType.JOINED策略为类继承体系中的每个类创建不同的表。每个表只包含类中定义的列，因此在load一个子类的时候，JPA实现需要同时查询子类映射的表，以及通过关联查询所有的父类映射的表。PrimaryKeyJoinColumn annotation用来指定子类映射的表如何关联到父类映射的表。它有以下属性: 
   
 String name: 子类映射表中的列名。如果只有一个identity filed，那么缺省使用这个field对应的列名。
   

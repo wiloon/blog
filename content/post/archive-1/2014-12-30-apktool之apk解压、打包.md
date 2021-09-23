@@ -21,15 +21,15 @@ Android apktool是一个用来处理APK文件的工具,可以对APK进行反编�
   
 1、安装
   
-1）.首先安装需要JAVA环境，先下载JDK/JRE，点击下载，已经有JAVA环境的可跳过此步
+1) .首先安装需要JAVA环境，先下载JDK/JRE，点击下载，已经有JAVA环境的可跳过此步
 
-2）.到code.google上下载apktool.jar以及相关文件: http://code.google.com/p/android-apktool/downloads/list
+2) .到code.google上下载apktool.jar以及相关文件: http://code.google.com/p/android-apktool/downloads/list
   
 点击下载apktool1.4.3.tar.bz2 和 apktool-install-windows-r04-brut1.tar.bz2
 
-3）.解压apktool-install-windows-r04-brut1.tar.bz2到任意文件夹，然后解压apktool1.4.3.tar.bz2,把apktool.jar拷贝至apktool-install-windows-r04-brut1.tar.bz2解压所在的文件夹下，此时文件下有aapt.exe、apktool.bat及apktool.jar三个应用。
+3) .解压apktool-install-windows-r04-brut1.tar.bz2到任意文件夹，然后解压apktool1.4.3.tar.bz2,把apktool.jar拷贝至apktool-install-windows-r04-brut1.tar.bz2解压所在的文件夹下，此时文件下有aapt.exe、apktool.bat及apktool.jar三个应用。
 
-4）.点击开始菜单，运行，输入CMD回车，用cd命令转到刚刚解压的D:\My Documents\Desktop\apktool-install-windows-r04-brut1所在的文件夹，输入apktool，出现如下命令即说明安装成功（以下信息，即apktool使用命令）。
+4) .点击开始菜单，运行，输入CMD回车，用cd命令转到刚刚解压的D:\My Documents\Desktop\apktool-install-windows-r04-brut1所在的文件夹，输入apktool，出现如下命令即说明安装成功（以下信息，即apktool使用命令) 。
 
 D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool
   
@@ -113,7 +113,7 @@ For additional info, see: http://code.google.com/p/android-apktool/
 
 2、使用
   
-1）.解压APK
+1) .解压APK
   
 D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool d F:\document\APK\PushAd.apk F:\document\app
   
@@ -141,7 +141,7 @@ I: Done.
   
 I: Copying assets and libs...
   
-2）.打包APK
+2) .打包APK
   
 D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool b F:\document\app F:\\document\\app.apk
   

@@ -38,7 +38,7 @@ buf5:=bytes.NewBuffer([]byte{})
   
 如果buffer在new的时候是空的也没关系，因为可以用Write来写入，写在尾部
 
-##写入到缓冲器（缓冲器变大） ###Write-- func (b *Buffer) Write(p []byte) (n int, err error) 使用Write方法，将一个byte类型的slice放到缓冲器的尾部
+##写入到缓冲器（缓冲器变大)  ###Write-- func (b *Buffer) Write(p []byte) (n int, err error) 使用Write方法，将一个byte类型的slice放到缓冲器的尾部
 
     package main
 

@@ -57,7 +57,7 @@ timer.cancel();
 }
 ```
 
-运行之后，在console会首先看到：
+运行之后，在console会首先看到: 
 
 About to schedule task.
   
@@ -67,11 +67,11 @@ Task scheduled.
 
 Time's up!
 
-从这个例子可以看出一个典型的利用timer执行计划任务的过程如下：
+从这个例子可以看出一个典型的利用timer执行计划任务的过程如下: 
 
 new一个TimerTask的子类，重写run方法来指定具体的任务，在这个例子里，我用匿名内部类的方式来实现了一个TimerTask的子类
   
-new一个Timer类，Timer的构造函数里会起一个单独的线程来执行计划任务。jdk的实现代码如下：
+new一个Timer类，Timer的构造函数里会起一个单独的线程来执行计划任务。jdk的实现代码如下: 
 
 1 public Timer() {
   
@@ -93,11 +93,11 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
   
 3. 如何终止Timer线程
 
-默认情况下，创建的timer线程会一直执行，主要有下面四种方式来终止timer线程：
+默认情况下，创建的timer线程会一直执行，主要有下面四种方式来终止timer线程: 
 
 调用timer的cancle方法
   
-把timer线程设置成daemon线程，（new Timer(true)创建daemon线程），在jvm里，如果所有用户线程结束，那么守护线程也会被终止，不过这种方法一般不用。
+把timer线程设置成daemon线程，（new Timer(true)创建daemon线程) ，在jvm里，如果所有用户线程结束，那么守护线程也会被终止，不过这种方法一般不用。
   
 当所有任务执行结束后，删除对应timer对象的引用，线程也会被终止。
   
@@ -107,7 +107,7 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
 
 这种方式终止timer线程，jdk的实现比较巧妙，稍微说一下。
 
-首先看cancle方法的源码：
+首先看cancle方法的源码: 
   
 1 public void cancel() {
   
@@ -125,7 +125,7 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
 
 没有显式的线程stop方法，而是调用了queue的clear方法和queue的notify方法，clear是个自定义方法，notify是Objec自带的方法，很明显是去唤醒wait方法的。
 
-再看clear方法：
+再看clear方法: 
   
 1 void clear() {
   
@@ -139,7 +139,7 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
   
 7 }
 
-clear方法很简单，就是去清空queue，queue是一个TimerTask的数组，然后把queue的size重置成0，变成empty.还是没有看到显式的停止线程方法，回到最开始new Timer的时候，看看new Timer代码：
+clear方法很简单，就是去清空queue，queue是一个TimerTask的数组，然后把queue的size重置成0，变成empty.还是没有看到显式的停止线程方法，回到最开始new Timer的时候，看看new Timer代码: 
   
 1 public Timer() {
   
@@ -165,7 +165,7 @@ clear方法很简单，就是去清空queue，queue是一个TimerTask的数组�
   
 4 private TimerThread thread = new TimerThread(queue);
   
-不是原生的Thread,是自定义的类TimerThread.这个类实现了Thread类，重写了run方法，如下：
+不是原生的Thread,是自定义的类TimerThread.这个类实现了Thread类，重写了run方法，如下: 
   
 1 public void run() {
   
@@ -189,7 +189,7 @@ clear方法很简单，就是去清空queue，queue是一个TimerTask的数组�
   
 11 }
 
-最后是这个mainLoop方法，这方法比较长，截取开头一段：
+最后是这个mainLoop方法，这方法比较长，截取开头一段: 
   
 1 private void mainLoop() {
   
@@ -221,7 +221,7 @@ clear方法很简单，就是去清空queue，queue是一个TimerTask的数组�
 
   1. schedule VS. scheduleAtFixedRate
 
-这两个方法都是任务调度方法，他们之间区别是，schedule会保证任务的间隔是按照定义的period参数严格执行的，如果某一次调度时间比较长，那么后面的时间会顺延，保证调度间隔都是period,而scheduleAtFixedRate是严格按照调度时间来的，如果某次调度时间太长了，那么会通过缩短间隔的方式保证下一次调度在预定时间执行。举个栗子：你每个3秒调度一次，那么正常就是0,3,6,9s这样的时间，如果第二次调度花了2s的时间，如果是schedule，就会变成0,3+2,8,11这样的时间，保证间隔，而scheduleAtFixedRate就会变成0,3+2,6,9，压缩间隔，保证调度时间。
+这两个方法都是任务调度方法，他们之间区别是，schedule会保证任务的间隔是按照定义的period参数严格执行的，如果某一次调度时间比较长，那么后面的时间会顺延，保证调度间隔都是period,而scheduleAtFixedRate是严格按照调度时间来的，如果某次调度时间太长了，那么会通过缩短间隔的方式保证下一次调度在预定时间执行。举个栗子: 你每个3秒调度一次，那么正常就是0,3,6,9s这样的时间，如果第二次调度花了2s的时间，如果是schedule，就会变成0,3+2,8,11这样的时间，保证间隔，而scheduleAtFixedRate就会变成0,3+2,6,9，压缩间隔，保证调度时间。
 
   1. 一些注意点
 

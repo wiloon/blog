@@ -42,9 +42,9 @@ http://www.debian.org/CD/faq/#write-usb
 
   !!!!!!!!!!!!!!!!!!!!!以下方法作废!!!!!!!!!!!!!!!!!
 
-**方法1：**
+**方法1: **
 
-****该方法有一个主要的缺点： 即使U盘很大，设备的逻辑尺寸还是限制在 256 MB。如果您要将该U盘用作其他用途，需要为它重新分区，为其余容量创建一个新的文件系统。次要的缺点是您无法复制完整的 CD 映象到 U 盘，只能使用较小的businesscard 或 netinst CD 镜像.
+****该方法有一个主要的缺点:  即使U盘很大，设备的逻辑尺寸还是限制在 256 MB。如果您要将该U盘用作其他用途，需要为它重新分区，为其余容量创建一个新的文件系统。次要的缺点是您无法复制完整的 CD 映象到 U 盘，只能使用较小的businesscard 或 netinst CD 镜像.
 
 #下载boot.img.gz
   
@@ -72,11 +72,11 @@ sudo mount /dev/sdX /mnt
 
 #重启 。从优盘引导。
 
-**方法2：**
+**方法2: **
 
 ****＃＃＃这个我没成功, 用了install-mbr 还是不能引导。
   
-用GParted 在优盘上创建一个FAT16的分区（最大4G）
+用GParted 在优盘上创建一个FAT16的分区（最大4G) 
   
 然后使用mkdosfs来创建FAT16文件系统 (可能需要先行安装dosfstools软件包)
   
@@ -110,7 +110,7 @@ sudo mount /dev/sdb1 /mnt
 
 复制下面的文件到U盘
   
-下载地址： http://ftp.nl.debian.org/debian/dists/squeeze/main/installer-i386/current/images/hd-media/
+下载地址:  http://ftp.nl.debian.org/debian/dists/squeeze/main/installer-i386/current/images/hd-media/
   
 vmlinuz (kernel binary)
   
@@ -130,7 +130,7 @@ sudo apt-get install mbr
   
 sudo install-mbr /dev/sdb1
 
-**方法3：**
+**方法3: **
   
 http://wiki.debian.org/BootUsb
 
@@ -169,7 +169,7 @@ initrd.gz (initial ramdisk image)
   
 两个文件到U盘
   
-下载地址： http://ftp.nl.debian.org/debian/dists/squeeze/main/installer-i386/current/images/hd-media/
+下载地址:  http://ftp.nl.debian.org/debian/dists/squeeze/main/installer-i386/current/images/hd-media/
 
 创建syslinux.cfg文件, 包含下面两行:
 

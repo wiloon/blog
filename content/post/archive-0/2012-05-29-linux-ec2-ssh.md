@@ -9,7 +9,7 @@ categories:
   - Network
 
 ---
-将相应的pem保存到 .ssh 文件夹。在该文件内建立config文件，输入以下配置内容：
+将相应的pem保存到 .ssh 文件夹。在该文件内建立config文件，输入以下配置内容: 
 
 ```bash
   
@@ -37,7 +37,7 @@ IdentityFile 需输入你的 pem 文件的路径；
   
 DynamicForward 默认用localhost:3128，在后面的浏览器设置中要用到。
 
-到此ssh配置完成。从temnial输入：
+到此ssh配置完成。从temnial输入: 
 
   
     
@@ -53,15 +53,15 @@ DynamicForward 默认用localhost:3128，在后面的浏览器设置中要用到
 
 这里以Firefox为例。Preference -> Advanced -> Network -> Settings, 选择手动代理设置，SOCKS Host 中输入 localhost， 端口号3128 ， SOCKS vs。OK 确认。浏览器配置完毕。
 
-###### 这里针对 Firefox 再附加一点内容：
+###### 这里针对 Firefox 再附加一点内容: 
 
 发现用同样的代理配置，其他浏览器正常工作，偏偏就 Firefox 不能登录 Facebook 和 Twitter，而除这两个外，其他墙外网站却都可以正常浏览。
 
-Google了一圈，现总结如下：
+Google了一圈，现总结如下: 
 
   * 在**Firefox**地址栏输入 **about:config **
   * 有安全提示，点击继续；
-  * 找到"**network.proxy.socks_remote_dns**"，双击改为**True**（默认False）；
+  * 找到"**network.proxy.socks_remote_dns**"，双击改为**True**（默认False) ；
   * 可能需要重启Firefox。
 
   已验证可行。

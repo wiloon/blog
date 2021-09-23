@@ -14,7 +14,7 @@ tags:
 
 在Servlet应用中，有一个getRealPath(String str)的方法，这个方法尽管也可以动态地获得文件的路径，不秘直接手写绝对路径，但这也是一个不被建议使用的方法，那么，我们有什么方法可以更好地获得文件呢?
 
-那就是Class.getResource()与Class.getResourceAsStream()方法，但很多人还是不太懂它的用法，因为很多人（比如不久前的我）都不知道应该传怎么样的参数给它，当然，有些人己经用得如火纯青，这些人是不需要照顾的，在此仅给不会或者还不是很熟的人解释一点点。
+那就是Class.getResource()与Class.getResourceAsStream()方法，但很多人还是不太懂它的用法，因为很多人（比如不久前的我) 都不知道应该传怎么样的参数给它，当然，有些人己经用得如火纯青，这些人是不需要照顾的，在此仅给不会或者还不是很熟的人解释一点点。
 
 比如我们有以下目录
   
@@ -40,7 +40,7 @@ tags:
   
 |-file4.txt
 
-在上面的目录中，有一个src目录，这是JAVA源文件的目录，有一个build目录，这是JAVA编译后文件(.class文件等）的存放目录
+在上面的目录中，有一个src目录，这是JAVA源文件的目录，有一个build目录，这是JAVA编译后文件(.class文件等) 的存放目录
   
 那么，我们在Test类中应该如何分别获得
   
@@ -50,17 +50,17 @@ file1.txt file2.txt file3.txt file4.txt这四个文件呢？
   
 file3.txt:
   
-方法一：File file3 = new File(Test.class.getResource("file3.txt").getFile());
+方法一: File file3 = new File(Test.class.getResource("file3.txt").getFile());
   
-方法二：File file3 = new File(Test.class.getResource("/javaapplication/file3.txt").getFile());
+方法二: File file3 = new File(Test.class.getResource("/javaapplication/file3.txt").getFile());
   
-方法三：File file3 = new File(Test.class.getClassLoader().getResource("javaapplication/file3.txt").getFile());
+方法三: File file3 = new File(Test.class.getClassLoader().getResource("javaapplication/file3.txt").getFile());
 
 file4.txt:
   
-方法一：File file4 = new File(Test.class.getResource("/file4.txt").getFile());
+方法一: File file4 = new File(Test.class.getResource("/file4.txt").getFile());
   
-方法二：File file4 = new File(Test.class.getClassLoader().getResource("file4.txt").getFile());
+方法二: File file4 = new File(Test.class.getClassLoader().getResource("file4.txt").getFile());
 
 很好，我们可以有多种方法选择，但是file1与file2文件呢？如何获得？
   
@@ -70,15 +70,15 @@ file4.txt:
   
 file1.txt
   
-方法一：File file1 = new File("c:/project/src/javaapplication/file1.txt");
+方法一: File file1 = new File("c:/project/src/javaapplication/file1.txt");
   
-方法二：。。。没有
+方法二: 。。。没有
 
 file2.txt
   
-方法一：File file2 = new File("c:/project/src/file2.txt");
+方法一: File file2 = new File("c:/project/src/file2.txt");
   
-方法二：。。。也没有
+方法二: 。。。也没有
 
 总结一下，就是你想获得文件，你得从最终生成的.class文件为着手点，不要以.java文件的路径为出发点，因为真正使用的就是.class，不会拿个.java文件就使用，因为java是编译型语言嘛
 

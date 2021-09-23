@@ -16,7 +16,7 @@ categories:
 
        一个将大量数据添加到一个列表中
        一个大量地从同样的列表中删除数据
-      让我们为每个任务创建的线程：
+      让我们为每个任务创建的线程: 
     
 
 package com.howtodoinjava.demo.multithreading.concurrentLinkedDequeExample;
@@ -42,7 +42,7 @@ public class AddTask implements Runnable {
 
 }
   
-和：
+和: 
 
 packagecom.howtodoinjava.demo.multithreading.concurrentLinkedDequeExample;
 
@@ -154,4 +154,4 @@ remove(), removeFirst(), removeLast():这些方法返回列表的第一个和最
   
 快乐学习! !
 
-原文链接：http://howtodoinjava.com/2015/02/23/non-blocking-thread-safe-list-concurrentlinkeddeque-example/
+原文链接: http://howtodoinjava.com/2015/02/23/non-blocking-thread-safe-list-concurrentlinkeddeque-example/

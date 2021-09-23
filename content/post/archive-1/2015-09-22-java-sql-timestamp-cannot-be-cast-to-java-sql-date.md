@@ -32,7 +32,7 @@ java.sql.Timestamp->java.sql.Date
   
 new java.sql.Date(yourTimestamp.getTime());
 
-界面要显示毫秒的话，在date传到前面时转化格式即可！
+界面要显示毫秒的话,在date传到前面时转化格式即可！
   
 __________________________________________________________________
   

@@ -32,5 +32,5 @@ categories:
   
   
   
-    2010年1月21日，欧盟终于同意Oracle收购Sun，VirtualBox再次改名变成 Oracle VM VirtualBox。VirtualBox 3.2.0支持的操作系统包括：Windows, Mac OS X(Intel), Solaris 10,Linux(例如:Debian, Fedora, Mandriva, OpenSolaris, PCLiunxOS, Red Hat, SUSE Linux, Ubuntu, Xandros, openSUSE)等。Oracle VM VirtualBox 支持的客户端操作系统包括：从 3.1到Vista的所有版本的Windows、Linux 2.2、2.4和 2.6内核、Solaris x86、OS/2、、OpenBSD、 Netware 、FreeBSD 和 DOS 。
+    2010年1月21日，欧盟终于同意Oracle收购Sun，VirtualBox再次改名变成 Oracle VM VirtualBox。VirtualBox 3.2.0支持的操作系统包括: Windows, Mac OS X(Intel), Solaris 10,Linux(例如:Debian, Fedora, Mandriva, OpenSolaris, PCLiunxOS, Red Hat, SUSE Linux, Ubuntu, Xandros, openSUSE)等。Oracle VM VirtualBox 支持的客户端操作系统包括: 从 3.1到Vista的所有版本的Windows、Linux 2.2、2.4和 2.6内核、Solaris x86、OS/2、、OpenBSD、 Netware 、FreeBSD 和 DOS 。
   

@@ -82,11 +82,11 @@ SystemKeepFree=: 指定journal在添加新条目时需要保留的剩余空间�
   
 SystemMaxFileSize=: 控制单一journal文件大小,符合要求方可被转为持久存储。
   
-RuntimeMaxUse=: 指定易失性存储中的最大可用磁盘容量（/run文件系统之内）。
+RuntimeMaxUse=: 指定易失性存储中的最大可用磁盘容量（/run文件系统之内) 。
   
-RuntimeKeepFree=: 指定向易失性存储内写入数据时为其它应用保留的空间量（/run文件系统之内）。
+RuntimeKeepFree=: 指定向易失性存储内写入数据时为其它应用保留的空间量（/run文件系统之内) 。
   
-RuntimeMaxFileSize=: 指定单一journal文件可占用的最大易失性存储容量（/run文件系统之内）。
+RuntimeMaxFileSize=: 指定单一journal文件可占用的最大易失性存储容量（/run文件系统之内) 。
 
 分发
   

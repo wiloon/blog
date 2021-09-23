@@ -10,7 +10,7 @@ Linux监测日志tail命令详细使用
 如果在Linux下调试程序的朋友应该都知道tail命令,它确实是调试程序监测日志文件的能手。打开Linux输入以下命令看看命令的使用帮助
 
 [root@lee ~]# tail --help
-用法：tail [选项]... [文件]...
+用法: tail [选项]... [文件]...
 显示每个指定文件的最后10 行到标准输出。
 若指定了多于一个文件,程序会在每段输出的开始添加相应文件名作为头。
 如果不指定文件或文件为"-" ,则从标准输入读取数据。
@@ -43,7 +43,7 @@ Linux监测日志tail命令详细使用
       --version         显示版本信息并退出
 
 如果字节数或行数K 的第一个字符是"+",输出从文件开始第K 个项目,否则输出文件
-最后K 个项目。K 可以使用一下几种单位之一：
+最后K 个项目。K 可以使用一下几种单位之一: 
 b 512,kB 1000,K 1024,MB 1000*1000,M 1024*1024,
 GB 1000*1000*1000,G 1024*1024*1024,以及T,P,E,Z,Y。
 
@@ -52,10 +52,10 @@ GB 1000*1000*1000,G 1024*1024*1024,以及T,P,E,Z,Y。
 tail 定期追踪打开给定名称的文件,以确认它是否被删除或被其它某些程序重新创建过。
 
 请向bug-coreutils@gnu.org 报告tail 的错误
-GNU coreutils 项目主页：<http://www.gnu.org/software/coreutils/>
-GNU 软件一般性帮助：<http://www.gnu.org/gethelp/>
+GNU coreutils 项目主页: <http://www.gnu.org/software/coreutils/>
+GNU 软件一般性帮助: <http://www.gnu.org/gethelp/>
 请向<http://translationproject.org/team/zh_CN.html> 报告tail 的翻译错误
-要获取完整文档,请运行：info coreutils 'tail invocation'
+要获取完整文档,请运行: info coreutils 'tail invocation'
 
 
 ---

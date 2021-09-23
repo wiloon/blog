@@ -19,7 +19,7 @@ tags:
   
 　
   
-　　#ifconfig -a //显示所有接口的信息（无论是否活跃）
+　　#ifconfig -a //显示所有接口的信息（无论是否活跃) 
   
 　
   
@@ -27,7 +27,7 @@ tags:
   
 　
   
-　　//临时修改接口IP地址（无需重启接口）
+　　//临时修改接口IP地址（无需重启接口) 
   
 　
   
@@ -181,7 +181,7 @@ tags:
   
 　
   
-　　/*\*注意：设置之后必须要重启network服务或者重启接口（#ifdown eth0；ifup eth0），才能生效。\**/
+　　/*\*注意: 设置之后必须要重启network服务或者重启接口（#ifdown eth0；ifup eth0) ，才能生效。\**/
   
 　
   
@@ -193,7 +193,7 @@ tags:
   
 　
   
-　　HOSTNAME=localhost.localdomain //修改该值作为主机名，如：rhel.lpwr.net
+　　HOSTNAME=localhost.localdomain //修改该值作为主机名，如: rhel.lpwr.net
   
 　
   
@@ -209,7 +209,7 @@ tags:
   
 　
   
-　　192.168.0.1 rhel.lpwr.net rhel //必须有三个字段：IP、FQDN、HOSTNAME
+　　192.168.0.1 rhel.lpwr.net rhel //必须有三个字段: IP、FQDN、HOSTNAME
   
 　
   

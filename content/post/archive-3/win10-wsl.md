@@ -246,7 +246,7 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
 ### Windows Terminal 中 WSL2 默认打开路径(startingDirectory)
 打开Windows Terminal。鼠标点击进入设置，或者同时按ctrl和逗号。  
 
-找到如下内容：
+找到如下内容: 
 
             {
                 "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
@@ -255,14 +255,14 @@ With the latest update, you can access remote ports(WSL2) as local on Windows Ho
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "\\wsl$\Ubuntu-20.04\home\wiloon",
             },
-添加/修改如下行：
+添加/修改如下行: 
 
 "startingDirectory": "\\wsl$\Ubuntu-20.04\home\wiloon",
 
 ### 修改 Windows Terminal 默认打开的 Shell
 修改 defaultProfile 的值为对应的 guid 即可。
 
-例如：
+例如: 
 
 "defaultProfile": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
 guid 需要替换为自己配置文件中的相应值。

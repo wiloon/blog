@@ -30,9 +30,9 @@ ExecStart=/bin/sh /home/root/cs.sh ------->你要开机运行的脚本必须绝�
 
 WantedBy=multi-user.target
 
-Requires=pulseaudio.service -------->你要安排在哪个服务后面才启动（如依赖的服务）
+Requires=pulseaudio.service -------->你要安排在哪个服务后面才启动（如依赖的服务) 
 
-After=pulseaudio.service --------->你要安排在哪个服务后面才启动（如依赖的服务）
+After=pulseaudio.service --------->你要安排在哪个服务后面才启动（如依赖的服务) 
 
 * * *
 

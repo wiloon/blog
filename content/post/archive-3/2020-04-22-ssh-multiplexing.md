@@ -64,7 +64,7 @@ $ps -ef|grep ssh|grep -v grep
    
 501 80150 80149 0 8:34下午 ttys004 0:00.01 ssh root@47.91._._ -p 22
   
-multiplexing的实现，显然减少了多重连接建立的开销，因为每台机器可接受的连接数有限，所以在跳板机这类应用中（虽然很多公司的堡垒机不是单机应用），可显著的降低成本；而另一个好处是，对于客户端来讲，由于可以复用ssh连接，因此新的会话不需要重复建立TCP连接, 进行认证授权这一过程，克隆远程对话的成本与耗时都显著下降，从而提升了工作的效率
+multiplexing的实现，显然减少了多重连接建立的开销，因为每台机器可接受的连接数有限，所以在跳板机这类应用中（虽然很多公司的堡垒机不是单机应用) ，可显著的降低成本；而另一个好处是，对于客户端来讲，由于可以复用ssh连接，因此新的会话不需要重复建立TCP连接, 进行认证授权这一过程，克隆远程对话的成本与耗时都显著下降，从而提升了工作的效率
 
 开启multiplexing
   
@@ -82,7 +82,7 @@ ControlMaster 用来管理是否启用multiplexing，有2个可选参数: auto�
 
 ControlPath Specify the path to the control socket used for connection sharing as described in the ControlMaster section above or the string none to disable connection sharing. Arguments to ControlPath may use the tilde syntax to refer to a user's home directory or the tokens described in the TOKENS section. It is recommended that any ControlPath used for opportunistic connection sharing include at least %h, %p, and %r (or alternatively %C) and be placed in a directory that is not writable by other users. This ensures that shared connections are uniquely identified.
 
-ControlPath 用来指定muliplexing共用socket文件的路径，path支持~来表示home目录，也支持TOKENS：%%, %C, %h, %i, %L, %l, %n, %p, %r, and %u. ControlPath应该尽量保证其他用户对socket文件没有写权限
+ControlPath 用来指定muliplexing共用socket文件的路径，path支持~来表示home目录，也支持TOKENS: %%, %C, %h, %i, %L, %l, %n, %p, %r, and %u. ControlPath应该尽量保证其他用户对socket文件没有写权限
 
 %% A literal '%'.
   

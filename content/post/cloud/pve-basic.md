@@ -59,11 +59,11 @@ PVE在安装虚拟机时会见到这个选项，是开启还是关闭呢？
 
 Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qemu-guest-agent是一个帮助程序，守护程序，它安装在虚拟机中。 它用于在主机和虚拟机之间交换信息，以及在虚拟机中执行命令。
 
-在Proxmox VE中，qemu代理主要用于两件事：
+在Proxmox VE中，qemu代理主要用于两件事: 
 
 1、正确关闭虚拟机，而不是依赖ACPI命令或Windows策略
 
-2、在进行备份时冻结来宾文件系统（在Windows上，使用卷影复制服务VSS）。
+2、在进行备份时冻结来宾文件系统（在Windows上，使用卷影复制服务VSS) 。
 
 ### 改ip
      vi /etc/network/interfaces
@@ -92,18 +92,18 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 登录pve01选择要备份的虚拟机
 点击子菜单中的备份按钮
 点击立即备份按钮
-设置备份到的存储（local的备份路径为：/var/lib/vz/dump）
-设置模式：停止
-设置压缩：无
+设置备份到的存储（local的备份路径为: /var/lib/vz/dump) 
+设置模式: 停止
+设置压缩: 无
 等待备份完毕
 
 三、使用WinSCP下载备份
 WinSCP可以使用SFTP连接pve节点
-WinSCP下载地址：WinSCP官网
+WinSCP下载地址: WinSCP官网
 
 登录pve01节点
 
-切换远程目录至备份目录（local存储的备份目录为：/var/lib/vz/dump）找到虚拟机备份文件右键点击下载
+切换远程目录至备份目录（local存储的备份目录为: /var/lib/vz/dump) 找到虚拟机备份文件右键点击下载
 
 使用二进制方式下载vma备份文件至本机目录
 
@@ -114,13 +114,13 @@ WinSCP下载地址：WinSCP官网
 本地目录切换至刚下载备份的目录
 右键点击vma备份文件选择上传
 
-输入上传路径/var/lib/vz/dump/.（local存储的备份目录为：/var/lib/vz/dump）并使用二进制方式上传
+输入上传路径/var/lib/vz/dump/.（local存储的备份目录为: /var/lib/vz/dump) 并使用二进制方式上传
 
 等待上传完毕
 
 五、恢复虚拟机
 登录pve02节点
-切换至相应的上传存储（local）
+切换至相应的上传存储（local) 
 点击子菜单中的内容菜单
 选择刚上传的vma备份文件
 点击恢复按钮
@@ -135,8 +135,8 @@ WinSCP下载地址：WinSCP官网
 
 
 ————————————————
-版权声明：本文为CSDN博主「Halyace」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/lyace2010/article/details/108918070
+版权声明: 本文为CSDN博主「Halyace」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接: https://blog.csdn.net/lyace2010/article/details/108918070
 
 ### create vm from template
 - right click and select "clone"

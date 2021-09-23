@@ -1,93 +1,12 @@
 ---
-title: dev
-author: "w1100n"
-date: "2015-08-06 15:52:37"
-url: dev
+title: dev graph
+author: "-"
+date: 2011-08-01T15:43:50+00:00
+url: dev/graph
+categories:
+  - dev
 
 ---
-### stack
-#### 语言
-- Java, jdk8
-- Golang
-- Shell Script
-
-#### IDE
-- IDEA
-- VSCODE
-- Eclipse
-
-#### 中间件, Middleware
-- Redis
-- Leveldb
-- zookeeper
-- influxdb
-- kafka
-- Nginx
-- MySQL
-
-### 第三方包
-- io.netty:netty-all:jar:4.1.22.Final, https://wiloon.com/netty
-- junit:junit:jar:4.12
-- com.squareup.okhttp3:okhttp:jar:4.7.2
-- com.google.guava:guava:jar:19.0
-- org.apache.logging.log4j:log4j-api:jar:2.13.0
-- org.slf4j:slf4j-api:jar:1.7.30
-- com.alibaba:fastjson:jar:1.2.73
-- redis.clients:jedis:jar:3.1.0
-- com.alibaba:druid:jar:1.1.21
-- org.apache.curator:curator-framework:jar:4.2.0
-- com.google.protobuf:protobuf-java:jar:3.10.0
-- com.moandjiezana.toml:toml4j:jar:0.7.2
-- io.dropwizard.metrics:metrics-core:jar:4.1.2
-- commons-lang:commons-lang:jar:2.6
-- commons-codec:commons-codec:jar:1.14
-
-### OS/linux/tool
-- Windows
-- Archlinux
-- CentOS
-- ChromeOS
-- Ubuntu
-- vim
-- tcpdump
-- emacs
-- grep
-- sed
-- awk
-- putty
-- xshell
-- windows terminal
-- ansible
-- KVM
-
-### other
-- maven, setting.xml
-- gradle
-- plantuml
-- xmind
-- svn
-- git
-- Jenkins
-- Gocd
-- Grafana
-- 华为云
-- 阿里云
-- AWS
-
-### dev env
-- 字体 https://blog.wiloon.com/?p=6077
- 
-### board, dev server
-- ro....dx
-- ro....dx-server
-- pingd
-- pingd-server
-- nginx
-- influxdb
-- grafana
-- redis
-- mariadb
-- chronograf
 
 ### 图
 ```puml
@@ -103,7 +22,7 @@ leveldb--Memtable
 leveldb--Immutable
 [SST] as sst
 leveldb--sst
-[SkipList] as SkipList #9CCC65
+[SkipList] as SkipList #BBDEFB
 Memtable--SkipList  
 [红黑树] as red_black_tree
 SkipList--red_black_tree
@@ -122,7 +41,7 @@ leveldb--AtomicPointer
 callable--Future
 [FutureTask]
 Future--FutureTask
-[VarHandle] as VarHandle #9CCC65
+[VarHandle] as VarHandle #BBDEFB
 FutureTask--VarHandle
 [java9]
 VarHandle--java9
@@ -228,14 +147,35 @@ ReentrantLock--mutex
 [分区] as partition
 [MySQL]
 [ACID] as acid
-[netty]
+[Netty单线程] as netty_single_thread #9CCC65
+[netty] as netty #FF8A80
+netty_single_thread--netty
 [堆外内存] as omem
 netty--omem
-[NIO]
+[NIO] as NIO #C5E1A5
 netty--NIO
-[DirectByteBuffer]
+[DirectByteBuffer\n-unsafe] as DirectByteBuffer
 NIO--DirectByteBuffer
-DirectByteBuffer--unsafe
+[AIO]
+NIO--AIO
+[TCP Receive Buffer] as tcp_receive_buffer
+NIO--tcp_receive_buffer
+[Reactor]
+NIO--Reactor
+[Observer]
+Reactor--Observer
+[socket.read()] as socket_read
+tcp_receive_buffer--socket_read
+[selector]
+socket_read--selector
+[epoll]
+selector--epoll
+[I/O 多路复用] as IO_multiplexing
+epoll--IO_multiplexing
+[poll]
+epoll--poll
+[select]
+epoll--select
 [零拷贝] as zero_copy
 [IO] as io
 [缓存IO] as buffered_io
@@ -253,8 +193,6 @@ DirectByteBuffer--unsafe
 [xfs]
 file_system--xfs
 [Paxos] as paxos
- 
- 
  
 [etcd]
 [Raft] as raft
@@ -310,4 +248,11 @@ jvm--gc
 java9--jpms
  
 @enduml
+```
+
+### palette
+```
+#AB47BC   Point
+#FF8A80   Index
+#C5E1A5   Done
 ```

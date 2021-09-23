@@ -22,7 +22,7 @@ Java中提供了一套API 用来访问某个属性的getter/setter方法，通�
 
 一个JavaBean类可以不当JavaBean用，而当成普通类用。JavaBean实际就是一种规范，当一个类满足这个规范，这个类就能被其它特定的类调用。一个类被当作javaBean使用时，JavaBean的属性是根据方法名推断出来的，它根本看不到java类内部的成员变量。去掉set前缀，然后取剩余部分，如果剩余部分的第二个字母是小写的，则把剩余部分的首字母改成小的。
 
-内省访问JavaBean有两种方法：
+内省访问JavaBean有两种方法: 
   
 通过PropertyDescriptor来操作Bean对象
   
@@ -44,19 +44,19 @@ Method readMethod = pd.getReadMethod();
       
 Object invoke = readMethod.invoke(user, null);
       
-System.out.println("名字：" + invoke);
+System.out.println("名字: " + invoke);
       
 pd.getWriteMethod().invoke(user, "lisi");
       
 invoke = readMethod.invoke(user, null);
       
-System.out.println("名字：" + invoke);
+System.out.println("名字: " + invoke);
       
 }
   
 }
   
-通过Introspector类获得Bean对象的 BeanInfo，然后通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ），通过这个属性描述器就可以获取某个属性对应的 getter/setter 方法，然后通过反射机制来调用这些方法。
+通过Introspector类获得Bean对象的 BeanInfo，然后通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ) ，通过这个属性描述器就可以获取某个属性对应的 getter/setter 方法，然后通过反射机制来调用这些方法。
   
 public static void demo2() throws Exception {
       
@@ -68,13 +68,13 @@ public static void demo2() throws Exception {
       
 BeanInfo beanInfo = Introspector.getBeanInfo(user.getClass(), Object.class);
 
-    System.out.println("所有属性描述：");
+    System.out.println("所有属性描述: ");
     // 获取所有的属性描述
     PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();
     for (PropertyDescriptor propertyDescriptor : pds) {
         System.out.println(propertyDescriptor.getName());
     }
-    System.out.println("所有方法描述：");
+    System.out.println("所有方法描述: ");
     for (MethodDescriptor methodDescriptor : beanInfo.getMethodDescriptors()) {
         System.out.println(methodDescriptor.getName());
         // Method method = methodDescriptor.getMethod();
@@ -125,10 +125,10 @@ this.age = age;
   
 }
 
-作者：jijs
+作者: jijs
   
-链接：https://www.jianshu.com/p/604d411067c8
+链接: https://www.jianshu.com/p/604d411067c8
   
-来源：简书
+来源: 简书
   
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

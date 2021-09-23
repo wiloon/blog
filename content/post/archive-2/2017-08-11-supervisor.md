@@ -13,7 +13,7 @@ url: supervisor
     supervisorctl restart all
 
 ### 使用 supervisor 管理进程
-Supervisor (http://supervisord.org) 是一个用 Python 写的进程管理工具,可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程）。除了对单个进程的控制,还可以同时启动、关闭多个进程,比如很不幸的服务器出问题导致所有应用程序都被杀死,此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
+Supervisor (http://supervisord.org) 是一个用 Python 写的进程管理工具,可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程) 。除了对单个进程的控制,还可以同时启动、关闭多个进程,比如很不幸的服务器出问题导致所有应用程序都被杀死,此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。
   
 安装
   
@@ -25,7 +25,7 @@ sudo pip install supervisor
   
 supervisord 配置
   
-Supervisor 相当强大,提供了很丰富的功能,不过我们可能只需要用到其中一小部分。安装完成之后,可以编写配置文件,来满足自己的需求。为了方便,我们把配置分成两部分: supervisord（supervisor 是一个 C/S 模型的程序,这是 server 端,对应的有 client 端: supervisorctl）和应用程序（即我们要管理的程序）。
+Supervisor 相当强大,提供了很丰富的功能,不过我们可能只需要用到其中一小部分。安装完成之后,可以编写配置文件,来满足自己的需求。为了方便,我们把配置分成两部分: supervisord（supervisor 是一个 C/S 模型的程序,这是 server 端,对应的有 client 端: supervisorctl) 和应用程序（即我们要管理的程序) 。
   
 首先来看 supervisord 的配置文件。安装完 supervisor 之后,可以运行echo_supervisord_conf 命令输出默认的配置项,也可以重定向到一个配置文件里: 
   
@@ -89,7 +89,7 @@ serverurl=unix:///tmp/supervisor.sock ; 通过 UNIX socket 连接 supervisord,�
   
 files = relative/directory/_.ini ; 可以是 \*.conf 或 \*.ini
   
-我们把上面这部分配置保存到 /etc/supervisord.conf（或其他任意有权限访问的文件）,然后启动 supervisord（通过 -c 选项指定配置文件路径,如果不指定会按照这个顺序查找配置文件: $CWD/supervisord.conf, $CWD/etc/supervisord.conf, /etc/supervisord.conf）: 
+我们把上面这部分配置保存到 /etc/supervisord.conf（或其他任意有权限访问的文件) ,然后启动 supervisord（通过 -c 选项指定配置文件路径,如果不指定会按照这个顺序查找配置文件: $CWD/supervisord.conf, $CWD/etc/supervisord.conf, /etc/supervisord.conf) : 
   
 supervisord -c /etc/supervisord.conf
   
@@ -99,7 +99,7 @@ ps aux | grep supervisord
   
 program 配置
   
-上面我们已经把 supervisrod 运行起来了,现在可以添加我们要管理的进程的配置文件。可以把所有配置项都写到 supervisord.conf 文件里,但并不推荐这样做,而是通过 include 的方式把不同的程序（组）写到不同的配置文件里。
+上面我们已经把 supervisrod 运行起来了,现在可以添加我们要管理的进程的配置文件。可以把所有配置项都写到 supervisord.conf 文件里,但并不推荐这样做,而是通过 include 的方式把不同的程序（组) 写到不同的配置文件里。
   
 为了举例,我们新建一个目录 /etc/supervisor/ 用于存放这些配置文件,相应的,把 /etc/supervisord.conf 里 include 部分的的配置修改一下: 
   
@@ -113,7 +113,7 @@ cd /home/leon/projects/usercenter
   
 gunicorn -c gunicorn.py wsgi:app
   
-现在编写一份配置文件来管理这个进程（需要注意: 用 supervisord 管理时,gunicorn 的 daemon 选项需要设置为 False）: 
+现在编写一份配置文件来管理这个进程（需要注意: 用 supervisord 管理时,gunicorn 的 daemon 选项需要设置为 False) : 
   
 [program:usercenter]
   
@@ -137,7 +137,7 @@ stdout_logfile_maxbytes = 20MB ; stdout 日志文件大小,默认 50MB
   
 stdout_logfile_backups = 20 ; stdout 日志文件备份数
   
-; stdout 日志文件,需要注意当指定目录不存在时无法正常启动,所以需要手动创建目录（supervisord 会自动创建日志文件）
+; stdout 日志文件,需要注意当指定目录不存在时无法正常启动,所以需要手动创建目录（supervisord 会自动创建日志文件) 
   
 stdout_logfile = /data/logs/usercenter_stdout.log
 
@@ -145,7 +145,7 @@ stdout_logfile = /data/logs/usercenter_stdout.log
   
 ; environment=PYTHONPATH=$PYTHONPATH:/path/to/somewhere
   
-一份配置文件至少需要一个 [program:x] 部分的配置,来告诉 supervisord 需要管理那个进程。[program:x] 语法中的 x 表示 program name,会在客户端（supervisorctl 或 web 界面）显示,在 supervisorctl 中通过这个值来对程序进行 start、restart、stop 等操作。
+一份配置文件至少需要一个 [program:x] 部分的配置,来告诉 supervisord 需要管理那个进程。[program:x] 语法中的 x 表示 program name,会在客户端（supervisorctl 或 web 界面) 显示,在 supervisorctl 中通过这个值来对程序进行 start、restart、stop 等操作。
   
 使用 supervisorctl
   
@@ -163,7 +163,7 @@ supervisorctl -c /etc/supervisord.conf
     
 > restart usercenter # 重启 usercenter 程序
     
-> reread ＃ 读取有更新（增加）的配置文件,不会启动新添加的程序
+> reread ＃ 读取有更新（增加) 的配置文件,不会启动新添加的程序
     
 > update ＃ 重启配置文件修改过的程序
     

@@ -182,7 +182,7 @@ This filesystem will be automatically checked every 26 mounts or
   
 ... ...
 
-2）mkfs.ext3 mkfs.reiserfs mkfs.ext2 mkfs.msdos mkfs.vfat mke2fs 的介绍；
+2) mkfs.ext3 mkfs.reiserfs mkfs.ext2 mkfs.msdos mkfs.vfat mke2fs 的介绍；
   
 我们先说了一个mkfs 工具后，我们再来介绍 mkfs.ext3 mkfs.reiserfs mkfs.ext2 mkdosfs mkfs.msdos mkfs.vfat ，其实mkfs 在执行的命令的时候，也是调用的这个工具，这也是我先把mkfs介绍的主要原因； 通过文件名，我们就知道这些工具是支持什么文件系统；这些命令为我们提供了更多的方便；
 
@@ -204,7 +204,7 @@ root@localhost beinan]# mke2fs    /dev/sda6          注: 把该设备格
   
 ... ...
 
-2）mkswap 把一个分区格式化成为swap交换区；
+2) mkswap 把一个分区格式化成为swap交换区；
 
 [root@localhost beinan]# mkswap /dev/sda6  注: 创建此分区为swap 交换分区
   
@@ -237,7 +237,7 @@ mke2fs命令是专门用于管理ext系列文件系统的一个专门的工具�
 mke2fs [options] [device]
 
 常用选项
--t fs-type:指定文件系统类型（如ext2，ext3，ext4等等），则会从/etc/mke2fs.conf文件中读取默认配置；
+-t fs-type:指定文件系统类型（如ext2，ext3，ext4等等) ，则会从/etc/mke2fs.conf文件中读取默认配置；
 
 -b block-size: 设置硬盘的block大小。
 

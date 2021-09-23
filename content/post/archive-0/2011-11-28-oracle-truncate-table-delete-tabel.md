@@ -36,7 +36,7 @@ categories:
     
     
     
-      3.truncate 调整high water mark 而delete不.truncate之后，TABLE的HWM退回到 INITIAL和NEXT的位置（默认）
+      3.truncate 调整high water mark 而delete不.truncate之后，TABLE的HWM退回到 INITIAL和NEXT的位置（默认) 
     
     
     

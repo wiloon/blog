@@ -40,9 +40,9 @@ web.xml的配置中<context-param>配置作用
 
   8.这个监听是自己写的一个类,除了初始化方法,它还有销毁方法.用于关闭应用前释放资源.比如说数据库连接的关闭.
 
-web.xml里面可以定义两种参数：
+web.xml里面可以定义两种参数: 
 
-(1)application范围内的参数，存放在servletcontext中，在web.xml中配置如下：
+(1)application范围内的参数，存放在servletcontext中，在web.xml中配置如下: 
 
 [xml]
 
@@ -64,7 +64,7 @@ web.xml里面可以定义两种参数：
 
 [/xml]
 
-(2)servlet范围内的参数，只能在servlet的init()方法中取得，在web.xml中配置如下：
+(2)servlet范围内的参数，只能在servlet的init()方法中取得，在web.xml中配置如下: 
 
 [xml]
 
@@ -88,7 +88,7 @@ web.xml里面可以定义两种参数：
 
 [/xml]
 
-在servlet中可以通过代码分别取用：
+在servlet中可以通过代码分别取用: 
 
 ```java
 

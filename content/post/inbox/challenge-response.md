@@ -9,7 +9,7 @@ tags:
   - inbox
 ---
 
-Challenge/Response认证的过程如下：
+Challenge/Response认证的过程如下: 
 
 1) 客户端向服务器发出认证请求；
 2) 认证服务器从用户数据库中查询用户是否是合法的用户，若不是，则不做进一步的处理；
@@ -24,7 +24,7 @@ Challenge/Response认证的过程如下：
 
  
 
-密钥的分配和管理：
+密钥的分配和管理: 
 
 密钥的分配由维护模块负责，当用户进行注册时，自行设定自己的口令。用户的密钥由口令生成。
 
@@ -34,7 +34,7 @@ Challenge/Response认证的过程如下：
 
  
 
-Challenge/Response认证的安全性分析：
+Challenge/Response认证的安全性分析: 
 
 下面就常见的对认证服务器攻击方法来分析其安全性。
 
