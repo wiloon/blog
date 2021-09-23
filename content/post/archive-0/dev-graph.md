@@ -22,7 +22,7 @@ leveldb--Memtable
 leveldb--Immutable
 [SST] as sst
 leveldb--sst
-[SkipList] as SkipList #BBDEFB
+[SkipList] as SkipList #C5E1A5
 Memtable--SkipList  
 [红黑树] as red_black_tree
 SkipList--red_black_tree
@@ -41,7 +41,7 @@ leveldb--AtomicPointer
 callable--Future
 [FutureTask]
 Future--FutureTask
-[VarHandle] as VarHandle #BBDEFB
+[VarHandle] as VarHandle #C5E1A5
 FutureTask--VarHandle
 [java9]
 VarHandle--java9
@@ -147,7 +147,7 @@ ReentrantLock--mutex
 [分区] as partition
 [MySQL]
 [ACID] as acid
-[Netty单线程] as netty_single_thread #9CCC65
+[Netty单线程] as netty_single_thread #90CAF9
 [netty] as netty #FF8A80
 netty_single_thread--netty
 [堆外内存] as omem
@@ -203,7 +203,6 @@ lockd--Chubby
 [zab]
 [2pc]
 
-[---]
 cap--base
 consistency--cap
 partition_tolerance--partition
@@ -252,7 +251,7 @@ java9--jpms
 
 ### palette
 ```
-#AB47BC   Point
+#90CAF9   Point
 #FF8A80   Index
 #C5E1A5   Done
 ```
