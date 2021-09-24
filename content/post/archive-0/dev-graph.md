@@ -137,8 +137,10 @@ ReentrantLock--fair_lock
 [非公平锁] as unfair_lock
 ReentrantLock--unfair_lock
 synchronized--unfair_lock
-[互斥锁] as mutex
+[mutex/锁/互斥锁] as mutex
 ReentrantLock--mutex
+[futex]
+mutex--futex
 [一致性] as consistency
 [最终一致性] as eventual_consistency
 [CAP] as cap
@@ -197,9 +199,8 @@ file_system--xfs
 [etcd]
 [Raft] as raft
 [分布式锁] as lockd
-[Chubby]
+[Chubby\nmysql\nzookeepet\nredis\netcd] as Chubby 
 lockd--Chubby
-
 [zab]
 [2pc]
 
@@ -246,7 +247,10 @@ paxos--zab
 jvm--gc
 [模块化] as jpms
 java9--jpms
- 
+
+[模式] as pattern
+[策略模式] as strategy_pattern
+pattern--strategy_pattern
 @enduml
 ```
 
