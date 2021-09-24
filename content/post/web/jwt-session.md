@@ -91,7 +91,6 @@ JWT基本上由.分隔的三部分组成，分别是头部，有效载荷和签�
 在字符串中每一段都是被 base64url 编码后的 JSON，其中 Payload 段可能被加密。
 
 ##### Header
-
 JWT 的 Header 通常包含两个字段，分别是: typ(type) 和 alg(algorithm)。
 
 * typ: token的类型，这里固定为 JWT
