@@ -1,5 +1,5 @@
 ---
-title: Commons Math
+title: Math
 author: "-"
 type: post
 date: 2011-08-24T01:27:47+00:00
@@ -37,9 +37,8 @@ Section 2 analysis 数学分析（函数为主)
 Section 3 Probabilityand Statistics 概率和统计
 
        1) distribution 分布
-    
        2) fraction and complex 分数和复数
     
        3) random and statistics 随机生成和统计初步
     
-     4) cluster and regression聚类和回归
+     1) cluster and regression聚类和回归

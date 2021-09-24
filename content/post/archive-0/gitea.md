@@ -1,9 +1,10 @@
 ---
-title: install gitea
+title: gitea
 author: "-"
-type: post
 date: 2011-08-19T00:19:59+00:00
-url: /?p=445
+url: gitea
+categories:
+  - git
 
 ---
 
