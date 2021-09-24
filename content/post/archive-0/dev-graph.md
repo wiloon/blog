@@ -43,8 +43,14 @@ callable--Future
 Future--FutureTask
 [VarHandle] as VarHandle #C5E1A5
 FutureTask--VarHandle
+[java]
 [java9]
+java--java9
 VarHandle--java9
+[java8]
+java--java8
+[Stream API] as stream_api
+java8--stream_api
 [get]
 FutureTask--get
 [LockSupport]
@@ -162,10 +168,12 @@ NIO--DirectByteBuffer
 NIO--AIO
 [TCP Receive Buffer] as tcp_receive_buffer
 NIO--tcp_receive_buffer
-[Reactor]
+[Reactor] as Reactor #FF8A80
 NIO--Reactor
 [Observer]
 Reactor--Observer
+[响应式编程] as reactor_program
+Reactor--reactor_program
 [socket.read()] as socket_read
 tcp_receive_buffer--socket_read
 [selector]
