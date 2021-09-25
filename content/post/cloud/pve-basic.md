@@ -52,6 +52,13 @@ Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
 
 create vm > system > qemu agent: select
 
+### create vm from template
+- right click and select "clone"
+- Name: input the name of new vm
+- mode: full clone
+- target storage: local-lvm
+
+
 ### qemu agent
 Proxmox VE (PVE) Qemu代理 选项是什么意思，有什么作用，需要开启吗？
 
@@ -63,7 +70,7 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 
 1、正确关闭虚拟机，而不是依赖ACPI命令或Windows策略
 
-2、在进行备份时冻结来宾文件系统（在Windows上，使用卷影复制服务VSS) 。
+2、在进行备份时冻结来宾文件系统（在Windows上，使用卷tem影复制服务VSS) 。
 
 ### 改ip
      vi /etc/network/interfaces
@@ -138,10 +145,7 @@ WinSCP下载地址: WinSCP官网
 版权声明: 本文为CSDN博主「Halyace」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接: https://blog.csdn.net/lyace2010/article/details/108918070
 
-### create vm from template
-- right click and select "clone"
-- input the name of new vm
-- full clone
+
 
 ### pve cli
 #### 查看一下虚拟机的运行状态

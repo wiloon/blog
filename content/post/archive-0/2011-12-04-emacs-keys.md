@@ -33,3 +33,11 @@ C-x ESC ESC            重复执行上一条命令
 nXML
 
 M-; 注释一行
+
+
+### Emacs里统计某个词出现的次数
+ 
+1) M-x count-matches 统计该表达式在buffer中出现的次数。
+  
+2) M-x occur 统计该表达式在buffer中出现的次数，显示在哪些地方出现了这个表达式.
+
