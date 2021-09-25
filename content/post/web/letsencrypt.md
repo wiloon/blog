@@ -38,7 +38,7 @@ acme.sh: acme.sh 实现了 acme 协议.
 
 ### Couldn't download https://raw.githubusercontent.com/certbot/certbot/v0.39.0/letsencrypt-auto-source/letsencrypt-auto. <urlopen error [Errno 110] Connection timed out>
 
-如果希望将其锁定到特定版本并且不接收自动更新，只需在命令后加 --no-self-upgrade 即可。即：
+如果希望将其锁定到特定版本并且不接收自动更新，只需在命令后加 --no-self-upgrade 即可。即: 
 certbot-auto renew --no-self-upgrade
 
 https://certbot.eff.org/docs/intro.html

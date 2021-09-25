@@ -10,7 +10,7 @@ categories:
 ---
 ## 安装Apache MySQL PHP
 
-安装之前，保证你的版本是最新的。使用命令: （"#"表示你应该以root的身份来运行）。
+安装之前,保证你的版本是最新的。使用命令: （"#"表示你应该以root的身份来运行) 。
 
 # aptitude update && aptitude upgrade
 
@@ -20,11 +20,11 @@ categories:
 
 # aptitude install MySQL-server MySQL-client
 
-安装完MySQL server后，你应该修改下root的密码。*此步骤对debian Lenny版本无效，因为在安装的时候你将会被要求输入MySQL root用户的密码。
+安装完MySQL server后,你应该修改下root的密码。*此步骤对debian Lenny版本无效,因为在安装的时候你将会被要求输入MySQL root用户的密码。
 
 # /usr/bin/MySQLadmin -u root password 'enter-your-good-new-password-here'
 
-为了安全起见，你应该不使用root账户来运行数据库，而是新建一个账户来从一个PHP脚本来连接你的MySQL数据库。
+为了安全起见,你应该不使用root账户来运行数据库,而是新建一个账户来从一个PHP脚本来连接你的MySQL数据库。
 
   * apache2
 
@@ -38,7 +38,7 @@ categories:
 
 Apache2 配置文件: /etc/apache2/apache2.conf
 
-当需要的时候，你可以编辑此配置文件。
+当需要的时候,你可以编辑此配置文件。
 
 ## 测试PHP
 

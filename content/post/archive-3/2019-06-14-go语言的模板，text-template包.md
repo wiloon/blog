@@ -46,9 +46,9 @@ panic(err)
   
 }
   
-//输出 ： hello, waynehu
+//输出 :  hello, waynehu
   
-因为"hello, {{.}}"也是一个字符串，所以可以单独拎出来，如下：
+因为"hello, {{.}}"也是一个字符串，所以可以单独拎出来，如下: 
 
 //这句
   
@@ -62,7 +62,7 @@ tmpl, err := template.New("test").Parse(muban)
   
 //之后的例子都用两句的方式表达
   
-##传入struct 模板合成那句，第2个参数是interface{}，所以可以传入任何类型，现在传入struct看看 要取得struct的值，只要使用成员名字即可，看代码吧：
+##传入struct 模板合成那句，第2个参数是interface{}，所以可以传入任何类型，现在传入struct看看 要取得struct的值，只要使用成员名字即可，看代码吧: 
 
 package main
 
@@ -106,7 +106,7 @@ panic(err)
   
 }
   
-//输出 ： 17 items are made of wool
+//输出 :  17 items are made of wool
   
 ##多模板，介绍New，Name，Lookup
 
@@ -182,7 +182,7 @@ tmpl, err := template.ParseFiles("mb.txt") //建立一个模板，这里不需�
   
 ##文件模板，介绍ParseGlob
 
-ParseFiles接受一个字符串，字符串的内容是一个模板文件的路径（绝对路径or相对路径）
+ParseFiles接受一个字符串，字符串的内容是一个模板文件的路径（绝对路径or相对路径) 
   
 ParseGlob也差不多，是用正则的方式匹配多个文件
 
@@ -220,7 +220,7 @@ tmpl.New("M3").Parse(muban3)
   
 err = tmpl.Execute(os.Stdout, nil)
   
-完整代码：
+完整代码: 
 
 package main
 
@@ -268,7 +268,7 @@ hi, 我是模板2，ha我是模板3ha!,
   
 hi, ha我是模板3ha!
   
-##模板的回车 模板文件里的回车也是模板的一部分，如果对回车位置控制不好，合成出来的文章会走样 标准库里的Example(Template)写的还是有点乱，我整理如下：
+##模板的回车 模板文件里的回车也是模板的一部分，如果对回车位置控制不好，合成出来的文章会走样 标准库里的Example(Template)写的还是有点乱，我整理如下: 
 
 const letter = \`Dear {{.Name}},
 
@@ -288,7 +288,7 @@ Josie
 
 \`
   
-解释一下：
+解释一下: 
 
 Dear某某某的Dear应该是在第一行，所以在D前面不能有回车，否则Dear会跑到第2行去
   

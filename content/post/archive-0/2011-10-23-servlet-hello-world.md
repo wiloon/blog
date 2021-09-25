@@ -16,13 +16,13 @@ tags:
 ---
 要运行Servlet，则需要JSP/Servlet container，建议初学者用Tomcat.
   
-Tomcat 7.0.xx：http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.xx/bin/apache-tomcat-7.0.xx.tar.gz
+Tomcat 7.0.xx: http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.xx/bin/apache-tomcat-7.0.xx.tar.gz
 
-然后把这个压缩包解压到：
+然后把这个压缩包解压到: 
   
 /home/wiloon/opt/apache-tomcat-7.0.xx
 
-然后再配置环境变量；添加三个系统变量：
+然后再配置环境变量；添加三个系统变量: 
 
 JAVA_HOME="/opt/jvm/jdk1.7.0"
   
@@ -30,7 +30,7 @@ TOMCAT_HOME="/home/wiloon/program/apache-tomcat-7.0.xx"
   
 CLASSPATH: %JAVA_HOME%/lib;%TOMCAT_HOME%/lib
 
-Tomcat的环境变量就配置完毕了，下面检验Tomcat是否能够运行：转到/home/wiloon/program/apache-tomcat-7.0.xx/bin这个目录，运行sh startup.sh，在浏览器中输入http://localhost:8080，出现欢迎界面，则表示Tomcat没问题了。然后写入你的第一个Servlet。
+Tomcat的环境变量就配置完毕了，下面检验Tomcat是否能够运行: 转到/home/wiloon/program/apache-tomcat-7.0.xx/bin这个目录，运行sh startup.sh，在浏览器中输入http://localhost:8080，出现欢迎界面，则表示Tomcat没问题了。然后写入你的第一个Servlet。
 
 ```java
   
@@ -104,7 +104,7 @@ ROOT/WEB-INF/classes/HelloWorld.class(把上面生成的HelloWorld.class文件�
 
 怎么回事呢？
 
-Servlet必须使用C:/Tomcat/webapps/ROOT/WEB-INF这个目录下面的web.xml文件进行注册，用编辑器打开这个web.xml文件，在里面加入：
+Servlet必须使用C:/Tomcat/webapps/ROOT/WEB-INF这个目录下面的web.xml文件进行注册，用编辑器打开这个web.xml文件，在里面加入: 
 
 [xml]
     
@@ -140,7 +140,7 @@ Servlet必须使用C:/Tomcat/webapps/ROOT/WEB-INF这个目录下面的web.xml文
   
 [/xml]
 
-表示指定包含的servlet类。而以下的结构：
+表示指定包含的servlet类。而以下的结构: 
 
 [xml]
    

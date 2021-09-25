@@ -14,7 +14,7 @@ http://blog.sina.com.cn/s/blog_6768f2290100ubw5.html
 
 最近由于工作和个人兴趣的关系，有幸研究了一下javascript的unit test，市面上常见且比较易用的javascript的unit test的framework有三个: jsunit, qunit和yuitest，虽然出处不同，但是本质上，使用方法都大同小异。
 
-jsunit: http://www.jsunit.net/ 最早开发自2001年，是第一个实用的javascript的unit test framework（那时候TDD还远未流行），其完全遵循junit的xunit pattern, 有setup, teardown, 有testsuit概念，还有若干种assert方法，不过因为其诞生早，对非同步的ajax测试支持不够，因而有市场占有率渐低的趋势。
+jsunit: http://www.jsunit.net/ 最早开发自2001年，是第一个实用的javascript的unit test framework（那时候TDD还远未流行) ，其完全遵循junit的xunit pattern, 有setup, teardown, 有testsuit概念，还有若干种assert方法，不过因为其诞生早，对非同步的ajax测试支持不够，因而有市场占有率渐低的趋势。
 
 qunit: http://docs.jquery.com/Qunit 个人极其欣赏的一个framework，隶属于大名鼎鼎的jquery，但是又无需依赖于jquery的库可单独运行, 方法轻量易学，且具有异步测试的功能。可惜在公司没有被官方支持，只能自己玩。
 
@@ -30,7 +30,7 @@ yui test: http://developer.yahoo.com/yui/yuitest/ 著名的yahoo web js toolkit 
   
 4 ) 将我们要测试的js代码的依赖库也加入该html中(如ExtJS或者其他库)
   
-5 ) 在html中添加script的测试代码 (test suit和assert部分）
+5 ) 在html中添加script的测试代码 (test suit和assert部分) 
   
 6 ) 在浏览器中载入该html文件，页面会自动显示运行结果。
 
@@ -84,13 +84,13 @@ equal( sum, "2", "We expect value to be 2" );
   
 <body>
   
-<h1 id="qunit-header">QUnit example</h1>
-  
-<h2 id="qunit-banner">
+QUnit example
   
 
   
-<h2 id="qunit-userAgent">
+
+  
+
   
 <ol id="qunit-tests">
   

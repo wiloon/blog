@@ -12,13 +12,13 @@ http://www.cnblogs.com/mawanglin2008/p/3532247.html
 
 RHEL/CentOS/Fedora各种源(EPEL、Remi、RPMForge、RPMFusion)配置
 
-CentOS默认自带CentOS-Base.repo源，但官方源中去除了很多有版权争议的软件，而且安装的软件也不是最新的稳定版。Fedora自带的源中也找不到很多多媒体软件，如果需要安装，必需先添加其他源，如RPMFusion和RPMForge等第三方软件库。
+CentOS默认自带CentOS-Base.repo源,但官方源中去除了很多有版权争议的软件,而且安装的软件也不是最新的稳定版。Fedora自带的源中也找不到很多多媒体软件,如果需要安装,必需先添加其他源,如RPMFusion和RPMForge等第三方软件库。
 
-下面GoFace来一一介绍各种第三方软件库，以下软件库适用于与RHEL完全兼容的linux发行版，如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生，它与CentOS类似，是RedHat Linux的克隆版，GoFace之前有过介绍: http://blog.51osos.com/linux/scientific-linux/ 。
+下面GoFace来一一介绍各种第三方软件库,以下软件库适用于与RHEL完全兼容的linux发行版,如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生,它与CentOS类似,是RedHat Linux的克隆版,GoFace之前有过介绍: http://blog.51osos.com/linux/scientific-linux/ 。
 
 EPEL源
   
-EPEL,即Extra Packages for Enterprise Linux,是由 Fedora 社区创建维护，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。EPEL中含有大量的软件，对官方标准源是一个很好的补充。
+EPEL,即Extra Packages for Enterprise Linux,是由 Fedora 社区创建维护,为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。EPEL中含有大量的软件,对官方标准源是一个很好的补充。
 
 "EPEL (Extra Packages for Enterprise Linux ) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL)."
 
@@ -40,7 +40,7 @@ yum localinstall -nogpgcheck http://mirrors.aliyun.com/epel/beta/7/x86_64/epel-r
   
 Remi源
   
-Remi源大家或许很少听说，不过Remi源GoFace强烈推荐，尤其对于不想编译最新版的linux使用者，因为Remi源中的软件几乎都是最新稳定版。或许您会怀疑稳定不？放心吧，这些都是Linux骨灰级的玩家编译好放进源里的，他们对于系统环境和软件编译参数的熟悉程度毋庸置疑。
+Remi源大家或许很少听说,不过Remi源GoFace强烈推荐,尤其对于不想编译最新版的linux使用者,因为Remi源中的软件几乎都是最新稳定版。或许您会怀疑稳定不？放心吧,这些都是Linux骨灰级的玩家编译好放进源里的,他们对于系统环境和软件编译参数的熟悉程度毋庸置疑。
 
 Remi下载地址: http://rpms.famillecollet.com/
 
@@ -56,7 +56,7 @@ yum localinstall -nogpgcheck http://rpms.famillecollet.com/enterprise/remi-relea
   
 RPMForge源
 
-RPMForge是CentOS系统下的软件仓库，拥有4000多种的软件包，被CentOS社区认为是最安全也是最稳定的一个软件仓库。
+RPMForge是CentOS系统下的软件仓库,拥有4000多种的软件包,被CentOS社区认为是最安全也是最稳定的一个软件仓库。
 
 RPMForge官方网站: http://repoforge.org/
 
@@ -76,7 +76,7 @@ yum localinstall -nogpgcheck http://pkgs.repoforge.org/rpmforge-release/rpmforge
   
 RPMFusion源
 
-如果您现在正在使用Fedora 15，对RPMFusion一定不陌生吧，各种音频软件如MPlayer在标准源中是没有的，一般先安装RPMFusion源，之后就可以放便地yum install各种需要的软件啦。
+如果您现在正在使用Fedora 15,对RPMFusion一定不陌生吧,各种音频软件如MPlayer在标准源中是没有的,一般先安装RPMFusion源,之后就可以放便地yum install各种需要的软件啦。
 
 CentOS官方说RPMFusion软件库里面的软件稳定性不如rpmforge。
 
@@ -102,15 +102,15 @@ yum localinstall http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.
 
 如何使用各种源
   
-以上源对CentOS等系统完全兼容，但各软件库之间并不能保证完全兼容没有冲突。如果您需要使用以上源，您需要安装yum-priorities插件。安装yum-priorities插件后，您可以给各个源设置优先级priority。一般设置官方标准源优先级为1，最高，第三方推荐>10
+以上源对CentOS等系统完全兼容,但各软件库之间并不能保证完全兼容没有冲突。如果您需要使用以上源,您需要安装yum-priorities插件。安装yum-priorities插件后,您可以给各个源设置优先级priority。一般设置官方标准源优先级为1,最高,第三方推荐>10
 
-priority=N （N为1到99的正整数，数值越小越优先）
+priority=N （N为1到99的正整数,数值越小越优先) 
 
 [base], [addons], [updates], [extras] … priority=1
   
 [CentOSplus],[contrib] … priority=2
   
-其他第三的软件源为: priority=N （推荐N>10）
+其他第三的软件源为: priority=N （推荐N>10) 
 
 #vi CentOS-Base.repo
 

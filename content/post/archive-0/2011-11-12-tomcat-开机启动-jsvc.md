@@ -18,7 +18,7 @@ tags:
 
 需要先安装gcc, make
 
-在tomcat的bin目录下：
+在tomcat的bin目录下: 
 
 ```bash
   

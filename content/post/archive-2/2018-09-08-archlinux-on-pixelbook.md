@@ -50,7 +50,7 @@ yay -S cros-container-guest-tools-git
 sudo pacman -S wayland
 sudo pacman -S  xorg-server-xwayland
 
-# 第一次执行如果报错，尝试停掉container重启
+# 第一次执行如果报错,尝试停掉container重启
 lxc stop arch
 lxc start arch
 
@@ -95,7 +95,7 @@ sudo pacman -S openvpn
 # openvpn 可以正常使用了
 ```
 
-### 显示问题， 找不到图形环境问题
+### 显示问题, 找不到图形环境问题
 
 ```bash
 # in crostini

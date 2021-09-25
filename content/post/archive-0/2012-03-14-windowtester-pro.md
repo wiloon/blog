@@ -22,4 +22,4 @@ WindowTester与WindowBuilder Pro以及CodePro AnalytiX同属一类应用程序�
 
 WindowBuilder是一款深受Java开发人员喜爱的GUI构建工具，它在2009年荣获了Eclipse最佳商业开发工具奖。CodePro则是一款Java代码分析工具。
 
-查看英文原文：http://www.infoq.com/news/2012/03/WindowTester-Pro
+查看英文原文: http://www.infoq.com/news/2012/03/WindowTester-Pro

@@ -32,14 +32,14 @@ WLAN: Broadcom CYW43455 2.4GHz + 5GHz + BT4.1
 ROM: Samsung KLM8G1GEME or FORESEE NCEMAM6G-08G，eMMC5.1 MLC = 8GB
 RAM: Samsung K4B4G1646E-BYMA, 4Gb(512MB) DDR3-1866MHz * 4 = 2GB
 
-CPU型号：晶晨 Amlogic S905，ARM Cortex-A53，四核 2GHz，GPU是ARM Mali™-450，支持4K@60fps硬件解码，HDMI 2.0。
+CPU型号: 晶晨 Amlogic S905，ARM Cortex-A53，四核 2GHz，GPU是ARM Mali™-450，支持4K@60fps硬件解码，HDMI 2.0。
 四核64位
 
-内存芯片RAM：K4B4G1646E ，4Gb DDR3-1866MHz，内存容量512MB；前后一共有4颗，总内存2GB。
-闪存芯片ROM：KLM8G1GEME，8GB eMMC。
-网卡芯片：RTL8211F，千兆速率。
+内存芯片RAM: K4B4G1646E ，4Gb DDR3-1866MHz，内存容量512MB；前后一共有4颗，总内存2GB。
+闪存芯片ROM: KLM8G1GEME，8GB eMMC。
+网卡芯片: RTL8211F，千兆速率。
 
-WIFI芯片：屏蔽罩是焊死的，所以不清楚。哈哈，只知道是双频 1x1mimo用支持5G ac，2.4G连接速率65Mbps，5G连接速率390Mbps。为什么不是72m和433m，因为No SGI。
+WIFI芯片: 屏蔽罩是焊死的，所以不清楚。哈哈，只知道是双频 1x1mimo用支持5G ac，2.4G连接速率65Mbps，5G连接速率390Mbps。为什么不是72m和433m，因为No SGI。
 
 视频处理
 超高清4K 60fps硬件解码，支持H.265/VP9 10比特, H.264和AVS+等众多格式
@@ -54,7 +54,7 @@ TS流输入接口
 S/PDIF, I2S, PCM输入输出接口
 模拟立体声输出
 数字立体麦克风输入
-P授权（可选）
+P授权（可选) 
 Dolby Digital, Dolby Digital Plus
 DTS Digital Surround, DTS HD, DTS Express
 Real, DivX HD
@@ -71,7 +71,7 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 
 ### PC
 2015-09-05    
-华硕（ASUS）Z170M-PLUS 主板 （Intel Z170/LGA 1151）   
+华硕（ASUS) Z170M-PLUS 主板 （Intel Z170/LGA 1151)    
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz   
 Kingston DDR4 2133 16GB(8Gx2条)  
 wifi: Intel Corporation Wireless 7260 (rev 5b)  

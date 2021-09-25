@@ -12,17 +12,17 @@ url: /?p=5626
 ### worker_processes, nginx进程数，建议设置为等于CPU总核心数。
     worker_processes 8;
   
-官方英文版wiki配置说明中的描述如下，个人理解为worker角色的进程个数（nginx启动后有多少个worker处理http请求。master不处理请求，而是根据相应配置文件信息管理worker进程. master进程主要负责对外揽活（即接收客户端的请求），并将活儿合理的分配给多个worker，每个worker进程主要负责干活（处理请求））。
+官方英文版wiki配置说明中的描述如下，个人理解为worker角色的进程个数（nginx启动后有多少个worker处理http请求。master不处理请求，而是根据相应配置文件信息管理worker进程. master进程主要负责对外揽活（即接收客户端的请求) ，并将活儿合理的分配给多个worker，每个worker进程主要负责干活（处理请求) ) 。
 
 ### worker_connections
 
     max_clients = worker_processes * worker_connections;
   
-官方解释如下，个人认为是每一个worker进程能并发处理（发起）的最大连接数（包含所有连接数）。
+官方解释如下，个人认为是每一个worker进程能并发处理（发起) 的最大连接数（包含所有连接数) 。
 
 ### worker_rlimit_nofile
 
-#一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
+#一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n) 与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
   
     worker_rlimit_nofile 65535;
 
@@ -52,7 +52,7 @@ events
   
 use epoll;
   
-#单个进程最大连接数（最大连接数=连接数*进程数）
+#单个进程最大连接数（最大连接数=连接数*进程数) 
   
 worker_connections 65535;
   
@@ -94,7 +94,7 @@ TCP_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP_CORK，Ngi
 
 ### TCP_NODELAY
 TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms  
-（Nagle 算法原理是: 在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp_nodelay。
+（Nagle 算法原理是: 在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送) 。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp_nodelay。
 
 可以看到 TCP_NOPUSH 是要等数据包累积到一定大小才发送，TCP_NODELAY 是要尽快发送，二者相互矛盾。实际上，它们确实可以一起用，最终的效果是先填满包，再尽快发送。
 
@@ -124,7 +124,7 @@ gzip_min_length 1k; #最小压缩文件大小
   
 gzip_buffers 4 16k; #压缩缓冲区
   
-gzip_http_version 1.0; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
+gzip_http_version 1.0; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0) 
   
 gzip_comp_level 2; #压缩等级
   
@@ -238,11 +238,11 @@ proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)
   
 proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)
   
-proxy_buffer_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小
+proxy_buffer_size 4k; #设置代理服务器（nginx) 保存用户头信息的缓冲区大小
   
 proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置
   
-proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）
+proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2) 
   
 proxy_temp_file_write_size 64k;
   
@@ -393,7 +393,7 @@ client_body_buffer_size 8k;
   
 client_max_body_size
   
-这个directive设定Nginx可以处理的最大request body大小。如果收到的请求大于指定的大小，那么Nginx会回复HTTP 413错误（Request Entity too large）。如果web服务器提供大文件上传的话，那么设置好这个directive很重要。
+这个directive设定Nginx可以处理的最大request body大小。如果收到的请求大于指定的大小，那么Nginx会回复HTTP 413错误（Request Entity too large) 。如果web服务器提供大文件上传的话，那么设置好这个directive很重要。
 
 Nginx默认为这个directive设定的值是1m，可以在http, server 和 location模块中定义，例如: 
 
@@ -463,9 +463,9 @@ large_client_header_buffers 4 8k;
   
 }
   
-如果请求的URI超过了单个缓冲的大小，那么Nginx会返回HTTP 414错误（Request URI Too Long）。如果有任何request header超过了单个缓冲的大小，那么Nginx会返回HTTP 400错误（Bad Request）。
+如果请求的URI超过了单个缓冲的大小，那么Nginx会返回HTTP 414错误（Request URI Too Long) 。如果有任何request header超过了单个缓冲的大小，那么Nginx会返回HTTP 400错误（Bad Request) 。
 
-Nginx的超时设置（timeout）
+Nginx的超时设置（timeout) 
   
 Nginx处理的每一个请求都会有相应的超时设置。如果做好这些超时的优化，就可以大大提升Nginx的性能。超时过后，系统资源被释放，用来处理其他的请求。下面，我们将讨论Nginx提供的多个关于超时的directive。
 
@@ -475,7 +475,7 @@ HTTP是一种无状态的、基于请求+回复的协议。客户端打开一个
 
 如果客户端向服务器发送多个请求，那么每个请求都要建立各自独立的连接以传输数据。在网页包含大量内容的情况下，这种方式变得效率低下，因为浏览器要为每一个内容打开一个连接。
 
-HTTP有一个keepalive模式，keepalive告诉web服务器在处理完请求后保持TCP连接不断开。如果客户端发出另外一个请求，它可以利用这些保持打开的连接，而不必另外打开一个连接。当客户端感觉不再需要这些保持打开的连接时，或者web服务器发现经过一段时间（timeout）这些保持打开的连接没有任何活动，那么它们就会断开。浏览器一般会打开多个keepalive连接。
+HTTP有一个keepalive模式，keepalive告诉web服务器在处理完请求后保持TCP连接不断开。如果客户端发出另外一个请求，它可以利用这些保持打开的连接，而不必另外打开一个连接。当客户端感觉不再需要这些保持打开的连接时，或者web服务器发现经过一段时间（timeout) 这些保持打开的连接没有任何活动，那么它们就会断开。浏览器一般会打开多个keepalive连接。
 
 由于keepalive连接在一段时间内会保持打开状态，它们会在这段时间占用系统资源。如果web服务器流量大，而timeout的时间设置得过长，那么系统的性能会受到很大影响。
 
@@ -543,7 +543,7 @@ send_timeout 30s;
   
 client_body_timeout
   
-这条directive设定客户端与服务器建立连接后发送request body的超时时间。如果客户端在此时间内没有发送任何内容，那么Nginx返回HTTP 408错误（Request Timed Out）。它的默认值是60秒，在http, server 和 location模块中定义。
+这条directive设定客户端与服务器建立连接后发送request body的超时时间。如果客户端在此时间内没有发送任何内容，那么Nginx返回HTTP 408错误（Request Timed Out) 。它的默认值是60秒，在http, server 和 location模块中定义。
 
 server {
       
@@ -553,7 +553,7 @@ client_body_timeout 30s;
   
 client_header_timeout
   
-这条directive设定客户端向服务器发送一个完整的request header的超时时间。如果客户端在此时间内没有发送一个完整的request header，那么Nginx返回HTTP 408错误（Request Timed Out）。它的默认值是60秒，在http 和 server模块中定义。
+这条directive设定客户端向服务器发送一个完整的request header的超时时间。如果客户端在此时间内没有发送一个完整的request header，那么Nginx返回HTTP 408错误（Request Timed Out) 。它的默认值是60秒，在http 和 server模块中定义。
 
 server {
      
@@ -561,7 +561,7 @@ client_header_timeout 30s;
   
 }
   
-Nginx的压缩配置（compression）
+Nginx的压缩配置（compression) 
   
 压缩可以减少服务器发送的数据包大小，从而加快了网页的加载速度。
 
@@ -647,7 +647,7 @@ ngx_http_gzip_static_module
 
 gzip_static
   
-这个就是让Nginx发送.gz压缩文件的directive。默认值是off。gzip_static的值设为on之后，Nginx会先判断客户端是否支持.gz文件，如果支持就发送.gz文件，不支持就发送普通文件。另外也可以将gzip_static的值设为always，这时Nginx总是发送.gz文件（如果.gz文件存在的话），而不会检查客户端是否支持.gz文件。
+这个就是让Nginx发送.gz压缩文件的directive。默认值是off。gzip_static的值设为on之后，Nginx会先判断客户端是否支持.gz文件，如果支持就发送.gz文件，不支持就发送普通文件。另外也可以将gzip_static的值设为always，这时Nginx总是发送.gz文件（如果.gz文件存在的话) ，而不会检查客户端是否支持.gz文件。
 
 gzip_static也会查看gzip_http_version, gzip_proxied和gzip_disable的值来确定客户端是否支持压缩。它的值在http, server 和 location中定义。
 
@@ -667,7 +667,7 @@ gzip_types text/plain application/xml;
   
 以上的配置都很容易理解，看看上述官方文档就可以了，只有一个比较难理解:gzip_proxied
   
-这个参数用于指定当 http请求来自代理服务器时（如何判断？请求头里包含 VIA 这个参数就认为这个请求来自代理服务器）
+这个参数用于指定当 http请求来自代理服务器时（如何判断？请求头里包含 VIA 这个参数就认为这个请求来自代理服务器) 
   
 基于代理服务器的类型来决定是否进行压缩。如上述配置中，请求头里 包含了 expired 那么就启用压缩，其他的参数也类似。其中有两个特殊的参数，any表示全部都开启压缩，off表示全部都不压缩
   
@@ -770,7 +770,7 @@ NGINX配置超时时间 原
 
 三、其他常用参数以及参数说明
           
-keepalive_timeout 600; 连接超时时间，1分钟，具体时间可以根据请求（例如后台导入）需要的时间来设置
+keepalive_timeout 600; 连接超时时间，1分钟，具体时间可以根据请求（例如后台导入) 需要的时间来设置
 
         proxy_connect_timeout 600;    1分钟
     
@@ -787,7 +787,7 @@ keepalive_timeout
 
 上下文 http server location
 
-说明 第一个参数指定了与client的keep-alive连接超时时间。服务器将会在这个时间后关闭连接。可选的第二个参数指定了在响应头Keep-Alive: timeout=time中的time值。这个头能够让一些浏览器主动关闭连接，这样服务器就不必要去关闭连接了。没有这个参数，nginx不会发送Keep-Alive响应头（尽管并不是由这个头来决定连接是否"keep-alive"）
+说明 第一个参数指定了与client的keep-alive连接超时时间。服务器将会在这个时间后关闭连接。可选的第二个参数指定了在响应头Keep-Alive: timeout=time中的time值。这个头能够让一些浏览器主动关闭连接，这样服务器就不必要去关闭连接了。没有这个参数，nginx不会发送Keep-Alive响应头（尽管并不是由这个头来决定连接是否"keep-alive") 
 
 两个参数的值可并不相同
 
@@ -813,7 +813,7 @@ proxy_connect_timeout
 
 说明 该指令设置与upstream server的连接超时时间，有必要记住，这个超时不能超过75秒。
 
-这个不是等待后端返回页面的时间，那是由proxy_read_timeout声明的。如果你的upstream服务器起来了，但是hanging住了（例如，没有足够的线程处理请求，所以把你的请求放到请求池里稍后处理），那么这个声明是没有用的，由于与upstream服务器的连接已经建立了。
+这个不是等待后端返回页面的时间，那是由proxy_read_timeout声明的。如果你的upstream服务器起来了，但是hanging住了（例如，没有足够的线程处理请求，所以把你的请求放到请求池里稍后处理) ，那么这个声明是没有用的，由于与upstream服务器的连接已经建立了。
 
 proxy_read_timeout
 
@@ -833,7 +833,7 @@ client_header_timeout
 
 上下文 http server
 
-说明 指定等待client发送一个请求头的超时时间（例如: GET / HTTP/1.1）.仅当在一次read中，没有收到请求头，才会算成超时。如果在超时时间内，client没发送任何东西，nginx返回HTTP状态码408("Request timed out")
+说明 指定等待client发送一个请求头的超时时间（例如: GET / HTTP/1.1) .仅当在一次read中，没有收到请求头，才会算成超时。如果在超时时间内，client没发送任何东西，nginx返回HTTP状态码408("Request timed out")
 
 client_body_timeout
 
@@ -843,7 +843,7 @@ client_body_timeout
 
 上下文 http server location
 
-说明 该指令设置请求体（request body）的读超时时间。仅当在一次readstep中，没有得到请求体，就会设为超时。超时后，nginx返回HTTP状态码408("Request timed out")
+说明 该指令设置请求体（request body) 的读超时时间。仅当在一次readstep中，没有得到请求体，就会设为超时。超时后，nginx返回HTTP状态码408("Request timed out")
 
 lingering_timeout
 
@@ -875,7 +875,7 @@ proxy_send_timeout
 
 说明 这个指定设置了发送请求给upstream服务器的超时时间。超时设置不是为了整个发送期间，而是在两次write操作期间。如果超时后，upstream没有收到新的数据，nginx会关闭连接
 
-proxy_upstream_fail_timeout（fail_timeout）
+proxy_upstream_fail_timeout（fail_timeout) 
 
 语法 server address [fail_timeout=30s]
 
@@ -883,7 +883,7 @@ proxy_upstream_fail_timeout（fail_timeout）
 
 上下文 upstream
 
-说明 Upstream模块下 server指令的参数，设置了某一个upstream后端失败了指定次数（max_fails）后，该后端不可操作的时间，默认为10秒
+说明 Upstream模块下 server指令的参数，设置了某一个upstream后端失败了指定次数（max_fails) 后，该后端不可操作的时间，默认为10秒
 
 四、其他说明
      

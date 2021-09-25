@@ -99,9 +99,9 @@ public class VarHandleX {
 获取Varhandle方式汇总
 MethodHandles.privateLookupIn(class, MethodHandles.lookup())获取访问私有变量的Lookup
 MethodHandles.lookup() 获取访问protected、public的Lookup
-findVarHandle：用于创建对象中非静态字段的VarHandle。接收参数有三个，第一个为接收者的class对象，第二个是字段名称，第三个是字段类型。
-findStaticVarHandle：用于创建对象中静态字段的VarHandle，接收参数与findVarHandle一致。
-unreflectVarHandle：通过反射字段Field创建VarHandle。
+findVarHandle: 用于创建对象中非静态字段的VarHandle。接收参数有三个，第一个为接收者的class对象，第二个是字段名称，第三个是字段类型。
+findStaticVarHandle: 用于创建对象中静态字段的VarHandle，接收参数与findVarHandle一致。
+unreflectVarHandle: 通过反射字段Field创建VarHandle。
 MethodHandles.arrayElementVarHandle(int[].class) 获取管理数组的 Varhandle
 功能
 VarHandle来使用plain、opaque、release/acquire和volatile四种共享内存的访问模式，根据这四种共享内存的访问模式又分为写入访问模式、读取访问模式、原子更新访问模式、数值更新访问模式、按位原子更新访问模式。
@@ -132,7 +132,7 @@ opaque 确保程序执行顺序，但不保证其它线程的可见顺序
 按位原子更新访问模式，例如，在指定的内存排序效果下，以原子方式获取和按位OR变量的值。 包含的方法有getAndBitwiseOr、getAndBitwiseOrAcquire、getAndBitwiseOrRelease、 getAndBitwiseAnd、getAndBitwiseAndAcquire、getAndBitwiseAndRelease、getAndBitwiseXor、getAndBitwiseXorAcquire ， getAndBitwiseXorRelease 。
 
 内存屏障
-VarHandle 除了支持各种访问模式下访问变量之外，还提供了一套内存屏障方法，目的是为了给内存排序提供更细粒度的控制。主要如下几个方法：
+VarHandle 除了支持各种访问模式下访问变量之外，还提供了一套内存屏障方法，目的是为了给内存排序提供更细粒度的控制。主要如下几个方法: 
 
 public static void fullFence() {
     UNSAFE.fullFence();
@@ -154,7 +154,7 @@ public static void storeStoreFence() {
 
 
 ### weakCompareAndSet
-jdk 8 的官方文档的java.util.concurrent.atomic上找到这么二段话：
+jdk 8 的官方文档的java.util.concurrent.atomic上找到这么二段话: 
 
 The atomic classes also support method weakCompareAndSet, which has limited applicability. On some platforms, the weak version may be more efficient than compareAndSet in the normal case, but differs in that any given invocation of the weakCompareAndSet method may return false spuriously (that is, for no apparent reason). A false return means only that the operation may be retried if desired, relying on the guarantee that repeated invocation when the variable holds expectedValue and no other thread is also attempting to set the variable will eventually succeed. (Such spurious failures may for example be due to memory contention effects that are unrelated to whether the expected and current values are equal.) Additionally weakCompareAndSet does not provide ordering guarantees that are usually needed for synchronization control. However, the method may be useful for updating counters and statistics when such updates are unrelated to the other happens-before orderings of a program. When a thread sees an update to an atomic variable caused by a weakCompareAndSet, it does not necessarily see updates to any other variables that occurred before the weakCompareAndSet. This may be acceptable when, for example, updating performance statistics, but rarely otherwise.
 
@@ -175,9 +175,9 @@ release/acquire 保证程序执行顺序，setRelease 确保前面的load和stor
 volatile确保程序执行顺序，能保证变量之间的不被重排序。
 
 
-作者：tomas家的小拨浪鼓
-链接：https://www.jianshu.com/p/55a66113bc54
-来源：简书
+作者: tomas家的小拨浪鼓
+链接: https://www.jianshu.com/p/55a66113bc54
+来源: 简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 

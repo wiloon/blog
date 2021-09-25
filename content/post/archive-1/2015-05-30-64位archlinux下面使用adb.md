@@ -14,7 +14,7 @@ tags:
 pacman -S android-tools
 ```
 
-装了个64位的Archlinux，发现adb用不了，运行adb提示没有这个文件或目录，进入到sdk的platform-tools目录下去运行还是不行。
+装了个64位的Archlinux,发现adb用不了,运行adb提示没有这个文件或目录,进入到sdk的platform-tools目录下去运行还是不行。
 
 运行一下file命令
 
@@ -24,7 +24,7 @@ adb: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linke
 
 可以看到adb是一个32位的linux程序。
   
-那么首先就需要装32的glibc了，在archlinux的官网包搜索里面搜索glibc
+那么首先就需要装32的glibc了,在archlinux的官网包搜索里面搜索glibc
 
 4 packages found.
   
@@ -92,9 +92,9 @@ glibc plugin providing host name resolution via mDNS
 
 4 packages found.
   
-看到了32的glibc，但是在Multilib仓里面，这个仓默认是没有打开的
+看到了32的glibc,但是在Multilib仓里面,这个仓默认是没有打开的
 
-编辑/etc/pacman.conf文件，将下面几行前面的注释去掉
+编辑/etc/pacman.conf文件,将下面几行前面的注释去掉
 
 [multilib]
   

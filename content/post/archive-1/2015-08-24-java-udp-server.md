@@ -48,13 +48,13 @@ DatagramSocket(int port, InetAddress localAddr): 这是个非常有用的构建�
   
 DatagramSocket具有的主要方法如下: 
   
-1）receive(DatagramPacket d): 接收数据报文到d中。receive方法产生一个"阻塞"。"阻塞"是一个专业名词，它会产生一个内部循环，使程序暂停在这个地方，直到一个条件触发。
+1) receive(DatagramPacket d): 接收数据报文到d中。receive方法产生一个"阻塞"。"阻塞"是一个专业名词，它会产生一个内部循环，使程序暂停在这个地方，直到一个条件触发。
 
-2）send(DatagramPacket dp): 发送报文dp到目的地。
+2) send(DatagramPacket dp): 发送报文dp到目的地。
 
-3）setSoTimeout(int timeout): 设置超时时间，单位为毫秒。
+3) setSoTimeout(int timeout): 设置超时时间，单位为毫秒。
 
-4）close(): 关闭DatagramSocket。在应用程序退出的时候，通常会主动释放资源，关闭Socket，但是由于异常地退出可能造成资源无法回收。所以，应该在程序完成时，主动使用此方法关闭Socket，或在捕获到异常抛出后关闭Socket。
+4) close(): 关闭DatagramSocket。在应用程序退出的时候，通常会主动释放资源，关闭Socket，但是由于异常地退出可能造成资源无法回收。所以，应该在程序完成时，主动使用此方法关闭Socket，或在捕获到异常抛出后关闭Socket。
 
 3. DatagramPacket
   
@@ -70,17 +70,17 @@ DatagramPacket(byte[] buf, int offset, int length, InetAddress clientAddress, in
   
 主要的方法如下: 
   
-1）getData(): 从实例中取得报文的Byte数组编码。
+1) getData(): 从实例中取得报文的Byte数组编码。
   
-2）setDate(byte[] buf): 将byte数组放入要发送的报文中。
+2) setDate(byte[] buf): 将byte数组放入要发送的报文中。
 
-UDP是一种高速，无连接的数据交换方式，他的特点是，即使没有连接到（也不许要连接）接收方也可以封包发送，就像在一个多人使用的步话机环境中，你不知道你的信息是否被需要的人接受到，但是你的信息确实被传递然后消失了，有时候速度比数据完整性重要，在比如视频会议中，丢失几帧画面是可以接受的。但在需要数据安全接受的环境就不适用了。
+UDP是一种高速，无连接的数据交换方式，他的特点是，即使没有连接到（也不许要连接) 接收方也可以封包发送，就像在一个多人使用的步话机环境中，你不知道你的信息是否被需要的人接受到，但是你的信息确实被传递然后消失了，有时候速度比数据完整性重要，在比如视频会议中，丢失几帧画面是可以接受的。但在需要数据安全接受的环境就不适用了。
 
 发送步骤: 
 
-  * 使用 DatagramSocket(int port) 建立socket（套间字）服务。
+  * 使用 DatagramSocket(int port) 建立socket（套间字) 服务。
   * 将数据打包到DatagramPacket中去
-  * 通过socket服务发送 （send()方法）
+  * 通过socket服务发送 （send()方法) 
   * 关闭资源
 
 

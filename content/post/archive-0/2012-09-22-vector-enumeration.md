@@ -16,10 +16,10 @@ Java 5.0 引入了枚举类型,语法参见 JLS 8.9
 GameEnum s1 = GameEnum.BIG;
 GameEnum s2 = GameEnum.BIG;
 GameEnum ss1 = GameEnum.SMALL;
-System.out.println("s1 == s2：" + (s1 == s2)); //true
-System.out.println("s1.equals(s2)：" + (s1.equals(s2))); //true
-System.out.println("s1 == ss1：" + (s1 == ss1)); //false
-System.out.println("s1.equals(ss1)：" + (s1.equals(ss1))); //false
+System.out.println("s1 == s2: " + (s1 == s2)); //true
+System.out.println("s1.equals(s2): " + (s1.equals(s2))); //true
+System.out.println("s1 == ss1: " + (s1 == ss1)); //false
+System.out.println("s1.equals(ss1): " + (s1.equals(ss1))); //false
 ```
 
 ```java
@@ -32,7 +32,7 @@ package com.ljq.test;
 
 定义一个功能简单的枚举类型，跟定义一个简单的类很相似，例如  
 跟类定义一样，枚举类型可以单独放在一个文件里，当一个枚举类型用public修饰时，它对其他包可见，否则只对同一个包中的类可见，这和类定义是一样的。  
-标识符 MONDAY, TUESDAY等就称为枚举常量（enumeration constants）  
+标识符 MONDAY, TUESDAY等就称为枚举常量（enumeration constants)   
 每一个枚举常量被隐式的声明成Day的一个public、static成员，而且其类型为Day，亦就是说这些常量是self-typed的
 
 ```java
@@ -51,7 +51,7 @@ public enum ColorEnum {
 * 枚举像普通的类一样可以添加属性和方法，可以为它添加静态和非静态的属性或方法
 */
 public enum SeasonEnum {
-//注：枚举写在最前面，否则编译出错
+//注: 枚举写在最前面，否则编译出错
     spring, summer, autumn, winter;
 
 private final static String position = "test";
@@ -165,7 +165,7 @@ System.out.println(order.getName());
 
 ```
 
-2、下面的定义也是合法的：
+2、下面的定义也是合法的: 
 
 ```java
 public enum Day
@@ -184,7 +184,7 @@ MONDAY, TUESDAT, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 }
 ```
 
-但是当枚举类型有其他定义时，则分号;是必须的 3、声明、使用一个枚举类型： （1）在同一个包中：
+但是当枚举类型有其他定义时，则分号;是必须的 3、声明、使用一个枚举类型:  （1) 在同一个包中: 
 
 ```java
 public   class  BasicMainClass
@@ -197,7 +197,7 @@ System.out.println( " Today is  "   +  today.toString().toLowerCase());
 }
 ```
 
-（2）在不同包中：
+（2) 在不同包中: 
 
 ```java
 import  basic.Day;
@@ -211,7 +211,7 @@ System.out.println( " Today is  "   +  today.toString().toLowerCase());
 }
 ```
 
-4、枚举类型的性质：（摘自o'relly 出版的 Java in A Nutshell 5th)
+4、枚举类型的性质: （摘自o'relly 出版的 Java in A Nutshell 5th)
   
 Enumerated types have no public constructor. The only instances of an enumerated type are those declared by the enum.
   
@@ -286,7 +286,7 @@ Enumeration接口
   
 Enumeration接口本身不是一个数据结构。但是，对其他数据结构非常重要。 Enumeration接口定义了从一个数据结构得到连续数据的手段。例如，Enumeration定义了一个名为nextElement的方法，可以用来从含有多个元素的数据结构中得到的下一个元素。
   
-Enumeration接口提供了一套标准的方法，由于Enumeration是一个接口，它的角色局限于为数据结构提供方法协议。下面是一个使用的例子：
+Enumeration接口提供了一套标准的方法，由于Enumeration是一个接口，它的角色局限于为数据结构提供方法协议。下面是一个使用的例子: 
   
 //e is an object that implements the Enumeration interface
   
@@ -402,9 +402,9 @@ return null;
 
 DK1.5引入了新的类型——枚举。在 Java 中它虽然算个"小"功能，却给我的开发带来了"大"方便。
   
-用法一：常量
+用法一: 常量
   
-在JDK1.5 之前，我们定义常量都是： public static fianl…. 。现在好了，有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。
+在JDK1.5 之前，我们定义常量都是:  public static fianl…. 。现在好了，有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。
 
 ```java
 public enum Color {
@@ -427,7 +427,7 @@ return super.hashCode();
 
 从以上代码中可以看出，对于枚举值的相等性判断，只需要判断引用是否相等即可。需要注意的是，这是在充分考虑了反射、对象克隆和序列化等诸多因素之后作出的决定。
 
-用法二：switch
+用法二: switch
   
 JDK1.6之前的switch语句只支持int,char,enum类型，使用枚举，能让我们的代码可读性更强。
 
@@ -453,7 +453,7 @@ break;
 }
 ```
 
-用法三：向枚举中添加新方法
+用法三: 向枚举中添加新方法
   
 如果打算自定义自己的方法，那么必须在enum实例序列的最后添加一个分号。而且 Java 要求必须先定义 enum 实例。
 
@@ -494,7 +494,7 @@ this.index = index;
 }
 ```
 
-用法四：覆盖枚举的方法
+用法四: 覆盖枚举的方法
   
 下面给出一个toString()方法覆盖的例子。
 
@@ -517,7 +517,7 @@ return this.index+"_"+this.name;
 }
 ```
 
-用法五：实现接口
+用法五: 实现接口
   
 所有的枚举都继承自java.lang.Enum类。由于Java 不支持多继承，所以枚举对象不能再继承其他类。
 
@@ -549,7 +549,7 @@ System.out.println(this.index+":"+this.name);
 }
 ```
 
-用法六：使用接口组织枚举
+用法六: 使用接口组织枚举
 
 ```java
 public interface Food {
@@ -562,13 +562,13 @@ FRUIT, CAKE, GELATO
 }
 ```
 
-用法七：关于枚举集合的使用
+用法七: 关于枚举集合的使用
   
 java.util.EnumSet和java.util.EnumMap是两个枚举集合。EnumSet保证集合中的元素不重复；EnumMap中的key是enum类型，而value则可以是任意类型。关于这个两个集合的使用就不在这里赘述，可以参考JDK文档。
   
-关于枚举的实现细节和原理请参考：
+关于枚举的实现细节和原理请参考: 
   
-参考资料：《ThinkingInJava》第四版
+参考资料: 《ThinkingInJava》第四版
 
 http://softbeta.iteye.com/blog/1185573
   

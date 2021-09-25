@@ -1,5 +1,5 @@
 ---
-title: apk 编译，反编译，AXMLPrinter2,smali,baksmali
+title: apk 编译,反编译,AXMLPrinter2,smali,baksmali
 author: "-"
 type: post
 date: 2014-04-14T08:07:13+00:00
@@ -18,19 +18,19 @@ http://blog.csdn.net/android_tutor/article/details/5724435
 
 三、准备工作
 
-为了方便起见，作者把AXMLPrinter2.jar, 还有baksmali.jar,还有smali.jar(下下来为了方便重命名)，放在Android SDK tools文件夹中如下图所示:
+为了方便起见,作者把AXMLPrinter2.jar, 还有baksmali.jar,还有smali.jar(下下来为了方便重命名),放在Android SDK tools文件夹中如下图所示:
 
-为了便于大家更容易程序比对，作者写了一个简单的应用(叫APKInstaller)目录结构如下图所示:
+为了便于大家更容易程序比对,作者写了一个简单的应用(叫APKInstaller)目录结构如下图所示:
 
 四、开始拿来主义
 
 1.用 AXMLPrinter2.jar查看apk中的布局xml文件:
 
-将ApkInstaller应用生成的ApkInstaller.apk(为了方便起见放到tools目录里)用WinRAR等 工具打开，将res/layout/main.xml解压出来(也还是放在tools目录里哦)
+将ApkInstaller应用生成的ApkInstaller.apk(为了方便起见放到tools目录里)用WinRAR等 工具打开,将res/layout/main.xml解压出来(也还是放在tools目录里哦)
 
-打开main.xml文件，内容如下(一堆天文):
+打开main.xml文件,内容如下(一堆天文):
 
-这时候AXMLPrinter2.jar派上用场了，打开cmd终端，一直进入到tools目录下，输入如下命令:
+这时候AXMLPrinter2.jar派上用场了,打开cmd终端,一直进入到tools目录下,输入如下命令:
 
 java -jar AXMLPrinter2.jar main.xml > main.txt. (如下图所示)
 
@@ -82,15 +82,15 @@ android:layout_width="fill_parent"
 
 2.用baksmali.jar反编译classes.dex:
 
-将ApkInstaller.apk里的classes.dex解压到tools目录里，然后baksmali.jar就派上用场了，在cmd命令行里输入如下命令:
+将ApkInstaller.apk里的classes.dex解压到tools目录里,然后baksmali.jar就派上用场了,在cmd命令行里输入如下命令:
 
 java -jar baksmali.jar -o classout/ classes.dex .(如下图所示:)
 
 你将会发现在tools里多一个classout文件夹里面(我代码的包目录结构清晰可见呀),如下图所示:
 
-从上面看出除了Android本身资源的类R开头的，我的源程序里只有一个ApkInstaller.java，完全吻合，真TMD的猥琐呵呵~
+从上面看出除了Android本身资源的类R开头的,我的源程序里只有一个ApkInstaller.java,完全吻合,真TMD的猥琐呵呵~
 
-下面我们看一下ApkInstaller.smali内容是什么，如以下代码: 
+下面我们看一下ApkInstaller.smali内容是什么,如以下代码: 
 
 [java][/java]
 
@@ -230,12 +230,12 @@ apkWeb.loadUrl(apkUrl);
 
 }
 
-我相信大家 已经能看出来门道来了吧，hoho~
+我相信大家 已经能看出来门道来了吧,hoho~
 
 3.用smali.jar编译classout成classes.dex:
 
-我们上一步已经将classes.dex反编译成了.smali文件，好了，我们看看smali文件看够了，在偿试把它编译成classes.dex吧，
+我们上一步已经将classes.dex反编译成了.smali文件,好了,我们看看smali文件看够了,在偿试把它编译成classes.dex吧,
 
 输入如下命令:java -jar smali.jar classout/ -o classes.dex. 如下图所示:
 
-我们可以将新生成的classes.dex塞入ApkInstaller.apk里覆盖原来的classes.dex文件，这样我们的apk还是一样能用的哦~
+我们可以将新生成的classes.dex塞入ApkInstaller.apk里覆盖原来的classes.dex文件,这样我们的apk还是一样能用的哦~

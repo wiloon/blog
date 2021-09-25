@@ -26,7 +26,7 @@ service就是android系统中的服务，它有这么几个特点: 它无法与�
   
 本地service顾名思义，那就是和当前应用在同一个进程中的service，彼此之间拥有共同的内存区域，所以对于某些数据的共享特别的方便和简单；
   
-远程service: 主要牵扯到不同进程间的service访问。因为android的系统安全的原因导致了我们在不同的进程间无法使用一般的方式共享数据。在这里android为我们提供了一个AIDL工具。（android interface description language）android接口描述语言。在后边我们将会对其进行详细的介绍。
+远程service: 主要牵扯到不同进程间的service访问。因为android的系统安全的原因导致了我们在不同的进程间无法使用一般的方式共享数据。在这里android为我们提供了一个AIDL工具。（android interface description language) android接口描述语言。在后边我们将会对其进行详细的介绍。
   
 四、service生命周期: 
   
@@ -65,7 +65,7 @@ conn则是一个代表与service连接状态的类，当我们连接service成�
   
 第三步: 在activity中进行启动、绑定、解绑或者停止service。
   
-（很多书上说，service与用户是不能交互的，其实这话很不正确，我们完全可以通过activity与service进行交互！我认为，确切的说法应该是service与用户不能进行直接的交互）。
+（很多书上说，service与用户是不能交互的，其实这话很不正确，我们完全可以通过activity与service进行交互！我认为，确切的说法应该是service与用户不能进行直接的交互) 。
 
 ----------
 
@@ -91,7 +91,7 @@ service通过Context.startService()方法开始，通过Context.stopService()方
 
 context.bindService() ——> onCreate() ——> onBind() ——> Service running ——> onUnbind() ——> onDestroy() ——> Service stop
 
-onBind()将返回给客户端一个IBind接口实例，IBind允许客户端回调服务的方法，比如得到Service的实例、运行状态或其他操作。这个时候把调用者（Context，例如Activity）会和Service绑定在一起，Context退出了，Srevice就会调用onUnbind->onDestroy相应退出。
+onBind()将返回给客户端一个IBind接口实例，IBind允许客户端回调服务的方法，比如得到Service的实例、运行状态或其他操作。这个时候把调用者（Context，例如Activity) 会和Service绑定在一起，Context退出了，Srevice就会调用onUnbind->onDestroy相应退出。
 
 所以调用bindService的生命周期为: onCreate -> onBind(只一次，不可多次绑定) -> onUnbind -> onDestory。
 
@@ -130,7 +130,7 @@ void onRebind(Intent intent)
 
 onBind()回调方法会继续传递通过bindService()传递来的intent对象
 
-onUnbind()会处理传递给unbindService()的intent对象。如果service允许绑定，onBind()会返回客户端与服务互相联系的通信句柄（实例）。
+onUnbind()会处理传递给unbindService()的intent对象。如果service允许绑定，onBind()会返回客户端与服务互相联系的通信句柄（实例) 。
 
 如果建立了一个新的客户端与服务的连接，onUnbind()方法可以请求调用onRebind()方法。
 
@@ -138,7 +138,7 @@ onUnbind()会处理传递给unbindService()的intent对象。如果service允许
 
 四、bindService和startservice示例
 
-（1）mainactivity
+（1) mainactivity
 
 复制代码
   
@@ -262,7 +262,7 @@ return true;
   
 复制代码
   
-（2）service
+（2) service
 
 复制代码
   
@@ -360,7 +360,7 @@ return CountService.this;
   
 复制代码
   
-（3）bindservice（一定要记着这个是要获得，链接的对象）
+（3) bindservice（一定要记着这个是要获得，链接的对象) 
 
 复制代码
   
@@ -452,7 +452,7 @@ Log.v("MainStadyServics", "out");
 
 在Service中需要创建一个实现IBinder的内部类(这个内部类不一定在Service中实现，但必须在Service中创建它)。
 
-在OnBind（）方法中需返回一个IBinder实例，不然onServiceConnected方法不会调用。
+在OnBind（) 方法中需返回一个IBinder实例，不然onServiceConnected方法不会调用。
 
 不过，我在这里传递null也能够调用，大家根据情况进行判定吧，如果是返回一个ibinder实例的话，示例代码如下: 
 

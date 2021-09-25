@@ -44,7 +44,7 @@ USING 'connectstring'
   
 或者用sys用户执行
 
-注意: 创建数据库链接的帐号必须有CREATE DATABASE LINK或CREATE PUBLIC DATABASE LINK的系统权限，用来登录到远程数据库的帐号必须有CREATE SESSION权限。这两种权限都包含在CONNECT角色中（CREATE PUBLIC DATABASE LINK权限在DBA中）。
+注意: 创建数据库链接的帐号必须有CREATE DATABASE LINK或CREATE PUBLIC DATABASE LINK的系统权限，用来登录到远程数据库的帐号必须有CREATE SESSION权限。这两种权限都包含在CONNECT角色中（CREATE PUBLIC DATABASE LINK权限在DBA中) 。
 
 一个公用数据库链接对于数据库中的所有用户都是可用的，而一个私有链接仅对创建它的用户可用。由一个用户给另外一个用户授权私有数据库链接是不可能的，一个数据库链接要么是公用的，要么是私有的。
 
@@ -106,7 +106,7 @@ connect to scott identified by tiger
   
 using 'sun';
 
-1)dblink名必须与远程数据库的全局数据库名（global_name）相同；
+1)dblink名必须与远程数据库的全局数据库名（global_name) 相同；
   
 2)用户名，口令为远程数据库用户名，口令;
   

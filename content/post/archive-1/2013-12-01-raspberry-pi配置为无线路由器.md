@@ -13,20 +13,20 @@ tags:
 ---
 [http://www.cnblogs.com/DaochenShi/p/3152981.html](http://www.cnblogs.com/DaochenShi/p/3152981.html)
     
-      因为自己有个RPi，但是之前用的8188CUS芯片的无线网卡不支持，虽然当时买的时候是为了让笔记本连双WiFi的，因此只挑了个最便宜的。后来发现没法在RPi上面做AP，于是就又重新买了个。国内也有树梅派的论坛讨论过哪些无线网卡的支持，发现Ralink的芯片可以，因此就再花了34块钱买了个腾达的W331M，使用最新的Raspbian内核来进行操作（非最新的话可能需要自己编译驱动）。
+      因为自己有个RPi，但是之前用的8188CUS芯片的无线网卡不支持，虽然当时买的时候是为了让笔记本连双WiFi的，因此只挑了个最便宜的。后来发现没法在RPi上面做AP，于是就又重新买了个。国内也有树梅派的论坛讨论过哪些无线网卡的支持，发现Ralink的芯片可以，因此就再花了34块钱买了个腾达的W331M，使用最新的Raspbian内核来进行操作（非最新的话可能需要自己编译驱动) 。
     
     
     
-      以下是结合上面的参考链接给出的如何将RPi搭建为一个路由器：
+      以下是结合上面的参考链接给出的如何将RPi搭建为一个路由器: 
     
     
     
-      首先是必备材料：
+      首先是必备材料: 
     
     
     <ul>
       
-        RaspberryPi B版（就是带有线网卡的那个版），内存512/256都可以，我的是256的。
+        RaspberryPi B版（就是带有线网卡的那个版) ，内存512/256都可以，我的是256的。
       
       
         一个已经可以正常运行的SD卡，这个如何准备我在我的另外一篇随笔当中提到过，所以这里不再赘述。
@@ -40,12 +40,12 @@ tags:
     </ul>
     
     
-      然后是必备技能：
+      然后是必备技能: 
     
     
     <ul>
       
-        如果你是无显示器运行的，则需要会使用nano（vi也可以）
+        如果你是无显示器运行的，则需要会使用nano（vi也可以) 
       
       
         如果你是有显示器运行的，那么可以在图形界面下面以root或者sudo来运行文本编辑器
@@ -56,7 +56,7 @@ tags:
     </ul>
     
     
-      感谢原文给出的驱动提示，这里也抄一下。请确认无线网卡支持AP模式或者Master模式，已知下列网卡的具体情况：
+      感谢原文给出的驱动提示，这里也抄一下。请确认无线网卡支持AP模式或者Master模式，已知下列网卡的具体情况: 
     
     
     <ul>
@@ -72,7 +72,7 @@ tags:
     </ul>
     
     
-      想看你使用的是那种芯片？用lsusb吧！(省略了部分输出）
+      想看你使用的是那种芯片？用lsusb吧！(省略了部分输出) 
     
     
     
@@ -86,7 +86,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
     
     
     
-      先说一下大概步骤：
+      先说一下大概步骤: 
     
     
     <ul>
@@ -102,7 +102,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
     </ul>
     
     
-      正文开始了：
+      正文开始了: 
     
     
     
@@ -113,7 +113,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
       
       
       
-        配置DHCP，也就是编辑文件/etc/udhcpd.conf ，基本上按照下列内容来做： 
+        配置DHCP，也就是编辑文件/etc/udhcpd.conf ，基本上按照下列内容来做:  
           
             <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
           
@@ -142,7 +142,7 @@ opt lease 864000 # 10 day DHCP lease time in seconds
         
         
         
-          当然，你需要给无线网卡指定一个地址（静态地址，不会变的），为了达到开机启动就设置好的目的，你需要编辑/etc/network/interfaces：
+          当然，你需要给无线网卡指定一个地址（静态地址，不会变的) ，为了达到开机启动就设置好的目的，你需要编辑/etc/network/interfaces: 
         
         
         
@@ -159,7 +159,7 @@ netmask 255.255.255.0
            
           
           
-            配置hostapd。在这一部你就可以创建一个无线网络，可以选加密或者不加密模式。建议选择WPA2加密，那么你需要编辑/etc/hostapd/hostapd.conf文件（若不存在则需要手动创建） 
+            配置hostapd。在这一部你就可以创建一个无线网络，可以选加密或者不加密模式。建议选择WPA2加密，那么你需要编辑/etc/hostapd/hostapd.conf文件（若不存在则需要手动创建)  
               
                 按 Ctrl+C 复制代码
               
@@ -182,7 +182,7 @@ netmask 255.255.255.0
             
             
             
-              来进行生成，生成的结果为：（已经修改psk部分，这里仅做示意用）
+              来进行生成，生成的结果为: （已经修改psk部分，这里仅做示意用) 
             
             
             
@@ -208,7 +208,7 @@ psk=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
             
             
             
-              如果你想使用开放网络（不含密码），那么就这样配置：
+              如果你想使用开放网络（不含密码) ，那么就这样配置: 
             
             
             
@@ -234,7 +234,7 @@ wmm_enabled=0
             
             
             
-              把原来的DAEMON_CONF="/etc/hostapd/hostapd.conf" 变为：
+              把原来的DAEMON_CONF="/etc/hostapd/hostapd.conf" 变为: 
             
             
             
@@ -250,7 +250,7 @@ wmm_enabled=0
                 
                 
                 
-                  那么这就在内核当中开启了ipv4的转发，之后需要设置iptables来让数据包通过：
+                  那么这就在内核当中开启了ipv4的转发，之后需要设置iptables来让数据包通过: 
                 
                 
                 
@@ -260,7 +260,7 @@ sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
                 
-                  为了以后重启之后可以自动加载，因此运行命令来保存为一个文件：
+                  为了以后重启之后可以自动加载，因此运行命令来保存为一个文件: 
                 
                 
                 
@@ -268,7 +268,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
                 
                 
                 
-                  并在/etc/network/interfaces文件的末尾添加这么一句：
+                  并在/etc/network/interfaces文件的末尾添加这么一句: 
                 
                 
                 
@@ -279,13 +279,13 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
                    
                   
                   
-                    启动服务，看看你的无线是否搭建好了？运行一下命令： 
+                    启动服务，看看你的无线是否搭建好了？运行一下命令:  
                       sudo service hostapd start
 
 sudo service udhcpd start
 
                     
-                      如果你想开机启动的话，那么就这么做：
+                      如果你想开机启动的话，那么就这么做: 
                     
                     
                     
@@ -305,7 +305,7 @@ sudo update-rc.d udhcpd enable
                       
                       
                       
-                        我自己遇到了安装好udhcpd之后死活启动不了，报错是：
+                        我自己遇到了安装好udhcpd之后死活启动不了，报错是: 
                       
                       
                       
@@ -313,7 +313,7 @@ sudo update-rc.d udhcpd enable
                       
                       
                       
-                        而且sudo ifup wlan0的时候报错，不过它指出来了错误地点：
+                        而且sudo ifup wlan0的时候报错，不过它指出来了错误地点: 
                       
                       
                       
@@ -338,7 +338,7 @@ Failed to bring up wlan0.
                       
                       
                       
-                        最后，接下来需要做的是：将eth0的ipv6通过类似brouter之类的东西使得无线网也有ipv6. 查过说有ebtables可以，但是具体怎么弄我一直没搞明白过（这个问题1年前就在关注了，但是没做，太懒了……
+                        最后，接下来需要做的是: 将eth0的ipv6通过类似brouter之类的东西使得无线网也有ipv6. 查过说有ebtables可以，但是具体怎么弄我一直没搞明白过（这个问题1年前就在关注了，但是没做，太懒了……
                       
                       
                       

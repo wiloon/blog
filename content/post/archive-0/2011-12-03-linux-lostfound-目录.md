@@ -20,17 +20,17 @@ fsck -t ext3 -r /usr/local 修复 ， /usr 是提示检查不能通过的分区�
 
 fsck的命令的几个使用方法
 
-指令：fsck
+指令: fsck
 
 使用权限 : 超级使用者
 
 使用方式 : fsck [-sACVRP] [-t fstype] [–] [fsck-options] filesys […]
 
-说明 ： 检查与修复 Linux 档案系统，可以同时检查一个或多个 Linux 档案系统
+说明 :  检查与修复 Linux 档案系统，可以同时检查一个或多个 Linux 档案系统
 
-参数 ：
+参数 : 
 
-filesys ： device 名称(eg./dev/sda1)，mount 点 (eg. / 或 /usr)
+filesys :  device 名称(eg./dev/sda1)，mount 点 (eg. / 或 /usr)
 
 -t : 给定档案系统的型式，若在 /etc/fstab 中已有定义或 kernel 本身已支援的则不需加上此参数
 

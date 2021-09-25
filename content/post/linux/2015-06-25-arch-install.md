@@ -47,7 +47,8 @@ ls /sys/firmware/efi/efivars
 ```
 
 ### config pacman mirror
-title: pacman
+>wiloon.com/pacman
+
 <https://blog.wiloon.com/?p=7501>
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 ```bash
@@ -160,7 +161,7 @@ wiloon ALL=(ALL) NOPASSWD: ALL
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved.service
 
-# 配置网络： https://blog.wiloon.com/?p=9881， /etc/systemd/network/eth.network， 否则有可能启动之后没有网络
+# 配置网络:  https://blog.wiloon.com/?p=9881， /etc/systemd/network/eth.network， 否则有可能启动之后没有网络
 
 systemctl enable fstrim.timer
 # exit to iso

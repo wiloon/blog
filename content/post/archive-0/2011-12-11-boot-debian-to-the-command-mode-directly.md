@@ -14,7 +14,7 @@ categories:
 ---
 方法是把gdm从run level 2中删除。
   
-可以使用如下的命令：
+可以使用如下的命令: 
   
 1. update-rc.d -f gdm remove
   

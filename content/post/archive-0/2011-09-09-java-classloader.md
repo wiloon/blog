@@ -15,7 +15,7 @@ JDK默认ClassLoader
 JDK 默认提供了如下几种ClassLoader
 
 ### Bootstrap Class Loader, 引导类装载器
-虚拟机的内置类加载器（称为 "bootstrap class loader"）本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。  
+虚拟机的内置类加载器（称为 "bootstrap class loader") 本身没有父类加载器，但是可以将它用作 ClassLoader 实例的父类加载器。  
 Bootstrap Class Loader加载器是由c++实现的  
 不继承java.lang.ClassLoader类, 所以它不属于"ClassLoader 实例"，也没有办法在Java代码中获取到它。  
 用来加载核心类库，如 java.lang.* 等.它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。  
@@ -51,7 +51,7 @@ public class ClassLoaderX {
 ```
 
 ### 委托模型 (双亲委托模型)
-Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤：  
+Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机制加载类的时候采用如下的几个步骤:   
 当前ClassLoader首先从自己已经加载的类中查询是否此类已经加载，如果已经加载则直接返回原来已经加载的类。  
 每个类加载器都有自己的加载缓存，当一个类被加载了以后就会放入缓存，等下次加载的时候就可以直接返回了。  
 当前classLoader的缓存中没有找到被加载的类的时候，委托父类加载器去加载，父类加载器采用同样的策略，首先查看自己的缓存，然后委托父类的父类去加载，一直到bootstrp ClassLoader.  
@@ -60,7 +60,7 @@ Java中ClassLoader的加载采用了双亲委托机制，采用双亲委托机�
 说到这里大家可能会想，Java为什么要采用这样的委托机制？理解这个问题，我们引入另外一个关于Classloader的概念"命名空间"， 它是指要确定某一个类，需要类的全限定名以及加载此类的ClassLoader来共同确定。也就是说即使两个类的全限定名是相同的，但是因为不同的 ClassLoader加载了此类，那么在JVM中它是不同的类。明白了命名空间以后，我们再来看看委托模型。采用了委托模型以后加大了不同的 ClassLoader的交互能力，比如上面说的，我们JDK本身提供的类库，比如hashmap,linkedlist等等，这些类由bootstrp 类加载器加载了以后，无论你程序中有多少个类加载器，那么这些类其实都是可以共享的，这样就避免了不同的类加载器加载了同样名字的不同类以后造成混乱。
 
 ### 自定义ClassLoader
-Java除了上面所说的默认提供的classloader以外，它还容许应用程序可以自定义classloader，那么要想自定义classloader我们需要通过继承java.lang.ClassLoader来实现,接下来我们就来看看再自定义Classloader的时候，我们需要注意的几个重要的方法：
+Java除了上面所说的默认提供的classloader以外，它还容许应用程序可以自定义classloader，那么要想自定义classloader我们需要通过继承java.lang.ClassLoader来实现,接下来我们就来看看再自定义Classloader的时候，我们需要注意的几个重要的方法: 
 
 1.loadClass 方法
   
@@ -128,7 +128,7 @@ return c;
 
 2.findClass
   
-我们查看java.lang.ClassLoader的源代码，我们发现findClass的实现如下：
+我们查看java.lang.ClassLoader的源代码，我们发现findClass的实现如下: 
 
 protected Class<?> findClass(String name) throws ClassNotFoundException
   
@@ -138,13 +138,13 @@ throw new ClassNotFoundException(name);
   
 }
   
-我们可以看出此方法默认的实现是直接抛出异常，其实这个方法就是留给我们应用程序来override的。那么具体的实现就看你的实现逻辑了，你可以从磁盘读取，也可以从网络上获取class文件的字节流，获取class二进制了以后就可以交给defineClass来实现进一步的加载。defineClass我们再下面再来描述。 ok，通过上面的分析，我们可以得出如下结论：
+我们可以看出此方法默认的实现是直接抛出异常，其实这个方法就是留给我们应用程序来override的。那么具体的实现就看你的实现逻辑了，你可以从磁盘读取，也可以从网络上获取class文件的字节流，获取class二进制了以后就可以交给defineClass来实现进一步的加载。defineClass我们再下面再来描述。 ok，通过上面的分析，我们可以得出如下结论: 
 
 我们在写自己的ClassLoader的时候，如果想遵循双亲委托机制，则只需要override findClass.
   
 3.defineClass
   
-我们首先还是来看看defineClass的源码：
+我们首先还是来看看defineClass的源码: 
 
 defineClass
 
@@ -160,7 +160,7 @@ return defineClass(name, b, off, len, null);
   
 从上面的代码我们看出此方法被定义为了final，这也就意味着此方法不能被Override，其实这也是jvm留给我们的唯一的入口，通过这个唯 一的入口，jvm保证了类文件必须符合Java虚拟机规范规定的类的定义。此方法最后会调用native的方法来实现真正的类的加载工作。
 
-Ok,通过上面的描述，我们来思考下面一个问题：
+Ok,通过上面的描述，我们来思考下面一个问题: 
   
 假如我们自己写了一个java.lang.String的类，我们是否可以替换调JDK本身的类？
 
@@ -170,7 +170,7 @@ Ok,通过上面的描述，我们来思考下面一个问题：
   
 上面说了双亲委托机制主要是为了实现不同的ClassLoader之间加载的类的交互问题，被大家公用的类就交由父加载器去加载，但是Java中确实也存在父类加载器加载的类需要用到子加载器加载的类的情况。下面我们就来说说这种情况的发生。
 
-Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比如JDBC，JNDI等，我们都知道JDBC需要第三方提供的驱动才可以，而驱动的jar包是放在我们应 用程序本身的classpath的，而jdbc 本身的api是jdk提供的一部分，它已经被bootstrp加载了，那第三方厂商提供的实现类怎么加载呢？这里面JAVA引入了线程上下文类加载的概念，线程类加载器默认会从父线程继承，如果没有指定的话，默认就是系统类加载器（AppClassLoader）,这样的话当加载第三方驱动的时候，就可 以通过线程的上下文类加载器来加载。
+Java中有一个SPI(Service Provider Interface)标准,使用了SPI的库，比如JDBC，JNDI等，我们都知道JDBC需要第三方提供的驱动才可以，而驱动的jar包是放在我们应 用程序本身的classpath的，而jdbc 本身的api是jdk提供的一部分，它已经被bootstrp加载了，那第三方厂商提供的实现类怎么加载呢？这里面JAVA引入了线程上下文类加载的概念，线程类加载器默认会从父线程继承，如果没有指定的话，默认就是系统类加载器（AppClassLoader) ,这样的话当加载第三方驱动的时候，就可 以通过线程的上下文类加载器来加载。
   
 另外为了实现更灵活的类加载器OSGI以及一些Java app server也打破了双亲委托机制。
 
@@ -295,15 +295,15 @@ After the initial checks, we come to the code above which is where the simple cl
 
 http://www.blogjava.net/realsmy/archive/2007/04/03/108053.html
 
-JAVA中的一切都是以类的形式存在的（除少数底层的东西，那些我就不清楚是怎么回事了）。我们运行的接口是一个类，运行中所涉及到的对象也都是类对象。下面，我们来研究下，我所理解的类的加载机制。
+JAVA中的一切都是以类的形式存在的（除少数底层的东西，那些我就不清楚是怎么回事了) 。我们运行的接口是一个类，运行中所涉及到的对象也都是类对象。下面，我们来研究下，我所理解的类的加载机制。
 
-比如我们有一个Student类，也就是经过编译后，是一个Student.class文件。当我们的程序运行的过程中，第一次实例化一个student对象的时候，系统首先要做的就是加载Student这个类。也就是把Student.class以字节玛的形势加载到内存中（并通过defineClass()这个方法转变成Class对象，最终以Class对象的形式存储在内存中）。这个加载的过程就是由类加载器来完成的。
+比如我们有一个Student类，也就是经过编译后，是一个Student.class文件。当我们的程序运行的过程中，第一次实例化一个student对象的时候，系统首先要做的就是加载Student这个类。也就是把Student.class以字节玛的形势加载到内存中（并通过defineClass()这个方法转变成Class对象，最终以Class对象的形式存储在内存中) 。这个加载的过程就是由类加载器来完成的。
 
-一般的，在程序启动之后，系统会主要会有三个类加载器：Bootstrap Loader、ExtClassLoader与AppClassLoader。
+一般的，在程序启动之后，系统会主要会有三个类加载器: Bootstrap Loader、ExtClassLoader与AppClassLoader。
 
-Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的classes或lib目录下的.jar文件（例如rt.jar）是否需要被加载（实际上是由系统参数sun.boot.class.path来指定）；ExtClassLoader主要负责搜索JRE所在目录的lib/ext 目录下的classes或.jar中是否需要被加载（实际上是由系统参数java.ext.dirs指定）；AppClassLoader则是搜索 Classpath中是否有指定的classes需要被载入（由系统参数java.class.path指定）。
+Bootstrap Loader是由C++撰写的，它主要负责搜索JRE所在目录的classes或lib目录下的.jar文件（例如rt.jar) 是否需要被加载（实际上是由系统参数sun.boot.class.path来指定) ；ExtClassLoader主要负责搜索JRE所在目录的lib/ext 目录下的classes或.jar中是否需要被加载（实际上是由系统参数java.ext.dirs指定) ；AppClassLoader则是搜索 Classpath中是否有指定的classes需要被载入（由系统参数java.class.path指定) 。
 
-简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候：
+简单的说，Bootstrap Loader、ExtClassLoader这两个类加载器，主要是加载系统类库里的类。我们自己编辑的类一般都是由AppClassLoader来加载。当我们遇到如下代码的时候: 
 
 ```java
 
@@ -313,9 +313,9 @@ Student stu = new Student();
 
 ```
 
-AppClassLoader首先会到classpath下去寻找Student.class文件。（找不到则会抛出ClassNotFoundException异常）找到之后便会把Student这个类以二进制的形式存储到内存中。这个过程也就是对Student类加载的过程。然后用我们加载到内存中的Student类去实例化一个Student对象stu。
+AppClassLoader首先会到classpath下去寻找Student.class文件。（找不到则会抛出ClassNotFoundException异常) 找到之后便会把Student这个类以二进制的形式存储到内存中。这个过程也就是对Student类加载的过程。然后用我们加载到内存中的Student类去实例化一个Student对象stu。
 
-以上就是所谓的隐式的类的加载过程。但是有些时候需要我们自定义一个类的加载器，这个时候就需要我们模仿这个过程，显示的加载我们自己所需要的类。比如，我们自定义一个类的加载器MyClassLoader，那我们利用我们自定义的这个加载器，显示的去加载一个类的过程也是这样的：
+以上就是所谓的隐式的类的加载过程。但是有些时候需要我们自定义一个类的加载器，这个时候就需要我们模仿这个过程，显示的加载我们自己所需要的类。比如，我们自定义一个类的加载器MyClassLoader，那我们利用我们自定义的这个加载器，显示的去加载一个类的过程也是这样的: 
 
 1.寻找类文件。
   
@@ -323,11 +323,11 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
   
 2.加载类文件。
   
-找到我们所要加载的类之后，通过MyClassLoader的defineClass()方法，把这个类加载到指定的内存中。这里我们可以自己设定存储类的内存空间，比如把我们加载的类都统一放到一个变量数组里（至于系统的类加载到内存中是以什么样的形式存储再内存中的，我还不清楚，只知道是以二进制的形式保存的，可以用一个Class对象去引用）。
+找到我们所要加载的类之后，通过MyClassLoader的defineClass()方法，把这个类加载到指定的内存中。这里我们可以自己设定存储类的内存空间，比如把我们加载的类都统一放到一个变量数组里（至于系统的类加载到内存中是以什么样的形式存储再内存中的，我还不清楚，只知道是以二进制的形式保存的，可以用一个Class对象去引用) 。
   
 3.创建类对象。
   
-我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考：
+我接触的时候还不大理解，其实这里是应用我们自己加载到内存中的类，去实例化一个对象。以下代码可以参考: 
 
 ```java
 

@@ -27,14 +27,14 @@ top
 top命令显示处理器的活动状况。缺省情况下，显示占用CPU最多的任务，并且每隔5秒钟做一次刷新。
   
 
-Process priority的数值决定了CPU处理进程的顺序。LIUNX内核会根据需要调整该数值的大小。nice value局限于priority。priority的值不能低于nice value（nice value值越低，优先级越高）。您不可以直接修改Process priority的值，但是可以通过调整nice level值来间接地改变Process priority值，然而这一方法并不是所有时候都可用。如果某个进程运行异常的慢，可以通过降低nice level为该进程分配更多的CPU。
+Process priority的数值决定了CPU处理进程的顺序。LIUNX内核会根据需要调整该数值的大小。nice value局限于priority。priority的值不能低于nice value（nice value值越低，优先级越高) 。您不可以直接修改Process priority的值，但是可以通过调整nice level值来间接地改变Process priority值，然而这一方法并不是所有时候都可用。如果某个进程运行异常的慢，可以通过降低nice level为该进程分配更多的CPU。
 
 iostat
 
 iostat由Red Hat Enterprise Linux AS发布。同时iostat也是Sysstat的一部分，可以下载到，网址是[http://perso.wanadoo.fr/sebastien.godard/](http://perso.wanadoo.fr/sebastien.godard/ "http://perso.wanadoo.fr/sebastien.godard/")
   
 
-执行iostat命令可以从系统启动之后的CPU平均时间，类似于uptime。除此之外，iostat还对创建一个服务器磁盘子系统的活动报告。该报告包含两部分：CPU使用情况和磁盘使用情况。
+执行iostat命令可以从系统启动之后的CPU平均时间，类似于uptime。除此之外，iostat还对创建一个服务器磁盘子系统的活动报告。该报告包含两部分: CPU使用情况和磁盘使用情况。
 
 vmstat
 
@@ -42,16 +42,16 @@ vmstat提供了processes, memory, paging, block I/O, traps和CPU的活动状况
 
 sar
 
-sar是Red Hat Enterprise Linux AS发行的一个工具，同时也是Sysstat工具集的命令之一，可以从以下网址下载：[http://perso.wanadoo.fr/sebastien.godard/](http://perso.wanadoo.fr/sebastien.godard/ "http://perso.wanadoo.fr/sebastien.godard/")
+sar是Red Hat Enterprise Linux AS发行的一个工具，同时也是Sysstat工具集的命令之一，可以从以下网址下载: [http://perso.wanadoo.fr/sebastien.godard/](http://perso.wanadoo.fr/sebastien.godard/ "http://perso.wanadoo.fr/sebastien.godard/")
   
 
-sar用于收集、报告或者保存系统活动信息。sar由三个应用组成：sar显示数据、sar1和sar2用于收集和保存数据。
+sar用于收集、报告或者保存系统活动信息。sar由三个应用组成: sar显示数据、sar1和sar2用于收集和保存数据。
   
 
-使用sar1和sar2，系统能够配置成自动抓取信息和日志，以备分析使用。配置举例：在/etc/crontab中添加如下几行内容
+使用sar1和sar2，系统能够配置成自动抓取信息和日志，以备分析使用。配置举例: 在/etc/crontab中添加如下几行内容
   
 
-同样的，你也可以在命令行方式下使用sar运行实时报告。如图所示：
+同样的，你也可以在命令行方式下使用sar运行实时报告。如图所示: 
   
 
 从收集的信息中，可以得到详细的CPU使用情况(%user, %nice, %system, %idle)、内存页面调度、网络I/O、进程活动、块设备活动、以及interrupts/second
@@ -68,7 +68,7 @@ Traffic-vis
 
 Traffic-vis是一套测定哪些主机在IP网进行通信、通信的目标主机以及传输的数据量。并输出纯文本、HTML或者GIF格式的报告。
 
-注：Traffic-vis仅仅适用于SUSE LINUX ENTERPRISE SERVER。
+注: Traffic-vis仅仅适用于SUSE LINUX ENTERPRISE SERVER。
 
 pmap
 

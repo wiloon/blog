@@ -10,7 +10,7 @@ categories:
 ---
 下载源代码, 编译软件准备
   
-下载内核源代码：<http://www.kernel.org/>
+下载内核源代码: <http://www.kernel.org/>
 
 apt-get update
 
@@ -38,7 +38,7 @@ cd /usr/src/linux
 
 清理以前编译时留下的临时文件，如果是刚刚解开的包，据我的实践，不需要执行这步。执行与否，自己考虑。
   
-相关命令如下：
+相关命令如下: 
 
 make mrproper
 

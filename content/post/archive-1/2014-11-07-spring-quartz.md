@@ -22,7 +22,7 @@ tags:
        <property name="autoStartup" value="true"/>  
 </bean>
 
-说明: Scheduler包含一个Trigger列表，每个Trigger表示一个作业。
+说明: Scheduler包含一个Trigger列表,每个Trigger表示一个作业。
 
 **2、Trigger的配置**
 
@@ -33,7 +33,7 @@ tags:
 
 说明: 
 
-1）Cron表达式的格式: 秒 分 时 日 月 周 年(可选)。
+1) Cron表达式的格式: 秒 分 时 日 月 周 年(可选)。
 
 字段名                 允许的值                        允许的特殊字符
 
@@ -57,15 +57,15 @@ tags:
 
 "-"字符: 指定一个值的范围
 
-"/"字符: 指定一个值的增加幅度。n/m表示从n开始，每次增加m
+"/"字符: 指定一个值的增加幅度。n/m表示从n开始,每次增加m
 
-"L"字符: 用在日表示一个月中的最后一天，用在周表示该月最后一个星期X
+"L"字符: 用在日表示一个月中的最后一天,用在周表示该月最后一个星期X
 
 "W"字符: 指定离给定日期最近的工作日(周一到周五)
 
 "#"字符: 表示该月第几个周X。6#3表示该月第3个周五
 
-2）Cron表达式范例: 
+2) Cron表达式范例: 
 
 每隔5秒执行一次: */5 \* \* \* * ?
 
@@ -91,7 +91,7 @@ tags:
         <property name="targetObject" ref="testJob"/>  
         <property name="targetMethod" value="execute"/>  
         <property name="concurrent" value="false"/>
-        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->  
+        <!-- 是否允许任务并发执行。当值为false时,表示必须等到前一个线程处理完毕后才再启一个新的线程 -->  
 </bean>
 
 **4、业务类的配置**
@@ -110,13 +110,13 @@ tags:
      }  
 }
 
-说明: 业务类不需要继承任何父类，也不需要实现任何接口，只是一个普通的java类。
+说明: 业务类不需要继承任何父类,也不需要实现任何接口,只是一个普通的java类。
 
 注意: 
 
-在Spring配置和Quartz集成内容时，有两点需要注意
+在Spring配置和Quartz集成内容时,有两点需要注意
 
-１、在<Beans>中不能够设置default-lazy-init="true",否则定时任务不触发，如果不明确指明default-lazy-init的值，默认是false。
+１、在<Beans>中不能够设置default-lazy-init="true",否则定时任务不触发,如果不明确指明default-lazy-init的值,默认是false。
 
-２、在<Beans>中不能够设置default-autowire="byName"的属性，否则后台会报org.springframework.beans.factory.BeanCreationException错误，这样就不能通过Bean名称自动注入，必须通过明确引用注入
+２、在<Beans>中不能够设置default-autowire="byName"的属性,否则后台会报org.springframework.beans.factory.BeanCreationException错误,这样就不能通过Bean名称自动注入,必须通过明确引用注入
 

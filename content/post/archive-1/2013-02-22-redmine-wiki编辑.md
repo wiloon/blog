@@ -44,9 +44,9 @@ Redmine允许在任何wiki文本格式里使用问题，变更集和wiki页面�
 
 **文档: **
 
-  * document#17 (链接到ID为17的文档）
-  * document:Geetings (链接到标题为"Geetings"的文档）
-  * document:"Some document" (当文档标题含有空格时需要使用双引号）
+  * document#17 (链接到ID为17的文档) 
+  * document:Geetings (链接到标题为"Geetings"的文档) 
+  * document:"Some document" (当文档标题含有空格时需要使用双引号) 
 
 **版本: **
 

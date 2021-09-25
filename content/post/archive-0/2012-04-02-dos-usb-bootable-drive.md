@@ -126,9 +126,9 @@ aronschatz@asetest2:~$
   
 With the partition made in the previous step, you know need to put a filesystem on it. The command mkdosfs is pretty easy to figure out.
 
-  <h4>
+  
     Code
-  </h4>
+  
   
     ```bash
  aronschatz@asetest2:~$ sudo mkdosfs -I /dev/sdb1
@@ -199,9 +199,9 @@ aronschatz@asetest2:~$ sudo dosemu
 
 This command should bring up another prompt that is basically FreeDOS. In this new window, type the series of commands...
 
-  <h4>
+  
     Code
-  </h4>
+  
   
     ```bash
  C:> z:

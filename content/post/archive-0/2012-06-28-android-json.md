@@ -11,9 +11,9 @@ categories:
 <http://blog.csdn.net/aomandeshangxiao/article/details/7000077>
 
 
-JSON的定义：
+JSON的定义: 
 
-一种轻量级的数据交换格式，具有良好的可读和便于快速编写的特性。业内主流技术为其提供了完整的解决方案（有点类似于正则表达式 ，获得了当今大部分语言的支持），从而可以在不同平台间进行数据交换。JSON采用兼容性很高的文本格式，同时也具备类似于C语言体系的行为。 – Json.org
+一种轻量级的数据交换格式，具有良好的可读和便于快速编写的特性。业内主流技术为其提供了完整的解决方案（有点类似于正则表达式 ，获得了当今大部分语言的支持) ，从而可以在不同平台间进行数据交换。JSON采用兼容性很高的文本格式，同时也具备类似于C语言体系的行为。 – Json.org
 
 JSON Vs XML
 
@@ -31,17 +31,17 @@ JSON Vs XML
 
 android2.3提供的json解析类
 
-android的json解析部分都在包org.json下，主要有以下几个类：
+android的json解析部分都在包org.json下，主要有以下几个类: 
 
-JSONObject：可以看作是一个json对象,这是系统中有关JSON定义的基本单元，其包含一对儿(Key/Value)数值。它对外部(External： 应用toString()方法输出的数值)调用的响应体现为一个标准的字符串（例如：{"JSON": "Hello, World"}，最外被大括号包裹，其中的Key和Value被冒号":"分隔）。其对于内部(Internal)行为的操作格式略微，例如：初始化一个JSONObject实例，引用内部的put()方法添加数值：new JSONObject().put("JSON", "Hello, World!")，在Key和Value之间是以逗号","分隔。Value的类型包括：Boolean、JSONArray、JSONObject、Number、String或者默认值JSONObject.NULL object 。
+JSONObject: 可以看作是一个json对象,这是系统中有关JSON定义的基本单元，其包含一对儿(Key/Value)数值。它对外部(External:  应用toString()方法输出的数值)调用的响应体现为一个标准的字符串（例如: {"JSON": "Hello, World"}，最外被大括号包裹，其中的Key和Value被冒号":"分隔) 。其对于内部(Internal)行为的操作格式略微，例如: 初始化一个JSONObject实例，引用内部的put()方法添加数值: new JSONObject().put("JSON", "Hello, World!")，在Key和Value之间是以逗号","分隔。Value的类型包括: Boolean、JSONArray、JSONObject、Number、String或者默认值JSONObject.NULL object 。
 
-JSONStringer：json文本构建类 ，根据官方的解释，这个类可以帮助快速和便捷的创建JSON text。其最大的优点在于可以减少由于 格式的错误导致程序异常，引用这个类可以自动严格按照JSON语法规则（syntax rules）创建JSON text。每个JSONStringer实体只能对应创建一个JSON text。。其最大的优点在于可以减少由于格式的错误导致程序异常，引用这个类可以自动严格按照JSON语法规则（syntax rules）创建JSON text。每个JSONStringer实体只能对应创建一个JSON text。
+JSONStringer: json文本构建类 ，根据官方的解释，这个类可以帮助快速和便捷的创建JSON text。其最大的优点在于可以减少由于 格式的错误导致程序异常，引用这个类可以自动严格按照JSON语法规则（syntax rules) 创建JSON text。每个JSONStringer实体只能对应创建一个JSON text。。其最大的优点在于可以减少由于格式的错误导致程序异常，引用这个类可以自动严格按照JSON语法规则（syntax rules) 创建JSON text。每个JSONStringer实体只能对应创建一个JSON text。
 
-JSONArray：它代表一组有序的数值。将其转换为String输出(toString)所表现的形式是用方括号包裹，数值以逗号","分隔（例如： [value1,value2,value3]，大家可以亲自利用简短的代码更加直观的了解其格式）。这个类的内部同样具有查询行为， get()和opt()两种方法都可以通过index索引返回指定的数值，put()方法用来添加或者替换数值。同样这个类的value类型可以包括：Boolean、JSONArray、JSONObject、Number、String或者默认值JSONObject.NULL object。
+JSONArray: 它代表一组有序的数值。将其转换为String输出(toString)所表现的形式是用方括号包裹，数值以逗号","分隔（例如:  [value1,value2,value3]，大家可以亲自利用简短的代码更加直观的了解其格式) 。这个类的内部同样具有查询行为， get()和opt()两种方法都可以通过index索引返回指定的数值，put()方法用来添加或者替换数值。同样这个类的value类型可以包括: Boolean、JSONArray、JSONObject、Number、String或者默认值JSONObject.NULL object。
 
-JSONTokener：json解析类
+JSONTokener: json解析类
 
-JSONException：json中用到的异常
+JSONException: json中用到的异常
 
 JSONObject, JSONArray来构建json文本
 
@@ -197,7 +197,7 @@ json文本解析类JSONTokener
 
 按照RFC4627规范将json文本解析为相应的对象。
 
-对于将json文本解析为对象，只需要用到该类的两个api：
+对于将json文本解析为对象，只需要用到该类的两个api: 
 
 构造函数
 
@@ -241,7 +241,7 @@ JSONTokener jsonParser = new JSONTokener(JSON);
 
 // 此时还未读取任何json文本，直接读取就是一个JSONObject对象。
 
-// 如果此时的读取位置在"name" : 了，那么nextValue就是"yuanzhifei89"（String）
+// 如果此时的读取位置在"name" : 了，那么nextValue就是"yuanzhifei89"（String) 
 
 JSONObject person = (JSONObject) jsonParser.nextValue();
 
@@ -283,11 +283,11 @@ jsonParser.next(); //"
 
 jsonParser.nextClean(); //:
 
-// 返回当前的读取位置到第一次遇到'a'之间的字符串（不包括a）。
+// 返回当前的读取位置到第一次遇到'a'之间的字符串（不包括a) 。
 
-jsonParser.nextString('a'); // ["12345678", "87654321"], "n（前面有两个空格）
+jsonParser.nextString('a'); // ["12345678", "87654321"], "n（前面有两个空格) 
 
-// 返回当前读取位置到第一次遇到字符串中(如"0089")任意字符之间的字符串，同时该字符是trimmed的。（此处就是第一次遇到了89）
+// 返回当前读取位置到第一次遇到字符串中(如"0089")任意字符之间的字符串，同时该字符是trimmed的。（此处就是第一次遇到了89) 
 
 jsonParser.nextTo("0089"); //me" : "yuanzhifei
 
@@ -297,13 +297,13 @@ jsonParser.back();
 
 jsonParser.next(); //i
 
-// 读取位置前进到指定字符串处（包括字符串）
+// 读取位置前进到指定字符串处（包括字符串) 
 
 jsonParser.skipPast("address");
 
 jsonParser.next(8); //" : { "c
 
-// 读取位置前进到执行字符处（不包括字符）
+// 读取位置前进到执行字符处（不包括字符) 
 
 jsonParser.skipTo('m');
 
@@ -315,7 +315,7 @@ jsonParser.next(8); //married"
 
 }
 
-以下是一个标准的JSON请求实现过程：
+以下是一个标准的JSON请求实现过程: 
 
 [java][/java]
 
@@ -369,7 +369,7 @@ view plaincopy
 
 {'id':05,'name':'lily,'gender':'女'}]}
 
-下面的类主要是解析单个数据parseJson（）和多个数据的方法parseJsonMulti（）:
+下面的类主要是解析单个数据parseJson（) 和多个数据的方法parseJsonMulti（) :
 
 [java][/java]
 
@@ -501,7 +501,7 @@ String name = jsonObj.getString("name");
 
 String gender = jsonObj.getString("gender");
 
-tvJson.setText("ID号"+id + ", 姓名：" + name + ",性别：" + gender);
+tvJson.setText("ID号"+id + ", 姓名: " + name + ",性别: " + gender);
 
 } catch (JSONException e) {
 
@@ -535,7 +535,7 @@ String name = jsonObj.getString("name");
 
 String gender = jsonObj.getString("gender");
 
-s += "ID号"+id + ", 姓名：" + name + ",性别：" + gender+ "n" ;
+s += "ID号"+id + ", 姓名: " + name + ",性别: " + gender+ "n" ;
 
 }
 

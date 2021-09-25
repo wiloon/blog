@@ -68,7 +68,7 @@ create database mydb character set utf8;
 ### 查看版本
 ```sql
 select version();
--- 查看sql_model参数命令：
+-- 查看sql_model参数命令: 
 
 SELECT @@GLOBAL.sql_mode;
 SELECT @@SESSION.sql_mode;
@@ -319,7 +319,7 @@ alter table tbl_user modify deleted char(1) not null;
 
 alter table 表名称 change 字段原名称 字段新名称 字段类型 [是否允许非空
 
-4.4如果要删除某一字段，可用命令：ALTER TABLE mytable DROP 字段 名;
+4.4如果要删除某一字段，可用命令: ALTER TABLE mytable DROP 字段 名;
 
 导出
 
@@ -331,23 +331,23 @@ MySQL -uusername -ppassword db_name < db_name.sql
   
 ### 日期格式化函数date_format()
 ```sql
-    -- %Y：年 %c：月 %d：日 %H：小时 %i：分钟 %s：秒
+    -- %Y: 年 %c: 月 %d: 日 %H: 小时 %i: 分钟 %s: 秒
     select date_format(now(),'%Y');
 ```
 
-还可以用一个USE db_name语句启动文本文件。在这种情况下，不需要在命令行中指定数据库名：
+还可以用一个USE db_name语句启动文本文件。在这种情况下，不需要在命令行中指定数据库名: 
 
 shell> MySQL < text_file
 
-如果正运行MySQL，可以使用source或.命令执行SQL脚本文件：
+如果正运行MySQL，可以使用source或.命令执行SQL脚本文件: 
 
 MySQL> source filename
 
 查看MySQL版本
 
-在MySQL中：MySQL> status;
+在MySQL中: MySQL> status;
 
-eg：
+eg: 
   
 [root@linuxtest test]# MySQL -u root -p
   
@@ -385,7 +385,7 @@ MySQL> show databases;
   
 5 rows in set (
 
-索引相关常用命令：
+索引相关常用命令: 
   
 1) 创建主键
    

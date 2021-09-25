@@ -11,13 +11,13 @@ categories:
 
     jdk1.5 static import
  static import
- static import就是允许在代码中直接引用别的类的static变量和方法（当然，在权限许可范围内），我们可以简单的把它当成import的延续。
- 它的语法如下：
+ static import就是允许在代码中直接引用别的类的static变量和方法（当然，在权限许可范围内) ，我们可以简单的把它当成import的延续。
+ 它的语法如下: 
  import static CLASS_NAME.MEMBER_NAME;
  或者 import static CLASS_NAME.×;
  事实上，Tiger引入static import最主要考虑到两个需要，第一个就是对一些工具性的，常用的静态方法进行直接引用。
  比如,java.lang.Math里的一大堆数学方法abs,exp等。
- 第二个就是对常数变量进行直接引用，其中也包扩对enum的直接引用（参考上一篇文章Season的例子）
+ 第二个就是对常数变量进行直接引用，其中也包扩对enum的直接引用（参考上一篇文章Season的例子) 
  [code]
  //StaticImportTest.java
  import static java.lang.Math.*;
@@ -57,7 +57,7 @@ categories:
     就算在同一个包也是如此。
   
   
-    值得注意的是，过多的static import也许可能影响程序的可读性，如：
+    值得注意的是，过多的static import也许可能影响程序的可读性，如: 
  [code]
  //StaticImportTest2.java
  import static java.lang.Integer.parseInt;

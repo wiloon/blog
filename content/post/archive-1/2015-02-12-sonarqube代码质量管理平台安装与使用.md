@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-SonarQube（曾用名Sonar（声纳）<sup id="cite_ref-1" class="reference">[1]</sup>）是一个开源的代码质量管理系统。
+SonarQube（曾用名Sonar（声纳) <sup id="cite_ref-1" class="reference">[1]</sup>) 是一个开源的代码质量管理系统。
 
 Sonar是一个用于代码质量管理的开源平台，用于管理源代码的质量，可以从七个维度检测代码质量
 
@@ -50,7 +50,7 @@ sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具规范代�
   
 sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具检测出潜在的bug
   
-7.糟糕的设计（原文Spaghetti Design，意大利面式设计）
+7.糟糕的设计（原文Spaghetti Design，意大利面式设计) 
   
 通过sonar可以找出循环，展示包与包、类与类之间的相互依赖关系
   
@@ -62,7 +62,7 @@ sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具检测出�
   
 检测耦合
 
-关于Spaghetti Design：http://docs.codehaus.org/display/SONAR/Spaghetti+Design
+关于Spaghetti Design: http://docs.codehaus.org/display/SONAR/Spaghetti+Design
 
 通过sonar可以有效检测以上在程序开发过程中的七大问题
   
@@ -74,11 +74,11 @@ SonarQube安装
   
 2.已安装有MySQL数据库
 
-软件下载地址：http://www.sonarqube.org/downloads/
+软件下载地址: http://www.sonarqube.org/downloads/
   
 下载SonarQube与SonarQube Runner
   
-中文补丁包下载：http://docs.codehaus.org/display/SONAR/Chinese+Pack
+中文补丁包下载: http://docs.codehaus.org/display/SONAR/Chinese+Pack
 
 1.数据库配置
   
@@ -206,7 +206,7 @@ sonar.password=admin
 
 sonar作为Linux服务并开机自启动
   
-新建文件/etc/init.d/sonar，输入如下内容：
+新建文件/etc/init.d/sonar，输入如下内容: 
 
 [java][/java]
 
@@ -246,7 +246,7 @@ view plaincopy
 
 /usr/bin/sonar $*
 
-SonarQube开机自启动（Ubuntu, 32位）：
+SonarQube开机自启动（Ubuntu, 32位) : 
   
 sudo ln -s $SONAR_HOME/bin/linux-x86-32/sonar.sh /usr/bin/sonar
   
@@ -254,7 +254,7 @@ sudo chmod 755 /etc/init.d/sonar
   
 sudo update-rc.d sonar defaults
   
-SonarQube开机自启动（RedHat, CentOS, 64位）：
+SonarQube开机自启动（RedHat, CentOS, 64位) : 
   
 sudo ln -s $SONAR_HOME/bin/linux-x86-64/sonar.sh /usr/bin/sonar
   
@@ -270,7 +270,7 @@ sudo chkconfig -add sonar
 
 1.在项目源码的根目录下创建sonar-project.properties配置文件
   
-以android项目为例：
+以android项目为例: 
 
 [java][/java]
 
@@ -292,7 +292,7 @@ sonar.sourceEncoding=UTF-8
   
 sonar.profile=Android Lint
 
-注：要使用Android Lint
+注: 要使用Android Lint
   
 规则分析需要先访问http:\\localhost:9000更新中心添加Android Lint插件，使其可以分析Android Lint规则
 
@@ -304,11 +304,11 @@ sonar.profile=Android Lint
   
 分析成功后访问http:\\localhost:9000即可查看分析结果
 
-不同参数的意思：
+不同参数的意思: 
   
 http://docs.codehaus.org/display/SONAR/Analysis+Parameters
   
-不同项目的源码分析示例下载：
+不同项目的源码分析示例下载: 
   
 https://github.com/SonarSource/sonar-examples/zipball/master
   
@@ -316,17 +316,17 @@ https://github.com/SonarSource/sonar-examples/zipball/master
 
 最后，当然了，得与IDE相关联，才能更方便地实时查看
 
-以Eclipse为例，请见：http://docs.sonarqube.org/display/SONAR/SonarQube+in+Eclipse
+以Eclipse为例，请见: http://docs.sonarqube.org/display/SONAR/SonarQube+in+Eclipse
 
-附：
+附: 
 
-sonarQube官网地址：http://www.sonarqube.org/
+sonarQube官网地址: http://www.sonarqube.org/
   
-sonarQube官方文档地址：http://docs.codehaus.org/display/SONAR/Documentation
+sonarQube官方文档地址: http://docs.codehaus.org/display/SONAR/Documentation
   
-sonarQube示例地址：http://nemo.sonarqube.org/
+sonarQube示例地址: http://nemo.sonarqube.org/
   
-网上另两篇相关的文章：http://www.cnblogs.com/gao241/p/3190701.html
+网上另两篇相关的文章: http://www.cnblogs.com/gao241/p/3190701.html
   
 http://www.myexception.cn/open-source/1307345.html
 

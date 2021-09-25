@@ -14,13 +14,13 @@ http://mobile.51cto.com/android-386448.htm
   
 一、Android SDK中的WebView
   
-1.在要Activity中实例化WebView组件：WebView webView = new WebView(this);
+1.在要Activity中实例化WebView组件: WebView webView = new WebView(this);
   
-2.调用WebView的loadUrl()方法，设置WevView要显示的网页：
+2.调用WebView的loadUrl()方法，设置WevView要显示的网页: 
   
-互联网用：webView.loadUrl("http://www.31358.com");
+互联网用: webView.loadUrl("http://www.31358.com");
   
-本地文件用：webView.loadUrl("file:///android_asset/XX.html"); 本地文件存放在：assets 文件中
+本地文件用: webView.loadUrl("file:///android_asset/XX.html"); 本地文件存放在: assets 文件中
   
 3.调用Activity的setContentView( )方法来显示网页视图
   
@@ -30,9 +30,9 @@ http://mobile.51cto.com/android-386448.htm
 
 <uses-permission android:name="android.permission.INTERNET" />
 
-缺点：如果是载入的是普通网页，没有什么问题，但如果是html5,封装后，在android2.3以上才能正常访问，android2.2及以下，SDK中的WebView还没完全支持HTML5
+缺点: 如果是载入的是普通网页，没有什么问题，但如果是html5,封装后，在android2.3以上才能正常访问，android2.2及以下，SDK中的WebView还没完全支持HTML5
 
-下面是具体例子：
+下面是具体例子: 
 
 MainActivity.java
 
@@ -134,18 +134,18 @@ android:label="@string/app_name">
   
 PhoneGap是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用 iPhone，Android，Palm，Symbian,WP7,Bada和Blackberry智能手机的核心功能——包括地理定位，加速器，联系 人，声音和振动等，此外PhoneGap拥有丰富的插件，可以以此扩展无限的功能。PhoneGap是免费的，但是它需要特定平台提供的附加软件，例如 iPhone的iPhone SDK，Android的Android SDK等，
 
-详细方法请见：http://phonegap.com/start#android
+详细方法请见: http://phonegap.com/start#android
 
-优点：在Eclipse中加入SDK，编程自由，完美适应不同设备屏幕大小，适合高手使用。
+优点: 在Eclipse中加入SDK，编程自由，完美适应不同设备屏幕大小，适合高手使用。
 
-缺点：没有使用布局，直接加载网页，不能添加广告。
+缺点: 没有使用布局，直接加载网页，不能添加广告。
 
 三、使用Rexsee在线生成
 
 Rexsee是开源的Android开发平台，支持开发者以标准化Web开发模式，使用HTML5、CSS3、Javascript快速实现移动应用。会 HTML就会Android。你要做的只是将做好的HTML5 应用上传到Rexsee服务器，很快，会编译成标准的APK安装文件。
 
-网站：http://www.rexsee.com
+网站: http://www.rexsee.com
 
-优点：一键生成，适学普通人使用
+优点: 一键生成，适学普通人使用
 
-缺点：直接封装，无法添加广告。
+缺点: 直接封装，无法添加广告。

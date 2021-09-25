@@ -20,19 +20,19 @@ HTML Spec: "The div element has no special meaning at all."
 
 HTML Spec: "The section element represents a generic section of a document or application. A section, in this context, is a thematic grouping of content, typically with a heading."
 
-与 div 的无语义相对，简单地说 section 就是带有语义的 div 了，但是千万不要觉得真得这么简单。section 表示一段专题性的内容，一般会带有标题。看到这里，我们也许会想到，那么一篇博客文章，或者一条单独的评论岂不是正好可以用 section 吗？接着看：
+与 div 的无语义相对，简单地说 section 就是带有语义的 div 了，但是千万不要觉得真得这么简单。section 表示一段专题性的内容，一般会带有标题。看到这里，我们也许会想到，那么一篇博客文章，或者一条单独的评论岂不是正好可以用 section 吗？接着看: 
 
 "Authors are encouraged to use the article element instead of the section element when it would make sense to syndicate the contents of the elemen."
 
 当元素内容聚合起来更加言之有物时，应该使用 article 来替换 section 。
 
-那么，section 应该什么时候用呢？再接着看：
+那么，section 应该什么时候用呢？再接着看: 
 
 "Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site's home page could be split into sections for an introduction, news items, and contact information."
 
 section 应用的典型场景有文章的章节、标签对话框中的标签页、或者论文中有编号的部分。一个网站的主页可以分成简介、新闻和联系信息等几部分。其实我对这里传达信息很感兴趣，因为感觉 section 和下面要介绍的 artilce 更加适用于模块化应用，这个话题以后会出篇专门的文章来讨论，这里暂时略过。
 
-要注意，W3C 还警告说：
+要注意，W3C 还警告说: 
 
 "The section element is not a generic container element. When an element is needed for styling purposes or as a convenience for scripting, authors are encouraged to use the div element instead. A general rule is that the section element is appropriate only if the element's contents would be listed explicitly in the document's outline."
 
@@ -40,17 +40,17 @@ section 不仅仅是一个普通的容器标签。当一个标签只是为了样
 
 
  <hgroup>
-  <h1>Apples</h1>
+  Apples
   Tasty, delicious fruit!
  </hgroup>
  The apple is the pomaceous fruit of the apple tree.
  <section>
-  <h1>Red Delicious</h1>
+  Red Delicious
   These bright red apples are the most common found in many
   supermarkets.
  </section>
  <section>
-  <h1>Granny Smith</h1>
+  Granny Smith
   These juicy, green apples make a great filling for
   apple pies.
  </section>
@@ -68,11 +68,11 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 
 问题是怎么才算"完整的独立内容"？有个最简单的判断方法是看这段内容在 RSS feed 中是不是完整的。看这段内容脱离了所在的语境，是否还是完整的、独立的。
 
-例子：
+例子: 
 
 
  <header>
-  <h1>The Very First Rule of Life</h1>
+  The Very First Rule of Life
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
  </header>
  If there's a microphone anywhere near you, assume it's hot and
@@ -84,14 +84,14 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 </article>
 
  <header>
-  <h1>The Very First Rule of Life</h1>
+  The Very First Rule of Life
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
  </header>
  If there's a microphone anywhere near you, assume it's hot and
  sending whatever you're saying to the world. Seriously.
  ...
  <section>
-  <h1>Comments</h1>
+  Comments
   
    <footer>
     Posted by: George Washington
@@ -117,7 +117,7 @@ div section article ，语义是从无到有，逐渐增强的。div 无任何�
 
 因为其实有些时候每个人都有自己的看法，所以难免有难于决断的时候，怎么办？
 
-在 [HTML5 设计原理][1] 中，有一条是专门用来解决类似情况的：
+在 [HTML5 设计原理][1] 中，有一条是专门用来解决类似情况的: 
 
 **最终用户优先(Priority of Constituencies)**
 

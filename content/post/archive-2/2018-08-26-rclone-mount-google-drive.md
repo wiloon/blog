@@ -132,7 +132,7 @@ for windows, install winfsp <https://github.com/billziss-gh/winfsp> first
 windows vbs脚本后台挂载
 
 ```bash著作权归作者所有。
-商业转载请联系作者获得授权，非商业转载请注明出处。
+商业转载请联系作者获得授权,非商业转载请注明出处。
 作者: Rhilip
 链接: https://blog.rhilip.info/archives/874/
 来源: https://blog.rhilip.info/

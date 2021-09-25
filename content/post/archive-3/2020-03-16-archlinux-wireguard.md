@@ -169,9 +169,9 @@ listen port: random
 mtu: auto
 
 ##### 添加节点/add peer
-公钥： 服务端公钥
+公钥:  服务端公钥
 预共享密钥/pre-shared key (可以不填)
-对端/endpoint： xxx.wiloon.com:51xxx
+对端/endpoint:  xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
 
 ### chromeos>crostini
@@ -204,7 +204,7 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     DNS = 192.168.50.1
     BlockDNS = true
 
-    # 设置虚拟网卡的内网地址（可选子网掩码）
+    # 设置虚拟网卡的内网地址（可选子网掩码) 
     Address = 192.168.53.3/24
     ;/l.4r5t3677777777
     [Peer]

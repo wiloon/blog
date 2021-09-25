@@ -44,7 +44,7 @@ SSH-2默认是 /etc/ssh/ssh_host_rsa_key 和 /etc/ssh/ssh_host_dsa_key 。
 
 - "without-password"表示禁止使用密码认证登录。
 - "forced-commands-only"表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
-- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证）
+- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证) 
 
 AuthorizedKeysFile
   

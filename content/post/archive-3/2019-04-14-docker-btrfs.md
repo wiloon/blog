@@ -14,7 +14,7 @@ Docker利用Btrfs subvolumes和快照来管理镜像和容器数据层的硬盘�
   
 subvolumes更新文件时涉及写时拷贝操作，写入新文件时涉及从一个底层存储池来按需分配空间的操作。它们既能嵌套也能做快照。下图显示了4个subvolumes。"subvolume 2″和"subvloume 3″是嵌套的，而"subvolume 4"显示它自己的内部目录树。
   
-使用btrfs驱动的Docker主机创建镜像和容器的过程如下：
+使用btrfs驱动的Docker主机创建镜像和容器的过程如下: 
 
 1.镜像的基础数据层存储在/var/lib/docker/btrfs/subvolumes的Btrfs subvloume中。
   

@@ -14,13 +14,13 @@ tags:
   - Servlet
 
 ---
-Serlvet接口只定义了一个服务方法就是service，而HttpServlet类实现了该方法并且要求调用下列的方法之一：
+Serlvet接口只定义了一个服务方法就是service，而HttpServlet类实现了该方法并且要求调用下列的方法之一: 
   
-doGet：处理GET请求
+doGet: 处理GET请求
   
-doPost：处理POST请求
+doPost: 处理POST请求
   
-当发出客户端请求的时候，调用service 方法并传递一个请求和响应对象。Servlet首先判断该请求是GET 操作还是POST 操作。然后它调用下面的一个方法：doGet 或 doPost。如果请求是GET就调用doGet方法，如果请求是POST就调用doPost方法。doGet和doPost都接受请求(HttpServletRequest)和响应(HttpServletResponse)。
+当发出客户端请求的时候，调用service 方法并传递一个请求和响应对象。Servlet首先判断该请求是GET 操作还是POST 操作。然后它调用下面的一个方法: doGet 或 doPost。如果请求是GET就调用doGet方法，如果请求是POST就调用doPost方法。doGet和doPost都接受请求(HttpServletRequest)和响应(HttpServletResponse)。
 
 get和post这是http协议的两种方法，另外还有head, delete等
   
@@ -32,7 +32,7 @@ get和post这是http协议的两种方法，另外还有head, delete等
 
 service()是在javax.servlet.Servlet接口中定义的, 在 javax.servlet.GenericServlet 中实现了这个接口, 而 doGet/doPost 则是在 javax.servlet.http.HttpServlet 中实现的, javax.servlet.http.HttpServlet 是 javax.servlet.GenericServlet 的子类. 所有可以这样理解, 其实所有的请求均首先由 service() 进行处理, 而在 javax.servlet.http.HttpServlet 的 service() 方法中, 主要做的事情就是判断请求类型是 Get 还是 Post, 然后调用对应的 doGet/doPost 执行.
 
-doGet：处理GET请求 doPost：处理POST请求 doPut：处理PUT请求 doDelete：处理DELETE请求 doHead：处理HEAD请求 doOptions：处理OPTIONS请求 doTrace：处理TRACE请求 通常情况下，在开发基于HTTP的servlet时，开发者只需要关心doGet和doPost方法，其它的方法需要开发者非常的熟悉HTTP编程，因此这些方法被认为是高级方法。 而通常情况下，我们实现的servlet都是从HttpServlet扩展而来。 doPut和doDelete方法允许开发者支持HTTP/1.1的对应特性； doHead是一个已经实现的方法，它将执行doGet但是仅仅向客户端返回doGet应该向客户端返回的头部的内容； doOptions方法自动的返回servlet所直接支持的HTTP方法信息； doTrace方法返回TRACE请求中的所有头部信息。 对于那些仅仅支持HTTP/1.0的容器而言，只有doGet, doHead 和 doPost方法被使用，因为HTTP/1
+doGet: 处理GET请求 doPost: 处理POST请求 doPut: 处理PUT请求 doDelete: 处理DELETE请求 doHead: 处理HEAD请求 doOptions: 处理OPTIONS请求 doTrace: 处理TRACE请求 通常情况下，在开发基于HTTP的servlet时，开发者只需要关心doGet和doPost方法，其它的方法需要开发者非常的熟悉HTTP编程，因此这些方法被认为是高级方法。 而通常情况下，我们实现的servlet都是从HttpServlet扩展而来。 doPut和doDelete方法允许开发者支持HTTP/1.1的对应特性； doHead是一个已经实现的方法，它将执行doGet但是仅仅向客户端返回doGet应该向客户端返回的头部的内容； doOptions方法自动的返回servlet所直接支持的HTTP方法信息； doTrace方法返回TRACE请求中的所有头部信息。 对于那些仅仅支持HTTP/1.0的容器而言，只有doGet, doHead 和 doPost方法被使用，因为HTTP/1
 
 service()是在javax.servlet.Servlet接口中定义的, 在 javax.servlet.GenericServlet 中实现了这个接口, 而 doGet/doPost 则是在 javax.servlet.http.HttpServlet 中实现的, javax.servlet.http.HttpServlet 是 javax.servlet.GenericServlet 的子类. 所有可以这样理解, 其实所有的请求均首先由 service() 进行处理, 而在 javax.servlet.http.HttpServlet 的 service() 方法中, 主要做的事情就是判断请求类型是 Get 还是 Post, 然后调用对应的 doGet/doPost 执行,doGet在地址栏中显示请求的内容，doPost隐藏.
   
@@ -58,7 +58,7 @@ service() 方法是 Servlet 的核心。每当一个客户请求一个HttpServle
 
 当一个客户通过HTML 表单发出一个HTTP GET请求或直接请求一个URL时，doGet()方法被调用。与GET请求相关的参数添加到URL的后面，并与这个请求一起发送。当不会修改服务器端的数据时，应该使用doGet()方法。
 
-Servlet的响应可以是下列几种类型：
+Servlet的响应可以是下列几种类型: 
 
 一个输出流，浏览器根据它的内容类型(如text/HTML)进行解释。
 

@@ -31,9 +31,9 @@ vmc stop termina
 #### crosh 命令
 - top
 - ping
-shell：打开一个完整的bash shell。
-systrace：启动系统跟踪。
-packet_capture：捕获并记录数据包。
+shell: 打开一个完整的bash shell。
+systrace: 启动系统跟踪。
+packet_capture: 捕获并记录数据包。
 network_diag
 tracepath
 help
@@ -51,9 +51,9 @@ rm -rf /home/wiloon/.config/google-chrome/Default
 
 ### STATUS_INVALID_IMAGE_HASH
 
-Google 在79版本（2019年12月20号左右）的更新中又重新启用了Renderer Code Integrity Protection（渲染器代码完整性保护）,会阻止签名不是谷歌和微软的模块加载浏览器。目前更新的谷歌浏览器版本仍未对该问题进行修复,希望后续更新的版本能解决这个问题。
+Google 在79版本（2019年12月20号左右) 的更新中又重新启用了Renderer Code Integrity Protection（渲染器代码完整性保护) ,会阻止签名不是谷歌和微软的模块加载浏览器。目前更新的谷歌浏览器版本仍未对该问题进行修复,希望后续更新的版本能解决这个问题。
 
-解决方法：禁用谷歌chrome的这项功能
+解决方法: 禁用谷歌chrome的这项功能
 
 修改注册表
 

@@ -173,7 +173,7 @@ docker run -it --rm ubuntu bash
 # --restart=always
 # --cap-add=SYS_TIME
 # -e, --env=[]                    Set environment variables(设置环境变量)
-# --link 用来链接2个容器,使得源容器（被链接的容器）和接收容器（主动去链接的容器）之间可以互相通信,并且接收容器可以获取源容器的一些数据,如源容器的环境变量。--link <name or id>:alias 其中,name和id是源容器的name和id,alias是源容器在link下的别名。
+# --link 用来链接2个容器,使得源容器（被链接的容器) 和接收容器（主动去链接的容器) 之间可以互相通信,并且接收容器可以获取源容器的一些数据,如源容器的环境变量。--link <name or id>:alias 其中,name和id是源容器的name和id,alias是源容器在link下的别名。
 # --cpus=2
 # --cpuset-cpus="0" --cpu-shares=512
 

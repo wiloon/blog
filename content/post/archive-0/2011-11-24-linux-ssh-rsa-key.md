@@ -14,7 +14,7 @@ categories:
 ssh-keygen -t rsa
 ssh-keygen -t rsa -b 4096
 ssh-keygen -t ecdsa -b 521
-# -t type 指定要创建的密钥类型。可以使用："rsa1"(SSH-1) "rsa"(SSH-2) "dsa"(SSH-2)
+# -t type 指定要创建的密钥类型。可以使用: "rsa1"(SSH-1) "rsa"(SSH-2) "dsa"(SSH-2)
 
 ssh-keygen -t rsa -C "Michael Ledin" -b 4096 -m "PEM"
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-golang中sync包实现了两种锁 Mutex （互斥锁）和RWMutex（读写锁）,其中RWMutex是基于Mutex实现的,只读锁的实现使用类似引用计数器的功能．
+golang中sync包实现了两种锁 Mutex （互斥锁) 和RWMutex（读写锁) ,其中RWMutex是基于Mutex实现的,只读锁的实现使用类似引用计数器的功能．
 
   * Mutex: 互斥锁
   * RWMutex: 读写锁
@@ -205,6 +205,6 @@ fatal error: all goroutines are asleep - deadlock!
   
 总结: 
 
-所以在go1.3版本中,运行过程中允许RUnLock早于RLock一个,也只能早于１个（注: 虽然代码允许,但是强烈不推荐使用）,并且在早于之后必须利用RLock进行加锁才可以继续使用
+所以在go1.3版本中,运行过程中允许RUnLock早于RLock一个,也只能早于１个（注: 虽然代码允许,但是强烈不推荐使用) ,并且在早于之后必须利用RLock进行加锁才可以继续使用
 
 https://blog.csdn.net/chenbaoke/article/details/41957725

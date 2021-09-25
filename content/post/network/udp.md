@@ -8,8 +8,8 @@ title = "UDP"
 
 UDP
 UDP 协议全称是用户数据报协议,在网络中它与 TCP 协议一样用于处理数据包,是一种无连接的协议.在 OSI 中,第四层传输层,处于 IP 协议的上一层 UDP 有不提供数据包分组,组装和不能对数据包进行排序的缺点,也就是说,当报文发送后,无法监控其是否完整安全到达的,就想一个坏掉了的水龙头,你不论怎么让他停止他都只会输出,也不管你的桶满没满,就像爱一样
-文章相关视频讲解：
-C/C++ Linux 服务器开发高级架构师学习视频点击：C/C++Linux服务器开发高级架构/Linux后台架构师-学习视频
+文章相关视频讲解: 
+C/C++ Linux 服务器开发高级架构师学习视频点击: C/C++Linux服务器开发高级架构/Linux后台架构师-学习视频
 底层原理到徒手实现 TCP/IP网络协议栈
 tcpip协议栈与网络API的关联,udp的并发性比tcp强？
 2|1 特点
@@ -31,4 +31,4 @@ UDP 不止支持一对一的传输方式,同样支持一对多,多对多,多对�
 
 
 Linux网络编程-UDP和TCP协议详解
-原文链接： https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium=article
+原文链接:  https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium=article

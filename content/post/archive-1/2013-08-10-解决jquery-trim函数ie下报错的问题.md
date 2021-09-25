@@ -8,9 +8,9 @@ categories:
   - Web
 
 ---
-经常碰到JQuery里的trim()函数在firefox支持，但是在IE里不支持
+经常碰到JQuery里的trim()函数在firefox支持,但是在IE里不支持
   
-其主要原因是写法不对，下面是错误的写法
+其主要原因是写法不对,下面是错误的写法
 
 
   
@@ -30,7 +30,7 @@ categories:
     
   
 
-上面的写法在firefox下不会报错，但在ie下确会报错
+上面的写法在firefox下不会报错,但在ie下确会报错
   
 正确的写法应该为
 

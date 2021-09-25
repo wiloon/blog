@@ -12,7 +12,7 @@ tags:
 ---
 1.LocalEntityManagerFactoryBean
   
-只是简单环境中使用。它使用JPA PersistenceProvider自动检测机制( according to JPA's Java SE bootstrapping )，并且大多数情况下，你只能定义一下persistence unit name
+只是简单环境中使用。它使用JPA PersistenceProvider自动检测机制( according to JPA's Java SE bootstrapping ),并且大多数情况下,你只能定义一下persistence unit name
 
 例如: 
 
@@ -28,7 +28,7 @@ tags:
   
 2.从JNDI获取EntityManagerFactory
   
-这个选项是当你应用发布在javaee5的服务器中。你可以参阅自己应用服务器文档，如何发布一个自定义的JPA provider到你的应用服务器中。
+这个选项是当你应用发布在javaee5的服务器中。你可以参阅自己应用服务器文档,如何发布一个自定义的JPA provider到你的应用服务器中。
 
 例: 
 
@@ -38,19 +38,19 @@ tags:
   
 </beans>
   
-当javaee服务器启动时，会自动检测persistence units。实际上，是检测应用包中的META-INF/persistence.xml 文件和web.xml中的persistence-unit-ref，以及定义的environment naming。我理解就是JNDI的name。
+当javaee服务器启动时,会自动检测persistence units。实际上,是检测应用包中的META-INF/persistence.xml 文件和web.xml中的persistence-unit-ref,以及定义的environment naming。我理解就是JNDI的name。
 
 一般应用情景是: 
 
 在META-INF/persistence.xml中 使用<jta-data-source>java:/ MySQLDS</jta-data-source> 获取容器发布的Datesource。
 
-transactions是使用的javaee容器支持的JTA系统，例如tomcat中，可以这样
+transactions是使用的javaee容器支持的JTA系统,例如tomcat中,可以这样
 
-如果你的项目准备部署在tomcat上，要支持jta，则需把相关的包放在tomcat/lib包下
+如果你的项目准备部署在tomcat上,要支持jta,则需把相关的包放在tomcat/lib包下
   
-1）jndi配置，可以把jndi的配置放置在 tomcat/conf/Catalina/域名(如localhost)/项目名.xml
+1) jndi配置,可以把jndi的配置放置在 tomcat/conf/Catalina/域名(如localhost)/项目名.xml
   
-文件的Context节点下，如下: 
+文件的Context节点下,如下: 
   
 <Resource name="" auth="Container" type="javax.sql.DataSource"
   
@@ -62,7 +62,7 @@ driveClassName="oracle.jdbc.driver.OracleDriver"
   
 url="" maxActive="45" maxIdle="25"/>
   
-jndi也可以配置在server.xml，context.xml中
+jndi也可以配置在server.xml,context.xml中
   
 2)jta UserTransaction配置
   
@@ -88,11 +88,11 @@ global="UserTransaction"
   
 type="javax.transaction.UserTransaction"/>
 
-SPRING 仅仅做的是是把EntityManagerFactory通过依赖注入到应用的object中。如果要管理事务，则使用JtaTransactionManager。
+SPRING 仅仅做的是是把EntityManagerFactory通过依赖注入到应用的object中。如果要管理事务,则使用JtaTransactionManager。
   
 3.LocalContainerEntityManagerFactoryBean
   
-这个选项中，spring扮演了容器的角色。完全掌管JPA。
+这个选项中,spring扮演了容器的角色。完全掌管JPA。
 
 LocalContainerEntityManagerFactoryBean会根据persistence.xml创造一个PersistenceUnitInfo实现。
 
@@ -172,12 +172,12 @@ Persistence.xml配置:
   
 </bean>
   
-dataSources中的key是persistence.xml中配置的datasource名字，value-ref是spring管理的数据源。
+dataSources中的key是persistence.xml中配置的datasource名字,value-ref是spring管理的数据源。
 
 
 另外: 
 
-EntityManagerFactory是线程安全的，但是EntityManager不是。
+EntityManagerFactory是线程安全的,但是EntityManager不是。
 
 复制代码
   

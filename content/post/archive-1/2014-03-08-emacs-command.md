@@ -24,13 +24,13 @@ M-x artist-mode-off
   
 `C-x C-c' — 退出Emacs`C-x u' — 取消上一次操作
   
-C-x C-w 按提示输入文件名，另存为
+C-x C-w 按提示输入文件名,另存为
 
 窗格
   
-C-x 2 M-x split-window-vertically 分隔出两个垂直窗格，水平分隔线
+C-x 2 M-x split-window-vertically 分隔出两个垂直窗格,水平分隔线
   
-C-x 3 M-x split-window-horizontally 分隔出两个水平窗格，垂直分隔线
+C-x 3 M-x split-window-horizontally 分隔出两个水平窗格,垂直分隔线
   
 C-x 1 M-x delete-other-window 只保留当前窗格
   
@@ -40,7 +40,7 @@ C-x 0 M-x delete-window 关闭当前窗格
   
 C-x o M-x other-window 在下一个窗格中激活光标
   
-C-M-v M-x scroll-other-window 向下卷动下一个窗格，使用负参数可以向上卷动
+C-M-v M-x scroll-other-window 向下卷动下一个窗格,使用负参数可以向上卷动
 
 缓冲区
   
@@ -52,11 +52,11 @@ C-x k M-x kill-buffer 关闭当前缓冲区
 
 to archive all done item c-c c-x c-s
 
-M-x occur 统计该表达式在buffer中出现的次数，显示在哪些地方出现了这个表达式.
+M-x occur 统计该表达式在buffer中出现的次数,显示在哪些地方出现了这个表达式.
 
 ALT+X hexl-mode 进入16进制模式
 
-`C-'开头的是`Ctrl'键加上后面的键一块按下，例如 \`C-x 0′就是Ctrl键和 x键一块按下， 然后再按下0;
+`C-'开头的是`Ctrl'键加上后面的键一块按下,例如 \`C-x 0′就是Ctrl键和 x键一块按下, 然后再按下0;
 
 以 \`M-'开头的就是META键, 一般就是 Alt键.
 

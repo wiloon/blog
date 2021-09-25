@@ -11,7 +11,7 @@ categories:
 http://www.cnblogs.com/TonyYPZhang/p/5516192.html
 
 
-Front Controller Pattern， 即前端控制器模式，用于集中化用户请求，使得所有请求都经过同一个前端控制器处理，处理内容有身份验证、权限验证、记录和追踪请求等，处理后再交由分发器把请求分发到对于的处理者。
+Front Controller Pattern, 即前端控制器模式,用于集中化用户请求,使得所有请求都经过同一个前端控制器处理,处理内容有身份验证、权限验证、记录和追踪请求等,处理后再交由分发器把请求分发到对于的处理者。
 
 前端控制器模式主要涉及下面三个角色
 
@@ -24,7 +24,7 @@ Front Controller Pattern， 即前端控制器模式，用于集中化用户请�
 
 下面是前端控制器的一个简单案例。
 
-HomeView, StudentView 分别是具体业务处理程序。Dispatcher 用于把请求分发到对于的 View 中。FrontController 是所有用户请求的入口，进行身份验证、权限验证、记录或追踪请求日志。FrontControllerDemo 演示前端控制器模式。
+HomeView, StudentView 分别是具体业务处理程序。Dispatcher 用于把请求分发到对于的 View 中。FrontController 是所有用户请求的入口,进行身份验证、权限验证、记录或追踪请求日志。FrontControllerDemo 演示前端控制器模式。
 
 
 代码实现
@@ -85,7 +85,7 @@ studentView.show();
   
 }
 
-FrontController 用于处理全部用户请求，进行身份验证、权限验证、请求记录或追踪，然后交由 Dispatcher 分发请求
+FrontController 用于处理全部用户请求,进行身份验证、权限验证、请求记录或追踪,然后交由 Dispatcher 分发请求
   
 public class FrontController {
 

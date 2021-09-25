@@ -20,14 +20,14 @@ https://chocolatey.org/install
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
-设置环境变量参数 ChocolateyInstall （当然是要对应一个路径/文件夹）
+设置环境变量参数 ChocolateyInstall （当然是要对应一个路径/文件夹) 
 手动创建刚才设置的ChocolateyInstall变量所对应的文件夹
 
     ChocolateyInstall=D:\ChocolateyInstall
 
 ### 用choco安装其它软件
-查询程序是否在数据库中：clist < 程序名>
-安装程序：cinst < 程序名>
+查询程序是否在数据库中: clist < 程序名>
+安装程序: cinst < 程序名>
   
 choco install keepassxc
 

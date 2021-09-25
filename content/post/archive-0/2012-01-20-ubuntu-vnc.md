@@ -40,11 +40,11 @@ vnc4server -kill :3
   
 根据你启动时获得的数字替换此处的3。
   
-5、打开 .vnc/xstartup 文件并编辑：
+5、打开 .vnc/xstartup 文件并编辑: 
   
 gedit /.vnc/xstartup
   
-文件看起来将是这样的：
+文件看起来将是这样的: 
 
 ```bash
    
@@ -72,7 +72,7 @@ x-window-manager &
 
 6、修改 .vnc/xstartup文件并保存
   
-取消unset和exec开始的行的注释，注释以xsetroot，vnccon**，xterm和twm开始的行。执行后看起来像这样：
+取消unset和exec开始的行的注释，注释以xsetroot，vnccon**，xterm和twm开始的行。执行后看起来像这样: 
 
 ```bash
    
@@ -98,19 +98,19 @@ exec /etc/X11/xinit/xinitrc
 
 ```
 
-7、修改/etc/X11/xinit/xinitrc文件的许可，使其可执行：
+7、修改/etc/X11/xinit/xinitrc文件的许可，使其可执行: 
   
 sudo chmod 755 /etc/X11/xinit/xinitrc
   
-8、启动vncserver：vncserver
+8、启动vncserver: vncserver
 
 设置分辨率:  vncserver -geometry 1280x1024
 
 (vncserver is a link for vnc4server)
   
-注意：记住此处冒号后提示的数字
+注意: 记住此处冒号后提示的数字
   
-9、从另外的电脑登录这台服务器：
+9、从另外的电脑登录这台服务器: 
   
 vncviewer remote-server:3
   
@@ -118,7 +118,7 @@ vncviewer remote-server:3
   
 10、若前面执行失败导致在VNC下看不到图形界面，鼠标变成"X"形状，请查看第七条是否执行过，同时将刚建过的VNCServer删掉，vncserver -kill :1(1代表前面启动的vncserver序号)
   
-11、Ubuntu 10.10下增添了对Windows键的定义，在里面被定义为Super键，当用户在VNC下按下字母"d"时，会被错误的当做返回桌面的快捷方式导致d无法被输入，此时可修改快捷键方式来避免此bug，新打开一个终端，在里面输入：gconf-editor，这样会弹出一个对话框，到"Apps->Metacity->Global keybingdings"中找"show desktop"，将其默认值D改为D即可。
+11、Ubuntu 10.10下增添了对Windows键的定义，在里面被定义为Super键，当用户在VNC下按下字母"d"时，会被错误的当做返回桌面的快捷方式导致d无法被输入，此时可修改快捷键方式来避免此bug，新打开一个终端，在里面输入: gconf-editor，这样会弹出一个对话框，到"Apps->Metacity->Global keybingdings"中找"show desktop"，将其默认值D改为D即可。
   
 [自]http://hi.baidu.com/zht7216/blog/item/a30912cab1350456f01fe76e.html
 
