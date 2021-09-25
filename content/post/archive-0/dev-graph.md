@@ -136,13 +136,6 @@ leveldb_jni--Condition
 LockSupport--ReentrantLock
 [synchronized] as synchronized #FF8A80
 ReentrantLock--synchronized
-[monitor]
-synchronized--monitor
-[公平锁] as fair_lock
-ReentrantLock--fair_lock
-[非公平锁] as unfair_lock
-ReentrantLock--unfair_lock
-synchronized--unfair_lock
 [mutex/锁/互斥锁] as mutex
 ReentrantLock--mutex
 [futex]

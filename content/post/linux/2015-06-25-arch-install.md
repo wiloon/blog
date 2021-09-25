@@ -47,7 +47,8 @@ ls /sys/firmware/efi/efivars
 ```
 
 ### config pacman mirror
-title: pacman
+>wiloon.com/pacman
+
 <https://blog.wiloon.com/?p=7501>
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
 ```bash

@@ -3,11 +3,14 @@ title: pacman
 author: "-"
 type: post
 date: 2015-04-25T03:37:27+00:00
-url: /?p=7501
+url: pacman
 tags:
   - linux
 
 ---
+### 在仓库里搜索有关abc的包
+    pacman -Ss abc
+
 ### downgrade one package
     yay -S downgrade
     sudo downgrade cmake
@@ -40,8 +43,6 @@ To enable multilib repository, uncomment the [multilib] section in /etc/pacman.c
 Include = /etc/pacman.d/mirrorlist
 ```
 
-
-
 ```bash
 # for downgrade
 #Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
@@ -63,8 +64,13 @@ pacman -Rdd package_name
 ```
 
 ### Fix "unable to lock database"
+    sudo rm /var/lib/pacman/db.lck
 
-sudo rm /var/lib/pacman/db.lck
+### 查看软件包依赖
+#### 查看packageName依赖了哪些软件包
+    pactree <packageName>
+#### 查看packageName被哪些软件包依赖了
+    pactree -r <packageName>
 
 #升级系统中所有已安装的包
   
@@ -78,13 +84,9 @@ pacman -Syu
   
 pacman -Su -ignore postgresql -ignore libpqxx
 
-查看软件包依赖
-  
 whoneeds package-name
 
 sudo pacman -S pacman-contrib
-  
-pactree -r package-name
 
 pacman -Sy abc #和源同步后安装名为abc的包
   
@@ -92,15 +94,16 @@ pacman -S abc #从本地数据库中得到abc的信息，下载安装abc包
   
 pacman -Sf abc #强制安装包abc
   
-pacman -Ss abc #搜索有关abc信息的包
+
   
 pacman -Si abc #从数据库中搜索包abc的信息
   
 pacman -Q # 列出已经安装的软件包
   
-pacman -Qe # 列出已经安装的软件包
+pacman -Qe # 列出已经安装的软件包， 只列出不被其它包依赖的
+pacman -Qet # 列出已经安装的软件包， 只列出不被其它包依赖的,不包含可选依赖。
   
-pacman -Q abc # 检查 abc 软件包是否已经安装
+pacman -Q abc # 检查某一个软件包是否已经安装
   
 pacman -Qi abc #列出已安装的包abc的详细信息
   
