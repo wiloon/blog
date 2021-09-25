@@ -30,7 +30,7 @@ tags:
 synchronized 的锁机制的主要优势是Java语言内置的锁机制，因此，JVM可以自由的优化而不影响已存在的代码。
 
 synchronized 是 Java 的关键字，可用于同步实例方法、类方法(静态方法)和代码块
-- 同步实例方法: 当 synchronized 修饰实例方法的时候，同步的范围是当前实例的实例方法。
+- 同步实例方法: 当 synchronized 修饰实例方法（函数修饰符）的时候，同步的范围是当前实例的实例方法。
 - 同步类方法(静态方法): 当 synchronized 修饰类方法的时候，同步的范围是当前类的方法。
 - 同步代码块: 当 synchronized 修饰代码块的时候，同步的范围是()中的对象。
 
@@ -55,13 +55,12 @@ Mark Word 根据最低两位（Tag) 的所表示的状态，编码了不同的�
 如果这个对象没有被用作锁，Mark Word 记录了hashcode和对象年龄（for GC/survivors) 。
 除此之外，有3种状态对应锁: 轻量级锁，重量级锁和偏向锁。
 
-
 重量级锁是悲观锁的一种，自旋锁、轻量级锁与偏向锁属于乐观锁
 
 ### 轻量级锁
 所有现代JVM都引入了轻量级锁: 避免将每个对象关联操作系统的 mutex/condition 变量 （重量级锁) 
 
-当不存在锁竞争时，使用原子操作来进入退出同步块
+当不存在锁竞争时，使用原子操作(CAS)来进入退出同步块
 
 如果发生锁竞争，回退到操作系统的重量级锁
 
@@ -71,12 +70,12 @@ Mark Word 根据最低两位（Tag) 的所表示的状态，编码了不同的�
 1. 当线程访问同步块，先判断锁状态标志位，如果是00，则说明是轻量级锁，JVM会先在当前线程栈帧中分配 Lock Record 空间；
 2. 将锁对象头中的 Mark Word 拷贝到当前线程的 Lock Record 中，称为 Displaced Mark Word，然后使用 CAS，将对象头中的 Mark Word 修改为指向当前线程栈中 Lock Record 的指针。如果成功，则获取轻量级锁，执行同步块中的代码，如果失败，则进行自旋竞争锁，自旋达到一定的次数如果依旧没有获取到锁，则升级为重量级锁（因为自旋会消耗CPU，为了避免无用的自旋，一旦锁升级为重量级锁，就不会恢复到轻量级锁，自旋的线程会被挂起阻塞住) ；
 3. 执行完同步代码块代码，退出同步代码块，使用CAS开始轻量级锁解锁，解锁的条件需要满足以下两个: 
-1) 对象头Mark Word中锁记录指针是否依旧指向当前线程Lock Record
-2) 拷贝在当前线程Lock Record的Mark Word信息是否与对象头中的Mark Word一致
+- 对象头Mark Word中锁记录指针是否依旧指向当前线程Lock Record （可能已经被其他线程修改成了重量级锁）
+- 拷贝在当前线程Lock Record的Mark Word信息是否与对象头中的Mark Word一致
 4. 如果满足，则成功释放锁；
 5. 如果不满足，则释放锁，唤醒被挂起阻塞的线程，开始重量级锁的竞争。
 
-注: 当超过自旋阈值，竞争的线程就会把锁对象Mark Word指向重量级锁，导致Mark Word中的值发生了变化，当原持有轻量级锁的线程执行完毕，尝试通过CAS释放锁时，因为Mark Word已经指向重锁，不再是指向当前线程Lock Record的指针，于是解锁失败，这时原持有轻量级锁的线程就会知道锁已经升级为重量级锁。
+注: 当超过自旋阈值，竞争的线程就会把锁对象Mark Word指向重量级锁，导致Mark Word中的值发生了变化，当原持有轻量级锁的线程执行完毕，尝试通过 CAS 释放锁时，因为Mark Word已经指向重锁，不再是指向当前线程Lock Record的指针，于是解锁失败，这时原持有轻量级锁的线程就会知道锁已经升级为重量级锁。
 
 #### 偏向锁升级为轻量级锁
 1.先在原持有偏向锁的线程栈帧中分配 Lock Record
@@ -84,7 +83,7 @@ Mark Word 根据最低两位（Tag) 的所表示的状态，编码了不同的�
 3.唤醒线程，从安全点继续执行，执行完毕解锁
 
 ### 偏向锁
-偏向锁的引入: 
+#### 偏向锁的引入
 在多处理器上CAS操作可能开销很大。
 
 大多数锁不仅不存在竞争，而且往往由同一个线程使用。
@@ -93,12 +92,10 @@ Mark Word 根据最低两位（Tag) 的所表示的状态，编码了不同的�
 
 代价是使另一个线程获取锁开销增大。
 
-偏向锁加锁过程: 
-
+#### 偏向锁加锁过程
 当锁对象第一次被线程获取时，VM把对象头中的标志位设为101，即偏向模式。同时使用CAS把获取到这个锁的线程ID记录在对象的mark word中，如果CAS成功，则持有偏向锁的线程以后每次进行这个锁相关的同步块时，不再进行任务同步操作，只进行比较Mark word中的线程ID是否是当前线程的ID。
 
-偏向锁的解锁过程: 
-
+#### 偏向锁的解锁过程
 当另外一个线程去尝试获取这个锁时，偏向模式结束。根据锁对象目前是否处于被锁定状态，撤销偏向后恢复到未锁定或轻量级锁定状态。
 
 VM会停止持有偏向锁的线程（实际上，VM不能停止单一线程，而是在安全点进行的操作) 。
@@ -122,16 +119,14 @@ VM会停止持有偏向锁的线程（实际上，VM不能停止单一线程，�
 
 JAVA的synchronized关键字能够作为函数的修饰符，也可作为函数内的语句，也就是平时说的synchronized 方法和 synchronized 块。假如再细的分类: 
   
-synchronized可作用于instance变量，
-  
-object reference（对象引用) ,
-  
-static函数,
-  
-class literals(类名称字面常量),
-  
+synchronized可作用于:
+- instance变量，
+- object reference（对象引用) ,
+- static函数,
+- class literals(类名称字面常量),
+
 身上。 在进一步阐述之前，我们需要明确几点: 
-  
+
 A．无论synchronized关键字加在方法上还是对象上，他取得的锁都是对象，而不是把一段代码或函数当作锁――而且同步方法很可能还会被其他线程的对象访问。
   
 B．每个对象只有一个锁（lock) 和之相关联。
@@ -154,52 +149,34 @@ synchronized (this){
 }
 ```
 
-(1)处的this指的是什么呢？他指的就是调用这个方法的对象，如P1。可见同步方法实质是将synchronized作用于object reference。-那个拿到了P1对象锁的线程，才能够调用P1的同步方法，而对P2而言，P1这个锁和他毫不相干，程序也可能在这种情形下摆脱同步机制的控制，造成数据混乱。
+此处的this指的是什么呢？他指的就是调用这个方法的对象，如P1。可见同步方法实质是将synchronized作用于object reference。-那个拿到了P1对象锁的线程，才能够调用P1的同步方法，而对P2而言，P1这个锁和他毫不相干，程序也可能在这种情形下摆脱同步机制的控制，造成数据混乱。
 
-同步块，示例代码如下: 
-
+### 同步块
 ```java
-  
 public void method(SomeObject so) {
-  
 synchronized(so){
-  
-//...
-  
 }
-  
-}
-  
+} 
 ```
 
 这时，锁就是so这个对象，谁拿到这个锁谁就能够运行他所控制的那段代码。当有一个明确的对象作为锁时，就能够这样写，但当没有明确的对象作为锁，只是想让一段代码同步时，能够创建一个特别的instance变量（他得是个对象) 来充当锁: 
-
-```java
-  
+### instance变量
+```java 
 class Foo implements Runnable{
-      
 private byte[] lock = new byte[0]; // 特别的instance变量
-      
 Public void method(){
-         
 synchronized(lock) {
   
 //...
   
-}
-  
-}
-  
-//...
-  
-}
-  
+} 
+} 
+} 
 ```
 
 注: 零长度的byte数组对象创建起来将比任何对象都经济-查看编译后的字节码: 生成零长度的byte[]对象只需3条操作码，而Object lock = new Object()则需要7行操作码。
 
-将synchronized作用于static 函数，示例代码如下: 
-
+### 将synchronized作用于static 函数
 ```java
   
 Class Foo{
@@ -229,7 +206,7 @@ synchronized(Foo.class){}
 假如一个类中定义了一个synchronized的static函数A，也定义了一个synchronized 的instance函数B，那么这个类的同一对象Obj在多线程中分别访问A和B两个方法时，不会构成同步，因为他们的锁都不相同。A方法的锁是Obj所属的那个Class，而B的锁是Obj所属的这个对象。
 
 作为修饰符加在方法声明上, synchronized修饰非静态方法时表示锁住了调用该方法的堆对象, 修饰静态方法时表示锁住了这个类在方法区中的类对象.
-  
+
 synchronized(X.class) 使用类对象(class literal)作为锁. 同一时间只有一个线程可以能访问块中资源.
   
 synchronized(this)和synchronized(mutex) 都是对象锁, 同一时间每个实例都保证只能有一个实例能访问块中资源.
@@ -245,7 +222,7 @@ Java的synchronized使用方法小结如下:  搞清楚synchronized锁定的是�
 ### synchronized 重入
 当一个线程请求其它的线程已经占有的锁时，请求线程将被阻塞。
 
-然而内部锁是可重进入的，因此线程在试图获得它自己占用的锁是，请求会成功。重入意味着请求是基于"每一个线程"，而不是基于"每一次调用"（互斥锁是基于每次调用的) 。重进入的实现是通过为每一个锁关联一个请求计数器和一个占有他的线程。当计数为0时，认为锁是未被占用的。线程请求一个未被占有的锁时候，JVM将记录锁的占有者，并且将请求计数设置为1。如果同一个线程再次请求这个锁，计数将递增；每次占用线程退出语句块时，计数器值将递减，直到计数器达到0时候，锁被释放。
+然而内部锁是可重进入的，因此线程在试图获得它自己占用的锁时，请求会成功。重入意味着请求是基于"每一个线程"，而不是基于"每一次调用"（互斥锁是基于每次调用的) 。重进入的实现是通过为每一个锁关联一个请求计数器和一个占有他的线程。当计数为0时，认为锁是未被占用的。线程请求一个未被占有的锁时候，JVM将记录锁的占有者，并且将请求计数设置为1。如果同一个线程再次请求这个锁，计数将递增；每次占用线程退出语句块时，计数器值将递减，直到计数器达到0时候，锁被释放。
   
 重入方便了锁行为的封装，因此简化了面向对象并发代码的开发。
   
@@ -271,15 +248,14 @@ super.doSomething();//若内置锁是不可重入的，则发生死锁
   
 }
 
-在例子中，子类覆盖了父类的synchronized 类型的方法，并调用父类中的方法。如果没有可重入的锁，子类中可能就会产生死锁，因为Widget和LoggingWidget中的dosomething方法都是synchronized 类型的，都会在处理前试图获得Widget的锁。倘若内部锁不是可重入的，super.doSomething的调用者就永远无法获得Widget的锁。因为锁已经被占用，导致线程永久的延迟，等待着一个永远无法获得的锁。
+在例子中，子类覆盖了父类的 synchronized 类型的方法，并调用父类中的方法。如果没有可重入的锁，子类中可能就会产生死锁，因为Widget和LoggingWidget中的dosomething方法都是synchronized 类型的，都会在处理前试图获得Widget的锁。倘若内部锁不是可重入的，super.doSomething的调用者就永远无法获得Widget的锁。因为锁已经被占用，导致线程永久的延迟，等待着一个永远无法获得的锁。
 
 以上代码在同一个线程执行时，不会导致死锁，java中的synchronized 本身就是可以重入的（reentrant) ， 不管是synchronized方法，还是synchronized statements。参见: 
   
-http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html
-  
-http://stackoverflow.com/questions/5787957/reentrant-synchronization-behavior-with-synchronized-statements
+>http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html 
+>http://stackoverflow.com/questions/5787957/reentrant-synchronization-behavior-with-synchronized-statements
 
-1. LoggingWidget 的对象调用doSomething方法时，锁对象为LoggingWidget对象 super.doSomething()调用是锁对象是LoggingWidget对象运行程序，查看thread dump发现: 调用super.doSomething()时锁对象依然是LoggingWidget对象。
+LoggingWidget 的对象调用doSomething方法时，锁对象为LoggingWidget对象 super.doSomething()调用是锁对象是LoggingWidget对象运行程序，查看thread dump发现: 调用super.doSomething()时锁对象依然是LoggingWidget对象。
 
 "线程#1" prio=6 tid=0x0bd60400 nid=0x16f8 waiting on condition [0x0bf8f000..0x0bf8fd68]
   
@@ -307,39 +283,36 @@ super.doSomething();子类会去get Widget的monitorlock，此时就会取到loc
   
 因为JVM的可重入解决了这个问题啊，所以dump里看到的是正确的流程。
 
-**Synchronized能够实现原子性和可见性/synchronized和volatile比较**
-  
+### Synchronized能够实现原子性和可见性/synchronized和volatile比较
 把代码块声明为 synchronized，有两个重要后果，通常是指该代码具有 原子性（atomicity) 和 可见性（visibility) 。原子性意味着一个线程一次只能执行由一个指定监控对象（lock) 保护的代码，从而防止多个线程在更新共享状态时相互冲突。可见性则更为微妙；它要对付内存缓存和编译器优化的各种反常行为。一般来说，线程以某种不必让其他线程立即可以看到的方式（不管这些线程在寄存器中、在处理器特定的缓存中，还是通过指令重排或者其他编译器优化) ，不受缓存变量值的约束，但是如果开发人员使用了同步，如下面的代码所示，那么运行库将确保某一线程对变量所做的更新先于对现有 synchronized 块所进行的更新，当进入由同一监控器（lock) 保护的另一个 synchronized 块时，将立刻可以看到这些对变量所做的更新。类似的规则也存在于 volatile 变量上。
 
-在Java内存模型中，synchronized规定，线程在加锁时，先清空工作内存→在主内存中拷贝最新变量的副本到工作内存→执行完代码→将更改后的共享变量的值刷新到主内存中→释放互斥锁。
+在Java内存模型中，synchronized 规定，线程在加锁时，先清空工作内存在主内存中拷贝最新变量的副本到工作内存→执行完代码→将更改后的共享变量的值刷新到主内存中→释放互斥锁。
 
-Volatile实现内存可见性是通过store和load指令完成的；也就是对volatile变量执行写操作时，会在写操作后加入一条store指令，即强迫线程将最新的值刷新到主内存中；而在读操作时，会加入一条load指令，即强迫从主内存中读入变量的值。但volatile不保证volatile变量的原子性，例如: 
-  
+Volatile 实现内存可见性是通过 store 和 load 指令完成的；也就是对 volatile 变量执行写操作时，会在写操作后加入一条 store 指令，即强迫线程将最新的值刷新到主内存中；而在读操作时，会加入一条 load 指令，即强迫从主内存中读入变量的值。但volatile不保证volatile变量的原子性，例如: 
+```java
 Private int Num=0;
-  
-Num++;//Num不是原子操作
-  
+Num++; //Num不是原子操作
+```
+
 Num不是原子操作，因为其可以分为: 读取Num的值，将Num的值+1，写入最新的Num的值。
       
-对于Num++;操作，线程1和线程2都执行一次，最后输出Num的值可能是: 1或者2
+对于Num++; 操作，线程1和线程2都执行一次，最后输出Num的值可能是: 1或者2
      
-【解释】输出结果1的解释: 当线程1执行Num++;语句时，先是读入Num的值为0，倘若此时让出CPU执行权，线程获得执行，线程2会重新从主内存中，读入Num的值还是0，然后线程2执行+1操作，最后把Num=1刷新到主内存中； 线程2执行完后，线程1由开始执行，但之前已经读取的Num的值0，所以它还是在0的基础上执行+1操作，也就是还是等于1，并刷新到主内存中。所以最终的结果是1
+### 解释
+输出结果1的解释: 当线程1执行Num++;语句时，先是读入Num的值为0，倘若此时让出CPU执行权，线程获得执行，线程2会重新从主内存中，读入Num的值还是0，然后线程2执行+1操作，最后把Num=1刷新到主内存中； 线程2执行完后，线程1由开始执行，但之前已经读取的Num的值0，所以它还是在0的基础上执行+1操作，也就是还是等于1，并刷新到主内存中。所以最终的结果是1
       
-一般在多线程中使用volatile变量，为了安全，对变量的写入操作不能依赖当前变量的值: 如Num++或者Num=Num*5这些操作。
+一般在多线程中使用 volatile 变量，为了安全，对变量的写入操作不能依赖当前变量的值: 如Num++或者Num=Num*5这些操作。
 
-简单的说就是synchronized的代码块是确保可见性和原子性的, volatile只能确保可见性
+简单的说就是 synchronized 的代码块是确保可见性和原子性的, volatile只能确保可见性
 
 当且仅当下面条件全部满足时, 才能使用volatile
-  
-对变量的写入操作不依赖于变量的当前值, (++i/i++这种肯定不行), 或者能确保只有单个线程在更新
-  
-该变量不会与其他状态变量一起纳入不变性条件中
-  
-访问变量时不需要加锁
 
-**synchonrize和juc中的锁比较**
-  
-ReentrantLock在内存上的语义于synchronize相同, 但是它提供了额外的功能, 可以作为一种高级工具. 当需要一些可定时, 可轮询, 可中断的锁获取操作, 或者希望使用公平锁, 或者使用非块结构的编码时才应该考虑ReetrantLock.
+- 对变量的写入操作不依赖于变量的当前值, (++i/i++这种肯定不行), 或者能确保只有单个线程在更新
+- 该变量不会与其他状态变量一起纳入不变性条件中
+- 访问变量时不需要加锁
+
+### synchonrize和juc中的锁比较
+ReentrantLock 在内存上的语义于 synchronize 相同, 但是它提供了额外的功能, 可以作为一种高级工具. 当需要一些可定时, 可轮询, 可中断的锁获取操作, 或者希望使用公平锁, 或者使用非块结构的编码时才应该考虑ReetrantLock.
 
 总结一点, 在业务并发简单清晰的情况下推荐synchronized, 在业务逻辑并发复杂, 或对使用锁的扩展性要求较高时, 推荐使用ReentrantLock这类锁. 另外今后JVM的优化方向一定是基于底层synchronize的, 性能方面应该选择synchronize
 
