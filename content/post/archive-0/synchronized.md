@@ -414,7 +414,7 @@ D.当一个线程访问object的一个synchronized(this)同步代码块时，它
   
 答案: C，当一个线程访问object的一个synchronized(this)同步代码块时，其他线程对object中所有其它synchronized(this)同步代码块的访问将会被阻塞。
   
-(2)下面叙述错误的是: 
+(2) 下面叙述错误的是: 
   
 A.通过synchronized和volatile都可以实现可见性
   
