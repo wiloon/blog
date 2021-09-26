@@ -31,8 +31,8 @@ synchronized 的锁机制的主要优势是Java语言内置的锁机制，因此
 
 synchronized 是 Java 的关键字，可用于同步实例方法、类方法(静态方法)和代码块
 - 同步实例方法: 当 synchronized 修饰实例方法（函数修饰符）的时候，同步的范围是当前实例的实例方法。
-- 同步类方法(静态方法): 当 synchronized 修饰类方法的时候，同步的范围是当前类的方法。
-- 同步代码块: 当 synchronized 修饰代码块的时候，同步的范围是()中的对象。
+- 同步类方法(静态方法): 当 synchronized 修饰类方法的时候，同步的范围是当前类的方法。用synchronized修饰方法名时，编译后会在方法名上生成一个ACC_SYNCHRONIZED标识来实现同步
+- 同步代码块: 当 synchronized 修饰代码块的时候，同步的范围是()中的对象。当使用synchronized修饰代码块时，编译后会在代码块的前后生成monitorenter和monitorexit字节码来实现同步。
 
 synchronized 是非公平锁
 
@@ -428,7 +428,41 @@ D.所有的变量都存储在主内存中
 
 不论什么时候，只要您将编写的变量接下来可能被另一个线程读取，或者您将读取的变量最后是被另一个线程写入的，那么您必须进行同步。
 
-————————————————
+### monitor
+官方文档中对monitor的解释：  
+Synchronizationis built around an internal entity known as the intrinsic lock or monitor lock. (The API specification often refers to this entity simplyas a “monitor.”)，Every object has an intrinsic lock associated with it.By convention, a thread that needs exclusive and consistent access toan object’s fields has to acquire the object’s intrinsic lock beforeaccessing them, and then release the intrinsic lock when it’s done withthem.
+Monitor Object 设计模式
+我们使用Monitor Object设计模式来解决这类问题：将被客户线程并发访问的对象定义为一个monitor对象。客户线程仅能通过monitor对象的同步方法才能使用monitor对象定义的服务。为了防止陷入竞争条件，在任一时刻只能有一个同步方法被执行。每一个monitor对象包含一个monitor锁，被同步方法用于串行访问对象的行为和状态。此外，同步方法可以根据一个或多个与monitor对象相关的monitor conditions来决定在何种情况下挂起或恢复它们的执行。
+
+Java对于这样一个典型的模式做了很好的语言层面的封装，因此对于Java的开发者来说，很多关于该模式本身的东西被屏蔽掉了，如果希望从本质上对Monitor Object设计模式有一个更全面的认识，可以结合C++版本的Monitor Object设计模式。
+
+### 在Monitor Object模式中，主要有四种类型的参与者：
+- 监视者对象（Monitor Object）：负责定义公共的接口方法，这些公共的接口方法会在多线程的环境下被调用执行；
+- 同步方法：这些方法是监视者对象锁定义。为了防止竞争条件，无论是否同时有多个线程并发调用同步方法，还是监视者对象含有多个同步方法，在任一时间内只有监视者对象的一个同步方法能够被执行。
+- 监视锁（Monitor Lock）：每一个监视者对象都会拥有一把监视锁。
+- 监视条件（Monitor Condition）：同步方法使用监视锁和监视条件来决定方法是否需要阻塞或重新执行。
+
+### Java Monitor Object
+Java Monitor从两个方面来支持线程之间的同步，即：互斥执行与协作。Java使用对象锁（通过synchronized获得对象锁）保证工作在共享的数据集上的线程互斥执行，使用 notify/notifyAll/wait 方法来协同不同线程之间的工作。这些方法在Object类上被定义，会被所有的Java对象自动继承。
+
+实质上，Java的Object类本身就是监视者对象，Java语言对于这样一个典型并发设计模式做了内建的支持。不过，在Java里，我们已经看不到C++中的区域锁与条件变量的概念了。
+
+线程如果获得监视锁成功，将成为监视者对象的拥有者。在任一时刻内，监视者对象只属于一个活动线程（Owner）。拥有者线程可以调用wait方法自动释放监视锁，进入等待状态。
+
+
+### monitor 机制
+synchronized 关键字是 Java 在语法层面上，用来让开发者方便地进行多线程同步的重要工具。要进入一个 synchronized 方法修饰的方法或者代码块，会先获取与 synchronized 关键字绑定在一起的 Object 的对象锁，这个锁也限定了其它线程无法进入与这个锁相关的其它 synchronized 代码区域。
+
+网上很多文章以及资料，在分析 synchronized 的原理时，基本上都会说 synchronized 是基于 monitor 机制实现的，但很少有文章说清楚，都是模糊带过。
+参照前面提到的 Monitor 的几个基本元素，如果 synchronized 是基于 monitor 机制实现的，那么对应的元素分别是什么？
+它必须要有临界区，这里的临界区我们可以认为是对对象头 mutex 的 P 或者 V 操作，这是个临界区
+那 monitor object 对应哪个呢？mutex？总之无法找到真正的 monitor object。
+所以我认为“synchronized 是基于 monitor 机制实现的”这样的说法是不正确的，是模棱两可的。
+Java 提供的 monitor 机制，其实是 Object，synchronized 等元素合作形成的，甚至说外部的条件变量也是个组成部分。JVM 底层的 ObjectMonitor 只是用来辅助实现 monitor 机制的一种常用模式，但大多数文章把 ObjectMonitor 直接当成了 monitor 机制。
+我觉得应该这么理解：Java 对 monitor 的支持，是以机制的粒度提供给开发者使用的，也就是说，开发者要结合使用 synchronized 关键字，以及 Object 的 wait / notify 等元素，才能说自己利用 monitor 的机制去解决了一个生产者消费者的问题。
+
+
+
 版权声明: 本文为CSDN博主「朱清震」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接: https://blog.csdn.net/zqz_zqz/article/details/70233767
 
