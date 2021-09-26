@@ -3,7 +3,7 @@ title: wireguard
 author: "-"
 type: post
 date: 2020-03-15T16:20:26+00:00
-url: /?p=15763
+url: wireguard
 tag: vpn
 
 ---
@@ -84,8 +84,6 @@ ip link set wg0 up
     # PEER_A_PUBLIC_KEY 对端公钥
     sudo wg set wg0 peer PEER_A_PUBLIC_KEY persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint 192.168.50.215:9000
     sudo ip link set wg0 up
-
-
 
 ### 添加路由
     # ipv4
@@ -171,8 +169,24 @@ mtu: auto
 ##### 添加节点/add peer
 公钥:  服务端公钥
 预共享密钥/pre-shared key (可以不填)
-对端/endpoint:  xxx.wiloon.com:51xxx
+对端/endpoint: xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
+
+### IOS
+1. 名称: <foo>
+2. 生成密钥对
+3. 发送公钥到服务端
+4. 局域网IP地址: 192.168.54.3
+5. 监听端口:自动
+6. MTU: 1200
+7. DNS: 192.168.50.1
+8. 点击 添加节点
+9. 节点配置:
+10. 公钥: <服务端/对端公钥>
+11. 预共享密钥: 不填
+12. 对端: foo.bar.com:51900
+13. 路由的IP地址(段): 0.0.0.0/0
+14. 连接保活间隔(单位:秒): 不填
 
 ### chromeos>crostini
 使用android版本的wireguard  
