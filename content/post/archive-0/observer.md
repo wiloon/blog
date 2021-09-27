@@ -1,20 +1,15 @@
 ---
 title: 观察者模式(Observer)
 author: "-"
-type: post
 date: 2011-11-20T12:42:03+00:00
 url: observer
-bot_views:
-  - 5
-views:
-  - 7
 categories:
   - Java
 tags:
   - DesignPattern
 
 ---
-观察者模式（有时又被称为发布-订阅模式、模型-视图模式、源-收听者<source listener="" />模式或从属者模式) 是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实作事件处理系统。
+观察者模式（有时又被称为发布-订阅模式、模型-视图模式、源-收听者模式或从属者模式) 是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实作事件处理系统。
 
 观察者模式（Observer) 完美的将观察者和被观察的对象分离开。举个例子，用户界面可以作为一个观察者，业务数据是被观察者，用户界面观察业务数据的变化，发现数据变化后，就显示在界面上。面向对象设计的一个原则是: 系统中的每个类将重点放在某一个功能上，而不是其他方面。一个对象只做一件事情。观察者模式在模块之间划定了清晰的界限，提高了应用程序的可维护性和重用性。
   
@@ -57,181 +52,111 @@ A.自定义观察者模式
 1.抽象主题角色类
 
 ```java
-  
-package com.observe;
-
 public interface AbstractWatched {
+    //增加一个观察者
+    public void addAbstractWatcher(AbstractWatcher watcher);
 
-//增加一个观察者
-      
-public void addAbstactWatcher(AbstractWatcher watcher);
+    //移除一个观察者
+    public void removeAbstractWatcher(AbstractWatcher watcher);
 
-//移除一个观察者
-      
-public void removeAbstactWatcher(AbstractWatcher watcher);
+    //移除所有的观察着
+    public void removeAll();
 
-//移除所有的观察着
-      
-public void removeAll();
-
-//通知所有的观察者
-      
-public void notifyWatchers();
-
-}
-  
+    //通知所有的观察者
+    public void notifyWatchers();
+} 
 ```
 
 2.抽象观察者角色
 
 ```java
-  
-package com.observe;
-
 public interface AbstractWatcher {
-
-public void update();
-
-}
-  
+    public void update();
+}  
 ```
 
 3.具体主题角色(Watched)
 
 ```java
-  
-package com.observe;
-
 import java.util.ArrayList;
-  
 import java.util.List;
 
 public class ConcreteWatched implements AbstractWatched {
+    // list: 存放观察者的一个集合对象
+    List<AbstractWatcher> list = new ArrayList<>();
 
-//list:存放观察者的一个集合对象
-      
-List list = new ArrayList();
+    // 增加一个观察者
+    public void addAbstractWatcher(AbstractWatcher watcher) {
+        list.add(watcher);
+    }
 
-//增加一个观察者
-      
-public void addAbstactWatcher(AbstractWatcher watcher) {
-          
-list.add(watcher);
+    // 移除一个观察者
+    public void removeAbstractWatcher(AbstractWatcher watcher) {
+        list.remove(watcher);
+    }
 
+    // 移除所有的观察着
+    public void removeAll() {
+        list.clear();
+    }
+
+    // 通知所有的观察者
+    public void notifyWatchers() {
+        for (AbstractWatcher watcher : list) {
+            watcher.update();
+        }
+    }
 }
 
-//移除一个观察者
-      
-public void removeAbstactWatcher(AbstractWatcher watcher) {
-          
-list.remove(watcher);
-
-}
-
-//移除所有的观察着
-      
-public void removeAll() {
-          
-list.clear();
-
-}
-
-//通知所有的观察者
-      
-public void notifyWatchers() {
-          
-for(AbstractWatcher watcher : list){
-              
-watcher.update();
-          
-}
-
-}
-
-}
-  
 ```
 
 4.具体观察者角色(Watcher)
 
 ```java
-  
-package com.observe;
-
 public class ConcreteWatcher implements AbstractWatcher {
-
-//观察到被观察者发生变化时，执行的方法
-      
-public void update() {
-          
-System.out.println("update.....");
-
+    //观察到被观察者发生变化时，执行的方法
+    public void update() {
+        System.out.println("update.....");
+    }
 }
-
-}
-  
 ```
 
 5.客户端调用: 
 
 ```java
-  
-package com.observe;
-
 public class ClientTest {
+    public static void main(String[] args) {
+        //定义一个被观察者对象
+        AbstractWatched watched = new ConcreteWatched();
 
-public static void main(String[] args){
-          
-//定义一个被观察者对象
-          
-AbstractWatched watched = new ConcreteWatched();
+        //定义三个观察者对象
+        AbstractWatcher watcher1 = new ConcreteWatcher();
+        AbstractWatcher watcher2 = new ConcreteWatcher();
+        AbstractWatcher watcher3 = new ConcreteWatcher();
 
-//定义三个观察者对象
-          
-AbstractWatcher watcher1 = new ConcreteWatcher();
-          
-AbstractWatcher watcher2 = new ConcreteWatcher();
-          
-AbstractWatcher watcher3 = new ConcreteWatcher();
+        //被观察者添加观察者. 被观察者和观察者之间关系是一对多关系
+        watched.addAbstractWatcher(watcher1);
+        watched.addAbstractWatcher(watcher2);
+        watched.addAbstractWatcher(watcher3);
 
-//被观察者添加观察者. 被观察者和观察者之间关系是一对多关系
-          
-watched.addAbstactWatcher(watcher1);
-          
-watched.addAbstactWatcher(watcher2);
-          
-watched.addAbstactWatcher(watcher3);
+        System.out.println("第1次...");
+        //被观察者发生改变时，通知观察者执行相应方法
+        watched.notifyWatchers();
 
-System.out.println("第1次...");
-          
-//被观察者发生改变时，通知观察者执行相应方法
-          
-watched.notifyWatchers();
+        //移除一个观察者
+        watched.removeAbstractWatcher(watcher2);
 
-//移除一个观察者
-          
-watched.removeAbstactWatcher(watcher2);
+        System.out.println("第2次...");
+        //被观察者发生改变时，通知观察者执行相应方法
+        watched.notifyWatchers();
 
-System.out.println("第2次...");
-          
-//被观察者发生改变时，通知观察者执行相应方法
-          
-watched.notifyWatchers();
-
-//移除一个所有观察者
-          
-watched.removeAll();
-
-System.out.println("第3次...");
-          
-//被观察者发生改变时，通知观察者执行相应方法
-          
-watched.notifyWatchers();
-
+        //移除一个所有观察者
+        watched.removeAll();
+        System.out.println("第3次...");
+        //被观察者发生改变时，通知观察者执行相应方法
+        watched.notifyWatchers();
+    }
 }
-  
-}
-  
 ```
 
 执行结果为: 
@@ -258,8 +183,7 @@ B:对于java的观察者模式框架
   
 在xml解析中的SAX也采用了观察者模式来实现
   
-Java也提供了对观察者模式的内置支持
-
+### Java也提供了对观察者模式的内置支持, Observer和Observable在Java 9标记为废弃。
 内置观察者模式主要有2个类，一个是类Observable,一个是接口类Observer
 
 Observable类是被观察者，子类只要继承它即可。而且添加观察者等方法已经都实现了.
@@ -279,118 +203,146 @@ Observer是观察者，只有一个接口方法public void update(Observable arg
 被观察者: 
 
 ```java
-  
-package com.observe2;
-
 import java.util.Observable;
 
-public class Watched extends Observable{
-
-public void count(int number){
-          
-for( ; number >=0 ; number- ){
-              
-setChanged();
-
-//注意notifyObservers()有两种形式: 一种带有参数而另一种没有。当用参数调用notifyObservers( )方法时，该对象被传给观测程序的update( )方法作为其第二个参数。否则，将给update( )方法传递一个null。可以使用第二个参数传递适合于你的应用程序的任何类型的对象。
-              
-//也就是说notifyObservers()内部实际调用的是notifyObservers(null);
-              
-notifyObservers(number);
-          
-}
-      
-}
-
-}
-  
+public class Watched extends Observable {
+    public void count(int number) {
+        for (; number >= 0; number--) {
+            setChanged();
+            // 注意notifyObservers()有两种形式: 一种带有参数而另一种没有。当用参数调用notifyObservers( )方法时，
+            // 该对象被传给观测程序的update( )方法作为其第二个参数。
+            // 否则，将给update( )方法传递一个null。可以使用第二个参数传递适合于你的应用程序的任何类型的对象。
+            // 也就是说notifyObservers()内部实际调用的是notifyObservers(null);
+            notifyObservers(number);
+        }
+    }
+} 
 ```
 
 第一个观察者
 
 ```java
-  
-package com.observe2;
-
 import java.util.Observable;
-  
 import java.util.Observer;
 
-public class Watcher implements Observer{
-
-public void update(Observable arg0, Object arg1) {
-          
-System.out.println((Integer)arg1);
-
+public class Watcher implements Observer {
+    public void update(Observable arg0, Object arg1) {
+        System.out.println((Integer) arg1);
+    }
 }
-
-}
-  
 ```
 
 第二个观察者: 
 
 ```java
-  
-package com.observe2;
-
 import java.util.Observable;
-  
 import java.util.Observer;
 
-public class Watcher2 implements Observer{
-
-public void update(Observable arg0, Object arg1) {
-          
-if((Integer)arg1 == 0){
-              
-System.out.println("done");
-          
+public class Watcher2 implements Observer {
+    public void update(Observable arg0, Object arg1) {
+        if ((Integer) arg1 == 0) {
+            System.out.println("done");
+        }
+    }
 }
-
-}
-
-}
-  
 ```
 
-客户端调用: 
-
+### 客户端调用
 ```java
-  
-package com.observe2;
-
 public class Client {
-
-public static void main(String[] args){
-          
-//定义一个被观察者
-          
-Watched watched = new Watched();
-
-//定义2个观察者
-          
-Watcher watcher = new Watcher();
-          
-Watcher2 watcher2 = new Watcher2();
-
-//给被观察者添加观察者
-          
-watched.addObserver(watcher);
-          
-watched.addObserver(watcher2);
-
-watched.count(10);
-      
+    public static void main(String[] args) {
+        //定义一个被观察者
+        Watched watched = new Watched();
+        //定义2个观察者
+        Watcher watcher = new Watcher();
+        Watcher2 watcher2 = new Watcher2();
+        //给被观察者添加观察者
+        watched.addObserver(watcher);
+        watched.addObserver(watcher2);
+        watched.count(10);
+    }
 }
-
-}
-  
 ```
 
 输出结果为: 
   
 done
+
+### Observer和Observable在Java 9标记为废弃。
+
+废弃原因
+Observer和Observable有几个原因：
+
+1、不能序列化
+
+Observable没有实现Serializable接口，它的内部成员变量都是私有的，子类不能通过继承它来对Observable的成员变量处理。所以子类也不能序列化。
+
+参考：Why is java.util.Observable class not serializable.
+
+2、不是线程安全
+
+在 java.util.Observable文档里没有强制要求Observable是线程安全的，它允许子类覆盖重写Observable的方法，事件通知无序以及事件通知发生在不同的线程里，这些都是会影响线程安全的问题。
+
+参考：Documentation of java.util.Observable
+
+3、支持事件模型的功能简单
+
+支持事件模型的功能很简单，例如，只是支持事情发生变化的概念，但是不能提供更多哪些内容发生了改变。
+
+参考：deprecate Observer and Observable
+
+解决方案
+
+可以使用java.beans 里的PropertyChangeEvent 和 PropertyChangeListener 来代替目前Observer和Observable的功能。
+
+示例
+
+public class Demo {  
   
+  private String name;  
+  private PropertyChangeSupport listeners = new PropertyChangeSupport(this);  
+    
+  public Demo() {  
+      this.name= "my name";  
+  }  
+
+  public String getName() {  
+      return this.name;  
+  }  
+      
+  public void setName(String name) {  
+      String oldValue = this.name;  
+      this.name= name;  
+      //发布监听事件  
+      firePropertyChange("name", oldValue, demoName);  
+  }  
+      
+  public void addPropertyChangeListener(PropertyChangeListener listener) {  
+      listeners.addPropertyChangeListener(listener);  
+  }  
+      
+  public void removePropertyChangeListener(PropertyChangeListener listener){  
+      listeners.removePropertyChangeListener(listener);  
+  }  
+      
+  protected void firePropertyChange(String prop, Object oldValue, Object newValue) {  
+      listeners.firePropertyChange(prop, oldValue, newValue);  
+  }  
+}
+
+public class Main {  
+  public static void main(String[] args) {  
+    Demo demo= new Demo();  
+     demo.addPropertyChangeListener(new PropertyChangeListener(){  
+      public void propertyChange(PropertyChangeEvent evt) {  
+         System.out.println("OldValue:"+evt.getOldValue());  
+        System.out.println("NewValue:"+evt.getNewValue());  
+        System.out.println("tPropertyName:"+evt.getPropertyName());  
+    }});  
+     demo.setName("new Name");  
+  }  
+}
+
 
 http://ttitfly.iteye.com/blog/152512
+>https://majing.io/posts/10000001281162
