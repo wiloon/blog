@@ -3,7 +3,7 @@ title: 观察者模式(Observer)
 author: "-"
 type: post
 date: 2011-11-20T12:42:03+00:00
-url: /?p=1558
+url: observer
 bot_views:
   - 5
 views:
