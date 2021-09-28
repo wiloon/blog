@@ -161,12 +161,6 @@ NIO--DirectByteBuffer
 NIO--AIO
 [TCP Receive Buffer] as tcp_receive_buffer
 NIO--tcp_receive_buffer
-[Reactor] as Reactor #FF8A80
-NIO--Reactor
-[Observer]
-Reactor--Observer
-[响应式编程] as reactor_program
-Reactor--reactor_program
 [socket.read()] as socket_read
 tcp_receive_buffer--socket_read
 [selector]
