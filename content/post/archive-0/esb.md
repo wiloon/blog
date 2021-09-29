@@ -1,11 +1,12 @@
 ---
 title: ESB
 author: "-"
-type: post
 date: 2012-05-10T13:55:37+00:00
-url: /?p=3101
+url: esb
 categories:
   - Development
+tags:
+  - deprecated
 
 ---
 
@@ -103,7 +104,7 @@ categories:
     IBM 提供了三种 ESB 产品: IBM WebSphere ESB、IBM WebSphere Message Broker、IBM WebSphere DataPower Integration Appliance XI50。根据您的需求选择 ESB 来增强您的 SOA。WebSphere ESB 是一种基于平台的 ESB，作为集成的 SOA 平台，针对 WebSphere 应用服务器进行了优化。WebSphere Message Broker 是跨平台的 ESB，是为异构 IT 环境中的统一连接和转换而构建的。WebSphere DataPower Integration Appliance XI50 是一种基于设备的 ESB，是为简化的部署和更强的安全性而构建的。客户面临着从简单到复杂的各式各样的 ESB 需求。WebSphere ESB的结构如图一所示。
   
   
-    2. Microsoft ESB
+    1. Microsoft ESB
   
   
     微软通过其应用平台提供了全面的ESB服务，包括: Windows Server 2003,.NET Framework, BizTalk&reg;Server 2006 R2. 应用平台提供了一个基础架构，基于此可以灵活和安全地重复使用架构和商业服务，并具有协调原有的服务整合到新的端到端的业务流程中的能力。
@@ -112,7 +113,7 @@ categories:
     微软通过一些列的产品Windows Server 2003, the .NET Framework 3.0, and BizTalk Server 2006作为对企业实现ESB的支撑,Microsoft ESB Guidance是基于BizTalk Server 2006一组应用，它提供以下公用的ESB组件: l Message routing (消息路由) l Message validation (消息验证) l Message transformation (消息转换) l Centralized exception management(集中的异常管理) l Extensible adapter framework(可扩展的适配器框架) l Service orchestration(服务的编制支持) l Business rules engine(业务规则引擎) l Business activity monitoring(业务活动监视)微软 ESB 指南提供了架构指导，模式和实践，以及一套BizTalk Server 和 .NET Framework 组件来简化基于微软平台的大型或小规模的ESB解决方案的开发。它还可以帮助开发人员扩展现有的信息和集成解决方案，包括的一些服务和组件。
   
   
-    3. JBOSS SOA Platform
+    1. JBOSS SOA Platform
   
   
     JBoss Enterprise SOA Platform提供了一个基于标准的平台，用以集成应用、SOA服务、业务事件和自动化业务流程。这一SOA平台集成了特定版本的JBoss ESB、jBPM、Drools、和已得到验证的JBoss企业应用平台，把它们组织在一起形成一个单一的企业级发布。JBoss Enterprise SOA Platform打包了不少流行组件如: 
