@@ -6,25 +6,18 @@ date: 2013-05-08T03:13:29+00:00
 url: /?p=5430
 categories:
   - DataBase
+tags:
+  - oracle
 
 ---
-[sql]
 
-ROW_NUMBER() OVER (PARTITION BY COL1 ORDER BY COL2) -(其中，COL1，COL2可以为多列)
-  
-select xt.id,
-  
-xt.item,
-  
-xt.attribute1,
-  
-xt.attribute2,
-  
+```sql
+ROW_NUMBER() OVER (PARTITION BY COL1 ORDER BY COL2) --其中，COL1，COL2可以为多列
+select xt.id, xt.item, xt.attribute1, xt.attribute2, 
 ROW_NUMBER() OVER(PARTITION BY xt.id,xt.item order by xt.id,xt.item) test
-  
 from xxuts_test xt
+```
 
-[/sql]
 
 表示根据COL1分组，在分组内部根据 COL2排序
   

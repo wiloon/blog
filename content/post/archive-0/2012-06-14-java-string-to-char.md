@@ -8,6 +8,10 @@ categories:
   - Java
 
 ---
+### 按tab分割
+```java
+String[] segments = line.split("\t"); //按tab分割
+```
 ```java
 char c="abc".charAt(1);
 

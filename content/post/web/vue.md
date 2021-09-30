@@ -46,7 +46,6 @@ yarn serve
     "compilerOptions": {
          "types": ["...", "vuetify"],
 
-
 #### a-la-carte 组件
  只包含需要(想要)使用的组件,而不是获取所有组件
 
@@ -322,7 +321,6 @@ https://github.com/ElementUI/vue-cli-plugin-element
     Vue.use(Viser)
 
 # class component, property decorator
-
 vue class component 是vue 官方出的
 vue property decorator 是社区出的
 其中vue class component 提供了 vue component 等等
@@ -331,7 +329,6 @@ vue property decorator 深度依赖了 vue class component 拓展出了很多操
 
 
 ### router
-
 vue-router是什么
 ​	vue-router就是WebApp的链接路径管理系统。vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。传统的页面应用，是用一些超链接来实现页面切换和跳转的。在vue-router单页面应用中，则是路径之间的切换，也就是组件的切换。路由模块的本质 就是建立起url和页面之间的映射关系。
 
@@ -341,12 +338,22 @@ vue-router是什么
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ### for index
-    
 
 ### vue xxx admin
 >https://github.com/NelsonEAX/vue-vuetify-admin
 >https://panjiachen.github.io/vue-element-admin-site/zh/
 
+### package.json>script, http header size
+http status 431 问题
+```javascript
+  "scripts": {
+    "serve": "NODE_OPTIONS='--max-http-header-size=100000' vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint"
+  },
+```
 ----
 
 https://cli.vuejs.org/zh/guide/prototyping.html
