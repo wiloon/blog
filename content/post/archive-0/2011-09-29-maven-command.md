@@ -30,7 +30,6 @@ tags:
   -q for only error
 
 ### 生成项目
-
 ```bash
 # common project
 # mvn archetype:generate 会自动创建项目目录 mvntest
