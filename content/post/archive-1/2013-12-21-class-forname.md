@@ -422,8 +422,6 @@ JDBC的驱动管理机制的 具体底层代码分析如下:
 
 
 1. 分析JDBC的驱动程序管理部分的实现代码: 
-
-
 在 JDBC的层次上,sun主要定义了1个接口Driver和两个类: DirverManager和DriverInfo。每个JDBC驱动程序必须实现 Driver接口（在MySQL的Connector/J驱动中,这个叫做com.MySQL.jdbc.Driver) 。而DriverManager 则负责管理所有的Driver对象,包含注册Driver；选择合适的Driver来建立到某个数据库的连接；以及进行一些Driver的信息管理等。 DriverInfo非常简单,用于保存Driver的信息,只有3个成员变量,Driver,DriverClass和 DriverClassName,意义非常明显。
 
 

@@ -8,6 +8,11 @@ categories:
 
 ---
 
+### mysql 8
+MySQL ROW_NUMBER()从8.0版开始引入了功能。这ROW_NUMBER()是一个窗口函数或分析函数，它为从1开始应用的每一行分配一个序号。
+
+### mysql 8 之前的替代方案
+
 ```sql
 SELECT t.*,
        @rownum := @rownum + 1 AS rank
@@ -145,3 +150,5 @@ having count(b.date)<=2
 on a1.type=b1.type and a1.date=b1.date
 
 order by a1.type,a1.date desc
+
+>https://www.begtut.com/mysql/mysql-row-number-function.html

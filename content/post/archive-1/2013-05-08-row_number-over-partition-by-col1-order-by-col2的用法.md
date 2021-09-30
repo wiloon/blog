@@ -11,6 +11,7 @@ tags:
 
 ---
 
+### oracle row_number 函数
 ```sql
 ROW_NUMBER() OVER (PARTITION BY COL1 ORDER BY COL2) --其中，COL1，COL2可以为多列
 select xt.id, xt.item, xt.attribute1, xt.attribute2, 
@@ -44,3 +45,33 @@ arg1是从其他行返回的表达式
 arg2是希望检索的当前行分区的偏移量。是一个正的偏移量<wbr />，时一个往回检索以前的行的数目。
   
 arg3是在arg2表示的数目超出了分组的范围时返回的值。
+
+
+
+### 按照名字分组查询时间最早的一条记录
+ 
+给出2种解决方案
+
+rownumber
+
+SELECT *
+FROM
+(
+SELECT IdentityID, OpenID, ROW_NUMBER() OVER(PARTITION BY OpenID ORDER BY CreateTime DESC
+) AS rownumber FROM dbo.T_Account
+) AS tmp
+WHERE tmp.rownumber = 1
+相关子查询
+
+SELECT DISTINCT OpenID, test1.IdentityID FROM dbo.T_Account
+AS test1
+WHERE test1.IdentityID
+IN
+(
+SELECT TOP 1 IdentityID FROM dbo.T_Account
+WHERE dbo.T_Account.OpenID =  test1.OpenID
+ORDER BY CreateTime DESC
+ 
+)
+
+>https://www.shuzhiduo.com/A/8Bz8kWENdx/
