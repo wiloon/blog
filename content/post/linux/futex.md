@@ -257,11 +257,12 @@ java中的synchronized和linux系统的futex到底什么个关系？
 
 所以只有3进入内核态了。考虑到大部分情况都不是竞争很激烈的情况下，3根本就不用做。这样的锁的设计避免了由于系统调用导致的上下文切换，无疑很大的提高了效率。
 
-Ok, 回到Java。Java的synchronized用JVM的monitor实现。而monitor实现内部用到了pthread_mutex和pthread_cond。这俩是pthread标准接口，实现在glibc里。而这俩的内部实现在Linux上目前都用到了futex。所以整体可以理解为futex帮助Java在Linux上实现了synchronized在内核那部分阻塞的功能；同时用户态的抢锁，重入控制等功能由JVM自己实现。两块代码共同提供了完整的synchronized功能。
+Ok, 回到Java。Java的synchronized用JVM的monitor实现。而monitor实现内部用到了 pthread_mutex 和 pthread_cond 。这俩是 pthread 标准接口，实现在 glibc 里。而这俩的内部实现在 Linux上目前都用到了 futex。所以整体可以理解为 futex 帮助Java在Linux上实现了 synchronized 在内核那部分阻塞的功能；同时用户态的抢锁，重入控制等功能由JVM自己实现。两块代码共同提供了完整的synchronized功能。
 
 所以当我们随便写一段synchornized会阻塞的Java代码: 
 
 
+```java
 public class TestFutex {
      private Integer a = new Integer(1);
  
@@ -292,13 +293,14 @@ public class TestFutex {
          t2.start();
      }
  }
-并用strace去查看效果，你就会看到: 
+```
+并用 strace 去查看效果，你就会看到: 
 
-root@ba32a8cedf75:/test# strace -e futex java TestFutex
+root@ba32a8cedf75:/test# strace -e futex java -jar target/pingd-java-1.0-SNAPSHOT-jar-with-dependencies.jar
 futex(0x7f8dacc130c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
 futex(0x7f8dad64e9d0, FUTEX_WAIT, 97, NULL1
-……
-顺便说一句，基于AQS实现的JUC的那些ReentrantLock，Semaphore等内部也是类似的。其LockSupport.park内部用的也是这套东西。
+
+顺便说一句，基于AQS实现的JUC的那些 ReentrantLock，Semaphore 等内部也是类似的。其 LockSupport.park 内部用的也是这套东西。
 
 >https://www.codenong.com/cs106084621/
 

@@ -155,7 +155,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | rsibreak           | 蕃茄钟, install via pacman |
 
 ### ubuntu
-
 | Name             | Comments                                                    |
 | ---------------- | ----------------------------------------------------------- |
 | openjdk-8-jdk    |                                                             |
@@ -170,6 +169,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 | neofetch         | 发行版logo                                                  |
 | tree             | 以树型结构显示文件目录结构, tree -L N 子文件夹显示到第 N 层 |
 | x11-apps         | xclock, xserver 测试用                                      |
+|rar||
+|unrar||
 
 ### xfce4
 file-roller

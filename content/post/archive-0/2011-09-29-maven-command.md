@@ -72,7 +72,7 @@ mvn deploy:deploy-file -Dfile=xxx.jar -DgroupId=com.wiloon -DartifactId=artifact
 mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded
 
 # maven-assembly-plugin 打包
-mvn assembly:assembly
+>wangyue.dev/maven/assembly/plugin
 
 #Generates JSW based daemon wrappers.
 mvn appassembler:generate-daemons 
