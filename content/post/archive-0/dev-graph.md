@@ -231,8 +231,6 @@ lockd--etcd
 
 consistency--etcd
 etcd--raft
- 
- 
 paxos--raft
 paxos--zab
 

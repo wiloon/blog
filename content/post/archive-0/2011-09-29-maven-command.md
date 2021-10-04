@@ -1,9 +1,8 @@
 ---
 title: mvn maven basic, command
 author: "-"
-type: post
 date: 2011-09-29T04:34:14+00:00
-url: /?p=959
+url: maven/basic
 tags:
   - maven
 
@@ -31,7 +30,6 @@ tags:
   -q for only error
 
 ### 生成项目
-
 ```bash
 # common project
 # mvn archetype:generate 会自动创建项目目录 mvntest

@@ -9,6 +9,7 @@ tags:
   - netty
 
 ---
+# Reactor / Dispatcher 模式
 了解 Reactor 模式，就要先从**事件驱动**的开发方式说起。
 
 我们知道，服务器开发，CPU 的处理速度远高于 IO 速度，为了避免 CPU 因为 IO 而阻塞，好一点的方法是多进程或线程处理，但这会带来一些进程切换的开销。
@@ -17,8 +18,34 @@ tags:
 
 那在 IO 就绪这个事件后，谁来充当这个中间人？Reactor 模式的答案是: 有一个不断等待和循环的单独进程（线程) 来做这件事，它接受所有 handler 的注册，并负责向操作系统查询 IO 是否就绪，在就绪后用指定的 handler 进行处理，这个角色的名称就叫做 Reactor。
 
+### 事件驱动, 回调函数, reactor, 响应式编程
+事件驱动是概念，回调函数是实现方式。不用回调函数，也可以实现事件驱动。例如：把事件消息发送到队列，另外一个进程取队列处理即可（没有回调函数）。事件驱动的本质特征：中心轮询机制。event loop的loop是轮询。轮询的目的是什么？感知！对象发生变化，如何感知这种变化？不断的循环查询，loop探测！系统n个对象，每个对象一个for循环 探测彼此的变化？nonono……建立一个轮询中心，这个轮询中心去轮询每个对象，这就是事件驱动。发生了变化，通知感兴趣的对象，怎么处理？就是定义一个回调函数。事件驱动，属于“感知层”的概念；轮询中心，往往就是操作系统本身；对于浏览器而言，就是浏览器本身。也就是系统是轮询中心，你定义 函数，系统调用你定义的函数。对比：系统定义api，你调用api。谁定义函数，谁调用，角色颠倒了！api：系统定义的函数，你去调用；事件驱动：你定义的回调函数，被系统调用。还是没有懂？事件驱动，就是“哨兵模式”！哨兵轮询环境信息，你就安心睡大觉好了，不用每个人都轮询环境。发生了事件，哨兵（操作系统/浏览器/轮询中心）负责通知你！怎么处理这个消息，是你的责任！
 
-# Reactor / Dispatcher 模式
+作者：fdego
+链接：https://www.zhihu.com/question/30396023/answer/447966119
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+#### 事件驱动, reactor
+The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
+>https://en.wikipedia.org/wiki/Reactor_pattern
+
+#### 响应式 和 事件驱动编程 
+用过两个编程之后就会觉得他们非常相近, 两个代表作分别是 JS 的 eventEmitter 和 Rxjs
+
+了解之后 reactive  programming (响应式) 其实是基于 event data programing (事件驱动) 的方式来处理 数据流,
+
+Event data programming: 当某个件事情发生我再做某些事情
+
+Reactive programming: 当某个件事情发生事件告诉我, 在这之前你可以吧数据处理好先
+
+Event data programming 和 Reactive programming 区别在于:
+
+Event data programming 事件是全局性的当发出一个信号大家都会听看看是不是自己的, reactive programing 每个事件是唯一的, 如果你想监听这个事件你需要订阅它, 在这方面感觉 reactive 极大优化了性能.
+Event data programing 只处理事件, Reactive programming 除了可以订阅事件还可以订阅某个数据变化.
+>https://cnodejs.org/topic/5ccdb79d776fb66e0d171c2a
+
+### Reactor
 在获取事件时，先把我们要关心的连接传给内核，再由内核检测: 如果没有事件发生，线程只需阻塞在这个系统调用，而无需像线程池方案那样轮训调用 read 操作来判断是否有数据。如果有事件发生，内核会返回产生了事件的连接，线程就会从阻塞状态返回，然后在用户态中再处理这些连接对应的业务即可。
 
 这种模式叫做 Reactor 模式。
