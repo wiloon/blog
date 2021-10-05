@@ -9,5 +9,5 @@ categories:
 ---
 
 ```bash
-podman run -d --name openvscode  -p 3000:3000 -v "openvscode-data:/home/workspace:cached" gitpod/openvscode-server
+podman run -d --name openvscode  -p 1025:3000 -v "openvscode-data:/home/workspace:cached" gitpod/openvscode-server
 ```

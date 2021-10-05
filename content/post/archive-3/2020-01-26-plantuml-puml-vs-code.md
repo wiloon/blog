@@ -60,6 +60,12 @@ Bar : String method0()
 
 Foo<|--Bar
 note left: child
+
+abstract class Abstract0
+Foo--|>Abstract0
+
+interface Interface0
+
 @enduml
 ```
 
