@@ -74,7 +74,8 @@ com.google.common.util.concurrent: 多线程工具包。
 
 **三. ** **缓存**: 本地缓存，可以很方便的操作缓存对象，并且支持各种缓存失效行为模式。
 
-**四.  Functional idioms（函数式) :** 简洁, Guava实现了Java的函数式编程，可以显著简化代码。
+### 四.  Functional idioms（函数式) :
+简洁, Guava实现了Java的函数式编程，可以显著简化代码。
 
 **五. Concurrency（并发) : **强大,简单的抽象,让我们更容易实现简单正确的并发性代码。
 

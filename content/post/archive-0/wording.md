@@ -31,3 +31,7 @@ Simple is vital
 Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外面的人想进去，墙里面的人却想出来
 -----------《深入理解java虚拟机》
 
+
+engineering is about trade off
+>https://juejin.cn/post/6844903838978146317
+

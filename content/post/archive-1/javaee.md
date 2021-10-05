@@ -130,22 +130,7 @@ http://www.wiloon.com/?p=3063
 11.、j2ee常用的设计模式？说明工厂模式。
   
 答: Java中的23种设计模式: 
-  
-Factory（工厂模式) ，      Builder（建造模式) ，       Factory Method（工厂方法模式) ，
-  
-Prototype（原始模型模式) ，Singleton（单例模式) ，    Facade（门面模式) ，
-  
-Adapter（适配器模式) ，    Bridge（桥梁模式) ，        Composite（合成模式) ，
-  
-Decorator（装饰模式) ，    Flyweight（享元模式) ，     Proxy（代理模式) ，
-  
-Command（命令模式) ，      Interpreter（解释器模式) ， Visitor（访问者模式) ，
-  
-Iterator（迭代子模式) ，   Mediator（调停者模式) ，    Memento（备忘录模式) ，
-  
-Observer（观察者模式) ，   State（状态模式) ，         Strategy（策略模式) ，
-  
-Template Method（模板方法模式) ， Chain Of Responsibleity（责任链模式) 
+>wangyue.dev/design-pattern
   
 工厂模式: 工厂模式是一种经常被使用到的模式，根据工厂模式实现的类可以根据提供的数据生成一组类中某一个类的实例，通常这一组类有一个公共的抽象父类并且实现了相同的方法，但是这些方法针对不同的数据进行了不同的操作。首先需要定义一个基类，该类的子类通过不同的方法实现了基类中的方法。然后需要定义一个工厂类，工厂类可以根据条件生成不同的子类实例。当得到子类的实例后，开发人员可以调用基类中的方法而不必考虑到底返回的是哪一个子类的实例。
 

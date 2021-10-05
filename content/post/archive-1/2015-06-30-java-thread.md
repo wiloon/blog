@@ -387,24 +387,13 @@ at java.lang.Thread.run(Thread.java:662)
 
 避免死锁，1. 按顺序锁定资源 2. 可中断的，有时间限制的等待 3. 死锁检测
 
-![][1]
-
 http://www.iteye.com/topic/1119957
   
 https://stackoverflow.com/questions/27406200/visual-vm-thread-states/27406503
 
+Linux系统日志–syslog
 
-  
-    Linux系统日志–syslog
-  
-
-
-
-
- [1]: http://orwbur8sk.bkt.clouddn.com/javaSE_%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E6%96%B9%E6%B3%95%E4%B8%8E%E7%8A%B6%E6%80%81%E5%85%B3%E7%B3%BB%E7%A4%BA%E6%84%8F%E5%9B%BE.png
-
-
- java 实现多线程编程的方式有两种，一种是继承 Thread 类，另一种是实现 Runnable 接口。使用继承 Thread 类创建线程，最大的局限就是不能多继承
+java 实现多线程编程的方式有两种，一种是继承 Thread 类，另一种是实现 Runnable 接口。使用继承 Thread 类创建线程，最大的局限就是不能多继承
 
 Thread.java 类中的 start() 方法通知"线程规划器"此线程已经准备就绪，等待调用线程对象的 run() 方法。这个过程其实就是让系统安排一个时间来调用 Thread 中的 run() 方法，也就是使线程得到运行，多线程是异步的，线程在代码中启动的顺序不是线程被调用的顺序。
 

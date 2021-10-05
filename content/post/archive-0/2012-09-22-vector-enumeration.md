@@ -523,29 +523,34 @@ return this.index+"_"+this.name;
 
 ```java
 public interface Behaviour {
-void print();
-String getInfo();
+    void print();
+
+    String getInfo();
 }
-public enum Color implements Behaviour{
-RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
-// 成员变量
-private String name;
-private int index;
-// 构造方法
-private Color(String name, int index) {
-this.name = name;
-this.index = index;
-}
-//接口方法
-@Override
-public String getInfo() {
-return this.name;
-}
-//接口方法
-@Override
-public void print() {
-System.out.println(this.index+":"+this.name);
-}
+
+public enum Color implements Behaviour {
+    RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
+    // 成员变量
+    private String name;
+    private int index;
+
+    // 构造方法
+    private Color(String name, int index) {
+        this.name = name;
+        this.index = index;
+    }
+
+    //接口方法
+    @Override
+    public String getInfo() {
+        return this.name;
+    }
+
+    //接口方法
+    @Override
+    public void print() {
+        System.out.println(this.index + ":" + this.name);
+    }
 }
 ```
 
@@ -563,7 +568,7 @@ FRUIT, CAKE, GELATO
 ```
 
 用法七: 关于枚举集合的使用
-  
+
 java.util.EnumSet和java.util.EnumMap是两个枚举集合。EnumSet保证集合中的元素不重复；EnumMap中的key是enum类型，而value则可以是任意类型。关于这个两个集合的使用就不在这里赘述，可以参考JDK文档。
   
 关于枚举的实现细节和原理请参考: 

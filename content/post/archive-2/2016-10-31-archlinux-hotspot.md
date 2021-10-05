@@ -178,7 +178,7 @@ sudo nft add rule nat post ip saddr 192.168.49.0/24 oif enp2s0 snat 172.16.xxx.x
 sudo hostapd /etc/hostapd/hostapd.conf
 sudo hostapd -B /etc/hostapd/hostapd.conf
 sudo systemctl start hostapd.service 
-#设置无线接入点IP地址,命令模式如下: 
+#设置无线接入点IP地址,命令如下: 
   
 sudo ip addr add 192.168.49.1/24 dev wlp2s0b1  
 sudo ip link set wlp2s0b1 up

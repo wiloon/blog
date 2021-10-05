@@ -8,11 +8,20 @@ categories:
 tags:
   - inbox
 ---
+
+Eureka [jʊ'ri:kə]
+Ribbon [ˈrɪbən]
+Feign [fen]
+Hystrix [hɪst'rɪks]
+Zuul [zulu]
+Sleuth [sluθ]
+Turbine [ˈtɜ:rbaɪn]
+
+
 Spring Cloud Netflix（Eureka、Hystrix、Zuul、Archaius) 、Spring Cloud Config、Spring Cloud Bus、Spring Cloud Cluster、Spring Cloud Consul、Spring Cloud Security、Spring Cloud Sleuth、Spring Cloud Data Flow、Spring Cloud Stream、Spring Cloud Task、Spring Cloud Zookeeper、Spring Cloud Connectors、Spring Cloud Starters、Spring Cloud CLI
 
-l Eureka: 服务注册中心，一个基于REST的服务，用于定位服务，以实现微服务架构中服务发现和故障转移。
-
-l Hystrix: 熔断器，容错管理工具，旨在通过熔断机制控制服务和第三方库的节点,从而对延迟和故障提供更强大的容错能力。
+- Eureka: 服务注册中心，一个基于REST的服务，用于定位服务，以实现微服务架构中服务发现和故障转移。
+- Hystrix: 熔断器，容错管理工具，旨在通过熔断机制控制服务和第三方库的节点,从而对延迟和故障提供更强大的容错能力。
 
 l Turbine: Turbine是聚合服务器发送事件流数据的一个工具，用来监控集群下Hystrix的Metrics情况。
 
