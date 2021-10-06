@@ -8,23 +8,21 @@ categories:
   - Java
 
 ---
-
-wait()	
-调用该方法的线程进入WAITING状态，只有等待另外线程的通知或被中断才会返回，需要注意，
+### wait()	
+调用该方法的线程进入 WAITING 状态，只有等待另外线程的通知或被中断才会返回，需要注意，
 
 调用wait()方法后，会释放对象的锁。
 
 wait(long)	超时等待一段时间，这里的参数是毫秒，也就是等待长达n毫秒，如果没有通知就超时返回。
 wait(long, int)	对于超时时间更细粒度的控制，可以达到毫秒。
 
-
 ```java
 Thread.sleep(3000);
 TimeUnit.SECONDS.sleep(random.nextInt(10));
 this.wait(2000);
 ```
-
-sleep 是 Thread 类的Static方法, sleep() 使当前线程进入停滞状态 (阻塞当前线程), 让出CUP的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;
+### sleep
+sleep 是 Thread 类的静态方法, sleep() 使当前线程进入停滞状态 (阻塞当前线程), 让出CUP的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;
   
 Thread.sleep 不会导致锁行为的改变，如果当前线程是拥有锁的，那么Thread.sleep不会让线程释放锁。
   
@@ -96,16 +94,9 @@ sleep() 可使优先级低的线程得到执行的机会， 当然也可以让�
 理论上，yield意味着放手，放弃，投降。一个调用 yield() 方法的线程告诉虚拟机它乐意让其他线程占用自己的位置。这表明该线程没有在做一些紧急的事情。注意，这仅是一个暗示，并不能保证不会产生任何影响。
 
 在Thread.java中yield()定义如下: 
-
-/**
-  
-* A hint to the scheduler that the current thread is willing to yield its current use of a processor. The scheduler is free to ignore
-  
-* this hint. Yield is a heuristic attempt to improve relative progression between threads that would otherwise over-utilize a CPU.
-  
-* Its use should be combined with detailed profiling and benchmarking to ensure that it actually has the desired effect.
-  
-*/
+>A hint to the scheduler that the current thread is willing to yield its current use of a processor. The scheduler is free to ignore
+>this hint. Yield is a heuristic(adj. 启发式的；探索的) attempt to improve relative progression between threads that would otherwise over-utilize a CPU.
+>Its use should be combined with detailed profiling and benchmarking to ensure that it actually has the desired effect.
 
 public static native void yield();
   
