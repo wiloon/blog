@@ -9,7 +9,6 @@ categories:
 
 ---
 ### pc
-
   * maven setting
   * heidisql config
   * email
@@ -27,3 +26,5 @@ categories:
 ### router
   * /etc/hosts
  
+### android
+- 照片 > NAS

@@ -21,6 +21,44 @@ url: /?p=1945
 |RssX||
 |DevCheck|手机硬件检测工具|
 
+### list
+- AnXray
+- 冰箱
+- chrome
+- 滴答清单
+- Discord
+- Firefox
+- Gmail
+- 极客时间
+- Tx toolbox, 极致工具
+- Joplin
+- JuiceSSH
+- keepass2Android
+- Kindle
+- 米家
+- MetaTrader
+- PingTools
+- Qfile
+- Slack
+- SpacexN
+- Speedtest
+- Teambition
+- Telegram
+- Total commander
+- Twitter
+- v2rayNG
+- Wireguard
+- 大连地铁
+- 汇通财经
+- 辽事通
+- 通信行程卡
+- 有道
+- 亿家园
+- 亿通行
+- Ingress
+- IITC Mobile
+
+
 ---
 
   * producteev

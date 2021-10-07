@@ -3,13 +3,15 @@ title: 安卓线刷升级, flash factory image for android
 author: "-"
 type: post
 date: 2015-01-29T15:55:53+00:00
-url: /?p=7296
+url: android/factory-image
 
 ---
 ### download factory image from
 <https://developer.android.com/preview/get>
   
 <https://developers.google.com/android/images>
+
+>https://developer.android.com/about/versions/12/download
 
 ```bash
 wget https://dl.google.com/dl/android/aosp/angler-opr6.170623.013-factory-a63b2f21.zip
@@ -28,7 +30,7 @@ https://wiki.archlinux.org/index.php/android#Detect_the_device
      # 按方向键切换到unlock
      # 按电源键解锁
 
-手机开启 开发者模式，打开usb调试  ,oem unlock
+手机开启 开发者模式，打开usb调试,oem unlock
   
 将手机连接到电脑
 
