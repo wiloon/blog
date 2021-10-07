@@ -63,3 +63,6 @@ akka-zeromq:整合ZeroMQ
 超级轻量级的线程事件处理能力.
   
 要在JAVA中实现一个Actor也非常的简单,直接继承akka.actor.UntypedActor类,然后实现public void onReceive(Object message) throws Exception方法即可.
+
+>https://guobinhit.github.io/akka-guide/
+>https://www.zhihu.com/question/279512440/answer/407373037
