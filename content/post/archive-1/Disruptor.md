@@ -1,9 +1,8 @@
 ---
 title: Disruptor
 author: "-"
-type: post
 date: 2015-08-28T09:07:53+00:00
-url: /?p=8181
+url: disruptor
 categories:
   - Uncategorized
 
@@ -99,3 +98,4 @@ Disruptor也支持，但是本文没有说如何支持，放在后面写。
 虽然disruptor的原理已经比较熟悉了，但是其API还不是很了解，我写了一个实验性的代码，来完善我的理解 - 不过随着理解的深入，代码会不断更新: 
 
 https://github.com/shiyimin/12306ngpm/blob/8be9178d318618f905aaed45fa6025df09371c31/trunk/tpms/src/test/java/org/ng12306/tpms/DisruptorConceptProofTest.java
+>https://tech.meituan.com/2016/11/18/disruptor.html
