@@ -2,7 +2,7 @@
 title: fcitx
 author: "-"
 date: 2017-01-12T04:50:30.000+00:00
-url: "/?p=9650"
+url: fcitx
 categories:
 - Uncategorized
 
@@ -27,7 +27,7 @@ ctrl+6
 ctrl+7
 
 ### 五笔词库位置
-/home/user0/.config/fcitx/table/wbx.mb
+/home/wiloon/.config/fcitx/table/wbx.mb
 
 ### 安装fcitx
     sudo pacman -S fcitx
