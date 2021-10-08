@@ -6,6 +6,13 @@ date: 2013-07-09T05:59:32+00:00
 url: /?p=5626
 
 ---
+### location>proxy_redirect
+proxy_redirect：修改后端服务器返回的响应头部中的location货refresh，与proxy_pass配合使用：
+### location>proxy_ssl_session_reuse on | off;
+proxy_ssl_session_reuse:配置是否基于SSL协议与后端服务器建立连接
+proxy_ssl_trusted_certificate指令命名的文件中的受信任CA证书用于在上游验证证书
+proxy_ssl_trusted_certificate指令设置的那个可信CA证书文件是用来验证后端服务器的证书。
+
 ### nginx 414 Request-URI Too Large
     client_header_buffer_size 512k;
 

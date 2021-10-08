@@ -1,13 +1,17 @@
 ---
 title: openssl basic
 author: "-"
-type: post
 date: 2017-10-30T09:16:49+00:00
-url: /?p=11332
+url: openssl
 categories:
   - Uncategorized
 
 ---
+### pem格式转DER格式
+```bash
+openssl x509 -outform der -in charles.pem -out charles.crt
+
+```
 ### 查看https证书
     openssl s_client -showcerts -connect www.baidu.com:443
     # 证书链是倒序的, 从上面数第一个是叶子节点, 跟浏览器里看到的证书顺序相反.
@@ -28,13 +32,16 @@ openssl genrsa -out pri2048.key 2048
 # generate public key
 openssl rsa -inform PEM -outform PEM -in pri2048.key -out pub2048.key -pubout
 
-# 查看证书信息
+# 查看证书信息 pem
 openssl x509 -noout -text -in ca.crt
 openssl x509 -noout -text -in foo.pem
 
 # 验证证书
 openssl verify selfsign.crt
 ```
+
+### 查看  .der .crt 证书
+    openssl x509 -in foo.crt -inform der -text -noout
 
 https://github.com/denji/golang-tls
 

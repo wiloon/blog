@@ -21,9 +21,11 @@ The Java team's position is that synchronous code is easier to write, test, debu
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
+>https://openjdk.java.net/projects/loom/
 >https://github.com/openjdk/loom
 >https://mail.openjdk.java.net/pipermail/jdbc-spec-discuss/2019-September/000529.html
 >https://www.jianshu.com/p/5db701a764cb
 >https://www.zhihu.com/question/67579790
 >https://www.zhihu.com/question/23084473
 >https://www.jdon.com/54488
+>http://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html

@@ -1,11 +1,32 @@
 ---
-title: 证书, x509, keystore, truststore, pem
+title: 证书, x509, keystore, truststore, pem, 
 author: "-"
 type: post
 date: 2018-02-22T07:21:37+00:00
 url: /?p=11902
 
 ---
+### 证书和编码
+X.509证书,其核心是根据RFC 5280编码或数字签名的数字文档。
+
+实际上，术语X.509证书通常指的是IETF的PKIX证书和X.509 v3证书标准的CRL 文件，即如RFC 5280（通常称为PKIX for Public Key Infrastructure（X.509））中规定的。
+
+### .CRT 扩展名
+.CRT = CRT扩展用于证书。 证书可以被编码为二进制DER或ASCII PEM。 CER和CRT扩展几乎是同义词。 最常见的于Unix 或类Unix系统。
+
+### .cer
+.CER扩展名
+ CER = .crt的替代形式（Microsoft Convention）您可以在微软系统环境下将.crt转换为.cer（.both DER编码的.cer，或base64 [PEM]编码的.cer）。
+
+可参考：https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format
+
+.cer文件扩展名也被IE识别为 一个运行MS cryptoAPI命令的命令（特别是rundll32.exe cryptext.dll，CryptExtOpenCER），该命令显示用于导入和/或查看证书内容的对话框。 
+
+### .KEY 扩展名
+     .KEY = KEY扩展名用于公钥和私钥PKCS＃8。 键可以被编码为二进制DER或ASCII PEM。
+
+---
+
 PEM是由RFC1421至1424定义的一种数据格式。其实前面的.cert和.key文件都是PEM格式的,只不过在有些系统中（比如Windows) 会根据扩展名不同而做不同的事。所以当你看到.pem文件时,它里面的内容可能是certificate也可能是key,也可能两个都有,要看具体情况。可以通过openssl查看。  
 
 X.509 - 是一种常见通用的证书标准,主要定义了证书中应该包含哪些内容.其详情可以参考RFC5280,SSL使用的就是这种证书标准.  
@@ -21,6 +42,9 @@ X.509 PEM 编码(Base64)的后缀是:  .PEM .CER .CRT
 同样的X.509证书,可能有不同的编码格式,目前有以下两种编码格式.
 
 ### PEM 
+
+.PEM = PEM扩展用于不同类型的X.509v3文件，是以“ - BEGIN ...”前缀的ASCII（Base64）数据。
+
 Privacy Enhanced Mail,打开看文本格式,以"-----BEGIN..."开头, "-----END..."结尾,内容是BASE64编码.
 查看PEM格式证书的信息:
 
@@ -33,12 +57,16 @@ Apache和*NIX服务器偏向于使用这种编码格式.
 
 https://docs.vmware.com/cn/Unified-Access-Gateway/2.9/com.vmware.access-point-29-deploy-config/GUID-870AF51F-AB37-4D6C-B9F5-4BFEB18F11E9.html
 
+### .DER 扩展名
+.DER = DER扩展用于二进制DER编码证书。
 
+这些文件也可能承载CER或CRT扩展。 正确的说法是“我有一个DER编码的证书”不是“我有一个DER证书”。
 ### DER 
-Distinguished Encoding Rules,打开看是二进制格式,不可读.
+Distinguished Encoding Rules, 打开看是二进制格式,不可读.
 查看DER格式证书的信息:
 
     openssl x509 -in certificate.der -inform der -text -noout
+
 Java和Windows服务器偏向于使用这种编码格式.
 
 相关的文件扩展名
@@ -97,3 +125,53 @@ https://www.cnblogs.com/guogangj/p/4118605.html
 来源: 知乎  
 著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。  
 https://www.zhihu.com/question/29620953
+
+
+查看证书
+ 即使PEM编码的证书是ASCII，它们是不可读的。这里有一些命令可以让你以可读的形式输出证书的内容;
+
+ 1.1）查看PEM编码证书
+openssl x509 -in cert.pem -text -noout
+
+openssl x509 -in cert.cer -text -noout
+
+openssl x509 -in cert.crt -text -noout
+
+ 如果您遇到这个错误，这意味着您正在尝试查看DER编码的证书，并需要使用“查看DER编码证书”中的命令。
+unable to load certificate
+
+12626:error:0906D06C:PEMroutines:PEM_read_bio:no start line:pem_lib.c:647:Expecting: TRUSTEDCERTIFICATE
+1.2）查看DER编码证书
+openssl x509 -in certificate.der -inform der -text -noout
+
+如果您遇到以下错误，则表示您尝试使用DER编码证书的命令查看PEM编码证书。在“查看PEM编码的证书”中使用命令
+unable to load certificate
+
+13978:error:0D0680A8:asn1 encodingroutines:ASN1_CHECK_TLEN:wrong tag:tasn_dec.c:1306:
+
+13978:error:0D07803A:asn1 encodingroutines:ASN1_ITEM_EX_D2I:nested asn1 error:tasn_dec.c:380:Type=X509
+
+2）转换证书格式
+转换可以将一种类型的编码证书存入另一种。（即PEM到DER转换）
+PEM到DER
+openssl x509 -in cert.crt -outform der-out cert.der
+DER到PEM
+openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
+
+3）组合证书
+在某些情况下，将多个X.509基础设施组合到单个文件中是有利的。一个常见的例子是将私钥和公钥两者结合到相同的证书中。
+
+组合密钥和链的最简单的方法是将每个文件转换为PEM编码的证书，然后将每个文件的内容简单地复制到一个新文件中。这适用于组合文件以在Apache中使用的应用程序。
+
+4)证书提取
+一些证书将以组合形式出现。 一个文件可以包含以下任何一个：证书，私钥，公钥，签名证书，证书颁发机构（CA）和/或权限链。
+
+ 
+
+五、原文链接
+https://support.ssl.com/index.php?/Knowledgebase/Article/View/19/0/der-vs-crt-vs-cer-vs-pem-certificates-and-how-to-convert-them
+
+
+
+>https://blog.csdn.net/xiangguiwang/article/details/76400805
+
