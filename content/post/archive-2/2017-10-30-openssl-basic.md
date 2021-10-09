@@ -7,6 +7,14 @@ categories:
   - Uncategorized
 
 ---
+# OpenSSL
+### 查看证书信息 pem
+openssl x509 -noout -text -in ca.crt
+openssl x509 -noout -text -in foo.pem
+
+### 查看 .der .crt 证书
+    openssl x509 -inform der -text -noout -in foo.crt 
+
 ### pem格式转DER格式
 ```bash
 openssl x509 -outform der -in charles.pem -out charles.crt
@@ -40,8 +48,7 @@ openssl x509 -noout -text -in foo.pem
 openssl verify selfsign.crt
 ```
 
-### 查看  .der .crt 证书
-    openssl x509 -in foo.crt -inform der -text -noout
+
 
 https://github.com/denji/golang-tls
 
@@ -143,4 +150,4 @@ some secret
 
 
 https://my.oschina.net/u/1382972/blog/325442
-
+>https://www.openssl.org/

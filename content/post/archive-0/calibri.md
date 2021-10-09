@@ -1,0 +1,42 @@
+---
+title: Resume, CV
+author: "-"
+date: 2011-09-07T05:08:28+00:00
+url: resume
+
+categories:
+  - CV
+
+---
+
+有的学校把简历叫做resume，另一些叫做Curriculum Vitae，这中间到底有什么差别呢？resume通常更接近求职简历，即把自己所有经历中与目标职位相关性最大的经历筛选出来，展示在自己的简历中；而CV呢，翻译成中文更确切的来讲叫做“个人履历”或“个人履历表”。单听这个名字我们就知道了，CV更多的是把自己过去所有的经历按照时间顺序逐条罗列，比较机械呆板，一般用于学术圈。但是，回到留学申请这个原本的话题上来，即便不同学校对于简历的称呼不同，我们也并不需要区别对待，也就是这个细微的差别，对于申请这件事来讲，可以忽略不计。简历要写什么内容？简历要有抬头，抬头要写姓名和联系方式，电话、邮箱、邮寄地址。简历主体部分要写教育背景、实习/科研/工作经历、项目经历、课外活动、奖项荣誉、专业技能、获得证书、语言能力等等。但并不是一份简历要把上面这些item都写全的。一是根据个人实际背景经历情况筛选，二是根据申请目标专业来具体分析。比方说我申请教育学，那么语言能力就显得尤为重要，但我申请计算机，显然更重要的是在专业技能这个item下展示自己掌握了哪些编程语言及计算机软件。
+
+作者：杜建虎
+链接：https://www.zhihu.com/question/20355548/answer/1883548833
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+CV是履历，Resume是简历。Resume，简述于求职相关的教育背景和工作经历，其目的在于说服用人单位雇用自己；
+### CV，Curriculum Vitae
+CV是集中说明学术工作，不重视与文化程度和学习成绩无直接关系的资料。CV的完整形式是拉丁文Curriculum Vitae，在美国，CV主要是用于申请学术、教育、科研职位，或者申请奖学金等等，而在欧洲、中东、非洲和亚洲等地，CV则更常用于应征工作。CV的长度由其内容确定，有时可长达十页，年轻专业人的履历一般长度都在2—4页，而老资历的通常也在6—8页。应包括：姓名、地址、电话号码及电子邮件地址；文化程度；受何奖励和大学奖学金；教学经历相关经历；有何论著发表；语言或其它技能，课外活动及个人爱好。Resume，大多只需一页大小，而有两页的对具有广泛的工作经验的人才有典型性。应包括：姓名、地址、电子信箱（可选）和电话号码（当地和固定的）；工作岗位（可选） ；教育；获何荣誉奖励；有关功课（可选）；经历，列出组织、地址、日期、工作名称、成绩和职责简述。
+
+作者：SongNannnnnn
+链接：https://www.zhihu.com/question/20355548/answer/14871763
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+在99%的情况下，对方找你要CV和对方找你要Resume，他们想要的东西是一模一样的：你的简历。最好白纸黑字，最好一页纸，最好PDF。In 99% of the situations when someone says, “Can you send over your CV?" or "Can you send me your resume?" they mean the exact same thing.
+
+作者：朱英楠David
+链接：https://www.zhihu.com/question/20355548/answer/91783206
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
+>https://learnitmyway.medium.com/how-to-write-a-cv-as-a-software-developer-8841a79f8458
+>https://drive.google.com/file/d/0B3ZNcIeUNLoLbHpZNU5JWWhQM0E/view?resourcekey=0-DEiJghk5GfbvRMlmbNO_Vg
+>https://www.imperial.ac.uk/careers/applications-and-interviews/cv/
+>https://cvcompiler.com/blog/40-words-to-spice-up-your-developer-resume/
