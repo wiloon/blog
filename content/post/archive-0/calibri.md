@@ -33,10 +33,3 @@ CV是集中说明学术工作，不重视与文化程度和学习成绩无直接
 链接：https://www.zhihu.com/question/20355548/answer/91783206
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-
-
->https://learnitmyway.medium.com/how-to-write-a-cv-as-a-software-developer-8841a79f8458
->https://drive.google.com/file/d/0B3ZNcIeUNLoLbHpZNU5JWWhQM0E/view?resourcekey=0-DEiJghk5GfbvRMlmbNO_Vg
->https://www.imperial.ac.uk/careers/applications-and-interviews/cv/
->https://cvcompiler.com/blog/40-words-to-spice-up-your-developer-resume/
