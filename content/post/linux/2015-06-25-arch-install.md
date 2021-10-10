@@ -45,7 +45,7 @@ ls /sys/firmware/efi/efivars
 ```
 
 ### config pacman mirror
->wiloon.com/pacman
+>wangyue.dev/pacman
 
 <https://blog.wiloon.com/?p=7501>
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
@@ -55,7 +55,7 @@ pacman -Sy
 
 ## 分区并格式化硬盘
 #### 用 parted 分区
-title: parted  
+title: parted
 >http://blog.wiloon.com/parted
 
 #### 用 fdisk 分区
@@ -88,7 +88,7 @@ arch-chroot /mnt/tmp
 echo hostname0 > /etc/hostname
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-pacman -S gvim emacs
+pacman -S gvim
 
 # Uncomment the needed locales(en_US.UTF-8, zh_CN.UTF-8) in /etc/locale.gen, then generate them with: locale-gen
 vim /etc/locale.gen
@@ -110,10 +110,14 @@ passwd
 
 # install wpa_supplicant
 pacman -S wpa_supplicant
+pacman -S openssh
+systemctl enable sshd
+systemctl enable systemd-networkd
+systemctl enable systemd-resolved.service
+vim /etc/ssh/sshd_config # PermitRootLogin yes
 ```
 
-### boot with UEFI
-
+### bootloader, systemd-boot
 ```bash
 # boot with uefi
 bootctl install
@@ -124,8 +128,7 @@ vim loader.conf
 default arch
 timeout 1
 
-cd /boot/loader/entries
-vim arch.conf
+vim /boot/loader/entries/arch.conf
 
 # arch.conf content
 title Archlinux
@@ -140,7 +143,6 @@ options root=PARTUUID=xxx rw
 ```
 
 ### boot with grub
-
 <https://blog.wiloon.com/?p=15345>
 
 
