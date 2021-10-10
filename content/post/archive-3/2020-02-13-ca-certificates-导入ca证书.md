@@ -8,6 +8,12 @@ categories:
   - Uncategorized
 
 ---
+### ubuntu import CA 
+
+```bash
+cp foo.crt /usr/share/ca-certificates/
+sudo dpkg-reconfigure ca-certificates
+```
 英文版出处: http://majic.rs/blog/system-wide-installation-of-certificates
   
 https://blog.csdn.net/ziyouwayj/article/details/36371747
@@ -66,13 +72,11 @@ $ yum install ca-certificates
   
 
 
-4.在 /etc/ca-certificates.conf文件中添加一行: 您的证书文件去除 /usr/share/ca-certificates/ 目录后的相对路径。例如针对上面的例子，就只需要添加
+4.在 /etc/ca-certificates.conf 文件中添加一行: 您的证书文件去除 /usr/share/ca-certificates/ 目录后的相对路径。例如针对上面的例子，就只需要添加
   
 example.com/Example Root.ca
 
-<ol start="5">
-  
-    Finally, run the update-ca-certificates command as root in order to have it regenerate the /etc/ssl/certs directory to reflect the new changes.
+Finally, run the update-ca-certificates command as root in order to have it regenerate the /etc/ssl/certs directory to reflect the new changes.
   
 
 

@@ -6,6 +6,13 @@ date: 2011-08-04T02:41:54+00:00
 url: /?p=395
 
 ---
+### ignore ca
+    --trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other"
+    svn checkout https://your.repository.url/ --non-interactive --trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other" --username=blah --password=blah
+    
+### 查看 svn 版本
+    svn --version
+
 ### svn merge
 
 ```bash

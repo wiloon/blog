@@ -214,9 +214,9 @@ git push origin :refs/tags/1.0.0
     git switch -c dev
 #### 删除分支
     git branch -d branch0
-#### #删除远程的todo branch
+#### 删除远程的todo branch
     git branch -d -r origin/todo
-#### 分支合并, git merge命令用于合并指定分支到当前分支。
+#### 分支合并, git merge命令用于合并指定分支到当前分支
     git merge branch1 -m "MSG0"
 
 ### 本地分支重命名(还没有推送到远程)
@@ -226,7 +226,6 @@ git push origin :refs/tags/1.0.0
     git pull
     git pull origin branch0
     git pull origin master
-
 
 ```
 
@@ -243,7 +242,6 @@ git ls-files -d
 # 恢复已删除的文件
 
 git ls-files -d | xargs git checkout --
-
 ```
 
 ```bash
@@ -251,7 +249,6 @@ git ls-files -d | xargs git checkout --
 git clone --branch <tag_name> <repo_url>
 git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
 git clone -b v1.30.0 https://github.com/foo/bar
-
 
 git clean -fd
 

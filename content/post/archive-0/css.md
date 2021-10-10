@@ -1,5 +1,5 @@
 ---
-title: CSS
+title: CSS basic
 author: "-"
 type: post
 date: 2011-09-07T12:47:35+00:00
