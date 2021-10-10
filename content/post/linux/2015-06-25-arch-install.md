@@ -8,12 +8,10 @@ tags:
   - archlinux
 
 ---
-### Arch Linux Fast Installer
-https://github.com/MatMoul/archfi
-
+# archlinux install
 ## 从U盘引导安装
-download iso  
-<http://mirrors.163.com/archlinux/iso/>
+### download iso  
+>http://mirrors.163.com/archlinux/iso
 
 ```bash
 # 创建USB启动盘
@@ -58,7 +56,7 @@ pacman -Sy
 ## 分区并格式化硬盘
 #### 用 parted 分区
 title: parted  
-<http://blog.wiloon.com/?p=8416>
+>http://blog.wiloon.com/parted
 
 #### 用 fdisk 分区
 <http://blog.wiloon.com/?p=7609>
@@ -68,9 +66,9 @@ title: parted
 mkdir /mnt/tmp
 mkdir /mnt/tmp/boot
 
-# 先挂载/boot, 再挂载/
+# 先挂载/, 再挂载/boot
+mount /dev/sdx3 /mnt/tmp
 mount /dev/sdx1 /mnt/tmp/boot
-mount /dev/sdx2 /mnt/tmp
 
 pacstrap /mnt/tmp base linux linux-firmware
 # if command not found, see http://www.wiloon.com/?p=8443
@@ -90,7 +88,7 @@ arch-chroot /mnt/tmp
 echo hostname0 > /etc/hostname
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-pacman -S gvim
+pacman -S gvim emacs
 
 # Uncomment the needed locales(en_US.UTF-8, zh_CN.UTF-8) in /etc/locale.gen, then generate them with: locale-gen
 vim /etc/locale.gen
@@ -120,7 +118,6 @@ pacman -S wpa_supplicant
 # boot with uefi
 bootctl install
 cd /boot/loader
-pacman -S vim emacs
 vim loader.conf
 
 # loader.conf content
@@ -219,3 +216,6 @@ LABEL Arch
 ＃umount the usb disk and reboot
 
 ```
+
+### Arch Linux Fast Installer
+>https://github.com/MatMoul/archfi
