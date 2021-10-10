@@ -95,8 +95,9 @@ rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ### ubuntu
     sudo apt-get install redis-server
 
-### podman, 单机redis
+### podman, 单机 redis
 ```bash
+# default config
 podman run \
 -d \
 --name redis \
@@ -104,18 +105,18 @@ podman run \
 -v /etc/localtime:/etc/localtime:ro \
 redis:6.2.4
 
+# client
 podman run -it --rm redis redis-cli -h redis.wiloon.com
 
-
+# customized config file and data volume
 podman run \
 -d \
 --name redis \
 -p 6379:6379 \
 -v /etc/localtime:/etc/localtime:ro \
--v redis-conf:/usr/local/etc/redis \
+-v redis-conf:/etc/redis \
 -v redis-data:/data/redis \
-redis:6.2.4 redis-server /usr/local/etc/redis/redis.conf
-
+redis:6.2.6 redis-server /etc/redis/redis.conf
 ```
 
 

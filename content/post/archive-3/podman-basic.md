@@ -3,7 +3,7 @@ title: podman basic
 author: "-"
 type: post
 date: 2020-01-19T15:30:35+00:00
-url: /?p=15388
+url: podman
 tags:
   - podman
 
@@ -236,3 +236,8 @@ https://github.com/containernetworking/plugins
 
 ### podman history, 查看构建命令
     podman history image0
+
+### filter
+    podman ps -a -f "status=exited"
+
+>https://docs.podman.io/en/latest/markdown/podman-ps.1.html

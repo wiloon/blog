@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-<pre id="best-answer-content">Unix/Linux/BSD 都有三个特别文件，分别
+Unix/Linux/BSD 都有三个特别文件，分别
 1) 标准输入 即 STDIN , 在 /dev/stdin ,
    一般指键盘输入, shell里代号是 0
 2) 标准输出 STDOUT, 在 /dev/stdout,
