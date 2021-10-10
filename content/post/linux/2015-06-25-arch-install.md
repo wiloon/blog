@@ -28,7 +28,7 @@ setup network with shell script https://gist.github.com/wiloon/xxxxxx
 
 #### or  
 title: systemd-networkd  
-<https://blog.wiloon.com/?p=9881>
+>https://wiloon.com/systemd-networkd
 
 ```bash
 # 给root设置密码
@@ -37,7 +37,7 @@ passwd
 # 启动sshd
 systemctl start sshd
 # openssh  默认已安装, 没有的话 安装一下 pacman -S openssh
-# sshd已经默认配置允许root登录, 有问题的话, 去修改配置文件/etc/ssh/sshd_config,  PermitRootLogin yes
+# sshd 已经默认配置允许root登录, 有问题的话, 去修改配置文件/etc/ssh/sshd_config,  PermitRootLogin yes
 
 # ssh 登录以后执行以下操作
 
