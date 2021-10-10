@@ -138,7 +138,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | name          | comments             |
 | ------------- | -------------------- |
 | powerdevil    | 电源管理，休眠按钮   |
-| kscreen       | 多显示器配置         |
 | kmix          | 音量调节             |
 | ark           | 压缩包管理器         |
 | gwenview      | 图片查看             |
