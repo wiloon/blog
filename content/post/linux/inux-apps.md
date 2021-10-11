@@ -25,7 +25,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
-| neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制 |
+| neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
 | screenfetch           | 发行版的logo                                                                            |
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |

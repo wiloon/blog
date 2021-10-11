@@ -8,12 +8,10 @@ tags:
   - archlinux
 
 ---
-### Arch Linux Fast Installer
-https://github.com/MatMoul/archfi
-
+# archlinux install
 ## 从U盘引导安装
-download iso  
-<http://mirrors.163.com/archlinux/iso/>
+### download iso  
+>http://mirrors.163.com/archlinux/iso
 
 ```bash
 # 创建USB启动盘
@@ -47,7 +45,7 @@ ls /sys/firmware/efi/efivars
 ```
 
 ### config pacman mirror
->wiloon.com/pacman
+>wangyue.dev/pacman
 
 <https://blog.wiloon.com/?p=7501>
 ### pacman 更新， 不要用-Syu， -Syu有可能会把U盘写满。
@@ -57,8 +55,8 @@ pacman -Sy
 
 ## 分区并格式化硬盘
 #### 用 parted 分区
-title: parted  
-<http://blog.wiloon.com/?p=8416>
+title: parted
+>http://blog.wiloon.com/parted
 
 #### 用 fdisk 分区
 <http://blog.wiloon.com/?p=7609>
@@ -68,9 +66,9 @@ title: parted
 mkdir /mnt/tmp
 mkdir /mnt/tmp/boot
 
-# 先挂载/boot, 再挂载/
+# 先挂载/, 再挂载/boot
+mount /dev/sdx3 /mnt/tmp
 mount /dev/sdx1 /mnt/tmp/boot
-mount /dev/sdx2 /mnt/tmp
 
 pacstrap /mnt/tmp base linux linux-firmware
 # if command not found, see http://www.wiloon.com/?p=8443
@@ -112,23 +110,25 @@ passwd
 
 # install wpa_supplicant
 pacman -S wpa_supplicant
+pacman -S openssh
+systemctl enable sshd
+systemctl enable systemd-networkd
+systemctl enable systemd-resolved.service
+vim /etc/ssh/sshd_config # PermitRootLogin yes
 ```
 
-### boot with UEFI
-
+### bootloader, systemd-boot
 ```bash
 # boot with uefi
 bootctl install
 cd /boot/loader
-pacman -S vim emacs
 vim loader.conf
 
 # loader.conf content
 default arch
 timeout 1
 
-cd /boot/loader/entries
-vim arch.conf
+vim /boot/loader/entries/arch.conf
 
 # arch.conf content
 title Archlinux
@@ -143,7 +143,6 @@ options root=PARTUUID=xxx rw
 ```
 
 ### boot with grub
-
 <https://blog.wiloon.com/?p=15345>
 
 
@@ -219,3 +218,6 @@ LABEL Arch
 ＃umount the usb disk and reboot
 
 ```
+
+### Arch Linux Fast Installer
+>https://github.com/MatMoul/archfi

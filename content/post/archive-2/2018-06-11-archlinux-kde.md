@@ -1,9 +1,8 @@
 ---
 title: archlinux kde, config
 author: "-"
-type: post
 date: 2018-06-11T10:48:46+00:00
-url: /?p=12297
+url: kde
 tags:
   - kde
 
@@ -29,7 +28,6 @@ vim /home/wiloon/.zshrc
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
-
 ```
 
 [https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login][1]{.wp-editor-md-post-content-link}

@@ -3,7 +3,7 @@ title: zsh, oh-my-zsh
 author: "-"
 type: post
 date: 2017-04-06T04:56:02+00:00
-url: /?p=10025
+url: zsh
 categories:
   - Uncategorized
 
@@ -17,7 +17,6 @@ rm ~/.zcompdump*
 https://unix.stackexchange.com/questions/210930/completions-stopped-working-after-upgrading-zsh/210931#210931
 
 ### 自动补全提示插件
-
 https://www.jianshu.com/p/aea390c1c8ef
 
 ```bash

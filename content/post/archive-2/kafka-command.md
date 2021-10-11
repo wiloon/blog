@@ -58,7 +58,7 @@ url: "kafka"
     --state
 
 ## topic
-### list topic, 查看kafka topic列表,使用--list参数
+### list topic, 查看 kafka topic 列表,使用--list参数
     bin/kafka-topics.sh --list \
     --zookeeper localhost:2181
 

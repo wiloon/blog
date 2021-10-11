@@ -22,3 +22,9 @@ title = "joplin"
 
 Tools>Options>General>Text editor command>Path
 填写typora 可执行文件的位置。
+
+
+### linus desktop
+```bash
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+```
