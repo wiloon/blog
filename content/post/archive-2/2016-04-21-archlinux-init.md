@@ -3,7 +3,7 @@ title: archlinux init
 author: "-"
 type: post
 date: 2016-04-21T15:26:01+00:00
-url: /?p=8913
+url: archlinux/init
 
 ---
 ### before ansible script
@@ -43,12 +43,12 @@ systemctl enable sshd
 ### zsh, oh-my-zsh
     install and switch to zsh - oh-my-zsh
   
-<http://blog.wiloon.com/?p=10025>
+<http://blog.wiloon.com/zsh>
 
 ### 安装图形界面 kde 或 xfce4
 
 #### install kde
-<http://blog.wiloon.com/?p=12297>
+<http://blog.wiloon.com/kde>
 
 #### xfce4
 ```bash
@@ -59,18 +59,18 @@ sudo pacman -S xf86-video-intel xf86-video-vesa
 sudo pacman -S xf86-video-fbdev #for hyper v
 sudo pacman -S xfce4
 sudo pacman -S xfce4-goodies
+```
+##### 登录shell后自动启动xfce4
+<http://blog.wiloon.com/?p=8940>
 
-# wenquanyi
+### restart to desktop to continue
+
+### wenquanyi
 sudo pacman -S wqy-microhei
 #font for terminal
 sudo pacman -S ttf-inconsolata
 sudo pacman -S chromium
-
-##### 登录shell后自动启动xfce4
-<http://blog.wiloon.com/?p=8940>
-
-
-### restart to desktop to continue
+yay -S google-chrome
 
 ### yay
 <http://blog.wiloon.com/?p=7953>

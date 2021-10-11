@@ -29,12 +29,12 @@ ctrl+7
 ### 五笔词库位置
 /home/wiloon/.config/fcitx/table/wbx.mb
 
-### 安装fcitx
+### 安装 fcitx
     sudo pacman -S fcitx
     #图形界面的配置程序: KDE 中的 kcm-fcitx
     sudo pacman -S  kcm-fcitx
 
-#### gtk3 config tool
+#### gtk3 config tool, optional
 ```bash
 sudo pacman -S fcitx-configtool
 ```
@@ -47,9 +47,11 @@ sudo pacman -S fcitx-configtool
         sudo pacman -S fcitx-table-extra
 
         #edit .zshrc
-        export GTK_IM_MODULE=fcitx
-        export QT_IM_MODULE=fcitx
-        export XMODIFIERS=@im=fcitx
+```bash
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+```
 
         #start fcitx
         fcitx
@@ -83,15 +85,12 @@ fcitx-configtool
 ```
 
 ### 修改剪贴板快捷键
-
 Input Method – System Settings Module -> Addon Config -> Clipboard
 
 ### 修改简繁切换快捷键
-
 Input Method Configuration -> Addon -> Simplified Chinese To Traditional Chinese
 
 ### 删除词组
-
 ctrl-7
 
 ### deepin版微信输入中文

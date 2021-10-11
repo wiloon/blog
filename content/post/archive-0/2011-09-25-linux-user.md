@@ -3,7 +3,7 @@ title: linux user, group, 用户 用户组
 author: "-"
 type: post
 date: 2011-09-25T09:49:33+00:00
-url: /?p=911
+url: user
 categories:
   - Linux
 
