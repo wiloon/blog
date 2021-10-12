@@ -12,7 +12,7 @@ Yaourt 已经不再维护
 yay 是下一个最好的 AUR 助手。它使用 Go 语言写成,宗旨是提供最少化用户输入的 pacman 界面、yaourt 式的搜索,而几乎没有任何依赖软件。
 
 ### yay 安装
-    pacman -S base-devel binutils git
+    pacman -S base-devel binutils git go
 
 # 从 git 克隆并编译安装。
 ```bash

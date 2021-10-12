@@ -3,7 +3,7 @@ title: ntp, chrony
 author: "-"
 type: post
 date: 2017-07-20T00:57:34+00:00
-url: /?p=10869
+url: ntp
 
 ---
 ### chrony install
@@ -26,11 +26,13 @@ apt install chrony
     # ubuntu 
       vim  /etc/chrony/chrony.conf
 
-      # 中国ntp服务
-    server 0.cn.pool.ntp.org iburst
-    server 1.cn.pool.ntp.org iburst
-    server 2.cn.pool.ntp.org iburst
-    server 3.cn.pool.ntp.org iburst
+```bash
+# 中国ntp服务
+server 0.cn.pool.ntp.org iburst
+server 1.cn.pool.ntp.org iburst
+server 2.cn.pool.ntp.org iburst
+server 3.cn.pool.ntp.org iburst
+```
 
     # 北美
     north-america.pool.ntp.org

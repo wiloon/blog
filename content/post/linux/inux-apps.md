@@ -25,7 +25,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
-| neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制 |
+| neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
 | screenfetch           | 发行版的logo                                                                            |
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |
@@ -138,7 +138,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | name          | comments             |
 | ------------- | -------------------- |
 | powerdevil    | 电源管理，休眠按钮   |
-| kscreen       | 多显示器配置         |
 | kmix          | 音量调节             |
 | ark           | 压缩包管理器         |
 | gwenview      | 图片查看             |
