@@ -1,9 +1,8 @@
 ---
 title: 网络唤醒 Wake On LAN
 author: "-"
-type: post
 date: 2019-02-02T06:47:47+00:00
-url: /?p=13531
+url: weak-on-lan
 
 ---
 android client
@@ -36,3 +35,6 @@ BIOS打开唤醒设置
   
 允许此设备唤醒计算机
 
+
+### 华硕BIOS
+    Advanced>APM Configuration>Power on by PCI-E/PCI
