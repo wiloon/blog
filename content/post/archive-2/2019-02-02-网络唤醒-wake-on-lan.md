@@ -49,3 +49,5 @@ wol -i 192.168.50.255 -p 9  1c:b7:2c:af:9a:6a
 sudo apt-get install wakeonlan
 wakeonlan 1c:b7:2c:af:9a:6a
 ```
+
+>https://sparkydogx.github.io/2019/01/16/ubuntu-wake-on-lan/
