@@ -39,5 +39,13 @@ BIOS打开唤醒设置
 ### 华硕BIOS
     Advanced>APM Configuration>Power on by PCI-E/PCI
 ### wol
+```bash
 pacman -S wol
 wol -i 192.168.50.255 -p 9  1c:b7:2c:af:9a:6a
+```
+
+#### ubuntu
+```bash
+sudo apt-get install wakeonlan
+wakeonlan 1c:b7:2c:af:9a:6a
+```
