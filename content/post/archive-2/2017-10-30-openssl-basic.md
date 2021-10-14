@@ -8,6 +8,12 @@ categories:
 
 ---
 # OpenSSL
+### get cert
+    openssl s_client -connect  site.com:636 </dev/null 2>/dev/null  | openssl x509 -outform PEM > site.pem
+
+### import cert into ca certs
+    sudo keytool -importcert -noprompt -alias site-`date "+%Y%m%d%H%M%S"` -file ./site.pem -keystore /usr/java/latest/lib/security/cacerts -storepass changeit
+
 ### 查看证书信息 pem
 openssl x509 -noout -text -in ca.crt
 openssl x509 -noout -text -in foo.pem

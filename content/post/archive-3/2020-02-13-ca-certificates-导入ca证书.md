@@ -1,15 +1,20 @@
 ---
-title: 'ca-certificates   导入CA证书'
+title: 'ca-certificates 导入CA证书'
 author: "-"
-type: post
 date: 2020-02-13T13:18:54+00:00
-url: /?p=15535
+url: ca
 categories:
   - Uncategorized
 
 ---
+### centos
+```bash
+yum install -y ca-certificates
+update-ca-trust force-enable
+cp /tmp/$1.der /etc/pki/ca-trust/source/anchors/
+update-ca-trust extract
+```
 ### ubuntu import CA 
-
 ```bash
 cp foo.crt /usr/share/ca-certificates/
 sudo dpkg-reconfigure ca-certificates
