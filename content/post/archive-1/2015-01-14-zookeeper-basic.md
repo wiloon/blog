@@ -122,6 +122,16 @@ clientPort: clientPort是zookeeper监听客户端连接的端口，默认是2181
 zkServer.sh start
 ```
 
+ZooKeeper确实对数据的大小有限制，默认就是1M，如果希望传输超过1M的数据，可以修改环境变量“jute.maxbuffer”
+### 为什么要限制ZOOKEEPER中ZNODE的大小
+ZooKeeper是一套高吞吐量的系统，为了提高系统的读取速度，ZooKeeper不允许从文件中读取需要的数据，而是直接从内存中查找。
+
+还句话说，ZooKeeper集群中每一台服务器都包含全量的数据，并且这些数据都会加载到内存中。同时ZNode的数据并支持Append操作，全部都是Replace。
+
+所以从上面分析可以看出，如果ZNode的过大，那么读写某一个ZNode将造成不确定的延时;同时ZNode过大，将过快地耗尽ZooKeeper服务器的内存。这也是为什么ZooKeeper不适合存储大量的数据的原因。
+
+
+
 https://holynull.gitbooks.io/zookeeper/content/
   
 http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html

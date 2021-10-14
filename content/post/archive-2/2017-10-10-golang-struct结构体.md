@@ -19,11 +19,12 @@ type Student struct {
 
 ### 匿名结构体
 ```go
-person:= struct {//匿名结构
-        name string
-        age int
-    }{name:"匿名",age:1}
-    f.Println("person:",person)
+	person := struct { //匿名结构
+		Name string
+		Age  int
+	}{Name: "匿名", Age: 1}
+	jsonBytes, _ := json.Marshal(person)
+	fmt.Println("person:", string(jsonBytes))
 ```
 
 ```go
