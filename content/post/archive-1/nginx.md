@@ -46,4 +46,4 @@ enabled=1
 
 yum install nginx
 
-从rpm包安装, 下载 地址: http://nginx.org/packages/centos/7/x86_64/RPMS/
+下载 地址: http://nginx.org/packages/centos/7/x86_64/RPMS/

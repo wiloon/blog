@@ -423,13 +423,8 @@ lha请到: http://www.infor.kanazawa-it.ac.jp/…/lhaunix/下载！
 
 > [root@www2 tmp]# cp lha /usr/bin/
 
-> ———————————————
-
-> .rpm
-
-> 解包: rpm2cpio FileName.rpm | cpio -div
-
-> ———————————————
+### .rpm
+解包: rpm2cpio FileName.rpm | cpio -div
 
 > .lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea
 

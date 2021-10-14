@@ -1,13 +1,14 @@
 ---
-title: RHEL/CentOS/Fedora 源 EPEL、Remi、RPMForge、RPMFusion
+title: centos
 author: "-"
-type: post
 date: 2018-04-13T02:44:19+00:00
 url: /?p=12145
 categories:
   - Uncategorized
 
 ---
+### RHEL/CentOS/Fedora 源 EPEL、Remi、RPMForge、RPMFusion
+
 http://www.cnblogs.com/mawanglin2008/p/3532247.html
 
 RHEL/CentOS/Fedora各种源(EPEL、Remi、RPMForge、RPMFusion)配置
@@ -149,3 +150,8 @@ vi remi.repo 将[remi] 中的 enabled=0 改成 enabled=1 来启用 remi 源
 [root@orcl1 yum.repos.d]# rpm –import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
   
 在remi.repo中和epel.repo中添加priority设置即可使用。
+
+
+### rpm
+#### centos, rpm 查看软件的版本号
+rpm -qa | grep mysql
