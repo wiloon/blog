@@ -7,6 +7,8 @@ url: font
 
 
 ---
+### Source Code Pro
+sudo pacman -S adobe-source-code-pro-fonts
 ### Verdana
 Verdana，一套非常受欢迎无衬线字体（Sans Serif) ，由于它在小字上仍有结构清晰端整、阅读辨识容易等高品质的表现，因而在1996年推出后即迅速成为许多领域所爱用的标准字型之一。
 

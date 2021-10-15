@@ -7,6 +7,29 @@ tags:
 - Git
 
 ---
+### git 清除所有被 Ignore 的文件
+#### 查看所有被 Git 忽略的文件, Git 1.6+:
+```bash
+git ls-files --others -i --exclude-standard
+```
+
+#### Git 1.4, 1.5:
+```bash
+git ls-files --others -i \
+--exclude-from="`git rev-parse --git-dir`/info/exclude" \
+--exclude-per-directory=.gitignore
+```
+#### 清除所有被 Git 忽略的文件或文件夹 (小心)
+##### 查看在清理之前会做的操作
+```bash
+git clean -Xn
+```
+##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录（小心）
+```bash
+git clean -Xdf
+```
+
+>https://ruby-china.org/topics/17951
 ### 查看远程仓库地址
     git remote -v
 
@@ -32,7 +55,10 @@ https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
 
 ### 放弃本地未提交的修改
 To discard all local changes, you do not use revert. revert is for reverting commits. Instead, do:
-
+```bash
+git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
+```
+>https://blog.csdn.net/leedaning/article/details/51304690
 
 ### git reset
 

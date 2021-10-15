@@ -8,6 +8,8 @@ url: plantuml
 ### 安装 graphviz
     sudo apt-get install -y graphviz
 
+>https://graphviz.org/download/
+
 VS-Code扩展
 
 使用PlantUML
@@ -104,7 +106,7 @@ circle 3
 @enduml
 ```
 
-### 时序图
+### 时序图, Sequence Diagram
 ```puml
 @startuml
 Alice -> Bob: Authentication Request
@@ -112,7 +114,7 @@ Bob --> Alice: Authentication Response
 
 Alice -> Bob: Another authentication Request
 Alice <-- Bob: Another authentication Response
-
+Alice ->> Bob: async msg
 @enduml
 ```
 
