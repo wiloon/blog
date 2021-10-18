@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# shell exit退出状态代码
 https://blog.csdn.net/hongkangwl/article/details/16184883
 
 Linux提供$?特殊变量来保存最后一条命令执行结束的退出状态。执行完一条命令后,立即执行echo$?,可以查看最后一条命令的退出状态值。

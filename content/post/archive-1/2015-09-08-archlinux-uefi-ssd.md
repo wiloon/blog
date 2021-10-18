@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# archlinux uefi ssd
 gdisk /dev/sda
 
 d

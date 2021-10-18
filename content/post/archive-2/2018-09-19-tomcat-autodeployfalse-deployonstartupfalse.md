@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'tomcat autoDeploy="false"  deployOnStartup="false"'
 https://stackoverflow.com/questions/26884335/tomcat-deploy-only-manager-on-startup
 
 From the Apache 6 documentation: https://tomcat.apache.org/tomcat-6.0-doc/config/context.html in the Attributes section of Context, the documentation for the path attribute specifies:

@@ -10,6 +10,7 @@ tags:
   - IDEA
 
 ---
+# Intellij IDEA CE 自动生成 serialVersionUID
 IDEA的Inspector对serialVersionUID检测默认是关闭的，因此如果你的class是Serialization，那么需要重新设置一下(IDEA 9.0): 
   
 Setting->Inspections->Serialization issues->Serializable class without 'serialVersionUID'

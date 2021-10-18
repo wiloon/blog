@@ -7,6 +7,7 @@ categories:
   - pattern
 
 ---
+# 命令模式, Command pattern
 # 命令模式, Command pattern , 行动(Action)模式或者交易(Transaction)模式。
 
 定义

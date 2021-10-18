@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# idea basic, command
 ###
 https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC
 

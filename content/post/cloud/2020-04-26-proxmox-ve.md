@@ -6,6 +6,7 @@ date: 2020-04-25T16:35:56+00:00
 url: /?p=16081
 
 ---
+# Proxmox VE, pve
 一、Proxmox VE 简介
   
 Proxmox Virtual Environment，或 Proxmox VE，是来自德国的开源虚拟化方案。软件和社区支持都是免费的，企业用户则可以通过订阅制获得付费商业支持。

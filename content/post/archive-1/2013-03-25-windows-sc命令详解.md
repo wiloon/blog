@@ -8,6 +8,7 @@ categories:
   - Windows
 
 ---
+# windows SC命令详解
 SC命令详解(一个很有用的command)
   
 作为一个命令行工具,SC.exe可以用来测试你自己的系统,你可以设置一个批处理文件来使用不同的参数调用 SC.exe来控制服务。

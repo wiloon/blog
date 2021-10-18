@@ -10,6 +10,7 @@ tags:
   - RedHat
 
 ---
+# linux 命令, linux command
 ### strings
 strings命令在对象文件或二进制文件中查找可打印的字符串。字符串是4个或更多可打印字符的任意序列，以换行符或空字符结束。 strings命令对识别随机对象文件很有用。
 ### wc

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# sql command
 [sql]
   
 - http://www.wiloon.com/?p=1899

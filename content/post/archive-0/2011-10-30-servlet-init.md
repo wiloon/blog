@@ -14,6 +14,7 @@ tags:
   - Servlet
 
 ---
+# servlet init()
 init方法是在Servlet实例化之后执行的，并且只执行一次。
   
 一.先说init(ServletConfig)中参数ServletConfig，代表的是配置信息。即在web.xml中配置的信息，比如: 

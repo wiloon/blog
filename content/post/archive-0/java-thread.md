@@ -8,6 +8,7 @@ tags:
 categories:
   - Java
 ---
+# Java Thread/线程
 java的线程是映射到操作系统原生线程之上的
 
 java线程阻塞的代价

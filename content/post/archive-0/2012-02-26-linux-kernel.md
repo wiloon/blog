@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# linux 内核, kernel
 ### kernel doc
     https://www.kernel.org/doc/html/latest/
 

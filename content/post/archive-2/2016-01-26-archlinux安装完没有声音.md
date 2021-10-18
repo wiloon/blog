@@ -8,4 +8,5 @@ categories:
   - Uncategorized
 
 ---
+# ArchLinux安装完没有声音
 https://segmentfault.com/a/1190000002918394

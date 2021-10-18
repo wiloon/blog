@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Java assert
 http://lavasoft.blog.51cto.com/62575/43735
   
 一、概述

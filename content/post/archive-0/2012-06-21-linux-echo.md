@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# linux echo
 echo aaa > test.txt
 
 echo bbb >> test.txt

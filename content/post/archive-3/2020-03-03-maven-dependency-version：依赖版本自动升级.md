@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Maven Dependency Version 依赖版本自动升级
 [1.15.0,2.0.0) x>=1.15.0 && x<2.0.0
 
 依赖调节是为了解决版本不一致的问题(multiple versions),并采取就近原则(nearest definition)。

@@ -6,6 +6,7 @@ date: 2019-01-06T10:56:09+00:00
 url: /?p=13338
 
 ---
+# java Keytool
 ```bash
 keytool -list -v -keystore  /usr/java/default/jre/lib/security/cacerts
 

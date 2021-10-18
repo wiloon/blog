@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "Java NIO Channel, buffer"
 Channel
 Channel Characteristics
 Java NIO Channel Classes

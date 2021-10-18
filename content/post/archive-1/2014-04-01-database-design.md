@@ -10,6 +10,7 @@ tags:
   - Database
 
 ---
+# database design
 delete flag
 
 created date

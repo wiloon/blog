@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# compile the kernel – Debian squeeze
 下载源代码, 编译软件准备
   
 下载内核源代码: <http://www.kernel.org/>

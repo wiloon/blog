@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# sqlite add/delete/update
 ```java
 
 package com.db.imgfornote;

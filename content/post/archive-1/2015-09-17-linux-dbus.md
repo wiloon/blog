@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux DBUS
 D-Bus三层架构
 
 D-Bus是一个为应用程序间通信的消息总线系统, 用于进程之间的通信。它是个3层架构的IPC 系统，包括: 

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'clean arch  linux'
 ```bash
   
 sudo pacman -R $(pacman -Qtdq)

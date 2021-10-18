@@ -8,6 +8,7 @@ tags:
   - Arch Linux
 
 ---
+# archlinux wireless
     https://wiki.archlinux.org/index.php/Wireless_network_configuration
     
     ip link set wlp3s0 up

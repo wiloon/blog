@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Java读取properties, getResourceAsStream
 http://lavasoft.blog.51cto.com/62575/62174
   
 Java读取properties文件的方法比较多，网上我最多的文章是"Java读取properties文件的六种方法"，但在Java应用中，最常用还是通过java.lang.Class类的getResourceAsStream(String name) 方法来实现，但我见到众多读取properties文件的代码中，都会这么干: 

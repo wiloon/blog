@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# application start script
 ```bash
 #! /usr/bin/env bash
 

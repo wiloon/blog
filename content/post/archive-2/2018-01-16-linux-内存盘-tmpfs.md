@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux 内存盘 tmpfs
 ```bash
   
 mount tmpfs /tmp -t tmpfs -o size=1024m

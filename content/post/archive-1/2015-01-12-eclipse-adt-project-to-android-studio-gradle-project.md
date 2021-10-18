@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# eclipse adt project to android studio gradle project
 create new android studio project
 
 copy following files to new project

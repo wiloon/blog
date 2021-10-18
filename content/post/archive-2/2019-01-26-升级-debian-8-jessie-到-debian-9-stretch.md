@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 升级 Debian 8 (Jessie) 到 Debian 9 (Stretch)
 https://www.linuxidc.com/Linux/2017-12/149050.htm
 
 ```bash

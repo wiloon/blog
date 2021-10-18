@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# google pixelbook
 i5
 8G
 128G

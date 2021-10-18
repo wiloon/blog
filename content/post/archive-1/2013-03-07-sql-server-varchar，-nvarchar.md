@@ -10,6 +10,7 @@ tags:
   - SQLServer
 
 ---
+# SQL Server varchar, nvarchar
 varchar在SQL Server中是采用单字节来存储数据的,nvarchar是使用Unico来存储数据的．中文字符存储到SQL Server中会保存为两个字节（一般采用Unico编码) ,英文字符保存到数据库中,如果字段的类型为varchar,则只会占用一个字节,而如果字段的类型为nvarchar,则会占用两个字节．
   
 　　正常情况下,我们使用varchar也可以存储中文字符,但是如果遇到操作系统是英文操作系统并且对中文字体的支持不全面时, 在SQL Server存储中文字符为varchar就会出现乱码(显示为??)．而且正常情况下,主机都会支持中文的环境,所以如果使用varchar来存储数据,在开发阶段是发现不了的．多数情况下,在布署的时候也不会有问题．

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# huge CPU usage of gnome-keyring-daemon when starting Google Chrome
 ```bash
 google-chrome --password-store:basic
 ```

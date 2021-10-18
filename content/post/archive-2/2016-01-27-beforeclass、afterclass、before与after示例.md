@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# BeforeClass、AfterClass、Before与After示例
 http://www.cnblogs.com/xhzi/archive/2011/05/29/2061825.html
 
 【测试目的】

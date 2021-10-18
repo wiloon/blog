@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# archlinux ca-certificates update, 导入证书
 https://www.archlinux.org/news/ca-certificates-update/
 
 ```bash

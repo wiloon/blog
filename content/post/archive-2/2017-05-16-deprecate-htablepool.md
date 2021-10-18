@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Deprecate HTablePool
 https://issues.apache.org/jira/browse/HBASE-6580
   
 http://blog.csdn.net/jiyiqinlovexx/article/details/36526433

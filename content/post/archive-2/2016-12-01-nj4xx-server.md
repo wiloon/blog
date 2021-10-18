@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# nj4xx server
 http://192.168.60.2:7789/nj4x/ts?wsdl
 
 MySQL/heidisql

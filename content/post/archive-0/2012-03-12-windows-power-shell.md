@@ -8,6 +8,7 @@ categories:
   - Windows
 
 ---
+# Windows Power Shell
 ### 查看 power shell 版本
     $PSVersionTable
 

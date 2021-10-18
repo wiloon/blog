@@ -12,6 +12,7 @@ categories:
   - DataBase
 
 ---
+# oracle kill session
 BEGIN
   FOR ss in (select sid,serial# from v$session s where s.USERNAME='USERNAME')
   loop

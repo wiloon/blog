@@ -10,6 +10,7 @@ tags:
   - JavaScript
 
 ---
+# javascript Location
 location.href 返回整个当前url,若对其赋值: 
   
 location.href="http://www.highya.com" 则跳转其url

@@ -10,6 +10,7 @@ tags:
   - SQLServer
 
 ---
+# sql server dbo
 <pre id="best-answer-content" data-accusearea="aContent">DBO是每个数据库的默认用户，具有所有者权限，即DbOwner
 
 通过用DBO作为所有者来定义对象，能够使数据库中的任何用户引用而不必提供所有者名称。

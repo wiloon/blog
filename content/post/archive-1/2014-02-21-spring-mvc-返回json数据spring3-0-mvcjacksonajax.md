@@ -12,6 +12,7 @@ tags:
   - Spring
 
 ---
+# spring MVC 返回JSON数据(Spring3.0 MVC+Jackson+AJAX)
 本文本的框架为:SpringMVC 3.2.3 \ jackson 1.9.2
 
 传统的返回JSON格式的AJAX,用的方法一般是: 在后台先把数据(Object)封装成JSON数据,再用HttpServletResponse返回。

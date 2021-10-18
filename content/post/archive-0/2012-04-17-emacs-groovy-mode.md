@@ -9,4 +9,5 @@ categories:
   - Emacs
 
 ---
+# emacs groovy mode
 <http://groovy.codehaus.org/Emacs+Groovy+Mode>

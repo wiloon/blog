@@ -10,6 +10,7 @@ tags:
   - monitor
 
 ---
+# 管程, monitor
 ### 管程, 监视器, Moniter
 
 Java程序设计语言中，每个对象都可以作为一个管程。需要互斥使用的方法必须明确标示关键字 synchronized . 代码块也可以标示关键字synchronized.

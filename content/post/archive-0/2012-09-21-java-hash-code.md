@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# java hash code
 hash code是一种编码方式，在Java中，每个对象都会有一个hashcode，Java可以通过这个hashcode来识别一个对象。至于hashcode的具体编码方式，比较复杂（事实上这个编码是可以由程序员通过继承和接口的实现重写的) ，可以参考数据结构书籍。而hashtable等结构，就是通过这个哈希实现快速查找键对象。这是他们的内部联系，但一般编程时无需了解这些，只要知道hashtable实现了一种无顺序的元素排列就可以了。
 
 

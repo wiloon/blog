@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# chrome remote desktop
 https://aur.archlinux.org/packages/chrome-remote-desktop/
   
 yay -S chrome-remote-desktop

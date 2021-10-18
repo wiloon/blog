@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# nftables iptables
 跟iptables相比,nftables带来了一系列的好处
 
 更易用易理解的语法

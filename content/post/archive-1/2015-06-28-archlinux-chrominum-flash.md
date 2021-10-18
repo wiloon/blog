@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# archlinux chrominum flash
 install Yaourt
 
 添加Yaourt源至您的 `/etc/pacman.conf`:

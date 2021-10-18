@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'Android  sqlite3,not found'
 http://panxq0809.iteye.com/blog/1264785
 
 在Android开发中，使用 adb shell 下的 sqlite3 命令来查看操作SQLite数据库时，遇到了 [ sqlite3 : not found] 问题。

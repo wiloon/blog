@@ -6,6 +6,7 @@ date: 2019-07-19T07:50:48+00:00
 url: /?p=14690
 
 ---
+# slf4j、jcl、jul、log4j1、log4j2、logback
 ### log4j2
 log4j-api:log4j2 定义的API
 log4j-core:log4j2 上述API的实现

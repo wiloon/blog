@@ -9,6 +9,7 @@ categories:
   - Web
 
 ---
+# Servlet Session
 <http://developer.51cto.com/art/200907/134673.htm>
 
 本文向您介绍Servlet Session机制，包括会话管理机制、事件监听等，并结合具体的示例讲解了一个基于Servlet Session登陆系统的实现。

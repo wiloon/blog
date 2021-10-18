@@ -11,6 +11,7 @@ tags:
   - KVM
 
 ---
+# virt-manager error
 After I finished the install of the "kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-manager". I want to connect to my vms through the virt-manager .But I come to this error:
 
 > Unable to open a connection to the libvirt management daemon.

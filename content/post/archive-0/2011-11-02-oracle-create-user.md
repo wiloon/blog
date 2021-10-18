@@ -12,6 +12,7 @@ categories:
   - DataBase
 
 ---
+# oracle create user
 connect to oracle with sqlplus
 
 http://www.wiloon.com/?p=5560

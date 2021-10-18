@@ -7,6 +7,7 @@ categories:
   - Uncategorized
 
 ---
+# 'ca-certificates 导入CA证书'
 ### centos
 ```bash
 yum install -y ca-certificates

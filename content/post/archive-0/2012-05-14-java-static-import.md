@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# java static import
 
     jdk1.5 static import
  static import

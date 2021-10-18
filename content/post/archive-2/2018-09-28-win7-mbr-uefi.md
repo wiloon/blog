@@ -8,4 +8,5 @@ categories:
   - Uncategorized
 
 ---
+# 'WIN7 MBR > UEFI'
 https://www.bennythink.com/newbie-no-need-to-reload-windows-7-started-by-the-bios-to-uefi.html

@@ -8,6 +8,7 @@ categories:
   - Network
 
 ---
+# raspberry pi eth0 x60s wlan0 squid
 raspberry pi
 
 eth0:192.168.0.59,

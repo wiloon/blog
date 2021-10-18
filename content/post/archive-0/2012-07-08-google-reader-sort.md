@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# google reader sort
 <http://stackoverflow.com/questions/4428117/google-reader-api-sortid-and-firstitemmsec>
 
 When a user subscribes to a feed, the most recent 10 items in it (or items in the past 30 days, whichever results in fewer items) are considered unread for that user. The timestamp (in milliseconds since epoch) of the oldest item that should be considered unread is stored in firstotemmsec. When requesting unread items from a feed, Reader passes in max(now - 30 days, firstitemmsec) as the "ot" (oldest timestamp acceptable) parameter, so that the backend doesn't look any further than that for older items.

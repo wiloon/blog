@@ -10,6 +10,7 @@ tags:
   - Pentaho
 
 ---
+# pentaho summary
 Location: [/opt/pentaho]:
 
 - MySQL server port: 3306

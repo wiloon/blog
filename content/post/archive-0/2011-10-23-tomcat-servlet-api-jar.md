@@ -14,6 +14,7 @@ tags:
   - Tomcat
 
 ---
+# servlet-api.jar
 用于在servlet环境下开发程序的一组api,虽然叫servlet-api.jar但其实包里除了大部分的接口外还有一些javabean和抽象类、之所以叫api是因为这个包是开发基于servlet规范的标准接口(这个接口的含义和java里的interface不同，不要混淆)。
   
 既然开发jsp、servlet的程序，就应该知道这是基于http(请求、响应)协议的,那么在这里请求和响应就对应为servlet-api.jar中的ServletRequest和ServletResponse接口，接口中定义了作为一个请求和一个响应信息应该具备的方法，比如从请求信息中可以获取客户端的ip，用户提交的信息等等，从响应信息中可以获取客户端的输出流，响应类型等等，当然中间的过程是由servlet容器封装好的，等我们开发servlet时会直接使用这些接口来编写具体的业务代码，其他的处理过程就全由容器处理了。

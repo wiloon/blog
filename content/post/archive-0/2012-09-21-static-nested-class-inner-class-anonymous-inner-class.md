@@ -7,6 +7,7 @@ categories:
   - Java
 
 ---
+# Static Nested Class, Inner Class, Anonymous Inner Class
 ### Inner Class（内部类) 定义在类中的类。
 Nested Class（嵌套类) 是静态（static) 内部类。
 1. 要创建嵌套类的对象，并不需要其外围类的对象。  

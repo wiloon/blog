@@ -7,6 +7,7 @@ categories:
   - Uncategorized
 
 ---
+# qmail sendmail postfix
 <http://liguxk.blog.51cto.com/129038/155491>
 
 关于sendmail/qmail/postfix孰优孰劣,以及部署邮件系统的时候该选哪一个的讨论已经重复了千百次了。但事实往往并不是A好B坏,或B好A坏,必须根据场合和应用的要求来定。但虽然如此,大多数人还是需要一个相对公平的评价,以引导邮件系统的部署。

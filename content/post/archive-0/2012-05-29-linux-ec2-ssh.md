@@ -9,6 +9,7 @@ categories:
   - Network
 
 ---
+# linux ec2 ssh
 将相应的pem保存到 .ssh 文件夹。在该文件内建立config文件，输入以下配置内容: 
 
 ```bash

@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "HyperLogLog"
 ### HyperLogLog
 HyperLogLog，下面简称为HLL，它是 LogLog 算法的升级版，作用是能够提供不精确的去重计数。
 

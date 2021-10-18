@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# ORACLE PL/SQL异常处理(Exception)
 <http://blog.csdn.net/wh62592855/article/details/4736501>
 
 1、PL/SQL错误类型

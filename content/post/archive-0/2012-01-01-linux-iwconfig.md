@@ -9,6 +9,7 @@ categories:
   - Network
 
 ---
+# linux iwconfig
 apt-get install wireless-tools
 
 iwconfig wlan0 essid your essid iwconfig wlan0 key s:yourpass iwconfig wlan0 mode managed dhclient wlan0 iwconfig

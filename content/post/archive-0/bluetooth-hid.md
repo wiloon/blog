@@ -7,6 +7,7 @@ categories:
   - Linux
 
 ---
+# 蓝牙 HID
  The Human Interface Device (HID)定义了蓝牙在人机接口设备中的协议、特征和使用规程。典型的应用包括蓝牙鼠标、蓝牙键盘、蓝牙游戏手柄等。该协议改编自USB HID Protocol。
     
 2.一些概念

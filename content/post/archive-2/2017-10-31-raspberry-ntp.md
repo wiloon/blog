@@ -8,4 +8,5 @@ categories:
   - Uncategorized
 
 ---
+# raspberry ntp
 http://raspberrypi.tomasgreno.cz/ntp-client-and-server.html

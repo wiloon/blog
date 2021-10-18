@@ -13,6 +13,7 @@ categories:
   - Network
 
 ---
+# debian wlan0 wpa/psk
 1.添加wpa-psk支持，在debian下是这个插件wpasupplicant
   
 apt-get install wpasupplicant

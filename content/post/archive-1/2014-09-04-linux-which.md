@@ -8,6 +8,7 @@ tags:
   - linux
 
 ---
+# linux which
 ### 避免使用which, 用shell内置的 command -v, hash, type替代
 
 http://www.cnblogs.com/peida/archive/2012/11/08/2759805.html

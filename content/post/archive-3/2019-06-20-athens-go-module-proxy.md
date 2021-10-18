@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# go module proxy, goproxy, goproxy.io, goproxy.cn, athens
 ```bash
 # goproxy.io 有遇到过connection reset by peer, 换goproxy.cn
 export GOPROXY=https://goproxy.io,direct

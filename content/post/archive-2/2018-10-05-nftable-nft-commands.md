@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'nftable, nft  basic, commands'
 ### 安装 nftables
 
 ```bash

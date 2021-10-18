@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# maven plugins, pluginManagement
 https://www.jianshu.com/p/49acf1246eff
 
 1.plugins和pluginManagement的区别概述

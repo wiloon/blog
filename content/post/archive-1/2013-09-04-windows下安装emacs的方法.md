@@ -8,6 +8,7 @@ categories:
   - Emacs
 
 ---
+# Windows 安装 Emacs
 
 Emacs平台很强大,已经不只是一个编辑器这么简单了,它被移植到Windows平台下使得非Unix用户也有幸接触到并使用它。
 

@@ -10,6 +10,7 @@ tags:
   - Spring
 
 ---
+# BeanFactory, ApplicationContext
 http://blog.csdn.net/liaomin416100569/article/details/4924183
 
 

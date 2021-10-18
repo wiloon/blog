@@ -6,6 +6,7 @@ date: 2016-09-10T05:44:49+00:00
 url: /?p=9199
 
 ---
+# raspberry pi basic, install, init
 ```bash
 #download  image
 http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2018-11-15/2018-11-13-raspbian-stretch-lite.zip

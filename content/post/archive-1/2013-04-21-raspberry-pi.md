@@ -10,6 +10,7 @@ tags:
   - Raspberry Pi
 
 ---
+# raspberry pi omxplayer mplayer
 ```bash
 sudo apt-get install omxplayer
 sudo apt-get install fonts-wqy-zenhei

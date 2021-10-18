@@ -10,6 +10,7 @@ tags:
   - Sqlite
 
 ---
+# adb shell sqlite DB
 在Android应用程序开发中，我们有时可能会用到系统中自带内嵌的数据库sqlite3，例如我们在某个应用程序中创建了数据库，如何查看该数据库或者如何查看该数据库中包含有哪些表或数据。下面是我在应用程序中创建了一个数据库以及表，如何采用命令行的方式去查看该数据库和表
 
 cd /data/data/com.wiloon.android.rsslab/databases

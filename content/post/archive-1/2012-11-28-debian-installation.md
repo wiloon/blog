@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# debian installation
 ##click the icon "open this note in a new window
 
 #tuo.. terminal icon to the task bar

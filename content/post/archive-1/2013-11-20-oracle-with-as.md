@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Oracle with as
 原文传送门: <http://blog.csdn.net/wh62592855/archive/2009/11/06/4776631.aspx>
 
 记得以前在论坛里看到inthirties用到过WITH AS这个字眼,当时没特别在意。今天在一个帖子里又看到有人用这个,所以就去网上搜了搜相关内容,自己小试了一把,写下来,方便以后忘了的话学习。

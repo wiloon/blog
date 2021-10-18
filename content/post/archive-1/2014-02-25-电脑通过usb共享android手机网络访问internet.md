@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 电脑通过USB共享android手机网络访问Internet
 打开手机USB绑定
 
 【设置】->【无线和网络设置】->【绑定与便携式热点】->【USB绑定】

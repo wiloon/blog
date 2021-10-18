@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 用户故事, user story
 故事story是粗略的勾勒的需求，它是信！号！卡！，指向真正的需求或者叫故事详情，怎么说都好。
   
 而需求就是需求。

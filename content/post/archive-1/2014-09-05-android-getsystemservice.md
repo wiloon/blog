@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# android getSystemService
 http://blog.sina.com.cn/s/blog_7cb2c5d50101c26t.html
 
 android中getSystemService详解 (2012-07-23 10:53:52)转载▼

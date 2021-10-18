@@ -6,6 +6,7 @@ date: 2019-12-23T08:00:59+00:00
 url: redis-rdb-aof
 
 ---
+# Redis 持久化 RDB 和 AOF
 
 Redis本身的机制是 AOF持久化开启且存在AOF文件时，优先加载AOF文件；AOF关闭或者AOF文件不存在时，加载RDB文件；加载AOF/RDB文件城后，Redis启动成功；AOF/RDB文件存在错误时，Redis启动失败并打印错误信息
 

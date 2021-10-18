@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# activity的android,name 设置问题
 
   <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
  2     package="com.example.android.apis"> 

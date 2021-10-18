@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# XML Schema, XML DTD
 <http://www.ibm.com/developerworks/cn/xml/x-sd/index.html>
 
 引言

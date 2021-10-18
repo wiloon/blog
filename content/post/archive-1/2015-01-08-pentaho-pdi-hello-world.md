@@ -10,6 +10,7 @@ tags:
   - Pentaho
 
 ---
+# pentaho pdi hello world
 create db schema named pentaho0
 
 edit pentaho pdi start up script comment out java 64bit related line，  这一行会死循环，没调查为什么，注掉。

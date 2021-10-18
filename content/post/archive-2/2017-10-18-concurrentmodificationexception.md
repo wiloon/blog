@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# ConcurrentModificationException
 对Vector、ArrayList在迭代的时候如果同时对其进行修改就会抛出java.util.ConcurrentModificationException异常
 
 http://www.cnblogs.com/dolphin0520/p/3933551.html

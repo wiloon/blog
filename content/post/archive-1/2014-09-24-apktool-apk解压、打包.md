@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# apktool APK解压、打包
 ```bash
 
 keytool -genkey -alias JFrench.keystore -keyalg RSA -validity 1000000 -keystore JFrench.keystore

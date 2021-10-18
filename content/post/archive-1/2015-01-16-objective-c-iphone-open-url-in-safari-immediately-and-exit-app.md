@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# httpcomponent, httpclient proxy setting
 http://www.jianshu.com/p/f38a62efaa96
 
 ```java

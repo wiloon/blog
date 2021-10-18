@@ -10,6 +10,7 @@ tags:
   - English
 
 ---
+# affect, influence 与 impact 的区别
 http://blog.sina.com.cn/s/blog_90bb205c0101ceza.html
   
 (2013-02-26 15:47:23) 转载▼

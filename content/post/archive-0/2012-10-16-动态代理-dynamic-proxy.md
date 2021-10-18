@@ -10,6 +10,7 @@ tags:
   - DesignPattern
 
 ---
+# 动态代理 Dynamic Proxy
 从JDK1.3开始，Java就引入了动态代理的概念。动态代理（Dynamic Proxy) 可以帮助你减少代码行数，真正提高代码的可复用度。例如，你不必为所有的类的方法里面都写上相同的Log代码行，取而代之的是实用类的动态代理类。当然，这种便利是有条件的。本文简单介绍Java动态代理的原理，并实现一个被代理的Servlet创建，和调用的过程。
 
 ### 代理模式（Proxy Pattern) 

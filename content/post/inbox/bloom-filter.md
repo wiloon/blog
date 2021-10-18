@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "bloom filter, 布隆过滤器"
 
 Data structures are nothing different. They are like the bookshelves of your application where you can organize your data. Different data structures will give you different facility and benefits. To properly use the power and accessibility of the data structures you need to know the trade-offs of using one.
 

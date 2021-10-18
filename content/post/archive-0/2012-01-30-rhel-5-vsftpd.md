@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# RHEL 5 vsftpd
 vsftpd安装
   
 [root@linux01 ~]# mkdir /media/cdrom

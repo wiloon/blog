@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# PhoneGap和Cordova
 http://www.smallhead.cn/knowledge/422.html
 
 说到PhoneGap,大家会提到Cordova,这也是近期新手们经常谈论的问题,有的人直接问我你用的是PhoneGap还是Cordova？这里我说说我对这两个名字的理解。

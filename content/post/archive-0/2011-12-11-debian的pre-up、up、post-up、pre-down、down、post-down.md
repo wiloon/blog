@@ -12,6 +12,7 @@ categories:
   - Linux
 
 ---
+# Debian的pre-up、up、post-up、pre-down、down、post-down
 
   
     

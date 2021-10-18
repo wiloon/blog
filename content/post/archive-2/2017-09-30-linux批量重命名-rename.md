@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Linux批量重命名 rename
 ```bash
   
 #files

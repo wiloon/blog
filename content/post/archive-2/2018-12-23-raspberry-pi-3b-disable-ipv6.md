@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'raspberry pi 3B  disable ipv6'
 Add ipv6.disable=1 to /boot/cmdline.txt
 
 cat /etc/modprobe.d/ipv6.conf

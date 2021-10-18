@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 烧茄子
 https://www.douban.com/group/topic/7666719/
 
 主料: 三根长茄子。肉馅一小坨～大概两三块钱的就够啦。蒜瓣三四个。郫县豆瓣。白糖。盐。

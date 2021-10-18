@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# EL, Ognl, Struts Tag, JSTL
 <http://www.cnblogs.com/LeneJay/archive/2011/11/14/2248218.html>
 
 JavaWeb 默认的语法，除HTML 外，共有: 

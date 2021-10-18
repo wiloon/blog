@@ -10,6 +10,7 @@ tags:
   - Spring
 
 ---
+# spring @value
 在spring 3.0中,可以通过使用@value,对一些如xxx.properties文件
   
 中的文件,进行键值对的注入,例子如下: 

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# kafka consumer, group
 ### kafka consumer
 https://blog.csdn.net/lishuangzhe7047/article/details/74530417
 

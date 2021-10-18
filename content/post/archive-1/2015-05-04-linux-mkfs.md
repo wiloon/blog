@@ -10,6 +10,7 @@ tags:
   - linux
 
 ---
+# linux disk format, mkfs,mke2fs 格式化磁盘
 ```bash
 sudo mkfs.msdos -F 32 /dev/sdx1
 mkfs.ntfs -Q -L diskLabel /dev/sdXY

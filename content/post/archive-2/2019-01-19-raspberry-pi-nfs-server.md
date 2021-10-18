@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# raspberry pi nfs server
 ```bash
 #安装 NFS 服务器
 sudo apt install nfs-kernel-server

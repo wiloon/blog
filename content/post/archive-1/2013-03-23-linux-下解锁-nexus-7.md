@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# linux 下解锁 nexus 7
 Requirements
   
 1. You must have the sdk installed and you are able to access, and use adb and fastboot.

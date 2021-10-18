@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# ibatis 升级到mybatis
 https://blog.csdn.net/u010856276/article/details/82146607
 
 ibatis升级到mybatis，不是简单的升级包就OK了，为什么这么说呢？因为升级后，调用接口变了，配置文件的写法也变了，所以从某种程度来说，

@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Java ClassLoader
 不同的JVM的实现不同，本文所描述的内容均只限于Hotspot Jvm.
 
 本文将会从JDK默认的提供的ClassLoader，双亲委托模型，如何自定义ClassLoader以及Java中打破双亲委托机制的场景四个方面入手去讨论和总结一下。

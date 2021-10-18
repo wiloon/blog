@@ -7,6 +7,7 @@ categories:
   - Uncategorized
 
 ---
+# Android basic
 
 ### andorid screen unlock pattern
     menu>setting>location & security > change screen lock > pattern

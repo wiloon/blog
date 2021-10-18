@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# 'Java  exception throw throws'
  
 CheckException和RuntimeException
 java文档中对RuntimeException的定义是: 

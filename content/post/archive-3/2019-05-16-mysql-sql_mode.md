@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# MySQL, sql_mode
 http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html
 
 MySQL的sql_mode合理设置

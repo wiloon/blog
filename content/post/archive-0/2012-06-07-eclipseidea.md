@@ -10,6 +10,7 @@ tags:
   - IDEA
 
 ---
+# 'eclipse>IDEA'
 outline - structure, Ctrl+F12
 
 本文转自: <http://gagi.iteye.com/blog/633778>

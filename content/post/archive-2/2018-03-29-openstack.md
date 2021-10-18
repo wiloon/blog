@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# openstack
 https://www.cnblogs.com/wangle1001986/p/5320752.html
   
 https://www.zhihu.com/question/54447067

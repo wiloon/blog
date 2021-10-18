@@ -10,6 +10,7 @@ tags:
   - Excel
 
 ---
+# Switch to R1C1 Reference Style in Excel 2010
 **Question:**  How do I switch from A1 to R1C1 reference style?  I used to do it in the Options menu, General tab in Excel 2003.  But how do I do it in Excel 2010?
 
 **Answer:

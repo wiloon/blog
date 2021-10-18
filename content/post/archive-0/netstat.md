@@ -10,6 +10,7 @@ categories:
   - Linux
 
 ---
+# netstat, 端口
 netstat -ntlp
   
 -n 以网络IP地址代替名称

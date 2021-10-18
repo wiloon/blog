@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# sql server存储过程中SELECT 与 SET 对变量赋值的区别
 SQL Server 中对已经定义的变量赋值的方式用两种,分别是 SET 和 SELECT。
   
 对于这两种方式的区别,SQL Server 联机丛书中已经有详细的说明,但很多时候我们

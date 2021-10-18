@@ -11,6 +11,7 @@ tags:
   - linux
 
 ---
+# SDL（Simple DirectMedia Layer)
 
 **SDL**（Simple DirectMedia Layer) 是一个用C语言编写的、跨平台的、免费和开源的多媒体程序库，它提供了一个简单的接口用于操作硬件平台的图形显示、声音、输入设备等。SDL库被广泛应用于各种操作系统（如Linux、FreeBSD、Windows、Mac OS、iOS、Android等) 上的游戏开发、多媒体播放器、模拟器（如QEMU) 等众多应用程序之中。尽管SDL是用C语言编写的，但是其他很多流行的编程语言（如C++、C#、Java、Objective C、Lisp、Erlang、Pascal、Perl、Python、PHP、Ruby等等) 都提供了SDL库的绑定，在这些编程语言中都可以很方便的调用SDL的功能。
 

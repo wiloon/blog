@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# nexus 6p 不停重启,在google与警告界面循环
 http://bbs.gfan.com/android-9177501-1-1.html
   
 https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279

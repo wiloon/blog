@@ -5,6 +5,7 @@ date: 2011-11-04T05:13:18.000+00:00
 url: "/?p=1444"
 
 ---
+# compact/extract 压缩/解压
 ### 解压多个文件
     ls *.gz|xargs -t -n1 gunzip
     gunzip *.gz

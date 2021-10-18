@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Java读带有BOM的UTF-8
 http://www.linuxidc.com/Linux/2012-12/76707.htm
 
 http://akini.mbnet.fi/java/unicodereader/

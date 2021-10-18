@@ -9,6 +9,7 @@ categories:
   - Java
 
 ---
+# Spring中bean的作用域
 [http://blog.csdn.net/ProvidenceZY/article/details/1878582 ][1]
 
 

@@ -8,4 +8,5 @@ categories:
   - Uncategorized
 
 ---
+# maven-shade-plugin
 maven build fat jar

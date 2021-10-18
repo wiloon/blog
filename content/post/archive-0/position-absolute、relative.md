@@ -12,6 +12,7 @@ tags:
   - CSS
 
 ---
+# 'position,absolute、relative'
 position: absolute、relative
   
 CSS2.0 HandBook上的解释: 

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'java boolean的|=或&=或^=写法'
 package jack.test;
 
 /**

@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "JMM, java 内存模型"
 
 JMM（Java 内存模型) 
 

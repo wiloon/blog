@@ -10,6 +10,7 @@ tags:
   - JPA
 
 ---
+# JPA EntityManager——persist,merge,refresh和remove
 public void persist(Object entity)
   
 persist 方法可以将实例转换为 managed( 托管 ) 状态。在调用 flush() 方法或提交事物后，实例将会被插入到数据库中。

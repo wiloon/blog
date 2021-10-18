@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'java 读文件到Byte[]数组'
 http://blog.sina.com.cn/s/blog_ae48aad6010177ns.html
 
 ```java

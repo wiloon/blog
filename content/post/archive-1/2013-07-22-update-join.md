@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# update join, delete join
 [sql]
    
 UPDATE t1

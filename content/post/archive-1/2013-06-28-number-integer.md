@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# number integer
 
 建表的时候,如果是浮点数,一般设置为 number(m,n )[m为精度,n为小数位数,所以整数为m-n位],  整数设置为integer;
 

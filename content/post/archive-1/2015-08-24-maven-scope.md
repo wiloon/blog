@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# maven Scope
 maven依赖关系中Scope的作用
 
 Dependency Scope

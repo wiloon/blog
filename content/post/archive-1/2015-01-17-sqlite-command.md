@@ -10,6 +10,7 @@ tags:
   - Sqlite
 
 ---
+# sqlite command
 ```bash
 sudo pacman -S sqlite
 ```

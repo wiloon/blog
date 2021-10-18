@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux more
 http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html
 
 每天一个linux命令(12): more命令

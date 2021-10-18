@@ -8,6 +8,7 @@ categories:
   - Development
 
 ---
+# activemq admin page
 ```bash
 
 ./activemq start

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Android Handler
 http://www.cnblogs.com/devinzhang/archive/2011/12/30/2306980.html
 
 Android之Handler用法总结

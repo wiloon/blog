@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'Java 7   Phaser'
 http://www.oschina.net/question/12_35433
 
 Java 7 引入了一个全新灵活的线程同步机制,名为 Phaser 。 如果你需要等待线程结束然后继续执行其他任务,那么 Phaser 是一个好的选择,接下来我们一步步来介绍 Phaser 的使用: 

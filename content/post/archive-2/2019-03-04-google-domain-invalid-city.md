@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# google domain, invalid City
 填写联系人资料的时候国家选择中国,填写城市 的时候要写成 Dalian Shi
 
 

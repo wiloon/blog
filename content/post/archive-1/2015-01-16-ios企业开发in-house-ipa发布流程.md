@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# golang bufio
 http://www.cnblogs.com/golove/p/3282667.html
 
 // bufio 包实现了带缓存的 I/O 操作

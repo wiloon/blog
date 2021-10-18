@@ -10,6 +10,7 @@ tags:
   - oracle
 
 ---
+# Row_number () over (partition by col1 order by col2)的用法
 
 ### oracle row_number 函数
 ```sql

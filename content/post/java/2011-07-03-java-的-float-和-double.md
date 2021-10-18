@@ -10,6 +10,7 @@ categories:
   - Java
 
 ---
+# 'java  float,double,decimal'
 
 decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位) 
 

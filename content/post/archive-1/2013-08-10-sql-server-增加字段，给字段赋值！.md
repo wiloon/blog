@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# SQL server 增加字段，给字段赋值！
 2修改数据库和表的字符集
   
 alter database maildb default character set utf8;//修改数据库的字符集

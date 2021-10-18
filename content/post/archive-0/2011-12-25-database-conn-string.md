@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# database conn string
 MySQL:
 
 connURL: jdbc:MySQL://localhost:3306/tmp

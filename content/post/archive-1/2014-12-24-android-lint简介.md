@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Android Lint简介
 http://hubingforever.blog.163.com/blog/static/17104057920129249497980/
 
 英文原文: http://tools.android.com/tips/lint

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# chrome os recover
 https://support.google.com/chromebook/answer/1080595?hl=zh-Hans
 
 open chrome and install Chromebook Recovery Utility

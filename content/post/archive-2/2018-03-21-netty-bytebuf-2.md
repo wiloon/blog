@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# netty ByteBuf
 https://caorong.github.io/2017/01/16/head-first-netty-3/
   
 https://segmentfault.com/a/1190000007560884

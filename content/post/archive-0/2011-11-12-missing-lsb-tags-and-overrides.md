@@ -12,6 +12,7 @@ categories:
   - Linux
 
 ---
+# missing LSB tags and overrides
 update-rc.d tomcat defaults
 
 pop out warning message

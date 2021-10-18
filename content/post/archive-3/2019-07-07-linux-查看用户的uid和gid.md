@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'linux  查看用户的UID和GID'
 方法一: 使用 id 命令
 
 使用 id 命令可以很轻松的通过用户名查看UID、GID，下面来讲解一下这个命令的用法。

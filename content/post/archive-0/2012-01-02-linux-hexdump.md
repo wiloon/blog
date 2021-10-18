@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# linux hexdump
 
 ### 
     hexdump -e '16/1 "%02X " "\n"'

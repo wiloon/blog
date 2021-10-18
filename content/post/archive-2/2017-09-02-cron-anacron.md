@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# cron, anacron
 anacron 用于以天为单位的频率运行命令。它的工作与 cron 稍有不同,它假设机器不会一直开机。
 
 anacron 如何在 Linux 工作

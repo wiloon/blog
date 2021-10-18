@@ -11,6 +11,7 @@ tags:
   - RedHat
 
 ---
+# RedHat Enterprise Linux 网络配置
 　　一、$/sbin/ifconfig //显示ifconfig命令查看网络接口的信息
   
 　

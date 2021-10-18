@@ -10,6 +10,7 @@ tags:
   - MySQL
 
 ---
+# Cannot create Windows Service for MySQL.Error,0
 http://qqhugo.blogbus.com/logs/15733455.html
   
 安装新的MYSLQ数据库，安装好运行MySQL Server Instance ConfigWizard，在最后一步却发现无法启动服务，出现这样的提示"cannotcreate windows service for MySQL.error:0"！

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 将HTML5封装成android应用APK文件的几种方法
 http://mobile.51cto.com/android-386448.htm
 
 越来越多的开发者热衷于使用html5+JavaScript开发移动Web App。不过，HTML5 Web APP的出现能否在未来取代移动应用，就目前来说，还是个未知数。一方面，用户在使用习惯上，不喜欢在浏览器上输入复杂的网址；另一方面，Html5 Web App 存放在服务器端，在每次使用时需要进行数据传递，会造成流量浪费。有些开发者不想接触复杂的JAVA代码，那么，有什么办法，既可以使用HTMl5开发应 用，又可以将其简单封装成APK文件呢？

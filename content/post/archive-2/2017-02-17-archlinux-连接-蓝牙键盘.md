@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# archlinux 连接 蓝牙键盘
 filco 配对 ctrl+alt+fn
   
 忘记已配对设备 connect 长按3秒

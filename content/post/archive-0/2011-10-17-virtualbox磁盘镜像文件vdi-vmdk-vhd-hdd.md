@@ -14,6 +14,7 @@ tags:
   - VirtualBox
 
 ---
+# VirtualBox磁盘镜像文件(VDI, VMDK, VHD, HDD)
 (1)由VirtualBox的虚拟磁盘映像（VDI) 的文件作为其自己的容器格式为主机硬盘。这是当用户创建一个新的虚拟机与一个新的磁盘将用于的格式。
   
 (2)VirtualBox也支持VMware的VMDK容器格式。这种格式是颇为流行，和其他虚拟化软件使用。

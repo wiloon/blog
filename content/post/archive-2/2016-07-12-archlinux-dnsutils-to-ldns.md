@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'dns tool, dig/drill   , dnsutils to ldns dig -> dirll'
 ```bash
 # install dig
 ## archlinux

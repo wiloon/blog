@@ -7,6 +7,7 @@ tags:
   - maven
 
 ---
+# mvn maven basic, command
 ### download
 >https://maven.apache.org/download.cgi
 ### setting>mirror

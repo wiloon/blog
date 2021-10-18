@@ -11,6 +11,7 @@ tags:
   - Spring
 
 ---
+# spring junit
 **一.首先讲下注解,autowire 与 resource的区别**
   
 @Autowired是按类型装配依赖对象，默认情况下，要求依赖对象必须存在，若允许null值，可以设置它的required属性为false。如果想使用按名称装配，可以结合@Qualifier注解一起使用。如: 

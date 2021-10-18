@@ -10,6 +10,7 @@ tags:
   - Servlet
 
 ---
+# getRequestDispatcher()， sendRedirect()
 1.getRequestDispatcher(url)是请求转发，前后页面共享一个request。
 
 RequestDispatcher 对象从客户端获取请求request，并把它们传递给服务器上的servlet,html或jsp。

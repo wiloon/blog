@@ -12,6 +12,7 @@ categories:
   - Linux
 
 ---
+# maven plugin
 http://www.infoq.com/cn/news/2011/04/xxb-maven-7-plugin
 
 ### resouce plugin

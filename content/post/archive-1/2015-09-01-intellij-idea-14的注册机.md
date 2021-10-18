@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Intellij IDEA 14的注册机
 import java.math.BigInteger;
   
 import java.util.Date;

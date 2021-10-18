@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Android Studio 因为需要下载gradle不能启动或新建项目
 http://blog.csdn.net/likebamboo/article/details/19474893
   
 分类:  android 工具介绍2014-02-19 10:00 3201人阅读 评论(1) 收藏 举报

@@ -10,6 +10,7 @@ tags:
   - Arch Linux
 
 ---
+# archlinux, adb
 ```bash
 pacman -S android-tools
 ```

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux command df
 ```bash
 df -h
 df -t ext4 -h

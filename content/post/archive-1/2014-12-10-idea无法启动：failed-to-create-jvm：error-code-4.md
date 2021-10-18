@@ -10,6 +10,7 @@ tags:
   - IDEA
 
 ---
+# IDEA无法启动,Failed to create JVM,error code -4
 http://blog.csdn.net/twlkyao/article/details/24534505
 
 发生该错误的原因是因为IDEA需要使用的连续内存空间没有得到满足,解决方案: 

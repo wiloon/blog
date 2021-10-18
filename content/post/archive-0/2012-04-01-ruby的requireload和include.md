@@ -8,6 +8,7 @@ categories:
   - Development
 
 ---
+# Ruby的require,load,和include
 
   三者之间区别并不像你想的那么难，也不会像有些文章写的那么长。挺简单的。
 

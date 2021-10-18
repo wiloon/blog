@@ -6,6 +6,7 @@ date: 2014-03-29T05:06:31+00:00
 url: /?p=6446
 
 ---
+# Install GUI on debian 7 wheezy
 http://namhuy.net/1085/install-gui-on-debian-7-wheezy.html
 
 This article will show you how to install GUI (Graphical User Interface) of your choice (gnome, kde, Cinnamon, mate, enlightenment, xfce, or lxde) on debian 7. The two biggest players in the game are Gnome and KDE, but there are also many smaller GUIs, like Xfce and LXDE that have just as much to offer.

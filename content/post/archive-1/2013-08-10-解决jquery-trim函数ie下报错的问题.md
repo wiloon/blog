@@ -8,6 +8,7 @@ categories:
   - Web
 
 ---
+# 解决JQuery.trim()函数ie下报错的问题
 经常碰到JQuery里的trim()函数在firefox支持,但是在IE里不支持
   
 其主要原因是写法不对,下面是错误的写法

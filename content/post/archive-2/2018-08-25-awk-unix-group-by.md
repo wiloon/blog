@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Awk/Unix group by
 ```bash
   
 $ awk -F, 'NR>1{arr[$1]++}END{for (a in arr) print a, arr[a]}' file.txt

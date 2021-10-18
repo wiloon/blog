@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Raspberry Pi 3 Model B+
 Broadcom BCM2837B0, Cortex-A53 (ARMv8) 64-bit SoC @ 1.4GHz
   
 1GB LPDDR2 SDRAM

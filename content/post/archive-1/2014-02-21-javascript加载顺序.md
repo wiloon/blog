@@ -10,6 +10,7 @@ tags:
   - JavaScript
 
 ---
+# Javascript加载顺序
 http://www.benben.cc/blog/?p=9
 
 最近经常看到别人提及Javascript脚本的加载顺序,看完之后虽略有所悟,但古人云"纸上得来终觉浅,绝知此事要躬行。"这句话云的好,所以我决定亲自测试一下,看看浏览器究竟是怎么加载脚本的。

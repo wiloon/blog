@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# linux user, group, 用户 用户组
 
 cat /etc/passwd
 

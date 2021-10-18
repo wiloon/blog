@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Java 数据对象 JDO,JDBC
 http://developer.51cto.com/art/200510/6932.htm
   
 介绍

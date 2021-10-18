@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# Java URL URI
 http://blog.csdn.net/majiabao123/article/details/4202158
 
 从JDK1.4开始，java.net包对统一资源定位符(uniform resource locator URL)和统一资源标识符(uniform resource identifier URI)作了非常有用的区分。

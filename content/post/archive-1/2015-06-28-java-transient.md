@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# java transient
 http://www.cnblogs.com/lanxuezaipiao/p/3369962.html
 
 

@@ -10,6 +10,7 @@ categories:
   - Linux
 
 ---
+# linux lost+found 目录
 /lost found
 
 这个目录一般情况下是空的，当系统非法关机或格式化分区后，这里就存放了一些文件。

@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# 11g新特性之–Query Cache Result 研究
 **<http://www.killdb.com/2011/07/31/11g%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8B-query-cache-result-%E7%A0%94%E7%A9%B6.html>**
 
 **本站文章除注明转载外，均为本站原创: ** 转载自[love wife & love life —Roger 提供oracle技术支持服务][1]

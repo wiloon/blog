@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# golang init 函数
 init函数的作用: 
 
 变量初始化

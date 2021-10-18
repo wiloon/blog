@@ -7,6 +7,7 @@ categories:
   - Spring
 
 ---
+# spring annotation
 @Component；@Controller；@Service；@Repository 
 
 ### @Component

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# raspberry pi disable ipv6
 ```bash/etc/modprobe.d/ipv6.conf
 alias net-pf-10 off
 alias ipv6 off

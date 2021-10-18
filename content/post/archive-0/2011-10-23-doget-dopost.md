@@ -14,6 +14,7 @@ tags:
   - Servlet
 
 ---
+# doGet doPost
 Serlvet接口只定义了一个服务方法就是service，而HttpServlet类实现了该方法并且要求调用下列的方法之一: 
   
 doGet: 处理GET请求

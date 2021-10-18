@@ -8,6 +8,7 @@ categories:
   - Web
 
 ---
+# javascript 判断浏览器类型
 ```
 
 var Sys = {};

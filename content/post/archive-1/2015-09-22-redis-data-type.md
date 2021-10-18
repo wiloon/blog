@@ -8,6 +8,7 @@ categories:
   - database
 
 ---
+# redis data type, 数据类型
 <https://redis.io/topics/data-types>
   
 <https://redis.io/topics/data-types-intro>

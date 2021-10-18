@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# OPTION SQL_SELECT_LIMIT
 http://lucifer119.blog.51cto.com/2914308/1344253
 
 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OPTION SQL_SELECT_LIMIT=DEFAULT' at line 1

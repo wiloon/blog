@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# java Constructor
 **一、构造器是干什么用的？（what) **
 
 构造器是用来生成一个类的实例是用来初始化这个实例用的

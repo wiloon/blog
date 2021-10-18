@@ -13,6 +13,7 @@ categories:
   - VM
 
 ---
+# 'kvm  qemu qemu-kvm  libvirt'
 Qemu是一个模拟器，它向Guest OS模拟CPU和其他硬件，Guest OS认为自己和硬件直接打交道，其实是同Qemu模拟出来的硬件打交道，Qemu将这些指令转译给真正的硬件,由于所有的指令都要从Qemu里面过一手，因而性能较差。
 
 

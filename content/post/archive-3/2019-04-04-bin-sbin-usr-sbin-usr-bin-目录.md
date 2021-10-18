@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# /bin,/sbin,/usr/sbin,/usr/bin 目录
 https://blog.csdn.net/kkdelta/article/details/7708250
 
 /bin,/sbin,/usr/sbin,/usr/bin 目录

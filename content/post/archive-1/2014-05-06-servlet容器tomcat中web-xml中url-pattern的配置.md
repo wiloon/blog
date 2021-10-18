@@ -10,4 +10,5 @@ tags:
   - Servlet
 
 ---
+# Servlet容器Tomcat中web.xml中url-pattern的配置
 http://www.cnblogs.com/fangjian0423/p/servletContainer-tomcat-urlPattern.html

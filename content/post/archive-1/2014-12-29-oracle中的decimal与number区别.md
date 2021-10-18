@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Oracle中的decimal与Number区别
 一、DECIMAL类型详细
   
 Oracle只是在语法上支持decimal类型,但是在底层实际上它就是number类型,支持decimal类型是为了能把数据从Oracle数据库移到其他数据库中(如DB2等)。

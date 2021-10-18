@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# emacs yaml plugin
 ```bash
   
 (add-to-list 'load-path "/home/wiloon/.emacs.d/lisp")

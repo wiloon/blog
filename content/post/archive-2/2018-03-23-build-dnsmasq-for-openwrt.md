@@ -6,6 +6,7 @@ date: 2018-03-22T16:08:42+00:00
 url: /?p=12034
 
 ---
+# r7800 openwrt
 在ubuntu上安装如下软件包: 
   
 gcc, g++, binutils, bzip2, flex, python, perl, make,find, grep, diff, unzip, gawk, getopt, subversion, libz-dev and libc 头文件

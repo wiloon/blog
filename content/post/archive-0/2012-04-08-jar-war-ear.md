@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# JAR	WAR EAR
 ### jar: Java Archive file  
 扩展名为.Jar 包含Java类的普通库(class)、资源（resources) 、辅助文件（auxiliary files) , properties 等部署文件 application-client.xml
 

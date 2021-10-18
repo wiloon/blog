@@ -8,4 +8,5 @@ categories:
   - Uncategorized
 
 ---
+# ssh, block ip, blacklist
 Add sshd: 116.31.116.20 to /etc/hosts.deny

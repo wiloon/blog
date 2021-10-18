@@ -10,6 +10,7 @@ tags:
   - Golang
 
 ---
+# The Go Programming Language
 Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支持多种编程范式(函数式和面向对象)。
 
 ### hello world

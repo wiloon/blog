@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux Namespace
 https://lwn.net/Articles/531114/
   
 https://coolshell.cn/articles/17010.html

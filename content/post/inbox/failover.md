@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "failover, failfast, failback, failsafe"
 ### failover: 失效转移/故障转移
 Fail-Over的含义为“失效转移”，是一种备份操作模式，当主要组件异常时，其功能转移到备份组件。其要点在于有主有备，且主故障时备可启用，并设置为主。如MySQL的双Master模式，当正在使用的Master出现故障时，可以拿备Master做主使用
 

@@ -12,6 +12,7 @@ categories:
   - Linux
 
 ---
+# is not in the sudoers file
 首需要切换到root身份
   
 $su -

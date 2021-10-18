@@ -14,6 +14,7 @@ tags:
   - Git
 
 ---
+# Triggering a hudson build to run when git is updated
 http://www.danstraw.com/triggering-a-hudson-build-to-run-when-git-is-updated/2010/11/23/
   
 -

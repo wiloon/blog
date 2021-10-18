@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux test disk io
 ```bash
   
 time dd if=/dev/zero of=test.dbf bs=8k count=300000 oflag=direct

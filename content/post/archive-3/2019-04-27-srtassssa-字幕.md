@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# srt,ass,ssa 字幕
 srt,ass,ssa三种字幕的区别
   
 2016年01月04日 09:45:09 吴昊先生 阅读数: 12703 标签:  srt ssa ass 字幕标识 chs 更多

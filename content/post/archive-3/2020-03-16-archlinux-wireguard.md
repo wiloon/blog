@@ -7,6 +7,7 @@ url: wireguard
 tag: vpn
 
 ---
+# wireguard
 ## server install
 #### archlinux
 archlinux 如果使用的是新版本的内核的话，就不需要单独安装wireguard了， wireguard已经被集成进了内核。

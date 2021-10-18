@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# nginx tomcat
 https://www.cnblogs.com/naaoveGIS/p/5478208.html
 
 upstream tomcat_server{

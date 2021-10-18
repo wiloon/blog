@@ -14,6 +14,7 @@ tags:
   - Tomcat
 
 ---
+# tomcat 开机启动, jsvc
 参考<http://tomcat.apache.org/tomcat-7.0-doc/setup.html>的介绍，tomcat自带了jsvc工具，
 
 需要先安装gcc, make

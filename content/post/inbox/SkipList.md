@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "SkipList, 跳表, 跳跃表"
 # SkipList
 ![](https://pic2.zhimg.com/80/v2-a78099a1347aa36d2599a6d78849a4ad_720w.jpg)
 

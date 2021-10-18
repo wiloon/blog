@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# atom command
 http://coloration.cc/2016/01/04/useAtom/
 
 

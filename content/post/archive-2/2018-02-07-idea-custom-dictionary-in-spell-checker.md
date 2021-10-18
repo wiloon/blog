@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# idea custom dictionary in Spell Checker
 custom dictionary end with .dic
 
 https://intellij-support.jetbrains.com/hc/en-us/community/posts/206277569-Using-custom-dictionary-in-Spell-Checker

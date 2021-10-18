@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# xfce4 terminal color
 https://github.com/sgerrand/xfce4-terminal-colors-solarized
   
 /home/user0/.config/xfce4/terminal/terminalrc

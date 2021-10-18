@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# CopyOnWriteArrayList
 <http://www.cnblogs.com/sunwei2012/archive/2010/10/08/1845656.html>
 
 除了加锁外，其实还有一种方式可以防止并发修改异常，这就是将读写分离技术（不是数据库上的) 。

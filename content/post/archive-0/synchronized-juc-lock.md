@@ -8,6 +8,7 @@ categories:
 tags:
   - lock
 ---
+# Synchronized 和 java.util.concurrent.locks.Lock 的区别
 
 主要相同点: Lock 能完成 Synchronized 所实现的所有功能。
 

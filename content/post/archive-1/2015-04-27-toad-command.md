@@ -10,4 +10,5 @@ tags:
   - Database
 
 ---
+# toad command
 database ->schema browse->my schema ->Tables查看该用户所有的表

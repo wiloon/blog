@@ -6,6 +6,7 @@ date: 2013-04-17T15:43:43+00:00
 url: /?p=5408
 
 ---
+# 树莓派(raspberry pi) 系统在SD卡上安装Linux
 ```bash
 
 sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img of=/dev/sdx

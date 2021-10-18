@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# golang unit test
 测试文件用 "_test" 结尾,测试的函数用Test开头
 
 fibonacci.go

@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "esp,ebp,栈指针,帧指针"
 
 （1) ESP: 栈指针寄存器(extended stack pointer)，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的栈顶。
 （2) EBP: 基址指针寄存器(extended base pointer)，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的底部。

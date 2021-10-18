@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux tool
 https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html
 
 ldd

@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# eclipse 4.4 gtk3 error
 A fatal error has been detected by the Java Runtime Environment:
 #
 # SIGSEGV (0xb) at pc=0x00007f19358e673f, pid=18619, tid=139746828388096

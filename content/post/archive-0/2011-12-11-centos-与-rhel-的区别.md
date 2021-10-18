@@ -14,6 +14,7 @@ tags:
   - RedHat
 
 ---
+# CentOS 与 RHEL 的区别
 CentOS是Community ENTerprise Operating System的简称，我们有很多人叫它社区企业操作系统，不管你怎么叫它，它都是Linux操作系统的一个发行版本。
 
 CentOS并不是全新的Linux发行版，倘若一说到Red Hat这个大名，大家似乎都听过。在Red Hat家族中有企业版的产品，它是Red Hat Enterprise Linux（以下称之为RHEL) ，CentOS正是这个RHEL的克隆版本。RHEL是很多企业采用的Linux发行版本，需要向Red Hat付费才可以使用，并能得到付过费用的服务和技术支持和版本升级。CentOS可以像RHEL一样的构筑Linux系统环境，但不需要向Red Hat付任何的产品和服务费用，同时也得不到任何有偿技术支持和升级服务。

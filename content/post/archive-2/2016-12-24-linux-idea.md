@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# idea file
 import setting and restart idea
 
 **linux**

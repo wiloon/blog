@@ -6,6 +6,7 @@ date: 2011-04-23T08:54:55+00:00
 url: /?p=101
 
 ---
+# linux basic shell command
 ### printf
     export LC_NUMERIC="en_US.UTF-8"
     printf "%'f\n" 1234567.777

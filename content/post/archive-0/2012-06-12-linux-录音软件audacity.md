@@ -8,4 +8,5 @@ categories:
   - Linux
 
 ---
+# linux 录音软件audacity
 audacity是一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。

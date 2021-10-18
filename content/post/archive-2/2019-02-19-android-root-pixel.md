@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# android root pixel
 Download Magisk Root
   
 https://github.com/topjohnwu/Magisk

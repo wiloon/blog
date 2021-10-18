@@ -5,6 +5,7 @@ date: 2018-05-07T08:44:53.000+00:00
 url: "kafka"
 
 ---
+# kafka basic, command
 ### consumer
     bin/kafka-console-consumer.sh \
     --bootstrap-server kafka.wiloon.com:9092 \

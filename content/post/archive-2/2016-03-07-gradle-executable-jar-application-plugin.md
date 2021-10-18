@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# gradle executable jar, application plugin
 apply plugin: 'application'
 
 

@@ -10,6 +10,7 @@ tags:
   - Shell
 
 ---
+# Linux命令之exit – 退出当前shell
 本文链接: http://codingstandards.iteye.com/blog/836625 （转载请注明出处) 
 
 用途说明

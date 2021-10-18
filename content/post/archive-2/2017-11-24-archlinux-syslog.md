@@ -6,6 +6,7 @@ date: 2017-11-24T09:34:51+00:00
 url: /?p=11503
 
 ---
+# journal, journalctl, syslog
 Arch Linux启用systemd后,很多服务都被替换掉了,当然syslog也不例外,被Systemd Journal所替代。
 
 systemd拥有强大的处理与系统日志记录功能。在使用其它工具时,日志往往被分散在整套系统当中,由不同的守护进程及进程负责处理,这意味着我们很难跨越多种应用程序对其内容进行解读。

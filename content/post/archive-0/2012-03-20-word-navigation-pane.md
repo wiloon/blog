@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# word navigation pane
 word 2010
 
 view -navigation pane

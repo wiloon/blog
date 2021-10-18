@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# HttpSessionActivationListener
 HttpSessionActivationListener
   
 jsp/servlet 标准不要求一个web容器支持分布式应用，

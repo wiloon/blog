@@ -8,6 +8,7 @@ categories:
   - Emacs
 
 ---
+# Moving The Ctrl Key
 ### <http://emacswiki.org/emacs/MovingTheCtrlKey> {#toc16}
 
 ## Microsoft Windows {#toc15}

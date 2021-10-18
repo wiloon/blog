@@ -7,6 +7,7 @@ categories:
   - java
 
 ---
+# loom
 
 Oracle 已经停止了异步的JDBC (ADBA) 标准的相关工作。这传达了一个相当明确而又重要的信息：（在Java平台上）fiber 是未来的方向，而异步不是。Oracle 认为异步程序太难写难调，因此全力转向同步的方案（ 注意这个帖子混用了 fiber 和 lightweight thread 这两个术语，后面的Ron用的术语是 lightweight virtual thread ）
 

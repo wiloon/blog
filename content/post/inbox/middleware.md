@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "中间件, Middleware"
 # 中间件
 中间件一词的由来中间件这个术语第一次出现是 1968 年在德国加尔米施帕滕基兴举办的 [NATO 软件工程大会](http://homepages.cs.ncl.ac.uk/brian.randell/NATO/nato1968.PDF) 结束后发表的一份报告中。这届大会正式确定了软件工程(Software Engineering)的概念，同时还探讨了软件设计、生产和分发等主题。
 ### 中间件的定义

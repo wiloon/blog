@@ -6,6 +6,7 @@ date: 2013-12-27T02:52:17+00:00
 url: /?p=6077
 
 ---
+# Yahei Consolas Hybrid
 https://github.com/crvdgc/Consolas-with-Yahei
 
 Yahei Consolas Hybrid 是一种合成字体,是由微软雅黑的中文字体和 Consolas 的英文字体合成的,Consolas 字体是微软专为程序员开发的一种字体,但没有中文支持,所以 Yahei Consolas Hybrid 这种字体特别适合中英文的编程开发,代码编写

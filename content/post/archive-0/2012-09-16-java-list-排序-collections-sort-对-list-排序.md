@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# java List 排序 Collections.sort() 对 List 排序
 java.util.Comparator 接口。要实现里面的函数
   
 int compare(Object o1, Object o2) 返回一个基本类型的整型，返回负数表示o1 小于o2，返回0 表示o1和o2相等，返回正数表示o1大于o2。

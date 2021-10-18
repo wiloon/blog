@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'resolv.conf,search、domain、nameserver'
 http://www.ttlsa.com/linux/resolv-conf-desc/
   
 resolv.conf是resolver类库使用的配置文件,每当一个程序需要通过域名来访问internet上面的其它主机时,需要利用该类库将域名转换成对应的IP,然后才可进行访问.

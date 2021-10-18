@@ -5,6 +5,7 @@ date: 2019-03-28T09:40:51.000+00:00
 url: "wsl"
 
 ---
+# win10 wsl2
 ### WSL 
 windows subsystem for Linux
 ### wsl2

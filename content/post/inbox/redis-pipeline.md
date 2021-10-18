@@ -8,6 +8,7 @@ categories:
 tags:
   - redis
 ---
+# "redis pipeline"
 
 why pipeline ?
 Redis客户端与server的请求/响应模型

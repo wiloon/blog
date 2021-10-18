@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# linux shell Manipulating Strings
 <http://www.faqs.org/docs/abs/HTML/string-manipulation.html>
 
 

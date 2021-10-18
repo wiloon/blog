@@ -8,6 +8,7 @@ tags:
   - Arch Linux
 
 ---
+# Arch Linux 安装 ibus 五笔
 第一步
   
 $ sudo pacman -S ibus ibus-qt ibus-pinyin ibus-table

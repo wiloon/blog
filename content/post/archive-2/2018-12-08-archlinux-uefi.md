@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# archlinux UEFI
 ```bash
 # boot with iso-usb
 ls /sys/firmware/efi

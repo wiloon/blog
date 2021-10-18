@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# powermock
 
 [PowerMock LinkageError: MockClassLoader javax/management/MBeanServer][1]{.question-hyperlink}
 

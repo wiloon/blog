@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# go channel
 http://colobu.com/2016/04/14/Golang-Channels/
 
 Channel是Go中的一个核心类型,你可以把它看成一个管道,通过它并发核心单元就可以发送或者接收数据进行通讯(communication)。

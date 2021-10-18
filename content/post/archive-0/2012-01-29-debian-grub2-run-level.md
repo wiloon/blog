@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# debian, grub2, run level
 edit /boot/grub/grub.cfg
   
 ```bash

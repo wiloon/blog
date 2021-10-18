@@ -8,5 +8,6 @@ categories:
   - Uncategorized
 
 ---
+# gradle cmd 乱码
 编码GBK的不可映射字符
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'

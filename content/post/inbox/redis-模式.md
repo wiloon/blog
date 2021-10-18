@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+# "主从模式 VS 哨兵sentinel模式 VS Redis cluster模式"
 主从模式（redis2.8版本之前的模式) 、哨兵sentinel模式（redis2.8及之后的模式) 、redis cluster模式（redis3.0版本之后) 
 
 主从模式原理

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'go,  time.Tick, tick immediately'
 How to get time.Tick to tick immediately
 
 ```golang

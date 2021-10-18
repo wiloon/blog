@@ -6,6 +6,7 @@ date: 2011-09-06T07:30:27+00:00
 url: /?p=682
 
 ---
+# java 日期/date time
 日期计算
 
 Calendar cal = Calendar.getInstance();//使用默认时区和语言环境获得一个日历。

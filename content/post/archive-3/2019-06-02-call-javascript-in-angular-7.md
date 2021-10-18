@@ -8,4 +8,5 @@ categories:
   - Uncategorized
 
 ---
+# call javascript in angular 7
 https://stackoverflow.com/questions/53482324/how-can-i-use-javascript-code-in-angular-7

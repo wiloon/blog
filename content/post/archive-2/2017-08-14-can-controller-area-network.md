@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# CAN, Controller Area Network
 https://baike.baidu.com/item/CAN%E6%80%BB%E7%BA%BF/297754
 
 CAN是控制器局域网络(Controller Area Network, CAN)的简称,是由以研发和生产汽车电子产品著称的德国BOSCH公司开发的,并最终成为国际标准（ISO 11898) ,是国际上应用最广泛的现场总线之一。 在北美和西欧,CAN总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线,并且拥有以CAN为底层协议专为大型货车和重工机械车辆设计的J1939协议

@@ -10,6 +10,7 @@ tags:
   - Arch Linux
 
 ---
+# RDP Session Disconnected
 ## To resolve:
 
   1. Right click on "My Computer" and select "Properties".

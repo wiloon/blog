@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# 禁止network manager 开机启动.
 安装sysv-rc-conf
 
 sudo apt-get install sysv-rc-conf

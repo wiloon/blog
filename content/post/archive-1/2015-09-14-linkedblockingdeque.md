@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# LinkedBlockingDeque
 http://www.cnblogs.com/linjiqin/p/3214725.html
 
 Java多线程-新特征-阻塞栈LinkedBlockingDeque

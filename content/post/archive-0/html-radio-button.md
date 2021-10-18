@@ -12,6 +12,7 @@ categories:
   - Uncategorized
 
 ---
+# html radio button
 set objElement = objPage.WebElement("html tag:=TD","innertext:=xxxxxx", "index:=1").object
   
 logger(objElement.outerHtml)

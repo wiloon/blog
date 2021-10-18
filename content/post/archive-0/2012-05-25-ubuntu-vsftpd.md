@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# ubuntu vsftpd
 sudo apt-get install vsftpd
 
 查看是否打开21端口

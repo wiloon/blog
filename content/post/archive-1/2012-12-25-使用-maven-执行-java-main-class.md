@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# 使用 Maven 执行 java main class
 mvn exec:java -Dexec.mainClass="org.ts.main.App"
 
 

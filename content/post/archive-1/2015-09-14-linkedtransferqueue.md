@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# LinkedTransferQueue
 最近在阅读开源项目里，发现有几个工程都不尽相同地使用LinkedTransferQueue这个数据结构。比如netty,grizzly,xmemcache,Bonecp。Bonecp还扩展出一个BoundTransferQueue。
   
 LinkedTransferQueue最早出现在JSR66R(一个轻量级并行执行框架)包中，目前已合并到JDK7中。JSR66的负责人正是大名顶顶的Doug Lea.

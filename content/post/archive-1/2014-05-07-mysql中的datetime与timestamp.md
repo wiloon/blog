@@ -10,6 +10,7 @@ tags:
   - MySQL
 
 ---
+# MySQL中的datetime与timestamp
 相同
 
 显示

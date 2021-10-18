@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux command tee
 我使用过的Linux命令之tee - 重定向输出到多个文件
   
 本文链接: http://codingstandards.iteye.com/blog/833695   （转载请注明链接) 

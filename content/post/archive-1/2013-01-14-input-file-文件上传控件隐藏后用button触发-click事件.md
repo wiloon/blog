@@ -8,6 +8,7 @@ categories:
   - Web
 
 ---
+# input file 文件上传控件隐藏后用button触发 click事件
 http://bbs.csdn.net/topics/320156312
 
 [html]

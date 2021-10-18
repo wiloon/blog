@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# How to configure Office applications to run under a specific user account
 This article was previously published under Q288367
 
   

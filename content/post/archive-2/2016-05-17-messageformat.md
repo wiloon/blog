@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# MessageFormat
 MessageFormat用法
   
 博客分类: java

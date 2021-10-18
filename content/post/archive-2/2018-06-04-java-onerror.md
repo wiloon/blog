@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# java onerror
 http://hllvm.group.iteye.com/group/topic/40211
 
 -XX:OnError="jstack -F %p >/opt/com/test/threaddump.log"

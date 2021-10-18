@@ -14,6 +14,7 @@ tags:
   - Java
 
 ---
+# java gc监控, jstat
 ```bash
 jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
 jstat -gc -h3 <jvm PID> 3000 -1

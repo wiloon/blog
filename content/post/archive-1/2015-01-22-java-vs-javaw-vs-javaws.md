@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# java vs javaw vs javaws
 http://javapapers.com/core-java/java-vs-javaw-vs-javaws/
 
 This article gives an awareness tip. Do you know the difference between java, javaw and javaws tools. All these three are java application launchers. We know well about java.exe which we use quite often. Our command line friend, mostly we use it for convenience to execute small java programs. javaw is rare for us. Sometimes we have seen that in running application list in windows task manager. javaws is web start utility.

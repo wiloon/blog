@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# MANIFEST.MF
 打开Java的JAR文件我们经常可以看到文件中包含着一个META-INF目录，这个目录下会有一些文件，其中必有一个MANIFEST.MF，这个文件描述了该Jar文件的很多信息，下面将详细介绍MANIFEST.MF文件的内容，先来看struts.jar中包含的MANIFEST.MF文件内容: 
 
     Manifest-Version: 1.0

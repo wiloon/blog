@@ -8,6 +8,7 @@ tags:
   - network
 
 ---
+# network namespace
 network namespace 是实现网络虚拟化的重要功能,它能创建多个隔离的网络空间,它们有独自的网络栈信息。不管是虚拟机还是容器,运行的时候仿佛自己就在独立的网络中。这篇文章介绍 network namespace 的基本概念和用法,network namespace 是 linux 内核提供的功能,这篇文章借助 ip 命令来完成各种操作。ip 命令来自于 iproute2 安装包,一般系统会默认安装,如果没有的话,请读者自行安装。
 
 NOTE: ip 命令因为需要修改系统的网络配置,默认需要 sudo 权限。这篇文章使用 root 用户执行,请不要在生产环境或者重要的系统中用 root 直接执行,以防产生错误。

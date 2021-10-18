@@ -7,6 +7,7 @@ categories:
   - Linux
 
 ---
+# mplayer
 
 ### mplayer command monitoraspect
 mplayer -monitoraspect 1.25 6.rmvb

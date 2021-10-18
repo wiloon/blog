@@ -9,6 +9,7 @@ tags:
   - netty
 
 ---
+# "Reactor, Dispatcher 模式"
 # Reactor / Dispatcher 模式
 了解 Reactor 模式，就要先从**事件驱动**的开发方式说起。
 

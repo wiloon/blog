@@ -7,6 +7,7 @@ categories:
   - golang
 
 ---
+# golang struct/结构体
 ```golang
 //定义一个struct
 type Student struct {

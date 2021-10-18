@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# ID Mapper, idmapper, fs.nfs.idmap_cache_timeout
 Id mapper is used by NFS to translate user and group ids into names, and to
   
 translate user and group names into ids. Part of this translation involves

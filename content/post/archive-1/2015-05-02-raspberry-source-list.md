@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# raspberry source list
 vi /etc/apt/sources.list
 
 ```bash

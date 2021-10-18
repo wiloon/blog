@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# journal suppressed N messages
 systemd-journal: Suppressed 9567 messages from /system.slice/
   
 systemd-journal: Suppressed 6735 messages from /system.slice/

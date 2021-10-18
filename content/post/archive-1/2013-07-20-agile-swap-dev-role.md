@@ -8,6 +8,7 @@ categories:
   - Agile
 
 ---
+# 角色互换, Swapping Roles
 
 ### Swapping Developer Roles,A Lesson in Empathy and Cross Disciplinary Work
 If you've ever found yourself in a code oriented meeting in which people are going over issues and you find yourself dozed off in the corner – you've got an empathy problem. It isn't explicitly because you're a jackass (which, you very well may be), but because you cannot relate to the issues. Maybe you've never coded a REST interface before, handled the scaling issues of a database, or written the markup for a responsive website. You don't know what pitfalls exist, what complexities often arise, or what technical challenges are present — it's all unfamiliar and unknown. To remedy this, a colleague — Willie Miller — and I engaged in what we call "dev swap."

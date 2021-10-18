@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# sql server中的 stuff 函数
 # STUFF
 
 删除指定长度的字符并在指定的起始点插入另一组字符。

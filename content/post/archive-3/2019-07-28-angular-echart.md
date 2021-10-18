@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# angular 8, ngx-echarts, echart
 ```bash
 # 新建 angular项目后， 在项目目录下执行
 yarn add echarts

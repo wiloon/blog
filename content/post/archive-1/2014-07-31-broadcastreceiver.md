@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# BroadCastReceiver
 http://yangguangfu.iteye.com/blog/1063732
 
 Android 中的BroadCastReceiver

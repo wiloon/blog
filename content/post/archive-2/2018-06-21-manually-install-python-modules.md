@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# manually install python modules
 https://stackoverflow.com/questions/32798137/importerror-no-module-named-appdirs
   
 download modules from pypi.python.org

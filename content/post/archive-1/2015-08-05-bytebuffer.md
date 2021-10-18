@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# 'java  ByteBuffer'
 ByteBuffer是NIO里用得最多的Buffer,它包含两个实现方式: HeapByteBuffer是基于Java堆的实现,而DirectByteBuffer则使用了unsafe的API进行了堆外的实现。这里只说HeapByteBuffer。
 
 Buffer 类

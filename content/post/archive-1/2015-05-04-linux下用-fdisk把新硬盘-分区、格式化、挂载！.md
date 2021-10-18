@@ -10,6 +10,7 @@ tags:
   - linux
 
 ---
+# fdisk for linux
 ```bash
 sudo fdisk -l
 

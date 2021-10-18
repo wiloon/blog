@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'influxdb install & config'
 ### dnf
 
 ```bash

@@ -11,6 +11,7 @@ tags:
   - Spring
 
 ---
+# Spring Annotation @Resource
 Spring 不但支持自己定义的 `@Autowired` 的注释，还支持几个由 JSR-250 规范定义的注释，它们分别是`@Resource`、`@PostConstruct` 以及 `@PreDestroy`。
 
 **@Resource**

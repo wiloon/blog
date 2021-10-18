@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# visualbox share folder
 https://www.jianshu.com/p/21df1811133f
 
 1.Windows创建一个共享文件

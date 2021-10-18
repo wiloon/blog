@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# elasticsearch
 ```bash
 #查看索引
 GET /_cat/indices?pretty

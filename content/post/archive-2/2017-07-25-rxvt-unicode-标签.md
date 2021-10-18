@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# rxvt-unicode 标签
 http://0x3f.org/post/let-rxvt-unicode-support-tags-and-links/
 
 为rxvt-unicode开启标签和链接支持

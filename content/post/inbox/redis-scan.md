@@ -8,6 +8,7 @@ categories:
 tags:
   - redis
 ---
+# "redis scan"
 ### redis用scan代替keys
 众所周知，当redis中key数量越大，keys 命令执行越慢，而且最重要的会阻塞服务器，对单线程的redis来说，简直是灾难，且在生产环境，keys命令一般是被禁止的。scan可用来替换keys请求。
 

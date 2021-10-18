@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# 'Oracle 导入/导出  imp/exp 备份 恢复 dump'
 ```bash
 
 exp scott/123456@172.16.234.51/orcl file=d:export.dmp owner=(scott)

@@ -14,6 +14,7 @@ tags:
   - Shell
 
 ---
+# scp
 scp 可以在 2个 linux 主机间复制文件；
 
 ```bash

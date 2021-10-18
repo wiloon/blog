@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# android ListView
 本文来自http://blog.csdn.net/hellogv/
 
 ListView是一个经常用到的控件，ListView里面的每个子项Item可以使一个字符串，也可以是一个组合控件。先说说ListView的实现: 

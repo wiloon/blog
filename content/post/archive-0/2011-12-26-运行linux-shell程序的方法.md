@@ -10,6 +10,7 @@ tags:
   - Shell
 
 ---
+# 执行 Linux Shell 脚本
 ```bash
 
 ./xxx.sh

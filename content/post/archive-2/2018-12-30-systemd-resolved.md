@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# systemd-resolved
 ```bash
 # check systemd-resolved status
 resolvectl status

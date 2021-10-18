@@ -6,6 +6,7 @@ date: 2020-01-12T07:22:08+00:00
 url: /?p=15345
 
 ---
+# archlinux grub
 ### parted flag
 For parted set/activate the flag bios_grub on the partition.
 

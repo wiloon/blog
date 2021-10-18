@@ -8,6 +8,7 @@ categories:
   - network
 
 ---
+# 'dnsmasq config  配置'
 
 DNSmasq是一个小巧且方便地用于配置DNS和DHCP的工具,适用于小型网络。它提供了DNS功能和可选择的DHCP功能可以取代dhcpd(DHCPD服务配置)和bind等服务,配置起来更简单,更适用于虚拟化和大数据环境的部署。
 

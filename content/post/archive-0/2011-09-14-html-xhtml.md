@@ -12,6 +12,7 @@ tags:
   - HTML
 
 ---
+# HTML XHTML
 什么是XHTML？与HTML相比XHTML有什么特点？
   
 (网络营销教学网站 www.wm23.com 2005-02-28)

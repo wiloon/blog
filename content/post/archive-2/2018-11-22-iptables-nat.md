@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# iptables nat
 ```bash
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o eth0 -j MASQUERADE

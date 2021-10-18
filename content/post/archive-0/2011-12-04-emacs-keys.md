@@ -10,6 +10,7 @@ categories:
   - Emacs
 
 ---
+# emacs keys
 符号 C- 意思是按住 Ctrol 键
   
 M- 意指 Meta 键 (键盘上若无Meta 键，则可以ALT ESC 键来取而代之)

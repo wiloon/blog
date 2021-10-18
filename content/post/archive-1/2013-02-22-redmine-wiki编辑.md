@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Redmine wiki编辑
 http://redmine.ossxp.com/redmine/documents/8
 
 Redmine默认使用Textile作为wiki的文本格式过滤器, 当然你也可以下载其他文本格式过滤器插件(Markdown, reST等). 以下介绍的语法都是基于Textile的语法.

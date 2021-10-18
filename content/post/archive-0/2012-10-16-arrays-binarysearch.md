@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Arrays.binarySearch()
 
   Arrays.binarySearch();的用法。
 

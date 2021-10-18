@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# redis info
 
 instantaneous_input_kbps 每秒读字节数
 instantaneous_ops_per_sec 每秒处理指令数

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux cd Pushd
 http://os.51cto.com/art/200910/158752.htm
 
 

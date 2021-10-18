@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Global.asax
 在网上找了N多相关的东西总说的不够细,现在终于找到了.可以了解web.cofig和Global.asax之间的关系以及执行的顺序.
 
 在Global.asax.cs文件中

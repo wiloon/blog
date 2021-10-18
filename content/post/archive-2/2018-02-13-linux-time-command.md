@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux time command
 【命令】time — 执行命令并计时
 
 【格式】time [-p] command [arguments...]

@@ -7,6 +7,7 @@ categories:
   - IDE
 
 ---
+# vscode, code-server
 
 code server 是 coder 公司基于微软开源的 Visual Studio Code 开发的一款产品。
 code server 的目标是为开发者构建一个便捷统一的开发环境，让开发者能从任意设备、任意位置通过浏览器来进行代码的编写。从而免去了常规的 IDE 开发流程中的环境搭建的问题。

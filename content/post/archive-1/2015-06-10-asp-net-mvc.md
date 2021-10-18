@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# '配置文件  HOCON'
 HOCON（Human-Optimized Config Object Notation) 是一个易于使用的配置文件格式。
   
 是由typesafe（开发scala和play framework的公司) 主导的项目

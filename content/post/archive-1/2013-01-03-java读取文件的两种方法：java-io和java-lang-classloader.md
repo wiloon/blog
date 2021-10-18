@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# JAVA读取文件的两种方法 JAVA.IO和JAVA.LANG.CLASSLOADER
 http://www.blogjava.net/flysky19/articles/93280.html
 
 java读取文件的两种方法: java.io和java.lang.ClassLoader什么时候使用java.io,什么时候使用java.lang.ClassLoader呢？

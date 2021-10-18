@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Java Flight Recorder, jfr
 ```bash
   
 jcmd 40019 VM.check_commercial_features

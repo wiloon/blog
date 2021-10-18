@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# svn change passwd
 svn change password
   
 1. after svn password changed, delete the folder $HOME/.subversion

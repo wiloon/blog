@@ -11,6 +11,7 @@ categories:
   - Network
 
 ---
+# debian 6 wlan wpa/psk
 我的Debian 6 安装后在/etc/network/interfaces 里没有wlan0的配置项，默认是由"network connections"管理的。
 
 在/etc/network/interfaces 中增加wlan0配置

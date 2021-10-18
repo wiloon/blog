@@ -8,6 +8,7 @@ categories:
   - DataBase
 
 ---
+# DBMS_OUTPUT.put_line没有显示
 需要在SQL*PLUS环境中设定如下命令: 
   
 SQLPLUS> set serveroutput on

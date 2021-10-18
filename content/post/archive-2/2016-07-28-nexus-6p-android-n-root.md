@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# android root nexus 6p
 angler: Nexus 6P (codenamed Angler)
   
 provided you've already unlocked your bootloader,

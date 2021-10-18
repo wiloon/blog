@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# HeapByteBuffer, DirectByteBuffer
 https://www.zhihu.com/question/60892134/answer/182225677
   
 https://zhuanlan.zhihu.com/p/27625923

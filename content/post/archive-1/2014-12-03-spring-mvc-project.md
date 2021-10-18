@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Create spring mvc project
 gradle plugin:
 
 apply plugin: 'idea'

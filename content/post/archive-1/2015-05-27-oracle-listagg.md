@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# oracle listagg
 [sql]
 
 SELECT deptno,

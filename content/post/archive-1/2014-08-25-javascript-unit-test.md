@@ -10,6 +10,7 @@ tags:
   - JavaScript
 
 ---
+# javascript unit test
 http://blog.sina.com.cn/s/blog_6768f2290100ubw5.html
 
 最近由于工作和个人兴趣的关系，有幸研究了一下javascript的unit test，市面上常见且比较易用的javascript的unit test的framework有三个: jsunit, qunit和yuitest，虽然出处不同，但是本质上，使用方法都大同小异。

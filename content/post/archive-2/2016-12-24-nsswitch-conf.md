@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# nsswitch.conf
 http://lsscto.blog.51cto.com/779396/904078
 
 /etc/nsswitch.conf文件解释

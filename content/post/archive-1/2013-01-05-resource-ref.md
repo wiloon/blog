@@ -11,6 +11,7 @@ tags:
   - Servlet
 
 ---
+# resource-ref
 resource-ref元素用于指定对外部资源的servlet引用的声明。
 
 

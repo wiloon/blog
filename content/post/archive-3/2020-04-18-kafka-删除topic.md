@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# kafka 删除topic
 前言: 
   
 删除kafka topic及其数据，严格来说并不是很难的操作。但是，往往给kafka 使用者带来诸多问题。项目组之前接触过多个开发者，发现都会偶然出现无法彻底删除kafka的情况。本文总结多个删除kafka topic的应用场景，总结一套删除kafka topic的标准操作方法。

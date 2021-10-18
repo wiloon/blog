@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# sql server 临时表
 SQL Server 支持临时表。临时表就是那些名称以井号 (#) 开头的表。如果当用户断开连接时没有除去临时表，SQL Server 将自动除去临时表。临时表不存储在当前数据库内，而是存储在系统数据库 tempdb 内。
 
 临时表有两种类型: 

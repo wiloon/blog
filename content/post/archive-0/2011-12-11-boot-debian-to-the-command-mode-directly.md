@@ -12,6 +12,7 @@ categories:
   - Linux
 
 ---
+# boot debian to the command mode directly
 方法是把gdm从run level 2中删除。
   
 可以使用如下的命令: 

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Oracle Sequence cache
 http://blog.itpub.net/17203031/viewspace-717042/
 
 

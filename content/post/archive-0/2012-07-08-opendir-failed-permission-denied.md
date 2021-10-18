@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# opendir failed, Permission denied
 su -
 
 adb shell

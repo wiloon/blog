@@ -12,6 +12,7 @@ categories:
   - Linux
 
 ---
+# Debian/Ubuntu 系统 Update-rc.d
 https://wangyan.org/blog/ubuntu-update-rc-d.html
 
 Ubuntu或者Debian系统中update-rc.d命令，是用来更新系统启动项的脚本。这些脚本的链接位于/etc/rcN.d/目录，对应脚本位于/etc/init.d/目录。在了解update-rc.d命令之前，你需要知道的是有关Linux 系统主要启动步骤，以及Ubuntu中运行级别的知识。

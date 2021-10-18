@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'test for a specific port from Linux,  shell>telnet  >netcat > Socat'
 ## socat
 
 ```bash

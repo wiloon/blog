@@ -7,6 +7,7 @@ categories:
 - Uncategorized
 
 ---
+# MySQL 实现 row_number() over(partition by) 分组排序功能
 
 ### mysql 8
 MySQL ROW_NUMBER()从8.0版开始引入了功能。这ROW_NUMBER()是一个窗口函数或分析函数，它为从1开始应用的每一行分配一个序号。

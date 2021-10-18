@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# java BC/Bouncy Castle
 
 我们知道，Java标准库提供了一系列常用的哈希算法。
 

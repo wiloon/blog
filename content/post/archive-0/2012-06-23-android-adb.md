@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# android adb
 http://blog.sina.com.cn/s/blog_51335a000101j59n.html
 
 启动adb服务, 该服务用来为模拟器或通过USB数据线连接的真机服务, 需要以root权限启动, 否则adb devices会提示no permissions.

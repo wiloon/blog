@@ -10,6 +10,7 @@ tags:
   - linux
 
 ---
+# linux audio, 音量,静音
 ```bash
 # archlinux+kde 不需要手动修改默认静音设置,安装alsa-utils, plasma-pa后重启即可。
 sudo pacman -S alsa-utils

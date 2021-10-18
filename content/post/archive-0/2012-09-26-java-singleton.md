@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Java Singleton
 public class ConnEnv {
 
 /*\* The instance. */

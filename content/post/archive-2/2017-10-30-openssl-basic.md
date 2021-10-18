@@ -7,6 +7,7 @@ categories:
   - Uncategorized
 
 ---
+# openssl basic
 # OpenSSL
 ### get cert
     openssl s_client -connect  site.com:636 </dev/null 2>/dev/null  | openssl x509 -outform PEM > site.pem

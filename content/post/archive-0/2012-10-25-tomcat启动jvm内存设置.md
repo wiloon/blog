@@ -9,6 +9,7 @@ categories:
   - Web
 
 ---
+# tomcat启动jvm内存设置
 配置tomcat调用的虚拟机内存大小
 
 （1) 直接设置tomcat

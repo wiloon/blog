@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Retained Heap
 http://supercharles888.blog.51cto.com/609344/1347144
 
 为了开始研究,我们希望在memory 溢出时候能自动生成heap dump文件,为此,我们在运行时候添加JVM 参数: -XX:+HeapDumpOnOutOfMemoryError

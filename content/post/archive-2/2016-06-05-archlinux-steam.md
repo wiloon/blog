@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# archlinux steam
 sudo pacman -S steam
 sudo pacman -S  ttf-liberation
 sudo pacman -S  wqy-zenhei

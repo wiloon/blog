@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# pixel2 root, android root
 
   
     Root Android Q on Google Pixel 2, Google Pixel

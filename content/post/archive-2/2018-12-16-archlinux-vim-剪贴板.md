@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# archlinux vim 剪贴板
 ```bash
 sudo pacman -S gvim
 

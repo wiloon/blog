@@ -7,6 +7,7 @@ categories:
   - Linux
 
 ---
+# linux find
 ### 按时间查
 -ctime -n 查找距现在 n_24H 内修改过的文件
   

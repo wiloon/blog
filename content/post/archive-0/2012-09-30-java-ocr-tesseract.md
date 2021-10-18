@@ -8,4 +8,5 @@ categories:
   - Java
 
 ---
+# java ocr tesseract
 <http://ykf.iteye.com/blog/212431>

@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Apache Shiro
 Apache Shiro（发音为"shee-roh",日语"堡垒（Castle) "的意思) 是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理功能,可为任何应用提供安全保障 - 从命令行应用、移动应用到大型网络及企业应用。
 
 Shiro为解决下列问题（我喜欢称它们为应用安全的四要素) 提供了保护应用的API: 

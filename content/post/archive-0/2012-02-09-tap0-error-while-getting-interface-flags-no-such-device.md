@@ -9,6 +9,7 @@ categories:
   - Network
 
 ---
+# 'tap0, ERROR while getting interface flags'
 tap0: ERROR while getting interface flags: No such device
 
 install uml-utilities and restart the system

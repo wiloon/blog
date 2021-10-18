@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux shell 查找文件位置，which, command -v, hash, type
 ```bash
 command -v foo
 ```

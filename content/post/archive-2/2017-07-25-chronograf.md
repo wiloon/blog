@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Chronograf
 wget https://dl.influxdata.com/chronograf/releases/chronograf-1.3.4.0.x86_64.rpm
   
 sudo yum localinstall chronograf-1.3.4.0.x86_64.rpm

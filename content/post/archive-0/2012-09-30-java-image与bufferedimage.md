@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Java Image与BufferedImage
 
 
 

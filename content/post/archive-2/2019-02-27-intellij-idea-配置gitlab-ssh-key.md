@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# intellij idea 配置gitlab ssh key
 https://blog.csdn.net/u010348570/article/details/81204371
 
 1 安装git,登录官网https://www.git-scm.com/download/ ,选择相应系统版本,下载后安装好。

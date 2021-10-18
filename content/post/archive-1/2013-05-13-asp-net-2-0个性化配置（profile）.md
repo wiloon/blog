@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# Java 取当前类名, 方法名
 http://blog.csdn.net/a578559967/article/details/7688971
 
 ```java

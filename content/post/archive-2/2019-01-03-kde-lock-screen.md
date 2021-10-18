@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# kde lock screen
 ### shortcut
 
   1. Go to "System Settings" (KDE menu).

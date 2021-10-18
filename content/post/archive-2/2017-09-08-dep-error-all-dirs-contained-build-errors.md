@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# dep error all dirs contained build errors
 add package xxx before import in xxx.go
   
 the rerun dep ensure

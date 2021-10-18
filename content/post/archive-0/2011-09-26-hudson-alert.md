@@ -12,6 +12,7 @@ tags:
   - Tomcat
 
 ---
+# hudson i18n alert
 Your container doesn't use UTF-8 to decode URLs. If you use non-ASCII characters as a job name etc, this will cause problems. See Containers and Tomcat i18n for more details.
 
 Some versions of Tomcat (such as 5.0.28) uses iso-8859-1 to decode URLs, which is in a clear violation of the relevant RFCs. To fix this problem, add the following URIEncoding attribute to the connector definition in $TOMCAT_HOME/conf/server.xml.

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# PAM(Pluggable Authentication Modules)
 auth: 表示鉴别类接口模块类型用于检查用户和密码,并分配权限；
   
 account: 表示账户类接口,主要负责账户合法性检查,确认帐号是否过期,是否有权限登录系统等；

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'java.lang.OutOfMemoryError,unable to create new native thread'
 http://www.blogjava.net/ldd600/archive/2009/09/25/296397.html
 
 星期一早上到了公司,据称产品环境抛出了最可爱的异常—OutOfMemory, 它是这样来描述他自己的: 

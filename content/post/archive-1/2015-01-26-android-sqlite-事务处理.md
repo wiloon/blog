@@ -10,6 +10,7 @@ tags:
   - Sqlite
 
 ---
+# Android SQLite 事务处理
 http://www.cnblogs.com/brainy/archive/2012/08/29/2662295.html
 
 【转】Android SQLite 事务处理

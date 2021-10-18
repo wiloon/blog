@@ -9,6 +9,7 @@ categories:
   - Java
 
 ---
+# pacakge-info.java
 http://strong-life-126-com.iteye.com/blog/806246
   
 翻看以前的笔记，看到一个特殊的java文件: pacakge-info.java，虽然有记录，但是不全，就尝试着追踪一下该问题， 分享一下流水账式的结果。

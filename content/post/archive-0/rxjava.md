@@ -8,6 +8,7 @@ categories:
   - java
 
 ---
+# RxJava
 ### Reactive Extension (RX)
 RX在Future和Promise的基础上更进了一步，将单一的事件处理扩展到多个先后相关的事件流处理。举个例子，鼠标拖拽事件，是由一个MouseDown事件加多个MouseMove事件以及一个MouseUp事件构成，Promise处理这种情况需要处理器具有状态记住拖拽的阶段。RX将MouseDown和MouseUp这些事件的处理标准化，并且将拖拽阶段的这一共享状态从业务处理器中抽离，而固化到事件处理流程中。RX抽象了大量的事件操作，使得我们可以将重心放到事件流程建模中，而不是具体的一个接一个事件的处理。共享状态从处理器中抽离也有利于业务处理器的重用以及并发处理。
 

@@ -12,6 +12,7 @@ tags:
   - Git
 
 ---
+# gitolite path
 /var/lib/gitolite
   
 /var/gitolite

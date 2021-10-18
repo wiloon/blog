@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# golang select
 select 语句的行为
   
 为了便于理解,我们首先给出一个代码片段: 

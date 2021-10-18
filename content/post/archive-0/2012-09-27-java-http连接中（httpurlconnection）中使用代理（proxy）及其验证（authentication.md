@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# Java Http连接中（HttpURLConnection) 中使用代理（Proxy) 及其验证（Authentication)
 ```java
 
 System.setProperty("http.proxyHost", "www.proxy.com");

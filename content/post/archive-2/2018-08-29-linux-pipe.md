@@ -7,6 +7,7 @@ categories:
   - OS
 
 ---
+# Linux 进程间通信, 管道(pipe)、命名管道(FIFO), 信号(Signal)
 
 Unix IPC(进程间通信（IPC,Inter-Process Communication) )包括: 管道(pipe)、命名管道(FIFO)与信号(Signal)  
 

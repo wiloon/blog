@@ -6,6 +6,7 @@ date: 2011-08-04T02:41:54+00:00
 url: /?p=395
 
 ---
+# svn basic, command
 ### ignore ca
     --trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other"
     svn checkout https://your.repository.url/ --non-interactive --trust-server-cert-failures="unknown-ca,cn-mismatch,expired,not-yet-valid,other" --username=blah --password=blah

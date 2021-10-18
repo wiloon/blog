@@ -7,6 +7,7 @@ categories:
   - Java
 
 ---
+# Hystrix
 # Hystrix [hɪst'rɪks]
 Hystrix是Netflix开源的一款**容错框架**，包含常用的容错方法：
 - 线程池隔离、

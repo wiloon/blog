@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# go mod replace
 不过因为某些未知原因,并不是所有的包都能直接用go get获取到,这时我们就需要使用go modules的replace功能了。（当然大部分问题挂个梯子就能解决,但是我们也可以有其它选项) 
   
 使用replace替换package

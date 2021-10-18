@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# IDENTITY COLUMN
 一、标识列的定义以及特点
 
 SQL Server中的标识列又称标识符列,习惯上又叫自增列。

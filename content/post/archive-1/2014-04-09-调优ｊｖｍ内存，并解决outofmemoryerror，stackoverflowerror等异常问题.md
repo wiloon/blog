@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# OutOfMemoryError, StackOverflowError
 这是IGT笔试的题目，分别写出可以造成两种错误的代码。由于之前测试过HashMap的容量的时候出现过内存不足的错误，所以能写出来，但StackOverflowError没什么印象了。
 
 回来查了下StackOverflowError的资料，在德问社区上有人发帖子java产生StackOverflowError的原因是什么?询问: 

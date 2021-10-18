@@ -8,6 +8,7 @@ categories:
   - English
 
 ---
+# at a time, at one time
 take time 意为"花费时间"，
   
 take one's time 意为"慢慢来，别着急"，相当于 "don't hurry"。

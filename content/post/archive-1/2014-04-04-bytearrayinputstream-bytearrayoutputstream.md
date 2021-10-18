@@ -10,6 +10,7 @@ tags:
   - Java
 
 ---
+# ByteArrayInputStream ByteArrayOutputStream
 http://blog.csdn.net/rcoder/article/details/6118313
 
 bytejdkclassstream存储socket

@@ -8,6 +8,7 @@ categories:
   - VCS
 
 ---
+# Mercurial
 Mercurial 是一种轻量级分布式版本控制系统，采用 Python 语言实现，易于学习和使用，扩展性强。相对于传统的版本控制，具有如下优点: 
 
 更轻松的管理。

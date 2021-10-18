@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'pacstrap,command not found'
 http://archlinuxarm.org/forum/viewtopic.php?f=60&t=8529
 
 ```bash

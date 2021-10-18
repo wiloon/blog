@@ -8,6 +8,7 @@ categories:
   - Linux
 
 ---
+# debian ruby install
 ruby
   
 ```bash

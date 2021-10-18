@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# MySQL INNODB
 http://wulijun.github.io/2012/09/29/MySQL-innodb-intro.html
   
 InnoDB是MySQL下使用最广泛的引擎,它是基于MySQL的高可扩展性和高性能存储引擎,从5.5版本开始,它已经成为了默认引擎。 InnODB引擎支持众多特性: 

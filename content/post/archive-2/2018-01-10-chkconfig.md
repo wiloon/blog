@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# chkconfig
 ```bash
 chkconfig --list
 

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# 'external file changes sync may be slow the current inotify  watch limit is too low'
 http://ggarcia.me/2016/07/12/intellij-inotify-arch.html
 
 To fix the warning about **fs.inotify.max_user_watches** the IntelliJ shows, it is necessary to set a value for the **fs.inotify.max_user_watches** and then apply the change.

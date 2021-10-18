@@ -14,6 +14,7 @@ tags:
   - RedHat
 
 ---
+# linux 运行级, runlevel
 作为默认，REDHAT Linux 9.0在启动时会自动启动X-Window进入图形化操作界面。而许多Linux铁杆玩家已经习惯了在Console字符界面工作，或是有些玩家嫌X-Window启动太慢，喜欢直观快速的Console操作。
 
 1.进入字符界面

@@ -8,6 +8,7 @@ categories:
   - Uncategorized
 
 ---
+# linux shell ctrl – s
 ctrl+c 结束正在运行的程序【ping、telnet等】
   
 ctrl+d 结束输入或退出shell

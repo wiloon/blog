@@ -8,6 +8,7 @@ categories:
   - Java
 
 ---
+# JSP 动态INCLUDE 静态INCLUDE
 动态INCLUDE
   
 用jsp:include动作实现 <jsp:include page="included.jsp" flush="true" />它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数。

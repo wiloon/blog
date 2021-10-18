@@ -10,6 +10,7 @@ tags:
   - Scrum
 
 ---
+# 迭代回顾, Sprint Retrospective
 Scrum - Sprint Retrospective
 
 在Scrum中,每个Sprint结束的时候会有两个会议（Sprint Review/Demo和Sprint Retrospective回顾) 。
