@@ -396,3 +396,9 @@ C-x r r copy-rectangle-to-register
 选中去区域后 C-x r r 将选中区域复制到寄存器， 在输入这组键后命令栏会等待你输入寄存器号，这时随便输入一个数字即可，不过的记得它，因为待会儿粘贴的时候还得用到这个寄存器号。 我刚开始就是被这个寄存器号搞得头晕，半天没弄明白是什么意思，现在理解这不过是对操作的区域做一个编号，待会在操作时比如复制时可以根据这个号码选择之前操作的区域。
   
 C-x r i 插入寄存器的内容，输入此键后再输入寄存器号可将寄存器中的内容插入到当前区域。
+
+
+### eclipse JDT icons
+ 
+>http://publib.boulder.ibm.com/infocenter/rtnlhelp/v6r0m0/index.jsp?topic=/org.eclipse.jdt.doc.user/reference/ref-156.htm
+
