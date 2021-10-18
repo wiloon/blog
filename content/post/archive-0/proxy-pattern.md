@@ -6,7 +6,7 @@ url: proxy
 categories:
   - Web
 ---
-
+# 代理模式, proxy pattern
 为其他对象提供一种代理以控制对这个对象的访问。
 
 代理模式，即Proxy，它和Adapter模式很类似。我们先回顾Adapter模式，它用于把A接口转换为B接口：

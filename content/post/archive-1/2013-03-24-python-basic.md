@@ -6,6 +6,16 @@ date: 2013-03-24T02:25:43+00:00
 url: /?p=5343
 
 ---
+# python
+### ubuntu
+sudo apt install python3
+sudo apt install -y python3-venv
+mkdir python3-env
+cd python3-env
+python3 -m venv my_env
+source my_env/bin/activate
+
+>https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh
 ### debian
 Download latest release of Python
 

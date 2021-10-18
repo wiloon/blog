@@ -75,7 +75,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | lrzsz                 | zmodem                                                                                  |
 | remmina               | GTK 编写的远程桌面客户端                                                                |
 | freerdp               | remmina 的RDP 支持包                                                                     |
-
+| pycharm               |                                                                      |
 ### pacman, development
 
 | name                            | comments          |
