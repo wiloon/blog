@@ -1,5 +1,5 @@
 ---
-title: 观察者模式(Observer)
+title: 观察者模式, Observer pattern
 author: "-"
 date: 2011-11-20T12:42:03+00:00
 url: observer
@@ -9,17 +9,76 @@ tags:
   - DesignPattern
 
 ---
-# 观察者模式(Observer)
-观察者模式（有时又被称为发布-订阅模式、模型-视图模式、源-收听者模式或从属者模式) 是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实作事件处理系统。
+# 观察者模式, Observer pattern
+定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
 
-观察者模式（Observer) 完美的将观察者和被观察的对象分离开。举个例子，用户界面可以作为一个观察者，业务数据是被观察者，用户界面观察业务数据的变化，发现数据变化后，就显示在界面上。面向对象设计的一个原则是: 系统中的每个类将重点放在某一个功能上，而不是其他方面。一个对象只做一件事情。观察者模式在模块之间划定了清晰的界限，提高了应用程序的可维护性和重用性。
+观察者模式（Observer）又称发布-订阅模式（Publish-Subscribe：Pub/Sub）。它是一种通知机制，让发送通知的一方（被观察方）和接收通知的一方（观察者）能彼此分离，互不影响。
+
+观察者模式（有时又被称为发布-订阅模式、模型-视图模式、源-收听者模式或从属者模式) 是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过调用各观察者所提供的方法来实现。此种模式通常被用来实作事件处理系统。
+
+此模式完美的将观察者和被观察的对象分离开。举个例子，用户界面可以作为一个观察者，业务数据是被观察者，用户界面观察业务数据的变化，发现数据变化后，就显示在界面上。面向对象设计的一个原则是: 系统中的每个类将重点放在某一个功能上，而不是其他方面。一个对象只做一件事情。观察者模式在模块之间划定了清晰的界限，提高了应用程序的可维护性和重用性。
   
 观察者模式有很多实现方式，从根本上说，该模式必须包含两个角色: 观察者和被观察对象。在刚才的例子中，业务数据是被观察对象，用户界面是观察者。观察者和被观察者之间存在"观察"的逻辑关联，当被观察者发生改变的时候，观察者就会观察到这样的变化，并且做出相应的响应。如果在用户界面、业务数据之间使用这样的观察过程，可以确保界面和数据之间划清界限，假定应用程序的需求发生变化，需要修改界面的表现，只需要重新构建一个用户界面，业务数据不需要发生变化。
   
 实现观察者模式的时候要注意，观察者和被观察对象之间的互动关系不能体现成类之间的直接调用，否则就将使观察者和被观察对象之间紧密的耦合起来，从根本上违反面向对象的设计的原则。无论是观察者"观察"观察对象，还是被观察者将自己的改变"通知"观察者，都不应该直接调用。
   
 实现观察者模式有很多形式，比较直观的一种是使用一种"注册——通知——撤销注册"的形式。
-  
+```puml
+@startuml
+class Publisher
+interface Subscriber
+Publisher o-right- Subscriber
+class ConcreateSubscriber
+Subscriber <|-- ConcreateSubscriber
+class Client
+ConcreateSubscriber <.. Client
+Publisher<--Client
+@enduml
+```
+
+```puml
+@startuml
+class Demo
+class Editor
+note right: 发布者\nPublisher\n被观察对象\nSubject
+Editor<-- Demo
+
+interface EventListener
+note left: 订阅者\nSubscriber\n观察者\nObserver
+
+class EmailNotificationListener
+note left: 具体订阅者
+EventListener<|-- EmailNotificationListener
+EmailNotificationListener<.. Demo
+
+class EventManager
+EventManager --o Editor
+EventListener -right-o EventManager
+class LogOpenListener
+EventListener<|-- LogOpenListener
+LogOpenListener<.. Demo
+@enduml
+```
+### 发布者, Publisher, 被观察对象, Subject
+发布者 （Publisher） 会向其他对象发送值得关注的事件。 事件会在发布者自身状态改变或执行特定行为后发生。 发布者中包含一个允许新订阅者加入和当前订阅者离开列表的订阅构架。
+
+当新事件发生时， 发送者会遍历订阅列表并调用每个订阅者对象的通知方法。 该方法是在订阅者接口中声明的。
+
+### 订阅者, Subscriber, 观察者, Observer
+订阅者 （Subscriber） 接口声明了通知接口。 在绝大多数情况下， 该接口仅包含一个 update更新方法。 该方法可以拥有多个参数， 使发布者能在更新时传递事件的详细信息。
+
+（Observer) 将自己注册到被观察对象（Subject) 中，被观察对象将观察者存放在一个容器（Container) 里。
+
+### 具体订阅者 （Concrete Subscribers）
+具体订阅者 （Concrete Subscribers） 可以执行一些操作来回应发布者的通知。 所有具体订阅者类都实现了同样的接口， 因此发布者不需要与具体类相耦合。
+
+订阅者通常需要一些上下文信息来正确地处理更新。 因此， 发布者通常会将一些上下文数据作为通知方法的参数进行传递。 发布者也可将自身作为参数进行传递， 使订阅者直接获取所需的数据。
+
+客户端 （Client） 会分别创建发布者和订阅者对象， 然后为订阅者注册发布者更新。
+
+
+---
+
 1、观察者
   
 （Observer) 将自己注册到被观察对象（Subject) 中，被观察对象将观察者存放在一个容器（Container) 里。
@@ -48,9 +107,21 @@ tags:
 
 A.自定义观察者模式
 
-例如: 
-  
-1.抽象主题角色类
+```puml
+@startuml
+interface AbstractWatched
+class ConcreteWatched
+
+interface AbstractWatcher
+class ConcreteWatcher
+class Client
+
+class Watched
+
+@enduml
+
+```  
+### 抽象主题角色类
 
 ```java
 public interface AbstractWatched {
