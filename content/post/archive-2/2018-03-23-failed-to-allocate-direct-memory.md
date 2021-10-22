@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# failed to allocate direct memory
+## failed to allocate direct memory
 failed to allocate 1024 byte(s) of direct memory (used: xxx, max: xxx)
 
 https://netty.io/news/2016/06/07/4-0-37-Final.html

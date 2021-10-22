@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# How to get the design view of ASP.NET in Visual Studio 2010
+## How to get the design view of ASP.NET in Visual Studio 2010
 http://forums.asp.net/t/1565784.aspx/1
 
 Go to Tools -> Options -> General and ensure that Enable HTML Designer is checked.

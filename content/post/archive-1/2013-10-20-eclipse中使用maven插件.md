@@ -10,7 +10,7 @@ tags:
   - Maven
 
 ---
-# Eclipse中使用Maven插件
+## Eclipse中使用Maven插件
 安装Maven
 
 下载Maven最新版本,见: http://maven.apache.org/download.html

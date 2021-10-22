@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# hyphen、en dash 和 em dash
+## hyphen、en dash 和 em dash
 https://cherysunzhang.com/2016/08/using-hyphen-and-dash-correctly/
   
 在 Unicode 中 hyphen-minus 与 hyphen 和 minus 都是不同的符号，但是在 ASCII 中则是用 hyphen-minus 来同时替代 hyphen 和 minus，所以这就是其名称的来源。

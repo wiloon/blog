@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# class.getName
+## class.getName
 <http://bbs.csdn.net/topics/70162498>
 
 java.lang.Object

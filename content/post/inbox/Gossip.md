@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "Gossip"
+## "Gossip"
 Gossip是什么
 Gossip协议是一个通信协议，一种传播消息的方式，灵感来自于: 瘟疫、社交网络等。使用Gossip协议的有: Redis Cluster、Consul、Apache Cassandra等。
 

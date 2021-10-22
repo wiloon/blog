@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# GetROProperty
+## GetROProperty
 
 GetToProperty:Returns the value of the specified property from the test object description.
 

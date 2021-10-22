@@ -10,7 +10,7 @@ tags:
   - linux
 
 ---
-# debian command
+## debian command
 ```bash
 # list installed package
 dpkg --list

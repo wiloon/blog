@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# gradle application plugin 打可执行jar, gradle executable/runnable jar
+## gradle application plugin 打可执行jar, gradle executable/runnable jar
 https://docs.gradle.org/current/userguide/application_plugin.html
 
 edit build.gradle

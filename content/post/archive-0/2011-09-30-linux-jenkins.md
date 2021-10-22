@@ -14,7 +14,7 @@ tags:
   - Jenkins
 
 ---
-# Jenkins setup
+## Jenkins setup
   * download jenkins.war; <http://mirrors.jenkins-ci.org/war/1.432/>
   * deploy the war to jboss(version:4.0.5.GA) or tomcat
   * start jboss

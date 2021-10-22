@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# '输出重定向 Linux Shell 1>/dev/null 2>&1'
+## '输出重定向 Linux Shell 1>/dev/null 2>&1'
 https://blog.csdn.net/sunboy_2050/article/details/9288353
   
 shell中可能经常能看到: 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'Android  onMeasure'
+## 'Android  onMeasure'
 Android中View的绘制过程
   
 当Activity获得焦点时，它将被要求绘制自己的布局，Android framework将会处理绘制过程，Activity只需提供它的布局的根节点。

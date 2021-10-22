@@ -10,5 +10,5 @@ tags:
   - CSS
 
 ---
-# Pure CSS Scrollable Table with Fixed Header
+## Pure CSS Scrollable Table with Fixed Header
 http://www.imaputz.com/cssStuff/bigFourVersion.html

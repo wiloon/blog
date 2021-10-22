@@ -7,7 +7,7 @@ tags:
   - UML
 
 ---
-# UML 类图和关系
+## UML 类图和关系
 在UML的定义中，描述类和对象之间的关系，包括以下几种方式：依赖（Dependency）、关联（Association）、聚合（Aggregation）、组合（Composition）、泛化（Generalization）和实现（Realization）。现分别说明如下：
 
 定义

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# appassembler-maven-plugin
+## appassembler-maven-plugin
 ### Goals Overview
 
   * [appassembler:assemble][1] Assembles the artifacts and generates bin scripts for the configured applications.

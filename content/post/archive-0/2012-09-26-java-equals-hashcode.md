@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Java Equals , hashCode
+## Java Equals , hashCode
 hashcode方法返回该对象的哈希码值。支持该方法是为哈希表提供一些优点，例如，java.util.Hashtable 提供的哈希表。
 
 hashCode 的常规协定是: 

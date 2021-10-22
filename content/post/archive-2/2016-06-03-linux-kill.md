@@ -8,4 +8,4 @@ categories:
   - Uncategorized
 
 ---
-# linux kill,pkill
+## linux kill,pkill

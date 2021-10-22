@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Android hybrid
+## Android hybrid
 http://lin-xi.diandian.com/post/2013-12-08/40060383406
 
 http://blog.csdn.net/offbye/article/details/32321791

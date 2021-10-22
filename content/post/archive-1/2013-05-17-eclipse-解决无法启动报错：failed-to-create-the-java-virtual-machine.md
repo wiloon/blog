@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# eclipse.ini
+## eclipse.ini
 <http://www.cnblogs.com/yan5lang/archive/2011/05/24/2055867.html>
 
 Eclipse的启动由$ECLIPSE_HOME/eclipse.ini控制，如果$ECLIPSE_HOME 没有被定义，则Eclipse安装目录下的默认eclipse.ini会生效。

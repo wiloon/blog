@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# JAVA String, StringBuffer, StringBuilder
+## JAVA String, StringBuffer, StringBuilder
 在java中与字符串操作相关的类
 
 Character 是进行单个字符操作的，

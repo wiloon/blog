@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# HashMap,Hashtable
+## HashMap,Hashtable
 
   HashTable的应用非常广泛，HashMap是新框架中用来代替HashTable的类，也就是说建议使用HashMap，不要使用HashTable。可能你觉得HashTable很好用，为什么不用呢？这里简单分析他们的区别。
 

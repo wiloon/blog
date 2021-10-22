@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# 一致性哈希算法与Java实现
+## 一致性哈希算法与Java实现
 # 一致性哈希算法, consistent hashing
 
   1. 概述

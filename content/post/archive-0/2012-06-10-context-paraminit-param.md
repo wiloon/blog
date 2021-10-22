@@ -11,7 +11,7 @@ tags:
   - Servlet
 
 ---
-# 'context-param&init-param'
+## 'context-param&init-param'
 <context-param>的作用:
   
 web.xml的配置中<context-param>配置作用

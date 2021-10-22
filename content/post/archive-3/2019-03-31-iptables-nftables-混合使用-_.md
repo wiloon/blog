@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# iptables nftables 混合使用 -_-
+## iptables nftables 混合使用 -_-
 iptables 和 nftables 可以混合 使用，规则要小心配置。
   
 archlinux nftables 默认规则 禁止转发 （forward) 

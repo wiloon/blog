@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# 'Java Hex To Byte & CRCChecker'
+## 'Java Hex To Byte & CRCChecker'
 ```java
 
 public final String byte2Hex(final byte[] btSrc) throws Exception {

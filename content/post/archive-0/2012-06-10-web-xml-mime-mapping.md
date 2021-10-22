@@ -11,7 +11,7 @@ tags:
   - Servlet
 
 ---
-# web.xml – mime-mapping
+## web.xml – mime-mapping
 关联文件与MIME类型
 
 服务器一般都具有一种让Web站点管理员将文件扩展名与媒体相关联的方法。例如，将会自动给予名为mom.jpg的文件一个image/jpeg的MIME 类型。但是，假如你的Web应用具有几个不寻常的文件，你希望保证它们在发送到客户机时分配为某种MIME类型。mime-mapping元素（具有 extension和mime-type子元素) 可提供这种保证。例如，下面的代码指示服务器将application/x-fubar的MIME类型分配给所有以.foo结尾的文件。

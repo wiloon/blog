@@ -7,7 +7,7 @@ categories:
 - Uncategorized
 
 ---
-# XSS, Cross Site Scripting, CSRF, Cross-site request forgery
+## XSS, Cross Site Scripting, CSRF, Cross-site request forgery
 跨站脚本攻击(Cross Site Scripting),缩写为XSS。恶意攻击者往Web页面里插入恶意javaScript代码,当用户浏览该页之时,嵌入其中Web里面的javaScript代码会被执行,从而达到恶意攻击用户的目的。
 
 ### XSS攻击的分类

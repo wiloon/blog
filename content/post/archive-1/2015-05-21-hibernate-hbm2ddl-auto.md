@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# hibernate.hbm2ddl.auto
+## hibernate.hbm2ddl.auto
 hibernate.cfg.xml 中hibernate.hbm2ddl.auto配置节点如下: 
   
 <properties>

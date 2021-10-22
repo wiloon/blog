@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# thread join
+## thread join
 thread join 之后,主线程的状态是waiting
 
 一、在研究join的用法之前,先明确两件事情。

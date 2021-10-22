@@ -10,7 +10,7 @@ tags:
   - Windows
 
 ---
-# Enable Or Disable Hibernate Option In Windows 7
+## Enable Or Disable Hibernate Option In Windows 7
 http://www.intowindows.com/how-to-enable-hibernate-option-in-windows-7/
 
 In Windows XP enabling Hibernate option was a very easy task. One could navigate to Control Panel, Power Options and then Hibernate tab to enable or disable Hibernation feature. But in Windows 7, we have to follow a different approach to do the same job.

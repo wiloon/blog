@@ -10,7 +10,7 @@ tags:
   - Git
 
 ---
-# git clone branch
+## git clone branch
 <http://wangliping.net/git-clone-spec-branch>
 
 有时git clone下来会出现很多branch，更麻烦的是如果主分支没代码那你就只能看到.git目录了。如下面的这个:

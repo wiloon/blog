@@ -6,7 +6,7 @@ date: 2016-10-14T00:09:01+00:00
 url: /?p=9293
 
 ---
-# golang fmt/print
+## golang fmt/print
 ```golang
 fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
 ```

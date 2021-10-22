@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# Java Spring LDAP
+## Java Spring LDAP
 ```java
   
 import java.util.HashMap;

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# guava-retrying
+## guava-retrying
 http://blog.csdn.net/aitangyong/article/details/53840719
   
 https://github.com/rholder/guava-retrying

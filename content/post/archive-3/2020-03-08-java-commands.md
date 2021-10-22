@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# java commands
+## java commands
 java -cp
   
 -class-path classpath, -classpath classpath, or -cp classpath

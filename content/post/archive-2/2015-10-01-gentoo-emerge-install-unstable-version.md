@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# gentoo emerge install unstable version
+## gentoo emerge install unstable version
 **安装特定版本的软件**
 
 # emerge "=python-3.2"

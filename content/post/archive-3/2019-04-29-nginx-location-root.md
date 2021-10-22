@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# nginx location, root
+## nginx location, root
 https://blog.csdn.net/u011510825/article/details/50531864
 
 最近公司开发新项目，web server使用nginx，趁周末小小的研究了一下，一不小心踩了个坑吧，一直404 not found!!!!!当时卡在location和root中，但是网上却比较少聊这方面的关系，一般都是聊location匹配命令（这里可以看看http://www.nginx.cn/115.html) ，花了一下午，彻底搞清楚了location和root到底怎样找到文件的。

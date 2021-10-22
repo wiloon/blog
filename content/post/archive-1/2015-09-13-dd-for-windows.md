@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-# dd for windows
+## dd for windows
 dd if=install-amd64-minimal-20150910.iso of=\\.\j: bs=4M

@@ -6,7 +6,7 @@ date: 2018-02-22T07:21:37+00:00
 url: /?p=11902
 
 ---
-# 证书, x509, keystore, truststore, pem,
+## 证书, x509, keystore, truststore, pem,
 ### 证书和编码
 X.509证书,其核心是根据RFC 5280编码或数字签名的数字文档。
 

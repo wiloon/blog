@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ASCII、Unicode,UTF-8编码的区别
+## ASCII、Unicode,UTF-8编码的区别
 ### Unicode
 unicode是国际组织制定的可以容纳世界上所有文字和符号的字符编码方案。Unicode用数字0-0x10FFFF来映射这些字符,最多可以容纳1114112个字符,或者说有1114112个码位。码位就是可以分配给字符的数字。UTF-8、UTF-16、UTF-32都是将数字转换到程序数据的编码方案。
 ### UCS

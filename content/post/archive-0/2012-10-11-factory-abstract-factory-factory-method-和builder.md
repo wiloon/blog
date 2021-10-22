@@ -10,7 +10,7 @@ tags:
   - DesignPattern
 
 ---
-# Factory, Abstract Factory, Factory Method, 和Builder
+## Factory, Abstract Factory, Factory Method, 和Builder
 选这4个模式在一起讨论首先是因为它们的功能比较类似，都是用来制造对象实例的，从归类来说，他们都属于制造类模式(creational patterns)，其次她们们在工作中比较常用，由于功能太过相似，往往导致在某个实际问题上让人举棋不定，似乎选哪个都可以解决问题，可是真的选择某个模式后，又会发现不是完全合适。今天我们就来讨论讨论在什么情况下选择什么模式来解决问题比较合适。
 
 考虑到不是所有的朋友都对以上提到的4种模式都了如指掌，在开始讨论之前先简单的介绍一下这4个模式，对这4种模式熟悉的朋友也可以顺便回顾一下。请注意，这里我只会做简短的介绍，如果要比较深入地了解她们的话，还请去看模式相关的书籍，比较浅显易懂的我推荐 "Head First Design Patterns"。如果要在工作中反复参考的我推荐 "Applied Java Patterns"。那本经典的GOF Design Patterns由于写的时间比较早，举的例子不太适合现在的软件开发，我个人认为初学者或者是没有太多时间的朋友没有必要去读那本书，尽管她的确是经典。

@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# MySQL 里的IFNULL、NULLIF和ISNULL用法
+## MySQL 里的IFNULL、NULLIF和ISNULL用法
 今天用到了MySQL里的isnull才发现他和MSSQL里的还是有点区别,现在简单总结一下: 
 
 **MySQL中isnull,ifnull,nullif的用法如下: **

@@ -10,7 +10,7 @@ categories:
   - Java
 
 ---
-# java 代理
+## java 代理
 http://blog.csdn.net/dyh8818/article/details/314668
 
 ### 代理模式

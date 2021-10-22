@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-# jquery validation
+## jquery validation
 **jQuery验证框架** **六、框架内建的验证方法( List of built-in Validation methods )** **[1]  required( ) **      返回: Boolean 说明: 让表单元素必须填写（选择) 。 如果表单元素为空(text input)或未选择(radio/checkbox)或选择了一个空值(select)。 作用于text inputs, selects, checkboxes and radio buttons. 当select提供了一个空值选项<option value="">Choose...</option>则强迫用户去选择一个不为空的值。
   
     

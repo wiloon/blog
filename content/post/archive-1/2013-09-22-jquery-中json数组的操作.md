@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# jquery 中json数组的操作
+## jquery 中json数组的操作
 在jquery中处理JSON数组的情况中遍历用到的比较多,但是用添加移除这些好像不是太多。
 
 今天试过json[i].remove(),json.remove(i)之后都不行,看网页的DOM对象中好像JSON数据是以数组的形式出现的,查阅了下相关JS中数组的操作一试果然很爽。

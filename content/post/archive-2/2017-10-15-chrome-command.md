@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# chrome command
+## chrome command
 Chrome 有很多的特性在界面菜单中是没有体现的,你可以通过 chrome:// 命令来访问。本文介绍 12 个非常有用的 chrome:// 命令: 
 
   1. chrome://flags

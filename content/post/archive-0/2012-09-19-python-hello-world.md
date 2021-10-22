@@ -8,7 +8,7 @@ categories:
   - Development
 
 ---
-# Python Hello World
+## Python Hello World
 ### install python3 pip3
     sudo dnf install python3
 

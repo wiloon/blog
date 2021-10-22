@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# System V init, Upstart,Systemd
+## System V init, Upstart,Systemd
 http://monklof.com/post/14/
   
 https://www.ibm.com/developerworks/cn/linux/1407_liuming_init2/index.html

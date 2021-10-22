@@ -8,7 +8,7 @@ categories:
   - ssh
 
 ---
-# SSH 密钥类型 RSA, DSA, ecdsa
+## SSH 密钥类型 RSA, DSA, ecdsa
 ### RSA
 1977年,三位数学家Rivest、Shamir 和 Adleman 设计了一种算法,可以实现非对称加密。这种算法用他们三个人的名字命名,叫做RSA算法。
 

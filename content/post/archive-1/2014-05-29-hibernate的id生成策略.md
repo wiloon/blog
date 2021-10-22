@@ -10,7 +10,7 @@ tags:
   - JPA
 
 ---
-# hibernate的ID生成策略
+## hibernate的ID生成策略
 http://www.cnblogs.com/seed_lee/archive/2011/02/14/1954720.html
 
 hibernate的ID生成策略（annotation方式@GeneratedValue) 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# emacs rename file and buffer
+## emacs rename file and buffer
 https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs
 
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file

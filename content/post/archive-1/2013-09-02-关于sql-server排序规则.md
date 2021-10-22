@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-# 关于SQL SERVER排序规则
+## 关于SQL SERVER排序规则
 因为新的SQL SERVER 使用了英文版, 使用了默认的排序规则是:SQL_Latin1_General_CP1_CI_AS
 
 但旧的数据使用的是中文版, 使用的排序规则是 Chinese_PRC_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:

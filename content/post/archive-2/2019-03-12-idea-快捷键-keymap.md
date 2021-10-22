@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# idea 快捷键, keymap
+## idea 快捷键, keymap
 | Key    | Command      |
 | ------ | ------------ |
 | ctrl+g | line/column  |

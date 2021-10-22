@@ -8,7 +8,7 @@ categories:
   - L
 
 ---
-# I will laugh at the world.
+## I will laugh at the world.
 英文原文是来自美国作家"Og Mandino"的畅销书"**_The Greatest Salesman in the World._**"
 
 原文如下: 

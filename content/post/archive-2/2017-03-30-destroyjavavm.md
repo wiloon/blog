@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# jvm thread DestroyJavaVM
+## jvm thread DestroyJavaVM
   1. DestroyJavaVM is a thread that unloads the Java VM on program exit. Most of the time it should be waiting, until apocalypse of your VM.
   2. Signal Dispatcher is a thread that handles the native signals sent by the OS to your jvm.
   3. Finalizer threads pull objects from the finalization queue and calls it finalize method.

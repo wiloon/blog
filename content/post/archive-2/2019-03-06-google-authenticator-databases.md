@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# google authenticator databases
+## google authenticator databases
 https://eduncan911.com/technology/hardware/google-authenticator-databases-move-copy-fix.html
 
 > /data/data/com.google.android.apps.authenticator2/databases/databases

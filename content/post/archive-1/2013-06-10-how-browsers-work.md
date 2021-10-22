@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# How browsers work
+## How browsers work
 <http://taligarsiel.com/Projects/howbrowserswork1.htm>
 
 <http://ux.sohu.com/topics/50972d9ae7de3e752e0081ff>

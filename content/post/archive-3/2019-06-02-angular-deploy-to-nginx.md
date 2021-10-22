@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# angular deploy to nginx
+## angular deploy to nginx
 ```bash
 ng build --aot
 ```

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 硬盘 SuperBlock损坏修复
+## 硬盘 SuperBlock损坏修复
 ### 找到super block 备份
 
 ```bash

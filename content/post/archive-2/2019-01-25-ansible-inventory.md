@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ansible inventory
+## ansible inventory
 ```bash
 ansible_user=root
 ```

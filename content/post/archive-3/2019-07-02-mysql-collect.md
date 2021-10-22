@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# MySQL collect
+## MySQL collect
 COLLATE是用来做什么的？
   
 使用phpmyadmin的开发可能会非常眼熟，因为其中的中文表头已经给出了答案: 

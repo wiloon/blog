@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# java version
+## java version
 52<span class="pun">,<span class="pln">
 J2SE 51<span class="pun">,<span class="pln">
 J2SE 50<span class="pun">,<span class="pln">

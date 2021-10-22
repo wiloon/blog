@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Pentaho Data Integration(PDI)
+## Pentaho Data Integration(PDI)
 http://www.cnblogs.com/wukenaihe/p/3209618.html
 
 Spoon是构建ETL Jobs和Transformations的工具。Spoon可以以拖拽的方式图形化设计,能够通过spoon调用专用的数据集成引擎或者集群。

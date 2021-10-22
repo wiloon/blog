@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Runtime freeMemory,totalMemory,maxMemory
+## Runtime freeMemory,totalMemory,maxMemory
 http://blog.csdn.net/zy_27_ok/article/details/8462385
 
 最近在网上看到一些人讨论到Java.lang.Runtime类中的freeMemory(),totalMemory(),maxMemory ()这几个方法的一些题目,很多人感到很迷惑,为什么,在java程序刚刚启动起来的时候freeMemory()这个方法返回的只有一两兆字节,而随着 java程序往前运行,创建了不少的对象,freeMemory()这个方法的返回有时候不但没有减少,反而会增加。这些人对freeMemory()这 个方法的意义应该有一些误解,他们以为这个方法返回的是操纵系统的剩余可用内存,实在根本就不是这样的。这三个方法反映的都是java这个进程的内存情 况,跟操纵系统的内存根本没有关系。下面结合totalMemory(),maxMemory()一起来解释。

@@ -10,7 +10,7 @@ tags:
   - JavaEE
 
 ---
-# javaEE project
+## javaEE project
 ```bash
   
 mkdir javaEELab

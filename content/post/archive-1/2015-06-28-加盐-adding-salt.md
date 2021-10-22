@@ -8,7 +8,7 @@ tags:
   - Security
 
 ---
-# 加盐 Adding Salt
+## 加盐 Adding Salt
 http://drops.wooyun.org/papers/1066
 
 查表和彩虹表的方式之所以有效是因为每一个密码的都是通过同样的方式来进行hash的。如果两个用户使用了同样的密码，那么一定他们的密码hash也一定相同。我们可以通过让每一个hash随机化，同一个密码hash两次，得到的不同的hash来避免这种攻击。

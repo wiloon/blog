@@ -8,7 +8,7 @@ categories:
   - database
 
 ---
-# MySQL explain, 执行计划, Query Execution Plan
+## MySQL explain, 执行计划, Query Execution Plan
 # 执行计划, Query Execution Plan, explain
 关于explain命令相信大家并不陌生,具体用法和字段含义可以参考官网explain-output,这里需要强调rows是核心指标,绝大部分rows小的语句执行一定很快（有例外,下面会讲到) 。所以优化语句基本上都是在优化rows。
 

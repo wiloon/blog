@@ -10,7 +10,7 @@ tags:
   - Git
 
 ---
-# git rebase,revert,reset
+## git rebase,revert,reset
 http://zhaojunde1976.blog.163.com/blog/static/12199866820136119201752/
 
 git中的后悔方法: rebase,revert,reset

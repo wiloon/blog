@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# MySQL limit
+## MySQL limit
      SELECT * FROM table  LIMIT [offset,] rows | rows OFFSET offset
   
   

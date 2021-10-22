@@ -8,7 +8,7 @@ categories:
   - Development
 
 ---
-# ruby helloworld
+## ruby helloworld
 **Question**: I would like to understand the basics of how to write and execute a **ruby program** on Linux OS. Can you explain it with a simple example?
 
 **Answer**: In this article, let us review very quickly how to write a basic **Hello World ruby program** and execute *.rb program on Linux or Unix OS.

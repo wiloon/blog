@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# MySQL replace into
+## MySQL replace into
 http://my.oschina.net/junn/blog/110213
 
 Replace into是Insert into的增强版。在向表中插入数据时，我们经常会遇到这样的情况: 1、首先判断数据是否存在；2、如果不存在，则插入；3、如果存在，则更新。

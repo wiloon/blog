@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# chromeos Secure Shell App remove known host
+## chromeos Secure Shell App remove known host
 https://medium.com/code-kings/secure-shell-removing-known-host-by-index-when-changing-ip-address-18ed4161763c
 
 打开 Secure Shell App

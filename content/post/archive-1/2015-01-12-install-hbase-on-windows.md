@@ -10,7 +10,7 @@ tags:
   - Hbase
 
 ---
-# hbase install
+## hbase install
 ```bash
   
 tar xzvf hbase-2.0.0-SNAPSHOT-bin.tar.gz

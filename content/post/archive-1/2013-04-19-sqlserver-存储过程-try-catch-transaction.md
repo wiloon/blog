@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-# sqlserver 存储过程 try catch TRANSACTION
+## sqlserver 存储过程 try catch TRANSACTION
 本文来自CSDN博客，转载请标明出处: [http://blog.csdn.net/WeiZhang_son_Ding/archive/2010/02/05/5291732.aspx][1]
 
 CREATE PROCEDURE YourProcedure <wbr /> <wbr /> <wbr /> <wbr />

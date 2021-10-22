@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Ansible setup模块
+## Ansible setup模块
 https://www.ipcpu.com/2016/01/ansible-setup-when/
 
 Ansible入门setup模块和条件判断

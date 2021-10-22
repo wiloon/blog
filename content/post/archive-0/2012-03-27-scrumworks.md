@@ -8,7 +8,7 @@ categories:
   - Agile
 
 ---
-# scrumWorks
+## scrumWorks
 scrumWorks Pro是一个敏捷项目管理工具，它能够帮助团队跟踪每次迭代与整个版本发布的过程。本次版本的变化集中在两个方面: 可用性的改进以及使用[MySQL][1]作为后端数据库。
 
 根据Danube的CTO Victor Szalvay所说，这一版本关注的一 个方面是对界面美观性和可用性方面的改进。对UI作出的多个改进包括: 

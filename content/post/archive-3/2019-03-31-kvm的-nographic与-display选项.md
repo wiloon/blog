@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# KVM的-nographic与-display选项
+## KVM的-nographic与-display选项
 
 KVM的-nographic与-display选项
 http://openwares.net/2014/03/10/kvm_nographic_display/

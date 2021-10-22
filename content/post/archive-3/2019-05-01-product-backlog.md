@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Product Backlog
+## Product Backlog
 Product Backlog由所有的功能特性，包括业务功能，非业务功能（技术、架构和工程实践相关) ，提升点以及缺陷的修复等组成。这些内容也是将来产品版本发布的主要内容。
 
 一个完整的Backlog是一个蓝图，可以根据它来把产品改造成为我们期望的样子。

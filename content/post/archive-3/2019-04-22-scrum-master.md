@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Scrum Master
+## Scrum Master
 Scrum 主 管 (Scrum Master, 简称 SM)
   
 解惑 Scrum 系列一: 什么是 Scrum Master？

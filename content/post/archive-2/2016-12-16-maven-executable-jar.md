@@ -11,7 +11,7 @@ tags:
   - Maven
 
 ---
-# java maven 可执行 jar/ executable jar, maven-assembly-plugin
+## java maven 可执行 jar/ executable jar, maven-assembly-plugin
 ```xml
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

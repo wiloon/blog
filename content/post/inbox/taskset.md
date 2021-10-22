@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "taskset"
+## "taskset"
 一、在Linux上修改进程的“CPU亲和力”
 
 在Linux上，可以通过 taskset 命令进行修改。以Ubuntu为例，运行如下命令可以安装taskset工具。

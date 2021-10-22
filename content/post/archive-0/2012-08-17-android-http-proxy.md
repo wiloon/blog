@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# android http proxy
+## android http proxy
   
     I've connected my Android phone to my Wifi network at work, but they use a proxy and I cannot use my browser without setting the proxy on my browser. Is there any way I can do this?
   

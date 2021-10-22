@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Debian安装FTP服务器,使用vsftpd简单实现
+## Debian安装FTP服务器,使用vsftpd简单实现
 http://wudixiaozi.com/1694.html
 
 Debian安装FTP服务器,使用vsftpd简单实现

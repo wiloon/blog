@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# linux capability, setcap/getcap
+## linux capability, setcap/getcap
 
 http://www.cnblogs.com/iamfy/archive/2012/09/20/2694977.html
 

@@ -8,7 +8,7 @@ tags:
   - javascript
 
 ---
-# javascript basic
+## javascript basic
 ### 打印对象类型
     foo.getClass()
 

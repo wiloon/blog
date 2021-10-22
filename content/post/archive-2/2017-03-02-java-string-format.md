@@ -6,7 +6,7 @@ date: 2017-03-02T08:01:23+00:00
 url: /?p=9890
 
 ---
-# JAVA String.format()
+## JAVA String.format()
 flags
   
 flags是可选参数,用于控制输出的格式,比如左对齐、金额用逗号隔开。

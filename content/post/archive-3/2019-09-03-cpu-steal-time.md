@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# CPU steal time
+## CPU steal time
 https://blog.csdn.net/jessysong/article/details/73571878
 
 Netflix 很关注CPU的Steal Time。他们的策略是: 如果是当前虚拟机的Steal Time 超过了你们设置的 阈值，他们会关闭这台虚拟机并且在另外一台物理机上面重启。

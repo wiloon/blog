@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# VirtualBox 共享文件夹
+## VirtualBox 共享文件夹
 http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/
 
 前提是已经安装过增强功能。

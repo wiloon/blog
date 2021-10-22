@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# apache portable run time libraries
+## apache portable run time libraries
 http://blog.csdn.net/swartz_lubel/article/details/79215764
 
 随着Apache的进一步开 发,Apache组织决定将这些通用的函数独立出来并发展成为一个新的项目。这样,APR的开发就从Apache中独立出来,Apache仅仅是使用 APR而已。目前APR主要还是由Apache使用,不过由于APR的较好的移植性,因此一些需要进行移植的C程序也开始使用APR,开源项目比如 Flood loader(http://httpd.apache.org/test/flood/,该项目用于服务器压力测试,不仅仅适用于Apache)、FreeSwitch(www.freeswitch.org),JXTA-C(http://jxta-c.jxta.org,C版本的JXTA点对点平台实现)；商业的项目则包括Blogline(http://www.bloglines.com/,covalent(http://www.covalent.net)等等。

@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "challenge response, 挑战应答"
+## "challenge response, 挑战应答"
 
 Challenge/Response认证的过程如下: 
 

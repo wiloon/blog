@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# newifi breed
+## newifi breed
 https://www.right.com.cn/forum/thread-342918-1-1.html
 
   1. 开启固件 SSH

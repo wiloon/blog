@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "redis list"
+## "redis list"
 ### linkedlist
 每个node包含了三个部分，指向前一个节点和后一个节点的指针，以及一个数据值。而一个list包含了指向首尾的指针、整个list的长度，以及三个函数指针，用来复制节点的值、释放节点的值，以及比较节点内容。
 

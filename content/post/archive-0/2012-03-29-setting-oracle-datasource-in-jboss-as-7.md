@@ -11,7 +11,7 @@ tags:
   - Jboss
 
 ---
-# Setting Oracle Datasource in JBoss AS 7
+## Setting Oracle Datasource in JBoss AS 7
 srikanth.s.nair
 
   http://www.javaworld.com/community/node/8184

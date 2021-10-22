@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Making ipset,iptables persistent
+## Making ipset,iptables persistent
 ```bash
 ipset save > /etc/ipset.conf
 systemctl enable ipset.service

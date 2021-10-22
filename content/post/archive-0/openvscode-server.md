@@ -7,7 +7,7 @@ categories:
   - Linux
 
 ---
-# OpenVSCode Server
+## OpenVSCode Server
 
 ```bash
 podman run -d --name openvscode  -p 1025:3000 -v "openvscode-data:/home/workspace:cached" gitpod/openvscode-server

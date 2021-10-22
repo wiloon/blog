@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# System.exit(n)
+## System.exit(n)
 http://www.cnblogs.com/xwdreamer/archive/2011/01/07/2297045.html
 
 1.参考文献

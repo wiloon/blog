@@ -10,7 +10,7 @@ tags:
   - Network
 
 ---
-# 端口状态 LISTENING、ESTABLISHED、TIME_WAIT,CLOSE_WAIT
+## 端口状态 LISTENING、ESTABLISHED、TIME_WAIT,CLOSE_WAIT
 TCP状态转移要点
   
 TCP协议规定,对于已经建立的连接,网络双方要进行四次握手才能成功断开连接,如果缺少了其中某个步骤,将会使连接处于假死状态,连接本身占用的资源不会被释放。网络服务器程序要同时管理大量连接,所以很有必要保证无用连接完全断开,否则大量僵死的连接会浪费许多服务器资源。在众多TCP状态中,最值得注意的状态有两个: CLOSE_WAIT和TIME_WAIT。

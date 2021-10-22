@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# archlinux kvm qemu gentoo
+## archlinux kvm qemu gentoo
 ```bash
 pacman -Syu
 pacman -S qemu

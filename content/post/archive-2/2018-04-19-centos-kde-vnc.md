@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# centos, kde, vnc
+## centos, kde, vnc
 转自: http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html（侵删) 
 
 VPS远程操作用的最多的是SSH,有时候一些特殊需求也要用到远程图形化操作,比如使用在VPS上使用浏览器访问网站。本文以Digitalocean VPS为例分享如何安装KDE和VNC实现远程图形界面访问。如果要购买Digitalocean VPS,建议使用Digitalocean优惠码,可以节省不少银子。

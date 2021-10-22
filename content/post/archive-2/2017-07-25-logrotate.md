@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# logrotate
+## logrotate
 确认 cronie 已经安装并启动
 
 <http://wiloon.com/cron>

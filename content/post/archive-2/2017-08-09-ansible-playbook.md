@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ansible playbook
+## ansible playbook
 ```bash
 ---                         #任何playbook文件(其实就是yaml文件)都要以这个开头
 - hosts: '{{ hosts }}'      #可以是主机组或IP

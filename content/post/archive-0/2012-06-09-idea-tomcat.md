@@ -10,7 +10,7 @@ tags:
   - IDEA
 
 ---
-# idea tomcat
+## idea tomcat
 file>project structure
 
 project>compiler output:$project home.out

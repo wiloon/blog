@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-# oracle 查 sequences/triggers/tables
+## oracle 查 sequences/triggers/tables
 [sql]
 
 select * from user_sequences;

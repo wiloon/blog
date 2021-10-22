@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'How to,List Current Keyboard Shortcuts'
+## 'How to,List Current Keyboard Shortcuts'
   
     Use this procedure to create a macro that generates a list of all the commands in the integrated development environment (IDE) and any shortcut keys mapped to those commands according to the current keyboard mapping scheme.
   

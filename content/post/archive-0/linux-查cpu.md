@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-# '查CPU,  核心数'
+## '查CPU,  核心数'
 ```bash
 cat /proc/cpuinfo |grep name
 

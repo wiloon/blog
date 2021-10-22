@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-# Oracle CHAR，VARCHAR，VARCHAR2,nvarchar类型的区别与使用
+## Oracle CHAR，VARCHAR，VARCHAR2,nvarchar类型的区别与使用
 一 varchar,nvarchar,
   
 四个类型都属于变长字符类型， varchar和varchar2的区别在与后者把所有字符都占两字节，前者只对汉字和全角等字符占两字节。 nvarchar和nvarchar2的区别和上面一样，   与上面区别在于是根据Unicode   标准所进行的定义的类型，通常用于支持多国语言类似系统的定义。

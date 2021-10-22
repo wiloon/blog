@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'golang 获取interface{} 的数据类型'
+## 'golang 获取interface{} 的数据类型'
 https://blog.csdn.net/xia_xing/article/details/49423771
 
 interface{} 可以接受任何类型的对象值

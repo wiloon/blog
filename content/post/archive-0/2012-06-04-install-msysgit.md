@@ -10,7 +10,7 @@ tags:
   - Git
 
 ---
-# Install msysgit
+## Install msysgit
 Choose the Run Git from the Windows Command Prompt option
 
 Choose the Use (Tortoise)Plink option

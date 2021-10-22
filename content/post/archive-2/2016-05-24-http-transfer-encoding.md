@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'HTTP   Transfer-Encoding'
+## 'HTTP   Transfer-Encoding'
 本文作为我的博客「HTTP 相关」专题新的一篇,主要讨论 HTTP 协议中的 Transfer-Encoding。这个专题我会根据自己的理解,以尽量通俗的讲述,结合代码示例和实际场景来说明问题,欢迎大家关注和留言交流。
 
 Transfer-Encoding,是一个 HTTP 头部字段,字面意思是「传输编码」。实际上,HTTP 协议中还有另外一个头部与编码有关: Content-Encoding（内容编码) 。Content-Encoding 通常用于对实体内容进行压缩编码,目的是优化传输,例如用 gzip 压缩文本文件,能大幅减小体积。内容编码通常是选择性的,例如 jpg / png 这类文件一般不开启,因为图片格式已经是高度压缩过的,再压一遍没什么效果不说还浪费 CPU。

@@ -10,7 +10,7 @@ categories:
   - Linux
 
 ---
-# linux tp fancontrol
+## linux tp fancontrol
 <https://github.com/Stanko/ThinkPad-Fan-Control>
 
 OS: Debian 6

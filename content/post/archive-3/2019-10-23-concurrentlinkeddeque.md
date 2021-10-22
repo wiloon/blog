@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ConcurrentLinkedDeque
+## ConcurrentLinkedDeque
 非阻塞线程安全列表——ConcurrentLinkedDeque应用举例
 
 在java中,最常用的数据结构可能是列表。有数目不详的元素列表,你可以添加、阅读、或删除任何位置的元素。此外,并发列表允许不同的线程列表中添加或删除元素时不产生任何数据不一致。非阻塞列表提供如下操作,如果操作不能立即完成,列出抛出异常或者返回一个null值。Java 7中引入了ConcurrentLinkedDeque类,它实现了一个非阻塞并发列表，在本教程中,我们将学习使用这个类。

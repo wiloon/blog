@@ -6,7 +6,7 @@ date: 2017-07-20T00:57:34+00:00
 url: ntp
 
 ---
-# ntp, chrony
+## ntp, chrony
 ### chrony install
 
 ```bash

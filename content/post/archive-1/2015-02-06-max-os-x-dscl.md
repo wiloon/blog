@@ -10,7 +10,7 @@ tags:
   - Mac OS
 
 ---
-# RPC, Message Queue
+## RPC, Message Queue
 http://oldratlee.com/post/2013-02-01/synchronous-rpc-vs-asynchronous-message
 
 两者的区别。

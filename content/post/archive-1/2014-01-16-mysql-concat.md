@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# 'MySQL 字符串连接  CONCAT()'
+## 'MySQL 字符串连接  CONCAT()'
 [code lang=sql]
   
 MySQL> SELECT CONCAT('My', 'S', 'QL');

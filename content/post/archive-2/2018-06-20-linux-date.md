@@ -8,7 +8,7 @@ tags:
   - command
 
 ---
-# shell date
+## shell date
 
 ### 日期格式化
     date '+%Y-%m-%d %H:%M:%S'

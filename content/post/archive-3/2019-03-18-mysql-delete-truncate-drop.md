@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# MySQL DELETE TRUNCATE drop
+## MySQL DELETE TRUNCATE drop
 相同点: 
 
 1.truncate和不带where子句的delete、以及drop都会删除表内的数据。

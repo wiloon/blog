@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# Java 流, Stream
+## Java 流, Stream
 IO流的分类: 
   
 1、根据流的数据对象来分: 

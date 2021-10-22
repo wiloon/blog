@@ -10,7 +10,7 @@ tags:
   - HTML
 
 ---
-# HTML DOM Hidden
+## HTML DOM Hidden
 # 
   
     Hidden 对象代表一个 HTML 表单中的某个隐藏输入域。

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# spring restful, spring boot, maven,gradle
+## spring restful, spring boot, maven,gradle
 ```bash
   
 gradle bootRun

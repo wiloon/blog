@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# redis pub sub
+## redis pub sub
 PubSub 的缺点
 尽管 Redis 实现了 PubSub 模式来达到了 多播消息队列 的目的,但在实际的消息队列的领域,几乎 找不到特别合适的场景,因为它的缺点十分明显: 
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# tcp_syn_retries等参数
+## tcp_syn_retries等参数
 http://www.chengweiyang.cn/2017/02/18/linux-connect-timeout/
 
 tcp_syn_retries

@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-# debian postfix dovecot
+## debian postfix dovecot
 install postfix
 
 ```bash

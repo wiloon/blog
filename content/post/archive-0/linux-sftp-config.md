@@ -10,7 +10,7 @@ categories:
   - Linux
 
 ---
-# sftp config
+## sftp config
 cd /root/ssh
   
 emacs sshd_config

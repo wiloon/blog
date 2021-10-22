@@ -10,7 +10,7 @@ tags:
   - Raspberry Pi
 
 ---
-# respberry pi error
+## respberry pi error
 omxplayer.bin: SubtitleRenderer.cpp:154: SubtitleRenderer::load_glyph(SubtitleRenderer::InternalChar)::<lambda(FT_Face, VGFont, bool)>: Assertion \`!vgGetError()' failed.
   
 /usr/bin/omxplayer: line 67: 5199 Aborted LD_LIBRARY_PATH="$OMXPLAYER_LIBS${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" $OMXPLAYER_BIN "$@"

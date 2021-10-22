@@ -5,7 +5,7 @@ date: 2020-01-26T04:41:00+00:00
 url: plantuml
 
 ---
-# plantuml, puml + vs code
+## plantuml, puml + vs code
 ### 安装 graphviz
     sudo apt-get install -y graphviz
 

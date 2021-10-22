@@ -10,7 +10,7 @@ tags:
   - Windows
 
 ---
-# windows route, 路由表
+## windows route, 路由表
 ### 打印路由表
 ```bash
 route print

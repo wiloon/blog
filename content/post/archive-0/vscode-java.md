@@ -12,7 +12,7 @@ categories:
   - IDE
 
 ---
-# vscode, java
+## vscode, java
 
 ### 在vscode中下载以下插件
 - Language Support for Java™ by Red Hat

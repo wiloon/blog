@@ -10,7 +10,7 @@ tags:
   - JavaScript
 
 ---
-# jquery获取父元素、父节点–parents()与closest()
+## jquery获取父元素、父节点–parents()与closest()
 先看个简单的例子，呵呵
 
 

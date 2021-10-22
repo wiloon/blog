@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# state和status的区别
+## state和status的区别
 state和status的区别
 
 state: 比较常用，各种状态都可以用它，但是它更着重于一种心理状态或者物理状态。

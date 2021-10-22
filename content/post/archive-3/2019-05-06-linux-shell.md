@@ -6,7 +6,7 @@ date: 2019-05-06T04:27:52+00:00
 url: /?p=14295
 
 ---
-# shell basic
+## shell basic
 ## string
 ### Replace
 用法

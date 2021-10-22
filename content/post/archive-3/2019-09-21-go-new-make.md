@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# go new make
+## go new make
 https://sanyuesha.com/2017/07/26/go-make-and-new/
 
 new 和 make 都可以用来分配空间，初始化类型，但是它们确有不同。

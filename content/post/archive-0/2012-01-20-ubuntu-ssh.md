@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# ssh
+## ssh
 sudo apt-get install openssh-server
 
 Ubuntu缺省安装了openssh-client,所以在这里就不安装了，如果你的系统没有安装的话，再用apt-get安装上即可。

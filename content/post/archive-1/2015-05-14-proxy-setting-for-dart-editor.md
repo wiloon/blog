@@ -10,7 +10,7 @@ tags:
   - Dart
 
 ---
-# 'proxy setting  for dart editor'
+## 'proxy setting  for dart editor'
 HTTPS_PROXY=your.proxy.site:8080
 
 

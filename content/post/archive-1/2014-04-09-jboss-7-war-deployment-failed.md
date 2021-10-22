@@ -10,7 +10,7 @@ tags:
   - Jboss
 
 ---
-# Jboss 7 war deployment failed
+## Jboss 7 war deployment failed
 http://stackoverflow.com/questions/15001342/jboss-7-war-deployment-failed
 
 Go to `Jboss_installation_dir\standalone\configuration` and find the file `standalone.xml`. Change the following line:

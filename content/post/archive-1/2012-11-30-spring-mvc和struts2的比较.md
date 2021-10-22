@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# Spring MVC和Struts2的比较
+## Spring MVC和Struts2的比较
 Web层面的框架学习了三个Struts1和2，SpringMVC，那他们之间肯定存在一个优劣和适用的环境，Struts1和2的异同点我已经做过对比《[Struts1和Struts2][1]》，这篇将对比下Struts2和SpringMVC的异同，下面数据基本来源于网络，本人是搜集整理所得，供大家参考。
 
 一个项目使用什么样的技术，决定的因素很多，我所能想到的有: 对系统的性能、开发的效率、团队学习的成本、业务场景等，下面尽量从这几个方面入手，来分析比较下他们之间存在的优劣。

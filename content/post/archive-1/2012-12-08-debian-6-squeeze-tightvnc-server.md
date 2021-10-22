@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# Debian 6 squeeze TightVNC Server
+## Debian 6 squeeze TightVNC Server
 # 1 安装
 
   

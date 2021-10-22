@@ -6,7 +6,7 @@ date: 2018-02-11T15:40:49+00:00
 url: /?p=11872
 
 ---
-# ssh_config, sshd_config
+## ssh_config, sshd_config
 
 ### /etc/ssh/sshd_config
 #### 服务端鉴权重试最大次数

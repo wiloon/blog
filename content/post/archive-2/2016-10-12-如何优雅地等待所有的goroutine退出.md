@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 如何优雅地等待所有的goroutine退出
+## 如何优雅地等待所有的goroutine退出
 http://www.cnblogs.com/cobbliu/p/4461866.html
 
 Table of Contents

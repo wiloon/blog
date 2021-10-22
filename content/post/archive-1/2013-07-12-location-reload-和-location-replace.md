@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# location.reload() 和 location.replace()
+## location.reload() 和 location.replace()
 首先介绍两个方法的语法: 
 
 

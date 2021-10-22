@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# IntelliJ tomat
+## IntelliJ tomat
 [IntelliJ and Tomcat][1]{.question-hyperlink}
 
 

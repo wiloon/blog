@@ -13,7 +13,7 @@ categories:
   - Linux
 
 ---
-# hudson linux
+## hudson linux
   * download and copy jboss to /home/wyue/program/jboss-4.0.5-GA
   * download hudson and copy the war to /home/wyue/program/jboss-4.0.5.GA/server/default/deploy/
   * update /home/wyue/program/jboss-4.0.5.GA/server/default/deploy/jbossweb-tomcat55.sar/server.xml; add i18n config.

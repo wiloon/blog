@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Gradle 修改 Maven 仓库地址
+## Gradle 修改 Maven 仓库地址
 ### gradle kotlin
 
 <code class="language-kotlin line-numbers">repositories {

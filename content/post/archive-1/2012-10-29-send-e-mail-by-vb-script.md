@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# golang 读系统环境变量
+## golang 读系统环境变量
 http://studygolang.com/articles/3387
 
 ```java

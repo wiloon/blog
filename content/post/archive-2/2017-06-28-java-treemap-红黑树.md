@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Java TreeMap, 红黑树, Red–black tree, R-B Tree
+## Java TreeMap, 红黑树, Red–black tree, R-B Tree
 ### java.util.TreeMap
 ```java
     TreeMap<String,Integer> treeMap = new TreeMap<String,Integer>();

@@ -12,5 +12,5 @@ categories:
   - DataBase
 
 ---
-# generate delete sql
+## generate delete sql
 select 'delete from ' || ut.table_name || ';' from user_tables ut;

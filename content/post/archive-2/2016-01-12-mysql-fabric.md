@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# MySQL Fabric
+## MySQL Fabric
 http://www.2cto.com/database/201408/327941.html
 
 Oracle在今年5月推出了一套为各方寄予厚望的MySQL产品 - MySQL Fabric,从字面上不太能看出它是啥,但是从名称上还是有迹可循的。fabric是"织物"的意思,这意味着它是用来"织"起一片MySQL数据库。MySQL Fabric是一套数据库服务器场(Database Server Farm)的架构管理系统。

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ACL（Access Control List)
+## ACL（Access Control List)
 setfacl命令可以用来细分linux下的文件权限。
   
 chmod命令可以把文件权限分为u,g,o三个组,而setfacl可以对每一个文件或目录设置更精确的文件权限。

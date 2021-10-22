@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Fragment和Activity的交互
+## Fragment和Activity的交互
 http://www.cnblogs.com/mengdd/archive/2013/01/11/2856374.html
 
 一个Fragment的实例总是和包含它的Activity直接相关。

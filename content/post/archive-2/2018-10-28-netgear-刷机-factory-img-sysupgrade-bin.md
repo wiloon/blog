@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'netgear  刷机, factory.img, sysupgrade.bin'
+## 'netgear  刷机, factory.img, sysupgrade.bin'
 xxx-factory.img
 
 1. 把网线连接路由器的LAN口 和 PC的网口

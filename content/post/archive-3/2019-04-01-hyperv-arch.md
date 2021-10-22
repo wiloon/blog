@@ -6,7 +6,7 @@ date: 2019-04-01T06:53:10+00:00
 url: /?p=14064
 
 ---
-# hyperv archlinux
+## hyperv archlinux
 ### hyper v 禁用安全启动
 虚拟机>设置>安全>启用安全启动(去掉勾选)
 ### network

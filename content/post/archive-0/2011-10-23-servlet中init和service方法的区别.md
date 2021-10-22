@@ -14,7 +14,7 @@ tags:
   - Servlet
 
 ---
-# servlet中init()和service()方法的区别
+## servlet中init()和service()方法的区别
 首先要明确servlet的生命周期和HTTP协议.
   
 Serlvet接口只定义了一个服务方法就是service，而HttpServlet类实现了该方法并且要求调用下列的方法之一: 

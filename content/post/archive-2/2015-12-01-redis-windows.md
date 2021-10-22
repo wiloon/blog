@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# redis windows
+## redis windows
 启动redis 服务
 
 ```bash

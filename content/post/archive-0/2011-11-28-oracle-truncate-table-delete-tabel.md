@@ -12,7 +12,7 @@ categories:
   - DataBase
 
 ---
-# Oracle truncate table, delete tabel
+## Oracle truncate table, delete tabel
 # 　一、
 
   

@@ -9,7 +9,7 @@ tags:
   - Java
 
 ---
-# static factory method
+## static factory method
 创建类的实例的最常见的方式是用new语句调用类的构造方法。在这种情况下，程序可以创建类的任意多个实例，每执行一条new语句，都会导致Java虚拟机的堆区中产生一个新的对象。假如类需要进一步封装创建自身实例的细节，并且控制自身实例的数目，那么可以提供静态工厂方法。
 
 例如Class实例是Java虚拟机在加载一个类时自动创建的，程序无法用new语句创建java.lang.Class类的实例，因为Class类没有提供public类型的构造方法。为了使程序能获得代表某个类的Class实例，在Class类中提供了静态工厂方法forName(String name)，它的使用方式如下: 

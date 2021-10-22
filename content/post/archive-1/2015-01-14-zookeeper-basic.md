@@ -5,7 +5,7 @@ date: 2015-01-14T09:32:00+00:00
 url: zookeeper-basic
 
 ---
-# zookeeper basic
+## zookeeper basic
 ### 向zookeeper 发送 stat命令 查询zookeeper版本
 
 ```bash

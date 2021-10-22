@@ -9,5 +9,5 @@ categories:
   - VCS
 
 ---
-# debian svn client
+## debian svn client
 sudo apt-get install subversion

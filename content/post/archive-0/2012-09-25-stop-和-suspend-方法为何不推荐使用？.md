@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# stop() 和 suspend() 方法为何不推荐使用？
+## stop() 和 suspend() 方法为何不推荐使用？
 
   http://blog.csdn.net/yakihappy/article/details/3979912
 

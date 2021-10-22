@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# RPC,RMI,Web Services,JMS
+## RPC,RMI,Web Services,JMS
 1. RPC: RPC本身没有规范,但基本的工作机制是一样的，即: serialization/deserialization+stub+skeleton
 
 

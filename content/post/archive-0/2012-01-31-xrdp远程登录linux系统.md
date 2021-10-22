@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# linux remote desktop server, xrdp
+## linux remote desktop server, xrdp
 
 ### remove
 yay -R xorgxrdp-devel-git

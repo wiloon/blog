@@ -10,7 +10,7 @@ tags:
   - Fitnesse
 
 ---
-# Remote Debugging | Fitnesse with Eclipse
+## Remote Debugging | Fitnesse with Eclipse
 In your Eclipse IDE
 
   1. Go to Run->Open Debug Dialog

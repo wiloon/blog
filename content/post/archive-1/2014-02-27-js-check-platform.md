@@ -10,7 +10,7 @@ tags:
   - JavaScript
 
 ---
-# js check platform
+## js check platform
 
 ```
 

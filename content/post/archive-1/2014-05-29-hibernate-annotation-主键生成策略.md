@@ -10,7 +10,7 @@ tags:
   - JPA
 
 ---
-# hibernate annotation 主键生成策略
+## hibernate annotation 主键生成策略
 hibernate annotation 之 主键生成策略
   
 Posted on 2012-10-12 20:10 fancydeepin 阅读(2993) 评论(1) 编辑 收藏 所属分类: Hibernate Annotation

@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-# debian 6 (squeeze) 源列表
+## debian 6 (squeeze) 源列表
 # 这个台湾的源速度一直就很不错
   
 deb http://debian.nctu.edu.tw/debian/ squeeze main non-free contrib

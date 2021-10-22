@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-# jQuery参考,jquery中的$(document).ready()与window.onload的区别
+## jQuery参考,jquery中的$(document).ready()与window.onload的区别
 # 
 
   

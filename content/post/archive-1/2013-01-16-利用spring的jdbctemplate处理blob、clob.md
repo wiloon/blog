@@ -11,7 +11,7 @@ tags:
   - Spring
 
 ---
-# 利用spring的jdbcTemplate处理blob、clob
+## 利用spring的jdbcTemplate处理blob、clob
 spring定义了一个以统一的方式操作各种数据库的Lob类型数据的LobCreator(保存的时候用),同时提供了一个LobHandler为操作二进制字段和大文本字段提供统一接口访问。
   
 举例，例子里面的t_post表中post_text字段是CLOB类型,而post_attach是BLOG类型: 

@@ -10,7 +10,7 @@ tags:
   - HTML
 
 ---
-# HTML5 中 div section article 的区别
+## HTML5 中 div section article 的区别
 ## div {#toc_1.1}
 
 HTML Spec: "The div element has no special meaning at all."

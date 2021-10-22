@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'database DDL > puml'
+## 'database DDL > puml'
 https://github.com/wangyuheng/ddl2plantuml
 
 ```bash

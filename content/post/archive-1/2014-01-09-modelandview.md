@@ -12,7 +12,7 @@ tags:
   - SpringMVC
 
 ---
-# ModelAndView
+## ModelAndView
 http://itroop.iteye.com/blog/263845
 
 的构造方法有7个。但是它们都是相通的。这里使用无参构造函数来举例说明如何构造ModelAndView

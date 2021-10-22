@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# 'debian & SDL'
+## 'debian & SDL'
 **http://www.upubuntu.com/2012/01/how-to-install-sdl-12-simple.html**
 
 **SDL** (**Simple DirectMedia Layer**) is a multi-platform multimedia library used by many app/game developers in creating emulators, games, MPEG playback software, etc. Also, when installing some games or software requiring SDL under Ubuntu, you may get these errors while compiling them:

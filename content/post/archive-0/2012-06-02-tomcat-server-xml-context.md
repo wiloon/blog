@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# tomcat server.xml
+## tomcat server.xml
 http://www.importnew.com/26156.html
 
 Tomcat隶属于Apache基金会，是开源的轻量级Web应用服务器，使用非常广泛。server.xml是Tomcat中最重要的配置文件，server.xml的每一个元素都对应了Tomcat中的一个组件；通过对xml文件中元素的配置，可以实现对Tomcat中各个组件的控制。因此，学习server.xml文件的配置，对于了解和使用Tomcat至关重要。

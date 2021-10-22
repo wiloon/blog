@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 
 ---
-# 阻塞,非阻塞,同步,异步
+## 阻塞,非阻塞,同步,异步
 
 作者: 萧萧  
 链接: https://www.zhihu.com/question/19732473/answer/241673170  

@@ -9,7 +9,7 @@ categories:
   - Linux
 
 ---
-# Linux Testdisk
+## Linux Testdisk
 linux下超帅的分区表修复软件.以前用过n多的windows的分区表修复软件，没想到linux中有这么好用这么方便的修复软件，速度那叫一个快啊。。没有见到这个分区表修复软件以前我都白活了。。。。。
   
         好了，这个软件叫testdisk.很帅的。。

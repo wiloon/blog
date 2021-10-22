@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'jQuery  setInterval，setTimeout'
+## 'jQuery  setInterval，setTimeout'
   
     http://hi.baidu.com/ruhaole/item/65ed5df334b3080985d278aa
   

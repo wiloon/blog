@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# java 线程 sleep, wait, join, yield
+## java 线程 sleep, wait, join, yield
 ### wait()	
 调用该方法的线程进入 WAITING 状态，只有等待另外线程的通知或被中断才会返回，需要注意，
 

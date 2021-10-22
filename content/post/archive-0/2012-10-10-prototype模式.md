@@ -10,7 +10,7 @@ tags:
   - DesignPattern
 
 ---
-# 原型模式 Prototype
+## 原型模式 Prototype
 Prototype模式是一种对象创建型模式，它跟工厂模式，Builder模式等一样，都用来创建类的实例对象。
 
 但Prototype模式的对象创建方法，**具有以下特点: **

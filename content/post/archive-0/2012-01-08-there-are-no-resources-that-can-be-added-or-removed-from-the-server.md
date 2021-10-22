@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# There are no resources that can be added or removed from the server
+## There are no resources that can be added or removed from the server
 right click on the project>properties>project facets
   
 select "Dynamic web module"

@@ -14,7 +14,7 @@ tags:
   - DesignPattern
 
 ---
-# 设计模式 – Decorator
+## 设计模式 – Decorator
 Decorator设计模式是典型的结构型模式
   
 装饰模式:Decorator常被翻译成"装饰",我觉得翻译成"油漆工"更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.

@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-# IE下模拟css3中的box-shadow（阴影)
+## IE下模拟css3中的box-shadow（阴影)
 css3中的box-shadow（阴影) 可以查看: http://www.css88.com/archives/2136或者http://www.css88.com/tool/css3Preview/Box-Shadow.html
   
 在ie下模拟css3中的box-shadow（阴影) 可以使用ie的Shadow（阴影) 滤镜

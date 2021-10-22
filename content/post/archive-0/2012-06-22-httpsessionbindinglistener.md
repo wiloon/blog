@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# HttpSessionBindingListener
+## HttpSessionBindingListener
 捕获Session事件的意义: 
   
 1、         记录网站的客户登录日志（登录，退出信息等) 

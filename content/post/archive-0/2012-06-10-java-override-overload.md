@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# 'Java Override   Overload  重写、覆盖、重载、多态'
+## 'Java Override   Overload  重写、覆盖、重载、多态'
 重写、覆盖、重载、多态几个概念的区别分析
 
 Java方法的重写（Overiding) 和重载（Overloading) 是Java多态性的不同的表现。

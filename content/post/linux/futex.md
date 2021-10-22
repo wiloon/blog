@@ -8,7 +8,7 @@ categories:
 tags:
   - lock
 ---
-# "futex"
+## "futex"
 
 futex (fast userspace mutex) 是Linux的一个基础构件，可以用来构建各种更高级别的同步机制，比如锁或者信号量等等，POSIX信号量就是基于futex构建的。大多数时候编写应用程序并不需要直接使用futex，一般用基于它所实现的系统库就够了。
 

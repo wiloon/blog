@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# java 中的内省 introspector
+## java 中的内省 introspector
 概述
   
 经常需要使用java对象的属性来封装程序的数据，每次都使用反射技术完成此类操作过于麻烦，所以sun公司开发了一套API，专门用于操作java对象的属性。

@@ -9,7 +9,7 @@ tags:
   - Java
 
 ---
-# 闭包, closure
+## 闭包, closure
 ### java内部类
 >wiloon.com/inner-class
 

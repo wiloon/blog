@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# nginx basic, command, docker
+## nginx basic, command, docker
 ```bash
 # Do not run, just test the configuration file.
 sudo nginx -t

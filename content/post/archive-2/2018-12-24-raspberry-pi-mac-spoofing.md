@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# raspberry pi mac spoofing
+## raspberry pi mac spoofing
 ```bash
 vim cmdline.txt
 smsc95xx.macaddr=XX:XX:XX:XX:XX:XX

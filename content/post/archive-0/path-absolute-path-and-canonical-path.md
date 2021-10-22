@@ -12,7 +12,7 @@ categories:
   - Java
 
 ---
-# path, absolute path, and canonical path
+## path, absolute path, and canonical path
 http://www.avajava.com/tutorials/lessons/whats-the-difference-between-a-files-path-absolute-path-and-canonical-path.html
   
 -

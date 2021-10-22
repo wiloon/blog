@@ -11,7 +11,7 @@ tags:
   - Servlet
 
 ---
-# template for web.xml Servlet3.0
+## template for web.xml Servlet3.0
 [xml]
   
 <?xml version="1.0" encoding="UTF-8"?>

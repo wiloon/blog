@@ -6,7 +6,7 @@ date: '2019-07-26T02:27:23+00:00'
 url: /?p=14721
 
 ---
-# golang, function types, 函数类型
+## golang, function types, 函数类型
 
 ### function types
 A function type denotes the set of all functions with the same parameter and result types.

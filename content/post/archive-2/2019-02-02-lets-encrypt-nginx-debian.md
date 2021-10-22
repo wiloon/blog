@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# let's encrypt, nginx, debian
+## let's encrypt, nginx, debian
 sudo apt-get install certbot python-certbot-nginx -t stretch-backports
 sudo certbot --nginx
 

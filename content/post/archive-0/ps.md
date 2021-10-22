@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# ps
+## ps
   
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' 其中rsz是是实际内存
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5

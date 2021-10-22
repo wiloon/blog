@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# debian thinkpad 指纹
+## debian thinkpad 指纹
 添加PPA源
 
 选择Ubuntu Lucid是因为，它的kernel正好也是 2.6.32。看样子这个内核应当是久经考验的，因为Debian Squeeze，Ubuntu Lucid LTS和RHEL 6都是用它作内核。Debian和RHEL(和CentOS)本来就是稳定的象征。安装完之后删掉这个源，我不需要Debian stable之外的其他源。

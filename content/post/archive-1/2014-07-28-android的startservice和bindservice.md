@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Android的startservice和bindservice
+## Android的startservice和bindservice
 http://www.cnblogs.com/yejiurui/p/3429451.html
 
 深入理解Android的startservice和bindservice

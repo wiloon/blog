@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# idea install
+## idea install
 ### default plugins
 
 build tool

@@ -11,7 +11,7 @@ tags:
   - Servlet
 
 ---
-# servlet listener
+## servlet listener
 Listener是一种观察者模式的实现: 我们在web.xml中配置listener的时候就是把一个被观察者放入的观察者的观察对象队列中，当被观察者触发了注册事件时观察者作出相应的反应。在jsp/servlet中具体的实现是在web.xml中注册Listener，由Container在特定事件发生时呼叫特定的实现Listener的类。
   
 总体上说servlet中有主要有3类事件既: 

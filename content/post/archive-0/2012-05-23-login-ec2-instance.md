@@ -10,7 +10,7 @@ tags:
   - EC2
 
 ---
-# AWS EC2
+## AWS EC2
 Ubuntu Server
 t2.nano
 

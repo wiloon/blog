@@ -10,7 +10,7 @@ tags:
   - Gradle
 
 ---
-# Gradle IDE integration – Eclipse plugin
+## Gradle IDE integration – Eclipse plugin
 https://github.com/spring-projects/eclipse-integration-gradle/
 
 ### Installing Gradle Tooling from update site

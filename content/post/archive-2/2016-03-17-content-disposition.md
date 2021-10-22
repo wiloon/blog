@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Content-disposition
+## Content-disposition
 
 Content-disposition 是 MIME 协议的扩展,MIME 协议指示 MIME 用户代理如何显示附加的文件。
 Content-Disposition 响应头指示回复的内容该以何种形式展示,是以内联的形式（即网页或者页面的一部分) ,还是以附件的形式下载并保存到本地。  

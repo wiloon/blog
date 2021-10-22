@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# chrome os, crostini, 开发环境
+## chrome os, crostini, 开发环境
 crostini 的Debian 对snap 支持不全， 不能使用snap 应用
 
 ### terminal

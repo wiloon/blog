@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# zookeeper leader latch
+## zookeeper leader latch
 # zookeeper leader latch, leader election
 
 https://curator.apache.org/zk-compatibility.html

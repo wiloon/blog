@@ -8,7 +8,7 @@ tags:
   - linux
 
 ---
-# 'windows dll， Linux so'
+## 'windows dll， Linux so'
 http://blog.csdn.net/yang_lang/article/details/5926486
 
 摘要: 动态链接库技术实现和设计程序常用的技术，在Windows和Linux系统中都有动态库的概念，采用动态库可以有效的减少程序大小，节省空间，提高效率，增加程序的可扩展性，便于模块化管理。

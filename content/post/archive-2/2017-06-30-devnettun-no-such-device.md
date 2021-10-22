@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# '/dev/net/tun,No such device'
+## '/dev/net/tun,No such device'
 ```bash
   
 sudo pacman -Syu

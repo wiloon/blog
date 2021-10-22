@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Java Scanner
+## Java Scanner
 http://blog.csdn.net/carolzhang8406/article/details/6726589
   
 一、扫描控制台输入

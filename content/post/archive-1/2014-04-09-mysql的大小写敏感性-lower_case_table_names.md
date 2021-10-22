@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# MySQL的大小写敏感性 lower_case_table_names
+## MySQL的大小写敏感性 lower_case_table_names
 
 MySQL的大小写敏感性 lower_case_table_names
 

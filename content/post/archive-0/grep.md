@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# grep
+## grep
 grep, Global Regular Expression Print
 
 ```bash

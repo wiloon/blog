@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# MySQL 索引
+## MySQL 索引
 [code lang=sql]
   
 - 显示索引信息

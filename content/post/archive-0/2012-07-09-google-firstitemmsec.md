@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# google firstitemmsec
+## google firstitemmsec
 Get subscription list. Each subscription contains a "category" if the user had created folders. It also has a field called `firstitemmsec` that denotes in milliseconds the time from which entries for that feed should be picked up.
 
 `firstitemmsec` initially stumped me until I added a new subscription. I noticed that Google Reader has entries for a feed spanning back to a month (probably -infinity). So the reader has to know to show you articles _only from the time you subscribed to a feed_.

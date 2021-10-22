@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# install cloud9 ide on debian/ubuntu
+## install cloud9 ide on debian/ubuntu
 https://github.com/c9
 
 ```bash

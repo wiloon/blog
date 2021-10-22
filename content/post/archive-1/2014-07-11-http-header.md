@@ -11,7 +11,7 @@ tags:
   - Network
 
 ---
-# http header
+## http header
 ### Connection
 Connection 头（header)  决定当前的事务完成后,是否会关闭网络连接。如果该值是"keep-alive",网络连接就是持久的,不会关闭,使得对同一个服务器的请求可以继续在该连接上完成。
 ### Content-Length

@@ -8,7 +8,7 @@ categories:
 tags:
   - OS
 ---
-# "signal, 信号"
+## "signal, 信号"
 
 # 信号(signal)机制
 信号(Signal)是Linux, 类Unix和其它POSIX兼容的操作系统中用来进程间通讯的一种方式。一个信号就是一个异步的通知，发送给某个进程，或者同进程的某个线程，告诉它们某个事件发生了。

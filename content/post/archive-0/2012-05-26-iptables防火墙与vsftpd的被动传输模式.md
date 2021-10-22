@@ -9,7 +9,7 @@ categories:
   - Network
 
 ---
-# iptables防火墙与vsftpd的被动传输模式
+## iptables防火墙与vsftpd的被动传输模式
 
   Linux服务器上开启了防火墙，并配置vsftpd，就出现了一些问题    
     可以连接，列出目录，但是无法下载/上传，经过检查，是受FTP传输模式影响导致。

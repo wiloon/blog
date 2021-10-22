@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# httpclient4乱码问题
+## httpclient4乱码问题
 http://my.oschina.net/u/179805/blog/93659
 
 今天在开发调用第三方接口的时候,使用HTTPCLIENT4调用后返回的结果中中文都是乱码,蛋疼的乱码问题又来了！我一开始使用的是: 

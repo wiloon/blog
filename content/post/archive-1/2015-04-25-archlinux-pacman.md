@@ -8,7 +8,7 @@ tags:
   - linux
 
 ---
-# pacman
+## pacman
 ### 在仓库里搜索有关abc的包
     pacman -Ss abc
 

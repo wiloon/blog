@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 
 ---
-# Zookeeper, Chubby
+## Zookeeper, Chubby
 # zookeeper
 - 分布式的K/V存储
 - 分布式协调系统

@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# gz,bz2,xz三种压缩格式的 OpenBSD CVS库容量对比
+## gz,bz2,xz三种压缩格式的 OpenBSD CVS库容量对比
 
   gz,bz2,xz三种压缩格式的 OpenBSD CVS库容量对比
 

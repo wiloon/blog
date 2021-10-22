@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-# 'linux  shutdown'
+## 'linux  shutdown'
 shutdown是最安全的关机和重启命令，平时使用时推荐使用shutdown命令关机和重启。
   
 shutdown

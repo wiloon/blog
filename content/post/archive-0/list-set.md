@@ -12,7 +12,7 @@ tags:
   - Java
 
 ---
-# java 数组 list set, 数组转set
+## java 数组 list set, 数组转set
 http://jerval.iteye.com/blog/1001643
 
 //数组->Set

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ﻿hacker/cracker
+## ﻿hacker/cracker
 hacker
   
 A person who delights in having an intimate understanding of the

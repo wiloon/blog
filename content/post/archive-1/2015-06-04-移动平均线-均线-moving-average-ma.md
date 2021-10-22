@@ -10,7 +10,7 @@ tags:
   - MT4
 
 ---
-# '移动平均线  均线 Moving Average  MA'
+## '移动平均线  均线 Moving Average  MA'
   * SMA，简单移动平均线
   * EMA，指数平滑移动平均线
   * SMMA，平滑移动平均线，它的目的是为了让线条更加平滑些。

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Android Log
+## Android Log
 http://blog.csdn.net/Android_Tutor/article/details/5081713
 
 Android中级教程之--Log图文详解(Log.v,Log.d,Log.i,Log.w,Log.e)!

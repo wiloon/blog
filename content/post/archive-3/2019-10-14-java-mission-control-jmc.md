@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Java Mission Control, jmc
+## Java Mission Control, jmc
 https://github.com/JDKMissionControl/jmc
   
 https://www.oracle.com/java/technologies/javase-overview.html

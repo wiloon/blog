@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Invalid partition table
+## Invalid partition table
 syslinux
 
 root和boot在 逻辑分区上

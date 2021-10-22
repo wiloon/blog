@@ -6,7 +6,7 @@ date: 2011-11-20T07:58:09+00:00
 url: /?p=1548
 
 ---
-# Gradle basic, command
+## Gradle basic, command
 ### command
     gradle build
     

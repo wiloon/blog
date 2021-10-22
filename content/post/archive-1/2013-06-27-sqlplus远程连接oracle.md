@@ -8,7 +8,7 @@ categories:
   - DataBase
 
 ---
-# sqlplus远程连接oracle
+## sqlplus远程连接oracle
 sqlplus system/manager@192.168.208.120:1521/orcl
 
 sqlplus sys/PASSWORD@ip:port/orcl as sysdba

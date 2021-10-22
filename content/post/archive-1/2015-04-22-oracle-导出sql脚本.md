@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# oracle 导出sql脚本
+## oracle 导出sql脚本
 大体的分为三种方法: 
 
 一、可以通过toad、plsql develop等第三方工具进行导出DLL操作，用这种办法的好处在于操作简单方便，但需要安装，下面简单介绍一下用这两个工具获得DLL语句的操作。

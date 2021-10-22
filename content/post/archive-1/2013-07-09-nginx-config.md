@@ -6,7 +6,7 @@ date: 2013-07-09T05:59:32+00:00
 url: /?p=5626
 
 ---
-# Nginx config, 配置, nginx.conf
+## Nginx config, 配置, nginx.conf
 ### location>proxy_redirect
 proxy_redirect：修改后端服务器返回的响应头部中的location货refresh，与proxy_pass配合使用：
 ### location>proxy_ssl_session_reuse on | off;

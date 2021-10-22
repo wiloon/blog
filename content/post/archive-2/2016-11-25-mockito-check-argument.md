@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# mockito check argument
+## mockito check argument
 ```bash
 
 Channel channel = Mockito.mock(XxxClass.class);

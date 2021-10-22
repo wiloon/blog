@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# btrfs command
+## btrfs command
 ```bash
 # 安装 btrfs 的用户空间工具
 pacman -S btrfs-progs

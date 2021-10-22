@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'String#intern'
+## 'String#intern'
 http://tech.meituan.com/in_depth_understanding_string_intern.html
   
 john_yang ·2014-03-06 17:10

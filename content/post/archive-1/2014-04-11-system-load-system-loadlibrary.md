@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# 'System.load  System.loadLibrary'
+## 'System.load  System.loadLibrary'
 System.load 和 System.loadLibrary详解
 
 分类:  Java 2008-11-06 23:21 16051人阅读 评论(4) 收藏 举报

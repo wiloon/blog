@@ -11,7 +11,7 @@ tags:
   - Java
 
 ---
-# AspectJ 编译时织入(Compile Time Weaving, CTW)
+## AspectJ 编译时织入(Compile Time Weaving, CTW)
 本文主要介绍 AspectJ 编译时织入（Compile Time Weaving, CTW) 的技术，并附有详细示例代码。
 
 AspectJ 是一个 AOP 的具体实现框架。AOP（Aspect Oriented Programming) 即面向切面编程，可以通过预编译方式和运行期动态代理实现在不修改源代码的情况下给程序动态统一添加功能的一种技术。

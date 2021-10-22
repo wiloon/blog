@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-# ConcurrentLinkedQueue
+## ConcurrentLinkedQueue
 http://www.infoq.com/cn/articles/ConcurrentLinkedQueue

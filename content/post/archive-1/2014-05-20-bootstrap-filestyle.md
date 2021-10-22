@@ -10,7 +10,7 @@ tags:
   - JavaScript
 
 ---
-# Bootstrap Filestyle
+## Bootstrap Filestyle
 The Twitter Bootstrap, used to style the file fields of the forms.
 
 This plugin has an interesting way to present a form for sending files so attractive, while being simple and efficient.

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# mbr, gpt
+## mbr, gpt
 http://www.cnblogs.com/zhaojiedi1992/p/zhaojiedi_linux_039_fdisk_gdisk_parted.html
 
 ### 两种分区结构简介

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# yum command
+## yum command
 ### 按版本安装
 
 ```bash

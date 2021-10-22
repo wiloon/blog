@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# PriorityQueue
+## PriorityQueue
 http://java-er.com/blog/java-priority-queue/
 
 

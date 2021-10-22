@@ -11,7 +11,7 @@ tags:
   - Spring
 
 ---
-# spring quartz
+## spring quartz
 <pre class="XML">http://www.oschina.net/question/8676_9032
 
 <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  

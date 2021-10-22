@@ -8,7 +8,7 @@ tags:
   - Maven
 
 ---
-# maven config, maven-compiler-plugin
+## maven config, maven-compiler-plugin
 
 maven-compiler-plugin 3.6和更高版本提供了一种新方法
 

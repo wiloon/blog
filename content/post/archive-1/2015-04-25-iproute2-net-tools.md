@@ -8,7 +8,7 @@ tags:
   - linux
 
 ---
-# net-tools
+## net-tools
 ### Deprecated @See iproute2
 
 $ ifconfig eth1
