@@ -3,9 +3,7 @@ title: HTML XHTML
 author: "-"
 type: post
 date: 2011-09-14T05:56:22+00:00
-url: /?p=785
-bot_views:
-  - 5
+url: html
 categories:
   - Web
 tags:
