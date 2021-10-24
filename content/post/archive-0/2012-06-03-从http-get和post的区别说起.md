@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# 从HTTP GET和POST的区别说起
+## 从HTTP GET和POST的区别说起
 
   Zhang Yining / CC BY-NC-SA 3.0
 

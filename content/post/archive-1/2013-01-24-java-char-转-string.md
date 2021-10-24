@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# 'java char[] 转  String'
+## 'java char[] 转  String'
 ```java
   
 public class Test{

@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# WP-Markdown
+## WP-Markdown
 # This is an H1
 
 ## This is an H2

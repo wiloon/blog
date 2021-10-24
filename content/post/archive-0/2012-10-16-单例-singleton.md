@@ -10,7 +10,7 @@ tags:
   - DesignPattern
 
 ---
-# 单例 Singleton
+## 单例 Singleton
 ### 静态内部类 static nested class
 这种方法也是《Effective Java》上所推荐的。
   

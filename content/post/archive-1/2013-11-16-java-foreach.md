@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# 'java 循环/loop  while,for,foreach'
+## 'java 循环/loop  while,for,foreach'
 while( 布尔表达式 ) {
     
 //循环内容

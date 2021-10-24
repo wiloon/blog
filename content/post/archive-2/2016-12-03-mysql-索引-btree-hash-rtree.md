@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'MySQL 索引  btree hash rtree'
+## 'MySQL 索引  btree hash rtree'
 一、MySQL索引类型
 
 MySQL里目前只支持4种索引分别是: full-text,b-tree,hash,r-tree

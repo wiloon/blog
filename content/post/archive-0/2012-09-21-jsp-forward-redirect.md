@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# jsp forward redirect
+## jsp forward redirect
 forward 是服务器内部重定向，程序收到请求后重新定向到另一个程序，而客户机并不知晓；
 
 forward会将   request  state、bean、等信息带到下一个jsp页面；

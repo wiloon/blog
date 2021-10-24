@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Select For update
+## Select For update
 http://blog.itpub.net/17203031/viewspace-694383/
   
 Select … for update语句是我们经常使用手工加锁语句。通常情况下,select语句是不会对数据加锁,妨碍影响其他的DML和DDL操作。同时,在多版本一致读机制的支持下,select语句也不会被其他类型语句所阻碍。

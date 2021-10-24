@@ -8,5 +8,5 @@ categories:
   - DataBase
 
 ---
-# win cmd sqlplus 乱码
+## win cmd sqlplus 乱码
 set NLS_LANG=AMERICAN_AMERICA.ZHS16GBK

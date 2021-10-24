@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "Cuckoo filter, 布谷过滤器"
+## "Cuckoo filter, 布谷过滤器"
 过滤器系列（二) —— Cuckoo filter
 这一篇讲的是布谷过滤器(cuckoo fliter)，这个名字来源于更早发表的布谷散列(cuckoo hash)，尽管我也不知道为什么当初要给这种散列表起个鸟名=_=
 

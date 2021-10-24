@@ -6,7 +6,7 @@ date: 2015-01-29T15:55:53+00:00
 url: android/factory-image
 
 ---
-# 安卓线刷升级, flash factory image for android
+## 安卓线刷升级, flash factory image for android
 ### download factory image from
 <https://developer.android.com/preview/get>
   

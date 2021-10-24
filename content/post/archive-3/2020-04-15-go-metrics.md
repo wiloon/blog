@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# go metrics
+## go metrics
 ```golang
 import "    influxdb "github.com/vrischmann/go-metrics-influxdb""
     go influxdb.InfluxDB(

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# linux string cut, sort
+## linux string cut, sort
 https://www.cnblogs.com/farwish/p/4806018.html
 
 https://blog.csdn.net/xwhself/article/details/6118722

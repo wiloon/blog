@@ -10,7 +10,7 @@ tags:
   - Spring
 
 ---
-# spring生成EntityManagerFactory的三种方式
+## spring生成EntityManagerFactory的三种方式
 1.LocalEntityManagerFactoryBean
   
 只是简单环境中使用。它使用JPA PersistenceProvider自动检测机制( according to JPA's Java SE bootstrapping ),并且大多数情况下,你只能定义一下persistence unit name

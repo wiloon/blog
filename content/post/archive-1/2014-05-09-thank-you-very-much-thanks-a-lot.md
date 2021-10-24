@@ -10,5 +10,5 @@ tags:
   - English
 
 ---
-# 'Thank you very much & Thanks a lot'
+## 'Thank you very much & Thanks a lot'
 Thank you is more formal than thanks.Thanks a bunch is extremely informal.

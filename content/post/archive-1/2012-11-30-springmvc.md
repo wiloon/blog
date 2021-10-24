@@ -8,7 +8,7 @@ categories:
   - Spring
 
 ---
-# SpringMVC
+## SpringMVC
 http://www.iteye.com/blogs/subjects/springmvc-explore
 
 ### [《Struts2技术内幕][1]>>

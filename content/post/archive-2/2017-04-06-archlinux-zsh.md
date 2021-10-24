@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# zsh, oh-my-zsh
+## zsh, oh-my-zsh
 ### 不能自动补全
 
 ```bash

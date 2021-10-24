@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# MySQL view, MERGE, TEMPTABLE
+## MySQL view, MERGE, TEMPTABLE
 数据库视图
   
 数据库视图的创建是基于SQL SELECT query和JOIN的。视图和表很相似,它也包含行和列,所以可以直接对它进行查询操作。另外大多数的数据库同样允许进行UPADTE操作,但必须满足一定的条件。

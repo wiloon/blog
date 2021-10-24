@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# instanceof
+## instanceof
 Java中的instanceof关键字
 
 instanceof是Java的一个二元操作符，和==，>，<是同一类东西。由于它是由字母组成的，所以也是Java的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回boolean类型的数据。举个例子: 

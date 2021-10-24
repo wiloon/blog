@@ -8,7 +8,7 @@ categories:
   - Emacs
 
 ---
-# emacs org mode
+## emacs org mode
 Emacs 22 以后的版本已经集成了 org-mode，打开 .org 扩展的文件会自动进入 org 模式。
 
 增减一个TODO项目的优先级 S-Up/Down

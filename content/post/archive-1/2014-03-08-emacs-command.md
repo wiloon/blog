@@ -10,7 +10,7 @@ tags:
   - emacs
 
 ---
-# emacs command
+## emacs command
 
 M-x artist-mode
   

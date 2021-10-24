@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# JUnit Assert
+## JUnit Assert
 junit中的assert方法全部放在Assert类中,总结一下junit类中assert方法的分类。
   
 1.assertTrue/False([String message,]boolean condition);

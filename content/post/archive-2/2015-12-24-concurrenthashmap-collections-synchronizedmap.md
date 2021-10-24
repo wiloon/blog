@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ConcurrentHashMap Collections.synchronizedMap
+## ConcurrentHashMap Collections.synchronizedMap
 # ConcurrentHashMap, Collections.synchronizedMap和Hashtable讨论
 在Java类库中出现的第一个关联的集合类是Hashtable,它是JDK1.0的一部分。 Hashtable提供了一种易于使用的、线程安全的、关联的map功能,这当然也是方便的。然而,线程安全性是凭代价换来的――Hashtable的所有方法都是同步的。此时,无竞争的同步会导致可观的性能代价。Hashtable的后继者HashMap是作为JDK1.2中的集合框架的一部分出现的,它通过提供一个不同步的基类和一个同步的包装器Collections.synchronizedMap,解决了线程安全性问题。
   

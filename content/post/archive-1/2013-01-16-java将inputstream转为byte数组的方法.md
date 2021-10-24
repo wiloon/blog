@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# java IO, InputStream, OutputStream
+## java IO, InputStream, OutputStream
 
 InputStream和OutStream是java.io包中面向字节操作的两个顶层抽象类，所有关于java同步IO字节流的操作都是基于这两个的。
 

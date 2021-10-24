@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# linux comm, 两个文件的共同部分或者差异部分
+## linux comm, 两个文件的共同部分或者差异部分
 两个文件的共同部分或者差异部分
 
 1 comm命令

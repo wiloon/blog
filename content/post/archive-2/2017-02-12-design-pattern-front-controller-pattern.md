@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# '[Design Pattern] Front Controller Pattern'
+## '[Design Pattern] Front Controller Pattern'
 http://www.cnblogs.com/TonyYPZhang/p/5516192.html
 
 

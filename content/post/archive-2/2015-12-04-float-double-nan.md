@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# float double NaN
+## float double NaN
 http://zranye.iteye.com/blog/1344880
 
 http://blog.csdn.net/naruto_ahu/article/details/8805808

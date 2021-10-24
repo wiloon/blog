@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Cordova Hello World
+## Cordova Hello World
 <pre class="prettyprint"><code><span class="pln">install node.js/npm
 install cordova using npm
 C<span class="pun">:\><span class="pln">npm install <span class="pun">-<span class="pln">g cordova

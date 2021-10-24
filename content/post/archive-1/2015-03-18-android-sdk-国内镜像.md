@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Android SDK Manager mirror/镜像
+## Android SDK Manager mirror/镜像
 start android sdk manager in linux
   
 ./xxx/tools/andoird

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# java finalize
+## java finalize
 http://blog.csdn.net/walkerjong/article/details/6950091
 
 Java提供finalize()方法,垃圾回收器准备释放内存的时候,会先调用finalize()。

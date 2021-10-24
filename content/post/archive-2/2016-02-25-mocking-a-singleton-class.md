@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-# mocking a singleton class
+## mocking a singleton class
 http://stackoverflow.com/questions/2302179/mocking-a-singleton-class

@@ -14,7 +14,7 @@ tags:
   - Git
 
 ---
-# git remove
+## git remove
 git rm /xxx/xxx/xxx.xxx
 
 git rm xxx/xxx

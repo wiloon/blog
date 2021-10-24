@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-# linux tar
+## linux tar
 ```bash
   
 解包: tar xvf FileName.tar

@@ -10,7 +10,7 @@ tags:
   - Gradle
 
 ---
-# Gradle的Properties
+## Gradle的Properties
 http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternative-android-build-tools.html
 
 # 目录: <nav> 

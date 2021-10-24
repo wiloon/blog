@@ -3,21 +3,17 @@ title: HTML XHTML
 author: "-"
 type: post
 date: 2011-09-14T05:56:22+00:00
-url: /?p=785
-bot_views:
-  - 5
+url: html
 categories:
   - Web
 tags:
   - HTML
 
 ---
-# HTML XHTML
+## HTML XHTML
+
 什么是XHTML？与HTML相比XHTML有什么特点？
-  
-(网络营销教学网站 www.wm23.com 2005-02-28)
-  
-http://www.wm23.com/resource/R01/Internet_1010.htm
+<http://www.wm23.com/resource/R01/Internet_1010.htm>
   
 　　HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言，看起来与HTML有些相象，只有一些小的但重要的区别。本文简单介绍什么是XHTML，以及与HTML相比XHTML有什么特点。
   
@@ -53,10 +49,7 @@ http://www.wm23.com/resource/R01/Internet_1010.htm
   
 　　（6) 在网站设计方面，XHTML可助你去掉表现层代码的恶习，帮助你养成标记校验来测试页面工作的习惯。
   
-　　【说明】: 本文根据部分网站上的相关资料编辑，来源包括: 
-  
-　　 （1) http://www.pconline.com.cn/pcedu/sj/wz/other/0406/385830.html
-  
-　　 （2) http://hedong.3322.org/newblog/archives/000044.html
-  
-　　 （3) http://www.pconline.com.cn/pcedu/sj/wz/other/0410/469461.html
+　　【说明】: 本文根据部分网站上的相关资料编辑，来源包括:
+<http://www.pconline.com.cn/pcedu/sj/wz/other/0406/385830.html>
+<http://hedong.3322.org/newblog/archives/000044.html>
+<http://www.pconline.com.cn/pcedu/sj/wz/other/0410/469461.html>

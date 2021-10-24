@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# golang sync.RWMutex, sync.Mutex
+## golang sync.RWMutex, sync.Mutex
 golang中sync包实现了两种锁 Mutex （互斥锁) 和RWMutex（读写锁) ,其中RWMutex是基于Mutex实现的,只读锁的实现使用类似引用计数器的功能．
 
   * Mutex: 互斥锁

@@ -6,7 +6,7 @@ date: 2020-04-03T02:02:29+00:00
 url: /?p=15873
 
 ---
-# archlinux 中文支持
+## archlinux 中文支持
 ```bash
 vim /etc/locale.gen
 en_US.UTF-8 UTF-8

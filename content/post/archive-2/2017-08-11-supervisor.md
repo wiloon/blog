@@ -5,7 +5,7 @@ date: 2017-08-11T08:21:18+00:00
 url: supervisor
 
 ---
-# supervisor, supervisorctl
+## supervisor, supervisorctl
 ### 常用命令
     supervisorctl status
     supervisorctl stop service0

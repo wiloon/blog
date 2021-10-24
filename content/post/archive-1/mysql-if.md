@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# MySQL if
+## MySQL if
 ### IF表达式
 `IF(expr1,expr2,expr3)`
 

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# linux enca 编码并转换
+## linux enca 编码并转换
 enca -list languages
   
 enca -L zh_CN file 检查文件的编码

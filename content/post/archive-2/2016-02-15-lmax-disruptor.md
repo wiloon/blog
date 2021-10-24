@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# LMAX Disruptor
+## LMAX Disruptor
 LMAX Disruptor——一个高性能、低延迟且简单的框架
   
 原文地址: LMAX Disruptor – High Performance, Low Latency and Simple Too 翻译: 杨帆 校对: 丁一

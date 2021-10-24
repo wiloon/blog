@@ -7,7 +7,7 @@ tags:
   - UML
 
 ---
-# UML 类图和关系
+## UML 类图和关系
 在UML的定义中，描述类和对象之间的关系，包括以下几种方式：依赖（Dependency）、关联（Association）、聚合（Aggregation）、组合（Composition）、泛化（Generalization）和实现（Realization）。现分别说明如下：
 
 定义
@@ -85,7 +85,7 @@ Foo <|.. Bar
 ### 依赖(Dependency): 
 依赖关系是一种使用的关系,所以要尽量不使用双向的互相依赖。  
 代码表现: 局部变量、方法的参数 或者 对 静态方法 的调用  
-箭头及指向: 带箭头的虚线，指向被使用者, ClassFoo 使用 Netty, Netty 被 ClassFoo 使用, 箭头指向 Netty
+箭头及指向: 带箭头的**虚线**，指向**被使用者**, ClassFoo 使用 Netty, Netty 被 ClassFoo 使用, 箭头指向 Netty
 
 对象之间最弱的一种关联方式，是临时性的关联。代码中一般指由局部变量、函数参数、返回值建立的对于其他对象的调用关系。一个类调用被依赖类中的某些方法而得以完成这个类的一些职责。在类图使用带箭头的虚线表示，箭头从使用类指向被依赖的类。
 

@@ -6,7 +6,7 @@ date: 2011-10-14T05:20:22+00:00
 url: /?p=1040
 
 ---
-# windows basic
+## windows basic
 ### windows iso
 打开页面: https://www.microsoft.com/zh-cn/software-download/windows10
 点击 立即下载工具

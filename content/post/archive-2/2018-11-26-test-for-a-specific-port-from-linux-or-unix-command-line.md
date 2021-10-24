@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# test for a specific port from Linux or Unix command line
+## test for a specific port from Linux or Unix command line
 https://www.cyberciti.biz/faq/ping-test-a-specific-port-of-machine-ip-address-using-linux-unix/
 
 ```bash

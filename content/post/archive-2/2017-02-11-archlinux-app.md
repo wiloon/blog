@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# fav app
+## fav app
 ```bash
   
 #linux

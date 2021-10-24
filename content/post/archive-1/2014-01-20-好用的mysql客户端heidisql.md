@@ -10,7 +10,7 @@ tags:
   - MySQL
 
 ---
-# 好用的MySQL客户端HeidiSQL
+## 好用的MySQL客户端HeidiSQL
 先前一直使用MySQL admin 和 phpmyadmin 来管理MySQL数据库，但是这两个软件均有很让人郁闷的地方: 
 
 MySQL的操作体验不好，用了很久都很不习惯

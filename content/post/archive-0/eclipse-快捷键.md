@@ -10,7 +10,7 @@ categories:
   - Eclipse
 
 ---
-# Eclipse 快捷键(Default)
+## Eclipse 快捷键(Default)
 Ctrl+1 快速修复
   
 Ctrl+D: 删除当前行

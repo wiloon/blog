@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# 'java.lang.OutOfMemoryError, PermGen space'
+## 'java.lang.OutOfMemoryError, PermGen space'
 http://peak.iteye.com/blog/52606
   
 JavaTomcatJVMLinuxWeb

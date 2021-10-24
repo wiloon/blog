@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
+## R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
 ```bash
   
 sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db

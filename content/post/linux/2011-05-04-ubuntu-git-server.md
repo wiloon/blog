@@ -13,7 +13,7 @@ tags:
   - Git
 
 ---
-# gitosis install
+## gitosis install
 1. 用apt-get update 和 apt-get upgrade 更新当前系统.
   
 2. 安装OpenSSH Server: sudo apt-get install openssh-server

@@ -9,7 +9,7 @@ tags:
   - DesignPattern
 
 ---
-# 观察者模式, Observer pattern
+## 观察者模式, Observer pattern
 定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
 
 观察者模式（Observer）又称发布-订阅模式（Publish-Subscribe：Pub/Sub）。它是一种通知机制，让发送通知的一方（被观察方）和接收通知的一方（观察者）能彼此分离，互不影响。
@@ -340,8 +340,7 @@ public class Client {
   
 done
 
-### Observer和Observable在Java 9标记为废弃。
-
+### Observer类和Observable类在Java 9标记为废弃。
 废弃原因
 Observer和Observable有几个原因：
 
@@ -365,10 +364,10 @@ Observable没有实现Serializable接口，它的内部成员变量都是私有�
 
 解决方案
 
-可以使用java.beans 里的PropertyChangeEvent 和 PropertyChangeListener 来代替目前Observer和Observable的功能。
+可以使用java.beans 里的 PropertyChangeEvent 和 PropertyChangeListener 来代替目前Observer和Observable的功能。
 
 示例
-
+```java
 public class Demo {  
   
   private String name;  
@@ -414,7 +413,9 @@ public class Main {
      demo.setName("new Name");  
   }  
 }
-
+```
 
 http://ttitfly.iteye.com/blog/152512
 >https://majing.io/posts/10000001281162
+>https://refactoringguru.cn/design-patterns/observer
+>https://refactoringguru.cn/design-patterns/observer/java/example

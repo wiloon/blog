@@ -6,7 +6,7 @@ date: 2013-03-24T02:25:43+00:00
 url: /?p=5343
 
 ---
-# python basic
+## python basic
 # python
 ### ubuntu
 sudo apt install python3

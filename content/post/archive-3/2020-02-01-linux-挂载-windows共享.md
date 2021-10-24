@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# linux 挂载 windows共享
+## linux 挂载 windows共享
 先在 Windows 下面共享需要挂载的目录
 
 ```bash

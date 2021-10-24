@@ -10,7 +10,7 @@ tags:
   - English
 
 ---
-# table bench and desk
+## table bench and desk
 ~A table is an article of furniture supported by one or more vertical legs and having a flat horizontal surface.
 
 ~A bench is a long seat, differing from a stool in its greater length.

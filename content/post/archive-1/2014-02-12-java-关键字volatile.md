@@ -9,7 +9,7 @@ tags:
   - Java
 
 ---
-# java – volatile
+## java – volatile
 ### volatile 关键字, Volatile ['vɑlətl]
 volatile关键字告诉编译器,去 内存 里面取“最新”值。但是,即使取的是内存里的所谓“最新”值,事实上并不能保证最新。  
 

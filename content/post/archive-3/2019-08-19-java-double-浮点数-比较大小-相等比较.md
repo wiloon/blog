@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'Java Double 浮点数 比较大小 & 相等比较'
+## 'Java Double 浮点数 比较大小 & 相等比较'
 ```java
 public class DoubleUtils {
     private static final double DEFAULT_DELTA = 0.000001; //默认比较精度

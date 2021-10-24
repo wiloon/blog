@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# hbase BufferedMutator
+## hbase BufferedMutator
 
   
     使用BufferedMutator

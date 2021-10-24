@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# maven jboss deployment
+## maven jboss deployment
 [xml]
 
 <plugin>

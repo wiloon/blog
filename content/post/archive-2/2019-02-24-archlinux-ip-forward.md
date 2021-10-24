@@ -10,7 +10,7 @@ categories:
   - network
 
 ---
-# archlinux ip forward, ip_forward
+## archlinux ip forward, ip_forward
 ### 开启数据包转发
 ```bash
 vim /etc/sysctl.d/30-ipforward.conf

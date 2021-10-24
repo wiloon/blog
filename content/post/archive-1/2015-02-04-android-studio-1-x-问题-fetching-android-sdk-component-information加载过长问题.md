@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'Android Studio 1.x  问题  Fetching android sdk component information加载过长问题'
+## 'Android Studio 1.x  问题  Fetching android sdk component information加载过长问题'
 **http://blog.csdn.net/zhongwcool/article/details/41939967**
 
 **解决Fetching android sdk component information加载过长问题**

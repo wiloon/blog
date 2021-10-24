@@ -9,7 +9,7 @@ categories:
   - Network
 
 ---
-# linux http proxy
+## linux http proxy
 ```bash
   
 export http_proxy=http://localhost:8118/

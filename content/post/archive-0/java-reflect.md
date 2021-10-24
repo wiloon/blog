@@ -3,14 +3,12 @@ title: 通过java反射机制获取该类的所有属性类型、值、
 author: "-"
 type: post
 date: 2011-09-17T04:28:12+00:00
-url: /?p=749
-bot_views:
-  - 4
+url: reflect
 categories:
   - Java
 
 ---
-# 通过java反射机制获取该类的所有属性类型、值、
+## 通过java反射机制获取该类的所有属性类型、值、
 http://blog.csdn.net/sd4000784/article/details/7448221
 
 

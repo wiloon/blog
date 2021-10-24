@@ -10,7 +10,7 @@ tags:
   - JavaScript
 
 ---
-# javascript 序列化与反序列化
+## javascript 序列化与反序列化
 http://blog.csdn.net/zhangquanok/article/details/13002771
 
 

@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "Memory Barrior, 内存屏障"
+## "Memory Barrior, 内存屏障"
 ### 内存屏障 Memory Barrior
 内存屏障（Memory barrier) 
 为什么会有内存屏障

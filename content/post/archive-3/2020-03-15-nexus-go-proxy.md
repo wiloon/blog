@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# nexus go proxy
+## nexus go proxy
 nexus: 3.21.1
 
 remote storage: https://goproxy.cn

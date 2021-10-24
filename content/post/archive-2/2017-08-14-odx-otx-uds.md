@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ODX, OTX, UDS
+## ODX, OTX, UDS
 <https://blog.softing.com/blog/automotive-electronics/diagnostics-odx-otx-uds-and-other-market-standards/>
 
 Diagnostics – ODX, OTX, UDS and other market standards

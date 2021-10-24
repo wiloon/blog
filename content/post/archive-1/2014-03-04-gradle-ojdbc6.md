@@ -10,7 +10,7 @@ tags:
   - Gradle
 
 ---
-# gradle ojdbc6
+## gradle ojdbc6
 install ojdbc into loacal repo  http://www.wiloon.com/?p=4863
 
 modify build.gradle, then gradle can search local maven repo

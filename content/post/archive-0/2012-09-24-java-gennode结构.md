@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Java GenNode结构
+## Java GenNode结构
 GenNode.java
 
 ```java

@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# ArrayBlockingQueue
+## ArrayBlockingQueue
 ArrayBlockingQueue
   
 ArrayBlockingQueue是一个基于数组的阻塞队列实现，此队列按 FIFO（先进先出) 原则对元素进行排序, 在ArrayBlockingQueue内部，维护了一个定长数组，以便缓存队列中的数据对象，这是一个常用的阻塞队列，除了一个定长数组外，ArrayBlockingQueue内部还保存着两个整形变量，分别标识着队列的头部和尾部在数组中的位置。

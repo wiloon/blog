@@ -10,7 +10,7 @@ tags:
   - linux
 
 ---
-# linux sha1sum
+## linux sha1sum
 > Print or check SHA1 (160-bit) checksums. With no FILE, or when FILE is -, read standard input.
 
     sha1sum {file}

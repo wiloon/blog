@@ -7,7 +7,7 @@ categories:
   - algorithm
 
 ---
-# Round Robin 轮询调度算法
+## Round Robin 轮询调度算法
 # Round Robin Scheduling 轮询调度算法
 轮询调度（Round Robin Scheduling) 算法就是以轮询的方式依次将请求调度不同的服务器,即每次调度执行i = (i + 1) mod n,并选出第i台服务器。算法的优点是其简洁性,它无需记录当前所有连接的状态,所以它是一种无状态调度。
 

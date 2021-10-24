@@ -6,7 +6,7 @@ date: 2011-12-03T08:52:06+00:00
 url: /?p=1693
 
 ---
-# mount, umount
+## mount, umount
 ### commands
     showmount -e 192.168.50.227
     mount -t nfs 192.168.50.227:/data1t /mnt/nas

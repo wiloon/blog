@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# System.gc(), System.runFinalization()
+## System.gc(), System.runFinalization()
 System.gc:
   
 告诉垃圾收集器打算进行垃圾收集,而垃圾收集器进不进行收集是不确定的。只是建议进行回收。

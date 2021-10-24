@@ -10,7 +10,7 @@ tags:
   - emacs
 
 ---
-# emacs diff
+## emacs diff
 ### diff
 
 使用 _Unix_ 的 `diff` 工具程序，你可以找到两个文件的不同之处。所比较的两个文件可能是: 

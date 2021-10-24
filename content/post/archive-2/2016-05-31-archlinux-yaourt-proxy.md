@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# rsync
+## rsync
 ```bash
   
 rsync -azP source dest

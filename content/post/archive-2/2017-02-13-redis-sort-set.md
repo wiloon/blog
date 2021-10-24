@@ -8,7 +8,7 @@ categories:
   - cache
 
 ---
-# redis sort set, 有序集, zset
+## redis sort set, 有序集, zset
 # sort set, zset
 Sorted-Sets和Sets类型极为相似,它们都是字符串的集合,都不允许重复的成员出现在一个Set中。它们之间的主要差别是Sorted-Sets中的每一个成员都会有一个分数(score)与之关联,Redis正是通过分数来为集合中的成员进行从小到大的排序。然而需要额外指出的是,尽管Sorted-Sets中的成员必须是唯一的,但是分数(score)却是可以重复的
   

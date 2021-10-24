@@ -10,7 +10,7 @@ tags:
   - OS X
 
 ---
-# Mac OS X 中设置VPN静态路由
+## Mac OS X 中设置VPN静态路由
 https://blog.hackroad.com/apple/mac-os/7011.html
 
 

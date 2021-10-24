@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# debian network command
+## debian network command
 #restart
 
 sudo /etc/init.d/networking restart

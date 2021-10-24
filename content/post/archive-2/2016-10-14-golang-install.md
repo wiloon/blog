@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# golang install
+## golang install
 china mainland download
   
 https://golang.google.cn/

@@ -10,7 +10,7 @@ tags:
   - Arch Linux
 
 ---
-# archlinux hibernate
+## archlinux hibernate
 ### edit config file  /etc/mkinitcpio.conf add resume field
 ```bash
 sudo vim /etc/mkinitcpio.conf

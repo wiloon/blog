@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# Eclipse .classpath
+## Eclipse .classpath
 
   <classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 

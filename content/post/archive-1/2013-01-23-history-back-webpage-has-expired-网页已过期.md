@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-# history.back() webpage has expired. 网页已过期
+## history.back() webpage has expired. 网页已过期
 http://blog.sina.com.cn/s/blog_4b3c4bfa0100vz7h.html
 
 最近开发的时候,碰到了这个问题,就是在回到上一页的时候,IE出现了webpage has expired; Firefox会出现一个alert,是否重新提交表单.

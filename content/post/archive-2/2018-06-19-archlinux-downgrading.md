@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'archlinux  downgrading'
+## 'archlinux  downgrading'
 https://wiki.archlinux.org/index.php/Arch_Linux_Archive
 
 replacing your /etc/pacman.d/mirrorlist with the following content:

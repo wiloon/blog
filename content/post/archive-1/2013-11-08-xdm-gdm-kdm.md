@@ -8,7 +8,7 @@ tags:
   - linux
 
 ---
-# display manager(DM), 显示管理器, sddm, gdm3, lightdm
+## display manager(DM), 显示管理器, sddm, gdm3, lightdm
 ### sddm
     gdm - GNOME Display Manager
     kdm - KDE Display Manager

@@ -10,7 +10,7 @@ categories:
   - Emacs
 
 ---
-# emacs copy current line
+## emacs copy current line
 ;;copy current line
   
 (global-set-key (kbd "C-c C-w") 'copy-lines)

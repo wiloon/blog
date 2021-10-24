@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "redis bitmap"
+## "redis bitmap"
 
 ### BitMap
 https://www.cnblogs.com/54chensongxia/p/13794391.html

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Execute bash script from URL
+## Execute bash script from URL
 ```bash
   
 bash <(curl -s http://mywebsite.com/myscript.txt)

@@ -9,7 +9,7 @@ categories:
   - Java
 
 ---
-# Hibernate flush
+## Hibernate flush
 **saveOrUpdateCopy，merge和update区别**
 
   

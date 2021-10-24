@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# android.intent.action.MAIN 与 android.intent.category.LAUNCHER
+## android.intent.action.MAIN 与 android.intent.category.LAUNCHER
 先看看网路上的说法: 
 
 android.intent.action.MAIN决定应用程序最先启动的

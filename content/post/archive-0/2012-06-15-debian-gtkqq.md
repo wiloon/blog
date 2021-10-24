@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# debian gtkqq
+## debian gtkqq
 ### aclocal: command not found
 
 apt-get install automake

@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# FreeDOS USB Bootable Drive
+## FreeDOS USB Bootable Drive
 http://www.aselabs.com/articles.php?id=243
 
 Author

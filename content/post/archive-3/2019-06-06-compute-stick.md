@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Intel Compute Stick
+## Intel Compute Stick
 Intel® Compute Stick STCK1A32WFC
   
 Intel Atom® Processor Z3735F (2M Cache, up to 1.83 GHz)

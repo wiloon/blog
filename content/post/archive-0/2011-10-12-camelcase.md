@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# Camel Casing, CamelCase
+## Camel Casing, CamelCase
 <http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html>
 
 在英语中，依靠单词的大小写拼写复合词的做法，叫做"骆驼拼写法"（CamelCase) 。比如，backColor这个复合词，color的第一个字母采用大写。

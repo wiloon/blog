@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# JWT, JSON Web Token
+## JWT, JSON Web Token
 ### 会话
 会话跟踪技术是一种在客户端与服务器间保持 HTTP 状态的解决方案,我们所熟知的有 Cookie + Session、URL 重写、Token 等。
 

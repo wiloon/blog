@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# docker btrfs
+## docker btrfs
 镜像分层与Btrfs共享
   
 Docker利用Btrfs subvolumes和快照来管理镜像和容器数据层的硬盘组件(on-disk components)。Btrfs subvolumes看起来像一个正常的Unix文件系统。因此，他们可以有自己的内部目录结构，挂钩到更广泛的Unix文件系统。

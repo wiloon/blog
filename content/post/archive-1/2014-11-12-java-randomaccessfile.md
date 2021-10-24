@@ -8,7 +8,7 @@ tags:
   - Java
 
 ---
-# Java RandomAccessFile, MappedByteBuffer, mmap
+## Java RandomAccessFile, MappedByteBuffer, mmap
 RandomAccessFile
 
 RandomAccessFile是用来访问那些保存数据记录的文件的,你就可以用seek( )方法来访问记录,并进行读写了。这些记录的大小不必相同；但是其大小和位置必须是可知的。但是该类仅限于操作文件。

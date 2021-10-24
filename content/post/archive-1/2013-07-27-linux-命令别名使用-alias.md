@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# alias 别名
+## alias 别名
 ### 查看所有的alias
     alias
     alias -p

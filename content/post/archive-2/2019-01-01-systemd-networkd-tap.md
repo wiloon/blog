@@ -6,7 +6,7 @@ date: 2019-01-01T04:16:00+00:00
 url: /?p=13281
 
 ---
-# systemd-networkd, TAP
+## systemd-networkd, TAP
 - 手动创建tap
 - 开机自动创建tap
 
@@ -19,7 +19,7 @@ sudo ip addr add 192.168.60.1/24 dev tap0
 sudo ip link set tap0 up
 
 # ---
-# delete ip from tap0
+## delete ip from tap0
 sudo ip addr del 192.168.60.1/24 dev tap0
 ```
 

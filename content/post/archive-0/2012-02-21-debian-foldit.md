@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Debian foldit
+## Debian foldit
 download Foldit
 
 <http://fold.it/portal/>

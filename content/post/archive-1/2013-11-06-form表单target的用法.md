@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-# form表单target的用法
+## form表单target的用法
 偶然有一机会发现form表单的target的用法,可以实现当前页表单提交而不进行跳转刷新。代码如下,首页在页面里准备一form表单和一iframe
 
 

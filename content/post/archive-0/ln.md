@@ -12,7 +12,7 @@ categories:
   - Linux
 
 ---
-# 'ln  软连接和硬连接'
+## 'ln  软连接和硬连接'
 ```bash
 #原文件: foo
 #symbolic link : bar

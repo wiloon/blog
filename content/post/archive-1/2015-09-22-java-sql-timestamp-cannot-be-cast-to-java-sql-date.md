@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# java.sql.Timestamp cannot be cast to java.sql.Date
+## java.sql.Timestamp cannot be cast to java.sql.Date
 java.sql.Timestamp cannot be cast to java.sql.Date
   
 分类:  Java EE2010-05-10 18:14 3425人阅读 评论(0) 收藏 举报

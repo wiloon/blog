@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# idea 插入当前日期,insert current datetime
+## idea 插入当前日期,insert current datetime
 ### 安装 idea 插件:
 
 进入配置页面: File>setting>Plugins

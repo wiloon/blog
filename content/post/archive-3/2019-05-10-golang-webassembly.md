@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# golang WebAssembly
+## golang WebAssembly
 https://github.com/golang/go/wiki/WebAssembly
   
 https://tutorialedge.net/golang/go-webassembly-tutorial/

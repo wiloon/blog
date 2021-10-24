@@ -11,7 +11,7 @@ tags:
   - Servlet
 
 ---
-# Servlet.Filter
+## Servlet.Filter
 filter功能.它使用户可以改变一个 request和修改一个response. Filter 不是一个servlet,它不能产生一个response,它能够在一个request到达servlet之前预处理request,也可以在离开 servlet时处理response.换种说法,filter其实是一个"servlet chaining"(servlet 链).一个filter 包括:
 
 1. 在servlet被调用之前截获;

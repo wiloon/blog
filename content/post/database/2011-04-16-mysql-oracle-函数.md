@@ -12,7 +12,7 @@ tags:
   - MySQL
 
 ---
-# MySQL 函数
+## MySQL 函数
 ```sql
 MySQL> select date_format(now(),'%Y-%m-%d');
 MySQL> select time_format(now(),'%H-%i-%S');

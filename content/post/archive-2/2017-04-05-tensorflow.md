@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# archlinux, tensorFlow, golang
+## archlinux, tensorFlow, golang
 * * *
 
 build tensorflow

@@ -10,7 +10,7 @@ tags:
   - Cygwin
 
 ---
-# Cygwin Customizing bash
+## Cygwin Customizing bash
 copy files to %HOME% path
 
 .bash_profile

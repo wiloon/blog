@@ -13,7 +13,7 @@ categories:
   - Java
 
 ---
-# eclipse java VM arguments
+## eclipse java VM arguments
 window>preferences>java>installed jres
   
 select a installed jres

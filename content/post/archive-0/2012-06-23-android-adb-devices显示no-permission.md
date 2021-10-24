@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# adb, no permission
+## adb, no permission
 <http://www.blogjava.net/brian/articles/316019.html>
 
 在ubuntu(9.10)下执行adb devices命令, 返回的结果是:

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# gradle maven plugin
+## gradle maven plugin
 https://docs.gradle.org/current/userguide/publishing_maven.html#header
 
 gradle v5.3.1

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'golang  unsigned shift, 无符号右移'
+## 'golang  unsigned shift, 无符号右移'
 int32 转 uint32 再右移
 
 https://stackoverflow.com/questions/33336336/go-perform-unsigned-shift-operation

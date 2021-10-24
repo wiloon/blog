@@ -9,7 +9,7 @@ tags:
   - thread
 
 ---
-# ThreadLocal
+## ThreadLocal
 - 弱引用
 - 避免内存溢出的操作
 - 开放地址法解决hash 冲突

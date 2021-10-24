@@ -6,7 +6,7 @@ date: 2011-09-06T05:33:25+00:00
 url: /?p=676
 
 ---
-# java basic
+## java basic
 ### 查看 openjdk 版本
 http://openjdk.java.net/projects/jdk/
 

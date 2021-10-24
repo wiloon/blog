@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# 'Dmidecode,在 Linux 下获取硬件信息'
+## 'Dmidecode,在 Linux 下获取硬件信息'
 <http://linuxtoy.org/archives/dmidecode.html>
 
 Dmidecode 应该在主流的 Linux 发行版中都可以找到，因此你只需通过所用发行版的包管理器安装即可，如: 

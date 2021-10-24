@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# spring @ModelAttribute
+## spring @ModelAttribute
 通过 SpringMVC 的 SessionAttributes Annotation 关联 User 属性
 
 SpringMVC 文档提到了 @SessionAttributes annotation,和 @ModelAttribute 配合使用可以往 Session 中存或者从 Session 中取指定属性名的具体对象。

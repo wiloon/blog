@@ -7,7 +7,7 @@ url: /?p=9971
 
 
 ---
-# pthread
+## pthread
 ### code
 ```c
     #include <pthread.h>

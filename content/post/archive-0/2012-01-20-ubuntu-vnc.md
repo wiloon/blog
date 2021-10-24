@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# ubuntu vnc
+## ubuntu vnc
 第一步，获取安装文件
 
 sudo apt-get install vnc4server

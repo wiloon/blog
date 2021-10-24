@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# HTTP POST GET 本质区别详解
+## HTTP POST GET 本质区别详解
 
 
   https://www.oschina.net/news/77354/http-get-post-differenthttp://blog.csdn.net/gideal_wang/article/details/4316691

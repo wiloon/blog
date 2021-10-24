@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# gradle maven snapshot
+## gradle maven snapshot
 configurations.all {
   
 // check for updates every build

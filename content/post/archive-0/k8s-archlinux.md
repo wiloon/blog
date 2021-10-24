@@ -7,7 +7,7 @@ categories:
   - k8s
 
 ---
-# archlinux, k8s
+## archlinux, k8s
 
 ```bash
 pacman -S kubeadm

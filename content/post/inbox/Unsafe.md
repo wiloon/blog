@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-# "Unsafe"
+## "Unsafe"
 # unsafe
 Unsafe在sun.misc 下，顾名思义，这是一个不安全的类，因为Unsafe类所操作的并不属于Java标准，Java的一系列内存操作都是交给jvm的，而Unsafe类却能有像C语言的指针一样直接操作内存的能力，同时也会带来了指针的问题。过度使用Unsafe类的话，会使出错率变得更大，因此官方才命名为Unsafe，并且不建议使用，连注释的没有。
 而为了安全使用Unsafe，Unsafe类只允许jdk自带的类使用，从下面的代码中可以看出

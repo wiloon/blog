@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# serialVersionUID
+## serialVersionUID
 serialVersionUID作用: 
   
 序列化时为了保持版本的兼容性,即在版本升级时反序列化仍保持对象的唯一性。

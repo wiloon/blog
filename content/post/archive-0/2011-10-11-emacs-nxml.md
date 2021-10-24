@@ -12,7 +12,7 @@ categories:
   - Emacs
 
 ---
-# emacs nXML
+## emacs nXML
 download nXML from http://www.thaiopensource.com/nxml-mode/
 
 To get things automatically loaded each time you start Emacs, add

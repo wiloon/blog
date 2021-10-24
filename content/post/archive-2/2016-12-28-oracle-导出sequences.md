@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# oracle 导出sequences
+## oracle 导出sequences
 如下脚本,可以将某个用户的全部sequence查询出来,并拼成创建语句。
 
 <wbr />select 'create sequence '||sequence_name|| <wbr /> <wbr /> <wbr />

@@ -6,7 +6,7 @@ date: 2019-06-02T14:19:27+00:00
 url: /?p=14434
 
 ---
-# chrome weak up api, keep screen on
+## chrome weak up api, keep screen on
 - enable-experimental-web-platform-features
 - web页面支持https才能使用wake lock api
 - android系统开启开发者模式

@@ -8,7 +8,7 @@ categories:
   - Emacs
 
 ---
-# Emacs Markdown
+## Emacs Markdown
 **安装与配置**
 
 安装 markdown-mode 非常简单,只需将下载的 markdown-mode.el 文件置于 Emacs 可找到的路径,例如 ~/.emacs.d/modes。然后把下列内容添加到 .emacs 文件中即可: 

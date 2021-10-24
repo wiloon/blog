@@ -9,7 +9,7 @@ categories:
   - Web
 
 ---
-# cxf wsdl2java
+## cxf wsdl2java
 ```bash
   
 wsdl2java -d src -client http://localhost:9000/helloWorld?wsdl

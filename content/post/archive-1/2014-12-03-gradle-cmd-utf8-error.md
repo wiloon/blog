@@ -10,7 +10,7 @@ tags:
   - Gradle
 
 ---
-# gradle cmd utf8 error
+## gradle cmd utf8 error
 ```bash
 
 export GRADLE_OPTS="-Dfile.encoding=utf-8"

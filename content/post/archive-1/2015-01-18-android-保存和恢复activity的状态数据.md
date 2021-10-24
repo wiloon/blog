@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# android 保存和恢复activity的状态数据
+## android 保存和恢复activity的状态数据
 
 androidjavaactivityonSaveInstanceStateBundle
   

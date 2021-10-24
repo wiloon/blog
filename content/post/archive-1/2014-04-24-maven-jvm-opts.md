@@ -10,7 +10,7 @@ tags:
   - Maven
 
 ---
-# maven jvm opts
+## maven jvm opts
 ### Maven工程的JVM配置方式
 
 

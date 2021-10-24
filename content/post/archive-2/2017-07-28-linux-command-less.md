@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# linux command less
+## linux command less
 ### make Vim behave like "tail -f"?
 
 ```bash

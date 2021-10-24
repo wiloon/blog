@@ -10,7 +10,7 @@ tags:
   - JPA
 
 ---
-# JPA criteria 查询,更新，删除
+## JPA criteria 查询,更新，删除
 http://my.oschina.net/zhaoqian/blog/133500
 
 http://www.thoughts-on-java.org/2013/10/criteria-updatedelete-easy-way-to.html

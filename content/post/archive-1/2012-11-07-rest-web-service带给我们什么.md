@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# REST Web Service带给我们什么
+## REST Web Service带给我们什么
 Web Service的协议最近几年一直在发生转变。Web Servcie的最大优势是能在一个操作系统不同的各个系统之间架起沟通的桥梁，早期的 Web Service一般都是以SOAP协议传输。仔细学习和研究过SOAP协议的同学知道，SOAP协议是一个很完备的自解释协议，对Service、Interface、Method和Parameter的描述都非常详细，甚至还制定了一个WSDL的XSD来，在VS中，只要导入Web Service的WSDL，VS就可以自动生成存根代理代码，你只需调用它便可以调用这些SOAP的Web Service了。
 
 SOAP 的Web Service看起来是很完美的解决方案，但是往往看起来完美的东西，用起来并不完美。 SOAP就是如此，随着Web Service 应用在企业级软件的运用，SOAP的缺陷迅速开始暴露出来。

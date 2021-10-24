@@ -11,7 +11,7 @@ tags:
   - Tomcat
 
 ---
-# run a maven web application in Tomcat from Eclipse
+## run a maven web application in Tomcat from Eclipse
 An Eclipse User Library can be used to represent a set of jar files. This user library can be added to a project's classpath. Thus, a user library can be a convenient way to add a set of jar files (rather than individual jar files) to a project's build path. Here, I'll create a user library for a set of Tomcat jar files.
 
 To create a user library, you can go to Window → Preferences and go to Java → Build Path → User Libraries. I'll click the New button to create a new user library.

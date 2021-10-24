@@ -8,7 +8,7 @@ categories:
   - Windows
 
 ---
-# win7, system reserved
+## win7, system reserved
 <pre id="question-content">用win7x64的盘装系统，给C盘分出40G后，自动会多出一个大约100M的分区，名字叫system reserved的分区，没有盘符
 
 <pre id="best-answer-content">该分区是系统的导引文件所在分区,为安全起见,和系统分开了.我们不妨把这个分区叫启动分区,把Windows文件夹所在分区叫做系统分区

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# chained invocation（链式调用) 或者Method chaining
+## chained invocation（链式调用) 或者Method chaining
 https://www.zhihu.com/question/22006988
   
 这就是chained invocation（链式调用) 或者Method chaining，这种风格的API设计叫做fluent API或者Fluent interface。它常用在Builder pattern的实现上。

@@ -9,7 +9,7 @@ tags:
   - java
 
 ---
-# 函数式编程, Functional Programming
+## 函数式编程, Functional Programming
 函数式编程已经存在了很长了时间，早在50年代 Lisp 编程语言的介绍中就有提过。如果你有关注近两年里内热门的 Clojure，Scala，Erlang，Haskell，Elixir 等语言的话，其中都有函数式编程的概念。
 
 函数式编程的简要历史

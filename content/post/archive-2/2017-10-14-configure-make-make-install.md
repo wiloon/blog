@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# AUTOCONF, AUTOMAKE, configure, make, make install
+## AUTOCONF, AUTOMAKE, configure, make, make install
 http://blog.csdn.net/linzhiji/article/details/6774410
   
 这些都是典型的使用GNU的AUTOCONF和AUTOMAKE产生的程序的安装步骤。

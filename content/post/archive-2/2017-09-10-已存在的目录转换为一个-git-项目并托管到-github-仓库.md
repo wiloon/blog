@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 已存在的目录转换为一个 GIT 项目并托管到 GITHUB 仓库
+## 已存在的目录转换为一个 GIT 项目并托管到 GITHUB 仓库
 ```bash
   
 git init

@@ -8,5 +8,5 @@ categories:
   - Emacs
 
 ---
-# emacs version
+## emacs version
     M-x emacs-version

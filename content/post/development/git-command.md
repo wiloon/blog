@@ -7,7 +7,7 @@ tags:
 - Git
 
 ---
-# git basic, command
+## git basic, command
 ### git 清除所有被 Ignore 的文件
 #### 查看所有被 Git 忽略的文件, Git 1.6+:
 ```bash

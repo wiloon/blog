@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# yaml
+## yaml
 http://www.ruanyifeng.com/blog/2016/07/yaml.html
 
 YAML 语言（发音 /ˈjæməl/ ) 的设计目标，就是方便人类读写。它实质上是一种通用的数据串行化格式。  

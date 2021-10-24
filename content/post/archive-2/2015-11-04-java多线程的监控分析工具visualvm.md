@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# jvisualvm, JVM 监控分析工具(VisualVM)
+## jvisualvm, JVM 监控分析工具(VisualVM)
 Visual GC
   
 GC time Time taken to perform garbage collection

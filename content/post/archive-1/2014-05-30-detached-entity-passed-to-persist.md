@@ -10,7 +10,7 @@ tags:
   - JPA
 
 ---
-# detached entity passed to persist
+## detached entity passed to persist
 病理特征: Caused by: org.hibernate.PersistentObjectException: detached entity passed to persist: com.xxx.Xxx
 
 简单地说，发生此异常即是一个游离的对象要被持久化(save)时，其ID既要ORM框架为它生成ID值，而此实体的ID却已然有值。对于新手容易出现此异常，但一些有经验的程序员有时也会碰到此问题，笔者就有一次，故与网友们"分享这次遭遇"。

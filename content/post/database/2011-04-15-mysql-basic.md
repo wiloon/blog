@@ -8,7 +8,7 @@ categories:
 tags:
   - MySQL
 ---
-# MySQL basic
+## MySQL basic
 ### MySQL heidisql 变量
     SET @total_count := 10;
     select @total_count;

@@ -6,7 +6,7 @@ date: 2018-07-15T07:50:12+00:00
 url: /?p=12430
 
 ---
-# docker mirror
+## docker mirror
 登录容器Hub服务的控制台,左侧的加速器帮助页面就会显示为你独立分配的加速地址。
   
 https://yq.aliyun.com/articles/29941

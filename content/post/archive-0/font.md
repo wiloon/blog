@@ -7,7 +7,7 @@ url: font
 
 
 ---
-# font, 字体
+## font, 字体
 ### Source Code Pro
 sudo pacman -S adobe-source-code-pro-fonts
 ### Verdana

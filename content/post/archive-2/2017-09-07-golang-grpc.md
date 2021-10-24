@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# golang grpc
+## golang grpc
 ```bash
   
 go get google.golang.org/grpc

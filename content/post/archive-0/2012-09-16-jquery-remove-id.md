@@ -8,5 +8,5 @@ categories:
   - Uncategorized
 
 ---
-# jquery remove id
+## jquery remove id
 row.removeAttr("id");

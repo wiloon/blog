@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# http GET POST 长度
+## http GET POST 长度
 http://blog.csdn.net/blueling51/article/details/6935901
 
 1.    Get方法长度限制

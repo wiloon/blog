@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# centos vncserver
+## centos vncserver
 CENTOS6的VNC SERVER
   
 CENTOS6中的VNC SERVER已更換成tightvnc

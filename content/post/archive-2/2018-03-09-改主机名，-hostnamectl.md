@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 改主机名, hostnamectl
+## 改主机名, hostnamectl
 http://blog.csdn.net/peterxiaoq/article/details/72912862
 
 ```bash

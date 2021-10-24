@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'Netty 中 IOException,Connection reset by peer 与 java.nio.channels.ClosedChannelException,null'
+## 'Netty 中 IOException,Connection reset by peer 与 java.nio.channels.ClosedChannelException,null'
 http://www.cnblogs.com/zemliu/p/3864131.html
 
 

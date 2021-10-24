@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# DCEVM, HotSwapAgent
+## DCEVM, HotSwapAgent
 https://blog.csdn.net/u013613428/article/details/51499911
 
 要高效的开发Java代码，那就必须要让java像js一样，修改过的代码可以实时的反应出来。要了解如何做到这一点，我们先要知道JVM是如何工作的: 

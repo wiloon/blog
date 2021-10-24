@@ -7,7 +7,7 @@ categories:
   - OS
 
 ---
-# semaphore/信号量, mutex/互斥锁
+## semaphore/信号量, mutex/互斥锁
 Mutex是一把钥匙，一个人拿了就可进入一个房间，出来的时候把钥匙交给队列的第一个。一般的用法是用于串行化对 critical section 代码的访问，保证这段代码不会被并行的运行。
 
 Semaphore/信号量 是一件可以容纳 N 人的房间，如果人不满就可以进去，如果人满了, 就要等待有人出来. 对于N=1的情况，称为binary semaphore。一般的用法是，用于限制对于某一资源的同时访问。

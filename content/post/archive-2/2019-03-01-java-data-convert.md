@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# java data convert
+## java data convert
 NumberFormat formatter = new DecimalFormat("#0.00");
   
 System.out.println(formatter.format(4.0));

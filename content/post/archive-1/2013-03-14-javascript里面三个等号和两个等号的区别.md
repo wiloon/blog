@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# JavaScript里面三个等号和两个等号的区别
+## JavaScript里面三个等号和两个等号的区别
 == equality 等同，=== identity 恒等。
 
 ==， 两边值类型不同的时候，要先进行类型转换，再比较。

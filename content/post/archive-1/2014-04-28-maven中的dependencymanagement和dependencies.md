@@ -10,7 +10,7 @@ tags:
   - Maven
 
 ---
-# Maven中的DependencyManagement和Dependencies
+## Maven中的DependencyManagement和Dependencies
 这里介绍一个在父项目中的根结点中声明dependencyManagement和dependencies的区别
 
 dependencyManagement

@@ -10,7 +10,7 @@ tags:
   - Spring
 
 ---
-# applicationContext.xml 配置文件位置
+## applicationContext.xml 配置文件位置
 存放位置: 
   
 1: src下面

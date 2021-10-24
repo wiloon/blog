@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'JMC & Flight Recorder'
+## 'JMC & Flight Recorder'
 从Java 7 Update 40之后，任务控制和Flight Recorder就将和JDK一起提供，正如InfoQ 在介绍它发布的新闻中所描述的那样。任务控制的出发点是监控、管理和排错，而Flight Recorder则是收集和评估性能数据的设施。这两个工具在JRockit中都已经存在，现在最终被移植到了HotSpot上，
 
 任务控制

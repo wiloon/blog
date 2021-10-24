@@ -10,7 +10,7 @@ tags:
   - MyBatis
 
 ---
-# mybatis 动态 sql
+## mybatis 动态 sql
 [xml]
   
 <update id="updateAuthorIfNecessary">

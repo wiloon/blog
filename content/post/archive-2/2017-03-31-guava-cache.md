@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Guava cache
+## Guava cache
 http://www.cnblogs.com/peida/p/Guava_Cache.html
 
 缓存,在我们日常开发中是必不可少的一种解决性能问题的方法。简单的说,cache 就是为了提升系统性能而开辟的一块内存空间。

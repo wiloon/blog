@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# excel round、rounddown、roundup
+## excel round、rounddown、roundup
 round、rounddown、roundup三个函数应用的区别。
 
 round函数: 按指定位数对数字进行四舍五入。如输入=round(3.158，2) 则会出现数字3.16，即按两位小数进行四舍五入。rounddown: 按指定位数舍去数字指定位数后面的小数。如输入=rounddown(3.158，2) 则会出现数字3.15，将两位小数后的数字全部舍掉了。

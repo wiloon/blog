@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# docker mariadb
+## docker mariadb
 ```bash
 mkdir -p /data/mariadb
 docker run -d --name mariadb -P -v /data/mariadb:/var/lib/MySQL -e MySQL_ROOT_PASSWORD=password0 mariadb

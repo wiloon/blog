@@ -15,7 +15,7 @@ tags:
   - Git
 
 ---
-# Repository write access denied
+## Repository write access denied
 Repository write access denied
 
 manually add public key to /home/git/.ssh/authorized_keys

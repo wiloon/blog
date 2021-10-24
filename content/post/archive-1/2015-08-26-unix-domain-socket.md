@@ -5,7 +5,7 @@ date: 2015-08-26T00:50:32+00:00
 url: uds
 
 ---
-# unix domain socket, UDS
+## unix domain socket, UDS
 http://blog.csdn.net/bingqingsuimeng/article/details/8470029
 
 http://blog.chinaunix.net/uid-20511624-id-1659107.html

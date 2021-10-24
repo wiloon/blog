@@ -10,7 +10,7 @@ tags:
   - KVM
 
 ---
-# failed to find romfile pxe-virtio.bin
+## failed to find romfile pxe-virtio.bin
 failed to find romfile pxe-virtio.bin
   
 需要安装kvm-pxe

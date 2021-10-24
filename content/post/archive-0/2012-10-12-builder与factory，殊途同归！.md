@@ -10,7 +10,7 @@ tags:
   - DesignPattern
 
 ---
-# Builder, Factory
+## Builder, Factory
 <http://www.cnblogs.com/shenfx318/archive/2007/01/28/632724.html>
 
   

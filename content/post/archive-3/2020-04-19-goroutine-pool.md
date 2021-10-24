@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# goroutine pool
+## goroutine pool
 ```golang
 type worker struct {
     Func func()

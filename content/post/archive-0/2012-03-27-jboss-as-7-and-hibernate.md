@@ -11,7 +11,7 @@ tags:
   - Jboss
 
 ---
-# JBoss AS 7 and Hibernate
+## JBoss AS 7 and Hibernate
 JBoss AS 7 and Hibernate: what's up?
 
 You might have heard the news: JBoss AS 7 is out 🙂 What does it mean from an Hibernate user perspective?

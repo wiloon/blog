@@ -10,7 +10,7 @@ tags:
   - Maven
 
 ---
-# maven mirror, repository
+## maven mirror, repository
 mirror和 repository
 
 1 Repository（仓库) 

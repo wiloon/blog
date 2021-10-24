@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# raspberry pi 3B
+## raspberry pi 3B
 Raspberry Pi 3 Specifications
   
 SoC: Broadcom BCM2837

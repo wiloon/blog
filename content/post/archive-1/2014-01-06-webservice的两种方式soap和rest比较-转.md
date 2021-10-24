@@ -8,7 +8,7 @@ tags:
   - Web
 
 ---
-# WebService的两种方式SOAP和REST比较 (转)
+## WebService的两种方式SOAP和REST比较 (转)
 我的读后感: 由于第一次接触WebService,对于很多概念不太理解,尤其是看到各个OpenAPI的不同提供方式时,更加疑惑。如google map api采用了AJAX方式,通过javascript提供API,而淘宝TOP则采用直接的HTTP+XML请求方式,最令我疑惑的是教材上讲的WSDL,UDDI从没有在这些API中出现过。现在知道了WebService原来有两种方式,一是SOAP协议方式,在这种方式下需要WSDL,UDDI等,二是REST方式,这种方式根本不需要WSDL,UDDI等。而且REST方式现在看来是更加流行,更有前途的方式。
   
 在SOA的基础技术实现方式中WebService占据了很重要的地位,通常我们提到WebService第一想法就是SOAP消息在各种传输协议上交互。近几年REST的思想伴随着SOA逐渐被大家接受,同时各大网站不断开放API提供给开发者,也激起了REST风格WebService的热潮。

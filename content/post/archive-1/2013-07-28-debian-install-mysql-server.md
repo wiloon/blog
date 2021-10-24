@@ -11,7 +11,7 @@ tags:
   - MySQL
 
 ---
-# debian install MySQL server
+## debian install MySQL server
 ```bash
 
 sudo apt-get install MySQL-server

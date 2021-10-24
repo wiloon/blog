@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# debian btnx
+## debian btnx
 open synaptic package manager, install btnx and btnx-config.
 
 sudo btnx-config

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# pixelbook, chromeos, developer mode,crouton
+## pixelbook, chromeos, developer mode,crouton
 developer mode
   
 https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to

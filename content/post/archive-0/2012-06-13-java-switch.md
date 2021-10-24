@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# java switch
+## java switch
 <pre id="best-answer-content">关于java中switch使用的一些说明
 
 switch(表达式)

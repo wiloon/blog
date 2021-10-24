@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# debian 7 xfce
+## debian 7 xfce
 <http://www.binarytides.com/install-xfce-desktop-on-debian-7-wheezy/>
 
 Xfce is a lightweight desktop environment system for linux, and is a good alternative to the complex and clumsy gnome.

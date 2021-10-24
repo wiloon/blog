@@ -10,7 +10,7 @@ tags:
   - JPA
 
 ---
-# JPA的persistence.xml文件
+## JPA的persistence.xml文件
 Posted on 2012-05-24 12:27 CN.programmer.Luxh 阅读(7217) 评论(0) 编辑 收藏
   
 persistence.xml文件必须定义在classpath路径下的META-INF文件夹中。

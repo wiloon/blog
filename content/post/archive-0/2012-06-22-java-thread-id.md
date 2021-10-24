@@ -7,7 +7,7 @@ categories:
   - Java
 
 ---
-# java thread id, name
+## java thread id, name
 Thread.currendThread().getName()
   
 这个可以返回线程对象的ID

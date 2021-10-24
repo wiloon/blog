@@ -11,7 +11,7 @@ tags:
   - Spring
 
 ---
-# 应用springMVC时 JS等文件找不到错误
+## 应用springMVC时 JS等文件找不到错误
 <http://samuel5-1.iteye.com/blog/727772>
 
 应用springMVC时如果配置URL映射时如下配置

@@ -10,7 +10,7 @@ categories:
   - Linux
 
 ---
-# linux shell sleep,wait
+## linux shell sleep,wait
 sleep 5
   
 等待 秒

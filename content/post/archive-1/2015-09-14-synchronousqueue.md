@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# SynchronousQueue
+## SynchronousQueue
 http://wsmajunfeng.iteye.com/blog/1629352/
   
 SynchronousQueue是这样一种阻塞队列,其中每个 put 必须等待一个 take,反之亦然。同步队列没有任何内部容量,甚至连一个队列的容量都没有。

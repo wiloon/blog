@@ -10,7 +10,7 @@ tags:
   - Stock
 
 ---
-# linux stock
+## linux stock
 Whether you're a stock market trader or just an investment enthusiast, the computer is something that you'll always need for your work. On Windows, there are already a plenty of different software for managing your finances. Linux on the other hand, is yet to catch on in this department, but there are still quite a few good free and open-source finance/accounting software for Linux.
   
 Don't be disappointed though, as the scenario is slowly changing with the London Stock Exchange recently switching to Linux. Also, Linux boasts of developers who come from all walks of life, thus, there are a few applications that will come in handy for those who are into stock market and investing who prefer to use this platform.

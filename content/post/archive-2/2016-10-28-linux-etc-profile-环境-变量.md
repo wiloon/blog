@@ -6,7 +6,7 @@ date: 2016-10-28T04:34:33+00:00
 url: /?p=9346
 
 ---
-# linux 环境 变量, /etc/profile
+## linux 环境 变量, /etc/profile
 ### /etc/profile.d/ 目录
 在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本,比如vim等命令的一些附加设置,在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件,这些脚本文件的环境变量能够被生效,是因为在 /etc/profile 被读取的时候,会使用一个for循环语句来调用 /etc/profile.d 下的脚本,这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了,cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码: 
 

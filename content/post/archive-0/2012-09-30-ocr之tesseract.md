@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# OCR之Tesseract
+## OCR之Tesseract
 ## <http://www.cnblogs.com/brooks-dotnet/archive/2010/10/05/1844203.html>
 
   

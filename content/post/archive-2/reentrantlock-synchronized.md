@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# Java ReentrantLock, synchronized
+## Java ReentrantLock, synchronized
 http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html
 
 多线程和并发性并不是什么新内容,但是 Java 语言设计中的创新之一就是,它是第一个直接把跨平台线程模型和正规的内存模型集成到语言中的主流语言。核心类库包含一个 Thread 类,可以用它来构建、启动和操纵线程,Java 语言包括了跨线程传达并发性约束的构造 - synchronized 和 volatile. 在简化与平台无关的并发类的开发的同时,它决没有使并发类的编写工作变得更繁琐,只是使它变得更容易了。

@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# chmod
+## chmod
 ```bash
 chmod a+x 1.sh
 chmod og+rwx 1.sh

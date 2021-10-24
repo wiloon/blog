@@ -10,7 +10,7 @@ tags:
   - Maven
 
 ---
-# maven ojdbc6
+## maven ojdbc6
 ```bash
 
 mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -Dfile=/home/wiloon/Downloads/ojdbc6.jar

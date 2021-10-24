@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# eclipse中java项目转换为web项目
+## eclipse中java项目转换为web项目
 http://hi.baidu.com/starhuo/blog/item/cddb59eeec8cd7f7b3fb955f.html
 
 经常在eclipse中导入web项目时，出现转不了项目类型的问题，导入后就是一个java项目，有过很多次经历，今天也有同事遇到类似问题，就把这个解决方法记下来吧，免得以后再到处去搜索。

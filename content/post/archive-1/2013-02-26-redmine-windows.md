@@ -8,7 +8,7 @@ categories:
   - Development
 
 ---
-# redmine windows
+## redmine windows
   * rubyinstaller
 
 SET RUBY_HOME=D:/ruby

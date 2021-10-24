@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# jsw wrapper.ping.alert
+## jsw wrapper.ping.alert
 https://wrapper.tanukisoftware.com/doc/english/prop-ping-alert-x.html
 
 The Wrapper uses a ping system as one of its methods of monitoring the JVM. The Wrapper will send a ping to the JVM and then wait for a ping response. If a response has not been received for more than the time configured in <span class="monospace">wrapper.ping.timeoutproperty, then the Wrapper will decide that the JVM is frozen and forcibly kill and restart it.

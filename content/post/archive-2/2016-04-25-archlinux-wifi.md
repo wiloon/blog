@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# archlinux netctl wifi
+## archlinux netctl wifi
 
 
 

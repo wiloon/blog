@@ -7,7 +7,7 @@ url: /?p=13970
 keys: win apps, windows apps
 
 ---
-# windows apps, win apps
+## windows apps, win apps
 ### choco
 
 ```bash

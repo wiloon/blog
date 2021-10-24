@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# oracle commands
+## oracle commands
 [sql]
 
 to_number('2')

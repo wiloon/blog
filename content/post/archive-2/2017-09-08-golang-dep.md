@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 'golang  dep'
+## 'golang  dep'
 ```bash
   
 dep status -dot | dot -T png | display

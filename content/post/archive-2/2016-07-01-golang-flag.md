@@ -10,7 +10,7 @@ tags:
   - Golang
 
 ---
-# golang flag 获取命令行参数
+## golang flag 获取命令行参数
 ```java
 flag.String("port", ":8080", "http listen port")
 ```

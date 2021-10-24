@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# Java Console Input
+## Java Console Input
 ```java
 
 import java.io.Console;

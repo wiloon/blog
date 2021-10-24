@@ -12,7 +12,7 @@ tags:
   - CSS
 
 ---
-# CSS basic
+## CSS basic
 #border
   
 border: 1px solid red;

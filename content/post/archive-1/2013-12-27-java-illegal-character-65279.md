@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# 'java  illegal character  \65279'
+## 'java  illegal character  \65279'
 <http://blog.csdn.net/shixing_11/article/details/6976900>
 
 某些编辑器会往utf8文件中添加utf8标记（editplus称其为签名) ，它会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即BOM) ，它的表示的是 Unicode 标记（BOM) 。 因此要解决这个问题的关键就是把这个标记选项去掉，可按如下方法操作。

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# armv6, armv7, rm处理器中a5 a8 a9，v6 v7，arm7 arm9 arm11
+## armv6, armv7, rm处理器中a5 a8 a9，v6 v7，arm7 arm9 arm11
 ARM是微处理器行业的一家知名企业，arm处理器以体积小和高性能的优势在嵌入式设备中广泛使用，几乎所有手机都是使用它的。
 
 armv6, armv7, armv7s是ARM CPU的不同指令集，原则上是向下兼容的。如iPhone4S CPU支持armv7, 但它同时兼容armv6，只是使用armv6指令可能无法充分发挥它的特性。同理iPhone5 CPU支持armv7s，它虽然也兼容armv7，但是却无法进行相关的优化。

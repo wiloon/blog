@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# 伪共享 False Sharing
+## 伪共享 False Sharing
 原文地址: http://ifeve.com/false-sharing/
 
 作者: Martin Thompson  译者: 丁一

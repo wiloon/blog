@@ -14,7 +14,7 @@ tags:
   - Tomcat
 
 ---
-# 'Tomcat & Catalina'
+## 'Tomcat & Catalina'
 catalina   是   tomcat   4.x   的   servlet   container，起源是加州的一个岛名，本身和猫没有什么关系，所以   tomcat:catalina   的类比一定不能选   apple:macintosh（macintosh   是美国的一种苹果，个头甚大) 。但另外一方面，PBY   catalina   是一种远程轰炸机，而   apache   是   Jane 's   鼎鼎大名的直升机，所以   catalina:apache   和   apple:macintosh   勉强有一对。
 
 Catalina是太平洋中靠近洛杉矶的一个小岛。因为其风景秀丽而著名。最近曾被评为全美最漂亮的小岛。

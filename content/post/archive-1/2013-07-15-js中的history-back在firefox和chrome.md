@@ -8,7 +8,7 @@ categories:
   - Web
 
 ---
-# Js中的history.back()在FireFox和Chrome
+## Js中的history.back()在FireFox和Chrome
 JavaScript中后退的写法: history.back()或者history.go(-1)。
 
 这种写法在IE上即可实现我们想要的效果，但是在FireFox和Chrome就会变得很悲催了。

@@ -6,7 +6,7 @@ date: 2018-07-26T05:04:27+00:00
 url: openwrt
 
 ---
-# openwrt basic, opkg basic, ipk
+## openwrt basic, opkg basic, ipk
 ### wan dns
 在wan口设置里的“高级设置”选项里去掉"使用端局通告的DNS服务器"的勾选就可以使用自定义的DNS服务器
 ### ssh port

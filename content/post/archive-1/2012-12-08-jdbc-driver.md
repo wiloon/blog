@@ -9,7 +9,7 @@ categories:
   - Java
 
 ---
-# jdbc driver
+## jdbc driver
 jdbc driver:
 
 com.MySQL.jdbc.Driver

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# adb command
+## adb command
 在手机上打开USB调试
 
 ```bash

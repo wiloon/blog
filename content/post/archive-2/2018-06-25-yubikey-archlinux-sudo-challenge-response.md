@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# yubikey, archlinux sudo, challenge-response
+## yubikey, archlinux sudo, challenge-response
 install yubi pam
   
 set configuration sloat 2 as hmac-sha1

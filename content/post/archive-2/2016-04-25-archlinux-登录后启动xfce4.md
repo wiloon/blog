@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# archlinux 登录后启动xfce4
+## archlinux 登录后启动xfce4
 https://wiki.archlinux.org/index.php/xinitrc
 
 ```bash

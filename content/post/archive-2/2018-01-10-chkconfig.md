@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# chkconfig
+## chkconfig
 ```bash
 chkconfig --list
 

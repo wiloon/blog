@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# centos audit.log
+## centos audit.log
 ```bash
   
 ansible all -m yum -a 'name=audit state=present'

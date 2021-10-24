@@ -8,7 +8,7 @@ categories:
   - Network
 
 ---
-# serviceMix proxy setting
+## serviceMix proxy setting
 edit the file $ServiceMix_home/etc/system.properties
 
 add lines

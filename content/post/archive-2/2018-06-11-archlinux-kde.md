@@ -7,7 +7,7 @@ tags:
   - kde
 
 ---
-# archlinux kde, config
+## archlinux kde, config
 ```bash
 sudo pacman -S xorg xorg-xinit
 sudo pacman -S plasma-desktop

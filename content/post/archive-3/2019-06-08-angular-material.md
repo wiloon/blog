@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# angular material
+## angular material
 ```bash
 yarn add @angular/material @angular/cdk @angular/animations
 ```

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# startActivityForResult()
+## startActivityForResult()
 举例说我想要做的一个事情是,在一个主界面(主Activity)上能连接往许多不同子功能模块(子Activity上去),当子模块的事情做完之后就回到主界面,或许还同时返回一些子模块完成的数据交给主Activity处理。
 
 ---

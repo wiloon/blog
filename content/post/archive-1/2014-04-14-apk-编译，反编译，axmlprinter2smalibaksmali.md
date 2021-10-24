@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# apk 编译,反编译,AXMLPrinter2,smali,baksmali
+## apk 编译,反编译,AXMLPrinter2,smali,baksmali
 http://blog.csdn.net/android_tutor/article/details/5724435
 
 1.AXMLPrinter2.jar

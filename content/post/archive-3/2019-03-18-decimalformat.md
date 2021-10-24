@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# DecimalFormat
+## DecimalFormat
 我们经常要将数字进行格式化，比如取2位小数，这是最常见的。Java 提供 DecimalFormat　类，帮你用最快的速度将数字格式化为你需要的样子。下面是一个例子: 
 
 importjava.text.DecimalFormat;

@@ -8,7 +8,7 @@ tags:
   - JavaScript
 
 ---
-# Javascript 重定向 window.location.href / replace / reload()
+## Javascript 重定向 window.location.href / replace / reload()
 
   location.href，可以点击浏览器的后退按钮返回本页。
 

@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# corba, ejb, webservice, rest分布式 区别
+## corba, ejb, webservice, rest分布式 区别
 Corba，还是EJB，都有一些共同点: 
   
 1) 通过专有的网络协议通讯

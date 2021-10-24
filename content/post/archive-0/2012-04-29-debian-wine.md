@@ -8,7 +8,7 @@ categories:
   - Linux
 
 ---
-# debian wine frozen throne
+## debian wine frozen throne
 download source  from <http://www.winehq.org/download/>
 
 sudo apt-get install flex

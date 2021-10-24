@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 
 ---
-# 蓝牙配对
+## 蓝牙配对
 四中配对模式: Numeric Comparison, Just Works, Out of Band and Passkey Entry。
 
 - Numeric Comparison：配对双方都显示一个6位的数字，由用户来核对数字是否一致，一致即可配对。例如手机之间的配对。

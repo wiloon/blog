@@ -7,5 +7,5 @@ categories:
   - foo
 
 ---
-# 共识算法, consensus algorithm
+## 共识算法, consensus algorithm
 PoW，PoS，DPoS，PBFT，Paxos，Raft 

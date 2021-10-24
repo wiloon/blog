@@ -6,7 +6,7 @@ date: 2019-02-22T11:26:25+00:00
 url: /?p=13678
 
 ---
-# redis config
+## redis config
 
 https://raw.githubusercontent.com/redis/redis/6.0/redis.conf
 

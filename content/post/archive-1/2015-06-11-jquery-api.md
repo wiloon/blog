@@ -10,7 +10,7 @@ tags:
   - JavaScript
 
 ---
-# javascript api, jquery api
+## javascript api, jquery api
 ```
 
 //tag name

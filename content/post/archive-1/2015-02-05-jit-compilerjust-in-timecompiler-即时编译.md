@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# 'JAVA   JIT Compiler(Just-in-timeCompiler) 即时编译'
+## 'JAVA   JIT Compiler(Just-in-timeCompiler) 即时编译'
 JIT Compiler(Just-in-timeCompiler) 即时编译
   
 最早的Java建置方案是由一套转译程式（interpreter) ,将每个Java指令都转译成对等的微处理器指令,并根据转译后的指令先后次序依序执行,由于一个Java指令可能被转译成十几或数十几个对等的微处理器指令,这种模式执行的速度相当缓慢。

@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# huawei p8 root
+## huawei p8 root
 https://forum.xda-developers.com/huawei-p8/how-to/rooting-huawei-p8-marshmallow-emui4-0-1-t3431249
   
 install twrp

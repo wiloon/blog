@@ -8,7 +8,7 @@ categories:
   - Emacs
 
 ---
-# Emacs的缓冲区(Buffers)、窗口(Windows)和框架(Frames)
+## Emacs的缓冲区(Buffers)、窗口(Windows)和框架(Frames)
 
 概念上，Emacs在两个方面有别于一般程序。首先，"窗口"的概念不同。其次，Emacs的"缓冲区"是脱离窗口或框架独立存在的。
 

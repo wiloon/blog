@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ServletContextAttributeListener
+## ServletContextAttributeListener
  ServletContext context = getServletContext();
 
  context.setAttribute("attrName", "attrValue");

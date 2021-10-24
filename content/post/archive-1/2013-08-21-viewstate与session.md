@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-# ViewState与Session
+## ViewState与Session
 <span>昨天偶然看到网上有人讨论究竟是该用viewstate还是session来保存信息. 忽然觉得有必要去深入的研究一下这两个东西了.
 
 <span>我们先来看深入分析一下viewstate, 为了分析的相对完整性,先从简单的说起:

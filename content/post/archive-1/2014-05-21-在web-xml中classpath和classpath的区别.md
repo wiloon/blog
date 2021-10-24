@@ -10,7 +10,7 @@ tags:
   - Web
 
 ---
-# '在web.xml中classpath和classpath*的区别'
+## '在web.xml中classpath和classpath*的区别'
 
   写spring的代码到现在,一直都很习惯性的拷贝web.xml中的内容,没怎么在意里面的内容,最近认真研究了下,很多东西都不是很理解,特别是classpath和classpath*的区别,研究了许久才搞明白,记录下备忘。
 

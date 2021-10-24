@@ -14,7 +14,7 @@ tags:
   - JavaScript
 
 ---
-# javascript 逻辑运算符
+## javascript 逻辑运算符
 
 ### 运算符优先级
 | 优先级 | 运算符 | 结合性 |

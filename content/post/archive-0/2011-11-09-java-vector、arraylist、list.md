@@ -10,7 +10,7 @@ tags:
   - Java
 
 ---
-# Java Array, Vector, ArrayList, List, LinkedList
+## Java Array, Vector, ArrayList, List, LinkedList
 array(数组)和Vector是十分相似的Java构件（constructs) ，两者全然不同，在选择使用时应根据各自的功能来确定。
 
 ### 数组: 

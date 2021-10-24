@@ -8,7 +8,7 @@ categories:
   - Java
 
 ---
-# eclipse updating indexes
+## eclipse updating indexes
 解决为什么每次打开Eclipse新的workspace需要更新nexus-maven-repository-index问题
 
   1. 新建一个Eclipse的workspace。
