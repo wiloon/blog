@@ -1,14 +1,101 @@
 ---
-title: linux dd
+title: dd
 author: "-"
-type: post
-date: 2012-06-08T05:39:47+00:00
-url: /?p=3451
+date: 2012-01-02T10:40:16+00:00
+url: dd
 categories:
   - Linux
 
 ---
-## linux dd
+## dd
+### 生成一个大小为5G的文件
+```bash
+dd if=/dev/zero of=foo.5G bs=1G count=5
+```
+
+### 创建稀疏文件
+```bash
+dd of=foo.bin bs=1k seek=5120 count=0
+```
+
+参数
+
+if=FILE      : 指定输入文件，若不指定则从标注输入读取。这里指定为/dev/zero是Linux的一个伪文件，它可以产生连续不断的null流（二进制的0）
+of=FILE      : 指定输出文件，若不指定则输出到标准输出
+bs=BYTES     : 每次读写的字节数，可以使用单位K、M、G等等。另外输入输出可以分别用ibs、obs指定，若使用bs，则表示是ibs和obs都是用该参数
+count=BLOCKS : 读取的block数，block的大小由ibs指定（只针对输入参数）
+
+dd 的主要选项: 
+
+指定数字的地方若以下列字符结尾乘以相应的数字:
+
+b=512, c=1, k=1024, w=2, xm=number m
+
+if=file
+
+输入文件名，缺省为标准输入。
+
+of=file
+
+输出文件名，缺省为标准输出。
+
+ibs=bytes
+
+一次读入 bytes 个字节(即一个块大小为 bytes 个字节)。
+
+obs=bytes
+
+一次写 bytes 个字节(即一个块大小为 bytes 个字节)。
+
+bs=bytes
+
+同时设置读写块的大小为 bytes ，可代替 ibs 和 obs 。
+
+cbs=bytes
+
+一次转换 bytes 个字节，即转换缓冲区大小。
+
+skip=blocks
+
+从输入文件开头跳过 blocks 个块后再开始复制。
+
+seek=blocks
+
+从输出文件开头跳过 blocks 个块后再开始复制。(通常只有当输出文件是磁盘或磁带时才有效)。
+
+count=blocks
+
+仅拷贝 blocks 个块，块大小等于 ibs 指定的字节数。
+
+conv=conversion[,conversion...]
+
+用指定的参数转换文件。
+
+转换参数:
+
+ascii 转换 EBCDIC 为 ASCII。
+
+ebcdic 转换 ASCII 为 EBCDIC。
+
+ibm 转换 ASCII 为 alternate EBCDIC.
+
+block 把每一行转换为长度为 cbs 的记录，不足部分用空格填充。
+
+unblock 使每一行的长度都为 cbs ，不足部分用空格填充。
+
+lcase 把大写字符转换为小写字符。
+
+ucase 把小写字符转换为大写字符。
+
+swab 交换输入的每对字节。
+
+noerror 出错时不停止。
+
+notrunc 不截短输出文件。
+
+sync 把每个输入块填充到ibs个字节，不足部分用空(NUL)字符补齐。
+
+
 **
   
 ** 
@@ -218,3 +305,4 @@ dd if=/dev/sda of=/dev/sda
 当硬盘较长时间（比如1，2年) 放置不使用后，磁盘上会产生magnetic flux point。当磁头读到这些区域时会遇到困难，并可能导致I/O错误。当这种情况影响到硬盘的第一个扇区时，可能导致硬盘报废。上边的命令有可能使这些数据起死回生。且这个过程是安全，高效的。
 
 http://www.linuxso.com/command/dd.html
+>https://blog.csdn.net/beswkwangbo/article/details/46375795

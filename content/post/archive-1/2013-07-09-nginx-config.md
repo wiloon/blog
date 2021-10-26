@@ -1,9 +1,8 @@
 ---
 title: Nginx config, 配置, nginx.conf
 author: "-"
-type: post
 date: 2013-07-09T05:59:32+00:00
-url: /?p=5626
+url: nginx/config
 
 ---
 ## Nginx config, 配置, nginx.conf
@@ -776,7 +775,7 @@ NGINX配置超时时间 原
      这两个选项默认都是秒(s),可以手动指定为分钟(m),小时(h)等
     
 
-三、其他常用参数以及参数说明
+三 其他常用参数以及参数说明
           
 keepalive_timeout 600; 连接超时时间，1分钟，具体时间可以根据请求（例如后台导入) 需要的时间来设置
 
@@ -801,9 +800,9 @@ keepalive_timeout
 
 注意不同浏览器怎么处理"keep-alive"头
 
-MSIE和Opera忽略掉"Keep-Alive: timeout=<N>" header.
+MSIE 和Opera忽略掉"Keep-Alive: timeout=<N>" header.
 
-MSIE保持连接大约60-65秒，然后发送TCP RST
+MSIE 保持连接大约60-65秒，然后发送TCP RST
 
 Opera永久保持长连接
 
