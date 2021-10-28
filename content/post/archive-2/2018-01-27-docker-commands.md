@@ -1,16 +1,18 @@
 ---
 title: docker basic, commands
 author: "-"
-type: post
 date: 2018-01-27T08:35:04+00:00
-url: /?p=11796
+url: docker/basic
 categories:
-  - Uncategorized
+  - docker
 
 ---
 ## docker basic, commands
 ###  批量删除镜像
-     docker rmi $(docker images | grep "name0" | awk '{print $3}') 
+```bash
+docker rmi $(docker images | grep "name0" | awk '{print $3}')
+docker rmi -f $(docker images | grep "name0" | awk '{print $3}')
+```
 
 ```bash
 docker restart foo
@@ -270,10 +272,7 @@ default volumn path /var/lib/docker/volumes/
 
 ---
 
-https://segmentfault.com/a/1190000012063374
-  
-https://www.cnblogs.com/sparkdev/p/8052522.html
-  
-https://colobu.com/2018/05/15/Stop-and-remove-all-docker-containers-and-images/
-  
-https://cizixs.com/2017/08/04/docker-resources-limit/
+>https://segmentfault.com/a/1190000012063374
+>https://www.cnblogs.com/sparkdev/p/8052522.html
+>https://colobu.com/2018/05/15/Stop-and-remove-all-docker-containers-and-images/
+>https://cizixs.com/2017/08/04/docker-resources-limit/

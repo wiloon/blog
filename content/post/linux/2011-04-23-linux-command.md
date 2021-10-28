@@ -1,12 +1,21 @@
 ---
 title: linux basic shell command
 author: "-"
-type: post
 date: 2011-04-23T08:54:55+00:00
-url: /?p=101
+url: linux/basic
 
 ---
 ## linux basic shell command
+### Display the last users who have logged onto the system.
+    last
+### Display the user and group ids of your current user.
+    id
+### Display who is online
+    w
+### Show who is logged into the system.
+    who
+### Show this month's calendar
+    cal
 ### printf
     export LC_NUMERIC="en_US.UTF-8"
     printf "%'f\n" 1234567.777

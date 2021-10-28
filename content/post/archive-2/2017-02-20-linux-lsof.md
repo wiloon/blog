@@ -1,13 +1,12 @@
 ---
-title: linux lsof
+title: lsof
 author: "-"
-type: post
 date: 2017-02-20T00:53:45+00:00
-url: /?p=9838
+url: lsof
 
 ---
-## linux lsof
-### lsof 命令实例
+## lsof
+List all open files on the system
 ```bash
 #PID: 1098
 sudo lsof -p 1098
