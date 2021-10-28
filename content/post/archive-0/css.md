@@ -29,3 +29,20 @@ margin: 0 10px;
 overflow
 
 hidden 内容会被修剪，并且其余内容是不可见的。
+
+## CSS去掉li的圆点 , 列表符号
+CSS去掉li的圆点
+  
+list-style-type:none;
+
+### 鼠标样式
+#cssid {
+  
+cursor:pointer;
+  
+}
+
+hand:手型
+  
+pointer:手型
+
