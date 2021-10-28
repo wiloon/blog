@@ -234,16 +234,20 @@ git push origin :refs/tags/1.0.0
 #### 新建分支
     git branch branch0
 #### 切换到分支
-    git checkout branch0
     git switch branch0
+    git checkout branch0
+
 #### 新建并切换到分支
-    git checkout -b branch0
     git switch -c dev
+    git checkout -b branch0
+
 #### 删除分支
     git branch -d branch0
+    # 强制删除分支，删除没merge的分支
+    git branch -D branch0
 #### 删除远程的todo branch
     git branch -d -r origin/todo
-#### 分支合并, git merge命令用于合并指定分支到当前分支
+#### 分支合并, git merge 命令用于合并指定分支到当前分支
     git merge branch1 -m "MSG0"
 
 ### 本地分支重命名(还没有推送到远程)
