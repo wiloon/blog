@@ -260,7 +260,7 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
 修改在 Cache Storage 中的缓存名。
 程序保存在 Cache Storage 的默认缓存有两个，一个是预缓存一个是运行时缓存。
 
-缓存名的格式是 <prefix>-<Cache ID>-<suffix>，通过修改缓存前缀和后缀，可以让缓存名独一无二，避免在使用 localhost 调试程序时因为端口号相同引发的冲突。
+缓存名的格式是 -<Cache ID>-<suffix>，通过修改缓存前缀和后缀，可以让缓存名独一无二，避免在使用 localhost 调试程序时因为端口号相同引发的冲突。
 修改前后缀: 
 
         workbox.core.setCacheNameDetails({

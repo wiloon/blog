@@ -9,7 +9,7 @@ categories:
 
 ---
 ## html input
-<pre data-language=HTML>```xml
+```xml
 <input type="value0">
 ``` 
 

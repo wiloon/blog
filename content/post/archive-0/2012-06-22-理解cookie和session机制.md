@@ -44,7 +44,7 @@ session机制是一种服务器端的机制，服务器使用一种类似于散�
   
 为了在整个交互过程中始终保持状态，就必须在每个客户端可能请求的路径后面都包含这个session id。
 
-另一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如下面的表单<pre data-language=HTML>
+另一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如下面的表单
 
 ```xml
 <form name="testform" action="/xxx">
@@ -52,7 +52,7 @@ session机制是一种服务器端的机制，服务器使用一种类似于散�
 </form>
 ``` 
 
-在被传递给客户端之前将被改写成<pre data-language=HTML>
+在被传递给客户端之前将被改写成
 
 ```xml
 <form name="testform" action="/xxx">

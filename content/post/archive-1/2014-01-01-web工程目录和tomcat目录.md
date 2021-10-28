@@ -162,7 +162,7 @@ tags:
   * src/main/resources,负责管理项目主体的资源。在使用Maven2执行compile之后,这个目录中的所有文件及子目录,会复制到target/classes目录中,为以后的打包提供了方便。
   * src/test/resources,负责管理项目测试的资源。在使用Maven2执行test-compile之后,这个目录中的所有文件及子目录,会复制到target/test-classes目录中,为后续的测试做好了准备。
 
-这些动作在 Maven1 中,是需要在 maven.xml 中使用<preGoal>或<postGoal>来完成的。如今,完全不需要在pom.xml中指定就能够自动完成。在src和test都使用resources,方便构建和测试,这种方式本就已是前人的经验。通过使用Maven2,使这个经验在开发团队中得到普及。
+这些动作在 Maven1 中,是需要在 maven.xml 中使用或<postGoal>来完成的。如今,完全不需要在pom.xml中指定就能够自动完成。在src和test都使用resources,方便构建和测试,这种方式本就已是前人的经验。通过使用Maven2,使这个经验在开发团队中得到普及。
 
 创建标准目录模板,可以通过如下命令: 
 

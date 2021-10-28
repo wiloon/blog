@@ -12,7 +12,7 @@ tags:
 
 ---
 ## spring quartz
-<pre class="XML">http://www.oschina.net/question/8676_9032
+http://www.oschina.net/question/8676_9032
 
 <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
        <property name="triggers">  
@@ -27,7 +27,7 @@ tags:
 
 **2、Trigger的配置**
 
-<pre class="XML"><bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">  
+<bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">  
        <property name="jobDetail" ref="testJobDetail"/>  
        <property name="cronExpression" value="*/1 * * * * ?"/><!-- 每隔1秒钟触发一次 -->  
 </bean>
@@ -88,7 +88,7 @@ tags:
 
 **3、JobDetail的配置**
 
-<pre class="XML"><bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">   
+<bean id="testJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">   
         <property name="targetObject" ref="testJob"/>  
         <property name="targetMethod" value="execute"/>  
         <property name="concurrent" value="false"/>
@@ -101,7 +101,7 @@ tags:
 
 **5、业务类源代码**
 
-<pre class="Java">public class TestJob {  
+public class TestJob {  
     public void execute(){  
         try{  
               //.......

@@ -126,7 +126,7 @@ load resouorces as utf8
 
 ```java
   
-<pre class="lang-java prettyprint prettyprinted"><code><span class="typ">Properties<span class="pln"> properties <span class="pun">= <span class="kwd">new <span class="typ">Properties<span class="pun">();
+<code><span class="typ">Properties<span class="pln"> properties <span class="pun">= <span class="kwd">new <span class="typ">Properties<span class="pun">();
   
 <span class="typ">InputStream<span class="pln"> inputStream <span class="pun">= <span class="kwd">new <span class="typ">FileInputStream<span class="pun">(<span class="str">"path/to/file"<span class="pun">);
   

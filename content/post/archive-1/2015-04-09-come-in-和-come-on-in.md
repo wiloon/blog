@@ -11,4 +11,4 @@ tags:
 
 ---
 ## come in 和 come on in
-<pre id="best-content-256315209" class="best-text mb-10">怎么说呢，come on in是比较热情比较口语的，在日常生活中很常用，而譬如说你去一个美国人家里，他肯定是招呼你come on in的，但你要敲门进上司的办公室，他肯定是说come in，因为come in毕竟比较正式。
+怎么说呢，come on in是比较热情比较口语的，在日常生活中很常用，而譬如说你去一个美国人家里，他肯定是招呼你come on in的，但你要敲门进上司的办公室，他肯定是说come in，因为come in毕竟比较正式。

@@ -21,7 +21,7 @@ categories:
       代码:
     
     
-    <pre dir="ltr"># ls -la
+    # ls -la
 total 14202000
 drwxr-xr-x   3 root  wheel         512 Mar 25 21:18 .
 drwxr-xr-x  15 root  wheel         512 Mar 25 16:35 ..
@@ -31,7 +31,7 @@ drwxr-xr-x  10 root  wheel         512 Mar 25 17:49 cvs
 -rw-r--r--   1 root  wheel   898476333 Mar 25 21:03 cvs.tar.bz2
 -rw-r--r--   1 root  wheel  1162675369 Mar 25 21:13 cvs.tar.gz
     
-    <pre dir="ltr">
     
-    <pre dir="ltr">http://www.jiarun.org/thread2600.html
+    
+    http://www.jiarun.org/thread2600.html
   

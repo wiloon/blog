@@ -63,7 +63,7 @@ div> 上, *ngFor 会导致
 
 <
 
-div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
+div> 被列表中的每个商品都重复渲染一次。
 
 ```xml
 
@@ -76,7 +76,7 @@ div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
 插值会把属性的值作为文本渲染出来。
 
-### 绑定语法 []<pre data-language=HTML>
+### 绑定语法 []
 
 ```xml
 
@@ -86,7 +86,7 @@ div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
 ### 事件绑定
 
-事件绑定是通过把事件名称包裹在圆括号 () 中完成的<pre data-language=HTML>
+事件绑定是通过把事件名称包裹在圆括号 () 中完成的
 
 ```xml
 <button (click)="share()">
@@ -94,7 +94,7 @@ div> 被列表中的每个商品都重复渲染一次。<pre data-language=HTML>
 
 ### 双向数据绑定
 
-[(ngModel)] 是 Angular 的双向数据绑定语法。<pre data-language=HTML>
+[(ngModel)] 是 Angular 的双向数据绑定语法。
 
 ```xml
 import { FormsModule } from '@angular/forms';

@@ -9,7 +9,7 @@ categories:
 
 ---
 ## english date time on at in
-<pre class="best-text mb-10">答: 
+答: 
 英语中表示时间的介词用法: 
 in+年/月/季节/世纪（较大范围) ，另外固定结构: in the morning/afternoon/evening
 如: in 2010在2010年， inJune在六月，  in spring 在春天，  in the 1980s 在20世纪80年代
@@ -18,7 +18,7 @@ on+具体某日/星期几（要具体到某一天)
 at+具体点钟，另外固定结构: at night ，at noon
 如:  at ten o'clock在十点钟，  at half past four 在四点半
 
-<pre id="answer-content-730248919" class="answer-text mb-10">1. at指时间表示:  
+1. at指时间表示:  
 （1) 时间的一点、时刻等。如: 
 They came home at sunrise （at noon, at midnight, at ten o'clock, at daybreak, at dawn) . 
 （2) 较短暂的一段时间。可指某个节日或被认为是一年中标志大事的日子。如:  

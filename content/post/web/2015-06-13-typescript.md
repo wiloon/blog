@@ -40,7 +40,7 @@ document.body.textContent = greeter(user);
 
 ```bash
 tsc greeter.ts
-```<pre data-language=HTML>
+```
 
 ```xml
 <!DOCTYPE html>
