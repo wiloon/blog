@@ -1,7 +1,6 @@
 ---
 title: podman basic
 author: "-"
-type: post
 date: 2020-01-19T15:30:35+00:00
 url: podman
 tags:
@@ -95,9 +94,9 @@ image0_name
 ### systemd script
 
 ```bash
-    export service_name=foo
-    podman generate systemd $service_name > /usr/lib/systemd/system/$service_name.service
-    systemctl enable $service_name && systemctl start $service_name
+export service_name=foo
+podman generate systemd $service_name > /usr/lib/systemd/system/$service_name.service
+systemctl enable $service_name && systemctl start $service_name
 ```
 
 ### network
