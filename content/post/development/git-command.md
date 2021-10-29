@@ -259,6 +259,9 @@ git push origin :refs/tags/1.0.0
     git pull origin branch0
     git pull origin master
 
+### git clone
+git clone <版本库的网址> <本地目录名>
+
 ```
 
 git log
