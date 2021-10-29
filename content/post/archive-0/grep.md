@@ -9,6 +9,7 @@ categories:
 
 ---
 ## grep
+
 grep, Global Regular Expression Print
 
 ```bash
@@ -23,12 +24,13 @@ grep "foo\|bar" foo.txt
 # 统计某个字符串出现的次数
 grep -o objStr  filename|wc -l
 
-# 搜索子目录
+# 搜索子目录, recursively
 grep -r 'linux' *
 
 ```
 
 ### 参数
+
 - -i: 忽略大小写
 - -A, –after-context=NUM print NUM lines of trailing context
 - -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
