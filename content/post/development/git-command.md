@@ -8,8 +8,12 @@ tags:
 
 ---
 ## git basic, command
+### config git editor
+    git config --global core.editor vim
+    export EDITOR=vim
 ### commit
 #### 修改最近一次的 commit message
+    git commit --amend
     git commit --amend -m "New commit message."
 
 
