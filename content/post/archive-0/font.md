@@ -30,3 +30,6 @@ Calibri是发布于微软Windows Vista六种西方ClearType字体的其中一种
 Calibri为字型设计师Lucas de Groot替微软开发的字型，曾于2005年字型设计竞赛（Type Design Competition) 中获得系统字型（Type System) 类的奖项。其也包含了拉丁文、希腊文以及斯拉夫语的字母。
   
 在某个由Wichita州立大学执行的研究中，Calibri是电子邮件、即时通和PowerPoint简报中最常被使用的字体，同时其用于网页设计的排名也相当高。
+
+## font wqy
+font-family: 'WenQuanYi Micro Hei';

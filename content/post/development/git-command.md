@@ -16,7 +16,6 @@ tags:
     git commit --amend
     git commit --amend -m "New commit message."
 
-
 Rewriting the most recent commit message
 You can change the most recent commit message using the git commit --amend command.
 
@@ -25,6 +24,7 @@ In Git, the text of the commit message is part of the commit. Changing the commi
 ### 修改最近的第n次 commit message
     # 数字代表显示倒数第几次, #-i, --interactive
     git rebase -i HEAD~2
+    # git log你可以发现，git的最后一次提交已经变成你选的那个了
     # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
     git commit --amend
     # 修改注释之后，保存退出，然后git rebase --continue
@@ -403,3 +403,4 @@ https://blog.csdn.net/SCHOLAR_II/article/details/72191042
 https://www.jianshu.com/p/38f04aef1c9d
 
 https://www.jianshu.com/p/9000cd49822c
+>https://blog.csdn.net/CrazyZhang1990/article/details/42780285
