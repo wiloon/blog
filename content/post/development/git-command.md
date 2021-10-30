@@ -8,6 +8,17 @@ tags:
 
 ---
 ## git basic, command
+### commit
+#### 修改最近一次的 commit message
+    git commit --amend -m "New commit message."
+
+
+Rewriting the most recent commit message
+You can change the most recent commit message using the git commit --amend command.
+
+In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
+
+
 ### git 清除所有被 Ignore 的文件
 #### 查看所有被 Git 忽略的文件, Git 1.6+:
 ```bash
@@ -115,11 +126,13 @@ config 配置有system级别 global（用户级别)  和local（当前仓库) �
     git config --local  user.email
 
 ### git log
+git log
 git log file0
 git log -3 file0
 git log --oneline
 
 echo "# project name" >> README.md
+
 #### 更改最多的文件
 git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
 
