@@ -72,9 +72,16 @@ git pull 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记
 ### git fetch, git pull
 git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。而git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
 
+### rebase 做了什么
+#### 场景：分支合并
+从 master 分支切出一个 dev 分支 (feature1)，进行开发
+再执行 git rebase master 
+首先，git 会把 feature1 分支里面的每个 commit 取消掉；
+其次，把上面的操作临时保存成 patch 文件，存在 .git/rebase 目录下；
+然后，把 feature1 分支更新到最新的 master 分支；
+最后，把上面保存的 patch 文件应用到 feature1 分支上；
 
 ### git rebase, git merge
-
 
 
 ---
@@ -102,3 +109,4 @@ https://blog.csdn.net/taiyangdao/article/details/52761572
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 >https://segmentfault.com/a/1190000039320926
+>http://jartto.wang/2018/12/11/git-rebase/

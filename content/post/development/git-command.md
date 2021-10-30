@@ -22,6 +22,17 @@ You can change the most recent commit message using the git commit --amend comma
 
 In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
+### 修改最近的第n次 commit message
+    # 数字代表显示倒数第几次, #-i, --interactive
+    git rebase -i HEAD~2
+    # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
+    git commit --amend
+    # 修改注释之后，保存退出，然后git rebase --continue
+    git rebase --continue
+    # 把本地仓库的代码推送到远程
+    git push origin master
+    # 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
+    git push --force origin master
 
 ### git 清除所有被 Ignore 的文件
 #### 查看所有被 Git 忽略的文件, Git 1.6+:
