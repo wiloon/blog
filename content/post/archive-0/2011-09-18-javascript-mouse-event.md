@@ -3,8 +3,6 @@ title: javascript mouse event
 author: "-"
 date: 2011-09-18T14:09:37+00:00
 url: /?p=804
-bot_views:
-  - 7
 categories:
   - Development
 tags:
