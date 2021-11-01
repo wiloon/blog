@@ -25,8 +25,20 @@ socat - TCP4:192.168.1.15:22,connect-timeout=2
 
 ### http echo server
 ```bash
-socat -v -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.txt"
+# 使用前选 创建 响应数据的文本文件 foo.txt
+socat -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.txt"
+# 直接返回 pong
+socat -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
 ```
+- reuseaddr: Allows other sockets to bind to an address even if parts of it (e.g. the local port) are already in use by socat.
+比如上面这条命令, 用socat打开了80端口, 80端口已经在被socat使用了, 我们打开端口是要接受其它客户端连接的,使用 reuseaddr, 能让其它客户端跟80建立连接.
+due to reuseaddr, it allows immediate restart after master processes termination, even if some child sockets are not completely shut down.  Option reuseaddr allows immediate restart of the server process.
+- fork: fork a child process to handle all incoming client connections.
+加了 fork 的参数后，就能同时应答多个链接过来的客户端，每个客户端会 fork 一个进程出来进行通信，加上 reuseaddr 可以防止链接没断开玩无法监听的问题。
+每次 accept 一个链接都会 fork 出一份来不影响接收其他的新连接，这样 socat 就可以当一个端口转发服务，一直启动在那里。还可以用 supervisor 托管起来，开机自动启动。
+- crlf: use CR+NL on this connection, relay data to and from stdio
+- SYSTEM: <shell-command>, Forks a sub process that establishes communication with its parent process and invokes the specified program with system()
+
 ### socat send http request
 ```bash
 socat - TCP:wiloon.com:80
@@ -43,9 +55,9 @@ echo stat | socat - TCP:192.168.1.xxx:2181
 ### proxy http port
     socat TCP4-LISTEN:188,reuseaddr,fork TCP4:192.168.97.11:8888
 
-概述
-  
-socat,是linux下的一个工具,其功能与有"瑞士军刀"之称的netcat类似,不过据说可以看做netcat的加强版。的确如此,它有一些netcat所不具备却又很有需求的功能,例如ssl连接这种。nc可能是因为比较久没有维护,确实显得有些陈旧了。
+Socat 是 Linux 下的一个多功能的网络工具,名字来由是 「Socket CAT」, 其功能与有"瑞士军刀"之称的 netcat 类似, 不过据说可以看做netcat的加强版。的确如此,它有一些netcat所不具备却又很有需求的功能,例如ssl连接这种。nc可能是因为比较久没有维护,确实显得有些陈旧了。
+
+Socat 的主要特点就是在两个数据流之间建立通道，且支持众多协议和链接方式。如 IP、TCP、 UDP、IPv6、PIPE、EXEC、System、Open、Proxy、Openssl、Socket等。
 
 ### 安装  
     yum install -y socat
@@ -54,16 +66,16 @@ socat,是linux下的一个工具,其功能与有"瑞士军刀"之称的netcat类
 ### 基本语法
 
 ```bash
-socat [options]  
+socat [options] <address> <address>
 ```
 
-其中这2个address就是关键了,如果要解释的话,address就类似于一个文件描述符,socat所做的工作就是在2个address指定的描述符间建立一个pipe用于发送和接收数据。
+其中这2个address就是关键了,如果要解释的话,address就类似于一个文件描述符, socat所做的工作就是在2个address指定的描述符间建立一个pipe用于发送和接收数据。
 
 那么address的描述就是socat的精髓所在了,几个常用的描述方式如下: 
 
--,STDIN,STDOUT : 表示标准输入输出,可以就用一个横杠代替,这个就不用多说了吧….
+-,STDIN,STDOUT : 表示标准输入输出,可以就用一个横杠代替
   
-/var/log/syslog : 也可以是任意路径,如果是相对路径要使用./,打开一个文件作为数据流。
+/var/log/syslog : 也可以是任意路径,如果是相对路径要使用 ./,打开一个文件作为数据流。
   
 TCP:: : 建立一个TCP连接作为数据流,TCP也可以替换为UDP
   
@@ -108,7 +120,6 @@ socat tcp-connect:localhost:700 exec:'bash -li',pty,stderr,setsid,sigint,sane
 代理与转发
 将本地80端口转发到远程的80端口
 socat TCP-LISTEN:80,fork TCP:www.domain.org:80
-
 ```
 
 其他
