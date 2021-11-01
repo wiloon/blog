@@ -1,7 +1,6 @@
 ---
 title: DecimalFormat
 author: "-"
-type: post
 date: 2019-03-18T10:15:02+00:00
 url: /?p=13874
 categories:

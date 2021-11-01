@@ -15,7 +15,7 @@ http://stackoverflow.com/questions/45494/MySQL-error-1093-cant-specify-target-ta
 wrap the condition in one more select
 
 
-<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">DELETE <span class="kwd">FROM<span class="pln"> story_category
+<code><span class="kwd">DELETE <span class="kwd">FROM<span class="pln"> story_category
 <span class="kwd">WHERE<span class="pln"> category_id <span class="kwd">NOT <span class="kwd">IN <span class="pun">(
     <span class="kwd">SELECT<span class="pln"> cid <span class="kwd">FROM <span class="pun">(
         <span class="kwd">SELECT <span class="kwd">DISTINCT<span class="pln"> category<span class="pun">.<span class="pln">id <span class="kwd">AS<span class="pln"> cid <span class="kwd">FROM<span class="pln"> category 

@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2011-11-09T03:32:44+00:00
 url: /?p=1464
-bot_views:
-  - 12
 categories:
   - VCS
 tags:

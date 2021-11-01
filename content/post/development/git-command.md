@@ -8,6 +8,32 @@ tags:
 
 ---
 ## git basic, command
+### config git editor
+    git config --global core.editor vim
+    export EDITOR=vim
+### commit
+#### 修改最近一次的 commit message
+    git commit --amend
+    git commit --amend -m "New commit message."
+
+Rewriting the most recent commit message
+You can change the most recent commit message using the git commit --amend command.
+
+In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
+
+### 修改最近的第n次 commit message
+    # 数字代表显示倒数第几次, #-i, --interactive
+    git rebase -i HEAD~2
+    # git log你可以发现，git的最后一次提交已经变成你选的那个了
+    # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
+    git commit --amend
+    # 修改注释之后，保存退出，然后git rebase --continue
+    git rebase --continue
+    # 把本地仓库的代码推送到远程
+    git push origin master
+    # 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
+    git push --force origin master
+
 ### git 清除所有被 Ignore 的文件
 #### 查看所有被 Git 忽略的文件, Git 1.6+:
 ```bash
@@ -115,11 +141,13 @@ config 配置有system级别 global（用户级别)  和local（当前仓库) �
     git config --local  user.email
 
 ### git log
+git log
 git log file0
 git log -3 file0
 git log --oneline
 
 echo "# project name" >> README.md
+
 #### 更改最多的文件
 git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
 
@@ -145,21 +173,21 @@ git fetch 命令通常用来查看其他人的进程，因为它取回的代码�
 
     git fetch <远程主机名> <分支名>
 
-比如，取回origin主机的master分支。
+比如，取回 origin 主机的 master 分支。
 
     git fetch origin master
 
-### git fetch与git pull
-git fetch和git pull都可以将远端仓库更新至本地那么他们之间有何区别?想要弄清楚这个问题有有几个概念不得不提。
+### git fetch 与 git pull
+git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别?想要弄清楚这个问题有有几个概念不得不提。
 
-FETCH_HEAD:  是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
+FETCH_HEAD: 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
 commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个commit-id，这是一个能唯一标识一个版本的序列号。 在使用git push后，这个序列号还会同步到远程仓库。
 
-有了以上的概念再来说说git fetch
-git fetch: 这将更新git remote 中所有的远程仓库所包含分支的最新commit-id, 将其记录到.git/FETCH_HEAD文件中
-git fetch更新远程仓库的方式如下: 
+有了以上的概念再来说说 git fetch
+git fetch: 这将更新 git remote 中所有的远程仓库所包含分支的最新 commit-id, 将其记录到.git/FETCH_HEAD 文件中
+git fetch 更新远程仓库的方式如下: 
 
-git fetch origin master:tmp 
+git fetch origin master: tmp 
 //在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支
 git diff tmp 
 //来比较本地代码与刚刚从远程下载下来的代码的区别
@@ -177,7 +205,8 @@ git branch -d temp
 （3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
-git pull : 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge将其与本地的当前分支合并。所以可以认为git pull是git fetch和git merge两个步骤的结合。
+### git pull
+git pull: 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge 将其与本地的当前分支合并。所以可以认为git pull是git fetch和git merge两个步骤的结合。
 git pull的用法如下: 
 
 git pull <远程主机名> <远程分支名>:<本地分支名>
@@ -234,16 +263,20 @@ git push origin :refs/tags/1.0.0
 #### 新建分支
     git branch branch0
 #### 切换到分支
-    git checkout branch0
     git switch branch0
+    git checkout branch0
+
 #### 新建并切换到分支
-    git checkout -b branch0
     git switch -c dev
+    git checkout -b branch0
+
 #### 删除分支
     git branch -d branch0
+    # 强制删除分支，删除没merge的分支
+    git branch -D branch0
 #### 删除远程的todo branch
     git branch -d -r origin/todo
-#### 分支合并, git merge命令用于合并指定分支到当前分支
+#### 分支合并, git merge 命令用于合并指定分支到当前分支
     git merge branch1 -m "MSG0"
 
 ### 本地分支重命名(还没有推送到远程)
@@ -253,6 +286,9 @@ git push origin :refs/tags/1.0.0
     git pull
     git pull origin branch0
     git pull origin master
+
+### git clone
+git clone <版本库的网址> <本地目录名>
 
 ```
 
@@ -349,6 +385,10 @@ $ git submodule add https://github.com/maonx/vimwiki-assets.git assets
 卸载电脑原先的Git，安装32位Git。
 或者卸载监控软件
 
+## git remove
+git rm /xxx/xxx/xxx.xxx  
+git rm xxx/xxx
+
 ---
 
 http://zensheno.blog.51cto.com/2712776/490748  
@@ -363,3 +403,4 @@ https://blog.csdn.net/SCHOLAR_II/article/details/72191042
 https://www.jianshu.com/p/38f04aef1c9d
 
 https://www.jianshu.com/p/9000cd49822c
+>https://blog.csdn.net/CrazyZhang1990/article/details/42780285

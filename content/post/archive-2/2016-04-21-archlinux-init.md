@@ -46,7 +46,6 @@ systemctl enable sshd
 <http://blog.wiloon.com/zsh>
 
 ### 安装图形界面 kde 或 xfce4
-
 #### install kde
 <http://blog.wiloon.com/kde>
 

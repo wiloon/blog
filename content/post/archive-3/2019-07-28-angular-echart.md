@@ -125,7 +125,7 @@ export class AppComponent {
 
 ```
 
-### app.component.html<pre data-language=HTML>
+### app.component.html
 
 ```xml
 </div>

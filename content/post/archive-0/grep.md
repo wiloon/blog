@@ -9,7 +9,13 @@ categories:
 
 ---
 ## grep
+按行处理,输出文件中包含搜索字符串的所有行。  
+
 grep, Global Regular Expression Print
+
+```bash
+grep [OPTION...] PATTERNS [FILE...]
+```
 
 ```bash
 grep xxx -A5
@@ -20,25 +26,27 @@ grep -C 5 foo file 显示file文件里匹配foo字串那行以及上下5行
 grep ".*A.*" foo.txt
 grep "foo\|bar" foo.txt
 
-# -r: 搜索子目录
-# -l: 查询多文件时只输出包含匹配字符的文件名.
-# -w pattern files : 只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')，
-
 # 统计某个字符串出现的次数
 grep -o objStr  filename|wc -l
+
+# 搜索子目录, recursively
+grep -r 'linux' *
+
 ```
 
 ### 参数
+
 - -i: 忽略大小写
 - -A, –after-context=NUM print NUM lines of trailing context
 - -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
 - -C 显示file文件里匹配foo字串那行以及上下5行
-- -r, -recursive
-- -l, -files-with-matches
+- -r, -recursive, 搜索子目录
+- -l, -files-with-matches, 查询多文件时只输出包含匹配字符的文件名.
 - -G, -basic-regexp BRE 模式，也是默认的模式
 - -E, -extended-regexp ERE 模式
 - -h, 查询多文件时不显示文件名。
 - -a, --text: 强制作为文本文件处理， 报错: Binary file [some_file] matches 的时候可以用。
+- -w pattern files : 只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')
 
 
 ### grep正则
@@ -848,7 +856,37 @@ grep可用于shell脚本，因为grep通过返回一个状态值来说明搜索�
  显示所有包含每个字符串至少有5个连续小写字符的字符串的行。
  $ grep 'w(es)t.' aa
  如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符（.) ，这些字符后面紧跟着另外一个es（) ，找到就显示该行。如果用egrep或grep -E，就不用""号进行转义，直接写成'w(es)t.*'就可以了。
-    
+
+
+### grep命令
+
+格式: grep [-acinv] '搜索字符串' filename
+
+参数说明: 
+
+-a: 在二进制文件中,以文本文件的方式搜索数据；
+
+-c: 计算找到"搜索字符串"的次数；
+
+-i: 忽略大小写；
+
+-n: 输出行号；
+
+-v: 反向选择；
+
+-E: 扩展正则表达式
+
+例子: 在文件a.txt中搜索包含字符串good或glad的行: 
+  
+grep -E 'g(oo|la)d' a.txt
+
+找到以字母a结尾的单词: 
+
+grep -E 'a[[:blank]]' a.txt
+
+grep -E 'a\\b' a.txt
+
+
   
 
 

@@ -14,7 +14,7 @@ tags:
 unmappable character for encoding GBK
 
 
-<pre class="default prettyprint prettyprinted"><code><span class="tag"><properties>
+<code><span class="tag"><properties>
     <span class="tag"><project.build.sourceEncoding><span class="pln">UTF-8<span class="tag"></project.build.sourceEncoding>
     <span class="tag"><project.reporting.outputEncoding><span class="pln">UTF-8<span class="tag"></project.reporting.outputEncoding>
 <span class="tag"></properties>```

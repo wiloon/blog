@@ -3,6 +3,8 @@ title: plantuml, puml + vs code
 author: "-"
 date: 2020-01-26T04:41:00+00:00
 url: plantuml
+categories:
+  - uml
 
 ---
 ## plantuml, puml + vs code
@@ -152,7 +154,7 @@ end note
 ```bash
 podman run -d \
 --name plantuml-server \
--p 30001:8080 plantuml/plantuml-server:jetty
+-p 30001:8080 plantuml/plantuml-server:jetty-v1.2021.12
 ```
 
 >https://github.com/plantuml/plantuml-server

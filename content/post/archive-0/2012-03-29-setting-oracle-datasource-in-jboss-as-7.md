@@ -93,7 +93,7 @@ oracle.jdbc.OracleDriver
 
 <pool>
 
-<prefill>true</prefill>
+true</prefill>
 
 <use-strict-min>false</use-strict-min>
 

@@ -9,4 +9,4 @@ categories:
 
 ---
 ## jquery修改 div 内容
-<pre id="best-content-365824777">$(选择器).html(内容)
+$(选择器).html(内容)

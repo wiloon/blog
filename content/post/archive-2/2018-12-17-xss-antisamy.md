@@ -25,7 +25,7 @@ Slashdot (http://www.slashdot.org/)是一个提供技术新闻的网站,它允�
   
 Slashdot不仅仅是目前同类中最酷的网站之一,而且同时也曾是最容易被成功攻击的网站之一。更不幸的是,导致大部分用户遭受攻击的原由是臭名昭着的goatse.cx 图片(请你不要刻意去看)。
   
-Slashdot的安全策略非常严格: 用户只能提交下列的html标签: <pre data-language=HTML>
+Slashdot的安全策略非常严格: 用户只能提交下列的html标签: 
 
 ```xml
 , <u>, <i>, , 

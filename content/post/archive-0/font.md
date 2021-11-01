@@ -30,3 +30,17 @@ Calibri是发布于微软Windows Vista六种西方ClearType字体的其中一种
 Calibri为字型设计师Lucas de Groot替微软开发的字型，曾于2005年字型设计竞赛（Type Design Competition) 中获得系统字型（Type System) 类的奖项。其也包含了拉丁文、希腊文以及斯拉夫语的字母。
   
 在某个由Wichita州立大学执行的研究中，Calibri是电子邮件、即时通和PowerPoint简报中最常被使用的字体，同时其用于网页设计的排名也相当高。
+
+## font wqy
+font-family: 'WenQuanYi Micro Hei';
+
+## 微软雅黑
+微软雅黑是美国微软公司委托中国方正集团设计的一款全面支持ClearType技术的字体。蒙纳公司（Monotype Corporation) 负责了字体的修饰（Hinting) 工作。它属于OpenType类型，文件名是MSYH.TTF，在字体设计上属于无衬线字体和黑体。
+  
+该字体家族还包括"微软雅黑Bold"（粗体) ，文件名为MSYHBD.TTF。这个粗体不是单纯的将普通字符加粗，而是在具体笔画上分别进行处理，因此是独立的一个字体。
+  
+微软雅黑是随着简体中文版Windows Vista一起发布的字体，也是Windows Vista和Windows 7默认的字体。在使用ClearType功能的液晶显示器中，微软雅黑比以前Windows XP默认的中易宋体更加的清晰易读。另外，Microsoft Office 2007简体中文版也附带这个字体。2008年5月6日，微软发布了个用于Windows XP的雅黑字体版本.
+  
+在涵盖的字库上，微软雅黑支持GBK字符集，包含了Unicode的所有 20902个中文字符以及中国国家标准化组织添加的大约 80个中文字符，还包含了Big5的繁体中文字符和GB2312中的简体中文字符。
+  
+当使用于不能显示中文字型名称的系统和繁体中文的系统时，会显示为Microsoft YaHei.
