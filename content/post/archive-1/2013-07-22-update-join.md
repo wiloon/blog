@@ -9,7 +9,7 @@ categories:
 
 ---
 ## update join, delete join
-[sql]
+```sql
    
 UPDATE t1
     
@@ -23,9 +23,9 @@ ON t1.CommonField = t2.[Common Field]
     
 WHERE t1.BatchNo = '110';
   
-[/sql]
+```
 
-[sql]
+```sql
   
 DELETE a
   
@@ -37,7 +37,7 @@ ON a.c0=b.c0
   
 WHERE b.c1='xxx'
   
-[/sql]
+```
 
 http://stackoverflow.com/questions/1980738/sql-delete-with-join-another-table-for-where-condition
 

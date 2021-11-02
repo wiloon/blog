@@ -358,6 +358,11 @@ http status 431 问题
     "lint": "vue-cli-service lint"
   },
 ```
+
+### vue props
+>https://www.jianshu.com/p/89bd18e44e73
+>https://www.freecodecamp.org/news/how-to-use-props-in-vuejs/
+
 ----
 
 https://cli.vuejs.org/zh/guide/prototyping.html

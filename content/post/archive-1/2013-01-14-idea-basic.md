@@ -1,14 +1,18 @@
 ---
-title: idea basic, command
+title: idea basic
 author: "-"
-type: post
 date: 2013-01-14T07:37:05+00:00
-url: /?p=5018
+url: idea
 categories:
-  - Java
+  - IDE
 
 ---
 ## idea basic, command
+
+生成.ipr文件: mvn idea:project
+生成.iws文件: mvn idea:workspace
+生成.iml文件: mvn idea:module
+
 ###
 https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC
 
@@ -68,7 +72,7 @@ windows
 
 
   
-        -server
+ -server
  -Xverify:none
  -Xms300M
  -Xmx512M

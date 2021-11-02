@@ -9,7 +9,7 @@ categories:
 
 ---
 ## oracle commands
-[sql]
+```sql
 
 to_number('2')
 
@@ -39,4 +39,4 @@ select sequence_name.nextval into:New.column_name from dual;
   
 end;
 
-[/sql]
+```
