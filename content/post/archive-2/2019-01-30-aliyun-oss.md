@@ -3,20 +3,20 @@ title: aliyun oss
 author: "-"
 type: post
 date: 2019-01-30T15:26:11+00:00
-url: /?p=13522
+url: aliyun/oss
 categories:
-  - Uncategorized
+  - cloud
 
 ---
 ## aliyun oss
-download ossutil
-  
-https://help.aliyun.com/document_detail/50452.html?spm=a2c4g.11186623.6.1292.33acb6a3yQarPr
+### download ossutil
+>https://help.aliyun.com/document_detail/120075.html
 
-```bash生成配置文件
-./ossutil64 config
+```bash
+# 生成配置文件, stsToken可以置空
+./ossutil config
 
-ossutil cp a -f oss://my-bucket/path
+./ossutil cp a -f oss://my-bucket/path
 ./ossutil64 cp /root/tmp/wordpress.sql -f oss://wiloon-backup/
 ```
 
