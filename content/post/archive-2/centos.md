@@ -24,7 +24,7 @@ RHEL/CentOS/Fedora各种源(EPEL、Remi、RPMForge、RPMFusion)配置
 
 CentOS默认自带CentOS-Base.repo源,但官方源中去除了很多有版权争议的软件,而且安装的软件也不是最新的稳定版。Fedora自带的源中也找不到很多多媒体软件,如果需要安装,必需先添加其他源,如RPMFusion和RPMForge等第三方软件库。
 
-下面GoFace来一一介绍各种第三方软件库,以下软件库适用于与RHEL完全兼容的linux发行版,如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生,它与CentOS类似,是RedHat Linux的克隆版,GoFace之前有过介绍: http://blog.51osos.com/linux/scientific-linux/ 。
+下面GoFace来一一介绍各种第三方软件库,以下软件库适用于与RHEL完全兼容的linux发行版,如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生,它与CentOS类似,是RedHat Linux的克隆版,GoFace之前有过介绍: http://blog.51osos.com/linux/scientific-linux/
 
 ### EPEL源
 EPEL, 即Extra Packages for Enterprise Linux,是由 Fedora 社区创建维护,为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。EPEL中含有大量的软件,对官方标准源是一个很好的补充。
