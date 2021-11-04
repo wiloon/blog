@@ -1,14 +1,13 @@
 ---
-title: 开源许可证, BSD, MIT, Apache,GPL
+title: 开源许可证, License, BSD, MIT, Apache,GPL
 author: "-"
-type: post
 date: 2012-08-25T11:40:04+00:00
-url: /?p=3933
+url: license
 categories:
-  - Uncategorized
+  - open-souce
 
 ---
-## 开源许可证, BSD, MIT, Apache,GPL
+## 开源许可证, License, BSD, MIT, Apache, GPL
 （1) BSD（二条款版) 
 
 分发软件时，必须保留原始的许可证声明。
@@ -17,9 +16,9 @@ categories:
 
 分发软件时，必须保留原始的许可证声明。不得使用原始作者的名字为软件促销。
 
-（3) MIT
-
+### MIT
 分发软件时，必须保留原始的许可证声明，与 BSD（二条款版) 基本一致。
+>https://opensource.org/licenses/mit-license.php
 
 （4) Apache 2
 

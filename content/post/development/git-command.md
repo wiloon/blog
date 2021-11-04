@@ -385,7 +385,7 @@ $ git submodule add https://github.com/maonx/vimwiki-assets.git assets
 卸载电脑原先的Git，安装32位Git。
 或者卸载监控软件
 
-## git remove
+### git remove
 git rm /xxx/xxx/xxx.xxx  
 git rm xxx/xxx
 
