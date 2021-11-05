@@ -269,12 +269,23 @@ redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba
 时间复杂度:  O(N)
 清空整个 Redis 服务器的数据(删除所有数据库的所有 key )。
 
-### FLUSHALL ASYNC (Redis 4.0.0 or greater)
+### FLUSHALL [ASYNC]
+(Redis 4.0.0 or greater)  
+删除 所有DB 中的 所有数据, 默认是同步操作，选项 ASYNC 表示异步，即清空操作在一个新的线程中进行，不会阻塞主线程。
+
 Redis is now able to delete keys in the background in a different thread without blocking the server. An ASYNC option was added to FLUSHALL and FLUSHDB in order to let the entire dataset or a single database to be freed asynchronously.
 
-### flushdb 
-执行删除在某个db环境下执行的话，只删除当前db的数据
+```bash
+redis-cli -h 127.0.0.1 -p 6379 FLUSHALL ASYNC
+```
 
+### FLUSHDB [ASYNC]
+表示删除 当前DB 中的 所有数据 。默认是同步操作，和 FLUSHall 一样，支持选项ASYNC ，表示异步。要删除指定DB中的所有数据，可以使用 SELECT 命令先选中DB，然后使用 FLUSHDB 命令清空数据
+
+```bash
+redis-cli -h 127.0.0.1 -p 6379 SELECT 0
+redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
+```
 ### module
      https://redis.io/modules
 #### 下载编译好的 redis module
@@ -336,3 +347,4 @@ RESP是二进制安全的，不需要处理从一个进程传输到另一个进�
 https://mp.weixin.qq.com/s/MtvEf_jWWDb6yCXPqvqF0w
 
 https://mp.weixin.qq.com/s/aOiadiWG2nNaZowmoDQPMQ
+>https://blog.csdn.net/AlbertFly/article/details/80169717
