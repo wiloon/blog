@@ -22,7 +22,9 @@ tags:
     }
     //check if enter pressed
     keyCode == 13
-
+## 日期
+### ms > date string
+    new Date(1636183170962).toLocaleString('en-US')
 ### 日期时间函数
 var a=new Date();
   
