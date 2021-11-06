@@ -9,10 +9,10 @@ categories:
 
 ---
 ## sql command
-[sql]
+```sql
   
 - http://www.wiloon.com/?p=1899
   
 insert into t1 values (1,'1',1) on duplicate key update c0=c0+1;
 
-[/sql]
+```

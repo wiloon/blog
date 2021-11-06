@@ -261,6 +261,9 @@ search	从问号 (?) 开始的 URL（查询部分)
 ### JAVASRIPT 大写转小写
     str.toLowerCase()
 
+## javascript mouse event
+onmouseover: 当鼠标移动到某对象范围的上方时触发此事件
+
 ---
 
 作者: 大小伍

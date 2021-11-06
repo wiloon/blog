@@ -9,7 +9,7 @@ categories:
 
 ---
 ## oracle listagg
-[sql]
+```sql
 
 SELECT deptno,
   
@@ -19,7 +19,7 @@ FROM test
   
 GROUP BY deptno;
 
-[/sql]
+```
 
 
 http://xpchild.blog.163.com/blog/static/10180985920108485721969/

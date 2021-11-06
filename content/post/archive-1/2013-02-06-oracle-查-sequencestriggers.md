@@ -9,7 +9,7 @@ categories:
 
 ---
 ## oracle 查 sequences/triggers/tables
-[sql]
+```sql
 
 select * from user_sequences;
   
@@ -17,4 +17,4 @@ select * from user_triggers;
   
 select * from user_tables
 
-[/sql]
+```

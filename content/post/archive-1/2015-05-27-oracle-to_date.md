@@ -12,13 +12,13 @@ categories:
 http://database.51cto.com/art/201010/231193.htm
 
 
-[sql]
+```sql
 
 select to_char(to_date('2015/1/1', 'yyyy/mm/dd'),'iw') from dual;
   
 select to_char(to_date('2015/1/5', 'yyyy/mm/dd'),'iw') from dual;
 
-[/sql]
+```
 
 在Oracle数据库中，Oracle to_date()函数是我们经常使用的函数，下面就为您详细介绍Oracle to_date()函数的用法，希望可以对您有所启迪。
 

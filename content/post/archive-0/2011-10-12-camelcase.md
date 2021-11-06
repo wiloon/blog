@@ -8,8 +8,7 @@ categories:
   - Java
 
 ---
-## Camel Casing, CamelCase
-<http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html>
+## Camel Casing, CamelCase, Pascal Case, kebab case
 
 在英语中，依靠单词的大小写拼写复合词的做法，叫做"骆驼拼写法"（CamelCase) 。比如，backColor这个复合词，color的第一个字母采用大写。
 
@@ -20,3 +19,12 @@ categories:
 "骆驼拼写法"又分为两种。
 - 第一个词的首字母小写，后面每个词的首字母大写，叫做"小骆驼拼写法"（lowerCamelCase) ；
 - 第一个词的首字母，以及后面每个词的首字母都大写，叫做"大骆驼拼写法"（UpperCamelCase) ，又称"帕斯卡拼写法"（PascalCase) 。
+
+PascalCase：帕斯卡命名法，每个单词首字母大写，又名大驼峰命名法。
+
+camelCase：驼峰命名法，第一个单词首字母小写，后面的每个单词首字母大写，又名小驼峰命名法。
+
+kebab-case：短横线隔开命名法，每个单词首字母小写。
+
+>https://www.huoxiaoqiang.com/experience/jingyan/3618.html
+<http://www.cnblogs.com/lm002003/archive/2011/08/13/2137606.html>

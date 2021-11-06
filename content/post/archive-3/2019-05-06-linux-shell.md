@@ -477,7 +477,7 @@ grep操作的返回值:
 
 
 
-if/else
+## if/else
   
 和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如
 
@@ -486,6 +486,10 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 ```
+
+    if ... fi 语句；
+    if ... else ... fi 语句；
+    if ... elif ... else ... fi 语句
 
 其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0（表示真) ，则执行then后面的子命令，如果Exit Status非0（表示假) ，则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例: 
 

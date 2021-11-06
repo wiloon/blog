@@ -15,7 +15,7 @@ https://www.cyberciti.biz/faq/ping-test-a-specific-port-of-machine-ip-address-us
   
 # check for tcp port ##
   
-## need bash shell ##
+## need bash shell
   
 echo >/dev/tcp/{host}/{port}
 

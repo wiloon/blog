@@ -1,13 +1,22 @@
 ---
-title: centos
+title: centos, rpm
 author: "-"
 date: 2018-04-13T02:44:19+00:00
-url: /?p=12145
+url: centos
 categories:
-  - Uncategorized
+  - linux
 
 ---
+
+### centos, rpm
+#### centos, rpm 查看软件的版本号
+rpm -qa | grep mysql
+
 ### RHEL/CentOS/Fedora 源 EPEL、Remi、RPMForge、RPMFusion
+
+#### centos7, aliyun mirror
+    curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+
 
 http://www.cnblogs.com/mawanglin2008/p/3532247.html
 
@@ -15,11 +24,10 @@ RHEL/CentOS/Fedora各种源(EPEL、Remi、RPMForge、RPMFusion)配置
 
 CentOS默认自带CentOS-Base.repo源,但官方源中去除了很多有版权争议的软件,而且安装的软件也不是最新的稳定版。Fedora自带的源中也找不到很多多媒体软件,如果需要安装,必需先添加其他源,如RPMFusion和RPMForge等第三方软件库。
 
-下面GoFace来一一介绍各种第三方软件库,以下软件库适用于与RHEL完全兼容的linux发行版,如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生,它与CentOS类似,是RedHat Linux的克隆版,GoFace之前有过介绍: http://blog.51osos.com/linux/scientific-linux/ 。
+下面GoFace来一一介绍各种第三方软件库,以下软件库适用于与RHEL完全兼容的linux发行版,如CentOS,Fedora,Scientific Linux。Scientific Linux大家可能有点陌生,它与CentOS类似,是RedHat Linux的克隆版,GoFace之前有过介绍: http://blog.51osos.com/linux/scientific-linux/
 
-EPEL源
-  
-EPEL,即Extra Packages for Enterprise Linux,是由 Fedora 社区创建维护,为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。EPEL中含有大量的软件,对官方标准源是一个很好的补充。
+### EPEL源
+EPEL, 即Extra Packages for Enterprise Linux,是由 Fedora 社区创建维护,为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。EPEL中含有大量的软件,对官方标准源是一个很好的补充。
 
 "EPEL (Extra Packages for Enterprise Linux ) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL)."
 
@@ -39,7 +47,7 @@ CentOS 7.0添加阿里云的EPEL源
 
 yum localinstall -nogpgcheck http://mirrors.aliyun.com/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm
   
-Remi源
+### Remi源
   
 Remi源大家或许很少听说,不过Remi源GoFace强烈推荐,尤其对于不想编译最新版的linux使用者,因为Remi源中的软件几乎都是最新稳定版。或许您会怀疑稳定不？放心吧,这些都是Linux骨灰级的玩家编译好放进源里的,他们对于系统环境和软件编译参数的熟悉程度毋庸置疑。
 
@@ -151,7 +159,3 @@ vi remi.repo 将[remi] 中的 enabled=0 改成 enabled=1 来启用 remi 源
   
 在remi.repo中和epel.repo中添加priority设置即可使用。
 
-
-### rpm
-#### centos, rpm 查看软件的版本号
-rpm -qa | grep mysql

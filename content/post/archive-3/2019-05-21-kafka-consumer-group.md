@@ -9,46 +9,73 @@ categories:
 
 ---
 ## kafka consumer, group
-### kafka consumer
-https://blog.csdn.net/lishuangzhe7047/article/details/74530417
-
+```bash
     properties.put("enable.auto.commit", "true");
     properties.put("auto.commit.interval.ms", "1000");
     properties.put("auto.offset.reset", "latest");
     properties.put("session.timeout.ms", "30000");
     properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
     properties.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
+```
+### kafka consumer
+Consumer Group 主要用于实现高伸缩性，高容错性的Consumer机制。因此，消息的接收是基于Consumer Group 的。组内多个Consumer实例可以同时读取Kafka消息，同一时刻一条消息只能被一个消费者消费，而且一旦某一个consumer "挂了"， Consumer Group 会立即将已经崩溃的Consumer负责的分区转交给其他Consumer来负责。从而保证 Consumer Group 能够正常工作。
+### 位移保存
+位移保存是基于Consumer Group，同时引入检查点模式，定期实现offset的持久化。
+Consumer会定期向kafka集群汇报自己消费数据的进度，这一过程叫做位移的提交。这一过程已经抛弃Zookeeper，因为Zookeeper只是一个协调服务组件，不能作为存储组件，高并发的读取势必造成Zk的压力。
 
-    auto.offset.reset
-    earliest
+新版本位移提交是在kafka内部维护了一个内部Topic(_consumer_offsets)。
+在kafka内部日志目录下面，总共有50个文件夹，每一个文件夹包含日志文件和索引文件。日志文件主要是K-V结构，（group.id,topic,分区号）。
+假设线上有很多的consumer和ConsumerGroup，通过对group.id做Hash求模运算，这50个文件夹就可以分散同时位移提交的压力。
+ 
+### consumer.poll(1000)
+新版本的Consumer的Poll方法使用了类似于Select I/O机制，因此所有相关事件（包括reblance，消息获取等）都发生在一个事件循环之中。
+1000是一个超时时间，一旦拿到足够多的数据（参数设置），consumer.poll(1000)会立即返回 ConsumerRecords<String, String> records。
+如果没有拿到足够多的数据，会阻塞1000ms，但不会超过1000ms就会返回。
+### session.timeout.ms
+coordinator检测失败的时间
+默认值是10s
+该参数是 Consumer Group 主动检测 (组内成员comsummer)崩溃的时间间隔。若设置10min，那么Consumer Group的管理者（group coordinator）可能需要10分钟才能感受到。
+
+### max.poll.interval.ms
+处理逻辑最大时间
+这个参数是0.10.1.0版本后新增的，可能很多地方看不到喔。这个参数需要根据实际业务处理时间进行设置，一旦Consumer处理不过来，就会被踢出Consumer Group
+注意：如果业务平均处理逻辑为1分钟，那么max. poll. interval. ms需要设置稍微大于1分钟即可，但是session. timeout. ms可以设置小一点（如10s），用于快速检测Consumer崩溃。
+
+作者：技术洞察TIC
+链接：https://juejin.cn/post/6844903713916583944
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+https://blog.csdn.net/lishuangzhe7047/article/details/74530417
+
+#### auto.offset.reset
+- earliest
     当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
-    latest
+- latest
     当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
-    none
+- none
     topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
 
+>https://www.cnblogs.com/huxi2b/p/6223228.html
 
-https://www.cnblogs.com/huxi2b/p/6223228.html
-
-Kafka消费组(consumer group)
-  
+#### Kafka消费组 (consumer group)
 一直以来都想写一点关于kafka consumer的东西，特别是关于新版consumer的中文资料很少。最近Kafka社区邮件组已经在讨论是否应该正式使用新版本consumer替换老版本，笔者也觉得时机成熟了，于是写下这篇文章讨论并总结一下新版本consumer的些许设计理念，希望能把consumer这点事说清楚，从而对广大使用者有所帮助。
   
 在开始之前，我想花一点时间先来明确一些概念和术语，这会极大地方便我们下面的讨论。另外请原谅这文章有点长，毕竟要讨论的东西很多，虽然已然删除了很多太过细节的东西。
 
 一、 误区澄清与概念明确
   
-1 Kafka的版本
+#### Kafka的版本
 
 很多人在Kafka中国社区(替群主做个宣传，QQ号: 162272557)提问时的开头经常是这样的: "我使用的kafka版本是2.10/2.11, 现在碰到一个奇怪的问题。。。。" 无意冒犯，但这里的2.10/2.11不是kafka的版本，而是编译kafka的Scala版本。Kafka的server端代码是由Scala语言编写的，目前Scala主流的3个版本分别是2.10、2.11和2.12。实际上Kafka现在每个PULL request都已经自动增加了这三个版本的检查。下图是我的一个PULL request，可以看到这个fix会同时使用3个scala版本做编译检查: 
 
 目前广泛使用kafka的版本应该是这三个大版本: 0.8.x， 0.9.x和0.10.* 。 这三个版本对于consumer和consumer group来说都有很大的变化，我们后面会详谈。
 
-2 新版本 VS 老版本
+#### 新版本 VS 老版本
 
 "我的kafkaoffsetmonitor为什么无法监控到offset了？"——这是我在Kafka中国社区见到最多的问题，没有之一！实际上，Kafka 0.9开始提供了新版本的consumer及consumer group，位移的管理与保存机制发生了很大的变化——新版本consumer默认将不再保存位移到zookeeper中，而目前kafkaoffsetmonitor还没有应对这种变化(虽然已经有很多人在要求他们改了，详见https://github.com/quantifind/KafkaOffsetMonitor/issues/79)，所以很有可能是因为你使用了新版本的consumer才无法看到的。关于新旧版本，这里统一说明一下: kafka0.9以前的consumer是使用Scala编写的，包名结构是kafka.consumer._，分为high-level consumer和low-level consumer两种。我们熟知的ConsumerConnector、ZookeeperConsumerConnector以及SimpleConsumer就是这个版本提供的；自0.9版本开始，Kafka提供了java版本的consumer，包名结构是o.a.k.clients.consumer._，熟知的类包括KafkaConsumer和ConsumerRecord等。新版本的consumer可以单独部署，不再需要依赖server端的代码。
 
-二、消费者组 (Consumer Group)
+#### 消费者组 (Consumer Group)
 
 1 什么是消费者组
 
@@ -66,7 +93,7 @@ consumer group下订阅的topic下的每个分区只能分配给某个group下�
 
 消费者在消费的过程中需要记录自己消费了多少数据，即消费位置信息。在Kafka中这个位置信息有个专门的术语: 位移(offset)。很多消息引擎都把这部分信息保存在服务器端(broker端)。这样做的好处当然是实现简单，但会有三个主要的问题: 1. broker从此变成有状态的，会影响伸缩性；2. 需要引入应答机制(acknowledgement)来确认消费成功。3. 由于要保存很多consumer的offset信息，必然引入复杂的数据结构，造成资源浪费。而Kafka选择了不同的方式: 每个consumer group保存自己的位移信息，那么只需要简单的一个整数表示位置就够了；同时可以引入checkpoint机制定期持久化，简化了应答机制的实现。
 
-3 位移管理(offset management)
+3 位移管理 (offset management)
 
 3.1 自动VS手动
 
@@ -197,3 +224,9 @@ Stable: rebalance完成！可以开始消费了~
 4 提交位移(member commit offset)
 
 总结一下，本文着重讨论了一下新版本的consumer group的内部设计原理，特别是consumer group与coordinator之间的交互过程，希望对各位有所帮助。
+
+
+作者：技术洞察TIC
+链接：https://juejin.cn/post/6844903713916583944
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

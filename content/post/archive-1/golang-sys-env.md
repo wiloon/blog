@@ -11,7 +11,7 @@ categories:
 ## golang 读系统环境变量
 http://studygolang.com/articles/3387
 
-```java
+```golang
   
 package system
 
