@@ -1,8 +1,13 @@
-+++
-author = "-"
-date = "2020-11-23 22:14:59" 
-title = "user design"
-
-+++
+---
+title: "user design"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "user design"
 
 https://segmentfault.com/q/1010000005013911

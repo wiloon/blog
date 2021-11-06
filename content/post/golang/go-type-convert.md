@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2021-06-02 10:41:59" 
-title = "golang的类型转换, 强转、断言、“向上造型“"
-
-+++
+---
+title: "golang的类型转换, 强转、断言、“向上造型“"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "golang的类型转换, 强转、断言、“向上造型“"
 
 Golang的类型转换-三种转型(强转、断言、“向上造型“)
 

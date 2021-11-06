@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-10-22 21:40:31" 
-title = "icebox"
-
-+++
+---
+title: "icebox"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "icebox"
 
 先用adb安装 
 # 谷歌版冰箱激活

@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2021-05-20 16:36:46" 
-title = "jdk14"
-url = "jdk14"
-+++
+---
+title: "jdk14"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "jdk14"
 
 ### instanceof模式匹配
 JDK 14的新特性:instanceof模式匹配

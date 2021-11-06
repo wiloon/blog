@@ -59,7 +59,6 @@ zSH_THEME_RANDOM_CANDIDATES=(
   "robbyrussell"
   "agnoster"
 )
-
 ```
 
 ### .zshenv

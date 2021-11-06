@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-08-08 12:28:15" 
-title = "pve basic"
+---
+title: "pve basic"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "pve basic"
 
-+++
 ### 创建安装盘 U盘
     dd bs=1M conv=fdatasync if=./proxmox-ve_*.iso of=/dev/XYZ
 

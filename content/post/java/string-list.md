@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-07-09 17:02:11"
-title = "相互转换逗号分隔的字符串和List"
-
-+++
+---
+title: "相互转换逗号分隔的字符串和List"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "相互转换逗号分隔的字符串和List"
 
 https://blog.csdn.net/yywusuoweile/article/details/50315377
 

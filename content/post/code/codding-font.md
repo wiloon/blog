@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-08-12 17:14:20" 
-title = "字体 , 编程字体, 等宽字体"
+---
+title: "字体 , 编程字体, 等宽字体"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "字体 , 编程字体, 等宽字体"
 
-+++
 ### ubunti install 微软雅黑
     sudo apt-get install ttf-mscorefonts-installer
     # 更新字体缓存

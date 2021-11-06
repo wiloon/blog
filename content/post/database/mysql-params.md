@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-08-25 19:04:36" 
-title = "MySQL自定义变量"
-
-+++
+---
+title: "MySQL自定义变量"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "MySQL自定义变量"
 
 MySQL自定义变量的使用
 

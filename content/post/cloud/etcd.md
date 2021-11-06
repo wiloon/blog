@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-06-14T05:25:48Z"
-title = "etcd"
+---
+title: "etcd"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "etcd"
 
-+++
 ### etcd
 etcd是CoreOS团队于2013年6月发起的开源项目，它的目标是构建一个高可用的分布式键值(key-value)数据库。etcd内部采用`raft`协议作为一致性算法，etcd基于Go语言实现。
  

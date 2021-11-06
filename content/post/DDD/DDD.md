@@ -1,11 +1,14 @@
-+++
-author = "-"
-date = "" 
-title = "DDD"
-
-+++
-
-# DDD
+---
+title: "DDD"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## DDD
 
 领域驱动设计（DDD) 是由 Eric Evans 发明的一个概念。他在 2004 年出版的《领域驱动设计》一书（即”大蓝皮书“) 中探讨了这个概念
 领域驱动设计(Domain Driven Design,DDD)

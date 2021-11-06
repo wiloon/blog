@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-05-19T07:21:29Z"
-title = "golang sync.Map"
-
-+++
+---
+title: "golang sync.Map"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "golang sync.Map"
 
 
 ```golang

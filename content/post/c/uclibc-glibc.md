@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2021-06-20 22:25:04" 
-title = "uclibc, glibc"
+---
+title: "uclibc, glibc"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## uclibc, glibc
 
-+++
 
 uClibc和Glibc并不相同,两者有许多不同之处,而且以下不同有可能给你带来一些问题.
 1. uClibc比Glibc小,虽然uClibc和Glibc在已有的接口上是兼容的,而且采用uClibc编译应用程序比采用Glibc编译应用程序要更方便,但是uClibc并没有包括Glibc中的所有接口实现,因此有些应用可能在uClibc中不能编译。

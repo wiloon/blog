@@ -1,8 +1,14 @@
-+++
-author = "-"
-date = "2021-06-22 14:49:14" 
-title = "redis, memcache"
-+++
+---
+title: "redis, memcache"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "redis, memcache"
 
 Redis 和 Memcached 都是基于内存的数据存储系统。Memcached是高性能分布式内存缓存服务，其本质上就是一个内存key-value数据库。Redis是一个开源的key-value存储系统。与Memcached类似，Redis将大部分数据存储在内存中，支持的数据类型包括: 字符串、哈希表、链表、集合、有序集合以及基于这些数据类型的相关操作。那么，Memcached与Redis有什么区别呢？
 

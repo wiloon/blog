@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-06-25T05:33:56Z"
-title = "github action"
+---
+title: "github action"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "github action"
 
-+++
 # Deploy to vm
       - name: Deploy to vm
         uses: easingthemes/ssh-deploy@v2.1.2

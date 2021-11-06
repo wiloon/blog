@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2021-06-14 22:03:29" 
-title = "joplin"
-
-+++
+---
+title: "joplin"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "joplin"
 
 ### archlinux install joplin
     yay -S joplin-desktop

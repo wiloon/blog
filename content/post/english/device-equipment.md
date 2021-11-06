@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-07-21 13:38:43" 
-title = "equipment, device"
-
-+++
+---
+title: "equipment, device"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "equipment, device"
 
 ### equipment
 "Equipment" 通常指 "成套的,不只一件的设备"。而且,与 "device" 和 "appliance" 不同的是,"equipment" 不光包括 "电子设备",还包含相关的工具。比如,上文提到的 "cycling and diving equipment 自行车和潜水装备" 中可能包括服装、自行车灯、潜水眼镜、呼吸器等物品；再如,"医疗设备" 的说法是 "medical equipment"。比如,虽然 "听诊器 stethoscope" 是一种 "medical equipment",但它并不是一个 "medical device",因为听诊器不是电子的。

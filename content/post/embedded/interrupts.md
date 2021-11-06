@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-10-22 15:24:45" 
-title = "中断, interrupts"
+---
+title: "中断, interrupts"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "中断, interrupts"
 
-+++
 - IRQ: Interrupt ReQuest, 中断请求
 - IDT，Interrupt Descriptor Table，中断描述符表
 

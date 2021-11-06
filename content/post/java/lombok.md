@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-12-22 13:23:47" 
-title = "lombok"
-
-+++
+---
+title: "lombok"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "lombok"
 
 
 lombok注解介绍

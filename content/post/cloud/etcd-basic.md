@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-06-14T05:25:48Z"
-title = "etcd basic"
-
-+++
+---
+title:  "etcd basic"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+##  "etcd basic"
 
 ### 单节点的etcd
     podman run -d \

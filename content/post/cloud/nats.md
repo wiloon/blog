@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2021-05-21 15:51:26" 
-title = "nats"
-
-+++
+---
+title: "nats"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "nats"
 
 ### podman
 

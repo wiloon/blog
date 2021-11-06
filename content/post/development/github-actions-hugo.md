@@ -1,8 +1,15 @@
-+++
-date = "2020-05-12T15:03:55Z"
-title = "hugo, envoy, github actions"
+---
+title: "hugo, envoy, github actions"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "hugo, envoy, github actions"
 
-+++
 ### install
     sudo pacman -S hugo
 

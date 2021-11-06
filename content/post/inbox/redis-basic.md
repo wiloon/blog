@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2021-06-22 16:40:12" 
-title = "redis basic"
-url = "redis-basic"
-+++
+---
+title: "redis-basic"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "redis-basic"
+
 ### commands
     # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
     OBJECT ENCODING key0

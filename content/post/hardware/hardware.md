@@ -1,10 +1,16 @@
-+++
-author = "-"
-date = "2020-05-27T15:30:45Z"
-title = "hardware"
+---
+title: "hardware"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "hardware"
 
-+++
-
+## hardware
 https://www.passmark.com/
 
 ### QNAP TS453Bmini

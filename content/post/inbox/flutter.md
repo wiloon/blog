@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2021-04-23 17:18:57" 
-title = "flutter"
-
-+++
+---
+title: "flutter"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "flutter"
 
 ### download 
 https://flutter.dev/docs/get-started/install/linux  

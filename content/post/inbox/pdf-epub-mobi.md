@@ -1,8 +1,14 @@
-+++
-author = "-"
-date = "2021-06-24 09:30:42" 
-title = "pdf epub mobi"
-+++
+---
+title: "pdf epub mobi"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "pdf epub mobi"
 
 mobi电子书格式能够流行普及起来，很大程度上依靠亚马逊这个巨大的内容提供商，以及电子书阅读器Kindle。
 

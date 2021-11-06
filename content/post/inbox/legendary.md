@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-05-24T02:45:03Z"
-title = "Legendary"
+---
+title: "Legendary"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "Legendary"
 
-+++
 [https://github.com/derrod/legendary](https://github.com/derrod/legendary "https://github.com/derrod/legendary")
 
 [https://github.com/doitsujin/dxvk/wiki/Common-issues](https://github.com/doitsujin/dxvk/wiki/Common-issues "https://github.com/doitsujin/dxvk/wiki/Common-issues")

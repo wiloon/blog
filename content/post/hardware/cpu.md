@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2021-05-04 16:03:54" 
-title = "CPU 执行程序"
-
-+++
+---
+title: "CPU 执行程序"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "CPU 执行程序"
 
 前言
 代码写了那么多，你知道 a = 1 + 2 这条代码是怎么被 CPU 执行的吗？

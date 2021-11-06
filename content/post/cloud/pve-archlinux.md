@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2021-02-13 19:38:52" 
-title = "pve + openwrt"
 
-+++
+---
+title: "pve + openwrt"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "pve + openwrt"
 
 ### pve + openwrt
 ### download openwrt image

@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-10-22 16:32:23" 
-title = "服务器三大体系 SMP、NUMA、MPP"
+---
+title: "服务器三大体系 SMP、NUMA、MPP"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "服务器三大体系 SMP、NUMA、MPP"
 
-+++
 https://blog.csdn.net/ZhipingXi/article/details/78133096
 
 服务器三大体系 SMP、NUMA、MPP

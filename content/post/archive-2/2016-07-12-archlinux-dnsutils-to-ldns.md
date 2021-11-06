@@ -1,5 +1,5 @@
 ---
-title: 'dns tool, dig/drill   , dnsutils to ldns dig -> dirll'
+title: 'dns tool, dig/drill, dnsutils to ldns dig -> dirll'
 author: "-"
 type: post
 date: 2016-07-12T05:16:26+00:00
@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-## 'dns tool, dig/drill   , dnsutils to ldns dig -> dirll'
+## 'dns tool, dig/drill, dnsutils to ldns dig -> dirll'
 ```bash
 # install dig
 ## archlinux

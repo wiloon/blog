@@ -1,8 +1,15 @@
-+++
-date = "2020-05-16T04:02:35Z"
-title = "Vim光标移动"
+---
+title: "Vim光标移动"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "Vim光标移动"
 
-+++
 Vim最大的特征与最大的困难就是纯键盘操作,所以快速移动光标是Vim的最基本技能。我接触Vim也有四个年头了, 曾经由于项目重构操作频繁而切换到了WebStorm,最近又由[WebStorm 切换到了 Vim](https://harttle.land/2015/11/04/vim-ide.html)。 始终感觉光标移动是最大的痛处,同时又能从键盘操作获得极大的快乐。
 
 下文便开始介绍那些常用的快捷键,先上图！

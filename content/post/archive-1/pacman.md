@@ -48,7 +48,7 @@ Include = /etc/pacman.d/mirrorlist
 # for downgrade
 #Server=https://archive.archlinux.org/repos/2018/06/17/$repo/os/$arch
 ```
-
+### --noconfirm
 ```bash
 --noconfirm
 Bypass any and all "Are you sure?" messages. It's not a good idea to do this unless you want to run pacman from a script.

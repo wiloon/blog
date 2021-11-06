@@ -859,7 +859,7 @@ write(1, "1614501167372 thread 2 prepare p"..., 36) = 36
 write(1, "\n", 1)                       = 1
 futex(0x7fdee81bef54, FUTEX_WAKE_OP_PRIVATE, 1, 1, 0x7fdee81bef50, FUTEX_OP_SET<<28|0<<12|FUTEX_OP_CMP_GT<<24|0x1) = 1
 futex(0x7fdee81c0c04, FUTEX_WAIT_PRIVATE, 541, NULL) = ?
-+++ exited with 130 +++
+exited with 130
 这信息就很丰富了,看输出write(1, "1614501167372 thread 2 prepare p"..., 36) = 36可以知道这是线程2的系统调用,具体来解释一下
 
 # 打印了输出

@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2020-11-27 14:34:57" 
-title = "xorm"
-
-+++
+---
+title: "xorm"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "xorm"
 
 ### generate golang code
     /home/wiloon/workspace/my-projects/reverse/reverse -f custom-business.yml

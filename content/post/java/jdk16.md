@@ -1,9 +1,14 @@
-+++
-author = "-"
-date = "2021-05-20 17:09:36" 
-title = "jdk16"
-
-+++
+---
+title: "jdk16"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "jdk16"
 
 ### 新语言特性
 JEP 394，适用于 instanceof 的模式匹配

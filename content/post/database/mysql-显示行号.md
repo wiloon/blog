@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-05-19T03:18:46Z"
-title = "MySQL 显示行号，以及分组排序"
+---
+title: "MySQL 显示行号，以及分组排序"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "MySQL 显示行号，以及分组排序"
 
-+++
     CREATE TABLE my_tb (
     id int(11) NOT NULL AUTO_INCREMENT,
     parent_code varchar(255) DEFAULT NULL,

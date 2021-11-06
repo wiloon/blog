@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "" 
-title = "neovim"
+---
+title: "neovim"
+author: "-"
+date: ""
+url: ""
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## "neovim"
 
-+++
 http://liaoph.com/modern-vim/
 
 Neovim 与 vim 的恩怨情仇
