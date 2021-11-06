@@ -1,14 +1,16 @@
 ---
-title: javascript basic
+title: javascript
 author: "-"
-type: post
 date: 2011-07-30T06:20:10+00:00
 url: javascript
 tags:
   - javascript
 
 ---
-## javascript basic
+## javascript
+### 长数字格式化
+    (10000).toLocaleString('en-US');
+    // 输出 10,000
 ### 打印对象类型
     foo.getClass()
 
@@ -20,7 +22,9 @@ tags:
     }
     //check if enter pressed
     keyCode == 13
-
+## 日期
+### ms > date string
+    new Date(1636183170962).toLocaleString('en-US')
 ### 日期时间函数
 var a=new Date();
   
