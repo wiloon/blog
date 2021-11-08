@@ -21,6 +21,7 @@ url: /?p=1945
 |Live Transcribe & Sound Notifications|语音转文字|
 |RssX||
 |DevCheck|手机硬件检测工具|
+|macrodroid||
 
 ### list
 - AnXray

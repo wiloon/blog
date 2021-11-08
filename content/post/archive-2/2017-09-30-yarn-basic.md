@@ -39,7 +39,7 @@ npm install --global http-server
 yarn global add http-server
 ```
 
-### 打印依赖
+### 打印依赖树
     yarn list
 
 ### yarn 国内加速,修改镜像源
