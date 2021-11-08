@@ -26,7 +26,13 @@ Consumer会定期向kafka集群汇报自己消费数据的进度，这一过程�
 新版本位移提交是在kafka内部维护了一个内部Topic(_consumer_offsets)。
 在kafka内部日志目录下面，总共有50个文件夹，每一个文件夹包含日志文件和索引文件。日志文件主要是K-V结构，（group.id,topic,分区号）。
 假设线上有很多的consumer和ConsumerGroup，通过对group.id做Hash求模运算，这50个文件夹就可以分散同时位移提交的压力。
- 
+### bootstrap.servers
+Kafka 集群地址
+### group.id
+### key.deserializer
+每一个从 Kafka broker 拉取的记录本质上是一组 bytes，所以你必须指定如何解码这些 bytes。这个选项指定了记录中 key 的解码方式，这里我们使用了 StringDeserializer 从而可以把 bytes 解码为字符串（默认编码是 UTF-8）
+### value.deserializer
+解码 value 部分
 ### consumer.poll(1000)
 新版本的Consumer的Poll方法使用了类似于Select I/O机制，因此所有相关事件（包括reblance，消息获取等）都发生在一个事件循环之中。
 1000是一个超时时间，一旦拿到足够多的数据（参数设置），consumer.poll(1000)会立即返回 ConsumerRecords<String, String> records。
@@ -40,14 +46,20 @@ coordinator检测失败的时间
 处理逻辑最大时间
 这个参数是0.10.1.0版本后新增的，可能很多地方看不到喔。这个参数需要根据实际业务处理时间进行设置，一旦Consumer处理不过来，就会被踢出Consumer Group
 注意：如果业务平均处理逻辑为1分钟，那么max. poll. interval. ms需要设置稍微大于1分钟即可，但是session. timeout. ms可以设置小一点（如10s），用于快速检测Consumer崩溃。
-
-作者：技术洞察TIC
-链接：https://juejin.cn/post/6844903713916583944
-来源：稀土掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-https://blog.csdn.net/lishuangzhe7047/article/details/74530417
-
+### max.poll.records  <=  吞吐量
+单次poll调用返回的最大消息数，如果处理逻辑很轻量，可以适当提高该值。
+一次从kafka中poll出来的数据条数,max.poll.records条数据需要在在session.timeout.ms这个时间内处理完
+默认值为500
+ 
+### fetch.min.bytes
+server发送到消费端的最小数据，若是不满足这个数值则会等待直到满足指定大小。默认为1表示立即接收。
+### fetch.max.bytes
+单次获取数据的最大消息数。
+### request. timeout. ms
+这个配置控制一次请求响应的最长等待时间。如果在超时时间内未得到响应，kafka要么重发这条消息，要么超过重试次数的情况下直接置为失败。
+消息发送的最长等待时间.需大于session.timeout.ms这个时间
+### connection. max. idle. ms <= socket连接
+kafka会定期的关闭空闲Socket连接。默认是9分钟。如果不在乎这些资源开销，推荐把这些参数值为-1，即不关闭这些空闲连接。
 #### auto.offset.reset
 - earliest
     当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
@@ -56,7 +68,24 @@ https://blog.csdn.net/lishuangzhe7047/article/details/74530417
 - none
     topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
 
->https://www.cnblogs.com/huxi2b/p/6223228.html
+### heartbeat.interval.ms <=  心跳间隔
+heartbeat 心跳主要用于沟通交流，及时返回请求响应。这个时间间隔真是越快越好。因为一旦出现reblance,那么就会将新的分配方案或者通知重新加入group的命令放进心跳响应中。
+### enable.auto.commit
+自动提交, 对于精确到一次的语义，最好手动提交位移
+
+### auto.offset.reset
+该属性指定了消费者在读取一个没有偏移量或者偏移量无效（消费者长时间失效当前的偏移量已经过时并且被删除了）的分区的情况下，应该作何处理，默认值是latest，也就是从最新记录读取数据（消费者启动之后生成的记录），另一个值是earliest，意思是在偏移量无效的情况下，消费者从起始位置开始读取数据。
+### max. poll. interval. ms <= 处理逻辑最大时间
+这个参数是0.10.1.0版本后新增的，可能很多地方看不到喔。这个参数需要根据实际业务处理时间进行设置，一旦Consumer处理不过来，就会被踢出Consumer Group
+。
+注意：如果业务平均处理逻辑为1分钟，那么max. poll. interval. ms需要设置稍微大于1分钟即可，但是session. timeout. ms可以设置小一点（如10s），用于快速检测Consumer崩溃。
+### session. timeout. ms <=  coordinator检测失败的时间
+默认值是10s
+该参数是 Consumer Group 主动检测 (组内成员comsummer)崩溃的时间间隔。若设置10min，那么Consumer Group的管理者（group coordinator）可能需要10分钟才能感受到。太漫长了是吧。
+
+
+### consumer.poll(Duration.ofMillis(timeoutMs));
+有数据立即返回,没有数据阻塞 timeoutMs 毫秒.
 
 #### Kafka消费组 (consumer group)
 一直以来都想写一点关于kafka consumer的东西，特别是关于新版consumer的中文资料很少。最近Kafka社区邮件组已经在讨论是否应该正式使用新版本consumer替换老版本，笔者也觉得时机成熟了，于是写下这篇文章讨论并总结一下新版本consumer的些许设计理念，希望能把consumer这点事说清楚，从而对广大使用者有所帮助。
@@ -225,8 +254,10 @@ Stable: rebalance完成！可以开始消费了~
 
 总结一下，本文着重讨论了一下新版本的consumer group的内部设计原理，特别是consumer group与coordinator之间的交互过程，希望对各位有所帮助。
 
-
 作者：技术洞察TIC
 链接：https://juejin.cn/post/6844903713916583944
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+https://blog.csdn.net/lishuangzhe7047/article/details/74530417
+>https://www.cnblogs.com/huxi2b/p/6223228.html

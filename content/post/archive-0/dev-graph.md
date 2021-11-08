@@ -178,8 +178,6 @@ epoll--select
 [IO] as io
 [缓存IO] as buffered_io
 [页缓存] as page_cache
-[sendfile] as sendfile
-[DMA] as dma
 [文件系统] as file_system
 [直接I/O] as direct_io
 [mmap]
@@ -213,16 +211,12 @@ cap--partition_tolerance
 netty--zero_copy
 io--page_cache
 io--buffered_io
-io--sendfile
-page_cache--dma
 page_cache--file_system
 io--zero_copy
 io--direct_io
 zero_copy--direct_io
 zero_copy--mmap
-zero_copy--sendfile
 zero_copy--splice
-sendfile--dma
 buffered_io--user_kernal_switch
 user_kernal_switch--context_switch
 file_system--fd
