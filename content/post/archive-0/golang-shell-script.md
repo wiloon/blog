@@ -9,9 +9,13 @@ tags:
   - shell
 
 ---
-## gorun
+## gorun, golang, shell
 用 golang 语言编写脚本
 
+### install gorun
+    go get github.com/erning/gorun
+
+### 能用 "./" 执行的 golang代码
 ```golang
 /// 2>/dev/null ; gorun "$0" "$@" ; exit $?
 
@@ -40,21 +44,26 @@ func main() {
 ./hello.go
 ```
 
-## golang shell
+## golang shell, 在golang中调用shell
 ```golang
-func shellExec(s string) string {
-    cmd := exec.Command("/bin/sh", "-c", s)
-    var out bytes.Buffer
+func shellExec(command string) string {
+	log.Printf("exec: %s\n", command)
+	cmd := exec.Command("/bin/sh", "-c", command)
+	var out bytes.Buffer
 
-    cmd.Stdout = &out
-    err := cmd.Run()
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Printf("%s", out.String())
-    return out.String()
+	cmd.Stdout = &out
+	err := cmd.Run()
+	if err != nil {
+		log.Printf("failed to exec: %s, err: %v", command, err)
+		return ""
+	}
+	ourStr := out.String()
+	log.Printf("exec response: \n%s", ourStr)
+	return ourStr
 }
-
+func shellExecFmt(format string, params ...interface{}) string {
+	return shellExec(fmt.Sprintf(format, params...))
+}
 ```
 
 
