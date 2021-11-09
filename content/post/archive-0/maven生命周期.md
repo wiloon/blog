@@ -1,18 +1,16 @@
 ---
-title: Maven生命周期详解
+title: Maven生命周期
 author: "-"
 type: post
 date: 2011-09-28T03:29:34+00:00
 url: /?p=949
-bot_views:
-  - 10
 categories:
   - Uncategorized
 tags:
   - Maven
 
 ---
-## Maven生命周期详解
+## Maven生命周期
 ### Maven 生命周期
 
 Maven生命周期已经在另一篇博客中介绍过了(<http://www.cnblogs.com/haippy/archive/2012/07/04/2576453.html>)，这里引用IBM developerworks 的文章再一次讨论Maven 的生命周期。

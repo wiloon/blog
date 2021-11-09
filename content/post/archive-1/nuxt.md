@@ -11,7 +11,7 @@ categories:
 
 >https://www.nuxtjs.cn/guide/installation
 
-npx create-nuxt-app
+npx create-nuxt-app foo
 
 ## 服务端渲染（SSR）
 服务端渲染（Server-Side Rendering），是指由服务侧完成页面的 HTML 结构拼接的页面处理技术，发送到浏览器，然后为其绑定状态与事件，成为完全可交互页面的过程。
@@ -40,3 +40,8 @@ SSR 常用于以下两个场景：
 
 
 >https://umijs.org/zh-CN/docs/ssr#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%EF%BC%9F
+
+###
+yarn add echarts vue-echarts
+yarn add -D @vue/composition-api
+yarn add -D @nuxtjs/composition-api
