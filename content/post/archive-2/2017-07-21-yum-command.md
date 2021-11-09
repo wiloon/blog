@@ -68,6 +68,16 @@ yum -y remove httpd
 yum update --exclude=kernel* --exclude=php*
 https://www.howtoing.com/exclude-packages-from-yum-update
 ```
+### Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+    # 查看哪个包提供 applydeltarpm
+    yum provides '*/applydeltarpm'  
+    # 安装 deltarpm
+    yum install deltarpm -y
+
+### 清除metadata
+    run yum --enablerepo=updates clean metadata
+
+---
 
 https://my.oschina.net/andyfeng/blog/601291
   
