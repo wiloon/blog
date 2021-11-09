@@ -37,7 +37,17 @@ url: "compact"
 ```
 
 ### .zip
+```bash
+pacman -S zip unzip
+```
 #### 压缩
+```bash
+zip all.zip *.jpg
+
+# 压缩的是个文件夹, -r 表示调用递归压缩
+zip -r temp.zip temp
+```
+##### 分卷
 ```bash
 # 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
 zip -s SIZE origin.zip --out new.zip
@@ -46,16 +56,8 @@ zip -s SIZE origin.zip --out new.zip
 # 解压的时候需要先将它合并才能正常解压
 zip spiltfile.zip -s=0 --out single.zip
 ```
-
 ### 解压
 ```bash
-pacman -S zip unzip
-zip all.zip *.jpg
-
-# 压缩的是个文件夹, -r 表示调用递归压缩
-
-zip -r temp.zip temp
-
 unzip all.zip
 unzip -o -d /home/sunny myfile.zip
 

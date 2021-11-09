@@ -51,7 +51,7 @@ mvn archetype:generate -DgroupId=com.wiloon.mail.web -DartifactId=mailTestWeb \
 
 ```bash
 mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -q
-
+mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -U
 #-U,--update-snapshots                  Forces a check for missing                                        releases and updated snapshots on
 mvn clean compile -U
 ```

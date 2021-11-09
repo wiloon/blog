@@ -1,5 +1,5 @@
 ---
-title: plantuml, puml + vs code
+title: plantuml, puml
 author: "-"
 date: 2020-01-26T04:41:00+00:00
 url: plantuml
@@ -7,7 +7,7 @@ categories:
   - uml
 
 ---
-## plantuml, puml + vs code
+## plantuml, puml
 ### 安装 graphviz
     sudo apt-get install -y graphviz
 
@@ -102,9 +102,11 @@ Class101 <|.. Class102
 circle 1
 circle 2
 circle 3
+agent 4
 
 1 -- 2
 1 -- 3
+1 -- 4
 
 @enduml
 ```
