@@ -21,18 +21,19 @@ crontab -e # 执行后会跳转到vi (依赖环境变量配置,默认一般是vi
 */3 * * * * echo "foo" >> /tmp/foo.txt
 #3分钟之后查看文件  /tmp/foo.txt 应该已经有数据了.
 ```
-
+### 查看crond 状态
 ```bash
 # check status
 service crond status
-service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
+# cron log path
+/var/log/cron
 ```
 
 ```bash
 service crond start # 启动服务
 service crond stop # 关闭服务
 service crond restart # 重启服务
-
+service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
 crontab -l #列出某个用户cron服务的详细内容
 crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， c r o n会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
 crontab -e -u 用户名  # 配置指定用户 的定时任务
@@ -120,7 +121,7 @@ crontab -e
 
 * * *
 
-很多时候，你没有办法重新启动crond，这个时候可以先killall crond 然后再crond restart就哦ok了。
+很多时候，你没有办法重新启动crond，这个时候可以先 killall crond 然后再crond restart就哦ok了。
   
 你也可以将这个服务在系统启动的时候也自动启动: 
   

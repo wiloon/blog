@@ -8,16 +8,34 @@ categories:
 
 ---
 ## linux find
+### 将yourdir目录下修改时间一天以内的文件复制到destdir下：
+```bash
+find /yourdir -mtime -1 -type f -exec cp {} /destdir \;
+# 参数 -type f 不能省, 不限定文件类型的话,会把代表当前目录的 "." 也查出来, 然后就会列出所有文件
+```
 ### 按时间查
--ctime -n 查找距现在 n_24H 内修改过的文件
-  
--ctime n 查找距现在 n_24H 前, (n+1)_24H 内修改过的文件
-  
--ctime +n 查找距现在 (n+1)_24H 前修改过的文件
+File's data was last modified n*24 hours ago
 
-[a|c|m]min [最后访问|最后状态修改|最后内容修改]min
-  
-[a|c|m]time [最后访问|最后状态修改|最后内容修改]time
+```bash
+# 当前时间 2021-11-11 13:53
+
+# 24小时内更改过内容的文件
+# 1天之内被修改过的文件, 2021-11-10 13:53 - 2021.11.11 13:53
+find / -mtime 0
+# 5天之内被修改过的文件, 2021-11-6 13:53 - 2021.11.11 13:53
+find / -mtime -5
+# 5天前的那一天修改过的文件, 2021-11-05 13:53 - 2021.11.06 13:53
+find / -mtime 5
+# 5天之前修改过的文件,  -- 2021-11-05 13:53
+find / -mtime +5
+```
+
+    -ctime -n 查找距现在 n_24H 内修改过的文件
+    -ctime n 查找距现在 n_24H 前, (n+1)_24H 内修改过的文件
+    -ctime +n 查找距现在 (n+1)_24H 前修改过的文件
+
+    [a|c|m]min  [最后访问|最后状态修改|最后内容修改]min
+    [a|c|m]time [最后访问|最后状态修改|最后内容修改]time
 
 linux 文件的几种时间 (以 find 为例):
   
@@ -140,3 +158,5 @@ find . -amin -1
 - -newer 指内容最近被修改的文件
 - -anewer 指最近被读取过的文件
 - -cnewer 指状态最近发生变化的文件
+
+>https://www.modb.pro/db/27010
