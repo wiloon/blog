@@ -1,21 +1,20 @@
 ---
-title: tcp http 调试,抓包工具, wireshark,Fiddler
+title: tcp http 调试, 抓包工具, wireshark,Fiddler
 author: "-"
-type: post
 date: 2013-12-13T06:14:32+00:00
 url: /?p=6037
 categories:
-  - Uncategorized
+  - network
 tags:
-  - Network
+  - network
 
 ---
-## tcp http 调试,抓包工具, wireshark,Fiddler
-1、wireshark: 
+## tcp http 调试, 抓包工具, wireshark, Fiddler
+### wireshark
 
 wireshark的前身是Ethereal，2006年因为其创始人Gerald Combs的跳槽而改名为wireshark。它是一个跨平台的软件，可以在unix系列、linux、mac os、windows等多个平台上面进行网络协议抓包工作。同时他也是一个开源软件，有兴趣的话可以下载源码深入了解。我们可以通过wireshark官网进一步了解相关知识及下载该软件。
   
-2、fiddler
+### fiddler
   
 fiddler的定位是网页调试工具，能记录所有客户端和服务器的http和https请求，允许你监视，设置断点，甚至修改输入输出数据。我们还可以为fiddler安装自己所需的插件，从而更好的利用fiddler的强大功能。详细介绍信息可以通过fiddler官网进一步了解，
 
