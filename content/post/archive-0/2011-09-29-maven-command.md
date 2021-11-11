@@ -299,4 +299,7 @@ http://liwanchun-xd.iteye.com/blog/144047
 </settings>
 ```
 
-
+### tomcat7-maven-plugin
+```bash
+mvn tomcat:run
+```
