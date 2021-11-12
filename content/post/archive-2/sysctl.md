@@ -12,7 +12,6 @@ systemd-sysctl 服务在启动时会加载/etc/sysctl.d/*.conf, 配置内核参�
 
 /etc/sysctl.conf 不起作用
 
-
 sysctl命令被用于在内核运行时动态地修改内核的运行参数,可用的内核参数在目录/proc/sys中。它包含一些TCP/ip堆栈和虚拟内存系统的高级选项,用sysctl可以读取设置超过五百个系统变量。
   
 CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl.d/ . The code is within /etc/init.d/functions
@@ -26,21 +25,31 @@ CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl
     -p: 从配置文件"/etc/sysctl.conf"加载内核参数设置
     -A: 以表格方式打印所有内核参数变量。
 
+### 查看变量
+```bash
+# 查看变量
+sysctl -a |grep tcp_syn_retrie
+```
+### 设置内核参数
+在 /etc/sysctl.d/ 下创建 foo.conf, 填写参数值
+```bash
+net.core.rmem_max=2097152
+```
+### 加载文件使其生效
+```bash
+# load one file
+sysctl -p /etc/sysctl.d/00-sysctl.conf
+sysctl --load=filename.conf
+```
+
 ```bash
 # To load all configuration files manually
 sysctl --system
-
-# load one file
-sysctl --load=filename.conf
-
-# 查看变量
-sysctl -a |grep tcp_syn_retrie
 
 sysctl tcp_syn_retrie
 sysctl -w net.ipv4.tcp_synack_retries=5
 # 从配置文件加载内核参数设置
 sysctl -p /etc/sysctl.conf
-sysctl -p /etc/sysctl.d/00-sysctl.conf
 sysctl --system
 ```
 
@@ -48,7 +57,7 @@ sysctl -w xxx_tcp_syn_retrie =0 时 不会生效。保持原值
 
 ### fs.file-max
     所有用户打开文件描述符的总和  
-    系统级文件描述符数限制。 直接修改这个参数和<<linux 最大文件描述符>>中修改方法有相同的效果（不过这些都是临时修改) 。一般修改/proc/sys/fs/file-max 后,应用程序需要把/proc/sys/fs/inode-max 设置为/proc/sys/fs/fs/file-max 值的3-4倍,否则可能导致inode数不够用。 
+    系统级文件描述符数限制。直接修改这个参数和<<linux 最大文件描述符>>中修改方法有相同的效果（不过这些都是临时修改) 。一般修改/proc/sys/fs/file-max 后,应用程序需要把/proc/sys/fs/inode-max 设置为/proc/sys/fs/fs/file-max 值的3-4倍,否则可能导致inode数不够用。 
 ### kernel.core_uses_pid**
   
     即使core_pattern中没有设置%p,最后生成的core dump文件名仍会加上进程ID。
@@ -58,7 +67,6 @@ This  file  contains  the  maximum  number of in-memory inodes.  On some (2.4) s
               present. This value should be 3-4 times larger than the value in file-max, since  stdin,  stdout  and
               network  sockets also need an inode to handle them. When you regularly run out of inodes, you need to
               increase this value.
-
 
   * kernel.msgmax
   
@@ -332,12 +340,40 @@ Recall the previously mentioned SYN_RECV queue - your server is waiting for ACK 
   * /proc/sys/net/ipv4/tcp_wmem
   
     为自动调优定义socket使用的内存。第一个值是为socket发送缓冲区分配的最少字节数；第二个值是默认值（该值会被wmem_default覆盖) ,缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是发送缓冲区空间的最大字节数（该值会被wmem_max覆盖) 。
-  * /proc/sys/net/core/rmem_max
-  
-    最大的TCP数据接收窗口（字节) 。
-  * /proc/sys/net/core/wmem_max
+
+### net.core.rmem_max, /proc/sys/net/core/rmem_max
+
+最大的TCP数据接收窗口（字节) 。  
+默认的和最大的接收数据包内存大小  
+大多数的 Linux 中 rmem_max 和 wmem_max 被分配的值为 128 k，在一个低延迟的网络环境中，或者是 apps 比如 DNS、Web Server，这或许是足够的。尽管如此，如果延迟太大，默认的值可能就太小了
+
+需要设置 minimum size, initial size, and maximum size in bytes:
+
+```bash
+echo 'net.ipv4.tcp_rmem= 10240 87380 12582912' >> /etc/sysctl.conf
+echo 'net.ipv4.tcp_wmem= 10240 87380 12582912' >> /etc/sysctl.conf
+```
+quic-go 建议设置的值是 net.ipv4.tcp_rmem=2048kiB
+>https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size
+>https://zhuanlan.zhihu.com/p/89620832
+
+UDP中SO_RCVBUF与内核中/proc/sys/net/core/rmem_default对应，SO_SNDBUF与/proc/sys/net/core/wmem_default对应。  
+而TCP中SO_RCVBUF与内核中/proc/sys/net/ipv4/tcp_rmem 的第二项default对应，SO_SNDBUF与/proc/sys/net/ipv4/tcp_wmem的第二项default对应。  (可能是操作系统实现的差异?)
+SO_RCVBUF来设置接收缓冲区，该参数在设置的时候不会与rmem_max进行对比校验，但是如果设置的大小超过rmem_max的话，则超过rmem_max的部分不会生效；  
+rmem_max参数是整个系统的大小，不是单个socket的大小。  
+>https://www.cnblogs.com/scaugsh/p/10254483.html
+
+如果指定了tcp_wmem，则net.core.wmem_default被tcp_wmem的覆盖。send Buffer在tcp_wmem的最小值和最大值之间自动调整。如果调用setsockopt()设置了socket选项SO_SNDBUF，将关闭发送端缓冲的自动调节机制，tcp_wmem将被忽略，SO_SNDBUF的最大值由net.core.wmem_max限制。
+>https://zhuanlan.zhihu.com/p/89620832
+
+
+### net.core.rmem_default
+### wmem
+默认情况下Linux系统会自动调整这个buffer（net.ipv4.tcp_wmem）, 也就是不推荐程序中主动去设置SO_SNDBUF，除非明确知道设置的值是最优的。
+### /proc/sys/net/core/wmem_max, /proc/sys/net/core/wmem_default
   
     最大的TCP数据发送窗口（字节) 。
+    默认的和最大的发送数据包内存的大小
 
   * /proc/sys/net/core/netdev_max_backlog
   

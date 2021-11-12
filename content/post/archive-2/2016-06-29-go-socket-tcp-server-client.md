@@ -256,7 +256,7 @@ $go run client2.go
   
 ... ...
   
-可以看出Client初始时成功地一次性建立了128个连接,然后后续每阻塞近10s才能成功建立一条连接。也就是说在server端 backlog满时(未及时accept),客户端将阻塞在Dial上,直到server端进行一次accept。至于为什么是128,这与darwin 下的默认设置有关: 
+可以看出Client初始时成功地一次性建立了128个连接,然后后续每阻塞近10s才能成功建立一条连接。也就是说在server端 backlog满时(未及时accept),客户端将阻塞在Dial上,直到server端进行一次accept。至于为什么是128, 这与 darwin 下的默认设置有关: 
 
 $sysctl -a|grep kern.ipc.somaxconn
   
@@ -264,7 +264,7 @@ kern.ipc.somaxconn: 128
   
 如果我在ubuntu 14.04上运行上述server程序,我们的client端初始可以成功建立499条连接。
 
-如果server一直不accept,client端会一直阻塞么？我们去掉accept后的结果是: 在Darwin下,client端会阻塞大 约1分多钟才会返回timeout: 
+如果server一直不accept,client端会一直阻塞么？我们去掉accept后的结果是: 在 Darwin下, client 端会阻塞大 约1分多钟才会返回timeout: 
 
 2015/11/16 22:03:31 128 :connect to server ok
   

@@ -50,3 +50,6 @@ STFW是Search The Fu**ing Web的意思
 
 ### country code
 >https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+
+### Darwin
+Darwin是由苹果公司于2000年所发布的一个开放源代码操作系统。Darwin是macOS和iOS操作环境的操作系统部分。

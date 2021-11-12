@@ -11,11 +11,7 @@ categories:
 ---
 ## Linux网络协议分析工具tcpdump和tshark用法
 
-  
-  
-
-
-  Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具wireshark （原名叫ethereal) 的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见libpcap编程教程) 进行网络截包。 
+Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具wireshark （原名叫ethereal) 的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见libpcap编程教程) 进行网络截包。 
   
     TCPDUMP
   
@@ -170,7 +166,7 @@ categories:
  telnet 表明该数据包是从主机H219的33357端口发往主机ICE的TELNET(23)端口. ack 22535
  表明对序列号是222535的包进行响应. win 8760表明发送窗口的大小是8760.
   
-### ARP包的TCPDUMP输出信息
+### ARP包的 TCPDUMP 输出信息
  使用命令#tcpdump arp
  得到的输出结果是: 
  22:32:42.802509 eth0 > arp who-has route tell ice (0:90:27:58:af:1a)
@@ -180,14 +176,14 @@ categories:
  ARP请求包, who-has route tell ice表明是主机ICE请求主机ROUTE的MAC地址。 0:90:27:5
  8:af:1a是主机ICE的MAC地址。
   
-### TCP包的输出信息
+### TCP 包的输出信息
 用TCPDUMP捕获的TCP包的一般输出信息是: 
 src > dst: flags data-seqno ack window urgent options
 src > dst:表明从源地址到目的地址, flags是TCP包中的标志信息,S 是SYN标志, F (FIN), P (PUSH) , R (RST) "." (没有标记); data-seqno是数据包中的数据的顺序号, ack是
 下次期望的顺序号, window是接收缓存的窗口大小, urgent表明数据包中是否有紧急指针.
 Options是选项.
   
-### UDP包的输出信息
+### UDP 包的输出信息
 用TCPDUMP捕获的UDP包的一般输出信息是: 
 route.port1 > ice.port2: udp lenth
 UDP十分简单，上面的输出行表明从主机ROUTE的port1端口发出的一个UDP数据包到主机ICE的port2端口，类型是UDP， 包的长度是lenth
