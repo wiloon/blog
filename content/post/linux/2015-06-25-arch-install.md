@@ -8,8 +8,8 @@ tags:
   - archlinux
 
 ---
-## parted
-# archlinux install
+## archlinux install
+
 ## 从U盘引导安装
 ### download iso  
 >http://mirrors.163.com/archlinux/iso

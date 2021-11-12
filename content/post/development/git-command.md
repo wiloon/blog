@@ -1,5 +1,5 @@
 ---
-title: git basic, command
+title: git basic
 author: "-"
 date: 2011-05-28T13:01:51.000+00:00
 url: "git"
@@ -7,7 +7,7 @@ tags:
 - Git
 
 ---
-## git basic, command
+## git basic
 ### config git editor
     git config --global core.editor vim
     export EDITOR=vim
