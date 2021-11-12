@@ -6,6 +6,7 @@ date: 2016-04-21T15:26:01+00:00
 url: archlinux/init
 
 ---
+## archlinux init
 ### before ansible script
    pacman -Syu && pacman -S git ansible
 ### clone ansible script
@@ -26,7 +27,7 @@ chmod u+w /etc/sudoers
 vim /etc/sudoers
     wiloon ALL=(ALL) NOPASSWD: ALL
 
-# install and enable sshd
+### install and enable sshd
 pacman -S openssh
 systemctl start sshd
 systemctl enable sshd
