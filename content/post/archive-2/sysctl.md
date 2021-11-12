@@ -37,8 +37,8 @@ net.core.rmem_max=2097152
 ### 加载文件使其生效
 ```bash
 # load one file
-sysctl -p /etc/sysctl.d/00-sysctl.conf
-sysctl --load=filename.conf
+sysctl -p /etc/sysctl.d/foo.conf
+sysctl --load=/etc/sysctl.d/foo.conf
 ```
 
 ```bash
@@ -58,8 +58,8 @@ sysctl -w xxx_tcp_syn_retrie =0 时 不会生效。保持原值
     所有用户打开文件描述符的总和  
     系统级文件描述符数限制。直接修改这个参数和<<linux 最大文件描述符>>中修改方法有相同的效果（不过这些都是临时修改) 。一般修改/proc/sys/fs/file-max 后,应用程序需要把/proc/sys/fs/inode-max 设置为/proc/sys/fs/fs/file-max 值的3-4倍,否则可能导致inode数不够用。 
 ### kernel.core_uses_pid**
-  
-    即使core_pattern中没有设置%p,最后生成的core dump文件名仍会加上进程ID。
+
+即使core_pattern中没有设置%p,最后生成的core dump文件名仍会加上进程ID。
 
 #### /proc/sys/fs/inode-max
 This  file  contains  the  maximum  number of in-memory inodes.  On some (2.4) systems, it may not be
