@@ -26,7 +26,10 @@ url: "compact"
     # 解压2
     gzip -d FileName.gz
 
-
+#### 解压并指定输出目录
+```bash
+gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
+```
 ### .7z
 ```bash
     yum install p7zip
@@ -47,7 +50,7 @@ zip all.zip *.jpg
 # 压缩的是个文件夹, -r 表示调用递归压缩
 zip -r temp.zip temp
 ```
-##### 分卷
+##### 分卷压缩
 ```bash
 # 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
 zip -s SIZE origin.zip --out new.zip
@@ -72,7 +75,10 @@ ls *.zip | xargs -n1 unzip -o
 
 find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 ```
-
+#### 解压并指定目录
+```bash
+unzip /path/to/source.zip -d /path/to/target/path
+```
 ### Zstandard, zstd
 ```bash
 # zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
@@ -108,6 +114,12 @@ zstd -T0 foo.txt
 Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的CPU以及时间去打包文件，他仅仅只是一个打包工具，并不负责压缩。  
 **(注: tar只是打包，没有压缩功能！)**
 
+#### 向已有的 tar 包里增加文件
+这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
+```bash
+tar -rf all.tar *.gif
+```
+
 ```bash
 # 打包:
 tar cvf FileName.tar DirName
@@ -125,26 +137,32 @@ tar -zcf ${package_path} -C ${war_path} .
 ```
 
 #### tar参数
-    -c : 建立一个压缩文件的参数指令(create 的意思)； 
-    -x : 解开一个压缩文件的参数指令！ 
-    -t : 查看 tarfile 里面的文件！ 
-    特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在！ 
-    因为不可能同时压缩与解压缩。 
+    -c, --create : 创建压缩文件
+    -x : 解压缩
+    -t : 查看 tarfile 里面的文件, 特别注意，在参数的下达中， c/x/t 仅能存在一个！不可同时存在因为不可能同时压缩与解压缩。 
     -z : 是否同时具有 gzip 的属性？亦即是否需要用 gzip 压缩？
     -j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
     -v : 压缩的过程中显示文件！这个常用，但不建议用在背景执行过程!
-    -f : 使用档名，请留意，在 f 之后要立即接档名喔！不要再加参数!
-    　　　例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 
-    　　　『 tar -zcvPf tfile sfile』才对喔！ 
+    -f, --file=ARCHIVE : 指定文件或设备,如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名,不要再加其它参数, 例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 『 tar -zcvPf tfile sfile』才对
     -p : 使用原文件的原来属性（属性不会依据使用者而变)  
     -P : 可以使用绝对路径来压缩！ 
     -N : 比后面接的日期(yyyy/mm/dd)还要新的才会被打包进新建的文件中！ 
     --exclude FILE: 在压缩的过程中，不要将 FILE 打包！  
+    -C : 在执行后续的指令前切换目录, 此参数是顺序敏感的.
 
 ### .tar.gz 和 .tgz
 这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多CPU的，而且可以得到一个非常理想的压缩率。  
 默认tar打包和系统默认的压缩工具是单线程的，pigz是gzip的多线程实现,默认用当前逻辑cpu个数来并发压缩，无法检测个数的话，则并发8个线程
 
+#### 解压到指定目录
+```bash
+tar -zxvf /path/to/foo.tar.gz -C /path/to/target/dir/
+```
+
+#### 压缩到指定目录
+```bash
+tar -zcvf /data/tmp/foo.tar.gz /data/server/source
+```
 ```bash
 #压缩
 tar -zcvf all.tar.gz *.jpg
@@ -249,9 +267,7 @@ tar命令的选项有很多(用man tar可以查看到)，但常用的就那么�
 
 这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
 
-# tar -rf all.tar *.gif
 
-这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
 
 # tar -uf all.tar logo.gif
 

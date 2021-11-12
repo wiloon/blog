@@ -1,12 +1,67 @@
 ---
 title: shell basic
 author: "-"
-type: post
 date: 2019-05-06T04:27:52+00:00
-url: /?p=14295
+url: shell
 
 ---
 ## shell basic
+### Shell 变量
+  
+shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理: 
+```bash
+#!/bin/bash
+myName="tom"
+youName="cat"
+```
+
+#### 使用变量
+
+```bash
+ABC="tom"
+echo $ABC #使用变量前面加$美元符号
+echo "ABC=$ABC" #可以直接在字符串里面引用
+echo "ABC=${ABC}" #但是建议把变量名字用{}包起来
+```
+#### 只读变量
+
+```bash
+ABC="tom"
+echo "ABC=${ABC}"
+readOnly ABC #设置只读
+ABC="CAT" #会报错，因为设置了只读，不能修改
+```
+
+#### 删除变量
+
+```bash
+ABC="tom"
+echo "ABC=${ABC}"
+unset ABC #删除
+echo "ABC=$ABC"
+echo "ABC=${ABC}"
+```
+
+Shell 的字符串
+  
+使用字符串
+
+NAME="tom"
+  
+A=my #你甚至可以不用引号，但是字符串当中不能有空格，这种方式也不推荐
+  
+B='my name is ${NAME}' #变量不会被解析
+  
+C="my name is ${NAME}" #变量会解析
+  
+echo $A
+  
+echo $B
+  
+echo $C
+
+https://my.oschina.net/u/2428064/blog/3045121
+
 ## string
 ### Replace
 用法
@@ -200,67 +255,7 @@ dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
   
 echo "dt=${dt}"
   
-### Shell 变量
-  
-shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理: 
 
-#!/bin/bash
-  
-myName="tom"
-  
-youName="cat"
-
-使用变量
-
-ABC="tom"
-  
-echo $ABC #使用变量前面加$美元符号
-  
-echo "ABC=$ABC" #可以直接在字符串里面引用
-  
-echo "ABC=${ABC}" #但是建议把变量名字用{}包起来
-  
-只读变量
-
-ABC="tom"
-  
-echo "ABC=${ABC}"
-  
-readOnly ABC #设置只读
-  
-ABC="CAT" #会报错，因为设置了只读，不能修改
-
-删除变量
-
-ABC="tom"
-  
-echo "ABC=${ABC}"
-  
-unset ABC #删除
-  
-echo "ABC=$ABC"
-  
-echo "ABC=${ABC}"
-
-Shell 的字符串
-  
-使用字符串
-
-NAME="tom"
-  
-A=my #你甚至可以不用引号，但是字符串当中不能有空格，这种方式也不推荐
-  
-B='my name is ${NAME}' #变量不会被解析
-  
-C="my name is ${NAME}" #变量会解析
-  
-echo $A
-  
-echo $B
-  
-echo $C
-
-https://my.oschina.net/u/2428064/blog/3045121
 
 ### 逻辑与，或表达式
     与&&: 

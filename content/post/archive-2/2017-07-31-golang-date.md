@@ -6,7 +6,7 @@ date: 2017-07-31T01:27:35+00:00
 url: /?p=10959
 
 ---
-## golang date time, 日期,时间
+## golang date time, 日期, 时间
 ### 创建一个指定时间的日期对象
     start := time.Date(2021, 1, 7, 12, 0, 0, 0, time.Local)
     
@@ -82,6 +82,7 @@ func Date(year, month, day int) time.Time {
 ```golang
 // 格式化日期 - RFC3339
 time.Now().Format("2006-01-02T15:04:05Z07:00")
+time.Now().Format("2006-01-02-15-04-05")
 ```
 
 ```golang

@@ -1,16 +1,19 @@
 ---
-title: ssh_config, sshd_config
+title: ssh config, sshd config
 author: "-"
-type: post
 date: 2018-02-11T15:40:49+00:00
-url: /?p=11872
+url: ssh/config
 
 ---
-## ssh_config, sshd_config
+## ssh config, sshd config
 
 ### /etc/ssh/sshd_config
 #### 服务端鉴权重试最大次数
+ssh 连接服务器时agent里保存的密钥过多会遇到异常 Too Many Authentication Failures, 可以调整服务器sshd 配置
+
+```bash
 MaxAuthTries 20
+```
 
 ---
 

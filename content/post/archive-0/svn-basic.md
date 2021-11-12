@@ -1,9 +1,8 @@
 ---
 title: svn basic, command
 author: "-"
-type: post
 date: 2011-08-04T02:41:54+00:00
-url: /?p=395
+url: svn
 
 ---
 ## svn basic, command

@@ -1,31 +1,39 @@
 ---
 title: cron, crond, crontab, linux 定时任务, cronie
 author: "-"
-type: post
 date: 2012-03-02T15:36:38+00:00
 url: /cron
 ---
 ## cron, crond, crontab, linux 定时任务, cronie
-
+### 安装 cron
+```bash
+# 查看cron是否已经 安装
+# centos
+yum list installed |grep cron
+yum install cronie    # vixie-cron 已经不再维护, 建议安装cronie
+# archlinux 
+pacman -S cronie
+```
+### 创建定时任务
+```bash
+crontab -e # 执行后会跳转到vi (依赖环境变量配置,默认一般是vi)
+# vi状态下插入一行, 每三分钟插入一行数据到/tmp/foo.txt
+*/3 * * * * echo "foo" >> /tmp/foo.txt
+#3分钟之后查看文件  /tmp/foo.txt 应该已经有数据了.
+```
+### 查看crond 状态
 ```bash
 # check status
 service crond status
-
-yum list installed |grep cron
-yum install cronie    # vixie-cron 已经不再维护, 建议安装cronie
-
-service crond reload # 重新载入配置
-
+# cron log path
+/var/log/cron
 ```
-
-### archlinux 
-    pacman -S cronie
 
 ```bash
 service crond start # 启动服务
 service crond stop # 关闭服务
 service crond restart # 重启服务
-
+service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
 crontab -l #列出某个用户cron服务的详细内容
 crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， c r o n会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
 crontab -e -u 用户名  # 配置指定用户 的定时任务
@@ -34,14 +42,14 @@ crontab -r #删除没个用户的cron服务
 ```
 
 ```bash
-    # Use the hash sign to prefix a comment
-    # +—————- minute (0 – 59)
-    # |  +————- hour (0 – 23)
-    # |  |  +———- day of month (1 – 31)
-    # |  |  |  +——- month (1 – 12)
-    # |  |  |  |  +—- day of week (0 – 7) (Sunday=0 or 7)
-    # |  |  |  |  |
-    # *  *  *  *  *  user-name command to be executed
+# Use the hash sign to prefix a comment
+# +—————- minute (0 – 59)
+# |  +————- hour (0 – 23)
+# |  |  +———- day of month (1 – 31)
+# |  |  |  +——- month (1 – 12)
+# |  |  |  |  +—- day of week (0 – 7) (Sunday=0 or 7)
+# |  |  |  |  |
+# *  *  *  *  *  user-name command to be executed
 ```
 
 ```bash
@@ -53,6 +61,9 @@ cron will then examine the modification time on all crontabs and reload those wh
 https://www.matools.com/crontab
 
 ### 示例
+### 每三分钟
+    */3 * * * * echo "foo" >> /tmp/foo.txt
+
 ```bash
 # 双数周的周一
 50 9 * * 1 [ $(expr $(date +%W) \% 2) -eq 0 ] && /path/to/foo.sh
@@ -69,8 +80,7 @@ https://www.matools.com/crontab
     # 每周一，三，五，13:55分
     55 13 * * 1,3,5 metting-notification.sh
 ```
-### 每三分钟
-    */3 * * * * echo "foo" >> /tmp/foo.txt
+
 ### 每两个小时
     0 */2 * * * echo "foo" >> /tmp/foo.txt
 ### 每天早上5点运行
@@ -111,7 +121,7 @@ crontab -e
 
 * * *
 
-很多时候，你没有办法重新启动crond，这个时候可以先killall crond 然后再crond restart就哦ok了。
+很多时候，你没有办法重新启动crond，这个时候可以先 killall crond 然后再crond restart就哦ok了。
   
 你也可以将这个服务在系统启动的时候也自动启动: 
   
