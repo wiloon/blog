@@ -1,7 +1,6 @@
 ---
 title: sysctl
 author: "-"
-type: post
 date: 2018-08-24T09:42:15+00:00
 url: sysctl
 
@@ -21,7 +20,7 @@ CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl
     -n: 打印时只打印值,不打印参数名称；
     -e: 忽略未知关键字错误；
     -N: 打印时只打印参数名称,不打印值；
-    -w: 设置参数的值（不过好像不加这个选项也可以直接设置) ；
+    -w: 设置参数的值（不过好像不加这个选项也可以直接设置)
     -p: 从配置文件"/etc/sysctl.conf"加载内核参数设置
     -A: 以表格方式打印所有内核参数变量。
 
@@ -147,7 +146,7 @@ net.ipv4.icmp_echo_ignore_broadcasts
   
     ipv4的IP转发。0: 禁止, 1: 打开
 
-# 本地发起连接时使用的端口范围,tcp初始化时会修改此值
+本地发起连接时使用的端口范围,tcp初始化时会修改此值
 
 net.ipv4.ip_local_port_range
 
@@ -159,9 +158,9 @@ net.ipv4.tcp_fin_timeout
   
 net.ipv4.tcp_keepalive_time
 
-  * net.ipv4.tcp_max_syn_backlog
+### net.ipv4.tcp_max_syn_backlog
   
-    对于那些依然还未获得客户端确认的连接请求,需要保存在队列中最大数目。默认值是1024,可提高到2048。
+对于那些依然还未获得客户端确认的连接请求,需要保存在队列中最大数目。默认值是1024,可提高到2048。
   
     指定listen监听队列里,能够转移至ESTABLISHED或者SYN_RCVD状态的socket的最大数目。
 
