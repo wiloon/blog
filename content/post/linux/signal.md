@@ -1,26 +1,28 @@
 ---
-title: "signal, 信号"
+title: signal, 信号
 author: "-"
 date: "2021-04-30 07:20:01" 
-url: "template"
+url: signal
 categories:
   - OS
 tags:
-  - OS
+  - linux
+  - ipc
+
 ---
-## "signal, 信号"
+## signal, 信号
 
 # 信号(signal)机制
 信号(Signal)是Linux, 类Unix和其它POSIX兼容的操作系统中用来进程间通讯的一种方式。一个信号就是一个异步的通知，发送给某个进程，或者同进程的某个线程，告诉它们某个事件发生了。
 当信号发送到某个进程中时，操作系统会中断该进程的正常流程，并进入相应的信号处理函数执行操作，完成后再回到中断的地方继续执行。
 如果目标进程先前注册了某个信号的处理程序(signal handler),则此处理程序会被调用，否则缺省的处理程序被调用。
 
-发送信号
-kill 系统调用(system call)可以用来发送一个特定的信号给进程。
+### 发送信号
+kill 系统调用 (system call) 可以用来发送一个特定的信号给进程。
 kill 命令允许用户发送一个特定的信号给进程。
 raise 库函数可以发送特定的信号给当前进程。
 
-在Linux下运行man kill可以查看此命令的介绍和用法。
+在Linux下运行 man kill 可以查看此命令的介绍和用法。
 
 The command kill sends the specified signal to the specified process or process group. If no signal is specified, the TERM signal is sent. The TERM signal will kill processes which do not catch this signal. For other processes, it may be necessary to use the KILL (9) signal, since this signal cannot be caught.
 
@@ -38,26 +40,25 @@ Ctrl-\ 发送 QUIT signal (SIGQUIT); 通常导致进程结束 和 dump core.
 Ctrl-T (不是所有的UNIX都支持) 发送INFO signal (SIGINFO); 导致操作系统显示此运行命令的信息
 kill -9 pid 会发送 SIGKILL信号给进程。
 
+对于 Linux来说，信号实际是软中断，许多重要的程序都需要处理信号。信号为 Linux 提供了一种处理异步事件的方法。比如，终端用户输入了 ctrl+c 来中断程序，会通过信号机制停止一个程序。
 
-
-对于 Linux来说，实际信号是软中断，许多重要的程序都需要处理信号。信号为 Linux 提供了一种处理异步事件的方法。比如，终端用户输入了 ctrl+c 来中断程序，会通过信号机制停止一个程序。
-
-信号(signal)是一种软中断，信号机制是进程间异步通信的一种方式
+信号 (signal) 是一种软中断，信号机制是进程间异步通信的一种方式
 
 信号的名字和编号: 
 每个信号都有一个名字和编号，这些名字都以"SIG"开头，例如"SIGIO "、"SIGCHLD"等等。
 信号定义在signal.h头文件中，信号名都定义为正整数。
-具体的信号名称可以使用kill -l来查看信号的名字以及序号，信号是从1开始编号的，不存在0号信号。kill对于信号0又特殊的应用。
+具体的信号名称可以使用 `kill -l` 来查看信号的名字以及序号，信号是从1开始编号的，不存在0号信号。kill对于信号0又特殊的应用。
 
-信号的处理: 
+### 信号的处理: 
 信号的处理有三种方法，分别是: 忽略、捕捉和默认动作
 
-忽略信号，大多数信号可以使用这个方式来处理，但是有两种信号不能被忽略（分别是 SIGKILL和SIGSTOP) 。因为他们向内核和超级用户提供了进程终止和停止的可靠方法，如果忽略了，那么这个进程就变成了没人能管理的的进程，显然是内核设计者不希望看到的场景
+#### 忽略信号
+大多数信号可以使用这个方式来处理，但是有两种信号不能被忽略（分别是 SIGKILL和SIGSTOP) 。因为他们向内核和超级用户提供了进程终止和停止的可靠方法，如果忽略了，那么这个进程就变成了没人能管理的的进程，显然是内核设计者不希望看到的场景
 捕捉信号，需要告诉内核，用户希望如何处理某一种信号，说白了就是写一个信号处理函数，然后将这个函数告诉内核。当该信号产生时，由内核来调用用户自定义的函数，以此来实现某种信号的处理。
 系统默认动作，对于每个信号来说，系统都对应由默认的处理动作，当发生了该信号，系统会自动执行。不过，对系统来说，大部分的处理方式都比较粗暴，就是直接杀死该进程。
 具体的信号默认动作可以使用man 7 signal来查看系统的具体定义。在此，我就不详细展开了，需要查看的，可以自行查看。也可以参考 《UNIX 环境高级编程（第三部) 》的 P251——P256中间对于每个信号有详细的说明。
  
-一、信号类型
+### 信号类型
 Linux系统共定义了64种信号，分为两大类: 可靠信号与不可靠信号，前32种信号为不可靠信号，后32种为可靠信号。
 
 1.1 概念
@@ -72,18 +73,18 @@ Linux 使用34-64信号用作实时系统中。
 
 在POSIX.1-1990标准中定义的信号列表
 
-信号	值	动作	说明
-SIGHUP	1	Term	终端控制进程结束(终端连接断开)
-SIGINT	2	Term	用户发送INTR字符(Ctrl+C)触发
-SIGQUIT	3	Core	用户发送QUIT字符(Ctrl+/)触发
-SIGILL	4	Core	非法指令(程序错误、试图执行数据段、栈溢出等)
-SIGABRT	6	Core	调用abort函数触发
-SIGFPE	8	Core	算术运行错误(浮点运算错误、除数为零等)
-SIGKILL	9	Term	无条件结束程序(不能被捕获、阻塞或忽略)
-SIGSEGV	11	Core	无效内存引用(试图访问不属于自己的内存空间、对只读内存空间进行写操作)
-SIGPIPE	13	Term	消息管道损坏(FIFO/Socket通信时，管道未打开而进行写操作)
-SIGALRM	14	Term	时钟定时信号
-SIGTERM	15	Term	结束程序(可以被捕获、阻塞或忽略)
+信号	       值	       动作	说明
+SIGHUP	       1	       Term	终端控制进程结束(终端连接断开)
+SIGINT	       2	       Term	用户发送INTR字符(Ctrl+C)触发
+SIGQUIT	3	       Core	用户发送QUIT字符(Ctrl+/)触发
+SIGILL	       4	       Core	非法指令(程序错误、试图执行数据段、栈溢出等)
+SIGABRT	6	       Core	调用abort函数触发
+SIGFPE	       8	       Core	算术运行错误(浮点运算错误、除数为零等)
+SIGKILL	9	       Term	无条件结束程序(不能被捕获、阻塞或忽略)
+SIGSEGV	11	       Core	无效内存引用(试图访问不属于自己的内存空间、对只读内存空间进行写操作)
+SIGPIPE	13	       Term	消息管道损坏(FIFO/Socket通信时，管道未打开而进行写操作)
+SIGALRM	14	       Term	时钟定时信号
+SIGTERM	15	       Term	结束程序(可以被捕获、阻塞或忽略)
 SIGUSR1	30,10,16	Term	用户保留
 SIGUSR2	31,12,17	Term	用户保留
 SIGCHLD	20,17,18	Ign	子进程结束(由父进程接收)

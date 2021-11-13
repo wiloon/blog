@@ -4,6 +4,7 @@ date = ""
 title = "tcp basic"
 
 +++
+### tcp basic
 https://luoguochun.cn/post/2016-09-23-tcp-fuck/
 
 tcp协议是一个比较复杂的协议,对tcp协议深入理解的,真的非常少非常少；对tcp协议误理解或理解片面的,真的非常多非常多。当然这也包括自己在内,当然也可能包括这篇小结在内。 P.S.: 《TCP/IP详解卷1:协议》是介绍TCP/IP协议栈最经典的著作(神级已故人物W.Richard Stevens经典书籍之一),然而个人觉得这个"详解"对于tcp的介绍有点简略或者理解起来印象非深,读了一次,一次又一次,还是概念模糊。当然这也与中文译本烂得一塌糊涂有关。同时这本经典书籍也有了它的更新版,不同的是作者已经不是原来的神级人物,相同的是译文继续烂。
@@ -210,7 +211,8 @@ tcpdump 使用参考:  https://luoguochun.cn/2015/07/25/tcpdump-usage/ 完。
 
 一些参考:  TCP_DEFER_ACCEPT TFO–TCP Fast Open – 由于存在安全隐患而没有广泛使用。
 
-
+### tcp包发送流程
+[![IBT7gH.jpg](https://z3.ax1x.com/2021/11/12/IBT7gH.jpg)](https://imgtu.com/i/IBT7gH)
 ---
 
 https://coolshell.cn/articles/11564.html
