@@ -8,8 +8,8 @@ categories:
 
 ---
 ## QUIC
-读作“quick”
-Quic 全称 quick udp internet connection 
+读作 "quick"
+Quic 全称 quick udp internet connection, 是一个通用的传输层协议
 
 QUIC（Quick UDP Internet Connection）是谷歌制定的一种互联网传输层协议，它基于UDP传输层协议，同时兼具TCP、TLS、HTTP/2等协议的可靠性与安全性，可以有效减少连接与传输延迟，更好地应对当前传输层与应用层的挑战。目前阿里云CDN线上提供GQUIC版本服务，已经有Tbps级别的流量承载，并对客户来带了显著的延迟收益。本文将由低向上分层讨论QUIC协议的特点。
 
@@ -21,9 +21,6 @@ Quic 相比现在广泛应用的 http2+tcp+tls 协议有如下优势 [2]：
 - 连接迁移（Connection Migration）
 - 前向冗余纠错。
 - stream mode
-
-
-
 
 QUIC 具备“0RTT 建联”、“支持连接迁移”等诸多优势，并将成为下一代互联网协议：HTTP3.0 的底层传输协议
 

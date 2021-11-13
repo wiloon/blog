@@ -583,7 +583,7 @@ InnoDB是MySQL的另一个存储引擎，正成为目前MySQL AB所发行新版�
 
 Oracle公司与2005年10月收购了Innobase。Innobase采用双认证授权。它使用GNU发行，也允许其它想将InnoDB结合到商业软件的团体获得授权。
 
-## MyISAM vs Innodb – Quick comparison Table | 快速比较表:
+## MyISAM vs Innodb 快速比较表:
 
 
   

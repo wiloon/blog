@@ -13,14 +13,14 @@ categories:
 ### TCP/IP四层协议
 1. 数据链路层: ARP,RARP,PPPoE （Ethernet 以太网协议,MAC 地址) , 数据链路层和物理层合并为网络接口层
 2. 网络层: IP,ICMP,IGMP （IPv4 / IPv6 协议,IP 地址) 
-3. 传输层: TCP,UDP,UGP （TCP / UDP 协议,网络端口) 
+3. 传输层: TCP(网络端口),UDP,UGP, QUIC
 4. 应用层: Telnet,FTP,SMTP,SNMP
 
 ### OSI七层协议
 1. 物理层  Physical Layer: EIA/TIA-232, EIA/TIA-499, V.35, V.24, RJ45, Ethernet, 802.3, 8025, FDDI, NRZI, NRZ, B8ZS
 2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM,  IEEE 8025/802.2
 3. 网络层 Network Layer: IP,IPX,AppleTalk DDP
-4. 传输层 Transport Layer : TCP,UDP,SPX
+4. 传输层 Transport Layer : TCP,UDP,SPX, QUIC
 5. 会话层 Session Layer : RPC,SQL,NFS,NetBIOS,names,AppleTalk,ASP,DECnet,SCP
 6. 表示层 Presentation Layer :TIFF,GIF,JPEG,PICT,ASCII,EBCDIC,encryption,MPEG,MIDI,HTML
 7. 应用层 Application Layer : FTP,WWW,Telnet,NFS,SMTP,Gateway,SNMP
