@@ -213,6 +213,9 @@ tcpdump 使用参考:  https://luoguochun.cn/2015/07/25/tcpdump-usage/ 完。
 
 ### tcp包发送流程
 [![IBT7gH.jpg](https://z3.ax1x.com/2021/11/12/IBT7gH.jpg)](https://imgtu.com/i/IBT7gH)
+
+###  自动重传请求 ARQ 
+
 ---
 
 https://coolshell.cn/articles/11564.html
