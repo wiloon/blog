@@ -1,11 +1,10 @@
 ---
 title: systemd service config, start script
 author: "-"
-type: post
 date: 2018-02-23T07:17:35+00:00
-url: /?p=11911
+url: systemd/service
 categories:
-  - Uncategorized
+  - systemd
 
 ---
 ## systemd service config, start script
@@ -14,7 +13,7 @@ categories:
 ```bash
 vim /usr/lib/systemd/system/foo.service
 ```
-
+#### foo.service
 ```bash
 [Unit]
 Description=description0
@@ -62,7 +61,7 @@ WantedBy=multi-user.target
 
 ```
 
-zookeeper
+### zookeeper
 
 ```bash
 [Unit]
@@ -76,6 +75,25 @@ ExecStop=/data/server/zookeeper/zookeeper-3.4.12/bin/zkServer.sh stop
 
 [Install]
 WantedBy=multi-user.target
+```
+### java
+```bash
+#!/bin/sh
+service_name="fooa-service"
+echo "
+[Unit]
+Description=${service_name}
+[Service]
+WorkingDirectory=/data/server/${service_name}
+ExecStart=/usr/bin/java -Xms128m -Xmx1024m -jar /data/server/${service_name}/${service_name}.jar
+User=root
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+" > /etc/systemd/system/${service_name}.service 
 ```
 
 编写systemd下服务脚本

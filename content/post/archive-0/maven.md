@@ -29,6 +29,7 @@ tags:
   -e for error
   -X for debug
   -q for only error
+  mvn -Dmaven.test.skip=true clean package -U
 
 ### 生成项目
 ```bash

@@ -1,14 +1,13 @@
 ---
-title: linux echo
+title: echo
 author: "-"
-type: post
 date: 2012-06-21T01:21:27+00:00
-url: /?p=3555
+url: echo
 categories:
   - Linux
 
 ---
-## linux echo
+## echo
 echo aaa > test.txt
 
 echo bbb >> test.txt
