@@ -7,5 +7,6 @@ categories:
   - inbox
 tags:
   - inbox
+  - original
 ---
 ## ""
