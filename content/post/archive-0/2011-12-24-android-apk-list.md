@@ -22,6 +22,7 @@ url: /?p=1945
 |RssX||
 |DevCheck|手机硬件检测工具|
 |macrodroid||
+|Quizlet|英语学习工具|
 
 ### list
 - AnXray
