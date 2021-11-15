@@ -1,6 +1,6 @@
 ---
-title: about
-author: "-"
+title: About
+author: "w1100n"
 date: 2011-10-09T03:09:43+00:00
 url: /about
 categories:

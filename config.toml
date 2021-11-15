@@ -1,4 +1,4 @@
-baseURL = "https://wiloon.com/"
+baseURL = "https://wangyue.dev"
 languageCode = "en"
 defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "w1100n"
@@ -37,7 +37,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   name = "原创"
   weight = 20
   identifier = "original"
-  url = "/original/"
+  url = "/tags/original/"
 [[menu.main]]
   name = "Tags"
   weight = 30

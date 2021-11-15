@@ -6,6 +6,6 @@ url: "test"
 categories:
   - inbox
 tags:
-  - inbox
+  - original
 ---
 ## "test"
