@@ -1,9 +1,8 @@
 ---
 title: maven config, maven-compiler-plugin
 author: "-"
-type: post
 date: 2014-12-30T05:56:31+00:00
-url: /?p=7155
+url: maven/config
 tags:
   - Maven
 
@@ -100,3 +99,4 @@ maven-compiler-plugin</artifactId>
 </plugins>
   
 </build>
+

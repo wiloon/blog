@@ -242,7 +242,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
 <tt>配置如下: </tt><settings></settings>
 
 <localRepository>/path/to/local/repo</localRepository>
-注意: 本地Repository 必须是绝对路径。
+
 
  3.5 配置代理
 

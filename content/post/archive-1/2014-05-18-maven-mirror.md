@@ -1,11 +1,10 @@
 ---
-title: maven mirror, repository
+title: maven setting, mirror, repository
 author: "-"
-type: post
 date: 2014-05-18T09:11:15+00:00
-url: /?p=6635
+url: maven/setting
 categories:
-  - Uncategorized
+  - maven
 tags:
   - Maven
 
@@ -151,7 +150,7 @@ PS: Maven仓库示意图
     </mirror>
 ``` 
 
-### 一个setting.xml示例
+### setting.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -161,6 +160,7 @@ PS: Maven仓库示意图
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
  <localRepository>/path/to/local/repository</localRepository>
+ <!-->注意: localRepository 必须是绝对路径。<!-->
   <mirrors>
        <mirror>
        <id>public0</id>

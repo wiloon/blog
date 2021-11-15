@@ -6,8 +6,22 @@ url: wol
 
 ---
 ## 网络唤醒 Wake On LAN
-android client
 
+### 华硕BIOS
+    Advanced>APM Configuration>Power on by PCI-E/PCI
+### archlinux, wol
+```bash
+pacman -S wol
+wol -i 192.168.50.255 -p 9  1c:b7:2c:af:9a:6a
+```
+
+#### ubuntu
+```bash
+sudo apt-get install wakeonlan
+wakeonlan 1c:b7:2c:af:9a:6a
+```
+
+### android client
 TX ToolBox
 
 Name: 填写一个别名就可以,例如: foo
@@ -37,18 +51,6 @@ BIOS打开唤醒设置
 允许此设备唤醒计算机
 
 
-### 华硕BIOS
-    Advanced>APM Configuration>Power on by PCI-E/PCI
-### wol
-```bash
-pacman -S wol
-wol -i 192.168.50.255 -p 9  1c:b7:2c:af:9a:6a
-```
 
-#### ubuntu
-```bash
-sudo apt-get install wakeonlan
-wakeonlan 1c:b7:2c:af:9a:6a
-```
 
 >https://sparkydogx.github.io/2019/01/16/ubuntu-wake-on-lan/
