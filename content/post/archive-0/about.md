@@ -33,7 +33,7 @@ tags:
 - 原创比例比较高的文档
 - 平时经常使用的工具, 命令, 脚本, 使用过程中遇到问题,解决问题后会频繁的修改，会补充命令的示例
 - 日常遇到的问题和解决过程
-- 以Tag方式标记原创内容 -- 逐渐整理中
+- 以Tag方式标记原创内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 - Author会标记为 "w1100n"
 ### Blog 实现
 - Markdown
@@ -48,7 +48,7 @@ tags:
 
 ### 技术栈
 - Java, Golang
-- MySQL, Redis, Influxdb
+- MySQL, Redis, InfluxDB
 - Kafka, Zookeeper
 - Vue, Element, Vuetify, Angular
 - CentOS, Ubuntu, Archlinux
