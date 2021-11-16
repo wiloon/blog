@@ -1,7 +1,6 @@
 ---
 title: jdk, openjdk
 author: "-"
-type: post
 date: 2017-04-21T00:26:31+00:00
 url: jdk
 
@@ -11,7 +10,8 @@ url: jdk
 ```bash
 sudo pacman -S jdk-openjdk
 sudo pacman -S openjdk-src
-
+# jdk8
+sudo pacman -S jdk8-openjdk openjdk8-src
 archlinux-java status
 sudo archlinux-java set java-11-openjdk
 ```

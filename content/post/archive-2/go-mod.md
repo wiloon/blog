@@ -2,9 +2,9 @@
 title: go mod
 author: "-"
 date: 2018-10-20T09:32:26.000+00:00
-url: "/?p=12795"
+url: go/mod
 categories:
-- Uncategorized
+- Golang
 
 ---
 ## go mod
