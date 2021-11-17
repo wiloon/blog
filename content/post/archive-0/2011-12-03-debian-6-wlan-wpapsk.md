@@ -3,8 +3,6 @@ title: debian 6 wlan wpa/psk
 author: "-"
 date: 2011-12-03T15:02:24+00:00
 url: /?p=1728
-bot_views:
-  - 2
 categories:
   - Linux
   - Network

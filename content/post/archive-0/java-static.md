@@ -3,8 +3,6 @@ title: java static
 author: "-"
 date: 2011-09-08T07:00:08+00:00
 url: /?p=720
-bot_views:
-  - 5
 categories:
   - Java
 

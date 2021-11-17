@@ -3,8 +3,6 @@ title: VirtualBox
 author: "-"
 date: 2011-11-26T07:16:06+00:00
 url: /?p=1617
-bot_views:
-  - 7
 views:
   - 1
 categories:

@@ -3,8 +3,6 @@ title: KVM与Xen和VMware的PK
 author: "-"
 date: 2011-11-26T07:53:04+00:00
 url: /?p=1625
-bot_views:
-  - 5
 categories:
   - Linux
   - VM

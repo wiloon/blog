@@ -3,8 +3,6 @@ title: 'Servlet,  JSP'
 author: "-"
 date: 2011-10-23T08:46:30+00:00
 url: /?p=1270
-bot_views:
-  - 9
 views:
   - 3
 categories:

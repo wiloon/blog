@@ -3,8 +3,6 @@ title: oracle create user
 author: "-"
 date: 2011-11-02T07:05:15+00:00
 url: /?p=1433
-bot_views:
-  - 6
 views:
   - 4
 categories:

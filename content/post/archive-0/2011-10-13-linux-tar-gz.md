@@ -3,8 +3,6 @@ title: linux tar
 author: "-"
 date: 2011-10-13T08:11:53+00:00
 url: /?p=1030
-bot_views:
-  - 10
 views:
   - 9
 categories:

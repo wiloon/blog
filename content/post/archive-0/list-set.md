@@ -3,8 +3,6 @@ title: java 数组 list set, 数组转set
 author: "-"
 date: 2011-09-08T06:42:29+00:00
 url: /?p=715
-bot_views:
-  - 6
 categories:
   - Java
 tags:

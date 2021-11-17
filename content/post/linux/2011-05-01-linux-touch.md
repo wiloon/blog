@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2011-05-01T09:02:03+00:00
 url: /?p=168
-bot_views:
-  - 5
 categories:
   - Linux
 

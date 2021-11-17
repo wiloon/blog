@@ -3,8 +3,6 @@ title: java 代理
 author: "-"
 date: 2011-09-13T07:13:59+00:00
 url: /?p=765
-bot_views:
-  - 5
 categories:
   - Java
 

@@ -3,8 +3,6 @@ title: tar
 author: "-"
 date: 2011-08-30T01:36:16+00:00
 url: /?p=633
-bot_views:
-  - 5
 views:
   - 4
 categories:

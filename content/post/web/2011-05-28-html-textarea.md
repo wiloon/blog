@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2011-05-28T00:50:00+00:00
 url: /?p=195
-bot_views:
-  - 10
 categories:
   - Web
 tags:

@@ -3,8 +3,6 @@ title: Interview index
 author: "-"
 date: 2011-11-11T08:51:36+00:00
 url: /?p=1481
-bot_views:
-  - 7
 views:
   - 1
 categories:

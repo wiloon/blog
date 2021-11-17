@@ -5,8 +5,6 @@ date: 2011-10-23T13:06:32+00:00
 url: /?p=1304
 views:
   - 5
-bot_views:
-  - 8
 categories:
   - Java
 tags:

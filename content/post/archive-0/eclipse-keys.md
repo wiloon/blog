@@ -3,8 +3,6 @@ title: Eclipse keys(schema=Emacs)
 author: "-"
 date: 2011-08-29T02:31:00+00:00
 url: /?p=622
-bot_views:
-  - 10
 views:
   - 1
 categories:

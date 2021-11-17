@@ -3,8 +3,6 @@ title: Jena
 author: "-"
 date: 2011-09-22T06:32:48+00:00
 url: /?p=841
-bot_views:
-  - 5
 categories:
   - Java
 

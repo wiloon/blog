@@ -3,8 +3,6 @@ title: MySQLdump
 author: "-"
 date: 2011-12-03T08:38:40+00:00
 url: /?p=1691
-bot_views:
-  - 2
 categories:
   - DataBase
 tags:

@@ -3,8 +3,6 @@ title: sftp config
 author: "-"
 date: 2011-08-04T03:47:31+00:00
 url: /?p=401
-bot_views:
-  - 5
 categories:
   - Linux
 

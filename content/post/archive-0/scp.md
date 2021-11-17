@@ -5,8 +5,6 @@ date: 2011-07-19T04:32:18+00:00
 url: /?p=364
 views:
   - 3
-bot_views:
-  - 5
 categories:
   - Linux
 tags:

@@ -3,8 +3,6 @@ title: Yasm
 author: "-"
 date: 2011-08-27T13:58:34+00:00
 url: /?p=594
-bot_views:
-  - 6
 categories:
   - Linux
 

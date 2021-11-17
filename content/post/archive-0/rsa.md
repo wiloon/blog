@@ -3,8 +3,6 @@ title: RSA
 author: "-"
 date: 2011-07-28T04:58:12+00:00
 url: rsa
-bot_views:
-  - 4
 categories:
   - Emacs
 ---

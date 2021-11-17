@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2011-04-23T09:05:52+00:00
 url: /?p=106
-bot_views:
-  - 3
 categories:
   - Emacs
 

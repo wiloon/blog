@@ -7,7 +7,9 @@ categories:
   - Linux
 
 ---
-## sed [sed]
+## sed 
+发音： [sed]  
+
 sed全名叫 stream editor，流编辑器，sed 可以按照脚本的指令来处理文本文件。 简化对文件的反复操作、编写转换程序等
 这里的脚本指的是sed脚本，如: 4anewline, 's/hello/world/' ...
 

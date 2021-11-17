@@ -3,8 +3,6 @@ title: 加减乘除,大于,小于,等于,分数,小数和百分数英文表达
 author: "-"
 date: 2011-08-29T05:46:50+00:00
 url: /?p=631
-bot_views:
-  - 6
 views:
   - 2
 categories:

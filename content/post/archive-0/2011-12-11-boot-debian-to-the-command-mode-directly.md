@@ -3,8 +3,6 @@ title: boot debian to the command mode directly
 author: "-"
 date: 2011-12-11T03:12:57+00:00
 url: /?p=1839
-bot_views:
-  - 2
 views:
   - 3
 categories:

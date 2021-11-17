@@ -5,8 +5,6 @@ date: 2011-11-28T09:22:02+00:00
 url: /?p=1653
 views:
   - 5
-bot_views:
-  - 6
 categories:
   - DataBase
 

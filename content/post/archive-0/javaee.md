@@ -3,8 +3,6 @@ title: javaEE
 author: "-"
 date: 2011-09-23T01:55:55+00:00
 url: /?p=871
-bot_views:
-  - 10
 views:
   - 1
 categories:

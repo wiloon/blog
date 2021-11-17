@@ -3,8 +3,6 @@ title: chown 更改文件拥有者
 author: "-"
 date: 2011-12-03T09:34:13+00:00
 url: /?p=1705
-bot_views:
-  - 2
 views:
   - 1
 categories:

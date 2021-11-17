@@ -3,8 +3,6 @@ title: XML RDF OWL
 author: "-"
 date: 2011-09-22T05:28:50+00:00
 url: /?p=832
-bot_views:
-  - 6
 categories:
   - Uncategorized
 

@@ -3,8 +3,6 @@ title: 奥卡姆剃刀, Occam's Razor
 author: "-"
 date: 2011-09-22T08:44:46+00:00
 url: /?p=853
-bot_views:
-  - 8
 views:
   - 1
 categories:

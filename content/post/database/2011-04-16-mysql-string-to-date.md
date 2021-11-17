@@ -4,8 +4,6 @@ author: "-"
 type: post
 date: 2011-04-16T09:44:29+00:00
 url: /?p=61
-bot_views:
-  - 4
 categories:
   - DataBase
 tags:
