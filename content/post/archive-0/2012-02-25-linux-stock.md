@@ -1,7 +1,6 @@
 ---
 title: linux stock
 author: "-"
-type: post
 date: 2012-02-25T15:08:30+00:00
 url: /?p=2417
 categories:

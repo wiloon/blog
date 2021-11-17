@@ -1,7 +1,6 @@
 ---
 title: sftp config
 author: "-"
-type: post
 date: 2011-08-04T03:47:31+00:00
 url: /?p=401
 bot_views:

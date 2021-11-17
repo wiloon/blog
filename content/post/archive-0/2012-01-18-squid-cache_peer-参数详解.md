@@ -1,7 +1,6 @@
 ---
 title: squid cache_peer 参数详解
 author: "-"
-type: post
 date: 2012-01-18T09:29:04+00:00
 url: /?p=2155
 categories:

@@ -1,7 +1,6 @@
 ---
 title: 'ln  软连接和硬连接'
 author: "-"
-type: post
 date: 2011-07-13T13:44:30+00:00
 url: /?p=353
 bot_views:

@@ -1,7 +1,6 @@
 ---
 title: Ruby的require,load,和include
 author: "-"
-type: post
 date: 2012-04-01T07:41:42+00:00
 url: /?p=2697
 categories:

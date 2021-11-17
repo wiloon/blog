@@ -1,7 +1,6 @@
 ---
 title: HashMap遍历的两种方式
 author: "-"
-type: post
 date: -001-11-30T00:00:00+00:00
 draft: true
 url: /?p=3833

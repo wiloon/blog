@@ -1,7 +1,6 @@
 ---
 title: linux下的cpu温度监控软件 lm-sensors
 author: "-"
-type: post
 date: 2012-04-15T14:06:43+00:00
 url: /?p=2942
 categories:

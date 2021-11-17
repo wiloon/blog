@@ -1,7 +1,6 @@
 ---
 title: Java 流, Stream
 author: lcf
-type: post
 date: 2012-09-25T06:38:01+00:00
 url: /?p=4278
 categories:

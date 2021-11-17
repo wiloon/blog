@@ -1,7 +1,6 @@
 ---
 title: MANIFEST.MF
 author: "-"
-type: post
 date: 2012-04-08T11:42:35+00:00
 url: /?p=2876
 categories:

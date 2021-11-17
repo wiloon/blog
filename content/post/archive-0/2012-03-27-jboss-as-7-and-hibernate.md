@@ -1,7 +1,6 @@
 ---
 title: JBoss AS 7 and Hibernate
 author: "-"
-type: post
 date: 2012-03-27T02:54:15+00:00
 url: /?p=2639
 categories:

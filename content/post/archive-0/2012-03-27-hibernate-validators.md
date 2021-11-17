@@ -1,7 +1,6 @@
 ---
 title: Hibernate Validators
 author: "-"
-type: post
 date: 2012-03-27T06:24:34+00:00
 url: /?p=2652
 categories:

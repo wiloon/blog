@@ -1,7 +1,6 @@
 ---
 title: centos vncserver
 author: "-"
-type: post
 date: 2012-03-13T15:13:27+00:00
 url: /?p=2556
 categories:

@@ -1,7 +1,6 @@
 ---
 title: tomcat 开机启动, jsvc
 author: "-"
-type: post
 date: 2011-11-12T06:40:44+00:00
 url: /?p=1491
 views:

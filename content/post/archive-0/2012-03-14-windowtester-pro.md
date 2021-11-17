@@ -1,7 +1,6 @@
 ---
 title: WindowTester Pro
 author: "-"
-type: post
 date: 2012-03-14T04:38:07+00:00
 url: /?p=2563
 categories:

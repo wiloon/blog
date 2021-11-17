@@ -1,7 +1,6 @@
 ---
 title: ps
 author: "-"
-type: post
 date: 2011-07-20T07:50:28+00:00
 url: /?p=366
 categories:

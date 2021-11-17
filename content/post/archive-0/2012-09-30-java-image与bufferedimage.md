@@ -1,7 +1,6 @@
 ---
 title: Java Image与BufferedImage
 author: "-"
-type: post
 date: 2012-09-30T05:56:47+00:00
 url: /?p=4354
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Builder, Factory
 author: "-"
-type: post
 date: 2012-10-12T08:26:55+00:00
 url: /?p=4449
 categories:

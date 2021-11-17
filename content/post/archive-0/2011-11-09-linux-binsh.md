@@ -1,7 +1,6 @@
 ---
 title: 'linux #! /bin/sh'
 author: "-"
-type: post
 date: 2011-11-09T06:08:32+00:00
 url: /?p=1472
 bot_views:

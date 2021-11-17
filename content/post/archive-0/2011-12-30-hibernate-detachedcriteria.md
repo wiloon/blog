@@ -1,7 +1,6 @@
 ---
 title: Hibernate DetachedCriteria
 author: "-"
-type: post
 date: 2011-12-30T03:53:00+00:00
 url: /?p=2054
 categories:

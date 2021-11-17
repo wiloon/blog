@@ -1,7 +1,6 @@
 ---
 title: Hibernate flush
 author: "-"
-type: post
 date: 2011-12-30T03:20:10+00:00
 url: /?p=2049
 categories:

@@ -1,7 +1,6 @@
 ---
 title: java static
 author: "-"
-type: post
 date: 2011-09-08T07:00:08+00:00
 url: /?p=720
 bot_views:

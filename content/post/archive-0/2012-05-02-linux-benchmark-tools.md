@@ -1,7 +1,6 @@
 ---
 title: linux Benchmark Tools
 author: "-"
-type: post
 date: 2012-05-02T15:05:12+00:00
 url: /?p=3078
 categories:

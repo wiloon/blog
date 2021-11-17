@@ -1,7 +1,6 @@
 ---
 title: android 读取json数据
 author: "-"
-type: post
 date: 2012-06-30T14:40:36+00:00
 url: /?p=3701
 categories:

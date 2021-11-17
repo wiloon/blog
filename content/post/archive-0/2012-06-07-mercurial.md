@@ -1,7 +1,6 @@
 ---
 title: Mercurial
 author: "-"
-type: post
 date: 2012-06-07T13:03:42+00:00
 url: /?p=3443
 categories:

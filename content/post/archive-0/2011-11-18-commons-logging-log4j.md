@@ -1,7 +1,6 @@
 ---
 title: commons-logging Log4J
 author: "-"
-type: post
 date: 2011-11-18T23:40:51+00:00
 url: /?p=1525
 bot_views:

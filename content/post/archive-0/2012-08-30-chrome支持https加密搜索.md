@@ -1,7 +1,6 @@
 ---
 title: chrome支持HTTPS加密搜索
 author: "-"
-type: post
 date: 2012-08-30T04:33:52+00:00
 url: /?p=3971
 categories:

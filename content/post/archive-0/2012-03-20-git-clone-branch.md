@@ -1,7 +1,6 @@
 ---
 title: git clone branch
 author: "-"
-type: post
 date: 2012-03-20T02:15:08+00:00
 url: /?p=2582
 categories:

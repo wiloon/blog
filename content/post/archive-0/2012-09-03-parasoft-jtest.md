@@ -1,7 +1,6 @@
 ---
 title: Parasoft Jtest
 author: "-"
-type: post
 date: 2012-09-03T02:51:41+00:00
 url: /?p=4005
 categories:

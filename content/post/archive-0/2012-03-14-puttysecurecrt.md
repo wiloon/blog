@@ -1,7 +1,6 @@
 ---
 title: PuTTY/SecureCRT
 author: "-"
-type: post
 date: 2012-03-14T03:37:37+00:00
 url: /?p=2561
 categories:

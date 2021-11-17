@@ -1,7 +1,6 @@
 ---
 title: junit performance test
 author: "-"
-type: post
 date: 2011-09-06T09:30:28+00:00
 url: /?p=684
 bot_views:

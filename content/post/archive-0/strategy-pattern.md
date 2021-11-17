@@ -1,7 +1,6 @@
 ---
 title: '策略模式, strategy pattern'
 author: "-"
-type: post
 date: 2011-07-13T14:20:38+00:00
 url: /?p=356
 categories:

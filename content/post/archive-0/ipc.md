@@ -1,7 +1,6 @@
 ---
 title: IPC, 进程间通信IPC (InterProcess Communication)
 author: "-"
-type: post
 date: 2012-02-28T13:12:53+00:00
 url: ipc
 categories:

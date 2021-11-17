@@ -1,7 +1,6 @@
 ---
 title: font, 字体
 author: "-"
-type: post
 date: 2011-09-07T04:51:02+00:00
 url: font
 

@@ -1,7 +1,6 @@
 ---
 title: 设计模式 – Decorator
 author: "-"
-type: post
 date: 2011-09-22T07:48:49+00:00
 url: /?p=847
 bot_views:

@@ -1,7 +1,6 @@
 ---
 title: nexus OSS
 author: "-"
-type: post
 date: 2012-04-24T10:52:10+00:00
 url: /?p=3021
 categories:

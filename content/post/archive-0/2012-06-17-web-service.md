@@ -1,7 +1,6 @@
 ---
 title: web service
 author: "-"
-type: post
 date: 2012-06-17T14:24:04+00:00
 url: /?p=3545
 categories:

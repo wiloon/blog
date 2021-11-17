@@ -1,7 +1,6 @@
 ---
 title: tomcat upgrade
 author: "-"
-type: post
 date: 2011-10-23T09:33:05+00:00
 url: /?p=1285
 views:

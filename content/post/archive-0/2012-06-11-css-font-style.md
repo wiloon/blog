@@ -1,7 +1,6 @@
 ---
 title: CSS font-style
 author: "-"
-type: post
 date: 2012-06-11T13:39:18+00:00
 url: /?p=3518
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Eclipse 快捷键(Default)
 author: "-"
-type: post
 date: 2011-08-26T06:21:02+00:00
 url: /?p=564
 bot_views:

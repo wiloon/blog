@@ -1,7 +1,6 @@
 ---
 title: scp
 author: "-"
-type: post
 date: 2011-07-19T04:32:18+00:00
 url: /?p=364
 views:

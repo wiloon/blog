@@ -1,7 +1,6 @@
 ---
 title: java 代理
 author: "-"
-type: post
 date: 2011-09-13T07:13:59+00:00
 url: /?p=765
 bot_views:

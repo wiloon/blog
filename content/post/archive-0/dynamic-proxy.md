@@ -1,7 +1,6 @@
 ---
 title: 动态代理 Dynamic Proxy
 author: "-"
-type: post
 date: 2012-10-16T08:20:11+00:00
 url: /?p=4504
 categories:

@@ -1,7 +1,6 @@
 ---
 title: html radio button
 author: "-"
-type: post
 date: 2011-08-08T03:41:01+00:00
 url: /?p=409
 bot_views:

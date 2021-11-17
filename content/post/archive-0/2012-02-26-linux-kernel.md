@@ -1,7 +1,6 @@
 ---
 title: linux 内核, kernel 
 author: "-"
-type: post
 date: 2012-02-26T06:37:22+00:00
 url: /?p=2457
 categories:

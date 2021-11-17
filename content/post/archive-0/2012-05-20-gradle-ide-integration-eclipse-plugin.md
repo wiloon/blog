@@ -1,7 +1,6 @@
 ---
 title: Gradle IDE integration – Eclipse plugin
 author: "-"
-type: post
 date: 2012-05-20T08:10:01+00:00
 url: /?p=3167
 categories:

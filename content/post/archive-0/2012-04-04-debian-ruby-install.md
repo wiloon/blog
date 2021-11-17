@@ -1,7 +1,6 @@
 ---
 title: debian ruby install
 author: "-"
-type: post
 date: 2012-04-04T08:27:10+00:00
 url: /?p=2785
 categories:

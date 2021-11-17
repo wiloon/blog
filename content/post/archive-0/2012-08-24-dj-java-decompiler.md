@@ -1,7 +1,6 @@
 ---
 title: Java 反编译
 author: "-"
-type: post
 date: 2012-08-24T09:54:39+00:00
 url: /?p=3930
 categories:

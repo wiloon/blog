@@ -1,7 +1,6 @@
 ---
 title: netstat, 端口
 author: "-"
-type: post
 date: 2011-07-28T11:21:11+00:00
 url: /?p=376
 bot_views:

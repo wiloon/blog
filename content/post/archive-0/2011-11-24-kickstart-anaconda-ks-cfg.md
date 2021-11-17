@@ -1,7 +1,6 @@
 ---
 title: kickstart, anaconda-ks.cfg
 author: "-"
-type: post
 date: 2011-11-24T10:00:27+00:00
 url: /?p=1592
 bot_views:

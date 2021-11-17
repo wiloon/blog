@@ -1,7 +1,6 @@
 ---
 title: RDF OWL
 author: "-"
-type: post
 date: 2011-09-22T06:04:28+00:00
 url: /?p=830
 bot_views:

@@ -1,7 +1,6 @@
 ---
 title: JBoss EAP, JBoss AS
 author: "-"
-type: post
 date: 2012-03-27T06:16:21+00:00
 url: /?p=2649
 categories:

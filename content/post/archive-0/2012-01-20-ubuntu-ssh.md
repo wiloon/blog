@@ -1,7 +1,6 @@
 ---
 title: ssh
 author: "-"
-type: post
 date: 2012-01-20T01:37:12+00:00
 url: /?p=2162
 categories:

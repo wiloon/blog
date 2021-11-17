@@ -1,7 +1,6 @@
 ---
 title: HTTP POST GET 本质区别详解
 author: "-"
-type: post
 date: 2012-06-03T13:11:53+00:00
 url: /?p=3399
 categories:

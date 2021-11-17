@@ -1,7 +1,6 @@
 ---
 title: modprobe
 author: "-"
-type: post
 date: 2011-08-20T20:06:06+00:00
 url: /?p=471
 categories:

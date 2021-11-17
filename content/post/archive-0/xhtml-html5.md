@@ -1,7 +1,6 @@
 ---
 title: XHTML HTML5
 author: "-"
-type: post
 date: 2011-09-14T05:57:58+00:00
 url: /?p=787
 bot_views:

@@ -1,7 +1,6 @@
 ---
 title: cxf wsdl2java
 author: "-"
-type: post
 date: 2012-07-06T01:44:43+00:00
 url: /?p=3755
 categories:

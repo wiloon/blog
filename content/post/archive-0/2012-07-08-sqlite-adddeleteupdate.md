@@ -1,7 +1,6 @@
 ---
 title: sqlite add/delete/update
 author: "-"
-type: post
 date: 2012-07-08T06:51:30+00:00
 url: /?p=3795
 categories:

@@ -1,7 +1,6 @@
 ---
 title: java中Class.getResource用法
 author: "-"
-type: post
 date: 2012-01-02T09:21:16+00:00
 url: /?p=642
 categories:

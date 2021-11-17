@@ -1,7 +1,6 @@
 ---
 title: 单例 Singleton
 author: "-"
-type: post
 date: 2012-10-16T06:09:56+00:00
 url: /?p=4491
 categories:

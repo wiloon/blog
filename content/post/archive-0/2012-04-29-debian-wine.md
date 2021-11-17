@@ -1,7 +1,6 @@
 ---
 title: debian wine frozen throne
 author: "-"
-type: post
 date: 2012-04-29T07:21:45+00:00
 url: /?p=3070
 categories:

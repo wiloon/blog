@@ -1,7 +1,6 @@
 ---
 title: SSL, TLS
 author: "-"
-type: post
 date: 2011-09-21T04:26:32+00:00
 url: /?p=819
 bot_views:

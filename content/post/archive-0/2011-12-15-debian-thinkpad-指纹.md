@@ -1,7 +1,6 @@
 ---
 title: debian thinkpad 指纹
 author: "-"
-type: post
 date: 2011-12-15T15:06:41+00:00
 url: /?p=1894
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Disable Network Manager In Ubuntu
 author: "-"
-type: post
 date: 2012-03-13T05:03:15+00:00
 url: /?p=2549
 categories:

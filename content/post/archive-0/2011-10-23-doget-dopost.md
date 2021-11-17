@@ -1,7 +1,6 @@
 ---
 title: doGet doPost
 author: "-"
-type: post
 date: 2011-10-23T12:18:45+00:00
 url: /?p=1300
 views:

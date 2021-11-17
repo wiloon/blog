@@ -1,7 +1,6 @@
 ---
 title: rsa ssh keygen
 author: "-"
-type: post
 date: 2011-11-24T04:41:17+00:00
 url: ssh-keygen
 categories:

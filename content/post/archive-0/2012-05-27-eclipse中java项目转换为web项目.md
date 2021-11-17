@@ -1,7 +1,6 @@
 ---
 title: eclipse中java项目转换为web项目
 author: "-"
-type: post
 date: 2012-05-27T07:13:39+00:00
 url: /?p=3264
 categories:

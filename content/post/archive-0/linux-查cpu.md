@@ -1,7 +1,6 @@
 ---
 title: '查CPU,  核心数'
 author: "-"
-type: post
 date: 2011-08-07T03:50:32+00:00
 url: /?p=405
 bot_views:

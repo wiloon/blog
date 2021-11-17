@@ -1,7 +1,6 @@
 ---
 title: java gc监控, jstat
 author: "-"
-type: post
 date: 2011-08-09T02:44:44+00:00
 url: /?p=411
 bot_views:

@@ -1,7 +1,6 @@
 ---
 title: XML Schema, XML DTD
 author: lcf
-type: post
 date: 2012-09-25T02:48:35+00:00
 url: /?p=4242
 categories:

@@ -1,7 +1,6 @@
 ---
 title: missing LSB tags and overrides
 author: "-"
-type: post
 date: 2011-11-12T07:34:17+00:00
 url: /?p=1502
 bot_views:

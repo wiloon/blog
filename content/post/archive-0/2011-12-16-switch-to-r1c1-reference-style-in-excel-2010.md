@@ -1,7 +1,6 @@
 ---
 title: Switch to R1C1 Reference Style in Excel 2010
 author: "-"
-type: post
 date: 2011-12-16T04:17:46+00:00
 url: /?p=1897
 categories:

@@ -1,7 +1,6 @@
 ---
 title: eclipse updating indexes
 author: "-"
-type: post
 date: 2012-04-22T08:32:27+00:00
 url: /?p=2996
 categories:

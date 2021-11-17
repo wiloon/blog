@@ -1,7 +1,6 @@
 ---
 title: Linux系统日志–syslog
 author: "-"
-type: post
 date: 2011-12-30T15:41:45+00:00
 url: /?p=2057
 categories:

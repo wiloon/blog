@@ -1,7 +1,6 @@
 ---
 title: shell 参数
 author: "-"
-type: post
 date: 2011-08-12T05:32:00+00:00
 url: /?p=419
 

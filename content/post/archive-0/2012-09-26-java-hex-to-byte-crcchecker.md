@@ -1,7 +1,6 @@
 ---
 title: 'Java Hex To Byte & CRCChecker'
 author: lcf
-type: post
 date: 2012-09-26T03:27:15+00:00
 url: /?p=4299
 categories:

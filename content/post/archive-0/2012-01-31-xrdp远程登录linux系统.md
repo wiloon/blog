@@ -1,7 +1,6 @@
 ---
 title: linux remote desktop server, xrdp
 author: "-"
-type: post
 date: 2012-01-31T08:19:29+00:00
 url: /?p=2199
 categories:

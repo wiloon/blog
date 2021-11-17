@@ -1,7 +1,6 @@
 ---
 title: activemq admin page
 author: "-"
-type: post
 date: 2012-07-12T04:17:32+00:00
 url: /?p=3845
 categories:

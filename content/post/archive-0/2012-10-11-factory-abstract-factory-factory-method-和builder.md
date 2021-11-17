@@ -1,7 +1,6 @@
 ---
 title: Factory, Abstract Factory, Factory Method, 和Builder
 author: "-"
-type: post
 date: 2012-10-11T06:53:48+00:00
 url: /?p=4430
 categories:

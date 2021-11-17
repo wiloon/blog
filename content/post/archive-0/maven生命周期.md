@@ -1,7 +1,6 @@
 ---
 title: Maven生命周期
 author: "-"
-type: post
 date: 2011-09-28T03:29:34+00:00
 url: /?p=949
 categories:

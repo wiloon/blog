@@ -1,7 +1,6 @@
 ---
 title: corba, ejb, webservice, rest分布式 区别
 author: lcf
-type: post
 date: 2012-09-25T06:05:43+00:00
 url: /?p=4273
 categories:

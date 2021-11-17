@@ -1,7 +1,6 @@
 ---
 title: 汽车知识入门
 author: "-"
-type: post
 date: 2012-10-14T03:02:14+00:00
 url: /?p=4453
 categories:

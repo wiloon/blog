@@ -1,7 +1,6 @@
 ---
 title: Linux命令之exit – 退出当前shell
 author: "-"
-type: post
 date: 2011-12-26T07:52:53+00:00
 url: /?p=2017
 categories:

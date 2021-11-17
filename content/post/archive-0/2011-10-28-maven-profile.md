@@ -1,7 +1,6 @@
 ---
 title: Maven profile
 author: "-"
-type: post
 date: 2011-10-28T01:35:50+00:00
 url: /?p=1330
 bot_views:

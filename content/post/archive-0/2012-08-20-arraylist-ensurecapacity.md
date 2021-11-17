@@ -1,7 +1,6 @@
 ---
 title: ArrayList ensureCapacity
 author: "-"
-type: post
 date: 2012-08-20T06:00:23+00:00
 url: /?p=3927
 categories:

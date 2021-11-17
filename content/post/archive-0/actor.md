@@ -1,7 +1,6 @@
 ---
 title: Actor模型, Actor model
 author: "-"
-type: post
 date: 2011-09-06T14:54:33+00:00
 url: actor
 categories:

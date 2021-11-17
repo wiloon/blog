@@ -1,7 +1,6 @@
 ---
 title: VirtualBox磁盘镜像文件(VDI, VMDK, VHD, HDD)
 author: "-"
-type: post
 date: 2011-10-17T15:27:21+00:00
 url: /?p=1184
 bot_views:

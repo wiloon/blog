@@ -1,7 +1,6 @@
 ---
 title: compile the kernel – Debian squeeze
 author: "-"
-type: post
 date: 2012-02-26T13:46:00+00:00
 url: /?p=2443
 categories:

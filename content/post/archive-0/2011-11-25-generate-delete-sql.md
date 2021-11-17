@@ -1,7 +1,6 @@
 ---
 title: generate delete sql
 author: "-"
-type: post
 date: 2011-11-25T09:19:07+00:00
 url: /?p=1598
 bot_views:

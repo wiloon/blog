@@ -1,7 +1,6 @@
 ---
 title: linux hexdump
 author: "-"
-type: post
 date: 2012-01-02T10:42:27+00:00
 url: /?p=2092
 categories:

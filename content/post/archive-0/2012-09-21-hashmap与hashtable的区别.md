@@ -1,7 +1,6 @@
 ---
 title: HashMap,Hashtable
 author: "-"
-type: post
 date: 2012-09-21T05:24:11+00:00
 url: /?p=4144
 categories:

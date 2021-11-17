@@ -1,7 +1,6 @@
 ---
 title: emacs yaml plugin
 author: "-"
-type: post
 date: 2012-06-21T01:14:06+00:00
 url: /?p=3551
 categories:

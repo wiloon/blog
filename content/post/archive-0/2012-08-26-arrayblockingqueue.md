@@ -1,7 +1,6 @@
 ---
 title: ArrayBlockingQueue
 author: "-"
-type: post
 date: 2012-08-26T12:22:11+00:00
 url: /?p=3953
 categories:

@@ -1,7 +1,6 @@
 ---
 title: debian btnx
 author: "-"
-type: post
 date: 2012-02-19T11:39:24+00:00
 url: /?p=2371
 categories:

@@ -1,7 +1,6 @@
 ---
 title: slackware
 author: "-"
-type: post
 date: 2011-11-26T06:36:29+00:00
 url: /?p=1605
 bot_views:

@@ -1,7 +1,6 @@
 ---
 title: 通过java反射机制获取该类的所有属性类型、值、
 author: "-"
-type: post
 date: 2011-09-17T04:28:12+00:00
 url: reflect
 categories:

@@ -1,7 +1,6 @@
 ---
 title: nohup
 author: "-"
-type: post
 date: 2011-10-08T02:39:02+00:00
 url: /?p=997
 bot_views:

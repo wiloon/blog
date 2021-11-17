@@ -1,7 +1,6 @@
 ---
 title: RHEL 5 vsftpd
 author: "-"
-type: post
 date: 2012-01-30T06:07:10+00:00
 url: /?p=2195
 categories:

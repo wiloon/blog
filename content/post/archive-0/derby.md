@@ -1,7 +1,6 @@
 ---
 title: Derby
 author: "-"
-type: post
 date: 2011-09-22T09:27:58+00:00
 url: /?p=858
 bot_views:

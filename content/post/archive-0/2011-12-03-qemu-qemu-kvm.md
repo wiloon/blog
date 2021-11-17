@@ -1,7 +1,6 @@
 ---
 title: 'kvm  qemu qemu-kvm  libvirt'
 author: "-"
-type: post
 date: 2011-12-03T06:01:42+00:00
 url: /?p=1669
 bot_views:

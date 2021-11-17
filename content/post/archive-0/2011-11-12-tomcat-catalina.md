@@ -1,7 +1,6 @@
 ---
 title: 'Tomcat & Catalina'
 author: "-"
-type: post
 date: 2011-11-12T07:07:16+00:00
 url: /?p=1498
 bot_views:

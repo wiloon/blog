@@ -1,7 +1,6 @@
 ---
 title: cookie, session
 author: "-"
-type: post
 date: 2012-06-22T06:55:22+00:00
 url: /?p=3600
 categories:

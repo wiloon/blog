@@ -1,7 +1,6 @@
 ---
 title: java 日期/date time
 author: "-"
-type: post
 date: 2011-09-06T07:30:27+00:00
 url: /?p=682
 

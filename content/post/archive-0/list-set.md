@@ -1,7 +1,6 @@
 ---
 title: java 数组 list set, 数组转set
 author: "-"
-type: post
 date: 2011-09-08T06:42:29+00:00
 url: /?p=715
 bot_views:

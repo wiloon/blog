@@ -1,7 +1,6 @@
 ---
 title: Linux source
 author: "-"
-type: post
 date: 2012-06-23T01:52:30+00:00
 url: /?p=3635
 categories:

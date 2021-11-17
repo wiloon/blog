@@ -1,7 +1,6 @@
 ---
 title: HTML5 中 div section article 的区别
 author: "-"
-type: post
 date: 2012-02-19T12:21:06+00:00
 url: /?p=2374
 categories:

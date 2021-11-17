@@ -1,7 +1,6 @@
 ---
 title: CopyOnWriteArrayList
 author: "-"
-type: post
 date: 2012-07-08T07:46:46+00:00
 url: /?p=3802
 categories:

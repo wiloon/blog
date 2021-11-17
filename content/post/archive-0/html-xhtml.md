@@ -1,7 +1,6 @@
 ---
 title: HTML XHTML
 author: "-"
-type: post
 date: 2011-09-14T05:56:22+00:00
 url: html
 categories:
