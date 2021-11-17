@@ -3,8 +3,6 @@ title: oracle kill session
 author: "-"
 date: 2011-11-22T09:43:42+00:00
 url: /?p=1574
-views:
-  - 4
 categories:
   - DataBase
 

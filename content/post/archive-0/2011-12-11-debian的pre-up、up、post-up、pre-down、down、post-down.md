@@ -3,8 +3,6 @@ title: Debian的pre-up、up、post-up、pre-down、down、post-down
 author: "-"
 date: 2011-12-11T12:36:22+00:00
 url: /?p=1856
-views:
-  - 4
 categories:
   - Linux
 

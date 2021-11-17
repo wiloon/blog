@@ -3,8 +3,6 @@ title: commons-logging Log4J
 author: "-"
 date: 2011-11-18T23:40:51+00:00
 url: /?p=1525
-views:
-  - 1
 categories:
   - Java
 

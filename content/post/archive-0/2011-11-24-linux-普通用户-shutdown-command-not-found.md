@@ -3,8 +3,6 @@ title: 'linux  shutdown'
 author: "-"
 date: 2011-11-24T07:54:50+00:00
 url: /?p=1590
-views:
-  - 1
 categories:
   - Linux
 

@@ -3,8 +3,6 @@ title: vscode, java
 author: "-"
 date: 2011-07-18T04:47:44+00:00
 url: /?p=358
-views:
-  - 3
 categories:
   - IDE
 

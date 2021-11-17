@@ -3,8 +3,6 @@ title: win linux ssh putty
 author: "-"
 date: 2011-10-19T02:49:26+00:00
 url: /?p=1190
-views:
-  - 5
 categories:
   - Linux
 

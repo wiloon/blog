@@ -3,8 +3,6 @@ title: Repository write access denied
 author: "-"
 date: 2011-11-03T04:37:33+00:00
 url: /?p=1438
-views:
-  - 6
 categories:
   - Linux
   - VCS

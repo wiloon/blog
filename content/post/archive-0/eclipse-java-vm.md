@@ -3,8 +3,6 @@ title: eclipse java VM arguments
 author: "-"
 date: 2011-09-06T06:18:21+00:00
 url: /?p=678
-views:
-  - 1
 categories:
   - Eclipse
   - Java

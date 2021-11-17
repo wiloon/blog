@@ -3,8 +3,6 @@ title: debian 6 (squeeze) 源列表
 author: "-"
 date: 2011-11-26T10:00:24+00:00
 url: /?p=1644
-views:
-  - 7
 categories:
   - Linux
 

@@ -3,8 +3,6 @@ title: TimeUnit
 author: "-"
 date: 2011-11-19T06:46:00+00:00
 url: /?p=1537
-views:
-  - 5
 categories:
   - Java
 

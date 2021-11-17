@@ -3,8 +3,6 @@ title: doGet doPost
 author: "-"
 date: 2011-10-23T12:18:45+00:00
 url: /?p=1300
-views:
-  - 3
 categories:
   - Java
 tags:

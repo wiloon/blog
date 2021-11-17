@@ -3,8 +3,6 @@ title: shell 彩色 echo
 author: "-"
 date: 2011-07-28T04:34:33+00:00
 url: /?p=369
-views:
-  - 1
 categories:
   - Linux
 tags:

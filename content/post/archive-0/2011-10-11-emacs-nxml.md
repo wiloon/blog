@@ -3,8 +3,6 @@ title: emacs nXML
 author: "-"
 date: 2011-10-11T10:41:36+00:00
 url: /?p=1018
-views:
-  - 8
 categories:
   - Emacs
 

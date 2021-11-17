@@ -3,8 +3,6 @@ title: cooking
 author: "-"
 date: 2011-10-29T11:06:23+00:00
 url: /?p=1389
-views:
-  - 7
 categories:
   - Java
 tags:

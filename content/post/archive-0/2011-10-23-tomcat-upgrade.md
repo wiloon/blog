@@ -3,8 +3,6 @@ title: tomcat upgrade
 author: "-"
 date: 2011-10-23T09:33:05+00:00
 url: /?p=1285
-views:
-  - 3
 categories:
   - Uncategorized
 

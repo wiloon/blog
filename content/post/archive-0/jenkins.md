@@ -3,8 +3,6 @@ title: Jenkins setup
 author: "-"
 date: 2011-09-30T06:56:52+00:00
 url: /?p=990
-views:
-  - 1
 categories:
   - CI
 tags:

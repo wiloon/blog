@@ -3,8 +3,6 @@ title: 工厂模式
 author: "-"
 date: 2011-10-29T06:02:20+00:00
 url: /?p=1335
-views:
-  - 4
 categories:
   - Java
 tags:
