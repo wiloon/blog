@@ -17,6 +17,6 @@ Underscore提供完整的测试用例集供你精读。
 
 你也可以阅读有注释的源代码。
 
-项目代码放在GitHub上，你可以通过issues页、Freenode的<tt>#documentcloud</tt>频道、发送tweets给@documentcloud三个途径报告bug以及参与特性讨论。
+项目代码放在GitHub上，你可以通过issues页、Freenode的#documentcloud频道、发送tweets给@documentcloud三个途径报告bug以及参与特性讨论。
 
 _Underscore是DocumentCloud的一个开源组件。_

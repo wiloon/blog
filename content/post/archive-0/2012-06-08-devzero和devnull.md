@@ -10,16 +10,16 @@ categories:
 ---
 ## /dev/zero和/dev/null
 ### /dev/null
-    在类Unix系统中，<tt>/dev/null</tt>，或称空设备，是一个特殊的设备文件，它丢弃一切写入其中的数据（但报告写入操作成功) ，读取它则会立即得到一个EOF<sup id="cite_ref-uxman_0-0">[1]</sup>。
+    在类Unix系统中，/dev/null，或称空设备，是一个特殊的设备文件，它丢弃一切写入其中的数据（但报告写入操作成功) ，读取它则会立即得到一个EOF<sup id="cite_ref-uxman_0-0">[1]</sup>。
   
 
 在程序员行话，尤其是Unix行话中，`/dev/null`被称为bit bucket<sup id="cite_ref-1">[2]</sup>或者黑洞。使用
 
 空设备通常被用于丢弃不需要的输出流，或作为用于输入流的空文件。这些操作通常由重定向完成。
 
-<tt>/dev/null</tt>是一个特殊_文件_，而不是目录，因此不能使用Unix命令<tt>mv</tt> 将文件移动到其中。使用<tt>rm</tt>命令才是Unix中删除文件的正确方法。
+/dev/null是一个特殊_文件_，而不是目录，因此不能使用Unix命令mv 将文件移动到其中。使用rm命令才是Unix中删除文件的正确方法。
 
-本概念大致相当于CP/M，DOS和Microsoft Windows中的<tt>NUL:</tt>或单纯的<tt>NUL</tt>设备，Windows NT及其后续系统中的<tt>DeviceNull</tt>或<tt>NUL</tt>，Amiga中的<tt>NIL:</tt>，以及OpenVMS中的<tt>NL:</tt>。在基于.NET的Windows PowerShell中，相同的概念为$null。
+本概念大致相当于CP/M，DOS和Microsoft Windows中的NUL:或单纯的NUL设备，Windows NT及其后续系统中的DeviceNull或NUL，Amiga中的NIL:，以及OpenVMS中的NL:。在基于.NET的Windows PowerShell中，相同的概念为$null。
 
 ---
 ### /dev/zero

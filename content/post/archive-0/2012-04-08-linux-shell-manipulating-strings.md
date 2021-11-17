@@ -45,10 +45,10 @@ expr index $string $substring
     **ength of Matching Substring at Beginning of String**
     
     expr match "$string" '$substring'
-    :   <tt>$substring</tt> is a [regular expression][1].
+    :   $substring is a [regular expression][1].
     
     expr "$string" : '$substring'
-    :   <tt>$substring</tt> is a regular expression. 
+    :   $substring is a regular expression. 
         
         
           

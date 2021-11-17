@@ -29,26 +29,26 @@ http://mirror.bit.edu.cn/apache/nutch/2.2.1/
 
 cd apache-nutch-2.2.1
 
-Run <tt class="backtick">ant</tt>
+Run <tt class="backtick">ant
 
-Now there is a directory <tt class="backtick">runtime/local</tt> which contains a ready to use Nutch installation.
+Now there is a directory <tt class="backtick">runtime/local which contains a ready to use Nutch installation.
 
 ### Customize your crawl properties {#A3.1_Customize_your_crawl_properties}
 
-Add your agent name in the <tt class="backtick">value</tt> field of the <tt class="backtick">http.agent.name</tt> property in <tt class="backtick">conf/nutch-site.xml</tt>, for example:
+Add your agent name in the <tt class="backtick">value field of the <tt class="backtick">http.agent.name property in <tt class="backtick">conf/nutch-site.xml, for example:
 
 <property>
 <span id="line-2-1" class="anchor"> <name>http.agent.name</name>
 <span id="line-3-1" class="anchor"> <value>My Nutch Spider</value>
 <span id="line-4-1" class="anchor"></property>
 
-Edit the file <tt class="backtick">conf/regex-urlfilter.txt</tt> and replace
+Edit the file <tt class="backtick">conf/regex-urlfilter.txt and replace
 
 # accept anything else
 <span id="line-2-2" class="anchor">+.
 
 
-  with a regular expression matching the domain you wish to crawl. For example, if you wished to limit the crawl to the <tt class="backtick">nutch.apache.org</tt> domain, the line should read:<span id="line-113" class="anchor"><span id="line-114" class="anchor">
+  with a regular expression matching the domain you wish to crawl. For example, if you wished to limit the crawl to the <tt class="backtick">nutch.apache.org domain, the line should read:<span id="line-113" class="anchor"><span id="line-114" class="anchor">
 
 <span id="line-1-7" class="anchor"> +^http://([a-z0-9]*\.)*nutch.apache.org/
 

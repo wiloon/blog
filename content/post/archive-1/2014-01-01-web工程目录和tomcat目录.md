@@ -18,7 +18,7 @@ tags:
 
   
     
-      <tt>src/main/java</tt>
+      src/main/java
     
     
     
@@ -28,7 +28,7 @@ tags:
   
   
     
-      <tt>src/main/resources</tt>
+      src/main/resources
     
     
     
@@ -38,7 +38,7 @@ tags:
   
   
     
-      <tt>src/main/webapp</tt>
+      src/main/webapp
     
     
     
@@ -48,7 +48,7 @@ tags:
   
   
     
-      <tt>src/test/java</tt>
+      src/test/java
     
     
     
@@ -58,7 +58,7 @@ tags:
   
   
     
-      <tt>src/test/resources</tt>
+      src/test/resources
     
     
     
@@ -68,7 +68,7 @@ tags:
   
   
     
-      <tt>src/main/filters</tt>
+      src/main/filters
     
     
     
@@ -78,7 +78,7 @@ tags:
   
   
     
-      <tt>src/main/assembly</tt>
+      src/main/assembly
     
     
     
@@ -88,7 +88,7 @@ tags:
   
   
     
-      <tt>src/main/config</tt>
+      src/main/config
     
     
     
@@ -98,7 +98,7 @@ tags:
   
   
     
-      <tt>src/main/scripts</tt>
+      src/main/scripts
     
     
     
@@ -108,7 +108,7 @@ tags:
   
   
     
-      <tt>src/test/filters</tt>
+      src/test/filters
     
     
     
@@ -118,7 +118,7 @@ tags:
   
   
     
-      <tt>src/site</tt>
+      src/site
     
     
     
@@ -128,7 +128,7 @@ tags:
   
   
     
-      <tt>LICENSE.txt</tt>
+      LICENSE.txt
     
     
     
@@ -138,7 +138,7 @@ tags:
   
   
     
-      <tt>NOTICE.txt</tt>
+      NOTICE.txt
     
     
     
@@ -148,7 +148,7 @@ tags:
   
   
     
-      <tt>README.txt</tt>
+      README.txt
     
     
     

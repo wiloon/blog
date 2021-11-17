@@ -1,5 +1,5 @@
 ---
-title: mvn maven basic, command
+title: mvn, maven basic, maven常用命令
 author: "-"
 date: 2011-09-29T04:34:14+00:00
 url: maven/basic
@@ -7,7 +7,7 @@ tags:
   - maven
 
 ---
-## mvn maven basic, command
+## mvn, maven basic, maven常用命令
 ### download
 >https://maven.apache.org/download.cgi
 ### setting>mirror
@@ -35,11 +35,12 @@ tags:
 ```bash
 # common project
 # mvn archetype:generate 会自动创建项目目录 mvntest
-mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
+mvn archetype:generate -DgroupId=com.wiloon.demo -DartifactId=mvntest \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-mvn archetype:generate -DgroupId=com.wiloon.java -DartifactId=javaJpms \
--DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+# archetypeVersion 指定版本号
+mvn archetype:generate -D groupId=com.wiloon.java -D artifactId=javaJpms \
+-D archetypeVersion=1.4 -D archetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 # local catalog
 mvn archetype:generate -DgroupId=com.wiloon.test -DartifactId=mvntest \
@@ -87,12 +88,13 @@ mvn install -Dmaven.test.skip=true
 mvn package appassembler:assemble
 ```
 
-查看mvn 参数
+### 查看mvn 参数
 
 ```bash
 mvn --help
 mvn install 指定 pom.xml
-mvn -f trunk\mvntest\pom.xml install
+# 指定pom文件位置
+mvn -f trunk/mvntest/pom.xml install
 ```
 
 ```bash
@@ -227,20 +229,17 @@ os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和
 
 https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecatalog-local-does-not-list-my-archetype
 
-
-
-
 3.3 .user
 
-对指定用户的配置。user configuration可以在<tt>${user.home}/.m2/settings.xml中指定。注: 该文件不是必须的，当该文件找不到时，maven会使用默认的配置。</tt>
+对指定用户的配置。user configuration可以在${user.home}/.m2/settings.xml中指定。注: 该文件不是必须的，当该文件找不到时，maven会使用默认的配置。
 
-<tt>关于该文件的具体配置可以参考: http://maven.apache.org/ref/2.0.4/maven-settings/settings.html。</tt>
+关于该文件的具体配置可以参考: http://maven.apache.org/ref/2.0.4/maven-settings/settings.html。
 
-3.4  <tt>配置本地Repository</tt>
+3.4  配置本地Repository
 
-<tt>本地Repository的默认值是<tt>${user.home}/.m2/repository/。可以在user configuration(即在${user.home}/.m2/setting.xml) 中改变本地Repository。</tt></tt>
+本地Repository的默认值是${user.home}/.m2/repository/。可以在user configuration(即在${user.home}/.m2/setting.xml) 中改变本地Repository。
 
-<tt>配置如下: </tt><settings></settings>
+配置如下: <settings></settings>
 
 <localRepository>/path/to/local/repo</localRepository>
 
@@ -248,7 +247,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
  3.5 配置代理
 
 
-<tt>在maven2.0中，可以为http request配置代理。同样在user configuration中配置，配置如下: </tt>
+在maven2.0中，可以为http request配置代理。同样在user configuration中配置，配置如下: 
 <settings></settings>     <proxy>
       <id>optional</id>
       true</active>

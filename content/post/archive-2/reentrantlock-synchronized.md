@@ -259,13 +259,13 @@ private final boolean parkAndCheckInterrupt() {
 /**
  * 源码在http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
  * Block current thread, returning when a balancing
- * <tt>unpark</tt> occurs, or a balancing <tt>unpark</tt> has
+ * unpark occurs, or a balancing unpark has
  * already occurred, or the thread is interrupted, or, if not
  * absolute and time is not zero, the given time nanoseconds have
  * elapsed, or if absolute, the given deadline in milliseconds
  * since Epoch has passed, or spuriously (i.e., returning for no
  * "reason"). Note: This operation is in the Unsafe class only
- * because <tt>unpark</tt> is, so it would be strange to place it
+ * because unpark is, so it would be strange to place it
  * elsewhere.
  */
 public native void park(boolean isAbsolute, long time);
@@ -366,8 +366,8 @@ if (s != null)
 
 /**
  * 源码在: http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
- * Unblock the given thread blocked on <tt>park</tt>, or, if it is
- * not blocked, cause the subsequent call to <tt>park</tt> not to
+ * Unblock the given thread blocked on park, or, if it is
+ * not blocked, cause the subsequent call to park not to
  * block.  Note: this operation is "unsafe" solely because the
  * caller must somehow ensure that the thread has not been
  * destroyed. Nothing special is usually required to ensure this

@@ -1,18 +1,26 @@
 ---
-title: zookeeper basic
+title: zookeeper
 author: "-"
 date: 2015-01-14T09:32:00+00:00
-url: zookeeper-basic
-
+url: zookeeper
+categories:
+  - zookeeper
+tags:
+  - zookeeper
 ---
-## zookeeper basic
+## zookeeper
+### [16/11/21 03:20:30:030 CST] main-SendThread(192.168.50.100:2181)  WARN zookeeper.ClientCnxn: Session 0x0 for server 192.168.50.100/<unresolved>:2181, unexpected error, closing socket connection and attempting reconnect
+
+检查zookeeper包版本和连接的服务端版本，有可能是版本不一致
+>https://blog.csdn.net/richie696/article/details/112910751
+
 ### 向zookeeper 发送 stat命令 查询zookeeper版本
 
 ```bash
-echo stat | socat - TCP:192.168.1.xxx:2181
+echo stat | socat - TCP:192.168.50.100:2181
 ```
 
-# server
+## server
 
 ```bash
 # docker
@@ -35,6 +43,7 @@ podman run \
 -d \
 zookeeper
 
+# conf, data volume
 podman run \
 --name zookeeper \
 -p 2181:2181 \
@@ -44,7 +53,7 @@ podman run \
 -v zookeeper-datalog:/datalog \
 -e ZOO_4LW_COMMANDS_WHITELIST=*  \
 -d \
-zookeeper
+zookeeper:3.7.0
 
 # client
 docker run -it --rm zookeeper zkCli.sh -server 127.0.0.1
@@ -110,7 +119,7 @@ mv zoo_sample.cfg zoo.cfg
 mkdir /data/zookeeper
 ```
 
-**修改配置文件zoo.cfg**
+### 修改配置文件zoo.cfg
   
 tickTime: 这个时间是作为 Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。
   
@@ -131,15 +140,13 @@ ZooKeeper是一套高吞吐量的系统，为了提高系统的读取速度，Zo
 
 所以从上面分析可以看出，如果ZNode的过大，那么读写某一个ZNode将造成不确定的延时;同时ZNode过大，将过快地耗尽ZooKeeper服务器的内存。这也是为什么ZooKeeper不适合存储大量的数据的原因。
 
-
-
 https://holynull.gitbooks.io/zookeeper/content/
   
 http://www.cnblogs.com/linjiqin/archive/2013/03/16/2962597.html
   
 https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
   
-<http://www.wiloon.com/?p=8594>{.wp-editor-md-post-content-link}
+<http://www.wiloon.com/?p=8594>
   
 https://my.oschina.net/xianggao/blog/531613
 >https://www.jianshu.com/p/30bcaf55f451
