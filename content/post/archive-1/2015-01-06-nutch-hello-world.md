@@ -37,42 +37,42 @@ Now there is a directory <tt class="backtick">runtime/local which contains a rea
 Add your agent name in the <tt class="backtick">value field of the <tt class="backtick">http.agent.name property in <tt class="backtick">conf/nutch-site.xml, for example:
 
 <property>
-<span id="line-2-1" class="anchor"> <name>http.agent.name</name>
-<span id="line-3-1" class="anchor"> <value>My Nutch Spider</value>
-<span id="line-4-1" class="anchor"></property>
+ <name>http.agent.name</name>
+ <value>My Nutch Spider</value>
+</property>
 
 Edit the file <tt class="backtick">conf/regex-urlfilter.txt and replace
 
 # accept anything else
-<span id="line-2-2" class="anchor">+.
++.
 
 
-  with a regular expression matching the domain you wish to crawl. For example, if you wished to limit the crawl to the <tt class="backtick">nutch.apache.org domain, the line should read:<span id="line-113" class="anchor"><span id="line-114" class="anchor">
+  with a regular expression matching the domain you wish to crawl. For example, if you wished to limit the crawl to the <tt class="backtick">nutch.apache.org domain, the line should read:
 
-<span id="line-1-7" class="anchor"> +^http://([a-z0-9]*\.)*nutch.apache.org/
+ +^http://([a-z0-9]*\.)*nutch.apache.org/
 
 Specify the GORA backend in $NUTCH_HOME/conf/nutch-site.xml
 
 
 <property>
-<span id="line-2" class="anchor"> <name>storage.data.store.class</name>
-<span id="line-3" class="anchor"> <value>org.apache.gora.hbase.store.HBaseStore</value>
-<span id="line-4" class="anchor"> <description>Default class for storing data</description>
-<span id="line-5" class="anchor"></property>
+ <name>storage.data.store.class</name>
+ <value>org.apache.gora.hbase.store.HBaseStore</value>
+ <description>Default class for storing data</description>
+</property>
 
 
-  * Ensure the HBase gora-hbase dependency is available in $NUTCH_HOME/ivy/ivy.xml<span id="line-26" class="anchor"><span id="line-27" class="anchor">
+  * Ensure the HBase gora-hbase dependency is available in $NUTCH_HOME/ivy/ivy.xml
 
-<span id="line-1-1" class="anchor">    <!-- Uncomment this to use HBase as Gora backend. -->
-<span id="line-2-1" class="anchor">    
-<span id="line-3-1" class="anchor">    <dependency org="org.apache.gora" name="gora-hbase" rev="0.4" conf="*->default" />
+    <!-- Uncomment this to use HBase as Gora backend. -->
+    
+    <dependency org="org.apache.gora" name="gora-hbase" rev="0.4" conf="*->default" />
 
 
   * 
-      Ensure that HBaseStore is set as the default datastore in $NUTCH_HOME/conf/gora.properties. Other documentation for HBaseStore can be found here.<span id="line-34" class="anchor"><span id="line-35" class="anchor">
+      Ensure that HBaseStore is set as the default datastore in $NUTCH_HOME/conf/gora.properties. Other documentation for HBaseStore can be found here.
     
 
-<span id="line-1-2" class="anchor">    gora.datastore.default=org.apache.gora.hbase.store.HBaseStore
+    gora.datastore.default=org.apache.gora.hbase.store.HBaseStore
 
 
 run ant runtime

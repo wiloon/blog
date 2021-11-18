@@ -13,4 +13,4 @@ https://bbs.archlinux.org/viewtopic.php?id=128682
 set up in pacman.conf
 
 
-  <code>SigLevel = Optional TrustAll```
+  SigLevel = Optional TrustAll```

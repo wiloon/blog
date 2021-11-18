@@ -40,7 +40,7 @@ grep -r 'linux' *
 - -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
 - -C 显示file文件里匹配foo字串那行以及上下5行
 - -r, -recursive, 搜索子目录
-- -l, -files-with-matches, 查询多文件时只输出包含匹配字符的文件名.
+- -l, -files-with-matches, 查询多文件时只输出包含匹配字符的文件名, 不打印匹配的文件内容。
 - -G, -basic-regexp BRE 模式，也是默认的模式
 - -E, -extended-regexp ERE 模式
 - -h, 查询多文件时不显示文件名。

@@ -86,47 +86,47 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
 
   <ol class="highlighter-j" start="1">
     
-      <span class="comment">/**
+      /**
     
     
-      <span class="comment"> *UDPServer
+       *UDPServer
     
     
-      <span class="comment"> *@author Winty wintys@gmail.com
+       *@author Winty wintys@gmail.com
     
     
-      <span class="comment"> *@version 2008-12-15
+       *@version 2008-12-15
     
     
-      <span class="comment"> */
+       */
     
     
-      <span class="keyword">import java.io.*;
+      import java.io.*;
     
     
-      <span class="keyword">import java.net.*;
-    
-    
-    
-    
-      <span class="keyword">class UDPServer{
-    
-    
-          <span class="keyword">public <span class="keyword">static <span class="keyword">void main(String[] args)<span class="keyword">throws IOException{
-    
-    
-              DatagramSocket  server = <span class="keyword">new DatagramSocket(<span class="number">5050);
+      import java.net.*;
     
     
     
     
-              <span class="keyword">byte[] recvBuf = <span class="keyword">new <span class="keyword">byte[<span class="number">100];
+      class UDPServer{
+    
+    
+          public static void main(String[] args)throws IOException{
+    
+    
+              DatagramSocket  server = new DatagramSocket(5050);
+    
+    
+    
+    
+              byte[] recvBuf = new byte[100];
     
     
               DatagramPacket recvPacket
     
     
-                  = <span class="keyword">new DatagramPacket(recvBuf , recvBuf.length);
+                  = new DatagramPacket(recvBuf , recvBuf.length);
     
     
     
@@ -136,24 +136,24 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
     
     
     
-              String recvStr = <span class="keyword">new String(recvPacket.getData() , <span class="number"> , recvPacket.getLength());
+              String recvStr = new String(recvPacket.getData() ,  , recvPacket.getLength());
     
     
-              System.out.println(<span class="string">"Hello World!" + recvStr);
+              System.out.println("Hello World!" + recvStr);
     
     
     
     
-              <span class="keyword">int port = recvPacket.getPort();
+              int port = recvPacket.getPort();
     
     
               InetAddress addr = recvPacket.getAddress();
     
     
-              String sendStr = <span class="string">"Hello ! I'm Server";
+              String sendStr = "Hello ! I'm Server";
     
     
-              <span class="keyword">byte[] sendBuf;
+              byte[] sendBuf;
     
     
               sendBuf = sendStr.getBytes();
@@ -162,7 +162,7 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
               DatagramPacket sendPacket
     
     
-                  = <span class="keyword">new DatagramPacket(sendBuf , sendBuf.length , addr , port );
+                  = new DatagramPacket(sendBuf , sendBuf.length , addr , port );
     
     
     
@@ -188,59 +188,59 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
 
   <ol class="highlighter-j" start="1">
     
-      <span class="comment">/**
+      /**
     
     
-      <span class="comment"> *UDPClient
+       *UDPClient
     
     
-      <span class="comment"> *@author Winty wintys@gmail.com
+       *@author Winty wintys@gmail.com
     
     
-      <span class="comment"> *@version 2008-12-15
+       *@version 2008-12-15
     
     
-      <span class="comment"> */
+       */
     
     
-      <span class="keyword">import java.io.*;
+      import java.io.*;
     
     
-      <span class="keyword">import java.net.*;
-    
-    
-    
-    
-      <span class="keyword">class UDPClient{
-    
-    
-          <span class="keyword">public <span class="keyword">static <span class="keyword">void main(String[] args)<span class="keyword">throws IOException{
-    
-    
-              DatagramSocket client = <span class="keyword">new DatagramSocket();
+      import java.net.*;
     
     
     
     
-              String sendStr = <span class="string">"Hello! I'm Client";
+      class UDPClient{
     
     
-              <span class="keyword">byte[] sendBuf;
+          public static void main(String[] args)throws IOException{
+    
+    
+              DatagramSocket client = new DatagramSocket();
+    
+    
+    
+    
+              String sendStr = "Hello! I'm Client";
+    
+    
+              byte[] sendBuf;
     
     
               sendBuf = sendStr.getBytes();
     
     
-              InetAddress addr = InetAddress.getByName(<span class="string">"127.0.0.1");
+              InetAddress addr = InetAddress.getByName("127.0.0.1");
     
     
-              <span class="keyword">int port = <span class="number">5050;
+              int port = 5050;
     
     
               DatagramPacket sendPacket
     
     
-                  = <span class="keyword">new DatagramPacket(sendBuf ,sendBuf.length , addr , port);
+                  = new DatagramPacket(sendBuf ,sendBuf.length , addr , port);
     
     
     
@@ -250,22 +250,22 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
     
     
     
-              <span class="keyword">byte[] recvBuf = <span class="keyword">new <span class="keyword">byte[<span class="number">100];
+              byte[] recvBuf = new byte[100];
     
     
               DatagramPacket recvPacket
     
     
-                  = <span class="keyword">new DatagramPacket(recvBuf , recvBuf.length);
+                  = new DatagramPacket(recvBuf , recvBuf.length);
     
     
               client.receive(recvPacket);
     
     
-              String recvStr = <span class="keyword">new String(recvPacket.getData() , <span class="number"> ,recvPacket.getLength());
+              String recvStr = new String(recvPacket.getData() ,  ,recvPacket.getLength());
     
     
-              System.out.println(<span class="string">"收到:" + recvStr);
+              System.out.println("收到:" + recvStr);
     
     
     

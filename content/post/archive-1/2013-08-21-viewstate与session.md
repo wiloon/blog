@@ -8,13 +8,13 @@ categories:
 
 ---
 ## ViewState与Session
-<span>昨天偶然看到网上有人讨论究竟是该用viewstate还是session来保存信息. 忽然觉得有必要去深入的研究一下这两个东西了.
+昨天偶然看到网上有人讨论究竟是该用viewstate还是session来保存信息. 忽然觉得有必要去深入的研究一下这两个东西了.
 
-<span>我们先来看深入分析一下viewstate, 为了分析的相对完整性,先从简单的说起:
+我们先来看深入分析一下viewstate, 为了分析的相对完整性,先从简单的说起:
 
-<span>在asp时代, 大家都知道一个html控件的值,比如input 控件值,当我们把表单提交到服务器后, 页面再刷新回来的时候, input里面的数据已经被清空. 这是因为web的无状态性导致的, 服务端每次把html输出到客户端后就不再于客户端有联系.
+在asp时代, 大家都知道一个html控件的值,比如input 控件值,当我们把表单提交到服务器后, 页面再刷新回来的时候, input里面的数据已经被清空. 这是因为web的无状态性导致的, 服务端每次把html输出到客户端后就不再于客户端有联系.
 
-<span>asp.net巧妙的改变了这一点. 当我们在写一个asp.net表单时, 一旦标明了 form runat=server ,那么,asp.net就会自动在输出时给页面添加一个隐藏域
+asp.net巧妙的改变了这一点. 当我们在写一个asp.net表单时, 一旦标明了 form runat=server ,那么,asp.net就会自动在输出时给页面添加一个隐藏域
 
   <input type="hidden" name="__VIEWSTATE" value="">
 
@@ -44,6 +44,6 @@ categories:
 
 而viewstate加密就更简单了, 只要在machine.config里设置一下machineKey validation="3DES"即可实现用des加密viewstate了.
 
-<span>呵呵,至此,我们对viewstate应该有个很清晰的认识了, 不过,初步研究viewstate, 理解有误之处还望大家多指教 🙂
+呵呵,至此,我们对viewstate应该有个很清晰的认识了, 不过,初步研究viewstate, 理解有误之处还望大家多指教 🙂
 
  [1]: http://www.wilsondotnet.com/Demos/ViewState.aspx ""

@@ -32,9 +32,9 @@ Specifies that the class is an entity. This annotation is applied to the entity 
 //指定表名为users
 
 
-<span class="sy1">@<span class="kw11">Column
+@Column
 
-<span class="sy1">@<span class="kw11">Column<span class="br0">(name<span class="sy0">=<span class="st0">"DESC", <span class="kw12">nullable<span class="sy0">=<span class="kw2">false, <span class="kw12">length<span class="sy0">=<span class="nu0">512<span class="br0">)
+@Column(name="DESC", nullable=false, length=512)
 
 设置字段类型
   

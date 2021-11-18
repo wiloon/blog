@@ -32,11 +32,11 @@ categories:
 
   
     
-      <span class="line">1
+      1
     
     
     
-      <span class="line">sudo mkdir /usr/share/fonts/truetype/yahei
+      sudo mkdir /usr/share/fonts/truetype/yahei
 sudo cp yahei.ttf  /usr/share/fonts/truetype/yahei
 fc-cache -f -v
     

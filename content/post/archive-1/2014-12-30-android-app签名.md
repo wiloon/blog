@@ -32,43 +32,43 @@ _**方法一:  命令行下对apk签名（原理) **_
           
             
               
-                <code class="fsharp plain">D:\>keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore</code>
+                <code class="fsharp plain">D:\>keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore
               
               
               
-                <code class="fsharp plain">/*说明: -genkey 产生密钥</code>
+                <code class="fsharp plain">/*说明: -genkey 产生密钥
               
               
               
-                <code class="fsharp spaces">       </code><code class="fsharp plain">-alias demo.keystore 别名 demo.keystore</code>
+                <code class="fsharp spaces">       <code class="fsharp plain">-alias demo.keystore 别名 demo.keystore
               
               
               
-                <code class="fsharp spaces">       </code><code class="fsharp plain">-keyalg RSA 使用RSA算法对签名加密</code>
+                <code class="fsharp spaces">       <code class="fsharp plain">-keyalg RSA 使用RSA算法对签名加密
               
               
               
-                <code class="fsharp spaces">       </code><code class="fsharp plain">-validity 40000 有效期限4000天</code>
+                <code class="fsharp spaces">       <code class="fsharp plain">-validity 40000 有效期限4000天
               
               
               
-                <code class="fsharp spaces">       </code><code class="fsharp plain">-keystore demo.keystore */</code>
+                <code class="fsharp spaces">       <code class="fsharp plain">-keystore demo.keystore */
               
               
               
-                <code class="fsharp plain">D:\>jarsigner -verbose -keystore demo.keystore -signedjar demo_signed.apk demo.apk demo.keystore</code>
+                <code class="fsharp plain">D:\>jarsigner -verbose -keystore demo.keystore -signedjar demo_signed.apk demo.apk demo.keystore
               
               
               
-                <code class="fsharp plain">/*说明: -verbose 输出签名的详细信息</code>
+                <code class="fsharp plain">/*说明: -verbose 输出签名的详细信息
               
               
               
-                <code class="fsharp spaces">       </code><code class="fsharp plain">-keystore  demo.keystore 密钥库位置</code>
+                <code class="fsharp spaces">       <code class="fsharp plain">-keystore  demo.keystore 密钥库位置
               
               
               
-                <code class="fsharp spaces">       </code><code class="fsharp plain">-signedjar demor_signed.apk demo.apk demo.keystore 正式签名，三个参数中依次为签名后产生的文件demo_signed，要签名的文件demo.apk和密钥库demo.keystore.*/</code>
+                <code class="fsharp spaces">       <code class="fsharp plain">-signedjar demor_signed.apk demo.apk demo.keystore 正式签名，三个参数中依次为签名后产生的文件demo_signed，要签名的文件demo.apk和密钥库demo.keystore.*/
               
             
           

@@ -7,7 +7,7 @@ categories:
   - maven
 
 ---
-## maven path
+## Maven内置属性、POM属性, maven properties
 
 1、内置属性(Maven预定义，用户可以直接使用)
 ${basedir}表示项目根目录，即包含pom.xml文件的目录;

@@ -1,37 +1,49 @@
 ---
-title: maven config, maven-compiler-plugin
+title: maven plugin, maven-compiler-plugin
 author: "-"
 date: 2014-12-30T05:56:31+00:00
-url: maven/config
+url: maven/plugin
 tags:
   - Maven
 
 ---
 ## maven config, maven-compiler-plugin
 
-maven-compiler-plugin 3.6和更高版本提供了一种新方法
+maven-compiler-plugin 3.6 和更高版本提供了一种新方法
 
+```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
-    maven-compiler-plugin</artifactId>
-    <version>3.8.0</version>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
     <configuration>
         <release>9</release>
     </configuration>
 </plugin>
+```
 
 也可以只声明: 
 
+```xml
 <properties>
     <maven.compiler.release>16</maven.compiler.release>
 </properties>
+<!-- ... -->
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+    </plugin>
+</plugins>
+```
 
-maven-compiler-plugin 从3.6开始可以只配置 maven.compiler.release, 来替代maven.compiler.source and maven.compiler.target
-maven-compiler-plugin 会从 <properties> 里读取maven.compiler.release, 可以不配置到plugin>configuration下
+maven-compiler-plugin 从3.6开始可以只配置 `<maven.compiler.release>`, 来替代 `maven.compiler.source` and `maven.compiler.target`
+maven-compiler-plugin 会从 <properties> 里读取 `maven.compiler.release`, 可以不配置到 plugin>configuration 下
 
 "maven.compiler.release" as an replacement for source and target
 
-http://blog.csdn.net/zhaoyongnj2012/article/details/23970451
+>http://blog.csdn.net/zhaoyongnj2012/article/details/23970451
 
 在maven的默认配置中,对于jdk的配置是1.4版本,那么创建/导入maven工程过程中,工程中未指定jdk版本。
 

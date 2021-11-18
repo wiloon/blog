@@ -97,7 +97,7 @@ categories:
          Integer numSessions = (Integer)ctx.getAttribute("numSessions");
       
       
-        <span class="oblog_text">        if(numSessions == null)
+                if(numSessions == null)
       
       
                     numSessions = new Integer(0);

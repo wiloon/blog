@@ -44,7 +44,7 @@ console.log( $( this ).text() );
 
 //对象字面量
   
-<code>// 定义空对象
+// 定义空对象
   
 var dog = {};
 

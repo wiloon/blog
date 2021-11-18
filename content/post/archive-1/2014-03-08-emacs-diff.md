@@ -75,7 +75,7 @@ tags:
     
     
     
-      让你选两个窗口，然后比较窗口的内容。 <code>-linewise-</code> 函数比 <code>-wordwise-</code> 函数要快，但另一方面， <code>-wordwise-</code> 工作方式更好，尤其是小区域作业时。 <code>-linewise-</code> 一行一行地比较， <code>-wordwise-</code> 一个单词一个单词地比较。
+      让你选两个窗口，然后比较窗口的内容。 -linewise- 函数比 -wordwise- 函数要快，但另一方面， -wordwise- 工作方式更好，尤其是小区域作业时。 -linewise- 一行一行地比较， -wordwise- 一个单词一个单词地比较。
     
   
 

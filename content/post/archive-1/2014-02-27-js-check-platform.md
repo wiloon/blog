@@ -61,7 +61,7 @@ window.location.href="wapLojin.jsp";
 
 ```
   
-<code>var isMobile = {
+var isMobile = {
       
 Android: function() {
           
@@ -93,7 +93,7 @@ return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobil
       
 }
   
-};</code>
+};
   
 ```
 

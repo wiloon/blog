@@ -61,11 +61,11 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
         
           
             
-              <code>@Autowired</code><code>() </code><code>@Qualifier</code><code>(</code><code>"baseDao"</code><code>)</code>
+              @Autowired() @Qualifier("baseDao")
             
             
             
-              <code>private</code> <code>BaseDao baseDao;</code>
+              private BaseDao baseDao;
             
           
         
@@ -91,11 +91,11 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
         
           
             
-              <code>@Resource</code><code>(name=</code><code>"baseDao"</code><code>)</code>
+              @Resource(name="baseDao")
             
             
             
-              <code>private</code> <code>BaseDao baseDao;</code>
+              private BaseDao baseDao;
             
           
         

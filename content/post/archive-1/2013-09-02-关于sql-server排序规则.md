@@ -36,7 +36,7 @@ FirstName **COLLATE DATABASE_DEFAULT**, <wbr /> MiddleName **COLLATE DATABAS
 
 **2. 在建表时直接更改表的排序规则:**
 
-CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**<span>Chinese_PRC_CI_AS**)
+CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**Chinese_PRC_CI_AS**)
 
 3. 使用以下语句更改,但不适用于临时表
 

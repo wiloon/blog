@@ -92,7 +92,7 @@ categories:
     下面再来一个执行函数的: 
   
   
-    <code>　 var i=0;
+    　 var i=0;
 
 function test(){
 
@@ -106,7 +106,7 @@ setTimeout("test()",1000);
 
 也可以这样: 
 
-setTimeout(test,1000);</code>
+setTimeout(test,1000);
   
   
     总结: 
@@ -139,11 +139,11 @@ setTimeout(test,1000);</code>
     比如你想周期性执行一个函数
   
   
-    <code>　function a(){
+    　function a(){
 
 //...
 
-}</code>
+}
   
   
     可写为
@@ -170,7 +170,7 @@ setTimeout(test,1000);</code>
     思路很简 单，就是在一个函数中调用不停执行自己，有点像递归
   
   
-    <code>　　var i=0;
+    　　var i=0;
 
 function xilou(){
 
@@ -184,7 +184,7 @@ setTimeout("xilou()",1000);
 
 //setTimeout(xilou,1000);
 
-}</code>
+}
   
   
     3,在类中使用setTimeout
@@ -196,7 +196,7 @@ setTimeout("xilou()",1000);
     呵呵。让我们来分析一 下: 
   
   
-    <code>　　function xilou(){
+    　　function xilou(){
 
 //by 西楼冷月 www.chinacms.org
 
@@ -228,7 +228,7 @@ setTimeout(count,1000);//C:错误显示: 'count'未定义
 
 var self=this;
 
-setTimeout(function() {self.count();},1000);//D:正确</code>
+setTimeout(function() {self.count();},1000);//D:正确
   
   
     }
@@ -265,7 +265,7 @@ setTimeout(function() {self.count();},1000);//D:正确</code>
     那应该是这样被定义的: 
   
   
-    <code>　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){
+    　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){
 
 //.....代码
 
@@ -273,5 +273,5 @@ return timer//返回一个标记符
 
 }
 
-</code>　　所以当向 setTimeout()传入this的时候，当然指的是它所属的当前对象window了。
+　　所以当向 setTimeout()传入this的时候，当然指的是它所属的当前对象window了。
   

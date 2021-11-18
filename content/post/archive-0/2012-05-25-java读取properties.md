@@ -125,28 +125,28 @@ load resouorces as utf8
 
 ```java
   
-<code><span class="typ">Properties<span class="pln"> properties <span class="pun">= <span class="kwd">new <span class="typ">Properties<span class="pun">();
+Properties properties = new Properties();
   
-<span class="typ">InputStream<span class="pln"> inputStream <span class="pun">= <span class="kwd">new <span class="typ">FileInputStream<span class="pun">(<span class="str">"path/to/file"<span class="pun">);
+InputStream inputStream = new FileInputStream("path/to/file");
   
-<span class="kwd">try <span class="pun">{
+try {
       
-<span class="typ">Reader<span class="pln"> reader <span class="pun">= <span class="kwd">new <span class="typ">InputStreamReader<span class="pun">(<span class="pln">inputStream<span class="pun">, <span class="str">"UTF-8"<span class="pun">);
+Reader reader = new InputStreamReader(inputStream, "UTF-8");
       
-<span class="kwd">try <span class="pun">{<span class="pln">
+try {
           
-properties<span class="pun">.<span class="pln">load<span class="pun">(<span class="pln">reader<span class="pun">);
+properties.load(reader);
       
-<span class="pun">} <span class="kwd">finally <span class="pun">{<span class="pln">
+} finally {
           
-reader<span class="pun">.<span class="pln">close<span class="pun">();
+reader.close();
       
-<span class="pun">}
+}
   
-<span class="pun">} <span class="kwd">finally <span class="pun">{<span class="pln">
+} finally {
      
-inputStream<span class="pun">.<span class="pln">close<span class="pun">();
+inputStream.close();
   
-<span class="pun">}```
+}```
   
 ```

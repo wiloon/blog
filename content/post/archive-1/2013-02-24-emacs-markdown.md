@@ -31,7 +31,7 @@ Markdown 模式将常用的编辑命令都绑定到了特定的组合键上,因�
   * C-c C-a l 插入链接,格式为 [text][/text] 
     `(url)`。 
     
-      * C-c C-i i 插入图像,格式为 `<code>!`</code>[text][/text] 
+      * C-c C-i i 插入图像,格式为 `!`[text][/text] 
         `(url)`。 
         
           * C-c C-s b 插入引用内容。

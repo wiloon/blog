@@ -10,11 +10,11 @@ tags:
 
 ---
 ## java version
-52<span class="pun">,<span class="pln">
-J2SE 51<span class="pun">,<span class="pln">
-J2SE 50<span class="pun">,<span class="pln">
-J2SE 49<span class="pun">,<span class="pln">
-JDK 48<span class="pun">,<span class="pln">
-JDK 47<span class="pun">,<span class="pln">
-JDK 46<span class="pun">,<span class="pln">
+52,
+J2SE 51,
+J2SE 50,
+J2SE 49,
+JDK 48,
+JDK 47,
+JDK 46,
 JDK 45```

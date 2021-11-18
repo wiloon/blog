@@ -14,7 +14,7 @@ root和boot在 逻辑分区上
 
 启动时会提示
 
-<span class="c37">
+
 Invalid partition table
 
 回国后正常进入syslinux

@@ -50,7 +50,7 @@ AbstractChannel
         }
   
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 在代码的许多部分, 都会有这个 ClosedChannelException, 大概的意思是说在 channel close 以后, 如果还调用了 write 方法, 则会将 write 的 future 设置为 failure, 并将 cause 设置为 ClosedChannelException, 同样 SSLHandler 中也类似
@@ -63,7 +63,7 @@ client
 
 
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
       public static void main(String[] args) throws IOException, InterruptedException {
         Bootstrap b = new Bootstrap();
@@ -85,14 +85,14 @@ client
         });
   
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 server
 
 
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   public class SimpleServer {
 
@@ -132,7 +132,7 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
 }
   
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -142,7 +142,7 @@ NioEventLoop
 
 
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   private static void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
         final NioUnsafe unsafe = ch.unsafe();
@@ -182,7 +182,7 @@ NioEventLoop
     }
   
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 这就是 connection reset by peer 产生的原因
@@ -195,7 +195,7 @@ client 1, 主动关闭 channel
 
 
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   public class SimpleClient {
 
@@ -231,7 +231,7 @@ client 1, 主动关闭 channel
 }
   
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 
@@ -243,7 +243,7 @@ client 2. 由服务端造成的 ClosedChannelException
 
 
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   public class SimpleClient {
 
@@ -272,14 +272,14 @@ client 2. 由服务端造成的 ClosedChannelException
 }
   
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 服务端
 
 
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
   public class SimpleServer {
 
@@ -302,7 +302,7 @@ client 2. 由服务端造成的 ClosedChannelException
 }
   
   
-    <span class="cnblogs_code_copy"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
+    <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
 这种情况下,  服务端将 channel 关闭, 客户端先 sleep, 这期间 client 的 eventLoop 会处理客户端关闭的时间, 也就是 eventLoop 的 processKey 方法会进入 OP_READ, 然后 read 出来一个 -1, 最后触发 client channelInactive 事件, 当 sleep 醒来以后, 客户端调用 writeAndFlush, 这时候客户端 channel 的状态已经变为了 inactive, 所以 write 失败, cause 为 ClosedChannelException

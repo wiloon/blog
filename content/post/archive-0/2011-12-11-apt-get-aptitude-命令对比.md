@@ -45,7 +45,7 @@ categories:
     
     
       
-        apt-get install package<code>--</code>reinstall
+        apt-get install package--reinstall
       
       
       
@@ -85,7 +85,7 @@ categories:
     
     
       
-        apt-get remove package<code>--</code>purge
+        apt-get remove package--purge
       
       
       

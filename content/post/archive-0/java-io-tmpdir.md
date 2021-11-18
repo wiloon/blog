@@ -30,9 +30,9 @@ categories:
     
   
   
-    To specify the <code>java.io.tmpdir</code> System property, you can invoke the JVM as follows:
+    To specify the java.io.tmpdir System property, you can invoke the JVM as follows:
   
-  <code>java -Djava.io.tmpdir=/path/to/tmpdir  ```
+  java -Djava.io.tmpdir=/path/to/tmpdir  ```
   
-    By default this value should come from the <code>TMP</code> environment variable on Windows systems
+    By default this value should come from the TMP environment variable on Windows systems
   

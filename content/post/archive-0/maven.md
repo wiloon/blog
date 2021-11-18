@@ -76,12 +76,19 @@ mvn clean compile -U
     mvn dependency:tree
     mvn dependency:tree -Dverbose
 
+### upload jar to nexus
 ```bash
-# upload jar to nexus
 mvn deploy:deploy-file -Dfile=xxx.pom -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=pom -DrepositoryId=repo0 -Durl=https://maven.wiloon.com/repository/snapshot/
 
 mvn deploy:deploy-file -Dfile=xxx.jar -DgroupId=com.wiloon -DartifactId=artifactid0 -Dversion=1.0.0 -Dpackaging=jar -DrepositoryId=repo0 -Durl=https://maven.wiloon.net/repository/snapshot/
+```
+## maven ojdbc6
+```bash
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -Dfile=/home/wiloon/Downloads/ojdbc6.jar
 
+```
+
+```bash
 #maven war plugin
 mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded
 
@@ -139,7 +146,7 @@ webApp: maven-archetype-webapp
   
 -Dmvn install -Dmaven.test.skip=true  <del>编译时跳过Test</del>
 
--Dmaven.test.failure.ignore=true <del> Set this to <code>true</code> to ignore a failure during testing. Its use is NOT RECOMMENDED, but quite convenient on occasion.</del>
+-Dmaven.test.failure.ignore=true <del> Set this to true to ignore a failure during testing. Its use is NOT RECOMMENDED, but quite convenient on occasion.</del>
 
 mvn install -rf  :MODULENAME
 

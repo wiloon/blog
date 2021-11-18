@@ -28,13 +28,13 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
   
 * 
   
-* This method calls the <code>exit</code> method in class
+* This method calls the exit method in class
   
-* <code>Runtime</code>. This method never returns normally.
+* Runtime. This method never returns normally.
   
 * 
   
-* The call <code>System.exit(n)</code> is effectively equivalent to
+* The call System.exit(n) is effectively equivalent to
   
 * the call:
   
@@ -50,7 +50,7 @@ http://hi.baidu.com/accpzhangbo/blog/item/52aeffc683ee6ec238db4965.html
   
 * @throws SecurityException
   
-* if a security manager exists and its <code>checkExit</code>
+* if a security manager exists and its checkExit
   
 * method doesn't allow exit with the specified status.
   

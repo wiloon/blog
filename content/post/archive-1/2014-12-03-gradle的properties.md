@@ -28,67 +28,67 @@ http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternati
 
 <ol class="linenums">
   
-    <code><span class="pln">buildscript <span class="pun">{</code>
+    buildscript {
   
   
-    <code><span class="pln"> repositories <span class="pun">{</code>
+     repositories {
   
   
-    <code><span class="pln"> mavenCentral<span class="pun">()</code>
+     mavenCentral()
   
   
-    <code> <span class="pun">}</code>
+     }
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln"> dependencies <span class="pun">{</code>
+     dependencies {
   
   
-    <code><span class="pln"> classpath <span class="str">'com.android.tools.build:gradle:0.10.+'</code>
+     classpath 'com.android.tools.build:gradle:0.10.+'
   
   
-    <code> <span class="pun">}</code>
+     }
   
   
-    <code><span class="pun">}</code>
+    }
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln">apply plugin<span class="pun">: <span class="str">'android-library'</code>
+    apply plugin: 'android-library'
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln">android <span class="pun">{</code>
+    android {
   
   
-    <code><span class="pln"> compileSdkVersion <span class="lit">19</code>
+     compileSdkVersion 19
   
   
-    <code><span class="pln"> buildToolsVersion <span class="lit">19.0<span class="pun">.<span class="lit">3</code>
+     buildToolsVersion 19.0.3
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln"> defaultConfig <span class="pun">{</code>
+     defaultConfig {
   
   
-    <code><span class="pln"> minSdkVersion <span class="lit">8</code>
+     minSdkVersion 8
   
   
-    <code><span class="pln"> targetSdkVersion <span class="lit">19</code>
+     targetSdkVersion 19
   
   
-    <code> <span class="pun">}</code>
+     }
   
   
-    <code><span class="pun">}</code>
+    }
   
 
 
@@ -124,67 +124,67 @@ Gradle支持三种Properties, 这三种Properties的作用域和初始化阶段�
 
 <ol class="linenums">
   
-    <code><span class="pln">buildscript <span class="pun">{</code>
+    buildscript {
   
   
-    <code><span class="pln"> repositories <span class="pun">{</code>
+     repositories {
   
   
-    <code><span class="pln"> mavenCentral<span class="pun">()</code>
+     mavenCentral()
   
   
-    <code> <span class="pun">}</code>
+     }
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln"> dependencies <span class="pun">{</code>
+     dependencies {
   
   
-    <code><span class="pln"> classpath <span class="str">'com.android.tools.build:gradle:'<span class="pun">+<span class="typ">System<span class="pun">.<span class="pln">properties<span class="pun">[<span class="str">'androidGradlePluginVersion'<span class="pun">]</code>
+     classpath 'com.android.tools.build:gradle:'+System.properties['androidGradlePluginVersion']
   
   
-    <code> <span class="pun">}</code>
+     }
   
   
-    <code><span class="pun">}</code>
+    }
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln">apply plugin<span class="pun">: <span class="str">'android-library'</code>
+    apply plugin: 'android-library'
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln">android <span class="pun">{</code>
+    android {
   
   
-    <code><span class="pln"> compileSdkVersion <span class="lit">19</code>
+     compileSdkVersion 19
   
   
-    <code><span class="pln"> buildToolsVersion <span class="typ">System<span class="pun">.<span class="pln">properties<span class="pun">[<span class="str">'buildToolsVersion'<span class="pun">]</code>
+     buildToolsVersion System.properties['buildToolsVersion']
   
   
-    <code></code>
+    
   
   
-    <code><span class="pln"> defaultConfig <span class="pun">{</code>
+     defaultConfig {
   
   
-    <code><span class="pln"> minSdkVersion <span class="lit">8</code>
+     minSdkVersion 8
   
   
-    <code><span class="pln"> targetSdkVersion <span class="lit">19</code>
+     targetSdkVersion 19
   
   
-    <code> <span class="pun">}</code>
+     }
   
   
-    <code><span class="pun">}</code>
+    }
   
 
 
@@ -192,37 +192,37 @@ Gradle支持三种Properties, 这三种Properties的作用域和初始化阶段�
 
 <ol class="linenums">
   
-    <code></code>
+    
   
   
-    <code><span class="com">//override your build tools version in project gradle.properties or ~/.gradle/gradle.properties</code>
+    //override your build tools version in project gradle.properties or ~/.gradle/gradle.properties
   
   
-    <code></code>
+    
   
   
-    <code><span class="kwd">if <span class="pun">(!<span class="typ">System<span class="pun">.<span class="pln">properties<span class="pun">[<span class="str">'buildToolsVersion'<span class="pun">]) <span class="pun">{</code>
+    if (!System.properties['buildToolsVersion']) {
   
   
-    <code> <span class="typ">System<span class="pun">.<span class="pln">properties<span class="pun">[<span class="str">'buildToolsVersion'<span class="pun">] <span class="pun">= <span class="str">"19.0.3"</code>
+     System.properties['buildToolsVersion'] = "19.0.3"
   
   
-    <code><span class="pun">}</code>
+    }
   
   
-    <code></code>
+    
   
   
-    <code><span class="kwd">if <span class="pun">(!<span class="typ">System<span class="pun">.<span class="pln">properties<span class="pun">[<span class="str">'androidGradlePluginVersion'<span class="pun">]) <span class="pun">{</code>
+    if (!System.properties['androidGradlePluginVersion']) {
   
   
-    <code> <span class="typ">System<span class="pun">.<span class="pln">properties<span class="pun">[<span class="str">'androidGradlePluginVersion'<span class="pun">] <span class="pun">= <span class="str">"0.10.+"</code>
+     System.properties['androidGradlePluginVersion'] = "0.10.+"
   
   
-    <code><span class="pun">}</code>
+    }
   
   
-    <code></code>
+    
   
 
 
@@ -232,13 +232,13 @@ gradle.properties文件内容如下:
 
 <ol class="linenums">
   
-    <code><span class="pln">systemProp<span class="pun">.<span class="pln">buildToolsVersion<span class="pun">=<span class="lit">19.1<span class="pun">.<span class="lit">0</code>
+    systemProp.buildToolsVersion=19.1.0
   
   
-    <code><span class="pln">systemProp<span class="pun">.<span class="pln">androidGradlePluginVersion<span class="pun">=<span class="lit">0.12<span class="pun">.+</code>
+    systemProp.androidGradlePluginVersion=0.12.+
   
   
-    <code></code>
+    
   
 
 

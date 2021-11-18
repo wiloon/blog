@@ -16,7 +16,7 @@ categories:
 
 
   
-    You can actually return any int not just a 1 or 0. A common <span class="kLink">searching for was found, Exit 1 means that the text you were searching for was not found and Exit 2 means it barfed. 
+    You can actually return any int not just a 1 or 0. A common searching for was found, Exit 1 means that the text you were searching for was not found and Exit 2 means it barfed. 
     
     
       To get a handle no the exit status, the env variable "$?" is the return status of the last command. So try this:

@@ -33,9 +33,9 @@ NaN什么也不是,如果理解成一个超越了float范围的常量（或者do
   
 * A constant holding a Not-a-Number (NaN) value of type
   
-* <code>float</code>.  It is equivalent to the value returned by
+* float.  It is equivalent to the value returned by
   
-* <code>Float.intBitsToFloat(0x7fc00000)</code>.
+* Float.intBitsToFloat(0x7fc00000).
   
 */
   

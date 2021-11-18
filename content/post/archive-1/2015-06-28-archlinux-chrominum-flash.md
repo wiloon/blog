@@ -35,7 +35,7 @@ install flash plugin
 ```bash
 yaourt -S chromium-pepper-flash```
 
-Enable the plugin in <code>chrome://plugins</code>.
+Enable the plugin in chrome://plugins.
 
 https://wiki.archlinux.org/index.php/Yaourt_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
 

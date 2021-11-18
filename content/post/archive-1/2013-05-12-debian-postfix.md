@@ -80,7 +80,7 @@ Subject: My first mail on Postfix
 Hi, Are you there? regards, Admin
 . (Type the .[dot] in a new Line and press Enter )
 
-quit 检查刚才创建的<code>fmaster</code>用户的收件箱
+quit 检查刚才创建的fmaster用户的收件箱
 
 su - user1
 

@@ -376,7 +376,7 @@ three
 public enum State {
 CREATED(0),
 UPDATED(1),
-RESOLVED(2);</code>
+RESOLVED(2);
 
 private final int value;
 

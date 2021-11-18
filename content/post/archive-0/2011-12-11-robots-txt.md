@@ -14,6 +14,6 @@ Robots.txt协议并不是一个规范，而只是约定俗成的，所以并不�
 
 其他的影响搜索引擎的行为的方法包括使用robots元数据: 
 
-<span lang="en" xml:lang="en"><meta name="robots" content="noindex,nofollow" />
+<meta name="robots" content="noindex,nofollow" />
 
 这个协议也不是一个规范，而只是约定俗成的，通常搜索引擎会识别这个元数据，不索引这个页面，以及这个页面的链出页面。

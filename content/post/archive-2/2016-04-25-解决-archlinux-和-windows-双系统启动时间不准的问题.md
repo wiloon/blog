@@ -17,6 +17,6 @@ systemctl start openntpd
 
 ntpd -s -d
 
-<span class="n">hwclock <span class="o">-<span class="n">w
+hwclock -w
 
 <code class="nginx">http://mindonmind.github.io/notes/linux/arch_time.html```

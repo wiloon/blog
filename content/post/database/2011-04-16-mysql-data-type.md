@@ -54,7 +54,7 @@ bug不常见，笔者碰到过一次，分享如下:
 
 从库show slave status\G，behind_master_pos在60000和0之间循环，每两秒一次；
 
-**<span lang="EN-US">2， <span lang="EN-US">MySQL中<span lang="EN-US">myisam与<span lang="EN-US">innodb的区别，至少<span lang="EN-US">5点。**
+**2， MySQL中myisam与innodb的区别，至少5点。**
 
 
   　　（1)  问5点不同
@@ -84,7 +84,7 @@ bug不常见，笔者碰到过一次，分享如下:
   　　　　　　8、备份；
 
 
-  　　（2) 、问各种不同<span lang="EN-US">MySQL版本的<span lang="EN-US">2者的改进；
+  　　（2) 、问各种不同MySQL版本的2者的改进；
 
 
   　　　　　　最近测5.1.38和5.5.35
@@ -111,7 +111,7 @@ bug不常见，笔者碰到过一次，分享如下:
   　　　　　　Myisam（1) 
 
 
-  　　（<span lang="EN-US">3) <span lang="EN-US">2者的索引的实现方式；
+  　　（3) 2者的索引的实现方式；
 
 
   　　　　  myisam将索引和数据分开存放，索引记录索引中键值的物理位置，根据物理位置去MYD的数据页中寻找对应的data page；数据排列是堆数据，没有物理顺序，索引只是在逻辑上将数据串起来，并不改变数据的物理位置；
@@ -224,7 +224,7 @@ bug不常见，笔者碰到过一次，分享如下:
         （3) 结合第一个问题，每一种日志格式在复制中的优劣。
 
 
-  <span lang="EN-US">6，问了下<span lang="EN-US">MySQL数据库<span lang="EN-US">cpu飙升到<span lang="EN-US">500%的话他怎么处理？
+  6，问了下MySQL数据库cpu飙升到500%的话他怎么处理？
 
 
   　　答: （1) 多实例的服务器，先top查看是那一个进程，哪个端口占用CPU多；
