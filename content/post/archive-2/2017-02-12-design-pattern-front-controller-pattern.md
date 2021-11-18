@@ -1,7 +1,6 @@
 ---
 title: '[Design Pattern] Front Controller Pattern'
 author: "-"
-type: post
 date: 2017-02-12T11:45:56+00:00
 url: /?p=9800
 categories:

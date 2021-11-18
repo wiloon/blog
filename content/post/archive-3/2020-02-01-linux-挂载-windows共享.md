@@ -1,7 +1,6 @@
 ---
 title: linux 挂载 windows共享
 author: "-"
-type: post
 date: 2020-02-01T02:25:40+00:00
 url: /?p=15463
 categories:

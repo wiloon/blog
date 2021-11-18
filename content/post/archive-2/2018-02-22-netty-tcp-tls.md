@@ -1,7 +1,6 @@
 ---
 title: netty tcp tls
 author: "-"
-type: post
 date: 2018-02-22T09:35:01+00:00
 url: /?p=11907
 categories:

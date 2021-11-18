@@ -1,7 +1,6 @@
 ---
 title: nf_conntrack模块
 author: "-"
-type: post
 date: 2019-07-02T09:43:51+00:00
 url: /?p=14622
 categories:

@@ -1,7 +1,6 @@
 ---
 title: 内存数据库
 author: "-"
-type: post
 date: 2014-01-15T05:05:46+00:00
 url: /?p=6205
 categories:

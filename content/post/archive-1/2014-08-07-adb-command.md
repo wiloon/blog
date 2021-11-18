@@ -1,7 +1,6 @@
 ---
 title: adb command
 author: "-"
-type: post
 date: 2014-08-07T02:40:16+00:00
 url: /?p=6899
 categories:

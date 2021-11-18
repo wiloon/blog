@@ -1,7 +1,6 @@
 ---
 title: archlinux init
 author: "-"
-type: post
 date: 2016-04-21T15:26:01+00:00
 url: archlinux/init
 

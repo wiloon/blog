@@ -1,7 +1,6 @@
 ---
 title: Servlet和Filter的url匹配以及url-pattern
 author: "-"
-type: post
 date: 2012-11-21T13:24:46+00:00
 url: /?p=4747
 categories:

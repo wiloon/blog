@@ -1,7 +1,6 @@
 ---
 title: Red-Black Tree,红黑树, Red–black tree, R-B Tree
 author: "-"
-type: post
 date: 2015-06-28T02:05:01+00:00
 url: /?p=7914
 categories:

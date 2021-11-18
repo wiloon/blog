@@ -1,7 +1,6 @@
 ---
 title: systemd-networkd, TAP
 author: "-"
-type: post
 date: 2019-01-01T04:16:00+00:00
 url: /?p=13281
 

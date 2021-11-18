@@ -1,7 +1,6 @@
 ---
 title: shell date
 author: "-"
-type: post
 date: 2018-06-20T07:38:39+00:00
 url: /?p=12334
 tags:

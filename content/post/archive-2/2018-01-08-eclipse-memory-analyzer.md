@@ -1,7 +1,6 @@
 ---
 title: Eclipse Memory Analyzer, MAT, 内存分析
 author: "-"
-type: post
 date: 2018-01-08T06:14:46+00:00
 url: /?p=11692
 categories:

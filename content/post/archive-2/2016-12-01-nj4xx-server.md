@@ -1,7 +1,6 @@
 ---
 title: nj4xx server
 author: "-"
-type: post
 date: 2016-12-01T14:10:43+00:00
 url: /?p=9442
 categories:

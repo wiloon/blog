@@ -1,7 +1,6 @@
 ---
 title: raspberry pi bt
 author: "-"
-type: post
 date: 2013-12-01T16:21:01+00:00
 url: /?p=6010
 categories:

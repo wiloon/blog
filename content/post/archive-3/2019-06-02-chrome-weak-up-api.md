@@ -1,7 +1,6 @@
 ---
 title: chrome weak up api, keep screen on
 author: "-"
-type: post
 date: 2019-06-02T14:19:27+00:00
 url: /?p=14434
 

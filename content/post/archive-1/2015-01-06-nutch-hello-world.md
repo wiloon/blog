@@ -1,7 +1,6 @@
 ---
 title: Nutch hello world
 author: "-"
-type: post
 date: 2015-01-06T04:00:00+00:00
 url: /?p=7187
 categories:

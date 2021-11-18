@@ -1,7 +1,6 @@
 ---
 title: install cloud9 ide on debian/ubuntu
 author: "-"
-type: post
 date: 2018-02-07T15:53:29+00:00
 url: /?p=11838
 categories:

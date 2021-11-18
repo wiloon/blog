@@ -1,7 +1,6 @@
 ---
 title: jquery 中json数组的操作
 author: "-"
-type: post
 date: 2013-09-22T08:47:07+00:00
 url: /?p=5820
 categories:

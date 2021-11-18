@@ -1,7 +1,6 @@
 ---
 title: String.regionMatches
 author: "-"
-type: post
 date: 2016-03-25T03:53:24+00:00
 url: /?p=8826
 categories:

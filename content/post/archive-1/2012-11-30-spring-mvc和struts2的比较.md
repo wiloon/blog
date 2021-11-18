@@ -1,7 +1,6 @@
 ---
 title: Spring MVC和Struts2的比较
 author: "-"
-type: post
 date: 2012-11-30T03:32:23+00:00
 url: /?p=4801
 categories:

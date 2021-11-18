@@ -1,7 +1,6 @@
 ---
 title: Android布局 RelativeLayout
 author: "-"
-type: post
 date: 2014-07-28T08:53:54+00:00
 url: /?p=6836
 categories:

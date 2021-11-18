@@ -1,7 +1,6 @@
 ---
 title: win10 onedrive cpu
 author: "-"
-type: post
 date: 2019-04-11T10:42:28+00:00
 url: /?p=14137
 categories:

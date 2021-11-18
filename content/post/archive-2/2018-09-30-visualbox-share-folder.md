@@ -1,7 +1,6 @@
 ---
 title: visualbox share folder
 author: "-"
-type: post
 date: 2018-09-30T03:02:56+00:00
 url: /?p=12714
 categories:

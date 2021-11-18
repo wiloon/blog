@@ -1,7 +1,6 @@
 ---
 title: chrome command
 author: "-"
-type: post
 date: 2017-10-15T07:04:28+00:00
 url: /?p=11277
 categories:

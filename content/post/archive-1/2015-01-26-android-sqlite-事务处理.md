@@ -1,7 +1,6 @@
 ---
 title: Android SQLite 事务处理
 author: "-"
-type: post
 date: 2015-01-26T02:39:02+00:00
 url: /?p=7291
 categories:

@@ -1,7 +1,6 @@
 ---
 title: git server
 author: "-"
-type: post
 date: 2016-11-09T02:11:48+00:00
 url: /?p=9377
 categories:

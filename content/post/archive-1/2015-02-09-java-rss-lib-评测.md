@@ -1,7 +1,6 @@
 ---
 title: java rss lib 评测
 author: "-"
-type: post
 date: 2015-02-09T14:02:31+00:00
 url: /?p=7335
 categories:

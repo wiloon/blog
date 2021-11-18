@@ -1,7 +1,6 @@
 ---
 title: instanceof
 author: "-"
-type: post
 date: 2014-05-09T07:07:58+00:00
 url: /?p=6611
 categories:

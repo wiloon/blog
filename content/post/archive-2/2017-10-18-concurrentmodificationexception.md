@@ -1,7 +1,6 @@
 ---
 title: ConcurrentModificationException
 author: "-"
-type: post
 date: 2017-10-18T02:32:22+00:00
 url: /?p=11281
 categories:

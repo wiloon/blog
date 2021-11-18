@@ -1,7 +1,6 @@
 ---
 title: oracle 导出sql脚本
 author: "-"
-type: post
 date: 2015-04-22T04:30:33+00:00
 url: /?p=7474
 categories:

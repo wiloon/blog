@@ -1,7 +1,6 @@
 ---
 title: shell exit退出状态代码
 author: "-"
-type: post
 date: 2019-01-07T06:03:34+00:00
 url: /?p=13349
 categories:

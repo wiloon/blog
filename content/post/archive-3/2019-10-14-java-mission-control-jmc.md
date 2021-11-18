@@ -1,7 +1,6 @@
 ---
 title: Java Mission Control, jmc
 author: "-"
-type: post
 date: 2019-10-14T10:10:28+00:00
 url: /?p=15000
 categories:

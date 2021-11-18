@@ -1,7 +1,6 @@
 ---
 title: jquery outerhtml
 author: "-"
-type: post
 date: 2013-11-08T04:54:37+00:00
 url: /?p=5906
 categories:

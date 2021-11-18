@@ -1,7 +1,6 @@
 ---
 title: Android hybrid
 author: "-"
-type: post
 date: 2015-02-04T02:27:10+00:00
 url: /?p=7303
 categories:

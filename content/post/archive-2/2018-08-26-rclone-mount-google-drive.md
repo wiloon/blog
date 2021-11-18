@@ -1,7 +1,6 @@
 ---
 title: rclone mount google drive, webdav, onedrive
 author: "-"
-type: post
 date: 2018-08-26T10:32:10+00:00
 url: rclone
 categories:

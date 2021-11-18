@@ -1,7 +1,6 @@
 ---
 title: Mac OS X 中设置VPN静态路由
 author: "-"
-type: post
 date: 2014-12-25T10:54:44+00:00
 url: /?p=7131
 categories:

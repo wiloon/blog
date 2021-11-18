@@ -1,7 +1,6 @@
 ---
 title: lsattr, chattr, 管理文件和目录属性
 author: "-"
-type: post
 date: 2017-08-01T07:23:08+00:00
 url: lsattr
 categories:

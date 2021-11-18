@@ -1,7 +1,6 @@
 ---
 title: 伪共享 False Sharing
 author: "-"
-type: post
 date: 2016-02-15T09:10:39+00:00
 url: /?p=8736
 categories:

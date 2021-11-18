@@ -1,7 +1,6 @@
 ---
 title: spring @ModelAttribute
 author: "-"
-type: post
 date: 2012-12-17T15:04:26+00:00
 url: /?p=4921
 categories:

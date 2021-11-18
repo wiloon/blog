@@ -1,7 +1,6 @@
 ---
 title: RPC, Message Queue
 author: "-"
-type: post
 date: 2015-02-06T03:42:00+00:00
 url: /?p=7328
 categories:

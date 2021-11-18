@@ -1,7 +1,6 @@
 ---
 title: go channel
 author: "-"
-type: post
 date: 2017-11-09T06:11:50+00:00
 url: /?p=11392
 categories:

@@ -1,7 +1,6 @@
 ---
 title: 苹果真的要在 AppStore 里封杀 WebApp 吗?
 author: "-"
-type: post
 date: 2015-01-12T08:09:18+00:00
 url: /?p=7226
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Strict-Workflow
 author: "-"
-type: post
 date: 2013-06-02T12:17:27+00:00
 url: /?p=5495
 categories:

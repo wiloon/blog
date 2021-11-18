@@ -1,7 +1,6 @@
 ---
 title: debian installation
 author: "-"
-type: post
 date: 2012-11-28T14:26:30+00:00
 url: /?p=4797
 categories:

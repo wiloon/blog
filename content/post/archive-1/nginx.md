@@ -1,7 +1,6 @@
 ---
 title: Nginx
 author: "-"
-type: post
 date: 2013-07-17T04:40:17+00:00
 url: /?p=5670
 categories:

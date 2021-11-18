@@ -1,7 +1,6 @@
 ---
 title: spring quartz
 author: "-"
-type: post
 date: 2014-11-07T01:15:44+00:00
 url: /?p=7002
 categories:

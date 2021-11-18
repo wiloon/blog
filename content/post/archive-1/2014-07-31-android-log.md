@@ -1,7 +1,6 @@
 ---
 title: Android Log
 author: "-"
-type: post
 date: 2014-07-31T08:34:42+00:00
 url: /?p=6869
 categories:

@@ -1,7 +1,6 @@
 ---
 title: 'Android  sqlite3,not found'
 author: "-"
-type: post
 date: 2014-08-07T03:08:29+00:00
 url: /?p=6903
 categories:

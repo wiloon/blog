@@ -1,7 +1,6 @@
 ---
 title: startActivityForResult()
 author: "-"
-type: post
 date: 2014-08-26T03:29:14+00:00
 url: /?p=6964
 categories:

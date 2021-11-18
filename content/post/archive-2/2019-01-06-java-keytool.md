@@ -1,7 +1,6 @@
 ---
 title: java Keytool
 author: "-"
-type: post
 date: 2019-01-06T10:56:09+00:00
 url: /?p=13338
 

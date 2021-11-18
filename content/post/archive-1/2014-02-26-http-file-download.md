@@ -1,7 +1,6 @@
 ---
 title: http 文件下载
 author: "-"
-type: post
 date: 2014-02-26T06:23:12+00:00
 url: /?p=6291
 

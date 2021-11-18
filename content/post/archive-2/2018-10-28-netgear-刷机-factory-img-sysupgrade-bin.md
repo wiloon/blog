@@ -1,7 +1,6 @@
 ---
 title: 'netgear  刷机, factory.img, sysupgrade.bin'
 author: "-"
-type: post
 date: 2018-10-28T02:49:31+00:00
 url: /?p=12826
 categories:

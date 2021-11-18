@@ -1,7 +1,6 @@
 ---
 title: golang bufio
 author: "-"
-type: post
 date: 2015-01-16T03:17:33+00:00
 url: /?p=7246
 categories:

@@ -1,7 +1,6 @@
 ---
 title: angular 8, ngx-echarts, echart
 author: "-"
-type: post
 date: 2019-07-28T15:09:46+00:00
 url: /?p=14734
 categories:

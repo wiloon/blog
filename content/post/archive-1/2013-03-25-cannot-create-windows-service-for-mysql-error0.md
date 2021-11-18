@@ -1,7 +1,6 @@
 ---
 title: Cannot create Windows Service for MySQL.Error,0
 author: "-"
-type: post
 date: 2013-03-25T04:50:29+00:00
 url: /?p=5345
 categories:

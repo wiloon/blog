@@ -1,7 +1,6 @@
 ---
 title: archlinux kvm windows
 author: "-"
-type: post
 date: 2016-02-01T08:05:51+00:00
 url: /?p=8723
 

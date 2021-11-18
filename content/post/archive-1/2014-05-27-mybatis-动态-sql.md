@@ -1,7 +1,6 @@
 ---
 title: mybatis 动态 sql
 author: "-"
-type: post
 date: 2014-05-27T06:14:33+00:00
 url: /?p=6667
 categories:

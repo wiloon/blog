@@ -1,7 +1,6 @@
 ---
 title: kill, killall, signal
 author: "-"
-type: post
 date: 2015-09-17T07:24:41+00:00
 url: /?p=8289
 

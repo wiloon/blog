@@ -1,7 +1,6 @@
 ---
 title: OverlayFS
 author: "-"
-type: post
 date: 2018-04-05T10:26:43+00:00
 url: /?p=12109
 

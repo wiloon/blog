@@ -1,7 +1,6 @@
 ---
 title: Javascript 重定向 window.location.href / replace / reload()
 author: "-"
-type: post
 date: 2014-03-03T02:41:06+00:00
 url: /?p=6309
 tags:

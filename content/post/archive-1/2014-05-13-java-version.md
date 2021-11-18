@@ -1,7 +1,6 @@
 ---
 title: java version
 author: "-"
-type: post
 date: 2014-05-13T06:45:04+00:00
 url: /?p=6615
 categories:

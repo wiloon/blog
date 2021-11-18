@@ -1,7 +1,6 @@
 ---
 title: Oracle实例和Oracle数据库
 author: "-"
-type: post
 date: 2015-07-01T01:41:30+00:00
 url: /?p=8002
 categories:

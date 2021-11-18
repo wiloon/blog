@@ -1,7 +1,6 @@
 ---
 title: oracle database link
 author: "-"
-type: post
 date: 2015-03-06T05:26:34+00:00
 url: /?p=7408
 categories:

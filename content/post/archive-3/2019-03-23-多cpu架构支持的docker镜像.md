@@ -1,7 +1,6 @@
 ---
 title: 多CPU架构支持的Docker镜像
 author: "-"
-type: post
 date: 2019-03-23T14:21:31+00:00
 url: /?p=13932
 categories:

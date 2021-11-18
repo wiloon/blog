@@ -1,7 +1,6 @@
 ---
 title: jquery validation
 author: "-"
-type: post
 date: 2013-01-30T12:12:48+00:00
 url: /?p=5091
 categories:

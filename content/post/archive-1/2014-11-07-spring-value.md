@@ -1,7 +1,6 @@
 ---
 title: spring @value
 author: "-"
-type: post
 date: 2014-11-07T02:44:15+00:00
 url: /?p=7004
 categories:

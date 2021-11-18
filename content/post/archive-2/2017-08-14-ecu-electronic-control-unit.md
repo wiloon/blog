@@ -1,7 +1,6 @@
 ---
 title: ECU odx
 author: "-"
-type: post
 date: 2017-08-14T01:44:57+00:00
 url: /?p=11036
 categories:

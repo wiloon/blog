@@ -1,7 +1,6 @@
 ---
 title: golang date time, 日期,时间
 author: "-"
-type: post
 date: 2017-07-31T01:27:35+00:00
 url: /?p=10959
 

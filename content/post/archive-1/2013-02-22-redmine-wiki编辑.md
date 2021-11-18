@@ -1,7 +1,6 @@
 ---
 title: Redmine wiki编辑
 author: "-"
-type: post
 date: 2013-02-22T01:54:37+00:00
 url: /?p=5225
 categories:

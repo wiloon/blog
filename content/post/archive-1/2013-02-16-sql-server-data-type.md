@@ -1,7 +1,6 @@
 ---
 title: sql server data type
 author: "-"
-type: post
 date: 2013-02-16T07:07:12+00:00
 url: /?p=5152
 categories:

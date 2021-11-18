@@ -1,7 +1,6 @@
 ---
 title: jcl-over-slf4j
 author: "-"
-type: post
 date: 2015-12-09T10:21:48+00:00
 url: /?p=8549
 categories:

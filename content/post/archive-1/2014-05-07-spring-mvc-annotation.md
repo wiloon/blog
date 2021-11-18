@@ -1,7 +1,6 @@
 ---
 title: spring mvc annotation
 author: "-"
-type: post
 date: 2014-05-07T11:25:46+00:00
 url: /?p=6603
 categories:

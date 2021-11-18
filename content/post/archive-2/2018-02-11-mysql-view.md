@@ -1,7 +1,6 @@
 ---
 title: MySQL view, MERGE, TEMPTABLE
 author: "-"
-type: post
 date: 2018-02-11T01:42:00+00:00
 url: /?p=11863
 categories:

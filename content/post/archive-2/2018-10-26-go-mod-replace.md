@@ -1,7 +1,6 @@
 ---
 title: go mod replace
 author: "-"
-type: post
 date: 2018-10-26T01:35:45+00:00
 url: /?p=12808
 categories:

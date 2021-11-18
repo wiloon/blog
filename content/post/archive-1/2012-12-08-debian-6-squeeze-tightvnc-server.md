@@ -1,7 +1,6 @@
 ---
 title: Debian 6 squeeze TightVNC Server
 author: "-"
-type: post
 date: 2012-12-08T03:42:58+00:00
 url: /?p=4857
 categories:

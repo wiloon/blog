@@ -1,7 +1,6 @@
 ---
 title: MySQL SQL_NO_CACHE,sql_cache,RESET QUERY CACHE
 author: "-"
-type: post
 date: 2017-11-24T06:51:17+00:00
 url: /?p=11488
 categories:

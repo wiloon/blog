@@ -1,7 +1,6 @@
 ---
 title: 'mac os terminal,  Creating New Users'
 author: "-"
-type: post
 date: 2015-02-06T03:53:00+00:00
 url: /?p=7330
 categories:

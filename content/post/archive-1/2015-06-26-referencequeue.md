@@ -1,7 +1,6 @@
 ---
 title: ReferenceQueue
 author: "-"
-type: post
 date: 2015-06-26T14:11:54+00:00
 url: ReferenceQueue
 categories:

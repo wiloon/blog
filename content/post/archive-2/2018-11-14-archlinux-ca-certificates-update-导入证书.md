@@ -1,7 +1,6 @@
 ---
 title: archlinux ca-certificates update, 导入证书
 author: "-"
-type: post
 date: 2018-11-14T02:55:52+00:00
 url: /?p=12883
 categories:

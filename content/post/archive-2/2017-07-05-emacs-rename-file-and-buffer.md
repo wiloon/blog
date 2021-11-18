@@ -1,7 +1,6 @@
 ---
 title: emacs rename file and buffer
 author: "-"
-type: post
 date: 2017-07-05T04:26:54+00:00
 url: /?p=10783
 categories:

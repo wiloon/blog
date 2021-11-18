@@ -1,7 +1,6 @@
 ---
 title: iraqi constitution may be postponed
 author: "-"
-type: post
 date: 2013-04-05T10:46:51+00:00
 url: /?p=5390
 categories:

@@ -1,7 +1,6 @@
 ---
 title: kafka cluster
 author: "-"
-type: post
 date: 2018-05-07T04:16:07+00:00
 url: /?p=12190
 

@@ -1,7 +1,6 @@
 ---
 title: ansible basic command
 author: "-"
-type: post
 date: 2016-05-13T12:00:27+00:00
 url: /?p=8981
 categories:

@@ -1,7 +1,6 @@
 ---
 title: spring MVC json
 author: "-"
-type: post
 date: 2013-02-02T14:04:22+00:00
 url: /?p=5110
 categories:

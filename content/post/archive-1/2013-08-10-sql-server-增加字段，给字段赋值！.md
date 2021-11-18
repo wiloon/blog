@@ -1,7 +1,6 @@
 ---
 title: SQL server 增加字段，给字段赋值！
 author: "-"
-type: post
 date: 2013-08-10T10:36:45+00:00
 url: /?p=5772
 categories:

@@ -1,7 +1,6 @@
 ---
 title: wording for code
 author: "-"
-type: post
 date: 2019-07-06T11:38:21+00:00
 url: /?p=14640
 categories:

@@ -1,7 +1,6 @@
 ---
 title: jenkins sender email address
 author: "-"
-type: post
 date: 2013-02-19T01:50:56+00:00
 url: /?p=5195
 categories:

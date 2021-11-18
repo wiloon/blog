@@ -1,7 +1,6 @@
 ---
 title: MySQL 存储引擎
 author: "-"
-type: post
 date: 2015-06-28T05:52:57+00:00
 url: /?p=7943
 categories:

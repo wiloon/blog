@@ -1,7 +1,6 @@
 ---
 title: SQL Server 字符串函数
 author: "-"
-type: post
 date: 2013-07-29T01:41:33+00:00
 url: /?p=5736
 categories:

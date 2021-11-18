@@ -1,7 +1,6 @@
 ---
 title: hbase install
 author: "-"
-type: post
 date: 2015-01-12T07:21:37+00:00
 url: /?p=7223
 categories:

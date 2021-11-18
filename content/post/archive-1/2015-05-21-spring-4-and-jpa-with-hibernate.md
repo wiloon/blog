@@ -1,7 +1,6 @@
 ---
 title: Spring 4 and JPA with Hibernate
 author: "-"
-type: post
 date: 2015-05-21T05:59:02+00:00
 url: /?p=7699
 categories:

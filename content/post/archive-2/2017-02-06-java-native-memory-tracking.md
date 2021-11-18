@@ -1,7 +1,6 @@
 ---
 title: NMT, Native Memory Tracking
 author: "-"
-type: post
 date: 2017-02-06T05:15:44+00:00
 url: /?p=9726
 categories:

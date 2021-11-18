@@ -1,7 +1,6 @@
 ---
 title: Gradle的Properties
 author: "-"
-type: post
 date: 2014-12-03T02:27:29+00:00
 url: /?p=7081
 categories:

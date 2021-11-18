@@ -1,7 +1,6 @@
 ---
 title: 'visual studio 中 显示  行号'
 author: "-"
-type: post
 date: 2013-02-19T06:39:50+00:00
 url: /?p=5200
 categories:

@@ -1,7 +1,6 @@
 ---
 title: nordfx server
 author: "-"
-type: post
 date: 2016-02-02T04:43:00+00:00
 url: /?p=8728
 categories:

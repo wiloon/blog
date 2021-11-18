@@ -1,7 +1,6 @@
 ---
 title: '在web.xml中classpath和classpath*的区别'
 author: "-"
-type: post
 date: 2014-05-21T03:37:41+00:00
 url: /?p=6647
 categories:

@@ -1,7 +1,6 @@
 ---
 title: datatable 删除行
 author: "-"
-type: post
 date: 2013-11-08T04:56:16+00:00
 url: /?p=5908
 categories:

@@ -1,7 +1,6 @@
 ---
 title: debian 7 xfce
 author: "-"
-type: post
 date: 2013-11-09T07:49:56+00:00
 url: /?p=5916
 categories:

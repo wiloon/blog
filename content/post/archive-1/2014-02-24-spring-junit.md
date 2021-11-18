@@ -1,7 +1,6 @@
 ---
 title: spring junit
 author: "-"
-type: post
 date: 2014-02-24T07:49:28+00:00
 url: /?p=6279
 categories:

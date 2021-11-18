@@ -1,7 +1,6 @@
 ---
 title: raspberry pi mac spoofing
 author: "-"
-type: post
 date: 2018-12-24T14:46:50+00:00
 url: /?p=13203
 categories:

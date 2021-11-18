@@ -1,7 +1,6 @@
 ---
 title: oracle create table
 author: "-"
-type: post
 date: 2014-03-04T07:38:13+00:00
 url: /?p=6328
 categories:

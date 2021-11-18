@@ -1,7 +1,6 @@
 ---
 title: archlinux uefi ssd
 author: "-"
-type: post
 date: 2015-09-08T15:30:38+00:00
 url: /?p=8229
 categories:

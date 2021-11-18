@@ -1,7 +1,6 @@
 ---
 title: ansible playbook
 author: "-"
-type: post
 date: 2017-08-09T01:22:30+00:00
 url: /?p=11019
 categories:

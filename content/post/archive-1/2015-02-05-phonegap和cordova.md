@@ -1,7 +1,6 @@
 ---
 title: PhoneGap和Cordova
 author: "-"
-type: post
 date: 2015-02-05T06:07:17+00:00
 url: /?p=7313
 categories:

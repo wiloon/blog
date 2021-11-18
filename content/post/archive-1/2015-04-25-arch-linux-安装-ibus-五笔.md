@@ -1,7 +1,6 @@
 ---
 title: Arch Linux 安装 ibus 五笔
 author: "-"
-type: post
 date: 2015-04-25T06:47:39+00:00
 url: /?p=7507
 tags:

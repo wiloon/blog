@@ -1,7 +1,6 @@
 ---
 title: 'JMC & Flight Recorder'
 author: "-"
-type: post
 date: 2015-05-19T06:42:22+00:00
 url: /?p=7676
 categories:

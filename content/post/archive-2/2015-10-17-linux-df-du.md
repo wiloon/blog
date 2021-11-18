@@ -1,7 +1,6 @@
 ---
 title: linux command df
 author: "-"
-type: post
 date: 2015-10-17T05:38:58+00:00
 url: /?p=8411
 categories:

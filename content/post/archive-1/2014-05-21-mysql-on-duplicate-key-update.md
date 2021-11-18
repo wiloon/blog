@@ -1,7 +1,6 @@
 ---
 title: MySQL "ON DUPLICATE KEY UPDATE"
 author: "-"
-type: post
 date: 2014-05-21T01:33:15+00:00
 url: /?p=6643
 categories:

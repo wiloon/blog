@@ -1,7 +1,6 @@
 ---
 title: SSD - Smart Response
 author: "-"
-type: post
 date: 2012-12-22T05:06:33+00:00
 url: /?p=4932
 categories:

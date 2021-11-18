@@ -1,7 +1,6 @@
 ---
 title: MySQL事务autocommit自动提交
 author: "-"
-type: post
 date: 2016-10-26T00:53:24+00:00
 url: /?p=9333
 categories:

@@ -1,7 +1,6 @@
 ---
 title: jQuery参考,jquery中的$(document).ready()与window.onload的区别
 author: "-"
-type: post
 date: 2013-02-02T11:06:02+00:00
 url: /?p=5104
 categories:

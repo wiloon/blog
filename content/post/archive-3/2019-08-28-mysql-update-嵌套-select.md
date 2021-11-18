@@ -1,7 +1,6 @@
 ---
 title: MySQL update 嵌套 select
 author: "-"
-type: post
 date: 2019-08-28T11:01:55+00:00
 url: /?p=14860
 categories:

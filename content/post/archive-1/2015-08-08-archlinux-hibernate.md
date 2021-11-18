@@ -1,7 +1,6 @@
 ---
 title: archlinux hibernate
 author: "-"
-type: post
 date: 2015-08-08T05:44:49+00:00
 url: /?p=8082
 categories:

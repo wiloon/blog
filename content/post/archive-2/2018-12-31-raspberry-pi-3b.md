@@ -1,7 +1,6 @@
 ---
 title: raspberry pi 3B
 author: "-"
-type: post
 date: 2018-12-31T04:45:36+00:00
 url: /?p=13252
 categories:

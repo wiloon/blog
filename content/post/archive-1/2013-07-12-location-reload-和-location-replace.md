@@ -1,7 +1,6 @@
 ---
 title: location.reload() 和 location.replace()
 author: "-"
-type: post
 date: 2013-07-12T07:15:14+00:00
 url: /?p=5645
 categories:

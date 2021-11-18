@@ -1,7 +1,6 @@
 ---
 title: Cordova Hello World
 author: "-"
-type: post
 date: 2015-02-05T08:27:05+00:00
 url: /?p=7318
 categories:

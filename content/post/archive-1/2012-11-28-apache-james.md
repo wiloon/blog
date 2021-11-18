@@ -1,7 +1,6 @@
 ---
 title: Apache James
 author: "-"
-type: post
 date: 2012-11-28T09:19:45+00:00
 url: /?p=4788
 categories:

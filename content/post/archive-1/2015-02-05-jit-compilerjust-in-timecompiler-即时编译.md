@@ -1,7 +1,6 @@
 ---
 title: 'JAVA   JIT Compiler(Just-in-timeCompiler) 即时编译'
 author: "-"
-type: post
 date: 2015-02-05T02:41:46+00:00
 url: /?p=7308
 categories:

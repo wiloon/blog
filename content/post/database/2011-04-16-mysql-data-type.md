@@ -1,7 +1,6 @@
 ---
 title: MySQL 复制
 author: "-"
-type: post
 date: 2011-04-16T00:55:15+00:00
 url: /?p=19
 tags:

@@ -1,7 +1,6 @@
 ---
 title: Hammer.js 移动设备触摸手势js库
 author: "-"
-type: post
 date: 2014-03-10T05:54:29+00:00
 url: /?p=6390
 categories:

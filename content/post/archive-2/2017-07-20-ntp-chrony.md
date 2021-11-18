@@ -1,7 +1,6 @@
 ---
 title: ntp, chrony
 author: "-"
-type: post
 date: 2017-07-20T00:57:34+00:00
 url: ntp
 

@@ -1,7 +1,6 @@
 ---
 title: PXE booting
 author: "-"
-type: post
 date: 2015-04-18T10:03:43+00:00
 url: /?p=7468
 categories:

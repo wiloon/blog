@@ -1,7 +1,6 @@
 ---
 title: jquery autocomplete
 author: "-"
-type: post
 date: 2013-03-21T08:42:55+00:00
 url: /?p=5328
 categories:

@@ -1,7 +1,6 @@
 ---
 title: journal suppressed N messages
 author: "-"
-type: post
 date: 2019-07-29T01:36:52+00:00
 url: /?p=14736
 categories:

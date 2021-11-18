@@ -1,7 +1,6 @@
 ---
 title: 端口状态 LISTENING、ESTABLISHED、TIME_WAIT,CLOSE_WAIT
 author: "-"
-type: post
 date: 2015-04-11T02:31:51+00:00
 url: /?p=7455
 categories:

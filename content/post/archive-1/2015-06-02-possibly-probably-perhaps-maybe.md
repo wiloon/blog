@@ -1,7 +1,6 @@
 ---
 title: possibly; probably; perhaps; maybe
 author: "-"
-type: post
 date: 2015-06-02T02:49:35+00:00
 url: /?p=7746
 categories:

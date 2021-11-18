@@ -1,7 +1,6 @@
 ---
 title: 'sql group by   having'
 author: "-"
-type: post
 date: 2014-01-19T04:23:16+00:00
 url: /?p=6238
 categories:

@@ -1,7 +1,6 @@
 ---
 title: hyphen、en dash 和 em dash
 author: "-"
-type: post
 date: 2020-02-18T05:11:02+00:00
 url: /?p=15592
 categories:

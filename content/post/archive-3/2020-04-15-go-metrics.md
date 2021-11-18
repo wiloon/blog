@@ -1,7 +1,6 @@
 ---
 title: go metrics
 author: "-"
-type: post
 date: 2020-04-15T10:43:23+00:00
 url: /?p=15957
 categories:

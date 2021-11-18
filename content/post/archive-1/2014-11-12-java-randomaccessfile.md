@@ -1,7 +1,6 @@
 ---
 title: Java RandomAccessFile, MappedByteBuffer, mmap
 author: "-"
-type: post
 date: 2014-11-12T07:42:50+00:00
 url: /?p=7007
 tags:

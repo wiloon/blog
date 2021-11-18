@@ -1,7 +1,6 @@
 ---
 title: A cycle was detected in the build path of project
 author: "-"
-type: post
 date: 2015-08-10T04:11:39+00:00
 url: /?p=8091
 categories:

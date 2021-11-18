@@ -1,7 +1,6 @@
 ---
 title: RPC，Webservice，RMI，JMS
 author: "-"
-type: post
 date: 2012-11-14T02:26:03+00:00
 url: /?p=4659
 categories:

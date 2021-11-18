@@ -1,7 +1,6 @@
 ---
 title: nexus 6p 不停重启,在google与警告界面循环
 author: "-"
-type: post
 date: 2017-09-26T15:38:37+00:00
 url: /?p=11209
 categories:

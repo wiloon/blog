@@ -1,7 +1,6 @@
 ---
 title: Spring MVC 文件下载
 author: "-"
-type: post
 date: 2014-02-26T05:57:21+00:00
 url: /?p=6289
 categories:

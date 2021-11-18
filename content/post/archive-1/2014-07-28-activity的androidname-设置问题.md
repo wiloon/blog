@@ -1,7 +1,6 @@
 ---
 title: activity的android,name 设置问题
 author: "-"
-type: post
 date: 2014-07-28T08:50:05+00:00
 url: /?p=6830
 categories:

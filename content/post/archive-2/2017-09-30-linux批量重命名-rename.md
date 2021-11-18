@@ -1,7 +1,6 @@
 ---
 title: Linux批量重命名 rename
 author: "-"
-type: post
 date: 2017-09-30T04:10:48+00:00
 url: /?p=11225
 categories:

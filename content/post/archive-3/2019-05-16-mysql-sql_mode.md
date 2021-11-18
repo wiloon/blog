@@ -1,7 +1,6 @@
 ---
 title: MySQL, sql_mode
 author: "-"
-type: post
 date: 2019-05-16T05:26:24+00:00
 url: /?p=14344
 categories:

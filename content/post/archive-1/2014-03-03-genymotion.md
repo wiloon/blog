@@ -1,7 +1,6 @@
 ---
 title: Genymotion
 author: "-"
-type: post
 date: 2014-03-03T14:31:06+00:00
 url: /?p=6316
 categories:

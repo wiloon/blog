@@ -1,7 +1,6 @@
 ---
 title: pentaho pdi hello world
 author: "-"
-type: post
 date: 2015-01-08T03:05:04+00:00
 url: /?p=7201
 categories:

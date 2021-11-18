@@ -1,7 +1,6 @@
 ---
 title: MySQL str to datatime
 author: "-"
-type: post
 date: 2011-04-16T13:03:54+00:00
 url: /?p=73
 categories:

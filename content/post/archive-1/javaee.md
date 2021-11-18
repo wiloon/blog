@@ -1,7 +1,6 @@
 ---
 title: JaveEE
 author: "-"
-type: post
 date: 2015-01-22T08:39:32+00:00
 url: /?p=7268
 categories:

@@ -1,7 +1,6 @@
 ---
 title: normalize.css 简介
 author: "-"
-type: post
 date: 2012-11-24T12:03:38+00:00
 url: /?p=4759
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Somebody and I
 author: "-"
-type: post
 date: 2013-08-09T03:42:32+00:00
 url: /?p=5766
 categories:

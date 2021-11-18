@@ -1,7 +1,6 @@
 ---
 title: centos, kde, vnc
 author: "-"
-type: post
 date: 2018-04-19T04:41:00+00:00
 url: /?p=12150
 categories:

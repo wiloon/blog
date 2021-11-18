@@ -1,7 +1,6 @@
 ---
 title: 实践番茄工作法
 author: "-"
-type: post
 date: 2013-10-23T04:34:52+00:00
 url: /?p=5871
 

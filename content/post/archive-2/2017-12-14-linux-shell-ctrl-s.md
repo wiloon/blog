@@ -1,7 +1,6 @@
 ---
 title: linux shell ctrl – s
 author: "-"
-type: post
 date: 2017-12-14T04:56:18+00:00
 url: /?p=11568
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Parallel Scavenge
 author: "-"
-type: post
 date: 2017-06-05T06:18:02+00:00
 url: java-gc-ps
 categories:

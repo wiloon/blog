@@ -1,7 +1,6 @@
 ---
 title: hibernate annotation 主键生成策略
 author: "-"
-type: post
 date: 2014-05-29T06:24:31+00:00
 url: /?p=6690
 categories:

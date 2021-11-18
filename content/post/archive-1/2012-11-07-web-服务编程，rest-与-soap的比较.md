@@ -1,7 +1,6 @@
 ---
 title: Web 服务编程,REST 与 SOAP的比较
 author: lcf
-type: post
 date: 2012-11-07T06:11:12+00:00
 url: /?p=4634
 categories:

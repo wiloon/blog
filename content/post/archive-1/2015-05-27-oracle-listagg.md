@@ -1,7 +1,6 @@
 ---
 title: oracle listagg
 author: "-"
-type: post
 date: 2015-05-27T05:42:18+00:00
 url: /?p=7717
 categories:

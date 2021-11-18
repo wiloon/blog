@@ -1,7 +1,6 @@
 ---
 title: OpenStack 高可用（HA) 
 author: "-"
-type: post
 date: 2019-06-22T02:54:24+00:00
 url: /?p=14549
 categories:

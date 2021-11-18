@@ -1,7 +1,6 @@
 ---
 title: IntelliJ IDEA
 author: "-"
-type: post
 date: 2017-07-11T08:05:30+00:00
 url: /?p=10819
 categories:

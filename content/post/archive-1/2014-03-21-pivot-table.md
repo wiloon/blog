@@ -1,7 +1,6 @@
 ---
 title: Pivot Table
 author: "-"
-type: post
 date: 2014-03-21T05:08:06+00:00
 url: /?p=6417
 categories:

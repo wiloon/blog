@@ -1,7 +1,6 @@
 ---
 title: 'clean arch  linux'
 author: "-"
-type: post
 date: 2018-06-09T14:32:13+00:00
 url: /?p=12288
 categories:

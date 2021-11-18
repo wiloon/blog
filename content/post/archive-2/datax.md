@@ -1,7 +1,6 @@
 ---
 title: DataX
 author: "-"
-type: post
 date: 2015-09-25T00:58:41+00:00
 url: /?p=8356
 categories:

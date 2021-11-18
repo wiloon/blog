@@ -1,7 +1,6 @@
 ---
 title: apache ab/Apache Bench
 author: "-"
-type: post
 date: 2015-12-25T11:47:19+00:00
 url: /?p=8602
 categories:

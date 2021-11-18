@@ -1,7 +1,6 @@
 ---
 title: context,exclude-filter 与 context,include-filter
 author: "-"
-type: post
 date: 2012-12-17T14:30:18+00:00
 url: /?p=4919
 categories:

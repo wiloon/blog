@@ -1,7 +1,6 @@
 ---
 title: Intellij IDEA 14的注册机
 author: "-"
-type: post
 date: 2015-09-01T02:27:37+00:00
 url: /?p=8209
 categories:

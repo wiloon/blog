@@ -1,7 +1,6 @@
 ---
 title: rsync
 author: "-"
-type: post
 date: 2016-05-31T05:02:22+00:00
 url: /?p=9024
 categories:

@@ -1,7 +1,6 @@
 ---
 title: SELECT INTO 和 INSERT INTO SELECT 两种表复制语句
 author: "-"
-type: post
 date: 2013-07-22T07:53:38+00:00
 url: /?p=5692
 categories:

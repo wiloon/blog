@@ -1,7 +1,6 @@
 ---
 title: eclipse adt project to android studio gradle project
 author: "-"
-type: post
 date: 2015-01-12T05:12:34+00:00
 url: /?p=7219
 categories:

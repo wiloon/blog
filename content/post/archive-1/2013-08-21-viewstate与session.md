@@ -1,7 +1,6 @@
 ---
 title: ViewState与Session
 author: "-"
-type: post
 date: 2013-08-21T04:21:22+00:00
 url: /?p=5785
 categories:

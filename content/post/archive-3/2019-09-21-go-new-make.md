@@ -1,7 +1,6 @@
 ---
 title: go new make
 author: "-"
-type: post
 date: 2019-09-21T09:41:51+00:00
 url: /?p=14943
 categories:

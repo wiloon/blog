@@ -1,7 +1,6 @@
 ---
 title: Install GUI on debian 7 wheezy
 author: "-"
-type: post
 date: 2014-03-29T05:06:31+00:00
 url: /?p=6446
 

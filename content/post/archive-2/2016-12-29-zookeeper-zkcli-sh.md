@@ -1,7 +1,6 @@
 ---
 title: zookeeper client zkCli.sh
 author: "-"
-type: post
 date: 2016-12-29T00:12:42+00:00
 url: /?p=9633
 categories:

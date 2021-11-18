@@ -1,7 +1,6 @@
 ---
 title: http GET POST 长度
 author: "-"
-type: post
 date: 2015-10-13T11:05:48+00:00
 url: /?p=8402
 categories:

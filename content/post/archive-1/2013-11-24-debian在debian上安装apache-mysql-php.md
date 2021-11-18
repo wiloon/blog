@@ -1,7 +1,6 @@
 ---
 title: Debian/在Debian上安装Apache MySQL PHP
 author: "-"
-type: post
 date: 2013-11-24T03:39:29+00:00
 url: /?p=5987
 categories:

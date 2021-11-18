@@ -1,7 +1,6 @@
 ---
 title: MySQL explain, 执行计划, Query Execution Plan
 author: "-"
-type: post
 date: 2016-11-28T02:24:33+00:00
 url: /?p=9439
 categories: 

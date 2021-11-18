@@ -1,7 +1,6 @@
 ---
 title: 'huawei vpn, sslvpn, secoclient  in archlinux'
 author: "-"
-type: post
 date: 2020-02-01T03:59:45+00:00
 url: /?p=15467
 categories:

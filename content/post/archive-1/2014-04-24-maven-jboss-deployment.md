@@ -1,7 +1,6 @@
 ---
 title: maven jboss deployment
 author: "-"
-type: post
 date: 2014-04-24T06:56:39+00:00
 url: /?p=6554
 categories:

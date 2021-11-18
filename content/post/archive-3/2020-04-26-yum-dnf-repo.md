@@ -1,7 +1,6 @@
 ---
 title: yum, dnf repo
 author: "-"
-type: post
 date: 2020-04-26T02:59:33+00:00
 url: /?p=16087
 categories:

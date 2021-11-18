@@ -1,7 +1,6 @@
 ---
 title: pacman
 author: "-"
-type: post
 date: 2015-04-25T03:37:27+00:00
 url: pacman
 tags:

@@ -1,7 +1,6 @@
 ---
 title: 烧茄子
 author: "-"
-type: post
 date: 2015-01-07T07:23:45+00:00
 url: /?p=7194
 categories:

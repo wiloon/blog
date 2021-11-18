@@ -1,7 +1,6 @@
 ---
 title: linux test disk io
 author: "-"
-type: post
 date: 2018-02-07T03:58:38+00:00
 url: /?p=11826
 categories:

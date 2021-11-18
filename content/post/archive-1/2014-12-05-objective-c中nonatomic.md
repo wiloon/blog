@@ -1,7 +1,6 @@
 ---
 title: ExecutorService
 author: "-"
-type: post
 date: 2014-12-05T01:14:19+00:00
 url: /?p=7101
 categories:

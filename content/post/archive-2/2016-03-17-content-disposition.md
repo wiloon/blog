@@ -1,7 +1,6 @@
 ---
 title: Content-disposition
 author: "-"
-type: post
 date: 2016-03-17T05:13:16+00:00
 url: /?p=8803
 categories:

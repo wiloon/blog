@@ -1,7 +1,6 @@
 ---
 title: BeforeClass、AfterClass、Before与After示例
 author: "-"
-type: post
 date: 2016-01-27T06:49:03+00:00
 url: /?p=8716
 categories:

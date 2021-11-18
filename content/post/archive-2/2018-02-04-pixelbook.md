@@ -1,7 +1,6 @@
 ---
 title: pixelbook, chromeos, developer mode,crouton
 author: "-"
-type: post
 date: 2018-02-04T09:22:37+00:00
 url: /?p=11818
 categories:

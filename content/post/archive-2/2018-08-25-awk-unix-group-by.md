@@ -1,7 +1,6 @@
 ---
 title: Awk/Unix group by
 author: "-"
-type: post
 date: 2018-08-25T10:00:43+00:00
 url: /?p=12565
 categories:

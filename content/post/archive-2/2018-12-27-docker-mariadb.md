@@ -1,7 +1,6 @@
 ---
 title: docker mariadb
 author: "-"
-type: post
 date: 2018-12-27T04:50:21+00:00
 url: /?p=13220
 categories:

@@ -1,7 +1,6 @@
 ---
 title: apr、apr-util, apr-iconv
 author: "-"
-type: post
 date: 2019-05-30T01:51:38+00:00
 url: /?p=14422
 categories:

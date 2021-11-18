@@ -1,7 +1,6 @@
 ---
 title: archlinux steam
 author: "-"
-type: post
 date: 2016-06-05T11:41:27+00:00
 url: /?p=9048
 categories:

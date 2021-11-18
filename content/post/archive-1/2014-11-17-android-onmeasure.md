@@ -1,7 +1,6 @@
 ---
 title: 'Android  onMeasure'
 author: "-"
-type: post
 date: 2014-11-17T06:53:06+00:00
 url: /?p=7017
 categories:

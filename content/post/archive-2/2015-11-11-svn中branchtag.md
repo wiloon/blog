@@ -1,7 +1,6 @@
 ---
 title: SVN中Branch/tag
 author: "-"
-type: post
 date: 2015-11-11T02:20:43+00:00
 url: /?p=8454
 categories:

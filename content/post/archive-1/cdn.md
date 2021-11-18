@@ -1,7 +1,6 @@
 ---
 title: CDN
 author: "-"
-type: post
 date: 2012-10-29T04:55:01+00:00
 url: /?p=4569
 categories:

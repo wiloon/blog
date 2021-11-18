@@ -1,7 +1,6 @@
 ---
 title: kafka 删除topic
 author: "-"
-type: post
 date: 2020-04-18T12:00:45+00:00
 url: /?p=15981
 categories:

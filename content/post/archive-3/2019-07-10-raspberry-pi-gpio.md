@@ -1,7 +1,6 @@
 ---
 title: raspberry pi gpio
 author: "-"
-type: post
 date: 2019-07-09T16:04:46+00:00
 url: /?p=14659
 categories:

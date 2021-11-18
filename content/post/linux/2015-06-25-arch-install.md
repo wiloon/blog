@@ -1,7 +1,6 @@
 ---
 title: archlinux install
 author: "-"
-type: post
 date: 2015-06-25T09:18:44+00:00
 url: /?p=7821
 tags:

@@ -1,7 +1,6 @@
 ---
 title: 'jigsaw  hello world'
 author: "-"
-type: post
 date: 2017-01-19T02:39:04+00:00
 url: /?p=9668
 categories:

@@ -1,7 +1,6 @@
 ---
 title: golang list
 author: "-"
-type: post
 date: 2017-10-06T10:06:18+00:00
 url: /?p=11239
 

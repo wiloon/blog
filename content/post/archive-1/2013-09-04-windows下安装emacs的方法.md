@@ -1,7 +1,6 @@
 ---
 title: Windows 安装 Emacs
 author: "-"
-type: post
 date: 2013-09-04T12:27:37+00:00
 url: /?p=5794
 categories:

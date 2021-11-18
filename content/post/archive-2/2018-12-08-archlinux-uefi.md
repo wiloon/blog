@@ -1,7 +1,6 @@
 ---
 title: archlinux UEFI
 author: "-"
-type: post
 date: 2018-12-08T13:38:38+00:00
 url: /?p=12981
 categories:

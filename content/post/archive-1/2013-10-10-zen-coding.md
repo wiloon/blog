@@ -1,7 +1,6 @@
 ---
 title: Zen Coding
 author: "-"
-type: post
 date: 2013-10-10T09:12:08+00:00
 url: /?p=5843
 categories:

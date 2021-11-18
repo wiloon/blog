@@ -1,7 +1,6 @@
 ---
 title: redis windows
 author: "-"
-type: post
 date: 2015-12-01T04:39:59+00:00
 url: /?p=8485
 categories:

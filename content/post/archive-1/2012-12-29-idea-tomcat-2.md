@@ -1,7 +1,6 @@
 ---
 title: idea tomcat
 author: "-"
-type: post
 date: 2012-12-29T04:58:37+00:00
 url: /?p=4954
 categories:

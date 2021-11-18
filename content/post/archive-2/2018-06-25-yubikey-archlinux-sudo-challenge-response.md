@@ -1,7 +1,6 @@
 ---
 title: yubikey, archlinux sudo, challenge-response
 author: "-"
-type: post
 date: 2018-06-24T16:32:55+00:00
 url: /?p=12361
 categories:

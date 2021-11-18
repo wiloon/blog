@@ -1,7 +1,6 @@
 ---
 title: Enable Or Disable Hibernate Option In Windows 7
 author: "-"
-type: post
 date: 2014-03-08T05:04:19+00:00
 url: /?p=6368
 categories:

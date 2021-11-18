@@ -1,7 +1,6 @@
 ---
 title: TCP_NODELAY, TCP_CORK
 author: "-"
-type: post
 date: 2017-09-21T07:43:05+00:00
 url: /?p=11179
 categories:

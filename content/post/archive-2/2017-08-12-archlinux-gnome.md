@@ -1,7 +1,6 @@
 ---
 title: archlinux gnome
 author: "-"
-type: post
 date: 2017-08-12T13:38:24+00:00
 url: /?p=11032
 categories:

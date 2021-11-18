@@ -1,7 +1,6 @@
 ---
 title: memcache basic,command
 author: "-"
-type: post
 date: 2018-01-05T09:00:17+00:00
 url: memcache
 categories:

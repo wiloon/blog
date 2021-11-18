@@ -1,7 +1,6 @@
 ---
 title: chrome os recover
 author: "-"
-type: post
 date: 2018-05-11T17:27:07+00:00
 url: /?p=12239
 categories:

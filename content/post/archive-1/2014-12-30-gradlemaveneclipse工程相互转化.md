@@ -1,7 +1,6 @@
 ---
 title: gradle/maven/eclipse工程相互转化
 author: "-"
-type: post
 date: 2014-12-30T02:57:04+00:00
 url: /?p=7147
 categories:

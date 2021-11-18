@@ -1,7 +1,6 @@
 ---
 title: golang install
 author: "-"
-type: post
 date: 2016-10-14T00:15:50+00:00
 url: /?p=9295
 categories:

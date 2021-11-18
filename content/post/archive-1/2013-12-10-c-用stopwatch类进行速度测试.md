@@ -1,7 +1,6 @@
 ---
 title: cpu瓶颈分析
 author: "-"
-type: post
 date: 2013-12-10T01:17:00+00:00
 url: /?p=6032
 

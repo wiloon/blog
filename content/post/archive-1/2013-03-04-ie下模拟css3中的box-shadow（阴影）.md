@@ -1,7 +1,6 @@
 ---
 title: IE下模拟css3中的box-shadow（阴影) 
 author: "-"
-type: post
 date: 2013-03-04T09:25:20+00:00
 url: /?p=5302
 categories:

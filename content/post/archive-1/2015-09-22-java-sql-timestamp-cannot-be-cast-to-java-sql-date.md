@@ -1,7 +1,6 @@
 ---
 title: java.sql.Timestamp cannot be cast to java.sql.Date
 author: "-"
-type: post
 date: 2015-09-22T10:05:46+00:00
 url: /?p=8331
 categories:

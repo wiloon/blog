@@ -1,7 +1,6 @@
 ---
 title: Product Backlog
 author: "-"
-type: post
 date: 2019-05-01T04:22:45+00:00
 url: /?p=14279
 categories:

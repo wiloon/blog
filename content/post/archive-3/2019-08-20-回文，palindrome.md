@@ -1,7 +1,6 @@
 ---
 title: 回文，palindrome
 author: "-"
-type: post
 date: 2019-08-19T23:31:30+00:00
 url: /?p=14817
 categories:

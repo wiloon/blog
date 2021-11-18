@@ -1,7 +1,6 @@
 ---
 title: google domain, invalid City
 author: "-"
-type: post
 date: 2019-03-04T05:14:52+00:00
 url: /?p=13744
 categories:

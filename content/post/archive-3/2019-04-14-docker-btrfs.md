@@ -1,7 +1,6 @@
 ---
 title: docker btrfs
 author: "-"
-type: post
 date: 2019-04-14T04:09:04+00:00
 url: /?p=14168
 categories:

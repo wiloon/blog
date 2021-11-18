@@ -1,7 +1,6 @@
 ---
 title: Remote IP Valve, X-Forwarded-For等http头字段
 author: "-"
-type: post
 date: 2018-06-06T02:22:50+00:00
 url: /?p=12277
 categories:

@@ -1,7 +1,6 @@
 ---
 title: MySQL count 性能
 author: "-"
-type: post
 date: 2018-08-15T03:26:08+00:00
 url: /?p=12531
 categories:

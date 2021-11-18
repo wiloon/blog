@@ -1,7 +1,6 @@
 ---
 title: Guava Multimap
 author: "-"
-type: post
 date: 2017-10-18T02:41:52+00:00
 url: /?p=11283
 categories:

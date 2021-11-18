@@ -1,7 +1,6 @@
 ---
 title: Runtime freeMemory,totalMemory,maxMemory
 author: "-"
-type: post
 date: 2017-03-31T01:24:08+00:00
 url: /?p=9999
 categories:

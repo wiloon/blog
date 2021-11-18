@@ -1,7 +1,6 @@
 ---
 title: 协程, coroutine, goroutine
 author: "-"
-type: post
 date: 2017-03-24T15:52:22+00:00
 url: /?p=9925
 

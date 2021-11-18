@@ -1,7 +1,6 @@
 ---
 title: 用户故事（User Story) 和验收标准（Acceptance Criteria) 
 author: "-"
-type: post
 date: 2019-07-08T05:47:58+00:00
 url: /?p=14651
 categories:

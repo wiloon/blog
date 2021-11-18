@@ -1,7 +1,6 @@
 ---
 title: IDENTITY COLUMN
 author: "-"
-type: post
 date: 2013-07-10T07:28:46+00:00
 url: /?p=5632
 categories:

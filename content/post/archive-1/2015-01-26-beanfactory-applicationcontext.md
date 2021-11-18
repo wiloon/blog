@@ -1,7 +1,6 @@
 ---
 title: BeanFactory, ApplicationContext
 author: "-"
-type: post
 date: 2015-01-26T01:04:59+00:00
 url: /?p=7286
 categories:

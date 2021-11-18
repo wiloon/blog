@@ -1,7 +1,6 @@
 ---
 title: Oracle-Sql 语句中 Case When 的应用
 author: "-"
-type: post
 date: 2012-12-29T09:08:07+00:00
 url: /?p=4957
 categories:

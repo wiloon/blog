@@ -1,7 +1,6 @@
 ---
 title: 'Java  exception throw throws'
 author: "-"
-type: post
 date: 2015-05-14T00:28:57+00:00
 url: /?p=7663
 categories:

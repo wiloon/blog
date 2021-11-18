@@ -1,7 +1,6 @@
 ---
 title: eclipse 4.4 gtk3 error
 author: "-"
-type: post
 date: 2014-07-13T07:53:28+00:00
 url: /?p=6803
 categories:

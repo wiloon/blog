@@ -1,7 +1,6 @@
 ---
 title: 'java 读文件到Byte[]数组'
 author: "-"
-type: post
 date: 2016-03-17T09:23:41+00:00
 url: /?p=8806
 categories:

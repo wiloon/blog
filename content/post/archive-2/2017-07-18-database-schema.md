@@ -1,7 +1,6 @@
 ---
 title: database schema
 author: "-"
-type: post
 date: 2017-07-18T08:27:02+00:00
 url: /?p=10866
 categories:

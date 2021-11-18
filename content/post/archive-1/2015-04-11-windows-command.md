@@ -1,7 +1,6 @@
 ---
 title: windows command
 author: "-"
-type: post
 date: 2015-04-11T01:03:59+00:00
 url: /?p=7451
 categories:

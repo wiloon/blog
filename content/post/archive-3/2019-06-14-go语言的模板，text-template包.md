@@ -1,7 +1,6 @@
 ---
 title: go语言的模板，text/template包
 author: "-"
-type: post
 date: 2019-06-14T05:29:13+00:00
 url: /?p=14513
 categories:

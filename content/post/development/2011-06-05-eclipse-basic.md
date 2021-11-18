@@ -1,7 +1,6 @@
 ---
 title: eclipse basic
 author: "-"
-type: post
 date: 2011-06-05T03:07:03+00:00
 url: /?p=223
 categories:

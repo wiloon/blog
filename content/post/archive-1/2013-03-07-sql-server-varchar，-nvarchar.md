@@ -1,7 +1,6 @@
 ---
 title: SQL Server varchar, nvarchar
 author: "-"
-type: post
 date: 2013-03-07T07:02:32+00:00
 url: /?p=5319
 categories:

@@ -1,7 +1,6 @@
 ---
 title: cozy, nextcloud
 author: "-"
-type: post
 date: 2019-01-26T05:27:32+00:00
 url: /?p=13451
 categories:

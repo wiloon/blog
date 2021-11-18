@@ -1,7 +1,6 @@
 ---
 title: 使用 Maven 执行 java main class
 author: "-"
-type: post
 date: 2012-12-25T02:51:34+00:00
 url: /?p=4943
 categories:

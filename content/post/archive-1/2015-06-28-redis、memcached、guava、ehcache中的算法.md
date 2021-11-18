@@ -1,7 +1,6 @@
 ---
 title: Redis, Memcache, Guava, Ehcache 中的算法
 author: "-"
-type: post
 date: 2015-06-28T03:19:50+00:00
 url: /?p=7929
 categories:

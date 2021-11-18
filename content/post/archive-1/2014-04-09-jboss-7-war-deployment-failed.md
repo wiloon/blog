@@ -1,7 +1,6 @@
 ---
 title: Jboss 7 war deployment failed
 author: "-"
-type: post
 date: 2014-04-09T03:11:56+00:00
 url: /?p=6496
 categories:

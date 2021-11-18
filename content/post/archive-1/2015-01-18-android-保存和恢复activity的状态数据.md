@@ -1,7 +1,6 @@
 ---
 title: android 保存和恢复activity的状态数据
 author: "-"
-type: post
 date: 2015-01-18T05:43:22+00:00
 url: /?p=7259
 categories:

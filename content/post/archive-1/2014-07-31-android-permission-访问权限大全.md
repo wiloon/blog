@@ -1,7 +1,6 @@
 ---
 title: Android permission
 author: "-"
-type: post
 date: 2014-07-31T01:36:04+00:00
 url: /?p=6856
 categories:

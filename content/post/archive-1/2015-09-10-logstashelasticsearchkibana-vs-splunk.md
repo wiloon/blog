@@ -1,7 +1,6 @@
 ---
 title: logstash+ElasticSearch+Kibana VS Splunk
 author: "-"
-type: post
 date: 2015-09-10T07:56:51+00:00
 url: /?p=8238
 categories:

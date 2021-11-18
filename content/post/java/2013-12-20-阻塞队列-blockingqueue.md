@@ -1,7 +1,6 @@
 ---
 title: 阻塞队列 BlockingQueue
 author: "-"
-type: post
 date: 2013-12-20T04:52:28+00:00
 url: /?p=6043
 categories:

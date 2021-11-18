@@ -1,7 +1,6 @@
 ---
 title: win10 openssh agent
 author: "-"
-type: post
 date: 2019-04-05T05:18:16+00:00
 url: /?p=14095
 categories:

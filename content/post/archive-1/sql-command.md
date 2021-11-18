@@ -1,7 +1,6 @@
 ---
 title: sql command
 author: lcf
-type: post
 date: 2012-10-29T03:24:57+00:00
 url: /?p=4566
 categories:

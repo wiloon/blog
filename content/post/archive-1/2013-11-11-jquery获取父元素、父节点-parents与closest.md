@@ -1,7 +1,6 @@
 ---
 title: jquery获取父元素、父节点–parents()与closest()
 author: "-"
-type: post
 date: 2013-11-11T04:49:30+00:00
 url: /?p=5948
 categories:

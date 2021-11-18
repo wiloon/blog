@@ -1,7 +1,6 @@
 ---
 title: zookeeper curator watcher/listener
 author: "-"
-type: post
 date: 2017-07-11T07:02:42+00:00
 url: /?p=6881
 categories:

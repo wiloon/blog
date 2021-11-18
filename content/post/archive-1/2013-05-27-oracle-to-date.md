@@ -1,7 +1,6 @@
 ---
 title: oracle to date
 author: "-"
-type: post
 date: 2013-05-27T09:06:31+00:00
 url: /?p=5487
 categories:

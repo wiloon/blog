@@ -1,7 +1,6 @@
 ---
 title: Daily Scrum, stand-up meeting, 站会
 author: "-"
-type: post
 date: 2013-02-27T15:08:54+00:00
 url: /?p=5278
 categories:

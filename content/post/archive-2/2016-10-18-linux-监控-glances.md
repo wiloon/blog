@@ -1,7 +1,6 @@
 ---
 title: 'linux  监控  glances'
 author: "-"
-type: post
 date: 2016-10-18T09:02:31+00:00
 url: /?p=9312
 categories:

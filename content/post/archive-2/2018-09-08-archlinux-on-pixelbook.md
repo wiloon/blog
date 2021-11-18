@@ -1,7 +1,6 @@
 ---
 title: Archlinux, Pixelbook, chromeos, Crostini
 author: "-"
-type: post
 date: 2018-09-08T04:24:14+00:00
 url: /?p=12641
 categories:

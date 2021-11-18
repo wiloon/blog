@@ -1,7 +1,6 @@
 ---
 title: Filter FilterChain
 author: "-"
-type: post
 date: 2012-11-18T05:17:32+00:00
 url: /?p=4712
 categories:

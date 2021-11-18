@@ -1,7 +1,6 @@
 ---
 title: 'String#intern'
 author: "-"
-type: post
 date: 2013-02-22T08:44:36+00:00
 url: /?p=5230
 categories:

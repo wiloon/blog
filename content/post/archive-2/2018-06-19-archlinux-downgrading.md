@@ -1,7 +1,6 @@
 ---
 title: 'archlinux  downgrading'
 author: "-"
-type: post
 date: 2018-06-19T08:46:56+00:00
 url: /?p=12328
 categories:

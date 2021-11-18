@@ -1,7 +1,6 @@
 ---
 title: newifi breed
 author: "-"
-type: post
 date: 2019-01-02T16:10:57+00:00
 url: /?p=13288
 categories:

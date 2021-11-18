@@ -1,7 +1,6 @@
 ---
 title: js check platform
 author: "-"
-type: post
 date: 2014-02-27T01:31:58+00:00
 url: /?p=6293
 categories:

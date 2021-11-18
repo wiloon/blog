@@ -1,7 +1,6 @@
 ---
 title: linux kvm nat nftables
 author: "-"
-type: post
 date: 2016-01-19T15:41:05+00:00
 url: /?p=8681
 categories:

@@ -1,7 +1,6 @@
 ---
 title: state和status的区别
 author: "-"
-type: post
 date: 2019-11-08T01:49:28+00:00
 url: /?p=15130
 categories:

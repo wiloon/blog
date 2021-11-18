@@ -1,7 +1,6 @@
 ---
 title: golang map set
 author: "-"
-type: post
 date: 2016-11-23T07:14:53+00:00
 url: /?p=9419
 

@@ -1,7 +1,6 @@
 ---
 title: linux 环境 变量, /etc/profile
 author: "-"
-type: post
 date: 2016-10-28T04:34:33+00:00
 url: /?p=9346
 

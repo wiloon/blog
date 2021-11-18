@@ -1,7 +1,6 @@
 ---
 title: Locked ownable synchronizers
 author: "-"
-type: post
 date: 2017-05-05T05:09:57+00:00
 url: /?p=10225
 categories:

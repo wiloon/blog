@@ -1,7 +1,6 @@
 ---
 title: 'test for a specific port from Linux,  shell>telnet  >netcat > Socat'
 author: "-"
-type: post
 date: 2017-12-16T06:59:25+00:00
 url: /?p=11601
 categories:

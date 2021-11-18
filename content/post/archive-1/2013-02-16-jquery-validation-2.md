@@ -1,7 +1,6 @@
 ---
 title: jquery validation error message
 author: "-"
-type: post
 date: 2013-02-16T07:09:35+00:00
 url: /?p=5154
 categories:

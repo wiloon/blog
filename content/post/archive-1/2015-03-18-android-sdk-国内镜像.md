@@ -1,7 +1,6 @@
 ---
 title: Android SDK Manager mirror/镜像
 author: "-"
-type: post
 date: 2015-03-18T00:44:01+00:00
 url: /?p=7414
 categories:

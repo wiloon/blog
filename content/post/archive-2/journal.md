@@ -1,7 +1,6 @@
 ---
 title: journal, journalctl, syslog
 author: "-"
-type: post
 date: 2017-11-24T09:34:51+00:00
 url: /?p=11503
 

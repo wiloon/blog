@@ -1,7 +1,6 @@
 ---
 title: ConcurrentLinkedDeque
 author: "-"
-type: post
 date: 2019-10-23T05:20:33+00:00
 url: /?p=15053
 categories:

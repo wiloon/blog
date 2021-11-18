@@ -1,7 +1,6 @@
 ---
 title: linux Namespace
 author: "-"
-type: post
 date: 2018-07-31T08:40:02+00:00
 url: /?p=12469
 categories:

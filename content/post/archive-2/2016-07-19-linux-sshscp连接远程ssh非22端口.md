@@ -1,7 +1,6 @@
 ---
 title: golang strconv
 author: "-"
-type: post
 date: 2016-07-19T00:03:42+00:00
 url: /?p=9135
 categories:

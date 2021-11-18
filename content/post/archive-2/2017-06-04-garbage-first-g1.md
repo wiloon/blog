@@ -1,7 +1,6 @@
 ---
 title: Garbage-First G1
 author: "-"
-type: post
 date: 2017-06-04T07:11:24+00:00
 url: /?p=10468
 categories:

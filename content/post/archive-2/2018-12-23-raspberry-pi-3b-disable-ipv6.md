@@ -1,7 +1,6 @@
 ---
 title: 'raspberry pi 3B  disable ipv6'
 author: "-"
-type: post
 date: 2018-12-23T15:35:18+00:00
 url: /?p=13197
 categories:

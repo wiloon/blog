@@ -1,7 +1,6 @@
 ---
 title: linux time command
 author: "-"
-type: post
 date: 2018-02-13T04:33:45+00:00
 url: /?p=11884
 categories:

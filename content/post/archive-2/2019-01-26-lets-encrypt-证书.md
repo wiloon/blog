@@ -1,7 +1,6 @@
 ---
 title: Let's Encrypt 证书
 author: "-"
-type: post
 date: 2019-01-26T10:49:24+00:00
 url: /?p=13489
 categories:

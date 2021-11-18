@@ -1,7 +1,6 @@
 ---
 title: Set JAVA_HOME in windows cmd
 author: "-"
-type: post
 date: 2014-12-29T07:21:19+00:00
 url: /?p=7137
 categories:

@@ -1,7 +1,6 @@
 ---
 title: typescript 数组
 author: "-"
-type: post
 date: 2019-08-17T06:47:09+00:00
 url: /?p=14801
 categories:

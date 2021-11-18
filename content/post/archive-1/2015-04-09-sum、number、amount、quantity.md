@@ -1,7 +1,6 @@
 ---
 title: sum、number、amount、quantity
 author: "-"
-type: post
 date: 2015-04-09T02:30:39+00:00
 url: /?p=7444
 categories:

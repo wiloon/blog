@@ -1,7 +1,6 @@
 ---
 title: 'java char[] 转  String'
 author: "-"
-type: post
 date: 2013-01-24T14:35:04+00:00
 url: /?p=5076
 categories:

@@ -1,7 +1,6 @@
 ---
 title: table bench and desk
 author: "-"
-type: post
 date: 2015-03-24T00:56:47+00:00
 url: /?p=7422
 categories:

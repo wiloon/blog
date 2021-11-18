@@ -1,7 +1,6 @@
 ---
 title: SHA, Secure Hash Algorithm
 author: "-"
-type: post
 date: 2018-06-24T03:29:52+00:00
 url: /?p=12356
 categories:

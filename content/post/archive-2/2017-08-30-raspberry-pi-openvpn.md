@@ -1,7 +1,6 @@
 ---
 title: raspberry pi openvpn
 author: "-"
-type: post
 date: 2017-08-30T14:34:17+00:00
 url: /?p=11072
 categories:

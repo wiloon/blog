@@ -1,7 +1,6 @@
 ---
 title: ARM、X86/Atom、MIPS、PowerPC
 author: "-"
-type: post
 date: 2018-03-03T02:29:27+00:00
 url: /?p=11949
 

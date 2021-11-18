@@ -1,7 +1,6 @@
 ---
 title: systemd-networkd MAC address spoofing
 author: "-"
-type: post
 date: 2018-08-03T16:03:01+00:00
 url: /?p=12491
 

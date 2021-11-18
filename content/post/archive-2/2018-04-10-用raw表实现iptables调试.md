@@ -1,7 +1,6 @@
 ---
 title: iptables调试, raw表, LOG
 author: "-"
-type: post
 date: 2018-04-09T16:04:45+00:00
 url: /?p=12128
 categories:

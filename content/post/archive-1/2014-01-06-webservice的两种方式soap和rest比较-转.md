@@ -1,7 +1,6 @@
 ---
 title: WebService的两种方式SOAP和REST比较 (转)
 author: "-"
-type: post
 date: 2014-01-06T08:48:48+00:00
 url: /?p=6158
 tags:
