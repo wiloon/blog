@@ -44,8 +44,8 @@ public	class MyListener implements ServletContextListener {
 }
 
 <web-app>
-	<listener>
-		<listener-class>
+	
+		
 			com.listeners.MyContextListener
 		</listener-class>
 	</listener>

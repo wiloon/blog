@@ -143,10 +143,10 @@ categories:
     
     <ol start="1">
       
-        <listener>
+        
       
       
-            <listener-class>demo.listener.SessionCounter</listener-class>
+            demo.listener.SessionCounter</listener-class>
       
       
         </listener>

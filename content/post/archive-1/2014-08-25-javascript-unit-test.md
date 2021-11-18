@@ -53,7 +53,7 @@ test.html
   
 <head>
   
-<link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+
   
 <script src="http://code.jquery.com/jquery-latest.js"></script>
   

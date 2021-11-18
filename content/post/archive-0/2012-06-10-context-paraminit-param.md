@@ -15,7 +15,7 @@ tags:
   
 web.xml的配置中<context-param>配置作用
   
-**1. 启动一个WEB项目的时候,容器(如:Tomcat)会去读它的配置文件web.xml.读两个节点: <listener></listener> 和 <context-param></context-param>**
+**1. 启动一个WEB项目的时候,容器(如:Tomcat)会去读它的配置文件web.xml.读两个节点: </listener> 和 <context-param></context-param>**
 
   2.紧接着,容器创建一个ServletContext(上下文),这个WEB项目所有部分都将共享这个上下文.
 
@@ -23,7 +23,7 @@ web.xml的配置中<context-param>配置作用
   3.容器将<context-param></context-param>转化为键值对,并交给ServletContext.
 
 
-  4.容器创建<listener></listener>中的类实例,即创建监听.
+  4.容器创建</listener>中的类实例,即创建监听.
 
 
   5.在监听中会有contextInitialized(ServletContextEvent args)初始化方法,在这个方法中获得ServletContext = ServletContextEvent.getServletContext();

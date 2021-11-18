@@ -49,8 +49,8 @@ delete <key>
 #输出各个slab中的item的数目和最老item的年龄(最后一次访问距离现在的秒数) .
 stats items
 
-# 根据<slab_id>输出相同的<slab_id>中的item信息。<limit_num>是输出的个数,当<limit_num>为0是输出所有的item。
-stats cachedump <slab_id> <limit_num>
+# 根据<slab_id>输出相同的<slab_id>中的item信息。是输出的个数,当为0是输出所有的item。
+stats cachedump <slab_id> 
 
 #显示各个slab的信息,包括chunk的大小、数目、使用情况等。
 stats slabs

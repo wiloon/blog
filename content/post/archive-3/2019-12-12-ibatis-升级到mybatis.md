@@ -51,7 +51,7 @@ mybatis-spring</artifactId>
   
 3、移出项目中的ibatis相关配置及文件（与spring集成为样例) : 
 
-<bean id="sqlMapClient" class="com.common.sqlmap.DynSqlMapClientFactoryBean"> <property name="configLocations"> <list> <value>classpath:common-sqlmap-config.xml</value>
+<bean id="sqlMapClient" class="com.common.sqlmap.DynSqlMapClientFactoryBean"> <property name="configLocations">  <value>classpath:common-sqlmap-config.xml</value>
       
 <value>classpath*:ibatis-sqlmap-config.xml</value> </list> </property> <property name="dynamicDataSource" ref="dataSource_dyn"> </property> </bean>
   

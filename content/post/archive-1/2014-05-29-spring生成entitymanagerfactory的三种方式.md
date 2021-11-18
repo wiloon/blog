@@ -135,7 +135,7 @@ Persistence.xml配置:
   
 <property name="persistenceXmlLocations">
   
-<list>
+
   
 <value>org/springframework/orm/jpa/domain/persistence-multi.xml</value>
   

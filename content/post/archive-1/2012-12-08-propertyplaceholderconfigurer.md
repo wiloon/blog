@@ -41,7 +41,7 @@ PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties�
       <property name="locations">
     
     
-                  <list>
+                  
     
     
                       <value>classpath:config/maxid.properties</value>

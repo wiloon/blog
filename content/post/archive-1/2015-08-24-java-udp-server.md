@@ -89,96 +89,96 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
     
       <span class="comment">/**
     
-    <li class="alt">
+    
       <span class="comment"> *UDPServer
     
     
       <span class="comment"> *@author Winty wintys@gmail.com
     
-    <li class="alt">
+    
       <span class="comment"> *@version 2008-12-15
     
     
       <span class="comment"> */
     
-    <li class="alt">
+    
       <span class="keyword">import java.io.*;
     
     
       <span class="keyword">import java.net.*;
     
-    <li class="alt">
+    
     
     
       <span class="keyword">class UDPServer{
     
-    <li class="alt">
+    
           <span class="keyword">public <span class="keyword">static <span class="keyword">void main(String[] args)<span class="keyword">throws IOException{
     
     
               DatagramSocket  server = <span class="keyword">new DatagramSocket(<span class="number">5050);
     
-    <li class="alt">
+    
     
     
               <span class="keyword">byte[] recvBuf = <span class="keyword">new <span class="keyword">byte[<span class="number">100];
     
-    <li class="alt">
+    
               DatagramPacket recvPacket
     
     
                   = <span class="keyword">new DatagramPacket(recvBuf , recvBuf.length);
     
-    <li class="alt">
+    
     
     
               server.receive(recvPacket);
     
-    <li class="alt">
+    
     
     
               String recvStr = <span class="keyword">new String(recvPacket.getData() , <span class="number"> , recvPacket.getLength());
     
-    <li class="alt">
+    
               System.out.println(<span class="string">"Hello World!" + recvStr);
     
     
     
-    <li class="alt">
+    
               <span class="keyword">int port = recvPacket.getPort();
     
     
               InetAddress addr = recvPacket.getAddress();
     
-    <li class="alt">
+    
               String sendStr = <span class="string">"Hello ! I'm Server";
     
     
               <span class="keyword">byte[] sendBuf;
     
-    <li class="alt">
+    
               sendBuf = sendStr.getBytes();
     
     
               DatagramPacket sendPacket
     
-    <li class="alt">
+    
                   = <span class="keyword">new DatagramPacket(sendBuf , sendBuf.length , addr , port );
     
     
     
-    <li class="alt">
+    
               server.send(sendPacket);
     
     
     
-    <li class="alt">
+    
               server.close();
     
     
           }
     
-    <li class="alt">
+    
       }
     
     
@@ -191,92 +191,92 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
     
       <span class="comment">/**
     
-    <li class="alt">
+    
       <span class="comment"> *UDPClient
     
     
       <span class="comment"> *@author Winty wintys@gmail.com
     
-    <li class="alt">
+    
       <span class="comment"> *@version 2008-12-15
     
     
       <span class="comment"> */
     
-    <li class="alt">
+    
       <span class="keyword">import java.io.*;
     
     
       <span class="keyword">import java.net.*;
     
-    <li class="alt">
+    
     
     
       <span class="keyword">class UDPClient{
     
-    <li class="alt">
+    
           <span class="keyword">public <span class="keyword">static <span class="keyword">void main(String[] args)<span class="keyword">throws IOException{
     
     
               DatagramSocket client = <span class="keyword">new DatagramSocket();
     
-    <li class="alt">
+    
     
     
               String sendStr = <span class="string">"Hello! I'm Client";
     
-    <li class="alt">
+    
               <span class="keyword">byte[] sendBuf;
     
     
               sendBuf = sendStr.getBytes();
     
-    <li class="alt">
+    
               InetAddress addr = InetAddress.getByName(<span class="string">"127.0.0.1");
     
     
               <span class="keyword">int port = <span class="number">5050;
     
-    <li class="alt">
+    
               DatagramPacket sendPacket
     
     
                   = <span class="keyword">new DatagramPacket(sendBuf ,sendBuf.length , addr , port);
     
-    <li class="alt">
+    
     
     
               client.send(sendPacket);
     
-    <li class="alt">
+    
     
     
               <span class="keyword">byte[] recvBuf = <span class="keyword">new <span class="keyword">byte[<span class="number">100];
     
-    <li class="alt">
+    
               DatagramPacket recvPacket
     
     
                   = <span class="keyword">new DatagramPacket(recvBuf , recvBuf.length);
     
-    <li class="alt">
+    
               client.receive(recvPacket);
     
     
               String recvStr = <span class="keyword">new String(recvPacket.getData() , <span class="number"> ,recvPacket.getLength());
     
-    <li class="alt">
+    
               System.out.println(<span class="string">"收到:" + recvStr);
     
     
     
-    <li class="alt">
+    
               client.close();
     
     
           }
     
-    <li class="alt">
+    
       }
     
   

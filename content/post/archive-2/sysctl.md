@@ -56,7 +56,7 @@ sysctl -w xxx_tcp_syn_retrie =0 时 不会生效。保持原值
 
 ### fs.file-max
     所有用户打开文件描述符的总和  
-    系统级文件描述符数限制。直接修改这个参数和<<linux 最大文件描述符>>中修改方法有相同的效果（不过这些都是临时修改) 。一般修改/proc/sys/fs/file-max 后,应用程序需要把/proc/sys/fs/inode-max 设置为/proc/sys/fs/fs/file-max 值的3-4倍,否则可能导致inode数不够用。 
+    系统级文件描述符数限制。直接修改这个参数和<>中修改方法有相同的效果（不过这些都是临时修改) 。一般修改/proc/sys/fs/file-max 后,应用程序需要把/proc/sys/fs/inode-max 设置为/proc/sys/fs/fs/file-max 值的3-4倍,否则可能导致inode数不够用。 
 ### kernel.core_uses_pid**
 
 即使core_pattern中没有设置%p,最后生成的core dump文件名仍会加上进程ID。

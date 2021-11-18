@@ -44,7 +44,7 @@ jackson-mapper-asl-1.9.2.jar
           <property name="messageConverters">
     
     
-          <list>
+          
     
     
                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />

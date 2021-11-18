@@ -11,10 +11,10 @@ tags:
 ---
 ## java gc监控, jstat
 ```bash
-jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
+jstat -<option> [-t] [-h] <vmid> [<interval> [<count>]]
 jstat -gc -h3 <jvm PID> 3000 -1
 # -gc 显示gc的信息，查看gc的次数，及时间。
-# -h<lines>: 即-h跟数字，代表隔几行显示标题
+# -h: 即-h跟数字，代表隔几行显示标题
 # interval: 毫秒,代表监控间隔时间段，默认毫秒做单位
 # count: 代表取数次数
 ```
@@ -53,7 +53,7 @@ jstat -printcompilation pid:当前VM执行的信息。
   
 Usage: jstat -help|-options
          
-jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
+jstat -<option> [-t] [-h] <vmid> [<interval> [<count>]]
   
 参数:
   

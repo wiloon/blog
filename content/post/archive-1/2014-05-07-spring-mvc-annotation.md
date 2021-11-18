@@ -17,7 +17,7 @@ tags:
       * 
       * **@RequestBody** 将HTTP请求正文转换为适合的HttpMessageConverter对象。
       * **@ResponseBody** 将内容或对象作为 HTTP 响应正文返回，并调用适合HttpMessageConverter的Adapter转换对象，写入输出流。
-      * @PathVariable</ul> 
+      * @PathVariable 
     
     @PathVariable是用来对指定请求的URL路径里面的变量 eg: 
     

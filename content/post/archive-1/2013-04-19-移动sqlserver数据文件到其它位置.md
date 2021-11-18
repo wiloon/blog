@@ -28,7 +28,7 @@ categories:
           Make sure the SQL Server Agent service is not currently running.
         
         
-          Run the Detach statement on the desired database: <ul>
+          Run the Detach statement on the desired database: 
             
               Use Master
             
@@ -41,7 +41,7 @@ categories:
             
               GO
             
-          </ul>
+          
         
         
         
@@ -49,7 +49,7 @@ categories:
             NOTE: If the database that you are moving has more then one data file or log file, specify the files in comma-delimited list in the sp_attach_db stored procedure step. 
             
             
-              Re-attach the database. Point to the files in the new location <ul>
+              Re-attach the database. Point to the files in the new location 
                 
                   Use Master
                 
@@ -62,7 +62,7 @@ categories:
                 
                   GO
                 
-              </ul>
+              
              
             
             

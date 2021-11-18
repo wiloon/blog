@@ -597,7 +597,7 @@ adb shell
         端口需要描述下列信息:
       
       
-      <ul>
+      
         
           tcp:<portnum>
         
@@ -610,7 +610,7 @@ adb shell
         
           jdwp:<pid>
         
-      </ul>
+      
     
   
   
@@ -626,14 +626,14 @@ adb shell
         通过USB运行ppp: 
       
       
-      <ul>
+      
         
           <tty> — the tty for PPP stream. For exampledev:/dev/omap_csmi_ttyl.
         
         
           [parm]… &mdash zero or more PPP/PPPD options, such as defaultroute ,local , notty , etc.
         
-      </ul>
+      
       
       
         需要提醒的不能自动启动PDP连接

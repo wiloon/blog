@@ -177,9 +177,9 @@ Servlet中的Listener和Event:
 
 [xml]
    
-<listener>
+
   
-<listener-class> com.servlet.listener.YouAchieveListener </listener-class>
+ com.servlet.listener.YouAchieveListener </listener-class>
   
 </listener >
   
@@ -213,9 +213,9 @@ System.out.print("context listener.context initialized....Destroved");
   
 [xml]
 
-<listener>
+
    
-<listener-class>com.wiloon.servlet.listener.TigerListen</listener-class>
+com.wiloon.servlet.listener.TigerListen</listener-class>
    
 </listener>
 

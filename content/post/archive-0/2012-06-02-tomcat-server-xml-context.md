@@ -23,17 +23,17 @@ server.xml位于$TOMCAT_HOME/conf目录下；下面是一个server.xml实例。�
 
 <Server port="8005" shutdown="SHUTDOWN">
     
-<Listener className="org.apache.catalina.startup.VersionLoggerListener" />
+
     
-<Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+
     
-<Listener className="org.apache.catalina.core.JasperListener" />
+
     
-<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+
     
-<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+
     
-<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
 
 <GlobalNamingResources>
       
@@ -325,17 +325,17 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
   
 <Server port="8005" shutdown="SHUTDOWN">
     
-<Listener className="org.apache.catalina.startup.VersionLoggerListener" />
+
     
-<Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+
     
-<Listener className="org.apache.catalina.core.JasperListener" />
+
     
-<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+
     
-<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+
     
-<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
 
 <GlobalNamingResources>
       
@@ -401,17 +401,17 @@ http://localhost:8084/docs/
 
 1、Listener
   
-<Listener className="org.apache.catalina.startup.VersionLoggerListener" />
+
     
-<Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+
     
-<Listener className="org.apache.catalina.core.JasperListener" />
+
     
-<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+
     
-<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+
     
-<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
   
 Listener(即监听器)定义的组件，可以在特定事件发生时执行特定的操作；被监听的事件通常是Tomcat的启动和停止。
 

@@ -41,6 +41,7 @@ url: protobuf
 
 
 ### generate java/golang code
+Java 工程建议使用下面的 protobuf-maven-plugin 方式  
 ```bash
 export SRC_DIR=/pathToSrcDir
 export DST_DIR=$SRC_DIR
@@ -75,7 +76,7 @@ java protobuf
 https://blog.csdn.net/u014801432/article/details/82558380
 
 
-### maven + protobuf
+### maven + protobuf， protobuf-maven-plugin
 https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
 
 
@@ -91,7 +92,7 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
 <dependencies>
     <dependency>
         <groupId>com.google.protobuf</groupId>
-        protobuf-java</artifactId>
+        <artifactId>protobuf-java</artifactId>
         <version>${protobuf.version}</version>
     </dependency>
 </dependencies>
@@ -100,14 +101,14 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
     <extensions>
         <extension>
             <groupId>kr.motd.maven</groupId>
-            os-maven-plugin</artifactId>
+            <artifactId>os-maven-plugin</artifactId>
             <version>${os-maven-plugin.version}</version>
         </extension>
     </extensions>
     <plugins>
         <plugin>
             <groupId>org.xolstice.maven.plugins</groupId>
-            protobuf-maven-plugin</artifactId>
+            <artifactId>protobuf-maven-plugin</artifactId>
             <version>${protobuf-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
@@ -125,5 +126,5 @@ https://gist.github.com/cqc3073/7766447823ac29a70ddeaf403df1f5f6
     </plugins>
 </build>
 ```
-通过mvn compile, 就可以在target/generated-sources 下看到生成的源码了  
+运行 `mvn compile`, 就可以在 target/generated-sources 下看到生成的源码了  
 reload maven 工程, idea会自动 识别生成的java代码, maven>reload project  

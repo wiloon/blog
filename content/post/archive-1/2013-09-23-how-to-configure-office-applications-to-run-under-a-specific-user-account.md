@@ -37,7 +37,7 @@ This article was previously published under Q288367
   
     When you automate under a specific user account, you should be aware of the following problems:
   
-  <ul>
+  
     
       Any process that creates an Automation instance of the configured Office application creates the instance under the specific user account, allowing it to run with that user's security credentials.
     
@@ -50,7 +50,7 @@ This article was previously published under Q288367
     
       When COM loads a server to run as a specific user account, the registry hive for that user is not loaded. Because the hive is not loaded for that user, the system .DEFAULT hive is used. Because Office has not been run under an account with this hive, you may receive dialog boxes that prompt you for input or the Office CD-ROMs to complete installation. The dialog boxes are not visible on the interactive desktop, so the application appears to stop responding (hang). The dialog boxes may time out and allow the process to continue, but after a noticeable delay in running the program. To work around this situation, install an NT service that runs under the same user account that is set for the DCOM setting. The NT Service Control Manager (SCM) loads the hive for that user when the service starts.
     
-  </ul>
+  
   
     Because the changes in DCOM are global, configuring Office in this manner can have negative side effects for other clients on the system that use Office. It is possible that another client application, or Terminal Server clients, will not be able to use the Office application after the settings are made. Consider carefully what impact this has to your server before you make any changes to the DCOM configuration settings.
   

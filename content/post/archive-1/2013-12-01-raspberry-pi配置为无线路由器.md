@@ -25,7 +25,7 @@ tags:
       首先是必备材料: 
     
     
-    <ul>
+    
       
         RaspberryPi B版（就是带有线网卡的那个版) ，内存512/256都可以，我的是256的。
       
@@ -38,13 +38,13 @@ tags:
       
         有线网卡也得联网。
       
-    </ul>
+    
     
     
       然后是必备技能: 
     
     
-    <ul>
+    
       
         如果你是无显示器运行的，则需要会使用nano（vi也可以) 
       
@@ -54,13 +54,13 @@ tags:
       
         总之，就是你得会编辑文本文件才可以进行下面的操作。
       
-    </ul>
+    
     
     
       感谢原文给出的驱动提示，这里也抄一下。请确认无线网卡支持AP模式或者Master模式，已知下列网卡的具体情况: 
     
     
-    <ul>
+    
       
         Edimax  不支持 Access Point
       
@@ -70,7 +70,7 @@ tags:
       
         Ralink RT5370 支持 Access Point
       
-    </ul>
+    
     
     
       想看你使用的是那种芯片？用lsusb吧！(省略了部分输出) 
@@ -90,7 +90,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
       先说一下大概步骤: 
     
     
-    <ul>
+    
       
         打开WiFi
       
@@ -100,7 +100,7 @@ Bus 001 Device 007: ID 148f:5370 Ralink Technology, Corp. RT5370 Wireless Adapte
       
         使用NAT，也就是能让你WiFi网络和有线网络可以通信。
       
-    </ul>
+    
     
     
       正文开始了: 

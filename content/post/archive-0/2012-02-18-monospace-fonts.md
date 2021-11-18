@@ -21,7 +21,7 @@ Monospace fonts (Such as Courier or LetterGothic), or "fixed pitch" fonts, conta
   
   
     
-      <ul>
+      
         
           Crisp clear characters.
         
@@ -43,6 +43,6 @@ Monospace fonts (Such as Courier or LetterGothic), or "fixed pitch" fonts, conta
         
           Clear punctuation characters, especially braces, parenthesis and brackets
         
-      </ul>
+      
     
   

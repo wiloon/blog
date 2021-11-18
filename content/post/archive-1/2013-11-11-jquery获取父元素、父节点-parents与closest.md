@@ -14,15 +14,15 @@ tags:
 先看个简单的例子，呵呵
 
 
-<ul class="box" name="a">
 
-<li name="b" class="li_moito">Hello Moto*
+
+Hello Moto*
 
 Hello Kitty*
 
 Hello World*
 
-</ul>
+
 
 
 如果要获取class="moto"的父级元素LI，或许我们最先想到的一种方法就是用

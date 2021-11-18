@@ -70,11 +70,11 @@ REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述�
 <users>
 	<user>
 			<name>tester</name>
-			<link>http://localhost:8182/v1/users/tester</link>
+			http://localhost:8182/v1/users/tester</link>
 	</user>
 	<user>
 			<name>tester1</name>
-			<link>http://localhost:8182/v1/users/tester1</link>
+			http://localhost:8182/v1/users/tester1</link>
 	</user>
 </users>
     
@@ -100,7 +100,7 @@ REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述�
 
 
 
-客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` <link>http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
+客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
 
 
 
@@ -472,7 +472,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
 
 getUserList SOAP 消息获得所有的用户列表后,仍然无法通过既有的信息得到某个具体的用户信息。唯一的方法只有通过 WSDL 的指示,通过调用 getUserByName 获得,getUserList 与 getUserByName 是彼此孤立的。
 
-而对于 REST,情况是完全不同的: 通过 `http://localhost:8182/v1/users` URI 获得用户列表,然后再通过用户列表中所提供的 LINK 属性,例如 `<link>http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式,非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面,并不依赖任何第三方的信息。
+而对于 REST,情况是完全不同的: 通过 `http://localhost:8182/v1/users` URI 获得用户列表,然后再通过用户列表中所提供的 LINK 属性,例如 `http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式,非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面,并不依赖任何第三方的信息。
 
 
 总结

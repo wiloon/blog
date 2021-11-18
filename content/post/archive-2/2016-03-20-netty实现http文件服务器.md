@@ -333,7 +333,7 @@ sb.append(dirPath).append("目录: ");
   
 sb.append("\r\n");
 
-sb.append("<ul>");
+sb.append("");
   
 sb.append("..\r\n");
 
@@ -365,7 +365,7 @@ sb.append("\r\n");
 
 }
 
-sb.append("</ul></body></html>\r\n");
+sb.append("</body></html>\r\n");
 
 ByteBuf buffer = Unpooled.copiedBuffer(sb, CharsetUtil.UTF_8);
   

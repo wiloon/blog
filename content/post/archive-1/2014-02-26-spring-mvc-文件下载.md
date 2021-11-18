@@ -195,7 +195,7 @@ Java代码 收藏代码
 
 <property name="messageConverters">
 
-<list>
+
 
 [color=red]<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>[/color]
 
@@ -203,7 +203,7 @@ Java代码 收藏代码
 
 <property name = "supportedMediaTypes">
 
-<list>
+
 
 <value>text/plain;charset=UTF-8</value>
 

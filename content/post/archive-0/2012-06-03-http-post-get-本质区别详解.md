@@ -350,14 +350,14 @@ categories:
       在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是: GET 和 POST。
     
     
-    <ul>
+    
       
         GET - 从指定的资源请求数据。
       
       
         POST - 向指定的资源提交要被处理的数据
       
-    </ul>
+    
   
   
     
@@ -374,7 +374,7 @@ categories:
       有关 GET 请求的其他一些注释: 
     
     
-    <ul>
+    
       
         GET 请求可被缓存
       
@@ -393,7 +393,7 @@ categories:
       
         GET 请求只应当用于取回数据
       
-    </ul>
+    
   
   
     
@@ -413,7 +413,7 @@ name1=value1&name2=value2
       有关 POST 请求的其他一些注释: 
     
     
-    <ul>
+    
       
         POST 请求不会被缓存
       
@@ -426,7 +426,7 @@ name1=value1&name2=value2
       
         POST 请求对数据长度没有要求
       
-    </ul>
+    
   
   
     

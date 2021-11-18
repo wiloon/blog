@@ -43,7 +43,7 @@ view plaincopy
 
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="1" android:layout_width="-1" android:layout_height="-1" >
+
 
 <WebView android:id="@7F050000" android:layout_width="-1" android:layout_height="-2" >
 

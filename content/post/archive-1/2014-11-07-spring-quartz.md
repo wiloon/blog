@@ -16,7 +16,7 @@ http://www.oschina.net/question/8676_9032
 
 <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
        <property name="triggers">  
-           <list>  
+             
               <ref bean="testTrigger"/>  
            </list>  
        </property>  
