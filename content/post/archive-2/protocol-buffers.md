@@ -9,7 +9,7 @@ url: protobuf
 
 ### install protoc
     # archlinux 可以从仓库直接安装
-    pacman -S protoc
+    pacman -S protobuf
     # 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
     https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
 
@@ -51,10 +51,17 @@ protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
 
 # Golang
 # install protocol buffers plugin
+# go: module github.com/golang/protobuf is deprecated: Use the "google.golang.org/protobuf" module instead.
 go get -u github.com/golang/protobuf/protoc-gen-go
+
+# 用这个
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 # generate golang code
 protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/proto0.proto
+protoc --proto_path=$SRC_DIR --go_out=$DST_DIR  --go_opt=paths=source_relative $SRC_DIR/foo.proto
+# -I, --proto_path: .proto 文件目录
+# --go_out： 输出目录
 ```
 
 ### protobuf > json

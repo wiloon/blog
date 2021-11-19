@@ -1,91 +1,36 @@
 ---
-title: linux tar
+title: cgroup， namespace
 author: "-"
 date: 2011-10-13T08:11:53+00:00
-url: /?p=1030
+url: cgroup
 categories:
   - Linux
 
 ---
-## linux tar
-```bash
-  
-解包: tar xvf FileName.tar
-  
-打包: tar cvf FileName.tar DirName
-  
-# 注: tar是打包，不是压缩！
+## cgroup， namespace
+cgroup 的主要作用：管理资源的分配、限制；
+namespace 的主要作用：封装抽象，限制，隔离，使命名空间内的进程看起来拥有他们自己的全局资源；
 
-```
+### Chroot
+Chroot 可以将进程及其子进程与操作系统的其余部分隔离开来。但是，对于 root process ，却可以任意退出 chroot。
 
-必要参数有如下: 
-  
--A 新增压缩文件到已存在的压缩
-  
--B 设置区块大小
-  
--c 建立新的压缩文件
-  
--d 记录文件的差别
-  
--r 添加文件到已经压缩的文件
-  
--u 添加改变了和现有的文件到已经存在的压缩文件
-  
--x 从压缩的文件中提取文件
-  
--t 显示压缩文件的内容
-  
--z 支持gzip解压文件
-  
--j 支持bzip2解压文件
-  
--Z 支持compress解压文件
-  
--v 显示操作过程
-  
--l 文件系统边界设置
-  
--k 保留原有文件不覆盖
-  
--m 保留文件不被覆盖
-  
--W 确认压缩文件的正确性
+### 现代化容器技术带来的优势
+- 轻量级，基于 Linux 内核所提供的 cgroup 和 namespace 能力，创建容器的成本很低；
+- 一定的隔离性；
+- 标准化，通过使用容器镜像的方式进行应用程序的打包和分发，可以屏蔽掉因为环境不一致带来的诸多问题；
+- DevOps 支撑（可以在不同环境，如开发、测试和生产等环境之间轻松迁移应用，同时还可保留应用的全部功能）；
 
-可选参数如下: 
-  
--b 设置区块数目
-  
--C 切换到指定目录
-  
--f 指定压缩文件
-  
--help 显示帮助信息
-  
--version 显示版本信息
+### cgroup
+cgroup 是 Linux 内核的一个功能，用来限制、控制与分离一个进程组的资源（如CPU、内存、磁盘输入输出等）。它是由 Google 的两位工程师进行开发的，自 2018 年 1 月正式发布的 Linux 内核 v2.6.24 开始提供此能力。
 
--z 是配合解压.GZ的
-  
--x 解开一个包文件
-  
--v 显示详细信息
-  
--f 必须，表示使用归档文件
-  
--z, -gzip, -ungzip
-                
-filter the archive through gzip
-  
--x, -extract, -get
-                
-extract files from an archive
-  
--v, -verbose
-                
-verbosely list files processed
-  
--f, -file [HOSTNAME:]F
-                
-use archive file or device F (default "-", meaning stdin/stdout)
-  
--j, -bzip2
+cgroup 主要限制的资源是：
+- CPU
+- 内存
+- 网络
+- 磁盘 I/O
+
+### 一篇搞懂容器技术的基石： cgroup -- 张晋涛
+采用《署名-非商业性使用-禁止演绎 4.0 国际》许可协议
+>https://segmentfault.com/a/1190000040980305
+
+

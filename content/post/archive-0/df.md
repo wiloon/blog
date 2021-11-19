@@ -1,17 +1,14 @@
 ---
-title: linux 查看磁盘分区
+title: df
 author: "-"
 date: 2011-10-16T10:39:32+00:00
-url: /?p=1081
+url: df
 categories:
   - Linux
 
 ---
-## linux 查看磁盘分区
-**df 命令；
-  
-** 
-  
+## df
+
 df 是来自于coreutils 软件包，系统安装时，就自带的；我们通过这个命令可以查看磁盘的使用情况以及文件系统被挂载的位置；
 
 举例: 
