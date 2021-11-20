@@ -24,6 +24,10 @@ https://podman.io/getting-started/installation
 ### archlinux
 ```bash
 pacman -S podman
+```
+
+### podman command
+```bash
 podman version
 podman info --debug
 
@@ -40,6 +44,10 @@ podman container restore <container_id>
 podman stop --latest
 podman rm --latest
 podman --log-level=debug pull dockerhub.azk8s.cn/library/golang
+```
+### 查看 cpu 内存占用
+```bash
+podman stats
 ```
 
 ### 配置driver
@@ -81,12 +89,15 @@ location = "docker-registries.wiloon.com"
     location = "xxxxxx.mirror.aliyuncs.com"
 
 ### run
+限制cpu, 内存
 ```bash
 podman run \
 -d \
 --name name0 \
 -p 2000:80/tcp \
 -v /etc/localtime:/etc/localtime:ro \
+--memory=2g \
+--cpus=1 \
 image0_name
 
 ```

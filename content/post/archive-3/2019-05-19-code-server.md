@@ -29,6 +29,8 @@ podman run -d --name code-server \
 -v "code-server-data:/data" \
 -u "$(id -u):$(id -g)" \
 -e "DOCKER_USER=root"  \
+--memory=2g \
+--cpus=1 \
 codercom/code-server:3.12.0 --auth none
 ```
 

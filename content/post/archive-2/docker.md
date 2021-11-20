@@ -115,7 +115,7 @@ docker volume rm influxdb-config
 -v /etc/localtime:/etc/localtime:ro
 ```
 
-### 监控
+### 查看 docker 容器使用的资源, cpu, 内存, IO
 
 ```bash
 docker stats
