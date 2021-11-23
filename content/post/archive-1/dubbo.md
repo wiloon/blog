@@ -8,7 +8,9 @@ categories:
 
 ---
 ## Dubbo, |ˈdʌbəʊ|
-Dubbo3 推荐使用 IDL 定义跨语言服务
+Dubbo3 推荐使用 IDL 定义跨语言服务  
+Dubbo 默认的协议是 dubbo 协议（协议和框架同名），而 dubbo 协议默认指定的序列化方式是 hessian2  
+
 ### IDL
 接口描述语言（Interface description language，缩写IDL)
 

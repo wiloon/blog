@@ -17,14 +17,15 @@ categories:
 <dependencies>
     <dependency>
         <groupId>org.slf4j</groupId>
-        slf4j-api</artifactId>
+        <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
     </dependency>
     <dependency>
         <groupId>org.slf4j</groupId>
-        slf4j-simple</artifactId>
+        <artifactId>slf4j-simple</artifactId>
         <version>${slf4j.version}</version>
     </dependency>
+</dependencies>
 ...
 
   http://baike.baidu.com/view/1895694.htm
