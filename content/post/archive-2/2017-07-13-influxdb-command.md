@@ -28,7 +28,7 @@ systemctl enable influxdb
 ```bash
 # install
 # archlinux
-yaourt -S influxdb
+yay -S influxdb
 
 # centos
 # https://www.influxdata.com/blog/package-repository-for-linux/

@@ -8,10 +8,15 @@ categories:
   - Network
 
 ---
-## linux http proxy
+## linux http proxy， http_proxy
+在Linux的命令行底下，一般的程序都是使用http_proxy和ftp_proxy这两个环境变量来获得代理设置的。
 ```bash
   
 export http_proxy=http://localhost:8118/
+
+# 需要密码的代理服务器
+export http_proxy=http://username:password@proxyserver:port/
+export ftp_proxy=http://username:password@proxyserver:port/
 
 unset http_proxy
   
@@ -20,14 +25,6 @@ unset https_proxy
 unset ftp_proxy
   
 ```
-
-在Linux的命令行底下，一般的程序都是使用http_proxy和ftp_proxy这两个环境变量来获得代理设置的。
-
-export http_proxy=http://username:password@proxyserver:port/
-  
-export ftp_proxy=http://username:password@proxyserver:port/
-  
-如果你的代理服务器需要用户名和密码才能访问，需要填写上面的username和passwd部分，否则的话，省略这两部分。
 
 export no_proxy="localhost,127.0.0.0/8,*.local"
 

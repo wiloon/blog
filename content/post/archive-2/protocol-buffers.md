@@ -12,7 +12,9 @@ url: protobuf
     pacman -S protobuf
     # 其它发行版, 比如ubuntu 可以下载二进制包 解压即可.
     https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
-
+    # set protoc to PATH
+    protoc -help
+    
 #### windows
     download protoc 
     https://developers.google.com/protocol-buffers/docs/downloads
@@ -41,20 +43,24 @@ url: protobuf
 
 
 ### generate java/golang code
-Java 工程建议使用下面的 protobuf-maven-plugin 方式  
+
 ```bash
 export SRC_DIR=/pathToSrcDir
 export DST_DIR=$SRC_DIR
+```
 
-# Java, generate java code
-protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
-
-# Golang
+#### golang
+```bash
+# 安装 protoc-gen-go
 # install protocol buffers plugin
 # go: module github.com/golang/protobuf is deprecated: Use the "google.golang.org/protobuf" module instead.
+
+# 废弃，deprecated
 go get -u github.com/golang/protobuf/protoc-gen-go
 
-# 用这个
+# 建议用这个
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+# 或
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 # generate golang code
@@ -62,6 +68,14 @@ protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/proto0.proto
 protoc --proto_path=$SRC_DIR --go_out=$DST_DIR  --go_opt=paths=source_relative $SRC_DIR/foo.proto
 # -I, --proto_path: .proto 文件目录
 # --go_out： 输出目录
+```
+
+#### java
+Java 工程建议使用下面的 protobuf-maven-plugin 方式
+##### protoc java
+```bash
+# Java, generate java code
+protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
 ```
 
 ### protobuf > json

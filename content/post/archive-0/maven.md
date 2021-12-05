@@ -15,17 +15,13 @@ tags:
     https://repo.maven.apache.org/maven2
 
 ### Maven 参数
--D 传入属性参数
-
--P 使用pom中指定的配置
-
--e 显示maven运行出错的信息
-
--o 离线执行命令,即不去远程仓库更新包
-
--X 显示maven允许的debug信息
-
--U 强制去远程参考更新snapshot包
+    -D 传入属性参数
+    -P 使用pom中指定的配置
+    -e 显示maven运行出错的信息
+    -o 离线执行命令,即不去远程仓库更新包
+    -X 显示maven允许的debug信息
+    -U 强制去远程参考更新snapshot包
+    -q for only error
 
 ### 参数>properties
 对应一个变量值，pom.xml里面配置的有，那么如果你在命令行中 以 -Dmy.filter.value=1 的格式去配置mvn命令，那么将覆盖你pom中的值。
@@ -39,16 +35,17 @@ tags:
     https://blog.csdn.net/Maxiao1204/article/details/90510176
 
 ### command
-  -e for error
-  -X for debug
-  -q for only error
+
+```bash
+# skip test, 强制更新依赖包
   mvn -Dmaven.test.skip=true clean package -U
+```
 
 ### 生成项目
 ```bash
 # common project
 # mvn archetype:generate 会自动创建项目目录 mvntest
-mvn archetype:generate -DgroupId=com.wiloon.demo -DartifactId=mvntest \
+mvn archetype:generate -DgroupId=com.wiloon.demo -DartifactId=project0 \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 # archetypeVersion 指定版本号

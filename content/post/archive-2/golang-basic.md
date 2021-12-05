@@ -6,7 +6,9 @@ url: go
 
 ---
 ## go, golang, basic
-# golang
+Go是Google开发的一种静态强类型、编译型、并发型,并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫,罗勃·派克及肯·汤普逊于2007年9月开始设计Go,稍后Ian Lance Taylor、Russ Cox加入项目。Go是基于Inferno操作系统所开发的。
+Go 语言是静态类型的编程语言
+
 ## version
 ### latest 
 1.17
@@ -24,15 +26,29 @@ url: go
     go run -race cmd.go // 竞态检测
 
 ### install
+china mainland download
+>https://golang.google.cn/
 #### ubuntu
     sudo add-apt-repository ppa:longsleep/golang-backports
     sudo apt update
     sudo apt install golang-go
 
 ### 环境变量
-    # 设置不走 proxy 的私有仓库,多个用逗号相隔（可选) 
-    export GOPRIVATE=*.corp.example.com
-    export GOPRIVATE=git.wiloon.com
+```bash
+# gopath bin
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# 设置不走 proxy 的私有仓库,多个用逗号相隔（可选) 
+export GOPRIVATE=*.corp.example.com
+export GOPRIVATE=git.wiloon.com
+
+# todo, deprecated
+export GOROOT=/root/go
+export GOPATH=/root/gopath
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export GOBIN=/path/to/go/bin
+
+```
 
 ### internal package
 Go语言1.4版本增加了 Internal packages 特征用于控制包的导入,即internal package只能被特定的包导入。
@@ -340,3 +356,29 @@ https://tip.golang.org/doc/go1.17
 >https://zhuanlan.zhihu.com/p/71993748
 ### go程序启动过程
 >https://juejin.cn/post/6942509882281033764
+
+
+## golang install
+
+
+GOPATH:
+
+linux:
+  
+```bash
+
+mkdir -p /home/wiloon/my-projects/golang/lib/
+
+mkdir -p /home/wiloon/my-projects/golang/projects/
+
+export GOPATH="/home/wiloon/my-projects/golang/lib/:/home/wiloon/my-projects/golang/projects/"
+
+#check golang version
+  
+go version
+  
+```
+
+windows:
+  
+GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox

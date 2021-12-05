@@ -2,10 +2,11 @@
 title: curl
 author: "-"
 date: 2011-11-24T12:47:12+00:00
-url: /?p=1594
+url: curl
 categories:
   - Linux
   - Web
+  - remix
 
 ---
 ## curl
@@ -23,10 +24,18 @@ categories:
     -d "user=nickwolfe&password=12345" http://www.yahoo.com/login.cgi
 
 ### use proxy
-    -x, --proxy [protocol://]host[:port]
-#### http proxy
-    curl -x http://127.0.0.1:8899 http://www.baidu.com
-
+#### 用 -x 参数 
+```bash
+-x, --proxy [protocol://]host[:port]
+curl -x http://127.0.0.1:8899 http://www.baidu.com
+```
+#### 或者在环境变量里设置proxy
+```bash
+export http_proxy=http://127.0.0.1:1080
+curl -v http://www.baidu.com
+# 或
+http_proxy=http://127.0.0.1:1080 curl -v http://www.baidu.com
+```
 #### socks5 proxy
 ```bash
 curl -x socks5h://localhost:8001 http://www.google.com/
