@@ -110,7 +110,7 @@ https://blog.hellojukay.cn/2019/08/09/20190810/
 
 https://bbs.archlinuxcn.org/viewtopic.php?id=2052
 
-###### https://zhuanlan.zhihu.com/p/51957263
+>https://zhuanlan.zhihu.com/p/51957263
 
 http://forum.ubuntu.org.cn/viewtopic.php?f=68&t=395616
 

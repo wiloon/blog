@@ -175,6 +175,6 @@ List of devices attached
   
 4df798d76f98cf6d device
 
-## https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized
+>https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized
 
 http://sspai.com/27429

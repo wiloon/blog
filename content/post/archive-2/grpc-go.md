@@ -8,7 +8,7 @@ categories:
 
 ---
 ### grpc
-GRPC 是在 http2 之上运行的
+gRPC通过 HTTP2 协议传输
 ## golang grpc
 
 ### install protocol compiler plugins
@@ -33,7 +33,26 @@ protoc -I proto/ proto/helloworld.proto -go_out=plugins=grpc:proto
     grpc-dump --port=12345
     http_proxy=http://localhost:12345 my-app
 
+### wireshark grpc
+>https://mp.weixin.qq.com/s/BdcFRO58ytrtcpYZVT1ymQ
+
+Wireshark>Edit->Preference->Protocols->Protobuf
+#### analyze
+Analyze>Decode As
+在current列选择http2
+
+### streaming
+gRPC 的流式，分为三种类型：
+
+Server-side streaming RPC：服务器端流式 RPC
+Client-side streaming RPC：客户端流式 RPC
+Bidirectional streaming RPC：双向流式 RPC
+>https://colobu.com/2017/04/06/dive-into-gRPC-streaming/
+>https://segmentfault.com/a/1190000016503114
+
 >https://github.com/bradleyjkemp/grpc-tools
 https://grpc.io/docs/quickstart/go.html#prerequisites
   
 http://www.blogjava.net/killme2008/archive/2010/01/20/310206.html
+#### gRPC over HTTP2
+>https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md

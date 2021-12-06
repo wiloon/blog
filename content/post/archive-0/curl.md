@@ -32,10 +32,12 @@ curl -x http://127.0.0.1:8899 http://www.baidu.com
 ```
 #### 或者在环境变量里设置proxy
 ```bash
+http_proxy=http://127.0.0.1:1080 curl -v http://www.baidu.com
+
+# todo, export之后 curl 不会走这个代理....
 export http_proxy=http://127.0.0.1:1080
 curl -v http://www.baidu.com
-# 或
-http_proxy=http://127.0.0.1:1080 curl -v http://www.baidu.com
+
 ```
 #### socks5 proxy
 ```bash

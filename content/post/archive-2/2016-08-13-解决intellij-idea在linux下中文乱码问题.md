@@ -8,7 +8,7 @@ categories:
 
 ---
 ## 解决Intellij Idea在linux下中文乱码问题
-## http://lan2720.github.io/2015/11/04/%E8%A7%A3%E5%86%B3Intellij-Idea%E5%9C%A8linux%E4%B8%8B%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/ {#Problem}
+>http://lan2720.github.io/2015/11/04/%E8%A7%A3%E5%86%B3Intellij-Idea%E5%9C%A8linux%E4%B8%8B%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/ {#Problem}
 
 ## Problem
 
