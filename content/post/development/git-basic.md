@@ -2,7 +2,7 @@
 title: git basic
 author: "-"
 date: 2011-05-28T13:01:51.000+00:00
-url: "git"
+url: "git/basic"
 tags:
 - Git
 
@@ -389,7 +389,20 @@ $ git submodule add https://github.com/maonx/vimwiki-assets.git assets
 git rm /xxx/xxx/xxx.xxx  
 git rm xxx/xxx
 
----
+### git restore
+```bash
+git restore
+
+```
+将在工作空间但是不在暂存区的文件撤销更改 
+
+#### 将暂存区的文件从暂存区撤出，但不会更改文件
+```bash
+git restore --staged
+
+```
+>https://blog.csdn.net/u013493841/article/details/104451987
+
 
 http://zensheno.blog.51cto.com/2712776/490748  
 http://blog.csdn.net/ithomer/article/details/7529841  
