@@ -8,6 +8,9 @@ tags:
 
 ---
 ## git basic
+### git add
+git add 命令可将该文件添加到暂存区。
+
 ### config git editor
     git config --global core.editor vim
     export EDITOR=vim
@@ -390,16 +393,16 @@ git rm /xxx/xxx/xxx.xxx
 git rm xxx/xxx
 
 ### git restore
+将在工作空间但是不在暂存区的文件撤销更改 
 ```bash
 git restore
 
 ```
-将在工作空间但是不在暂存区的文件撤销更改 
+
 
 #### 将暂存区的文件从暂存区撤出，但不会更改文件
 ```bash
-git restore --staged
-
+git restore --staged /path/to/file
 ```
 >https://blog.csdn.net/u013493841/article/details/104451987
 
