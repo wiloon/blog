@@ -12,10 +12,13 @@ gRPC通过 HTTP2 协议传输
 ## golang grpc
 
 ### install protocol compiler plugins
+在 https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go 可以看到最新的版本号
 ```bash
-$ go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
-$ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
-
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.27.1
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1.0
+# 安装后查看 版本
+./protoc-gen-go --version
+./protoc-gen-go-grpc --version
 ```
 
 ```bash

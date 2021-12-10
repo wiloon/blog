@@ -304,11 +304,13 @@ $ ls
   
 go-examples hellogo.go
 
-go install
-  
-与build命令相比,install命令在编译源码后还会将可执行文件或库文件安装到约定的目录下。
+### go install
+go install 可忽略当前目录或上层目录的 go.mod 文件,这对于在不影响主模块依赖的情况下，安装二进制很方便；
+go install 被设计为“用于构建和安装二进制文件”， go get 则被设计为 “用于编辑 go.mod 变更依赖”，并且使用时，应该与 -d 参数共用，在将来版本中 -d 可能会默认启用；
+如果你在模块目录中，并且你不带 @version 执行安装的话，只能安装 go.mod 中已经包含的版本。并且不能安装未出现在 go.mod 中的包。
+与build命令相比, install命令在编译源码后还会将可执行文件或库文件安装到约定的目录下。
 
-go install编译出的可执行文件以其所在目录名(DIR)命名
+go install 编译出的可执行文件以其所在目录名(DIR)命名
   
 go install将可执行文件安装到与src同级别的bin目录下,bin目录由go install自动创建
   
@@ -382,3 +384,6 @@ go version
 windows:
   
 GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
+
+
+>https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/
