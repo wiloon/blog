@@ -66,13 +66,6 @@ Content-Transfer-Encoding: [mechanism]
 
 因为欧洲的一些文字和ASCII字符集中的某些字符有部分相同。如果邮件消息使用的是这些语言的话，于ASCII重叠的那些字符可以原样使用，ASCII字符集中不存在的字符采用形如"=??"的方法编码。这里"??"需要用将字符编码后的16进制数字来指定。采用quoted-printable编码的消息，长度不会变得太长，而且大部分都是ASCII中的字符，即使不通过解码也大致可以读懂消息的内容。
 
-#### ]base64
-
-base64是一种将二进制的01序列转化成ASCII字符的编码方法。编码后的文本或者二进制消息，就可以运用SMTP等只支持ASCII字符的协议传送了。Base64一般被认为会平均增加33%的报文长度，而且，经过编码的消息对于人类来说是不可读的。
-
-[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types")
-
-
 ### MIME
 MIME笔记
 
