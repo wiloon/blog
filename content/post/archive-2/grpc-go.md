@@ -9,6 +9,13 @@ categories:
 ---
 ### grpc
 gRPC通过 HTTP2 协议传输
+
+### protobuf
+```
+syntax = "proto3";
+option go_package="./;api";
+
+```
 ## golang grpc
 
 ### install protocol compiler plugins

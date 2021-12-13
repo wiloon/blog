@@ -1,5 +1,5 @@
 ---
-title: 'button input type="button"   Which to use?'
+title: 'button input, type="button"   Which to use?'
 author: "-"
 date: 2013-09-08T01:59:16+00:00
 url: /?p=5797
@@ -7,7 +7,7 @@ categories:
   - Web
 
 ---
-## 'button input type="button"   Which to use?'
+## 'button input, type="button"   Which to use?'
 <http://web.archive.org/web/20110721191046/http://particletree.com/features/rediscovering-the-button-element/>
 
 <http://www.peterbe.com/plog/button-tag-in-IE>
