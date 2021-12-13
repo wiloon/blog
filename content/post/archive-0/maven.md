@@ -66,6 +66,9 @@ mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plug
 mvn clean compile -Dmaven.test.skip=true org.apache.maven.plugins:maven-war-plugin:exploded -U
 #-U,--update-snapshots                  Forces a check for missing                                        releases and updated snapshots on
 mvn clean compile -U
+# 指定执行某一个类的测试
+mvn -Dtest=com.wiloon.Foo test
+
 ```
 ### 检测包冲突
     mvn dependency:help

@@ -25,15 +25,17 @@ tags:
   - 转载内容的Author会标记为"-"
 - 会不定期删除本人使用频率低的内容, 比如早期接触过的ASP.net, Wordpress, PHP...
 - 因为从Wordpress转到Markdown, 最近都在频繁调整格式, 所以本站在Github上对应的仓库目前是私有的， 等稳定之后会考虑转成Public. 
-- 转载内容有侵权可以随时联系我删除 wiloon.wy@gmail.com
+- 转载内容有侵权可以随时联系我删除
 ### 整理过的
 - 在转载文章的基础上整理过的
+- 记录了一部分常用的命令
+- 平时经常使用的工具, 命令, 脚本, 使用过程中遇到问题,解决问题后会频繁的修改，会补充命令的示例
 - 一般会有语法高亮
 - 有段落标注
+- 可能有N个引用来源
 ### 原创
 - 少量原创
 - 原创比例比较高的文档
-- 平时经常使用的工具, 命令, 脚本, 使用过程中遇到问题,解决问题后会频繁的修改，会补充命令的示例
 - 日常遇到的问题和解决过程
 - 以Tag方式标记原创内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 - Author会标记为 "w1100n"
@@ -45,15 +47,25 @@ tags:
 - Even theme
 
 ## 关于我
-- 80后程序员
-- 热爱折腾, 热爱Linux
+- 中学时期一度沉迷计算机硬件，是<<微型计算机>>的忠实读者, 练就了一手装机技能。大学时期人称"机修"。
+- 工作之后被派到上海出差三年期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Archlinux, Gentoo.
+- 写过 C#, Java, Android, IOS; 目前工作主力: Java, Golang
+- 日常系统 Archlinux + KDE
 
 ### 技术栈
 - Java, Golang
 - MySQL, Redis, InfluxDB
 - Kafka, Zookeeper
-- Vue, Element, Vuetify, Angular
-- CentOS, Ubuntu, Archlinux
+- CentOS, Ubuntu, Archlinux, Docker, Podman
 - AWS, Aliyun
+- Vue, Element, Vuetify, Angular
+
 ### - 联系方式
 email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
+GitHub: https://github.com/wiloon
+Stackoverflow: https://stackoverflow.com/users/1431884/w1100n
+
+### 共享协议
+本站 仅 "原创" 分类中的文字作品由 w1100n 创作，采用知识共享署名-相同方式共享 4.0 国际许可协议进行许可。  
+其它分类中转载的文档使用原作者的共享协议。
+

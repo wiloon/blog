@@ -38,6 +38,9 @@ AdoptOpenJDK是一个由OpenJDK构建，并以免费软件的形式提供社区�
 ### AdoptOpenJDK mirror
     https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux/
 
+#### jdk 8
+https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/8/jdk/x64/linux/OpenJDK8U-jdk_x64_linux_hotspot_8u312b07.tar.gz
+
 open a terminal.
   
 sh jdk-6u25-linux-i586.bin
