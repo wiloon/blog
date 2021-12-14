@@ -11,7 +11,7 @@ tags:
 
 ---
 ## template for web.xml Servlet3.0
-[xml]
+```xml
   
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -27,6 +27,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 
 </web-app>
   
-[/xml]
+```
 
 <http://dominikdorn.com/2010/03/web-xml-web-fragment-xml-2-3-2-4-2-5-3-0/>

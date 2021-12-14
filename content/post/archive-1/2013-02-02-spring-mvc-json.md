@@ -15,7 +15,7 @@ tags:
 
 http://blog.csdn.net/skmbw/article/details/12263253
 
-[xml]
+```xml
 
 <dependency>
   
@@ -37,6 +37,6 @@ jackson-mapper-lgpl</artifactId>
   
 </dependency>
 
-[/xml]
+```
 
  [1]: http://blog.csdn.net/skmbw/article/details/12263253

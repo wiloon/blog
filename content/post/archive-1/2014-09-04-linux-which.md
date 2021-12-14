@@ -1,5 +1,5 @@
 ---
-title: linux which
+title: which, command, type
 author: "-"
 date: 2014-09-04T04:57:19+00:00
 url: /?p=6976
@@ -7,7 +7,7 @@ tags:
   - linux
 
 ---
-## linux which
+## which, command, type
 ### 避免使用which, 用shell内置的 command -v, hash, type替代
 
 http://www.cnblogs.com/peida/archive/2012/11/08/2759805.html

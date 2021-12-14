@@ -70,7 +70,7 @@ out.println("＜/body＞＜/html＞");
   
 或者在POM.xml里加入
 
-[xml]
+```xml
   
 <dependency>
 	  
@@ -82,7 +82,7 @@ tomcat-servlet-api</artifactId>
   
 </dependency>
   
-[/xml]
+```
 
 For gradle
   
@@ -102,7 +102,7 @@ ROOT/WEB-INF/classes/HelloWorld.class(把上面生成的HelloWorld.class文件�
 
 Servlet必须使用C:/Tomcat/webapps/ROOT/WEB-INF这个目录下面的web.xml文件进行注册，用编辑器打开这个web.xml文件，在里面加入: 
 
-[xml]
+```xml
     
 <servlet>
       
@@ -120,11 +120,11 @@ Servlet必须使用C:/Tomcat/webapps/ROOT/WEB-INF这个目录下面的web.xml文
     
 </servlet-mapping>
   
-[/xml]
+```
 
 这样的结构
 
-[xml]
+```xml
    
 <servlet>
       
@@ -134,11 +134,11 @@ Servlet必须使用C:/Tomcat/webapps/ROOT/WEB-INF这个目录下面的web.xml文
     
 </servlet>
   
-[/xml]
+```
 
 表示指定包含的servlet类。而以下的结构: 
 
-[xml]
+```xml
    
 <servlet-mapping>
       
@@ -148,7 +148,7 @@ Servlet必须使用C:/Tomcat/webapps/ROOT/WEB-INF这个目录下面的web.xml文
     
 </servlet-mapping>
   
-[/xml]
+```
 
 表示指定HelloServlet应当映射到哪一种URL模式。
 

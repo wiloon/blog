@@ -15,7 +15,7 @@ tags:
 
 应用springMVC时如果配置URL映射时如下配置
 
-[xml]
+```xml
 
 <servlet>
    
@@ -44,13 +44,13 @@ tags:
 </servlet-mapping>
 
 
-[/xml]
+```
 
 会导致页面引用的JS CSS发生找不到的错误
   
 此时应在web.xml中添加
 
-[xml]
+```xml
 
 <servlet-mapping>
    
@@ -84,4 +84,4 @@ tags:
    
 </servlet-mapping>
 
-[/xml]
+```

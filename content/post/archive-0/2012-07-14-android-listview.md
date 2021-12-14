@@ -25,7 +25,7 @@ ListView是一个经常用到的控件，ListView里面的每个子项Item可以
 main.xml代码如下，很简单，也不需要多做解释了: 
   
     
-      [xml]
+      ```xml
  <?xml version="1.0" encoding="utf-8"?>
  <LinearLayout
  android:id="@+id/LinearLayout01"
@@ -40,13 +40,13 @@ main.xml代码如下，很简单，也不需要多做解释了:
  android:id="@+id/MyListView">
  </ListView>
  </LinearLayout>
- [/xml]
+ ```
   
 
 
   my_listitem.xml的代码如下，my_listitem.xml用于设计ListView的Item:  
   
-    [xml]
+    ```xml
   
   
     <?xml version="1.0" encoding="utf-8"?>
@@ -73,7 +73,7 @@ main.xml代码如下，很简单，也不需要多做解释了:
   
   
     
- [/xml]
+ ```
   
 
 解释一下，里面用到的一些属性: 
