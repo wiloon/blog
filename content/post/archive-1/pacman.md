@@ -8,6 +8,20 @@ tags:
 
 ---
 ## pacman
+### (invalid or corrupted package (PGP signature))
+error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
+:: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
+
+查看key的状态：
+pacman-key --list-sigs Witschel
+提示是expired
+pacman-key --refresh-keys
+查看Master组的key的状态
+pacman-key --list-sigs Master
+提示undefined，所以用对应的ID删除再重新导入即可：
+
+pacman-key --delete 91FFE0700E80619CEB73235CA88E23E377514E00
+pacman-key --populate archlinux
 ### 在仓库里搜索有关abc的包
     pacman -Ss abc
 

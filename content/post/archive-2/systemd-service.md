@@ -1,13 +1,43 @@
 ---
-title: systemd service config, start script
+title: systemd start script, 启动脚本
 author: "-"
 date: 2018-02-23T07:17:35+00:00
-url: systemd/service
+url: systemd/script
 categories:
   - systemd
 
 ---
-## systemd service config, start script
+## systemd start script, 启动脚本
+### systemd 添加开机启动运行shell脚本
+systemd 添加开机启动运行shell脚本
+  
+1.首先在/etc/systemd/systemd/下新建一个开机启动服务名为cs.service
+  
+内容如下  
+```bash
+[Unit]
+# 开机启动会打印【ok】 started test shell
+Description=test shell
+
+[Service]
+# ------->你要开机运行的脚本必须绝对位置 /bin/sh 为shell解释器不能省
+ExecStart=/bin/sh /home/root/cs.sh 
+
+[Install]
+
+WantedBy=multi-user.target
+# -------->你要安排在哪个服务后面才启动（如依赖的服务) 
+Requires=pulseaudio.service
+#  --------->你要安排在哪个服务后面才启动（如依赖的服务) 
+After=pulseaudio.service
+```
+
+写好之后 敲入 #systemctl enable cs.service 将它添加到开机启动
+
+>注 脚本里的命令也必须是写绝对路径！！！！！！！！！！！！！！！
+
+>http://lxiaogao.lofter.com/post/1cc6a101_62292d3
+
 ### 执行shell脚本
 
 ```bash
@@ -16,6 +46,7 @@ vim /usr/lib/systemd/system/foo.service
 #### foo.service
 ```bash
 [Unit]
+# 开机启动会打印 [ok] description0
 Description=description0
 AssertPathIsDirectory=/mnt/drive_wiloon
 After=docker.service
@@ -79,7 +110,7 @@ WantedBy=multi-user.target
 ### java
 ```bash
 #!/bin/sh
-service_name="fooa-service"
+service_name="service0"
 echo "
 [Unit]
 Description=${service_name}
@@ -121,7 +152,7 @@ target : 此类 unit 为其他 unit 进行逻辑分组。它们本身实际上�
    
 snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是引用其他 unit 。
 
-■认识service的unit文件
+认识service的unit文件
   
 扩展名: .service
 
@@ -170,25 +201,17 @@ Also=NetworkManager-dispatcher.service
 
 [Install]: 安装信息。
 
-Unit主要包含以下内容: 
+### Unit主要包含以下内容: 
+- Description: 对本service的描述。
+- Before, After: 定义启动顺序,Before=xxx.service,代表本服务在xxx.service启动之前启动。After=xxx.service,代表本服务在xxx之后启动。
+- Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序（启动顺序是另外控制的) ,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败（Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
+- RequiresOverridable: 跟 Requires 很像。但是如果这条服务是由用户手动启动的,那么 RequiresOverridable 后面的服务即使启动不成功也不报错。跟 Requires 比增加了一定容错性,但是你要确定你的服务是有等待功能的。另外,如果不由用户手动启动而是随系统开机启动,那么依然会有 Requires 面临的问题。
+- Requisite: 强势版本的 Requires。要是这里需要的服务启动不成功,那本单元文件不管能不能检测等不能等待都立刻就会失败。
+- Wants: 推荐使用。本单元启动了,它"想要"的单元也会被启动。但是启动不成功,对本单元没有影响。
+- Conflicts: 一个单元的启动会停止与它"冲突"的单元,反之亦然。
 
-● Description: 对本service的描述。
-
-● Before, After: 定义启动顺序,Before=xxx.service,代表本服务在xxx.service启动之前启动。After=xxx.service,代表本服务在xxx之后启动。
-
-● Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序（启动顺序是另外控制的) ,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败（Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
-
-● RequiresOverridable: 跟 Requires 很像。但是如果这条服务是由用户手动启动的,那么 RequiresOverridable 后面的服务即使启动不成功也不报错。跟 Requires 比增加了一定容错性,但是你要确定你的服务是有等待功能的。另外,如果不由用户手动启动而是随系统开机启动,那么依然会有 Requires 面临的问题。
-
-● Requisite: 强势版本的 Requires。要是这里需要的服务启动不成功,那本单元文件不管能不能检测等不能等待都立刻就会失败。
-
-● Wants: 推荐使用。本单元启动了,它"想要"的单元也会被启动。但是启动不成功,对本单元没有影响。
-
-● Conflicts: 一个单元的启动会停止与它"冲突"的单元,反之亦然。
-
-Service主要包含以下内容: 
-
-● Type: service的种类,包含下列几种类型: 
+### Service主要包含以下内容: 
+- Type: service的种类,包含下列几种类型: 
 
             ----simple 默认,这是最简单的服务类型。意思就是说启动的程序就是主体程序,这个程序要是退出那么一切都退出。
     
@@ -198,35 +221,26 @@ Service主要包含以下内容:
     
 
 notify,idle类型比较少见,不介绍。
-
-● ExecStart: 服务启动时执行的命令,通常此命令就是服务的主体。
+- ExecStart: 服务启动时执行的命令,通常此命令就是服务的主体。
 
         ------如果你服务的类型不是 oneshot,那么它只可以接受一个命令,参数不限。
     
        ------多个命令用分号隔开,多行用 \ 跨行。
-    
-
-● ExecStartPre, ExecStartPost: ExecStart执行前后所调用的命令。
-
-● ExecStop: 定义停止服务时所执行的命令,定义服务退出前所做的处理。如果没有指定,使用systemctl stop xxx命令时,服务将立即被终结而不做处理。
-
-● Restart: 定义服务何种情况下重启（启动失败,启动超时,进程被终结) 。可选选项: no, on-success, on-failure,on-watchdog, on-abort
-
-● SuccessExitStatus: 参考ExecStart中返回值,定义何种情况算是启动成功。
+- ExecStartPre, ExecStartPost: ExecStart执行前后所调用的命令。
+- ExecStop: 定义停止服务时所执行的命令,定义服务退出前所做的处理。如果没有指定,使用systemctl stop xxx命令时,服务将立即被终结而不做处理。
+- Restart: 定义服务何种情况下重启（启动失败,启动超时,进程被终结) 。可选选项: no, on-success, on-failure,on-watchdog, on-abort
+- SuccessExitStatus: 参考ExecStart中返回值,定义何种情况算是启动成功。
 
     eg: SuccessExitStatus=1 2 8 SIGKILL
     
 
 Install主要包含以下内容: 
-
-● WantedBy: 何种情况下,服务被启用。
+- WantedBy: 何种情况下,服务被启用。
 
     eg: WantedBy=multi-user.target（多用户环境下启用) 
-    
+- Alias: 别名
 
-● Alias: 别名
-
-■旧的命令与systemd命令的映射
+旧的命令与systemd命令的映射
   
 service systemctl Description
 
@@ -309,6 +323,10 @@ Step4: 将my-demo.service注册到系统当中执行命令:
 输出表明,注册的过程实际上就是将服务链接到/etc/systemd/system/目录下。
 
 至此服务已经创建完成。重新启动系统,会发现/tmp/date文件已经生成,服务在开机时启动成功。当然本例当中的test.sh文件可以换成任意的可执行文件作为服务的主体,这样就可以实现各种各样的功能。
+
+
+
+
 
 http://www.jinbuguo.com/systemd/systemd.service.html
   

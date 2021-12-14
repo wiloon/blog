@@ -1,11 +1,25 @@
 ---
-title: linux basic shell command
+title: shell command basic
 author: "-"
 date: 2011-04-23T08:54:55+00:00
-url: linux/basic
+url: shell/commaand
 
 ---
-## linux basic shell command
+## shell command basic
+### ascii to binary
+```bash
+$ echo -n "A" | xxd -b
+0000000: 01000001                                               A
+
+$ echo -n "A" | xxd -b | awk '{print $2}'
+01000001
+```
+>https://unix.stackexchange.com/questions/98948/ascii-to-binary-and-binary-to-ascii-conversion-tools
+
+### base64 > hex
+```bash
+echo "YWJj" |base64 -d|xxd
+```
 ### Display the last users who have logged onto the system.
     last
 ### Display the user and group ids of your current user.

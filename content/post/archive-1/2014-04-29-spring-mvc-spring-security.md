@@ -35,7 +35,7 @@ https://my.oschina.net/u/4257408/blog/3662569
 
 
 ---
-[xml]
+```xml
 
 <dependency>
   
@@ -67,12 +67,12 @@ spring-web</artifactId>
   
 </dependency>
 
-[/xml]
+```
 
 
 add dispatcher servlet in web.xml
 
-[xml]
+```xml
 
 <servlet>
   
@@ -100,7 +100,7 @@ add dispatcher servlet in web.xml
   
 </servlet-mapping>
 
-[/xml]
+```
 
 
 ---

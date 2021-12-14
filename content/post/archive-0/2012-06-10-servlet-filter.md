@@ -105,7 +105,7 @@ public void destroy() {
 
 当server调用setFilterConfig(),filter保存config信息.在doFilter()方法中通过config信息得到servletContext.如果要运行这个filter,必须去配置到web.xml中.以tomcat4.01为例:
 
-[xml]
+```xml
 
 <filter>
 
@@ -147,7 +147,7 @@ LogFilter //filter class(上例的servlet)
 
 </servlet-mapping>
 
-[/xml]
+```
 
 把这个web.xml放到web-inf中(详请参考tomcat帮助文档).
 

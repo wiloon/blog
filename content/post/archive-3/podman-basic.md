@@ -102,7 +102,7 @@ image0_name
 
 ```
 
-### systemd script
+### generate systemd script
 
 ```bash
 export service_name=foo

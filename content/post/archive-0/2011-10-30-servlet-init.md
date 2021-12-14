@@ -14,7 +14,7 @@ init方法是在Servlet实例化之后执行的，并且只执行一次。
   
 一.先说init(ServletConfig)中参数ServletConfig，代表的是配置信息。即在web.xml中配置的信息，比如: 
   
-[xml]
+```xml
   
 <servlet>
     
@@ -40,7 +40,7 @@ init方法是在Servlet实例化之后执行的，并且只执行一次。
   
 </servlet>
   
-[/xml]
+```
      
 在程序中可以用this.getServletConfig()方法得到ServletConfig的实例，然后用ServletConfig的相应方法 可以得到ServletConfig的名字(getServletName)和配置参数的名字(getInitParameter("name"))或者 名字枚举(getInitParameterNames())，并且通过参数名字得到相应的参数值。具体方法参见API。
 

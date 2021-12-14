@@ -175,7 +175,7 @@ Servlet中的Listener和Event:
 
 具体使用方法: 在web.xml中添加如下语句: 
 
-[xml]
+```xml
    
 
   
@@ -183,7 +183,7 @@ Servlet中的Listener和Event:
   
 </listener >
   
-[/xml]
+```
 
 其中YouAchieveListener 为你实现的某个Listener接口的实现类com.servlet.listener.为你的包名。
 
@@ -211,7 +211,7 @@ System.out.print("context listener.context initialized....Destroved");
 
 ```
   
-[xml]
+```xml
 
 
    
@@ -219,6 +219,6 @@ com.wiloon.servlet.listener.TigerListen</listener-class>
    
 </listener>
 
-[/xml]
+```
 
 ##

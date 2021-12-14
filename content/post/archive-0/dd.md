@@ -8,10 +8,14 @@ categories:
 
 ---
 ## dd
-### 生成一个大小为5G的文件
 ```bash
-dd if=/dev/zero of=foo.5G bs=1G count=5
+# 生成一个大小为5G的文件
+dd if=/dev/zero of=foo.bin bs=1G count=5
+# 6个字节的
+dd if=/dev/zero of=./foo.bin bs=6 count=1
 ```
+
+
 
 ### 创建稀疏文件
 ```bash

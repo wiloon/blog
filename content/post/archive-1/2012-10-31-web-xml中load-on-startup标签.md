@@ -25,7 +25,7 @@ The load-on-startup element indicates that this servlet should be loaded (instan
 
 example:
 
-[xml]
+```xml
 
 <servlet>
 
@@ -45,4 +45,4 @@ example:
 
 </servlet>
 
-[/xml]
+```

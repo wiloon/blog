@@ -8,7 +8,7 @@ categories:
 
 ---
 ## maven jboss deployment
-[xml]
+```xml
 
 <plugin>
    
@@ -32,9 +32,9 @@ jboss-as-maven-plugin</artifactId>
    
 </plugin>
 
-[/xml]
+```
   
-[xml]
+```xml
 
 <management-interfaces>
    
@@ -52,6 +52,6 @@ jboss-as-maven-plugin</artifactId>
    
 </management-interfaces>
 
-[/xml]
+```
 
 http://jbosscn.iteye.com/blog/1350214

@@ -8,6 +8,16 @@ categories:
 
 ---
 ## vi/vim basic, command
+### vim 编辑二进制文件
+```bash
+# 注意用-b，否则后面会有0a
+vim -b test.bin
+# 格式转换为16进制：
+:%!xxd
+# 编辑完成后转换为二进制文件
+:$!xxd -r
+:wq
+```
 ### vim utf8 乱码
     vim ~/.vimrc
 
@@ -491,7 +501,7 @@ z- 将当前行置为屏幕的底行
 
 nz- 将当前行上的第n行置为屏幕的底行
 
-vi中的shell转义命令
+### vi中的shell转义命令
 
 选项 作用
 

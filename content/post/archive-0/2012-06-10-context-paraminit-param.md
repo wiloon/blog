@@ -44,7 +44,7 @@ web.xml里面可以定义两种参数:
 
 (1)application范围内的参数，存放在servletcontext中，在web.xml中配置如下: 
 
-[xml]
+```xml
 
 <context-param>
   
@@ -62,11 +62,11 @@ web.xml里面可以定义两种参数:
   
 </context-param>
 
-[/xml]
+```
 
 (2)servlet范围内的参数，只能在servlet的init()方法中取得，在web.xml中配置如下: 
 
-[xml]
+```xml
 
 <servlet>
 
@@ -86,7 +86,7 @@ web.xml里面可以定义两种参数:
 
 </servlet>
 
-[/xml]
+```
 
 在servlet中可以通过代码分别取用: 
 
