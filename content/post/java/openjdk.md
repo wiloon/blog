@@ -33,7 +33,7 @@ sudo archlinux-java set java-11-openjdk
     https://jdk.java.net/17/
 
 ### AdoptOpenJDK
-AdoptOpenJDK是一个由OpenJDK构建，并以免费软件的形式提供社区版的 OpenJDK 二进制包。它至少提供 4 年的免费长期支持(LTS)。
+AdoptOpenJDK 是一个由OpenJDK构建，并以免费软件的形式提供社区版的 OpenJDK 二进制包。它至少提供 4 年的免费长期支持(LTS)。
 
 ### AdoptOpenJDK mirror
     https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux/

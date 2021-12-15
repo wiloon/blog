@@ -406,6 +406,11 @@ git restore --staged /path/to/file
 ```
 >https://blog.csdn.net/u013493841/article/details/104451987
 
+### 关闭ssl校验
+```bash
+git config –global http.sslVerify false
+
+```
 
 http://zensheno.blog.51cto.com/2712776/490748  
 http://blog.csdn.net/ithomer/article/details/7529841  
