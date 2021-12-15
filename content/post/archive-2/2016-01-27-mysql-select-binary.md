@@ -20,7 +20,7 @@ MySQL> select binary 'ABCD'='abcd' COM1, 'ABCD'='abcd' COM2;
   
 +---+----+
   
-|          0        |          1       |
+|          0        |          1       |
   
 +---+----+
   
@@ -76,4 +76,4 @@ username varchar(30) BINARY NOT NULL default ", 如果表已经建好了,使用:
 
 alter table usertest modify username varchar(32) binary; 来就该表的属性。
 
-2.在query的时候加上binary,select * from usertest where username like binary   '%夏%' ,就可以准确的查询出一条记录来。
+2.在query的时候加上binary,select * from usertest where username like binary   '%夏%' ,就可以准确的查询出一条记录来。

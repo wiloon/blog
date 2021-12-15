@@ -12,7 +12,7 @@ categories:
 pacman -Syu
 pacman -S qemu
 pacman -S qemu-launcher
-qemu-img create -f raw gentoo.img 20G
+qemu-img create -f raw gentoo.img 20G
 qemu-img create -f qcow2 gentoo 20G
 
 exec qemu-system-x86_64 -enable-kvm -cpu host -cdrom install-amd64-minimal-20150924.iso -boot order=d -drive file=gentooVM.img,if=virtio -netdev user,id=vmnic,hostname=gentoovm -device virtio-net,netdev=vmnic -m 2048M -monitor stdio -name "Gentoo VM"

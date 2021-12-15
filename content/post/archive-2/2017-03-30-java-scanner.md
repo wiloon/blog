@@ -76,9 +76,9 @@ Process finished with exit code 0
   
 public static void main(String[] args) throws FileNotFoundException {
   
-Scanner s = new Scanner("123 asdf sd 45 789 sdf asdfl,sdf.sdfl,asdf    ......asdfkl    las");
+Scanner s = new Scanner("123 asdf sd 45 789 sdf asdfl,sdf.sdfl,asdf    ......asdfkl    las");
   
-//                s.useDelimiter(" |,|\\.");
+//                s.useDelimiter(" |,|\\.");
   
 while (s.hasNext()) {
   

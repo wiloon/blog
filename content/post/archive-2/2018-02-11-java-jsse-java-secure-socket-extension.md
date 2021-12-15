@@ -93,23 +93,23 @@ keytool
   
 -genkey
   
--alias tomcat(别名)
+-alias tomcat(别名)
   
--keypass 123456(别名密码)
+-keypass 123456(别名密码)
   
--keyalg RSA(算法)
+-keyalg RSA(算法)
   
--keysize 1024(密钥长度)
+-keysize 1024(密钥长度)
   
--validity 3650(有效期,天单位)
+-validity 3650(有效期,天单位)
   
 -keystore tomcat.keystore(指定生成证书的位置和证书名称)
   
--storepass 123456(获取keystore信息的密码)
+-storepass 123456(获取keystore信息的密码)
 
 方便复制版: 
   
-keytool -genkey -alias tomcat -keypass 123456 -keyalg RSA -keysize 1024 -validity 3650 -keystore D:/keys/tomcat.keystore -storepass 123456
+keytool -genkey -alias tomcat -keypass 123456 -keyalg RSA -keysize 1024 -validity 3650 -keystore D:/keys/tomcat.keystore -storepass 123456
 
 用keytool创建Keystore和Trustsotre文件
 

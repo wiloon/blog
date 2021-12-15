@@ -37,11 +37,11 @@ provided you've already unlocked your bootloader,
 
 ## -
 
-SuperSU Stable, https://download.chainfire.eu/969/SuperSU/UPDATE-SuperSU-v2.76-20160630161323.zip
+SuperSU Stable, https://download.chainfire.eu/969/SuperSU/UPDATE-SuperSU-v2.76-20160630161323.zip
 
 flash the modified boot.img:http://forum.xda-developers.com/nexus-6p/general/stock-modified-boot-img-regular-root-t3306684
   
-Decrypt Your Data Partition, fastboot format userdata //todo remove this line?
+Decrypt Your Data Partition, fastboot format userdata //todo remove this line?
 
 https://android.gadgethacks.com/how-to/root-android-o-nexus-5x-6p-0176736/
   

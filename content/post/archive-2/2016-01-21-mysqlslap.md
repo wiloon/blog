@@ -21,7 +21,7 @@ MySQL数据库基准压力测试工具之MySQLSlap使用实例
 
 一、MySQLslap介绍
   
-MySQLslap是MySQL5.1之后自带的benchmark基准测试工具,类似Apache Bench负载产生工具,生成schema,装载数据,执行benckmark和查询数据,语法简单,灵活,容易使用。该工具可以模拟多个客户端同时并发的向服务器发出查询更新,给出了性能测试数据而且提供了多种引擎的性能比较。MySQLslap为MySQL性能优化前后提供了直观的验证依据,笔者建议系统运维人员应该掌握一些常见的压力测试工具,这样才能较为准确的掌握线上系统能够支撑的用户流量上限及其抗压性等问题。  www.2cto.com
+MySQLslap是MySQL5.1之后自带的benchmark基准测试工具,类似Apache Bench负载产生工具,生成schema,装载数据,执行benckmark和查询数据,语法简单,灵活,容易使用。该工具可以模拟多个客户端同时并发的向服务器发出查询更新,给出了性能测试数据而且提供了多种引擎的性能比较。MySQLslap为MySQL性能优化前后提供了直观的验证依据,笔者建议系统运维人员应该掌握一些常见的压力测试工具,这样才能较为准确的掌握线上系统能够支撑的用户流量上限及其抗压性等问题。  www.2cto.com
   
 二、使用方法介绍
   
@@ -49,7 +49,7 @@ MySQLslap是MySQL5.1之后自带的benchmark基准测试工具,类似Apache Benc
   
 11) -create-schema 测试的schema,MySQL中schema也就是database。
   
-12) -query  使用自定义脚本执行测试,例如可以调用自定义的一个存储过程或者sql语句来执行测试。
+12) -query  使用自定义脚本执行测试,例如可以调用自定义的一个存储过程或者sql语句来执行测试。
   
 13) -only-print 如果只想打印看看SQL语句是什么,可以用这个选项。
   
@@ -189,7 +189,7 @@ Average number of queries per client: 1
   
 4、自建SQL测试用例
   
-MySQLslap -create=/yourpath/Test1.sql -query=/yourpath/Test2.sql -concurrency=50,100,200 -iterations=20 -engine=myisam,innodb  -u root -p123abc
+MySQLslap -create=/yourpath/Test1.sql -query=/yourpath/Test2.sql -concurrency=50,100,200 -iterations=20 -engine=myisam,innodb  -u root -p123abc
   
 #在设定的yourpath目录下创建你的测试sql文Test1及Test2并进行50、100及200的模拟并发测试
 

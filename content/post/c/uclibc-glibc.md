@@ -16,7 +16,7 @@ uClibc和Glibc并不相同,两者有许多不同之处,而且以下不同有可�
 2. uClibc在可配置性上比Glibc要好。
 3. uClibc并不能保证发布的库二进制兼容旧版本uClibc库。当一个新的版本uClibc库被发布,则可能需要也可能不需要重新编译应用程序。
 4. 在Glibc中调用malloc(0),将返回一个有效的指针,然而在uClibc中调用malloc(0),则返回NULL指针。根据在SuSv3中关于malloc(0)的行为的定义,两个库的实现都是正确的。对于调用relloc(NULL,0),两个库的实现也不同。个人感觉Glibc的如此实现不是特别安全。
-    Glibc中malloc的实现可以通过MALLOC_CHECK_ 环境变量调节。这个方法主要用于malloc调试。这些扩展的malloc调试特性在uClibc中是不可用的。在Linux上有许多有些的malloc调试功能的库(如: dmalloc,electric fence,valgrind等)比Glibc中的扩展的malloc调试功能更好用。因此uClibc中去掉这些功能特性并不会有多打损失。
+    Glibc中malloc的实现可以通过MALLOC_CHECK_ 环境变量调节。这个方法主要用于malloc调试。这些扩展的malloc调试特性在uClibc中是不可用的。在Linux上有许多有些的malloc调试功能的库(如: dmalloc,electric fence,valgrind等)比Glibc中的扩展的malloc调试功能更好用。因此uClibc中去掉这些功能特性并不会有多打损失。
 5. uClibc没有提供用于数据接口的库(libdb)。
 6. uClibc不支持NSS(/lib/libnss_*),在这方面Glibc更容易支持不同方式的认证和DNS解析。uClibc仅仅支持采用flat口令文件或者shadow口令文件存储授权信息。如果需要比这些更复杂的的授权,可以编译安装pam。
 7. uClibc中的libresolv库仅仅是一个桩。Glibc的libresolv库中的部分并不是全部的功能uClibc都提供,许多函数都没有实现。

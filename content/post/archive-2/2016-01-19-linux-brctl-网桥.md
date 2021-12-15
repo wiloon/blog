@@ -65,7 +65,7 @@ http://zhumeng8337797.blog.163.com/blog/static/1007689142011643834429/
   
 然后开始！
 
-设置linux让网桥运行    配置网桥
+设置linux让网桥运行    配置网桥
   
 我们需要让linux知道网桥,首先告诉它,我们想要一个虚拟的以太网桥接口: （这将在主机bridge上执行,不清楚的看看测试场景) 
   
@@ -81,7 +81,7 @@ root@bridge:~> brctl addif br0 eth0
   
 root@bridge:~> brctl addif br0 eth1
   
-现在,原来我们的两个以太网物理接口变成了网桥上的两个逻辑端口。那两个物理接口过去存在,未来也不会消失。要不信的话,去看看好了。 .现在他们成了逻辑网桥设备的一部分了,所以不再需要IP地址。下面我们将这些IP地址释放掉
+现在,原来我们的两个以太网物理接口变成了网桥上的两个逻辑端口。那两个物理接口过去存在,未来也不会消失。要不信的话,去看看好了。 .现在他们成了逻辑网桥设备的一部分了,所以不再需要IP地址。下面我们将这些IP地址释放掉
   
 root@bridge:~> ifconfig eth0 down
   
@@ -95,9 +95,9 @@ root@bridge:~> ifconfig eth1 0.0.0.0 up
   
 注: 上面红色部分其实是可选的,在试验中,我发现,就算不把原有的网卡地址释放掉,网桥也能工作！但是,为了更规范,或者说为了避免有什幺莫名其妙的问题,最好还是按要求做,执行这四步吧！
 
-最后,启用网桥 root@bridge:~> ifconfig br0 up
+最后,启用网桥 root@bridge:~> ifconfig br0 up
 
-可选:     我们给这个新的桥接口分配一个IP地址
+可选:     我们给这个新的桥接口分配一个IP地址
   
 root@bridge:~> ifconfig br0 10.0.3.129
 
@@ -189,41 +189,41 @@ http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
   
 相信通过上面的介绍,大家对于网桥、交换、路由及网关的功能有了更清晰的了解！
   
-三、   brctl 的使用方法
+三、   brctl 的使用方法
   
-有五台主机。其中一台主机装有linux ,安装了网桥模块,而且有四块物理网卡,分别连接同一网段的其他主机。我们希望其成为一个网桥,为其他四台主机(IP 分别为192.168.1.2,192.168.1.3 ,192.168.1.4 ,192.168.1.5) 之间转发数据包。同时,为了方便管理,希望网桥能够有一个IP （192.168.1.1 ) ,那样管理员就可以在192.168.1.0/24 网段内的主机 上telnet 到网桥,对其进行配置,实现远程管理。
+有五台主机。其中一台主机装有linux ,安装了网桥模块,而且有四块物理网卡,分别连接同一网段的其他主机。我们希望其成为一个网桥,为其他四台主机(IP 分别为192.168.1.2,192.168.1.3 ,192.168.1.4 ,192.168.1.5) 之间转发数据包。同时,为了方便管理,希望网桥能够有一个IP （192.168.1.1 ) ,那样管理员就可以在192.168.1.0/24 网段内的主机 上telnet 到网桥,对其进行配置,实现远程管理。
 
-前一节中提到,网桥在同一个逻辑网段转发数据包。针对上面的拓扑,这个逻辑网段就是192.168.1.0/24 网段。我们为这个逻辑网段一个名称,br0 。首先需要配置这样一个逻辑网段。
+前一节中提到,网桥在同一个逻辑网段转发数据包。针对上面的拓扑,这个逻辑网段就是192.168.1.0/24 网段。我们为这个逻辑网段一个名称,br0 。首先需要配置这样一个逻辑网段。
 
-# brctl addbr br0 ( 建立一个逻辑网段,名称为br0)
+# brctl addbr br0 ( 建立一个逻辑网段,名称为br0)
 
- 
+ 
 
 # brctl delbr br0
 
-实际上,我们可以把逻辑网段192.168.1.0/24 看作使一个VLAN ,而br0 则是这个VLAN 的名称。
+实际上,我们可以把逻辑网段192.168.1.0/24 看作使一个VLAN ,而br0 则是这个VLAN 的名称。
 
-建立一个逻辑网段之后,我们还需要为这个网段分配特定的端口。在Linux 中,一个端口实际上就是一个物理网卡。而每个物理网卡的名称则分别为eth0 ,eth1 ,eth2 ,eth3 。我们需要把每个网卡一一和br0 这个网段联系起来,作为br0 中的一个端口。
+建立一个逻辑网段之后,我们还需要为这个网段分配特定的端口。在Linux 中,一个端口实际上就是一个物理网卡。而每个物理网卡的名称则分别为eth0 ,eth1 ,eth2 ,eth3 。我们需要把每个网卡一一和br0 这个网段联系起来,作为br0 中的一个端口。
 
- 
+ 
 
-# brctl addif br0 eth0      （让eth0 成为br0 的一个端口)
+# brctl addif br0 eth0      （让eth0 成为br0 的一个端口)
 
-# brctl addif br0 eth1                ( 让eth1 成为br0 的一个端口)
+# brctl addif br0 eth1                ( 让eth1 成为br0 的一个端口)
 
-# brctl addif br0 eth0                ( 让eth2 成为br0 的一个端口)
+# brctl addif br0 eth0                ( 让eth2 成为br0 的一个端口)
 
-# brctl addif br0 eth3                ( 让eth3 成为br0 的一个端口)
+# brctl addif br0 eth3                ( 让eth3 成为br0 的一个端口)
 
- 
+ 
 
 # brctl delif br0 eth0
 
 网桥的每个物理网卡作为一个端口,运行于混杂模式,而且是在链路层工作,所以就不需要IP了。
 
- 
+ 
 
- 
+ 
 
 # ifconfig eth0 0.0.0.0
 
@@ -233,21 +233,21 @@ http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
 
 # ifconfig eth3 0.0.0.0
 
-# ip addr add 127.0.0.1/8 dev lo brd +
+# ip addr add 127.0.0.1/8 dev lo brd +
 
 （ip 是iproute2 软件包里面的一个强大的网络配置工具,它能够替代一些传统的网络管理工具。例如: ifconfig 、route 等。这个手册将分章节介绍ip 命令及其选项。) 
   
-然后给br0 的虚拟网卡配置IP : 192.168.1.1 。那样就能远程管理网桥。
+然后给br0 的虚拟网卡配置IP : 192.168.1.1 。那样就能远程管理网桥。
 
- 
+ 
 
 # ifconfig br0 192.168.1.1
 
-给br0 配置了IP 之后,网桥就能够工作了。192.168.1.0/24 网段内的主机都可以telnet 到网桥上对其进行配置。
+给br0 配置了IP 之后,网桥就能够工作了。192.168.1.0/24 网段内的主机都可以telnet 到网桥上对其进行配置。
 
-以上配置的是一个逻辑网段,实际上Linux 网桥也能配置成多个逻辑网段( 相当于交换机中划分多个VLAN) 。
+以上配置的是一个逻辑网段,实际上Linux 网桥也能配置成多个逻辑网段( 相当于交换机中划分多个VLAN) 。
 
-四、   brctl 命令详细分析
+四、   brctl 命令详细分析
   
 增加桥接过程
   
@@ -255,21 +255,21 @@ http://www.ibm.com/developerworks/cn/linux/kernel/l-netbr/index.html
   
 （ 2 )  # brctl addif br0 eth0
   
-（ 3 )  #   ip addr add 172.16.12.43/8 dev br0 brd +
+（ 3 )  #   ip addr add 172.16.12.43/8 dev br0 brd +
   
-（ 4 )  #   ifconfig br0 up
+（ 4 )  #   ifconfig br0 up
 
 删除桥接过程
 
-（ 1 )  # ip addr del 172.16.12.43/8 dev br0 brd +
+（ 1 )  # ip addr del 172.16.12.43/8 dev br0 brd +
 
-（ 2 )  # ifconfig br0 down
+（ 2 )  # ifconfig br0 down
 
-（ 3 )  # brctl delif br0 eth0
+（ 3 )  # brctl delif br0 eth0
 
-（ 4 )  # brctl delbr br0
+（ 4 )  # brctl delbr br0
 
- 
+ 
 
 http://blog.csdn.net/x_nazgul/article/details/20233237
 

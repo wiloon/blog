@@ -32,7 +32,7 @@ http://www.cnblogs.com/peida/p/Guava_Cache.html
 
 Guava Cache是一个全内存的本地缓存实现,它提供了线程安全的实现机制。整体上来说Guava cache 是本地缓存的不二之选,简单易用,性能好。
 
-Guava Cache有两种创建方式: 
+Guava Cache有两种创建方式: 
 
 1. cacheLoader
   
@@ -142,19 +142,19 @@ cache的参数说明:
 
 回收的参数: 
   
-1. 大小的设置: CacheBuilder.maximumSize(long)  CacheBuilder.weigher(Weigher)  CacheBuilder.maxumumWeigher(long)
+1. 大小的设置: CacheBuilder.maximumSize(long)  CacheBuilder.weigher(Weigher)  CacheBuilder.maxumumWeigher(long)
   
 2. 时间: expireAfterAccess(long, TimeUnit) expireAfterWrite(long, TimeUnit)
   
-3. 引用: CacheBuilder.weakKeys() CacheBuilder.weakValues()  CacheBuilder.softValues()
+3. 引用: CacheBuilder.weakKeys() CacheBuilder.weakValues()  CacheBuilder.softValues()
   
-4. 明确的删除: invalidate(key)  invalidateAll(keys)  invalidateAll()
+4. 明确的删除: invalidate(key)  invalidateAll(keys)  invalidateAll()
   
 5. 删除监听器: CacheBuilder.removalListener(RemovalListener)
   
 refresh机制: 
   
-1. LoadingCache.refresh(K)  在生成新的value的时候,旧的value依然会被使用。
+1. LoadingCache.refresh(K)  在生成新的value的时候,旧的value依然会被使用。
   
 2. CacheLoader.reload(K, V) 生成新的value过程中允许使用旧的value
   
@@ -262,7 +262,7 @@ peida被移除
   
 lisa:hello lisa!
   
-基于泛型的Callable Cache实现: 
+基于泛型的Callable Cache实现: 
   
 private static Cache<String, String> cacheFormCallable = null;
   
@@ -388,9 +388,9 @@ guava做cache时候数据的移除方式,在guava中数据的移除分为被动�
   
 2.基于时间的移除: guava提供了两个基于时间移除的方法
   
-expireAfterAccess(long, TimeUnit)  这个方法是根据某个键值对最后一次访问之后多少时间后移除
+expireAfterAccess(long, TimeUnit)  这个方法是根据某个键值对最后一次访问之后多少时间后移除
   
-expireAfterWrite(long, TimeUnit)  这个方法是根据某个键值对被创建或值被替换后多少时间移除
+expireAfterWrite(long, TimeUnit)  这个方法是根据某个键值对被创建或值被替换后多少时间移除
   
 3.基于引用的移除: 
   

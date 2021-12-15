@@ -24,8 +24,8 @@ categories:
  systemctl disable dhcpcd.service
  # 然后
  cd /etc/netctl
- cp examples/wireless-wpa .    # A simple WPA encrypted wireless connection
- vim wireless-wpa    # Modify
+ cp examples/wireless-wpa .    # A simple WPA encrypted wireless connection
+ vim wireless-wpa    # Modify
  + Interface=wlp8s0 # iw dev查看, 或ip link 或ifconfig
  + Connection=wireless
  + Security=wpa
@@ -40,7 +40,7 @@ categories:
  (
  相关文件夹: /etc/netctl # 网络配置文件夹,假如配置名字叫 wireless-wpa
  /etc/systemd/system #
- /etc/systemd/system  # netctl@wireless-wpa.service
+ /etc/systemd/system  # netctl@wireless-wpa.service
  /etc/systemd/system/multi-user.target.wants # netctl@wireless-wpa.service
  相关命令:
  journalctl -xn
@@ -50,7 +50,7 @@ categories:
   
   
     ip link
- ifconfig wlp8s0 up  # start wireless adapter
+ ifconfig wlp8s0 up  # start wireless adapter
  ifconfig eno1 up # start wire adapter
   
   

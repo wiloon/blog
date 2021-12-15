@@ -10,7 +10,7 @@ categories:
 ## http GET POST 长度
 http://blog.csdn.net/blueling51/article/details/6935901
 
-1.    Get方法长度限制
+1.    Get方法长度限制
 
 Http Get方法提交的数据大小长度并没有限制,HTTP协议规范没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。
 
@@ -52,7 +52,7 @@ Microsoft Internet Information Server(IIS)
 
 因此如果使用的 GET 方法,最大长度等于URL最大长度减去实际路径中的字符数。
 
-2.    POST方法长度限制
+2.    POST方法长度限制
 
 理论上讲,POST是没有大小限制的。HTTP协议规范也没有进行大小限制,起限制作用的是服务器的处理程序的处理能力。
 

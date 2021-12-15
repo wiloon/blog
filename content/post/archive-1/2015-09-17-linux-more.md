@@ -12,11 +12,11 @@ http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html
 
 每天一个linux命令(12): more命令
 
-more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space) 就往下一页显示，按 b 键就会往回（back) 一页显示，而且还有搜寻字串的功能 。more命令从前向后读取文件，因此在启动时就加载整个文件。
+more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space) 就往下一页显示，按 b 键就会往回（back) 一页显示，而且还有搜寻字串的功能 。more命令从前向后读取文件，因此在启动时就加载整个文件。
 
 1．命令格式: 
 
-more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file ... ]
+more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file ... ]
 
 2．命令功能: 
 
@@ -24,15 +24,15 @@ more命令和cat的功能一样都是查看文件里的内容，但有所不同�
 
 3．命令参数: 
 
-+n      从笫n行开始显示
++n      从笫n行开始显示
 
--n       定义屏幕大小为n行
+-n       定义屏幕大小为n行
 
-+/pattern 在每个档案显示前搜寻该字串（pattern) ，然后从该字串前两行之后开始显示
++/pattern 在每个档案显示前搜寻该字串（pattern) ，然后从该字串前两行之后开始显示
 
--c       从顶部清屏，然后显示
+-c       从顶部清屏，然后显示
 
--d       提示"Press space to continue，'q' to quit（按空格键继续，按q键退出) "，禁用响铃功能
+-d       提示"Press space to continue，'q' to quit（按空格键继续，按q键退出) "，禁用响铃功能
 
 -l        忽略Ctrl+l（换页) 字符
 

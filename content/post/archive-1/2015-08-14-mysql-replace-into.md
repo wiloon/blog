@@ -46,7 +46,7 @@ MySQL replace into 有三种形式:
 
 第一种形式类似于insert into的用法，
 
-第二种replace select的用法也类似于insert select，这种用法并不一定要求列名匹配，事实上，MySQL甚至不关心select返回的列名，它需要的是列的位置。例如，replace into tb1(  name, title, mood) select  rname, rtitle, rmood from tb2; 这个例子使用replace into从 tb2中将所有数据导入tb1中。
+第二种replace select的用法也类似于insert select，这种用法并不一定要求列名匹配，事实上，MySQL甚至不关心select返回的列名，它需要的是列的位置。例如，replace into tb1(  name, title, mood) select  rname, rtitle, rmood from tb2; 这个例子使用replace into从 tb2中将所有数据导入tb1中。
 
 第三种replace set用法类似于update set用法，使用一个例如"SET col_name = col_name + 1"的赋值，则对位于右侧的列名称的引用会被作为DEFAULT(col_name)处理。因此，该赋值相当于SET col_name = DEFAULT(col_name) + 1。
 

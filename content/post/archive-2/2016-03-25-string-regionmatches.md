@@ -10,7 +10,7 @@ categories:
 ## String.regionMatches
 题目: 输入两个字符串,计算两个字符串的最大公共字串的长度,并输出,字符不区分大小写
 
-eg: 输入abcde  xxxBcyyy,输出 2。
+eg: 输入abcde  xxxBcyyy,输出 2。
 
 
 完整Java代码: 
@@ -84,29 +84,29 @@ System.out.println(result);
 
 regionMatches
   
-public boolean regionMatches(boolean ignoreCase,
+public boolean regionMatches(boolean ignoreCase,
   
-int toffset,
+int toffset,
   
-String other,
+String other,
   
-int ooffset,
+int ooffset,
   
-int len)
+int len)
   
-测试两个字符串区域是否相等。将此 String 对象的子字符串与参数 other 的子字符串进行比较。如果这两个子字符串表示相同的字符序列,则结果为 true,当且仅当 ignoreCase 为 true 时忽略大小写。要比较的此String 对象的子字符串从索引 toffset 处开始,长度为 len。要比较的 other 的子字符串从索引 ooffset 处开始,长度为 len。当且仅当下列至少一项为 true 时,结果才为 false: 
+测试两个字符串区域是否相等。将此 String 对象的子字符串与参数 other 的子字符串进行比较。如果这两个子字符串表示相同的字符序列,则结果为 true,当且仅当 ignoreCase 为 true 时忽略大小写。要比较的此String 对象的子字符串从索引 toffset 处开始,长度为 len。要比较的 other 的子字符串从索引 ooffset 处开始,长度为 len。当且仅当下列至少一项为 true 时,结果才为 false: 
 
-toffset 为负。
+toffset 为负。
   
-ooffset 为负。
+ooffset 为负。
   
-toffset+len 大于此 String 对象的长度。
+toffset+len 大于此 String 对象的长度。
   
-ooffset+len 大于另一个参数的长度。
+ooffset+len 大于另一个参数的长度。
   
-ignoreCase 为 false,且存在某个小于 len 的非负整数 k,即:  this.charAt(toffset+k) != other.charAt(ooffset+k)
+ignoreCase 为 false,且存在某个小于 len 的非负整数 k,即:  this.charAt(toffset+k) != other.charAt(ooffset+k)
 
-ignoreCase 为 true,且存在某个小于 len 的非负整数 k,即:  Character.toLowerCase(this.charAt(toffset+k)) !=
+ignoreCase 为 true,且存在某个小于 len 的非负整数 k,即:  Character.toLowerCase(this.charAt(toffset+k)) !=
   
 Character.toLowerCase(other.charAt(ooffset+k))
 
@@ -116,16 +116,16 @@ Character.toUpperCase(other.charAt(ooffset+k))
   
 参数: 
   
-ignoreCase - 如果为 true,则比较字符时忽略大小写。
+ignoreCase - 如果为 true,则比较字符时忽略大小写。
   
-toffset - 此字符串中子区域的起始偏移量。
+toffset - 此字符串中子区域的起始偏移量。
   
-other - 字符串参数。
+other - 字符串参数。
   
-toffset - 字符串参数中子区域的起始偏移量。
+toffset - 字符串参数中子区域的起始偏移量。
   
-len - 要比较的字符数。
+len - 要比较的字符数。
   
 返回: 
   
-如果此字符串的指定子区域匹配字符串参数的指定子区域,则返回 true；否则返回 false。是否完全匹配或考虑大小写取决于 ignoreCase 参数。
+如果此字符串的指定子区域匹配字符串参数的指定子区域,则返回 true；否则返回 false。是否完全匹配或考虑大小写取决于 ignoreCase 参数。

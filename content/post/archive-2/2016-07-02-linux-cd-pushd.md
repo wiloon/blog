@@ -25,13 +25,13 @@ n是一个数字,有此参数时,是切换到堆栈中的第n个目录,并把此
 
 [root@localhost grub]# dirs -v
   
-0  /boot/grub
+0  /boot/grub
   
-1  /usr/share/kde4/apps/kget
+1  /usr/share/kde4/apps/kget
   
-2  /usr/local/sbin
+2  /usr/local/sbin
   
-3  ~
+3  ~
   
 [root@localhost grub]# pushd +2
   
@@ -39,13 +39,13 @@ n是一个数字,有此参数时,是切换到堆栈中的第n个目录,并把此
   
 [root@localhost sbin]# dirs -v
   
-0  /usr/local/sbin
+0  /usr/local/sbin
   
-1  ~
+1  ~
   
-2  /boot/grub
+2  /boot/grub
   
-3  /usr/share/kde4/apps/kget
+3  /usr/share/kde4/apps/kget
 
 4,如何把目录从堆栈中删除?
 

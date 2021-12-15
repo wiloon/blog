@@ -37,7 +37,7 @@ tags:
   WTP版本 wtp-sdk-M-2.0.3
 
 
-  EMF版本 emf-sdo-xsd-SDK-2.3.2  (WTP依赖)
+  EMF版本 emf-sdo-xsd-SDK-2.3.2  (WTP依赖)
 
 
   GEF版本 GEF-SDK-3.3.2 (WTP依赖)
@@ -45,7 +45,7 @@ tags:
 
   其他插件略
 
-  1.安装WTP 插件 略
+  1.安装WTP 插件 略
 
 
   2.配置Web Server
@@ -114,7 +114,7 @@ tags:
   commons-daemon.jar
 
 
-  6.将一个已经存在的项目转换成WTP 的Web项目
+  6.将一个已经存在的项目转换成WTP 的Web项目
 
 
   通过文件比较以及一系列尝试终于摸索出如下简单方法
@@ -126,46 +126,46 @@ tags:
   在<natures></natures>中加入
 
 
-                <nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+                <nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 
 
-                <nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+                <nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 
 
-                <nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
+                <nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
 
 
   在<buildSpec></buildSpec>中加入
 
 
-                <buildCommand>
+                <buildCommand>
 
 
-                       <name>org.eclipse.wst.common.project.facet.core.builder</name>
+                       <name>org.eclipse.wst.common.project.facet.core.builder</name>
 
 
-                       
+                       
 
 
-                       </arguments>
+                       </arguments>
 
 
-                </buildCommand>
+                </buildCommand>
 
 
-                <buildCommand>
+                <buildCommand>
 
 
-                       <name>org.eclipse.wst.validation.validationbuilder</name>
+                       <name>org.eclipse.wst.validation.validationbuilder</name>
 
 
-                       
+                       
 
 
-                       </arguments>
+                       </arguments>
 
 
-                </buildCommand>
+                </buildCommand>
 
 
   右键刷新项目后->项目->右键->Properties->Project Facets->Modify Project在弹出的面板中，选择Java和Dynamic Web Module 下一步是配置Context Root 和Content Directory 以及源码路径->finish.

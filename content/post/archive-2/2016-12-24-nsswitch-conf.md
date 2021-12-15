@@ -34,29 +34,29 @@ Microsystems公司在Solaris 2 的C 程序库里的方法, 也沿袭了它们的
   
 NSS 中可用数据库如下:
 
-aliases:    邮件别名, sendmail(8) 使用该文件.
+aliases:    邮件别名, sendmail(8) 使用该文件.
   
-ethers:     以太网号.
+ethers:     以太网号.
   
-group:      用户组, getgrent(3) 函数使用该文件.
+group:      用户组, getgrent(3) 函数使用该文件.
   
-hosts:      主机名和主机号, gethostbyname(3) 以及类似的函数使用了该文件.
+hosts:      主机名和主机号, gethostbyname(3) 以及类似的函数使用了该文件.
   
-netgroup:   网络内主机及其用户的列表, 访问规则使用该文件.
+netgroup:   网络内主机及其用户的列表, 访问规则使用该文件.
   
-network:    网络名及网络号, getnetent(3) 函数使用该文件.
+network:    网络名及网络号, getnetent(3) 函数使用该文件.
   
-passwd:     用户口令, getpwent(3) 函数使用该文件.
+passwd:     用户口令, getpwent(3) 函数使用该文件.
   
-protocols:  网络协议, getprotoent(3) 函数使用该文件.
+protocols:  网络协议, getprotoent(3) 函数使用该文件.
   
-publickey:  NIS+及NFS 所使用的secure_rpc的公开密匙.
+publickey:  NIS+及NFS 所使用的secure_rpc的公开密匙.
   
-rpc:        远程过程调用名及调用号, getrpcbyname(3) 及类似函数使用该文件.
+rpc:        远程过程调用名及调用号, getrpcbyname(3) 及类似函数使用该文件.
   
-services:   网络服务, getservent(3) 函数使用该文件.
+services:   网络服务, getservent(3) 函数使用该文件.
   
-shadow:     shadow用户口令, getspnam(3) 函数使用该文件.
+shadow:     shadow用户口令, getspnam(3) 函数使用该文件.
 
 下面是 /etc/nsswitch.conf 文件的一个例子 (如果在系统中没有 /etc/nsswitch.conf 文件的话, 这就是缺省的设置):
   

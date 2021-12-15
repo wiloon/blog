@@ -10,13 +10,13 @@ categories:
 ## intellij idea 配置gitlab ssh key
 https://blog.csdn.net/u010348570/article/details/81204371
 
-1 安装git,登录官网https://www.git-scm.com/download/ ,选择相应系统版本,下载后安装好。
+1 安装git,登录官网https://www.git-scm.com/download/ ,选择相应系统版本,下载后安装好。
 
 公司网慢的可以用第三方的软件管家下载。
 
 2 打开git bash,不需要进入任何目录,直接输入 ssh-keygen -t rsa -C 'xxx@xxx.com','xxx@xxx.com'为gitlab上的登录账户。一路回车。
 
- 
+ 
 
 3 打开生成的密钥文件,目录为当前系统登录者的用户目录
 

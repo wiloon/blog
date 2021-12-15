@@ -40,43 +40,43 @@ public int insertToTest_tb(String createTime,String datefrom,String dateto,Strin
   
 StringBuilder sb=new StringBuilder();
   
-sb.append("    insert into test_tb (");
+sb.append("    insert into test_tb (");
   
-sb.append("        createTime, ");
+sb.append("        createTime, ");
   
-sb.append("        datefrom, ");
+sb.append("        datefrom, ");
   
-sb.append("        dateto, ");
+sb.append("        dateto, ");
   
-sb.append("        name, ");
+sb.append("        name, ");
   
-sb.append("        intranetid, ");
+sb.append("        intranetid, ");
   
-sb.append("        actualhour, ");
+sb.append("        actualhour, ");
   
-sb.append("        planhour, ");
+sb.append("        planhour, ");
   
-sb.append("        status");
+sb.append("        status");
   
-sb.append("    ) values (");
+sb.append("    ) values (");
   
-sb.append("        "{0}",");
+sb.append("        "{0}",");
   
-sb.append("        "{1}",");
+sb.append("        "{1}",");
   
-sb.append("        "{2}",");
+sb.append("        "{2}",");
   
-sb.append("        "{3}",");
+sb.append("        "{3}",");
   
-sb.append("        "{4}",");
+sb.append("        "{4}",");
   
-sb.append("        "{5}",");
+sb.append("        "{5}",");
   
-sb.append("        "{6}",");
+sb.append("        "{6}",");
   
-sb.append("        "{7}"");
+sb.append("        "{7}"");
   
-sb.append("    )");
+sb.append("    )");
   
 String result=sb.toString();
 

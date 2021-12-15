@@ -57,7 +57,7 @@ sql语句,被发送到DB server端,经一系列处理（语法解析、语义解
   
 底层会缓存（LRU替换) ,用户不用关心。
   
-3.2  假如pscache中,有一棵树是select * from table1 where user_name = ? and age > ? ,现在并发来了50个线程,都要用这棵树,如何复用？
+3.2  假如pscache中,有一棵树是select * from table1 where user_name = ? and age > ? ,现在并发来了50个线程,都要用这棵树,如何复用？
 
 执行树是一个具体的执行步骤了,是oracle服务器底层的具体执行步骤,所以再多的并发,直接拿过来用就是了,跟并发没有很多的关系。
 

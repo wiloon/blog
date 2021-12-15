@@ -133,13 +133,13 @@ dba102_reco_14491.trc dba102_rvwr_14518.trc ?...
 
 此处的 xarg 要求您在运行每个命令之前进行确认。如果您按下 "y",则执行命令。当您对文件进行某些可能有破坏且不可恢复的操作（如删除或覆盖) 时,您会发现该选项非常有用。
 
- 
+ 
 
 -t 选项使用一个详细模式；它显示要运行的命令,是调试过程中一个非常有帮助的选项。
 
 如果传递给 xargs 的输出为空怎么办？考虑以下命令: 
 
- 
+ 
 
 $ file * | grep SSSSSS | cut -d":" -f1 | xargs -t wc -l wc -l 0 $
 
@@ -149,13 +149,13 @@ $ file * | grep SSSSSS | cut -d":" -f1 | xargs -t -r wc -l $
 
 如果没有要运行的内容,该命令退出。
 
- 
+ 
 
 假设您希望使用 rm 命令（该命令将作为 xargs 命令的参数) 删除文件。然而,rm 只能接受有限数量的参数。如果您的参数列表超出该限制怎么办？xargs 的 -n 选项限制单个命令行的参数个数。
 
 下面显示了如何限制每个命令行仅使用两个参数: 即使向 xargs ls -ltr 传递五个文件,但每次向 ls -ltr 仅传递两个文件。
 
- 
+ 
 
 $ file * | grep ASCII | cut -d":" -f1 | xargs -t -n2 ls -ltr
 
@@ -165,9 +165,9 @@ ls -ltr alert_DBA102.log dba102_cjq0_14493.trc
 
 -rw-r-r- 1 oracle dba 2410225 Aug 13 05:31 alert_DBA102.log
 
- 
+ 
 
- 
+ 
 
 ls -ltr dba102_mmnl_14497.trc dba102_reco_14491.trc
 
@@ -175,9 +175,9 @@ ls -ltr dba102_mmnl_14497.trc dba102_reco_14491.trc
 
 -rw-r-- 1 oracle dba 6808 Aug 13 05:21 dba102_reco_14491.trc
 
- 
+ 
 
- 
+ 
 
 ls -ltr dba102_rvwr_14518.trc
 

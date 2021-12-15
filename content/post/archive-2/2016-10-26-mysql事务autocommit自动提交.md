@@ -22,7 +22,7 @@ MySQL> show variables like 'autocommit';
   
 +-----+---+
   
-| autocommit    | ON    |
+| autocommit    | ON    |
   
 +-----+---+
   

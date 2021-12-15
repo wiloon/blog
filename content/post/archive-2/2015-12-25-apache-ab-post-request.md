@@ -13,7 +13,7 @@ ApacheBench
 ### install
 
 ```bash
-yay -S apache-tools
+yay -S apache-tools
 sudo yum -y install httpd-tools
 ```
 
@@ -118,15 +118,15 @@ ApacheBench用法详解:
 
 -n后面的4000代表总共发出4000个请求；-c后面的1000表示采用1000个并发（模拟1000个人同时访问) ,后面的网址表示测试的目标URL。
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
 使用ab发送post请求
 
-ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant
+ab -n 100000 -c 149  -H keywords:dt -p  /root/file/param.conf  -T 'application/x-www-form-urlencoded'  http://cc-tt.chinacloudapp.cn/restaurant
 
 解释: -p:包含post请求的参数文件。文件内容类似: sk=1babb55a0b4b4dd2a&apitype=restaurant&p=tJoLaT4mon
 
@@ -140,7 +140,7 @@ H:自定义消息头
 
 http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A/?replytocom=9
 
- 
+ 
 
 
   
@@ -150,4 +150,4 @@ http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%
 
 http://www.ha97.com/4617.html/embed#?secret=uK0hS4Tawl
 
- 
+ 

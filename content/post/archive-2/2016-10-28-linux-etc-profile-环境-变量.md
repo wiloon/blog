@@ -45,7 +45,7 @@ unset key
   
 默认情况下,Debian提供/etc/profile文件,这个文件用来设置$PATH变量（$PATH通常用来声明命令的搜索路径) ,可以立即生效。下面的代码是/etc/profile的一部分。
 
-if [ "`id -u`" -eq 0 ]; then
+if [ "`id -u`" -eq 0 ]; then
   
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   
@@ -55,31 +55,31 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
   
 fi
   
-export PATH
+export PATH
   
 为了方便,root用户（ID为0) 和其他任何用户的路径都不同。这是因为系统二进制目录（sbin目录) 位置传统上是作为系统管理程序、或必须以root身份运行的程序存放的保留位置。而games路径对于root用户来说是省略的,因为不到非必要的时候,绝不可能使用root用户来运行游戏程序。
 
-接下来,/etc/profile处理$PS1变量的设置,$PS1变量是用来设置主提示字符串（即用户登陆时显示的字符) 。除了系统的shell是Bash以外,系统$PS1变量默认设置的是$ (root用户默认是#)。如果系统的shell使用的是Bash,则/etc/bash.bashrc 文件会替代$PS变量来处理主提示字符串（特殊情况除外) 。后面我们会简短地说一下/etc/bash.bashrc。
+接下来,/etc/profile处理$PS1变量的设置,$PS1变量是用来设置主提示字符串（即用户登陆时显示的字符) 。除了系统的shell是Bash以外,系统$PS1变量默认设置的是$ (root用户默认是#)。如果系统的shell使用的是Bash,则/etc/bash.bashrc 文件会替代$PS变量来处理主提示字符串（特殊情况除外) 。后面我们会简短地说一下/etc/bash.bashrc。
 
-所以从这一点上,我们可以推断/etc/profile在登陆期间（例如使用login命令) 会被所有的shell读取。/etc/profile调用id命令来读取用户ID,而不是使用更高效的Bash内置变量${UID}。Bash使用特定来源的配置,而不是定义一个花哨的shell提示符,因为Bash支持反斜杠转义的特殊字符,例如\u(用户名) 和 \h (主机名) ,许多其他的shell都不支持这样定义。/etc/profile应该尝试和POSIX兼容,以便与用户可能自己安装的任何shell兼容。
+所以从这一点上,我们可以推断/etc/profile在登陆期间（例如使用login命令) 会被所有的shell读取。/etc/profile调用id命令来读取用户ID,而不是使用更高效的Bash内置变量${UID}。Bash使用特定来源的配置,而不是定义一个花哨的shell提示符,因为Bash支持反斜杠转义的特殊字符,例如\u(用户名) 和 \h (主机名) ,许多其他的shell都不支持这样定义。/etc/profile应该尝试和POSIX兼容,以便与用户可能自己安装的任何shell兼容。
 
 Debian GNU/linux通常预装Dash,Dash是一个仅仅旨在实现POSIX（和一些伯克利) 扩展的基本shell。如果我们修改/etc/profile（修改之前先备份) 让PS1='$ '这一行设置不同的值,然后模拟一个Dash登录（通过dash -l命令) ,我们可以看到Dash会使用我们自定义的提示。但是,如果我们调用不带-l参数的dash命令,dash将不会读取/etc/profile。此时Dash会使用默认值（这意味着此时PS1的值是我们修改之前的值) 。
 
 最后一点和/etc/profile相关的趣事是下面的代码片段: 
 
-if [ -d /etc/profile.d ]; then
+if [ -d /etc/profile.d ]; then
   
-for i in /etc/profile.d/_.sh; do
+for i in /etc/profile.d/_.sh; do
   
-if [ -r $i ]; then
+if [ -r $i ]; then
   
-. $i
+. $i
   
 fi
   
 done
   
-unset i
+unset i
   
 fi
   
@@ -97,15 +97,15 @@ fi
 
 如果我们查看Debian Jessie的默认.profile脚本,我们可以看到下面的代码片段: 
 
-# if running bash
+# if running bash
   
-if [ -n "$BASH_VERSION" ]; then
+if [ -n "$BASH_VERSION" ]; then
   
-# include .bashrc if it exists
+# include .bashrc if it exists
   
-if [ -f "$HOME/.bashrc" ]; then
+if [ -f "$HOME/.bashrc" ]; then
   
-. "$HOME/.bashrc"
+. "$HOME/.bashrc"
   
 fi
   
@@ -115,7 +115,7 @@ fi
 
 /etc/bash.bashrc 和 ~/.bashrc
   
-启动的时候,Bash会同时读取/etc/bash.bashrc和~/.bashrc,但是只有在Bash Shell作为交互式Shell而不是登录Shell启动时（意味着通过xtem启动) ,会依照这种顺序,这是Bash Shell的标准行为。然而,Debian分别从 /etc/profile和~/.profile登录脚本中获取配置文件。这会显著地改变行为,使得/etc/bash.bashrc和.bashrc（如果它们存在) 总是在Bash启动时调用,而不管是不是登录Shell。不要期待这种情况在不同地发行版中是一样的。
+启动的时候,Bash会同时读取/etc/bash.bashrc和~/.bashrc,但是只有在Bash Shell作为交互式Shell而不是登录Shell启动时（意味着通过xtem启动) ,会依照这种顺序,这是Bash Shell的标准行为。然而,Debian分别从 /etc/profile和~/.profile登录脚本中获取配置文件。这会显著地改变行为,使得/etc/bash.bashrc和.bashrc（如果它们存在) 总是在Bash启动时调用,而不管是不是登录Shell。不要期待这种情况在不同地发行版中是一样的。
 
 .bashrc是一个添加命令别名的好地方,实际上,一些用户拥有太多的别名,以至于他们宁愿将别名都放在一个单独的文件中去。Debian的默认.bashrc会查找.bash_alias,如果这个文件存在的话,会将它作为别名配置来源。所以你可以在这个文件中随意保存所有的Bash别名。如果用户愿意的话,.bashrc文件也是用户重写shell变量,例如$PS1或者$HISTSIZE的绝佳位置。Debian的默认.bashrc有超过100行,但是仍然可以非常清晰地阅读,且有良好地注释。见名知意,.bashrc不是其他非Bash shell的配置文件来源。
 
@@ -131,11 +131,11 @@ Debian Jessie包含一个名叫40×11-common_xsessionrc的文件,这个文件做
 
 和~/.xsessionrc相似,~/.xsession默认也是不存在的,在你需要的时候你可以创建一个。你可能会创建一个类似下面给的简单的.xsession脚本
 
-# Start our session manager of choice.
+# Start our session manager of choice.
   
 #
   
-exec x-session-manager
+exec x-session-manager
   
 其中x-session-manager默认设置为通过update-alternatives命令配置的任何内容,这样,你可以轻松地更改系统范围默认地会话管理器,只需要将x-session-manager替换为/usr/bin/startfce4（切换到XFCE) ,其他的用户账户将完全不受影响。
 
@@ -159,7 +159,7 @@ exec x-session-manager
 
 如果你仅仅是为了你个人登录会话时的一个环境变量,且它只关心X会话,你可以将它添加到~/.xsessionrc中。这样做的优点是,它通常将可用于通过X会话管理器启动的所有程序,因为它在启动X会话管理器之前被设置,并且被继承。例如,某些图形驱动程序可以通过运行
 
-export vblank_mode=0
+export vblank_mode=0
   
 来禁用vsync。 所以位于.xsessionrc中的变量会影响到所有的程序。
 
@@ -173,6 +173,6 @@ export vblank_mode=0
   
 英文原文: Understanding *NIX Login Scripts
   
-翻译作者: 码农网 – 韩先生
+翻译作者: 码农网 – 韩先生
 
 https://www.oschina.net/news/78491/linux-unix-login-script

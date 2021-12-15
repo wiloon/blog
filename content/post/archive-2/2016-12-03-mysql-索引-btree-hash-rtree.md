@@ -107,4 +107,4 @@ SELECT SQL_BUFFER_RESULT FIELD1, COUNT(*) FROM TABLE1 GROUP BY FIELD1;
 
 一般用于分组或DISTINCT关键字,这个选项通知MySQL,如果有必要,就将查询结果放到临时表中,甚至在临时表中进行排序。SQL_SMALL_RESULT比起SQL_BIG_RESULT差不多,很少使用。
 
-转载声明:  本文转自 http://apps.hi.baidu.com/share/detail/23985447
+转载声明:  本文转自 http://apps.hi.baidu.com/share/detail/23985447

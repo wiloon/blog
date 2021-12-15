@@ -14,7 +14,7 @@ categories:
 
 redis-server.exe
 
-redis-server.exe  redis.windows.conf
+redis-server.exe  redis.windows.conf
 
 ```
 

@@ -10,7 +10,7 @@ categories:
 ## mockito check argument
 ```bash
 
-Channel channel = Mockito.mock(XxxClass.class);
+Channel channel = Mockito.mock(XxxClass.class);
   
 Mockito.when(channel.writeAndFlush((XxxClass) Mockito.argThat(new ArgMatcher()))).
   

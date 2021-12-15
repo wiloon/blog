@@ -80,7 +80,7 @@ ${project.build.directory}/chj-search-client</assembleDirectory>
   
 </plugin>
   
-然后运行maven命令 :mvn package appassembler:assemble
+然后运行maven命令 :mvn package appassembler:assemble
 
 就可以自动生成整个的依赖文件,配置文件和运行脚本了。
 

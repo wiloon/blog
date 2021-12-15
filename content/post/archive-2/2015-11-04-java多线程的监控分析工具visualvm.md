@@ -52,9 +52,9 @@ VisualVM监控线程
 
 1: 新建一个jstatd.all.policy文件,在里面添加以下内容来保证jstatd服务启动的时候不报异常: 
 
-grant codebase "file:${java.home}/../lib/tools.jar" {
+grant codebase "file:${java.home}/../lib/tools.jar" {
   
-permission java.security.AllPermission;
+permission java.security.AllPermission;
   
 };
   
@@ -62,7 +62,7 @@ permission java.security.AllPermission;
 
 3: 如果端口被占用,用以下方式启动jstatd服务: 
 
-rmiregistry 2020 & jstatd -J-Djava.security.policy=jstatd.all.policy -p 2020
+rmiregistry 2020 & jstatd -J-Djava.security.policy=jstatd.all.policy -p 2020
   
 更多jstatd的文档请参考sun公司的官方文档 这里
   
@@ -74,9 +74,9 @@ rmiregistry 2020 & jstatd -J-Djava.security.policy=jstatd.all.policy -p 20
 
 I: 将jmxremote.access、jmxremote.password.template权限调整为读写: 
 
-grant codebase "file:${java.home}/../lib/tools.jar" {
+grant codebase "file:${java.home}/../lib/tools.jar" {
   
-permission java.security.AllPermission;
+permission java.security.AllPermission;
   
 };
   
@@ -90,13 +90,13 @@ II: vi jmxremote.password去掉
 
 2: 在Jboss的启动文件中添加以下信息: 
 
-JAVA_OPTS="-Dcom.sun.management.jmxremote.port=2899 \
+JAVA_OPTS="-Dcom.sun.management.jmxremote.port=2899 \
   
--Dcom.sun.management.jmxremote.ssl=false \
+-Dcom.sun.management.jmxremote.ssl=false \
   
--Dcom.sun.management.jmxremote.authenticate=false \
+-Dcom.sun.management.jmxremote.authenticate=false \
   
--Djava.rmi.server.hostname=10.212.20.9  其他配置"
+-Djava.rmi.server.hostname=10.212.20.9  其他配置"
   
 3: 检查启动情况: 
 

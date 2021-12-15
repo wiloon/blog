@@ -131,7 +131,7 @@ Linux kernel总是按照从UTC 时间1970年1 月1 日午夜开始的秒数来�
 
 附录一: （推荐) 
   
-CST时区问题 在很多unix下用date命令都能看到当前的时区。很多unix下中国时区都是用CST表示的。但是这个表示方法非常不合理。因为CST同时代表了下面4个时区。
+CST时区问题 在很多unix下用date命令都能看到当前的时区。很多unix下中国时区都是用CST表示的。但是这个表示方法非常不合理。因为CST同时代表了下面4个时区。
 
 CST Central Standard Time (USA) UT-6:00
   

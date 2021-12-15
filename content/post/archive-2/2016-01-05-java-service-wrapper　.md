@@ -145,7 +145,7 @@ wrapper.filter.message.1001=The JVM has run out of memory.
 
 官方文档以JBOSS为例子说明WrapperSimpleApp的使用,十分不好懂,幸好有前人记录实操过程我才从苦海得救,感谢感谢。
 
-尊重原创,转载请注明来自: http://www.cnblogs.com/fsjohnhuang/p/4019267.html  ^_^肥仔John
+尊重原创,转载请注明来自: http://www.cnblogs.com/fsjohnhuang/p/4019267.html  ^_^肥仔John
 
 
 四、参考

@@ -266,7 +266,7 @@ companyPersons.add( cp);
   
 我们在分析heap dump文件: 
 
-发现,它这次Shallow Heap为32byte,这是正确的因为它包含对象头(8byte),对象引用person(4byte),一个 String对象引用  employeeId(4byte),一个double类型的salary（8byte) ,一个String对象引用 position(4byte), 所以一共占据8+4+4+8+4=28字节,补位后为32字节。
+发现,它这次Shallow Heap为32byte,这是正确的因为它包含对象头(8byte),对象引用person(4byte),一个 String对象引用  employeeId(4byte),一个double类型的salary（8byte) ,一个String对象引用 position(4byte), 所以一共占据8+4+4+8+4=28字节,补位后为32字节。
   
 但是,这次我们发现Retained Heap和Shallow Heap不同了,因为按照我们上面的结论,一个Retained Heap的大小为回收它时候能回收的heap大小,其中还包括回收它能直接/间接引用到的对象大小的总和（不包括被GC Root直接间接引用的)  ,这里CompanyPerson直接引用了Person,而Person的Shallow Heap是24byte,所以CompanyPerson的Retained Heap大小为其自身Shallow Heap(32byte) ,加上它引用到的Person对象的24byte,所以最后是 24+32=56byte.
   

@@ -59,7 +59,7 @@ export XMODIFIERS=@im=fcitx
 
 ### 解决 emacs 中文输入问题
 
-        sudo rm /usr/bin/emacs.raw
+        sudo rm /usr/bin/emacs.raw
         sudo mv /usr/bin/emacs /usr/bin/emacs.raw
 
         #since emacs is unavailabe now

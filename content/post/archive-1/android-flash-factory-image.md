@@ -114,7 +114,7 @@ pc电脑用文本编辑器例如记事本等打开flash-all.bat,linux或者mac�
   
 待手机进入这个模式后，再输入 flash-all.bat，见下图(一定要使用去掉-w的.bat，不然就会清空数据的)，或者直接在电脑上双击flash-all.bat运行它。
 
- 
+ 
 
 然后就是等待，如果出现遇到"missing system.img"问题，恭喜您，需要移步到小编写的另外一个教程来进行手动刷机，见解决手动升级安卓5.0遇到"missing system.img"问题
   

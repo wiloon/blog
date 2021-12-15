@@ -8,6 +8,6 @@ categories:
 
 ---
 ## classes.dex
-  * `classes.dex`: The classes compiled in the [dex file format][1] understandable by the [Dalvik virtual machine][1]
+  * `classes.dex`: The classes compiled in the [dex file format][1] understandable by the [Dalvik virtual machine][1]
 
  [1]: http://en.wikipedia.org/wiki/Dalvik_(software) "Dalvik (software)"

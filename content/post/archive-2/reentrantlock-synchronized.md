@@ -20,8 +20,8 @@ http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html
 可见性则更为微妙;它要对付内存缓存和编译器优化的各种反常行为。一般来说,线程以某种不必让其他线程立即可以看到的方式（不管这些线程在寄存器中、在处理器特定的缓存中,还是通过指令重排或者其他编译器优化) ,不受缓存变量值的约束,但是如果开发人员使用了同步,如下面的代码所示,那么运行库将确保某一线程对变量所做的更新先于对现有synchronized 块所进行的更新,当进入由同一监控器（lock) 保护的另一个 synchronized 块时,将立刻可以看到这些对变量所做的更新。类似的规则也存在于 volatile 变量上。
 
 ```java
-synchronized (lockObject) {
-// update object state
+synchronized (lockObject) {
+// update object state
 }
 ```
 
@@ -52,17 +52,17 @@ reentrant 锁意味着什么呢？简单来说,它有一个与锁相关的获取
 
 清单 1. 用 ReentrantLock 保护代码块。
   
-Lock lock = new ReentrantLock();
+Lock lock = new ReentrantLock();
   
 lock.lock();
   
-try {
+try {
   
-// update object state
+// update object state
   
 }
   
-finally {
+finally {
   
 lock.unlock();
   

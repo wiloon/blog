@@ -369,9 +369,9 @@ linux:
   
 ```bash
 
-mkdir -p /home/wiloon/my-projects/golang/lib/
+mkdir -p /home/wiloon/my-projects/golang/lib/
 
-mkdir -p /home/wiloon/my-projects/golang/projects/
+mkdir -p /home/wiloon/my-projects/golang/projects/
 
 export GOPATH="/home/wiloon/my-projects/golang/lib/:/home/wiloon/my-projects/golang/projects/"
 

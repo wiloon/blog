@@ -136,7 +136,7 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
   
 
 
-这种情况之所以能触发 connection reset by peer 异常, 是因为 connect 成功以后, client 段先会触发 connect 成功的 listener, 这个时候 server 段虽然断开了 channel, 也触发 channel 断开的事件 (它会触发一个客户端 read 事件, 但是这个 read 会返回 -1, -1 代表 channel 关闭, client 的 channelInactive 跟 channel  active 状态的改变都是在这时发生的), 但是这个事件是在 connect 成功的 listener 之后执行, 所以这个时候 listener 里的 channel 并不知道自己已经断开, 它还是会继续进行 write 跟 flush 操作, 在调用 flush 后, eventloop 会进入 OP_READ 事件里, 这时候 unsafe.read() 就会抛出 connection reset 异常. eventloop 代码如下
+这种情况之所以能触发 connection reset by peer 异常, 是因为 connect 成功以后, client 段先会触发 connect 成功的 listener, 这个时候 server 段虽然断开了 channel, 也触发 channel 断开的事件 (它会触发一个客户端 read 事件, 但是这个 read 会返回 -1, -1 代表 channel 关闭, client 的 channelInactive 跟 channel  active 状态的改变都是在这时发生的), 但是这个事件是在 connect 成功的 listener 之后执行, 所以这个时候 listener 里的 channel 并不知道自己已经断开, 它还是会继续进行 write 跟 flush 操作, 在调用 flush 后, eventloop 会进入 OP_READ 事件里, 这时候 unsafe.read() 就会抛出 connection reset 异常. eventloop 代码如下
 
 NioEventLoop
 
@@ -305,4 +305,4 @@ client 2. 由服务端造成的 ClosedChannelException
     <img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" />
   
 
-这种情况下,  服务端将 channel 关闭, 客户端先 sleep, 这期间 client 的 eventLoop 会处理客户端关闭的时间, 也就是 eventLoop 的 processKey 方法会进入 OP_READ, 然后 read 出来一个 -1, 最后触发 client channelInactive 事件, 当 sleep 醒来以后, 客户端调用 writeAndFlush, 这时候客户端 channel 的状态已经变为了 inactive, 所以 write 失败, cause 为 ClosedChannelException
+这种情况下,  服务端将 channel 关闭, 客户端先 sleep, 这期间 client 的 eventLoop 会处理客户端关闭的时间, 也就是 eventLoop 的 processKey 方法会进入 OP_READ, 然后 read 出来一个 -1, 最后触发 client channelInactive 事件, 当 sleep 醒来以后, 客户端调用 writeAndFlush, 这时候客户端 channel 的状态已经变为了 inactive, 所以 write 失败, cause 为 ClosedChannelException

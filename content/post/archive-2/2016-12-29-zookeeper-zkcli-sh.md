@@ -130,7 +130,7 @@ Clients:
 
 /0:0:0:0:0:0:0:1:53913[1][2]
 
- 
+ 
 
 Latency min/avg/max: 0/3/9
 
@@ -148,7 +148,7 @@ Mode: leader
 
 Node count: 4
 
- 
+ 
 
 测试是否启动了该Server,若回复imok表示已经启动
 

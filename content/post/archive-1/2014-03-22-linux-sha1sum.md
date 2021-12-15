@@ -25,4 +25,4 @@ Send both files and the other party can do a...
     sha1sum -c {file}.sha1
     
 
-It should show `OK` if the `sha1` is correct.
+It should show `OK` if the `sha1` is correct.

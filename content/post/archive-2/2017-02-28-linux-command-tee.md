@@ -10,12 +10,12 @@ categories:
 ## linux command tee
 我使用过的Linux命令之tee - 重定向输出到多个文件
   
-本文链接: http://codingstandards.iteye.com/blog/833695   （转载请注明链接) 
+本文链接: http://codingstandards.iteye.com/blog/833695   （转载请注明链接) 
 
 
 用途说明
   
-在执行Linux命令时,我们可以把输出重定向到文件中,比如 ls >a.txt,这时我们就不能看到输出了,如果我们既想把输出保存到文件中,又想在屏幕上看到输出内容,就可以使用tee命令了。tee命令读取标准输入,把这些内容同时输出到标准输出和（多个) 文件中（read from standard input and write to standard output and files. Copy standard input to each FILE, and also to standard output. If a FILE is -, copy again to standard output.) 。在info tee中说道: tee命令可以重定向标准输出到多个文件（\`tee': Redirect output to multiple files. The \`tee' command copies standard input to standard output and also to any files given as arguments.  This is useful when you want not only to send some data down a pipe, but also to save a copy.) 。要注意的是: 在使用管道线时,前一个命令的标准错误输出不会被tee读取。
+在执行Linux命令时,我们可以把输出重定向到文件中,比如 ls >a.txt,这时我们就不能看到输出了,如果我们既想把输出保存到文件中,又想在屏幕上看到输出内容,就可以使用tee命令了。tee命令读取标准输入,把这些内容同时输出到标准输出和（多个) 文件中（read from standard input and write to standard output and files. Copy standard input to each FILE, and also to standard output. If a FILE is -, copy again to standard output.) 。在info tee中说道: tee命令可以重定向标准输出到多个文件（\`tee': Redirect output to multiple files. The \`tee' command copies standard input to standard output and also to any files given as arguments.  This is useful when you want not only to send some data down a pipe, but also to save a copy.) 。要注意的是: 在使用管道线时,前一个命令的标准错误输出不会被tee读取。
 
 
 常用参数
@@ -162,15 +162,15 @@ ls: *: 没有那个文件或目录
   
 相关资料
   
-【1】Linux公社   linux tee命令详解
+【1】Linux公社   linux tee命令详解
   
-【2】百度知道    linux tee 命令的详细使用, 越详细越好.
+【2】百度知道    linux tee 命令的详细使用, 越详细越好.
   
-【3】脚本学习    linux tee命令: 将标准输出一分为二
+【3】脚本学习    linux tee命令: 将标准输出一分为二
   
-【4】起航工作室  linux tee 命令详解
+【4】起航工作室  linux tee 命令详解
 
-【5】5Linux教程   Linux tee command
+【5】5Linux教程   Linux tee command
 
 
 PS: 2011.10.09 对此文件进行了编辑。

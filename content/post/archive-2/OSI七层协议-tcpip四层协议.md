@@ -16,8 +16,8 @@ categories:
 4. 应用层: Telnet,FTP,SMTP,SNMP
 
 ### OSI七层协议
-1. 物理层  Physical Layer: EIA/TIA-232, EIA/TIA-499, V.35, V.24, RJ45, Ethernet, 802.3, 8025, FDDI, NRZI, NRZ, B8ZS
-2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM,  IEEE 8025/802.2
+1. 物理层  Physical Layer: EIA/TIA-232, EIA/TIA-499, V.35, V.24, RJ45, Ethernet, 802.3, 8025, FDDI, NRZI, NRZ, B8ZS
+2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM,  IEEE 8025/802.2
 3. 网络层 Network Layer: IP,IPX,AppleTalk DDP
 4. 传输层 Transport Layer : TCP,UDP,SPX, QUIC
 5. 会话层 Session Layer : RPC,SQL,NFS,NetBIOS,names,AppleTalk,ASP,DECnet,SCP

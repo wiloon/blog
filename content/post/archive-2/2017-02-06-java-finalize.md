@@ -140,41 +140,41 @@ finalize方法是与Java编程中的垃圾回收器有关系。即: 当一个对
   
 view plain
   
-public class FinalizationDemo {
+public class FinalizationDemo {
   
-public static void main(String[] args) {
+public static void main(String[] args) {
   
-Cake c1 = new Cake(1);
+Cake c1 = new Cake(1);
   
-Cake c2 = new Cake(2);
+Cake c2 = new Cake(2);
   
-Cake c3 = new Cake(3);
+Cake c3 = new Cake(3);
 
-c2 = c3 = null;
+c2 = c3 = null;
   
-System.gc(); //Invoke the Java garbage collector
+System.gc(); //Invoke the Java garbage collector
   
 }
   
 }
 
-class Cake extends Object {
+class Cake extends Object {
   
-private int id;
+private int id;
   
-public Cake(int id) {
+public Cake(int id) {
   
-this.id = id;
+this.id = id;
   
-System.out.println("Cake Object " + id + "is created");
+System.out.println("Cake Object " + id + "is created");
   
 }
 
-protected void finalize() throws java.lang.Throwable {
+protected void finalize() throws java.lang.Throwable {
   
 super.finalize();
   
-System.out.println("Cake Object " + id + "is disposed");
+System.out.println("Cake Object " + id + "is disposed");
   
 }
   
@@ -184,17 +184,17 @@ System.out.println("Cake Object " + id + "is disposed");
   
 view plain
   
-C:\1>java FinalizationDemo
+C:\1>java FinalizationDemo
   
-Cake Object 1is created
+Cake Object 1is created
   
-Cake Object 2is created
+Cake Object 2is created
   
-Cake Object 3is created
+Cake Object 3is created
   
-Cake Object 3is disposed
+Cake Object 3is disposed
   
-Cake Object 2is disposed
+Cake Object 2is disposed
   
 
 final

@@ -89,11 +89,11 @@ SubformatPattern（子模式)
 
 Java代码
   
-String pig = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}";
+String pig = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}";
 
-Object[] array = new Object[]{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q"};
+Object[] array = new Object[]{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q"};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
@@ -104,11 +104,11 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, {0} is 'a' pig";
+String message = "oh, {0} is 'a' pig";
 
-Object[] array = new Object[]{"ZhangSan"};
+Object[] array = new Object[]{"ZhangSan"};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
@@ -119,11 +119,11 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, {0} is "a" pig";
+String message = "oh, {0} is "a" pig";
 
-Object[] array = new Object[]{"ZhangSan"};
+Object[] array = new Object[]{"ZhangSan"};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
@@ -136,11 +136,11 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, '{0}' is a pig";
+String message = "oh, '{0}' is a pig";
 
-Object[] array = new Object[]{"ZhangSan"};
+Object[] array = new Object[]{"ZhangSan"};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
@@ -151,26 +151,26 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, '{0,number,#.#} is a pig";
+String message = "oh, '{0,number,#.#} is a pig";
 
-Object[] array = new Object[]{new Double(3.1415)};
+Object[] array = new Object[]{new Double(3.1415)};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
-最终结果是: oh, {0,number,#.#}  is 'a' pig。
+最终结果是: oh, {0,number,#.#}  is 'a' pig。
 
 
 如果像下面这样,就可以正确显示: 
 
 Java代码
   
-String message = "oh, {0,number,#.#} is a pig";
+String message = "oh, {0,number,#.#} is a pig";
 
-Object[] array = new Object[]{new Double(3.1415)};
+Object[] array = new Object[]{new Double(3.1415)};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
@@ -181,11 +181,11 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, { is a pig";
+String message = "oh, { is a pig";
 
-Object[] array = new Object[]{"ZhangSan"};
+Object[] array = new Object[]{"ZhangSan"};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
@@ -196,11 +196,11 @@ System.out.println(value);
 
 Java代码
   
-String message = "oh, } is a pig";
+String message = "oh, } is a pig";
 
-Object[] array = new Object[]{"ZhangSan"};
+Object[] array = new Object[]{"ZhangSan"};
 
-String value = MessageFormat.format(message, array);
+String value = MessageFormat.format(message, array);
 
 System.out.println(value);
   
@@ -212,13 +212,13 @@ System.out.println(value);
 
 Java代码
   
-public static String format(String pattern, Object ... arguments)
+public static String format(String pattern, Object ... arguments)
   
 {
   
-MessageFormat temp = new MessageFormat(pattern);
+MessageFormat temp = new MessageFormat(pattern);
   
-return temp.format(arguments);
+return temp.format(arguments);
   
 }
   
@@ -226,13 +226,13 @@ return temp.format(arguments);
 
 Java代码
   
-String message = "oh, {0} is a pig";
+String message = "oh, {0} is a pig";
 
-MessageFormat messageFormat = new MessageFormat(message);
+MessageFormat messageFormat = new MessageFormat(message);
 
-Object[] array = new Object[]{"ZhangSan"};
+Object[] array = new Object[]{"ZhangSan"};
 
-String value = messageFormat.format(array);
+String value = messageFormat.format(array);
 
 System.out.println(value);
   

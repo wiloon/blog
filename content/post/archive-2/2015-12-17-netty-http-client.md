@@ -14,7 +14,7 @@ http://www.cnblogs.com/luxiaoxun/p/3959450.html
 
 Netty的主页: http://netty.io/index.html
 
-使用的Netty的版本: netty-4.0.23.Final.tar.bz2 ‐ 15-Aug-2014 (Stable, Recommended)
+使用的Netty的版本: netty-4.0.23.Final.tar.bz2 ‐ 15-Aug-2014 (Stable, Recommended)
 
 Http 消息格式: 
 

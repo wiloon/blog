@@ -28,7 +28,7 @@ jdbc在连接数据库时候会发送测试语句SET OPTION SQL_SELECT_LIMIT=DEF
   
 解决: 
 
-升级驱动版本,我改成了MySQL-connector-java-5.1.25.jar  问题解决
+升级驱动版本,我改成了MySQL-connector-java-5.1.25.jar  问题解决
 
 -------
 

@@ -10,7 +10,7 @@ categories:
 ## Linux命令pidof
 Linux命令pidof - 找出正在运行程序的进程PID
 
-本文链接: <http://codingstandards.iteye.com/blog/841123>   （转载请注明出处) 
+本文链接: <http://codingstandards.iteye.com/blog/841123>   （转载请注明出处) 
 
 ## 用途说明
 
@@ -44,21 +44,21 @@ pidof用于找出正在运行的程序的进程PID（find the process ID of a ru
 
 ### 示例一
 
-[root@smsgw root]# pidof pidof
+[root@smsgw root]# pidof pidof
   
 24386
   
-[root@smsgw root]# pidof console
+[root@smsgw root]# pidof console
 
-[root@smsgw root]# pidof bash
+[root@smsgw root]# pidof bash
   
-[root@smsgw root]# pidof man
+[root@smsgw root]# pidof man
 
-[root@smsgw root]# pidof java
+[root@smsgw root]# pidof java
   
 8882 27498 27482 30945 940 24465 23811 23068 2171 7022 24641 32656 32526
   
-[root@smsgw root]# jps -l
+[root@smsgw root]# jps -l
   
 25442 sun.tools.jps.Jps
 
@@ -70,27 +70,27 @@ pidof用于找出正在运行的程序的进程PID（find the process ID of a ru
 
 下面演示了怎么查看脚本的PID的，可以发现通过不含路径的脚本文件名称、或者执行时的路径来查看，其他方式不行。
 
-[root@web ~]# ls /opt/imx/imx_web3q/update.sh
+[root@web ~]# ls /opt/imx/imx_web3q/update.sh
   
 /opt/imx/imx_web3q/update.sh
   
-[root@web ~]# ps -ef|grep update.sh
+[root@web ~]# ps -ef|grep update.sh
   
-root     17989 17963  0 Dec09 pts/7    00:00:05 /bin/sh ./update.sh
+root     17989 17963  0 Dec09 pts/7    00:00:05 /bin/sh ./update.sh
   
-root     29329 28002  0 20:10 pts/2    00:00:00 grep update.sh
+root     29329 28002  0 20:10 pts/2    00:00:00 grep update.sh
   
-[root@web ~]# pidof update.sh
+[root@web ~]# pidof update.sh
 
-[root@web ~]# pidof -x update.sh
+[root@web ~]# pidof -x update.sh
   
 17989
   
-[root@web ~]# pidof -x /opt/imx/imx_web3q/update.sh
+[root@web ~]# pidof -x /opt/imx/imx_web3q/update.sh
 
-[root@web ~]# pidof ./update.sh
+[root@web ~]# pidof ./update.sh
 
-[root@web ~]# pidof -x ./update.sh
+[root@web ~]# pidof -x ./update.sh
   
 17989
   

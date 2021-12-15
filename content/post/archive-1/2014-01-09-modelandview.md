@@ -50,7 +50,7 @@ public ModelAndView handleRequest(....) … {
 
 ....
 
-return new ModelAndView(new RedirectView(this.getViewPage()));
+return new ModelAndView(new RedirectView(this.getViewPage()));
 
 }
 
@@ -64,7 +64,7 @@ return new ModelAndView(new RedirectView(this.getViewPage()));
   
 DispatcherServlet会根据传回的ModelAndView来解析View名称,并处理给予的Model。View名称的解析是委托给实 作org.springframework.web.servlet.ViewResolver接口的实例,ViewResolver接口定义如下: 
 
-public interface ViewResolver {
+public interface ViewResolver {
 
 public view resolveViewName(String, Locale locale) throws ServletException;
 
@@ -72,13 +72,13 @@ public view resolveViewName(String, Locale locale) throws ServletException;
   
 ViewResolver的一个实例是InternalResourceViewResolver,名称解析完之后,实际的View绘制与Model转 换处理是交给实作org.springframework.web.servlet.View的实例,View接口如下: 
 
-public interface View {
+public interface View {
 
 public void render(Map model, HttpServletResquest resquest, HttpServletResponse response) throws ServletException, IOException;
 
 }
   
-View的实作之前用过org.springframework.web.servlet.view.InternalResourceView,另外也还有JstlView、TilesView、VelocityView等等的实作,分别进行不同的表现展处理 。
+View的实作之前用过org.springframework.web.servlet.view.InternalResourceView,另外也还有JstlView、TilesView、VelocityView等等的实作,分别进行不同的表现展处理 。
 
 ModelAndView()
 
@@ -142,32 +142,32 @@ ModelAndView
   
   <ol start="1">
     
-      public ModelAndView handleRequestInternal(
+      public ModelAndView handleRequestInternal(
     
     
-              HttpServletRequest request,
+              HttpServletRequest request,
     
     
-              HttpServletResponse response) throws Exception {
-    
-    
-    
-    
-    
-    
-      ModelAndView mav = new ModelAndView("hello");//实例化一个VIew的ModelAndView实例
-    
-    
-    
-    
-      mav.addObject("message", "Hello World!");//添加一个带名的model对象
+              HttpServletResponse response) throws Exception {
     
     
     
     
     
     
-              return mav;
+      ModelAndView mav = new ModelAndView("hello");//实例化一个VIew的ModelAndView实例
+    
+    
+    
+    
+      mav.addObject("message", "Hello World!");//添加一个带名的model对象
+    
+    
+    
+    
+    
+    
+              return mav;
     
     
     

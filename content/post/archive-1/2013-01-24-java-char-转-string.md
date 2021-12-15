@@ -20,7 +20,7 @@ String s=new String(data);
 
 System.out.println(s);
   
-char[] chars = s.toCharArray();
+char[] chars = s.toCharArray();
 
 }
 

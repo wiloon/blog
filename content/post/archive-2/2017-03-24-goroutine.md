@@ -66,7 +66,7 @@ Goroutine 有着和 Java 线程完全不同的调度机制,Java 线程模型中�
 
 Goroutine是Golang中轻量级线程的实现,由Go Runtime管理。Golang在语言级别支持轻量级线程,叫携程。Golang标准库提供的所有系统调用操作（当然也包括所有同步IO操作) ,都会出让CPU给其他Goroutine。这让事情变得非常简单,让轻量级线程的切换管理不依赖于系统的线程和进程,也不依赖于CPU的核心数量。
 
- 
+ 
 ### 进程、线程、轻量级进程、协程和go中的Goroutine 那些事儿
 虽然用python时候在Eurasia和eventlet里了解过协程,但自己对协程的概念也就是轻量级线程,还有一个很通俗的红绿灯说法: 线程要守规则,协程看到红灯但是没有车仍可以通行。现在总结各个资料,从个人理解上说明下 进程 线程 轻量级进程 协程 go中的goroutine 那些事儿。
 
@@ -77,7 +77,7 @@ Goroutine是Golang中轻量级线程的实现,由Go Runtime管理。Golang在语
 
 进程切换只发生在内核态,两步: 
 1. 切换页全局目录以安装一个新的地址空间 
-2. 切换内核态堆栈和硬件上下文。  
+2. 切换内核态堆栈和硬件上下文。  
 另一种说法类似: 
 1. 保存CPU环境（寄存器值、程序计数器、堆栈指针) 
 2. 修改内存管理单元MMU的寄存器 
@@ -95,13 +95,13 @@ Goroutine是Golang中轻量级线程的实现,由Go Runtime管理。Golang在语
 语言层面实现轻量级进程的比较少,stackless python,erlang支持,java并不支持。
 
 ### 协程
-协程的定义？颜开、许式伟均只说协程是轻量级的线程,一个进程可轻松创建数十万计的协程。仔细研究下,个人感觉这些都是忽悠人的说法。从维基百科上看,从Knuth老爷子的基本算法卷上看"子程序其实是协程的特例"。子程序是什么？子程序（英语: Subroutine, procedure, function, routine, method, subprogram) ,就是函数嘛！所以协程也没什么了不起的,就是种更一般意义的程序组件,那你内存空间够大,创建多少个函数还不是随你么？
+协程的定义？颜开、许式伟均只说协程是轻量级的线程,一个进程可轻松创建数十万计的协程。仔细研究下,个人感觉这些都是忽悠人的说法。从维基百科上看,从Knuth老爷子的基本算法卷上看"子程序其实是协程的特例"。子程序是什么？子程序（英语: Subroutine, procedure, function, routine, method, subprogram) ,就是函数嘛！所以协程也没什么了不起的,就是种更一般意义的程序组件,那你内存空间够大,创建多少个函数还不是随你么？
 
 协程可以通过yield来调用其它协程。通过yield方式转移执行权的协程之间不是调用者与被调用者的关系,而是彼此对称、平等的。协程的起始处是第一个入口点,在协程里,返回点之后是接下来的入口点。子例程的生命期遵循后进先出（最后一个被调用的子例程最先返回) ；相反,协程的生命期完全由他们的使用的需要决定。
 
 线程和协程的区别: 
 
-一旦创建完线程,你就无法决定他什么时候获得时间片,什么时候让出时间片了,你把它交给了内核。而协程编写者可以有一是可控的切换时机,二是很小的切换代价。从操作系统有没有调度权上看,协程就是因为不需要进行内核态的切换,所以会使用它,会有这么个东西。赖永浩和dccmx 这个定义我觉得相对准确  协程－用户态的轻量级的线程。（http://blog.dccmx.com/2011/04/coroutine-concept/) 
+一旦创建完线程,你就无法决定他什么时候获得时间片,什么时候让出时间片了,你把它交给了内核。而协程编写者可以有一是可控的切换时机,二是很小的切换代价。从操作系统有没有调度权上看,协程就是因为不需要进行内核态的切换,所以会使用它,会有这么个东西。赖永浩和dccmx 这个定义我觉得相对准确  协程－用户态的轻量级的线程。（http://blog.dccmx.com/2011/04/coroutine-concept/) 
 
 为什么要用协程: 
 
@@ -116,7 +116,7 @@ Goroutine是Golang中轻量级线程的实现,由Go Runtime管理。Golang在语
 颜开总结的支持协程的常见的语言和平台,可做参考,但应深入调研下才好。
 
 ### goroutine
-go中的Goroutine, 普遍认为是协程的go语言实现。《Go语言编程》中说goroutine是轻量级线程(即协程coroutine, 原书90页). 在第九章进阶话题中, 作者又一次提到, "从根本上来说, goroutine就是一种go语言版本的协程(coroutine)" (原书204页). 但作者Rob Pike并不这么说。
+go中的Goroutine, 普遍认为是协程的go语言实现。《Go语言编程》中说goroutine是轻量级线程(即协程coroutine, 原书90页). 在第九章进阶话题中, 作者又一次提到, "从根本上来说, goroutine就是一种go语言版本的协程(coroutine)" (原书204页). 但作者Rob Pike并不这么说。
 
 "一个Goroutine是一个与其他goroutines 并发运行在同一地址空间的Go函数或方法。一个运行的程序由一个或更多个goroutine组成。它与线程、协程、进程等不同。它是一个goroutine。"
 
@@ -174,15 +174,15 @@ https://xie.infoq.cn/article/cef6d2931a54f85142d863db7
 
 《现代操作系统》《分布式系统原理与范型》《深入理解linux内核》《go程序设计语言》
 
-赖勇浩 协程三篇之仅一篇 http://blog.csdn.net/lanphaday/article/details/5397038
+赖勇浩 协程三篇之仅一篇 http://blog.csdn.net/lanphaday/article/details/5397038
 
-颜开 http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html
+颜开 http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html
 
-go程序设计语言中文 http://tonybai.com/2012/08/28/the-go-programming-language-tutorial-part3/  （中文翻译定义中漏了个 并发) 
+go程序设计语言中文 http://tonybai.com/2012/08/28/the-go-programming-language-tutorial-part3/  （中文翻译定义中漏了个 并发) 
 
 go程序设计语言英文http://go.googlecode.com/hg-history/release-branch.r60/doc/GoCourseDay3.pdf
 
-go语言初体验 http://blog.dccmx.com/2011/01/go-taste/
+go语言初体验 http://blog.dccmx.com/2011/01/go-taste/
 
 https://zh.wikipedia.org/wiki/Go
 

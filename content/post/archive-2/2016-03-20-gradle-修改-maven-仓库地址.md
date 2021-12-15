@@ -40,7 +40,7 @@ maven{ url 'http://maven.oschina.net/content/groups/public/'}
 
 自然是有省事的办法,将下面这段Copy到名为init.gradle文件中,并保存到 USER_HOME/.gradle/文件夹下即可。
 
- 
+ 
 
 allprojects{
   
