@@ -8,7 +8,7 @@ categories:
 
 ---
 ## Oracle truncate table, delete tabel
-# 　一、
+# 一、
 
   
     

@@ -137,7 +137,7 @@ class
 
 shared-cache-mode
 
-缓存模式。加了@Cacheable注解的默认为二级缓存。有四种模式: ALL-缓存所有实体；NONE-禁止缓存；ENABLE_SELECTIVE-如果加了缓存的标识，是默认的选选　　　　　　　　项；DISABLE_SELECTIVE- enable caching unless explicitly marked as @Cacheable(false) (not recommended)
+缓存模式。加了@Cacheable注解的默认为二级缓存。有四种模式: ALL-缓存所有实体；NONE-禁止缓存；ENABLE_SELECTIVE-如果加了缓存的标识，是默认的选选项；DISABLE_SELECTIVE- enable caching unless explicitly marked as @Cacheable(false) (not recommended)
 
 validation-mode
 

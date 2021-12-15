@@ -16,10 +16,10 @@ title = "dm-crypt, 加密"
 ```bash
 dd if=/dev/zero of=/root/luks.vol bs=1M count=1024
 ```
-　　（dd 命令是一个牛逼命令，之前在《如何用 ISO 镜像制作 U 盘安装盘（通用方法、无需 WinPE) 》介绍过该命令) 
+（dd 命令是一个牛逼命令，之前在《如何用 ISO 镜像制作 U 盘安装盘（通用方法、无需 WinPE) 》介绍过该命令) 
 
-　　经某个热心读者提醒，还可以使用 fallocate 命令创建容器文件。对于特别大的容器文件，性能【高于】dd 命令。
-　　以下示例通过 fallocate 【瞬间】创建一个 64GB 的大文件。
+经某个热心读者提醒，还可以使用 fallocate 命令创建容器文件。对于特别大的容器文件，性能【高于】dd 命令。
+以下示例通过 fallocate 【瞬间】创建一个 64GB 的大文件。
 
 ```bash
 fallocate -l 64G /root/luks.vol

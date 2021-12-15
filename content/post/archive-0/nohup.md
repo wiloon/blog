@@ -128,7 +128,7 @@ nohup command > myout.file 2>&1 &
 
 使用 jobs 查看任务。
 
-使用 fg %n　关闭。
+使用 fg %n关闭。
 
 另外有两个常用的ftp工具ncftpget和ncftpput，可以实现后台的ftp上传和下载，这样我就可以利用这些命令在后台上传和下载文件了。
 

@@ -302,7 +302,7 @@ e.printStackTrace();
 
 运行AnalysisAnnotation,输出结果为: 
 
-　　Utility's Description—>这是一个有用的工具类
+Utility's Description—>这是一个有用的工具类
   
 Utility's Author—>haoran_202 from com.magc
 

@@ -112,7 +112,7 @@ mips64 gcc-mips64
   
 而不需要将所有出现gcc的地方都改成gcc-mips64
   
-Linux CC与Linux GCC的区别概括介绍。从名字上看,老的unix系统的CC程序叫做C Compiler。但GCC这个名字按GNU的说法叫做Gnu Compiler Collection。因为gcc包含很多编译器(C, C++, Objective-C, Ada, Fortran,and 　 Java)。所以它们是不一样的,一个是一个古老的C编译器,一个是编译器的Gnu的编译器的集合(Gcc里的C编译器比CC强大太多了,所以你没必要用CC)。当你调用gcc时不一定是调用的C/C++编译器,是gcc根据文件扩展名自动识别并调用对应的编译器,具体可查阅$man gcc。
+Linux CC与Linux GCC的区别概括介绍。从名字上看,老的unix系统的CC程序叫做C Compiler。但GCC这个名字按GNU的说法叫做Gnu Compiler Collection。因为gcc包含很多编译器(C, C++, Objective-C, Ada, Fortran,and  Java)。所以它们是不一样的,一个是一个古老的C编译器,一个是编译器的Gnu的编译器的集合(Gcc里的C编译器比CC强大太多了,所以你没必要用CC)。当你调用gcc时不一定是调用的C/C++编译器,是gcc根据文件扩展名自动识别并调用对应的编译器,具体可查阅$man gcc。
   
 你是下载不到CC的,原因是: CC来自于昂贵的Unix系统,CC是商业软件,要想用你需要打电话,写订单,而不是打开你的Browser去download。
   
@@ -142,4 +142,4 @@ makefile是用于自动编译和链接的,一个工程有很多文件组成,每�
 
 在unix系统下,makefile是与make命令配合使用的。
   
-　有了这个Makefile文件,不论我们什么时候修改了源程序当中的什么文件,我们只要执行make命令,我们的编译器都只会去编译和我们修改的文件有关的文件,其它的文件它连理都不想去理的
+有了这个Makefile文件,不论我们什么时候修改了源程序当中的什么文件,我们只要执行make命令,我们的编译器都只会去编译和我们修改的文件有关的文件,其它的文件它连理都不想去理的

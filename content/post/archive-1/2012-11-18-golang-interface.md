@@ -188,7 +188,7 @@ fmt.Println(a, b) // [1 2 3] [1 3 3]
 
 var a = [3] int{1,2,3}
   
-var b = &a　　　　// 引用语义
+var b = &a// 引用语义
   
 b[1]++
   
@@ -269,7 +269,7 @@ package main
         var i Men
     
         //i能存储Student
-        i = mike　　　　
+        i = mike
         fmt.Println("This is Mike, a Student:")
         i.SayHi()
         i.Sing("November rain")

@@ -66,7 +66,7 @@ bq.peek()检索，但是不移除此队列的头，如果此队列为空，则�
 
 //区别一下几种方法: 
 
-1.　offer(E e) offer(E e,long timeout,TimeUnit unit)
+1.offer(E e) offer(E e,long timeout,TimeUnit unit)
 
 和
 

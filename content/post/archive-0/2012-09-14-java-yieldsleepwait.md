@@ -300,7 +300,7 @@ while(isAlive())是为了防止子线程伪唤醒(spurious wakeup)，只要子�
 join使用时注意几点: 
 1、join与start调用顺序问题
 
-　　上面的讨论大概知道了join的作用了，那么，入股 join在start前调用，会出现什么后果呢？先看下面的测试结果
+上面的讨论大概知道了join的作用了，那么，入股 join在start前调用，会出现什么后果呢？先看下面的测试结果
 
 
 main线程没有等待[BThread]执行完再执行。join方法必须在线程start方法调用之后调用才有意义。这个也很容易理解: 如果一个线程都没有start，那它也就无法同步了。

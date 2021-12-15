@@ -169,7 +169,7 @@ requireJS主要解决两个问题
     
     // 加载模块
     require(['myModule'], function (my){
-    　 my.printName();
+     my.printName();
     });12345678910111213141516复制代码
 
 **语法**

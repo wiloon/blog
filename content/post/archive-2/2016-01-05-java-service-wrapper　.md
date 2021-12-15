@@ -1,5 +1,5 @@
 ---
-title: Java Service Wrapper　
+title: Java Service Wrapper
 author: "-"
 date: 2016-01-05T01:45:38+00:00
 url: /?p=8628

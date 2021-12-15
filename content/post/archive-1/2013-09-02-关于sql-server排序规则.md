@@ -51,7 +51,7 @@ ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**Chinese_PRC_CI_AS**
   
 储和比较字符所使用的规则。"
   
-在查询分析器内执行下面语句,可以得到SQL　SERVER支持的所有排序规则。
+在查询分析器内执行下面语句,可以得到SQLSERVER支持的所有排序规则。
   
 select * from ::fn_helpcollations()
   

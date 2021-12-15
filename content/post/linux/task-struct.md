@@ -1354,7 +1354,7 @@ struct task_struct
  
 	 //内存缺页和交换信息:
  
-	 //min_flt, maj_flt累计进程的次缺页数（Copy on　Write页和匿名页) 和主缺页数（从映射文件或交换
+	 //min_flt, maj_flt累计进程的次缺页数（Copy onWrite页和匿名页) 和主缺页数（从映射文件或交换
  
 	 //设备读入的页面数) ； nswap记录进程累计换出的页面数，即写到交换设备上的页面数。
 	 //cmin_flt, cmaj_flt, cnswap记录本进程为祖先的所有子孙进程的累计次缺页数，主缺页数和换出页面数。

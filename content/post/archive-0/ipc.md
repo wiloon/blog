@@ -480,7 +480,7 @@ POSIX IPC API
 
 IPC(Inter-Process Communication)是共享"命名管道"的资源，它是为了让进程间通信而开放的命名管道，通过提供可信任的用户名和口令，连接双方可以建立安全的通道并以此通道进行加密数据的交换，从而实现对远程计算机的访问。
   
-System V， 曾经也被称为 AT&T System V，是Unix操作系统众多版本中的一支。它最初由 AT&T 开发，在1983年第一次发布。一共发行了4个 System V 的主要版本: 版本1、2、3 和 4。System V Release 4，或者称为SVR4，是最成功的版本，成为一些UNIX共同特性的源头，例如 "SysV 初始化脚本" （/etc/init.d) ，用来控制系统启动和关闭，System V Interface Definition (SVID) 是一个System V 如何工作的标准定义。 　　AT&T 出售运行System V的专有硬件，但许多（或许是大多数) 客户在其上运行一个转售的版本，这个版本基于 AT&T 的实现说明。流行的SysV 衍生版本包括 Dell SVR4 和 Bull SVR4。当今广泛使用的 System V 版本是 SCO OpenServer，基于 System V Release 3，以及SUN Solaris 和 SCO UnixWare，都基于 System V Release 4。 System V 是 AT&T 的第一个商业UNIX版本（UNIX System III) 的加强。传统上，System V 被看作是两种UNIX"风味"之一（另一个是 BSD) 。然而，随着一些并不基于这两者代码的UNIX实现的出现，例如 Linux 和 QNX， 这一归纳不再准确，但不论如何，像POSIX这样的标准化努力一直在试图减少各种实现之间的不同。
+System V， 曾经也被称为 AT&T System V，是Unix操作系统众多版本中的一支。它最初由 AT&T 开发，在1983年第一次发布。一共发行了4个 System V 的主要版本: 版本1、2、3 和 4。System V Release 4，或者称为SVR4，是最成功的版本，成为一些UNIX共同特性的源头，例如 "SysV 初始化脚本" （/etc/init.d) ，用来控制系统启动和关闭，System V Interface Definition (SVID) 是一个System V 如何工作的标准定义。 AT&T 出售运行System V的专有硬件，但许多（或许是大多数) 客户在其上运行一个转售的版本，这个版本基于 AT&T 的实现说明。流行的SysV 衍生版本包括 Dell SVR4 和 Bull SVR4。当今广泛使用的 System V 版本是 SCO OpenServer，基于 System V Release 3，以及SUN Solaris 和 SCO UnixWare，都基于 System V Release 4。 System V 是 AT&T 的第一个商业UNIX版本（UNIX System III) 的加强。传统上，System V 被看作是两种UNIX"风味"之一（另一个是 BSD) 。然而，随着一些并不基于这两者代码的UNIX实现的出现，例如 Linux 和 QNX， 这一归纳不再准确，但不论如何，像POSIX这样的标准化努力一直在试图减少各种实现之间的不同。
 
 ### System V 的IPC机制
 为了提供与其它系统的兼容性，Linux也支持三种system V 的进程间通信机制: 消息、信号量(semaphores)和共享内存，Linux对这些机制的实施大同小异。我们把信号量、消息和共享内存统称 System V IPC的对象，每一个对象都具有同样类型的接口，即系统调用。就像每个文件都有一个打开文件号一样，每个对象也都有唯一的识别号，进程可以通过系统调用传递的识别号来存取这些对象，与文件的存取一样，对这些对象的存取也要验证存取权限，System V IPC可以通过系统调用对对象的创建者设置这些对象的存取权限。

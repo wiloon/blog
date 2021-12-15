@@ -234,7 +234,7 @@ Java 还提供其它的流操作方式，但它们都是对 InputStream 和 Outp
 
 Java将数据于目的地及来源之间的流动抽象化为一个流(Stream)，而流当中流动的则是位数据。
   
-14.2.1　InputStream和OutputStream
+14.2.1InputStream和OutputStream
   
 计算机中实际上数据的流动是通过电路，而上面流动的则是电流，电流的电位有低位与高位，即数字的0与1位。从程序的观点来说，通常会将数据目的地(例如内存)与来源(例如文件)之间的数据流动抽象化为一个流(Stream)，而其中流动的则是位数据，如图14-1所示。
 
@@ -288,7 +288,7 @@ e.printStackTrace();
   
 一般来说，很少直接实现InputStream或OutputStream上的方法，因为这些方法比较低级，通常会实现它们的子类。这些子类上所定义的方法在进行输入/输出时更为方便。
   
-14.2.2　FileInputStream和FileOutputStream
+14.2.2FileInputStream和FileOutputStream
   
 java.io.FileInputStream 是InputStream的子类。从开头File名称上就可以知道，FileInputStream与从指定的文件中读取数据至目的地有关。而 java.io.FileOutputStream是OutputStream的子类，顾名思义，FileOutputStream主要与从来源地写入数据至指定的文件中有关。
   
@@ -382,7 +382,7 @@ FileOutputStream fileOutputStream = new FileOutputStream(args[1], true);构建�
 
 虽然我一向不喜欢使用过长的范例来作程序示范(也不喜欢看很长的范例)，不过本章的范例与其他各章的比起来相对长了一些，我会在程序中多用注释解释程序的逻辑。因为解释输入/输出操作最好的方式，是呈现一个具实用性的范例，本章的范例除了练习的作用之外，日后需要某些输入/输出功能时，也可以来参考看看如何实现。
   
-14.2.3　BufferedInputStream和BufferedOutputStream
+14.2.3BufferedInputStream和BufferedOutputStream
   
 在介绍FileInputStream和 FileOutputStream的例子中，使用了一个byte数组来作为数据读入的缓冲区，以文件存取为例，硬盘存取的速度远低于内存中的数据存取速度。为了减少对硬盘的存取，通常从文件中一次读入一定长度的数据，而写入时也是一次写入一定长度的数据，这可以增加文件存取的效率。
   

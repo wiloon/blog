@@ -16,7 +16,7 @@ Android中级教程之--Log图文详解(Log.v,Log.d,Log.i,Log.w,Log.e)!
   
 androidlayoutbuttonencodingeclipsebt
   
-在Android群里，经常会有人问我,Android　Log是怎么用的，今天我就把从网上以及SDK里东拼西凑过来，让大家先一睹为快，希望对大家入门Android　Log有一定的帮助．
+在Android群里，经常会有人问我,AndroidLog是怎么用的，今天我就把从网上以及SDK里东拼西凑过来，让大家先一睹为快，希望对大家入门AndroidLog有一定的帮助．
 
 android.util.Log常用的方法有以下5个: Log.v() Log.d() Log.i() Log.w() 以及 Log.e() 。根据首字母对应VERBOSE，DEBUG,INFO, WARN，ERROR。
 

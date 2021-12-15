@@ -88,10 +88,10 @@ Web Service平台需要一套协议来实现分布式应用程序的创建。任
 
 ### XML和XSD
 
-可扩展的标记语言XML　是Web Service平台中表示数据的基本格式。除了易于建立和易于分析外,XML主要的优点在于它既与平台无关,又与厂商无关。XML是由万维网协会(W3C)创建,W3C制定的XML SchemaXSD　定义了一套标准的数据类型,并给出了一种语言来扩展这套数据类型。
+可扩展的标记语言XML是Web Service平台中表示数据的基本格式。除了易于建立和易于分析外,XML主要的优点在于它既与平台无关,又与厂商无关。XML是由万维网协会(W3C)创建,W3C制定的XML SchemaXSD定义了一套标准的数据类型,并给出了一种语言来扩展这套数据类型。
 
 
-Web Service平台是用XSD来作为数据类型系统的。当你用某种语言如VB. NET或C#　来构造一个Web Service时,为了符合Web Service标准,所有你使用的数据类型都必须被转换为XSD类型。如想让它使用在不同平台和不同软件的不同组织间传递,还需要用某种东西将它包装起来。这种东西就是一种协议,如 SOAP。
+Web Service平台是用XSD来作为数据类型系统的。当你用某种语言如VB. NET或C#来构造一个Web Service时,为了符合Web Service标准,所有你使用的数据类型都必须被转换为XSD类型。如想让它使用在不同平台和不同软件的不同组织间传递,还需要用某种东西将它包装起来。这种东西就是一种协议,如 SOAP。
 
 ### SOAP
 
@@ -102,7 +102,7 @@ Web Service 希望实现不同的系统之间能够用"软件-软件对话"的�
 
 **WSDL**
 
-Web Service描述语言WSDL　就是用机器能阅读的方式提供的一个正式描述文档而基于XML的语言,用于描述Web Service及其函数、参数和返回值。因为是基于XML的,所以WSDL既是机器可阅读的,又是人可阅读的。
+Web Service描述语言WSDL就是用机器能阅读的方式提供的一个正式描述文档而基于XML的语言,用于描述Web Service及其函数、参数和返回值。因为是基于XML的,所以WSDL既是机器可阅读的,又是人可阅读的。
 
 **UDDI**
 
@@ -110,7 +110,7 @@ UDDI 的目的是为电子商务建立标准；UDDI是一套基于Web的、分�
 
 **调用RPC与消息传递**
 
-Web Service本身其实是在实现应用程序间的通信。我们现在有两种应用程序通信的方法: RPC远程过程调用　和消息传递。使用RPC的时候,客户端的概念是调用服务器上的远程过程,通常方式为实例化一个远程对象并调用其方法和属性。RPC系统试图达到一种位置上的透明性: 服务器暴露出远程对象的接口,而客户端就好像在本地使用的这些对象的接口一样,这样就隐藏了底层的信息,客户端也就根本不需要知道对象是在哪台机器上。
+Web Service本身其实是在实现应用程序间的通信。我们现在有两种应用程序通信的方法: RPC远程过程调用和消息传递。使用RPC的时候,客户端的概念是调用服务器上的远程过程,通常方式为实例化一个远程对象并调用其方法和属性。RPC系统试图达到一种位置上的透明性: 服务器暴露出远程对象的接口,而客户端就好像在本地使用的这些对象的接口一样,这样就隐藏了底层的信息,客户端也就根本不需要知道对象是在哪台机器上。
 
 
 ## 软件的支持
@@ -122,14 +122,14 @@ Web Service本身其实是在实现应用程序间的通信。我们现在有两
 微软的.NET技术应该算是时下最为流行的Web Service 开发技术。首先因为其公司在以前相应的产品就占有相当大的市场份额,以至使新推出的.NET得以有比较稳定的用户群；其次也是更重要的是 .NET平台不仅延续了微软一贯的编程风格,而且还增加了许多支持Web 服务的关键性技术,使得.NET在操作的简单性和执行的稳定性,高效性上达到了一个非常好的结合。
 
 
-微软的Visual Studio. NET便是一个便于 Web 服务的开发工具。微软的目标是,将其新编程语言——C#作为Web Service的首选语言。虽然C#看起来与Java类似,但是还有一些Java中没有的独特的功能。.NET技术中用于Web Service 开发的主要工具是ASP. NET?从技术上说,ASP. net　提供了一些超出ASP以前版本的优点(例如: 代码和HTML的分离,与脚本语言相比较,对"真正"的编程语言如 C# 的支持)。
+微软的Visual Studio. NET便是一个便于 Web 服务的开发工具。微软的目标是,将其新编程语言——C#作为Web Service的首选语言。虽然C#看起来与Java类似,但是还有一些Java中没有的独特的功能。.NET技术中用于Web Service 开发的主要工具是ASP. NET?从技术上说,ASP. net提供了一些超出ASP以前版本的优点(例如: 代码和HTML的分离,与脚本语言相比较,对"真正"的编程语言如 C# 的支持)。
 
 **IBM的WebSphere**
 
 IBM公司是业界第一家能够提供全面支持Web服务的电子商务基础设施中间件的公司。通过多年来与W3C(The World Wide Web Consortium)的共同努力,包括DB2、Lotus、Tivoli 和WebSphere在内的所有IBM软件都实现了对SOAP、WSDL、UDDI、Linux、XML、J2EE等开放技术和标准的全面支持。
 
 
-IBM公司的WebSphere也是比较好的基础架构软件开发平台。WebSphere软件平台及开发工具包括WebSphere Studio Application Developer WSAD　基于J2EE、XML 和Web服务等开放标准,并具备 IBM 在可靠性、扩展性和安全性上的主要优势。WebSphere 是 IBM 在 Web Services策略中的核心平台,它支持所有开发、发布、部署 Web Services应用所必需的开放标准和技术,包括 UDDI,SOAP,J2EE,WSDL,和对 XML 技术集成的增强,这特使得它在全球有很多用户。
+IBM公司的WebSphere也是比较好的基础架构软件开发平台。WebSphere软件平台及开发工具包括WebSphere Studio Application Developer WSAD基于J2EE、XML 和Web服务等开放标准,并具备 IBM 在可靠性、扩展性和安全性上的主要优势。WebSphere 是 IBM 在 Web Services策略中的核心平台,它支持所有开发、发布、部署 Web Services应用所必需的开放标准和技术,包括 UDDI,SOAP,J2EE,WSDL,和对 XML 技术集成的增强,这特使得它在全球有很多用户。
 
 ### Borland的JBuilder
 

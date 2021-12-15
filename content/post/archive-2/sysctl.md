@@ -272,33 +272,33 @@ allows you to change the maximum value/proc/sys/fs/aio-nr can grow to.
 - somaxconn参数.
 - 使用该端口的程序中listen()函数.
 
-　　1. 关于somaxconn参数:
+1. 关于somaxconn参数:
 
-　　定义了系统中每一个端口最大的监听队列的长度,这是个全局的参数,默认值为128,具体信息为:
+定义了系统中每一个端口最大的监听队列的长度,这是个全局的参数,默认值为128,具体信息为:
 
-　　Purpose:
+Purpose:
 
-　　Specifies the maximum listen backlog.
+Specifies the maximum listen backlog.
 
-　　Values:
+Values:
 
-　　Default: 128 connections
+Default: 128 connections
 
-　　Range: 0 to MAXSHORT
+Range: 0 to MAXSHORT
 
-　　Type: Connect
+Type: Connect
 
-　　Diagnosis:
+Diagnosis:
 
-　　N/A
+N/A
 
-　　Tuning
+Tuning
 
-　　Increase this parameter on busy Web servers to handle peak connection rates.
+Increase this parameter on busy Web servers to handle peak connection rates.
 
-　　看下FREEBSD的解析: 
+看下FREEBSD的解析: 
 
-　　限制了接收新 TCP 连接侦听队列的大小。对于一个经常处理新连接的高负载 web服务环境来说,默认的 128 太小了。大多数环境这个值建议增加到 1024 或者更多。 服务进程会自己限制侦听队列的大小(例如 sendmail(8) 或者 Apache),常常在它们的配置文件中有设置队列大小的选项。大的侦听队列对防止拒绝服务 DoS 攻击也会有所帮助。
+限制了接收新 TCP 连接侦听队列的大小。对于一个经常处理新连接的高负载 web服务环境来说,默认的 128 太小了。大多数环境这个值建议增加到 1024 或者更多。 服务进程会自己限制侦听队列的大小(例如 sendmail(8) 或者 Apache),常常在它们的配置文件中有设置队列大小的选项。大的侦听队列对防止拒绝服务 DoS 攻击也会有所帮助。
 
 
 Let's consider a TCP-handshake.. tcp_max_syn_backlog represents the maximal number of connections in SYN_RECV queue. I.e. when your server received SYN, sent SYN-ACK and haven't received ACK yet. This is a separate queue of so-called "request sockets" - reqsk in code (i.e. not fully-fledged sockets, "request sockets" occupy less memory. In this state we can save some memory and not yet allocate a full socket because the full connection may not be at all in the future if ACK will not arrive). The value of this queue is affected (see this post) by listen()'s backlog argument and limited by tcp_max_syn_backlog in kernel.

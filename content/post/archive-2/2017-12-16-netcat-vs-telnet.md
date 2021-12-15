@@ -79,7 +79,7 @@ Telnet有"标准输入文件结束符(standard input EOF)"问题,
   
 它的功能。
 
-　　NetCat的一些主要功能: 
+NetCat的一些主要功能: 
 
 *支持连出和连入(outbound and inbound connection),TCP和UDP,任意源和目的端口
   

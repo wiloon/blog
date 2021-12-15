@@ -1,5 +1,5 @@
 ---
-title: change　alter　vary　modify
+title: changealtervarymodify
 author: "-"
 date: 2013-11-24T06:29:26+00:00
 url: /?p=5989
@@ -9,8 +9,8 @@ tags:
   - English
 
 ---
-## change　alter　vary　modify
-change　alter　vary　modify
+## changealtervarymodify
+changealtervarymodify
   
 这组动词的一般含义是"改变"或"变化".
   

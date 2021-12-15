@@ -11,7 +11,7 @@ categories:
 
   
     
-      　　sysv-rc-conf是一个强大的服务管理程序，群众的意见是sysv-rc-conf比chkconfig好用。
+      sysv-rc-conf是一个强大的服务管理程序，群众的意见是sysv-rc-conf比chkconfig好用。
   
 
 
@@ -369,7 +369,7 @@ categories:
   
 
 
-  　　xorg-common 设置x服务ice socket。不用管它。
+  xorg-common 设置x服务ice socket。不用管它。
 
 
   http://baike.baidu.com/view/2521377.htm?fromTaglist

@@ -30,7 +30,7 @@ Collection
   
 │└Vector
   
-│　└Stack
+│└Stack
   
 └Set
   

@@ -63,7 +63,7 @@ svn resolve --accept theirs-conflict 1.txt 使用1.txt.rNew的冲突部分作为
 svn info
 
 # checkout
-svn checkout  --username user0 http://路径(目录或文件的全路径)　[本地目录全路径]
+svn checkout  --username user0 http://路径(目录或文件的全路径)[本地目录全路径]
 
 #查看目录状态
 svn status

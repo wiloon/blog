@@ -173,7 +173,7 @@ Kafka提供了一个角色: coordinator来执行对于consumer group的管理。
 
 确定consumer group位移信息写入__consumers_offsets的哪个分区。具体计算公式: 
   
-　　__consumers_offsets partition# = Math.abs(groupId.hashCode() % groupMetadataTopicPartitionCount) 注意: groupMetadataTopicPartitionCount由offsets.topic.num.partitions指定，默认是50个分区。
+__consumers_offsets partition# = Math.abs(groupId.hashCode() % groupMetadataTopicPartitionCount) 注意: groupMetadataTopicPartitionCount由offsets.topic.num.partitions指定，默认是50个分区。
   
 该分区leader所在的broker就是被选定的coordinator
   

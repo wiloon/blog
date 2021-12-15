@@ -23,22 +23,22 @@ tasklist
   
 5、筛选器查找进程
 
-  EQ:　等于
+  EQ:等于
 
 
-  NE:　不等于
+  NE:不等于
 
 
-  LT:　小于
+  LT:小于
 
 
-  LE:　小于等于
+  LE:小于等于
 
 
-  GT:　大于
+  GT:大于
 
 
-  GE:　大于等于
+  GE:大于等于
 
 
   tasklist -fi "username ne NT authority\system" -fi "status eq running" 列出系统中正在运行的非SYSTEM状态的所有进程
@@ -77,19 +77,19 @@ tasklist
     1、利用进程的PID结束进程
   
   
-    　　命令格式: ntsd -c q -p pid
+    命令格式: ntsd -c q -p pid
   
   
-    　　命令范例:  ntsd -c q -p 1332 （结束explorer.exe进程) 
+    命令范例:  ntsd -c q -p 1332 （结束explorer.exe进程) 
   
   
     2、利用进程名结束进程
   
   
-    　　命令格式: ntsd -c q -pn ***.exe （***.exe 为进程名,exe不能省) 
+    命令格式: ntsd -c q -pn ***.exe （***.exe 为进程名,exe不能省) 
   
   
-    　　命令范例: ntsd -c q -pn explorer.exe
+    命令范例: ntsd -c q -pn explorer.exe
   
 
 

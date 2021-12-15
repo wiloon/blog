@@ -49,9 +49,9 @@ test.txt内容: hello shell world!
 
 myfile="cat test.txt"
 
-(1)echo $myfile　　#result:cat test.txt
+(1)echo $myfile#result:cat test.txt
 
-(2)eval echo $myfile　　#result:hello shell world!
+(2)eval echo $myfile#result:hello shell world!
 
 从（2) 可以知道第一次扫描进行了变量替换,第二次扫描执行了该字符串中所包含的命令
 

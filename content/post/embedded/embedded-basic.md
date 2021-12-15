@@ -103,7 +103,7 @@ IDE:  ARM Workbench IDE（Eclipse 3.3 IDE 的集成开发环境) / CodeWarrior�
 
 MDK系列，MDK-ARM是ARM 公司推荐的针对微控制器的工具链，或者基于单核ARMTDMI，Cortex-M或者Cortex-R处理器的目录芯片组。总结来说，KEIL公司目前有四款独立的嵌入式软件开发工具，即MDK、KEIL C51、KEIL C166、KEIL C251，它们都是KEIL公司品牌下的产品，都基于uVision集成开发环境，其中MDK是RealView系列中的一员。
 RVDS（后升级DS-5) 包含全部功能，支持所有ARM内核。
-####　Microcontroller Development Kit（MDK) 
+####Microcontroller Development Kit（MDK) 
 原名RealView MDK，也称MDK-ARM、KEIL MDK、KEIL For ARM，都是同一个东西。ARM公司现在统一使用MDK-ARM的称呼，MDK的设备数据库中有很多厂商的芯片，是专为微控制器开发的工具，为满足基于MCU进行嵌入式软件开发的工程师需求而设计。主要特点如下
 
 支持内核:  ARM7，ARM9，Cortex-M4/M3/M1，Cortex-R0/R3/R4等ARM微控制器内核。后续可能变化。

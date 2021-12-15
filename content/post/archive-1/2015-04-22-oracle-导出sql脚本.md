@@ -118,9 +118,9 @@ SQL> show parameters utl_file_dir;
 
 SQL>exec genins_file('emp','/oracle/logs','insert_emp.sql');
   
-|　　　 |　　　　　　|
+| ||
   
-表名，可变　|　　　生成OS下文件名,可变
+表名，可变|生成OS下文件名,可变
   
 |
   

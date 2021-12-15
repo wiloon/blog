@@ -195,7 +195,7 @@ jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当�
   
 就可以了
 
-方法三: myeclipse工具　（**推荐**) 
+方法三: myeclipse工具（**推荐**) 
   
 右击项目-Export-Jar File-要选择Main-Class
 

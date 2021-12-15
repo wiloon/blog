@@ -41,10 +41,10 @@ class Outer
 
 ```java
 f.addMouseMotionListener(new MouseMotionAdapter(){ //匿名类开始
-　　　　　　　public void mouseDragged(MouseEvent e){
- 　　　　　　　　String s="Mouse dragging: x="+e.getX()+"Y="+e.getY();
- 　　　　　　　　tf.setText(s); }
- 　　　　　　} ); //匿名类结束
+public void mouseDragged(MouseEvent e){
+ String s="Mouse dragging: x="+e.getX()+"Y="+e.getY();
+ tf.setText(s); }
+ } ); //匿名类结束
 ```
 
 存在它的原因是:

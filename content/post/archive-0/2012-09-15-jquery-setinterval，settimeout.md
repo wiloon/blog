@@ -53,7 +53,7 @@ categories:
     setTimeout(表达式,延迟时间); 单位:ms(毫秒)；1s=1000ms;
   
   
-    setInterval(表达式,交 互时间);　 单位:ms(毫秒)；1s=1000ms;
+    setInterval(表达式,交 互时间); 单位:ms(毫秒)；1s=1000ms;
   
   
     window.setTimeout()
@@ -71,7 +71,7 @@ categories:
     1，基本用法: 
   
   
-    执行一段代码: 　 var i=0;
+    执行一段代码:  var i=0;
   
   
     setTimeout("i+=1;alert(i)",1000);
@@ -92,7 +92,7 @@ categories:
     下面再来一个执行函数的: 
   
   
-    　 var i=0;
+     var i=0;
 
 function test(){
 
@@ -139,7 +139,7 @@ setTimeout(test,1000);
     比如你想周期性执行一个函数
   
   
-    　function a(){
+    function a(){
 
 //...
 
@@ -161,7 +161,7 @@ setTimeout(test,1000);
     这里 注意第二种形式中,是a,不要写成a(),切记!!!
   
   
-    展开来说,不管你这里写的是什么,如果是一个变量,一定是一个指向某函数的变量; 如果是个函数,那它的返回值就　要是个函数
+    展开来说,不管你这里写的是什么,如果是一个变量,一定是一个指向某函数的变量; 如果是个函数,那它的返回值就要是个函数
   
   
     2,用setTimeout实现setInterval的功能
@@ -170,7 +170,7 @@ setTimeout(test,1000);
     思路很简 单，就是在一个函数中调用不停执行自己，有点像递归
   
   
-    　　var i=0;
+    var i=0;
 
 function xilou(){
 
@@ -196,7 +196,7 @@ setTimeout("xilou()",1000);
     呵呵。让我们来分析一 下: 
   
   
-    　　function xilou(){
+    function xilou(){
 
 //by 西楼冷月 www.chinacms.org
 
@@ -265,7 +265,7 @@ setTimeout(function() {self.count();},1000);//D:正确
     那应该是这样被定义的: 
   
   
-    　　 window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){
+     window.setTimeout=function(vCode, iMilliSeconds [, sLanguage]){
 
 //.....代码
 
@@ -273,5 +273,5 @@ return timer//返回一个标记符
 
 }
 
-　　所以当向 setTimeout()传入this的时候，当然指的是它所属的当前对象window了。
+所以当向 setTimeout()传入this的时候，当然指的是它所属的当前对象window了。
   

@@ -19,7 +19,7 @@ ${maven.build.timestamp.format}表示属性${maven.build.timestamp}的展示格�
 
 用法：
 <properties>
-　　<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 </properties>
 
 2、POM属性(使用pom属性可以引用到pom.xml文件对应元素的值)
@@ -36,7 +36,7 @@ ${project.artifactId} 项目的artifactId
 
 用法：
 <properties>
-　　<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>
 
 ${project.build.outputDirectory}/META-INF/xxx/xxx

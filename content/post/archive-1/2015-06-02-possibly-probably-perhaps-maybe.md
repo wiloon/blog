@@ -23,7 +23,7 @@ Please call me as soon as you possibly can．请尽快给我打电话。
 
 Could you possibly tell me the answer﹖你能告诉我这个答案吗？
 
-(2)　probably"很有可能；十之八九",其语义较强,可能性较大。在否定句中,probably不能紧跟在否定词之后。例如: 
+(2)probably"很有可能；十之八九",其语义较强,可能性较大。在否定句中,probably不能紧跟在否定词之后。例如: 
 
 It will probably be fine tomorrow．明天大概会是晴天。
 

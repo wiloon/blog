@@ -123,101 +123,101 @@ Hello World
  
 
 semaphore
-　　 信号量(Semaphore)，有时被称为信号灯，是在多线程环境下使用的一种设施, 它负责协调各个线程, 以保证它们能够正确、合理的使用公共资源。
-　　什么是信号量(Semaphore0
-　　Semaphore分为单值和多值两种，前者只能被一个线程获得，后者可以被若干个线程获得。
-　　以一个停车场是运作为例。为了简单起见，假设停车场只有三个车位，一开始三个车位都是空的。这是如果同时来了五辆车，看门人允许其中三辆不受阻碍的进入，然后放下车拦，剩下的车则必须在入口等待，此后来的车也都不得不在入口处等待。这时，有一辆车离开停车场，看门人得知后，打开车拦，放入一辆，如果又离开两辆，则又可以放入两辆，如此往复。
-　　在这个停车场系统中，车位是公共资源，每辆车好比一个线程，看门人起的就是信号量的作用。
-　　更进一步，信号量的特性如下: 信号量是一个非负整数（车位数) ，所有通过它的线程（车辆) 都会将该整数减一（通过它当然是为了使用资源) ，当该整数值为零时，所有试图通过它的线程都将处于等待状态。在信号量上我们定义两种操作:  Wait（等待)  和 Release（释放) 。 当一个线程调用Wait等待) 操作时，它要么通过然后将信号量减一，要么一自等下去，直到信号量大于一或超时。Release（释放) 实际上是在信号量上执行加操作，对应于车辆离开停车场，该操作之所以叫做“释放”是应为加操作实际上是释放了由信号量守护的资源。
-　　实现
-　　大家都知道，.Net Framework类库中提供的线程同步设施包括: 
-　　Monitor， AutoResetEvent， ManualResetEvent，Mutex，ReadWriteLock和 InterLock。 其中 AutoResetEvent， ManualResetEvent，Mutex派生自WaitHandler，它们实际上是封装了操作系统提供的内核对象。而其它的应当是在.Net虚拟机中土生土长的。显然来自操作系统内核对象的设施使用起来效率要差一些。不过效率并不是我们这里要考虑的问题，我们将使用两个 Monitor 和 一个ManualResetEvent 对象来模拟一个信号量。
-　　代码如下: 
-　　public class Semaphore
-　　{
-　    　private ManualResetEvent waitEvent = new ManualResetEvent(false);
-　　    private object syncObjWait = new object();
-　　    private int maxCount = 1; file://最大资源数
-　　    private int currentCount = 0; file://当前资源数
-　　    public Semaphore()
-　　{
-　　}
-　　   public Semaphore( int maxCount )
-　　{
-　　   this.maxCount = maxCount;
-　　}
-　　public bool Wait()
-　　{
-　　   lock( syncObjWait ) file://只能一个线程进入下面代码
-　　   {
-　　       bool waitResult = this.waitEvent.WaitOne(); file://在此等待资源数大于零
-　　       if( waitResult )
-　　       {
-　　         lock( this )
-　　           {
-　　             if( currentCount > 0 )
-　　               {
-　　                  currentCount--;
-　　                  if( currentCount == 0 )
-　　                   {
-　　                       this.waitEvent.Reset();
-　                   　}
-　　               }
-　　         else
-　　          {
-　　               System.Diagnostics.Debug.Assert( false, "Semaphore is not allow current count < 0" );
-　　          }
-　　      }
-　　  }
-　　   return waitResult;
-　　 }
-　　}
-　　/** <summary>
-　　/// 允许超时返回的 Wait 操作
-　　/// </summary>
-　　/// <param name="millisecondsTimeout"></param>
-　　/// <returns></returns>
-　　public bool Wait( int millisecondsTimeout )
-　　{
-　　     lock( syncObjWait ) // Monitor 确保该范围类代码在临界区内
-　　        {
-　　           bool waitResult = this.waitEvent.WaitOne(millisecondsTimeout,false);
-　　          if( waitResult )
-　　          {
-　　             lock( this )
-　　             {
-　　                if( currentCount > 0 )
-　　                {
-　　                    currentCount--;
-　　                    if( currentCount == 0 )
-　　                     {
-　　                        this.waitEvent.Reset();
-　　                      }
-　　                  }
-　　               else
-　　               {
-　　                     System.Diagnostics.Debug.Assert( false, "Semaphore is not allow current count < 0" );
-　                　}
-　             　}
-　　          }
-　　      return waitResult;
-　　     }
-　　}
-　　public bool Release()
-　　{
-　　        lock( this ) // Monitor 确保该范围类代码在临界区内
-　　       {
-　　           currentCount++;
-　　           if( currentCount > this.maxCount )
-　　          {
-　　             currentCount = this.maxCount;
-　　             return false;
-　　          }
-　           　this.waitEvent.Set(); file://允许调用Wait的线程进入
-　　        }
-　　      return true;
-　　     }
-　　}
+ 信号量(Semaphore)，有时被称为信号灯，是在多线程环境下使用的一种设施, 它负责协调各个线程, 以保证它们能够正确、合理的使用公共资源。
+什么是信号量(Semaphore0
+Semaphore分为单值和多值两种，前者只能被一个线程获得，后者可以被若干个线程获得。
+以一个停车场是运作为例。为了简单起见，假设停车场只有三个车位，一开始三个车位都是空的。这是如果同时来了五辆车，看门人允许其中三辆不受阻碍的进入，然后放下车拦，剩下的车则必须在入口等待，此后来的车也都不得不在入口处等待。这时，有一辆车离开停车场，看门人得知后，打开车拦，放入一辆，如果又离开两辆，则又可以放入两辆，如此往复。
+在这个停车场系统中，车位是公共资源，每辆车好比一个线程，看门人起的就是信号量的作用。
+更进一步，信号量的特性如下: 信号量是一个非负整数（车位数) ，所有通过它的线程（车辆) 都会将该整数减一（通过它当然是为了使用资源) ，当该整数值为零时，所有试图通过它的线程都将处于等待状态。在信号量上我们定义两种操作:  Wait（等待)  和 Release（释放) 。 当一个线程调用Wait等待) 操作时，它要么通过然后将信号量减一，要么一自等下去，直到信号量大于一或超时。Release（释放) 实际上是在信号量上执行加操作，对应于车辆离开停车场，该操作之所以叫做“释放”是应为加操作实际上是释放了由信号量守护的资源。
+实现
+大家都知道，.Net Framework类库中提供的线程同步设施包括: 
+Monitor， AutoResetEvent， ManualResetEvent，Mutex，ReadWriteLock和 InterLock。 其中 AutoResetEvent， ManualResetEvent，Mutex派生自WaitHandler，它们实际上是封装了操作系统提供的内核对象。而其它的应当是在.Net虚拟机中土生土长的。显然来自操作系统内核对象的设施使用起来效率要差一些。不过效率并不是我们这里要考虑的问题，我们将使用两个 Monitor 和 一个ManualResetEvent 对象来模拟一个信号量。
+代码如下: 
+public class Semaphore
+{
+    private ManualResetEvent waitEvent = new ManualResetEvent(false);
+    private object syncObjWait = new object();
+    private int maxCount = 1; file://最大资源数
+    private int currentCount = 0; file://当前资源数
+    public Semaphore()
+{
+}
+   public Semaphore( int maxCount )
+{
+   this.maxCount = maxCount;
+}
+public bool Wait()
+{
+   lock( syncObjWait ) file://只能一个线程进入下面代码
+   {
+       bool waitResult = this.waitEvent.WaitOne(); file://在此等待资源数大于零
+       if( waitResult )
+       {
+         lock( this )
+           {
+             if( currentCount > 0 )
+               {
+                  currentCount--;
+                  if( currentCount == 0 )
+                   {
+                       this.waitEvent.Reset();
+                   }
+               }
+         else
+          {
+               System.Diagnostics.Debug.Assert( false, "Semaphore is not allow current count < 0" );
+          }
+      }
+  }
+   return waitResult;
+ }
+}
+/** <summary>
+/// 允许超时返回的 Wait 操作
+/// </summary>
+/// <param name="millisecondsTimeout"></param>
+/// <returns></returns>
+public bool Wait( int millisecondsTimeout )
+{
+     lock( syncObjWait ) // Monitor 确保该范围类代码在临界区内
+        {
+           bool waitResult = this.waitEvent.WaitOne(millisecondsTimeout,false);
+          if( waitResult )
+          {
+             lock( this )
+             {
+                if( currentCount > 0 )
+                {
+                    currentCount--;
+                    if( currentCount == 0 )
+                     {
+                        this.waitEvent.Reset();
+                      }
+                  }
+               else
+               {
+                     System.Diagnostics.Debug.Assert( false, "Semaphore is not allow current count < 0" );
+                }
+             }
+          }
+      return waitResult;
+     }
+}
+public bool Release()
+{
+        lock( this ) // Monitor 确保该范围类代码在临界区内
+       {
+           currentCount++;
+           if( currentCount > this.maxCount )
+          {
+             currentCount = this.maxCount;
+             return false;
+          }
+           this.waitEvent.Set(); file://允许调用Wait的线程进入
+        }
+      return true;
+     }
+}
  
 
  ---

@@ -85,19 +85,19 @@ Servlet生命周期
   
   
   
-Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:　　与传统的CGI和许多其他类似CGI的技术相比，Java Servlet具有更高的效率，更容易使用，功能更强大，具有更好的可移植性，更节省投资。在未来的技术发展过程中，Servlet有可能彻底取代CGI。 在传统的CGI中，每个请求都要启动一个新的进程，如果CGI程序本身的执行时间较短，启动进程所需要的开销很可能反而超过实际执行时间。而在Servlet中，每个请求由一个轻量级的Java线程处理(而不是重量级的操作系统进程)。在传统CGI中，如果有N个并发的对同一CGI程序的请求，则该CGI程序的代码在内存中重复装载了N次；而对于Servlet，处理请求的是N个线程，只需要一份Servlet类代码。在性能优化方面，Servlet也比CGI有着更多的选择。
+Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与传统的CGI和许多其他类似CGI的技术相比，Java Servlet具有更高的效率，更容易使用，功能更强大，具有更好的可移植性，更节省投资。在未来的技术发展过程中，Servlet有可能彻底取代CGI。 在传统的CGI中，每个请求都要启动一个新的进程，如果CGI程序本身的执行时间较短，启动进程所需要的开销很可能反而超过实际执行时间。而在Servlet中，每个请求由一个轻量级的Java线程处理(而不是重量级的操作系统进程)。在传统CGI中，如果有N个并发的对同一CGI程序的请求，则该CGI程序的代码在内存中重复装载了N次；而对于Servlet，处理请求的是N个线程，只需要一份Servlet类代码。在性能优化方面，Servlet也比CGI有着更多的选择。
   
   
   
-    　　* 方便 　
+    * 方便 
   
   
   
-    　　Servlet提供了大量的实用工具例程，例如自动地解析和解码HTML表单数据、读取和设置HTTP头、处理Cookie、跟踪会话状态等。 
+    Servlet提供了大量的实用工具例程，例如自动地解析和解码HTML表单数据、读取和设置HTTP头、处理Cookie、跟踪会话状态等。 
   
   
   
-    　　* 功能强大
+    * 功能强大
   
   
   
@@ -105,11 +105,11 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:　�
   
   
     * 可移植性好
- 　　Servlet用Java编写，Servlet API具有完善的标准。因此，为IPlanet Enterprise Server写的Servlet无需任何实质上的改动即可移植到Apache、Microsoft IIS或者WebStar。几乎所有的主流服务器都直接或通过插件支持Servlet。
+ Servlet用Java编写，Servlet API具有完善的标准。因此，为IPlanet Enterprise Server写的Servlet无需任何实质上的改动即可移植到Apache、Microsoft IIS或者WebStar。几乎所有的主流服务器都直接或通过插件支持Servlet。
   
   
     * 节省投资 
- 　　不仅有许多廉价甚至免费的Web服务器可供个人或小规模网站使用，而且对于现有的服务器，如果它不支持Servlet的话，要加上这部分功能也往往是免费的(或只需要极少的投资)。
+ 不仅有许多廉价甚至免费的Web服务器可供个人或小规模网站使用，而且对于现有的服务器，如果它不支持Servlet的话，要加上这部分功能也往往是免费的(或只需要极少的投资)。
   
   
     Java Servlet 与 JSP: 
@@ -137,13 +137,13 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:　�
     servlet 2.4 新增功能
   
   
-    　　: 2003年11月推出 
+    : 2003年11月推出 
   
   
-    　　Servlet 2.4加入了几个引起关注的特性，没有特别突出的新内容，而是在推敲和阐明以前存在的一些特性上花费了更多的功夫,对一些不严谨的地方进行了校验。 
+    Servlet 2.4加入了几个引起关注的特性，没有特别突出的新内容，而是在推敲和阐明以前存在的一些特性上花费了更多的功夫,对一些不严谨的地方进行了校验。 
   
   
-    　　Servlet 2.4增加了新的最低需求，监测request的新方法，处理response的新方法，新的国际化支持，RequestDispatcher的几个处理，新的request listener类，session的描述，和一个新的基于Schema的并拥有J2EE元素的发布描述符。这份文档规范全面而严格的进行了修订，除去了一些可能会影响到跨平台发布的模糊不清的因素。总而言之，这份规范增加了四个新类，七个新方法，一个新常量，不再推荐使用一个类。
+    Servlet 2.4增加了新的最低需求，监测request的新方法，处理response的新方法，新的国际化支持，RequestDispatcher的几个处理，新的request listener类，session的描述，和一个新的基于Schema的并拥有J2EE元素的发布描述符。这份文档规范全面而严格的进行了修订，除去了一些可能会影响到跨平台发布的模糊不清的因素。总而言之，这份规范增加了四个新类，七个新方法，一个新常量，不再推荐使用一个类。
  1、web.xml DTD改用了XML Schema;
  Servlet 2.3之前的版本使用DTD作为部署描述文件的定义，其web.xml的格式为如下所示: 
  <?xml version="1.0" encoding="IS0-8859-1"?>
@@ -160,10 +160,10 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:　�
  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   
   
-    　　.........
+    .........
   
   
-    　　</web-app>
+    </web-app>
  注意: 改为Schema后主要加强了两项功能:
  (1) 元素不依照顺序设定
  (2) 更强大的验证机制
@@ -210,24 +210,24 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:　�
   
     HTTP Servlet 使用一个 HTML 表单来发送和接收数据。要创建一个 HTTP Servlet，请扩展 HttpServlet 类， 该类是用专门的方法来处理 HTML 表单的 GenericServlet 的一个子类。 HTML 表单是由 <FORM> 和 </FORM> 标记定义的。表单中典型地包含输入字段(如文本输入字段、复选框、单选按钮和选择列表)和用于提交数据的按钮。当提交信息时，它们还指定服务器应执行哪一个Servlet(或其它的程序)。 HttpServlet 类包含 init()、destroy()、service() 等方法。其中 init() 和 destroy() 方法是继承的。
  (1) init() 方法
- 　　在 Servlet 的生命期中，仅执行一次 init() 方法。它是在服务器装入 Servlet 时执行的。 可以配置服务器，以在启动服务器或客户机首次访问 Servlet 时装入 Servlet。 无论有多少客户机访问 Servlet，都不会重复执行 init() 。
+ 在 Servlet 的生命期中，仅执行一次 init() 方法。它是在服务器装入 Servlet 时执行的。 可以配置服务器，以在启动服务器或客户机首次访问 Servlet 时装入 Servlet。 无论有多少客户机访问 Servlet，都不会重复执行 init() 。
  缺省的 init() 方法通常是符合要求的，但也可以用定制 init() 方法来覆盖它，典型的是管理服务器端资源。 例如，可能编写一个定制 init() 来只用于一次装入 GIF 图像，改进 Servlet 返回 GIF 图像和含有多个客户机请求的性能。另一个示例是初始化数据库连接。缺省的 init() 方法设置了 Servlet 的初始化参数，并用它的 ServletConfig 对象参数来启动配置， 因此所有覆盖 init() 方法的 Servlet 应调用 super.init() 以确保仍然执行这些任务。在调用 service() 方法之前，应确保已完成了 init() 方法。
  (2) service() 方法
- 　　service() 方法是 Servlet 的核心。每当一个客户请求一个HttpServlet 对象，该对象的service() 方法就要被调用，而且传递给这个方法一个"请求"(ServletRequest)对象和一个"响应"(ServletResponse)对象作为参数。 在 HttpServlet 中已存在 service() 方法。缺省的服务功能是调用与 HTTP 请求的方法相应的 do 功能。例如， 如果 HTTP 请求方法为 GET，则缺省情况下就调用 doGet() 。Servlet 应该为 Servlet 支持的 HTTP 方法覆盖 do 功能。因为 HttpServlet.service() 方法会检查请求方法是否调用了适当的处理方法，不必要覆盖 service() 方法。只需覆盖相应的 do 方法就可以了。
+ service() 方法是 Servlet 的核心。每当一个客户请求一个HttpServlet 对象，该对象的service() 方法就要被调用，而且传递给这个方法一个"请求"(ServletRequest)对象和一个"响应"(ServletResponse)对象作为参数。 在 HttpServlet 中已存在 service() 方法。缺省的服务功能是调用与 HTTP 请求的方法相应的 do 功能。例如， 如果 HTTP 请求方法为 GET，则缺省情况下就调用 doGet() 。Servlet 应该为 Servlet 支持的 HTTP 方法覆盖 do 功能。因为 HttpServlet.service() 方法会检查请求方法是否调用了适当的处理方法，不必要覆盖 service() 方法。只需覆盖相应的 do 方法就可以了。
  Servlet的响应可以是下列几种类型: 
  一个输出流，浏览器根据它的内容类型(如text/HTML)进行解释。
  一个HTTP错误响应, 重定向到另一个URL、servlet、JSP。
  (3)doGet()方法
- 　　当一个客户通过HTML 表单发出一个HTTP GET请求或直接请求一个URL时，doGet()方法被调用。与GET请求相关的参数添加到URL的后面，并与这个请求一起发送。当不会修改服务器端的数据时，应该使用doGet()方法。
+ 当一个客户通过HTML 表单发出一个HTTP GET请求或直接请求一个URL时，doGet()方法被调用。与GET请求相关的参数添加到URL的后面，并与这个请求一起发送。当不会修改服务器端的数据时，应该使用doGet()方法。
  (4)doPost()方法
- 　　当一个客户通过HTML 表单发出一个HTTP POST请求时，doPost()方法被调用。与POST请求相关的参数作为一个单独的HTTP 请求从浏览器发送到服务器。当需要修改服务器端的数据时，应该使用doPost()方法。
+ 当一个客户通过HTML 表单发出一个HTTP POST请求时，doPost()方法被调用。与POST请求相关的参数作为一个单独的HTTP 请求从浏览器发送到服务器。当需要修改服务器端的数据时，应该使用doPost()方法。
  (5) destroy() 方法
- 　　destroy() 方法仅执行一次，即在服务器停止且卸载Servlet 时执行该方法。典型的，将 Servlet 作为服务器进程的一部分来关闭。缺省的 destroy() 方法通常是符合要求的，但也可以覆盖它，典型的是管理服务器端资源。例如，如果 Servlet 在运行时会累计统计数据，则可以编写一个 destroy() 方法，该方法用于在未装入 Servlet 时将统计数字保存在文件中。另一个示例是关闭数据库连接。
+ destroy() 方法仅执行一次，即在服务器停止且卸载Servlet 时执行该方法。典型的，将 Servlet 作为服务器进程的一部分来关闭。缺省的 destroy() 方法通常是符合要求的，但也可以覆盖它，典型的是管理服务器端资源。例如，如果 Servlet 在运行时会累计统计数据，则可以编写一个 destroy() 方法，该方法用于在未装入 Servlet 时将统计数字保存在文件中。另一个示例是关闭数据库连接。
  当服务器卸装 Servlet 时，将在所有 service() 方法调用完成后，或在指定的时间间隔过后调用 destroy() 方法。一个Servlet 在运行service() 方法时可能会产生其它的线程，因此请确认在调用 destroy() 方法时，这些线程已终止或完成。
  (6) GetServletConfig()方法
- 　　GetServletConfig()方法返回一个 ServletConfig 对象，该对象用来返回初始化参数和ServletContext。ServletContext 接口提供有关servlet 的环境信息。
+ GetServletConfig()方法返回一个 ServletConfig 对象，该对象用来返回初始化参数和ServletContext。ServletContext 接口提供有关servlet 的环境信息。
  (7) GetServletInfo()方法
- 　　GetServletInfo()方法是一个可选的方法，它提供有关servlet 的信息，如作者、版本、版权。
+ GetServletInfo()方法是一个可选的方法，它提供有关servlet 的信息，如作者、版本、版权。
  当服务器调用sevlet 的Service()、doGet()和doPost()这三个方法时，均需要 "请求"和"响应"对象作为参数。"请求"对象提供有关请求的信息，而"响应"对象提供了一个将响应信息返回给浏览器的一个通信途径。
  javax.servlet 软件包中的相关类为ServletResponse和ServletRequest，而javax.servlet.http 软件包中的相关类为HttpServletRequest 和 HttpServletResponse。Servlet 通过这些对象与服务器通信并最终与客户机通信。Servlet 能通过调用"请求"对象的方法获知客户机环境，服务器环境的信息和所有由客户机提供的信息。Servlet 可以调用"响应"对象的方法发送响应，该响应是准备发回客户机的。
   
