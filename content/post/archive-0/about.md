@@ -53,12 +53,14 @@ tags:
 - 日常系统 Archlinux + KDE
 
 ### 技术栈
+接触过的技术，从左到右按熟悉程度排序  
 - Java, Golang
-- MySQL, Redis, InfluxDB
+- MySQL, Redis, InfluxDB, Memcache
 - Kafka, Zookeeper
-- CentOS, Ubuntu, Archlinux, Docker, Podman
+- CentOS, Archlinux, Ubuntu
 - AWS, Aliyun
-- Vue, Element, Vuetify, Angular
+- Javascript, Vue, Element, Vuetify, Angular
+- Docker, Protobuf, JWT, ELK, Telegraf, Filebeat, Podman
 
 ### - 联系方式
 email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
