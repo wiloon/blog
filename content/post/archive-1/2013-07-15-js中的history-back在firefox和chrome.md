@@ -14,10 +14,10 @@ JavaScript中后退的写法: history.back()或者history.go(-1)。
 
 FireFox: 
 
-只需要改成如下方式:  **返回**
+只需要改成如下方式:  **返回**
 
-**        **Chrome: 
+**        **Chrome: 
 
-Chrome比FireFox更难搞:  **返回**
+Chrome比FireFox更难搞:  **返回**
 
-本人分析: 对于Chrome来说，首先执行window.history.back()，执行完成之后再接着执行href="#"，所以无法返回。加上 return false之后将不再执行href="#"，便能正常返回。
+本人分析: 对于Chrome来说，首先执行window.history.back()，执行完成之后再接着执行href="#"，所以无法返回。加上 return false之后将不再执行href="#"，便能正常返回。

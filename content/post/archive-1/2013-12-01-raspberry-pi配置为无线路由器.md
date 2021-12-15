@@ -27,7 +27,7 @@ tags:
     
     
       
-        RaspberryPi B版（就是带有线网卡的那个版) ，内存512/256都可以，我的是256的。
+        RaspberryPi B版（就是带有线网卡的那个版) ，内存512/256都可以，我的是256的。
       
       
         一个已经可以正常运行的SD卡，这个如何准备我在我的另外一篇随笔当中提到过，所以这里不再赘述。
@@ -62,13 +62,13 @@ tags:
     
     
       
-        Edimax  不支持 Access Point
+        Edimax  不支持 Access Point
       
       
-        AirLink 101 / AWL5088 不支持 Access Point
+        AirLink 101 / AWL5088 不支持 Access Point
       
       
-        Ralink RT5370 支持 Access Point
+        Ralink RT5370 支持 Access Point
       
     
     
@@ -135,7 +135,7 @@ opt lease 864000 # 10 day DHCP lease time in seconds
         
         
         
-          将/etc/default/udhcpd 当中的这一行 DHCPD_ENABLED="no"  变为
+          将/etc/default/udhcpd 当中的这一行 DHCPD_ENABLED="no"  变为
         
         
         
@@ -235,7 +235,7 @@ wmm_enabled=0
             
             
             
-              把原来的DAEMON_CONF="/etc/hostapd/hostapd.conf" 变为: 
+              把原来的DAEMON_CONF="/etc/hostapd/hostapd.conf" 变为: 
             
             
             

@@ -12,10 +12,10 @@ categories:
 
 <http://www.peterbe.com/plog/button-tag-in-IE>
 
-  * [Here's a page][1] describing the differences (basically you can put html into a `<button></button>`)
-  * [And an other page][2] describing why people avoid `<button></button>` (Hint: IE6)
+  * [Here's a page][1] describing the differences (basically you can put html into a `<button></button>`)
+  * [And an other page][2] describing why people avoid `<button></button>` (Hint: IE6)
 
-Another IE problem when using `<button />`:
+Another IE problem when using `<button />`:
 
 > And while we're talking about IE, it's got a couple of bugs related to the width of buttons. It'll mysteriously add extra padding when you're trying to add styles, meaning you have to add a tiny hack to get things under control.
 > 

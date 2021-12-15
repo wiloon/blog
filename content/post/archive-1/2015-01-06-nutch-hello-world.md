@@ -15,7 +15,7 @@ download and install ant
 
 download and install Cygwin
 
-download HBase 0.94.14
+download HBase 0.94.14
 
 http://mirrors.cnnic.cn/apache/hbase/stable/hbase-0.98.9-hadoop2-bin.tar.gz
 

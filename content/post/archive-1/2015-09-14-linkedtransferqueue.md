@@ -96,7 +96,7 @@ cleanMe = new PaddedAtomicReference<QNode>(null);
   
 }
   
-static final class PaddedAtomicReference<T> extends AtomicReference<T> {        // enough padding for 64bytes with 4byte refs
+static final class PaddedAtomicReference<T> extends AtomicReference<T> {        // enough padding for 64bytes with 4byte refs
   
 Object p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, pa, pb, pc, pd, pe;
   

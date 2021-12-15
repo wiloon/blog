@@ -14,9 +14,9 @@ categories:
   
 
   
-**configure: error: \*** SDL version 1.2.0 not found! **
+**configure: error: \*** SDL version 1.2.0 not found! **
   
-**configure: error: \*** SDL_image library not found! **
+**configure: error: \*** SDL_image library not found! **
   
 **configure: error: \*** SDL_mixer library not found!**
   
@@ -32,7 +32,7 @@ Now follow all these steps to install **SDL 1.2** and its related libraries:
 
 To install latest version of SDL (1.2, SDL 1.3 is still under development), run this sequence of commands from the terminal:
 
-**wget -O SDL-1.2.14.tar.gz  http://goo.gl/ByL0B**
+**wget -O SDL-1.2.14.tar.gz  http://goo.gl/ByL0B**
   
 **
   
@@ -44,7 +44,7 @@ To install latest version of SDL (1.2, SDL 1.3 is still under development), run 
   
 ** 
   
-**./configure && ****make**
+**./configure && ****make**
   
 **
   
@@ -68,7 +68,7 @@ Via the terminal, run the following commands:
   
 ** 
   
-**./configure && ****make**
+**./configure && ****make**
   
 **
   
@@ -92,7 +92,7 @@ Run the following commands:
   
 ** 
   
-**./configure && ****make**
+**./configure && ****make**
   
 **
   
@@ -116,7 +116,7 @@ Issue these commands:
   
 ** 
   
-**./configure && ****make**
+**./configure && ****make**
   
 **
   

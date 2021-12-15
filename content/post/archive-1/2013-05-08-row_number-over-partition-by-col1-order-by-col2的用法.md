@@ -14,8 +14,8 @@ tags:
 ### oracle row_number 函数
 ```sql
 ROW_NUMBER() OVER (PARTITION BY COL1 ORDER BY COL2) --其中，COL1，COL2可以为多列
-select xt.id, xt.item, xt.attribute1, xt.attribute2, 
-ROW_NUMBER() OVER(PARTITION BY xt.id,xt.item order by xt.id,xt.item) test
+select xt.id, xt.item, xt.attribute1, xt.attribute2, 
+ROW_NUMBER() OVER(PARTITION BY xt.id,xt.item order by xt.id,xt.item) test
 from xxuts_test xt
 ```
 

@@ -54,7 +54,7 @@ Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Prod
 
 PL/SQL Release 10.2.0.1.0 - Production
 
-CORE    10.2.0.1.0    Production
+CORE    10.2.0.1.0    Production
 
 
 TNS for 32-bit Windows: Version 10.2.0.1.0 - Production
@@ -86,7 +86,7 @@ NEXTVAL
 1
 
 
-已用时间:  00: 00: 00.01
+已用时间:  00: 00: 00.01
 
 
 执行计划
@@ -98,15 +98,15 @@ Plan hash value: 3078288422
 
 ------------------------
 
-| Id  | Operation        | Name        | Rows  | Cost (%CPU)| Time     |
+| Id  | Operation        | Name        | Rows  | Cost (%CPU)| Time     |
 
 ------------------------
 
-|   0 | SELECT STATEMENT |             |     1 |     2   (0)| 00:00:01 |
+|   0 | SELECT STATEMENT |             |     1 |     2   (0)| 00:00:01 |
 
-|   1 |  SEQUENCE        | SEQ_NOCACHE |       |            |          |
+|   1 |  SEQUENCE        | SEQ_NOCACHE |       |            |          |
 
-|   2 |   FAST DUAL      |             |     1 |     2   (0)| 00:00:01 |
+|   2 |   FAST DUAL      |             |     1 |     2   (0)| 00:00:01 |
 
 ------------------------
 
@@ -114,27 +114,27 @@ Plan hash value: 3078288422
 
 --------------------
 
-30  recursive calls
+30  recursive calls
 
-3  db block gets
+3  db block gets
 
-3  consistent gets
+3  consistent gets
 
-0  physical reads
+0  physical reads
 
-640  redo size
+640  redo size
 
-407  bytes sent via SQL*Net to client
+407  bytes sent via SQL*Net to client
 
-400  bytes received via SQL*Net from client
+400  bytes received via SQL*Net from client
 
-2  SQL*Net roundtrips to/from client
+2  SQL*Net roundtrips to/from client
 
-0  sorts (memory)
+0  sorts (memory)
 
-0  sorts (disk)
+0  sorts (disk)
 
-1  rows processed
+1  rows processed
 
 
 -第二次调用（篇幅原因，执行计划和部分统计量省略) 
@@ -149,34 +149,34 @@ NEXTVAL
 2
 
 
-已用时间:  00: 00: 00.01
+已用时间:  00: 00: 00.01
 
 
 统计信息
 
 --------------------
 
-14  recursive calls
+14  recursive calls
 
-3  db block gets
+3  db block gets
 
-1  consistent gets
+1  consistent gets
 
-0  physical reads
+0  physical reads
 
-688  redo size
+688  redo size
 
-407  bytes sent via SQL*Net to client
+407  bytes sent via SQL*Net to client
 
-400  bytes received via SQL*Net from client
+400  bytes received via SQL*Net from client
 
-2  SQL*Net roundtrips to/from client
+2  SQL*Net roundtrips to/from client
 
-0  sorts (memory)
+0  sorts (memory)
 
-0  sorts (disk)
+0  sorts (disk)
 
-1  rows processed
+1  rows processed
 
 
 -第三次调用
@@ -191,34 +191,34 @@ NEXTVAL
 3
 
 
-已用时间:  00: 00: 00.01
+已用时间:  00: 00: 00.01
 
 
 统计信息
 
 --------------------
 
-14  recursive calls
+14  recursive calls
 
-3  db block gets
+3  db block gets
 
-1  consistent gets
+1  consistent gets
 
-0  physical reads
+0  physical reads
 
-636  redo size
+636  redo size
 
-407  bytes sent via SQL*Net to client
+407  bytes sent via SQL*Net to client
 
-400  bytes received via SQL*Net from client
+400  bytes received via SQL*Net from client
 
-2  SQL*Net roundtrips to/from client
+2  SQL*Net roundtrips to/from client
 
-0  sorts (memory)
+0  sorts (memory)
 
-0  sorts (disk)
+0  sorts (disk)
 
-1  rows processed
+1  rows processed
 
 篇幅原因，本文只表现部分结果。从结果统计量中，可以发现: 虽然我们对sequence对象是采用select操作。但是对nocache的序列对象而言，每次操作都会有600左右的redo log生成。
 
@@ -235,7 +235,7 @@ NEXTVAL
 1
 
 
-已用时间:  00: 00: 00.03
+已用时间:  00: 00: 00.03
 
 
 执行计划
@@ -247,15 +247,15 @@ Plan hash value: 2754437009
 
 ------------------------
 
-| Id  | Operation        | Name      | Rows  | Cost (%CPU)| Time     |
+| Id  | Operation        | Name      | Rows  | Cost (%CPU)| Time     |
 
 ------------------------
 
-|   0 | SELECT STATEMENT |           |     1 |     2   (0)| 00:00:01 |
+|   0 | SELECT STATEMENT |           |     1 |     2   (0)| 00:00:01 |
 
-|   1 |  SEQUENCE        | SEQ_CACHE |       |            |          |
+|   1 |  SEQUENCE        | SEQ_CACHE |       |            |          |
 
-|   2 |   FAST DUAL      |           |     1 |     2   (0)| 00:00:01 |
+|   2 |   FAST DUAL      |           |     1 |     2   (0)| 00:00:01 |
 
 ------------------------
 
@@ -263,27 +263,27 @@ Plan hash value: 2754437009
 
 --------------------
 
-30  recursive calls
+30  recursive calls
 
-3  db block gets
+3  db block gets
 
-3  consistent gets
+3  consistent gets
 
-0  physical reads
+0  physical reads
 
-688  redo size
+688  redo size
 
-407  bytes sent via SQL*Net to client
+407  bytes sent via SQL*Net to client
 
-400  bytes received via SQL*Net from client
+400  bytes received via SQL*Net from client
 
-2  SQL*Net roundtrips to/from client
+2  SQL*Net roundtrips to/from client
 
-0  sorts (memory)
+0  sorts (memory)
 
-0  sorts (disk)
+0  sorts (disk)
 
-1  rows processed
+1  rows processed
 
 
 SQL> select seq_cache.nextval from dual;
@@ -296,34 +296,34 @@ NEXTVAL
 2
 
 
-已用时间:  00: 00: 00.00
+已用时间:  00: 00: 00.00
 
 
 统计信息
 
 --------------------
 
-0  recursive calls
+0  recursive calls
 
-0  db block gets
+0  db block gets
 
-0  consistent gets
+0  consistent gets
 
-0  physical reads
+0  physical reads
 
-0  redo size
+0  redo size
 
-407  bytes sent via SQL*Net to client
+407  bytes sent via SQL*Net to client
 
-400  bytes received via SQL*Net from client
+400  bytes received via SQL*Net from client
 
-2  SQL*Net roundtrips to/from client
+2  SQL*Net roundtrips to/from client
 
-0  sorts (memory)
+0  sorts (memory)
 
-0  sorts (disk)
+0  sorts (disk)
 
-1  rows processed
+1  rows processed
 
 
 SQL> select seq_cache.nextval from dual;
@@ -336,34 +336,34 @@ NEXTVAL
 3
 
 
-已用时间:  00: 00: 00.01
+已用时间:  00: 00: 00.01
 
 
 统计信息
 
 --------------------
 
-0  recursive calls
+0  recursive calls
 
-0  db block gets
+0  db block gets
 
-0  consistent gets
+0  consistent gets
 
-0  physical reads
+0  physical reads
 
-0  redo size
+0  redo size
 
-407  bytes sent via SQL*Net to client
+407  bytes sent via SQL*Net to client
 
-400  bytes received via SQL*Net from client
+400  bytes received via SQL*Net from client
 
-2  SQL*Net roundtrips to/from client
+2  SQL*Net roundtrips to/from client
 
-0  sorts (memory)
+0  sorts (memory)
 
-0  sorts (disk)
+0  sorts (disk)
 
-1  rows processed
+1  rows processed
 
 
 -第四次调用，获取新的cache值。
@@ -382,27 +382,27 @@ NEXTVAL
 
 --------------------
 
-14  recursive calls
+14  recursive calls
 
-3  db block gets
+3  db block gets
 
-1  consistent gets
+1  consistent gets
 
-0  physical reads
+0  physical reads
 
-636  redo size
+636  redo size
 
-407  bytes sent via SQL*Net to client
+407  bytes sent via SQL*Net to client
 
-400  bytes received via SQL*Net from client
+400  bytes received via SQL*Net from client
 
-2  SQL*Net roundtrips to/from client
+2  SQL*Net roundtrips to/from client
 
-0  sorts (memory)
+0  sorts (memory)
 
-0  sorts (disk)
+0  sorts (disk)
 
-1  rows processed
+1  rows processed
 
 对cache的sequence对象而言，redo size生成的频率显然是低得多。从上面的四次调用中，只有第一次和第四次调用的时候，才生成了redo log记录。这个显然同我们设置的cache=3相对应。
 
@@ -543,7 +543,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c69dc  bln=24  avl=02  flg=09
+kxsbbbfp=248c69dc  bln=24  avl=02  flg=09
 
 value=1
 
@@ -553,7 +553,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c69ee  bln=24  avl=02  flg=09
+kxsbbbfp=248c69ee  bln=24  avl=02  flg=09
 
 value=1
 
@@ -563,7 +563,7 @@ oacdty=02 mxl=22(15) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c6a00  bln=24  avl=15  flg=09
+kxsbbbfp=248c6a00  bln=24  avl=15  flg=09
 
 value=999999999999999999999999999
 
@@ -573,7 +573,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cefb8  bln=24  avl=01  flg=05
+kxsbbbfp=088cefb8  bln=24  avl=01  flg=05
 
 value=0
 
@@ -583,7 +583,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cef94  bln=24  avl=01  flg=05
+kxsbbbfp=088cef94  bln=24  avl=01  flg=05
 
 value=0
 
@@ -593,7 +593,7 @@ oacdty=02 mxl=22(01) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c6a12  bln=24  avl=01  flg=09
+kxsbbbfp=248c6a12  bln=24  avl=01  flg=09
 
 value=0
 
@@ -603,7 +603,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c6a24  bln=24  avl=02  flg=09
+kxsbbbfp=248c6a24  bln=24  avl=02  flg=09
 
 value=10
 
@@ -613,7 +613,7 @@ oacdty=01 mxl=32(32) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
-kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
+kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
 value="-----------"
 
@@ -623,7 +623,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cef70  bln=24  avl=02  flg=05
+kxsbbbfp=088cef70  bln=24  avl=02  flg=05
 
 value=8
 
@@ -633,7 +633,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
+kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113487
 
@@ -678,7 +678,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c6a24  bln=24  avl=02  flg=09
+kxsbbbfp=248c6a24  bln=24  avl=02  flg=09
 
 value=11
 
@@ -688,7 +688,7 @@ oacdty=01 mxl=32(32) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
-kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
+kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
 value="-----------"
 
@@ -698,7 +698,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cef70  bln=24  avl=02  flg=05
+kxsbbbfp=088cef70  bln=24  avl=02  flg=05
 
 value=8
 
@@ -708,7 +708,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
+kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113487
 
@@ -742,7 +742,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c6a24  bln=24  avl=02  flg=09
+kxsbbbfp=248c6a24  bln=24  avl=02  flg=09
 
 value=12
 
@@ -752,7 +752,7 @@ oacdty=01 mxl=32(32) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
-kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
+kxsbbbfp=248c6a36  bln=32  avl=32  flg=09
 
 value="-----------"
 
@@ -762,7 +762,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cef70  bln=24  avl=02  flg=05
+kxsbbbfp=088cef70  bln=24  avl=02  flg=05
 
 value=8
 
@@ -772,7 +772,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
+kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113487
 
@@ -784,11 +784,11 @@ Bind#6在undate语句中对应字段highwater，显然是表示当前sequence对
 SQL> select object_type, object_id from dba_objects where wner='SCOTT' and object_name='SEQ_NOCACHE';
 
 
-OBJECT_TYPE          OBJECT_ID
+OBJECT_TYPE          OBJECT_ID
 
 ------- ----
 
-SEQUENCE                113487
+SEQUENCE                113487
 
 说明，在没有cache的情况下，每次调用nextval都会促使Oracle去更新且commit数据字典seq$记录。
 
@@ -819,9 +819,9 @@ WAIT #2: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3
 
 WAIT #2: nam='SQL*Net message from client' ela= 2197902 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16158473393
 
-STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p='SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=57 us)'
+STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p='SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=57 us)'
 
-STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p='FAST DUAL  (cr=0 pr=0 pw=0 time=8 us)'
+STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p='FAST DUAL  (cr=0 pr=0 pw=0 time=8 us)'
 
 =====================
 
@@ -859,7 +859,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c58a0  bln=24  avl=02  flg=09
+kxsbbbfp=248c58a0  bln=24  avl=02  flg=09
 
 value=1
 
@@ -869,7 +869,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c58b2  bln=24  avl=02  flg=09
+kxsbbbfp=248c58b2  bln=24  avl=02  flg=09
 
 value=1
 
@@ -879,7 +879,7 @@ oacdty=02 mxl=22(15) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c58c4  bln=24  avl=15  flg=09
+kxsbbbfp=248c58c4  bln=24  avl=15  flg=09
 
 value=999999999999999999999999999
 
@@ -889,7 +889,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cefb8  bln=24  avl=01  flg=05
+kxsbbbfp=088cefb8  bln=24  avl=01  flg=05
 
 value=0
 
@@ -899,7 +899,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cef94  bln=24  avl=01  flg=05
+kxsbbbfp=088cef94  bln=24  avl=01  flg=05
 
 value=0
 
@@ -909,7 +909,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c58d6  bln=24  avl=02  flg=09
+kxsbbbfp=248c58d6  bln=24  avl=02  flg=09
 
 value=3
 
@@ -919,7 +919,7 @@ oacdty=02 mxl=22(02) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=248c58e8  bln=24  avl=02  flg=09
+kxsbbbfp=248c58e8  bln=24  avl=02  flg=09
 
 value=13
 
@@ -929,7 +929,7 @@ oacdty=01 mxl=32(32) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=18 fl2=0001 frm=01 csi=852 siz=32 ff=0
 
-kxsbbbfp=248c58fa  bln=32  avl=32  flg=09
+kxsbbbfp=248c58fa  bln=32  avl=32  flg=09
 
 value="-----------"
 
@@ -939,7 +939,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cef70  bln=24  avl=02  flg=05
+kxsbbbfp=088cef70  bln=24  avl=02  flg=05
 
 value=8
 
@@ -949,7 +949,7 @@ oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
 
 oacflg=08 fl2=0001 frm=00 csi=00 siz=24 ff=0
 
-kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
+kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113488
 
@@ -982,9 +982,9 @@ WAIT #2: nam='SQL*Net message to client' ela= 3 driver id=1413697536 #bytes=1 p3
 
 WAIT #2: nam='SQL*Net message from client' ela= 14238981 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=16174520496
 
-STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p='SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=52 us)'
+STAT #2 id=1 cnt=1 pid=0 pos=1 bj=113488 p='SEQUENCE  SEQ_CACHE (cr=0 pr=0 pw=0 time=52 us)'
 
-STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p='FAST DUAL  (cr=0 pr=0 pw=0 time=10 us)'
+STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p='FAST DUAL  (cr=0 pr=0 pw=0 time=10 us)'
 
 在三次调用中，只更新了一次seq$数据字典表。而且，更新的bind#6为13，实际上就是一次更新，多取出三个取值。以后的几次调用中，就不需要在更新该数据记录了。
 

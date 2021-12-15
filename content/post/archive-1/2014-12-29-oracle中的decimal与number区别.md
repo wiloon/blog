@@ -66,7 +66,7 @@ Oracle number datatype 语法: NUMBER[(precision [, scale])]
   
 简称: precision -> p
   
-scale     -> s
+scale     -> s
 
 NUMBER(p, s)
   
@@ -94,61 +94,61 @@ s = 0
 
 eg:
   
-Actual Data   Specified As  Stored As
+Actual Data   Specified As  Stored As
   
 --------------
   
-123.89           NUMBER         123.89
+123.89           NUMBER         123.89
   
-123.89           NUMBER(3)     124
+123.89           NUMBER(3)     124
   
-123.89           NUMBER(6,2)   123.89
+123.89           NUMBER(6,2)   123.89
   
-123.89           NUMBER(6,1)   123.9
+123.89           NUMBER(6,1)   123.9
   
-123.89           NUMBER(4,2)   exceeds precision (有效位为5, 5 > 4)
+123.89           NUMBER(4,2)   exceeds precision (有效位为5, 5 > 4)
   
-123.89           NUMBER(6,-2)  100
+123.89           NUMBER(6,-2)  100
   
-.01234           NUMBER(4,5)   .01234 (有效位为4)
+.01234           NUMBER(4,5)   .01234 (有效位为4)
   
-.00012           NUMBER(4,5)   .00012
+.00012           NUMBER(4,5)   .00012
   
-.000127       NUMBER(4,5)   .00013
+.000127       NUMBER(4,5)   .00013
   
-.0000012      NUMBER(2,7)   .0000012
+.0000012      NUMBER(2,7)   .0000012
   
-.00000123     NUMBER(2,7)   .0000012
+.00000123     NUMBER(2,7)   .0000012
   
-1.2e-4           NUMBER(2,5)   0.00012
+1.2e-4           NUMBER(2,5)   0.00012
   
-1.2e-5           NUMBER(2,5)   0.00001
+1.2e-5           NUMBER(2,5)   0.00001
   
-123.2564      NUMBER        123.2564
+123.2564      NUMBER        123.2564
   
-1234.9876     NUMBER(6,2)   1234.99
+1234.9876     NUMBER(6,2)   1234.99
   
-12345.12345   NUMBER(6,2)   Error (有效位为5+2 > 6)
+12345.12345   NUMBER(6,2)   Error (有效位为5+2 > 6)
   
-1234.9876     NUMBER(6)     1235 (s没有表示s=0)
+1234.9876     NUMBER(6)     1235 (s没有表示s=0)
   
-12345.345     NUMBER(5,-2)  12300
+12345.345     NUMBER(5,-2)  12300
   
-1234567       NUMBER(5,-2)  1234600
+1234567       NUMBER(5,-2)  1234600
   
-12345678      NUMBER(5,-2)  Error (有效位为8 > 7)
+12345678      NUMBER(5,-2)  Error (有效位为8 > 7)
   
-123456789     NUMBER(5,-4)  123460000
+123456789     NUMBER(5,-4)  123460000
   
-1234567890    NUMBER(5,-4)  Error (有效位为10 > 9)
+1234567890    NUMBER(5,-4)  Error (有效位为10 > 9)
   
-12345.58      NUMBER(*, 1)  12345.6
+12345.58      NUMBER(*, 1)  12345.6
   
-0.1           NUMBER(4,5)   Error (0.10000, 有效位为5 > 4)
+0.1           NUMBER(4,5)   Error (0.10000, 有效位为5 > 4)
   
-0.01234567    NUMBER(4,5)   0.01235
+0.01234567    NUMBER(4,5)   0.01235
   
-0.09999       NUMBER(4,5)   0.09999
+0.09999       NUMBER(4,5)   0.09999
 
 三、Oracle语句距离
 
@@ -157,20 +157,20 @@ Actual Data   Specified As  Stored As
 
 ```sql view plaincopy
   
-SELECT (CASE WHEN tt1.statistics_date is not null THEN tt1.statistics_date ELSE tt2.statistics_date END) AS statistics_date, NVL(tt1.actuser,0) AS actuser, NVL(tt2.new_user,0) AS new_user
+SELECT (CASE WHEN tt1.statistics_date is not null THEN tt1.statistics_date ELSE tt2.statistics_date END) AS statistics_date, NVL(tt1.actuser,0) AS actuser, NVL(tt2.new_user,0) AS new_user
   
 FROM
   
 (
   
-SELECT t.statistics_date, SUM(t.actuser) AS actuser FROM pdt_stat_act_1133_i t WHERE t.statistics_date like '2013-04%' and t.statistics_month = '2013-04' GROUP BY t.statistics_date
+SELECT t.statistics_date, SUM(t.actuser) AS actuser FROM pdt_stat_act_1133_i t WHERE t.statistics_date like '2013-04%' and t.statistics_month = '2013-04' GROUP BY t.statistics_date
   
-) tt1
+) tt1
   
-FULL JOIN
+FULL JOIN
   
 (
   
-SELECT t2.statistics_date, SUM(t2.new_user) OVER(ORDER BY t2.statistics_date) AS new_user FROM (SELECT statistics_date AS statistics_date, SUM(new_user) AS new_user FROM pdt_stat_newuser_1133_i WHERE statistics_date like '2013-04%' GROUP BY statistics_date) t2
+SELECT t2.statistics_date, SUM(t2.new_user) OVER(ORDER BY t2.statistics_date) AS new_user FROM (SELECT statistics_date AS statistics_date, SUM(new_user) AS new_user FROM pdt_stat_newuser_1133_i WHERE statistics_date like '2013-04%' GROUP BY statistics_date) t2
   
-) tt2 ON tt1.statistics_date = tt2.statistics_date
+) tt2 ON tt1.statistics_date = tt2.statistics_date

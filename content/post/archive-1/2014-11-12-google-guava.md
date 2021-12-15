@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Google Guava
-Guava 是一个 Google 的基于java1.6的类库集合的扩展项目，包括 collections, caching, primitives support, concurrency libraries, common annotations, string processing, I/O, 等等. 这些高质量的 API 可以使你的JAVa代码更加优雅，更加简洁，让你工作更加轻松愉悦。下面我们就开启优雅Java编程学习之旅！
+Guava 是一个 Google 的基于java1.6的类库集合的扩展项目，包括 collections, caching, primitives support, concurrency libraries, common annotations, string processing, I/O, 等等. 这些高质量的 API 可以使你的JAVa代码更加优雅，更加简洁，让你工作更加轻松愉悦。下面我们就开启优雅Java编程学习之旅！
 
 **项目相关信息: **
 
@@ -50,7 +50,7 @@ com.google.common.util.concurrent: 多线程工具包。
 
 **类库使用手册: **
 
-**一.  基本工具类: **让使用Java语言更令人愉悦。
+**一.  基本工具类: **让使用Java语言更令人愉悦。
 
 1. 使用和避免 null: null 有语言歧义， 会产生令人费解的错误， 反正他总是让人不爽。很多 Guava 的工具类在遇到 null 时会直接拒绝或出错，而不是默默地接受他们。
   
@@ -62,7 +62,7 @@ com.google.common.util.concurrent: 多线程工具包。
   
 5. Throwable类:  简化了异常检查和错误传播。
 
-**二.  集合类: **集合类库是 Guava 对 JDK 集合类的扩展， 这是 Guava 项目最完善和为人所知的部分。
+**二.  集合类: **集合类库是 Guava 对 JDK 集合类的扩展， 这是 Guava 项目最完善和为人所知的部分。
 
 1. Immutable collections（不变的集合) :  防御性编程， 不可修改的集合，并且提高了效率。
   
@@ -72,9 +72,9 @@ com.google.common.util.concurrent: 多线程工具包。
   
 4. Extension utilities（扩展工具类) : 给 Collection 对象添加一个装饰器? 实现迭代器? 我们可以更容易使用这些方法。
 
-**三. ** **缓存**: 本地缓存，可以很方便的操作缓存对象，并且支持各种缓存失效行为模式。
+**三. ** **缓存**: 本地缓存，可以很方便的操作缓存对象，并且支持各种缓存失效行为模式。
 
-### 四.  Functional idioms（函数式) :
+### 四.  Functional idioms（函数式) :
 简洁, Guava实现了Java的函数式编程，可以显著简化代码。
 
 **五. Concurrency（并发) : **强大,简单的抽象,让我们更容易实现简单正确的并发性代码。

@@ -15,18 +15,18 @@ categories:
 
   
     
-      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
     
-      var content = $('#content').val();
+      var content = $('#content').val();
     
     
-      if(content.trim() == ")
+      if(content.trim() == ")
     
     
-         alert('空');
+         alert('空');
     
   
 
@@ -37,18 +37,18 @@ categories:
 
   
     
-      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
     
-      var content = $('#content').val();
+      var content = $('#content').val();
     
     
-      if($.trim(content) == ")
+      if($.trim(content) == ")
     
     
-        alert('空');
+        alert('空');
     
   
 
@@ -57,18 +57,18 @@ categories:
 
   
     
-      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
     
-      var content = $('#content').val();
+      var content = $('#content').val();
     
     
-      if(jQuery.trim(content) == ")
+      if(jQuery.trim(content) == ")
     
     
-       alert('空');
+       alert('空');
     
   
   

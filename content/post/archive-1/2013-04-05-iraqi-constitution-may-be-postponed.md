@@ -8,7 +8,7 @@ categories:
 
 ---
 ## iraqi constitution may be postponed
-**iraqi constitution may be postponed **
+**iraqi constitution may be postponed **
   
 the announcement came hours before the 71-member drafting committee was to say whether it would need an extension to finish the document. the committee chairman, humam hammoudi, said there was an "80 percent chance" his group would ask for a one-month extension.
   

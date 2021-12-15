@@ -19,41 +19,41 @@ androidjavaactivityonSaveInstanceStateBundle
 
 Java代码
   
-public class MainActivity extends Activity {
+public class MainActivity extends Activity {
   
-public static final int SECOND_ACTIVITY = 0;
+public static final int SECOND_ACTIVITY = 0;
   
-private String temp;
+private String temp;
 
 @Override
   
-public void onCreate(Bundle savedInstanceState) {
+public void onCreate(Bundle savedInstanceState) {
   
 super.onCreate(savedInstanceState);
   
-// 从savedInstanceState中恢复数据, 如果没有数据需要恢复savedInstanceState为null
+// 从savedInstanceState中恢复数据, 如果没有数据需要恢复savedInstanceState为null
   
-if (savedInstanceState != null) {
+if (savedInstanceState != null) {
   
-temp = savedInstanceState.getString("temp");
+temp = savedInstanceState.getString("temp");
   
-System.out.println("onCreate: temp = " + temp);
+System.out.println("onCreate: temp = " + temp);
   
 }
   
 }
 
-public void onResume() {
+public void onResume() {
   
 super.onResume();
   
-temp = "xing";
+temp = "xing";
   
-System.out.println("onResume: temp = " + temp);
+System.out.println("onResume: temp = " + temp);
   
-// 切换屏幕方向会导致activity的摧毁和重建
+// 切换屏幕方向会导致activity的摧毁和重建
   
-if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) {
+if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) {
   
 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
   
@@ -63,15 +63,15 @@ System.out.println("屏幕切换");
   
 }
 
-// 将数据保存到outState对象中, 该对象会在重建activity时传递给onCreate方法
+// 将数据保存到outState对象中, 该对象会在重建activity时传递给onCreate方法
   
 @Override
   
-protected void onSaveInstanceState(Bundle outState) {
+protected void onSaveInstanceState(Bundle outState) {
   
 super.onSaveInstanceState(outState);
   
-outState.putString("temp", temp);
+outState.putString("temp", temp);
   
 }
   

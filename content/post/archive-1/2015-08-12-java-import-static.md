@@ -20,29 +20,29 @@ import static（静态导入) 是JDK1.5中的新特性，一般我们导入一�
 
 view plaincopyprint?
   
-package com.ygc.print;
+package com.ygc.print;
 
-public class Print {
+public class Print {
   
-// 打印，换行
+// 打印，换行
   
-public static void print(Object obj) {
+public static void print(Object obj) {
   
 System.out.println(obj);
   
 }
 
-// 换行
+// 换行
   
-public static void print() {
+public static void print() {
   
 System.out.println();
   
 }
 
-// 打印
+// 打印
   
-public static void printnb(Object obj) {
+public static void printnb(Object obj) {
   
 System.out.print(obj);
   
@@ -56,13 +56,13 @@ System.out.print(obj);
 
 view plaincopyprint?
   
-package com.ygc;
+package com.ygc;
 
-import static com.ygc.print.Print.*;
+import static com.ygc.print.Print.*;
 
-class Test {
+class Test {
   
-public void println(String s) {
+public void println(String s) {
   
 print(s);
   

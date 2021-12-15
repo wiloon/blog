@@ -30,23 +30,23 @@ ALTER TABLE wap_lenovo_bookmark ADD groupid INT NOT NULL DEFAULT 0
 
 MySQL 修改字段
   
-alter   table   employee   change   column   employeeID   empID   int;
+alter   table   employee   change   column   employeeID   empID   int;
 
 修改
   
-ALTER   TABLE   TableName   CHANGE   Field_name_tobe_change   new_Name   VARCHAR   (32);
+ALTER   TABLE   TableName   CHANGE   Field_name_tobe_change   new_Name   VARCHAR   (32);
   
 删除
   
-ALTER   TABLE   TableName   DROP   Field_name_tobe_delete
+ALTER   TABLE   TableName   DROP   Field_name_tobe_delete
   
 重命名
   
-ALTER   TABLE   TableName   rename   as   newTableName
+ALTER   TABLE   TableName   rename   as   newTableName
 
-alter   table   语句好像不能对表实行字段删除操作，可以用create   table   tablename(field1,field2,field3......)   (select   field1,field2,field3......from   orgtablename);
+alter   table   语句好像不能对表实行字段删除操作，可以用create   table   tablename(field1,field2,field3......)   (select   field1,field2,field3......from   orgtablename);
   
-或者用ALTER   TABLE   TableName   DROP   [COLUMN]   col_name；
+或者用ALTER   TABLE   TableName   DROP   [COLUMN]   col_name；
   
 ---------------------
   

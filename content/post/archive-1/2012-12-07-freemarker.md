@@ -14,12 +14,12 @@ categories:
   
 
   
-    一、 FreeMarker简介
+    一、 FreeMarker简介
  FreeMarker是一个用Java语言编写的模板引擎,它基于模板来生成文本输出。
  所谓模板,就是一份已经写好了基本内容,有着固定格式的文档,其中空出或者用占位符标识的内容,由使用者来填充,不同的使用者给出的数据是不同的。在模板中的占位符,在模板运行时,由模板引擎来解析模板,并采用动态数据替换占位符部分的内容。
  FreeMarker与Web容器无关,即在Web运行时,它并不知道Servlet或HTTP。它不仅可以用作表现层的实现技术,而且还可以用于生成XML,JSP或Java 文等。
- 二、 FreeMarker的优点和缺点
- (一) FreeMarker的优点
+ 二、 FreeMarker的优点和缺点
+ (一) FreeMarker的优点
  1.使用FreeMarker的优点之一,可以彻底的分离表现层和业务逻辑。
  使用JSP 开发过程中在页面中大量的存在业务逻辑的代码,使得页面内容凌乱,在后期大量的修改维护过程中就变得非常困难。
  FreeMarker根本不支持Java脚本代码。

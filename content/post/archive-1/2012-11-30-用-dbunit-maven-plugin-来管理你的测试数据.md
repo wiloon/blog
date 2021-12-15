@@ -18,8 +18,8 @@ http://newwhx2011.iteye.com/blog/1089559
 
 dbunit 最初为 ant 提供了 antask,当然可以编程使用,如今 maven 大行其道,所以也就有了 maven 的 dbunit 插件,相似功能的插件有两个: 
 
-1. dbunit-maven-plugin
+1. dbunit-maven-plugin
   
-2. maven-dbunit-plugin
+2. maven-dbunit-plugin
 
-就是 maven 和 dbunit 倒了一下,别晕了,第二个似乎提供了更多的 goal,但运行 mvn dbunit:xxxx,指向的是第一个 dbunit-maven-plugin,看来第一个要正统些。本文也就介绍下dbunit-maven-plugin 的用法,测试数据库是 MySQL。
+就是 maven 和 dbunit 倒了一下,别晕了,第二个似乎提供了更多的 goal,但运行 mvn dbunit:xxxx,指向的是第一个 dbunit-maven-plugin,看来第一个要正统些。本文也就介绍下dbunit-maven-plugin 的用法,测试数据库是 MySQL。

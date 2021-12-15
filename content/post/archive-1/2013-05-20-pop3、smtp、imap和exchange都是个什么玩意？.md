@@ -57,8 +57,8 @@ categories:
       
       
         Exchange Server 是一个设计完备的邮件服务器产品, 提供了通常所需要的全部邮件服务功能。除了常规的 SMTP/POP 协议服务之外,它还支持 IMAP4 、LDAP 和 NNTP 协议。Exchange Server 服务器有两种版本,标准版包括 Active Server、网络新闻服务和一系列与其他邮件系统的接口；企业版除了包括标准版的功能外,还包括与 IBM OfficeVision、X.400、VM 和 SNADS 通信的电子邮件网关,Exchange Server 支持基于Web 浏览器的邮件访问。
- Microsoft Exchange Online 是一个电子邮件、日程和联系人云解决方案。它提供和Microsoft Exchange Server相同的技术方案。
- Microsoft Exchange Server使用RPC protocol, MAPI/RPC（Microsoft Outlook client)  ,支持Exchange ActiveSync（安全和 Exchange server同步邮件、联系人和其它数据) ,支持ActiveSync push e-mail, 这些功能已经使用到iPhone和Android 等设备。
+ Microsoft Exchange Online 是一个电子邮件、日程和联系人云解决方案。它提供和Microsoft Exchange Server相同的技术方案。
+ Microsoft Exchange Server使用RPC protocol, MAPI/RPC（Microsoft Outlook client)  ,支持Exchange ActiveSync（安全和 Exchange server同步邮件、联系人和其它数据) ,支持ActiveSync push e-mail, 这些功能已经使用到iPhone和Android 等设备。
       
     
     

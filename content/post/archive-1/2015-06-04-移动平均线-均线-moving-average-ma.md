@@ -61,7 +61,7 @@ http://ta.mql4.com/cn/indicators/trends/moving_average
   
 通畅移动平均线 (SMMA): Smoothed MA
   
-线性权数移动平均线 (LWMA): Linear Weighted  MA
+线性权数移动平均线 (LWMA): Linear Weighted  MA
 
 
 加权移动平均线（Weighted Moving Average，WMA) : 指计算平均值时将个别数据乘以不同数值。在技术分析中，n日WMA的最近期一个数值乘以n、次近的乘以n-1，如此类推，一直到0。

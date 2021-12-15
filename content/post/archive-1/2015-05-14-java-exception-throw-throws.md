@@ -40,23 +40,23 @@ throws: 用于声明异常,例如,如果一个方法里面不想有任何的异�
 
 Java代码
   
-class Math{
+class Math{
   
-public int div(int i,int j) throws Exception{
+public int div(int i,int j) throws Exception{
   
-int t=i/j;
+int t=i/j;
   
-return t;
+return t;
   
 }
   
 }
 
-public class ThrowsDemo {
+public class ThrowsDemo {
   
-public static void main(String args[]) throws Exception{
+public static void main(String args[]) throws Exception{
   
-Math m=new Math();
+Math m=new Math();
   
 System.out.println("出发操作: "+m.div(10,2));
   
@@ -69,11 +69,11 @@ throw: 就是自己进行异常处理,处理的时候有两种方式,要么自�
 
 Java代码
   
-public class TestThrow
+public class TestThrow
   
 {
   
-public static void main(String[] args)
+public static void main(String[] args)
   
 {
   
@@ -89,7 +89,7 @@ throwChecked(-3);
   
 }
   
-catch (Exception e)
+catch (Exception e)
   
 {
   
@@ -105,11 +105,11 @@ throwRuntime(3);
   
 }
   
-public static void throwChecked(int a)throws Exception
+public static void throwChecked(int a)throws Exception
   
 {
   
-if (a > 0)
+if (a > 0)
   
 {
   
@@ -117,17 +117,17 @@ if (a > 0)
   
 //该代码必须处于try块里,或处于带throws声明的方法中
   
-throw new Exception("a的值大于0,不符合要求");
+throw new Exception("a的值大于0,不符合要求");
   
 }
   
 }
   
-public static void throwRuntime(int a)
+public static void throwRuntime(int a)
   
 {
   
-if (a > 0)
+if (a > 0)
   
 {
   
@@ -135,7 +135,7 @@ if (a > 0)
   
 //也可完全不理会该异常,把该异常交给该方法调用者处理
   
-throw new RuntimeException("a的值大于0,不符合要求");
+throw new RuntimeException("a的值大于0,不符合要求");
   
 }
   

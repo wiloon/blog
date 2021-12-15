@@ -18,11 +18,11 @@ serialVersionUID作用:
   
 一个是根据类名、接口名、成员方法及属性等来生成一个64位的哈希字段,比如: 
   
-private static final   long     serialVersionUID = xxxxL;
+private static final   long     serialVersionUID = xxxxL;
 
 当你一个类实现了Serializable接口,如果没有定义serialVersionUID,Eclipse会提供这个
   
-提示功能告诉你去定义 。在Eclipse中点击类中warning的图标一下,Eclipse就会
+提示功能告诉你去定义 。在Eclipse中点击类中warning的图标一下,Eclipse就会
   
 自动给定两种生成的方式。如果不想定义它,在Eclipse的设置中也
   

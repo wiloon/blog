@@ -654,187 +654,187 @@ http://blog.csdn.net/htttw/article/details/7519971
   
 服务器端的步骤如下: 
 
-1. socket:       建立一个socket
+1. socket:       建立一个socket
 
-2. bind:           将这个socket绑定在某个文件上（AF_UNIX) 或某个端口上（AF_INET) ，我们会分别介绍这两种。
+2. bind:           将这个socket绑定在某个文件上（AF_UNIX) 或某个端口上（AF_INET) ，我们会分别介绍这两种。
 
-3. listen:         开始监听
+3. listen:         开始监听
 
-4. accept:       如果监听到客户端连接，则调用accept接收这个连接并同时新建一个socket来和客户进行通信
+4. accept:       如果监听到客户端连接，则调用accept接收这个连接并同时新建一个socket来和客户进行通信
 
 5. read/write: 读取或发送数据到客户端
 
-6. close:         通信完成后关闭socket
+6. close:         通信完成后关闭socket
 
 客户端的步骤如下: 
 
-1. socket:       建立一个socket
+1. socket:       建立一个socket
   
-2. connect:    主动连接服务器端的某个文件（AF_UNIX) 或某个端口（AF_INET) 
+2. connect:    主动连接服务器端的某个文件（AF_UNIX) 或某个端口（AF_INET) 
 
 
 3. read/write: 如果服务器同意连接（accept) ，则读取或发送数据到服务器端
 
-4. close:         通信完成后关闭socket
+4. close:         通信完成后关闭socket
   
 上面是整个流程，我们先给出一个例子，具体分析会在之后给出。例子实现的功能是客户端发送一个字符到服务器，服务器将这个字符+1后送回客户端，客户端再把它打印出来: 
 
 Makefile: 
 
 
-[plain][/plain] view plaincopy
+[plain][/plain] view plaincopy
 
-all: tcp_client.c tcp_server.c
+all: tcp_client.c tcp_server.c
   
-gcc -g -Wall -o tcp_client tcp_client.c
+gcc -g -Wall -o tcp_client tcp_client.c
   
-gcc -g -Wall -o tcp_server tcp_server.c
+gcc -g -Wall -o tcp_server tcp_server.c
 
 clean:
   
-rm -rf *.o tcp_client tcp_server
+rm -rf *.o tcp_client tcp_server
 
 tcp_server.c: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] view plaincopy
 
-#include <sys/types.h>
+#include <sys/types.h>
   
-#include <sys/socket.h>
+#include <sys/socket.h>
   
-#include <sys/un.h>
+#include <sys/un.h>
   
-#include <unistd.h>
+#include <unistd.h>
   
-#include <stdlib.h>
+#include <stdlib.h>
   
-#include <stdio.h>
+#include <stdio.h>
 
-int main()
+int main()
   
 {
   
-/* delete the socket file */
+/* delete the socket file */
   
 unlink("server_socket");
 
-/* create a socket */
+/* create a socket */
   
-int server_sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
+int server_sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
 
-struct sockaddr_un server_addr;
+struct sockaddr_un server_addr;
   
-server_addr.sun_family = AF_UNIX;
+server_addr.sun_family = AF_UNIX;
   
-strcpy(server_addr.sun_path, "server_socket");
+strcpy(server_addr.sun_path, "server_socket");
 
-/* bind with the local file */
+/* bind with the local file */
   
-bind(server_sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr));
+bind(server_sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr));
 
-/* listen */
+/* listen */
   
-listen(server_sockfd, 5);
+listen(server_sockfd, 5);
 
-char ch;
+char ch;
   
-int client_sockfd;
+int client_sockfd;
   
-struct sockaddr_un client_addr;
+struct sockaddr_un client_addr;
   
-socklen_t len = sizeof(client_addr);
+socklen_t len = sizeof(client_addr);
   
 while(1)
   
 {
   
-printf("server waiting:\n");
+printf("server waiting:\n");
 
-/* accept a connection */
+/* accept a connection */
   
-client_sockfd = accept(server_sockfd, (struct sockaddr *)&client_addr, &len);
+client_sockfd = accept(server_sockfd, (struct sockaddr *)&client_addr, &len);
 
-/* exchange data */
+/* exchange data */
   
-read(client_sockfd, &ch, 1);
+read(client_sockfd, &ch, 1);
   
-printf("get char from client: %c\n", ch);
+printf("get char from client: %c\n", ch);
   
 ++ch;
   
-write(client_sockfd, &ch, 1);
+write(client_sockfd, &ch, 1);
 
-/* close the socket */
+/* close the socket */
   
 close(client_sockfd);
   
 }
 
-return 0;
+return 0;
   
 }
 
 tcp_client.c: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] view plaincopy
 
-#include <sys/types.h>
+#include <sys/types.h>
   
-#include <sys/socket.h>
+#include <sys/socket.h>
   
-#include <sys/un.h>
+#include <sys/un.h>
   
-#include <unistd.h>
+#include <unistd.h>
   
-#include <stdlib.h>
+#include <stdlib.h>
   
-#include <stdio.h>
+#include <stdio.h>
 
-int main()
+int main()
   
 {
   
-/* create a socket */
+/* create a socket */
   
-int sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
+int sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
 
-struct sockaddr_un address;
+struct sockaddr_un address;
   
-address.sun_family = AF_UNIX;
+address.sun_family = AF_UNIX;
   
-strcpy(address.sun_path, "server_socket");
+strcpy(address.sun_path, "server_socket");
 
-/* connect to the server */
+/* connect to the server */
   
-int result = connect(sockfd, (struct sockaddr *)&address, sizeof(address));
+int result = connect(sockfd, (struct sockaddr *)&address, sizeof(address));
   
-if(result == -1)
+if(result == -1)
   
 {
   
-perror("connect failed: ");
+perror("connect failed: ");
   
 exit(1);
   
 }
 
-/* exchange data */
+/* exchange data */
   
-char ch = 'A';
+char ch = 'A';
   
-write(sockfd, &ch, 1);
+write(sockfd, &ch, 1);
   
-read(sockfd, &ch, 1);
+read(sockfd, &ch, 1);
   
-printf("get char from server: %c\n", ch);
+printf("get char from server: %c\n", ch);
 
-/* close the socket */
+/* close the socket */
   
 close(sockfd);
 
-return 0;
+return 0;
   
 }
 
@@ -874,40 +874,40 @@ socket()函数返回新创建的socket，出错则返回-1
 常用的有两种socket域: AF_UNIX或AF_INET，因此就有两种地址格式: sockaddr_un和sockaddr_in，分别定义如下: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] view plaincopy
 
-struct sockaddr_un
+struct sockaddr_un
   
 {
   
-sa_family_t sun_family;  /* AF_UNIX */
+sa_family_t sun_family;  /* AF_UNIX */
   
-char sun_path[];         /* pathname */
+char sun_path[];         /* pathname */
   
 }
 
-struct sockaddr_in
+struct sockaddr_in
   
 {
   
-short int sin_family;          /* AF_INET */
+short int sin_family;          /* AF_INET */
   
-unsigned short int sin_port;   /* port number */
+unsigned short int sin_port;   /* port number */
   
-struct in_addr sin_addr;       /* internet address */
+struct in_addr sin_addr;       /* internet address */
   
 }
 
 其中in_addr正是用来描述一个ip地址的: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] view plaincopy
 
-struct in_addr
+struct in_addr
   
 {
   
-unsigned long int s_addr;
+unsigned long int s_addr;
   
 }
 

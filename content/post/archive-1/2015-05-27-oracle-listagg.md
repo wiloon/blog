@@ -29,37 +29,37 @@ http://xpchild.blog.163.com/blog/static/10180985920108485721969/
 
 本文的例子将使用如下的样例数据: 
 
-DEPTNO ENAME      HIREDATE
+DEPTNO ENAME      HIREDATE
   
 ---- ---- ----
   
-10 CLARK       09/06/1981
+10 CLARK       09/06/1981
   
-10 KING        17/11/1981
+10 KING        17/11/1981
   
-10 MILLER      23/01/1982
+10 MILLER      23/01/1982
   
-20 ADAMS       12/01/1983
+20 ADAMS       12/01/1983
   
-20 FORD        03/12/1981
+20 FORD        03/12/1981
   
-20 JONES       02/04/1981
+20 JONES       02/04/1981
   
-20 SCOTT       09/12/1982
+20 SCOTT       09/12/1982
   
-20 SMITH       17/12/1980
+20 SMITH       17/12/1980
   
-30 ALLEN       20/02/1981
+30 ALLEN       20/02/1981
   
-30 BLAKE       01/05/1981
+30 BLAKE       01/05/1981
   
-30 JAMES       03/12/1981
+30 JAMES       03/12/1981
   
-30 MARTIN      28/09/1981
+30 MARTIN      28/09/1981
   
-30 TURNER      08/09/1981
+30 TURNER      08/09/1981
   
-30 WARD        22/02/1981
+30 WARD        22/02/1981
 
 字符串聚合
 
@@ -123,13 +123,13 @@ DEPTNO EMPLOYEES ---- -------------------- 10 CLARK,KING,MILLER 20 ADAMS,FORD,JO
 
 SQL> SELECT deptno
   
-2  ,      LISTAGG(ename, ',') WITHIN GROUP (ORDER BY hiredate) AS employees
+2  ,      LISTAGG(ename, ',') WITHIN GROUP (ORDER BY hiredate) AS employees
   
-3  FROM   emp
+3  FROM   emp
   
-4  GROUP  BY
+4  GROUP  BY
   
-5         deptno;
+5         deptno;
 
 DEPTNO EMPLOYEES ---- -------------------- 10 CLARK,KING,MILLER 20 SMITH,JONES,FORD,SCOTT,ADAMS 30 ALLEN,WARD,BLAKE,TURNER,MARTIN,JAMES 3 rows selected.
   

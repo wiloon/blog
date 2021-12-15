@@ -12,7 +12,7 @@ categories:
     Use this procedure to create a macro that generates a list of all the commands in the integrated development environment (IDE) and any shortcut keys mapped to those commands according to the current keyboard mapping scheme.
   
   
-    Several keyboard mapping schemes are available in the IDE. You can change keyboard mapping schemes on the Keyboard page, under the Environment folder of theOptions dialog box. For more information, see How to: Work with Keyboard Shortcuts.
+    Several keyboard mapping schemes are available in the IDE. You can change keyboard mapping schemes on the Keyboard page, under the Environment folder of theOptions dialog box. For more information, see How to: Work with Keyboard Shortcuts.
   
   
     
@@ -24,7 +24,7 @@ categories:
       
       
         
-          The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition. To change your settings, clickImport and Export Settings on the Tools menu. For more information, see Working with Settings.
+          The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition. To change your settings, clickImport and Export Settings on the Tools menu. For more information, see Working with Settings.
         
       
     
@@ -34,22 +34,22 @@ categories:
 
   
     
-      On the Tools menu, point to Macros, and then click Macros IDE.
+      On the Tools menu, point to Macros, and then click Macros IDE.
     
     
-      In Project Explorer, double-click MyMacros.
+      In Project Explorer, double-click MyMacros.
     
     
-      Right-click Module1 and then click Rename.
+      Right-click Module1 and then click Rename.
     
     
-      Type KeyboardShortcuts as the new name for the module.
+      Type KeyboardShortcuts as the new name for the module.
     
     
-      Double-click KeyboardShortcuts to open the file in the editor.
+      Double-click KeyboardShortcuts to open the file in the editor.
     
     
-      Paste the following code in the file after Public Module KeyboardShortcuts: 
+      Paste the following code in the file after Public Module KeyboardShortcuts: 
         
         
         
@@ -122,24 +122,24 @@ End Sub
     
     
     
-      On the File menu, click Save MyMacros.
+      On the File menu, click Save MyMacros.
     
     
       Switch back to Visual Studio.
     
     
-      On the Tools menu, point to Macros and then click Macro Explorer.
+      On the Tools menu, point to Macros and then click Macro Explorer.
     
     
-      Expand MyMacros and then expand KeyboardShortcuts.
+      Expand MyMacros and then expand KeyboardShortcuts.
     
     
-      Right-click GetAllCommands and then click Run. 
+      Right-click GetAllCommands and then click Run. 
         The macro generates a list of all possible commands in the IDE and any keyboard shortcut mappings these commands have in the current keyboard mapping scheme. 
         
         
-          On the View menu, click Output. 
-            Commands and their shortcut key combinations appear in the Output window. You can copy this information and paste it into another application, such as Microsoft Office Excel, for additional formatting and printing options.  
+          On the View menu, click Output. 
+            Commands and their shortcut key combinations appear in the Output window. You can copy this information and paste it into another application, such as Microsoft Office Excel, for additional formatting and printing options.  
             
             
               http://msdn.microsoft.com/en-us/library/ms247076(v=VS.100).aspx

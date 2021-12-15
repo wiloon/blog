@@ -14,7 +14,7 @@ to_number('2')
 
 - create sequence
 
-create sequence sequence_name
+create sequence sequence_name
   
 minvalue 1
   
@@ -30,7 +30,7 @@ cache 20;
 
 CREATE OR REPLACE TRIGGER "trigger_name" BEFORE
   
-insert ON table_name FOR EACH ROW
+insert ON table_name FOR EACH ROW
   
 begin
   

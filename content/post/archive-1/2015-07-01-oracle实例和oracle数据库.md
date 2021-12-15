@@ -190,20 +190,20 @@ ORACLE.EXE的进程,但是通过另外的工具,就可以看到包含在这里�
 
 必须要有的后台进程
 
-DBWn       ->数据库写进程
+DBWn       ->数据库写进程
 
-PMON       ->程序监控进程
+PMON       ->程序监控进程
 
-SMON       ->系统监控进程
+SMON       ->系统监控进程
 
-LGWr       ->日志写进程
+LGWr       ->日志写进程
 
-CKPT       ->检查点进程
+CKPT       ->检查点进程
 
 
 可选进程: 
 
-ARCN       归档进程
+ARCN       归档进程
 
 RECO
 
@@ -424,7 +424,7 @@ initSID.ora或init.ora文件,通常位于: $ORACLE_BASE/admin/<SID>/pfile
 3.实例与数据库的对应关系是一对一或多对一的关系
 
 
-五、更多   */
+五、更多   */
 
 
 SQL/PLSQL 基础

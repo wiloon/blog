@@ -108,7 +108,7 @@ SQL Server中没有现成的函数实现此功能,实现的SQL语句如下
   
 SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.columns
   
-WHERE TABLE_NAME='表名' AND  COLUMNPROPERTY(
+WHERE TABLE_NAME='表名' AND  COLUMNPROPERTY(
   
 OBJECT_ID('表名'),COLUMN_NAME,'IsIdentity')=1
 
@@ -146,11 +146,11 @@ SELECT IDENT_CURRENT('表名')
 
 9.[SQL Server]关于标识列从1开始计数的问题
   
-在SQL Server中,  我们有时需要在清空数据表之后,重新添加记录时,标识列重新从1开始计数。
+在SQL Server中,  我们有时需要在清空数据表之后,重新添加记录时,标识列重新从1开始计数。
   
 我们只需要在插入记录之前,执行下面的命令: 
   
-DBCC CHECKIDENT (表名,  RESEED, 0)
+DBCC CHECKIDENT (表名,  RESEED, 0)
   
 执行 TRUNCATE TABLE 也可以做到,而且效率高因为:
 

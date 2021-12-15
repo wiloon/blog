@@ -50,7 +50,7 @@ web广泛用到的技术:
 
 Web Services扮演什么角色？
 
-   趋势
+   趋势
 
 上述的这些趋势意味着,更加智能的处理,操作和汇总内容变得十分重要。让我们看看按照Web services角度所预示的四个趋势: 
 
@@ -129,7 +129,7 @@ Web Service本身其实是在实现应用程序间的通信。我们现在有两
 IBM公司是业界第一家能够提供全面支持Web服务的电子商务基础设施中间件的公司。通过多年来与W3C(The World Wide Web Consortium)的共同努力,包括DB2、Lotus、Tivoli 和WebSphere在内的所有IBM软件都实现了对SOAP、WSDL、UDDI、Linux、XML、J2EE等开放技术和标准的全面支持。
 
 
-IBM公司的WebSphere也是比较好的基础架构软件开发平台。WebSphere软件平台及开发工具包括WebSphere Studio Application Developer WSAD基于J2EE、XML 和Web服务等开放标准,并具备 IBM 在可靠性、扩展性和安全性上的主要优势。WebSphere 是 IBM 在 Web Services策略中的核心平台,它支持所有开发、发布、部署 Web Services应用所必需的开放标准和技术,包括 UDDI,SOAP,J2EE,WSDL,和对 XML 技术集成的增强,这特使得它在全球有很多用户。
+IBM公司的WebSphere也是比较好的基础架构软件开发平台。WebSphere软件平台及开发工具包括WebSphere Studio Application Developer WSAD基于J2EE、XML 和Web服务等开放标准,并具备 IBM 在可靠性、扩展性和安全性上的主要优势。WebSphere 是 IBM 在 Web Services策略中的核心平台,它支持所有开发、发布、部署 Web Services应用所必需的开放标准和技术,包括 UDDI,SOAP,J2EE,WSDL,和对 XML 技术集成的增强,这特使得它在全球有很多用户。
 
 ### Borland的JBuilder
 

@@ -32,7 +32,7 @@ Demo
 
 view plaincopy
   
-<form id="myform">
+<form id="myform">
   
 
   
@@ -40,7 +40,7 @@ view plaincopy
   
 姓名:
   
- <input type="text" name="name" /> 
+ <input type="text" name="name" /> 
   
 
   
@@ -50,9 +50,9 @@ view plaincopy
   
 
   
-<input type="radio" name="sex" value="1"> 男
+<input type="radio" name="sex" value="1"> 男
   
-<input type="radio" name="sex" value="0"> 女
+<input type="radio" name="sex" value="0"> 女
   
 
   
@@ -64,13 +64,13 @@ view plaincopy
   
 
   
-<select name="age">
+<select name="age">
   
-<option value="20">20</option>
+<option value="20">20</option>
   
-<option value="21">21</option>
+<option value="21">21</option>
   
-<option value="22">22</option>
+<option value="22">22</option>
   
 </select>
   
@@ -82,7 +82,7 @@ view plaincopy
   
 
   
-<input type="button" id="ajaxBtn" value="提交" />
+<input type="button" id="ajaxBtn" value="提交" />
   
 
   
@@ -96,29 +96,29 @@ view plaincopy
 
 view plaincopy
   
-$(function() {
+$(function() {
   
-$("#ajaxBtn").click(function() {
+$("#ajaxBtn").click(function() {
   
-var params1 = $("#myform").serialize();
+var params1 = $("#myform").serialize();
   
-var params2 = $("#myform").serializeArray();
+var params2 = $("#myform").serializeArray();
   
-console.log(params1);  //name=zhangsan&sex=1&age=20
+console.log(params1);  //name=zhangsan&sex=1&age=20
   
-console.log(params2);  //[Object, Object, Object]
+console.log(params2);  //[Object, Object, Object]
   
-$.ajax( {
+$.ajax( {
   
-type : "POST",
+type : "POST",
   
-url : "RegisterAction.action",
+url : "RegisterAction.action",
   
-data : params1,
+data : params1,
   
-success : function(msg) {
+success : function(msg) {
   
-alert("success: " + msg);
+alert("success: " + msg);
   
 }
   

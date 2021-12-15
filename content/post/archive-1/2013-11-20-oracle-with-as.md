@@ -30,31 +30,31 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
       with
     
     
-      sql1 as (select to_char(a) s_name from test_tempa),
+      sql1 as (select to_char(a) s_name from test_tempa),
     
     
-      sql2 as (select to_char(b) s_name from test_tempb where not exists (select s_name from sql1 where rownum=1))
+      sql2 as (select to_char(b) s_name from test_tempb where not exists (select s_name from sql1 where rownum=1))
     
     
-      select * from sql1
+      select * from sql1
     
     
-      union all
+      union all
     
     
-      select * from sql2
+      select * from sql2
     
     
-      union all
+      union all
     
     
-      select 'no records' from dual
+      select 'no records' from dual
     
     
-             where not exists (select s_name from sql1 where rownum=1)
+             where not exists (select s_name from sql1 where rownum=1)
     
     
-             and not exists (select s_name from sql2 where rownum=1);
+             and not exists (select s_name from sql2 where rownum=1);
     
   
 
@@ -102,7 +102,7 @@ SELECT
   
 (query naming subquery_name);
 
-Retuning to our oversimplified example, let's replace the temporary tables with the SQL "WITH  clause":
+Retuning to our oversimplified example, let's replace the temporary tables with the SQL "WITH  clause":
 
 WITH
   
@@ -181,127 +181,127 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
   
   <ol start="1">
     
-      SQL> create table t2(id int);
+      SQL> create table t2(id int);
     
     
     
     
-      Table created.
+      Table created.
     
     
     
     
-      SQL> create table t3(id int);
+      SQL> create table t3(id int);
     
     
     
     
-      Table created.
+      Table created.
     
     
     
     
-      SQL> insert into t2 values(1);
+      SQL> insert into t2 values(1);
     
     
     
     
-      1 row created.
+      1 row created.
     
     
     
     
-      SQL> insert into t2 values(2);
+      SQL> insert into t2 values(2);
     
     
     
     
-      1 row created.
+      1 row created.
     
     
     
     
-      SQL> insert into t3 values(3);
+      SQL> insert into t3 values(3);
     
     
     
     
-      1 row created.
+      1 row created.
     
     
     
     
-      SQL> commit;
+      SQL> commit;
     
     
     
     
-      Commit complete.
+      Commit complete.
     
     
     
     
-      SQL> select * from t2;
+      SQL> select * from t2;
     
     
     
     
-              ID
+              ID
     
     
       ----
     
     
-               1
+               1
     
     
-               2
-    
-    
-    
-    
-      SQL> select * from t3;
+               2
     
     
     
     
-              ID
+      SQL> select * from t3;
+    
+    
+    
+    
+              ID
     
     
       ----
     
     
-               3
+               3
     
     
-      SQL> with
+      SQL> with
     
     
-        2  sql1 as (select * from t2),
+        2  sql1 as (select * from t2),
     
     
-        3  sql2 as (select * from t3)
+        3  sql2 as (select * from t3)
     
     
-        4  select * from t2
+        4  select * from t2
     
     
-        5  union
+        5  union
     
     
-        6  select * from t3;
+        6  select * from t3;
     
     
-      sql2 as (select * from t3)
+      sql2 as (select * from t3)
     
     
-                             *
+                             *
     
     
-      ERROR at line 3:
+      ERROR at line 3:
     
     
-      ORA-32035: unreferenced query name defined in WITH clause
+      ORA-32035: unreferenced query name defined in WITH clause
     
     
     
@@ -311,39 +311,39 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
     
     
     
-      SQL> with
+      SQL> with
     
     
-        2  sql1 as (select * from t2),
+        2  sql1 as (select * from t2),
     
     
-        3  sql2 as (select * from t3)
+        3  sql2 as (select * from t3)
     
     
-        4  select * from sql1
+        4  select * from sql1
     
     
-        5  union
+        5  union
     
     
-        6  select * from sql2;
+        6  select * from sql2;
     
     
     
     
-              ID
+              ID
     
     
       ----
     
     
-               1
+               1
     
     
-               2
+               2
     
     
-               3
+               3
     
     
     
@@ -353,42 +353,42 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
     
     
     
-      SQL> with
+      SQL> with
     
     
-        2  sql1 as (select * from t2),
+        2  sql1 as (select * from t2),
     
     
-        3  sql2 as (select * from t3)
+        3  sql2 as (select * from t3)
     
     
-        4  select * from sql1
+        4  select * from sql1
     
     
-        5  union
+        5  union
     
     
-        6  select * from sql2
+        6  select * from sql2
     
     
-        7  where id in(2,3);
+        7  where id in(2,3);
     
     
     
     
-              ID
+              ID
     
     
       ----
     
     
-               1
+               1
     
     
-               2
+               2
     
     
-               3
+               3
     
     
     
@@ -398,39 +398,39 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
     
     
     
-      SQL> with
+      SQL> with
     
     
-        2  sql1 as (select * from t2),
+        2  sql1 as (select * from t2),
     
     
-        3  sql2 as (select * from t3)
+        3  sql2 as (select * from t3)
     
     
-        4  select * from sql1
+        4  select * from sql1
     
     
-        5  where id=3
+        5  where id=3
     
     
-        6  union
+        6  union
     
     
-        7  select * from sql2
+        7  select * from sql2
     
     
-        8  where id=3;
+        8  where id=3;
     
     
     
     
-              ID
+              ID
     
     
       ----
     
     
-               3
+               3
     
     
     

@@ -68,7 +68,7 @@ select DepartmentID,DepartmentName from BasicDepartment group by DepartmentID
   
 select DepartmentID,DepartmentName as '部门名称',
   
-COUNT(*) as '个数' from BasicDepartment group by all  DepartmentID,DepartmentName
+COUNT(*) as '个数' from BasicDepartment group by all  DepartmentID,DepartmentName
   
 -group by 和having 解释: 前提必须了解sql语言中一种特殊的函数: 聚合函数，
   
@@ -122,7 +122,7 @@ Insert into Table1 values(2,'女',19
   
 -举例子说明: 查询table表查询每一个班级中年龄大于20，性别为男的人数
   
-select COUNT(*)as '>20岁人数',classid  from Table1 where sex='男' group by classid,age having age>20
+select COUNT(*)as '>20岁人数',classid  from Table1 where sex='男' group by classid,age having age>20
   
 -需要注意说明: 当同时含有where子句、group by 子句 、having子句及聚集函数时，执行顺序如下: 
   

@@ -14,7 +14,7 @@ tags:
   http://www.geekinterview.com/question_details/33503
 
 
-  Error/bug/defect/mistake->  are human intraction which produce an incorrect result.
+  Error/bug/defect/mistake->  are human intraction which produce an incorrect result.
 
 
   Fault-> Fault is a stage of software which is caused by an error/bug/defect/mistake.

@@ -25,7 +25,7 @@ remove activity_my.xml
 
 remove my.xml
 
-remove MyActivity.java
+remove MyActivity.java
 
 
 cd project root run gradle build

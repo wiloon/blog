@@ -46,27 +46,27 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
   
     
-      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      public class User {
+      public class User {
     
     
     
     
-          private String email;
+          private String email;
     
     
     
     
-          private String password;
+          private String password;
     
     
     
     
-          // 省略了setter和getter方法
+          // 省略了setter和getter方法
     
     
       }
@@ -78,21 +78,21 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
   
     
-      Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      <form method="post" action="/register">
+      <form method="post" action="/register">
     
     
-      <label>Email:</label><input type="text" name="email" />
+      <label>Email:</label><input type="text" name="email" />
     
     
-      <label>Password:</label><input type="password" name="password" />
+      <label>Password:</label><input type="password" name="password" />
     
     
-      <input type="submit" value="submit" />
+      <input type="submit" value="submit" />
     
     
       </form>
@@ -106,7 +106,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
   
     
-      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -117,24 +117,24 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
       @RequestMapping
     
     
-      public class UserController {
+      public class UserController {
     
     
     
     
-          @RequestMapping("/register")
+          @RequestMapping("/register")
     
     
-          public ModelAndView register(String email, String password) {
+          public ModelAndView register(String email, String password) {
     
     
-              // 在这里调用具体的业务逻辑代码
+              // 在这里调用具体的业务逻辑代码
     
     
-              return new ModelAndView("register-success");
+              return new ModelAndView("register-success");
     
     
-          }
+          }
     
     
     
@@ -148,41 +148,41 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
   
     
-      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      public class UserController {
+      public class UserController {
     
     
     
     
-          private String email;
+          private String email;
     
     
     
     
-          private String password;
+          private String password;
     
     
     
     
-          public String register() {
+          public String register() {
     
     
-              // 在这里调用具体的业务逻辑代码
+              // 在这里调用具体的业务逻辑代码
     
     
-              return "register-success";
+              return "register-success";
     
     
-          }
+          }
     
     
     
     
-          // 这里省略了setter和getter方法
+          // 这里省略了setter和getter方法
     
     
     
@@ -196,7 +196,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
 
   
     
-      Xml代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Xml代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -204,7 +204,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
       
     
     
-          <result name="success">/register-success.jsp</result>
+          <result name="success">/register-success.jsp</result>
     
     
       </action>
@@ -236,21 +236,21 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
 
   
     
-      Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      <form t:type="form" t:id="form">
+      <form t:type="form" t:id="form">
     
     
-      <t:label for="email"/>:<input t:type="TextField" t:id="email" t:validate="required,minlength=3" size="30"/>
+      <t:label for="email"/>:<input t:type="TextField" t:id="email" t:validate="required,minlength=3" size="30"/>
     
     
-      <t:label for="password"/>:<input t:type="PasswordField" t:id="password" t:validate="required,minlength=3" size="30"/>
+      <t:label for="password"/>:<input t:type="PasswordField" t:id="password" t:validate="required,minlength=3" size="30"/>
     
     
-      <input type="submit" value="Login"/>
+      <input type="submit" value="Login"/>
     
     
       </form>
@@ -264,56 +264,56 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
 
   
     
-      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      public class Register {
+      public class Register {
     
     
     
     
-          private String email;
+          private String email;
     
     
     
     
-          private String password;
+          private String password;
     
     
     
     
-          @Component(id = "password")
+          @Component(id = "password")
     
     
-          private PasswordField passwordField;
-    
-    
-    
-    
-          @Component
-    
-    
-          private Form form;
+          private PasswordField passwordField;
     
     
     
     
-          String onSuccess() {
+          @Component
+    
+    
+          private Form form;
     
     
     
     
-              return "PostRegister";
-    
-    
-          }
+          String onSuccess() {
     
     
     
     
-          // 这里省略了setter和getter方法
+              return "PostRegister";
+    
+    
+          }
+    
+    
+    
+    
+          // 这里省略了setter和getter方法
     
   
 
@@ -354,15 +354,15 @@ Servlet规范是最基本的J2EE规范，也是我们进行Web开发的核心依
 
 我们可以看到，Servlet的基本接口定义中: 
 
-**参数列表 —— Http请求被封装为一个HttpServletRequest对象（或者ServletRequest对象) ，而Http响应封装为一个HttpServletResponse对象（或者ServletResponse对象) 
+**参数列表 —— Http请求被封装为一个HttpServletRequest对象（或者ServletRequest对象) ，而Http响应封装为一个HttpServletResponse对象（或者ServletResponse对象) 
   
-返回值 —— 方法不存在返回值（返回值为void) **
+返回值 —— 方法不存在返回值（返回值为void) **
 
 在这个设计中，HttpServletRequest和HttpServletResponse承担了完整的处理Http请求的任务。而这两个Servlet对象的职责也有所分工: 
 
-**HttpServletRequest对象 —— 主要用于处理整个Http生命周期中的数据。
+**HttpServletRequest对象 —— 主要用于处理整个Http生命周期中的数据。
   
-HttpServletResponse对象 —— 主要用于处理Http的响应结果。**
+HttpServletResponse对象 —— 主要用于处理Http的响应结果。**
 
 这里实际上有一点"数据与行为分离"的意味。也就是说，在Servlet处理请求的过程中，其实也是Servlet中响应方法内部的逻辑执行过程中，如果需要处理请求数据或者返回数据，那么我们需要和HttpServletRequest打交道；如果需要处理执行完毕之后的响应结果，那么我们需要和HttpServletResponse打交道。
 
@@ -381,12 +381,12 @@ Struts1.X是一个较为早期的MVC框架实现，它的历史最早可以追�
 
   
     
-      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response);
+      public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response);
     
   
 
@@ -415,36 +415,36 @@ MVC模型发展到了这里，我们可以看到响应方法中的"返回值"已
 
   
     
-      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      public class UserController {
+      public class UserController {
     
     
     
     
-          private User user
+          private User user
     
     
     
     
-          public String execute() {
+          public String execute() {
     
     
-              // 这里加入业务逻辑代码
+              // 这里加入业务逻辑代码
     
     
-              return "success";
+              return "success";
     
     
-          }
+          }
     
     
     
     
-          // 这里省略了setter和getter方法
+          // 这里省略了setter和getter方法
     
     
       }
@@ -475,7 +475,7 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
 
   
     
-      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
@@ -486,24 +486,24 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
       @RequestMapping
     
     
-      public class UserController {
+      public class UserController {
     
     
     
     
-          @RequestMapping("/register")
+          @RequestMapping("/register")
     
     
-          public ModelAndView register(String email, String password) {
+          public ModelAndView register(String email, String password) {
     
     
-              // 在这里调用具体的业务逻辑代码
+              // 在这里调用具体的业务逻辑代码
     
     
-              return new ModelAndView("register-success");
+              return new ModelAndView("register-success");
     
     
-          }
+          }
     
     
     

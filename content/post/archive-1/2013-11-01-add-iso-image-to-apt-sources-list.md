@@ -22,7 +22,7 @@ Now we need to add a /etc/fstab entry so the ISO image will be mounted every tim
 
 Once done we can include this local repository into /etc/apt/sources.list. Open up /etc/apt/sources.list file and add:
 
-**NOTE: **change wheezy with your version.
+**NOTE: **change wheezy with your version.
 
 deb file:/mnt/debian-dvd/ wheezy main contrib
 

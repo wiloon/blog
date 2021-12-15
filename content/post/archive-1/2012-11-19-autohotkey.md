@@ -12,7 +12,7 @@ categories:
 
 + shift
 
-!  alt
+!  alt
 
 ^!s::
 

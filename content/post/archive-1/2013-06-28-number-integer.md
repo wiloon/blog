@@ -9,13 +9,13 @@ categories:
 ---
 ## number integer
 
-建表的时候,如果是浮点数,一般设置为 number(m,n )[m为精度,n为小数位数,所以整数为m-n位],  整数设置为integer;
+建表的时候,如果是浮点数,一般设置为 number(m,n )[m为精度,n为小数位数,所以整数为m-n位],  整数设置为integer;
 
 比如: 
 
 create table abc
   
-(  a number(38,0),
+(  a number(38,0),
   
 b number(38)
   
@@ -45,7 +45,7 @@ d和a,b,c有什么区别呢,首先d可以放小数,另外它的范围同样远�
 
 现在求这个N: 解法是: 
   
-select  LOG(256,10)*126   from dual
+select  LOG(256,10)*126   from dual
   
 求得的解是 53, 也就是说,一个integer类型最少使用53个字节。
 
@@ -70,9 +70,9 @@ select  LOG(256,10)*126   from dual
 
 ### SIMPLE_INTEGER Subtype of PLS_INTEGER {#autoId14}
 
-`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint"][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
+`SIMPLE_INTEGER` is a predefined subtype of the `PLS_INTEGER` data type that has the same range as `PLS_INTEGER` and has a `NOT` `NULL` constraint (explained in["NOT NULL Constraint"][1]). It differs significantly from `PLS_INTEGER` in its overflow semantics.
 
-If you know that a variable will never have the value `NULL` or need overflow checking, declare it as `SIMPLE_INTEGER` rather than `PLS_INTEGER`. Without the overhead of checking for nullness and overflow, `SIMPLE_INTEGER` performs significantly better than `PLS_INTEGER`.
+If you know that a variable will never have the value `NULL` or need overflow checking, declare it as `SIMPLE_INTEGER` rather than `PLS_INTEGER`. Without the overhead of checking for nullness and overflow, `SIMPLE_INTEGER` performs significantly better than `PLS_INTEGER`.
 
 <http://www.itpub.net/thread-1261515-1-1.html>
 

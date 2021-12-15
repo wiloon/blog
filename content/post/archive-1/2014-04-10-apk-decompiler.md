@@ -16,7 +16,7 @@ categories:
 
 解压apk文件得到classes.dex
 
-把classes.dex转成.jar: 在命令行中执行d2j-dex2jar.bat classes.dex
+把classes.dex转成.jar: 在命令行中执行d2j-dex2jar.bat classes.dex
 
 得到jar文件classes-dex2jar.jar
 

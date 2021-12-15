@@ -1,5 +1,5 @@
 ---
-title: affect, influence 与 impact 的区别
+title: affect, influence 与 impact 的区别
 author: "-"
 date: 2015-01-18T03:35:18+00:00
 url: /?p=7253
@@ -9,7 +9,7 @@ tags:
   - English
 
 ---
-## affect, influence 与 impact 的区别
+## affect, influence 与 impact 的区别
 http://blog.sina.com.cn/s/blog_90bb205c0101ceza.html
   
 (2013-02-26 15:47:23) 转载▼

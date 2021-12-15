@@ -138,31 +138,31 @@ code:
   
 CREATE OR REPLACE PROCEDURE genins_file(
   
-p_table     IN varchar2,
+p_table     IN varchar2,
   
 p_output_folder IN VARCHAR2,
   
-p_output_file   IN VARCHAR2)
+p_output_file   IN VARCHAR2)
   
 IS
   
 -
   
-l_column_list       VARCHAR2(32767);
+l_column_list       VARCHAR2(32767);
   
-l_value_list        VARCHAR2(32767);
+l_value_list        VARCHAR2(32767);
   
-l_query             VARCHAR2(32767);
+l_query             VARCHAR2(32767);
   
-l_cursor            NUMBER;
+l_cursor            NUMBER;
   
-ignore         NUMBER;
+ignore         NUMBER;
   
-l_insertline1          varchar2(32767);
+l_insertline1          varchar2(32767);
   
-l_insertline2          varchar2(32767);
+l_insertline2          varchar2(32767);
   
-cmn_file_handle       UTL_FILE.file_type;
+cmn_file_handle       UTL_FILE.file_type;
 
 -
 
@@ -178,9 +178,9 @@ CURSOR l_col_cur(c_table VARCHAR2) IS
   
 SELECT column_name
   
-FROM   user_tab_columns
+FROM   user_tab_columns
   
-WHERE  table_name = upper(c_table)
+WHERE  table_name = upper(c_table)
   
 ORDER BY column_id;
   
@@ -250,9 +250,9 @@ END;
 
 BEGIN
   
-l_column_list  := get_cols(p_table);
+l_column_list  := get_cols(p_table);
   
-l_query        := get_query(p_table);
+l_query        := get_query(p_table);
   
 l_cursor := dbms_sql.open_cursor;
   

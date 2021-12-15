@@ -226,7 +226,7 @@ categories:
     
     
     
-      前两个包在 http://www.slf4j.org/download.html 处下载，后一个包在 http://logging.apache.org/log4j/1.2/download.html 下载，可能包文件名中的版本号有些差，不要紧。
+      前两个包在 http://www.slf4j.org/download.html 处下载，后一个包在 http://logging.apache.org/log4j/1.2/download.html 下载，可能包文件名中的版本号有些差，不要紧。
     
     
     
@@ -280,7 +280,7 @@ categories:
     
     
     
-      使用 SLF4J  的代码: 
+      使用 SLF4J  的代码: 
     
     
     
@@ -362,22 +362,22 @@ categories:
                 
                 
                 
-                      private static final Logger logger = LoggerFactory.getLogger(TestSlf4j.class);
+                      private static final Logger logger = LoggerFactory.getLogger(TestSlf4j.class);
                 
                 
                 
                 
                 
                 
-                      public static void main(String[] args) {
+                      public static void main(String[] args) {
                 
                 
                 
-                          logger.info("Hello {}","SLF4J");
+                          logger.info("Hello {}","SLF4J");
                 
                 
                 
-                      }
+                      }
                 
                 
                 
@@ -508,7 +508,7 @@ categories:
                     log.info("Hello JCL");  </tbody>  
                     
                     
-                      从上面的对比来看，SLF4j+Log4j 与 JCL+Log4J 的使用方式差不多，主要差异就在 SLF4J 用 jar 来告知用哪种日志实现，而 JCL 是通过配置文件来获得该选择哪个日志实现。
+                      从上面的对比来看，SLF4j+Log4j 与 JCL+Log4J 的使用方式差不多，主要差异就在 SLF4J 用 jar 来告知用哪种日志实现，而 JCL 是通过配置文件来获得该选择哪个日志实现。
                     
                     
                     
@@ -516,7 +516,7 @@ categories:
                     
                     
                     
-                      关于当前有哪些项目改用了 SLF4J，请参看页面 http://www.slf4j.org/。
+                      关于当前有哪些项目改用了 SLF4J，请参看页面 http://www.slf4j.org/。
                      
 
 

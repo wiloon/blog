@@ -10,42 +10,42 @@ categories:
 ## 关于SQL SERVER排序规则
 因为新的SQL SERVER 使用了英文版, 使用了默认的排序规则是:SQL_Latin1_General_CP1_CI_AS
 
-但旧的数据使用的是中文版, 使用的排序规则是 Chinese_PRC_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
+但旧的数据使用的是中文版, 使用的排序规则是 Chinese_PRC_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
 
 Cannot resolve the collation conflict between "SQL_Latin1_General_CP1_CI_AS" and "Chinese_PRC_CI_AS" in the equal to operation.
 
 <wbr />
 
-解决方法: <wbr />
+解决方法: <wbr />
 
-1. 可以在有 文字的Fields 上加上 **COLLATE DATABASE_DEFAULT**
+1. 可以在有 文字的Fields 上加上 **COLLATE DATABASE_DEFAULT**
 
 **如:**
 
 SELECT Title, FirstName, MiddleName, EmailAddress, EmailPromotion, ModifiedDate
   
-FROM <wbr /> AdventureWorks.Person.Contact
+FROM <wbr /> AdventureWorks.Person.Contact
   
 WHERE ContactID<10
   
 UNION
   
-SELECT Title **COLLATE DATABASE_DEFAULT**,
+SELECT Title **COLLATE DATABASE_DEFAULT**,
   
-FirstName **COLLATE DATABASE_DEFAULT**, <wbr /> MiddleName **COLLATE DATABASE_DEFAULT,** EmailAddress**COLLATE DATABASE_DEFAULT**
+FirstName **COLLATE DATABASE_DEFAULT**, <wbr /> MiddleName **COLLATE DATABASE_DEFAULT,** EmailAddress**COLLATE DATABASE_DEFAULT**
 
 **2. 在建表时直接更改表的排序规则:**
 
-CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**Chinese_PRC_CI_AS**)
+CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**Chinese_PRC_CI_AS**)
 
 3. 使用以下语句更改,但不适用于临时表
 
-ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**Chinese_PRC_CI_AS**
+ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**Chinese_PRC_CI_AS**
 
 
 一、排序规则简介: 
 
-什么叫排序规则呢？MS是这样描述的: "在 Microsoft SQL Server  中,
+什么叫排序规则呢？MS是这样描述的: "在 Microsoft SQL Server  中,
   
 字符串的物理存储由排序规则控制。排序规则指定表示每个字符的位模式以及存
   
@@ -131,17 +131,17 @@ drop table #t
   
 /*结果: 
   
-id          name
+id          name
   
 ---- -------
   
-4           阿
+4           阿
   
-2           国
+2           国
   
-3           人
+3           人
   
-1           中
+1           中
   
 */
 
@@ -165,19 +165,19 @@ drop table #t
   
 /*结果: 
   
-id          name
+id          name
   
 ---- -------
   
-4           一
+4           一
   
-2           乙
+2           乙
   
-3           二
+3           二
   
-5           十
+5           十
   
-1           三
+1           三
   
 */
 

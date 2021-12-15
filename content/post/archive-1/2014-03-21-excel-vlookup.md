@@ -10,7 +10,7 @@ tags:
 
 ---
 ## excel vlookup
-http://www.utosee.com/post/vlookup.html 
+http://www.utosee.com/post/vlookup.html 
 
 今天在百度知道的时候，看到旁边有人问excel中条件查找vlookup的问题，有几位高手都知道使用vlookup作答，可惜都是没有经过测试，直接复制别人的答案，让所有的读者都无法实施，一头雾水。今天我们详细解答一下vlookup函数的实际应用问题: 
 

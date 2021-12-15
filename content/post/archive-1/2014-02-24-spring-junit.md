@@ -69,89 +69,89 @@ Spring提供了一套扩展于Junit测试用例的测试套件，使用这套测
 
 //加载配置文件
 
-public class BaseJunit4Test {
+public class BaseJunit4Test {
 
 }
 
 接着是我们自己的测试类
 
-public class UserAssignServiceTest extends BaseJunit4Test{
+public class UserAssignServiceTest extends BaseJunit4Test{
 
 
   <ol start="1">
     
-          @Resource  //自动注入,默认按名称
+          @Resource  //自动注入,默认按名称
     
     
-          private UserAssignService userAssignService;
+          private UserAssignService userAssignService;
     
     
     
     
-          @Test   //标明是测试方法
+          @Test   //标明是测试方法
     
     
-          @Transactional   //标明此方法需使用事务
+          @Transactional   //标明此方法需使用事务
     
     
-          @Rollback(false)  //标明使用完此方法后事务不回滚,true时为回滚
+          @Rollback(false)  //标明使用完此方法后事务不回滚,true时为回滚
     
     
-          public void testInsertUserAssign() {
+          public void testInsertUserAssign() {
     
     
-              for(int i=0;i<10;i++){
+              for(int i=0;i<10;i++){
     
     
-                  UserAssign u=new UserAssign();
+                  UserAssign u=new UserAssign();
     
     
-                  u.setAmount("7");
+                  u.setAmount("7");
     
     
-                  u.setCity(2);
+                  u.setCity(2);
     
     
-                  u.setProvince(1);
+                  u.setProvince(1);
     
     
-                  u.setCompany("宜信");
+                  u.setCompany("宜信");
     
     
-                  u.setCreate_date(DateUtil.getCurrentTimeSecond());
+                  u.setCreate_date(DateUtil.getCurrentTimeSecond());
     
     
-                  u.setCreator(0);
+                  u.setCreator(0);
     
     
-                  u.setEmail("1133@163.com");
+                  u.setEmail("1133@163.com");
     
     
-                  u.setOper_date(DateUtil.getCurrentTimeSecond());
+                  u.setOper_date(DateUtil.getCurrentTimeSecond());
     
     
-                  u.setPosition("工人");
+                  u.setPosition("工人");
     
     
-                  u.setOperator(0);
+                  u.setOperator(0);
     
     
-                  u.setQudao("2");
+                  u.setQudao("2");
     
     
-                  u.setUsername("张"+i);
+                  u.setUsername("张"+i);
     
     
-                  userAssignService.insertUserAssign(u);
+                  userAssignService.insertUserAssign(u);
     
     
-                  Assert.assertNotNull(u.getId());
+                  Assert.assertNotNull(u.getId());
     
     
-              }
+              }
     
     
-          }
+          }
     
     
     

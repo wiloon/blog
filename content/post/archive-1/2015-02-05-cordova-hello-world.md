@@ -33,6 +33,6 @@ cordova platform add windows```
 
 ```
 
- ```
+ ```
 
- ```
+ ```

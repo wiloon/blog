@@ -16,7 +16,7 @@ android studiogradle启动不了新建项目
 
 目录(?)[+]
 
-对于android studio 0.3.x 及以下的版本，安装或启动过程出现任何问题可以查看这篇博客。http://www.cnblogs.com/timeng/archive/2013/05/17/3084185.html 。
+对于android studio 0.3.x 及以下的版本，安装或启动过程出现任何问题可以查看这篇博客。http://www.cnblogs.com/timeng/archive/2013/05/17/3084185.html 。
   
 对于android studio 0.4.x 的版本， 安装了android studio 之后，按照上文所述的那篇博文下载安装gradle，配置环境变量， 启动android studio，新建项目，发现还是新建不了，界面一直停在 【"building ' 项目名' gradle project info"】:
 
@@ -27,13 +27,13 @@ android studiogradle启动不了新建项目
   
 1. Windows XP : 
 
-打开 C:\Documents and Settings\<用户名>\.gradle\wrapper\dists\  。
+打开 C:\Documents and Settings\<用户名>\.gradle\wrapper\dists\  。
 
 Windows 7 : 
 
 打开 C:\Users\<用户名>\.gradle\wrapper\dists 。
 
-2. 你会看到这个目录下有个 gradle-x.xx-all 的文件夹， 这就是我们要手动下载的gradle版本，如果 x.xx 是1.9 ，那我们就要手动下载 1.9 版本，如果是1.10， 我们就要手动下载gradle 1.10 版本。下载地址是 http://www.gradle.org/downloads , 当然你也可以在 这里 下载。
+2. 你会看到这个目录下有个 gradle-x.xx-all 的文件夹， 这就是我们要手动下载的gradle版本，如果 x.xx 是1.9 ，那我们就要手动下载 1.9 版本，如果是1.10， 我们就要手动下载gradle 1.10 版本。下载地址是 http://www.gradle.org/downloads , 当然你也可以在 这里 下载。
 
 3. 下载完相应版本的gradle之后，将下载的.zip文件(也可以解压)复制到上述的gradle-x.xx-all 文件夹下。
 

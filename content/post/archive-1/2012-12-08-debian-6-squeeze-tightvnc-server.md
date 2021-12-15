@@ -20,7 +20,7 @@ categories:
     
     
     
-      vnc client: xtightvncviewer
+      vnc client: xtightvncviewer
     
     
     

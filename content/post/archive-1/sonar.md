@@ -116,15 +116,15 @@ MySQL> FLUSH PRIVILEGES;
 
 view plaincopy
   
-sonar.jdbc.username:                       sonar
+sonar.jdbc.username:                       sonar
   
-sonar.jdbc.password:                       sonar
+sonar.jdbc.password:                       sonar
   
-sonar.jdbc.url:                            jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
+sonar.jdbc.url:                            jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
 
-# Optional properties
+# Optional properties
   
-sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
+sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
   
 修改sonar-runner的配置文件
   
@@ -136,41 +136,41 @@ sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
 
 view plaincopy
   
-#Configure here general information about the environment, such as SonarQube DB details for example
+#Configure here general information about the environment, such as SonarQube DB details for example
   
-#No information about specific project should appear here
+#No information about specific project should appear here
   
-#-- Default SonarQube server
+#-- Default SonarQube server
   
 sonar.host.url=http://localhost:9000
   
-#-- PostgreSQL
+#-- PostgreSQL
   
 #sonar.jdbc.url=jdbc:postgresql://localhost/sonar
   
-#-- MySQL
+#-- MySQL
   
 sonar.jdbc.url=jdbc:MySQL://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
   
-#-- Oracle
+#-- Oracle
   
 #sonar.jdbc.url=jdbc:oracle:thin:@localhost/XE
   
-#-- Microsoft SQLServer
+#-- Microsoft SQLServer
   
 #sonar.jdbc.url=jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor
   
-#-- Global database settings
+#-- Global database settings
   
 sonar.jdbc.username=sonar
   
 sonar.jdbc.password=sonar
   
-#-- Default source code encoding
+#-- Default source code encoding
   
 sonar.sourceEncoding=UTF-8
   
-#-- Security (when 'sonar.forceAuthentication' is set to 'true')
+#-- Security (when 'sonar.forceAuthentication' is set to 'true')
   
 sonar.login=admin
   
@@ -186,9 +186,9 @@ sonar.password=admin
   
 目录切换至sonar的<install_directory>/bin/linux-x86-64/目录，启动服务
   
-#./sonar.sh start   启动服务
+#./sonar.sh start   启动服务
   
-#./sonar.sh stop    停止服务
+#./sonar.sh stop    停止服务
   
 #./sonar.sh restart 重启服务
 
@@ -216,35 +216,35 @@ view plaincopy
   
 #
   
-# rc file for SonarQube
+# rc file for SonarQube
   
 #
   
-# chkconfig: 345 96 10
+# chkconfig: 345 96 10
   
-# description: SonarQube system (www.sonarsource.org)
+# description: SonarQube system (www.sonarsource.org)
   
 #
   
-### BEGIN INIT INFO
+### BEGIN INIT INFO
   
-# Provides: sonar
+# Provides: sonar
   
-# Required-Start: $network
+# Required-Start: $network
   
-# Required-Stop: $network
+# Required-Stop: $network
   
-# Default-Start: 3 4 5
+# Default-Start: 3 4 5
   
-# Default-Stop: 0 1 2 6
+# Default-Stop: 0 1 2 6
   
-# Short-Description: SonarQube system (www.sonarsource.org)
+# Short-Description: SonarQube system (www.sonarsource.org)
   
-# Description: SonarQube system (www.sonarsource.org)
+# Description: SonarQube system (www.sonarsource.org)
   
-### END INIT INFO
+### END INIT INFO
 
-/usr/bin/sonar $*
+/usr/bin/sonar $*
 
 SonarQube开机自启动（Ubuntu, 32位) : 
   
@@ -278,7 +278,7 @@ view plaincopy
   
 sonar.projectKey=android-sonarqube-runner
   
-sonar.projectName=Simple Android project analyzed with the SonarQube Runner
+sonar.projectName=Simple Android project analyzed with the SonarQube Runner
   
 sonar.projectVersion=1.0
   
@@ -290,7 +290,7 @@ sonar.language=java
   
 sonar.sourceEncoding=UTF-8
   
-sonar.profile=Android Lint
+sonar.profile=Android Lint
 
 注: 要使用Android Lint
   

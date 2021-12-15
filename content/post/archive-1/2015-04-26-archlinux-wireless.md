@@ -21,7 +21,7 @@ netctl start <i>profile</i>
 
 netctl enable <i>profile</i>
 
- netctl start wlp0s26f7u5-w1100n
+ netctl start wlp0s26f7u5-w1100n
 
 ------deleted
 sudo wpa_supplicant -i wlp0s26f7u5 -c /etc/wpa_supplicant/wpa_supplicant.conf -d sudo dhcpcd wlp0s26f7u5

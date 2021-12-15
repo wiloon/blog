@@ -20,7 +20,7 @@ b.使用步骤a中产生的key对apk签名
 
 **3.具体操作**
 
-_**方法一:  命令行下对apk签名（原理) **_
+_**方法一:  命令行下对apk签名（原理) **_
   
 创建key，需要用到keytool.exe (位于jdk1.6.0_24\jre\bin目录下)，使用产生的key对apk签名用到的是jarsigner.exe (位于jdk1.6.0_24\bin目录下)，把上两个软件所在的目录添加到环境变量path后，打开cmd输入
 
@@ -40,19 +40,19 @@ _**方法一:  命令行下对apk签名（原理) **_
               
               
               
-                <code class="fsharp spaces">       <code class="fsharp plain">-alias demo.keystore 别名 demo.keystore
+                <code class="fsharp spaces">       <code class="fsharp plain">-alias demo.keystore 别名 demo.keystore
               
               
               
-                <code class="fsharp spaces">       <code class="fsharp plain">-keyalg RSA 使用RSA算法对签名加密
+                <code class="fsharp spaces">       <code class="fsharp plain">-keyalg RSA 使用RSA算法对签名加密
               
               
               
-                <code class="fsharp spaces">       <code class="fsharp plain">-validity 40000 有效期限4000天
+                <code class="fsharp spaces">       <code class="fsharp plain">-validity 40000 有效期限4000天
               
               
               
-                <code class="fsharp spaces">       <code class="fsharp plain">-keystore demo.keystore */
+                <code class="fsharp spaces">       <code class="fsharp plain">-keystore demo.keystore */
               
               
               
@@ -64,11 +64,11 @@ _**方法一:  命令行下对apk签名（原理) **_
               
               
               
-                <code class="fsharp spaces">       <code class="fsharp plain">-keystore  demo.keystore 密钥库位置
+                <code class="fsharp spaces">       <code class="fsharp plain">-keystore  demo.keystore 密钥库位置
               
               
               
-                <code class="fsharp spaces">       <code class="fsharp plain">-signedjar demor_signed.apk demo.apk demo.keystore 正式签名，三个参数中依次为签名后产生的文件demo_signed，要签名的文件demo.apk和密钥库demo.keystore.*/
+                <code class="fsharp spaces">       <code class="fsharp plain">-signedjar demor_signed.apk demo.apk demo.keystore 正式签名，三个参数中依次为签名后产生的文件demo_signed，要签名的文件demo.apk和密钥库demo.keystore.*/
               
             
           

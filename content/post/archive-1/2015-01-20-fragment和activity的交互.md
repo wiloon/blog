@@ -12,7 +12,7 @@ http://www.cnblogs.com/mengdd/archive/2013/01/11/2856374.html
 
 一个Fragment的实例总是和包含它的Activity直接相关。
 
-fragment可以通过getActivity() 方法来获得Activity的实例，然后就可以调用一些例如findViewById()之类的方法。
+fragment可以通过getActivity() 方法来获得Activity的实例，然后就可以调用一些例如findViewById()之类的方法。
 
 如: 
 
@@ -23,7 +23,7 @@ View listView = getActivity().findViewById(R.id.list);
 
 相似的，activity也可以获得一个fragment的引用，从而调用fragment中的方法。
 
-获得fragment的引用要用FragmentManager，之后可以调用findFragmentById() 或者 findFragmentByTag().
+获得fragment的引用要用FragmentManager，之后可以调用findFragmentById() 或者 findFragmentByTag().
 
 比如: 
 
@@ -59,7 +59,7 @@ public void onArticleSelected(Uri articleUri);
 
 之后包含这个fragment的activity实现这个OnArticleSelectedListener接口，用覆写的onArticleSelected()方法将fragment A中发生的事通知fragment B。
 
-为了确保宿主activity实现这个接口，fragment A的onAttach() 方法（这个方法在fragment 被加入到activity中时由系统调用) 中通过将传入的activity强制类型转换，实例化一个OnArticleSelectedListener对象: 
+为了确保宿主activity实现这个接口，fragment A的onAttach() 方法（这个方法在fragment 被加入到activity中时由系统调用) 中通过将传入的activity强制类型转换，实例化一个OnArticleSelectedListener对象: 
   
 public static class FragmentA extends ListFragment {
   
@@ -91,7 +91,7 @@ throw new ClassCastException(activity.toString() + " must implement OnArticleSel
 
 如果activity没有实现这个接口，fragment将会抛出ClassCastException异常，如果成功了，mListener将会是activity实现OnArticleSelectedListener接口的一个引用，所以通过调用OnArticleSelectedListener接口的方法，fragment A可以和activity共享事件。
 
-比如，如果fragment A是ListFragment的子类，每一次用户点击一个列表项目，系统调用fragment中的onListItemClick() 方法，在这个方法中可以调用onArticleSelected()方法与activity共享事件。
+比如，如果fragment A是ListFragment的子类，每一次用户点击一个列表项目，系统调用fragment中的onListItemClick() 方法，在这个方法中可以调用onArticleSelected()方法与activity共享事件。
   
 public static class FragmentA extends ListFragment {
   
@@ -142,13 +142,13 @@ fragment不可见。可能是因为宿主activity处于stopped状态，或者fra
 
 和Activity类似，可以用Bundle类对象保存fragment的状态，当activity的进程被kill之后，需要重建activity时，可以用于恢复fragment的状态。
 
-存储时利用onSaveInstanceState()回调函数，恢复时是在 onCreate(), onCreateView(), 或者onActivityCreated()里。
+存储时利用onSaveInstanceState()回调函数，恢复时是在 onCreate(), onCreateView(), 或者onActivityCreated()里。
   
 Back Stack
 
 activity和fragment生命周期最重要的不同之处是它们如何存储在各自的back stack中。
 
-Activity停止时，是存在一个由系统维护的back stack中，但是当fragment停止（被remove) 时，需要程序员显示地调用addToBackStack() ，并且fragment是存在一个由宿主activity掌管的back stack中。
+Activity停止时，是存在一个由系统维护的back stack中，但是当fragment停止（被remove) 时，需要程序员显示地调用addToBackStack() ，并且fragment是存在一个由宿主activity掌管的back stack中。
   
 Fragment和Activity的生命周期
 

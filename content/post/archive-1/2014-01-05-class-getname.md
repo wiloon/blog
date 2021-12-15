@@ -16,9 +16,9 @@ java.lang.Object
   
 java.lang.Class
 
-String getName()
+String getName()
   
-Returns the name of the entity (class, interface, array class, primitive type, or void) represented by this Class object, as a String.
+Returns the name of the entity (class, interface, array class, primitive type, or void) represented by this Class object, as a String.
 
 
 java的类映射函数..用来得到类的具体名字

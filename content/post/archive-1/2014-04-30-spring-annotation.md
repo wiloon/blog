@@ -8,10 +8,10 @@ categories:
 
 ---
 ## spring annotation
-@Component；@Controller；@Service；@Repository 
+@Component；@Controller；@Service；@Repository 
 
 ### @Component
-在annotaion配置注解中用 @Component 来表示一个通用注释用于说明一个类是一个spring容器管理的类。即就是该类已经纳入到spring的管理中了。而@Controller, @Service, @Repository是 @Component 的细化，这三个注解比 @Component 带有更多的语义，它们分别对应了控制层、服务层、持久层的类。 
+在annotaion配置注解中用 @Component 来表示一个通用注释用于说明一个类是一个spring容器管理的类。即就是该类已经纳入到spring的管理中了。而@Controller, @Service, @Repository是 @Component 的细化，这三个注解比 @Component 带有更多的语义，它们分别对应了控制层、服务层、持久层的类。 
 ### @Service
 @Service 用于标注业务层组件,对象名默认是类名 (头字母小写), 如果想自定义，可以@Service("foo")这样来指定，这种bean默认是单例的，如果想改变，可以使用@Service("foo") @Scope("prototype")来改变。
 
@@ -21,11 +21,11 @@ categories:
 
 @Component 泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。
 
-@Autowired Spring自己定义的注解,
+@Autowired Spring自己定义的注解,
 
 JSR-250规范定义的注解
 
-@Resource @Resource的作用相当于@Autowired，只不过@Autowired按byType自动注入，而@Resource默认按 byName自动注入
+@Resource @Resource的作用相当于@Autowired，只不过@Autowired按byType自动注入，而@Resource默认按 byName自动注入
 
 ### @Value
 将外部的值动态注入到Bean中

@@ -25,7 +25,7 @@ http://www.cnblogs.com/brainy/archive/2012/08/29/2662295.html
 
 我们使用SQLite的事务进行控制: 
 
-db.beginTransaction();  //手动设置开始事务
+db.beginTransaction();  //手动设置开始事务
 
 try{
 
@@ -51,7 +51,7 @@ db.endTransaction(); //处理完成
 
 }
 
-1.使用SQLiteDatabase的beginTransaction()方法可以开启一个事务，程序执行到endTransaction() 方法时会检查事务的标志是否为成功，如果程序执行到endTransaction()之前调用了setTransactionSuccessful() 方法设置事务的标志为成功，则所有从beginTransaction（) 开始的操作都会被提交，如果没有调用setTransactionSuccessful() 方法则回滚事务。
+1.使用SQLiteDatabase的beginTransaction()方法可以开启一个事务，程序执行到endTransaction() 方法时会检查事务的标志是否为成功，如果程序执行到endTransaction()之前调用了setTransactionSuccessful() 方法设置事务的标志为成功，则所有从beginTransaction（) 开始的操作都会被提交，如果没有调用setTransactionSuccessful() 方法则回滚事务。
 
 2.使用例子如下: 下面两条SQL语句在同一个事务中执行。
 
@@ -59,11 +59,11 @@ Java代码
 
 //银行账户事务测试
   
-public void payment()
+public void payment()
   
 {
   
-SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
+SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
   
 //开启事务
   
@@ -73,9 +73,9 @@ try
   
 {
   
-db.execSQL("update person set amount=amount-10 where personid=?", new Object[]{1});
+db.execSQL("update person set amount=amount-10 where personid=?", new Object[]{1});
   
-db.execSQL("update person set amount=amount+10 where personid=?", new Object[]{2});
+db.execSQL("update person set amount=amount+10 where personid=?", new Object[]{2});
   
 //设置事务标志为成功，当结束事务时就会提交事务
   

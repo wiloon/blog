@@ -201,7 +201,7 @@ Jsp当然是入门，如果这个都不懂，谈学习成本也毫无意义，�
         
         
         
-          Spring MVC PK Struts2
+          Spring MVC PK Struts2
         
         
         
@@ -233,7 +233,7 @@ Jsp当然是入门，如果这个都不懂，谈学习成本也毫无意义，�
         
         
         
-          6. 另外，spring3 mvc的验证也是一个亮点，支持JSR303，处理ajax的请求更是方便，只需一个注解@ResponseBody ，然后直接返回响应文本即可。送上一段代码: 
+          6. 另外，spring3 mvc的验证也是一个亮点，支持JSR303，处理ajax的请求更是方便，只需一个注解@ResponseBody ，然后直接返回响应文本即可。送上一段代码: 
         
         
         

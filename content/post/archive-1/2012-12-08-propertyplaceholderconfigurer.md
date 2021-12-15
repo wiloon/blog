@@ -32,24 +32,24 @@ PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties�
 
   
     
-      Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      <property name="locations">
+      <property name="locations">
     
     
-                  
+                  
     
     
-                      <value>classpath:config/maxid.properties</value>
+                      <value>classpath:config/maxid.properties</value>
     
     
-                      <value>classpath:config/jdoserver.properties</value>
+                      <value>classpath:config/jdoserver.properties</value>
     
     
-                  </list>
+                  </list>
     
     
       </property>
@@ -61,21 +61,21 @@ PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties�
 
   
     
-      Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     
     
-              <property name="driverClassName" value="${jdbc.agent.driver}"/>
+              <property name="driverClassName" value="${jdbc.agent.driver}"/>
     
     
-              <property name="url" value="${jdbc.agent.main.url}"/>
+              <property name="url" value="${jdbc.agent.main.url}"/>
     
     
-          </bean>
+          </bean>
     
   
 
@@ -84,44 +84,44 @@ PropertyOverrideConfigurer: 在spring所有的bean初使化以后,将bean的值�
 
   
     
-      Xml代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
+      Xml代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
   <ol start="1">
     
-      <bean id="configBean"
+      <bean id="configBean"
     
     
-         class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+         class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
     
     
-               <property name="location">
+               <property name="location">
     
     
-                   <value>hello.properties</value>
+                   <value>hello.properties</value>
     
     
-               </property>
+               </property>
     
     
-           </bean>
+           </bean>
     
     
     
     
-           <bean id="helloBean" class="com.HelloBean">
+           <bean id="helloBean" class="com.HelloBean">
     
     
-               <property name="word">
+               <property name="word">
     
     
-                   <value>Hello!</value>
+                   <value>Hello!</value>
     
     
-               </property>
+               </property>
     
     
-           </bean>
+           </bean>
     
   
 

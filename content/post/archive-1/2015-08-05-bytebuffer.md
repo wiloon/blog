@@ -404,7 +404,7 @@ socketChannel.write(buffer);
   
 此方法以一个ByteBuffer为参数,试图将该缓冲区中剩余的字节写入信道.
 
-ByteBuffer俗称缓冲器, 是将数据移进移出通道的唯一方式,并且我们只能创建一个独立的基本类型缓冲器,或者使用"as"方法从 ByteBuffer 中获得。ByteBuffer 中存放的是字节,如果要将它们转换成字符串则需要使用 Charset , Charset 是字符编码,它提供了把字节流转换成字符串 ( 解码 ) 和将字符串转换成字节流 ( 编码) 的方法。
+ByteBuffer俗称缓冲器, 是将数据移进移出通道的唯一方式,并且我们只能创建一个独立的基本类型缓冲器,或者使用"as"方法从 ByteBuffer 中获得。ByteBuffer 中存放的是字节,如果要将它们转换成字符串则需要使用 Charset , Charset 是字符编码,它提供了把字节流转换成字符串 ( 解码 ) 和将字符串转换成字节流 ( 编码) 的方法。
 
 private byte[] getBytes (char[] chars) {//将字符转为字节(编码)
   
@@ -446,27 +446,27 @@ return cb.array();
 
 ByteBuffer buff = ByteBuffer.allocate(BSIZE);
 
-a)  buff  =  ByteBuffer.wrap("askjfasjkf".getBytes())注意: wrap方法是静态函数且只能接收byte类型的数据,任何其他类型的数据想通过这种方式传递,需要进行类型的转换。
+a)  buff  =  ByteBuffer.wrap("askjfasjkf".getBytes())注意: wrap方法是静态函数且只能接收byte类型的数据,任何其他类型的数据想通过这种方式传递,需要进行类型的转换。
 
-b)  buff.put();可以根据数据类型做相应调整,如buff.putChar(chars),buff.putDouble(double)等
+b)  buff.put();可以根据数据类型做相应调整,如buff.putChar(chars),buff.putDouble(double)等
 
 二、FileChannel 与 ByteBuffer的交互: 
 
 缓冲器向通道输入数据
 
-FileChannel fc = new FileInputStream().getChannel();
+FileChannel fc = new FileInputStream().getChannel();
 
 fc.write(buff);
 
 fc.close();
 
-三、 用户与ByteBuffer交互
+三、 用户与ByteBuffer交互
 
 通道向缓冲器送入数据
 
-FileChannel fc =  new FileOutputStream().getChannel();
+FileChannel fc =  new FileOutputStream().getChannel();
 
-fc.read( buff);
+fc.read( buff);
 
 fc.flip();
 
@@ -474,7 +474,7 @@ fc.flip();
 
 1)String encoding = System.getProperty("file.encoding");
 
-System.out.println("Decoded using " + encoding + ": "  + Charset.forName(encoding).decode(buff));
+System.out.println("Decoded using " + encoding + ": "  + Charset.forName(encoding).decode(buff));
 
 2)System.out.println(buff.asCharBuffer());//这种输出时,需要在输入时就进行编码getBytes("UTF-8")
 

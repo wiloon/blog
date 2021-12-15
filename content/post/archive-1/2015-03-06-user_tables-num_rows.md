@@ -12,9 +12,9 @@ categories:
   
 根据英文资料:
   
-but it's base on your table analysis strategy,may be not accurate
+but it's base on your table analysis strategy,may be not accurate
   
-select 'analyze table '||S.TABLE_NAME||' compute statistics;' from  user_tables s;
+select 'analyze table '||S.TABLE_NAME||' compute statistics;' from  user_tables s;
 
 翻译如下:
   
@@ -22,7 +22,7 @@ select 'analyze table '||S.TABLE_NAME||' compute statistics;' from  user
   
 如果你要准确,可以
   
-select 'analyze table '||S.TABLE_NAME||' compute statistics;' from  user_tables s;
+select 'analyze table '||S.TABLE_NAME||' compute statistics;' from  user_tables s;
   
 后的所有脚本,再运行统计行数。
 

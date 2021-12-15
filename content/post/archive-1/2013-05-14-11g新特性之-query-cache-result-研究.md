@@ -10,9 +10,9 @@ categories:
 ## 11g新特性之–Query Cache Result 研究
 **<http://www.killdb.com/2011/07/31/11g%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8B-query-cache-result-%E7%A0%94%E7%A9%B6.html>**
 
-**本站文章除注明转载外，均为本站原创: ** 转载自[love wife & love life —Roger 提供oracle技术支持服务][1]
+**本站文章除注明转载外，均为本站原创: ** 转载自[love wife & love life —Roger 提供oracle技术支持服务][1]
 
-**本文链接地址:** [11g新特性之–Query Cache Result 研究][2]
+**本文链接地址:** [11g新特性之–Query Cache Result 研究][2]
 
 该特性是11gR1引入的，关于query result cache特性，主要有2种: 
 
@@ -89,11 +89,11 @@ NO_RESULT_CACHE                          11.1.0.6
 
 当设置为force时，oracle 优化就能自动识别了，不需要使用hint，相反，如果当设置为force时，同时
   
-你又不想某个sql或应用使用该特性，那么可以使用NO_RESUIT_CACHE  hint来进行避规。
+你又不想某个sql或应用使用该特性，那么可以使用NO_RESUIT_CACHE  hint来进行避规。
   
 至于说，当启动该特性时，oracle是如何来实现的？这个问题需要进一步研究。
   
-**result_cache_max_size **
+**result_cache_max_size **
   
 该参数控制着使用该特性的内存大小，当该参数设置为0，那么也就意味着关闭了该特性。
   

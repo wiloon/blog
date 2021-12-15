@@ -14,9 +14,9 @@ sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img of=/dev/sdx
 
 刚刚拿到一只Simon同学出借的树莓派(raspberry pi) ,准备一张4GB的SD卡,准备跑一下Linux。
 
-在Windows 7上用 工具 Win32DiskImager写入img到SD卡上,报错,失败。
+在Windows 7上用 工具 Win32DiskImager写入img到SD卡上,报错,失败。
 
-好在俺有Linux vmware虚拟机,在虚拟机上搞,执行命令 sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img  of=/dev/sdb
+好在俺有Linux vmware虚拟机,在虚拟机上搞,执行命令 sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img  of=/dev/sdb
 
 tips:
 
@@ -24,9 +24,9 @@ tips:
 
 原因: 在Linux上执行dd命令的时候,应该是把操作系统镜像写到SD卡（硬盘上) ,而不是写到某个硬盘分区上。of=/dev/sdb 误写成of=/dev/sdb1了。
 
-当时写完后,我还纳闷呢,怎么Linux  fdisk上这个SD卡还显示只有一个vfat分区,而不是多个Linux分区呢。
+当时写完后,我还纳闷呢,怎么Linux  fdisk上这个SD卡还显示只有一个vfat分区,而不是多个Linux分区呢。
 
-解决办法: 首先fdisk /dev/sdb,删除vfat分区；然后执行dd命令写入镜像  sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img of=/dev/sdb
+解决办法: 首先fdisk /dev/sdb,删除vfat分区；然后执行dd命令写入镜像  sudo dd bs=1M if=2012-12-16-wheezy-raspbian.img of=/dev/sdb
 
 #Raspian安装Chrome
   
@@ -56,7 +56,7 @@ $ sudo -s
 
 官方下载和教程连接
 
-[ http://www.raspberrypi.org/downloads][1]
+[ http://www.raspberrypi.org/downloads][1]
 
 树莓派Raspberry Pi上手报告 , 中文,Chrome浏览器
 
@@ -70,7 +70,7 @@ Raspberry Pi 初步体验: 配置,图片,连接
 
 <http://archboy.org/2012/12/11/raspberry-pi-first-review/>
 
-Raspberry Pi快速上手教程  : 配置,图片,
+Raspberry Pi快速上手教程  : 配置,图片,
 
 [http://www.eeboard.com/tutorials/raspberry-pi快速上手教程/][2]
 

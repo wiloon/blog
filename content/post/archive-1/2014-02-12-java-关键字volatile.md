@@ -87,11 +87,11 @@ http://www.ibm.com/developerworks/cn/java/j-jtp06197.html
 
 =========================分割线2=================================
 
- 
+ 
 
 恐怕比较一下volatile和synchronized的不同是最容易解释清楚的。volatile是变量修饰符,而synchronized则作用于一段代码或方法；看如下三句get代码: 
 
- 
+ 
 
 Java代码 收藏代码
 
@@ -111,7 +111,7 @@ synchronized int geti3() {return i3;}
 
 geti1()
 
- 
+ 
 
 得到存储在当前线程中i1的数值。多个线程有多个i1变量拷贝,而且这些i1之间可以互不相同。换句话说,另一个线程可能已经改变了它线程内的i1值,而这个值可以和当前线程中的i1值不相同。事实上,Java有个思想叫"主"内存区域,这里存放了变量目前的"准确值"。每个线程可以有它自己的变量拷贝,而这个变量拷贝值可以和"主"内存区域里存放的不同。因此实际上存在一种可能: "主"内存区域里的i1值是1,线程1里的i1值是2,线程2里的i1值是3——这在线程1和线程2都改变了它们各自的i1值,而且这个改变还没来得及传递给"主"内存区域或其他线程时就会发生。
 
@@ -130,21 +130,21 @@ geti1()
 
 因此volatile只是在线程内存和"主"内存间同步某个变量的值,而synchronized通过锁定和解锁某个监视器同步所有变量的值。显然synchronized要比volatile消耗更多资源。
 
- 
+ 
 
 =========================分割线3=================================
 
- 
+ 
 
 volatile关键字相信了解Java多线程的读者都很清楚它的作用。volatile关键字用于声明简单类型变量,如int、float、 boolean等数据类型。如果这些简单数据类型声明为volatile,对它们的操作就会变成原子级别的。但这有一定的限制。例如,下面的例子中的n就不是原子级别的: 
 
- 
+ 
 
 Java代码 收藏代码
 
 package mythread;
 
- 
+ 
 
 public class JoinThread extends Thread
 
@@ -180,7 +180,7 @@ public static void main(String[] args) throws Exception
 
 {
 
- 
+ 
 
 Thread threads[] = new Thread[ 100 ];
 

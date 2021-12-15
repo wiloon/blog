@@ -57,7 +57,7 @@ BeanFactory 提供的高级配置机制,使得管理各种对象成为可能。 
 
 使用getBean(String) 方法就可以取得bean的实例；BeanFactory 提供的方法极其简单。 BeanFactory接口提供 了非常多的方法,但是对于我们的应用来说,最好永远不要调用它们,当然也包括 使用getBean(String)方法,这样可以避免我们对 Spring API的依赖。
 
-BeanFactory 同时也不具备 编译spring配置文件的功能  在容器初始化时 如果applicationContext出现错误时
+BeanFactory 同时也不具备 编译spring配置文件的功能  在容器初始化时 如果applicationContext出现错误时
 
 
 BeanFactory并不能及时察觉,必须等待第一次获取bean的实例时才能抛出异常
@@ -70,7 +70,7 @@ Resource res = new FileSystemResource("applicationContext.xml");
   
 BeanFactory factory = new XmlBeanFactory(res);
 
-Resource  resClasspath = new ClassPathResource("applicationContext.xml.xml");
+Resource  resClasspath = new ClassPathResource("applicationContext.xml.xml");
   
 BeanFactory factory2 = new XmlBeanFactory(resClasspath);
   
@@ -85,6 +85,6 @@ User u=(User)u.getBean("user");
 而实例化ApplicationContext
 
 
-ApplicationContext  context=new ClassPathXmlApplicationContext("applicationContext.xml");
+ApplicationContext  context=new ClassPathXmlApplicationContext("applicationContext.xml");
 
 就能直接抛出异常

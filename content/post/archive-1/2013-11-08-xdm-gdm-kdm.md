@@ -29,19 +29,19 @@ tags:
         KDE_LANG=zh_CN.GB2312
       
       
-        export LANG LC_ALL LC_CTYPE KDE_LANG
+        export LANG LC_ALL LC_CTYPE KDE_LANG
       
       
-        export XMODIFIERS=@im=Chinput
+        export XMODIFIERS=@im=Chinput
       
       
-        /usr/bin/chinput &
+        /usr/bin/chinput &
       
       
-        exec kde3
+        exec kde3
       
       
-        killall chinput
+        killall chinput
       
     
   
@@ -113,58 +113,58 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
  
     <ol start="1">
       
-        # more Xservers
+        # more Xservers
       
       
-        # $XConsortium: Xserv.ws.cpp,v 1.3 93/09/28 14:30:30 gildea Exp $
-      
-      
-        #
+        # $XConsortium: Xserv.ws.cpp,v 1.3 93/09/28 14:30:30 gildea Exp $
       
       
         #
       
       
-        # $XFree86: xc/programs/xdm/config/Xserv.ws.cpp,v 1.1.1.1.12.2 1998/10/04 15:23:
+        #
       
       
-        14 hohndel Exp $
+        # $XFree86: xc/programs/xdm/config/Xserv.ws.cpp,v 1.1.1.1.12.2 1998/10/04 15:23:
+      
+      
+        14 hohndel Exp $
       
       
         #
       
       
-        # Xservers file, workstation prototype
+        # Xservers file, workstation prototype
       
       
         #
       
       
-        # This file should contain an entry to start the server on the
+        # This file should contain an entry to start the server on the
       
       
-        # local display; if you have more than one display (not screen),
+        # local display; if you have more than one display (not screen),
       
       
-        # you can add entries to the list (one per line).? If you also
+        # you can add entries to the list (one per line).? If you also
       
       
-        # have some X terminals connected which do not support XDMCP,
+        # have some X terminals connected which do not support XDMCP,
       
       
-        # you can add them here as well.? Each X terminal line should
+        # you can add them here as well.? Each X terminal line should
       
       
-        # look like:
+        # look like:
       
       
-        #? ? ? ?XTerminalName:0 foreign
+        #? ? ? ?XTerminalName:0 foreign
       
       
         #
       
       
-        :0 local /bin/nice -n -10 /usr/X11R6/bin/X -deferglyphs 16
+        :0 local /bin/nice -n -10 /usr/X11R6/bin/X -deferglyphs 16
       
     
   
@@ -174,7 +174,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
@@ -183,19 +183,19 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
         ###使用16色
       
       
-        :0 local /usr/X11R6/bin/X -bpp 16
+        :0 local /usr/X11R6/bin/X -bpp 16
       
       
         ###使用24色
       
       
-        :0 local /usr/X11R6/bin/X -bpp 24
+        :0 local /usr/X11R6/bin/X -bpp 24
       
       
         ###使用32色
       
       
-        :0 local /usr/X11R6/bin/X -bpp 32
+        :0 local /usr/X11R6/bin/X -bpp 32
       
     
   
@@ -205,19 +205,19 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     6) 如果你喜欢那种方式Display Manager，你都可以选择嘛，修改成自己喜欢的东西。例如我的mandrake90中有/etc/X11/prefdm是目前系统内定使用的Display Manager。你看到它是只是一个/usr/bin/gdm一个连接而已。你还可以在/etc/inittab文件中最后定义像下面的，
  
-        Java代码  
+        Java代码  
       
     
     
     <ol start="1">
       
-        #hehe,Run gdm in runlevel 5
+        #hehe,Run gdm in runlevel 5
       
       
-        #gdm is now for pk'Mandrake separate server
+        #gdm is now for pk'Mandrake separate server
       
       
-        x:5:respawn:/etc/X11/prefdm -nodaemon
+        x:5:respawn:/etc/X11/prefdm -nodaemon
       
     
   
@@ -260,25 +260,25 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
     <ol start="1">
       
-        case $# in
+        case $# in
       
       
         1)
       
       
-        case $1 in
+        case $1 in
       
       
         failsafe)
       
       
-        exec xterm -geometry 80x24-0-0
+        exec xterm -geometry 80x24-0-0
       
       
         ;;
@@ -297,25 +297,25 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
     <ol start="1">
       
-        case $# in
+        case $# in
       
       
         1)
       
       
-        case $1 in
+        case $1 in
       
       
         kde)
       
       
-        exec startkde
+        exec startkde
       
       
         ;;
@@ -324,7 +324,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
         gnome)
       
       
-        exec gnome-session
+        exec gnome-session
       
       
         ;;
@@ -333,7 +333,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
         failsafe)
       
       
-        exec xterm -geometry 80x24-0-0
+        exec xterm -geometry 80x24-0-0
       
       
         ;;
@@ -359,16 +359,16 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
     <ol start="1">
       
-        pw groupadd –g 42 –n gdm
+        pw groupadd –g 42 –n gdm
       
       
-        pw useradd –c gdm –d /var/gdm –s /bin/sh –u 42 –n gdm
+        pw useradd –c gdm –d /var/gdm –s /bin/sh –u 42 –n gdm
       
     
   
@@ -379,19 +379,19 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
     <ol start="1">
       
-        mkdir /var/gdm
+        mkdir /var/gdm
       
       
-        chmod 0750 /var/gdm
+        chmod 0750 /var/gdm
       
       
-        chown gdm:gdm /var/gdm
+        chown gdm:gdm /var/gdm
       
     
   
@@ -406,7 +406,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
@@ -428,16 +428,16 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
     <ol start="1">
       
-        #! /bin/sh
+        #! /bin/sh
       
       
-        exec /usr/X11R6/lib/X11/xdm/Xsession kde
+        exec /usr/X11R6/lib/X11/xdm/Xsession kde
       
     
   
@@ -447,13 +447,13 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     
       
-        Java代码  
+        Java代码  
       
     
     
     <ol start="1">
       
-        chmod –w x /usr/X11R6/share/gnome/gdm/Sessions/Kde
+        chmod –w x /usr/X11R6/share/gnome/gdm/Sessions/Kde
       
     
   

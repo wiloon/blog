@@ -36,29 +36,29 @@ http://mobile.51cto.com/android-386448.htm
 
 MainActivity.java
 
-package com.android.webview.activity;
+package com.android.webview.activity;
   
-import android.app.Activity;
+import android.app.Activity;
   
-import android.os.Bundle;
+import android.os.Bundle;
   
-import android.view.KeyEvent;
+import android.view.KeyEvent;
   
-import android.webkit.WebView;
+import android.webkit.WebView;
   
-public class MainActivity extends Activity {
+public class MainActivity extends Activity {
   
-private WebView webview;
+private WebView webview;
   
 @Override
   
-public void onCreate(Bundle savedInstanceState) {
+public void onCreate(Bundle savedInstanceState) {
   
 super.onCreate(savedInstanceState);
   
 //实例化WebView对象
   
-webview = new WebView(this);
+webview = new WebView(this);
   
 //设置WebView属性，能够执行Javascript脚本
   
@@ -78,27 +78,27 @@ setContentView(webview);
   
 //设置回退
   
-//覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法
+//覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法
   
-public boolean onKeyDown(int keyCode, KeyEvent event) {
+public boolean onKeyDown(int keyCode, KeyEvent event) {
   
-if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) {
+if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) {
   
-webview.goBack(); //goBack()表示返回WebView的上一页面
+webview.goBack(); //goBack()表示返回WebView的上一页面
   
-return true;
+return true;
   
 }
   
-return false;
+return false;
   
 }
   
 在AndroidManifest.xml文件中添加权限
 
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
   
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   
 package="com.android.webview.activity"
   
@@ -106,11 +106,11 @@ android:versionCode="1"
   
 android:versionName="1.0">
   
-<uses-sdk android:minSdkVersion="10" />
+<uses-sdk android:minSdkVersion="10" />
   
 
   
-<activity android:name=".MainActivity"
+<activity android:name=".MainActivity"
   
 android:label="@string/app_name">
   
@@ -118,7 +118,7 @@ android:label="@string/app_name">
   
 
   
-<category android:name="android.intent.category.LAUNCHER" />
+<category android:name="android.intent.category.LAUNCHER" />
   
 </intent-filter>
   
@@ -126,7 +126,7 @@ android:label="@string/app_name">
   
 </application>
   
-<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.INTERNET"/>
   
 </manifest>
   

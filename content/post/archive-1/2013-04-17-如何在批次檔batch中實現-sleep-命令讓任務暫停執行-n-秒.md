@@ -82,9 +82,9 @@ CHOICE 命令在 Windows XP 中找不到,但在 Windows Server 2003 或 Vista �
   @CHOICE /C YN /N /T 5 /D y > nul
 
 
-**3. 安裝 **Windows Server 2003 Resource Kit Tools** 即可獲得 sleep.exe 工具**
+**3. 安裝 **Windows Server 2003 Resource Kit Tools** 即可獲得 sleep.exe 工具**
 
-預設安裝路徑在 **C:Program FilesWindows Resource KitsTools** 目錄下會有個 sleep.exe 執行檔
+預設安裝路徑在 **C:Program FilesWindows Resource KitsTools** 目錄下會有個 sleep.exe 執行檔
 
   sleep 5
 

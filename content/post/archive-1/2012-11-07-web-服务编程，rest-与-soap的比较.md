@@ -57,7 +57,7 @@ REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述�
 
 接下来我们按照以上的步骤来设计本文的应用案例。
 
-在线用户管理所涉及的数据集就是用户信息,如果映射到 ROA 资源,主要包括两类资源: 用户及用户列表。用户资源的 URI 用`http://localhost:8182/v1/users/{username}` 表示,用户列表资源的 URI 用 `http://localhost:8182/v1/users` 表示。它们的 Representation 如下,它们都采用了如清单 1 和清单 2 所示的 XML 表述方式。
+在线用户管理所涉及的数据集就是用户信息,如果映射到 ROA 资源,主要包括两类资源: 用户及用户列表。用户资源的 URI 用`http://localhost:8182/v1/users/{username}` 表示,用户列表资源的 URI 用 `http://localhost:8182/v1/users` 表示。它们的 Representation 如下,它们都采用了如清单 1 和清单 2 所示的 XML 表述方式。
   
 **清单 1. 用户列表资源 Representation**
 
@@ -99,7 +99,7 @@ REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述�
 
 
 
-客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
+客户端通过 User List Resource 提供的 LINK 信息 ( 如 :` http://localhost:8182/v1/users/tester</link> `) 获得具体的某个 USER Resource。
 
 
 
@@ -310,7 +310,7 @@ SOAP Web 服务架构
 
 
 
-客户端将使用 HTTP 的 POST 方法,将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI,SOAP SERVER 收到该 HTTP POST 请求,通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用,返回如下的响应: 
+客户端将使用 HTTP 的 POST 方法,将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter` URI,SOAP SERVER 收到该 HTTP POST 请求,通过解码 SOAP 消息确定需要调用 getUserList 方法完成该 WEB 服务调用,返回如下的响应: 
   
 **清单 6. getUserListResponse 消息**
 
@@ -357,7 +357,7 @@ SOAP Web 服务架构
 
 
 
-同样地,客户端将使用 HTTP 的 POST 方法,将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI,SOAP SERVER 处理后返回的 Response 如下: 
+同样地,客户端将使用 HTTP 的 POST 方法,将上述的 SOAP 消息发送至 `http://localhost:8182/v1/soap/servlet/messagerouter`URI,SOAP SERVER 处理后返回的 Response 如下: 
   
 **清单 8. getUserByNameResponse SOAP 消息**
 
@@ -471,7 +471,7 @@ REST 的应用可以充分地挖掘 HTTP 协议对缓存支持的能力。当客
 
 getUserList SOAP 消息获得所有的用户列表后,仍然无法通过既有的信息得到某个具体的用户信息。唯一的方法只有通过 WSDL 的指示,通过调用 getUserByName 获得,getUserList 与 getUserByName 是彼此孤立的。
 
-而对于 REST,情况是完全不同的: 通过 `http://localhost:8182/v1/users` URI 获得用户列表,然后再通过用户列表中所提供的 LINK 属性,例如 `http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式,非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面,并不依赖任何第三方的信息。
+而对于 REST,情况是完全不同的: 通过 `http://localhost:8182/v1/users` URI 获得用户列表,然后再通过用户列表中所提供的 LINK 属性,例如 `http://localhost:8182/v1/users/tester</link>`获得 tester 用户的用户信息。这样的工作方式,非常类似于你在浏览器的某个页面上点击某个 hyperlink, 浏览器帮你自动定向到你想访问的页面,并不依赖任何第三方的信息。
 
 
 总结

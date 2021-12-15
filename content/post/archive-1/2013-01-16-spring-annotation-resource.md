@@ -11,13 +11,13 @@ tags:
 
 ---
 ## Spring Annotation @Resource
-Spring 不但支持自己定义的 `@Autowired` 的注释，还支持几个由 JSR-250 规范定义的注释，它们分别是`@Resource`、`@PostConstruct` 以及 `@PreDestroy`。
+Spring 不但支持自己定义的 `@Autowired` 的注释，还支持几个由 JSR-250 规范定义的注释，它们分别是`@Resource`、`@PostConstruct` 以及 `@PreDestroy`。
 
 **@Resource**
 
-`@Resource` 的作用相当于 `@Autowired`，只不过 `@Autowired` 按 byType 自动注入，面 `@Resource` 默认按 byName 自动注入罢了。`@Resource` 有两个属性是比较重要的，分别是 name 和 type，Spring 将 `@Resource` 注释的 name 属性解析为 Bean 的名字，而 type 属性则解析为 Bean 的类型。所以如果使用 name 属性，则使用 byName 的自动注入策略，而使用 type 属性时则使用 byType 自动注入策略。如果既不指定 name 也不指定 type 属性，这时将通过反射机制使用 byName 自动注入策略。
+`@Resource` 的作用相当于 `@Autowired`，只不过 `@Autowired` 按 byType 自动注入，面 `@Resource` 默认按 byName 自动注入罢了。`@Resource` 有两个属性是比较重要的，分别是 name 和 type，Spring 将 `@Resource` 注释的 name 属性解析为 Bean 的名字，而 type 属性则解析为 Bean 的类型。所以如果使用 name 属性，则使用 byName 的自动注入策略，而使用 type 属性时则使用 byType 自动注入策略。如果既不指定 name 也不指定 type 属性，这时将通过反射机制使用 byName 自动注入策略。
 
-<wbr /> @Resource装配顺序
+<wbr /> @Resource装配顺序
 
   1. 如果同时指定了name和type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常
   2. 如果指定了name，则从上下文中查找名称（id) 匹配的bean进行装配，找不到则抛出异常
@@ -41,9 +41,9 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
 @Autowired 与@Resource的区别: 
 
 
-1、 @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。
+1、 @Autowired与@Resource都可以用来装配bean. 都可以写在字段上,或写在setter方法上。
 
-2、 @Autowired默认按类型装配（这个注解是属业spring的) ，默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，如: @Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用，如下: 
+2、 @Autowired默认按类型装配（这个注解是属业spring的) ，默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，如: @Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用，如下: 
 
   
     
@@ -105,7 +105,7 @@ Spring不但支持自己定义的@Autowired注解，还支持几个由JSR-250规
 
 推荐使用: @Resource注解在字段上，这样就不用写setter方法了，并且这个注解是属于J2EE的，减少了与spring的耦合。这样代码看起就比较优雅。
 
-Resource 注释类位于 Spring 发布包的 lib/j2ee/common-annotations.jar 类包中，因此在使用之前必须将其加入到项目的类库中。来看一个使用 `@Resource` 的例子: 
+Resource 注释类位于 Spring 发布包的 lib/j2ee/common-annotations.jar 类包中，因此在使用之前必须将其加入到项目的类库中。来看一个使用 `@Resource` 的例子: 
   
 **清单 16. 使用 @Resource 注释的 Boss.java**
 
@@ -130,9 +130,9 @@ public class Boss {
   
 
 
-一般情况下，我们无需使用类似于 `@Resource(type=Car.class)` 的注释方式，因为 Bean 的类型信息可以通过 Java 反射从代码中获取。
+一般情况下，我们无需使用类似于 `@Resource(type=Car.class)` 的注释方式，因为 Bean 的类型信息可以通过 Java 反射从代码中获取。
 
-要让 JSR-250 的注释生效，除了在 Bean 类中标注这些注释外，还需要在 Spring 容器中注册一个负责处理这些注释的 `BeanPostProcessor`: 
+要让 JSR-250 的注释生效，除了在 Bean 类中标注这些注释外，还需要在 Spring 容器中注册一个负责处理这些注释的 `BeanPostProcessor`: 
 
 
   
@@ -143,7 +143,7 @@ public class Boss {
   
 
 
-`CommonAnnotationBeanPostProcessor` 实现了 `BeanPostProcessor` 接口，它负责扫描使用了 JSR-250 注释的 Bean，并对它们进行相应的操作。
+`CommonAnnotationBeanPostProcessor` 实现了 `BeanPostProcessor` 接口，它负责扫描使用了 JSR-250 注释的 Bean，并对它们进行相应的操作。
 
 **@PostConstruct 和 @PreDestroy**
 
@@ -185,9 +185,9 @@ public class Boss {
   
 
 
-您只需要在方法前标注 `@PostConstruct` 或 `@PreDestroy`，这些方法就会在 Bean 初始化后或销毁之前被 Spring 容器执行了。
+您只需要在方法前标注 `@PostConstruct` 或 `@PreDestroy`，这些方法就会在 Bean 初始化后或销毁之前被 Spring 容器执行了。
 
-我们知道，不管是通过实现 `InitializingBean`/`DisposableBean` 接口，还是通过 <bean> 元素的`init-method/destroy-method` 属性进行配置，都只能为 Bean 指定一个初始化 / 销毁的方法。但是使用`@PostConstruct` 和 `@PreDestroy` 注释却可以指定多个初始化 / 销毁方法，那些被标注 `@PostConstruct` 或`@PreDestroy` 注释的方法都会在初始化 / 销毁时被执行。
+我们知道，不管是通过实现 `InitializingBean`/`DisposableBean` 接口，还是通过 <bean> 元素的`init-method/destroy-method` 属性进行配置，都只能为 Bean 指定一个初始化 / 销毁的方法。但是使用`@PostConstruct` 和 `@PreDestroy` 注释却可以指定多个初始化 / 销毁方法，那些被标注 `@PostConstruct` 或`@PreDestroy` 注释的方法都会在初始化 / 销毁时被执行。
 
 通过以下的测试代码，您将可以看到 Bean 的初始化 / 销毁方法是如何被执行的: 
   
@@ -216,6 +216,6 @@ public class AnnoIoCTest {
   
 
 
-这时，您将看到标注了 `@PostConstruct` 的 `postConstruct1()` 方法将在 Spring 容器启动时，创建 `Boss` Bean 的时候被触发执行，而标注了 `@PreDestroy` 注释的 `preDestroy1()` 方法将在 Spring 容器关闭前销毁 `Boss`Bean 的时候被触发执行。
+这时，您将看到标注了 `@PostConstruct` 的 `postConstruct1()` 方法将在 Spring 容器启动时，创建 `Boss` Bean 的时候被触发执行，而标注了 `@PreDestroy` 注释的 `preDestroy1()` 方法将在 Spring 容器关闭前销毁 `Boss`Bean 的时候被触发执行。
 
 http://blog.sina.com.cn/s/blog_4bc179a80100w7ap.html

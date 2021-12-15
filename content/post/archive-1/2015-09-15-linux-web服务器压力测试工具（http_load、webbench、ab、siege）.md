@@ -30,7 +30,7 @@ http_load以并行复用的方式运行,用以测试web服务器的吞吐量与�
 
 <!--more-->
 
-命令格式: http_load  -p 并发访问进程数  -s 访问时间  需要访问的URL文件
+命令格式: http_load  -p 并发访问进程数  -s 访问时间  需要访问的URL文件
   
 参数其实可以自由组合,参数之间的选择并没有什么限制。比如你写成http_load -parallel 5 -seconds
   
@@ -40,7 +40,7 @@ http_load以并行复用的方式运行,用以测试web服务器的吞吐量与�
   
 -fetches 简写-f : 含义是总计的访问次数
   
--rate    简写-p : 含义是每秒的访问频率
+-rate    简写-p : 含义是每秒的访问频率
   
 -seconds简写-s : 含义是总计的访问时间
   
@@ -80,7 +80,7 @@ https://www.vpser.net/security/vps-backup-web-MySQL.html/embed#?secret=GisBcCy5F
   
 例如: 
   
-http_load -p 30 -s 60  urllist.txt
+http_load -p 30 -s 60  urllist.txt
   
 参数了解了,我们来看运行一条命令来看看它的返回结果
   
@@ -108,7 +108,7 @@ fetches/sec, 28945.5 bytes/secmsecs/connect: 28.8932 mean, 44.243 max, 24.488 mi
   
 5．msecs/first-response: 63.5362 mean, 81.624 max, 57.803 min
   
-6、HTTP response codes: code 200 — 49     说明打开响应页面的类型,如果403的类型过多,那可能
+6、HTTP response codes: code 200 — 49     说明打开响应页面的类型,如果403的类型过多,那可能
 
 要注意是否系统遇到了瓶颈。
   
@@ -144,7 +144,7 @@ webbench -c 并发数 -t 运行测试时间 URL
   
 如: 
   
-webbench -c 5000 -t 120 http://www.163.com
+webbench -c 5000 -t 120 http://www.163.com
 
 三、ab
 
@@ -274,7 +274,7 @@ table 这里 >.
 
 它没有完整地实现HTTP/1.x; 仅接受某些'预想'的响应格式。 strstr(3)的频繁使用可能会带来性能问题,即, 你可能是在测试ab而不是服务器的性能。
 
- 
+ 
 
 参数很多,一般我们用 -c 和 -n 参数就可以了. 例如:
 

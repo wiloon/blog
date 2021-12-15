@@ -34,7 +34,7 @@ startActivity(intent);
   
 1、指定android自带的浏览器访问
 
-（ "com.android.browser": packagename   ；"com.android.browser.BrowserActivity": 启动主activity) 
+（ "com.android.browser": packagename   ；"com.android.browser.BrowserActivity": 启动主activity) 
   
 Intent intent= new Intent();
   
@@ -57,7 +57,7 @@ intent.setClassName("com.android.browser","com.android.browser.BrowserActivity")
 
 uc浏览器": "com.uc.browser", "com.uc.browser.ActivityUpdate"
 
-opera    : "com.opera.mini.android", "com.opera.mini.android.Browser"
+opera    : "com.opera.mini.android", "com.opera.mini.android.Browser"
   
 qq浏览器: "com.tencent.mtt", "com.tencent.mtt.MainActivity"
 

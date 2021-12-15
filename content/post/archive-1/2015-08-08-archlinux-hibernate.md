@@ -10,7 +10,7 @@ tags:
 
 ---
 ## archlinux hibernate
-### edit config file  /etc/mkinitcpio.conf add resume field
+### edit config file  /etc/mkinitcpio.conf add resume field
 ```bash
 sudo vim /etc/mkinitcpio.conf
 HOOKS=(base udev resume autodetect modconf block filesystems keyboard fsck)
@@ -21,7 +21,7 @@ When an initramfs with the base hook is used, which is the default, the resume h
 
 Remember to rebuild the initramfs for these changes to take effect.
   
-run mkinitcpio -p linux to rebuild the initramfs
+run mkinitcpio -p linux to rebuild the initramfs
 
 ### rebuild initramfs
 ```bash

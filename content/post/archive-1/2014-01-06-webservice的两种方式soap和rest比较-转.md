@@ -246,11 +246,11 @@ https://Amazon FPS web service end point/?AWSAccessKeyId=Your AWSAccessKeyId
 
 响应消息设计: 
   
-1.       REST标准方式,将Resource State传输返回给客户端,Http消息作为应用协议而非传输协议
+1.       REST标准方式,将Resource State传输返回给客户端,Http消息作为应用协议而非传输协议
   
-2.       以XML作为消息承载体,Http作为消息传输协议,处理状态自包含。
+2.       以XML作为消息承载体,Http作为消息传输协议,处理状态自包含。
   
-3.       自定义消息格式,类似于SOAP,提供可扩展部分。
+3.       自定义消息格式,类似于SOAP,提供可扩展部分。
 
 作为遵循REST的理念来看我的选择是响应1和请求1的设计。
 

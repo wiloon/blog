@@ -10,7 +10,7 @@ categories:
 ## Sys.WebForms.PageRequestManagerServerErrorException
 一、
   
-Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: 500错误解决办法
+Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: 500错误解决办法
 
 转载的解决办法:
 
@@ -22,13 +22,13 @@ A.在Web.Config
   
 </system.web>
 
-B.在 ScriptManager  内添加 EnablePartialRendering="false" 显示详细的错误信息。
+B.在 ScriptManager  内添加 EnablePartialRendering="false" 显示详细的错误信息。
   
 如下: 
   
 
 
-一般的原因都是页面存在潜在的危险字符  在 页首加入 ValidateRequest="false"
+一般的原因都是页面存在潜在的危险字符  在 页首加入 ValidateRequest="false"
   
 如下: 
   
@@ -45,7 +45,7 @@ google搜的结果前两页,不管中文英文都看过了,依然解决不了。
 
 二、
   
-Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12031
+Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12031
  原因是查询出的数据超出web.config中的最大大小（默认4MB) 
   
 解决办法
@@ -56,21 +56,21 @@ Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred w
   
 ys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12019
   
-12019       ERROR_INTERNET_INCORRECT_HANDLE_STATE
+12019       ERROR_INTERNET_INCORRECT_HANDLE_STATE
   
 The requested operation cannot be carried out because the
   
 handle supplied is not in the correct state.
 
-Please refer to this: http://support.microsoft.com/kb/193625
+Please refer to this: http://support.microsoft.com/kb/193625
   
 这里有这个问题的论坛
   
-http://forums.asp.net/p/1126173/2746307.aspx http://forums.asp.net/t/1123365.aspx
+http://forums.asp.net/p/1126173/2746307.aspx http://forums.asp.net/t/1123365.aspx
   
 三、
   
-用IE浏览器查看NetFlow的时候出现 Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: 404错误。这个错误出现是因为 .NET Framework 3.5 SP1 升级产生的。Firefox不会出现错误。
+用IE浏览器查看NetFlow的时候出现 Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: 404错误。这个错误出现是因为 .NET Framework 3.5 SP1 升级产生的。Firefox不会出现错误。
 
 解决方法为打开 InetpubSolarWindsOrionMasterPage.master ,找到
   

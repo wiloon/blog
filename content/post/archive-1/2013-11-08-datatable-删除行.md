@@ -13,11 +13,11 @@ categories:
     <img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif" />
   
   
-        protected void deleteDataRow(int RowID,DataTable dt)
+        protected void deleteDataRow(int RowID,DataTable dt)
  {
- for (int i = dt.Rows.Count - 1; i >= 0; i-)
+ for (int i = dt.Rows.Count - 1; i >= 0; i-)
  {
- if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
+ if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
  dt.Rows.RemoveAt(i);
  }
  }
@@ -35,15 +35,15 @@ categories:
 
 3.循环彻底删除就要用.Rows.RemoveAt(int index)方法，所以如果你是foreach的爱好者，在此请你换换口味，还有如果你是for的i++的忠实fans也希望你能换个思维。先看一下上面程序的正向写法（错误的，不可用) 
   
-            for (int i = 0, j = dt.Rows.Count; i < j; i++)
+            for (int i = 0, j = dt.Rows.Count; i < j; i++)
  {
- if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
+ if (Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID)
  dt.Rows.RemoveAt(i);
  }
   
 
 
-这个的错误在于datatable的RemoveAt()会在删除后更新dataTable的index，所以你要删除的index可能已经不是你的符合Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID的index了，甚者还会抛出异常，说你访问的index不存在。
+这个的错误在于datatable的RemoveAt()会在删除后更新dataTable的index，所以你要删除的index可能已经不是你的符合Convert.ToInt32(dt.Rows[i]["RowID"]) == RowID的index了，甚者还会抛出异常，说你访问的index不存在。
 
 所以要从DataTable的下面网上查找删除，这样即使这行符合条件被删除了，上面的行依旧不受影响。
 

@@ -89,93 +89,93 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
       /**
     
     
-       *UDPServer
+       *UDPServer
     
     
-       *@author Winty wintys@gmail.com
+       *@author Winty wintys@gmail.com
     
     
-       *@version 2008-12-15
+       *@version 2008-12-15
     
     
-       */
+       */
     
     
-      import java.io.*;
+      import java.io.*;
     
     
-      import java.net.*;
-    
-    
-    
-    
-      class UDPServer{
-    
-    
-          public static void main(String[] args)throws IOException{
-    
-    
-              DatagramSocket  server = new DatagramSocket(5050);
+      import java.net.*;
     
     
     
     
-              byte[] recvBuf = new byte[100];
+      class UDPServer{
     
     
-              DatagramPacket recvPacket
+          public static void main(String[] args)throws IOException{
     
     
-                  = new DatagramPacket(recvBuf , recvBuf.length);
-    
-    
-    
-    
-              server.receive(recvPacket);
+              DatagramSocket  server = new DatagramSocket(5050);
     
     
     
     
-              String recvStr = new String(recvPacket.getData() ,  , recvPacket.getLength());
+              byte[] recvBuf = new byte[100];
     
     
-              System.out.println("Hello World!" + recvStr);
+              DatagramPacket recvPacket
     
     
-    
-    
-              int port = recvPacket.getPort();
-    
-    
-              InetAddress addr = recvPacket.getAddress();
-    
-    
-              String sendStr = "Hello ! I'm Server";
-    
-    
-              byte[] sendBuf;
-    
-    
-              sendBuf = sendStr.getBytes();
-    
-    
-              DatagramPacket sendPacket
-    
-    
-                  = new DatagramPacket(sendBuf , sendBuf.length , addr , port );
+                  = new DatagramPacket(recvBuf , recvBuf.length);
     
     
     
     
-              server.send(sendPacket);
+              server.receive(recvPacket);
     
     
     
     
-              server.close();
+              String recvStr = new String(recvPacket.getData() ,  , recvPacket.getLength());
     
     
-          }
+              System.out.println("Hello World!" + recvStr);
+    
+    
+    
+    
+              int port = recvPacket.getPort();
+    
+    
+              InetAddress addr = recvPacket.getAddress();
+    
+    
+              String sendStr = "Hello ! I'm Server";
+    
+    
+              byte[] sendBuf;
+    
+    
+              sendBuf = sendStr.getBytes();
+    
+    
+              DatagramPacket sendPacket
+    
+    
+                  = new DatagramPacket(sendBuf , sendBuf.length , addr , port );
+    
+    
+    
+    
+              server.send(sendPacket);
+    
+    
+    
+    
+              server.close();
+    
+    
+          }
     
     
       }
@@ -191,89 +191,89 @@ UDP是一种高速，无连接的数据交换方式，他的特点是，即使�
       /**
     
     
-       *UDPClient
+       *UDPClient
     
     
-       *@author Winty wintys@gmail.com
+       *@author Winty wintys@gmail.com
     
     
-       *@version 2008-12-15
+       *@version 2008-12-15
     
     
-       */
+       */
     
     
-      import java.io.*;
+      import java.io.*;
     
     
-      import java.net.*;
-    
-    
-    
-    
-      class UDPClient{
-    
-    
-          public static void main(String[] args)throws IOException{
-    
-    
-              DatagramSocket client = new DatagramSocket();
+      import java.net.*;
     
     
     
     
-              String sendStr = "Hello! I'm Client";
+      class UDPClient{
     
     
-              byte[] sendBuf;
+          public static void main(String[] args)throws IOException{
     
     
-              sendBuf = sendStr.getBytes();
-    
-    
-              InetAddress addr = InetAddress.getByName("127.0.0.1");
-    
-    
-              int port = 5050;
-    
-    
-              DatagramPacket sendPacket
-    
-    
-                  = new DatagramPacket(sendBuf ,sendBuf.length , addr , port);
+              DatagramSocket client = new DatagramSocket();
     
     
     
     
-              client.send(sendPacket);
+              String sendStr = "Hello! I'm Client";
+    
+    
+              byte[] sendBuf;
+    
+    
+              sendBuf = sendStr.getBytes();
+    
+    
+              InetAddress addr = InetAddress.getByName("127.0.0.1");
+    
+    
+              int port = 5050;
+    
+    
+              DatagramPacket sendPacket
+    
+    
+                  = new DatagramPacket(sendBuf ,sendBuf.length , addr , port);
     
     
     
     
-              byte[] recvBuf = new byte[100];
-    
-    
-              DatagramPacket recvPacket
-    
-    
-                  = new DatagramPacket(recvBuf , recvBuf.length);
-    
-    
-              client.receive(recvPacket);
-    
-    
-              String recvStr = new String(recvPacket.getData() ,  ,recvPacket.getLength());
-    
-    
-              System.out.println("收到:" + recvStr);
+              client.send(sendPacket);
     
     
     
     
-              client.close();
+              byte[] recvBuf = new byte[100];
     
     
-          }
+              DatagramPacket recvPacket
+    
+    
+                  = new DatagramPacket(recvBuf , recvBuf.length);
+    
+    
+              client.receive(recvPacket);
+    
+    
+              String recvStr = new String(recvPacket.getData() ,  ,recvPacket.getLength());
+    
+    
+              System.out.println("收到:" + recvStr);
+    
+    
+    
+    
+              client.close();
+    
+    
+          }
     
     
       }

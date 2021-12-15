@@ -12,7 +12,7 @@ tags:
 ## pentaho pdi hello world
 create db schema named pentaho0
 
-edit pentaho pdi start up script comment out java 64bit related line，  这一行会死循环，没调查为什么，注掉。
+edit pentaho pdi start up script comment out java 64bit related line，  这一行会死循环，没调查为什么，注掉。
 
 edit generated db initial sql , replace all boolean to char(1), since the MySQL does not support boolean in lower version
 

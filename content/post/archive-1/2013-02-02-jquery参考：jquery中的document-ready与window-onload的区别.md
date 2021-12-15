@@ -21,11 +21,11 @@ categories:
     
     
     
-      学习jQuery核心函数时,讲$(document).ready(function(){.... })这个函数是用来取代页面中的window.onload;
+      学习jQuery核心函数时,讲$(document).ready(function(){.... })这个函数是用来取代页面中的window.onload;
     
     
     
-      但是,今天在启动一采用了$(document).ready(function(){   })的页面时（页面上使用了一张>3M的图片) ,发现图片尚未完全加载时,
+      但是,今天在启动一采用了$(document).ready(function(){   })的页面时（页面上使用了一张>3M的图片) ,发现图片尚未完全加载时,
     
     
     
@@ -41,7 +41,7 @@ categories:
     
     
     
-      "Allows you to bind a function to be executed when the DOM document has finished loading. "
+      "Allows you to bind a function to be executed when the DOM document has finished loading. "
     
     
     

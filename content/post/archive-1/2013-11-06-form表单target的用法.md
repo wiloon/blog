@@ -13,12 +13,12 @@ categories:
 
   
     
-      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
     
-      <form action="提交的action" method="post" target="theID">
+      <form action="提交的action" method="post" target="theID">
     
     
       .....................
@@ -36,15 +36,15 @@ categories:
 
   
     
-      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
+      Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
     
-      String script = "<script>alert('ok!');</script>";
+      String script = "<script>alert('ok!');</script>";
     
     
-              response.getOutputStream().write(script.getBytes("utf-8"));
+              response.getOutputStream().write(script.getBytes("utf-8"));
     
   
 

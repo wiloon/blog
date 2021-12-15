@@ -14,7 +14,7 @@ Android中View的绘制过程
 
 绘制过程从布局的根节点开始，从根节点开始测量和绘制整个layout tree。
 
-每一个ViewGroup 负责要求它的每一个孩子被绘制，每一个View负责绘制自己。
+每一个ViewGroup 负责要求它的每一个孩子被绘制，每一个View负责绘制自己。
 
 因为整个树是按顺序遍历的，所以父节点会先被绘制，而兄弟节点会按照它们在树中出现的顺序被绘制。
 
@@ -27,7 +27,7 @@ Android中View的绘制过程
 在measure pass的最后，每一个View都存储好了自己的measurements，即测量结果。
 
 
-第二个是布局过程（layout pass) ，它发生在 layout(int, int, int, int)中，仍然是从上到下进行（top-down) 。
+第二个是布局过程（layout pass) ，它发生在 layout(int, int, int, int)中，仍然是从上到下进行（top-down) 。
 
 在这一遍中，每一个parent都会负责用测量过程中得到的尺寸，把自己的所有孩子放在正确的地方。
 

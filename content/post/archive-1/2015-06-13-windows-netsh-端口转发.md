@@ -51,17 +51,17 @@ netsh interface portproxy add v4tov4 [listenport=]<integer>|<servicename>
 
 参数:
   
-标记            值
+标记            值
   
-listenport      - IPv4 侦听端口。
+listenport      - IPv4 侦听端口。
   
-connectaddress  - IPv4 连接地址。
+connectaddress  - IPv4 连接地址。
   
-connectport     - IPv4 连接端口。
+connectport     - IPv4 连接端口。
   
-listenaddress   - IPv4 侦听地址。
+listenaddress   - IPv4 侦听地址。
   
-protocol        - 使用的协议。现在只支持 TCP。
+protocol        - 使用的协议。现在只支持 TCP。
   
 说明: 添加通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
@@ -95,27 +95,27 @@ netsh interface portproxy show all
   
 控制台显示如下信息: 
   
-侦听 ipv4:                 连接到 ipv4:
+侦听 ipv4:                 连接到 ipv4:
   
-地址            端口        地址            端口
+地址            端口        地址            端口
   
------ ----  ----- ----
+----- ----  ----- ----
   
-*               8080        192.168.56.101  8080
+*               8080        192.168.56.101  8080
   
-*               9090        192.168.56.101  9080
+*               9090        192.168.56.101  9080
   
 修改端口转发配置
   
 1、命令
   
-netsh interface portproxy set v4tov4     - 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy set v4tov4     - 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy set v4tov6     - 更新通过 IPv6 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy set v4tov6     - 更新通过 IPv6 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy set v6tov4     - 更新通过 IPv4 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy set v6tov4     - 更新通过 IPv4 的 IPv6 和代理连接到的侦听项目。
   
-netsh interface portproxy set v6tov6     - 更新通过 IPv6 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy set v6tov6     - 更新通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
 2、命令语法
   
@@ -133,17 +133,17 @@ netsh interface portproxy set v4tov4 [listenport=]<integer>|<servicename>
 
 参数:
   
-标记            值
+标记            值
   
-listenport      - IPv4 侦听端口。
+listenport      - IPv4 侦听端口。
   
-connectaddress  - IPv4 连接地址。
+connectaddress  - IPv4 连接地址。
   
-connectport     - IPv4 连接端口。
+connectport     - IPv4 连接端口。
   
-listenaddress   - IPv4 侦听地址。
+listenaddress   - IPv4 侦听地址。
   
-protocol        - 使用的协议。现在只支持 TCP。
+protocol        - 使用的协议。现在只支持 TCP。
   
 说明: 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
@@ -157,13 +157,13 @@ netsh interface portproxy set v4tov4 listenport=9090 connectaddress=192.168.56.1
   
 1、命令
   
-netsh interface portproxy delete v4tov4  - 删除通过 IPv4 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy delete v4tov4  - 删除通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy delete v4tov6  - 删除通过 IPv6 的 IPv4 和代理连接到的侦听项目。
+netsh interface portproxy delete v4tov6  - 删除通过 IPv6 的 IPv4 和代理连接到的侦听项目。
   
-netsh interface portproxy delete v6tov4  - 删除通过 IPv4 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy delete v6tov4  - 删除通过 IPv4 的 IPv6 和代理连接到的侦听项目。
   
-netsh interface portproxy delete v6tov6  - 删除通过 IPv6 的 IPv6 和代理连接到的侦听项目。
+netsh interface portproxy delete v6tov6  - 删除通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
 2、命令语法
   
@@ -177,13 +177,13 @@ netsh interface portproxy delete v4tov4 [listenport=]<integer>|<servicename>
 
 参数:
   
-标记             值
+标记             值
   
-listenport     - 要侦听的 IPv4 端口。
+listenport     - 要侦听的 IPv4 端口。
   
-listenport     - 要侦听的 IPv4 地址。
+listenport     - 要侦听的 IPv4 地址。
   
-protocol       - 要使用的协议。当前仅支持 TCP。
+protocol       - 要使用的协议。当前仅支持 TCP。
   
 注释: 删除要侦听的 IPv4 的项并通过 Ipv4 代理连接。
   
@@ -197,7 +197,7 @@ netsh interface portproxy delete v4tov4 listenport=9090
 
 文章声明
 
-作者: 傲风(aofengblog@163.com)       编写时间: 2014年09月05日
+作者: 傲风(aofengblog@163.com)       编写时间: 2014年09月05日
 
 网址: http://aofengblog.blog.163.com
 

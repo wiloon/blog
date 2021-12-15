@@ -154,21 +154,21 @@ setTimeout('location.replace("top.html")',2000);
   
 location是个对象，比如本页的document.location和window.location的属性有
   
-location.hostname   =   community.csdn.net
+location.hostname   =   community.csdn.net
   
-location.href   =   http://community.csdn.net/Expert/topic/4033/4033372.xml?temp=2.695864E-02
+location.href   =   http://community.csdn.net/Expert/topic/4033/4033372.xml?temp=2.695864E-02
   
-location.host   =   community.csdn.net
+location.host   =   community.csdn.net
   
-location.hash   =
+location.hash   =
   
-location.port   =
+location.port   =
   
-location.pathname   =   /Expert/topic/4033/4033372.xml
+location.pathname   =   /Expert/topic/4033/4033372.xml
   
-location.search   =   ?temp=2.695864E-02
+location.search   =   ?temp=2.695864E-02
   
-location.protocol   =   http:
+location.protocol   =   http:
   
 可见href是location的属性，类别是string。
 

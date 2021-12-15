@@ -66,7 +66,7 @@ pidof用于找出正在运行的程序的进程PID（find the process ID of a ru
   
 [root@smsgw root]#
 
-### 示例二 查看shell脚本的进程PID
+### 示例二 查看shell脚本的 PID
 
 下面演示了怎么查看脚本的PID的，可以发现通过不含路径的脚本文件名称、或者执行时的路径来查看，其他方式不行。
 

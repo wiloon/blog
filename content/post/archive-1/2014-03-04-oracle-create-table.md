@@ -12,7 +12,7 @@ http://zhoujian0610.blog.163.com/blog/static/56567658201052815913549/
 
 创建表(Create table)语法详解
   
-1. ORACLE常用的字段类型
+1. ORACLE常用的字段类型
   
 ORACLE常用的字段类型有
   

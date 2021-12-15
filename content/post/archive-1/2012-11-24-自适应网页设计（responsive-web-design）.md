@@ -10,9 +10,9 @@ categories:
 ## 自适应网页设计（Responsive Web Design)
 [http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html][1]
 
-作者:  [阮一峰][2]
+作者:  [阮一峰][2]
 
-日期:  [2012年5月 1日][3]
+日期:  [2012年5月 1日][3]
 
 随着3G的普及，越来越多的人使用手机上网。
 

@@ -34,13 +34,13 @@ sudo apt-get install locales
 
 sudo dpkg-reconfigure locales
 
-#select all lines start with zh_... , select OK move to  next screen.
+#select all lines start with zh_... , select OK move to  next screen.
 
 #select en_US as default language of the system
 
 #double check the language setting
 
-sudo locale
+sudo locale
 
 ########################chrome
 

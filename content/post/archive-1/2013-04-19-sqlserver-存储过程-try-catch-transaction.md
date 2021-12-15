@@ -10,39 +10,39 @@ categories:
 ## sqlserver 存储过程 try catch TRANSACTION
 本文来自CSDN博客，转载请标明出处: [http://blog.csdn.net/WeiZhang_son_Ding/archive/2010/02/05/5291732.aspx][1]
 
-CREATE PROCEDURE YourProcedure <wbr /> <wbr /> <wbr /> <wbr />
+CREATE PROCEDURE YourProcedure <wbr /> <wbr /> <wbr /> <wbr />
 
 AS
   
 BEGIN
   
-<wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
+<wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
 
-<wbr /> <wbr /> <wbr /> BEGIN TRY-------开始捕捉异常
+<wbr /> <wbr /> <wbr /> BEGIN TRY-------开始捕捉异常
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEIN TRAN------开始事务
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEIN TRAN------开始事务
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> UPDATE A SET A.names = B.names FROM 表1 AS A INNER JOIN 表2 AS B ON A.id = B.id
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> UPDATE A SET A.names = B.names FROM 表1 AS A INNER JOIN 表2 AS B ON A.id = B.id
 
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> UPDATE A SET A.names = B.names FROM 表1 AS A INNER JOIN 表2 AS B ON A.TEST = B.TEST
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> UPDATE A SET A.names = B.names FROM 表1 AS A INNER JOIN 表2 AS B ON A.TEST = B.TEST
 
-<wbr /> <wbr /> <wbr /> COMMIT TRAN ---提交事务
+<wbr /> <wbr /> <wbr /> COMMIT TRAN ---提交事务
   
-<wbr /> <wbr /> <wbr /> END TRY----结束捕捉异常
+<wbr /> <wbr /> <wbr /> END TRY----结束捕捉异常
   
-<wbr /> <wbr /> <wbr /> BEGIN CATCH----有异常被捕获
+<wbr /> <wbr /> <wbr /> BEGIN CATCH----有异常被捕获
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF @@TRANCOUNT > 0-----判断有没有事务
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF @@TRANCOUNT > 0-----判断有没有事务
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEGIN
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEGIN
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ROLLBACK TRAN----回滚事务
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ROLLBACK TRAN----回滚事务
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> END <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> END <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXEC YourLogErrorProcedure----执行存储过程将错误信息记录在表当中
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXEC YourLogErrorProcedure----执行存储过程将错误信息记录在表当中
   
-<wbr /> <wbr /> <wbr /> END CATCH---结束异常处理
+<wbr /> <wbr /> <wbr /> END CATCH---结束异常处理
   
 END
 
@@ -52,57 +52,57 @@ END
 
 CREATE PROCEDURE YourLogErrorProcedure
   
-<wbr /> <wbr /> <wbr /> @ErrorLogID [int] = 0 OUTPUT - contains the ErrorLogID of the row inserted
+<wbr /> <wbr /> <wbr /> @ErrorLogID [int] = 0 OUTPUT - contains the ErrorLogID of the row inserted
   
-AS <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - by uspLogError in the ErrorLog table
+AS <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - by uspLogError in the ErrorLog table
   
 BEGIN
   
-<wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
+<wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
 
-<wbr /> <wbr /> <wbr /> - Output parameter value of 0 indicates that error <wbr />
+<wbr /> <wbr /> <wbr /> - Output parameter value of 0 indicates that error <wbr />
   
-<wbr /> <wbr /> <wbr /> - information was not logged
+<wbr /> <wbr /> <wbr /> - information was not logged
   
-<wbr /> <wbr /> <wbr /> SET @ErrorLogID = 0;
+<wbr /> <wbr /> <wbr /> SET @ErrorLogID = 0;
 
-<wbr /> <wbr /> <wbr /> BEGIN TRY
+<wbr /> <wbr /> <wbr /> BEGIN TRY
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Return if there is no error information to log
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Return if there is no error information to log
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF ERROR_NUMBER() IS NULL
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF ERROR_NUMBER() IS NULL
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN;
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN;
 
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Return if inside an uncommittable transaction.
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Return if inside an uncommittable transaction.
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Data insertion/modification is not allowed when <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - Data insertion/modification is not allowed when <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - a transaction is in an uncommittable state.
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> - a transaction is in an uncommittable state.
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF XACT_STATE() = -1
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> IF XACT_STATE() = -1
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEGIN
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> BEGIN
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT 'Cannot log error since the current transaction is in an uncommittable state. ' <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT 'Cannot log error since the current transaction is in an uncommittable state. ' <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> + 'Rollback the transaction before executing uspLogError in order to successfully log error information.';
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> + 'Rollback the transaction before executing uspLogError in order to successfully log error information.';
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN;
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN;
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> END
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> END
 
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> INSERT [dbo].[OperateErrorLog] <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> INSERT [dbo].[OperateErrorLog] <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [OperateName], <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [OperateName], <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorNumber], <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorNumber], <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorSeverity], <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorSeverity], <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorState], <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorState], <wbr />
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorProcedure], <wbr />
   
