@@ -32,16 +32,11 @@ categories:
 以"\"开头得元字符
 
   
-### grep
+- grep
 >wangyue.dev/grep
   
-### find
-命令说明:  查找符合条件的文件
-  
-格式: find [path] [options][tests] [actions]
-  
-参数说明: 
-  
+- find
+
 3、cut命令
   
 命令说明: 按行处理,将一行消息的某段切出来。
