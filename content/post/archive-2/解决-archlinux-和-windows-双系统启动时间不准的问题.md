@@ -19,4 +19,4 @@ ntpd -s -d
 
 hwclock -w
 
-<code class="nginx">http://mindonmind.github.io/notes/linux/arch_time.html```
+http://mindonmind.github.io/notes/linux/arch_time.html```

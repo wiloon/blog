@@ -8,7 +8,7 @@ categories:
 
 ---
 ## angular pwa
-<code class="line-numbers">ng new project0
+ng new project0
 ng add @angular/pwa --project project0
 ng build --prod
 cd project0 && http-server -p 8080 -c-1 dist/project0/
@@ -17,5 +17,5 @@ curl http://127.0.0.1:8080/ngsw/state
 chrome://serviceworker-internals/
 ```
 
-<code class="line-numbers">ng new my-app --routing
+ng new my-app --routing
 ```

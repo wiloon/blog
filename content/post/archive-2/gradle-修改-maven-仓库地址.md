@@ -10,7 +10,7 @@ categories:
 ## Gradle 修改 Maven 仓库地址
 ### gradle kotlin
 
-<code class="language-kotlin line-numbers">repositories {
+repositories {
     mavenCentral()
     maven {
         setUrl("<MAVEN REPO URL>")

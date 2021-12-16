@@ -27,12 +27,12 @@ int decimal = Integer.parseInt(hexNumber, 16);
 Set<T> mySet = new HashSet<>(Arrays.asList(someArray));
 ```
 
-### array > set, jdk 9+
+### array > set, java 9+
 ```java
 Set<T> mySet = Set.of(someArray);
 ```
 
-### array > set, jdk 10+
+### array > set, java 10+
 
 ```java
 var mySet = Set.of(someArray);

@@ -17,7 +17,7 @@ yarn add @types/echarts -D
 
 ### src/app/app.module.ts
 
-<code class="language-typescript line-numbers">import { NgxEchartsModule } from 'ngx-echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 @NgModule({
   imports: [
     ...,
@@ -29,7 +29,7 @@ export class AppModule { }
 
 ### angular.json
 
-<code class="language-json line-numbers">{
+{
     ...
     projects
     //...
@@ -44,7 +44,7 @@ export class AppModule { }
 
 ### app.component.ts
 
-<code class="language-typescript line-numbers">import {Component} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -132,7 +132,7 @@ export class AppComponent {
 
 ### app.component.css
 
-<code class="line-numbers">.chart {
+.chart {
     height: 400px;
 }
 ```

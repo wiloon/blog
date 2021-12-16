@@ -184,47 +184,47 @@ InnoDB锁
                 
                   
                     
-                      <code class="sql plain">MySQL> show status <code class="sql color1">like <code class="sql string">'innodb_row_lock%'<code class="sql plain">;
+                      MySQL> show status like 'innodb_row_lock%';
                     
                     
                     
-                      <code class="sql plain">+<code class="sql comments">-------------------------------+-------+
+                      +-------------------------------+-------+
                     
                     
                     
-                      <code class="sql plain">| Variable_name | Value |
+                      | Variable_name | Value |
                     
                     
                     
-                      <code class="sql plain">+<code class="sql comments">-------------------------------+-------+
+                      +-------------------------------+-------+
                     
                     
                     
-                      <code class="sql plain">| Innodb_row_lock_current_waits | 0 |
+                      | Innodb_row_lock_current_waits | 0 |
                     
                     
                     
-                      <code class="sql plain">| Innodb_row_lock_time | 0 |
+                      | Innodb_row_lock_time | 0 |
                     
                     
                     
-                      <code class="sql plain">| Innodb_row_lock_time_avg | 0 |
+                      | Innodb_row_lock_time_avg | 0 |
                     
                     
                     
-                      <code class="sql plain">| Innodb_row_lock_time_max | 0 |
+                      | Innodb_row_lock_time_max | 0 |
                     
                     
                     
-                      <code class="sql plain">| Innodb_row_lock_waits | 0 |
+                      | Innodb_row_lock_waits | 0 |
                     
                     
                     
-                      <code class="sql plain">+<code class="sql comments">-------------------------------+-------+
+                      +-------------------------------+-------+
                     
                     
                     
-                      <code class="sql plain">5 <code class="sql keyword">rows <code class="sql color1">in <code class="sql keyword">set <code class="sql plain">(0.00 sec)
+                      5 rows in set (0.00 sec)
                     
                   
                 
@@ -411,7 +411,7 @@ InnoDB锁
 
   
     
-      <code class="language-sql">SELECT * FROM emp WHERE empid > 100 FOR UPDATE
+      SELECT * FROM emp WHERE empid > 100 FOR UPDATE
   
 
 
@@ -483,23 +483,23 @@ InnoDB锁
           
             
               
-                <code class="sql keyword">SET <code class="sql plain">AUTOCOMMIT=0;
+                SET AUTOCOMMIT=0;
               
               
               
-                <code class="sql plain">LOCAK TABLES t1 WRITE, t2 <code class="sql keyword">READ<code class="sql plain">, ...;
+                LOCAK TABLES t1 WRITE, t2 READ, ...;
               
               
               
-                <code class="sql plain">[do something <code class="sql keyword">with <code class="sql plain">tables t1 <code class="sql color1">and <code class="sql plain">here];
+                [do something with tables t1 and here];
               
               
               
-                <code class="sql keyword">COMMIT<code class="sql plain">;
+                COMMIT;
               
               
               
-                <code class="sql plain">UNLOCK TABLES;
+                UNLOCK TABLES;
               
             
           

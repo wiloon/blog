@@ -26,7 +26,6 @@ http://www.wiloon.com/?p=1057
   
 J2EE也是一个框架，包括JDBC、JNDI、RMI、JMS、EJB、JTA等技术。
 
-
 4.STRUTS的应用(如STRUTS架构)
   
 答: Struts是采用Java Servlet/JavaServer Pages技术，开发Web应用程序的开放源码的framework。 采用Struts能开发出基于MVC(Model-View-Controller)设计模式的应用构架。 Struts有如下的主要功能: 
@@ -140,7 +139,7 @@ http://www.wiloon.com/?p=3063
 答: 标准建模语言UML。用例图,静态图(包括类图、对象图和包图),行为图,交互图(顺序图,合作图),实现图
 
 
-13.RMI
+### RMI
   
 RMI 指的是远程方法调用 (Remote Method Invocation)。它是一种机制，能够让在某个 Java 虚拟机上的对象调用另一个 Java 虚拟机中的对象上的方法。可以用此方法调用的任何对象必须实现该远程接口。调用这样一个对象时，其参数为 "marshalled" 并将其从本地虚拟机发送到远程虚拟机（该远程虚拟机的参数为 "unmarshalled") 上。该方法终止时，将编组来自远程机的结果并将结果发送到调用方的虚拟机。如果方法调用导致抛出异常，则该异常将指示给调用方。
 

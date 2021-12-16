@@ -1,5 +1,5 @@
 ---
-title: java 代理
+title: java 代理模式
 author: "-"
 date: 2011-09-13T07:13:59+00:00
 url: /?p=765
@@ -7,7 +7,7 @@ categories:
   - Java
 
 ---
-## java 代理
+## java 代理模式
 http://blog.csdn.net/dyh8818/article/details/314668
 
 ### 代理模式
@@ -238,8 +238,6 @@ subject.request();
 
 参考文献: 
   
-1. 阎宏，《Java 与模式》
-  
-2. 透明,《动态代理的前世今生》
-  
-3. Forest Hou，《Dynamic Proxy 在 Java RMI 中的应用》
+>阎宏，《Java 与模式》
+>透明,《动态代理的前世今生》 
+>Forest Hou，《Dynamic Proxy 在 Java RMI 中的应用》

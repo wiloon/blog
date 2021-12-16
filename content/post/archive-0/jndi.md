@@ -2,13 +2,13 @@
 title: JNDI
 author: "-"
 date: 2011-12-25T03:59:59+00:00
-url: /?p=1964
+url: jndi
 categories:
   - Java
 
 ---
-## JNDI
-JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组在Java应用中访问命名和目录服务的API。命名服务将名称和对象联系起来，使得我们可以用名称访问对象。目录服务是一种命名服务，在这种服务里，对象不但有名称，还有属性。
+## JNDI (Java Naming and Directory Interface，Java命名和目录接口)
+是一组在Java应用中访问命名和目录服务的API。命名服务将名称和对象联系起来，使得我们可以用名称访问对象。目录服务是一种命名服务，在这种服务里，对象不但有名称，还有属性。
 
 
   英文全称是:Java Naming and Directory InterfaceS 

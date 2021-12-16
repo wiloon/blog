@@ -390,9 +390,7 @@ PTHREAD_SCOPE_SYSTEM和PTHREAD_SCOPE_PROCESS，前者表示与系统中所有线
 线程模型好就好在，它的资源分享: 共享变量
 角色模型（Actor Model)  比线程模型好就好在，它的资源分享不像线程模型那样通过共享变量来进行。  角色模型中的资源分享只能通过特定的机制（消息传递) 来进行。   
 
-RMI TCP connection  
-to feed a remote JMX client (in your case Java VisualVM) with data from JVM.    
-https://stackoverflow.com/questions/40793580/what-is-rmi-tcp-connection
+
 
 ### Pthread
 POSIX线程（POSIX threads) ，简称Pthreads，是线程的POSIX标准。该标准定义了创建和操纵线程的一整套API。在类Unix操作系统（Unix、Linux、Mac OS X等) 中，都使用 Pthreads 作为操作系统的线程。Windows操作系统也有其移植版pthreads-win32。

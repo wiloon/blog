@@ -244,16 +244,12 @@ java.lang.Thread.State: TIMED_WAITING (parking或sleeping): 定时的，那个�
   
 此时线程状态大致为以下几种: 
   
-java.lang.Thread.State: TIMED_WAITING (on object monitor)；
-  
-java.lang.Thread.State: WAITING (on object monitor)；
-  
+    java.lang.Thread.State: TIMED_WAITING (on object monitor)； 
+    java.lang.Thread.State: WAITING (on object monitor)；
+
 一般都是RMI相关线程（RMI RenewClean、 GC Daemon、RMI Reaper) ，GC线程（Finalizer) ，引用对象垃圾回收线程（Reference Handler) 等系统线程处于这种状态。
 
-Java Monitor
-
-图1 A Java Monitor
-
+### Java Monitor
 示范一: 
   
 下面这个线程在等待这个锁 0x00000000fe7e3b50，等待进入临界区: 

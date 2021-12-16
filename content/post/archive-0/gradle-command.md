@@ -62,7 +62,7 @@ gradle cleanIdea
 #load local jars compile files('libs/jfx-2.3.8.jar') 
 ```
 
-<code class="line-numbers">// project dependency
+// project dependency
 dependencies {
     compile project(":project-name")
 }

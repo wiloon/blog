@@ -384,16 +384,7 @@ Enumeration速度是Iterator的2倍，同时占用更少的内存。但是，Ite
 
 Servlet被服务器实例化后，容器运行其init方法，请求到达时运行其service方法，service方法自动派遣运行与请求对应的doXXX方法（doGet，doPost) 等，当服务器决定将实例销毁的时候调用其destroy方法。 与cgi的区别在于servlet处于服务器进程中，它通过多线程方式运行其service方法，一个实例可以服务于多个请求，并且其实例一般不会销毁，而CGI对每个请求都产生新的进程，服务完成后就销毁，所以效率上低于servlet。
 
-  * ## EJB是基于哪些技术实现的？并说出SessionBean和EntityBean的区别，StatefulBean和StatelessBean的区别。
-    
-    EJB包括Session Bean、Entity Bean、Message Driven Bean，基于JNDI、RMI、JAT等技术实现。 SessionBean在J2EE应用程序中被用来完成一些服务器端的业务操作，例如访问数据库、调用其他EJB组件。EntityBean被用来代表应用系统中用到的数据。 对于客户机，SessionBean是一种非持久性对象，它实现某些在服务器上运行的业务逻辑。 对于客户机，EntityBean是一种持久性对象，它代表一个存储在持久性存储器中的实体的对象视图，或是一个由现有企业应用程序实现的实体。 Session Bean 还可以再细分为 Stateful Session Bean 与 Stateless Session Bean ，这两种的 Session Bean都可以将系统逻辑放在 method之中执行，不同的是 Stateful Session Bean 可以记录呼叫者的状态，因此通常来说，一个使用者会有一个相对应的 Stateful Session Bean 的实体。Stateless Session Bean 虽然也是逻辑组件，但是他却不负责记录使用者状态，也就是说当使用者呼叫 Stateless Session Bean 的时候，EJB Container 并不会找寻特定的 Stateless Session Bean 的实体来执行这个 method。换言之，很可能数个使用者在执行某个 Stateless Session Bean 的 methods 时，会是同一个 Bean 的 Instance 在执行。从内存方面来看， Stateful Session Bean 与 Stateless Session Bean 比较， Stateful Session Bean 会消耗 J2EE Server 较多的内存，然而 Stateful Session Bean 的优势却在于他可以维持使用者的状态。 **\*|\*12**、Collection 和 Collections的区别。** Collection是集合类的上级接口，继承与他的接口主要有Set 和List. Collections是针对集合类的一个帮助类，他提供一系列静态方法实现对各种集合的搜索、排序、线程安全化等操作。  
-    
-    
-    
-    http://zangweiren.blog.51cto.com/412366/94392
-    
-    http://www.cnblogs.com/chenssy/p/3372798.html
-    
-    http://blog.csdn.net/ericbaner/article/details/3857268
-    
-    http://www.importnew.com/10980.html#oop
+>http://zangweiren.blog.51cto.com/412366/94392
+>http://www.cnblogs.com/chenssy/p/3372798.html
+>http://blog.csdn.net/ericbaner/article/details/3857268
+>http://www.importnew.com/10980.html#oop

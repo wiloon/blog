@@ -1,5 +1,5 @@
 ---
-title: mvn, maven basic, maven常用命令
+title: mvn, maven basic
 author: "-"
 date: 2011-09-29T04:34:14+00:00
 url: maven/basic
@@ -7,7 +7,7 @@ tags:
   - maven
 
 ---
-## mvn, maven basic, maven常用命令
+## mvn, maven basic
 ### download
 >https://maven.apache.org/download.cgi
 ### setting>mirror

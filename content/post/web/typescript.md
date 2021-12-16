@@ -59,7 +59,7 @@ const是对let的一个增强，它能阻止对一个变量再次赋值。
 
 ### 数组
 
-<code class="language-typescript line-numbers">let fibonacci: number[] = [1, 1, 2, 3, 5];
+let fibonacci: number[] = [1, 1, 2, 3, 5];
 ```
 
 ###
