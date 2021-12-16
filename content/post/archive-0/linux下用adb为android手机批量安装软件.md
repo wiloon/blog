@@ -20,7 +20,7 @@ categories:
   
 $ cd adb
   
-$ sh install.sh <wbr> (-sh里面的内容如这样: ./adb install ~/backup/***.apk......，把你要装的软件都这样编辑，一行一个软件)
+$ sh install.sh <wbr> (-sh里面的内容如这样: ./adb install ~/backup/***.apk......，把你要装的软件都这样编辑，一行一个软件)
   
 ok，等着吧，安装完，切换到第一个终端，执行
   

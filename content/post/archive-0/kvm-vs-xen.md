@@ -53,7 +53,7 @@ KVM的发展相当迅速，虽然目前还在追赶Xen，但Xen的领先地位�
     KVM采用的是Full Virtualization，需要CPU支持VT。 如何确认你的CPU是否支持VT,查看cpu flag, intel cpu flag 会有 "vmx" , amd cpu flag 会有 "svm".
   
   
-    从架构上讲，xen是自定制的hypervisor，对硬件的资源管理和调度，对虚拟机的生命周期管理等，都是从头开始写的。  KVM全称是Kernel-based Virtual Machine, kernel代表的是Linux kernel。KVM是一个特殊的模块，Linux kernel加载此模块后，可以将Linux kernel 变成hypervisor，因为Linux kernel已经可以很好的实现对硬件资源的调度和管理，KVM只是实现了对虚拟机生命周期管理的相关工作。 KVM的初始版本只有4万行代码，相对于xen的几百万行代码显得非常简洁。
+    从架构上讲，xen是自定制的hypervisor，对硬件的资源管理和调度，对虚拟机的生命周期管理等，都是从头开始写的。  KVM全称是Kernel-based Virtual Machine, kernel代表的是Linux kernel。KVM是一个特殊的模块，Linux kernel加载此模块后，可以将Linux kernel 变成hypervisor，因为Linux kernel已经可以很好的实现对硬件资源的调度和管理，KVM只是实现了对虚拟机生命周期管理的相关工作。 KVM的初始版本只有4万行代码，相对于xen的几百万行代码显得非常简洁。
   
   
     更多关于KVM架构的信息，请参考KVM白皮书:
@@ -65,7 +65,7 @@ KVM的发展相当迅速，虽然目前还在追赶Xen，但Xen的领先地位�
   
   
   
-    2008年 RedHat 收购 Qumranet 以后就一直在家搞他的 KVM，没有对 Xen 做任何升级，RHEL/CentOS 5.5 上默认的 Xen 依旧是很老很老的公元2007年发布的 Xen 3.1.2 版本。更糟糕的是 RedHat 在后续的RedHat Enterprise Linux 6 里彻底放弃了 Xen. 如果以后想在新版本的 RHEL/CentOS 上用 Xen 的话就需要使用第三方源或者自己动手编译 Xen 源代码。
+    2008年 RedHat 收购 Qumranet 以后就一直在家搞他的 KVM，没有对 Xen 做任何升级，RHEL/CentOS 5.5 上默认的 Xen 依旧是很老很老的公元2007年发布的 Xen 3.1.2 版本。更糟糕的是 RedHat 在后续的RedHat Enterprise Linux 6 里彻底放弃了 Xen. 如果以后想在新版本的 RHEL/CentOS 上用 Xen 的话就需要使用第三方源或者自己动手编译 Xen 源代码。
   
   
     http://www.vpsee.com/2010/11/upgrade-xen-on-centos-5-5-to-xen-3-4-3/
@@ -76,7 +76,7 @@ KVM的发展相当迅速，虽然目前还在追赶Xen，但Xen的领先地位�
   
 
 
-  原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://virtualizing.blog.51cto.com/687668/136543
+  原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://virtualizing.blog.51cto.com/687668/136543
   
     本文选择性的翻译了Xen/KVM的开发者Anthony Liguori的一篇blog。 在KVM刚出现的时候，媒体上有很多关于Xen的FUD。。。。比如Xen is dead啊，KVM进了Linux kernel,而Xen努力了很久也没有进啦等等。这篇文章从技术角度分析了KVM和Xen的差异，当然是站在一个Linux开发者的角度。 Anthony本人也是这两个项目的核心开发者，所以这篇文章就值得一读了。
   

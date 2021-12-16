@@ -481,4 +481,4 @@ Pasv_enable=yes （ 服务器端用被动模式)
 
 User_config_dir=/任意指定的路径//任意文件目录 (指定虚拟用户存放配置文件的路径)
 
-ref: <http://doc.linuxpk.com/4233.html> 作者: 龙磊
+ref: <http://doc.linuxpk.com/4233.html> 作者: 龙磊

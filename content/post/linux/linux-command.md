@@ -217,7 +217,7 @@ ls && ls -l
 sudo mount -t ntfs-3g /dev/sdc10 mnt1
 ls -lt
 ls -lrt
-chown [-R] 账号名称: 用户组名称 文件或目录
+chown [-R] 账号名称: 用户组名称 文件或目录
 egrep
 
 yum install lrzsz
@@ -231,7 +231,7 @@ ls -l /dev/disk/by-uuid/
 
 lsusb
 
- 
+ 
 
 rmdir : delete folder
   
@@ -257,9 +257,9 @@ ps -ef
   
 -f 用ASCII字符显示树状结构，表达程序间的相互关系。
 
-md5sum : compute and check MD5 message digest
+md5sum : compute and check MD5 message digest
 
- 
+ 
 
 ### 统计某文件夹下文件的个数
     ls -l |grep "^-"|wc -l
@@ -286,7 +286,7 @@ md5sum : compute and check MD5 message digest
 ### 这里将长列表输出信息过滤一部分，只保留一般文件，如果只保留目录就是 ^d
 
 
- 
+ 
 
 ### 一行信息对应一个文件，所以也就是文件的个数。
 

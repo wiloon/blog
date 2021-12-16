@@ -59,62 +59,62 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
   
     
       
-        public   class  Cell  implements  Cloneable {
+        public   class  Cell  implements  Cloneable {
       
       
-            //细胞壁
+            //细胞壁
       
       
-            private  String cellWall;
+            private  String cellWall;
       
       
-            //细胞膜
+            //细胞膜
       
       
-            private  String cellMembrane;
+            private  String cellMembrane;
       
       
-            //细胞组织
+            //细胞组织
       
       
-            private  String cellularTissue;
-      
-      
-      
-      
-            ...//这里省略掉了对成员变量的setter/getter方法的定义
+            private  String cellularTissue;
       
       
       
       
-            //细胞的自身复制
+            ...//这里省略掉了对成员变量的setter/getter方法的定义
       
       
-            //这里重载了Obect#clone()方法，为了方便外部调用，把返回值由Object修改为Cell，并把访问级别设置为public
       
       
-            public  Cell clone() {
+            //细胞的自身复制
       
       
-                try  {
+            //这里重载了Obect#clone()方法，为了方便外部调用，把返回值由Object修改为Cell，并把访问级别设置为public
       
       
-                    //只需简单地调用super.clone();即可
+            public  Cell clone() {
       
       
-                    return  (Cell) super .clone();
+                try  {
       
       
-                } catch  (CloneNotSupportedException e) {
+                    //只需简单地调用super.clone();即可
       
       
-                    throw  ( new  InternalError(e.getMessage()));
+                    return  (Cell) super .clone();
       
       
-                }
+                } catch  (CloneNotSupportedException e) {
       
       
-            }
+                    throw  ( new  InternalError(e.getMessage()));
+      
+      
+                }
+      
+      
+            }
       
       
       
@@ -127,37 +127,37 @@ Java语言提供了对象复制的机制，Prototype模式的Java实现一般也
         //调用方: 
       
       
-        public   class  Client {
+        public   class  Client {
       
       
-            public   static   void  main(String[] args) {
+            public   static   void  main(String[] args) {
       
       
-                //准备原型细胞
+                //准备原型细胞
       
       
-                Cell cell = new  Cell();
+                Cell cell = new  Cell();
       
       
-                cell.setCellWall("cell wall 1" );
+                cell.setCellWall("cell wall 1" );
       
       
-                ...
+                ...
       
       
-                //克隆原型细胞
+                //克隆原型细胞
       
       
-                Cell clonedCell = cell.clone();
+                Cell clonedCell = cell.clone();
       
       
-                ...
+                ...
       
       
-                //操作被克隆的细胞（略) 
+                //操作被克隆的细胞（略) 
       
       
-            }
+            }
       
       
         }

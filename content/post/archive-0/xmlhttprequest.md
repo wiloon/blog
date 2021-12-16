@@ -113,7 +113,7 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 
 5 个状态中每一个都有一个相关联的非正式的名称，下表列出了状态、名称和含义: 
 
-   readyState 的值不会递减，除非当一个请求在处理过程中的时候调用了 abort() 或 open() 方法。每次这个属性的值增加的时候，都会触发 onreadystatechange 事件句柄。 
+   readyState 的值不会递减，除非当一个请求在处理过程中的时候调用了 abort() 或 open() 方法。每次这个属性的值增加的时候，都会触发 onreadystatechange 事件句柄。 
   
     responseText
   
@@ -131,7 +131,7 @@ HTTP 请求的状态.当一个 XMLHttpRequest 初次创建时，这个属性的�
 
 ### statu
 
-由服务器返回的 HTTP 状态代码，如 200 表示成功，而 404 表示 "Not Found" 错误。当 readyState 小于 3 的时候读取这一属性会导致一个异常。
+由服务器返回的 HTTP 状态代码，如 200 表示成功，而 404 表示 "Not Found" 错误。当 readyState 小于 3 的时候读取这一属性会导致一个异常。
 
 ### statusText
 

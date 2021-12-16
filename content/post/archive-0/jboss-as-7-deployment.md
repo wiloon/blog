@@ -12,4 +12,4 @@ tags:
 ## jboss as 7 deployment
 copy war to $JBOSS_HOME/standalone/deployment
 
-start Jboss by executing $JBOSS_HOME/bin/standalone.sh
+start Jboss by executing $JBOSS_HOME/bin/standalone.sh

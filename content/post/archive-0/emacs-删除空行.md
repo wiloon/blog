@@ -12,6 +12,6 @@ flush-lines命令
 
 flush-lines删除匹配正则表达式的指定行
 
-m-x flush-lines
+m-x flush-lines
   
 用正则: ^$

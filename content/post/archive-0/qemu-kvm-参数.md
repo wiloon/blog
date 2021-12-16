@@ -10,7 +10,7 @@ categories:
 ---
 ## qemu basic, kvm 参数
 ### qemu-img create
-To set up your own guest OS image, you first need to create a blank disc image. QEMU has the `qemu-img` command for creating and manipulating disc images, and supports a variety of formats. If you don't tell it what format to use, it will use raw files. The "native" format for QEMU is qcow2, and this format offers some flexibility. Here we'll create a 3GB qcow2 image to install Windows XP on:
+To set up your own guest OS image, you first need to create a blank disc image. QEMU has the `qemu-img` command for creating and manipulating disc images, and supports a variety of formats. If you don't tell it what format to use, it will use raw files. The "native" format for QEMU is qcow2, and this format offers some flexibility. Here we'll create a 3GB qcow2 image to install Windows XP on:
 
 qemu-img create -f qcow2 winxp.img 3G
 
@@ -22,7 +22,7 @@ Use the -cpu host option to make QEMU emulate the host's exact CPU. If you do no
   
 If the host machine has multiple CPUs, assign the guest more CPUs using the -smp option.
 
--nographic  disable graphical output
+-nographic  disable graphical output
   
 -m 1024 设置虚拟系统内存1024MB
   

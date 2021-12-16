@@ -14,7 +14,7 @@ categories:
 
 
   
-    Use C-Q C-J (control-Q control-J) each time you want to include a carriage return. e.g. to double-space everything
+    Use C-Q C-J (control-Q control-J) each time you want to include a carriage return. e.g. to double-space everything
   
   
     M-x replace-string RET C-Q C-J RET C-Q C-J C-Q C-J RET

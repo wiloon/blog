@@ -41,7 +41,7 @@ categories:
     Xen的准虚拟化
   
   
-    Xen通过一种叫做准虚拟化的技术获得高性能，甚至在某些与传统虚拟技术极度不友好的架构上（x86) ，Xen也有上佳的表现。与那些传统通过软件模拟实现硬件的虚拟机不同，在Intel VT-X支持下3.0版本之前的Xen需要系统的来宾权限，用来和Xen API进行连接。到目前为止，这种技术已经可以运用在NetBSD, GNU/Linux, FreeBSD和Plan 9系统上。在Brainshare 2005会议上，Novell展示了NetWare与 Xen的连通。与Windows XP连通的技术曾在Xen开发初期进行，但微软的协议未能允许它发布。Sun公司也正在积极地将Solaris移植到Xen平台之上。
+    Xen通过一种叫做准虚拟化的技术获得高性能，甚至在某些与传统虚拟技术极度不友好的架构上（x86) ，Xen也有上佳的表现。与那些传统通过软件模拟实现硬件的虚拟机不同，在Intel VT-X支持下3.0版本之前的Xen需要系统的来宾权限，用来和Xen API进行连接。到目前为止，这种技术已经可以运用在NetBSD, GNU/Linux, FreeBSD和Plan 9系统上。在Brainshare 2005会议上，Novell展示了NetWare与 Xen的连通。与Windows XP连通的技术曾在Xen开发初期进行，但微软的协议未能允许它发布。Sun公司也正在积极地将Solaris移植到Xen平台之上。
   
   
     Xen的半虚拟化

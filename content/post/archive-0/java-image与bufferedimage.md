@@ -24,10 +24,10 @@ http://javapub.iteye.com/images/icon_star.png
     
     <ol start="1">
       
-        String imgPath = "C://demo.jpg";
+        String imgPath = "C://demo.jpg";
       
       
-        BufferedImage image = ImageIO.read(new FileInputStream(imgPath));
+        BufferedImage image = ImageIO.read(new FileInputStream(imgPath));
       
     
   
@@ -43,10 +43,10 @@ http://javapub.iteye.com/images/icon_star.png
     
     <ol start="1">
       
-        String imgPath = "C://demo.jpg";
+        String imgPath = "C://demo.jpg";
       
       
-        Image imageToolkit.getDefaultToolkit().getImage(imgPath)；
+        Image imageToolkit.getDefaultToolkit().getImage(imgPath)；
       
     
   

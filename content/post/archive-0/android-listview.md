@@ -12,13 +12,13 @@ categories:
 
 ListView是一个经常用到的控件，ListView里面的每个子项Item可以使一个字符串，也可以是一个组合控件。先说说ListView的实现: 
 
-1.准备ListView要显示的**数据** ；
+1.准备ListView要显示的**数据** ；
 
-2.使用 一维或多维 **动态数组 **保存数据；
+2.使用 一维或多维 **动态数组 **保存数据；
 
-2.构建**适配器** ， 简单地来说， 适配器就是 **Item数组 **， **动态数组 **有多少元素就生成多少个Item；
+2.构建**适配器** ， 简单地来说， 适配器就是 **Item数组 **， **动态数组 **有多少元素就生成多少个Item；
 
-3.把 **适配器** 添加到ListView,并显示出来。
+3.把 **适配器** 添加到ListView,并显示出来。
 
 接下来，就开始UI的XML代码: 
 
@@ -91,76 +91,76 @@ main.xml代码如下，很简单，也不需要多做解释了:
 
   <ol start="1">
     
-      public void onCreate(Bundle savedInstanceState) {
+      public void onCreate(Bundle savedInstanceState) {
     
     
-          super.onCreate(savedInstanceState);
+          super.onCreate(savedInstanceState);
     
     
-          setContentView(R.layout.main);
+          setContentView(R.layout.main);
     
     
-          //绑定XML中的ListView，作为Item的容器
+          //绑定XML中的ListView，作为Item的容器
     
     
-          ListView list = (ListView) findViewById(R.id.MyListView);
+          ListView list = (ListView) findViewById(R.id.MyListView);
     
     
-          //生成动态数组，并且转载数据
+          //生成动态数组，并且转载数据
     
     
-          ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
+          ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
     
     
-          for(int i=0;i<30;i++)
+          for(int i=0;i<30;i++)
     
     
-          {
+          {
     
     
-              HashMap<String, String> map = new HashMap<String, String>();
+              HashMap<String, String> map = new HashMap<String, String>();
     
     
-              map.put("ItemTitle", "This is Title.....");
+              map.put("ItemTitle", "This is Title.....");
     
     
-              map.put("ItemText", "This is text.....");
+              map.put("ItemText", "This is text.....");
     
     
-              mylist.add(map);
+              mylist.add(map);
     
     
-          }
+          }
     
     
-          //生成适配器，数组===》ListItem
+          //生成适配器，数组===》ListItem
     
     
-          SimpleAdapter mSchedule = new SimpleAdapter(this, //没什么解释
+          SimpleAdapter mSchedule = new SimpleAdapter(this, //没什么解释
     
     
-                                                      mylist,//数据来源
+                                                      mylist,//数据来源
     
     
-                                                      R.layout.my_listitem,//ListItem的XML实现
+                                                      R.layout.my_listitem,//ListItem的XML实现
     
     
-                                                      //动态数组与ListItem对应的子项
+                                                      //动态数组与ListItem对应的子项
     
     
-                                                      new String[] {"ItemTitle", "ItemText"},
+                                                      new String[] {"ItemTitle", "ItemText"},
     
     
-                                                      //ListItem的XML文件里面的两个TextView ID
+                                                      //ListItem的XML文件里面的两个TextView ID
     
     
-                                                      new int[] {R.id.ItemTitle,R.id.ItemText});
+                                                      new int[] {R.id.ItemTitle,R.id.ItemText});
     
     
-          //添加并且显示
+          //添加并且显示
     
     
-          list.setAdapter(mSchedule);
+          list.setAdapter(mSchedule);
     
     
       }

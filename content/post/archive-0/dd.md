@@ -95,9 +95,9 @@ swab 交换输入的每对字节。
 
 noerror 出错时不停止。
 
-notrunc 不截短输出文件。
+notrunc 不截短输出文件。
 
-sync 把每个输入块填充到ibs个字节，不足部分用空(NUL)字符补齐。
+sync 把每个输入块填充到ibs个字节，不足部分用空(NUL)字符补齐。
 
 
 **
@@ -170,9 +170,9 @@ swab 交换输入的每对字节。
 
 noerror 出错时不停止。
 
-notrunc 不截短输出文件。
+notrunc 不截短输出文件。
 
-sync 把每个输入块填充到ibs个字节，不足部分用空(NUL)字符补齐。
+sync 把每个输入块填充到ibs个字节，不足部分用空(NUL)字符补齐。
 
 
 2.实例分析
@@ -191,7 +191,7 @@ dd if=/dev/hdx of=/path/to/image
   
 将/dev/hdx全盘数据备份到指定路径的image文件
   
-dd if=/dev/hdx | gzip >/path/to/image.gz
+dd if=/dev/hdx | gzip >/path/to/image.gz
   
 备份/dev/hdx全盘数据，并利用gzip工具进行压缩，保存到指定路径
 
@@ -215,11 +215,11 @@ netcat -l -p 1234 | dd of=/dev/hdc bs=16065b
   
 在目的主机上执行此命令来接收数据并写入/dev/hdc
   
-netcat -l -p 1234 | bzip2 > partition.img
+netcat -l -p 1234 | bzip2 > partition.img
   
 netcat -l -p 1234 | gzip > partition.img
   
-以上两条指令是目的主机指令的变化分别采用bzip2  gzip对数据进行压缩，并将备份文件保存在当前目录。
+以上两条指令是目的主机指令的变化分别采用bzip2  gzip对数据进行压缩，并将备份文件保存在当前目录。
 
 
 2.1.3.备份MBR
@@ -261,11 +261,11 @@ dd if=/dev/zero of=/swapfile bs=1024 count=262144
   
 创建一个足够大的文件（此处为256M) 
   
-mkswap /swapfile
+mkswap /swapfile
   
 把这个文件变成swap文件
   
-swapon /swapfile
+swapon /swapfile
   
 启用这个swap文件
   

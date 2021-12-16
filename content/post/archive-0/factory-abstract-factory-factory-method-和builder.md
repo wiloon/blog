@@ -70,7 +70,7 @@ public Car createSportBenzCar() {…}
   
 1. 一系列类似的对象需要被制造出来。
   
-3.      同种对象不同实体需要在不同的地点不同是时间被制造出来。
+3.      同种对象不同实体需要在不同的地点不同是时间被制造出来。
 
 **Factory Method Pattern**
 
@@ -118,7 +118,7 @@ public void service() {…}
 
 图5 Builder Pattern
 
-考虑到使用composite模式，我们使用另外一个例子，做饭，比较简单，常见，人人都做过，解释起来应该比较好懂。我们先定义好"食品"是对所有吃的物品的概括，做好的炸酱面是食品，煮好的面条是食品，做好的酱是食品，做酱用的料也是食品。当我们去餐馆叫吃炸酱面时，我们只希望要一碗做好的炸酱面， 我们可不会希望对小二说煮面，切黄瓜丝，打鸡蛋，剁肉末，熬酱，等等。我们只希望说: "小二，来碗炸酱面。" 这时候就需要用到builder,  builder会提供一个简单的方法createNoodleWithSource() — 做炸酱面，当顾客点吃炸酱面后，builder就会在内部制造一系列的食品，比方说，煮面，切黄瓜丝，打鸡蛋，剁肉末，熬酱，等等。而这些细节，作为顾客是不需要费心的。
+考虑到使用composite模式，我们使用另外一个例子，做饭，比较简单，常见，人人都做过，解释起来应该比较好懂。我们先定义好"食品"是对所有吃的物品的概括，做好的炸酱面是食品，煮好的面条是食品，做好的酱是食品，做酱用的料也是食品。当我们去餐馆叫吃炸酱面时，我们只希望要一碗做好的炸酱面， 我们可不会希望对小二说煮面，切黄瓜丝，打鸡蛋，剁肉末，熬酱，等等。我们只希望说: "小二，来碗炸酱面。" 这时候就需要用到builder,  builder会提供一个简单的方法createNoodleWithSource() — 做炸酱面，当顾客点吃炸酱面后，builder就会在内部制造一系列的食品，比方说，煮面，切黄瓜丝，打鸡蛋，剁肉末，熬酱，等等。而这些细节，作为顾客是不需要费心的。
 
 **讨论**
 
@@ -144,21 +144,21 @@ public void service() {…}
 
 这样构件的系统里，我们用到了下列模式: 
 
-1.      Factory Pattern
+1.      Factory Pattern
 
-2.      Abstract Factory Pattern
+2.      Abstract Factory Pattern
 
-3.      Builder Pattern
+3.      Builder Pattern
 
-4.      Singleton Pattern
+4.      Singleton Pattern
 
-5.      Template Method Pattern
+5.      Template Method Pattern
 
-6.      Composite Pattern
+6.      Composite Pattern
 
-7.      Strategy Pattern
+7.      Strategy Pattern
 
-8.      Business Delegate Pattern
+8.      Business Delegate Pattern
 
 <http://www.iteye.com/topic/17112>
 

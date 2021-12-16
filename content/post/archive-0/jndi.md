@@ -29,10 +29,10 @@ JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组�
   
   
   
-    DNS、XNam 、Novell目录服务、LDAP(Lightweight Directory Access Protocol 轻型目录访问协议)、 CORBA对象服务、文件系统、Windows XP/2000/NT/Me/9x的注册表、RMI、DSML v1&v2、NIS。
+    DNS、XNam 、Novell目录服务、LDAP(Lightweight Directory Access Protocol 轻型目录访问协议)、 CORBA对象服务、文件系统、Windows XP/2000/NT/Me/9x的注册表、RMI、DSML v1&v2、NIS。
   
   
-     JNDI优点
+     JNDI优点
   
   
     包含了大量的命名和目录服务，使用通用接口来访问不同种类的服务；
@@ -74,7 +74,7 @@ JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组�
     利用JNDI的命名与服务功能来满足企业级API对命名与服务的访问，诸如EJB、JMS、JDBC 2.0以及IIOP上的RMI通过JNDI来使用CORBA的命名服务。
   
   
-     JNDI架构
+     JNDI架构
   
   
     JNDI架构提供了一组标准的独立于命名系统的API，这些API构建在与命名系统有关的驱动之上。这一层有助于将应用与实际数据源分离，因此不管应用访问的是LDAP、RMI、DNS、还是其他的目录服务。换句话说，JNDI独立于目录服务的具体实现，只要有目录的服务提供接口（或驱动) ，就可以使用目录。
@@ -84,7 +84,7 @@ JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组�
     关于JNDI要注意的重要一点是，它提供了应用编程接口(application programming interface，API)和服务提供者接口(service provider interface，SPI)。这一点的真正含义是，要让应用与命名服务或目录服务交互，必须有这个服务的JNDI服务提供者，这正是JNDI SPI发挥作用的地方。服务提供者基本上是一组类，这些类为各种具体的命名和目录服务实现了JNDI接口—很象JDBC驱动为各种具体的数据库系统实现了JDBC接口一样。作为一个应用开发者，不必操心JNDI SPI。只需要确认要使用的每一个命名或目录服务都有服务提供者。
   
   
-     JNDI组件
+     JNDI组件
   
   
     1、Javax.naming: 包含了访问命名服务的类和接口。例如，它定义了Context接口，这是命名服务执行查询的入口。
@@ -106,7 +106,7 @@ JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组�
     5、Javax.naming.spi: 这个包提供了一个方法，通过javax.naming和有关包动态增加对访问命名和目录服务的支持。这个包是为有兴趣创建服务提供者的开发者提供的。
   
   
-     JNDI用途
+     JNDI用途
   
   
     命名或目录服务使用户可以集中存储共有信息，这一点在网络应用中是重要的，因为这使得这样的应用更协调、更容易管理。例如，可以将打印机设置存储在目录服务中，以便被与打印机有关的应用使用。
@@ -132,7 +132,7 @@ JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组�
     DNS、XNam 、Novell目录服务、LDAP(Lightweight Directory Access Protocol 轻型目录访问协议)、 CORBA对象服务、文件系统、Windows XP/2000/NT/Me/9x的注册表、RMI、DSML v1&v2、NIS
   
   
-     JNDI与JDBC
+     JNDI与JDBC
   
   
     JNDI提供了一种统一的方式，可以用在网络上查找和访问服务。通过指定一个资源名称，该名称对应于数据库或命名服务中的一个记录，同时返回数据库连接建立所必须的信息。
@@ -174,7 +174,7 @@ JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组�
     }
   
   
-     JNDI与JMS
+     JNDI与JMS
   
   
     消息通信是软件组件或应用程序用来通信的一种方法。JMS就是一种允许应用程序创建、发送、接收、和读取消息的JAVA技术。
@@ -280,7 +280,7 @@ JNDI(Java Naming and Directory Interface，Java命名和目录接口)是一组�
     }
   
   
-     常用的JNDI操作
+     常用的JNDI操作
   
   
     void bind(String sName,Object object);――绑定: 把名称同对象关联的过程

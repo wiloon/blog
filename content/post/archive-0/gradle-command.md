@@ -54,7 +54,7 @@ gradle installDist
 #convert maven project to gradle project
 gradle init --type pom
 #eclipse 
-gradle eclipse 
+gradle eclipse 
 gradle cleanEclipse 
 #idea gradle idea 
 gradle cleanIdea 
@@ -72,7 +72,7 @@ dependencies {
   
 repositories {
   
-    maven { url 'http://maven.oschina.net/content/groups/public/' }
+    maven { url 'http://maven.oschina.net/content/groups/public/' }
   
 }
 

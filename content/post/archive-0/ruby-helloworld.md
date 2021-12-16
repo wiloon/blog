@@ -8,9 +8,9 @@ categories:
 
 ---
 ## ruby helloworld
-**Question**: I would like to understand the basics of how to write and execute a **ruby program** on Linux OS. Can you explain it with a simple example?
+**Question**: I would like to understand the basics of how to write and execute a **ruby program** on Linux OS. Can you explain it with a simple example?
 
-**Answer**: In this article, let us review very quickly how to write a basic **Hello World ruby program** and execute *.rb program on Linux or Unix OS.
+**Answer**: In this article, let us review very quickly how to write a basic **Hello World ruby program** and execute *.rb program on Linux or Unix OS.
 
 ### 1. Write a Hello World Ruby Program
 
@@ -75,7 +75,7 @@ You can either execute using "ruby helloworld.rb" or "./helloworld.rb".
  ```
   
   
-    Note: As Ruby is an interpreted language, you don't have the compilation step similar to the C program.
+    Note: As Ruby is an interpreted language, you don't have the compilation step similar to the C program.
   
   
     Executing Ruby one liner

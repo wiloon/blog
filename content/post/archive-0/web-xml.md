@@ -83,7 +83,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     1 定义头和根元素
   
   
-    部署描述符文件就像所有XML文件一样，必须以一个XML头开始。这个头声明可以使用的XML版本并给出文件的字符编码. 
+    部署描述符文件就像所有XML文件一样，必须以一个XML头开始。这个头声明可以使用的XML版本并给出文件的字符编码. 
   
   
     
@@ -135,7 +135,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
     
     
-      metadata-complete 属性，该属性指定当前的部署描述文件是否是完全的。如果设置为 true，则容器在部署时将只依赖部署描述文件，忽略所有的注解（同时也会跳过 web-fragment.xml 的扫描，亦即禁用可插性支持，具体请看后文关于 可插性支持的讲解) ；如果不配置该属性，或者将其设置为 false，则表示启用注解支持（和可插性支持) 。
+      metadata-complete 属性，该属性指定当前的部署描述文件是否是完全的。如果设置为 true，则容器在部署时将只依赖部署描述文件，忽略所有的注解（同时也会跳过 web-fragment.xml 的扫描，亦即禁用可插性支持，具体请看后文关于 可插性支持的讲解) ；如果不配置该属性，或者将其设置为 false，则表示启用注解支持（和可插性支持) 。
     
     
     
@@ -143,11 +143,11 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
     
     
-             XML元素不仅是大小写敏感的，而且它们还对出现在其他元素中的次序敏感。例如，XML头必须是文件中的第一项，DOCTYPE声明必须是第二项，而web-app元素必须是第三项。在web-app元素内，元素的次序也很重要。服务器不一定强制要求这种次序，但它们允许（实际上有些服务器就是这样做的) 完全拒绝执行含有次序不正确的元素的Web应用。这表示使用非标准元素次序的web.xml文件是不可移植的。
+             XML元素不仅是大小写敏感的，而且它们还对出现在其他元素中的次序敏感。例如，XML头必须是文件中的第一项，DOCTYPE声明必须是第二项，而web-app元素必须是第三项。在web-app元素内，元素的次序也很重要。服务器不一定强制要求这种次序，但它们允许（实际上有些服务器就是这样做的) 完全拒绝执行含有次序不正确的元素的Web应用。这表示使用非标准元素次序的web.xml文件是不可移植的。
     
     
     
-            下面的列表给出了所有可直接出现在web-app元素内的合法元素所必需的次序。例如，此列表说明servlet元素必须出现在所有servlet-mapping元素之前。请注意，所有这些元素都是可选的。因此，可以省略掉某一元素，但不能把它放于不正确的位置。 icon: icon元素指出IDE和GUI工具用来表示Web应用的一个和两个图像文件的位置。
+            下面的列表给出了所有可直接出现在web-app元素内的合法元素所必需的次序。例如，此列表说明servlet元素必须出现在所有servlet-mapping元素之前。请注意，所有这些元素都是可选的。因此，可以省略掉某一元素，但不能把它放于不正确的位置。 icon: icon元素指出IDE和GUI工具用来表示Web应用的一个和两个图像文件的位置。
     
     
     
@@ -177,7 +177,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
     
       
- filter: 
+ filter: 
     
     
     
@@ -268,7 +268,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
       
  resource-env-ref: resource-env-ref元素声明与资源相关的一个管理对象。
- resource-ref: resource-ref元素声明一个资源工厂使用的外部资源。
+ resource-ref: resource-ref元素声明一个资源工厂使用的外部资源。
  security-constraint: security-constraint元素制定应该保护的URL。它与login-config元素联合使用
  login-config: 用login-config元素来指定服务器应该怎样给试图访问受保护页面的用户授权。它与sercurity-constraint元素联合使用。
  security-role: security-role元素给出安全角色的一个列表，这些角色将出现在servlet元素内的security-role-ref元素的role-name子元素中。分别地声明角色可使高级IDE处理安全信息更为容易。
@@ -278,19 +278,19 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
     
     
-            3 分配名称和定制的URL
+            3 分配名称和定制的URL
     
     
     
-            在web.xml中完成的一个最常见的任务是对servlet或JSP页面给出名称和定制的URL。用servlet元素分配名称，使用servlet-mapping元素将定制的URL与刚分配的名称相关联。
+            在web.xml中完成的一个最常见的任务是对servlet或JSP页面给出名称和定制的URL。用servlet元素分配名称，使用servlet-mapping元素将定制的URL与刚分配的名称相关联。
     
     
     
-            3.1 分配名称
+            3.1 分配名称
     
     
     
-            为了提供初始化参数，对servlet或JSP页面定义一个定制URL或分配一个安全角色，必须首先给servlet或JSP页面一个名称。可通过servlet元素分配一个名称。最常见的格式包括servlet-name和servlet-class子元素（在web-app元素内) ，如下所示: 
+            为了提供初始化参数，对servlet或JSP页面定义一个定制URL或分配一个安全角色，必须首先给servlet或JSP页面一个名称。可通过servlet元素分配一个名称。最常见的格式包括servlet-name和servlet-class子元素（在web-app元素内) ，如下所示: 
     
     
     
@@ -301,11 +301,11 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
     
     
-            这表示位于WEB-INF/classes/moreservlets/TestServlet的servlet已经得到了注册名Test。给servlet一个名称具有两个主要的含义。首先，初始化参数、定制的URL模式以及其他定制通过此注册名而不是类名引用此servlet。其次,可在URL而不是类名中使用此名称。因此，利用刚才给出的定义，URL http://host/webAppPrefix/servlet/Test 可用于 http://host/webAppPrefix/servlet/moreservlets.TestServlet 的场所。
+            这表示位于WEB-INF/classes/moreservlets/TestServlet的servlet已经得到了注册名Test。给servlet一个名称具有两个主要的含义。首先，初始化参数、定制的URL模式以及其他定制通过此注册名而不是类名引用此servlet。其次,可在URL而不是类名中使用此名称。因此，利用刚才给出的定义，URL http://host/webAppPrefix/servlet/Test 可用于 http://host/webAppPrefix/servlet/moreservlets.TestServlet 的场所。
     
     
     
-      请记住: XML元素不仅是大小写敏感的，而且定义它们的次序也很重要。例如，web-app元素内所有servlet元素必须位于所有servlet-mapping元素（下一小节介绍) 之前，而且还要位于5.6节和5.11节讨论的与过滤器或文档相关的元素（如果有的话) 之前。类似地，servlet的servlet-name子元素也必须出现在servlet-class之前。5.2节"部署描述符文件内的元素次序"将详细介绍这种必需的次序。      例如，程序清单5-1给出了一个名为TestServlet的简单servlet，它驻留在moreservlets程序包中。因为此servlet是扎根在一个名为deployDemo的目录中的Web应用的组成部分，所以TestServlet.class放在deployDemo/WEB-INF/classes/moreservlets中。程序清单5-2给出将放置在deployDemo/WEB-INF/内的web.xml文件的一部分。此web.xml文件使用servlet-name和servlet-class元素将名称Test与TestServlet.class相关联。图5-1和图5-2分别显示利用缺省URL和注册名调用TestServlet时的结果。程序清单5-1 TestServlet.java
+      请记住: XML元素不仅是大小写敏感的，而且定义它们的次序也很重要。例如，web-app元素内所有servlet元素必须位于所有servlet-mapping元素（下一小节介绍) 之前，而且还要位于5.6节和5.11节讨论的与过滤器或文档相关的元素（如果有的话) 之前。类似地，servlet的servlet-name子元素也必须出现在servlet-class之前。5.2节"部署描述符文件内的元素次序"将详细介绍这种必需的次序。      例如，程序清单5-1给出了一个名为TestServlet的简单servlet，它驻留在moreservlets程序包中。因为此servlet是扎根在一个名为deployDemo的目录中的Web应用的组成部分，所以TestServlet.class放在deployDemo/WEB-INF/classes/moreservlets中。程序清单5-2给出将放置在deployDemo/WEB-INF/内的web.xml文件的一部分。此web.xml文件使用servlet-name和servlet-class元素将名称Test与TestServlet.class相关联。图5-1和图5-2分别显示利用缺省URL和注册名调用TestServlet时的结果。程序清单5-1 TestServlet.java
  package moreservlets;
     
     
@@ -371,7 +371,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
     
     
     
-      事实上，有时需要使用定制的URL。比如，你可能想关闭缺省URL映射，以便更好地强制实施安全限制或防止用户意外地访问无初始化参数的servlet。如果你禁止了缺省的URL，那么你怎样访问servlet呢？这时只有使用定制的URL了。       为了分配一个定制的URL，可使用servlet-mapping元素及其servlet-name和url-pattern子元素。Servlet-name元素提供了一个任意名称，可利用此名称引用相应的servlet；url-pattern描述了相对于Web应用的根目录的URL。url-pattern元素的值必须以斜杠（/) 起始。下面给出一个简单的web.xml摘录，它允许使用URL http://host/webAppPrefix/UrlTest而不是http://host/webAppPrefix/servlet/Test或
+      事实上，有时需要使用定制的URL。比如，你可能想关闭缺省URL映射，以便更好地强制实施安全限制或防止用户意外地访问无初始化参数的servlet。如果你禁止了缺省的URL，那么你怎样访问servlet呢？这时只有使用定制的URL了。       为了分配一个定制的URL，可使用servlet-mapping元素及其servlet-name和url-pattern子元素。Servlet-name元素提供了一个任意名称，可利用此名称引用相应的servlet；url-pattern描述了相对于Web应用的根目录的URL。url-pattern元素的值必须以斜杠（/) 起始。下面给出一个简单的web.xml摘录，它允许使用URL http://host/webAppPrefix/UrlTest而不是http://host/webAppPrefix/servlet/Test或
  http://host/webAppPrefix/servlet/moreservlets.TestServlet。请注意，仍然需要XML头、DOCTYPE声明以及web-app封闭元素。此外，可回忆一下，XML元素出现地次序不是随意的。特别是，需要把所有servlet元素放在所有servlet-mapping元素之前。<servlet>
  <servlet-name>Test</servlet-name>
  <servlet-class>moreservlets.TestServlet</servlet-class>
@@ -391,7 +391,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  </servlet-mapping>3.3 命名JSP页面因为JSP页面要转换成sevlet，自然希望就像命名servlet一样命名JSP页面。毕竟，JSP页面可能会从初始化参数、安全设置或定制的URL中受益，正如普通的serlvet那样。虽然JSP页面的后台实际上是servlet这句话是正确的，但存在一个关键的猜疑: 即，你不知道JSP页面的实际类名（因为系统自己挑选这个名字) 。因此，为了命名JSP页面，可将jsp-file元素替换为servlet-calss元素，如下所示: <servlet>
  <servlet-name>Test</servlet-name>
  <jsp-file>/TestPage.jsp</jsp-file>
- </servlet>命名JSP页面的原因与命名servlet的原因完全相同: 即为了提供一个与定制设置（如，初始化参数和安全设置) 一起使用的名称，并且，以便能更改激活JSP页面的URL（比方说，以便多个URL通过相同页面得以处理，或者从URL中去掉.jsp扩展名) 。但是，在设置初始化参数时，应该注意，JSP页面是利用jspInit方法，而不是init方法读取初始化参数的。例如，程序清单5-3给出一个名为TestPage.jsp的简单JSP页面，它的工作只是打印出用来激活它的URL的本地部分。TestPage.jsp放置在deployDemo应用的顶层。程序清单5-4给出了用来分配一个注册名PageName，然后将此注册名与http://host/webAppPrefix/UrlTest2/anything 形式的URL相关联的web.xml文件（即，deployDemo/WEB-INF/web.xml) 的一部分。程序清单5-3 TestPage.jsp
+ </servlet>命名JSP页面的原因与命名servlet的原因完全相同: 即为了提供一个与定制设置（如，初始化参数和安全设置) 一起使用的名称，并且，以便能更改激活JSP页面的URL（比方说，以便多个URL通过相同页面得以处理，或者从URL中去掉.jsp扩展名) 。但是，在设置初始化参数时，应该注意，JSP页面是利用jspInit方法，而不是init方法读取初始化参数的。例如，程序清单5-3给出一个名为TestPage.jsp的简单JSP页面，它的工作只是打印出用来激活它的URL的本地部分。TestPage.jsp放置在deployDemo应用的顶层。程序清单5-4给出了用来分配一个注册名PageName，然后将此注册名与http://host/webAppPrefix/UrlTest2/anything 形式的URL相关联的web.xml文件（即，deployDemo/WEB-INF/web.xml) 的一部分。程序清单5-3 TestPage.jsp
  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
  <HTML>
  <HEAD>
@@ -421,8 +421,8 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  </web-app> 
       
       
-        4 禁止激活器servlet      对servlet或JSP页面建立定制URL的一个原因是，这样做可以注册从init（servlet) 或jspInit（JSP页面) 方法中读取得初始化参数。但是，初始化参数只在是利用定制URL模式或注册名访问servlet或JSP页面时可以使用，用缺省URL http://host/webAppPrefix/servlet/ServletName 访问时不能使用。因此，你可能会希望关闭缺省URL，这样就不会有人意外地调用初始化servlet了。这个过程有时称为禁止激活器servlet，因为多数服务器具有一个用缺省的servlet URL注册的标准servlet，并激活缺省的URL应用的实际servlet。有两种禁止此缺省URL的主要方法: 在每个Web应用中重新映射/servlet/模式。
- 全局关闭激活器servlet。重要的是应该注意到，虽然重新映射每个Web应用中的/servlet/模式比彻底禁止激活servlet所做的工作更多，但重新映射可以用一种完全可移植的方式来完成。相反，全局禁止激活器servlet完全是针对具体机器的，事实上有的服务器（如ServletExec) 没有这样的选择。下面的讨论对每个Web应用重新映射/servlet/ URL模式的策略。后面提供在Tomcat中全局禁止激活器servlet的详细内容。4.1 重新映射/servlet/URL模式在一个特定的Web应用中禁止以http://host/webAppPrefix/servlet/ 开始的URL的处理非常简单。所需做的事情就是建立一个错误消息servlet，并使用前一节讨论的url-pattern元素将所有匹配请求转向该servlet。只要简单地使用: <url-pattern>/servlet/*</url-pattern>作为servlet-mapping元素中的模式即可。例如，程序清单5-5给出了将SorryServlet servlet（程序清单5-6) 与所有以http://host/webAppPrefix/servlet/ 开头的URL相关联的部署描述符文件的一部分。程序清单5-5 web.xml（说明JSP页命名的摘录) 
+        4 禁止激活器servlet      对servlet或JSP页面建立定制URL的一个原因是，这样做可以注册从init（servlet) 或jspInit（JSP页面) 方法中读取得初始化参数。但是，初始化参数只在是利用定制URL模式或注册名访问servlet或JSP页面时可以使用，用缺省URL http://host/webAppPrefix/servlet/ServletName 访问时不能使用。因此，你可能会希望关闭缺省URL，这样就不会有人意外地调用初始化servlet了。这个过程有时称为禁止激活器servlet，因为多数服务器具有一个用缺省的servlet URL注册的标准servlet，并激活缺省的URL应用的实际servlet。有两种禁止此缺省URL的主要方法: 在每个Web应用中重新映射/servlet/模式。
+ 全局关闭激活器servlet。重要的是应该注意到，虽然重新映射每个Web应用中的/servlet/模式比彻底禁止激活servlet所做的工作更多，但重新映射可以用一种完全可移植的方式来完成。相反，全局禁止激活器servlet完全是针对具体机器的，事实上有的服务器（如ServletExec) 没有这样的选择。下面的讨论对每个Web应用重新映射/servlet/ URL模式的策略。后面提供在Tomcat中全局禁止激活器servlet的详细内容。4.1 重新映射/servlet/URL模式在一个特定的Web应用中禁止以http://host/webAppPrefix/servlet/ 开始的URL的处理非常简单。所需做的事情就是建立一个错误消息servlet，并使用前一节讨论的url-pattern元素将所有匹配请求转向该servlet。只要简单地使用: <url-pattern>/servlet/*</url-pattern>作为servlet-mapping元素中的模式即可。例如，程序清单5-5给出了将SorryServlet servlet（程序清单5-6) 与所有以http://host/webAppPrefix/servlet/ 开头的URL相关联的部署描述符文件的一部分。程序清单5-5 web.xml（说明JSP页命名的摘录) 
  <?xml version="1.0" encoding="ISO-8859-1"?>
  <!DOCTYPE web-app
  PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
@@ -474,16 +474,16 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  } 
         
         
-          4.2 全局禁止激活器: Tomcat      Tomcat 4中用来关闭缺省URL的方法与Tomcat 3中所用的很不相同。下面介绍这两种方法: 1．禁止激活器:  Tomcat 4      Tomcat 4用与前面相同的方法关闭激活器servlet，即利用web.xml中的url-mapping元素进行关闭。不同之处在于Tomcat使用了放在install_dir/conf中的一个服务器专用的全局web.xml文件，而前面使用的是存放在每个Web应用的WEB-INF目录中的标准web.xml文件。因此，为了在Tomcat 4中关闭激活器servlet，只需在install_dir/conf/web.xml中简单地注释出/servlet/* URL映射项即可，如下所示: <!-
+          4.2 全局禁止激活器: Tomcat      Tomcat 4中用来关闭缺省URL的方法与Tomcat 3中所用的很不相同。下面介绍这两种方法: 1．禁止激活器:  Tomcat 4      Tomcat 4用与前面相同的方法关闭激活器servlet，即利用web.xml中的url-mapping元素进行关闭。不同之处在于Tomcat使用了放在install_dir/conf中的一个服务器专用的全局web.xml文件，而前面使用的是存放在每个Web应用的WEB-INF目录中的标准web.xml文件。因此，为了在Tomcat 4中关闭激活器servlet，只需在install_dir/conf/web.xml中简单地注释出/servlet/* URL映射项即可，如下所示: <!-
  <servlet-mapping>
  <servlet-name>invoker</servlet-name>
  <url-pattern>/servlet/*</url-pattern>
  </servlet-mapping>
- ->再次提醒，应该注意这个项是位于存放在install_dir/conf的Tomcat专用的web.xml文件中的，此文件不是存放在每个Web应用的WEB-INF目录中的标准web.xml。 2．禁止激活器: Tomcat3在Apache Tomcat的版本3中，通过在install_dir/conf/server.xml中注释出InvokerInterceptor项全局禁止缺省servlet URL。例如，下面是禁止使用缺省servlet URL的server.xml文件的一部分。<!-
+ ->再次提醒，应该注意这个项是位于存放在install_dir/conf的Tomcat专用的web.xml文件中的，此文件不是存放在每个Web应用的WEB-INF目录中的标准web.xml。 2．禁止激活器: Tomcat3在Apache Tomcat的版本3中，通过在install_dir/conf/server.xml中注释出InvokerInterceptor项全局禁止缺省servlet URL。例如，下面是禁止使用缺省servlet URL的server.xml文件的一部分。<!-
  <RequsetInterceptor
  className="org.apache.tomcat.request.InvokerInterceptor"
  debug="0" prefix="/servlet/" />
- ->5 初始化和预装载servlet与JSP页面这里讨论控制servlet和JSP页面的启动行为的方法。特别是，说明了怎样分配初始化参数以及怎样更改服务器生存期中装载servlet和JSP页面的时刻。5.1 分配servlet初始化参数      利用init-param元素向servlet提供初始化参数，init-param元素具有param-name和param-value子元素。例如，在下面的例子中，如果initServlet servlet是利用它的注册名（InitTest) 访问的，它将能够从其方法中调用getServletConfig().getInitParameter("param1")获得"Value 1"，调用getServletConfig().getInitParameter("param2")获得"2"。<servlet>
+ ->5 初始化和预装载servlet与JSP页面这里讨论控制servlet和JSP页面的启动行为的方法。特别是，说明了怎样分配初始化参数以及怎样更改服务器生存期中装载servlet和JSP页面的时刻。5.1 分配servlet初始化参数      利用init-param元素向servlet提供初始化参数，init-param元素具有param-name和param-value子元素。例如，在下面的例子中，如果initServlet servlet是利用它的注册名（InitTest) 访问的，它将能够从其方法中调用getServletConfig().getInitParameter("param1")获得"Value 1"，调用getServletConfig().getInitParameter("param2")获得"2"。<servlet>
  <servlet-name>InitTest</servlet-name>
  <servlet-class>moreservlets.InitServlet</servlet-class>
  <init-param>
@@ -555,7 +555,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  </init-param>
  </servlet>
  <!- ... ->
- </web-app>5.2 分配JSP初始化参数      给JSP页面提供初始化参数在三个方面不同于给servlet提供初始化参数。1) 使用jsp-file而不是servlet-class。因此，WEB-INF/web.xml文件的servlet元素如下所示: <servlet>
+ </web-app>5.2 分配JSP初始化参数      给JSP页面提供初始化参数在三个方面不同于给servlet提供初始化参数。1) 使用jsp-file而不是servlet-class。因此，WEB-INF/web.xml文件的servlet元素如下所示: <servlet>
  <servlet-name>PageName</servlet-name>
  <jsp-file>/RealPage.jsp</jsp-file>
  <init-param>
@@ -563,7 +563,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  <param-value>...</param-value>
  </init-param>
  ...
- </servlet>2)几乎总是分配一个明确的URL模式。对servlet，一般相应地使用以http://host/webAppPrefix/servlet/ 开始的缺省URL。只需记住，使用注册名而不是原名称即可。这对于JSP页面在技术上也是合法的。例如，在上面给出的例子中，可用URL http://host/webAppPrefix/servlet/PageName 访问RealPage.jsp的对初始化参数具有访问权的版本。但在用于JSP页面时，许多用户似乎不喜欢应用常规的servlet的URL。此外，如果JSP页面位于服务器为其提供了目录清单的目录中（如，一个既没有index.html也没有index.jsp文件的目录) ，则用户可能会连接到此JSP页面，单击它，从而意外地激活未初始化的页面。因此，好的办法是使用url-pattern（5.3节) 将JSP页面的原URL与注册的servlet名相关联。这样，客户机可使用JSP页面的普通名称，但仍然激活定制的版本。例如，给定来自项目1的servlet定义，可使用下面的servlet-mapping定义: <servlet-mapping>
+ </servlet>2)几乎总是分配一个明确的URL模式。对servlet，一般相应地使用以http://host/webAppPrefix/servlet/ 开始的缺省URL。只需记住，使用注册名而不是原名称即可。这对于JSP页面在技术上也是合法的。例如，在上面给出的例子中，可用URL http://host/webAppPrefix/servlet/PageName 访问RealPage.jsp的对初始化参数具有访问权的版本。但在用于JSP页面时，许多用户似乎不喜欢应用常规的servlet的URL。此外，如果JSP页面位于服务器为其提供了目录清单的目录中（如，一个既没有index.html也没有index.jsp文件的目录) ，则用户可能会连接到此JSP页面，单击它，从而意外地激活未初始化的页面。因此，好的办法是使用url-pattern（5.3节) 将JSP页面的原URL与注册的servlet名相关联。这样，客户机可使用JSP页面的普通名称，但仍然激活定制的版本。例如，给定来自项目1的servlet定义，可使用下面的servlet-mapping定义: <servlet-mapping>
  <servlet-name>PageName</servlet-name>
  <url-pattern>/RealPage.jsp</url-pattern>
  </servlet-mapping>3) JSP页使用jspInit而不是init。自动从JSP页面建立的servlet或许已经使用了inti方法。因此，使用JSP声明提供一个init方法是不合法的，必须制定jspInit方法。为了说明初始化JSP页面的过程，程序清单5-9给出了一个名为InitPage.jsp的JSP页面，它包含一个jspInit方法且放置于deployDemo Web应用层次结构的顶层。一般，http://host/deployDemo/InitPage.jsp 形式的URL将激活此页面的不具有初始化参数访问权的版本，从而将对firstName和emailAddress变量显示null。但是，web.xml文件（程序清单5-10) 分配了一个注册名，然后将该注册名与URL模式/InitPage.jsp相关联。程序清单5-9 InitPage.jsp
@@ -610,7 +610,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  </web-app> 
     
     
-      5.3 提供应用范围内的初始化参数      一般，对单个地servlet或JSP页面分配初始化参数。指定的servlet或JSP页面利用ServletConfig的getInitParameter方法读取这些参数。但是，在某些情形下，希望提供可由任意servlet或JSP页面借助ServletContext的getInitParameter方法读取的系统范围内的初始化参数。可利用context-param元素声明这些系统范围内的初始化值。context-param元素应该包含param-name、param-value以及可选的description子元素，如下所示: <context-param>
+      5.3 提供应用范围内的初始化参数      一般，对单个地servlet或JSP页面分配初始化参数。指定的servlet或JSP页面利用ServletConfig的getInitParameter方法读取这些参数。但是，在某些情形下，希望提供可由任意servlet或JSP页面借助ServletContext的getInitParameter方法读取的系统范围内的初始化参数。可利用context-param元素声明这些系统范围内的初始化值。context-param元素应该包含param-name、param-value以及可选的description子元素，如下所示: <context-param>
  <param-name>support-email</param-name>
  <param-value>blackhole@mycompany.com</param-value>
  </context-param>可回忆一下，为了保证可移植性，web.xml内的元素必须以正确的次序声明。但这里应该注意，context-param元素必须出现任意与文档有关的元素（icon、display-name或description) 之后及filter、filter-mapping、listener或servlet元素之前。5.4 在服务器启动时装载servlet假如servlet或JSP页面有一个要花很长时间执行的init（servlet) 或jspInit（JSP) 方法。例如，假如init或jspInit方法从某个数据库或ResourceBundle查找产量。这种情况下，在第一个客户机请求时装载servlet的缺省行为将对第一个客户机产生较长时间的延迟。因此，可利用servlet的load-on-startup元素规定服务器在第一次启动时装载servlet。下面是一个例子。<servlet>
@@ -659,7 +659,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
       
       
       
-        一旦建立了一个过滤器，可以在web.xml中利用filter元素以及filter-name（任意名称) 、file-class（完全限定的类名) 和（可选的) init-params子元素声明它。请注意，元素在web.xml的web-app元素中出现的次序不是任意的；允许服务器（但不是必需的) 强制所需的次序，并且实际中有些服务器也是这样做的。但这里要注意，所有filter元素必须出现在任意filter-mapping元素之前，filter-mapping元素又必须出现在所有servlet或servlet-mapping元素之前。      例如，给定上述的ReportFilter类，可在web.xml中作出下面的filter声明。它把名称Reporter与实际的类ReportFilter（位于moreservlets程序包中) 相关联。<filter>
+        一旦建立了一个过滤器，可以在web.xml中利用filter元素以及filter-name（任意名称) 、file-class（完全限定的类名) 和（可选的) init-params子元素声明它。请注意，元素在web.xml的web-app元素中出现的次序不是任意的；允许服务器（但不是必需的) 强制所需的次序，并且实际中有些服务器也是这样做的。但这里要注意，所有filter元素必须出现在任意filter-mapping元素之前，filter-mapping元素又必须出现在所有servlet或servlet-mapping元素之前。      例如，给定上述的ReportFilter类，可在web.xml中作出下面的filter声明。它把名称Reporter与实际的类ReportFilter（位于moreservlets程序包中) 相关联。<filter>
  <filter-name>Reporter</filter-name>
  <filter-class>moresevlets.ReportFilter</filter-class>
  </filter>一旦命名了一个过滤器，可利用filter-mapping元素把它与一个或多个servlet或JSP页面相关联。关于此项工作有两种选择。首先，可使用filter-name和servlet-name子元素把此过滤器与一个特定的servlet名（此servlet名必须稍后在相同的web.xml文件中使用servlet元素声明) 关联。例如，下面的程序片断指示系统只要利用一个定制的URL访问名为SomeServletName的servlet或JSP页面，就运行名为Reporter的过滤器。<filter-mapping>
@@ -668,7 +668,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  </filter-mapping>其次，可利用filter-name和url-pattern子元素将过滤器与一组servlet、JSP页面或静态内容相关联。例如，相面的程序片段指示系统只要访问Web应用中的任意URL，就运行名为Reporter的过滤器。<filter-mapping>
  <filter-name>Reporter</filter-name>
  <url-pattern>/*</url-pattern>
- </filter-mapping>例如，程序清单5-12给出了将ReportFilter过滤器与名为PageName的servlet相关联的web.xml文件的一部分。名字PageName依次又与一个名为TestPage.jsp的JSP页面以及以模式http://host/webAppPrefix/UrlTest2/ 开头的URL相关联。TestPage.jsp的源代码已经JSP页面命名的谈论在前面的3节"分配名称和定制的URL"中给出。事实上，程序清单5-12中的servlet和servlet-name项从该节原封不动地拿过来的。给定这些web.xml项，可看到下面的标准输出形式的调试报告（换行是为了容易阅读) 。audit.irs.gov tried to access
+ </filter-mapping>例如，程序清单5-12给出了将ReportFilter过滤器与名为PageName的servlet相关联的web.xml文件的一部分。名字PageName依次又与一个名为TestPage.jsp的JSP页面以及以模式http://host/webAppPrefix/UrlTest2/ 开头的URL相关联。TestPage.jsp的源代码已经JSP页面命名的谈论在前面的3节"分配名称和定制的URL"中给出。事实上，程序清单5-12中的servlet和servlet-name项从该节原封不动地拿过来的。给定这些web.xml项，可看到下面的标准输出形式的调试报告（换行是为了容易阅读) 。audit.irs.gov tried to access
  http://mycompany.com/deployDemo/UrlTest2/business/tax-plan.html
  on Tue Dec 25 13:12:29 EDT 2001.程序清单5-12 Web.xml（说明filter用法的摘录) 
  <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -695,7 +695,7 @@ Servlet规范中定义了web.xml文件，它是Web应用的配置文件，Web.xm
  <url-pattern>/UrlTest2/*</url-pattern>
  </servlet-mapping>
  <!- ... ->
- </web-app> 7 指定欢迎页假如用户提供了一个像http://host/webAppPrefix/directoryName/ 这样的包含一个目录名但没有包含文件名的URL，会发生什么事情呢？用户能得到一个目录表？一个错误？还是标准文件的内容？如果得到标准文件内容，是index.html、index.jsp、default.html、default.htm或别的什么东西呢？Welcome-file-list元素及其辅助的welcome-file元素解决了这个模糊的问题。例如，下面的web.xml项指出，如果一个URL给出一个目录名但未给出文件名，服务器应该首先试用index.jsp，然后再试用index.html。如果两者都没有找到，则结果有赖于所用的服务器（如一个目录列表) 。<welcome-file-list>
+ </web-app> 7 指定欢迎页假如用户提供了一个像http://host/webAppPrefix/directoryName/ 这样的包含一个目录名但没有包含文件名的URL，会发生什么事情呢？用户能得到一个目录表？一个错误？还是标准文件的内容？如果得到标准文件内容，是index.html、index.jsp、default.html、default.htm或别的什么东西呢？Welcome-file-list元素及其辅助的welcome-file元素解决了这个模糊的问题。例如，下面的web.xml项指出，如果一个URL给出一个目录名但未给出文件名，服务器应该首先试用index.jsp，然后再试用index.html。如果两者都没有找到，则结果有赖于所用的服务器（如一个目录列表) 。<welcome-file-list>
  <welcome-file>index.jsp</welcome-file>
  <welcome-file>index.html</welcome-file>
  </welcome-file-list>虽然许多服务器缺省遵循这种行为，但不一定必须这样。因此，明确地使用welcom-file-list保证可移植性是一种良好的习惯。8 指定处理错误的页面现在我了解到，你在开发servlet和JSP页面时从不会犯错误，而且你的所有页面是那样的清晰，一般的程序员都不会被它们的搞糊涂。但是，是人总会犯错误的，用户可能会提供不合规定的参数，使用不正确的URL或者不能提供必需的表单字段值。除此之外，其它开发人员可能不那么细心，他们应该有些工具来克服自己的不足。error-page元素就是用来克服这些问题的。它有两个可能的子元素，分别是: error-code和exception-type。第一个子元素error-code指出在给定的HTTP错误代码出现时使用的URL。第二个子元

@@ -180,7 +180,7 @@ root
   
 awk工作流程是这样的: 读入有'\n'换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。默认域分隔符是"空白键" 或 "[tab]键",所以$1表示登录用户，$3表示登录用户ip,以此类推。
 
- 
+ 
 
 如果只是显示/etc/passwd的账户
 
@@ -198,7 +198,7 @@ sys
 
 -F指定域分隔符为':'。
 
- 
+ 
 
 如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以tab键分割
 
@@ -232,7 +232,7 @@ blue,/bin/nosh
 
 awk工作流程是这样的: 先执行BEGING，然后读取文件，读入有/n换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域,随后开始执行模式所对应的动作action。接着开始读入第二条记录······直到所有的记录都读完，最后执行END操作。
 
- 
+ 
 
 搜索/etc/passwd有root关键字的所有行
 
@@ -242,9 +242,9 @@ root:x:0:0:root:/root:/bin/bash
   
 这种是pattern的使用示例，匹配了pattern(这里是root)的行才会执行action(没有指定action，默认输出每行的内容)。
 
-搜索支持正则，例如找root开头的: awk -F: '/^root/' /etc/passwd
+搜索支持正则，例如找root开头的: awk -F: '/^root/' /etc/passwd
 
- 
+ 
 
 搜索/etc/passwd有root关键字的所有行，并显示对应的shell
 
@@ -254,7 +254,7 @@ root:x:0:0:root:/root:/bin/bash
   
 这里指定了action{print $7}
 
- 
+ 
 
 awk内置变量
   
@@ -284,7 +284,7 @@ RS 控制记录分隔符
 
 此外,$0变量是指整条记录。$1表示当前行的第一个域,$2表示当前行的第二个域,......以此类推。
 
- 
+ 
 
 统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容:
 
@@ -310,7 +310,7 @@ awk中同时提供了print和printf两种打印输出的函数。
 
 printf函数，其用法和c语言中printf基本相似,可以格式化字符串,输出复杂时，printf更加好用，代码更易懂。
 
- 
+ 
 
 awk编程
   
@@ -326,11 +326,11 @@ root:x:0:0:root:/root:/bin/bash
   
 ......
   
-user count is  40
+user count is  40
 
 count是自定义变量。之前的action{}里都是只有一个print,其实print只是一个语句，而action{}可以有多个语句，以;号隔开。
 
- 
+ 
 
 这里没有初始化count，虽然默认是0，但是妥当的做法还是初始化为0:
 
@@ -348,19 +348,19 @@ root:x:0:0:root:/root:/bin/bash
 
 ls -l |awk 'BEGIN {size=0;} {size=size+$5;} END{print "[end]size is ", size}'
   
-[end]size is  8657198
+[end]size is  8657198
 
- 
+ 
 
 如果以M为单位显示:
 
 ls -l |awk 'BEGIN {size=0;} {size=size+$5;} END{print "[end]size is ", size/1024/1024,"M"}'
   
-[end]size is  8.25889 M
+[end]size is  8.25889 M
   
 注意，统计不包括文件夹的子目录。
 
- 
+ 
 
 条件语句
 
@@ -404,19 +404,19 @@ statement3;
 
 ls -l |awk 'BEGIN {size=0;print "[start]size is ", size} {if($5!=4096){size=size+$5;}} END{print "[end]size is ", size/1024/1024,"M"}'
   
-[end]size is  8.22339 M
+[end]size is  8.22339 M
   
 循环语句
 
 awk中的循环语句同样借鉴于C语言，支持while、do/while、for、break、continue，这些关键字的语义和C语言中的语义完全相同。
 
- 
+ 
 
 数组
 
 因为awk中数组的下标可以是数字和字母，数组的下标通常被称为关键字(key)。值和关键字都存储在内部的一张针对key/value应用hash的表格里。由于hash不是顺序存储，因此在显示数组内容时会发现，它们并不是按照你预料的顺序显示出来的。数组和变量一样，都是在使用时自动创建的，awk也同样会自动判断其存储的是数字还是字符串。一般而言，awk中的数组用来从记录中收集信息，可以用于计算总和、统计单词以及跟踪模板被匹配的次数等等。
 
- 
+ 
 
 显示/etc/passwd的账户
   

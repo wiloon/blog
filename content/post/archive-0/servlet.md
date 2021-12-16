@@ -34,12 +34,12 @@ Servlet是一种服务器端的Java应用程序，具有独立于平台和协议
 Servlet的主要功能在于交互式地浏览和修改数据，生成动态Web内容。这个过程为: 
 
 客户端发送请求至服务器端；
- 服务器将请求信息发送至Servlet ；
+ 服务器将请求信息发送至Servlet ；
  Servlet生成响应内容并将其传给Server。响应内容动态生成，通常取决于客户端的请求；
  服务器将响应返回给客户端；
  Servlet看起来像是通常的Java程序。Servlet导入特定的属于Java ServletAPI的包。因为是对象字节码，可动态地从网络加载，可以说Servlet对Server就如同Applet对Client一样，但是，由于Servlet运行于Server中，它们并不需要一个图形用户界面。从这个角度讲，Servlet也被称为FacelessObject。
  一个servlet就是Java编程语言中的一个类，它被用来扩展服务器的性能，服务器上驻留着可以通过"请求-响应"编程模型来访问的应用程序。虽然servlet可以对任何类型的请求产生响应，但通常只用来扩展Web服务器的应用程序。
- 目前最新版本为3.0草案命名:  Server + Applet =Servlet 意为服务器端的小程序  
+ 目前最新版本为3.0草案命名:  Server + Applet =Servlet 意为服务器端的小程序  
   
   
 Servlet生命周期
@@ -66,7 +66,7 @@ Servlet生命周期
     服务器启动并调用Servlet，Servlet根据客户端请求生成响应内容并将其传给服务器
   
   
-     服务器将响应返回客户端
+     服务器将响应返回客户端
   
   
     Servlet 与 Applet: 
@@ -77,7 +77,7 @@ Servlet生命周期
  * 它们不是由用户或程序员调用，而是由另外一个应用程序(容器)调用。
  * 它们都有一个生存周期，包含init()和destroy()方法。
  不同: 
- * Applet具有图形界面(AWT)，与浏览器一起，在客户端运行。
+ * Applet具有图形界面(AWT)，与浏览器一起，在客户端运行。
  * Servlet 则没有图形界面，运行在服务器端。
   
   
@@ -85,15 +85,15 @@ Servlet生命周期
   
   
   
-Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与传统的CGI和许多其他类似CGI的技术相比，Java Servlet具有更高的效率，更容易使用，功能更强大，具有更好的可移植性，更节省投资。在未来的技术发展过程中，Servlet有可能彻底取代CGI。 在传统的CGI中，每个请求都要启动一个新的进程，如果CGI程序本身的执行时间较短，启动进程所需要的开销很可能反而超过实际执行时间。而在Servlet中，每个请求由一个轻量级的Java线程处理(而不是重量级的操作系统进程)。在传统CGI中，如果有N个并发的对同一CGI程序的请求，则该CGI程序的代码在内存中重复装载了N次；而对于Servlet，处理请求的是N个线程，只需要一份Servlet类代码。在性能优化方面，Servlet也比CGI有着更多的选择。
+Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与传统的CGI和许多其他类似CGI的技术相比，Java Servlet具有更高的效率，更容易使用，功能更强大，具有更好的可移植性，更节省投资。在未来的技术发展过程中，Servlet有可能彻底取代CGI。 在传统的CGI中，每个请求都要启动一个新的进程，如果CGI程序本身的执行时间较短，启动进程所需要的开销很可能反而超过实际执行时间。而在Servlet中，每个请求由一个轻量级的Java线程处理(而不是重量级的操作系统进程)。在传统CGI中，如果有N个并发的对同一CGI程序的请求，则该CGI程序的代码在内存中重复装载了N次；而对于Servlet，处理请求的是N个线程，只需要一份Servlet类代码。在性能优化方面，Servlet也比CGI有着更多的选择。
   
   
   
-    * 方便 
+    * 方便 
   
   
   
-    Servlet提供了大量的实用工具例程，例如自动地解析和解码HTML表单数据、读取和设置HTTP头、处理Cookie、跟踪会话状态等。 
+    Servlet提供了大量的实用工具例程，例如自动地解析和解码HTML表单数据、读取和设置HTTP头、处理Cookie、跟踪会话状态等。 
   
   
   
@@ -101,14 +101,14 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与�
   
   
   
-    在Servlet中，许多使用传统CGI程序很难完成的任务都可以轻松地完成。例如，Servlet能够直接和Web服务器交互，而普通的CGI程序不能。Servlet还能够在各个程序之间共享数据，使得数据库连接池之类的功能很容易实现。 
+    在Servlet中，许多使用传统CGI程序很难完成的任务都可以轻松地完成。例如，Servlet能够直接和Web服务器交互，而普通的CGI程序不能。Servlet还能够在各个程序之间共享数据，使得数据库连接池之类的功能很容易实现。 
   
   
     * 可移植性好
- Servlet用Java编写，Servlet API具有完善的标准。因此，为IPlanet Enterprise Server写的Servlet无需任何实质上的改动即可移植到Apache、Microsoft IIS或者WebStar。几乎所有的主流服务器都直接或通过插件支持Servlet。
+ Servlet用Java编写，Servlet API具有完善的标准。因此，为IPlanet Enterprise Server写的Servlet无需任何实质上的改动即可移植到Apache、Microsoft IIS或者WebStar。几乎所有的主流服务器都直接或通过插件支持Servlet。
   
   
-    * 节省投资 
+    * 节省投资 
  不仅有许多廉价甚至免费的Web服务器可供个人或小规模网站使用，而且对于现有的服务器，如果它不支持Servlet的话，要加上这部分功能也往往是免费的(或只需要极少的投资)。
   
   
@@ -137,10 +137,10 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与�
     servlet 2.4 新增功能
   
   
-    : 2003年11月推出 
+    : 2003年11月推出 
   
   
-    Servlet 2.4加入了几个引起关注的特性，没有特别突出的新内容，而是在推敲和阐明以前存在的一些特性上花费了更多的功夫,对一些不严谨的地方进行了校验。 
+    Servlet 2.4加入了几个引起关注的特性，没有特别突出的新内容，而是在推敲和阐明以前存在的一些特性上花费了更多的功夫,对一些不严谨的地方进行了校验。 
   
   
     Servlet 2.4增加了新的最低需求，监测request的新方法，处理response的新方法，新的国际化支持，RequestDispatcher的几个处理，新的request listener类，session的描述，和一个新的基于Schema的并拥有J2EE元素的发布描述符。这份文档规范全面而严格的进行了修订，除去了一些可能会影响到跨平台发布的模糊不清的因素。总而言之，这份规范增加了四个新类，七个新方法，一个新常量，不再推荐使用一个类。
@@ -156,7 +156,7 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与�
  <?xml version="1.0" encoding="UTF-8"?>
  <web-app version="2.4" xmlns=http://java.sun.com/xml/ns/j2ee
  xmlns:workflow=http://www.workflow.com
- xmins:xsi="http://www.w3.org/2001/XMLSchema-instance"        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+ xmins:xsi="http://www.w3.org/2001/XMLSchema-instance"        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   
   
@@ -237,89 +237,89 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与�
   
     
       
-         Servlet规范版本
+         Servlet规范版本
       
       
       
-         JSP版本
+         JSP版本
       
       
       
-         JSF版本
+         JSF版本
       
       
       
-         JAVA EE版本
-      
-    
-    
-    
-      
-         Servlet2.3
-      
-      
-      
-         JSP1.2、JSP1.1
-      
-      
-      
-      
-      
-      
-         J2EE1.3
+         JAVA EE版本
       
     
     
     
       
-         Servlet2.4
+         Servlet2.3
       
       
       
-         JSP2.0
+         JSP1.2、JSP1.1
       
       
       
-         JSF1.1
       
       
       
-         J2EE1.4
-      
-    
-    
-    
-      
-         Servlet2.5
-      
-      
-      
-         JSP2.1
-      
-      
-      
-         JSF1.2、JSF2.0
-      
-      
-      
-         Java EE5
+         J2EE1.3
       
     
     
     
       
-         Servlet3.0
+         Servlet2.4
       
       
       
-         JSP2.2
+         JSP2.0
+      
+      
+      
+         JSF1.1
+      
+      
+      
+         J2EE1.4
+      
+    
+    
+    
+      
+         Servlet2.5
+      
+      
+      
+         JSP2.1
+      
+      
+      
+         JSF1.2、JSF2.0
+      
+      
+      
+         Java EE5
+      
+    
+    
+    
+      
+         Servlet3.0
+      
+      
+      
+         JSP2.2
       
       
       
       
       
       
-         Java EE6
+         Java EE6
       
     
   
@@ -393,7 +393,7 @@ Java Servlet 与 CGI(Common Gateway Interface 公共网关接口) 的比较:与�
       
       
       
-        First official specification, added RequestDispatcher, ServletContext
+        First official specification, added RequestDispatcher, ServletContext
       
     
     

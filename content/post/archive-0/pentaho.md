@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Pentaho
-home page: http://www.pentaho.com/
+home page: http://www.pentaho.com/
 
 community: http://community.pentaho.com/
 
@@ -18,15 +18,15 @@ License: GPLv2:http://community.pentaho.com/faq/platform_licensing.php
 
 download:http://sourceforge.net/projects/pentaho/files/
 
-Business Analytics Platform: biserver-ce-xxx.zip
+Business Analytics Platform: biserver-ce-xxx.zip
 
 Data Integration (Kettle):pdi-ce-xxx.zip
 
-Report Designer: prd-ce-xxx.zip
+Report Designer: prd-ce-xxx.zip
 
 Marketplace: marketplace-xxx.zip
 
-Metadata Editor: pme-ce-xxx.zip
+Metadata Editor: pme-ce-xxx.zip
 
 Schema Workbench: psw-ce-xxx.zip
 

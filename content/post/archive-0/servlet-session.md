@@ -13,7 +13,7 @@ categories:
 
 本文向您介绍Servlet Session机制，包括会话管理机制、事件监听等，并结合具体的示例讲解了一个基于Servlet Session登陆系统的实现。
   
-    一、           Servlet的会话管理机制
+    一、           Servlet的会话管理机制
   
 
   
@@ -29,38 +29,38 @@ categories:
     会话标识符以Cookie的形式在服务器和浏览器之间传送。如果客户端不支持cookie，运用url改写机制来保证会话标识符传回服务器。
   
   
-    二、           Servlet Session事件侦听
+    二、           Servlet Session事件侦听
   
   
     HttpSessionBindingEvent类
  定义
- public class HttpSessionBindingEvent extends EventObject
+ public class HttpSessionBindingEvent extends EventObject
  这个事件是在监听到HttpSession发生绑定和取消绑定的情况时连通HttpSessionBindingListener的。这可能是一个session被终止或被认定无效的结果。
  事件源是HttpSession.putValue或HttpSession.removeValue。
  构造函数
- public HttpSessionBindingEvent(HttpSession session, String name);
+ public HttpSessionBindingEvent(HttpSession session, String name);
  通过引起这个事件的Session和发生绑定或取消绑定的对象名构造一个新的HttpSessionBindingEvent。
  方法
  1、getName
- public String getName();
+ public String getName();
  返回发生绑定和取消绑定的对象的名字。
  2、getSession
- public HttpSession getSession();
+ public HttpSession getSession();
  返回发生绑定和取消绑定的session的名字。
  HttpSessionBindingListener接口
  定义
- public interface HttpSessionBindingListener
-       这个对象被加入到HTTP的session中，执行这个接口会通告有没有什么对象被绑定到这个HTTP session中或被从这个HTTP session中取消绑定。
+ public interface HttpSessionBindingListener
+       这个对象被加入到HTTP的session中，执行这个接口会通告有没有什么对象被绑定到这个HTTP session中或被从这个HTTP session中取消绑定。
  方法
  1、valueBound
- public void valueBound(HttpSessionBindingEvent event);
+ public void valueBound(HttpSessionBindingEvent event);
  当一个对象被绑定到session中，调用此方法。HttpSession.putValue方法被调用时，Servlet引擎应该调用此方法。
  2、valueUnbound
- public void valueUnbound(HttpSessionBindingEvent event);
+ public void valueUnbound(HttpSessionBindingEvent event);
  当一个对象被从session中取消绑定，调用此方法。HttpSession.removeValue方法被调用时，Servlet引擎应该调用此方法。
   
   
-    Session的事件处理机制与swing事件处理机制不同。Swing采用注册机制，而session没有；当任一session发生绑定或其他事件时，都会触发HttpSessionBindingEvent ，如果servlet容器中存在HttpSessionBindingListener的实现类，则会将事件作为参数传送给session侦听器的实现类。在HttpSessionBindingEvent 中可以通过getsession得到发生绑定和取消绑定的session的名字，而侦听器可以据此做更多处理。
+    Session的事件处理机制与swing事件处理机制不同。Swing采用注册机制，而session没有；当任一session发生绑定或其他事件时，都会触发HttpSessionBindingEvent ，如果servlet容器中存在HttpSessionBindingListener的实现类，则会将事件作为参数传送给session侦听器的实现类。在HttpSessionBindingEvent 中可以通过getsession得到发生绑定和取消绑定的session的名字，而侦听器可以据此做更多处理。
   
   
     因此，对session的事件侦听，只需实现HttpSessionBindingListener即可。
@@ -81,13 +81,13 @@ categories:
     分别执行不同的任务，处理基本相同。
   
   
-    三、           例子（zz) 
+    三、           例子（zz) 
   
   
-    捕获Servlet Session事件的意义: 
- 1、 记录网站的客户登录日志（登录，退出信息等) 
- 2、 统计在线人数
- 3、 等等还有很多，呵呵，自己想吧……总之挺重要的。
+    捕获Servlet Session事件的意义: 
+ 1、 记录网站的客户登录日志（登录，退出信息等) 
+ 2、 统计在线人数
+ 3、 等等还有很多，呵呵，自己想吧……总之挺重要的。
  Session代表客户的会话过程，客户登录时，往Session中传入一个对象，即可跟踪客户的会话。在Servlet中，传入Session的对象如果是一个实现HttpSessionBindingListener接口的对象（方便起见，此对象称为监听器) ，则在传入的时候（即调用HttpSession对象的setAttribute方法的时候) 和移去的时候（即调用HttpSession对象的removeAttribute方法的时候或Session Time out的时候) Session对象会自动调用监听器的valueBound和valueUnbound方法（这是HttpSessionBindingListener接口中的方法) 。由此可知，登录日志也就不难实现了。
  另外一个问题是，如何统计在线人数，这个问题跟实现登录日志稍微有点不同，统计在线人数（及其信息) ，就是统计现在有多少个Session实例存在，我们可以增加一个计数器（如果想存储更多的信息，可以用一个对象来做计数器，随后给出的实例中，简单起见，用一个整数变量作为计数器) ，通过在valueBound方法中给计数器加1，valueUnbound方法中计数器减1，即可实现在线人数的统计。当然，这里面要利用到ServletContext的全局特性。(有关ServletContext的叙述请参考Servlet规范)，新建一个监听器，并将其实例存入ServletContext的属性中，以保证此监听器实例的唯一性，当客户登录时，先判断ServletContext的这个属性是否为空，如果不为空，证明已经创建，直接将此属性取出放入Session中，计数器加1；如果为空则创建一个新的监听器，并存入ServletContext的属性中。
  举例说明: 
@@ -405,7 +405,7 @@ categories:
           
           
           
-               new SessionListener("IP:"+req.getRemoteAddr());
+               new SessionListener("IP:"+req.getRemoteAddr());
           
           
           

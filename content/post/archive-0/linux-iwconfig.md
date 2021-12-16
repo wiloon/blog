@@ -13,7 +13,7 @@ apt-get install wireless-tools
 
 iwconfig wlan0 essid your essid iwconfig wlan0 key s:yourpass iwconfig wlan0 mode managed dhclient wlan0 iwconfig
 
-是linux wireless extensions(lwe)的用户层配置工具之一。
+是linux wireless extensions(lwe)的用户层配置工具之一。
 
 lwe是linux下对无线网络配置的工具，包括内核的支持、用户层配置工具和驱动接口的支持三部 分。目前很多无线网卡都支持lwe，而且主流的linux发布版本，比如redhat linux、ubuntu linux都已经带了这个配置工具。
 

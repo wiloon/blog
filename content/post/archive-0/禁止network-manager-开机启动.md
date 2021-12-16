@@ -10,10 +10,10 @@ categories:
 ## 禁止network manager 开机启动.
 安装sysv-rc-conf
 
-sudo apt-get install sysv-rc-conf
+sudo apt-get install sysv-rc-conf
 
 运行sysv-rc-conf
 
-sudo sysv-rc-conf
+sudo sysv-rc-conf
 
 把network-m对应的xx都点掉.

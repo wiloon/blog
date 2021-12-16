@@ -15,6 +15,6 @@ Remove git from the list of backends handled by vc-mode:
 
     (delete 'Git vc-handled-backends) 
 
-or remove **all** source control hooks:
+or remove **all** source control hooks:
 
     (setq vc-handled-backends ())

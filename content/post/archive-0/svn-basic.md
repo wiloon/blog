@@ -87,7 +87,7 @@ svn up --force
 
 svn commit -m 'xxx'
 
-svn revert .
+svn revert .
 
 svn delete --force foo
 

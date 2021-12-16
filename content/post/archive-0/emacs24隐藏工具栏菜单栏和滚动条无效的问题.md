@@ -22,13 +22,13 @@ categories:
     
     <ol start="1">
       
-        (tool-bar-mode nil)
+        (tool-bar-mode nil)
       
       
-        (menu-bar-mode nil)
+        (menu-bar-mode nil)
       
       
-        (scroll-bar-mode nil)
+        (scroll-bar-mode nil)
       
     
   
@@ -41,13 +41,13 @@ categories:
   
     <ol start="1">
       
-        (tool-bar-mode 0)
+        (tool-bar-mode 0)
       
       
-        (menu-bar-mode 0)
+        (menu-bar-mode 0)
       
       
-        (scroll-bar-mode 0)
+        (scroll-bar-mode 0)
       
     
   

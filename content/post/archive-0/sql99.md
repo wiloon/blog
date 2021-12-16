@@ -9,7 +9,7 @@ categories:
 ---
 ## SQL99
 
-  来自ITwiki，开放的信息技术大百科  http://wiki.ccw.com.cn/SQL99
+  来自ITwiki，开放的信息技术大百科  http://wiki.ccw.com.cn/SQL99
 
 
   

@@ -16,13 +16,13 @@ apt-get install vsftpd
 
   * 家目录/srv/ftp ......在/etc/password 中可以查到.
   * 允许匿名访问.
-  * /etc/ftpusers 记录着不允许访问FTP服务器的用户名单.默认排除了root
+  * /etc/ftpusers 记录着不允许访问FTP服务器的用户名单.默认排除了root
 
-启动服务 /etc/init.d/./vsftpd start
+启动服务 /etc/init.d/./vsftpd start
 
-重启服务 /etc/init.d/./vsftpd restart
+重启服务 /etc/init.d/./vsftpd restart
 
-停止服务 /etc/init.d/./vsftpd stop
+停止服务 /etc/init.d/./vsftpd stop
 
 
 修改/etc/vsftpd.conf

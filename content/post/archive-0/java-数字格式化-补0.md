@@ -12,4 +12,4 @@ DecimalFormat df = new DecimalFormat("0000000");
   
 System.out.println(df.format(1));
 
-output: 0000001
+output: 0000001

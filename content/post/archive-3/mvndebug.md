@@ -17,14 +17,14 @@ mvnDebug jetty:run
 
 maven的安装目录下存在 mvnDebug.bat 文件，打开可以看到具体的配置项如下: 
 
-<code class="language-bat line-numbers">set MAVEN_DEBUG_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+<code class="language-bat line-numbers">set MAVEN_DEBUG_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
 ```
 
 这里对几个参数进行说明: 
   
-- -Xdebug :   启动debug模式
+- -Xdebug :   启动debug模式
   
-- -Xnoagent:   禁用默认sun.tools.debug调试器
+- -Xnoagent:   禁用默认sun.tools.debug调试器
   
 - -Djava.compiler: 指定编译器类型，可方便优化 jitc jitc_de等
   

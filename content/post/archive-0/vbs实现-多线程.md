@@ -30,7 +30,7 @@ categories:
   
 PaaS公司在网上提供各种开发和分发应用的解决方案，比如虚拟服务器和操作系统。这节省了你在硬件上的费用，也让分散的工作室之间的合作变得更加容易。网页应用管理，应用设计，应用虚拟主机，存储，安全以及应用开发协作工具等。
   
-一些大的PaaS提供者有Google App Engine, Microsoft Azure，Force.com, Heroku，Engine Yard。最近兴起的公司有AppFog, Mendix 和 Standing Cloud
+一些大的PaaS提供者有Google App Engine, Microsoft Azure，Force.com, Heroku，Engine Yard。最近兴起的公司有AppFog, Mendix 和 Standing Cloud
 
 ### SaaS: Software-as-a-Service（软件即服务) 
 第三层也就是所谓SaaS。这一层是和你的生活每天接触的一层，大多是通过网页浏览器来接入。任何一个远程服务器上的应用都可以通过网络来运行，就是SaaS了。
@@ -60,5 +60,5 @@ PaaS的主要作用是将一个开发和运行平台作为服务提供给用户�
 
 在当今云计算环境当中，IaaS是非常主流的，无论是Amazon EC2还是Linode或者Joyent等，都占有一席之地，但是随着Google的App Engine，Salesforce的Force.com还是微软的Windows Azure等PaaS平台的推出，使得PaaS也开始崭露头角。谈到这两者的未来，特别是这两者之间的竞争关系，我个人认为，短期而言，因为IaaS模式在支持的应用和学习难度这两方面的优势，使得IaaS将会在短期之内会成为开发者的首选，但是从长期而言，因为PaaS模式的高整合率所带来经济型使得如果PaaS能解决诸如通用性和支持的应用等方面的挑战，它将会替代IaaS成为开发者的"新宠"。
 
-原文链接: http://www.leiphone.com/iaas-paas-and-saas.html      http://www.svnclub.com/?q=node/137
+原文链接: http://www.leiphone.com/iaas-paas-and-saas.html      http://www.svnclub.com/?q=node/137
 

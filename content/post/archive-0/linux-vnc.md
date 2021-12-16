@@ -44,7 +44,7 @@ vncserver -kill :1
 
 kill 后面有一个空格
 
-设置分辨率: vncserver -geometry 1280*1024
+设置分辨率: vncserver -geometry 1280*1024
 
 replace * with x
 

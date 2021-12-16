@@ -54,13 +54,13 @@ categories:
   
 这是使用交换分区或者交换文件来做为虚拟内存的，当然要选上了。
 
-[*]System V IPC 为进程提供通信机制，这将使系统中各进程间有交换信息与保持同步的能力。有些程序只有在选Y的情况下才能运行，所以不用考虑，这里一定要选。
+[*]System V IPC 为进程提供通信机制，这将使系统中各进程间有交换信息与保持同步的能力。有些程序只有在选Y的情况下才能运行，所以不用考虑，这里一定要选。
 
 [*] BSD Process Accounting
 
 这是允许用户进程访问内核，将账户信息写入文件中。这通常被认为是个好主意，建议你最好将它选上。将进程的统计信息写入文件的用户级系统调用,主要包括进程的创建时间/创建者/内存占用等信息。
 
-[*]   BSD Process Accounting version 3 file format
+[*]   BSD Process Accounting version 3 file format
 
 选用的话前面所述的进程信息/统计信息将会以新的格式（V3) 写入，这格式包含进程ID和父进程。注意这个格式和以前的 v0/v1/v2 格式不兼容，所以你需要 升级相关工具来使用它。选不选均可。(选了才能用bootchart)
 
@@ -70,14 +70,14 @@ categories:
 
 -*- Enable per-task delay accounting (EXPERIMENTAL)统计数据包含每个任务/进程的延时
 
-**[*] ..Enable extended accounting over taskstats** CONFIG_TASK_XACCT=y 统计数据包含扩展任务读取数据和发送数据使用的时间
+**[*] ..Enable extended accounting over taskstats** CONFIG_TASK_XACCT=y 统计数据包含扩展任务读取数据和发送数据使用的时间
 
-**[*] ....Enable per-task storage I/O accounting** CONFIG_TASK_IO_ACCOUNTING=y 统计数据包括I/O设备产生的字节数
+**[*] ....Enable per-task storage I/O accounting** CONFIG_TASK_IO_ACCOUNTING=y 统计数据包括I/O设备产生的字节数
 
-**[*] Auditing support** CONFIG_AUDIT=y 支持审计功能
+**[*] Auditing support** CONFIG_AUDIT=y 支持审计功能
 
-**[*] ..Enable system-call auditing support** CONFIG_AUDITSYSCALL=y 开启系统调用的审计功能
+**[*] ..Enable system-call auditing support** CONFIG_AUDITSYSCALL=y 开启系统调用的审计功能
 
-** IRQ subsystem ->** 中断子系统
+** IRQ subsystem ->** 中断子系统
 
-**-*- Support sparse irq numbering** CONFIG_SPARSE_IRQ=y 支持稀有的中断号
+**-*- Support sparse irq numbering** CONFIG_SPARSE_IRQ=y 支持稀有的中断号

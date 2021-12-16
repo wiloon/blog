@@ -12,10 +12,10 @@ MySQL:
 
 connURL: jdbc:MySQL://localhost:3306/tmp
 
-drivername: com.MySQL.jdbc.Driver
+drivername: com.MySQL.jdbc.Driver
 
 oracle:
 
 connURL: jdbc:oracle:thin:@192.168.1.8:1521:test
 
-drivername: oracle.jdbc.OracleDriver
+drivername: oracle.jdbc.OracleDriver

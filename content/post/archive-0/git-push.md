@@ -21,4 +21,4 @@ fatal: The remote end hung up unexpectedly
 error: failed to push some refs to 'gitolite@localhost:et'
 
 
-should use.... git push origin master
+should use.... git push origin master

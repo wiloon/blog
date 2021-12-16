@@ -327,51 +327,51 @@ Ctrl-PageDown
  
 可以在Emacs中用C-x C-h列出全部命令，查找C-x r c，所有列模式命令都是以C-x r开始的
   
-C-x r C-@                    point-to-register
+C-x r C-@                    point-to-register
   
-C-x r SPC                    point-to-register
+C-x r SPC                    point-to-register
   
-C-x r +        increment-register
+C-x r +        increment-register
   
-C-x r b        bookmark-jump
+C-x r b        bookmark-jump
   
-C-x r c        clear-rectangle
+C-x r c        clear-rectangle
   
 先用C-space或者C-@设一个mark，移动光标(C-n/C-f)到另一点，使用C-x r c可以清楚mark到光标处的矩形区域，该区域留下空白。
   
-C-x r d        delete-rectangle, 删除矩形区域，不留空白，后面的字符前移
+C-x r d        delete-rectangle, 删除矩形区域，不留空白，后面的字符前移
   
-C-x r f        frame-configuration-to-register
+C-x r f        frame-configuration-to-register
   
-C-x r g        insert-register
+C-x r g        insert-register
   
-C-x r i        insert-register, 将某个寄存器的内容插入某处
+C-x r i        insert-register, 将某个寄存器的内容插入某处
   
-C-x r j        jump-to-register
+C-x r j        jump-to-register
   
-C-x r k        kill-rectangle, 就是剪切某个选定的矩形区域，用C-x r y可以贴上
+C-x r k        kill-rectangle, 就是剪切某个选定的矩形区域，用C-x r y可以贴上
   
-C-x r l        bookmark-bmenu-list
+C-x r l        bookmark-bmenu-list
   
-C-x r m        bookmark-set
+C-x r m        bookmark-set
   
-C-x r n        number-to-register
+C-x r n        number-to-register
   
-C-x r o        open-rectangle, 在选定的矩形区域插入空白
+C-x r o        open-rectangle, 在选定的矩形区域插入空白
   
-C-x r r        copy-rectangle-to-register, 将选定的矩形区域复制到某个寄存器
+C-x r r        copy-rectangle-to-register, 将选定的矩形区域复制到某个寄存器
   
-C-x r s        copy-to-register
+C-x r s        copy-to-register
   
-C-x r t        string-rectangle, 在选定区域所有列前插入同样的字符
+C-x r t        string-rectangle, 在选定区域所有列前插入同样的字符
   
-C-x r w        window-configuration-to-register
+C-x r w        window-configuration-to-register
   
-C-x r x        copy-to-register
+C-x r x        copy-to-register
   
-C-x r y        yank-rectangle, 类似于矩形区域的粘贴，就是将刚用C-x r k剪切的矩形区域粘贴过来
+C-x r y        yank-rectangle, 类似于矩形区域的粘贴，就是将刚用C-x r k剪切的矩形区域粘贴过来
   
-C-x r C-SPC    point-to-register
+C-x r C-SPC    point-to-register
 
 -
 

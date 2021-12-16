@@ -29,30 +29,30 @@ jackson-mapper-asl-1.9.2.jar
 
   
     
-      Java代码  <img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" />
+      Java代码  <img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
     
-      <!- 返回JSON模版 ->
+      <!- 返回JSON模版 ->
     
     
-      <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+      <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
     
     
-          <property name="messageConverters">
+          <property name="messageConverters">
     
     
-          
+          
     
     
-               <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+               <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
     
     
-          </list>
+          </list>
     
     
-          </property>
+          </property>
     
     
       </bean>
@@ -68,7 +68,7 @@ jackson-mapper-asl-1.9.2.jar
 
   
     
-      Java代码  <img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" />
+      Java代码  <img alt="收藏代码" src="http://angelbill3.iteye.com/images/icon_star.png" />
   
   
   <ol start="1">
@@ -76,33 +76,33 @@ jackson-mapper-asl-1.9.2.jar
       @Controller
     
     
-      public class SelectController {
+      public class SelectController {
     
     
-          @Resource
+          @Resource
     
     
-          private TypeService typeService;
+          private TypeService typeService;
     
     
     
     
-          @RequestMapping("/type")
+          @RequestMapping("/type")
     
     
-          @ResponseBody
+          @ResponseBody
     
     
-          public Object type(){
+          public Object type(){
     
     
-              List<Type> typelist = this.typeService.getTypeByParentid(Const.TYPE_DAILY);
+              List<Type> typelist = this.typeService.getTypeByParentid(Const.TYPE_DAILY);
     
     
-              return typelist;
+              return typelist;
     
     
-          }
+          }
     
     
       }
@@ -117,7 +117,7 @@ jackson-mapper-asl-1.9.2.jar
 
 用上面的controller,访问: http://localhost:8080/demo/type.htm,报406错如下: 
   
-**Failed to load resource: the server responded with a status of 406 (Not Acceptable) :  The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers () **
+**Failed to load resource: the server responded with a status of 406 (Not Acceptable) :  The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers () **
 
 查资料表明,不是JAR的版本问题,网友解答描述: 
 

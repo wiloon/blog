@@ -101,7 +101,7 @@ windows
  -server
   
   
-    还有是idea.properties   可以修改一些配置，比如缓冲区设置到C盘外的其他盘下
+    还有是idea.properties   可以修改一些配置，比如缓冲区设置到C盘外的其他盘下
  除了对idea启动的内存分配外，还有: 
  1、你的C盘空闲是否足够，因为idea会在c盘你的用户目录下建立缓存。如果你的c盘空间小，运转起来会比较累。
  2、你的project是否臃肿。因为默认的idea会将所有文件都当成project的文件，而其实我们需要在idea里编辑的基本都是程序文件。而 class文件、jar文件、doc文件等等都是不需要的。打开module setting界面，切换到source选项把不属于程序文件的都exclude掉，大大降低idea的负荷。

@@ -20,7 +20,7 @@ categories:
     Implementation-Vendor: Apache Software Foundation
     Implementation-Vendor-Id: org.apache
     Implementation-Version: 1.1
-    Class-Path:  commons-beanutils.jar commons-collections.jar commons-digester.jar commons-logging.jar commons-validator.jar jakarta-oro.jar struts-legacy.jar
+    Class-Path:  commons-beanutils.jar commons-collections.jar commons-digester.jar commons-logging.jar commons-validator.jar jakarta-oro.jar struts-legacy.jar
 
 如果我们把MANIFEST中的配置信息进行分类，可以归纳出下面几个大类: 
 
@@ -60,23 +60,23 @@ categories:
 
 五. 包扩展属性
 
-1. Implementation-Title   定义了扩展实现的标题
+1. Implementation-Title   定义了扩展实现的标题
   
-2. Implementation-Version   定义扩展实现的版本
+2. Implementation-Version   定义扩展实现的版本
   
-3. Implementation-Vendor   定义扩展实现的组织
+3. Implementation-Vendor   定义扩展实现的组织
   
-4. Implementation-Vendor-Id   定义扩展实现的组织的标识
+4. Implementation-Vendor-Id   定义扩展实现的组织的标识
   
-5. Implementation-URL :   定义该扩展包的下载地址(URL)
+5. Implementation-URL :   定义该扩展包的下载地址(URL)
   
-6. Specification-Title   定义扩展规范的标题
+6. Specification-Title   定义扩展规范的标题
   
-7. Specification-Version   定义扩展规范的版本
+7. Specification-Version   定义扩展规范的版本
   
-8. Specification-Vendor   声明了维护该规范的组织
+8. Specification-Vendor   声明了维护该规范的组织
   
-9. Sealed   定义jar文件是否封存，值可以是true或者false (这点我还不是很理解)
+9. Sealed   定义jar文件是否封存，值可以是true或者false (这点我还不是很理解)
 
 六. 签名相关属性
 
@@ -100,7 +100,7 @@ MicroEdition-Configuration: CLDC-1.0
   
 MIDlet-Name: J2ME_MOBBER Midlet Suite
   
-MIDlet-Info-URL: <http://www.javayou.com/>
+MIDlet-Info-URL: <http://www.javayou.com/>
   
 MIDlet-Icon: /icon.png
   

@@ -85,7 +85,7 @@ Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态�
 
 
 
-### Java 数据类型
+### Java 数据类型
 
 String 不是基本数据类型，基本数据类型包括byte、int、char、long、float、double、boolean和short。 java.lang.String类是final类型的，因此不可以继承这个类、不能修改这个类。为了提高效率节省空间，我们应该用StringBuffer类.
 
@@ -129,7 +129,7 @@ Java不支持像C++中那样的复制构造函数，这个不同点是因为如�
 
 ### int 和 Integer 的区别
 
-Java 提供两种不同的类型: 引用类型和原始类型（或内置类型) 。int是java的原始数据类型，Integer是java为int提供的封装类。Java为每个原始类型提供了封装类。
+Java 提供两种不同的类型: 引用类型和原始类型（或内置类型) 。int是java的原始数据类型，Integer是java为int提供的封装类。Java为每个原始类型提供了封装类。
 
 原始类型boolean,char,byte,short,int,long,float,double;
 
@@ -168,7 +168,7 @@ error 表示恢复不是不可能但很困难的情况下的一种严重问题�
 
 
 
-### Java集合类 ArrayList,Vector, LinkedList
+### Java集合类 ArrayList,Vector, LinkedList
 
   * Collection: 代表一组对象，每一个对象都是它的子元素。
   * Set: 不包含重复元素的Collection。
@@ -272,7 +272,7 @@ http://www.wiloon.com/?p=4618&embed=true#?secret=PSMs5c8YqX
   * 同步阻塞(Blocked on Synchronization): 等待获取锁。
   * 死亡(Dead): 线程完成了执行。
 
-### **sleep(), wait()   **
+### **sleep(), wait()   **
 
 sleep是线程类（Thread) 的方法，导致此线程暂停执行指定时间，给执行机会给其他线程，但是监控状态依然保持，到时后会自动恢复。调用sleep不会释放对象锁。
 
@@ -327,7 +327,7 @@ http://www.wiloon.com/?p=6474
 
 **assert**
 
-**assertion(断言)在软件开发中是一种常用的调试方式，很多开发语言中都支持这种机制。在实现中，assertion就是在程序中的一条语句，它对一个boolean表达式进行检查，一个正确程序必须保证这个boolean表达式的值为true；如果该值为false，说明程序已经处于不正确的状态下，系统将给出警告或退出。一般来说，assertion用于保证程序最基本、关键的正确性。assertion检查通常在开发和测试时开启。为了提高性能，在软件发布后，assertion检查通常是关闭的。 **
+**assertion(断言)在软件开发中是一种常用的调试方式，很多开发语言中都支持这种机制。在实现中，assertion就是在程序中的一条语句，它对一个boolean表达式进行检查，一个正确程序必须保证这个boolean表达式的值为true；如果该值为false，说明程序已经处于不正确的状态下，系统将给出警告或退出。一般来说，assertion用于保证程序最基本、关键的正确性。assertion检查通常在开发和测试时开启。为了提高性能，在软件发布后，assertion检查通常是关闭的。 **
 
 
 **GC是什么? 为什么要有GC?**
@@ -378,7 +378,7 @@ Enumeration速度是Iterator的2倍，同时占用更少的内存。但是，Ite
 
 **22、forward 和redirect的区别** forward是服务器请求资源，服务器直接访问目标地址的URL，把那个URL的响应内容读取过来，然后把这些内容再发给浏览器，浏览器根本不知道服务器发送的内容是从哪儿来的，所以它的地址栏中还是原来的地址。 redirect就是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址，一般来说浏览器会用刚才请求的所有参数重新请求，所以session,request参数都可以获取。
 
-**23、EJB与**JAVA** BEAN的区别？** **Java** Bean 是可复用的组件，对Java Bean并没有严格的规范，理论上讲，任何一个Java类都可以是一个Bean。但通常情况下，由于Java Bean是被容器所创建（如Tomcat) 的，所以Java Bean应具有一个无参的构造器，另外，通常Java Bean还要实现Serializable接口用于实现Bean的持久性。Java Bean实际上相当于微软COM模型中的本地进程内COM组件，它是不能被跨进程访问的。Enterprise Java Bean 相当于DCOM，即分布式组件。它是基于Java的远程方法调用（RMI) 技术的，所以EJB可以被远程访问（跨进程、跨计算机) 。但EJB必须被布署在诸如Webspere、WebLogic这样的容器中，EJB客户从不直接访问真正的EJB组件，而是通过其容器访问。EJB容器是EJB组件的代理， EJB组件由容器所创建和管理。客户通过容器来访问真正的EJB组件。
+**23、EJB与**JAVA** BEAN的区别？** **Java** Bean 是可复用的组件，对Java Bean并没有严格的规范，理论上讲，任何一个Java类都可以是一个Bean。但通常情况下，由于Java Bean是被容器所创建（如Tomcat) 的，所以Java Bean应具有一个无参的构造器，另外，通常Java Bean还要实现Serializable接口用于实现Bean的持久性。Java Bean实际上相当于微软COM模型中的本地进程内COM组件，它是不能被跨进程访问的。Enterprise Java Bean 相当于DCOM，即分布式组件。它是基于Java的远程方法调用（RMI) 技术的，所以EJB可以被远程访问（跨进程、跨计算机) 。但EJB必须被布署在诸如Webspere、WebLogic这样的容器中，EJB客户从不直接访问真正的EJB组件，而是通过其容器访问。EJB容器是EJB组件的代理， EJB组件由容器所创建和管理。客户通过容器来访问真正的EJB组件。
 
 ## Servlet的生命周期，Servlet和CGI的区别。
 

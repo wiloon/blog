@@ -9,14 +9,14 @@ categories:
 
 ---
 ## Spring中bean的作用域
-[http://blog.csdn.net/ProvidenceZY/article/details/1878582 ][1]
+[http://blog.csdn.net/ProvidenceZY/article/details/1878582 ][1]
 
 
   
     如何使用spring的作用域: 
   
   
-    <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
   
   
     这里的scope就是用来配置spring bean的作用域，它标识bean的作用域。
@@ -34,31 +34,31 @@ categories:
     配置实例: 
   
   
-    <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="singleton"/>
   
   
     或者
   
   
-    <bean id="role" class="spring.chapter2.maryGame.Role" singleton="true"/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" singleton="true"/>
   
   
     2、prototype
   
   
-     prototype作用域部署的bean，每一次请求（将其注入到另一个bean中，或者以程序的方式调用容器的getBean()方法) 都会产生一个新的bean实例，相当与一个new的操作，对于prototype作用域的bean，有一点非常重要，那就是Spring不能对一个prototype bean的整个生命周期负责，容器在初始化、配置、装饰或者是装配完一个prototype实例后，将它交给客户端，随后就对该prototype实例不闻不问了。不管何种作用域，容器都会调用所有对象的初始化生命周期回调方法，而对prototype而言，任何配置好的析构生命周期回调方法都将不会被调用。清除prototype作用域的对象并释放任何prototype bean所持有的昂贵资源，都是客户端代码的职责。（让Spring容器释放被singleton作用域bean占用资源的一种可行方式是，通过使用bean的后置处理器，该处理器持有要被清除的bean的引用。) 
+     prototype作用域部署的bean，每一次请求（将其注入到另一个bean中，或者以程序的方式调用容器的getBean()方法) 都会产生一个新的bean实例，相当与一个new的操作，对于prototype作用域的bean，有一点非常重要，那就是Spring不能对一个prototype bean的整个生命周期负责，容器在初始化、配置、装饰或者是装配完一个prototype实例后，将它交给客户端，随后就对该prototype实例不闻不问了。不管何种作用域，容器都会调用所有对象的初始化生命周期回调方法，而对prototype而言，任何配置好的析构生命周期回调方法都将不会被调用。清除prototype作用域的对象并释放任何prototype bean所持有的昂贵资源，都是客户端代码的职责。（让Spring容器释放被singleton作用域bean占用资源的一种可行方式是，通过使用bean的后置处理器，该处理器持有要被清除的bean的引用。) 
   
   
     配置实例: 
   
   
-    <bean id="role" class="spring.chapter2.maryGame.Role" scope="prototype"/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="prototype"/>
   
   
     或者
   
   
-    <beanid="role" class="spring.chapter2.maryGame.Role" singleton="false"/>
+    <beanid="role" class="spring.chapter2.maryGame.Role" singleton="false"/>
   
   
   
@@ -75,12 +75,12 @@ categories:
     如果你使用的是Servlet 2.4及以上的web容器，那么你仅需要在web应用的XML声明文件web.xml中增加下述ContextListener即可:  
     
     
-      <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <web-app>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  ...
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  
+      <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <web-app>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  ...
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  
  <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />org.springframework.web.context.request.RequestContextListener</listener-class>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  </listener>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  ...
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  </listener>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  ...
  <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /></web-app>
  <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
     
@@ -91,16 +91,16 @@ categories:
   
     
       <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /><web-app>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> ..
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter-mapping>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <url-pattern>/*</url-pattern>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter-mapping>
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  ...
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> ..
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> <filter-mapping>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <filter-name>requestContextFilter</filter-name>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />    <url-pattern>/*</url-pattern>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /> </filter-mapping>
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />  ...
  <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" /></web-app>
  <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
     
@@ -110,7 +110,7 @@ categories:
   
   
   
-    <bean id="role" class="spring.chapter2.maryGame.Role" scope="request"/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="request"/>
   
   
     4、session
@@ -125,7 +125,7 @@ categories:
     和request配置实例的前提一样，配置好web启动文件就可以如下配置: 
   
   
-    <bean id="role" class="spring.chapter2.maryGame.Role" scope="session"/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="session"/>
   
   
     5、global session
@@ -140,7 +140,7 @@ categories:
     和request配置实例的前提一样，配置好web启动文件就可以如下配置: 
   
   
-    <bean id="role" class="spring.chapter2.maryGame.Role" scope="global session"/>
+    <bean id="role" class="spring.chapter2.maryGame.Role" scope="global session"/>
   
   
     6、自定义bean装配作用域
@@ -152,32 +152,32 @@ categories:
     我们建立一个线程的scope，该scope在表示一个线程中有效，代码如下:  
     
     
-      <img id="_37_848_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" />publicclass MyScope implements Scope {
- <img id="_102_199_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     privatefinal ThreadLocal threadScope = new ThreadLocal() {
- <img id="_146_192_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />          protected Object initialValue() {
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />            returnnew HashMap();
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />          }
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    };
- <img id="_268_510_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object get(String name, ObjectFactory objectFactory) {
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Object object = scope.get(name);
- <img id="_384_478_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />        if(object==null) {
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          object = objectFactory.getObject();
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          scope.put(name, object);
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />        }
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return object;
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
- <img id="_552_642_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object remove(String name) {
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return scope.remove(name);
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
- <img id="_720_728_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     publicvoid registerDestructionCallback(String name, Runnable callback) {
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
- <img id="_768_835_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />    public String getConversationId() {
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       // TODO Auto-generated method stub
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       returnnull;
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    }
- <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />          }
+      <img id="_37_848_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" />publicclass MyScope implements Scope {
+ <img id="_102_199_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     privatefinal ThreadLocal threadScope = new ThreadLocal() {
+ <img id="_146_192_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />          protected Object initialValue() {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />            returnnew HashMap();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />          }
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    };
+ <img id="_268_510_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object get(String name, ObjectFactory objectFactory) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Object object = scope.get(name);
+ <img id="_384_478_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />        if(object==null) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          object = objectFactory.getObject();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />          scope.put(name, object);
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />        }
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return object;
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
+ <img id="_552_642_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     public Object remove(String name) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        Map scope = (Map) threadScope.get();
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />        return scope.remove(name);
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
+ <img id="_720_728_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />     publicvoid registerDestructionCallback(String name, Runnable callback) {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />     }
+ <img id="_768_835_Open_Image" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />    public String getConversationId() {
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       // TODO Auto-generated method stub
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/InBlock.gif" alt="" align="top" />       returnnull;
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />    }
+ <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />          }
  <img src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" alt="" align="top" />
   
 

@@ -60,7 +60,7 @@ categories:
     I realize this doesn't answer the stated question of what excluding="**" does, but this explains the behavior your are seeing.
   
   
-    <classpathentry excluding="*.txt" kind="src" path="src"/> king表示的是种类，path是路径
+    <classpathentry excluding="*.txt" kind="src" path="src"/> king表示的是种类，path是路径
   
   
     king="src"表示path所指的目录下的是源码

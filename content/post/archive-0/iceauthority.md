@@ -10,7 +10,7 @@ categories:
 ## ICEAuthority
 <http://serverfault.com/questions/119580/what-is-iceauthority-file-in-opensuse-11-2>
 
-Here is a good paper on what ICE is, and what it does.
+Here is a good paper on what ICE is, and what it does.
 
 Basically ICE is a inter process communication protocol, with authentication, protocol negotiation and potentially multiplexing built in.
 

@@ -40,7 +40,7 @@ patch -p1 < 0001-JFFS2-community-fix-with-not-use-OOB.patch
   
 不然会遇到这样的错误。
   
-                .git/rebase-apply still exists but mbox given.
+                .git/rebase-apply still exists but mbox given.
 
 git-am 可以一次合并一个文件，或者一个目录下所有的patch，或者你的邮箱目录下的patch.
 
@@ -48,7 +48,7 @@ git-am 可以一次合并一个文件，或者一个目录下所有的patch，�
 
 你现在有一个code base:  small-src, 你的patch文件放在~/patch/0001-trival-patch.patch
   
- 
+ 
 
 cd small-src
    
@@ -62,7 +62,7 @@ error: patch failed: android/mediascanner.cpp:452 error: android/mediascanner.cp
 
 你有一堆patch， 名字是上面提到的那一堆patch， 你把他们放在~/patch-set/目录下（路径随意) 
   
- 
+ 
 
 cd opencore
    

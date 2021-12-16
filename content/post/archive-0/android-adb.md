@@ -14,9 +14,9 @@ http://blog.sina.com.cn/s/blog_51335a000101j59n.html
 
 ```bash
   
-adb kill-server
+adb kill-server
   
-adb start-server
+adb start-server
   
 ```
 
@@ -43,7 +43,7 @@ adb shell
 ```
 
 
-  在SDK的Tools文件夹下包含着Android模拟器操作的重要命令ADB，ADB的全称为Android Debug Bridge，就是调试桥的作用，借助这个工具，我们可以管理设备或手机模拟器的状态 ，还可以进行以下的操作: 
+  在SDK的Tools文件夹下包含着Android模拟器操作的重要命令ADB，ADB的全称为Android Debug Bridge，就是调试桥的作用，借助这个工具，我们可以管理设备或手机模拟器的状态 ，还可以进行以下的操作: 
 
 
   （1) 快速更新设备或手机模拟器中的代码，如应用或Android系统升级；
@@ -63,7 +63,7 @@ adb shell
   D:\unsetup\android-sdk-windows-1.0_r1\tools>adb version
 
 
-  Android Debug Bridge version 1.0.20
+  Android Debug Bridge version 1.0.20
 
 
   2.安装应用到模拟器
@@ -79,7 +79,7 @@ adb shell
   （1) 方法1: 
 
 
-       adb uninstall [-k] <package>。
+       adb uninstall [-k] <package>。
 
 
   其中package表示需要卸载的应用的包的名字，k表示是否保留应用的配置信息和cache数据。
@@ -93,7 +93,7 @@ adb shell
 
   4.进入设备或模拟器的Shell
  adb shell
- 通过上面的命令，就可以进入设备或模拟器的Shell环境中，在这个Linux Shell中，可以执行各种Linux 的命令，另外如果只想执行一条Shell命令，可以采用以下的方式: 
+ 通过上面的命令，就可以进入设备或模拟器的Shell环境中，在这个Linux Shell中，可以执行各种Linux 的命令，另外如果只想执行一条Shell命令，可以采用以下的方式: 
  adb shell [command]
  如: 
 
@@ -119,7 +119,7 @@ adb shell
   5.转发端口
 
 
-  可以使用 forward 命令进行任意端口的转发—一个模拟器/设备实例的某一特定主机端口向另一不同端口的转发请求。下面演示了如何建立从主机端口7100到模拟器/设备端口8100的转发。
+  可以使用 forward 命令进行任意端口的转发—一个模拟器/设备实例的某一特定主机端口向另一不同端口的转发请求。下面演示了如何建立从主机端口7100到模拟器/设备端口8100的转发。
 
 
   adb forward tcp:7100 tcp:8100
@@ -134,7 +134,7 @@ adb shell
   6.复制文件
 
 
-  可以使用adb pull ,push 命令将文件复制到一个模拟器/设备实例的数据文件或是从数据文件中复制。install 命令只将一个apk文件复制到一个特定的位置，与其不同的是，pull 和 push 命令可让用户复制任意的目录和文件到一个模拟器/设备实例的任何位置。
+  可以使用adb pull ,push 命令将文件复制到一个模拟器/设备实例的数据文件或是从数据文件中复制。install 命令只将一个apk文件复制到一个特定的位置，与其不同的是，pull 和 push 命令可让用户复制任意的目录和文件到一个模拟器/设备实例的任何位置。
 
 
   从模拟器或者设备中复制文件或目录，使用如下命:
@@ -149,7 +149,7 @@ adb shell
   adb push <local> <remote>
 
 
-  在这些命令中， <local> 和<remote> 分别指通向自己的发展机（本地) 和模拟器/设备实例（远程) 上的目标文件/目录的路径。
+  在这些命令中， <local> 和<remote> 分别指通向自己的发展机（本地) 和模拟器/设备实例（远程) 上的目标文件/目录的路径。
 
 
   下面是一个例子: :
@@ -168,7 +168,7 @@ adb shell
   List of devices attached
 
 
-  HT843GZ03305    device
+  HT843GZ03305    device
 
 
   8.查看bug报告
@@ -201,7 +201,7 @@ adb shell
   04-12 16:59:46.541 D/ShowTrack(23968): MyOverlay::darw..mDefCaption=I'm Here.
 
 
-  04-12 16:59:47.391 I/ActivityManager(   55): Starting activity: Intent { comp={com.iceskysl.iTracks/com.iceskysl.iTracks.iTracks} }
+  04-12 16:59:47.391 I/ActivityManager(   55): Starting activity: Intent { comp={com.iceskysl.iTracks/com.iceskysl.iTracks.iTracks} }
 
 
   04-12 16:59:47.641 D/iTracks (23968): renderListView.
@@ -226,31 +226,31 @@ adb shell
   logcat -b radio
 
 
-  D/HTC_RIL (   30): (t=1239390296)<< 0
+  D/HTC_RIL (   30): (t=1239390296)<< 0
 
 
-  D/HTC_RIL (   30): (t=1239390296)>> AT@HTCPDPFD=0
+  D/HTC_RIL (   30): (t=1239390296)>> AT@HTCPDPFD=0
 
 
-  D/HTC_RIL (   30): (t=1239390296)<< 0
+  D/HTC_RIL (   30): (t=1239390296)<< 0
 
 
-  D/HTC_RIL (   30): (t=1239390296)>> AT+CSQ
+  D/HTC_RIL (   30): (t=1239390296)>> AT+CSQ
 
 
-  D/HTC_RIL (   30): (t=1239390296)<< +CSQ: 29,99
+  D/HTC_RIL (   30): (t=1239390296)<< +CSQ: 29,99
 
 
-  D/HTC_RIL (   30): 0
+  D/HTC_RIL (   30): 0
 
 
-  D/HTC_RIL (   30): (t=1239390296)>> AT+CREG?
+  D/HTC_RIL (   30): (t=1239390296)>> AT+CREG?
 
 
-  D/HTC_RIL (   30): (t=1239390296)<< +CREG: 2,3
+  D/HTC_RIL (   30): (t=1239390296)<< +CREG: 2,3
 
 
-  D/HTC_RIL (   30): 0
+  D/HTC_RIL (   30): 0
 
 
   10.获取设备的ID和序列号
@@ -266,16 +266,16 @@ adb shell
   11.通过远程Shell端运行AQLite3连接数据库
 
 
-  通过ADB远程Shell端，可以通过Android的软AQLite 3 命令程序来管理数据库。SQLite 3 工具包含了许多使用命令，例如，.dump 显示表的内容，.schema 可以显示出已经存在的表空间的SQL CREATE结果集。SQLite3还允许远程执行sql命令。
+  通过ADB远程Shell端，可以通过Android的软AQLite 3 命令程序来管理数据库。SQLite 3 工具包含了许多使用命令，例如，.dump 显示表的内容，.schema 可以显示出已经存在的表空间的SQL CREATE结果集。SQLite3还允许远程执行sql命令。
 
 
-  通过SQLite 3 , 按照前面的方法登录模拟器的远程Shell端，然后启动工具就可以使用SQLite 3 命令。当SQLite 3 启动以后，还可以指定想查看的数据库的完整路径。模拟器/设备实例会在文件夹中保存SQLite3数据库/data/data/<package_name> /databases /。
+  通过SQLite 3 , 按照前面的方法登录模拟器的远程Shell端，然后启动工具就可以使用SQLite 3 命令。当SQLite 3 启动以后，还可以指定想查看的数据库的完整路径。模拟器/设备实例会在文件夹中保存SQLite3数据库/data/data/<package_name> /databases /。
 
 
   示例如下:
 
 
-  $ adb  shell
+  $ adb  shell
 
 
   # sqlite3 /data/data/com.example.google.rss.rssexample/databases/rssitems.db
@@ -293,7 +293,7 @@ adb shell
   sqlite> .exit
 
 
-  当启动SQLite 3的时候，就可以通过Shell端发送SQLite 3,命令了。用exit 或<Ctrl+D>组合键退出ADB远程Shell端。
+  当启动SQLite 3的时候，就可以通过Shell端发送SQLite 3,命令了。用exit 或<Ctrl+D>组合键退出ADB远程Shell端。
 
 
   12.ADB命令列表
@@ -383,7 +383,7 @@ adb shell
     
     
       
-        通过模拟器/设备的允许命令号码来发送命令来管理adb (如 "emulator-5556″)
+        通过模拟器/设备的允许命令号码来发送命令来管理adb (如 "emulator-5556″)
       
     
     
@@ -415,7 +415,7 @@ adb shell
     
     
       
-        查看 Querying for Emulator/Device Instances 获取更多相关信息
+        查看 Querying for Emulator/Device Instances 获取更多相关信息
       
     
   
@@ -486,7 +486,7 @@ adb shell
     
     
       
-        查看bug的报告，如dumpsys ,dumpstate ,和logcat 信息
+        查看bug的报告，如dumpsys ,dumpstate ,和logcat 信息
       
     
     
@@ -509,7 +509,7 @@ adb shell
     
     
       
-        可以用 forward jdwp:<pid>端口映射信息来连接指定的JDWP进程，例如: 
+        可以用 forward jdwp:<pid>端口映射信息来连接指定的JDWP进程，例如: 
  adb forward tcp:8000 jdwp:472
  jdb -attach localhost:8000
       
@@ -665,7 +665,7 @@ adb shell
     
     
       
-        查看 Querying for Emulator/Device Instances 可以获得更多信息
+        查看 Querying for Emulator/Device Instances 可以获得更多信息
       
     
   
@@ -693,7 +693,7 @@ adb shell
     
     
       
-        如果设备不联机就不让执行,也就是实例状态是 device 时
+        如果设备不联机就不让执行,也就是实例状态是 device 时
       
     
     
@@ -707,7 +707,7 @@ adb shell
       
       
       
-        需要提醒的是，这些命令在所有的系统启动起来之前是不会启动adb的，所以在所有的系统启动起来之前也不能执行其他的命令，例如，运用install 的时候就需要Android包，这些包需要系统完全启动，例如: 
+        需要提醒的是，这些命令在所有的系统启动起来之前是不会启动adb的，所以在所有的系统启动起来之前也不能执行其他的命令，例如，运用install 的时候就需要Android包，这些包需要系统完全启动，例如: 
       
       
       
@@ -781,7 +781,7 @@ adb shell
     
     
       
-        查看获取更多信息 for more information
+        查看获取更多信息 for more information
       
     
   

@@ -13,14 +13,14 @@ tags:
 
 
 
-  java正则表达式中的  ? 是惰性匹配，具体的看下面的例子:  
+  java正则表达式中的  ? 是惰性匹配，具体的看下面的例子:  
   
   
     
       
         ```java
- Pattern pattern = Pattern.compile("<.*>");
- Matcher matcher =pattern.matcher("主页");
+ Pattern pattern = Pattern.compile("<.*>");
+ Matcher matcher =pattern.matcher("主页");
  System.out.println(matcher.replaceAll(""));
  ```
       
@@ -36,8 +36,8 @@ tags:
       ```java 
       
       
-        Pattern pattern = Pattern.compile("<.*>");
- Matcher matcher =pattern.matcher("主页[color=red]</a[/color]");
+        Pattern pattern = Pattern.compile("<.*>");
+ Matcher matcher =pattern.matcher("主页[color=red]</a[/color]");
  System.out.println(matcher.replaceAll(""));
  ```
       
@@ -54,8 +54,8 @@ tags:
     
       
         ```java
- Pattern pattern = Pattern.compile("<.*?>");
- Matcher matcher =pattern.matcher("主页");
+ Pattern pattern = Pattern.compile("<.*?>");
+ Matcher matcher =pattern.matcher("主页");
  System.out.println(matcher.replaceAll(""));
  ```
       

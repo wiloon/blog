@@ -12,15 +12,15 @@ categories:
 
 ```java
 
-public static void main(String[] args) throws Exception {
+public static void main(String[] args) throws Exception {
   
-FileReader reader = new FileReader("D:\url.txt");
+FileReader reader = new FileReader("D:\url.txt");
   
-BufferedReader br = new BufferedReader(reader);
+BufferedReader br = new BufferedReader(reader);
   
-String s1 = null;
+String s1 = null;
   
-while((s1 = br.readLine()) != null) {
+while((s1 = br.readLine()) != null) {
   
 System.out.println(s1);
   

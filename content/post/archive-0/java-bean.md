@@ -69,7 +69,7 @@ categories:
     JavaBean组件与EJB（Enterprise JavaBean，企业级JavaBean) 组件完全不同。EJB 是J2EE的核心，是一个用来创建分布式应用、服务器端以及基于Java应用的功能强大的组件模型。JavaBean组件主要用于存储状态信息，而EJB组件可以存储业务逻辑。
   
   
-    2  使用JavaBean的原因
+    2  使用JavaBean的原因
   
   
     程序中往往有重复使用的段落，JavaBean就是为了能够重复使用而设计的程序段落，而且这些段落并不只服务于某一个程序，而且每个JavaBean都具有特定功能，当需要这个功能的时候就可以调用相应的JavaBean。从这个意义上来讲，JavaBean大大简化了程序的设计过程，也方便了其他程序的重复使用。
@@ -78,7 +78,7 @@ categories:
     JavaBean传统应用于可视化领域，如AWT（窗口工具集) 下的应用。而现在，JavaBean更多地应用于非可视化领域，同时，JavaBean在服务器端的应用也表现出强大的优势。非可视化的JavaBean可以很好地实现业务逻辑、控制逻辑和显示页面的分离，现在多用于后台处理，使得系统具有更好的健壮性和灵活性。JSP + JavaBean和JSP + JavaBean + Servlet成为当前开发Web应用的主流模式。
   
   
-    3  JavaBean的开发
+    3  JavaBean的开发
   
   
     在程序设计的过程中，JavaBean不是独立的。为了能够更好地封装事务逻辑、数据库操作而便于实现业务逻辑和前台程序的分离，操作的过程往往是先开发需要的JavaBean，再在适当的时候进行调用。但一个完整有效的JavaBean必然会包含一个属性，伴随若干个get/set（只读/只写) 函数的变量来设计和运行的。JavaBean作为一个特殊的类，具有自己独有的特性。应该注意以下3个方面。
@@ -99,7 +99,7 @@ categories:
   
   http://www.hudong.com/wiki/Enterprise%20JavaBean
 
-JavaBean 和 Server Bean（通常称为  Enterprise JavaBean (EJB)) 有一些基本相同之处。它们都是用一组特性创建，以执行其特定任务的对??获得其它特性的能力。这使得 bean 的行为根据特定任务和所在环境的不同而有所不同。
+JavaBean 和 Server Bean（通常称为  Enterprise JavaBean (EJB)) 有一些基本相同之处。它们都是用一组特性创建，以执行其特定任务的对??获得其它特性的能力。这使得 bean 的行为根据特定任务和所在环境的不同而有所不同。
   
   
 Enterprise Bean 与 JavaBean 不同。JavaBean 是使用 java.beans 包开发的，它是 Java 2 标准版的一部分。JavaBean 是一台机器上同一个地址空间中运行的组件。JavaBean 是进程内组件。Enterprise Bean 是使用 javax.ejb 包开发的，它是标准JDK的扩展，是 Java 2 Enterprise Edition 的一部分。Enterprise Bean 是在多台机器上跨几个地址空间运行的组件。因此 Enterprise Bean 是进程间组件。JavaBean 通常用作 GUI 窗口小部件，而 Enterprise Bean 则用作分布式商业对象.

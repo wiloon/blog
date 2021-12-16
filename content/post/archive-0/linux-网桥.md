@@ -48,9 +48,9 @@ url: /?p=1778
 
 **linux 下 设置网桥的方式（主要步骤) : **
 
-1、创建网桥设备 br0:   brctl addbr br0
+1、创建网桥设备 br0:   brctl addbr br0
 
-2、向br0中添加网卡 eth0  eth1
+2、向br0中添加网卡 eth0  eth1
 
 brctl addif eth0
 
@@ -62,7 +62,7 @@ brctl delif eth0
 
 brctl delif eth1
 
-4、删除网桥 br0 :    brctl  delbr  br0
+4、删除网桥 br0 :    brctl  delbr  br0
 
 **开机后自动搭建网络桥接脚本 （根据需要修改) : **
 
@@ -77,43 +77,43 @@ brctl delif eth1
       #!/bin/bash
     
     
-      modprobe tun
+      modprobe tun
     
     
-      tunctl -t tap0 -u $USERNAME
+      tunctl -t tap0 -u $USERNAME
     
     
-      tunctl -t tap1 -u $USERNAME
+      tunctl -t tap1 -u $USERNAME
     
     
-      brctl addbr br0
+      brctl addbr br0
     
     
-      ifconfig eth0 0.0.0.0 promisc
+      ifconfig eth0 0.0.0.0 promisc
     
     
-      brctl addif br0 eth0
+      brctl addif br0 eth0
     
     
-      ifconfig br0 up
+      ifconfig br0 up
     
     
-      dhclient br0
+      dhclient br0
     
     
-      brctl addif br0 tap0
+      brctl addif br0 tap0
     
     
-      brctl addif br0 tap1
+      brctl addif br0 tap1
     
     
-      ifconfig tap0 up
+      ifconfig tap0 up
     
     
-      ifconfig tap1 up
+      ifconfig tap1 up
     
     
-      chmod a+rw /dev/net/tun
+      chmod a+rw /dev/net/tun
     
   
 
@@ -132,7 +132,7 @@ brctl delif eth1
   3. 如果出现虚拟机、宿主机和网关能够互相ping通，但虚拟机不能浏览网络等情况，请检查虚拟机的DNS设置。如果出现宿主机或虚拟机断开网络，请检查桥接网络中网桥是否连接好，网关是否设置好。
   4. 本方法适用于XEN、KVM、QEMU和版本较旧的VirtualBox。
 
-**centos中 kvm 网桥的设置:**
+**centos中 kvm 网桥的设置:**
 
 
   
@@ -201,22 +201,22 @@ brctl delif eth1
       #!/bin/sh
     
     
-      brctl addbr br0
+      brctl addbr br0
     
     
-      brctl addif br0 eth0
+      brctl addif br0 eth0
     
     
-      ifconfig eth0 down
+      ifconfig eth0 down
     
     
-      ifconfig eth0 0.0.0.0 up
+      ifconfig eth0 0.0.0.0 up
     
     
-      ifconfig br0 192.168.198.71 up
+      ifconfig br0 192.168.198.71 up
     
     
-      service network restart
+      service network restart
     
   
 

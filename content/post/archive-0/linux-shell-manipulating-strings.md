@@ -29,34 +29,34 @@ expr index $string $substring
     
       
         
-             1 stringZ=abcABC123ABCabc
-   2 echo `expr index "$stringZ" C12`             # 6
-   3                                              # C position.
-   4 
-   5 echo `expr index "$stringZ" 1c`              # 3
-   6 # 'c' (in #3 position) matches before '1'.
+             1 stringZ=abcABC123ABCabc
+   2 echo `expr index "$stringZ" C12`             # 6
+   3                                              # C position.
+   4 
+   5 echo `expr index "$stringZ" 1c`              # 3
+   6 # 'c' (in #3 position) matches before '1'.
         
       
     
     
-    This is the near equivalent of _strchr()_ in C.
+    This is the near equivalent of _strchr()_ in C.
     
     **ength of Matching Substring at Beginning of String**
     
     expr match "$string" '$substring'
-    :   $substring is a [regular expression][1].
+    :   $substring is a [regular expression][1].
     
     expr "$string" : '$substring'
-    :   $substring is a regular expression. 
+    :   $substring is a regular expression. 
         
         
           
             
-                 1 stringZ=abcABC123ABCabc
-   2 #       |------|
-   3 
-   4 echo `expr match "$stringZ" 'abc[A-Z]*.2'`   # 8
-   5 echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8
+                 1 stringZ=abcABC123ABCabc
+   2 #       |------|
+   3 
+   4 echo `expr match "$stringZ" 'abc[A-Z]*.2'`   # 8
+   5 echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8
             
           
         

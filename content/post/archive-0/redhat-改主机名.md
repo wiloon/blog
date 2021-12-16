@@ -18,4 +18,4 @@ HOSTNAME=YOURHOSTNAME
 
 /etc/hosts
 
-127.0.0.1               YOURHOSTNAME           localhost
+127.0.0.1               YOURHOSTNAME           localhost

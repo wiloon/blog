@@ -102,7 +102,7 @@ mvn -version
 
 mvn install
 
-mvn install -Dmaven.test.skip=true
+mvn install -Dmaven.test.skip=true
 
 #wrapper
 mvn package appassembler:assemble
@@ -144,11 +144,11 @@ mvn dependency:resolve -Dclassifier=javadoc
 
 webApp: maven-archetype-webapp
   
--Dmvn install -Dmaven.test.skip=true  <del>编译时跳过Test</del>
+-Dmvn install -Dmaven.test.skip=true  <del>编译时跳过Test</del>
 
--Dmaven.test.failure.ignore=true <del> Set this to true to ignore a failure during testing. Its use is NOT RECOMMENDED, but quite convenient on occasion.</del>
+-Dmaven.test.failure.ignore=true <del> Set this to true to ignore a failure during testing. Its use is NOT RECOMMENDED, but quite convenient on occasion.</del>
 
-mvn install -rf  :MODULENAME
+mvn install -rf  :MODULENAME
 
 mvn clean install
   
@@ -254,7 +254,7 @@ https://stackoverflow.com/questions/31377964/mvn-archetypegenerate-darchetypecat
 
 关于该文件的具体配置可以参考: http://maven.apache.org/ref/2.0.4/maven-settings/settings.html。
 
-3.4  配置本地Repository
+3.4  配置本地Repository
 
 本地Repository的默认值是${user.home}/.m2/repository/。可以在user configuration(即在${user.home}/.m2/setting.xml) 中改变本地Repository。
 

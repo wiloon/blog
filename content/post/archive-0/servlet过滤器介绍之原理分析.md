@@ -31,7 +31,7 @@ _@Servlet3.0之前怎么创建一个过滤器_
 
 具体例子:1.首先写一个权限过滤filter类,实现Filter接口
   
-    <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> ```java
+    <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> ```java
   
     
     
@@ -237,19 +237,19 @@ a.如果是某个具体的JSP文件(如a.jsp)需要登陆验证
 
 ## 
 
-  <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> < web-app >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-class > com.taihuatalk.taihua.common.RightFilter filter-class >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter >
+  <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> < web-app >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-class > com.taihuatalk.taihua.common.RightFilter filter-class >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter >
  <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter-mapping >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < url-pattern > /a.jsp url-pattern >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter-mapping >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> web-app >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter-mapping >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < url-pattern > /a.jsp url-pattern >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter-mapping >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> web-app >
 
 ## 
 
@@ -257,19 +257,19 @@ b.如果是某一个目录(如a/目录)整个目录下的文件都需要登陆�
 
 ## 
 
-  <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> < web-app >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-class > com.taihuatalk.taihua.common.RightFilter filter-class >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter >
+  <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> < web-app >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-class > com.taihuatalk.taihua.common.RightFilter filter-class >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter >
  <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter-mapping >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < url-pattern > /a/* url-pattern >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter-mapping >
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
- <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> web-app >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   < filter-mapping >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < filter-name > right filter-name >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />     < url-pattern > /a/* url-pattern >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />   filter-mapping >
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />  ...
+ <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" /> web-app >
  <img alt="" src="http://images.csdn.net/syntaxhighlighting/OutliningIndicators/None.gif" align="top" />
 
 ## 
@@ -332,19 +332,19 @@ _@Servlet3.0中的创建过滤器: 使用@WebFilter_
 
 ## 
 
-@WebFilter(filterName = "AuthenticateFilter", urlPatterns ={"/stock.jsp", "/getquote"})
+@WebFilter(filterName = "AuthenticateFilter", urlPatterns ={"/stock.jsp", "/getquote"})
   
-public class AuthenticateFilter implements Filter {
+public class AuthenticateFilter implements Filter {
   
-public void doFilter(ServletRequest request, ServletResponse response,
+public void doFilter(ServletRequest request, ServletResponse response,
   
-FilterChain chain)     throws IOException, ServletException {
+FilterChain chain)     throws IOException, ServletException {
   
-String username = ((HttpServletRequest) request).getParameter("uname");
+String username = ((HttpServletRequest) request).getParameter("uname");
   
-String password = ((HttpServletRequest) request).getParameter("password");
+String password = ((HttpServletRequest) request).getParameter("password");
   
-if (username == null || password == null) {
+if (username == null || password == null) {
   
 ((HttpServletResponse) response).sendRedirect("index.jsp");
 
@@ -352,13 +352,13 @@ if (username == null || password == null) {
 
 }
   
-if (username.equals("admin") && password.equals("admin")) {
+if (username.equals("admin") && password.equals("admin")) {
   
 chain.doFilter(request, response);
 
 ## 
 
-} else {
+} else {
   
 ((HttpServletResponse) response).sendRedirect("index.jsp");
 
@@ -368,13 +368,13 @@ chain.doFilter(request, response);
   
 }
   
-public void destroy() {
+public void destroy() {
   
 }
 
 ## 
 
-public void init(FilterConfig filterConfig) {
+public void init(FilterConfig filterConfig) {
   
 }
   
@@ -390,7 +390,7 @@ public void init(FilterConfig filterConfig) {
 
 _具体Servlet3.0相关的内容请参考: http://blog.csdn.net/flfna/archive/2010/05/16/5598201.aspx_
 
-## Filter 技术是Servlet 2.3 新增加的功能. 
+## Filter 技术是Servlet 2.3 新增加的功能. 
 
 Filter的使用户可以改变一 个request或修改一个response。 Filter 不是一个servlet,它不能产生一个response,但是他能够在一个request到达servlet之前预先处理request,也可以在一个响应离开 servlet时处理response。
   
@@ -961,6 +961,6 @@ http://zhangjunhd.blog.51cto.com/113473/20629
 
 <http://m.oschina.net/blog/12483>
 
-_ http://blog.csdn.net/lip009/archive/2006/10/17/1337730.aspx       _
+_ http://blog.csdn.net/lip009/archive/2006/10/17/1337730.aspx       _
 
 ___http://tech.sina.com.cn/s/2009-11-19/00471138968.shtml_

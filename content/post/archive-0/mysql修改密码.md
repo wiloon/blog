@@ -42,10 +42,10 @@ MySQL -u root -p
     MySQL>use MySQL;
   
   
-    MySQL>update user set host = '%'  where user ='root';
+    MySQL>update user set host = '%'  where user ='root';
  MariaDB [MySQL]> update user set host = '%' where host = 'localhost';
  Query OK, 0 rows affected (0.00 sec)
- Rows matched: 0  Changed: 0  Warnings: 0
+ Rows matched: 0  Changed: 0  Warnings: 0
   
   
     MySQL>flush privileges;

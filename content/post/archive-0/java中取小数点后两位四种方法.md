@@ -18,8 +18,8 @@ categories:
     
     
       Long是长整型，怎么有小数，是double吧
- java.text.DecimalFormat   df=new   java.text.DecimalFormat("#.##");
- double   d=3.14159;
+ java.text.DecimalFormat   df=new   java.text.DecimalFormat("#.##");
+ double   d=3.14159;
  System.out.println(df.format(d));
     
     
@@ -29,8 +29,8 @@ categories:
     
     
       java.math.BigDecimal
- BigDecimal   bd   =   new   BigDecimal("3.14159265");
- bd   =   bd.setScale(2,BigDecimal.ROUND_HALF_UP);
+ BigDecimal   bd   =   new   BigDecimal("3.14159265");
+ bd   =   bd.setScale(2,BigDecimal.ROUND_HALF_UP);
     
     
     
@@ -38,9 +38,9 @@ categories:
     
     
     
-      class   Test1{
- public   static   void   main(String[]   args){
- double   ret   =   convert(3.14159);
+      class   Test1{
+ public   static   void   main(String[]   args){
+ double   ret   =   convert(3.14159);
     
     
     
@@ -49,10 +49,10 @@ categories:
     
     
     
-      static   double   convert(double   value){
- long   l1   =   Math.round(value*100);   //四舍五入
- double   ret   =   l1/100.0;               //注意: 使用   100.0   而不是   100
- return   ret;
+      static   double   convert(double   value){
+ long   l1   =   Math.round(value*100);   //四舍五入
+ double   ret   =   l1/100.0;               //注意: 使用   100.0   而不是   100
+ return   ret;
  }
  }
     
@@ -62,7 +62,7 @@ categories:
     
     
     
-      double   d   =   13.4324;
+      double   d   =   13.4324;
  d=((int)(d*100))/100;
     
     

@@ -10,7 +10,7 @@ tags:
 
 ---
 ## git repo backup
-$ git bundle create /tmp/somefile master
+$ git bundle create /tmp/somefile master
 
 然后传输这个文件包， somefile ，给某个其他参与者: 电子邮件，优盘，一个 xxd 打印品和一个OCR扫描仪，通过电话读字节，狼烟，等等。接收者通过键入如下命 令从文件包获取提交: 
 

@@ -24,7 +24,7 @@ https://blog.csdn.net/u012129558/article/details/80075270
 
 对Kafka offset的管理，一直没有进行系统的总结，这篇文章对它进行分析。
 
- 
+ 
 
 什么是offset
 
@@ -40,11 +40,11 @@ Kafka handles this differently. Our topic is divided into a set of totally order
 
 There is a side benefit of this decision. A consumer can deliberately rewind back to an old offset and re-consume data. This violates the common contract of a queue, but turns out to be an essential feature for many consumers. For example, if the consumer code has a bug and is discovered after some messages are consumed, the consumer can re-consume those messages once the bug is fixed.
   
- 
+ 
   
 消费者需要自己保留一个offset，从kafka 获取消息时，只拉去当前offset 以后的消息。Kafka 的scala/java 版的client 已经实现了这部分的逻辑，将offset 保存到zookeeper 上
 
- 
+ 
 
 ### auto.offset.reset值含义解释
 #### earliest
@@ -54,7 +54,7 @@ There is a side benefit of this decision. A consumer can deliberately rewind bac
 #### none
 topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
 
- 
+ 
 
 <ol start="2">
   
@@ -63,7 +63,7 @@ topic各分区都存在已提交的offset时，从offset后开始消费；只要
   
 
 
- 
+ 
 
 <ol start="3">
   
@@ -72,17 +72,17 @@ topic各分区都存在已提交的offset时，从offset后开始消费；只要
   
 
 
- 
+ 
 
 问题: 如果在一个时间间隔内，没有提交offset，岂不是要重复读了？
 
- 
+ 
 
-4. offsets.storage
+4. offsets.storage
   
 Select where offsets should be stored (zookeeper or kafka).默认是Zookeeper
 
- 
+ 
 
 <ol start="5">
   
@@ -91,7 +91,7 @@ Select where offsets should be stored (zookeeper or kafka).默认是Zookeeper
   
 
 
- 
+ 
 
 <ol start="6">
   
@@ -103,7 +103,7 @@ At Most Once:
 
 At Least Once:
 
- 
+ 
 
 ## Kafka默认实现了At least once语义
 

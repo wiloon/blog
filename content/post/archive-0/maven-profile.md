@@ -18,31 +18,31 @@ tags:
       <profiles>
     
     
-        <profile>
+        <profile>
     
     
-          <id>jdk16</id>
+          <id>jdk16</id>
     
     
-          
+          
     
     
-            <jdk>1.6</jdk>
+            <jdk>1.6</jdk>
     
     
-          </activation>
+          </activation>
     
     
-          <modules>
+          <modules>
     
     
-            <module>simple-script</module>
+            <module>simple-script</module>
     
     
-          </modules>
+          </modules>
     
     
-        </profile>
+        </profile>
     
     
       </profiles>
@@ -68,64 +68,64 @@ tags:
       <profile>
     
     
-        <id>dev</id>
+        <id>dev</id>
     
     
-        
+        
     
     
-          false</activeByDefault>
+          false</activeByDefault>
     
     
-          <jdk>1.5</jdk>
+          <jdk>1.5</jdk>
     
     
-          <os>
+          <os>
     
     
-            <name>Windows XP</name>
+            <name>Windows XP</name>
     
     
-            <family>Windows</family>
+            <family>Windows</family>
     
     
-            x86</arch>
+            x86</arch>
     
     
-            <version>5.1.2600</version>
+            <version>5.1.2600</version>
     
     
-          </os>
+          </os>
     
     
-          <property>
+          <property>
     
     
-            <name>mavenVersion</name>
+            <name>mavenVersion</name>
     
     
-            <value>2.0.5</value>
+            <value>2.0.5</value>
     
     
-          </property>
+          </property>
     
     
-          <file>
+          <file>
     
     
-            <exists>file2.properties</exists>
+            <exists>file2.properties</exists>
     
     
-            <missing>file1.properties</missing>
+            <missing>file1.properties</missing>
     
     
-          </file>
+          </file>
     
     
-        </activation>
+        </activation>
     
     
-        ...
+        ...
     
     
       </profile>
@@ -133,7 +133,7 @@ tags:
   
 
 2. 通过命令行参数激活。
-这是最直接和最简单的方式，比如你定义了一个名为 myProfile 的 profile，你只需要在命令行输入 **mvn clean install -Pmyprofile** 就能将其激活，这种方式的好处很明显，但是有一个很大的弊端，当 profile 比较多的时候，在命令行输入这写 -P 参数会让人觉得厌烦，所以，如果你一直用这种方式，觉得厌烦了，可以考虑使用其它自动激活的方式。
+这是最直接和最简单的方式，比如你定义了一个名为 myProfile 的 profile，你只需要在命令行输入 **mvn clean install -Pmyprofile** 就能将其激活，这种方式的好处很明显，但是有一个很大的弊端，当 profile 比较多的时候，在命令行输入这写 -P 参数会让人觉得厌烦，所以，如果你一直用这种方式，觉得厌烦了，可以考虑使用其它自动激活的方式。
 
 3. 配置默认自动激活。
 
@@ -146,19 +146,19 @@ http://juvenshun.iteye.com/blog/208714
       <profile>
     
     
-        <id>dev</id>
+        <id>dev</id>
     
     
-        
+        
     
     
-          true</activeByDefault>
+          true</activeByDefault>
     
     
-        </activation>
+        </activation>
     
     
-        ...
+        ...
     
     
       </profile>
@@ -182,16 +182,16 @@ settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为
       <settings>
     
     
-        ...
+        ...
     
     
-        
+        
     
     
-          local_db</activeProfile>
+          local_db</activeProfile>
     
     
-        </activeProfiles>
+        </activeProfiles>
     
     
       </settings>

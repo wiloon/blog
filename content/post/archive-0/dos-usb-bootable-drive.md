@@ -137,7 +137,7 @@ With the partition made in the previous step, you know need to put a filesystem 
  ```
   
   
-    Step 4: Edit .dosemurc 
+    Step 4: Edit .dosemurc 
  You need to make the USB flash drive show up in dosemu. To do this, you need to make a file called ".dosemurc" in your home directory. The easiest way is to use gedit and save the file. You can use any text editor of your choice.
   
 
@@ -257,7 +257,7 @@ This command should bring up another prompt that is basically FreeDOS. In this n
     Conclusion:
   
   
-    With a working DOS USB flash drive, you can perform a number of useful tasks including flashing ROMs and using other DOS utilities. FreeDOS is an example of free and open source software. When using bootdisks that contain MS-DOS, you are not licensed to use it since you didn't pay for it. Stay tuned to find out why I needed a DOS USB bootable drive in the first place. Buy a flash drive!
+    With a working DOS USB flash drive, you can perform a number of useful tasks including flashing ROMs and using other DOS utilities. FreeDOS is an example of free and open source software. When using bootdisks that contain MS-DOS, you are not licensed to use it since you didn't pay for it. Stay tuned to find out why I needed a DOS USB bootable drive in the first place. Buy a flash drive!
   
   
     http://wiki.gentoo.org/wiki/Bootable_DOS_USB_stick

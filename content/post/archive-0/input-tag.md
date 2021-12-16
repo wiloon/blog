@@ -19,4 +19,4 @@ value:Specifies the value of an input element
 
 Event Attributes:
 
-ondblclick: Script to be run on a mouse double-click.
+ondblclick: Script to be run on a mouse double-click.

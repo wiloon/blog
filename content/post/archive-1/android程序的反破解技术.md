@@ -39,16 +39,16 @@ http://blog.csdn.net/viviwen123/article/details/9117589
 
   <ol start="1">
     
-      if (0!=(getApplicationInfo().flags&=ApplicationInfo.FLAG_DEBUGGABLE)) {
+      if (0!=(getApplicationInfo().flags&=ApplicationInfo.FLAG_DEBUGGABLE)) {
     
     
-                  Log.e("DEBUG", "程序被修改为可调试状态！！！");
+                  Log.e("DEBUG", "程序被修改为可调试状态！！！");
     
     
-                  android.os.Process.killProcess(android.os.Process.myPid());
+                  android.os.Process.killProcess(android.os.Process.myPid());
     
     
-              }
+              }
     
   
 
@@ -79,128 +79,128 @@ ro.product.model、ro.build.tag、ro.kernel.qemu。编写检测代码如下:
   
   <ol start="1">
     
-      boolean isRunningInEmualtor() {
+      boolean isRunningInEmualtor() {
     
     
-              boolean qemuKernel = false;
+              boolean qemuKernel = false;
     
     
-              Process process = null;
+              Process process = null;
     
     
-              DataOutputStream os = null;
+              DataOutputStream os = null;
     
     
-              try{
+              try{
     
     
-                  process = Runtime.getRuntime().exec("getprop ro.kernel.qemu");
+                  process = Runtime.getRuntime().exec("getprop ro.kernel.qemu");
     
     
-                  os = new DataOutputStream(process.getOutputStream());
+                  os = new DataOutputStream(process.getOutputStream());
     
     
-                  BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream(),"GBK"));
+                  BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream(),"GBK"));
     
     
-                  os.writeBytes("exit\n");
+                  os.writeBytes("exit\n");
     
     
-                  os.flush();
+                  os.flush();
     
     
-                  process.waitFor();
+                  process.waitFor();
     
     
-                  qemuKernel = (Integer.valueOf(in.readLine()) == 1);
+                  qemuKernel = (Integer.valueOf(in.readLine()) == 1);
     
     
-                  Log.d("com.droider.checkqemu", "检测到模拟器:" + qemuKernel);
+                  Log.d("com.droider.checkqemu", "检测到模拟器:" + qemuKernel);
     
     
-              } catch (Exception e){
+              } catch (Exception e){
     
     
-                  qemuKernel = false;
+                  qemuKernel = false;
     
     
-                  Log.d("com.droider.checkqemu", "run failed" + e.getMessage());
+                  Log.d("com.droider.checkqemu", "run failed" + e.getMessage());
     
     
-              } finally {
+              } finally {
     
     
-                  try{
+                  try{
     
     
-                      if (os != null) {
+                      if (os != null) {
     
     
-                          os.close();
+                          os.close();
     
     
-                      }
+                      }
     
     
-                      process.destroy();
+                      process.destroy();
     
     
-                  } catch (Exception e) {
+                  } catch (Exception e) {
     
     
     
     
-                  }
+                  }
     
     
-                  Log.d("com.droider.checkqemu", "run finally");
+                  Log.d("com.droider.checkqemu", "run finally");
     
     
-              }
+              }
     
     
-              return qemuKernel;
+              return qemuKernel;
     
     
-          }
+          }
     
     
     
     
-          public static String getProp(Context context, String property) {
+          public static String getProp(Context context, String property) {
     
     
-              try {
+              try {
     
     
-                  ClassLoader cl = context.getClassLoader();
+                  ClassLoader cl = context.getClassLoader();
     
     
-                  Class SystemProperties = cl.loadClass("android.os.SystemProperties");
+                  Class SystemProperties = cl.loadClass("android.os.SystemProperties");
     
     
-                  Method method = SystemProperties.getMethod("get", String.class);
+                  Method method = SystemProperties.getMethod("get", String.class);
     
     
-                  Object[] params = new Object[1];
+                  Object[] params = new Object[1];
     
     
-                  params[0] = new String(property);
+                  params[0] = new String(property);
     
     
-                  return (String)method.invoke(SystemProperties, params);
+                  return (String)method.invoke(SystemProperties, params);
     
     
-              } catch (Exception e) {
+              } catch (Exception e) {
     
     
-                  return null;
+                  return null;
     
     
-              }
+              }
     
     
-          }
+          }
     
   
 
@@ -217,46 +217,46 @@ ro.product.model、ro.build.tag、ro.kernel.qemu。编写检测代码如下:
   
   <ol start="1">
     
-      public int getSignature(String packageName) {
+      public int getSignature(String packageName) {
     
     
-              PackageManager pm = this.getPackageManager();
+              PackageManager pm = this.getPackageManager();
     
     
-              PackageInfo pi = null;
+              PackageInfo pi = null;
     
     
-              int sig = 0;
+              int sig = 0;
     
     
-              try {
+              try {
     
     
-                  pi = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+                  pi = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
     
     
-                  Signature[] s = pi.signatures;
+                  Signature[] s = pi.signatures;
     
     
-                  sig = s[0].hashCode();
+                  sig = s[0].hashCode();
     
     
-              } catch (Exception e1) {
+              } catch (Exception e1) {
     
     
-                  sig = 0;
+                  sig = 0;
     
     
-                  e1.printStackTrace();
+                  e1.printStackTrace();
     
     
-              }
+              }
     
     
-              return sig;
+              return sig;
     
     
-          }
+          }
     
   
 
@@ -273,55 +273,55 @@ ro.product.model、ro.build.tag、ro.kernel.qemu。编写检测代码如下:
   
   <ol start="1">
     
-        private boolean checkCRC() {
+        private boolean checkCRC() {
     
     
-          boolean beModified = false;
+          boolean beModified = false;
     
     
-          long crc = Long.parseLong(getString(R.string.crc));
+          long crc = Long.parseLong(getString(R.string.crc));
     
     
-          ZipFile zf;
+          ZipFile zf;
     
     
-      try {
+      try {
     
     
-          zf = new ZipFile(getApplicationContext().getPackageCodePath());
+          zf = new ZipFile(getApplicationContext().getPackageCodePath());
     
     
-          ZipEntry ze = zf.getEntry("classes.dex");
+          ZipEntry ze = zf.getEntry("classes.dex");
     
     
-          Log.d("com.droider.checkcrc", String.valueOf(ze.getCrc()));
+          Log.d("com.droider.checkcrc", String.valueOf(ze.getCrc()));
     
     
-          if (ze.getCrc() == crc) {
+          if (ze.getCrc() == crc) {
     
     
-              beModified = true;
+              beModified = true;
     
     
-          }
+          }
     
     
-      } catch (IOException e) {
+      } catch (IOException e) {
     
     
-          e.printStackTrace();
+          e.printStackTrace();
     
     
-          beModified = false;
+          beModified = false;
     
     
       }
     
     
-      return beModified;
+      return beModified;
     
     
-        }
+        }
     
   
 

@@ -14,7 +14,7 @@ categories:
   2. 打开Window—>Preferences，如下图所示: 
   3. 打开Preferences后，点击Maven，可以看到右边Maven下的Download repository index updates on startp。取消该项的勾选，点击Apply后点击OK即可。如下图所示: 
 
-  1. 在之前已经有下载好的repository index 已有工作空间下，找到.metadata.pluginsorg.maven.ide.eclipsenexus。把该目录下的central文件夹整个复制到新建的workspace下对应的.metadata.pluginsorg.maven.ide.eclipsenexus目录下。替代原系统自动生成的central文件夹及其内容。
+  1. 在之前已经有下载好的repository index 已有工作空间下，找到.metadata.pluginsorg.maven.ide.eclipsenexus。把该目录下的central文件夹整个复制到新建的workspace下对应的.metadata.pluginsorg.maven.ide.eclipsenexus目录下。替代原系统自动生成的central文件夹及其内容。
   2. 完成以上步骤，下面我们来进行手动设置nexus-maven-repository-index更新。打开Eclipse的Window—>Show View—>Other…，如下图所示: 
 
   1. 打开后，找到Maven，点击就可以看到Maven Indexes，选中点击OK进入。如下图所示: 
@@ -35,9 +35,9 @@ as snapshot versions will always look for a later update, whereas
   
 release versions are deemed to be stable and updates are not expected for the same version number.
 
-Secondly, assuming that you are working on a LAN, I would suggest that you install a local maven repository manager such as Nexus, and then redirect your artifact requests by setting
+Secondly, assuming that you are working on a LAN, I would suggest that you install a local maven repository manager such as Nexus, and then redirect your artifact requests by setting
   
-`<mirrorOf>*</mirrorOf>` in your ${user.home}/.m2/settings.xml
+`<mirrorOf>*</mirrorOf>` in your ${user.home}/.m2/settings.xml
 
 This will enable your downloads to be resolved quickly against a local mirror, rather than continually checking against repositories on the internet.
 

@@ -9,7 +9,7 @@ categories:
 
 ---
 ## linux ebtables
-linux 以太网桥防火墙 ebtables. 2.4以后的内核才能支持ebtables
+linux 以太网桥防火墙 ebtables. 2.4以后的内核才能支持ebtables
 
 Ebtables即是以太网桥防火墙，以太网桥工作在数据链路层，Ebtables来过滤数据链路层数据包。
 
@@ -76,7 +76,7 @@ ebtables -P OUTPUT ACCEPT
 
 ebtables -F
 
-ebtables -A FORWARD -p ipv4 -i eth0/eth1 -ip-proto (6/17) -ip-dst(目的IP)  -ip-dport(目的端口) -j DROP
+ebtables -A FORWARD -p ipv4 -i eth0/eth1 -ip-proto (6/17) -ip-dst(目的IP)  -ip-dport(目的端口) -j DROP
 
 ebtables -A FPRWARD -p ipv4 -i eth0/eth1 -ip-proto (7/17) -ip-src(源IP) -ip-sport(源端口) -j
 

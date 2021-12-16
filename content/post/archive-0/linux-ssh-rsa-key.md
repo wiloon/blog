@@ -49,7 +49,7 @@ Your public key has been saved in /root/.ssh/id_rsa.pub
 
 ### multiple ssh private keys
 
-by **Karanbir Singh**
+by **Karanbir Singh**
 
 http://www.karan.org/blog/index.php/2009/08/25/multiple-ssh-private-keys
   

@@ -181,7 +181,7 @@ public class Thread extends Object implements Runnable
 
 发现Thread类也是Runnable接口的子类。
 
- 
+ 
 
 <http://jinguo.iteye.com/blog/286772>
 

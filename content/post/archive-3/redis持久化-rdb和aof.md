@@ -351,7 +351,7 @@ dir /data/redisdata
 
 一、redis持久化--两种方式
   
-1、redis提供了两种持久化的方式，分别是RDB（Redis DataBase) 和AOF（Append Only File) 。
+1、redis提供了两种持久化的方式，分别是RDB（Redis DataBase) 和AOF（Append Only File) 。
 
 2、RDB，简而言之，就是在不同的时间点，将redis存储的数据生成快照并存储到磁盘等介质上；
 
@@ -375,11 +375,11 @@ dir /data/redisdata
 
 三、redis持久化--AOF
   
-1、AOF，英文是Append Only File，即只允许追加不允许改写的文件。
+1、AOF，英文是Append Only File，即只允许追加不允许改写的文件。
 
 2、如前面介绍的，AOF方式是将执行过的写指令记录下来，在数据恢复时按照从前到后的顺序再将指令都执行一遍，就这么简单。
 
-3、我们通过配置redis.conf中的appendonly yes就可以打开AOF功能。如果有写操作（如SET等) ，redis就会被追加到AOF文件的末尾。
+3、我们通过配置redis.conf中的appendonly yes就可以打开AOF功能。如果有写操作（如SET等) ，redis就会被追加到AOF文件的末尾。
 
 4、默认的AOF持久化策略是每秒钟fsync一次（fsync是指把缓存中的写指令记录到磁盘中) ，因为在这种情况下，redis仍然可以保持很好的处理性能，即使redis故障，也只会丢失最近1秒钟的数据。
 
@@ -399,9 +399,9 @@ dir /data/redisdata
 
 1.备份被写坏的AOF文件
   
-2.运行redis-check-aof –fix进行修复
+2.运行redis-check-aof –fix进行修复
   
-3.用diff -u来看下两个文件的差异，确认问题点
+3.用diff -u来看下两个文件的差异，确认问题点
   
 4.重启redis，加载修复后的AOF文件
 
@@ -429,7 +429,7 @@ dir /data/redisdata
 
 2、AOF每秒fsync一次指令硬盘，如果硬盘IO慢，会阻塞父进程；风险是会丢失1秒多的数据；在Rewrite过程中，主进程把指令存到mem-buffer中，最后写盘时会阻塞主进程。
 
-3、这两个缺点是个很大的痛点。为了解决这些痛点，GitHub的两位工程师 Bryana Knight 和 Miguel Fernández 日前写了一篇 文章 ，讲述了将持久数据从Redis迁出的经验: 
+3、这两个缺点是个很大的痛点。为了解决这些痛点，GitHub的两位工程师 Bryana Knight 和 Miguel Fernández 日前写了一篇 文章 ，讲述了将持久数据从Redis迁出的经验: 
 
 http://www.open-open.com/lib/view/open1487736984424.html
   

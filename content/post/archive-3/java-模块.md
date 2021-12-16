@@ -59,40 +59,40 @@ exports:  到package级
     
 ### 目录 结构
     ├── out
-    │   ├── app
-    │   │   ├── com
-    │   │   │   └── pingd
-    │   │   │       └── test
-    │   │   │           └── java
-    │   │   │               └── module
-    │   │   │                   └── app
-    │   │   │                       └── App.class
-    │   │   └── module-info.class
-    │   └── speaker
-    │       ├── com
-    │       │   └── pingd
-    │       │       └── test
-    │       │           └── java
-    │       │               └── module
-    │       │                   └── Hello.class
-    │       └── module-info.class
+    │   ├── app
+    │   │   ├── com
+    │   │   │   └── pingd
+    │   │   │       └── test
+    │   │   │           └── java
+    │   │   │               └── module
+    │   │   │                   └── app
+    │   │   │                       └── App.class
+    │   │   └── module-info.class
+    │   └── speaker
+    │       ├── com
+    │       │   └── pingd
+    │       │       └── test
+    │       │           └── java
+    │       │               └── module
+    │       │                   └── Hello.class
+    │       └── module-info.class
     └── src
         ├── app
-        │   ├── com
-        │   │   └── pingd
-        │   │       └── test
-        │   │           └── java
-        │   │               └── module
-        │   │                   └── app
-        │   │                       └── App.java
-        │   └── module-info.java
+        │   ├── com
+        │   │   └── pingd
+        │   │       └── test
+        │   │           └── java
+        │   │               └── module
+        │   │                   └── app
+        │   │                       └── App.java
+        │   └── module-info.java
         └── speaker
             ├── com
-            │   └── pingd
-            │       └── test
-            │           └── java
-            │               └── module
-            │                   └── Hello.java
+            │   └── pingd
+            │       └── test
+            │           └── java
+            │               └── module
+            │                   └── Hello.java
             └── module-info.java
 
 

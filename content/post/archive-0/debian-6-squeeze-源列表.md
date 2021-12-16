@@ -31,7 +31,7 @@ deb http://security.debian.org/ squeeze/updates main
 
 # 这个多媒体的源需要提前准备好额外的公钥，方法是: 
   
-# 先下载公钥 debian-multimedia-keyring ，再取得root权限，
+# 先下载公钥 debian-multimedia-keyring ，再取得root权限，
   
 # 最后安装该公钥文件"dpkg -i debian-multimedia-keyring_2010.12.26_all.deb"（版本号可能会不断更新) 
   

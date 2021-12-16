@@ -28,15 +28,15 @@ Regexp - 纯Java正则表达式包
 Slide - a content repository primarily using WebDAV.
 Taglibs - 一个代码库，用于支持开发定制化的JSP tag lib
 以前隶属于Jakarta项目，但现在作为Apache软件基金的单独项目，有: 
-Ant - 构建工具
+Ant - 构建工具
 Commons - 一组使用类的合集，主要作为Java标准库的补充
 HiveMind - a services and configuration microkernel
       
       
-        Maven - 一个项目构建和管理工具
+        Maven - 一个项目构建和管理工具
       
       
-        POI - 一个纯java版本的函数库，用于操作Microsoft的常见文档格式，如Excel、Word、PowerPoint、Visio、Publisher、Outlook文件.
+        POI - 一个纯java版本的函数库，用于操作Microsoft的常见文档格式，如Excel、Word、PowerPoint、Visio、Publisher、Outlook文件.
       
       
         Struts - 一种Web应用程序开发框架
@@ -45,7 +45,7 @@ HiveMind - a services and configuration microkernel
         Tapestry - A component object model based on JavaBeans properties and strong specifications
       
       
-        Tomcat - 服务器，提供JSP/Servlet相关容器类
+        Tomcat - 服务器，提供JSP/Servlet相关容器类
       
       
         Turbine - web应用快速开发框架

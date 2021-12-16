@@ -8,17 +8,17 @@ categories:
 
 ---
 ## ruby 语法
-**继承符号** —— < (小于号)，可以理解为: 子类 (抽象程度更窄化) 小于父类，或者像流操作符一样 把父类的内容都'流'入子类。另外，默认（即未使用继承符号)  时，父类是 Object对象， 和Java一样是单根继承体系；
+**继承符号** —— < (小于号)，可以理解为: 子类 (抽象程度更窄化) 小于父类，或者像流操作符一样 把父类的内容都'流'入子类。另外，默认（即未使用继承符号)  时，父类是 Object对象， 和Java一样是单根继承体系；
 
-super关键字是从子类直接调用父类（同名)  方法的 。
+super关键字是从子类直接调用父类（同名)  方法的 。
 
-`def h` 定义一个函数。它告诉 Ruby 我们的函数名字是 `h`。下一行是函数的内容， 正是我们前面看到过的那行代码: `puts "Hello World!"`。最后的一行 `end` 告诉 Ruby 函数的定义完成了。
-
-
-  1.1      变量、常量和类型
+`def h` 定义一个函数。它告诉 Ruby 我们的函数名字是 `h`。下一行是函数的内容， 正是我们前面看到过的那行代码: `puts "Hello World!"`。最后的一行 `end` 告诉 Ruby 函数的定义完成了。
 
 
-  1)      定义变量
+  1.1      变量、常量和类型
+
+
+  1)      定义变量
 
 
   
@@ -52,7 +52,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
       
       
       
-        var    _var
+        var    _var
       
     
     
@@ -119,21 +119,21 @@ super关键字是从子类直接调用父类（同名)  方法的 。
   2) 变量内插
 
 
-    在双引号内使用"#{变量名}"内插变量
+    在双引号内使用"#{变量名}"内插变量
 
 
   
     
       
-        a = 2
+        a = 2
       
       
       
-        b = 3
+        b = 3
       
       
       
-        puts "#{a} + #{b} = #{a+b}"  #输入结果为: 2 + 3 = 5
+        puts "#{a} + #{b} = #{a+b}"  #输入结果为: 2 + 3 = 5
       
       
       
@@ -159,23 +159,23 @@ super关键字是从子类直接调用父类（同名)  方法的 。
 
   =end
 
-  1.3    循环和分支
+  1.3    循环和分支
 
 
-  1.3.1  条件语句
+  1.3.1  条件语句
 
 
   
     
       
         
-          If 形式
+          If 形式
         
       
       
       
         
-          unless 形式
+          unless 形式
         
       
     
@@ -202,7 +202,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
     
     
       
-         if x<5 then 
+         if x<5 then 
         
         
           a =1
@@ -243,7 +243,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
               
               
               
-                1.3.2  循环结构
+                1.3.2  循环结构
               
               
               
@@ -413,7 +413,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                       
                                                       
                                                       
-                                                        1.3.3  异常
+                                                        1.3.3  异常
                                                       
                                                       
                                                       
@@ -425,23 +425,23 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                               
                                                               
                                                               
-                                                                    x = Math.sqrt(y/z)
+                                                                    x = Math.sqrt(y/z)
                                                               
                                                               
                                                               
-                                                                rescue ArgumentError       #匹配错误类型
+                                                                rescue ArgumentError       #匹配错误类型
                                                               
                                                               
                                                               
-                                                                    puts "Error taking square root"
+                                                                    puts "Error taking square root"
                                                               
                                                               
                                                               
-                                                                rescue ZeroDivisionError     #匹配错误类型
+                                                                rescue ZeroDivisionError     #匹配错误类型
                                                               
                                                               
                                                               
-                                                                    puts "Attempted division by zero"
+                                                                    puts "Attempted division by zero"
                                                               
                                                               
                                                               
@@ -449,7 +449,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                               
                                                               
                                                               
-                                                                    puts "Other Error"
+                                                                    puts "Other Error"
                                                               
                                                               
                                                               
@@ -457,7 +457,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                               
                                                               
                                                               
-                                                                    #这部分代码在最后一定会执行
+                                                                    #这部分代码在最后一定会执行
                                                               
                                                               
                                                               
@@ -477,7 +477,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                       
                                                       
                                                       
-                                                        1.3.4  类
+                                                        1.3.4  类
                                                       
                                                       
                                                       
@@ -485,40 +485,40 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                           
                                                             
                                                               
-                                                                class Hello #类名必须以大写字母开头
+                                                                class Hello #类名必须以大写字母开头
                                                               
                                                               
                                                               
-                                                                 @@myname = "John"   #类变量
+                                                                 @@myname = "John"   #类变量
                                                               
                                                               
                                                               
                                                                 
-                                                                   def initialize(name,phone)
+                                                                   def initialize(name,phone)
                                                                 
                                                                 
                                                                 
-                                                                        @name,@phone = name,phone #定义实例变量
+                                                                        @name,@phone = name,phone #定义实例变量
                                                                 
                                                                 
                                                                 
-                                                                   end
+                                                                   end
                                                                 
                                                                 
                                                                 
-                                                                   
+                                                                   
                                                                 
                                                                 
                                                                 
-                                                                   def hello #定义类方法
+                                                                   def hello #定义类方法
                                                                 
                                                                 
                                                                 
-                                                                      puts "#{@name}的电话是#{@phone}" 
+                                                                      puts "#{@name}的电话是#{@phone}" 
                                                                 
                                                                 
                                                                 
-                                                                   end
+                                                                   end
                                                                 
                                                                 
                                                                 
@@ -527,17 +527,17 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                                 
                                                                 
                                                                   
-                                                                    f = Hello.new("Tom","13100000000") #创建类对象
+                                                                    f = Hello.new("Tom","13100000000") #创建类对象
                                                                   
                                                                   
                                                                   
-                                                                    f.hello #调用类方法，结果为: Tom的电话是13100000000  </tbody>   
+                                                                    f.hello #调用类方法，结果为: Tom的电话是13100000000  </tbody>   
                                                                     
                                                                     
                                                                     
                                                                     
                                                                     
-                                                                      1.3.5  模块
+                                                                      1.3.5  模块
                                                                     
                                                                     
                                                                     
@@ -593,7 +593,7 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                                     
                                                                     
                                                                     
-                                                                      1.3.6  case语句
+                                                                      1.3.6  case语句
                                                                     
                                                                     
                                                                     
@@ -601,39 +601,39 @@ super关键字是从子类直接调用父类（同名)  方法的 。
                                                                         
                                                                           
                                                                             
-                                                                              case x
+                                                                              case x
                                                                             
                                                                             
                                                                             
-                                                                               when 1..10              #匹配数字
+                                                                               when 1..10              #匹配数字
                                                                             
                                                                             
                                                                             
-                                                                                  puts "First branch"
+                                                                                  puts "First branch"
                                                                             
                                                                             
                                                                             
-                                                                               when foobar()           #批量方法返回的值
+                                                                               when foobar()           #批量方法返回的值
                                                                             
                                                                             
                                                                             
-                                                                                  puts "Second branch"
+                                                                                  puts "Second branch"
                                                                             
                                                                             
                                                                             
-                                                                               when /^hel.*/           #匹配正则表达式
+                                                                               when /^hel.*/           #匹配正则表达式
                                                                             
                                                                             
                                                                             
-                                                                                  puts "Third branch"
+                                                                                  puts "Third branch"
                                                                             
                                                                             
                                                                             
-                                                                               else
+                                                                               else
                                                                             
                                                                             
                                                                             
-                                                                                  puts "Last branch"
+                                                                                  puts "Last branch"
                                                                             
                                                                             
                                                                             

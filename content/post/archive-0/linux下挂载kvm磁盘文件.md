@@ -9,11 +9,11 @@ categories:
 
 ---
 ## linux下挂载kvm磁盘文件
-宿主机Debian, 客户机winxp, 磁盘文件格式raw
+宿主机Debian, 客户机winxp, 磁盘文件格式raw
 
 ```bash
 
-sudo mount -o loop,offset=32256 -t ntfs winxp.img   /mnt
+sudo mount -o loop,offset=32256 -t ntfs winxp.img   /mnt
 
 ```
 
@@ -27,7 +27,7 @@ You should read partition table from loop1 with fdisk; compute offset of first p
 
 where N is offset in bytes.
 
-_Telepathic mode on_ N is 32256 _Telepathic mode off_
+_Telepathic mode on_ N is 32256 _Telepathic mode off_
 
 and finally, google mode on (I'll google "offset 32256"):
 

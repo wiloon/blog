@@ -10,9 +10,9 @@ categories:
 ## Java Http连接中（HttpURLConnection) 中使用代理（Proxy) 及其验证（Authentication)
 ```java
 
-System.setProperty("http.proxyHost", "www.proxy.com");
+System.setProperty("http.proxyHost", "www.proxy.com");
   
-System.setProperty("http.proxyPort", "8080");
+System.setProperty("http.proxyPort", "8080");
 
 ```
 
@@ -20,7 +20,7 @@ System.setProperty("http.proxyPort", "8080");
 
 
   
-          设置代理（Proxy) 可以有两种方式: 
+          设置代理（Proxy) 可以有两种方式: 
   
   
     1、通过设置系统属性(System.setPropery(String key, String value)的方式
@@ -66,7 +66,7 @@ http://blog.csdn.net/redhat456/article/details/6149774#
     
   
   
-    这两个属性。 这时就需要java.net.Authenticator类来完成一般的Http验证。但是java.net.Authenticator这个类却是个抽象类，我们要使用还需要实例化一下子自己的类。个人觉得这里很不方便。如下: 
+    这两个属性。 这时就需要java.net.Authenticator类来完成一般的Http验证。但是java.net.Authenticator这个类却是个抽象类，我们要使用还需要实例化一下子自己的类。个人觉得这里很不方便。如下: 
   
   
     
@@ -96,7 +96,7 @@ http://blog.csdn.net/redhat456/article/details/6149774#
     
     <ol start="1">
       
-        Authenticator.setDefault(new BasicAuthenticator(userName, password));
+        Authenticator.setDefault(new BasicAuthenticator(userName, password));
       
     
   
@@ -129,10 +129,10 @@ http://blog.csdn.net/redhat456/article/details/6149774#
     
     <ol start="1">
       
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(host, port));
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(host, port));
       
       
-        URLConnection conn = url.openConnection(proxy);
+        URLConnection conn = url.openConnection(proxy);
       
     
   
@@ -162,16 +162,16 @@ http://blog.csdn.net/redhat456/article/details/6149774#
         //格式如下: 
       
       
-        "Proxy-Authorization"= "Basic Base64.encode(user:password)"
+        "Proxy-Authorization"= "Basic Base64.encode(user:password)"
       
       
-        String headerKey = "Proxy-Authorization";
+        String headerKey = "Proxy-Authorization";
       
       
-        String headerValue = "Basic " + Base64.encode(user+":"+password);
+        String headerValue = "Basic " + Base64.encode(user+":"+password);
       
       
-        conn.setRequestProperty(headerKey, headerValue);
+        conn.setRequestProperty(headerKey, headerValue);
       
       
       

@@ -10,7 +10,7 @@ tags:
 
 ---
 ## 'eclipse>IDEA'
-outline - structure, Ctrl+F12
+outline - structure, Ctrl+F12
 
 本文转自: <http://gagi.iteye.com/blog/633778>
 
@@ -20,7 +20,7 @@ outline - structure, Ctrl+F12
   
   
     
-      sysout(sout 按tab)，main(psvm按tab),具体可按照ctrl+j
+      sysout(sout 按tab)，main(psvm按tab),具体可按照ctrl+j
     
   
 
@@ -53,7 +53,7 @@ outline - structure, Ctrl+F12
       -server
     
     
-      -Xms256m设置初时的内存数，你需要设置一个合理的值， 增加该值可以提高Java程序的启动速度。如果你的内存够大，如2G，可以设置到400m。
+      -Xms256m设置初时的内存数，你需要设置一个合理的值， 增加该值可以提高Java程序的启动速度。如果你的内存够大，如2G，可以设置到400m。
     
     
       -Xmx384m设置最大内存数，提高该值，可以减少内存Garage收集的频率，提高程序性能。
@@ -72,15 +72,15 @@ outline - structure, Ctrl+F12
   
   
     
-      取消"Synchronize file on frame activation"和"Save files on framedeactivation"的选择
+      取消"Synchronize file on frame activation"和"Save files on framedeactivation"的选择
     
     
-      同时我们选择"Save files automatically", 并将其设置为30秒，这样IDEA依然可以自动保持文件,所以在每次切换时，你需要按下Ctrl+S保存文件
+      同时我们选择"Save files automatically", 并将其设置为30秒，这样IDEA依然可以自动保持文件,所以在每次切换时，你需要按下Ctrl+S保存文件
     
     
     
     
-      如何让IntelliJ IDEA动的时候不打开工程文件: Settings->General去掉Reopen last project on startup
+      如何让IntelliJ IDEA动的时候不打开工程文件: Settings->General去掉Reopen last project on startup
     
   
 
@@ -90,16 +90,16 @@ outline - structure, Ctrl+F12
   
   
     
-      Editor –> Editor Tabs
+      Editor –> Editor Tabs
     
     
       —————————————–
     
     
-      在IDEA中，你需要做以下设置, 这样被修改的文件会以*号标识出来，你可以及时保存相关的文件。
+      在IDEA中，你需要做以下设置, 这样被修改的文件会以*号标识出来，你可以及时保存相关的文件。
     
     
-      "Mark modifyied tabs with asterisk"
+      "Mark modifyied tabs with asterisk"
     
   
 
@@ -107,7 +107,7 @@ outline - structure, Ctrl+F12
  
   
     
-      如何显示行号: Settings->Editor->Appearance标签项，勾选Show line numbers
+      如何显示行号: Settings->Editor->Appearance标签项，勾选Show line numbers
     
   
 
@@ -126,7 +126,7 @@ outline - structure, Ctrl+F12
   
   
     
-      Settings->Editor中去掉Allow placement of caret after end of line。
+      Settings->Editor中去掉Allow placement of caret after end of line。
     
   
 
@@ -141,10 +141,10 @@ outline - structure, Ctrl+F12
     
     
     
-      File菜单->Settings->Colors & Fonts->Editor Font=宋体, size=12, line spacing =1.0
+      File菜单->Settings->Colors & Fonts->Editor Font=宋体, size=12, line spacing =1.0
     
     
-      File菜单->Settings->Appearance-> Font Name=Simsun，size=12
+      File菜单->Settings->Appearance-> Font Name=Simsun，size=12
     
   
 
@@ -154,7 +154,7 @@ outline - structure, Ctrl+F12
   
   
     
-      Settings->Appearance中勾选Override default fonts by (not recommended)，设置Name:NSimSun，Size:12
+      Settings->Appearance中勾选Override default fonts by (not recommended)，设置Name:NSimSun，Size:12
     
   
 
@@ -163,13 +163,13 @@ outline - structure, Ctrl+F12
   
   
     
-      editor->code completion->autopopup的三个选项都选上，都设置为0
+      editor->code completion->autopopup的三个选项都选上，都设置为0
     
     
-      Case sensitive completion ->none
+      Case sensitive completion ->none
     
     
-      parameter info->autoopopup in ->0
+      parameter info->autoopopup in ->0
     
   
 
@@ -179,54 +179,54 @@ outline - structure, Ctrl+F12
   
   
     
-      Ctrl+Shift+N 查找文件
+      Ctrl+Shift+N 查找文件
     
     
-      Ctrl+Alt+L  格式化代码
+      Ctrl+Alt+L  格式化代码
     
     
-      Ctrl+Alt+O 优化导入的类和包
+      Ctrl+Alt+O 优化导入的类和包
     
     
-      Alt+/ 自动补全代码 注: 默认与输入法有冲突，在setting->keymap->main menu->code->complete code->basic
+      Alt+/ 自动补全代码 注: 默认与输入法有冲突，在setting->keymap->main menu->code->complete code->basic
     
     
-      Ctrl+P 方法参数提示
+      Ctrl+P 方法参数提示
     
     
-      Ctrl+X 删除行
+      Ctrl+X 删除行
     
     
-      Ctrl+D 复制行
+      Ctrl+D 复制行
     
     
-      Ctrl+H 显示类结构图
+      Ctrl+H 显示类结构图
     
     
-      Ctrl+Q 显示注释文档
+      Ctrl+Q 显示注释文档
     
     
-      [b]Alt+1 快速打开或隐藏工程面板[/b]
+      [b]Alt+1 快速打开或隐藏工程面板[/b]
     
     
-      F2 或Shift+F2 高亮错误或警告快速定位
+      F2 或Shift+F2 高亮错误或警告快速定位
     
     
       代码标签输入完成后，按Tab，生成代码。
     
     
-      选中文本，按Ctrl+Shift+F7 ，高亮显示所有该文本，按Esc高亮消失。
+      选中文本，按Ctrl+Shift+F7 ，高亮显示所有该文本，按Esc高亮消失。
     
     
-      Ctrl+W 选中代码，连续按会有其他效果
+      Ctrl+W 选中代码，连续按会有其他效果
     
     
-      选中文本，按Alt+F3 ，逐个往下查找相同文本，并高亮显示。
+      选中文本，按Alt+F3 ，逐个往下查找相同文本，并高亮显示。
     
     
-      Ctrl+Up/Down 光标跳转到第一行或最后一行下
+      Ctrl+Up/Down 光标跳转到第一行或最后一行下
     
     
-      Ctrl+B 快速打开光标处的类或方法
+      Ctrl+B 快速打开光标处的类或方法
     
   

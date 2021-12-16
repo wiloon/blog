@@ -10,7 +10,7 @@ categories:
 ## win linux ssh putty
 win: 用 PuTTYgen 生成rsa key
 
-linux:   在 /home/xxx/.ssh/ 里创建文件  authorized_keys
+linux:   在 /home/xxx/.ssh/ 里创建文件  authorized_keys
 
 修改权限
 

@@ -38,11 +38,11 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 ```
 
- 
+ 
 
-1        概述
+1        概述
 
-1.1     什么是捕获组
+1.1     什么是捕获组
 
 捕获组就是把正则表达式中子表达式匹配的内容，保存到内存中以数字编号或显式命名的组里，方便后面引用。当然，这种引用既可以是在正则表达式内部，也可以是在正则表达式外部。
 
@@ -56,19 +56,19 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 另外需要说明的一点是，除(Expression)和(?<name>Expression)语法外，其它的(?...)语法都不是捕获组。
 
-## 1.2     捕获组编号规则
+## 1.2     捕获组编号规则
 
 编号规则指的是以数字为捕获组进行编号的规则，在普通捕获组或命名捕获组单独出现的正则表达式中，编号规则比较清晰，在普通捕获组与命名捕获组混合出现的正则表达式中，捕获组的编号规则稍显复杂。
 
 在展开讨论之前，需要说明的是，编号为0的捕获组，指的是正则表达式整体，这一规则在支持捕获组的语言中，基本上都是适用的。下面对其它编号规则逐一展开讨论。
 
-### 1.2.1  普通捕获组编号规则
+### 1.2.1  普通捕获组编号规则
 
 如果没有显式为捕获组命名，即没有使用命名捕获组，那么需要按数字顺序来访问所有捕获组。在只有普通捕获组的情况下，捕获组的编号是按照"("出现的顺序，从左到右，从1开始进行编号的 。
 
 正则表达式: **(\d{4})-(\d{2}-(\d\d))**
 
- 
+ 
 
 上面的正则表达式可以用来匹配格式为yyyy-MM-dd的日期，为了在下表中得以区分，月和日分别采用了\d{2}和\d\d这两种写法。
 
@@ -162,7 +162,7 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
   
 
 
-### 1.2.2  命名捕获组编号规则
+### 1.2.2  命名捕获组编号规则
 
 命名捕获组通过显式命名，可以通过组名方便的访问到指定的组，而不需要去一个个的数编号，同时避免了在正则表达式扩展过程中，捕获组的增加或减少对引用结果导致的不可控。
 
@@ -170,7 +170,7 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 正则表达式: **(?<year>\d{4})-(?<date>\d{2}-(?<day>\d\d))**
 
- 
+ 
 
 用以上正则表达式匹配字符串: 2008-12-31
 
@@ -267,7 +267,7 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
   
 
 
-### 1.2.3  普通捕获组与命名捕获组混合编号规则
+### 1.2.3  普通捕获组与命名捕获组混合编号规则
 
 当一个正则表达式中，普通捕获组与命名捕获组混合出现时，捕获组的编号规则稍显复杂。对于其中的命名捕获组，随时都可以通过组名进行访问，而对于普通捕获组，则只能通过确定其编号后进行访问。
 
@@ -277,7 +277,7 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 正则表达式: **(\d{4})-(?<date>\d{2}-(\d\d))**
 
- 
+ 
 
 用以上正则表达式匹配字符串: 2008-12-31，匹配结果为: 
 
@@ -370,17 +370,17 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
   
 
 
-# 2       捕获组的引用
+# 2       捕获组的引用
 
 对捕获组的引用一般有以下几种: 
 
-1)       正则表达式中，对前面捕获组捕获的内容进行引用，称为反向引用；
+1)       正则表达式中，对前面捕获组捕获的内容进行引用，称为反向引用；
 
-2)       正则表达式中，(?(name)yes|no)的条件判断结构；
+2)       正则表达式中，(?(name)yes|no)的条件判断结构；
 
-3)       在程序中，对捕获组捕获内容的引用。
+3)       在程序中，对捕获组捕获内容的引用。
 
-## 2.1     反向引用
+## 2.1     反向引用
 
 捕获组捕获到的内容，不仅可以在正则表达式外部通过程序进行引用，也可以在正则表达式内部进行引用，这种引用方式就是反向引用。
 
@@ -396,21 +396,21 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 反向引用涉及到的内容比较多，后续单独说明。
 
-## 2.2     条件判断表达式
+## 2.2     条件判断表达式
 
 条件判断结构在平衡组中谈到过，基本应用和扩展应用都可以在其中找到例子，这里不再赘述，请参考 [.NET正则基础之——平衡组][1]。
 
-## 2.3     程序中引用
+## 2.3     程序中引用
 
 根据语言的不同，程序中对捕获组引用的方式也有所不同，下面就JavaScript和.NET进行举例说明。
 
-### 2.3.1  JavaScript中的引用
+### 2.3.1  JavaScript中的引用
 
 由于JavaScript中不支持命名捕获组，所以对于捕获组的引用就只支持普通捕获组的反向引用和$number方式的引用。程序中的引用一般在替换和匹配时使用。
 
 注: 以下应用举例仅考虑简单应用场景，对于这种复杂场景暂不考虑。
 
-1)         在Replace中引用，通常是通过$number方式引用。
+1)         在Replace中引用，通常是通过$number方式引用。
 
 举例: 替换掉html标签中的属性。<textareaid="result"rows="10"cols="100"></textarea><scripttype="text/javascript">var data ="  <tr class=\"light\"> 
 
@@ -426,11 +426,11 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
   
 
 
-2)         在匹配时的引用，通常通过RegExp.$number方式引用。
+2)         在匹配时的引用，通常通过RegExp.$number方式引用。
 
 举例: 同时获取<img…>中的src和name属性值，属性的顺序不固定。参考 [一条正则能不能同时取出一个img标记的src和name?][2]
 
- 
+ 
 
 [javascript][/javascript]
 
@@ -440,32 +440,32 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 ol>
 
-  * <textarea id="result" rows="10" cols="100"></textarea>
-  * <script type="text/javascript">
-  * **var** data = [' <img alt="" border="0" name="g6-o44-1" onload="DrawImage" src="/bmp/foo1.jpg" />', ' <img src="/bmp/foo2.jpg" alt="" border="0" name="g6-o44-2" onload="DrawImage" />'] ;
-  * **var** reg = /<img\b(?=(?:(?!name=).)_name=(['"]?)([^'"\s>]+)\1)(?:(?!src=).)_src=(['"]?)([^'"\s>]+)\3[^>]*>/i;
-  * **for**(**var** i=0;i<data.length;i++)
+  * <textarea id="result" rows="10" cols="100"></textarea>
+  * <script type="text/javascript">
+  * **var** data = [' <img alt="" border="0" name="g6-o44-1" onload="DrawImage" src="/bmp/foo1.jpg" />', ' <img src="/bmp/foo2.jpg" alt="" border="0" name="g6-o44-2" onload="DrawImage" />'] ;
+  * **var** reg = /<img\b(?=(?:(?!name=).)_name=(['"]?)([^'"\s>]+)\1)(?:(?!src=).)_src=(['"]?)([^'"\s>]+)\3[^>]*>/i;
+  * **for**(**var** i=0;i<data.length;i++)
   * {
-  *     **var** s = data[i];
-  *     document.getElementById("result").value += "源字符串: " + s + "\n";
-  *     document.write("<br />");
-  *     **if**(reg.test(s))
-  *     {
-  *         document.getElementById("result").value += "name: " + RegExp.$2 + "\n";
-  *         document.getElementById("result").value += "src: " + RegExp.$4 + "\n";
-  *     }
+  *     **var** s = data[i];
+  *     document.getElementById("result").value += "源字符串: " + s + "\n";
+  *     document.write("<br />");
+  *     **if**(reg.test(s))
+  *     {
+  *         document.getElementById("result").value += "name: " + RegExp.$2 + "\n";
+  *         document.getElementById("result").value += "src: " + RegExp.$4 + "\n";
+  *     }
   * }
   * </script> 
 
- 
+ 
 
- 
+ 
 
-### 2.3.2  .NET中的引用
+### 2.3.2  .NET中的引用
 
 由于.NET支持命名捕获组，所以在.NET中的引用方式会多一些。通常也是在两种场景下应用，一是替换，一是匹配。
 
-1)         替换中的引用
+1)         替换中的引用
 
 普通捕获组: $number
 
@@ -513,7 +513,7 @@ richTextBox2.Text = Regex.Replace(data, @"(?i)<(?<tag>[a-z]+)[^>]*>", "<${tag}>"
   
 
 
-2)         匹配后的引用
+2)         匹配后的引用
 
 对于匹配结果中捕获组捕获内容的引用，可以通过Groups和Result对象进行引用。
 
@@ -553,31 +553,31 @@ richTextBox2.Text += "m.Groups[\"text\"].Value: ".PadRight(25) + m.Groups["text"
 
 //输出
 
-m.Value:                  [CSDN][5]
+m.Value:                  [CSDN][5]
 
-m.Result("$0"):           [CSDN][5]
+m.Result("$0"):           [CSDN][5]
 
-m.Groups[0].Value:        [CSDN][5]
+m.Groups[0].Value:        [CSDN][5]
 
-m.Result("$2"):           http://www.csdn.net
+m.Result("$2"):           http://www.csdn.net
 
-m.Groups[2].Value:        http://www.csdn.net
+m.Groups[2].Value:        http://www.csdn.net
 
-m.Result("${url}"):       http://www.csdn.net
+m.Result("${url}"):       http://www.csdn.net
 
-m.Groups["url"].Value:    http://www.csdn.net
+m.Groups["url"].Value:    http://www.csdn.net
 
-m.Result("$3"):           CSDN
+m.Result("$3"):           CSDN
 
-m.Groups[3].Value:        CSDN
+m.Groups[3].Value:        CSDN
 
-m.Result("${text}"):      CSDN
+m.Result("${text}"):      CSDN
 
-m.Groups["text"].Value:   CSDN
+m.Groups["text"].Value:   CSDN
 
 对于捕获组0的引用，可以简写作m.Value。
 
- 
+ 
 
 <http://blog.csdn.net/lovingprince/article/details/2774819>
 
@@ -625,7 +625,7 @@ m.Groups["text"].Value:   CSDN
       
       
       
-        X，恰好 n 次
+        X，恰好 n 次
       
     
     
@@ -635,7 +635,7 @@ m.Groups["text"].Value:   CSDN
       
       
       
-        X，至少 n 次
+        X，至少 n 次
       
     
     
@@ -645,7 +645,7 @@ m.Groups["text"].Value:   CSDN
       
       
       
-        X，至少 n 次，但是不超过 m 次
+        X，至少 n 次，但是不超过 m 次
       
     
   
@@ -659,7 +659,7 @@ m.Groups["text"].Value:   CSDN
     捕获组
   
   
-    捕获组可以通过从左到右计算其开括号来编号。例如，在表达式 ((A)(B(C))) 中，存在四个这样的组: 
+    捕获组可以通过从左到右计算其开括号来编号。例如，在表达式 ((A)(B(C))) 中，存在四个这样的组: 
   
   
     
@@ -714,13 +714,13 @@ m.Groups["text"].Value:   CSDN
     Back 引用 是说在后面的表达式中我们可以使用组的编号来引用前面的表达式所捕获到的文本序列(是文本不是正则)。
   
   
-    例如 ([" ']).* /1   其中使用了分组，/1就是对引号这个分组的引用，它匹配包含在两个引号或者两个单引号中的所有字符串，如，"abc" 或 " ' " 或 ' " '  ，但是请注意，它并不会对" a'或者 'a"匹配。原因上面已经说明，Back引用只是引用文本而不是表达式。
+    例如 ([" ']).* /1   其中使用了分组，/1就是对引号这个分组的引用，它匹配包含在两个引号或者两个单引号中的所有字符串，如，"abc" 或 " ' " 或 ' " '  ，但是请注意，它并不会对" a'或者 'a"匹配。原因上面已经说明，Back引用只是引用文本而不是表达式。
   
   
     非捕获组
   
   
-    以 (?) 开头的组是纯的非捕获 组，它不捕获文本，也不针对组合计进行计数。就是说，如果小括号中以?号开头，那么这个分组就不会捕获文本，当然也不会有组的编号，因此也不存在Back 引用。
+    以 (?) 开头的组是纯的非捕获 组，它不捕获文本，也不针对组合计进行计数。就是说，如果小括号中以?号开头，那么这个分组就不会捕获文本，当然也不会有组的编号，因此也不存在Back 引用。
   
   
     在Java中，支持的非捕获组，有如下几种: 
@@ -738,7 +738,7 @@ m.Groups["text"].Value:   CSDN
     
     
       
-         
+         
       
       
       
@@ -762,7 +762,7 @@ m.Groups["text"].Value:   CSDN
       
       
       
-            X，通过零宽度的正 lookahead
+            X，通过零宽度的正 lookahead
       
     
     
@@ -772,7 +772,7 @@ m.Groups["text"].Value:   CSDN
       
       
       
-            X，通过零宽度的负 lookahead
+            X，通过零宽度的负 lookahead
       
     
     
@@ -782,7 +782,7 @@ m.Groups["text"].Value:   CSDN
       
       
       
-            X，通过零宽度的正 lookbehind
+            X，通过零宽度的正 lookbehind
       
     
     
@@ -792,7 +792,7 @@ m.Groups["text"].Value:   CSDN
       
       
       
-            X，通过零宽度的负 lookbehind
+            X，通过零宽度的负 lookbehind
       
     
     
@@ -857,27 +857,27 @@ m.Groups["text"].Value:   CSDN
     上面都是理论性的介绍，这里就使用一些例子来说明一下问题: 
   
   
-    1、测试匹配性   (?<!4)56(?=9) 这里的含义就是匹配后面的文本56前面不能是4，后面必须是9组成。因此，可以匹配如下文本 5569  ，与4569不匹配。 2 、提取字符串   提取 da12bka3434bdca4343bdca234bm   提取包含在字符a和b之间的数字，但是这个a之前的字符不能是c,b后面的字符必须是d才能提取。 例如这里就只有3434这个数字满足要求。那么我们怎么提取呢？ 首先我们写出提取这个字符串的表达式:  (?<!c)a(/d+)bd  这里就只有一个捕获组(/d+) JAVA代码片段如下:  
+    1、测试匹配性   (?<!4)56(?=9) 这里的含义就是匹配后面的文本56前面不能是4，后面必须是9组成。因此，可以匹配如下文本 5569  ，与4569不匹配。 2 、提取字符串   提取 da12bka3434bdca4343bdca234bm   提取包含在字符a和b之间的数字，但是这个a之前的字符不能是c,b后面的字符必须是d才能提取。 例如这里就只有3434这个数字满足要求。那么我们怎么提取呢？ 首先我们写出提取这个字符串的表达式:  (?<!c)a(/d+)bd  这里就只有一个捕获组(/d+) JAVA代码片段如下:  
     
     
       
         
-           Pattern p = Pattern.compile("(?<!c)a(//d+)bd");
+           Pattern p = Pattern.compile("(?<!c)a(//d+)bd");
         
         
-           Matcher m = p.matcher("da12bka3434bdca4343bdca234bm");
+           Matcher m = p.matcher("da12bka3434bdca4343bdca234bm");
         
         
-           while(m.find()){
+           while(m.find()){
         
         
-             System.out.println(m.group(1)); //我们只要捕获组1的数字即可。结果 3434
+             System.out.println(m.group(1)); //我们只要捕获组1的数字即可。结果 3434
         
         
-             System.out.println(m.group(0)); // 0组是整个表达式，看这里，并没有提炼出(?<!c)的字符 。结果 a3434bd
+             System.out.println(m.group(0)); // 0组是整个表达式，看这里，并没有提炼出(?<!c)的字符 。结果 a3434bd
         
         
-           }
+           }
         
       
     
@@ -891,7 +891,7 @@ m.Groups["text"].Value:   CSDN
     
     
     
-       
+       
     
     
     

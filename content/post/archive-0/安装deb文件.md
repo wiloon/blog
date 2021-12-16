@@ -23,11 +23,11 @@ sudo synaptic
 ##The difference between "Mark for Removal" and "Mark for Complete Removal" in Synaptic Package Manager:
 
 
-**Mark for removal** removes the package, but not the configuration files associated with the package. It is equivalent to
+**Mark for removal** removes the package, but not the configuration files associated with the package. It is equivalent to
 
     apt-get remove package_name 
 
-**Mark for Complete Removal** purges the package, i.e. removes both the package files and its configuration. It is equivalent to
+**Mark for Complete Removal** purges the package, i.e. removes both the package files and its configuration. It is equivalent to
 
     apt-get --purge remove package_name 
 

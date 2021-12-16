@@ -9,7 +9,7 @@ categories:
 
 ---
 ## 虚拟机硬盘格式的选择 qcow2、 raw
-转自: <http://jobinson99.blog.163.com/blog/static/2591478201051194046840/>
+转自: <http://jobinson99.blog.163.com/blog/static/2591478201051194046840/>
 
 曾经有过一段时间，徘徊于对虚拟机硬盘格式的迷惑中，2009年，终于得出了一些结论（下面的思路基本通用于其他虚拟机) 
 搜了下，发现大部分用qemu或者kvm的，都默认使用qcow2来作为虚拟硬盘，但qemu官方默认是用raw。

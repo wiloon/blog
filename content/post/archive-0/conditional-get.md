@@ -9,10 +9,10 @@ categories:
 ---
 ## Conditional Get
   
-     HTTP条件Get
+     HTTP条件Get
   
   
-    HTTP条件Get是HTTP协议为了减少不必要的带宽浪费，提出的一种方案。详见http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html 
+    HTTP条件Get是HTTP协议为了减少不必要的带宽浪费，提出的一种方案。详见http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html 
   
 
 
@@ -36,10 +36,10 @@ categories:
   
   
     ```java
- GET / HTTP/1.1
- Host: www.sina.com.cn:80
- If-Modified-Since:Thu, 4 Feb 2010 20:39:13 GMT
- Connection: Close
+ GET / HTTP/1.1
+ Host: www.sina.com.cn:80
+ If-Modified-Since:Thu, 4 Feb 2010 20:39:13 GMT
+ Connection: Close
  ```
   
   
@@ -47,14 +47,14 @@ categories:
   
   
     ```java
- HTTP/1.0 304 Not Modified
- Date: Thu, 04 Feb 2010 12:38:41 GMT
- Content-Type: text/html
- Expires: Thu, 04 Feb 2010 12:39:41 GMT
- Last-Modified: Thu, 04 Feb 2010 12:29:04 GMT
- Age: 28
- X-Cache: HIT from sy32-21.sina.com.cn
- Connection: close
+ HTTP/1.0 304 Not Modified
+ Date: Thu, 04 Feb 2010 12:38:41 GMT
+ Content-Type: text/html
+ Expires: Thu, 04 Feb 2010 12:39:41 GMT
+ Last-Modified: Thu, 04 Feb 2010 12:29:04 GMT
+ Age: 28
+ X-Cache: HIT from sy32-21.sina.com.cn
+ Connection: close
  ```
   
   
@@ -62,21 +62,21 @@ categories:
   
   
     ```java
- HTTP/1.0 200 OK
- Date: Thu, 04 Feb 2010 12:49:46 GMT
- Server: Apache
- Last-Modified: Thu, 04 Feb 2010 12:49:05 GMT
- Accept-Ranges: bytes
- X-Powered-By: mod_xlayout_jh/0.0.1vhs.markIII.remix
- Cache-Control: max-age=60
- Expires: Thu, 04 Feb 2010 12:50:46 GMT
- Vary: Accept-Encoding
- X-UA-Compatible: IE=EmulateIE7
- Content-Length: 452785
- Content-Type: text/html
- Age: 11
- X-Cache: HIT from sy32-27.sina.com.cn
- Connection: close
- /*.......网页内容....... */
+ HTTP/1.0 200 OK
+ Date: Thu, 04 Feb 2010 12:49:46 GMT
+ Server: Apache
+ Last-Modified: Thu, 04 Feb 2010 12:49:05 GMT
+ Accept-Ranges: bytes
+ X-Powered-By: mod_xlayout_jh/0.0.1vhs.markIII.remix
+ Cache-Control: max-age=60
+ Expires: Thu, 04 Feb 2010 12:50:46 GMT
+ Vary: Accept-Encoding
+ X-UA-Compatible: IE=EmulateIE7
+ Content-Length: 452785
+ Content-Type: text/html
+ Age: 11
+ X-Cache: HIT from sy32-27.sina.com.cn
+ Connection: close
+ /*.......网页内容....... */
  ```
   

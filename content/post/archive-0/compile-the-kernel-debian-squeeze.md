@@ -8,15 +8,15 @@ categories:
 
 ---
 ## compile the kernel – Debian squeeze
-下载源代码, 编译软件准备
+下载源代码, 编译软件准备
   
 下载内核源代码: <http://www.kernel.org/>
 
 apt-get update
 
-apt-get install kernel-package libncurses5-dev fakeroot axel bzip2 build-essential gcc make
+apt-get install kernel-package libncurses5-dev fakeroot axel bzip2 build-essential gcc make
 
-#kernel-package (debian 特有，也是这个方法的关键),用 debian 的独特方法编译 linux 的内核，会用到 debian 提供的工具。这样做不适用于其他的发行版，但好处是比较简单，而且可以直接产生 .deb 包，可以和其它 debian 软件一样管理和安装。
+#kernel-package (debian 特有，也是这个方法的关键),用 debian 的独特方法编译 linux 的内核，会用到 debian 提供的工具。这样做不适用于其他的发行版，但好处是比较简单，而且可以直接产生 .deb 包，可以和其它 debian 软件一样管理和安装。
 
 下载源代码
   
@@ -30,7 +30,7 @@ unpak...
 
 $xz -d \***.**tar.xz**
 
-$tar -xvf  \***.tar
+$tar -xvf  \***.tar
 
 ln -s linux-2.6.21.3 linux
   
@@ -48,11 +48,11 @@ cp /boot/config-\`uname -r\` ./.config
   
 不过ubntu的config存在很多问题, 建议改用附件中arch的2.6.23的config
 
-开始配置内核选项。从linux-2.6.32开始可以使用make localmodconfig自动精简内核, 菜鸟也能轻松精简内核到十几MB(也可以完全手动配置....直接跳到make menuconfig)
+开始配置内核选项。从linux-2.6.32开始可以使用make localmodconfig自动精简内核, 菜鸟也能轻松精简内核到十几MB(也可以完全手动配置....直接跳到make menuconfig)
   
 自动精简内核模块
   
-注意: 该方法会自动去掉一些从开机到当前没用使用的模块(主要是驱动模块),
+注意: 该方法会自动去掉一些从开机到当前没用使用的模块(主要是驱动模块),
   
 所以你可以使用一下你的摄像头, 挂载一下iso文件.....
   
@@ -74,11 +74,11 @@ fakeroot make-kpkg -initrd -append-to-version=ylxy1.0 kernel_image
 
 -
 
-which brings up the kernel configuration menu. Go to Load an Alternate Configuration File and choose .config (which contains the configuration of your current working kernel) as the configuration file:
+which brings up the kernel configuration menu. Go to Load an Alternate Configuration File and choose .config (which contains the configuration of your current working kernel) as the configuration file:
 
-Then browse through the kernel configuration menu and make your choices. When you are finished and select Exit, answer the following question (Do you wish to save your new kernel configuration?) with Yes:
+Then browse through the kernel configuration menu and make your choices. When you are finished and select Exit, answer the following question (Do you wish to save your new kernel configuration?) with Yes:
 
-After -append-to-version= you can write any string that helps you identify the kernel, but it must begin with a minus (-) and must not contain whitespace.
+After -append-to-version= you can write any string that helps you identify the kernel, but it must begin with a minus (-) and must not contain whitespace.
 
 Now be patient, the kernel compilation can take some hours, depending on your kernel configuration and your processor speed.
 

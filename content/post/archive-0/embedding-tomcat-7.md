@@ -12,7 +12,7 @@ tags:
 ## Embedding tomcat 7
 <http://www.copperykeenclaws.com/embedding-tomcat-7/>
 
-One of the more anticipated features of Tomcat 7 is the ability to run as an embedded server like Jetty. We use Tomcat 6 in production, but embedded Jetty more and more for running and testing during development (in Eclipse). The Tomcat 7  has been out for a while, but there seems to be little documentation out there on how to embed it, other than some suggestions to look at the unit tests for examples. So that's what I did! First, here is the guts of our original Main method in Jetty:
+One of the more anticipated features of Tomcat 7 is the ability to run as an embedded server like Jetty. We use Tomcat 6 in production, but embedded Jetty more and more for running and testing during development (in Eclipse). The Tomcat 7  has been out for a while, but there seems to be little documentation out there on how to embed it, other than some suggestions to look at the unit tests for examples. So that's what I did! First, here is the guts of our original Main method in Jetty:
 
 ```java
   

@@ -63,11 +63,11 @@ open (LOGFILE,">>/home/autumncat/log/arpdef.log");
   
 if ( 4 <= $#ARGV ) {
   
-printf LOGFILE "%s    %s %15s %15s %6s %d (%s)n",($date,@ARGV,"Null");
+printf LOGFILE "%s    %s %15s %15s %6s %d (%s)n",($date,@ARGV,"Null");
   
 } else {
   
-printf LOGFILE "%s    manual executing.n",$date;
+printf LOGFILE "%s    manual executing.n",$date;
   
 }
   
@@ -123,7 +123,7 @@ usleep($ival);
   
 # Copyright (c) 2005-2010 Thierry FOURNIER
   
-# $Id: arpalert.conf.in 690 2008-03-31 18:36:43Z  $
+# $Id: arpalert.conf.in 690 2008-03-31 18:36:43Z  $
   
 #
   
@@ -203,17 +203,17 @@ interface = eth0
   
 # parameters are:
   
-#  - "mac adress of requestor"
+#  - "mac adress of requestor"
   
-#  - "ip of requestor"
+#  - "ip of requestor"
   
-#  - "supp. parm."
+#  - "supp. parm."
   
-#  - "ethernet device listening on"
+#  - "ethernet device listening on"
   
-#  - "type of alert"
+#  - "type of alert"
   
-#  - optional : "ethernet vendor"
+#  - optional : "ethernet vendor"
   
 # type of alert:
   
@@ -395,7 +395,7 @@ mod on mac error = true
   
 log flood = false
   
-alert on flood   = false
+alert on flood   = false
   
 mod on flood = true
   

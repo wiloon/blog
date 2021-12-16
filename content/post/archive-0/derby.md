@@ -24,7 +24,7 @@ Derby also supports the more familiar client/server mode with the Derby Network 
   
 Derby is easy to install, deploy, and use.
 
-Java DB is Oracle's supported distribution of the Apache Derby open source database. It supports standard ANSI/ISO SQL through the JDBC and Java EE APIs. Java DB is included in the JDK.
+Java DB is Oracle's supported distribution of the Apache Derby open source database. It supports standard ANSI/ISO SQL through the JDBC and Java EE APIs. Java DB is included in the JDK.
 
 ### At a Glance
 
@@ -66,11 +66,11 @@ select * from firsttable;
 
 **结果如下: **
 
-ID         |NAME
+ID         |NAME
   
 ——————————–
   
-1          |wahaha
+1          |wahaha
 
 **其它命令**
   

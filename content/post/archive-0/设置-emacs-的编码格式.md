@@ -10,7 +10,7 @@ categories:
 ## 设置 Emacs 的编码格式
 
   
-    查看一下 Emacs 读取文件用的编码格式。 M-x describe-coding-system
+    查看一下 Emacs 读取文件用的编码格式。 M-x describe-coding-system
   
   
     把 Emacs 的默认编码设置为 UTF-8。
@@ -65,5 +65,5 @@ categories:
     另外，碰到文件编码混乱的时候，最重要的一点，看到乱码的文件，不要随便保存。有关 Emacs 编码格式的详情可以看看官方文档。
   
   
-    原创文章，如转载请注明: 转载自细节之锤 [ http://blog.WaterLin.org/ ]
+    原创文章，如转载请注明: 转载自细节之锤 [ http://blog.WaterLin.org/ ]
   

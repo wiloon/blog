@@ -36,19 +36,19 @@ tags:
   
 </context-param>
 
-web.xml 通过contextConfigLocation配置spring 的方式
+web.xml 通过contextConfigLocation配置spring 的方式
   
 SSI框架配置文件路径问题: 
 
-struts2的 1个+N个  路径: src+src(可配置)      名称:  struts.xml  + N
+struts2的 1个+N个  路径: src+src(可配置)      名称:  struts.xml  + N
   
-spring 的 1个           路径:  src                          名称:  applicationContext.xml
+spring 的 1个           路径:  src                          名称:  applicationContext.xml
   
-ibatis 的 1个+N个  路径:  src+src(可配置)     名称:  SqlMapConfig.xml + N
+ibatis 的 1个+N个  路径:  src+src(可配置)     名称:  SqlMapConfig.xml + N
 
-部署到tomcat后，src目录下的配置文件会和class文件一样，自动copy到应用的 classes目录下
+部署到tomcat后，src目录下的配置文件会和class文件一样，自动copy到应用的 classes目录下
 
-spring的 配置文件在启动时，加载的是web-info目录下的applicationContext.xml,
+spring的 配置文件在启动时，加载的是web-info目录下的applicationContext.xml,
   
 运行时使用的是web-info/classes目录下的applicationContext.xml。
 
@@ -90,7 +90,7 @@ classpath\*:conf/spring/applicationContext_apm\*.xml
   
 </context-param>
 
-contextConfigLocation 参数定义了要装入的 Spring 配置文件。
+contextConfigLocation 参数定义了要装入的 Spring 配置文件。
 
 首先与Spring相关的配置文件必须要以"applicationContext-"开头，要符合约定优于配置的思想，这样在效率上和出错率上都要好很多。
   
@@ -114,7 +114,7 @@ Xml代码
   
 你自己可以根据需要修改。最好把所有Spring配置文件都放在一个统一的目录下，如: 
 
-<!- Spring 的配置 ->
+<!- Spring 的配置 ->
   
 <context-param>
   

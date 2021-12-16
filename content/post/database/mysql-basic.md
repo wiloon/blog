@@ -98,7 +98,7 @@ SELECT @@SESSION.sql_mode;
 
 ```bash
 sudo pacman -S mariadb-clients
-MySQL -u user0 -ppassword0 -h 127.0.0.1 -P 3306 -D mydb
+MySQL -u user0 -ppassword0 -h 127.0.0.1 -P 3306 -D mydb
 mariadb -u user0 -h 127.0.0.1 -P 3306 -D database0 -ppassword0
 # add yum repo https://dev.MySQL.com/doc/MySQL-repo-excerpt/5.6/en/linux-installation-yum-repo.html
 yum install MySQL-community-client
@@ -232,9 +232,9 @@ SET PASSWORD FOR user0@localhost= PASSWORD("password");
 
 MySQL-限制返回记录数limit
   
-SELECT * FROM table  LIMIT [offset,] rows | rows OFFSET offset
+SELECT * FROM table  LIMIT [offset,] rows | rows OFFSET offset
   
-SELECT  * FROM  table  order by time desc LIMIT  n;
+SELECT  * FROM  table  order by time desc LIMIT  n;
   
 ##auto_increment
 

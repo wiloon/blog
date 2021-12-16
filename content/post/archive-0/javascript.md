@@ -166,7 +166,7 @@ replace()
   
 stringObject.replace(regexp/substr,replacement)
   
- replace(/&quot;/g,"\"");//g 替换所有
+ replace(/&quot;/g,"\"");//g 替换所有
   
 ```
 

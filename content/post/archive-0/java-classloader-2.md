@@ -54,17 +54,17 @@ Java除了上面所说的默认提供的classloader以外，它还容许应用�
   
 loadClass method declare
 
-public Class<?> loadClass(String name)  throws ClassNotFoundException
+public Class<?> loadClass(String name)  throws ClassNotFoundException
   
 上面是loadClass方法的原型声明，上面所说的双亲委托机制的实现其实就实在此方法中实现的。下面我们就来看看此方法的代码来看看它到底如何实现双亲委托的。
 
 loadClass method implement
 
-public Class<?> loadClass(String name) throws ClassNotFoundException
+public Class<?> loadClass(String name) throws ClassNotFoundException
   
 {
   
-return loadClass(name, false);
+return loadClass(name, false);
   
 }
   
@@ -72,35 +72,35 @@ return loadClass(name, false);
 
 Class loadClass(String name, boolean resolve)
 
-protected synchronized Class<?> loadClass(String name, boolean resolve)  throws ClassNotFoundException
+protected synchronized Class<?> loadClass(String name, boolean resolve)  throws ClassNotFoundException
   
-{  // First, check if the class has already been loaded  Class c = findLoadedClass(name);
+{  // First, check if the class has already been loaded  Class c = findLoadedClass(name);
   
-//检查class是否已经被加载过了  if (c == null)
+//检查class是否已经被加载过了  if (c == null)
   
 {
   
-try {
+try {
   
-if (parent != null) {
+if (parent != null) {
   
-c = parent.loadClass(name, false); //如果没有被加载，且指定了父类加载器，则委托父加载器加载。
+c = parent.loadClass(name, false); //如果没有被加载，且指定了父类加载器，则委托父加载器加载。
   
-} else {
+} else {
   
-c = findBootstrapClass0(name);//如果没有父类加载器，则委托bootstrap加载器加载      }
+c = findBootstrapClass0(name);//如果没有父类加载器，则委托bootstrap加载器加载      }
   
-} catch (ClassNotFoundException e) {
+} catch (ClassNotFoundException e) {
   
-// If still not found, then invoke findClass in order
+// If still not found, then invoke findClass in order
   
-// to find the class.
+// to find the class.
   
-c = findClass(name);//如果父类加载没有加载到，则通过自己的findClass来加载。      }
+c = findClass(name);//如果父类加载没有加载到，则通过自己的findClass来加载。      }
   
 }
   
-if (resolve)
+if (resolve)
   
 {
   
@@ -108,7 +108,7 @@ resolveClass(c);
   
 }
   
-return c;
+return c;
   
 }
   
@@ -118,11 +118,11 @@ return c;
   
 我们查看java.lang.ClassLoader的源代码，我们发现findClass的实现如下: 
 
-protected Class<?> findClass(String name) throws ClassNotFoundException
+protected Class<?> findClass(String name) throws ClassNotFoundException
   
 {
   
-throw new ClassNotFoundException(name);
+throw new ClassNotFoundException(name);
   
 }
   
@@ -136,13 +136,13 @@ throw new ClassNotFoundException(name);
 
 defineClass
 
-protected final Class<?> defineClass(String name, byte[] b, int off, int len)
+protected final Class<?> defineClass(String name, byte[] b, int off, int len)
   
-throws ClassFormatError
+throws ClassFormatError
   
 {
   
-return defineClass(name, b, off, len, null);
+return defineClass(name, b, off, len, null);
   
 }
   
@@ -236,43 +236,43 @@ Some Java code that implements this flow is taken from the file SimpleClassLoade
             
             
             
-              <code class="java spaces"> <code class="java keyword">throws <code class="java plain">ClassNotFoundException {
+              <code class="java spaces"> <code class="java keyword">throws <code class="java plain">ClassNotFoundException {
             
             
             
-              <code class="java spaces"> <code class="java plain">Class result;
+              <code class="java spaces"> <code class="java plain">Class result;
             
             
             
-              <code class="java spaces"> <code class="java keyword">byte <code class="java plain">classData[];
+              <code class="java spaces"> <code class="java keyword">byte <code class="java plain">classData[];
             
             
             
-              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> Load class : "<code class="java plain">+className);
+              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> Load class : "<code class="java plain">+className);
             
             
             
-              <code class="java spaces"> <code class="java comments">/* Check our local cache of classes */
+              <code class="java spaces"> <code class="java comments">/* Check our local cache of classes */
             
             
             
-              <code class="java spaces"> <code class="java plain">result = (Class)classes.get(className);
+              <code class="java spaces"> <code class="java plain">result = (Class)classes.get(className);
             
             
             
-              <code class="java spaces"> <code class="java keyword">if <code class="java plain">(result != <code class="java keyword">null<code class="java plain">) {
+              <code class="java spaces"> <code class="java keyword">if <code class="java plain">(result != <code class="java keyword">null<code class="java plain">) {
             
             
             
-              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> returning cached result."<code class="java plain">);
+              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> returning cached result."<code class="java plain">);
             
             
             
-              <code class="java spaces"> <code class="java keyword">return <code class="java plain">result;
+              <code class="java spaces"> <code class="java keyword">return <code class="java plain">result;
             
             
             
-              <code class="java spaces"> <code class="java plain">}
+              <code class="java spaces"> <code class="java plain">}
             
           
         
@@ -292,31 +292,31 @@ The code above is the first section of the loadClass method. As you can see, it 
             
             
             
-              <code class="java spaces"> <code class="java keyword">try <code class="java plain">{
+              <code class="java spaces"> <code class="java keyword">try <code class="java plain">{
             
             
             
-              <code class="java spaces"> <code class="java plain">result = <code class="java keyword">super<code class="java plain">.findSystemClass(className);
+              <code class="java spaces"> <code class="java plain">result = <code class="java keyword">super<code class="java plain">.findSystemClass(className);
             
             
             
-              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> returning system class (in CLASSPATH)."<code class="java plain">);
+              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> returning system class (in CLASSPATH)."<code class="java plain">);
             
             
             
-              <code class="java spaces"> <code class="java keyword">return <code class="java plain">result;
+              <code class="java spaces"> <code class="java keyword">return <code class="java plain">result;
             
             
             
-              <code class="java spaces"> <code class="java plain">} <code class="java keyword">catch <code class="java plain">(ClassNotFoundException e) {
+              <code class="java spaces"> <code class="java plain">} <code class="java keyword">catch <code class="java plain">(ClassNotFoundException e) {
             
             
             
-              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> Not a system class."<code class="java plain">);
+              <code class="java spaces"> <code class="java plain">System.out.println(<code class="java string">" >>>>>> Not a system class."<code class="java plain">);
             
             
             
-              <code class="java spaces"> <code class="java plain">}
+              <code class="java spaces"> <code class="java plain">}
             
           
         
@@ -336,19 +336,19 @@ As you can see in the code above, the next step is to check if the primordial cl
             
             
             
-              <code class="java spaces"> <code class="java plain">classData = getClassImplFromDataBase(className);
+              <code class="java spaces"> <code class="java plain">classData = getClassImplFromDataBase(className);
             
             
             
-              <code class="java spaces"> <code class="java keyword">if <code class="java plain">(classData == <code class="java keyword">null<code class="java plain">) {
+              <code class="java spaces"> <code class="java keyword">if <code class="java plain">(classData == <code class="java keyword">null<code class="java plain">) {
             
             
             
-              <code class="java spaces"> <code class="java keyword">throw <code class="java keyword">new <code class="java plain">ClassNotFoundException();
+              <code class="java spaces"> <code class="java keyword">throw <code class="java keyword">new <code class="java plain">ClassNotFoundException();
             
             
             
-              <code class="java spaces"> <code class="java plain">}
+              <code class="java spaces"> <code class="java plain">}
             
           
         
@@ -414,7 +414,7 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
             
             
             
-              <code class="java spaces"> <code class="java keyword">import <code class="java plain">java.net.URL;
+              <code class="java spaces"> <code class="java keyword">import <code class="java plain">java.net.URL;
             
             
             
@@ -425,51 +425,51 @@ AppClassLoader首先会到classpath下去寻找Student.class文件。（找不�
             
             
             
-              <code class="java spaces"> <code class="java keyword">public <code class="java keyword">static <code class="java keyword">void <code class="java plain">main(String[] args) <code class="java keyword">throws <code class="java plain">MalformedURLException,
+              <code class="java spaces"> <code class="java keyword">public <code class="java keyword">static <code class="java keyword">void <code class="java plain">main(String[] args) <code class="java keyword">throws <code class="java plain">MalformedURLException,
             
             
             
-              <code class="java spaces"> <code class="java plain">ClassNotFoundException {
+              <code class="java spaces"> <code class="java plain">ClassNotFoundException {
             
             
             
-              <code class="java spaces"> <code class="java plain">URL url1 = <code class="java keyword">new <code class="java plain">URL(<code class="java string">"file:/d:/workspace/"<code class="java plain">);
+              <code class="java spaces"> <code class="java plain">URL url1 = <code class="java keyword">new <code class="java plain">URL(<code class="java string">"file:/d:/workspace/"<code class="java plain">);
             
             
             
-              <code class="java spaces"> <code class="java comments">// 指定路径，相当于classpath的意思。
+              <code class="java spaces"> <code class="java comments">// 指定路径，相当于classpath的意思。
             
             
             
-              <code class="java spaces"> <code class="java plain">myClassLoader myClassLoader = <code class="java keyword">new <code class="java plain">MyClassLoader(<code class="java keyword">new <code class="java plain">URL[] { url1 });
+              <code class="java spaces"> <code class="java plain">myClassLoader myClassLoader = <code class="java keyword">new <code class="java plain">MyClassLoader(<code class="java keyword">new <code class="java plain">URL[] { url1 });
             
             
             
-              <code class="java spaces"> <code class="java comments">// 用这个路径创建一个myClassLoader对象。这里随你所定义的ClassLoader而定。
+              <code class="java spaces"> <code class="java comments">// 用这个路径创建一个myClassLoader对象。这里随你所定义的ClassLoader而定。
             
             
             
-              <code class="java spaces"> <code class="java plain">Class c1 = myClassLoader.loadClass(<code class="java string">"Student"<code class="java plain">);
+              <code class="java spaces"> <code class="java plain">Class c1 = myClassLoader.loadClass(<code class="java string">"Student"<code class="java plain">);
             
             
             
-              <code class="java spaces"> <code class="java comments">// 用自定义的类加载器，去显式的加载一个类。返回一个Class对象。
+              <code class="java spaces"> <code class="java comments">// 用自定义的类加载器，去显式的加载一个类。返回一个Class对象。
             
             
             
-              <code class="java spaces"> <code class="java plain">Student stu = c1.newInstance();
+              <code class="java spaces"> <code class="java plain">Student stu = c1.newInstance();
             
             
             
-              <code class="java spaces"> <code class="java comments">// 用这个Class对象就可以产生一个ClassLoaderTest的实例。
+              <code class="java spaces"> <code class="java comments">// 用这个Class对象就可以产生一个ClassLoaderTest的实例。
             
             
             
-              <code class="java spaces"> <code class="java plain">}
+              <code class="java spaces"> <code class="java plain">}
             
             
             
-              <code class="java spaces"> <code class="java plain">}
+              <code class="java spaces"> <code class="java plain">}
             
           
         

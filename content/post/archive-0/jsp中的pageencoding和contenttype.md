@@ -15,7 +15,7 @@ JSP页面中的PageEncoding和ContentType两种属性的区别是什么呢？我
 
 **PageEncoding: **是JSP文件本身的编码
 
-**ContentType:  **ContentType 属性指定响应的 HTTP 内容类型。如果未指定 ContentType，默认为 text/HTML。
+**ContentType:  **ContentType 属性指定响应的 HTTP 内容类型。如果未指定 ContentType，默认为 text/HTML。
 
 ContentType的charset是指服务器发送给客户端时的内容编码
 
@@ -39,13 +39,13 @@ JSP文件不像Java，.java在被编译器读入的时候默认采用的是操�
 
 举个例子:
 
-  1. ﹤%@ page contentType="text/html;charset=utf-8" %﹥
+  1. ﹤%@ page contentType="text/html;charset=utf-8" %﹥
 
 大都会打印出乱码，因为我输入的"你好吗"是gbk的，但是服务器是否正确抓到"你好吗"不得而知。
 
 但是如果更改为
 
-  1. ﹤%@ page contentType="text/html;charset=utf-8" pageEncoding="GBK"%﹥
+  1. ﹤%@ page contentType="text/html;charset=utf-8" pageEncoding="GBK"%﹥
 
 这样就服务器一定会是正确抓到"你好吗"了。
 

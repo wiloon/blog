@@ -10,12 +10,12 @@ categories:
 ## linux
 Linux是一种自由和开放源码的类Unix操作系统。目前存在着许多不同的Linux,但它们都使用了Linux内核。Linux可安装在各种计算机硬件设备中，从手机、平板电脑、路由器和视频游戏控制台，到台式计算机、大型机和超级计算机。Linux是一个领先的操作系统，世界上运算最快的10台超级计算机运行的都是Linux操作系统。严格来讲，Linux这个词本身只表示Linux内核，但实际上人们已经习惯了用Linux来形容整个基于Linux内核，并且使用GNU 工程各种工具和数据库的操作系统。Linux得名于计算机业余爱好者Linus Torvalds。
 
-创始人 Linus Torvalds
+创始人 Linus Torvalds
 
 林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds) 出生于芬兰赫尔辛基市。父亲尼尔斯·托瓦兹（Nils Torvalds) 是一名活跃的共产主义者及电台记者。托瓦兹家族属于在芬兰占6%的少数民族芬兰瑞典人。他毕业于赫尔辛基大学计算机科学系，1997年至2003年在美国加州硅谷任职于全美达公司（Transmeta Corporation) 参与该公司芯片的code morph技术研发。后受聘于开源码发展实验室（OSDL : Open Source Development Labs, Inc) ，全力开发Linux内核。现任职于Linux基金会。
   
   
-    象征物 Tux
+    象征物 Tux
   
   
     Tux（一只企鹅，全称为tuxedo，NCIT 90916P40 Joeing Youthy的网络ID) 是Linux的标志。将企鹅作为Linux标志是由林纳斯·托瓦兹提出的。
@@ -48,7 +48,7 @@ Linux是一种自由和开放源码的类Unix操作系统。目前存在着许�
   
   
   
-    UNIX 操作系统的诞生 肯·汤普逊（左) 和丹尼斯·里奇（右) 
+    UNIX 操作系统的诞生 肯·汤普逊（左) 和丹尼斯·里奇（右) 
  Linux 操作系统是UNIX 操作系统的一个克隆版本。UNIX 操作系统是美国贝尔实验室的肯·汤普逊Ken.Thompson和丹尼斯·里奇Dennis Ritchie 于1969 年夏在DEC PDP-7 小型计算机上开发的一个分时操作系统。当时Ken Thompson 为了能在闲置不用的PDP-7 计算机上运行他非常喜欢的星际旅行（Space travel) 游戏，在1969 年夏天乘他夫人回家乡加利福尼亚渡假期间，在一个月内开发出了unix 操作系统的原型。当时使用的是BCPL 语言（基本组合编程语言) ，后经Dennis Ritchie 于1972 年用移植性很强的C 语言进行了改写，使得UNIX 系统在大专院校得到了推广。
   
   
@@ -56,7 +56,7 @@ Linux是一种自由和开放源码的类Unix操作系统。目前存在着许�
     MINIX 操作系统
   
   
-     Andrew S. Tanenbaum
+     Andrew S. Tanenbaum
   
   
     MINIX 系统是由Andrew S. Tanenbaum（AST) 开发的。AST 是在荷兰Amsterdam 的Vrije 大学数学与计算机科学系统工作，是ACM 和IEEE 的资深会员(全世界也只有很少人是两会的资深会员)。共发表了100 多篇文章，5 本计算机书籍。AST 虽出生在美国纽约，但是是荷兰侨民(1914 年他的祖辈来到美国)。他在纽约上的中学、M.I.T上的大学、加洲大学Berkeley 分校念的博士学位。由于读博士后的缘故，他来到了家乡荷兰。从此就与家乡一直有来往。后来就在Vrije 大学开始教书、带研究生了。荷兰首都Amsterdam 是个常年阴雨绵绵的城市，而对于AST 来说，这最好不过了，因为这样他就可以待在家里摆弄他的计算机了。MINIX 是他1987年编制的，主要用于学生学习操作系统原理。到91年时版本是1.5。目前主要有两个版本在使用:  1.5 版和2.0 版，当时该操作系统在大学使用是免费的，但其它用途不是，当然目前都已经是免费的，可以从许多FTP上下载。
@@ -258,7 +258,7 @@ Linux 操作系统的诞生
   
   
   
-    主流的Linux发行版Ubuntu， DebianGNU/Linux ，Fedora，Gentoo ，MandrivaLinux ，PCLinuxOS，SlackwareLinux ，openSUSE，ArchLinux，Puppylinux，Mint, CentOS,Red Hat等。
+    主流的Linux发行版Ubuntu， DebianGNU/Linux ，Fedora，Gentoo ，MandrivaLinux ，PCLinuxOS，SlackwareLinux ，openSUSE，ArchLinux，Puppylinux，Mint, CentOS,Red Hat等。
   
   
   
@@ -266,7 +266,7 @@ Linux 操作系统的诞生
   
   
   
-    中标麒麟Linux(原中标普华Linux)， 红旗Linux(Red-flag Linux) ，Qomo Linux(原Everest)，冲浪Linux(Xteam Linux) ，蓝点Linux ，新华Linux ，共创Linux ，百资Linux ，veket, lucky8k-veket.Open Desktop ，Hiweed GNU/Linux ，Magic Linux ，Engineering Computing GNU/Linux ，kylin，中软Linux ，新华华镭Linux(RaysLX) ，CD Linux ，MC Linux ，即时Linux(Thizlinux) ，b2d linux ，IBOX ，MCLOS ，FANX，酷博linux，新氧Linux，Hiweed，Deepin Linux，雨林木风YLMF OS。
+    中标麒麟Linux(原中标普华Linux)， 红旗Linux(Red-flag Linux) ，Qomo Linux(原Everest)，冲浪Linux(Xteam Linux) ，蓝点Linux ，新华Linux ，共创Linux ，百资Linux ，veket, lucky8k-veket.Open Desktop ，Hiweed GNU/Linux ，Magic Linux ，Engineering Computing GNU/Linux ，kylin，中软Linux ，新华华镭Linux(RaysLX) ，CD Linux ，MC Linux ，即时Linux(Thizlinux) ，b2d linux ，IBOX ，MCLOS ，FANX，酷博linux，新氧Linux，Hiweed，Deepin Linux，雨林木风YLMF OS。
   
   
   
@@ -286,7 +286,7 @@ Linux 操作系统的诞生
   
   
   
-    创始者:  马克·舍特尔沃斯
+    创始者:  马克·舍特尔沃斯
   
   
   
@@ -327,7 +327,7 @@ Linux 操作系统的诞生
   
   
   
-    锐意的Fedora 
+    锐意的Fedora 
  初始版本:  2003年11月6日
   
   
@@ -381,7 +381,7 @@ Linux 操作系统的诞生
   
   
   
-    自由的Debian 
+    自由的Debian 
  初始版本:  1993年8月16日
   
   
@@ -525,7 +525,7 @@ Linux 操作系统的诞生
   
   
   
-    Linux 支持多种的文件系统格式，其中包含了我们熟悉的FAT32、FAT16、NTFS、HP-UX，以及各种 Linux 特有的 Linux Native和 Linux Swap分区类型。在 Linux 系统中，可以通过分区类型号码来区别这些不同类型的分区。
+    Linux 支持多种的文件系统格式，其中包含了我们熟悉的FAT32、FAT16、NTFS、HP-UX，以及各种 Linux 特有的 Linux Native和 Linux Swap分区类型。在 Linux 系统中，可以通过分区类型号码来区别这些不同类型的分区。
   
   
     文件系统
@@ -659,7 +659,7 @@ Linux 操作系统的诞生
   
   
   
-    /srv 服务启动后，所需访问的数据目录，举个例子来说，www服务启动读取的网页数据就可以放在/srv/www中
+    /srv 服务启动后，所需访问的数据目录，举个例子来说，www服务启动读取的网页数据就可以放在/srv/www中
   
   
   
@@ -834,7 +834,7 @@ Linux 内核中设计较新的一种虚拟的基于内存的文件系统，它�
   
   
   
-    发展方向:UNIX往高端领域和产业发展，例如: AIX、HP-UX、Solaris 等等。
+    发展方向:UNIX往高端领域和产业发展，例如: AIX、HP-UX、Solaris 等等。
   
   
     具体特性
@@ -1135,7 +1135,7 @@ Linux 内核中设计较新的一种虚拟的基于内存的文件系统，它�
   
   
   
-    LFS 的另一个好处是可以创建一个非常紧凑的 linux系统。当安装一个常规的发行版时，人们经常要被迫安装一些可能永远不会用到的程序。这些程序浪费宝贵的磁盘空间，或更糟的是占用CPU资源。要构建一个少于100兆(MB)的 LFS系统不是一件难事，这相比较目前大多数的发行版要小很多。这听起来是不是仍然占许多空间？我们中一些人的工作是创建一个非常小的嵌入式的 LFS系统。我们成功的构建了一个系统，在只运行 Apache服务器的情况下，大约占8MB磁盘空间。进一步的缩减能够减至5MB或更少。你用一个常规的分发版本试试？这也只是设计你自己的 linux所带来的好处之一。
+    LFS 的另一个好处是可以创建一个非常紧凑的 linux系统。当安装一个常规的发行版时，人们经常要被迫安装一些可能永远不会用到的程序。这些程序浪费宝贵的磁盘空间，或更糟的是占用CPU资源。要构建一个少于100兆(MB)的 LFS系统不是一件难事，这相比较目前大多数的发行版要小很多。这听起来是不是仍然占许多空间？我们中一些人的工作是创建一个非常小的嵌入式的 LFS系统。我们成功的构建了一个系统，在只运行 Apache服务器的情况下，大约占8MB磁盘空间。进一步的缩减能够减至5MB或更少。你用一个常规的分发版本试试？这也只是设计你自己的 linux所带来的好处之一。
   
   
   

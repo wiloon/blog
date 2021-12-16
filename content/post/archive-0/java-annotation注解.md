@@ -308,7 +308,7 @@ Utility's Author—>haoran_202 from com.magc
 
 
 
-  注解（Annotation)  为我们在代码中添加信息提供了一种形式化的方法，是我们可以在稍后 某个时刻方便地使用这些数据（通过 解析注解 来使用这些数据) 。
+  注解（Annotation)  为我们在代码中添加信息提供了一种形式化的方法，是我们可以在稍后 某个时刻方便地使用这些数据（通过 解析注解 来使用这些数据) 。
 
 注解的语法比较简单，除了@符号的使用以外，它基本上与java的固有语法一致，java内置了三种
 
@@ -518,7 +518,7 @@ Test( method = method_3 , id = 3 , description = last method )
   
 public @interface Target {
   
-    ElementType[] value();
+    ElementType[] value();
   
 }
   
@@ -538,7 +538,7 @@ public @interface Target {
   
 public @interface Retention {
   
-   RetentionPolicy value();
+   RetentionPolicy value();
   
 }
   
@@ -742,9 +742,9 @@ public class TestAnnotation {
   
 public static void main(String[] args) throws Exception {
   
-String  CLASS_NAME = "lighter.javaeye.com.JavaEyer";
+String  CLASS_NAME = "lighter.javaeye.com.JavaEyer";
   
-Class  test = Class.forName(CLASS_NAME);
+Class  test = Class.forName(CLASS_NAME);
   
 Method[] method = test.getMethods();
   

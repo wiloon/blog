@@ -23,7 +23,7 @@ categories:
     QEMU的优点
   
   
-    可以模拟 IA-32 (x86)个人电脑，AMD 64个人电脑，MIPS R4000, 升阳的 SPARC sun3 与 PowerPC (PReP 及 Power Macintosh)架构
+    可以模拟 IA-32 (x86)个人电脑，AMD 64个人电脑，MIPS R4000, 升阳的 SPARC sun3 与 PowerPC (PReP 及 Power Macintosh)架构
   
   
     支持其他架构，不论在主机或虚拟系统上

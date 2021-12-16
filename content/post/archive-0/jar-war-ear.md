@@ -8,8 +8,8 @@ categories:
 
 ---
 ## JAR	WAR EAR
-### jar: Java Archive file  
-扩展名为.Jar 包含Java类的普通库(class)、资源（resources) 、辅助文件（auxiliary files) , properties 等部署文件 application-client.xml
+### jar: Java Archive file  
+扩展名为.Jar 包含Java类的普通库(class)、资源（resources) 、辅助文件（auxiliary files) , properties 等部署文件 application-client.xml
 
 JAR: Software developers generally use .jar files to distribute Java applications or libraries, in the form. of classes and associated metadata and resources (text, images, etc.) JAR files build on the ZIP file format.
 
@@ -19,13 +19,13 @@ JAR: Software developers generally use .jar files to distribute Java application
 
 
 ### war: Web Archive file/web application archive
-扩展名为.War, 包含全部Web应用程序, Servlet、JSP、JSP标记库、JAR库文件、HTML/XML文档和其他公用资源文件,图片、音频. 一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet) 来访问。
+扩展名为.War, 包含全部Web应用程序, Servlet、JSP、JSP标记库、JAR库文件、HTML/XML文档和其他公用资源文件,图片、音频. 一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet) 来访问。
 
 部署文件: web.xml
 
-ear: Enterprise Archive file
+ear: Enterprise Archive file
 
-扩展名为.Ear 包含全部企业应用程序:  JAR、WAR，EJB组件。一个企业应用程序被定义为多个jar文件、资源、类和Web应用程序的集合。
+扩展名为.Ear 包含全部企业应用程序:  JAR、WAR，EJB组件。一个企业应用程序被定义为多个jar文件、资源、类和Web应用程序的集合。
 
 部署文件: application.xml
 
@@ -41,7 +41,7 @@ ear:可以封装ejb
   
 WAR: In computing, a WAR file (which stands for "web application archive" ) is a JAR file used to distribute a collection of JavaServer Pages, servlets, Java classes, XML files, tag libraries and static Web pages (HTML and related files) that together constitute a Web application.
   
-EAR: An Enterprise Archive, or EAR, is a file format used by Java EE for packaging one or more modules into a single archive so that the deployment of the various modules onto an application server happens simultaneously and coherently. It also contains XML files called deployment descriptors which describe how to deploy the modules. Maven or Ant can be used to build EAR files.
+EAR: An Enterprise Archive, or EAR, is a file format used by Java EE for packaging one or more modules into a single archive so that the deployment of the various modules onto an application server happens simultaneously and coherently. It also contains XML files called deployment descriptors which describe how to deploy the modules. Maven or Ant can be used to build EAR files.
   
 RAR: A Resource Adapter is an archive file format defined in the J2EE Connector Architecture (JCA) specification. A Resource Adapter aRchive (RAR) file is the valid format for deployment of resource adapters on application servers. J2EE RAR files may also be called connectors.
 
@@ -72,7 +72,7 @@ All above files(.jar and .war) are packaged as JAR file with .ear ( enterprise a
   
 使用jar命令与winrar软件的区别在于前者在压缩文件的同时会生成MetaINF文件夹，内包含MANIFEST.MF文件。
 
-Every one knows, what you mean when you talk about a zip file. It is an archive for the stuff you want to compress and save or give to someone else. And, the fancy ones, allow you to maintain the directory structure of you multiple directories of files, when it gets to the other end.
+Every one knows, what you mean when you talk about a zip file. It is an archive for the stuff you want to compress and save or give to someone else. And, the fancy ones, allow you to maintain the directory structure of you multiple directories of files, when it gets to the other end.
 
 Along the lines of evolution, the java community discovered that it would be easier to deploy their beloved lines of code, if they could pack it into a single compressed file format.
 
@@ -102,15 +102,15 @@ The most basic archive is the JAR file. Normally is it is simply a compressed se
 
 The JAR file, is a bit more evolved that a plain archive or library, because it also can contain meta-data about the configuration of your application or even include a library that you want to or need to distribute with it.
 
-The good news, is that you can call or access the classes in the JAR without needing to decompress them to the harddrive. They will run as is, by the magic of the java engine!
+The good news, is that you can call or access the classes in the JAR without needing to decompress them to the harddrive. They will run as is, by the magic of the java engine!
 
 So, for simple classes you can use this format, which was the beginning of it all.
 
-## <!-mstheme->WAR (Web ARchives) <!-mstheme->
+## <!-mstheme->WAR (Web ARchives) <!-mstheme->
 
-Then, inorder to keep people from seeing your code, by viewing the source in your browser, someone invented JSPs. You write the JavaScript, but it is only visible on the server and not on the HTML page( that is why JSP was born).
+Then, inorder to keep people from seeing your code, by viewing the source in your browser, someone invented JSPs. You write the JavaScript, but it is only visible on the server and not on the HTML page( that is why JSP was born).
 
-This meant that you now hard more complicated information, that needed to be placed inside of the JAR. So, this gave birth to the next format on the evolutionary scale. The WAR file.
+This meant that you now hard more complicated information, that needed to be placed inside of the JAR. So, this gave birth to the next format on the evolutionary scale. The WAR file.
 
 Now we have a structure that support JavaServer Pages and servlets. And, by the way, those things need to have HTML and some XML in them too. Oh, a web application archive structure.
 
@@ -122,11 +122,11 @@ technology came along, the need arose to package additional application objects 
 
 These new objects and complex configuration made the WAR file, the standard way to go. And things like Tomcat and Websphere were taught how to read and deploy them. No more long nights putting things together and placing them on the server, and pushing the (or clicking) the buttons.
 
-Unlike the JAR file application, the server can not simply run the compressed file. And, the server **deploys** your application. So, when the server detects that either a new or updated war file has been saved to its special place, it will **extract** (_**expand**_) your entire application from the WAR archive to the server's web applications directory. And the directory structure, will look just like it did on your computer when you first created it. And now we are ready to run. The magic of auto deploy.
+Unlike the JAR file application, the server can not simply run the compressed file. And, the server **deploys** your application. So, when the server detects that either a new or updated war file has been saved to its special place, it will **extract** (_**expand**_) your entire application from the WAR archive to the server's web applications directory. And the directory structure, will look just like it did on your computer when you first created it. And now we are ready to run. The magic of auto deploy.
 
 So now your entire web application is in one file. The WAR. The war is won.
 
-## <!-mstheme->EAR (Enterprise ARchive) <!-mstheme->
+## <!-mstheme->EAR (Enterprise ARchive) <!-mstheme->
 
 Until, enter the enterprise!
 
@@ -139,20 +139,20 @@ No wonder, the java community loves ANT.
 
 一、java的打包jar,war,ear包的作用，区别，打包方式.
 
-a)         作用与区别
+a)         作用与区别
 
-  1.                          i.              jar: 通常是开发时要引用通用(JAVA)类，打成包便于存放管理
-  2.                        ii.              war: 是做好一个(web)应用后，通常是网站，打成包部署到容器中
-  3.                       iii.              ear: 企业级应用，实际上EAR包中包含WAR包和几个企业级项目的配置文件而已，一般服务器选择WebSphere等，都会使用EAR包。通常是EJB打成ear包。
+  1.                          i.              jar: 通常是开发时要引用通用(JAVA)类，打成包便于存放管理
+  2.                        ii.              war: 是做好一个(web)应用后，通常是网站，打成包部署到容器中
+  3.                       iii.              ear: 企业级应用，实际上EAR包中包含WAR包和几个企业级项目的配置文件而已，一般服务器选择WebSphere等，都会使用EAR包。通常是EJB打成ear包。
 
-b)         打包方式
+b)         打包方式
 
-  1.                          i.              所有的包都是用jar打的，只不过目标文件的扩展名不一样
-  2.                        ii.              也可以用Ant来安成构建
+  1.                          i.              所有的包都是用jar打的，只不过目标文件的扩展名不一样
+  2.                        ii.              也可以用Ant来安成构建
 
-c)         JET编译成EXE
+c)         JET编译成EXE
 
-  1.                          i.              JET   是要用钱买的，而且据说   JET   也不是能把所有的   Java   程序都编译成执行文件，性能也要打些折扣。所以，使用制作可执行   JAR   文件包的方法就是最佳选择了，何况它还能保持   Java   的跨平台特性。
+  1.                          i.              JET   是要用钱买的，而且据说   JET   也不是能把所有的   Java   程序都编译成执行文件，性能也要打些折扣。所以，使用制作可执行   JAR   文件包的方法就是最佳选择了，何况它还能保持   Java   的跨平台特性。
 
 二、实例
 
@@ -163,10 +163,10 @@ c)         JET编译成EXE
 
   
     
-      package test;
- public class A{
- public static void main(String args[]){
- System.out.println("test java");
+      package test;
+ public class A{
+ public static void main(String args[]){
+ System.out.println("test java");
  }
  }
   
@@ -185,13 +185,13 @@ Main-Class: com/hp/HelloWorld
   
 jar cvfm test.jar META-INF/mainclass.mf test/A.class(**这是指定文件，当然也可以test指向文件夹)
   
-**     上述命令执行成功的话，会提示"标明清单（manifest) ..."，
+**     上述命令执行成功的话，会提示"标明清单（manifest) ..."，
   
 然后再在当前目录下输入java -jar test.jar 命令，可以看到"test java"。
 
 方法二: 
   
-用简单的jar -cvf test.jar    test目录,jar会自动生成META-INF/mainclass.mf，我们只需要在里面去加一句 Main-Class: com/hp/HelloWorld
+用简单的jar -cvf test.jar    test目录,jar会自动生成META-INF/mainclass.mf，我们只需要在里面去加一句 Main-Class: com/hp/HelloWorld
   
 就可以了
 

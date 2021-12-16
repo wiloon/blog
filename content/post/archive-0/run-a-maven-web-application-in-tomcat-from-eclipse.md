@@ -11,9 +11,9 @@ tags:
 
 ---
 ## run a maven web application in Tomcat from Eclipse
-An Eclipse User Library can be used to represent a set of jar files. This user library can be added to a project's classpath. Thus, a user library can be a convenient way to add a set of jar files (rather than individual jar files) to a project's build path. Here, I'll create a user library for a set of Tomcat jar files.
+An Eclipse User Library can be used to represent a set of jar files. This user library can be added to a project's classpath. Thus, a user library can be a convenient way to add a set of jar files (rather than individual jar files) to a project's build path. Here, I'll create a user library for a set of Tomcat jar files.
 
-To create a user library, you can go to Window → Preferences and go to Java → Build Path → User Libraries. I'll click the New button to create a new user library.
+To create a user library, you can go to Window → Preferences and go to Java → Build Path → User Libraries. I'll click the New button to create a new user library.
 
 I named my new user library "TOMCAT_6.0.14_LIBRARY" and clicked OK.
 
@@ -27,7 +27,7 @@ When done, my TOMCAT_6.0.14_LIBRARY consisted of several jar files, shown below.
 
 After doing this, if I have a web application project that will run in Tomcat in Eclipse, I can add the TOMCAT_6.0.14_LIBRARY to the classpath to have all the necessary Tomcat jar files automatically added to the project's classpath.
 
-I'd like to update my project's pom.xml file so that if I execute the eclipse:eclipse goal on my project, it will update the project's classpathW to include the Tomcat user library.
+I'd like to update my project's pom.xml file so that if I execute the eclipse:eclipse goal on my project, it will update the project's classpathW to include the Tomcat user library.
 
 Here is the "mywebapp" project's original pom.xml file.
 
@@ -129,7 +129,7 @@ I'll add the following Context element to my Tomcat server.xml file. The docBase
 
 The server.xml file is shown below. Notice that the <Context> element is within the <Host> element.
 
-Now, I'll create an EclipseSW Debug Configuration to start up my project in TomcatSW. I named the Debug Configuration "mywebapp tomcat". I specified the project to be "mywebapp". The Tomcat main class from the bootstrap.jar file is "org.apache.catalina.startup.Bootstrap".
+Now, I'll create an EclipseSW Debug Configuration to start up my project in TomcatSW. I named the Debug Configuration "mywebapp tomcat". I specified the project to be "mywebapp". The Tomcat main class from the bootstrap.jar file is "org.apache.catalina.startup.Bootstrap".
 
 On the Arguments tab, I specified the working directory to be my Tomcat home directory, which for me is C:devapache-tomcat-6.0.14.
   

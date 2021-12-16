@@ -19,9 +19,9 @@ categories:
 
 BouncyCastle就是一个提供了很多哈希算法和加密算法的第三方库。它提供了Java标准库没有的一些算法，例如，RipeMD160哈希算法。
 
-download  bcprov-jdk16-146.jar
+download  bcprov-jdk16-146.jar
 
-add jar to '$JAVA_HOME$jrelibext'
+add jar to '$JAVA_HOME$jrelibext'
 
 java.security file in %JAVA_HOME%/jre/lib/security directory
 

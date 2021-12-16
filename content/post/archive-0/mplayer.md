@@ -12,7 +12,7 @@ categories:
 ### mplayer command monitoraspect
 mplayer -monitoraspect 1.25 6.rmvb
 
-全屏 mplayer -aspect 16:9 -fs 
+全屏 mplayer -aspect 16:9 -fs 
 
 ### debian 6 smplayer 声音小
 Options > preferences > audio > output driver

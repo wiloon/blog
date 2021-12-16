@@ -56,10 +56,10 @@ javac -source 1.4 test.java
 
 由于我们可以选择开启assertion功能，或者不开启，另外我们还可以开启一部分类或包的assertion功能，所以运行选项变得有些复杂。通过这些选项，我们可以过滤所有我们不关心的类，只选择我们关心的类或包来观察。下面介绍两类参数: 
 
-  1. 参数 **-esa**和 **-dsa**: 
+  1. 参数 **-esa**和 **-dsa**: 
   
     它们含义为开启(关闭)系统类的assertion功能。由于新版本的Java的系统类中，也使了assertion语句，因此如果用户需要观察它们的运行情况，就需要打开系统类的assertion功能 ，我们可使用-esa参数打开，使用 -dsa参数关闭。 -esa和-dsa的全名为-enablesystemassertions和-disenablesystemassertions，全名和缩写名有同样的功能。
-  2. 参数 **-ea**和 **-ea**: 
+  2. 参数 **-ea**和 **-ea**: 
   
     它们含义为开启(关闭)用户类的assertion功能: 通过这个参数，用户可以打开某些类或包的assertion功能，同样用户也可以关闭某些类和包的assertion功能。打开assertion功能参数为-ea；如果不带任何参数，表示打开所有用户类；如果带有包名称或者类名称，表示打开这些类或包；如果包名称后面跟有三个点，代表这个包及其子包；如果只有三个点，代表无名包。关闭assertion功能参数为-da，使用方法与-ea类似。
   
@@ -456,7 +456,7 @@ class Derived
     
       2. 在私有函数计算前，检查输入参数是否有效；对于一私有些函数，要求输入满足一些特定的条件，那么我们可以在函数开始处使用assert进行参数检查。对于公共函数，我们通常不使用assertion检查，因为一般来说，公共函数必须对无效的参数进行检查和处理。而私有函数往往是直接使用的。
   
-        例如: 某函数可能要求输入的参数必须不为null。那么我们可以在函数的一开始加上 `assert parameter1!=null : "paramerter is null in test method";`
+        例如: 某函数可能要求输入的参数必须不为null。那么我们可以在函数的一开始加上 `assert parameter1!=null : "paramerter is null in test method";`
       3. 在函数计算后，检查函数结果是否有效；对于一些计算函数，函数运行完成后，某些值需要保证一定的性质，因此我们可以通过assert检查该值。 例如，我们有一个计算绝对值的函数，那么我们就可以在函数的结果处，加上一个语句: 
   
         
@@ -481,7 +481,7 @@ class Derived
               
             
             
-            在这个系统中，在一些可能影响这种平衡关系的方法的前后，我们都可以加上assert验证:  `assert isBalance():"balance is destoried";`  
+            在这个系统中，在一些可能影响这种平衡关系的方法的前后，我们都可以加上assert验证:  `assert isBalance():"balance is destoried";`  
             
             
             
@@ -496,9 +496,9 @@ class Derived
             
             参考资料
             
-              1. JSR 41 A Simple Assertion Facility <http://jcp.org/jsr/detail/41.jsp>
-              2. Wm. Paul Rogers, J2SE 1.4 premieres Java's assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
-              3. J2SE 1.4 Documents, Programming With Assertions <http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html>
+              1. JSR 41 A Simple Assertion Facility <http://jcp.org/jsr/detail/41.jsp>
+              2. Wm. Paul Rogers, J2SE 1.4 premieres Java's assertion capabilities <http://www.javaworld.com/javaworld/jw-11-2001/jw-1109-assert.html?>
+              3. J2SE 1.4 Documents, Programming With Assertions <http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html>
               4. John Zukowski, Mastering Java 2, J2SE 1.4
             
             作者简介
@@ -506,13 +506,13 @@ class Derived
             
               
                 
-                  欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 yeekee@sina.com
+                  欧阳辰，北京大学计算机系硕士毕业，98年起开始研究基于java的软件开发、测试，参与开发、测试过多个基于Java的应用程序和Web服务项目。联系方式 yeekee@sina.com
                 
               
               
               
                 
-                  周欣，北京大学计算机系在读博士生，主要研究方向: 程序理解、逆向工程及软件度量，联系方式 zhouxin@sei.pku.edu.cn。
+                  周欣，北京大学计算机系在读博士生，主要研究方向: 程序理解、逆向工程及软件度量，联系方式 zhouxin@sei.pku.edu.cn。
                 
               
             

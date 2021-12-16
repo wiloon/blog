@@ -12,14 +12,14 @@ categories:
 <http://baike.baidu.com/view/10899.htm>
 Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世界上依然存活的最久的Linux发行版，在它的辉煌时期，曾经在所有发行版中拥有最多的用户数量。但是，随着 Linux商业化的浪潮，Redhat、Mandrake 和Suse 这些产品通过大规模的商业推广，占据了广大的市场；Debian作为一个社区发行版，也拥有很大的用户群。相比之下，Slackware的不事声张，使得它从许多人(尤其是使用Linux的新用户)的视野中消失了。
 
-    Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本（Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等) 不同的道路，它力图成为"UNIX风格"的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。
+    Slackware是Patrick Volkerding制作的Linux发行版本。Slackware 走了一条同其他的发行版本（Red Hat、Debian、Gentoo、SuSE、 Mandriva、Ubuntu等) 不同的道路，它力图成为"UNIX风格"的Linux发行版本。它的方针是只吸收稳定版本的应用程序，并且缺少其他linux版本中那些为发行版本定制的配置工具。
   
   
   
     Slackware的历史
   
   
-    第一个 Slackware 的版本1.00 在1993年
+    第一个 Slackware 的版本1.00 在1993年
   
   
     
@@ -38,7 +38,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 : 这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样"新"（up-to-date) ，当时许多其他发行版本的版本号为 6 。
+    在1999年，Slackware的发布版本号从4一下子跨越到了 7。Patrick Volkerding 作出解释 : 这是出于市场推广的考虑，为了告诉人们 Slackware 和别的 Linux 发行版本一样"新"（up-to-date) ，当时许多其他发行版本的版本号为 6 。
   
   
   
@@ -50,7 +50,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
   
   
   
-    贯穿Slackware的历史，出现一些在Slackware基础上制作的发行版本和LiveCD。一些流行的发行版本就起源于 Slackware ，包括SUSE， College Linux 和 Slax。
+    贯穿Slackware的历史，出现一些在Slackware基础上制作的发行版本和LiveCD。一些流行的发行版本就起源于 Slackware ，包括SUSE， College Linux 和 Slax。
   
   
     Slackware X86发布名称
@@ -155,7 +155,7 @@ Slackware Linux是由Patrick Volkerding制作的GNU/Linux发行版，它是世�
     Slackware的当前版本已经可以做到通过安装中文字体、修改配置文件、安装中文输入法这几个简单的步骤，就很容易地实现中文显示和输入。系统级的中文打印和LaTeX的中文支持，也能够用比较简单的步骤实现。
   
   
-     总结
+     总结
   
   
     在历史上， Slackware曾经对中文支持方面较差， 结果是Slackware的中文用户数量远远低于其他名气大的发行版。国内 的用户数量少，使得Slackware被蒙上了一层神秘的面纱，直至今日， 一些不准确的传言，如难安装、中文支持不好、易用性差等等，依然让很多用户不敢轻易尝试。

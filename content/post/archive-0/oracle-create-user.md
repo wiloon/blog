@@ -18,7 +18,7 @@ create user user0 identified by password0;
 
 grant connect, resource to user0;
 
-drop user user0 cascade;
+drop user user0 cascade;
 
 ```
 

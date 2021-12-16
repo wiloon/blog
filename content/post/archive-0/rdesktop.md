@@ -17,9 +17,9 @@ rdesktop -g 1020x685 -d 24 192.168.1.199 -r clipboard:CLIPBOARD
 # -M 使用本地鼠标
 ```
 
-rdesktop 是UNIX 和Linux 系统的一个远程桌面连接软件，它通过MicrosoftWindows NT、Windows 2000 提供的终端服务(Terminal Services)以及WindowsXP 的远程桌面服务(Remote Desktop)，能在Linux系统下远程登录Windows的窗口系统并使用。
+rdesktop 是UNIX 和Linux 系统的一个远程桌面连接软件，它通过MicrosoftWindows NT、Windows 2000 提供的终端服务(Terminal Services)以及WindowsXP 的远程桌面服务(Remote Desktop)，能在Linux系统下远程登录Windows的窗口系统并使用。
 
-一、 **rdesktop的下载和安装**
+一、 **rdesktop的下载和安装**
 
 **debian安装apt-get install rdesktop**
 
@@ -36,4 +36,4 @@ rdesktop 是UNIX 和Linux 系统的一个远程桌面连接软件，它通过Mi
 rdesktop 的使用很简单，可通过#rdesktop-h得到使用的帮助。一般常用的登录命令为: 
 
 
-其中 "g 1024×768"设置分辨率为1024×768，"d 24"设置真彩24 位，hostname为 Windows 机器的主机名或者IP 地址。在输入了Windows XP的用户名和密码后，就可以登录并操作远程的Windows系统.
+其中 "g 1024×768"设置分辨率为1024×768，"d 24"设置真彩24 位，hostname为 Windows 机器的主机名或者IP 地址。在输入了Windows XP的用户名和密码后，就可以登录并操作远程的Windows系统.

@@ -12,7 +12,7 @@ categories:
     http://hi.baidu.com/ruhaole/item/65ed5df334b3080985d278aa
   
   
-    sliderIntervalID = setInterval(show,3000);
+    sliderIntervalID = setInterval(show,3000);
   
   
     clearInterval(sliderIntervalID);
@@ -23,7 +23,7 @@ categories:
     当遇到setInterval,setTimeout与jquery混用的问题 时，直接按JavaScript中的语法写并不起作用，有以下两种解决方法。
   
   
-    方法1. 直接在ready中调用其他方法，会提示缺少对象的错误，应用jQuery的扩展可以解决这个问题。
+    方法1. 直接在ready中调用其他方法，会提示缺少对象的错误，应用jQuery的扩展可以解决这个问题。
   
   
     $(document).ready(function(){
@@ -38,7 +38,7 @@ categories:
  });
   
   
-    方法2. 指定定时执行的函数时不要使用引号和括号。
+    方法2. 指定定时执行的函数时不要使用引号和括号。
   
   
     function show(){

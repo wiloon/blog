@@ -32,7 +32,7 @@ scp -i  mykey.pem somefile.txt root@ec2-184-73-72-150.compute-1.amazonaws.com:/h
   
 -6 强行使用 IPV6 地址 .
   
--r      Recursively copy entire directories.
+-r      Recursively copy entire directories.
 
 从 本地 复制到 远程
   

@@ -11,8 +11,8 @@ categories:
 ## 'tap0, ERROR while getting interface flags'
 tap0: ERROR while getting interface flags: No such device
 
-install uml-utilities and restart the system
+install uml-utilities and restart the system
 
-sudo apt-get install uml-utilities
+sudo apt-get install uml-utilities
 
 sudo reboot

@@ -21,7 +21,7 @@ Linux Cat命令主要有三大功能:
  只能创建新文件,不能编辑已有文件.
 
 3.Linux Cat命令将几个文件合并为一个文件。
-    cat file1 file2 > file_out
+    cat file1 file2 > file_out
  参数: 
  -n 或 -number 由 1 开始对所有输出的行数编号
  -b 或 -number-nonblank 和 -n 相似，只不过对于空白行不编号

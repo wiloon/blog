@@ -29,19 +29,19 @@ grant all privileges on database0.* to user0@localhost identified by 'password0'
 
 要想移除账户，应使用Drop USER语句.
 
-Drop USER _user_ [, _user_] ...
+Drop USER _user_ [, _user_] ...
 
-Drop USER语句用于删除一个或多个MySQL账户。要使用Drop USER，您必须拥有MySQL数据库的全局Create USER权限或Delete权限。使用与GRANT或REVOKE相同的格式为每个 账户命名；例如，'jeffrey'@'localhost'。 账户名称的用户和主机部分与用户表记录的User和Host列值相对应。 www.87717.com
+Drop USER语句用于删除一个或多个MySQL账户。要使用Drop USER，您必须拥有MySQL数据库的全局Create USER权限或Delete权限。使用与GRANT或REVOKE相同的格式为每个 账户命名；例如，'jeffrey'@'localhost'。 账户名称的用户和主机部分与用户表记录的User和Host列值相对应。 www.87717.com
 
 使用Drop USER，您可以取消一个账户和其权限，操作如下: 
 
-Drop USER _user_;
+Drop USER _user_;
 
 该语句可以删除来自所有授权表的帐户权限记录。
 
-drop user [username@'%'][1]
+drop user [username@'%'][1]
 
-drop user <username@localhost>
+drop user <username@localhost>
 
 改密码:
 

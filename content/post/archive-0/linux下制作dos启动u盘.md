@@ -18,7 +18,7 @@ df -h
 
 sudo dd if=win98usb.img of=/dev/sdb conv=notrunc
 
-unzip the package win98boot.zip
+unzip the package win98boot.zip
 
 mount the usb disk
 

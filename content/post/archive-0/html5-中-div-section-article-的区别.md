@@ -117,13 +117,13 @@ div section article ，语义是从无到有，逐渐增强的。div 无任何�
 
 因为其实有些时候每个人都有自己的看法，所以难免有难于决断的时候，怎么办？
 
-在 [HTML5 设计原理][1] 中，有一条是专门用来解决类似情况的: 
+在 [HTML5 设计原理][1] 中，有一条是专门用来解决类似情况的: 
 
 **最终用户优先(Priority of Constituencies)**
 
 "In case of conflict, consider users over authors over implementors over specifiers over theoretical purity." 一旦遇到冲突，最终用户优先，其次是作者，其次是实现者，其次标准制定者，最后才是理论上的完满。
 
-推荐各位多读几遍 [HTML5 设计原理][1]，这才是纷繁世界背后的最终奥义。
+推荐各位多读几遍 [HTML5 设计原理][1]，这才是纷繁世界背后的最终奥义。
 
 http://gaowhen.com/
 

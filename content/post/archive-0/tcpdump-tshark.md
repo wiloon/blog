@@ -10,7 +10,7 @@ categories:
 ---
 ## Linux网络协议分析工具tcpdump和tshark用法
 
-Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具wireshark （原名叫ethereal) 的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见libpcap编程教程) 进行网络截包。 
+Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网络协议分析工具wireshark （原名叫ethereal) 的命令行版本，wireshark可对多达千余种网络协议进行解码分析。Wireshark和tcpdump均使用libpcap库（参见libpcap编程教程) 进行网络截包。 
   
     TCPDUMP
   
@@ -18,7 +18,7 @@ Tcpdump是网络协议分析的基本工具。tshark是大名鼎鼎的开源网�
     详细manpage参见tcpdump网站。
   
   
-    基本用法 
+    基本用法 
   
   
     Tcpdump的参数基本分为两块:选项（options) 和过滤器表达式（filter_expression) 。
@@ -218,4 +218,4 @@ sudo pacman -S wireshark-cli
  c:Program FilesWiresharktshark.exe -i 4 -n -f "tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420" -T fields -e http.host -e http.request.uri -a duration:10
   
   
-    关于各种协议的具体字段参数参见 http://www.wireshark.org/docs/dfref/
+    关于各种协议的具体字段参数参见 http://www.wireshark.org/docs/dfref/

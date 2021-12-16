@@ -17,11 +17,11 @@ categories:
 
 JSP学习笔记(六)—–在多个JSP页面之间传递参数
   
-1.       怎么在多个JSP页面之间进行参数传递？需要使用JSP的内置作用域对象session。利用它的两个方法setAttribute()，getAttribute()
+1.       怎么在多个JSP页面之间进行参数传递？需要使用JSP的内置作用域对象session。利用它的两个方法setAttribute()，getAttribute()
 
-2.       下面的这个实例实现了把第一个JSP页面的参数传递给第三个页面的功能
+2.       下面的这个实例实现了把第一个JSP页面的参数传递给第三个页面的功能
 
-3.       代码如下: 1.jsp
+3.       代码如下: 1.jsp
 
 [html]
 
@@ -39,7 +39,7 @@ what's your name<input type=text name=username>
 
 [/html]
 
-4.       2.jsp
+4.       2.jsp
 
 [html]
    
@@ -68,7 +68,7 @@ what's your hobby<input type=text name=hobby>
   
 [/html]
 
-5.       3.jsp
+5.       3.jsp
 
 [html]
   

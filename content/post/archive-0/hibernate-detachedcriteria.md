@@ -17,10 +17,10 @@ DetachedCriteria可以解决这个问题，即在web层，程序员使用Detache
 
 示例代码片段如下: 
 
-  1. DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Department.class);
-  2. detachedCriteria.add(Restrictions.eq("name", "department")).
+  1. DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Department.class);
+  2. detachedCriteria.add(Restrictions.eq("name", "department")).
   
-    createAlias("employees", "e").add(Restrictions.gt(("e.age"), new Integer(20)));
+    createAlias("employees", "e").add(Restrictions.gt(("e.age"), new Integer(20)));
 
 Department和Employee是一对多关联，查询条件为: 名称是"department"开发部门；部门里面的雇员年龄大于20岁；
 
@@ -32,18 +32,18 @@ Department和Employee是一对多关联，查询条件为: 名称是"department"
 
 Spring的HibernateTemplate提供了Hibernate的完美封装，即通过匿名类实现回调，来保证Session的自动资源管理和事务的管理。其中核心方法是: 
 
-  1. HibernateTemplate.execute(new HibernateCallback() {
-  2. public Object doInHibernate(Session session) throws HibernateException {
+  1. HibernateTemplate.execute(new HibernateCallback() {
+  2. public Object doInHibernate(Session session) throws HibernateException {
   3. ....
   4. }
   5. }
 
 回调方法提供了session作为参数，有了session，就可以自由的使用Hibernate API编程了。使用了spring的之后，代码修改如下: 
 
-  1. DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Department.class);
-  2. detachedCriteria.createAlias("employees", "e").
+  1. DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Department.class);
+  2. detachedCriteria.createAlias("employees", "e").
   
-    add(Restrictions.eq("name", "department")).
+    add(Restrictions.eq("name", "department")).
   
-    add(Restrictions.gt(("e.age"), new Integer(20)));
+    add(Restrictions.gt(("e.age"), new Integer(20)));
   3. departmentManager.findByCriteria(detachedCriteria);

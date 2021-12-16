@@ -85,14 +85,14 @@ tags:
     
     
       ```java
- public class Client
+ public class Client
  {
- public void Run()
+ public void Run()
  {
- Director director = new Director();
- IBuilder builder = new BuilderB();
+ Director director = new Director();
+ IBuilder builder = new BuilderB();
  director.Construct(builder);
- Product product = builder.GetResult();
+ Product product = builder.GetResult();
  product.Show();
  }
  }

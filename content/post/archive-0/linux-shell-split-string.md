@@ -10,7 +10,7 @@ categories:
 ## linux shell split string
 ```bash
   
-sentence="This is   a sentence."
+sentence="This is   a sentence."
   
 for word in $sentence
   

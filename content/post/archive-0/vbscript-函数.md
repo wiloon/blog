@@ -28,30 +28,30 @@ MySQL当插入重复时更新的方法:
 
 Sql代码
   
-INSERT INTO clients
+INSERT INTO clients
   
 (client_id,client_name,client_type)
   
-SELECT supplier_id,supplier_name,'advertising'
+SELECT supplier_id,supplier_name,'advertising'
   
-FROM suppliers
+FROM suppliers
   
-WHERE not exists(select * from clients where clients.client_id=suppliers.supplier_id);
+WHERE not exists(select * from clients where clients.client_id=suppliers.supplier_id);
   
 示例一: 插入单条记录
 
 
 Sql代码
   
-INSERT INTO clients
+INSERT INTO clients
   
 (client_id,client_name,client_type)
   
-SELECT 10345,'IBM','advertising'
+SELECT 10345,'IBM','advertising'
   
-FROM dual
+FROM dual
   
-WHERE not exists (select * from clients where clients.client_id=10345);
+WHERE not exists (select * from clients where clients.client_id=10345);
   
 使用 dual 做表名可以让你在 select 语句后面直接跟上要插入字段的值，即使这些值还不存在当前表中。
 
@@ -65,9 +65,9 @@ INSERT 中ON DUPLICATE KEY UPDATE的使用（本文重点)
 
 Sql代码
   
-MySQL>INSERT INTO table (a,b,c) VALUES (1,2,3) ON DUPLICATE KEY UPDATE c=c+1;
+MySQL>INSERT INTO table (a,b,c) VALUES (1,2,3) ON DUPLICATE KEY UPDATE c=c+1;
   
-MySQL>UPDATE table SET c=c+1 WHERE a=1;
+MySQL>UPDATE table SET c=c+1 WHERE a=1;
   
 如果行作为新记录被插入，则受影响行的值为1；如果原有的记录被更新，则受影响行的值为2。
 
@@ -76,7 +76,7 @@ MySQL>UPDATE table SET c=c+1 WHERE a=1;
 
 Sql代码
   
-MySQL>UPDATE table SET c=c+1 WHERE a=1 OR b=2 LIMIT 1;
+MySQL>UPDATE table SET c=c+1 WHERE a=1 OR b=2 LIMIT 1;
   
 如果a=1 OR b=2与多个行向匹配，则只有一个行被更新。通常，您应该尽量避免对带有多个唯一关键字的表使用ON DUPLICATE KEY子句。
 
@@ -87,22 +87,22 @@ MySQL>UPDATE table SET c=c+1 WHERE a=1 OR b=2 LIMIT 1;
 
 Sql代码
   
-MySQL>INSERT INTO table (a,b,c) VALUES (1,2,3),(4,5,6)
+MySQL>INSERT INTO table (a,b,c) VALUES (1,2,3),(4,5,6)
   
-->ON DUPLICATE KEY UPDATE c=VALUES(a)+VALUES(b);
+->ON DUPLICATE KEY UPDATE c=VALUES(a)+VALUES(b);
   
 本语句与以下两个语句作用相同: 
 
 
 Sql代码
   
-MySQL>INSERT INTO table (a,b,c) VALUES (1,2,3)
+MySQL>INSERT INTO table (a,b,c) VALUES (1,2,3)
   
-->ON DUPLICATE KEY UPDATE c=3;
+->ON DUPLICATE KEY UPDATE c=3;
   
-MySQL>INSERT INTO table (a,b,c) VALUES (4,5,6)
+MySQL>INSERT INTO table (a,b,c) VALUES (4,5,6)
   
-->ON DUPLICATE KEY UPDATE c=9;
+->ON DUPLICATE KEY UPDATE c=9;
   
 当您使用ON DUPLICATE KEY UPDATE时，DELAYED选项被忽略。
 
@@ -129,11 +129,11 @@ REPLACE INTO users(id, name, age)
 
 Sql代码
   
-VALUES(123, '赵本山', 50), (134,'Mary',15);
+VALUES(123, '赵本山', 50), (134,'Mary',15);
 
 REPLACE也可以使用SET语句
 
-REPLACE INTO users SET id = 123, name = '赵本山', age = 50;
+REPLACE INTO users SET id = 123, name = '赵本山', age = 50;
 
 上面曾提到REPLACE可能影响3条以上的记录，这是因为在表中有超过一个的唯一索引。在这种情况下，REPLACE将考虑每一个唯一索引，并对每一个索引对应的重复记录都删除，然后插入这条新记录。假设有一个table1表，有3个字段a, b, c。它们都有一个唯一索引。
   

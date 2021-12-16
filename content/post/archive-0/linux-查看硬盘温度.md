@@ -8,4 +8,4 @@ categories:
 
 ---
 ## linux 查看硬盘温度
-sudo hddtemp /dev/sda
+sudo hddtemp /dev/sda

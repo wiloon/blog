@@ -54,7 +54,7 @@ uHotswapagentis a plugin container with plugin manager, plugin registry, and sev
 
 具体怎么用？
 
-照着我上头给的两个地址安装他们，具体怎么搞，我比较懒，就不写了（注意，在安装DCEVM的时候，请用临时替换) "InstallDCEVM as altjvm" 
+照着我上头给的两个地址安装他们，具体怎么搞，我比较懒，就不写了（注意，在安装DCEVM的时候，请用临时替换) "InstallDCEVM as altjvm" 
 
 配置你的运行脚本（假设你的APP是运行在各种服务器上，比如tomcat, jboss等) ，上头两个网站也有，别告诉我你看不懂英文，我还是懒，不想写
   

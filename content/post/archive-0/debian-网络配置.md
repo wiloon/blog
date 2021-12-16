@@ -132,7 +132,7 @@ wpa-psk "xxxx"
 
 再来看下面这段配置: 
 
-> 57 auto eth0  58 iface eth0 inet manual  59       up ifconfig $IFACE 0.0.0.0 up  60       up /usr/local/bin/myconfigscript  61       down ifconfig $IFACE down
+> 57 auto eth0  58 iface eth0 inet manual  59       up ifconfig $IFACE 0.0.0.0 up  60       up /usr/local/bin/myconfigscript  61       down ifconfig $IFACE down
 
 这段配置只是启用一个网卡，但是ifupdown不对这个网卡设置任何ip，而是由外部程序来设置ip。
 

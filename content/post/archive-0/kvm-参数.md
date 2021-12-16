@@ -61,7 +61,7 @@ tags:
 
 error:Could not initialize SDL(No available video device) - exiting
 
-add the parameters
+add the parameters
 
 > -vga std -k en-us -vnc :1
 > 

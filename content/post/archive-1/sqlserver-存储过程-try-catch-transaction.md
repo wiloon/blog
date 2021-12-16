@@ -102,49 +102,49 @@ BEGIN
   
 <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorSeverity], <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorState], <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorState], <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorProcedure], <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorProcedure], <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorLine], <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorLine], <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorMessage]
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> [ErrorMessage]
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ) <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ) <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> VALUES <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> VALUES <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> CONVERT(sysname, CURRENT_USER), <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> CONVERT(sysname, CURRENT_USER), <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_NUMBER(),
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_NUMBER(),
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_SEVERITY(),
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_SEVERITY(),
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_STATE(),
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_STATE(),
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_PROCEDURE(),
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_PROCEDURE(),
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_LINE(),
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_LINE(),
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_MESSAGE()
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ERROR_MESSAGE()
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> );
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> );
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> SET @ErrorLogID = @@IDENTITY;
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> SET @ErrorLogID = @@IDENTITY;
   
-<wbr /> <wbr /> <wbr /> END TRY
+<wbr /> <wbr /> <wbr /> END TRY
   
-<wbr /> <wbr /> <wbr /> BEGIN CATCH
+<wbr /> <wbr /> <wbr /> BEGIN CATCH
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT 'An error occurred in stored procedure uspLogError: ';
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> PRINT 'An error occurred in stored procedure uspLogError: ';
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXECUTE YourPrintErrorProcedure;------打印错误信息的存储过程
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> EXECUTE YourPrintErrorProcedure;------打印错误信息的存储过程
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN -1;
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> RETURN -1;
   
-<wbr /> <wbr /> <wbr /> END CATCH
+<wbr /> <wbr /> <wbr /> END CATCH
   
 END;
 
@@ -156,49 +156,49 @@ AS
   
 BEGIN
   
-<wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
+<wbr /> <wbr /> <wbr /> SET NOCOUNT ON;
 
-<wbr /> <wbr /> <wbr /> - Print error information. <wbr />
+<wbr /> <wbr /> <wbr /> - Print error information. <wbr />
   
-<wbr /> <wbr /> <wbr /> PRINT 'Error ' + CONVERT(varchar(50), ERROR_NUMBER()) +
+<wbr /> <wbr /> <wbr /> PRINT 'Error ' + CONVERT(varchar(50), ERROR_NUMBER()) +
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Severity ' + CONVERT(varchar(5), ERROR_SEVERITY()) +
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Severity ' + CONVERT(varchar(5), ERROR_SEVERITY()) +
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', State ' + CONVERT(varchar(5), ERROR_STATE()) + <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', State ' + CONVERT(varchar(5), ERROR_STATE()) + <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Procedure ' + ISNULL(ERROR_PROCEDURE(), '-') + <wbr />
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Procedure ' + ISNULL(ERROR_PROCEDURE(), '-') + <wbr />
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Line ' + CONVERT(varchar(5), ERROR_LINE());
+<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ', Line ' + CONVERT(varchar(5), ERROR_LINE());
   
-<wbr /> <wbr /> <wbr /> PRINT ERROR_MESSAGE();
+<wbr /> <wbr /> <wbr /> PRINT ERROR_MESSAGE();
   
 END;
 
 CREATE TABLE [dbo].[ErrorLog](
   
-<wbr /> <wbr /> <wbr /> [ErrorLogID] [int] IDENTITY(1,1) NOT NULL,
+<wbr /> <wbr /> <wbr /> [ErrorLogID] [int] IDENTITY(1,1) NOT NULL,
   
-<wbr /> <wbr /> <wbr /> [ErrorTime] [datetime] NOT NULL CONSTRAINT [DF_ErrorLog_ErrorTime] <wbr /> DEFAULT (getdate()),
+<wbr /> <wbr /> <wbr /> [ErrorTime] [datetime] NOT NULL CONSTRAINT [DF_ErrorLog_ErrorTime] <wbr /> DEFAULT (getdate()),
   
-<wbr /> <wbr /> <wbr /> [UserName] [sysname] COLLATE Chinese_PRC_CI_AS NOT NULL,
+<wbr /> <wbr /> <wbr /> [UserName] [sysname] COLLATE Chinese_PRC_CI_AS NOT NULL,
   
-<wbr /> <wbr /> <wbr /> [ErrorNumber] [int] NOT NULL,
+<wbr /> <wbr /> <wbr /> [ErrorNumber] [int] NOT NULL,
   
-<wbr /> <wbr /> <wbr /> [ErrorSeverity] [int] NULL,
+<wbr /> <wbr /> <wbr /> [ErrorSeverity] [int] NULL,
   
-<wbr /> <wbr /> <wbr /> [ErrorState] [int] NULL,
+<wbr /> <wbr /> <wbr /> [ErrorState] [int] NULL,
   
-<wbr /> <wbr /> <wbr /> [ErrorProcedure] [nvarchar](126) COLLATE Chinese_PRC_CI_AS NULL,
+<wbr /> <wbr /> <wbr /> [ErrorProcedure] [nvarchar](126) COLLATE Chinese_PRC_CI_AS NULL,
   
-<wbr /> <wbr /> <wbr /> [ErrorLine] [int] NULL,
+<wbr /> <wbr /> <wbr /> [ErrorLine] [int] NULL,
   
-<wbr /> <wbr /> <wbr /> [ErrorMessage] [nvarchar](4000) COLLATE Chinese_PRC_CI_AS NOT NULL,
+<wbr /> <wbr /> <wbr /> [ErrorMessage] [nvarchar](4000) COLLATE Chinese_PRC_CI_AS NOT NULL,
   
-<wbr />CONSTRAINT [PK_ErrorLog_ErrorLogID] PRIMARY KEY CLUSTERED <wbr />
+<wbr />CONSTRAINT [PK_ErrorLog_ErrorLogID] PRIMARY KEY CLUSTERED <wbr />
   
 (
   
-<wbr /> <wbr /> <wbr /> [ErrorLogID] ASC
+<wbr /> <wbr /> <wbr /> [ErrorLogID] ASC
   
 )WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
   

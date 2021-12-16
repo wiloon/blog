@@ -24,8 +24,8 @@ Google在官方博客介绍说，普通的HTTP浏览是不安全的，用户和�
 
 我早在2006年的时候就建议Google能支持HTTPS搜索，没想到要等这么多年才如愿所偿，HTTPS虽然较为耗费系统资源，但对于中国用户来说意义实在太大了。
 
-为了你的用户隐私、安全和稳定性，现在就把你的Google搜索地址更换为 https://www.google.com 吧。
+为了你的用户隐私、安全和稳定性，现在就把你的Google搜索地址更换为 https://www.google.com 吧。
 
-对于中国用户来说，如果你访问 https://www.google.com 自动跳转Google.com.hk，请点一下页面底部的Google.com in English，然后再访问https的Google即可使用。
+对于中国用户来说，如果你访问 https://www.google.com 自动跳转Google.com.hk，请点一下页面底部的Google.com in English，然后再访问https的Google即可使用。
 
 Google Chrome浏览器默认在地址栏输入关键字即可搜索，默认是HTTP方式，我们可以设置地址栏默认Google HTTPS搜索的方法，右击地址栏-修改搜索引擎，点"添加"，加上信息: "https://www.google.com.hk/search?hl=zh-CN&q=%s"，如图所示，将其设置为默认即可，这样，我们在Google Chrome浏览器中就能默认使用Google HTTPS进行搜索了。

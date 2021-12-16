@@ -66,17 +66,17 @@ Java除了上面所说的默认提供的classloader以外，它还容许应用�
   
 loadClass method declare
 
-public Class<?> loadClass(String name)  throws ClassNotFoundException
+public Class<?> loadClass(String name)  throws ClassNotFoundException
   
 上面是loadClass方法的原型声明，上面所说的双亲委托机制的实现其实就实在此方法中实现的。下面我们就来看看此方法的代码来看看它到底如何实现双亲委托的。
 
 loadClass method implement
 
-public Class<?> loadClass(String name) throws ClassNotFoundException
+public Class<?> loadClass(String name) throws ClassNotFoundException
   
 {
   
-return loadClass(name, false);
+return loadClass(name, false);
   
 }
   
@@ -84,35 +84,35 @@ return loadClass(name, false);
 
 Class loadClass(String name, boolean resolve)
 
-protected synchronized Class<?> loadClass(String name, boolean resolve)  throws ClassNotFoundException
+protected synchronized Class<?> loadClass(String name, boolean resolve)  throws ClassNotFoundException
   
-{  // First, check if the class has already been loaded  Class c = findLoadedClass(name);
+{  // First, check if the class has already been loaded  Class c = findLoadedClass(name);
   
-//检查class是否已经被加载过了  if (c == null)
+//检查class是否已经被加载过了  if (c == null)
   
 {
   
-try {
+try {
   
-if (parent != null) {
+if (parent != null) {
   
-c = parent.loadClass(name, false); //如果没有被加载，且指定了父类加载器，则委托父加载器加载。
+c = parent.loadClass(name, false); //如果没有被加载，且指定了父类加载器，则委托父加载器加载。
   
-} else {
+} else {
   
-c = findBootstrapClass0(name);//如果没有父类加载器，则委托bootstrap加载器加载      }
+c = findBootstrapClass0(name);//如果没有父类加载器，则委托bootstrap加载器加载      }
   
-} catch (ClassNotFoundException e) {
+} catch (ClassNotFoundException e) {
   
-// If still not found, then invoke findClass in order
+// If still not found, then invoke findClass in order
   
-// to find the class.
+// to find the class.
   
-c = findClass(name);//如果父类加载没有加载到，则通过自己的findClass来加载。      }
+c = findClass(name);//如果父类加载没有加载到，则通过自己的findClass来加载。      }
   
 }
   
-if (resolve)
+if (resolve)
   
 {
   
@@ -120,7 +120,7 @@ resolveClass(c);
   
 }
   
-return c;
+return c;
   
 }
   
@@ -130,11 +130,11 @@ return c;
   
 我们查看java.lang.ClassLoader的源代码，我们发现findClass的实现如下: 
 
-protected Class<?> findClass(String name) throws ClassNotFoundException
+protected Class<?> findClass(String name) throws ClassNotFoundException
   
 {
   
-throw new ClassNotFoundException(name);
+throw new ClassNotFoundException(name);
   
 }
   
@@ -148,13 +148,13 @@ throw new ClassNotFoundException(name);
 
 defineClass
 
-protected final Class<?> defineClass(String name, byte[] b, int off, int len)
+protected final Class<?> defineClass(String name, byte[] b, int off, int len)
   
-throws ClassFormatError
+throws ClassFormatError
   
 {
   
-return defineClass(name, b, off, len, null);
+return defineClass(name, b, off, len, null);
   
 }
   

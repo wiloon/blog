@@ -176,7 +176,7 @@ Base64要求把每三个8Bit的字节转换为四个6Bit的字节（3*8 = 4*6 = 
   
     打开一封Email，查看其原始信息（您可以通过收取、导出该邮件用文本编辑器查看) 。你会看到类似这样的一个效果: Date: Thu, 25 Dec 2003 06:33:07 +0800
  From: "eSX?!" <snaix@yeah.net'>snaix@yeah.net'>snaix@yeah.net'>snaix@yeah.net>
- Reply-To: snaix@yeah.net'>snaix@yeah.net'>snaix@yeah.net'>snaix@yeah.net
+ Reply-To: snaix@yeah.net'>snaix@yeah.net'>snaix@yeah.net'>snaix@yeah.net
  To: "snaix" <snaix@126.com'>snaix@126.com>
  Subject:
  X-mailer: Foxmail 5.0 beta2 [cn]

@@ -67,8 +67,8 @@ ps -eo pid,ppid,command
     a      显示现行终端机下的所有程序，包括其他用户的程序。  
     e      列出程序时，显示每个程序所使用的环境变量。  
     f      用ASCII字符显示树状结构，表达程序间的相互关系。  
-    u      以用户为主的格式来显示程序状况。  
-    x      显示所有程序，不以终端机来区分. 
+    u      以用户为主的格式来显示程序状况。  
+    x      显示所有程序，不以终端机来区分. 
     -L     Show threads, possibly with LWP and NLWP columns
     -T     显示线程（Show threads, possibly with SPID column) “SID”栏表示线程ID，而“CMD”栏则显示了线程名称。
 
@@ -144,7 +144,7 @@ ps auxw -sort=%cpu
   
 控制终端（/dev/tty) 
   
-控制台终端（/dev/ttyn,   /dev/console) 
+控制台终端（/dev/ttyn,   /dev/console) 
   
 虚拟终端(/dev/pts/n)
  

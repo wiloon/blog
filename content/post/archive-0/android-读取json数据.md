@@ -16,7 +16,7 @@ categories:
   http://tangshanxj.blog.163.com/blog/static/30113717201010282318941/
 
 
-      public String getJson(){
+      public String getJson(){
  String jsonString = "{"FLAG":"flag","MESSAGE":"SUCCESS","name":[{"name":"jack"},{"name":"lucy"}]}";//json字符串
  try {
  JSONObject result = new JSONObject(jsonstring);//转换为JSONObject

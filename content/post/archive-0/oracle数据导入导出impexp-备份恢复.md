@@ -22,7 +22,7 @@ imp/exp [username[/password[@service]]]
   
 服务实例名或者数据库SID在http://blog.sina.com.cn/s/blog_7ffb8dd501013e5v.html有记录
 
-或者:  imp/exp [username[/password[@hostIp: 1521/DBsid]]]  DBsid是数据库sid
+或者:  imp/exp [username[/password[@hostIp: 1521/DBsid]]]  DBsid是数据库sid
   
 如: exp admin/123@192.168.3.186/orcl(这里没有写端口号，默认是1521)
 
@@ -42,7 +42,7 @@ Oracle有个好处，虽然你的电脑不是服务器，但是你装了oracle�
 
 利用这个功能你可以构建俩个相同的数据库，一个用来测试，一个用来正式使用。
 
-执行环境: 可以在SQLPLUS.EXE或者DOS（命令行) 中执行，DOS中可以执行时由于 在oracle 8i 中  安装目录ora81BIN被设置为全局路径，该目录下有EXP.EXE与IMP.EXE文件被用来执行导入导出。
+执行环境: 可以在SQLPLUS.EXE或者DOS（命令行) 中执行，DOS中可以执行时由于 在oracle 8i 中  安装目录ora81BIN被设置为全局路径，该目录下有EXP.EXE与IMP.EXE文件被用来执行导入导出。
 
 oracle用java编写，我想SQLPLUS.EXE、EXP.EXE、IMP.EXE这俩个文件是被包装后的类文件。SQLPLUS.EXE调用EXP.EXE、IMP.EXE他们所包裹的类，完成导入导出功能。
 
@@ -68,11 +68,11 @@ exp system/manager@TEST file=d: daochu.dmp tables=（table1)  query=" where file
 
 上面是常用的导出，对于压缩我不太在意，用winzip把dmp文件可以很好的压缩。
 
-不过在上面命令后面 加上 compress=y  就可以了
+不过在上面命令后面 加上 compress=y  就可以了
 
 数据的导入1 将D: daochu.dmp 中的数据导入 TEST数据库中。
 
-imp system/manager@TEST  file=d: daochu.dmp
+imp system/manager@TEST  file=d: daochu.dmp
 
 上面可能有点问题，因为有的表已经存在，然后它就报错，对该表就不进行导入。
 
@@ -80,7 +80,7 @@ imp system/manager@TEST  file=d: daochu.dmp
 
 2 将d: daochu.dmp中的表table1 导入
 
-imp system/manager@TEST  file=d: daochu.dmp  tables=（table1) 
+imp system/manager@TEST  file=d: daochu.dmp  tables=（table1) 
 
 基本上上面的导入导出够用了。不少情况我是将表彻底删除，然后导入。
 

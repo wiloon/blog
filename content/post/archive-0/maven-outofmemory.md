@@ -46,7 +46,7 @@ categories:
     Windows环境中
   
   
-    找到文件%M2_HOME%binmvn.bat ，这就是启动Maven的脚本文件，在该文件中你能看到有一行注释为: 
+    找到文件%M2_HOME%binmvn.bat ，这就是启动Maven的脚本文件，在该文件中你能看到有一行注释为: 
   
   
     @REM set MAVEN_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE...
@@ -75,7 +75,7 @@ categories:
     Linux环境中
   
   
-    也可以通过设置环境变量解决该问题， 如，编辑文件 /etc/profile 如下
+    也可以通过设置环境变量解决该问题， 如，编辑文件 /etc/profile 如下
   
   
   

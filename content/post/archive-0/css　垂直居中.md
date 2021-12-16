@@ -12,7 +12,7 @@ tags:
 ## css垂直居中
 **单行内容的居中**
   
-只考虑单行是最简单的，无论是否给容器固定高度，只要给容器设置 line-height 和 height，并使两值相等，再加上 over-flow: hidden 就可以了
+只考虑单行是最简单的，无论是否给容器固定高度，只要给容器设置 line-height 和 height，并使两值相等，再加上 over-flow: hidden 就可以了
 
 [css]
 

@@ -132,42 +132,42 @@ Pool o-- Duck
 ### 各种关系的强弱顺序: 
 泛化= 实现> 组合> 聚合> 关联> 依赖
 
-unspecified  association to unspecified  association
- unspecified  association to navigable  association
- Non-navigable  association to navigable  association
- navigable  association to navigable  association
+unspecified  association to unspecified  association
+ unspecified  association to navigable  association
+ Non-navigable  association to navigable  association
+ navigable  association to navigable  association
   
   
-    unspecified association 未特别指出的关系   不确定Class A 对Class B的关系的时候，可以用这个。
- navigable  association 可访问的
- Non-navigable  association  不可访问
+    unspecified association 未特别指出的关系   不确定Class A 对Class B的关系的时候，可以用这个。
+ navigable  association 可访问的
+ Non-navigable  association  不可访问
   
   
   
   
-    比如Class A有成员B b； 而Class B没有A的引用
+    比如Class A有成员B b； 而Class B没有A的引用
  那么A到B的关系可以是以下情况: 
- unspecified  association to navigable  association
- 因为B也许无法直接访问A 但是可以通过其他方式访问 所以定义为unspecified
+ unspecified  association to navigable  association
+ 因为B也许无法直接访问A 但是可以通过其他方式访问 所以定义为unspecified
   
   
     如果按设计要求要禁止B访问A，那么就把A到B的关系定义为
- Non-navigable  association to navigable  association
+ Non-navigable  association to navigable  association
   
   
     如果B中也有A的引用，那么就是
- navigable  association to navigable  association
+ navigable  association to navigable  association
   
   
-    我似乎只能说到这个程度了 例子也举的不好，不过我推荐你几篇文章看看，尤其是最后这个  我觉得这个是最清楚明白的了。包括composition  aggregation 这篇参考资料也说的非常清楚。
+    我似乎只能说到这个程度了 例子也举的不好，不过我推荐你几篇文章看看，尤其是最后这个  我觉得这个是最清楚明白的了。包括composition  aggregation 这篇参考资料也说的非常清楚。
   
   
 
 
  ---
 参考资料: 
-Allen Holub's UML Quick Reference  这个讲的有些复杂  
-Mapping UML Associations into Java Code 这个更难懂  
+Allen Holub's UML Quick Reference  这个讲的有些复杂  
+Mapping UML Associations into Java Code 这个更难懂  
 http://blog.csdn.net/tianhai110/article/details/6339565  
 http://www.cnblogs.com/riky/archive/2007/04/07/704298.htm  
 http://www.uml.org.cn/oobject/201104212.asp">http://www.uml.org.cn/oobject/201104212.asp  

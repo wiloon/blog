@@ -11,13 +11,13 @@ categories:
 ## HttpSessionBindingListener
 捕获Session事件的意义: 
   
-1、         记录网站的客户登录日志（登录，退出信息等) 
+1、         记录网站的客户登录日志（登录，退出信息等) 
   
-2、         统计在线人数
+2、         统计在线人数
   
-3、         等等还有很多，呵呵，自己想吧……总之挺重要的。
+3、         等等还有很多，呵呵，自己想吧……总之挺重要的。
 
-Session代表客户的会话过程，客户登录时，往Session中传入一个对象，即可跟踪客户的会话。在Servlet中，传入Session的对象如果是一个实现HttpSessionBindingListener接口的对象（方便起见，此对象称为监听器) ，则在传入的时候（即调用HttpSession对象的setAttribute方法的时候) 和移去的时候（即调用HttpSession对象的removeAttribute方法的时候或Session   Time   out的时候) Session对象会自动调用监听器的valueBound和valueUnbound方法（这是HttpSessionBindingListener接口中的方法) 。
+Session代表客户的会话过程，客户登录时，往Session中传入一个对象，即可跟踪客户的会话。在Servlet中，传入Session的对象如果是一个实现HttpSessionBindingListener接口的对象（方便起见，此对象称为监听器) ，则在传入的时候（即调用HttpSession对象的setAttribute方法的时候) 和移去的时候（即调用HttpSession对象的removeAttribute方法的时候或Session   Time   out的时候) Session对象会自动调用监听器的valueBound和valueUnbound方法（这是HttpSessionBindingListener接口中的方法) 。
   
 由此可知，登录日志也就不难实现了。
   
@@ -27,45 +27,45 @@ Session代表客户的会话过程，客户登录时，往Session中传入一个
 
 实现一个监听器: 
   
-//   SessionListener.java
+//   SessionListener.java
 
-import   java.io.*;
+import   java.io.*;
   
-import   java.util.*;
+import   java.util.*;
   
-import   javax.servlet.http.*;
+import   javax.servlet.http.*;
 
 //监听登录的整个过程
   
-public   class   SessionListener   implements   HttpSessionBindingListener
+public   class   SessionListener   implements   HttpSessionBindingListener
   
 {
 
-public   String   privateInfo= " ";                 //生成监听器的初始化参数字符串
+public   String   privateInfo= " ";                 //生成监听器的初始化参数字符串
   
-private   String   logString= " ";                 //日志记录字符串
+private   String   logString= " ";                 //日志记录字符串
   
-private   int   count=0;                 //登录人数计数器
+private   int   count=0;                 //登录人数计数器
 
-public   SessionListener(String   info){
+public   SessionListener(String   info){
   
 this.privateInfo=info;
   
 }
 
-public   int   getCount(){
+public   int   getCount(){
   
-return   count;
+return   count;
   
 }
 
-public   void   valueBound(HttpSessionBindingEvent   event)
+public   void   valueBound(HttpSessionBindingEvent   event)
   
 {
   
 count++;
   
-if   (privateInfo.equals( "count "))
+if   (privateInfo.equals( "count "))
   
 {
   
@@ -75,27 +75,27 @@ return;
   
 try{
   
-Calendar   calendar=new   GregorianCalendar();
+Calendar   calendar=new   GregorianCalendar();
   
-System.out.println( "LOGIN: "+privateInfo+ "   TIME: "+calendar.getTime());
+System.out.println( "LOGIN: "+privateInfo+ "   TIME: "+calendar.getTime());
   
-logString= "nLOGIN: "+privateInfo+ "   TIME: "+calendar.getTime()+ "n ";
+logString= "nLOGIN: "+privateInfo+ "   TIME: "+calendar.getTime()+ "n ";
   
-for(int   i=1;i <1000;i++){
+for(int   i=1;i <1000;i++){
   
-File   file=new   File( "yeeyoo.log "+i);
+File   file=new   File( "yeeyoo.log "+i);
   
 if(!(file.exists()))
   
-file.createNewFile();       //如果文件不存在，创建此文件
+file.createNewFile();       //如果文件不存在，创建此文件
   
-if(file.length()> 1048576)   //如果文件大于1M，重新创建一个文件
+if(file.length()> 1048576)   //如果文件大于1M，重新创建一个文件
   
 continue;
   
-FileOutputStream   foo=new   FileOutputStream( "yeeyoo.log "+i,true);//以append方式打开创建文件
+FileOutputStream   foo=new   FileOutputStream( "yeeyoo.log "+i,true);//以append方式打开创建文件
   
-foo.write(logString.getBytes(),0,logString.length());   //写入日志字符串
+foo.write(logString.getBytes(),0,logString.length());   //写入日志字符串
   
 foo.close();
   
@@ -103,19 +103,19 @@ break;//退出
   
 }
   
-}catch(FileNotFoundException   e){}
+}catch(FileNotFoundException   e){}
   
-catch(IOException   e){}
+catch(IOException   e){}
   
 }
 
-public   void   valueUnbound(HttpSessionBindingEvent   event)
+public   void   valueUnbound(HttpSessionBindingEvent   event)
   
 {
   
 count-;
   
-if   (privateInfo.equals( "count "))
+if   (privateInfo.equals( "count "))
   
 {
   
@@ -125,27 +125,27 @@ return;
   
 try{
   
-Calendar   calendar=new   GregorianCalendar();
+Calendar   calendar=new   GregorianCalendar();
   
-System.out.println( "LOGOUT: "+privateInfo+ "   TIME: "+calendar.getTime());
+System.out.println( "LOGOUT: "+privateInfo+ "   TIME: "+calendar.getTime());
   
-logString= "nLOGOUT: "+privateInfo+ "   TIME: "+calendar.getTime()+ "n ";
+logString= "nLOGOUT: "+privateInfo+ "   TIME: "+calendar.getTime()+ "n ";
   
-for(int   i=1;i <1000;i++){
+for(int   i=1;i <1000;i++){
   
-File   file=new   File( "yeeyoo.log "+i);
+File   file=new   File( "yeeyoo.log "+i);
   
 if(!(file.exists()))
   
-file.createNewFile();       //如果文件不存在，创建此文件
+file.createNewFile();       //如果文件不存在，创建此文件
   
-if(file.length()> 1048576)   //如果文件大于1M，重新创建一个文件
+if(file.length()> 1048576)   //如果文件大于1M，重新创建一个文件
   
 continue;
   
-FileOutputStream   foo=new   FileOutputStream( "yeeyoo.log "+i,true);//以append方式打开创建文件
+FileOutputStream   foo=new   FileOutputStream( "yeeyoo.log "+i,true);//以append方式打开创建文件
   
-foo.write(logString.getBytes(),0,logString.length());   //写入日志字符串
+foo.write(logString.getBytes(),0,logString.length());   //写入日志字符串
   
 foo.close();
   
@@ -153,9 +153,9 @@ break;//退出
   
 }
   
-}catch(FileNotFoundException   e){}
+}catch(FileNotFoundException   e){}
   
-catch(IOException   e){}
+catch(IOException   e){}
   
 }
 
@@ -167,29 +167,29 @@ catch(IOException   e){}
   
 ……
   
-HttpSession   session   =   req.getSession   (true);
+HttpSession   session   =   req.getSession   (true);
   
 ……
   
 ///////////////////////////////////////////////////////////////////////
   
-SessionListener   sessionListener=new   SessionListener( "   IP: "+req.getRemoteAddr());     //对于每一个会话过程均启动一个监听器
+SessionListener   sessionListener=new   SessionListener( "   IP: "+req.getRemoteAddr());     //对于每一个会话过程均启动一个监听器
   
-session.setAttribute( "listener ",sessionListener);     //将监听器植入HttpSession，这将激发监听器调用valueBound方法，从而记录日志文件。
+session.setAttribute( "listener ",sessionListener);     //将监听器植入HttpSession，这将激发监听器调用valueBound方法，从而记录日志文件。
   
 ///////////////////////////////////////////////////////////////////////
   
-当系统退出登录时，只需简单地调用session.removeAttribute("listener");即可自动调用监听器的valueUnbound方法。或者，当Session   Time   Out的时候也会调用此方法。
+当系统退出登录时，只需简单地调用session.removeAttribute("listener");即可自动调用监听器的valueUnbound方法。或者，当Session   Time   Out的时候也会调用此方法。
 
 登录人数的统计: 
   
-ServletContext   session1=getServletConfig().getServletContext();//取得ServletContext对象实例
+ServletContext   session1=getServletConfig().getServletContext();//取得ServletContext对象实例
   
 if((SessionListener)session1.getAttribute( "listener1 ")==null)
   
 {
   
-SessionListener   sessionListener1=new   SessionListener( "count ");//只设置一次，不同于上面日志文件的记录每次会话均设置。即当第一个客户连接到服务器时启动一个全局变量，此后所有的客户将使用相同的上下文。
+SessionListener   sessionListener1=new   SessionListener( "count ");//只设置一次，不同于上面日志文件的记录每次会话均设置。即当第一个客户连接到服务器时启动一个全局变量，此后所有的客户将使用相同的上下文。
   
 session1.setAttribute( "listener1 ",sessionListener1);//将监听器对象设置成ServletContext的属性，具有全局范围有效性，即所有的客户均可以取得它的实例。
   

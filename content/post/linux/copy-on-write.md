@@ -9,7 +9,7 @@ title = "写时复制（Copy-on-write: COW) "
 写入时复制（英语: Copy-on-write，简称COW) 是一种计算机程序设计领域的优化策略。其核心思想是，如果有多个调用者（callers) 同时请求相同资源（如内存或磁盘上的数据存储) ，他们会共同获取相同的指针指向相同的资源，直到某个调用者试图修改资源的内容时，系统才会真正复制一份专用副本（private copy) 给该调用者，而其他调用者所见到的最初的资源仍然保持不变。这过程对其他的调用者都是透明的（transparently) 。此作法主要的优点是如果调用者没有修改该资源，就不会有副本（private copy) 被创建，因此多个调用者只是读取操作时可以共享同一份资源。
 
 在java中的应用举例
- 
+ 
 
 java中有两个类: CopyOnWriteArrayList、CopyOnWriteArraySet使用了写时复制技术手段，CopyOnWriteArrayList的实现: 
 
@@ -31,10 +31,10 @@ A thread-safe variant of java.util.ArrayList in which all mutative operations (a
     private transient volatile Object[] array;
 所有的修改操作都会使用lock对象内置的锁得以并发安全修改。Object[] array用volatile修饰，保证内存可见性就可以。
 
- 
+ 
 
 Linux系统创建新进程
- 
+ 
 
 unix操作系统中有两种创建新进程的几种，分别是fork和exec。
 
@@ -42,11 +42,11 @@ unix操作系统中有两种创建新进程的几种，分别是fork和exec。
 
 （2) exec将一个新程序加载到当前进程的内存中并执行。旧程序的内存页将刷出，其内容将替换为新的数据。然后执行新程序。
 
- 
+ 
 
 当然还有很多使用了写时复制优化性能的地方
 
- 
+ 
 
 参考: 
 

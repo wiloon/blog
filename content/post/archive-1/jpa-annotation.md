@@ -312,7 +312,7 @@ this.tempValue = value;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 
-Single Table    InheritanceType.SINGLE_TABLE 策略为类的继承体系采用同一个表。表名是基类的名称。例如: 
+Single Table    InheritanceType.SINGLE_TABLE 策略为类的继承体系采用同一个表。表名是基类的名称。例如: 
 
 InheritanceType.JOINED策略为类继承体系中的每个类创建不同的表。每个表只包含类中定义的列，因此在load一个子类的时候，JPA实现需要同时查询子类映射的表，以及通过关联查询所有的父类映射的表。PrimaryKeyJoinColumn annotation用来指定子类映射的表如何关联到父类映射的表。它有以下属性: 
   
@@ -322,7 +322,7 @@ String referencedColumnName: 父类映射表中用来关联的列名。如果只
   
 String columnDefinition: 数据库中列的数据类型。只有当JPA vendor支持通过metadata创建表的时候，这个属性才被使用。
 
-Table Per Class    InheritanceType.TABLE_PER_CLASS策略为类继承体系中的每个类创建不同的表。和InheritanceType.JOINED策略不同的是，每个表中包含所有的子类和父类中定义的所有列。因此在load一个子类的时候，JPA实现只需要同时查询子类映射的表。
+Table Per Class    InheritanceType.TABLE_PER_CLASS策略为类继承体系中的每个类创建不同的表。和InheritanceType.JOINED策略不同的是，每个表中包含所有的子类和父类中定义的所有列。因此在load一个子类的时候，JPA实现只需要同时查询子类映射的表。
 
 http://whitesock.iteye.com/blog/173543
 

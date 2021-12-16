@@ -22,7 +22,7 @@ tags:
   
   
     
-      750 hours of Amazon EC2 Linux Micro Instance usage (613 MB of memory and 32-bit and 64-bit platform support) – enough hours to run continuously each month
+      750 hours of Amazon EC2 Linux Micro Instance usage (613 MB of memory and 32-bit and 64-bit platform support) – enough hours to run continuously each month
     
     
       有750个小时的运行时间，一个月满打满算也只有744个小时，为什么要给750呢？
@@ -31,13 +31,13 @@ tags:
       因为你同时可以开多个实例，同时开两个的话，你的750个小时就不够用了，除非有特殊情况，还是不要开多个Instance了。
     
     
-      750 hours of an Elastic Load Balancer plus 15 GB data processing*
+      750 hours of an Elastic Load Balancer plus 15 GB data processing*
     
     
       750个小时负载均衡器使用时间，流量是15GB，一般用在你开多个Instance的时候，多了就要付钱了
     
     
-      10 GB of Amazon Elastic Block Storage, plus 1 million I/Os, 1 GB of snapshot storage, 10,000 snapshot Get Requests and 1,000 snapshot Put Requests
+      10 GB of Amazon Elastic Block Storage, plus 1 million I/Os, 1 GB of snapshot storage, 10,000 snapshot Get Requests and 1,000 snapshot Put Requests
     
     
       Amazon所有的存储设备都是被挂载上去的，当你重启以后，除了机器上所有的数据都是被清空的，
@@ -52,7 +52,7 @@ tags:
       1GB的snapshot存储空间，但是每个月只能制作和还原各1000次
     
     
-      5 GB of Amazon S3 standard storage, 20,000 Get Requests, and 2,000 Put Requests//5GB的额外存储空间，每月只能存取20000次。
+      5 GB of Amazon S3 standard storage, 20,000 Get Requests, and 2,000 Put Requests//5GB的额外存储空间，每月只能存取20000次。
     
     
       30 GB per of internet data transfer (15 GB of data transfer "in" and 15 GB of data transfer "out" across all services except Amazon CloudFront)
@@ -61,20 +61,20 @@ tags:
       30GB的流量，流入和流出各15GB。
     
     
-      25 Amazon SimpleDB Machine Hours and 1 GB of Storage//数据库服务，我暂时没用到
+      25 Amazon SimpleDB Machine Hours and 1 GB of Storage//数据库服务，我暂时没用到
     
     
-      100,000 Requests of Amazon Simple Queue Service//队列服务，我也还没用到
+      100,000 Requests of Amazon Simple Queue Service//队列服务，我也还没用到
     
     
-      100,000 Requests, 100,000 HTTP notifications and 1,000 email notifications for Amazon Simple Notification Service//通知服务
+      100,000 Requests, 100,000 HTTP notifications and 1,000 email notifications for Amazon Simple Notification Service//通知服务
     
     
-      10 Amazon Cloudwatch metrics, 10 alarms, and 1,000,000 API requests//监控服务
+      10 Amazon Cloudwatch metrics, 10 alarms, and 1,000,000 API requests//监控服务
     
   
   
-    In addition to these services, the AWS Management Console is available at no charge to help you build and manage your application on AWS.
+    In addition to these services, the AWS Management Console is available at no charge to help you build and manage your application on AWS.
   
   
     知道了我们能用多少服务以后，我们在哪里找到我们目前用了多少了呢？从这里http://aws.amazon.com/account/进入就可以查看你当前的服务状况了。点击Account Activity,就能检查目前的账户状态了

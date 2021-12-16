@@ -23,9 +23,9 @@ sudo useradd -m -s /bin/bash user0
 sudo useradd -m -s /bin/bash -g group0 user0
 sudo passwd user0
 
-sudo useradd -m -s /bin/zsh user0
+sudo useradd -m -s /bin/zsh user0
 sudo useradd -M -s /bin/false user1
-sudo useradd user0
+sudo useradd user0
 ```
 
     # -M - Don't create a home directory
@@ -175,7 +175,7 @@ su USERNAME切换用户后，不改变原用户的工作目录，及其他环境
 
 /usr/sbin/useradd
 
- 
+ 
 
 用户（User) 和用户组（Group) 的配置文件，是系统管理员最应该了解和掌握的系统基础文件之一，从另一方面来说，了解这些文件也是系统安全管理的重要组成部份；做为一个合格的系统管理员应该对用户和用户组配置文件透彻了解才行；
 

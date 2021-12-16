@@ -15,39 +15,39 @@ categories:
 
 **I will laugh at the world.**
 
-No living creature can laugh except humans.  Trees may bleed when they are wounded, and beasts in the field will cry in pain and hunger, yet only I have the gift of laughter and it is mine to use whenever I choose.  Henceforth I will cultivate the habit of laughter.
+No living creature can laugh except humans.  Trees may bleed when they are wounded, and beasts in the field will cry in pain and hunger, yet only I have the gift of laughter and it is mine to use whenever I choose.  Henceforth I will cultivate the habit of laughter.
 
 I will smile and my digestion will improve; I will chuckle and my burdens will be lightened; I will laugh and my life will be lengthened for this is the great secret of long life and now it is mine.
 
 I will laugh at the world.
 
-And most of all, I will laugh at myself for humans are most comical when we take ourselves too seriously.  Never will I fall into this trap of the mind.  For though I be nature's greatest miracle am I not still a mere grain tossed about by the winds of time?  Do I truly know whence I came or whither I am bound?  Will my concern for this day not seem foolish ten years hence?  Why should I permit the petty happenings of today to disturb me?  What can take place before this sun sets which will not seem insignificant in the river of centuries?
+And most of all, I will laugh at myself for humans are most comical when we take ourselves too seriously.  Never will I fall into this trap of the mind.  For though I be nature's greatest miracle am I not still a mere grain tossed about by the winds of time?  Do I truly know whence I came or whither I am bound?  Will my concern for this day not seem foolish ten years hence?  Why should I permit the petty happenings of today to disturb me?  What can take place before this sun sets which will not seem insignificant in the river of centuries?
 
 I will laugh at the world.
 
-And how can I laugh when confronted with person or deed which offends me so as to bring forth my tears or my curses?  Four words I will train myself to say until they become a habit so strong that immediately they will appear in my mind whenever good humor threatens to depart from me.  These words, passed down from the ancients, will carry me through every adversity and maintain my life in balance.  These four words are:  This too shall pass.
+And how can I laugh when confronted with person or deed which offends me so as to bring forth my tears or my curses?  Four words I will train myself to say until they become a habit so strong that immediately they will appear in my mind whenever good humor threatens to depart from me.  These words, passed down from the ancients, will carry me through every adversity and maintain my life in balance.  These four words are:  This too shall pass.
 
 I will laugh at the world.
 
-For all worldly things shall indeed pass.  When I am heavy with heartache I shall console myself that this too shall pass; when I am puffed with success I shall warn myself that this too shall pass.  When I am strangled in poverty I shall tell myself that this too shall pass; when I am burdened with wealth I shall tell myself that this too shall pass.  Yea, verily, where is he who built the pyramid?  Is he not buried within its stone?  And will the pyramid, one day, not also be buried under sand?  If all things shall pass why should I be of concern for today?
+For all worldly things shall indeed pass.  When I am heavy with heartache I shall console myself that this too shall pass; when I am puffed with success I shall warn myself that this too shall pass.  When I am strangled in poverty I shall tell myself that this too shall pass; when I am burdened with wealth I shall tell myself that this too shall pass.  Yea, verily, where is he who built the pyramid?  Is he not buried within its stone?  And will the pyramid, one day, not also be buried under sand?  If all things shall pass why should I be of concern for today?
 
 I will laugh at the world.
 
-I will paint this day with laughter; I will frame this night in song.  Never will I labor to be happy; rather I will remain too busy to be sad.  I will enjoy today's happiness today.  It is not grain to be stored in a box.  It is not wine to be saved in a jar.  It cannot be saved for the morrow.  It must be sown and reaped on the same day and this will I do, henceforth.
+I will paint this day with laughter; I will frame this night in song.  Never will I labor to be happy; rather I will remain too busy to be sad.  I will enjoy today's happiness today.  It is not grain to be stored in a box.  It is not wine to be saved in a jar.  It cannot be saved for the morrow.  It must be sown and reaped on the same day and this will I do, henceforth.
 
 I will laugh at the world.
 
-And with my laughter all things will be reduced to their proper size.  I will laugh at my failures and they will vanish in clouds of new dreams.  I will laugh at my successes and they will shrink to their true value.  I will laugh at evil and it will die untasted; I will laugh at goodness and it will thrive and abound.  Each day will be triumphant only when my smiles bring forth smiles from others and this I do in selfishness, for those on whom I frown are those who purchase not my goods.
+And with my laughter all things will be reduced to their proper size.  I will laugh at my failures and they will vanish in clouds of new dreams.  I will laugh at my successes and they will shrink to their true value.  I will laugh at evil and it will die untasted; I will laugh at goodness and it will thrive and abound.  Each day will be triumphant only when my smiles bring forth smiles from others and this I do in selfishness, for those on whom I frown are those who purchase not my goods.
 
 I will laugh at the world.
 
 Henceforth will I shed only tears of sweat, for those of sadness or remorse or frustration are of no value in the marketplace whilst each smile can be exchanged for gold and each kind word, spoken from my heart, can build a castle.
 
-Never will I allow myself to become so important, so wise, so dignified, so powerful, that I forget how to laugh at myself and my world.  In this matter I will always remain as a child, for only as a child am I given the ability to look up to others; and so long as I look up to another I will never grow too long for my cot.
+Never will I allow myself to become so important, so wise, so dignified, so powerful, that I forget how to laugh at myself and my world.  In this matter I will always remain as a child, for only as a child am I given the ability to look up to others; and so long as I look up to another I will never grow too long for my cot.
 
 I will laugh at the world.
 
-And so long as I can laugh never will I be poor.  This then, is one of nature's greatest gifts, and I will waste it no more.  Only with laughter and happiness can I truly become a success.  Only with laughter and happiness can I enjoy the fruits of my labor.  Were it not so, far better would it be to fail, for happiness is the wine that sharpens the taste of the meal.  To enjoy success I must have happiness, and laughter will be the maiden who serves me.
+And so long as I can laugh never will I be poor.  This then, is one of nature's greatest gifts, and I will waste it no more.  Only with laughter and happiness can I truly become a success.  Only with laughter and happiness can I enjoy the fruits of my labor.  Were it not so, far better would it be to fail, for happiness is the wine that sharpens the taste of the meal.  To enjoy success I must have happiness, and laughter will be the maiden who serves me.
 
 I will be happy.
 

@@ -16,7 +16,7 @@ categories:
  小内核的情况，它的存在是为了向后的兼容性。 
     
     
-          2.是内核编译时通过命令make
+          2.是内核编译时通过命令make
  bzImage创建，然后通过:"cp/usr/src/linux-2.4/arch/i386/linux/boot/bzImage
  /boot/vmlinuz"产生。bzImage是压缩的内核映像，需要注意，bzImage不是用bzip2压缩的，bzImage中的bz容易引起误解，bz表示"big zImage"。 bzImage中的b是"big"意思。
     

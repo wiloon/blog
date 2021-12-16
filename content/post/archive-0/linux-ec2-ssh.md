@@ -59,7 +59,7 @@ DynamicForward 默认用localhost:3128，在后面的浏览器设置中要用到
 
 Google了一圈，现总结如下: 
 
-  * 在**Firefox**地址栏输入 **about:config **
+  * 在**Firefox**地址栏输入 **about:config **
   * 有安全提示，点击继续；
   * 找到"**network.proxy.socks_remote_dns**"，双击改为**True**（默认False) ；
   * 可能需要重启Firefox。

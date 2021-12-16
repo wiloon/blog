@@ -14,7 +14,7 @@ https://github.com/spring-projects/eclipse-integration-gradle/
 
 ### Installing Gradle Tooling from update site
 
->http://dist.springsource.com/release/TOOLS/gradle (latest release)
+>http://dist.springsource.com/release/TOOLS/gradle (latest release)
 
 
 config gradle heap space

@@ -13,7 +13,7 @@ JAX-WS规范是一组XML web services的JAVA API。JAX-WS允许开发者可以�
 
 在 JAX-WS中，一个远程调用可以转换为一个基于XML的协议例如SOAP。在使用JAX-WS过程中，开发者不需要编写任何生成和处理SOAP消息的代码。JAX-WS的运行时实现会将这些API的调用转换成为对应的SOAP消息。
 
-在服务器端，用户只需要通过Java语言定义远程调用所需要实现的接口SEI （service endpoint interface) ，并提供相关的实现，通过调用JAX-WS的服务发布接口就可以将其发布为WebService接口。
+在服务器端，用户只需要通过Java语言定义远程调用所需要实现的接口SEI （service endpoint interface) ，并提供相关的实现，通过调用JAX-WS的服务发布接口就可以将其发布为WebService接口。
 
 在客户端，用户可以通过JAX-WS的API创建一个代理（用本地对象来替代远程的服务) 来实现对于远程服务器端的调用。
 

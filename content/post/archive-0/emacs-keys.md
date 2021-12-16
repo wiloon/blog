@@ -24,9 +24,9 @@ TAB 意指Tab键
 
 像 "C-M-" (or "M-C") 这样连在一起的意味着同时按住 Control 和 Meta 键不放.
 
-C-x C-h                     列出全部命令
+C-x C-h                     列出全部命令
   
-C-x ESC ESC            重复执行上一条命令
+C-x ESC ESC            重复执行上一条命令
 
 nXML
 

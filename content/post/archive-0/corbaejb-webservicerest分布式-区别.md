@@ -34,17 +34,17 @@ Corba和EJB是采用专有的二进制协议，SOAP可以但不依赖HTTP，并�
   
 2) REST是基于HTTP抽象资源的分布式调用，换句话来说，就是分布式调用是绑定在资源的操作上面的。
   
-分布式架构       协议             调用方式
+分布式架构       协议             调用方式
   
 -------------------
   
-Corba架构        专有二进制协议      对象的CRUD操作
+Corba架构        专有二进制协议      对象的CRUD操作
   
-EJB架构          专有二进制协议      对象的CRUD操作
+EJB架构          专有二进制协议      对象的CRUD操作
   
-Web Services     SOAP协议            RPC方式
+Web Services     SOAP协议            RPC方式
   
-REST             HTTP协议            对资源的CRUD操作
+REST             HTTP协议            对资源的CRUD操作
 
 REST最大的特点是什么呢？REST是为通过HTTP协议来进行分布式调用量身定造的架构
   

@@ -24,13 +24,13 @@ OS: Debian 6
 
 options thinkpad_acpi fan_control=1 experimental=1
 
-<del>add the following to /etc/modprobe.d/options</del>
+<del>add the following to /etc/modprobe.d/options</del>
 
 <del>options thinkpad_acpi fan_control=</del>
 
 重新加载模块:
 
-sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi
+sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi
 
 然后就可以控制风扇了:
 

@@ -192,23 +192,23 @@ IPC进程间通信(Inter-Process Communication)就是指多个进程之间相互
 
 System V是Unix操作系统最早的商业发行版之一。它最初由AT&T(American Telephone & Telegraph)开发，最早在1983年发布。System V主要发行了4个版本，其中SVR4(System V Release 4)是最成功的版本。BSD(Berkeley Software Distribution，有时也被称为Berkeley Unix)是加州大学于1977至1995年间开发的。在19世纪八十年代至九十年代之间，System V和BSD代表了Unix的两种主要的操作风格。它们的主要区别如下:
 
-系统                      System V           BSD
+系统                      System V           BSD
   
-root脚本位置            /etc/init.d/       /etc/rc.d/
+root脚本位置            /etc/init.d/       /etc/rc.d/
   
-默认shell                 Bshell             Cshell
+默认shell                 Bshell             Cshell
   
-文件系统数据            /etc/mnttab     /etc/mtab
+文件系统数据            /etc/mnttab     /etc/mtab
   
-内核位置                  /UNIX             /vmUnix
+内核位置                  /UNIX             /vmUnix
   
-打印机设备                lp                  rlp
+打印机设备                lp                  rlp
   
-字符串函数                memcopy       bcopy
+字符串函数                memcopy       bcopy
   
-终端初始化设置文件    /etc/initab       /etc/ttys
+终端初始化设置文件    /etc/initab       /etc/ttys
   
-终端控制                  termio            termios
+终端控制                  termio            termios
 
 Linux系统的操作风格往往介于这两种风格之间。
 
@@ -224,9 +224,9 @@ POSIX(Portable Operating System Interface [for Unix])是由IEEE(Institute of Ele
   
 #include <signal.h>
   
-/*typedef void (\*sighandler_t)(int);  sighandler_t signal(int signum,sighandler_t handler);*/
+/*typedef void (\*sighandler_t)(int);  sighandler_t signal(int signum,sighandler_t handler);*/
   
-\* void (\*signal(int signum, void (*handler)(int)))(int);  //SIG_IGN && SIG_DFL
+\* void (\*signal(int signum, void (*handler)(int)))(int);  //SIG_IGN && SIG_DFL
   
 \* int sigaction(int signum, const struct sigaction \*act,struct sigaction *oldact);
 
@@ -234,11 +234,11 @@ POSIX(Portable Operating System Interface [for Unix])是由IEEE(Institute of Ele
   
 #include <signal.h>
   
-* int kill(pid_t pid,int sig); //#include <sys/types.h>
+* int kill(pid_t pid,int sig); //#include <sys/types.h>
   
-* int raise(int sig);            //kill(getpid(),sig);
+* int raise(int sig);            //kill(getpid(),sig);
   
-* unsigned int alarm(unsigned int seconds); //(#include <unistd.h>) seconds秒后，向进程本身发送SIGALRM信号。
+* unsigned int alarm(unsigned int seconds); //(#include <unistd.h>) seconds秒后，向进程本身发送SIGALRM信号。
 
 (3)信号集
   
@@ -246,7 +246,7 @@ POSIX(Portable Operating System Interface [for Unix])是由IEEE(Institute of Ele
   
 \* int sigaddset(sigset_t \*set,int sig);
   
-\* int sigemptyset(sigset_t \*set);
+\* int sigemptyset(sigset_t \*set);
 
 _**2、管道(Pipe)**_
 
@@ -284,7 +284,7 @@ PS:要想查看库函数用法，最可靠的资料来自Linux manual page:
 
 $sudo apt-get install manpages-dev
 
-$man 3 _function_name_
+$man 3 _function_name_
 
 
 
@@ -319,11 +319,11 @@ $man 3 _function_name_
   
   
     struct ipc_perm{
- uid_t uid;   //所有者的用户id
- gid_t gid;   //所有者的组id
- uid_t cuid;  //创建者的用户id
- gid_t cgid;  //创建者的组id
- mode_t mode; //访问模式
+ uid_t uid;   //所有者的用户id
+ gid_t gid;   //所有者的组id
+ uid_t cuid;  //创建者的用户id
+ gid_t cgid;  //创建者的组id
+ mode_t mode; //访问模式
  …
  };
   
@@ -337,7 +337,7 @@ $man 3 _function_name_
     System V的信号量集表示的是一个或多个信号量的集合。内核为每个信号量集维护一个semid_ds数据结构，而信号量集中的每个信号量使用一个无名结构体表示，这个结构体至少包含以下成员:
  struct{
  unsigned short semval;//信号量值，总是>=0
- pid_t sempid;  //上一次操作的pid
+ pid_t sempid;  //上一次操作的pid
  …
  };
   
@@ -358,9 +358,9 @@ $man 3 _function_name_
     (3)对一个或多个信号量进行操作
  * int semop(int semid,struct sembuf *sops,unsigned nsops);
  * struct sembuf{
- unsigned short sem_num;  //信号量索引
- short   sem_op;     //对信号量进行的操作，常用的两个值为-1和+1，分别代表P、V操作
- short   sem_flag;   //比较重要的值是SEM_UNDO:当进程结束时，相应的操作将被取消；同时，如果进程结束时没有释放资源的话，系统会自动释放
+ unsigned short sem_num;  //信号量索引
+ short   sem_op;     //对信号量进行的操作，常用的两个值为-1和+1，分别代表P、V操作
+ short   sem_flag;   //比较重要的值是SEM_UNDO:当进程结束时，相应的操作将被取消；同时，如果进程结束时没有释放资源的话，系统会自动释放
  };
   
   
@@ -381,7 +381,7 @@ $man 3 _function_name_
   
   
     (3)从进程的地址空间分离共享内存
- * int shmdt(const void *shmaddr); //shmaddr是shmat()函数的返回值
+ * int shmdt(const void *shmaddr); //shmaddr是shmat()函数的返回值
   
   
     (4)控制共享内存

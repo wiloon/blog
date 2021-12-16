@@ -47,7 +47,7 @@ Java虚拟机中，数据类型可以分为两类: **基本类型**和**引用�
 
 1. 不要试图与C进行类比，Java中没有指针的概念
 
-2. **程序运行永远都是在栈中进行的，因而参数传递时，只存在传递基本类型和对象引用的问题**。不会直接传对象本身。
+2. **程序运行永远都是在栈中进行的，因而参数传递时，只存在传递基本类型和对象引用的问题**。不会直接传对象本身。
 
 明确以上两点后。Java在方法调用传递参数时，因为没有指针，所以**它都是进行传值调用**（这点可以参考C的传值调用) 。因此，很多书里面都说Java是进行传值调用，这点没有问题，而且也简化的C中复杂性。
 
@@ -215,7 +215,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 
 **持久代:**
 
-用于存放静态文件，如今Java类、方法等。持久代对垃圾回收没有显著影响，但是有些应用可能动态生成或者调用一些class，例如Hibernate等，在这种时候需要设置一个比较大的持久代空间来存放这些运行过程中新增的类。持久代大小通过-XX:MaxPermSize=<N>进行设置。(Perm是非堆内存, non-heap)
+用于存放静态文件，如今Java类、方法等。持久代对垃圾回收没有显著影响，但是有些应用可能动态生成或者调用一些class，例如Hibernate等，在这种时候需要设置一个比较大的持久代空间来存放这些运行过程中新增的类。持久代大小通过-XX:MaxPermSize=<N>进行设置。(Perm是非堆内存, non-heap)
 
 ## 什么情况下触发垃圾回收
 
@@ -338,7 +338,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >     
->       java -Xmx3550m -Xms3550m -Xmn2g –Xss128k
+>       java -Xmx3550m -Xms3550m -Xmn2g –Xss128k
 >     
 >     
 >     
@@ -360,7 +360,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >     
->       java -Xmx3550m -Xms3550m -Xss128k -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxPermSize=16m -XX:MaxTenuringThreshold=0
+>       java -Xmx3550m -Xms3550m -Xss128k -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxPermSize=16m -XX:MaxTenuringThreshold=0
 >     
 >     
 >     
@@ -402,7 +402,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >     
->       java -Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20
+>       java -Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20
 >     
 >     
 >     
@@ -416,7 +416,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >     
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20 -XX:+UseParallelOldGC
+>       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20 -XX:+UseParallelOldGC
 >     
 >     
 >     
@@ -426,7 +426,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >     
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100
+>       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100
 >     
 >     
 >     
@@ -436,7 +436,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >     
->       n java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100 -XX:+UseAdaptiveSizePolicy
+>       n java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100 -XX:+UseAdaptiveSizePolicy
 >     
 >     
 >     
@@ -458,7 +458,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >     
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
+>       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
 >     
 >     
 >     
@@ -466,13 +466,13 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >     
 >     
 >     
->       -XX:+UseParNewGC: 设置年轻代为并行收集。可与CMS收集同时使用。JDK5.0以上，JVM会根据系统配置自行设置，所以无需再设置此值。
+>       -XX:+UseParNewGC: 设置年轻代为并行收集。可与CMS收集同时使用。JDK5.0以上，JVM会根据系统配置自行设置，所以无需再设置此值。
 >     
 >   
 >   
 >   
 >     
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection
+>       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection
 >     
 >     
 >     
@@ -501,7 +501,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >   
->     -XX:+PrintGCTimeStamps -XX:+PrintGC: PrintGCTimeStamps可与上面两个混合使用
+>     -XX:+PrintGCTimeStamps -XX:+PrintGC: PrintGCTimeStamps可与上面两个混合使用
  输出形式: 11.851: [GC 98328K->93620K(130112K), 0.0082960 secs]
 >   
 >   
@@ -514,7 +514,7 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >   
->     -XX:PrintHeapAtGC: 打印GC前后的详细堆栈信息。输出形式: 
+>     -XX:PrintHeapAtGC: 打印GC前后的详细堆栈信息。输出形式: 
 >   
 >   
 >   
@@ -522,43 +522,43 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >   
->     def new generation   total 55296K, used 52568K [0x1ebd0000, 0x227d0000, 0x227d0000)
+>     def new generation   total 55296K, used 52568K [0x1ebd0000, 0x227d0000, 0x227d0000)
 >   
 >   
 >   
->     eden space 49152K,  99% used [0x1ebd0000, 0x21bce430, 0x21bd0000)
+>     eden space 49152K,  99% used [0x1ebd0000, 0x21bce430, 0x21bd0000)
 >   
 >   
 >   
->     from space 6144K,  55% used [0x221d0000, 0x22527e10, 0x227d0000)
+>     from space 6144K,  55% used [0x221d0000, 0x22527e10, 0x227d0000)
 >   
 >   
 >   
->     to   space 6144K,   0% used [0x21bd0000, 0x21bd0000, 0x221d0000)
+>     to   space 6144K,   0% used [0x21bd0000, 0x21bd0000, 0x221d0000)
 >   
 >   
 >   
->     tenured generation   total 69632K, used 2696K [0x227d0000, 0x26bd0000, 0x26bd0000)
+>     tenured generation   total 69632K, used 2696K [0x227d0000, 0x26bd0000, 0x26bd0000)
 >   
 >   
 >   
->     the space 69632K,   3% used [0x227d0000, 0x22a720f8, 0x22a72200, 0x26bd0000)
+>     the space 69632K,   3% used [0x227d0000, 0x22a720f8, 0x22a72200, 0x26bd0000)
 >   
 >   
 >   
->     compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
+>     compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
 >   
 >   
 >   
->     the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
+>     the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
 >   
 >   
 >   
->     ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
+>     ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
 >   
 >   
 >   
->     rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
+>     rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
 >   
 >   
 >   
@@ -566,43 +566,43 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >   
->     def new generation   total 55296K, used 3433K [0x1ebd0000, 0x227d0000, 0x227d0000)
+>     def new generation   total 55296K, used 3433K [0x1ebd0000, 0x227d0000, 0x227d0000)
 >   
 >   
 >   
->     eden space 49152K,   0% used [0x1ebd0000, 0x1ebd0000, 0x21bd0000)
+>     eden space 49152K,   0% used [0x1ebd0000, 0x1ebd0000, 0x21bd0000)
 >   
 >   
 >   
->     from space 6144K,  55% used [0x21bd0000, 0x21f2a5e8, 0x221d0000)
+>     from space 6144K,  55% used [0x21bd0000, 0x21f2a5e8, 0x221d0000)
 >   
 >   
 >   
->     to   space 6144K,   0% used [0x221d0000, 0x221d0000, 0x227d0000)
+>     to   space 6144K,   0% used [0x221d0000, 0x221d0000, 0x227d0000)
 >   
 >   
 >   
->     tenured generation   total 69632K, used 3182K [0x227d0000, 0x26bd0000, 0x26bd0000)
+>     tenured generation   total 69632K, used 3182K [0x227d0000, 0x26bd0000, 0x26bd0000)
 >   
 >   
 >   
->     the space 69632K,   4% used [0x227d0000, 0x22aeb958, 0x22aeba00, 0x26bd0000)
+>     the space 69632K,   4% used [0x227d0000, 0x22aeb958, 0x22aeba00, 0x26bd0000)
 >   
 >   
 >   
->     compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
+>     compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
 >   
 >   
 >   
->     the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
+>     the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
 >   
 >   
 >   
->     ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
+>     ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
 >   
 >   
 >   
->     rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
+>     rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
 >   
 >   
 >   
@@ -678,15 +678,15 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >   
->       -XX:+PrintGCDetails
+>       -XX:+PrintGCDetails
 >   
 >   
 >   
->       -XX:+PrintGCTimeStamps
+>       -XX:+PrintGCTimeStamps
 >   
 >   
 >   
->       -Xloggc:filename
+>       -Xloggc:filename
 >   
 >   
 >   
@@ -778,11 +778,11 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 >   
 >   
 >   
->     1. -XX:+UseCMSCompactAtFullCollection: 使用并发收集器时，开启对年老代的压缩。
+>     1. -XX:+UseCMSCompactAtFullCollection: 使用并发收集器时，开启对年老代的压缩。
 >   
 >   
 >   
->     2. -XX:CMSFullGCsBeforeCompaction=0: 上面配置开启的情况下，这里设置多少次Full GC后，对年老代进行压缩
+>     2. -XX:CMSFullGCsBeforeCompaction=0: 上面配置开启的情况下，这里设置多少次Full GC后，对年老代进行压缩
 >   
 >   
 >   
@@ -891,7 +891,7 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 >     
 >     
 >       
->             G1定义了一个JVM Heap大小的百分比的阀值，称为h，另外还有一个H，H的值为(1-h)*Heap Size，目前这个h的值是固定的，后续G1也许会将其改为动态的，根据jvm的运行情况来动态的调整，在分代方式下，G1还定义了一个u以及soft limit，soft limit的值为H-u*Heap Size，当Heap中使用的内存超过了soft limit值时，就会在一次clean up执行完毕后在应用允许的GC暂停时间范围内尽快的执行此步骤；
+>             G1定义了一个JVM Heap大小的百分比的阀值，称为h，另外还有一个H，H的值为(1-h)*Heap Size，目前这个h的值是固定的，后续G1也许会将其改为动态的，根据jvm的运行情况来动态的调整，在分代方式下，G1还定义了一个u以及soft limit，soft limit的值为H-u*Heap Size，当Heap中使用的内存超过了soft limit值时，就会在一次clean up执行完毕后在应用允许的GC暂停时间范围内尽快的执行此步骤；
 >       
 >       
 >       
@@ -925,7 +925,7 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 >     
 >     
 >       
->             G1采用的是复制方法来进行收集，必须保证每次的"to space"的空间都是够的，因此G1采取的策略是当已经使用的内存空间达到了H时，就执行Cleanup这个步骤；
+>             G1采用的是复制方法来进行收集，必须保证每次的"to space"的空间都是够的，因此G1采取的策略是当已经使用的内存空间达到了H时，就执行Cleanup这个步骤；
 >       
 >       
 >       
@@ -950,7 +950,7 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 >     
 >     
 >     
->       Jconsole : jdk自带，功能简单，但是可以在系统有一定负荷的情况下使用。对垃圾回收算法有很详细的跟踪。详细说明参考这里
+>       Jconsole : jdk自带，功能简单，但是可以在系统有一定负荷的情况下使用。对垃圾回收算法有很详细的跟踪。详细说明参考这里
 >     
 >     
 >     
@@ -1072,11 +1072,11 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 >     
 >     
 >     
->           CPU热点: 检查系统哪些方法占用的大量CPU时间
+>           CPU热点: 检查系统哪些方法占用的大量CPU时间
 >     
 >     
 >     
->           内存热点: 检查哪些对象在系统中数量最大（一定时间内存活对象和销毁对象一起统计) 
+>           内存热点: 检查哪些对象在系统中数量最大（一定时间内存活对象和销毁对象一起统计) 
 >     
 >     
 >     
@@ -1120,7 +1120,7 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 >     
 >     
 >     
->       异常:  java.lang.OutOfMemoryError: Java heap space
+>       异常:  java.lang.OutOfMemoryError: Java heap space
 >     
 >     
 >     
@@ -1240,11 +1240,11 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 >     
 >     
 >       
->             我们需要分配如此大的内存空间给应用吗？
+>             我们需要分配如此大的内存空间给应用吗？
 >       
 >       
 >       
->             我们是否能够通过有效使用内存而不是通过扩大内存的方式来设计我们的系统呢？    
+>             我们是否能够通过有效使用内存而不是通过扩大内存的方式来设计我们的系统呢？    
 >       
 >       
 >       
@@ -1265,7 +1265,7 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 >         
 >         
 >         
->           3.  线程。
+>           3.  线程。
 >         
 >       
 >       
@@ -1317,55 +1317,55 @@ Java的阻塞式的线程模型基本上可以抛弃了，目前成熟的NIO框�
 >       
 >       
 >       
->         · Java 理论与实践: 垃圾收集简史
+>         · Java 理论与实践: 垃圾收集简史
 >       
 >       
 >       
->         · Java SE 6 HotSpot[tm] Virtual Machine Garbage Collection Tuning
+>         · Java SE 6 HotSpot[tm] Virtual Machine Garbage Collection Tuning
 >       
 >       
 >       
->         · Improving Java Application Performance and Scalability by Reducing Garbage Collection Times and Sizing Memory Using JDK 1.4.1
+>         · Improving Java Application Performance and Scalability by Reducing Garbage Collection Times and Sizing Memory Using JDK 1.4.1
 >       
 >       
 >       
->         · Hotspot memory management whitepaper
+>         · Hotspot memory management whitepaper
 >       
 >       
 >       
->         · Java Tuning White Paper
+>         · Java Tuning White Paper
 >       
 >       
 >       
->         · Diagnosing a Garbage Collection problem
+>         · Diagnosing a Garbage Collection problem
 >       
 >       
 >       
->         · Java HotSpot VM Options
+>         · Java HotSpot VM Options
 >       
 >       
 >       
->         · A Collection of JVM Options
+>         · A Collection of JVM Options
 >       
 >       
 >       
->         · Garbage-First Garbage Collection
+>         · Garbage-First Garbage Collection
 >       
 >       
 >       
->         · Frequently Asked Questions about Garbage Collection in the HotspotTM JavaTM Virtual Machine
+>         · Frequently Asked Questions about Garbage Collection in the HotspotTM JavaTM Virtual Machine
 >       
 >       
 >       
->         · JProfiler试用手记
+>         · JProfiler试用手记
 >       
 >       
 >       
->         · Java6 JVM参数选项大全
+>         · Java6 JVM参数选项大全
 >       
 >       
 >       
->         · 《深入Java虚拟机》。虽然过去了很多年，但这本书依旧是经典。
+>         · 《深入Java虚拟机》。虽然过去了很多年，但这本书依旧是经典。
 >       
 >       
 >       

@@ -8,6 +8,6 @@ categories:
 
 ---
 ## msysgit
-Choose the Run Git from the Windows Command Prompt option
+Choose the Run Git from the Windows Command Prompt option
 
-Choose the Checkout as-is, commit as-is option
+Choose the Checkout as-is, commit as-is option

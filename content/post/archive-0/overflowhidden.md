@@ -30,7 +30,7 @@ tags:
     这是一个常用的div写法，下面我们来书写样式。大家可以在DMX中自己做试验
   
   
-    #wai{ width:500px;  background:#000; height:500px;}
+    #wai{ width:500px;  background:#000; height:500px;}
   
   
     #nei { float:left; width:600px; height:600px; background:red;}

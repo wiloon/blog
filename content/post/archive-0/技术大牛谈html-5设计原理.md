@@ -8,7 +8,7 @@ url: /?p=1417
 ## 技术大牛谈HTML 5设计原理
 <http://developer.51cto.com/art/201103/247880.htm>
   
-    2011-03-08 10:15 李松峰 李松峰博客
+    2011-03-08 10:15 李松峰 李松峰博客
   
 
   
@@ -18,15 +18,15 @@ url: /?p=1417
 
   
     
-       Jeremy Keith在 Fronteers 2010 上的主题演讲
+       Jeremy Keith在 Fronteers 2010 上的主题演讲
     
     
     
-      下载PPT(PDF) http://adactio.com/extras/slides/designofhtml5.pdf
+      下载PPT(PDF) http://adactio.com/extras/slides/designofhtml5.pdf
     
     
     
-      观看视频 http://fronteers.nl/congres/2010/sessions/the-design-of-html5-jeremy-keith
+      观看视频 http://fronteers.nl/congres/2010/sessions/the-design-of-html5-jeremy-keith
     
     
     
@@ -323,7 +323,7 @@ url: /?p=1417
     
     
       
-        <!DOCTYPE html PUBLIC "-//W3C/DTD HTML 4.01//EN"
+        <!DOCTYPE html PUBLIC "-//W3C/DTD HTML 4.01//EN"
       
       
         "http://www.w3.org/TR/html4/strict.dtd">
@@ -340,7 +340,7 @@ url: /?p=1417
     
     
       
-        <!DOCTYPE html PUBLIC "-//W3C/DTD XHTML 1.0 Strict//EN"
+        <!DOCTYPE html PUBLIC "-//W3C/DTD XHTML 1.0 Strict//EN"
       
       
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -353,7 +353,7 @@ url: /?p=1417
     
     
       
-        <!DOCTYPE html>
+        <!DOCTYPE html>
       
     
     
@@ -391,7 +391,7 @@ url: /?p=1417
     
     
       
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       
     
     
@@ -401,10 +401,10 @@ url: /?p=1417
     
     
       
-        <?xml version="1.0" encoding="UTF-8" ?>
+        <?xml version="1.0" encoding="UTF-8" ?>
       
       
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       
     
     
@@ -414,7 +414,7 @@ url: /?p=1417
     
     
       
-        <meta charset="utf-8">
+        <meta charset="utf-8">
       
     
     
@@ -460,28 +460,28 @@ url: /?p=1417
     
     
       
-        <img src="foo" alt="bar" />
+        <img src="foo" alt="bar" />
       
       
-        <p class="foo">Hello world
+        <p class="foo">Hello world
       
       
-        <img src="foo" alt="bar">
+        <img src="foo" alt="bar">
       
       
-        <p class="foo">Hello world
+        <p class="foo">Hello world
       
       
-        <IMG SRC="foo" ALT="bar">
+        <IMG SRC="foo" ALT="bar">
       
       
-        <P CLASS="foo">Hello world
+        <P CLASS="foo">Hello world
       
       
-        <img src=foo alt=bar>
+        <img src=foo alt=bar>
       
       
-        <p class=foo>Hello world
+        <p class=foo>Hello world
       
     
     
@@ -535,10 +535,10 @@ url: /?p=1417
     
     
       
-        Headline text
+        Headline text
       
       
-        Paragraph text.
+        Paragraph text.
       
     
     
@@ -551,10 +551,10 @@ url: /?p=1417
         
       
       
-        Headline text
+        Headline text
       
       
-        Paragraph text.
+        Paragraph text.
       
       
         
@@ -694,13 +694,13 @@ url: /?p=1417
     
     
       
-        <section class="item">
+        <section class="item">
       
       
         <header>...</header>
       
       
-        <footer class="meta">...</footer>
+        <footer class="meta">...</footer>
       
       
         
@@ -712,7 +712,7 @@ url: /?p=1417
         
       
       
-        <nav class="links">...</nav>
+        <nav class="links">...</nav>
       
       
         </section>
@@ -753,22 +753,22 @@ url: /?p=1417
     
     
       
-        input type="number"
+        input type="number"
       
       
-        input type="search"
+        input type="search"
       
       
-        input type="range"
+        input type="range"
       
       
-        input type="email"
+        input type="email"
       
       
-        input type="date"
+        input type="date"
       
       
-        input type="url"
+        input type="url"
       
     
     
@@ -822,10 +822,10 @@ url: /?p=1417
     
     
       
-        <video src="movie.mp4">
+        <video src="movie.mp4">
       
       
-        <!- 后备内容 ->
+        <!- 后备内容 ->
       
       
         </video>
@@ -842,13 +842,13 @@ url: /?p=1417
     
     
       
-        <video src="movie.mp4">
+        <video src="movie.mp4">
       
       
-        <object data="movie.swf">
+        <object data="movie.swf">
       
       
-        <!- 后备内容 ->
+        <!- 后备内容 ->
       
       
         </object>
@@ -875,13 +875,13 @@ url: /?p=1417
         <video>
       
       
-        <source src="movie.mp4">
+        <source src="movie.mp4">
       
       
-        <source src="movie.ogv">
+        <source src="movie.ogv">
       
       
-        <object data="movie.swf">
+        <object data="movie.swf">
       
       
         download
@@ -1063,5 +1063,5 @@ url: /?p=1417
     
     
     
-       原文地址: http://www.cn-cuckoo.com/2010/10/21/the-design-of-html5-2151.html
+       原文地址: http://www.cn-cuckoo.com/2010/10/21/the-design-of-html5-2151.html
   

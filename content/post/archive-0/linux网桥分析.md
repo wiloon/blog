@@ -18,7 +18,7 @@ categories:
 
 二、Linux网桥的使用
   
-要配置网桥，要网桥的配置工具bridge-utils。源代码可以在http://bridge.sourceforge.net/bridge-utils/ 下载。编译成功之后，生成网桥配置的工具名称为brctl。
+要配置网桥，要网桥的配置工具bridge-utils。源代码可以在http://bridge.sourceforge.net/bridge-utils/ 下载。编译成功之后，生成网桥配置的工具名称为brctl。
 
 配置说明: 
   

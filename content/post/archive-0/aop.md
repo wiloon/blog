@@ -108,11 +108,11 @@ abstract void unlocked();
     
     基于动态代理API的具体项目有: 
   
-    JBoss 4.0 JBoss 4.0服务器
+    JBoss 4.0 JBoss 4.0服务器
   
     nanning这是以中国南宁命名的一个项目，搞不清楚为什么和中国相关？是中国人发起的？
   
-    JdonFramework Jdon自己的IoC AOP框架 粗粒度AOP
+    JdonFramework Jdon自己的IoC AOP框架 粗粒度AOP
     
     基于字节码的项目有: 
   
@@ -120,6 +120,6 @@ abstract void unlocked();
   
     spring  
     
-    板桥里人 http://www.jdon.com 2004/01/09
+    板桥里人 http://www.jdon.com 2004/01/09
     
     http://baike.baidu.com.cn/view/73626.htm

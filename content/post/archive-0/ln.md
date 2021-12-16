@@ -9,8 +9,8 @@ categories:
 ---
 ## 'ln  软连接和硬连接'
 ```bash
-#原文件: foo
-#symbolic link : bar
+#原文件: foo
+#symbolic link : bar
 #软连接
 ln -s foo bar
 

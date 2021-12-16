@@ -13,25 +13,25 @@ categories:
     #vi /etc/syslog.conf 
     
     
-      daemon.info    /var/log/messages
+      daemon.info    /var/log/messages
   
 
 syslog.conf文件中每一行包括以下内容: 
 
-l       选择器， 用于表明应该记录哪些消息的一组单词。包括设备（用于指定选择哪种类型程序的代码，即生成该消息的程序类别) 和优先级（又能够于指定选择记录的消息类型，更确切的说是表明该消息所代表事件的严重程度) 。
+l       选择器， 用于表明应该记录哪些消息的一组单词。包括设备（用于指定选择哪种类型程序的代码，即生成该消息的程序类别) 和优先级（又能够于指定选择记录的消息类型，更确切的说是表明该消息所代表事件的严重程度) 。
 
-l       动作，用于指定sysogd接收到与选择标准相匹配的消息时应该执行的动作，通常可以使消息要写入的文件名，或应该显示该消息的机器的用户名。
+l       动作，用于指定sysogd接收到与选择标准相匹配的消息时应该执行的动作，通常可以使消息要写入的文件名，或应该显示该消息的机器的用户名。
 
 设备
 
 
   
     
-               设备描述
+               设备描述
     
     
     
-               设备名
+               设备名
     
   
   
@@ -41,7 +41,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        auth
+        auth
     
   
   
@@ -51,7 +51,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        auth-priv
+        auth-priv
     
   
   
@@ -61,7 +61,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        cron
+        cron
     
   
   
@@ -71,7 +71,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        deamon
+        deamon
     
   
   
@@ -81,7 +81,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        kern
+        kern
     
   
   
@@ -91,7 +91,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        lpr
+        lpr
     
   
   
@@ -101,7 +101,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        mail
+        mail
     
   
   
@@ -111,7 +111,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        news
+        news
     
   
   
@@ -121,7 +121,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        syslog
+        syslog
     
   
   
@@ -131,7 +131,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        user
+        user
     
   
   
@@ -141,7 +141,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        uucp
+        uucp
     
   
   
@@ -151,7 +151,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        local0到local7
+        local0到local7
     
   
 
@@ -161,11 +161,11 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
 
   
     
-               优先级描述
+               优先级描述
     
     
     
-            优先级名
+            优先级名
     
   
   
@@ -175,7 +175,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        none
+        none
     
   
   
@@ -185,7 +185,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        debug
+        debug
     
   
   
@@ -195,7 +195,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        info
+        info
     
   
   
@@ -205,7 +205,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        notice
+        notice
     
   
   
@@ -215,7 +215,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        waring
+        waring
     
   
   
@@ -225,7 +225,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        err
+        err
     
   
   
@@ -235,7 +235,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        crit
+        crit
     
   
   
@@ -245,7 +245,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        alert
+        alert
     
   
   
@@ -255,7 +255,7 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     
     
     
-        emerg
+        emerg
     
   
 
@@ -273,12 +273,12 @@ l       动作，用于指定sysogd接收到与选择标准相匹配的消
     #vi /etc/syslog.conf 
     
     
-      authpriv.*                                      /var/log/secure
+      authpriv.*                                      /var/log/secure
   
 
 将私有用户验证的消息对于任何优先级写入/var/log/messages.
   
-    *.info ;main.none ;authpriv.none                    /var/log/messages
+    *.info ;main.none ;authpriv.none                    /var/log/messages
   
 
 匹配来自任何设备并且优先级为info（或更高) 的消息，但来自mail的所有消息都被排除。

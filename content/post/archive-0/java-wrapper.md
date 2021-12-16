@@ -18,7 +18,7 @@ Java作为面向对象语言，有人认为所看到的都是对象，事实上�
   
 byte字节型（一个字节) ，char字符型（两个字节) ，short短整型（两个字节) ，int整型（四个字节) ，
   
-long长整型（八个字节) ，float浮点型（四个字节) ，double 双精度浮点型（八个字节) ，boolean型（一个字节) 
+long长整型（八个字节) ，float浮点型（四个字节) ，double 双精度浮点型（八个字节) ，boolean型（一个字节) 
   
 在javase5之前，如果想要把基本数据类型作为对象来操作，就需要采用对应的对象，来把它们打包才行
 
@@ -38,19 +38,19 @@ long长整型（八个字节) ，float浮点型（四个字节) ，double 双�
 
 Long，Integer，Double，Float,Boolean等等的类就是所谓的wrapper类，就跟wrapper这个单词所代表的意思一样，就是提供一个"包装，加壳"，把基本数据类型放在里面，来看代码，体会下先
 
-public class WrapperDemo{
+public class WrapperDemo{
   
-public staticvoid main(String[] args){
+public staticvoid main(String[] args){
   
-int data1=21;
+int data1=21;
   
-int data2=24;
+int data2=24;
   
 //打包成为对象
   
-Integer data1Wrapper = new Integer(data1);
+Integer data1Wrapper = new Integer(data1);
   
-Integer data2Wrapper = new Integer(data2);
+Integer data2Wrapper = new Integer(data2);
   
 //原始数据直接除以3
   
@@ -74,13 +74,13 @@ System.out.println(data1Wrapper.compareTo(data2Wrapper));
 
 javase5之前，手动打包
   
-Integer data1 = new Integer(10);
+Integer data1 = new Integer(10);
   
 事项将基本类型数据转换为对象
   
 javase5之后，支持自动打包
   
-Integer data1 = 10；
+Integer data1 = 10；
   
 便可以实现将基本类型的数据转换为对象
   
@@ -100,9 +100,9 @@ data1.compareTo（data2) ;
 
 看看下面的情况，您是否了解
 
-Integer i = null;//表明i没有参考至任何对象
+Integer i = null;//表明i没有参考至任何对象
   
-int j = i ;//相当于 int j = i.intValue（) 
+int j = i ;//相当于 int j = i.intValue（) 
   
 这样的代码，编译时是可以通过的，因为它的语法是正确的，但在运行时，就会排除NullPointerException错误，这是由于i并没有参考至任何对象造成的
   
@@ -110,13 +110,13 @@ int j = i ;//相当于 int j = i.intValue（)
   
 还是自动装箱拆箱
 
-public class BoxDemo{
+public class BoxDemo{
   
-public static void main(String[] args){
+public static void main(String[] args){
   
-Integer data1 = 500;
+Integer data1 = 500;
   
-Integer data2 = 500;
+Integer data2 = 500;
   
 System.out.println(data1==data2);
   

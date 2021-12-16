@@ -16,6 +16,6 @@ trim:去除两边空格 lTrim:去除左空格 rTrim: 去除右空格
   
 用法: 
   
-var str = "  hello ";
+var str = "  hello ";
   
 str = str.trim();

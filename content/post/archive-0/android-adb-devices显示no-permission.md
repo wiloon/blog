@@ -18,9 +18,9 @@ List of devices attached
   
 这意味着,USB连接的设备是能够被识别的。Google之后，得知adb server需要以root的权限启动，于是有了如下命令:
   
-brian@brian-laptop:~/Dev/Java/Android/android-sdk-linux_86/tools$ **./adb kill-server**
+brian@brian-laptop:~/Dev/Java/Android/android-sdk-linux_86/tools$ **./adb kill-server**
   
-brian@brian-laptop:~/Dev/Java/Android/android-sdk-linux_86/tools$ **sudo ./adb start-server**
+brian@brian-laptop:~/Dev/Java/Android/android-sdk-linux_86/tools$ **sudo ./adb start-server**
   
 \* daemon not running. starting it now \*
   
@@ -28,7 +28,7 @@ brian@brian-laptop:~/Dev/Java/Android/android-sdk-linux_86/tools$ **sudo ./adb 
 
 第一条命令用来杀死当前正在运行的server, 第二条命令则以root的权限启动了新的server. 我们可以再次查看devices:
   
-brian@brian-laptop:~/Dev/Java/Android/android-sdk-linux_86/tools$ **./adb devices**
+brian@brian-laptop:~/Dev/Java/Android/android-sdk-linux_86/tools$ **./adb devices**
   
 List of devices attached
   
@@ -42,13 +42,13 @@ HT848KV04386 device
 
 ### insufficient permissions for device
 
-If you're developing on Ubuntu Linux, you need to add a rules file that contains a USB configuration for each type of device you want to use for development. Each device manufacturer uses a different vendor ID. The example rules files below show how to add an entry for a single vendor ID (the HTC vendor ID). In order to support more devices, you will need additional lines of the same format that provide a different value for the `SYSFS{idVendor}` property. For other IDs, see the table of USB Vendor IDs, below.
+If you're developing on Ubuntu Linux, you need to add a rules file that contains a USB configuration for each type of device you want to use for development. Each device manufacturer uses a different vendor ID. The example rules files below show how to add an entry for a single vendor ID (the HTC vendor ID). In order to support more devices, you will need additional lines of the same format that provide a different value for the `SYSFS{idVendor}` property. For other IDs, see the table of USB Vendor IDs, below.
 
-Log in as root and create this file: `/etc/udev/rules.d/51-android.rules`.
+Log in as root and create this file: `/etc/udev/rules.d/51-android.rules`.
 
 add lines below:
 
-#HTC     0bb4
+#HTC     0bb4
   
 SUBSYSTEM=="usb", SYSFS{idVendor}=="0bb4", MODE="0666"
 

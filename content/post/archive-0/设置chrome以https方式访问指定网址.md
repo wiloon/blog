@@ -11,7 +11,7 @@ categories:
 
 
 
-  1、打开Chrome，在地址栏键入 chrome://net-internals 回车
+  1、打开Chrome，在地址栏键入 chrome://net-internals 回车
 
 
   

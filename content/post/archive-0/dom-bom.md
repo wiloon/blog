@@ -39,7 +39,7 @@ Screen对象:
 
 通过其可以获取用户屏幕相关的信息
 
-###  DOM 文档对象模型
+###  DOM 文档对象模型
 DOM是针对XML的基于树的API。描述了处理网页内容的方法和接口，是HTML和XML的API，DOM把整个页面规划成由节点层级构成的文档。
 
 DOM本身是与语言无关的API，它并不与Java，JavaScript或其他语言绑定。

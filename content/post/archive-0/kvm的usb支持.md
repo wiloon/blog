@@ -11,7 +11,7 @@ tags:
 
 ---
 ## KVM的USB支持
-在启动KVM的时候，加入参数 "-usb", 同时还要加入  "-usbdevice host:<VendorID>:<ProductID>"。 将 USB VendorID 和 ProductID 传给虚拟机，这样虚拟机就会知道有一个 USB设备插入了。
+在启动KVM的时候，加入参数 "-usb", 同时还要加入  "-usbdevice host:<VendorID>:<ProductID>"。 将 USB VendorID 和 ProductID 传给虚拟机，这样虚拟机就会知道有一个 USB设备插入了。
   
 例如: 
 

@@ -78,15 +78,15 @@ Tomcat最初是由Sun的软件构架师詹姆斯·邓肯·戴维森开发的。�
     · 重构聚类
   
 ## 'Tomcat & Catalina'
-catalina   是   tomcat   4.x   的   servlet   container，起源是加州的一个岛名，本身和猫没有什么关系，所以   tomcat:catalina   的类比一定不能选   apple:macintosh（macintosh   是美国的一种苹果，个头甚大) 。但另外一方面，PBY   catalina   是一种远程轰炸机，而   apache   是   Jane 's   鼎鼎大名的直升机，所以   catalina:apache   和   apple:macintosh   勉强有一对。
+catalina   是   tomcat   4.x   的   servlet   container，起源是加州的一个岛名，本身和猫没有什么关系，所以   tomcat:catalina   的类比一定不能选   apple:macintosh（macintosh   是美国的一种苹果，个头甚大) 。但另外一方面，PBY   catalina   是一种远程轰炸机，而   apache   是   Jane 's   鼎鼎大名的直升机，所以   catalina:apache   和   apple:macintosh   勉强有一对。
 
 Catalina是太平洋中靠近洛杉矶的一个小岛。因为其风景秀丽而著名。最近曾被评为全美最漂亮的小岛。
 
-Tomcat is actually composed of a number of components, including a [Tomcat JSP][1] engine and a variety of different connectors, but its core component is called Catalina.  Catalina provides Tomcat's actual implementation of the servlet specification; when you [start up your Tomcat server][2], you're actually starting Catalina.
+Tomcat is actually composed of a number of components, including a [Tomcat JSP][1] engine and a variety of different connectors, but its core component is called Catalina.  Catalina provides Tomcat's actual implementation of the servlet specification; when you [start up your Tomcat server][2], you're actually starting Catalina.
 
-In this article, we'll get to know Tomcat's core component, from the [origins of the name "Catalina"][3], to an overview of [how Catalina is configured][4].  We'll also look at some Catalina-related tips and tricks, such as how to get the most out of [Catalina's built-in logging][5] functionality, and how to [manage the Catalina class as an MBean][6] using JMX.
+In this article, we'll get to know Tomcat's core component, from the [origins of the name "Catalina"][3], to an overview of [how Catalina is configured][4].  We'll also look at some Catalina-related tips and tricks, such as how to get the most out of [Catalina's built-in logging][5] functionality, and how to [manage the Catalina class as an MBean][6] using JMX.
 
-  Tired of wading through hundreds of lines of XML just to make a simple change to your Tomcat configuration?  Tcat makes Tomcat configuration simple.  Create optimized configuration profiles, save them, and apply them to groups of servers with a single click.
+  Tired of wading through hundreds of lines of XML just to make a simple change to your Tomcat configuration?  Tcat makes Tomcat configuration simple.  Create optimized configuration profiles, save them, and apply them to groups of servers with a single click.
 
 ## How Did Catalina Get Its Name?
 
