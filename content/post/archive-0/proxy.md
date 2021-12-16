@@ -10,6 +10,12 @@ categories:
 ## 9大代理服务器软件的比较与分析
 代理服务器不仅可以为局域网内的PC提供代理服务，还可以为基于Windows网络的用户提供代理服务。而且代理服务的实现十分简单，它只需在局域网的一台服务器上运行相应的服务器端软件即可。目前代理服务器软件产品主要有: Microsoft Proxy，Microsoft ISA，WinProxy、WinGate、winRoute、SyGate、CCProxy、SuperProxy等；而在UNIX/Linux系统主要采用Squid和Netscape Proxy等服务器软件作为代理。
 
+### squid
+
+在Unix/linux下使用的比较优秀的代理服务器软件Squid。之所以说它比较优秀，是因为它可以在代理服务器上作一个很大的缓存，可以把好多常去的网站内容存储到缓存中，这样，内部网的机器再访问那些网站，就可以从缓存里调用了。这样一方面可以加快内部网浏览因特网的速度，这就是所谓的提高客户机的访问命中率；另一方面，Squid不仅仅支持HTTP协议，而且还支持FTP，GOPHER，SSL和WAIS等协议。
+
+考虑到简捷实用的原则，squid作为代理服务器不仅性能优异，而且还详细的纪录了各个客户端的访问纪录Squid是一个缓存internet数据的一个软件，它接收用户的下载申请，并自动处理所下载的数据。Squid可以工作在很多的操作系统中，如AIX， Digital Unix， FreeBSD， HP-UX， Irix， Linux， NetBSD， Nextstep， SCO， Solaris，OS/2等，也有不少人在其他操作系统中重新编译过Squid。由于它安装简单，使用方便，所以已经被广泛使用。
+
 1 Microsoft Proxy Server
 
 Microsoft Proxy Server是把对Intemet的访问带入一个组织内部每一个桌面上去的一种容易而又安全的方法，它包括Web Proxy服务器，Winsock Proxy服务器和Socks Proxy服务器。Web Proxy为Cache类代理软件，Winsock Proxy通过Winsock协议代理使LAN内的计算机好像直接连接在上一级网络上一样，实际上是通过代理服务器发送请求，但客户端要安装 Microsoft Winsock Proxy Client软件。Microsoft ProxyServer 2.0是Microsoft Bank Ofice客件之一，运行在Windows NT 或Windows 2000环境下。在Windows NT Server4.0上安装时，必须安装3.0或更高版本的IIS(Internet InformationServer)及Windows Service Pack 3或更高版本的补丁。
@@ -58,8 +64,3 @@ SuperProxy是一个功能强大，速度快，稳定性和安全性较高的成�
 
 它支持网络软件广泛使用的各类代理协议，例如ftp， smtp， dns， pop3， socks， http等代理，适合家庭用户，从事网吧的用户，企业和公司用户共享上网的需要，同时本软件遵从功能强大，设置简单，界面直观，性能优异的开发原则，力求做到各不同层次的用户都较容易掌握，几乎不用任何设置就可以正常工作，这是其它同类的专业软件所不能比拟。
 
-9 squid
-
-在Unix/linux下使用的比较优秀的代理服务器软件Squid。之所以说它比较优秀，是因为它可以在代理服务器上作一个很大的缓存，可以把好多常去的网站内容存储到缓存中，这样，内部网的机器再访问那些网站，就可以从缓存里调用了。这样一方面可以加快内部网浏览因特网的速度，这就是所谓的提高客户机的访问命中率；另一方面，Squid不仅仅支持HTTP协议，而且还支持FTP，GOPHER，SSL和WAIS等协议。
-
-考虑到简捷实用的原则，squid作为代理服务器不仅性能优异，而且还详细的纪录了各个客户端的访问纪录Squid是一个缓存internet数据的一个软件，它接收用户的下载申请，并自动处理所下载的数据。Squid可以工作在很多的操作系统中，如AIX， Digital Unix， FreeBSD， HP-UX， Irix， Linux， NetBSD， Nextstep， SCO， Solaris，OS/2等，也有不少人在其他操作系统中重新编译过Squid。由于它安装简单，使用方便，所以已经被广泛使用。

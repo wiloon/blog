@@ -2,6 +2,10 @@
     date '+%Y-%m-%d %H:%M:%S' && ls -lR content/post |grep '\.md'|wc -l && ls -lR content/post |grep '\.md'|wc -m|xargs printf "%'3.0f\n"
 
 ### history
+2021-12-16 14:38:27
+3105
+199,044
+
 2021-09-23 13:41:17
 3189
 236,885
