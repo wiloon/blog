@@ -2,7 +2,7 @@
 title: grep
 author: "-"
 date: 2011-08-20T20:00:03+00:00
-url: /?p=468
+url: grep
 categories:
   - Linux
 

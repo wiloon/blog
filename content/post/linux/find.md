@@ -1,5 +1,5 @@
 ---
-title: linux find
+title: find
 author: "-"
 date: 2011-04-30T08:20:38+00:00
 url: find
@@ -12,6 +12,7 @@ categories:
 ```bash
 find /yourdir -mtime -1 -type f -exec cp {} /destdir \;
 # 参数 -type f 不能省, 不限定文件类型的话,会把代表当前目录的 "." 也查出来, 然后就会列出所有文件
+# -exec 表示需要执行的命令,{} 代表 find 找到的内容, "\;" 是固定写法表示结束 -exec
 ```
 ### 按时间查
 File's data was last modified n*24 hours ago
