@@ -7,7 +7,7 @@ categories:
   - Linux
 
 ---
-## linux find
+## find
 ### 将yourdir目录下修改时间一天以内的文件复制到destdir下：
 ```bash
 find /yourdir -mtime -1 -type f -exec cp {} /destdir \;

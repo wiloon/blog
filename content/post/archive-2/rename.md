@@ -1,13 +1,13 @@
 ---
-title: Linux批量重命名 rename
+title: rename
 author: "-"
 date: 2017-09-30T04:10:48+00:00
-url: /?p=11225
+url: rename
 categories:
   - Uncategorized
 
 ---
-## Linux批量重命名 rename
+## 重命名 rename
 ```bash
   
 #files
@@ -32,6 +32,11 @@ node-7001
   
 node-7002
   
+```
+
+### rename + 正则 
+```bash
+rename 's/\d{4}-\d{2}-\d{2}-//' *.md
 ```
 
 http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html

@@ -1,5 +1,5 @@
 ---
-title: 理解和使用alsa配置-默认静音,必须先用amixer解除主音量和pcm音量的静音
+title: 理解和使用 alsa 配置-默认静音,必须先用amixer解除主音量和pcm音量的静音
 author: "-"
 date: -001-11-30T00:00:00+00:00
 draft: true
