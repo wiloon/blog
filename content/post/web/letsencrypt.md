@@ -99,7 +99,6 @@ https://github.com/tengattack/certbot-dns-aliyun
 ### 加入 crontab
     1 1 */1 * * certbot-auto renew  --manual --manual-public-ip-logging-ok --preferred-challenges dns --manual-auth-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"
 
-
 https://certbot.eff.org/docs/install.html#certbot-auto
 https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au
 
