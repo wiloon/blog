@@ -6,28 +6,7 @@ url: /?p=14690
 
 ---
 ## slf4j、jcl、jul、log4j1、log4j2、logback
-### log4j2
-log4j-api:log4j2 定义的API
-log4j-core:log4j2 上述API的实现
 
-```xml
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-api</artifactId>
-    <version>2.13.3</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-core</artifactId>
-    <version>2.13.3</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-slf4j-impl</artifactId>
-    <version>2.13.3</version>
-</dependency>
-
-```
 ### slf4j > log4j2.x
 log4j-slf4j-impl slf4j到log4j2的桥梁
 
@@ -36,11 +15,11 @@ log4j-slf4j-impl slf4j到log4j2的桥梁
   * 引入依赖包 log4j-over-slf4j（实现log4j1桥接到slf4j) 
 
 ```xml
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>log4j-over-slf4j</artifactId>
-        <version>1.7.28</version>
-    </dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>log4j-over-slf4j</artifactId>
+    <version>1.7.32</version>
+</dependency>
 ``` 
 
 ### commons-logging

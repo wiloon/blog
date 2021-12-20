@@ -14,7 +14,7 @@ tags:
 ## Log4j 日志级别
 log4j是apache基金会的一个项目,日志记录器(Logger)是日志处理的核心组件,log4j具有7种级别(Level).
 
-TRACE<DEBUG<INFO<WARN<ERROR<FATAL
+    TRACE<DEBUG<INFO<WARN<ERROR<FATAL
 
 日志记录器（Logger) 的行为是分等级的。如下表所示: 
   
