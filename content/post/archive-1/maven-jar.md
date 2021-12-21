@@ -15,7 +15,7 @@ categories:
  <plugin> <groupId>org.apache.maven.plugins</groupId>
 
    
-maven-jar-plugin</artifactId>
+<artifactId>maven-jar-plugin</artifactId>
    
 <version>2.4</version>
    
@@ -65,7 +65,7 @@ view plaincopy
   
 </resources> <plugins> <!-- 设置源文件编码方式 --><plugin> <groupId>org.apache.maven.plugins</groupId>
   
-maven-compiler-plugin</artifactId>
+<artifactId>maven-compiler-plugin</artifactId>
   
 <configuration>
   
@@ -77,7 +77,7 @@ maven-compiler-plugin</artifactId>
   
 </configuration> </plugin> <!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 --><plugin> <groupId>org.apache.maven.plugins</groupId>
   
-maven-jar-plugin</artifactId>
+<artifactId>maven-jar-plugin</artifactId>
   
 <configuration>
   
@@ -97,7 +97,7 @@ true</addClasspath>
   
 </configuration> </plugin> <!-- 拷贝依赖的jar包到lib目录 --><plugin> <groupId>org.apache.maven.plugins</groupId>
   
-maven-dependency-plugin</artifactId>
+<artifactId>maven-dependency-plugin</artifactId>
   
 <executions>
   

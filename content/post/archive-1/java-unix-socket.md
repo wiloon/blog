@@ -13,7 +13,7 @@ Java Unix Domain Sockets (JUDS) 提供了 Java 的方法用来访问 Unix domain
 
 <dependency>
    <groupId>uk.co.caprica</groupId>
-   juds</artifactId>
+   <artifactId>juds</artifactId>
    <version>0.94.1</version>
 </dependency>
 

@@ -53,7 +53,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.opoo.samples</groupId>
 
-aspectj-sample</artifactId>
+<artifactId>aspectj-sample</artifactId>
 
 <version>1.0-SNAPSHOT</version>
 
@@ -75,7 +75,7 @@ aspectj-sample</artifactId>
 
 <groupId>org.aspectj</groupId>
 
-aspectjrt</artifactId>
+<artifactId>aspectjrt</artifactId>
 
 <version>1.6.11</version>
 
@@ -85,7 +85,7 @@ aspectjrt</artifactId>
 
 <groupId>org.aspectj</groupId>
 
-aspectjweaver</artifactId>
+<artifactId>aspectjweaver</artifactId>
 
 <version>1.6.11</version>
 
@@ -95,7 +95,7 @@ aspectjweaver</artifactId>
 
 <groupId>junit</groupId>
 
-junit</artifactId>
+<artifactId>junit</artifactId>
 
 <version>4.4</version>
 
@@ -113,7 +113,7 @@ junit</artifactId>
 
 <groupId>org.apache.maven.plugins</groupId>
 
-maven-compiler-plugin</artifactId>
+<artifactId>maven-compiler-plugin</artifactId>
 
 <version>2.4</version>
 
@@ -135,7 +135,7 @@ maven-compiler-plugin</artifactId>
 
 <groupId>org.codehaus.mojo</groupId>
 
-aspectj-maven-plugin</artifactId>
+<artifactId>aspectj-maven-plugin</artifactId>
 
 <version>1.4</version>
 
@@ -169,7 +169,7 @@ aspectj-maven-plugin</artifactId>
 
 <groupId>org.springframework</groupId>
 
-spring-aspects</artifactId>
+<artifactId>spring-aspects</artifactId>
 
 </aspectLibrary>
 
@@ -201,7 +201,7 @@ spring-aspects</artifactId>
 
 <groupId>org.apache.maven.plugins</groupId>
 
-maven-eclipse-plugin</artifactId>
+<artifactId>maven-eclipse-plugin</artifactId>
 
 <version>2.6</version>
 

@@ -37,7 +37,7 @@ Here is the "mywebapp" project's original pom.xml file.
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.maventest</groupId>
-  mywebapp</artifactId>
+  <artifactId>mywebapp</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>mywebapp Maven Webapp</name>
@@ -45,7 +45,7 @@ Here is the "mywebapp" project's original pom.xml file.
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
-      junit</artifactId>
+      <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
@@ -63,7 +63,7 @@ I'll update the "mywebapp" project's pom.xml file to include a plugin reference 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.maventest</groupId>
-	mywebapp</artifactId>
+	<artifactId>mywebapp</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>mywebapp Maven Webapp</name>
@@ -71,7 +71,7 @@ I'll update the "mywebapp" project's pom.xml file to include a plugin reference 
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
-			junit</artifactId>
+			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
@@ -81,7 +81,7 @@ I'll update the "mywebapp" project's pom.xml file to include a plugin reference 
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				maven-eclipse-plugin</artifactId>
+				<artifactId>maven-eclipse-plugin</artifactId>
 				<inherited>true</inherited>
 				<configuration>
 					<classpathContainers>

@@ -24,7 +24,7 @@ pom.xml添加依赖
       
 <groupId>org.openjdk.jol</groupId>
       
-jol-core</artifactId>
+<artifactId>jol-core</artifactId>
       
 <version>1.0-SNAPSHOT</version>
   

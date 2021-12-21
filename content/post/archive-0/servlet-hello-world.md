@@ -76,7 +76,7 @@ out.println("＜/body＞＜/html＞");
 	  
 <groupId>org.apache.tomcat</groupId>
 	  
-tomcat-servlet-api</artifactId>
+<artifactId>tomcat-servlet-api</artifactId>
 	  
 <version>7.0.xx</version>
   
