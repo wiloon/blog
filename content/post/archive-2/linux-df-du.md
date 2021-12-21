@@ -1,5 +1,5 @@
 ---
-title: linux command df
+title: df
 author: "-"
 date: 2015-10-17T05:38:58+00:00
 url: /?p=8411
@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 
 ---
-## linux command df
+## df
 ```bash
 df -h
 df -t ext4 -h

@@ -1,5 +1,14 @@
-JTAG
-
+---
+title: "JTAG"
+author: "-"
+date: ""
+url: "JTAG"
+categories:
+  - inbox
+tags:
+  - inbox
+---
+## JTAG
 JTAG（Joint Test Action Group，联合测试行动小组)           
 
 是一种国际标准测试协议，主要用于芯片内部测试。现在多数的高级器件都支持JTAG协议，如ARM、DSP、FPGA器件等。标准的JTAG接口是4线: TMS、 TCK、TDI、TDO，分别为模式选择、时钟、数据输入和数据输出线。

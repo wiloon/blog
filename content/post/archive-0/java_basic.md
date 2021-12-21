@@ -280,11 +280,8 @@ wait是Object类的方法，对此对象调用wait方法导致本线程放弃对
 
 
   
-    java 线程 yield(), sleep(), wait(), join()
-  
-
-
-http://www.wiloon.com/?p=4034&embed=true#?secret=RDEPuKfPGA
+### java 线程 yield(), sleep(), wait(), join()
+>http://www.wiloon.com/java/thread/sleep
 
 
 ### **Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?**
