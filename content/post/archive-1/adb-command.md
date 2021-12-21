@@ -61,7 +61,7 @@ export PATH=${PATH}:<你的sdk目录>/tools
 
 现在说下ADB常用的几个命令
 
-<ol start="2">
+
   
     安装软件 –将指定的apk文件安装到设备上
   

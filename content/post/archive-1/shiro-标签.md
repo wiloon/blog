@@ -83,7 +83,7 @@ Shiro支持三种方式实现授权过程:
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Subject currentUser = SecurityUtils.getSubject();
     
@@ -158,7 +158,7 @@ Shiro还支持以断言的方式进行授权验证。断言成功,不返回任�
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Subject currentUser = SecurityUtils.getSubject();
     
@@ -236,7 +236,7 @@ Shiro还支持以断言的方式进行授权验证。断言成功,不返回任�
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Permission printPermission = new PrinterPermission("laserjet4400n", "print");
     
@@ -335,7 +335,7 @@ Shiro还支持以断言的方式进行授权验证。断言成功,不返回任�
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Subject currentUser = SecurityUtils.getSubject();
     
@@ -372,7 +372,7 @@ isPermitted(String perm)、isPermitted(String... perms)、isPermittedAll(String.
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Subject currentUser = SecurityUtils.getSubject();
     
@@ -401,7 +401,7 @@ isPermitted(String perm)、isPermitted(String... perms)、isPermittedAll(String.
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Subject currentUser = SecurityUtils.getSubject();
     
@@ -489,7 +489,7 @@ Shiro注解支持AspectJ、Spring、Google-Guice等,可根据应用进行不同�
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       @RequiresAuthentication
     
@@ -524,7 +524,7 @@ Shiro注解支持AspectJ、Spring、Google-Guice等,可根据应用进行不同�
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       @RequiresPermissions("account:create")
     
@@ -565,7 +565,7 @@ Shiro提供了一套JSP标签库来实现页面级的授权控制。
       Java代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
     
@@ -583,7 +583,7 @@ guest标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:guest>
     
@@ -605,7 +605,7 @@ user标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:user>
     
@@ -627,7 +627,7 @@ authenticated标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:authenticated>
     
@@ -649,7 +649,7 @@ notAuthenticated标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:notAuthenticated>
     
@@ -671,7 +671,7 @@ principal 标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Hello, <shiro:principal/>, how are you today?
     
@@ -687,7 +687,7 @@ hasRole标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:hasRole name="administrator">
     
@@ -709,7 +709,7 @@ lacksRole标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:lacksRole name="administrator">
     
@@ -731,7 +731,7 @@ hasAnyRole标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:hasAnyRoles name="developer, project manager, administrator">
     
@@ -753,7 +753,7 @@ hasPermission标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:hasPermission name="user:create">
     
@@ -775,7 +775,7 @@ lacksPermission标签
       Xml代码  <img alt="收藏代码" src="http://kdboy.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       <shiro:hasPermission name="user:create">
     

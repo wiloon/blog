@@ -198,7 +198,7 @@ MySQL> create table emp1(
   
 注意 如果插入的记录对应的分区键的值不在list分区指定的值中,将会插入失败。并且,list不能像range分区那样提供maxvalue。
 
-<ol start="9">
+
   
     Columns分区
   
@@ -306,7 +306,7 @@ ERROR 1526 (HY000): Table has no partition for value from column_list
 
 直接插入失败了,原因是MySQL不知道将这条数据存储在哪个分区中。
 
-<ol start="10">
+
   
     Hash分区
   
@@ -344,7 +344,7 @@ Step 3. 当N>=num,设置V=Ceiling(V/2),N=N&(V-1)
 
 线性Hash的优点和不足 优点: 在分区维护（增加,删除,合并,拆分分区) 时,MySQL能够处理得更加迅速。 缺点: 与常规Hash分区相比,线性Hash各个分区之间的数据分布不太均衡。
 
-<ol start="11">
+
   
     Key分区
   
@@ -356,7 +356,7 @@ partition by key(exp) partitions 4;//exp是零个或多个字段名的列表
   
 key分区的时候,exp可以为空,如果为空,则默认使用主键作为分区键,没有主键的时候,会选择非空惟一键作为分区键。
 
-<ol start="12">
+
   
     子分区
   
@@ -364,7 +364,7 @@ key分区的时候,exp可以为空,如果为空,则默认使用主键作为分�
 
 分区表中对每个分区再次分割,又成为复合分区。
 
-<ol start="13">
+
   
     分区对于NULL值的处理
   
@@ -380,7 +380,7 @@ List分区中: NULL值必须出现在列表中,否则不被接受
   
 Hash/Key分区中: NULL值会被当作零值来处理
 
-<ol start="14">
+
   
     分区管理
   
@@ -554,7 +554,7 @@ order_day DATETIME NOT NULL
 
 假设按照RANGE YEAR(order_date)分区,那么如果这个表达式计算出来的时NULL值,记录就会被存放到第一个分区.所以在查询时加入查询条件有可能出现NULL值,那么就会去检查第一个分区.解决的方法可以是将第一个分区建立为NULL分区 PARTITION p_nulls VALUES LESS THAN (0),或者在MySQL5.5以后,直接使用COLUMN建立分区 PARTITION BY RANGE COLUMNS(order_date)
 
-<ol start="2">
+
   
     选择分区的成本
   
@@ -562,7 +562,7 @@ order_day DATETIME NOT NULL
 
 每插入一行数据都需要按照表达式筛选插入的分区地址
 
-<ol start="3">
+
   
     分区列和索引列不匹配
   
@@ -570,7 +570,7 @@ order_day DATETIME NOT NULL
 
 如果索引列和分区列不匹配,且查询中没有包含过滤分区的条件,会导致无法进行分区过滤,那么将会导致查询所有分区.
 
-<ol start="4">
+
   
     打开并锁住所有底层表
   

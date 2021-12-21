@@ -143,7 +143,7 @@ List of devices attached
 
 If the device is shown as unauthorized, go to the developer options on the phone and click "Revoke USB debugging authorization" (tested with JellyBean & Samsung GalaxyIII).
 
-<ol start="3">
+
   
     Restart ADB Server:
   
@@ -159,7 +159,7 @@ adb start-server
 
 The device will ask if you are agree to connect the computer id. You need to confirm it.
 
-<ol start="5">
+
   
     Now Check the device
   

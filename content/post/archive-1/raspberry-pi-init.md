@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Raspberry Pi init
-<ol start="1">
+
   
     deluged - http://www.wiloon.com/?p=6306
   

@@ -154,7 +154,7 @@ pop3_client_workarounds = outlook-no-nuls oe-ns-eoh
 
 使用telnet检测110(POP3)和143(IMAP)端口
 
-  <ol title="Double click to hide line number.">
+  
     
       telnet 127.0.0.1 110
     

@@ -49,7 +49,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
       Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       public class User {
     
@@ -81,7 +81,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
       Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       <form method="post" action="/register">
     
@@ -109,7 +109,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
       Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       @Controller
     
@@ -151,7 +151,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
       Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       public class UserController {
     
@@ -199,7 +199,7 @@ _**注: **笔者个人对于这两种模型的概念定义并不是非常认同�
       Xml代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       
     
@@ -239,7 +239,7 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
       Html代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       <form t:type="form" t:id="form">
     
@@ -267,7 +267,7 @@ _这一点实际上是我们在对于MVC模型自身进行定义时就反复强�
       Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       public class Register {
     
@@ -384,7 +384,7 @@ Struts1.X是一个较为早期的MVC框架实现，它的历史最早可以追�
       Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response);
     
@@ -418,7 +418,7 @@ MVC模型发展到了这里，我们可以看到响应方法中的"返回值"已
       Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       public class UserController {
     
@@ -478,7 +478,7 @@ POJO实现模式是一种具有革命性意义的模式，因为它能够把解�
       Java代码  <img src="http://downpour.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       @Controller
     

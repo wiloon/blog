@@ -23,7 +23,7 @@ http://soft.zdnet.com.cn/software_zone/2007/0831/481970.shtml
 
 主机名相关的配置文件: /etc/hosts;
 
-<ol start="2">
+
   
     主机名配置文件；
   

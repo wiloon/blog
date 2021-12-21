@@ -106,7 +106,7 @@ Retry Loop(循环重试)
       <img class="star" src="http://macrochen.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol class="dp-j" start="1">
+  
     
       RetryLoop retryLoop = client.newRetryLoop();
     
@@ -174,7 +174,7 @@ Retry Loop(循环重试)
       <img class="star" src="http://macrochen.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol class="dp-j" start="1">
+  
     
       RetryLoop.callWithRetry(client, new Callable()
     
@@ -242,7 +242,7 @@ CuratorFramework API采用了连贯风格的接口(Fluent Interface). 所有的�
       <img class="star" src="http://macrochen.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol class="dp-j" start="1">
+  
     
       client.create().forPath("/head", new byte[]);
     
@@ -366,7 +366,7 @@ CuratorEvent(在以前版本为ClientEvent)是对各种操作触发相关事件�
       <img class="star" src="http://macrochen.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol class="dp-j" start="1">
+  
     
       CuratorFramework    client = CuratorFrameworkFactory.builder().namespace("MyApp") ... build();
     
@@ -463,7 +463,7 @@ EnsurePath工具类
       <img class="star" src="http://macrochen.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol class="dp-j" start="1">
+  
     
       EnsurePath       ensurePath = new EnsurePath(aFullPathToEnsure);
     

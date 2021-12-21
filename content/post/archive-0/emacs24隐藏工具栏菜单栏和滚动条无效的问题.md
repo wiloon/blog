@@ -20,7 +20,7 @@ categories:
       
     
     
-    <ol start="1">
+    
       
         (tool-bar-mode nil)
       
@@ -39,7 +39,7 @@ categories:
     改成: 
   
   
-    <ol start="1">
+    
       
         (tool-bar-mode 0)
       
