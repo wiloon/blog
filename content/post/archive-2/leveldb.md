@@ -269,16 +269,16 @@ leveldb的version管理和双buffer切换类似,但是如果原version被某个i
 
 ### maven
 ```xml
-        <dependency>
-            <groupId>org.fusesource.leveldbjni</groupId>
-            <artifactId>leveldbjni-linux64</artifactId>
-            <version>1.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.iq80.leveldb</groupId>
-            <artifactId>leveldb-api</artifactId>
-            <version>0.12</version>
-        </dependency>
+<dependency>
+    <groupId>org.fusesource.leveldbjni</groupId>
+    <artifactId>leveldbjni-linux64</artifactId>
+    <version>1.8</version>
+</dependency>
+<dependency>
+    <groupId>org.iq80.leveldb</groupId>
+    <artifactId>leveldb-api</artifactId>
+    <version>0.12</version>
+</dependency>
 ```
 ### 庖丁解LevelDB之数据存储
 >https://catkang.github.io/2017/01/17/leveldb-data.html
