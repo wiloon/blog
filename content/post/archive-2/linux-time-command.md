@@ -1,5 +1,5 @@
 ---
-title: linux time command
+title: time
 author: "-"
 date: 2018-02-13T04:33:45+00:00
 url: /?p=11884
@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 
 ---
-## linux time command
+## time
 【命令】time — 执行命令并计时
 
 【格式】time [-p] command [arguments...]

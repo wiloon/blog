@@ -56,7 +56,7 @@ LevelDb作为存储系统,数据记录的存储介质包括内存以及磁盘文
   
 图1.1: LevelDb结构
 
-从图中可以看出,构成LevelDb静态结构的包括六个主要部分: 内存中的MemTable和Immutable MemTable以及磁盘上的几种主要文件: Current文件,Manifest文件,log文件以及SSTable文件。当然,LevelDb除了这六个主要部分还有一些辅助的文件,但是以上六个文件和数据结构是LevelDb的主体构成元素。
+从图中可以看出,构成LevelDb静态结构的包括六个主要部分: 内存中的MemTable和Immutable MemTable以及磁盘上的几种主要文件: Current文件,Manifest文件,log文件以及 SSTable 文件。当然,LevelDb除了这六个主要部分还有一些辅助的文件,但是以上六个文件和数据结构是LevelDb的主体构成元素。
   
 LevelDb的Log文件和Memtable与Bigtable论文中介绍的是一致的,当应用写入一条Key:Value记录的时候,LevelDb会先往log文件里写入,成功后将记录插进Memtable中,这样基本就算完成了写入操作,因为一次写入操作只涉及一次磁盘顺序写和一次内存写入,所以这是为何说LevelDb写入速度极快的主要原因。
 
@@ -269,16 +269,16 @@ leveldb的version管理和双buffer切换类似,但是如果原version被某个i
 
 ### maven
 ```xml
-        <dependency>
-            <groupId>org.fusesource.leveldbjni</groupId>
-            <artifactId>leveldbjni-linux64</artifactId>
-            <version>1.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.iq80.leveldb</groupId>
-            <artifactId>leveldb-api</artifactId>
-            <version>0.12</version>
-        </dependency>
+<dependency>
+    <groupId>org.fusesource.leveldbjni</groupId>
+    <artifactId>leveldbjni-linux64</artifactId>
+    <version>1.8</version>
+</dependency>
+<dependency>
+    <groupId>org.iq80.leveldb</groupId>
+    <artifactId>leveldb-api</artifactId>
+    <version>0.12</version>
+</dependency>
 ```
 ### 庖丁解LevelDB之数据存储
 >https://catkang.github.io/2017/01/17/leveldb-data.html

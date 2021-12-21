@@ -92,7 +92,7 @@ QUnit example
   
 
   
-<ol id="qunit-tests">
+
   
 test markup, will be hidden
   

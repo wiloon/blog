@@ -56,7 +56,7 @@ http://blog.csdn.net/redhat456/article/details/6149774#
       
     
     
-    <ol start="1">
+    
       
         http.proxyUserName=username
       
@@ -94,7 +94,7 @@ http://blog.csdn.net/redhat456/article/details/6149774#
       
     
     
-    <ol start="1">
+    
       
         Authenticator.setDefault(new BasicAuthenticator(userName, password));
       
@@ -127,7 +127,7 @@ http://blog.csdn.net/redhat456/article/details/6149774#
       
     
     
-    <ol start="1">
+    
       
         Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(host, port));
       
@@ -157,7 +157,7 @@ http://blog.csdn.net/redhat456/article/details/6149774#
       
     
     
-    <ol start="1">
+    
       
         //格式如下: 
       

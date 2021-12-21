@@ -18,7 +18,7 @@ categories:
       Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       var content = $('#content').val();
     
@@ -40,7 +40,7 @@ categories:
       Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       var content = $('#content').val();
     
@@ -60,7 +60,7 @@ categories:
       Java代码  <img alt="收藏代码" src="http://vsp.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       var content = $('#content').val();
     

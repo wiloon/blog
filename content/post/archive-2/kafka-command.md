@@ -52,7 +52,7 @@ url: "kafka"
     --describe \
     --group my-group
     --members
-    
+
     bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
     --describe \
     --group my-group

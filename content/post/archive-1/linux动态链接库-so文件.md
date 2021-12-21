@@ -233,7 +233,7 @@ void \* dlsym(void \*handle, char *symbol);
       
   
   
-  <ol start="1">
+  
     
       dlerror();      /*clear error code */
     
@@ -271,7 +271,7 @@ dlopen()函数的反过程就是dlclose（) 函数，dlclose（) 函数用力关
       
   
   
-  <ol start="1">
+  
     
       int main(int argc, char *argv){
     

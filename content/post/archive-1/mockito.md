@@ -78,7 +78,7 @@ Xml代码
     
 
 
-<ol class="dp-xml" start="1">
+
 
 <dependencies>
 
@@ -119,7 +119,7 @@ Java代码
     
 
 
-<ol class="dp-j" start="1">
+
 
 import static org.mockito.Mockito.*;
 
@@ -242,7 +242,7 @@ Java代码
     
 
 
-<ol class="dp-j" start="1">
+
 
 when(list.get(1)).thenThrow(new RuntimeException("test excpetion"));
 
@@ -264,7 +264,7 @@ Java代码
     
 
 
-<ol class="dp-j" start="1">
+
 
 doReturn("secondhello").when(list).get(1);
 
@@ -284,7 +284,7 @@ Java代码
     
 
 
-<ol class="dp-j" start="1">
+
 
 doNothing().doThrow(new RuntimeException("void exception")).when(list).clear();
 
@@ -319,7 +319,7 @@ Java代码
     
 
 
-<ol class="dp-j" start="1">
+
 
 @Test
 
@@ -376,7 +376,7 @@ Java代码
     
 
 
-<ol class="dp-j" start="1">
+
 
 @Test
 
@@ -422,7 +422,7 @@ Java代码
     
 
 
-<ol class="dp-j" start="1">
+
 
 @Test
 

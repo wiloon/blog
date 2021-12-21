@@ -78,7 +78,7 @@ tags:
       
     
     
-    <ol start="1">
+    
       
         <Valve className="org.apache.catalina.valves.AccessLogValve"
       
@@ -137,7 +137,7 @@ tags:
       
     
     
-    <ol start="1">
+    
       
         xxx.xxx.xx.xxx – 0.270 [14/Jul/2008:13:10:53 +0800] POST /phone/xxx/gprs HTTP/1.1 200 91812 – SonyEricssonW890i/R1EA Profile/MIDP-2.1 Configuration/CLDC-1.1 MSISDN=11111111111
       

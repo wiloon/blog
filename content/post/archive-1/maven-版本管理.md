@@ -136,7 +136,7 @@ tags:
           ```xml
  <plugin>
   <groupId>org.apache.maven.plugins</groupId>
-   maven-release-plugin</artifactId>
+   <artifactId>maven-release-plugin</artifactId>
         
         
         

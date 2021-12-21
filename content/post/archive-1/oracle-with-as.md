@@ -25,7 +25,7 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
       
   
   
-  <ol start="1">
+  
     
       with
     
@@ -179,7 +179,7 @@ http://blog.csdn.net/a9529lty/article/details/4923957#
       
   
   
-  <ol start="1">
+  
     
       SQL> create table t2(id int);
     

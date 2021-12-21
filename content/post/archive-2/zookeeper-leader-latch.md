@@ -21,12 +21,12 @@ curator4 默认依赖zookeeper 3.5
 ```xml
 <dependency>
     <groupId>org.apache.curator</groupId>
-    curator-recipes</artifactId>
+    <artifactId>curator-recipes</artifactId>
     <version>${curator-version}</version>
     <exclusions>
         <exclusion>
             <groupId>org.apache.zookeeper</groupId>
-            zookeeper</artifactId>
+            <artifactId>zookeeper</artifactId>
         </exclusion>
     </exclusions>
 </dependency>

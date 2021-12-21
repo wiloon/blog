@@ -7,5 +7,5 @@ categories:
   - Uncategorized
 
 ---
-## 获取cmd窗口
+## 获取cmd窗口 placeholder
 Set objWindow = Window("micclass:=Window","nativeclass:=ConsoleWindowClass","index:=0")

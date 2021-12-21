@@ -14,14 +14,10 @@ categories:
 
 PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties文件,可以将一些动态参数移到properties中．
 
-
-  
-    ```java
- 
- <bean id="propertyConfigurer"
- class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
- <property name="location" value="classpath:config/jdoserver.properties"/>
- </bean>
+```java
+<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<property name="location" value="classpath:config/jdoserver.properties"/>
+</bean>
  ```
   
 
@@ -35,7 +31,7 @@ PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties�
       Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       <property name="locations">
     
@@ -64,7 +60,7 @@ PropertyPlaceholderConfigurer,允许在spring的配置文件中加入properties�
       Java代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     
@@ -87,7 +83,7 @@ PropertyOverrideConfigurer: 在spring所有的bean初使化以后,将bean的值�
       Xml代码  <img src="http://callan.iteye.com/images/icon_star.png" alt="收藏代码" />
   
   
-  <ol start="1">
+  
     
       <bean id="configBean"
     

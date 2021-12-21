@@ -24,7 +24,7 @@ http://springsfeng.iteye.com/blog/1634234
       Xml代码  <img alt="收藏代码" src="http://springsfeng.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
        statementType="STATEMENT"
     
@@ -58,7 +58,7 @@ http://springsfeng.iteye.com/blog/1634234
       Java代码  <img alt="收藏代码" src="http://springsfeng.iteye.com/images/icon_star.png" />
   
   
-  <ol start="1">
+  
     
       Map<String, Object> map = new HashMap<String, Object>();
     

@@ -5,6 +5,7 @@ date: 2017-02-28T09:08:28+00:00
 url: systemd-networkd
 
 ---
+## systemd-networkd
 ### dhcp
 networkd内置了dhcp client。如果需要更新resolv.conf,则需要启动 systemd-resolved.service
 
@@ -74,7 +75,12 @@ sudo systemctl start wpa_supplicant@wlp2s0
     [Network]
     DHCP=yes
 
-### 静态 IP, vim /etc/systemd/network/eth.network
+### 配置静态 IP, 网关
+```bash
+vim /etc/systemd/network/eth.network
+```
+
+文件内容: 
 ```bash
 [Match]
 Name=ens3

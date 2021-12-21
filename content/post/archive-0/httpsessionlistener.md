@@ -30,7 +30,7 @@ categories:
   
  
     
-    <ol start="1">
+    
       
         import javax.servlet.http.HttpSessionListener;
       
@@ -141,7 +141,7 @@ categories:
     
   
     
-    <ol start="1">
+    
       
         
       
@@ -162,7 +162,7 @@ categories:
     
   
     
-    <ol start="1">
+    
       
         public void doGet(HttpServletRequest request,HttpServletResponse response)
       
@@ -196,7 +196,7 @@ categories:
   
  
     
-    <ol start="1">
+    
       
         <session-config>
       
@@ -223,7 +223,7 @@ categories:
   
   
  
-    <ol start="1">
+    
       
         public class ShopSessionListener implements HttpSessionListener {
       

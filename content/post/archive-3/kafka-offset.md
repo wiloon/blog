@@ -56,7 +56,7 @@ topic各分区都存在已提交的offset时，从offset后开始消费；只要
 
  
 
-<ol start="2">
+
   
     auto.commit.enable（例如true，表示offset自动提交到Zookeeper) 
  If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer. This committed offset will be used when the process fails as the position from which the new consumer will begin
@@ -65,7 +65,7 @@ topic各分区都存在已提交的offset时，从offset后开始消费；只要
 
  
 
-<ol start="3">
+
   
     auto.commit.interval.ms(例如60000,每隔1分钟offset提交到Zookeeper)
  The frequency in ms that the consumer offsets are committed to zookeeper.
@@ -84,7 +84,7 @@ Select where offsets should be stored (zookeeper or kafka).默认是Zookeeper
 
  
 
-<ol start="5">
+
   
     基于offset的重复读
  The Kafka consumer works by issuing "fetch" requests to the brokers leading the partitions it wants to consume. The consumer specifies its offset in the log with each request and receives back a chunk of log beginning from that position. The consumer thus has significant control over this position and can rewind it to re-consume data if need be.
@@ -93,7 +93,7 @@ Select where offsets should be stored (zookeeper or kafka).默认是Zookeeper
 
  
 
-<ol start="6">
+
   
     Kafka的可靠性保证(消息消费和Offset提交的时机决定了At most once和At least once语义)
   

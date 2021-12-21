@@ -1,5 +1,5 @@
 ---
-title: linux command tee
+title: tee
 author: "-"
 date: 2017-02-28T07:29:45+00:00
 url: /?p=9879
@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 
 ---
-## linux command tee
+## tee
 我使用过的Linux命令之tee - 重定向输出到多个文件
   
 本文链接: http://codingstandards.iteye.com/blog/833695   （转载请注明链接) 

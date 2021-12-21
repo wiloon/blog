@@ -240,7 +240,7 @@ os-maven-plugin 是设置各种有用属性（从 OS 中检测的 ${os.name} 和
     <extensions>
         <extension>
             <groupId>commons-io</groupId>
-            commons-io</artifactId>
+            <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </extension>
     </extensions>

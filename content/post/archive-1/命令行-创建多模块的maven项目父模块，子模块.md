@@ -54,7 +54,7 @@ mvn archetype:create -DgroupId=com.ebay.tools.cms.validator.web -DartifactId=val
   
 <parent>
 
-cms-validator</artifactId>
+<artifactId>cms-validator</artifactId>
 
 <groupId>com.ebay.tools.cms.validator</groupId>
 
@@ -72,7 +72,7 @@ validator-web模块覆盖为<packaging>war</packaging>, validator-rest模块修�
   
 <plugin>
 
-maven-compiler-plugin</artifactId>
+<artifactId>maven-compiler-plugin</artifactId>
 
 <configuration>
 
@@ -96,7 +96,7 @@ maven-compiler-plugin</artifactId>
 
 <groupId>org.apache.maven.plugins</groupId>
 
-maven-eclipse-plugin</artifactId>
+<artifactId>maven-eclipse-plugin</artifactId>
 
 <configuration>
 

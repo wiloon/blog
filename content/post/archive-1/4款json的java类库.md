@@ -27,7 +27,7 @@ maven依赖配置:
 
 <groupId>com.alibaba</groupId>
 
-fastjson</artifactId>
+<artifactId>fastjson</artifactId>
 
 <version>1.1.35</version>
 
@@ -73,7 +73,7 @@ maven依赖配置:
 
 <groupId>net.sf.json-lib</groupId>
 
-json-lib</artifactId>
+<artifactId>json-lib</artifactId>
 
 <version>2.4</version>
 
@@ -144,7 +144,7 @@ maven依赖:
 
 <groupId>com.google.code.gson</groupId>
 
-gson</artifactId>
+<artifactId>gson</artifactId>
 
 <version>2.2.4</version>
 
@@ -211,7 +211,7 @@ maven依赖:
 
 <groupId>org.codehaus.jackson</groupId>
 
-jackson-mapper-asl</artifactId>
+<artifactId>jackson-mapper-asl</artifactId>
 
 <version>1.9.13</version>
 

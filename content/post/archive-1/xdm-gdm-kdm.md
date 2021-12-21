@@ -111,7 +111,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
   
     如果你想修改xdm/gdm执行时所采用的color depth(色深？)，可以修改/etc/X11/xdm/Xservers中的内容。我的Mandrake90中的是这样的: 
  
-    <ol start="1">
+    
       
         # more Xservers
       
@@ -178,7 +178,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         ###使用16色
       
@@ -209,7 +209,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         #hehe,Run gdm in runlevel 5
       
@@ -264,7 +264,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         case $# in
       
@@ -301,7 +301,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         case $# in
       
@@ -363,7 +363,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         pw groupadd –g 42 –n gdm
       
@@ -383,7 +383,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         mkdir /var/gdm
       
@@ -410,7 +410,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         ShowGnomeChooserSession=true
       
@@ -432,7 +432,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         #! /bin/sh
       
@@ -451,7 +451,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
       
     
     
-    <ol start="1">
+    
       
         chmod –w x /usr/X11R6/share/gnome/gdm/Sessions/Kde
       

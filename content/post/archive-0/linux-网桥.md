@@ -72,7 +72,7 @@ brctl delif eth1
       Python代码
   
   
-  <ol start="1">
+  
     
       #!/bin/bash
     
@@ -196,7 +196,7 @@ brctl delif eth1
       Html代码
   
   
-  <ol start="1">
+  
     
       #!/bin/sh
     

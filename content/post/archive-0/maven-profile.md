@@ -13,7 +13,7 @@ tags:
 首先简单介绍下 Maven 的 profile 是什么。对于人来说，profile 是指人的肖像，轮廓，比如论坛里每个人注册了帐号后，可以设置自己的 profile，放上照片，介绍等等。对于 Maven 来说又是怎样呢？整个项目定义好了项目对象模型（POM) ，就像论坛为每个人提供了默认的行为功能，如果我想改变我机器上的 POM 呢？这时就可以使用 profile。下面举个例子: 
 
 
-  <ol start="1">
+  
     
       <profiles>
     
@@ -63,7 +63,7 @@ tags:
       Xml代码
   
   
-  <ol start="1">
+  
     
       <profile>
     
@@ -141,7 +141,7 @@ tags:
   
 http://juvenshun.iteye.com/blog/208714
   
-  <ol start="1">
+  
     
       <profile>
     
@@ -177,7 +177,7 @@ settings.xml 文件可以在 ~/.m2 目录下，为某个用户的自定义行为
       Xml代码
   
   
-  <ol start="1">
+  
     
       <settings>
     

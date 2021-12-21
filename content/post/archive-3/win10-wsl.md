@@ -1,20 +1,23 @@
 ---
-title: win10 wsl2
+title: win10 wsl
 author: "w1100n"
 date: 2019-03-28T09:40:51.000+00:00
 url: "wsl"
 
 ---
-## win10 wsl2
-### WSL 
-windows subsystem for Linux
-### wsl2
+## win10 wsl
+WSL: windows subsystem for Linux
+
 ### command
+```bash
     wsl --shutdown
     wsl --list --verbose
     wsl -l -v
+    # 查看wsl状态
+    wsl --status
 
     # reboot, 先shutdown再打开就行了...
+```
 
 ### 微软的官方安装文档
 https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
@@ -291,3 +294,5 @@ https://github.com/QMonkey/wsl-tutorial
 https://github.com/yuk7/ArchWSL
 
 https://zhuanlan.zhihu.com/p/34884285
+
+>https://docs.microsoft.com/zh-cn/windows/wsl/basic-commands

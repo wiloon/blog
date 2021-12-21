@@ -9,29 +9,34 @@ tags:
   - logging
 
 ---
-## Log4j 2.x
+## Log4j2.x
+
+log4j-api:log4j2 定义的API
+log4j-core:log4j2 上述API的实现
 ```xml
 <properties>
-    <log4j.version>2.14.1</log4j.version>
+    <log4j.version>2.17.0</log4j.version>
 </properties>
-
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-core</artifactId>
-    <version>${log4j.version}</version>
-</dependency>
 
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-api</artifactId>
     <version>${log4j.version}</version>
 </dependency>
-
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>${log4j.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-jcl</artifactId>
+    <version>${log4j.version}</version>
+</dependency>
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-slf4j-impl</artifactId>
     <version>${log4j.version}</version>
-    <scope>test</scope>
 </dependency>
 ```
 log4j2里面日志有8个等级，由低到高是:  

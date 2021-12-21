@@ -22,7 +22,7 @@ http://javapub.iteye.com/images/icon_star.png
       
     
     
-    <ol start="1">
+    
       
         String imgPath = "C://demo.jpg";
       
@@ -41,7 +41,7 @@ http://javapub.iteye.com/images/icon_star.png
       
     
     
-    <ol start="1">
+    
       
         String imgPath = "C://demo.jpg";
       

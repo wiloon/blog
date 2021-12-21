@@ -1,5 +1,5 @@
 ---
-title: Linux 文本处理命令， text command
+title: 文本处理命令， text command
 author: "-"
 date: 2015-09-17T01:22:10+00:00
 url: command/text
@@ -7,7 +7,7 @@ categories:
   - command
 
 ---
-## Linux  文本 处理命令, text command
+## 文本 处理命令, text command
 
 0、正则表达式（regular expression) 
   

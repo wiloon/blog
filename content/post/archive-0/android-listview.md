@@ -89,7 +89,7 @@ main.xml代码如下，很简单，也不需要多做解释了:
  
     http://blog.csdn.net/hellogv/article/details/4542668#
 
-  <ol start="1">
+  
     
       public void onCreate(Bundle savedInstanceState) {
     

@@ -37,7 +37,7 @@ http://blog.csdn.net/viviwen123/article/details/9117589
 首先，在AndroidManifest.xml文件的Application标签中加入android:debuggable="false"，让程序不可调试，这样，如果别人想调试该程序，就必然会修改它的值，我们在代码中检查它的值来判断程序是否被修改过。代码如下: 
 
 
-  <ol start="1">
+  
     
       if (0!=(getApplicationInfo().flags&=ApplicationInfo.FLAG_DEBUGGABLE)) {
     
@@ -56,7 +56,7 @@ http://blog.csdn.net/viviwen123/article/details/9117589
  
   
   
-  <ol start="1">
+  
     
       android.os.Debug.isDebuggerConnected()
     
@@ -77,7 +77,7 @@ ro.product.model、ro.build.tag、ro.kernel.qemu。编写检测代码如下:
       
   
   
-  <ol start="1">
+  
     
       boolean isRunningInEmualtor() {
     
@@ -215,7 +215,7 @@ ro.product.model、ro.build.tag、ro.kernel.qemu。编写检测代码如下:
       
   
   
-  <ol start="1">
+  
     
       public int getSignature(String packageName) {
     
@@ -271,7 +271,7 @@ ro.product.model、ro.build.tag、ro.kernel.qemu。编写检测代码如下:
 
   
   
-  <ol start="1">
+  
     
         private boolean checkCRC() {
     
