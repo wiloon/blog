@@ -1,5 +1,5 @@
 ---
-title: junit5
+title: junit
 author: "-"
 date: 2020-01-09T02:27:43+00:00
 url: /?p=15303
@@ -7,9 +7,9 @@ categories:
   - Uncategorized
 
 ---
-## junit5
+### junit5
 JUnit5的第一个可用性版本是在2017年9月10日发布的。
-  
+
 JUnit5架构
   
 相比JUnit4，JUnit5由三个不同的子项目及不同的模块组成。
