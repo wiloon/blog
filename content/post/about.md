@@ -48,7 +48,7 @@ tags:
 
 ## 关于我
 - 中学时期一度沉迷计算机硬件，是<<微型计算机>>的忠实读者, 练就了一手装机技能。大学时期人称"机修"。
-- 工作之后被派到上海出差三年期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Archlinux, Gentoo.
+- 工作之后有三年被派到上海出差，期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Archlinux, Gentoo.
 - 写过 C#, Java, Android, IOS; 目前工作主力: Java, Golang
 - 日常系统 Archlinux + KDE
 
