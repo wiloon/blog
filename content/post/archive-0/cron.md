@@ -35,7 +35,7 @@ service crond stop # 关闭服务
 service crond restart # 重启服务
 service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
 crontab -l #列出某个用户cron服务的详细内容
-crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， c r o n会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
+crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， cron 会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
 crontab -e -u 用户名  # 配置指定用户 的定时任务
 crontab -u #设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
 crontab -r #删除没个用户的cron服务
@@ -61,8 +61,12 @@ cron will then examine the modification time on all crontabs and reload those wh
 https://www.matools.com/crontab
 
 ### 示例
-### 每三分钟
-    */3 * * * * echo "foo" >> /tmp/foo.txt
+```bash
+# 每三分钟
+*/3 * * * * echo "foo" >> /tmp/foo.txt
+# 每三分钟, 8点到17点
+*/3 8-17 * * * echo "foo" >> /tmp/foo.txt
+```
 
 ```bash
 # 双数周的周一

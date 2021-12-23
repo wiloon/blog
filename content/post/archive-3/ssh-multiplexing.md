@@ -11,24 +11,26 @@ url: /?p=16030
 ### 管理multiplexing
   
 #### 查看当前的状态
+```bash
 ssh -O check machine1
-ssh -O stop machine1
+ssh -O check 192.168.50.169 -l root
+# Master running (pid=91057)
 
-$ ssh -O check root@47.91._._
-  
-Master running (pid=91057)
-  
+```
+
 ### 停止接受新的会话
-  
+```bash
+ssh -O stop machine1
 $ ssh -O stop root@47.91._._
   
-Stop listening request sent.
-  
+# Stop listening request sent.
+```
 ### 退出所有会话
   
-    ssh -O exit root@47.91._._
-  
-Exit request sent.
+```bash
+ssh -O exit root@47.91._._
+# Exit request sent.
+```
 
 #### Session Multiplexing
 

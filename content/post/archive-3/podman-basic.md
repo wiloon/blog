@@ -14,6 +14,7 @@ https://podman.io/getting-started/installation
 ### archlinux
 ```bash
 pacman -S podman
+# 安装之后不需要重启系统
 ```
 ### ubuntu
     . /etc/os-release
@@ -26,6 +27,12 @@ pacman -S podman
 
 ### centos
     dnf install podman
+
+### hello world
+测试一下podman 环境
+```bash
+podman run --rm hello-world
+```
 
 ### podman command
 ```bash
@@ -161,11 +168,19 @@ podman volume rm volume0
 ```
 
 ## pod
+### podman pod
+    podman pod --help
+    podman pod create --help
+    podman pod ps
+    podman pod rm pod0
+    
     podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
     # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 
 #### 创建容器并加入pod
     podman run -d --pod pod_name_0 influxdb
+
+
 
 https://www.hangge.com/blog/cache/detail_2475.html
   
@@ -179,11 +194,7 @@ https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/
 https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/"
 https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS"
 
-### podman pod
-    podman pod --help
-    podman pod create --help
-    podman pod ps
-    podman pod rm pod0
+
     
 ### rootless
 ```bash

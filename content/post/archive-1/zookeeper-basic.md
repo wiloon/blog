@@ -14,7 +14,7 @@ tags:
 检查zookeeper包版本和连接的服务端版本，有可能是版本不一致
 >https://blog.csdn.net/richie696/article/details/112910751
 
-### 向zookeeper 发送 stat命令 查询zookeeper版本
+### 向 zookeeper 发送 stat 命令 查询 zookeeper版本
 
 ```bash
 echo stat | socat - TCP:192.168.50.100:2181

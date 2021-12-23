@@ -137,10 +137,6 @@ listeners=PLAINTEXT://:9092
 
 zookeeper.connect=localhost:2181
 
-
-
-
-
 ### 删除topic
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
@@ -216,6 +212,14 @@ podman run  -d --name kafka \
 # KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
 # kafka对外发布的连接地址
 # KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka.wiloon.com:9092
+
+# docker pull bitnami/kafka:3.0.0
+
+podman run -d --name kafka-0 \
+    -e ALLOW_PLAINTEXT_LISTENER=yes \
+    -v kafka-config-0:/opt/bitnami/kafka/config \
+    -v kafka-data-0:/bitnami/kafka \
+    bitnami/kafka:3.0.0
 ```
 
 

@@ -23,4 +23,4 @@ ssh-server配置文件位于/ etc/ssh/sshd_config，在这里可以定义SSH的�
 sudo /etc/init.d/ssh resar
 
 ### no matching host key type found. Their offer: ssh-rsa
-ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa  root@192.168.50.4 -p 22
+ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa  root@192.168.50.1 -p 22
