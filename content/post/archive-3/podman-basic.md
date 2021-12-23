@@ -5,11 +5,16 @@ date: 2020-01-19T15:30:35+00:00
 url: podman
 tags:
   - podman
+  - remix
 
 ---
 ## podman basic
 ### install
 https://podman.io/getting-started/installation
+### archlinux
+```bash
+pacman -S podman
+```
 ### ubuntu
     . /etc/os-release
     echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -21,10 +26,6 @@ https://podman.io/getting-started/installation
 
 ### centos
     dnf install podman
-### archlinux
-```bash
-pacman -S podman
-```
 
 ### podman command
 ```bash

@@ -33,10 +33,10 @@ masquerade IP伪装,只适用于ADSL等动态拨号上网的IP伪装,如果主�
 
 ### ip包大致的流向 DNAT, podman
 
-  * nat表prerouting链 - nat替换目标地址
-  * 路由判断
-  * filter表forward链
-  * nat表postrouting链 accept
-  * 路由判断, 流入虚拟网卡 cni-podman0
+* nat表prerouting链 - nat替换目标地址
+* 路由判断
+* filter表forward链
+* nat表postrouting链 accept
+* 路由判断, 流入虚拟网卡 cni-podman0
 
 https://www.cnblogs.com/highstar/p/3256813.html

@@ -184,7 +184,7 @@ download http://kafka.apache.org/downloads.html
 #### install and start zookeeper
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 
-#### docker
+- docker
 ```bash
 docker run  -d --name kafka \
 -p 9092:9092 \
@@ -199,7 +199,7 @@ docker run  -d --name kafka \
 -v kafka-data:/kafka \
 -t wurstmeister/kafka
 ```
-### podman
+- podman
 ```bash
 podman run  -d --name kafka \
 -p 9092:9092 \
