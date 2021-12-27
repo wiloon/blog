@@ -191,7 +191,6 @@ file_system--xfs
 [Paxos] as paxos
  
 [etcd]
-[Raft] as raft
 [分布式锁] as lockd
 [Chubby\nmysql\nzookeepet\nredis\netcd] as Chubby 
 lockd--Chubby
@@ -225,8 +224,7 @@ file_system--ext4
 lockd--etcd
 
 consistency--etcd
-etcd--raft
-paxos--raft
+
 paxos--zab
 
 [jvm]

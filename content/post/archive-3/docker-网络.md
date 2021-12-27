@@ -8,7 +8,7 @@ categories:
 
 ---
 ## docker 网络
-安装 Docker 时，它会自动创建 3 个网络。可以使用 docker network ls命令列出这些网络。
+安装 Docker 时，它会自动创建 3 个网络。可以使用 docker network ls 命令列出这些网络。
 
 $ docker network ls
   
@@ -20,7 +20,7 @@ NETWORK ID NAME DRIVER
   
 cf03ee007fb4 host host
 
-运行一个容器时，可以使用 the -net标志指定您希望在哪个网络上运行该容器。
+运行一个容器时，可以使用 the -net 标志指定您希望在哪个网络上运行该容器。
 
 bridge 网络表示所有 Docker 安装中都存在的 docker0 网络。除非使用 docker run -net=<NETWORK>选项另行指定，否则 Docker 守护进程默认情况下会将容器连接到此网络。在主机上使用 ifconfig命令，可以看到此网桥是主机的网络堆栈的一部分。
   

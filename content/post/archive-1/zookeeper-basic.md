@@ -55,6 +55,8 @@ podman run \
 -d \
 zookeeper:3.7.0
 
+
+
 # client
 docker run -it --rm zookeeper zkCli.sh -server 127.0.0.1
 

@@ -53,6 +53,12 @@ podman stop --latest
 podman rm --latest
 podman --log-level=debug pull dockerhub.azk8s.cn/library/golang
 ```
+
+### env
+使用 env 命令来查看容器的环境变量
+```bash
+podman run --rm hello-world env
+```
 ### 查看 cpu 内存占用
 ```bash
 podman stats
@@ -173,7 +179,7 @@ podman volume rm volume0
     podman pod create --help
     podman pod ps
     podman pod rm pod0
-    
+
     podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
     # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 

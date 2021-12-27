@@ -7,6 +7,9 @@ url: "kafka"
 ---
 ## kafka basic, command
 ### consumer
+```bash
+bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server localhost:9092
+
     bin/kafka-console-consumer.sh \
     --bootstrap-server kafka.wiloon.com:9092 \
     --topic topic0
@@ -22,6 +25,7 @@ url: "kafka"
     --bootstrap-server kafka.wiloon.com:9092 \
     --topic topic0 \
     --from-beginning
+```
 
 ### producer
     bin/kafka-console-producer.sh \
@@ -60,19 +64,32 @@ url: "kafka"
 
 ## topic
 ### list topic, 查看 kafka topic 列表,使用--list参数
-    bin/kafka-topics.sh --list \
-    --zookeeper localhost:2181
+```bash
+# kafka 3.0
+bin/kafka-topics.sh --list --bootstrap-server 192.168.50.169:9092
 
-### 查看topic详细信息, 如: 分区数, replication 
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+```
+
+### 查看topic详细信息, 如: 分区数, replication
+```bash
+# kafka 3.0.0
+bin/kafka-topics.sh --describe --topic topic0 --bootstrap-server 192.168.50.169:9092
+
     bin/kafka-topics.sh \
     --zookeeper zookeeper.wiloon.com:2181 \
     --topic topic0 \
     --describe
+```
 
 replication-factor: 副本数, partitions: 分区数
 topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
+```bash
+# kafka 3.0.0
+bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic0 --bootstrap-server 192.168.50.169:9092
+
     # cloudera kafka
     /opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \
     --zookeeper 127.0.0.1:2181 \
@@ -95,6 +112,7 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
     --replication-factor 1 \
     --partitions 1 \
     --topic topic0
+```
 
 <https://cloud.tencent.com/developer/article/1436988>
 
@@ -215,11 +233,6 @@ podman run  -d --name kafka \
 
 # docker pull bitnami/kafka:3.0.0
 
-podman run -d --name kafka-0 \
-    -e ALLOW_PLAINTEXT_LISTENER=yes \
-    -v kafka-config-0:/opt/bitnami/kafka/config \
-    -v kafka-data-0:/bitnami/kafka \
-    bitnami/kafka:3.0.0
 ```
 
 
