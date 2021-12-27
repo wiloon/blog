@@ -2,9 +2,9 @@
 title: golang 字符串/string
 author: "-"
 date: 2017-02-17T01:13:08+00:00
-url: /?p=9820
+url: go/string
 categories:
-  - Uncategorized
+  - golang
 
 ---
 ## golang 字符串/string

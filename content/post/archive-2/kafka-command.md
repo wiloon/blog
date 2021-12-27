@@ -137,10 +137,6 @@ listeners=PLAINTEXT://:9092
 
 zookeeper.connect=localhost:2181
 
-
-
-
-
 ### 删除topic
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
@@ -184,7 +180,7 @@ download http://kafka.apache.org/downloads.html
 #### install and start zookeeper
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 
-#### docker
+- docker
 ```bash
 docker run  -d --name kafka \
 -p 9092:9092 \
@@ -199,7 +195,7 @@ docker run  -d --name kafka \
 -v kafka-data:/kafka \
 -t wurstmeister/kafka
 ```
-### podman
+- podman
 ```bash
 podman run  -d --name kafka \
 -p 9092:9092 \
@@ -216,6 +212,14 @@ podman run  -d --name kafka \
 # KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
 # kafka对外发布的连接地址
 # KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka.wiloon.com:9092
+
+# docker pull bitnami/kafka:3.0.0
+
+podman run -d --name kafka-0 \
+    -e ALLOW_PLAINTEXT_LISTENER=yes \
+    -v kafka-config-0:/opt/bitnami/kafka/config \
+    -v kafka-data-0:/bitnami/kafka \
+    bitnami/kafka:3.0.0
 ```
 
 

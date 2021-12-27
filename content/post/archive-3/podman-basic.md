@@ -5,11 +5,17 @@ date: 2020-01-19T15:30:35+00:00
 url: podman
 tags:
   - podman
+  - remix
 
 ---
 ## podman basic
 ### install
 https://podman.io/getting-started/installation
+### archlinux
+```bash
+pacman -S podman
+# 安装之后不需要重启系统
+```
 ### ubuntu
     . /etc/os-release
     echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -21,9 +27,11 @@ https://podman.io/getting-started/installation
 
 ### centos
     dnf install podman
-### archlinux
+
+### hello world
+测试一下podman 环境
 ```bash
-pacman -S podman
+podman run --rm hello-world
 ```
 
 ### podman command
@@ -160,11 +168,19 @@ podman volume rm volume0
 ```
 
 ## pod
+### podman pod
+    podman pod --help
+    podman pod create --help
+    podman pod ps
+    podman pod rm pod0
+    
     podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
     # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 
 #### 创建容器并加入pod
     podman run -d --pod pod_name_0 influxdb
+
+
 
 https://www.hangge.com/blog/cache/detail_2475.html
   
@@ -178,11 +194,7 @@ https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/
 https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/"
 https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS"
 
-### podman pod
-    podman pod --help
-    podman pod create --help
-    podman pod ps
-    podman pod rm pod0
+
     
 ### rootless
 ```bash
