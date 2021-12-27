@@ -99,7 +99,7 @@ JVM的字节码解释器就需要通过改变PC寄存器的值来明确下一条
 
 用于支持native方法的执行，存储了每个native方法调用的状态
 
-### 方法区(Permanent区)
+### 方法区 (Permanent区)
 存放了要加载的类信息、静态变量、final类型的常量、属性和方法信息。JVM用持久代（PermanetGeneration) 来存放方法区，可通过-XX:PermSize和-XX:MaxPermSize来指定最小值和最大值。介绍完了JVM内存组成结构，下面我们再来看一下JVM垃圾回收机制。
 
 JVM垃圾回收机制

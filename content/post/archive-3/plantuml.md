@@ -19,7 +19,7 @@ VS-Code扩展
 
 vim foo.md
 
-### content
+### component, 组件图
 ```puml
 @startuml
 
@@ -128,9 +128,21 @@ Alice ->> Bob: async msg
 - 修改线和箭头的颜色
 - 文字颜色
 
+#### 语法
+```bash
+# 把组件显示成普通矩形
+skinparam componentStyle rectangle
+# 组件间横向距离
+skinparam nodesep 10
+# 组件间纵向距离
+skinparam ranksep 10
+```
+
 ```puml
 @startuml
 skinparam componentStyle rectangle
+skinparam nodesep 10
+skinparam ranksep 10
 skinparam ParticipantFontColor #A9DCDF
 
 [component0] as c0 #ff0000
@@ -158,5 +170,22 @@ podman run -d \
 --name plantuml-server \
 -p 30001:8080 plantuml/plantuml-server:jetty-v1.2021.12
 ```
+### 定义组件的相对位置
+一种典型的方法是将一行标记为隐藏(hidden)
+hidden只支持从左到右`->`和从上到下的`-->`行,因此您需要相应地放置左侧和右侧(X <[hidden]- Y似乎不支持语法).
+```plantuml
+@startuml
+component JMM {
+  [heap]
+  [thread stack] as ts0
+  [thread stack] as ts1
+  [thread stack] as ts2
 
+  ts0 -[hidden]-> heap
+  ts1 -[hidden]-> heap
+  ts2 -[hidden]-> heap
+
+}
+@enduml
+```
 >https://github.com/plantuml/plantuml-server

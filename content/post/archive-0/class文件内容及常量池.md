@@ -1,5 +1,5 @@
 ---
-title: Class文件内容, 方法区, 常量池
+title: Class 文件内容, 方法区, 常量池
 author: "-"
 date: 2012-04-15T13:05:03+00:00
 url: /?p=2937
@@ -7,29 +7,37 @@ categories:
   - Java
 
 ---
-## Class文件内容, 方法区, 常量池
+## Class 文件内容, 方法区, 常量池
 
-当JVM运行Java程序的时候，它会加载对应的class文件，并提取class文件中的信息存放在JVM开辟出来的方法区内存中。那么这个class文件里面到底有些什么内容呢？
+当JVM运行Java程序的时候，它会加载对应的 class文件，并提取class文件中的信息存放在JVM开辟出来的方法区内存中。那么这个 class 文件里面到底有些什么内容呢？
 
 一、class文件内容概述
 
 class文件是由8bits的字节流组成，全部字节构成了15个有意义的项目。这些项目之间没有任何无意义的字节，因此class文件非常紧凑。占据多字节空间的项目按照高位在前的顺序存放。下面我们详细讨论这些项目: 
 
-★ magic(魔数) 每个class文件的前4个字节称为魔数，值为0xCAFEBABE。作用在于轻松的辨别class文件与非class文件。
+### magic (魔数)
+每个class文件的前4个字节称为魔数，值为 0xCAFEBABE。作用在于轻松的辨别class文件与非class文件。
 
-★ minor_version、major_version(次、主版本号) 各占2个字节。随着Java技术的发展，class文件的格式会发生变化。版本号的作用在于使得虚拟机能够认识当前加载class的文件格式。从而准确的提取class文件信息。
+### minor_version、major_version(次、主版本号) 
+各占2个字节。随着Java技术的发展，class文件的格式会发生变化。版本号的作用在于使得虚拟机能够认识当前加载class的文件格式。从而准确的提取class文件信息。
 
-★ constant_pool_count 、constance_pool（常量池)  从这里开始的字节组成了常量池 。 存储了诸如符号常量、final常量值、基本数据类型的字面值等内容。JVM会将每一个常量构成一个常量表，每个常量表都有自己的入口地址。而实际上在JVM会将这些常量表存储在方法区中一块连续的内存空间中，因此class文件会根据常量表在常量池中的位置对其进行索引。比如常量池中的第一个常量表的索引值就是1，第二个就是2。有的时候常量表A需要常量表B的内容，则在常量表A中会存储常量表B的索引值x。而constant_pool_count就记录了有多少个常量表，或则所有多少个索引值。实际上，常量池中没有索引值为0的常量表，但这缺失的索引值也被记录在constant_pool_count中，因此 constant_pool_count等于常量表的数量加1。关于常量池的具体内容，我们会在下面详细讲述，并用一个例子来显示整个class文件的内容。
+### constant_pool_count 、constance_pool （常量池)
+从这里开始的字节组成了常量池 。 存储了诸如符号常量、final常量值、基本数据类型的字面值等内容。JVM会将每一个常量构成一个常量表，每个常量表都有自己的入口地址。而实际上在JVM会将这些常量表存储在方法区中一块连续的内存空间中，因此class文件会根据常量表在常量池中的位置对其进行索引。比如常量池中的第一个常量表的索引值就是1，第二个就是2。有的时候常量表A需要常量表B的内容，则在常量表A中会存储常量表B的索引值x。而 constant_pool_count 就记录了有多少个常量表，或者所有多少个索引值。实际上，常量池中没有索引值为0的常量表，但这缺失的索引值也被记录在constant_pool_count中，因此 constant_pool_count等于常量表的数量加1。关于常量池的具体内容，我们会在下面详细讲述，并用一个例子来显示整个class文件的内容。
 
-★ access_flags(访问标志) 占用2个字节。用来表明该class文件中定义的是类还是接口，访问修饰符是public还是缺省。类或接口是否是抽象的。类是否是final的。
+### access_flags(访问标志)
+占用2个字节。用来表明该class文件中定义的是类还是接口，访问修饰符是public还是缺省。类或接口是否是抽象的。类是否是final的。
 
-★ this_class 占用2个字节。 它是一个对常量池的索引。指向的是常量池中存储类名符号引用的CONSTANT_Class_info常量表(见下面常量池具体结构)。比如this_class=0x0001。则表示指向常量池中的第一个常量表。通常这个表是指向当前class文件所定义的类名。
+### this_class 
+占用2个字节。 它是一个对常量池的索引。指向的是常量池中存储类名符号引用的CONSTANT_Class_info常量表(见下面常量池具体结构)。比如this_class=0x0001。则表示指向常量池中的第一个常量表。通常这个表是指向当前class文件所定义的类名。
 
-★ super_class 占用2个字节 与this_class类似，指向存放当前class文件所定义类的超类名字的索引的CONSTANT_Class_info常量表。
+### super_class
+占用2个字节 与this_class类似，指向存放当前class文件所定义类的超类名字的索引的CONSTANT_Class_info常量表。
 
-★ inteface_count、interfaces interface_count是class文件所定义的类直接实现的接口或父类实现的接口的数量。占2个字节。intefaces包含了对每个接口的 CONSTANT_Class_info常量表的索引。
+### inteface_count、interfaces interface_count
+是class文件所定义的类直接实现的接口或父类实现的接口的数量。占2个字节。intefaces包含了对每个接口的 CONSTANT_Class_info常量表的索引。
 
-★fields_count、fields fields_count表明了类中字段的数量 。fields是不同长度的field_info表的序列。这些field_info表中并不包含超类或父接口继承而来的字段。field_info表展示了一个字段的信息，包括字段的名字，描述符和修饰符。如果该字段是final的，那么还会展示其常量值。注意，这些信息有些存放在field_info里面，有些则存放在field_info所指向的常量池中。下面我们阐述一下这个field_info表的格式: 
+### fields_count、fields fields_count
+表明了类中字段的数量 。fields是不同长度的field_info表的序列。这些field_info表中并不包含超类或父接口继承而来的字段。field_info表展示了一个字段的信息，包括字段的名字，描述符和修饰符。如果该字段是final的，那么还会展示其常量值。注意，这些信息有些存放在field_info里面，有些则存放在field_info所指向的常量池中。下面我们阐述一下这个field_info表的格式: 
 
 access_flags(2byte 访问修饰符)
 
@@ -43,7 +51,8 @@ attribute (属性)
 
 其中attribute是由多个attribute_info组成。而JVM规范定义了字段的三种属性: ConstanceValue、Deprecated和Synthetic。
 
-★method_count、methods 与字段类似，method_count表明类中方法的数量和每个方法的常量表的索引。methods表明了不同长度的method_info表的序列。该表格式如下: 
+### method_count、methods 
+与字段类似，method_count表明类中方法的数量和每个方法的常量表的索引。methods表明了不同长度的method_info表的序列。该表格式如下: 
 
 access_flags(2byte 访问修饰符)
 
@@ -57,7 +66,7 @@ attribute (属性)
 
 其中方法的属性JVM规定了四种: Code，Deprecated，Exceptions，Synthetic。
 
-二、常量池的具体结构
+### 常量池的具体结构
 
 在Java程序中，有很多的东西是永恒的，不会在运行过程中变化。比如一个类的名字，一个类字段的名字/所属类型，一个类方法的名字/返回类型/参数名与所属类型，一个常量，还有在程序中出现的大量的字面值。比如下面小段源码红色显示的东西。
 
