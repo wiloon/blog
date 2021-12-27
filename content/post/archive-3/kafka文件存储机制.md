@@ -246,7 +246,7 @@ test = KafkaStreamTest()
       
 test.start()
   
-复制代码
+
 
 enable_auto_commit (bool) – If True , the consumer's offset will be periodically committed in the background. Default: True设置为true，表示offset自动托管到kafka内部的一个特定名称为__consumer_offsets的topic
 
