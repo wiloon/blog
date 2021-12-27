@@ -45,11 +45,13 @@ jcmd -l
 # 执行btrace, ctrl-c 退出
 /bin/btrace <PID> MethodDuration_redis.java
 ```
+### Btrace
+BTrace 是检查和解决线上的问题的杀器，BTrace 可以通过编写脚本的方式，获取程序执行过程中的一切信息，并且，注意了，不用重启服务，是的，不用重启服务。写好脚本，直接用命令执行即可，不用动原程序的代码。
 
-BTrace 是SUN Kenai云计算开发平台下的一个开源项目,旨在为java提供安全可靠的动态跟踪分析工具。
+原理
 
-Btrace
-  
+总体来说，BTrace 是基于动态字节码修改技术(Hotswap)来实现运行时 java 程序的跟踪和替换。大体的原理可以用下面的公式描述：Client(Java compile api + attach api) + Agent（脚本解析引擎 + ASM + JDK6 Instumentation） + Socket其实 BTrace 就是使用了 java attach api 附加 agent.jar ，然后使用脚本解析引擎+asm来重写指定类的字节码，再使用 instrument 实现对原有类的替换。
+
 BTrace是sun公司推出的一款Java 动态、安全追踪（监控) 工具,可以在不用重启的情况下监控系统运行情况,方便的获取程序运行时的数据信息,如方法参数、返回值、全局变量和堆栈信息等,并且做到最少的侵入,占用最少的系统资源。
 
 由于Btrace会把脚本逻辑直接侵入到运行的代码中,所以在使用上做很多限制: 
@@ -195,3 +197,4 @@ http://www.cnblogs.com/fengzheng/p/7416942.html
 http://openresty.org/posts/dynamic-tracing/
   
 https://www.jianshu.com/p/dbb3a8b5c92f
+>https://www.cnblogs.com/fengzheng/p/7416942.html
