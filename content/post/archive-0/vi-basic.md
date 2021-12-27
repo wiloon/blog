@@ -19,11 +19,13 @@ vim -b test.bin
 :wq
 ```
 ### vim utf8 乱码
-    vim ~/.vimrc
+```bash
+vim ~/.vimrc
 
-    set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-    set termencoding=utf-8
-    set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+```
 
 
 ### 上移一行
