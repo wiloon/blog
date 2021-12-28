@@ -3,6 +3,9 @@ title: kafka basic, command
 author: "-"
 date: 2018-05-07T08:44:53.000+00:00
 url: "kafka"
+tags:
+  - remix
+  - command
 
 ---
 ## kafka basic, command
@@ -246,6 +249,7 @@ podman run --rm --name kafka \
 -v kafka-storage:/data/kafka \
 bitnami/kafka:3.0.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
 
+# 创建单节点kafka 容器 
 podman run -d --name kafka \
 -e ALLOW_PLAINTEXT_LISTENER=yes \
 -p 9092:9092 \
