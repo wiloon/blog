@@ -1,5 +1,5 @@
 ---
-title: 操作数栈 Operand Stack
+title: JVM 操作数栈 Operand Stack
 author: "-"
 date: 2012-09-19T08:53:36+00:00
 url: /?p=4101
@@ -7,7 +7,7 @@ categories:
   - Java
 
 ---
-## 操作数栈 Operand Stack
+## JVM 操作数栈 Operand Stack
 <http://denverj.iteye.com/blog/1218359>
 
 Like the local variables, the operand stack is organized as an array of words. But unlike the local variables, which are accessed via array indices, the operand stack is accessed by pushing and popping values. If an instruction pushes a value onto the operand stack, a later instruction can pop and use that value.

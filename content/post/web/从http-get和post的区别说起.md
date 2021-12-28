@@ -12,8 +12,7 @@ categories:
 
   Zhang Yining / CC BY-NC-SA 3.0
 
-
-  http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/
+http://www.yining.org/2010/05/04/http-get-vs-post-and-thoughts/
 
 在推特上[抱怨面试时问HTTP GETE和POST的区别得到回答都不满意][1]，有人不清楚，当时只回复了看 RFC2616。趁有空说说
 
