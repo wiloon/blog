@@ -511,3 +511,7 @@ Curator对ZooKeeper的事件Watcher进行了封装处理, 然后实现了一套�
   * http://techblog.netflix.com/2011/11/introducing-curator-netflix-zookeeper.html
   * http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/ 分布式服务框架 Zookeeper - 管理分布式环境中的数据
   * Netflix Curator 使用
+
+### zookeeper curator watcher/listener
+http://blog.csdn.net/collonn/article/details/43969045
+
