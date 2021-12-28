@@ -10,6 +10,8 @@ categories:
 ## golang git server, gogs, gitea
 ```bash
   
+  docker run --name=gogs -p 10022:22 -p 10880:3000 -v /var/gogs:/data gogs/gogs
+  
 # docker for gogs
   
 sudo systemctl status docker
