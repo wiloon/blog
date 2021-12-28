@@ -195,7 +195,66 @@ cat increase-replication-factor.json
 
 download http://kafka.apache.org/downloads.html
 
-install and start zookeeper
+#### kraft
+
+```bash
+bin/kafka-storage.sh format --config config/kraft/server.properties --cluster-id $(./bin/kafka-storage.sh random-uuid)
+bin/kafka-server-start.sh config/kraft/server.properties
+```
+
+#### kraft podmann
+>https://github.com/bitnami/bitnami-docker-kafka/issues/159
+##### create volume
+```bash
+podman volume create kafka-config
+```
+##### server.properies
+可以复制 kafka_2.13-3.0.0.tgz 里的 config/kraft/server.properties 文件改造一下.
+
+>vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
+```
+process.roles=broker,controller
+node.id=1
+controller.quorum.voters=1@localhost:9093
+listeners=PLAINTEXT://:9092,CONTROLLER://:9093
+inter.broker.listener.name=PLAINTEXT
+advertised.listeners=PLAINTEXT://192.168.50.169:9092
+controller.listener.names=CONTROLLER
+listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
+num.network.threads=3
+num.io.threads=8
+socket.send.buffer.bytes=102400
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+log.dirs=/data/kafka
+num.partitions=1
+num.recovery.threads.per.data.dir=1
+offsets.topic.replication.factor=1
+transaction.state.log.replication.factor=1
+transaction.state.log.min.isr=1
+log.retention.hours=168
+log.segment.bytes=1073741824
+log.retention.check.interval.ms=300000
+```
+
+```bash
+# 格式化storage
+podman run --rm --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v /data/kafka/server.properties:/bitnami/kafka/config/server.properties \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.0.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+
+podman run -d --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.0.0
+```
+
+#### install kafka with zookeeper
 
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 

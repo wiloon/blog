@@ -77,7 +77,7 @@ delete /k0
 download zookeeper
 cp zoo_sample.cfg zoo.cfg
 
-### 配置， vim zoo.cfg
+### 配置，vim zoo.cfg
 ```bash
 #zookeeper 服务器心跳时间，单位为ms
 tickTime=2000

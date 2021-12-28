@@ -188,6 +188,7 @@ tar -zcvf all.tar.gz *.jpg
 GZIP=-9 tar cvzf file.tar.gz /path/to/directory
 
 #解压
+tar -xf foo.tar.gz
 tar -zxvf all.tar.gz
 
 sudo pacman -S pigz
