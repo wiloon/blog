@@ -137,21 +137,9 @@ Java 提供两种不同的类型: 引用类型和原始类型（或内置类型)
 
 引用类型和原始类型的行为完全不同，并且它们具有不同的语义。引用类型和原始类型具有不同的特征和用法，它们包括: 大小和速度问题，这种类型以哪种类型的数据结构存储，当引用类型和原始类型用作某个类的实例数据时所指定的缺省值。对象引用实例变量的缺省值为 null，而原始类型实例变量的缺省值与它们的类型有关.
 
-
-  
     引用类型 基本类型
-  
-
 
 http://www.wiloon.com/?p=4120&embed=true#?secret=3QUltjLSBh
-
-
-### String ，StringBuffer, StringBuilder
-
-JAVA平台提供了两个类: String和StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String类提供了数值不可改变的字符串。而StringBuffer类提供的字符串允许进行修改。当你知道字符数据要改变的时候你就可以使用StringBuffer。典型地，你可以使用 StringBuffers来动态构造字符数据。
-
-http://www.wiloon.com/?p=4123  
-http://www.wiloon.com/?p=4123&embed=true#?secret=FB8flsCPiN  
 
 
 ### 异常
@@ -159,14 +147,7 @@ http://www.wiloon.com/?p=4123&embed=true#?secret=FB8flsCPiN
 
 error 表示恢复不是不可能但很困难的情况下的一种严重问题。比如说内存溢出。不可能指望程序能处理这样的情况。 exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。
 
-
-  
     运行时异常/一般异常
-  
-
-
-
-
 
 ### Java集合类 ArrayList,Vector, LinkedList
 

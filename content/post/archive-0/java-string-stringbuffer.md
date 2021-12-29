@@ -2,7 +2,7 @@
 title: JAVA String, StringBuffer, StringBuilder
 author: "-"
 date: 2012-09-20T03:27:09+00:00
-url: /?p=4123
+url: java/string
 categories:
   - Java
 tags:
@@ -10,29 +10,24 @@ tags:
 
 ---
 ## JAVA String, StringBuffer, StringBuilder
+
+JAVA平台提供了两个类: String 和 StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String类提供了数值不可改变的字符串。而StringBuffer类提供的字符串允许进行修改。当你知道字符数据要改变的时候你就可以使用 StringBuffer。典型地，你可以使用 StringBuffers 来动态构造字符数据。
+
 在java中与字符串操作相关的类
 
 Character 是进行单个字符操作的，
 
-**String 字符串常量** 对一串字符进行操作。不可变类。
+- String 字符串常量 对一串字符进行操作。不可变类。
+- StringBuffer 也是对一串字符进行操作，但是可变类。**字符串变量（线程安全) 
+- StringBuilder 字符串变量（非线程安全) 
 
-StringBuffer 也是对一串字符进行操作，但是可变类。**字符串变量（线程安全) **
+### String
+  
+String是对象不是原始类型, 为不可变对象,一旦被创建,就不能修改它的值,对于已经存在的String对象的修改都是重新创建一个新的对象,然后把新的值保存进去.
 
-**StringBuilder 字符串变量（非线程安全) **
-
-
-String:
-  
-是对象不是原始类型.
-  
-为不可变对象,一旦被创建,就不能修改它的值.
-  
-对于已经存在的String对象的修改都是重新创建一个新的对象,然后把新的值保存进去.
-  
 String 是final类,即不能被继承.
 
-
-  简要的说， String 类型和 StringBuffer 类型的主要性能区别其实在于 String 是不可变的对象, 因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响，特别当内存中无引用对象多了以后， JVM 的 GC 就会开始工作，那速度是一定会相当慢的。
+简要的说， String 类型和 StringBuffer 类型的主要性能区别其实在于 String 是不可变的对象, 因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响，特别当内存中无引用对象多了以后， JVM 的 GC 就会开始工作，那速度是一定会相当慢的。
  而如果是使用 StringBuffer 类则结果就不一样了，每次结果都会对 StringBuffer 对象本身进行操作，而不是生成新的对象，再改变对象引用。所以在一般情况下我们推荐使用 StringBuffer ，特别是字符串对象经常改变的情况下。而在某些特别情况下， String 对象的字符串拼接其实是被 JVM 解释成了 StringBuffer 对象的拼接，所以这些时候 String 对象的速度并不会比 StringBuffer 对象慢，而特别是以下的字符串对象生成中， String 效率是远要比 StringBuffer 快的: 
  String S1 = "This is only a" + " simple" + " test";
  StringBuffer Sb = new StringBuilder("This is only a").append(" simple").append(" test");

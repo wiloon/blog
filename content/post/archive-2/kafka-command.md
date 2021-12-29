@@ -207,6 +207,7 @@ bin/kafka-server-start.sh config/kraft/server.properties
 
 #### kraft podmann
 >https://github.com/bitnami/bitnami-docker-kafka/issues/159
+>https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md
 ##### create volume
 ```bash
 podman volume create kafka-config

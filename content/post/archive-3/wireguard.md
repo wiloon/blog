@@ -111,13 +111,6 @@ ip link set wg0 up
     iptables -t nat -A POSTROUTING -o <eth0> -j MASQUERADE
     iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
 
-
-### chromeos>crostini
-chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
-又ccighervkevururvkfggtlhrvtuclinuntecvikn
-~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
-~~<https://tunsafe.com/user-guide/linux>~~  
-
 ### systemd-networkd, 用 systemd-networkd 配置 wireguard,开机自动加载 wireguard 配置
 #### vim /etc/systemd/network/99-wg0.netdev
     [NetDev]
@@ -235,7 +228,11 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     Endpoint = <server_ip0:server_port0>
     PersistentKeepalive = 25
 
-
+### chromeos>crostini
+chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
+又ccighervkevururvkfggtlhrvtuclinuntecvikn
+~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
+~~<https://tunsafe.com/user-guide/linux>~~  
 ---
 
 https://www.wireguard.com/install/

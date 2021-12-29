@@ -9,6 +9,11 @@ tags:
   - MySQL
 ---
 ## MySQL basic
+### jdbc url
+    jdbc:MySQL://localhost:3306/tmp
+    # driver
+    com.MySQL.jdbc.Driver
+
 ### MySQL heidisql 变量
     SET @total_count := 10;
     select @total_count;

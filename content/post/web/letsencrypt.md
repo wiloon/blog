@@ -1,9 +1,15 @@
-+++
-author = "-"
-date = "2020-06-04T08:55:49Z"
-title = "letsencrypt, certbot, certbot-auto, acme.sh"
+---
+title: "letsencrypt, certbot, certbot-auto, acme.sh"
+author: "-"
+date: "2020-06-04T08:55:49Z"
+url: ""
+categories:
+  - cert
+tags:
+  - remix
+---
+## ""
 
-+++
 ### certbot, certbot-auto, acme.sh
 certbot: recommended by the offical website.
 certbot-auto: no longer supported.
@@ -11,17 +17,20 @@ acme.sh: acme.sh 实现了 acme 协议.
 
 ### install certbot
 #### centos
-    dnf remove certbot
-    dnf install epel-release
-    dnf install snapd
-    systemctl enable --now snapd.socket
-    snap install core
-    snap refresh core
-    ln -s /var/lib/snapd/snap /snap
-    snap install --classic certbot
-    ln -s /snap/bin/certbot /usr/bin/certbot
-    snap set certbot trust-plugin-with-root=ok
-    snap install certbot-dns-google
+```bash
+dnf update
+dnf remove certbot
+dnf install epel-release
+dnf install snapd
+systemctl enable --now snapd.socket
+snap install core
+snap refresh core
+ln -s /var/lib/snapd/snap /snap
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+snap set certbot trust-plugin-with-root=ok
+snap install certbot-dns-google
+```
 
 #### ubuntu
     # for ubuntu snap is pre-installed
