@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-06-18 18:00:23" 
-title = "Redis Replication, sentinel"
+---
+author: "-"
+date: "2021-06-18 18:00:23" 
+title: "Redis Replication, sentinel"
 
-+++
+---
 
 Redis 主从 Replication 的配置
 

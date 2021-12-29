@@ -39,8 +39,7 @@ patch -p1 < 0001-JFFS2-community-fix-with-not-use-OOB.patch
 在使用git-am之前， 你要首先git am –abort 一次，来放弃掉以前的am信息，这样才可以进行一次全新的am。
   
 不然会遇到这样的错误。
-  
-                .git/rebase-apply still exists but mbox given.
+.git/rebase-apply still exists but mbox given.
 
 git-am 可以一次合并一个文件，或者一个目录下所有的patch，或者你的邮箱目录下的patch.
 
@@ -89,9 +88,9 @@ From: abc abc@abc-desktop.(none)
 Date: Thu, 22 Apr 2010 13:04:34 +0800
    
 Subject: [PATCH 1/2] add line - file | 2 ++
-   
+
 1 files changed, 2 insertions(+), 0 deletions(-)
-   
+
 diff -git a/file b/file
    
 index 067780e..685f0fa 100644

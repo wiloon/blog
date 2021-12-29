@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-05-05 08:36:31" 
-title = "kernel thread, 内核线程， KTL"
+---
+author: "-"
+date: "2021-05-05 08:36:31" 
+title: "kernel thread, 内核线程， KTL"
 
-+++
+---
 
 ### 内核线程
 为什么需要内核线程

@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-11-25 16:40:59" 
-title = "windows dev env"
+---
+author: "-"
+date: "2020-11-25 16:40:59" 
+title: "windows dev env"
 
-+++
+---
 
 ### windows dev env
     # install latest version of powershell

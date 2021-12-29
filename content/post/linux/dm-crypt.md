@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-03-30 13:27:18" 
-title = "dm-crypt, 加密"
+---
+author: "-"
+date: "2021-03-30 13:27:18" 
+title: "dm-crypt, 加密"
 
-+++
+---
 
 ### 用 cryptsetup 创建 LUKS 的虚拟加密盘（逻辑卷) 
 在前一个章节，已经介绍了"对物理分区的加密"。其实 cryptsetup 也可以支持虚拟加密盘（逻辑加密盘) ——类似于 TrueCrypt 那样。  

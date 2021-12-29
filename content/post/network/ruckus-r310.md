@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-06-20 14:19:01" 
-title = "Ruckus R310"
+---
+author: "-"
+date: "2021-06-20 14:19:01" 
+title: "Ruckus R310"
 
-+++
+---
 
 ### 默认用户名密码
     super/sp-admin

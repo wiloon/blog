@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-05-16T03:03:37Z"
-title = "vue basic"
+---
+author: "-"
+date: "2020-05-16T03:03:37Z"
+title: "vue basic"
 
-+++
+---
 
 ### 安装vue
 ```bash

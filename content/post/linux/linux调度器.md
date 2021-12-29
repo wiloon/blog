@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-10-21 18:04:35" 
-title = "调度器"
+---
+author: "-"
+date: "2020-10-21 18:04:35" 
+title: "调度器"
 
-+++
+---
 
 #### Linux Kernel调度器的过去，现在和未来  
 https://my.oschina.net/u/4585157/blog/4672238  

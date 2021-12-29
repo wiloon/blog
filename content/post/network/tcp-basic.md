@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "" 
-title = "tcp basic"
+---
+author: "-"
+date: "" 
+title: "tcp basic"
 
-+++
+---
 ### tcp basic
 https://luoguochun.cn/post/2016-09-23-tcp-fuck/
 

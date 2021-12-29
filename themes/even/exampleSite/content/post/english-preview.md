@@ -29,20 +29,20 @@ this is a command
 
 ## edit the file
 $vi foo.md
-+++
-date = "2014-09-28"
-title = "creating a new theme"
-+++
+---
+date: "2014-09-28"
+title: "creating a new theme"
+---
 
 bah and humbug
 :wq
 
 ## show it
 $ cat foo.md
-+++
-date = "2014-09-28"
-title = "creating a new theme"
-+++
+---
+date: "2014-09-28"
+title: "creating a new theme"
+---
 
 bah and humbug
 $
@@ -275,7 +275,7 @@ Please take a minute to fill out the theme.toml and LICENSE.md files. They're op
 
 ```
 $ vi themes/zafta/theme.toml
-author = "michael d henderson"
+author: "michael d henderson"
 description = "a minimal working template"
 license = "MIT"
 name = "zafta"
@@ -311,7 +311,7 @@ $ vi config.toml
 theme = "zafta"
 baseurl = ""
 languageCode = "en-us"
-title = "zafta - totally refreshing"
+title: "zafta - totally refreshing"
 MetaDataFormat = "toml"
 :wq
 
@@ -569,11 +569,11 @@ The "new" command uses an archetype to create the post file. Hugo created an emp
 
 ```
 $ vi themes/zafta/archetypes/post.md
-+++
+---
 Description = ""
 Tags = []
 Categories = []
-+++
+---
 :wq
 
 $ find themes/zafta/archetypes -type f | xargs ls -l
@@ -600,25 +600,25 @@ total 16
 -rw-r--r--  1 quoha  staff  105 Sep 29 21:57 second.md
 
 $ cat content/post/first.md 
-+++
+---
 Categories = []
 Description = ""
 Tags = []
-date = "2014-09-29T21:54:53-05:00"
-title = "first"
+date: "2014-09-29T21:54:53-05:00"
+title: "first"
 
-+++
+---
 my first post
 
 $ cat content/post/second.md 
-+++
+---
 Categories = []
 Description = ""
 Tags = []
-date = "2014-09-29T21:57:09-05:00"
-title = "second"
+date: "2014-09-29T21:57:09-05:00"
+title: "second"
 
-+++
+---
 my second post
 
 $ 
@@ -902,12 +902,12 @@ The default in Hugo is to use the directory structure of the content/ directory 
 
 ```
 $ vi content/about.md 
-+++
-title = "about"
+---
+title: "about"
 description = "about this site"
-date = "2014-09-27"
+date: "2014-09-27"
 slug = "about time"
-+++
+---
 
 ## about us
 

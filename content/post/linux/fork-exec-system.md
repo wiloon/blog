@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-04-18 12:04:24" 
-title = "fork exec system()"
+---
+author: "-"
+date: "2021-04-18 12:04:24" 
+title: "fork exec system()"
 
-+++
+---
 system()、exec()、fork()三个与进程有关的函数的比较
 ### 启动新进程（system函数) 
 system()函数可以启动一个新的进程。

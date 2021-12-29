@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-09-01 09:52:18" 
-title = "foxmail"
+---
+author: "-"
+date: "2020-09-01 09:52:18" 
+title: "foxmail"
 
-+++
+---
 
 ### 邮件存储目录修改
 关闭foxmail  

@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-12-03 11:18:50" 
-title = "ECMAScript, javascript basic"
+---
+author: "-"
+date: "2020-12-03 11:18:50" 
+title: "ECMAScript, javascript basic"
 
-+++
+---
 https://es6.ruanyifeng.com/
 
 ### ES6之Object.assign()

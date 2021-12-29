@@ -469,7 +469,7 @@ Note: 对于分布式锁、数据复制等场景,非常容易理解,但是对于
 
 ### raft vs zab 
 
-
+>http://thesecretlivesofdata.com/raft/
 >http://blog.csdn.net/cszhouwei/article/details/38374603
 >http://thesecretlivesofdata.com/raft/
 >https://www.cnblogs.com/xybaby/p/10124083.html

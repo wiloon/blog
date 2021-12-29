@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-10-31 09:49:19" 
-title = "flex"
+---
+author: "-"
+date: "2020-10-31 09:49:19" 
+title: "flex"
 
-+++
+---
 
 Flex 布局
 网页布局（layout) 是 CSS 的一个重点应用。
