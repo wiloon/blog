@@ -231,7 +231,7 @@ Timer不保证任务执行的十分精确。
   
 Timer类的线程安全的。
 
-1、在应用开发中，经常需要一些周期性的操作，比如每5分钟执行某一操作等。对于这样的操作最方便、高效的实现方式就是使用java.util.Timer工具类。
+1. 在应用开发中，经常需要一些周期性的操作，比如每5分钟执行某一操作等。对于这样的操作最方便、高效的实现方式就是使用java.util.Timer工具类。
   
 private java.util.Timer timer;
   
@@ -245,7 +245,7 @@ new java.util.TimerTask() { public void run() { //server.checkNewMail(); 要操�
   
 使用这几行代码之后，Timer本身会每隔5分钟调用一遍server.checkNewMail()方法，不需要自己启动线程。Timer本身也是多线程同步的，多个线程可以共用一个Timer，不需要外部的同步代码。
   
-2、
+2. 
   
 (1)Timer.schedule(TimerTask task,Date time)安排在制定的时间执行指定的任务。
   

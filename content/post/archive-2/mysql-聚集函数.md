@@ -8,7 +8,7 @@ categories:
 
 ---
 ## MySQL 聚集函数
-1、聚集函数
+1. 聚集函数
   
 聚集函数是运行在行组上,计算和返回单个值的函数。
 
@@ -94,7 +94,7 @@ SELECT SUM(item_price*num) AS totol_price FROM order_items-返回订单中所有
   
 Where order_id=123456;
   
-2、聚集不同值
+2. 聚集不同值
   
 DISTINCT关键字
   
@@ -108,7 +108,7 @@ SELECT AVG(DISTINCT prd_price) AS avg_price FROM products
   
 Where vend_id=1003;
 
-3、组合聚集函数
+3. 组合聚集函数
   
 聚集函数可以组合使用
   

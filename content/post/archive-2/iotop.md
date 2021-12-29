@@ -9,11 +9,11 @@ url: /?p=8893
   
 iotop命令是专门显示硬盘IO的命令,界面风格类似top命令。这个命令只有在kernelv2.6.20及以后的版本中才有。
   
-1、直接yum安装,rh6的光盘里有包。
+1. 直接yum安装,rh6的光盘里有包。
   
 yum install iotop
   
-2、命令参数介绍
+2. 命令参数介绍
   
 -o, -only
   
@@ -67,16 +67,16 @@ suppress some lines of header (implies -batch). This option can be specified up 
   
 -qqq   the I/O summary is never printed.
   
-3、使用截图
+3. 使用截图
   
 [root@localhost tmp]# iotop -o
   
 iotop命令的键盘快捷键: 
   
-1、左右箭头改变排序方式,默认是按IO排序
+1. 左右箭头改变排序方式,默认是按IO排序
   
-2、r键是反向排序
+2. r键是反向排序
   
-3、o键是只显示有IO输出的进程
+3. o键是只显示有IO输出的进程
   
-4、同样q是退出
+4. 同样q是退出

@@ -18,13 +18,13 @@ mavenjunit项目管理配置管理Apache
   
 如果断Maven的依赖构建必须每一个项目都指定,那配置是累死人了,比如A依赖了20个项目,B依赖A,那么还要添加20个项目,那就悲剧了,maven有依赖传递的功能。
   
-1、Transitive Dependency (传递依赖)
+1. Transitive Dependency (传递依赖)
   
 你的项目依赖于A,A又依赖于B。你的项目是否要声明你依赖于B？ Maven的回答是它帮你自动管理这种依赖的传递,你不需要声明你依赖于B,由Maven来做。
   
 [版本还是要自己指定的.]
   
-2、Dependency Scope （依赖范围) 
+2. Dependency Scope （依赖范围) 
   
 因此,Maven考虑了6中可能的scope供选择: 
   

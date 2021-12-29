@@ -56,11 +56,11 @@ modprobe -l kvm*
 
 另外，KVM还需要修改过的QEMU(EXTRA仓库中的qemu-kvm)来启动和管理虚拟机。 此时，有两个选择（根据你需要，选一个即可，比如你不仅使用kvm还需要使用qemu，则选2,否则，一般选1就够用了。直观的区别就是qemu软件包很大，而qemu-kvm很小，qemu-kvm相当于qemu中的qemu-system-x86_64的一个定制版) : 
 
-1、安装qemu-kvm，以后要运行kvm的时候，就输入qemu-kvm -enable-kvm这个命令
+1. 安装qemu-kvm，以后要运行kvm的时候，就输入qemu-kvm -enable-kvm这个命令
 
 pacman -S kernel26 qemu-kvm
 
-2、安装qemu >= 0.9.0，和qemu-kvm包冲突，现在也附带了一个可以使用qemu-kvm的，以后要运行kvm的时候就是输入: qemu -enable-kvm。
+2. 安装qemu >= 0.9.0，和qemu-kvm包冲突，现在也附带了一个可以使用qemu-kvm的，以后要运行kvm的时候就是输入: qemu -enable-kvm。
 
 pacman -S kernel26 qemu
 

@@ -11,23 +11,20 @@ tags:
 ## kafka basic, command
 ### consumer
 ```bash
+bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server localhost:9092
 bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server localhost:9092
 
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server kafka.wiloon.com:9092 \
-    --topic topic0
+bin/kafka-console-consumer.sh \
+--bootstrap-server kafka.wiloon.com:9092 \
+--topic topic0 \
+--from-beginning \
+--property "parse.key=true" \
+--property "key.separator=:"
 
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server kafka.wiloon.com:9092 \
-    --topic topic0 \
-    --from-beginning \
-    --property "parse.key=true" \
-    --property "key.separator=:"
-
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server kafka.wiloon.com:9092 \
-    --topic topic0 \
-    --from-beginning
+bin/kafka-console-consumer.sh \
+--bootstrap-server kafka.wiloon.com:9092 \
+--topic topic0 \
+--from-beginning
 ```
 
 ### producer
@@ -41,7 +38,7 @@ bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server
     --property parse.key=true
 
 
-### kafka package 
+### kafka package
     https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
 
 ### group
@@ -300,7 +297,6 @@ podman run  -d --name kafka \
 
 ```
 
-
 ### server.properties
     advertised.host.name: 是注册到zookeeper,client要访问的broker地址。（可能producer也是拿这个值,没有验证) 
     
@@ -351,8 +347,6 @@ podman run -d --name cmak\
      hlebalbau/kafka-manager:stable
 ```
 
----
-
 https://www.jianshu.com/p/25a7b0ceb78a  
 https://github.com/wurstmeister/kafka-docker  
 https://juejin.im/entry/5cbfe36b6fb9a032036187aa  
@@ -360,3 +354,7 @@ https://my.oschina.net/u/218540/blog/223501
 https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html  
 https://blog.csdn.net/lzufeng/article/details/81743521  
 >https://www.jianshu.com/p/26495e334613
+
+### kafka producer, consumer api doc
+>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html
+>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html

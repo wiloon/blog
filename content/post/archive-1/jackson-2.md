@@ -26,7 +26,7 @@ Jackson可以轻松的将Java对象转换成json对象和xml文档，同样也�
 一、准备工作
 
 
-1、 下载依赖库jar包
+1.  下载依赖库jar包
 
 
 Jackson的jar all下载地址: http://jackson.codehaus.org/1.7.6/jackson-all-1.7.6.jar
@@ -44,7 +44,7 @@ Jackson的jar all下载地址: http://jackson.codehaus.org/1.7.6/jackson-all-1.7
 如果你需要转换xml，那么还需要stax2-api.jar
 
 
-2、 测试类基本代码如下
+2.  测试类基本代码如下
 
 
 package com.hoo.test;
@@ -196,7 +196,7 @@ e.printStackTrace();
 
 }
 
-3、 所需要的JavaEntity
+3.  所需要的JavaEntity
 
 
 package com.hoo.entity;
@@ -267,7 +267,7 @@ return this.birthday;
 二、Java对象转换成JSON
 
 
-1、 JavaBean(Entity/Model)转换成JSON
+1.  JavaBean(Entity/Model)转换成JSON
 
 
 /**
@@ -327,7 +327,7 @@ ObjectMapper
 objectMapper的writeValue方法可以将一个Java对象转换成JSON。这个方法的参数一，需要提供一个输出流，转换后可以通过这个流来输出转换后的内容。或是提供一个File，将转换后的内容写入到File中。当然，这个参数也可以接收一个JSONGenerator，然后通过JSONGenerator来输出转换后的信息。第二个参数是将要被转换的Java对象。如果用三个参数的方法，那么是一个Config。这个config可以提供一些转换时的规则，过指定的Java对象的某些属性进行过滤或转换等。
 
 
-2、 将Map集合转换成Json字符串
+2.  将Map集合转换成Json字符串
 
 
 /**
@@ -395,7 +395,7 @@ objectMapper
 
 "account":{"address":"china-Guangzhou","name":"hoojo","id":1,"birthday":null,"email":"hoojo_@126.com"}}
 
-3、 将List集合转换成json
+3.  将List集合转换成json
 
 
 /**
@@ -482,7 +482,7 @@ ObjectMapper
 外面就是多了个[]中括号；同样Array也可以转换，转换的JSON和上面的结果是一样的，这里就不再转换了。~.~
 
 
-4、下面来看看jackson提供的一些类型，用这些类型完成json转换；如果你使用这些类型转换JSON的话，那么你即使没有JavaBean(Entity)也可以完成复杂的Java类型的JSON转换。下面用到这些类型构建一个复杂的Java对象，并完成JSON转换。
+4. 下面来看看jackson提供的一些类型，用这些类型完成json转换；如果你使用这些类型转换JSON的话，那么你即使没有JavaBean(Entity)也可以完成复杂的Java类型的JSON转换。下面用到这些类型构建一个复杂的Java对象，并完成JSON转换。
 
 
 @Test
@@ -606,7 +606,7 @@ jsonGenerator
 三、JSON转换成Java对象
 
 
-1、 将json字符串转换成JavaBean对象
+1.  将json字符串转换成JavaBean对象
 
 
 @Test
@@ -646,7 +646,7 @@ haha
 
 haha#1#address#null#email
 
-2、 将json字符串转换成List<Map>集合
+2.  将json字符串转换成List<Map>集合
 
 
 /**
@@ -726,7 +726,7 @@ id:1
 
 email:email
 
-3、 Json字符串转换成Array数组，由于上面的泛型转换不能识别到集合中的对象类型。所有这里用对象数组，可以解决这个问题。只不过它不再是集合，而是一个数组。当然这个不重要，你可以用Arrays.asList将其转换成List即可。
+3.  Json字符串转换成Array数组，由于上面的泛型转换不能识别到集合中的对象类型。所有这里用对象数组，可以解决这个问题。只不过它不再是集合，而是一个数组。当然这个不重要，你可以用Arrays.asList将其转换成List即可。
 
 
 /**
@@ -785,7 +785,7 @@ haha2#2#address2#null#email2
 
 haha#1#address#null#email
 
-4、 Json字符串转换成Map集合
+4.  Json字符串转换成Map集合
 
 
 /**

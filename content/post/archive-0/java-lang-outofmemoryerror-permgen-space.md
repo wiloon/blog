@@ -16,13 +16,13 @@ JavaTomcatJVMLinuxWeb
   
 引用
 
-1、
+1. 
   
 PermGen space的全称是Permanent Generation space,是指内存的永久保存区域OutOfMemoryError: PermGen space从表面上看就是内存益出，解决方法也一定是加大内存。说说为什么会内存益出: 这一部分用于存放Class和Meta的信息,Class在被 Load的时候被放入PermGen space区域，它和和存放Instance的Heap区域不同,GC(Garbage Collection)不会在主程序运行期对PermGen space进行清理，所以如果你的APP会LOAD很多CLASS的话,就很可能出现PermGen space错误。这种错误常见在web服务器对JSP进行pre compile的时候。
 
 改正方法: -Xms256m -Xmx256m -XX:MaxNewSize=256m -XX:MaxPermSize=256m
 
-2、
+2. 
   
 在tomcat中redeploy时出现outofmemory的错误.
 
@@ -36,7 +36,7 @@ PermGen space的全称是Permanent Generation space,是指内存的永久保存�
 
 ４，更新到最新的hibernate3.2
 
-3、
+3. 
 
 这里以tomcat环境为例，其它WEB服务器如jboss,weblogic等是同一个道理。
   

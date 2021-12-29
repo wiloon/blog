@@ -53,9 +53,9 @@ mount server:/ /mountpoint/on/client
 # 挂载之前先改注册表
 需要读写权限的需要修改注册表
 通过修改注册表将windows访问NFS时的UID和GID改成0即可,步骤如下
-1、在运行中输入regedit,打开注册表编辑器；
-2、进入HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default条目；
-3、Create two DWORD values namely AnonymousUid and AnonymousGid,十进制值跟nfs服务端文件 所属用户 的用户 id一致。
+1. 在运行中输入regedit,打开注册表编辑器；
+2. 进入HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default条目；
+3. Create two DWORD values namely AnonymousUid and AnonymousGid,十进制值跟nfs服务端文件 所属用户 的用户 id一致。
 
 # 重启windows的NFS client service
 C:\Windows\system32>hostname

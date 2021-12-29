@@ -42,13 +42,13 @@ Java代码 收藏代码
   
 四、JConsole如何连接远程机器的JAVA程序（举例说明) 
   
-1、写一个简单的一直运行的JAVA程序，运行在某台机器上如(192.168.0.181)
+1. 写一个简单的一直运行的JAVA程序，运行在某台机器上如(192.168.0.181)
   
 Java代码 收藏代码
   
 java -cp . -Dcom.sun.management.jmxremote.port=8999 -Dcom.sun.managent.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false JConsoleTest
 
-2、另外一台机器进行连接
+2. 另外一台机器进行连接
   
 可以直接使用命令: 
   

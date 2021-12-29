@@ -22,21 +22,21 @@ Android Lint是SDK Tools 16 (ADT 16)之后才引入的工具，通过它对Andro
   
 Android Lint主要用于检查以下这些错误: 
   
-1、Missing translations (and unused translations)没有翻译的文本
+1. Missing translations (and unused translations)没有翻译的文本
   
-2、Layout performance problems (all the issues the old layoutopt tool used to find, and more)
+2. Layout performance problems (all the issues the old layoutopt tool used to find, and more)
   
-3、Unused resources未使用的冗余资源
+3. Unused resources未使用的冗余资源
   
-4、Inconsistent array sizes (when arrays are defined in multiple configurations)在多个配置中的数组大小不一致文件
+4. Inconsistent array sizes (when arrays are defined in multiple configurations)在多个配置中的数组大小不一致文件
   
-5、Accessibility and internationalization problems (hardcoded strings, missing contentDescription, etc)
+5. Accessibility and internationalization problems (hardcoded strings, missing contentDescription, etc)
   
-6、Icon problems (like missing densities, duplicate icons, wrong sizes, etc)
+6. Icon problems (like missing densities, duplicate icons, wrong sizes, etc)
   
-7、Usability problems (like not specifying an input type on a text field)
+7. Usability problems (like not specifying an input type on a text field)
   
-8、Manifest errors
+8. Manifest errors
   
 当然Android Lint远远不至检查以上的错误，更多的内容请参考《Android Lint 检查规则列表》
   

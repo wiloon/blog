@@ -67,19 +67,19 @@ usermod -s /sbin/nologin user0
 
 应用举例: 
   
-1、将 newuser2 添加到组 staff 中
+1. 将 newuser2 添加到组 staff 中
 
 # usermod -G staff newuser2
 
-2、修改 newuser 的用户名为 newuser1
+2. 修改 newuser 的用户名为 newuser1
 
 # usermod -l newuser1 newuser
 
-3、锁定账号 newuser1
+3. 锁定账号 newuser1
 
 # usermod -L newuser1
 
-4、解除对 newuser1 的锁定
+4. 解除对 newuser1 的锁定
 
 # usermod -U newuser1
 
@@ -167,7 +167,7 @@ su - USERNAME切换用户后，同时切换到新用户的工作环境中
 
 su USERNAME切换用户后，不改变原用户的工作目录，及其他环境变量目录
 
-2、删除用户（userdel命令) 
+2. 删除用户（userdel命令) 
   
 语法: userdel [-r] [要删除的用户的名称]
   
@@ -191,7 +191,7 @@ su USERNAME切换用户后，不改变原用户的工作目录，及其他环境
 
 与用户相关的系统配置文件主要有/etc/passwd 和/etc/shadow，其中/etc/shadow是用户资讯的加密文件，比如用户的密码口令的加密保存等；/etc/passwd 和/etc/shadow 文件是互补的；我们可以通过对比两个文件来差看他们的区别；
 
-1、关于/etc/passwd 和 UID；
+1. 关于/etc/passwd 和 UID；
 
 /etc/passwd 是系统识别用户的一个文件，做个不恰当的比喻，/etc/passwd 是一个花名册，系统所有的用户都在这里有登录记载；当我们以beinan 这个账号登录时，系统首先会查阅 /etc/passwd 文件，看是否有beinan 这个账号，然后确定beinan的UID，通过UID 来确认用户和身份，如果存在则读取/etc/shadow 影子文件中所对应的beinan的密码；如果密码核实无误则登录系统，读取用户的配置文件；
 
@@ -235,7 +235,7 @@ UID是唯一性，只是要求管理员所做的，其实我们修改/etc/passwd
 
 在Fedora 系统会把前499 个UID和GID 预留出来，我们添加新用户时的UID 从500开始的，GID也是从500开始，至于其它系统，有的系统可能会把前999UID和GID预留出来；以各个系统中/etc/login.defs 中的 UID_MIN 的最小值为准； Fedora 系统 login.defs的UID_MIN是500，而UID_MAX 值为60000，也就是说我们通过adduser默认添加的用户的UID的值是500到60000之间；而Slackware 通过adduser不指定UID来添加用户，默认UID 是从1000开始；
 
-2、关于/etc/shadow ；
+2. 关于/etc/shadow ；
 
 1) /etc/shadow 概说；
 
@@ -307,13 +307,13 @@ linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
 
 具有某种共同特征的用户集合起来就是用户组（Group) 。用户组（Group) 配置文件主要有 /etc/group和/etc/gshadow，其中/etc/gshadow是/etc/group的加密信息文件；在本标题下，您还能了解到什么是GID ；
 
-1、/etc/group 解说；
+1. /etc/group 解说；
 
 /etc/group 文件是用户组的配置文件，内容包括用户和用户组，并且能显示出用户是归属哪个用户组或哪几个用户组，因为一个用户可以归属一个或多个不同的用户组；同一用 户组的用户之间具有相似的特征。比如我们把某一用户加入到root用户组，那么这个用户就可以浏览root用户家目录的文件，如果root用户把某个文件 的读写执行权限开放，root用户组的所有用户都可以修改此文件，如果是可执行的文件（比如脚本) ，root用户组的用户也是可以执行的；
 
 用户组的特性在系统管理中为系统管理员提供了极大的方便，但安全性也是值得关注的，如某个用户下有对系统管理有最重要的内容，最好让用户拥有独立的用户组，或者是把用户下的文件的权限设置为完全私有；另外root用户组一般不要轻易把普通用户加入进去，
 
-2、/etc/group 内容具体分析
+2. /etc/group 内容具体分析
 
 /etc/group 的内容包括用户组（Group) 、用户组口令、GID及该用户组所包含的用户（User) ，每个用户组一条记录；格式如下: 
 
@@ -351,7 +351,7 @@ helloer:x:502:503::/home/helloer:/bin/bash
   
 由此可以看出helloer用户组包括 helloer用户；所以我们查看一个用户组所拥有的用户，可以通过对比/etc/passwd和/etc/group来得到；
 
-2、关于GID ；
+2. 关于GID ；
 
 GID和UID类似，是一个正整数或0，GID从0开始，GID为0的组让系统付予给root用户组；系统会预留一些较靠前的GID给系统虚拟用户 （也被称为伪装用户) 之用；每个系统预留的GID都有所不同，比如Fedora 预留了500个，我们添加新用户组时，用户组是从500开始的；而Slackware 是把前100个GID预留，新添加的用户组是从100开始；查看系统添加用户组默认的GID范围应该查看 /etc/login.defs 中的 GID_MIN 和GID_MAX 值；
 
@@ -385,7 +385,7 @@ drwxrwxr-x 2 linuxsir linuxsir 4.0K 10月 17 11:42 testdir
 
 但值得注意的是，判断用户的访问权限时，默认的GID 并不是最重要的，只要一个目录让同组用户可以访问的权限，那么同组用户就可以拥有该目录的访问权，在这时用户的默认GID 并不是最重要的；
 
-3、/etc/gshadow 解说；
+3. /etc/gshadow 解说；
 
 /etc/gshadow是/etc/group的加密资讯文件，比如用户组（Group) 管理密码就是存放在这个文件。/etc/gshadow 和/etc/group是互补的两个文件；对于大型服务器，针对很多用户和组，定制一些关系结构比较复杂的权限模型，设置用户组密码是极有必要的。比如我 们不想让一些非用户组成员永久拥有用户组的权限和特性，这时我们可以通过密码验证的方式来让某些用户临时拥有一些用户组特性，这时就要用到用户组密码；
 
@@ -449,7 +449,7 @@ drwxrwxr-x 2 beinan beinan 4096 10月 18 15:56 beinangrouptest
 
 三、通过用户和用户组配置文件来查询或管理用户；
 
-1、用户和用户组查询的方法；
+1. 用户和用户组查询的方法；
 
 1) 通过查看用户（User) 和用户组的配置文件的办法来查看用户信息
 
@@ -559,7 +559,7 @@ linuxsir : linuxsir root beinan
   
 注: 这是通过groups 同时查看了用户beinan和linuxsir所归属的组；
 
-2、通过修改用户（User) 和用户组（Group) 配置文件的办法来添加；
+2. 通过修改用户（User) 和用户组（Group) 配置文件的办法来添加；
 
 由于我们已经在前面说过，可以通过修改配置文件的办法来管理用户，所以此主题应该包括此内容；当然通过用户及用户组管理工具（比如 adduser、userdel、usermod 、userinfo、groupadd 、groupdel 、groupmod等) 也是可以的，通过管理工具对用户的管理我们将要在专门一篇文章中介绍；
 
@@ -691,7 +691,7 @@ drwxrwxr-x 2 lanhaitun lanhaitun 4.0K 10月 18 15:16 testdir
   
 通过上面一系列动作，我们会发现所创建的lanhaitun用户已经成功；
 
-2、通过修改用户（User) 和用户组（Group) 配置文件的办法来修改用户或用户组；
+2. 通过修改用户（User) 和用户组（Group) 配置文件的办法来修改用户或用户组；
 
 我们可以修改/etc/passwd 和/etc/group 来达到修改用户和用户所归属的组，这个过程和添加新用户时差不多；比如我想修改lanhaitun的用户名全称、公司以及电话等信息；我们可以修改/etc/passwd 实现；
 

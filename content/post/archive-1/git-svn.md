@@ -202,13 +202,13 @@ git svn dcommit
 
 ### 冲突的处理
 
-1、使用 $git rebase --abort
+1. 使用 $git rebase --abort
 
 执行之后,本地内容会回到提交之间的状态,也就是回到以前提交但没有pull是的状态,简单来说就是撤销rebase。
 
  
 
-2、使用 $git rebase --skip
+2. 使用 $git rebase --skip
 
 git rebase --skip 引起冲突的commits会被丢弃,对于本文应用的例子来说开发者A对c.sh文件的commit无效,开发者A自己修改的部分全部无效,因此,在使用skip时请慎重。
 
@@ -216,7 +216,7 @@ git rebase --skip 引起冲突的commits会被丢弃,对于本文应用的例子
 
 查看本地c.sh文件提交内容,展示如下图所示,执行语句之后开发者A的修改无效。
 
-3、使用 $git rebase --continue
+3. 使用 $git rebase --continue
 
 执行完$git pull --rebase 之后,本地如果产生冲突,手动解决冲突之后,用"git add"命令去更新这些内容的索引(index),然后只要执行:
 

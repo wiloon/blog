@@ -109,11 +109,11 @@ void onDestroy()
 
 通过实现这三个生命周期方法，你可以监听service的两个嵌套循环的生命周期: 
 
-1、整个生命周期
+1. 整个生命周期
 
 service的整个生命周期是在onCreate()和onDestroy()方法之间。和activity一样，在onCreate()方法里初始化，在onDestroy()方法里释放资源。例如，一个背景音乐播放服务可以在onCreate()方法里播放，在onDestroy()方法里停止。
 
-2、活动的生命周期
+2. 活动的生命周期
 
 service的活动生命周期是在onStart()之后，这个方法会处理通过startServices()方法传递来的Intent对象。音乐service可以通过开打intent对象来找到要播放的音乐，然后开始后台播放。注:  service停止时没有相应的回调方法，即没有onStop()方法，只有onDestroy()销毁方法。
 

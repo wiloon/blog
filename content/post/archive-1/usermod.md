@@ -21,19 +21,19 @@ usermod -s /sbin/nologin user0
 
 应用举例: 
   
-1、将 newuser2 添加到组 staff 中
+1. 将 newuser2 添加到组 staff 中
 
 # usermod -G staff newuser2
 
-2、修改 newuser 的用户名为 newuser1
+2. 修改 newuser 的用户名为 newuser1
 
 # usermod -l newuser1 newuser
 
-3、锁定账号 newuser1
+3. 锁定账号 newuser1
 
 # usermod -L newuser1
 
-4、解除对 newuser1 的锁定
+4. 解除对 newuser1 的锁定
 
 # usermod -U newuser1
 

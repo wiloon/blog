@@ -14,11 +14,11 @@ http://hi.baidu.com/starhuo/blog/item/cddb59eeec8cd7f7b3fb955f.html
 
 解决步骤: 
 
-1、进入项目目录，可看到.project文件，打开。
+1. 进入项目目录，可看到.project文件，打开。
 
-2、找到<natures>...</natures>代码片段。
+2. 找到<natures>...</natures>代码片段。
 
-3、在第2步的代码片段中加入如下标签内容并保存: 
+3. 在第2步的代码片段中加入如下标签内容并保存: 
 
 <nature>org.eclipse.wst.common.project.facet.core.nature</nature>
   
@@ -26,8 +26,8 @@ http://hi.baidu.com/starhuo/blog/item/cddb59eeec8cd7f7b3fb955f.html
   
 <nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
 
-4、在eclipse的项目上点右键，刷新项目。
+4. 在eclipse的项目上点右键，刷新项目。
 
-5、在项目上点右键，进入属性（properties) 
+5. 在项目上点右键，进入属性（properties) 
 
-6、在左侧列表项目中点击选择"Project Facets"，在右侧选择"Dynamic Web Module"和"Java"，点击OK保存即可。
+6. 在左侧列表项目中点击选择"Project Facets"，在右侧选择"Dynamic Web Module"和"Java"，点击OK保存即可。

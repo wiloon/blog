@@ -23,9 +23,9 @@ bytes from one part of a Java program to another.)
 
 流从哪里来？
 通常流来自于: 
-1、网络
-2、文件
-3、java内部程序
+1. 网络
+2. 文件
+3. java内部程序
 
 InputStream（输入流) : 
 InputStream作为java中用于读取流中字节的顶层抽象类，定义了一些方法: 
@@ -35,15 +35,15 @@ public int read(byte b[]) throws IOException {
         return read(b, 0, b.length);
 }
 有三个read方法用来读取字节: 
-1、第一个抽象方法交由子类来实现，读取一个无符号字节，由于java本身没有无符号字节的基本类型，所以用int作为返回值。当返回-1时表示到了流的结尾，这也是需要返回int的原因之一（因为带符号的byte有可能是-1) 
+1. 第一个抽象方法交由子类来实现，读取一个无符号字节，由于java本身没有无符号字节的基本类型，所以用int作为返回值。当返回-1时表示到了流的结尾，这也是需要返回int的原因之一（因为带符号的byte有可能是-1) 
 
-2、
+2. 
 作用:  从流中读取字节数组，通常一个一个字节的读效率相当低下，可指定数组中开始的偏移位置off，长度len
 参数:  保存字节的字节数组、偏移量、长度。
 返回值:  实际读到的字节数（-1为末尾) 
 默认的实现依赖于第一个抽象方法，就是循环调用读取一个无符号字节。所以效率不是很高，通常会有的子类以更高效的方式来重写。
 
-3、
+3. 
 作用:  从流中读取字节数组，通常一个一个字节的读效率相当低下。
 参数:  保存字节的字节数组
 返回值:  实际读到的字节数（-1为末尾) 
@@ -62,7 +62,7 @@ public void close() throws IOException
 作用:  用完流之后，关闭流，但并不是所有的流都需要关闭，比如说System.in。
 
 关闭流的最佳实践: 
-1、在finally中关闭
+1. 在finally中关闭
 
 .
     InputStream in = null;
@@ -80,7 +80,7 @@ public void close() throws IOException
     
         }
     }
-2、java7支持try-with-resources方式关闭流，实现了java.lang.AutoCloseable接口的对象支持用这种方式
+2. java7支持try-with-resources方式关闭流，实现了java.lang.AutoCloseable接口的对象支持用这种方式
 
 .
     try (InputStream in = new ....){
@@ -112,13 +112,13 @@ public void write(byte[] data, int offset, int length) throws IOException
 public void write(byte[] data) throws IOException
 有三个write方法用来向流中写字节: 
 
-1、第一个是抽象方法交由子类实现，向流中写入一个无符号字节（0-255) ，如果超过255只会取低八位的字节。
+1. 第一个是抽象方法交由子类实现，向流中写入一个无符号字节（0-255) ，如果超过255只会取低八位的字节。
 
-2、作用:  向流中写入字节数组，可以指定数组中起始的偏移位置和长度。
+2. 作用:  向流中写入字节数组，可以指定数组中起始的偏移位置和长度。
 参数:  写入的字符数组、起始的偏移位置、长度
 默认的实现是循环调用第一个方法一个一个写入，但是效率极其低下，子类一般会有更高效的方式
 
-3、作用:  向流中写入字节数组
+3. 作用:  向流中写入字节数组
 参数:  写入的字符数组
 默认的实现是调用第二个write()方法write(b, 0, b.length);
 

@@ -18,11 +18,11 @@ mybatis不是ibatis的升级版，只是一个家族出来的，长得像而已�
 
 升级流程如下: 
 
-1、移出项目中的ibatis相关包: 
+1. 移出项目中的ibatis相关包: 
 
 ibatis相关包其实只有一个包，即: ibatis-sqlmap-x.x.x.jar，各项目因版本而；如果项目同时使用了spring集成包spring-orm-x.x.x.jar，也一并移出。
 
-2、引入mybatis相关包依赖到项目中: 
+2. 引入mybatis相关包依赖到项目中: 
 
 mybatis相关包其实只有一个包，即: mybatis-x.x.x.jar，但我们一般是和spring一起集成使用mybatis的，这样能方便使用spring提供的事务管理特性，所以还需要引入mybatis-spring-x.x.x.jar
 
@@ -48,7 +48,7 @@ mybatis-spring</artifactId>
    
 </dependency>
   
-3、移出项目中的ibatis相关配置及文件（与spring集成为样例) : 
+3. 移出项目中的ibatis相关配置及文件（与spring集成为样例) : 
 
 <bean id="sqlMapClient" class="com.common.sqlmap.DynSqlMapClientFactoryBean"> <property name="configLocations">  <value>classpath:common-sqlmap-config.xml</value>
       
@@ -56,7 +56,7 @@ mybatis-spring</artifactId>
   
 同时移出common-sqlmap-config.xml和ibatis-sqlmap-config.xml
 
-4、在项目中添加mybatis的相关配置及文件: 
+4. 在项目中添加mybatis的相关配置及文件: 
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -86,37 +86,37 @@ mybatis-config.xml样例
   
 </configuration>
   
-5、创建mybatis的SQL映射文件: 
+5. 创建mybatis的SQL映射文件: 
 
 mybatis的SQL映射文件可以从原来ibatis的SQL映射文件拷贝过来，做如下升级修改: 
 
-1、 变为
+1.  变为
   
-2、sqlMap 变为 mapper
+2. sqlMap 变为 mapper
   
-3、mapper标签命名空间namespace最好是全类名，这样方便扫描配置使用（通过MapperScannerConfigurer) 
+3. mapper标签命名空间namespace最好是全类名，这样方便扫描配置使用（通过MapperScannerConfigurer) 
   
-4、typeAlias标签在mybatis的已不支持，可放入公共配置文件的typeAliases标签中
+4. typeAlias标签在mybatis的已不支持，可放入公共配置文件的typeAliases标签中
   
-5、resultMap标签中的属性变化 class 变为 type
+5. resultMap标签中的属性变化 class 变为 type
   
-6、jdbcType值在mybatis不支持LONG 变为 BIGINT，Boolean 变为 BOOLEAN
+6. jdbcType值在mybatis不支持LONG 变为 BIGINT，Boolean 变为 BOOLEAN
   
-7、resultMap标签中result标签移出属性nullValue
+7. resultMap标签中result标签移出属性nullValue
   
-8、insert select、update、delete标签中的属性 parameterClass 变为 parameterType，resultClass 变为 resultType
+8. insert select、update、delete标签中的属性 parameterClass 变为 parameterType，resultClass 变为 resultType
   
-9、#appName:VARCHAR# 变为 #{appName,jdbcType=VARCHAR} ，自己领悟^=^
+9. #appName:VARCHAR# 变为 #{appName,jdbcType=VARCHAR} ，自己领悟^=^
   
-10、#appName# 变为 #{appName} ，自己领悟^=^
+10. #appName# 变为 #{appName} ，自己领悟^=^
   
-11、 变为 会自动处理所有条件的第一个and，即切掉
+11.  变为 会自动处理所有条件的第一个and，即切掉
   
-12、… 变为 and …， 要放在where标签里才能处理条件的第一个and
+12. … 变为 and …， 要放在where标签里才能处理条件的第一个and
   
-13、… 变为 and …，mybatis是基于OGNL表达试比较的
+13. … 变为 and …，mybatis是基于OGNL表达试比较的
   
-14、userIds[]userIds[] 变为 ${item}
+14. userIds[]userIds[] 变为 ${item}
 
 以上列举的只是涵盖大部分的修改，如有有未提及需要进一步完善总结。
 
@@ -128,7 +128,7 @@ Mapper XML 文件 http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html
   
 动态 SQL http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
 
-6、删除dao的实现类及配置
+6. 删除dao的实现类及配置
 
 升级mybatis后是可以不需要dao的实现类的，使用MapperScannerConfigurer扫描加载（见步骤4中的配置) ，等价升级完dao在service中的使用后，删除dao实现类。
 

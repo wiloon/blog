@@ -205,7 +205,7 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestURI
 
 例二、      进行编码的修正，当有新的请求时，需要将用户传送过来的字符进行重新编码，以使其可以满足服务器的编码格式。
 
-1、   编写EncodingFilter类
+1.    编写EncodingFilter类
 
 
   package test.filter;
@@ -368,7 +368,7 @@ context.log(" 请求被定位到" + ((HttpServletRequest) request).getRequestURI
 
 例三、用户权限的认证，当用户发送请求时，可以对用户的身份信息进行验证，如果能够通过验证则接下来再进行其它操作，否则直接不进入下一步的处理。
 
-1、   编写身份认证SecurityFilter类
+1.    编写身份认证SecurityFilter类
 
 
   package test.filter;

@@ -17,7 +17,7 @@ iwconfig wlan0 essid your essid iwconfig wlan0 key s:yourpass iwconfig wlan0 mod
 
 lwe是linux下对无线网络配置的工具，包括内核的支持、用户层配置工具和驱动接口的支持三部 分。目前很多无线网卡都支持lwe，而且主流的linux发布版本，比如redhat linux、ubuntu linux都已经带了这个配置工具。
 
-1、iwconfig 用法:
+1. iwconfig 用法:
 
 iwconfig interface [essid {nn|on|off}] [nwid {nn|on|off}] [mode {managed|ad-hoc|...} [freq n.nnnn[k|m|g]] [channel n] [ap {n|off|auto}] [sens n] [nick n] [rate {n|auto|fixed}] [rts {n|auto|fixed|off}] [frag {n|auto|fixed|off}] [enc {nnnn-nnnn|off}] [power {period n|timeout n}] [retry {limit n|lifetime n}] [txpower n {mw|dbm}] [commit]
 

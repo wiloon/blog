@@ -121,9 +121,9 @@ jackson-mapper-asl-1.9.2.jar
 
 查资料表明,不是JAR的版本问题,网友解答描述: 
 
-1、spring 3.2时requestedMediaTypes却为[text language="/html"][/text]的情况报406错误,还有一个原因可能是由于采用的后缀有关,如果使用\*.htm,\*.html等,默认就会采用[text language="/html"][/text]编码,若改成\*.json,\*.shtml等就OK
+1. spring 3.2时requestedMediaTypes却为[text language="/html"][/text]的情况报406错误,还有一个原因可能是由于采用的后缀有关,如果使用\*.htm,\*.html等,默认就会采用[text language="/html"][/text]编码,若改成\*.json,\*.shtml等就OK
 
-2、3.2.4 也遇到这个问题。修改ajax 请求的后缀为json 或者其他就可以了。他还是会优先根据url请求的后缀决定请求类型。所以你看到的一直是[text language="/html"][/text]
+2. 3.2.4 也遇到这个问题。修改ajax 请求的后缀为json 或者其他就可以了。他还是会优先根据url请求的后缀决定请求类型。所以你看到的一直是[text language="/html"][/text]
 
 **所以,将访问路径从http://localhost:8080/demo/type.htm改为http://localhost:8080/demo/type.json即可。
   

@@ -134,9 +134,9 @@ newScheduledThreadPool: 创建一个大小无限的线程池。此线程池支�
   
 缓存线程池与固定线程池的区别在于对于需要执行很多短期异步任务的程序来说，缓存线程池可以提高程序性能，因为长时间保持空闲的这种类型的线程池不会占用任何资源，调用缓存线程池对象将重用以前构造的线程（线程可用状态) ，若线程没有可用的，则创建一个新线程添加到池中，缓存线程池将终止并从池中移除60秒未被使用的线程。
 
-1、shutdown方法: 这个方法会平滑地关闭ExecutorService，当我们调用这个方法时，ExecutorService停止接受任何新的任务且等待已经提交的任务执行完成(已经提交的任务会分两类: 一类是已经在执行的，另一类是还没有开始执行的)，当所有已经提交的任务执行完毕后将会关闭ExecutorService。这里我们先不举例在下面举例。
+1. shutdown方法: 这个方法会平滑地关闭ExecutorService，当我们调用这个方法时，ExecutorService停止接受任何新的任务且等待已经提交的任务执行完成(已经提交的任务会分两类: 一类是已经在执行的，另一类是还没有开始执行的)，当所有已经提交的任务执行完毕后将会关闭ExecutorService。这里我们先不举例在下面举例。
 
-2、awaitTermination方法: 这个方法有两个参数，一个是timeout即超时时间，另一个是unit即时间单位。这个方法会使线程等待timeout时长，当超过timeout时间后，会监测ExecutorService是否已经关闭，若关闭则返回true，否则返回false。一般情况下会和shutdown方法组合使用。
+2. awaitTermination方法: 这个方法有两个参数，一个是timeout即超时时间，另一个是unit即时间单位。这个方法会使线程等待timeout时长，当超过timeout时间后，会监测ExecutorService是否已经关闭，若关闭则返回true，否则返回false。一般情况下会和shutdown方法组合使用。
 
 ThreadPoolExecutor
 

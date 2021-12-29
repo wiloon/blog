@@ -31,11 +31,11 @@ PC平台现在已存在大量的标准的加壳和解壳工具,但是Android作�
 
 在这个过程中,牵扯到三个角色: 
 
-1、加壳程序: 加密源程序为解壳数据、组装解壳程序和解壳数据
+1. 加壳程序: 加密源程序为解壳数据、组装解壳程序和解壳数据
 
-2、解壳程序: 解密解壳数据,并运行时通过DexClassLoader动态加载
+2. 解壳程序: 解密解壳数据,并运行时通过DexClassLoader动态加载
 
-3、源程序: 需要加壳处理的被保护代码
+3. 源程序: 需要加壳处理的被保护代码
 
 阅读该文章,需要您对DEX文件结构有所了解,您可以通过以下网址了解相关信息: 
 
@@ -53,22 +53,22 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 
 加壳程序工作流程: 
 
-1、加密源程序APK文件为解壳数据
+1. 加密源程序APK文件为解壳数据
 
-2、把解壳数据写入解壳程序Dex文件末尾,并在文件尾部添加解壳数据的大小。
+2. 把解壳数据写入解壳程序Dex文件末尾,并在文件尾部添加解壳数据的大小。
 
-3、修改解壳程序DEX头中checksum、signature 和file_size头信息。
+3. 修改解壳程序DEX头中checksum、signature 和file_size头信息。
 
-4、修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。
+4. 修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。
 
 
 解壳DEX程序工作流程: 
 
-1、读取DEX文件末尾数据获取借壳数据长度。
+1. 读取DEX文件末尾数据获取借壳数据长度。
 
-2、从DEX文件读取解壳数据,解密解壳数据。以文件形式保存解密数据到a.APK文件
+2. 从DEX文件读取解壳数据,解密解壳数据。以文件形式保存解密数据到a.APK文件
 
-3、通过DexClassLoader动态加载a.apk。
+3. 通过DexClassLoader动态加载a.apk。
 
 
 （二) 解壳数据位于解壳程序文件头
@@ -79,26 +79,26 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 
 加壳程序工作流程: 
 
-1、加密源程序APK文件为解壳数据
+1. 加密源程序APK文件为解壳数据
 
-2、计算解壳数据长度,并添加该长度到解壳DEX文件头末尾,并继续解壳数据到文件头末尾。
+2. 计算解壳数据长度,并添加该长度到解壳DEX文件头末尾,并继续解壳数据到文件头末尾。
 
 （插入数据的位置为0x70处) 
 
-3、修改解壳程序DEX头中checksum、signature、file_size、header_size、string_ids_off、type_ids_off、proto_ids_off、field_ids_off、
+3. 修改解壳程序DEX头中checksum、signature、file_size、header_size、string_ids_off、type_ids_off、proto_ids_off、field_ids_off、
 
 method_ids_off、class_defs_off和data_off相关项。 分析map_off 数据,修改相关的数据偏移量。
 
-4、修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。
+4. 修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。
 
 
 解壳DEX程序工作流程: 
 
-1、从0x70处读取解壳数据长度。
+1. 从0x70处读取解壳数据长度。
 
-2、从DEX文件读取解壳数据,解密解壳数据。以文件形式保存解密数据到a.APK
+2. 从DEX文件读取解壳数据,解密解壳数据。以文件形式保存解密数据到a.APK
 
-3、通过DexClassLoader动态加载a.APK。
+3. 通过DexClassLoader动态加载a.APK。
 
 
 四、加壳及脱壳代码实现

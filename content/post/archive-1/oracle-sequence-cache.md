@@ -20,7 +20,7 @@ http://blog.itpub.net/17203031/viewspace-717042/
 那么，这个Cache参数对Sequence的使用带来什么好处？如果不设置，会有什么问题。本篇我们就一起来探讨这个问题。
 
 
-1、Sequence Cache简析
+1. Sequence Cache简析
 
 
 简单的说，Cache就是Oracle每次向Sequence进行请求时，分配出的独立数字数量。例如，当我们使用<seq_name>.nextval获取一个独立值时，Oracle需要将sequence对象的数据字典信息更新。如果我们设置cache为10，那么第一次请求nextval的时候，就更新数据字典信息增加10，取出的10个号放在Oracle服务器的缓存中。
@@ -38,7 +38,7 @@ http://blog.itpub.net/17203031/viewspace-717042/
 如果我们不设置cache，也就是不启用序列数字缓存机制，有什么缺点呢？
 
 
-2、过多的Redo Log生成
+2. 过多的Redo Log生成
 
 
 我们首先从Redo的统计情况入手，看看cache在这个过程中的影响。我们选择Oracle 10g作为实验环境。
@@ -419,7 +419,7 @@ NEXTVAL
 从redo size动作，我们猜测在nextval的时候存在数据字典的频繁更新风险。
 
 
-3、潜在的行锁争用（row lock contention) 
+3. 潜在的行锁争用（row lock contention) 
 
 
 我们猜测在nextval的时候，Oracle做了些什么。于是，我们选择10046事件，跟踪设置cache和不设置cache的两种sequence，在底层递归调用的行为。
@@ -998,7 +998,7 @@ STAT #2 id=2 cnt=1 pid=1 pos=1 bj=0 p='FAST DUAL  (cr=0 pr=0 pw=0 time=10 us)'
 所以，一般情况下，我们建议设置一个较大的cache值，用于进行性能的优化。
 
 
-4、写在后面的话
+4. 写在后面的话
 
 
 本篇解析了在单实例环境下，cache对于sequence的重要性。在RAC环境下，cache和noorder选项的作用更大。在RAC中，多个实例争用情况会让sequence设计的不合理效果放大。所以，在没有特殊情况下，还是设置合理的cache值，减少系统潜在性能瓶颈。

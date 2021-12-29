@@ -46,15 +46,15 @@ EOF
   
 三、其他写法
   
-1、追加文件
+1. 追加文件
 
 # cat << EOF >> test.sh
 
-2、换一种写法
+2. 换一种写法
 
 # cat > test.sh << EOF
 
-3、EOF只是标识,不是固定的
+3. EOF只是标识,不是固定的
 
 # cat << HHH > iii.txt
 
@@ -78,7 +78,7 @@ sdkjflk
   
 asdlfj
 
-4、非脚本中
+4. 非脚本中
   
 如果不是在脚本中,我们可以用Ctrl-D输出EOF的标识
 

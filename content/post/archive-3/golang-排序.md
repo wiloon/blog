@@ -24,7 +24,7 @@ c++ 的 sort 的用法:  sort(data, data+n, cmp_int); data 是第一个元素的
 
 基本类型排序(int、float64 和 string)
   
-1、升序排序
+1. 升序排序
   
 对于 int 、 float64 和 string 数组或是分片的排序， go 分别提供了 sort.Ints() 、 sort.Float64s() 和 sort.Strings() 函数， 默认都是从小到大排序。
 

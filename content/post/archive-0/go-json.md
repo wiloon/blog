@@ -50,7 +50,7 @@ http://www.cnblogs.com/fengbohello/p/4665883.html
 
 本文介绍如何使用Go语言自带的库把对象转换为JSON格式，并在channel中进行传输后，并把JSON格式的信息转换回对象。
 
-1、Go语言的JSON 库
+1. Go语言的JSON 库
   
 Go语言自带的JSON转换库为 encoding/json
   
@@ -108,7 +108,7 @@ func Unmarshal(data [] byte, v interface{}) error
 
 注意: 在Go的标准库encoding/json包中，允许使用map[string]interface{}和[]interface{} 类型的值来分别存放未知结构的JSON对象或数组
 
-2、代码实例
+2. 代码实例
 
 假设我们有如下一个类（结构体) student 及其一个实例对象st: 
 

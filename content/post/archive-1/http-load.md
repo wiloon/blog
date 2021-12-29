@@ -72,7 +72,7 @@ code 200 - 49
 
 5．msecs/first-response: 63.5362 mean, 81.624 max, 57.803 min
 
-6、HTTP response codes: code 200 - 49
+6. HTTP response codes: code 200 - 49
   
 说明打开响应页面的类型,如果403的类型过多,那可能要注意是否系统遇到了瓶颈。
   

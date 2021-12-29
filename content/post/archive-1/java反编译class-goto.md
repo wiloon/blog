@@ -29,16 +29,16 @@ http://jd.benow.ca/
 工具使用jad(还有joda,jd等工具)
 
 
-1、使用jad反编译class文件，jad可以配置到eclipse中当做插件，直接下载jad的eclipse插件jar包，放在eclipse的plugin目录下即可。把下载的jad.exe放在JAVA_HOME的bin下。然后eclipse中点击class文件即可查看到源码。
+1. 使用jad反编译class文件，jad可以配置到eclipse中当做插件，直接下载jad的eclipse插件jar包，放在eclipse的plugin目录下即可。把下载的jad.exe放在JAVA_HOME的bin下。然后eclipse中点击class文件即可查看到源码。
 
 
-2、使用其他工具，FrontEnd Plus集成了jad的java反编译工具，支持多个文件的反编译，也支持各种选项。
+2. 使用其他工具，FrontEnd Plus集成了jad的java反编译工具，支持多个文件的反编译，也支持各种选项。
 
 
 矫正反编译代码错误和奇怪代码
 
 
-1、异常错误
+1. 异常错误
 
 
 反编译之后出入类似如下代码: 
@@ -80,7 +80,7 @@ e;
 这种处理方式就是异常处理，反编译之后出现的这种情况，修改的时候使用try catch即可，其实完全可以将这块删除之后，然后eclipse会自动提示需要添加异常处理的模块，自动try catch即可。
 
 
-2、语句标号（goto) 
+2. 语句标号（goto) 
 
 
 这种情况常见于条件语句，即转化为if，else语句即可，这种比较容易判断。
@@ -131,7 +131,7 @@ g.dispose();
 }
 
 
-3、jvm代码信息错误
+3. jvm代码信息错误
 
 
 String rand = backStr[random.nextInt(backStr.length)];
@@ -179,7 +179,7 @@ this.sRand += rand;
 当然，对这段代码进行分析一下即可看出，分析的时候需要结合下面4中讲解的字符串拼接翻译器代码，从这段混乱的代码中可以看到，有this和sRand，这种可以看出是操作了this的sRand变量，下面的jvm instr是创建了一个stringBuilder的的变量，实际这个变量是保存了this的sRand字符串。最后是append了一个rand变量，然后把这个变量又赋值给了this的sRand。
 
 
-4、字符串拼接的代码
+4. 字符串拼接的代码
 
 
 (new StringBuilder(String.valueOf(prefix))).append(file).toString();
@@ -194,7 +194,7 @@ prefix + file
 所有字符串拼接都是转为StringBuilder使用append拼接之后然后toString。
 
 
-5、continue关键字
+5. continue关键字
 
 
 这种常常会隐含逻辑错误，但是编译并不报错，这种问题最难发现。这种的反编译一般伴随着大段的循环代码，然后反编译之后会将循环代码或者if代码转成goto语句（参见2) ，然后在某个情况之下不需要继续执行，便使用continue截断代码执行路径。代码出现如下情况。
@@ -206,7 +206,7 @@ continue; /* Loop/switch isn't completed */
 这样的代码出现的时候，并没有报语法的错误，我遇到这种情况之后，程序运行之后结果出错，最后将程序中的这个反编译问题找了出来，将continue修改成break语句正常了。这样的问题常常会出现在while循环中，可能反编译出来的程序丢失了while循环，变成了if语句，常常是迭代器循环的时候，非常容易出现这种情况。
 
 
-6、迭代器循环
+6. 迭代器循环
 
 
 迭代器循环反编译之后常出险两种情况，一种容易引起逻辑上的错误，一种没有逻辑和语法上的错误，只不过不是原来代码的写法而已。

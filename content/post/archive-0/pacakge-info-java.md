@@ -25,11 +25,11 @@ http://strong-life-126-com.iteye.com/blog/806246
   
 这个文件的特殊性说完了，那再说说它有什么作用，它有三个作用: 
   
-1、为标注在包上Annotation提供便利；
+1. 为标注在包上Annotation提供便利；
   
-2、声明友好类和包常量；
+2. 声明友好类和包常量；
   
-3、提供包的整体注释说明。
+3. 提供包的整体注释说明。
       
 我们来建立一个项目演示这三个作用，建立一个package-info的Java Project，在com.company包三个类:package-info.java 是我们重点关注的，PkgAnnotation.java是一个标注在包上的注解定义，Client.java模拟业务操作类。其结构如下图: 
 

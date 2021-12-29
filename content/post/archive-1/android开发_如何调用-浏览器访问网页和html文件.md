@@ -32,7 +32,7 @@ startActivity(intent);
 
 二、指定相应的浏览器访问
   
-1、指定android自带的浏览器访问
+1. 指定android自带的浏览器访问
 
 （ "com.android.browser": packagename   ；"com.android.browser.BrowserActivity": 启动主activity) 
   
@@ -48,7 +48,7 @@ intent.setClassName("com.android.browser","com.android.browser.BrowserActivity")
   
 startActivity(intent);
 
-2、启动其他浏览器（当然该浏览器必须安装在机器上) 
+2. 启动其他浏览器（当然该浏览器必须安装在机器上) 
   
 只要修改以下相应的packagename 和 主启动activity即可调用其他浏览器
 
@@ -85,7 +85,7 @@ startActivity(intent);
 
 大体的步骤如下: 
 
-1、打开 packages/apps/Browser/AndroidManifest.xml文件把加到相应的<intent-filter>后面就可以了
+1. 打开 packages/apps/Browser/AndroidManifest.xml文件把加到相应的<intent-filter>后面就可以了
 
 
 <intent-filter>
@@ -100,6 +100,6 @@ startActivity(intent);
   
 </intent-filter>
   
-2、重新编译打包，安装，这样子，新的浏览器就支持"file"这个形式了
+2. 重新编译打包，安装，这样子，新的浏览器就支持"file"这个形式了
   
 有兴趣的可以去试试。

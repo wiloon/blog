@@ -155,7 +155,7 @@ mkfs -t ext4 -c /dev/xvdb1    #格式化硬盘
 
 此文章以fdisk工具为例,对一个硬盘划分。
 
-1、fdisk -l 查看系统上的硬盘,找到需要分区的硬盘后比如说: /dev/sdb.
+1. fdisk -l 查看系统上的硬盘,找到需要分区的硬盘后比如说: /dev/sdb.
 
 然后,fdisk /dev/sdb
 
@@ -201,7 +201,7 @@ x   extra functionality (experts only) 注: 扩展应用,专家功能；
 
 具体每个参数的含义,请仔细阅读。常用的就是: d l m p q t w
 
-2、列出当前操作硬盘的分区情况,用p
+2. 列出当前操作硬盘的分区情况,用p
 
 Command (m for help): p
 
@@ -221,7 +221,7 @@ Device Boot      Start         End      Blocks   Id System
   
 /dev/sda6              51          76      200781   83 Linux
   
-3、通过fdisk的d指令来删除一个分区
+3. 通过fdisk的d指令来删除一个分区
 
 Command (m for help): p    注: 列出分区情况；
 
@@ -267,7 +267,7 @@ Command (m for help):
 
  
 
-4、通过fdisk的n指令增加一个分区
+4. 通过fdisk的n指令增加一个分区
 
  
 
@@ -321,7 +321,7 @@ Last cylinder or +size or +sizeM or +sizeK (51-125, default 125): +200M 注: 这
 
 Command (m for help):
   
-5、通过fdisk的t指令指定分区类型
+5. 通过fdisk的t指令指定分区类型
 
  
 
@@ -353,11 +353,11 @@ Device Boot      Start         End      Blocks   Id System
   
 /dev/sda6              51          75      201568+   b W95 FAT32
   
-6、fdisk 的退出,用q或者 w
+6. fdisk 的退出,用q或者 w
 
 其中 q是 不保存退出,w是保存退出
   
-7、一个添加分区的例子
+7. 一个添加分区的例子
 
 本例中我们会添加两个200M的主分区,其它为扩展分区,在扩展分区中我们添加两个200M大小的逻辑分区；
   

@@ -22,11 +22,11 @@ http://baike.baidu.com/view/650389.htm
   
 要进行交叉编译，我们需要在主机平台上安装对应的交叉编译工具链（cross compilation tool chain) ，然后用这个交叉编译工具链编译我们的源代码，最终生成可在目标平台上运行的代码。常见的交叉编译例子如下: 
   
-1、在Windows PC上，利用ADS（ARM 开发环境) ，使用armcc编译器，则可编译出针对ARM CPU的可执行代码。
+1. 在Windows PC上，利用ADS（ARM 开发环境) ，使用armcc编译器，则可编译出针对ARM CPU的可执行代码。
   
-2、在Linux PC上，利用arm-linux-gcc编译器，可编译出针对Linux ARM平台的可执行代码。
+2. 在Linux PC上，利用arm-linux-gcc编译器，可编译出针对Linux ARM平台的可执行代码。
   
-3、在Windows PC上，利用cygwin环境，运行arm-elf-gcc编译器，可编译出针对ARM CPU的可执行代码。
+3. 在Windows PC上，利用cygwin环境，运行arm-elf-gcc编译器，可编译出针对ARM CPU的可执行代码。
   
 编辑本段
   
@@ -52,23 +52,23 @@ xxx-xxxx-xxxxx 平台描述。
   
 如果你想自己生成交叉编译器，那你必须先准备下面这些东西
   
-1、磁盘空间。至少要500M左右的空间，如果想一气呵成的话，那就要900M-1G的空间。
+1. 磁盘空间。至少要500M左右的空间，如果想一气呵成的话，那就要900M-1G的空间。
   
-2、各种源代码。你至少要准备binutils-2.11.2、gcc-2.95.3、linux-2.4.6、newlib-1.8.2或glibc-2.2.2的源代码。
+2. 各种源代码。你至少要准备binutils-2.11.2、gcc-2.95.3、linux-2.4.6、newlib-1.8.2或glibc-2.2.2的源代码。
   
 如果你所使用的主机平台不是运行的linux，那你还必须注意以下这些问题
   
-1、GNU bash必须是默认shell，所以你也许得把/bin/sh改成bash。
+1. GNU bash必须是默认shell，所以你也许得把/bin/sh改成bash。
   
-2、你要确认已经安装了GNU bison，因为这些软经同样使用了bison扩展。
+2. 你要确认已经安装了GNU bison，因为这些软经同样使用了bison扩展。
   
-3、GNU gmake最好是系统默认得make，因为这些软件都使用了gmake扩展，如果不是，在需要make时，记得使用gmake。
+3. GNU gmake最好是系统默认得make，因为这些软件都使用了gmake扩展，如果不是，在需要make时，记得使用gmake。
   
-4、如果你想生成交叉glibc，则GNU gsed必须是默认sed，因为glibc会用到gsed的扩展。
+4. 如果你想生成交叉glibc，则GNU gsed必须是默认sed，因为glibc会用到gsed的扩展。
   
-5、如果你想生成交叉glibc，那还必须准备glibc-linuxthreads-2.2.2的源代码。
+5. 如果你想生成交叉glibc，那还必须准备glibc-linuxthreads-2.2.2的源代码。
   
-6、确认正确的路径搜索顺序，最好让GNU软件首先被执行。
+6. 确认正确的路径搜索顺序，最好让GNU软件首先被执行。
 
 四、怎样生成交叉编译器
 

@@ -16,7 +16,7 @@ http://www.importnew.com/19191.html
 
 而本文要说的一个重点就是HeapByteBuffer与DirectByteBuffer,以及如何合理使用DirectByteBuffer。
 
-1、HeapByteBuffer与DirectByteBuffer,在原理上,前者可以看出分配的buffer是在heap区域的,其实真正flush到远程的时候会先拷贝得到直接内存,再做下一步操作（考虑细节还会到OS级别的内核区直接内存) ,其实发送静态文件最快速的方法是通过OS级别的send_file,只会经过OS一个内核拷贝,而不会来回拷贝；在NIO的框架下,很多框架会采用DirectByteBuffer来操作,这样分配的内存不再是在java heap上,而是在C heap上,经过性能测试,可以得到非常快速的网络交互,在大量的网络交互下,一般速度会比HeapByteBuffer要快速好几倍。
+1. HeapByteBuffer与DirectByteBuffer,在原理上,前者可以看出分配的buffer是在heap区域的,其实真正flush到远程的时候会先拷贝得到直接内存,再做下一步操作（考虑细节还会到OS级别的内核区直接内存) ,其实发送静态文件最快速的方法是通过OS级别的send_file,只会经过OS一个内核拷贝,而不会来回拷贝；在NIO的框架下,很多框架会采用DirectByteBuffer来操作,这样分配的内存不再是在java heap上,而是在C heap上,经过性能测试,可以得到非常快速的网络交互,在大量的网络交互下,一般速度会比HeapByteBuffer要快速好几倍。
 
 最基本的情况下
 

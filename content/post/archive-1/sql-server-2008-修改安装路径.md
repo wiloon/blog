@@ -14,7 +14,7 @@ tags:
   
 **** 
 
-1、安装时如果修改安装路径后报错
+1. 安装时如果修改安装路径后报错
 
 > 例如想把"C:\Program Files\Microsoft SQL Server" 修改为"D:\Program Files\Microsoft SQL Server"
 > 

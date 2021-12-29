@@ -48,21 +48,21 @@ url: /?p=1778
 
 **linux 下 设置网桥的方式（主要步骤) : **
 
-1、创建网桥设备 br0:   brctl addbr br0
+1. 创建网桥设备 br0:   brctl addbr br0
 
-2、向br0中添加网卡 eth0  eth1
+2. 向br0中添加网卡 eth0  eth1
 
 brctl addif eth0
 
 brctl addif eth1
 
-3、从网桥中删除网卡 eth0 eth1
+3. 从网桥中删除网卡 eth0 eth1
 
 brctl delif eth0
 
 brctl delif eth1
 
-4、删除网桥 br0 :    brctl  delbr  br0
+4. 删除网桥 br0 :    brctl  delbr  br0
 
 **开机后自动搭建网络桥接脚本 （根据需要修改) : **
 

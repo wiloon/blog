@@ -98,7 +98,7 @@ if err != nil {
 
 对于客户端而言,连接的建立会遇到如下几种情形: 
 
-1、网络不可达或对方服务未启动
+1. 网络不可达或对方服务未启动
 
 如果传给Dial的Addr是可以立即判断出网络不可达,或者Addr中端口对应的服务没有启动,端口未被监听,Dial会几乎立即返回错误,比如: 
 
@@ -134,7 +134,7 @@ $go run client1.go
   
 2015/11/16 14:37:41 dial error: dial tcp :8888: getsockopt: connection refused
   
-2、对方服务的listen backlog满
+2. 对方服务的listen backlog满
 
 还有一种场景就是对方服务器很忙,瞬间有大量client端连接尝试向server建立,server端的listen backlog队列满,server accept不及时((即便不accept,那么在backlog数量范畴里面,connect都会是成功的,因为new conn已经加入到server side的listen queue中了,accept只是从queue中取出一个conn而已),这将导致client端Dial阻塞。我们还是通过例子感受Dial的行为特点: 
 
@@ -271,7 +271,7 @@ kern.ipc.somaxconn: 128
   
 而如果server运行在ubuntu 14.04上,client似乎一直阻塞,我等了10多分钟依旧没有返回。 阻塞与否看来与server端的网络实现和设置有关。
 
-3、网络延迟较大,Dial阻塞并超时
+3. 网络延迟较大,Dial阻塞并超时
 
 如果网络延迟较大,TCP握手过程将更加艰难坎坷（各种丢包) ,时间消耗的自然也会更长。Dial这时会阻塞,如果长时间依旧无法建立连接,则Dial也会返回" getsockopt: operation timed out"错误。
 
@@ -381,13 +381,13 @@ return n, err
   
 下面我们先来通过几个场景来总结一下conn.Read的行为特点。
 
-1、Socket中无数据
+1. Socket中无数据
 
 连接建立后,如果对方未发送数据到socket,接收方(Server)会阻塞在Read操作上,这和前面提到的"模型"原理是一致的。执行该Read操作的goroutine也会被挂起。runtime会监视该socket,直到其有数据才会重新
   
 调度该socket对应的Goroutine完成read。由于篇幅原因,这里就不列代码了,例子对应的代码文件: go-tcpsock/read_write下的client1.go和server1.go。
 
-2、Socket中有部分数据
+2. Socket中有部分数据
 
 如果socket中有部分数据,且长度小于一次Read操作所期望读出的数据长度,那么Read将会成功读出这部分数据并返回,而不是等待所有期望数据全部读取后再返回。
 
@@ -490,7 +490,7 @@ $go run server2.go
   
 Client向socket中写入两个字节数据("hi"),Server端创建一个len = 10的slice,等待Read将读取的数据放入slice；Server随后读取到那两个字节: "hi"。Read成功返回,n =2 ,err = nil。
 
-3、Socket中有足够数据
+3. Socket中有足够数据
 
 如果socket中有数据,且长度大于等于一次Read操作所期望读出的数据长度,那么Read将会成功读出这部分数据并返回。这个情景是最符合我们对Read的期待的了: Read将用Socket中的数据将我们传入的slice填满后返回: n = 10, err = nil。
 
@@ -516,7 +516,7 @@ $go run server2.go
   
 client端发送的内容长度为15个字节,Server端Read buffer的长度为10,因此Server Read第一次返回时只会读取10个字节；Socket中还剩余5个字节数据,Server再次Read时会把剩余数据读出（如: 情形2) 。
 
-4、Socket关闭
+4. Socket关闭
 
 如果client端主动关闭了socket,那么Server的Read将会读到什么呢？这里分为"有数据关闭"和"无数据关闭"。
 
@@ -544,7 +544,7 @@ $go run server3.go
 
 通过上面这个例子,我们也可以猜测出"无数据关闭"情形下的结果,那就是Read直接返回EOF error。
 
-5、读取操作超时
+5. 读取操作超时
 
 有些场合对Read的阻塞时间有严格限制,在这种情况下,Read的行为到底是什么样的呢？在返回超时错误时,是否也同时Read了一部分数据了呢？这个实验比较难于模拟,下面的测试结果也未必能反映出所有可能结果。我们编写了client4.go和server4.go来模拟这一情形。
 
@@ -638,11 +638,11 @@ $go run server4.go
 
 和读相比,Write遇到的情形一样不少,我们也逐一看一下。
 
-1、成功写
+1. 成功写
 
 前面例子着重于Read,client端在Write时并未判断Write的返回值。所谓"成功写"指的就是Write调用返回的n与预期要写入的数据长度相等,且error = nil。这是我们在调用Write时遇到的最常见的情形,这里不再举例了。
 
-2、写阻塞
+2. 写阻塞
 
 TCP连接通信两端的OS都会为该连接保留数据缓冲,一端调用Write后,实际上数据是写入到OS的协议栈的数据缓冲的。TCP是全双工通信,因此每个方向都有独立的数据缓冲。当发送方将对方的接收缓冲区以及自身的发送缓冲区写满后,Write就会阻塞。我们来看一个例子: client5.go和server.go。
 
@@ -793,7 +793,7 @@ client端:
   
 .... ...
 
-3、写入部分数据
+3. 写入部分数据
 
 Write操作存在写入部分数据的情况,比如上面例子中,当client端输出日志停留在"write 65536 bytes this time, 655360 bytes in total"时,我们杀掉server5,这时我们会看到client5输出以下日志: 
 
@@ -807,7 +807,7 @@ Write操作存在写入部分数据的情况,比如上面例子中,当client端�
   
 显然Write并非在655360这个地方阻塞的,而是后续又写入24108后发生了阻塞,server端socket关闭后,我们看到Wrote返回er != nil且n = 24108,程序需要对这部分写入的24108字节做特定处理。
 
-4、写入超时
+4. 写入超时
 
 如果非要给Write增加一个期限,那我们可以调用SetWriteDeadline方法。我们copy一份client5.go,形成client6.go,在client6.go的Write之前增加一行timeout设置代码: 
 

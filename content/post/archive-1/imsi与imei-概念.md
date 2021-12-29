@@ -51,13 +51,13 @@ IMEI（International Mobile Equipment Identity) 是移动设备国际身份码�
 
 IMEI由15位数字组成，其组成为
   
-1、前6位数（TAC，Type ApprovalCode)是"型号核准号码"，一般代表机型。
+1. 前6位数（TAC，Type ApprovalCode)是"型号核准号码"，一般代表机型。
   
-2、接着的2位数（FAC，Final Assembly Code)是"最后装配号"，一般代表产地。
+2. 接着的2位数（FAC，Final Assembly Code)是"最后装配号"，一般代表产地。
   
-3、之后的6位数（SNR)是"串号"，一般代表生产顺序号。
+3. 之后的6位数（SNR)是"串号"，一般代表生产顺序号。
   
-4、最后1位数（SP)通常是"0"，为检验码，备用。
+4. 最后1位数（SP)通常是"0"，为检验码，备用。
   
 IMEI码具有唯一性，贴在手机背面的标志上，并且读写于手机内存中。它也是该手机在厂家的"档案"和"身份证号"。
 

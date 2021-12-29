@@ -390,7 +390,7 @@ ntpdate 172.30.218.114
 
 SYNC_HWCLOCK=yes
 
-3、利用crontab让LINUX NTP定时更新时间
+3. 利用crontab让LINUX NTP定时更新时间
   
 注: 让linux运行ntpdate更新时间时，linux不能开启NTP服务，否则会提示端口被占用: 如下
   
@@ -474,11 +474,11 @@ w32tm /register 进行注册
 
 11.其它造成无法成功更新的原因: 
   
-1、客户端的日期必须要设置正确，不能超出正常时间24小时，不然会因为安全原因被拒绝更新。其次客户端的时区必须要设置好，以确保不会更新成其它时区的时间。
+1. 客户端的日期必须要设置正确，不能超出正常时间24小时，不然会因为安全原因被拒绝更新。其次客户端的时区必须要设置好，以确保不会更新成其它时区的时间。
   
-2、fudge 127.127.1.0 stratum 10 如果是LINUX做为NTP服务器，stratum(层级)的值不能太大，如果要向上级NTP更新可以设成2
+2. fudge 127.127.1.0 stratum 10 如果是LINUX做为NTP服务器，stratum(层级)的值不能太大，如果要向上级NTP更新可以设成2
   
-3、LINUX的NTP服务器必须记得将从上级NTP更新的时间从系统时间写到硬件里去 hwclock -systohc
+3. LINUX的NTP服务器必须记得将从上级NTP更新的时间从系统时间写到硬件里去 hwclock -systohc
        
 NTP一般只会同步system clock. 但是如果我们也要同步RTC(hwclock)的话那么只需要把下面的选项打开就可以了
         
@@ -488,7 +488,7 @@ NTP一般只会同步system clock. 但是如果我们也要同步RTC(hwclock)的
         
 SYNC_HWCLOCK=yes
   
-4、Linux如果开启了NTP服务，则不能手动运行ntpdate更新时间（会报端口被占用) ，它只能根据/etc/ntp.conf 里server 字段后的服务器地址按一定时间间隔自动向上级NTP服务器更新时间。可以运行命令 ntpstat 查看每次更新间隔如: 
+4. Linux如果开启了NTP服务，则不能手动运行ntpdate更新时间（会报端口被占用) ，它只能根据/etc/ntp.conf 里server 字段后的服务器地址按一定时间间隔自动向上级NTP服务器更新时间。可以运行命令 ntpstat 查看每次更新间隔如: 
   
 [root@ESXI ~]# ntpstat
   

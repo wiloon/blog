@@ -253,7 +253,7 @@ return mapper.readValue(jsonStr, objClass);
 
 五、性能测试
 
-1、Java对象序列化为Json字符串: 
+1. Java对象序列化为Json字符串: 
 
 
 执行100 0000次转换，各个类库的耗时如下: （以秒为单位) 
@@ -267,7 +267,7 @@ Jackson 19.439s
 
 FastJson 21.706
 
-2、Json字符串 反序列化为Java对象
+2. Json字符串 反序列化为Java对象
 
 
 执行100 0000次转换，各个类库的耗时如下: （以秒为单位) 
@@ -281,7 +281,7 @@ Jackson 26.427s
 
 FastJson 40.556
 
-3、总结: 
+3. 总结: 
 
 
 Java Bean序列化为Json，性能: Jackson > FastJson > Gson > Json-lib。这4中类库的序列化结构都正确。
@@ -293,7 +293,7 @@ Json字符串反序列化为Java Bean时，性能: Jackson > Gson > FastJson >Js
 Jackson、FastJson、Gson类库各有优点，各有自己的专长，都具有很高的可用性。
 
 
-4、测试用例
+4. 测试用例
 
 
 1) Java Bean

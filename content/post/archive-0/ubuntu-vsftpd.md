@@ -484,7 +484,7 @@ User_config_dir=/任意指定的路径//任意文件目录 (指定虚拟用户�
 
 遇到的问题
 
-1、只允许匿名用户登录
+1. 只允许匿名用户登录
 
 现象: ftp连接过程中，提示输入用户名，输入本机已有用户名angel，得到提示: 530 This FTP server is anonymous only，登录失败。
 

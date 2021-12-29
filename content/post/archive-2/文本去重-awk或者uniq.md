@@ -28,13 +28,13 @@ uniq
 
 对于awk '!a[$3]++',需要了解3个知识点
   
-1、awk数组知识,不说了
+1. awk数组知识,不说了
   
-2、awk的基本命令格式 awk 'pattern{action}'
+2. awk的基本命令格式 awk 'pattern{action}'
   
 省略action时,默认action是{print},如awk '1'就是awk '1{print}'
   
-3、var++的形式: 先读取var变量值,再对var值+1
+3. var++的形式: 先读取var变量值,再对var值+1
 
 以数据
   

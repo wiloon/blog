@@ -260,11 +260,11 @@ http://os.51cto.com/art/200910/158639.htm
   
 这里提供两个方法: 
   
-1、#kill -9 $(ps -ef|grep 进程名关键字|gawk '$0 !~/grep/ {print $2}' |tr -s '\n' ' ')这个是利用管道和替换将 进程名对应的进程号提出来作为kill的参数。
+1. #kill -9 $(ps -ef|grep 进程名关键字|gawk '$0 !~/grep/ {print $2}' |tr -s '\n' ' ')这个是利用管道和替换将 进程名对应的进程号提出来作为kill的参数。
   
 很显然上面的方法能完成但是过于复杂，下面这种就显得简单的多了
   
-2、#kill -9 $(pidof 进程名关键字)
+2. #kill -9 $(pidof 进程名关键字)
 
 https://blog.csdn.net/zhaoyue007101/article/details/7699259
 

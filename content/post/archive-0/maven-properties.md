@@ -9,7 +9,7 @@ categories:
 ---
 ## Maven内置属性、POM属性, maven properties
 
-1、内置属性(Maven预定义，用户可以直接使用)
+1. 内置属性(Maven预定义，用户可以直接使用)
 ${basedir}表示项目根目录，即包含pom.xml文件的目录;
 ${version}表示项目版本;
 ${project.basedir}同${basedir};
@@ -22,7 +22,7 @@ ${maven.build.timestamp.format}表示属性${maven.build.timestamp}的展示格�
 <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 </properties>
 
-2、POM属性(使用pom属性可以引用到pom.xml文件对应元素的值)
+2. POM属性(使用pom属性可以引用到pom.xml文件对应元素的值)
 ${project.build.directory}  项目构建输出目录，默认为target/
 ${project.build.outputDirectory} 项目主代码编译输出目录，默认为target/classes/
 ${project.build.testOutputDirectory}:项目测试代码编译输出目录，默认为target/testclasses/

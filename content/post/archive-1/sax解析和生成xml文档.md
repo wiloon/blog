@@ -36,7 +36,7 @@ SAX操作xml是基于事件来完成的，自己只负责调用解析的方法�
 三、使用SAX实战
 
 
-1、解析xml文档
+1. 解析xml文档
 
 实现思路: 
 
@@ -442,7 +442,7 @@ System.out.println("节点元素文本内容: " + new String(ch, start, length))
 
 具体操作如下: 
 
-1、前面说了构建节点对象和属性对象，具体代码如下: 
+1. 前面说了构建节点对象和属性对象，具体代码如下: 
 
 [java][/java] view plaincopyprint?
 
@@ -581,7 +581,7 @@ this.value = value;
 
 }
 
-2、在SAXOperateXmlDemo这个操作类中添加两个常量，具体如下: 
+2. 在SAXOperateXmlDemo这个操作类中添加两个常量，具体如下: 
 
 [java][/java] view plaincopyprint?
 
@@ -591,7 +591,7 @@ public static Node node = null;
 
 不光集合需要全局静态化，节点对象也要全局静态化，因为解析过程中获取标签名称和标签内文本是分开操作的，如果不这样对象的属性值无法完整获取。
 
-3、定义xml文档解析方法，具体如下: 
+3. 定义xml文档解析方法，具体如下: 
 
 [java][/java] view plaincopyprint?
 
@@ -664,7 +664,7 @@ e.printStackTrace();
 
 }
 
-4、对应的解析处理者代码如下: 
+4. 对应的解析处理者代码如下: 
 
 [java][/java] view plaincopyprint?
 
@@ -766,7 +766,7 @@ SAXOperateXmlDemo.node = null;
 }
 
 
-5、代码中解析的user03.xml的结构如下: 
+5. 代码中解析的user03.xml的结构如下: 
 
 [html][/html] view plaincopyprint?
 
@@ -1096,7 +1096,7 @@ SAXOperateXmlDemo.user.setHobby(content);
 好了，现在满足需求了 解析自己需要的节点然后封装成集合展示出来。
 
 
-2、生成xml文档
+2. 生成xml文档
 
 SAX能够解析xml，同样肯定能生成xml，而且使用起来也不是很复杂。
 

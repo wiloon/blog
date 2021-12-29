@@ -35,7 +35,7 @@ tags:
   
 
   
-1、#route del default gw 192.168.0.1
+1. #route del default gw 192.168.0.1
   
 
   
@@ -43,7 +43,7 @@ tags:
   
 
   
-2、#route add default gw 192.168.0.1
+2. #route add default gw 192.168.0.1
   
 
   
@@ -51,7 +51,7 @@ tags:
   
 
   
-3、#route add -net 192.168.1.0/24 gw 192.168.0.254
+3. #route add -net 192.168.1.0/24 gw 192.168.0.254
   
 
   
@@ -67,7 +67,7 @@ tags:
   
 
   
-1、#ping -c 4 192.168.0.1 //指定发出ICMP包个数
+1. #ping -c 4 192.168.0.1 //指定发出ICMP包个数
   
 
   
@@ -79,7 +79,7 @@ tags:
   
 
   
-1、#hostname linsrv //临时修改当前主机名
+1. #hostname linsrv //临时修改当前主机名
   
 
   
@@ -105,11 +105,11 @@ tags:
   
 
   
-1、#/etc/init.d/network stop //停止网络服务
+1. #/etc/init.d/network stop //停止网络服务
   
 
   
-2、#/etc/init.d/network start //启动网络服务
+2. #/etc/init.d/network start //启动网络服务
   
 
   
@@ -121,15 +121,15 @@ tags:
   
 
   
-1、#service network stop //停止网络服务
+1. #service network stop //停止网络服务
   
 
   
-2、#service network restart //重启网络服务
+2. #service network restart //重启网络服务
   
 
   
-3、#service network status //查看网络服务状态
+3. #service network status //查看网络服务状态
   
 
   
@@ -141,11 +141,11 @@ tags:
   
 
   
-1、#chkconfig ——level 35 network off //设置在级别35不自动启动某服务
+1. #chkconfig ——level 35 network off //设置在级别35不自动启动某服务
   
 
   
-2、#chkconfig ——level 3 network on //设置在级别3自动启动某服务
+2. #chkconfig ——level 3 network on //设置在级别3自动启动某服务
   
 
   

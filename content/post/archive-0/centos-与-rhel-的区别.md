@@ -58,11 +58,11 @@ REDHAT 对这种发行版的态度是: "我们其实并不反对这种发行版�
 
 补充: 
   
-1、CentOS 还修正了一些 AS 的 BUG，比如安装过程的包选择问题
+1. CentOS 还修正了一些 AS 的 BUG，比如安装过程的包选择问题
   
-2、CentOS 增加了 yum 在线升级
+2. CentOS 增加了 yum 在线升级
   
-3、CentOS-3.1 = AS3-update1
+3. CentOS-3.1 = AS3-update1
   
 CentOS-3.2 = AS3-update2
   
@@ -76,9 +76,9 @@ CentOS-4.0 = AS4
   
 CentOS-4.1 = AS4-update1
   
-4、使用 CentOS 完全合法，不涉及版权问题
+4. 使用 CentOS 完全合法，不涉及版权问题
   
-5、获得 CentOS 很方便，全球提供了 10 多个站点镜像（HTTP/FTP) ，以及 BT 方式（常年提供种子) 
+5. 获得 CentOS 很方便，全球提供了 10 多个站点镜像（HTTP/FTP) ，以及 BT 方式（常年提供种子) 
 
 很多人不知道 CentOS 是什么，还在拼命找 AS 的下载地址，劝他们他们也不听，可悲。。。
 

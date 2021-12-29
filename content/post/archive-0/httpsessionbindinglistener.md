@@ -11,11 +11,11 @@ categories:
 ## HttpSessionBindingListener
 捕获Session事件的意义: 
   
-1、         记录网站的客户登录日志（登录，退出信息等) 
+1.          记录网站的客户登录日志（登录，退出信息等) 
   
-2、         统计在线人数
+2.          统计在线人数
   
-3、         等等还有很多，呵呵，自己想吧……总之挺重要的。
+3.          等等还有很多，呵呵，自己想吧……总之挺重要的。
 
 Session代表客户的会话过程，客户登录时，往Session中传入一个对象，即可跟踪客户的会话。在Servlet中，传入Session的对象如果是一个实现HttpSessionBindingListener接口的对象（方便起见，此对象称为监听器) ，则在传入的时候（即调用HttpSession对象的setAttribute方法的时候) 和移去的时候（即调用HttpSession对象的removeAttribute方法的时候或Session   Time   out的时候) Session对象会自动调用监听器的valueBound和valueUnbound方法（这是HttpSessionBindingListener接口中的方法) 。
   

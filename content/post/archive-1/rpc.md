@@ -146,13 +146,13 @@ JMS 一般只是一个点发出一个Message到Message Server,发出之后一般
 
 所以，一般RMI的应用是紧耦合，JMS的应用相对来说是松散耦合应用。
 
-3、Webservice与RMI
+3. Webservice与RMI
 
 RMI是在tcp协议上传递可序列化的java对象，只能用在java虚拟机上，绑定语言，客户端和服务端都必须是java
 
 webservice没有这个限制，webservice是在http协议上传递xml文本文件，与语言和平台无关
 
-4、Webservice与JMS
+4. Webservice与JMS
 
 Webservice专注于远程服务调用，jms专注于信息交换。
 

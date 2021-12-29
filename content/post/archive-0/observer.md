@@ -79,15 +79,15 @@ LogOpenListener<.. Demo
 
 ---
 
-1、观察者
+1. 观察者
   
 （Observer) 将自己注册到被观察对象（Subject) 中，被观察对象将观察者存放在一个容器（Container) 里。
   
-2、被观察对象
+2. 被观察对象
   
 被观察对象发生了某种变化（如图中的SomeChange) ，从容器中得到所有注册过的观察者，将变化通知观察者。
   
-3、撤销观察
+3. 撤销观察
   
 观察者告诉被观察者要撤销观察，被观察者从容器中将观察者去除。
   
@@ -344,19 +344,19 @@ done
 废弃原因
 Observer和Observable有几个原因：
 
-1、不能序列化
+1. 不能序列化
 
 Observable没有实现Serializable接口，它的内部成员变量都是私有的，子类不能通过继承它来对Observable的成员变量处理。所以子类也不能序列化。
 
 参考：Why is java.util.Observable class not serializable.
 
-2、不是线程安全
+2. 不是线程安全
 
 在 java.util.Observable文档里没有强制要求Observable是线程安全的，它允许子类覆盖重写Observable的方法，事件通知无序以及事件通知发生在不同的线程里，这些都是会影响线程安全的问题。
 
 参考：Documentation of java.util.Observable
 
-3、支持事件模型的功能简单
+3. 支持事件模型的功能简单
 
 支持事件模型的功能很简单，例如，只是支持事情发生变化的概念，但是不能提供更多哪些内容发生了改变。
 

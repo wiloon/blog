@@ -22,7 +22,7 @@ Oracle 权限设置
 
 二、系统权限管理: 
   
-1、系统权限分类: 
+1. 系统权限分类: 
   
 DBA: 拥有全部特权,是系统最高权限,只有DBA才可以创建数据库结构。
 
@@ -35,7 +35,7 @@ CONNECT:拥有Connect权限的用户只可以登录Oracle,不可以创建实体,
 对于DBA管理用户: 授予connect,resource, dba权限。
 
 
-2、系统权限授权命令: 
+2. 系统权限授权命令: 
   
 [系统权限只能由DBA用户授出: sys, system(最开始只能是这两个用户)]
   
@@ -62,14 +62,14 @@ SQL> select * from role_sys_privs;
 删除用户: SQL> drop user 用户名 cascade;  //加上cascade则将用户连同其创建的东西全部删除
 
 
-3、系统权限传递: 
+3. 系统权限传递: 
   
 增加WITH ADMIN OPTION选项,则得到的权限可以传递。
 
 SQL> grant connect, resorce to user50 with admin option;  //可以传递所获权限。
 
 
-4、系统权限回收: 系统权限只能由DBA用户回收
+4. 系统权限回收: 系统权限只能由DBA用户回收
   
 命令: SQL> Revoke connect, resource from user50;
 
@@ -83,7 +83,7 @@ SQL> grant connect, resorce to user50 with admin option;  //可以传递所获�
 
 三、实体权限管理
   
-1、实体权限分类: select, update, insert, alter, index, delete, all  //all包括所有权限
+1. 实体权限分类: select, update, insert, alter, index, delete, all  //all包括所有权限
   
 execute  //执行存储过程权限
 
@@ -227,23 +227,23 @@ Profile profile
   
 Quota integer/unlimited on tablespace;
 
-1、修改口令字: 
+1. 修改口令字: 
   
 SQL>Alter user acc01 identified by "12345";
 
-2、修改用户缺省表空间: 
+2. 修改用户缺省表空间: 
   
 SQL> Alter user acc01 default tablespace users;
 
-3、修改用户临时表空间
+3. 修改用户临时表空间
   
 SQL> Alter user acc01 temporary tablespace temp_data;
 
-4、强制用户修改口令字: 
+4. 强制用户修改口令字: 
   
 SQL> Alter user acc01 password expire;
 
-5、将用户加锁
+5. 将用户加锁
   
 SQL> Alter user acc01 account lock;  // 加锁
   
@@ -260,15 +260,15 @@ SQL> drop user 用户名 CASCADE;  // 将用户及其所建实体全部删除
   
 五、监视用户: 
   
-1、查询用户会话信息: 
+1. 查询用户会话信息: 
   
 SQL> select username, sid, serial#, machine from v$session;
 
-2、删除用户会话信息: 
+2. 删除用户会话信息: 
   
 SQL> Alter system kill session 'sid, serial#';
 
-3、查询用户SQL语句: 
+3. 查询用户SQL语句: 
   
 SQL> select user_name, sql_text from v$open_cursor;
 

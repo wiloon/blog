@@ -54,7 +54,7 @@ zkServer.sh
   
 提供的主要功能如下: 
 
-1、查看服务器状态
+1. 查看服务器状态
 
 [root@rocket zookeeper-server1]# bin/zkServer.sh status
 
@@ -64,7 +64,7 @@ Using config: /usr/local/zookeeper-server1/bin/../conf/zoo.cfg
 
 Mode: leader
 
-2、启停服务器
+2. 启停服务器
 
 [root@rocket zookeeper-server1]# bin/zkServer.sh help
 

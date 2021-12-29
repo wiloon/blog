@@ -60,7 +60,7 @@ KDE System Guard
 
 KDE System Guard (KSysguard) 是KDE图形方式的任务管理和性能监视工具。监视本地及远程客户端/服务器架构体系的中的主机。
 
-8、free
+8. free
 
 /bin/free命令显示所有空闲的和使用的内存数量，包括swap。同时也包含内核使用的缓存。
 

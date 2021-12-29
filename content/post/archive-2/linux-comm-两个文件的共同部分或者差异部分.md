@@ -293,11 +293,11 @@ grep -xf file1 file2
 
 补充的重要内容: 
 
-1、统计两个文本文件的相同行
+1. 统计两个文本文件的相同行
 
 grep -Ff file1 file2
 
-2、统计file2中有,file1中没有的行
+2. 统计file2中有,file1中没有的行
 
 grep -vFf file2 file1
 

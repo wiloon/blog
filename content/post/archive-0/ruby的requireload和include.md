@@ -15,13 +15,13 @@ categories:
 
 不同之处: 
 
-1、requre,load用于文件，如.rb等等结尾的文件。
+1. requre,load用于文件，如.rb等等结尾的文件。
 
-2、include则用于包含一个文件(.rb等结尾的文件)中的模块。
+2. include则用于包含一个文件(.rb等结尾的文件)中的模块。
 
-3、requre一般情况下用于加载库文件，而load则用于加载配置文件。
+3. requre一般情况下用于加载库文件，而load则用于加载配置文件。
 
-4、requre加载一次，load可加载多次。
+4. requre加载一次，load可加载多次。
 
 怎么样，简单吧！再看个例子。
 

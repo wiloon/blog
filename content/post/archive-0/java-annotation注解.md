@@ -89,9 +89,9 @@ public void lintTrap() { /* sloppy method body omitted */ }
 Retention注解有一个属性value，是RetentionPolicy类型的，Enum RetentionPolicy是一个枚举类型，
 这个枚举决定了Retention注解应该如何去保持，也可理解为Rentention 搭配 RententionPolicy使用。RetentionPolicy有3个值: CLASS  RUNTIME   SOURCE
 按生命周期来划分可分为3类: 
-1、RetentionPolicy.SOURCE: 注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；
-2、RetentionPolicy.CLASS: 注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；
-3、RetentionPolicy.RUNTIME: 注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在；
+1. RetentionPolicy.SOURCE: 注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；
+2. RetentionPolicy.CLASS: 注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；
+3. RetentionPolicy.RUNTIME: 注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在；
 这3个生命周期分别对应于: Java源文件(.java文件) ---> .class文件 ---> 内存中的字节码。
 那怎么来选择合适的注解生命周期呢？
 首先要明确生命周期长度 SOURCE < CLASS < RUNTIME ，所以前者能作用的地方后者一定也能作用。
@@ -506,7 +506,7 @@ Test( method = method_3 , id = 3 , description = last method )
   
 首先在jdk自带的java.lang.annotation包里,打开如下几个源文件:
 
-1、源文件Target.java
+1. 源文件Target.java
   
 ```java
   
@@ -526,7 +526,7 @@ public @interface Target {
 
 其中的@interface是一个关键字，在设计annotations的时候必须把一个类型定义为@interface，而不能用class或interface关键字(会不会觉得sun有点吝啬,偏偏搞得与interface这么像).
 
-2、源文件Retention.java
+2. 源文件Retention.java
   
 ```java
   
@@ -548,7 +548,7 @@ public @interface Retention {
   
 在上面的文件都用到了RetentionPolicy，ElementType这两个字段,你可能就会猜到这是两个java文件.的确，这两个文件的源代码如下: 
 
-3、源文件RetentionPolicy.java
+3. 源文件RetentionPolicy.java
   
 ```java
   
@@ -574,7 +574,7 @@ ClASS的意思是这个Annotation类型的信息保留在程序源码里,同时�
   
 举一个例子，如@Override里面的Retention设为SOURCE,编译成功了就不要这一些检查的信息;相反,@Deprecated里面的 Retention设为RUNTIME,表示除了在编译时会警告我们使用了哪个被Deprecated的方法,在执行的时候也可以查出该方法是否被 Deprecated.
 
-4、源文件ElementType.java
+4. 源文件ElementType.java
   
 ```java
   
@@ -610,7 +610,7 @@ LOCAL_VARIABLE, ANNOTATION_TYPE,PACKAGE
 
 第三部分:下面讲的设计一个最简单的Annotation例子,这一例子共用四个文件;
   
-1、Description.java
+1. Description.java
   
 ```java
   
@@ -650,7 +650,7 @@ String value();
   
 第三,如果只有一个参数成员,最好把参数名称设为"value",后加小括号.例:上面的例子就只有一个参数成员.
 
-2、Name.java
+2. Name.java
   
 ```java
   
@@ -684,7 +684,7 @@ String community();
   
 ```
 
-3、JavaEyer.java
+3. JavaEyer.java
   
 ```java
   
@@ -718,7 +718,7 @@ return "借用两位的id一用,写这一个例子,请见谅!";
   
 ```
 
-4、最后，写一个可以运行提取JavaEyer信息的类TestAnnotation
+4. 最后，写一个可以运行提取JavaEyer信息的类TestAnnotation
   
 ```java
   
@@ -794,7 +794,7 @@ System.out.println("创建的社区:"+name.community());
   
 ```
 
-5、运行结果: 
+5. 运行结果: 
   
 描述:javaeye,做最棒的软件开发交流社区
   

@@ -47,13 +47,13 @@ https://zhuanlan.zhihu.com/p/84799744
 
 
 常见的负载均衡算法包含: 
-1、轮询法（Round Robin) 
-2、加权轮询法（Weight Round Robin) 
-3、随机法（Random) 
-4、加权随机法（Weight Random) 
-5、平滑加权轮询法（Smooth Weight Round Robin) 
-6、源地址哈希法（Hash) 
-7、最小连接数法（Least Connections) 
+1. 轮询法（Round Robin) 
+2. 加权轮询法（Weight Round Robin) 
+3. 随机法（Random) 
+4. 加权随机法（Weight Random) 
+5. 平滑加权轮询法（Smooth Weight Round Robin) 
+6. 源地址哈希法（Hash) 
+7. 最小连接数法（Least Connections) 
 ————————————————
 版权声明: 本文为CSDN博主「志波同学」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
 原文链接: https://blog.csdn.net/claram/article/details/90265243

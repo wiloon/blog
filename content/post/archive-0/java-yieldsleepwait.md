@@ -298,14 +298,14 @@ while(isAlive())是为了防止子线程伪唤醒(spurious wakeup)，只要子�
 (4) join() 和 sleep() 一样，可以被中断（被中断时，会抛出 InterrupptedException 异常) ；不同的是，join() 内部调用了 wait()，会出让锁，而 sleep() 会一直保持锁。
 
 join使用时注意几点: 
-1、join与start调用顺序问题
+1. join与start调用顺序问题
 
 上面的讨论大概知道了join的作用了，那么，入股 join在start前调用，会出现什么后果呢？先看下面的测试结果
 
 
 main线程没有等待[BThread]执行完再执行。join方法必须在线程start方法调用之后调用才有意义。这个也很容易理解: 如果一个线程都没有start，那它也就无法同步了。
 
-2、join()与异常
+2. join()与异常
 
 在join()过程中，如果当前线程被中断，则当前线程出现异常。(注意是调用thread.join()的线程被中断才会进入异常，比如a线程调用b.join()，a中断会报异常而b中断不会异常)
 

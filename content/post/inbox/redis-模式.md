@@ -23,19 +23,19 @@ tags:
 
 优点: 
 
-1、解决数据备份问题
+1. 解决数据备份问题
 
-2、做到读写分离，提高服务器性能
+2. 做到读写分离，提高服务器性能
 
 
 
 缺点: 
 
-1、每个客户端连接redis实例的时候都是指定了ip和端口号的，如果所连接的redis实例因为故障下线了，而主从模式也没有提供一定的手段通知客户端另外可连接的客户端地址，因而需要手动更改客户端配置重新连接
+1. 每个客户端连接redis实例的时候都是指定了ip和端口号的，如果所连接的redis实例因为故障下线了，而主从模式也没有提供一定的手段通知客户端另外可连接的客户端地址，因而需要手动更改客户端配置重新连接
 
-2、主从模式下，如果主节点由于故障下线了，那么从节点因为没有主节点而同步中断，因而需要人工进行故障转移工作
+2. 主从模式下，如果主节点由于故障下线了，那么从节点因为没有主节点而同步中断，因而需要人工进行故障转移工作
 
-3、无法实现动态扩容
+3. 无法实现动态扩容
 
 
 
@@ -52,19 +52,19 @@ Sentinel（哨兵) 是Redis的高可用性解决方案: 由一个或多个Sentin
 
 优点
 
-1、Master 状态监测
+1. Master 状态监测
 
-2、如果Master 异常，则会进行Master-slave 转换，将其中一个Slave作为Master，将之前的Master作为Slave
+2. 如果Master 异常，则会进行Master-slave 转换，将其中一个Slave作为Master，将之前的Master作为Slave
 
-3、Master-Slave切换后，master_redis.conf、slave_redis.conf和sentinel.conf的内容都会发生改变，即master_redis.conf中会多一行slaveof的配置，sentinel.conf的监控目标会随之调换
+3. Master-Slave切换后，master_redis.conf、slave_redis.conf和sentinel.conf的内容都会发生改变，即master_redis.conf中会多一行slaveof的配置，sentinel.conf的监控目标会随之调换
 
 
 
 缺点: 
 
-1、如果是从节点下线了，sentinel是不会对其进行故障转移的，连接从节点的客户端也无法获取到新的可用从节点
+1. 如果是从节点下线了，sentinel是不会对其进行故障转移的，连接从节点的客户端也无法获取到新的可用从节点
 
-2、无法实现动态扩容
+2. 无法实现动态扩容
 
 
 
@@ -98,25 +98,25 @@ b:如果集群超过半数以上master挂掉，无论是否有slave，集群进�
 
 优点: 
 
-1、有效的解决了redis在分布式方面的需求
+1. 有效的解决了redis在分布式方面的需求
 
-2、遇到单机内存，并发和流量瓶颈等问题时，可采用Cluster方案达到负载均衡的目的
+2. 遇到单机内存，并发和流量瓶颈等问题时，可采用Cluster方案达到负载均衡的目的
 
-3、可实现动态扩容
+3. 可实现动态扩容
 
-4、P2P模式，无中心化
+4. P2P模式，无中心化
 
-5、通过Gossip协议同步节点信息
+5. 通过Gossip协议同步节点信息
 
-6、自动故障转移、Slot迁移中数据可用
+6. 自动故障转移、Slot迁移中数据可用
 
 缺点: 
 
-1、架构比较新，最佳实践较少
+1. 架构比较新，最佳实践较少
 
-2、为了性能提升，客户端需要缓存路由表信息
+2. 为了性能提升，客户端需要缓存路由表信息
 
-3、节点发现、reshard操作不够自动化
+3. 节点发现、reshard操作不够自动化
 
 总结
 
@@ -148,7 +148,7 @@ sentinel着眼于高可用，Cluster提高并发量。
 互联网高速发展的今天，对应用系统的抗压能力要求越来越高，传统的应用层+数据库已经不能满足当前的需要。所以一大批内存式数据库和Nosql数据库应运而生，其中redis,memcache,mongodb,hbase等被广泛的使用来提高系统的吞吐性，所以如何正确使用cache是作为开发的一项基技能。本文主要介绍Redis Sentinel 及 Redis Cluster的区别及用法，Redis的基本操作可以自行去参看其官方文档 。 其他几种cache有兴趣的可自行找资料去学习。
 
 二、Redis Sentinel 及 Redis Cluster 简介
-1、Redis Sentinel
+1. Redis Sentinel
 
  Redis-Sentinel(哨兵模式)是Redis官方推荐的高可用性(HA)解决方案，当用Redis做Master-slave的高可用方案时，假如master宕机了，Redis本身(包括它的很多客户端)都没有实现自动进行主备切换，而Redis-sentinel本身也是一个独立运行的进程，它能监控多个master-slave集群，发现master宕机后能进行自懂切换。它的主要功能有以下几点: 
 
@@ -176,7 +176,7 @@ Sentinel 可以管理master-slave节点，看似Redis的稳定性得到一个比
 
  当一个master被sentinel集群监控时，需要为它指定一个参数，这个参数指定了当需要判决master为不可用，并且进行failover时，所需要的sentinel数量，本文中我们暂时称这个参数为票数,不过，当failover主备切换真正被触发后，failover并不会马上进行，还需要sentinel中的大多数sentinel授权后才可以进行failover。当ODOWN时，failover被触发。failover一旦被触发，尝试去进行failover的sentinel会去获得“大多数”sentinel的授权（如果票数比大多数还要大的时候，则询问更多的sentinel)这个区别看起来很微妙，但是很容易理解和使用。例如，集群中有5个sentinel，票数被设置为2，当2个sentinel认为一个master已经不可用了以后，将会触发failover，但是，进行failover的那个sentinel必须先获得至少3个sentinel的授权才可以实行failover。如果票数被设置为5，要达到ODOWN状态，必须所有5个sentinel都主观认为master为不可用，要进行failover，那么得获得所有5个sentinel的授权。
 
-2、Redis Cluster
+2. Redis Cluster
 
 使用Redis Sentinel 模式架构的缓存体系，在使用的过程中，随着业务的增加不可避免的要对Redis进行扩容，熟知的扩容方式有两种，一种是垂直扩容，一种是水平扩容。垂直扩容表示通过加内存方式来增加整个缓存体系的容量比如将缓存大小由2G调整到4G,这种扩容不需要应用程序支持；水平扩容表示表示通过增加节点的方式来增加整个缓存体系的容量比如本来有1个节点变成2个节点，这种扩容方式需要应用程序支持。垂直扩容看似最便捷的扩容，但是受到机器的限制，一个机器的内存是有限的，所以垂直扩容到一定阶段不可避免的要进行水平扩容，如果预留出很多节点感觉又是对资源的一种浪费因为对业务的发展趋势很快预测。Redis Sentinel 水平扩容一直都是程序猿心中的痛点，因为水平扩容牵涉到数据的迁移。迁移过程一方面要保证自己的业务是可用的，一方面要保证尽量不丢失数据所以数据能不迁移就尽量不迁移。针对这个问题，Redis Cluster就应运而生了，下面简单介绍一下RedisCluster。
 
@@ -202,7 +202,7 @@ Redis Sentinel 与Redis Cluster 使用需要引入如下jar包
     commons-pool2</artifactId>
     <version>2.5.0</version>
 </dependency>
-1、Redis Sentinel 使用
+1. Redis Sentinel 使用
 
 package com.knowledge.cache.redis;
  
@@ -256,7 +256,7 @@ public class RedisSentinelClient {
         }
     }
 }
-2、Redis Cluster 使用
+2. Redis Cluster 使用
 
 package com.knowledge.cache.redis;
  
@@ -341,17 +341,17 @@ public class RedisClusterClient {
 以上介绍了Redis Sentinel 及 Redis Cluster的初始化过程及简单的使用，其他比较复杂的应用可以参考Redis 的官方API
 
 四、Redis的过期淘汰策略
-1、定时删除
+1. 定时删除
 
 含义:在设置key的过期时间的同时，为该key创建一个定时器，让定时器在key的过期时间来临时，对key进行删除
 优点:保证内存被尽快释放
 缺点:1)若过期key很多，删除这些key会占用很多的CPU时间，在CPU时间紧张的情况下，CPU不能把所有的时间用来做要紧的事儿，还需要去花时间删除这些key;2)定时器的创建耗时,若为每一个设置过期时间的key创建一个定时器（将会有大量的定时器产生) ，性能影响严重
-2、懒汉式删除
+2. 懒汉式删除
 
 含义:key过期的时候不删除，每次通过key获取值的时候去检查是否过期，若过期，则删除，返回null。
 优点:删除操作只发生在通过key取值的时候发生，而且只删除当前key，所以对CPU时间的占用是比较少的，而且此时的删除是已经到了非做不可的地步（如果此时还不删除的话，我们就会获取到了已经过期的key了
 缺点:若大量的key在超出超时时间后，很久一段时间内，都没有被获取过，那么可能发生内存泄露（无用的垃圾占用了大量的内存) 
-3、定期删除
+3. 定期删除
 
 含义:每隔一段时间执行一次删除过期key操作
 优点:
@@ -368,13 +368,13 @@ memcached只是用了惰性删除，而redis同时使用了惰性删除与定期
  
 
 五、Redis 使用过程中踩过的坑
-1、在生产环境中一定要配置GenericObjectPoolConfig中的 maxIdle、maxTotal、minIdle.因为里面默认值太低了，如果生产环境中流量比较大的话，就会出现等待redis的连接的情况。
+1. 在生产环境中一定要配置GenericObjectPoolConfig中的 maxIdle、maxTotal、minIdle.因为里面默认值太低了，如果生产环境中流量比较大的话，就会出现等待redis的连接的情况。
 
-2、使用Redis Sentinel 一定要在最后执行jedis.close方法来释放资源，这个close方法是表示将正常的连接放回去连接池中，将不正常的连接给关闭。之前jedis低版本中都是调用returnResource方法来释放资源，如果连接不正常了会被重复使用，这时会出现很诡异的异常。所以建议使用比较高版本的jedis
+2. 使用Redis Sentinel 一定要在最后执行jedis.close方法来释放资源，这个close方法是表示将正常的连接放回去连接池中，将不正常的连接给关闭。之前jedis低版本中都是调用returnResource方法来释放资源，如果连接不正常了会被重复使用，这时会出现很诡异的异常。所以建议使用比较高版本的jedis
 
-3、为了更好的使用redis 连接池，建议采用 JedisPoolConfig来替代GenericObjectPoolConfig。JedisPoolConfig里面有一些默认的参数
+3. 为了更好的使用redis 连接池，建议采用 JedisPoolConfig来替代GenericObjectPoolConfig。JedisPoolConfig里面有一些默认的参数
 
-4、maxIdle，maxTotal 最佳实践为 maxIdle = maxTotal
+4. maxIdle，maxTotal 最佳实践为 maxIdle = maxTotal
 
 有遇到其他坑欢迎补充。。。。。。。
 ————————————————

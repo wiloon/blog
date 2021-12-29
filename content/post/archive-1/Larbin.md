@@ -71,11 +71,11 @@ Nutch是一个基于Lucene,类似Google的完整网络搜索引擎解决方案,�
   
 抓取程序是被Nutch的抓取工具驱动的。这是一组工具,用来建立和维护几个不同的数据结构:  web database, a set of segments, and the index。下面逐个解释这三个不同的数据结构: 
   
-1、The web database, 或者WebDB。这是一个特殊存储数据结构,用来映像被抓取网站数据的结构和属性的集合。WebDB 用来存储从抓取开始（包括重新抓取) 的所有网站结构数据和属性。WebDB 只是被 抓取程序使用,搜索程序并不使用它。WebDB 存储2种实体: 页面 和 链接。页面 表示 网络上的一个网页,这个网页的Url作为标示被索引,同时建立一个对网页内容的MD5 哈希签名。跟网页相关的其它内容也被存储,包括: 页面中的链接数量（外链接) ,页面抓取信息（在页面被重复抓取的情况下) ,还有表示页面级别的分数 score 。链接 表示从一个网页的链接到其它网页的链接。因此 WebDB 可以说是一个网络图,节点是页面,链接是边。
+1. The web database, 或者WebDB。这是一个特殊存储数据结构,用来映像被抓取网站数据的结构和属性的集合。WebDB 用来存储从抓取开始（包括重新抓取) 的所有网站结构数据和属性。WebDB 只是被 抓取程序使用,搜索程序并不使用它。WebDB 存储2种实体: 页面 和 链接。页面 表示 网络上的一个网页,这个网页的Url作为标示被索引,同时建立一个对网页内容的MD5 哈希签名。跟网页相关的其它内容也被存储,包括: 页面中的链接数量（外链接) ,页面抓取信息（在页面被重复抓取的情况下) ,还有表示页面级别的分数 score 。链接 表示从一个网页的链接到其它网页的链接。因此 WebDB 可以说是一个网络图,节点是页面,链接是边。
   
-2、Segment 。这是网页的集合,并且它被索引。Segment的Fetchlist 是抓取程序使用的url列表,它是从 WebDB中生成的。Fetcher 的输出数据是从 fetchlist 中抓取的网页。Fetcher的输出数据先被反向索引,然后索引后的结果被存储在segment 中。 Segment的生命周期是有限制的,当下一轮抓取开始后它就没有用了。默认的 重新抓取间隔是30天。因此删除超过这个时间期限的segment是可以的。而且也可以节省不少磁盘空间。Segment 的命名是日期加时间,因此很直观的可以看出他们的存活周期。
+2. Segment 。这是网页的集合,并且它被索引。Segment的Fetchlist 是抓取程序使用的url列表,它是从 WebDB中生成的。Fetcher 的输出数据是从 fetchlist 中抓取的网页。Fetcher的输出数据先被反向索引,然后索引后的结果被存储在segment 中。 Segment的生命周期是有限制的,当下一轮抓取开始后它就没有用了。默认的 重新抓取间隔是30天。因此删除超过这个时间期限的segment是可以的。而且也可以节省不少磁盘空间。Segment 的命名是日期加时间,因此很直观的可以看出他们的存活周期。
   
-3、The index。索引库是反向索引所有系统中被抓取的页面,它并不直接从页面反向索引产生,而是合并很多小的segment的索引产生的。Nutch 使用 Lucene 来建立索引,因此所有Lucene相关的工具 API 都用来建立索引库。需要说明的是Lucene的segment 的概念和Nutch的segment概念是完全不同的,不要混淆。简单来说 Lucene 的 segment 是 Lucene 索引库的一部分,而Nutch 的Segment是WebDB中被抓取和索引的一部分。
+3. The index。索引库是反向索引所有系统中被抓取的页面,它并不直接从页面反向索引产生,而是合并很多小的segment的索引产生的。Nutch 使用 Lucene 来建立索引,因此所有Lucene相关的工具 API 都用来建立索引库。需要说明的是Lucene的segment 的概念和Nutch的segment概念是完全不同的,不要混淆。简单来说 Lucene 的 segment 是 Lucene 索引库的一部分,而Nutch 的Segment是WebDB中被抓取和索引的一部分。
   
 抓取过程详解: 
 
@@ -85,25 +85,25 @@ Nutch是一个基于Lucene,类似Google的完整网络搜索引擎解决方案,�
   
 上面这个抓取工具的组合是Nutch的最外层的,也可以直接使用更底层的工具,自己组合这些底层工具的执行顺序达到同样的结果。这是Nutch吸引人的地方。下面把上述过程分别详述一下,括号内就是底层工具的名字: 
   
-1、创建一个新的WebDB (admin db -create)。
+1. 创建一个新的WebDB (admin db -create)。
   
-2、把开始抓取的跟Url 放入WebDb (inject)。
+2. 把开始抓取的跟Url 放入WebDb (inject)。
   
-3、从WebDb的新 segment 中生成 fetchlist (generate)。
+3. 从WebDb的新 segment 中生成 fetchlist (generate)。
   
-4、根据 fetchlist 列表抓取网页的内容 (fetch)。
+4. 根据 fetchlist 列表抓取网页的内容 (fetch)。
   
-5、根据抓取回来的网页链接url更新 WebDB (updatedb)。
+5. 根据抓取回来的网页链接url更新 WebDB (updatedb)。
   
-6、重复上面3-5个步骤直到到达指定的抓取层数。
+6. 重复上面3-5个步骤直到到达指定的抓取层数。
   
-7、用计算出来的网页url权重 scores 更新 segments (updatesegs)。
+7. 用计算出来的网页url权重 scores 更新 segments (updatesegs)。
   
-8、对抓取回来的网页建立索引(index)。
+8. 对抓取回来的网页建立索引(index)。
   
-9、在索引中消除重复的内容和重复的url (dedup)。
+9. 在索引中消除重复的内容和重复的url (dedup)。
   
-10、合并多个索引到一个大索引,为搜索提供索引库(merge)。
+10. 合并多个索引到一个大索引,为搜索提供索引库(merge)。
 
 
 \***\***\***\***\*****

@@ -193,11 +193,11 @@ image
   
 4.offset存储方式
   
-1、在kafka 0.9版本之后，kafka为了降低zookeeper的io读写，减少network data transfer，也自己实现了在kafka server上存储consumer，topic，partitions，offset信息将消费的 offset 迁入到了 Kafka 一个名为 __consumer_offsets 的Topic中。
+1. 在kafka 0.9版本之后，kafka为了降低zookeeper的io读写，减少network data transfer，也自己实现了在kafka server上存储consumer，topic，partitions，offset信息将消费的 offset 迁入到了 Kafka 一个名为 __consumer_offsets 的Topic中。
   
-2、将消费的 offset 存放在 Zookeeper 集群中。
+2. 将消费的 offset 存放在 Zookeeper 集群中。
   
-3、将offset存放至第三方存储，如Redis, 为了严格实现不重复消费
+3. 将offset存放至第三方存储，如Redis, 为了严格实现不重复消费
   
 下面分别说一下这三种存储方式的实现
 

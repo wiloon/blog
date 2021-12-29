@@ -45,7 +45,7 @@ Linux时钟分为系统时钟（System Clock) 和硬件（Real Time Clock，简�
 
 Linux中的所有命令（包括函数) 都是采用的系统时钟设置。在Linux中，用于时钟查看和设置的命令主要有date、hwclock和clock。其中，clock和hwclock用法相近，只用一个就行，只不过clock命令除了支持x86硬件体系外，还支持Alpha硬件体系。
 
-1、date
+1. date
 
 查看系统时间
 
@@ -61,7 +61,7 @@ sudo date -set "08/31/2012 10:19"
   
 ```
   
-2、hwclock/clock
+2. hwclock/clock
 
 查看硬件时间
 
@@ -75,7 +75,7 @@ sudo date -set "08/31/2012 10:19"
 
 或者# clock -set -date="07/07/06 10:19" （月/日/年 时:分:秒) 
 
-3、硬件时间和系统时间的同步
+3. 硬件时间和系统时间的同步
 
 按照前面的说法，重新启动系统，硬件时间会读取系统时间，实现同步，但是在不重新启动的时候，需要用hwclock或clock命令实现同步。
 
@@ -83,7 +83,7 @@ sudo date -set "08/31/2012 10:19"
 
 系统时钟和硬件时钟同步: # hwclock -systohc或者# clock -systohc
 
-4、时区的设置
+4. 时区的设置
 
 # tzselect
 

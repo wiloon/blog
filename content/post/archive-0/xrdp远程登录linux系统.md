@@ -194,7 +194,7 @@ That's All. You have successfully configured xRDP on CentOS 7 / RHEL 7.
 
 xrdp安装配置方法
 
-1、如果是debian系发行版，可以设置好源后直接apt-get install xrdp
+1. 如果是debian系发行版，可以设置好源后直接apt-get install xrdp
   
 如果是RedHat系发行版，可以到这里下载安装包
   
@@ -202,23 +202,23 @@ xrdp依赖于pam和openssl-del，编译前需要先安装pam-devel和openssl-dev
   
 如果是RedHat系，设置好源直接yum install pam-devel openssl-devel
 
-2、下载好xrdp的安装包后，用tar -xvvzf 解压
+2. 下载好xrdp的安装包后，用tar -xvvzf 解压
   
 进入解压出来的目录用root帐号执行make ，然后执行make install
 
-3、xrdp需要vncserver，所以还要安装vncserver
+3. xrdp需要vncserver，所以还要安装vncserver
 
-4、准备好后，可以通过解压出来的目录下的instfiles目录下的xrdp-control.sh脚本启动xrdp
+4. 准备好后，可以通过解压出来的目录下的instfiles目录下的xrdp-control.sh脚本启动xrdp
   
 xrdp-control.sh start
   
 可以把此脚本添加到/etc/rc.d/init.d/中，让它开机自动运行。
 
-5、启动好xrdp，就可以通过客户端的rdp client 连接到服务器上，win下可以用mstsc，linux下可以用rdesktop或者krdp。
+5. 启动好xrdp，就可以通过客户端的rdp client 连接到服务器上，win下可以用mstsc，linux下可以用rdesktop或者krdp。
   
 module 选择为: sesman-Xvnc
 
-6、xrdp的配置文档在/etc/xrdp目录下的xrdp.ini和sesman.ini
+6. xrdp的配置文档在/etc/xrdp目录下的xrdp.ini和sesman.ini
 
 xrdp.ini 关键部分在globals
 

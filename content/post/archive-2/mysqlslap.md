@@ -57,7 +57,7 @@ MySQLslap是MySQL5.1之后自带的benchmark基准测试工具,类似Apache Benc
   
 下面我们使用几个demo实例来进行测试
   
-1、Demo1: 
+1. Demo1: 
   
 [root@localhost ~]# MySQLslap -uroot -p123abc -concurrency=100 -iterations=1 -auto-generate-sql -auto-generate-sql-load-type=mixed -auto-generate-sql-add-autoincrement -engine=myisam -number-of-queries=10 -debug-info
   
@@ -91,13 +91,13 @@ Blocks in 0 out 0, Messages in 0 out 0, Signals 0
   
 Voluntary context switches 27221, Involuntary context switches 4241
   
-2、Demo2: 指定数据库和sql语句
+2. Demo2: 指定数据库和sql语句
   
 MySQLslap -h192.168.202.84 -P3309 -concurrency=100 -iterations=1 -create-schema='mms_sdmtv' -query='select * from role;' -number-of-queries=10 -debug-info -uroot -p123abc
   
 #备注使用MySQLslap指定sql语句进行测试
   
-3、Demo3: 测试用例
+3. Demo3: 测试用例
   
 [root@localhost /]# MySQLslap -concurrency=50,100,200 -iterations=20 -number-int-cols=4 -number-char-cols=35 -auto-generate-sql -auto-generate-sql-add-autoincrement -auto-generate-sql-load-type=read -engine=myisam,innodb -number-of-queries=200 -verbose -socket=/var/lib/MySQL/MySQL.sock -uroot -p123abc
   
@@ -187,7 +187,7 @@ Number of clients running queries: 200
   
 Average number of queries per client: 1
   
-4、自建SQL测试用例
+4. 自建SQL测试用例
   
 MySQLslap -create=/yourpath/Test1.sql -query=/yourpath/Test2.sql -concurrency=50,100,200 -iterations=20 -engine=myisam,innodb  -u root -p123abc
   

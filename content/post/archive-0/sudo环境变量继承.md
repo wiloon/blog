@@ -190,7 +190,7 @@ root ALL=(ALL) ALL
   
 sudo通过维护一个特权到用户名映射的数据库将特权分配给不同的用户，这些特权可由数据库中所列的一些不同的命令来识别。为了获得某一特权项，有资格的用户只需简单地在命令行输入sudo与命令名之后，按照提示再次输入口令（用户自己的口令，不是root用户口令) 。例如，sudo允许普通用户格式化磁盘，但是却没有赋予其他的root用户特权。
   
-1、sudo工具由文件/etc/sudoers进行配置，该文件包含所有可以访问sudo工具的用户列表并定义了他们的特权。一个典型的/etc/sudoers条目如下: 
+1. sudo工具由文件/etc/sudoers进行配置，该文件包含所有可以访问sudo工具的用户列表并定义了他们的特权。一个典型的/etc/sudoers条目如下: 
   
 代码:
   
@@ -224,7 +224,7 @@ Password:
   
 只要把相应的用户名、主机名和许可的命令列表以标准的格式加入到文件/etc/sudoers，并保存就可以生效，再看一个例子。
   
-2、例子: 管理员需要允许gem用户在主机sun上执行reboot和shutdown命令，在/etc/sudoers中加入: 
+2. 例子: 管理员需要允许gem用户在主机sun上执行reboot和shutdown命令，在/etc/sudoers中加入: 
   
 代码:
   
@@ -246,7 +246,7 @@ $ sudo /usr/sbin/reboot
   
 %cuug ALL=(ALL) ALL
   
-3、另外，还可以利用别名来简化配置文件。别名类似组的概念，有用户别名、主机别名和命令别名。多个用户可以首先用一个别名来定义，然后在规定他们可以执行什么命令的时候使用别名就可以了，这个配置对所有用户都生效。主机别名和命令别名也是如此。注意使用前先要在/etc/sudoers中定义:  User_Alias, Host_Alias, Cmnd_Alias项，在其后面加入相应的名称，也以逗号分隔开就可以了，举例如下: 
+3. 另外，还可以利用别名来简化配置文件。别名类似组的概念，有用户别名、主机别名和命令别名。多个用户可以首先用一个别名来定义，然后在规定他们可以执行什么命令的时候使用别名就可以了，这个配置对所有用户都生效。主机别名和命令别名也是如此。注意使用前先要在/etc/sudoers中定义:  User_Alias, Host_Alias, Cmnd_Alias项，在其后面加入相应的名称，也以逗号分隔开就可以了，举例如下: 
   
 代码:
   
@@ -258,7 +258,7 @@ Cmnd_Alias SHUTDOWN=/usr/sbin/halt，/usr/sbin/shutdown，/usr/sbin/reboot
   
 ADMINS SERVER=SHUTDOWN
 
-5、sudo命令还可以加上一些参数，完成一些辅助的功能，如
+5. sudo命令还可以加上一些参数，完成一些辅助的功能，如
   
 代码:
   
@@ -274,7 +274,7 @@ User liming may run the following commands on this host:
   
 说明root允许用户liming执行/usr/sbin/reboot命令。这个参数可以使用户查看自己目前可以在sudo中执行哪些命令。
   
-6、在命令提示符下键入sudo命令会列出所有参数，其他一些参数如下: 
+6. 在命令提示符下键入sudo命令会列出所有参数，其他一些参数如下: 
   
 代码:
   
@@ -311,19 +311,19 @@ visudo //切记，此处没有vi和sudo之间没有空格
   
 或 emacs /etc/sudoers
   
-1、移动光标，到最后一行
+1. 移动光标，到最后一行
   
-2、按a，进入append模式
+2. 按a，进入append模式
   
-3、输入
+3. 输入
   
 your_user_name ALL=(ALL) ALL
   
-4、按Esc
+4. 按Esc
   
-5、输入":w"(保存文件)
+5. 输入":w"(保存文件)
   
-6、输入":q"(退出)
+6. 输入":q"(退出)
 
 
 原文地址: http://kenshin54.iteye.com/blog/941896

@@ -6,32 +6,30 @@ url: lsmtree
 categories:
   - Linux
 ---
-## LSM-Tree
-Log Structured Merge Tree
+## LSM-Tree, Log Structured Merge Tree
 
-十多年前，谷歌发布了大名鼎鼎的"三驾马车"的论文，分别是GFS(2003年)，MapReduce（2004年），BigTable（2006年），为开源界在大数据领域带来了无数的灵感，其中在 “BigTable” 的论文中很多很酷的方面之一就是它所使用的文件组织方式，这个方法更一般的名字叫 Log Structured-Merge Tree。在面对亿级别之上的海量数据的存储和检索的场景下，我们选择的数据库通常都是各种强力的NoSQL，比如Hbase，Cassandra，Leveldb，RocksDB等等，这其中前两者是Apache下面的顶级开源项目数据库，后两者分别是Google和Facebook开源的数据库存储引擎。而这些强大的NoSQL数据库都有一个共性，就是其底层使用的数据结构，都是仿照“BigTable”中的文件组织方式来实现的，也就是我们今天要介绍的LSM-Tree。
+十多年前，谷歌发布了大名鼎鼎的"三驾马车"的论文，分别是GFS(2003年)，MapReduce（2004年），BigTable（2006年），为开源界在大数据领域带来了无数的灵感，其中在 “BigTable” 的论文中很多很酷的方面之一就是它所使用的文件组织方式，这个方法更一般的名字叫 Log Structured-Merge Tree。在面对亿级别之上的海量数据的存储和检索的场景下，我们选择的数据库通常都是各种强力的NoSQL，比如 Hbase, Cassandra, Leveldb, RocksDB 等等，这其中前两者是 Apache 下面的顶级开源项目数据库，后两者分别是 Google 和 Facebook 开源的数据库存储引擎。而这些强大的 NoSQL 数据库都有一个共性，就是其底层使用的数据结构，都是仿照 “BigTable” 中的文件组织方式来实现的，也就是我们今天要介绍的 LSM-Tree。
 
-什么是LSM-Tree
-LSM-Tree全称是 Log Structured Merge Tree，是一种分层，有序，面向磁盘的数据结构，其核心思想是充分了利用了，磁盘批量的顺序写要远比随机写性能高出很多
+### 什么是 LSM-Tree
+LSM-Tree全称是 Log Structured Merge Tree，是一种分层，有序，面向磁盘的数据结构，其核心思想是充分了利用了磁盘**批量的顺序写**要远比**随机写**性能高出很多的特性
 
-围绕这一原理进行设计和优化，以此让写性能达到最优，正如我们普通的Log的写入方式，这种结构的写入，全部都是以Append的模式追加，不存在删除和修改。当然有得就有舍，这种结构虽然大大提升了数据的写入能力，却是以牺牲部分读取性能为代价，故此这种结构通常适合于写多读少的场景。故LSM被设计来提供比传统的B+树或者ISAM更好的写操作吞吐量，通过消去随机的本地更新操作来达到这个目标。这里面最典型的例子就属于Kakfa了，把磁盘顺序写发挥到了极致，故而在大数据领域成为了互联网公司标配的分布式消息中间件组件。
+围绕这一原理进行设计和优化，以此让写性能达到最优，正如我们普通的 Log 的写入方式，这种结构的写入，全部都是以 Append 的模式追加，不存在删除和修改。当然有得就有舍，这种结构虽然大大提升了数据的写入能力，却是以牺牲部分读取性能为代价，故此这种结构通常适合于写多读少的场景。故 LSM 被设计来提供比传统的 B+树 或者 ISAM 更好的写操作吞吐量，通过消去随机的本地更新操作来达到这个目标。这里面最典型的例子就是 Kakfa 了，把磁盘顺序写发挥到了极致，故而在大数据领域成为了互联网公司标配的分布式消息中间件组件。
 
-虽然这种结构的写非常简单高效，但其缺点是对读取特别是随机读很不友好，这也是为什么日志通常用在下面的两种简单的场景：
+虽然这种结构的写非常简单高效，但其缺点是对读取特别是**随机读**很不友好，这也是为什么日志通常用在下面的两种简单的场景：
 
-（1） 数据是被整体访问的，大多数数据库的 **WAL（write ahead log）**也称**预写log**，包括mysql的 Binlog 等
+1. 数据是被整体访问的，大多数数据库的 **WAL（write ahead log）** 也称 **预写log**，包括 mysql 的 Binlog 等
+2. 数据是通过文件的偏移量offset访问的，比如 Kafka。
 
-（2） 数据是通过文件的偏移量offset访问的，比如 Kafka。
+想要支持更复杂和高效的读取，比如按key查询和按range查询，就得需要做一步的设计，这也是LSM-Tree结构，除了利用磁盘顺序写之外，还划分了 **内存+磁盘** 多层的合并结构的原因，正是基于这种结构再加上不同的优化实现，才造就了在这之上的各种独具特点的 NoSQL 数据库，如 Hbase，Cassandra，Leveldb，RocksDB，MongoDB, TiDB 等。
 
-想要支持更复杂和高效的读取，比如按key查询和按range查询，就得需要做一步的设计，这也是LSM-Tree结构，除了利用磁盘顺序写之外，还划分了内存+磁盘多层的合并结构的原因，正是基于这种结构再加上不同的优化实现，才造就了在这之上的各种独具特点的NoSQL数据库，如Hbase，Cassandra，Leveldb，RocksDB，MongoDB，TiDB等。
+### SSTable, Sorted String Table
+提到 LSM-Tree 这种结构，就得提一下 LevelDB 这个存储引擎，我们知道 Bigtable 是谷歌开源的一篇论文，很难接触到它的源代码实现。如果说Bigtable是分布式闭源的一个高性能的KV系统，那么LevelDB就是这个KV系统开源的单机版实现，最为重要的是 LevelDB 是由 Bigtable 的原作者 Jeff Dean 和 Sanjay Ghemawat 共同完成，可以说高度复刻了Bigtable 论文中对于其实现的描述。
 
-### SSTable 和 LSM-Tree
-提到LSM-Tree这种结构，就得提一下LevelDB这个存储引擎，我们知道Bigtable是谷歌开源的一篇论文，很难接触到它的源代码实现。如果说Bigtable是分布式闭源的一个高性能的KV系统，那么LevelDB就是这个KV系统开源的单机版实现，最为重要的是LevelDB是由Bigtable的原作者 Jeff Dean 和 Sanjay Ghemawat 共同完成，可以说高度复刻了Bigtable 论文中对于其实现的描述。
-
-在LSM-Tree里面，核心的数据结构就是SSTable，全称是 **Sorted String Table**，SSTable的概念其实也是来自于 Google 的 Bigtable 论文，论文中对 SSTable 的描述如下：
+在 LSM-Tree 里面，核心的数据结构就是 SSTable，全称是 **Sorted String Table**，SSTable 的概念其实也是来自于 Google 的 Bigtable 论文，论文中对 SSTable 的描述如下：
 
 An SSTable provides a persistent, ordered immutable map from keys to values, where both keys and values are arbitrary byte strings. Operations are provided to look up the value associated with a specified key, and to iterate over all key/value pairs in a specified key range. Internally, each SSTable contains a sequence of blocks (typically each block is 64KB in size, but this is configurable). A block index (stored at the end of the SSTable) is used to locate blocks; the index is loaded into memory when the SSTable is opened. A lookup can be performed with a single disk seek: we first find the appropriate block by performing a binary search in the in-memory index, and then reading the appropriate block from disk. Optionally, an SSTable can be completely mapped into memory, which allows us to perform lookups and scans without touching disk.
 
-如上所述，SSTable是一种拥有持久化，有序且不可变的的键值存储结构，它的key和value都是任意的字节数组，并且了提供了按指定key查找和指定范围的key区间迭代遍历的功能。SSTable内部包含了一系列可配置大小的Block块，典型的大小是64KB，关于这些Block块的index存储在SSTable的尾部，用于帮助快速查找特定的Block。当一个SSTable被打开的时候，index会被加载到内存，然后根据key在内存index里面进行一个二分查找，查到该key对应的磁盘的offset之后，然后去磁盘把响应的块数据读取出来。当然如果内存足够大的话，可以直接把SSTable直接通过MMap的技术映射到内存中，从而提供更快的查找。 
+如上所述，SSTable 是一种拥有持久化，有序且不可变的的键值存储结构，它的key和value都是任意的字节数组，并且了提供了按指定key查找和指定范围的key区间迭代遍历的功能。SSTable内部包含了一系列可配置大小的Block块，典型的大小是64KB，关于这些Block块的index存储在SSTable的尾部，用于帮助快速查找特定的Block。当一个SSTable被打开的时候，index会被加载到内存，然后根据key在内存index里面进行一个二分查找，查到该key对应的磁盘的offset之后，然后去磁盘把响应的块数据读取出来。当然如果内存足够大的话，可以直接把SSTable直接通过 MMap 的技术映射到内存中，从而提供更快的查找。 
 
 
 在LSM-Tree里，SSTable有一份在内存里面，其他的多级在磁盘上，如下图是一份完整的LSM-Tree图示：

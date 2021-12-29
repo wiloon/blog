@@ -14,11 +14,11 @@ SQL Server中的标识列又称标识符列,习惯上又叫自增列。
   
 该种列具有以下三种特点: 
 
-1、列的数据类型为不带小数的数值类型
+1. 列的数据类型为不带小数的数值类型
   
-2、在进行插入(Insert)操作时,该列的值是由系统按一定规律生成,不允许空值
+2. 在进行插入(Insert)操作时,该列的值是由系统按一定规律生成,不允许空值
   
-3、列值不重复,具有标识表中每一行的作用,每个表只能有一个标识列。
+3. 列值不重复,具有标识表中每一行的作用,每个表只能有一个标识列。
 
 由于以上特点,使得标识列在数据库的设计中得到广泛的使用。
 
@@ -26,7 +26,7 @@ SQL Server中的标识列又称标识符列,习惯上又叫自增列。
   
 创建一个标识列,通常要指定三个内容:
   
-1、类型（type) 
+1. 类型（type) 
   
 在SQL Server 2000中,标识列类型必须是数值类型,如下: 
   
@@ -36,11 +36,11 @@ decimal、int、numeric、smallint、bigint 、tinyint
   
 另外还要注意每种数据类型所有表示的数值范围
 
-2、种子(seed)
+2. 种子(seed)
   
 是指派给表中第一行的值,默认为1
 
-3、递增量(increment)
+3. 递增量(increment)
   
 相邻两个标识值之间的增量,默认为1。
 
@@ -50,7 +50,7 @@ decimal、int、numeric、smallint、bigint 、tinyint
 
 里只讨论使用Transact-SQL的方法
 
-1、创建表时指定标识列
+1. 创建表时指定标识列
   
 标识列可用 IDENTITY 属性建立,因此在SQL Server中,又称标识列为具有IDENTITY属性的列或IDENTITY列。
   
@@ -64,7 +64,7 @@ Name varchar(50)
   
 )
 
-2、在现有表中添加标识列
+2. 在现有表中添加标识列
   
 下面的例子向表T_test中添加一个名为ID,类型为int,种子为1,递增量为1的标识列
   
@@ -86,7 +86,7 @@ ALTER TABLE T_test
   
 ADD ID int IDENTITY(1,1)
 
-3、判段一个表是否具有标识列
+3. 判段一个表是否具有标识列
 
 可以使用 OBJECTPROPERTY 函数确定一个表是否具有 IDENTITY（标识) 列,用法:
   
@@ -94,7 +94,7 @@ Select OBJECTPROPERTY(OBJECT_ID('表名'),'TableHasIdentity')
   
 如果有,则返回1,否则返回0
 
-4、判断某列是否是标识列
+4. 判断某列是否是标识列
 
 可使用 COLUMNPROPERTY 函数确定 某列是否具有IDENTITY 属性,用法
   
@@ -102,7 +102,7 @@ SELECT COLUMNPROPERTY( OBJECT_ID('表名'),'列名','IsIdentity')
   
 如果该列为标识列,则返回1,否则返回0
 
-4、查询某表标识列的列名
+4. 查询某表标识列的列名
   
 SQL Server中没有现成的函数实现此功能,实现的SQL语句如下
   
@@ -112,7 +112,7 @@ WHERE TABLE_NAME='表名' AND  COLUMNPROPERTY(
   
 OBJECT_ID('表名'),COLUMN_NAME,'IsIdentity')=1
 
-5、标识列的引用
+5. 标识列的引用
 
 如果在SQL语句中引用标识列,可用关键字IDENTITYCOL代替
   
@@ -124,19 +124,19 @@ SELECT * FROM T_test WHERE IDENTITYCOL=1
   
 SELECT * FROM T_test WHERE ID=1
 
-6、获取标识列的种子值
+6. 获取标识列的种子值
 
 可使用函数IDENT_SEED,用法: 
   
 SELECT IDENT_SEED ('表名')
 
-7、获取标识列的递增量
+7. 获取标识列的递增量
 
 可使用函数IDENT_INCR ,用法: 
   
 SELECT IDENT_INCR('表名')
 
-8、获取指定表中最后生成的标识值
+8. 获取指定表中最后生成的标识值
 
 可使用函数IDENT_CURRENT,用法:
   

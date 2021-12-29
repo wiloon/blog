@@ -12,11 +12,11 @@ D-Bus三层架构
 
 D-Bus是一个为应用程序间通信的消息总线系统, 用于进程之间的通信。它是个3层架构的IPC 系统，包括: 
 
-1、函数库libdbus ，用于两个应用程序互相联系和交互消息。
+1. 函数库libdbus ，用于两个应用程序互相联系和交互消息。
 
-2、一个基于libdbus构造的消息总线守护进程，可同时与多个应用程序相连，并能把来自一个应用程序的消息路由到0或者多个其他程序。
+2. 一个基于libdbus构造的消息总线守护进程，可同时与多个应用程序相连，并能把来自一个应用程序的消息路由到0或者多个其他程序。
 
-3、基于特定应用程序框架的封装库或捆绑（wrapper libraries or bindings ) 。例如，libdbus-glib和libdbus-qt，还有绑定在其他语言，例如Python的。大多数开发者都是使用这些封装库的API，因为它们简化了D-Bus编程细节。libdbus被有意设计成为更高层次绑定的底层后端（low-levelbackend ) 。大部分libdbus的 API仅仅是为了用来实现绑定。
+3. 基于特定应用程序框架的封装库或捆绑（wrapper libraries or bindings ) 。例如，libdbus-glib和libdbus-qt，还有绑定在其他语言，例如Python的。大多数开发者都是使用这些封装库的API，因为它们简化了D-Bus编程细节。libdbus被有意设计成为更高层次绑定的底层后端（low-levelbackend ) 。大部分libdbus的 API仅仅是为了用来实现绑定。
 
 
 总线

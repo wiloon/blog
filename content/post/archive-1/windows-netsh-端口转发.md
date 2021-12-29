@@ -25,7 +25,7 @@ VirtualBox提供了端口转发的功能，可以将主机中的端口转发至�
   
 新增端口转发
   
-1、命令
+1. 命令
   
 netsh interface portproxy add v4tov4 - 添加通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
@@ -35,7 +35,7 @@ netsh interface portproxy add v6tov4 - 添加通过 IPv4 的 IPv6 和代理连�
   
 netsh interface portproxy add v6tov6 - 添加通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
-2、命令语法
+2. 命令语法
   
 以netsh interface portproxy add v4tov4为例，其语法格式如下: 
 
@@ -65,7 +65,7 @@ protocol        - 使用的协议。现在只支持 TCP。
   
 说明: 添加通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
-3、使用示例
+3. 使用示例
   
 netsh interface portproxy add v4tov4 listenport=8080 connectaddress=192.168.56.101 connectport=8080
   
@@ -77,7 +77,7 @@ netsh interface portproxy add v4tov4 listenport=9090 connectaddress=192.168.56.1
   
 显示所有的端口转发配置信息
   
-1、命令
+1. 命令
   
 netsh interface portproxy show all - 显示所有端口代理参数。
   
@@ -89,7 +89,7 @@ netsh interface portproxy show v6tov4 - 显示 IPv6 代理连接到 IPv4 的参�
   
 netsh interface portproxy show v6tov6 - 显示 IPv6 代理连接到另一个 IPv6 端口的参数。
 
-2、使用示例
+2. 使用示例
   
 netsh interface portproxy show all
   
@@ -107,7 +107,7 @@ netsh interface portproxy show all
   
 修改端口转发配置
   
-1、命令
+1. 命令
   
 netsh interface portproxy set v4tov4     - 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
@@ -117,7 +117,7 @@ netsh interface portproxy set v6tov4     - 更新通过 IPv4 的 IPv6 和代理�
   
 netsh interface portproxy set v6tov6     - 更新通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
-2、命令语法
+2. 命令语法
   
 以netsh interface portproxy set v4tov4为例，其语法格式如下: 
 
@@ -147,7 +147,7 @@ protocol        - 使用的协议。现在只支持 TCP。
   
 说明: 更新通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
-3、使用示例
+3. 使用示例
   
 netsh interface portproxy set v4tov4 listenport=9090 connectaddress=192.168.56.101 connectport=9080
   
@@ -155,7 +155,7 @@ netsh interface portproxy set v4tov4 listenport=9090 connectaddress=192.168.56.1
 
 删除端口转发配置
   
-1、命令
+1. 命令
   
 netsh interface portproxy delete v4tov4  - 删除通过 IPv4 的 IPv4 和代理连接到的侦听项目。
   
@@ -165,7 +165,7 @@ netsh interface portproxy delete v6tov4  - 删除通过 IPv4 的 IPv6 和代理�
   
 netsh interface portproxy delete v6tov6  - 删除通过 IPv6 的 IPv6 和代理连接到的侦听项目。
   
-2、命令语法
+2. 命令语法
   
 以netsh interface portproxy delete v4tov4为例，其语法格式如下: 
 
@@ -187,7 +187,7 @@ protocol       - 要使用的协议。当前仅支持 TCP。
   
 注释: 删除要侦听的 IPv4 的项并通过 Ipv4 代理连接。
   
-3、使用示例
+3. 使用示例
   
 netsh interface portproxy delete v4tov4 listenport=9090
 

@@ -1115,13 +1115,13 @@ Memcache的默认启动时的参数可能不满足实际生产环境的需要,�
 
 在CentOS 5.6上编译安装Memcached
   
-1、由于memcached是基于libevent的,因此需要安装libevent,libevent-devel
+1. 由于memcached是基于libevent的,因此需要安装libevent,libevent-devel
 
 view plain   copy
   
 # yum install libevent libevent-devel -y
   
-2、下载并解压memcached-1.4.5
+2. 下载并解压memcached-1.4.5
 
 memcached官方网站是: http://memcached.org/
 
@@ -1133,7 +1133,7 @@ view plain   copy
   
 # tar -xvzf  memcached-1.4.5.tar.gz
   
-3、编译安装memcached-1.4.5
+3. 编译安装memcached-1.4.5
 
 view plain   copy
   
@@ -1145,7 +1145,7 @@ view plain   copy
   
 # make install
   
-4、配置环境变量
+4. 配置环境变量
 
 进入用户宿主目录,编辑.bash_profile,为系统环境变量LD_LIBRARY_PATH增加新的目录,需要增加的内容如下: 
 
@@ -1159,7 +1159,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MEMCACHED_HOME/lib
   
 刷新用户环境变量: # source .bash_profile
 
-5、编写memcached服务启停脚本
+5. 编写memcached服务启停脚本
 
 # cd /etc/init.d
 
@@ -1331,7 +1331,7 @@ exit $RETVAL
   
 设置脚本可被执行: # chmod +x memcached
 
-6、设置memcached随系统启动
+6. 设置memcached随系统启动
 
 view plain   copy
   

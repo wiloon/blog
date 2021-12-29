@@ -108,7 +108,7 @@ fetches/sec, 28945.5 bytes/secmsecs/connect: 28.8932 mean, 44.243 max, 24.488 mi
   
 5．msecs/first-response: 63.5362 mean, 81.624 max, 57.803 min
   
-6、HTTP response codes: code 200 — 49     说明打开响应页面的类型,如果403的类型过多,那可能
+6. HTTP response codes: code 200 — 49     说明打开响应页面的类型,如果403的类型过多,那可能
 
 要注意是否系统遇到了瓶颈。
   

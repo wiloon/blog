@@ -165,7 +165,7 @@ System.out.println(order.getName());
 
 ```
 
-2、下面的定义也是合法的: 
+2. 下面的定义也是合法的: 
 
 ```java
 public enum Day
@@ -211,7 +211,7 @@ System.out.println( " Today is  "   +  today.toString().toLowerCase());
 }
 ```
 
-4、枚举类型的性质: （摘自o'relly 出版的 Java in A Nutshell 5th)
+4. 枚举类型的性质: （摘自o'relly 出版的 Java in A Nutshell 5th)
   
 Enumerated types have no public constructor. The only instances of an enumerated type are those declared by the enum.
   

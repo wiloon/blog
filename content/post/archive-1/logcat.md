@@ -15,13 +15,13 @@ Android日志系统提供了记录和查看系统调试信息的功能。日志�
 
 一、使用logcat命令的目的: 
 
-1、你可以用 logcat 命令来查看系统日志缓冲区的内容:
+1. 你可以用 logcat 命令来查看系统日志缓冲区的内容:
   
 [adb] logcat [<option>] ... [<filter-spec>] ...
   
 详细内容，请查看Listing of logcat Command Options ，它对logcat命令有详细的描述 .
   
-2、你也可以在你的电脑或运行在模拟器/设备上的远程adb shell端来使用logcat命令，也可以在你的电脑上查看日志输出。
+2. 你也可以在你的电脑或运行在模拟器/设备上的远程adb shell端来使用logcat命令，也可以在你的电脑上查看日志输出。
   
 $ adb logcat
   

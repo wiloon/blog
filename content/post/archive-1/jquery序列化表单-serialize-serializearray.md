@@ -10,7 +10,7 @@ tags:
 
 ---
 ## jQuery序列化表单 serialize() serializeArray()
-1、serialize()方法
+1. serialize()方法
 
 描述: 序列化表单内容为字符串,用于Ajax请求。
 

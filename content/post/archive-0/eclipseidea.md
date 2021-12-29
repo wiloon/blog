@@ -15,7 +15,7 @@ outline - structure, Ctrl+F12
 本文转自: <http://gagi.iteye.com/blog/633778>
 
 
-1、比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下: 
+1. 比如输入eclipse下面的main，sysout等，在idea里面同样可以实现，如下: 
  
   
   
@@ -24,7 +24,7 @@ outline - structure, Ctrl+F12
     
   
 
-2、性能优化
+2. 性能优化
  
   
   
@@ -66,7 +66,7 @@ outline - structure, Ctrl+F12
     
   
 
-3、优化文件保存和工程加载
+3. 优化文件保存和工程加载
   
  
   
@@ -84,7 +84,7 @@ outline - structure, Ctrl+F12
     
   
 
-4、用*标识编辑过的文件
+4. 用*标识编辑过的文件
   
  
   
@@ -103,7 +103,7 @@ outline - structure, Ctrl+F12
     
   
 
-5、显示行号
+5. 显示行号
  
   
     
@@ -111,7 +111,7 @@ outline - structure, Ctrl+F12
     
   
 
-6、自定义键盘快捷方式
+6. 自定义键盘快捷方式
   
  
   
@@ -121,7 +121,7 @@ outline - structure, Ctrl+F12
     
   
 
-7、如何让光标不随意定位
+7. 如何让光标不随意定位
  
   
   
@@ -130,7 +130,7 @@ outline - structure, Ctrl+F12
     
   
 
-8、中文乱码问题
+8. 中文乱码问题
   
   
   
@@ -148,7 +148,7 @@ outline - structure, Ctrl+F12
     
   
 
-9、如何完美显示中文
+9. 如何完美显示中文
   
    
   
@@ -174,7 +174,7 @@ outline - structure, Ctrl+F12
   
 
 
-11、一些有用的快捷键
+11. 一些有用的快捷键
  
   
   

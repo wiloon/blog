@@ -12,22 +12,22 @@ categories:
 
 使用步骤: 
 
-1、首先打开Visio，进入"数据库模型图"
+1. 首先打开Visio，进入"数据库模型图"
 
 2007自动生成ER图" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="反向工程--Visio <wbr>2007自动生成ER图" />
 
-2、进入菜单"数据库"->"反向工程"
+2. 进入菜单"数据库"->"反向工程"
 
 2007自动生成ER图" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="反向工程--Visio <wbr>2007自动生成ER图" />
 
-3、弹出"反向工程向导"对话框，从对话框中可以看出Visio的反向工程可以用于Access、SQL Server、DB2、Oracle等数据库。
+3. 弹出"反向工程向导"对话框，从对话框中可以看出Visio的反向工程可以用于Access、SQL Server、DB2、Oracle等数据库。
 
 2007自动生成ER图" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="反向工程--Visio <wbr>2007自动生成ER图" />
 
-4、新建数据源。
+4. 新建数据源。
 
 2007自动生成ER图" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="反向工程--Visio <wbr>2007自动生成ER图" />
 
-5、然后利用"反向工程向导"的指导，直至产生ER图。
+5. 然后利用"反向工程向导"的指导，直至产生ER图。
   
 <wbr /> <wbr /> 我的数据库中有四个用户表，产生的ER图如下: 

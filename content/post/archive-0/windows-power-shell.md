@@ -95,11 +95,11 @@ Windows PowerShell 需要用于管理.NET 对象的语言。该语言需要为�
   
 PowerShell脚本十个基本概念
 
-1、PS1文件
+1. PS1文件
   
 一个PowerShell脚本[1]其实就是一个简单的文本文件，这个文件包含了一系列PowerShell命令，每个命令显示为独立的一行，对于被视为PowerShell脚本的文本文件，它的文件名需要使用.PS1扩展。
   
-2、执行权限
+2. 执行权限
   
 为防止恶意脚本的执行，PowerShell有一个执行策略，默认情况下，这个执行策略被设为受限的（Restricted) ，意味着PowerShell脚本无法执行，你可以使用下面的cmdlet命令确定当前的执行策略: 
   
@@ -119,7 +119,7 @@ C:Scriptsaps1 最大的例外是，如果PowerShell脚本文件刚好位于你�
   
 .a.ps1 注意前面需要加上.，这和Linux下执行Shell脚本的方法如出一辙。
   
-4、管道
+4. 管道
   
 管道的作用是将一个命令的输出作为另一个命令的输入，两个命令（或cmdlet) 之间只需要用管道符号（|) 连接即可。
   
@@ -143,7 +143,7 @@ $a = (Get-Process | Sort-Object ID) 6、@符号
   
 Get-Process @procs Windows将显示Windows资源管理器和Svchost使用的所有进程，注意变量前使用的@符号，而不是常见的$符号。
   
-7、Split
+7. Split
   
 Split操作符根据你指定的字符拆分一个文本字符串，例如，假设你想将一个句子拆分成一个单词组成的一个数组，你可以使用下面的命令做到: 
   
@@ -155,7 +155,7 @@ This is a test 8、Join
   
 "Brien","Posey" -join " " 命令末尾双引号之间的空格告诉Windows在两个文本字符串之间插入一个空格。
   
-9、断点
+9. 断点
   
 运行一个新创建的PowerShell脚本时，如果脚本有Bug，会遇到意想不到的后果，保护自己的一个方法是在脚本的关键位置插入断点，这样你就可以确保脚本正常运行先，然后再处理可能存在的问题。
   
@@ -167,7 +167,7 @@ New-PSBreakpoint -Script C:scriptsa.ps1 -variables a 注意，我在变量名后
   
 可以和PSBreakpoint一起使用的动词包括New，Get，Enable，Disable和Remove。
   
-10、Step
+10. Step
   
 调试一个脚本时，有时可能需要逐行运行脚本，这时你可以使用Step-Into cmdlet命令，它会使脚本一行一行地执行，不管有没有设置断点，如果你想从这种步进式运行模式退出来，使用Step-Out cmdlet命令即可，但需要注意的是，使用Step-Out cmdlet命令后，断点仍然有效。
   

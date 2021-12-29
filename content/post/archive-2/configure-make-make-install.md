@@ -22,7 +22,7 @@ make install是用来安装的,它也从Makefile中读取指令,安装到指定�
 
 AUTOMAKE和AUTOCONF是非常有用的用来发布C程序的东西。如果你也写程序想使用AUTOMAKE和AUTOCONF,可以参考CNGNU.ORG上的相关文章。
 
-1、configure ,这一步一般用来生成 Makefile,为下一步的编译做准备,你可以通过在 configure 后加上参数来对安装进行控制,比如
+1. configure ,这一步一般用来生成 Makefile,为下一步的编译做准备,你可以通过在 configure 后加上参数来对安装进行控制,比如
 
 代码:
   

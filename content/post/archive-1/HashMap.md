@@ -13,7 +13,7 @@ tags:
 ## 'Java HashMap 初始化'
 如果你接触过不同的语言，从语法和代码层面来说，Java 是一种不折不扣的"臃肿、啰嗦"的语言，从另一方面来说这种臃肿和啰嗦也体现了它严谨的一面，作为适合构建大型、复杂项目的理由之一。
 
-1、HashMap 初始化的文艺写法
+1. HashMap 初始化的文艺写法
 
 HashMap 是一种常用的数据结构，一般用来做数据字典或者 Hash 查找的容器。普通青年一般会这么初始化: 
   
@@ -169,7 +169,7 @@ put("QQ", "2572073701");
 
 D:\eclipse_indigo\workspace_home\CDHJobs\bin\pvuv\>
   
-2、推而广之
+2. 推而广之
 
 这种写法，推而广之，在初始化 ArrayList、Set 的时候都可以这么玩，比如你还可以这么玩: 
   
@@ -189,7 +189,7 @@ add("A" + i);
   
 System.out.println(names.toString()); // [A0, A1, A2, A3, A4, A5, A6, A7, A8, A9]
   
-3、Java7: 增加对 collections 的支持
+3. Java7: 增加对 collections 的支持
 
 在 Java 7 中你可以像 Ruby, Perl、Python 一样创建 collections 了。
 
@@ -235,7 +235,7 @@ Map<String, Integer> map = {"key" : 1};
   
 int value = map["key"];
   
-4、文艺写法的潜在问题
+4. 文艺写法的潜在问题
 
 文章开头提到的文艺写法的好处很明显就是一目了然。这里来罗列下此种方法的坏处，如果这个对象要串行化，可能会导致串行化失败。
   
@@ -247,7 +247,7 @@ new HashMap(map);
   
 这样就可以正常初始化了。
   
-5、执行效率问题
+5. 执行效率问题
 
 当一种新的工具或者写法出现时，猿们都会来一句: 性能怎么样？（这和男生谈论妹纸第一句一般都是: "长得咋样？三围多少？"一个道理:)) 
   
@@ -301,7 +301,7 @@ System.out.println(System.currentTimeMillis() - st); // 1064
   
 }
   
-6、Refer:
+6. Refer:
 
 （1) Double Brace Initialization In Java! http://viralpatel.net/blogs/double-brace-initialization-in-java/
 

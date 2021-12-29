@@ -76,9 +76,9 @@ DECIMAL(6,3) -9.999 到 99.999 -999.999 到 9999.999
 
 
 ### tinyInt1isBit
-1、tinyInt(1) 只用来代表Boolean含义的字段，且0代表False，1代表True。如果要存储多个数值，则定义为tinyInt(N), N>1。例如 tinyInt(2)。
+1. tinyInt(1) 只用来代表Boolean含义的字段，且0代表False，1代表True。如果要存储多个数值，则定义为tinyInt(N), N>1。例如 tinyInt(2)。
 
-2、JDBC的URL增加 tinyInt1isBit=false参数，注意参数名区分大小写，否则不生效:
+2. JDBC的URL增加 tinyInt1isBit=false参数，注意参数名区分大小写，否则不生效:
 
 jdbc:MySQL://localhost:3306/test?tinyInt1isBit=false
 

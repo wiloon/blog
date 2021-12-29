@@ -73,11 +73,11 @@ SubformatPattern（子模式)
 
 还以str为例,在这个字符串中: 
 
-1、{0}和{1,number,short}和{2,number,#.#};都属于FormatElement,0,1,2是ArgumentIndex。
+1. {0}和{1,number,short}和{2,number,#.#};都属于FormatElement,0,1,2是ArgumentIndex。
 
-2、{1,number,short}里面的number属于FormatType,short则属于FormatStyle。
+2. {1,number,short}里面的number属于FormatType,short则属于FormatStyle。
 
-3、{1,number,#.#}里面的#.#就属于子格式模式。
+3. {1,number,#.#}里面的#.#就属于子格式模式。
 
 
 指定FormatType和FormatStyle是为了生成日期格式的值、不同精度的数字、百分比类型等等。
@@ -85,7 +85,7 @@ SubformatPattern（子模式)
 
 实例: 
 
-1、ArgumentIndex必须是非负整数,它的个数不只限于0到9这10个,它可以用0到9的数字组成,因此可以有好多个,如: 
+1. ArgumentIndex必须是非负整数,它的个数不只限于0到9这10个,它可以用0到9的数字组成,因此可以有好多个,如: 
 
 Java代码
   
@@ -100,7 +100,7 @@ System.out.println(value);
 最终结果是: ABCDEFGHIJKLMNOPQ
 
 
-2、格式化字符串时,两个单引号才表示一个单引号,单个单引号会被省略,如: 
+2. 格式化字符串时,两个单引号才表示一个单引号,单个单引号会被省略,如: 
 
 Java代码
   
@@ -130,7 +130,7 @@ System.out.println(value);
 最终结果是: oh, ZhangSan is 'a' pig
 
 
-3、单引号会使某个字符或串保持原形。
+3. 单引号会使某个字符或串保持原形。
 
 所以,假如没有特殊要求,一般都是要在正式格式化之前把单引号都去掉,否则会造成不必要的麻烦,如: 
 
@@ -177,7 +177,7 @@ System.out.println(value);
 最终结果是: oh, 3.1 is a pig
 
 
-3、无论是有引号字符串还是无引号字符串,左花括号都是不支持的,但支持右花括号显示,如: 
+3. 无论是有引号字符串还是无引号字符串,左花括号都是不支持的,但支持右花括号显示,如: 
 
 Java代码
   

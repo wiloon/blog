@@ -59,19 +59,19 @@ Tapestry在解决开发问题上不是一个万能药；然而，它提供了一
 — Tapestry的组件逻辑比较复杂，再加上OGNL表达式和属性指定机制，因而难以添加注释。
 
 
-1、Tapestry是一个全面web application框架，是使用JAVA写的。
+1. Tapestry是一个全面web application框架，是使用JAVA写的。
 
 
-2、Tapestry不是一个application server，Tapestry是一个使用在application server中的框架。
+2. Tapestry不是一个application server，Tapestry是一个使用在application server中的框架。
 
 
-3、Tapestry不是一个application，Tapestry是一个用来创建web application的框架。
+3. Tapestry不是一个application，Tapestry是一个用来创建web application的框架。
 
 
-4、Tapestry不是JSP的一种使用方式，Tapestry和JSP只能够选择一种。
+4. Tapestry不是JSP的一种使用方式，Tapestry和JSP只能够选择一种。
 
 
-5、Tapestry不是一个脚本环境，Tapestry使用一种组件对象模式（component object model) ，这并不是一种简单的脚本，而是用于生成高动态性高互交性的web页面。
+5. Tapestry不是一个脚本环境，Tapestry使用一种组件对象模式（component object model) ，这并不是一种简单的脚本，而是用于生成高动态性高互交性的web页面。
 
 
 Tapestry基于Java Servlet API version 2.2，兼容于JDK 1.2以上版本，Tapestry通过变换多样的组件模式，将一个web application分离为一个联合组件。每一个组件都拥有其特殊的责任用于显示web页面或者响应HTML请求。

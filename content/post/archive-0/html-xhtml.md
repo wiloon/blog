@@ -16,7 +16,7 @@ tags:
   
 HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言，看起来与HTML有些相象，只有一些小的但重要的区别。本文简单介绍什么是XHTML，以及与HTML相比XHTML有什么特点。
   
-1、什么是XHTML？
+1. 什么是XHTML？
   
 HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言，看起来与HTML有些相象，只有一些小的但重要的区别，XHTML就是一个扮演着类似HTML的角色的XML，所以，本质上说，XHTML是一个过渡技术，结合了XML（有几分) 的强大功能及HTML（大多数) 的简单特性。
   
@@ -34,7 +34,7 @@ HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标�
   
 答: XHTML就是一种XML应用。它采用XML的DTD文件格式定义，并运行在支持XML的系统上。这里要感谢XML的Namespaces功能，浏览器制造商不需要再创造新的私有标签(tags)，他们只需要在XHTML代码里包含XML代码片段，或者XML代码里包含XHTML代码片段。
   
-2、与HTML相比XHTML有什么特点？
+2. 与HTML相比XHTML有什么特点？
   
 （1) XHTML解决HTML语言所存在的严重制约其发展的问题。HTML发展到今天存在三个主要缺点: 不能适应现在越多的网络设备和应用的需要，比如手机、PDA、信息家电都不能直接显示HTML；由于HTML代码不规范、臃肿，浏览器需要足够智能和庞大才能够正确显示HTML；数据与表现混杂，这样你的页面要改变显示，就必须重新制作HTML。因此HTML需要发展才能解决这个问题，于是W3C又制定了XHTML，XHTML是HTML向XML过度的一个桥梁。
   

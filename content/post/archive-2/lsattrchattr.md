@@ -84,7 +84,7 @@ chattr命令的用法: chattr [ -RVf ] [ -v version ] [ mode ] files…
 
 应用举例: 
 
-1、用chattr命令防止系统中某个关键文件被修改: 
+1. 用chattr命令防止系统中某个关键文件被修改: 
 
 # chattr +i /etc/resolv.conf
 
@@ -96,7 +96,7 @@ chattr命令的用法: chattr [ -RVf ] [ -v version ] [ mode ] files…
   
 --i--- /etc/resolv.conf
 
-2、让某个文件只能往里面追加数据,但不能删除,适用于各种日志文件: 
+2. 让某个文件只能往里面追加数据,但不能删除,适用于各种日志文件: 
 
 # chattr +a /var/log/messages
 

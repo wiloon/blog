@@ -33,13 +33,13 @@ http://www.blogjava.net/killme2008/archive/2011/07/26/355041.html
     将这段代码添加到你的emacs配置文件（~/.emacs)，重启emacs，以后格式化源码都可以用F7一键搞定。
     
 
-1、整理整个文件
+1. 整理整个文件
 
 M-x mark-whole-buffer 或者 C-x h //选中整个文件
   
 M-x indent-region 或者 C-M- //格式化选中
 
-2、整理某个函数
+2. 整理某个函数
 
 M-x mark-defun 或者 C-M-h //选中函数
   

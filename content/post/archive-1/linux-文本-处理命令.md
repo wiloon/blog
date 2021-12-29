@@ -9,7 +9,7 @@ categories:
 ---
 ## 文本 处理命令, text command
 
-0、正则表达式（regular expression) 
+0. 正则表达式（regular expression) 
   
 元字符（如下图) 是正则表达式中含有的字符,在正则表达式中可以在字符串中使用元字符以匹配字符串的各种可能的情况。
 
@@ -37,7 +37,7 @@ categories:
   
 - find
 
-3、cut命令
+3. cut命令
   
 命令说明: 按行处理,将一行消息的某段切出来。
   
@@ -52,7 +52,7 @@ echo $PATH | cut -d ':' -f 3-5,取出环境变量PATH中的第3个到第5个路�
 export | cut -c 12-, 将export中的每行的前面11个字符删除留,保留从第12个字符开始的所有字符。
   
   
-4、awk工具
+4. awk工具
   
 命令说明:  将一行消息分成数个段来处理,适合处理小型的数据。
   
@@ -143,7 +143,7 @@ wc -L filename
   
 例如: ls -al /home | tee ~/myfile | more,将ls命令的数据存一份到myfile中,同时屏幕也有输出数据。
   
-10、tr命令
+10. tr命令
   
 命令说明: 单个字符的处理工具,可以用于删除字符、替换字符等基本功能。更复杂的字符串处理工具通常使用sed。
   
@@ -157,7 +157,7 @@ wc -L filename
   
 cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
-11、col命令
+11. col命令
   
 命令说明: 格式化显示列。
   
@@ -169,7 +169,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 例如: cat -A /etc/man.config | col -x | cat -A,使用cat -A,tab键会以^I显示,经过col -x处理,tab替换为空格。
   
-12、expand命令
+12. expand命令
   
 命令说明: 将tab键转换成空格键。
   
@@ -180,7 +180,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -t n: 后面可以接一个数字n,一个tab键替换为n个空格键,默认值为8。
 
-13、join命令
+13. join命令
   
 命令说明: 处理两个文件中有相同数据的行,将它们加在一起。
   
@@ -196,7 +196,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -2 n: 指定file2用来比较的字段n,默认值为1；
 
-14、paste命令
+14. paste命令
   
 命令说明: 比较两个文件的数据关联性,直接将"两行贴在一起",中间以tab键隔开。
   
@@ -206,7 +206,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -d: 后面接分隔符,默认为tab键。
   
-15、diff命令
+15. diff命令
   
 命令说明: 以"行"为单位进行文件比较,一般用在ASCII纯文本文件。
   
@@ -220,7 +220,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -i: 忽略大小写；
 
-16、cmp命令
+16. cmp命令
   
 命令说明: 以"位"为单位进行文件比较,可以比较二进制文件。
   
@@ -230,7 +230,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -s: 将所有不同点的位都列出来,默认仅输出第一个发现的不同点；
   
-17、patch命令
+17. patch命令
   
 命令说明: diff old new > patch_file命令可以找出new文件与old文件不同的地方,然后用patch命令给old文件打上补丁,即与new文件相同了。
   
@@ -239,7 +239,7 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
 参数: -pN表示取消N层目录。
 
 
-18、split命令
+18. split命令
   
 命令说明: 将一个大文件拆分为几个小文件。
   
@@ -251,11 +251,11 @@ cat file | tr [a-z] [A-Z],将file中的小写字符全部改为大写。
   
 -l: 按行数进行拆分；
   
-例如: split -b 512k bigfile smallfile,将文件bigfile按512K拆分,拆分后的文件依次为: smallfileaa、smallfileab等。
+例如: split -b 512k bigfile smallfile,将文件bigfile按512K拆分,拆分后的文件依次为: smallfileaa. smallfileab等。
   
 split -l 10 bigfile smallfile,将文件bigfile中的每10行拆分成一个小文件。
   
-19、xargs命令
+19. xargs命令
 
 ### head
 head 命令可用于查看文件的开头部分的内容,有一个常用的参数 -n 用于显示行数,默认为 10,即显示 10 行的内容。

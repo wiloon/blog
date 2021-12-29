@@ -28,7 +28,7 @@ tags:
  2、使用Class类的中静态forName()方法获得与字符串对应的Class对象。例如:  
     Class c2=Class.forName("MyObject"),Employee必须是接口或者类的名字。
 
-3、获取Class类型对象的第三个方法非常简单。如果T是一个Java类型,那么T.class就代表了匹配的类对象。例如
+3. 获取Class类型对象的第三个方法非常简单。如果T是一个Java类型,那么T.class就代表了匹配的类对象。例如
     Class cl1 = Manager.class;
     Class cl2 = int.class;
     Class cl3 = Double[].class;
@@ -36,16 +36,16 @@ tags:
 
 二、Class类的常用方法
 
-1、getName() 
+1. getName() 
 
 一个Class对象描述了一个特定类的属性,Class类中最常用的方法getName以 String 的形式返回此 Class 对象所表示的实体（类、接口、数组类、基本类型或 void) 名称。
 
-2、newInstance()
+2. newInstance()
 
 Class还有一个有用的方法可以为类创建一个实例,这个方法叫做newInstance()。例如: 
     x.getClass.newInstance(),创建了一个同x一样类型的新实例。newInstance()方法调用默认构造器（无参数构造器) 初始化新建对象。
 
-3、getClassLoader() 
+3. getClassLoader() 
 
 返回该类的类加载器。
 
@@ -60,13 +60,13 @@ Class还有一个有用的方法可以为类创建一个实例,这个方法叫�
 
 三、Class的一些使用技巧
 
-1、forName和newInstance结合起来使用,可以根据存储在字符串中的类名创建对象。例如
+1. forName和newInstance结合起来使用,可以根据存储在字符串中的类名创建对象。例如
     Object obj = Class.forName(s).newInstance();
 
-2、虚拟机为每种类型管理一个独一无二的Class对象。因此可以使用==操作符来比较类对象。例如: 
+2. 虚拟机为每种类型管理一个独一无二的Class对象。因此可以使用==操作符来比较类对象。例如: 
     if(e.getClass() == Employee.class)...
 
-2、 Class.forName()方法:
+2.  Class.forName()方法:
 Class.forName: 返回与给定的字符串名称相关联类或接口的Class对象。
 
 Class.forName是一个静态方法,同样可以用来加载类。该方法有两种形式: Class.forName(String name, boolean initialize, ClassLoader loader)和 Class.forName(String className)。第一种形式的参数 name表示的是类的全名；initialize表示是否初始化类；loader表示加载时使用的类加载器。第二种形式则相当于设置了参数 initialize的值为 true,loader的值为当前类的类加载器。
@@ -183,7 +183,7 @@ Class.forName(className)实际上是调用Class.forName(className,true, this.get
 1. newInstance: 弱类型。低效率。只能调用无参构造。  
          2. new: 强类型。相对高效。能调用任何public构造。
 
-3、应用情景: 
+3. 应用情景: 
 情景一: 加载数据库驱动的时候
 
 Class.forName的一个很常见的用法是在加载数据库驱动的时候。
@@ -331,7 +331,7 @@ Java中反射机制和Class.forName、实例对象.class(属性)、实例对象g
 
 二、Class.forName、实例对象.class(属性)、实例对象getClass()的区别
 
-1、相同点: 
+1. 相同点: 
 
 通过这几种方式,得到的都是Java.lang.Class对象（这个是上面讲到的 类在加载时获得的最终产物) 
 
@@ -390,7 +390,7 @@ demo.A@1fb8ee3
 
 demo.A@61de33
 
-2、区别: 
+2. 区别: 
 
 1)Class cl=A.class; JVM将使用类A的类装载器,将类A装入内存(前提是:类A还没有装入内存),不对类A做类的初始化工作.返回类A的Class的对象
 

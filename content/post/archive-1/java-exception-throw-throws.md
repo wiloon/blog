@@ -24,9 +24,9 @@ java中Exception分为两类,一类是CheckException一类是UncheckException。
 
 一、CheckException和UnCheckException的区别: 
 
-1、在编译的时候,java编译器会强制你处理CheckException,处理的方式有两种: 一种是抛出异常；另一种是捕获异常（常见的有ClassNotFoundException等) 。而对于UncheckException编译去则不需要你做任何处理,只是在运行时出现了该类异常,则会被抛出（常见的有: NullPointException,ArrayIndexOutofBoundException等) 。
+1. 在编译的时候,java编译器会强制你处理CheckException,处理的方式有两种: 一种是抛出异常；另一种是捕获异常（常见的有ClassNotFoundException等) 。而对于UncheckException编译去则不需要你做任何处理,只是在运行时出现了该类异常,则会被抛出（常见的有: NullPointException,ArrayIndexOutofBoundException等) 。
 
-2、Checked exception用来指示一种调用方能够直接处理的异常情况。而Runtime exception则用来指示一种调用方本身无法处理或恢复的程序错误。
+2. Checked exception用来指示一种调用方能够直接处理的异常情况。而Runtime exception则用来指示一种调用方本身无法处理或恢复的程序错误。
 
 
 1. 区别

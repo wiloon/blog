@@ -70,7 +70,7 @@ server.xml位于$TOMCAT_HOME/conf目录下；下面是一个server.xml实例。�
   
 二、server.xml文档的元素分类和整体结构
   
-1、整体结构
+1. 整体结构
   
 server.xml的整体结构如下: 
 
@@ -99,7 +99,7 @@ server.xml的整体结构如下:
   
 该结构中只给出了Tomcat的核心组件，除了核心组件外，Tomcat还有一些其他组件，下面介绍一下组件的分类。
 
-2、元素分类
+2. 元素分类
   
 server.xml文件中的元素可以分为以下4类: 
 
@@ -123,7 +123,7 @@ server.xml文件中的元素可以分为以下4类:
   
 本部分将分别介绍各个核心组件的作用、特点以及配置方式等。
 
-1、Server
+1. Server
   
 Server元素在最顶层，代表整个Tomcat容器，因此它必须是server.xml中唯一一个最外层的元素。一个Server元素中可以有一个或多个Service元素。
 
@@ -131,13 +131,13 @@ Server元素在最顶层，代表整个Tomcat容器，因此它必须是server.x
 
 Server的主要任务，就是提供一个接口让客户端能够访问到这个Service集合，同时维护它所包含的所有的Service的声明周期，包括如何初始化、如何结束服务、如何找到客户端要访问的Service。
 
-2、Service
+2. Service
   
 Service的作用，是在Connector和Engine外面包了一层，把它们组装在一起，对外提供服务。一个Service可以包含多个Connector，但是只能包含一个Engine；其中Connector的作用是从客户端接收请求，Engine的作用是处理接收进来的请求。
 
 在第一部分的例子中，Server中包含一个名称为"Catalina"的Service。实际上，Tomcat可以提供多个Service，不同的Service监听不同的端口，后文会有介绍。
 
-3、Connector
+3. Connector
   
 Connector的主要功能，是接收连接请求，创建Request和Response对象用于和请求端交换数据；然后分配线程让Engine来处理这个请求，并把产生的Request和Response对象传给Engine。
 
@@ -153,7 +153,7 @@ Connector的主要功能，是接收连接请求，创建Request和Response对�
 
 （2) 通过配置第2个Connector，客户端可以通过8009端口号使用AJP协议访问Tomcat。AJP协议负责和其他的HTTP服务器(如Apache)建立连接；在把Tomcat与其他HTTP服务器集成时，就需要用到这个连接器。之所以使用Tomcat和其他服务器集成，是因为Tomcat可以用作Servlet/JSP容器，但是对静态资源的处理速度较慢，不如Apache和IIS等HTTP服务器；因此常常将Tomcat与Apache等集成，前者作Servlet容器，后者处理静态资源，而AJP协议便负责Tomcat和Apache的连接。Tomcat与Apache等集成的原理如下图(图片来源): 
 
-4、Engine
+4. Engine
   
 Engine组件在Service组件中有且只有一个；Engine是Service组件中的请求处理组件。Engine组件从一个或多个Connector中接收请求并处理，并将完成的响应返回给Connector，最终传递给客户端。
 
@@ -165,7 +165,7 @@ Engine组件在Service组件中有且只有一个；Engine是Service组件中的
   
 其中，name属性用于日志和错误信息，在整个Server中应该唯一。defaultHost属性指定了默认的host名称，当发往本机的请求指定的host名称不存在时，一律使用defaultHost指定的host进行处理；因此，defaultHost的值，必须与Engine中的一个Host组件的name属性值匹配。
 
-5、Host
+5. Host
   
 （1) Engine与Host
 
@@ -193,7 +193,7 @@ unpackWARs指定了是否将代表Web应用的WAR文件解压；如果为true，
 
 Host的autoDeploy和appBase属性，与Host内Web应用的自动部署有关；此外，本例中没有出现的xmlBase和deployOnStartup属性，也与Web应用的自动部署有关；将在下一节(Context)中介绍。
 
-6、Context
+6. Context
   
 （1) Context的作用
 
@@ -267,7 +267,7 @@ reloadable属性的用法与自动部署时相同。
 
 四、核心组件的关联
   
-1、整体关系
+1. 整体关系
   
 核心组件之间的整体关系，在上一部分有所介绍，这里总结一下: 
 
@@ -277,7 +277,7 @@ Service在Connector和Engine外面包了一层，把它们组装在一起，对�
 
 Engine、Host和Context都是容器，且 Engine包含Host，Host包含Context。每个Host组件代表Engine中的一个虚拟主机；每个Context组件代表在特定Host上运行的一个Web应用。
 
-2、如何确定请求由谁处理？
+2. 如何确定请求由谁处理？
   
 当请求被发送到Tomcat所在的主机时，如何确定最终哪个Web应用来处理该请求呢？
 
@@ -299,7 +299,7 @@ Service确定后，Tomcat在Service中寻找名称与域名/IP地址匹配的Hos
 
 以请求http://localhost:8080/app1/index.html为例，首先通过协议和端口号（http和8080) 选定Service；然后通过主机名（localhost) 选定Host；然后通过uri（/app1/index.html) 选定Web应用。
 
-3、如何配置多个服务
+3. 如何配置多个服务
   
 通过在Server中配置多个Service服务，可以实现通过不同的端口号来访问同一台机器上部署的不同Web应用。
 
@@ -399,7 +399,7 @@ http://localhost:8084/docs/
   
 除核心组件外，server.xml中还可以配置很多其他组件。下面只介绍第一部分例子中出现的组件，如果要了解更多内容，可以查看Tomcat官方文档。
 
-1、Listener
+1. Listener
   
 
     
@@ -433,7 +433,7 @@ GlobalResourcesLifecycleListener: 通过该监听器，初始化< GlobalNamingRe
   
 ThreadLocalLeakPreventionListener: 当Web应用因thread-local导致的内存泄露而要停止时，该监听器会触发线程池中线程的更新。当线程执行完任务被收回线程池时，活跃线程会一个一个的更新。只有当Web应用(即Context元素)的renewThreadsWhenStoppingContext属性设置为true时，该监听器才有效。
   
-2、GlobalNamingResources与Realm
+2. GlobalNamingResources与Realm
   
 第一部分的例子中，Engine组件下定义了Realm组件: 
 
@@ -455,7 +455,7 @@ GlobalNamingResources元素定义了全局资源，通过配置可以看出，�
 
 关于Tomcat域管理的更多内容，可以参考: Realm域管理
 
-3、Valve
+3. Valve
   
 在第一部分的例子中，Host元素内定义了Valve组件: 
 

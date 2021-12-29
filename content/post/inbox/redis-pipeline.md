@@ -67,10 +67,10 @@ pipeline在某些场景下非常有用，比如有多个command需要被“及�
 我们使用JedisPool连接池，节省了建立连接connection的时间；
 pipeline节省了多条命令的(发送命令到server、server返回结果)往返时间RTT，包括多次网络IO、系统调用的消耗。
 pipeline是万金油？
-1、pipeline“独占”connection，直到pipeline结束
+1. pipeline“独占”connection，直到pipeline结束
 pipeline期间将“独占”connection，此期间将不能进行非“管道”类型的其他操作，直到pipeline关闭；如果你的pipeline的指令集很庞大，为了不干扰链接中的其他操作，你可以为pipeline操作新建Client连接，让pipeline和其他正常操作分离在2个client连接中。
 
-2、使用pipeline，如果发送的命令很多的话，建议对返回的结果加标签，当然这也会增加使用的内存；
+2. 使用pipeline，如果发送的命令很多的话，建议对返回的结果加标签，当然这也会增加使用的内存；
 
 pipeline实现原理
 

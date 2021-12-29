@@ -19,7 +19,7 @@ apktoolandroidjava
   
 Android apktool是一个用来处理APK文件的工具,可以对APK进行反编译生成程序的源代码和图片、XML配置、语言资源等文件,也可以添加新的功能到APK文件中。用该工具来汉化Android软件然后重新打包发布是相当简单的。
   
-1、安装
+1. 安装
   
 1) .首先安装需要JAVA环境，先下载JDK/JRE，点击下载，已经有JAVA环境的可跳过此步
 
@@ -111,7 +111,7 @@ Install framework file to your system.
 
 For additional info, see: http://code.google.com/p/android-apktool/
 
-2、使用
+2. 使用
   
 1) .解压APK
   

@@ -55,7 +55,7 @@ tags:
 呵呵，在xterm视窗中按有一个小技巧: 你按住Ctrl+鼠标右键会跳出一些字体等设置的东西，按住Ctrl+鼠标左键会跳出显示xterm应用程序的主菜单。另外，除了.Xdefaults资源可用处，还有一些应用程序会自己产生的的资源文件，一般放在
  /usr/XR116/lib/X11/app-defaults中，并以这些程序名称的大写文件名命名。比如，Xclok时钟程序的资源文件就是Xclock。其它的你自己看一下就会明白了。你可以直接修改这些应用程序的的资源文件，作为系统内定的应用程序的样式。不一定都要非得修改. Xdefaults来完成。因为.Xdefaults通常是个人爱好而使用环境来设置的东西。
 
-2、启动我们的X Window System
+2. 启动我们的X Window System
 X Window System的启动方法很多，最常用的还是上面得到的startx，除此外，还要先执行"X"启动X视窗系统，或者执行xinit启动X。现在的发行版本一般都是以xdm/gdm/kdm启动X，让Linux系统一启动就立即进入X Window System，并以图形模式让用用户来登录。倘若你想退出X Window Manager，你可以xterm中执行init 3离开。
 
 ### 以xinit/startx来启动X

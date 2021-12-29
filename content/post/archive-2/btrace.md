@@ -56,31 +56,31 @@ BTrace是sun公司推出的一款Java 动态、安全追踪（监控) 工具,可
 
 由于Btrace会把脚本逻辑直接侵入到运行的代码中,所以在使用上做很多限制: 
   
-1、不能创建对象
+1. 不能创建对象
   
-2、不能使用数组
+2. 不能使用数组
   
-3、不能抛出或捕获异常
+3. 不能抛出或捕获异常
   
-4、不能使用循环
+4. 不能使用循环
   
-5、不能使用synchronized关键字
+5. 不能使用synchronized关键字
   
-6、属性和方法必须使用static修饰
+6. 属性和方法必须使用static修饰
 
 根据官方声明,不恰当的使用BTrace可能导致JVM崩溃,如在BTrace脚本使用错误的class文件,所以在上生产环境之前,务必在本地充分的验证脚本的正确性。
 
 Btrace可以做什么？
   
-1、接口性能变慢,分析每个方法的耗时情况；
+1. 接口性能变慢,分析每个方法的耗时情况；
   
-2、当在Map中插入大量数据,分析其扩容情况；
+2. 当在Map中插入大量数据,分析其扩容情况；
   
-3、分析哪个方法调用了System.gc(),调用栈如何；
+3. 分析哪个方法调用了System.gc(),调用栈如何；
   
-4、执行某个方法抛出异常时,分析运行时参数；
+4. 执行某个方法抛出异常时,分析运行时参数；
   
-5、....
+5. ....
 
 Btrace第一个例子
 
@@ -128,47 +128,47 @@ Btrace使用@OnMethod注解定义需要分析的方法入口
 
 在@OnMethod注解中,需要指定class、method以及location等,class表明需要监控的类,method表明需要监控的方法,指定方式如下: 
   
-1、使用全限定名: clazz="com.metty.rpc.common.BtraceCase", method="add"
+1. 使用全限定名: clazz="com.metty.rpc.common.BtraceCase", method="add"
   
-2、使用正则表达式: clazz="/javax&#92;.swing&#92;.._/", method="/._/"
+2. 使用正则表达式: clazz="/javax&#92;.swing&#92;.._/", method="/._/"
   
-3、使用接口: clazz="+com.ctrip.demo.Filter", method="doFilter"
+3. 使用接口: clazz="+com.ctrip.demo.Filter", method="doFilter"
   
-4、使用注解: clazz="@javax.jws.WebService", method=""@javax.jws.WebMethod"
+4. 使用注解: clazz="@javax.jws.WebService", method=""@javax.jws.WebMethod"
   
-5、如果需要分析构造方法,需要指定method="<init>"
+5. 如果需要分析构造方法,需要指定method="<init>"
 
 @Location
   
 定义Btrace对方法的拦截位置,通过@Location注解指定,默认为Kind.ENTRY
   
-1、Kind.ENTRY: 在进入方法时,调用Btrace脚本
+1. Kind.ENTRY: 在进入方法时,调用Btrace脚本
   
-2、Kind.RETURN: 方法执行完时,调用Btrace脚本,只有把拦截位置定义为Kind.RETURN,才能获取方法的返回结果@Return和执行时间@Duration
+2. Kind.RETURN: 方法执行完时,调用Btrace脚本,只有把拦截位置定义为Kind.RETURN,才能获取方法的返回结果@Return和执行时间@Duration
 
-3、Kind.CALL: 分析方法中调用其它方法的执行情况,比如在execute方法中,想获取add方法的执行耗时,必须把where设置成Where.AFTER
+3. Kind.CALL: 分析方法中调用其它方法的执行情况,比如在execute方法中,想获取add方法的执行耗时,必须把where设置成Where.AFTER
 
-4、Kind.LINE: 通过设置line,可以监控代码是否执行到指定的位置
+4. Kind.LINE: 通过设置line,可以监控代码是否执行到指定的位置
 
-5、Kind.ERROR, Kind.THROW, Kind.CATCH
+5. Kind.ERROR, Kind.THROW, Kind.CATCH
   
 用于对某些异常情况的跟踪,包括异常抛出,异常被捕获,异常未捕获被抛出方法之外
 
 如何使用Btrace定位问题
   
-1、找出所有耗时超过1ms的过滤器Filter
+1. 找出所有耗时超过1ms的过滤器Filter
   
 由于@Dutation返回的时间是纳秒级别,需要进行转换,如果定位一个Filter性能变慢,接着使用@Location(Kind.CALL)进行更细粒度的分析。
 
-2、分析哪个方法调用了System.gc(),调用栈如何？
+2. 分析哪个方法调用了System.gc(),调用栈如何？
   
 通过查看调用栈,可以很清楚的发现哪个类哪个方法调用了System.gc()
 
-3、统计方法的调用次数,且每隔1分钟打印调用次数
+3. 统计方法的调用次数,且每隔1分钟打印调用次数
   
 Btrace的@OnTimer注解可以实现定时执行脚本中的一个方法
 
-4、方法执行时,查看对象的实例属性值
+4. 方法执行时,查看对象的实例属性值
   
 通过反射机制,可以很方法的得到当前实例的属性值
 

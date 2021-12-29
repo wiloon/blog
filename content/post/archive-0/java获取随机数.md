@@ -11,11 +11,11 @@ categories:
 
 在Java中，随机数的概念从广义上将，有三种。
   
-1、通过System.currentTimeMillis()来获取一个当前时间毫秒数的long型数字。
+1. 通过System.currentTimeMillis()来获取一个当前时间毫秒数的long型数字。
   
-2、通过Math.random()返回一个0到1之间的double值。
+2. 通过Math.random()返回一个0到1之间的double值。
   
-3、通过Random类来产生一个随机数，这个是专业的Random工具类，功能强大。
+3. 通过Random类来产生一个随机数，这个是专业的Random工具类，功能强大。
 
 int nextInt()
   

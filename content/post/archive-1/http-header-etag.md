@@ -33,15 +33,15 @@ HTTP协议规格说明定义ETag为"被请求变量的实体值"。另一种说�
   
 优势
   
-1、有些URL是多语言的网页,相同的URL会返回不同的东西。还有不同的Session有不同的Cookie也就有不同的内容。这种情况下如果过 Proxy,Proxy就无法区分导致串门,只能简单的取消cache功能。Etag解决了这个问题,因为它能区分相同URL不同的对象。
+1. 有些URL是多语言的网页,相同的URL会返回不同的东西。还有不同的Session有不同的Cookie也就有不同的内容。这种情况下如果过 Proxy,Proxy就无法区分导致串门,只能简单的取消cache功能。Etag解决了这个问题,因为它能区分相同URL不同的对象。
   
-2、老的HTTP标准里有个Last-Modified+If-Modified-Since表明URL对象是否改变。Etag也具有这种功能,因为对象改变也造成Etag改变,并且它的控制更加准确。Etag有两种用法 If-Match/If-None-Match,就是如果服务器的对象和客户端的对象ID（不) 匹配才执行。这里的If-Match/If-None- Match都能一次提交多个Etag。If-Match可以在Etag未改变时断线重传。If-None-Match可以刷新对象（在有新的Etag时返回) 。
+2. 老的HTTP标准里有个Last-Modified+If-Modified-Since表明URL对象是否改变。Etag也具有这种功能,因为对象改变也造成Etag改变,并且它的控制更加准确。Etag有两种用法 If-Match/If-None-Match,就是如果服务器的对象和客户端的对象ID（不) 匹配才执行。这里的If-Match/If-None- Match都能一次提交多个Etag。If-Match可以在Etag未改变时断线重传。If-None-Match可以刷新对象（在有新的Etag时返回) 。
   
-3、Etag中有种Weak Tag,值为 W/"xxxxx"。他声明Tag是弱匹配的,只能做模糊匹配,在差异达到一定阀值时才起作用。
+3. Etag中有种Weak Tag,值为 W/"xxxxx"。他声明Tag是弱匹配的,只能做模糊匹配,在差异达到一定阀值时才起作用。
   
-4、Etag对于cache CGI页面很有用。特别是论坛,论坛有办法为每个帖子页面生成唯一的Etag,在帖子未改变时,查看话题属性比较Etag就能避免刷新帖子,减少CGI操作和网络传输。比如论坛中看帖就返回Etag,减少论坛负担。
+4. Etag对于cache CGI页面很有用。特别是论坛,论坛有办法为每个帖子页面生成唯一的Etag,在帖子未改变时,查看话题属性比较Etag就能避免刷新帖子,减少CGI操作和网络传输。比如论坛中看帖就返回Etag,减少论坛负担。
   
-5、Etag在不同URL之间没有可比性,也就是不同URL相同Etag没有特别意义。
+5. Etag在不同URL之间没有可比性,也就是不同URL相同Etag没有特别意义。
   
 原理
   
@@ -69,11 +69,11 @@ Etag由服务器端生成,客户端通过If-Match或者说If-None-Match这个条
   
 Etag 主要为了解决 Last-Modified 无法解决的一些问题。
   
-1、一些文件也许会周期性的更改,但是他的内容并不改变(仅仅改变的修改时间),这个时候我们并不希望客户端认为这个文件被修改了,而重新GET;
+1. 一些文件也许会周期性的更改,但是他的内容并不改变(仅仅改变的修改时间),这个时候我们并不希望客户端认为这个文件被修改了,而重新GET;
   
-2、某些文件修改非常频繁,比如在秒以下的时间内进行修改,(比方说1s内修改了N次),If-Modified-Since能检查到的粒度是s级的,这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)
+2. 某些文件修改非常频繁,比如在秒以下的时间内进行修改,(比方说1s内修改了N次),If-Modified-Since能检查到的粒度是s级的,这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)
   
-3、某些服务器不能精确的得到文件的最后修改时间；
+3. 某些服务器不能精确的得到文件的最后修改时间；
   
 为此,HTTP/1.1引入了 Etag(Entity Tags).Etag仅仅是一个和文件相关的标记,可以是一个版本标记,比如说v1.0.0或者说"2e681a-6-5d044840"这么一串看起来很神秘的编码。但是HTTP/1.1标准并没有规定Etag的内容是什么或者说要怎么实现,唯一规定的是Etag需要放在""内。
 

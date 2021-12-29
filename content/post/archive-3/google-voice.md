@@ -25,7 +25,7 @@ Google Voice简介及使用&保号
 
 电话呼入
 
-1、IFTTT
+1. IFTTT
 
 我觉得这是最优解，用IFTTT的定时服务定期拨打电话给你即可，这里推荐两个service
 

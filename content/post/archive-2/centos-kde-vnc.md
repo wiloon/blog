@@ -14,9 +14,9 @@ VPS远程操作用的最多的是SSH,有时候一些特殊需求也要用到远�
 
 下面介绍安装KDE和VNC的步骤和关键注意点: 
   
-1、SSH登录到VPS上以root用户权限进行整个安装过程。
+1. SSH登录到VPS上以root用户权限进行整个安装过程。
   
-2、查询查询支持的软件包: 
+2. 查询查询支持的软件包: 
   
 yum grouplist
   
@@ -26,10 +26,10 @@ yum groupinstall "KDE Plasma Workspaces"
   
 直到安装完成。
 
-3、安装VNC server,一键安装: 
+3. 安装VNC server,一键安装: 
   
 
-4、配置VNC server: 
+4. 配置VNC server: 
   
 在centos 7里配置文件初始模版为: /lib/systemd/system/vncserver@.service
   
@@ -117,7 +117,7 @@ systemctl stop vncserver@:1.service
   
 vncserver -kill :1
 
-5、安装VNC viewer: 
+5. 安装VNC viewer: 
   
 官方下载vnc viewer的地址: https://www.realvnc.com/download/viewer/windows/
 
