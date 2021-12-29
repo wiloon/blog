@@ -8,6 +8,7 @@ categories:
 
 ---
 ## find
+
 ### 将yourdir目录下修改时间一天以内的文件复制到destdir下：
 ```bash
 find /yourdir -mtime -1 -type f -exec cp {} /destdir \;
@@ -80,14 +81,18 @@ find . -name 'bookmark*'
 # . 当前目录
 # / 根目录
 
-#  find all files that have been modified after a certain number of days.
-# -maxdepth 和 -mindepth 选项允许您指定您希望 find 搜索深入到目录树的哪一级别。如果您希望 find 只在目录的一个级别中查找，您可以使用 maxdepth 选项。
-find . -maxdepth 1 -mtime -1
-
 # 查3分钟前修改的文件
 find . -mmin +3
 ```
 
+### 查找深度
+find 命令默认会递归遍历子目录, 要控制查找深度的话用 -maxdepth 参数。
+```bash
+#  find all files that have been modified after a certain number of days.
+# -maxdepth 和 -mindepth 选项允许您指定您希望 find 搜索深入到目录树的哪一级别。如果您希望 find 只在目录的一个级别中查找，您可以使用 maxdepth 选项。
+find . -maxdepth 1 -mtime -1
+
+```
 ### 正则表达式
 使用上面的-name测试项能解决许多问题，但是有些还是不太好办，比如: 查找当前目录下名称全部为数字的c源代码文件，这时就该'-regex'出手了。正则表达式绝对值得你去好好研究一下，在unix系统下太有用了，这里不做过多说明，请读者自行学习。
   
