@@ -6,6 +6,37 @@ url: shell
 
 ---
 ## shell basic
+### 字符串包含
+```bash
+# grep
+strA="long string"
+strB="string"
+result=$(echo $strA | grep "${strB}")
+if [[ "$result" != "" ]]
+then
+    echo "包含"
+else
+    echo "不包含"
+fi
+# 字符串运算符
+strA="helloworld"
+strB="low"
+if [[ $strA =~ $strB ]]
+then
+    echo "包含"
+else
+    echo "不包含"
+fi
+# 通配符
+A="helloworld"
+B="low"
+if [[ $A == *$B* ]]
+then
+    echo "包含"
+else
+    echo "不包含"
+fi
+```
 ### 把命令返回值赋值给变量
 ```bash
 tmp=`pacman -Q go`

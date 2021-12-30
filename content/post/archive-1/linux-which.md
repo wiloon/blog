@@ -8,8 +8,24 @@ tags:
 
 ---
 ## which, command, type
-### 避免使用which, 用shell内置的 command -v, hash, type替代
+避免使用which, 用shell内置的 command -v, hash, type替代
 
+command -v 相当于 type
+
+### type
+type是bash内置命令，语法：
+
+    type [-afptP] [name ...]
+
+type工具用于显示命令的类型信息。它将展示在命令行上输入给定的命令将如何解释。
+通过type 命令可以查看命令类型：
+
+```bash
+type echo
+# echo is a shell builtin
+```
+
+### which
 http://www.cnblogs.com/peida/archive/2012/11/08/2759805.html
 
 我们经常在linux要查找某个文件，但不知道放在哪里了，可以使用下面的一些命令来搜索: 
@@ -98,8 +114,4 @@ which cd
 
 cd 这个常用的命令竟然找不到啊！为什么呢？这是因为 cd 是bash 内建的命令！ 但是 which 默认是找 PATH 内所规范的目录，所以当然一定找不到的！
 
-### type
-通过type 命令可以查看命令类型：
-
-$ type echo
-echo is a shell builtin
+>https://segmentfault.com/a/1190000039188240
