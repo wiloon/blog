@@ -3,14 +3,19 @@ title: mmap
 author: "-"
 date: 2017-02-10T00:43:18+00:00
 url: mmap
+categories:
+  - OS
+tags:
+  - inbox
+
 
 ---
 ## mmap
 mmap 函数是 unix/linux 下的系统调用, 详细内容可参考 《Unix Netword programming》 卷二12.2节
 
-mmap()函数用来将文件或者设备映射到内存中。
+mmap() 函数用来将文件或者设备映射到内存中。
 
-mmap的特点是按需调页。最开始只申请vma，并不调真正的页。当对某些页进行引用的时候，会引起一个缺页中断，再将页面调入到内存当中，这样避免了对内存的浪费。
+mmap 的特点是按需调页。最开始只申请vma，并不调真正的页。当对某些页进行引用的时候，会引起一个缺页中断，再将页面调入到内存当中，这样避免了对内存的浪费。
 
 
 内存映射,简而言之就是将用户空间的一段内存区域映射到内核空间,映射成功后,用户对这段内存区域的修改可以直接反映到内核空间,同样,内核空间对这段区域的修改也直接反映用户空间。
@@ -128,6 +133,10 @@ main(int argc, char** argv) // map a normal file as shared mem:
         printf( "umap ok /n" );
 }
 ```
+
+### VMA
+Linux将地址空间中的区域称为Virtual Memory Area， 简称VMA，使用struct vm_area_struct来描述。
+
 https://www.cnblogs.com/huxiao-tee/p/4660352.html    
 http://blog.csdn.net/dlutbrucezhang/article/details/9080173
   
