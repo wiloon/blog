@@ -2,14 +2,16 @@
 title: golang git server, gogs, gitea
 author: "-"
 date: 2018-01-17T05:54:40+00:00
-url: /?p=11735
+url: git/gogs
 categories:
-  - Uncategorized
+  - git
 
 ---
 ## golang git server, gogs, gitea
 
 gitea 的文档 只提到了docker compose的部署方式, 想改成podman 还需要折腾一下, gogs的文档 更清晰一些方便使用podman
+
+
 
 ```bash
   
@@ -52,3 +54,6 @@ https://github.com/gogits/gogs/issues/4907
 gogs patch
   
 https://github.com/m2nlight/gogs/releases/tag/v0.11.34_patch
+
+>https://hub.docker.com/r/gogs/gogs
+>https://gogs.io/docs

@@ -6,7 +6,7 @@ url: mmap
 
 ---
 ## mmap
-mmap 函数是 unix/linux下的系统调用, 详细内容可参考 《Unix Netword programming》 卷二12.2节
+mmap 函数是 unix/linux 下的系统调用, 详细内容可参考 《Unix Netword programming》 卷二12.2节
 
 mmap()函数用来将文件或者设备映射到内存中。
 

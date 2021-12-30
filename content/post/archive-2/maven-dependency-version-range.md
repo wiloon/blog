@@ -17,7 +17,7 @@ http://maven.apache.org/components/enforcer/enforcer-rules/versionRanges.html
 The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard Maven version range syntax][3]{.externalLink} with one minor change for ease of use (denoted with *):
 
 
-  <tr class="a">
+  
     
       Range
     
@@ -27,7 +27,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="b">
+  
     
       1.0
     
@@ -37,7 +37,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="a">
+  
     
       (,1.0]
     
@@ -47,7 +47,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="b">
+  
     
       (,1.0)
     
@@ -57,7 +57,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="a">
+  
     
       [1.0]
     
@@ -67,7 +67,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="b">
+  
     
       [1.0,)
     
@@ -77,7 +77,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="a">
+  
     
       (1.0,)
     
@@ -87,7 +87,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="b">
+  
     
       (1.0,2.0)
     
@@ -97,7 +97,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="a">
+  
     
       [1.0,2.0]
     
@@ -107,7 +107,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="b">
+  
     
       (,1.0],[1.2,)
     
@@ -117,7 +117,7 @@ The [RequireMavenVersion][1] and [RequireJavaVersion][2] rules use the [standard
     
   
   
-  <tr class="a">
+  
     
       (,1.1),(1.1,)
     

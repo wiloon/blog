@@ -31,7 +31,7 @@ JSP指令控制JSP编译器如何去生成[servlet][1]{.mw-redirect}，以下是
     
     
     
-      <tr align="left">
+      
         
           import
         
@@ -41,7 +41,7 @@ JSP指令控制JSP编译器如何去生成[servlet][1]{.mw-redirect}，以下是
         
       
       
-      <tr align="left">
+      
         
           contentType
         
@@ -51,7 +51,7 @@ JSP指令控制JSP编译器如何去生成[servlet][1]{.mw-redirect}，以下是
         
       
       
-      <tr align="left">
+      
         
           errorPage
         
@@ -61,7 +61,7 @@ JSP指令控制JSP编译器如何去生成[servlet][1]{.mw-redirect}，以下是
         
       
       
-      <tr align="left">
+      
         
           isErrorPage
         
@@ -71,7 +71,7 @@ JSP指令控制JSP编译器如何去生成[servlet][1]{.mw-redirect}，以下是
         
       
       
-      <tr align="left">
+      
         
           isThreadSafe
         

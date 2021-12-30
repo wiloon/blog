@@ -2,7 +2,7 @@
 title: which, command, type
 author: "-"
 date: 2014-09-04T04:57:19+00:00
-url: /?p=6976
+url: command
 tags:
   - linux
 

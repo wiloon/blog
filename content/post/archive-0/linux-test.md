@@ -13,7 +13,7 @@ categories:
 内置命令 `test` 根据表达式_expr_ 求值的结果返回 0（真) 或 1（假) 。也可以使用方括号: `test  expr `和 [ _expr_ ] 是等价的。 可以用`$?` 检查返回值；可以使用 && 和 || 操作返回值；也可以用本技巧后面介绍的各种条件结构测试返回值。
 
 
-  <tr valign="top">
+  
     
       -d
     
@@ -23,7 +23,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -e
     
@@ -33,7 +33,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -f
     
@@ -43,7 +43,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -h
     
@@ -53,7 +53,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -p
     
@@ -63,7 +63,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -r
     
@@ -73,7 +73,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -s
     
@@ -83,7 +83,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -S
     
@@ -93,7 +93,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -w
     
@@ -103,7 +103,7 @@ categories:
     
   
   
-  <tr valign="top">
+  
     
       -N
     
