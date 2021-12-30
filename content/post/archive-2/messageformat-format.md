@@ -24,7 +24,7 @@ Java里从来少不了字符串拼接的活,Java程序员也肯定用到过Strin
 
 String[] tdArr=...;
   
-String result=MessageFormat.format("<tr bgcolor='#cef'>{0}{1}{2}{3}", tdArr);
+String result=MessageFormat.format("{0}{1}{2}{3}", tdArr);
 
 这段代码将把数组tdArr中的四个元素分别插入到{0},{1},{2},{3}的位置。
 

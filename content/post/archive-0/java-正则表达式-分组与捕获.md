@@ -412,7 +412,7 @@ System.out.println("捕获个数:groupCount()="+m.groupCount());
 
 1)         在Replace中引用，通常是通过$number方式引用。
 
-举例: 替换掉html标签中的属性。<textareaid="result"rows="10"cols="100"></textarea><scripttype="text/javascript">var data ="  <tr class=\"light\"> 
+举例: 替换掉html标签中的属性。<textareaid="result"rows="10"cols="100"></textarea><scripttype="text/javascript">var data ="   
 
   
 
@@ -475,7 +475,7 @@ ol>
 
 举例: 替换掉html标签中的属性。使用普通捕获组。
 
-string data = " <tr class=\"light\"> 
+string data = "  
 
   
 
@@ -495,7 +495,7 @@ richTextBox2.Text = Regex.Replace(data, @"(?i)<([a-z]+)[^>]*>", "<$1>");
 
 使用命名捕获组。
 
-string data = " <tr class=\"light\"> 
+string data = "  
 
   
 

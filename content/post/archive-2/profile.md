@@ -5,10 +5,11 @@ date: 2016-10-28T04:34:33+00:00
 url: /?p=9346
 
 ---
-## linux 环境 变量, /etc/profile
+## linux 环境 变量, /etc/profile, /etc/profile.d/
 ### /etc/profile.d/ 目录
 在 /etc/profile.d 目录中存放的是一些应用程序所需的启动脚本,比如vim等命令的一些附加设置,在 /etc/profile.d 目录下添加相关的环境变量设置的 .sh 脚本文件,这些脚本文件的环境变量能够被生效,是因为在 /etc/profile 被读取的时候,会使用一个for循环语句来调用 /etc/profile.d 下的脚本,这些脚本文件所设置的环境变量就和 /etc/profile 启动时一起被设置起来了,cat /etc/profile 可以看到有一段加载 /etc/profile.d 目录下所有 .sh 脚本文件的代码: 
 
+```bash
 if [ -d /etc/profile.d ]; then
   for i in /etc/profile.d/*.sh; do
     if [ -r $i ]; then
@@ -17,6 +18,8 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
+```
+
 从上面的代码不难理解,/etc/profile.d/ 目录下设置环境变量和 /etc/profile 效果是一样的,都是全局环境变量,一旦生效后也都是永久环境变量； /etc/profile.d/ 比 /etc/profile 好维护,不想要的环境变量从 /etc/profile.d/ 目录中移除即可,创建好的环境变量拷贝文件就轻松的移植到其他的计算机,不用每次去改动 /etc/profile 文件。
 
 根据上面描述可以推理出: 
@@ -26,10 +29,12 @@ fi
 关于/etc/profile.d 目录,我使用我的Ubuntu 14.04.5系统,切换到 /etc/profile.d 目录,再使用 ls 命令列出目录下的所有脚本文件: 
 
 ```bash
-  
 unset key
 
 ```
+
+### ~/.bash_profile
+All interactive shells source /etc/bash.bashrc and ~/.bashrc, while interactive login shells also source /etc/profile and ~/.bash_profile
 
 不知道你有没有遇到过这样的场景,当你需要设置一个环境变量,或者运行一个程序设置你的shell或桌面环境,但是不知道在哪里是最方便设置的位置。
 
@@ -65,24 +70,7 @@ export PATH
 
 Debian GNU/linux通常预装Dash,Dash是一个仅仅旨在实现POSIX（和一些伯克利) 扩展的基本shell。如果我们修改/etc/profile（修改之前先备份) 让PS1='$ '这一行设置不同的值,然后模拟一个Dash登录（通过dash -l命令) ,我们可以看到Dash会使用我们自定义的提示。但是,如果我们调用不带-l参数的dash命令,dash将不会读取/etc/profile。此时Dash会使用默认值（这意味着此时PS1的值是我们修改之前的值) 。
 
-最后一点和/etc/profile相关的趣事是下面的代码片段: 
 
-if [ -d /etc/profile.d ]; then
-  
-for i in /etc/profile.d/_.sh; do
-  
-if [ -r $i ]; then
-  
-. $i
-  
-fi
-  
-done
-  
-unset i
-  
-fi
-  
 换句话说,任何匹配/etc/profile.d/_.sh的可读内容都会被当作变量来源。这个非常重要,因为它表明直接编辑/etc/profile从来都不是实际需要的（所以恢复你之前的备份) 。上面定义的任何变量都可以通过在一个单独的文件中配置,然后覆盖/etc/profile中的设置。这样做的好处是: 它允许系统升级时自动添加相应的变更到/etc/profile文件中。因为Debian的Apt包管理系统通常不会修改默认的配置文件。
 
 ~/.bash_profile, ~/.bash_login, and ~/.profile

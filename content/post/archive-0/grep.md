@@ -16,6 +16,18 @@ grep, Global Regular Expression Print
 grep [OPTION...] PATTERNS [FILE...]
 ```
 
+### 判断指定文件中是否包含指定的字符串
+
+```bash
+# 文件中包含字符串,命令正常退出 $? = 0, 不包含 $? = 1
+grep "prod" /path/to/file/web.xml > /dev/null
+if [ $? -eq 0 ]; then
+    echo "Found!"
+else
+    echo "Not found!"
+fi
+```
+
 ```bash
 grep xxx -A5
 grep xxx -B1
@@ -53,7 +65,7 @@ grep -r 'linux' *
 <https://blog.csdn.net/yufenghyc/article/details/51078107>
 
 ### grep与egrep的区别
-  * grep:
+#### grep:
   
     传统的 grep 程序, 在没有参数的情况下, 只输出符合 RE 字符串之句子. 常见参数如下:
   
@@ -76,7 +88,7 @@ grep -r 'linux' *
     -o: 只输出符合 RE 的字符串. (gnu 新版独有, 不见得所有版本都支持.)
   
     -E: 切换为 egrep . 
-  * egrep:
+#### egrep:
   
     为 grep 的扩充版本, 改良了许多传统 grep 不能或不便的操作. 比方说:
 

@@ -587,11 +587,7 @@ extern const struct sched_class dl_sched_class;
 extern const struct sched_class rt_sched_class;
 extern const struct sched_class fair_sched_class;
 extern const struct sched_class idle_sched_class;
-1
-2
-3
-4
-5
+
 调度器类	描述
 idle_sched_class	每个cup的第一个pid=0线程: swapper，是一个静态线程。调度类属于: idel_sched_class，所以在ps里面是看不到的。一般运行在开机过程和cpu异常的时候做dump
 stop_sched_class	优先级最高的线程，会中断所有其他线程，且不会被其他任务打断。作用: 1.发生在cpu_stop_cpu_callback 进行cpu之间任务migration；2.HOTPLUG_CPU的情况下关闭任务。

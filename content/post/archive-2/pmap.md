@@ -1,27 +1,27 @@
 ---
-title: linux pmap
+title: pmap
 author: "-"
 date: 2017-02-06T07:45:09+00:00
-url: /?p=9730
+url: pmap
 categories:
-  - Uncategorized
+  - OS
 
 ---
 ## linux pmap
-Pmap 命令: 查看进程用了多少内存
+Pmap 命令: 查看进程用了多少内存, Linux Pmap Command - Find How Much Memory Process Use
 
 Pmap 提供了进程的内存映射,pmap命令用于显示一个或多个进程的内存状态。其报告进程的地址空间和内存状态信息。Pmap实际上是一个Sun OS上的命令,linux仅支持其有限的功能。但是它还是对查看完整的进程地址空间很有帮助。我们需要PID或者运行的进程的唯一进程ID来查看进程内存状态,我们可以通过/proc或者常规命令比如top或ps得到它。
 
 语法或用法
   
-    pmap PID 
-    # 或者 
-    pmap [options] PID
+```bash
+pmap [options] PID
+```
 
-在输出中它显示全部的地址,kbytes,mode还有mapping。
+在输出中它显示全部的地址, kbytes, mode 还有 mapping。
 
 选项
-  
+
 -p, -show-path
                 
 Show full path to files in the mapping column
@@ -114,7 +114,7 @@ pmap 1013 1217 1118
   
 1013: /usr/sbin/sshd
   
-Address Kbytes RSS Dirty Mode Mapping
+Address  Kbytes RSS Dirty Mode Mapping
   
 00110000 1480 92 0 r-x- libcrypto.so.1.0.0
   
@@ -160,29 +160,22 @@ Address Kbytes RSS Dirty Mode Mapping
   
 total kB 8232 – – –
   
-这里的Address,Kbyte,Dirty,RSS,mode还有mapping的说明如下
+### 这里的 Address,Kbyte,Dirty,RSS,mode还有mapping的说明如下
 
 扩展和设备格式区域
   
-Address: 内存开始地址
-  
-Kbytes: 占用内存的字节数（KB) 
-  
-RSS: 保留内存的字节数（KB) 
-  
-Dirty: 脏页的字节数（包括共享和私有的) （KB) 
-  
-Mode: 内存的权限: read、write、execute、shared、private (写时复制)
-  
-Mapping: 占用内存的文件、或[anon]（分配的内存) 、或[stack]（堆栈) 
-  
-Offset: 文件偏移
-  
-Device: 设备名 (major:minor)
+- Address: 内存开始地址
+- Kbytes: 占用内存的字节数（KB) 
+- RSS: 保留内存的字节数（KB) 
+- Dirty: 脏页的字节数（包括共享和私有的) （KB) 
+- Mode: 内存的权限: read、write、execute、shared、private (写时复制)
+- Mapping: 占用内存的文件、或[anon]（分配的内存) 、或[stack]（堆栈) 
+- Offset: 文件偏移
+- Device: 设备名 (major:minor)
 
 
   
-    Linux Pmap Command - Find How Much Memory Process Use
+    
   
 
 

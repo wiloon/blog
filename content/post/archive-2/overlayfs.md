@@ -28,7 +28,7 @@ Docker的overlay存储驱动利用了很多OverlayFS特性来构建和管理镜�
   
 注意: 自从OverlayFS加入kernel主线后,它在kernel模块中的名称就被从overlayfs改为overlay了。但是为了在本文中区别,我们使用OverlayFS代表整个文件系统,而overlay/overlay2表示Docker的存储驱动
 
-overlay和overlay2
+### overlay和overlay2
   
 OverlayFS（overlay) 的镜像分层与共享
   

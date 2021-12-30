@@ -43,7 +43,7 @@ In Git, the text of the commit message is part of the commit. Changing the commi
 git ls-files --others -i --exclude-standard
 ```
 
-#### Git 1.4, 1.5:
+#### Git 1.4, 1.5
 ```bash
 git ls-files --others -i \
 --exclude-from="`git rev-parse --git-dir`/info/exclude" \
@@ -60,8 +60,21 @@ git clean -Xdf
 ```
 
 >https://ruby-china.org/topics/17951
+
+## remote
 ### 查看远程仓库地址
     git remote -v
+
+### 添加远程库
+```bash
+git remote add <主机名> <URL>
+git remote add origin http://192.168.50.13:10880/wiloon/wiloon.com.git
+# origin 是远程库的名字, 单个远程库,一般用默认的origin, 多个远程库的时候可以改成方便记忆的名字
+git push -u origin master
+```
+
+### 删除远程库
+    gitremote rm 仓库A
 
 ### 将指定的提交（commit) 应用于其他分支
     git cherry-pick <commitHash>
@@ -310,6 +323,18 @@ git ls-files -d
 git ls-files -d | xargs git checkout --
 ```
 
+### git push
+```bash
+git push <远程主机名> <本地分支名>:<远程分支名>
+
+#如果本地分支名与远程分支名相同，则可以省略冒号：
+git push <远程主机名> <本地分支名>
+# 将本地的 master 分支推送到 origin 主机的 master 分支。
+git push origin master
+#如果当前分支与多个主机存在追踪关系，则可以使用 -u 选项指定一个默认主机，这样后面就可以不加任何参数使用git push。
+git push -u origin master
+
+```
 ```bash
 #checkout tag/branch
 git clone --branch <tag_name> <repo_url>
