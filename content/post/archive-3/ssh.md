@@ -5,20 +5,6 @@ date: 2020-04-18T12:36:57+00:00
 url: ssh/config
 
 ---
-
-### public key
-    vim ~/.ssh/authorized_keys
-    
-### ssh client config, 保持连接
-vim /etc/ssh/sshd_config
-添加
-
-    ClientAliveInterval 30
-    ClientAliveCountMax 60
-
-第二行配置表示如果发送 keep-alive 包数量达到 60 次，客户端依然没有反应，则服务端 sshd 断开连接。如果什么都不操作，该配置可以让连接保持 30s*60 ， 30 min
-
-
 ### ssh config
 https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file
 
