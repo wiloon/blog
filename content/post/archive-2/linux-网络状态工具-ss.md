@@ -242,7 +242,6 @@ ss列出每个进程名及其监听的端口
 
 # ss -pl
 
-1
 
 # ss -pl
 
@@ -250,7 +249,6 @@ ss列所有的tcp sockets
 
 # ss -t -a
 
-1
 
 # ss -t -a
 
@@ -258,7 +256,6 @@ ss列出所有udp sockets
 
 # ss -u -a
 
-1
 
 # ss -u -a
 
@@ -266,7 +263,6 @@ ss列出所有http连接中的连接
 
 # ss -o state established '( dport = :http or sport = :http )'
 
-1
 
 # ss -o state established '( dport = :http or sport = :http )'
 
@@ -278,7 +274,6 @@ ss列出本地哪个进程连接到x server
 
 # ss -x src /tmp/.X11-unix/*
 
-1
 
 # ss -x src /tmp/.X11-unix/*
 
@@ -286,7 +281,6 @@ ss列出处在FIN-WAIT-1状态的http、https连接
 
 # ss -o state fin-wait-1 '( sport = :http or sport = :https )'
 
-1
 
 # ss -o state fin-wait-1 '( sport = :http or sport = :https )'
 

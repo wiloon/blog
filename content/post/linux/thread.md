@@ -904,7 +904,6 @@ init_task 进程演变为 idle 进程后，idle 进程会执行 kernel_thread �
 
 系统中有很多内核守护进程 (线程)，可以通过: 
 
-1
 ps -efj
 进行查看，其中带有 [] 号的就属于内核守护进程。它们的祖先都是这个 kthreadd 内核线程。
 

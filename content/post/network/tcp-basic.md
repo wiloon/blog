@@ -67,21 +67,16 @@ UTO(User Timeout) UTO指的是发送SYN,收到ACK的超时时间,如果在UTO内
     heidong@HEIDONGVM:~$
 wireshark tcp 报文 1. TCP3次握手的过程是帧1到3 - 第1帧,发送SYN J:
 
-1
-2
-3
      36600→22 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM=1 TSval=1488865 TSecr=0 WS=128
 
 从主机10.0.2.15:36600 -> 192.168.1.101:22报文,`MSS=1460`, `Win=29200`,由于后面有`WS=128`选项,所以`Window=29200*128`。`SACK_PERM=1`表明10.0.2.15这台主机支持 **SACK**。`TSval`和`TSecr`为 **TS**的两个数值。
 第2帧,发送SYN K, ACK J+1:
 
-1
 22→36600 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0 MSS=1460
 从主机192.168.1.101:22 -> 10.0.2.15:36600报文,SYN报文将消耗一个字节,所以这里ACK为1。192.168.1.101这太主机的MSS=1460, win=65535没有WS。
 
 第3帧,发送ACK K+1:
 
-1
 36600→22 [ACK] Seq=1 Ack=1 Win=29200 Len=0 
 这是建立TCP连接的第3次握手,是主机10.0.2.15对第二帧的应答,这时win=29200,意思是,接收窗口的大小。
 
@@ -90,19 +85,15 @@ wireshark tcp 报文 1. TCP3次握手的过程是帧1到3 - 第1帧,发送SYN J:
 TCP终止连接的4次挥手过程是帧6到9
 第6帧,发送FIN J, ACK K:
 
-1
 36600→22 [FIN, ACK] Seq=1 Ack=22 Win=29200 Len=0
 主机10.0.2.15: 36600主动关闭连接,发送FIN,和上个报文的ACK,这是第一次交换。 - 第7帧,发送ACK J+1:
 
-1
      22→36600 [ACK] Seq=22 Ack=2 Win=65535 Len=0
 主机192.168.1.101:22,回应第6帧FIN。 - 第8帧,FIN K, ACK J+1:
 
-1
      22→36600 [FIN, ACK] Seq=22 Ack=2 Win=65535 Len=0
 主机192.168.1.101:22关闭socket,发送FIN。 - 第9帧,ACK K+1:
 
-1
      36600→22 [ACK] Seq=2 Ack=23 Win=29200 Len=0
 主机10.0.2.15:36600,回应第5帧FIN。
 
@@ -131,8 +122,6 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
 heidong@HEIDONGVM:~$ 
 1.2 建立连接主机不存在 如果连接的主机不存在,那么tcp 会重发报文SYN。重发的次数在内核参数了net.ipv4.tcp_syn_retries配置,如:
 
-1
-2
     heidong@HEIDONGVM:~$ cat /proc/sys/net/ipv4/tcp_syn_retries 
     6
 重连重试的是时间分别是。2^X-1秒。如:
@@ -163,10 +152,6 @@ heidong@HEIDONGVM:~$
     heidong@HEIDONGVM:~$ 
 断开连接异常 对于没有正常收到FIN异常终止连接的情况,tcp回应RST。 另外,SO_LINGER选项提供异常终止的能力:  默认的情况下,使用close函数关闭一个连接,tcp默认的行为是,1) 如果发送缓冲没有数据,发送FIN并直接返回 2) 如果缓冲存在数据,tcp将尽力把数据发送出去,然后发送FIN并返回。SO_LINGER选项可以改变这默认行为,相关数据结构
 
-1
-2
-3
-4
 struct linger {
     int l_onoff; /* 0=off, nozero=on */
     int l_linger; /* linger time, POSIX specifies units as seconds*/

@@ -72,7 +72,6 @@ NAT的基本工作原理是,当私有网主机和公共网主机通信的IP包�
   
 顶
   
-1
 
 http://blog.sina.com.cn/s/blog_5a1d98bc0100zk0h.html
   

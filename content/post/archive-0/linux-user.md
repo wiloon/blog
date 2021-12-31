@@ -18,6 +18,7 @@ wyue:x:513:513::/home/wyue:/bin/bash
 
 ```bash
 # create user
+sudo useradd -m user0
 sudo useradd -m -s /bin/bash user0
 # create group and user
 sudo useradd -m -s /bin/bash -g group0 user0
@@ -30,7 +31,7 @@ sudo useradd user0
 
     # -M - Don't create a home directory
     # -m: create home folder, 不加-m 参数，默认不创建home
-    # -s: specify shell for user
+    # -s: specify shell for user, 默认 /bin/bash
     # -s /bin/false - Don't assign a shell (or more accurately, make the shell /bin/false, so the user cannot be logged into)
     # -r: create system account
     # -d: home dir

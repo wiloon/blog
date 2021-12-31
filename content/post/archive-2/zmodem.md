@@ -79,11 +79,7 @@ Zmodem传输数据会使用到2个命令:
   sz: 将选定的文件发送（send) 到本地机器
 
   rz: 运行该命令会弹出一个文件选择窗口,从本地选择文件上传到服务器(receive)
-1
-2
-3
 sz命令
-1
 用途说明: sz命令是利用ZModem协议来从Linux服务器传送文件到本地,一次可以传送一个或多个文件。相对应的从本地上传文件到Linux服务器,可以使用rz命令。
 
 常用参数
@@ -98,7 +94,6 @@ sz命令
 如果是二进制文件,使用 sz -be files
 
 rz命令
-1
 -b 以二进制方式,默认为文本方式。（Binary (tell it like it is) file transfer override.) 
 
 -e 对所有控制字符转义。（Force sender to escape all control characters; normally XON, XOFF, DLE, CR-@-CR, and Ctrl-X are escaped.) 
@@ -106,7 +101,6 @@ rz命令
 如果要保证上传的文件内容在服务器端保存之后与原始文件一致,最好同时设置这两个标志,如下所示方式使用: 
 
 rz -be
-1
 此命令执行时,会弹出文件选择对话框,选择好需要上传的文件之后,点确定,就可以开始上传的过程了。上传的速度取决于当时网络的状况。
 
 如果执行完毕显示“0错误”,文件上传就成功了,其他显示则表示文件上传出现问题了。

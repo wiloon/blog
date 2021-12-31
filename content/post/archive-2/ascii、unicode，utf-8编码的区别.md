@@ -311,9 +311,6 @@ UTF-8 Code Point
 now := time.Now().Unix() // 一个无效的码点值
 str := string(now) // golang是utf-8编码,会对无效码点进行替换
 fmt.Printf("%X", []byte(str)) // EFBFBD,即字符「�」
-1
-2
-3
 now := time.Now().Unix() // 一个无效的码点值
 str := string(now) // golang是utf-8编码,会对无效码点进行替换
 fmt.Printf("%X", []byte(str)) // EFBFBD,即字符「�」

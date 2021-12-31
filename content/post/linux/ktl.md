@@ -214,7 +214,6 @@ kthread_run
 线程一旦启动起来后，会一直运行，除非该线程主动调用do_exit函数，或者其他的进程调用kthread_stop函数，结束线程的运行。
 
     int kthread_stop(struct task_struct *thread);
-1
 kthread_stop() 通过发送信号给线程。
 
 如果线程函数正在处理一个非常重要的任务，它不会被中断的。当然如果线程函数永远不返回并且不检查信号，它将永远都不会停止。

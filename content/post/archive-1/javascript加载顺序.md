@@ -63,11 +63,7 @@ http://www.benben.cc/blog/?p=9
   
     
       
-        1
-2
-3
-4
-      
+              
       
       
         document.write('<script type="text/javascript">');

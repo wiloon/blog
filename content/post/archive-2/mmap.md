@@ -87,7 +87,7 @@ void *mmap(void *start,size_t length,int prot,int flags,int fd,off_t offset);
 
 int munmap( void * addr, size_t len )
 
-/*该调用在进程地址空间中解除一个映射关系，addr是调用mmap()时返回的地址，len是映射区的大小。当映射关系解除后，对原来映射地址的访问将导致段错误发生。*/
+/*该调用在进程地址空间中解除一个映射关系，addr 是调用mmap()时返回的地址，len是映射区的大小。当映射关系解除后，对原来映射地址的访问将导致段错误发生。*/
 
 ```
 

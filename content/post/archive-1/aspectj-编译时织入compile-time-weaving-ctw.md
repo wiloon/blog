@@ -237,7 +237,6 @@ String getPassword(String username);
 
 其实现类 (SampleServiceImpl.java) 如下: 
 
-1
 
 2
 

@@ -94,7 +94,6 @@ session 1
 
 session 2
 
-1
 
 set transaction isolation level read committed;
 
@@ -200,7 +199,6 @@ session 3
 
 session 4
 
-1
 
 set transaction isolation level repeatable read;
 

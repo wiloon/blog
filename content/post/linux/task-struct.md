@@ -23,7 +23,6 @@ Linux内核通过一个被称为进程描述符的task_struct结构体来管理�
 
 进程状态
   volatile long state;    /* -1 unrunnable, 0 runnable, >0 stopped */
-1
 state成员的可能取值如下
 
 参见http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L207
@@ -78,9 +77,7 @@ TASK_TRACED	表示进程被debugger等进程监视，进程执行被调试程序
 /* task state */
 int exit_state;
 int exit_code, exit_signal;
-1
-2
-3
+
 状态	描述
 EXIT_ZOMBIE	进程的执行被终止，但是其父进程还没有使用wait()等系统调用来获知它的终止信息，此时进程成为僵尸进程
 EXIT_DEAD	进程的最终状态
@@ -122,12 +119,7 @@ TASK_KILLABLE	当进程处于这种可以终止的新睡眠状态中，它的运
 #define TASK_KILLABLE           (TASK_WAKEKILL | TASK_UNINTERRUPTIBLE)
 #define TASK_STOPPED            (TASK_WAKEKILL | __TASK_STOPPED)
 #define TASK_TRACED             (TASK_WAKEKILL | __TASK_TRACED)
-1
-2
-3
-4
-5
-6
+
 换句话说，TASK_UNINTERRUPTIBLE + TASK_WAKEKILL = TASK_KILLABLE。
 
 而TASK_WAKEKILL 用于在接收到致命信号时唤醒进程
@@ -147,14 +139,12 @@ Unix系统通过pid来标识进程，linux把不同的pid与系统中每个进�
 在CONFIG_BASE_SMALL配置为0的情况下，PID的取值范围是0到32767，即系统中的进程数最大为32768个。
 
 #define PID_MAX_DEFAULT (CONFIG_BASE_SMALL ? 0x1000 : 0x8000)  
-1
 参见 http://lxr.free-electrons.com/source/include/linux/threads.h#L27
 
 在Linux系统中，一个线程组中的所有线程使用和该线程组的领头线程（该组中的第一个轻量级进程) 相同的PID，并被存放在tgid成员中。只有线程组的领头线程的pid成员才会被设置为与tgid相同的值。注意，getpid()系统调用返回的是当前进程的tgid值而不是pid值。
 
 进程内核栈
 void *stack;  
-1
 内核栈与线程描述符
 对每个进程，Linux内核都把两个不同的数据结构紧凑的存放在一个单独为进程分配的内存区域中
 
@@ -168,8 +158,7 @@ Linux把thread_info（线程描述符) 和内核态的线程堆栈存放在一�
 
 #define THREAD_SIZE_ORDER    1
 #define THREAD_SIZE        (PAGE_SIZE << THREAD_SIZE_ORDER)
-1
-2
+
 出于效率考虑，内核让这8K空间占据连续的两个页框并让第一个页框的起始地址是213的倍数。
 
 内核态的进程访问处于内核数据段的栈，这个栈不同于用户态的进程所用的栈。
@@ -181,8 +170,6 @@ Linux把thread_info（线程描述符) 和内核态的线程堆栈存放在一�
 需要注意的是，内核态堆栈仅用于内核例程，Linux内核另外为中断提供了单独的硬中断栈和软中断栈
 
 下图中显示了在物理内存中存放两种数据结构的方式。线程描述符驻留与这个内存区的开始，而栈顶末端向下增长。 下图摘自ULK3,进程内核栈与进程描述符的关系如下图: 
-
-
 
 但是较新的内核代码中，进程描述符task_struct结构中没有直接指向thread_info结构的指针，而是用一个void指针类型的成员表示，然后通过类型转换来访问thread_info结构。
 
@@ -275,7 +262,6 @@ x86	4.5	arch/x86/include/asm/page_32_types.h, line 20	define THREAD_SIZE_ORDER 1
 x86_64	4.5	arch/x86/include/asm/page_64_types.h, line 10	define THREAD_SIZE_ORDER (2 + KASAN_STACK_ORDER)	
 进程标记
 unsigned int flags; /* per process flags, defined below */  
-1
 反应进程状态的信息，但不是运行状态，用于内核识别进程当前的状态，以备下一步操作
 
 flags成员的可能取值如下，这些宏以PF(ProcessFlag)开头
@@ -291,7 +277,7 @@ PF_DUMPCORE dumped core。
 PF_SIGNALED 进程被信号(signal)杀出。
 PF_EXITING 进程开始关闭。
 
- /*
+/*
 * Per process flags
 */
 #define PF_EXITING      0x00000004      /* getting shut down */
@@ -321,36 +307,7 @@ PF_EXITING 进程开始关闭。
 #define PF_MUTEX_TESTER 0x20000000      /* Thread belongs to the rt mutex tester */
 #define PF_FREEZER_SKIP 0x40000000      /* Freezer should not count it as freezable */
 #define PF_SUSPEND_TASK 0x80000000      /* this thread called freeze_processes and should not be frozen */
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
+
 表示进程亲属关系的成员
 /*
  * pointers to (original) parent process, youngest child, younger sibling,
@@ -365,19 +322,7 @@ struct task_struct __rcu *parent; /* recipient of SIGCHLD, wait4() reports */
 struct list_head children;      /* list of my children */
 struct list_head sibling;       /* linkage in my parent's children list */
 struct task_struct *group_leader;       /* threadgroup leader */
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
+
 在Linux系统中，所有进程之间都有着直接或间接地联系，每个进程都有其父进程，也可能有零个或多个子进程。拥有同一父进程的所有进程具有兄弟关系。
 
 字段	描述
@@ -401,16 +346,7 @@ struct list_head ptrace_entry;
 
 unsigned long ptrace_message;
 siginfo_t *last_siginfo; /* For ptrace use.  */
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+
 成员ptrace被设置为0时表示不需要被跟踪，它的可能取值如下: 
 
 参见
@@ -450,39 +386,7 @@ http://lxr.free-electrons.com/source/include/linux/ptrace.h?v=4.5#L20
 #define PT_SINGLESTEP           (1<<PT_SINGLESTEP_BIT)
 #define PT_BLOCKSTEP_BIT        30
 #define PT_BLOCKSTEP            (1<<PT_BLOCKSTEP_BIT)
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
+
 Performance Event
 Performance Event是一款随 Linux 内核代码一同发布和维护的性能诊断工具。这些成员用于帮助PerformanceEvent分析进程的性能问题。
 
@@ -491,19 +395,13 @@ Performance Event是一款随 Linux 内核代码一同发布和维护的性能�
     struct mutex perf_event_mutex;
     struct list_head perf_event_list;
 #endif
-1
-2
-3
-4
-5
+
 关于Performance Event工具的介绍可参考文章http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html?ca=drs-#major1和http://www.ibm.com/developerworks/cn/linux/l-cn-perf2/index.html?ca=drs-#major1。
 
 进程调度
 优先级
 int prio, static_prio, normal_prio;
 unsigned int rt_priority;
-1
-2
 字段	描述
 static_prio	用于保存静态优先级，可以通过nice系统调用来进行修改
 rt_priority	用于保存实时优先级
@@ -518,13 +416,7 @@ prio	用于保存动态优先级
 /* http://lxr.free-electrons.com/source/include/linux/sched/prio.h#L24  */
 #define MAX_PRIO        (MAX_RT_PRIO + 40)
 #define DEFAULT_PRIO        (MAX_RT_PRIO + 20)
-1
-2
-3
-4
-5
-6
-7
+
 调度策略相关字段
 /*  http://lxr.free-electrons.com/source/include/linux/sched.h?v=4.5#L1426  */
 unsigned int policy;
@@ -537,17 +429,6 @@ struct sched_rt_entity rt;
 
 
 cpumask_t cpus_allowed;
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
 字段	描述
 policy	调度策略
 sched_class	调度类
@@ -636,22 +517,6 @@ unsigned :0; /* force alignment to the next boundary */
 /* unserialized, strictly 'current' */
 unsigned in_execve:1; /* bit to tell LSMs we're in execve */
 unsigned in_iowait:1;
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
 字段	描述
 exit_code	用于设置进程的终止代号，这个值要么是_exit()或exit_group()系统调用参数（正常终止) ，要么是由内核提供的一个错误代号（异常终止) 。
 exit_signal	被置为-1时表示是某个线程组中的一员。只有当线程组的最后一个成员终止时，才会产生一个信号，以通知线程组的领头进程的父进程。
@@ -726,16 +591,6 @@ struct sigpending pending;
 1587 
 unsigned long sas_ss_sp;
 size_t sas_ss_size;
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
 字段	描述
 signal	指向进程的信号描述符
 sighand	指向进程的信号处理程序描述符
@@ -744,57 +599,31 @@ pending	存放私有挂起信号的数据结构
 sas_ss_sp	是信号处理程序备用堆栈的地址，sas_ss_size表示堆栈的大小
 其他
 （1) 、用于保护资源分配或释放的自旋锁 
-1
 /* Protection of (de-)allocation: mm, files, fs, tty, keyrings, mems_allowed, 
  * mempolicy */
     spinlock_t alloc_lock;
-1
-2
-3
 （2) 、进程描述符使用计数，被置为2时，表示进程描述符正在被使用而且其相应的进程处于活动状态
-1
 atomic_t usage;
-1
 （3) 、用于表示获取大内核锁的次数，如果进程未获得过锁，则置为-1。 
-1
 int lock_depth;     /* BKL lock depth */
-1
 （4) 、在SMP上帮助实现无加锁的进程切换（unlocked context switches)  
-1
 #ifdef CONFIG_SMP
 #ifdef __ARCH_WANT_UNLOCKED_CTXSW  
     int oncpu;
 #endif
 #endif
-1
-2
-3
-4
-5
 （5) 、preempt_notifier结构体链表 
-1
 #ifdef CONFIG_PREEMPT_NOTIFIERS  
     /* list of struct preempt_notifier: */  
     struct hlist_head preempt_notifiers;  
 #endif  
-1
-2
-3
-4
 （6) 、FPU使用计数 
-1
 unsigned char fpu_counter;  
-1
 （7) 、 blktrace是一个针对Linux内核中块设备I/O层的跟踪工具。 
-1
 #ifdef CONFIG_BLK_DEV_IO_TRACE  
     unsigned int btrace_seq;  
 #endif  
-1
-2
-3
 （8) 、RCU同步原语 
-1
 #ifdef CONFIG_PREEMPT_RCU  
     int rcu_read_lock_nesting;  
     char rcu_read_unlock_special;  
@@ -806,43 +635,19 @@ unsigned char fpu_counter;
 #ifdef CONFIG_RCU_BOOST  
     struct rt_mutex *rcu_boost_mutex;  
 #endif /* #ifdef CONFIG_RCU_BOOST */  
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
 （9) 、用于调度器统计进程的运行信息 
-1
 #if defined(CONFIG_SCHEDSTATS) || defined(CONFIG_TASK_DELAY_ACCT)  
     struct sched_info sched_info;  
 #endif  
-1
-2
-3
 （10) 、用于构建进程链表 
-1
 struct list_head tasks;  
-1
 （11) 、to limit pushing to one attempt 
-1
 #ifdef CONFIG_SMP  
     struct plist_node pushable_tasks;  
 #endif  
-1
-2
-3
 补丁说明请参考: http://lkml.indiana.edu/hypermail/linux/kernel/0808.3/0503.html
 
 （12) 、防止内核堆栈溢出 
-1
-2
-3
 #ifdef CONFIG_CC_STACKPROTECTOR  
     /* Canary value for the -fstack-protector gcc feature */  
     unsigned long stack_canary;  
@@ -857,109 +662,59 @@ struct pid_link pids[PIDTYPE_MAX];
 struct list_head thread_group; //线程组中所有进程的链表  
 
 （14) 、do_fork函数 
-1
 struct completion *vfork_done;      /* for vfork() */  
 int __user *set_child_tid;      /* CLONE_CHILD_SETTID */  
 int __user *clear_child_tid;        /* CLONE_CHILD_CLEARTID */  
-1
-2
-3
 在执行do_fork()时，如果给定特别标志，则vfork_done会指向一个特殊地址。
 
 如果copy_process函数的clone_flags参数的值被置为CLONE_CHILD_SETTID或CLONE_CHILD_CLEARTID，则会把child_tidptr参数的值分别复制到set_child_tid和clear_child_tid成员。这些标志说明必须改变子进程用户态地址空间的child_tidptr所指向的变量的值。
 
 （15) 、缺页统计 
-1
 /* mm fault and swap info: this can arguably be seen as either mm-specific or thread-specific */  
     unsigned long min_flt, maj_flt;  
-1
-2
 （16) 、进程权能 
-1
 const struct cred __rcu *real_cred; /* objective and real subjective task 
                  * credentials (COW) */  
 const struct cred __rcu *cred;  /* effective (overridable) subjective task 
                  * credentials (COW) */  
 struct cred *replacement_session_keyring; /* for KEYCTL_SESSION_TO_PARENT */  
-1
-2
-3
-4
-5
 （17) 、相应的程序名 
-1
 char comm[TASK_COMM_LEN];  
-1
 （18) 、文件 
-1
 /* file system info */  
     int link_count, total_link_count;  
 /* filesystem information */  
     struct fs_struct *fs;  
 /* open file information */  
     struct files_struct *files;  
-1
-2
-3
-4
-5
-6
 fs用来表示进程与文件系统的联系，包括当前目录和根目录。
 
 files表示进程当前打开的文件。
 
 （19) 、进程通信（SYSVIPC)  
-1
-2
-3
-4
-5
 #ifdef CONFIG_SYSVIPC  
 /* ipc stuff */  
     struct sysv_sem sysvsem;  
 #endif  
-1
-2
-3
-4
 （20) 、处理器特有数据 
-1
 /* CPU-specific state of this task */  
     struct thread_struct thread;  
-1
-2
 （21) 、命名空间 
-1
 /* namespaces */  
     struct nsproxy *nsproxy;  
-1
-2
 （22) 、进程审计 
-1
     struct audit_context *audit_context;  
 #ifdef CONFIG_AUDITSYSCALL  
     uid_t loginuid;  
     unsigned int sessionid;  
 #endif  
-1
-2
-3
-4
-5
 （23) 、secure computing 
-1
 seccomp_t seccomp;  
-1
 （24) 、用于copy_process函数使用CLONE_PARENT 标记时 
-1
 /* Thread group tracking */  
     u32 parent_exec_id;  
     u32 self_exec_id;  
-1
-2
-3
 （25) 、中断 
-1
 #ifdef CONFIG_GENERIC_HARDIRQS  
     /* IRQ handler threads */  
     struct irqaction *irqaction;  
@@ -979,57 +734,22 @@ seccomp_t seccomp;
     int softirqs_enabled;  
     int softirq_context;  
 #endif  
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
 （26) 、task_rq_lock函数所使用的锁 
-1
 /* Protection of the PI data structures: */  
 raw_spinlock_t pi_lock;  
-1
-2
 （27) 、基于PI协议的等待互斥锁，其中PI指的是priority inheritance（优先级继承)  
-1
 #ifdef CONFIG_RT_MUTEXES  
     /* PI waiters blocked on a rt_mutex held by this task */  
     struct plist_head pi_waiters;  
     /* Deadlock detection and priority inheritance handling */  
     struct rt_mutex_waiter *pi_blocked_on;  
 #endif  
-1
-2
-3
-4
-5
-6
 （28) 、死锁检测 
-1
 #ifdef CONFIG_DEBUG_MUTEXES  
     /* mutex deadlock detection */  
     struct mutex_waiter *blocked_on;  
 #endif  
-1
-2
-3
-4
 （29) 、lockdep，参见内核说明文档linux-2.6.38.8/Documentation/lockdep-design.txt 
-1
 #ifdef CONFIG_LOCKDEP  
 # define MAX_LOCK_DEPTH 48UL  
     u64 curr_chain_key;  
@@ -1038,52 +758,25 @@ raw_spinlock_t pi_lock;
     struct held_lock held_locks[MAX_LOCK_DEPTH];  
     gfp_t lockdep_reclaim_gfp;  
 #endif  
-1
-2
-3
-4
-5
-6
-7
-8
 （30) 、JFS文件系统 
-1
 /* journalling filesystem info */  
     void *journal_info;  
-1
-2
 （31) 、块设备链表 
-1
 /* stacked block device info */  
     struct bio_list *bio_list;  
-1
-2
 （32) 、内存回收 
-1
 struct reclaim_state *reclaim_state;  
-1
 （33) 、存放块设备I/O数据流量信息
-1
 struct backing_dev_info *backing_dev_info;  
-1
 （34) 、I/O调度器所使用的信息 
-1
 struct io_context *io_context;  
-1
 （35) 、记录进程的I/O计数 
-1
 struct task_io_accounting ioac;  
 if defined(CONFIG_TASK_XACCT)  
 u64 acct_rss_mem1;  /* accumulated rss usage */  
 u64 acct_vm_mem1;   /* accumulated virtual memory usage */  
 cputime_t acct_timexpd; /* stime + utime since last update */  
 endif  
-1
-2
-3
-4
-5
-6
 在Ubuntu 11.04上，执行cat获得进程1的I/O计数如下: 
 
 
@@ -1091,21 +784,13 @@ endif
 输出的数据项刚好是task_io_accounting结构体的所有成员。
 
 （36) 、CPUSET功能 
-1
 #ifdef CONFIG_CPUSETS  
     nodemask_t mems_allowed;    /* Protected by alloc_lock */  
     int mems_allowed_change_disable;  
     int cpuset_mem_spread_rotor;  
     int cpuset_slab_spread_rotor;  
 #endif  
-1
-2
-3
-4
-5
-6
 （37) 、Control Groups 
-1
 #ifdef CONFIG_CGROUPS  
     /* Control Group info protected by css_set_lock */  
     struct css_set __rcu *cgroups;  
@@ -1120,22 +805,7 @@ endif
         unsigned long memsw_bytes; /* uncharged mem+swap usage */  
     } memcg_batch;  
 #endif  
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
 （38) 、futex同步机制 
-1
 #ifdef CONFIG_FUTEX  
     struct robust_list_head __user *robust_list;  
 #ifdef CONFIG_COMPAT  
@@ -1144,78 +814,38 @@ endif
     struct list_head pi_state_list;  
     struct futex_pi_state *pi_state_cache;  
 #endif
-1
-2
-3
-4
-5
-6
-7
-8
 （39) 、非一致内存访问（NUMA  Non-Uniform Memory Access)  
-1
 #ifdef CONFIG_NUMA  
     struct mempolicy *mempolicy;    /* Protected by alloc_lock */  
     short il_next;  
 #endif  
-1
-2
-3
-4
 （40) 、文件系统互斥资源 
-1
 atomic_t fs_excl;   /* holding fs exclusive resources */  
-1
 （41) 、RCU链表 
-1
 struct rcu_head rcu;  
-1
 （42) 、管道 
-1
 struct pipe_inode_info *splice_pipe;  
-1
 （43) 、延迟计数 
-1
 #ifdef  CONFIG_TASK_DELAY_ACCT  
 struct task_delay_info *delays;  
 #endif  
-1
-2
-3
 （44) 、fault injection，参考内核说明文件linux-2.6.38.8/Documentation/fault-injection/fault-injection.txt 
-1
 #ifdef CONFIG_FAULT_INJECTION  
     int make_it_fail;  
 #endif  
-1
-2
-3
 （45) 、FLoating proportions 
-1
 struct prop_local_single dirties;
-1
 （46) 、Infrastructure for displayinglatency 
-1
 #ifdef CONFIG_LATENCYTOP  
     int latency_record_count;  
     struct latency_record latency_record[LT_SAVECOUNT];  
 #endif  
-1
-2
-3
-4
 （47) 、time slack values，常用于poll和select函数 
-1
 unsigned long timer_slack_ns;  
 unsigned long default_timer_slack_ns;  
-1
-2
 （48) 、socket控制消息（control message)  
-1
 struct list_head    *scm_work_list;  
-1
 （49) 、ftrace跟踪器 
-1
 #ifdef CONFIG_FUNCTION_GRAPH_TRACER  
     /* Index of current stored address in ret_stack */  
     int curr_ret_stack;  

@@ -116,13 +116,11 @@ sex
 
 hobby
 
-1
 
 tank
 
 农民工
 
-1
 
 军棋,游戏,fishing
 
@@ -140,7 +138,6 @@ ying
 
 no job
 
-1
 
 flying,driving,testing
 
@@ -150,7 +147,6 @@ tankzhang
 
 love your love
 
-1
 
 i love you
 

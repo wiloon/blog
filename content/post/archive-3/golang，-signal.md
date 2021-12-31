@@ -74,7 +74,6 @@ Go很适合编写服务器端的网络程序。DevOps经常会遇到的一个情
 @humblehack 在他的文章Graceful Restart in Golang中提供了一种方式，而Florian von Bock根据此思路实现了一个框架endless。
 此框架使用起来超级简单:
 
-1
 err := endless.ListenAndServe("localhost:4242", mux)
 只需替换 http.ListenAndServe 和 http.ListenAndServeTLS。
 

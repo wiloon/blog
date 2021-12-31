@@ -199,7 +199,6 @@ func main() {
 
 运行结果: 
   
-1
 
 fatal error: all goroutines are asleep - deadlock!
   
