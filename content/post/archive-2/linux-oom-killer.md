@@ -249,7 +249,7 @@ long points;
       
 long adj;
 
-    // 内部判断是否是pid为1的initd进程,是否是kthread内核进程,是否是其他cgroup,如果是则跳过  
+    // 内部判断是否是pid为1的initd进程,是否是kthread内核线程,是否是其他cgroup,如果是则跳过  
     if (oom_unkillable_task(p, memcg, nodemask))  
         return 0;  
     

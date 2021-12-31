@@ -52,7 +52,7 @@ KVM（Kernel-based Virtual Machine) 是一个开源的系统虚拟化模块,它�
 
 与Linux的缘分
 
-一个被某些热心支持者成为云时代的Linux,是公有云与私有云的开源操作系统。一个则是Linux内核的一部分,将Linux转换成一个Type-1 hypervisor,无需任何变更就能享受现有的Linux内核进程调度、内存管理和设备支持。
+一个被某些热心支持者成为云时代的Linux,是公有云与私有云的开源操作系统。一个则是Linux内核的一部分,将Linux转换成一个Type-1 hypervisor,无需任何变更就能享受现有的Linux内核调度、内存管理和设备支持。
 
 OpenStack炙手可热,它如同Linux一样,旨在构建一个内核,所有的软件厂商都围绕着它进行工作。OpenStack的许多子项目,对云计算平台中的各种资源（如计算能力、存储、网络) 提供敏捷管理。此外,OpenStack也提供对虚拟化技术的支持。
 

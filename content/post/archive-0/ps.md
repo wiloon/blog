@@ -104,7 +104,7 @@ ps -eo pid,ppid,command
     PID         processid,进程标识符
     PPID        parent processid，父进程标识符2，
     LWP         light weight process or thread， 轻量级进程, alias spid, tid
-    NLWP        number of lwps(threads) in the process, 线程的数量
+    NLWP        number of lwps(threads) in the process, 进程中线程的数量
     MAJFL is the major page fault count,
 
 ### STAT 进程的状态
