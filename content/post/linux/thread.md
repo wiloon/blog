@@ -27,6 +27,7 @@ https://zhidao.baidu.com/question/73715555.html
 
 ```plantuml
 @startuml
+skinparam ranksep 10
 package "进程内存空间" {
 rectangle "-" as start
 note right: 高地址内存
@@ -44,12 +45,12 @@ rectangle "-" as end
 note right: 低地址内存
 }
 
-start -down- stack
-stack -down- heap
-heap -down- bss
-bss -down- data
-data -down- text
-text -down- end
+start -[hidden]-> stack
+stack -[hidden]-> heap
+heap -[hidden]-> bss
+bss -[hidden]-> data
+data -[hidden]-> text
+text -[hidden]-> end
 @enduml
 ```
 

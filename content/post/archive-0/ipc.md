@@ -14,7 +14,7 @@ categories:
 - 匿名管道
 - 命名管道
 - 消息(Message)队列
-- 共享内存(share memory)
+- 共享内存 (share memory)
 - 信号量(semaphore)
 - 套接字(socket)
 
@@ -97,8 +97,57 @@ Linux系统中常用信号:
 使得多个进程可以可以直接读写同一块内存空间，是最快的可用IPC形式。是针对其他通信机制运行效率较低而设计的。
 为了在多个进程间交换信息，内核专门留出了一块内存区，可以由需要访问的进程将其映射到自己的私有地址空间。进程就可以直接读写这一块内存而不需要进行数据的拷贝，从而大大提高效率。
 由于多个进程共享一段内存，因此需要依靠某种同步机制（如信号量) 来达到进程间的同步及互斥。
-延伸阅读: Linux支持的主要三种共享内存方式: mmap()系统调用、Posix共享内存，以及System V共享内存实践
-共享内存原理图
+延伸阅读: Linux支持的主要三种共享内存方式: mmap() 系统调用、Posix 共享内存，以及System V共享内存实践, mmap可以认为是属于POSIX的
+#### mmap
+```c
+// 成功返回共享内存的地址，失败返回(void *)-1
+void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset);
+// 成功返回0，失败返回-1
+int munmap(void *addr, size_t length);
+```
+
+#### POSIX共享内存API
+1)函数shm_open和shm_unlink非常类似于为普通文件所提供的open和unlink系统调用.
+
+　　2)如果要编写一个可移植的程序,那么shm_open和shm_unlink是最好的选择.
+
+　　3)shm_open:创建一个新的共享区域或者附加在已有的共享区域上.区域被其名字标识,函数返回各文件的描述符.
+
+　　4)shm_unlink:类似于unlink系统调用对文件进行操作,直到所有的进程不再引用该内存区后才对其进行释放.
+
+　　5)mmap:用于将一个文件映射到某一内存区中,其中也使用了shm_open函数返回的文件描述符.
+
+　　6)munmap:用于释放mmap所映射的内存区域.
+
+　　7)msync:同步存取一个映射区域并将高速缓存的数据回写到物理内存中,以便其他进程可以监听这些改变.
+
+#### System V共享内存 API
+1)System V API广泛应用于X windows系统及其扩展版本中,许多X应用程序也使用它.
+2)shmget:创建一个新的共享区域或者附加在已有的共享区域上(同shm_open).
+3)shmat:用于将一个文件映射到内存区域中(同mmap).
+4)shmdt:用于释放所映射的内存区域(同munmap)
+5)shmctl:对于多个用户,断开其对共享区域的连接(同shm_unlink)
+```c
+#include <sys/ipc.h>
+#include <sys/shm.h>
+//创建或访问共享内存
+int shmget(key_t key,size_t size,int shmflg);
+
+//附加共享内存到进程的地址空间
+void *shmat(int shmid,const void *shmaddr,int shmflg); 
+//shmaddr通常为NULL，由系统选择共享内存附加的地址;shmflg可以为SHM_RDONLY
+//从进程的地址空间分离共享内存
+int shmdt(const void *shmaddr); //shmaddr是shmat()函数的返回值
+//控制共享内存
+int shmctl(int shmid,int cmd,struct shmid_ds *buf);
+struct shmid_ds{
+ struct ipc_perm shm_perm;
+ // …
+};
+```
+
+cmd的常用取值有:(a)IPC_STAT获取当前共享内存的shmid_ds结构并保存在buf中(2)IPC_SET使用buf中的值设置当前共享内存的shmid_ds结构(3)IPC_RMID删除当前共享内存
+  
 
 ### 信号量(semaphore)
 信号量是一个计数器，用于多进程对共享数据的访问，信号量的意图在于进程间同步。
@@ -363,40 +412,11 @@ $man 3 _function_name_
  short   sem_flag;   //比较重要的值是SEM_UNDO:当进程结束时，相应的操作将被取消；同时，如果进程结束时没有释放资源的话，系统会自动释放
  };
   
+
   
-    2、共享内存
+### 消息队列
   
-  
-    共享内存允许两个或多个进程共享一定的存储区，因为不需要拷贝数据，所以这是最快的一种IPC。
-  
-  
-    #include <sys/ipc.h>
- #include <sys/shm.h>
- (1)创建或访问共享内存
- * int shmget(key_t key,size_t size,int shmflg);
-  
-  
-    (2)附加共享内存到进程的地址空间
- * void *shmat(int shmid,const void *shmaddr,int shmflg);//shmaddr通常为NULL，由系统选择共享内存附加的地址;shmflg可以为SHM_RDONLY
-  
-  
-    (3)从进程的地址空间分离共享内存
- * int shmdt(const void *shmaddr); //shmaddr是shmat()函数的返回值
-  
-  
-    (4)控制共享内存
- * int shmctl(int shmid,int cmd,struct shmid_ds *buf);
- * struct shmid_ds{
- struct ipc_perm shm_perm;
- …
- };
- cmd的常用取值有:(a)IPC_STAT获取当前共享内存的shmid_ds结构并保存在buf中(2)IPC_SET使用buf中的值设置当前共享内存的shmid_ds结构(3)IPC_RMID删除当前共享内存
-  
-  
-    3、消息队列
-  
-  
-    消息队列保存在内核中，是一个由消息组成的链表。
+消息队列保存在内核中，是一个由消息组成的链表。
   
   
     #include <sys/types.h>

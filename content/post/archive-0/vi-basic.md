@@ -2,12 +2,13 @@
 title: vi/vim basic, command
 author: "-"
 date: 2012-06-21T04:20:00.000+00:00
-url: "/?p=3560"
+url: vim
 categories:
-- Linux
+  - Linux
 
 ---
 ## vi/vim basic, command
+
 ### vim 编辑二进制文件
 ```bash
 # 注意用-b，否则后面会有0a
@@ -18,15 +19,24 @@ vim -b test.bin
 :$!xxd -r
 :wq
 ```
+
 ### vim utf8 乱码
+#### 查看文件编码
+
+```bash
+:set fileencoding
+```
+
+如果你只是想查看其它编码格式的文件或者想解决用 Vim 查看文件乱码的问题，那么你可以在 ~/.vimrc 文件中添加以下内容: 
 ```bash
 vim ~/.vimrc
 
+# content
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 ```
-
+这样，就可以让vim自动识别文件编码（可以自动识别UTF-8或者GBK编码的文件) ，其实就是依照 fileencodings提供的编码列表尝试，如果没有找到合适的编码，就用latin-1(ASCII)编码打开。
 
 ### 上移一行
     ddkP
@@ -734,6 +744,9 @@ vim默认使用magic设置，这个设置也可以在正则表达式中通过 /m
 24: /%20l 匹配第20行
 
 关于正则表达式的详细信息，请参见参考文献。
+
+### config
+>https://www.ruanyifeng.com/blog/2018/09/vimrc.html
 
 http://www.cnblogs.com/88999660/articles/1581524.html
 

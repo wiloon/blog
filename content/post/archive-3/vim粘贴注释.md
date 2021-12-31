@@ -4,7 +4,7 @@ author: "-"
 date: 2020-04-22T02:07:04+00:00
 url: /?p=16040
 categories:
-  - Uncategorized
+  - vim
 
 ---
 ## vim粘贴注释
@@ -40,4 +40,4 @@ set pastetoggle=<F9>
   
 
 
-http://www.chenglin.name/linux/blog-linux/595.html/embed#?secret=QDy4MQGTrl
+>http://www.chenglin.name/linux/blog-linux/595.html/embed#?secret=QDy4MQGTrl
