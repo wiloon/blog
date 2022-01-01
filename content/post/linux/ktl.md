@@ -7,6 +7,7 @@ categories:
   - OS
 tags:
   - thread
+  - kernel
 
 ---
 
@@ -53,62 +54,60 @@ struct task_struct
 ```
 
 大多数计算机上系统的全部虚拟地址空间分为两个部分: 供用户态程序访问的虚拟地址空间和供内核访问的内核空间。每当内核执行上下文切换时, 虚拟地址空间的用户层部分都会切换, 以便当前运行的进程匹配, 而内核空间不会放生切换。
-
-对于普通用户进程来说，mm指向虚拟地址空间的用户空间部分，而对于内核线程，mm为NULL。
-
-这为优化提供了一些余地, 可遵循所谓的惰性TLB处理(lazy TLB handing)。active_mm主要用于优化，由于内核线程不与任何特定的用户层进程相关，内核并不需要倒换虚拟地址空间的用户层部分，保留旧设置即可。由于内核线程之前可能是任何用户层进程在执行，故用户空间部分的内容本质上是随机的，内核线程决不能修改其内容，故将mm设置为NULL，同时如果切换出去的是用户进程，内核将原来进程的mm存放在新内核线程的active_mm中，因为某些时候内核必须知道用户空间当前包含了什么。
-
-为什么没有mm指针的进程称为惰性TLB进程?
+### mm
+对于普通用户进程来说，mm 指向虚拟地址空间的用户空间部分，而对于内核线程，mm 为NULL。这为优化提供了一些余地, 可遵循所谓的惰性 TLB 处理(lazy TLB handing)。
+### active_mm
+active_mm 主要用于优化，由于内核线程不与任何特定的用户层进程相关，内核并不需要倒换虚拟地址空间的用户层部分，保留旧设置即可。由于内核线程之前可能是任何用户层进程在执行，故用户空间部分的内容本质上是随机的，内核线程决不能修改其内容，故将mm设置为NULL，同时如果切换出去的是用户进程，内核将原来进程的 mm 存放在新内核线程的 active_mm 中，因为某些时候内核必须知道用户空间当前包含了什么。
+### 惰性 TLB 进程
+为什么没有 mm 指针的进程称为惰性 TLB 进程?
 
 假如内核线程之后运行的进程与之前是同一个, 在这种情况下, 内核并不需要修改用户空间地址表。地址转换后备缓冲器(即TLB)中的信息仍然有效。只有在内核线程之后, 执行的进程是与此前不同的用户层进程时, 才需要切换(并对应清除TLB数据)。
 
 内核线程和普通的进程间的区别在于内核线程没有独立的地址空间，mm指针被设置为NULL；它只在 内核空间运行，从来不切换到用户空间去；并且和普通进程一样，可以被调度，也可以被抢占。
 
-内核线程的创建
+### 内核线程的创建
 创建内核线程接口的演变
 内核线程可以通过两种方式实现:
 
-古老的接口 kernel_create和daemonize
+古老的接口 kernel_create 和 daemonize
 
-将一个函数传递给kernel_thread创建并初始化一个task，该函数接下来负责帮助内核调用daemonize已转换为内核守护进程，daemonize随后完成一些列操作, 如该函数释放其父进程的所有资源，不然这些资源会一直锁定直到线程结束。阻塞信号的接收, 将init用作守护进程的父进程
+将一个函数传递给 kernel_thread 创建并初始化一个 task，该函数接下来负责帮助内核调用daemonize 已转换为内核守护进程，daemonize随后完成一些列操作, 如该函数释放其父进程的所有资源，不然这些资源会一直锁定直到线程结束。阻塞信号的接收, 将init用作守护进程的父进程
 
 更加现在的方法kthead_create和kthread_run
 
-创建内核更常用的方法是辅助函数kthread_create，该函数创建一个新的内核线程。最初线程是停止的，需要使用wake_up_process启动它。
+创建内核更常用的方法是辅助函数 kthread_create，该函数创建一个新的内核线程。最初线程是停止的，需要使用 wake_up_process启动它。
 
 使用kthread_run，与kthread_create不同的是，其创建新线程后立即唤醒它，其本质就是先用kthread_create创建一个内核线程，然后通过wake_up_process唤醒它
 
 ### 2号进程 kthreadd 的诞生
-早期的kernel_create和daemonize接口
+早期的 kernel_create 和daemonize接口
 
 在早期的内核中, 提供了kernel_create和daemonize接口, 但是这种机制操作复杂而且将所有的任务交给内核去完成。
 
 但是这种机制低效而且繁琐, 将所有的操作塞给内核, 我们创建内核线程的初衷不本来就是为了内核分担工作, 减少内核的开销的么
 
-Workqueue机制
+### Workqueue 机制
 
 因此在linux-2.6以后, 提供了更加方便的接口kthead_create和kthread_run, 同时将内核线程的创建操作延后, 交给一个工作队列workqueue, 参见http://lxr.linux.no/linux+v2.6.13/kernel/kthread.c#L21，
 
-Linux中的workqueue机制就是为了简化内核线程的创建。通过kthread_create并不真正创建内核线程, 而是将创建工作create work插入到工作队列helper_wq中, 随后调用workqueue的接口就能创建内核线程。并且可以根据当前系统CPU的个数创建线程的数量，使得线程处理的事务能够并行化。workqueue是内核中实现简单而有效的机制，他显然简化了内核daemon的创建，方便了用户的编程.
+Linux中的workqueue机制就是为了简化内核线程的创建。通过kthread_create并不真正创建内核线程, 而是将创建工作create work插入到工作队列helper_wq中, 随后调用 workqueue 的接口就能创建内核线程。并且可以根据当前系统CPU的个数创建线程的数量，使得线程处理的事务能够并行化。workqueue是内核中实现简单而有效的机制，他显然简化了内核daemon的创建，方便了用户的编程.
 
 工作队列（workqueue) 是另外一种将工作推后执行的形式.工作队列可以把工作推后，交由一个内核线程去执行，也就是说，这个下半部分可以在进程上下文中执行。最重要的就是工作队列允许被重新调度甚至是睡眠。
 
 具体的信息, 请参见
 
-Linux workqueue工作原理
+>Linux workqueue 工作原理
 
 ### 2号进程 kthreadd
 
 但是这种方法依然看起来不够优美, 我们何不把这种创建内核线程的工作交给一个特殊的内核线程来做呢？
 
-于是 linux-2.6.22 引入了 kthreadd 进程, 并随后演变为2号进程, 它在系统初始化时同1号进程一起被创建 (当然肯定是通过kernel_thread), 参见 rest_init 函数, 并随后演变为创建内核线程的真正建造师, 参见kthreadd和kthreadd函数, 它会循环的是查询工作链表static LIST_HEAD(kthread_create_list);中是否有需要被创建的内核线程, 而我们的通过kthread_create执行的操作, 只是在内核线程任务队列kthread_create_list中增加了一个create任务, 然后会唤醒kthreadd进程来执行真正的创建操作
+于是 linux-2.6.22 引入了 kthreadd 进程, 并随后演变为2号进程, 它在系统初始化时同1号进程一起被创建 (当然肯定是通过kernel_thread), 参见 rest_init 函数, 并随后演变为创建内核线程的真正建造师, 参见kthreadd和kthreadd函数, 它会循环的是查询工作链表static LIST_HEAD(kthread_create_list);中是否有需要被创建的内核线程, 而我们的通过kthread_create执行的操作, 只是在内核线程任务队列kthread_create_list中增加了一个create任务, 然后会唤 kthreadd进程来执行真正的创建操作
 内核线程会出现在系统进程列表中, 但是在ps的输出中进程名command由方括号包围, 以便与普通进程区分。
 
-如下图所示, 我们可以看到系统中, 所有内核线程都用[]标识, 而且这些进程父进程id均是2, 而2号进程kthreadd的父进程是0号进程
+使用 ps -eo pid,ppid,command, 我们可以看到系统中, 所有内核线程都用[]标识, 而且这些进程父进程id均是2, 而2号进程kthreadd的父进程是0号进程
 
-使用ps -eo pid,ppid,command
-
-kernel_thread
+### kernel_thread
 kernel_thread是最基础的创建内核线程的接口, 它通过将一个函数直接传递给内核来创建一个进程, 创建的进程运行在内核空间, 并且与其他进程线程共享内核虚拟地址空间
 
 kernel_thread的实现经历过很多变革
@@ -118,7 +117,7 @@ kernel_thread的实现经历过很多变革
 
 早期实现
 
-早期的内核中, kernel_thread并不是使用统一的do_fork或者_do_fork这一封装好的接口实现的, 而是使用更底层的细节
+早期的内核中, kernel_thread并不是使用统一的 do_fork或者_do_fork这一封装好的接口实现的, 而是使用更底层的细节
 
 kthreadd is a daemon thread that runs in kernel space. The reason is that kernel needs to some times create threads but creating thread in kernel is very tricky. Hence kthreadd is a thread that kernel uses to spawn newer threads if required from there . This thread can access userspace address space also but should not do so . Its managed by kernel...
 
@@ -126,7 +125,7 @@ kthreadd is a daemon thread that runs in kernel space. The reason is that kernel
 
 http://lxr.free-electrons.com/source/kernel/fork.c?v=2.4.37#L613
 
-我们可以看到它内部调用了更加底层的arch_kernel_thread创建了一个线程
+我们可以看到它内部调用了更加底层的 arch_kernel_thread创建了一个线程
 
 arch_kernel_thread
 

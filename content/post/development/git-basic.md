@@ -68,7 +68,7 @@ git clean -Xdf
 ### 添加远程库
 ```bash
 git remote add <主机名> <URL>
-git remote add origin http://192.168.50.13:10880/wiloon/wiloon.com.git
+git remote add pingd http://192.168.50.13:10880/wiloon/wiloon.com.git
 # origin 是远程库的名字, 单个远程库,一般用默认的origin, 多个远程库的时候可以改成方便记忆的名字
 git push -u origin master
 ```
