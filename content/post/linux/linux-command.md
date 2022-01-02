@@ -146,12 +146,6 @@ strings 命令可以用来打印二进制文件中可显示的字符。
 strings /bin/pwd | head
 
 
-### readelf
-readelf 一般用于查看 ELF 格式的文件信息。
-
-ELF（Executable and Linkable Format) 即可执行连接文件格式，是一种比较复杂的文件格式，但其应用广泛。当你使用 file 命令发现某个文件是 ELF 文件时，你就可以使用 readelf 命令来读取这个文件的信息。
-
-    readelf -h /bin/pwd
 
 objdump
 objdump是用查看目标文件或者可执行的目标文件的构成的GCC工具。

@@ -37,12 +37,16 @@ Reading symbols from helloWorld...done.
 readelf查看段信息
 例如: 
 
-$ readelf -S helloWorld|grep debug
-  [28] .debug_aranges    PROGBITS         0000000000000000  0000106d
-  [29] .debug_info       PROGBITS         0000000000000000  0000109d
-  [30] .debug_abbrev     PROGBITS         0000000000000000  0000115b
-  [31] .debug_line       PROGBITS         0000000000000000  000011b9
-  [32] .debug_str        PROGBITS         0000000000000000  000011fc
+```bash
+readelf -S helloWorld|grep debug
+```
+```
+[28] .debug_aranges    PROGBITS         0000000000000000  0000106d
+[29] .debug_info       PROGBITS         0000000000000000  0000109d
+[30] .debug_abbrev     PROGBITS         0000000000000000  0000115b
+[31] .debug_line       PROGBITS         0000000000000000  000011b9
+[32] .debug_str        PROGBITS         0000000000000000  000011fc
+```
 
 
   file查看strip状况
