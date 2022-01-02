@@ -17,9 +17,7 @@ http://blog.csdn.net/iter_zc/article/details/41843595
 Class hierarchy
    
 - Thread
-     
-- NamedThread
-       
+- NamedThread 
 - VMThread
        
 - ConcurrentGCThread
@@ -38,7 +36,7 @@ Class hierarchy
 
 这些类构成了JVM的线程模型，其中最主要的是下面几个类: 
 
-java.lang.Thread: 这个是Java语言里的线程类，由这个Java类创建的instance都会 1:1 映射到一个操作系统的osthread
+java.lang.Thread: 这个是Java语言里的线程类，由这个Java类创建的instance都会 1:1 映射到一个操作系统的 osthread
 
 JavaThread: JVM中C++定义的类，一个JavaThread的instance代表了在JVM中的java.lang.Thread的instance, 它维护了线程的状态，并且维护一个指针指向java.lang.Thread创建的对象(oop)。它同时还维护了一个指针指向对应的OSThread，来获取底层操作系统创建的osthread的状态
 
