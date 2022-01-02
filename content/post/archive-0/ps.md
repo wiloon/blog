@@ -2,24 +2,30 @@
 title: ps
 author: "-"
 date: 2011-07-20T07:50:28+00:00
-url: /?p=366
+url: ps
 categories:
   - Linux
+tags:
+  - remix
 
 ---
 ## ps
-  
+Linux中的 ps 命令是 Process Status 的缩写。
+
+### 输出指定的字段
+```bash
+ps -eo pid,ppid,command
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' 其中rsz是是实际内存
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
-
+```
 其中rsz为实际内存，上例实现按内存排序，由大到小
   
-### install
+### ububtu install ps command
    apt install procps
 
 http://blog.fpliu.com/it/software/procps
 
-Linux中的ps命令是Process Status的缩写。ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。
+ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。
 
 要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而 ps 命令就是最基本同时也是非常强大的进程查看命令。使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多的资源等等。总之大部分信息都是可以通过执行该命令得到的。
 
@@ -71,7 +77,7 @@ ps -eo pid,ppid,command
     x      显示所有程序，不以终端机来区分. 
     -L     Show threads, possibly with LWP and NLWP columns
     -T     显示线程（Show threads, possibly with SPID column) “SID”栏表示线程ID，而“CMD”栏则显示了线程名称。
-
+    -o, o, --format <format>     用户自定义格式,输出指定的字段
 
 ### Head 标头
     F           代表这个程序的旗标 (flag)， 4 代表使用者为 super user  
@@ -131,7 +137,7 @@ ps -eo pid,ppid,command
 ### 虚拟内存使用最多的前10个进程
     ps auxw|head -1;ps auxw|sort -rn -k5|head -10
 
-4.也可以试试
+4. 也可以试试
 
 ps auxw -sort=rss
   
