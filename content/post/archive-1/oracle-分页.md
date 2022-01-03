@@ -8,11 +8,13 @@ categories:
 
 ---
 ## Oracle 分页
-  1. - Oracle 分页算法一
-  2. select * from (
-  3.        select page.\*,rownum rn from (select \* from help) page
-  4.        - 20 = (currentPage-1) * pageSize + pageSize
-  5.        where rownum <= 20
-  6. )
-  7. - 10 = (currentPage-1) * pageSize
-  8. where rn > 10;
+
+```sql
+select * from (
+       select page.\*,rownum rn from (select \* from help) page
+       - 20 = (currentPage-1) * pageSize + pageSize
+       where rownum <= 20
+)
+- 10 = (currentPage-1) * pageSize
+where rn > 10;
+```

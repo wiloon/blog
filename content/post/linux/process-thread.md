@@ -75,7 +75,7 @@ rectangle "-" as start
 note right: 高地址内存
 rectangle "stack" as stack
 note right: 栈区
-rectangle "文件映射区" as 
+rectangle "文件映射区" as  mmap
 rectangle "heap(堆)" as heap
 note right: 堆区
 rectangle "bss" as bss
@@ -89,7 +89,9 @@ note right: 低地址内存
 }
 
 start -[hidden]-> stack
-stack -[hidden]-> heap
+stack -[hidden]-> mmap
+mmap -[hidden]-> heap
+
 heap -[hidden]-> bss
 bss -[hidden]-> data
 data -[hidden]-> text
@@ -158,6 +160,41 @@ PS：
 
 bss段（未手动初始化的数据）并不给该段的数据分配空间，只是记录数据所需空间的大小。
 data（已手动初始化的数据）段则为数据分配空间，数据保存在目标文件中。 数据段包含经过初始化的全局变量以及它们的值。BSS段的大小从可执行文件中得到 ，然后链接器得到这个大小的内存块，紧跟在数据段后面。当这个内存区进入程序的地址空间后全部清零。包含数据段和BSS段的整个区段此时通常称为数据区。
+
+
+### mm_struct
+内存描述符由 mm_struct 结构体表示，下面给出内存描述符结构中各个域的描述，请大家结合前面的 进程内存段布局 图一起看：
+
+```c
+struct mm_struct {
+    struct vm_area_struct *mmap;           /* 内存区域链表 */
+    struct rb_root mm_rb;                  /* VMA 形成的红黑树 */
+    ...
+    struct list_head mmlist;               /* 所有 mm_struct 形成的链表 */
+    ...
+    unsigned long total_vm;                /* 全部页面数目 */
+    unsigned long locked_vm;               /* 上锁的页面数据 */
+    unsigned long pinned_vm;               /* Refcount permanently increased */
+    unsigned long shared_vm;               /* 共享页面数目 Shared pages (files) */
+    unsigned long exec_vm;                 /* 可执行页面数目 VM_EXEC & ~VM_WRITE */
+    unsigned long stack_vm;                /* 栈区页面数目 VM_GROWSUP/DOWN */
+    unsigned long def_flags;
+    unsigned long start_code, end_code, start_data, end_data;    /* 代码段、数据段 起始地址和结束地址 */
+    unsigned long start_brk, brk, start_stack;                   /* 栈区 的起始地址，堆区 起始地址和结束地址 */
+    unsigned long arg_start, arg_end, env_start, env_end;        /* 命令行参数 和 环境变量的 起始地址和结束地址 */
+    ...
+    /* Architecture-specific MM context */
+    mm_context_t context;                  /* 体系结构特殊数据 */
+
+    /* Must use atomic bitops to access the bits */
+    unsigned long flags;                   /* 状态标志位 */
+    ...
+    /* Coredumping and NUMA and HugePage 相关结构体 */
+};
+```
+
+[![TbZdVf.jpg](https://s4.ax1x.com/2022/01/03/TbZdVf.jpg)](https://imgtu.com/i/TbZdVf)
+
 
 ### linux 查看线程
 其实linux没有线程，都是用进程模仿的  
@@ -265,13 +302,11 @@ a LWP runs in user space on top of a single kernel thread and shares its address
 轻量级进程由 clone() 系统调用创建，参数是 CLONE_VM, 即与父进程是共享进程地址空间和系统资源。
 
 #### 与普通进程区别
-LWP与其它LWP共享所有（或大部分) 它的逻辑地址空间和系统资源；
 
-LWP只有一个最小的执行上下文和调度程序所需的统计信息。
+LWP只有一个最小的执行上下文和调度程序所需的统计信息, 他是进程的执行部分，只带有执行相关的信息。
 使用资源: 与父进程共享进程地址空间  
 处理器竞争: 因与特定内核线程关联，因此可以在全系统范围内竞争处理器资源  
 调度: 像普通进程一样调度
-它只有一个最小的执行上下文和调度程序所需的统计信息。他是进程的执行部分，只带有执行相关的信息。
 
 #### 轻量级进程具有局限性
 首先，大多数LWP的操作，如建立、析构以及同步，都需要进行系统调用。系统调用的代价相对较高: 需要在 user mode 和 kernel mode 之间切换。
@@ -283,12 +318,29 @@ LWP 的术语是借自于 SVR4/MP 和Solaris 2.x。
 将之称为轻量级进程的原因可能是: 在内核线程的支持下，LWP是独立的调度单元，就像普通的进程一样。所以LWP的最大特点还是每个LWP都有一个内核线程支持。
 
 既然称作轻量级进程，可见其本质仍然是进程，与普通进程相比，
-LWP与其它进程共享所有（或大部分) 逻辑地址空间和系统资源，一个进程可以创建多个LWP，这样它们共享大部分资源；
-LWP有它自己的进程标识符，并和其他进程有着父子关系；这是和类Unix操作系统的系统调用vfork()生成的进程一样的。
-LWP由内核管理并像普通进程一样被调度。Linux内核是支持LWP的典型例子。Linux内核在 2.0.x版本就已经实现了轻量进程，应用程序可以通过一个统一的clone()系统调用接口，用不同的参数指定创建轻量进程还是普通进程，通过参数决定子进程和父进程共享的资源种类和数量，这样就有了轻重之分。在内核中， clone()调用经过参数传递和解释后会调用do_fork()，这个核内函数同时也是fork()、vfork()系统调用的最终实现。
+- LWP与其它进程共享所有（或大部分) 逻辑地址空间和系统资源，一个进程可以创建多个LWP，这样它们共享大部分资源；
+- LWP有它自己的进程标识符，并和其他进程有着父子关系；这是和类Unix操作系统的系统调用 vfork() 生成的进程一样的。
+- LWP由内核管理并像普通进程一样被调度。Linux内核是支持LWP的典型例子。Linux内核在 2.0.x 版本就已经实现了轻量进程，应用程序可以通过一个统一的clone()系统调用接口，用不同的参数指定创建轻量进程还是普通进程，通过参数决定子进程和父进程共享的资源种类和数量，这样就有了轻重之分。在内核中， clone()调用经过参数传递和解释后会调用do_fork()，这个核内函数同时也是fork()、vfork()系统调用的最终实现。
 
 在大多数系统中，LWP与普通进程的区别也在于它只有一个最小的执行上下文和调度程序所需的统计信息，而这也是它之所以被称为轻量级的原因。
 因为LWP之间共享它们的大部分资源，所以它在某些应用程序就不适用了；这个时候就要使用多个普通的进程了。
+
+### 线程栈，轻量级进程栈
+从 Linux 内核的角度来说，其实它并没有线程的概念。Linux 把所有线程都当做进程来实现，它将线程和进程不加区分的统一到了 task_struct 中。线程仅仅被视为一个与其他进程共享某些资源的进程，而是否共享地址空间几乎是进程和 Linux 中所谓线程的唯一区别。线程创建的时候，加上了 CLONE_VM 标记，这样 线程的内存描述符 将直接指向 父进程的内存描述符。
+
+if (clone_flags & CLONE_VM) {
+    /*
+     * current 是父进程而 tsk 在 fork() 执行期间是共享子进程
+     */
+    atomic_inc(¤t->mm->mm_users);
+    tsk->mm = current->mm;
+  }
+虽然线程的地址空间和进程一样，但是对待其地址空间的 stack 还是有些区别的。对于 Linux 进程或者说主线程，其 stack 是在 fork 的时候生成的，实际上就是复制了父亲的 stack 空间地址，然后写时拷贝 (cow) 以及动态增长。然而对于主线程生成的子线程而言，其 stack 将不再是这样的了，而是事先固定下来的，使用 mmap 系统调用，它不带有 VM_STACK_FLAGS 标记。这个可以从 glibc 的nptl/allocatestack.c 中的 allocate_stack() 函数中看到：
+
+mem = mmap (NULL, size, prot,
+            MAP_PRIVATE | MAP_ANONYMOUS | MAP_STACK, -1, 0);
+由于线程的 mm->start_stack 栈地址和所属进程相同，所以线程栈的起始地址并没有存放在 task_struct 中，应该是使用 pthread_attr_t 中的 stackaddr 来初始化 task_struct->thread->sp（sp 指向 struct pt_regs 对象，该结构体用于保存用户进程或者线程的寄存器现场）。这些都不重要，重要的是，线程栈不能动态增长，一旦用尽就没了，这是和生成进程的 fork 不同的地方。由于线程栈是从进程的地址空间中 map 出来的一块内存区域，原则上是线程私有的。但是同一个进程的所有线程生成的时候浅拷贝生成者的 task_struct 的很多字段，其中包括所有的 vma，如果愿意，其它线程也还是可以访问到的，于是一定要注意
+>https://zhuanlan.zhihu.com/p/188577062
 
 ### 用户线程
 用户级线程是指有关线程的管理工作都是由应用程序完成，内核意识不到用户级线程的存在，也不会对这些用户级线程进行调度。如果某个进程创建了多个用户级线程，那么所有这些用户级线程仅有一个对应的内核线程,在用户级线程策略中，内核是以进程为单位进行调度的，不管进程内有多少线程，内核一次只把一个进程分配给一个处理器，因此一个进程中只有一个线程可以执行，所以只有一个对应的内核线程。

@@ -10,7 +10,7 @@ tags:
 
 ---
 ## mmap
-mmap 函数是 unix/linux 下的系统调用, 详细内容可参考 《Unix Netword programming》 卷二12.2节
+mmap 函数是 unix/linux 下的系统调用, 详细内容可参考 《Unix Network programming》 卷二12.2节
 
 mmap() 函数用来将文件或者设备映射到内存中。
 
@@ -134,6 +134,8 @@ main(int argc, char** argv) // map a normal file as shared mem:
 
 ### VMA
 Linux将地址空间中的区域称为 Virtual Memory Area， 简称VMA，使用struct vm_area_struct来描述。
+
+进程地址空间中，我们常见的代码段，数据段，bss段等，实际上都是一段地址空间区域。Linux将地址空间中的区域称为Virtual Memory Area， 简称VMA，使用struct vm_area_struct来描述。
 
 https://www.cnblogs.com/huxiao-tee/p/4660352.html    
 http://blog.csdn.net/dlutbrucezhang/article/details/9080173

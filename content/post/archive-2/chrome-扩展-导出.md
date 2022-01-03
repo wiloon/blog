@@ -1,12 +1,19 @@
 ---
-title: chrome 扩展 导出
+title: chrome 扩展
 author: "-"
 date: 2016-03-20T04:20:10+00:00
 url: /?p=8811
 categories:
-  - Uncategorized
+  - chrome
 
 ---
+## chrome 扩展
+- uBlacklist
+
+轻量级进程 栈 -site:qastack.cn -site:coder.work -site:i4k.xyz -site:cxymm.net -site:codenong.com
+
+*://www.coder.work/*
+
 ## chrome 扩展 导出
 打开扩展程序页面
   
