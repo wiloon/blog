@@ -7,15 +7,17 @@ categories:
   - git
 
 ---
-### git socks5 proxy
-    git config http.proxy 'socks5://192.168.50.13:1080'
-    git config --global http.proxy 'socks5://192.168.50.13:1080'
+### git proxy
+```bash
+# http proxy
+git config http.proxy 'http://192.168.50.xx:80'
+git config --global http.proxy http://proxy.mycompany:80
+# socks5 proxy
+git config http.proxy 'socks5://192.168.50.13:1080'
+git config --global http.proxy 'socks5://192.168.50.13:1080'
+```
 
 ```bash
-git config --global https.proxy http://127.0.0.1:7777
-
-git config --global https.proxy https://127.0.0.1:7777
-
 git config --global --unset http.proxy
 
 git config --global --unset https.proxy
