@@ -4,7 +4,7 @@ author: "-"
 date: 2011-09-07T04:45:42+00:00
 url: proxy
 categories:
-  - Web
+  - pattern
 
 tags:
   - design-pattern
@@ -13,8 +13,10 @@ tags:
 ## 代理模式, proxy pattern
 为其他对象提供一种代理以控制对这个对象的访问。
 
-代理模式，即Proxy，它和Adapter模式很类似。我们先回顾Adapter模式，它用于把A接口转换为B接口：
+代理模式，即Proxy，它和 Adapter 模式很类似。我们先回顾Adapter模式，它用于把A接口转换为B接口：
 
+### Adapter 模式
+```java
 public BAdapter implements B {
     private A a;
     public BAdapter(A a) {
@@ -24,8 +26,10 @@ public BAdapter implements B {
         a.a();
     }
 }
+```
+### Proxy模式
 而Proxy模式不是把A接口转换成B接口，它还是转换成A接口：
-
+```java
 public AProxy implements A {
     private A a;
     public AProxy(A a) {
@@ -35,15 +39,17 @@ public AProxy implements A {
         this.a.a();
     }
 }
+```
 合着Proxy就是为了给A接口再包一层，这不是脱了裤子放屁吗？
 
 当然不是。我们观察Proxy的实现A接口的方法：
-
+```java
 public void a() {
     this.a.a();
 }
+```
 这样写当然没啥卵用。但是，如果我们在调用a.a()的前后，加一些额外的代码：
-
+```java
 public void a() {
     if (getCurrentUser().isRoot()) {
         this.a.a();
@@ -51,6 +57,7 @@ public void a() {
         throw new SecurityException("Forbidden");
     }
 }
+```
 这样一来，我们就实现了权限检查，只有符合要求的用户，才会真正调用目标方法，否则，会直接抛出异常。
 
 有的同学会问，为啥不把权限检查的功能直接写到目标实例A的内部？

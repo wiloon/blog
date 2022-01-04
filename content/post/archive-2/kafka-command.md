@@ -28,14 +28,16 @@ bin/kafka-console-consumer.sh \
 ```
 
 ### producer
-    bin/kafka-console-producer.sh \
-    --broker-list kafka.wiloon.com:9092 \
-    --topic topic0
+```bash
+bin/kafka-console-producer.sh \
+--broker-list kafka.wiloon.com:9092 \
+--topic topic0
 
-    bin/kafka-console-producer.sh \
-    --broker-list kafka.wiloon.com:9092 \
-    --topic topic0
-    --property parse.key=true
+bin/kafka-console-producer.sh \
+--broker-list kafka.wiloon.com:9092 \
+--topic topic0
+--property parse.key=true
+```
 
 
 ### kafka package

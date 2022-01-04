@@ -775,8 +775,10 @@ SIGCLD信号的作用是唤醒一个睡眠在可被中断优先级上的进程�
 
 信号生命周期
 
-### 参考资料:    
+### 参考资料: 
+#### 作者：Vamei 出处：http://www.cnblogs.com/vamei 欢迎转载，也请保留这段声明。谢谢！
 http://www.cnblogs.com/vamei/archive/2012/10/10/2715398.html  
+
 http://bbs.chinaunix.net/thread-1947211-1-1.html  
 https://blog.dusing.top/posts/3097150806.html  
 https://blog.dusing.top/posts/3097150806.html  
