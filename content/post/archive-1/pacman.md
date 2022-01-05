@@ -5,9 +5,23 @@ date: 2015-04-25T03:37:27+00:00
 url: pacman
 tags:
   - linux
+  - remix
 
 ---
 ## pacman
+```bash
+# pacman 的 help
+pacman -h
+
+# -Q 的 help
+pacman -Q -h
+# 查看文件属于哪个包
+pacman -Qo /etc/profile
+# 检查包对应的文件有没有缺失
+pacman -Qk filesystem
+# 打印详细信息,比如 文件 是否有修改 修改时间, 大小 , md5
+pacman -Qkk filesystem
+```
 ### (invalid or corrupted package (PGP signature))
 error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).

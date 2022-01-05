@@ -121,7 +121,10 @@ The & is applied to yield the desired value for result.
     LocalDate date = LocalDate.now();
     Instant instant = date.atStartOfDay(ZoneId.systemDefault()).toInstant();
 ```
-
+### string > LocalDateTime
+```java
+LocalDateTime.parse("2022-01-05 15:16", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
+```
 ### string > Instant
 ```java
     LocalDateTime.parse(                   // Parse as an indeterminate `LocalDate`, devoid of time zone or offset-from-UTC. NOT a moment, NOT a point on the timeline.
