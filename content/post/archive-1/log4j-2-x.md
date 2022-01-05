@@ -30,12 +30,12 @@ log4j-core:log4j2 上述API的实现
 </dependency>
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-jcl</artifactId>
+    <artifactId>log4j-slf4j-impl</artifactId>
     <version>${log4j.version}</version>
 </dependency>
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-slf4j-impl</artifactId>
+    <artifactId>log4j-jcl</artifactId>
     <version>${log4j.version}</version>
 </dependency>
 ```

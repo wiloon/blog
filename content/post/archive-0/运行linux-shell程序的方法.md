@@ -11,11 +11,8 @@ tags:
 ---
 ## 执行 Linux Shell 脚本, fork, exec, source
 ```bash
-
 ./xxx.sh
-
 sh xxx.sh
-
 ```
 
 用户可以用任何编辑程序来编写Shell程序。因为Shell程序是解释执行的，所以不需要编译成目的程序。按照Shell编程的惯例，以bash 为例，程序的第一行一般为"#！/bin/bash"，其中 # 表示该行是注释，叹号 ！ 告诉Shell运行叹号之后的命令并用文档的其余部分作为输入，也就是运行/bin/bash并让/bin/bash去执行Shell程序的内容。
@@ -40,17 +37,15 @@ sh xxx.sh
 
 在这3种运行Shell程序的方法中，最好按下面的方式选择: 当刚创建一个Shell程序，对它的正确性还没有把握时，应当使用第一种方式进行调试。当一个Shell程序已经调试好时，应使用第三种方式把它固定下来，以后只要键入相应的文件名即可，并可被另一个程序所调用。
 
-## source, 点斜杠(./), 点空格点斜杠(. ./)
-使用 source执行命令时, 脚本文件可以没有执行权限.
+## source (. )
+source (source /directory/script.sh)
+与fork的区别是不新开一个 sub-shell 来执行被调用的脚本，而是在同一个 shell 中执行。所以被调用的脚本中声明的变量和环境变量。 都可以在主脚本中得到和使用。
 
-source命令是bash的内置命令，不需要（也没有) 绝对路径.
-  
-source命令也称为"点命令"，也就是一个点符号（.)。 source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。
-  
-  
-    用法: 
+使用 source 执行命令时, 脚本文件可以没有执行权限, source 命令是 bash 的内置命令，不需要（也没有) 绝对路径.  
+source 命令也称为"点命令"，也就是一个点符号 ". "。 source 命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。
   
   
+用法: 注意点后面有空格
 ```bash
 source filename 或 . filename
 ```
@@ -65,52 +60,33 @@ make clean
 make bzImage
 ```
 
-    如果把这些命令做成一个文件，让它自动顺序执行，对于需要多次反复编译系统核心的用户来说会很方便，而用source命令就可以做到这一点，它的作用就是把一个文件的内容当成shell来执行，先在linux的源代码目录下（如/usr/src/linux-2.4.20) 建立一个文件，如make_command，在其中输入一下内容: 
+如果把这些命令做成一个文件，让它自动顺序执行，对于需要多次反复编译系统核心的用户来说会很方便，而用source命令就可以做到这一点，它的作用就是把一个文件的内容当成shell来执行，先在linux的源代码目录下（如/usr/src/linux-2.4.20) 建立一个文件，如make_command，在其中输入一下内容: 
   
   
-    make mrproper &&
+```bash
+make mrproper &&
+make menuconfig &&
+make dep &&
+make clean &&
+make bzImage &&
+make modules &&
+make modules_install &&
+cp arch/i386/boot/bzImage /boot/vmlinuz_new &&
+cp System.map /boot &&
+vi /etc/lilo.conf &&
+lilo -v
+```
   
-  
-    make menuconfig &&
-  
-  
-    make dep &&
-  
-  
-    make clean &&
-  
-  
-    make bzImage &&
-  
-  
-    make modules &&
-  
-  
-    make modules_install &&
-  
-  
-    cp arch/i386/boot/bzImage /boot/vmlinuz_new &&
-  
-  
-    cp System.map /boot &&
-  
-  
-    vi /etc/lilo.conf &&
-  
-  
-    lilo -v
-  
-  
-    文件建立好之后，每次编译核心的时候，只需要在/usr/src/linux-2.4.20下输入: 
+  文件建立好之后，每次编译核心的时候，只需要在/usr/src/linux-2.4.20下输入: 
   
   
     source make_command
   
   
-    即可，如果你用的不是lilo来引导系统，可以把最后两行去掉，配置自己的引导程序来引导内核。
+即可，如果你用的不是lilo来引导系统，可以把最后两行去掉，配置自己的引导程序来引导内核。
   
   
-    顺便补充一点，&&命令表示顺序执行由它连接的命令，但是只有它之前的命令成功执行完成了之后才可以继续执行它后面的命令。
+顺便补充一点，&&命令表示顺序执行由它连接的命令，但是只有它之前的命令成功执行完成了之后才可以继续执行它后面的命令。
 
 ### 点斜杠(./)
 点斜杠执行脚本是启动了另一个Shell去执行脚本（另一个进程），所以点斜杠执行脚本时，设置的环境变量会随着进程的退出而结束，其中的环境变量设置对当前Shell不起作用。
@@ -132,8 +108,7 @@ sub-shell执行完毕后返回parent-shell。sub-shell从parent-shell继承环�
 exec (exec /path/to/script.sh)
 exec与fork不同，不需要新开一个sub-shell来执行被调用的脚本。被调用的脚本与父脚本在同一个shell内执行。但是使用exec调用一个新脚本以后, 父脚本中exec行之后的内容就不会再执行了。这是exec和source的区别。
 
-source (source /directory/script.sh)
-与fork的区别是不新开一个sub-shell来执行被调用的脚本，而是在同一个shell中执行。所以被调用的脚本中声明的变量和环境变量。都可以在主脚本中得到和使用。
+
 
 可以通过下面这两个脚本来体会三种调用方式的不同:
 

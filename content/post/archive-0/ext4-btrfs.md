@@ -10,7 +10,7 @@ categories:
 ## 'Ext4 & btrfs'
 最近两年，Linux文件系统得到了很大的发展。Sun有开源的ZFS以及收购的Lustre文件系统。Quantum、Panasas、IBM、惠普、NetApp和Red Hat也都增强了文件系统开发力度。NFS（网络文件系统) 正在经历大的变动，主要代表就是pNFS（并行网络文件系统) 。毫不奇怪的是，所有这些开发行动促使开源社区推出针对Linux的更高性能的文件系统。
 
-现在我们看看Linux开发的两个前沿: BTRFS文件系统-也被称为Butter FS或B-tree FS-以及ext4。
+现在我们看看Linux开发的两个前沿: BTRFS文件系统-也被称为Butter FS 或B-tree FS-以及ext4。
 
 Illuminata的分析师Gordon Haff表示: "Ext4是对广泛使用的ext3的升级，它从诸多方面提高了功能，并改善了性能。在相对近期，ext4将可能成为下一个在Linux上广泛部署的新的文件系统。"
 

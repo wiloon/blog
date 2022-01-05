@@ -80,7 +80,8 @@ You should go through the configuration files of random Github users to get a be
 #### 顺序
 .zshenv → [.zprofile if login] → [.zshrc if interactive] → [.zlogin if login] → [.zlogout sometimes].
 
----
+### .zshenv, .zprofile
+>https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
 https://github.com/robbyrussell/oh-my-zsh
   

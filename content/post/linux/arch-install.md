@@ -2,12 +2,14 @@
 title: archlinux install
 author: "-"
 date: 2015-06-25T09:18:44+00:00
-url: /?p=7821
+url: archlinux
 tags:
   - archlinux
+  - remix
 
 ---
 ## archlinux install
+todo: try archinstall, https://github.com/archlinux/archinstall
 
 ## 从U盘引导安装
 ### download iso  

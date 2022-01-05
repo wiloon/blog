@@ -11,7 +11,7 @@ tags:
 
 ---
 
-## 内核线程
+## 内核线程, ktl
 ### 为什么需要内核线程
 Linux 内核可以看作一个服务进程(管理软硬件资源，响应用户进程的种种合理以及不合理的请求).
 
@@ -242,6 +242,7 @@ exit_code()
 
 ### idle进程(PID = 0)
 ### init进程(PID = 1)
+
 ### kthreadd(PID = 2)
 kthreadd进程由idle通过kernel_thread创建，并始终运行在内核空间, 负责所有内核线程的调度和管理
 它的任务就是管理和调度其他内核线程kernel_thread, 会循环执行一个kthreadd的函数，该函数的作用就是运行kthread_create_list全局链表中维护的kthread, 当我们调用kernel_thread创建的内核线程会被加入到此链表中，因此所有的内核线程都是直接或者间接的以kthreadd为父进程
@@ -255,6 +256,17 @@ http://abcdxyzk.github.io/blog/2015/01/03/kernel-irq-ksoftirqd/
 softirq实际上也是一种注册回调的机制，ps –elf 可以看到注册的函数由一个守护进程（ksoftirgd) 专门来处理，而且是每个cpu一个守护进程。
 
 ### kworker
+
+显示的格式kworker/%u:%d%s
+
+        u：是unbound的缩写，代表没有绑定特定的CPU，kworker /u2:0中的 2 是 work_pool 的ID。  
+        不带u的就是绑定特定cpu的workerq，它在init_workqueues中初始化，给每个cpu分配worker，如果该worker的nice小于0，说明它的优先级很高，所以就加了H属性。  
+        具有负面价值的勤劳工人的名字后缀为'H'。
+
+————————————————
+版权声明：本文为CSDN博主「lyblyblyblin」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/lyblyblyblin/article/details/79346459
+
 kworker意思是’Linux kernel doing work’(系统调用，processing system calls)，它是内核工作线程的’占位符’进程，它实际上执行内核的大部分工作，如中断、计时器、I/O等，CPU中’system’时间大部分由此产生。在系统中，一般会出现多个kworker进程，如kworker/0:1跟第一个cpu核心有关，依次类推。
 
 在日常维护中，kworker进程有时会占用大量的io或cpu。
@@ -266,7 +278,19 @@ migration: 每个处理器核对应一个migration内核线程，主要作用是
 每个处理器核对应一个watchdog 内核线程，watchdog用于监视系统的运行，在系统出现故障时自动重新启动系统，包括一个内核 watchdog module 和一个用户空间的 watchdog 程序。在Linux 内核下, watchdog的基本工作原理是: 当watchdog启动后(即/dev/watchdog设备被打开后)，如果在某一设定的时间间隔（1分钟) 内 /dev/watchdog没有被执行写操作, 硬件watchdog电路或软件定时器就会重新启动系统，每次写操作会导致重新设定定时器。/dev/watchdog是一个主设备号为10， 从设备号130的字符设备节点。 Linux内核不仅为各种不同类型的watchdog硬件电路提供了驱动，还提供了一个基于定时器的纯软件watchdog驱动。如果不需要这种故障处理 机制，或者有相应的替代方案，可以在menuconfig的
    Device Drivers —>
       Watchdog Timer Support
-处取消watchdog功能。
+处取消watchdog功能
+
+### kdevtmpfs
+this thread populates and maintains a device node tree
+### kauditd
+内核线程kauditd通过netlink机制(NETLINK_AUDIT)将审计消息定向发送给用户态的审计后台auditd的主线程，auditd主线程再通过事件队列将审计消息传给审计后台的写log文件线程，写入log文件。另一方面，审计后台还通过一个与套接字绑定的管道将审计消息发送给audispd应用程序，可把事件传送给其他应用程序做进一步处理。
+>https://ixyzero.com/blog/archives/3421.html
+### khungtaskd
+khungtaskd 监控TASK_UNINTERRUPTIBLE状态的进程，如果在120s周期内没有切换，就会打印详细信息。
+>https://www.cnblogs.com/arnoldlu/p/10529621.html
+
+### kcompactd*
+页面整理
 
 
 >https://www.coder.work/article/6802420
