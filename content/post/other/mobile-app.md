@@ -1,10 +1,25 @@
 ---
-title: android app, apk list
+title: mobile appa, app list, apk, ios
 author: "-"
 date: 2011-12-24T07:04:18+00:00
-url: android/app
+url: mobile/app
 
 ---
+## mobile appa, app list, apk, ios
+|name|comments|
+|-|-|
+|古诗文网||
+
+## ios app
+|name|comments|
+|-|-|
+|Strongbox  |keepassxc的ios实现|
+|英语轻松读||
+|surge|网络调试工具|
+|wireguard|vpn|
+|Chanify|消息推送工具|
+
+
 ## android app, apk list
 |name|comments|
 |-|-|
