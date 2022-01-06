@@ -1,5 +1,5 @@
 ---
-title: B树(B-tree)
+title: B树(B-tree), B+树(B+-tree),B*树(B*-tree)
 author: "-"
 date: 2011-12-24T12:49:34+00:00
 url: btree
@@ -7,9 +7,8 @@ categories:
   - data-structure
 
 ---
-## B树(B-tree)
-B树(B-tree)
-
+## B树(B-tree), B+树(B+-tree),B*树(B*-tree)
+### B树(B-tree)
 
 注意:之前有看到有很多文章把B树和B-tree理解成了两种不同类别的树，其实这两个是同一种树;
 
@@ -174,3 +173,4 @@ B*树是B+树的变种，相对于B+树他们的不同之处如下：
 >https://blog.csdn.net/v_JULY_v/article/details/6530142/
 >https://blog.csdn.net/endlu/article/details/51720299
 >https://www.cnblogs.com/nullzx/p/8729425.html
+>https://csruiliu.github.io/blog/20160605-intro-bptree/

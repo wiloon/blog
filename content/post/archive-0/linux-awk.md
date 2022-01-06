@@ -5,15 +5,20 @@ date: 2012-07-05T04:54:22+00:00
 url: awk
 categories:
   - Linux
+  - remix
 
 ---
-## awk [ɔk]
+## awk `[ɔk]`
 ### commands
+```bash
     cat dep-clean|awk -F '@' '{if(NF>2){print "\"""@"$2"\""":"$3} else {pint $1":"$2}}'
     cat dep-clean|awk -F '@' '{if(NF<3){print "\""$1"\""":"$2}}'
     cat dep-clean|awk -F '@' '{if(NF>2){print "\"""@"$2"\""":"$3} else if (NF<3) {print $1":"$2}}'
     # kill all java process
     ps -ef |grep java|awk '{print $2}'|xargs -t -n 1 kill -9
+    # 取本机ip >https://www.cnblogs.com/poloyy/p/12212868.html
+    ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'
+```
 
 ### 变量
 除了$ + 数字表示某个字段，awk还提供其他一些变量。
