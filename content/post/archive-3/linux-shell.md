@@ -6,6 +6,26 @@ url: shell
 
 ---
 ## shell basic
+### 字符串分割
+```bash
+#!/bin/bash
+string="hello,shell,haha"  
+array=(${string//,/ })  
+for var in ${array[@]}
+do
+   echo $var
+done
+```
+### 布尔值变量
+```bash
+the_world_is_flat=true
+# ...do something interesting...
+if [ "$the_world_is_flat" = true ] ; then
+    echo 'Be careful not to fall off!'
+fi
+```
+>https://stackoverflow.com/questions/2953646/how-can-i-declare-and-use-boolean-variables-in-a-shell-script?rq=1
+
 ### 字符串包含
 ```bash
 # grep
@@ -37,12 +57,14 @@ else
     echo "不包含"
 fi
 ```
-### 把命令返回值赋值给变量
+
+### 把命令返回值赋值给变量, shell执行结果赋值给变量
 ```bash
 tmp=`pacman -Q go`
 tmp=$(pacman -Q go)
 echo $tmp
 ```
+
 ### -f
 检查文件是否存在 
 ```bash
@@ -182,6 +204,7 @@ shell脚本中echo显示内容带颜色显示,echo显示带颜色，需要使用
 2. 文字颜色后面有个m 
 3. 字符串前后可以没有空格，如果有的话，输出也是同样有空格 
 下面是相应的字和背景颜色，可以自己来尝试找出不同颜色搭配 
+
 例 
 
         echo -e "\033[31m 红色字 \033[0m" 
@@ -248,7 +271,9 @@ do
 echo $element
 done
 
+echo "第一个元素为: ${my_array[0]}"
 ```
+
 ### 单引号内引入变量
 ```bash
 #!/bin/bash
@@ -258,8 +283,7 @@ echo $i
 echo '$i'
 echo '$i is : '$i''
 
-执行结果
-
+#执行结果
 # ./test.sh 
 10
 $i
