@@ -1,13 +1,13 @@
 ---
-title: Bootchart
+title: Bootchart, systemd-analyze
 author: "-"
 date: 2012-02-28T14:43:40+00:00
-url: /?p=2494
+url: bootchart
 categories:
   - Linux
 
 ---
-## Bootchart
+## Bootchart, systemd-analyze
  Bootchart 已经成为 systemd 的一部分
 
 https://wiki.archlinux.org/title/Improving_performance/Boot_process#Analyzing_the_boot_process
