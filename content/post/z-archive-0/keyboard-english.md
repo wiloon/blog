@@ -17,7 +17,7 @@ categories:
     ; 分号 semicolon
     ” 双引号 quotation marks/double quote
     ‘ 单引号/撇号 apostrophe/single quote
-    ` 重音号 backquote/grave accent
+    ` 反引号，重音号 backquote/grave accent
     * 星号 asterisk/star
     + 加号 plus sign
     - 减号/横线 hyphen/dash/minus sign/

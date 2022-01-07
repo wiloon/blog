@@ -1,12 +1,13 @@
 ---
-title: emacs yaml plugin
+title: emacs
 author: "-"
 date: 2012-06-21T01:14:06+00:00
-url: /?p=3551
+url: emacs
 categories:
-  - Linux
+  - editor
 
 ---
+## emacs
 ## emacs yaml plugin
 ```bash
   
@@ -27,3 +28,13 @@ categories:
 https://www.emacswiki.org/emacs/YamlMode
   
 https://github.com/yoshiki/yaml-mode
+
+
+## emacs git
+Remove git from the list of backends handled by vc-mode:
+
+    (delete 'Git vc-handled-backends) 
+
+or remove **all** source control hooks:
+
+    (setq vc-handled-backends ())
