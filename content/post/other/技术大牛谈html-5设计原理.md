@@ -622,7 +622,7 @@ url: /?p=1417
         <body>
       
       
-        <header>...</header>
+        ...
       
       
         <nav>...</nav>
@@ -697,7 +697,7 @@ url: /?p=1417
         <section class="item">
       
       
-        <header>...</header>
+        ...
       
       
         <footer class="meta">...</footer>

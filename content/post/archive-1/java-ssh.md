@@ -8,13 +8,13 @@ categories:
 
 ---
 ## java ssh
-<header class="entry-header"> 
+ 
 
 
   http://www.rigongyizu.com/java-ssh-copy-remote-file/
 
 
-  </header> 
+   
   
   
     
