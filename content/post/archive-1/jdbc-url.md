@@ -11,6 +11,9 @@ tags:
 ---
 ## JDBC URL
 ### disable tls
+JDK8版本过高引起MySQL连接失败：javax.net.ssl.SSLHandshakeException: No appropriate protocol
+>https://juejin.cn/post/6969142310718144520
+
     jdbc:mysql://127.0.0.1/database0?useunicode=true&characterencoding=utf8&tinyInt1isBit=false&useSSL=false
 
 MySQL

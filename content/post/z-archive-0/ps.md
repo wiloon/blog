@@ -14,8 +14,8 @@ Linux中的 ps 命令是 Process Status 的缩写。
 
 ### 输出指定的字段
 ```bash
-ps -eo pid,ppid,command
-ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' 其中rsz是是实际内存
+ps -eo pid, ppid, command
+ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' 其中 rsz 是是实际内存
 ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
 ```
 其中rsz为实际内存，上例实现按内存排序，由大到小
@@ -51,6 +51,7 @@ ps工具标识进程的5种状态码:
 **默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程**
 
 ```bash
+# ps -ef 默认按 PID排序, 最近启动的进程会列在末尾.
 ps -ef
 ps -efl
 
@@ -67,7 +68,6 @@ ps -eo pid,ppid,command
 
 ### 参数
     -e,-A  显示所有进程, 默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程, -e 参数会显示系统所有进程
-    -f     全部列出，可以和其它UNIX-style 参数同时使用。如: ps -fa or ps -fx and so on; 此参数会打印进程的命令行参数.
     -j     作业格式
     -l     长格式（有F,wchan,C,PRI,NI 等字段) 
     a      显示现行终端机下的所有程序，包括其他用户的程序。  
@@ -78,6 +78,9 @@ ps -eo pid,ppid,command
     -L     Show threads, possibly with LWP and NLWP columns
     -T     显示线程（Show threads, possibly with SPID column) “SID”栏表示线程ID，而“CMD”栏则显示了线程名称。
     -o, o, --format <format>     用户自定义格式,输出指定的字段
+
+#### 输出格式控制
+    -f  打印完整格式的列表, -f参数可以跟其它 UNIX-style 参数一起使用(如: ps -fa, ps -fx ...), 附加 -f 之后会输出一些额外的字段, 并且会打印进程的完整的命令行参数.
 
 ### Head 标头
     F           代表这个程序的旗标 (flag)， 4 代表使用者为 super user  
@@ -153,10 +156,8 @@ ps auxw -sort=%cpu
 控制台终端（/dev/ttyn,   /dev/console) 
   
 虚拟终端(/dev/pts/n)
- 
----
 
-https://www.cnblogs.com/hunttown/p/5452253.html  
-http://elinux.org/Runtime_Memory_Measurement   
-https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html  
-https://my.oschina.net/goberl/blog/85816  
+>https://www.cnblogs.com/hunttown/p/5452253.html
+>http://elinux.org/Runtime_Memory_Measurement   
+>https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html  
+>https://man7.org/linux/man-pages/man1/ps.1.html
