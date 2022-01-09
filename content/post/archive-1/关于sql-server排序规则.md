@@ -10,13 +10,13 @@ categories:
 ## 关于SQL SERVER排序规则
 因为新的SQL SERVER 使用了英文版, 使用了默认的排序规则是:SQL_Latin1_General_CP1_CI_AS
 
-但旧的数据使用的是中文版, 使用的排序规则是 Chinese_PRC_CI_AS. <wbr /> 当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
+但旧的数据使用的是中文版, 使用的排序规则是 Chinese_PRC_CI_AS.  当新建的数据与旧的数据库的表相关联时,出现排序规则不一致的错误信息:
 
 Cannot resolve the collation conflict between "SQL_Latin1_General_CP1_CI_AS" and "Chinese_PRC_CI_AS" in the equal to operation.
 
-<wbr />
 
-解决方法: <wbr />
+
+解决方法: 
 
 1. 可以在有 文字的Fields 上加上 **COLLATE DATABASE_DEFAULT**
 
@@ -24,7 +24,7 @@ Cannot resolve the collation conflict between "SQL_Latin1_General_CP1_CI_AS" and
 
 SELECT Title, FirstName, MiddleName, EmailAddress, EmailPromotion, ModifiedDate
   
-FROM <wbr /> AdventureWorks.Person.Contact
+FROM  AdventureWorks.Person.Contact
   
 WHERE ContactID<10
   
@@ -32,15 +32,15 @@ UNION
   
 SELECT Title **COLLATE DATABASE_DEFAULT**,
   
-FirstName **COLLATE DATABASE_DEFAULT**, <wbr /> MiddleName **COLLATE DATABASE_DEFAULT,** EmailAddress**COLLATE DATABASE_DEFAULT**
+FirstName **COLLATE DATABASE_DEFAULT**,  MiddleName **COLLATE DATABASE_DEFAULT,** EmailAddress**COLLATE DATABASE_DEFAULT**
 
 **2. 在建表时直接更改表的排序规则:**
 
-CREATE <wbr />TABLE <wbr />MyTable <wbr />(PrimaryKey <wbr />int <wbr />PRIMARY <wbr />KEY, <wbr />CharCol <wbr />varchar(10) <wbr />**Chinese_PRC_CI_AS**)
+CREATE TABLE MyTable (PrimaryKey int PRIMARY KEY, CharCol varchar(10) **Chinese_PRC_CI_AS**)
 
 3. 使用以下语句更改,但不适用于临时表
 
-ALTER <wbr />DATABASE <wbr />MyDatabase <wbr />**Chinese_PRC_CI_AS**
+ALTER DATABASE MyDatabase **Chinese_PRC_CI_AS**
 
 
 一、排序规则简介: 

@@ -38,13 +38,13 @@ tags:
     
     
     
-    ### 、 @PathVariable <wbr />
+    ### 、 @PathVariable 
     
     当使用@RequestMapping URI template 样式映射时， 即 someUrl/{paramId}, 这时的paramId可通过 @Pathvariable注解绑定它传过来的值到方法的参数上。
     
     示例代码: 
     
-    <wbr />
+    
     
     
       
@@ -64,31 +64,31 @@ http://blog.csdn.net/walkerjong/article/details/7946109#
       
       
         
-          @Controller <wbr /> <wbr />
+          @Controller  
         
         
-          "/owners/{ownerId}") <wbr /> <wbr />
+          "/owners/{ownerId}")  
         
         
-          class <wbr />RelativePathUriTemplateC<wbr />ontroller <wbr />{ <wbr /> <wbr />
+          class RelativePathUriTemplateController {  
         
         
-           <wbr /> <wbr />
+            
         
         
-          "/pets/{petId}") <wbr /> <wbr />
+          "/pets/{petId}")  
         
         
-          @PathVariable <wbr />String <wbr />petId, <wbr />Model <wbr />model) <wbr />{ <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr />
+          @PathVariable String petId, Model model) {      
         
         
-          // <wbr />implementation <wbr />omitted <wbr /> <wbr />
+          // implementation omitted  
         
         
-           <wbr /> <wbr />} <wbr /> <wbr />
+            }  
         
         
-          } <wbr /> <wbr />
+          }  
         
       
     

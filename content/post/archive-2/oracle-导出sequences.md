@@ -10,42 +10,42 @@ categories:
 ## oracle 导出sequences
 如下脚本,可以将某个用户的全部sequence查询出来,并拼成创建语句。
 
-<wbr />select 'create sequence '||sequence_name|| <wbr /> <wbr /> <wbr />
+select 'create sequence '||sequence_name||   
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' minvalue '||min_value|| <wbr /> <wbr /> <wbr />
+      ' minvalue '||min_value||   
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' maxvalue '||max_value|| <wbr /> <wbr /> <wbr />
+      ' maxvalue '||max_value||   
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' start with '||last_number|| <wbr /> <wbr /> <wbr />
+      ' start with '||last_number||   
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' increment by '||increment_by|| <wbr /> <wbr /> <wbr />
+      ' increment by '||increment_by||   
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (case when cache_size=0 then ' nocache' else ' cache '||cache_size end) ||';' <wbr /> <wbr />
+      (case when cache_size=0 then ' nocache' else ' cache '||cache_size end) ||';'  
   
-from dba_sequences where sequence_owner='HR' <wbr /> <wbr />
+from dba_sequences where sequence_owner='HR'  
   
 注意: 其中的HR,是需要导出sequence的用户,貌似必须大写的说！并且使用该脚本的用户需要有访问dba_sequences的权限。
 
 导出结果如下: 
 
-<wbr />create sequence HIBERNATE_SEQUENCE minvalue 1 maxvalue 999999999999999999999999<wbr />999 start with 1 increment by 1 cache 20; <wbr />
+create sequence HIBERNATE_SEQUENCE minvalue 1 maxvalue 999999999999999999999999999 start with 1 increment by 1 cache 20; 
 
-create sequence MIAGENTVERSION_VERSION_SEQ minvalue 1 maxvalue 999999999999999999999999<wbr />start with 121 increment by 1 cache 20;
+create sequence MIAGENTVERSION_VERSION_SEQ minvalue 1 maxvalue 999999999999999999999999start with 121 increment by 1 cache 20;
 
 ---------------------------
 
 如果你只想导出本用户的sequence那就不要那么复杂的写,只写如下语句就可以了: 
 
-select 'create sequence '||sequence_name|| <wbr /> <wbr />
+select 'create sequence '||sequence_name||  
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' minvalue '||min_value|| <wbr /> <wbr />
+      ' minvalue '||min_value||  
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' maxvalue '||max_value|| <wbr /> <wbr />
+      ' maxvalue '||max_value||  
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' start with '||last_number|| <wbr /> <wbr />
+      ' start with '||last_number||  
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> ' increment by '||increment_by|| <wbr /> <wbr />
+      ' increment by '||increment_by||  
   
-<wbr /> <wbr /> <wbr /> <wbr /> <wbr /> <wbr /> (case when cache_size=0 then ' nocache' else ' cache '||cache_size end) ||';' <wbr />
+      (case when cache_size=0 then ' nocache' else ' cache '||cache_size end) ||';' 
   
 from user_sequences

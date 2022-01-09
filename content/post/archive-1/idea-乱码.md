@@ -8,7 +8,7 @@ categories:
 
 ---
 ## idea 乱码
-修改_idea_.exe.<wbr />vmoptions配置文件
+修改_idea_.exe.vmoptions配置文件
 
 
 VM参数配置也加入"-Dfile.encoding=UTF-8"

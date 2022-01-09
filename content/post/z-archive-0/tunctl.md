@@ -28,7 +28,7 @@ tun/tap 驱动程序实现了虚拟网卡的功能，tun表示虚拟的是点对
   
 开源项目openvpn （ [http://openvpn.sourceforge.net][1]) 和Vtun( [http://vtun.sourceforge.net][2])都是利用tun/tap驱动实现的隧道封装。
 
-安装uml-<wbr />utilities和bridge-utils和,这两个工具分别含有_tunctl_和brctl命令
+安装uml-utilities和bridge-utils和,这两个工具分别含有_tunctl_和brctl命令
 
  [1]: http://openvpn.sourceforge.net/
  [2]: http://vtun.sourceforge.net/

@@ -111,7 +111,7 @@ Vim 有四个跟字符编码方式有关的选项，encoding、fileencoding、fi
 
 3. 对比 fileencoding 和 encoding 的值，若不同则调用 iconv 将文件内容转换为encoding 所描述的字符编码方式，并且把转换后的内容放到为此文件开辟的 buffer 里，此时我们就可以开始编辑这个文件了。注意，完成这一步动作需要调用外部的 iconv.dll(注2)，你需要保证这个文件存在于 $VIMRUNTIME 或者其他列在 PATH 环境变量中的目录里。
 
-4. 编辑完成后保存文件时，再次对比 fileencoding 和 encoding 的值。若不同，再次调用 iconv 将即将保存的 buffer 中的文本转换为 fileencoding 所描述的字符编码方式，并保存到指定的文件中。同样，这需要调用 iconv.dll由于 Unicode 能够包含几乎所有的语言的字符，而且 Unicode 的 UTF-8 编码方式又是非常具有性价比的编码方式 (空间消耗比 UCS-2 小)，因此建议 encoding 的值设置为utf-8。这么做的另一个理由是 encoding 设置为 utf-8 时，Vim 自动探测文件的编码方式会更准确 (或许这个理由才是主要的 <wbr />。我们在中文 Windows 里编辑的文件，为了兼顾与其他软件的兼容性，文件编码还是设置为 GB2312/GBK 比较合适，因此 fileencoding 建议设置为 chinese (chinese 是个别名，在 Unix 里表示 gb2312，在 Windows 里表示cp936，也就是 GBK 的代码页)。
+4. 编辑完成后保存文件时，再次对比 fileencoding 和 encoding 的值。若不同，再次调用 iconv 将即将保存的 buffer 中的文本转换为 fileencoding 所描述的字符编码方式，并保存到指定的文件中。同样，这需要调用 iconv.dll由于 Unicode 能够包含几乎所有的语言的字符，而且 Unicode 的 UTF-8 编码方式又是非常具有性价比的编码方式 (空间消耗比 UCS-2 小)，因此建议 encoding 的值设置为utf-8。这么做的另一个理由是 encoding 设置为 utf-8 时，Vim 自动探测文件的编码方式会更准确 (或许这个理由才是主要的 。我们在中文 Windows 里编辑的文件，为了兼顾与其他软件的兼容性，文件编码还是设置为 GB2312/GBK 比较合适，因此 fileencoding 建议设置为 chinese (chinese 是个别名，在 Unix 里表示 gb2312，在 Windows 里表示cp936，也就是 GBK 的代码页)。
 
 --------------------------------
 
@@ -119,9 +119,9 @@ Vim 有四个跟字符编码方式有关的选项，encoding、fileencoding、fi
 
 查看系统支持的编码 iconv -l
 
-查看文件的编码  <wbr />file -i  <wbr />(注意与type不同，查看命令的类型) 
+查看文件的编码  file -i  (注意与type不同，查看命令的类型) 
 
-在vim中 :edit  <wbr />++enc=utf8/gb18030/gb2312... 但只是编辑时转码了，重新打开还是乱码的，最好用iconv 转码，如windows文件转到Linux下，如果使用dos2unix之后（一般只是去掉换行^M而已) 还会乱码，则可以 iconv -f GBK -t UTF-8 file1 -o file2
+在vim中 :edit  ++enc=utf8/gb18030/gb2312... 但只是编辑时转码了，重新打开还是乱码的，最好用iconv 转码，如windows文件转到Linux下，如果使用dos2unix之后（一般只是去掉换行^M而已) 还会乱码，则可以 iconv -f GBK -t UTF-8 file1 -o file2
 
 系统设置的编码格式
 
