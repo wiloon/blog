@@ -71,10 +71,10 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
 例子: 
 
 
- <header>
+ 
   The Very First Rule of Life
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
- </header>
+ 
  If there's a microphone anywhere near you, assume it's hot and
  sending whatever you're saying to the world. Seriously.
  ...
@@ -83,10 +83,10 @@ HTML Spec 中接着又列举了一些 article 适用的场景。 "This could be 
  </footer>
 </article>
 
- <header>
+ 
   The Very First Rule of Life
   <time pubdate datetime="2009-10-09T14:28-08:00"></time>
- </header>
+ 
  If there's a microphone anywhere near you, assume it's hot and
  sending whatever you're saying to the world. Seriously.
  ...

@@ -84,7 +84,7 @@ categories:
     <request line>
   
   
-    <headers>
+    
   
   
     <blank line>
@@ -160,7 +160,7 @@ categories:
 ### HTTP响应 
  1．HTTP响应格式: 
  <status line>
- <headers>
+ 
  <blank line>
  [<response-body>]
   

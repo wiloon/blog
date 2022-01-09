@@ -77,7 +77,7 @@ HTML5支持已有的内容，原来的div,img,p不做任何改动，都可以在
 可以更改为: 
 
   <body>
- <header>...</header>
+ ...
  <nav>...</nav>
  <section>...</section>
  ...</aside>
