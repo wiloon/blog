@@ -94,7 +94,7 @@ fcntl() 或者对同一个文件多次调用了open()函数而形成的。
 ### 查看进程打开文件描述符
 ```bash
 #PID: 12222
-ls /proc/12222/fd/ -l
+ls -l /proc/12222/fd/ 
 lsof -p 12222
 ```
 
@@ -153,6 +153,7 @@ int main(int argc,char *argv[]) {
 
 那么我们在大学C语言课程上学习的“文件指针”（file pointer) 又是什么呢？这个就比较简单,继续看下面的栗子。
 
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #define BUF_SIZE 1024
@@ -175,6 +176,7 @@ int main(int argc,char *argv[]) {
   fclose(inputFp);
   exit(EXIT_SUCCESS);
 }
+```
 可见,文件指针就是FILE结构体的指针,与前两个概念不属于同一层。当通过文件指针操作文件时,需要调用C语言stdio.h中提供的文件API（fopen()、fread()等) ,而C标准库最终调用了POSIX的库函数。并且“file pointer”这个词里的“file”指的是狭义的文件,不包括管道、设备等其他东西,所以单纯用C API只能操作普通文件。
 
 FILE结构体中是包含了文件描述符的,所以C语言也提供了互相转换的方法: 
@@ -255,14 +257,19 @@ The End
 
 如今,内存 容量的增大和虚拟内存 算法使得更简单的指针 愈加受到青睐,而指向另一指针的那类句柄受到冷淡。尽管如此,许多操作系统 仍然把指向私有对象 的指针以及进程传递给客户端 的内部数组 下标称为句柄。
 
+操作file descriptors 的 system call
+open()
+read()
+write()
+select()
+poll()
+
+
 http://www.blogjava.net/shijian/archive/2012/04/06/373463.html
   
 http://blog.csdn.net/cywosp/article/details/38965239
 
-
-
----
-
+ 
 版权声明: 本文为CSDN博主「cywosp」的原创文章,遵循 CC 4.0 BY-SA 版权协议,转载请附上原文出处链接及本声明。
   
 原文链接: https://blog.csdn.net/cywosp/article/details/38965239
@@ -271,3 +278,4 @@ http://blog.csdn.net/cywosp/article/details/38965239
 Michael Kerrisk所著《The Linux Programming Interface: A Linux and UNIX System Programming Handbook》的第4、5两章。
 
 http://www.cxyzjd.com/article/nazeniwaresakini/104220111  
+>https://wiyi.org/linux-file-descriptor.html

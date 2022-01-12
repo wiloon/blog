@@ -483,4 +483,5 @@ https://zhuanlan.zhihu.com/p/36764771
 https://www.cnblogs.com/fg123/p/5256553.html
 
 http://luodw.cc/2016/01/24/epoll/
+>https://wiyi.org/linux-io-model.html
 
