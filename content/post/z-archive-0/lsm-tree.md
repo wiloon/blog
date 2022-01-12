@@ -29,12 +29,13 @@ LSM-Tree全称是 Log Structured Merge Tree，是一种分层，有序，面向�
 
 An SSTable provides a persistent, ordered immutable map from keys to values, where both keys and values are arbitrary byte strings. Operations are provided to look up the value associated with a specified key, and to iterate over all key/value pairs in a specified key range. Internally, each SSTable contains a sequence of blocks (typically each block is 64KB in size, but this is configurable). A block index (stored at the end of the SSTable) is used to locate blocks; the index is loaded into memory when the SSTable is opened. A lookup can be performed with a single disk seek: we first find the appropriate block by performing a binary search in the in-memory index, and then reading the appropriate block from disk. Optionally, an SSTable can be completely mapped into memory, which allows us to perform lookups and scans without touching disk.
 
-如上所述，SSTable 是一种拥有持久化，有序且不可变的的键值存储结构，它的key和value都是任意的字节数组，并且了提供了按指定key 查找和指定范围的 key 区间迭代遍历的功能。SSTable 内部包含了一系列可配置大小的Block块，典型的大小是 64KB，关于这些Block 块的 index 存储在 SSTable 的尾部，用于帮助快速查找特定的Block。当一个SSTable被打开的时候，index会被加载到内存，然后根据key在内存index里面进行一个二分查找，查到该key对应的磁盘的offset之后，然后去磁盘把响应的块数据读取出来。当然如果内存足够大的话，可以直接把SSTable直接通过 MMap 的技术映射到内存中，从而提供更快的查找。 
+如上所述, SSTable 是一种拥有持久化，有序且不可变的的键值存储结构，它的key和value都是任意的字节数组，并且了提供了按指定key 查找和指定范围的 key 区间迭代遍历的功能。SSTable 内部包含了一系列可配置大小的Block块，典型的大小是 64KB，关于这些Block 块的 index 存储在 SSTable 的尾部，用于帮助快速查找特定的Block。当一个SSTable被打开的时候，index会被加载到内存，然后根据key在内存index里面进行一个二分查找，查到该key对应的磁盘的offset之后，然后去磁盘把响应的块数据读取出来。当然如果内存足够大的话，可以直接把SSTable直接通过 MMap 的技术映射到内存中，从而提供更快的查找。 
 
 
 在LSM-Tree里, SSTable 有一份在内存里面，其他的多级在磁盘上，如下图是一份完整的LSM-Tree图示：
-
-
+[![7uvUJO.png](https://s4.ax1x.com/2022/01/12/7uvUJO.png)](https://imgtu.com/i/7uvUJO)
+[![7uvALn.png](https://s4.ax1x.com/2022/01/12/7uvALn.png)](https://imgtu.com/i/7uvALn)
+[![7uvuJU.jpg](https://s4.ax1x.com/2022/01/12/7uvuJU.jpg)](https://imgtu.com/i/7uvuJU)
 我们总结下在在LSM-Tree里面如何写数据的？
 
 1，当收到一个写请求时，会先把该条数据记录在WAL Log里面，用作故障恢复。
@@ -95,3 +96,4 @@ B+Tree则是将数据拆分为固定大小的Block或Page, 一般是4KB大小，
 
 
 >https://cloud.tencent.com/developer/article/1441835
+>http://distributeddatastore.blogspot.com/2013/08/cassandra-sstable-storage-format.html
