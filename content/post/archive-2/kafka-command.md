@@ -92,14 +92,14 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
 # kafka 3.0.0
 bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic0 --bootstrap-server 192.168.50.169:9092
 
-    # cloudera kafka
-    /opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \
-    --zookeeper 127.0.0.1:2181 \
-    --replication-factor 3 \
-    --partitions 30 \
-    --topic topic_0 \
-    --config retention.ms=1296000000 \
-    --config retention.bytes=10737418240
+# cloudera kafka
+/opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \
+--zookeeper 127.0.0.1:2181 \
+--replication-factor 3 \
+--partitions 30 \
+--topic topic_0 \
+--config retention.ms=1296000000 \
+--config retention.bytes=10737418240
     
     # kafka
     bin/kafka-topics.sh --create \
@@ -336,9 +336,7 @@ podman run  -d --name kafka \
     默认端口
     
     PLAINTEXT
-    
     支持无认证的明文访问
-    
     新API和旧API
 
 ### kafka manager

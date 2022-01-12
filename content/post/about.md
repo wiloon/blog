@@ -75,9 +75,9 @@ tags:
 - 曾经热爱自行车运动，最长距离骑行40公里
 
 ### 联系方式
-email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
-GitHub: https://github.com/wiloon
-Stackoverflow: https://stackoverflow.com/users/1431884/w1100n
+- email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
+- GitHub: https://github.com/wiloon
+- Stackoverflow: https://stackoverflow.com/users/1431884/w1100n
 
 ### 共享协议
 本站 仅 "原创" 分类中的文字作品由 w1100n 创作，采用知识共享署名-相同方式共享 4.0 国际许可协议进行许可。  
