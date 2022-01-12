@@ -1,5 +1,5 @@
 ---
-title: 文件描述符, file descriptor, fd, 句柄
+title: 文件描述符, file descriptors, fd, 句柄
 author: "-"
 date: 2017-03-24T01:49:22+00:00
 url: /?p=9913
@@ -7,33 +7,46 @@ categories:
   - OS
 
 ---
-## 文件描述符, file descriptor, fd, 句柄
-# 文件描述符 file descriptor, fd
+## 文件描述符, file descriptors, fd, 句柄
 对文件描述符的理解一般都是从处理 "too many open files" 开始的  
 
-### 文件描述符 & 文件描述符表
+### 文件描述符, file descriptors & 文件描述符表
 文件描述符（file descriptor, fd) 是linux内核对已打开文件的一个抽象标记(索引),所有I/O系统调用对已打开文件的操作都要用到它。这里的“文件”仍然是广义的,即除了普通文件和目录外,还包括管道、FIFO（命名管道) 、Socket、终端、设备, 链接等。
  
 文件描述符是一个非负整数（通常是小整数) ,并且0、1、2三个描述符总是默认分配给标准输入、标准输出和标准错误。这就是常用的 nohup ./my_script > my_script.log 2>&1 & 命令里2和1的由来。如果此时去打开一个新的文件,它的文件描述符会是3。POSIX标准要求每次打开文件时（含socket) 必须使用当前进程中最小可用的文件描述符号码.
 
 所有执行I/O操作的系统调用都通过文件描述符。
 
-#### 文件描述符表
-Linux系统中的每个进程会在其进程控制块（PCB) 内维护属于自己的文件描述符表（file descriptor table) 。表中每个条目包含两个域: 一是控制该描述符的标记域（flags) ,二是指向系统级别的打开文件表中对应条目的指针。那么打开文件表又是什么呢？
+另外，每个进程都会预留3个默认的fd: stdin、stdout、stderr;它们的值分别是0、1，2。
 
-#### 打开文件表 & 文件句柄
+Integer value	Name	symbolic constant	file stream
+0	Standard input	STDIN_FILENO	stdin
+1	Standard output	STDOUT_FILENO	stdout
+2	Standard error	STDERR_FILENO	stderr
+
+#### 文件描述符表, file descriptors table
+Linux系统中的每个进程会在其进程控制块（PCB) 内维护属于自己的文件描述符表（file descriptor table) 。表中每个条目包含两个域: 一是控制该描述符的标记域（flags, O_APPEND 之类的flag) ,二是指向系统级别的打开文件表中对应条目的指针。那么打开文件表又是什么呢？
+
+#### 打开文件表, file table,open file table  & 文件句柄
+file table是全局唯一的表，由系统内核维护。这个表记录了所有进程打开的文件的状态(是否可读、可写等状态)，同时它也映射到inode table中的entry。
+
 内核会维护系统内所有打开的文件及其相关的元信息,该结构称为打开文件表（open file table) 。表中每个条目包含以下域: 
 
-- 文件的偏移量。POSIX API中的read()/write()/lseek()函数都会修改该值；
-- 打开文件时的状态和权限标记。通过open()函数的参数传入；
+- 文件的偏移量。POSIX API 中的read()/write()/lseek()函数都会修改该值；
+- 打开文件时的状态和权限标记。通过 open() 函数的参数传入；
 - 文件的访问模式（只读、只写、读+写等) 。通过open()函数的参数传入；
-- 指向其对应的inode对象的指针。内核也会维护系统级别的inode表,关于inode的细节请参考这篇文章。 <https://www.jianshu.com/p/d60a2b44e78e>
+- 指向其对应的 inode 对象的指针。内核也会维护系统级别的 inode 表(inode table),关于inode的细节请参考这篇文章。 <https://www.jianshu.com/p/d60a2b44e78e>
 - 文件描述符表、打开文件表、inode表之间的关系可以用书中的下图来表示。注意图中的fd 0、1、2...只是示意下标,不代表三个标准描述符。
 
+[![7n59f0.jpg](https://s4.ax1x.com/2022/01/12/7n59f0.jpg)](https://imgtu.com/i/7n59f0)
 
 可见,一个打开的文件可以对应多个文件描述符（不管是同进程还是不同进程) , 一个inode也可以对应多个打开的文件。打开文件表中的一行称为一条文件描述（file description) ,也经常称为文件句柄（file handle) 。
 
 多嘴一句,“句柄”这个词在UNIX世界中并不很正式,但在Windows里遍地都是。Windows NT内核会将内存中的所有对象（文件、窗口、菜单、图标等一切东西) 的地址列表维护成整数索引,这个整数就叫做句柄,逻辑上讲类似于“指针的指针”,感觉上还是有一些相通的地方的。
+
+### inode table
+
+inode table同样是全局唯一的，它指向了真正的文件地址(磁盘中的位置)，每个entry全局唯一。
 
 ### 文件描述限制
 在编写文件操作的或者网络通信的软件时,初学者一般可能会遇到"Too many open files"的问题。这主要是因为文件描述符是系统的一个重要资源,虽然说系统内存有多少就可以打开多少的文件描述符,但是在实际实现过程中内核是会做相应的处理的,一般最大打开文件数会是系统内存的10%（以KB来计算) （称之为系统级限制) ,查看系统级别的最大打开文件数可以使用sysctl -a | grep fs.file-max 命令查看。与此同时,内核为了不让某一个进程消耗掉所有的文件资源,其也会对单个进程最大打开文件数做默认值处理（称之为用户级限制) ,默认值一般是1024,使用ulimit -n命令可以查看。在Web服务器中,通过更改系统默认值文件描述符的最大值来优化服务器是最常见的方式之一,具体优化方式请查看 http://blog.csdn.net/kumu_linux/article/details/7877770
