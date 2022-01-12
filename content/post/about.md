@@ -10,6 +10,7 @@ tags:
 ---
 ## 关于本站/About
 本站主要是个人使用的读书笔记，因为早期使用了Wordpress所以申请了域名, 转到 Github + Markdown 后也保留了公开访问，本人使用频率比较高的技术文档都有仔细整理和验证过，希望能帮助到有需要的同学。当然...也有大量的转载未整理的内容，在不段完善整理中...
+
 ### 收集综合症
 - 基本上是我接触过的知识的一个集合
 - 大部分内容是转载的 70%+
@@ -26,6 +27,7 @@ tags:
 - 会不定期删除本人使用频率低的内容, 比如早期接触过的ASP.net, Wordpress, PHP...
 - 因为从Wordpress转到Markdown, 最近都在频繁调整格式, 所以本站在Github上对应的仓库目前是私有的， 等稳定之后会考虑转成Public. 
 - 转载内容有侵权可以随时联系我删除
+
 ### 整理过的
 - 在转载文章的基础上整理过的
 - 记录了一部分常用的命令
@@ -33,12 +35,14 @@ tags:
 - 一般会有语法高亮
 - 有段落标注
 - 可能有N个引用来源
+
 ### 原创
 - 少量原创
 - 原创比例比较高的文档
 - 日常遇到的问题和解决过程
 - 以Tag方式标记原创内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 - Author会标记为 "w1100n"
+
 ### Blog 实现
 - Markdown
 - Github
@@ -48,9 +52,10 @@ tags:
 
 ## 关于我
 - 中学时期一度沉迷计算机硬件，是<<微型计算机>>的忠实读者, 练就了一手装机技能。大学时期人称"机修"。
-- 工作之后有三年被派到上海出差，期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Archlinux, Gentoo.
+- 工作之后有三年时间被派到上海出差，期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Archlinux, Gentoo.
 - 写过 C#, Java, Android, IOS; 目前工作主力: Java, Golang
 - 日常系统 Archlinux + KDE
+- Goolge粉，用过Google的各种产品: nexus5,nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
 ### 技术栈
 接触过的技术，从左到右按熟悉程度排序  
@@ -62,7 +67,14 @@ tags:
 - Javascript, Vue, Element, Vuetify, Angular
 - Docker, Protobuf, JWT, ELK, Telegraf, Filebeat, Podman
 
-### - 联系方式
+### 业余时间
+- 最近在折腾家里的软路由
+- 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...
+- 伺候猫主子，家里有一只名叫"皮皮"的中华田园猫
+- 偶尔玩游戏: 王者荣耀, 英雄联盟
+- 曾经热爱自行车运动，最长距离骑行40公里
+
+### 联系方式
 email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
 GitHub: https://github.com/wiloon
 Stackoverflow: https://stackoverflow.com/users/1431884/w1100n
