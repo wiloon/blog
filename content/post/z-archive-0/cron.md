@@ -3,6 +3,12 @@ title: cron, crond, crontab, linux 定时任务, cronie
 author: "-"
 date: 2012-03-02T15:36:38+00:00
 url: /cron
+categories:
+  - linux
+tags:
+  - remix
+  - reprint
+
 ---
 ## cron, crond, crontab, linux 定时任务, cronie
 ### 安装 cron
@@ -34,7 +40,8 @@ service crond start # 启动服务
 service crond stop # 关闭服务
 service crond restart # 重启服务
 service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
-crontab -l #列出某个用户cron服务的详细内容
+crontab -l #列出cron服务的详细内容
+crontab -u root -l #列出某个用户cron服务的详细内容
 crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， cron 会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
 crontab -e -u 用户名  # 配置指定用户 的定时任务, root 可以用 -u user name 来编辑其它使用者的 crontab 配置
 crontab -u #设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
@@ -123,32 +130,8 @@ crontab -e
 0 1 * * * /path/to/shell/foo.sh >> /var/log/foo/foo.log
 ```
 
-* * *
+---
 
-很多时候，你没有办法重新启动crond，这个时候可以先 killall crond 然后再crond restart就哦ok了。
-  
-你也可以将这个服务在系统启动的时候也自动启动: 
-  
-引用:
-  
-在/etc/rc.d/rc.local这个脚本的末尾加上: 
-  
-/sbin/service crond start
-  
-现在cron这个服务已经在进程里面了，我们就可以用这个服务了，cron服务提供以下几种接口供大家使用: 
-  
-1.直接用crontab命令编辑
-  
-cron服务提供crontab命令来设定cron服务的，以下是这个命令的一些参数与说明: 
-  
-引用:
-
-比如说root查看自己的cron设置: 
-  
-引用:
-  
-crontab -u root -l
-  
 再例如，root想删除fred的cron设置: 
   
 引用:
