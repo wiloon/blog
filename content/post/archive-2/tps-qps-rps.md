@@ -2,7 +2,7 @@
 title: TPS、QPS、RPS
 author: "-"
 date: 2017-11-08T00:40:29+00:00
-url: /?p=11375
+url: qps
 
 ---
 ## TPS、QPS、RPS
@@ -44,11 +44,14 @@ IP（Internet Protocol) 独立 IP 数,是指 1 天内多少个独立的 IP 浏�
 
 GMV,是 Gross Merchandise Volume 的简称。只要是订单,不管消费者是否付款、卖家是否发货、是否退货,都可放进 GMV 。
 
+### RPS
 RPS 代表吞吐率,即 Requests Per Second 的缩写。吞吐率是服务器并发处理能力的量化描述,单位是 reqs/s,指的是某个并发用户数下单位时间内处理的请求数。
 某个并发用户数下单位时间内能处理的最大的请求数,称之为最大吞吐率。
 
 有人把 RPS 说等效于 QPS。其实可以看作同一个统计方式,只是叫法不同而已。RPS/QPS,可以使用 apache ab 工具进行测量。
 
+#### 另外一种RPS
+rps(record per second)
 
 几个相关的概念: TPS、QPS、RPS,TPS: Transactions Per Second（每秒事务处理数) ,指服务器每秒处理的事务次数。一般用于评估数据库、交易系统的基准性能。QPS: Queries Per Second（查询量/秒) ,是服务器每秒能够处理的查询次数,例如域名服务器、MySQL查询性能。RPS: Request Per Second（请求数/秒) RPS（Request Per Second) 和QPS可以认为是一回事。RT: Response Time（响应时间) : 客户端发一个请求开始计时,到客户端接收到从服务器端返回的响应结果结束所经历的时间,响应时间由请求发送时间、网络传输时间和服务器处理时间三部分组成。也叫Think Time。并发数与TPS/QPS的关系: QPS（TPS) = 并发数/平均响应时间这里的并发数如果为事务处理请求数,则为TPS,如果为查询请求数,则为QPS。
 

@@ -284,26 +284,6 @@ go mod init github.com/you/hello
 
 ```
 
-go build
-  
-通过go build加上要编译的Go源文件名,我们即可得到一个可执行文件,默认情况下这个文件的名字为源文件名字去掉.go后缀。
-
-go build hellogo.go
-
-当然我们也 可以通过-o选项来指定其他名字: 
-  
-go build -o myfirstgo hellogo.go
-
-go build -x -v hellogo.go
-
-如果我们在go-examples目录下直接执行go build命令,后面不带文件名,我们将得到一个与目录名同名的可执行文件: 
-
-$ go build
-  
-$ ls
-  
-go-examples hellogo.go
-
 ### go install
 go install 可忽略当前目录或上层目录的 go.mod 文件,这对于在不影响主模块依赖的情况下，安装二进制很方便；
 go install 被设计为“用于构建和安装二进制文件”， go get 则被设计为 “用于编辑 go.mod 变更依赖”，并且使用时，应该与 -d 参数共用，在将来版本中 -d 可能会默认启用；

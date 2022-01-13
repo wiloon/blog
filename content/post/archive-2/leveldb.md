@@ -7,8 +7,16 @@ categories:
   - db
 
 ---
+## Leveldb
+数据写入的整个流程为：
+
+数据首先会被写入 memtable 和 WAL
+当 memtable 达到上限后，会转换为 immutable memtable，之后持久化到 L0（称为 flush），L0 中每个文件都是一个持久化的 immutable memtable，多个文件间可以有相互重叠的 Key
+当 L0 中的文件达到一定数量时，便会和 L1 中的文件进行合并（称为 compaction）
+自 L1 开始所有文件都不会再有相互重叠的 Key，并且每个文件都会按照 Key 的顺序存储。每一层通常是上一层大小的 10 倍，当一层的大小超过限制时，就会挑选一部分文件合并到下一层
+
 [![4teKXQ.png](https://z3.ax1x.com/2021/09/21/4teKXQ.png)](https://imgtu.com/i/4teKXQ)
-# Leveldb
+
 LevelDB 是一个可持久化的KV数据库引擎,由Google传奇工程师Jeff Dean和Sanjay Ghemawat开发并开源。
 
 LevelDB 可以理解为单点的 Bigtable 的系统
@@ -280,6 +288,7 @@ leveldb的version管理和双buffer切换类似,但是如果原version被某个i
     <version>0.12</version>
 </dependency>
 ```
+
 ### 庖丁解LevelDB之数据存储
 >https://catkang.github.io/2017/01/17/leveldb-data.html
 ### leveldb
@@ -288,3 +297,5 @@ https://github.com/google/leveldb
 https://github.com/fusesource/leveldbjni
 ### pure java leveldb
 https://github.com/dain/leveldb
+### WiscKey: Separating Keys from Values in SSD-Conscious Storage
+>https://www.scienjus.com/wisckey/
