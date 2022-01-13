@@ -1,7 +1,7 @@
 ---
 title: "hardware"
 author: "-"
-date: ""
+date: "2021-01-13 08:49:13"
 url: ""
 categories:
   - inbox
@@ -135,7 +135,7 @@ https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.
     Intel® Iris® Plus Graphics 655
     Memory Types DDR4-2400 1.2V SO-DIMM
 
-## Raspberry Pi 3 Model B+
+### Raspberry Pi 3 Model B+
 Broadcom BCM2837B0, Cortex-A53 (ARMv8) 64-bit SoC @ 1.4GHz
   
 1GB LPDDR2 SDRAM
@@ -161,3 +161,5 @@ Micro SD port for loading your operating system and storing data
 5V/2.5A DC power input
   
 Power-over-Ethernet (PoE) support (requires separate PoE HAT)
+
+### 斐讯 TC1

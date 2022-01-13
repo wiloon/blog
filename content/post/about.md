@@ -2,7 +2,7 @@
 title: 关于本站/关于我
 author: "w1100n"
 date: 2021-11-16T01:00:00+08:00
-url: /about
+url: about
 categories:
   - about
 tags:
@@ -55,24 +55,25 @@ tags:
 - 工作之后有三年时间被派到上海出差，期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Archlinux, Gentoo.
 - 写过 C#, Java, Android, IOS; 目前工作主力: Java, Golang
 - 日常系统 Archlinux + KDE
-- Goolge粉，用过Google的各种产品: nexus5,nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
+- Goolge粉，用过Google的各种产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
 ### 技术栈
 接触过的技术，从左到右按熟悉程度排序  
 - Java, Golang
-- MySQL, Redis, InfluxDB, Memcache
+- MySQL, Redis, InfluxDB
 - Kafka, Zookeeper
 - CentOS, Archlinux, Ubuntu
 - AWS, Aliyun
 - Javascript, Vue, Element, Vuetify, Angular
-- Docker, Protobuf, JWT, ELK, Telegraf, Filebeat, Podman
+- Docker/Podman, Protobuf, JWT, Telegraf, Filebeat, ELK
 
 ### 业余时间
-- 最近在折腾家里的软路由
-- 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...
-- 伺候猫主子，家里有一只名叫"皮皮"的中华田园猫
-- 偶尔玩游戏: 王者荣耀, 英雄联盟
-- 曾经热爱自行车运动，最长距离骑行40公里
+- 最近在折腾家里的软路由。
+- 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...。
+- 伺候猫主子，家里有一只名叫"皮皮"的中华田园猫。
+- 偶尔玩游戏: 王者荣耀, 英雄联盟。
+- 断断续续的学了一点儿钢琴，目前能弹一首半简单的曲子。
+- 曾经热爱自行车运动，最的远距离是骑行40公里。
 
 ### 联系方式
 - email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
