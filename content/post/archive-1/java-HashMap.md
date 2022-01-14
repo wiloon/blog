@@ -1,11 +1,11 @@
 ---
 title: Java HashMap
 author: "-"
-date: -001-11-30T00:00:00+00:00
+date: 2021-01-14 16:35:45
 draft: true
-url: /?p=4775
+url: HashMap
 categories:
-  - Uncategorized
+  - java
 
 ---
 ## Java HashMap
@@ -18,10 +18,10 @@ JDK 1.8 以前 HashMap 的实现是 数组+链表，即使哈希函数取得再�
 针对这种情况，JDK 1.8 中引入了 红黑树（查找时间复杂度为 O(logn)) 来优化这个问题。
 
 HashMap 在 JDK 1.8 中新增的数据结构 – 红黑树
-shixinzhang
 
 JDK 1.8 中 HashMap 中除了链表节点: 
 
+```java
 static class Node<K,V> implements Map.Entry<K,V> {
     //哈希值，就是位置
     final int hash;
@@ -33,8 +33,10 @@ static class Node<K,V> implements Map.Entry<K,V> {
     Node<K,V> next;
     //...
 }
-还有另外一种节点: TreeNode，它是 1.8 新增的，属于数据结构中的 红黑树（不了解红黑树的同学可以 点击这里了解红黑树) : 
+```
+还有另外一种节点: TreeNode，它是 1.8 新增的，属于数据结构中的 红黑树
 
+```java
 static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
     TreeNode<K,V> parent;  // red-black tree links
     TreeNode<K,V> left;
@@ -42,10 +44,12 @@ static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
     TreeNode<K,V> prev;    // needed to unlink next upon deletion
     boolean red;
 }
+```
 可以看到就是个红黑树节点，有父亲、左右孩子、前一个元素的节点，还有个颜色值。
 
 另外由于它继承自 LinkedHashMap.Entry ，而 LinkedHashMap.Entry 继承自 HashMap.Node ，因此还有额外的 6 个属性: 
 
+```java
 //继承 LinkedHashMap.Entry 的
 Entry<K,V> before, after;
  
@@ -54,6 +58,8 @@ final int hash;
 final K key;
 V value;
 Node<K,V> next;
+
+```
 HashMap 中关于红黑树的三个关键参数
 HashMap 中有三个关于红黑树的关键参数:
 
@@ -61,9 +67,9 @@ HashMap 中有三个关于红黑树的关键参数:
 - UNTREEIFY_THRESHOLD
 - MIN_TREEIFY_CAPACITY
 
-
 值及作用如下: 
 
+```java
 //一个桶的树化阈值
 //当桶中元素个数超过这个值时，需要使用红黑树节点替换链表节点
 //这个值必须为 8，要不然频繁转换效率也不高
@@ -80,11 +86,14 @@ static final int UNTREEIFY_THRESHOLD = 6;
 //为了避免进行扩容、树形化选择的冲突，这个值不能小于 4 * TREEIFY_THRESHOLD
 static final int MIN_TREEIFY_CAPACITY = 64;
 
+```
+
 HashMap 在 JDK 1.8 中新增的操作: 桶的树形化 treeifyBin()
 在Java 8 中，如果一个桶中的元素个数超过 TREEIFY_THRESHOLD(默认是 8 )，就使用红黑树来替换链表，从而提高速度。
 
 这个替换的方法叫 treeifyBin() 即树形化。
 
+```java
 //将桶内所有的 链表节点 替换成 红黑树节点
 final void treeifyBin(Node<K,V>[] tab, int hash) {
     int n, index; Node<K,V> e;
@@ -111,11 +120,11 @@ final void treeifyBin(Node<K,V>[] tab, int hash) {
             hd.treeify(tab);
     }
 }
- 
- 
+
     TreeNode<K,V> replacementTreeNode(Node<K,V> p, Node<K,V> next) {
     return new TreeNode<>(p.hash, p.key, p.value, next);
 }
+```
 上述操作做了这些事:
 
 根据哈希表中元素个数确定是扩容还是树形化
@@ -123,59 +132,60 @@ final void treeifyBin(Node<K,V>[] tab, int hash) {
 遍历桶中的元素，创建相同个数的树形节点，复制内容，建立起联系
 然后让桶第一个元素指向新建的树头结点，替换桶的链表内容为树形内容
 但是我们发现，之前的操作并没有设置红黑树的颜色值，现在得到的只能算是个二叉树。在 最后调用树形节点 hd.treeify(tab) 方法进行塑造红黑树，来看看代码: 
+```java
+    final void treeify(Node<K,V>[] tab) {
+    TreeNode<K,V> root = null;
+    for (TreeNode<K,V> x = this, next; x != null; x = next) {
+        next = (TreeNode<K,V>)x.next;
+        x.left = x.right = null;
+        if (root == null) { //头回进入循环，确定头结点，为黑色
+            x.parent = null;
+            x.red = false;
+            root = x;
+        }
+        else {  //后面进入循环走的逻辑，x 指向树中的某个节点
+            K k = x.key;
+            int h = x.hash;
+            Class<?> kc = null;
+            //又一个循环，从根节点开始，遍历所有节点跟当前节点 x 比较，调整位置，有点像冒泡排序
+            for (TreeNode<K,V> p = root;;) {
+                int dir, ph;        //这个 dir 
+                K pk = p.key;
+                if ((ph = p.hash) > h)  //当比较节点的哈希值比 x 大时， dir 为 -1
+                    dir = -1;
+                else if (ph < h)  //哈希值比 x 小时 dir 为 1
+                    dir = 1;
+                else if ((kc == null &&
+                            (kc = comparableClassFor(k)) == null) ||
+                            (dir = compareComparables(kc, k, pk)) == 0)
+                    // 如果比较节点的哈希值、 x 
+                    dir = tieBreakOrder(k, pk);
 
-       final void treeify(Node<K,V>[] tab) {
-        TreeNode<K,V> root = null;
-        for (TreeNode<K,V> x = this, next; x != null; x = next) {
-            next = (TreeNode<K,V>)x.next;
-            x.left = x.right = null;
-            if (root == null) { //头回进入循环，确定头结点，为黑色
-                x.parent = null;
-                x.red = false;
-                root = x;
-            }
-            else {  //后面进入循环走的逻辑，x 指向树中的某个节点
-                K k = x.key;
-                int h = x.hash;
-                Class<?> kc = null;
-                //又一个循环，从根节点开始，遍历所有节点跟当前节点 x 比较，调整位置，有点像冒泡排序
-                for (TreeNode<K,V> p = root;;) {
-                    int dir, ph;        //这个 dir 
-                    K pk = p.key;
-                    if ((ph = p.hash) > h)  //当比较节点的哈希值比 x 大时， dir 为 -1
-                        dir = -1;
-                    else if (ph < h)  //哈希值比 x 小时 dir 为 1
-                        dir = 1;
-                    else if ((kc == null &&
-                              (kc = comparableClassFor(k)) == null) ||
-                             (dir = compareComparables(kc, k, pk)) == 0)
-                        // 如果比较节点的哈希值、 x 
-                        dir = tieBreakOrder(k, pk);
- 
-                        //把 当前节点变成 x 的父亲
-                        //如果当前比较节点的哈希值比 x 大，x 就是左孩子，否则 x 是右孩子 
-                    TreeNode<K,V> xp = p;
-                    if ((p = (dir <= 0) ? p.left : p.right) == null) {
-                        x.parent = xp;
-                        if (dir <= 0)
-                            xp.left = x;
-                        else
-                            xp.right = x;
-                        root = balanceInsertion(root, x);
-                        break;
-                    }
+                    //把 当前节点变成 x 的父亲
+                    //如果当前比较节点的哈希值比 x 大，x 就是左孩子，否则 x 是右孩子 
+                TreeNode<K,V> xp = p;
+                if ((p = (dir <= 0) ? p.left : p.right) == null) {
+                    x.parent = xp;
+                    if (dir <= 0)
+                        xp.left = x;
+                    else
+                        xp.right = x;
+                    root = balanceInsertion(root, x);
+                    break;
                 }
             }
         }
-        moveRootToFront(tab, root);
     }
+    moveRootToFront(tab, root);
+}
+```
 可以看到，将二叉树变为红黑树时，需要保证有序。这里有个双重循环，拿树中的所有节点和当前节点的哈希值进行对比(如果哈希值相等，就对比键，这里不用完全有序) ，然后根据比较结果确定在树种的位置。
 
 HashMap 在 JDK 1.8 中新增的操作:  红黑树中添加元素 putTreeVal()
 上面介绍了如何把一个桶中的链表结构变成红黑树结构。
 
 在添加时，如果一个桶中已经是红黑树结构，就要调用红黑树的添加元素方法 putTreeVal()。
-
+```java
     final TreeNode<K,V> putTreeVal(HashMap<K,V> map, Node<K,V>[] tab,
                                    int h, K k, V v) {
         Class<?> kc = null;
@@ -242,6 +252,7 @@ HashMap 在 JDK 1.8 中新增的操作:  红黑树中添加元素 putTreeVal()
                  -1 : 1);
         return d;
     }
+```
 通过上面的代码可以知道，HashMap 中往红黑树中添加一个新节点 n 时，有以下操作: 
 
 从根节点开始遍历当前红黑树中的元素 p，对比 n 和 p 的哈希值；
@@ -251,12 +262,13 @@ HashMap 在 JDK 1.8 中新增的操作:  红黑树中添加元素 putTreeVal()
 插入元素后还需要进行红黑树例行的平衡调整，还有确保根节点的领先地位。
 HashMap 在 JDK 1.8 中新增的操作:  红黑树中查找元素 getTreeNode()
 HashMap 的查找方法是 get():
+```java
 
 public V get(Object key) {
     Node<K,V> e;
     return (e = getNode(hash(key), key)) == null ? null : e.value;
 }
-它通过计算指定 key 的哈希值后，调用内部方法 getNode()；
+//它通过计算指定 key 的哈希值后，调用内部方法 getNode()；
 
 final Node<K,V> getNode(int hash, Object key) {
     Node<K,V>[] tab; Node<K,V> first, e; int n; K k;
@@ -277,12 +289,14 @@ final Node<K,V> getNode(int hash, Object key) {
     }
     return null;
 }
+```
 这个 getNode() 方法就是根据哈希表元素个数与哈希值求模（使用的公式是 (n - 1) &hash) 得到 key 所在的桶的头结点，如果头节点恰好是红黑树节点，就调用红黑树节点的 getTreeNode() 方法，否则就遍历链表节点。
+```java
 
     final TreeNode<K,V> getTreeNode(int h, Object k) {
         return ((parent != null) ? root() : this).find(h, k, null);
     }
-getTreeNode 方法使通过调用树形节点的 find() 方法进行查找: 
+//getTreeNode 方法使通过调用树形节点的 find() 方法进行查找: 
 
     //从根节点根据 哈希值和 key 进行查找
     final TreeNode<K,V> find(int h, Object k, Class<?> kc) {
@@ -311,6 +325,7 @@ getTreeNode 方法使通过调用树形节点的 find() 方法进行查找:
         } while (p != null);
         return null;
     }
+```
 由于之前添加时已经保证这个树是有序的，因此查找时基本就是折半查找，效率很高。
 
 这里和插入时一样，如果对比节点的哈希值和要查找的哈希值相等，就会判断 key 是否相等，相等就直接返回（也没有判断值哎) ；不相等就从子树中递归查找。
@@ -399,9 +414,7 @@ JDK 1.8 以后哈希表的 添加、删除、查找、扩容方法都增加了�
 添加时，当桶中链表个数超过 8 时会转换成红黑树；
 删除、扩容时，如果桶中结构为红黑树，并且树中元素个数太少的话，会进行修剪或者直接还原成链表结构；
 查找时即使哈希函数不优，大量元素集中在一个桶中，由于有红黑树结构，性能也不会差。
-(图片来自: http://tech.meituan.com/java-hashmap.html)
 
-shixinzhang
 
 这篇文章根据源码分析了 HashMap 在 JDK 1.8 里新增的 TreeNode 的一些关键方法，可以看到，1.8 以后的 HashMap 结合了哈希表和红黑树的优点，不仅快速，而且在极端情况也能保证性能，设计者苦心孤诣可见一斑
 

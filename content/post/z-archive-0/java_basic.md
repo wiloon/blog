@@ -154,33 +154,18 @@ error 表示恢复不是不可能但很困难的情况下的一种严重问题�
 
     运行时异常/一般异常
 
-### Java集合类 ArrayList,Vector, LinkedList
+### Java集合类 ArrayList, Vector, LinkedList
 
-  * Collection: 代表一组对象，每一个对象都是它的子元素。
-  * Set: 不包含重复元素的Collection。
-  * List: 有顺序的collection，并且可以包含重复元素。
-  * Map: 可以把键(key)映射到值(value)的对象，键不能重复。
+* Collection: 代表一组对象，每一个对象都是它的子元素。
+* Set: 不包含重复元素的Collection。
+* List: 有顺序的collection，并且可以包含重复元素。
+* Map: 可以把键(key)映射到值(value)的对象，键不能重复。
 
-ArrayList 和Vector都是使用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢，Vector由于使用了synchronized方法（线程安全) ，通常性能上较ArrayList差，而LinkedList使用双向链表实现存储，按序号索引数据需要进行前向或后向遍历，但是插入数据时只需要记录本项的前后项即可，所以插入速度较快。
-
-
-  
-    Java Array, Vector, ArrayList, List, LinkedList
-  
-
-
-
-
+ArrayList 和Vector都是使用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢，Vector 由于使用了synchronized方法（线程安全) ，通常性能上较 ArrayList 差，而LinkedList使用双向链表实现存储，按序号索引数据需要进行前向或后向遍历，但是插入数据时只需要记录本项的前后项即可，所以插入速度较快。
 
 ### HashMap和Hashtable
 
 HashMap是Hashtable的轻量级实现（非线程安全的实现) ，他们都完成了Map接口，主要区别在于HashMap允许空（null) 键值（key) Hashtable不允许。HashMap由于非线程安全，效率上可能高于Hashtable。 而 HashMap把Hashtable的contains方法去掉了，改成containsvalue和containsKey。因为contains方法容易让人引起误解。 Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现。 最大的不同是，Hashtable的方法是Synchronize的，而HashMap不是，在多个线程访问Hashtable时，不需要自己为它的方法实现同步，而HashMap 就必须为之提供外同步。 Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差异。
-
-
-  
-    HashMap,Hashtable
-  
-
 
 http://www.wiloon.com/?p=4144&embed=true#?secret=Zea2iEVLs2
 

@@ -4,7 +4,8 @@ author: "-"
 date: 2011-05-28T13:01:51.000+00:00
 url: "git/basic"
 tags:
-- Git
+    - Git
+    - remix
 
 ---
 ## git basic

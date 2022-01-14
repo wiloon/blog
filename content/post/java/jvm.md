@@ -75,3 +75,7 @@ Hotspot JIT编译器生成的是汇编代码，保存在方法区的JIT缓存区
 链接：https://juejin.cn/post/6995362542386151431
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+### HotSpot
+
+https://github.com/openjdk/jdk/tree/master/src/hotspot
