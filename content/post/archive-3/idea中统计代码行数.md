@@ -1,0 +1,13 @@
+---
+title: idea中统计代码行数
+author: "-"
+date: 2020-04-07T01:49:34+00:00
+url: /?p=15906
+categories:
+  - Uncategorized
+
+---
+## idea中统计代码行数
+plugin: Statistic
+  
+https://blog.csdn.net/liuchaoxuan/article/details/81270341

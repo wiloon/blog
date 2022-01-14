@@ -1,8 +1,8 @@
-+++
-date = "2020-05-10T16:00:00Z"
-title = "Linux性能测试工具"
+---
+date: "2020-05-10T16:00:00Z"
+title: "Linux性能测试工具"
 
-+++
+---
 uptime
 
 uptime命令用于查看服务器运行了多长时间以及有多少个用户登录，快速获知服务器的负荷情况。
@@ -60,7 +60,7 @@ KDE System Guard
 
 KDE System Guard (KSysguard) 是KDE图形方式的任务管理和性能监视工具。监视本地及远程客户端/服务器架构体系的中的主机。
 
-8、free
+8. free
 
 /bin/free命令显示所有空闲的和使用的内存数量，包括swap。同时也包含内核使用的缓存。
 

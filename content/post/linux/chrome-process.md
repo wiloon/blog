@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-06-09 12:30:27" 
-title = "chrome 为什么多进程而不是多线程"
+---
+author: "-"
+date: "2021-06-09 12:30:27" 
+title: "chrome 为什么多进程而不是多线程"
 
-+++
+---
 
 https://www.zhihu.com/question/368712837
 

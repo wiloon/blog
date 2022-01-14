@@ -1,0 +1,95 @@
+---
+title: golang 字符串/string
+author: "-"
+date: 2017-02-17T01:13:08+00:00
+url: go/string
+categories:
+  - golang
+
+---
+## golang 字符串/string
+### join
+```go
+func main() {
+    // 将字符串数组 拼接成 字符串
+    // 参数: 要拼接的数组,拼接的内容
+    str := strings.Join([]string{`你好`, `世界`}, `,`)
+
+    // 输出拼接好的字符串
+    println(str)
+}
+```
+### 字符串截取
+
+```golang
+s := "abcdefg"
+s = string([]byte(s)[:3])
+fmt.Println(s) //得到 "abc"
+
+s := "abcdefg"
+s = string([]byte(s)[3:])
+fmt.Println(s) //得到 "efg"
+
+s := "12121211122"
+first3 := s[0:3]
+last3  := s[len(s)-3:]
+```
+
+### 字符串比较
+
+```golang
+fmt.Println("go"=="go")
+fmt.Println("GO"=="go")
+
+fmt.Println(strings.Compare("GO","go"))
+fmt.Println(strings.Compare("go","go"))
+
+fmt.Println(strings.EqualFold("GO","go"))
+```
+
+Compare函数,区分大小写,比自建方法"=="的速度要快
+
+### 测试字符串是否为空
+```golang
+if len(mystring) > 0 { }
+if mystring != "" { }
+```
+
+### 字符串连接
+```bash
+s = fmt.Sprintf("%s[%s]", s, v)
+
+```
+
+### 格式化 补0
+```bash
+func main() {
+    log.Println(fmt.Sprintf("%013d", 1))
+}
+```
+
+#substring
+  
+str := "hello world"
+  
+fmt.Print(str[0:5])
+  
+运行的时候将会输出
+
+hello
+
+#split
+  
+strings.Split
+
+http://www.cnblogs.com/modprobe/p/4302681.html
+
+
+  
+    【已解决】go语言中的字符串的比较: 相等
+  
+
+
+https://www.crifan.com/go_language_string_compare_equal/embed/#?secret=u61L06fdZP
+  
+http://blog.csdn.net/oqqyuan1234567890/article/details/59110219

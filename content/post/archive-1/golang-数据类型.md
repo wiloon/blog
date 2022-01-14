@@ -1,0 +1,138 @@
+---
+title: golang  数据类型
+author: "-"
+date: 2015-04-27T14:00:54+00:00
+url: /?p=7532
+
+---
+## golang  数据类型
+### 常量
+
+```golang
+
+const ROOT_PATH = "/"
+```
+
+### Boolean
+布尔值的类型为bool，true或false，默认false
+
+```golang
+    var isActive bool  // 全局变量声明
+    var enabled, disabled = true, false  // 忽略类型的声明
+    func test() {
+        var available bool  // 一般声明
+        valid := false      // 简短声明
+        available = true    // 赋值操作
+    }
+```
+
+## 数值类型
+
+### 整数类型
+整数类型有无符号和带符号两种。 Go同时支持int和uint，这两种类型的长度相同，但具体长度取决于不同编译器的实现。
+Go里面也有直接定义好位数的类型: 
+rune, int8, int16, int32, int64和byte, uint8, uint16, uint32, uint64。
+
+### 整数
+    int8（-128 -> 127)   
+    int16（-32768 -> 32767)   
+    int32（-2,147,483,648 -> 2,147,483,647)   
+    int64（-9,223,372,036,854,775,808 -> 9,223,372,036,854,775,807)   
+
+### 无符号整数: 
+    uint8（0 -> 255)   
+    uint16（0 -> 65,535)   
+    uint32（0 -> 4,294,967,295)   
+    uint64（0 -> 18,446,744,073,709,551,615)   
+    其中rune是int32的别称 byte是uint8的别称  
+
+### 浮点数
+浮点数的类型有float32和float64两种（没有float类型) ，默认是float64。（IEEE-754 标准) 
+  
+应尽可能地使用 float64，因为 math 包中所有有关数学运算的函数都会要求接收这个类型。
+
+float32（+- 1e-45 -> +- 3.4 * 1e38) 
+  
+float64（+- 5 1e-324 -> 107 1e308) 
+
+### 复数
+默认类型是complex128（64位实数+64位虚数) 。如果需要小一些的，也有complex64(32位实数+32位虚数)。
+  
+复数的形式为RE + IMi，其中RE是实数部分，IM是虚数部分，而最后的i是虚数单位。
+
+var c1 complex64 = 5 + 10i
+  
+fmt.Printf("The value is: %v", c1)
+  
+// 输出:  5 + 10i
+  
+格式化说明符
+
+在格式化字符串里，
+  
+%d 用于格式化整数（%x 和 %X 用于格式化 16 进制表示的数字) ，
+  
+%g 用于格式化浮点型（%f 输出浮点数，%e 输出科学计数表示法) ，
+  
+%0d 用于规定输出定长的整数，其中开头的数字 0 是必须的。
+
+%n.mg 用于表示数字 n 并精确到小数点后 m 位，除了使用 g 之外，还可以使用 e 或者 f，例如: 使用格式化字符串 %5.2e 来输出 3.4 的结果为 3.40e+00。
+
+### 字符串 string
+
+字符串就是一串固定长度的字符连接起来的字符序列。Go的字符串是由单个字节连接起来的。也就是说对于传统的字符串是由字符组成的，而Go的字符串不同，它是由字节组成的。
+
+Go语言的字符串的字节使用UTF-8编码标识Unicode文本。
+  
+字符串的表示很简单，用双引号("")或者反引号(")来创建.例如: "hello world" 或者 'hello world'。
+
+两者的区别: 
+
+双引号之间的转义符会被转义，而反引号之间的字符保持不变。
+
+//示例代码
+      
+var frenchHello string // 声明变量为字符串的一般方法
+      
+var emptyString string = "" // 声明了一个字符串变量，初始化为空字符串
+      
+func test() {
+          
+no, yes, maybe := "no", "yes", "maybe" // 简短声明，同时声明多个变量
+          
+japaneseHello := "Konichiwa" // 同上
+          
+frenchHello = "Bonjour" // 常规赋值
+      
+}
+  
+s := "hello"
+  
+c := []byte(s) // 将字符串 s 转换为 []byte 类型
+  
+c[0] = 'c'
+  
+s2 := string(c) // 再转换回 string 类型
+  
+fmt.Printf("%s\n", s2)
+
+### string > []byte
+
+```golang
+[]byte("Here is a string....")
+```
+
+### byte -- uint8, rune -- int32
+byte和rune特殊类型是别名
+
+byte就是unit8的别名
+  
+rune就是int32的别名
+
+int和uint取决于操作系统（32位机器上就是32字节，64位机器上就是64字节) 
+
+uint是32字节或者64字节
+  
+int和uint是一样的大小
+
+http://studygolang.com/articles/9852

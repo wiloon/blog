@@ -1,0 +1,11 @@
+---
+title: sqlplus 改用户密码
+author: "-"
+date: 2012-09-13T05:06:16+00:00
+url: /?p=4029
+categories:
+  - DataBase
+
+---
+## sqlplus 改用户密码
+alter user USERNAMEidentified by PASSWORD;

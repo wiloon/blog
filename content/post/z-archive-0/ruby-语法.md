@@ -1,0 +1,640 @@
+---
+title: ruby 语法
+author: "-"
+date: 2012-04-01T08:05:03+00:00
+url: /?p=2702
+categories:
+  - Development
+
+---
+## ruby 语法
+**继承符号** —— < (小于号)，可以理解为: 子类 (抽象程度更窄化) 小于父类，或者像流操作符一样 把父类的内容都'流'入子类。另外，默认（即未使用继承符号)  时，父类是 Object对象， 和Java一样是单根继承体系；
+
+super关键字是从子类直接调用父类（同名)  方法的 。
+
+`def h` 定义一个函数。它告诉 Ruby 我们的函数名字是 `h`。下一行是函数的内容， 正是我们前面看到过的那行代码: `puts "Hello World!"`。最后的一行 `end` 告诉 Ruby 函数的定义完成了。
+
+
+  1.1      变量、常量和类型
+
+
+  1)      定义变量
+
+
+  
+    
+      
+        
+          变量类型
+        
+      
+      
+      
+        
+          描述
+        
+      
+      
+      
+        
+          示例
+        
+      
+    
+    
+    
+      
+        局部变量（或伪变量) 
+      
+      
+      
+        以小写字母或下划线卡头
+      
+      
+      
+        var    _var
+      
+    
+    
+    
+      
+        全局变量
+      
+      
+      
+        以$开头
+      
+      
+      
+        $var
+      
+    
+    
+    
+      
+        类变量
+      
+      
+      
+        类中定义，以@@开头
+      
+      
+      
+        @@var
+      
+    
+    
+    
+      
+        实例变量
+      
+      
+      
+        对象中定义，以@开头
+      
+      
+      
+        @var
+      
+    
+    
+    
+      
+        常量
+      
+      
+      
+        以大写字母开头
+      
+      
+      
+        Var 
+        
+        
+        
+      
+    
+  
+
+  2) 变量内插
+
+
+    在双引号内使用"#{变量名}"内插变量
+
+
+  
+    
+      
+        a = 2
+      
+      
+      
+        b = 3
+      
+      
+      
+        puts "#{a} + #{b} = #{a+b}"  #输入结果为: 2 + 3 = 5
+      
+      
+      
+      
+    
+  
+
+
+  1.2 注释
+
+
+  1) 单行注释: 以#开头，如:  #注释内容
+
+
+  2) 多行注释: 在=begin 和 =end 之间定义，如: 
+
+
+  =begin
+
+
+  注释内容
+
+
+  =end
+
+  1.3    循环和分支
+
+
+  1.3.1  条件语句
+
+
+  
+    
+      
+        
+          If 形式
+        
+      
+      
+      
+        
+          unless 形式
+        
+      
+    
+    
+    
+      
+        a =1 if y==3
+      
+      
+      
+        a=1 unless y!=3
+      
+    
+    
+    
+      
+        x= if a > 0 then b else c end
+      
+      
+      
+        x= unless a<=0 then a else b end
+      
+    
+    
+    
+      
+         if x<5 then 
+        
+        
+          a =1
+        
+        
+        
+          else
+        
+        
+        
+          a =2
+        
+        
+        
+          end 
+          
+          
+            unless x<5 then 
+            
+            
+              a =2
+            
+            
+            
+              else
+            
+            
+            
+              a =1
+            
+            
+            
+              end  </tbody>   
+              
+              
+               
+ 
+              
+              
+              
+                1.3.2  循环结构
+              
+              
+              
+                
+                  
+                    
+                      #while循环 
+                      
+                      
+                        i= 0
+                      
+                      
+                      
+                        while i< list.size do
+                      
+                      
+                      
+                        print "#list[i] "
+                      
+                      
+                      
+                        I += 1
+                      
+                      
+                      
+                        end 
+                        
+                        
+                          #until循环 
+                          
+                          
+                            i= 0
+                          
+                          
+                          
+                            until i == list.size do
+                          
+                          
+                          
+                            print "#list[i]"
+                          
+                          
+                          
+                            i += 1
+                          
+                          
+                          
+                            end  
+                            
+                            
+                              
+                                #for循环 
+                                
+                                
+                                  for x in lisy do
+                                
+                                
+                                
+                                  print "#{x}"
+                                
+                                
+                                
+                                  end 
+                                  
+                                  
+                                    #each循环 
+                                    
+                                    
+                                      list.each do |x|
+                                    
+                                    
+                                    
+                                      print "#{x}"
+                                    
+                                    
+                                    
+                                      end  
+                                      
+                                      
+                                        
+                                          #loop循环 
+                                          
+                                          
+                                            i = 0
+                                          
+                                          
+                                          
+                                            n = list.size-1
+                                          
+                                          
+                                          
+                                            loop do
+                                          
+                                          
+                                          
+                                            print "#{list[i]}"
+                                          
+                                          
+                                          
+                                            i += 1
+                                          
+                                          
+                                          
+                                            break if i > n
+                                          
+                                          
+                                          
+                                            end 
+                                            
+                                            
+                                              #times循环 
+                                              
+                                              
+                                                n = list.size
+                                              
+                                              
+                                              
+                                                n.times do |i|
+                                              
+                                              
+                                              
+                                                print "#{list[i]}"
+                                              
+                                              
+                                              
+                                                end  
+                                                
+                                                
+                                                  
+                                                    #upto循环 
+                                                    
+                                                    
+                                                      n =list.size–1
+                                                    
+                                                    
+                                                    
+                                                      0.upto(n) do |i|
+                                                    
+                                                    
+                                                    
+                                                      print "#{list[i]}"
+                                                    
+                                                    
+                                                    
+                                                      end 
+                                                      
+                                                      
+                                                        #each_index循环 
+                                                        
+                                                        
+                                                          list.each_index do |x|
+                                                        
+                                                        
+                                                        
+                                                          print "#{list[x]}"
+                                                        
+                                                        
+                                                        
+                                                          end
+                                                        
+                                                        
+                                                        
+                                                        
+                                                       </tbody>   
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                        1.3.3  异常
+                                                      
+                                                      
+                                                      
+                                                        
+                                                          
+                                                            
+                                                              
+                                                                begin
+                                                              
+                                                              
+                                                              
+                                                                    x = Math.sqrt(y/z)
+                                                              
+                                                              
+                                                              
+                                                                rescue ArgumentError       #匹配错误类型
+                                                              
+                                                              
+                                                              
+                                                                    puts "Error taking square root"
+                                                              
+                                                              
+                                                              
+                                                                rescue ZeroDivisionError     #匹配错误类型
+                                                              
+                                                              
+                                                              
+                                                                    puts "Attempted division by zero"
+                                                              
+                                                              
+                                                              
+                                                                else
+                                                              
+                                                              
+                                                              
+                                                                    puts "Other Error"
+                                                              
+                                                              
+                                                              
+                                                                ensure
+                                                              
+                                                              
+                                                              
+                                                                    #这部分代码在最后一定会执行
+                                                              
+                                                              
+                                                              
+                                                                end
+                                                              
+                                                              
+                                                              
+                                                                
+ 
+                                                              
+                                                            
+                                                          
+                                                        
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                        1.3.4  类
+                                                      
+                                                      
+                                                      
+                                                        
+                                                          
+                                                            
+                                                              
+                                                                class Hello #类名必须以大写字母开头
+                                                              
+                                                              
+                                                              
+                                                                 @@myname = "John"   #类变量
+                                                              
+                                                              
+                                                              
+                                                                
+                                                                   def initialize(name,phone)
+                                                                
+                                                                
+                                                                
+                                                                        @name,@phone = name,phone #定义实例变量
+                                                                
+                                                                
+                                                                
+                                                                   end
+                                                                
+                                                                
+                                                                
+                                                                   
+                                                                
+                                                                
+                                                                
+                                                                   def hello #定义类方法
+                                                                
+                                                                
+                                                                
+                                                                      puts "#{@name}的电话是#{@phone}" 
+                                                                
+                                                                
+                                                                
+                                                                   end
+                                                                
+                                                                
+                                                                
+                                                                  end
+                                                                
+                                                                
+                                                                
+                                                                  
+                                                                    f = Hello.new("Tom","13100000000") #创建类对象
+                                                                  
+                                                                  
+                                                                  
+                                                                    f.hello #调用类方法，结果为: Tom的电话是13100000000  </tbody>   
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                      1.3.5  模块
+                                                                    
+                                                                    
+                                                                    
+                                                                      
+                                                                        
+                                                                          
+                                                                            
+                                                                              方法
+                                                                            
+                                                                          
+                                                                          
+                                                                          
+                                                                            
+                                                                              说明
+                                                                            
+                                                                          
+                                                                        
+                                                                        
+                                                                        
+                                                                          
+                                                                            include 'watir'
+                                                                          
+                                                                          
+                                                                          
+                                                                            将模块的功能添加到当前空间中，不加载已加载的文件
+                                                                          
+                                                                        
+                                                                        
+                                                                        
+                                                                          
+                                                                            extend 'watir'
+                                                                          
+                                                                          
+                                                                          
+                                                                            将模块的函数添加到对象中
+                                                                          
+                                                                        
+                                                                        
+                                                                        
+                                                                          
+                                                                            load 'watir'
+                                                                          
+                                                                          
+                                                                          
+                                                                            读取文件，并将其插入到源文件的当前位置，以便从这个位置开始就可以使用其定义
+                                                                          
+                                                                        
+                                                                      
+                                                                    
+                                                                    
+                            
+ 
+                                                                    
+                                                                    
+                                                                    
+                                                                      1.3.6  case语句
+                                                                    
+                                                                    
+                                                                    
+                                                                      
+                                                                        
+                                                                          
+                                                                            
+                                                                              case x
+                                                                            
+                                                                            
+                                                                            
+                                                                               when 1..10              #匹配数字
+                                                                            
+                                                                            
+                                                                            
+                                                                                  puts "First branch"
+                                                                            
+                                                                            
+                                                                            
+                                                                               when foobar()           #批量方法返回的值
+                                                                            
+                                                                            
+                                                                            
+                                                                                  puts "Second branch"
+                                                                            
+                                                                            
+                                                                            
+                                                                               when /^hel.*/           #匹配正则表达式
+                                                                            
+                                                                            
+                                                                            
+                                                                                  puts "Third branch"
+                                                                            
+                                                                            
+                                                                            
+                                                                               else
+                                                                            
+                                                                            
+                                                                            
+                                                                                  puts "Last branch"
+                                                                            
+                                                                            
+                                                                            
+                                                                              end  </tbody>  

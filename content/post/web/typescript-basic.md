@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-10-19 16:43:49" 
-title = "typescript basic"
+---
+author: "-"
+date: "2020-10-19 16:43:49" 
+title: "typescript basic"
 
-+++
+---
 
 ### number <> string
     let n = Number('1234')

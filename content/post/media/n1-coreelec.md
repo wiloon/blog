@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-09-11 00:50:45" 
-title = "n1 coreelec"
+---
+author: "-"
+date: "2020-09-11 00:50:45" 
+title: "n1 coreelec"
 
-+++
+---
 从官网下载最新版本的coreelec, CoreELEC-Amlogic.arm-9.2.4.2-Generic.img.gz
     https://coreelec.org/
 用7z 解压 CoreELEC-Amlogic.arm-9.2.4.2-Generic.img.gz， 得到 CoreELEC-Amlogic.arm-9.2.4.2-Generic.img

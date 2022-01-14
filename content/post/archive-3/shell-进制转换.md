@@ -1,0 +1,57 @@
+---
+title: shell 进制转换
+author: "-"
+date: 2020-03-24T02:21:01+00:00
+url: /?p=15812
+categories:
+  - Uncategorized
+
+---
+## shell 进制转换
+一、16进制转换成10进制
+  
+printf %d 0xF
+  
+或者
+  
+echo $((16#F))
+  
+15
+
+二、10进制转换成16进制
+  
+printf %x 15
+  
+f
+  
+或者
+  
+echo "obase=16;15"|bc
+  
+F
+
+三、10进制转换成8进制
+  
+printf %o 9
+  
+11
+
+四、8进制转换成10进制
+  
+echo $((8#11))
+  
+9
+
+五、同理二进制转换成10进制
+  
+echo $((2#111))
+  
+7
+
+六、10进制转换成二进制
+  
+echo "obase=2;15"|bc
+  
+1111
+  
+https://blog.csdn.net/rheostat/article/details/8057405

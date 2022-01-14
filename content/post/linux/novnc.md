@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-06-28T15:23:44Z"
-title = "novnc"
+---
+author: "-"
+date: "2020-06-28T15:23:44Z"
+title: "novnc"
 
-+++
+---
 ### novnc
 https://github.com/novnc/noVNC
 https://novnc.com/info.html

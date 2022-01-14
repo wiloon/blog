@@ -77,6 +77,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | remmina               | GTK 编写的远程桌面客户端                                                                |
 | freerdp               | remmina 的RDP 支持包                                                                     |
 | pycharm               |                                                                      |
+|cmake||
 ### pacman, development
 
 | name                            | comments          |
@@ -104,7 +105,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | :------------------------------------ | -------------------------------------------------------------- |
 | goland                                | yay -S goland goland-jre, 两个一起安装                         |
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
-| clion                                 |                                                                |
+| clion                                 | yay -S clion clion-jre                                                               |
 | deepin-wine-wechat                    | 微信,https://github.com/countstarlight/deepin-wine-wechat-arch |
 | google-chrome                         |                                                                |
 | google-chrome-beta                    |                                                                |

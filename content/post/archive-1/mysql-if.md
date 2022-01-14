@@ -1,7 +1,6 @@
 ---
 title: MySQL if
 author: "-"
-type: post
 date: 2014-01-16T05:04:33+00:00
 url: mysql/if
 categories:

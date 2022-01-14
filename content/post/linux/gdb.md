@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-01-06 22:40:46" 
-title = "gdb"
+---
+author: "-"
+date: "2021-01-06 22:40:46" 
+title: "gdb"
 
-+++
+---
 
 GDB是什么
 GDB 全称"GNU symbolic debugger"，从名称上不难看出，它诞生于 GNU 计划（同时诞生的还有 GCC、Emacs 等) ，是 Linux 下常用的程序调试器。发展至今，GDB 已经迭代了诸多个版本，当下的 GDB 支持调试多种编程语言编写的程序，包括 C、C++、Go、Objective-C、OpenCL、Ada 等。实际场景中，GDB 更常用来调试 C 和 C++ 程序。
@@ -37,12 +37,16 @@ Reading symbols from helloWorld...done.
 readelf查看段信息
 例如: 
 
-$ readelf -S helloWorld|grep debug
-  [28] .debug_aranges    PROGBITS         0000000000000000  0000106d
-  [29] .debug_info       PROGBITS         0000000000000000  0000109d
-  [30] .debug_abbrev     PROGBITS         0000000000000000  0000115b
-  [31] .debug_line       PROGBITS         0000000000000000  000011b9
-  [32] .debug_str        PROGBITS         0000000000000000  000011fc
+```bash
+readelf -S helloWorld|grep debug
+```
+```
+[28] .debug_aranges    PROGBITS         0000000000000000  0000106d
+[29] .debug_info       PROGBITS         0000000000000000  0000109d
+[30] .debug_abbrev     PROGBITS         0000000000000000  0000115b
+[31] .debug_line       PROGBITS         0000000000000000  000011b9
+[32] .debug_str        PROGBITS         0000000000000000  000011fc
+```
 
 
   file查看strip状况

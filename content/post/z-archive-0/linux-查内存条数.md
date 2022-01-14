@@ -1,0 +1,39 @@
+---
+title: linux 查看内存
+author: lcf
+date: 2012-09-25T05:30:38+00:00
+url: /?p=4259
+categories:
+  - Linux
+
+---
+## linux 查看内存
+```bash
+  
+free -h
+  
+cat /proc/meminfo
+  
+dmidecode |grep -A16 "Memory Device$"
+
+#进程内存
+  
+top
+  
+pmap PID
+
+#ps
+  
+ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' 其中rsz是是实际内存
+ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
+
+其中rsz为实际内存，上例实现按内存排序，由大到小
+
+
+```
+
+### 内存映射
+    cat /proc/PID/maps
+    cat /proc/PID/smaps
+
+http://www.cnblogs.com/gaojun/p/3406096.html

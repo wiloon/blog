@@ -98,7 +98,7 @@ demonstrated a clear performance benefit. Also keeping all the branches in sync 
 
 Things that we should investigate to prepare for this change:
 
-    Deprecate exceptionCaught in ChannelHandler, only expose it in ChannelInboundHandler Expose EventExecutorChooser from MultithreadEventExecutorGroup to allow the user more flexibility to choose next EventLoop Add another method to be able to send user events both ways in the pipeline. (#4378)
+    Deprecate exceptionCaught in ChannelHandler, only expose it in ChannelInboundHandler Expose EventExecutorChooser from MultithreadEventExecutorGroup to allow the user more flexibility to choose next EventLoop Add another method to be able to send user events both ways in the pipeline. (#4378)
 
 主要意思：
 

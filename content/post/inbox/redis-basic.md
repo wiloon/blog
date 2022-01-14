@@ -244,7 +244,7 @@ redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba
 ```
 
 ### unlink 命令
-    unlink key [key ...]
+    unlink key [key ...]
 
 该命令和 DEL 十分相似: 删除指定的key(s), 若key不存在则该 key 被跳过。但是，相比DEL会产生阻塞，该命令会在另一个线程中回收内存，因此它是非阻塞的。 这也是该命令名字的由来: 仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作。
 
@@ -252,13 +252,13 @@ redis-cli --cluster del-node 192.168.163.132:6384 f6a6957421b00009106cb36be3c7ba
     List: 4.0只有一种编码，quicklist，所以编码无限制，直接返回element个数。
     Set: 非hash table编码，即intset编码时返回1.当一个集合只包含整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用intset作为集合键的底层实现。
     Hash: 同上。
-        当hash键值满足下面任意条件编码为hash table: 
+        当hash键值满足下面任意条件编码为hash table: 
     ->element count > "hash-max-ziplist-entries",default 512. ->value length > "hash-max-ziplist-value",default 64
     Zset: 非skiplist编码，返回1.
-       当zset键值满足下面任意条件编码为hash table: 
-    ->element count >"zset-max-ziplist-entries"，default 128 ->value length > "zset-max-ziplist-value", default 64
+       当zset键值满足下面任意条件编码为hash table: 
+    ->element count >"zset-max-ziplist-entries"，default 128 ->value length > "zset-max-ziplist-value", default 64
      举例:  1 一个包含100元素的list key, 它的free cost就是100 2 一个512MB的string key, 它的free cost是
-     
+     
     总结: 
         不管是del还是unlink，key都是同步删除的。
         使用unlink命令时，如果value分配的空间不大，使用异步删除反而会降低效率，所以redis会先评估一下free value的effort，根据 effort 的值来决定是否做异步删除。

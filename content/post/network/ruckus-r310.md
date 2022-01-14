@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-06-20 14:19:01" 
-title = "Ruckus R310"
+---
+author: "-"
+date: "2021-06-20 14:19:01" 
+title: "Ruckus R310"
 
-+++
+---
 
 ### 默认用户名密码
     super/sp-admin
@@ -124,25 +124,15 @@ Cisco交换机端口配置（默认allow vlan all,建议配置vlan修剪) :
 interface ...
   switchport mode trunk
   switchport trunk native vlan 100
-1
-2
-3
 H3C交换机端口配置
 interface ...
   port link-type trunk
   port trunk permit vlan 10,20
   port trunk pvid vlan 100
-1
-2
-3
-4
 HP/Brocade交换机端口配置
 vlan 100 untag ...
 vlan 10 tag ...
 vlan 20 tag ...
-1
-2
-3
 设置Portal网页认证/Hotspot/Wispr
 设置Hotspot
 Ruckus胖AP同样支持网页认证,Configuration–>Hotspot,设置Portal和Radius的各项参数: 

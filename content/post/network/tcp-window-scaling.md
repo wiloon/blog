@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-11-07 23:20:14" 
-title = "tcp window scaling"
+---
+author: "-"
+date: "2020-11-07 23:20:14" 
+title: "tcp window scaling"
 
-+++
+---
 
 TCP 滑动窗口 与窗口缩放因子(Window Scaling)
 一、前言

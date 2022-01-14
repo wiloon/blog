@@ -1,0 +1,17 @@
+---
+title: 'emacs  删除空行'
+author: "-"
+date: 2011-12-26T06:43:20+00:00
+url: /?p=2010
+categories:
+  - Emacs
+
+---
+## 'emacs  删除空行'
+flush-lines命令
+
+flush-lines删除匹配正则表达式的指定行
+
+m-x flush-lines
+  
+用正则: ^$

@@ -9,7 +9,7 @@ categories:
 ---
 ## dictionary
 ### Redmine
-Redmine 是一个开源的、基于Web的项目管理和缺陷跟踪工具。它用日历和甘特图辅助项目及进度可视化显示。同时它又支持多项目管理。Redmine是一个自由开放 源码软件解决方案，它提供集成的项目管理功能，问题跟踪，并为多个版本控制选项的支持。
+Redmine 是一个开源的、基于Web的项目管理和缺陷跟踪工具。它用日历和甘特图辅助项目及进度可视化显示。同时它又支持多项目管理。Redmine是一个自由开放 源码软件解决方案，它提供集成的项目管理功能，问题跟踪，并为多个版本控制选项的支持。
 
 虽说像IBM Rational Team Concert的商业项目调查工具已经很强大了，但想坚持一个自由和开放源码的解决方案，可能会发现Redmine是一个有用的Scrum和敏捷的选择。 由于Redmine的设计受到Rrac的较大影响，所以它们的软件包有很多相似的特征。
 
@@ -50,3 +50,19 @@ STFW是Search The Fu**ing Web的意思
 
 ### country code
 >https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+
+### Darwin
+Darwin是由苹果公司于2000年所发布的一个开放源代码操作系统。Darwin是macOS和iOS操作环境的操作系统部分。
+
+### oVirt
+（Open Virtualization Manager）是一款免费开源虚拟化软件，是RedHat商业版本虚拟化软件RHEV的开源版本。
+
+oVirt基于kvm，并整合使用了libvirt、gluster、patternfly、ansible等一系列优秀的开源软件。
+
+oVirt的定位是替代vmware vsphere（https://docs.vmware.com/cn/VMware-vSphere/index.html），oVirt目前已经成为了企业虚拟化环境可选的解决方案，另外相比OpenStack的庞大和复杂，oVirt在企业私有云建设中具备部署和维护使用简单的优势。利用oVirt管理KVM虚拟机和网络，企业可以快速的搭建起一个私有云环境。从这一点看来，oVirt的定位和另一个知名云计算项目OpenStack的定位是有些类似的。
+
+### 自动变量（Automatic Variable）
+在计算机编程领域，自动变量（Automatic Variable）指的是局部作用域变量，具体来说即是在控制流进入变量作用域时系统自动为其分配存储空间，并在离开作用域时释放空间的一类变量。在许多程序语言中，自动变量与术语“局部变量”（Local Variable）所指的变量实际上是同一种变量，所以通常情况下“自动变量”与“局部变量”是同义的。
+
+版权声明：本文为CSDN博主「前方一片光明」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_26230421/article/details/106638046

@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-09-29 10:05:41" 
-title = "Service Worker"
+---
+author: "-"
+date: "2020-09-29 10:05:41" 
+title: "Service Worker"
 
-+++
+---
 
 Service Worker 是浏览器在后台独立于网页运行的脚本
 Service workers 本质上充当 Web 应用程序、浏览器与网络（可用时) 之间的代理服务器。这个 API 旨在创建有效的离线体验，它会拦截网络请求并根据网络是否可用采取来适当的动作、更新来自服务器的的资源。它还提供入口以推送通知和访问后台同步 API。

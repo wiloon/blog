@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-05-06 17:29:10" 
-title = "fork vfork clone pthread_create"
+---
+author: "-"
+date: "2021-05-06 17:29:10" 
+title: "fork vfork clone pthread_create"
 
-+++
+---
 
 Linux通过clone系统调用实现fork.调用通过一系列的参数标志来指明父、子进程需要共享的资源。fork、vfork、和__clone的库函数都根据各自需要的参数标志去调用clone，然后由clone()去调用do_fork()。
 arch(X86)架构的是: fork、vfork、和__clone的库函数最终调用的都是clone系统调用。
@@ -29,96 +29,96 @@ fork()调用执行一次返回两个值，对于父进程，fork函数返回子�
 ```
 //例１: fork.c   
   
-　　#include<stdio.h>   
+#include<stdio.h>   
   
-　　#include<sys/types.h>   
+#include<sys/types.h>   
   
-　　#include<unistd.h>   
+#include<unistd.h>   
   
-　　#include<errno.h>   
+#include<errno.h>   
   
-　　int main()   
+int main()   
   
-　　{   
+{   
   
-　　int a = 5;   
+int a = 5;   
   
-　　int b = 2;   
+int b = 2;   
   
-　　pid_t pid;   
+pid_t pid;   
   
-　　pid = fork();   
+pid = fork();   
   
-　　if(pid == 0) {   
+if(pid == 0) {   
   
-　　a = a-4;   
+a = a-4;   
   
-　　printf("I'm a child process with PID [%d],the value of a: %d,the value of b:%d.\n",pid,a,b);   
+printf("I'm a child process with PID [%d],the value of a: %d,the value of b:%d.\n",pid,a,b);   
   
-　　}else if(pid < 0) {   
+}else if(pid < 0) {   
   
-　　perror("fork");   
+perror("fork");   
   
-　　}else {   
+}else {   
   
-　　printf("I'm a parent process, with PID [%d], the value of a: %d, the value of b:%d.\n", pid, a, b);   
+printf("I'm a parent process, with PID [%d], the value of a: %d, the value of b:%d.\n", pid, a, b);   
   
-　　}   
+}   
   
-　　return 0;   
+return 0;   
   
-　　}   
+}   
   
-　　#gcc –o fork fork.c   
+#gcc –o fork fork.c   
   
-　　#./fork   
+#./fork   
   
-　　//运行结果:    
+//运行结果:    
   
-　　I’m a child process with PID[0],the value of a:1,the value of b:2.   
+I’m a child process with PID[0],the value of a:1,the value of b:2.   
   
-　　I’m a parent process with PID[19824],the value of a:5,the value of b:2.   
+I’m a parent process with PID[19824],the value of a:5,the value of b:2.   
 //例１: fork.c 
  
-　　#include<stdio.h> 
+#include<stdio.h> 
  
-　　#include<sys/types.h> 
+#include<sys/types.h> 
  
-　　#include<unistd.h> 
+#include<unistd.h> 
  
-　　#include<errno.h> 
+#include<errno.h> 
  
-　　int main() 
+int main() 
  
-　　{ 
+{ 
  
-　　int a = 5; 
+int a = 5; 
  
-　　int b = 2; 
+int b = 2; 
  
-　　pid_t pid; 
+pid_t pid; 
  
-　　pid = fork(); 
+pid = fork(); 
  
-　　if(pid == 0) { 
+if(pid == 0) { 
  
-　　a = a-4; 
+a = a-4; 
  
-　　printf("I'm a child process with PID [%d],the value of a: %d,the value of b:%d.\n",pid,a,b); 
+printf("I'm a child process with PID [%d],the value of a: %d,the value of b:%d.\n",pid,a,b); 
  
-　　}else if(pid < 0) { 
+}else if(pid < 0) { 
  
-　　perror("fork"); 
+perror("fork"); 
  
-　　}else { 
+}else { 
  
-　　printf("I'm a parent process, with PID [%d], the value of a: %d, the value of b:%d.\n", pid, a, b); 
+printf("I'm a parent process, with PID [%d], the value of a: %d, the value of b:%d.\n", pid, a, b); 
  
-　　} 
+} 
  
-　　return 0; 
+return 0; 
  
-　　} 
+} 
 ```
 
 #gcc –o fork fork.c 
@@ -126,47 +126,47 @@ fork()调用执行一次返回两个值，对于父进程，fork函数返回子�
  
 //运行结果:  
  
-　　I’m a child process with PID[0],the value of a:1,the value of b:2. 
+I’m a child process with PID[0],the value of a:1,the value of b:2. 
  
-　　I’m a parent process with PID[19824],the value of a:5,the value of b:2. 
+I’m a parent process with PID[19824],the value of a:5,the value of b:2. 
 
 可见，子进程中将变量a的值改为１,而父进程中则保持不变。 
 
-　　vfork 
+vfork 
 
-　　vfork系统调用不同于fork，用vfork创建的子进程与父进程共享地址空间，也就是说子进程完全运行在父进程的地址空间上，如果这时子进程修改了某个变量，这将影响到父进程。 
+vfork系统调用不同于fork，用vfork创建的子进程与父进程共享地址空间，也就是说子进程完全运行在父进程的地址空间上，如果这时子进程修改了某个变量，这将影响到父进程。 
 
-　　因此，上面的例子如果改用vfork()的话，那么两次打印a,b的值是相同的，所在地址也是相同的。 
+因此，上面的例子如果改用vfork()的话，那么两次打印a,b的值是相同的，所在地址也是相同的。 
 
-　　但此处有一点要注意的是用vfork()创建的子进程必须显示调用exit()来结束，否则子进程将不能结束，而fork()则不存在这个情况。 
+但此处有一点要注意的是用vfork()创建的子进程必须显示调用exit()来结束，否则子进程将不能结束，而fork()则不存在这个情况。 
 
-　　Vfork也是在父进程中返回子进程的进程号，在子进程中返回0。 
+Vfork也是在父进程中返回子进程的进程号，在子进程中返回0。 
 
-　　用 vfork创建子进程后，父进程会被阻塞直到子进程调用exec(exec，将一个新的可执行文件载入到地址空间并执行之。)或exit。vfork的好处是在子进程被创建后往往仅仅是为了调用exec执行另一个程序，因为它就不会对父进程的地址空间有任何引用，所以对地址空间的复制是多余的 ，因此通过vfork共享内存可以减少不必要的开销。下面这个例子可以验证子进程调用exec时父进程是否真的已经结束阻塞: 
+用 vfork创建子进程后，父进程会被阻塞直到子进程调用exec(exec，将一个新的可执行文件载入到地址空间并执行之。)或exit。vfork的好处是在子进程被创建后往往仅仅是为了调用exec执行另一个程序，因为它就不会对父进程的地址空间有任何引用，所以对地址空间的复制是多余的 ，因此通过vfork共享内存可以减少不必要的开销。下面这个例子可以验证子进程调用exec时父进程是否真的已经结束阻塞: 
 [cpp] view plain copy
 例2: execl.c   
   
-　　#include<stdlib.h>   
+#include<stdlib.h>   
   
-　　#include<sys/types.h>   
+#include<sys/types.h>   
   
-　　#include<sys/wait.h>   
+#include<sys/wait.h>   
   
-　　#include<unistd.h>   
+#include<unistd.h>   
   
-　　#include<stdio.h>   
+#include<stdio.h>   
   
-　　#include<errno.h>   
+#include<errno.h>   
   
-　　#include<string.h>   
+#include<string.h>   
   
-　　int main()   
+int main()   
   
-　　{   
-　　int a = 1;   
-　　int b = 2;   
-　　pid_t pid;   
-　　int status;   
+{   
+int a = 1;   
+int b = 2;   
+pid_t pid;   
+int status;   
       
     pid = vfork();   
     if(pid == -1) {   
@@ -201,27 +201,27 @@ int main()
 Child process ,The value of a is 1,b is 2,the address a 0xbfb73d90,b 0xbfb73d8c   
 例2: execl.c 
  
-　　#include<stdlib.h> 
+#include<stdlib.h> 
  
-　　#include<sys/types.h> 
+#include<sys/types.h> 
  
-　　#include<sys/wait.h> 
+#include<sys/wait.h> 
  
-　　#include<unistd.h> 
+#include<unistd.h> 
  
-　　#include<stdio.h> 
+#include<stdio.h> 
  
-　　#include<errno.h> 
+#include<errno.h> 
  
-　　#include<string.h> 
+#include<string.h> 
  
-　　int main() 
+int main() 
  
-　　{ 
-　　int a = 1; 
-　　int b = 2; 
-　　pid_t pid; 
-　　int status; 
+{ 
+int a = 1; 
+int b = 2; 
+pid_t pid; 
+int status; 
     
     pid = vfork(); 
     if(pid == -1) { 
@@ -257,230 +257,230 @@ Child process ,The value of a is 1,b is 2,the address a 0xbfb73d90,b 0xbfb73d8c
 
 如果将注释掉的三行加入程序的话，由于父进程wait()而阻塞，因此即使此时子进程阻塞，父进程也得不到运行，因此运行结果如下:  
 
-　　The value of a is 1,b is 2,the address a 0xbfb73d90,b 0xbfb73d8c 
+The value of a is 1,b is 2,the address a 0xbfb73d90,b 0xbfb73d8c 
 
-　　Parent process,the value of a:1,b:2,addr ofa:0xbfaa710c, b:0xbf aa7108 
+Parent process,the value of a:1,b:2,addr ofa:0xbfaa710c, b:0xbf aa7108 
 
-　　另外还应注意的是在它调用exec后父进程才可能调度运行，因此sleep(3)函数必须放在example程序中才能生效。 
+另外还应注意的是在它调用exec后父进程才可能调度运行，因此sleep(3)函数必须放在example程序中才能生效。 
 
-　　clone 
+clone 
 
-　　系统调用fork()和vfork()是无参数的，而clone()则带有参数。fork()是全部复制，vfork()是共享内存，而clone() 是则可以将父进程资源有选择地复制给子进程，而没有复制的数据结构则通过指针的复制让子进程共享，具体要复制哪些资源给子进程，由参数列表中的 clone_flags来决定。另外，clone()返回的是子进程的pid。下面来看一个例子: 
+系统调用fork()和vfork()是无参数的，而clone()则带有参数。fork()是全部复制，vfork()是共享内存，而clone() 是则可以将父进程资源有选择地复制给子进程，而没有复制的数据结构则通过指针的复制让子进程共享，具体要复制哪些资源给子进程，由参数列表中的 clone_flags来决定。另外，clone()返回的是子进程的pid。下面来看一个例子: 
 [cpp] view plain copy
 例3: clone.c   
   
-　　#include <stdio.h>   
+#include <stdio.h>   
   
-　　#include <stdlib.h>   
+#include <stdlib.h>   
   
-　　#include <sched.h>   
+#include <sched.h>   
   
-　　#include <unistd.h>   
+#include <unistd.h>   
   
-　　#include <fcntl.h>   
+#include <fcntl.h>   
   
-　　#include <sys/types.h>   
+#include <sys/types.h>   
   
-　　#include <sys/stat.h>   
+#include <sys/stat.h>   
   
-　　int variable,fd;   
+int variable,fd;   
   
-　　int do_something() {   
+int do_something() {   
   
-　　variable = 42;   
+variable = 42;   
   
-　　printf("in child process\n");   
+printf("in child process\n");   
   
-　　close(fd);   
+close(fd);   
   
-　　// _exit(0);   
+// _exit(0);   
   
-　　return 0;   
+return 0;   
   
-　　}   
+}   
   
-　　int main(int argc, char *argv[]) {   
+int main(int argc, char *argv[]) {   
   
-　　void *child_stack;   
+void *child_stack;   
   
-　　char tempch;   
+char tempch;   
   
-　　variable = 9;   
+variable = 9;   
   
-　　fd = open("/test.txt",O_RDONLY);   
+fd = open("/test.txt",O_RDONLY);   
   
-　　child_stack = (void *)malloc(16384);   
+child_stack = (void *)malloc(16384);   
   
-　　printf("The variable was %d\n",variable);   
+printf("The variable was %d\n",variable);   
   
-　　clone(do_something, child_stack+10000, CLONE_VM |CLONE_FILES,NULL);   
+clone(do_something, child_stack+10000, CLONE_VM |CLONE_FILES,NULL);   
   
-　　sleep(3); /* 延时以便子进程完成关闭文件操作、修改变量 */   
+sleep(3); /* 延时以便子进程完成关闭文件操作、修改变量 */   
   
-　　printf("The variable is now %d\n",variable);   
+printf("The variable is now %d\n",variable);   
   
-　　if(read(fd,&tempch,1) < 1) {   
+if(read(fd,&tempch,1) < 1) {   
   
-　　perror("File Read Error");   
+perror("File Read Error");   
   
-　　exit(1);   
+exit(1);   
   
-　　}   
+}   
   
-　　printf("We could read from the file\n");   
+printf("We could read from the file\n");   
   
-　　return 0;   
+return 0;   
   
-　　}   
+}   
   
-　　#gcc –o clone clone.c   
+#gcc –o clone clone.c   
   
-　　#./clone   
+#./clone   
   
-　　运行结果:    
+运行结果:    
   
-　　the value was 9   
+the value was 9   
   
-　　in child process   
+in child process   
   
-　　The variable is now 42   
+The variable is now 42   
   
-　　File Read Error   
+File Read Error   
 例3: clone.c 
  
-　　#include <stdio.h> 
+#include <stdio.h> 
  
-　　#include <stdlib.h> 
+#include <stdlib.h> 
  
-　　#include <sched.h> 
+#include <sched.h> 
  
-　　#include <unistd.h> 
+#include <unistd.h> 
  
-　　#include <fcntl.h> 
+#include <fcntl.h> 
  
-　　#include <sys/types.h> 
+#include <sys/types.h> 
  
-　　#include <sys/stat.h> 
+#include <sys/stat.h> 
  
-　　int variable,fd; 
+int variable,fd; 
  
-　　int do_something() { 
+int do_something() { 
  
-　　variable = 42; 
+variable = 42; 
  
-　　printf("in child process\n"); 
+printf("in child process\n"); 
  
-　　close(fd); 
+close(fd); 
  
-　　// _exit(0); 
+// _exit(0); 
  
-　　return 0; 
+return 0; 
  
-　　} 
+} 
  
-　　int main(int argc, char *argv[]) { 
+int main(int argc, char *argv[]) { 
  
-　　void *child_stack; 
+void *child_stack; 
  
-　　char tempch; 
+char tempch; 
  
-　　variable = 9; 
+variable = 9; 
  
-　　fd = open("/test.txt",O_RDONLY); 
+fd = open("/test.txt",O_RDONLY); 
  
-　　child_stack = (void *)malloc(16384); 
+child_stack = (void *)malloc(16384); 
  
-　　printf("The variable was %d\n",variable); 
+printf("The variable was %d\n",variable); 
  
-　　clone(do_something, child_stack+10000, CLONE_VM |CLONE_FILES,NULL); 
+clone(do_something, child_stack+10000, CLONE_VM |CLONE_FILES,NULL); 
  
-　　sleep(3); /* 延时以便子进程完成关闭文件操作、修改变量 */ 
+sleep(3); /* 延时以便子进程完成关闭文件操作、修改变量 */ 
  
-　　printf("The variable is now %d\n",variable); 
+printf("The variable is now %d\n",variable); 
  
-　　if(read(fd,&tempch,1) < 1) { 
+if(read(fd,&tempch,1) < 1) { 
  
-　　perror("File Read Error"); 
+perror("File Read Error"); 
  
-　　exit(1); 
+exit(1); 
  
-　　} 
+} 
  
-　　printf("We could read from the file\n"); 
+printf("We could read from the file\n"); 
  
-　　return 0; 
+return 0; 
  
-　　} 
+} 
  
-　　#gcc –o clone clone.c 
+#gcc –o clone clone.c 
  
-　　#./clone 
+#./clone 
  
-　　运行结果:  
+运行结果:  
  
-　　the value was 9 
+the value was 9 
  
-　　in child process 
+in child process 
  
-　　The variable is now 42 
+The variable is now 42 
  
-　　File Read Error 
+File Read Error 
 
 从程序的输出结果可以看出:  
 
-　　子进程将文件关闭并将变量修改（调用clone时用到的CLONE_VM、CLONE_FILES标志将使得变量和文件描述符表被共享) ，父进程随即就感觉到了，这就是clone的特点。由于此处没有设置标志CLONE_VFORK，因此子进程在运行时父进程也不会阻塞，两者同时运行。 
+子进程将文件关闭并将变量修改（调用clone时用到的CLONE_VM、CLONE_FILES标志将使得变量和文件描述符表被共享) ，父进程随即就感觉到了，这就是clone的特点。由于此处没有设置标志CLONE_VFORK，因此子进程在运行时父进程也不会阻塞，两者同时运行。 
 
-　　总结 
+总结 
 
-　　一、fork 
+一、fork 
 
-　　1. 调用方法 
+1. 调用方法 
 
-　　#include <sys/types.h> 
+#include <sys/types.h> 
    #include <unistd.h> 
    pid_t fork(void); 
    正确返回: 在父进程中返回子进程的进程号，在子进程中返回0 
-　　错误返回: -1 
+错误返回: -1 
 
-　　2. fork函数调用的用途 
+2. fork函数调用的用途 
 
-　　一个进程希望复制自身，从而父子进程能同时执行不同段的代码。 
+一个进程希望复制自身，从而父子进程能同时执行不同段的代码。 
 
-　　二、vfork 
+二、vfork 
 
-　　1. 调用方法 
+1. 调用方法 
 
-　　与fork函数完全相同 
+与fork函数完全相同 
 
-　　#include <sys/types.h> 
+#include <sys/types.h> 
 
-　　#include <unistd.h> 
+#include <unistd.h> 
 
-　　pid_t vfork(void); 
+pid_t vfork(void); 
 
-　　正确返回: 在父进程中返回子进程的进程号，在子进程中返回0 
+正确返回: 在父进程中返回子进程的进程号，在子进程中返回0 
 
-　　错误返回: -1 
+错误返回: -1 
 
-　　2. vfork函数调用的用途 
+2. vfork函数调用的用途 
 
-　　用vfork创建的进程主要目的是用exec函数执行另外的程序。 
+用vfork创建的进程主要目的是用exec函数执行另外的程序。 
 
-　　三、clone 
+三、clone 
 
-　　1.调用方法 
+1.调用方法 
 
-　　#include <sched.h> 
+#include <sched.h> 
 
-　　int clone(int (*fn)(void *), void *child_stack, int flags, void *arg); 
+int clone(int (*fn)(void *), void *child_stack, int flags, void *arg); 
 
-　　正确返回: 返回所创建进程的PID，函数中的flags标志用于设置创建子进程时的相关选项，具体含义参看P25 
+正确返回: 返回所创建进程的PID，函数中的flags标志用于设置创建子进程时的相关选项，具体含义参看P25 
 
-　　错误返回: -１ 
+错误返回: -１ 
 
-　　2.clone()函数调用的用途 
+2.clone()函数调用的用途 
 
-　　用于有选择地设置父子进程之间需共享的资源 
+用于有选择地设置父子进程之间需共享的资源 
 
 ### fork，vfork，clone的区别 
 1. fork出来的子进程是父进程的一个拷贝，即，子进程从父进程得到了数据段和堆栈段的拷贝，这些需要分配新的内存；而对于只读的代码段，通常使用共享内存的方式访问；而vfork则是子进程与父进程共享内存空间, 子进程对虚拟地址空间任何数据的修改同样为父进程所见；clone则由用户通过参clone_flags 的设置来决定哪些资源共享，哪些资源拷贝。 
@@ -943,7 +943,7 @@ void pthread_exit(void ＊status);
 
 2．绑定
 关于线程的绑定，牵涉到另外一个概念: 轻进程（LWP: Light Weight Process) 。轻进程可以理解为内核线程，它位于用户层和系统层之间。系统对线程资源的分配、对线程的控制是通过轻进程来实现的，一个轻进程可以控制一个或多个线程。默认状况下，启动多少轻进程、哪些轻进程来控制哪些线程是由系统来控制的，这种状况即称为非绑定的。绑定状况下，则顾名思义，即某个线程固定的"绑"在一个轻进程之上。被绑定的线程具有较高的响应速度，这是因为CPU时间片的调度是面向轻进程的，绑定的线程可以保证在需要的时候它总有一个轻进程可用。通过设置被绑定的轻进程的优先级和调度级可以使得绑定的线程满足诸如实时反应之类的要求。
-　　设置线程绑定状态的函数为 pthread_attr_setscope，它有两个参数，第一个是指向属性结构的指针，第二个是绑定类型，它有两个取值:  PTHREAD_SCOPE_SYSTEM（绑定的) 和PTHREAD_SCOPE_PROCESS（非绑定的) 。下面的代码即创建了一个绑定的线程。
+设置线程绑定状态的函数为 pthread_attr_setscope，它有两个参数，第一个是指向属性结构的指针，第二个是绑定类型，它有两个取值:  PTHREAD_SCOPE_SYSTEM（绑定的) 和PTHREAD_SCOPE_PROCESS（非绑定的) 。下面的代码即创建了一个绑定的线程。
 ＃i nclude <pthread.h>
 pthread_attr_t attr;
 pthread_t tid;
@@ -970,9 +970,9 @@ pthread_create(&tid, &attr, (void *)myfunction, myarg);
 
 二．线程数据处理                                                                                                                                 和进程相比，线程的最大优点之一是数据的共享性，各个进程共享父进程处沿袭的数据段，可以方便的获得、修改数据。但这也给多线程编程带来了许多问题。我们必须当心有多个不同的进程访问相同的变量。许多函数是不可重入的，即同时不能运行一个函数的多个拷贝（除非使用不同的数据段) 。在函数中声明的静态变量常常带来问题，函数的返回值也会有问题。因为如果返回的是函数内部静态声明的空间的地址，则在一个线程调用该函数得到地址后使用该地址指向的数据时，别的线程可能调用此函数并修改了这一段数据。在进程中共享的变量必须用关键字volatile来定义，这是为了防止编译器在优化时（如gcc中使用-OX参数) 改变它们的使用方式。为了保护变量，我们必须使用信号量、互斥等方法来保证我们对变量的正确使用。
 1．线程数据                                                                                                                                                 在单线程的程序里，有两种基本的数据: 全局变量和局部变量。但在多线程程序里，还有第三种数据类型: 线程数据（TSD: Thread-Specific Data) 。它和全局变量很象，在线程内部，各个函数可以象使用全局变量一样调用它，但它对线程外部的其它线程是不可见的。例如我们常见的变量 errno，它返回标准的出错信息。它显然不能是一个局部变量，几乎每个函数都应该可以调用它；但它又不能是一个全局变量，否则在 A线程里输出的很可能是B线程的出错信息。要实现诸如此类的变量，我们就必须使用线程数据。我们为每个线程数据创建一个键，它和这个键相关联，在各个线程里，都使用这个键来指代线程数据，但在不同的线程里，这个键代表的数据是不同的，在同一个线程里，它代表同样的数据内容。
-　　和线程数据相关的函数主要有4个: 创建一个键；为一个键指定线程数据；从一个键读取线程数据；删除键。
-　　创建键的函数原型为: 
-　　int pthread_key_create __P ((pthread_key_t *__key,void (*__destr_function) (void *)));                                                                                                                                                 第一个参数为指向一个键值的指针，第二个参数指明了一个destructor函数，如果这个参数不为空，那么当每个线程结束时，系统将调用这个函数来释放绑定在这个键上的内存块。这个函数常和函数pthread_once ((pthread_once_t*once_control, void (*initroutine) (void)))一起使用，为了让这个键只被创建一次。函数pthread_once声明一个初始化函数，第一次调用pthread_once时它执行这个函数，以后的调用将被它忽略。
+和线程数据相关的函数主要有4个: 创建一个键；为一个键指定线程数据；从一个键读取线程数据；删除键。
+创建键的函数原型为: 
+int pthread_key_create __P ((pthread_key_t *__key,void (*__destr_function) (void *)));                                                                                                                                                 第一个参数为指向一个键值的指针，第二个参数指明了一个destructor函数，如果这个参数不为空，那么当每个线程结束时，系统将调用这个函数来释放绑定在这个键上的内存块。这个函数常和函数pthread_once ((pthread_once_t*once_control, void (*initroutine) (void)))一起使用，为了让这个键只被创建一次。函数pthread_once声明一个初始化函数，第一次调用pthread_once时它执行这个函数，以后的调用将被它忽略。
 int pthread_key_delete(pthread_key_t *key);
 该函数用于删除一个由pthread_key_create 函数调用创建的键。调用成功返回值为0，否则返回错误代码。
 在下面的例子中，我们创建一个键，并将它和某个数据相关联。我们要定义一个函数 createWindow，这个函数定义一个图形窗口（数据类型为Fl_Window *，这是图形界面开发工具FLTK中的数据类型) 。由于各个线程都会调用这个函数，所以我们使用线程数据。
@@ -1000,11 +1000,11 @@ void freeWinKey ( Fl_Window * win){
 delete win;
 }
 这样，在不同的线程中调用函数createMyWin，都可以得到在线程内部均可见的窗口变量，这个变量通过函数 pthread_getspecific得到。在上面的例子中，我们已经使用了函数pthread_setspecific来将线程数据和一个键绑定在一起。这两个函数的原型如下: 
-　　
+
 int pthread_setspecific __P ((pthread_key_t __key,__const void *__pointer)); 该函数设置一个线程专有数据的值，赋给由pthread_key_create 创建的键，调用成功返回值为0，否则返回错误代码。
 void *pthread_getspecific __P ((pthread_key_t __key));                                                  该函数获得绑定到指定键上的值。调用成功，返回给定参数key 所对应的数据。如果没有数据连接到该键，则返回NULL。
 
-　　这两个函数的参数意义和使用方法是显而易见的。要注意的是，用pthread_setspecific为一个键指定新的线程数据时，必须自己释放原有的线程数据以回收空间。这个过程函数pthread_key_delete用来删除一个键，这个键占用的内存将被释放，但同样要注意的是，它只释放键占用的内存，并不释放该键关联的线程数据所占用的内存资源，而且它也不会触发函数pthread_key_create中定义的destructor函数。线程数据的释放必须在释放键之前完成。
+这两个函数的参数意义和使用方法是显而易见的。要注意的是，用pthread_setspecific为一个键指定新的线程数据时，必须自己释放原有的线程数据以回收空间。这个过程函数pthread_key_delete用来删除一个键，这个键占用的内存将被释放，但同样要注意的是，它只释放键占用的内存，并不释放该键关联的线程数据所占用的内存资源，而且它也不会触发函数pthread_key_create中定义的destructor函数。线程数据的释放必须在释放键之前完成。
 2．互斥锁                                                                                                                                                 假设各个现成向同一个文件顺序写入数据，最后得到的结果是不可想象的。所以用互斥锁来保证一段时间内只有一个线程在执行一段代码。
 
 
@@ -1071,7 +1071,7 @@ pthread_cond_wait 函数用于阻塞，线程可以被函数pthread_cond_signal�
 pthread_mutex_t count_lock;
 pthread_cond_t count_nonzero;
 unsigned count;
-decrement_count　() {
+decrement_count() {
 pthread_mutex_lock (&count_lock);
 while(count==0) 
 pthread_cond_wait( &count_nonzero, &count_lock);
@@ -1351,8 +1351,7 @@ int pthread_setcancelstate(int state, int *oldstate);
 
 最后说一下线程的本质。其实在Linux中，新建的线程并不是在原先的进程中，而是系统通过一个系统调用clone()。该系统copy了一个和原先进程完全一样的进程，并在这个进程中执行线程函数。不过这个copy过程和fork不一样。 copy后的进程和原先的进程共享了所有的变量，运行环境。这样，原先进程中的变量变动在copy后的进程中便能体现出来。
 
-### pthread_create, 内核线程, 用户线程
-这个事情，还真不是一句话就能回答的，因为涉及到Linux和编译器的版本关于线程的概念不多说了，内核级和用户级线程的定义网上也有，简单的说: 内核级就是操作系统内核支持，用户级就是函数库实现（也就是说，不管你操作系统是不是支持线程的，我都可以在你上面用多线程编程) 。好了，那么，我们首先明白一件事: 不管Linux还是什么OS，都可以多线程编程的，怎么多线程编程呢？程序员要创建一个线程，当然需要使用xxx函数，这个函数如果是操作系统本身就提供的系统函数，当然没问题，操作系统创建的线程，自然是内核级的了。如果操作系统没有提供"创建线程"的函数（比如Linux 2.4及以前的版本，因为Linux刚诞生那时候，还没有"线程"的概念，能处理多"进程"就不错了) ，当然你程序员也没办法在操作系统上创建线程。所以，Linux 2.4内核中不知道什么是"线程"，只有一个"task_struct"的数据结构，就是进程。那么，后来随着科学技术的发展，大家提出线程的概念，而且，线程有时候的确是个好东西，于是，我们希望Linux能加入"多线程"编程。要修改一个操作系统，那是很复杂的事情，特别是当操作系统越来越庞大的时候。怎么才能让Linux支持"多线程"呢？首先，最简单的，就是不去动操作系统的"内核"，而是写一个函数库来"模拟"线程。也就是说，我用C写一个函数，比如 create_thread，这个函数最终在Linux的内核里还是去调用了创建"进程"的函数去创建了一个进程（因为OS没变嘛，没有线程这个东西) 。 如果有人要多线程编程，那么你就调用 这个create_thread 去创建线程吧，好了，这个线程，就是用库函数创建的线程，就是所谓的"用户级线程"了。等等，这是神马意思？赤裸裸的欺骗？也不是。为什么不是？因为别人给你提供了这个线程函数，你创建了"线程"，那么，你的线程（虽然本质上还是进程) 就有了"线程"的一些"特征"，比如可以共享变量啊什么的，咦？那怎么做到的？当然有一套机制，反正人家给你做好了，你用就行了。这种欺骗自然是不"完美"的，有线程的"一些"特征，但不能完全符合理论上的"线程"的概念(POSIX的要求) ，比如，这种多线程不能被分配到多核上，用户创建的N个线程，对于着内核里面其实就一个"进程"，导致调度啊，管理啊麻烦.....为什么要采用这种"模拟"的方式呢？改内核不是一天两天的事情，先将就用着吧。内核慢慢来改。怎么干改内核这个艰苦卓越的工作？Linux是开源、免费的，谁愿意来干这个活？有两家公司参与了对LinuxThreads的改进（向他们致敬) : IBM启动的NGTP(Next Generation POSIX Threads)项目，以及红帽Redhat公司的NPTL（Native POSIX Thread Library) ，IBM那个项目，在2003年因为种种原因放弃了，大家都转到NPTL这个项目来了。最终，当然是成功了，在Linux 2.6的内核版本中，这个NPTL项目怎么做的呢？并不是在Linux内核中加了一个"线程"，仍然和原来一样，进程（其实，进程线程就是个概念，对于计算机，只要能高效的实现这个概念就行，程序员能用就OK，管它究竟怎么实现的) ，不过，用的clone实现的轻量级进程，内核又增加了若干机制来保证线程的表现和POSIX相同，最关键的一点，用户调用pthread库创建的一个线程，会在内核创建一个"线程"，这就是所谓的1: 1模型。所以，Linux下，是有"内核级"线程的，网上很多说Linux是用户级线程，都是不完整的，说的Linux很早以前的版本（现在Linux已经是4.X的版本了) 。还有个 pthread 的问题，pthread是个线程函数库，他提供了一些函数，让程序员可以用它来创建，使用线程。那么问题是，这个函数库里面的函数，比如 pthread_create 创建线程的函数，他是怎么实现的呢？他如果是用以前的方法，那程序员用它来创建的线程，还是"用户级"线程；如果它使用了NPTL方式创建线程，那么，它创建的线程，就是"内核级"线程。OK，结论，如果你  1: 使用2.6的内核的系统平台，2: 你的gcc支持NPTL （现在一般都支持) ，那么你编译出来的多线程程序，就是"内核级"线程了。所以，现在回答问题，只要你不是很古董级的电脑，Linux下用pthread创建的线程是"内核级线程"最后，这NPTL也并不是完美的，还有一些小问题，像有一些商业操作系统，可以实现混合模型，如1:1，N:M等（就是内核线程和用户线程的对应关系) ，这就强大了，Linux仍有改进的空间
+
 
 ---
 

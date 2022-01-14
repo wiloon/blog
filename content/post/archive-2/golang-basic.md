@@ -6,7 +6,9 @@ url: go
 
 ---
 ## go, golang, basic
-# golang
+Go是Google开发的一种静态强类型、编译型、并发型,并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫,罗勃·派克及肯·汤普逊于2007年9月开始设计Go,稍后Ian Lance Taylor、Russ Cox加入项目。Go是基于Inferno操作系统所开发的。
+Go 语言是静态类型的编程语言
+
 ## version
 ### latest 
 1.17
@@ -24,15 +26,29 @@ url: go
     go run -race cmd.go // 竞态检测
 
 ### install
+china mainland download
+>https://golang.google.cn/
 #### ubuntu
     sudo add-apt-repository ppa:longsleep/golang-backports
     sudo apt update
     sudo apt install golang-go
 
 ### 环境变量
-    # 设置不走 proxy 的私有仓库,多个用逗号相隔（可选) 
-    export GOPRIVATE=*.corp.example.com
-    export GOPRIVATE=git.wiloon.com
+```bash
+# gopath bin
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# 设置不走 proxy 的私有仓库,多个用逗号相隔（可选) 
+export GOPRIVATE=*.corp.example.com
+export GOPRIVATE=git.wiloon.com
+
+# todo, deprecated
+export GOROOT=/root/go
+export GOPATH=/root/gopath
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export GOBIN=/path/to/go/bin
+
+```
 
 ### internal package
 Go语言1.4版本增加了 Internal packages 特征用于控制包的导入,即internal package只能被特定的包导入。
@@ -268,31 +284,13 @@ go mod init github.com/you/hello
 
 ```
 
-go build
-  
-通过go build加上要编译的Go源文件名,我们即可得到一个可执行文件,默认情况下这个文件的名字为源文件名字去掉.go后缀。
+### go install
+go install 可忽略当前目录或上层目录的 go.mod 文件,这对于在不影响主模块依赖的情况下，安装二进制很方便；
+go install 被设计为“用于构建和安装二进制文件”， go get 则被设计为 “用于编辑 go.mod 变更依赖”，并且使用时，应该与 -d 参数共用，在将来版本中 -d 可能会默认启用；
+如果你在模块目录中，并且你不带 @version 执行安装的话，只能安装 go.mod 中已经包含的版本。并且不能安装未出现在 go.mod 中的包。
+与build命令相比, install命令在编译源码后还会将可执行文件或库文件安装到约定的目录下。
 
-go build hellogo.go
-
-当然我们也 可以通过-o选项来指定其他名字: 
-  
-go build -o myfirstgo hellogo.go
-
-go build -x -v hellogo.go
-
-如果我们在go-examples目录下直接执行go build命令,后面不带文件名,我们将得到一个与目录名同名的可执行文件: 
-
-$ go build
-  
-$ ls
-  
-go-examples hellogo.go
-
-go install
-  
-与build命令相比,install命令在编译源码后还会将可执行文件或库文件安装到约定的目录下。
-
-go install编译出的可执行文件以其所在目录名(DIR)命名
+go install 编译出的可执行文件以其所在目录名(DIR)命名
   
 go install将可执行文件安装到与src同级别的bin目录下,bin目录由go install自动创建
   
@@ -340,3 +338,32 @@ https://tip.golang.org/doc/go1.17
 >https://zhuanlan.zhihu.com/p/71993748
 ### go程序启动过程
 >https://juejin.cn/post/6942509882281033764
+
+
+## golang install
+
+
+GOPATH:
+
+linux:
+  
+```bash
+
+mkdir -p /home/wiloon/my-projects/golang/lib/
+
+mkdir -p /home/wiloon/my-projects/golang/projects/
+
+export GOPATH="/home/wiloon/my-projects/golang/lib/:/home/wiloon/my-projects/golang/projects/"
+
+#check golang version
+  
+go version
+  
+```
+
+windows:
+  
+GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
+
+
+>https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/

@@ -1,0 +1,18 @@
+---
+title: emacs 刷新, 重新载入文件
+author: "-"
+date: 2011-10-17T05:09:16+00:00
+url: /?p=1182
+categories:
+  - Emacs
+
+---
+## emacs 刷新, 重新载入文件
+;;设置快捷键 F5
+
+(global-set-key [f5] 'revert-buffer)
+
+(global-set-key [C-f5] 'revert-buffer-with-coding-system)
+
+;;按Y或空格确认
+(fset 'yes-or-no-p 'y-or-n-p)

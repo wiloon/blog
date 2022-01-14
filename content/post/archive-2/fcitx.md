@@ -8,6 +8,8 @@ categories:
 
 ---
 ## fcitx
+### 配置文件
+    vim ~/.config/fcitx/config
 ### 在线造词
 (词组最长为10个汉字)
 在中文输入方式下按CTRL+8,则利用将刚刚输入的内容造词,默认为最近输入法两个字,可以用左右方向键的增加或减少词组中的字数,回车确认。
@@ -59,7 +61,7 @@ export XMODIFIERS=@im=fcitx
 
 ### 解决 emacs 中文输入问题
 
-        sudo rm /usr/bin/emacs.raw
+        sudo rm /usr/bin/emacs.raw
         sudo mv /usr/bin/emacs /usr/bin/emacs.raw
 
         #since emacs is unavailabe now
@@ -110,7 +112,7 @@ https://blog.hellojukay.cn/2019/08/09/20190810/
 
 https://bbs.archlinuxcn.org/viewtopic.php?id=2052
 
-###### https://zhuanlan.zhihu.com/p/51957263
+>https://zhuanlan.zhihu.com/p/51957263
 
 http://forum.ubuntu.org.cn/viewtopic.php?f=68&t=395616
 

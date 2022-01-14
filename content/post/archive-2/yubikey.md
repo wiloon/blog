@@ -1,0 +1,53 @@
+---
+title: yubikey
+author: "-"
+date: 2018-06-20T13:55:29+00:00
+url: /?p=12337
+categories:
+  - Uncategorized
+
+---
+## yubikey
+https://wiki.archlinux.org/index.php/yubikey#Introduction
+  
+https://www.bookstack.cn/read/yubikey-handbook-chinese/ssh-authenticating-ssh-with-piv-and-pkcs11-client-troubleshooting.md
+  
+https://blog.dwx.io/yubikey4/
+  
+https://www.bookstack.cn/read/yubikey-handbook-chinese/piv-use-cases.md
+
+YubiKey 4 可以同时工作在三种模式:
+
+OTP mode: 作为键盘设备（HID) :
+  
+Yubico OTP,
+  
+第一次使用前需要把KEY_ID,AES_KEY,SECRET提交至验证服务器（Yubico提供或者自己搭建) ,之后应用程序每次通过服务器验证密码的可靠性（解码后SECRET对应、COUNT增大（防止重放攻击) ) 。
+
+Challenge-Response: 即可以通过 HID 接口给定一个输入, 输入 HMAC 的计算结果。输入需要本地代码实现。
+  
+静态密码,
+  
+HOTP:算法与Challenge-Response类似,然而使用累加计数器代替了输入,并且HTOP是一个标准协议,许多网站和设备都兼容该标准。
+  
+在YubiKey中包含两个configuration slot,每一个slot可以单独配置以上模式中的其中一种,通过短触和长触来选择输入。
+
+U2F mode:
+  
+U2F是一个开源的认证标准协议,使用非对称加密算法,在每次需要认证是设备可以对challenge信息使用私钥进行签名来完成认证。作为一个开源的标准协议,Google、Dropbox等网站都支持这种协议的两步验证,然而现阶段浏览器端仅有Chrome支持。
+
+CCID mode, Smartcard 模式:
+  
+CCID (SmartCard)
+   
+OpenPGP card 和 PIV card,可以用来安全地保存 RSA 私钥
+  
+YubiKey还可以作为标准的OpenPGP Smart Card使用,用来存储PGP私钥（设备中私钥是可写不可读的,解密/签名操作在设备上完成) 。关于PGP Smart Card的更多信息,可以参考这篇文章。
+
+以上提到的三个功能是可以同时使用的,相互之间并不冲突。
+
+https://bigeagle.me/2012/05/yubikey/
+  
+https://bigeagle.me/2016/02/yubikey-4/
+  
+https://blog.blahgeek.com/yubikey-intro/

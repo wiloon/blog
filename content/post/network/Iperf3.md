@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "" 
-title = "iperf3"
+---
+author: "-"
+date: "" 
+title: "iperf3"
 
-+++
+---
 ### install
 #### centos
     yum install iperf3
@@ -83,10 +83,6 @@ iperf3 所提供的选项非常多,以下介绍一些常用的参数。
 复制代码
 常用启动命令: 
 
-1
-2
-3
-4
 服务端: 
 saneri@saneri-VirtualBox:~$ iperf3 -s -p 12345 -i 1
 客户端: 

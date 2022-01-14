@@ -3,38 +3,44 @@ title: kafka basic, command
 author: "-"
 date: 2018-05-07T08:44:53.000+00:00
 url: "kafka"
+tags:
+  - remix
+  - command
 
 ---
 ## kafka basic, command
 ### consumer
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server kafka.wiloon.com:9092 \
-    --topic topic0
+```bash
+bin/kafka-console-consumer.sh --topic topic0 --bootstrap-server localhost:9092
+bin/kafka-console-consumer.sh --topic topic0 --from-beginning --bootstrap-server localhost:9092
 
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server kafka.wiloon.com:9092 \
-    --topic topic0 \
-    --from-beginning \
-    --property "parse.key=true" \
-    --property "key.separator=:"
+bin/kafka-console-consumer.sh \
+--bootstrap-server kafka.wiloon.com:9092 \
+--topic topic0 \
+--from-beginning \
+--property "parse.key=true" \
+--property "key.separator=:"
 
-    bin/kafka-console-consumer.sh \
-    --bootstrap-server kafka.wiloon.com:9092 \
-    --topic topic0 \
-    --from-beginning
+bin/kafka-console-consumer.sh \
+--bootstrap-server kafka.wiloon.com:9092 \
+--topic topic0 \
+--from-beginning
+```
 
 ### producer
-    bin/kafka-console-producer.sh \
-    --broker-list kafka.wiloon.com:9092 \
-    --topic topic0
+```bash
+bin/kafka-console-producer.sh \
+--broker-list kafka.wiloon.com:9092 \
+--topic topic0
 
-    bin/kafka-console-producer.sh \
-    --broker-list kafka.wiloon.com:9092 \
-    --topic topic0
-    --property parse.key=true
+bin/kafka-console-producer.sh \
+--broker-list kafka.wiloon.com:9092 \
+--topic topic0
+--property parse.key=true
+```
 
 
-### kafka package 
+### kafka package
     https://mirrors.bfsu.edu.cn/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
 
 ### group
@@ -52,7 +58,7 @@ url: "kafka"
     --describe \
     --group my-group
     --members
-    
+
     bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
     --describe \
     --group my-group
@@ -60,27 +66,40 @@ url: "kafka"
 
 ## topic
 ### list topic, 查看 kafka topic 列表,使用--list参数
-    bin/kafka-topics.sh --list \
-    --zookeeper localhost:2181
+```bash
+# kafka 3.0
+bin/kafka-topics.sh --list --bootstrap-server 192.168.50.169:9092
 
-### 查看topic详细信息, 如: 分区数, replication 
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+```
+
+### 查看topic详细信息, 如: 分区数, replication
+```bash
+# kafka 3.0.0
+bin/kafka-topics.sh --describe --topic topic0 --bootstrap-server 192.168.50.169:9092
+
     bin/kafka-topics.sh \
     --zookeeper zookeeper.wiloon.com:2181 \
     --topic topic0 \
     --describe
+```
 
 replication-factor: 副本数, partitions: 分区数
 topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
-    # cloudera kafka
-    /opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \
-    --zookeeper 127.0.0.1:2181 \
-    --replication-factor 3 \
-    --partitions 30 \
-    --topic topic_0 \
-    --config retention.ms=1296000000 \
-    --config retention.bytes=10737418240
+```bash
+# kafka 3.0.0
+bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic0 --bootstrap-server 192.168.50.169:9092
+
+# cloudera kafka
+/opt/cloudera/parcels/KAFKA/bin/kafka-topics --create \
+--zookeeper 127.0.0.1:2181 \
+--replication-factor 3 \
+--partitions 30 \
+--topic topic_0 \
+--config retention.ms=1296000000 \
+--config retention.bytes=10737418240
     
     # kafka
     bin/kafka-topics.sh --create \
@@ -95,6 +114,7 @@ topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, t
     --replication-factor 1 \
     --partitions 1 \
     --topic topic0
+```
 
 <https://cloud.tencent.com/developer/article/1436988>
 
@@ -137,10 +157,6 @@ listeners=PLAINTEXT://:9092
 
 zookeeper.connect=localhost:2181
 
-
-
-
-
 ### 删除topic
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
@@ -181,10 +197,72 @@ cat increase-replication-factor.json
 
 download http://kafka.apache.org/downloads.html
 
-#### install and start zookeeper
+#### kraft
+
+```bash
+bin/kafka-storage.sh format --config config/kraft/server.properties --cluster-id $(./bin/kafka-storage.sh random-uuid)
+bin/kafka-server-start.sh config/kraft/server.properties
+```
+
+#### kraft podmann
+>https://github.com/bitnami/bitnami-docker-kafka/issues/159
+>https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md
+##### create volume
+```bash
+podman volume create kafka-config
+```
+##### server.properies
+可以复制 kafka_2.13-3.0.0.tgz 里的 config/kraft/server.properties 文件改造一下.
+
+>vim /var/lib/containers/storage/volumes/kafka-config/_data/server.properties
+```
+process.roles=broker,controller
+node.id=1
+controller.quorum.voters=1@localhost:9093
+listeners=PLAINTEXT://:9092,CONTROLLER://:9093
+inter.broker.listener.name=PLAINTEXT
+advertised.listeners=PLAINTEXT://192.168.50.169:9092
+controller.listener.names=CONTROLLER
+listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
+num.network.threads=3
+num.io.threads=8
+socket.send.buffer.bytes=102400
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+log.dirs=/data/kafka
+num.partitions=1
+num.recovery.threads.per.data.dir=1
+offsets.topic.replication.factor=1
+transaction.state.log.replication.factor=1
+transaction.state.log.min.isr=1
+log.retention.hours=168
+log.segment.bytes=1073741824
+log.retention.check.interval.ms=300000
+```
+
+```bash
+# 格式化storage
+podman run --rm --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v /data/kafka/server.properties:/bitnami/kafka/config/server.properties \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.0.0 kafka-storage.sh format --config /bitnami/kafka/config/server.properties --cluster-id eVW-QkMeS8CeY1Bcuj4S-g --ignore-formatted
+
+# 创建单节点kafka 容器 
+podman run -d --name kafka \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+-p 9092:9092 \
+-v kafka-config:/bitnami/kafka/config \
+-v kafka-storage:/data/kafka \
+bitnami/kafka:3.0.0
+```
+
+#### install kafka with zookeeper
+
 [http://blog.wiloon.com/?p=7242](http://blog.wiloon.com/?p=7242)
 
-#### docker
+- docker
 ```bash
 docker run  -d --name kafka \
 -p 9092:9092 \
@@ -199,7 +277,7 @@ docker run  -d --name kafka \
 -v kafka-data:/kafka \
 -t wurstmeister/kafka
 ```
-### podman
+- podman
 ```bash
 podman run  -d --name kafka \
 -p 9092:9092 \
@@ -216,8 +294,10 @@ podman run  -d --name kafka \
 # KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
 # kafka对外发布的连接地址
 # KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka.wiloon.com:9092
-```
 
+# docker pull bitnami/kafka:3.0.0
+
+```
 
 ### server.properties
     advertised.host.name: 是注册到zookeeper,client要访问的broker地址。（可能producer也是拿这个值,没有验证) 
@@ -256,9 +336,7 @@ podman run  -d --name kafka \
     默认端口
     
     PLAINTEXT
-    
     支持无认证的明文访问
-    
     新API和旧API
 
 ### kafka manager
@@ -269,8 +347,6 @@ podman run -d --name cmak\
      hlebalbau/kafka-manager:stable
 ```
 
----
-
 https://www.jianshu.com/p/25a7b0ceb78a  
 https://github.com/wurstmeister/kafka-docker  
 https://juejin.im/entry/5cbfe36b6fb9a032036187aa  
@@ -278,3 +354,7 @@ https://my.oschina.net/u/218540/blog/223501
 https://www.cnblogs.com/AcAc-t/p/kafka_topic_consumer_group_command.html  
 https://blog.csdn.net/lzufeng/article/details/81743521  
 >https://www.jianshu.com/p/26495e334613
+
+### kafka producer, consumer api doc
+>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html
+>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html

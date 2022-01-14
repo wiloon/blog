@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-06-23T11:56:43Z"
-title = "AMD, CMD"
+---
+author: "-"
+date: "2020-06-23T11:56:43Z"
+title: "AMD, CMD"
 
-+++
+---
 [https://juejin.im/post/5a422b036fb9a045211ef789](https://juejin.im/post/5a422b036fb9a045211ef789 "https://juejin.im/post/5a422b036fb9a045211ef789")
   
 在JavaScript发展初期就是为了实现简单的页面交互逻辑，寥寥数语即可；如今CPU、浏览器性能得到了极大的提升，很多页面逻辑迁移到了客户端（表单验证等) ，随着web2.0时代的到来，Ajax技术得到广泛应用，jQuery等前端库层出不穷，前端代码日益膨胀
@@ -95,13 +95,13 @@ myModel.var1 = 100;
 
 我们先从CommonJS谈起，因为在网页端没有模块化编程只是页面JavaScript逻辑复杂，但也可以工作下去，在服务器端却一定要有模块，所以虽然JavaScript在web端发展这么多年，第一个流行的模块化规范却由服务器端的JavaScript应用带来，CommonJS规范是由NodeJS发扬光大，这标志着JavaScript模块化编程正式登上舞台。
 
-1、定义模块  
+1. 定义模块  
 根据CommonJS规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性
 
-2、模块输出:   
+2. 模块输出:   
 模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象
 
-3、加载模块:   
+3. 加载模块:   
 加载模块使用require方法，该方法读取一个文件并执行，返回文件内部的module.exports对象
 
 看个例子
@@ -151,8 +151,8 @@ AMD 即Asynchronous Module Definition，中文名是异步模块定义的意思�
 
 requireJS主要解决两个问题
 
-1、多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器  
-2、js加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长  
+1. 多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器  
+2. js加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长  
 看一个使用requireJS的例子
 
     // 定义模块 myModule.js
@@ -169,7 +169,7 @@ requireJS主要解决两个问题
     
     // 加载模块
     require(['myModule'], function (my){
-    　 my.printName();
+     my.printName();
     });12345678910111213141516复制代码
 
 **语法**

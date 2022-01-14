@@ -5,11 +5,17 @@ date: 2020-01-19T15:30:35+00:00
 url: podman
 tags:
   - podman
+  - remix
 
 ---
 ## podman basic
 ### install
 https://podman.io/getting-started/installation
+### archlinux
+```bash
+pacman -S podman
+# 安装之后不需要重启系统
+```
 ### ubuntu
     . /etc/os-release
     echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -21,9 +27,15 @@ https://podman.io/getting-started/installation
 
 ### centos
     dnf install podman
-### archlinux
+
+### hello world
+测试一下podman 环境
 ```bash
-pacman -S podman
+podman run --rm hello-world
+```
+
+### podman command
+```bash
 podman version
 podman info --debug
 
@@ -42,6 +54,16 @@ podman rm --latest
 podman --log-level=debug pull dockerhub.azk8s.cn/library/golang
 ```
 
+### env
+使用 env 命令来查看容器的环境变量
+```bash
+podman run --rm hello-world env
+```
+### 查看 cpu 内存占用
+```bash
+podman stats
+```
+
 ### 配置driver
     vim /etc/containers/storage.conf
     [storage]
@@ -49,11 +71,44 @@ podman --log-level=debug pull dockerhub.azk8s.cn/library/golang
     # Default Storage Driver, Must be set for proper operation.
     driver = "overlay2"
 
+修改driver之后 要删除 文件 sudo rm -rf ~/.local/share/containers/, 否则会报错: User-selected graph driver "overlay2" overwritten by graph driver "overlay" from database - delete libpod local files to resolve
+>https://github.com/containers/podman/issues/5114
+
 ### logs
     podman logs --since 1m -f conter_id_0
     podman logs --latest
 ### registry config, mirror
-/etc/containers/registries.conf
+配置文件有两种版本格式，v1和v2，两种格式的配置不能混用，混用会提示错误。
+
+vim /etc/containers/registries.conf
+
+#### v2 
+```
+# 例：使用 podman pull registry.access.redhat.com/ubi8-minimal 时，
+# 仅仅会从registry.access.redhat.com去获取镜像。
+# 如果直接使用 podman pull ubuntu 时，没有明确指明仓库的时候，使用以下配置的仓库顺序去获取
+unqualified-search-registries = ["docker.io", "registry.access.redhat.com"]
+ 
+# 配置仓库的地址，可以直接在location里配置国内镜像例如：docker.mirrors.ustc.edu.cn
+# 直接在location里配置的时候，可以不需要后面的 [[registry.mirror]] 内容，
+# 但是这样只能配置一个镜像地址，这个镜像挂了就没法尝试其它镜像
+[[registry]]
+prefix = "docker.io"
+location = "docker.io"
+ 
+# 在这里可以配置多个镜像地址，前提是至少有一个[[registry]]配置。
+# 需要注意的是，无论 unqualified-search-registries 选择了哪个仓库，
+# 都会先从这里的上下顺序开始去拉取镜像，最后才会去匹配上 prefix 的 [[registry]]
+# 配置的 location 位置拉取镜像。所以这里需要注意，上面配置的不同仓库类型，这里配置的镜像并不
+# 能是通用的，所以 unqualified-search-registries 配置了多个仓库的时候，就最好直接使用
+# [[registry]] 的 location 指定镜像地址，不要配置 [[registry.mirror]] 了。
+# redhat 的国内镜像暂未发现。
+[[registry.mirror]]
+location = "docker.mirrors.ustc.edu.cn"
+[[registry.mirror]]
+location = "registry.docker-cn.com"
+```
+>https://blog.csdn.net/leave00608/article/details/114156354
 
 ```
 [registries.search]
@@ -81,17 +136,20 @@ location = "docker-registries.wiloon.com"
     location = "xxxxxx.mirror.aliyuncs.com"
 
 ### run
+限制cpu, 内存
 ```bash
 podman run \
 -d \
 --name name0 \
 -p 2000:80/tcp \
 -v /etc/localtime:/etc/localtime:ro \
+--memory=2g \
+--cpus=1 \
 image0_name
 
 ```
 
-### systemd script
+### generate systemd script
 
 ```bash
 export service_name=foo
@@ -149,11 +207,19 @@ podman volume rm volume0
 ```
 
 ## pod
+### podman pod
+    podman pod --help
+    podman pod create --help
+    podman pod ps
+    podman pod rm pod0
+
     podman pod create -n pod_0 -p 8086:8086 -p 3000:3000 -p 8888:8888
     # 使用pod, 端口映射要配置到pod上，pod内的容器不配端口
 
 #### 创建容器并加入pod
     podman run -d --pod pod_name_0 influxdb
+
+
 
 https://www.hangge.com/blog/cache/detail_2475.html
   
@@ -167,11 +233,7 @@ https://computingforgeeks.com/how-to-install-epel-repository-on-rhel-8-centos-8/
 https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/"
 https://computingforgeeks.com/how-to-install-and-use-podman-on-centos-rhel/embed/#?secret=kP3lpS51yS"
 
-### podman pod
-    podman pod --help
-    podman pod create --help
-    podman pod ps
-    podman pod rm pod0
+
     
 ### rootless
 ```bash

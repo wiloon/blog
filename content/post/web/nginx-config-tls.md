@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-06-26T13:04:56Z"
-title = "nginx config, tls"
+---
+author: "-"
+date: "2020-06-26T13:04:56Z"
+title: "nginx config, tls"
 
-+++
+---
 ### stream
 代理远程桌面3389的tcp连接   
 

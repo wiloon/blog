@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-10-21 17:41:02" 
-title = "win10外接显示器频繁休眠"
+---
+author: "-"
+date: "2020-10-21 17:41:02" 
+title: "win10外接显示器频繁休眠"
 
-+++
+---
 
 win10外接显示器频繁休眠
 https://blog.csdn.net/YHFZXF/article/details/103408021

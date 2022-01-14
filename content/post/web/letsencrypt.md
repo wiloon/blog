@@ -1,9 +1,13 @@
-+++
-author = "-"
-date = "2020-06-04T08:55:49Z"
-title = "letsencrypt, certbot, certbot-auto, acme.sh"
-
-+++
+---
+title: "letsencrypt, certbot, certbot-auto, acme.sh"
+author: "-"
+date: "2020-06-04T08:55:49Z"
+url: ""
+categories:
+  - cert
+tags:
+  - remix
+---
 ### certbot, certbot-auto, acme.sh
 certbot: recommended by the offical website.
 certbot-auto: no longer supported.
@@ -11,17 +15,20 @@ acme.sh: acme.sh 实现了 acme 协议.
 
 ### install certbot
 #### centos
-    dnf remove certbot
-    dnf install epel-release
-    dnf install snapd
-    systemctl enable --now snapd.socket
-    snap install core
-    snap refresh core
-    ln -s /var/lib/snapd/snap /snap
-    snap install --classic certbot
-    ln -s /snap/bin/certbot /usr/bin/certbot
-    snap set certbot trust-plugin-with-root=ok
-    snap install certbot-dns-google
+```bash
+dnf update
+dnf remove certbot
+dnf install epel-release
+dnf install snapd
+systemctl enable --now snapd.socket
+snap install core
+snap refresh core
+ln -s /var/lib/snapd/snap /snap
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+snap set certbot trust-plugin-with-root=ok
+snap install certbot-dns-google
+```
 
 #### ubuntu
     # for ubuntu snap is pre-installed
@@ -98,7 +105,6 @@ https://github.com/tengattack/certbot-dns-aliyun
 
 ### 加入 crontab
     1 1 */1 * * certbot-auto renew  --manual --manual-public-ip-logging-ok --preferred-challenges dns --manual-auth-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"
-
 
 https://certbot.eff.org/docs/install.html#certbot-auto
 https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au

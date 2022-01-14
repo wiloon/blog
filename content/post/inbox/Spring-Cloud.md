@@ -36,7 +36,8 @@ l Spring Cloud Config: 配置管理工具包，让你可以把配置放到远程
 
 l Spring Cloud Security: 基于Spring Security的安全工具包，为微服务的应用程序添加安全控制。
 
-l Spring Cloud Sleuth: 日志收集工具包，封装了Dapper和log-based追踪以及Zipkin和HTrace操作，为SpringCloud应用实现了一种分布式追踪解决方案。
+### Spring Cloud Sleuth
+日志收集工具包，封装了Dapper和log-based追踪以及Zipkin和HTrace操作，为SpringCloud应用实现了一种分布式追踪解决方案。
 
 除了上面介绍的基础组件外，常见的Spring Cloud组件还有非常多种，涉及到了微服务以及应用开发的方方面面: 
 

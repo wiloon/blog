@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2020-08-02 19:10:49" 
-title = "vlan"
+---
+author: "-"
+date: "2020-08-02 19:10:49" 
+title: "vlan"
 
-+++
+---
 
 vlan范围: 0~4095
     0,4095 保留 仅限系统使用 用户不能查看和使用这些VLAN  
@@ -29,7 +29,7 @@ vlan范围: 0~4095
 
 5 、拥有和TAG标记一致的VID的物理端口,不论是否在这个VID上是Untagged Port或者tagged Port,都可以接受来自交换机内部的标记了这个TAG标记的tagged 数据帧；
 
-6、拥有和TAG标记一致的VID的物理端口,只有在这个VID上是tagged Port,才可以接受来自交换机外部的标记了这个TAG标记的tagged 数据帧； 
+6. 拥有和TAG标记一致的VID的物理端口,只有在这个VID上是tagged Port,才可以接受来自交换机外部的标记了这个TAG标记的tagged 数据帧； 
 
 
 

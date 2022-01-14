@@ -1,16 +1,15 @@
 ---
 title: "hardware"
 author: "-"
-date: ""
+date: "2021-01-13 08:49:13"
 url: ""
 categories:
   - inbox
 tags:
   - inbox
 ---
-## "hardware"
-
 ## hardware
+
 https://www.passmark.com/
 
 ### QNAP TS453Bmini
@@ -135,3 +134,32 @@ https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.
     i5-8259U 
     Intel® Iris® Plus Graphics 655
     Memory Types DDR4-2400 1.2V SO-DIMM
+
+### Raspberry Pi 3 Model B+
+Broadcom BCM2837B0, Cortex-A53 (ARMv8) 64-bit SoC @ 1.4GHz
+  
+1GB LPDDR2 SDRAM
+  
+2.4GHz and 5GHz IEEE 802.11.b/g/n/ac wireless LAN, Bluetooth 4.2, BLE
+  
+Gigabit Ethernet over USB 2.0 (maximum throughput 300 Mbps)
+  
+Extended 40-pin GPIO header
+  
+Full-size HDMI
+  
+4 USB 2.0 ports
+  
+CSI camera port for connecting a Raspberry Pi camera
+  
+DSI display port for connecting a Raspberry Pi touchscreen display
+  
+4-pole stereo output and composite video port
+  
+Micro SD port for loading your operating system and storing data
+  
+5V/2.5A DC power input
+  
+Power-over-Ethernet (PoE) support (requires separate PoE HAT)
+
+### 斐讯 TC1

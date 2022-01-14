@@ -25,11 +25,11 @@ http://mrcelite.blog.51cto.com/2977858/745913
 
 原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://mrcelite.blog.51cto.com/2977858/745913
 
-由于MySQL没有提供类似ORACLE中OVER()这样丰富的分析函数. 所以在MySQL里需要实现这样的功能,我们只能用一些灵活的办法:
+由于MySQL没有提供类似ORACLE中OVER()这样丰富的分析函数. 所以在MySQL里需要实现这样的功能,我们只能用一些灵活的办法:
 
 ### 首先我们来创建实例数据:
 ```sql
-drop table if exists c;
+drop table if exists c;
 
 CREATE TABLE `heyf_t10` (
 	`empid` INT(11) NULL DEFAULT NULL,
@@ -52,7 +52,7 @@ INSERT INTO `heyf_t10` (`empid`, `deptid`, `line`) VALUES
 (9,50,7500.00);
 ```
 
-### 确定需求: 根据部门来分组,显示各员工在部门里按薪水排名名次.
+### 确定需求: 根据部门来分组,显示各员工在部门里按薪水排名名次.
 
 ### 显示结果预期如下:
 +-------+--------+----------+------+
@@ -69,7 +69,7 @@ INSERT INTO `heyf_t10` (`empid`, `deptid`, `line`) VALUES
 |     9 |     50 |  7500.00 |    2 |
 +-------+--------+----------+------+
 
-### SQL 实现
+### SQL 实现
 ```sql
 SELECT empid,deptid,line,rank
 FROM (
@@ -86,70 +86,70 @@ SELECT @rownum :=0, @pdept := NULL,@rank:=0
 ) result
 ```
 
-4\. 结果演示
+4\. 结果演示
 
-MySQL> select empid,deptid,salary,rank from (
+MySQL> select empid,deptid,salary,rank from (
 
-\-> select heyf_tmp.empid,heyf_tmp.deptid,heyf_tmp.salary,@rownum:=@rownum+1 ,
+\-> select heyf_tmp.empid,heyf_tmp.deptid,heyf_tmp.salary,@rownum:=@rownum+1 ,
 
-\-> if(@pdept=heyf_tmp.deptid,@rank:=@rank+1,@rank:=1) as rank,
+\-> if(@pdept=heyf_tmp.deptid,@rank:=@rank+1,@rank:=1) as rank,
 
-\-> @pdept:=heyf_tmp.deptid
+\-> @pdept:=heyf_tmp.deptid
 
-\-> from (
+\-> from (
 
-\-> select empid,deptid,salary from heyf_t10 order by deptid asc ,salary desc
+\-> select empid,deptid,salary from heyf_t10 order by deptid asc ,salary desc
 
-\-> ) heyf_tmp ,(select @rownum :=0 , @pdept := null ,@rank:=0) a ) result
+\-> ) heyf_tmp ,(select @rownum :=0 , @pdept := null ,@rank:=0) a ) result
 
-\-> ;
-
-\+——-+——–+———-+——+
-
-| empid | deptid | salary | rank |
+\-> ;
 
 \+——-+——–+———-+——+
 
-| 1 | 10 | 5500.00 | 1 |
-
-| 2 | 10 | 4500.00 | 2 |
-
-| 4 | 20 | 4800.00 | 1 |
-
-| 3 | 20 | 1900.00 | 2 |
-
-| 7 | 40 | 44500.00 | 1 |
-
-| 6 | 40 | 14500.00 | 2 |
-
-| 5 | 40 | 6500.00 | 3 |
-
-| 9 | 50 | 7500.00 | 1 |
-
-| 8 | 50 | 6500.00 | 2 |
+| empid | deptid | salary | rank |
 
 \+——-+——–+———-+——+
 
-9 rows in set (0.00 sec)
+| 1 | 10 | 5500.00 | 1 |
+
+| 2 | 10 | 4500.00 | 2 |
+
+| 4 | 20 | 4800.00 | 1 |
+
+| 3 | 20 | 1900.00 | 2 |
+
+| 7 | 40 | 44500.00 | 1 |
+
+| 6 | 40 | 14500.00 | 2 |
+
+| 5 | 40 | 6500.00 | 3 |
+
+| 9 | 50 | 7500.00 | 1 |
+
+| 8 | 50 | 6500.00 | 2 |
+
+\+——-+——–+———-+——+
+
+9 rows in set (0.00 sec)
 
 MySQL中取出每个分组中的前N条记录
 
-select a1.* from article a1
+select a1.* from article a1
 
-inner join
+inner join
 
-(select a.type,a.date from article a left join article b
+(select a.type,a.date from article a left join article b
 
-on a.type=b.type and a.date<=b.date
+on a.type=b.type and a.date<=b.date
 
-group by a.type,a.date
+group by a.type,a.date
 
-having count(b.date)<=2
+having count(b.date)<=2
 
 )b1
 
-on a1.type=b1.type and a1.date=b1.date
+on a1.type=b1.type and a1.date=b1.date
 
-order by a1.type,a1.date desc
+order by a1.type,a1.date desc
 
 >https://www.begtut.com/mysql/mysql-row-number-function.html

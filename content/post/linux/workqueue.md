@@ -1,9 +1,9 @@
-+++
-author = "-"
-date = "2021-05-05 20:18:07" 
-title = "workqueue"
+---
+author: "-"
+date: "2021-05-05 20:18:07" 
+title: "workqueue"
 
-+++
+---
 转自: http://bgutech.blog.163.com/blog/static/18261124320116181119889/
 1. 什么是workqueue
        Linux中的Workqueue机制就是为了简化内核线程的创建。通过调用workqueue的接口就能创建内核线程。并且可以根据当前系统CPU的个 数创建线程的数量，使得线程处理的事务能够并行化。workqueue是内核中实现简单而有效的机制，他显然简化了内核daemon的创建，方便了用户的 编程.

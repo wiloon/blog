@@ -44,24 +44,6 @@ bool racy_transfer(int& src, int& dst, int m)
 // 将下面两个函数在两个线程分别运行
 racy_transfer(your_account, my_account, 50);
 racy_transfer(your_account, my_account, 80);
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
 运行上面的的代码后，不光我们双方账号的余额不可预测，甚至整个系统会发生什么事情都无法保证。
 
 3.2.竞态条件的例子
@@ -85,26 +67,7 @@ bool unsafe_transfer(std::atomic<int>& src, std::atomic<int>& dst, int m)
 //将下面两个函数在两个线程分别运行
 unsafe_transfer(your_account, my_account, 50);//[A]
 unsafe_transfer(your_account, my_account, 80);//[B]
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
+
 上面代码中★所标注的就是竞态条件，也就是这时候m > src是完全有可能的。考虑以下三种情况: 
 
 [A]执行结束后，your_account == my_account == 50，[B]再开始执行，然而条件不满足，转账失败；
@@ -135,28 +98,6 @@ bool safe_transfer(int& src, int& dst, int m)
 //将下面两个函数在两个线程分别运行
 safe_transfer(your_account, my_account, 50);  // [A]
 safe_transfer(your_account, my_account, 80);  // [B]
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
 这样程序只会产生以下两种结果: 
 
 [A]执行结束后，your_account == my_account == 50，[B]再开始执行，然而条件不满足，转账失败: 

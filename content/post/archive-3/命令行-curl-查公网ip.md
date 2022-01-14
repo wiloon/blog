@@ -1,0 +1,44 @@
+---
+title: '命令行, curl  查公网ip'
+author: "-"
+date: 2019-05-07T03:18:01+00:00
+url: /?p=14300
+categories:
+  - Uncategorized
+
+---
+## '命令行, curl  查公网ip'
+```bash
+curl https://ip.cn
+curl icanhazip.com  
+curl ident.me  
+curl whatismyip.akamai.com  
+curl tnx.nl/ip  
+curl myip.dnsomatic.com 
+curl ifconfig.me  
+```
+
+https://blog.csdn.net/liu0808/article/details/80769810
+
+
+```bash
+curl ifconfig.me
+curl http://members.3322.org/dyndns/getip
+
+# 保存到文件 
+wget http://ifconfig.me/ip
+wget http://members.3322.org/dyndns/getip
+```
+
+http://blog.csdn.net/teddy17/article/details/12618035
+
+
+
+    curl http://myip.ipip.net/
+    curl cip.cc
+    curl ifconfig.me
+    curl myip.ipip.net
+    curl http://members.3322.org/dyndns/getip
+
+
+

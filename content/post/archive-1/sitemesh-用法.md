@@ -1,0 +1,290 @@
+---
+title: sitemesh 用法
+author: "-"
+date: 2012-12-07T09:14:15+00:00
+url: /?p=4842
+categories:
+  - Java
+  - Web
+
+---
+## sitemesh 用法
+装饰器 decorator概念
+
+建立可复用的web应用程序,一个通用的方法是建立一个分层系统,如同下面一个普通的web应用: 
+
+前端,front-end:JSP和Servlets,或jakarta的velocity
+
+控制层框架 Controller :  (Struts/Webwork)
+
+业务逻辑 Business : 主要业务逻辑
+
+持久化框架 : hibernate/jdo
+
+
+可糟糕的是前端的页面逻辑很难被复用,当你在每一个页面中用数之不尽的include来复用公共的header, stylesheet, scripts,footer时,一个问题出现了-重复的代码,每个页面必须用copy来复用页面结构,而当你需要创意性的改变页面结构时,灾难就爱上了你。
+
+
+sitemesh通过filter截取request和response,并给原始的页面加入一定的装饰(可能为header,footer...),然后把结果返回给客户端,并且被装饰的原始页面并不知道sitemesh的装饰,这也就达到了脱耦的目的。
+
+
+据说即将新出台的Portlet规范会帮助我们标准的实现比这些更多更cool的想法,但可怜的我还不懂它到底是一个什末东西,有兴趣的人可以研究
+
+jetspeed,或JSR (Java Specification Request) 168,但我想sitemesh如此简单,我们不妨先用着。
+
+让我们看看怎样配置环境
+
+除了要copy到WEB-INF/lib中的sitemesh.jar, copy到WEB-INF中的sitemesh-decorator.tld,sitemesh-page.tld文件外,还有2个文件要建立到WEB-INF/: 
+
+sitemesh.xml (可选)
+
+decorators.xml
+
+sitemesh.xml 可以设置2种信息:
+
+
+Page Parsers : 负责读取stream的数据到一个Page对象中以被SiteMesh解析和操作。(不太常用,默认即可)
+
+
+Decorator Mappers : 不同的装饰器种类,我发现2种比较有用都列在下面。一种通用的mapper,可以指定装饰器的配置文件名,另一种可打印的装饰器,可以允许你当用http://localhost/aaa/a.html?printable=true方式访问时给出原始页面以供打印(免得把header,footer等的花哨的图片也搭上)
+
+
+(但一般不用建立它,默认设置足够了: com/opensymphony/module/sitemesh/factory/sitemesh-default.xml) : 
+
+
+范例: 
+
+
+<sitemesh>
+
+<page-parsers>
+
+<parser default="true" class="com.opensymphony.module.sitemesh.parser.DefaultPageParser" />
+
+<parser content-type="text/html" class="com.opensymphony.module.sitemesh.parser.FastPageParser" />
+
+<parser content-type="text/html;charset=ISO-8859-1" class="com.opensymphony.module.sitemesh.parser.FastPageParser" />
+
+</page-parsers>
+
+
+<decorator-mappers>
+
+<mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper">
+
+<param name="config" value="/WEB-INF/decorators.xml" />
+
+</mapper>
+
+<mapper class="com.opensymphony.module.sitemesh.mapper.PrintableDecoratorMapper">
+
+<param name="decorator" value="printable" />
+
+<param name="parameter.name" value="printable" />
+
+<param name="parameter.value" value="true" />
+
+</mapper>
+
+</decorator-mappers>
+
+</sitemesh>
+
+decorators.xml : 定义构成复合视图的所有页面构件的描述(主要结构页面,header,footer...),如下例: 
+
+
+<decorators defaultdir="/_decorators">
+
+<decorator name="main" page="main.jsp">
+
+<pattern>*</pattern>
+
+</decorator>
+
+<decorator name="printable" page="printable.jsp" role="customer" webapp="aaa" />
+
+</decorators>
+
+defaultdir: 包含装饰器页面的目录
+
+page : 页面文件名
+
+name : 别名
+
+role : 角色,用于安全
+
+webapp : 可以另外指定此文件存放目录
+
+Patterns : 匹配的路径,可以用*,那些被访问的页面需要被装饰。
+
+
+最重要的是写出装饰器本身(也就是那些要复用页面,和结构页面)。
+
+其实,重要的工作就是制作装饰器页面本身(也就是包含结构和规则的页面),然后把他们描述到decorators.xml中。
+
+让我们来先看一看最简单的用法: 其实最常用也最简单的用法就是我们的hello例子,面对如此众多的技术,我想只要达到功能点到为止即可,没必要去研究太深(除非您有更深的需求)。
+
+
+<%@ page contentType="text/html; charset=GBK"%>
+
+<%@ taglib uri="sitemesh-decorator" prefix="decorator" %>
+
+
+<html>
+
+<head>
+
+<title><decorator:title default="装饰器页面..." /></title>
+
+<decorator:head />
+
+</head>
+
+<body>
+
+sitemesh的例子<hr>
+
+<decorator:body />
+
+<hr>chen56@msn.com
+
+</body>
+
+</html>
+
+我们在装饰器页面只用了2个标签: 
+
+
+<decorator:title default="装饰器页面..." /> :  把请求的原始页面的title内容插入到<title></title>中间。
+
+
+<decorator:body /> :  把请求的原始页面的body内的全部内容插入到相应位置。
+
+
+然后我们在decorator.xml中加入以下描述即可: 
+
+
+<decorator name="main" page="main.jsp">
+
+<pattern>*</pattern>
+
+</decorator>
+
+
+这样,请求的所有页面都会被重新处理,并按照main.jsp的格式重新展现在你面前。
+
+让我们看看更多的用法。(抄袭sitemesh文档)
+
+以下列着全部标签: 
+
+Decorator Tags Page Tags
+
+被用于建立装饰器页面. 被用于从原始内容页面访问装饰器.
+
+<decorator:head />
+
+<decorator:body />
+
+<decorator:title />
+
+<decorator:getProperty />
+
+<decorator:usePage />
+
+<page:applyDecorator />
+
+<page:param
+
+<decorator:head />
+
+
+插入原始页面(被包装页面)的head标签中的内容(不包括head标签本身)。
+
+
+<decorator:body />
+
+插入原始页面(被包装页面)的body标签中的内容。
+
+
+<decorator:title [ default="..." ] />
+
+
+插入原始页面(被包装页面)的title标签中的内容,还可以添加一个缺省值。
+
+
+例: 
+
+
+/_decorator/main.jsp中 （装饰器页面) : <title><decorator:title default="却省title-hello" /> - 附加标题</title>
+
+
+/aaa.jsp中 (原始页面): <title>aaa页面</title>
+
+
+访问/aaa.jsp的结果: <title>aaa页面 - 附加标题</title>
+
+
+<decorator:getProperty property="..." [ default="..." ] [ writeEntireProperty="..." ]/>
+
+
+在标签处插入原始页面(被包装页面)的原有的标签的属性中的内容,还可以添加一个缺省值。
+
+
+sitemesh文档中的例子很好理解: 
+
+The decorator: <body bgcolor="white"<decorator:getProperty property="body.onload" writeEntireProperty="true" />>
+
+The undecorated page: <body onload="document.someform.somefield.focus();">
+
+The decorated page: <body bgcolor="white" onload="document.someform.somefield.focus();">
+
+
+注意,writeEntireProperty="true"会在插入内容前加入一个空格。
+
+
+<decorator:usePage id="..." />
+
+象jsp页面中的<jsp:useBean>标签一样,可以使用被包装为一个Page对象的页面。 (懒的用)
+
+
+例: 可用<decorator:usePage id="page" /> : <%=page.getTitle()%>达到<decorator:title/>的访问结果。
+
+<page:applyDecorator name="..." [ page="..." title="..." ] >
+
+<page:param name="..."> ... </page:param>
+
+<page:param name="..."> ... </page:param>
+
+</page:applyDecorator>
+
+
+应用包装器到指定的页面上,一般用于被包装页面中主动应用包装器。这个标签有点不好理解,我们来看一个例子: 
+
+
+包装器页面 /_decorators/panel.jsp: <decorator:title /> ... <decorator:body />
+
+并且在decorators.xml中有<decorator name="panel" page="panel.jsp"/>
+
+
+一个公共页面,即将被panel包装: /_public/date.jsp:
+
+... <%=new java.util.Date()%> ...<decorator:getProperty property="myEmail" />
+
+
+被包装页面 /page.jsp : 
+
+<title>page的应用</title>
+
+.....
+
+<page:applyDecorator name="panel" page="/_public/date.jsp" >
+
+<page:param name="myEmail"> chen_p@neusoft.com </page:param>
+
+</page:applyDecorator>
+
+
+最后会是什末结果呢？除了/page.jsp会被默认的包装页面包装上header,footer外,page.jsp页面中还内嵌了date.jsp页面,并且此date.jsp页面还会被panel.jsp包装为一个title加body的有2段的页面,第1段是date.jsp的title,第2段是date.jsp的body内容。
+
+
+另外,page:applyDecorator中包含的page:param标签所声明的属性值还可以在包装页面中用decorator:getProperty标签访问到。

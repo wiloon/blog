@@ -1,7 +1,6 @@
 ---
 title: RPC，Webservice，RMI，JMS
 author: "-"
-type: post
 date: 2012-11-14T02:26:03+00:00
 url: /?p=4659
 categories:
@@ -94,13 +93,7 @@ jersey
   
 Apache Axis2
   
-RMI （Remote Method Invocation) 
 
-RMI 采用stubs 和 skeletons 来进行远程对象(remote object)的通讯。stub 充当远程对象的客户端代理，有着和远程对象相同的远程接口，远程对象的调用实际是通过调用该对象的客户端代理对象stub来完成的，通过该机制RMI就好比它是本地工作，采用tcp/ip协议，客户端直接调用服务端上的一些方法。优点是强类型，编译期可检查错误，缺点是只能基于JAVA语言，客户机与服务器紧耦合。
-
-JMS（Java Messaging Service) 
-
-JMS是Java的消息服务，JMS的客户端之间可以通过JMS服务进行异步的消息传输。JMS支持两种消息模型: Point-to-Point（P2P) 和Publish/Subscribe（Pub/Sub) ，即点对点和发布订阅模型。
 
 SOA
 
@@ -134,17 +127,14 @@ http://www.cnblogs.com/zengxlf/p/3193529.html
 
 几者的区别与联系
 
-1、RPC与RMI
+### RPC与RMI
 
-（1) RPC 跨语言，而 RMI只支持Java。
+1. RPC 跨语言，而 RMI只支持Java。
+2. RMI 调用远程对象方法，允许方法返回 Java 对象以及基本数据类型，而RPC 不支持对象的概念，传送到 RPC 服务的消息由外部数据表示 (External Data Representation, XDR) 语言表示，这种语言抽象了字节序类和数据类型结构之间的差异。只有由 XDR 定义的数据类型才能被传递， 可以说 RMI 是面向对象方式的 Java RPC 。
+3. 在方法调用上，RMI中，远程接口使每个远程方法都具有方法签名。如果一个方法在服务器上执行，但是没有相匹配的签名被添加到这个远程接口上，那么这个新方法就不能被RMI客户方所调用。
+4. 在RPC中，当一个请求到达RPC服务器时，这个请求就包含了一个参数集和一个文本值，通常形成"classname.methodname"的形式。这就向RPC服务器表明，被请求的方法在为 "classname"的类中，名叫"methodname"。然后RPC服务器就去搜索与之相匹配的类和方法，并把它作为那种方法参数类型的输入。这里的参数类型是与RPC请求中的类型是匹配的。一旦匹配成功，这个方法就被调用了，其结果被编码后返回客户方。
 
-（2) RMI 调用远程对象方法，允许方法返回 Java 对象以及基本数据类型，而RPC 不支持对象的概念，传送到 RPC 服务的消息由外部数据表示 (External Data Representation, XDR) 语言表示，这种语言抽象了字节序类和数据类型结构之间的差异。只有由 XDR 定义的数据类型才能被传递， 可以说 RMI 是面向对象方式的 Java RPC 。
-
-（3) 在方法调用上，RMI中，远程接口使每个远程方法都具有方法签名。如果一个方法在服务器上执行，但是没有相匹配的签名被添加到这个远程接口上，那么这个新方法就不能被RMI客户方所调用。
-
-在RPC中，当一个请求到达RPC服务器时，这个请求就包含了一个参数集和一个文本值，通常形成"classname.methodname"的形式。这就向RPC服务器表明，被请求的方法在为 "classname"的类中，名叫"methodname"。然后RPC服务器就去搜索与之相匹配的类和方法，并把它作为那种方法参数类型的输入。这里的参数类型是与RPC请求中的类型是匹配的。一旦匹配成功，这个方法就被调用了，其结果被编码后返回客户方。
-
-2、JMS和RMI
+### JMS和RMI
 
 采用JMS 服务，对象是在物理上被异步从网络的某个JVM 上直接移动到另一个JVM 上（是消息通知机制) 
 
@@ -156,13 +146,13 @@ JMS 一般只是一个点发出一个Message到Message Server,发出之后一般
 
 所以，一般RMI的应用是紧耦合，JMS的应用相对来说是松散耦合应用。
 
-3、Webservice与RMI
+3. Webservice与RMI
 
 RMI是在tcp协议上传递可序列化的java对象，只能用在java虚拟机上，绑定语言，客户端和服务端都必须是java
 
 webservice没有这个限制，webservice是在http协议上传递xml文本文件，与语言和平台无关
 
-4、Webservice与JMS
+4. Webservice与JMS
 
 Webservice专注于远程服务调用，jms专注于信息交换。
 
@@ -205,3 +195,55 @@ RPC(远程调用框架) 是一种允许分布式应用程序调用网络上不�
 从上面我们可以看出，REST 和 SOAP、RPC 有何区别呢？没什么太大区别，他们的本质都是提供可支持分布式的基础服务，最大的区别在于他们各自的的特点所带来的不同应用场景。
 
 REST可以看着是http协议的一种直接应用，默认基于json作为传输格式，使用简单，学习成本低效率高，但是安全性较低，而SOAP可以看着是一个重量级的协议，基于xml，SOAP在安全方面是通过使用XML-Security和XML-Signature两个规范组成了WS-Security来实现安全控制的，当前已经得到了各个厂商的支持，.net ，php ，java 都已经对其有了很好的支持 。这是REST薄弱的地方。
+
+
+## RPC (Remote Procedure Call), RMI, Web Services, JMS
+
+1. RPC: RPC本身没有规范,但基本的工作机制是一样的，即: serialization/deserialization + stub + skeleton, 宽泛的讲，只要能实现远程调用，都是RPC，如: rmi, .net-remoting, ws/soap/rest, hessian, xmlrpc, thrift, potocolbuffer
+### RMI, Remote Method Invocation
+RMI 是一种PRC. java的RMI就是java平台上的RPC技术方案。  
+RMI是远程方法调用（Remote Method Invocation) 的简称，其是一种计算机之间利用远程对象互相调用实现双方通讯的一种通讯机制，它能够让一个Java虚拟机上的对象调用另一个Java虚拟机上对象的方法。Java RMI在JDK1.1中实现的，其它可以被看作是RPC的Java版本。但是传统RPC并不能很好地应用于分布式对象系统。而Java RMI 则支持存储于不同地址空间的程序级对象之间彼此进行通信，实现远程对象之间的无缝远程调用。
+
+RMI相对于其它比较复杂的RPC要简单的多（比如 Thrift、Grpc、Protoff等) ，本文仅仅简单阐述了其组成、实现原理图、代码示例。如果想深入学习和了解，可以自行解读源码或参照其它解读文档。
+  
+局限性
+  
+相比于其它RPC(Thrift、Grpc等)，RMI存在许多的缺点: 
+
+RMI只能实现JAVA系统之间的调用，而WebService可以实现跨语言实现系统之间的调用。
+
+RMI使用了JAVA默认的序列化方式，对于性能要求比较高的系统，可能需要其他的序列化方案来解决。
+
+RMI服务在运行时难免会存在故障，例如，如果RMI服务无法连接了，就会导致客户端无法响应的现象。
+
+RMI服务是基于远程接口提供的服务，一旦远程接口名称或者参数发生变化，客户端程序必须作出相应改变才能保证系统的稳定。
+ 
+RMI 采用stubs 和 skeletons 来进行远程对象(remote object)的通讯。stub 充当远程对象的客户端代理，有着和远程对象相同的远程接口，远程对象的调用实际是通过调用该对象的客户端代理对象stub来完成的，通过该机制RMI就好比它是本地工作，采用tcp/ip协议，客户端直接调用服务端上的一些方法。优点是强类型，编译期可检查错误，缺点是只能基于JAVA语言，客户机与服务器紧耦合。
+
+RMI TCP connection  
+to feed a remote JMX client (in your case Java VisualVM) with data from JVM.    
+https://stackoverflow.com/questions/40793580/what-is-rmi-tcp-connection
+
+### JMS（Java Messaging Service) 
+
+JMS是Java的消息服务，JMS的客户端之间可以通过JMS服务进行异步的消息传输。JMS支持两种消息模型: Point-to-Point（P2P) 和Publish/Subscribe（Pub/Sub) ，即点对点和发布订阅模型。
+
+3. JMS 是 java 平台上的消息规范。一般jms消息不是一个xml，而是一个java对象，很明显，jms没考虑异构系统，说白了，JMS就没考虑非java的东西。但是好在现在大多数的jms provider（就是JMS的各种实现产品) 都解决了异构问题。
+4. soap 专注于远程服务调用，jms专注于信息交换。
+5. 大多数情况下soap是两系统间的直接交互（Consumer <-> Producer) ，而大多数情况下jms是三方系统交互（Consumer <- Broker -> Producer) 。当然，JMS也可以实现request-response模式的通信，只要Consumer或Producer其中一方兼任broker即可。
+6. 多数情况下，ws是同步的，jms是异步。虽然，ws也可以是异步的，而jms也可以是同步的。
+
+## JAX-RPC
+通过使用JAX-RPC (Java API for XML-based RPC)，已有的Java类或Java应用都能够被重新包装，并以Web Services的形式发布。JAX-RPC提供了将RPC参数(in/out)编码和解码的API，使开发人员可以方便地使用SOAP消息来完成RPC调用。同样，对于那些使用EJB(Enterprise JavaBeans)的商业应用而言，同样可以使用JAX-RPC来包装成Web服务，而这个Web Service的WSDL界面是与原先的EJB的方法是对应一致的。JAX-RPC为用户包装了Web服务的部署和实现，对Web服务的开发人员而言，SOAP/WSDL变得透明，这有利于加速Web服务的开发周期。
+
+JAX-RPC (基于可扩展标记语言XML的远程过程调用的Java应用程序接口)是Java Web服务开发包(WSDP)的应用程序接口(API)，WSDP能使Java开发者在Web服务或其他的Web应用程序中包括远程过程调用(RPC)。JAX-RPC致力于要使应用程序或Web服务调用其他应用程序或Web服务变得更加容易。
+
+JAX-RPC为基于SOAP(简单对象访问协议)的应用程序的开发提供了一个编程模型。JAX-RPC编程模型通过抽象SOAP协议层的运行机制与提供Java和Web服务描述语言(WSDL)间的映射服务来简化开发。
+
+---
+
+版权声明: 本文为CSDN博主「皮斯特劳沃」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+  
+原文链接: https://blog.csdn.net/pistolove/article/details/64122191
+
+
