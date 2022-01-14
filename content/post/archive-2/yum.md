@@ -1,11 +1,12 @@
 ---
-title: yum command
+title: yum
 author: "-"
 date: 2017-07-21T01:42:58+00:00
 url: yum
 categories:
   - Uncategorized
-
+tags:
+  - remix
 ---
 ## yum command
 ### 按版本安装
@@ -76,7 +77,17 @@ https://www.howtoing.com/exclude-packages-from-yum-update
 ### 清除metadata
     run yum --enablerepo=updates clean metadata
 
----
+### yum 安装报错“rpmdb: BDB0113”
+```
+error: rpmdb: BDB0113 Thread/process ****/************* failed: BDB1507 Thread died in Berkeley DB library
+error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
+error: cannot open Packages index using db5 -  (-30973)
+error: cannot open Packages database in /var/lib/rpm
+```
+```bash
+rm -f /var/lib/rpm/__db*
+rpm --rebuilddb
+```
 
 https://my.oschina.net/andyfeng/blog/601291
   
