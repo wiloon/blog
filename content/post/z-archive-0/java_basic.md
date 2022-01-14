@@ -10,6 +10,16 @@ tags:
 
 ---
 ## java basic
+### JDK和JRE的区别
+JRE：Java Runtime Environment 的简称，java 运行时环境，为 java 的运行提供了所需环境。
+- Java 虚拟机
+JDK：Java Development Kit 的简称，java 开发工具包，提供了 java 的开发环境和运行环境。
+- 包含了JRE
+- 编译器: javac
+- 其他的工具: JavaDoc，Java调试器(jdb), jcmd
+
+>http://www.wiloon.com/jdk-jre
+
 ### 面向对象的三个基本特征: 封装、继承、多态。
 #### 封装:
 封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。
@@ -59,17 +69,6 @@ Java虚拟机是一个可以执行Java字节码的虚拟机进程。Java源文�
 Java被设计成允许应用程序可以运行在任意的平台，而不需要程序员为每一个平台单独重写或者是重新编译。Java虚拟机让这个变为可能，因为它知道底层硬件平台的指令长度和其他特性。
 
 
-### JDK和JRE的区别
-
-Java运行时环境(JRE)是将要执行Java程序的Java虚拟机。它同时也包含了执行applet需要的浏览器插件。Java开发工具包(JDK)是完整的Java软件开发包，包含了JRE，编译器和其他的工具(比如: JavaDoc，Java调试器)，可以让开发者开发、编译、执行Java应用程序。
-
-
-  
-    JRE和JDK的区别
-  
-
-
-http://www.wiloon.com/?p=5857&embed=true#?secret=c1aIkVgiDE
 
 
 ### static 关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？

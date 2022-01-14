@@ -2,11 +2,11 @@
 title: JRE和JDK的区别
 author: "-"
 date: 2013-10-20T04:59:53+00:00
-url: /?p=5857
+url: jdk-jre
 categories:
-  - Uncategorized
+  - java
 tags:
-  - Java
+  - java
 
 ---
 ## JRE和JDK的区别
