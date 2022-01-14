@@ -13,4 +13,4 @@ File > Options > Advanced > Export > Export to a file > Next > Outlook Data File
 选择存放导出的pst文件的目标目录 （Save exported file as:) 
 点击 Finish
 不设置 密码 点击 确定 
-
+等进度条走完
