@@ -6,6 +6,8 @@ url: jdk
 
 ---
 ## jdk, openjdk
+http://openjdk.java.net/projects/jdk/
+
 ### archlinux 
 ```bash
 sudo pacman -S jdk-openjdk
@@ -15,6 +17,15 @@ sudo pacman -S jdk8-openjdk openjdk8-src
 archlinux-java status
 sudo archlinux-java set java-11-openjdk
 ```
+
+### 切换jdk版本
+    archlinux-java help
+    archlinux-java status
+    archlinux-java set  java-14-openjdk
+
+### 查看当前 java 版本
+    java -version
+    sudo archlinux-java status
 
 ### ubuntu
     sudo apt install openjdk-8-jdk
@@ -76,3 +87,14 @@ https://docs.oracle.com/javase/specs/index.html
 
 ### jdk source code
 https://github.com/openjdk/jdk
+
+
+
+### /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/libatk-wrapper.so
+Java ATK Wrapper is a implementation of ATK by using JNI technic.
+It converts Java Swing events into ATK events, and sends these events to
+ATK-Bridge.
+https://developer.gnome.org/accessibility-devel-guide/stable/dev-start-5.html.zh_CN
+
+https://blog.csdn.net/oschina_40188932/article/details/78833754
+

@@ -31,8 +31,7 @@ subprocess.call(command,shell=True)
 
 2.2   subprocess.Popen(command, shell=True)
 
-如果command不是一个可执行文件，shell=True不可省。
-
+如果 command 不是一个可执行文件，shell=True 不可省。
 
 使用subprocess模块可以创建新的进程，可以与新建进程的输入/输出/错误管道连通，并可以获得新建进程执行的返回状态。使用subprocess模块的目的是替代os.system()、os.popen\*()、commands.\*等旧的函数或模块。
 

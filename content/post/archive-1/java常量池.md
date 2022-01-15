@@ -8,7 +8,6 @@ categories:
 
 ---
 ## Java 常量池
-一.相关概念
 
 什么是常量
   
@@ -16,7 +15,7 @@ categories:
   
 final修饰的变量有三种: 静态变量、实例变量和局部变量，分别表示三种类型的常量。
 
-Class文件中的常量池
+### Class 文件中的常量池
   
 在Class文件结构中，最头的4个字节用于存储魔数Magic Number，用于确定一个文件是否能被JVM接受，再接着4个字节用于存储版本号，前2个字节存储次版本号，后2个存储主版本号，再接着是用于存放常量的常量池，由于常量的数量是不固定的，所以常量池的入口放置一个U2类型的数据(constant_pool_count)存储常量池容量计数值。
   
@@ -30,7 +29,7 @@ Class文件中的常量池
   
 方法区中的运行时常量池
   
-运行时常量池是方法区的一部分。
+### 运行时常量池是方法区的一部分。
   
 CLass文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。
   
@@ -329,3 +328,5 @@ true true true true false true
 http://www.jianshu.com/p/c7f47de2ee80
   
 https://tangxman.github.io/2015/07/27/the-difference-of-java-string-pool/
+
+>https://cloud.tencent.com/developer/article/1450501

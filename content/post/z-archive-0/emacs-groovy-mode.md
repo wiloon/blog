@@ -1,12 +1,24 @@
 ---
-title: emacs groovy mode
+title: javac, java
 author: "-"
 date: 2012-04-17T14:05:16+00:00
-url: /?p=2956
+url: javac
 categories:
-  - Development
-  - Emacs
+  - java
 
 ---
-## emacs groovy mode
-<http://groovy.codehaus.org/Emacs+Groovy+Mode>
+## javac, java
+```java
+public class Helloworld{
+	public static void main(String[] args) {
+		System.out.println("hello world");
+	}
+}
+```
+
+```bash
+javac Helloworld.java
+java Helloworld
+```
+
+>https://zhuanlan.zhihu.com/p/36529847

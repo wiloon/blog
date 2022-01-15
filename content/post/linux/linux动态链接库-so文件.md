@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Linux动态链接库.so文件
-**http://blog.csdn.net/ithomer/article/details/7346146**
+>http://blog.csdn.net/ithomer/article/details/7346146
 
 **1. 介绍
   

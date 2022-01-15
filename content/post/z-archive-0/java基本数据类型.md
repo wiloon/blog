@@ -2,7 +2,7 @@
 title: java 基本数据类型， primitive type
 author: "-"
 date: 2012-09-19T08:44:40+00:00
-url: /?p=4095
+url: java/primitive
 categories:
   - Java
 

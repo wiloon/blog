@@ -1,5 +1,5 @@
 ---
-title: Linux 文件权限
+title: 文件权限
 author: "-"
 date: 2015-02-06T03:25:31+00:00
 url: /?p=7325
@@ -16,11 +16,11 @@ tags:
     rwx 7
     rw- 6
     r-x 5
-    r- 4
+    r-- 4
     -wx 3
     -w- 2
-    -x 1
-    - 0
+    -x- 1
+    --- 0
 
 
 http://zhangfeikr.blog.51cto.com/1999170/396541

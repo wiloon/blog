@@ -213,7 +213,7 @@ unix具体编译的例子:
 gcc x.c y.c z.c -fPIC -shared -o libtest.so
 
 
-# 将main.c和动态连接库进行连接生成可执行文件
+将main.c和动态连接库进行连接生成可执行文件
 
 gcc main.c -L. -ltest -o main
 

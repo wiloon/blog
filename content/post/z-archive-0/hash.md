@@ -1,17 +1,21 @@
 ---
-title: Java Equals , hashCode
-author: lcf
+title: hash, hashCode, 哈希, 散列
+author: "-"
 date: 2012-09-26T06:48:17+00:00
 url: hashCode
 categories:
   - java
 
 ---
-## Java Equals , hashCode
-hashcode 方法返回该对象的哈希码值。支持该方法是为哈希表提供一些优点，例如，java.util.Hashtable 提供的哈希表。
+## hash, hashCode, 哈希, 散列
+Hash，一般直接音译成“哈希”，按真正含义译作“散列”比较合适。通过散列算法，把任意长度的输入，转换成固定长度的输出，输出就叫做散列值（hashCode）。这种转换是一种压缩映射，也就是说，散列值所占用的空间通常远小于输入值所占用的空间，不同的输入可能会有相同的散列值。散列的目的，在于尽量分散数据的存储位置，使数据散列在不同的哈希桶(bucket)中。
 
-hashCode 的常规协定是: 
-  
+hashCode：是一串固定长度的整型的数字，hashCode可以由hash函数生成。hash函数常用的算法有：直接取余法、乘法取整法、平方取中法等。由hashCode可以得到对象在hash表中的位置
+
+hashMap、hashTable：都是基于hash表实现的，都通过单链表解决数据通途的问题。二者很类似，但是也有很明显的区别。
+
+hashcode() 方法返回该对象的哈希码值。
+
 在 Java 应用程序执行期间，在同一对象上多次调用 hashCode 方法时，必须一致地返回相同的整数，前提是对象上 equals 比较中所用的信息没有被修改。从某一应用程序的一次执行到同一应用程序的另一次执行，该整数无需保持一致。
   
 如果根据 equals(Object) 方法，两个对象是相等的，那么在两个对象中的每个对象上调用 hashCode 方法都必须生成相同的整数结果。
@@ -408,3 +412,6 @@ return builder.toHashCode();
 https://www.oschina.net/question/82993_75533
   
 http://blog.csdn.net/fenglibing/article/details/8905007
+————————————————
+版权声明：本文为CSDN博主「baigp」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/u010476994/article/details/80049715

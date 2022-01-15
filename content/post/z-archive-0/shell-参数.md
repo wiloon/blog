@@ -62,4 +62,4 @@ exit
   
 fi
 
-##判断相等"==" , 两侧一定要有空格 T_T, 否则会报"unary operator expected "
+判断相等"==" , 两侧一定要有空格 T_T, 否则会报 "unary operator expected "

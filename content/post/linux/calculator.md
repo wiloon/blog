@@ -1,28 +1,34 @@
 ---
-title: 'Linux下的计算器  (bc、expr、dc、echo、awk)'
+title: 计算器  (bc、expr、dc、echo、awk)
 author: "-"
 date: 2012-03-18T04:41:13+00:00
-url: /?p=2575
+url: calculator
 categories:
   - Linux
 
 ---
-## 'Linux下的计算器  (bc、expr、dc、echo、awk)'
-bc
-  
+## Linux下的计算器  (bc、expr、dc、echo、awk)
+### bc
+```bash
+# install bc
+sudo pacman -S bc
+# 将16进制的A7输出为10进制, 注意，英文只能大写
+echo "ibase=16;A7" |bc
+
+```
 bc在默认的情况下是个交互式的指 令。在bc工作环境下，可以使用以下计算符号: 
   
-+ 加法
-  
-– 减法
-  
-* 乘法
-  
-/ 除法
-  
-^ 指数
-  
-% 余数
+    + 加法
+      
+    – 减法
+      
+    * 乘法
+      
+    / 除法
+      
+    ^ 指数
+      
+    % 余数
   
 如: 
 
@@ -94,9 +100,7 @@ A.用echo和|法，如:
   
 如: 
   
-//将16进制的A7输出为10进制, 注意，英文只能大写
 
-# echo "ibase=16;A7" |bc
 
 //将2进制的11111111转成10进制
 

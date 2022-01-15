@@ -85,3 +85,41 @@ file2.txt
 至于getResouce()方法的参数，你以class为出发点，再结合相对路径的概念，就可以准确地定位资源文件了，至于它的根目录嘛，你用不同的IDE build出来是不同的位置下的，不过都是以顶层package作为根目录，比如在Web应用中，有一个WEB-INF的目录，WEB-INF目录里面除了web.xml文件外，还有一个classes目录，没错了，它就是你这个WEB应用的package的顶层目录，也是所有.class的根目录"/"，假如clasaes目录下面有一个file.txt文件，它的相对路径就是"/file.txt"，如果相对路径不是以"/"开头，那么它就是相对于.class的路径。。
 
 还有一个getResourceAsStream()方法，参数是与getResouce()方法是一样的，它相当于你用getResource()取得File文件后，再new InputStream(file)一样的结果
+
+
+```java
+    //java getResource
+
+    URL url= Thread.currentThread().getContextClassLoader().getResource("XXX");
+
+    String fileName = this.getClass().getClassLoader().getResource("文件名").getPath();//获取文件路径
+    String fileUtl = this.getClass().getResource("文件名").getFile();
+    （在项目打成jar后的情况下getPath()与getFile()返回参数及用法的基本相同具体差异大研究) 
+    示例路径结果: /E:/idea_work/sofn-qry-web/target/classes/CityJson.js
+
+    //console read
+
+    System.in.read();
+```
+
+
+方式二: 
+File directory = new File("");//参数为空
+String courseFile = directory.getCanonicalPath()//标准的路径 ;
+String author =directory.getAbsolutePath()//绝对路径;
+（在jdk1.1后就有了此方法获取文件路径的方式存在了) 
+示例路径结果: E:\idea_work\sofn-qry-web
+
+方式三: 
+java.net.URL uri = this.getClass().getResource("/");
+（获取到Class文件存放的路径) 
+示例路径结果: file:/E:/idea_work/sofn-qry-web/target/test-classes/
+
+
+String property =System.getProperty("user.dir");
+方式四: 
+
+String property =System.getProperty("user.dir");
+（此方法可以得到该工程项目所有文件的相关路径及环境配置信息) 
+示例输出结果: 
+
