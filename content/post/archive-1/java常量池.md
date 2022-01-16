@@ -2,9 +2,9 @@
 title: Java 常量池
 author: "-"
 date: 2013-03-06T06:37:47+00:00
-url: /?p=5317
+url: constantpool
 categories:
-  - Uncategorized
+  - java
 
 ---
 ## Java 常量池
