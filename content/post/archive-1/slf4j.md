@@ -505,7 +505,7 @@ categories:
                   
                   
                   
-                    log.info("Hello JCL");  </tbody>  
+                    log.info("Hello JCL");    
                     
                     
                       从上面的对比来看，SLF4j+Log4j 与 JCL+Log4J 的使用方式差不多，主要差异就在 SLF4J 用 jar 来告知用哪种日志实现，而 JCL 是通过配置文件来获得该选择哪个日志实现。

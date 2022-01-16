@@ -129,6 +129,7 @@ List list = Collections.synchronizedList(new LinkedList(...));
 对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。
 
 
+
 ### ArrayList类
 ArrayList实现了可变大小的数组。它允许所有元素，包括null。ArrayList没有同步。
   
@@ -138,6 +139,7 @@ size，isEmpty，get，set方法运行时间为常数。但是add方法开销为
   
 和LinkedList一样，ArrayList也是非同步的（unsynchronized) 。
 
+ArrrayList底层的数据结构是数组，支持随机访问，而 LinkedList 的底层数据结构是双向循环链表，不支持随机访问。使用下标访问一个元素，ArrayList 的时间复杂度是 O(1)，而 LinkedList 是 O(n)。
 
 ### Vector
 对比于Array，当更多的元素被加入进来以至超出其容量时，Vector的size会动态增长，而Array容量是定死的。
@@ -147,6 +149,8 @@ Vector在删除一些元素后，其所有下标大于被删除元素的元素�
 Vector内部实际是以Array实现的，也通过元素的整数索引来访问元素，但它只能存放java.lang.Object对象，不能用于存放基本类型数据，比如要存放一个整数10,得用new Integer(10)构造出一个Integer包装类对象再放进去。当Vector中的元素个数发生变化时, 其内部的Array必须重新分配并进行拷贝，因此这是一点值得考虑的效率问题。
   
 Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在: **Vector is synchronized**. 即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素) ，这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
+
+Vector 由于使用了synchronized方法（线程安全) ，通常性能上较 ArrayList 差，
 
 ### Stack 类
 Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得 Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。

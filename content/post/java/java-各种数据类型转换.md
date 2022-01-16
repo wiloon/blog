@@ -2,7 +2,7 @@
 title: java 各种数据类型转换
 author: "-"
 date: 2012-05-29T03:05:36+00:00
-url: /?p=3285
+url: java/convert
 categories:
   - Java
 
@@ -155,8 +155,8 @@ System.out.println("Formatted LocalDateTime : " + formattedDateTime);
 
 
 ### array > list
-
-#### List list = Arrays.asList(strArray);
+```java
+List list = Arrays.asList(strArray);
 
         private void testArrayCastToListError() {
                 String[] strArray = new String[2];
@@ -165,8 +165,7 @@ System.out.println("Formatted LocalDateTime : " + formattedDateTime);
                 list.add("1");
                 System.out.println(list);
             }
-
-#### ArrayList<String> list = new ArrayList<String>(Arrays.asList(strArray)) ;
+ArrayList<String> list = new ArrayList<String>(Arrays.asList(strArray)) ;
 
         private void testArrayCastToListRight() {
                 String[] strArray = new String[2];
@@ -174,6 +173,13 @@ System.out.println("Formatted LocalDateTime : " + formattedDateTime);
                 list.add("1");
                 System.out.println(list);
             }
+
+```
+### list > array
+```java
+ArrayList.toArray
+```
+
 
 #### Collections.addAll()方法(最高效)
 
