@@ -76,7 +76,7 @@ fileChannel.map(FileChannel.MapMode mode, long position, long size)将此通道�
   
 MappedByteBuffer是ByteBuffer的子类,因此它具备了ByteBuffer的所有方法,但新添了force()将缓冲区的内容强制刷新到存储设备中去、load()将存储设备中的数据加载到内存中、isLoaded()位置内存中的数据是否与存储设置上同步。这里只简单地演示了一下put()和get()方法,除此之外,你还可以使用asCharBuffer( )之类的方法得到相应基本类型数据的缓冲视图后,可以方便的读写基本类型数据。
 
-view plaincopy
+
 
 import java.io.RandomAccessFile;
   
@@ -128,7 +128,7 @@ fc.close();
 
 RandomAccessFile类的应用: 
 
-view plaincopy
+
 
 /*
    
@@ -210,7 +210,7 @@ System.out.println("复制完成！");
   
 RandomAccessFile 插入写示例: 
 
-view plaincopy
+
 
 /**
    

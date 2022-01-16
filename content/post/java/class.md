@@ -2,7 +2,7 @@
 title: Class 文件内容, 方法区, 常量池
 author: "-"
 date: 2012-04-15T13:05:03+00:00
-url: /?p=2937
+url: class
 categories:
   - Java
 

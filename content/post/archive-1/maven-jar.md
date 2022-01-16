@@ -45,7 +45,7 @@ true</addClasspath>
 
 [html][/html]
 
-view plaincopy
+
 
 <build>
   
@@ -161,7 +161,7 @@ true</attach>
 
 [html][/html]
 
-view plaincopy
+
 
 <build>
   

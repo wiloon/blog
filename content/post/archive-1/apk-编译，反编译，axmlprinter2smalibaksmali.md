@@ -36,9 +36,9 @@ java -jar AXMLPrinter2.jar main.xml > main.txt. (如下图所示)
 
 打开main.txt代码如下(是不是有个123了呵呵~):
 
-[java][/java]
 
-view plaincopy
+
+
 
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -52,9 +52,9 @@ view plaincopy
 
 为了比对打开源程序中的main.xml代码如下(大家比对一下吧):
 
-[java][/java]
 
-view plaincopy
+
+
 
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -92,9 +92,9 @@ java -jar baksmali.jar -o classout/ classes.dex .(如下图所示:)
 
 下面我们看一下ApkInstaller.smali内容是什么,如以下代码: 
 
-[java][/java]
 
-view plaincopy
+
+
 
 .class public Lcom/tutor/apkinstaller/ApkInstaller;
 
@@ -190,9 +190,9 @@ return-void
 
 同样为了比对我们看一下ApkInstaller.java的源代码如下:
 
-[java][/java]
 
-view plaincopy
+
+
 
 package com.tutor.apkinstaller;
 

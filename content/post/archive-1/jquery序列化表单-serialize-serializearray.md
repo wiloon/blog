@@ -30,7 +30,7 @@ Demo
 
 [html][/html]
 
-view plaincopy
+
   
 <form id="myform">
   
@@ -94,7 +94,7 @@ view plaincopy
 
 [javascript][/javascript]
 
-view plaincopy
+
   
 $(function() {
   

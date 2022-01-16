@@ -6,7 +6,6 @@ url: dev
 
 ---
 ## dev
-### stack
 #### 语言
 - Java, jdk8
 - Golang

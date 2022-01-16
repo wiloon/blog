@@ -2,16 +2,18 @@
 title: Collection List Set Map 区别
 author: lcf
 date: 2012-09-25T06:53:50+00:00
-url: /?p=4280
+url: collection
 categories:
   - Java
 
 ---
 ## Collection List Set Map 区别
 
-  这些都代表了Java中的集合，这里主要从其元素是否有序，是否可重复来进行区别记忆，以便恰当地使用，当然还存在同步方面的差异，见上一篇相关文章。
 
-|          |有序否|允许元素重复否|
+这些都代表了Java中的集合，这里主要从其元素是否有序，是否可重复来进行区别记忆，以便恰当地使用，当然还存在同步方面的差异，见上一篇相关文章。
+
+||有序否|允许元素重复否|
+|-|-|-|
 |Collection|否|是|
 |List|是|是|
 |Set|是|是|

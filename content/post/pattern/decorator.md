@@ -302,20 +302,20 @@ compound.printDescription();
   
 在谈及软件中的结构，一般会用UML图表示（UML和ANT、JUnit等都是软件设计中基本的工具，会了没有啊！) 。下面是一个我们经常看到的关于Decorator模式的结构图。
 
-  1. Component就是装饰器模式中公共方法的类，在装饰器模式结构图的顶层。
-  2. ConcreateComponent是转换器模式中具体的被装饰的类，IO包中的媒体流就是此种对象。
-  3. Decorator装饰器模式中的核心对象，所有具体装饰器对象的父类，完成装饰器的部分职能。在上面的例子中Decorator类和这里的对应。该类可以只做一些简单的包裹被装饰的对象，也可以还包含对Component中方法的实现……他有一个鲜明的特点: 继承至Component，同时包含一个Component作为其成员变量。装饰器模式动机中的动态地增加功能是在这里实现的。
-  4. ConcreteDecoratorA和ConcreteDecoratorB是两个具体的装饰器对象，他们完成具体的装饰功能。装饰功能的实现是通过调用被装饰对象对应的方法，加上装饰对象自身的方法。这是装饰器模式动机中的添加额外功能的关键。
+1. Component就是装饰器模式中公共方法的类，在装饰器模式结构图的顶层。
+2. ConcreateComponent是转换器模式中具体的被装饰的类，IO包中的媒体流就是此种对象。
+3. Decorator装饰器模式中的核心对象，所有具体装饰器对象的父类，完成装饰器的部分职能。在上面的例子中Decorator类和这里的对应。该类可以只做一些简单的包裹被装饰的对象，也可以还包含对Component中方法的实现……他有一个鲜明的特点: 继承至Component，同时包含一个Component作为其成员变量。装饰器模式动机中的动态地增加功能是在这里实现的。
+4. ConcreteDecoratorA和ConcreteDecoratorB是两个具体的装饰器对象，他们完成具体的装饰功能。装饰功能的实现是通过调用被装饰对象对应的方法，加上装饰对象自身的方法。这是装饰器模式动机中的添加额外功能的关键。
 
 从上面图中你可能还会发现: ConcreteDecoratorA和ConcreteDecoratorB的方法不一样，这就是一般设计模式中谈及装饰器模式的"透明装饰器"和"不透明装饰器"。"透明装饰器"就是整个Decorator的结构中所有的类都保持同样的"接口"（这里是共同方法的意思) ，这是一种极其理想的状况，就像餐饮的例子一样。现实中绝大多数装饰器都是"不透明装饰器"，他们的"接口"在某些子类中得到增强，主要看这个类与顶层的抽象类或者接口是否有同样的公共方法。IO中的ByteArrayInputStream就比Inputstrem抽象类多一些方法，因此IO中的装饰器是一个"不通明装饰器"。下面是IO中输入字节流部分的装饰器的结构图。
 
-  1. InputStream是装饰器的顶层类，一个抽象类！包括一些共有的方法，如: 1.读方法――read（3个) ；2.关闭流的方法――close；3.mark相关的方法――mark、reset和markSupport；4.跳跃方法――skip；5.查询是否还有元素方法――available。图中红色的表示。
-  2. FileInputStream、PipedInputStream…五个紫色的，是具体的被装饰对象。从他们的"接口"中可以看出他们一般都有额外的方法。
-  3. FilterInputStream是装饰器中的核心，Decorator对象，图中蓝色的部分。
-  4. DataInputStream、BufferedInputStream…四个是具体的装饰器，他们保持了和InputStream同样的接口。
-  5. ObjectInputStream是IO字节输入流中特殊的装饰器，他不是FilterInputStream的子类（不知道Sun处于何种意图不作为FileterInputStream的子类，其中流中也有不少的例子) 。他和其他FilterInputStream的子类功能相似都可以装饰其他对象。
+1. InputStream是装饰器的顶层类，一个抽象类！包括一些共有的方法，如: 1.读方法――read（3个) ；2.关闭流的方法――close；3.mark相关的方法――mark、reset和markSupport；4.跳跃方法――skip；5.查询是否还有元素方法――available。图中红色的表示。
+2. FileInputStream、PipedInputStream…五个紫色的，是具体的被装饰对象。从他们的"接口"中可以看出他们一般都有额外的方法。
+3. FilterInputStream是装饰器中的核心，Decorator对象，图中蓝色的部分。
+4. DataInputStream、BufferedInputStream…四个是具体的装饰器，他们保持了和InputStream同样的接口。
+5. ObjectInputStream是IO字节输入流中特殊的装饰器，他不是FilterInputStream的子类（不知道Sun处于何种意图不作为FileterInputStream的子类，其中流中也有不少的例子) 。他和其他FilterInputStream的子类功能相似都可以装饰其他对象。
   
-    IO包中不仅输入字节流是采用装饰器模式、输出字节流、输入字符流和输出字符流都是采用装饰器模式。关于IO中装饰器模式的实现可以通过下面的源代码分析从而了
+    IO包中不仅输入字节流是采用装饰器模式、输出字节流、输入字符流和输出字符流都是采用装饰器模式。
 
 为什么使用Decorator?
   

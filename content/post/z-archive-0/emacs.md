@@ -76,3 +76,10 @@ M-; 注释一行
 
 ## emacs groovy mode
 <http://groovy.codehaus.org/Emacs+Groovy+Mode>
+
+## 'Emacs, How to Define Keyboard Shortcuts'
+(global-set-key (kbd "C-c o") 'COMMAND);test
+
+## emacs 换行
+在替换里面 c-q c-j表示换行
+

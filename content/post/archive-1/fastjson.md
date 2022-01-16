@@ -45,11 +45,11 @@ public void setcolor(String color) { this.color = color; }
 
 }
 
-[java][/java]
 
-[java][/java]
 
-view plaincopy
+
+
+
   
 public class fastjson {
 
@@ -93,9 +93,9 @@ s
 
 如果解析List<object[]>类型的话，需要新版本的fastjson,旧版本的会出错，而且一定要有默认的构造函数
 
-[java][/java]
 
-view plaincopy
+
+
   
 public class part {
   
@@ -133,9 +133,9 @@ public void setValue(String value) { this.value = value; }
   
 }
 
-[java][/java]
 
-view plaincopy
+
+
   
 import java.util.ArrayList;
   
@@ -163,9 +163,9 @@ public void setColor(String color) { this.color = color; }
 
 }
 
-[java][/java]
 
-view plaincopy
+
+
   
 import com.alibaba.fastjson.JSON;
 

@@ -16,9 +16,9 @@ import static（静态导入) 是JDK1.5中的新特性，一般我们导入一�
 
 例如，你在某个类中定义了一些简便的打印方法: 
 
-[java][/java]
 
-view plaincopyprint?
+
+print?
   
 package com.ygc.print;
 
@@ -52,9 +52,9 @@ System.out.print(obj);
 
 然后你想在其他的类里面使用这些方法: 
 
-[java][/java]
 
-view plaincopyprint?
+
+print?
   
 package com.ygc;
 

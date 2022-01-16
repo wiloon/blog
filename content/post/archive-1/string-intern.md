@@ -2,15 +2,56 @@
 title: 'String#intern'
 author: "-"
 date: 2013-02-22T08:44:36+00:00
-url: /?p=5230
+url: string/intern
 categories:
-  - Uncategorized
+  - java
 
 ---
-## 'String#intern'
+## String#intern, String.intern()
+
+```java
+public class StringIntern {
+    public static void main(String[] args) {
+        String s0 = "foo";
+        String s1 = "foo";
+        String s2 = new String("foo");
+        String s3 = s2.intern();
+        String s4 = new String("foo").intern();
+        String s5 = new String("s5");
+
+        System.out.println(s0==s1);
+        System.out.println(s0==s2);
+        System.out.println(s0==s3);
+
+        System.out.println(s2==s3);
+        System.out.println(s0==s4);
+        System.out.println(s0==s5);
+    }
+}
+
+```
+
+```
+true
+false
+true
+false
+true
+false
+```
+
+在Java8中，String类维护了一个字符串常量池（注意此常量池在运行期间位于堆中），当调用intern方法时，首先在常量池中查看是否已有相同的字符串（字符串是否相同使用String的equal方法判断），如果常量池中已有，则直接返回该字符串的引用，如果没有，则将当前字符串对象加入常量池中，并返回当前字符串的引用。
+
+优化配置
+string pool是使用Map结构存储字符串及引用，如果想要增加string pool的大小，可以设置JVM参数：
+
+ -XX:StringTableSize=1000003
+Java8中默认是60013，设置的值最好是素数，以减少Hash碰撞，提高查询效率。
+
+
+>https://segmentfault.com/a/1190000021643930
+
 http://tech.meituan.com/in_depth_understanding_string_intern.html
-  
-john_yang ·2014-03-06 17:10
   
 引言
   
@@ -30,54 +71,32 @@ john_yang ·2014-03-06 17:10
 
 1，JAVA 代码
   
+```java
 /**
-   
-* Returns a canonical representation for the string object.
-   
-*
-
-* A pool of strings, initially empty, is maintained privately by the
-   
-* class `String`.
-   
-*
-
-* When the intern method is invoked, if the pool already contains a
-   
-* string equal to this `String` object as determined by
-   
-* the {@link #equals(Object)} method, then the string from the pool is
-   
-* returned. Otherwise, this `String` object is added to the
-   
-* pool and a reference to this `String` object is returned.
-   
-*
-
-* It follows that for any two strings `s` and `t`,
-   
-* `s.intern()==t.intern()` is `true`
-   
-* if and only if `s.equals(t)` is `true`.
-   
-*
-
-* All literal strings and string-valued constant expressions are
-   
-* interned. String literals are defined in section 3.10.5 of the
-   
-* <cite>The Java&trade; Language Specification</cite>.
-   
-*
-   
-* @return a string that has the same contents as this string, but is
-   
-* guaranteed to be from a pool of unique strings.
-   
-*/
-  
+    * Returns a canonical representation for the string object.
+    * <p>
+    * A pool of strings, initially empty, is maintained privately by the
+    * class {@code String}.
+    * <p>
+    * When the intern method is invoked, if the pool already contains a
+    * string equal to this {@code String} object as determined by
+    * the {@link #equals(Object)} method, then the string from the pool is
+    * returned. Otherwise, this {@code String} object is added to the
+    * pool and a reference to this {@code String} object is returned.
+    * <p>
+    * It follows that for any two strings {@code s} and {@code t},
+    * {@code s.intern() == t.intern()} is {@code true}
+    * if and only if {@code s.equals(t)} is {@code true}.
+    * <p>
+    * All literal strings and string-valued constant expressions are
+    * interned. String literals are defined in section 3.10.5 of the
+    * <cite>The Java&trade; Language Specification</cite>.
+    *
+    * @return  a string that has the same contents as this string, but is
+    *          guaranteed to be from a pool of unique strings.
+    */
 public native String intern();
-  
+```
 String#intern方法中看到，这个方法是一个 native 的方法，但注释写的非常明了。"如果常量池中存在当前字符串, 就会直接返回当前字符串. 如果常量池中没有此字符串, 会将此字符串放入常量池中后, 再返回"。
 
 2，native 代码
@@ -87,6 +106,7 @@ String#intern方法中看到，这个方法是一个 native 的方法，但注�
 ####native实现代码:
   
 \openjdk7\jdk\src\share\native\java\lang\String.c
+```c
 
 Java_java_lang_String_intern(JNIEnv *env, jobject this)
   
@@ -173,8 +193,8 @@ return l->literal();
 }
     
 return NULL;
-  
 }
+```
   
 它的大体实现结构就是:
   
@@ -188,10 +208,11 @@ JAVA 使用 jni 调用c++实现的StringTable的intern方法, StringTable的inte
   
 二，jdk6 和 jdk7 下 intern 的区别
   
-相信很多 JAVA 程序员都做做类似 String s = new String("abc")这个语句创建了几个对象的题目。 这种题目主要就是为了考察程序员对字符串对象的常量池掌握与否。上述的语句中是创建了2个对象，第一个对象是"abc"字符串存储在常量池中，第二个对象在JAVA Heap中的 String 对象。
+相信很多 JAVA 程序员都做做类似 String s = new String("abc")这个语句创建了几个对象的题目。 这种题目主要就是为了考察程序员对字符串对象的常量池掌握与否。上述的语句中是创建了两个对象，第一个对象是"abc"字符串存储在常量池中，第二个对象在JAVA Heap中的 String 对象。
 
 来看一段代码: 
 
+```java
 public static void main(String[] args) {
       
 String s = new String("1");
@@ -210,6 +231,7 @@ System.out.println(s == s2);
 
 }
   
+```
 打印结果是
 
 jdk6 下false false
@@ -217,6 +239,7 @@ jdk6 下false false
 jdk7 下false true
   
 具体为什么稍后再解释，然后将s3.intern();语句下调一行，放到String s4 = "11";后面。将s.intern(); 放到String s2 = "1";后面。是什么结果呢
+```java
 
 public static void main(String[] args) {
       
@@ -235,6 +258,7 @@ System.out.println(s == s2);
     
 
 }
+```
   
 打印结果为: 
 
@@ -242,21 +266,13 @@ jdk6 下false false
   
 jdk7 下false false
   
-####1，jdk6中的解释
+#### jdk6
+jdk6中的情况，在 jdk6中上述的所有打印都是 false 的，因为 jdk6中的常量池是放在 Perm 区中的， Perm 区和正常的 JAVA Heap 区域是完全分开的。上面说过如果是使用引号声明的字符串都是会直接在字符串常量池中生成，而 new 出来的 String 对象是放在 JAVA Heap 区域。所以拿一个 JAVA Heap 区域的对象地址和字符串常量池的对象地址进行比较肯定是不相同的，即使调用String.intern方法也是没有任何关系的。
 
-jdk6图
-
-注: 图中绿色线条代表 string 对象的内容指向。 黑色线条代表地址指向。
-
-如上图所示。首先说一下 jdk6中的情况，在 jdk6中上述的所有打印都是 false 的，因为 jdk6中的常量池是放在 Perm 区中的，Perm 区和正常的 JAVA Heap 区域是完全分开的。上面说过如果是使用引号声明的字符串都是会直接在字符串常量池中生成，而 new 出来的 String 对象是放在 JAVA Heap 区域。所以拿一个 JAVA Heap 区域的对象地址和字符串常量池的对象地址进行比较肯定是不相同的，即使调用String.intern方法也是没有任何关系的。
-
-####2，jdk7中的解释
-
-再说说 jdk7 中的情况。这里要明确一点的是，在 Jdk6 以及以前的版本中，字符串的常量池是放在堆的 Perm 区的，Perm 区是一个类静态的区域，主要存储一些加载类的信息，常量池，方法片段等内容，默认大小只有4m，一旦常量池中大量使用 intern 是会直接产生java.lang.OutOfMemoryError: PermGen space错误的。 所以在 jdk7 的版本中，字符串常量池已经从 Perm 区移到正常的 Java Heap 区域了。为什么要移动，Perm 区域太小是一个主要原因，当然据消息称 jdk8 已经直接取消了 Perm 区域，而新建立了一个元区域。应该是 jdk 开发者认为 Perm 区域已经不适合现在 JAVA 的发展了。
+#### jdk7
+在 Jdk6 以及以前的版本中，字符串的常量池是放在堆的 Perm 区的，Perm 区是一个类静态的区域，主要存储一些加载类的信息，常量池，方法片段等内容，默认大小只有4m，一旦常量池中大量使用 intern 是会直接产生java.lang.OutOfMemoryError: PermGen space错误的。 所以在 jdk7 的版本中，字符串常量池已经从 Perm 区移到正常的 Java Heap 区域了。为什么要移动，Perm 区域太小是一个主要原因，当然据消息称 jdk8 已经直接取消了 Perm 区域，而新建立了一个元区域。应该是 jdk 开发者认为 Perm 区域已经不适合现在 JAVA 的发展了。
 
 正式因为字符串常量池移动到 JAVA Heap 区域后，再来解释为什么会有上述的打印结果。
-
-jdk7图1
 
 在第一段代码中，先看 s3和s4字符串。String s3 = new String("1") + new String("1");，这句代码中现在生成了2最终个对象，是字符串常量池中的"1" 和 JAVA Heap 中的 s3引用指向的对象。中间还有2个匿名的new String("1")我们不去讨论它们。此时s3引用对象内容是"11"，但此时常量池中是没有 "11"对象的。
   
@@ -267,15 +283,11 @@ jdk7图1
 再看 s 和 s2 对象。 String s = new String("1"); 第一句代码，生成了2个对象。常量池中的"1" 和 JAVA Heap 中的字符串对象。s.intern(); 这一句是 s 对象去常量池中寻找后发现 "1" 已经在常量池里了。
   
 接下来String s2 = "1"; 这句代码是生成一个 s2的引用指向常量池中的"1"对象。 结果就是 s 和 s2 的引用地址明显不同。图中画的很清晰。
-  
-jdk7图2
 
 来看第二段代码，从上边第二幅图中观察。第一段代码和第二段代码的改变就是 s3.intern(); 的顺序是放在String s4 = "11";后了。这样，首先执行String s4 = "11";声明 s4 的时候常量池中是不存在"11"对象的，执行完毕后，"11"对象是 s4 声明产生的新对象。然后再执行s3.intern();时，常量池中"11"对象已经存在了，因此 s3 和 s4 的引用是不同的。
   
 第二段代码中的 s 和 s2 代码中，s.intern();，这一句往后放也不会有什么影响了，因为对象池中在执行第一句代码String s = new String("1");的时候已经生成"1"对象了。下边的s2声明都是直接从常量池中取地址引用的。 s 和 s2 的引用地址是不会相等的。
-  
-####小结
-  
+
 从上述的例子代码可以看出 jdk7 版本对 intern 操作和常量池都做了一定的修改。主要包括2点: 
 
 将String常量池 从 Perm 区移动到了 Java Heap区
@@ -408,7 +420,7 @@ return null;
   
 经过跟踪发现是 Thread.currentThread().getStackTrace(); 的问题。
 
-####2, 跟踪Thread.currentThread().getStackTrace()的 native 代码，验证String#intern
+#### 跟踪Thread.currentThread().getStackTrace()的 native 代码，验证String#intern
 
 Thread.currentThread().getStackTrace();native的方法:
 
@@ -563,3 +575,4 @@ Understanding String Table Size in HotSpot
 How is Java's String#intern() method implemented?
   
 JDK7里的String.intern的变化
+

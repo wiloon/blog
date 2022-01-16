@@ -50,20 +50,20 @@ equals 本质上就是 ==，只不过 String 和 Integer 等重写了 equals 方
 等于 -1，因为在数轴上取值时，中间值（0.5）向右取整，所以正 0.5 是向1取整，-0.5向0取整
 
 ```java
-        System.out.println(Math.round(1.4));
-        System.out.println(Math.round(1.5));
-        System.out.println(Math.round(1.6));
+System.out.println(Math.round(1.4));
+System.out.println(Math.round(1.5));
+System.out.println(Math.round(1.6));
 
-        System.out.println(Math.round(-1.4));
-        System.out.println(Math.round(-1.5));
-        System.out.println(Math.round(-1.6));
+System.out.println(Math.round(-1.4));
+System.out.println(Math.round(-1.5));
+System.out.println(Math.round(-1.6));
 
-        1
-        2
-        2
-        -1
-        -1
-        -2
+1
+2
+2
+-1
+-1
+-2
 ```
 
 ### String str="i"与 String str=new String("i")
@@ -376,6 +376,65 @@ Enumeration速度是Iterator的2倍，同时占用更少的内存。但是，Ite
 ## Servlet的生命周期，Servlet和CGI的区别。
 
 Servlet被服务器实例化后，容器运行其init方法，请求到达时运行其service方法，service方法自动派遣运行与请求对应的doXXX方法（doGet，doPost) 等，当服务器决定将实例销毁的时候调用其destroy方法。 与cgi的区别在于servlet处于服务器进程中，它通过多线程方式运行其service方法，一个实例可以服务于多个请求，并且其实例一般不会销毁，而CGI对每个请求都产生新的进程，服务完成后就销毁，所以效率上低于servlet。
+
+### 字符串反转
+StringBuilder 或者 stringBuffer 的 reverse() 方法
+
+### String 类的常用方法
+- indexOf()：返回指定字符的索引。
+- charAt()：返回指定索引处的字符。
+
+replace()：字符串替换。
+
+trim()：去除字符串两端空白。
+
+split()：分割字符串，返回一个分割后的字符串数组。
+
+getBytes()：返回字符串的 byte 类型数组。
+
+length()：返回字符串长度。
+
+toLowerCase()：将字符串转成小写字母。
+
+toUpperCase()：将字符串转成大写字符。
+
+substring()：截取字符串。
+
+equals()：字符串比较。
+
+### 抽象类必须要有抽象方法吗
+不需要，抽象类不一定非要有抽象方法。
+### 抽象类能使用 final 修饰吗
+不能，定义抽象类就是让其他类继承的，如果定义为 final 该类就不能被继承，这样彼此就会产生矛盾，所以 final 不能修饰抽象类
+
+### 接口和抽象类有什么区别？
+实现：抽象类的子类使用 extends 来继承；接口必须使用 implements 来实现接口。
+
+构造函数：抽象类可以有构造函数；接口不能有。
+
+main 方法：抽象类可以有 main 方法，并且我们能运行它；接口不能有 main 方法。
+
+实现数量：类可以实现很多个接口；但是只能继承一个抽象类。
+
+访问修饰符：接口中的方法默认使用 public 修饰；抽象类中的方法可以是任意访问修饰符。
+### java 中 IO 流分为几种？
+
+
+
+按功能来分：输入流（input）、输出流（output）。
+
+
+
+按类型来分：字节流和字符流。
+
+
+
+字节流和字符流的区别是：字节流按 8 位传输以字节为单位输入输出数据，字符流按 16 位传输以字符为单位输入输出数据。
+
+### BIO、NIO、AIO 有什么区别
+>wiloon.com/nio
+
+### Files的常用方法都有哪些
 
 >http://zangweiren.blog.51cto.com/412366/94392
 >http://www.cnblogs.com/chenssy/p/3372798.html

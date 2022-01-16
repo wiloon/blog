@@ -112,9 +112,9 @@ MySQL> FLUSH PRIVILEGES;
   
 #vi sonar.properties
 
-[java][/java]
 
-view plaincopy
+
+
   
 sonar.jdbc.username:                       sonar
   
@@ -132,9 +132,9 @@ sonar.jdbc.driverClassName:                com.MySQL.jdbc.Driver
   
 根据实际使用数据库情况取消相应注释
 
-[java][/java]
 
-view plaincopy
+
+
   
 #Configure here general information about the environment, such as SonarQube DB details for example
   
@@ -208,9 +208,9 @@ sonar作为Linux服务并开机自启动
   
 新建文件/etc/init.d/sonar，输入如下内容: 
 
-[java][/java]
 
-view plaincopy
+
+
   
 #!/bin/sh
   
@@ -272,9 +272,9 @@ sudo chkconfig -add sonar
   
 以android项目为例: 
 
-[java][/java]
 
-view plaincopy
+
+
   
 sonar.projectKey=android-sonarqube-runner
   

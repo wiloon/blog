@@ -1,8 +1,8 @@
 ---
-title: Java Array, Vector, ArrayList, List, LinkedList
+title: Collection, Array, Vector, ArrayList, List, LinkedList
 author: "-"
 date: 2011-11-09T05:46:13+00:00
-url: /?p=1470
+url: collection
 categories:
   - Java
 tags:
@@ -10,6 +10,49 @@ tags:
 
 ---
 ## Java Array, Vector, ArrayList, List, LinkedList
+
+```puml
+@startuml
+interface Collection
+interface List
+Collection<|-- List
+class AbstractList
+List <|.. AbstractList
+class ArrayList
+AbstractList <|-- ArrayList
+class Vector
+AbstractList <|-- Vector
+class Stack
+Vector <|-- Stack
+class AbstractSequentialList
+AbstractList <|-- AbstractSequentialList
+class LinkedList
+AbstractSequentialList <|-- LinkedList
+interface Queue
+Collection<|--Queue
+class AbstractCollection
+Collection<|.. AbstractCollection
+class AbstractQueue
+AbstractCollection<|--AbstractQueue
+class PriorityQueue
+AbstractQueue<|--PriorityQueue
+Queue<|.. AbstractQueue
+interface Set
+Collection<|--Set
+class AbstractSet
+AbstractCollection<|--AbstractSet
+Set<|..AbstractSet
+class HashSet
+AbstractSet<|-- HashSet
+AbstractSet<|-- TreeSet
+HashSet<|-- LinkedHashSet
+class LinkedHashMap
+LinkedHashMap <.. HashSet
+class HashMap
+HashMap <.. HashSet
+@enduml
+```
+
 array(数组)和Vector是十分相似的Java构件（constructs) ，两者全然不同，在选择使用时应根据各自的功能来确定。
 
 ### 数组: 
@@ -103,7 +146,7 @@ Vector在删除一些元素后，其所有下标大于被删除元素的元素�
   
 Vector内部实际是以Array实现的，也通过元素的整数索引来访问元素，但它只能存放java.lang.Object对象，不能用于存放基本类型数据，比如要存放一个整数10,得用new Integer(10)构造出一个Integer包装类对象再放进去。当Vector中的元素个数发生变化时, 其内部的Array必须重新分配并进行拷贝，因此这是一点值得考虑的效率问题。
   
-Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在: Vector is synchronized。即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素) ，这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
+Vetor同时也实现了List接口，所以也可以算作Colletion了，只是它还特殊在: **Vector is synchronized**. 即Vetor对象自身实现了同步机制。当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素) ，这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。
 
 ### Stack 类
 Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得 Vector得以被当作堆栈使用。基本的push和pop方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。
@@ -209,8 +252,11 @@ Vector 是同步的。这个类中的一些方法保证了Vector中的对象是�
 另一方面，Queue 和Deque (基于Linked List)有并发的实现是因为他们的接口相比List的接口有更多的限制，这些限制使得实现并发成为可能。
 
 CopyOnWriteArrayList是一个有趣的例子，它规避了只读操作（如get/contains) 并发的瓶颈，但是它为了做到这点，在修改操作中做了很多工作和修改可见性规则。 此外，修改操作还会锁住整个List，因此这也是一个并发瓶颈。所以从理论上来说，CopyOnWriteArrayList并不算是一个通用的并发List。
+### LinkedHashMap
+通过维护一个运行于所有条目的双向链表，LinkedHashMap保证了元素迭代的顺序。该迭代顺序可以是插入顺序或者是访问顺序。
+### LinkedHashSet
+由 LinkedHashMap 实现
 
----
 
 https://twiceyuan.com/2016/06/09/ArrayList-is-not-thread-safe/  
 http://ifeve.com/why-is-there-not-concurrent-arraylist-in-java-util-concurrent-package/  

@@ -23,7 +23,7 @@ categories:
 安装slurm到Ubuntu
 
 
-view plaincopyprint?
+print?
 
 ```bash
 
@@ -37,7 +37,7 @@ Slurm 语法
 
 [cpp][/cpp]
 
-view plaincopyprint?
+print?
 
 slurm [-hHz] [-csl] [-d delay] -i interface
 
@@ -45,6 +45,6 @@ slurm [-hHz] [-csl] [-d delay] -i interface
 
 [cpp][/cpp]
 
-view plaincopyprint?
+print?
 
 slurm -i eth0

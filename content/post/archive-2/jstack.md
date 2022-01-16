@@ -2,7 +2,7 @@
 title: jstack
 author: "-"
 date: 2015-11-11T11:20:45+00:00
-url: /?p=8457
+url: jstack
 
 ---
 ## jstack

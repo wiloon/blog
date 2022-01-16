@@ -19,10 +19,11 @@ Java NIO 出现不只是一个技术性能的提高,你会发现网络上到处�
 ### IO模型主要分类: 
 - 同步, synchronous IO
 - 异步 (asynchronous) IO
-- 阻塞(blocking) IO
-- 非阻塞(non-blocking) IO
+- 阻塞 (blocking)
+- 非阻塞 (non-blocking) NIO
 - 同步**阻塞**, blocking-IO, BIO
 - 同步**非阻塞**, non-blocking-IO, NIO
+- 异步阻塞: 不存在的...
 - **异步**非阻塞, Asynchronous-non-blocking-IO, AIO
 
 ### 同步, 异步

@@ -682,7 +682,7 @@ http://blog.csdn.net/htttw/article/details/7519971
 Makefile: 
 
 
-[plain][/plain] view plaincopy
+[plain][/plain] 
 
 all: tcp_client.c tcp_server.c
   
@@ -697,7 +697,7 @@ rm -rf *.o tcp_client tcp_server
 tcp_server.c: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] 
 
 #include <sys/types.h>
   
@@ -778,7 +778,7 @@ return 0;
 tcp_client.c: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] 
 
 #include <sys/types.h>
   
@@ -874,7 +874,7 @@ socket()函数返回新创建的socket，出错则返回-1
 常用的有两种socket域: AF_UNIX或AF_INET，因此就有两种地址格式: sockaddr_un和sockaddr_in，分别定义如下: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] 
 
 struct sockaddr_un
   
@@ -901,7 +901,7 @@ struct in_addr sin_addr;       /* internet address */
 其中in_addr正是用来描述一个ip地址的: 
 
 
-[cpp][/cpp] view plaincopy
+[cpp][/cpp] 
 
 struct in_addr
   

@@ -86,7 +86,7 @@ true</activeByDefault>
 打开项目中pom.xml文件,修改如下: 
 
 
-[html] view plaincopy
+[html] 
   
 <build>
   

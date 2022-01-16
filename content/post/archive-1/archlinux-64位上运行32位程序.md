@@ -21,7 +21,7 @@ archlinux纯64位版是没有办法直接运行32位程序的。因为缺少最�
 
 [plain][/plain]
 
-view plaincopyprint?
+print?
   
 [multilib]
   
@@ -32,7 +32,7 @@ Include = /etc/pacman.d/mirrorlist
 
 [plain][/plain]
 
-view plaincopyprint?
+print?
   
 [lib32]
   

@@ -7,6 +7,26 @@ categories:
   - Java
 
 ---
+## java 文件 
+
+    Files.exists()：检测文件路径是否存在。
+
+    Files.createFile()：创建文件。
+
+    Files.createDirectory()：创建文件夹。
+
+    Files.delete()：删除一个文件或目录。
+
+    Files.copy()：复制文件。
+
+    Files.move()：移动文件。
+
+    Files.size()：查看文件个数。
+
+    Files.read()：读取文件。
+
+    Files.write()：写入文件。
+
 ## JAVA读取文件的两种方法 JAVA.IO和JAVA.LANG.CLASSLOADER
 http://www.blogjava.net/flysky19/articles/93280.html
 

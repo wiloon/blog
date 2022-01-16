@@ -404,9 +404,9 @@ outerClass.this
 
 是的，Java内部类也可以是局部的，它可以定义在一个方法甚至一个代码块之内。
 
-[java][/java]
 
-view plaincopy
+
+
 
 public class Goods1 {
 
@@ -448,9 +448,9 @@ Destination d = g.dest("Beijing");
 
 下面有一个更怪的例子: 
 
-[java][/java]
 
-view plaincopy
+
+
 
 public class Goods2 {
 
@@ -510,9 +510,9 @@ new interfacename(){……}; 或 new superclassname(){……};
 
 下面接着前面继续举例子: 
 
-[java][/java]
 
-view plaincopy
+
+
 
 public class Goods3 {
 
@@ -538,9 +538,9 @@ return i;
 
 在java的事件处理的匿名适配器中，匿名内部类被大量的使用。例如在想关闭窗口时加上这样一句代码: 
 
-[java][/java]
 
-view plaincopy
+
+
 
 frame.addWindowListener(new WindowAdapter(){
 

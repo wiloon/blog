@@ -44,7 +44,7 @@ callable--Future
 Future--FutureTask
 [VarHandle] as VarHandle #C5E1A5
 FutureTask--VarHandle
-[java]
+
 [java9]
 java--java9
 VarHandle--java9

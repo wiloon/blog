@@ -16,7 +16,7 @@ http://blog.csdn.net/kobejayandy/article/details/17655739
 在服务器的日常维护过程中,会经常用到下面的命令: 
 
 
-[plain][/plain] view plaincopy
+[plain][/plain] 
   
 netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
   
