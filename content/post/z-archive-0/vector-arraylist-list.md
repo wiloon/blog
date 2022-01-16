@@ -9,7 +9,7 @@ tags:
   - Java
 
 ---
-## Java Array, Vector, ArrayList, List, LinkedList
+## Collection, Array, Vector, ArrayList, List, LinkedList
 
 ```puml
 @startuml

@@ -436,6 +436,43 @@ main 方法：抽象类可以有 main 方法，并且我们能运行它；接口
 
 ### Files的常用方法都有哪些
 
+### Collection 和 Collections 区别
+java.util.Collection 是一个集合接口（集合类的一个顶级接口）。它提供了对集合对象进行基本操作的通用接口方法。Collection接口在Java 类库中有很多具体的实现。Collection接口的意义是为各种具体的集合提供了最大化的统一操作方式，其直接继承接口有List与Set。
+
+Collections则是集合类的一个工具类/帮助类，其中提供了一系列静态方法，用于对集合中元素进行排序、搜索以及线程安全等各种操作。
+
+### List、Set、Map 之间的区别
+wiloon.com/collection/list-set-map
+
+### HashMap 和 Hashtable 有什么区别
+wiloon.com/hash/map-table
+
+- HashMap 还是 TreeMap
+wiloon.com/red–black-tree
+
+- HashMap
+
+谈谈你理解的 HashMap，讲讲其中的 get put 过程。
+1.8 做了什么优化？
+是线程安全的嘛？
+不安全会导致哪些问题？
+如何解决？有没有线程安全的并发容器？
+ConcurrentHashMap 是如何实现的？ 1.7、1.8 实现有何不同？为什么这么做？
+
+wiloon.com/hashmap
+- HashSet 的实现原理
+
+HashSet底层由HashMap实现
+
+HashSet的值存放于HashMap的key上
+
+HashMap的value统一为PRESENT
+
+### Java 2021
+>https://zhuanlan.zhihu.com/p/64147696
+### Java Core Sprout
+>https://github.com/crossoverJie/JCSprout
+
 >http://zangweiren.blog.51cto.com/412366/94392
 >http://www.cnblogs.com/chenssy/p/3372798.html
 >http://blog.csdn.net/ericbaner/article/details/3857268

@@ -33,7 +33,7 @@ Object val = map.get(key);
 }
 ```
 
-前一种性能好些.
+前一种性能好些. 第一种可以把 key value 同时取出，第二种还得需要通过 key 取一次 value，效率较低。
   
 例
   

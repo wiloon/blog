@@ -356,14 +356,17 @@ private void fixAfterDeletion(Entry<K,V> x) { // 删除节点需要一直迭代,
 6. 红黑二叉树详解及理论分析 : http://blog.csdn.net/kartorz/article/details/8865997
 
 PS:如果你觉得文章对你有所帮助,别忘了推荐或者分享,因为有你的支持,才是我续写下篇的动力和源泉！
-  
+
+
+### HashMap vs TreeMap
+对于在Map中插入、删除和定位元素这类操作，HashMap是最好的选择。然而，假如你需要对一个有序的key集合进行遍历，TreeMap是更好的选择。基于你的collection的大小，也许向HashMap中添加元素会更快，将map换为TreeMap进行有序key的遍历。
+
+
 作者:  chenssy
   
 出处:  http://www.cnblogs.com/chenssy/
   
 本文版权归作者和博客园共有,欢迎转载,但未经作者同意必须保留此段声明,且在文章页面明显位置给出原文连接,否则保留追究法律责任的权利。
-
-
 
 https://www.jianshu.com/p/2dcff3634326
 
