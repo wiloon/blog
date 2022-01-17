@@ -83,3 +83,26 @@ M-; 注释一行
 ## emacs 换行
 在替换里面 c-q c-j表示换行
 
+## emacs 插入当前日期
+C-c m d
+
+```bash
+
+(defun my-insert-date ()
+
+(interactive)
+   
+(insert "#")
+   
+;(insert (user-full-name))
+   
+;(insert "@")
+   
+(insert (format-time-string "%Y/%m/%d %H:%M:%S" (current-time))))
+   
+(global-set-key (kbd "C-c m d") 'my-insert-date)
+
+```
+
+
+

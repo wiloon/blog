@@ -134,6 +134,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | joplin-desktop                        |                                                                |
 | typora                                | markdown 编辑器，joplin 外部编辑器                             |
 | feishu                                | 飞书                                                           |
+|libiconv |编码转换|
 
 ### KDE
 

@@ -8,7 +8,6 @@ categories:
 
 ---
 ## Java 常量池
-
 ### 什么是常量
   
 用final修饰的成员变量表示常量，值一旦给定就无法改变！
@@ -17,7 +16,7 @@ final修饰的变量有三种: 静态变量、实例变量和局部变量，分�
 
 ### Class 文件中的常量池
   
-在Class文件结构中，最头的4个字节用于存储魔数Magic Number，用于确定一个文件是否能被JVM接受，再接着4个字节用于存储版本号，前2个字节存储次版本号，后2个存储主版本号，再接着是用于存放常量的常量池，由于常量的数量是不固定的，所以常量池的入口放置一个U2类型的数据(constant_pool_count)存储常量池容量计数值。
+在Class文件结构中，最头的4个字节用于存储魔数 Magic Number，用于确定一个文件是否能被JVM接受，再接着4个字节用于存储版本号，前2个字节存储次版本号，后2个存储主版本号，再接着是用于存放常量的常量池，由于常量的数量是不固定的，所以常量池的入口放置一个U2类型的数据(constant_pool_count)存储常量池容量计数值。
   
 常量池主要用于存放两大类常量: 字面量(Literal)和符号引用量(Symbolic References)，字面量相当于Java语言层面常量的概念，如文本字符串，声明为final的常量值等，符号引用则属于编译原理方面的概念，包括了如下三种类型的常量: 
 
@@ -55,15 +54,15 @@ CLass文件中除了有类的版本、字段、方法、接口等描述信息外
 
 java中基本类型的包装类的大部分都实现了常量池技术，
   
-即Byte,Short,Integer,Long,Character,Boolean；
+即 Byte,Short,Integer,Long,Character,Boolean；
 
 Integer i1 = 40;
   
 Integer i2 = 40;
   
-System.out.println(i1==i2);//输出TRUE
+System.out.println(i1==i2); //输出TRUE
   
-这5种包装类默认创建了数值[-128，127]的相应类型的缓存数据，但是超出此范围仍然会去创建新的对象。
+这5种包装类默认创建了数值[-128，127] 的相应类型的缓存数据，但是超出此范围仍然会去创建新的对象。
 
 //Integer 缓存代码 : 
   
@@ -95,7 +94,7 @@ System.out.println(i1==i2);//输出false
   
 应用常量池的场景
   
-(1)Integer i1=40；Java在编译的时候会直接将代码封装成Integer i1=Integer.valueOf(40);，从而使用常量池中的对象。
+(1)Integer i1=40；Java 在编译的时候会直接将代码封装成Integer i1=Integer.valueOf(40);，从而使用常量池中的对象。
   
 (2)Integer i1 = new Integer(40);这种情况下会创建新的对象。
 
@@ -147,7 +146,7 @@ i4=i5+i6 true
   
 Java中的自动装箱与拆箱
 
-三.String类和常量池
+三. String类和常量池
 
 String对象创建方式
 

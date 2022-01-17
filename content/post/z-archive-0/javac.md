@@ -9,16 +9,16 @@ categories:
 ---
 ## javac, java
 ```java
-public class Helloworld{
+public class Foo{
 	public static void main(String[] args) {
-		System.out.println("hello world");
+		System.out.println("foo");
 	}
 }
 ```
 
 ```bash
-javac Helloworld.java
-java Helloworld
+javac Foo.java
+java Foo
 ```
 
 >https://zhuanlan.zhihu.com/p/36529847

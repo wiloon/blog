@@ -2,7 +2,7 @@
 title: pam config
 author: "-"
 date: 2018-10-08T11:12:47+00:00
-url: /?p=12764
+url: pam
 
 ---
 ## pam config

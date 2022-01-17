@@ -50,7 +50,7 @@ default-character-set=utf8
   
 default-character-set=utf8 (!!!MySQL 5.5.20 以后的版本要这样改 character-set-server=utf8)
 
-[code lang=sql]
+```sql
   
 - 查看表编码
   

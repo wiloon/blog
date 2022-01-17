@@ -82,6 +82,11 @@ init 5
   
 start x
 
+### iconv
+iconv命令来转换文件的编码，格式：
+iconv -f 原本的编码格式 -t 要转换成的编码 文件名 -o 新文件名
+2、例如：
+iconv -f gb2312 -t utf8 a.txt -o utf8.txt
 
 ---
 

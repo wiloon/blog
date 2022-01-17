@@ -33,6 +33,7 @@ https://chocolatey.org/packages
 |puyyt||
 |telegraf||
 |redis-desktop-manager||
+|heidisql||
 
 ### 录屏
     https://www.v1tx.com/post/best-screen-recorder/
@@ -62,8 +63,7 @@ https://chocolatey.org/packages
 |x410              | windows x server   |
 |T-Clock           | 可以显示周数的任务栏时钟, 格式模板: "mm-dd HH:nn \nW Wi ddd", https://github.com/White-Tiger/T-Clock |
 |VcXsrc            |x server|
-
-choco install heidisql
+ 
 MobaXterm
 
 wps/liberoffice
