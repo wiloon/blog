@@ -15,7 +15,7 @@ tags:
 @startuml
 interface Collection
 interface List
-Collection<|-- List
+Collection<|-left- List
 class AbstractList
 List <|.. AbstractList
 class ArrayList
@@ -50,41 +50,25 @@ class LinkedHashMap
 LinkedHashMap <.. HashSet
 class HashMap
 HashMap <.. HashSet
+interface Map
+class AbstractMap
+Map <|.. AbstractMap
+AbstractMap<|-- HashMap
+Map <|.. HashMap
+HashMap<|-- LinkedHashMap
+Map <|.. LinkedHashMap
 @enduml
 ```
 
 array(数组)和Vector是十分相似的Java构件（constructs) ，两者全然不同，在选择使用时应根据各自的功能来确定。
 
-### 数组: 
+### 数组 Array 
 
-Java arrays的元素个数不能下标越界，从很大程度上保证了Java程序的安全性，而其他一些语言出现这一问题时常导致灾难性的后果。
+Java arrays 的元素个数不能下标越界，从很大程度上保证了Java程序的安全性，而其他一些语言出现这一问题时常导致灾难性的后果。
   
-Array可以存放Object和基本数据类型，但创建时必须指定数组的大小，并不能再改变。值得注意的是: 当Array中的某一元素存放的是Objrct reference 时，Java不会调用默认的构造函数，而是将其初值设为null，当然这跟Java对各类型数据赋默认值的规则是一样的，对基本数据类型同样适用。
+Array 可以存放Object和基本数据类型，但创建时必须指定数组的大小，并不能再改变。值得注意的是: 当Array中的某一元素存放的是Objrct reference 时，Java不会调用默认的构造函数，而是将其初值设为null，当然这跟Java对各类型数据赋默认值的规则是一样的，对基本数据类型同样适用。
   
 线性表，链表，哈希表是常用的数据结构，在进行Java开发时，JDK已经为我们提供了一系列相应的类来实现基本的数据结构。这些类均在java.util包中。本文试图通过简单的描述，向读者阐述各个类的作用以及如何正确使用这些类。
-
-Collection
-  
-├List
-  
-│├LinkedList
-  
-│├ArrayList
-  
-│└Vector
-  
-│└Stack
-  
-└Set
-  
-Map
-  
-├Hashtable
-  
-├HashMap
-  
-└WeakHashMap
-
 
 ### Collection接口
 
@@ -130,16 +114,27 @@ List list = Collections.synchronizedList(new LinkedList(...));
 
 
 
-### ArrayList类
-ArrayList实现了可变大小的数组。它允许所有元素，包括null。ArrayList没有同步。
+### ArrayList
+ArrayList实现了可变大小的数组。它允许所有元素，包括null。和LinkedList一样，ArrayList也是非同步的（unsynchronized) 。
   
 size，isEmpty，get，set方法运行时间为常数。但是add方法开销为分摊的常数，添加n个元素需要O(n)的时间。其他的方法运行时间为线性。
   
 每个ArrayList实例都有一个容量（Capacity) ，即用于存储元素的数组的大小。这个容量可随着不断添加新元素而自动增加，但是增长算法并没有定义。当需要插入大量元素时，在插入前可以调用ensureCapacity方法来增加ArrayList的容量以提高插入效率。
   
-和LinkedList一样，ArrayList也是非同步的（unsynchronized) 。
+
 
 ArrrayList底层的数据结构是数组，支持随机访问，而 LinkedList 的底层数据结构是双向循环链表，不支持随机访问。使用下标访问一个元素，ArrayList 的时间复杂度是 O(1)，而 LinkedList 是 O(n)。
+
+### ArrayList vs LinkedList
+1. ArrayList是实现了基于动态**数组**的数据结构，而LinkedList是基于**链表**的数据结构；
+2. 对于随机访问get和set，ArrayList要优于LinkedList，因为LinkedList要移动指针；
+3. 对于添加和删除操作 add和 remove，一般大家都会说 LinkedList要比ArrayList快，因为ArrayList要移动数据。但是实际情况并非这样，对于添加或删除，LinkedList 和 ArrayList并不能明确说明谁快谁慢， ArrayList想要在指定位置插入或删除元素时，主要耗时的是System.arraycopy动作，会移动index后面所有的元素；LinkedList主耗时的是要先通过for循环找到index，然后直接插入或删除。这就导致了两者并非一定谁快谁慢，   主要有两个因素决定他们的效率，插入的数据量和插入的位置。我们可以在程序里改变这两个因素来测试它们的效率。
+        当数据量较小时，测试程序中，大约小于30的时候，两者效率差不多，没有显著区别；当数据量较大时，大约在容量的1/10处开始，LinkedList的效率就开始没有ArrayList效率高了，特别到一半以及后半的位置插入时，LinkedList效率明显要低于ArrayList，而且数据量越大，越明显。
+ 
+当插入的数据量很小时，两者区别不太大，当插入的数据量大时，大约在容量的1/10之前，LinkedList会优于ArrayList，在其后就劣与ArrayList，且越靠近后面越差。
+
+版权声明：本文为CSDN博主「武哥聊编程」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/eson_15/article/details/51145788
 
 ### Vector
 对比于Array，当更多的元素被加入进来以至超出其容量时，Vector的size会动态增长，而Array容量是定死的。

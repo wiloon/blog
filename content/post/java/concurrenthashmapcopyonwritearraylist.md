@@ -7,7 +7,7 @@ categories:
   - Java
 
 ---
-## ConcurrentHashMap/CopyOnWriteArrayList
+## ConcurrentHashMap, CopyOnWriteArrayList
 
 并发集合类 ConcurrentHashMap 和 CopyOnWriteArrayList(转)
  

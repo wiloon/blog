@@ -359,7 +359,7 @@ PS:如果你觉得文章对你有所帮助,别忘了推荐或者分享,因为有
 
 
 ### HashMap vs TreeMap
-对于在Map中插入、删除和定位元素这类操作，HashMap是最好的选择。然而，假如你需要对一个有序的key集合进行遍历，TreeMap是更好的选择。基于你的collection的大小，也许向HashMap中添加元素会更快，将map换为TreeMap进行有序key的遍历。
+对于在Map中插入、删除和定位元素这类操作，HashMap更适合。但是如果需要对一个有序的key集合进行遍历，TreeMap是更好的选择。基于你的collection的大小，也许向HashMap中添加元素会更快，将map换为TreeMap进行有序key的遍历。
 
 
 作者:  chenssy

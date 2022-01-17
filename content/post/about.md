@@ -35,12 +35,13 @@ tags:
 - 一般会有语法高亮
 - 有段落标注
 - 可能有N个引用来源
+- 以Tag(remix)方式标记整理过的转载内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 
 ### 原创
 - 少量原创
 - 原创比例比较高的文档
 - 日常遇到的问题和解决过程
-- 以Tag方式标记原创内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
+- 以Tag(original)方式标记原创内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 - Author会标记为 "w1100n"
 
 ### Blog 实现
@@ -49,27 +50,31 @@ tags:
 - Github Action
 - Hugo
 - Even theme
+- Bandwagon VPS
+- Nginx
+- Google Domains
+- Google Cloud DNS
 
 ## 关于我
 - 中学时期一度沉迷计算机硬件，是<<微型计算机>>的忠实读者, 练就了一手装机技能。大学时期人称"机修"。
-- 工作之后有三年时间被派到上海出差，期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Arch Linux, Gentoo.
+- 工作之后有三年时间被派到上海出差，期间接触到了当地的Linux用户组, 也因为自己的二手IBM笔记本跑Windows太吃力所以转投了Linux, 在各种发行版之间折腾了很长时间, 尝试过 Debian, Ubuntu, Centos, Fedora, Arch Linux, Gentoo.
 - 写过 C#, Java, Android, IOS; 目前工作主力: Java, Golang
 - 日常系统 Arch Linux + KDE
-- Goolge粉，用过Google的各种产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
+- Goolge粉，用过Google的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
 ### 技术栈
-接触过的技术，从左到右按熟悉程度排序  
+接触过的主要技术，从左到右按熟悉程度排序
 - Java, Golang
 - MySQL, Redis, InfluxDB, LevelDB
 - Kafka, Zookeeper
 - CentOS, Arch Linux, Ubuntu
 - AWS, Aliyun
 - Javascript, Vue, Element, Vuetify, Angular
-- Docker/Podman, Protobuf, JWT, Telegraf, Filebeat, ELK
+- Docker/Podman, Protobuf, JWT, Telegraf, PlantUML, Filebeat, ELK
 
 ### 业余时间
 - 最近在折腾家里的软路由。
-- 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...。
+- 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...
 - 伺候猫主子，家里有一只名叫"皮皮"的中华田园猫。
 - 偶尔玩游戏: 王者荣耀, 英雄联盟。
 - 断断续续的学了一点儿钢琴，目前能弹一首半简单的曲子。
