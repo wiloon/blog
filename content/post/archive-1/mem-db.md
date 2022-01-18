@@ -2,9 +2,9 @@
 title: 内存数据库
 author: "-"
 date: 2014-01-15T05:05:46+00:00
-url: /?p=6205
+url: mem-db
 categories:
-  - Uncategorized
+  - database
 
 ---
 ## 内存数据库

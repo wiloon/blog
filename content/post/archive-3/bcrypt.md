@@ -2,9 +2,9 @@
 title: Bcrypt
 author: "-"
 date: 2019-04-30T04:11:41+00:00
-url: /?p=14275
+url: bcrypt
 categories:
-  - Uncategorized
+  - Security
 
 ---
 ## Bcrypt
@@ -35,3 +35,60 @@ myHash: 经过明文密码password和盐salt进行hash，个人的理解是默�
 来源: 简书
   
 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+
+>https://www.ujcms.com/knowledge/509.html
+>http://www.mindrot.org/projects/jBCrypt/
+>https://www.cnblogs.com/jpfss/p/11024716.html
+>http://www.mindrot.org/projects/jBCrypt/
+
+
+### 在 Java 中使用 Bcrypt, BCryptPasswordEncoder
+如果引入了 Spring Security, BCryptPasswordEncoder 提供了相关的方法。
+
+```java
+public class BCryptPasswordEncoderTest {
+    public static void main(String[] args) {
+        String pass = "admin";
+        BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
+        String hashPass = bcryptPasswordEncoder.encode(pass);
+        System.out.println(hashPass);
+
+        boolean f = bcryptPasswordEncoder.matches("admin",hashPass);
+        System.out.println(f);
+
+    }
+}
+```
+可以看到，每次输出的hashPass 都不一样，
+但是最终的f都为 true,即匹配成功。
+
+查看代码，可以看到，其实每次的随机盐，都保存在hashPass中。
+
+在进行matchs进行比较时，调用BCrypt 的String hashpw(String password, String salt)
+
+方法。两个参数即”admin“和 hashPass
+
+```java
+//******BCrypt.java******salt即取出要比较的DB中的密码*******
+real_salt = salt.substring(off + 3, off + 25);
+try {
+// ***************************************************
+    passwordb = (password + (minor >= 'a' ? "\000" : "")).getBytes("UTF-8");
+}
+catch (UnsupportedEncodingException uee) {}
+saltb = decode_base64(real_salt, BCRYPT_SALT_LEN);
+B = new BCrypt();
+hashed = B.crypt_raw(passwordb, saltb, rounds);
+```
+假定一次hashPass为：$2a$10$AxafsyVqK51p.s9WAEYWYeIY9TKEoG83LTEOSB3KUkoLtGsBKhCwe
+
+随机盐即为 AxafsyVqK51p.s9WAEYWYe
+
+（salt = BCrypt.gensalt();中有描述）
+
+可见，随机盐（AxafsyVqK51p.s9WAEYWYe），会在比较的时候，重新被取出。
+
+即，加密的hashPass中，前部分已经包含了盐信息。
+
+>https://zhuanlan.zhihu.com/p/92845975
+>https://www.cnblogs.com/jpfss/p/11023906.html

@@ -1,18 +1,12 @@
 ---
-title: emacs 刷新, 重新载入文件
+title: JdbcTemplate
 author: "-"
 date: 2011-10-17T05:09:16+00:00
-url: /?p=1182
+url: JdbcTemplate
 categories:
-  - Emacs
+  - database
 
 ---
-## emacs 刷新, 重新载入文件
-;;设置快捷键 F5
+## JdbcTemplate
 
-(global-set-key [f5] 'revert-buffer)
-
-(global-set-key [C-f5] 'revert-buffer-with-coding-system)
-
-;;按Y或空格确认
-(fset 'yes-or-no-p 'y-or-n-p)
+>https://www.cnblogs.com/gongxr/p/8053010.html

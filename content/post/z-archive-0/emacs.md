@@ -106,3 +106,35 @@ C-c m d
 
 
 
+## emacs nXML
+download nXML from http://www.thaiopensource.com/nxml-mode/
+
+To get things automatically loaded each time you start Emacs, add
+(load "~/nxml-mode-200YMMDD/rng-auto.el")
+
+To use nxml-mode automatically for files with an extension of xml,
+
+xsl, rng or xhtml, add
+(setq auto-mode-alist
+        (cons '("\.\(xml\|xsl\|rng\|xhtml\)\'" . nxml-mode)
+	      auto-mode-alist))
+
+## 'emacs  删除空行'
+flush-lines命令
+
+flush-lines删除匹配正则表达式的指定行
+
+m-x flush-lines
+  
+用正则: ^$
+
+### emacs 刷新, 重新载入文件
+ 
+;;设置快捷键 F5
+
+(global-set-key [f5] 'revert-buffer)
+
+(global-set-key [C-f5] 'revert-buffer-with-coding-system)
+
+;;按Y或空格确认
+(fset 'yes-or-no-p 'y-or-n-p)
