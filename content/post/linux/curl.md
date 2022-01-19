@@ -10,7 +10,7 @@ tags:
   - remix
 
 ---
-## curl
+## curl, [kɜrl]
 ### 追踪重定向 -L
     curl -L xxx
 ### post request
