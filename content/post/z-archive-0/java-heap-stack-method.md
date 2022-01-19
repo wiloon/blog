@@ -57,7 +57,7 @@ Hotspot VM:
 
 在Java 7中，Symbol的存储从PermGen移动到了native memory，并且把静态变量从instanceKlass末尾（位于PermGen内) 移动到了java.lang.Class对象的末尾（位于普通Java heap内) 
 
-在Java 8中，永久代被彻底移除，取而代之的是另一块与堆不相连的本地内存——元空间（Metaspace) ,‑XX:MaxPermSize 参数失去了意义，取而代之的是 -XX:MaxMetaspaceSize。
+
 
 可参考: 
 Chapter 2. The Structure of the Java Virtual Machine

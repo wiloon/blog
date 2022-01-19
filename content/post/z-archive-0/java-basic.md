@@ -336,7 +336,7 @@ http://www.wiloon.com/?p=4620&embed=true#?secret=hz71dhuu22
 
 
 ### JVM的永久代中会发生垃圾回收么？
-垃圾回收不会发生在永久代，如果永久代满了或者是超过了临界值，会触发完全垃圾回收(Full GC)。如果你仔细查看垃圾收集器的输出信息，就会发现永久代也是被回收的。这就是为什么正确的永久代大小对避免Full GC 是非常重要的原因。请参考下Java8: 从永久代到元数据区
+如果永久代满了或者是超过了临界值，会触发完全垃圾回收 (Full GC)。如果你仔细查看垃圾收集器的输出信息，就会发现永久代也是被回收的。这就是为什么正确的永久代大小对避免 Full GC 是非常重要的原因。请参考下Java8: 从永久代到元数据区
   
 (译者注: Java8中已经移除了永久代，新加了一个叫做元数据区的native内存区)
 
@@ -452,14 +452,22 @@ wiloon.com/red–black-tree
 
 >wiloon.com/hashmap
 
-- HashSet 的实现原理
+### HashSet 的实现原理
 >wiloon.com/hashset
 
-- ArrayList 和 LinkedList 的区别
+### ArrayList 和 LinkedList 的区别
 >wiloon.com/collection
 
-- 数组和 List 之间的转换
+### 数组和 List 之间的转换
 wiloon.com/java/convert
+
+### 类加载
+### 享元模式
+### 泛型
+### ClassPathXmlApplicationContext
+### annotation
+
+---
 
 ### Java 2021
 >https://zhuanlan.zhihu.com/p/64147696
