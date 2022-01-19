@@ -2,23 +2,18 @@
 title: sqlite 数据类型
 author: "-"
 date: 2012-07-08T15:05:01+00:00
-url: /?p=3828
+url: sqlite/datatype
 categories:
   - DataBase
 
 ---
 ## sqlite 数据类型
-### 
 
-<http://blog.csdn.net/jin868/article/details/5961263>
-
-
-  
-    一般数据采用的固定的静态数据类型，而SQLite采用的是动态数据类型，会根据存入值自动判断。SQLite具有以下五种数据类型: 
+一般数据采用的固定的静态数据类型，而SQLite采用的是动态数据类型，会根据存入值自动判断。SQLite具有以下五种数据类型: 
   
   
-    1.NULL: 空值。
- 2.INTEGER: 带符号的整型，具体取决有存入数字的范围大小。
+- NULL: 空值。
+- INTEGER: 带符号的整型，具体取决有存入数字的范围大小。
  3.REAL: 浮点数字，存储为8-byte IEEE浮点数。
  4.TEXT: 字符串文本。
  5.BLOB: 二进制对象。
@@ -28,7 +23,7 @@ categories:
  decimal(p,s) p 精确值和 s 大小的十进位整数，精确值p是指全部有几个数(digits)大小值，s是指小数点後有几位数。如果没有特别指定，则系统会设为 p=5; s=0 。
  float  32位元的实数。
  double  64位元的实数。
- char(n)  n 长度的字串，n不能超过 254。
+- char(n)  n 长度的字串，n不能超过 254。
  varchar(n) 长度不固定且其最大长度为 n 的字串，n不能超过 4000。
  graphic(n) 和 char(n) 一样，不过其单位是两个字元 double-bytes， n不能超过127。这个形态是为了支援两个字元长度的字体，例如中文字。
  vargraphic(n) 可变长度且其最大长度为 n 的双字元字串，n不能超过 2000
@@ -118,3 +113,7 @@ categories:
   
     所以一般来说，如果含有中文字符，用nchar/nvarchar，如果纯英文和数字，用char/varchar。
   
+
+
+<http://blog.csdn.net/jin868/article/details/5961263>
+
