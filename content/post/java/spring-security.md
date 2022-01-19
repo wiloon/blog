@@ -2,26 +2,28 @@
 title: "spring security"
 author: "-"
 date: ""
-url: ""
+url: spring/security
 categories:
   - inbox
 tags:
   - inbox
 ---
-## "spring security"
+## spring security
 
 ### pom.xml
 
+ ```xml
     <dependency>
         <!-- 由于我使用的spring boot所以我是引入spring-boot-starter-security而且我使用了spring io所以不需要填写依赖的版本号 -->
         <groupId>org.springframework.boot</groupId>
         spring-boot-starter-security</artifactId>
     </dependency>
+ ```
 
 ### .authorizeRequests()
 通过 authorizeRequests() 方法来开始请求权限配置。
 authorizeRequests()方法有多个子节点，每个macher按照他们的声明顺序执行  
-可以在authorizeRequests() 后定义多个antMatchers()配置器来控制不同的url接受不同权限的用户访问，而其中permitAll() 方法是运行所有权限用户包含匿名用户访问。
+可以在authorizeRequests() 后定义多个antMatchers()配置器来控制不同的url接受不同权限的用户访问，而其中 permitAll() 方法是运行所有权限用户包含匿名用户访问。
 而hasRole("权限")则是允许这个url给与参数中相等的权限访问。
 access("hasRole('权限') and hasRole('权限')") 是指允许访问这个url必须同时拥有参数中多个身份权限才可以访问。
 hasAnyRole("ADMIN", "DBA")是指允许访问这个url必须同时拥有参数中多个身份权限中的一个就可以访问该url。
@@ -34,7 +36,7 @@ and()是返回一个securityBuilder对象，formLogin()和httpBasic()是授权�
 
 .csrf().disable(); //取消csrf防护
 
-.sessionManagement()                        // 定制我们自己的 session 策略
+.sessionManagement() // 定制我们自己的 session 策略
 .sessionCreationPolicy(SessionCreationPolicy.STATELESS); // 调整为让 Spring Security 不创建和使用 session
 
 
