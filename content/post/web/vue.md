@@ -237,6 +237,9 @@ Source map就是一个信息文件，里面储存着位置信息。也就是说�
 
 
 ### vue-class-component
+```bash
+npm install --save vue vue-class-component
+```
 ### pwa
     vim vue.config.js
 

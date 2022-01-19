@@ -11,6 +11,29 @@ tags:
 
 ---
 ## curl, [kɜrl]
+### cookie
+#### cookie, 发送请求时附带cookie, cookie值从登录请求返回的 `Set-Cookie:` 里取
+```bash
+curl -v -d "name=admin&password=admin" -b cookie.txt "http://localhost:8080/user/login"
+curl -v --cookie "JSESSIONID=C62172C780C581AE8212836C5F4A13EB" "http://localhost:8080/get"
+```
+
+#### 保存cookie 到文件 
+```bash
+curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login"
+```
+#### 从文件读取cookie
+```bash
+curl -v --cookie cookie.txt "http://localhost:8080/get"
+curl -v -b cookie.txt "http://localhost:8080/get"
+```
+
+#### 完整版本
+```bash
+curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login" && curl -v -b cookie.txt "http://localhost:8080/get"
+```
+>https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263
+
 ### 追踪重定向 -L
     curl -L xxx
 ### post request
