@@ -18,3 +18,7 @@ pkgfile pacstrap
 
 pacman -S extra/arch-install-scripts
 ```
+
+### command-not-found.com
+提供 command not found 的搜索
+command-not-found.com
