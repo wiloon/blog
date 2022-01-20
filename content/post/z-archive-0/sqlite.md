@@ -28,3 +28,9 @@ CREATE INDEX IF NOT EXISTS index_user_email ON p219.users (email);
 
 >https://www.runoob.com/sqlite/sqlite-create-table.html
 >http://shows.poorren.com/Document/SQLite/39.Html
+
+
+
+### 索引 B树
+>https://blog.csdn.net/jinking01/article/details/115725022
+

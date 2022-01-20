@@ -138,3 +138,36 @@ m-x flush-lines
 
 ;;按Y或空格确认
 (fset 'yes-or-no-p 'y-or-n-p)
+
+
+## emacs 插入空行
+;insert line
+  
+(global-set-key (kbd "S-<return>") '(lambda()(interactive)(move-end-of-line 1)(newline)))
+  
+(global-set-key (kbd "C-S-<return>") '(lambda()(interactive)(move-beginning-of-line 1)(newline)(previous-line)))
+
+
+<http://www.gnu.org/software/emacs/manual/html_node/emacs/Moving-Point.html>
+
+
+## emacs在替换字符串的时候输入回车/换行
+`C-Q C-J`
+
+**Using carriage returns in query-replace / replace-string**
+
+
+  
+    Use C-Q C-J (control-Q control-J) each time you want to include a carriage return. e.g. to double-space everything
+  
+  
+    M-x replace-string RET C-Q C-J RET C-Q C-J C-Q C-J RET
+  
+  
+    Or to put "bloogie " at the beginning of every line
+  
+  
+    M-x replace-string RET C-Q C-J RET C-Q C-J b l o o g i e SPACE RET
+  
+
+

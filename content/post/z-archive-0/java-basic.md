@@ -215,7 +215,7 @@ http://www.wiloon.com/?p=6726&embed=true#?secret=PuZXM3VEiO
   * ListIterator实现了Iterator接口，并包含其他的功能，比如: 增加元素，替换元素，获取前一个和后一个元素的索引，等等。
 
 
-### Comparable和Comparator接口是干什么的？列出它们的区别。
+### Comparable 和 Comparator 接口是干什么的？列出它们的区别。
 
 Java提供了只包含一个compareTo()方法的Comparable接口。这个方法可以个给两个对象排序。具体来说，它返回负数，0，正数来表明输入对象小于，等于，大于已经存在的对象。
 

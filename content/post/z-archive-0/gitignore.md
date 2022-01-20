@@ -9,9 +9,11 @@ tags:
   - Git
 
 ---
-忽略子目录下所有某后缀的文件
+## gitignore
+### 忽略子目录下所有某后缀的文件
 
-```bash**/*.iml
+```bash
+**/*.iml
 ```
 
 具体使用请看 man gitignore
