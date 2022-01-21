@@ -110,3 +110,17 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
 https://segmentfault.com/a/1190000010792260
 
 https://juejin.im/post/5d1cc073f265da1bcb4f486d
+
+
+### axios 302
+
+如果返回的状态码是200，这时候通过response.request.responseURL获取地址，然后进行重定向
+axios.post('.', Data)
+     .then(response => {
+         if (response.status === 200) {
+             window.location.href = response.request.responseURL;
+         }
+     })
+     .catch(error => {console.log(error)});
+     
+>https://xudany.github.io/axios/2020/07/14/%E5%85%B3%E4%BA%8E-axios-302-%E9%87%8D%E5%AE%9A%E5%90%91%E7%9A%84%E9%97%AE%E9%A2%98/

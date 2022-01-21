@@ -38,6 +38,17 @@ XSS更偏向于方法论,CSRF更偏向于一种形式,只要是伪造用户发�
 
 XSS更偏向于代码实现（即写一段拥有跨站请求功能的JavaScript脚本注入到一条帖子里,然后有用户访问了这个帖子,这就算是中了XSS攻击了) ,CSRF更偏向于一个攻击结果,只要发起了冒牌请求那么就算是CSRF了。
 
+### CORS
+由于现实使用中，很多需要跨域访问，所以 W3C 标准就提出了 CORS。
+
+跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器 让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
+
+具体查看官方文档：https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
+
+简单里的理解，就是 CORS 提供了一种设置你的页面可以访问指定的域名下的资源（API）的方法。当然这些域名是你受信任的。从而避免了 CRSF 攻击。CORS 就像是一个过滤器。
+
+注意：很多开发者在碰到跨域问题提时，通过搜索得到的答案就是直接设置 Oragin: * 这样的结果就是你的网页信任任何域名，虽然达到了跨域访问的目的，但是同时失去了 CORS 的意义，因为你设置了这个过滤器不过滤任何域
+
 https://github.com/OWASP?page=5
 
 https://github.com/owasp/java-html-sanitizer

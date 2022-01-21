@@ -1,7 +1,7 @@
 ---
 title: sqlite
 author: "-"
-date: 2012-07-08T06:30:12+00:00
+date: 2022-01-21 15:35:49
 url: sqlite
 categories:
   - DataBase
@@ -52,3 +52,12 @@ INSERT INTO users VALUES ('c31f5e0e-0e0c-4731-97dc-9c6675a0068c','admin','admin@
 ### 索引 B树
 >https://blog.csdn.net/jinking01/article/details/115725022
 
+
+### command
+```bash
+# query schema
+.table
+
+
+```
+>https://www.sqlite.org/cli.html
