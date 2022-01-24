@@ -171,3 +171,11 @@ m-x flush-lines
   
 
 
+## Emacs中以十六进制查看文件
+  
+    打开文件后，用指令: 
+  
+
+  
+    m-x hexl-mode
+  

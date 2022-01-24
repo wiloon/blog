@@ -1,17 +1,27 @@
 ---
-title: failed to find romfile pxe-virtio.bin
+title: axios
 author: "-"
 date: 2012-03-13T02:06:32+00:00
-url: /?p=2541
+url: axios
 categories:
-  - Linux
+  - Web
 tags:
-  - KVM
+  - axios
 
 ---
-## failed to find romfile pxe-virtio.bin
-failed to find romfile pxe-virtio.bin
-  
-需要安装kvm-pxe
-  
-apt-get install -y kvm-pxe
+## axios
+
+### 模拟form 提交
+```javascript
+Content-Type: multipart/form-data
+import axios from 'axios'
+let data = new FormData();
+data.append('code','1234');
+data.append('name','yyyy');
+axios.post(`${this.$url}/test/testRequest`,data)
+.then(res=>{
+    console.log('res=>',res);            
+})
+
+```
+>https://segmentfault.com/a/1190000015261229

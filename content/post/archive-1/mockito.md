@@ -15,10 +15,11 @@ categories: []
 
 当需要测试一个组合方法（一个方法需要其它多个方法协作) 的时候，某个叶子方法（只供别人调用，自己不依赖其它反复) 已经被测试过，我们其实不需要再次测试这个叶子方法，so，让叶子打桩实现返回结果，上层方法实际调用并测试。
 
-mockito实现部分mock的两种方式: spy和callRealMethod()
+mockito实现部分mock的两种方式: spy和 callRealMethod()
 
 spy的原理是，如果不打桩默认都会执行真实的方法，如果打桩则返回桩实现。可以看出spy.size()通过桩实现返回了值100，而spy.get(0)则返回了实际值
 
+```java
     List<String> list = new LinkedList<String>();  
     List<String> spy = spy(list);  
     when(spy.size()).thenReturn(100);  
@@ -29,6 +30,13 @@ spy的原理是，如果不打桩默认都会执行真实的方法，如果打�
 
     Channel channel = mock(Channel.class);
     when(channel.writeAndFlush(obj)).thenReturn(null);
+```
+
+```java
+    // 重置 spy 对象，让 add(1,2) 调用真实方法，返回 3
+        when(exampleService.add(1, 2)).thenCallRealMethod();
+        Assert.assertEquals(3, exampleService.add(1, 2));
+```
 
 一、什么是mock测试，什么是mock对象？ 
 

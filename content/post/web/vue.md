@@ -373,6 +373,14 @@ mounted:在模板渲染成html后调用，通常是初始化页面完成后，�
 >https://blog.csdn.net/xdnloveme/article/details/78035065
 
 
+### 取当前路由
+```bash
+this.$router.currentRoute.path
+```
+
+### axios 401
+>https://blog.csdn.net/weixin_49696014/article/details/113180848
+
 ----
 
 https://cli.vuejs.org/zh/guide/prototyping.html

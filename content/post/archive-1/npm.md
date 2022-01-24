@@ -8,6 +8,11 @@ tags:
 
 ---
 ## npm basic
+### 指定 package.json 路径 
+```bash
+# 其中path / to / project是你的package.json中定义了“build”命令的目录。
+npm --prefix /path/to/project run build
+```
 ### node-gyp
 gyp是为Chromium项目创建的项目生成工具，可以从平台无关的配置生成平台相关的Visual Studio、Xcode、Makefile的项目文件。这样一来我们就不需要花额外的时间处理每个平台不同的项目配置以及项目之间的依赖关系。
 ### commands
