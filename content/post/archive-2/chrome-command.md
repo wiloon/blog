@@ -1,13 +1,21 @@
 ---
 title: chrome command
 author: "-"
-date: 2017-10-15T07:04:28+00:00
+date: 2022-01-22 20:05:13
 url: /?p=11277
 categories:
-  - Uncategorized
+  - web
+  - remix
 
 ---
 ## chrome command
+```bash
+# linux 启动浏览器并打开 URL
+google-chrome-beta gmail.com
+google-chrome-beta http://localhost:8080
+```
+>https://stackoverflow.com/questions/28162697/how-can-i-open-google-chrome-from-the-terminal-with-the-url-localhost3000
+
 Chrome 有很多的特性在界面菜单中是没有体现的,你可以通过 chrome:// 命令来访问。本文介绍 12 个非常有用的 chrome:// 命令: 
 
   1. chrome://flags

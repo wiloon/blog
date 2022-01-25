@@ -322,3 +322,14 @@ http://liwanchun-xd.iteye.com/blog/144047
 ```bash
 mvn tomcat:run
 ```
+
+
+### maven-clean-plugin
+The Clean Plugin only has one goal.
+
+clean:clean attempts to clean a project's working directory of the files that we're generated at build-time. By default, it discovers and deletes the directories configured in project.build.directory, project.build.outputDirectory, project.build.testOutputDirectory, and project.reporting.outputDirectory.
+
+>https://maven.apache.org/plugins/maven-clean-plugin/
+
+
+### frontend-maven-plugin

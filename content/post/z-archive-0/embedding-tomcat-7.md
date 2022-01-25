@@ -1,108 +1,31 @@
 ---
-title: Embedding tomcat 7
+title: spring security 拦截器
 author: "-"
 date: 2011-11-20T09:10:54+00:00
-url: /?p=1550
+url: spring
 categories:
-  - Java
+  - spring
 tags:
-  - Tomcat
+  - spring
 
 ---
-## Embedding tomcat 7
-<http://www.copperykeenclaws.com/embedding-tomcat-7/>
+## spring security 拦截器
+1、ChannelProcessingFilter，使用它因为我们可能会指向不同的协议(如:Http,Https)
 
-One of the more anticipated features of Tomcat 7 is the ability to run as an embedded server like Jetty. We use Tomcat 6 in production, but embedded Jetty more and more for running and testing during development (in Eclipse). The Tomcat 7  has been out for a while, but there seems to be little documentation out there on how to embed it, other than some suggestions to look at the unit tests for examples. So that's what I did! First, here is the guts of our original Main method in Jetty:
+2、SecurityContextPersistenceFilter，负责从SecurityContextRepository 获取或存储 SecurityContext。SecurityContext 代表了用户安全和认证过的session
 
-```java
-  
-public static void main(String[] args) throws Exception {
-    
-String weppAppHome = args[0];
-    
-Integer port = Integer.valueOf(args[1]);
+3、ConcurrentSessionFilter,使用SecurityContextHolder的功能，更新来自“安全对象”不间断的请求,进而更新SessionRegistry
 
-Server server = new Server(port);
+4、认证进行机制，UsernamePasswordAuthenticationFilter，CasAuthenticationFilter，BasicAuthenticationFilter等等--SecurityContextHolder可能会修改含有Authentication这样认证信息的token值
 
-WebAppContext webapp = new WebAppContext();
-    
-webapp.setContextPath("/myapp");
-    
-webapp.setCompactPath(true);
+5、SecurityContextHolderAwareRequestFilter,如果你想用它的话，需要初始化spring security中的HttpServletRequestWrapper到你的servlet容器中。
 
-webapp.setDescriptor(weppAppHome + "/WEB-INF/web.xml");
-    
-webapp.setResourceBase(weppAppHome);
-    
-webapp.setParentLoaderPriority(true);
+6、JaasApiIntegrationFilter，如果JaasAuthenticationToken在SecurityContextHolder的上下文中，在过滤器链中JaasAuthenticationToken将作为一个对象。
 
-server.setHandler(webapp);
-    
-server.start();
-    
-server.join();
-  
-}
-  
-```
+7. RememberMeAuthenticationFilter, 如果还没有新的认证程序机制更新SecurityContextHolder，并且请求已经被一个“记住我”的服务替代，那么将会有一个Authentication对象将存放到这（就是 已经作为cookie请求的内容）。
 
-  To switch to Tomcat 7, add these dependencies to your build.gradle:
+8、AnonymousAuthenticationFilter，如果没有任何认证程序机制更新SecurityContextHolder，一个匿名的对象将存放到这。
 
+9、ExceptionTranslationFilter，为了捕获spring security的错误，所以一个http响应将返回一个Exception或是触发AuthenticationEntryPoint。
 
-  compile "org.apache.tomcat:tomcat-catalina:7.0.22"
-
-
-  compile "org.apache.tomcat.embed:tomcat-embed-core:7.0.22"
-
-
-  compile "org.apache.tomcat:tomcat-jasper:7.0.22"
-
-
-  Here is the Tomcat 7 version:
-
-```java
-  
-public static void main(String[] args) throws Exception {
-    
-//app base, which contains WEB-INF
-    
-String appBase = "/xxx/xxx/xxx/yourAppBase"
-    
-Integer port = 8080;
-
-//config the url,
-    
-//http://localhost:8080/myapp
-    
-String contextPath = "/myapp";
-    
-Tomcat tomcat = new Tomcat();
-    
-tomcat.setPort(port);
-
-tomcat.setBaseDir(".");
-    
-tomcat.getHost().setAppBase(appBase);
-
-// Add AprLifecycleListener
-    
-StandardServer server = (StandardServer)tomcat.getServer();
-    
-AprLifecycleListener listener = new AprLifecycleListener();
-    
-server.addLifecycleListener(listener);
-
-tomcat.addWebapp(contextPath, appBase);
-    
-tomcat.start();
-    
-tomcat.getServer().await();
-  
-}
-  
-```
-
-  Without the await() call at the end, the server quits right after it starts, which you may or may not want.
-
-
-  Launch it! We normally set up a launch configuration in Eclipse to run it. It's also easy to run on the command-line using java -jar after you've built your jar.
+10、FilterSecurityInterceptor，当连接被拒绝时，保护web URLS并且抛出异常。

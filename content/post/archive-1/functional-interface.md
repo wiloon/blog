@@ -203,7 +203,7 @@ int sum = FunctionalInterfaceWithStaticMethod.sum(new int[]{1,2,3,4,5});
 
 }
   
-默认方法
+### 默认方法, Java 8 默认方法 default
 
 Java 8中允许接口实现方法, 而不是简单的声明, 这些方法叫做默认方法,使用特殊的关键字default。
   
