@@ -91,3 +91,15 @@ title: "cypress"
     cy.task('queryDb', 'SELECT COUNT(*) AS count FROM table0 WHERE field0=\'value0\'').then(res => {
       expect(res[0].count).to.equal(1)
     })
+
+### 配置 NODE_ENV
+```javascript
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "NODE_ENV=development vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint"
+  },
+
+```
