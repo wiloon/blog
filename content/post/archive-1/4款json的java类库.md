@@ -1,5 +1,5 @@
 ---
-title: 4款json的java类库
+title: 4款json的java类库, FastJson
 author: "-"
 date: 2014-03-31T02:14:35+00:00
 url: /?p=6454
@@ -8,31 +8,27 @@ tags:
   - Json
 
 ---
-## 4款json的java类库
+## 4款json的java类库, FastJson
 JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 易于人阅读和编写。同时也易于机器解析和生成。 它基于JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999的一个子集。 JSON采用完全独立于语言的文本格式，这些特性使JSON成为理想的数据交换语言。
 
 
 下面介绍四款处理json的java类库: Json-lib、Gson、Jackson、Fastjson
 
 
-四、FastJson
+### FastJson
 
 Fastjson是一个Java语言编写的JSON处理器,由阿里巴巴公司开发。网址: https://github.com/alibaba/fastjson
 
 
 maven依赖配置: 
-
-
+```xml
 <dependency>
-
-<groupId>com.alibaba</groupId>
-
-<artifactId>fastjson</artifactId>
-
-<version>1.1.35</version>
-
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.79</version>
 </dependency>
 
+```
 示例: 
 
 
@@ -56,10 +52,7 @@ VO vo = JSON.parseObject("...", VO.class);```
 ```
 
 
-复制代码
-
-
-一、Json-lib
+### Json-lib
 
 JSON-lib is a java library for transforming beans, maps, collections, java arrays and XML to JSON and back again to beans and DynaBeans. 官网: http://json-lib.sourceforge.net/
 
@@ -129,7 +122,7 @@ return (T)JSONObject.toBean(JSONObject.fromObject(jsonStr), objClass);
 
 复制代码
 
-二、Gson
+### Gson
 
 Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of.
 
@@ -199,7 +192,7 @@ return prettyJsonString;
 
 复制代码
 
-三、Jackson
+### Jackson
 
 Jackson is a high-performance JSON processor (parser, generator)。官网: http://jackson.codehaus.org/Home
 
