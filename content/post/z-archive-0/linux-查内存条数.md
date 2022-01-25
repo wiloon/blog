@@ -1,5 +1,5 @@
 ---
-title: linux 查看内存
+title: linux 内存
 author: lcf
 date: 2012-09-25T05:30:38+00:00
 url: /?p=4259
@@ -11,9 +11,11 @@ categories:
 ```bash
   
 free -h
-  
+# 内存的更具体的使用情况
 cat /proc/meminfo
-  
+
+dmidecode -t memory
+
 dmidecode |grep -A16 "Memory Device$"
 
 #进程内存
@@ -35,5 +37,8 @@ ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid' | grep oracle | sort -nrk5
 ### 内存映射
     cat /proc/PID/maps
     cat /proc/PID/smaps
+
+### free>total 跟物理内存不一致
+系统启动时会初始化相关设备，该过程会占用内存，内核启动时，也会占用一部分的内存。
 
 http://www.cnblogs.com/gaojun/p/3406096.html
