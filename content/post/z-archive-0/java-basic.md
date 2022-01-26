@@ -361,7 +361,8 @@ Enumeration速度是Iterator的2倍，同时占用更少的内存。但是，Ite
 
 **25、JSP中动态INCLUDE与静态INCLUDE的区别？** 动态INCLUDE用jsp:include动作实现 它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数。 静态INCLUDE用include伪码实现,定不会检查所含文件的变化，适用于包含静态页面<%@ include file="included.htm" %>
 
-**22、forward 和redirect的区别** forward是服务器请求资源，服务器直接访问目标地址的URL，把那个URL的响应内容读取过来，然后把这些内容再发给浏览器，浏览器根本不知道服务器发送的内容是从哪儿来的，所以它的地址栏中还是原来的地址。 redirect就是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址，一般来说浏览器会用刚才请求的所有参数重新请求，所以session,request参数都可以获取。
+### forward 和redirect的区别
+forward是服务器请求资源，服务器直接访问目标地址的URL，把那个URL的响应内容读取过来，然后把这些内容再发给浏览器，浏览器根本不知道服务器发送的内容是从哪儿来的，所以它的地址栏中还是原来的地址。 redirect就是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址，一般来说浏览器会用刚才请求的所有参数重新请求，所以session,request参数都可以获取。
 
 **23、EJB与**JAVA** BEAN的区别？** **Java** Bean 是可复用的组件，对Java Bean并没有严格的规范，理论上讲，任何一个Java类都可以是一个Bean。但通常情况下，由于Java Bean是被容器所创建（如Tomcat) 的，所以Java Bean应具有一个无参的构造器，另外，通常Java Bean还要实现Serializable接口用于实现Bean的持久性。Java Bean实际上相当于微软COM模型中的本地进程内COM组件，它是不能被跨进程访问的。Enterprise Java Bean 相当于DCOM，即分布式组件。它是基于Java的远程方法调用（RMI) 技术的，所以EJB可以被远程访问（跨进程、跨计算机) 。但EJB必须被布署在诸如Webspere、WebLogic这样的容器中，EJB客户从不直接访问真正的EJB组件，而是通过其容器访问。EJB容器是EJB组件的代理， EJB组件由容器所创建和管理。客户通过容器来访问真正的EJB组件。
 
@@ -458,17 +459,6 @@ wiloon.com/red–black-tree
 ### ArrayList 和 LinkedList 的区别
 >wiloon.com/collection
 
-### 数组和 List 之间的转换
-wiloon.com/java/convert
-
-### 类加载
-### 享元模式
-### 泛型
-### ClassPathXmlApplicationContext
-### annotation
-### XSS 
-### CSRF
----
 
 ### Java 2021
 >https://zhuanlan.zhihu.com/p/64147696
