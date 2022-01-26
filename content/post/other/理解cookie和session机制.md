@@ -2,7 +2,7 @@
 title: cookie, session
 author: "-"
 date: 2012-06-22T06:55:22+00:00
-url: /?p=3600
+url: cookie/session
 categories:
   - Java
   - Web

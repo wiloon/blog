@@ -7,14 +7,14 @@ categories:
 - Uncategorized
 
 ---
-## XSS, Cross Site Scripting, CSRF, Cross-site request forgery
-跨站脚本攻击(Cross Site Scripting),缩写为XSS。恶意攻击者往Web页面里插入恶意javaScript代码,当用户浏览该页之时,嵌入其中Web里面的javaScript代码会被执行,从而达到恶意攻击用户的目的。
+## XSS, Cross Site Scripting(CSS), CSRF, Cross-site request forgery， 跨站脚本攻击
+XSS攻击又称CSS,全称Cross Site Script  （跨站脚本攻击）,缩写为XSS。恶意攻击者往Web页面里插入恶意javaScript代码,当用户浏览该页之时,嵌入其中Web里面的javaScript代码会被执行,从而达到恶意攻击用户的目的。
 
 ### XSS攻击的分类
 
 1. 反射型
 
-又称为非持久性跨站点脚本攻击。漏洞产生的原因是攻击者注入的数据反映在响应中。非持久型XSS攻击要求用户访问一个被攻击者篡改后的链接,用户访问该链接时,被植入的攻击脚本被用户游览器执行,从而达到攻击目的。也就是我上面举的那个简单的XSS攻击案例,通过url参数直接注入。然后在响应的数据中包含着危险的代码。
+又称为非持久性跨站点脚本攻击。漏洞产生的原因是攻击者注入的数据反映在响应中。非持久型XSS攻击要求用户访问一个被攻击者篡改后的链接,用户访问该链接时,被植入的攻击脚本被用户流览器执行,从而达到攻击目的。也就是我上面举的那个简单的XSS攻击案例,通过url参数直接注入。然后在响应的数据中包含着危险的代码。
 
 当黑客把这个链接发给你,你就中招啦！
 
@@ -28,7 +28,7 @@ XSS:  通过客户端脚本语言（最常见如: JavaScript)
 
 在一个论坛发帖中发布一段恶意的JavaScript代码就是脚本注入,如果这个代码内容有请求外部服务器,那么就叫做XSS！
 
-### CSRF
+### CSRF， Cross-site request forgery， 跨站请求伪造
 
 又称XSRF,冒充用户发起请求（在用户不知情的情况下) ,完成一些违背用户意愿的请求（如恶意发帖,删帖,改密码,发邮件等) 。
 
