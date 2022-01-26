@@ -1,5 +1,5 @@
 ---
-title: ems query
+title: Map, Dictionary
 author: "-"
 date: 2012-09-27T09:34:36+00:00
 url: /?p=4345
@@ -7,181 +7,28 @@ categories:
   - Java
 
 ---
-## ems query
-public class EmsQuery {
-  
-static String separator = "#";
-  
-static String returnFlag = "n";
+## Map, Dictionary
+### Dictionary
 
-public static void main(String[] args) throws IOException, InterruptedException {
-  
-System.setProperty("http.proxyHost", "xxx.xxx.xxx.xxx");
-  
-System.setProperty("http.proxyPort", "80");
-  
-String filePath = "d:/100.txt";
-  
-File file = new File(filePath);
-  
-StringBuffer sb = new StringBuffer();
-  
-if (!file.exists()) {
-  
-file.createNewFile();
-  
-}
-  
-for (int id = 1082711; id < 1082911; id++) {
-  
-String emsId = "TX00" + id + "US";
-  
-String details = getEmsDetails(emsId);
-  
-sb.append(details);
-  
-Thread.sleep(1000);
-  
-}
+Dictionary 是 Hashtable 的抽象父类，在 java.util包下，他的子类有 Hashtable, Properties. 它的主要作用是用于记录 键到值的一一对应关系。没错，从数学的概念上讲，这种映射关系就是一对一的。也就是说，一个key最多只能找到一个value. 如果给出一个 Dictionary 的子类对象和一个 key， 就可以查找有没有包含相关的元素。需要注意的是：任何非空(non-null)的对象才能用作 key 和 value.
 
-BufferedWriter output = new BufferedWriter(new FileWriter(file));
-  
-output.write(sb.toString());
-  
-output.close();
-  
-}
+通常，类的实现应使用 equals 方法来确定两个键是否相同。
 
-public static String getEmsDetails(String emsId) {
-  
-String strUrl = "http://www.kuaidi100.com/query?type=ems&postid=" + emsId;
-  
-System.out.println(strUrl);
-  
-String content;
-  
-URL url = null;
-  
-String msg = null;
-  
-try {
+**注意：此类已过时。 新的实现应实现 Map 接口，而不是扩展此类。**
 
-url = new URL(strUrl);
+Map 接口
+Map 是一个接口，还是看图：
 
-HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+Map 是一个将 keys 映射到 values 的对象。一个 map 对象不能包含重复的 keys. 每一个 key 最多只能映射到一个对象。
+Map 这个接口是为了取代 Dictionary 这个抽象类的，更直白的说，就是拿一个接口去取代之前抽象类。
 
-content = Utils.streamReader(conn.getInputStream(), "utf-8");
-  
-if (conn.getResponseCode() != 200) {
-  
-System.out.println("response > 200");
-  
-return "";
-  
-}
-  
-System.out.println(content);
+three collection views
+Map 接口提供了三套查看方法来查看map所包含的内容。
 
-JSONTokener jsonParser = new JSONTokener(content);
-  
-JSONObject obj = (JSONObject) jsonParser.nextValue();
-  
-String status = obj.getString("status");
-  
-if (!status.equals("200")) {
-  
-System.out.println("status!= 200");
-  
-return "";
-  
-}
-  
-JSONArray arr = obj.getJSONArray("data");
-  
-int size = arr.size();
-  
-StringBuffer sbRtn = new StringBuffer();
-  
-msg = emsId + separator + getEmsDetails(arr) + returnFlag;
+查看它所包含的所有 keys (view as a set of keys)
+查看它所包含的所有 values(view as collection of values)
+查看它所包含的键-值映射。(view as a set of key-value mappings)
 
-} catch (Exception e) {
-  
-System.out.println(e);
-  
-msg = "";
-  
-}
-  
-return msg;
-  
-}
-
-public static String getOneRecord(JSONArray arr, int index) {
-  
-JSONObject obj = arr.getJSONObject(index);
-  
-StringBuffer sbDt = new StringBuffer();
-  
-sbDt.append(obj.getString("time").trim());
-  
-String context = obj.getString("context");
-  
-if (context.indexOf(":") == 0) {
-  
-sbDt.append(context.substring(0, 3));
-  
-context = context.substring(4);
-  
-sbDt.insert(10, " ");
-  
-}
-  
-DateTime dateTime;
-  
-try {
-  
-dateTime = DateTimeFormat.forPattern("MM/dd/yyyy HH:mm").parseDateTime(sbDt.toString());
-  
-} catch (Exception e) {
-  
-dateTime = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").parseDateTime(sbDt.toString());
-  
-}
-
-String strDt = dateTime.toString("yyyy-MM-dd HH:mm:ss");
-  
-return strDt + separator + context + separator;
-  
-}
-
-public static String getEmsDetails(JSONArray arr) {
-  
-int size = arr.size();
-  
-StringBuffer sbRtn = new StringBuffer();
-  
-if (size > 2) {
-  
-sbRtn.append(getOneRecord(arr, size - 1));
-  
-sbRtn.append(getOneRecord(arr, size - 2));
-  
-sbRtn.append(getOneRecord(arr, 0));
-  
-} else if (size > 1) {
-  
-sbRtn.append(getOneRecord(arr, size - 1));
-  
-sbRtn.append(getOneRecord(arr, size - 2));
-  
-} else {
-  
-sbRtn.append(getOneRecord(arr, 0));
-  
-}
-  
-return sbRtn.toString();
-  
-}
-  
-}
+————————————————
+版权声明：本文为CSDN博主「mysonghushu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/fudaxing/article/details/102937285

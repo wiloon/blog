@@ -57,6 +57,10 @@ AbstractMap<|-- HashMap
 Map <|.. HashMap
 HashMap<|-- LinkedHashMap
 Map <|.. LinkedHashMap
+class Hashtable
+Map <|.. Hashtable
+class Dictionary
+Dictionary <|-- Hashtable
 @enduml
 ```
 
@@ -163,7 +167,7 @@ Set是一种不包含重复的元素的Collection，即任意的两个元素e1�
 
 
 ### Hashtable类
-Hashtable继承Map接口，实现一个key-value映射的哈希表。任何非空（non-null) 的对象都可作为key或者value。
+Hashtable 实现 Map接口，实现一个key-value映射的哈希表。任何非空（non-null) 的对象都可作为key或者value。
   
 添加数据使用put(key, value)，取出数据使用get(key)，这两个基本操作的时间开销为常数。
   
