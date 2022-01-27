@@ -94,6 +94,14 @@ https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
 
 ### 打印当前版本
     git rev-parse HEAD
+
+### git checkout
+git checkout: Git的checkout有两个作用，其一是在不同的branch之间进行切换，例如'git checkout new_branch'就会切换到new_branch的分支上去；另一个功能是还原代码的作用，例如'git checkout app/model/user.rb'就会将user.rb文件从上一个已提交的版本中更新回来，未提交的内容全部会回滚
+
+git checkout -f     //提取当前branch的所有文件．
+
+git checkout HEAD . # 将所有代码都 checkout 出來(最后一次 commit 的版本), 注意, 若有修改的代码都会被还原到上一版. (git checkout -f 亦可)
+
 ### checkout 指定版本
     git checkout 788258e49531eb24bfd347a600d69a16f966c495
 
