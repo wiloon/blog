@@ -2,21 +2,21 @@
 title: instanceof
 author: "-"
 date: 2014-05-09T07:07:58+00:00
-url: /?p=6611
+url: instanceof
 categories:
-  - Uncategorized
+  - Java
 tags:
   - Java
+  - I
 
 ---
 ## instanceof
-Java中的instanceof关键字
+Java中的instanceof关键字是一个二元操作符，和==，>，<是同一类东西。由于它是由字母组成的，所以也是Java的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回boolean类型的数据。举个例子: 
 
-instanceof是Java的一个二元操作符，和==，>，<是同一类东西。由于它是由字母组成的，所以也是Java的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回boolean类型的数据。举个例子: 
-
+```java
 String s = "I AM an Object!";
-  
 boolean isObject = s instanceof Object;
+```
 
 我们声明了一个String对象引用，指向一个String对象，然后用instancof来测试它所指向的对象是否是Object类的一个实例，显然，这是真的，所以返回true，也就是isObject的值为True。
   
