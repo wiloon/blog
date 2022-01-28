@@ -78,3 +78,61 @@ https://www.freebuf.com/sectool/134015.html
 https://blog.csdn.net/ru_li/article/details/51334082
 
 https://blog.csdn.net/zer0_o/article/details/28399533
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title0</title>
+    <!–css–>
+
+    <!--javascript-->
+    <script type="text/javascript">
+        window.onload = function () {
+            console.log('window.onload')
+        }
+        function func0(){
+            // 1. Create a new XMLHttpRequest object
+            let xhr = new XMLHttpRequest();
+
+            // 2. Configure it: GET-request for the URL /article/.../load
+            xhr.open('GET', 'http://localhost:8000');
+
+            // 3. Send the request over the network
+            xhr.send();
+
+            // 4. This will be called after the response is received
+            xhr.onload = function () {
+                if (xhr.status !== 200) {
+                    // analyze HTTP status of the response
+                    console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+                    // e.g. 404: Not Found
+                } else {
+                    // show the result
+                    console.log(`Done, got ${xhr.response.length} bytes`);
+                    // response is the server
+                }
+
+                xhr.onprogress = function (event) {
+                    if (event.lengthComputable) {
+                        console.log(`Received ${event.loaded} of ${event.total} bytes`);
+                    } else {
+                        console.log(`Received ${event.loaded} bytes`); // no Content-Length
+                    }
+                };
+                xhr.onerror = function () {
+                    console.log("Request failed");
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+body0
+<button type="button" onclick="func0()">button0</button>
+</body>
+</html>
+
+```
