@@ -2,9 +2,9 @@
 title: java vs javaw vs javaws
 author: "-"
 date: 2015-01-22T12:17:18+00:00
-url: /?p=7283
+url: javaws
 categories:
-  - Uncategorized
+  - Java
 tags:
   - Java
 
@@ -12,10 +12,11 @@ tags:
 ## java vs javaw vs javaws
 http://javapapers.com/core-java/java-vs-javaw-vs-javaws/
 
-This article gives an awareness tip. Do you know the difference between java, javaw and javaws tools. All these three are java application launchers. We know well about java.exe which we use quite often. Our command line friend, mostly we use it for convenience to execute small java programs. javaw is rare for us. Sometimes we have seen that in running application list in windows task manager. javaws is web start utility.
+This article gives an awareness tip. Do you know the difference between java, javaw and javaws tools. All these three are java application launchers. 
+We know well about java.exe which we use quite often. Our command line friend, mostly we use it for convenience to execute small java programs. javaw is rare for us. Sometimes we have seen that in running application list in windows task manager. javaws is web start utility.
 
-jvm.dll
-  
+### jvm.dll
+
 We need to know about jvm.dll also. This is the actual java virtual machine implementation in windows environment and it is part of the JRE. A 'C' program can use this jvm.dll directly to run the jvm.
 
 java.exe
