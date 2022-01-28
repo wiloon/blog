@@ -16,17 +16,25 @@ tags:
 <head>
     <meta charset="utf-8">
     <title>title0</title>
-    <!–css–>
+    <!–-css-–>
     
     <!--javascript-->
     <script src="path/to/foo.js"></script>
     <script type="text/javascript">
         var myVar = "hello";
         function showAlert() { alert('You triggered an alert!'); }
+
+        function func0(){
+            console.log('func0')
+        }
+        window.onload = function () {
+            console.log('window.onload')
+        }
     </script>
 </head>
 <body>
     body0
+    <button type="button" onclick="func0()">button0</button>
 </body>
 </html>
 ```

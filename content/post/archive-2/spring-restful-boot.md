@@ -158,3 +158,5 @@ public void run(String... ) throws Exception {
 
 >https://segmentfault.com/a/1190000039363178
 
+### 参数检验
+@NotEmpty用在集合类上面 @NotBlank 用在String上面 @NotNull 用在基本类型上

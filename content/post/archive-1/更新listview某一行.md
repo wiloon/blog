@@ -54,7 +54,7 @@ break;
 主要代码: 
 
 
-[html] 
+```html 
   
 listItem.remove(mLastPosition);
   
@@ -63,7 +63,7 @@ listItem.add(mLastPosition, hashMap);
 第三个问题，Intent只能传递基本数据类型，怎么在两个Activity之间传递HashMap类型的数据，可以写一个继承自Application的类，通过set ,get共享数据，但是用完后别忘了释放哦
 
 
-[html] 
+```html 
   
 public HashMap<String, Object> hashMap;
 

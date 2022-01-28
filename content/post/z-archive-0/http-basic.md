@@ -57,7 +57,7 @@ url: /?p=1255
     下面举一个简单的例子来说明它们的区别: 
   
   
-    [html]
+    ```html
  <!-分别通过get和post方式提交表单->
  <FORM ACTION="getpost.asp" METHOD="get">
  <INPUT TYPE="text" NAME="Text" VALUE="
@@ -85,7 +85,7 @@ url: /?p=1255
  通过Post方式传递的字符串是:  "<%= Request.Form("Text") %>"
 
  <% End If %>
- [/html]
+ ```
   
   
     RFC2616 http://www.ietf.org/rfc/rfc2616.txt

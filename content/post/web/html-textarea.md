@@ -12,7 +12,7 @@ tags:
 ## html textarea
 TextArea
 
-[html]
+```html
 
 <textarea rows="3" cols="30">
   
@@ -20,7 +20,7 @@ TextArea
   
 </textarea>
 
-[/html]
+```
 
 Code:
   

@@ -320,7 +320,7 @@ GC的标记阶段需要stop the world，让所有Java线程挂起，这样JVM才
 
 例如hotspot在x86中为轮询safepoint会生成一条类似于"test %eax,0x160100"的指令，JVM需要进入gc前，先把0x160100设置为不可读，那所有线程执行到检查0x160100的test指令后都会停顿下来
 
-[html] view plain copy
+```html view plain copy
   
 0x01b6d627: call 0x01b2b210 ; OopMap{[60]=Oop off=460}
                                          

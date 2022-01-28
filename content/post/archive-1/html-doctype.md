@@ -29,21 +29,21 @@ HTML5 不基于 SGML，所以不需要引用 DTD。
     Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素。如果您的读者使用了不支持层叠样式表（CSS) 的浏览器以至于您不得不使用 HTML 的呈现特性时，请使用此类型: 
   
   
-    [html]
+    ```html
  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- [/html]
+ ```
   
   
     html5只有一种DOCTYPE声明
   
   
-    [html]
+    ```html
   
   
     <!DOCTYPE html>
   
   
-    [/html]
+    ```
   
   
     <!DOCTYPE> 声明没有结束标签。

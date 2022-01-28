@@ -10,7 +10,7 @@ categories:
 ## display pdf in div
 <http://www.webdeveloper.com/forum/showthread.php?152923-PDF-within-a-DIV>
 
-[html]
+```html
   
 <object data="test.pdf" type="application/pdf" width="300" height="200">
   
@@ -19,4 +19,4 @@ alt : test.pdf
 </object>
   
 
-[/html]
+```

@@ -257,7 +257,7 @@ super.characters(ch, start, length);
 
 上面代码简单解析了一个xml，user01.xml文件的内容如下: 
 
-[html][/html] print?
+```html``` print?
 
 <?xml version="1.0" encoding="utf-8" ?>
 
@@ -405,7 +405,7 @@ System.out.println("节点元素文本内容: " + new String(ch, start, length))
 
 上面的xml在src下面，user02.xml具体如下: 
 
-[html][/html] print?
+```html``` print?
 
 <?xml version="1.0" encoding="utf-8" ?>
 
@@ -768,7 +768,7 @@ SAXOperateXmlDemo.node = null;
 
 5. 代码中解析的user03.xml的结构如下: 
 
-[html][/html] print?
+```html``` print?
 
 <?xml version="1.0" encoding="utf-8" ?>
 
@@ -799,7 +799,7 @@ SAXOperateXmlDemo.node = null;
 
 假设现在需要解析的xml文档如下: 
 
-[html][/html] print?
+```html``` print?
 
 <?xml version="1.0" encoding="utf-8" ?>
 

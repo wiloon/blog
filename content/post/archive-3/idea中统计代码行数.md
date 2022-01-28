@@ -1,13 +1,17 @@
 ---
-title: idea中统计代码行数
+title: idea plugin
 author: "-"
 date: 2020-04-07T01:49:34+00:00
-url: /?p=15906
+url: idea/plugin
 categories:
-  - Uncategorized
+  - Java
 
 ---
-## idea中统计代码行数
+## idea plugin
+### java 编码规范检查
+Alibaba Java Coding Guidelines
+
+### idea 中统计代码行数
 plugin: Statistic
   
 https://blog.csdn.net/liuchaoxuan/article/details/81270341

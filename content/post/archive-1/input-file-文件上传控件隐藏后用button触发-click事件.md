@@ -10,7 +10,7 @@ categories:
 ## input file 文件上传控件隐藏后用button触发 click事件
 http://bbs.csdn.net/topics/320156312
 
-[html]
+```html
 
 <HTML>
 
@@ -96,7 +96,7 @@ http://bbs.csdn.net/topics/320156312
   </SCRIPT>
 
 
-  [/html]
+  ```
 
 
   IE 使用 'filter:alpha(opacity=50);' 通过 Filter 的 alpha 通道滤镜使元素半透明,但元素必须触发 hasLayout 特性。

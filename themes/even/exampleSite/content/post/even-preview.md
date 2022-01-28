@@ -206,7 +206,7 @@ Abbreviations source are found in a separate markdown file specified in frontmat
 The HTML specification 
 is maintained by the W3C.
 
-*[HTML]: Hyper Text Markup Language
+*```html: Hyper Text Markup Language
 *[W3C]:  World Wide Web Consortium
 ```
 
