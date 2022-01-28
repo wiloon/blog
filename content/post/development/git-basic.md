@@ -26,17 +26,19 @@ You can change the most recent commit message using the git commit --amend comma
 In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
 ### 修改最近的第n次 commit message
-    # 数字代表显示倒数第几次, #-i, --interactive
-    git rebase -i HEAD~2
-    # git log你可以发现，git的最后一次提交已经变成你选的那个了
-    # 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
-    git commit --amend
-    # 修改注释之后，保存退出，然后git rebase --continue
-    git rebase --continue
-    # 把本地仓库的代码推送到远程
-    git push origin master
-    # 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
-    git push --force origin master
+```bash
+# 数字代表显示倒数第几次, #-i, --interactive
+git rebase -i HEAD~2
+# git log你可以发现，git的最后一次提交已经变成你选的那个了
+# 把pick 修改成edit然后保存退出，然后会看到提示 git commit --amend
+git commit --amend
+# 修改注释之后，保存退出，然后git rebase --continue
+git rebase --continue
+# 把本地仓库的代码推送到远程
+git push origin master
+# 修改了已经push的注释，得用强制push, force push对其它人有影响慎用.
+git push --force origin master
+```
 
 ### git 清除所有被 Ignore 的文件
 #### 查看所有被 Git 忽略的文件, Git 1.6+:
@@ -68,9 +70,13 @@ git clean -Xdf
 
 ### 添加远程库
 ```bash
-git remote add <主机名> <URL>
+# 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写
+# 命令格式
+git remote add <shortname> <url>
+# 示例
 git remote add pingd http://192.168.50.13:10880/wiloon/wiloon.com.git
-# origin 是远程库的名字, 单个远程库,一般用默认的origin, 多个远程库的时候可以改成方便记忆的名字
+# 向远程仓库推送代码
+# origin 是远程库的名字, 单个远程库, 一般用默认的 origin, 多个远程库的时候可以改成方便记忆的名字.
 git push -u origin master
 ```
 
@@ -194,7 +200,7 @@ git rm -f
 
 ### git fetch
 git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。 
-默认情况下，git fetch取回所有分支（branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
+默认情况下，git fetch取回**所有**分支（branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
     git fetch <远程主机名> <分支名>
 
@@ -342,7 +348,11 @@ git push <远程主机名> <本地分支名>
 git push origin master
 #如果当前分支与多个主机存在追踪关系，则可以使用 -u 选项指定一个默认主机，这样后面就可以不加任何参数使用git push。
 git push -u origin master
+# -f 强制覆盖到仓库，这会导致仓库中某些记录丢失。
+git push -f
 
+$ git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
+$ git push origin test:test              // 提交本地test分支作为远程的test分支
 ```
 ```bash
 #checkout tag/branch
@@ -446,6 +456,7 @@ git config –global http.sslVerify false
 
 ```
 
+>https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8
 http://zensheno.blog.51cto.com/2712776/490748  
 http://blog.csdn.net/ithomer/article/details/7529841  
 http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html  
@@ -457,5 +468,5 @@ https://blog.csdn.net/riddle1981/article/details/74938111
 https://blog.csdn.net/SCHOLAR_II/article/details/72191042  
 https://www.jianshu.com/p/38f04aef1c9d
 
-https://www.jianshu.com/p/9000cd49822c
+>https://www.jianshu.com/p/9000cd49822c
 >https://blog.csdn.net/CrazyZhang1990/article/details/42780285

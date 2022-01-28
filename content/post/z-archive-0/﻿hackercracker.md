@@ -1,5 +1,5 @@
 ---
-title: ﻿hacker/cracker
+title: hacker/cracker
 author: "-"
 date: 2012-07-05T13:18:33+00:00
 url: /?p=3751
@@ -7,7 +7,7 @@ categories:
   - Uncategorized
 
 ---
-## ﻿hacker/cracker
+## hacker/cracker
 hacker
   
 A person who delights in having an intimate understanding of the

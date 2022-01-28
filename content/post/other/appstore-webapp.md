@@ -4,17 +4,11 @@ author: "-"
 date: 2015-01-12T08:09:18+00:00
 url: /?p=7226
 categories:
-  - Uncategorized
+  - archive
 
 ---
-## 苹果真的要在 AppStore 里封杀 WebApp 吗?
-
-  
-    http://fins.iteye.com/blog/1685886
-  
-  
-  
-
+## 苹果真的要在 应用商店 里封杀 WebApp 吗?
+>http://fins.iteye.com/blog/1685886
 
   苹果真的要在 AppStore 里封杀 WebApp 吗 ? 
   

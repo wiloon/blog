@@ -20,14 +20,48 @@ VS-Code扩展
 vim foo.md
 
 ### component, 组件图
+- 别名后面可以标注颜色
+- 修改线和箭头的颜色
+- 文字颜色
+
+#### 语法
+```bash
+# 把组件显示成普通矩形
+skinparam componentStyle rectangle
+# 组件间横向距离
+skinparam nodesep 10
+# 组件间纵向距离
+skinparam ranksep 10
+```
+
 ```puml
 @startuml
+skinparam componentStyle rectangle
+skinparam nodesep 10
+skinparam ranksep 10
+skinparam ParticipantFontColor #A9DCDF
 
 [First component]
 [Another component] as Comp2  
 component Comp3
 component [Last\ncomponent] as Comp4
 
+[component0] as c0 #ff0000
+[<color:#ff0000>component1</color>] as c1
+[component2] as c2
+[component3] as c3
+[component4] as c4
+
+c0 -- c1
+c0-[#00ff00]-c2
+c1--c3
+c0--c3
+
+c2--c4
+
+note left of c0
+note0
+end note
 @enduml
 ```
 
@@ -123,46 +157,7 @@ Alice ->> Bob: async msg
 @enduml
 ```
 
-### 组件图
-- 别名后面可以标注颜色
-- 修改线和箭头的颜色
-- 文字颜色
 
-#### 语法
-```bash
-# 把组件显示成普通矩形
-skinparam componentStyle rectangle
-# 组件间横向距离
-skinparam nodesep 10
-# 组件间纵向距离
-skinparam ranksep 10
-```
-
-```puml
-@startuml
-skinparam componentStyle rectangle
-skinparam nodesep 10
-skinparam ranksep 10
-skinparam ParticipantFontColor #A9DCDF
-
-[component0] as c0 #ff0000
-[<color:#ff0000>component1</color>] as c1
-[component2] as c2
-[component3] as c3
-[component4] as c4
-
-c0 -- c1
-c0-[#00ff00]-c2
-c1--c3
-c0--c3
-
-c2--c4
-
-note left of c0
-note0
-end note
-@enduml
-```
 
 ### plantuml server
 ```bash

@@ -1,16 +1,20 @@
 ---
-title: mobile appa, app list, apk, ios
+title: mobile apps, ios apps, android apps, app list, apk
 author: "-"
 date: 2011-12-24T07:04:18+00:00
 url: mobile/app
 
 ---
 ## mobile appa, app list, apk, ios
+
+todo: 用列表代替表格,方便编辑
+
 |name|comments|
 |-|-|
-|古诗文网||
+| 古诗文网 ||
+| Wander  ||
 
-## ios app
+### ios app
 |name|comments|
 |-|-|
 |Strongbox  |keepassxc的ios实现|
@@ -19,8 +23,7 @@ url: mobile/app
 |wireguard|vpn|
 |Chanify|消息推送工具|
 
-
-## android app, apk list
+### android app, apk list
 |name|comments|
 |-|-|
 |英语轻松读|英语学习|
@@ -37,11 +40,11 @@ url: mobile/app
 |DevCheck|手机硬件检测工具|
 |macrodroid||
 |Quizlet|英语学习工具|
-|shareit|茄子快传|
+| shareit|茄子快传|
 | Internet Speed Meter Lite | 网速监控                                  |
 
-## android/chromeos apps
-### android apps
+### android/chromeos apps
+#### android apps
 
 | Name                      | Comments                              |
 | ------------------------- | ------------------------------------- |
@@ -72,7 +75,7 @@ Cellular-Z
   
 nextcloud
 
-### chromeos extention
+#### chromeos extention
 
 | Name                                | Comments |
 | ----------------------------------- | -------- |
