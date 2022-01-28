@@ -7,7 +7,23 @@ categories:
   - network
 
 ---
-## 
+## tcp, quic
+```puml
+@startuml
+[tcp client] as tc
+[tq] as tq
+note left: tcp server:2000
+[qt] as qt
+note left: quic server: 2001
+[tcp server] as ts
+note left: tcp server: 2002
+
+tc --> tq
+tq --> qt
+qt --> ts
+
+@enduml
+```
 
 ### t2q2t
 >https://github.com/flano-yuki/t2q2t.git
