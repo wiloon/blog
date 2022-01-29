@@ -35,4 +35,6 @@ qt --> ts
 >https://blog.csdn.net/wangbin579/article/details/8949315
 >https://segmentfault.com/a/1190000039285429
 >https://github.com/buger/goreplay
+### 流量复制方案对比：Tcpcopy vs Goreplay
+>https://segmentfault.com/a/1190000039285429
 
