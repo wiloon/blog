@@ -1,5 +1,5 @@
 ---
-title: git
+title: git intro
 author: "-"
 date: 2019-07-26T08:07:52+00:00
 url: git
@@ -7,7 +7,7 @@ categories:
   - dev
 
 ---
-## git
+## git intro
 ```puml
 @startuml
 

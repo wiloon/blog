@@ -31,7 +31,8 @@ qt --> ts
 >https://github.com/session-replay-tools/tcpcopy
 ### goreplay
 >https://github.com/buger/goreplay
-
+### tcpcopy架构漫谈
+>https://blog.csdn.net/wangbin579/article/details/8949315
 >https://segmentfault.com/a/1190000039285429
 >https://github.com/buger/goreplay
->https://blog.csdn.net/wangbin579/article/details/8949315
+
