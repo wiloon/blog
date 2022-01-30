@@ -26,13 +26,14 @@ socat - TCP4:192.168.1.15:22,connect-timeout=2
 ### http echo server
 ```bash
 # 直接返回 pong
-socat -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
+socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
 # header: Access-Control-Allow-Origin
 socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo Access-Control-Allow-Origin\:*;echo; echo pong"
 # 使用前选 创建 响应数据的文本文件 foo.txt
-socat -v TCP-LISTEN:80,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.txt"
+socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.txt"
 
 ```
+### 参数
 - reuseaddr: Allows other sockets to bind to an address even if parts of it (e.g. the local port) are already in use by socat.
 比如上面这条命令, 用socat打开了80端口, 80端口已经在被socat使用了, 我们打开端口是要接受其它客户端连接的,使用 reuseaddr, 能让其它客户端跟80建立连接.
 due to reuseaddr, it allows immediate restart after master processes termination, even if some child sockets are not completely shut down.  Option reuseaddr allows immediate restart of the server process.

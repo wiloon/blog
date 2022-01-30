@@ -9,12 +9,7 @@ categories:
 ---
 ## archlinux netctl wifi
 
-
-
-
-
-  
-    # Essay Address: http://blog.csdn.net/sunnypotter/article/details/23201339
+Essay Address: http://blog.csdn.net/sunnypotter/article/details/23201339
   
   
   

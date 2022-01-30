@@ -1,5 +1,5 @@
 ---
-title: 计算器  (bc、expr、dc、echo、awk)
+title: 计算器 bc, expr、dc、echo、awk)
 author: "-"
 date: 2012-03-18T04:41:13+00:00
 url: calculator
@@ -7,7 +7,7 @@ categories:
   - Linux
 
 ---
-## Linux下的计算器  (bc、expr、dc、echo、awk)
+## Linux下的计算器 bc, expr、dc、echo、awk)
 ### bc
 ```bash
 # install bc
@@ -18,30 +18,26 @@ echo "ibase=16;A7" |bc
 ```
 bc在默认的情况下是个交互式的指 令。在bc工作环境下，可以使用以下计算符号: 
   
-    + 加法
-      
-    – 减法
-      
-    * 乘法
-      
-    / 除法
-      
-    ^ 指数
-      
-    % 余数
-  
-如: 
+```
++ 加法
+– 减法
+* 乘法
+/ 除法
+^ 指数
+% 余数
+```
 
-# bc
+示例: 
+```bash
+bc
+#bc 1.07.1
+#Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017 Free Software Foundation, Inc.
+#This is free software with ABSOLUTELY NO WARRANTY.
+#For details type `warranty'.
 
-bc 1.06
-  
-Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
-  
-This is free software with ABSOLUTELY NO WARRANTY.
-  
-For details type \`warranty'.
-  
+2.7*8
+# 21.6
+
 3+6 <=加法
   
 4+2_3 <=加法、乘法
@@ -60,16 +56,7 @@ For details type \`warranty'.
   
 quit <=退出
 
-# bc
-
-bc 1.06
-  
-Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
-  
-This is free software with ABSOLUTELY NO WARRANTY.
-  
-For details type \`warranty'.
-  
+bc
 scale=3 <=设小数位
   
 1/3
@@ -77,14 +64,18 @@ scale=3 <=设小数位
 .333
   
 quit
+
+
+```
   
 以上是交互的计算，那到也可以不进行交互而直接计算出结果。
   
-A.用echo和|法，如: 
+A. 用echo和|法，如: 
 
-# echo "(6+3)*2" |bc
-
-18
+```bash
+echo "(6+3)*2" |bc
+#18
+```
 
 # echo 15/4 |bc
 

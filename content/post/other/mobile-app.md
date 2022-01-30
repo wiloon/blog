@@ -22,6 +22,7 @@ todo: 用列表代替表格,方便编辑
 |surge|网络调试工具|
 |wireguard|vpn|
 |Chanify|消息推送工具|
+|默沙东诊疗手册||
 
 ### android app, apk list
 |name|comments|

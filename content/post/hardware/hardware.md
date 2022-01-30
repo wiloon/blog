@@ -118,7 +118,8 @@ Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz
 https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us
 https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers
 Network adapter	10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)
-Wireless	
+#### Wireless
+Dell Wireless 1707 802.11b/g/n (2.4GHz)
 Wi-Fi 802.11 b/g/n and 802.11a/b/g/n/ac
 Bluetooth 4.0
 
@@ -163,3 +164,34 @@ Micro SD port for loading your operating system and storing data
 Power-over-Ethernet (PoE) support (requires separate PoE HAT)
 
 ### 斐讯 TC1
+
+### Ruckus R310, 优科
+Wi-Fi 标准	
+IEEE 802.11a/b/g/n/ac
+
+支持的速率	
+802.11ac：6.5 到 867Mbps（MCS0 到 MCS9，VHT20/40/80 NSS = 1 到 2）
+802.11n：6.5 Mbps 到 300Mbps （MCS0 到 MCS15）
+802.11a/g：54、48、36、24、18、12、9 和 6 Mbps
+802.11b：11，5.5，2 和 1 Mbps
+
+支持的信道	
+2.4GHz：1-13
+5GHz：36-64、100-144 和 149-165
+
+多输入多输出	
+2x2 SU-MIMO
+空间串流	
+2 个 SU-MIMO
+信道化	
+20, 40, 80MHZ
+安全	
+WPA-PSK、WPA-TKIP、WPA2 AES、802.11i、Dynamic PSK
+WIPS/WIDS
+其他 Wi-Fi 功能	
+WMM、节电、Tx 波束成形、LDPC、STBC、802.11r/k/v
+热点
+Hotspot 2.0
+强制门户
+WISPr
+
