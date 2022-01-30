@@ -11,6 +11,10 @@ url: ssh/config
 ### public key
     vim ~/.ssh/authorized_keys
 
+### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+```bash
+ssh-keygen -f "/home/wiloonwy/.ssh/known_hosts" -R "192.168.50.99"
+```
 ### /etc/ssh/sshd_config
 #### 服务端鉴权重试最大次数
 ssh 连接服务器时agent里保存的密钥过多会遇到异常 Too Many Authentication Failures, 可以调整服务器sshd 配置
