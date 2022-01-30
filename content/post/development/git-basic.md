@@ -1,14 +1,14 @@
 ---
-title: git basic
+title: Git commands, git 常用命令
 author: "-"
-date: 2011-05-28T13:01:51.000+00:00
-url: "git/basic"
+date: 2022-01-29 10:33:11
+url: git
 tags:
     - Git
     - remix
 
 ---
-## git basic
+## Git commands, git 常用命令
 ### git add
 git add 命令可将该文件添加到暂存区。
 
@@ -64,7 +64,7 @@ git clean -Xdf
 
 >https://ruby-china.org/topics/17951
 
-## remote
+## git remote
 ### 查看远程仓库地址
     git remote -v
 
@@ -198,8 +198,8 @@ git rm
 git rm -f
 ```
 
-### git fetch
-git fetch 命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。 
+## git fetch
+git fetch 命令用来拉取其它仓库的数据(objects and refs).
 默认情况下，git fetch取回**所有**分支（branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
     git fetch <远程主机名> <分支名>
@@ -212,7 +212,7 @@ git fetch 命令通常用来查看其他人的进程，因为它取回的代码�
 git fetch 和 git pull 都可以将远端仓库更新至本地那么他们之间有何区别?想要弄清楚这个问题有有几个概念不得不提。
 
 FETCH_HEAD: 是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。
-commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个commit-id，这是一个能唯一标识一个版本的序列号。 在使用git push后，这个序列号还会同步到远程仓库。
+commit-id: 在每次本地工作完成后，都会做一个git commit 操作来保存当前工作到本地的repo， 此时会产生一个commit-id，这是一个能唯一标识一个版本的序列号。 在使用 git push 后，这个序列号还会同步到远程仓库。
 
 有了以上的概念再来说说 git fetch
 git fetch: 这将更新 git remote 中所有的远程仓库所包含分支的最新 commit-id, 将其记录到.git/FETCH_HEAD 文件中
@@ -236,7 +236,9 @@ git branch -d temp
 （3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
-### git pull
+## git pull
+命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。
+
 git pull: 首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge 将其与本地的当前分支合并。所以可以认为git pull是git fetch和git merge两个步骤的结合。
 git pull的用法如下: 
 
@@ -245,6 +247,12 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 
 因此，与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge。如果需要有选择的合并git fetch是更好的选择。效果相同时git pull将更为快捷。
 
+### git pull
+```bash
+git pull
+git pull origin master
+git pull origin branch0
+```
 
 ```bash
 man git-fetch
@@ -257,7 +265,7 @@ git checkout -b branch_name tag_name
 
 ### tag
 ```bash
-#list local tags
+# list local tags
 git tag
 
 # list remote tags
@@ -313,11 +321,6 @@ git push origin :refs/tags/1.0.0
 ### 本地分支重命名(还没有推送到远程)
     git branch -m oldName newName
 
-### git pull
-    git pull
-    git pull origin branch0
-    git pull origin master
-
 ### git clone
 git clone <版本库的网址> <本地目录名>
 
@@ -338,22 +341,27 @@ git ls-files -d
 git ls-files -d | xargs git checkout --
 ```
 
-### git push
+## git push
 ```bash
-git push <远程主机名> <本地分支名>:<远程分支名>
-
-#如果本地分支名与远程分支名相同，则可以省略冒号：
-git push <远程主机名> <本地分支名>
+# push 
+git push <远程仓库名> <本地分支名>:<远程分支名>
+# 提交本地test分支作为远程的 master 分支
+git push origin test:master
+ 
+# 如果本地分支名与远程分支名相同，则可以省略冒号：
+git push <远程仓库名> <本地分支名>
 # 将本地的 master 分支推送到 origin 主机的 master 分支。
+git push origin master:master
+# 省略冒号简写成这样
 git push origin master
-#如果当前分支与多个主机存在追踪关系，则可以使用 -u 选项指定一个默认主机，这样后面就可以不加任何参数使用git push。
+
+# 如果配置了多个远程仓库，则可以使用 -u 选项指定一个默认仓库，以后再执行 git push 就可以不显示的指定仓库了.
 git push -u origin master
 # -f 强制覆盖到仓库，这会导致仓库中某些记录丢失。
 git push -f
 
-$ git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
-$ git push origin test:test              // 提交本地test分支作为远程的test分支
 ```
+
 ```bash
 #checkout tag/branch
 git clone --branch <tag_name> <repo_url>
@@ -374,10 +382,6 @@ $ git push origin test:test // 提交本地test分支作为远程的test分支
 
 git push --delete origin devel
 To git@github.com:zrong/quick-cocos2d-x.git - [deleted] devel
-
-# git pull命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。它的完整格式稍稍有点复杂。
-
-$ git pull origin other-branch
 
 git status -s
 git add .
@@ -443,7 +447,6 @@ git restore
 
 ```
 
-
 #### 将暂存区的文件从暂存区撤出，但不会更改文件
 ```bash
 git restore --staged /path/to/file
@@ -453,10 +456,11 @@ git restore --staged /path/to/file
 ### 关闭ssl校验
 ```bash
 git config –global http.sslVerify false
-
 ```
 
->https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8
+>https://git-scm.com/docs
+>https://git-scm.com/book/zh/v2
+
 http://zensheno.blog.51cto.com/2712776/490748  
 http://blog.csdn.net/ithomer/article/details/7529841  
 http://www.cnblogs.com/springbarley/archive/2012/11/03/2752984.html  
