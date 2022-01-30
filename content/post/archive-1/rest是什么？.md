@@ -112,7 +112,7 @@ REST架构是针对Web应用而设计的，其目的是为了降低开发的复�
 
 
   
-    Private Function httpGet(url, method, data)
+Private Function httpGet(url, method, data)
  Dim xmlhttp
  Set xmlhttp = Server.CreateObject("MSXML2.ServerXMLHTTP")
  xmlhttp.open method, url + "?" + data, False

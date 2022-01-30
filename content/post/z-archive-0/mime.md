@@ -67,7 +67,6 @@ Content-Transfer-Encoding: [mechanism]
 因为欧洲的一些文字和ASCII字符集中的某些字符有部分相同。如果邮件消息使用的是这些语言的话，于ASCII重叠的那些字符可以原样使用，ASCII字符集中不存在的字符采用形如"=??"的方法编码。这里"??"需要用将字符编码后的16进制数字来指定。采用quoted-printable编码的消息，长度不会变得太长，而且大部分都是ASCII中的字符，即使不通过解码也大致可以读懂消息的内容。
 
 ### MIME
-MIME笔记
 
 1. MIME的全称是"Multipurpose Internet Mail Extensions"，中译为"多用途互联网邮件扩展"，指的是一系列的电子邮件技术规范，主要包括RFC 2045、RFC 2046、RFC 2047、RFC 4288、RFC 4289和RFC 2077。
 
@@ -109,7 +108,7 @@ Content-Type: text/plain; charset="ISO-8859-1"
 
 这一行是极端重要的，它表明传递的信息类型和采用的编码。
 
-Content-Type表明信息类型，缺省值为" text/plain"。它包含了主要类型（primary type) 和次要类型（subtype) 两个部分，两者之间用"/"分割。主要类型有9种，分别是application、audio、example、image、message、model、multipart、text、video。
+Content-Type 表明信息类型，缺省值为" text/plain"。它包含了主要类型（primary type) 和次要类型（subtype) 两个部分，两者之间用"/"分割。主要类型有9种，分别是application、audio、example、image、message、model、multipart、text、video。
 
 每一种主要类型下面又有许多种次要类型，常见的有: 
 
