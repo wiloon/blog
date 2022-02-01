@@ -4,9 +4,13 @@ author: "-"
 date: ""
 url: ""
 categories:
-  - inbox
+  - Linux
 tags:
-  - inbox
+  - Linux
+  - VM
+  - remix
+
+
 ---
 ## "pve basic"
 
@@ -54,6 +58,13 @@ Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
         next
 
         OS>use cd/dvd disc image file > iso image
+
+        next
+
+        Hard Disk>Disk size
+        Hard Disk>Backup
+
+
 
 
 create vm > system > qemu agent: select

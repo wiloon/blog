@@ -263,7 +263,7 @@ git fetch --all 告诉 Git 同步所有的远端仓库。
 git checkout -b branch_name tag_name
 ```
 
-### tag
+## tag
 ```bash
 # list local tags
 git tag

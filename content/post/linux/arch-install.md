@@ -3,6 +3,8 @@ title: archlinux install
 author: "-"
 date: 2015-06-25T09:18:44+00:00
 url: archlinux
+categories:
+  - Linux
 tags:
   - archlinux
   - remix
@@ -10,7 +12,124 @@ tags:
 ---
 ## archlinux install
 todo: try archinstall, https://github.com/archlinux/archinstall
+```bash
+boot with iso
+pacman -Sy
+passwd
+systemctl start sshd
+ip a
+# ssh to 
+pacman -S archinstall
+archinstall
 
+Select one of the above keyboard languages (by number or full name): us
+Select one of the above regions to download packages from (by number or full name): 11
+Select one or more harddrives to use and configure (leave blank to skip this step): 1 
+Select what you wish to do with the selected block devices: 0
+Select which filesystem your main partition should use (by number or name): 2
+Enter disk encryption password (leave blank for no encryption):
+Would you like to use swap on zram? (Y/n): n
+Desired hostname for the installation: host0
+Enter root password (leave blank to disable root & create superuser): 
+Enter a pre-programmed profile name if you want to install one: 1
+Choose an audio server or leave blank to use none:
+Choose which kernels to use (leave blank for default: linux): 0 
+Write additional packages to install (space separated, leave blank to skip): 
+Select one network interface to configure (leave blank to skip): 2
+Select which mode to configure for ens18 or leave blank for DHCP: 0
+Enter a valid timezone (examples: Europe/Stockholm, US/Eastern) or press enter to use UTC: Asia/Shanghai
+Would you like to use automatic time synchronization (NTP) with the default time servers? [Y/n]: y
+
+
+
+This is your chosen configuration:
+{
+    "audio": "none",
+    "bootloader": "grub-install",
+    "dry-run": false,
+    "harddrives": [
+        "/dev/sda"
+    ],
+    "hostname": "host0",
+    "kernels": [
+        "linux"
+    ],
+    "keyboard-layout": "us",
+    "mirror-region": {
+        "China": {
+            "http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.163.com/archlinux/$repo/os/$arch": true,
+            "http://mirrors.aliyun.com/archlinux/$repo/os/$arch": true,
+            "http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.hit.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.nju.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch": true,
+            "http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.aliyun.com/archlinux/$repo/os/$arch": true,
+            "https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.hit.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.nju.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch": true,
+            "https://mirrors.xjtu.edu.cn/archlinux/$repo/os/$arch": true
+        }
+    },
+    "nic": {
+        "nic": "ens18"
+    },
+    "ntp": true,
+    "packages": [],
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/minimal.py"
+    },
+    "script": "guided",
+    "swap": false,
+    "sys-encoding": "utf-8",
+    "sys-language": "en_US",
+    "timezone": "Asia/Shanghai"
+}
+{
+    "/dev/sda": {
+        "partitions": [
+            {
+                "boot": true,
+                "encrypted": false,
+                "filesystem": {
+                    "format": "fat32"
+                },
+                "format": true,
+                "mountpoint": "/boot",
+                "size": "513MB",
+                "start": "5MB",
+                "type": "primary"
+            },
+            {
+                "encrypted": false,
+                "filesystem": {
+                    "format": "xfs"
+                },
+                "format": true,
+                "mountpoint": "/",
+                "size": "100%",
+                "start": "518MB",
+                "type": "primary"
+            }
+        ],
+        "wipe": true
+    }
+}
+
+
+```
+
+最小化安装，启动后内存占用 70MB, 磁盘占用：2G
+  
 ## 从U盘引导安装
 ### download iso  
 >http://mirrors.163.com/archlinux/iso

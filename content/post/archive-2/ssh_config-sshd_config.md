@@ -6,10 +6,21 @@ url: ssh/config
 
 ---
 ## ssh config, sshd config
-
-
+## ssh config
 ### public key
     vim ~/.ssh/authorized_keys
+
+## sshd config, /etc/sshsshd_config
+
+### PermitRootLogin
+是否允许 root 登录。可用值如下: 
+默认值是"prohibit-password"
+如果这个选项设置为"prohibit-password"、"without-password",通过密码和键盘交互的授权方式对 root 用户禁用。
+
+- prohibit-password, 新版本的 sshd PermitRootLogin 的默认值是 prohibit-password, 禁止root用户使用密码和基于键盘交互的认证。
+- "without-password" 表示禁止使用密码认证登录。
+- "forced-commands-only" 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
+- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证) 
 
 ### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
 ```bash
@@ -24,11 +35,18 @@ MaxAuthTries 20
 ```
 
 ### ssh client config, 保持连接
+```bash
 vim /etc/ssh/sshd_config
-添加
+#添加
 
     ClientAliveInterval 30
     ClientAliveCountMax 60
+```
+
+
+Port 22  
+port用来设置sshd监听的端口,为了安全起见,建议更改默认的22端口为5位以上陌生端口
+
 
 第二行配置表示如果发送 keep-alive 包数量达到 60 次，客户端依然没有反应，则服务端 sshd 断开连接。如果什么都不操作，该配置可以让连接保持 30s*60 ， 30 min
 
