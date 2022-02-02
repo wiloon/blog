@@ -63,30 +63,24 @@ CRI：遵循CRI规范，通过封装的两个服务(Remote Runtime Service 和 R
 kubectl 是 Kubernetes 的命令行工具（CLI），是 Kubernetes 用户和管理员必备的管理工具。
 
 ```bash
-pacman -S kubeadm kubelet kubectl cri-o podman jq
-
-systemctl enable kubelet
-systemctl enable  crio
-
-# 安装完以上的包 ip forward nf-call会自动设置好。
-sysctl -a |grep vm.swappiness
-sysctl -a |grep ip_forward
-sysctl -a |grep bridge-nf-call
+pacman -Syu
+pacman -S kubeadm kubelet kubectl cri-o
+systemctl enable kubelet && systemctl enable crio
 
 reboot
-systemctl status kubelet
-systemctl status crio
 
+# 安装完以上的包 ip forward nf-call会自动设置好。
+sysctl -a |grep vm.swappiness && sysctl -a |grep ip_forward && sysctl -a |grep bridge-nf-call
 
-kubeadm config print init-defaults --kubeconfig ClusterConfiguration > kubeadm.yml
-kubeadm config images list --config kubeadm.yml
-kubeadm config images pull --config kubeadm.yml
-kubeadm init --config=kubeadm.yml --upload-certs
+# 把虚拟机的网关设置成有梯子的网关，kubelet需要梯子
 
+# 配置内网dns
+192.168.50.118 k8s0
 
-
+# 导出默认配置
+kubeadm config print init-defaults --component-configs KubeletConfiguration > kubeadm.yaml
 ```
-
+### 修改后的 kubeadm.yaml
 ```yaml
 apiVersion: kubeadm.k8s.io/v1beta3
 bootstrapTokens:
@@ -99,10 +93,12 @@ bootstrapTokens:
   - authentication
 kind: InitConfiguration
 localAPIEndpoint:
-  advertiseAddress: 192.168.50.118 
+  # IP
+  advertiseAddress: 192.168.50.118
   bindPort: 6443
 nodeRegistration:
-  criSocket: 'unix:///run/crio/crio.sock' 
+# 使用 cri-o
+  criSocket: unix:///run/crio/crio.sock 
   imagePullPolicy: IfNotPresent
   name: k8s0
   taints: null
@@ -117,18 +113,126 @@ dns: {}
 etcd:
   local:
     dataDir: /var/lib/etcd
+# 阿里云镜像仓库
 imageRepository: registry.aliyuncs.com/google_containers
 kind: ClusterConfiguration
 kubernetesVersion: 1.23.0
 networking:
   dnsDomain: cluster.local
   serviceSubnet: 10.96.0.0/12
+  podSubnet: 10.244.0.0/16
 scheduler: {}
+---
+apiVersion: kubelet.config.k8s.io/v1beta1
+authentication:
+  anonymous:
+    enabled: false
+  webhook:
+    cacheTTL: 0s
+    enabled: true
+  x509:
+    clientCAFile: /etc/kubernetes/pki/ca.crt
+authorization:
+  mode: Webhook
+  webhook:
+    cacheAuthorizedTTL: 0s
+    cacheUnauthorizedTTL: 0s
+cgroupDriver: systemd
+clusterDNS:
+- 10.96.0.10
+clusterDomain: cluster.local
+cpuManagerReconcilePeriod: 0s
+evictionPressureTransitionPeriod: 0s
+fileCheckFrequency: 0s
+healthzBindAddress: 127.0.0.1
+healthzPort: 10248
+httpCheckFrequency: 0s
+imageMinimumGCAge: 0s
+kind: KubeletConfiguration
+logging:
+  flushFrequency: 0
+  options:
+    json:
+      infoBufferSize: "0"
+  verbosity: 0
+memorySwap: {}
+nodeStatusReportFrequency: 0s
+nodeStatusUpdateFrequency: 0s
+resolvConf: /run/systemd/resolve/resolv.conf
+rotateCertificates: true
+runtimeRequestTimeout: 0s
+shutdownGracePeriod: 0s
+shutdownGracePeriodCriticalPods: 0s
+staticPodPath: /etc/kubernetes/manifests
+streamingConnectionIdleTimeout: 0s
+syncFrequency: 0s
+volumeStatsAggPeriod: 0s
 
 ```
 
-### kubelet config
-    /var/lib/kubelet/config.yaml
+```bash
+kubeadm config images list --config kubeadm.yml
+kubeadm config images pull --config kubeadm.yml
+
+# init, 初始化Master节点
+kubeadm init --config kubeadm.yml --upload-certs
+
+# kubeadm 会生成kubelet配置并重启kubelet
+/var/lib/kubelet/kubeadm-flags.env
+# kubelet 配置
+/var/lib/kubelet/config.yaml
+
+```
+### kubeadm 执行成功的回显
+```
+our Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 192.168.50.118:6443 --token abcdef.0123456789abcdef \
+        --discovery-token-ca-cert-hash sha256:82beb39bb4eb5a4c447fa2027b2ff5fe408805442b3fc9b406263993265d420b
+
+```
+
+### commands
+```bash
+# 节点的状态
+kubectl get nodes -o wide
+# 所有 Pod 信息
+kubectl get pods --all-namespaces -o wide
+ 
+kubectl get pods --all-namespaces
+kubectl get pods -A
+kubectl get pods -n kube-system  -o wide
+kubectl describe pods kube-flannel-ds-amd64-vcmx9 -n kube-system  
+# 重启 pod
+kubectl replace --force -f  kube-flannel.yml
+kubectl logs <pod_name>
+kubectl delete node k8s-test-2.novalocal
+#重置
+kubeadm reset
+crictl ps
+
+kubeadm token list
+#删除节点
+kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
+
+
+```
 >https://www.lixueduan.com/post/kubernetes/01-install/
 
 
@@ -138,3 +242,76 @@ scheduler: {}
 
 >https://www.qikqiak.com/post/containerd-usage/
 >https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category
+>https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/
+
+
+
+### flannel
+```bash
+curl -O https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+
+
+```
+
+### 配置 /etc/containers/registries.conf
+```bash
+unqualified-search-registries = ["docker.io"]
+[[registry]]
+prefix = "docker.io"
+# id 替换成你自己的id
+location = "<id>.mirror.aliyuncs.com"
+```
+### 应用 
+```bash
+kubectl apply -f kube-flannel.yml
+# 查看 详细， 能看到pod为什么 启动失败，比如拉取镜像失败
+kubectl describe pods kube-flannel-ds-fgnhq -n kube-system
+
+# kubectl apply -f ...有可能因为拉取镜像的问题，墙的问题失败，调整好 /etc/containers/registries.conf 的配置后需要重启 crio 使配置生效
+systemctl restart crio
+# 然后重启pod
+# 强制替换pod ，相当于重启
+kubectl replace --force -f kube-flannel.yml
+# 查看 pod 状态
+kubectl get pods --all-namespaces
+kubectl logs -f kube-flannel-ds-kp9mt
+```
+
+
+>https://juejin.cn/post/6894457482635116551
+
+### pod cidr not assgned
+>https://github.com/flannel-io/flannel/issues/728
+
+
+### install worker node
+```bash
+pacman -S cri-o kubeadm kubelet kubectl
+systemctl enable kubelet && systemctl enable crio
+reboot
+# 配置内网dns
+192.168.50.118 k8s0
+
+# 配置 /etc/containers/registries.conf
+
+# 在master节点上执行，取token
+kubeadm token list 
+# 如果 token 过期，可以使用 kubeadm token create 命令创建新的 token
+
+
+# 在worker节点 上执行
+kubeadm join 192.168.50.118:6443 --token abcdef.0123456789abcdef \
+        --discovery-token-ca-cert-hash sha256:7f30f55875a14cbcf2ea309ce12a2d397a9755013f37afc73f2eab7d5154d013
+
+# 在master主执行，查看 节点列表
+kubectl get nodes
+
+```
+
+
+### kubectl run
+```bash
+kubectl run hello --image=hello-world
+kubectl run nginx --image=nginx --port=38080
+curl -v http://10.85.0.3
+```

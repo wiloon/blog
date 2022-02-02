@@ -74,6 +74,8 @@ create vm > system > qemu agent: select
 - Name: input the name of new vm
 - mode: full clone
 - target storage: local-lvm
+- 调整内存大小
+- 启动
 
 
 ### qemu agent
