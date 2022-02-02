@@ -50,6 +50,8 @@ func SliceClear2(s *[]interface{}) {
 https://coolshell.cn/articles/21128.html
 
     dir1 := path[:sepIndex:sepIndex]
+
+    
 ### 数组
 
 array是固定长度的数组,使用前必须确定数组长度

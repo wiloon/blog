@@ -129,7 +129,9 @@ This is your chosen configuration:
 ```
 
 最小化安装，启动后内存占用 70MB, 磁盘占用：2G
-  
+
+初始化脚本后，70MB, 2.4G
+
 ## 从U盘引导安装
 ### download iso  
 >http://mirrors.163.com/archlinux/iso

@@ -378,6 +378,32 @@ rmem_max参数是整个系统的大小，不是单个socket的大小。
   
     在每个网络接口接收数据包的速率比内核处理这些包的速率快时,允许送到队列的数据包的最大数目。
 
+
+## bridge-nf
+bridge-nf使得netfilter可以对Linux网桥上的IPv4/ARP/IPv6包过滤。比如，设置net.bridge.bridge-nf-call-iptables＝1后，二层的网桥在转发包时也会被iptables的FORWARD规则所过滤，这样有时会出现L3层的iptables rules去过滤L2的帧的问题（见这里）。
+
+常用的选项包括
+
+### net.bridge.bridge-nf-call-arptables：
+是否在arptables的FORWARD中过滤网桥的ARP包
+### net.bridge.bridge-nf-call-ip6tables：
+是否在ip6tables链中过滤IPv6包
+### net.bridge.bridge-nf-call-iptables：
+是否在iptables链中过滤IPv4包
+### net.bridge.bridge-nf-filter-vlan-tagged：
+是否在iptables/arptables中过滤打了vlan标签的包
+当然，也可以通过/sys/devices/virtual/net/<bridge-name>/bridge/nf_call_iptables来设置，但要注意内核是取两者中大的生效。
+
+有时，可能只希望部分网桥禁止bridge-nf，而其他网桥都开启（比如CNI网络插件中一般要求bridge-nf-call-iptables选项开启，而有时又希望禁止某个网桥的bridge-nf），这时可以改用iptables的方法：
+
+iptables -t raw -I PREROUTING -i <bridge-name> -j NOTRACK
+
+
+### vm.swappiness
+swappiness=0的时候表示最大限度使用物理内存,然后才是 swap空间,
+  
+swappiness＝100的时候表示积极的使用swap分区,并且把内存上的数据及时的搬运到swap空间里面。
+
 https://www.kernel.org/doc/Documentation/sysctl/fs.txt
   
 https://blog.csdn.net/u012707739/article/details/78254241
@@ -390,3 +416,5 @@ https://blog.51cto.com/qujunorz/1703295
   
 https://www.cnblogs.com/fczjuever/archive/2013/04/17/3026694.html  
 https://www.cnblogs.com/leonardchen/p/9635407.html  
+>https://feisky.gitbooks.io/sdn/content/linux/params.html
+>https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/

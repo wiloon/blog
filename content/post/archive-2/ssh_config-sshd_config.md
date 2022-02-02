@@ -15,12 +15,11 @@ url: ssh/config
 ### PermitRootLogin
 是否允许 root 登录。可用值如下: 
 默认值是"prohibit-password"
-如果这个选项设置为"prohibit-password"、"without-password",通过密码和键盘交互的授权方式对 root 用户禁用。
 
-- prohibit-password, 新版本的 sshd, PermitRootLogin 的默认值是 prohibit-password: 禁止root用户使用密码和基于键盘交互的认证。
-- "without-password" 表示禁止使用密码认证登录。
-- "forced-commands-only" 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
-- yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证) 
+- prohibit-password, 新版本的 sshd 的默认值: 禁止root用户使用密码和基于键盘交互的认证。
+- without-password 废弃的值，新版本的 sshd 使用了更符合直觉的名字 prohibit-password。
+- forced-commands-only 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
+- yes 允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证) 
 
 ### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
 ```bash

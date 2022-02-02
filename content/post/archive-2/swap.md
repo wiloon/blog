@@ -2,16 +2,17 @@
 title: swap
 author: "-"
 date: 2017-10-13T06:27:00+00:00
-url: /?p=11259
+url: swap
 categories:
-  - Uncategorized
-
+  - Linux
+tags:
+  - Linux
 ---
 ## swap
 ```bash
 # 启用swap分区: 
 swapon /dev/sda2
-# 查看swap使用情况
+# 查看swap使用情况, 没有回显的话就是没有启用swap
 swapon
 # summary
 swapon -s|column -t
