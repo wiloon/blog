@@ -26,6 +26,10 @@ CRI-O完整实现CRI接口功能，并且严格兼容OCI标准，CRI-O比Contain
 CRI-O通过命令行调用默认运行时runC，所以runC二进制文件必须部署在目录/usr/bin/runc。CRI-O和Containerd调用runtime的方式不同，前者是通过Linux命令调用，后者是通过gRPC服务调用，所以只要符合OCI规范的runtime，都能直接接入CRI-O提供运行时服务，而除runC外的其他运行时要接入Containerd，只能走shim v2接口，因此我们看到像kata-runtime这样的运行时项目就是通过shim v2接口来适配Containerd的。
 >http://dockone.io/article/8891
 
+```bash
+# check crio state and version 
+sudo crictl --runtime-endpoint unix:///var/run/crio/crio.sock version
+```
 ## kubeadm
 kubeadm 是一个工具包，可帮助您以简单，合理安全和可扩展的方式引导最佳实践Kubernetes群集。它还支持为您管理Bootstrap Tokens并升级/降级群集。
 

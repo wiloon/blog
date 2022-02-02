@@ -56,9 +56,6 @@ Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 ```
 
 ### 参数
-#### 查询文件系统中某个文件是属于哪个软件包
-pacman -Qo /path/to/a/file
-
 #### 按名字找包
     pacman -Sl |grep jdk
 
@@ -96,7 +93,11 @@ pacman -Rdd package_name
 
 ### 查看软件包依赖
 #### 查看packageName依赖了哪些软件包
-    pactree <packageName>
+```bash
+# pactree 在 pacman-contrib包里
+pacman -S pacman-contrib
+pactree <packageName>
+```
 #### 查看packageName被哪些软件包依赖了
     pactree -r <packageName>
 
