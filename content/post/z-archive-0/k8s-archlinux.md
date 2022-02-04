@@ -315,3 +315,6 @@ kubectl run hello --image=hello-world
 kubectl run nginx --image=nginx --port=38080
 curl -v http://10.85.0.3
 ```
+
+
+>https://segmentfault.com/a/1190000020675199

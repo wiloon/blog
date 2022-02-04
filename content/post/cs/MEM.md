@@ -7,6 +7,8 @@ url: mem
 ---
 ## 内存, mem
 
+[![HEWBee.png](https://s4.ax1x.com/2022/02/03/HEWBee.png)](https://imgtu.com/i/HEWBee)
+
 内存对于缓存更新策略，要区分Write-Through和Write-Back两种策略。前者更新内容直接写内存并不同时更新Cache，但要置Cache失效，后者先更新Cache，随后异步更新内存。通常X86 CPU更新内存都使用Write-Back策略。 
 
 ### 虚拟内存
@@ -658,4 +660,7 @@ https://sylvanassun.github.io/2017/10/29/2017-10-29-virtual_memory/
 
 
 https://zhuanlan.zhihu.com/p/43526907
+>https://www.eet-china.com/mp/a87720.html
+>https://www.hi-linux.com/posts/42797.html
+
 

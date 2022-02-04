@@ -1,11 +1,14 @@
 ---
-title: c basic
+title: windows
 author: "-"
 date: 2011-10-14T05:20:22+00:00
 url: windows
 
 ---
 ## windows basic
+### msdn i tell u
+>https://www.itellu.com/2021/06/22/win11-v2021-v1/
+
 ### windows iso
 打开页面: https://www.microsoft.com/zh-cn/software-download/windows10
 点击 立即下载工具
