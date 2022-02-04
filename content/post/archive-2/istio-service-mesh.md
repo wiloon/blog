@@ -2,9 +2,9 @@
 title: Istio, Service Mesh
 author: "-"
 date: 2018-06-28T04:55:10+00:00
-url: /?p=12373
+url: istio
 categories:
-  - Uncategorized
+  - cloud
 
 ---
 ## Istio, Service Mesh

@@ -8,6 +8,13 @@ categories:
 
 ---
 ## grub2 配置文件
+
+## grub config file path
+GRUB1.配置文件: /boot/grub/menu.lst
+  
+GRUB2.配置文件: /boot/grub/grub.cfg，/etc/grub.d/下是生成配置文件的模板，/etc/default/grub是生成配置文件的参数
+
+
 来源: ChinaUnix博客
 
 # If you change this file, run 'update-grub' afterwards to update
