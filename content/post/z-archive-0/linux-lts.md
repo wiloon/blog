@@ -6,6 +6,9 @@ url: linux/lts
 categories:
   - Linux
 
+tags:
+  - remix
+
 ---
 ## archlinux 安装 linux-lts 内核
 
