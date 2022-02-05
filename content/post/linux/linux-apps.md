@@ -22,7 +22,7 @@ sudo pacman -S wine rdesktop pulseaudio
 sudo pacman -S powerdevil kmix kscreen ark
 ```
 
-### archlinux pacman:
+### archlinux pacman
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
@@ -78,6 +78,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | freerdp               | remmina 的RDP 支持包                                                                     |
 | pycharm               |                                                                      |
 |cmake||
+|linux-lts|lts 内核|
 ### pacman, development
 
 | name                            | comments          |
@@ -135,6 +136,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | typora                                | markdown 编辑器，joplin 外部编辑器                             |
 | feishu                                | 飞书                                                           |
 |libiconv |编码转换|
+|hardinfo-git|HardInfo是一个Linux系统信息查看软件。它可以显示有关的硬件，软件，并进行简单的性能基准测试。|
 
 ### KDE
 

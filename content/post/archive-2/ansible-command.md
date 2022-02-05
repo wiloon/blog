@@ -11,6 +11,7 @@ categories:
 ## ansible basic command
 
 ### hibernate
+
     ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
     
 ### verbos
@@ -89,3 +90,19 @@ command比较安全有可预知性,最好用command, 需要用到shell特性的�
 
 http://liumissyou.blog.51cto.com/4828343/1616462
 
+
+用命令行传递参数
+定义命令行变量
+在release.yml文件里，hosts和user都定义为变量，需要从命令行传递变量值。
+
+hosts: ‘{undefined{ hosts }}’
+remote_user: ‘{undefined{ user }}’
+
+tasks:
+
+…
+使用命令行变量
+在命令行里面传值得的方法：
+ ansible-playbook e33_var_in_command.yml --extra-vars "hosts=web user=root" 
+
+ 

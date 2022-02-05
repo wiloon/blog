@@ -6,7 +6,9 @@ url: /?p=15345
 
 ---
 ## archlinux grub
+
 ### parted flag
+
 For parted set/activate the flag bios_grub on the partition.
 
 ```bash

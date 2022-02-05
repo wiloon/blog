@@ -266,6 +266,7 @@ options root=PARTUUID=xxx rw
 ```
 
 ### boot with grub
+
 <https://blog.wiloon.com/?p=15345>
 
 
