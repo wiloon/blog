@@ -1,3 +1,5 @@
 .idea
 target
 public
+.hugo_build.lock
+**/_gen

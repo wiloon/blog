@@ -133,7 +133,6 @@ tags:
 
 把 Workflow 文件提交、推送即可触发，Hugo 站点发布到 GitHub Pages。以后每次推送都会触发，以实现 Hugo 站点的自动发布。
 
-
 ### script, blog-new.sh
 
 ```bash
