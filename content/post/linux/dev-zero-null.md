@@ -9,10 +9,10 @@ categories:
 ---
 ## /dev/zero和/dev/null
 ### /dev/null
-    在类Unix系统中，/dev/null，或称空设备，是一个特殊的设备文件，它丢弃一切写入其中的数据（但报告写入操作成功) ，读取它则会立即得到一个EOF<sup id="cite_ref-uxman_0-0">[1]</sup>。
+    在类Unix系统中，/dev/null，或称空设备，是一个特殊的设备文件，它丢弃一切写入其中的数据（但报告写入操作成功) ，读取它则会立即得到一个EOF[1]。
   
 
-在程序员行话，尤其是Unix行话中，`/dev/null`被称为bit bucket<sup id="cite_ref-1">[2]</sup>或者黑洞。使用
+在程序员行话，尤其是Unix行话中，`/dev/null`被称为bit bucket[2]或者黑洞。使用
 
 空设备通常被用于丢弃不需要的输出流，或作为用于输入流的空文件。这些操作通常由重定向完成。
 

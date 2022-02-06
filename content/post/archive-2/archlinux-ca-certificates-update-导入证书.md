@@ -17,3 +17,12 @@ sudo cp xxx.crt /etc/ca-certificates/trust-source/anchors/
 sudo trust extract-compat
 
 ```
+
+
+## archlinux add root ca
+将 /usr/local/share/ca-certificates/_.crt 移动到 /etc/ca-certificates/trust-source/anchors/ 下
+  
+对 /etc/ssl/certs/_.pem 进行上述操作,并将它们重命名为 *.crt
+  
+运行 trust extract-compat
+

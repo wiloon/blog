@@ -19,7 +19,7 @@ url: ssh/config
 - prohibit-password, 新版本的 sshd 的默认值: 禁止root用户使用密码和基于键盘交互的认证。
 - without-password 废弃的值，新版本的 sshd 使用了更符合直觉的名字 prohibit-password。
 - forced-commands-only 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
-- yes 允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证) 
+- yes 允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证)
 
 ### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
 ```bash
@@ -33,15 +33,16 @@ ssh 连接服务器时agent里保存的密钥过多会遇到异常 Too Many Auth
 MaxAuthTries 20
 ```
 
-### ssh client config, 保持连接
+### ssh client config, 服务端保持连接
+
 ```bash
 vim /etc/ssh/sshd_config
 #添加
-
-    ClientAliveInterval 30
-    ClientAliveCountMax 60
+# ClientAliveInterval指定了服务器端向客户端请求消息的时间间隔, 默认是0，不发送。而ClientAliveInterval 60表示每分钟发送一次，然后客户端响应，这样就保持长连接了。
+ClientAliveInterval 30
+# ClientAliveCountMax表示服务器发出请求后客户端没有响应的次数达到一定值，就自动断开
+ClientAliveCountMax 3
 ```
-
 
 Port 22  
 port用来设置sshd监听的端口,为了安全起见,建议更改默认的22端口为5位以上陌生端口

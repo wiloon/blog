@@ -2,19 +2,21 @@
 title: 'huawei vpn, sslvpn, secoclient  in archlinux'
 author: "-"
 date: 2020-02-01T03:59:45+00:00
-url: /?p=15467
+url: secoclient
 categories:
-  - Uncategorized
+  - VPN
 
 ---
-## 'huawei vpn, sslvpn, secoclient  in archlinux'
+## huawei vpn, sslvpn, secoclient  in archlinux
+
 ### 下载安装包
-http://www.corem.com.cn/index.php/service/tools/secoclient
+
+<http://www.corem.com.cn/index.php/service/tools/secoclient>
 
 官方只提供了ubuntu版本，用以下方式可以在 archlinux 上使用。
 
 ```bash
-# seco client 依赖ubuntu的arch命令， 模拟 arch 命令返回 x86_64
+# seco client 依赖 ubuntu 的 arch 命令， 模拟 arch 命令返回 x86_64
 echo "echo x86_64" > /usr/bin/arch
 chmod u+x /usr/bin/arch
 
@@ -33,7 +35,9 @@ cd /usr/local/SecoClient/
 ```
 
 ### 启动脚本
+
 把server_address替换成服务端IP
+
 ```bash
 #!/bin/bash
 sudo ip route del <server_address>
@@ -51,8 +55,8 @@ count=`ps -ef |grep SecoClient |grep -v "grep" |wc -l`
       fi
 ```
 
-
 ### crostini
+
 ```bash
 # in crostini
 export WAYLAND_DISPLAY=wayland-0

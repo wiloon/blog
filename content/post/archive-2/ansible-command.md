@@ -10,15 +10,26 @@ categories:
 ---
 ## ansible basic command
 
+## ansible 配置文件
+
+    /etc/ansible/ansible.cfg
+
+### 文件内容
+
+```bash
+[defaults]
+interpreter_python = auto_legacy_silent
+# gather 超时时间
+gather_timeout=30
+
+```
 ### hibernate
 
     ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
 
 ### verbos
 
-```bash
-ansible -vvvv
-```
+    ansible -vvvv
 
 ### debug
 
@@ -86,10 +97,9 @@ ansible group0 -a "/etc/init.d/app0 restart" -f 10 \\重启testhosts组的所有
   
 command比较安全有可预知性,最好用command, 需要用到shell特性的时候,再用shell。
 
-# http://www.wiloon.com/?p=9403
+<http://www.wiloon.com/?p=9403>
 
 http://liumissyou.blog.51cto.com/4828343/1616462
-
 
 用命令行传递参数
 定义命令行变量

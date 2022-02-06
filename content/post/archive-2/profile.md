@@ -34,7 +34,12 @@ unset key
 
 ```
 
+### ~/.bashrc
+
+Archlinux login shell 不会加载  ~/.bashrc
+
 ### ~/.bash_profile
+
 All interactive shells source /etc/bash.bashrc and ~/.bashrc, while interactive login shells also source /etc/profile and ~/.bash_profile
 
 不知道你有没有遇到过这样的场景,当你需要设置一个环境变量,或者运行一个程序设置你的shell或桌面环境,但是不知道在哪里是最方便设置的位置。

@@ -7,12 +7,15 @@ url: du
 ## du
 
 ### 查看文件占用的磁盘空间
+
      du --block-size=1 sparse-file
 
 ### 查看各子目录大小 -d, --max-depth
-     du -h --max-depth=1
-     du -hd 1
-     du -hd1 --exclude=proc
+
+    du -hd 1
+    du -hd1
+    du -h --max-depth=1
+    du -hd1 --exclude=proc
 
 ### 参数
     # 排除文件或目录

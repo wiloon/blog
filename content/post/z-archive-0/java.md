@@ -32,7 +32,7 @@ Java，是由_**Sun Microsystems**_公司于1995年5月推出的Java程序设计
   * 2005年6月，JavaOne大会召开，SUN公司公开Java SE 6。此时，Java的各种版本已经更名，以取消其中的数字"2": J2EE更名为Java EE，J2SE更名为Java SE，J2ME更名为Java ME
   * 2006年12月，SUN公司发布JRE6.0
   * 2009年12月，SUN公司发布Java EE 6
-  * 2010年11月，由于Oracle公司对于Java社区的不友善，因此Apache扬言将退出JCP<sup id="cite_ref-7">[7]</sup>
+  * 2010年11月，由于Oracle公司对于Java社区的不友善，因此Apache扬言将退出JCP[7]
   * 2011年7月28日，Oracle公司发布Java SE 7
 
 ### 一、算术运算符: 

@@ -24,8 +24,10 @@ tags:
 - 重启后 默认选项 "Arch Linux" 对应的内核应该已经是 linux-lts 了， 也可以选择 Advanced options for Arch Linux, 能看到具体的内核列表。
 - 使用 linux-lts 内核启动
 - 确认一下当前使用的内核版本 `uname -r`
+- `/boot` 没挂载的话，记得再挂载一次, 准备删除非 LTS 内核
 - 删除非 LTS 内核 `pacman -R linux`
 - 更新 bootloader `grub-mkconfig -o /boot/grub/grub.cfg`
+- 可以再重启一下 `reboot`
 
 >以下内容为转载
 

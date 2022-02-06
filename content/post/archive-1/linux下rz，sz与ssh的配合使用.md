@@ -8,12 +8,11 @@ categories:
 
 ---
 ## Linux下rz,sz与ssh的配合使用
+
 http://blog.csdn.net/itegel84/article/details/5793575
 
 Linux下rz,sz与ssh的配合使用
-  
-2010-08-06 16:11 32369人阅读 评论(4) 收藏 举报
-  
+
 linuxsshwindows文件传输工具服务器工具
   
 一般来说,linux服务器大多是通过ssh客户端来进行远程的登陆和管理的,使用ssh登陆linux主机以后,如何能够快速的和本地机器进行文件的交互呢,也就是上传和下载文件到服务器和本地；

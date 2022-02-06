@@ -14,7 +14,7 @@ Tapestry并不是一种单纯的MVC框架，它更像MVC框架和模板技术的
 Tapestry框架是一个位于java servlet容器和Tapestry应用程序之间的层。Tapestry不是一个独立运行的服务器；它是一个servlet的扩展，它运行于servlet容器（例如Tomcat) 或包含servlet容器的应用服务器中（如Jboss,Websphere，或者WebLogic) . Tapestry应用其实是由一系列页面组成，而每个页面是由可以复用的组件构成。
 
 
-Tapestry是一种基于java的Web应用程序框架。Tapestry采用了组件的概念。程序员可以应用现有的组建或自定义应用程序相关的组建来构建应用程序。相对与现有的其他Web应用程序框架而言，应用Tapestry会让程序员从烦琐的，不必要的底层代码中解放出来。<sup>[1]</sup>
+Tapestry是一种基于java的Web应用程序框架。Tapestry采用了组件的概念。程序员可以应用现有的组建或自定义应用程序相关的组建来构建应用程序。相对与现有的其他Web应用程序框架而言，应用Tapestry会让程序员从烦琐的，不必要的底层代码中解放出来。[1]
 
 
 Tapestry使用组件库替代了标签库，没有标签库概念，从而避免了标签库和组件结合的问题。Tapestry是完全组件化的框架。Tapestry只有组件或页面两个概念，因此，链接跳转目标要么是组件，要么是页面，没有多余的path概念。组件名，也就是对象名称，组件名称和path名称合二为一。Tapestry在整个环境中的位置；应用程序由可复用组件构成的页组成。应用程序运行在应用服务器中。对应用服务器而言，Tapestry应用只不过是其他类型的servlet而已。

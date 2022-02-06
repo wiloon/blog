@@ -2,9 +2,9 @@
 title: iostat
 author: "-"
 date: 2016-04-10T04:29:25+00:00
-url: /?p=8866
+url: iostat
 categories:
-  - Uncategorized
+  - linux
 
 ---
 ## iostat
@@ -16,8 +16,9 @@ sudo yum install sysstat
 iostat -x 1
 ```
 
-### 参数 
-    -x     Display extended statistics;显示详细信息
+### 参数
+
+    -x     Display extended statistics; 显示详细信息
 
 ### 字段
     rrqm/s:          每秒进行 merge 的读操作数目。即 delta(rmerge)/s

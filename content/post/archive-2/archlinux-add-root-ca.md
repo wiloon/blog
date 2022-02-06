@@ -1,15 +1,57 @@
 ---
-title: archlinux add root ca
+title: clean archlinux
 author: "-"
 date: 2018-09-03T08:17:29+00:00
 url: /?p=12633
 categories:
-  - Uncategorized
+  - Linux
 
 ---
-## archlinux add root ca
-将 /usr/local/share/ca-certificates/_.crt 移动到 /etc/ca-certificates/trust-source/anchors/ 下
-  
-对 /etc/ssl/certs/_.pem 进行上述操作,并将它们重命名为 *.crt
-  
-运行 trust extract-compat
+## clean archlinux
+
+```bash
+# pacman 缓存 目录
+/var/cache/pacman/pkg
+
+# 查看缓存目录大小
+du -sh /var/cache/pacman/pkg
+
+# remove cached packages that are not currently installed
+pacman -Sc
+
+# remove all files from the cache
+pacman -Scc
+
+# 定时删除 pacman 缓存
+pacman -S pacman-contrib
+# dry run
+paccache -d
+# 软件包保留最近的两个版本
+paccache -dk2
+paccache -rk2
+
+# 删除已经卸载的软件包
+paccache -ruk0
+
+# 启用 paccache timer 每周清理
+systemctl enable paccache.timer
+
+pacman -Qtdq
+
+du -sh ~/.cache
+
+du -sh ~/.config
+du -sh ~/.local/share
+# clean Trash
+
+pacman -S rmlint
+
+rmlint /home/wiloon
+# 命令行的磁盘空间管理工具
+pacman -S ncdu
+
+# 图形化的磁盘空间管理工具
+pacman -S filelight
+```
+
+>https://bynss.com/linux/471439.html

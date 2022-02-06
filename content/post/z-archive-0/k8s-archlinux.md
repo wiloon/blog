@@ -50,7 +50,7 @@ kubeadm是一种简单的方式让新用户开始尝试Kubernetes，也可能是
 可以在支持安装deb或rpm软件包的操作系统上非常轻松地安装kubeadm。SIG集群生命周期SIG Cluster Lifecycle kubeadm的SIG相关维护者提供了预编译的这些软件包，也可以在其他操作系统上使用。
 >https://github.com/kubernetes/kubeadm
 
-##  kubelet
+## kubelet
 
 Kubelet 是 kubernetes 工作节点上的一个代理组件，运行在每个节点上。
 
@@ -85,7 +85,19 @@ sysctl -a |grep vm.swappiness && sysctl -a |grep ip_forward && sysctl -a |grep b
 
 # 配置内网dns
 192.168.50.xxx k8s0
+```
 
+### 配置 /etc/containers/registries.conf
+
+```bash
+unqualified-search-registries = ["docker.io"]
+[[registry]]
+prefix = "docker.io"
+# id 替换成你自己的id
+location = "<id>.mirror.aliyuncs.com"
+```
+
+```bash
 # 导出默认配置
 kubeadm config print init-defaults --component-configs KubeletConfiguration > kubeadm.yaml
 ```
@@ -104,7 +116,7 @@ bootstrapTokens:
   - authentication
 kind: InitConfiguration
 localAPIEndpoint:
-  # IP
+# IP
   advertiseAddress: 192.168.50.118
   bindPort: 6443
 nodeRegistration:
@@ -182,11 +194,11 @@ volumeStatsAggPeriod: 0s
 ```
 
 ```bash
-kubeadm config images list --config kubeadm.yml
-kubeadm config images pull --config kubeadm.yml
+kubeadm config images list --config kubeadm.yaml
+kubeadm config images pull --config kubeadm.yaml
 
 # init, 初始化Master节点
-kubeadm init --config kubeadm.yml --upload-certs
+kubeadm init --config kubeadm.yaml --upload-certs
 
 # kubeadm 会生成kubelet配置并重启kubelet
 /var/lib/kubelet/kubeadm-flags.env
@@ -194,9 +206,11 @@ kubeadm init --config kubeadm.yml --upload-certs
 /var/lib/kubelet/config.yaml
 
 ```
+
 ### kubeadm 执行成功的回显
-```
-our Kubernetes control-plane has initialized successfully!
+
+```bash
+Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
 
@@ -214,12 +228,28 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 192.168.50.118:6443 --token abcdef.0123456789abcdef \
-        --discovery-token-ca-cert-hash sha256:82beb39bb4eb5a4c447fa2027b2ff5fe408805442b3fc9b406263993265d420b
+kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
+        --discovery-token-ca-cert-hash sha256:6fee60dc1867c9e88a3c404e949833ab1956db85e19ee5fdfbf4aaa89712e6b6
+```
 
+### export
+
+    export KUBECONFIG=/etc/kubernetes/admin.conf
+
+## install istio
+
+```bash
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-1.12.2
+istioctl install --set profile=demo -y
+istioctl verify-install
+
+kubectl get pods -n istio-system 
+kubectl describe pod istiod-5bcb74c764-n52gh -n istio-system
 ```
 
 ### commands
+
 ```bash
 # 节点的状态
 kubectl get nodes -o wide
@@ -244,9 +274,8 @@ kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
 
 
 ```
+
 >https://www.lixueduan.com/post/kubernetes/01-install/
-
-
 >https://wiki.archlinux.org/title/Kubernetes
 >https://kubernetes.io/zh/docs/home/
 >https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
@@ -264,14 +293,8 @@ curl -O https://raw.githubusercontent.com/flannel-io/flannel/master/Documentatio
 
 ```
 
-### 配置 /etc/containers/registries.conf
-```bash
-unqualified-search-registries = ["docker.io"]
-[[registry]]
-prefix = "docker.io"
-# id 替换成你自己的id
-location = "<id>.mirror.aliyuncs.com"
-```
+
+
 ### 应用 
 ```bash
 kubectl apply -f kube-flannel.yml

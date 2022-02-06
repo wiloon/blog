@@ -9,6 +9,7 @@ tags:
 
 ---
 ## pacman
+
 ```bash
 # pacman 的 help
 pacman -h
@@ -21,8 +22,12 @@ pacman -Qo /etc/profile
 pacman -Qk filesystem
 # 打印详细信息,比如 文件 是否有修改 修改时间, 大小 , md5
 pacman -Qkk filesystem
+#安装下载的abs包，或新编译的abc包
+pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
 ```
+
 ### (invalid or corrupted package (PGP signature))
+
 error: unzip: signature from "Jonas Witschel <diabonas@gmx.de>" is unknown trust
 :: File /var/cache/pacman/pkg/unzip-6.0-16-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
 
@@ -158,7 +163,7 @@ pacman -Sc #清理/var/cache/pacman/pkg目录下的旧包
   
 pacman -Scc #清除所有下载的包和数据库
   
-pacman -U abc #安装下载的abs包，或新编译的abc包
+
   
 pacman -Sd abc #忽略依赖性问题，安装包abc
   

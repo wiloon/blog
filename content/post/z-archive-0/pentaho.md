@@ -60,7 +60,7 @@ Pentaho是一个它偏向于与业务流程相结合的BI解决方案，侧重�
   ◆ 单点登陆服务及LDap认证: JOSSO
 
 
-  ◆ 自定义脚本支持: Mozilla Rhino Javascript脚本处理器。<sup>[1]</sup>
+  ◆ 自定义脚本支持: Mozilla Rhino Javascript脚本处理器。[1]
 
 
 

@@ -6,6 +6,7 @@ url: archlinux/init
 
 ---
 ## archlinux init
+
 ### before ansible script
    pacman -Syu && pacman -S git ansible
 ### clone ansible script
