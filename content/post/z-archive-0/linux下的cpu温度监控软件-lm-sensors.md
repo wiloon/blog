@@ -11,10 +11,10 @@ categories:
 原贴:http://goodfifagun.pixnet.net/blog/post/21587839
 
 
-  現在購買主機板時都會有廠商提供的監控軟體可以使用，而最常使用到到功
+現在購買主機板時都會有廠商提供的監控軟體可以使用，而最常使用到到功
  能像溫度監控，系統狀態等等，但是這些軟體都只能在windows 下使用，所
  以如果要在 linux下監控CPU溫度，可以透過 lm-sensor這套軟體來監控。安裝環境: 
- ubuntu 8.04.1 LTS 
+ ubuntu 8.04.1
   
     安裝步驟: 
  1. 安裝lm-sensors

@@ -7,7 +7,8 @@ categories:
   - Uncategorized
 
 ---
-## 'Linux  oom killer'
+## 'Linux oom killer'
+
 https://blog.csdn.net/GugeMichael/article/details/24017515
 
 Linux - 内存控制之oom killer机制及代码分析

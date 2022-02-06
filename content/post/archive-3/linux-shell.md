@@ -91,8 +91,8 @@ if [ -f filename ]
 shell的使用比较简单，就像这样，并且没有数据类型的概念，所有的变量都可以当成字符串来处理: 
 ```bash
 #!/bin/bash
-myName="tom"
-youName="cat"
+foo="tom"
+bar="cat"
 ```
 
 #### 使用变量
