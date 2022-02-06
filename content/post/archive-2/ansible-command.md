@@ -13,7 +13,7 @@ categories:
 ### hibernate
 
     ansible -i '192.168.97.1,' all  -m shell -a 'sudo systemctl hibernate'  -u user0
-    
+
 ### verbos
 
 ```bash
