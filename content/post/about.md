@@ -9,9 +9,11 @@ tags:
   - original
 ---
 ## 关于本站/About
+
 本站主要是个人使用的读书笔记，因为早期使用了Wordpress所以申请了域名, 转到 Github + Markdown 后也保留了公开访问，本人使用频率比较高的技术文档都有仔细整理和验证过，希望能帮助到有需要的同学。当然...也有大量的转载未整理的内容，在不段完善整理中...
 
 ### 收集综合症
+
 - 基本上是我接触过的知识的一个集合
 - 大部分内容是转载的 70%+
   - 一般第一次接触的知识会找质量比较好的或者能解决问题的文章收集进来
@@ -29,6 +31,7 @@ tags:
 - 转载内容有侵权可以随时联系我删除
 
 ### 整理过的
+
 - 在转载文章的基础上整理过的
 - 记录了一部分常用的命令
 - 平时经常使用的工具, 命令, 脚本, 使用过程中遇到问题,解决问题后会频繁的修改，会补充命令的示例
@@ -37,14 +40,16 @@ tags:
 - 可能有N个引用来源
 - 以Tag(remix)方式标记整理过的转载内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
 
-### 原创
-- 少量原创
+### 准原创
+
+- 少量的原创文章
 - 原创比例比较高的文档
 - 日常遇到的问题和解决过程
-- 以Tag(original)方式标记原创内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
-- Author会标记为 "w1100n"
+- 以 Tag(original) 方式标记原创内容 -- 逐渐整理中，要花些时间从收集的文档里捞出来。
+- Author 会标记为 "w1100n"
 
 ### Blog 实现
+
 - Markdown
 - Github
 - Github Action
@@ -56,6 +61,7 @@ tags:
 - Google Cloud DNS
 
 ## 关于我
+
 - 王越
 - Backend Engineer / FullStack
 - Language: Java / Golang
@@ -67,16 +73,19 @@ tags:
 - Goolge粉，用过Google的各种好用的和不好用的产品: Nexus5, Nexus6P, Nexus7, Moto 360, Pixel1/2/3, Pixelbook
 
 ### 技术栈
+
 接触过的主要技术，从左到右按熟悉程度排序
+
 - Java, Golang
 - MySQL, Redis, InfluxDB, LevelDB
 - Kafka, Zookeeper
 - CentOS, Arch Linux, Ubuntu
 - AWS, Aliyun
 - Javascript, Vue, Element, Vuetify, Angular
-- Docker/Podman, Protobuf, JWT, Telegraf, PlantUML, Filebeat, ELK
+- Docker/Podman, Protobuf, JWT, Telegraf, PlantUML, Filebeat, ELK, Shell Script, Ansible
 
 ### 业余时间
+
 - 最近在折腾家里的软路由。
 - 做一些目前只有自己在用的 Side Projects: Rss 阅读器, 英语词典, 等等...
 - 伺候猫主子，家里有一只名叫"皮皮"的中华田园猫。
@@ -85,11 +94,12 @@ tags:
 - 曾经热爱自行车运动，最的远距离是骑行40公里。
 
 ### 联系方式
+
 - email: d2lsb29uLnd5QGdtYWlsLmNvbQ==
 - GitHub: https://github.com/wiloon
 - Stackoverflow: https://stackoverflow.com/users/1431884/w1100n
 
 ### 共享协议
-本站 仅 "原创" 分类中的文字作品由 w1100n 创作，采用知识共享署名-相同方式共享 4.0 国际许可协议进行许可。  
-其它分类中转载的文档使用原作者的共享协议。
 
+本站 仅 "准原创" 分类中的文字由 w1100n 创作，采用知识共享署名-相同方式共享 4.0 国际许可协议进行许可。  
+其它分类中转载的文档使用原作者的共享协议。

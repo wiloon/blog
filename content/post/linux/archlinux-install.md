@@ -11,6 +11,7 @@ tags:
 
 ---
 ## archlinux install
+
 todo: try archinstall, https://github.com/archlinux/archinstall
 ```bash
 boot with iso
