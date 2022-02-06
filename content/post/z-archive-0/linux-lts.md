@@ -2,10 +2,9 @@
 title: archlinux 安装 linux-lts 内核
 author: "-"
 date: 2022-02-06 01:19:31
-url: linux/lts
+url: lts
 categories:
   - Linux
-
 tags:
   - remix
 
