@@ -6,7 +6,9 @@ url: sysctl
 
 ---
 ## sysctl
+
 ### archlinux
+
 systemd-sysctl 服务在启动时会加载 /etc/sysctl.d/*.conf, 配置内核参数
 
 /etc/sysctl.conf 不起作用
