@@ -39,7 +39,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   identifier = "remix"
   url = "/tags/remix/"
 [[menu.main]]
-  name = "准原创"
+  name = "日常记录"
   weight = 20
   identifier = "original"
   url = "/tags/original/"

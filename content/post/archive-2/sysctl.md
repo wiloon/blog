@@ -419,4 +419,3 @@ https://blog.51cto.com/qujunorz/1703295
 https://www.cnblogs.com/fczjuever/archive/2013/04/17/3026694.html  
 https://www.cnblogs.com/leonardchen/p/9635407.html  
 >https://feisky.gitbooks.io/sdn/content/linux/params.html
->https://imroc.cc/post/202105/why-enable-bridge-nf-call-iptables/

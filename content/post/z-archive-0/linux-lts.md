@@ -1,6 +1,6 @@
 ---
 title: Archlinux 安装 linux-lts 内核
-author: "-"
+author: "w1100n"
 date: 2022-02-06 01:19:31
 url: lts
 categories:
