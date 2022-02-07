@@ -98,3 +98,26 @@ https://cloudnative.to/sig-istio/big-talk/overview.html
 >https://cloudnative.to/blog/ebpf-solve-service-mesh-sidecar/
 
 ### k8s, istio, Cilium, dapr
+
+
+### k8s install istio
+
+## install istio
+
+```bash
+# 在 k8s master 执行
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-1.12.2
+export PATH=$PWD/bin:$PATH
+
+# 在 worker 节点执行 
+crictl pull docker.io/istio/pilot:1.12.2
+crictl pull docker.io/istio/proxyv2:1.12.2
+
+# 在 k8s master 执行
+istioctl install --set profile=demo -y
+istioctl verify-install
+
+kubectl get pods -n istio-system 
+kubectl describe pod istiod-5bcb74c764-n52gh -n istio-system
+```

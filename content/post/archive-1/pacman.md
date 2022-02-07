@@ -24,6 +24,7 @@ pacman -Qk filesystem
 pacman -Qkk filesystem
 #安装下载的abs包，或新编译的abc包
 pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
+# 降级软件包, 去 archive时手动下载 https://archive.archlinux.org/packages/, 然后 pacman -U 安装
 ```
 
 ### (invalid or corrupted package (PGP signature))
