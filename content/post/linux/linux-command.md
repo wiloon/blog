@@ -65,23 +65,6 @@ file 命令用于分析文件的类型。
     $ file /bin/pwd
     /bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0d264bacf2adc568f0e21cbcc9576df434c44380, stripped
 
-### ldd
-ldd 命令可以用于分析可执行文件的依赖。
-
-我们使用 file 命令来分析一个可执行文件的时候，有时候可以看到输出中有 dynamically linked 这样的字眼。这个是啥意思呢？
-
-大部分程序，都会使用到第三方库，这样就可以不用重复造轮子，节约大量时间。最简单的，我们写C程序代码的话，肯定会使用到 libc 或者 glibc 库。当然，除此之外，还可能使用其它的库。
-
-那我们在什么情况下需要分析程序的依赖库呢？有一个场景大家肯定经历过。你去你同事那边拷备他写好的程序放到自己的环境下运行，有时候可能会跑不起来。当然跑不起来的原因可能很多，但其中一个原因可能就是缺少对应的依赖库。
-
-这时候，ldd 就派上用场了。它可以分析程序需要一些什么依赖库，你只要把对应的库放在对应的位置就可以了。
-
-    ldd /bin/pwd
-        linux-vdso.so.1 =>  (0x00007ffeb73e5000)
-        libc.so.6 => /lib64/libc.so.6 (0x00007f908b321000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007f908b6ef000)
-
- 
  
 
 ### file
@@ -94,21 +77,6 @@ file 命令用于分析文件的类型。
     file /bin/pwd
 
 /bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0d264bacf2adc568f0e21cbcc9576df434c44380, stripped
-### ldd
-ldd 命令可以用于分析可执行文件的依赖。
-
-我们使用 file 命令来分析一个可执行文件的时候，有时候可以看到输出中有 dynamically linked 这样的字眼。这个是啥意思呢？
-
-大部分程序，都会使用到第三方库，这样就可以不用重复造轮子，节约大量时间。最简单的，我们写C程序代码的话，肯定会使用到 libc 或者 glibc 库。当然，除此之外，还可能使用其它的库。
-
-那我们在什么情况下需要分析程序的依赖库呢？有一个场景大家肯定经历过。你去你同事那边拷备他写好的程序放到自己的环境下运行，有时候可能会跑不起来。当然跑不起来的原因可能很多，但其中一个原因可能就是缺少对应的依赖库。
-
-这时候，ldd 就派上用场了。它可以分析程序需要一些什么依赖库，你只要把对应的库放在对应的位置就可以了。
-
-$ ldd /bin/pwd
-        linux-vdso.so.1 =>  (0x00007ffeb73e5000)
-        libc.so.6 => /lib64/libc.so.6 (0x00007f908b321000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007f908b6ef000)
 
 ### ltrace
 ltrace的功能是能够跟踪进程的库函数调用。

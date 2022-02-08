@@ -2,11 +2,11 @@
 title: "sasl"
 author: "-"
 date: "2021-08-13 17:00:11"
-url: ""
+url: sasl
 categories:
   - inbox
 tags:
-  - inbox
+  - reprint
 ---
 ## "sasl"
 
@@ -207,3 +207,165 @@ http://blog.csdn.net/id19870510/article/details/8232509
 
 http://just4coding.com/2014/11/06/sasl/
 
+
+
+### 关于sasl
+华叔 - 2010年12月1日 - 1 评论
+
+sasl(Simple Authentication and Security Layer)是一个用于网络通信协议的安全验证框架，它可以使网络协议在互相验证的阶段可以有多种验证方式可以选择。
+
+现在实现sasl的协议主要有imap,smtp,pop,xmpp,subersion,….。举个smtp的例子说明一下sasl的验证流程:
+
+250-mail.example.com Hello pc.example.org [192.168.1.42], pleased to meet you
+250-AUTH DIGEST-MD5 CRAM-MD5 LOGIN PLAIN
+AUTH LOGIN 
+334 VXNlcm5hbWU6
+eHh4eAo=
+334 UGFzc3dvcmQ6
+b294eAo=
+235 2.0.0 OK Authenticated
+1 和smtp sever建立连接后,server发送欢迎信息
+2 server发送自己支持的验证方式DIGEST-MD5 CRAM-MD5 LOGIN PLAIN
+3 client择使用LOGIN
+4 server发送base64后的challenge code,base64解码后为Username:要求client回应一个用户名
+5 client回应base64后的用户名
+6 server发送base64后的challenge code,base64解码后为Password:要求client回应一个密码
+7 client回应base64后的密码
+8 server返回验证成功的信息
+
+很简单的流程，服务端给出选择，客户端选一个，然后根据验证方式不同进行验证流程，由于sasl仅仅是个框架，具体怎么实现是由协议决定的，比如xmpp协议的sasl验证流程
+
+#client与server建立链接后发出一个strem头
+C:
+#server回应一个steam头
+S:
+#server发送自己支持的验证方式列表
+S:
+     
+       DIGEST-MD5
+       PLAIN
+     
+
+#client 说它要用DIGEST-MD5做验证
+C:
+
+#server 发送challenge code
+S:
+   cmVhbG09InNvbWVyZWFsbSIsbm9uY2U9Ik9BNk1HOXRFUUdtMmhoIixxb3A9ImF1dGgi
+   LGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNzCg==
+
+#client 回应challenge
+C:
+
+   dXNlcm5hbWU9InNvbWVub2RlIixyZWFsbT0ic29tZXJlYWxtIixub25jZT0i
+   T0E2TUc5dEVRR20yaGgiLGNub25jZT0iT0E2TUhYaDZWcVRyUmsiLG5jPTAw
+   MDAwMDAxLHFvcD1hdXRoLGRpZ2VzdC11cmk9InhtcHAvZXhhbXBsZS5jb20i
+   LHJlc3BvbnNlPWQzODhkYWQ5MGQ0YmJkNzYwYTE1MjMyMWYyMTQzYWY3LGNo
+   YXJzZXQ9dXRmLTgK
+   
+#server 回应验证结果
+S:
+
+当你实现一个协议的sasl部分时，如果你仅仅打算实现一两种验证方式，那么寥寥代码便可以搞定，但是如果希望提供尽可能多的验证方式，那么使用一些开源类库将是最好的选择。
+对于C语言有两个成熟的lib:Cyrus SASL和libgsasl。以gsasl为例:
+
+gsasl屏蔽了具体验证的细节，你要做的仅仅是为验证流程提供必要的信息，比如：用户名，密码，验证域等等
+还是以上面的smtp验证为例，假设我们是client端，现在收到的server的mechlist，即验证方式列表，我们使用gsasl实现这次验证(虽然是我虚构的代码，但理论是可行的:))：
+
+Gsasl *ctx = NULL;
+char buffer[BUFSIZ] = "";
+char *buf;
+Gsasl_session *session;
+int rc;
+char *p;
+//使用gsasl之前初始化
+if ((rc = gsasl_init (&ctx)) != GSASL_OK)
+{
+    printf ("Cannot initialize libgsasl (%d): %s",
+        rc, gsasl_strerror (rc));
+    return;
+}
+
+//创建一个使用LOGIN验证方式的客户端session
+if ((rc = gsasl_client_start (ctx, "LOGIN", &session)) != GSASL_OK)
+{
+    printf ("Cannot initialize client (%d): %s\n",
+       rc, gsasl_strerror (rc));
+    return;
+}
+
+//设置用户名和密码
+gsasl_property_set (session, GSASL_AUTHID, "username");
+gsasl_property_set (session, GSASL_PASSWORD, "password");
+
+//假设socket_fd为我们与server已经建立连接的描述字
+
+//告诉server我们选择使用LOGIN做验证
+buf = buffer;
+sprintf(buf, "AUTH LOGIN\r\n");
+write(socket_fd, buf, strlen(buf));
+
+do
+ {
+   buf = buffer;
+   //从server读取一行，
+   readline(buf, sizeof (buf) - 1, socket_fd);
+   //334 是多余的 
+   buf += 4;
+   //将challenge code 交给gsasl处理
+   rc = gsasl_step64 (session, buf, &p);
+
+   if (rc == GSASL_NEEDS_MORE || rc == GSASL_OK)
+     {
+       //将gsasl的处理结果发送给server
+       write(socket_fd, p, strlen(p));
+       free (p);
+     }
+ }
+while (rc == GSASL_NEEDS_MORE);
+
+if (rc != GSASL_OK)
+ {
+   printf ("Authentication error (%d): %s\n",
+           rc, gsasl_strerror (rc));
+   return;
+ }
+
+printf("success!");
+
+gsasl_finish (session);
+gsasl_done (ctx);
+使用gsasl可以让我们用类似上面代码处理所有的验证方式，唯一不同的就在于使用gsasl_property_set设置不同的字段。
+
+除了像上面一样直接设置验证字段,还可以通过回调函数设置,当gsasl需要某一字段时会触发回调函数
+
+int callback (Gsasl * ctx, Gsasl_session * sctx, Gsasl_property prop)
+ {
+   char buf[BUFSIZ] = "";
+   int rc = GSASL_NO_CALLBACK;
+
+   switch (prop)
+     {
+     case GSASL_AUTHID:
+       gsasl_property_set (sctx, GSASL_AUTHID, "username");
+       rc = GSASL_OK;
+       break;
+     // .............. 
+     default:
+       printf ("Unknown property!  Don't worry.\n");
+       break;
+     }
+ 
+   return rc;
+ }
+//.................
+gsasl_callback_set (ctx, callback);
+好了，不能够再详细了，我的主要目的是分析jabberd2的验证逻辑，关于gsasl的更多请参考:http://www.gnu.org/software/gsasl/manual/gsasl.html
+
+其他参考:http://wiki.jabbercn.org/index.php?title=RFC3920&variant=zh-cn
+
+
+>https://bluehua.org/2010/12/01/1484.html
+
+### CRAM-MD5
+>https://datatracker.ietf.org/doc/html/rfc2195

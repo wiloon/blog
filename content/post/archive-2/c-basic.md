@@ -1,5 +1,5 @@
 ---
-title:  c basic, c, c lang
+title:  c basic, c, c lang, c 语言
 author: "-"
 date: 2016-11-16T07:09:09+00:00
 url: /?p=9397
@@ -58,7 +58,7 @@ A simple practice in C 或 C++ 程序中,建议把所有的常量、宏、系统
 
 C中可以通过#include <stdio.h>和#include "stidio.h",区别是: 
 
-#include <stdio.h>,直接到系统指定目录去查找头文件。
+#include <stdio.h>, 直接到系统指定目录去查找头文件。
 #include "stidio.h",会先到当前目录查找头文件,如果没找到在到系统指定目录查找。
 gcc编译时查找头文件,按照以下路径顺序查找: 
 

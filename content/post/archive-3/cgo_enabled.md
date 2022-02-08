@@ -35,3 +35,7 @@ https://johng.cn/cgo-enabled-affect-go-static-compile/embed/#?secret=w5uCEbc4UP
 https://studygolang.com/articles/16315  
 https://zhuanlan.zhihu.com/p/349197066  
 https://tonybai.com/2017/06/27/an-intro-about-go-portability/   
+
+
+### go cpp
+>https://github.com/arrieta/golang-cpp-basic-example/tree/master

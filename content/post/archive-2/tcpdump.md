@@ -2,10 +2,10 @@
 title: tcpdump
 author: "-"
 date: 2015-10-26T01:40:42+00:00
-url: /?p=8429
+url: tcpdump
 
 categories:
-  - inbox
+  - network
 tags:
   - reprint
 ---
@@ -48,6 +48,9 @@ tcpdump -nn icmp
 # protocol name: arp, ip, tcp, udp, icmp
 ```
 
+### 保存到文件, 然后用  Wireshark 分析 
+    tcpdump -i eth1 src port 25 -w foo.cap
+
 ```bash
 # -e Print the link-level header on each dump line
 # -n 不将address转为name,抓包时不进行域名解析。Don't convert addresses (i.e., host addresses, port numbers, etc.) to names.
@@ -73,9 +76,6 @@ yum install -y tcpdump
 #archlinux
 pacman -S tcpdump
 ```
-
-### 保存到文件,然后用  Wireshark 分析 
-    tcpdump -i eth1 src port 25 -w foo.cap
 
 ### 命令选项
     -A: 以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据
