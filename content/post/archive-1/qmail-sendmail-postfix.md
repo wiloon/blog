@@ -6,6 +6,8 @@ url: /?p=5657
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## qmail sendmail postfix
 <http://liguxk.blog.51cto.com/129038/155491>

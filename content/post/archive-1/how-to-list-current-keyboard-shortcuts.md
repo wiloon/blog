@@ -6,6 +6,8 @@ url: /?p=5764
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'How to,List Current Keyboard Shortcuts'
   

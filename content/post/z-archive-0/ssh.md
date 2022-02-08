@@ -6,6 +6,8 @@ url: ssh
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ssh
 ## install

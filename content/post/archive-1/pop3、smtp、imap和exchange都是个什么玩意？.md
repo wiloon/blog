@@ -6,6 +6,8 @@ url: /?p=5480
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## POP3、SMTP、IMAP和Exchange
   

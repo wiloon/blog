@@ -6,6 +6,8 @@ url: /?p=6903
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'Android  sqlite3,not found'
 http://panxq0809.iteye.com/blog/1264785

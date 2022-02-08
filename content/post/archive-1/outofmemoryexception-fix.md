@@ -6,6 +6,8 @@ url: /?p=5790
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## OutOfMemoryException Fix
 OutOfMemory exceptions are often caused by address space fragmentation in Visual Studio process. For users experiencing excessive OutOfMemory exceptions we provide a tool which overrides Visual Studio's memory allocation policy to ensure more continuous address space for Common Language Runtime.

@@ -6,6 +6,8 @@ url: /?p=12356
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## SHA, Secure Hash Algorithm
 安全散列算法（英语: Secure Hash Algorithm,缩写为SHA) 

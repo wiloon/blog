@@ -6,6 +6,8 @@ url: /?p=2231
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ubuntu 启用root用户
 启用root用户

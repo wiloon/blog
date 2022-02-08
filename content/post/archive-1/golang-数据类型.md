@@ -4,6 +4,10 @@ author: "-"
 date: 2015-04-27T14:00:54+00:00
 url: /?p=7532
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang  数据类型
 ### 常量

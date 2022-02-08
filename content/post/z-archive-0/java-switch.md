@@ -6,6 +6,8 @@ url: /?p=3525
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java switch
 关于java中switch使用的一些说明

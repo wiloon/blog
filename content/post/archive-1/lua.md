@@ -7,6 +7,8 @@ categories:
   - Development
   - Linux
 
+tags:
+  - reprint
 ---
 ## Lua
 http://zh.wikipedia.org/zh-cn/Lua

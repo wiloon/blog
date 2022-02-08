@@ -6,7 +6,10 @@ url: lvm
 categories:
   - LVM
 
+tags:
+  - reprint
 ---
+## LVM
 ## 前端模块管理器
 PVE虚拟机 – 如何扩容虚拟机磁盘空间？
 1条回复

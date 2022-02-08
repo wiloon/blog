@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## XHR与fetch
 XMLHttpRequest 是一个内建的浏览器对象，它允许使用 JavaScript 发送 HTTP 请求。

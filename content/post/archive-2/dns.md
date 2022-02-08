@@ -6,6 +6,8 @@ url: /?p=11620
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## DNS
 DNS的本质是什么？

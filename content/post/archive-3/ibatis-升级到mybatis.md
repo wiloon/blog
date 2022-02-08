@@ -6,6 +6,8 @@ url: /?p=15204
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ibatis 升级到mybatis
 https://blog.csdn.net/u010856276/article/details/82146607

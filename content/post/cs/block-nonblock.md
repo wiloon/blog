@@ -6,6 +6,8 @@ url: block-nonblock
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 阻塞,非阻塞,同步,异步
 

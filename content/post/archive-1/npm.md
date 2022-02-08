@@ -6,6 +6,8 @@ url: npm
 tags:
   - node, npm
 
+categories:
+  - inbox
 ---
 ## npm basic
 ### 指定 package.json 路径 

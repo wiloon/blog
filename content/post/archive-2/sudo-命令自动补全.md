@@ -6,6 +6,8 @@ url: /?p=9389
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## sudo 命令自动补全
 ```bash

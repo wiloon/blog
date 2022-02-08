@@ -6,6 +6,8 @@ url: /?p=8439
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 文本 统计
 **http://blog.csdn.net/xuejiayue1105/article/details/1483940**

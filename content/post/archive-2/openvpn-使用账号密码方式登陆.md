@@ -6,6 +6,8 @@ url: /?p=12849
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## OpenVPN 使用账号+密码方式登陆
 http://openwrt.iteye.com/blog/2306421

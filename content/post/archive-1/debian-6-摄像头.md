@@ -6,6 +6,8 @@ url: /?p=4650
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Debian 6 摄像头
 Debian 6 有内置的摄像头驱动.

@@ -7,6 +7,8 @@ categories:
   - Development
   - Linux
 
+tags:
+  - reprint
 ---
 ## md5, sha256
 

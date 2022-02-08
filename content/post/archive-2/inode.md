@@ -6,6 +6,8 @@ url: inode
 categories:
   - OS
 
+tags:
+  - reprint
 ---
 ## inode
 

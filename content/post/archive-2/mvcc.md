@@ -6,6 +6,8 @@ url: /?p=10260
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MVCC, 多版本并发控制
 http://donghui.blog.51cto.com/2709336/692586

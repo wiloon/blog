@@ -6,6 +6,8 @@ url: /?p=4674
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## sql join
 ### join 

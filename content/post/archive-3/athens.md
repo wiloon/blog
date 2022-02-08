@@ -6,6 +6,8 @@ url: /?p=15941
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 Athens: Go Packages 服务器, 私服。
 

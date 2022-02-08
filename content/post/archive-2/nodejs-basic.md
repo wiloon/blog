@@ -6,6 +6,8 @@ url: /?p=13672
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nodejs basic
 

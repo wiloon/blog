@@ -6,6 +6,8 @@ url: /?p=13452
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## WebDAV
 Web 分布式创作和版本管理 (WebDAV) 是 HTTP 协议的扩展,支持将 Web 服务器显示为标准的网络驱动器。WebDAV 客户端默认安装在大部分常见的操作系统上,可用于直接装载和访问 QNAP NAS 上的共享文件夹。WebDAV 访问具有以下好处: 

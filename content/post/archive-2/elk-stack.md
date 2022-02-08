@@ -6,7 +6,10 @@ url: /?p=11698
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## ELK Stack
 ## ELK
 ELK 是 Elasticsearch、Logstash 和 Kibana 三种软件产品的首字母缩写, 这三者都是开源软件,通常配合使用,而且又先后归于 Elastic.co 公司名下,所以被简称为 ELK Stack
   

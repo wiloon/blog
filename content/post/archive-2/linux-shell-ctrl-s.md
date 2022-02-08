@@ -6,6 +6,8 @@ url: /?p=11568
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux shell ctrl – s
 ctrl+c 结束正在运行的程序【ping、telnet等】

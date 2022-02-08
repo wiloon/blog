@@ -6,6 +6,8 @@ url: disruptor
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Disruptor
 http://www.cnblogs.com/killmyday/archive/2012/12/02/2798218.html

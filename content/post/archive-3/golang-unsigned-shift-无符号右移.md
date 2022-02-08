@@ -6,6 +6,8 @@ url: /?p=15522
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'golang  unsigned shift, 无符号右移'
 int32 转 uint32 再右移

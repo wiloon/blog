@@ -6,6 +6,8 @@ url: /?p=12701
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'resolv.conf,search、domain、nameserver'
 http://www.ttlsa.com/linux/resolv-conf-desc/

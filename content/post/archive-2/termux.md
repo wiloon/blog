@@ -6,6 +6,8 @@ url: /?p=11999
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Termux
 https://www.jianshu.com/p/5c8678cef499

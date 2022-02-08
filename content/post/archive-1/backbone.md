@@ -6,6 +6,8 @@ url: /?p=5096
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## Backbone
 Backbone 是一个 JavaScript 框架,可用于创建模型-视图-控制器 (model-view-controller, MVC) 类应用程序和单页界面。

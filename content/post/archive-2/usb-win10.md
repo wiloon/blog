@@ -6,6 +6,8 @@ url: /?p=13537
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## usb win10
 https://www.microsoft.com/zh-cn/software-download/windows10ISO

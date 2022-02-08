@@ -6,6 +6,8 @@ url: /?p=8714
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JUnit中按照顺序执行测试
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

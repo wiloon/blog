@@ -6,6 +6,8 @@ url: /?p=4179
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Features of jsp2.1
 <http://www.roseindia.net/jsp/FeaturesOfJsp2.1.shtml>

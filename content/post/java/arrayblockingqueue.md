@@ -6,6 +6,8 @@ url: /?p=3953
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## ArrayBlockingQueue
 ArrayBlockingQueue

@@ -6,6 +6,8 @@ url: /?p=10281
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Deprecate HTablePool
 https://issues.apache.org/jira/browse/HBASE-6580

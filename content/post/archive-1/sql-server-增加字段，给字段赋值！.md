@@ -6,6 +6,8 @@ url: /?p=5772
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## SQL server 增加字段，给字段赋值！
 2修改数据库和表的字符集

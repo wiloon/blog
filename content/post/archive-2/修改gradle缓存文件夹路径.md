@@ -6,6 +6,8 @@ url: /?p=9844
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Gradle 修改缓存文件夹.gradle路径
 export GRADLE_USER_HOME=/Users/lshare/.gradle

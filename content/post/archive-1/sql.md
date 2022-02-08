@@ -6,6 +6,8 @@ url: /?p=5214
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## SQL
 **INSERT INTO "表格名" ("栏位1", "栏位2", ...)

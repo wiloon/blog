@@ -4,6 +4,10 @@ author: "-"
 date: 2016-12-16T02:55:44+00:00
 url: /redis-cluster
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## redis 集群/cluster
 

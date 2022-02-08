@@ -6,6 +6,8 @@ url: /?p=13759
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## google authenticator databases
 https://eduncan911.com/technology/hardware/google-authenticator-databases-move-copy-fix.html

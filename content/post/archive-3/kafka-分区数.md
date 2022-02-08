@@ -6,6 +6,8 @@ url: /?p=15152
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## kafka 分区数
 Kafka的分区数是不是越多越好？

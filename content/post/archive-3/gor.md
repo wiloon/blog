@@ -6,6 +6,8 @@ url: /?p=15965
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gor
 ```bash

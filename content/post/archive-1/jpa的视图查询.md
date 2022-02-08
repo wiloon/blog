@@ -6,6 +6,8 @@ url: /?p=7692
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JPA的视图查询
 http://blog.csdn.net/chaijunkun/article/details/8442406

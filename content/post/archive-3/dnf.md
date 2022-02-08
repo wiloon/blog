@@ -4,6 +4,10 @@ author: "-"
 date: 2020-04-26T02:14:25+00:00
 url: /?p=16066
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## dnf basic
 

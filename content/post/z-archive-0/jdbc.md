@@ -6,6 +6,8 @@ url: jdbc
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## JDBC
 

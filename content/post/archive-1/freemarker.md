@@ -6,6 +6,8 @@ url: /?p=4836
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## FreeMarker
   

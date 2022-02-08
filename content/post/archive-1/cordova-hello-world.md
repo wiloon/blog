@@ -6,6 +6,8 @@ url: /?p=7318
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Cordova Hello World
 install node.js/npm

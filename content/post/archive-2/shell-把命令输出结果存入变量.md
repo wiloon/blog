@@ -6,6 +6,8 @@ url: /?p=12596
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## shell 把命令输出结果存入变量
 ```bash

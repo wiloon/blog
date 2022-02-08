@@ -6,6 +6,8 @@ url: /?p=8250
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## SynchronousQueue
 http://wsmajunfeng.iteye.com/blog/1629352/

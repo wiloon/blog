@@ -6,6 +6,8 @@ url: /?p=5985
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Oracle with as
 原文传送门: <http://blog.csdn.net/wh62592855/archive/2009/11/06/4776631.aspx>

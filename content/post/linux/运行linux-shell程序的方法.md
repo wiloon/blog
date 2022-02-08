@@ -9,6 +9,7 @@ tags:
   - Shell
 
 ---
+## 执行 Shell 脚本, fork, exec, source, shell执行
 ## 执行 Linux Shell 脚本, fork, exec, source
 ```bash
 ./xxx.sh

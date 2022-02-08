@@ -6,6 +6,8 @@ url: /?p=14497
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## GOGC
 GOGC

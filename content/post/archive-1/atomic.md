@@ -6,6 +6,8 @@ url: Atomic
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java JUC Atomic
 Java从JDK1.5开始提供了java.util.concurrent.atomic包,方便程序员在多线程环境下,无锁的进行原子操作。原子变量的底层使用了处理器提供的原子指令,但是不同的CPU架构可能提供的原子指令不一样,也有可能需要某种形式的内部锁,所以该方法不能绝对保证线程不被阻塞。

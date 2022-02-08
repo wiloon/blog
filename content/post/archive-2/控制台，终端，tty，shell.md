@@ -6,6 +6,8 @@ url: /?p=13199
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 控制台,终端,tty,shell
 https://blog.csdn.net/on_1y/article/details/20203963

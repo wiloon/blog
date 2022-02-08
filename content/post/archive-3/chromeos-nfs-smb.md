@@ -6,6 +6,8 @@ url: /?p=15888
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chromeos nfs, SMB
 Since Chrome 71, SMB is now natively supported by Chrome OS and this Chrome extension/app is deprecated. The new implementation is an order magnitude or two faster and much more reliable.

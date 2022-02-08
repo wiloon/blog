@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## Tapestry
 Tapestry并不是一种单纯的MVC框架，它更像MVC框架和模板技术的结合，它不仅包含了前端的MVC框架，还包含了一种视图层的模板技术，使用Tapestry完全可以与Servlet/JSP API分离，是一种非常优秀的设计。 通过使用Tapestry，开发者完全不需要使用JSP技术，用户只需要使用Tapestry提供的模板技术即可，Tapestry实现了视图逻辑和业务逻辑的彻底分离。

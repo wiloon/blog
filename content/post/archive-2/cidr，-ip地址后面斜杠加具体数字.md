@@ -6,6 +6,8 @@ url: /?p=11931
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## CIDR, IP地址后面斜杠加具体数字
 http://blog.csdn.net/hzhsan/article/details/44100215

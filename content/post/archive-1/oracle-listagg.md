@@ -6,6 +6,8 @@ url: /?p=7717
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## oracle listagg
 ```sql

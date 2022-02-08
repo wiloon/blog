@@ -6,6 +6,8 @@ url: telnet/ssh
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## Telnet, SSH
 ### Telnet

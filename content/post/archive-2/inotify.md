@@ -6,6 +6,8 @@ url: /?p=9619
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Inotify
 

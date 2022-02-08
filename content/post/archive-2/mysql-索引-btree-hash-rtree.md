@@ -6,6 +6,8 @@ url: /?p=9451
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'MySQL 索引  btree hash rtree'
 一、MySQL索引类型

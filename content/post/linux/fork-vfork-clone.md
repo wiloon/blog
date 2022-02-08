@@ -3,7 +3,12 @@ author: "-"
 date: "2021-05-06 17:29:10" 
 title: "fork vfork clone pthread_create"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "fork vfork clone pthread_create"
 
 Linux通过clone系统调用实现fork.调用通过一系列的参数标志来指明父、子进程需要共享的资源。fork、vfork、和__clone的库函数都根据各自需要的参数标志去调用clone，然后由clone()去调用do_fork()。
 arch(X86)架构的是: fork、vfork、和__clone的库函数最终调用的都是clone系统调用。

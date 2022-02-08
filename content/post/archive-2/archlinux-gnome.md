@@ -6,6 +6,8 @@ url: /?p=11032
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux gnome
 Gnome shell system monitor extension

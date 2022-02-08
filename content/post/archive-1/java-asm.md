@@ -6,6 +6,8 @@ url: /?p=4904
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java asm
 什么是 ASM ？

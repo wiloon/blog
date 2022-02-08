@@ -6,6 +6,8 @@ url: /?p=2666
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ts
 author: Hex Lee lihe757@gmail.com

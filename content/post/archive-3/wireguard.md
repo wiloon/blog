@@ -5,6 +5,10 @@ date: 2020-03-15T16:20:26+00:00
 url: wireguard
 tag: vpn
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## wireguard
 ## server install

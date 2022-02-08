@@ -6,6 +6,8 @@ url: /?p=19
 tags:
   - MySQL
 
+categories:
+  - inbox
 ---
 ## MySQL 复制
 1， MySQL的复制原理以及流程。

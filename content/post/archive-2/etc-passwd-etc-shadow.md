@@ -6,6 +6,8 @@ url: /?p=13201
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## /etc/passwd, /etc/shadow
 https://blog.csdn.net/u012501054/article/details/71522278

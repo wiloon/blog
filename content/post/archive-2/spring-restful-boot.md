@@ -6,6 +6,8 @@ url: spring/boot
 categories:
   - Spring
 
+tags:
+  - reprint
 ---
 ## spring restful, spring boot, maven,gradle
 ### spring-boot-starter-parent

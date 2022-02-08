@@ -6,6 +6,8 @@ url: /?p=10006
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## iowait
 iowait 表示在一个采样周期内有百分之几的时间属于以下情况: CPU空闲、并且有仍未完成的I/O请求。

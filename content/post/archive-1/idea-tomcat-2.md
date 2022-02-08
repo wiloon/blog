@@ -6,6 +6,8 @@ url: /?p=4954
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea tomcat
 部署在项目开发过程中是常有的事,特别是debug的时候。但是如果每次fix一个bug都要把整个项目重新部署一遍以便测试fix的效果或者继续debug其他bug,那对开发人员来说无疑是一大噩梦。不过谁都不想噩梦连连,有了JVM的hotSwap以及Intellij Idea对debug,hotSwap的支持,从此美梦相伴（夸张了点:)) 。今天通过这篇文章介绍一下通过对Intellij Idea热部署的设置达到最方便的最高效的debug效果。

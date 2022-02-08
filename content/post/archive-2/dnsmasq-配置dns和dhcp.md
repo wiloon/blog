@@ -6,6 +6,8 @@ url: dnsmasq
 categories:
   - network
 
+tags:
+  - reprint
 ---
 ## 'dnsmasq config  配置'
 

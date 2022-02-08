@@ -6,6 +6,8 @@ url: /?p=15463
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 挂载 windows共享
 先在 Windows 下面共享需要挂载的目录

@@ -6,6 +6,8 @@ url: /?p=7714
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Oracle to_date
 http://database.51cto.com/art/201010/231193.htm

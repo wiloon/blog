@@ -6,6 +6,8 @@ url: /?p=6163
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## eclipse install/setting
 ### plugin

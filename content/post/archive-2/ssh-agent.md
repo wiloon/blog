@@ -4,6 +4,10 @@ author: "-"
 date: 2018-05-11T01:04:23+00:00
 url: ssh-agent
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## ssh-agent, forward
 

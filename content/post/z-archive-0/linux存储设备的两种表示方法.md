@@ -6,6 +6,8 @@ url: /?p=2074
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Linux存储设备的两种表示方法
   

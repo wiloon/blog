@@ -6,6 +6,8 @@ url: /?p=10470
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java, jvm GC
 ### 查看当前使用的GC

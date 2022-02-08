@@ -6,6 +6,8 @@ url: /?p=13349
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## shell exit退出状态代码
 https://blog.csdn.net/hongkangwl/article/details/16184883

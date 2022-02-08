@@ -6,6 +6,8 @@ url: /?p=7528
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android应用内语言切换实现
 http://my.oschina.net/jack1900/blog/290694

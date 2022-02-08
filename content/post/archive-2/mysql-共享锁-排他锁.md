@@ -6,6 +6,8 @@ url: /?p=10066
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'MySQL 共享锁  排他锁'
 http://www.hollischuang.com/archives/923

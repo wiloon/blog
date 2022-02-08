@@ -6,6 +6,8 @@ url: /?p=12911
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## iptables nat
 ```bash

@@ -6,6 +6,8 @@ url: /?p=14189
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'reveal.js, markdown > PPT'
 ### 快捷键

@@ -6,6 +6,8 @@ url: /?p=5375
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## jQuery 行背景颜色的交替
 一些css的定义，可以根据需要自己选择。

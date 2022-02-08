@@ -6,6 +6,8 @@ url: /?p=13489
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Let's Encrypt 证书
 https://www.jianshu.com/p/c5c9d071e395

@@ -6,6 +6,8 @@ url: /?p=14053
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## KVM的-nographic与-display选项
 

@@ -6,6 +6,8 @@ url: /?p=9362
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gradle maven snapshot
 configurations.all {

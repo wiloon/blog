@@ -6,6 +6,8 @@ url: /?p=7023
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java 对象
 

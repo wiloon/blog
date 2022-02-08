@@ -6,6 +6,8 @@ url: /?p=9423
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang ssh
 https://godoc.org/golang.org/x/crypto/ssh

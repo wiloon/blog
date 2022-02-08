@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## linux iwconfig
 apt-get install wireless-tools

@@ -6,6 +6,8 @@ url: /?p=1696
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux lost+found 目录
 /lost found

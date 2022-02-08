@@ -6,6 +6,8 @@ url: /?p=4519
 categories:
   - Agile
 
+tags:
+  - reprint
 ---
 ## agile scrum tools
 ### wekan

@@ -6,6 +6,8 @@ url: /?p=7776
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## '配置文件  HOCON'
 HOCON（Human-Optimized Config Object Notation) 是一个易于使用的配置文件格式。

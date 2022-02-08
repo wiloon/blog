@@ -6,6 +6,8 @@ url: /?p=12217
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 内网 dns dig 能解析出ip, ping 返回 Name or service not known
 https://blog.csdn.net/jinyuxiaoqiang/article/details/78611430

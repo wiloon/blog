@@ -6,6 +6,8 @@ url: /?p=12117
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JFFS
 JFFS 是一个特别针对闪存的文件系统

@@ -6,6 +6,8 @@ url: /?p=9130
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang unit test
 测试文件用 "_test" 结尾,测试的函数用Test开头

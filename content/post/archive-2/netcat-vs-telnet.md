@@ -6,6 +6,8 @@ url: /?p=11601
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'test for a specific port from Linux,  shell>telnet  >netcat > Socat'
 

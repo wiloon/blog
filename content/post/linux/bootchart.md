@@ -6,6 +6,8 @@ url: bootchart
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Bootchart, systemd-analyze
  Bootchart 已经成为 systemd 的一部分

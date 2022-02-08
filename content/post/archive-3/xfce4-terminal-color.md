@@ -6,6 +6,8 @@ url: /?p=14933
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## xfce4 terminal color
 https://github.com/sgerrand/xfce4-terminal-colors-solarized

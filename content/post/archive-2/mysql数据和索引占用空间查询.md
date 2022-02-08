@@ -6,6 +6,8 @@ url: /?p=11501
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL数据和索引占用空间查询
 http://blog.csdn.net/light_language/article/details/70567962

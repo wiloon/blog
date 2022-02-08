@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## shiro 标签
 <http://kdboy.iteye.com/blog/1155450>

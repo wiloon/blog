@@ -6,6 +6,8 @@ url: kde
 tags:
   - kde
 
+categories:
+  - inbox
 ---
 ## archlinux kde, config
 ```bash

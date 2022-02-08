@@ -6,6 +6,8 @@ url: /?p=8263
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux sz
 http://codingstandards.iteye.com/blog/827637

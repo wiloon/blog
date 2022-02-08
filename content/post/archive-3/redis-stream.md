@@ -6,6 +6,8 @@ url: /?p=14772
 categories:
   - redis
 
+tags:
+  - reprint
 ---
 ## redis stream
 stream是一个看起来比pubsub可靠多的消息队列。pubsub不靠谱？ 很不靠谱，网络一断或buffer一大就会主动清理数据。stream的设计参考了kafka的消费组模型，redis作者antirez也专门写了篇短文描述了这个过程。

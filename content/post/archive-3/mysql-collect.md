@@ -6,6 +6,8 @@ url: /?p=14604
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL collect
 COLLATE是用来做什么的？

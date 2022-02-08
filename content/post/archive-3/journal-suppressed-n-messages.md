@@ -6,6 +6,8 @@ url: /?p=14736
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## journal suppressed N messages
 systemd-journal: Suppressed 9567 messages from /system.slice/

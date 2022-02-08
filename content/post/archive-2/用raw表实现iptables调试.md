@@ -6,6 +6,8 @@ url: /?p=12128
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## iptables调试, raw表, LOG
 ### 启用iptables的日志

@@ -6,6 +6,8 @@ url: /?p=5670
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Nginx
 Nginx 是俄罗斯人编写的十分轻量级的 HTTP 服务器,Nginx,它的发音为"engine X",是一个高性能的HTTP和反向代理服务器,同时也是一个 IMAP/POP3/SMTP 代理服务器。Nginx 是由俄罗斯人 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的。Igor Sysoev 在建立的项目时,使用基于 BSD 许可。

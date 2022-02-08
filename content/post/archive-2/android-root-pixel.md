@@ -6,6 +6,8 @@ url: /?p=13636
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## android root pixel
 Download Magisk Root

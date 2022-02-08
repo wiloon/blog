@@ -6,6 +6,8 @@ url: /?p=2908
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JVM调优
 <http://pengjiaheng.iteye.com/blog/518623>

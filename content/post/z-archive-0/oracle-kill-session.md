@@ -6,6 +6,8 @@ url: /?p=1574
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle kill session
 BEGIN

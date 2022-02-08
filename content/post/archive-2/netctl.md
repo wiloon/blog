@@ -6,6 +6,8 @@ url: /?p=8958
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## netctl
 ```bash

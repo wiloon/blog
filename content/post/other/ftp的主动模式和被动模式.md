@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## FTP的主动模式和被动模式
 <http://space.itpub.net/14075938/viewspace-495630>

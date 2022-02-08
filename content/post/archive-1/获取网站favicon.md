@@ -6,6 +6,8 @@ url: /?p=6405
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## favicon
 获取网站favicon

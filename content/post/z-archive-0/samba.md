@@ -6,6 +6,8 @@ url: /?p=2304
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## samba
 ```bash

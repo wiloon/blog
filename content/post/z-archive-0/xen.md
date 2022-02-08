@@ -6,6 +6,8 @@ url: /?p=1613
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Xen
 

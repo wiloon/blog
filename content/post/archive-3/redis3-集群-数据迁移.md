@@ -6,6 +6,8 @@ url: /?p=14776
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Redis3 集群 数据迁移
 一、概述

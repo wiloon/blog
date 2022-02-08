@@ -4,6 +4,10 @@ author: "-"
 date: 2011-07-02T13:08:01+00:00
 url: /?p=263
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## IEEE754
 IEEE754代码

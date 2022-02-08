@@ -6,6 +6,8 @@ url: /?p=1523
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Debian/Ubuntu 系统 Update-rc.d
 https://wangyan.org/blog/ubuntu-update-rc-d.html

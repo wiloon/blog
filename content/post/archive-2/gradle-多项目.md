@@ -6,6 +6,8 @@ url: /?p=8683
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gradle 多项目
 1. 创建项目

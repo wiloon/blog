@@ -6,6 +6,8 @@ url: /?p=11755
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## logstash
 /etc/logstash/conf.d/logstash.conf

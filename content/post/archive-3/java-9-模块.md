@@ -6,6 +6,8 @@ url: /?p=15700
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'java 8 > java 9+ 模块'
 在src / main / java目录中创建一个名为module-info.java的文件

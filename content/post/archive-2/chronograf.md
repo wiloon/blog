@@ -6,6 +6,8 @@ url: /?p=10904
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Chronograf
 wget https://dl.influxdata.com/chronograf/releases/chronograf-1.3.4.0.x86_64.rpm

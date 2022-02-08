@@ -4,6 +4,10 @@ author: "-"
 date: 2011-08-04T02:41:54+00:00
 url: svn
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## svn basic, command
 ### ignore ca

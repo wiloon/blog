@@ -7,6 +7,8 @@ categories:
   - Eclipse
   - Java
 
+tags:
+  - reprint
 ---
 ## log4e
 

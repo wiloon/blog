@@ -6,6 +6,8 @@ url: /?p=14220
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Scrum的5个核心价值
 

@@ -6,6 +6,8 @@ url: scalability
 categories:
   - arch
 
+tags:
+  - reprint
 ---
 ## 可扩展性, scalability
 可扩展的本质是什么？

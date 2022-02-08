@@ -6,6 +6,8 @@ url: /?p=15720
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux ping 时间戳
 ```bash

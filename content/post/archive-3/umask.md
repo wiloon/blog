@@ -6,6 +6,8 @@ url: /?p=15761
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## umask
 umask 值用于设置用户在创建文件时的默认权限，当我们在系统中创建目录或文件时，目录或文件所具有的默认权限就是由umask值决定的。

@@ -6,6 +6,8 @@ url: /?p=12893
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## the log
 http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html

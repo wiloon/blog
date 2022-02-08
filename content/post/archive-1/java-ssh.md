@@ -6,6 +6,8 @@ url: /?p=8120
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java ssh
 

@@ -6,6 +6,8 @@ url: /?p=4812
 categories:
   - Spring
 
+tags:
+  - reprint
 ---
 ## SpringMVC
 http://www.iteye.com/blogs/subjects/springmvc-explore

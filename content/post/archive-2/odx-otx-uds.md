@@ -6,6 +6,8 @@ url: /?p=11045
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ODX, OTX, UDS
 <https://blog.softing.com/blog/automotive-electronics/diagnostics-odx-otx-uds-and-other-market-standards/>

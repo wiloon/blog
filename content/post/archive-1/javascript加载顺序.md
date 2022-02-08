@@ -9,6 +9,7 @@ tags:
   - JavaScript
 
 ---
+## Javascript 加载顺序
 ## Javascript加载顺序
 http://www.benben.cc/blog/?p=9
 

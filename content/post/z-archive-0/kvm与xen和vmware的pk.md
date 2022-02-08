@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## KVM与Xen和VMware的PK
   

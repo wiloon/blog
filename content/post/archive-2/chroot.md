@@ -6,6 +6,8 @@ url: /?p=9876
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chroot
 https://www.ibm.com/developerworks/cn/linux/l-cn-chroot/

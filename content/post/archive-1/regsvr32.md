@@ -6,6 +6,8 @@ url: /?p=5182
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## Regsvr32
 Regsvr32命令的作用是将动态链接库文件注册为注册表中的命令组成。WInXP系统的regsvr32.exe在windowssystem32文件夹下；2000系统的regsvr32.exe在winntsystem32文件夹下。

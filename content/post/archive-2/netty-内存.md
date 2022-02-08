@@ -6,6 +6,8 @@ url: /?p=12040
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## netty 内存
 https://www.jianshu.com/p/ce7c6f5cb5f6

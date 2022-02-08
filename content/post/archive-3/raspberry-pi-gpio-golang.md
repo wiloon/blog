@@ -6,6 +6,8 @@ url: /?p=14679
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi, gpio, golang
 https://github.com/stianeikeland/go-rpio

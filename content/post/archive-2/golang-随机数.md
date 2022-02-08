@@ -6,6 +6,8 @@ url: /?p=10939
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'golang  随机数'
 http://www.cnblogs.com/baiyuxiong/p/4545032.html

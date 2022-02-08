@@ -6,6 +6,8 @@ url: /?p=3107
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## SCADA
 

@@ -6,6 +6,8 @@ url: "/?p=8876"
 categories:
 - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL 字符串操作函数
 ### substring

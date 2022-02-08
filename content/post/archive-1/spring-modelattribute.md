@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## spring @ModelAttribute
 通过 SpringMVC 的 SessionAttributes Annotation 关联 User 属性

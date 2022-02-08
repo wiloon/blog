@@ -6,6 +6,8 @@ url: /?p=5288
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Stripes
 Stripes 是一个使用最新的 Java 技术来构建 Web 应用的展现框架。

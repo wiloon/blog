@@ -6,6 +6,8 @@ url: /?p=4525
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## Oracle杀死死锁进程
 **Oracle杀死死锁进程**

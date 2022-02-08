@@ -6,6 +6,8 @@ url: /?p=8454
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## SVN中Branch/tag
 http://blog.csdn.net/adupt/article/details/4203133

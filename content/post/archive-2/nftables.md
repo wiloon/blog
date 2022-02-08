@@ -6,6 +6,8 @@ url: /?p=9022
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nftables
 <https://home.regit.org/netfilter-en/nftables-quick-howto/>

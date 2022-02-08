@@ -6,6 +6,8 @@ url: /?p=8596
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Fluent Interface, fluent manner, fluent风格, 流式接口, 流式风格
 这个故事我早就想说了,可能是在好多个月前,只是一直不知道怎么说才能说合适,现在我重新整理了一下,讲述给大家。

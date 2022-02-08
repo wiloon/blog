@@ -4,6 +4,10 @@ author: "-"
 date: 2015-10-22T09:55:38+00:00
 url: parted
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## parted
 ```bash

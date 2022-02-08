@@ -6,6 +6,8 @@ url: /?p=2252
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 目录
 https://my.oschina.net/njzjf/blog/317331

@@ -5,7 +5,10 @@ date: 2012-03-22T06:42:03+00:00
 url: lsmtree
 categories:
   - Linux
+tags:
+  - reprint
 ---
+## LSM-Tree
 ## LSM-Tree, Log Structured Merge Tree
 LSM-Tree 能将离散的随机写请求都转换成批量的顺序写请求（WAL + Compaction），以此提高写性能。
 

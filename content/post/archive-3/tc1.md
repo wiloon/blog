@@ -6,6 +6,8 @@ url: /?p=15104
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## TC1
 https://ljr.im/articles/streamline-the-fibonacci-tc1-firmware/

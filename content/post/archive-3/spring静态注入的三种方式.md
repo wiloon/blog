@@ -6,6 +6,8 @@ url: /?p=15495
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Spring静态注入的三种方式
 Spring静态注入的三种方式: 

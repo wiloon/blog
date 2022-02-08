@@ -6,6 +6,8 @@ url: /?p=15315
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ansible-pull
 ansible-pull

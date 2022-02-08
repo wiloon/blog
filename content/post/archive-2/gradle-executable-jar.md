@@ -6,6 +6,8 @@ url: /?p=8674
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gradle application plugin 打可执行jar, gradle executable/runnable jar
 https://docs.gradle.org/current/userguide/application_plugin.html

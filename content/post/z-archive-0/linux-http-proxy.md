@@ -7,7 +7,10 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
+## linux http proxy
 ## linux http proxy， http_proxy
 在Linux的命令行底下，一般的程序都是使用http_proxy和ftp_proxy这两个环境变量来获得代理设置的。
 ```bash

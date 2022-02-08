@@ -6,6 +6,8 @@ url: /?p=5711
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## alias 别名
 ### 查看所有的alias

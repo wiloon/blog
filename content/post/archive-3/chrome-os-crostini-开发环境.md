@@ -6,6 +6,8 @@ url: /?p=15562
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chrome os, crostini, 开发环境
 crostini 的Debian 对snap 支持不全， 不能使用snap 应用

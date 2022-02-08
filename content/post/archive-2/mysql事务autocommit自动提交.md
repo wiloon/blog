@@ -6,6 +6,8 @@ url: /?p=9333
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL事务autocommit自动提交
 http://www.qttc.net/201208175.html

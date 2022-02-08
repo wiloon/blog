@@ -6,6 +6,8 @@ url: /?p=12288
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'clean arch  linux'
 ```bash

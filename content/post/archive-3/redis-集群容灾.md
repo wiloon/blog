@@ -6,6 +6,8 @@ url: /?p=14741
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## redis 集群容灾
 

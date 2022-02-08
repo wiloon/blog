@@ -6,6 +6,8 @@ url: iostat
 categories:
   - linux
 
+tags:
+  - reprint
 ---
 ## iostat
 

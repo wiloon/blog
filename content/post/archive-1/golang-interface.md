@@ -4,6 +4,10 @@ author: "-"
 date: 2012-11-18T15:12:11+00:00
 url: /?p=4716
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang  方法, 接口, 继承
 http://www.cnblogs.com/chenny7/p/4497969.html

@@ -6,6 +6,8 @@ url: cgroup
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## cgroup， namespace
 cgroup 的主要作用：管理资源的分配、限制；

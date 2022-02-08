@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## Disable Network Manager In Ubuntu
 This brief tutorial will show you how to quickly disable Network Manager in Ubuntu Lucid and configure a static or DHCP setting manually. This method will not remove or uninstall Network Manager, but makes it inactive every time you login to your computer. If Network Manager is misbehaving, this is also another way to disable it.

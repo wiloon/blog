@@ -4,6 +4,10 @@ author: "-"
 date: 2018-03-03T02:29:27+00:00
 url: /?p=11949
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## ARM、X86/Atom、MIPS、PowerPC
 http://blog.csdn.net/wangjianno2/article/details/52140936

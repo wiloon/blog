@@ -6,6 +6,8 @@ url: /?p=12087
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## openstack
 https://www.cnblogs.com/wangle1001986/p/5320752.html

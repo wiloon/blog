@@ -6,6 +6,8 @@ url: /?p=8681
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux kvm nat nftables
 ### nft command

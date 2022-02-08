@@ -6,6 +6,8 @@ url: /?p=5600
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## Oracle CHAR，VARCHAR，VARCHAR2,nvarchar类型的区别与使用
 一 varchar,nvarchar,

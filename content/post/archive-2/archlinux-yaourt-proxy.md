@@ -6,6 +6,8 @@ url: /?p=9024
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## rsync
 ```bash

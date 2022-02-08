@@ -6,6 +6,8 @@ url: /?p=4659
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## RPC，Webservice，RMI，JMS
 https://github.com/www1350/javaweb/issues/56

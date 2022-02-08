@@ -6,6 +6,8 @@ url: /?p=5668
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## Emacs的搜索功能
 （转自: http://www.80×86.cn/blog/blogview.asp?logID=569) 

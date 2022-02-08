@@ -6,6 +6,8 @@ url: /?p=5632
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## IDENTITY COLUMN
 一、标识列的定义以及特点

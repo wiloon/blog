@@ -6,6 +6,8 @@ url: /?p=1782
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## VMWare 网络
 <http://bbs.ylmf.net/forum.php?mod=viewthread&tid=1764295&extra=>

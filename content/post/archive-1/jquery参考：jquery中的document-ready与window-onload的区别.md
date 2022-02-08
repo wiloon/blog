@@ -6,6 +6,8 @@ url: /?p=5104
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## jQuery参考,jquery中的$(document).ready()与window.onload的区别
 # 

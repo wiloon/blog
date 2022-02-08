@@ -6,6 +6,8 @@ url: /?p=5839
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## fuser命令用法详解
   

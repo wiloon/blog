@@ -7,6 +7,8 @@ tags:
   - Java
   - mmap
 
+categories:
+  - inbox
 ---
 ## Java RandomAccessFile, MappedByteBuffer, mmap
 RandomAccessFile

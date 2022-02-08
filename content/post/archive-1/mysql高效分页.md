@@ -6,6 +6,8 @@ url: /?p=4696
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## MySQL 分页
 一般MySQL最基本的分页方式: 

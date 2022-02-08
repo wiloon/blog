@@ -6,6 +6,8 @@ url: /?p=7123
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android 系统语言信息获取
 http://blog.csdn.net/netwalk/article/details/9796979

@@ -6,6 +6,8 @@ url: /?p=5247
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## Emacs Markdown
 **安装与配置**

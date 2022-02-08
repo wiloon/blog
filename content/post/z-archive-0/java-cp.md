@@ -6,6 +6,8 @@ url: /?p=2951
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java cp
 <http://quicker.iteye.com/blog/856722>

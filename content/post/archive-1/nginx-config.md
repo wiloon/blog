@@ -4,6 +4,10 @@ author: "-"
 date: 2013-07-09T05:59:32+00:00
 url: nginx/config
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## Nginx config, 配置, nginx.conf
 ### location>proxy_redirect

@@ -6,6 +6,8 @@ url: /?p=7063
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Comet
 ## 基于 HTTP 长连接的"服务器推"技术 {#N100C7}

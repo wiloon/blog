@@ -6,6 +6,8 @@ url: /?p=10456
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## System.gc(), System.runFinalization()
 System.gc:

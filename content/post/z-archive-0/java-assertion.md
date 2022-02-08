@@ -6,6 +6,8 @@ url: /?p=4159
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java assertion
 as<http://www.ibm.com/developerworks/cn/java/l-javaassertion/index.html>

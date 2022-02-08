@@ -4,6 +4,10 @@ author: "-"
 date: 2013-10-23T04:34:52+00:00
 url: /?p=5871
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## chrome 扩展/插件
 

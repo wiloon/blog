@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## debian 网络配置
 /etc/network/interfaces

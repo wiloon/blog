@@ -6,6 +6,8 @@ url: callable
 categories:
   - thread
 
+tags:
+  - reprint
 ---
 ## Java Callable, Future 和 FutureTask
 创建线程有2种方式，一种是直接继承 Thread，另外一种就是实现Runnable接口。

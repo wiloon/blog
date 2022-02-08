@@ -6,6 +6,8 @@ url: java-generic
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java generic, 泛型
 # 泛型, generic

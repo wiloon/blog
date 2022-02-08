@@ -6,6 +6,8 @@ url: /?p=15099
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 百万 TCP 连接
 https://colobu.com/2019/02/23/1m-go-tcp-connection/

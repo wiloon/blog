@@ -9,6 +9,7 @@ tags:
   - Git
 
 ---
+## git rebase,revert,reset
 ## git rebase, revert, reset
 回滚提示
 本地或者自己单独的仓库使用reset 或者revert都可以

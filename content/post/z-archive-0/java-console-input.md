@@ -6,6 +6,8 @@ url: /?p=4295
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java Console Input
 ```java

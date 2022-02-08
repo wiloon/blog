@@ -6,6 +6,8 @@ url: /?p=15658
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## windows win10 激活查询
 ### 查询windows 激活状态

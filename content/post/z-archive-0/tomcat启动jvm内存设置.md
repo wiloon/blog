@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## tomcat启动jvm内存设置
 配置tomcat调用的虚拟机内存大小

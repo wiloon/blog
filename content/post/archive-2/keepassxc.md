@@ -5,6 +5,10 @@ date: 2018-06-19T02:49:32+00:00
 url: /?p=12319
 
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## keepassxc
 ### win10

@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## 虚拟化技术KVM Xen对比
 Linux虚拟化技术的用户目前有两种免费的开源管理程序可以选择: Xen和KVM。

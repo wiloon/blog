@@ -6,6 +6,8 @@ url: /?p=11786
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ansible create file
 ```bash

@@ -6,6 +6,8 @@ url: /?p=12299
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## elasticsearch
 ```bash

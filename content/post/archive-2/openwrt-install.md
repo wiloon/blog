@@ -4,6 +4,10 @@ author: "-"
 date: 2018-10-29T15:15:57+00:00
 url: /?p=12830
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## openwrt install
 build

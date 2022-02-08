@@ -6,6 +6,8 @@ url: /?p=15619
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## socks5
 socks5 是 SOCKS Protocol Version 5 的缩写，其规范定义于 RFC 1928

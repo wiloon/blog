@@ -6,6 +6,8 @@ url: /?p=9192
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JAX-RS
 JAX-RS - Java API for RESTful Web Services

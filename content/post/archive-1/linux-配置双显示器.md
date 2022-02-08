@@ -6,6 +6,8 @@ url: /?p=4647
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 'Linux  双显示器/多屏/扩展屏幕/xrandr'
 ```bash

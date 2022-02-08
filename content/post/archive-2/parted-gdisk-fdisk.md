@@ -6,6 +6,8 @@ url: /?p=12223
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mbr, gpt
 http://www.cnblogs.com/zhaojiedi1992/p/zhaojiedi_linux_039_fdisk_gdisk_parted.html

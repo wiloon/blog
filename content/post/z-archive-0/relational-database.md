@@ -6,7 +6,10 @@ url: /?p=2384
 categories:
   - database
 
+tags:
+  - reprint
 ---
+## 关系型数据库 VS 非关系型数据库
 ## 关系型数据库(Relational database) VS 非关系型数据库
 一、关系型数据库？
 

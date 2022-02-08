@@ -6,6 +6,8 @@ url: /?p=9017
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'HTTP   Transfer-Encoding'
 本文作为我的博客「HTTP 相关」专题新的一篇,主要讨论 HTTP 协议中的 Transfer-Encoding。这个专题我会根据自己的理解,以尽量通俗的讲述,结合代码示例和实际场景来说明问题,欢迎大家关注和留言交流。

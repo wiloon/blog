@@ -6,6 +6,8 @@ url: /?p=7520
 tags:
   - Arch Linux
 
+categories:
+  - inbox
 ---
 ## archlinux wireless
     https://wiki.archlinux.org/index.php/Wireless_network_configuration

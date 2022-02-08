@@ -6,6 +6,8 @@ url: /?p=5541
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Ardour
 Ardour 是一种数字音频工作站。支持[Linux][1]、[Mac OS X][2]等操作系统。你可以使用它来录制，编辑和混合多轨音频。您可以制作自己的CD ，混合视频音轨，或者只是尝试新的想法，音乐和声音。

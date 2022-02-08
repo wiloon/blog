@@ -4,6 +4,10 @@ author: "-"
 date: 2017-02-28T09:08:28+00:00
 url: systemd-networkd
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## systemd-networkd
 ### dhcp

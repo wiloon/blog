@@ -6,6 +6,8 @@ url: /?p=2862
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux shell Manipulating Strings
 <http://www.faqs.org/docs/abs/HTML/string-manipulation.html>

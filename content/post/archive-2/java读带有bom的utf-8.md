@@ -6,6 +6,8 @@ url: /?p=8842
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java读带有BOM的UTF-8
 http://www.linuxidc.com/Linux/2012-12/76707.htm

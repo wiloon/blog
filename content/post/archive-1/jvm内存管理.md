@@ -6,6 +6,8 @@ url: /?p=4618
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java JVM 内存问题 调查,调优
 https://my.oschina.net/u/3345762/blog/1784199

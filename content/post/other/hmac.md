@@ -6,6 +6,8 @@ url: /?p=560
 categories:
   - security
 
+tags:
+  - reprint
 ---
 ## Hash， MAC, HMAC
 # HMAC

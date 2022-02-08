@@ -6,6 +6,8 @@ url: /?p=12066
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'NAT  外网访问虚拟机'
 https://blog.csdn.net/zhangli_perdue/article/details/50455298

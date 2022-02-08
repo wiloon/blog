@@ -7,6 +7,8 @@ categories:
   - Development
   - Science
 
+tags:
+  - reprint
 ---
 ## 元胞自动机,Cellular Automaton
 <http://baike.baidu.com/view/389880.htm>

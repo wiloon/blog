@@ -6,6 +6,8 @@ url: /?p=15144
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'go 调试,  pprof, go tool trace'
 https://colobu.com/2016/12/21/how-to-dump-goroutine-stack-traces/

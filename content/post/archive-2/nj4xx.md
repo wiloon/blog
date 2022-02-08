@@ -6,6 +6,8 @@ url: /?p=9186
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mt4 nj4xx, ask bid sl tp …
 ASK/OFFER: 卖出价

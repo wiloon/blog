@@ -6,6 +6,8 @@ url: /?p=12981
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux UEFI
 ```bash

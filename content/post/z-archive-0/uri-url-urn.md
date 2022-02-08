@@ -6,6 +6,8 @@ url: /?p=768
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## URI, URL, URN
 http://www.ibm.com/developerworks/cn/xml/x-urlni.html

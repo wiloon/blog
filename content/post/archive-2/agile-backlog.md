@@ -6,6 +6,8 @@ url: /?p=9850
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## agile backlog
 积压列表的优先级选择必须权衡以下方面: 

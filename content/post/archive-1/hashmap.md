@@ -7,7 +7,10 @@ url: hashmap
 categories:
   - java
 
+tags:
+  - reprint
 ---
+## HashMap
 ## Java HashMap
 ### jdk 1.7
 默认容量为 16，负载因子为 0.75。Map 在使用过程中不断的往里面存放数据，当数量达到了 16 * 0.75 = 12 就需要将当前 16 的容量进行扩容，而扩容这个过程涉及到 rehash、复制数据等操作，所以非常消耗性能。

@@ -6,6 +6,8 @@ url: /?p=8353
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'wget,  download oracle jdk'
 ```bash

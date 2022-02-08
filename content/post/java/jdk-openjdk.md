@@ -4,6 +4,10 @@ author: "-"
 date: 2017-04-21T00:26:31+00:00
 url: jdk
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## jdk, openjdk
 <http://openjdk.java.net/projects/jdk/>

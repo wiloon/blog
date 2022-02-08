@@ -6,6 +6,8 @@ url: /?p=13432
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ACL（Access Control List)
 setfacl命令可以用来细分linux下的文件权限。

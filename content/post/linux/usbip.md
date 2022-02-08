@@ -3,7 +3,12 @@ author: "-"
 date: "2021-04-29 15:35:36" 
 title: "usbip"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "usbip"
 ### 下载usbip-win
 https://github.com/cezanne/usbip-win/releases
 ### 解压到一个目录 

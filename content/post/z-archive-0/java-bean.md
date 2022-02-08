@@ -6,6 +6,8 @@ url: /?p=1062
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java Bean
 

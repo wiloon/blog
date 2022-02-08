@@ -6,6 +6,8 @@ url: /?p=8234
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Maven内置变量
 Maven内置变量说明: 

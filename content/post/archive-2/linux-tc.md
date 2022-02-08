@@ -6,6 +6,8 @@ url: /?p=9052
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux tc
 http://blog.csdn.net/qinyushuang/article/details/46611709

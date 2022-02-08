@@ -6,6 +6,8 @@ url: /?p=13648
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## kde idea 图标消失
 Open folder /home/USERNAME/.local/share/applications/

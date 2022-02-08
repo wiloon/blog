@@ -6,6 +6,8 @@ url: /?p=15751
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nexus go proxy
 nexus: 3.21.1

@@ -6,6 +6,8 @@ url: /?p=14898
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## upgrade和update的区别
 upgrade一般是指比较重要的升级，或者说是主要的，单独版本的升级，其中软件改变很大，比方说从windows xp系统upgrade到windows 7系统；

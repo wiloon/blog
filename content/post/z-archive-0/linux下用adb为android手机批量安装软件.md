@@ -6,6 +6,8 @@ url: /?p=4235
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux下用adb为android手机批量安装软件
 通常大家安装软件都是从Andorid Market或者从网上下载到手机本地安装，这有两个问题，第一个情况碰到网速慢，那要急死，第二种情况是安装的太慢，如果软件多的话，手指累死，那么，就用adb安装吧，看我的操作情况: 

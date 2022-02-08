@@ -6,6 +6,8 @@ url: /?p=1435
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle 数据库字典
 ```sql

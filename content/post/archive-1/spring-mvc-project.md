@@ -6,6 +6,8 @@ url: /?p=7079
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Create spring mvc project
 gradle plugin:

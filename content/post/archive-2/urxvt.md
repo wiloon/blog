@@ -6,6 +6,8 @@ url: /?p=9768
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## urxvt
 urxvt is a highly customizable terminal emulator.

@@ -6,6 +6,8 @@ url: /?p=7159
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android App签名
 **1.签名的意义**

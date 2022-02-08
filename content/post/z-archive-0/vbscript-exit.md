@@ -6,6 +6,8 @@ url: /?p=2511
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## MySQL index
 http://book.51cto.com/art/201012/240956.htm

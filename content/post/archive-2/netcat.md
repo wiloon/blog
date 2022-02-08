@@ -6,6 +6,8 @@ url: /?p=10181
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## netcat
 NetCat是一个非常简单的Unix工具,可以读、写TCP或UDP网络连接(network connection)。它被设计成一个可靠的后端(back-end) 工具,通过与其他工具结合和重定向,你可以在脚本中以多种方式使用它。同时,它又是一个功能丰富的网络调试和开发工具,因为它可以建立你可能用到的几乎任何类型的连接,以及一些非常有意思的内建功能。NetCat,它的实际可运行的名字叫nc

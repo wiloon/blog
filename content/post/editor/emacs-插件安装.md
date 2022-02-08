@@ -6,6 +6,8 @@ url: /?p=98
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs 插件安装
 ```bash

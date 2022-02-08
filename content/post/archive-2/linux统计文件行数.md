@@ -4,6 +4,10 @@ author: "-"
 date: 2016-05-15T05:01:30+00:00
 url: /?p=8996
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 统计文件行数, 文件数
 Linux下有三个命令: ls、grep、wc。通过这三个命令的组合可以统计目录下文件及文件夹的个数。

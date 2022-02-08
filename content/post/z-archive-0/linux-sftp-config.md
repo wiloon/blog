@@ -6,6 +6,8 @@ url: /?p=401
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## sftp config
 cd /root/ssh

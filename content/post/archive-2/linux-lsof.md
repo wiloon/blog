@@ -4,6 +4,10 @@ author: "-"
 date: 2017-02-20T00:53:45+00:00
 url: lsof
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## lsof
 List all open files on the system

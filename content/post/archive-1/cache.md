@@ -4,6 +4,10 @@ author: "-"
 date: 2014-05-29T01:07:30+00:00
 url: /?p=6682
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 缓存
 

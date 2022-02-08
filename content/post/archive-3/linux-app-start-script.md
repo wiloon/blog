@@ -6,6 +6,8 @@ url: /?p=15026
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## application start script
 ```bash

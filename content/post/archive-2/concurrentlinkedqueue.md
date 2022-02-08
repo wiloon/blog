@@ -6,6 +6,8 @@ url: /?p=11670
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ConcurrentLinkedQueue
 http://www.infoq.com/cn/articles/ConcurrentLinkedQueue

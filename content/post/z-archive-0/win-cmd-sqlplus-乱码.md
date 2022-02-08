@@ -6,6 +6,8 @@ url: /?p=2310
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## win cmd sqlplus 乱码
 set NLS_LANG=AMERICAN_AMERICA.ZHS16GBK

@@ -6,6 +6,8 @@ url: /?p=6899
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## adb command
 在手机上打开USB调试

@@ -6,6 +6,8 @@ url: /?p=12730
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Chrome 清除某个特定网站下的缓存
 https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html

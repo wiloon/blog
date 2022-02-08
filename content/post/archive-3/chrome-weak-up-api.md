@@ -4,6 +4,10 @@ author: "-"
 date: 2019-06-02T14:19:27+00:00
 url: /?p=14434
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## chrome weak up api, keep screen on
 - enable-experimental-web-platform-features

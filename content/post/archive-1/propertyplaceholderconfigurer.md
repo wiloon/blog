@@ -6,6 +6,8 @@ url: /?p=4865
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## PropertyPlaceholderConfigurer
 <http://callan.iteye.com/blog/161540>

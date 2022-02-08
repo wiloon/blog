@@ -6,6 +6,8 @@ url: /?p=12331
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux seq
 seq命令用于产生从某个数到另外一个数之间的所有整数。

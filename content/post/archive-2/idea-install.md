@@ -6,6 +6,8 @@ url: /?p=13646
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea install
 ### default plugins

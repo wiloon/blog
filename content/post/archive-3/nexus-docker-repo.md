@@ -6,6 +6,8 @@ url: /?p=15753
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nexus docker repo
 create repository

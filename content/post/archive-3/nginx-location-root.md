@@ -6,6 +6,8 @@ url: /?p=14262
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nginx location, root
 https://blog.csdn.net/u011510825/article/details/50531864

@@ -4,6 +4,10 @@ author: "-"
 date: 2018-02-22T07:21:37+00:00
 url: /?p=11902
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 证书, x509, keystore, truststore, pem,
 ### 证书和编码

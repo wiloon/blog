@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## 'tap0, ERROR while getting interface flags'
 tap0: ERROR while getting interface flags: No such device

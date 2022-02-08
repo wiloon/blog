@@ -6,6 +6,8 @@ url: /?p=14964
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang MP4文件服务器
 https://studygolang.com/articles/11204

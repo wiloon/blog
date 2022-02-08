@@ -6,6 +6,8 @@ url: /?p=6869
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android Log
 http://blog.csdn.net/Android_Tutor/article/details/5081713

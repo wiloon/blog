@@ -6,6 +6,8 @@ url: /?p=8340
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Chocolatey, choco, Windows 软件包管理系统
 Chocolatey 是 windows 下一款命令行包管理软件 ，简单说这就是 Windows 的 apt-get。习惯 Linux 操作方式并非常想用它操纵 Windows 的敬请折腾。Chocolatey 这套包管理系统目前已经包含了近 500 多款常用软件。

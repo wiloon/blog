@@ -6,6 +6,8 @@ url: /?p=9906
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'external file changes sync may be slow the current inotify  watch limit is too low'
 http://ggarcia.me/2016/07/12/intellij-inotify-arch.html

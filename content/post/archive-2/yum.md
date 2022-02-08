@@ -8,6 +8,7 @@ categories:
 tags:
   - remix
 ---
+## yum
 ## yum command
 ### 按版本安装
 

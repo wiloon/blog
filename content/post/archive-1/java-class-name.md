@@ -6,6 +6,8 @@ url: /?p=5462
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java 取当前类名, 方法名
 http://blog.csdn.net/a578559967/article/details/7688971

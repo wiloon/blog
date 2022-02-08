@@ -3,7 +3,12 @@ author: "-"
 date: "2020-12-17 13:20:53" 
 title: "chrome devtools"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "chrome devtools"
 https://juejin.cn/post/6844903744027492366
 
 ### The DevTools drawer

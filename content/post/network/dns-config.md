@@ -3,7 +3,12 @@ author: "-"
 date: "2020-06-26T13:10:40Z"
 title: "dns config"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "dns config"
 主机记录
 
 www :   

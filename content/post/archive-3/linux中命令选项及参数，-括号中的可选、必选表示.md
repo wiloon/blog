@@ -6,6 +6,8 @@ url: /?p=13881
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux中命令选项及参数， 括号中的可选、必选表示
 https://blog.csdn.net/raoqin/article/details/8875089

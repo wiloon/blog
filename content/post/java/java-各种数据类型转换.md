@@ -6,6 +6,8 @@ url: java/convert
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java 各种数据类型转换
 ### String > Double

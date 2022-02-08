@@ -6,6 +6,8 @@ url: /?p=12488
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL 在线修改表结构
 http://www.cnblogs.com/wangtao_20/p/3504395.html

@@ -6,6 +6,8 @@ url: /?p=5302
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## IE下模拟css3中的box-shadow（阴影)
 css3中的box-shadow（阴影) 可以查看: http://www.css88.com/archives/2136或者http://www.css88.com/tool/css3Preview/Box-Shadow.html

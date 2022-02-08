@@ -6,6 +6,8 @@ url: /?p=10453
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'JNI左中括号[B[C[[C等'
 http://blog.csdn.net/qinjuning/article/details/7599796

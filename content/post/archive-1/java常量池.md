@@ -6,6 +6,8 @@ url: constantpool
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## Java 常量池
 ### 什么是常量

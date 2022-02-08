@@ -6,6 +6,8 @@ url: sudo
 categories:
   - linux
 
+tags:
+  - reprint
 ---
 ## su, sudo
 ### sudo 免密码

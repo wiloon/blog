@@ -6,6 +6,8 @@ url: /?p=5027
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## PreparedStatement
 jdbc(java database connectivity,java数据库连接)的api中的主要的四个类之一的java.sql.statement要求开发者付出大量的时间和精力。在使用statement获取jdbc访问时所具有的一个共通的问题是输入适当格式的日期和时间戳: 2002-02-05 20:56 或者 02/05/02 8:56 pm。 

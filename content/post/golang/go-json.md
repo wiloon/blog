@@ -4,6 +4,10 @@ author: "-"
 date: 2012-04-25T08:50:44+00:00
 url: /?p=3031
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang JSON
 ### time.Time 序列化

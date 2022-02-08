@@ -7,6 +7,8 @@ categories:
   - Development
   - Linux
 
+tags:
+  - reprint
 ---
 ## no such file to load — mkmf
 ```bash

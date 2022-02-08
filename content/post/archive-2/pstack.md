@@ -6,6 +6,8 @@ url: /?p=10516
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## pstack
 http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/pstack.html

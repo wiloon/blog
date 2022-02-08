@@ -4,6 +4,10 @@ author: "-"
 date: 2019-06-11T04:19:16+00:00
 url: mem
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 内存, mem
 

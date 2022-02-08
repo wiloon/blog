@@ -34,6 +34,11 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   identifier = "home"
   url = "/"
 [[menu.main]]
+  name = "转载"
+  weight = 15
+  identifier = "reprint"
+  url = "/tags/reprint/"
+[[menu.main]]
   name = "整理过的"
   weight = 15
   identifier = "remix"

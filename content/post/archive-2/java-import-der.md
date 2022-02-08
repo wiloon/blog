@@ -6,6 +6,8 @@ url: /?p=12484
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java import cert
 ```bash

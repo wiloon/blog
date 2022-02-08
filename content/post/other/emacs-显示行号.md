@@ -5,6 +5,8 @@ date: 2011-11-12T08:12:59+00:00
 url: /?p=1512
 categories:
   - Emacs
+tags:
+  - reprint
 ---
 ## 分布式ID, 雪花算法
 >https://zhuanlan.zhihu.com/p/85837641

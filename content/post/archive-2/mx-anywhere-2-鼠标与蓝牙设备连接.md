@@ -6,6 +6,8 @@ url: /?p=12177
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MX ANYWHERE 2 鼠标与蓝牙设备连接
 http://support.logitech.com.cn/zh_cn/article/Connect-the-MX-Anywhere-2-mouse-to-a-Bluetooth-device?product=a0qi0000008tB99AAE

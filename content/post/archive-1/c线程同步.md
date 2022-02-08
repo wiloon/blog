@@ -6,6 +6,8 @@ url: /?p=5690
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java Exchanger
 http://mouselearnjava.iteye.com/blog/1921947

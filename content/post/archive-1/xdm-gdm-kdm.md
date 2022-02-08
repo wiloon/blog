@@ -6,6 +6,8 @@ url: /?p=5910
 tags:
   - linux
 
+categories:
+  - inbox
 ---
 ## display manager(DM), 显示管理器, sddm, gdm3, lightdm
 ### sddm

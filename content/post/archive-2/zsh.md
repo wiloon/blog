@@ -6,6 +6,8 @@ url: zsh
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## zsh, oh-my-zsh
 ### 不能自动补全

@@ -4,6 +4,10 @@ author: "-"
 date: 2015-11-11T11:20:45+00:00
 url: jstack
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## jstack
 jstack主要用来查看某个Java进程内的线程堆栈信息。语法格式如下: 

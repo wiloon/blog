@@ -6,6 +6,8 @@ url: /?p=1640
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Grub2配置详解(转)
 grub.cfg 默认为只读，要修改前先设为可写

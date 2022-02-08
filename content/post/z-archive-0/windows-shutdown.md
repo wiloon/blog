@@ -6,6 +6,8 @@ url: /?p=2301
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## windows shutdown script
 ### win10

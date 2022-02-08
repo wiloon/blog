@@ -4,6 +4,10 @@ author: "-"
 date: 2020-04-18T12:36:57+00:00
 url: ssh/config
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ### ssh config
 https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file

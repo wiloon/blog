@@ -6,6 +6,8 @@ url: /?p=5125
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle 查 sequences/triggers/tables
 ```sql

@@ -6,6 +6,8 @@ url: /?p=1934
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## winxp 鼠标主题
 控制面板－－鼠标－－指针－－主题。

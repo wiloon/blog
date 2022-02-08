@@ -3,7 +3,12 @@ author: "-"
 date: "2020-12-03 11:18:50" 
 title: "ECMAScript, javascript basic"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "ECMAScript, javascript basic"
 https://es6.ruanyifeng.com/
 
 ### ES6之Object.assign()

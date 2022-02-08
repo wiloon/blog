@@ -6,6 +6,8 @@ url: /?p=14770
 categories:
   - MySQL
 
+tags:
+  - reprint
 ---
 ## MySQL int 长度
 "浮点型"的长度是用来限制数字存储范围的. 比如 float(3,2) 只能够写入 0.00~999.99.

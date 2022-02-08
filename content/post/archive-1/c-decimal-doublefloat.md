@@ -6,6 +6,8 @@ url: java-lock
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## Java 锁
 

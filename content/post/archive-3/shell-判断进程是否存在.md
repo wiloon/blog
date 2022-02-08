@@ -6,6 +6,8 @@ url: /?p=15598
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Shell 判断进程是否存在
 ```bash

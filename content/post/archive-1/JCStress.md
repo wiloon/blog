@@ -6,6 +6,8 @@ url: /?p=7534
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'java 并发 测试  JCStress'
 http://openjdk.java.net/projects/code-tools/jcstress/

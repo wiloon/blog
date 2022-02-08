@@ -7,6 +7,8 @@ categories:
   - Eclipse
   - Java
 
+tags:
+  - reprint
 ---
 ## eclipse basic
 ### java 方法 注释

@@ -6,6 +6,8 @@ url: /?p=5919
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## vmpk
 Virtual MIDI Piano Keyboard is a MIDI events generator and receiver. It doesn't produce any sound by itself, but can be used to drive a MIDI synthesizer (either hardware or software, internal or external). You can use the computer's keyboard to play MIDI notes, and also the mouse. You can use the Virtual MIDI Piano Keyboard to display the played MIDI notes from another instrument or MIDI file player. To do so, connect the other MIDI port to the input port of VMPK.（http://vmpk.sourceforge.net/) 

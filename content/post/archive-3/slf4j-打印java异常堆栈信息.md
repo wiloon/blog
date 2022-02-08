@@ -6,6 +6,8 @@ url: /?p=14828
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## slf4j 打印java异常堆栈信息
 SLF4J 1.6.0以前的版本，如果打印异常堆栈信息，必须用

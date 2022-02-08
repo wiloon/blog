@@ -3,7 +3,12 @@ author: "-"
 date: "" 
 title: "http method, get, head, post, options, put, delte, trace, connect"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "http method, get, head, post, options, put, delte, trace, connect"
 
 https://www.cnblogs.com/machao/p/5788425.html
 

@@ -4,6 +4,10 @@ author: "-"
 date: 2013-04-17T12:40:36+00:00
 url: /?p=5406
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## windows bat basic
 

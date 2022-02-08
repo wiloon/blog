@@ -6,6 +6,8 @@ url: /?p=113
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs 自动补全括号
 ;;; use groovy-mode when file ends in .groovy/.gradle or has #!/bin/groovy at start

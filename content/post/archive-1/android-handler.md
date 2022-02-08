@@ -6,6 +6,8 @@ url: /?p=6939
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android Handler
 http://www.cnblogs.com/devinzhang/archive/2011/12/30/2306980.html

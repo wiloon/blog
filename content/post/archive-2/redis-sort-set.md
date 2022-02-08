@@ -6,6 +6,8 @@ url: /?p=9803
 categories:
   - cache
 
+tags:
+  - reprint
 ---
 ## redis sort set, 有序集, zset
 # sort set, zset

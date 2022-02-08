@@ -6,6 +6,8 @@ url: /?p=13288
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## newifi breed
 https://www.right.com.cn/forum/thread-342918-1-1.html

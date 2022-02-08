@@ -6,6 +6,8 @@ url: /?p=12932
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## docker 日志
 https://kevinguo.me/2017/07/06/Docker-configuring-logging-drivers/

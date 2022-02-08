@@ -6,6 +6,8 @@ url: eBPF
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## eBPF
 eBPF 的用处

@@ -6,6 +6,8 @@ url: /?p=4224
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 时区，时间
 ```bash

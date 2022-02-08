@@ -6,6 +6,8 @@ url: /?p=8143
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Maven jar plugin
 1.修改pom.xml增加如下内容

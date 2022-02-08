@@ -6,6 +6,8 @@ url: /?p=14168
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## docker btrfs
 镜像分层与Btrfs共享

@@ -6,6 +6,8 @@ url: /?p=14208
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Scrum
 ### scrum guide

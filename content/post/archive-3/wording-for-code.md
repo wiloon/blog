@@ -6,6 +6,8 @@ url: /?p=14640
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## wording for code
 Where there is a shell, there is a way.

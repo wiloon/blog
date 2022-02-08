@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## linux下挂载kvm磁盘文件
 宿主机Debian, 客户机winxp, 磁盘文件格式raw

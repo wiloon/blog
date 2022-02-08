@@ -6,6 +6,8 @@ url: /?p=5491
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## display pdf in div
 <http://www.webdeveloper.com/forum/showthread.php?152923-PDF-within-a-DIV>

@@ -6,6 +6,8 @@ url: /?p=2691
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 格式化U盘
 先卸载u盘

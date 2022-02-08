@@ -6,6 +6,8 @@ url: /?p=8863
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 用dd实现linux硬盘备份
 一个去年的老本,500G硬盘,空间各种捉急,准备迁移到公司的台式机上,却发现Linux上迁移环境没有Windows下那么方便,只能复制整块硬盘了。

@@ -6,6 +6,8 @@ url: /?p=8811
 categories:
   - chrome
 
+tags:
+  - reprint
 ---
 ## chrome 扩展
 - uBlacklist

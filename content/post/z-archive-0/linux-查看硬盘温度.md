@@ -6,6 +6,8 @@ url: /?p=2939
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 查看硬盘温度
 sudo hddtemp /dev/sda

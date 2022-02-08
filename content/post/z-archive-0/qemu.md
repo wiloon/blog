@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## QEMU
 # QEMU是一套由Fabrice Bellard所编写的模拟处理器的自由软件。它与Bochs，PearPC近似，但其具有某些后两者所不具备的特性，如高速度及跨平台的特性。经由kqemu这个开源的加速器，QEMU能模拟至接近真实电脑的速度。

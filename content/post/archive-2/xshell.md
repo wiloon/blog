@@ -6,6 +6,8 @@ url: /?p=8398
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Xshell
 Xshell 是一个强大的安全终端模拟软件,它支持SSH1, SSH2, 以及Microsoft Windows 平台的TELNET 协议。Xshell 通过互联网到远程主机的安全连接以及它创新性的设计和特色帮助用户在复杂的网络环境中享受他们的工作。

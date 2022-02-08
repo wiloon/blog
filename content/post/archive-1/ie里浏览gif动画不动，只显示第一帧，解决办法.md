@@ -6,6 +6,8 @@ url: /?p=5547
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ie里浏览gif动画不动,只显示第一帧,解决办法
 

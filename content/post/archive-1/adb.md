@@ -7,6 +7,8 @@ url: /?p=6891
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## adb Shell root 权限
 http://www.cnblogs.com/blues_/p/3582097.html

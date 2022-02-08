@@ -6,6 +6,8 @@ url: /?p=2483
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## kernel config 3.2.8
 <http://0123.blog.163.com/blog/static/4788312011112214258169/>

@@ -6,6 +6,8 @@ url: /?p=15541
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux xxd
 xxd 命令用于使用二进制或十六进制格式显示文件内容，可以将指定文件或标准输入以十六进制转储,也可以把十六进制转储转换成原来的二进制形式。

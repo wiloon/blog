@@ -6,6 +6,8 @@ url: /?p=8594
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Curator
 http://macrochen.iteye.com/blog/1366136

@@ -6,6 +6,8 @@ url: /?p=12353
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## U2F(Universal 2 Factor)
 U2F(Universal 2 Factor)标准是由Yubico公司和Google发起的FIDO(Fast IDentity Online)联盟推出的标准, 旨在提供一个方便的免驱动、通用型的密码认证令牌, 期望能在让用户在有U2F认证的情况下, 即使用短密码, 也能实现高强度的认证.

@@ -6,6 +6,8 @@ url: /?p=4318
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java JAXB Unmarshaller
 ```java

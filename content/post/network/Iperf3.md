@@ -3,7 +3,12 @@ author: "-"
 date: "" 
 title: "iperf3"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "iperf3"
 ### install
 #### centos
     yum install iperf3

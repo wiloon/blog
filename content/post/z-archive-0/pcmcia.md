@@ -6,6 +6,8 @@ url: /?p=2979
 categories:
   - Hardware
 
+tags:
+  - reprint
 ---
 ## PCMCIA
 

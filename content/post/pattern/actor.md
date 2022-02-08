@@ -6,6 +6,8 @@ url: actor
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Actor模型, Actor model
 “使用actor就像租车——我们如果需要，可以快速便捷地租到一辆；如果车辆发生故障，也不需要自己修理，直接打电话给租车公司更换另外一辆即可。”

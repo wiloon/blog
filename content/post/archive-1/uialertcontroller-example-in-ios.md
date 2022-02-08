@@ -6,6 +6,8 @@ url: /?p=7038
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java assert
 http://lavasoft.blog.51cto.com/62575/43735

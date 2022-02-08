@@ -6,6 +6,8 @@ url: /?p=3706
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## SQL92
 http://baike.baidu.com/view/1889818.htm

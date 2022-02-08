@@ -6,6 +6,8 @@ url: /?p=2195
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## RHEL 5 vsftpd
 vsftpd安装

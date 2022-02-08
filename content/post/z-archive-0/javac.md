@@ -6,6 +6,8 @@ url: javac
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## javac, java
 ```java

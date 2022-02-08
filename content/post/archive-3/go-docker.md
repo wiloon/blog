@@ -6,6 +6,8 @@ url: /?p=13990
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'go > docker'
 ```bash

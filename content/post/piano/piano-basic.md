@@ -3,7 +3,12 @@ author: "-"
 date: "2020-10-08 15:17:35" 
 title: "piano basic"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "piano basic"
 
 音 物理现象
 音乐:  指任何以声音组成的艺术

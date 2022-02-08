@@ -4,6 +4,10 @@ author: "-"
 date: 2011-12-04T07:17:59+00:00
 url: /?p=1778
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 'linux  网桥'
 安装过vmware的朋友应该都知道 vmware宿主和虚拟机上网的3中方式

@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## web service
 http://www.cnblogs.com/hanlsheng/archive/2011/01/20/1940367.html

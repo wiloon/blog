@@ -4,6 +4,10 @@ author: "-"
 date: 2019-05-06T04:27:52+00:00
 url: shell
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## shell basic
 ### 字符串分割

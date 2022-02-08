@@ -6,6 +6,8 @@ url: /?p=2762
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 交叉编译
 http://baike.baidu.com/view/650389.htm

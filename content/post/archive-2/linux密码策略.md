@@ -6,6 +6,8 @@ url: /?p=13480
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux密码策略
 ```bash

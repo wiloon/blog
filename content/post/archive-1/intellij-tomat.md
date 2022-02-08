@@ -6,6 +6,8 @@ url: /?p=7457
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## IntelliJ tomat
 [IntelliJ and Tomcat][1]{.question-hyperlink}

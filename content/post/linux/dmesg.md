@@ -6,6 +6,8 @@ url: dmesg
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## dmesg
 

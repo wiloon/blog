@@ -6,6 +6,8 @@ url: git/gogs
 categories:
   - git
 
+tags:
+  - reprint
 ---
 ## golang git server, gogs, gitea
 

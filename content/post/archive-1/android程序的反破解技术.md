@@ -6,6 +6,8 @@ url: /?p=6410
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android程序的反破解技术
 http://blog.csdn.net/viviwen123/article/details/9117589

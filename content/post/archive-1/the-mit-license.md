@@ -6,6 +6,8 @@ url: /?p=5362
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## The MIT License
 http://baike.baidu.com/view/3159946.htm

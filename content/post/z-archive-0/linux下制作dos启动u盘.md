@@ -6,6 +6,8 @@ url: /?p=2687
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux下制作dos启动U盘
 下载镜像文件win98usb.tar

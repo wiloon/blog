@@ -6,6 +6,8 @@ url: /?p=1658
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## NTP, Network Time Protocol
 http://www.pool.ntp.org/zone/cn

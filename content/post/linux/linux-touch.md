@@ -6,6 +6,8 @@ url: /?p=168
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## touch
 touch fileA

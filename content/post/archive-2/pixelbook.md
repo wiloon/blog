@@ -6,6 +6,8 @@ url: /?p=11818
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## pixelbook, chromeos, developer mode,crouton
 developer mode

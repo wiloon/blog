@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## linux ebtables
 linux 以太网桥防火墙 ebtables. 2.4以后的内核才能支持ebtables

@@ -6,6 +6,8 @@ url: systemd/script
 categories:
   - systemd
 
+tags:
+  - reprint
 ---
 ## systemd start script, 启动脚本
 ### systemd 添加开机启动运行shell脚本

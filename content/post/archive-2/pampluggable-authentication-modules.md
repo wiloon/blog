@@ -6,6 +6,8 @@ url: /?p=11431
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## PAM(Pluggable Authentication Modules)
 auth: 表示鉴别类接口模块类型用于检查用户和密码,并分配权限；

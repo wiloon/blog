@@ -6,6 +6,8 @@ url: /?p=15637
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JAVA 奇偶数
 ```java

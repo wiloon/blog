@@ -6,6 +6,8 @@ url: /?p=8813
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Gradle 修改 Maven 仓库地址
 ### gradle kotlin

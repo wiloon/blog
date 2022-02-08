@@ -6,6 +6,8 @@ url: /?p=7481
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## oracle date timestamp
 http://wenku.baidu.com/view/9c73c0d349649b6648d747fc.html

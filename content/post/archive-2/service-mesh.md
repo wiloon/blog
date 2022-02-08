@@ -6,6 +6,8 @@ url: service-mesh
 categories:
   - cloud
 
+tags:
+  - reprint
 ---
 ### 微服务
 

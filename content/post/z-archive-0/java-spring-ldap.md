@@ -6,6 +6,8 @@ url: /?p=4312
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java Spring LDAP
 ```java

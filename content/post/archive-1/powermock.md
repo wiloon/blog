@@ -6,6 +6,8 @@ url: /?p=8100
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## powermock
 

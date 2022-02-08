@@ -6,6 +6,8 @@ url: /?p=2148
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux virtual machine manager
 virt-manager

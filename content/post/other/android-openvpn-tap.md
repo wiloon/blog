@@ -6,6 +6,8 @@ url: /?p=1066
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 'Android  OpenVPN-TAP 模式/策略路由'
 http://blog.csdn.net/dog250/article/details/42046269

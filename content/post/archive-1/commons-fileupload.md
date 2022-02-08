@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## Commons FileUpload
 The Commons **FileUpload** package makes it easy to add robust, high-performance, file upload capability to your servlets and web applications.

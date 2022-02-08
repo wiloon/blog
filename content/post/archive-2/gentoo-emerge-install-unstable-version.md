@@ -6,6 +6,8 @@ url: /?p=8368
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gentoo emerge install unstable version
 **安装特定版本的软件**

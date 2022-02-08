@@ -6,6 +6,8 @@ url: /?p=14645
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'linux  查看用户的UID和GID'
 方法一: 使用 id 命令

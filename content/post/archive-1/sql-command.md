@@ -6,6 +6,8 @@ url: /?p=4566
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## sql command
 ```sql

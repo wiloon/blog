@@ -6,6 +6,8 @@ url: /?p=5828
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## raspberry pi eth0 x60s wlan0 squid
 raspberry pi

@@ -6,6 +6,8 @@ url: /?p=15000
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java Mission Control, jmc
 https://github.com/JDKMissionControl/jmc

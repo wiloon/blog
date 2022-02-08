@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## Linux网络协议分析工具tcpdump和tshark用法
 

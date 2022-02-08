@@ -6,6 +6,8 @@ url: /?p=11936
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Import the Certificate as a Trusted Certificate
 keytool -import -alias stan -file StanSmith.cer -keystore exampleruthstore

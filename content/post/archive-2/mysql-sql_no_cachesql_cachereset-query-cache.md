@@ -6,6 +6,8 @@ url: /?p=11488
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL SQL_NO_CACHE,sql_cache,RESET QUERY CACHE
 http://blog.csdn.net/xlgen157387/article/details/50767725

@@ -6,6 +6,8 @@ url: /?p=9825
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 类/type
 ```java

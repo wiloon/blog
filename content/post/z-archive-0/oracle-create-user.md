@@ -6,6 +6,8 @@ url: /?p=1433
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle create user
 connect to oracle with sqlplus

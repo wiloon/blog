@@ -6,6 +6,8 @@ url: /?p=14286
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## hyper -v 端口映射
 https://www.cnblogs.com/cnxkey/articles/7815434.html

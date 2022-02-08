@@ -6,6 +6,8 @@ url: /?p=4047
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java List 排序 Collections.sort() 对 List 排序
 java.util.Comparator 接口。要实现里面的函数

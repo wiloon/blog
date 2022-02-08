@@ -6,6 +6,8 @@ url: password
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## 密码加密存储技术详解（Password Storage Cheat Sheet）
 从最早的明文保存密码，到md5 sha1 sha256 sha512加密，到加salt、加pepper、多次hash计算，再到现代的密码加密算法Bcrypt PBKDF2 Argon2id。在保护用户密码的过程中，软件工程师作出了巨大的努力，为网络安全的建设添砖加瓦。

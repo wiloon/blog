@@ -7,6 +7,8 @@ tags:
   - linux
   - remix
 
+categories:
+  - inbox
 ---
 ## pacman
 

@@ -6,6 +6,8 @@ url: /?p=5645
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## location.reload() 和 location.replace()
 首先介绍两个方法的语法: 

@@ -6,6 +6,8 @@ url: /?p=13228
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux comm, 两个文件的共同部分或者差异部分
 两个文件的共同部分或者差异部分

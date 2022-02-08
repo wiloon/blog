@@ -6,6 +6,8 @@ url: /?p=5538
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## mariaDB
 

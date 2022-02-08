@@ -6,6 +6,8 @@ url: /?p=5885
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Add ISO image to apt sources.list
 ## http://linuxconfig.org/add-iso-image-to-apt-sourceslist

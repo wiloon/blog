@@ -6,6 +6,8 @@ url: /?p=3104
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## 'ESB  SOA'
 >http://blog.csdn.net/kenera/article/details/3593893

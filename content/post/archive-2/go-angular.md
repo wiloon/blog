@@ -4,6 +4,10 @@ author: "-"
 date: 2017-10-11T08:59:55+00:00
 url: /?p=11249
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## angular basic
 ## install angular

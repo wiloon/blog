@@ -6,7 +6,10 @@ url: /?p=791
 categories:
   - Web
 
+tags:
+  - reprint
 ---
+## Connection reset
 在使用HttpClient调用后台resetful服务时，“Connection reset”是一个比较常见的问题，有同学跟我私信说被这个问题困扰很久了，今天就来分析下，希望能帮到大家。例如我们线上的网关日志就会抛该错误：
 
 

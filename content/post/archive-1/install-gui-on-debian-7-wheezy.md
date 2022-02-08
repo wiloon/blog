@@ -4,6 +4,10 @@ author: "-"
 date: 2014-03-29T05:06:31+00:00
 url: /?p=6446
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## Install GUI on debian 7 wheezy
 http://namhuy.net/1085/install-gui-on-debian-7-wheezy.html

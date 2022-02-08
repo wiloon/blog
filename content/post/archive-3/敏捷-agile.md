@@ -6,6 +6,8 @@ url: agile
 categories:
   - Agile
 
+tags:
+  - reprint
 ---
 ## 敏捷 Agile
 ### 敏捷宣言

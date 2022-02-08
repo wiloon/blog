@@ -6,6 +6,8 @@ url: /?p=15334
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## dell,戴尔N4050
 DDR3 1333, 标压 1.5v

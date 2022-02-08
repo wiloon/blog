@@ -6,6 +6,8 @@ url: /?p=1462
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 关于 XML standalone 的解释
 

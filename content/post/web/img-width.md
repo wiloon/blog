@@ -6,6 +6,8 @@ url: /?p=3872
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## img width
 <img> 标签的 height 和 width 属性设置图像的尺寸。

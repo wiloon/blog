@@ -6,6 +6,8 @@ url: /?p=10963
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## kill -9都杀不掉的进程
 kill -9发送SIGKILL信号将其终止,但是以下两种情况不起作用: 

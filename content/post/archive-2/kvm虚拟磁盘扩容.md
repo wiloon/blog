@@ -6,6 +6,8 @@ url: /?p=12049
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## KVM虚拟磁盘扩容, qemu-img resize
 ### kvm虚拟磁盘扩容

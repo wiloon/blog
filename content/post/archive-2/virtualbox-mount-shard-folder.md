@@ -6,6 +6,8 @@ url: /?p=10726
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## virtualbox mount shard folder
 https://wiki.archlinux.org/index.php/VirtualBox#Shared_Folders_as_Arch_Linux_Guest

@@ -6,6 +6,8 @@ url: /?p=4561
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 读系统环境变量
 http://studygolang.com/articles/3387

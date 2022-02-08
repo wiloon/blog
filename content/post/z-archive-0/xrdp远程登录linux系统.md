@@ -6,6 +6,8 @@ url: /?p=2199
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux remote desktop server, xrdp
 

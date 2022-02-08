@@ -6,6 +6,8 @@ url: /?p=15506
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## remote jobs
 https://github.com/remoteintech/remote-jobs

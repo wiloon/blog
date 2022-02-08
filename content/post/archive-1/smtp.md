@@ -6,6 +6,8 @@ url: /?p=5436
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## SMTP
 SMTP（Simple Mail Transfer Protocol) 即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则,由它来控制信件的中转方式。SMTP协议属于TCP/IP协议族,它帮助每台计算机在发送或中转信件时找到下一个目的地。通过SMTP协议所指定的服务器,就可以把E－mail寄到收信人的服务器上了,整个过程只要几分钟。SMTP服务器则是遵循SMTP协议的发送邮件服务器,用来发送或中转发出的电子邮件。

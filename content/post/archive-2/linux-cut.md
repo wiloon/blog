@@ -6,6 +6,8 @@ url: /?p=11294
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux cut
 ```bash

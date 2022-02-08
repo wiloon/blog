@@ -6,6 +6,8 @@ url: /?p=5074
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Mybatis多参数查询映射
 <http://fengfan876.iteye.com/blog/1473863>

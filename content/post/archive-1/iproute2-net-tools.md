@@ -6,6 +6,8 @@ url: /?p=7497
 tags:
   - linux
 
+categories:
+  - inbox
 ---
 ## net-tools
 ### Deprecated @See iproute2

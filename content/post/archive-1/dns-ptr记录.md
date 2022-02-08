@@ -6,6 +6,8 @@ url: /?p=5732
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## dns PTR记录
 PTR记录,是电子邮件系统中的邮件交换记录的一种；另一种邮件交换记录是A记录（在IPv4协议中) 或AAAA记录（在IP

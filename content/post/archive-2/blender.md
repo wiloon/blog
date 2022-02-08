@@ -6,6 +6,8 @@ url: /?p=12168
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## blender
 https://www.bilibili.com/video/av7257605/?p=1

@@ -6,6 +6,8 @@ url: /?p=5741
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## FOR XML PATH
 <http://www.cnblogs.com/doubleliang/archive/2011/07/06/2098775.html>

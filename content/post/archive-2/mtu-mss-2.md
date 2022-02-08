@@ -6,6 +6,8 @@ url: /?p=10333
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MTU, MSS
 http://blog.crhan.com/2014/05/mtu-and-mss/

@@ -6,7 +6,10 @@ url: /?p=12875
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## base16, base32, base64, base64 URL
 ## base16, base32, base64,base64 URL
 基本概念
   

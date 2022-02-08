@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## debian 修改无线网卡的信道
 查看无线网卡支持的信道

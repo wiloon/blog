@@ -6,6 +6,8 @@ url: /?p=12361
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## yubikey, archlinux sudo, challenge-response
 install yubi pam

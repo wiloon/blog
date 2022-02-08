@@ -7,6 +7,8 @@ categories:
   - web
   - remix
 
+tags:
+  - reprint
 ---
 ## chrome command
 ```bash

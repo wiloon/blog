@@ -6,6 +6,8 @@ url: /?p=8945
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux netctl wifi
 

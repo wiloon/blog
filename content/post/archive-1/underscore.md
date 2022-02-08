@@ -6,6 +6,8 @@ url: /?p=5094
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## Underscore
 Underscore 一个非常实用的JavaScript库，提供许多编程功能的支持，就像你期望 Prototype.js (或者 Ruby), 有这些功能且不扩展任何JavaScript的原生对象。 It's the tie to go along with jQuery's tux.

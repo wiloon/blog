@@ -4,6 +4,10 @@ author: "-"
 date: 2020-03-07T12:58:10+00:00
 url: /?p=15691
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## java 模块 hello world
 

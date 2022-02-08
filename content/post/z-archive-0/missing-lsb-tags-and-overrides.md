@@ -6,6 +6,8 @@ url: /?p=1502
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## missing LSB tags and overrides
 update-rc.d tomcat defaults

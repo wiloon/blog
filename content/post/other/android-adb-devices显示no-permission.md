@@ -6,6 +6,8 @@ url: /?p=3627
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## adb, no permission
 <http://www.blogjava.net/brian/articles/316019.html>

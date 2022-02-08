@@ -6,6 +6,8 @@ url: /?p=5235
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## Hsqldb
 Hsqldb是一个开放源代码的JAVA数据库，其具有标准的SQL语法和JAVA接口，

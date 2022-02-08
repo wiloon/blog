@@ -6,6 +6,8 @@ url: /?p=11136
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## dep error all dirs contained build errors
 add package xxx before import in xxx.go

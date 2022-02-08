@@ -6,6 +6,8 @@ url: /?p=3553
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux cat
 Red Hat Linux 有一个工具程序，它能够帮助你保留简短列表，将这些列表收集起来，甚至向你透漏一点你的系统信息。下面就是Linux Cat命令及使用详解

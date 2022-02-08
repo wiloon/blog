@@ -6,7 +6,10 @@ url: /?p=15303
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## junit
 ### junit5
 JUnit5的第一个可用性版本是在2017年9月10日发布的。
 

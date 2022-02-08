@@ -6,6 +6,8 @@ url: /?p=7265
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Fragment和Activity的交互
 http://www.cnblogs.com/mengdd/archive/2013/01/11/2856374.html

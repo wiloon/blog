@@ -6,6 +6,8 @@ url: java-gc-ps
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## Parallel Scavenge
 Parallel Scavenge收集器的特点是它的关注点与其他收集器不同,CMS等收集器的关注点尽可能地缩短垃圾收集时用户线程的停顿时间,而Parallel Scavenge收集器的目标则是达到一个可控制的吞吐量（Throughput) 。所谓吞吐量就是CPU用于运行用户代码的时间与CPU总消耗时间的比值,即吞吐量 = 运行用户代码时间 /（运行用户代码时间 + 垃圾收集时间) ,虚拟机总共运行了100分钟,其中垃圾收集花掉1分钟,那吞吐量就是99%。

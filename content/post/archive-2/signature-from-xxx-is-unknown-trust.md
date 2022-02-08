@@ -6,6 +6,8 @@ url: /?p=8976
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## signature from xxx is unknown trust
 https://bbs.archlinux.org/viewtopic.php?id=128682

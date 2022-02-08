@@ -6,6 +6,8 @@ url: /?p=5136
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 'debian & SDL'
 **http://www.upubuntu.com/2012/01/how-to-install-sdl-12-simple.html**

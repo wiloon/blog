@@ -6,6 +6,8 @@ url: message
 categories:
   - web
 
+tags:
+  - reprint
 ---
 ## 无限层级留言
 ### mysql

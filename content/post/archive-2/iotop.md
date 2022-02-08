@@ -4,6 +4,10 @@ author: "-"
 date: 2016-04-17T06:29:45+00:00
 url: /?p=8893
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## iotop
   

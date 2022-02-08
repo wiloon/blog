@@ -6,6 +6,8 @@ url: /?p=8592
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Paxos
 # paxos

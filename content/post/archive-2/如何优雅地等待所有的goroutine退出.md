@@ -6,6 +6,8 @@ url: /?p=9291
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 如何优雅地等待所有的goroutine退出
 http://www.cnblogs.com/cobbliu/p/4461866.html

@@ -6,6 +6,8 @@ url: /?p=8671
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JDBC 优化
 http://www.infoq.com/cn/news/2017/03/Analysis-errors-MySQL-JDBC?utm_source=infoq&utm_medium=popular_widget&utm_campaign=popular_content_list&utm_content=homepage

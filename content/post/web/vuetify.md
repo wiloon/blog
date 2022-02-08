@@ -3,7 +3,12 @@ author: "-"
 date: "2021-03-16 16:47:40" 
 title: "vuetify"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "vuetify"
 ### 安装相应包
     yarn add @mdi/font -D
     # roboto字体其实不要也行,就英文的一套字体而已

@@ -6,6 +6,8 @@ url: /?p=10508
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## CPU使用率, 服务器负载
 http://www.jianshu.com/p/e134b8498413

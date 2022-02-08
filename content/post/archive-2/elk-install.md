@@ -6,6 +6,8 @@ url: /?p=12423
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## elk install
 download elasticsearch

@@ -6,6 +6,8 @@ url: /?p=8146
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## maven Scope
 maven依赖关系中Scope的作用

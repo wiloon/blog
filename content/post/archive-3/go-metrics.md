@@ -6,6 +6,8 @@ url: /?p=15957
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go metrics
 ```golang

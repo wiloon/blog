@@ -6,6 +6,8 @@ url: /?p=5059
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## history.back() webpage has expired. 网页已过期
 http://blog.sina.com.cn/s/blog_4b3c4bfa0100vz7h.html

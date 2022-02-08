@@ -6,6 +6,8 @@ url: df
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## df
 

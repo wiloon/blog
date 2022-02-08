@@ -6,6 +6,8 @@ url: /?p=2735
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 'Linux下的DOS环境  (DOSEMU)'
 2007年09月05日 星期三 10:56

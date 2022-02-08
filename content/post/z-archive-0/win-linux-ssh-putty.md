@@ -6,6 +6,8 @@ url: /?p=1190
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## win linux ssh putty
 win: 用 PuTTYgen 生成rsa key

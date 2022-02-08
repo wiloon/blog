@@ -6,6 +6,8 @@ url: /?p=8221
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## HTTP Header ETag
 HTTP Header中的ETag

@@ -6,6 +6,8 @@ url: /?p=13967
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## armv6, armv7, rm处理器中a5 a8 a9，v6 v7，arm7 arm9 arm11
 ARM是微处理器行业的一家知名企业，arm处理器以体积小和高性能的优势在嵌入式设备中广泛使用，几乎所有手机都是使用它的。

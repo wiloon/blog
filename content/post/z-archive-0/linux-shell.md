@@ -6,6 +6,8 @@ url: /?p=1747
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 'shell, bash, csh, sh, ksh, dash, zsh'
 https://blog.csdn.net/lina_acm/article/details/51815080

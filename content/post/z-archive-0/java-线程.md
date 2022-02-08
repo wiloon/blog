@@ -4,6 +4,10 @@ author: "-"
 date: 2012-08-26T11:59:46+00:00
 url: /?p=3951
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## Java 线程池, thread pool, ThreadPoolExecutor
 在操作系统中，线程是一个非常重要的资源，频繁创建和销毁大量线程会大大降低系统性能。Java线程池原理类似于数据库连接池，目的就是帮助我们实现线程复用，减少频繁创建和销毁线程。ThreadPoolExecutor

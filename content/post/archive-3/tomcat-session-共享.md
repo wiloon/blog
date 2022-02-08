@@ -6,6 +6,8 @@ url: /?p=13914
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## tomcat session 共享， redis集群
 https://github.com/ran-jit/tomcat-cluster-redis-session-manager

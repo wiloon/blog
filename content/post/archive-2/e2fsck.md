@@ -6,6 +6,8 @@ url: /?p=8899
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## e2fsck
 linux下磁盘检查修复命令是 e2fsck

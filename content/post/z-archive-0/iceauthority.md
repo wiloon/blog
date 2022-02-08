@@ -6,6 +6,8 @@ url: /?p=3422
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ICEAuthority
 <http://serverfault.com/questions/119580/what-is-iceauthority-file-in-opensuse-11-2>

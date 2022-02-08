@@ -6,6 +6,8 @@ url: /?p=14638
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## agile, desk check
 做好Desk Check

@@ -6,6 +6,8 @@ url: /?p=9999
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Runtime freeMemory,totalMemory,maxMemory
 http://blog.csdn.net/zy_27_ok/article/details/8462385

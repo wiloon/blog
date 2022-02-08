@@ -6,6 +6,8 @@ url: /?p=5685
 categories:
   - Agile
 
+tags:
+  - reprint
 ---
 ## 角色互换, Swapping Roles
 

@@ -6,6 +6,8 @@ url: tun-tap
 categories:
   - network
 
+tags:
+  - reprint
 ---
 ## TUN, TAP
 

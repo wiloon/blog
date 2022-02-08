@@ -5,6 +5,8 @@ date: 2016-04-24T02:07:00+00:00
 url: osi-layer
 categories:
   - network
+tags:
+  - reprint
 ---
 ## OSI七层协议,  TCP/IP四层协议, osi 7层, tcp/ip 4层
 

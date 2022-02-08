@@ -6,6 +6,8 @@ url: /?p=832
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## XML RDF OWL
 XML, RDF, OWL

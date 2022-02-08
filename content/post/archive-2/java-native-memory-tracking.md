@@ -6,6 +6,8 @@ url: /?p=9726
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## NMT, Native Memory Tracking
 NMT for Hotspot VM is turned off by default. Turn this feature on using JVM command line option

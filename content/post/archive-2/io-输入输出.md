@@ -6,6 +6,8 @@ url: /?p=12393
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## IO, 输入输出
 https://my.oschina.net/u/1859679/blog/1839169

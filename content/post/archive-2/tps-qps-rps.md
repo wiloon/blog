@@ -4,6 +4,10 @@ author: "-"
 date: 2017-11-08T00:40:29+00:00
 url: qps
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## TPS、QPS、RPS
 ### PPS

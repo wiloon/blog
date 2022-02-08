@@ -6,6 +6,8 @@ url: /?p=11704
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Ansible setup模块
 https://www.ipcpu.com/2016/01/ansible-setup-when/

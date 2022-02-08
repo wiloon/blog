@@ -6,6 +6,8 @@ url: /?p=9442
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nj4xx server
 http://192.168.60.2:7789/nj4x/ts?wsdl

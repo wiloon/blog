@@ -6,6 +6,8 @@ url: /?p=106
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs auto backup
 (setq backup-directory-alist '(("" . "~/backup/emacs/backup")))

@@ -6,5 +6,7 @@ url: /?p=5280
 categories:
   - Agile
 
+tags:
+  - reprint
 ---
 ## 'Scrum,Sprint Review Meeting'

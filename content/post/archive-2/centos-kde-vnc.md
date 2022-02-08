@@ -6,6 +6,8 @@ url: /?p=12150
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## centos, kde, vnc
 转自: http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html（侵删) 

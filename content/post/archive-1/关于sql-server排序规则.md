@@ -6,6 +6,8 @@ url: /?p=5788
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## 关于SQL SERVER排序规则
 因为新的SQL SERVER 使用了英文版, 使用了默认的排序规则是:SQL_Latin1_General_CP1_CI_AS

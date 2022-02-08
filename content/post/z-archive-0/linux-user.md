@@ -6,6 +6,8 @@ url: user
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux user, group, 用户 用户组
 

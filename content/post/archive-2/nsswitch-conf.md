@@ -6,6 +6,8 @@ url: /?p=9615
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nsswitch.conf
 http://lsscto.blog.51cto.com/779396/904078

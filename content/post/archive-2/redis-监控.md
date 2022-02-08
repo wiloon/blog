@@ -6,6 +6,8 @@ url: /?p=9631
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## redis 监控
 

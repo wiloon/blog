@@ -6,6 +6,8 @@ url: /?p=2327
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs org mode
 Emacs 22 以后的版本已经集成了 org-mode，打开 .org 扩展的文件会自动进入 org 模式。

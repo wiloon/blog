@@ -6,6 +6,8 @@ url: /?p=4176
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JSP
 Java EE 7 (June 12, 2013)   JavaServer Pages (JSP) 2.3

@@ -6,6 +6,8 @@ url: /?p=12633
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## clean archlinux
 

@@ -6,6 +6,8 @@ url: /?p=13298
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## kde lock screen
 ### shortcut

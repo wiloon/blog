@@ -6,6 +6,8 @@ url: "/?p=3406"
 categories:
 - Web
 
+tags:
+  - reprint
 ---
 媒体类型, **用途互联网邮件扩展**
 

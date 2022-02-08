@@ -6,6 +6,8 @@ url: /?p=913
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ssh basic
 ### 测试

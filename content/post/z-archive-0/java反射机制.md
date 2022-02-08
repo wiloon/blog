@@ -6,6 +6,8 @@ url: /?p=728
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java反射机制
 ### 通过反射取对象的属性值

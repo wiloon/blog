@@ -6,6 +6,8 @@ url: /?p=2457
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 内核, kernel
 ### kernel doc

@@ -6,6 +6,8 @@ url: /?p=8828
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'java boolean的|=或&=或^=写法'
 package jack.test;

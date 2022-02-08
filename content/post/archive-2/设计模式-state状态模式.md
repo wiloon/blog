@@ -6,6 +6,8 @@ url: /?p=9678
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 设计模式 – State/状态模式
 State模式的定义: 不同的状态,不同的行为;或者说,每个状态有着相应的行为.

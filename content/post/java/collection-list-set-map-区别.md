@@ -6,6 +6,8 @@ url: collection/list-set-map
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Collection List Set Map 区别
 

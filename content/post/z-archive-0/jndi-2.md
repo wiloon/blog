@@ -6,6 +6,8 @@ url: /?p=1970
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JNDI 是什么
 <http://blog.csdn.net/zhaosg198312/article/details/3979435>

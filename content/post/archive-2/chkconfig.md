@@ -6,6 +6,8 @@ url: /?p=11696
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chkconfig
 ```bash

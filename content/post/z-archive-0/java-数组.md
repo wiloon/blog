@@ -7,6 +7,8 @@ categories:
   - Java
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 数组
 线性表（Linear List) 

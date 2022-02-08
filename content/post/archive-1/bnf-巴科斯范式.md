@@ -6,6 +6,8 @@ url: /?p=5528
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## BNF 巴科斯范式
 

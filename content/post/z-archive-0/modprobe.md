@@ -6,6 +6,8 @@ url: modprobe
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ### modprobe
 

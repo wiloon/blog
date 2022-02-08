@@ -6,6 +6,8 @@ url: /?p=4104
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## 局域网ip的划分和子网计算
 IP和子网掩码

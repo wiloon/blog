@@ -6,6 +6,8 @@ url: /?p=4410
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JAVA 浅复制与深复制/深克隆/深拷贝
 1．浅复制与深复制概念

@@ -6,6 +6,8 @@ url: /?p=4672
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## GridView
 GridView和DataGrid的异同

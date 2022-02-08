@@ -4,6 +4,10 @@ author: "-"
 date: 2019-03-21T02:43:54+00:00
 url: /?p=13890
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang bytes.buffer
 ```golang

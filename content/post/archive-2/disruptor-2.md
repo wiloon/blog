@@ -6,6 +6,8 @@ url: /?p=8738
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## disruptor
 http://www.cnblogs.com/haiq/p/4112689.html

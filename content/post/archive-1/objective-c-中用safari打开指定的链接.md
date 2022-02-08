@@ -6,6 +6,8 @@ url: thread-join
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## thread join
 thread join 之后,主线程的状态是waiting

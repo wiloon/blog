@@ -6,6 +6,8 @@ url: /?p=5198
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## How to get the design view of ASP.NET in Visual Studio 2010
 http://forums.asp.net/t/1565784.aspx/1

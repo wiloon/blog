@@ -6,6 +6,8 @@ url: /?p=6402
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## outlook2010邮件签名
 

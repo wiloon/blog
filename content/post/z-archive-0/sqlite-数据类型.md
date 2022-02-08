@@ -6,6 +6,8 @@ url: sqlite/datatype
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## sqlite 数据类型
 

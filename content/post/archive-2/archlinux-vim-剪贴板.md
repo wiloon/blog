@@ -6,6 +6,8 @@ url: /?p=13100
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux vim 剪贴板
 ```bash

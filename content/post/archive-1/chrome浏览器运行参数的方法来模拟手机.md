@@ -6,6 +6,8 @@ url: /?p=6728
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Chrome浏览器运行参数的方法来模拟手机
 http://www.weste.net/2014/3-26/96040.html

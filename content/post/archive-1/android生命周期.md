@@ -6,6 +6,8 @@ url: /?p=6865
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android生命周期
 http://www.cnblogs.com/feisky/archive/2010/01/01/1637427.html

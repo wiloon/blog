@@ -6,6 +6,8 @@ url: /?p=16090
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go 原子操作
 原子操作

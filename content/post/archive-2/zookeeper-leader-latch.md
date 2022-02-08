@@ -6,6 +6,8 @@ url: /?p=9564
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## zookeeper leader latch
 # zookeeper leader latch, leader election

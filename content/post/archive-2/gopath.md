@@ -6,6 +6,8 @@ url: /?p=10946
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gopath
 GOPATH

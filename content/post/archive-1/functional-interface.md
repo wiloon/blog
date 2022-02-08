@@ -6,6 +6,8 @@ url: /?p=7127
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java 8 函数式接口 functional interface
 http://colobu.com/2014/10/28/secrets-of-java-8-functional-interface/

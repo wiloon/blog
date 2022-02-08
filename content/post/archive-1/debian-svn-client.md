@@ -7,6 +7,8 @@ categories:
   - Linux
   - VCS
 
+tags:
+  - reprint
 ---
 ## debian svn client
 sudo apt-get install subversion

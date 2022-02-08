@@ -6,6 +6,8 @@ url: /?p=10375
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java 监视器
 http://ifeve.com/monitors-java-synchronization-mechanism/

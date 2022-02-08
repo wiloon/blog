@@ -6,6 +6,8 @@ url: /?p=13895
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 循环冗余校验（CRC)
 从奇偶校验说起

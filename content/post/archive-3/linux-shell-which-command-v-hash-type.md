@@ -6,6 +6,8 @@ url: /?p=14537
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux shell 查找文件位置，which, command -v, hash, type
 ```bash

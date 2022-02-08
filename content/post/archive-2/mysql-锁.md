@@ -6,6 +6,8 @@ url: /?p=8558
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL Innodb 锁
 InnoDB 发音为"in-no-db"

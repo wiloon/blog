@@ -6,6 +6,8 @@ url: /?p=14413
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang gin
 ### 重定向

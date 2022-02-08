@@ -6,6 +6,8 @@ url: /?p=15616
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang http
 ### get

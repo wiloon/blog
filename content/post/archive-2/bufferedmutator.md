@@ -6,6 +6,8 @@ url: /?p=10336
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## hbase BufferedMutator
 

@@ -6,6 +6,8 @@ url: /?p=15384
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'CentOS firewalld, firewall-cmd'
 Firewalld 使用区域和服务的概念。根据您将要配置的区域和服务，您可以控制允许或阻止与系统之间的流量。

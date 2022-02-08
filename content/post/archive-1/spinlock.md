@@ -6,6 +6,8 @@ url: "spinlock"
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## Spinlock(自旋锁), Ticket Spinlock, MCS Spinlock
 为什么要加锁

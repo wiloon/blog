@@ -6,6 +6,8 @@ url: /?p=15812
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## shell 进制转换
 一、16进制转换成10进制

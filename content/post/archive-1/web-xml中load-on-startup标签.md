@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## web.xml中load-on-startup标签
 在servlet的配置当中，<load-on-startup>5</load-on-startup>的含义是: 

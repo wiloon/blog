@@ -6,6 +6,8 @@ url: /?p=11145
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'kvm  GPU VFIO OVMF'
 https://www.linuxserver.io/2017/04/28/how-to-setup-vfio-gpu-passthrough-using-ovmf-and-kvm-on-arch-linux/

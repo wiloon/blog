@@ -6,6 +6,8 @@ url: /?p=4310
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java Base64
 ```java

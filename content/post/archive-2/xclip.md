@@ -6,6 +6,8 @@ url: /?p=9280
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## xclip
 https://linuxtoy.org/archives/xclip.html

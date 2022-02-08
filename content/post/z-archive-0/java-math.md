@@ -6,6 +6,8 @@ url: /?p=3289
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java math
 ```java

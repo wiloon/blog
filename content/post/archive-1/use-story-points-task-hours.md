@@ -6,6 +6,8 @@ url: /?p=5223
 categories:
   - Agile
 
+tags:
+  - reprint
 ---
 ## Use Story Points, task hours
 [<http://www.scrumalliance.org/articles/439-story-points-versus-task-hours>][1]

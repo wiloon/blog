@@ -6,6 +6,8 @@ url: /?p=853
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 奥卡姆剃刀, Occam's Razor
 奥卡姆剃刀原理

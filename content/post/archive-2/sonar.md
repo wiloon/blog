@@ -6,6 +6,8 @@ url: /?p=9042
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## sonar
 http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven

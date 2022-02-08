@@ -6,6 +6,8 @@ url: /?p=6284
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 电脑通过USB共享android手机网络访问Internet
 打开手机USB绑定

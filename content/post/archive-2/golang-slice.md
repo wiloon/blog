@@ -4,6 +4,10 @@ author: "-"
 date: 2016-11-24T01:41:36+00:00
 url: /?p=9429
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang 数组/切片/slice
 ### 切片/slice

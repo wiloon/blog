@@ -6,6 +6,8 @@ url: command
 tags:
   - linux
 
+categories:
+  - inbox
 ---
 ## which, command, type
 避免使用which, 用shell内置的 command -v, hash, type替代

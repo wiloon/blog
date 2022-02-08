@@ -6,6 +6,8 @@ url: /?p=10381
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## busybox
 BusyBox 是一个提供了很多简化版的Unix 工具的一个可执行文件, busybox能在很多POSIX环境运行,比如Linux,Android,FreeBSD.

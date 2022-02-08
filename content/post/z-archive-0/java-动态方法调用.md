@@ -6,6 +6,8 @@ url: /?p=4093
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java 动态方法调用
 

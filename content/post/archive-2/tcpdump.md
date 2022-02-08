@@ -4,6 +4,10 @@ author: "-"
 date: 2015-10-26T01:40:42+00:00
 url: /?p=8429
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## tcpdump
 用简单的话来定义tcpdump,就是: dump the traffic on a network,根据使用者的定义对网络上的数据包进行截获的包分析工具。 tcpdump可以将网络中传送的数据包的"头"完全截获下来提供分析。它支持针对网络层、协议、主机、网络或端口的过滤,并提供and、or、not等逻辑语句来帮助你去掉无用的信息。

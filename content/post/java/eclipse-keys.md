@@ -7,6 +7,8 @@ categories:
   - Eclipse
   - Java
 
+tags:
+  - reprint
 ---
 ## Eclipse keys(schema=Emacs)
   

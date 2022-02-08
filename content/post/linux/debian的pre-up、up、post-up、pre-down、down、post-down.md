@@ -6,6 +6,8 @@ url: /?p=1856
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Debian的pre-up、up、post-up、pre-down、down、post-down
 

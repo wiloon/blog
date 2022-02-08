@@ -6,6 +6,8 @@ url: /?p=6316
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Genymotion
 Android 模拟器一直以速度奇慢无比著称，基本慢到不可用。本文介绍我一直在用的 Genymotion，速度不亚于真机。而且功能齐全，使用简单。

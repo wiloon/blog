@@ -6,6 +6,8 @@ url: plantuml
 categories:
   - uml
 
+tags:
+  - reprint
 ---
 ## plantuml, puml
 ### 安装 graphviz

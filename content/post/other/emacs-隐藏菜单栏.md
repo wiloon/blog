@@ -6,6 +6,8 @@ url: /?p=1860
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## emacs org-mode TODO状态
 https://qiwulun.github.io/posts/org-mode%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD%EF%BC%8D%EF%BC%8DTODO%E7%8A%B6%E6%80%81%E4%B8%8E%E5%A4%8D%E9%80%89%E6%A1%86.html

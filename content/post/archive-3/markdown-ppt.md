@@ -6,6 +6,8 @@ url: /?p=14428
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'markdown > PPT'
 https://github.com/ksky521/nodeppt

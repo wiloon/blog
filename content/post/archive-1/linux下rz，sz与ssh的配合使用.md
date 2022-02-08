@@ -6,6 +6,8 @@ url: /?p=8297
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux下rz,sz与ssh的配合使用
 

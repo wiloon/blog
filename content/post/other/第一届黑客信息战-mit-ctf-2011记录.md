@@ -6,6 +6,8 @@ url: /?p=2525
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 第一届黑客信息战 MIT CTF 2011记录
 这个是前两天我朋友 dcluo 在 MIT(麻省理工学院) 参加的一个黑客竞赛的实战记录

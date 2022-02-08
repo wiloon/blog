@@ -4,6 +4,10 @@ author: "-"
 date: 2016-02-01T08:05:51+00:00
 url: /?p=8723
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## archlinux kvm windows
 

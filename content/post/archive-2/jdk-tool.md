@@ -6,6 +6,8 @@ url: /?p=9713
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jdk tool, java tool, jvm tool
 ### jcmd

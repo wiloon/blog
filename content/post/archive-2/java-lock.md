@@ -6,6 +6,8 @@ url: /?p=9919
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java juc锁 Lock
 与synchronized不同的是,Lock完全用Java写成,在java这个层面是无关JVM实现的。

@@ -6,6 +6,8 @@ url: /?p=5134
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## SCons
 

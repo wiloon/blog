@@ -6,6 +6,8 @@ url: /?p=6547
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## android.intent.action.MAIN 与 android.intent.category.LAUNCHER
 先看看网路上的说法: 

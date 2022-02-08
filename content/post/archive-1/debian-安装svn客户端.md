@@ -6,6 +6,8 @@ url: /?p=4990
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## debian 安装svn客户端
 ```bash

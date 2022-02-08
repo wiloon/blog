@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## Spring annoation
 @PostConstruct 和 @PreDestroy

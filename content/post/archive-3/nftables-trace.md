@@ -6,6 +6,8 @@ url: /?p=14030
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nftables trace
 nhttps://wiki.nftables.org/wiki-nftables/index.php/Ruleset_debug/tracing

@@ -6,6 +6,8 @@ url: /?p=5348
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## windows SC命令详解
 SC命令详解(一个很有用的command)

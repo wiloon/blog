@@ -6,6 +6,8 @@ url: /?p=9142
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## DNS劫持 DNS污染
 http://www.williamlong.info/archives/3356.html

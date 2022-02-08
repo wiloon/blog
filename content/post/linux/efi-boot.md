@@ -6,6 +6,8 @@ url: /?p=3714
 categories:
   - Hardware
 
+tags:
+  - reprint
 ---
 ## EFI boot
 EFI boot 介绍

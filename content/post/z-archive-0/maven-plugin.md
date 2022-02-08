@@ -6,6 +6,8 @@ url: /?p=1010
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## maven plugin
 http://www.infoq.com/cn/news/2011/04/xxb-maven-7-plugin

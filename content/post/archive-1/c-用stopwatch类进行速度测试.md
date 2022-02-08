@@ -4,6 +4,10 @@ author: "-"
 date: 2013-12-10T01:17:00+00:00
 url: /?p=6032
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## cpu瓶颈分析
 ```bash

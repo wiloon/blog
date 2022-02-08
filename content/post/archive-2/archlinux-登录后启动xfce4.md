@@ -6,6 +6,8 @@ url: /?p=8940
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux 登录后启动xfce4
 https://wiki.archlinux.org/index.php/xinitrc

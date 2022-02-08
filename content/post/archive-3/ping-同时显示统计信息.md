@@ -4,6 +4,10 @@ author: "-"
 date: 2020-04-13T10:43:01+00:00
 url: /?p=15936
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## ping, fping
 ### 指定网络设备

@@ -6,6 +6,8 @@ url: /?p=11448
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux磁盘分区UUID, blkid
 http://tiger2020.blog.51cto.com/723949/1535774

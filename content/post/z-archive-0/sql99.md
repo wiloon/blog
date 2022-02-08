@@ -6,6 +6,8 @@ url: /?p=3709
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## SQL99
 

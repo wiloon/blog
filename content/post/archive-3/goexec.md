@@ -6,6 +6,8 @@ url: /?p=14326
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## goexec
 `bash

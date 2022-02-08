@@ -6,6 +6,8 @@ url: /?p=5591
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## ORACLE PL/SQL异常处理(Exception)
 <http://blog.csdn.net/wh62592855/article/details/4736501>

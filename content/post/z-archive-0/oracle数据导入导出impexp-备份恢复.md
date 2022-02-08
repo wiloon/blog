@@ -6,6 +6,8 @@ url: /?p=2136
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## 'Oracle 导入/导出  imp/exp 备份 恢复 dump'
 ```bash

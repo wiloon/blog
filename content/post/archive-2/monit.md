@@ -6,6 +6,8 @@ url: /?p=11514
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## monit
 监控进程

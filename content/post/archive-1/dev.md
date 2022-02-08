@@ -4,6 +4,10 @@ author: "w1100n"
 date: "2015-08-06 15:52:37"
 url: dev
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## dev
 #### 语言

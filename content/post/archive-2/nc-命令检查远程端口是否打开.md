@@ -6,6 +6,8 @@ url: /?p=11614
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nc 命令检查远程端口是否打开
 https://linux.cn/article-8186-1.html

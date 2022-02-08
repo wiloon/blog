@@ -6,6 +6,8 @@ url: /?p=3068
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## wine
 卸载wine中已经安装的软件

@@ -3,7 +3,12 @@ author: "-"
 date: "2021-03-29 18:02:06" 
 title: "X Server, XServer"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "X Server, XServer"
 背景
 
 大多数时候我们不希望在服务器上安装图形界面，但有时候有些程序需要图形界面，比如安装Oracle的时候。此时，可以配置让Linux使用远程的X Server进行图形界面显示。

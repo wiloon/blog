@@ -6,6 +6,8 @@ url: /?p=13116
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nfs
 ```bash

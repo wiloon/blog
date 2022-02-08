@@ -6,6 +6,8 @@ url: provider
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Provider 模式
 

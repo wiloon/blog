@@ -6,6 +6,8 @@ url: /?p=14319
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang kafka
 https://github.com/bsm/sarama-cluster

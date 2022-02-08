@@ -6,6 +6,8 @@ url: /?p=830
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## RDF OWL
 http://blogger.org.cn/blog/more.asp?name=babyblue&id=21546

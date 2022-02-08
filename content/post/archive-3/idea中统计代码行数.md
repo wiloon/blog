@@ -6,6 +6,8 @@ url: idea/plugin
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## idea plugin
 ### java 编码规范检查

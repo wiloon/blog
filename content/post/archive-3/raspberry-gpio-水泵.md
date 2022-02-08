@@ -6,6 +6,8 @@ url: /?p=14624
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry GPIO 水泵
 https://github.com/stianeikeland/go-rpio

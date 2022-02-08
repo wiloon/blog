@@ -6,6 +6,8 @@ url: /?p=14117
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## kde basic
 ### 快捷键

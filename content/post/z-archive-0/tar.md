@@ -6,6 +6,8 @@ url: /?p=633
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## tar
 tar

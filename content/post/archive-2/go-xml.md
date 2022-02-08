@@ -6,6 +6,8 @@ url: /?p=11454
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go xml
 https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.1.md

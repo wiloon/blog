@@ -6,6 +6,8 @@ url: /?p=1351
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## PetStore
 PetStore 是 SUN 公司推出的一个宠物商店的系统，其唯一的目的不是让你卖宠物，而是学习 J2EE 最新版本的特性的一个绝好例子。也有不少语言推出相应版本的宠物商店。

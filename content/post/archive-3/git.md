@@ -6,6 +6,8 @@ url: git
 categories:
   - dev
 
+tags:
+  - reprint
 ---
 ## git intro
 ```puml

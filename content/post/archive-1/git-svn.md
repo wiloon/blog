@@ -4,6 +4,10 @@ author: "-"
 date: 2013-01-07T14:37:06.000+00:00
 url: git/svn
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## git svn
 ### install

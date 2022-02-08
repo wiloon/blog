@@ -6,6 +6,8 @@ url: /?p=3623
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## android adb
 http://blog.sina.com.cn/s/blog_51335a000101j59n.html

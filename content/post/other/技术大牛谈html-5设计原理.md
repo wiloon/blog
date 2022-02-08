@@ -4,6 +4,10 @@ author: "-"
 date: 2011-10-31T08:38:47+00:00
 url: /?p=1417
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 技术大牛谈HTML 5设计原理
 <http://developer.51cto.com/art/201103/247880.htm>

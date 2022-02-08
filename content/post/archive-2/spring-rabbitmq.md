@@ -6,6 +6,8 @@ url: /?p=11365
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## spring rabbitmq
 https://spring.io/guides/gs/messaging-rabbitmq/

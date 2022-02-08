@@ -6,6 +6,8 @@ url: /?p=5451
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## nslookup
 

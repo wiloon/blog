@@ -6,6 +6,8 @@ url: /?p=9229
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux 服务器性能 命令
 https://www.oschina.net/news/77545/check-linux-server-performance-in-one-minutes

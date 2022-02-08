@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## HttpSessionBindingListener
 捕获Session事件的意义: 

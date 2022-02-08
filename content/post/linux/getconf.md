@@ -6,7 +6,10 @@ url: getconf
 categories:
   - OS
 
+tags:
+  - reprint
 ---
+## getconf
 ## getconf, 查看系统变量
 我们时常需要查询系统相关的信息，比如页面大小，整数大小之类，如果编写程序去计算会比较繁琐，这里有一个很有用的命令，可以用来获取系统相关信息。它就是getconf。
 

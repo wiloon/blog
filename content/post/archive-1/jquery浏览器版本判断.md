@@ -6,6 +6,8 @@ url: /?p=5824
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jQuery浏览器版本判断
 jQuery 浏览器判断，jQuery提供了一个 **jQuery.browser** 方法 来判断浏览器

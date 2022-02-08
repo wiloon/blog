@@ -6,6 +6,8 @@ url: wal
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## WAL
 什么是 WAL

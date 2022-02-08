@@ -9,6 +9,8 @@ tags:
   - synchronized
   - monitor
 
+categories:
+  - inbox
 ---
 ## 管程, monitor
 ### 管程, 监视器, Moniter

@@ -6,6 +6,8 @@ url: /?p=3481
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## xml 编码
 前同天和同事在讨论xml里的encoding属性和文件格式的关系，终于彻底的弄清楚了。

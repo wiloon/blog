@@ -6,6 +6,8 @@ url: /?p=1689
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 'Ext4 & btrfs'
 最近两年，Linux文件系统得到了很大的发展。Sun有开源的ZFS以及收购的Lustre文件系统。Quantum、Panasas、IBM、惠普、NetApp和Red Hat也都增强了文件系统开发力度。NFS（网络文件系统) 正在经历大的变动，主要代表就是pNFS（并行网络文件系统) 。毫不奇怪的是，所有这些开发行动促使开源社区推出针对Linux的更高性能的文件系统。

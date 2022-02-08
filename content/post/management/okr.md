@@ -3,7 +3,12 @@ author: "-"
 date: "2020-06-06T06:28:04Z"
 title: "OKR"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "OKR"
 ## OKR（Objectives and Key Results)
 
 [https://www.infoq.cn/profile/1218094/publish](https://www.infoq.cn/profile/1218094/publish "https://www.infoq.cn/profile/1218094/publish")

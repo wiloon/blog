@@ -6,6 +6,8 @@ url: /?p=14436
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## angular deploy to nginx
 ```bash

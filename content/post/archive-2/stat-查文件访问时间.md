@@ -6,6 +6,8 @@ url: /?p=11247
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux history
 ```bash

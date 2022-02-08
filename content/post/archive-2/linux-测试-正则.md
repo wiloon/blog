@@ -6,6 +6,8 @@ url: /?p=12539
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'linux 测试  正则'
 https://anjia0532.github.io/2017/06/29/nginx-regex-test-way/

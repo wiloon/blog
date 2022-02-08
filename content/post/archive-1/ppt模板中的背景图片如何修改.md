@@ -6,6 +6,8 @@ url: /?p=8015
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## PPT模板中的背景图片如何修改
 power point 2003/2012

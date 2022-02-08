@@ -6,6 +6,8 @@ url: /?p=8801
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java http file download upload
 http://blog.csdn.net/pgmsoul/article/details/7181793

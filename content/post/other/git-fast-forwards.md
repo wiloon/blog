@@ -6,6 +6,8 @@ url: git/fast-forward
 categories:
   - Git
 
+tags:
+  - reprint
 ---
 ## git fast-forwards
 ### git pull

@@ -6,6 +6,8 @@ url: /?p=15677
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Maven Dependency Version 依赖版本自动升级
 [1.15.0,2.0.0) x>=1.15.0 && x<2.0.0

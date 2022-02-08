@@ -6,6 +6,8 @@ url: /?p=13910
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 算符优先级
 Binary operators (MACAO)

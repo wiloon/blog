@@ -6,6 +6,8 @@ url: /?p=1617
 categories:
   - VM
 
+tags:
+  - reprint
 ---
 ## VirtualBox
 

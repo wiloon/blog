@@ -6,6 +6,8 @@ url: /?p=14600
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL大小写敏感配置, COLLATE
 https://blog.csdn.net/fdipzone/article/details/73692929

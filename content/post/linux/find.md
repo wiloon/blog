@@ -6,6 +6,8 @@ url: find
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## find
 

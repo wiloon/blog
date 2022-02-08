@@ -6,6 +6,8 @@ url: /?p=3471
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## XML
 XML即可扩展标记语言（eXtensible Markup Language) ，是被设计用来描述、存储、传送及交换数据。XML是当前处理结构化文档信息的有力工具，标记是指计算机所能理解的信息符号

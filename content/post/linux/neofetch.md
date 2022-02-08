@@ -3,7 +3,12 @@ author: "-"
 date: "2021-04-30 17:54:53" 
 title: "neofetch, linux logo ascii"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "neofetch, linux logo ascii"
 
 ## neofetch, linux logo ascii
 neofetch 是一个跨平台的易于使用的 系统信息显示命令行脚本，它收集你的系统信息，并在终端中和图像一起显示出来，这个图像可能是你的发行版的 logo 也可能是你选择的一幅 ascii 艺术字。

@@ -6,7 +6,10 @@ url: /?p=12273
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## 'Linux  oom killer'
 ## 'Linux oom killer'
 
 https://blog.csdn.net/GugeMichael/article/details/24017515

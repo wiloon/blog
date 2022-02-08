@@ -6,6 +6,8 @@ url: /?p=12804
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ASCII、Unicode,UTF-8编码的区别
 ### Unicode

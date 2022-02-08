@@ -6,6 +6,8 @@ url: /?p=6830
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## activity的android,name 设置问题
 

@@ -6,6 +6,8 @@ url: /?p=9856
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea maven mvn archetype,generate 速度缓慢问题
 https://my.oschina.net/u/225373/blog/468035

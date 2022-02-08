@@ -6,6 +6,8 @@ url: /?p=3264
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## eclipse中java项目转换为web项目
 http://hi.baidu.com/starhuo/blog/item/cddb59eeec8cd7f7b3fb955f.html

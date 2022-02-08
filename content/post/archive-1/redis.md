@@ -8,6 +8,8 @@ tags:
   - redis
   - cache
 
+categories:
+  - inbox
 ---
 ## Redis
 REmote DIctionary Server(Redis) 是一个由SalvatoreSanfilippo写的key-value存储系统。

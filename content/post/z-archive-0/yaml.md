@@ -6,6 +6,8 @@ url: /?p=450
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## yaml
 http://www.ruanyifeng.com/blog/2016/07/yaml.html

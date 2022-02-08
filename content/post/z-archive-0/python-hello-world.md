@@ -6,6 +6,8 @@ url: /?p=4075
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## Python Hello World
 ### install python3 pip3

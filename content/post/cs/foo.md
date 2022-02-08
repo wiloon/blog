@@ -6,6 +6,8 @@ url: /?p=2793
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## Foo 是什么意思
 http://www.cnblogs.com/felicity/archive/2010/11/30/1892100.html

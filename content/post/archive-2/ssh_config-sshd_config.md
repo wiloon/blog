@@ -4,6 +4,10 @@ author: "-"
 date: 2018-02-11T15:40:49+00:00
 url: ssh/config
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## ssh config, sshd config
 ## ssh config

@@ -6,6 +6,8 @@ url: /?p=8821
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MessageFormat.format
 http://www.cnblogs.com/xiandedanteng/p/3321993.html

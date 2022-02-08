@@ -6,6 +6,8 @@ url: /?p=2668
 tags:
   - java
 
+categories:
+  - inbox
 ---
 ## java5
 

@@ -6,6 +6,8 @@ url: /?p=7214
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Pentaho Data Integration(PDI)
 http://www.cnblogs.com/wukenaihe/p/3209618.html

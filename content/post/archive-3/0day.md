@@ -6,6 +6,8 @@ url: /?p=14908
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 0day
 0day，中文意思"0日/零日"或"零日漏洞"或"零时差攻击"，

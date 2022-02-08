@@ -6,6 +6,8 @@ url: /?p=9720
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java finalize
 http://blog.csdn.net/walkerjong/article/details/6950091

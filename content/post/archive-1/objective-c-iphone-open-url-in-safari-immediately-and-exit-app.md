@@ -6,6 +6,8 @@ url: /?p=7244
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## httpcomponent, httpclient proxy setting
 http://www.jianshu.com/p/f38a62efaa96

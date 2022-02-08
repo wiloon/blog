@@ -7,6 +7,8 @@ categories:
   - DataBase
   - Java
 
+tags:
+  - reprint
 ---
 ## jdbc driver
 jdbc driver:

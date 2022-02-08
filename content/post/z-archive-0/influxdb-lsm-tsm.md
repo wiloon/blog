@@ -6,6 +6,8 @@ url: /?p=2141
 categories:
   - inbox
 
+tags:
+  - reprint
 ---
 ## influxdb lsm tsm
 底层采用自研的TSM存储引擎，TSM也是基于LSM的思想，提供极强的写能力以及高压缩率。

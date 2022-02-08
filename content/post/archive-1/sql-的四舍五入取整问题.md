@@ -6,6 +6,8 @@ url: /?p=5780
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## sql 的四舍五入取整问题
 转自: <http://hi.baidu.com/yahuudang/blog/item/4c65ab77f758b01fb151b953.html>

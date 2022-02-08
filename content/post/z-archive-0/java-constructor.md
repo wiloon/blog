@@ -6,6 +6,8 @@ url: /?p=4166
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java Constructor
 **一、构造器是干什么用的？（what) **

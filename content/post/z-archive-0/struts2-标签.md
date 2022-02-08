@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## EC编码
 http://www.infoq.com/cn/articles/hierarchical-storage-of-sequential-databases?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global

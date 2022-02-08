@@ -6,6 +6,8 @@ url: /?p=14198
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Apache HttpClient 4.5 How to Get Server Certificates
 ```java

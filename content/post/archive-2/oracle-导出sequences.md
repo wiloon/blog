@@ -6,6 +6,8 @@ url: /?p=7432
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## oracle 导出sequences
 如下脚本,可以将某个用户的全部sequence查询出来,并拼成创建语句。

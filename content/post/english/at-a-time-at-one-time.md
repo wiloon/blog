@@ -6,6 +6,8 @@ url: /?p=2212
 categories:
   - English
 
+tags:
+  - reprint
 ---
 ## at a time, at one time
 take time 意为"花费时间"，

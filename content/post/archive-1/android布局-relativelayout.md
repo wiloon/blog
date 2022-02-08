@@ -6,6 +6,8 @@ url: /?p=6836
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android布局 RelativeLayout
 http://blog.csdn.net/johnny901114/article/details/7865617

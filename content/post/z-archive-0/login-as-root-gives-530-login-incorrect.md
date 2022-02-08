@@ -6,6 +6,8 @@ url: /?p=2197
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## login as root gives "530 Login incorrect."
 comment out root from both /etc/vsftpd/ftpusers and /etc/vsftpd/user_list

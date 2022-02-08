@@ -6,6 +6,8 @@ url: /?p=4069
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Markdown 语法
 

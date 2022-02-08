@@ -6,6 +6,8 @@ url: /?p=10901
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## rxvt-unicode 标签
 http://0x3f.org/post/let-rxvt-unicode-support-tags-and-links/

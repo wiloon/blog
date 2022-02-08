@@ -6,6 +6,8 @@ url: /?p=9996
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jvm thread DestroyJavaVM
   1. DestroyJavaVM is a thread that unloads the Java VM on program exit. Most of the time it should be waiting, until apocalypse of your VM.

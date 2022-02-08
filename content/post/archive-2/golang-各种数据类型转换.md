@@ -4,6 +4,10 @@ author: "-"
 date: 2017-10-31T06:18:25+00:00
 url: go-convert
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang 各种数据类型转换
 ### array > slice

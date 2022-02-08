@@ -6,7 +6,10 @@ url: /?p=2894
 categories:
   - maven
 
+tags:
+  - reprint
 ---
+## Maven内置属性、POM属性
 ## Maven内置属性、POM属性, maven properties
 
 1. 内置属性(Maven预定义，用户可以直接使用)

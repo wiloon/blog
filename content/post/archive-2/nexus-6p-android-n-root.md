@@ -6,6 +6,8 @@ url: /?p=9156
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## android root nexus 6p
 angler: Nexus 6P (codenamed Angler)

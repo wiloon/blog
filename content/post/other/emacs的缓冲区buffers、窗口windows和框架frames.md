@@ -6,6 +6,8 @@ url: /?p=4007
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## Emacs的缓冲区(Buffers)、窗口(Windows)和框架(Frames)
 

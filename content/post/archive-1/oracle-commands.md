@@ -6,6 +6,8 @@ url: /?p=7235
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## oracle commands
 ```sql

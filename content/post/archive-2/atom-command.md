@@ -6,6 +6,8 @@ url: /?p=9356
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## atom command
 http://coloration.cc/2016/01/04/useAtom/

@@ -3,7 +3,12 @@ author: "-"
 date: "2020-10-09 14:34:24" 
 title: "ubuntu basic"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "ubuntu basic"
 
 ### mirror
     vim /etc/apt/sources.list

@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## debian wlan0 wpa/psk
 1.添加wpa-psk支持，在debian下是这个插件wpasupplicant

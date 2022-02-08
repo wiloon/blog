@@ -6,6 +6,8 @@ url: /?p=8253
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## LinkedTransferQueue
 最近在阅读开源项目里，发现有几个工程都不尽相同地使用LinkedTransferQueue这个数据结构。比如netty,grizzly,xmemcache,Bonecp。Bonecp还扩展出一个BoundTransferQueue。

@@ -6,6 +6,8 @@ url: /?p=3135
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java static import
 http://blog.csdn.net/ygc87/article/details/7371254

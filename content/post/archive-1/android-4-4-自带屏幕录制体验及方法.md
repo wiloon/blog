@@ -6,6 +6,8 @@ url: /?p=7230
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android 4.4 自带屏幕录制体验及方法
 http://www.appkg.com/2842.html

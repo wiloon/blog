@@ -6,6 +6,8 @@ url: /?p=7129
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android Lint简介
 http://hubingforever.blog.163.com/blog/static/17104057920129249497980/

@@ -6,7 +6,10 @@ url: deb
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
+## deb
 ## 安装deb文件
 dpkg -i filename.deb
 

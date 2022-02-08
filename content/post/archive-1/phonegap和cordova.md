@@ -6,6 +6,8 @@ url: /?p=7313
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## PhoneGap和Cordova
 http://www.smallhead.cn/knowledge/422.html

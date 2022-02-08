@@ -6,6 +6,8 @@ url: /?p=16004
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## json tool, jq
 ### json格式化

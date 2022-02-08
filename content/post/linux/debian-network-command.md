@@ -6,6 +6,8 @@ url: /?p=2059
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## debian network command
 #restart

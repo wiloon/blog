@@ -6,6 +6,8 @@ url: /?p=11359
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry ntp
 http://raspberrypi.tomasgreno.cz/ntp-client-and-server.html

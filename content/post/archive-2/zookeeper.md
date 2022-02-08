@@ -6,6 +6,8 @@ url: zookeeper
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Zookeeper
 ZooKeeper 是 Hadoop 的一个子项目，一般用来管理较大规模、结构复杂的服务器集群，具有自己的配置文件语法、管理工具和部署模式

@@ -6,6 +6,8 @@ url: /?p=1489
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Jakarta
 

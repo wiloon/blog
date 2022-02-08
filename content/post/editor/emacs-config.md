@@ -6,6 +6,8 @@ url: /?p=41
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs 配置/config
 中文环境

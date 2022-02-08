@@ -6,6 +6,8 @@ url: /?p=8299
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Netty 下载文件
 http://www.open-open.com/lib/view/open1409642102932.html

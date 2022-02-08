@@ -5,6 +5,10 @@ author: "-"
 date: 2019-12-23T08:00:59+00:00
 url: redis-rdb-aof
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## Redis 持久化 RDB 和 AOF
 

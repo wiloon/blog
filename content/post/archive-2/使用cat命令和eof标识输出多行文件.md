@@ -6,6 +6,8 @@ url: /?p=11416
 categories:
   - shell
 
+tags:
+  - reprint
 ---
 ## 用cat命令和EOF标识生成文件
 http://www.linuxfly.org/post/146/

@@ -6,6 +6,8 @@ url: /?p=3011
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## Moving The Ctrl Key
 >http://emacswiki.org/emacs/MovingTheCtrlKey

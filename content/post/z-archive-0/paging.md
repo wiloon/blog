@@ -6,7 +6,10 @@ url: paging
 categories:
   - Java
 
+tags:
+  - reprint
 ---
+## 内存分页
 
 ## 内存分页, paging
 为什么要分页

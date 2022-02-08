@@ -6,6 +6,8 @@ url: /?p=9815
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'socks5 -> http/https proxy, privoxy/cow'
 ```bash

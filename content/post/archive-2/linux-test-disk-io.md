@@ -6,6 +6,8 @@ url: /?p=11826
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux test disk io
 ```bash

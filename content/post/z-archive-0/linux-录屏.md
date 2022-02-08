@@ -6,6 +6,8 @@ url: /?p=4350
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 录屏
 gtk-RecordMyDesktop

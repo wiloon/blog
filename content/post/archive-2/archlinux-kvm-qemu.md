@@ -6,6 +6,8 @@ url: /?p=8534
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux kvm qemu gentoo
 ```bash

@@ -6,6 +6,8 @@ url: /?p=12554
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Uboot
 https://www.jianshu.com/p/42106ed7cbde

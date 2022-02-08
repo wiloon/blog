@@ -6,6 +6,8 @@ url: /?p=15683
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 排序
 Go 的排序思路和 C 和 C++ 有些差别。 C 默认是对数组进行排序， C++ 是对一个序列进行排序， Go 则更宽泛一些，待排序的可以是任何对象， 虽然很多情况下是一个 slice (分片， 类似于数组)，或是包含 slice 的一个对象。

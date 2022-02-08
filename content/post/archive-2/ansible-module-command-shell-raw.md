@@ -6,6 +6,8 @@ url: /?p=9403
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ansible module
 ### local_action

@@ -6,6 +6,8 @@ url: acid
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 事务, ACID
 ### 事务

@@ -6,6 +6,8 @@ url: /?p=8581
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL 大表 优化
 作者: zhuqz

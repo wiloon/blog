@@ -6,6 +6,8 @@ url: /?p=12056
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## column
 ```bash

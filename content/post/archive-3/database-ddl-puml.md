@@ -6,6 +6,8 @@ url: /?p=14270
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'database DDL > puml'
 https://github.com/wangyuheng/ddl2plantuml

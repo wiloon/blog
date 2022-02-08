@@ -6,6 +6,8 @@ url: spring
 categories:
   - Spring
 
+tags:
+  - reprint
 ---
 ## spring annotation
 @Component；@Controller；@Service；@Repository 

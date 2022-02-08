@@ -3,7 +3,12 @@ author: "-"
 date: "2020-09-06 14:46:32" 
 title: "bt, pt"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "bt, pt"
 
 
 PT(PrivateTracker)下载其实也是BT下载的

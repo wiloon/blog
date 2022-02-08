@@ -7,6 +7,8 @@ categories:
   - Development
   - Web
 
+tags:
+  - reprint
 ---
 ## HTTP protocol， HTTP response status codes, 状态码/响应代码
 User-Agent 标识用户代理

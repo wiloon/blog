@@ -6,6 +6,8 @@ url: /?p=14531
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go module proxy, goproxy, goproxy.io, goproxy.cn, athens
 ```bash

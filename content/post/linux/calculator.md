@@ -6,7 +6,10 @@ url: calculator
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
+## 计算器 bc, expr、dc、echo、awk)
 ## Linux下的计算器 bc, expr、dc、echo、awk)
 ### bc
 ```bash

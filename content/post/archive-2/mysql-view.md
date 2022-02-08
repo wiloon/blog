@@ -6,6 +6,8 @@ url: /?p=11863
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL view, MERGE, TEMPTABLE
 数据库视图

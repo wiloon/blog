@@ -6,6 +6,8 @@ url: /?p=3267
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 'java.lang.OutOfMemoryError, PermGen space'
 http://peak.iteye.com/blog/52606

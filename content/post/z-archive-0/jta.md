@@ -6,6 +6,8 @@ url: /?p=1962
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JTA
 JTA，即Java Transaction API，译为Java事务API。

@@ -6,6 +6,8 @@ url: javascript
 tags:
   - javascript
 
+categories:
+  - inbox
 ---
 ## javascript
 ### 长数字格式化

@@ -6,6 +6,8 @@ url: sed
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## sed 
 发音： [sed]  

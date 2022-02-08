@@ -6,6 +6,8 @@ url: /?p=4101
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JVM 操作数栈 Operand Stack
 <http://denverj.iteye.com/blog/1218359>

@@ -6,6 +6,8 @@ url: /?p=7658
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Oracle Sequence cache
 http://blog.itpub.net/17203031/viewspace-717042/

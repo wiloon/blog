@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## CXF Axis2
 <http://apache-cxf.group.iteye.com/group/wiki/1252>

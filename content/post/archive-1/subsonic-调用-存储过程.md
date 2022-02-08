@@ -6,6 +6,8 @@ url: /?p=5579
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## subsonic 调用 存储过程
 [csharp]

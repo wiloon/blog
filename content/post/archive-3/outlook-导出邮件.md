@@ -5,6 +5,10 @@ date: 2019-04-24T14:02:34+00:00
 url: outlook
 key: archive
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## outlook 导出邮件, 备份, archive
 File > Options > Advanced > Export > Export to a file > Next > Outlook Data File (.pst) > Next

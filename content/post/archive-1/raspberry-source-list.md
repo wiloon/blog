@@ -6,6 +6,8 @@ url: /?p=7566
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry source list
 vi /etc/apt/sources.list

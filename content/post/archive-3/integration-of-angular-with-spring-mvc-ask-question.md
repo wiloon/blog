@@ -6,6 +6,8 @@ url: /?p=15220
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'Integration of Angular  with Spring MVC'
 https://stackoverflow.com/questions/50481885/integration-of-angular-5-with-spring-mvc

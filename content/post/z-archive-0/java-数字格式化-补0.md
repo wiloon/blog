@@ -6,6 +6,8 @@ url: /?p=3674
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java 数字格式化 补0
 DecimalFormat df = new DecimalFormat("0000000");

@@ -6,6 +6,8 @@ url: /?p=9300
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Select For update
 http://blog.itpub.net/17203031/viewspace-694383/

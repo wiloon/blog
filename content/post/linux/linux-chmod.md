@@ -6,6 +6,8 @@ url: /?p=119
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## chmod
 ```bash

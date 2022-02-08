@@ -6,6 +6,8 @@ url: /?p=3810
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## opendir failed, Permission denied
 su -

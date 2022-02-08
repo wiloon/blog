@@ -6,6 +6,8 @@ url: /?p=14340
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Brotli
 https://segmentfault.com/a/1190000009374437

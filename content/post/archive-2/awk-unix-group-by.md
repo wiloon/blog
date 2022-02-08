@@ -6,6 +6,8 @@ url: /?p=12565
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Awk/Unix group by
 ```bash

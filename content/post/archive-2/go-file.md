@@ -6,6 +6,8 @@ url: /?p=11343
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go file
 os.PathSeparator

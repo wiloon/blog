@@ -6,6 +6,8 @@ url: /?p=819
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## SSL, TLS
 http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html

@@ -4,6 +4,10 @@ author: "-"
 date: 2019-12-11T08:48:38+00:00
 url: /?p=15187
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## awk、grep、sed
 awk、grep、sed是linux操作文本的三大利器，也是必须掌握的linux命令之一。三者的功能都是处理文本，但侧重点各不相同，其中属awk功能最强大，但也最复杂。  

@@ -6,6 +6,8 @@ url: dd
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## dd
 ```bash

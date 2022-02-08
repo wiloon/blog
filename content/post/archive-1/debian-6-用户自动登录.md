@@ -6,6 +6,8 @@ url: /?p=5087
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Debian 6 用户自动登录
 

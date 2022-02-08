@@ -6,7 +6,10 @@ url: url/escape
 categories:
   - web
 
+tags:
+  - reprint
 ---
+## url转义字符
 ## url 转义字符, URL escape codes
 
 对与通过get方式提交的url，浏览器在提交前首先根据http协议把参数及其值解析配对。而url的参数间是通过&分割的，这就是浏览器进行参数配置的分割依据。如果你的参数值中含有&等url特殊字符，那么你在服务器端就会拿到意想不到的值。所以必须对url的特殊字符进行转义。

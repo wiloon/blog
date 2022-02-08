@@ -7,7 +7,10 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
+## jetty tomcat
 ## jetty vs tomcat
 <http://www.ibm.com/developerworks/cn/java/j-lo-jetty/>
 

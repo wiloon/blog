@@ -6,6 +6,8 @@ url: /?p=4634
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Web 服务编程,REST 与 SOAP的比较
 REST 简介

@@ -6,6 +6,8 @@ url: /?p=15981
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## kafka 删除topic
 前言: 

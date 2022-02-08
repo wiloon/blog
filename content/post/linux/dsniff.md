@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## Dsniff
 Dsniff是一个著名的网络嗅探工具包。其开发者Dug Song早在1999年12月，以密歇根大学CITI研究室（Center for Information Technology Integration) 的研究成果为基础，开发了这个后来具有很大影响力的网络安全工具包。Dug Song开发Dsniff的本意是揭示网络通信的不安全性，借助这个工具包，网络管理员可以对自己的网络进行审计，也包括渗透测试。但万事总有其两面 性，Dsniff所带来的负面作用也是"巨大"的，首先它是可以自由获取的，任何拥有这个工具包的人都可能做"非正当"的事，其次，Dsniff里面的某 些工具，充分揭示了一些安全协议的"不安全性"，例如针对SSH1和SSL的MITM（Man-In-The-Middle) 攻击工具—SSHmitm和 Webmitm。SSH1和SSL都是建立网络通信加密通道的机制，向来被认为是很安全的，但人们在具体使用时，往往因为方便性上的考虑而忽视了某些环 节，造成实事上的不安全。所以说，最大的不安全性，往往并不在于对安全的一无所知，而在于过于相信自己的安全。

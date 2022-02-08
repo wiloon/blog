@@ -6,6 +6,8 @@ url: /?p=12295
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea x11
 https://confluence.jetbrains.com/display/~link/Using+Intellij+as+Remote+X+Windows+App

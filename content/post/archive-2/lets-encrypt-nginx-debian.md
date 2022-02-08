@@ -6,6 +6,8 @@ url: /?p=13533
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## let's encrypt, nginx, debian
 sudo apt-get install certbot python-certbot-nginx -t stretch-backports

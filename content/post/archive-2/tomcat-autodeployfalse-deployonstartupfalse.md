@@ -6,6 +6,8 @@ url: /?p=12646
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'tomcat autoDeploy="false"  deployOnStartup="false"'
 https://stackoverflow.com/questions/26884335/tomcat-deploy-only-manager-on-startup

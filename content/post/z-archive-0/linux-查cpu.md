@@ -6,6 +6,8 @@ url: /?p=405
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## '查CPU,  核心数'
 ```bash

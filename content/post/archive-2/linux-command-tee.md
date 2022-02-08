@@ -6,6 +6,8 @@ url: /?p=9879
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## tee
 我使用过的Linux命令之tee - 重定向输出到多个文件

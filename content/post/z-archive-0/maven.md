@@ -6,6 +6,8 @@ url: maven/basic
 tags:
   - maven
 
+categories:
+  - inbox
 ---
 ## mvn, maven basic
 ### download

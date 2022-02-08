@@ -6,6 +6,8 @@ url: /?p=8911
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Invalid partition table
 syslinux

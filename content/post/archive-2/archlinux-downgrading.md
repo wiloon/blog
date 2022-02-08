@@ -6,6 +6,8 @@ url: /?p=12328
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'archlinux  downgrading'
 https://wiki.archlinux.org/index.php/Arch_Linux_Archive

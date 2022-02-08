@@ -6,6 +6,8 @@ url: /?p=12677
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Execute bash script from URL
 ```bash

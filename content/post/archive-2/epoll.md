@@ -6,6 +6,8 @@ url: epoll
 categories:
   - OS
 
+tags:
+  - reprint
 ---
 ## epoll, kqueue
 epoll 通过使用红黑树(RB-tree)搜索被监视的文件描述符(file descriptor)。

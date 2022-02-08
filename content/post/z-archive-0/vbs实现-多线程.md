@@ -6,6 +6,8 @@ url: iaas-paas-saas
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## 'IaaS PaaS SaaS'
 云服务"现在已经快成了一个家喻户晓的词了。如果你不知道PaaS, IaaS 和SaaS的区别，那么也没啥，因为很多人确实不知道。

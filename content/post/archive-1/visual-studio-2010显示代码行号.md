@@ -6,6 +6,8 @@ url: /?p=5460
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Visual Studio 2010显示代码行号
 认的Visual Studio 2008（VS2008) 或VS2010代码编辑器是不显示行号的，这给我们定位代码带来了麻烦，下面简单介绍一下如何显示代码行号。

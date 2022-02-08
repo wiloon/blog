@@ -6,6 +6,8 @@ url: quic
 categories:
   - network
 
+tags:
+  - reprint
 ---
 ## QUIC
 读作 "quick"

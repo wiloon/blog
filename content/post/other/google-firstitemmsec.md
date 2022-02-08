@@ -6,6 +6,8 @@ url: /?p=3838
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## google firstitemmsec
 Get subscription list. Each subscription contains a "category" if the user had created folders. It also has a field called `firstitemmsec` that denotes in milliseconds the time from which entries for that feed should be picked up.

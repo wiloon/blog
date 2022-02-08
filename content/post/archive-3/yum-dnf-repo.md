@@ -6,6 +6,8 @@ url: /?p=16087
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## yum, dnf repo
 CentOS Extras —— 在 CentOS 5 及 6，这些组件提供额外功能，但不损坏 CentOS 与上游的兼容性，也不会更新基本组件，然而上游并未测试这些软件，它们亦不包含在上游产品内。在 CentOS 7 这是上游的软件库，也包含额外的 CentOS 组件。CentOS 的开发小组已经针对这个软件库内的每个程序作出测试，确定它们能在 CentOS 下运作。这个软件库已连同 CentOS 一并安装，并缺省为启用的。

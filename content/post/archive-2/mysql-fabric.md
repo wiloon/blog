@@ -6,6 +6,8 @@ url: /?p=8667
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL Fabric
 http://www.2cto.com/database/201408/327941.html

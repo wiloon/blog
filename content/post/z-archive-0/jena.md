@@ -6,6 +6,8 @@ url: /?p=841
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Jena
 Jena is a Java framework for building Semantic Web applications. It provides a programmatic environment for RDF, RDFS and OWL, SPARQL and includes a rule-based inference engine.

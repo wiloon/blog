@@ -6,6 +6,8 @@ url: /?p=4273
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## corba, ejb, webservice, rest分布式 区别
 Corba，还是EJB，都有一些共同点: 

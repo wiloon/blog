@@ -6,6 +6,8 @@ url: /?p=11265
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## dnscrypt
 # Server

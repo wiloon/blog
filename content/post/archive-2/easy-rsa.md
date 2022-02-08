@@ -6,7 +6,10 @@ url: /?p=12853
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## easy-rsa
 ```bash
 #debian
 apt-get install easy-rsa

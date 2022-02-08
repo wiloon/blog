@@ -6,6 +6,8 @@ url: strace
 categories:
   - OS
 
+tags:
+  - reprint
 ---
 ### 统计系统调用的耗时
      strace -cp <PID>

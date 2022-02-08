@@ -6,6 +6,8 @@ url: /?p=2534
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## Windows Power Shell
 ### 查看 power shell 版本

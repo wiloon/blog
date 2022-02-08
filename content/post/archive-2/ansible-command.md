@@ -7,6 +7,8 @@ categories:
   - devops
   - remix
 
+tags:
+  - reprint
 ---
 ## ansible basic command
 

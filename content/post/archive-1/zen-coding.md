@@ -6,6 +6,8 @@ url: /?p=5843
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## Zen Coding
 一种快速编写HTML/CSS代码的方法

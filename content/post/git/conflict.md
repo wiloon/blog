@@ -6,6 +6,8 @@ url: git/conflict
 categories:
   - Git
 
+tags:
+  - reprint
 ---
 ##  git 冲突解决
 ### 远程文件覆盖本地文件

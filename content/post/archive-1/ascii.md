@@ -6,6 +6,8 @@ url: /?p=6341
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ASCII
 ASCII字符集，最基本的包含了128个字符。其中前32个，0-31，即0×00-0x1F，都是不可见字符。这些字符，就叫做控制字符。

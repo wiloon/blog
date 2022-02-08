@@ -6,6 +6,8 @@ url: /?p=13451
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## cozy, nextcloud
 

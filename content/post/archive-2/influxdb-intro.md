@@ -6,6 +6,8 @@ url: /?p=10977
 categories:
   - Database
 
+tags:
+  - reprint
 ---
 ## 时间序列数据库
 存储大量时间相关的数据(如日志，用户行为等)

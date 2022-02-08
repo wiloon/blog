@@ -6,6 +6,8 @@ url: /?p=14090
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## /bin,/sbin,/usr/sbin,/usr/bin 目录
 https://blog.csdn.net/kkdelta/article/details/7708250

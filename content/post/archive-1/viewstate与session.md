@@ -6,6 +6,8 @@ url: /?p=5785
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ViewState与Session
 昨天偶然看到网上有人讨论究竟是该用viewstate还是session来保存信息. 忽然觉得有必要去深入的研究一下这两个东西了.

@@ -4,6 +4,10 @@ author: "-"
 date: 2017-09-01T05:11:09+00:00
 url: truncate
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## linux 清空文件
 

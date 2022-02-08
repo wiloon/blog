@@ -6,6 +6,8 @@ url: /?p=15138
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## VMware ESXi
 http://idc.wanyunshuju.com/li/580.html

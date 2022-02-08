@@ -6,6 +6,8 @@ url: /?p=5029
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java IO, InputStream, OutputStream
 

@@ -6,6 +6,8 @@ url: /?p=5562
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## DBMS_OUTPUT.put_line没有显示
 需要在SQL*PLUS环境中设定如下命令: 

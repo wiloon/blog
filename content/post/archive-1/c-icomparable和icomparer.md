@@ -6,6 +6,8 @@ url: /?p=5708
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 从JVM角度理解线程
 http://blog.csdn.net/iter_zc/article/details/41843595

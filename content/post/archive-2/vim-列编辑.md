@@ -6,6 +6,8 @@ url: /?p=13209
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## VIM 列编辑
 VIM的列编辑操作

@@ -6,6 +6,8 @@ url: /?p=8516
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## float double NaN
 http://zranye.iteye.com/blog/1344880

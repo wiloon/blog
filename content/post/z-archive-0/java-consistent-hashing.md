@@ -6,6 +6,8 @@ url: /?p=3276
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 一致性哈希算法与Java实现
 # 一致性哈希算法, consistent hashing

@@ -6,6 +6,8 @@ url: /?p=4516
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 适配器模式 Adapter
 通常，客户类（clients of class) 通过类的接口访问它提供的服务。有时，现有的类（existing class) 可以提供客户类的功能需要，但是它所提供的接口不一定是客户类所期望的。这是由于现有的接口太详细或者缺乏详细或接口的名称与客户类所查找的不同等诸多不同原因导致的。

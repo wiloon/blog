@@ -6,6 +6,8 @@ url: /?p=10208
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## cpustat
 cpustat 是 Linux 下一个强大的系统性能测量程序,它用 Go 编程语言[1] 编写。它通过使用 "用于分析任意系统的性能的方法（USE) [2]",以有效的方式显示 CPU 利用率和饱和度。

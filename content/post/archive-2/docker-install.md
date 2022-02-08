@@ -6,6 +6,8 @@ url: /?p=12943
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## docker install
 https://docs.docker.com/install/linux/docker-ce/centos/

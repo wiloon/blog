@@ -6,6 +6,8 @@ url: /?p=1687
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 文件系统 Ext2, Ext3, Ext4, xfs
 Linux kernel 自 2.6.28 开始正式支持新的文件系统 Ext4。 Ext4 是 Ext3 的改进版，修改了 Ext3 中部分重要的数据结构，而不仅仅像 Ext3 对 Ext2 那样，只是增加了一个日志功能而已。Ext4 可以提供更佳的性能和可靠性，还有更为丰富的功能: 

@@ -6,6 +6,8 @@ url: /?p=14473
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nginx 部署静态页面
 

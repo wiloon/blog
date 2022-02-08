@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## kvm 磁盘
 <http://forum.ubuntu.org.cn/viewtopic.php?f=65&t=302055>

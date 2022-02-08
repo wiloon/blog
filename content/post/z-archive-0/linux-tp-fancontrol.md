@@ -8,6 +8,8 @@ categories:
   - Hardware
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux tp fancontrol
 <https://github.com/Stanko/ThinkPad-Fan-Control>

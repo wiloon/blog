@@ -6,6 +6,8 @@ url: /?p=15904
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chrome remote desktop
 https://aur.archlinux.org/packages/chrome-remote-desktop/

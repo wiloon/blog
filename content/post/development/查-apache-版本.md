@@ -6,6 +6,8 @@ url: /?p=206
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## apache basic
 ### apache path

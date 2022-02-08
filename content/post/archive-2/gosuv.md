@@ -6,6 +6,8 @@ url: /?p=11652
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Gosuv
 进程管理工具, python supervisor 替代

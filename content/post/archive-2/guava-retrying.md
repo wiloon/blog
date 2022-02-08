@@ -6,6 +6,8 @@ url: /?p=10873
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## guava-retrying
 http://blog.csdn.net/aitangyong/article/details/53840719

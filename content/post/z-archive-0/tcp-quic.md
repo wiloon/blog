@@ -6,7 +6,10 @@ url: tcp-quic
 categories:
   - network
 
+tags:
+  - reprint
 ---
+## tcp, quic, 流量复制
 ## tcp, quic
 ```puml
 @startuml

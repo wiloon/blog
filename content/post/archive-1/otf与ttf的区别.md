@@ -6,6 +6,8 @@ url: /?p=6173
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## OTF与TTF的区别
 TTF 扩展名的 O 图标的表示 OpenType - TrueType 字体, 采用的是 TrueType 曲线, 不过支持 OpenType 的高级特性.

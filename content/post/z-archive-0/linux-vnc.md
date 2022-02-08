@@ -6,6 +6,8 @@ url: /?p=2203
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux vnc
 ubuntu自带的远程桌面是vino-server

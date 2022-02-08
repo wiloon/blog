@@ -6,7 +6,10 @@ url: /?p=4153
 categories:
   - Java
 
+tags:
+  - reprint
 ---
+## forward redirect
 ## forward vs redirect
 forward 是服务器内部重定向，程序收到请求后重新定向到另一个程序，而客户机并不知晓；
 

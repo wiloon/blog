@@ -6,6 +6,8 @@ url: /?p=13559
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## resolv.conf, systemd-resolved
 ```bash

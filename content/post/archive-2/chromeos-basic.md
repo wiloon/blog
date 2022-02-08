@@ -6,6 +6,8 @@ url: /?p=12855
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chrome os, chromeos basic
 

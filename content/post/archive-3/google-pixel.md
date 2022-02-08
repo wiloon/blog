@@ -6,6 +6,8 @@ url: /?p=14766
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ### google pixel
 

@@ -6,6 +6,8 @@ url: reflect
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 通过java反射机制获取该类的所有属性类型、值、
 http://blog.csdn.net/sd4000784/article/details/7448221

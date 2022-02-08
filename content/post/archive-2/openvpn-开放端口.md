@@ -6,6 +6,8 @@ url: /?p=12844
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## openvpn 开放端口
 Network> Firewall> Traffic Rules> Open ports on router

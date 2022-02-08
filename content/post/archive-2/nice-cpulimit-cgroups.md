@@ -4,6 +4,10 @@ author: "-"
 date: 2017-02-07T06:57:16+00:00
 url: /?p=9746
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## nice, cpulimit, cgroups 限制 cpu 占用率
 3种控制进程运行时间的方法: 

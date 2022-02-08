@@ -6,6 +6,8 @@ url: /?p=2993
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 获得Shell脚本所在目录的绝对路径
 <http://www.zeali.net/entry/497>

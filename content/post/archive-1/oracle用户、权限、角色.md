@@ -6,6 +6,8 @@ url: /?p=7490
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Oracle用户、权限、角色
 http://blog.csdn.net/junmail/article/details/4381287

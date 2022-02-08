@@ -6,6 +6,8 @@ url: /?p=12885
 tags:
   - network
 
+categories:
+  - inbox
 ---
 https://cizixs.com/2017/02/14/network-virtualization-macvlan/
   

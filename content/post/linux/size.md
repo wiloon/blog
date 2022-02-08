@@ -6,6 +6,8 @@ url: size
 categories:
   - linux
 
+tags:
+  - reprint
 ---
 ## size
 size 程序列出参数列表中各目标文件或存档库文件的段大小 — 以及总大小。默认情况下，对每个目标文件或存档库中的每个模块都会产生一行输出。

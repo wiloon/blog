@@ -6,6 +6,8 @@ url: /?p=14306
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## maven-shade-plugin
 maven build fat jar

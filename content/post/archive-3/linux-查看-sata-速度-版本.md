@@ -6,6 +6,8 @@ url: /?p=14159
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 查看 SATA 速度, 版本
 https://www.cyberciti.biz/faq/linux-command-to-find-sata-harddisk-link-speed/

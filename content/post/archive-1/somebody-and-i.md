@@ -6,6 +6,8 @@ url: /?p=5766
 categories:
   - English
 
+tags:
+  - reprint
 ---
 ## Somebody and I
 "I and someone are interested" is grammatically correct. It is the convention in English that when you list several people including yourself, you put yourself last, so you really should say "Someone and I are interested." "Someone and I" is the subject of the sentence, so you should use the subjective case "I" rather than the objective "me". "Someone and I" clearly means two people, so you should use "are" and not "is". If it was "Someone or I ..." then you would use "is", because only one person is interested, either "someone" or "I".

@@ -6,6 +6,8 @@ url: /?p=8229
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux uefi ssd
 gdisk /dev/sda

@@ -3,7 +3,12 @@ author: "-"
 date: "2020-08-02 19:10:49" 
 title: "vlan"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "vlan"
 
 vlan范围: 0~4095
     0,4095 保留 仅限系统使用 用户不能查看和使用这些VLAN  

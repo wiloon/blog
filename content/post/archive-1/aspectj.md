@@ -6,6 +6,8 @@ url: /?p=4899
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## AspectJ
 AspectJ是一个面向方面的框架，它扩展了Java语言。AspectJ定义了AOP语法所以它有一个专门的编译器用来生成遵守Java字节编码规范的Class文件。

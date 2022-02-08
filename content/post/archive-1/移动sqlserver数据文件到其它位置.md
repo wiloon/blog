@@ -6,6 +6,8 @@ url: /?p=5414
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## 移动SQLSERVER数据文件到其它位置
 ### 

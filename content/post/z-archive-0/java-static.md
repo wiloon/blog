@@ -6,6 +6,8 @@ url: static
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java static
 static表示"全局"或者"静态"的意思，用来修饰成员变量和成员方法，也可以形成静态static代码块，但是Java语言中没有全局变量的概念。

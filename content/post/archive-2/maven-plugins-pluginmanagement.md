@@ -6,6 +6,8 @@ url: /?p=11959
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## maven plugins, pluginManagement
 https://www.jianshu.com/p/49acf1246eff

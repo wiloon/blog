@@ -6,6 +6,8 @@ url: /?p=15309
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java 中的内省 introspector
 概述

@@ -6,6 +6,8 @@ url: /?p=4031
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## kvm虚拟机vnc开启音频+rdp
 # 

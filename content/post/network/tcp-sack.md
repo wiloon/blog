@@ -3,7 +3,12 @@ author: "-"
 date: "2020-11-07 23:41:33" 
 title: "tcp sack"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "tcp sack"
 https://blog.csdn.net/wdscq1234/article/details/52503315
 
 TCP-IP详解: SACK选项（Selective Acknowledgment) 

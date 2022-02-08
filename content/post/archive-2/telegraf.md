@@ -4,6 +4,10 @@ author: "-"
 date: 2019-02-16T11:08:43+00:00
 url: telegraf
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## telegraf
 ### archlinux install telegraf

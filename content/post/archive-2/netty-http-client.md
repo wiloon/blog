@@ -6,6 +6,8 @@ url: /?p=8569
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## netty http client
 http://www.cnblogs.com/luxiaoxun/p/3959450.html

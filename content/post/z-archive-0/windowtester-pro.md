@@ -6,6 +6,8 @@ url: /?p=2563
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## WindowTester Pro
 Google开源了WindowTester Pro

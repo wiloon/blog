@@ -8,6 +8,7 @@ categories:
 tags:
   - inbox
 ---
+## "c, file, open, fopen"
 ## ""
 
 

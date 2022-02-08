@@ -6,6 +6,8 @@ url: zmodem
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## zmodem, rz, sz
 

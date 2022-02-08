@@ -6,6 +6,8 @@ url: /?p=9312
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'linux  监控  glances'
 http://glances.readthedocs.io/en/latest/index.html

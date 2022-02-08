@@ -6,6 +6,8 @@ url: /?p=13845
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## sed 截取文本段
 https://yhz61010.iteye.com/blog/1565984

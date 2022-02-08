@@ -6,6 +6,8 @@ url: /?p=12154
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 磁盘IO
 ###  磁道（Track) 

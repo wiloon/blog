@@ -6,6 +6,8 @@ url: /?p=11410
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## System V init, Upstart,Systemd
 http://monklof.com/post/14/

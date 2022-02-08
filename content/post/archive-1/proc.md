@@ -6,6 +6,8 @@ url: /?p=5402
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## proc
 SET ANSI_NULLS ON

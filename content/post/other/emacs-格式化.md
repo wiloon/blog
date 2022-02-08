@@ -6,6 +6,8 @@ url: /?p=822
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs format, 格式化
 http://www.blogjava.net/killme2008/archive/2011/07/26/355041.html

@@ -6,6 +6,8 @@ url: /?p=13307
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## newifi 3
 newifi 3

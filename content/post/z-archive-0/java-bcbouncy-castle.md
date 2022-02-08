@@ -6,6 +6,8 @@ url: /?p=3563
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java BC/Bouncy Castle
 

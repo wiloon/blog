@@ -6,6 +6,8 @@ url: /?p=5443
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Dovecot
 dovecot 是一个开源的 IMAP 和 POP3 邮件服务器，支持 Linux/Unix 系统。

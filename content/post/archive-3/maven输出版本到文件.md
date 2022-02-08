@@ -6,6 +6,8 @@ url: /?p=15799
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## maven输出版本到文件
 https://stackoverflow.com/questions/3532135/using-maven-to-output-the-version-number-to-a-text-file

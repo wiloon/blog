@@ -6,6 +6,8 @@ url: glibc
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ### glibc
 

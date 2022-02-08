@@ -6,6 +6,8 @@ url: /?p=5438
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## '浏览器,F5 和 Ctrl+F5的区别'
 引:<http://morganchengmo.spaces.live.com/blog/cns!9950CE918939932E!2144.entry>

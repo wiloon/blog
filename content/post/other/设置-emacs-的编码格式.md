@@ -6,6 +6,8 @@ url: /?p=2033
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## 设置 Emacs 的编码格式
 

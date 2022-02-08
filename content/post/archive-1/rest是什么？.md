@@ -6,6 +6,8 @@ url: /?p=4632
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## REST是什么？
 概述

@@ -6,6 +6,8 @@ url: aes
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## AES
 ### AES算法简介

@@ -6,6 +6,8 @@ url: /?p=7551
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## NAS, raid
 # NAS, RAID

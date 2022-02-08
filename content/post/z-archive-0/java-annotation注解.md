@@ -6,6 +6,8 @@ url: annotation
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Annotation/注解
 # annotation

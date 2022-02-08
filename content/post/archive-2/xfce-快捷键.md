@@ -6,6 +6,8 @@ url: /?p=9647
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## xfce 快捷键
 ```bash

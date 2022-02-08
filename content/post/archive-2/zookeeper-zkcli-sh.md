@@ -6,6 +6,8 @@ url: /?p=9633
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## zookeeper client zkCli.sh
 ```bash

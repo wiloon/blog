@@ -6,6 +6,8 @@ url: /?p=353
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 'ln  软连接和硬连接'
 ```bash

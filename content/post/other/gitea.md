@@ -6,6 +6,8 @@ url: gitea
 categories:
   - git
 
+tags:
+  - reprint
 ---
 
 ### gitea

@@ -6,6 +6,8 @@ url: /?p=5624
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 控制语句 if, for, switch
 http://www.cnblogs.com/howDo/archive/2013/06/01/GoLang-Control.html

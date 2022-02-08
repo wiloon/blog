@@ -9,6 +9,7 @@ tags:
   - Git
 
 ---
+## git push 撤销
 ## git push
 wiloon@debian:~/development/source/et$ git push
   

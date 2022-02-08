@@ -6,6 +6,8 @@ url: /?p=11348
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go get
 go get urlxxx

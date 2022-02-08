@@ -4,6 +4,10 @@ author: "-"
 date: 2018-12-19T08:49:53+00:00
 url: /?p=13147
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## Vim  查找, 替换
 

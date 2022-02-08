@@ -6,7 +6,10 @@ url: license
 categories:
   - open-souce
 
+tags:
+  - reprint
 ---
+## 开源许可证, License, BSD, MIT, Apache,GPL
 ## 开源许可证, License, BSD, MIT, Apache, GPL
 （1) BSD（二条款版) 
 

@@ -6,6 +6,8 @@ url: /?p=2728
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## FreeDOS USB Bootable Drive
 http://www.aselabs.com/articles.php?id=243

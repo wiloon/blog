@@ -6,6 +6,8 @@ url: /?p=7335
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java rss lib 评测
 http://blog.csdn.net/zhaozexin/article/details/282333

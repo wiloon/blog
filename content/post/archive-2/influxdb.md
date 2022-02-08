@@ -6,6 +6,8 @@ url: /?p=10825
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## InfluxDB
 时间序列数据库 InfluxDB

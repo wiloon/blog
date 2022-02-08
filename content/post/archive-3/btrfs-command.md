@@ -6,6 +6,8 @@ url: /?p=14150
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## btrfs command
 ```bash

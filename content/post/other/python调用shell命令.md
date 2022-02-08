@@ -6,6 +6,8 @@ url: /?p=4709
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## python调用shell命令
 <http://blog.chinaunix.net/uid-16362696-id-3067891.html>

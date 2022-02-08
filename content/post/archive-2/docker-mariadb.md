@@ -6,6 +6,8 @@ url: /?p=13220
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## docker mariadb
 ```bash

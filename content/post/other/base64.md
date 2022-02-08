@@ -6,6 +6,8 @@ url: base64
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## Base64
 base64是一种将二进制的01序列转化成ASCII字符的编码方法。编码后的文本或者二进制消息，就可以运用SMTP等只支持ASCII字符的协议传送了。Base64一般被认为会平均增加33%的报文长度，而且，经过编码的消息对于人类来说是不可读的。

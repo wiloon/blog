@@ -6,6 +6,8 @@ url: /?p=10018
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux, tensorFlow, golang
 * * *

@@ -6,6 +6,8 @@ url: /?p=5792
 categories:
   - CI
 
+tags:
+  - reprint
 ---
 ## Jenkins邮件通知
 #### 可用令牌

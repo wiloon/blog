@@ -4,6 +4,10 @@ author: "-"
 date: 2011-09-09T09:16:20+00:00
 url: /?p=666
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## java classloader
 不同的JVM的实现不同，本文所描述的内容均只限于Hotspot Jvm.

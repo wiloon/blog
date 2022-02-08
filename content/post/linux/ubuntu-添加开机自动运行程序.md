@@ -6,6 +6,8 @@ url: /?p=181
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 开机自动运行程序
 用户登录时, bash会在用户目录下按顺序查找以下三个文件,执行最先找到的一个.

@@ -6,6 +6,8 @@ url: /?p=11995
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## PXE
 http://blog.csdn.net/nirendao/article/details/76012939

@@ -6,6 +6,8 @@ url: /?p=631
 categories:
   - English
 
+tags:
+  - reprint
 ---
 ## 加减乘除,大于,小于,等于,分数,小数和百分数英文表达
 加减乘除: + - × ÷

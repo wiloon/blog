@@ -6,6 +6,8 @@ url: /?p=5478
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## eclipse.ini
 <http://www.cnblogs.com/yan5lang/archive/2011/05/24/2055867.html>

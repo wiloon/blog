@@ -6,6 +6,8 @@ url: /?p=8628
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java Service Wrapper
 http://www.cnblogs.com/fsjohnhuang/p/4019267.html

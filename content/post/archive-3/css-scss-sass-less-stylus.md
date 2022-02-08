@@ -6,6 +6,8 @@ url: /?p=14365
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## css scss sass less stylus
 Sass和Less语法严谨、Stylus相对自由。因为Less长得更像 css，所以它可能学习起来更容易。

@@ -6,6 +6,8 @@ url: /?p=12072
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## win 10 kms
 https://hqidi.com/36.html

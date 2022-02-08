@@ -6,6 +6,8 @@ url: /?p=8379
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Gentoo emerge命令
 Gentoo的包管理工具称为portage。emerge是这个portage的字符界面管理工具,图形界面工具还有portato,porthole,kuroo,himerge等。

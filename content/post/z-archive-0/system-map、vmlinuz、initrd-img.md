@@ -6,6 +6,8 @@ url: /?p=2465
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## System.map、vmlinuz、initrd.img
 ### vmlinuz

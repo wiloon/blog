@@ -6,6 +6,8 @@ url: rclone
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## rclone mount google drive, webdav, onedrive
 ### install rclone

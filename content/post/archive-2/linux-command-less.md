@@ -6,6 +6,8 @@ url: /?p=10943
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## less
 ### make Vim behave like "tail -f"?

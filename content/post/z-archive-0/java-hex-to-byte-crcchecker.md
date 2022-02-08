@@ -6,6 +6,8 @@ url: /?p=4299
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 'Java Hex To Byte & CRCChecker'
 ```java

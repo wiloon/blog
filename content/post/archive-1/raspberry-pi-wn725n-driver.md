@@ -6,6 +6,8 @@ url: /?p=5994
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi wn725n driver
 

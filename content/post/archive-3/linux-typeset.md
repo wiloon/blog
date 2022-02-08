@@ -6,6 +6,8 @@ url: /?p=15069
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux typeset
 https://blog.csdn.net/blackmanren/article/details/9281201

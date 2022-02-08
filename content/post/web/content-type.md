@@ -6,6 +6,8 @@ url: content-type
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## content-type
 Content-Type 实体头部用于指示资源的MIME类型 media type 。

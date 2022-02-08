@@ -6,6 +6,8 @@ url: /?p=13244
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## LLMNR
 <https://www.jianshu.com/p/bfcc437a738e>

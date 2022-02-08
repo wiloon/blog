@@ -6,6 +6,8 @@ url: /?p=7217
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android Studio 因为需要下载gradle不能启动或新建项目
 http://blog.csdn.net/likebamboo/article/details/19474893

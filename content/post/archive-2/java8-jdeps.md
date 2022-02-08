@@ -6,6 +6,8 @@ url: /?p=10305
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java8 jdeps
 http://blog.csdn.net/u013803262/article/details/70570161

@@ -6,6 +6,8 @@ url: /?p=1889
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## rdesktop
 ```bash

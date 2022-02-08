@@ -6,6 +6,8 @@ url: /?p=7337
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## SEM
 SEM是Search Engine Marketing的缩写,中文意思是搜索引擎营销。SEM是一种新的网络营销形式。SEM所做的就是全面而有效的利用搜索引擎来进行网络营销和推广。

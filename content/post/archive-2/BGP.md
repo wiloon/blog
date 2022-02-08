@@ -6,6 +6,8 @@ url: /?p=8883
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## BGP 链路
 http://blog.sina.com.cn/s/blog_5128081e01008kbc.html

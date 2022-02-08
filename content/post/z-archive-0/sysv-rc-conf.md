@@ -6,6 +6,8 @@ url: /?p=3225
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## sysv-rc-conf
 

@@ -6,6 +6,8 @@ url: /?p=15081
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL 默认排序
 不加order by 的情况 下, 顺序 不能保证, 不同存储引擎, 有过增删改操作 都有可能 影响默认顺序, 默认排序只依赖于内部实现, 不同版本的MySQL也有可能 不同.

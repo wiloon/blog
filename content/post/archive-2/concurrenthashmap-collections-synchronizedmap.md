@@ -6,6 +6,8 @@ url: /?p=8599
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ConcurrentHashMap Collections.synchronizedMap
 # ConcurrentHashMap, Collections.synchronizedMap和Hashtable讨论

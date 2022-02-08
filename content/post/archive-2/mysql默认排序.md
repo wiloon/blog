@@ -6,6 +6,8 @@ url: /?p=8664
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL默认排序
 SELECT * FROM tbl -- this will do a "table scan". If the table has never had any DELETEs/REPLACEs/UPDATEs, the records will happen to be in the insertion order, hence what you observed. 

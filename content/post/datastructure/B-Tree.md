@@ -6,7 +6,10 @@ url: btree
 categories:
   - data-structure
 
+tags:
+  - reprint
 ---
+## B树(B-tree), B+树(B+-tree),B*树(B*-tree)
 ## B树(B-tree), B+树(B+-tree), B\*树(B\*-tree)
 ### B树(B-tree)
 

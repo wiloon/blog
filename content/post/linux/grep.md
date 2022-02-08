@@ -6,6 +6,8 @@ url: grep
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## grep
 按行处理,输出文件中包含搜索字符串的所有行。  

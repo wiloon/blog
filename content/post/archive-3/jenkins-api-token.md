@@ -6,6 +6,8 @@ url: /?p=15806
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jenkins api token
 Jenkins REST API提供了API token，使得可以在程序中使用API token进行认证（而不是使用你真实的密码) 。

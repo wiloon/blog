@@ -6,6 +6,8 @@ url: /?p=9988
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JVM编译器
 即时编译器

@@ -6,6 +6,8 @@ url: /?p=8784
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gradle executable jar, application plugin
 apply plugin: 'application'

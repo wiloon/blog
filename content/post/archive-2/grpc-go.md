@@ -6,6 +6,8 @@ url: grpc/go
 categories:
   - rpc
 
+tags:
+  - reprint
 ---
 ### grpc
 gRPC通过 HTTP2 协议传输

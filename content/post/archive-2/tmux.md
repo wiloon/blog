@@ -6,6 +6,8 @@ url: /?p=9444
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ### ~/.tmux.conf
 

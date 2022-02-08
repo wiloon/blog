@@ -6,6 +6,8 @@ url: /?p=7019
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Chrome 运行Android应用
 说到Chrome运行android程序,不得不说一个东西,那就是"Android Runtime for Chrome（ARC) ",ARC是Google最新推出的 Chrome OS 运行Android程序的运行时。ARC基于Google的Native Client(NaCl)功能,其允许通过浏览器来运行原生代码(通常是C或C++),同时具备Chrome所提供的同等安全性。显然,NaCl扩展是可以做到跨平台的,这意味着它能够在PC、Mac、以及Linux等系统的桌面版Chrome浏览器上运行。

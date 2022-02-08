@@ -6,6 +6,8 @@ url: /?p=1653
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## Oracle truncate table, delete tabel
 # 一、

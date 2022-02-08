@@ -6,6 +6,8 @@ url: wording
 categories:
   - L
 
+tags:
+  - reprint
 ---
 ## words, wording
 一个人可以走的更快，一群人可以走的更远 — 非洲谚语

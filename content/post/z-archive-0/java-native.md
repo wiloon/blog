@@ -6,6 +6,8 @@ url: /?p=4163
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java native
 Java不是完美的，Java的不足除了体现在运行速度上要比传统的C++慢许多之外，Java无法直接访问到操作系统底层（如系统硬件等)，为此Java使用native方法来扩展Java程序的功能。

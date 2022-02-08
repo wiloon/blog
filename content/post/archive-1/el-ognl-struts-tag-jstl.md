@@ -6,6 +6,8 @@ url: /?p=5377
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## EL, Ognl, Struts Tag, JSTL
 <http://www.cnblogs.com/LeneJay/archive/2011/11/14/2248218.html>

@@ -6,7 +6,10 @@ url: pmap
 categories:
   - linux
 
+tags:
+  - reprint
 ---
+## pmap
 ## linux pmap
 Pmap 命令: 查看进程用了多少内存, Linux Pmap Command - Find How Much Memory Process Use
 

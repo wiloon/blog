@@ -6,6 +6,8 @@ url: /?p=10088
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## markdown test
 http://wowubuntu.com/markdown/#autolink

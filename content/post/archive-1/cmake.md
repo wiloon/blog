@@ -6,6 +6,8 @@ url: /?p=5241
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## CMake
 

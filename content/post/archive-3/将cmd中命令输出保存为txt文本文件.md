@@ -6,6 +6,8 @@ url: /?p=14926
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 将cmd中命令输出保存为TXT文本文件
 https://www.cnblogs.com/hongten/archive/2013/03/27/hongten_windows_cms.html

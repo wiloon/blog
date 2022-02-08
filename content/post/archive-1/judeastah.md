@@ -6,6 +6,8 @@ url: /?p=4643
 categories:
   - UML
 
+tags:
+  - reprint
 ---
 ## JUDE,Astah
 随着UML的扩大，UML建模工具也越来越庞大。不过，许多功能并不是用户所寻求的。因此，Astah Professional（原名JUDE)  听取用户心声，根据用户需要打造，按照使用习惯设计，轻便简单，友好易用，用户可以轻松使用它来高速建模，极大的提高了效率。

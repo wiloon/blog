@@ -6,6 +6,8 @@ url: /?p=13334
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 数字签名、数字证书与PKI系统
 https://www.jianshu.com/p/ffe8c203a471

@@ -6,6 +6,8 @@ url: /?p=11446
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang select
 select 语句的行为

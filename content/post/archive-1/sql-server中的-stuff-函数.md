@@ -6,6 +6,8 @@ url: /?p=5742
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## sql server中的 stuff 函数
 # STUFF

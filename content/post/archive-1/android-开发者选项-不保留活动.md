@@ -6,6 +6,8 @@ url: /?p=7255
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android 开发者选项 不保留活动
 after lock screen the system does not invoke the method on destory

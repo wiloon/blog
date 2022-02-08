@@ -3,7 +3,12 @@ author: "-"
 date: "2021-01-16 23:27:37" 
 title: "wifi"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "wifi"
 
 802.11bgn含义  
 802.11是无线网络连接的标准,就是我们通常所说的WIFI。

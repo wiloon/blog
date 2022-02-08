@@ -6,6 +6,8 @@ url: /?p=4764
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Cdrtfe
 现在市面上的刻录工具大多数华而不实,臃肿的体积,繁琐的操作,令人感到反感。如果你想找寻一款纯光盘刻录工具的话,那么,Cdrtfe ,这款小巧的开源工具将是你最好的选择。

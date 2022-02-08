@@ -6,6 +6,8 @@ url: /?p=11283
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Guava Multimap
 在日常的开发工作中,我们有的时候需要构造像Map<K, List<V>>或者Map<K, Set<V>>这样比较复杂的集合类型的数据结构,以便做相应的业务逻辑处理。例如: 

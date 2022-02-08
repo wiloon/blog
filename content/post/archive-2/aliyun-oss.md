@@ -6,7 +6,10 @@ url: aliyun/oss
 categories:
   - cloud
 
+tags:
+  - reprint
 ---
+## aliyun oss
 ## aliyun oss, ossutil
 ### download ossutil
 >https://help.aliyun.com/document_detail/120075.html

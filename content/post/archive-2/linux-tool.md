@@ -6,6 +6,8 @@ url: /?p=12772
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux tool
 https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html

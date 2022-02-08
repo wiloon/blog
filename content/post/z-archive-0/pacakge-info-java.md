@@ -7,6 +7,8 @@ categories:
   - Development
   - Java
 
+tags:
+  - reprint
 ---
 ## pacakge-info.java
 http://strong-life-126-com.iteye.com/blog/806246

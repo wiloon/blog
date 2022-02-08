@@ -6,6 +6,8 @@ url: /?p=9133
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Debian安装FTP服务器,使用vsftpd简单实现
 http://wudixiaozi.com/1694.html

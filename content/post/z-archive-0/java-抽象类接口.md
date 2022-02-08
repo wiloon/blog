@@ -6,6 +6,8 @@ url: /?p=3336
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java 抽象类/接口
 http://dev.yesky.com/436/7581936.shtml

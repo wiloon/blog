@@ -6,6 +6,8 @@ url: /?p=5121
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## shiro tag
 ```xml

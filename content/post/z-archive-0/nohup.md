@@ -6,6 +6,8 @@ url: /?p=997
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## nohup
 ```bash

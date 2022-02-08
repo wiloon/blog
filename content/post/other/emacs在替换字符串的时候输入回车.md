@@ -6,6 +6,8 @@ url: Comparable
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## Comparable
 

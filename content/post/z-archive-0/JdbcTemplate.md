@@ -6,6 +6,8 @@ url: JdbcTemplate
 categories:
   - database
 
+tags:
+  - reprint
 ---
 ## JdbcTemplate
 >https://segmentfault.com/a/1190000010907688

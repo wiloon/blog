@@ -6,6 +6,8 @@ url: /?p=10400
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'linux 监控工具  sar'
 Cannot open /var/log/sa/sa22: No such file or directory

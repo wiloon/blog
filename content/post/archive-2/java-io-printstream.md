@@ -6,6 +6,8 @@ url: /?p=9705
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java io PrintStream
 http://www.cnblogs.com/skywang12345/p/io_16.html

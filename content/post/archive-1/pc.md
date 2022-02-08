@@ -4,6 +4,10 @@ author: "-"
 date: 2013-09-27T05:25:40+00:00
 url: /?p=5826
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 程序计数器, The Program Counter, PC
 program counter (PC) 一般也被叫做 instruction pointer (IP), 在intel x86 cpu里有时候也被叫做 instruction address register (IAR), instruction counter, 或者是 instruction sequencer 的一部分,

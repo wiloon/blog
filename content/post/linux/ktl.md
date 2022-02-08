@@ -10,6 +10,7 @@ tags:
   - kernel
 
 ---
+## "kernel thread, 内核线程， KTL"
 
 ## 内核线程, ktl
 ### 为什么需要内核线程

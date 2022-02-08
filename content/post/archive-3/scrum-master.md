@@ -6,6 +6,8 @@ url: /?p=14210
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Scrum Master
 Scrum 主 管 (Scrum Master, 简称 SM)

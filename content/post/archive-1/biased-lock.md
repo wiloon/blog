@@ -6,6 +6,8 @@ url: /?p=5812
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## 偏向锁(Biased Locking)
 Java偏向锁(Biased Locking) 是Java6引入的一项多线程优化。它通过消除资源无竞争情况下的同步原语,进一步提高了程序的运行性能。

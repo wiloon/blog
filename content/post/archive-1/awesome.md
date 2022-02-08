@@ -6,6 +6,8 @@ url: /?p=4818
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Awesome
 # 

@@ -6,6 +6,8 @@ url: /?p=12924
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## dns ttl
 https://jaminzhang.github.io/dns/DNS-TTL-Understanding-and-Config/

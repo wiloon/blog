@@ -4,6 +4,10 @@ author: "-"
 date: 2019-04-23T06:24:28+00:00
 url: /?p=14227
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## alpine basic
 ### alpine mirror

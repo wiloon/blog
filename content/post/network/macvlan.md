@@ -2,6 +2,10 @@
 ---
 title: "macvlan"
 date: 2020-05-04T19:17:36Z
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## "macvlan"
 

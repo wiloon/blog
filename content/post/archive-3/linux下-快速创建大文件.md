@@ -6,6 +6,8 @@ url: /?p=15925
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux下 快速创建大文件
 https://www.jianshu.com/p/5a2b2a0b6468

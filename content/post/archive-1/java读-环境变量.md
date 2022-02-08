@@ -6,6 +6,8 @@ url: /?p=8122
 tags:
   - java
 
+categories:
+  - inbox
 ---
 ## Java读 环境变量
 http://ling091.iteye.com/blog/354052

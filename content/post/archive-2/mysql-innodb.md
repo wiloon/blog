@@ -6,6 +6,8 @@ url: /?p=10053
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL INNODB
 http://wulijun.github.io/2012/09/29/MySQL-innodb-intro.html

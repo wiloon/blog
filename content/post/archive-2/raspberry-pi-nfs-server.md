@@ -6,6 +6,8 @@ url: /?p=13430
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi nfs server
 ```bash

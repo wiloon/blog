@@ -6,6 +6,8 @@ url: /?p=12089
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## libvirt、virsh、virt-manager
 https://blog.csdn.net/wanglei_storage/article/details/51107648

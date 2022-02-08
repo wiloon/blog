@@ -6,6 +6,8 @@ url: /?p=9694
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 设计模式 – 策略/Strategy
 设计模式之Strategy(策略)

@@ -6,6 +6,8 @@ url: /?p=14300
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## '命令行, curl  查公网ip'
 ```bash

@@ -4,6 +4,10 @@ author: "-"
 date: 2019-07-21T22:24:25+00:00
 url: /?p=14713
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## go env
 名称

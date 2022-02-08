@@ -6,6 +6,8 @@ url: /?p=11472
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'go,  time.Tick, tick immediately'
 How to get time.Tick to tick immediately

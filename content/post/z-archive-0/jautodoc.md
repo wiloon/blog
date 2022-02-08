@@ -6,6 +6,8 @@ url: /?p=3142
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## jautodoc
 http://jautodoc.sourceforge.net/update/

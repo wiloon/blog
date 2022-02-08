@@ -6,6 +6,8 @@ url: /?p=603
 categories:
   - Eclipse
 
+tags:
+  - reprint
 ---
 ## javadoc
 ### eclipse

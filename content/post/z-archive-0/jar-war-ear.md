@@ -6,6 +6,8 @@ url: /?p=2879
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JAR	WAR EAR
 ### jar: Java Archive file  

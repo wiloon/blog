@@ -4,6 +4,10 @@ author: "-"
 date: 2017-08-08T07:32:15+00:00
 url: watch
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## watch
 watch可以周期性的执行一个程序,并显示执行结果。

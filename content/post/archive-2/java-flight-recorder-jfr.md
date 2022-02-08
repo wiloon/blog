@@ -6,6 +6,8 @@ url: /?p=12264
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java Flight Recorder, jfr
 ```bash

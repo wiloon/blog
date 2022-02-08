@@ -6,6 +6,8 @@ url: /?p=10265
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## HBase的WAL机制 WAL (Write-Ahead-Log)
 WAL机制解析

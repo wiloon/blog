@@ -6,6 +6,8 @@ url: /?p=9415
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang MySQL
 http://www.cnblogs.com/hupengcool/p/4143238.html

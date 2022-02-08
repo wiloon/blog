@@ -6,6 +6,8 @@ url: /?p=10948
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea external tool
 https://intellij-support.jetbrains.com/hc/en-us/community/posts/206883315-Anyway-to-Make-IntelliJ-IDEA-run-command-line-commands

@@ -6,6 +6,8 @@ url: /?p=3728
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux shell split string
 ```bash

@@ -6,6 +6,8 @@ url: /?p=14317
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Kafka文件存储机制
 Kafka是什么

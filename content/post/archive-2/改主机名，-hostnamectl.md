@@ -6,6 +6,8 @@ url: /?p=11980
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 改主机名, hostnamectl
 http://blog.csdn.net/peterxiaoq/article/details/72912862

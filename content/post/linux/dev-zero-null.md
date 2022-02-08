@@ -6,6 +6,8 @@ url: /?p=3453
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## /dev/zero和/dev/null
 ### /dev/null

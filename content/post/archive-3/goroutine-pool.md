@@ -6,6 +6,8 @@ url: /?p=15986
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## goroutine pool
 ```golang

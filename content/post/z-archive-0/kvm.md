@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## KVM
 ### intel 虚拟化 VT-d VT-x VT-c 

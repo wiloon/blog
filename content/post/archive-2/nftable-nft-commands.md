@@ -6,6 +6,8 @@ url: /?p=12735
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'nftable, nft  basic, commands'
 ### 安装 nftables

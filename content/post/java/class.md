@@ -6,6 +6,8 @@ url: class
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Class 文件内容, 方法区, 常量池
 

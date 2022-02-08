@@ -6,6 +6,8 @@ url: /?p=8331
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java.sql.Timestamp cannot be cast to java.sql.Date
 java.sql.Timestamp cannot be cast to java.sql.Date

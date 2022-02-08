@@ -6,6 +6,8 @@ url: /?p=3588
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ServletContextAttributeListener
  ServletContext context = getServletContext();

@@ -6,6 +6,8 @@ url: /?p=14988
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## VM Thread
 VM Thread是JVM层面的一个线程，主要工作是对其他线程的创建，分配和对象的清理等工作的。

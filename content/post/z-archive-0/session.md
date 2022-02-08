@@ -7,6 +7,8 @@ categories:
 - Java
 - Web
 
+tags:
+  - reprint
 ---
 ## Session
 

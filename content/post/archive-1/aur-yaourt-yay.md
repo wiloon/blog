@@ -6,6 +6,8 @@ url: yay
 tags:
   - Arch Linux
 
+categories:
+  - inbox
 ---
 ## 'archlinux AUR,  yay,  Yaourt'
 Yaourt 已经不再维护

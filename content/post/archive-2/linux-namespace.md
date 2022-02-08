@@ -6,6 +6,8 @@ url: /?p=12469
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux Namespace
 https://lwn.net/Articles/531114/

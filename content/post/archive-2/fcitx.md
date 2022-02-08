@@ -6,6 +6,8 @@ url: fcitx
 categories:
 - Uncategorized
 
+tags:
+  - reprint
 ---
 ## fcitx
 ### 配置文件

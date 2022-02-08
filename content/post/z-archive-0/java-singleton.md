@@ -6,6 +6,8 @@ url: /?p=4308
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java Singleton
 public class ConnEnv {

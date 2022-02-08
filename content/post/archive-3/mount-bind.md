@@ -6,6 +6,8 @@ url: /?p=15511
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mount –bind
 https://xionchen.github.io/2016/08/25/linux-bind-mount/

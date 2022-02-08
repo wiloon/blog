@@ -6,6 +6,8 @@ url: /?p=9103
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang io
 https://github.com/polaris1119/The-Golang-Standard-Library-by-Example/blob/master/chapter01/01.1.md

@@ -4,6 +4,10 @@ author: "-"
 date: 2019-05-13T02:32:29+00:00
 url: /?p=14328
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## Kafka, offset
 offset的保存

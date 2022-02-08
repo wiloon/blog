@@ -6,6 +6,8 @@ url: /?p=10965
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## fsck
 

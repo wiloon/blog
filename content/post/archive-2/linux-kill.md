@@ -6,5 +6,7 @@ url: /?p=9037
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux kill,pkill

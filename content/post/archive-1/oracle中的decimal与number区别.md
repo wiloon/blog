@@ -6,6 +6,8 @@ url: /?p=7139
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Oracle中的decimal与Number区别
 一、DECIMAL类型详细

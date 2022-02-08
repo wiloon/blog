@@ -6,6 +6,8 @@ url: /?p=11838
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## install cloud9 ide on debian/ubuntu
 https://github.com/c9

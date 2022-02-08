@@ -6,6 +6,8 @@ url: /?p=5341
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 查看python的版本
 python -V

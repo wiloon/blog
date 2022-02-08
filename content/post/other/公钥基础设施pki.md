@@ -6,6 +6,8 @@ url: pki
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 公钥基础设施/PKI
 

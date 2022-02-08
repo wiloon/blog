@@ -6,6 +6,8 @@ url: centos
 categories:
   - linux
 
+tags:
+  - reprint
 ---
 
 ### centos, rpm

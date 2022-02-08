@@ -6,6 +6,8 @@ url: /?p=8604
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## tightvnc, tigervnc
 ### tighervnc nightly build

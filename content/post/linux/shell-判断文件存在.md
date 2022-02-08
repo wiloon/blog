@@ -6,6 +6,8 @@ url: /?p=164
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## shell 判断文件存在
 myPath="/var/log/httpd/"

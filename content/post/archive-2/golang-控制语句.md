@@ -4,6 +4,10 @@ author: "-"
 date: 2016-10-12T05:39:20+00:00
 url: /?p=9287
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang 控制语句/control, foreach, loop, switch,循环
 

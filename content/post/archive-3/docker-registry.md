@@ -6,6 +6,8 @@ url: /?p=13951
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## docker registry
 

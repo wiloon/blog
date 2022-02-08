@@ -4,6 +4,10 @@ author: "-"
 date: 2017-03-24T15:52:22+00:00
 url: /?p=9925
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 协程, coroutine, goroutine
 # 协程, coroutine

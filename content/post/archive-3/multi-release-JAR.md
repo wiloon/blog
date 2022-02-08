@@ -7,6 +7,8 @@ url: /?p=15716
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## multi-release JAR (MR JAR)
 https://in.relation.to/2017/02/13/building-multi-release-jars-with-maven/

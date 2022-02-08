@@ -6,6 +6,8 @@ url: /?p=5195
 categories:
   - CI
 
+tags:
+  - reprint
 ---
 ## jenkins sender email address
 Jenkins uses the _System Admin e-mail address_ as the sender address for e-mail notification. You can configure this under _Manage Jenkins -> Configure System_. This is under the _Jenkins Location_ header on that page

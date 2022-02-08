@@ -6,6 +6,8 @@ url: /?p=11392
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go channel
 http://colobu.com/2016/04/14/Golang-Channels/

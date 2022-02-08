@@ -6,6 +6,8 @@ url: /?p=14104
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux nm
 nm 目标文件格式分析

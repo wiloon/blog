@@ -6,6 +6,8 @@ url: /?p=7468
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## PXE booting
 **预启动执行环境**（**Preboot eXecution Environment**，**PXE**，也被称为预执行环境)提供了一种使用网络接口（Network Interface) 启动计算机的机制。这种机制让计算机的启动可以不依赖本地数据存储设备（如硬盘) 或本地已安装的操作系统。

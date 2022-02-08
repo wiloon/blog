@@ -6,6 +6,8 @@ url: /?p=6089
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## USB 线序 G C D V, 黑 绿 白 红
 USB接口有四根线，中间触点短的两根用于数据传输，外侧另两根供电。

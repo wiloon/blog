@@ -6,6 +6,8 @@ url: /?p=4637
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## Oracle 事务隔离级别
 Oracle 支持以下三种事务隔离级别（transaction isolation level) 。

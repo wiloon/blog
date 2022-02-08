@@ -6,6 +6,8 @@ url: /?p=14309
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## scrum poker
 android,ios: Scrum Poker Cards (Agile)

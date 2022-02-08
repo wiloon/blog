@@ -6,6 +6,8 @@ url: /?p=1601
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Hostname
 ```bash

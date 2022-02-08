@@ -6,6 +6,8 @@ url: /?p=9370
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## rfkill
 https://linux.cn/article-5957-1.html

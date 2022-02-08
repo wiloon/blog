@@ -6,6 +6,8 @@ url: /?p=13232
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea 插入当前日期,insert current datetime
 ### 安装 idea 插件:

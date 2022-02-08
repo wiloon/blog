@@ -6,6 +6,8 @@ url: /?p=13084
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## web应用防火墙(WAF)
 Web应用防火墙是集web防护、网页保护、负载均衡、应用交付于一体的web整体安全防护设备的一款产品 。

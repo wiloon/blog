@@ -6,6 +6,8 @@ url: /?p=14513
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 #go语言的模板，text/template包 ##定义 模板就是将一组文本嵌入另一组文本里
 

@@ -6,6 +6,8 @@ url: /?p=7259
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## android 保存和恢复activity的状态数据
 

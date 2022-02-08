@@ -6,6 +6,8 @@ url: wireshark
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## Wireshark
 Wireshark（前称Ethereal) 是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。

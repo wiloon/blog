@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## linux 网络命令
 iwconfig 和 iwpriv。iwconfig 用于配置一些比较 general 的功能，如 ESSID、AP 的 MAC 地址、mode、频道、速率等。和 ifconfig 类似，不加任何参数的时候显示 /proc/net/wireless 的内容；而 iwpriv 则配置比较 private 的内容，和各个网卡相关的东西，可以用 -a 获得所有可以执行的命令。下面是这些命令的说明: 

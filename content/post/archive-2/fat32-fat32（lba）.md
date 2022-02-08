@@ -6,6 +6,8 @@ url: fat
 categories:
   - file
 
+tags:
+  - reprint
 ---
 ## fat32, fat32（LBA)
 

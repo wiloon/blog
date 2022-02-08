@@ -6,6 +6,8 @@ url: /?p=3021
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nexus OSS
 ### docker

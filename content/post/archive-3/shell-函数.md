@@ -6,6 +6,8 @@ url: /?p=15071
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Shell 函数
 ```bash

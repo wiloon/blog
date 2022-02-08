@@ -6,6 +6,8 @@ url: /?p=12337
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## yubikey
 https://wiki.archlinux.org/index.php/yubikey#Introduction

@@ -6,6 +6,8 @@ url: /?p=6932
 tags:
   - linux
 
+categories:
+  - inbox
 ---
 ## linux tty
 - pts(pseudo-terminal slave)

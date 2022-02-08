@@ -6,6 +6,8 @@ url: /?p=10952
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## echo $$, $BASHPID
 $$是当前bash进程的pid 等同于 $BASHPID

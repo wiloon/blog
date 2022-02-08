@@ -6,6 +6,8 @@ url: git-proxy
 categories:
   - git
 
+tags:
+  - reprint
 ---
 ### git proxy
 ```bash

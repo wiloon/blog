@@ -6,6 +6,8 @@ url: /?p=11115
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## OAuth,SSO,REST
 http://favccxx.blog.51cto.com/2890523/1635938

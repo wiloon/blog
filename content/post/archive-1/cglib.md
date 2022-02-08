@@ -6,6 +6,8 @@ url: /?p=4901
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## cglib
 cglib是一个强大的,高性能,高质量的Code生成类库,它可以在运行期扩展Java类与实现Java接口。Hibernate用它来实现PO字节码的动态生成。

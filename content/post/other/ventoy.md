@@ -3,7 +3,12 @@ author: "-"
 date: "2021-02-11 17:41:09" 
 title: "ventoy"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "ventoy"
 
 entoy是一款国人开发的新一代多ISO启动引导程序，这款工具最大的优点就是无需格式化优盘，用户只需要将所需的ISO镜像文件拷贝至优盘中即可在Ventoy界面中选择自己想要的ISO镜像文件。
 

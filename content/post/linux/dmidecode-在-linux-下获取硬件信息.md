@@ -6,6 +6,8 @@ url: /?p=4262
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 'Dmidecode,在 Linux 下获取硬件信息'
 <http://linuxtoy.org/archives/dmidecode.html>

@@ -6,6 +6,8 @@ url: /?p=5239
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Qt, GTK
 ### 查看Qt 版本

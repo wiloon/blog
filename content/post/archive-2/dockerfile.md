@@ -6,6 +6,8 @@ url: /?p=13180
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## dockerfile
 ```

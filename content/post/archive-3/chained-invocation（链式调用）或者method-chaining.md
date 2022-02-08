@@ -6,6 +6,8 @@ url: /?p=14542
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chained invocation（链式调用) 或者Method chaining
 https://www.zhihu.com/question/22006988

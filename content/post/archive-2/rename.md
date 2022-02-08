@@ -6,7 +6,10 @@ url: rename
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## rename
 ## 重命名 rename
 ```bash
   

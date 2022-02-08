@@ -6,6 +6,8 @@ url: /?p=11977
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux 内网域名 ping结果和dig结果不一致
 确认/etc/resolv.conf配置是否正确: 没问题；

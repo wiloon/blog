@@ -6,6 +6,8 @@ url: /?p=8279
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux more
 http://www.cnblogs.com/peida/archive/2012/11/02/2750588.html

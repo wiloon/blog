@@ -4,6 +4,10 @@ author: "-"
 date: 2014-11-20T02:19:52+00:00
 url: synchronized
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## synchronized 原理, 偏向锁, 轻量锁, 重量锁
 http://www.jianshu.com/p/5dbb07c8d5d5

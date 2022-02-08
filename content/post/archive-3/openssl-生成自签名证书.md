@@ -6,6 +6,8 @@ url: /?p=13935
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Openssl 生成自签名证书
 ```bash

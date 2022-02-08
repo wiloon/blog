@@ -6,6 +6,8 @@ url: /?p=159
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux shell sleep,wait
 sleep 5

@@ -6,6 +6,8 @@ url: ls
 categories:
   - linux
 
+tags:
+  - reprint
 ---
 ## ls
 ```bash

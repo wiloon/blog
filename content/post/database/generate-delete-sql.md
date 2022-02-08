@@ -6,6 +6,8 @@ url: /?p=1598
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## generate delete sql
 select 'delete from ' || ut.table_name || ';' from user_tables ut;

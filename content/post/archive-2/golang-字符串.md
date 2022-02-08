@@ -6,6 +6,8 @@ url: go/string
 categories:
   - golang
 
+tags:
+  - reprint
 ---
 ## golang 字符串/string
 ### join

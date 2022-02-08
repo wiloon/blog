@@ -6,6 +6,8 @@ url: /?p=8449
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 网络监控, NetHogs
 https://linux.cn/article-2808-1.html

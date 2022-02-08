@@ -6,6 +6,8 @@ url: /?p=9921
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## wait(),notify(),notifyAll()
 notifyAll 是一个重的方法,它会带来大量的上下文切换和锁竞争。

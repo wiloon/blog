@@ -6,6 +6,8 @@ url: /?p=12641
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Archlinux, Pixelbook, chromeos, Crostini
 https://wiki.archlinux.org/title/Chromebook_Pixel_2

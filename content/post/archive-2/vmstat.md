@@ -4,6 +4,10 @@ author: "-"
 date: 2017-03-31T01:31:46+00:00
 url: vmstat
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## vmstat
 ```bash

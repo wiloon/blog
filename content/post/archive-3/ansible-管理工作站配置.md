@@ -6,6 +6,8 @@ url: ansible
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'ansible  管理工作站配置, linux初始化'
 ### archlinux

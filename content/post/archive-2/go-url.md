@@ -6,6 +6,8 @@ url: /?p=11340
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go url
 func QueryEscape(s string) string

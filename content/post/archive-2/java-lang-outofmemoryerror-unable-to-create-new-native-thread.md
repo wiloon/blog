@@ -6,6 +6,8 @@ url: /?p=8434
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'java.lang.OutOfMemoryError,unable to create new native thread'
 http://www.blogjava.net/ldd600/archive/2009/09/25/296397.html

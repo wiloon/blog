@@ -6,6 +6,8 @@ url: /?p=7164
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 将HTML5封装成android应用APK文件的几种方法
 http://mobile.51cto.com/android-386448.htm

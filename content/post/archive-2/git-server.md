@@ -6,6 +6,8 @@ url: /?p=9377
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## git server
 在远程仓库一节中,我们讲了远程仓库实际上和本地仓库没啥不同,纯粹为了7x24小时开机并交换大家的修改。

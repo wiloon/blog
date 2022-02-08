@@ -6,6 +6,8 @@ url: /?p=4354
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java Image与BufferedImage
 

@@ -6,6 +6,8 @@ url: /?p=9354
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ima
 symbol  用来计算MA指标的货币代码,NULL表示用当前货币

@@ -3,7 +3,12 @@ author: "-"
 date: "2020-10-12 14:18:49" 
 title: "xterm"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "xterm"
 http://www.hasdiffer.com/xterm-vs-terminal.html
 
 xterm和终端都是运行X Windows系统的基于UNIX的系统通用的终端仿真器。终端仿真器基本上是一种终端应用程序，它允许用户访问最初开发的程序以与某些其他类型的终端进行通信。它只是复制了经典计算机终端的功能。终端仿真器通常由系统管理员使用，因为某些内置的命令行程序无法自行运行，因此使用第三方终端仿真器与系统进行通信。命令行通常是在Linux系统上运行的最佳方法，因为大多数任务在控制台上运行效果最佳。

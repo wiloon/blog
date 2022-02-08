@@ -6,6 +6,8 @@ url: bluetooth
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 蓝牙配对
 四中配对模式: Numeric Comparison, Just Works, Out of Band and Passkey Entry。

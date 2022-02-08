@@ -10,6 +10,7 @@ tags:
   - remix
 
 ---
+## curl
 ## curl, [kɜrl]
 ### cookie
 #### cookie, 发送请求时附带cookie, cookie值从登录请求返回的 `Set-Cookie:` 里取

@@ -7,7 +7,10 @@ categories:
   - java
   - remix
 
+tags:
+  - reprint
 ---
+## Java诊断工具 - btrace
 ## Java诊断工具 – btrace
 ### 下载最新的版本
 

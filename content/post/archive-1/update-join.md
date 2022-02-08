@@ -6,6 +6,8 @@ url: /?p=5688
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## update join, delete join
 ```sql

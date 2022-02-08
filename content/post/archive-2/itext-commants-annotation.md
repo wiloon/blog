@@ -6,6 +6,8 @@ url: /?p=11683
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## itext commants, annotation
 https://gist.github.com/i000313/6372210

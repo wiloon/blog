@@ -6,6 +6,8 @@ url: /?p=8987
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux批量重命名文件
 ```bash

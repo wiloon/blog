@@ -6,6 +6,8 @@ url: /?p=14005
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## btrfs
 ### 禁用COW

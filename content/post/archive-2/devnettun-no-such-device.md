@@ -6,6 +6,8 @@ url: /?p=10724
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## '/dev/net/tun,No such device'
 ```bash

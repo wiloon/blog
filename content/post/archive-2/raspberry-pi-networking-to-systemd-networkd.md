@@ -4,6 +4,10 @@ author: "-"
 date: 2018-12-26T14:35:39+00:00
 url: /?p=13214
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## raspberry pi networking to systemd-networkd
 https://raspberrypi.stackexchange.com/questions/78787/howto-migrate-from-networking-to-systemd-networkd-with-dynamic-failover

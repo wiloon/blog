@@ -6,6 +6,8 @@ url: /?p=13893
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang base64
 http://www.01happy.com/golang-base64-encode-decode/

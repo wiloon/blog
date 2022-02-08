@@ -6,6 +6,8 @@ url: /?p=15516
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'golang 获取interface{} 的数据类型'
 https://blog.csdn.net/xia_xing/article/details/49423771

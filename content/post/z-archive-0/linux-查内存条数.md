@@ -6,7 +6,10 @@ url: /?p=4259
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
+## linux 内存
 ## linux 查看内存
 ```bash
   

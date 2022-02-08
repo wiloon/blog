@@ -6,6 +6,8 @@ url: /?p=12733
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## aliyun docker
 https://cr.console.aliyun.com/cn-qingdao/mirrors

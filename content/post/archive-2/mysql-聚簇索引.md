@@ -6,6 +6,8 @@ url: /?p=12526
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL 聚簇索引
 https://yq.aliyun.com/articles/142879

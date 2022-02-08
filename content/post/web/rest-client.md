@@ -3,7 +3,12 @@ author: "-"
 date: "2020-12-24 18:13:51" 
 title: "rest client"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "rest client"
 
 使用变量
 变量的好处，在开发过程中我们都知道，在 HTTP 语言中同样可以使用变量来帮助我们组织请求代码

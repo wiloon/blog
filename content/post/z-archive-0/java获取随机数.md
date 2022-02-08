@@ -6,6 +6,8 @@ url: /?p=3207
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JAVA 随机数
 

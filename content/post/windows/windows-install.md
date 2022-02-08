@@ -3,7 +3,12 @@ author: "-"
 date: "2020-09-07 16:14:43" 
 title: "windows install"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "windows install"
 ### WoeUSB,  linux 制作 windows 安装盘
 WoeUSB 是一款主要用于在 Linux 下制作 Windows 启动 U 盘的开源软件
 

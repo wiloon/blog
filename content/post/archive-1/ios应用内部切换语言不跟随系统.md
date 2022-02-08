@@ -6,6 +6,8 @@ url: /?p=7526
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang bufio 处理TCP 粘包
 http://feixiao.github.io/2016/05/08/bufio/

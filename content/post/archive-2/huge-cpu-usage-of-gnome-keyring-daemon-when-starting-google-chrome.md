@@ -6,6 +6,8 @@ url: /?p=13788
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## huge CPU usage of gnome-keyring-daemon when starting Google Chrome
 ```bash

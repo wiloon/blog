@@ -4,6 +4,10 @@ author: "-"
 date: 2015-05-04T00:34:26+00:00
 url: systemd
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## systemd, systemctl basic, command
 Systemd 是 Linux 系统中最新的初始化系统（init），它主要的设计目标是克服 sysvinit 固有的缺点，提高系统的启动速度

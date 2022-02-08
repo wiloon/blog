@@ -7,6 +7,8 @@ tags:
   - remix
   - command
 
+categories:
+  - inbox
 ---
 ## kafka basic, command
 ### consumer

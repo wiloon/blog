@@ -6,6 +6,8 @@ url: /?p=15091
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chrome修改默认用户目录
 -user-data-dir=D:\UserData\chrome

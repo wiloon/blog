@@ -6,6 +6,8 @@ url: /?p=10802
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## HBase Compaction
 HBase Compaction的前生今世－身世之旅

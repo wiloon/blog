@@ -6,6 +6,8 @@ url: /?p=5634
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## zigbee
 

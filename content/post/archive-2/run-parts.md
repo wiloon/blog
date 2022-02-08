@@ -7,6 +7,8 @@ url: /?p=11086
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux run-parts
 https://superuser.com/questions/402781/what-is-run-parts-in-etc-crontab-and-how-do-i-use-it

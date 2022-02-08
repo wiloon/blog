@@ -6,6 +6,8 @@ url: /?p=9682
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 设置 默认 声卡
 alsa设置默认声卡

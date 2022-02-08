@@ -6,6 +6,8 @@ url: /?p=4356
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java取整和四舍五入
 ```java

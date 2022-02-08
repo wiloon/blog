@@ -6,6 +6,8 @@ url: /?p=5020
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## BLOB
 

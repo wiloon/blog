@@ -6,6 +6,8 @@ url: /?p=10468
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Garbage-First G1
 <http://ifeve.com/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3g1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/>

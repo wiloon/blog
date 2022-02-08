@@ -6,6 +6,8 @@ url: /?p=8107
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Fastjson
 ```java

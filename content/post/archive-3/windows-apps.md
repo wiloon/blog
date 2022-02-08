@@ -5,6 +5,10 @@ date: 2019-03-28T02:03:39+00:00
 url: /?p=13970
 keys: win apps, windows apps
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## windows apps, win apps
 ### choco

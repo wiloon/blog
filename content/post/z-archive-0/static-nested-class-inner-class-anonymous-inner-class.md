@@ -6,6 +6,8 @@ url: /?p=4155
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Static Nested Class, Inner Class, Anonymous Inner Class
 ### Inner Class（内部类) 定义在类中的类。

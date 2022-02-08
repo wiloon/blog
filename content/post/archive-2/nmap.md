@@ -4,6 +4,10 @@ author: "-"
 date: 2017-12-16T10:44:02+00:00
 url: /?p=11617
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## nmap, 网络 扫描
 ### params

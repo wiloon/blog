@@ -6,6 +6,8 @@ url: /?p=9314
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jsw wrapper.ping.alert
 https://wrapper.tanukisoftware.com/doc/english/prop-ping-alert-x.html

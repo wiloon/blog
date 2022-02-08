@@ -6,6 +6,8 @@ url: /?p=9278
 categories:
   - go-pointer
 
+tags:
+  - reprint
 ---
 ## golang 指针
 

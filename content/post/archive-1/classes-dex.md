@@ -6,6 +6,8 @@ url: /?p=6540
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## classes.dex
   * `classes.dex`: The classes compiled in the [dex file format][1] understandable by the [Dalvik virtual machine][1]

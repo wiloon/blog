@@ -6,6 +6,8 @@ url: /?p=15801
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## debian install deb package
 deb包

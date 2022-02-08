@@ -6,6 +6,8 @@ url: /?p=2045
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java按位异或运算符
 按位异或运算符

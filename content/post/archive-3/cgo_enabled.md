@@ -4,6 +4,10 @@ author: "-"
 date: 2019-04-05T14:23:16+00:00
 url: /?p=14106
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang, cgo, CGO_ENABLED
 ### go build

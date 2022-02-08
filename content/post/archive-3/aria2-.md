@@ -6,6 +6,8 @@ url: /?p=15430
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## aria2
 ### docker

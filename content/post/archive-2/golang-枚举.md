@@ -6,6 +6,8 @@ url: /?p=11170
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 枚举, enum
 ### 枚举

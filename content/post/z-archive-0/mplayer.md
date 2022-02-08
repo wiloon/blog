@@ -6,6 +6,8 @@ url: mplayer
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## mplayer
 

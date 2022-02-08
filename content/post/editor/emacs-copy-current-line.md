@@ -6,6 +6,8 @@ url: /?p=148
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs copy current line
 ;;copy current line

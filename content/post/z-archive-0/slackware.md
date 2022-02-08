@@ -6,6 +6,8 @@ url: /?p=1605
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## slackware
 # Slackware Linux

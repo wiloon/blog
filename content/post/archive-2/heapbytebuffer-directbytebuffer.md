@@ -6,6 +6,8 @@ url: /?p=12009
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## HeapByteBuffer, DirectByteBuffer
 https://www.zhihu.com/question/60892134/answer/182225677

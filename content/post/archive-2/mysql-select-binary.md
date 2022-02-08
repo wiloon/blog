@@ -6,6 +6,8 @@ url: /?p=8712
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL select binary
 BINARY不是函数,是类型转换运算符,它用来强制它后面的字符串为一个二进制字符串,可以理解为在字符串比较的时候区分大小写

@@ -6,6 +6,8 @@ url: /?p=12113
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## R7800, Build custom Netgear R7800 firmware for a larger flash size/root space
 ```bash

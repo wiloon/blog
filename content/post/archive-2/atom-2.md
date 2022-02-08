@@ -6,6 +6,8 @@ url: /?p=8999
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## atom
 atom plugin install

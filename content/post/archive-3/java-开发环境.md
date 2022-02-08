@@ -6,6 +6,8 @@ url: /?p=15640
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## java 开发环境
 ### jdk

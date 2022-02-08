@@ -6,6 +6,8 @@ url: /?p=8641
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nftables iptables
 跟iptables相比,nftables带来了一系列的好处

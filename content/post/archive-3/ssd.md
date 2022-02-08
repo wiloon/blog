@@ -6,6 +6,8 @@ url: /?p=14152
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## SSD
 ### TRIM

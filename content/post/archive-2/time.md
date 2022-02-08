@@ -6,6 +6,8 @@ url: /?p=11884
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## time
 【命令】time — 执行命令并计时

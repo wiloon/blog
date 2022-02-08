@@ -6,6 +6,8 @@ url: ext4
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ext4 的"打洞"功能（punch hole) , 稀疏文件
 ### 稀疏文件 (Sparse File)

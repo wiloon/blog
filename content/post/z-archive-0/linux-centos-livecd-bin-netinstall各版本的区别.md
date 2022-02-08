@@ -6,6 +6,8 @@ url: /?p=2183
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Linux centos livecd bin netinstall各版本的区别
 CentOS-5.5-x86_64-LiveCD.iso 光盘系统

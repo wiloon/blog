@@ -6,6 +6,8 @@ url: /?p=15386
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Podman, Buildah, Skopeo
 ### podman

@@ -6,6 +6,8 @@ url: /?p=15212
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mvnDebug
 在maven上debug，经常跟jetty或tomcat插件在一起使用。如运行mvnDebug jetty:run命令后再通过eclipse远程连接调试。

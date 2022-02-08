@@ -6,6 +6,8 @@ url: /?p=837
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## OWL
 OWL Web本体语言指南

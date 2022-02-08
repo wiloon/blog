@@ -6,6 +6,8 @@ url: /?p=11866
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java tls, JSSE
 Java JSSE Java Secure Socket Extension

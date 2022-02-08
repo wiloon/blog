@@ -6,6 +6,8 @@ url: /?p=2556
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## centos vncserver
 CENTOS6的VNC SERVER

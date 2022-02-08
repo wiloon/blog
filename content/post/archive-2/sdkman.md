@@ -6,6 +6,8 @@ url: /?p=10735
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## sdkman
 ```bash

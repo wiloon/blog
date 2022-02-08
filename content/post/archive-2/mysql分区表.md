@@ -6,6 +6,8 @@ url: /?p=10037
 tags:
  - MySQL
 
+categories:
+  - inbox
 ---
 ## MySQL分区表, partition
 ### 没有分区的表创建分区

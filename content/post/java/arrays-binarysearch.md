@@ -6,6 +6,8 @@ url: /?p=4502
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Arrays.binarySearch()
 

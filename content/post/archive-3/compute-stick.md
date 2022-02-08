@@ -6,6 +6,8 @@ url: /?p=14451
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Intel Compute Stick
 Intel® Compute Stick STCK1A32WFC

@@ -5,6 +5,8 @@ date: 2011-12-24T01:59:51+00:00
 url: elf
 categories:
   - Linux
+tags:
+  - reprint
 ---
 ## ELF
 ELF (Executable and Linkable Format)是一种为可执行文件，目标文件，共享链接库和内核转储(core dumps)准备的标准文件格式。 Linux和很多类Unix操作系统都使用这个格式。

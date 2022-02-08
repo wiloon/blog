@@ -6,6 +6,8 @@ url: /?p=11727
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 内存盘 tmpfs
 ```bash

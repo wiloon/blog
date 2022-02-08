@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## 网桥
 作者: kendo(http://www.skynet.org.cn/)

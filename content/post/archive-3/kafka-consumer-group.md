@@ -6,6 +6,8 @@ url: /?p=14377
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## kafka consumer, group
 ```bash

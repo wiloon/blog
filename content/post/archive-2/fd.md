@@ -6,6 +6,8 @@ url: /?p=9913
 categories:
   - OS
 
+tags:
+  - reprint
 ---
 ## 文件描述符, file descriptors, fd, 句柄
 对文件描述符的理解一般都是从处理 "too many open files" 开始的  

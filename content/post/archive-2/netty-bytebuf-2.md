@@ -6,6 +6,8 @@ url: /?p=12014
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## netty ByteBuf
 https://caorong.github.io/2017/01/16/head-first-netty-3/

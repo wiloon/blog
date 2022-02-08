@@ -6,6 +6,8 @@ url: /?p=7366
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JQuery 获得绝对,相对位置的坐标
 

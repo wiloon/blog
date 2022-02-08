@@ -6,7 +6,10 @@ url: secoclient
 categories:
   - VPN
 
+tags:
+  - reprint
 ---
+## 'huawei vpn, sslvpn, secoclient  in archlinux'
 ## huawei vpn, sslvpn, secoclient  in archlinux
 
 ### 下载安装包

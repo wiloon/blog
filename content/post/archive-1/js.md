@@ -5,6 +5,10 @@ date: ""
 draft: true
 url: /?p=4997
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## inline script 和外链script
   1. 性能

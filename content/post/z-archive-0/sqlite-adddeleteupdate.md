@@ -6,6 +6,8 @@ url: /?p=3795
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## sqlite add/delete/update
 ```java

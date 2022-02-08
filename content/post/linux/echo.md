@@ -6,6 +6,8 @@ url: echo
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## echo
 echo aaa > test.txt

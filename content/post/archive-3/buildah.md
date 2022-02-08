@@ -6,6 +6,8 @@ url: /?p=15406
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## buildah
 ```bash

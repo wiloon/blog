@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## qemu basic, kvm 参数
 ### qemu-img create

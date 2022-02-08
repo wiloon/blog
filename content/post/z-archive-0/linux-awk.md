@@ -7,7 +7,10 @@ categories:
   - Linux
   - remix
 
+tags:
+  - reprint
 ---
+## awk
 ## awk `[ɔk]`
 ### commands
 ```bash

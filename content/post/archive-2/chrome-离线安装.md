@@ -6,6 +6,8 @@ url: /?p=11753
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chrome standalone 离线安装
     https://www.google.com/chrome/browser/thankyou.html?standalone=1&platform=win&installdataindex=defaultbrowser

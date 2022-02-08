@@ -6,6 +6,8 @@ url: /?p=9958
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java ReentrantLock, synchronized
 http://www.ibm.com/developerworks/cn/java/j-jtp10264/index.html

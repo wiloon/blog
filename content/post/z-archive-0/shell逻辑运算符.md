@@ -6,6 +6,8 @@ url: /?p=1507
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## shell逻辑运算符
 

@@ -6,6 +6,8 @@ url: /?p=12883
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux ca-certificates update, 导入证书
 https://www.archlinux.org/news/ca-certificates-update/

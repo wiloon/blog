@@ -6,6 +6,8 @@ url: /?p=14344
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL, sql_mode
 http://xstarcd.github.io/wiki/MySQL/MySQL-sql-mode.html

@@ -6,6 +6,8 @@ url: /?p=10819
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## IntelliJ IDEA
     IntelliJ IDEA Windows JBR是什么

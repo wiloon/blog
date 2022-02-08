@@ -6,6 +6,8 @@ url: /?p=13932
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 多CPU架构支持的Docker镜像
 https://medium.com/@mauridb/docker-multi-architecture-images-365a44c26be6

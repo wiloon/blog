@@ -7,6 +7,8 @@ url: /?p=12473
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## dhcp
 Dynamic Host Configuration Protocol

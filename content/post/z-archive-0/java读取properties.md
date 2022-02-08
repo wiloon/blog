@@ -6,6 +6,8 @@ url: /?p=3209
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java读取properties, getResourceAsStream
 http://lavasoft.blog.51cto.com/62575/62174

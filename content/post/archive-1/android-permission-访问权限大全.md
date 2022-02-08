@@ -6,6 +6,8 @@ url: /?p=6856
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android permission
 http://berdy.iteye.com/blog/1782854

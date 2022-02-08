@@ -7,6 +7,8 @@ url: resume
 categories:
   - CV
 
+tags:
+  - reprint
 ---
 ## Resume, CV
 

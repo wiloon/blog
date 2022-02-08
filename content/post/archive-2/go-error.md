@@ -4,6 +4,10 @@ author: "-"
 date: 2016-07-01T08:25:40+00:00
 url: /?p=9098
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang 异常处理, err, error, panic, recover
 ### 基础知识

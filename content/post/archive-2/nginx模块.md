@@ -6,6 +6,8 @@ url: /?p=11389
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nginx模块
 http://wiki.jikexueyuan.com/project/nginx/model-architecture.html

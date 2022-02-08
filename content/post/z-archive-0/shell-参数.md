@@ -4,6 +4,10 @@ author: "-"
 date: 2011-08-12T05:32:00+00:00
 url: /?p=419
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## shell 参数
 在shell编程时.可以使用参数。Shell有位置参数和内部参数

@@ -6,6 +6,8 @@ url: /?p=5475
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## windows默认共享的打开和关闭？
 <http://www.cnblogs.com/Fooo/archive/2007/06/04/771021.html>

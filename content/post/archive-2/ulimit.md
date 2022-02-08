@@ -4,6 +4,10 @@ author: "-"
 date: 2017-02-20T01:15:40+00:00
 url: /?p=9840
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## ulimit, file-max, Linux下设置最大文件打开数nofile及nr_open
 # ulimit

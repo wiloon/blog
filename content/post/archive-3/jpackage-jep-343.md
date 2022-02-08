@@ -6,6 +6,8 @@ url: /?p=13883
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jpackage, JEP 343
 https://www.infoq.cn/article/Hx61r30V8*Ur5ltrQjXu?utm_source=rss&utm_medium=article

@@ -6,6 +6,8 @@ url: /?p=13470
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ansible inventory
 ```bash

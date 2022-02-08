@@ -6,6 +6,8 @@ url: /?p=5221
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## jstatd
 jstatd是一个基于RMI（Remove Method Invocation) 的服务程序，它用于监控基于HotSpot的JVM中资源的创建及销毁，并且提供了一个远程接口允许远程的监控工具连接到本地的JVM执行命令。

@@ -6,6 +6,8 @@ url: /?p=8392
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java中byte数组与int类型的转换（两种方式)
 http://blog.csdn.net/zhouyong0/article/details/8078619

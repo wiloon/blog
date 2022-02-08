@@ -7,6 +7,8 @@ categories:
   - Eclipse
   - Java
 
+tags:
+  - reprint
 ---
 ## eclipse java VM arguments
 window>preferences>java>installed jres

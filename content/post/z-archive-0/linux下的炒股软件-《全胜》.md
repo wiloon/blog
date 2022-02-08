@@ -6,6 +6,8 @@ url: /?p=2415
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux下的炒股软件-《全胜》
 linux下的炒股软件-《全胜》

@@ -6,6 +6,8 @@ url: /?p=6544
 tags:
   - linux
 
+categories:
+  - inbox
 ---
 ## 'windows dll， Linux so'
 http://blog.csdn.net/yang_lang/article/details/5926486

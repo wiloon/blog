@@ -6,6 +6,8 @@ url: /?p=12037
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## failed to allocate direct memory
 failed to allocate 1024 byte(s) of direct memory (used: xxx, max: xxx)

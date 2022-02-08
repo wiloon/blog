@@ -6,6 +6,8 @@ url: /?p=1843
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Debian的运行级别
 转自: <http://dagai.net/archives/569>

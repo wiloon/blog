@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## Spring MVC和Struts2的比较
 Web层面的框架学习了三个Struts1和2，SpringMVC，那他们之间肯定存在一个优劣和适用的环境，Struts1和2的异同点我已经做过对比《[Struts1和Struts2][1]》，这篇将对比下Struts2和SpringMVC的异同，下面数据基本来源于网络，本人是搜集整理所得，供大家参考。

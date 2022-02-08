@@ -6,6 +6,8 @@ url: /?p=10004
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Guava cache
 http://www.cnblogs.com/peida/p/Guava_Cache.html

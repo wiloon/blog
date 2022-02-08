@@ -6,6 +6,8 @@ url: /?p=9004
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MessageFormat
 MessageFormat用法

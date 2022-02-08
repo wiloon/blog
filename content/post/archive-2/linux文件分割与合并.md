@@ -6,6 +6,8 @@ url: /?p=11083
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux split, 文件分割与合并
 ```bash

@@ -6,6 +6,8 @@ url: /?p=4968
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle 临时表
 >http://blog.csdn.net/wyzxg/article/details/1882347

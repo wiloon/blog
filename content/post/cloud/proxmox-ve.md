@@ -4,6 +4,10 @@ author: "-"
 date: 2020-04-25T16:35:56+00:00
 url: /?p=16081
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## Proxmox VE, pve
 一、Proxmox VE 简介

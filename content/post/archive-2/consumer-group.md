@@ -6,6 +6,8 @@ url: /?p=12889
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## consumer group
 https://www.cnblogs.com/huxi2b/p/6223228.html

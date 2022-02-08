@@ -6,6 +6,8 @@ url: /?p=8623
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java 9
 Java 9 正式发布于 2017 年 9 月 21 日

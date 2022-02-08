@@ -6,6 +6,8 @@ url: grpc/java
 categories:
   - rpc
 
+tags:
+  - reprint
 ---
 ## java grpc
 ### maven依赖

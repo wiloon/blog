@@ -6,6 +6,8 @@ url: /?p=4229
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java GenNode结构
 GenNode.java

@@ -6,6 +6,8 @@ url: slf4j
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## slf4j
 

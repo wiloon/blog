@@ -6,6 +6,8 @@ url: /?p=11019
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ansible playbook
 ```bash

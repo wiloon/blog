@@ -6,6 +6,8 @@ url: /?p=6861
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## BroadCastReceiver
 http://yangguangfu.iteye.com/blog/1063732

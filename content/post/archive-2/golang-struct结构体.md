@@ -6,6 +6,8 @@ url: go-struct
 categories:
   - golang
 
+tags:
+  - reprint
 ---
 ## golang struct/结构体
 ```golang

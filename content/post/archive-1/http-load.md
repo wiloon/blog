@@ -6,6 +6,8 @@ url: /?p=8265
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## http load
 http://blog.chinaunix.net/uid-488742-id-2113649.html

@@ -6,6 +6,8 @@ url: /?p=11034
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## CAN, Controller Area Network
 https://baike.baidu.com/item/CAN%E6%80%BB%E7%BA%BF/297754

@@ -6,6 +6,8 @@ url: /?p=11843
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## extundelete linux 数据恢复
 http://blog.51cto.com/ixdba/1566856

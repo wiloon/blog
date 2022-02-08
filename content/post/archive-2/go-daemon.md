@@ -6,6 +6,8 @@ url: /?p=11407
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go daemon – systemd
 build executable file

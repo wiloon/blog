@@ -4,6 +4,10 @@ author: "-"
 date: "2021-07-01 21:56:55"
 url: "template"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## "race condition"
 数据争用(data race) 和竞态条件(race condition)

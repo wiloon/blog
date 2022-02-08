@@ -6,6 +6,8 @@ url: /?p=9435
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mockito check argument
 ```bash

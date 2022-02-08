@@ -6,6 +6,8 @@ url: /?p=8966
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java 队列, Queue, Deque
 名称 deque 是"double ended queue（双端队列) "的缩写，通常读为"deck"。

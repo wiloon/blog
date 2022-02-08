@@ -6,6 +6,8 @@ url: /?p=11479
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'MySQL 索引  失效'
 http://www.jianshu.com/p/932bcdf2c89f

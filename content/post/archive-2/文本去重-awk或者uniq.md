@@ -6,6 +6,8 @@ url: /?p=9168
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux shell 文本 去重 – awk或者uniq
 uniq

@@ -6,6 +6,8 @@ url: /?p=1986
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 非容器环境运行OpenJPA应用
 参考来源: <http://lxy19791111.iteye.com/blog/184113>

@@ -6,6 +6,8 @@ url: /?p=4943
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 使用 Maven 执行 java main class
 mvn exec:java -Dexec.mainClass="org.ts.main.App"

@@ -6,6 +6,8 @@ url: /?p=3063
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JMS
 jms即Java消息服务（Java Message Service) 应用程序接口是一个Java平台中关于面向消息中间件（MOM) 的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS（Java Messaging Service) 是Java平台上有关面向消息中间件(MOM)的技术规范，它便于消息系统中的Java应用程序进行消息交换,并且通过提供标准的产生、发送、接收消息的接口简化企业应用的开发，翻译为Java消息服务。

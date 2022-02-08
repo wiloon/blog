@@ -6,6 +6,8 @@ url: /?p=15953
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## fuchsia
 ```bash

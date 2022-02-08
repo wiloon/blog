@@ -6,6 +6,8 @@ url: /?p=11659
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ec2 + cloud9
 create ec2 instance

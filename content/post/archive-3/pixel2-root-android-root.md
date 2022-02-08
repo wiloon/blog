@@ -6,6 +6,8 @@ url: /?p=15417
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## pixel2 root, android root
 

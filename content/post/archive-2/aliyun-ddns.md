@@ -6,6 +6,8 @@ url: /?p=13487
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## aliyun ddns
 https://github.com/honwen/aliyun-ddns-cli

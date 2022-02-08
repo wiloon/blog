@@ -6,6 +6,8 @@ url: /?p=12743
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 创建/删除tun/tap设备
 ip tuntap add dev tun0 mode tun

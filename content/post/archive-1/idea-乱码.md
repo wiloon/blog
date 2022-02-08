@@ -6,6 +6,8 @@ url: /?p=8140
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea 乱码
 修改_idea_.exe.vmoptions配置文件

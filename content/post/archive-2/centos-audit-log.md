@@ -6,6 +6,8 @@ url: /?p=12690
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## centos audit.log
 ```bash

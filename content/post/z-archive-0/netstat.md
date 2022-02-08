@@ -6,6 +6,8 @@ url: /?p=376
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## netstat, 端口
 netstat -ntlp

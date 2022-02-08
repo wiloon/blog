@@ -6,6 +6,8 @@ url: /?p=15927
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## IPtables中SNAT、DNAT和MASQUERADE的含义
 IPtables中可以灵活的做各种网络地址转换（NAT) ，网络地址转换主要有两种: SNAT和DNAT。

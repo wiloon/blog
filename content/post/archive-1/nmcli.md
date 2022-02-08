@@ -6,6 +6,8 @@ url: /?p=8231
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nmcli
 _nmcli_ _device_ _connect_ eno16777736

@@ -6,6 +6,8 @@ url: dictionary
 categories:
   - dev
 
+tags:
+  - reprint
 ---
 ## dictionary
 ### Redmine

@@ -6,6 +6,8 @@ url: /?p=9903
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 包机制
 http://blog.wuxu92.com/golang-package-usage/

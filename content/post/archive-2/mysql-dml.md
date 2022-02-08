@@ -6,6 +6,8 @@ url: /?p=13765
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL dml
 ### DML

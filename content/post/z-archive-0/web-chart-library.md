@@ -6,7 +6,10 @@ url: chart
 categories:
   - web
 
+tags:
+  - reprint
 ---
+## chart library
 ## web chart library
 ### chartjs
 Simple yet flexible JavaScript charting

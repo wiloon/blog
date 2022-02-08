@@ -6,6 +6,8 @@ url: /?p=8243
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gentoo
 ```bash

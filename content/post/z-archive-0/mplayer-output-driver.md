@@ -6,6 +6,8 @@ url: /?p=2850
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## mplayer output driver
 Output drivers (directx, xv, x11, gl, alsa, oss...) what are they? Which one is the best?

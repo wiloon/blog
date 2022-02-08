@@ -6,7 +6,10 @@ url: idea
 categories:
   - IDE
 
+tags:
+  - reprint
 ---
+## idea basic
 ## idea basic, command
 
 生成.ipr文件: mvn idea:project

@@ -6,6 +6,8 @@ url: /?p=13835
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## diffie-hellman
 ```bash

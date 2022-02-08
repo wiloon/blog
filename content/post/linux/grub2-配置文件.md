@@ -6,6 +6,8 @@ url: /?p=1633
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## grub2 配置文件
 

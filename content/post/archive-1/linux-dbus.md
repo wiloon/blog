@@ -6,6 +6,8 @@ url: /?p=8293
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux DBUS
 D-Bus三层架构

@@ -6,6 +6,8 @@ url: /?p=2578
 categories:
   - Agile
 
+tags:
+  - reprint
 ---
 ## us
 as a xxx, i would like to xxx so that xxx.

@@ -6,6 +6,8 @@ url: restful/api/design
 categories:
   - restful
 
+tags:
+  - reprint
 ---
 ## RESTful API 设计
 

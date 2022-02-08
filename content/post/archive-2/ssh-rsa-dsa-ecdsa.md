@@ -6,6 +6,8 @@ url: rsa
 categories:
   - ssh
 
+tags:
+  - reprint
 ---
 ## SSH 密钥类型 RSA, DSA, ecdsa
 ### RSA

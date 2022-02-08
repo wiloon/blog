@@ -7,6 +7,8 @@ categories:
   - DataBase
   - Web
 
+tags:
+  - reprint
 ---
 ## 死锁（Deadlocks)
 deadlocks（死锁) 

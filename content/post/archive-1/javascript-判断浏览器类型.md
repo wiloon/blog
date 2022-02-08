@@ -6,6 +6,8 @@ url: /?p=5008
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## javascript 判断浏览器类型
 ```

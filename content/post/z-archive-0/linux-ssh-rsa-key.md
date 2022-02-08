@@ -6,6 +6,8 @@ url: ssh-keygen
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## rsa ssh keygen
 在~/.ssh目录下生成私钥id_rsa和公钥id_rsa.pub文件

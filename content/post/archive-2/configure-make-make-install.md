@@ -6,6 +6,8 @@ url: /?p=11269
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## AUTOCONF, AUTOMAKE, configure, make, make install
 http://blog.csdn.net/linzhiji/article/details/6774410

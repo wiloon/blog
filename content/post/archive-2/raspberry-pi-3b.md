@@ -6,6 +6,8 @@ url: /?p=13252
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi 3B
 Raspberry Pi 3 Specifications

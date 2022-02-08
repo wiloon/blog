@@ -6,6 +6,8 @@ url: /?p=7476
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 反向工程–Visio 2007自动生成ER图
 今天由于需要写一些文档，使用了Visio 2007的数据库反向工程功能，个人感觉效果还是不错。

@@ -6,6 +6,8 @@ url: /?p=6309
 tags:
   - JavaScript
 
+categories:
+  - inbox
 ---
 ## Javascript 重定向 window.location.href / replace / reload()
 

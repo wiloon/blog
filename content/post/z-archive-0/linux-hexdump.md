@@ -6,6 +6,8 @@ url: /?p=2092
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux hexdump
 

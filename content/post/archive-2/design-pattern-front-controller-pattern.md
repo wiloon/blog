@@ -6,6 +6,8 @@ url: /?p=9800
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## '[Design Pattern] Front Controller Pattern'
 http://www.cnblogs.com/TonyYPZhang/p/5516192.html

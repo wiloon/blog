@@ -6,6 +6,8 @@ url: /?p=12784
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux tar aes 打包加密
 ```bash

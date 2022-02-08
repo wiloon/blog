@@ -6,6 +6,8 @@ url: /?p=3927
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## ArrayList ensureCapacity
 http://topic.csdn.net/t/20061223/10/5250896.html

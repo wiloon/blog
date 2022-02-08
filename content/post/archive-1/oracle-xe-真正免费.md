@@ -6,6 +6,8 @@ url: /?p=4854
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## Oracle XE
 

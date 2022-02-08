@@ -6,6 +6,8 @@ url: cni
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## CNI
 

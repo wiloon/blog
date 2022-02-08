@@ -6,6 +6,8 @@ url: /?p=9834
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux 连接 蓝牙键盘
 filco 配对 ctrl+alt+fn

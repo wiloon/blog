@@ -6,6 +6,8 @@ url: /?p=12846
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## openwrt proxy
 ## 安装ipset

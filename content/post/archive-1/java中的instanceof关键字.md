@@ -7,6 +7,8 @@ categories:
   - Development
   - Java
 
+tags:
+  - reprint
 ---
 ## Java中的instanceof关键字
 # 

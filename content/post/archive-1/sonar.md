@@ -6,6 +6,8 @@ url: sonar
 categories:
   - dev
 
+tags:
+  - reprint
 ---
 ## SonarQube
 SonarQube（曾用名Sonar（声纳) [1]) 是一个开源的代码质量管理系统。

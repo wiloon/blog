@@ -4,6 +4,10 @@ author: "-"
 date: 2018-07-26T05:04:27+00:00
 url: openwrt
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## openwrt basic, opkg basic, ipk
 ### wan dns

@@ -7,6 +7,8 @@ categories:
   - Linux
   - VM
 
+tags:
+  - reprint
 ---
 ## btrfs上使用虚拟机效率很差
 kvm在btrfs上的IO效率极端的差。 

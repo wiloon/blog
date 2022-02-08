@@ -6,6 +6,8 @@ url: /?p=15626
 categories:
   - golang
 
+tags:
+  - reprint
 ---
 ## Golang，Signal
 

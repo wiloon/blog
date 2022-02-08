@@ -6,6 +6,8 @@ url: /?p=5769
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## 解决JQuery.trim()函数ie下报错的问题
 经常碰到JQuery里的trim()函数在firefox支持,但是在IE里不支持

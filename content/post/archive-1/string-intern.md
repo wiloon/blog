@@ -6,7 +6,10 @@ url: string/intern
 categories:
   - java
 
+tags:
+  - reprint
 ---
+## 'String#intern'
 ## String#intern, String.intern()
 
 ```java

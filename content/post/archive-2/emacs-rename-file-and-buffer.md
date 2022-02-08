@@ -6,6 +6,8 @@ url: /?p=10783
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## emacs rename file and buffer
 https://stackoverflow.com/questions/384284/how-do-i-rename-an-open-file-in-emacs

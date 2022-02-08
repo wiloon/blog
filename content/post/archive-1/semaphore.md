@@ -6,6 +6,8 @@ url: semaphore
 categories:
   - OS
 
+tags:
+  - reprint
 ---
 ## semaphore/信号量, mutex/互斥锁
 Mutex是一把钥匙，一个人拿了就可进入一个房间，出来的时候把钥匙交给队列的第一个。一般的用法是用于串行化对 critical section 代码的访问，保证这段代码不会被并行的运行。

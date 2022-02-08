@@ -6,6 +6,8 @@ url: /?p=1775
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## Linux网桥分析
 <http://hi.baidu.com/zkheartboy/blog/item/9d1c392e42b44a544ec2263b.html>

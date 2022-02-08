@@ -6,6 +6,8 @@ url: socat
 categories:
   - network
 
+tags:
+  - reprint
 ---
 ## socat
 

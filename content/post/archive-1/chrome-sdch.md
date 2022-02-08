@@ -6,6 +6,8 @@ url: /?p=8219
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chrome sdch
 sdch: chrome支持的新HTTP传输压缩算法

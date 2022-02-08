@@ -7,6 +7,8 @@ tags:
   - linux
   - Network
 
+categories:
+  - inbox
 ---
 ## iptables
 iptables 是 Linux 内核集成的 IP 信息包过滤系统。该系统用于在 Linux 系统上控制 IP 数据包过滤和防火墙配置

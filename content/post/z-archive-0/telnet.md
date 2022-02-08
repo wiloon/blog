@@ -6,6 +6,8 @@ url: /?p=1767
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## telnet, nc, socat
 ```bash

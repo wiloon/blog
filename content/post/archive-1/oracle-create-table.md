@@ -6,6 +6,8 @@ url: /?p=6328
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## oracle create table
 http://zhoujian0610.blog.163.com/blog/static/56567658201052815913549/

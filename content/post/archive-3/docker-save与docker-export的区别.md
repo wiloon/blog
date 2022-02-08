@@ -6,6 +6,8 @@ url: /?p=15930
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## docker save与docker export的区别, docker 镜像 导出
 ### 导出

@@ -6,6 +6,8 @@ url: /?p=13512
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## procd
 https://openwrt.org/docs/guide-developer/procd-init-scripts

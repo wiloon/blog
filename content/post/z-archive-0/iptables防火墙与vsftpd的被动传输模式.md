@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## iptables防火墙与vsftpd的被动传输模式
 

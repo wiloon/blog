@@ -6,6 +6,8 @@ url: /?p=2100
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux ftp
 安装:

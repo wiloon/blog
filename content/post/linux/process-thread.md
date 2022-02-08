@@ -5,6 +5,10 @@ date: "2017-06-02 17:35:41"
 draft: true
 url: process
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 进程, 线程, 内核线程, 轻量级进程, 用户线程
 Linux进程类别

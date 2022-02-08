@@ -6,6 +6,8 @@ url: /?p=4242
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## XML Schema, XML DTD
 <http://www.ibm.com/developerworks/cn/xml/x-sd/index.html>

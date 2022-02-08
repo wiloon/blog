@@ -6,6 +6,8 @@ url: /?p=8469
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ODX(Open Diagnostic Data Exchange)
 http://auto.vogel.com.cn/news_view.html?id=358026

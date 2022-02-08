@@ -6,6 +6,8 @@ url: /?p=8734
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## LMAX Disruptor
 LMAX Disruptor——一个高性能、低延迟且简单的框架

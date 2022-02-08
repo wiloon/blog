@@ -6,6 +6,8 @@ url: /?p=434
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs 启动 窗口最大化
 (defun fullscreen (&optional f)

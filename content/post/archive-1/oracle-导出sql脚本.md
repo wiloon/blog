@@ -6,6 +6,8 @@ url: /?p=7474
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## oracle 导出sql脚本
 大体的分为三种方法: 

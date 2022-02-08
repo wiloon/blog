@@ -6,6 +6,8 @@ url: /?p=564
 categories:
   - Eclipse
 
+tags:
+  - reprint
 ---
 ## Eclipse 快捷键(Default)
 Ctrl+1 快速修复

@@ -6,6 +6,8 @@ url: /?p=4361
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java ocr tesseract
 <http://ykf.iteye.com/blog/212431>

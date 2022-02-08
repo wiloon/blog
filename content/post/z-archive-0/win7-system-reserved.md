@@ -6,6 +6,8 @@ url: /?p=3019
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## win7, system reserved
 用win7x64的盘装系统，给C盘分出40G后，自动会多出一个大约100M的分区，名字叫system reserved的分区，没有盘符

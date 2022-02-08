@@ -6,6 +6,8 @@ url: /?p=11158
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 已存在的目录转换为一个 GIT 项目并托管到 GITHUB 仓库
 ```bash

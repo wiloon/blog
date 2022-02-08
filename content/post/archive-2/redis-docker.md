@@ -6,6 +6,8 @@ url: /?p=12652
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## redis docker
 ```bash

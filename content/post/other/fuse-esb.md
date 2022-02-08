@@ -6,6 +6,8 @@ url: /?p=2323
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## Fuse ESB
 Fuse ESB 学习笔记（一) 构建

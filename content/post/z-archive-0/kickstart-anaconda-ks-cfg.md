@@ -6,6 +6,8 @@ url: /?p=1592
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## kickstart, anaconda-ks.cfg
 

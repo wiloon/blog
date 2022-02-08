@@ -6,6 +6,8 @@ url: /?p=1068
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## One or more PGP signatures could not be verified
 ```bash

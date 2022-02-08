@@ -6,6 +6,8 @@ url: /?p=3979
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## Emacs24隐藏工具栏菜单栏和滚动条无效的问题
 >http://blog.csdn.net/cherylnatsu/article/details/7663163

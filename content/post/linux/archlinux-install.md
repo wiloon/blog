@@ -10,6 +10,7 @@ tags:
   - remix
 
 ---
+## parted
 ## archlinux install
 
 todo: try archinstall, https://github.com/archlinux/archinstall

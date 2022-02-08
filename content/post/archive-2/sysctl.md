@@ -4,6 +4,10 @@ author: "-"
 date: 2018-08-24T09:42:15+00:00
 url: sysctl
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## sysctl
 

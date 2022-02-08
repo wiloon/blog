@@ -6,6 +6,8 @@ url: /?p=2165
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ubuntu vnc
 第一步，获取安装文件

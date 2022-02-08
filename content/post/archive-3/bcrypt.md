@@ -6,6 +6,8 @@ url: bcrypt
 categories:
   - Security
 
+tags:
+  - reprint
 ---
 ## Bcrypt
 https://www.jianshu.com/p/2b131bfc2f10

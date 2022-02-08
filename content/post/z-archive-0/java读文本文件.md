@@ -6,6 +6,8 @@ url: /?p=3997
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JAVA读文本文件
 一行一行的读~~

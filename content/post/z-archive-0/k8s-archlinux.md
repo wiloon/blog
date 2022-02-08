@@ -6,6 +6,8 @@ url: k8s
 categories:
   - k8s
 
+tags:
+  - reprint
 ---
 ## archlinux, k8s
 

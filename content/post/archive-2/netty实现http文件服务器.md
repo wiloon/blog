@@ -6,6 +6,8 @@ url: /?p=8815
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## netty http文件服务器
 http://krisjin.github.io/2015/02/14/netty-file-server/

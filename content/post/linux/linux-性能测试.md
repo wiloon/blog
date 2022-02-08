@@ -2,7 +2,12 @@
 date: "2020-05-10T16:00:00Z"
 title: "Linux性能测试工具"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "Linux性能测试工具"
 uptime
 
 uptime命令用于查看服务器运行了多长时间以及有多少个用户登录，快速获知服务器的负荷情况。

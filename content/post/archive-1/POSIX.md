@@ -4,6 +4,10 @@ author: "-"
 date: 2014-12-01T06:04:44+00:00
 url: /?p=7072
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## POSIX
 Pronunciation: /ˈpɒz.ɪks/, pozz-icks

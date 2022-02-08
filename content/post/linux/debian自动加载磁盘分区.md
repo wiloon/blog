@@ -6,6 +6,8 @@ url: /?p=1831
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## debian自动加载磁盘分区
 Linux下面有个加载分区的配置文件，/etc/fstab

@@ -6,6 +6,8 @@ url: /?p=4284
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java 数据对象 JDO,JDBC
 http://developer.51cto.com/art/200510/6932.htm

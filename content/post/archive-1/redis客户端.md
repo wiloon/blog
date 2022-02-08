@@ -6,6 +6,8 @@ url: /?p=8342
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Redis客户端
 http://ourjs.com/detail/555975b9329934463f00000f

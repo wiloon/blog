@@ -6,6 +6,8 @@ url: /?p=7791
 tags:
   - Java
 
+categories:
+  - inbox
 ---
 ## 临界区,竞态条件
 临界区是程序中使用临界资源的一段程序

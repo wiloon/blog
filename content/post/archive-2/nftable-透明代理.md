@@ -6,6 +6,8 @@ url: /?p=12518
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nftable 透明代理
 https://www.yangcs.net/posts/linux-circumvent/

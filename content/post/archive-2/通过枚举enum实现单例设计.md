@@ -6,6 +6,8 @@ url: /?p=9951
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 通过枚举enum实现单例设计
 

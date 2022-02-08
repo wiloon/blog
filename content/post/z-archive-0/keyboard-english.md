@@ -6,6 +6,8 @@ url: /?p=800
 categories:
   - English
 
+tags:
+  - reprint
 ---
 ##  键盘上特殊符号的英文读法
 

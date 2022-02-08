@@ -6,6 +6,8 @@ url: /?p=5598
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle 存储过程事务使用断点回滚
 

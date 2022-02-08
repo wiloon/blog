@@ -6,6 +6,8 @@ url: /?p=3216
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## ubuntu vsftpd
 sudo apt-get install vsftpd

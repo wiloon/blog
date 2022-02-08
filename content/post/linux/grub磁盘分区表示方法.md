@@ -6,6 +6,8 @@ url: /?p=2071
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Grub磁盘分区表示方法
 Grub指定分区的方法和Linux、Windows等系统不一样，它的主要特点为: 

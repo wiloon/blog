@@ -9,6 +9,7 @@ tags:
   - MySQL
 
 ---
+## 'MySQL  btree索引 hash索引'
 ## MySQL, b tree索引 hash索引, B树
 http://www.cnblogs.com/vicenteforever/articles/1789613.html
 

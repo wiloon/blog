@@ -6,6 +6,8 @@ url: /?p=1845
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Apt-get, aptitude 命令对比
 # 出自Guoshuang Wiki {#firstHeading}

@@ -6,6 +6,8 @@ url: /?p=7246
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang bufio
 http://www.cnblogs.com/golove/p/3282667.html

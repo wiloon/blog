@@ -6,6 +6,8 @@ url: /?p=7701
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java Object Layout(jol)
 http://bboniao.com/openjdk/2014-06/java-object-layoutjol.htm

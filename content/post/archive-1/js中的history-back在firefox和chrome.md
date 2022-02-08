@@ -6,6 +6,8 @@ url: /?p=5665
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## Js中的history.back()在FireFox和Chrome
 JavaScript中后退的写法: history.back()或者history.go(-1)。

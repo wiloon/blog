@@ -6,6 +6,8 @@ url: /?p=2108
 categories:
   - Network
 
+tags:
+  - reprint
 ---
 ## httplook
 HTTPLook 是一个 HTTP 的嗅探器，它能捕捉本机与其它任何主机的 HTTP 通讯（不是 HTTPS 哦 ) ，然后显示详细的 HTTP 操作（如 GET/POST) 、访问资源的 URL 、字节数大小等，这个软件简单易用，不用对 Internet Explorer 做任何其它设置（有的软件通过在 IE 中设置代理来监控数据) ，也不需要其它任何软件的支持，是一款较为绿色的、轻量级的软件。

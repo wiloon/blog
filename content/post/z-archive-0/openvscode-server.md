@@ -6,6 +6,8 @@ url: /?p=592
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## OpenVSCode Server
 

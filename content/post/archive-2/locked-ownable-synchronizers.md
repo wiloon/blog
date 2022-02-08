@@ -6,6 +6,8 @@ url: /?p=10225
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Locked ownable synchronizers
 An ownable synchronizer is a synchronizer that may be exclusively owned by a thread and uses AbstractOwnableSynchronizer (or its subclass) to implement its synchronization property. ReentrantLock and ReentrantReadWriteLock are two examples of ownable synchronizers provided by the platform.

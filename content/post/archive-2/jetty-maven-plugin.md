@@ -6,6 +6,8 @@ url: /?p=11958
 categories:
   - maven
 
+tags:
+  - reprint
 ---
 ## jetty-maven-plugin, jetty maven plugin
 ### maven plugin

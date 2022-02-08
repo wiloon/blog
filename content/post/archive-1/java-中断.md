@@ -4,6 +4,10 @@ author: "-"
 date: 2013-06-03T08:24:48+00:00
 url: java-intterupt
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## java 线程, 中断, isInterrupted()
 ### Thread.interrupted()

@@ -6,6 +6,8 @@ url: /?p=9145
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ipset
 ```bash

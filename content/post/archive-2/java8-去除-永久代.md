@@ -6,6 +6,8 @@ url: metaspace
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java8 去除 永久代, metaspace (元空间)
 在过去（当自定义类加载器使用不普遍的时候) ,类几乎是"静态的"并且很少被卸载和回收, 因此类也可以被看成"永久的"。另外由于类作为JVM实现的一部分,它们不由程序来创建,因为它们也被认为是"非堆"的内存。

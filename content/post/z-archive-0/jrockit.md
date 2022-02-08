@@ -6,6 +6,8 @@ url: /?p=2923
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JRockit
 Oracle JRockit （原来的 Bea JRockit) 系列产品是一个全面的Java运行时解决方案组合，包括了行业最快的标准Java解决方案。 大量的行业基准测试显示，基本JRockit JVM是世界上最快的JVM。JRockit面向延迟敏感型应用的解决方案JRockit Real Time提供以毫秒或微秒计的JVM响应时间，适合财务前端办公、军事指挥与控制和电信网络的需要。使用JRockit产品，客户已经体验到了显著的性能 提高（一些超过了70% ) 和硬件成本的减少（达50%) 。

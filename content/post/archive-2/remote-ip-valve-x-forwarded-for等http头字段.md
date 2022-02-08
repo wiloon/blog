@@ -6,6 +6,8 @@ url: /?p=12277
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Remote IP Valve, X-Forwarded-For等http头字段
 http://www.10tiao.com/html/308/201702/2650076434/1.html

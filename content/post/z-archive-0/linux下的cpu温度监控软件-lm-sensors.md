@@ -6,6 +6,8 @@ url: /?p=2942
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux下的cpu温度监控软件 lm-sensors
 原贴:http://goodfifagun.pixnet.net/blog/post/21587839

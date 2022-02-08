@@ -6,6 +6,8 @@ url: /?p=5987
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Debian/在Debian上安装Apache MySQL PHP
 ## 安装Apache MySQL PHP

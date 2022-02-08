@@ -6,6 +6,8 @@ url: /?p=14037
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## iptables nftables 混合使用 -_-
 iptables 和 nftables 可以混合 使用，规则要小心配置。

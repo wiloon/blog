@@ -6,6 +6,8 @@ url: /?p=77
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## emacs 查找替换字符串
 `M-%` (然后会出现Query replace的字样)

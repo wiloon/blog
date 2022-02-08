@@ -6,6 +6,8 @@ url: /?p=4707
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## python 遍历目录
 <http://www.cnblogs.com/vivilisa/archive/2009/03/01/1400968.html>

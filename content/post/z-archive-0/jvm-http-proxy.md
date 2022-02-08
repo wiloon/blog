@@ -6,6 +6,8 @@ url: /?p=3746
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## jvm http proxy
 http://i4t.org/2007/05/04/java-http-proxy-settings/

@@ -4,6 +4,10 @@ author: "-"
 date: 2016-12-30T00:54:55+00:00
 url: /?p=9635
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## tcp MTU MSS
 ### MTU: Maxitum Transmission Unit 最大传输单元

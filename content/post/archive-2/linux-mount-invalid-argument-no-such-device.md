@@ -6,6 +6,8 @@ url: /?p=9109
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux mount, invalid argument, no such device
 http://blog.sina.com.cn/s/blog_b71132f0010148kk.html

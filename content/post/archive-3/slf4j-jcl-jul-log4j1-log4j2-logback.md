@@ -4,6 +4,10 @@ author: "-"
 date: 2019-07-19T07:50:48+00:00
 url: /?p=14690
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## slf4j、jcl、jul、log4j1、log4j2、logback
 

@@ -6,6 +6,8 @@ url: /?p=1918
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## favicon
 

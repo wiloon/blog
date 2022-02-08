@@ -6,6 +6,8 @@ url: /?p=12879
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java 纳秒
 http://hold-on.iteye.com/blog/1943436

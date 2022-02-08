@@ -6,6 +6,8 @@ url: /?p=358
 categories:
   - IDE
 
+tags:
+  - reprint
 ---
 ## vscode, java
 

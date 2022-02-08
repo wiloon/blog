@@ -7,6 +7,8 @@ categories:
   - Java
   - Web
 
+tags:
+  - reprint
 ---
 ## Servlet Session
 <http://developer.51cto.com/art/200907/134673.htm>

@@ -6,6 +6,8 @@ url: /?p=10866
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## database schema
 对于MySQL,schema和database可以理解为等价的.

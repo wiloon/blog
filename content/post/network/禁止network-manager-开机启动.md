@@ -6,6 +6,8 @@ url: /?p=2278
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## 禁止network manager 开机启动.
 安装sysv-rc-conf

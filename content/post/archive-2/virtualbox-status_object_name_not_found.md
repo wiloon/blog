@@ -6,6 +6,8 @@ url: /?p=12881
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## virtualbox STATUS_OBJECT_NAME_NOT_FOUND
 https://forums.virtualbox.org/viewtopic.php?t=66442

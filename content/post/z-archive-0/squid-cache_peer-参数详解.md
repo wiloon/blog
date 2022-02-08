@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## squid cache_peer 参数详解
 通过squid.conf配置文件中的cache_peer选项来配置代理服务器阵列，通过其他的选项来控制选择代理伙伴的方法。Cache_peer的使用格式如下: 

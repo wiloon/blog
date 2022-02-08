@@ -6,6 +6,8 @@ url: /?p=14860
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL update 嵌套 select
 当你希望更新一批值，且值是通过select条件查询出来时，下面这个错误应该不陌生

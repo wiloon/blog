@@ -6,6 +6,8 @@ url: /?p=12939
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi openvpn docker
 ```bash

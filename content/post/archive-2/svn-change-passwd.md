@@ -6,6 +6,8 @@ url: /?p=12505
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## svn change passwd
 svn change password

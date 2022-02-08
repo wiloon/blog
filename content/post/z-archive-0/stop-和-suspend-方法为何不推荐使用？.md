@@ -6,6 +6,8 @@ url: /?p=4276
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## stop() 和 suspend() 方法为何不推荐使用？
 

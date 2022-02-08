@@ -6,6 +6,8 @@ url: /?p=13973
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## win10 telnet
 设置>应用>程序和功能>启用或关闭Windows功能>Telnet Client

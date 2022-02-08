@@ -6,6 +6,8 @@ url: /?p=321
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 'java  float,double,decimal'
 

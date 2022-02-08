@@ -6,6 +6,8 @@ url: /?p=736
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java 反射, reflect
 >http://www.iteye.com/topic/137944

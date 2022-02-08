@@ -6,6 +6,8 @@ url: /?p=6554
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## maven jboss deployment
 ```xml

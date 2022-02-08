@@ -6,6 +6,8 @@ url: /?p=3081
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## webUI test
 Selenium WebDriver, Watir, Sahi

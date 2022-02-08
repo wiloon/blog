@@ -6,6 +6,8 @@ url: Hystrix
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Hystrix
 # Hystrix [hɪst'rɪks]

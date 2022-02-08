@@ -6,6 +6,8 @@ url: /?p=15130
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## state和status的区别
 state和status的区别

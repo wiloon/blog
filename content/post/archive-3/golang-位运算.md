@@ -6,6 +6,8 @@ url: /?p=15113
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang 位运算
 

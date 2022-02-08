@@ -6,6 +6,8 @@ url: java/primitive
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java 基本数据类型， primitive type
 Java语言提供了八种基本类型: 六种数字类型（四个整数型，两个浮点型) ，一种字符类型，一种布尔型。

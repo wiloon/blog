@@ -6,6 +6,8 @@ url: /?p=14273
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## openvpn docker
 ```bash

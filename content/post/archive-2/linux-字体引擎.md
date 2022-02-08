@@ -6,6 +6,8 @@ url: /?p=9811
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'linux  字体引擎'
 linux下主要使用xtt freetype xfs xft这四种字体引擎,以下是这四种字体引擎的区别,

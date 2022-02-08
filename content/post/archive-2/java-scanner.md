@@ -6,6 +6,8 @@ url: /?p=9984
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Java Scanner
 http://blog.csdn.net/carolzhang8406/article/details/6726589

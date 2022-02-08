@@ -6,6 +6,8 @@ url: /?p=12334
 tags:
   - command
 
+categories:
+  - inbox
 ---
 ## shell date
 

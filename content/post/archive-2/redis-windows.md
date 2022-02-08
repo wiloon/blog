@@ -6,6 +6,8 @@ url: /?p=8485
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## redis windows
 启动redis 服务

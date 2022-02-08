@@ -6,6 +6,8 @@ url: code-server
 categories:
   - IDE
 
+tags:
+  - reprint
 ---
 ## vscode, code-server
 

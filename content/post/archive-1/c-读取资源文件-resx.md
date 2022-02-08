@@ -6,6 +6,8 @@ url: /?p=5526
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 设计模式 – 模板方法,Template Method
 http://www.cnblogs.com/java-my-life/archive/2012/05/14/2495235.html

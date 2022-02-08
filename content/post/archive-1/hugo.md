@@ -3,6 +3,10 @@ title: Hugo
 author: "-"
 date: 2012-11-06T14:33:54+00:00
 url: hugo
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 
 ## Hugo

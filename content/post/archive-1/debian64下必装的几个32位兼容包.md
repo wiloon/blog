@@ -6,6 +6,8 @@ url: /?p=4851
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## debian AMD64 32位兼容包
 这两个包是最主要的: ia32-libs,ia32-libs-gtk

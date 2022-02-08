@@ -9,6 +9,7 @@ tags:
   - collection
 
 ---
+## HashSet、TreeSet、LinkedHashSet
 ## HashSet, TreeSet, LinkedHashSet
 在一个set中，是没有重复元素的。这也是使用set最主要的原因之一。Set的实现类有三个: HashSet，TreeSet，LinkedHashSet。什么时候使用哪一种实现类?。简单地说，如果我们想要一个快速的set，那么我们应该使用HashSet；如果我们需要一个已经排好序的set，那么TreeSet应该被使用；如果我们想一个可以根据插入顺序来读取的set，那么LinkedHashSet应该被使用。
 

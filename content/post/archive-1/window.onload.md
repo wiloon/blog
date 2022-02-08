@@ -7,6 +7,8 @@ url: /?p=6854
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JavaScript window.onload
 avaScript的window.onload使用: 

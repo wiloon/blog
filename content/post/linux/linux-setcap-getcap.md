@@ -6,6 +6,8 @@ url: /?p=15389
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux capability, setcap/getcap
 

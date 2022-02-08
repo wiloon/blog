@@ -6,6 +6,8 @@ url: /?p=5322
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## JavaScript里面三个等号和两个等号的区别
 == equality 等同，=== identity 恒等。

@@ -6,6 +6,8 @@ url: /?p=8736
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 伪共享 False Sharing
 原文地址: http://ifeve.com/false-sharing/

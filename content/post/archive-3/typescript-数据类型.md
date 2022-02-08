@@ -4,6 +4,10 @@ author: "-"
 date: 2019-08-17T06:58:40+00:00
 url: /?p=14805
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## typescript 数据类型
 ### 数字

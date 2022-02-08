@@ -6,6 +6,8 @@ url: /?p=9559
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MarketInfo
 

@@ -6,6 +6,8 @@ url: /?p=6549
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## apk 编译,反编译,AXMLPrinter2,smali,baksmali
 http://blog.csdn.net/android_tutor/article/details/5724435

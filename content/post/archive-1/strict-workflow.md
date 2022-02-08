@@ -6,6 +6,8 @@ url: /?p=5495
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Strict-Workflow
 A Chrome extension that helps you stay focused by blocking sites during work timers and letting you browse during break timers

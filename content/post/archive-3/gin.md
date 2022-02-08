@@ -6,6 +6,8 @@ url: /?p=14394
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gin
 https://github.com/gin-gonic/gin#quick-start

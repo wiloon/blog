@@ -6,6 +6,8 @@ url: /?p=11829
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## idea custom dictionary in Spell Checker
 custom dictionary end with .dic

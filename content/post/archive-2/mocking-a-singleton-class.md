@@ -6,6 +6,8 @@ url: /?p=8745
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mocking a singleton class
 http://stackoverflow.com/questions/2302179/mocking-a-singleton-class

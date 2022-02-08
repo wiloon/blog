@@ -6,6 +6,8 @@ url: /?p=12839
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Trusting additional CAs in Centos
 place the certificate to be trusted (in PEM format) in /etc/pki/ca-trust/source/anchors/

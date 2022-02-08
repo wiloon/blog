@@ -3,7 +3,12 @@ author: "-"
 date: "2020-05-16T06:30:12Z"
 title: "lerna"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "lerna"
 ## 什么是lerna?为什么要使用lerna?
 
 lerna到底是什么呢？lerna官网上是这样描述的。

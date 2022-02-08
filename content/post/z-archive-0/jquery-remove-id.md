@@ -6,6 +6,8 @@ url: /?p=4045
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jquery remove id
 row.removeAttr("id");

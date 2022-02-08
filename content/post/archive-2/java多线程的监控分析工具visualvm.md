@@ -6,6 +6,8 @@ url: /?p=8447
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jvisualvm, JVM 监控分析工具(VisualVM)
 Visual GC

@@ -6,6 +6,8 @@ url: /?p=11372
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java spi, ServiceLoader
 ServiceLoader与ClassLoader是Java中2个即相互区别又相互联系的加载器.JVM利用ClassLoader将类载入内存,这是一个类声明周期的第一步（一个java类的完整的生命周期会经历加载、连接、初始化、使用、和卸载五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况) 。详情请参阅: 详解Java类的生命周期

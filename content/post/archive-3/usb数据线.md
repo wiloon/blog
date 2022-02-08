@@ -6,6 +6,8 @@ url: /?p=14676
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## USB数据线
 编号 定义 颜色识别

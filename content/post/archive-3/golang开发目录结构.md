@@ -6,6 +6,8 @@ url: /?p=14254
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang开发目录结构
 https://github.com/golang-standards/project-layout

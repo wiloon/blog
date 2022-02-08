@@ -6,6 +6,8 @@ url: /?p=13203
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi mac spoofing
 ```bash

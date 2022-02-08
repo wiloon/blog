@@ -6,6 +6,8 @@ url: /?p=11354
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux enca 编码并转换
 enca -list languages

@@ -6,6 +6,8 @@ url: cas
 categories:
   - java
 
+tags:
+  - reprint
 ---
 ## CAS, Compare and Swap, 比较并交换
 ### CAS

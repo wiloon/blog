@@ -6,6 +6,8 @@ url: /?p=2189
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## debian, grub2, run level
 edit /boot/grub/grub.cfg

@@ -6,6 +6,8 @@ url: jvm
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java, JVM flags, params, 参数, xms xmx xmn xss
 ### -Xms, -XX:InitialHeapSize

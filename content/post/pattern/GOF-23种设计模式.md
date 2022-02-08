@@ -5,6 +5,8 @@ date: 2011-10-29T07:59:18+00:00
 url: design-pattern
 categories:
   - Design Pattern
+tags:
+  - reprint
 ---
 ## GOF 23种设计模式, Design pattern
 ## GoF的23种设计模式

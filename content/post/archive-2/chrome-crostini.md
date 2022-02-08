@@ -6,6 +6,8 @@ url: /?p=12236
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'chromeos linux,  crostini'
 ```bash

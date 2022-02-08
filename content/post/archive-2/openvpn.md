@@ -6,6 +6,8 @@ url: openvpn
 tags:
   - VPN
 
+categories:
+  - inbox
 ---
 ## openvpn
 ### VPN, Virtual Private Network, 虚拟专用网络

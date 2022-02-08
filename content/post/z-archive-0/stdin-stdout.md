@@ -6,6 +6,8 @@ url: /?p=1543
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## STDIN STDOUT…
 Unix/Linux/BSD 都有三个特别文件，分别

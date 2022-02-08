@@ -4,6 +4,10 @@ author: "-"
 date: 2015-08-26T00:50:32+00:00
 url: uds
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## unix domain socket, UDS
 http://blog.csdn.net/bingqingsuimeng/article/details/8470029

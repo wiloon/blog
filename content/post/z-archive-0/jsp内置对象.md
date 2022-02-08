@@ -6,6 +6,8 @@ url: /?p=4173
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## jsp内置对象
 

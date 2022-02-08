@@ -6,6 +6,8 @@ url: /?p=5906
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## jquery outerhtml
 # 

@@ -6,6 +6,8 @@ url: /?p=765
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java 代理模式
 http://blog.csdn.net/dyh8818/article/details/314668

@@ -6,6 +6,8 @@ url: /?p=15348
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## tune2fs
 tune2fs命令

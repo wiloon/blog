@@ -4,6 +4,10 @@ author: "-"
 date: 2016-08-10T04:25:26+00:00
 url: /?p=9172
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## 'TCP 三次握手,  TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)'
 ### TCP (Transmission Control Protocol)

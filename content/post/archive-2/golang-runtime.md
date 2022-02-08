@@ -6,6 +6,8 @@ url: /?p=11160
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Golang runtime
 http://www.jianshu.com/p/e45cea3e1723

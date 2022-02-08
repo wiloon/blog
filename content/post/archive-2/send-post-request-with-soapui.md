@@ -6,6 +6,8 @@ url: /?p=8545
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## send post request with soapui
 http://jingyan.baidu.com/article/ca41422f3f98421eae99edec.html

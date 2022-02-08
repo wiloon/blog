@@ -6,6 +6,8 @@ url: /?p=7311
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ARC 与 GC 区别
 http://my.oschina.net/u/566401/blog/109020

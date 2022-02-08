@@ -6,6 +6,8 @@ url: /?p=8002
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Oracle实例和Oracle数据库
 http://blog.csdn.net/leshami/article/details/5529239

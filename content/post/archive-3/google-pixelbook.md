@@ -6,6 +6,8 @@ url: /?p=15569
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## google pixelbook
 i5

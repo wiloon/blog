@@ -6,6 +6,8 @@ url: /?p=14918
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Making ipset,iptables persistent
 ```bash

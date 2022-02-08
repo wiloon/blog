@@ -6,6 +6,8 @@ url: /?p=8329
 categories:
   - database
 
+tags:
+  - reprint
 ---
 ## redis data type, 数据类型
 <https://redis.io/topics/data-types>

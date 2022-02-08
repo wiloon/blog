@@ -6,6 +6,8 @@ url: /?p=2057
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Linux系统日志–syslog
 我们可以借助syslog函数将消息写入到/var/log/messages文件或其他配置好的文章。syslogd（系统日志守护进程) 会监控程序提交的消息并对其进行处理。klogd（内核日志守护进程) 负责监控内核提交的消息，并将内核消息记录到/var/log/messages。二者协作记录日志消息。每次启动linux时，这两个守护进程都会由/etc/rc.d/init.d中的初始化脚本启动。

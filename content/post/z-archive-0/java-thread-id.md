@@ -6,6 +6,8 @@ url: /?p=3615
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java thread id, name
 Thread.currendThread().getName()

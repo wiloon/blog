@@ -6,6 +6,8 @@ url: /?p=4388
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## DOM, BOM
 ### BOM 浏览器对象模型

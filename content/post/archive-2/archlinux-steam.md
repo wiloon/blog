@@ -6,6 +6,8 @@ url: /?p=9048
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## archlinux steam
 sudo pacman -S steam

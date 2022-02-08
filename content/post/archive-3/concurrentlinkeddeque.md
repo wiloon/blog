@@ -6,6 +6,8 @@ url: /?p=15053
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ConcurrentLinkedDeque
 非阻塞线程安全列表——ConcurrentLinkedDeque应用举例

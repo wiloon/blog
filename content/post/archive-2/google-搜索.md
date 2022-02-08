@@ -6,6 +6,8 @@ url: google
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## google 搜索
   * 转义, 加引号

@@ -6,6 +6,8 @@ url: /?p=16053
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 华为云CCE, docker 实例发监控数据到influxdb
 docker集群内部新建telegraf实例

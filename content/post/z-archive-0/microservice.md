@@ -6,6 +6,8 @@ url: microservice
 categories:
   - Cloud
 
+tags:
+  - reprint
 ---
 ### 微服务
 

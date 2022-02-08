@@ -6,6 +6,8 @@ url: /?p=14181
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Zmodem
 Zmodem: Zmodem采用了串流式（streaming) 传输方式，传输速度较快，而且还具有自动改变区段大小和断点续传、快速错误侦测等功能。这是目前最流行的文件传输协议

@@ -6,6 +6,8 @@ url: /?p=4340
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java读写文件
 

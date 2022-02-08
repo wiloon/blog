@@ -6,6 +6,8 @@ url: /?p=5602
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ADX指标
 

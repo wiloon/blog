@@ -3,7 +3,12 @@ author: "-"
 date: "2020-09-01 09:52:18" 
 title: "foxmail"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "foxmail"
 
 ### 邮件存储目录修改
 关闭foxmail  

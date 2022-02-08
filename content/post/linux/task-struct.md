@@ -3,7 +3,12 @@ author: "-"
 date: "2021-04-17 23:00:27" 
 title: "task_struct, 进程描述符, 进程控制块 (PCB)"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "task_struct, 进程描述符, 进程控制块 (PCB)"
 ## task struct, task_struct, 进程描述符, 进程控制块 (PCB)
 >https://github.com/torvalds/linux/blob/master/include/linux/sched.h
 

@@ -6,6 +6,8 @@ url: /?p=4857
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Debian 6 squeeze TightVNC Server
 # 1 安装

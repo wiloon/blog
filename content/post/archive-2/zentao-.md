@@ -22,6 +22,8 @@ url: /?p=12910
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 禅道 docker + ldap插件
 checkout https://github.com/idoop/zentao

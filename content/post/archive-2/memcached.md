@@ -6,6 +6,8 @@ url: memcache
 categories:
   - cache
 
+tags:
+  - reprint
 ---
 ## memcache basic,command
 ### run as docker 

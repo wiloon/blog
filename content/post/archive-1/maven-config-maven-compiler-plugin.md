@@ -6,7 +6,10 @@ url: maven/plugin
 tags:
   - Maven
 
+categories:
+  - inbox
 ---
+## maven plugin, maven-compiler-plugin
 ## maven config, maven-compiler-plugin
 
 maven-compiler-plugin 3.6 和更高版本提供了一种新方法

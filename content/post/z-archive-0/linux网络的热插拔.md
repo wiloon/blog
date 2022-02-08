@@ -7,6 +7,8 @@ categories:
   - Linux
   - Network
 
+tags:
+  - reprint
 ---
 ## linux网络的热插拔
 # auto eth0:开机自动启动eth0，不管有沒有插上网线.

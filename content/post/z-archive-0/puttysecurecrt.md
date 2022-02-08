@@ -6,6 +6,8 @@ url: /?p=2561
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## PuTTY/SecureCRT
 从windows访问linux，除了samba之外，日常操作用得最多的大概就是PuTTY和SecureCRT

@@ -6,6 +6,8 @@ url: /?p=2780
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux search
 whereis

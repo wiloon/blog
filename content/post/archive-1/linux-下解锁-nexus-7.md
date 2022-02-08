@@ -6,6 +6,8 @@ url: /?p=5335
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 下解锁 nexus 7
 Requirements

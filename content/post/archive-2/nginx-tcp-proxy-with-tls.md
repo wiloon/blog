@@ -6,6 +6,8 @@ url: /?p=11399
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nginx tcp proxy with tls
 ```bash

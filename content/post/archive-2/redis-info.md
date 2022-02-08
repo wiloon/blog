@@ -6,6 +6,8 @@ url: /?p=11876
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## redis info
 

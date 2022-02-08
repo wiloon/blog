@@ -4,6 +4,10 @@ author: "-"
 date: 2013-01-06T13:44:27+00:00
 url: /?p=4981
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## top
 top 命令是常用的性能监控工具之一，用于监控系统整体性能和进程信息.

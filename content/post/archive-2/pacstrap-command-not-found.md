@@ -6,6 +6,8 @@ url: /?p=8443
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'pacstrap,command not found'
 http://archlinuxarm.org/forum/viewtopic.php?f=60&t=8529

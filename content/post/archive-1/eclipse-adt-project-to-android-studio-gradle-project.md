@@ -6,6 +6,8 @@ url: /?p=7219
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## eclipse adt project to android studio gradle project
 create new android studio project

@@ -4,6 +4,10 @@ author: "-"
 date: 2018-10-08T11:12:47+00:00
 url: pam
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## pam config
 pam模块文件内容看,可以将pam配置文件分为四列,

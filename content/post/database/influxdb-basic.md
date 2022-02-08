@@ -4,6 +4,10 @@ author: "-"
 date: 2017-08-02T06:50:39+00:00
 url: influxdb
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## influxdb basic
 

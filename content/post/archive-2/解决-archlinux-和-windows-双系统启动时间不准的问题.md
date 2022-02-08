@@ -6,6 +6,8 @@ url: /?p=8956
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 解决 archlinux 和 windows 双系统启动时间不准的问题
 https://bbs.archlinuxcn.org/viewtopic.php?id=424

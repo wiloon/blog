@@ -6,6 +6,8 @@ url: /?p=9610
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 命令行下使用socks 代理
 二、将 Socks5 代理转化为 http 代理

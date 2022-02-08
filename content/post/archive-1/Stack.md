@@ -6,6 +6,8 @@ url: /?p=5814
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 虚拟机栈(Virtual Machine Stack)，栈帧(Stack Frame)
 ### 栈帧(Stack Frame)

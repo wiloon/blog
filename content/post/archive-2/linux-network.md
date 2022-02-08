@@ -6,6 +6,8 @@ url: /?p=11781
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux network
 https://segmentfault.com/a/1190000008836467

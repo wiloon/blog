@@ -6,6 +6,8 @@ url: go/mod
 categories:
 - Golang
 
+tags:
+  - reprint
 ---
 ## go mod
 export GO111MODULE=on

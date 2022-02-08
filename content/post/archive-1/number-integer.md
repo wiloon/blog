@@ -6,6 +6,8 @@ url: /?p=5593
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## number integer
 

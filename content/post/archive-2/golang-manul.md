@@ -6,6 +6,8 @@ url: /?p=9153
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang manul
 ```bash

@@ -6,6 +6,8 @@ url: /?p=673
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## java timer
 ### Timer和TimerTask

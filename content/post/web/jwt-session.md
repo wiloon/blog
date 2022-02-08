@@ -3,7 +3,12 @@ author: "-"
 date: "2020-05-23T05:42:35Z"
 title: "JWT, session"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "JWT, session"
 背景知识: 
 
 ### Authentication和Authorization的区别: 

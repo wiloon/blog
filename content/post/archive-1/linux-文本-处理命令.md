@@ -6,7 +6,10 @@ url: command/text
 categories:
   - command
 
+tags:
+  - reprint
 ---
+## 文本处理命令， text command
 ## 文本 处理命令, text command
 
 0. 正则表达式（regular expression) 

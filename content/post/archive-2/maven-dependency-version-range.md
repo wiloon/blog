@@ -6,6 +6,8 @@ url: /?p=9758
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## maven dependency version range
 http://maven.apache.org/components/enforcer/enforcer-rules/versionRanges.html

@@ -6,7 +6,10 @@ url: /?p=4686
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## 消息队列/message queue/MQ,CORBA、DCOM, RMI, RPC
 ## 消息队列/message queue/MQ, CORBA, DCOM, RMI, RPC
 http://blog.csdn.net/mr_smile2014/article/details/47452281
 

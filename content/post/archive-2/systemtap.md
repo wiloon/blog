@@ -6,6 +6,8 @@ url: /?p=10210
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## systemtap
 http://www.cnblogs.com/hazir/p/systemtap_introduction.html

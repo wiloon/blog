@@ -6,6 +6,8 @@ url: /?p=12239
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## chrome os recover
 https://support.google.com/chromebook/answer/1080595?hl=zh-Hans

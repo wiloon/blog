@@ -6,6 +6,8 @@ url: /?p=12826
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'netgear  刷机, factory.img, sysupgrade.bin'
 xxx-factory.img

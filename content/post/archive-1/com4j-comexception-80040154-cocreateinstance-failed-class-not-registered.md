@@ -6,6 +6,8 @@ url: /?p=5187
 categories:
   - Windows
 
+tags:
+  - reprint
 ---
 ## 'com4j.ComException,80040154 CoCreateInstance failed,Class not registered'
 http://jenkins.361315.n4.nabble.com/VSS-Plugin-com4j-ComException-while-extraction-td374921.html

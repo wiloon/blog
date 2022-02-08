@@ -6,6 +6,8 @@ url: /?p=13121
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 按关键字杀进程
 ```bash

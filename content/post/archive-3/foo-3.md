@@ -6,6 +6,8 @@ url: /?p=14459
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 联通-电子发票
 查询》基本业务查询》电子发票

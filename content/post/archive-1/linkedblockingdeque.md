@@ -6,6 +6,8 @@ url: /?p=8256
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## LinkedBlockingDeque
 http://www.cnblogs.com/linjiqin/p/3214725.html

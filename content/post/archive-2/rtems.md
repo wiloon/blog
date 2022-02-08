@@ -6,6 +6,8 @@ url: /?p=8655
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## RTEMS
 为什么需要操作系统？

@@ -6,6 +6,8 @@ url: /?p=5365
 categories:
   - English
 
+tags:
+  - reprint
 ---
 ## toeic
 Bart Lorang may be the best boss ever.

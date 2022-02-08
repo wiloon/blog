@@ -6,6 +6,8 @@ url: nuxt
 categories:
   - web
 
+tags:
+  - reprint
 ---
 ## nuxt
 

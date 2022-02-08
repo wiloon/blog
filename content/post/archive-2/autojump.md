@@ -6,6 +6,8 @@ url: /?p=9866
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## autojump
 https://linux.cn/article-3401-1.html

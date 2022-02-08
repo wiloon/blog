@@ -6,6 +6,8 @@ url: /?p=2717
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux test
 <http://www.ibm.com/developerworks/cn/linux/l-bash-test.html>

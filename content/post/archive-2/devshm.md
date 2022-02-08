@@ -4,6 +4,10 @@ author: "-"
 date: 2017-05-31T05:33:43+00:00
 url: /?p=10406
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## /dev/shm
 http://dbua.iteye.com/blog/1271574

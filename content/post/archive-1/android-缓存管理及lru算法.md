@@ -6,6 +6,8 @@ url: /?p=6912
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## android 缓存管理及LRU算法
 android 缓存管理及LRU算法

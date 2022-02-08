@@ -4,6 +4,10 @@ author: "-"
 date: 2018-11-19T02:11:42.000+00:00
 url: protobuf
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## protocol buffers, protobuf
 

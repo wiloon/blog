@@ -6,6 +6,8 @@ url: /?p=11254
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go regex, 正则
 ```golang

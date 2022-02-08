@@ -6,6 +6,8 @@ url: /?p=4321
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## Java HTTP Helper
 ```java

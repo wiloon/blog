@@ -7,6 +7,8 @@ categories:
   - Java
   - VCS
 
+tags:
+  - reprint
 ---
 ## Git 分支
 <http://www.ruanyifeng.com/blog/2012/07/git.html>

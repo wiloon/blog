@@ -6,6 +6,8 @@ url: /?p=13205
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi disable ipv6
 ```bash

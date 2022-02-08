@@ -6,6 +6,8 @@ url: /?p=1899
 categories:
   - Development
 
+tags:
+  - reprint
 ---
 ## ON DUPLICATE KEY UPDATE重复插入时更新
 http://lobert.iteye.com/blog/1604122

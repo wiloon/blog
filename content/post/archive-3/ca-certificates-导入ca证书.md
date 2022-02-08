@@ -6,6 +6,8 @@ url: ca
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'ca-certificates 导入CA证书'
 ### centos

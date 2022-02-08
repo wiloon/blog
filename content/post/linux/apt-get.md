@@ -6,6 +6,8 @@ url: /?p=2447
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## apt-get, apt basic command
 ### 列出已安装的软件包

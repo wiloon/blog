@@ -6,6 +6,8 @@ url: /?p=2474
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## sysstat
 system performance tools for Linux

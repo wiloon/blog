@@ -3,7 +3,12 @@ author: "-"
 date: "2021-06-16 13:14:17" 
 title: "macos apps"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "macos apps"
 
 | name                  | comments                                                     |
 | :-------------------- | :----------------------------------------------------------- |

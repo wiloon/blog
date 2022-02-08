@@ -6,6 +6,8 @@ url: /?p=12820
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## KVM-Qemu-Libvirt
 http://blog.51cto.com/changfei/1672147

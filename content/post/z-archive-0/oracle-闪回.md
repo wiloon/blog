@@ -6,6 +6,8 @@ url: /?p=3051
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle 闪回
 <http://blog.csdn.net/aptweasel/article/details/3867059>

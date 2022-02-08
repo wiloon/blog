@@ -6,6 +6,8 @@ url: /?p=5916
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## debian 7 xfce
 <http://www.binarytides.com/install-xfce-desktop-on-debian-7-wheezy/>

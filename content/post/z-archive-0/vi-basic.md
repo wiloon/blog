@@ -6,6 +6,8 @@ url: vim
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## vi/vim basic, command
 

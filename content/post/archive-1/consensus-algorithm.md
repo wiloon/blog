@@ -6,6 +6,8 @@ url: consensus
 categories:
   - foo
 
+tags:
+  - reprint
 ---
 ## 共识算法,一致性算法, consensus algorithm
 

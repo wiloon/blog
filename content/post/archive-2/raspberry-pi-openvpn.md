@@ -6,6 +6,8 @@ url: /?p=11072
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi openvpn
 https://community.home-assistant.io/t/how-to-install-openvpn-on-raspberry-pi-with-home-assistant/59002

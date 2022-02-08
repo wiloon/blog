@@ -6,6 +6,8 @@ url: /?p=3740
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux shell 进程监控
 http://www.ibm.com/developerworks/cn/linux/l-cn-shell-monitoring/index.html?ca=drs-

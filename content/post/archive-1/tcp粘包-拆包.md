@@ -6,6 +6,8 @@ url: /?p=8273
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## TCP粘包 拆包
 TCP网络通信时候会发生粘包/拆包的问题，接下来探讨其解决之道。

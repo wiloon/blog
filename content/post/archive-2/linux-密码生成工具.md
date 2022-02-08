@@ -6,6 +6,8 @@ url: /?p=11073
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Linux 密码生成工具
 ```bash

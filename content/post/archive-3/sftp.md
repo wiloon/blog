@@ -6,6 +6,8 @@ url: /?p=15509
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## sftp
 https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/

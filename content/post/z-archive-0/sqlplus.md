@@ -6,6 +6,8 @@ url: /?p=1475
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## sqlplus
 **连接DB**

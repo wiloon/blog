@@ -6,7 +6,10 @@ url: /?p=8771
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## shell basic 变量
 ## shell 变量
 ### 变量的默认值
 

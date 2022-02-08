@@ -6,6 +6,8 @@ url: /?p=12625
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 输出重定向 Linux Shell 1>/dev/null 2>&1
 https://blog.csdn.net/sunboy_2050/article/details/9288353

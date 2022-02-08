@@ -6,6 +6,8 @@ url: docker/basic
 categories:
   - docker
 
+tags:
+  - reprint
 ---
 ## docker basic, commands
 ### 批量删除镜像

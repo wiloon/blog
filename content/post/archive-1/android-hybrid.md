@@ -6,6 +6,8 @@ url: /?p=7303
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## Android hybrid
 http://lin-xi.diandian.com/post/2013-12-08/40060383406

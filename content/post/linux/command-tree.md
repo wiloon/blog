@@ -2,7 +2,12 @@
 author: "-"
 date: "2020-05-16T05:53:01Z"
 title: "tree, 以树形结构显示文件目录结构, 目录树"
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "tree, 以树形结构显示文件目录结构, 目录树"
 以树形结构显示文件目录结构
 
 sudo pacman -S tree

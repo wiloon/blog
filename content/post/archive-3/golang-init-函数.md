@@ -6,6 +6,8 @@ url: /?p=15590
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang init 函数
 init函数的作用: 

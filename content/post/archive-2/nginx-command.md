@@ -6,6 +6,8 @@ url: /?p=11308
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nginx basic, command, docker
 ```bash

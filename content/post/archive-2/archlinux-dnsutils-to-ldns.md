@@ -6,6 +6,8 @@ url: /?p=9125
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'dns tool, dig/drill, dnsutils to ldns dig -> dirll'
 ```bash

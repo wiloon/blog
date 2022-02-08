@@ -5,6 +5,8 @@ date: 2012-05-28T06:21:36+00:00
 url: boltdb
 categories:
   - Science
+tags:
+  - reprint
 ---
 ## BoltDB
 BoltDB是一个嵌入式key/value的数据库，即只需要将其链接到你的应用程序代码中即可使用BoltDB提供的API来高效的存取数据。而且BoltDB支持完全可序列化的ACID事务，让应用程序可以更简单的处理复杂操作。

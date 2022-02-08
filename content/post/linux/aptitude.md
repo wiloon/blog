@@ -6,6 +6,8 @@ url: apt
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## apt, apt-get, aptitude
 Ubuntu(Debian)的aptitude与apt-get的区别和联系

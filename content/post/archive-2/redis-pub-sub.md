@@ -6,6 +6,8 @@ url: /?p=11635
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## redis pub sub
 PubSub 的缺点

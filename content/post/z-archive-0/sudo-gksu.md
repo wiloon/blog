@@ -6,6 +6,8 @@ url: /?p=2546
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## sudo gksu
 GKSu is a library that provides a Gtk+ frontend to su and sudo. It supports login shells and preserving environment when acting as a su frontend. It is useful to menu items or other graphical programs that need to ask a user's password to run another program as another user.

@@ -6,6 +6,8 @@ url: /?p=2996
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## eclipse updating indexes
 解决为什么每次打开Eclipse新的workspace需要更新nexus-maven-repository-index问题

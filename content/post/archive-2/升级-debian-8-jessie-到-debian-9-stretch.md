@@ -6,6 +6,8 @@ url: /?p=13495
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 升级 Debian 8 (Jessie) 到 Debian 9 (Stretch)
 https://www.linuxidc.com/Linux/2017-12/149050.htm

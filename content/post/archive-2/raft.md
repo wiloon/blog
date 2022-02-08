@@ -6,6 +6,8 @@ url: raft
 categories:
   - algorithm
 
+tags:
+  - reprint
 ---
 ## Raft 一致性算法
 

@@ -6,6 +6,8 @@ url: /?p=10907
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## logrotate
 确认 cronie 已经安装并启动

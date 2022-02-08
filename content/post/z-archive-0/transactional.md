@@ -6,7 +6,10 @@ url: /?p=2227
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
+## spring 事务
 ## @Transactional
 
 ==========================

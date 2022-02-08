@@ -6,6 +6,8 @@ url: /?p=9613
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## ld.so.conf
 http://lsscto.blog.51cto.com/779396/904078

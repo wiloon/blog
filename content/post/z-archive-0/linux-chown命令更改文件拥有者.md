@@ -6,6 +6,8 @@ url: /?p=1705
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## chown 更改文件拥有者
 如何更改一个文件的拥有者呢？很简单。既然改变用户组是change group，那么改变拥有者就是change owner（改变拥有者) ，这就是chown这个命令的用途。要注意的是，用户必须是已经在系统中，也就是在/etc/passwd这个文件中有记录的用户名称才可以更改。

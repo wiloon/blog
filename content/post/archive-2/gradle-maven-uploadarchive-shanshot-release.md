@@ -6,6 +6,8 @@ url: /?p=9553
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## gradle maven plugin
 https://docs.gradle.org/current/userguide/publishing_maven.html#header

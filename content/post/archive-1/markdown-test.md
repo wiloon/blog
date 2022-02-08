@@ -6,6 +6,8 @@ url: /?p=5251
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## WP-Markdown
 # This is an H1

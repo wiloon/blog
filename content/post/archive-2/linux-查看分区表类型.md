@@ -6,6 +6,8 @@ url: /?p=11878
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## linux 查看分区表类型
 You can use parted -l to determine the type of partition table. Eg:

@@ -6,6 +6,8 @@ url: /?p=3693
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'XML & JSON'
 

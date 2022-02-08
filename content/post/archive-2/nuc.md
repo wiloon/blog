@@ -6,6 +6,8 @@ url: /?p=13042
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## nuc
 英特尔 「NUC」（Next Unit of Computing) 

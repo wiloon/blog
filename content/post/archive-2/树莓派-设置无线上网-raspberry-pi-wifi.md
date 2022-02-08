@@ -6,6 +6,8 @@ url: /?p=9873
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## '树莓派 设置无线上网  Raspberry Pi  wifi'
 http://www.jianshu.com/p/b42e8d3df449

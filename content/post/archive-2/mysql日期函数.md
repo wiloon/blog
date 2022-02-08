@@ -6,6 +6,8 @@ url: /?p=8731
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL日期函数
 MySQL日期函数,时间函数使用的总结,以及时间加减运算(转)

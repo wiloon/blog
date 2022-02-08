@@ -6,6 +6,8 @@ url: /?p=14938
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## go blog system
 https://github.com/b3log/pipe

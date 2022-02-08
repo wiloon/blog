@@ -6,6 +6,8 @@ url: /?p=4776
 categories:
   - Web
 
+tags:
+  - reprint
 ---
 ## Pretty file input field in Bootstrap
 http://duckranger.com/2012/06/pretty-file-input-field-in-bootstrap/

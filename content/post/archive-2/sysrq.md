@@ -6,6 +6,8 @@ url: /?p=12584
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## SysRq
 https://blog.csdn.net/jasonchen_gbd/article/details/79080576

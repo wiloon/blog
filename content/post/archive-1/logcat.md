@@ -6,6 +6,8 @@ url: /?p=6872
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 本贴内容来自网络，引用网址为: http://hi.baidu.com/%C9%C1%D2%AB%B5%C4%CB%AE%BD%A7/blog/item/7cc9e1d00715dc369b50271d.html。
 

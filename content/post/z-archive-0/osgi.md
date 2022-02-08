@@ -6,6 +6,8 @@ url: /?p=2675
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## OSGi
 <http://zhidao.baidu.com/question/4918483>

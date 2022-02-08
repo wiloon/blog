@@ -6,6 +6,8 @@ url: /?p=11760
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## filebeat
 ### elasticsearch output 配置索引

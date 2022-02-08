@@ -6,6 +6,8 @@ url: /?p=8630
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## appassembler-maven-plugin
 ### Goals Overview

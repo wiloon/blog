@@ -3,6 +3,10 @@ title: golang file,文件操作
 author: "-"
 date: 2019-01-23T03:11:41.000+00:00
 url: go/file
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## golang file,文件操作
 ```golang

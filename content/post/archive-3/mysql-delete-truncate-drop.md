@@ -6,6 +6,8 @@ url: /?p=13873
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## MySQL DELETE TRUNCATE drop
 相同点: 

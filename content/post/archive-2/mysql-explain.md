@@ -6,6 +6,8 @@ url: /?p=9439
 categories: 
   - database
 
+tags:
+  - reprint
 ---
 ## MySQL explain, 执行计划, Query Execution Plan
 # 执行计划, Query Execution Plan, explain

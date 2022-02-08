@@ -6,7 +6,10 @@ url: /?p=4932
 categories:
   - Hardware
 
+tags:
+  - reprint
 ---
+## SSD - Smart Response
 ## Smart Response
 Smart Response 固态硬盘缓存技术属于英特尔Rapid Storage Technology 10.5的新功能，其允许用户将一块固态硬盘（部分或全部容量) 用作于机械硬盘（单块或RAID阵列) 高速缓存，让整机系统获得接近于固态硬盘的读取/写入性能，同时还能保留机械硬盘容量大的优势。
 

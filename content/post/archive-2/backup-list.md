@@ -6,6 +6,8 @@ url: /?p=10956
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## backup list, 备份列表
 ### pc

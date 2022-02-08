@@ -6,6 +6,8 @@ url: /?p=14960
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## termite
 ### vim ~/.config/termite/config

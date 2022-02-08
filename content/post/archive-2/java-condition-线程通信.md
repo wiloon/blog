@@ -6,6 +6,8 @@ url: /?p=9219
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 http://wiki.jikexueyuan.com/project/java-concurrent/thread-communication.html
 

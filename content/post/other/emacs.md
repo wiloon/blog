@@ -6,6 +6,8 @@ url: emacs
 categories:
   - editor
 
+tags:
+  - reprint
 ---
 ## emacs
 ## emacs yaml plugin

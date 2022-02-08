@@ -6,6 +6,8 @@ url: /?p=5745
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## VirtualBox 共享文件夹
 http://blkstone.github.io/2016/08/05/virtualbox-shared-folder/

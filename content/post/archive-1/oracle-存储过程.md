@@ -6,6 +6,8 @@ url: /?p=5555
 categories:
   - DataBase
 
+tags:
+  - reprint
 ---
 ## oracle 存储过程
 ```sql

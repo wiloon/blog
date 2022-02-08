@@ -6,6 +6,8 @@ url: /?p=3027
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mind map
 - http://naotu.baidu.com/home

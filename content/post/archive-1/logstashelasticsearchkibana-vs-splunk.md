@@ -6,6 +6,8 @@ url: /?p=8238
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## logstash+ElasticSearch+Kibana VS Splunk
 http://blog.csdn.net/firefoxbug/article/details/8018377

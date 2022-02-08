@@ -6,6 +6,8 @@ url: /?p=2813
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## Linux命令pidof
 Linux命令pidof - 找出正在运行程序的进程PID

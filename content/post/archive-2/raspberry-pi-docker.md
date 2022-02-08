@@ -6,6 +6,8 @@ url: /?p=12926
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## raspberry pi docker
 ```bash

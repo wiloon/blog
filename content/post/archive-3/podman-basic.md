@@ -7,6 +7,8 @@ tags:
   - podman
   - remix
 
+categories:
+  - inbox
 ---
 ## podman basic
 ### install

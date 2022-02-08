@@ -6,6 +6,8 @@ url: /?p=9930
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## java 8 新特性
 https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/

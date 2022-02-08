@@ -6,7 +6,10 @@ url: /?p=1525
 categories:
   - Java
 
+tags:
+  - reprint
 ---
+## commons-logging Log4J
 ## commons-logging vs Log4J
 Log4J是一个功能很强大的日志记录组件，它提供了丰富的日志记录功能，它本身和commons-logging没有什么关系，也就是说一个项目中可以单独使用Log4J来记录日志，而不需要引入commons-logging包，这样也能实现记录日志的功能，但是这样有一个不太好的地方就是如果你想使用其他的Logging组建，比如jdk1.4自带的logging框架，就不得不修改原有文件中所有使用了Log4J组建的代码。
 

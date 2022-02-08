@@ -6,6 +6,8 @@ url: /?p=9639
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## redis 主从复制
 https://lanjingling.github.io/2015/11/17/redis-mast-slaveof/

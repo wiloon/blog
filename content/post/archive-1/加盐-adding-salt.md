@@ -6,6 +6,8 @@ url: /?p=7951
 tags:
   - Security
 
+categories:
+  - inbox
 ---
 ## 加盐 Adding Salt
 http://drops.wooyun.org/papers/1066

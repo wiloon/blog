@@ -6,6 +6,8 @@ url: /?p=14734
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## angular 8, ngx-echarts, echart
 ```bash

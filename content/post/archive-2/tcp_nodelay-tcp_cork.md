@@ -6,6 +6,8 @@ url: /?p=11179
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## TCP_NODELAY, TCP_CORK
 TCP/IP之Nagle算法与40ms延迟提到了Nagle 算法。这样虽然提高了网络吞吐量,但是实时性却降低了,在一些交互性很强的应用程序来说是不允许的,使用TCP_NODELAY选项可以禁止Nagle 算法。禁止Nagle后应用程序向内核递交的每个数据包都会立即发送出去。但是禁止Nagle,网络传输仍然受到TCP确认延迟机制的影响。

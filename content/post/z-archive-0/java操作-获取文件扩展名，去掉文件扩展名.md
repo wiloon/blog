@@ -6,6 +6,8 @@ url: /?p=4014
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## JAVA操作——获取文件扩展名，去掉文件扩展名
 http://blog.csdn.net/redoffice/article/details/6652731

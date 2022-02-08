@@ -6,6 +6,8 @@ url: /?p=4834
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## serialVersionUID
 serialVersionUID作用: 

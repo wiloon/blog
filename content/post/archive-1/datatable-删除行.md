@@ -6,6 +6,8 @@ url: /?p=5908
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## datatable 删除行
 先列出正确的写法，如果你只想马上改错就先复制吧，

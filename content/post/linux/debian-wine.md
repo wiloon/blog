@@ -6,6 +6,8 @@ url: /?p=3070
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## debian wine frozen throne
 download source  from <http://www.winehq.org/download/>

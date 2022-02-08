@@ -6,6 +6,8 @@ url: /?p=5794
 categories:
   - Emacs
 
+tags:
+  - reprint
 ---
 ## Windows 安装 Emacs
 

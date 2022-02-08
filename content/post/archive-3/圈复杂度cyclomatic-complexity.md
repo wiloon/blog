@@ -6,6 +6,8 @@ url: /?p=14915
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 圈复杂度(Cyclomatic Complexity)
 圈复杂度(Cyclomatic Complexity)是一种代码复杂度的衡量标准。它可以用来衡量一个模块判定结构的复杂程度，数量上表现为独立线性路径条数，也可理解为覆盖所有的可能情况最少使用的测试用例数。圈复杂度大说明程序代码的判断逻辑复杂，可能质量低且难于测试和维护。程序的可能错误和高的圈复杂度有着很大关系。

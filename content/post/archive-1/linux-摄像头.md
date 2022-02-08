@@ -6,6 +6,8 @@ url: /?p=5002
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux 摄像头
 http://www.linuxeden.com/html/news/20101108/105418.html

@@ -6,6 +6,8 @@ url: /?p=14322
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang WebAssembly
 https://github.com/golang/go/wiki/WebAssembly

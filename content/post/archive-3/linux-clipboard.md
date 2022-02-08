@@ -5,6 +5,10 @@ date: -001-11-30T00:00:00+00:00
 draft: true
 url: /?p=15817
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## linux 剪贴板
 在 X 系统里面，从一个窗口复制一段文字到另一个窗口，有两套机制，分别是 Selections 和 cut buffers。

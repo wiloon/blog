@@ -6,6 +6,8 @@ url: /?p=5
 categories:
   - Linux
 
+tags:
+  - reprint
 ---
 ## linux CLI
 作为 Linuxer，必须具备一定的 CLI 操作能力。有时候用 CLI 会比用 GUI 会更方便快捷。  —-lcan  

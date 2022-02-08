@@ -6,6 +6,8 @@ url: /?p=7472
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## mbr gpt
 http://www.rodsbooks.com/linux-fs-code/

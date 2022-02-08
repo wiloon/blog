@@ -3,7 +3,12 @@ author: "-"
 date: "2020-08-02 11:58:43" 
 title: "pppoe"
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
+## "pppoe"
 
 PPP: Point-to-Point Protocol,链路层协议。用户实现点对点的通讯。
 PPPoE的工作过程分成两个阶段,即发现阶段(Discorvery)和PPP会话阶段。

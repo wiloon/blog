@@ -6,7 +6,10 @@ url: /?p=4151
 categories:
   - Java
 
+tags:
+  - reprint
 ---
+## Java, 堆(Heap), 栈/线程栈(Stack), 方法区(method), 常量池
 ## Java, 堆(Heap), 栈/线程栈(Stack), 方法区(method Area), 常量池(Constant Pool)
 
 [![4MnMpn.png](https://z3.ax1x.com/2021/09/17/4MnMpn.png)](https://imgtu.com/i/4MnMpn)

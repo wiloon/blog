@@ -4,6 +4,10 @@ author: "-"
 date: 2019-04-05T14:05:40+00:00
 url: /?p=14102
 
+categories:
+  - inbox
+tags:
+  - reprint
 ---
 ## ldd 查看程序依赖库
 

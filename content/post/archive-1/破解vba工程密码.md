@@ -6,6 +6,8 @@ url: /?p=7441
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## golang defer
 不要在for循环直接用defer

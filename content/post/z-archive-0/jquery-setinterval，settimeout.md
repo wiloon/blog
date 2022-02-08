@@ -6,6 +6,8 @@ url: /?p=4041
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## 'jQuery  setInterval，setTimeout'
   

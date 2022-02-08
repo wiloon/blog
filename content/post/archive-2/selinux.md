@@ -6,6 +6,8 @@ url: /?p=10971
 categories:
   - Uncategorized
 
+tags:
+  - reprint
 ---
 ## selinux
 http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux

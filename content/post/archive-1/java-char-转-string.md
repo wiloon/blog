@@ -6,6 +6,8 @@ url: /?p=5076
 categories:
   - Java
 
+tags:
+  - reprint
 ---
 ## 'java char[] 转  String'
 ```java
