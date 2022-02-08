@@ -9,12 +9,13 @@ categories:
 ---
 ## socks5
 socks5 是 SOCKS Protocol Version 5 的缩写，其规范定义于 RFC 1928
+SOCKS是"SOCKet Secure"的缩写
 
 http://zhihan.me/network/2017/09/24/socks5-protocol/
   
 https://jiajunhuang.com/articles/2019_06_06-socks5.md.html
   
-socks是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。根据OSI七层模型来划分，SOCKS属于会话层协议，位于表示层与传输层之间。
+socks 是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。根据 OSI 七层模型来划分，SOCKS 属于会话层协议，位于表示层与传输层之间。
 
 当防火墙后的客户端要访问外部的服务器时，就跟socks代理服务器连接。该协议设计之初是为了让有权限的用户可以穿过过防火墙的限制，使得高权限用户可以访问外部资源。经过10余年的时间，大量的网络应用程序都支持socks5代理。
 
