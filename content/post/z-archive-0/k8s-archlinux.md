@@ -241,6 +241,7 @@ kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
 ```bash
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-1.12.2
+export PATH=$PWD/bin:$PATH
 istioctl install --set profile=demo -y
 istioctl verify-install
 
@@ -319,6 +320,7 @@ kubectl logs -f kube-flannel-ds-kp9mt
 
 
 ### install worker node
+
 ```bash
 pacman -S cri-o kubeadm kubelet kubectl
 systemctl enable kubelet && systemctl enable crio
@@ -328,14 +330,17 @@ reboot
 
 # 配置 /etc/containers/registries.conf
 
-# 在master节点上执行，取token
+# 获取 token, 在master节点上执行，取token
 kubeadm token list 
 # 如果 token 过期，可以使用 kubeadm token create 命令创建新的 token
 
+# 获取 discovery-token-ca-cert-hash
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
+
 
 # 在worker节点 上执行
-kubeadm join 192.168.50.118:6443 --token abcdef.0123456789abcdef \
-        --discovery-token-ca-cert-hash sha256:7f30f55875a14cbcf2ea309ce12a2d397a9755013f37afc73f2eab7d5154d013
+kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
+        --discovery-token-ca-cert-hash sha256:6fee60dc1867c9e88a3c404e949833ab1956db85e19ee5fdfbf4aaa89712e6b6
 
 # 在master主执行，查看 节点列表
 kubectl get nodes
