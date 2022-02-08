@@ -20,7 +20,7 @@ categories:
 2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM,  IEEE 8025/802.2
 3. 网络层 Network Layer: IP,IPX,AppleTalk DDP
 4. 传输层 Transport Layer : TCP,UDP,SPX, QUIC
-5. 会话层 Session Layer : RPC,SQL,NFS,NetBIOS,names,AppleTalk,ASP,DECnet,SCP
+5. 会话层 Session Layer: RPC, SQL, NFS, NetBIOS, names, AppleTalk, ASP, DECnet, SCP
 6. 表示层 Presentation Layer :TIFF,GIF,JPEG,PICT,ASCII,EBCDIC,encryption,MPEG,MIDI,HTML
 7. 应用层 Application Layer : FTP,WWW,Telnet,NFS,SMTP,Gateway,SNMP
 

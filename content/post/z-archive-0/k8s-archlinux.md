@@ -74,6 +74,7 @@ kubectl 是 Kubernetes 的命令行工具（CLI），是 Kubernetes 用户和管
 ```bash
 pacman -Syu
 reboot
+# 安装最新版本
 pacman -S kubeadm kubelet kubectl cri-o
 systemctl enable kubelet && systemctl enable crio
 reboot
@@ -84,7 +85,7 @@ sysctl -a |grep vm.swappiness && sysctl -a |grep ip_forward && sysctl -a |grep b
 # 把虚拟机的网关设置成有梯子的网关，kubelet需要梯子
 
 # 配置内网dns
-192.168.50.xxx k8s0
+192.168.50.110 k8s0
 ```
 
 ### 配置 /etc/containers/registries.conf
@@ -117,12 +118,13 @@ bootstrapTokens:
 kind: InitConfiguration
 localAPIEndpoint:
 # IP
-  advertiseAddress: 192.168.50.118
+  advertiseAddress: 192.168.50.110
   bindPort: 6443
 nodeRegistration:
 # 使用 cri-o
-  criSocket: unix:///run/crio/crio.sock 
+  criSocket: unix:///run/crio/crio.sock
   imagePullPolicy: IfNotPresent
+# name
   name: k8s0
   taints: null
 ---
@@ -139,10 +141,12 @@ etcd:
 # 阿里云镜像仓库
 imageRepository: registry.aliyuncs.com/google_containers
 kind: ClusterConfiguration
-kubernetesVersion: 1.23.0
+# k8s 版本
+kubernetesVersion: 1.23.3
 networking:
   dnsDomain: cluster.local
   serviceSubnet: 10.96.0.0/12
+# pod subnet
   podSubnet: 10.244.0.0/16
 scheduler: {}
 ---
@@ -199,6 +203,7 @@ kubeadm config images pull --config kubeadm.yaml
 
 # init, 初始化Master节点
 kubeadm init --config kubeadm.yaml --upload-certs
+kubeadm init --config kubeadm.yaml --upload-certs --ignore-preflight-errors=KubeletVersion
 
 # kubeadm 会生成kubelet配置并重启kubelet
 /var/lib/kubelet/kubeadm-flags.env
@@ -233,72 +238,40 @@ kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
 ```
 
 ### export
+echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' > ~/.bash_profile    
 
-    export KUBECONFIG=/etc/kubernetes/admin.conf
-
-## install istio
-
+### install worker node
 ```bash
-curl -L https://istio.io/downloadIstio | sh -
-cd istio-1.12.2
-export PATH=$PWD/bin:$PATH
-istioctl install --set profile=demo -y
-istioctl verify-install
+pacman -S cri-o kubeadm kubelet kubectl
+systemctl enable kubelet && systemctl enable crio
+reboot
+# 配置内网dns
+192.168.50.111 k8s1
 
-kubectl get pods -n istio-system 
-kubectl describe pod istiod-5bcb74c764-n52gh -n istio-system
+# 配置 /etc/containers/registries.conf
+
+# 在 master 节点上执行，取token
+kubeadm token list 
+# 如果 token 过期，可以使用 kubeadm token create 命令创建新的 token
+
+
+# 在worker节点 上执行
+kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
+        --discovery-token-ca-cert-hash sha256:7f30f55875a14cbcf2ea309ce12a2d397a9755013f37afc73f2eab7d5154d013
+
+# 在 master 执行，查看 节点列表
+kubectl get nodes
 ```
 
-### commands
-
-```bash
-# 节点的状态
-kubectl get nodes -o wide
-# 所有 Pod 信息
-kubectl get pods --all-namespaces -o wide
- 
-kubectl get pods --all-namespaces
-kubectl get pods -A
-kubectl get pods -n kube-system  -o wide
-kubectl describe pods kube-flannel-ds-amd64-vcmx9 -n kube-system  
-# 重启 pod
-kubectl replace --force -f  kube-flannel.yml
-kubectl logs <pod_name>
-kubectl delete node k8s-test-2.novalocal
-#重置
-kubeadm reset
-crictl ps
-
-kubeadm token list
-#删除节点
-kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
-
-
-```
-
->https://www.lixueduan.com/post/kubernetes/01-install/
->https://wiki.archlinux.org/title/Kubernetes
->https://kubernetes.io/zh/docs/home/
->https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
-
->https://www.qikqiak.com/post/containerd-usage/
->https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category
->https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/
-
-
-
-### flannel
+## CNI, flannel
 ```bash
 curl -O https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
-
-
 ```
-
-
 
 ### 应用 
 ```bash
 kubectl apply -f kube-flannel.yml
+
 # 查看 详细， 能看到pod为什么 启动失败，比如拉取镜像失败
 kubectl describe pods kube-flannel-ds-fgnhq -n kube-system
 
@@ -312,41 +285,73 @@ kubectl get pods --all-namespaces
 kubectl logs -f kube-flannel-ds-kp9mt
 ```
 
+### ingress
+```bash
+curl -O https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/cloud/deploy.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/cloud/deploy.yaml
+kubectl get pods --namespace=ingress-nginx
+
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=120s
+
+kubectl create deployment demo --image=httpd --port=80
+kubectl expose deployment demo
+
+kubectl create ingress demo-localhost --class=nginx \
+  --rule=demo.localdev.me/*=demo:80
+
+kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 8080:80
+
+curl http://demo.localdev.me:8080/
+```
+### commands
+
+```bash
+#重置
+kubeadm reset
+# 检查k8s dns svc 启动是否正常
+kubectl get svc -n kube-system
+# 节点的状态
+kubectl get nodes -o wide
+# 所有 Pod 信息
+kubectl get pods --all-namespaces -o wide
+ 
+kubectl get pods --all-namespaces
+kubectl get pods -A
+kubectl get pods -n kube-system  -o wide
+kubectl describe pods kube-flannel-ds-amd64-vcmx9 -n kube-system
+# 重启 pod
+kubectl replace --force -f  kube-flannel.yml
+kubectl logs <pod_name>
+kubectl delete node k8s-test-2.novalocal
+
+crictl ps
+
+kubeadm token list
+#删除节点
+kubectl delete pod kube-flannel-ds-trxtz  -n kube-system
+
+kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
+```
+
+>https://www.lixueduan.com/post/kubernetes/01-install/
+>https://wiki.archlinux.org/title/Kubernetes
+>https://kubernetes.io/zh/docs/home/
+>https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+
+>https://www.qikqiak.com/post/containerd-usage/
+>https://landscape.cncf.io/card-mode?category=container-runtime&grouping=category
+>https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/kubelet-integration/
+
+
 
 >https://juejin.cn/post/6894457482635116551
 
 ### pod cidr not assgned
 >https://github.com/flannel-io/flannel/issues/728
-
-
-### install worker node
-
-```bash
-pacman -S cri-o kubeadm kubelet kubectl
-systemctl enable kubelet && systemctl enable crio
-reboot
-# 配置内网dns
-192.168.50.118 k8s0
-
-# 配置 /etc/containers/registries.conf
-
-# 获取 token, 在master节点上执行，取token
-kubeadm token list 
-# 如果 token 过期，可以使用 kubeadm token create 命令创建新的 token
-
-# 获取 discovery-token-ca-cert-hash
-openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
-
-
-# 在worker节点 上执行
-kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
-        --discovery-token-ca-cert-hash sha256:6fee60dc1867c9e88a3c404e949833ab1956db85e19ee5fdfbf4aaa89712e6b6
-
-# 在master主执行，查看 节点列表
-kubectl get nodes
-
-```
-
 
 ### kubectl run
 ```bash

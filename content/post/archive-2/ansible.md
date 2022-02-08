@@ -2,7 +2,7 @@
 title: Ansible
 author: "-"
 date: 2015-10-14T07:14:28+00:00
-url: /?p=8404
+url: Ansible
 
 ---
 ## Ansible
@@ -20,19 +20,25 @@ Puppet 和 SaltStack 我曾用过,但不是十分符合预期,所以先行排除
 
 一言以蔽之,Ansible 背后的简单化哲学深得我心。这也比较符合我选择软件的一贯原则。可能还有人会比较关心目前 Ansible 都有谁在用。毕竟,榜样的力量是无穷。Puppet 不正是因为 Google 在用而吸引了不少眼球么？据我所知,当前使用 Ansible 较为知名的用户包括 Fedora、Rackspace、Evernote 等等。
 
-**安装 Ansible**
+## 安装 Ansible
 
 Ansible 能够安装到 Linux、BSD、Mac OS X 等平台,Python 版本最低要求为 2.6。常用 Linux 发行一般可以通过其自带的包管理器[安装 Ansible][5]
 
+### ubuntu
+```bash
+# apt安装的可能不是新版本
+apt instll ansible
+# pip install ansible
+pip install --user ansible
+# 把 ~/.local/bin 加入 $PATH
+
+```
+
 ```
 yum install ansible     # RHEL/CentOS/Fedora,需要配置 EPEL
-apt-get install ansible # Debian/Ubuntu
 emerge -avt ansible     # Gentoo/Funtoo
 
-如果你在所用 Linux 发行版的包仓库中找不到 Ansible,那么也可以通过 `pip` 来安装 Ansible,同时也会安装 paramiko、PyYAML、jinja2 等 Python 依赖库。
-
 ```
-  pip install ansible
 
 **准备 Inventory**
 Inventory 文件用来定义你要管理的主机。其默认位置在 `/etc/ansible/hosts` ,如果不保存在默认位置,也可通过 `-i` 选项指定。被管理的机器可以通过其 IP 或域名指定。未分组的机器需保留在 hosts 的顶部,分组可以使用`[]` 指定,如: 
@@ -51,7 +57,7 @@ db
 此外,也可以通过数字和字母模式来指定一系列连续主机,如: 
 
 
-  [1:3].linuxtoy.org # 等价于
+[1:3].linuxtoy.org # 等价于
 1.linuxtoy.org、2.linuxtoy.org、3.linuxtoy.org  
 [a:c].linuxtoy.org # 等价于
 a.linuxtoy.org、b.linuxtoy.org、c.linuxtoy.org
