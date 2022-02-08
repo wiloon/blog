@@ -10,7 +10,8 @@ tags:
 ---
 ## "sasl"
 
-### SASL - 简单认证和安全层 
+### SASL - 简单认证和安全层
+
 身份验证是很多C/S模式应用协议的通用需求，为了避免每个协议都单独实现一套验证逻辑，SASL(Simple Authentication and Secure Layer)被提出了, 它定位成为基于可靠连接的应用协议提供身份验证和数据安全服务的通用框架。SASL定义了通用的身份验证信息交换的流程, 并且包含一系列验证机制。这些验证机制完成具体的身份验证逻辑。这样，SASL就成为了一个将应用协议和验证机制相连接的抽象层，如下图所示。
 
    -------------------------------------------------------------
@@ -368,4 +369,5 @@ gsasl_callback_set (ctx, callback);
 >https://bluehua.org/2010/12/01/1484.html
 
 ### CRAM-MD5
+
 >https://datatracker.ietf.org/doc/html/rfc2195
