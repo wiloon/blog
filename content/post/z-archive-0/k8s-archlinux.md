@@ -261,7 +261,6 @@ kubeadm join 192.168.50.110:6443 --token abcdef.0123456789abcdef \
 
 # 在 master 执行，查看 节点列表
 kubectl get nodes
-
 ```
 
 ## CNI, flannel
@@ -353,10 +352,6 @@ kubectl logs -f --since 5m istiod-9cbc77d98-kk98q -n istio-system
 
 ### pod cidr not assgned
 >https://github.com/flannel-io/flannel/issues/728
-
-
-
-
 
 ### kubectl run
 ```bash
