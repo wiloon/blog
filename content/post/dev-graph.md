@@ -3,12 +3,7 @@ title: dev graph
 author: "-"
 date: 2011-08-01T15:43:50+00:00
 url: dev/graph
-categories:
-  - dev
-
 ---
-## dev graph
-
 ### 图
 ```puml
 @startuml
