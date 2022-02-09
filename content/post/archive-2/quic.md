@@ -6,16 +6,18 @@ url: quic
 categories:
   - network
 
-tags:
-  - reprint
 ---
 ## QUIC
-读作 "quick"
-Quic 全称 quick udp internet connection, 是一个基于UDP的传输层协议, 其目的是为了代替TCP。
 
-QUIC（Quick UDP Internet Connection）是谷歌制定的一种互联网传输层协议，它基于UDP传输层协议，同时兼具TCP、TLS、HTTP/2等协议的可靠性与安全性，可以有效减少连接与传输延迟，更好地应对当前传输层与应用层的挑战。目前阿里云CDN线上提供GQUIC版本服务，已经有Tbps级别的流量承载，并对客户来带了显著的延迟收益。本文将由低向上分层讨论QUIC协议的特点。
+读作 "quick"  
 
-Quic 相比现在广泛应用的 http2+tcp+tls 协议有如下优势 [2]：
+QUIC（Quick UDP Internet Connection）
+
+Quic 是一个基于UDP的传输层协议, 其目的是为了代替TCP。
+
+QUIC 是 Google 制定的一种互联网传输层协议，它基于UDP传输层协议，同时兼具TCP、TLS、HTTP/2等协议的可靠性与安全性，可以有效减少连接与传输延迟，更好地应对当前传输层与应用层的挑战。目前阿里云 CDN 线上提供 QUIC 版本服务，已经有 Tbps 级别的流量承载，并对客户来带了显著的延迟收益。本文将由低向上分层讨论 QUIC 协议的特点。
+
+Quic 相比现在广泛应用的 http2+tcp+tls 协议有如下优势：
 
 - 减少了 TCP 三次握手及 TLS 握手时间。
 - 改进的拥塞控制 -- 拥塞控制移到了用户空间
@@ -26,7 +28,7 @@ Quic 相比现在广泛应用的 http2+tcp+tls 协议有如下优势 [2]：
 
 QUIC 具备“0RTT 建联”、“支持连接迁移”等诸多优势，并将成为下一代互联网协议：HTTP3.0 的底层传输协议
 
-QUIC (Quick UDP Internet Connections) 是一种基于 UDP 封装的安全 可靠传输协议，他的目标是取代 TCP 并自包含 TLS 成为标准的安全传输协议。
+QUIC 是一种基于 UDP 封装的安全 可靠传输协议，他的目标是取代 TCP 并自包含 TLS 成为标准的安全传输协议。
 
 在 QUIC 出现之前，TCP 承载了 90% 多的互联网流量， 发展了几十年的 TCP 面临 “协议僵化问题”
 
@@ -35,6 +37,7 @@ QUIC (Quick UDP Internet Connections) 是一种基于 UDP 封装的安全 可靠
 除此之外，当应用层协议优化到 TLS1.3、 HTTP2.0 后， 传输层的优化也提上了议程
 
 ### HTTP/3
+
 2018年10月，IETF的HTTP工作组和QUIC工作组共同决定将QUIC上的HTTP映射称为 "HTTP/3"  
 当IETF正式标准化HTTP/2时，Google正在独立构建一个新的传输协议，名为gQUIC。它后来成为新互联网草案，并被命名为QUIC。gQUIC最初的实验证明，在网络条件较差的情况下，gQUIC在增强网页浏览体验方面的效果非常好。因此，gQUIC的发展势头越来越好，IETF的大多数成员赞成建立一个在QUIC上运行的HTTP新规范。这个新的倡议被称为HTTP/3，以区别于当前的HTTP/2标准。
 
