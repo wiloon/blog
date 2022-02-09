@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## c basic, c, c lang
+
 vim  main.c
 
 ```c
