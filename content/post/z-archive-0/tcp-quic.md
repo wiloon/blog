@@ -30,34 +30,3 @@ qt --> ts
 
 ### t2q2t
 >https://github.com/flano-yuki/t2q2t.git
-### tcpcopoy
->https://github.com/session-replay-tools/tcpcopy
-### goreplay
->https://github.com/buger/goreplay
-### tcpcopy 架构漫谈
->https://blog.csdn.net/wangbin579/article/details/8949315
->https://segmentfault.com/a/1190000039285429
->https://github.com/buger/goreplay
-### 流量复制方案对比：Tcpcopy vs Goreplay
->https://segmentfault.com/a/1190000039285429
-
-
-## 流量复制
-
-几款流量复制工具：
-
-gor: https://github.com/buger/goreplay
-tcpreplay: https://github.com/appneta/tcpreplay
-tcpcopy: https://github.com/session-replay-tools/tcpcopy
-Nginx模块ngx_http_mirror_module，在Nginx 1.13.4中开始引入，使用前请检查nginx版本
-
-### goreplay
-Goreplay 只能复制http流量 
-
-### tcpreplay
-c 语言实现
-https://github.com/appneta/tcpreplay
-
-### tcpcopy
-c 语言实现
-https://github.com/session-replay-tools/tcpcopy
