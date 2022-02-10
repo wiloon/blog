@@ -54,7 +54,7 @@ Cache has file data blocks, and memory mapped information (i.e. files mapped wit
 
 ### si
 每秒从磁盘读入虚拟内存的大小,如果这个值大于0,表示物理内存不够用或者内存泄露了,要查找耗内存进程解决掉。我的机器内存充裕,一切正常。
-### so
+- so
 每秒虚拟内存写入磁盘的大小,如果这个值大于0,同上。
 ### bi (block input)
 每秒读取的块数（读磁盘）

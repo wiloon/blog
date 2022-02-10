@@ -1,14 +1,21 @@
 ---
-title: 'windows dll， Linux so'
+title: so, dll, 动态链接库
 author: "-"
-date: 2014-04-14T05:24:47+00:00
-url: /?p=6544
-tags:
-  - linux
-
+date: 2012-03-27T02:54:15+00:00
+url: so
 categories:
-  - inbox
+  - Linux
+tags:
+  - Linux
+
 ---
+## so, 动态链接库
+不同操作系统的动态链接库文件格式稍有不同，Linux称之为共享目标文件（Shared Object），文件后缀为.so，Windows的动态链接库（Dynamic Link Library）文件后缀为.dll。
+
+
+>https://zhuanlan.zhihu.com/p/235551437
+
+
 ## 'windows dll， Linux so'
 http://blog.csdn.net/yang_lang/article/details/5926486
 
@@ -243,4 +250,14 @@ LD_LIBRARY_PATH: 这个环境变量指示动态连接器可以装载动态库的
 
 当然如果有root权限的话，可以修改/etc/ld.so.conf文件，然后调用
 
-/sbin/ldconfig来达到同样的目的，不过如果没有root权限，那么只能采用输出LD_LIBRARY_PATH的方法了。
+### ldconfig, 查看某个so在Linux(Ubuntu)系统下的路径
+
+    ldconfig -p | grep xxx.so
+
+/sbin/ldconfig 来达到同样的目的，不过如果没有root权限，那么只能采用输出LD_LIBRARY_PATH的方法了。
+
+### 查看某个 so库里有什么函数
+
+    nm -D xxx.so
+    或
+    objdump -tT xxx.so

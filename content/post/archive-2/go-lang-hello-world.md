@@ -1,5 +1,5 @@
 ---
-title: The Go Programming Language
+title: objdump
 author: "-"
 date: 2016-03-04T04:53:20+00:00
 url: /?p=8776
@@ -7,27 +7,28 @@ categories:
   - Uncategorized
 tags:
   - Golang
-
 ---
-## The Go Programming Language
-Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支持多种编程范式(函数式和面向对象)。
+## objdump
+功能：以一种可阅读的格式让你更多地了解目标文件、可执行文件可能带有的附加信息，也能完成目标文件或者可执行文件的反汇编。
 
-### hello world
+示例：
 
-```golang
-package main
-import "fmt"
-func main() {
-fmt.Println("hello world")
-}
-```
+# 查看动态库有哪些符号，包括数据段、导出的函数和引用其他库的函数
+objdump -tT xxx.so
+objdump -x xxx.a
 
-```bash
-go run hello-world.go
-go build hello-world.go
-./hello-world
-```
+# 查看动态库依赖项
+objdump -x xxx.so | grep "NEEDED" 
 
-http://studygolang.com/articles/1941
-  
-https://gobyexample.com/hello-world
+# 查看动态符号表
+objdump -T xxx.so
+## 假如想知道 xxx.so 中是否导出了符号 yyy ，那么命令为 objdump -T xxx.so | grep "yyy" 。
+
+# 查看动态符号表
+objdump -t xxx.so
+## -T 和 -t 选项在于 -T 只能查看动态符号，如库导出的函数和引用其他库的函数，而 -t 可以查看所有的符号，包括数据段的符号。
+ 
+ 
+————————————————
+版权声明：本文为CSDN博主「mayue_csdn」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/mayue_web/article/details/103879976

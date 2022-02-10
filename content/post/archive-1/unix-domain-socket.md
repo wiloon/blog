@@ -429,6 +429,7 @@ POP3客户端实例
   
 下面的代码实例基于POP3的客户协议，和邮件服务器连接并取回指定用户帐号的邮件。和邮件服务器交互的命令存储在字符串数组POPMessage中，程式通过一个do-while循环依次发送这些命令。
   
+```c
 #include
   
 #include
@@ -539,6 +540,7 @@ close(sockfd);
   
 }
   
+```
 Unix/Linux环境下的Socket编程
   
 网络的Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。 Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该 Socket实现的。常用的Socket类型有两种: 流式Socket （SOCK_STREAM) 和数据报式Socket（SOCK_DGRAM) 。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。

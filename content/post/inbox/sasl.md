@@ -369,3 +369,6 @@ gsasl_callback_set (ctx, callback);
 
 ### CRAM-MD5
 >https://datatracker.ietf.org/doc/html/rfc2195
+
+### gsasl.h
+https://www.gnu.org/software/gsasl/doxygen/gsasl_8h_source.html  

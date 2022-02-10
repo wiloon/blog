@@ -12,6 +12,8 @@ tags:
 ## tcpdump
 用简单的话来定义tcpdump,就是: dump the traffic on a network,根据使用者的定义对网络上的数据包进行截获的包分析工具。 tcpdump可以将网络中传送的数据包的"头"完全截获下来提供分析。它支持针对网络层、协议、主机、网络或端口的过滤,并提供and、or、not等逻辑语句来帮助你去掉无用的信息。
 
+tcpdump工作在数据链路层
+
 ### 指定主机
 ```bash
     tcpdump host 192.168.1.1
@@ -1047,11 +1049,9 @@ tcpdump的简单选项介绍
 
 -ddd 以十进制数的形式打印出包匹配码(会在包匹配码之前有一个附加的'count'前缀).
 
- 
-
 此选项在不支持接口列表命令的系统上很有用(nt: 比如, Windows 系统, 或缺乏 ifconfig -a 的UNIX系统); 接口的数字编号在windows 2000 或其后的系统中很有用, 因为这些系统上的接口名字比较复杂, 而不易使用.
 
-如果tcpdump编译时所依赖的libpcap库太老,-D 选项不会被支持, 因为其中缺乏 pcap_findalldevs()函数.
+如果tcpdump编译时所依赖的 libpcap 库太老,-D 选项不会被支持, 因为其中缺乏 pcap_findalldevs() 函数.
 
 -e 每行的打印输出中将包括数据包的数据链路层头部信息
 
@@ -1887,9 +1887,26 @@ tcp-ack, tcp-urg.
 
 ### Libpcap
 libcap主要用于网络嗅探
-1.libcap的简介
-Libpcap是Packet Capture Libray的英文缩写,即数据包捕获开源的C函数库,用于捕获网卡数据或分析pcap格式的抓包报文。Tcpdump和wireshark均是以此为基础的。
+Libpcap是Packet Capture Libray的英文缩写,即数据包捕获开源的 C 函数库, 用于捕获网卡数据或分析 pcap 格式的抓包报文。Tcpdump 和 wireshark 均是以此为基础的。
 主要功能有: 网络报文抓取；网络报文的构建；抓包文件的分析；自定义BFP过滤。
+
+libpcap（Packet Capture Library）即数据包捕获函数库，是Unix/Linux平台下的网络数据包捕获函数库。它是一个独立于系统的用户层包捕获的API接口，为底层网络监测提供了一个可移植的框架。著名的软件TCPDUMP就是在libpcap的的基础上开发而成的
+
+libpcap可以实现以下功能：
+- 数据包捕获：捕获流经网卡的原始数据包
+- 自定义数据包发送：任何构造格式的原始数据包
+- 流量采集与统计：网络采集的中流量信息
+- 规则过滤：提供自带规则过滤功能，按需要选择过滤规则
+
+libpcap工作原理
+libpcap主要由两部份组成：网络分接口(Network Tap)和数据过滤器(Packet Filter)。
+
+网络分接口从网络设备驱动程序中收集数据拷贝（旁路机制），过滤器决定是否接收该数据包。Libpcap利用BSD Packet Filter(BPF)算法对网卡接收到的链路层数据包进行过滤。BPF算法的基本思想是在有BPF监听的网络中，网卡驱动将接收到的数据包复制一份交给BPF过滤器，过滤器根据用户定义的规则决定是否接收此数据包以及需要拷贝该数据包的那些内容，然后将过滤后的数据给与过滤器相关联的上层应用程序。如果没有定义规则，则把全部数据交给上层应用程序。
+
+
+————————————————
+版权声明：本文为CSDN博主「ptmozhu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/ptmozhu/article/details/78743126
 
 ---
 

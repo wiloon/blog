@@ -9,10 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## ldd 查看程序依赖库
+## ldd 查看程序依赖 动态链接库
 
-
-### ldd
 ldd 命令可以用于分析可执行文件的依赖。
 
 我们使用 file 命令来分析一个可执行文件的时候，有时候可以看到输出中有 dynamically linked 这样的字眼。这个是啥意思呢？

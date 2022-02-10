@@ -10,8 +10,14 @@ tags:
   - reprint
 ---
 ## apt-get, apt basic command
+### 列出软件包安装了哪些文件
+    
+    dpkg -L package
+
 ### 列出已安装的软件包
   apt list --installed
+
+## apt 查询软件包
   apt-cache search keyword
 
 ### list versions in cache
@@ -111,9 +117,7 @@ dpkg -S file
 
 这个文档属于哪个已安装软件包。
 
-dpkg -L package
 
-列出软件包中的任何文档。
 
 apt-file search filename
 
@@ -137,3 +141,6 @@ apt-get update
 https://stackoverflow.com/questions/27455626/how-to-remove-an-incomplete-package-by-using-apt-get
   
 https://blog.csdn.net/zc123456zzc/article/details/47153913
+
+### debian packages
+>https://www.debian.org/distrib/packages

@@ -195,7 +195,7 @@ XML Web Service 2.0的Java API,主要用于根据服务端发布的wsdl文件生
 
 主要用于根据XML schema文件生成对应的Java类。
 
-### apt
+- apt
 
 注解处理工具(Annotation Processing Tool),主要用于注解处理。
 

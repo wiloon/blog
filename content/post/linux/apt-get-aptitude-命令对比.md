@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## Apt-get, aptitude 命令对比
-# 出自Guoshuang Wiki {#firstHeading}
+
+出自Guoshuang Wiki
 
 [http://wiki.guoshuang.com/Apt-get_%E5%92%8C_aptitude_%E5%91%BD%E4%BB%A4%E5%AF%B9%E6%AF%94%E5%8F%82%E8%80%83][1]
 

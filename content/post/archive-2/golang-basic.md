@@ -20,6 +20,29 @@ Go 语言是静态类型的编程语言
 ### current 
 1.15
 
+## The Go Programming Language
+Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支持多种编程范式(函数式和面向对象)。
+
+### hello world
+
+```golang
+package main
+import "fmt"
+func main() {
+fmt.Println("hello world")
+}
+```
+
+```bash
+go run hello-world.go
+go build hello-world.go
+./hello-world
+```
+
+http://studygolang.com/articles/1941
+  
+https://gobyexample.com/hello-world
+
 ### math
    float64 保留2位小数
    value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)

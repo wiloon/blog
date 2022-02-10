@@ -44,7 +44,8 @@ https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0
 
     vim /etc/apt/source.list
 
-### 用以下内容覆盖/etc/apt/source.list
+## 用以下内容覆盖/etc/apt/source.list
+
     deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
     deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 

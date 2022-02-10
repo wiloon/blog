@@ -10,9 +10,9 @@ tags:
   - reprint
 ---
 ## nat, napt,snat,dnat
-NAT英文全称是"Network Address Translation",中文意思是"网络地址转换",它是一个IETF(Internet Engineering Task Force, Internet工程任务组)标准,允许一个整体机构以一个公用IP（Internet Protocol) 地址出现在Internet上。顾名思义,它是一种把内部私有网络地址（IP地址) 翻译成合法网络IP地址的技术。因此我们可以认为,NAT在一定程度上,能够有效的解决公网地址不足的问题。
+NAT英文全称是 "Network Address Translation",中文意思是"网络地址转换",它是一个IETF(Internet Engineering Task Force, Internet工程任务组)标准,允许一个整体机构以一个公用IP（Internet Protocol) 地址出现在Internet上。顾名思义,它是一种把内部私有网络地址（IP地址) 翻译成合法网络IP地址的技术。因此我们可以认为,NAT在一定程度上,能够有效的解决公网地址不足的问题。
 
-1.2 分类
+- 分类
   
 NAT有三种类型: 静态NAT(Static NAT)、动态地址NAT(Pooled NAT)、网络地址端口转换NAPT（Port-Level NAT) 。
 
@@ -20,7 +20,7 @@ NAT的基本工作原理是,当私有网主机和公共网主机通信的IP包�
 
 其中,网络地址端口转换NAPT（Network Address Port Translation) 则是把内部地址映射到外部网络的一个IP地址的不同端口上。它可以将中小型的网络隐藏在一个合法的IP地址后面。NAPT与 动态地址NAT不同,它将内部连接映射到外部网络中的一个单独的IP地址上,同时在该地址上加上一个由NAT设备选定的端口号。
 
-NAPT技术
+## NAPT技术
   
 由于NAT实现是私有IP和NAT的公共IP之间的转换,那么,私有网中同时与公共网进行通信的主机数量就受到NAT的公共IP地址数量的限制。为了克服这种限制,NAT被进一步扩展到在进行IP地址转换的同时进行Port的转换,这就是网络地址端口转换NAPT（Network Address Port Translation) 技术。
   

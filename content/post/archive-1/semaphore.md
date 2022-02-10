@@ -43,7 +43,7 @@ Ref: Symbian Developer Library
 
 要 让一个thread在背景不断的执行，最简单的方式就是在该thread执行无穷回圈，如while(1) {}，这种写法虽可行，却会让CPU飙高到100%，因为CPU一直死死的等，其实比较好的方法是，背景平时在Sleep状态，当前景呼叫背景时，背景马 上被唤醒，执行该做的事，做完马上Sleep，等待前景呼叫。当背景sem_wait()时，就是马上处于Sleep状态，当前景sem_post() 时，会马上换起背景执行，如此就可避免CPU 100%的情形了。
 
-
+```c
 /**
 (C) OOMusou 2006 http://oomusou.cnblogs.com
 
@@ -107,6 +107,7 @@ void* helloWorld(void* arg) {
      }
 }
 
+```
 
 编译运行: 
 

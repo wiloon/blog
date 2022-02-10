@@ -2,24 +2,26 @@
 title: OSI七层协议,  TCP/IP四层协议, osi 7层, tcp/ip 4层
 author: "-"
 date: 2016-04-24T02:07:00+00:00
-url: osi-layer
+url: osi
 categories:
   - network
 tags:
   - reprint
 ---
+
 ## OSI七层协议,  TCP/IP四层协议, osi 7层, tcp/ip 4层
 
 ## OSI七层协议和TCP/IP四层协议之比较
 ### TCP/IP四层协议
-1. 数据链路层: ARP,RARP,PPPoE （Ethernet 以太网协议,MAC 地址) , 数据链路层和物理层合并为网络接口层
+
+1. 数据链路层: ARP, RARP, PPPoE （Ethernet 以太网协议,MAC 地址) , 数据链路层和物理层合并为网络接口层
 2. 网络层: IP,ICMP,IGMP （IPv4 / IPv6 协议,IP 地址) 
 3. 传输层: TCP(网络端口),UDP,UGP, QUIC
 4. 应用层: Telnet,FTP,SMTP,SNMP
 
 ### OSI七层协议
 1. 物理层  Physical Layer: EIA/TIA-232, EIA/TIA-499, V.35, V.24, RJ45, Ethernet, 802.3, 8025, FDDI, NRZI, NRZ, B8ZS
-2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM,  IEEE 8025/802.2
+2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM, IEEE 8025/802.2
 3. 网络层 Network Layer: IP,IPX,AppleTalk DDP
 4. 传输层 Transport Layer : TCP,UDP,SPX, QUIC
 5. 会话层 Session Layer: RPC, SQL, NFS, NetBIOS, names, AppleTalk, ASP, DECnet, SCP
@@ -31,19 +33,23 @@ tags:
 1. 主要功能: 用户接口、应用程序
 2. 典型设备: 网关
 3. 典型协议、标准和应用: TELNET, FTP, HTTP
+4. 
 #### 表示层
 1. 主要功能 : 数据的表示、压缩和加密
 2. 典型设备: 网关
 3. 典型协议、标准和应用: ASCLL、PICT、TIFF、JPEG、 MIDI、MPEG
+4. 
 #### 会话层
 1. 主要功能 : 会话的建立和结束
 2. 典型设备: 网关
 3. 典型协议、标准和应用: RPC、SQL、NFS 、X WINDOWS、ASP
+
 #### 传输层
 为进程提供通用数据传输服务。由于应用层协议很多,定义通用的传输层协议就可以支持不断增多的应用层协议。传输层包括两种协议: 传输控制协议 TCP,提供面向连接、可靠的数据传输服务,数据单位为报文段；用户数据报协议 UDP,提供无连接、尽最大努力的数据传输服务,数据单位为用户数据报。TCP 主要提供完整性服务,UDP 主要提供及时性服务。  
 1. 主要功能 : 端到端控制
 2. 典型设备: 网关
 3. 典型协议、标准和应用: TCP、UDP、SPX
+
 #### 网络层
 因为网络层是整个互联网的核心,因此应当让网络层尽可能简单。网络层向上只提供简单灵活的、无连接的、尽最大努力交互的数据报服务。
 
@@ -55,15 +61,16 @@ tags:
 3. 典型协议、标准和应用: IP, IPX、APPLETALK、ICMP
 
 #### 数据链路层
+
+MAC 地址是链路层地址, 长度为 6 字节（48 位) ,用于唯一标识网络适配器（网卡) 。
+
 网络层针对的还是主机之间的数据传输服务,而主机之间可以有很多链路,链路层协议就是为同一链路的主机提供数据传输服务。数据链路层把网络层传下来的分组封装成帧。  
 1. 主要功能 : 保证无差错的数据链路
 2. 典型设备: 交换机、网桥、网卡
 3. 典型协议、标准和应用: 802.2、802.3ATM、HDLC、FRAME RELAY
 
-MAC 地址是链路层地址,长度为 6 字节（48 位) ,用于唯一标识网络适配器（网卡) 。
-
-
 #### 物理层
+
 考虑的是怎样在传输媒体上传输数据比特流,而不是指具体的传输媒体。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异,使数据链路层感觉不到这些差异。
 
 1. 主要功能 : 传输比特流
