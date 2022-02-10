@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "template"
 author: "-"
 date: ""
 url: ""
@@ -11,4 +11,4 @@ tags:
   - remix
   - reprint
 ---
-## ""
+## "template"

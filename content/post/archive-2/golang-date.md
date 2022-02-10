@@ -1,5 +1,5 @@
 ---
-title: golang date time, 日期,时间
+title: golang date time, 日期, 时间
 author: "-"
 date: 2017-07-31T01:27:35+00:00
 url: /?p=10959
@@ -9,12 +9,14 @@ categories:
 tags:
   - reprint
 ---
-## golang date time, 日期,时间
 ## golang date time, 日期, 时间
+
 ### 创建一个指定时间的日期对象
+
     start := time.Date(2021, 1, 7, 12, 0, 0, 0, time.Local)
-    
+
 ### 比较
+
 先把当前时间格式化成相同格式的字符串,然后使用time的Before, After, Equal 方法即可.
 
 ```golang
@@ -28,6 +30,7 @@ tags:
         fmt.Println("true")
     }
 ```
+
 #### duration 比较
 ```go
     func minDuration(a, b time.Duration) time.Duration {
@@ -68,6 +71,7 @@ func main() {
 ```
 
 ### days between two dates
+
 ```golang
 func main() {
     // The leap year 2016 had 366 days.
@@ -83,10 +87,12 @@ func Date(year, month, day int) time.Time {
 ```
 
 ### date > string
+
 ```golang
 // 格式化日期 - RFC3339
 time.Now().Format("2006-01-02T15:04:05Z07:00")
 time.Now().Format("2006-01-02-15-04-05")
+time.Now().Format("2006-01-02 15:04:05")
 ```
 
 ```golang

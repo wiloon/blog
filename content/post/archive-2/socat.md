@@ -1,31 +1,41 @@
 ---
 title: socat
 author: "-"
-date: 2017-12-16T07:26:52+00:00
+date: 2022-02-11 00:20:39
 url: socat
 categories:
   - network
 
 tags:
   - reprint
+  - remix
+
+
 ---
 ## socat
 
+## tcp 代理
+
+    socat TCP-LISTEN:3389,fork TCP:192.168.55.2:3389
+
 ### 建立TCP连接
+
     socat - tcp:192.168.1.18:80
 
-### 建立连接并发送数据: 
+### 建立连接并发送数据
+
     echo "hahaha" | socat - tcp:192.168.1.18:80
 
 #### IPv6
+
     socat - tcp:[fd00::123]:12345 
 
 ### test a remote port is reachable with socat
-```bash
-socat - TCP4:192.168.1.15:22,connect-timeout=2
-```
+
+    socat - TCP4:192.168.1.15:22,connect-timeout=2
 
 ### http echo server
+
 ```bash
 # 直接返回 pong
 socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; echo pong"
@@ -35,7 +45,9 @@ socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Con
 socat -v TCP-LISTEN:8000,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.0 200; echo Content-Type\: text/plain; echo; cat foo.txt"
 
 ```
+
 ### 参数
+
 - reuseaddr: Allows other sockets to bind to an address even if parts of it (e.g. the local port) are already in use by socat.
 比如上面这条命令, 用socat打开了80端口, 80端口已经在被socat使用了, 我们打开端口是要接受其它客户端连接的,使用 reuseaddr, 能让其它客户端跟80建立连接.
 due to reuseaddr, it allows immediate restart after master processes termination, even if some child sockets are not completely shut down.  Option reuseaddr allows immediate restart of the server process.
@@ -46,6 +58,7 @@ due to reuseaddr, it allows immediate restart after master processes termination
 - SYSTEM: <shell-command>, Forks a sub process that establishes communication with its parent process and invokes the specified program with system()
 
 ### socat send http request
+
 ```bash
 socat - TCP:wiloon.com:80
 GET / HTTP/1.1 \r\n
@@ -54,18 +67,22 @@ host: www.wiloon.com \r\n
 ```
 
 ### 向zookeeper 发送 stat 查询zookeeper版本
+
 ```bash
 echo stat | socat - TCP:192.168.1.xxx:2181
 ```
 
 ### proxy http port
+
     socat TCP4-LISTEN:188,reuseaddr,fork TCP4:192.168.97.11:8888
 
 Socat 是 Linux 下的一个多功能的网络工具,名字来由是 「Socket CAT」, 其功能与有"瑞士军刀"之称的 netcat 类似, 不过据说可以看做netcat的加强版。的确如此,它有一些netcat所不具备却又很有需求的功能,例如ssl连接这种。nc可能是因为比较久没有维护,确实显得有些陈旧了。
 
 Socat 的主要特点就是在两个数据流之间建立通道，且支持众多协议和链接方式。如 IP、TCP、 UDP、IPv6、PIPE、EXEC、System、Open、Proxy、Openssl、Socket等。
 
-### 安装  
+### 安装
+
+    pacman -S socat
     yum install -y socat
     apt-get install socat
 
@@ -75,9 +92,9 @@ Socat 的主要特点就是在两个数据流之间建立通道，且支持众�
 socat [options] <address> <address>
 ```
 
-其中这2个address就是关键了,如果要解释的话,address就类似于一个文件描述符, socat所做的工作就是在2个address指定的描述符间建立一个pipe用于发送和接收数据。
+其中这两个address就是关键了,如果要解释的话,address就类似于一个文件描述符, socat所做的工作就是在2个address指定的描述符间建立一个pipe用于发送和接收数据。
 
-那么address的描述就是socat的精髓所在了,几个常用的描述方式如下: 
+那么address的描述就是socat的精髓所在了,几个常用的描述方式如下:
 
 -,STDIN,STDOUT : 表示标准输入输出,可以就用一个横杠代替
   
@@ -93,7 +110,8 @@ EXEC: : 执行一个程序作为数据流。
 
 在这些描述后可以附加一些选项,用逗号隔开,如fork,reuseaddr,stdin,stdout,ctty等。
 
-```bash直接回显
+```bash
+直接回显
 socat - -
 
 # 通过 Socat 读取文件
@@ -122,10 +140,6 @@ socat TCP-LISTEN:700 EXEC:/bin/bash
 反弹shell
 nc localhost 700 -e /bin/bash
 socat tcp-connect:localhost:700 exec:'bash -li',pty,stderr,setsid,sigint,sane
-
-代理与转发
-将本地80端口转发到远程的80端口
-socat TCP-LISTEN:80,fork TCP:www.domain.org:80
 ```
 
 其他
@@ -170,7 +184,7 @@ socat还有个readbyte的option,这样就可以当dd用了。
 
 参考文献
   
-借鉴的几篇博文: 
+借鉴的几篇博文:
   
 Some Useful Socat Commands
   
@@ -181,8 +195,9 @@ Socat Examples
 其他内容,可以参考socat man page
 
 ### 官网
-http://www.dest-unreach.org/socat/
+
+<http://www.dest-unreach.org/socat/>
   
-http://brieflyx.me/2015/linux-tools/socat-introduction/
+<http://brieflyx.me/2015/linux-tools/socat-introduction/>
   
-https://www.hi-linux.com/posts/61543.html
+<https://www.hi-linux.com/posts/61543.html>

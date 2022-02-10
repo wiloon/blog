@@ -12,6 +12,10 @@ categories:
 ---
 ## pacman
 
+### error: signature from xxx is invalid
+
+    pacman -Sy archlinux-keyring
+
 ```bash
 # pacman 的 help
 pacman -h
