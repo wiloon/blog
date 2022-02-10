@@ -5,9 +5,10 @@ date: 2011-11-04T05:13:18.000+00:00
 url: "compact"
 
 categories:
-  - inbox
+  - linux
 tags:
-  - reprint
+  - command
+
 ---
 ## compact/extract 压缩/解压
 ### 解压多个文件
@@ -47,14 +48,19 @@ gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
 ```bash
 pacman -S zip unzip
 ```
-#### 压缩
+
+- 压缩
 ```bash
 zip all.zip *.jpg
+
+# 指定压缩文件目录
+zip ~/all.zip *.jpg
 
 # 压缩的是个文件夹, -r 表示调用递归压缩
 zip -r temp.zip temp
 ```
-##### 分卷压缩
+
+- 分卷压缩
 ```bash
 # 分卷压缩的话，需要先将文件打包成一个zip包，然后执行
 zip -s SIZE origin.zip --out new.zip
@@ -63,7 +69,8 @@ zip -s SIZE origin.zip --out new.zip
 # 解压的时候需要先将它合并才能正常解压
 zip spiltfile.zip -s=0 --out single.zip
 ```
-### 解压
+
+- 解压
 ```bash
 unzip all.zip
 unzip -o -d /home/sunny myfile.zip
@@ -79,10 +86,12 @@ ls *.zip | xargs -n1 unzip -o
 
 find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 ```
-#### 解压并指定目录
+
+- 解压并指定目录
 ```bash
 unzip /path/to/source.zip -d /path/to/target/path
 ```
+
 ### Zstandard, zstd
 ```bash
 # zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件

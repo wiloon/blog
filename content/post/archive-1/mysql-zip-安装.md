@@ -1,5 +1,5 @@
 ---
-title: MySQL ZIP install
+title: MySQL install
 author: "-"
 date: 2015-04-04T03:31:16+00:00
 url: /?p=7434
@@ -9,7 +9,7 @@ tags:
   - MySQL
 
 ---
-## MySQL ZIP install
+## MySQL install
 **一、下载MySQL安装包**
 
 安装包名称: MySQL-5.6.12-win32.zip
