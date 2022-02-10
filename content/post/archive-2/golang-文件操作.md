@@ -9,6 +9,7 @@ tags:
   - reprint
 ---
 ## golang file,文件操作
+
 ```golang
 package main
 
@@ -98,6 +99,7 @@ func isExist(fileName string) bool {
 }
 
 ```
+
 ### 判断是文件还是目录 
     f, _ := os.Stat("a.txt")
     f.IsDir()
@@ -115,14 +117,19 @@ func isExist(fileName string) bool {
 
 ### 判断文件是否存在
 
+```go
 os.Stat(parentDir)
+```
 
 ### 创建目录
 
+```go
 os.Mkdir(parentDir, os.ModePerm)
+```
 
 ### 删除文件
 
+```go
 file := "test.txt"
 err := os.Remove(file)
 
@@ -167,6 +174,7 @@ import (
     }
 
 }
+```
 
 ### 写文件
 
@@ -208,8 +216,10 @@ fmt.Printf("写入 %d 个字节n", n)
     f.Close()
 
 ```
+
 ### 一般文件比较小的话可以将文件全部读入内存中,然后转换成string再按行分割一下
 
+```go
 func GetFileContentAsStringLines(filePath string) ([]string, error) {
 logger.Infof("get file content as lines: %v", filePath)
 result := []string{}
@@ -229,9 +239,12 @@ result = append(result, lineStr)
 logger.Infof("get file content as lines: %v, size: %v", filePath, len(result))
 return result, nil
 }
+```
 
 ### Golang 超大文件读取的两个方案
-#### 第一个是使用流处理方式代码如下: 
+
+#### 第一个是使用流处理方式代码如下
+
 ```golang
 func ReadFile(filePath string, handle func(string)) error {
 f, err := os.Open(filePath)
@@ -256,7 +269,9 @@ buf := bufio.NewReader(f)
 
 }
 ```
-#### 第二个方案就是分片处理,当读取的是二进制文件,没有换行符的时候,使用下面的方案处理大文件
+
+#### 第二个方案就是分片处理, 当读取的是二进制文件,没有换行符的时候,使用下面的方案处理大文件
+
 ```go
 func ReadBigFile(fileName string, handle func([]byte)) error {
 f, err := os.Open(fileName)
@@ -280,6 +295,7 @@ handle(s[0:nr])
 return nil
 }
 ```
+
 https://learnku.com/articles/23559/two-schemes-for-reading-golang-super-large-files
 https://blog.csdn.net/xielingyun/article/details/50324423  
 https://blog.csdn.net/robertkun/article/details/78776585  
