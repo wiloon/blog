@@ -25,7 +25,7 @@ tags:
 ```bash
 # 超时时间
 ssh -o ConnectTimeout=10  <hostName>
-
+# -o, option
 ```
 
 ## no matching host key type found. Their offer: ssh-rsa
