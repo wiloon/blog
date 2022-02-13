@@ -373,3 +373,8 @@ gsasl_callback_set (ctx, callback);
 
 ### gsasl.h
 https://www.gnu.org/software/gsasl/doxygen/gsasl_8h_source.html  
+
+```bash
+pacman -S libidn11
+
+```

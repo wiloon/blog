@@ -10,7 +10,9 @@ tags:
   - reprint
 ---
 ## plantuml, puml
+
 ### 安装 graphviz
+
     sudo apt-get install -y graphviz
 
 >https://graphviz.org/download/
@@ -22,11 +24,13 @@ VS-Code扩展
 vim foo.md
 
 ### component, 组件图
+
 - 别名后面可以标注颜色
 - 修改线和箭头的颜色
 - 文字颜色
 
 #### 语法
+
 ```bash
 # 把组件显示成普通矩形
 skinparam componentStyle rectangle
@@ -169,7 +173,7 @@ podman run -d \
 ```
 ### 定义组件的相对位置
 一种典型的方法是将一行标记为隐藏(hidden)
-hidden只支持从左到右`->`和从上到下的`-->`行,因此您需要相应地放置左侧和右侧(X <[hidden]- Y似乎不支持语法).
+hidden只支持从左到右`->`和从上到下的 `-->` 行,因此您需要相应地放置左侧和右侧(X <[hidden]- Y似乎不支持语法).
 ```plantuml
 @startuml
 component JMM {
