@@ -10,7 +10,8 @@ tags:
 ---
 ## "joplin"
 
-### archlinux install joplin
+### archlinux
+
     yay -S joplin-desktop
 #### direct install
     wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash

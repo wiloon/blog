@@ -66,9 +66,10 @@ crontab -l
 ### Geode
 是为Geode SoC定制的自定义旧版目标,Geode SoC仍在许多（老化的) 网络设备中使用,例如PCEngines的较旧Alix板
 
-
 ### x86/64/
+
 #### combined-ext4.img.gz (推荐使用)
+
 : 包含vmlinuz rootfs（ext4) 、引导信息以及相关分区信息的img,一般是两个分区,可以把它看成是硬盘镜像,直接dd到某个磁盘
 此磁盘映像使用单个读写ext4分区,没有只读squashfs根文件系统,因此可以扩大分区。故障安全模式或出厂重置等功能将不可用,因为它们需要只读的squashfs分区才能起作用。
 #### Combined-squashfs.img.gz

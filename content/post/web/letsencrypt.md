@@ -12,7 +12,7 @@ tags:
 ### certbot, certbot-auto, acme.sh
 certbot: recommended by the offical website.
 certbot-auto: no longer supported.
-acme.sh: acme.sh 实现了 acme 协议.
+acme.sh: 第三方实现的 acme 协议.
 
 ### install certbot
 #### centos
@@ -32,13 +32,14 @@ snap install certbot-dns-google
 ```
 
 #### ubuntu
+```bash
     # for ubuntu snap is pre-installed
     sudo apt-get remove certbot
     sudo snap install --classic certbot
     sudo ln -s /snap/bin/certbot /usr/bin/certbot
     snap set certbot trust-plugin-with-root=ok
     snap install certbot-dns-google
-
+```
 
 ### certonly
     certbot certonly   --dns-google   --dns-google-credentials /root/cellular-deck-280204-6455aa19691d.json -d wiloon.com -d *.wiloon.com
@@ -60,6 +61,7 @@ https://certbot.eff.org/docs/intro.html
 alternatives --set python /usr/bin/python3
 
 ### ubuntu
+
         $ sudo apt update
         $ sudo apt install snapd
         sudo snap install core; sudo snap refresh core
