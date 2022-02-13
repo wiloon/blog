@@ -1,5 +1,5 @@
 ---
-title: KVM
+title: 虚拟化, KVM
 author: "-"
 date: 2011-11-26T07:28:57+00:00
 url: /?p=1619
@@ -62,3 +62,6 @@ KVM是进入Linux内核的虚拟化项目，它刚刚起步，还不为众人所
 
 以上这些就是RedHat虚拟化技术的大致架构了，RedHat还有一套用于大规模管理KVM虚拟机的工具，叫oVirt，现正处于开发过程中。有兴趣的朋友可以去看看。上述软件的官方链接在本网站首页上均有。
   
+
+
+>https://mp.weixin.qq.com/s?__biz=MzAxNzU3NjcxOA==&mid=2650731258&idx=1&sn=f0293a563851bdbb52cc5a9cedd14dd6&exportkey=AXdGcrSfdrF0r17rzGstEiE%3D&acctmode=0&pass_ticket=1LNuuzGLwdjHEXOvMPmVeAPvrgBB0fE9mx4esSgeYM06PZpYntpXVI9i%2FbGqHZbq&wx_header=0
