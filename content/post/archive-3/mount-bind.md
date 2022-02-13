@@ -1,5 +1,5 @@
 ---
-title: mount –bind
+title: mount --bind
 author: "-"
 date: 2020-02-11T01:31:18+00:00
 url: /?p=15511
@@ -9,26 +9,26 @@ categories:
 tags:
   - reprint
 ---
-## mount –bind
+## mount --bind
 https://xionchen.github.io/2016/08/25/linux-bind-mount/
 
 The bind mounts
   
-bind是mount中比较特殊的用法之一，这里对一些例子进行分析和实验
+bind 是 mount 中比较特殊的用法之一，这里对一些例子进行分析和实验
 
-bind的意思是，把其他地方的子树再进行挂载，也就是说可以把文件系统中的某一个部分进行挂载。这个特性是从linux2.4.0开始的。
+bind 的意思是，把其他地方的子树再进行挂载，也就是说可以把文件系统中的某一个部分进行挂载。这个特性是从linux2.4.0开始的。
   
 或者更简介的说,就是挂载一个已有的文件夹
 
 常见使用场景
   
-在做一些chroot的操作的时候,我们希望把当前的文件系统的一个目录(例如/dev)出现在chroot的目录下.
+在做一些 chroot 的操作的时候, 我们希望把当前的文件系统的一个目录(例如/dev) 出现在 chroot 的目录下.
   
-但是又不希望chroot对这个目录进行更改,我们该怎么做呢?
+但是又不希望 chroot 对这个目录进行更改, 我们该怎么做呢?
 
-首先,我们可以使用mount –bind将/dev目录挂载到chroot的目录下:
+首先,我们可以使用 mount --bind 将/dev目录挂载到chroot的目录下:
 
-mount -bind /dev $chrootdir/dev
+mount --bind /dev $chrootdir/dev
   
 这样,我们从chroot的目录和自己本身的文件系统的目录就都可以访问/dev目录.
 
@@ -40,13 +40,13 @@ mount -o remount,ro,bind /dev $chrootdir/dev
   
 最基础的用法的如下
   
-mount -bind olddir newdir
+mount --bind olddir newdir
   
 如果执行了上面这个命令，在olddir和newdir都可以访问相同的内容，并且如果对其中一个目录内的内容进行了修改，在另一个目录会有相同的显示。
 
 下面的命令可以创建一个挂载点
   
-mount -bind foo foo
+mount --bind foo foo
   
 在挂载后可以通过mount命令查看所有的挂载点
 
@@ -60,7 +60,7 @@ mount -rbind olddir newdir
   
 例如: 挂载一个目录。并且让他是只读的: 
 
-mount -bind olddir newdir
+mount --bind olddir newdir
   
 mount -o remount,ro,bind olddir newdir
   
