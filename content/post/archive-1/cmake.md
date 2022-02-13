@@ -12,6 +12,7 @@ tags:
 ## CMake
 
 ### build
+
 先创建一个叫build的文件夹（这个并非必须，因为cmake命令指向CMakeLists.txt所在的目录，例如cmake .. 表示CMakeLists.txt在当前目录的上一级目录。cmake后会生成很多编译的中间文件以及makefile文件，所以一般建议新建一个新的目录，专门用来编译) ，然后执行下列操作: 
 
     mkdir build
@@ -50,7 +51,19 @@ add_executable(gsaslx main.c)
 target_link_libraries(gsaslx /lib/x86_64-linux-gnu/libgsasl.so.7)
 ```
 
----
+### adding source files
+
+vim CMakeLists.txt
+
+```bash
+add_executable(gsaslx2 main.c)
+
+target_link_libraries(gsaslx2 /usr/local/lib/libgsasl.so.7.9.6)
+include_directories("/home/wiloon/tmp/gsasl-1.8.0/")
+
+```
+>https://stackoverflow.com/questions/40622244/clion-enable-debugging-of-external-libraries-by-adding-source-files
+
 
 https://www.hahack.com/codes/cmake/   
 http://www.cmake.org/   
