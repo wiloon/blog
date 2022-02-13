@@ -13,12 +13,14 @@ tags:
 ## cron, crond, crontab, linux 定时任务, cronie
 ### 安装 cron
 ```bash
+# archlinux 
+pacman -S cronie
+
 # 查看cron是否已经 安装
 # centos
 yum list installed |grep cron
 yum install cronie    # vixie-cron 已经不再维护, 建议安装cronie
-# archlinux 
-pacman -S cronie
+
 ```
 ### 创建定时任务
 ```bash
@@ -40,12 +42,12 @@ service crond start # 启动服务
 service crond stop # 关闭服务
 service crond restart # 重启服务
 service crond reload # 重新载入配置, 新建定时任务的时候,不需要reload.
-crontab -l #列出cron服务的详细内容
+crontab -l # 列出cron服务的详细内容
 crontab -u root -l #列出某个用户cron服务的详细内容
-crontab -e #编辑某个用户的cron服务, 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， cron 会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
+crontab -e # 编辑某个用户的 cron 服务, 可以像使用 vi 编辑其他任何文件那样修改 crontab 文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， cron 会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
 crontab -e -u 用户名  # 配置指定用户 的定时任务, root 可以用 -u user name 来编辑其它使用者的 crontab 配置
-crontab -u #设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
-crontab -r #删除没个用户的cron服务
+crontab -u # 设定某个用户的 cron 服务，一般 root 用户在执行这个命令的时候需要此参数
+crontab -r # 删除没个用户的 cron 服务
 ```
 
 ```bash
@@ -69,10 +71,14 @@ https://www.matools.com/crontab
 
 ### 示例
 ```bash
+# 每天早上5点运行
+0 5 * * * /root/bin/backup.sh
 # 每三分钟
 */3 * * * * echo "foo" >> /tmp/foo.txt
 # 每三分钟, 8点到17点
 */3 8-17 * * * echo "foo" >> /tmp/foo.txt
+# 每周日 04:05
+5 4 * * sun echo "run at 5 after 4 every sunday"
 ```
 
 ```bash
@@ -94,8 +100,6 @@ https://www.matools.com/crontab
 
 ### 每两个小时
     0 */2 * * * echo "foo" >> /tmp/foo.txt
-### 每天早上5点运行
-    0 5 * * * /root/bin/backup.sh
 
 run-parts
 
@@ -273,8 +277,5 @@ MAILTO=paul
 0 22 * * 1-5 mail -s "It's 10pm" joe%Joe,%%Where are your kids?%
   
 23 0-23/2 * * * echo "run 23 minutes after midn, 2am, 4am …, everyday"
-  
-5 4 * * sun echo "run at 5 after 4 every sunday"
-
 
 https://wiki.gentoo.org/wiki/Cron
