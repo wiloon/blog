@@ -7,6 +7,7 @@ categories:
   - cert
 tags:
   - remix
+
 ---
 ## "letsencrypt, certbot, certbot-auto, acme.sh"
 ### certbot, certbot-auto, acme.sh
@@ -14,6 +15,31 @@ certbot: recommended by the offical website.
 certbot-auto: no longer supported.
 acme.sh: 第三方实现的 acme 协议.
 
+## certbot aliyun plugin
+>https://github.com/tengattack/certbot-dns-aliyun
+>https://eff-certbot.readthedocs.io/en/stable/using.html#setting-up-automated-renewal
+
+```bash
+pacman -S python-pip
+
+pip install certbot-dns-aliyun
+# certbot will be installed automaticaly
+
+vim credentials.ini
+
+dns_aliyun_access_key = 12345678
+dns_aliyun_access_key_secret = 1234567890abcdef1234567890abcdef
+
+certbot certonly -a dns-aliyun \
+    --certbot-dns-aliyun:dns-aliyun-credentials /root/credentials.ini \
+    -d wiloon.com \
+    -d "*.wiloon.com"
+
+ls /etc/letsencrypt/live/wiloon.com/
+# add to crontab
+0 0,12 * * * certbot renew
+
+```
 ### install certbot
 #### centos
 ```bash
