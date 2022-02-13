@@ -34,12 +34,13 @@ DHCP的用途是: 提供client network参数和TFTP服务器的地址,最初的b
 
 二、PXE启动过程和普通的Linux系统启动过程的对比: 
 
-  1. 内核引导之前的不同: 
+1. 内核引导之前的不同:
   
     普通的从硬盘启动Linux系统最初是BIOS将MBR加载入内存,然后将控制权交给MBR中的bootloader程序（如GRUB) ,bootloader程序经过几个stage的加载后,最后将vmlinuz加载入内存,开始内核引导；
   
     而PXE的启动过程在内核引导之前,是由BIOS中的PXE固件开启NBP程序（比如DHCP的网络通信) ,然后下载vmlinuz和initrd,之后再进入内核启动过程。 
-  2. 内核引导之后的不同: 
+
+2. 内核引导之后的不同:
   
     vmlinuz和initrd运行得差不多了之后,普通的硬盘Linux启动就从本地硬盘加载/sbin/init并运行为1号进程,以及启动系统服务等等,而PXE的启动在内核引导完成之后,仍然会通过网络的方式（但不是TFTP协议,而是其他更加健壮的协议如NFS、iSCSI等) ,加载真正的完整操作系统,如/sbin/init应该就是位于网络远端的硬盘上。
 

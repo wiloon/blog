@@ -12,16 +12,18 @@ tags:
 ## grub2 配置文件
 
 ## grub config file path
+
+## check grub version
+
+    grub2-install --version
+
 GRUB1.配置文件: /boot/grub/menu.lst
   
 GRUB2.配置文件: /boot/grub/grub.cfg，/etc/grub.d/下是生成配置文件的模板，/etc/default/grub是生成配置文件的参数
 
-
-来源: ChinaUnix博客
-
-# If you change this file, run 'update-grub' afterwards to update
+If you change this file, run 'update-grub' afterwards to update
   
-# /boot/grub/grub.cfg.
+/boot/grub/grub.cfg.
   
 GRUB_DEFAULT=0 ->设置默认启动项，按menuentry顺序。比如要默认从第四个菜单项启动，数字改为3，若改为 saved，则默认为上次启动项。
   
@@ -56,3 +58,41 @@ GRUB_CMDLINE_LINUX="noresume" ->手动添加内核启动参数，比如 acpi=off
 # Uncomment to disable generation of recovery mode menu entrys
   
 #GRUB_DISABLE_LINUX_RECOVERY="true" ->设定是否创建修复模式菜单项
+
+### menuentry
+
+    vim /etc/grub.d/40_custom
+
+```bash
+menuentry "arch iso" {
+   set isofile="/root/archlinux-2022.02.01-x86_64.iso"
+   # or set isofile="/<username>/Downloads/ubuntu-20.04-desktop-amd64.iso"
+   # if you use a single partition for your $HOME
+   rmmod tpm
+   search --no-floppy --fs-uuid --set=root 6c40ac7b-4a98-47c2-94ac-9e0a20f4a3c1 
+   loopback loop ($root)$isofile
+   linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile noprompt noeject
+   initrd (loop)/casper/initrd
+}
+
+menuentry "arch iso" {
+   set isofile="/root/archlinux-2022.02.01-x86_64.iso"
+   loopback loop (hd0,0)$isofile
+   linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile noprompt noeject
+   initrd (loop)/casper/initrd.lz
+}
+
+menuentry "arch iso" {
+  loopback loop /root/archlinux-2022.02.01-x86_64.iso
+  linux (loop)/boot/bzImage --
+  initrd (loop)/boot/tinycore.gz
+}
+
+```
+
+    grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
+### Linux GRUB磁盘分区表示法
+
+    第一个主分区	/dev/sda1	hd(0,0)

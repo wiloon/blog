@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## EFI boot
+
 EFI boot 介绍
 
 EFI 的全称是可扩展固件接口 (Extensible Firmware Interface)，它是 Intel 公司为全新类型的固件体系结构、接口和服务提出的建议性标准。该标准有两个主要用途: 向操作系统的引导程序和某些在计算机初始化时运行的应用程序提供一套标准的运行环境；为操作系统提供一套与固件通讯的交互协议。
@@ -32,3 +33,8 @@ Boot loader 被设置为一个可以通过固件访问的文件。Boot loader �
 制作支持 EFI 平台的启动光盘的步骤
 
 ELILO 是一种基于 EFI 开发的 boot loader，而不是基于 BIOS 平台 , ELILO 允许用户在系统开机过程中自己选择哪个系统或内核，同时也支持用户传参数给内核。 ELILO 的配置文件，一般位于 EFI 启动分区。下面的实例就是将 elilo 作为 EFI 平台的 boot loader。
+
+### linux系统内查看是bios启动的还是uefi启动
+在系统内运行shell命令：
+
+    [ -d /sys/firmware/efi ] && echo UEFI || echo BIOS

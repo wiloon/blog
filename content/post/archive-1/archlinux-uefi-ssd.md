@@ -19,4 +19,3 @@ o
 n
 
 create efi ysstem with type ef00
-

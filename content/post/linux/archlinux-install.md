@@ -10,10 +10,18 @@ tags:
   - remix
 
 ---
-## parted
 ## archlinux install
 
-todo: try archinstall, https://github.com/archlinux/archinstall
+## download iso
+
+<http://mirrors.163.com/archlinux/iso>
+
+```bash
+curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
+```
+
+todo: try archinstall, <https://github.com/archlinux/archinstall>
+
 ```bash
 boot with iso
 pacman -Sy
@@ -127,7 +135,6 @@ This is your chosen configuration:
     }
 }
 
-
 ```
 
 最小化安装，启动后内存占用 70MB, 磁盘占用：2G
@@ -135,8 +142,7 @@ This is your chosen configuration:
 初始化脚本后，70MB, 2.4G
 
 ## 从U盘引导安装
-### download iso  
->http://mirrors.163.com/archlinux/iso
+
 
 ```bash
 # 创建USB启动盘
