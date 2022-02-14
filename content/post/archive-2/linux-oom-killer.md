@@ -1,5 +1,5 @@
 ---
-title: 'Linux  oom killer'
+title: 'Linux oom killer'
 author: "-"
 date: 2018-06-04T08:32:56+00:00
 url: /?p=12273
@@ -9,7 +9,6 @@ categories:
 tags:
   - reprint
 ---
-## 'Linux  oom killer'
 ## 'Linux oom killer'
 
 https://blog.csdn.net/GugeMichael/article/details/24017515
@@ -29,10 +28,9 @@ Linux - 内存控制之oom killer机制及代码分析
 
 oom killer初探
           
-一个简单分配heap memroy的代码片段(big_mm.c): 
+一个简单分配 heap memroy 的代码片段 (big_mm.c): 
   
-[cpp] view plain copy
-  
+```c++
 #define block (1024L_1024L_MB)
   
 #define MB 64L
@@ -58,8 +56,9 @@ total += MB;
 fprintf(stdout,"alloc %lum mem\n",total);
       
 }
+```
 
-        这里有2个地方需要注意: 
+这里有2个地方需要注意: 
     
         1、malloc是分配虚拟地址空间,如果不memset或者bzero,那么就不会触发physical allocate,不会映射物理地址,所以这里用bzero填充
         2、每次申请的block大小比较有讲究,Linux内核分为LowMemroy和HighMemroy,LowMemory为内存紧张资源,LowMemroy有个阀值,通过free -lm和
@@ -76,7 +75,7 @@ fprintf(stdout,"alloc %lum mem\n",total);
        启动后,部分big_mm被killed,在/var/log/message下tail -n 1000 | grep -i oom 看到: 
     
 
-[cpp] view plain copy
+```c++
   
 Apr 18 16:56:16 v125000100.bja kernel: : [22254383.898423] Out of memory: Kill process 24894 (big_mm) score 277 or sacrifice child
   
@@ -107,8 +106,9 @@ Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738989] [<ffffffff81115650>] 
 Apr 18 16:56:18 v125000100.bja kernel: : [22254386.738995] [<ffffffff81125929>] ? __alloc_pages_nodemask+0x899/0x930
   
 Apr 18 16:56:18 v125000100.bja kernel: : [22254386.739001] [<ffffffff81159c6a>] ? alloc_pages_vma+0x9a/0x150
+```
 
-       通过标红的部分可以看到big_mm占用了2301932K,anon-rss全部是mmap分配的大内存块。后面红色的CallTrace标识出来kernel oom-killer的stack,后面我们会针对该call trace分析一下oom killer的代码。
+通过标红的部分可以看到big_mm占用了2301932K,anon-rss全部是mmap分配的大内存块。后面红色的CallTrace标识出来kernel oom-killer的stack,后面我们会针对该call trace分析一下oom killer的代码。
     
 
 oom killer机制分析
@@ -162,7 +162,7 @@ oom killer 代码分析
                
 __alloc_pages_nodemask分配内存 -> 发现内存不足(或低于low memory)out_of_memory -> 选中一个得分最高的processor进行select_bad_process -> kill
 
-[cpp] view plain copy
+```c++
   
 /**
    
@@ -233,7 +233,7 @@ out:
         select_bad_process() 调用oom_badness计算权值: 
     
 
-[cpp] view plain copy
+```c++
   
 /**
    

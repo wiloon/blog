@@ -9,11 +9,10 @@ categories:
 tags:
   - reprint
 ---
-本贴内容来自网络，引用网址为: http://hi.baidu.com/%C9%C1%D2%AB%B5%C4%CB%AE%BD%A7/blog/item/7cc9e1d00715dc369b50271d.html。
+>http://hi.baidu.com/%C9%C1%D2%AB%B5%C4%CB%AE%BD%A7/blog/item/7cc9e1d00715dc369b50271d.html。
 
-【造成的版权问题，LZ概不负责任！转载请注明出处】,此贴为技术交流帖，若有疑问请跟贴回复！谢谢！
 
-Android日志系统提供了记录和查看系统调试信息的功能。日志都是从各种软件和一些系统的缓冲区中记录下来的，缓冲区可以通过 logcat 命令来查看和使用.
+Android 日志系统提供了记录和查看系统调试信息的功能。日志都是从各种软件和一些系统的缓冲区中记录下来的，缓冲区可以通过 logcat 命令来查看和使用.
 
 一、使用logcat命令的目的: 
 
