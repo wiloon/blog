@@ -39,6 +39,11 @@ go build hello-world.go
 ./hello-world
 ```
 
+## 升级包版本
+
+    go get -u github.com/gin-gonic/gin
+    go get -u github.com/gin-gonic/gin@v1.7.7
+
 http://studygolang.com/articles/1941
   
 https://gobyexample.com/hello-world
