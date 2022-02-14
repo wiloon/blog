@@ -148,7 +148,7 @@ vfork系统调用不同于fork，用vfork创建的子进程与父进程共享地
 Vfork也是在父进程中返回子进程的进程号，在子进程中返回0。 
 
 用 vfork创建子进程后，父进程会被阻塞直到子进程调用exec(exec，将一个新的可执行文件载入到地址空间并执行之。)或exit。vfork的好处是在子进程被创建后往往仅仅是为了调用exec执行另一个程序，因为它就不会对父进程的地址空间有任何引用，所以对地址空间的复制是多余的 ，因此通过vfork共享内存可以减少不必要的开销。下面这个例子可以验证子进程调用exec时父进程是否真的已经结束阻塞: 
-[cpp] view plain copy
+```c++
 例2: execl.c   
   
 #include<stdlib.h>   
@@ -271,7 +271,7 @@ Parent process,the value of a:1,b:2,addr ofa:0xbfaa710c, b:0xbf aa7108
 clone 
 
 系统调用fork()和vfork()是无参数的，而clone()则带有参数。fork()是全部复制，vfork()是共享内存，而clone() 是则可以将父进程资源有选择地复制给子进程，而没有复制的数据结构则通过指针的复制让子进程共享，具体要复制哪些资源给子进程，由参数列表中的 clone_flags来决定。另外，clone()返回的是子进程的pid。下面来看一个例子: 
-[cpp] view plain copy
+```c++
 例3: clone.c   
   
 #include <stdio.h>   
