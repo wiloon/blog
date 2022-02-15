@@ -21,6 +21,7 @@ Linux 平台下有 Tcpdump，其抓包库是 libpcap；
 ```bash
 # gopacket  依赖 pcap.h, 安装 libpcap-dev
 sudo apt install libpcap-dev
+sudo pacman -S libpcap
 
 ```
 

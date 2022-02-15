@@ -19,8 +19,8 @@ tags:
 ```bash
 #查看本地SSH agent 缓存的密钥
 ssh-add -L
-### 查看缓存的私钥 sha256值
-    ssh-add -l
+# 查看缓存的私钥 sha256值
+ssh-add -l
 ```
 
 ### 环境变量

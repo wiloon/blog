@@ -1,5 +1,5 @@
 ---
-title: tcpcopy
+title: tcpcopy, 流量复制
 author: "-"
 date: 2022-02-11 00:51:30
 url: tcpcopy
@@ -11,7 +11,7 @@ tags:
   - reprint
 
 ---
-## tcpcopy
+## tcpcopy, 流量复制
 
 ### 环境
 
@@ -151,3 +151,6 @@ https://github.com/appneta/tcpreplay
 
 c 语言实现
 https://github.com/session-replay-tools/tcpcopy
+
+## gopacket
+>https://github.com/google/gopacket
