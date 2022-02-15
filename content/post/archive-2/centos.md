@@ -9,8 +9,7 @@ categories:
 tags:
   - reprint
 ---
-
-### centos, rpm
+## centos, rpm
 #### centos, rpm 查看软件的版本号
 rpm -qa | grep mysql
 

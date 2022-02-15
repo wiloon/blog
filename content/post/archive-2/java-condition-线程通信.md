@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## 线程通信
 http://wiki.jikexueyuan.com/project/java-concurrent/thread-communication.html
 
 线程通信的目标是使线程间能够互相发送信号。另一方面,线程通信使线程能够等待其他线程的信号。

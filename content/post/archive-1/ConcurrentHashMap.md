@@ -9,7 +9,8 @@ tags:
   - Java
 
 ---
-### ConcurrentHashMap
+## ConcurrentHashMap
+
 ConcurrentHashMap 是一个线程安全的Hash Table,它的主要功能是提供了一组和HashTable功能相同但是线程安全的方法。ConcurrentHashMap可以做到读取数据不加锁,并 且其内部的结构可以让其在进行写操作的时候能够将锁的粒度保持地尽量地小,不用对整个ConcurrentHashMap加锁。
 
 ### jdk1.7

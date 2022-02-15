@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## tmux
 ### ~/.tmux.conf
 
     set -g mouse on

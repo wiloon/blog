@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## pidstat
 ```bash
   
 pidstat PID -r 3

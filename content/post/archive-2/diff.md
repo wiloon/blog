@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## diff
 ### 命令格式: 
 
     diff [参数] [文件1或目录1] [文件2或目录2]

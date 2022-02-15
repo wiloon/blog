@@ -9,7 +9,8 @@ tags:
   - Java
 
 ---
-### Scala
+## Scala
+
 发音为/ˈskɑːlə, ˈskeɪlə/
 
 Java VS Scala

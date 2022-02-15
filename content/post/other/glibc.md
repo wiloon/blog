@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-### glibc
+## glibc
 
 glibc 是非常底层的系统库，千万不要自己手动更新，网上有很多教训。
 

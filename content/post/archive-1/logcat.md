@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## logcat
 >http://hi.baidu.com/%C9%C1%D2%AB%B5%C4%CB%AE%BD%A7/blog/item/7cc9e1d00715dc369b50271d.html。
 
 

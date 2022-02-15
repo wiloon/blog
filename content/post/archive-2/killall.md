@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## killall
 http://www.cnblogs.com/peida/archive/2012/12/21/2827366.html
 
 每天一个linux命令（43) : killall命令

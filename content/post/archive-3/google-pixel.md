@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-### google pixel
+## google pixel
 
 Announced 2016, October
   

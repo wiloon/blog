@@ -9,7 +9,8 @@ categories:
 tags:
   - reprint
 ---
-### git proxy
+## git proxy
+
 ```bash
 # http proxy
 git config http.proxy 'http://192.168.50.xx:80'

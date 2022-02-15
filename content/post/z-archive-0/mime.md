@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## MIME
 媒体类型, **用途互联网邮件扩展**
 
 （**MIME**，**Multipurpose Internet Mail Extensions**) 

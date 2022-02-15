@@ -9,7 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## 写放大, Write Amplification
+## 写放大 Write Amplification
+
 “写放大”(Write Amplification)在存储系统中是很常见的。但是，即使都是在存储系统中，“写放大”也有很多种，各种的写放大原理并不是很一样。下边根据自己的理解，进行了下总结，如有问题，恳请指正。
 
 1. 读写单元较大导致的写放大

@@ -9,6 +9,7 @@ categories:
 tags:
   - reprint
 ---
+## strace
 ### 统计系统调用的耗时
      strace -cp <PID>
 
