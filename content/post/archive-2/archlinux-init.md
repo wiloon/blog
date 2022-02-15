@@ -43,7 +43,6 @@ systemctl enable sshd
 
 ### 监控, telegraf
 ### install apps
-<https://blog.wiloon.com/?p=12667>
 
 ### zsh, oh-my-zsh
     install and switch to zsh - oh-my-zsh

@@ -25,11 +25,11 @@ https://chocolatey.org/packages
 
 ### chocolatey packages
 
-| Name                       | 备注              |
-| -------------------------- | --------------------- |
-| chocolatey                 | choco可以自己更新自己  |
+| Name                       | 备注                  |
+| -------------------------- | ---------------------  |
+| chocolatey                 | choco可以自己更新自己    |
 | keepassxc                  |                       |
-| microsoft-windows-terminal |                       |
+| microsoft-windows-terminal | 1.12.10393.0          |
 | winscp                     |                       |
 | vnote.portable             | 支持markdown和puml的文本编辑器 |
 | vscode                     | Visual Studio Code    |
@@ -43,7 +43,7 @@ https://chocolatey.org/packages
 
     https://www.v1tx.com/post/best-screen-recorder/
     
-### apps
+- apps
 
 | Name             | Comments |
 | ---------------- | -------- |
