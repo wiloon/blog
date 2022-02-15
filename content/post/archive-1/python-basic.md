@@ -10,7 +10,8 @@ tags:
   - reprint
 ---
 ## python basic
-# python
+## 查看python的版本 placeholder
+python -V
 ### ubuntu
 sudo apt install python3
 sudo apt install -y python3-venv
@@ -54,3 +55,42 @@ http://www.unixmen.com/howto-install-python-3-x-in-ubuntu-debian-fedora-centos/
 ### archlinux 
     pacman -S python
   
+### boolean variable
+
+直接定义a=True/False就行，示例代码：
+
+#定义布尔值类型参数a,b，值分别为True,False
+
+a=True
+
+b=False
+
+print a,b
+
+print type(a),type(b)
+
+
+## python 遍历目录
+<http://www.cnblogs.com/vivilisa/archive/2009/03/01/1400968.html>
+
+<http://laocao.blog.51cto.com/480714/525140>
+
+[python]
+
+#!/usr/bin/python
+  
+import os,sys
+  
+dir = '/home/wiloon/tmp'
+  
+list = os.listdir(dir)
+  
+print list
+
+for line in list:
+   
+path = os.path.join(dir, line)
+   
+print path
+
+[/python]

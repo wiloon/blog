@@ -22,7 +22,7 @@ sudo lsof -p 1098
 ### 使用-i 6仅获取IPv6流量: 
     lsof -i 6
 
-### 仅显示TCP连接（同理可获得UDP连接) : 
+### 仅显示 TCP 连接（同理可获得UDP连接) : 
     lsof  -iTCP
 
 #使用@host来显示指定到指定主机的连接

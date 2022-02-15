@@ -65,7 +65,7 @@ https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0
     sudo apt update
     sudo apt upgrade
 
-### 安装 golang java python和各种依赖包
+### 安装各种依赖包
 https://www.jianshu.com/p/572c86b55a68
 
     sudo apt install golang git python make maven openjdk-8-jdk ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy

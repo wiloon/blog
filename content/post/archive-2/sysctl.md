@@ -5,7 +5,7 @@ date: 2018-08-24T09:42:15+00:00
 url: sysctl
 
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
 ---
@@ -22,11 +22,11 @@ sysctl命令被用于在内核运行时动态地修改内核的运行参数,可�
 CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl.d/ . The code is within /etc/init.d/functions
 
     sysctl [options] [variable[=value] …]
-    -a: 打印所有内核参数变量
+    -a: 打印所有内核参数
     -n: 打印时只打印值,不打印参数名称；
     -e: 忽略未知关键字错误；
     -N: 打印时只打印参数名称,不打印值；
-    -w: 设置参数的值（不过好像不加这个选项也可以直接设置)
+    -w: 设置参数的值
     -p: 从配置文件"/etc/sysctl.conf"加载内核参数设置
     -A: 以表格方式打印所有内核参数变量。
 
@@ -36,6 +36,14 @@ CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl
 sysctl -a |grep tcp_syn_retrie
 ```
 ### 设置内核参数
+#### 临时设置
+```bash
+# 不加 -w 默认就是设置参数值 
+sudo sysctl net.core.rmem_max=2500000
+sudo sysctl -w net.core.rmem_max=2500000
+```
+
+### 永久设置
 在 /etc/sysctl.d/ 下创建 foo.conf, 填写参数值
 ```bash
 net.core.rmem_max=2097152
@@ -338,17 +346,29 @@ Recall the previously mentioned SYN_RECV queue - your server is waiting for ACK 
 
   * /proc/sys/net/ipv4/tcp_mem
   
-    确定TCP栈应该如何反映内存使用,每个值的单位都是内存页（通常是4KB) 。第一个值是内存使用的下限；第二个值是内存压力模式开始对缓冲区使用应用压力的上限；第三个值是内存使用的上限。在这个层次上可以将报文丢弃,从而减少对内存的使用。对于较大的BDP可以增大这些值（注意,其单位是内存页而不是字节) 。
-  * /proc/sys/net/ipv4/tcp_rmem
+    确定TCP栈应该如何反映内存使用,每个值的单位都是内存页（通常是4KB) 。第一个值是内存使用的下限；第二个值是内存压力模式开始对缓冲区使用应用压力的上限；第三个值是内存使用的上限。在这个层次上可以将报文丢弃,从而减少对内存的使用。对于较大的BDP可以增大这些值（注意, 其单位是内存页而不是字节) 。
+
+### /proc/sys/net/ipv4/tcp_rmem
   
-    为自动调优定义socket使用的内存。第一个值是为socket接收缓冲区分配的最少字节数；第二个值是默认值（该值会被rmem_default覆盖) ,缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是接收缓冲区空间的最大字节数（该值会被rmem_max覆盖) 。
-  * /proc/sys/net/ipv4/tcp_wmem
-  
-    为自动调优定义socket使用的内存。第一个值是为socket发送缓冲区分配的最少字节数；第二个值是默认值（该值会被wmem_default覆盖) ,缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是发送缓冲区空间的最大字节数（该值会被wmem_max覆盖) 。
+定义 tcp socket 使用的内存。第一个值是为 socket 接收缓冲区分配的最少字节数；第二个值是默认值（该值会被 rmem_default 覆盖), 缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是接收缓冲区空间的最大字节数（该值跟 net.core.rmem_max 取最大值生效) 。
+
+### /proc/sys/net/ipv4/tcp_wmem
+
+    net.ipv4.tcp_rmem = 4096 87380 6291456
+
+定义 tcp socket 使用的内存。第一个值是为 socket 发送缓冲区分配的最少字节数；第二个值是默认值（该值会被 wmem_default 覆盖), 缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是发送缓冲区空间的最大字节数（该值会被 wmem_max 覆盖) 。
 
 ### net.core.rmem_max, /proc/sys/net/core/rmem_max
 
-最大的TCP数据接收窗口（字节) 。  
+This buffer holds packets that have been received by the kernel, but not yet read by the application (quic-go in this case). Once this buffer fills up, the kernel will drop any new incoming packet.
+
+sysctl -w net.core.rmem_max=2500000
+
+This command would increase the maximum receive buffer size to roughly 2.5 MB.
+
+最大的 TCP/UDP 数据接收窗口（字节)  
+默认的接收数据包内存大小  
+这些文件用来设置所有 socket 的发送和接收缓存大小，所以既影响TCP，也影响UDP。
 默认的和最大的接收数据包内存大小  
 大多数的 Linux 中 rmem_max 和 wmem_max 被分配的值为 128 k，在一个低延迟的网络环境中，或者是 apps 比如 DNS、Web Server，这或许是足够的。尽管如此，如果延迟太大，默认的值可能就太小了
 
@@ -358,27 +378,32 @@ Recall the previously mentioned SYN_RECV queue - your server is waiting for ACK 
 echo 'net.ipv4.tcp_rmem= 10240 87380 12582912' >> /etc/sysctl.conf
 echo 'net.ipv4.tcp_wmem= 10240 87380 12582912' >> /etc/sysctl.conf
 ```
+
 quic-go 建议设置的值是 net.ipv4.tcp_rmem=2048kiB
 >https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size
 >https://zhuanlan.zhihu.com/p/89620832
 
-UDP中SO_RCVBUF与内核中/proc/sys/net/core/rmem_default对应，SO_SNDBUF与/proc/sys/net/core/wmem_default对应。  
-而TCP中SO_RCVBUF与内核中/proc/sys/net/ipv4/tcp_rmem 的第二项default对应，SO_SNDBUF与/proc/sys/net/ipv4/tcp_wmem的第二项default对应。  (可能是操作系统实现的差异?)
-SO_RCVBUF来设置接收缓冲区，该参数在设置的时候不会与rmem_max进行对比校验，但是如果设置的大小超过rmem_max的话，则超过rmem_max的部分不会生效；  
-rmem_max参数是整个系统的大小，不是单个socket的大小。  
+UDP 中 SO_RCVBUF 与内核中 /proc/sys/net/core/rmem_default 对应，SO_SNDBUF 与 /proc/sys/net/core/wmem_default 对应。  
+而 TCP 中 SO_RCVBUF 与内核中 /proc/sys/net/ipv4/tcp_rmem 的第二项 default 对应，SO_SNDBUF 与 /proc/sys/net/ipv4/tcp_wmem 的第二项default对应。  (可能是操作系统实现的差异?)
+SO_RCVBUF 来设置接收缓冲区，该参数在设置的时候不会与 rmem_max 进行对比校验，但是如果设置的大小超过 rmem_max 的话，则超过 rmem_max 的部分不会生效；  
+rmem_max 参数是整个系统的大小，不是单个socket的大小。  
+
 >https://www.cnblogs.com/scaugsh/p/10254483.html
 
 如果指定了tcp_wmem，则net.core.wmem_default被tcp_wmem的覆盖。send Buffer在tcp_wmem的最小值和最大值之间自动调整。如果调用setsockopt()设置了socket选项SO_SNDBUF，将关闭发送端缓冲的自动调节机制，tcp_wmem将被忽略，SO_SNDBUF的最大值由net.core.wmem_max限制。
 >https://zhuanlan.zhihu.com/p/89620832
 
+>https://stackoverflow.com/questions/31546835/tcp-receiving-window-size-higher-than-net-core-rmem-max
 
 ### net.core.rmem_default
+默认的接收数据包内存大小
+
 ### wmem
 默认情况下Linux系统会自动调整这个buffer（net.ipv4.tcp_wmem）, 也就是不推荐程序中主动去设置SO_SNDBUF，除非明确知道设置的值是最优的。
 ### /proc/sys/net/core/wmem_max, /proc/sys/net/core/wmem_default
   
-    最大的TCP数据发送窗口（字节) 。
-    默认的和最大的发送数据包内存的大小
+最大的TCP数据发送窗口（字节) 。
+默认的和最大的发送数据包内存的大小
 
   * /proc/sys/net/core/netdev_max_backlog
   
