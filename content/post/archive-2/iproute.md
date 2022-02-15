@@ -1,5 +1,5 @@
 ---
-title: iproute2, ip route2, link
+title: iproute2 > 路由表, ip route2 routing table
 author: "-"
 date: 2018-03-25T01:20:23+00:00
 url: /?p=12054
@@ -9,7 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## iproute2 > 路由表, routing table
+## iproute2 > 路由表, ip route2 routing table
+
 ### install
    apt install iproute2
 
