@@ -10,8 +10,8 @@ categories:
 tags:
   - reprint
 ---
-## KVM
-### intel 虚拟化 VT-d VT-x VT-c 
+## 虚拟化, KVM
+### intel 虚拟化 VT-d VT-x VT-c
 简单描述理解 VT-d VT-x VT-c
 
 VT-d 英文全程为 Virtualization Technology for Directed I/O

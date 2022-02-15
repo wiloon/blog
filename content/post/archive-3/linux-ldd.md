@@ -1,5 +1,5 @@
 ---
-title: ldd 查看程序依赖库
+title: ldd 查看程序依赖 动态链接库
 author: "-"
 date: 2019-04-05T14:05:40+00:00
 url: ldd

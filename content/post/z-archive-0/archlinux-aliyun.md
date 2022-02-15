@@ -1,5 +1,5 @@
 ---
-title: 阿里云安装 archlinux
+title: aliyun ecs, 阿里云安装 archlinux
 author: "-"
 date: 2012-09-16T07:11:34+00:00
 url: archlinux/aliyun
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## aliyun ecs install archlinux
+## aliyun ecs, 阿里云安装 archlinux
 
 ```bash
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-bootstrap-2022.02.01-x86_64.tar.gz

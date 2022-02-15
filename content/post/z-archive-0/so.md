@@ -9,7 +9,7 @@ tags:
   - Linux
 
 ---
-## so, 动态链接库
+## so, dll, 动态链接库
 不同操作系统的动态链接库文件格式稍有不同，Linux称之为共享目标文件（Shared Object），文件后缀为.so，Windows的动态链接库（Dynamic Link Library）文件后缀为.dll。
 
 

@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## clean archlinux
+## archlinux clean
 
 ```bash
 # pacman 缓存 目录

@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## c basic, c, c lang
+## c basic, c, c lang, c 语言
 
 ## hello world
 
