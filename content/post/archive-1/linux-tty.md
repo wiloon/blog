@@ -486,7 +486,7 @@ TTY相关信号
 SIGTTIN
 当后台进程读tty时,tty将发送该信号给相应的进程组,默认行为是暂停进程组中进程的执行。暂停的进程如何继续执行呢？请参考下一篇文章中的SIGCONT。
 
-SIGHUP
+### SIGHUP
 当tty的另一端挂掉的时候,比如ssh的session断开了,于是sshd关闭了和ptmx关联的fd,内核将会给和该tty相关的所有进程发送SIGHUP信号,进程收到该信号后的默认行为是退出进程。
 
 SIGTSTP

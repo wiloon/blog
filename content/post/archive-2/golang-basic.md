@@ -303,7 +303,7 @@ func Dim(x, y float64) float64
 #### -v
 查看编译的代码包名称
 # -o
-指定输出文件
+指定输出文件 路径/文件名 `go build -o /tmp/foo foo.go`
 ```
 
 ```bash

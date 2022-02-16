@@ -10,7 +10,6 @@ tags:
   - reprint
 ---
 ## shell basic 变量
-## shell 变量
 ### 变量的默认值
 
 ```bash
@@ -107,8 +106,6 @@ IFS  -  默认的字段分隔符
 
 OPTARG - 使用getopts处理选项时,取得的选项的参数
 
- 
-
 OPTIND - 使用getopts处理选项时,选项的索引值
 
 OPTERR - 若将OPTERR设置为1,则getopts发生错误,输出错误信息
@@ -125,9 +122,10 @@ $? -  上一条命令执行结束后的返回值
 
 $$ -  当前bash shell的进程号
 
-$! -  上一个后台程序的进程号
+    $$  Shell本身的PID（ProcessID）
+    $!  上一个后台进程的 进程号 (PID)
 
- 
+>https://www.cnblogs.com/EasonJim/p/7750298.html
 
 7. 调整变量的属性
 
