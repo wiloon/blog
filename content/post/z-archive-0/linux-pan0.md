@@ -1,5 +1,5 @@
 ---
-title: linux pan0
+title: Golang 命名规范
 author: "-"
 date: 2012-04-07T10:55:18+00:00
 url: /?p=2833
@@ -10,5 +10,5 @@ categories:
 tags:
   - reprint
 ---
-## linux pan0
-pan0蓝牙设备
+##  Golang 命名规范
+>https://zhuanlan.zhihu.com/p/216001587

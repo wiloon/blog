@@ -14,7 +14,7 @@ tags:
   
 var=$(ls -lR|grep "^d"|wc -l)
   
-或
+或者另外一种 不建议的方式
   
 var=\`ls -lR|grep "^d"|wc -l\`
   

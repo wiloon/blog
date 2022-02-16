@@ -20,7 +20,7 @@ package main
 
 import "fmt"
 
-// Greeting function types
+// function types
 type Greeting func(name string) string
 
 func say(g Greeting, n string) {
