@@ -400,3 +400,8 @@ GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 
 
 >https://moelove.info/2020/12/19/Go-1.16-%E4%B8%AD%E5%85%B3%E4%BA%8E-go-get-%E5%92%8C-go-install-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/
+
+
+### 查看 golang 文档 
+
+    go doc io.EOF

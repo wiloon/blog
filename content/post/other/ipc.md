@@ -230,8 +230,6 @@ IP协议提供了两种通信手段:流(streams)和数据报(datagrams)，对应
 
 一种类型的套接字可能可以使用多于一种的协议来实现，套接字的协议(protocol)属性用于指定一种特定的协议。
 
-[原文链接][1]
-
 IPC进程间通信(Inter-Process Communication)就是指多个进程之间相互通信，交换信息的方法。Linux IPC基本上都是从Unix平台上继承而来的。主要包括最初的Unix IPC，System V IPC以及基于Socket的IPC。另外，Linux也支持POSIX IPC。
 
 **System V,BSD,POSIX**

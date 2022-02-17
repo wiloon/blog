@@ -48,3 +48,6 @@ ssh IP -p 1234 -l root
 There is a shortcut to archive this, if we don't want to create a config file, we have another option, using -A flag with the ssh command.
 
     ssh -A user@myhost.com 
+
+## ssh, block ip, blacklist
+Add sshd: 116.31.116.20 to /etc/hosts.deny

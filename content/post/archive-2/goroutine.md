@@ -2,10 +2,10 @@
 title: 协程, coroutine, goroutine
 author: "-"
 date: 2017-03-24T15:52:22+00:00
-url: /?p=9925
+url: goroutine
 
 categories:
-  - inbox
+  - golang
 tags:
   - reprint
 ---
@@ -213,3 +213,35 @@ http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html
 https://www.zhihu.com/question/20511233
 https://www.zhihu.com/question/21483863  
 https://zhuanlan.zhihu.com/p/25513336  
+
+
+### goroutine id
+
+```golang
+import (
+	"fmt"
+	"github.com/cihub/seelog"
+	"runtime"
+	"strconv"
+	"strings"
+)
+
+func GoroutineId() int {
+	defer func() {
+		if err := recover(); err != nil {
+			seelog.Error("panic recover:panic info:", err)
+		}
+	}()
+
+	var buf [64]byte
+	n := runtime.Stack(buf[:], false)
+	idField := strings.Fields(strings.TrimPrefix(string(buf[:n]), "goroutine "))[0]
+	id, err := strconv.Atoi(idField)
+	if err != nil {
+		panic(fmt.Sprintf("cannot get goroutine id: %v", err))
+	}
+	return id
+}
+
+
+```

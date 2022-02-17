@@ -62,21 +62,9 @@ file 命令用于分析文件的类型。
 
 在对一个文件进行分析之前，我们可以首先使用 file 命令来分析它们的类型。当然除此之外，我们还可以看到一些其它信息。
 
-    $ file /bin/pwd
-    /bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0d264bacf2adc568f0e21cbcc9576df434c44380, stripped
-
- 
-
-### file
-file 命令用于分析文件的类型。
-
-如果你需要分析二进制文件，可以首先使用 file 命令来切入。我们知道，在 Linux 下，一切皆文件，但并不是所有的文件都具有可执行性，我们还有各种各样的文件，比如: 文本文件，管道文件，链接文件，socket文件，等等。
-
-在对一个文件进行分析之前，我们可以首先使用 file 命令来分析它们的类型。当然除此之外，我们还可以看到一些其它信息。
-
     file /bin/pwd
-
-/bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0d264bacf2adc568f0e21cbcc9576df434c44380, stripped
+    
+    /bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0d264bacf2adc568f0e21cbcc9576df434c44380, stripped
 
 ### ltrace
 ltrace的功能是能够跟踪进程的库函数调用。

@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## python basic
-## 查看python的版本 placeholder
+## 查看python的版本
 python -V
 ### ubuntu
 sudo apt install python3

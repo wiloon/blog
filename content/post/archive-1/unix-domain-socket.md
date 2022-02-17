@@ -5,11 +5,15 @@ date: 2015-08-26T00:50:32+00:00
 url: uds
 
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
 ---
 ## unix domain socket, UDS
+
+    ss -nxp
+    ss -nxlp
+
 http://blog.csdn.net/bingqingsuimeng/article/details/8470029
 
 http://blog.chinaunix.net/uid-20511624-id-1659107.html
@@ -19,9 +23,9 @@ http://blog.chinaunix.net/uid-20511624-id-1659107.html
   
 Socket接口是TCP/IP网络的API，Socket接口定义了许多函数或例程，程式员能够用他们来研发TCP/IP网络上的应用程式。要学Internet上的TCP/IP网络编程，必须理解Socket接口。
   
-Socket接口设计者最先是将接口放在Unix操作系统里面的。假如了解Unix系统的输入和输出的话，就很容易了解Socket了。网络的 Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该Socket实现的。常用的Socket类型有两种: 流式Socket （SOCK_STREAM) 和数据报式Socket（SOCK_DGRAM) 。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。
+Socket接口设计者最先是将接口放在Unix操作系统里面的。假如了解 Unix 系统的输入和输出的话，就很容易了解 Socket 了。网络的 Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该Socket实现的。常用的Socket类型有两种: 流式Socket （SOCK_STREAM) 和数据报式Socket（SOCK_DGRAM) 。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。
   
-Socket建立
+Socket 建立
   
 为了建立Socket，程式能够调用Socket函数，该函数返回一个类似于文档描述符的句柄。socket函数原型为: 
   
