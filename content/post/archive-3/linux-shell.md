@@ -10,7 +10,9 @@ tags:
   - reprint
 ---
 ## shell basic
+
 ### 字符串分割
+
 ```bash
 #!/bin/bash
 string="hello,shell,haha"  
@@ -20,6 +22,7 @@ do
    echo $var
 done
 ```
+
 ### 布尔值变量
 ```bash
 the_world_is_flat=true
@@ -63,9 +66,12 @@ fi
 ```
 
 ### 把命令返回值赋值给变量, shell执行结果赋值给变量
+
 ```bash
-tmp=`pacman -Q go`
 tmp=$(pacman -Q go)
+# 这种已经不推荐使用了
+tmp=`pacman -Q go`
+
 echo $tmp
 ```
 
@@ -126,8 +132,25 @@ echo "ABC=$ABC"
 echo "ABC=${ABC}"
 ```
 
-Shell 的字符串
-  
+### Shell 的字符串
+
+### 判断字符串为空
+
+```bash
+#!/bin/sh
+
+STRING=
+
+if [ -z "$STRING" ]; then
+    echo "STRING is empty"
+fi
+
+if [ -n "$STRING" ]; then
+    echo "STRING is not empty"
+fi
+```
+
+```bash
 使用字符串
 
 NAME="tom"
@@ -143,7 +166,7 @@ echo $A
 echo $B
   
 echo $C
-
+```
 https://my.oschina.net/u/2428064/blog/3045121
 
 ## string
@@ -372,18 +395,7 @@ https://stackoverflow.com/questions/16153446/bash-last-index-of
 ### Shell中去除字符串前后空格
     echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
 
-### 判断字符串为空
-    #!/bin/sh
 
-    STRING=
-
-    if [ -z "$STRING" ]; then
-        echo "STRING is empty"
-    fi
-
-    if [ -n "$STRING" ]; then
-        echo "STRING is not empty"
-    fi
 
 #将pwd的执行结果放到变量value中保存，
 

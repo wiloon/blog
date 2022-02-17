@@ -63,7 +63,10 @@ sudo pacman -S xf86-video-fbdev #for hyper v
 sudo pacman -S xfce4
 sudo pacman -S xfce4-goodies
 ```
-##### 登录shell后自动启动xfce4
+##### 登录后自动启动xfce4
+
+登录shell后自动启动xfce4
+
 <http://blog.wiloon.com/?p=8940>
 
 ### restart to desktop to continue

@@ -405,3 +405,6 @@ GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 ### 查看 golang 文档 
 
     go doc io.EOF
+### os.Exit()
+
+Conventionally, code zero indicates success, non-zero an error
