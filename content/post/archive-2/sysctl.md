@@ -431,9 +431,35 @@ iptables -t raw -I PREROUTING -i <bridge-name> -j NOTRACK
 
 
 ### vm.swappiness
+默认值swappiness=60，表示内存使用率超过100-60=40%时开始使用交换分区。
+
 swappiness=0的时候表示最大限度使用物理内存,然后才是 swap空间,
   
 swappiness＝100的时候表示积极的使用swap分区,并且把内存上的数据及时的搬运到swap空间里面。
+
+### /proc/sys/vm/min_free_kbytes
+
+官方解释：
+
+min_free_kbytes:
+
+This is used to force the Linux VM to keep a minimum number
+of kilobytes free.  The VM uses this number to compute a
+watermark[WMARK_MIN] value for each lowmem zone in the system.
+Each lowmem zone gets a number of reserved free pages based
+proportionally on its size.
+
+Some minimal amount of memory is needed to satisfy PF_MEMALLOC
+allocations; if you set this to lower than 1024KB, your system will
+become subtly broken, and prone to deadlock under high loads.
+
+Setting this too high will OOM your machine instantly.
+从上面的解释中主要有如下两个点：
+
+代表系统所保留空闲内存的最低限
+用于计算影响内存回收的三个参数 watermark[min/low/high]
+
+>https://www.dazhuanlan.com/sanword/topics/989350
 
 https://www.kernel.org/doc/Documentation/sysctl/fs.txt
   

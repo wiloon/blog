@@ -44,7 +44,7 @@ func main() {
 ./hello.go
 ```
 
-## golang shell, 在golang中调用shell
+## golang shell, 在 golang 中调用 shell
 ```golang
 func shellExec(command string) string {
 	log.Printf("exec: %s\n", command)

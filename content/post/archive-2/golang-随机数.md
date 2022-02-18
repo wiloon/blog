@@ -1,25 +1,22 @@
 ---
-title: 'golang  随机数'
+title: golang 随机数
 author: "-"
 date: 2017-07-27T07:14:38+00:00
-url: /?p=10939
+url: go/rand
 categories:
-  - Uncategorized
+  - golang
 
 tags:
   - reprint
 ---
-## 'golang  随机数'
-http://www.cnblogs.com/baiyuxiong/p/4545032.html
+## golang 随机数
+>http://www.cnblogs.com/baiyuxiong/p/4545032.html
 
 Go随机数
   
 Go math/rand包用于生成随机数。
-
-代码: 
-
-复制代码
-  
+ 
+```go
 package main
 
 import "fmt"
@@ -27,7 +24,6 @@ import "fmt"
 import "math/rand"
 
 func main() {
-
     fmt.Println(rand.Intn(100)) //产生0-100的随机整数
     
     fmt.Println(rand.Float64()) //产生0.0-1.0的随机浮点点
@@ -43,12 +39,9 @@ func main() {
     fmt.Print(r2.Intn(100), ",")
     fmt.Print(r2.Intn(100))
     fmt.Println()
-    
-
 }
-  
-复制代码
-
+```
+ 
 返回结果: 
 
 81
@@ -69,6 +62,7 @@ s2 := rand.NewSource(time.Now().Unix())
 
 复制代码
   
+```go
 package main
 
 import "fmt"
@@ -86,5 +80,20 @@ fmt.Println(rand.Intn(100))
 fmt.Println(rand.Intn(100))
   
 }
-  
-复制代码
+```
+
+### 随机数 bytes
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func main() {
+	bytes := make([]byte, 5)
+	rand.Read(bytes)
+	fmt.Println(bytes)
+}
+```

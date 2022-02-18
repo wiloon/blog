@@ -2,7 +2,7 @@
 title: ssh basic
 author: "-"
 date: 2011-09-25T09:54:40+00:00
-url: /?p=913
+url: ssh
 categories:
   - Linux
 
@@ -33,16 +33,6 @@ ssh IP
 ssh IP -p 1234 -l root
   
 ```
-
-
-
-
-
-
----
-
-
-
 
 ### -A option enables forwarding of the authentication agent connection.
 There is a shortcut to archive this, if we don't want to create a config file, we have another option, using -A flag with the ssh command.

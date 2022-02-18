@@ -1886,8 +1886,8 @@ icmp-ireq, icmp-ireqreply, icmp-maskreq, icmp-maskreply.
 tcp-ack, tcp-urg.
 
 ### Libpcap
-libcap主要用于网络嗅探
-Libpcap是Packet Capture Libray的英文缩写,即数据包捕获开源的 C 函数库, 用于捕获网卡数据或分析 pcap 格式的抓包报文。Tcpdump 和 wireshark 均是以此为基础的。
+libcap主要用于网络嗅探  
+Libpcap是 Packet Capture Libray 的英文缩写, 即数据包捕获的 C 函数库, 用于捕获网卡数据或分析 pcap 格式的抓包报文。Tcpdump 和 wireshark 均是以此为基础的。
 主要功能有: 网络报文抓取；网络报文的构建；抓包文件的分析；自定义BFP过滤。
 
 libpcap（Packet Capture Library）即数据包捕获函数库，是Unix/Linux平台下的网络数据包捕获函数库。它是一个独立于系统的用户层包捕获的API接口，为底层网络监测提供了一个可移植的框架。著名的软件TCPDUMP就是在libpcap的的基础上开发而成的

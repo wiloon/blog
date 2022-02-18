@@ -274,15 +274,6 @@ func main(){
 ### csv
 https://cloud.tencent.com/developer/article/1059643
 
-### bytes.Buffer, io.Writer
-import "bufio"
-import "bytes"
-
-func main() {
-    var b bytes.Buffer
-    foo := bufio.NewWriter(&b)
-}
-
 ### math
 func Dim(x, y float64) float64
 函数返回x-y和0中的最大值

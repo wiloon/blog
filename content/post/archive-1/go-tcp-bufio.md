@@ -4,8 +4,7 @@ author: "-"
 date: 2015-04-27T12:59:51+00:00
 url: /?p=7526
 categories:
-  - Uncategorized
-
+  - golang
 tags:
   - reprint
 ---
@@ -43,7 +42,7 @@ NSQ就是采取这种方式。
 还有一种方式是我下面介绍的,我遇到的问题是这样: 我解析RTP Over RTSP数据,一个数据流里面有两种协议数据,所以我刚开始想到的方式就是,先从conn里面读取数据然后缓存,然后不断peek数据拿来分析(我不能拿走数据,因为数据可能不完整,所以一直做peek),自己管理buffer,其实这种方式很傻,golang的标准库其实已经给我们提供了实现。
 
 使用Scanner就可以完成我们的需求,实现如下: 
-
+```go
 func main() {
       
 // 创建一个包,版本是V1,数据是ABCDEFGHIJK,大小是11
@@ -150,3 +149,4 @@ p.Data = make([]byte,p.Datalen)
 binary.Read(r,binary.BigEndian,&p.Data)
   
 }
+```

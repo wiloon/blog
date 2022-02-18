@@ -151,6 +151,3 @@ https://github.com/appneta/tcpreplay
 
 c 语言实现
 https://github.com/session-replay-tools/tcpcopy
-
-## gopacket
->https://github.com/google/gopacket

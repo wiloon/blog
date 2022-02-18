@@ -2,7 +2,7 @@
 title: ss, Socket Statistics
 author: "-"
 date: 2019-07-02T09:26:12+00:00
-url: /?p=14619
+url: ss
 categories:
   - network
 

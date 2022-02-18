@@ -1,31 +1,29 @@
 ---
-title: "challenge response, 挑战应答"
+title: challenge response, 挑战应答
 author: "-"
-date: ""
+date: 2021-02-18 11:00:34
 url: "template"
 categories:
   - inbox
 tags:
   - inbox
 ---
-## "challenge response, 挑战应答"
+## challenge response, 挑战应答
+
+挑战应答方式”：challenge-response，是零知识证明的方式。
 
 Challenge/Response认证的过程如下: 
 
-1) 客户端向服务器发出认证请求；
-2) 认证服务器从用户数据库中查询用户是否是合法的用户，若不是，则不做进一步的处理；
-3) 认证服务器内部产生一个随机数，作为Challenge，发送给用户；
-4) 客户将口令和随机数合并，使用单向Hash函数 ( 例如MD5算法 ) 生成一个字节串作为Response；
-5) 认证服务器将Response与自己的计算结果比较，如两者相同，则通过一次认证，反之认证失败；
-6) 认证服务器通知客户端认证成功或失败。
-
- 
+1. 客户端向服务器发出认证请求；
+2. 认证服务器从用户数据库中查询用户是否是合法的用户，若不是，则不做进一步的处理；
+3. 认证服务器内部产生一个随机数，作为 "提问" / Challenge，发送给用户；
+4. 客户将口令和随机数合并，使用单向 Hash 函数 ( 例如MD5算法 ) 生成一个字节串作为Response；
+5. 认证服务器将 Response 与自己的计算结果比较，如两者相同，则通过一次认证，反之认证失败；
+6. 认证服务器通知客户端认证成功或失败。
 
 以后的认证由客户不定时发起，过程中没有了客户认证请求一步。两次认证的时间间隔不能太短，否则就给网络、客户和认证服务器带来太大的开销；但也不能太长，否则不能保证用户不被他人盗用IP地址，一般定为1-2分钟。
 
- 
-
-密钥的分配和管理: 
+### 密钥的分配和管理
 
 密钥的分配由维护模块负责，当用户进行注册时，自行设定自己的口令。用户的密钥由口令生成。
 
@@ -33,26 +31,18 @@ Challenge/Response认证的过程如下:
 
 密钥的在线修改由认证服务器完成，其过程与认证过程基本类似。
 
- 
-
 Challenge/Response认证的安全性分析: 
 
 下面就常见的对认证服务器攻击方法来分析其安全性。
 
-1) 网络侦听 ( sniffer )
-认证过程中，密钥和口令不是明文不在网络上传输，所以sniffer很难从听到的报文中得到用户的口令。在密钥在线修改过程中，新口令使用旧密钥加密传送，sniffer攻击仍然无效。
-
-2) replay attack
-每次challenge不同，所以replay attack无效。
-
-3) password guessing
-
+1. 网络侦听 ( sniffer )
+认证过程中，密钥和口令不是明文不在网络上传输，所以sniffer很难从听到的报文中得到用户的口令。在密钥在线修改过程中，新口令使用旧密钥加密传送，sniffer 攻击仍然无效。
+2. replay attack, 重放攻击
+每次 challenge 不同，所以 replay attack 无效。
+3. password guessing
 在知道了认证算法后，侦听者可以对用户的口令进行猜测。这种攻击方法直接有效，特别是当用户的口令有缺陷时。解决方法是使用合适的口令。
-
-4) 跟踪地址攻击
+4. 跟踪地址攻击
 攻击者在看到用户认证后，设法将自己的机器地址改为用户的IP地址，从而冒充用户。但由于攻击者无法完成后续的认证，在1-2分钟内，攻击失效。
 
-转自https://blog.csdn.net/zy531/article/details/6205306
-
-https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication
-
+>https://blog.csdn.net/zy531/article/details/6205306
+>https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication
