@@ -1,18 +1,18 @@
 ---
-title: shell exit退出状态代码
+title: shell 状态代码
 author: "-"
 date: 2019-01-07T06:03:34+00:00
 url: /?p=13349
 categories:
-  - Uncategorized
+  - linux
 
 tags:
   - reprint
 ---
-## shell exit退出状态代码
+## shell 状态代码
 https://blog.csdn.net/hongkangwl/article/details/16184883
 
-Linux提供$?特殊变量来保存最后一条命令执行结束的退出状态。执行完一条命令后,立即执行echo$?,可以查看最后一条命令的退出状态值。
+Linux提供 `$?` 特殊变量来保存最后一条命令执行结束的退出状态。执行完一条命令后,立即执行echo$?,可以查看最后一条命令的退出状态值。
 
 正常的情况下,命令成功执行完成的退出状态是0,如果非0,则命令执行有错。
   
@@ -22,86 +22,17 @@ Linux提供$?特殊变量来保存最后一条命令执行结束的退出状态�
 
 退出状态码最高是255,一般自定义的代码值为0~255,如果超出255,则返回该数值被256除了之后的余数。
 
-退出状态代码: 
+### shell 退出状态代码: 
 
-0 命令成功完成
-
-1通常的未知错误
-
-2误用shell命令
-
-126命令无法执行
-
-127没有找到命令
-
-128无效的退出参数
-
-128+x使用Linux信号x的致命错误。
-
-130使用Ctrl-C终止的命令
-
-255规范外的退出状态
-
-ubuntu下测试结果如下
-  
-wl@wl-MS-7673:/home/python$ date
-  
-2013年 11月 14日 星期四 19:12:45 CST
-  
-wl@wl-MS-7673:/home/python$ echo $?
-  
-  
-wl@wl-MS-7673:/home/python$ kkllk
-  
-kkllk: command not found
-  
-wl@wl-MS-7673:/home/python$ echo $?
-  
-wl@wl-MS-7673:/home/python$ ls
-  
-hello.py hello.py~
-  
-wl@wl-MS-7673:/home/python$ vim a.c
-  
-wl@wl-MS-7673:/home/python$ ls
-  
-hello.py hello.py~
-  
-wl@wl-MS-7673:/home/python$ gedit a.c
-  
-wl@wl-MS-7673:/home/python$ ./hello.py
-  
-bash: ./hello.py: 权限不够
-  
-wl@wl-MS-7673:/home/python$ echo $?
-  
-wl@wl-MS-7673:/home/python$ date %t
-  
-date: 无效的日期"%t"
-  
-wl@wl-MS-7673:/home/python$ echo $?
-  
-wl@wl-MS-7673:/home/python$
-
-root@wl-MS-7673:~# ls -sail test
-  
-790207 4 -rwxr-r- 1 root root 30 11月 14 19:25 test
-  
-root@wl-MS-7673:~# ./test
-  
-root@wl-MS-7673:~# echo $?
-  
-root@wl-MS-7673:~# cat test
-  
-#!/bin/bash
-  
-var=300
-  
-exit $var
-  
-root@wl-MS-7673:~#
-
-* * *
+- 0 命令成功完成
+- 1 通常的未知错误
+- 2 误用shell命令
+- 126 命令无法执行
+- 127 没有找到命令
+- 128无效的退出参数
+- 128+x 使用Linux信号x的致命错误。
+- 130 使用Ctrl-C终止的命令
+- 255 规范外的退出状态
 
 作者: 王伴农
   
