@@ -15,12 +15,12 @@ tags:
 
 ### 环境
 
-- 测试服务器,目标服务器, target server, 192.168.50.101
-  - 1025 端口提供服务
-- 辅助服务器, assistant server, 192.168.50.102
+- 测试用的 tcp 服务 tcp-echo-server 监听 1025 端口
 - 线上服务器, online source server, 192.168.50.10
   - 1025 端口提供服务
-- 测试用的tcp服务 tcp-echo-server 监听 1025 端口
+- 测试服务器,目标服务器, target server, 192.168.50.101
+  - 1025 端口提供服务 (tcp-echo-server)
+- 辅助服务器, assistant server, 192.168.50.102
 
 ### 线上服务器安装 tcpcopy
 

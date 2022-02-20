@@ -1,5 +1,5 @@
 ---
-title: 执行 Shell 脚本, fork, exec, source, shell执行
+title: 执行 Shell 脚本, fork, exec, source, shell 执行
 author: "-"
 date: 2011-12-26T08:30:07+00:00
 url: shell/exec
@@ -9,8 +9,8 @@ tags:
   - Shell
 
 ---
-## 执行 Shell 脚本, fork, exec, source, shell执行
-## 执行 Linux Shell 脚本, fork, exec, source
+## 执行 Shell 脚本, fork, exec, source, shell 执行
+ cx 
 ```bash
 ./xxx.sh
 sh xxx.sh
@@ -22,7 +22,9 @@ sh xxx.sh
 
 ### sh Shell 程序文件名
 
-这种方法的命令格式为: bash Shell程序文件名
+这种方法的命令格式为: 
+
+    sh <foo.sh>
 
 这实际上是调用一个新的bash命令解释程序，而把Shell程序文件名作为参数传递给它。新启动的Shell将去读指定的文件，可执行文件中列出的命令，当所有的命令都执行完后结束。该方法的优点是可以利用Shell调试功能。
 
@@ -32,13 +34,16 @@ sh xxx.sh
 
 这种方式就是利用输入重定向，使Shell命令解释程序的输入取自指定的程序文件。
 
-### 用chmod命令使Shell程序成为可执行的，"./Shell文件名"
+### 用 chmod 命令使 Shell 程序成为可执行的，"./Shell文件名"
 
 一个文件能否运行取决于该文档的内容本身可执行且该文件具有执行权。对于Shell程序，当用编辑器生成一个文件时，系统赋予的许可权都是644(rw-r-r-)，用"chomd 755 Shell文件名"命令将其改为可执行的，因此，当用户需要运行这个文件时，"./Shell文件名"来执行就是行了。
 
 在这3种运行Shell程序的方法中，最好按下面的方式选择: 当刚创建一个Shell程序，对它的正确性还没有把握时，应当使用第一种方式进行调试。当一个Shell程序已经调试好时，应使用第三种方式把它固定下来，以后只要键入相应的文件名即可，并可被另一个程序所调用。
 
-## source (. )
+## source (.)
+
+使用 source 命令和点号(.)是等价的, 类似于 C/C++ 中的 #include 预处理指令，都是将指定的脚本内容拷贝至当前的脚本中，由同一个 Shell 进程来执行。
+
 source (source /directory/script.sh)
 与fork的区别是不新开一个 sub-shell 来执行被调用的脚本，而是在同一个 shell 中执行。所以被调用的脚本中声明的变量和环境变量。 都可以在主脚本中得到和使用。
 
