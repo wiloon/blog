@@ -73,7 +73,7 @@ ip route add 192.168.60.0/24 via 192.168.50.102 src 192.168.50.101 dev ens18
 # ./intercept -F <filter> -i <device,>
 ./intercept -i ens18 -F 'tcp and src port 1025'
 ./intercept -i ens18 -F 'tcp and src port 1025' -d
-# -i ens18, 捕获网卡 ens18 ，源端口 1025 基于tcp的包, 测试服务运行在 1025 端口, 所以源端口是 1025
+# -i ens18, 捕获网卡 ens18 ，源端口 1025 基于tcp 的包, 测试服务运行在 1025 端口, 所以源端口是 1025
 # -d, daemon
 ```
 
