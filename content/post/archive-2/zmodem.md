@@ -13,6 +13,7 @@ tags:
 
 ### install
     pacman -S lrzsz
+    yum install lrzsz
 
 ### konsole
     Edit>Zmodem upload ( ctrl + alt + U )

@@ -10,7 +10,9 @@ tags:
   - reprint
 ---
 ## 'ca-certificates 导入CA证书'
-### centos
+
+- centos
+
 ```bash
 yum install -y ca-certificates
 update-ca-trust force-enable

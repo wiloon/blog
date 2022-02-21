@@ -45,7 +45,8 @@ vncviewer: disable allow jpeg
 https://unix.stackexchange.com/questions/67096/xterm-warning-tried-to-connect-to-session-manager
 
 
-### centos
+- centos
+
     yum -y install tigervnc-server
     yum -y install tigervnc
 
