@@ -16,13 +16,13 @@ tcpdump工作在数据链路层
 
 ### 指定主机
 ```bash
-    tcpdump host 192.168.1.1
-    ### 指定源地址
-    tcpdump -i eth0 src host 192.168.1.1
-    ### 指定目的地址
-    tcpdump -i eth1 dst host 192.168.1.1
-    tcpdump -n -i eth0 host 192.168.1.2 and 192.168.1.3
-    tcpdump -n -i eth0 host 192.168.1.2 or 192.168.1.3 or 192.168.1.4
+tcpdump host 192.168.1.1
+### 指定源地址
+tcpdump -i eth0 src host 192.168.1.1
+### 指定目的地址
+tcpdump -i eth1 dst host 192.168.1.1
+tcpdump -n -i eth0 host 192.168.1.2 and 192.168.1.3
+tcpdump -n -i eth0 host 192.168.1.2 or 192.168.1.3 or 192.168.1.4
 # -i any 任意网卡
 tcpdump  -ni any port 443 -w https.pcap
 ```

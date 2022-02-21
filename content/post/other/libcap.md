@@ -11,7 +11,6 @@ tags:
 ---
 ## linux报文高速捕获技术对比--napi/libpcap/afpacket/pfring/dpdk/xdp
 
-
 1. 传统linux网络协议栈流程和性能分析
 Linux网络协议栈是处理网络数据包的典型系统，它包含了从物理层直到应用层的全过程。
 

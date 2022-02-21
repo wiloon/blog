@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## ssh config
-https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file
+>https://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file
 
 ```bash
 vim ~/.ssh/config
