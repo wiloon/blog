@@ -15,12 +15,12 @@ tags:
 
 ### 环境
 
-- 测试服务器,目标服务器, target server, 192.168.50.101
-  - 1025 端口提供服务
-- 辅助服务器, assistant server, 192.168.50.102
+- 测试用的 tcp 服务 tcp-echo-server 监听 1025 端口
 - 线上服务器, online source server, 192.168.50.10
   - 1025 端口提供服务
-- 测试用的tcp服务 tcp-echo-server 监听 1025 端口
+- 测试服务器,目标服务器, target server, 192.168.50.101
+  - 1025 端口提供服务 (tcp-echo-server)
+- 辅助服务器, assistant server, 192.168.50.102
 
 ### 线上服务器安装 tcpcopy
 
@@ -73,7 +73,7 @@ ip route add 192.168.60.0/24 via 192.168.50.102 src 192.168.50.101 dev ens18
 # ./intercept -F <filter> -i <device,>
 ./intercept -i ens18 -F 'tcp and src port 1025'
 ./intercept -i ens18 -F 'tcp and src port 1025' -d
-# -i ens18, 捕获网卡 ens18 ，源端口 1025 基于tcp的包, 测试服务运行在 1025 端口, 所以源端口是 1025
+# -i ens18, 捕获网卡 ens18 ，源端口 1025 基于tcp 的包, 测试服务运行在 1025 端口, 所以源端口是 1025
 # -d, daemon
 ```
 

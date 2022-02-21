@@ -286,29 +286,19 @@ ss列出处在FIN-WAIT-1状态的http、https连接
 
 # ss -o state fin-wait-1 '( sport = :http or sport = :https )'
 
-ss常用的state状态: 
+### ss常用的state状态: 
 
-established
-  
-syn-sent
-  
-syn-recv
-  
-fin-wait-1
-  
-fin-wait-2
-  
-time-wait
-  
-closed
-  
-close-wait
-  
-last-ack
-  
-listen
-  
-closing
+- established
+- syn-sent
+- syn-recv
+- fin-wait-1
+- fin-wait-2
+- time-wait
+- closed
+- close-wait
+- last-ack
+- listen
+- closing
   
 all : All of the above states
   

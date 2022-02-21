@@ -87,6 +87,13 @@ http://www.zsythink.net/wp-content/uploads/2017/02/021217\_0051\_6.png
   
 ![13pGXd.png][7]
 
+
+### 查看定义规则的详细信息
+```bash
+iptables -t nat -vnL  --line-number
+iptables -t nat -vnL PREROUTING --line-number
+```
+
 ### 删除规则
 链名区分大小写
 
@@ -105,9 +112,6 @@ iptables -F
 
 ```bash
 #  iptables [-t tables] [-L] [-nv]
-#查看定义规则的详细信息
-iptables -t nat -vnL  --line-number
-iptables -t nat -vnL PREROUTING --line-number
 
 # 插入一条， 插入位置 10
 iptables -t nat -I  VY 10  -p tcp -m set --match-set vlist dst -j REDIRECT --to-ports 1081

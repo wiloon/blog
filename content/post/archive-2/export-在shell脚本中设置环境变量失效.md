@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## export 在shell脚本中设置环境变量失效
-shell脚本中设定的路径和环境变量只对改shell和其子shell有效。 对其父shell和其它shell无效。
+## export 在shell 脚本中设置环境变量失效 placeholder
+shell 脚本中设定的路径和环境变量只对改shell和其子shell有效。 对其父shell和其它shell无效。
 
 解决方法: 
 
