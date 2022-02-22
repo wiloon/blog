@@ -43,11 +43,11 @@ tcpdump -nn -i wlp1s0  src host 192.168.50.115 and '! tcp port 22'
 
 ### 协议过滤
 ```bash
+# protocol name: arp, ip, tcp, udp, icmp
 tcpdump -i eth1 <protocol name>
 
 tcpdump -nn icmp
 
-# protocol name: arp, ip, tcp, udp, icmp
 ```
 
 ### 保存到文件, 然后用  Wireshark 分析 

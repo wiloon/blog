@@ -14,8 +14,8 @@ tags:
 ## OSI七层协议和TCP/IP四层协议之比较
 ### TCP/IP四层协议
 
-1. 数据链路层: ARP, RARP, PPPoE (Ethernet 以太网协议,MAC 地址) , 数据链路层和物理层合并为网络接口层
-2. 网络层: IP,ICMP,IGMP （IPv4 / IPv6 协议,IP 地址) 
+1. 数据链路层, Data Link Layer: ARP, RARP, PPPoE (Ethernet 以太网协议,MAC 地址) , 数据链路层和物理层合并为网络接口层
+2. 网络层, Network Layer: IP,ICMP,IGMP （IPv4 / IPv6 协议,IP 地址) 
 3. 传输层: TCP(网络端口),UDP,UGP, QUIC, SCTP (流控制传输协议)
 4. 应用层: Telnet,FTP,SMTP,SNMP
 
