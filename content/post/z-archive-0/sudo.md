@@ -13,6 +13,7 @@ tags:
 ### sudo 免密码
 
 ```bash
+sudo visudo
 wiloon ALL=(ALL) NOPASSWD: ALL
 ```
 

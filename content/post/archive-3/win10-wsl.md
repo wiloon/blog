@@ -1,5 +1,5 @@
 ---
-title: win10 wsl
+title: windows wsl
 author: "w1100n"
 date: 2019-03-28T09:40:51.000+00:00
 url: "wsl"
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## win10 wsl
+## windows wsl
 WSL: windows subsystem for Linux
 
 ### command
@@ -24,7 +24,67 @@ WSL: windows subsystem for Linux
 ```
 
 ### 微软的官方安装文档
-https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
+>https://docs.microsoft.com/zh-cn/windows/wsl/install
+
+### 开启 windows 功能
+搜索 windows 功能， 勾选 `适用于 linux 的 windows 子系统` 和 `虚拟机平台`， 点击确认后会提示重启。
+
+```bash
+
+wsl --list --online
+wsl --install -d Ubuntu-20.04
+
+```
+
+### 0x800701bc
+
+download the linux kernel update package
+
+https://aka.ms/wsl2kernel
+
+### wslg
+
+>https://github.com/microsoft/wslg
+
+升级wsl到最新版本
+
+    wsl --update
+
+#### 安装 intel 显示驱动
+
+    https://downloadcenter.intel.com/download/30579/Intel-Graphics-Windows-DCH-Drivers
+
+
+### ssh-agent, keepassxc
+
+>https://code.mendhak.com/wsl2-keepassxc-ssh/
+
+### 启用 openssh authentication agent
+计算机管理>服务>openssh authentication agent > 启动>启动类型>自动 
+
+## 下载 npiperelay
+>https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip
+
+### 安装 socat
+ 
+    sudo apt install socat
+
+### vim .zshrc
+
+```bash
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+
+ss -a | grep -q $SSH_AUTH_SOCK
+if [ $? -ne 0 ]; then
+    rm -f $SSH_AUTH_SOCK
+    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"/mnt/c/workspace/apps/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+fi
+
+ssh-add -L 
+```
+
+---
+
 ### 步骤 1 - 启用适用于 Linux 的 Windows 子系统
     dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ### 检查windows的版本
@@ -145,7 +205,7 @@ https://blog.csdn.net/manbu_cy/article/details/108476859
 #### 修改 wsl 字体
     左上角图标-->属性-->字体-->Noto Mono for powerline
 
-### c 安装
+### VcXsrv 安装
 从SourceForge上面下载最新版本的 VcXsrv  
 
     https://sourceforge.net/projects/vcxsrv/files/vcxsrv/

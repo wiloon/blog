@@ -60,6 +60,11 @@ Select which mode to configure for ens18 or leave blank for DHCP: 0
 Enter a valid timezone (examples: Europe/Stockholm, US/Eastern) or press enter to use UTC: Asia/Shanghai
 Would you like to use automatic time synchronization (NTP) with the default time servers? [Y/n]: y
 
+# package
+vscode git keepassxc chromium wqy-microhei 
+
+# init
+systemctl enable sshd
 
 
 This is your chosen configuration:

@@ -17,7 +17,7 @@ yay 是下一个最好的 AUR 助手。它使用 Go 语言写成,宗旨是提供
 ### yay 安装
     pacman -S base-devel binutils git go
 
-### 从 git 克隆并编译安装, 不能在root用户下操作
+### 从 git 克隆并编译安装, 不能在 root 用户下操作
 ```bash
 su - wiloon
 git clone https://aur.archlinux.org/yay.git

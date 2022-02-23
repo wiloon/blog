@@ -68,6 +68,10 @@ Controls the font family.
 
 ### plugin
 
+#### remote development
+
+windows 编辑 wsl 文件 
+
 #### markdownlint
 
 markdown 语法检查

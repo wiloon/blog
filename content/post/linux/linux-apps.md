@@ -107,7 +107,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | tmux                            |                   |
 
 
-### AUR, yay:
+### AUR
 
 | name                                  | comments                                                       |
 | :------------------------------------ | -------------------------------------------------------------- |

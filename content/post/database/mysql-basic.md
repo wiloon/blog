@@ -245,7 +245,7 @@ SELECT  * FROM  table  order by time desc LIMIT  n;
 
 alter table tb_name modify id int auto_increment primary key;
 
-##export one table
+## export one table
 
 MySQLdump -uroot -p DBName TableName> foo.sql
 

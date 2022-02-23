@@ -27,15 +27,19 @@ vim .zshrc
 plugins=(git zsh-autosuggestions)
 ```
 
+## install zsh
 ```bash
 sudo pacman -S git zsh
 
-chsh -l
-chsh -s /bin/zsh
-
-#install oh-my-zsh
+#install oh-my-zsh, will set default shell to zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+
+## switch to zsh
+
+    chsh -l
+    chsh -s /bin/zsh
+
 
 oh-my-zsh 是一个著名的,社区驱动的框架,它拥有很多有用的函数,helpers,插件,主题,可以用来简化复杂的 Zsh 配置。
   

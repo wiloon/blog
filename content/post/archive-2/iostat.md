@@ -15,6 +15,7 @@ tags:
 sudo pacman -S sysstat
 sudo yum install sysstat
 
+iostat 1
 iostat -x 1
 ```
 

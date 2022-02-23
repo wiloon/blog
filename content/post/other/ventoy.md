@@ -2,7 +2,7 @@
 author: "-"
 date: "2021-02-11 17:41:09" 
 title: ventoy, 安装盘, 多合一启动盘制作工具, 多个系统 Win/PE/Linux 镜像装在1个U盘里
-
+url: ventoy
 categories:
   - inbox
 tags:
@@ -10,7 +10,7 @@ tags:
 ---
 ## ventoy, 安装盘, 多合一启动盘制作工具, 多个系统 Win/PE/Linux 镜像装在1个U盘里
 
-entoy是一款国人开发的新一代多ISO启动引导程序，这款工具最大的优点就是无需格式化优盘，用户只需要将所需的ISO镜像文件拷贝至优盘中即可在Ventoy界面中选择自己想要的ISO镜像文件。
+ventoy 是一款国人开发的新一代多ISO启动引导程序，这款工具最大的优点就是无需格式化优盘，用户只需要将所需的ISO镜像文件拷贝至优盘中即可在Ventoy界面中选择自己想要的ISO镜像文件。
 
 Ventoy 五大优势
 广泛兼容：支持包括Windows 10、Windows 8.1、Windows 7、WinPE 系统以及Ubuntu等多种Linux发行版。
@@ -26,11 +26,11 @@ Ventoy 五大优势
 
 
 
-###
+### commands
 ```bash
 download linux version: ventoy-1.0.35-linux.tar.gz
 sudo ./Ventoy2Disk.sh -i /dev/sdx
-#复制各种iso到/dev/sdx1
+#复制各种iso到 /dev/sdb1
 ```
 
 >https://www.ventoy.net/

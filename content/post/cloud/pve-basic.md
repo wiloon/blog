@@ -10,11 +10,13 @@ tags:
   - VM
   - remix
 
-
 ---
 ## "pve basic"
 
 ### 创建安装盘 U盘
+
+>wiloon.com/ventoy
+
     dd bs=1M conv=fdatasync if=./proxmox-ve_*.iso of=/dev/XYZ
 
 ### 更新源

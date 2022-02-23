@@ -32,7 +32,7 @@ ADD configs/xxx.json .
 CMD ["./xxx"]
 ```
 
-### ENV
+### 环境变量
 
 ENV 设置环境变量
   
