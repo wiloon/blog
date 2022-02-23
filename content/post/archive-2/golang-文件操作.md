@@ -10,6 +10,17 @@ tags:
 ---
 ## golang file,文件操作
 
+## 文件大小
+```go
+func main() {
+	fi,err:=os.Stat("water")
+	if err ==nil {
+		fmt.Println("file size is ",fi.Size(),err)
+	}
+}
+
+```
+
 ```golang
 package main
 

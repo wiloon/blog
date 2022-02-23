@@ -10,6 +10,33 @@ tags:
   - reprint
 ---
 ## systemd start script, 启动脚本
+```bash
+#!/bin/sh
+service_name="foo"
+echo "
+[Unit]
+Description=${service_name}
+[Service]
+WorkingDirectory=/data/${service_name}
+ExecStart=/data/${service_name}/${service_name}
+User=root
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+" > /etc/systemd/system/${service_name}.service
+
+systemctl daemon-reload
+systemctl enable ${service_name}
+
+echo "commands:
+systemctl start ${service_name}
+systemctl status ${service_name}
+systemctl stop ${service_name}
+"
+```
 ### systemd 添加开机启动运行shell脚本
 systemd 添加开机启动运行shell脚本
   

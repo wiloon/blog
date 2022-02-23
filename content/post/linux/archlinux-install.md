@@ -12,7 +12,7 @@ tags:
 ---
 ## archlinux install
 
-## download iso
+- download iso
 
 <http://mirrors.163.com/archlinux/iso>
 
@@ -20,14 +20,24 @@ tags:
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
 ```
 
+- copy to ventoy usb partition
+- 用 ventoy u盘引导系统
+- 启动 sshd
+
+
+systemctl start sshd
+
+- 设置 root 密码
+
+passwd
+
+- 登录， 然后进行后续操作
+
 todo: try archinstall, <https://github.com/archlinux/archinstall>
 
 ```bash
-boot with iso
 pacman -Sy
-passwd
-systemctl start sshd
-ip a
+
 # ssh to 
 pacman -S archinstall
 archinstall

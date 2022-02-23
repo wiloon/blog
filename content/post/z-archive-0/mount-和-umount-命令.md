@@ -11,6 +11,7 @@ tags:
 ---
 ## mount, umount
 ### commands
+    pacman -S nfs-utils
     showmount -e 192.168.50.227
     mount -t nfs 192.168.50.227:/data1t /mnt/nas
 

@@ -100,7 +100,13 @@ curl --resolve 'test.com:9443:127.0.0.1' https://test.com:9443/hello
 curl -x 123.45.67.89:1080 -o page.html http://www.yahoo.com
 
 # 下载文件
+# 指定文件名
 curl -o foo.txt http://foo.com/foo.txt
+# 从 URL里取文件名
+curl -O http://foo.com/foo.txt
+# 从 Content-Disposition 里取文件名
+curl -O -J  "http://localhost:63005/file-server?name=foo.txt"
+
 curl -v --socks5-hostname 127.0.0.1:1080 https://www.google.com/
 
 # --connect-timeout <seconds>

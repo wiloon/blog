@@ -13,7 +13,7 @@ tags:
 ```bash
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-bootstrap-2022.02.01-x86_64.tar.gz
 tar zxvf archlinux-bootstrap-2022.02.01-x86_64.tar.gz
-mount --bind /tmp/root.x86_64 /tmp/root.x86_64
+sudo mount --bind /tmp/root.x86_64 /tmp/root.x86_64
 /tmp/root.x86_64/bin/arch-chroot /tmp/root.x86_64/
 
 pacman-key --init
@@ -21,7 +21,7 @@ pacman-key --populate archlinux
 
 mount /dev/vda1 /mnt
 
-# /dev /proc /run /sys /tmp 
+# 保留的目录  /dev /proc /run /sys /tmp 
 rm -rf /mnt/bin
 rm -rf /mnt/boot
 rm -rf /mnt/data

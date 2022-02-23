@@ -1,5 +1,5 @@
 ---
-title: http 文件下载
+title: golang http 文件下载
 author: "-"
 date: 2014-02-26T06:23:12+00:00
 url: /?p=6291
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## http 文件下载
+## golang http 文件下载
 
 ### golang + gin
 

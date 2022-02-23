@@ -11,11 +11,11 @@ tags:
 
 ---
 ## compact/extract 压缩/解压
-### 解压多个文件
+## 解压多个文件
     ls *.gz|xargs -t -n1 gunzip
     gunzip *.gz
 
-### .rar
+## .rar
     # 解压
     unrar x foo.rar
     # 压缩
@@ -23,7 +23,7 @@ tags:
     # 解压
     rar a FileName.rar
 
-### .gz
+## .gz
     # 压缩
     gzip FileName
     # 解压1
@@ -35,7 +35,7 @@ tags:
 ```bash
 gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
 ```
-### .7z
+## .7z
 ```bash
     yum install p7zip
     pacman -S p7zip
@@ -44,7 +44,7 @@ gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
     7z x filename.7z
 ```
 
-### .zip
+## .zip
 ```bash
 pacman -S zip unzip
 ```
@@ -92,7 +92,7 @@ find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 unzip /path/to/source.zip -d /path/to/target/path
 ```
 
-### Zstandard, zstd
+## Zstandard, zstd
 ```bash
 # zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
 
@@ -123,15 +123,9 @@ zstd -T0 foo.txt
 # --rm 压缩后删除原文件
 ```
 
-### .tar
+## .tar
 Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的CPU以及时间去打包文件，他仅仅只是一个打包工具，并不负责压缩。  
 **(注: tar只是打包，没有压缩功能！)**
-
-#### 向已有的 tar 包里增加文件
-这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
-```bash
-tar -rf all.tar *.gif
-```
 
 ```bash
 # 打包:
@@ -147,6 +141,12 @@ tar cjf - logs/ |split -b 1m - logs.tar.bz2.
 cat logs.tar.bz2.a* | tar xj
 # 指定操作目录
 tar -zcf ${package_path} -C ${war_path} .
+```
+
+### 向已有的 tar 包里增加文件
+这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
+```bash
+tar -rf all.tar *.gif
 ```
 
 #### tar参数
