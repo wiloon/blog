@@ -17,7 +17,9 @@ git config http.proxy 'http://192.168.50.xx:80'
 git config --global http.proxy http://proxy.mycompany:80
 # socks5 proxy
 git config http.proxy 'socks5://192.168.50.13:1080'
+git config https.proxy 'socks5://127.0.0.1:1080'
 git config --global http.proxy 'socks5://192.168.50.13:1080'
+git config --global https.proxy socks5://127.0.0.1:1080
 ```
 
 ```bash
@@ -29,3 +31,4 @@ npm config delete proxy
 ```
 
 https://gist.github.com/laispace/666dd7b27e9116faece6
+>https://www.jianshu.com/p/739f139cf13c
