@@ -183,6 +183,12 @@ sudo pacman -S powerdevil kmix kscreen ark
 |rar||
 |unrar||
 
+#### ubuntu install chrome
+
+```bash
+curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
 ### xfce4
 file-roller
 

@@ -11,6 +11,8 @@ tags:
 ---
 ## lsof
 List all open files on the system
+
+## 查看一个进程打开了哪些文件
 ```bash
 #PID: 1098
 sudo lsof -p 1098

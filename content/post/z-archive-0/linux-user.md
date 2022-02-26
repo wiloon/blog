@@ -33,7 +33,7 @@ sudo useradd user0
 
     # -M - Don't create a home directory
     # -m: create home folder, 不加-m 参数，默认不创建home
-    # -s: specify shell for user, 默认 /bin/bash
+    # -s: specify shell for user, 默认是 /bin/bash
     # -s /bin/false - Don't assign a shell (or more accurately, make the shell /bin/false, so the user cannot be logged into)
     # -r: create system account
     # -d: home dir

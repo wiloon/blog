@@ -1,5 +1,5 @@
 ---
-title: 开源爬虫Labin,Nutch,Neritrix介绍和对比
+title: 爬虫Labin,Nutch,Neritrix介绍和对比
 author: "-"
 date: 2015-01-05T06:22:18+00:00
 url: /?p=7174
@@ -9,7 +9,7 @@ tags:
   - Crawler
 
 ---
-## 开源爬虫Labin,Nutch,Neritrix介绍和对比
+## 爬虫Labin,Nutch,Neritrix介绍和对比
 http://www.open-open.com/bbs/view/1325332257061
 
 Larbin

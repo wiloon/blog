@@ -15,7 +15,7 @@ iptables 是 Linux 内核集成的 IP 信息包过滤系统。该系统用于在
   
 iptables操作的是2.4以上内核的netfilter。所以需要linux的内核在2.4以上。其功能与安全性远远比其前辈ipfwadm,ipchains强大，iptables大致是工作在OSI七层的二、三、四层，其前辈ipchains不能单独实现对tcp/udp port以及对mac地址的的定义与操作
 
-### iptables包含4个表，5个链。
+### iptables 包含4个表，5个链。
 
 其中表是按照对数据包的操作区分的，链是按照不同的Hook点来区分的，表和链实际上是netfilter的两个维度.  
 4个表: filter,nat,mangle,raw，默认表是filter（没有指定表 ( -t ) 的时候就是filter表) 。  
@@ -33,18 +33,15 @@ iptables操作的是2.4以上内核的netfilter。所以需要linux的内核在2
   * OUTPUT: 由本机产生，向外转发
   * POSTROUTIONG: 发送到网卡接口之前。
 
-### 规则的写法:
-     iptables定义规则的方式比较复杂:
-     格式: iptables [-t table] COMMAND chain CRETIRIA -j ACTION
-         -t table : 3个filter nat mangle
-         COMMAND: 定义如何对规则进行管理
-         chain: 指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的
-         CRETIRIA:指定匹配标准
-         -j ACTION :指定如何进行处理
-    
+### iptables 规则的语法:
+    iptables [-t table] COMMAND chain CRETIRIA -j ACTION
+        -t table : 3个filter nat mangle
+        COMMAND: 定义如何对规则进行管理
+        chain: 指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的
+        CRETIRIA:指定匹配标准
+        -j ACTION :指定如何进行处理
 
 ```bash
-synopsis
 iptables [-t table] COMMAND chain CRETIRIA -j ACTION
 
 iptables [-t table] -[AD] chain rule-specification [options]
@@ -64,7 +61,9 @@ iptables [-t table] -E old-chain-name new-chain-name
 iptables -t filter -L FORWARD
 ```
 
-iptalbes会使用nf_conntrack模块跟踪连接，而这个连接跟踪的数量是有最大值的，当跟踪的连接超过这个最大值，就会导致连接失败。 通过命令查看
+### nf_conntrack
+
+iptalbes会使用 nf_conntrack 模块跟踪连接，而这个连接跟踪的数量是有最大值的，当跟踪的连接超过这个最大值，就会导致连接失败。 通过命令查看
 
 ```bash
 # 当前值
@@ -87,24 +86,24 @@ http://www.zsythink.net/wp-content/uploads/2017/02/021217\_0051\_6.png
   
 ![13pGXd.png][7]
 
-
 ### 查看定义规则的详细信息
 ```bash
 iptables -t nat -vnL  --line-number
 iptables -t nat -vnL PREROUTING --line-number
 ```
 
-### 删除规则
+## 删除规则
+
 链名区分大小写
 
 ```bash
-# 按line number删除
+# 按 line number 删除
 iptables -t nat -D PREROUTING 1
 iptables -t nat -D OUTPUT 1
 
 # 按规则删除
 sudo iptables -t nat -D POSTROUTING -p icmp -j LOG
-# 把添加规则时的命令里 -A 改成 -D 就行了， 不需要找对应的行号。
+# 把添加规则时的命令里 -A 改成 -D 就行了, 不需要找对应的行号
 
 # 清空全部规则
 iptables -F 

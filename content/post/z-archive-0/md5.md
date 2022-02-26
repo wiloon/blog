@@ -15,13 +15,14 @@ tags:
 ```bash
 #linux
 md5sum [OPTION]... [FILE]...
-md5sum filename
-sha256sum filename
+md5sum foo.tar
+sha256sum foo.tar
+sha1sum foo.tar
 
 #windows
-certutil -hashfile filename MD5
-certutil -hashfile filename SHA1
-certutil -hashfile filename SHA256
+certutil -hashfile foo.tar MD5
+certutil -hashfile foo.tar SHA1
+certutil -hashfile foo.tar SHA256
 ```
 
 MD5: 一种单向Hash函数/单向散列函数

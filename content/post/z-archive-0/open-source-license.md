@@ -10,12 +10,12 @@ tags:
   - reprint
 ---
 ## 开源许可证, License, BSD, MIT, Apache,GPL
-## 开源许可证, License, BSD, MIT, Apache, GPL
-（1) BSD（二条款版) 
+
+## BSD（二条款版) 
 
 分发软件时，必须保留原始的许可证声明。
 
-（2)  BSD（三条款版) 
+## BSD（三条款版) 
 
 分发软件时，必须保留原始的许可证声明。不得使用原始作者的名字为软件促销。
 

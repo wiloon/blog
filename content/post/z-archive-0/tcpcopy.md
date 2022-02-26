@@ -13,20 +13,31 @@ tags:
 ---
 ## tcpcopy, 流量复制
 
-### 环境
+## 公有云环境
 
-- 测试用的 tcp 服务 tcp-echo-server 监听 1025 端口
-- 线上服务器, online source server, 192.168.50.10
-  - 1025 端口提供服务
-- 测试服务器,目标服务器, target server, 192.168.50.101
-  - 1025 端口提供服务 (tcp-echo-server)
-- 辅助服务器, assistant server, 192.168.50.102
+>https://github.com/session-replay-tools/tcpcopy/issues/336
+
+云环境下，安全策略可能会干扰测试的进行。
+采用如下步骤可以规避麻烦：
+1、测试机器和intercept部署到一台机器
+2、tcpcopy端-c参数采用tcpcopy所在的线上机器ip地址
+3、在线上机器设置iptables黑洞来过滤掉测试服务器的响应包
+iptables -I INPUT -p tcp --sport 测试服务的端口 -j DROP -s 测试服务所在机器的ip地址
+4、千万要注意在测试服务器不要设置路由了，否则会受到干扰
+
+### 环境
+- 测试用的 tcp 服务 tcp-echo-server
+- 线上服务器, online source server, xxx.xxx.20.50
+  - 2000 端口提供服务 (tcp-echo-server)
+- 测试服务器,目标服务器, target server, xxx.xxx.20.45
+  - 3000 端口提供服务 (tcp-echo-server), 不能跟 online server 用同一个端口
+- 辅助服务器, assistant server,  xxx.xxx.20.45, intercept 跟测试服务部署到同一个机器, 不使用单独的服务器
 
 ### 线上服务器安装 tcpcopy
 
 ```bash
 git clone https://github.com/session-replay-tools/tcpcopy.git
-cd tcpcopy
+cd tcpcopy=-[] 
 ./configure
 make
 make install
@@ -34,71 +45,157 @@ ls /usr/local/tcpcopy
 
 ```
 
-### 辅助服务器安装 intercept
+### 辅助服务器 (intercept) 安装 
 
 ```bash
-yum -y install libpcap-devel
+
 git clone https://github.com/session-replay-tools/intercept.git
 cd intercept
 ./configure
 make
 make install
 ls /usr/local/intercept
+```
 
+## 实时复制流量
+
+### 测试服务器
+
+测试服务器不添加路由规则.
+
+```bash
+# 启动测试服务并监听在 3000 端口
+./tcp-echo-server -port 3000
+```
+
+### 辅助服务器
+
+辅助服务器捕获`目标机/测试机`器发出的响应包
+
+```bash
+# ./intercept -F <filter> -i <device,>
+/usr/local/intercept/sbin/intercept -i eth0 -F 'tcp and src port 3000'
+/usr/local/intercept/sbin/intercept -i eth0 -F 'tcp and src port 3000' -d
+# -i eth0, 捕获网卡 eth0 ，基于 tcp 的, 源端口是 3000 的包, 测试服务运行在 3000 端口, 所以源端口是 3000
+# -d, daemon
+```
+
+### 线上服务器
+
+线上服务器捕获包 (2000 端口), 并修改目的及源地址, 并把包发送给目标服务器, 然后等待辅助服务器发送响应包
+
+源地址使用 线上服务器 IP
+
+```bash
+# 线上服务监听在 2000 端口
+./tcp-echo-server -port 2000
+
+# intercept 要先启动, tcpcopy 要连接 intercep 的 36524 端口
+# ./tcpcopy -x localServerPort-targetServerIP:targetServerPort -s <intercept server,> [-c <ip range,>]
+/usr/local/tcpcopy/sbin/tcpcopy -x 2000-xxx.xxx.20.45:3000 -s xxx.xxx.20.45 -c xxx.xxx.20.50
+/usr/local/tcpcopy/sbin/tcpcopy -x 2000-xxx.xxx.20.45:3000 -s xxx.xxx.20.45 -c xxx.xxx.20.50 -d
+# -x 2000-xxx.xxx.20.45:3000, 复制 2000 端口的 tcp 流量, 发到测试服务器 xxx.xxx.20.45:3000
+# -s xxx.xxx.20.45, 辅助服务器, 等辅助服务器回包
+# -c xxx.xxx.20.50, 修改之后的源端地址
+# -d, daemon
+
+#./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -d  #全流量复制 
+#./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -r 20 -d #复制20%的流量 
+#./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -n 2 -d #复制2倍流量
+
+# 新建 iptables 规则, 抛掉测试服务器的回包
+iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
+
+```
+
+
+## 常规环境
+### 环境
+
+- 测试用的 tcp 服务 tcp-echo-server 监听 2000 端口
+- 线上服务器, online source server, 192.168.50.10
+  - 2000 端口提供服务
+- 测试服务器,目标服务器, target server, 192.168.50.101
+  - 2000 端口提供服务 (tcp-echo-server)
+- 辅助服务器, assistant server, 192.168.50.102
+
+
+### 线上服务器安装 tcpcopy
+
+```bash
+git clone https://github.com/session-replay-tools/tcpcopy.git
+cd tcpcopy=-[] 
+./configure
+make
+make install
+ls /usr/local/tcpcopy
+
+```
+
+### 辅助服务器 (intercept) 安装 
+
+```bash
+
+git clone https://github.com/session-replay-tools/intercept.git
+cd intercept
+./configure
+make
+make install
+ls /usr/local/intercept
 ```
 
 ## 实时复制流量
 
 ### 测试服务器, 192.168.50.101
 
-测试服务器配置路由，将响应包路由到辅助机
+测试服务器添加一条路由规则，将响应包路由到辅助机
 
 ```bash
 # 添加一条路由规则
 ip route add 192.168.60.0/24 via 192.168.50.102 src 192.168.50.101 dev ens18
-# 192.168.60.0/24, tcpcopy修改后的源端地址网段
-# via 192.168.50.102: 网关, 下一跳的路由IP, 把响应包目标地址在 192.168.60.0/24 网段的包路由到 辅助机 192.168.50.102
-# src 192.168.50.101, 源端地址/测试机地址
+# 192.168.60.0/24, tcpcopy 修改后的源端地址网段 (一个不存在的网段, 不会影响生产环境的数据)
+# via 192.168.50.102: 网关, 下一跳的路由IP, 辅助服务器的地址, 把响应包目标地址在 192.168.60.0/24 网段的包路由到 辅助机 192.168.50.102
+# src 192.168.50.101, 源端地址/测试服务器的地址
 # dev ens18, 网卡
 
-# 启动测试服务并监听在 1025 端口
+# 启动测试服务并监听在 2000 端口
 ./tcp-echo-server
 ```
 
 ### 辅助服务器, 192.168.50.102
 
-辅助服务器捕获目标机/测试机器发来的响应包
+辅助服务器捕获`目标机/测试机`器发来的响应包
 
 ```bash
 # ./intercept -F <filter> -i <device,>
-./intercept -i ens18 -F 'tcp and src port 1025'
-./intercept -i ens18 -F 'tcp and src port 1025' -d
-# -i ens18, 捕获网卡 ens18 ，源端口 1025 基于tcp 的包, 测试服务运行在 1025 端口, 所以源端口是 1025
+/usr/local/intercept/sbin/intercept -i ens18 -F 'tcp and src port 2000'
+/usr/local/intercept/sbin/intercept -i ens18 -F 'tcp and src port 2000' -d
+# -i ens18, 捕获网卡 ens18 ，源端口 2000 基于tcp 的包, 测试服务运行在 2000 端口, 所以源端口是 2000
 # -d, daemon
 ```
 
 ### 线上服务器, 192.168.50.10
 
-线上服务器捕获包 (1025 端口), 并修改目的及源地址, 并把包发送给目标服务器 ( 192.168.50.101 ), 等待辅助服务器(192.168.50.102)发送响应包
+线上服务器捕获包 (2000 端口), 并修改目的及源地址, 并把包发送给目标服务器 ( 192.168.50.101 ), 等待辅助服务器(192.168.50.102)发送响应包
 
 源地址会被修改成 192.168.60.x 网段的地址.
 
 ```bash
-# 线上服务监听在 1025 端口
+# 线上服务监听在 2000 端口
 ./tcp-echo-server
 
 # intercept 要先启动, tcpcopy 要连接 intercep的 36524端口
 # ./tcpcopy -x localServerPort-targetServerIP:targetServerPort -s <intercept server,> [-c <ip range,>]
-./tcpcopy -x 1025-192.168.50.101:1025 -s 192.168.50.102 -c 192.168.60.x
-./tcpcopy -x 1025-192.168.50.101:1025 -s 192.168.50.102 -c 192.168.60.x -d
-# -x 1025-192.168.50.101:1025, 复制 1025 端口的流量, 发到测试服务器 192.168.50.101:1025
+/usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x
+/usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -d
+# -x 2000-192.168.50.101:2000, 复制 2000 端口的 tcp 流量, 发到测试服务器 192.168.50.101:2000
 # -s 192.168.50.102, 辅助服务器, 等辅助服务器回包
 # -c 192.168.60.x, 修改之后的源端地址网段
 # -d, daemon
 
-./tcpcopy -x 1025-192.168.50.101:1025 -s 192.168.50.102 -c 192.168.60.x -d  #全流量复制 
-./tcpcopy -x 1025-192.168.50.101:1025 -s 192.168.50.102 -c 192.168.60.x -r 20 -d #复制20%的流量 
-./tcpcopy -x 1025-192.168.50.101:1025 -s 192.168.50.102 -c 192.168.60.x -n 2 -d #复制2倍流量
+./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -d  #全流量复制 
+./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -r 20 -d #复制20%的流量 
+./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -n 2 -d #复制2倍流量
 
 ```
 
