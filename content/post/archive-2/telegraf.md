@@ -166,6 +166,6 @@ podman run --name telegraf -d \
 https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/
 
 
-### wireguard
+### wireguard, telegraf
     https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md
       

@@ -2,9 +2,9 @@
 title: linux basic
 author: "-"
 date: 2015-04-18T10:54:55+00:00
-url: /?p=7470
+url: linux
 categories:
-  - Uncategorized
+  - linux
 tags:
   - linux
 
@@ -17,3 +17,8 @@ tags:
 
  ## linux pan0
 pan0蓝牙设备
+
+## Linux 修改系统默认编辑器
+
+    sudo update-alternatives --config editor
+

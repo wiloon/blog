@@ -10,6 +10,9 @@ tags:
   - reprint
 ---
 ## shell basic 变量
+
+注意，变量名和等号之间不能有空格
+
 ### 变量的默认值
 
 ```bash

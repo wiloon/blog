@@ -1,15 +1,30 @@
 ---
-title: Linux centos livecd bin netinstall各版本的区别
+title: centos basic
 author: "-"
 date: 2012-01-25T01:22:34+00:00
-url: /?p=2183
+url: centos
 categories:
   - Linux
 
 tags:
   - reprint
 ---
-## Linux centos livecd bin netinstall各版本的区别
+## centos basic
+
+centos 7 minimal 安装之后 磁盘占用 1.4G
+
+- yum repo
+
+    curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+
+## dhcp
+
+    vim /etc/sysconfig/network-scripts/ifcfg-eth0
+
+    bootproto=dhcp
+    onboot=yes
+
+## Linux centos livecd bin netinstall 各版本的区别
 CentOS-5.5-x86_64-LiveCD.iso 光盘系统
   
 CentOS-5.5-x86_64-bin-DVD 64位安装盘

@@ -11,10 +11,6 @@ tags:
 ---
 ## windows basic
 
-### win 11 key
-
-    　　8G7XN-V7YWC-W8RPC-V73KB-YWRDB
-
 ### msdn i tell u
 >https://www.itellu.com/2021/06/22/win11-v2021-v1/
 
@@ -113,6 +109,13 @@ windows设置>控制面板>更改账户类型>添加>
 ### 解除防ping
     https://blog.csdn.net/wudinaniya/article/details/80956158
 
----
+
+### netstat
+
+    netstat -ano -p UDP | find "0.0.0.0:53"
+
+### tasklist
+
+    tasklist | findstr <pid>
 
 https://blog.csdn.net/hongweigg/article/details/41517025

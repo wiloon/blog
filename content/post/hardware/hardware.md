@@ -113,8 +113,8 @@ https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.
     Memory Types DDR4-2400 1.2V SO-DIMM
 
 ### 显示输出
-- HDMI
-- type-c
+- HDMI > dvi
+- type-c > vga
 
 
 ### Pixelbook

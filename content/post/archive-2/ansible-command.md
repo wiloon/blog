@@ -5,13 +5,22 @@ date: 2016-05-13T12:00:27+00:00
 url: ansible
 categories:
   - devops
-  - remix
-
 tags:
   - reprint
+  - remix
+
 ---
 ## ansible basic command
 
+## install
+### Installing Ansible on Ubuntu
+
+```bash
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+```
 ## ansible 配置文件
 
     /etc/ansible/ansible.cfg

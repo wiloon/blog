@@ -55,7 +55,7 @@ Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
     create vm > 
         general > name: foo
         general > advanced
-        general > start at boot
+            advanced > start at boot
 
         next
 
@@ -69,7 +69,7 @@ Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
 
 
 
-create vm > system > qemu agent: select
+    create vm > system > qemu agent: select
 
 ### create vm from template
 - right click and select "clone"

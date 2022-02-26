@@ -83,6 +83,10 @@ fi
 ssh-add -L 
 ```
 
+### wsl 卸载
+
+    wsl --unregister Ubuntu
+
 ---
 
 ### 步骤 1 - 启用适用于 Linux 的 Windows 子系统
@@ -105,22 +109,22 @@ https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b111bQgY0
     vim /etc/apt/source.list
 
 ## 用以下内容覆盖/etc/apt/source.list
+```bash
+deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 
-    deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
 
-    deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
 
-    deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
 
-    deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-
-    deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+```
 ### 更新系统
     sudo apt update
     sudo apt upgrade
@@ -198,9 +202,11 @@ https://blog.csdn.net/manbu_cy/article/details/108476859
     ubuntu2004.exe config --default-user user0
 
 ### wsl字体,乱码
-    https://zhuanlan.zhihu.com/p/68336685
+
+>https://zhuanlan.zhihu.com/p/68336685
+
     git clone https://github.com/powerline/fonts.git --depth=1 # windows 下需先安装 git
-    用powershell 执行 install.ps1
+    用 powershell 执行 install.ps1
 
 #### 修改 wsl 字体
     左上角图标-->属性-->字体-->Noto Mono for powerline
