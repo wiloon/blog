@@ -45,7 +45,7 @@ systemctl enable sshd
 ### ntp, chrony
 <http://blog.wiloon.com/?p=10869>
 
-### 监控, telegraf
+- 监控, telegraf
 ### install app
 
 - zsh, oh-my-zsh

@@ -41,7 +41,7 @@ cd /usr/local/SecoClient/
 把server_address替换成服务端IP
 
 ```bash
-#!/bin/bash
+#!/bin/bash                 
 sudo ip route del <server_address>
 count=`ps -ef |grep SecoClientPromoteService |grep -v "grep" |wc -l`
       echo $count
