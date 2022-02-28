@@ -5,13 +5,12 @@ date: 2018-06-02T03:42:52+00:00
 url: btrace
 categories:
   - java
-  - remix
-
 tags:
   - reprint
+  - remix
 ---
 ## Java诊断工具 - btrace
-## Java诊断工具 – btrace
+
 ### 下载最新的版本
 
 https://github.com/btraceio/btrace/releases
