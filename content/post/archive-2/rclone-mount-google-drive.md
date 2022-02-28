@@ -23,6 +23,7 @@ sudo pacman -S fuse
 ```bash
 sudo vim /etc/fuse.conf
 # uncomment  user_allow_other
+user_allow_other
 ```
 
 ### google drive
@@ -163,7 +164,7 @@ end if
 
 ```bash
 rclone config
-storage> 23
+storage> 27
 client_id> ""
 client_secret> ""
 dit advanced config? (y/n) n
@@ -178,7 +179,8 @@ y) Yes this is OK (default)
 sudo -i
 rclone config
 # ...
-rclone mount onedrive-keepassxc-db:/keepassxc /mnt/ms-one-drive --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
+mkdir -p /mnt/ms-one-drive
+rclone mount oned:/keepassxc /mnt/ms-one-drive --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
 rclone mount onedrive: /mnt/ms-one-drive --allow-other
 ```
 

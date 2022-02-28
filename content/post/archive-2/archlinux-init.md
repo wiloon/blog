@@ -45,7 +45,7 @@ systemctl enable sshd
 ### ntp, chrony
 <http://blog.wiloon.com/?p=10869>
 
-### 监控, telegraf
+- 监控, telegraf
 ### install app
 
 - zsh, oh-my-zsh
@@ -53,7 +53,7 @@ systemctl enable sshd
   
 <http://blog.wiloon.com/zsh>
 
-### 安装图形界面 kde 或 xfce4
+- 安装图形界面 kde 或 xfce4
 #### install kde
 <http://blog.wiloon.com/kde>
 

@@ -11,7 +11,7 @@ tags:
 ---
 ## linux kvm nat nftables
 ### nft command
-<https://blog.wiloon.com/?p=12735>
+<https://blog.wiloon.com/nft>
 
 #### ip forward
 

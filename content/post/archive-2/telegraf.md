@@ -34,6 +34,7 @@ yay -S telegraf-bin
   omit_hostname = false
 [[outputs.influxdb]]
   urls = ["http://influxdb.wiloon.com:8086"]
+# 注意修改 database
   database = "db0"
 
 [[inputs.cpu]]

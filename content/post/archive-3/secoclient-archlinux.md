@@ -18,11 +18,11 @@ tags:
 官方只提供了ubuntu版本，用以下方式可以在 archlinux 上使用。
 
 ```bash
+sudo -i
+
 # seco client 依赖 ubuntu 的 arch 命令， 模拟 arch 命令返回 x86_64
 echo "echo x86_64" > /usr/bin/arch
 chmod u+x /usr/bin/arch
-
-sudo -i
 
 # install seco client
 ./secoclient-linux-64-6.0.2.run
@@ -41,7 +41,7 @@ cd /usr/local/SecoClient/
 把server_address替换成服务端IP
 
 ```bash
-#!/bin/bash
+#!/bin/bash                 
 sudo ip route del <server_address>
 count=`ps -ef |grep SecoClientPromoteService |grep -v "grep" |wc -l`
       echo $count

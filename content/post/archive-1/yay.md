@@ -4,10 +4,12 @@ author: "-"
 date: 2015-06-28T07:02:07+00:00
 url: yay
 tags:
-  - Arch Linux
+  - archlinux
+  - reprint
+  - remix
 
 categories:
-  - inbox
+  - linux
 ---
 ## 'archlinux AUR,  yay,  Yaourt'
 Yaourt 已经不再维护
@@ -27,13 +29,14 @@ makepkg -si
 ```
 
 ### AUR mirror
+
+默认的仓库 （aur.archlinux.org） 非常慢， 可以走梯子加速，或者用国内的镜像
 执行以下命令修改 aururl :
 ```bash
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 yay --aururl "https://aur.archlinux.org" --save
-
-
 ```
+
 修改的配置文件位于 ~/.config/yay/config.json ,还可通过以下命令查看修改过的配置: 
 
 ```bash

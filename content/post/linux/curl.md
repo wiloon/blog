@@ -48,13 +48,13 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
     curl -H "Content-Type: application/json"  \
     -d "user=nickwolfe&password=12345" http://www.yahoo.com/login.cgi
 
-### use proxy
-#### 用 -x 参数 
+## use proxy
+### 用 -x 参数 
 ```bash
 -x, --proxy [protocol://]host[:port]
 curl -x http://127.0.0.1:8899 http://www.baidu.com
 ```
-#### 或者在环境变量里设置proxy
+#### 或者在环境变量里设置 proxy
 ```bash
 http_proxy=http://127.0.0.1:1080 curl -v http://www.baidu.com
 
@@ -67,6 +67,7 @@ curl -v http://www.baidu.com
 ```bash
 curl -x socks5h://localhost:8001 http://www.google.com/
 curl -x socks5://localhost:8888 http://google.com
+# socks5(本地解析hostname), socks5h(由socks server解析hostname)
 ```
 
 ### url encoding

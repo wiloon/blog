@@ -2,14 +2,15 @@
 title: archlinux hibernate
 author: "-"
 date: 2015-08-08T05:44:49+00:00
-url: /?p=8082
+url: archlinux/hibernate
 categories:
-  - Uncategorized
+  - linux
 tags:
-  - Arch Linux
+  - archlinux
 
 ---
 ## archlinux hibernate
+
 ### edit config file  /etc/mkinitcpio.conf add resume field
 ```bash
 sudo vim /etc/mkinitcpio.conf
