@@ -11,6 +11,23 @@ tags:
 ---
 ## systemd start script, 启动脚本
 ```bash
+vim /etc/systemd/system/foo.service
+
+[Unit]
+Description=foo
+[Service]
+WorkingDirectory=/data/foo
+ExecStart=/data/foo/foo
+User=root
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+```
+```bash
 #!/bin/sh
 service_name="foo"
 echo "
@@ -37,6 +54,7 @@ systemctl status ${service_name}
 systemctl stop ${service_name}
 "
 ```
+
 ### systemd 添加开机启动运行shell脚本
 systemd 添加开机启动运行shell脚本
   

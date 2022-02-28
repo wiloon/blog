@@ -1,24 +1,23 @@
 ---
-title: 'MTR/traceroute  诊断网络问题'
+title: MTR/traceroute, 路由跟踪
 author: "-"
 date: 2017-02-17T08:32:04+00:00
-url: /?p=9832
-
+url: mtr
 categories:
-  - inbox
+  - network
 tags:
   - reprint
+  - remix
 ---
-## 'MTR/traceroute  诊断网络问题'
-https://meiriyitie.com/2015/05/26/diagnosing-network-issues-with-mtr/
+## MTR/traceroute, 路由跟踪
 
 使用 MTR 诊断网络问题
   
-MTR 是一款强大的网络诊断工具,网络管理员使用 MTR 可以诊断和隔离网络问题,并且为上游 ISP 提供有用的网络状态报告。
+MTR 是一款强大的网络诊断工具, 网络管理员使用 MTR 可以诊断和隔离网络问题,并且为上游 ISP 提供有用的网络状态报告。
 
-MTR 是传统 traceroute 命令的进化版,并且可以提供强大的数据样本,因为他集合了 traceroute 和 ping 这两个命令的精华。本文带您深入了解 MTR ,从数据如何生成,到如果正确理解报告样本并得出相应的结论。
+MTR 是传统 traceroute 命令的进化版, 并且可以提供强大的数据样本, 因为他集合了 traceroute 和 ping 这两个命令的精华。本文带您深入了解 MTR, 从数据如何生成, 到如果正确理解报告样本并得出相应的结论。
 
-关于网络诊断技术的基本理论请参考 network diagnostics .如果您怀疑您的 Linux 系统有其他问题,请参考 system diagnostics 。最后,我们假定您已经掌握了 getting started guide (入门指南) 。
+关于网络诊断技术的基本理论请参考 network diagnostics. 如果您怀疑您的 Linux 系统有其他问题,请参考 system diagnostics 。最后,我们假定您已经掌握了 getting started guide (入门指南) 。
 
 网络诊断相关的背景知识
   
@@ -27,32 +26,28 @@ MTR 是传统 traceroute 命令的进化版,并且可以提供强大的数据样
 相对于其他命令仅仅收集传输路径或响应时间,MTR 工具会收集更多的信息,比如 连接状态,连接可用性,以及传输路径中主机的响应性。由于这些额外的信息,我们建议您尽可能完整的展现 Internet 两个主机之间的网络连接信息。接下来我们讲述如何安装 MTR 软件,以及如何看懂这款软件的输出结果。
 
 ### 安装 MTR
-在 Debian 和 Ubuntu 系统中,使用如下命令更新系统,然后安装 MTR: 
 
 ```bash
+# debian/ubuntu
 apt-get update
 apt-get upgrade
 apt-get install mtr-tiny
+
+# CentOS/Fedora
+yum update
+yum install mtr
+
+# Arch Linux
+pacman -Sy
+pacman -S mtr
 ```
 
 ### 使用
 
 ```bash
 mtr 39.156.69.79
+mtr -report google.com
 ```
-
-在 CentOS 和 Fedora 系统中,使用如下命令更新系统,并安装 MTR: 
-
-yum update
-  
-yum install mtr
-  
-在 Arch Linux 系统中,按照如下命令更新系统并安装 MTR: 
-
-    pacman -Sy
-    pacman -S mtr
-  
-如果您的本机使用的是 Linux 系统,并且想用 MTR 测试网络状况,请按照如上教程安装。
 
 如果您的本机使用的 Mac OS X 系统,可以使用 Homebre 或 MacPorts 来安装 MTR。使用 Homebrew 安装 MTR: 
 
@@ -513,3 +508,5 @@ Understanding the Traceroute Command – Cisco Systems
 Wikipedia article on traceroute
 
 Traceroute by Exit109.com
+
+>https://meiriyitie.com/2015/05/26/diagnosing-network-issues-with-mtr/
