@@ -80,7 +80,7 @@ ip link set wg0 up
     sudo ip addr add 192.168.53.2/24 dev wg0
     sudo wg set wg0 private-key ./privatekey
 
-    # 配置监听端口，监听peer A发起的连接请求，仅作为客户端使用时，可以不配置监听,忽略此步骤
+    # 配置监听端口，监听 peer A 发起的连接请求，仅作为客户端使用时，可以不配置监听, 忽略此步骤
     sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 
     
     # 所有的ip包都 会被 发往 peer_A
@@ -201,12 +201,14 @@ chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括
 ```
 [Interface]
 PrivateKey = privateKey0
-Address = 194.128.54.6/32
- DNS = 192.168.50.1
- [Peer]
- PublicKey = publicKeyOfServer0
- AllowedIPs = 192.168.50.0/24
- Endpoint = foo.bar.com:12345
+Address = 192.168.53.8/32
+DNS = 192.168.50.1
+
+[Peer]
+PublicKey = publicKey0
+AllowedIPs = 192.168.50.0/24, 192.168.53.0/24
+Endpoint = foo.bar.com:51900
+
 ```
 
 ---
