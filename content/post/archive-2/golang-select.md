@@ -5,7 +5,6 @@ date: 2017-11-17T08:37:36+00:00
 url: go/select
 categories:
   - golang
-
 tags:
   - reprint
 ---
@@ -21,19 +20,15 @@ select 语句的行为
 select {
   
   case v1 := <-c1:
-        
     fmt.Printf("received %v from c1\n", v1)
     
   case v2 := <-c2:
-        
     fmt.Printf("received %v from c2\n", v1)
     
   case c3 <- 23:
-        
     fmt.Printf("sent %v to c3\n", 23)
     
   default:
-        
     fmt.Printf("no one was ready to communicate\n")
     
 }
@@ -42,15 +37,11 @@ select {
 
 上面这段代码中,select 语句有四个 case 子语句,前两个是 receive 操作,第三个是 send 操作,最后一个是默认操作。代码执行到 select 时, case 语句会按照源代码的顺序被评估, 且只评估一次,评估的结果会出现下面这几种情况: 
 
-除 default 外, 如果只有一个 case 语句评估通过, 那么就执行这个case里的语句；
-
-除 default 外, 如果有多个 case 语句评估通过, 那么通过伪随机的方式随机选一个；
-
-如果 default 外的 case 语句都没有通过评估, 那么执行 default 里的语句；
-
-如果没有 default, 那么代码块会被阻塞, 直到有一个 case 通过评估；否则一直阻塞
-
-如果 case 语句中 的 receive 操作的对象是 nil channel, 那么也会阻塞
+- 除 default 外, 如果只有一个 case 语句评估通过, 那么就执行这个case里的语句；
+- 除 default 外, 如果有多个 case 语句评估通过, 那么通过伪随机的方式随机选一个；
+- 如果 default 外的 case 语句都没有通过评估, 那么执行 default 里的语句；
+- 如果没有 default, 那么代码块会被阻塞, 直到有一个 case 通过评估；否则一直阻塞
+- 如果 case 语句中 的 receive 操作的对象是 nil channel, 那么也会阻塞
 
 >https://yanyiwu.com/work/2014/11/08/golang-select-typical-usage.html
 
@@ -66,19 +57,15 @@ ch2 := make (chan int, 1)
 // ...
 
 select {
-  
 case <-ch1:
-      
-fmt.Println("ch1 pop one element")
+  fmt.Println("ch1 pop one element")
   
 case <-ch2:
-      
-fmt.Println("ch2 pop one element")
-  
+  fmt.Println("ch2 pop one element")
 }
 ```
   
-注意到 select 的代码形式和 switch 非常相似, 不过 select 的 case 里的操作语句只能是 【IO 操作】 。
+注意到 select 的代码形式和 switch 非常相似, 不过 select 的 case 里的操作语句只能是 **IO 操作** 。
 
 此示例里面 select 会一直等待等到某个 case 语句完成, 也就是等到成功从 ch1 或者 ch2 中读到数据。 则 select 语句结束。
 

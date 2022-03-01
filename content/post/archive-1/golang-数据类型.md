@@ -2,10 +2,10 @@
 title: golang  数据类型
 author: "-"
 date: 2015-04-27T14:00:54+00:00
-url: /?p=7532
+url: go/data-type
 
 categories:
-  - inbox
+  - golang
 tags:
   - reprint
 ---
@@ -18,16 +18,16 @@ const ROOT_PATH = "/"
 ```
 
 ### Boolean
-布尔值的类型为bool，true或false，默认false
+布尔值的类型为 bool，true或false，默认false
 
 ```golang
-    var isActive bool  // 全局变量声明
-    var enabled, disabled = true, false  // 忽略类型的声明
-    func test() {
-        var available bool  // 一般声明
-        valid := false      // 简短声明
-        available = true    // 赋值操作
-    }
+var isActive bool  // 全局变量声明
+var enabled, disabled = true, false  // 忽略类型的声明
+func test() {
+    var available bool  // 一般声明
+    valid := false      // 简短声明
+    available = true    // 赋值操作
+}
 ```
 
 ## 数值类型
@@ -60,7 +60,7 @@ float32（+- 1e-45 -> +- 3.4 * 1e38)
 float64（+- 5 1e-324 -> 107 1e308) 
 
 ### 复数
-默认类型是complex128（64位实数+64位虚数) 。如果需要小一些的，也有complex64(32位实数+32位虚数)。
+默认类型是 complex128（64位实数+64位虚数) 。如果需要小一些的，也有complex64(32位实数+32位虚数)。
   
 复数的形式为RE + IMi，其中RE是实数部分，IM是虚数部分，而最后的i是虚数单位。
 
@@ -94,7 +94,7 @@ Go语言的字符串的字节使用UTF-8编码标识Unicode文本。
 
 双引号之间的转义符会被转义，而反引号之间的字符保持不变。
 
-//示例代码
+// 示例代码
       
 var frenchHello string // 声明变量为字符串的一般方法
       
@@ -140,3 +140,33 @@ uint是32字节或者64字节
 int和uint是一样的大小
 
 http://studygolang.com/articles/9852
+
+
+golang的字符称为rune，等价于C中的char，可直接与整数转换
+
+    var c rune='a' 
+    var i int =98
+    i1:=int(c)
+    fmt.Println("'a' convert to",i1)
+    c1:=rune(i)
+    fmt.Println("98 convert to",string(c1))
+
+    //string to rune
+    for _, char := range []rune("世界你好") {
+        fmt.Println(string(char))
+    }
+rune实际是整型，必需先将其转换为string才能打印出来，否则打印出来的是一个整数
+
+c:='a'
+fmt.Println(c)
+fmt.Println(string(c))
+fmt.Println(string(97))
+输出
+
+97
+a
+a
+
+
+>https://segmentfault.com/q/1010000000404709
+

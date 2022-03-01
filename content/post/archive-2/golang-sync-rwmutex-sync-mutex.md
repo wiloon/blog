@@ -1,16 +1,16 @@
 ---
-title: golang sync.RWMutex, sync.Mutex
+title: golang sync.RWMutex, sync.Mutex, 锁
 author: "-"
 date: 2018-04-13T02:31:40+00:00
-url: /?p=12143
+url: go/mutex
 categories:
-  - Uncategorized
+  - golang
 
 tags:
   - reprint
 ---
-## golang sync.RWMutex, sync.Mutex
-golang中sync包实现了两种锁 Mutex （互斥锁) 和RWMutex（读写锁) ,其中RWMutex是基于Mutex实现的,只读锁的实现使用类似引用计数器的功能．
+## golang sync.RWMutex, sync.Mutex, 锁
+golang 中 sync 包实现了两种锁 Mutex （互斥锁) 和 RWMutex （读写锁) , 其中 RWMutex 是基于 Mutex 实现的, 只读锁的实现使用类似引用计数器的功能．
 
   * Mutex: 互斥锁
   * RWMutex: 读写锁
@@ -33,9 +33,9 @@ func (rw *RWMutex) RUnlock()
       
 func (rw *RWMutex) Unlock()
 
-其中Mutex为互斥锁,Lock()加锁,Unlock()解锁,使用Lock()加锁后,便不能再次对其进行加锁,直到利用Unlock()解锁对其解锁后,才能再次加锁．适用于读写不确定场景,即读写次数没有明显的区别,并且只允许只有一个读或者写的场景,所以该锁叶叫做全局锁．
+其中 Mutex 为互斥锁, Lock() 加锁, Unlock() 解锁,使用 Lock() 加锁后, 便不能再次对其进行加锁, 直到利用 Unlock() 解锁对其解锁后, 才能再次加锁．适用于读写不确定场景, 即读写次数没有明显的区别, 并且只允许只有一个读或者写的场景, 所以该锁叶叫做全局锁．
 
-func (m *Mutex) Unlock()用于解锁m,如果在使用Unlock()前未加锁,就会引起一个运行错误．
+func (m *Mutex) Unlock() 用于解锁 m, 如果在使用 Unlock() 前未加锁,就会引起一个运行错误．
 
 已经锁定的Mutex并不与特定的goroutine相关联,这样可以利用一个goroutine对其加锁,再利用其他goroutine对其解锁．
 
