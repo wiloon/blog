@@ -238,10 +238,6 @@ c = 1 << iota // c == 4
   
 )
 
-### goroutine
-
-<http://www.wiloon.com/?p=9101>
-
 ### 读环境变量
 
 ```golang

@@ -1,14 +1,19 @@
 ---
-title: ForkJoinPool
+title: ForkJoin
 author: "-"
 date: 2017-06-22T02:11:10+00:00
-url: ForkJoinPool
-
+url: ForkJoin
 categories:
   - inbox
 tags:
   - reprint
 ---
+## ForkJoin
+什么是 Fork/Join 框架
+Fork/Join 框架是 Java7 提供了的一个用于并行执行任务的框架， 是一个把大任务分割成若干个小任务，最终汇总每个小任务结果后得到大任务结果的框架。
+
+我们再通过 Fork 和 Join 这两个单词来理解下 Fork/Join 框架，Fork 就是把一个大任务切分为若干子任务并行的执行，Join 就是合并这些子任务的执行结果，最后得到这个大任务的结果。比如计算 1+2+。。＋10000，可以分割成 10 个子任务，每个子任务分别对 1000 个数进行求和，最终汇总这 10 个子任务的结果。
+
 ## ForkJoinPool
 
 http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/
@@ -320,3 +325,6 @@ Java 1.8 新增加的 CompletableFuture 类可以实现类似于 Javascript 的 
 I've come to the conclusion that people forget about regular Java objects because they haven't got a fancy name. That's why, while preparing for a talk in 2000, Rebecca Parsons, Josh Mackenzie, and I gave them one: POJOs (plain old Java objects).
 
 我得出一个结论: 人们之所以总是忘记使用标准的 Java 对象是因为缺少一个足够装逼的名字（译注: 类似于 Java Bean 这样的名字) 。因此,在准备2000年的演讲时,Rebecca Parsons,Josh Mackenzie 和我给他们起了一个名字叫做 POJO （平淡无奇的 Java 对象) 。
+
+>https://www.infoq.cn/article/fork-join-introduction
+>https://zhuanlan.zhihu.com/p/68554017
