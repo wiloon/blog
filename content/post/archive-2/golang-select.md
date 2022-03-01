@@ -18,7 +18,6 @@ select 语句的行为
   
 ```go
 select {
-  
   case v1 := <-c1:
     fmt.Printf("received %v from c1\n", v1)
     
@@ -30,12 +29,11 @@ select {
     
   default:
     fmt.Printf("no one was ready to communicate\n")
-    
 }
   
 ```
 
-上面这段代码中,select 语句有四个 case 子语句,前两个是 receive 操作,第三个是 send 操作,最后一个是默认操作。代码执行到 select 时, case 语句会按照源代码的顺序被评估, 且只评估一次,评估的结果会出现下面这几种情况: 
+上面这段代码中, select 语句有四个 case 子语句, 前两个是 receive 操作,第三个是 send 操作,最后一个是默认操作。代码执行到 select 时, case 语句会按照源代码的顺序被评估, 且只评估一次,评估的结果会出现下面这几种情况: 
 
 - 除 default 外, 如果只有一个 case 语句评估通过, 那么就执行这个case里的语句；
 - 除 default 外, 如果有多个 case 语句评估通过, 那么通过伪随机的方式随机选一个；

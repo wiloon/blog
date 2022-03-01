@@ -37,36 +37,39 @@ import (
 )
 
 func main() {
-	var wg sync.WaitGroup
+	wg := &sync.WaitGroup{}
+
+	wg.Add(1)
 	go func() {
-    // add
-		wg.Add(1)
 		for i := 0; i < 10; i++ {
 			fmt.Println("goroutine-0: ", i)
 			time.Sleep(1 * time.Second)
 		}
-    // down
 		wg.Done()
 	}()
-  // wait
+
+	go goroutine1(wg)
 	wg.Wait()
 }
 
+func goroutine1(wg *sync.WaitGroup) {
+	defer func() {
+		wg.Done()
+	}()
+	for i := 0; i < 10; i++ {
+		fmt.Println("goroutine-1: ", i)
+		time.Sleep(1 * time.Second)
+	}
+}
 ```
 
 ### channel
 
-
-
-
-
-1. 通过Channel传递退出信号
-  
-2. 使用waitgroup
-  
-goroutine和channel是Go语言非常棒的特色,它们提供了一种非常轻便易用的并发能力。但是当您的应用进程中有很多goroutine的时候,如何在主流程中等待所有的goroutine 退出呢？
-
 通过Channel传递退出信号
+
+goroutine 和 channel 是 Go 语言非常棒的特色,它们提供了一种非常轻便易用的并发能力。但是当您的应用进程中有很多goroutine的时候,如何在主流程中等待所有的 goroutine 退出呢？
+
+通过 Channel 传递退出信号
   
 Go的一大设计哲学就是: 通过Channel共享数据,而不是通过共享内存共享数据。主流程可以通过channel向任何goroutine发送停止信号,就像下面这样: 
 ```go

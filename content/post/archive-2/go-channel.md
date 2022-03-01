@@ -13,20 +13,38 @@ tags:
 
 channel 是 Go 中的一个核心类型, 你可以把它看成一个管道, 通过它并发核心单元就可以发送或者接收数据进行通讯。
 
+goroutine是Go语言的基本调度单位，而channels则是它们之间的通信机制。操作符`<-`用来指定管道的方向，发送或接收。如果未指定方向，则为双向管道。
+
+
 ```golang
 <-      // channel 的操作符是箭头
 ch <- v     // 发送值 v 到 Channel ch 中
 v := <-ch   // 从 Channel c h中接收数据, 并将数据赋值给 v
             // (箭头的指向就是数据的流向)
 
+
+// 创建一个双向channel, interface{}表示chan可以为任何类型
+ch := make(chan interface{})
+
 // channel 定义
 var dataChan <-chan []byte
 
 // channel 初始化, 初始化之后才能使用
 dataChan = make(<-chan []byte)
+
 ```
 
-就像 map 和 slice 数据类型一样, channel必须先创建再使用
+channel 有发送和接受两个主要操作。发送和接收两个操作都使用`<-`运算符。在发送语句中，channel 放`<-`运算符左边。在接收语句中，channel放`<-`运算符右边。一个不使用接收结果的接收操作也是合法的。
+
+```go
+// 发送操作
+ch <- x 
+// 接收操作
+x = <-ch 
+// 忽略接收到的值，合法
+<-ch     
+```
+就像 map 和 slice 数据类型一样, channel 必须先创建再使用
 
 ```golang
 // 创建 channel
@@ -38,7 +56,7 @@ ch := make(chan int)
 make(chan int, 100)
 ```
 
-### for 可以处理channel
+### for 可以处理 channel
 
 ```golang
 for i := range c {
@@ -118,3 +136,32 @@ func main() {
 
 >https://www.jianshu.com/p/d24dfbb33781
 >https://go101.org/article/channel-closing.html
+
+
+关闭channel
+Channel支持close操作，用于关闭channel，后面对该channel的任何发送操作都将导致panic异常。对一个已经被close过的channel进行接收操作依然可以接受到之前已经成功发送的数据；如果channel中已经没有数据的话将产生一个零值的数据。
+从已经关闭的channel中读：
+intStream := make(chan int) 
+close(intStream)
+integer, ok := <- intStream
+fmt.Pritf("(%v): %v", ok, integer)
+// (false): 0
+复制代码上面例子中通过返回值ok来判断channel是否关闭，我们还可以通过range这种更优雅的方式来处理已经关闭的channel：
+intStream := make(chan int) 
+go func() {
+	defer close(intStream) 
+	for i:=1; i<=5; i++{ 
+		intStream <- i 
+	}
+}()
+
+for integer := range intStream { 
+	fmt.Printf("%v ", integer)
+}
+// 1 2 3 4 5
+
+作者：彬叔
+链接：https://juejin.cn/post/6844903623667744781
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
