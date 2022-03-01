@@ -2,21 +2,21 @@
 title: java metrics
 author: "-"
 date: 2015-09-08T06:40:32+00:00
-url: /?p=8224
+url: java/metrics
 categories:
-  - Uncategorized
+  - java
 
 tags:
   - reprint
 ---
 ## java metrics
-## 五种 Metrics 类型
-
-### Gauges
-最简单的度量指标，只有一个简单的返回值，例如，我们想衡量一个待处理队列中任务的个数
+## 五种 Metrics 类型, gauges
 
 ### Counters
 Counter 就是计数器，Counter 只是用 Gauge 封装了 AtomicLong 。
+
+### Gauges
+最简单的度量指标，只有一个简单的返回值，例如，我们想衡量一个待处理队列中任务的个数
 
 ### Meters
 Meter度量一系列事件发生的速率(rate)，例如TPS, Meters会统计最近1分钟，5分钟，15分钟，还有全部时间的速率。
