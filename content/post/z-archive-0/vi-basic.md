@@ -42,7 +42,7 @@ set encoding=utf-8
 
 ### 上移一行
     ddkP
-    
+
 ### install
 #### debian install nvim
 https://vra.github.io/2019/03/13/ubuntu-install-neovim/

@@ -1,5 +1,5 @@
 ---
-title: golang 控制语句/control, foreach, loop, switch,循环
+title: golang 控制语句/control, foreach, loop, switch, 循环
 author: "-"
 date: 2016-10-12T05:39:20+00:00
 url: /?p=9287
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## golang 控制语句/control, foreach, loop, switch,循环
+## golang 控制语句/control, foreach, loop, switch, 循环
 
 ```golang
 package main
@@ -19,7 +19,7 @@ import (
 )
 
 func main() {
-    for no, i := 10, 1; i <= 10 && no <= 19; i, no = i+1, no+1 { //multiple initialisation and increment
+    for no, i := 10, 1; i <= 10 && no <= 19; i, no = i+1, no+1 { // multiple initialisation and increment
         fmt.Printf("%d * %d = %d\n", no, i, no*i)
     }
 }
@@ -49,7 +49,7 @@ Go中的控制语句较精简,仅有if、for、select和switch。
 
 但是它有for、switch、if。而且switch接受像for那样可选的初始化语句
 
-### for循环
+### for 循环
   
 Go语言的For循环有3中形式,只有其中的一种使用分号。
 

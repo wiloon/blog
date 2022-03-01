@@ -2,9 +2,9 @@
 title: go channel
 author: "-"
 date: 2017-11-09T06:11:50+00:00
-url: /?p=11392
+url: go/channel
 categories:
-  - Uncategorized
+  - go
 
 tags:
   - reprint
@@ -12,7 +12,7 @@ tags:
 ## go channel
 http://colobu.com/2016/04/14/Golang-Channels/
 
-Channel是Go中的一个核心类型,你可以把它看成一个管道,通过它并发核心单元就可以发送或者接收数据进行通讯(communication)。
+Channel 是 Go 中的一个核心类型, 你可以把它看成一个管道, 通过它并发核心单元就可以发送或者接收数据进行通讯(communication)。
 
 ```golang
 <-          // 它的操作符是箭头
@@ -54,3 +54,6 @@ receive 操作符
 从一个被close的channel中接收数据不会被阻塞,而是立即返回,接收完已发送的数据后会返回元素类型的零值(zero value)。
 
 如前所述,你可以使用一个额外的返回参数来检查channel是否关闭。
+
+>https://www.jianshu.com/p/d24dfbb33781
+>https://go101.org/article/channel-closing.html
