@@ -15,6 +15,9 @@ Goroutine是Go中最基本的执行单元。事实上每一个Go程序至少有�
 
 事实上goroutine采用了一种fork-join的模型。
 
+每个协程至少需要消耗 2KB 的空间
+
+
 ### 调度器
 
 ### 进程
@@ -124,7 +127,7 @@ Goroutine是Golang中轻量级线程的实现,由Go Runtime管理。Golang在语
 颜开总结的支持协程的常见的语言和平台,可做参考,但应深入调研下才好。
 
 ### goroutine
-go中的Goroutine, 普遍认为是协程的go语言实现。《Go语言编程》中说goroutine是轻量级线程(即协程coroutine, 原书90页). 在第九章进阶话题中, 作者又一次提到, "从根本上来说, goroutine就是一种go语言版本的协程(coroutine)" (原书204页). 但作者Rob Pike并不这么说。
+go 中的 Goroutine, 普遍认为是协程的 go 语言实现。《Go语言编程》中说 goroutine 是轻量级线程 (即协程 coroutine, 原书90页). 在第九章进阶话题中, 作者又一次提到, "从根本上来说, goroutine就是一种go语言版本的协程(coroutine)" (原书204页). 但作者Rob Pike并不这么说。
 
 "一个Goroutine是一个与其他goroutines 并发运行在同一地址空间的Go函数或方法。一个运行的程序由一个或更多个goroutine组成。它与线程、协程、进程等不同。它是一个goroutine。"
 

@@ -10,21 +10,21 @@ tags:
   - reprint
 ---
 ## golang 控制语句 if, for, switch
-http://www.cnblogs.com/howDo/archive/2013/06/01/GoLang-Control.html
+>http://www.cnblogs.com/howDo/archive/2013/06/01/GoLang-Control.html
   
-Go中的控制语句较精简，仅有if、for、select和switch。但使用时均比较灵活
+Go中的控制语句较精简，仅有 if, for, select 和 switch. 但使用时均比较灵活
 
-### if
+## if
 
-在Go中条件语句_if_中如果条件部分的计算结果为**true**时将执行语句块，否则则执行else语句块(如果存在else时)，此逻辑和其他语言中的if一样，但是在Go中还是有一些不同之处。
+在Go中条件语句 if 中如果条件部分的计算结果为 **true** 时将执行语句块，否则则执行else语句块(如果存在else时)，此逻辑和其他语言中的if一样，但是在Go中还是有一些不同之处。
 
-if 条件表达式不能使用花括号**()**包含
+if 条件表达式不能使用括号 **()** 包含
   
-if 语句代码片段必须使用**{}**，并且左括号必须和if在同一行
+if 语句代码片段必须使用 **{}**, 并且左括号必须和 if 在同一行
   
-if 条件表达式的前面可以包含初始化语句，支持平行赋值，但不支持多个赋值语句
+if 条件表达式的前面可以包含初始化语句, 支持平行赋值, 但不支持多个赋值语句
   
-赋值+条件判断
+### 赋值 + 条件判断
 
 ```golang
 if a, b := 21, 3; a > b {

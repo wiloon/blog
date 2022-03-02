@@ -9,13 +9,4 @@ tags:
   - Gradle
 
 ---
-## golang 文件名 命名规则
-project name: -
-  
-package: lowercase
-  
-file name: _
-  
-https://stackoverflow.com/questions/25161774/what-are-conventions-for-filenames-in-go
-
-https://golang.org/doc/effective_go.html#package-names
+## placeholder

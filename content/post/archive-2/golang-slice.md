@@ -2,14 +2,15 @@
 title: golang 数组/切片/slice
 author: "-"
 date: 2016-11-24T01:41:36+00:00
-url: /?p=9429
+url: slice
 
 categories:
-  - inbox
+  - go
 tags:
   - reprint
 ---
 ## golang 数组/切片/slice
+
 ### 切片/slice
 
 slice是一个引用类型,是一个动态的指向数组切片的指针。
@@ -17,7 +18,7 @@ slice是一个不定长的,总是指向底层的数组array的数据结构。
 切片类型属于引用类型
 
 ```golang
-var al []int          //创建slice,并初始化
+var al []int          //创建slice, 并初始化
 sl := make([]int,10)  //创建有10个元素的slice
 sl:=[]int{1,2,3}      //创建有初始化元素的slice
 

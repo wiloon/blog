@@ -10,6 +10,9 @@ tags:
   - reprint
 ---
 ## go get
+
+go help get
+
 go get urlxxx
   
 go get -u urlxxx
