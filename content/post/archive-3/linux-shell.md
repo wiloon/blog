@@ -519,7 +519,7 @@ ${var:-newstring}
 
 ### 参数 
     [-p file] 如果file存在且是一个名字管道（F如果O) 则为真 
-    管道是 linux 里面进程间通信的一种方式，其他的还有像信号（signal) 、信号量、消息队列、共享内存、套接字（socket) 等。 
+    管道是 linux 里面进程间通信的一种方式，其他的还有像信号（signal) 、信号量、消息队列、共享内存、 socket （socket) 等。 
     [-r file] 如果file存在且是可读的则为真 
     [-s file] 如果file存在且大小不为0则为真 
     [-t FD] 如果文件描述符FD打开且指向一个终端则为真 
@@ -530,7 +530,7 @@ ${var:-newstring}
     [-G file] 如果file存在且属有效用户组则为真 
     [-L file] 如果file存在且是一个符号连接则为真 
     [-N file] 如果file存在and has been mod如果ied since it was last read则为真 
-    [-S file] 如果file存在且是一个套接字则为真 
+    [-S file] 如果file存在且是一个 socket 则为真 
     [file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 
     [file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 
     [file1 –ef file2] 如果file1和file2指向相同的设备和节点号则为真 

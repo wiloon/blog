@@ -219,7 +219,7 @@ android.permission.INTERNAL_SYSTEM_WINDOW
 
 android.permission.INTERNET
 
-允许程序打开网络套接字(Allows applications to open network sockets)
+允许程序打开网络 socket (Allows applications to open network sockets)
 
 android.permission.MANAGE_APP_TOKENS
 

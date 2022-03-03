@@ -63,9 +63,7 @@ func goroutine1(wg *sync.WaitGroup) {
 }
 ```
 
-### channel
-
-通过Channel传递退出信号
+### 通过Channel传递退出信号
 
 goroutine 和 channel 是 Go 语言非常棒的特色,它们提供了一种非常轻便易用的并发能力。但是当您的应用进程中有很多goroutine的时候,如何在主流程中等待所有的 goroutine 退出呢？
 

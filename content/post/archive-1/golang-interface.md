@@ -10,39 +10,41 @@ tags:
   - reprint
 ---
 ## golang  方法, 接口, 继承
-http://www.cnblogs.com/chenny7/p/4497969.html
+>http://www.cnblogs.com/chenny7/p/4497969.html
 
-Go语言没有沿袭传统面向对象编程中的诸多概念，比如继承、虚函数、构造函数和析构函数、隐藏的this指针等。
+Go语言没有沿袭传统面向对象编程中的诸多概念，比如继承、虚函数、构造函数和析构函数、隐藏的 this 指针等。
 
-方法
+## go 方法
   
-Go 语言中同时有函数和方法。方法就是一个包含了接受者（receiver) 的函数，receiver可以是内置类型或者结构体类型的一个值或者是一个指针。所有给定类型的方法属于该类型的方法集。
+Go 语言中同时有函数和方法。方法就是一个包含了接收器（receiver) 的函数，receiver 可以是内置类型或者结构体类型的一个值或者是一个指针。所有给定类型的方法属于该类型的方法集。
 
-如下面的这个例子，定义了一个新类型Integer，它和int一样，只是为它内置的int类型增加了个新方法Less()
+如下面的这个例子，定义了一个新类型Integer，它和int一样，只是为它内置的int类型增加了个新方法 Less()
 
-复制代码
-  
+### 接收器——方法作用的目标
+接收器的格式如下：
+
+```go
+func (接收器变量 接收器类型) 方法名(参数列表) (返回参数) {
+    函数体
+}
+```
+
+```go
 type Integer int
 
 func (a Integer) Less(b Integer) bool {
-      
-return a < b
-  
+    return a < b
 }
 
 func main() {
-      
-var a Integer = 1
 
+var a Integer = 1
     if a.Less(2) {
         fmt.Println("less then 2")
-    }   
-    
-
+    }
 }
-  
-复制代码
-  
+```
+
 可以看出，Go语言在自定义类型的对象中没有C++/Java那种隐藏的this指针，而是在定义成员方法时显式声明了其所属的对象。
 
 method的语法如下: 
@@ -74,9 +76,7 @@ a.Add(3)
 fmt.Println("a =", a) // a = 4
   
 }
-  
-复制代码
-  
+ 
 如果Add方法不使用指针，则a返回的结果不变，这是因为Go语言函数的参数也是基于值传递。
 
 注意: 当方法的接受者是指针时，即使用值类型调用那么方法内部也是对指针的操作。
@@ -96,7 +96,7 @@ func main() {
 rect1 := NewRect(1,2,10,20)
       
 fmt.Println(rect1.width)
-  
+
 }
 
 ### 匿名组合, 继承

@@ -48,6 +48,7 @@ pacman-key --list-sigs Master
 
 pacman-key --delete 91FFE0700E80619CEB73235CA88E23E377514E00
 pacman-key --populate archlinux
+
 ### 在仓库里搜索有关abc的包
     pacman -Ss abc
 

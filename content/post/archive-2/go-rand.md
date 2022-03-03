@@ -11,22 +11,19 @@ tags:
 ---
 ## golang 随机数
 >http://www.cnblogs.com/baiyuxiong/p/4545032.html
-
-Go随机数
   
-Go math/rand包用于生成随机数。
+math/rand 包用于生成随机数。
  
 ```go
 package main
 
 import "fmt"
-  
 import "math/rand"
 
 func main() {
     fmt.Println(rand.Intn(100)) //产生0-100的随机整数
-    
-    fmt.Println(rand.Float64()) //产生0.0-1.0的随机浮点点
+    fmt.Println(rand.Float32()) 
+    fmt.Println(rand.Float64()) //产生0.0-1.0的随机浮点数
     
     s1 := rand.NewSource(42) //用指定值创建一个随机数种子
     r1 := rand.New(s1)
@@ -44,13 +41,12 @@ func main() {
  
 返回结果: 
 
+```
 81
-
 0.9405090880450124
-
 5,87
-
 5,87
+```
 
 多次重复执行上述代码,返回的结果仍然是一样的。所以为了使得调用的随机数不相同,就需要使用NewSource来提供一个随机的种子。比如: 
 

@@ -16,7 +16,7 @@ tags:
 
  
 
-从日志中可以看到是Socket套接字在read数据时抛出了该错误。
+从日志中可以看到是Socket socket 在read数据时抛出了该错误。
 
  
 
@@ -52,9 +52,9 @@ TCP连接和释放时还有许多细节，比如半连接状态、半关闭状�
 
 此外啰嗦一下，另外还有一种比较常见的错误“Connection reset by peer”，该错误和“Connection reset”是有区别的：
 
-服务器返回了“RST”时，如果此时客户端正在从Socket套接字的输出流中读数据则会提示Connection reset”；
+服务器返回了“RST”时，如果此时客户端正在从Socket socket 的输出流中读数据则会提示Connection reset”；
 
-服务器返回了“RST”时，如果此时客户端正在往Socket套接字的输入流中写数据则会提示“Connection reset by peer”。
+服务器返回了“RST”时，如果此时客户端正在往Socket socket 的输入流中写数据则会提示“Connection reset by peer”。
 
 “Connection reset by peer”如下图所示：
 

@@ -127,7 +127,7 @@ adb shell
   adb forward tcp:7100 tcp:8100
 
 
-  同样地，可以使用ADB来建立命名为抽象的UNIX域套接口，上述过程如下所示:
+  同样地，可以使用ADB来建立命名为抽象的UNIX域 socket ，上述过程如下所示:
 
 
   adb forward tcp:7100 local:logd

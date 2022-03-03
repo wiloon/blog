@@ -30,7 +30,7 @@ NetHogs是一个小型的'net top'工具,不像大多数工具那样拖慢每个
   
 监控总体带宽使用（批量式输出) ――vnstat、ifstat、dstat和collectl
   
-每个套接字连接的带宽使用――iftop、iptraf、tcptrack、pktstat、netwatch和trafshow
+每个 socket 连接的带宽使用――iftop、iptraf、tcptrack、pktstat、netwatch和trafshow
   
 每个进程的带宽使用――nethogs
   
@@ -54,7 +54,7 @@ $ sudo apt-get install nload
   
 2. iftop
 
-iftop可测量通过每一个套接字连接传输的数据；它采用的工作方式有别于nload。iftop使用pcap库来捕获进出网络适配器的数据包,然后汇总数据包大小和数量,搞清楚总的带宽使用情况。
+iftop可测量通过每一个 socket 连接传输的数据；它采用的工作方式有别于nload。iftop使用pcap库来捕获进出网络适配器的数据包,然后汇总数据包大小和数量,搞清楚总的带宽使用情况。
 
 虽然iftop报告每个连接所使用的带宽,但它无法报告参与某个套按字连接的进程名称/编号（ID) 。不过由于基于pcap库,iftop能够过滤流量,并报告由过滤器指定的所选定主机连接的带宽使用情况。
 

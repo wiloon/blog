@@ -202,7 +202,7 @@ net.ipv4.tcp_synack_retries
   
     net.ipv4.tcp_syncookies = 1 表示开启SYN Cookies。当出现SYN等待队列溢出时,启用cookies来处理,可防范少量SYN攻击,默认为0,表示关闭；
   
-    表示是否打开TCP同步标签(syncookie),内核必须打开了 CONFIG_SYN_COOKIES项进行编译。同步标签(syncookie)可以防止一个套接字在有过多试图连接到达时引起过载。
+    表示是否打开TCP同步标签(syncookie),内核必须打开了 CONFIG_SYN_COOKIES项进行编译。同步标签(syncookie)可以防止一个 socket 在有过多试图连接到达时引起过载。
   
     指定是否打开TCP同步标签。同步标签通过启动cookie 来防止一个监听socket因不停的重复接收来自同一个地址的连接请求（同步报文段) ,而导致listen监听队列溢出（所谓的SYN 风暴) 。
   
@@ -228,7 +228,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 
   * net.ipv4.tcp_tw_recycle
   
-    打开快速 TIME-WAIT sockets 回收。能够更快地回收TIME-WAIT套接字。除非得到技术专家的建议或要求,请不要随意修改这个值。
+    打开快速 TIME-WAIT sockets 回收。能够更快地回收TIME-WAIT socket 。除非得到技术专家的建议或要求,请不要随意修改这个值。
   * /proc/sys/net/ipv4/tcp_tw_reuse
   
     表示是否允许将处于TIME-WAIT状态的socket（TIME-WAIT的端口) 用于新的TCP连接 。

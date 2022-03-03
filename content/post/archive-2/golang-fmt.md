@@ -1,5 +1,5 @@
 ---
-title: golang fmt/print
+title: golang fmt/Println
 author: "-"
 date: 2016-10-14T00:09:01+00:00
 url: /?p=9293
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## golang fmt/print
+## golang fmt/Println
 ```golang
 fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
 ```
@@ -20,17 +20,22 @@ fmt包实现了格式化的I/O函数,这点类似Ｃ语言中的printf和scanf,�
 
 ### 通用占位符: 
 - %v  值的默认格式。当打印结构体时,"加号"标记（%+v) 会添加字段名
-- %#v 相应值的Go语法表示, 打印结构体名, 类json格式
+- %#v 相应值的 Go 语法表示, 打印结构体名, 类json格式
 - %+v 打印键值对
-- %T  相应值的类型的Go语法表示
-- %%  字面上的百分号,并非值的占位符
+- %T  相应值的类型的 Go 语法表示
+- %%  字面上的百分号, 并非值的占位符
 - %d  十进制表示
 - %c  the character represented by the corresponding Unicode code point
+- %x	base 16, with lower-case letters for a-f
+- %X	base 16, with upper-case letters for A-F
+- %p	address of 0th element in base 16 notation, with leading 0x
+- %t	the word true or false, (bool)
+
+>https://pkg.go.dev/fmt
 
 用法如下: 
 
-view plain copy
-  
+```go
 package main
 
 import (
@@ -66,6 +71,7 @@ fmt.Printf("%T\n", *s) // main.Sample
 fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1)  注: 暂时还没有明白其用法
   
 }
+```
 
 布尔值: 
   

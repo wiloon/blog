@@ -56,7 +56,7 @@ $ ls -l /bin/bash
   
 "p"先进先出
   
-"s"套接字
+"s" socket 
   
 三个三元组
   

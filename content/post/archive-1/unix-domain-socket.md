@@ -660,7 +660,7 @@ UNIX Domain Socket与网络socket编程最明显的不同在于地址格式不�
 
 http://blog.csdn.net/htttw/article/details/7519971
   
-本文绝大部分是参考《Linux程序设计(第4版)》的第15章套接字
+本文绝大部分是参考《Linux程序设计(第4版)》的第15章 socket 
   
 服务器端的步骤如下: 
 
@@ -692,7 +692,7 @@ http://blog.csdn.net/htttw/article/details/7519971
 Makefile: 
 
 
-[plain][/plain] 
+ 
 
 all: tcp_client.c tcp_server.c
   

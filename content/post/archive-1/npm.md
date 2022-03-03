@@ -10,9 +10,13 @@ categories:
   - inbox
 ---
 ## npm basic
-### 指定 package.json 路径 
+## 编译
+
 ```bash
-# 其中path / to / project是你的package.json中定义了“build”命令的目录。
+npm run build
+
+### 指定 package.json 路径 
+# /path/to/project 是包含 package.json 的目录。
 npm --prefix /path/to/project run build
 ```
 ### node-gyp
