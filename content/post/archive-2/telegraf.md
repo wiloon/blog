@@ -170,3 +170,39 @@ https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a
 ### wireguard, telegraf
     https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md
       
+### exec
+
+```bash
+[[inputs.exec]]
+  ## Commands array
+  commands = [
+    "/data/blog/count.sh"
+  ]
+
+  ## Timeout for each command to complete.
+  timeout = "60s"
+
+  ## measurement name suffix (for separating different commands)
+  name_suffix = "_collector"
+
+  ## Data format to consume.
+  ## Each data format has its own unique set of configuration options, read
+  ## more about them here:
+  ## https://github.com/influxdata/telegraf/blob/master/docs/DATA_FORMATS_INPUT.md
+  data_format = "influx"
+```
+
+
+#### count.sh
+```bash
+#!/bin/sh
+cd /data/blog/wiloon.com
+git pull>/dev/null
+post_count=$(ls -lR content/post |grep '\.md'|wc -l)
+word_count=$(ls -lR content/post |grep '\.md'|wc -m)
+
+echo 'blog,domain=wiloon post_count='''$post_count'''i,word_count='''$word_count'''i'
+
+
+```
+>https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md
