@@ -28,7 +28,7 @@ https://linux.cn/article-8186-1.html
 
 在本指南中,我们将向你展示如何使用简单的 netcat（简称 nc) 命令来确定远程主机上的端口是否可访问/打开。
 
-netcat（或简称 nc) 是一个功能强大且易于使用的程序,可用于 Linux 中与 TCP、UDP 或 UNIX 域套接字相关的任何事情。
+netcat（或简称 nc) 是一个功能强大且易于使用的程序,可用于 Linux 中与 TCP、UDP 或 UNIX 域 socket 相关的任何事情。
 
 # yum install nc [在 CentOS/RHEL 中]
 

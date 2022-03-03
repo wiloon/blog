@@ -1,90 +1,105 @@
 ---
-title: Linux 网络状态工具 ss
+title: 网络状态工具 ss
 author: "-"
 date: 2019-01-08T13:44:55+00:00
-url: /?p=13372
+url: ss
 categories:
-  - Uncategorized
+  - network
 
 tags:
   - reprint
 ---
 ## Linux 网络状态工具 ss
+
+ss 是 iproute2 包附带的一个查询 socket 有关的统计信息的工具, 它的功能跟 netstat 类似, 比netstat更快速更高效.当服务器的socket连接数量变得非常大时，无论是使用 `netstat` 命令还是直接 `cat /proc/net/tcp`，执行速度都会很慢。ss快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，ss也可以正常运行，只是效率会变得稍慢。
+
 ```bash
+# 语法: ss [options] [ FILTER ]
+# FILTER := [ state STATE-FILTER ] [ EXPRESSION ]
+
 ss -ntl # tcp port
 ss -nul # udp port
 
 ss -nul4 # udp port  -ipv4
 ss -nul6 # udp port -ipv6
+
+ss state established
 ```
 
-http://www.ttlsa.com/linux-command/ss-replace-netstat/
-  
-ss命令用于显示socket状态. 他可以显示PACKET sockets, TCP sockets, UDP sockets, DCCP sockets, RAW sockets, Unix domain sockets等等统计. 它比其他工具展示等多tcp和state信息. 它是一个非常实用、快速、有效的跟踪IP连接和sockets的新工具.SS命令可以提供如下信息: 
+### option
 
-所有的TCP sockets
-  
-所有的UDP sockets
-  
-所有ssh/ftp/ttp/https持久连接
-  
-所有连接到Xserver的本地进程
-  
-使用state（例如: connected, synchronized, SYN-RECV, SYN-SENT,TIME-WAIT) 、地址、端口过滤
-  
-所有的state FIN-WAIT-1 tcpsocket连接以及更多
-  
-很多流行的Linux发行版都支持ss以及很多监控工具使用ss命令.熟悉这个工具有助于您更好的发现与解决系统性能问题.本人强烈建议使用ss命令替代netstat部分命令,例如netsat -ant/lnt等.
+- -n, --numeric   不解析服务名称
+- -t, --tcp       仅显示 TCP sockets
+- -u, --udp       仅显示 UCP sockets
+- -l, --listening 显示监听状态的 sockets
+- -o, --options   显示计时器信息, 连接时间
 
-展示他之前来做个对比,统计服务器并发连接数
+### ss tcp states 
+- established
+- syn-sent
+- syn-recv
+- fin-wait-1
+- fin-wait-2
+- time-wait
+- closed
+- close-wait
+- last-ack
+- listen
+- closing
+
+>http://www.ttlsa.com/linux-command/ss-replace-netstat/
+  
+ss 命令用于显示 socket 状态. 可以显示 PACKET sockets, TCP sockets, UDP sockets, DCCP sockets, RAW sockets, Unix domain sockets 等等统计. 它比其他工具展示等多tcp和state信息. 它是一个非常实用、快速、有效的跟踪IP连接和sockets的新工具.SS命令可以提供如下信息: 
+
+所有的 TCP sockets
+  
+所有的 UDP sockets
+  
+所有 ssh/ftp/ttp/https 持久连接
+  
+所有连接到 Xserver 的本地进程
+  
+使用 state（例如: connected, synchronized, SYN-RECV, SYN-SENT,TIME-WAIT) 、地址、端口过滤
+  
+所有的 state FIN-WAIT-1 tcpsocket 连接以及更多
+  
+很多流行的 Linux 发行版都支持 ss 以及很多监控工具使用 ss 命令. 熟悉这个工具有助于您更好的发现与解决系统性能问题. 
+
+netstat, ss 命令对比, 统计服务器并发连接数
 
 netstat
 
-# time netstat -ant | grep EST | wc -l
+    time netstat -ant | grep EST | wc -l
 
-3100
+    3100
+    real 0m12.960s
+    user 0m0.334s
+    sys 0m12.561s
 
-real 0m12.960s
-  
-user 0m0.334s
-  
-sys 0m12.561s
+    time ss -o state established | wc -l
 
-# time ss -o state established | wc -l
+    3204
+    real 0m0.030s 
+    user 0m0.005s
+    sys 0m0.026s
 
-3204
+    time netstat -ant | grep EST | wc -l
 
-real 0m0.030s
-  
-user 0m0.005s
-  
-sys 0m0.026s
+    3100
+    real 0m12.960s
+    user 0m0.334s
+    sys 0m12.561s
 
-netstat
+    time ss -o state established | wc -l
 
-# time netstat -ant | grep EST | wc -l
+    3204
+    real 0m0.030s
+    user 0m0.005s
+    sys 0m0.026s
 
-3100
+结果很明显ss 性能更好一些
 
-real 0m12.960s
-  
-user 0m0.334s
-  
-sys 0m12.561s
-
-# time ss -o state established | wc -l
-
-3204
-
-real 0m0.030s
-  
-user 0m0.005s
-  
-sys 0m0.026s
-  
-结果很明显ss统计并发连接数效率完败netstat,在ss能搞定的情况下, 你还会在选择netstat吗, 还在犹豫吗, 看以下例子,或者跳转到帮助页面.
-
-常用ss命令: 
+### 常用ss命令: 
 
 ss -l 显示本地打开的所有端口
   
@@ -122,7 +137,7 @@ ss -s 列出当前socket详细信息:
   
 列出当前已经连接,关闭,等待的tcp连接
 
-# ss -s
+    ss -s
 
 Total: 3519 (kernel 3691)
   
@@ -130,7 +145,7 @@ TCP: 26557 (estab 3163, closed 23182, orphaned 194, synrecv 0, timewait 23182/0)
 
 Transport Total IP IPv6
   
-* 3691 - -
+3691 - -
   
 RAW 2 2 0
   
@@ -144,7 +159,7 @@ FRAG 0 0 0
   
 11
 
-# ss -s
+    ss -s
 
 Total: 3519 (kernel 3691)
   
@@ -281,24 +296,12 @@ ss列出本地哪个进程连接到x server
 
 ss列出处在FIN-WAIT-1状态的http、https连接
 
-# ss -o state fin-wait-1 '( sport = :http or sport = :https )'
+   ss -o state fin-wait-1 '( sport = :http or sport = :https )'
 
 
-# ss -o state fin-wait-1 '( sport = :http or sport = :https )'
+    ss -o state fin-wait-1 '( sport = :http or sport = :https )'
 
-### ss常用的state状态: 
 
-- established
-- syn-sent
-- syn-recv
-- fin-wait-1
-- fin-wait-2
-- time-wait
-- closed
-- close-wait
-- last-ack
-- listen
-- closing
   
 all : All of the above states
   
@@ -309,30 +312,7 @@ synchronized : All the connected states except for syn-sent
 bucket : Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.
   
 big : Opposite to bucket state.
-  
-established
-  
-syn-sent
-  
-syn-recv
-  
-fin-wait-1
-  
-fin-wait-2
-  
-time-wait
-  
-closed
-  
-close-wait
-  
-last-ack
-  
-listen
-  
-closing
-  
-all : All of the above states
+ 
   
 connected : All the states except for listen and closed
   
@@ -529,17 +509,10 @@ ss [ OPTIONS ] [ FILTER ]
 -h, -help this message
      
 -V, -version output version information
-     
--n, -numeric don't resolve service names
-     
+
 -r, -resolve resolve host names
      
 -a, -all display all sockets
-     
--l, -listening display listening sockets
-     
--o, -options show timer information
-     
 -e, -extended show detailed socket information
      
 -m, -memory show socket memory usage
@@ -581,3 +554,6 @@ FILTER := [ state TCP-STATE ] [ EXPRESSION ]
 参考: http://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html
   
 转摘请注明出处: Linux网络状态工具ss命令详解 http://www.ttlsa.com/html/2070.html
+
+>https://wangchujiang.com/linux-command/c/ss.html
+

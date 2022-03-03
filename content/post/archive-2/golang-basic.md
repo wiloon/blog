@@ -395,3 +395,106 @@ GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 ### os.Exit()
 
 Conventionally, code zero indicates success, non-zero an error
+
+### 选择器
+
+在 Go 语言中，表达式 foo.bar 可能表示两件事。如果 foo 是一个包名，那么表达式就是一个所谓的限定标识符，用来引用包 foo 中的导出的标识符。由于它只用来处理导出的标识符，bar 必须以大写字母开头(译注：如果首字母大写，则可以被其他的包访问；如果首字母小写，则只能在本包中使用）：
+
+package foo
+import "fmt"
+func Foo() {
+    fmt.Println("foo")
+}
+func bar() {
+    fmt.Println("bar")
+}
+
+package main
+import "github.com/mlowicki/foo"
+func main() {
+    foo.Foo()
+}
+这样的程序会工作正常。但是（主函数）调用 foo.bar() 会在编译时报错 —— cannot refer to unexported name foo.bar(无法引用未导出的名称 foo.bar)。
+
+如果 foo 不是 一个包名，那么 foo.bar 就是一个选择器表达式。它访问 foo 表达式的字段或方法。点之后的标识符被称为 selector（选择器）。关于首字母大写的规则并不适用于这里。它允许从定义了 foo 类型的包中选择未导出的字段或方法：
+
+package main
+import "fmt"
+type T struct {
+    age byte
+}
+func main() {
+    fmt.Println(T{age: 30}.age)
+}
+该程序打印：30
+
+
+>https://studygolang.com/articles/14628
+
+## 复合字面量
+
+```go
+var numbers = [1, 2, 3, 4]
+var thing = {name: "Raspberry Pi", generation: 2, model: "B"}
+// 复合字面量: name: "Raspberry Pi", generation: 2, model: "B"
+```
+```go
+
+type location struct {
+    lat, long float64
+}
+
+opportunity := location{lat: -1.9462, long: 354.4734}
+// 复合字面量: lat: -1.9462, long: 354.4734
+fmt.Println(opportunity)
+
+insight := location{lat: 4.5, long: 135.9}
+fmt.Println(insight)
+
+```
+
+```go
+spirit := location{-14.5684, 175.472636}
+// 复合字面量: -14.5684, 175.472636
+fmt.Println(spirit)
+
+```
+
+>https://studygolang.com/articles/12913
+>https://livebook.manning.com/concept/go/composite-literal
+
+
+ 
+ ### is pointer to interface, not interface
+
+ 执行下面代码会出现”type *net.Conn is pointer to interface, not interface)“错误，原因是因为”net.Conn”是interface而不是struct，不能用指针方式传递。
+
+1	func connHandler(client *net.Conn) {
+2		// do something
+3	}
+4	
+5	func somefunc() {
+6		// ...
+7		client, _ := listener.Accept()
+8		connHandler(&client)
+9	}
+GO语言中interface是一种特殊的数据结构，包含两部分内容：
+
+一个指向方法表的指针
+一个指向实际数据的指针
+interface
+
+因为这种特殊的数据结构所以interface的指针指向的结构既没有实际数据也没有对应方法，那么就无法直接访问所需的内容，鉴于此原因我推测GO语言的开发者直接屏蔽掉了指向interface指针的用法。这种情况的正确如下：
+
+1	func connHandler(client net.Conn) {
+2		// do something
+3	}
+4	
+5	func somefunc() {
+6		// ...
+7		client, _ := listener.Accept()
+8		connHandler(client)
+9	}
+
+>http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/
+

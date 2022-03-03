@@ -11,7 +11,7 @@ tags:
 ---
 ## Podman, Buildah, Skopeo
 ### podman
-Podman是该工具套件的核心，用来替换Docker中了大多数子命令（RUN，PUSH，PULL等) 。Podman无需守护进程，使用用户命名空间来模拟容器中的root，无需连接到具有root权限的套接字保证容器的体系安全。
+Podman是该工具套件的核心，用来替换Docker中了大多数子命令（RUN，PUSH，PULL等) 。Podman无需守护进程，使用用户命名空间来模拟容器中的root，无需连接到具有root权限的 socket 保证容器的体系安全。
   
 Podman专注于维护和修改OCI镜像的所有命令和功能，例如拉动和标记。它还允许我们创建，运行和维护从这些镜像创建的容器。
 

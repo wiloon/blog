@@ -62,7 +62,7 @@ onuncaught(=y或n)指明出现uncaught exception 后，是否中断JVM的执行.
       -Djava.compiler=NONE  禁止 JIT 编译器的加载。
       -Xrunjdwp             加载JDWP的JPDA参考执行实例。
       transport             用于在调试程序和 VM 使用的进程之间通讯。
-      dt_socket             套接字传输。
+      dt_socket              socket 传输。
       dt_shmem              共享内存传输，仅限于 Windows。
       server=y/n            VM 是否需要作为调试服务器执行。
       address=3999          调试服务器的端口号，客户端用来连接服务器的端口号。
@@ -98,7 +98,7 @@ JPDA 全称: Java Platform Debugger Architecture (Java调试器架构)。是一�
 JPDA 定义了一个完整独立的体系，它由三个相对独立的层次共同组成，而且规定了它们三者之间的交互方式，或者说定义了它们通信的接口。这三个层次由低到高分别是 Java 虚拟机工具接口（JVMTI) ，Java 调试线协议（JDWP) 以及 Java 调试接口（JDI) 。这三个模块把调试过程分解成几个很自然的概念: 调试者（debugger) 和被调试者（debuggee) ，以及他们中间的通信器。被调试者运行于我们想调试的 Java 虚拟机之上，它可以通过 JVMTI 这个标准接口，监控当前虚拟机的信息；调试者定义了用户可使用的调试接口，通过这些接口，用户可以对被调试虚拟机发送调试命令，同时调试者接受并显示调试结果。在调试者和被调试着之间，调试命令和调试结果，都是通过 JDWP 的通讯协议传输的。所有的命令被封装成 JDWP 命令包，通过传输层发送给被调试者，被调试者接收到 JDWP 命令包后，解析这个命令并转化为 JVMTI 的调用，在被调试者上运行。类似的，JVMTI 的运行结果，被格式化成 JDWP 数据包，发送给调试者并返回给 JDI 调用。而调试器开发人员就是通过 JDI 得到数据，发出指令  
 #### Java 虚拟机工具接口（JVMTI) 
 定义VM(虚拟机)的调试服务 JVM TI(Java VM Tool Interface)。该组件提供了查看Java所有状态的职责。包括但不限于: JVM分析，监控，调试，线程分析，以及覆盖率分析等功能。其由JVM提供，与具体语言无关.  
-JVMTI（Java Virtual Machine Tool Interface) 即指 Java 虚拟机工具接口，它是一套由虚拟机直接提供的 native 接口，它处于整个 JPDA 体系的最底层，所有调试功能本质上都需要通过 JVMTI 来提供。通过这些接口，开发人员不仅调试在该虚拟机上运行的 Java 程序，还能查看它们运行的状态，设置回调函数，控制某些环境变量，从而优化程序性能。我们知道，JVMTI 的前身是 JVMDI 和 JVMPI，它们原来分别被用于提供调试 Java 程序以及 Java 程序调节性能的功能。在 J2SE 5.0 之后 JDK 取代了 JVMDI 和 JVMPI 这两套接口，JVMDI 在最新的 Java SE 6 中已经不提供支持，而 JVMPI 也计划在 Java SE 7 后被彻底取代。
+JVMTI（Java Virtual Machine Tool Interface) 即指 Java 虚拟机工具接口，它是一套由虚拟机直接提供的 native 接口，它处于整个 JPDA 体系的最底层，所有调试功能本质上都需要通过 JVMTI 来提供。通过这些接口，开发人员不仅调试在该虚拟机上运行的 Java 程序，还能查看它们运行的状态，设置回调函数，控制某些环境变量，从而优化程序性能。我们知道，JVMTI 的前身是 JVMDI 和 JVMPI，它们原来分别被用于提供调试 Java 程序以及 Java 程序调节性能的功能。在 J2SE 5.0 之后 JDK 取代了 JVMDI 和 JVMPI 这两 socket ，JVMDI 在最新的 Java SE 6 中已经不提供支持，而 JVMPI 也计划在 Java SE 7 后被彻底取代。
 #### Java 调试线协议（JDWP) 
 定义调试器与调试者通信协议的 JDWP - Java Debug Wire Protocol。定义的主要是调试者与调试器通信时的传输信息以及请求数据格式。但不限制其传输机制。例如: 有的使用socket，有的使用serial line，有的使用share money 等等。
 JDWP（Java Debug Wire Protocol) 是一个为 Java 调试而设计的一个通讯交互协议，它定义了调试器和被调试程序之间传递的信息的格式。在 JPDA 体系中，作为前端（front-end) 的调试者（debugger) 进程和后端（back-end) 的被调试程序（debuggee) 进程之间的交互数据的格式就是由 JDWP 来描述的，它详细完整地定义了请求命令、回应数据和错误代码，保证了前端和后端的 JVMTI 和 JDI 的通信通畅。比如在 Sun 公司提供的实现中，它提供了一个名为 jdwp.dll（jdwp.so) 的动态链接库文件，这个动态库文件实现了一个 Agent，它会负责解析前端发出的请求或者命令，并将其转化为 JVMTI 调用，然后将 JVMTI 函数的返回值封装成 JDWP 数据发还给后端。  

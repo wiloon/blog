@@ -284,7 +284,7 @@ migration: 每个处理器核对应一个migration内核线程，主要作用是
 ### kdevtmpfs
 this thread populates and maintains a device node tree
 ### kauditd
-内核线程kauditd通过netlink机制(NETLINK_AUDIT)将审计消息定向发送给用户态的审计后台auditd的主线程，auditd主线程再通过事件队列将审计消息传给审计后台的写log文件线程，写入log文件。另一方面，审计后台还通过一个与套接字绑定的管道将审计消息发送给audispd应用程序，可把事件传送给其他应用程序做进一步处理。
+内核线程kauditd通过netlink机制(NETLINK_AUDIT)将审计消息定向发送给用户态的审计后台auditd的主线程，auditd主线程再通过事件队列将审计消息传给审计后台的写log文件线程，写入log文件。另一方面，审计后台还通过一个与 socket 绑定的管道将审计消息发送给audispd应用程序，可把事件传送给其他应用程序做进一步处理。
 >https://ixyzero.com/blog/archives/3421.html
 ### khungtaskd
 khungtaskd 监控TASK_UNINTERRUPTIBLE状态的进程，如果在120s周期内没有切换，就会打印详细信息。

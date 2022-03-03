@@ -19,7 +19,7 @@ archlinux纯64位版是没有办法直接运行32位程序的。因为缺少最�
 /etc/pacman.conf中增加
 
 
-[plain][/plain]
+
 
 print?
   
@@ -30,7 +30,7 @@ Include = /etc/pacman.d/mirrorlist
 如果是chakra需要将repo的名称修改为lib32和lib32-test
 
 
-[plain][/plain]
+
 
 print?
   
