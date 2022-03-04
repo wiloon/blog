@@ -19,13 +19,23 @@ wiloon ALL=(ALL) NOPASSWD: ALL
 
 注意： 有的时候你的将用户设了nopasswd，但是不起作用，原因是被后面的group的设置覆盖了，需要把group的设置也改为nopasswd。
 
+```bash
 joe ALL=(ALL) NOPASSWD: ALL
 
 %admin ALL=(ALL) NOPASSWD: ALL
+```
 
 >https://www.cnblogs.com/itech/archive/2009/08/07/1541017.html
 
 https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s-sudo-i-sudo-su
+
+### This account is currently not available
+比如我是 su kafka的时候出现的问题
+用vi看看 kafka的帐号信息
+    cat /etc/passwd | grep kafka
+发现它的shell是“/sbin /nologin”，需要将起改成“/bin/bash”
+    vipw /etc/passwd
+修改完毕后，保存退出
 
 sudo(substitute user do) 使得系统管理员可以授权特定用户或用户组作为 root 或他用户执行某些（或所有) 命令，同时还能够对命令及其参数提供审核跟踪。
 

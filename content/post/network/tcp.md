@@ -167,7 +167,7 @@ struct linger {
 }
 1) l_onoff = 0,l_linger被忽略,同默认行为 2) l_onoff 非0,l_linger为0,close清空发送缓冲,并发送RST,然后返回,这中情况下,可以避免TIME_WAIT状态的产生。 3) l_onoff非0,l_linger大于0,close将使内核推延一段时间。如果缓冲有数据,进程将进入睡眠状态,直到数据发送完毕并收到对方的ACK或者滞留超时(close返回EWOULDBLOCK),缓冲去数据丢失。(如果是非阻塞,则直接返回EWOULDBLOCK) shutdown使用可以避免关闭时还有数据的处理。
 
-tcp状态机
+## tcp状态机
 tcp在每个时刻都存在于一个特定的状态(CLOSED状态为假想状态),这里的状态和netstat显示的状态是一致的,各个状态以及状态转换如下:  TCP状态机 TIME_WAIT也称为2MSL(Maximum Segment Lifetime)状态,它可以保证对端发送最后的FIN(重发的),能够响应ACK,另外一个含是,保证端口在2MSL端口不被重发使用。在服务端编程的时候,我们通常会使用 SO_REUSEADDR 这个选项,这样可以避免如果服务端进入TIME_WAIT状态后,可以及时重启。 FIN_WAIT_2状态是在发送FIN,接收到ACK时,进入的状态,如果对端没有发送FIN那么,将无法进入TIME_WAIT状态,这时对端一直是CLOSE_WAIT状态,当服务器出现大量的FIN_WAIT_2 或 CLOSE_WAIT状态时,一般都是被动关闭那端忘记了调用close函数关闭socket。
 
 TCP数据传输

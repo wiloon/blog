@@ -24,6 +24,11 @@ ss -nul4 # udp port  -ipv4
 ss -nul6 # udp port -ipv6
 
 ss state established
+
+# 统计各种状态的连接数量
+ss -s
+# 列出当前监听端口
+ss -l
 ```
 
 ### option
@@ -33,6 +38,7 @@ ss state established
 - -u, --udp       仅显示 UCP sockets
 - -l, --listening 显示监听状态的 sockets
 - -o, --options   显示计时器信息, 连接时间
+- -s, -summary show socket usage summary
 
 ### ss tcp states 
 - established
@@ -131,130 +137,7 @@ ss -o state established '( dport = :http or sport = :http )' 显示所有已建�
   
 ss -x src /tmp/.X11-unix/* 找出所有连接X服务器的进程
   
-ss -s 列出当前socket详细信息:
-  
-显示sockets简要信息
-  
-列出当前已经连接,关闭,等待的tcp连接
-
-    ss -s
-
-Total: 3519 (kernel 3691)
-  
-TCP: 26557 (estab 3163, closed 23182, orphaned 194, synrecv 0, timewait 23182/0), ports 1452
-
-Transport Total IP IPv6
-  
-3691 - -
-  
-RAW 2 2 0
-  
-UDP 10 7 3
-  
-TCP 3375 3368 7
-  
-INET 3387 3377 10
-  
-FRAG 0 0 0
-  
-11
-
-    ss -s
-
-Total: 3519 (kernel 3691)
-  
-TCP: 26557 (estab 3163, closed 23182, orphaned 194, synrecv 0, timewait 23182/0), ports 1452
-
-Transport Total IP IPv6
-  
-* 3691 - -
-  
-RAW 2 2 0
-  
-UDP 10 7 3
-  
-TCP 3375 3368 7
-  
-INET 3387 3377 10
-  
-FRAG 0 0 0
-  
-列出当前监听端口
-
-# ss -l
-
-Recv-Q Send-Q Local Address:Port Peer Address:Port
-  
-0 10 :::5989 :::*
-  
-0 5 _:rsync *:_
-  
-0 128 :::sunrpc :::*
-  
-0 128 _:sunrpc *:_
-  
-0 511 _:http *:_
-  
-0 128 :::ssh :::*
-  
-0 128 _:ssh *:_
-  
-0 128 :::35766 :::*
-  
-0 128 127.0.0.1:ipp _:_
-  
-0 128 ::1:ipp :::*
-  
-0 100 ::1:smtp :::*
-  
-0 100 127.0.0.1:smtp _:_
-  
-0 511 _:https *:_
-  
-0 100 :::1311 :::*
-  
-0 5 _:5666 *:_
-  
-0 128 _:3044 *:_
-  
-18
-
-# ss -l
-
-Recv-Q Send-Q Local Address:Port Peer Address:Port
-  
-0 10 :::5989 :::*
-  
-0 5 _:rsync *:_
-  
-0 128 :::sunrpc :::*
-  
-0 128 _:sunrpc *:_
-  
-0 511 _:http *:_
-  
-0 128 :::ssh :::*
-  
-0 128 _:ssh *:_
-  
-0 128 :::35766 :::*
-  
-0 128 127.0.0.1:ipp _:_
-  
-0 128 ::1:ipp :::*
-  
-0 100 ::1:smtp :::*
-  
-0 100 127.0.0.1:smtp _:_
-  
-0 511 _:https *:_
-  
-0 100 :::1311 :::*
-  
-0 5 _:5666 *:_
-  
-0 128 _:3044 *:_
-  
+ 
 ss列出每个进程名及其监听的端口
 
 # ss -pl
@@ -521,7 +404,7 @@ ss [ OPTIONS ] [ FILTER ]
      
 -i, -info show internal TCP information
      
--s, -summary show socket usage summary
+
 
 -4, -ipv4 display only IP version 4 sockets
      

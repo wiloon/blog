@@ -76,9 +76,10 @@ podman stats
 修改driver之后 要删除 文件 sudo rm -rf ~/.local/share/containers/, 否则会报错: User-selected graph driver "overlay2" overwritten by graph driver "overlay" from database - delete libpod local files to resolve
 >https://github.com/containers/podman/issues/5114
 
-### logs
+## logs
     podman logs --since 1m -f conter_id_0
     podman logs --latest
+
 ### registry config, mirror
 配置文件有两种版本格式，v1和v2，两种格式的配置不能混用，混用会提示错误。
 
