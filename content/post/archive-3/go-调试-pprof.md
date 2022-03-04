@@ -16,7 +16,7 @@ https://golang.org/pkg/net/http/pprof/
   
 https://segmentfault.com/a/1190000016412013
 
-```golang
+```go
 import _ "net/http/pprof"
 
 go func() {

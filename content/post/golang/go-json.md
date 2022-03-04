@@ -14,7 +14,7 @@ tags:
 https://www.cnblogs.com/chenqionghe/p/13409556.html
 
 
-```golang
+```go
 json.Marshal(struct {
     *User
     Password bool `json:"password,omitempty"`
@@ -23,7 +23,7 @@ json.Marshal(struct {
 })
 ```
 
-```golang
+```go
 json.Marshal()
 json.Unmarshal()
 ```
@@ -31,7 +31,7 @@ json.Unmarshal()
 ### struct json tag
 https://colobu.com/2017/06/21/json-tricks-in-Go/
 
-```golang
+```go
 type Result struct {
     Count      int       `json:"count"`
     Data       MyStruct  `json:"data,omitempty"`

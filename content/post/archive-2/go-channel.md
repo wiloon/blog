@@ -16,7 +16,7 @@ channel 是 Go 中的一个核心类型, 你可以把它看成一个管道, 通�
 goroutine是Go语言的基本调度单位，而channels则是它们之间的通信机制。操作符`<-`用来指定管道的方向，发送或接收。如果未指定方向，则为双向管道。
 
 
-```golang
+```go
 <-          // channel 的操作符是箭头
 ch <- v     // 发送值 v 到 Channel ch 中
 v := <-ch   // 从 Channel c h中接收数据, 并将数据赋值给 v
@@ -76,7 +76,7 @@ x = <-ch
 ```
 就像 map 和 slice 数据类型一样, channel 必须先创建再使用
 
-```golang
+```go
 // 创建 channel
 make (chan type)
 make (chan type,N) //表示该channel自带N个type类型大小的buffer,只有该chan满/空时，调用方才会被阻塞
@@ -88,7 +88,7 @@ make(chan int, 100)
 
 ### for 可以处理 channel
 
-```golang
+```go
 for i := range c {
         fmt.Println(i)
     }
@@ -112,6 +112,7 @@ receive 操作符
 场景：使用channel传递信号，而不是传递数据时
 原理：没数据需要传递时，传递空struct
 用法：
+
 ```go
 // 上例中的Handler.stopCh就是一个例子，stopCh并不需要传递任何数据
 // 只是要给所有协程发送退出的信号

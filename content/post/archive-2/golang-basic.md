@@ -24,7 +24,7 @@ Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支
 
 ### hello world
 
-```golang
+```go
 package main
 import "fmt"
 func main() {
@@ -94,7 +94,7 @@ Go语言中的变量使用方式与C语言接近,但具备更大的灵活性。
 #### 变量声明
 Go语言的变量声明方式与C和C++语言有明显的不同。对于纯粹的变量声明,Go语言引入了关键字var,而类型信息放在变量名之后,示例如下:
 
-```golang
+```go
 var v1 int
 var v2 string
 
@@ -112,7 +112,7 @@ var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为
 ### 变量初始化
 对于声明变量时需要进行初始化的场景,var关键字可以保留,但不再是必要的元素,如下: 
 
-```golang
+```go
 var v1 int = 10 // 正确的使用方式1
 var v2 = 10 // 正确的使用方式2,编译器可以自动推导出v2的类型
 v3 := 10 // 正确的使用方式3,编译器可以自动推导出v3的类型
@@ -150,7 +150,7 @@ _, _, nickName := "May", "Chan", "Chibi Maruko"
 
 ## 常量
 
-```golang
+```go
 const (
 c0 = iota // iota被重设为0 // c0 == 0
 c1 = iota // c1 == 1
@@ -240,7 +240,7 @@ c = 1 << iota // c == 4
 
 ### 读环境变量
 
-```golang
+```go
 func main(){
     var JAVAHOME string
     JAVAHOME = os.Getenv("JAVA_HOME")

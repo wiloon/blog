@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## go regex, 正则
-```golang
+```go
     nodes := []string{"foo.bar-000.x", "foo.t0.bar","foo.bar"}
     reg := regexp.MustCompile(`foo\.(.[^\.]*)\.{0,1}.*`)
     for _, v := range nodes {

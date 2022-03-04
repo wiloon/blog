@@ -16,7 +16,7 @@ tags:
     go get github.com/erning/gorun
 
 ### 能用 "./" 执行的 golang代码
-```golang
+```go
 /// 2>/dev/null ; gorun "$0" "$@" ; exit $?
 
 package main
@@ -45,7 +45,7 @@ func main() {
 ```
 
 ## golang shell, 在 golang 中调用 shell
-```golang
+```go
 func shellExec(command string) string {
 	log.Printf("exec: %s\n", command)
 	cmd := exec.Command("/bin/sh", "-c", command)

@@ -14,13 +14,13 @@ tags:
 错误指的是可能出现问题的地方出现了问题,比如打开一个文件时失败,这种情况在人们的意料之中；而异常指的是不应该出现问题的地方出现了问题,比如引用了空指针,这种情况在人们的意料之外。可见,错误是业务过程的一部分,而异常不是。
 
 ### 自定义异常
-```golang
+```go
 return errors.New("string")
 ```
 
 ### 打印调用栈
 #### using runtime
-```golang
+```go
 defer func() {
     if p := recover(); p != nil {
         logger.Errorf("panic: %v", p)
@@ -35,7 +35,7 @@ defer func() {
 ```
 
 #### using debug
-```golang
+```go
 if p := recover(); p != nil {
     logs.Error("message push panic: %v", p)
 
@@ -49,7 +49,7 @@ Go语言追求简洁优雅, 所以,Go语言不支持传统的 try…catch…fina
 这几个异常的使用场景可以这么简单描述: Go中可以抛出一个panic的异常,然后在defer中通过recover捕获这个异常,然后正常处理。
 
 ### defer
-```golang
+```go
 func main(){
     defer func(){  // 必须要先声明defer,否则不能捕获到panic异常
     fmt.Println("c")

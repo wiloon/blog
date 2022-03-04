@@ -28,7 +28,7 @@ ptr := &v    // v 的类型为 T
 
 其中 v 代表被取地址的变量，变量 v 的地址使用变量 ptr 进行接收，ptr 的类型为 `*T`，称做 T 的指针类型，* 代表指针。
 
-```golang
+```go
 // &: 取地址
 // *: 解析地址
 
@@ -54,7 +54,7 @@ func main() {
 }
 ```
 
-```golang
+```go
 package basic
 
 import (
@@ -238,7 +238,7 @@ exit code 0, process exited normally.
     }
 
 ### 打印对象地址
-```golang
+```go
 package main
 
 import "fmt"

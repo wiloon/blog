@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## golang bytes.buffer
-```golang
+```go
 buf := bytes.NewBuffer([]byte{})
 ```
 

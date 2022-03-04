@@ -224,7 +224,7 @@ https://zhuanlan.zhihu.com/p/25513336
 
 ### goroutine id
 
-```golang
+```go
 import (
 	"fmt"
 	"github.com/cihub/seelog"

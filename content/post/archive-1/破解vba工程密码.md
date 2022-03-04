@@ -26,7 +26,7 @@ panic会停掉当前正在执行的程序（注意,不只是协程) ,但是与os
 
 panic允许传递一个参数给他,参数通常是将出错的信息以字符串的形式来表示。panic会打印这个字符串,以及触发panic的调用栈。
 
-```golang
+```go
 defer func() {
         if e := recover(); e != nil {
             var buf [4096]byte

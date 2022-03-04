@@ -14,7 +14,7 @@ https://github.com/golang/go/wiki/WebAssembly
   
 https://tutorialedge.net/golang/go-webassembly-tutorial/
 
-```golang
+```go
 package main
 
 import "fmt"

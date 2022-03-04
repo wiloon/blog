@@ -15,7 +15,7 @@ tags:
     sli := arr[:]
 
 ### hex > int, big.Int
-```golang
+```go
 // int
 n, err := strconv.ParseUint(val, 16, 32)
 
@@ -24,7 +24,7 @@ n := new(big.Int)
 n, _ = n.SetString(hex[2:], 16)
 ```
 ### float > int
-```golang
+```go
     //float64 转成转成int64
     var x float64 = 5.7
     var y int = int64(x)
@@ -33,7 +33,7 @@ n, _ = n.SetString(hex[2:], 16)
 ```
 
 ### base64 > hex
-```golang
+```go
 p, err := base64.StdEncoding.DecodeString("QVJWSU4=")
 if err != nil {
     // handle error
@@ -43,12 +43,12 @@ fmt.Println(h) // prints 415256494e
 ```
 
 ### bytes > hex
-```golang
+```go
 hex.EncodeToString(foo)
 ```
 
 ### string, float
-```golang
+```go
 s := "3.1415926535"
 v1, err := strconv.ParseFloat(v, 32)
 v2, err := strconv.ParseFloat(v, 64)
@@ -58,14 +58,14 @@ valueStr = strconv.FormatFloat(v, 'f', 3, 64)
 ```
 
 ### int > float
-```golang
+```go
 i:=5
 f:=float32(i)
 
 ```
 
 ### bytes > int
-```golang
+```go
 var ba = []byte{ 56, 66, 73, 77 }
 var value int32
 value |= int32(ba[0])
@@ -77,7 +77,7 @@ reverse the indexing order to switch between big and little endian.
 
 ### int8 > byte
 因为两者间的类型及取值范围这些都不相同,不能直接进行转换。int8取值范围为: -128~127,如果要转化的话需要使用bytevalue=256+int8value
-```golang
+```go
 var r byte
 var v int8
 v = -70
@@ -89,7 +89,7 @@ if v < 0 {
 ```
 
 但是,实际上我们可以直接使用byte进行强制转换,因为byte会自动检测v原有类型,然后进行转换的。
-```golang
+```go
 var r byte
 var v int8
 v = -70
@@ -97,7 +97,7 @@ r = byte(v)
 ```
 
 ### string, bool
-```golang
+```go
 // string > bool
 // 将字符串转换为布尔值
 // 它接受真值: 1, t, T, TRUE, true, True
@@ -113,7 +113,7 @@ func FormatBool(b bool) string
 
 ```
 ### int, string
-```golang
+```go
 // string到int
 int,err:=strconv.Atoi(string)
 // string到int64
@@ -140,18 +140,18 @@ str := strconv.FormatUint(myNumber, 10)
 https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang
 
 ### int32 > uint16
-```golang
+```go
 var i int
 u := uint16(i)
 ```
 
 ### string > []byte
-```golang
+```go
 dataByte:=[]byte(dataStr)
 ```
 
 ### Golang Time互转秒、毫秒
-```golang
+```go
     fmt.Println(time.Now().Unix()) //获取当前秒
     fmt.Println(time.Now().UnixNano())//获取当前纳秒
     fmt.Println(time.Now().UnixNano()/1e6)//将纳秒转换为毫秒
@@ -161,7 +161,7 @@ dataByte:=[]byte(dataStr)
 ```
 
 ### byte > binary string
-```golang
+```go
 package main
 
 import "fmt"
@@ -179,7 +179,7 @@ func main() {
     tmp, _ := strconv.ParseInt(value, 2, 64)
 
 ### hex string > []byte
-```golang
+```go
 import "hex"
 
 hexStr := "fee9ecaadafeee72d2eb66a0bd344cdd"
@@ -188,7 +188,7 @@ data, err := hex.DecodeString(hexStr)
 ```
 
 ### []byte > hex string
-```golang
+```go
 import (
 "fmt"
 "crypto/md5"
@@ -204,7 +204,7 @@ hexStr := fmt.Sprintf("%x", h)
 ```
 
 ### int, byte
-```golang
+```go
 // int64 > bytes
 func Int64ToBytes(i int64) []byte {
     var buf = make([]byte, 8)

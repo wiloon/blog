@@ -12,7 +12,7 @@ tags:
 ## golang  数据类型
 ### 常量
 
-```golang
+```go
 
 const ROOT_PATH = "/"
 ```
@@ -20,7 +20,7 @@ const ROOT_PATH = "/"
 ### Boolean
 布尔值的类型为 bool，true或false，默认false
 
-```golang
+```go
 var isActive bool  // 全局变量声明
 var enabled, disabled = true, false  // 忽略类型的声明
 func test() {
@@ -122,7 +122,7 @@ fmt.Printf("%s\n", s2)
 
 ### string > []byte
 
-```golang
+```go
 []byte("Here is a string....")
 ```
 

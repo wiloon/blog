@@ -13,7 +13,7 @@ tags:
 
 ### golang + gin
 
-```golang
+```go
 	c.Writer.WriteHeader(http.StatusOK)
 	c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=%s.bin", "foo"))
 	c.Header("Content-Type", "application/octet-stream")

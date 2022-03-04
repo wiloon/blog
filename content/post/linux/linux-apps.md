@@ -86,6 +86,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |linux-lts|lts 内核|
 |ncdu|磁盘空间清理|
 |filelight|图形化的磁盘空间管理工具|
+|okular|pdf reader|
 
 ### pacman, development
 

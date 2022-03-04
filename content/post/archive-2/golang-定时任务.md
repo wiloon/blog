@@ -13,7 +13,7 @@ Go 可以借助 time.After/time.Ticker 来实现延迟/定时触发器,主要原
 
 ## time.Ticker
 ticker只要定义完成,从此刻开始计时,不需要任何其他的操作,每隔固定时间都会触发。
-```golang
+```go
     ticker := time.NewTicker(500 * time.Millisecond)
     go func() {
         for t := range ticker.C {
@@ -33,7 +33,7 @@ ticker只要定义完成,从此刻开始计时,不需要任何其他的操作,�
 ### timer
 使用timer定时器,超时后需要重置,才能继续触发。
 
-```golang
+```go
  d := time.Duration(time.Second*2)
 
         t := time.NewTimer(d)

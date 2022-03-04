@@ -14,7 +14,7 @@ int32 转 uint32 再右移
 
 https://stackoverflow.com/questions/33336336/go-perform-unsigned-shift-operation
 
-```golang
+```go
 func Test10(t *testing.T) {
     x1 := -100
     result := uint32(x1) >> 2

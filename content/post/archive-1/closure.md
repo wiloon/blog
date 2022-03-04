@@ -17,7 +17,7 @@ tags:
 闭包是由函数及其相关的引用环境组合而成的实体(即：闭包=函数+引用环境)
 
 ### golang 闭包
-```golang
+```go
 func Add(y int) {
 	return func(x int) int {
 		return x + y

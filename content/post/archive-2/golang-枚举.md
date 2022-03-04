@@ -25,7 +25,7 @@ go语言并没有提供enum的定义,我们可以使用const来模拟枚举类�
     )
 ```
 
-```golang
+```go
 type LEVEL int32
 var logLevel LEVEL = 1
 const (

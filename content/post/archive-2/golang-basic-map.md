@@ -50,7 +50,7 @@ golang没有内置Set类型
   
 https://github.com/emirpasic/gods#hashset
 
-```golang
+```go
 package main
 
 import "github.com/emirpasic/gods/sets/hashset"
@@ -75,7 +75,7 @@ func main() {
   
 golang set: https://studygolang.com/articles/8231
 
-```golang
+```go
 
 # create map
 serials:= make(map[string]uint8)
@@ -83,14 +83,14 @@ serials:= make(map[string]uint8)
 
 check if a map contains a key
 
-```golang
+```go
 
 if val, ok := dict["foo"]; ok {
     //do something here
 }
 ```
 
-```golang
+```go
 
 package main
 
@@ -110,7 +110,7 @@ fmt.Println(x["key"][1])
 
 ### 遍历
 
-```golang
+```go
 for k, v := range m { 
  fmt.Printf("k=%v, v=%v\n", k, v) 
  } 
@@ -202,7 +202,7 @@ https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map
   
 there is not a simpler/nicer way.
 
-```golang
+```go
 package main
 
 func main() {

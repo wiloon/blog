@@ -10,24 +10,25 @@ tags:
   - reprint
 ---
 ## go metrics
-```golang
-import "    influxdb "github.com/vrischmann/go-metrics-influxdb""
-    go influxdb.InfluxDB(
-        metrics.DefaultRegistry,
-        time.Duration(10)*time.Second,
-        "http://192.168.50.244:8086",
-        "database0",
-        "measurement0",
-        "",
-        "",
-        false,
-    )
+```go
+import "github.com/jregovic/go-metrics-influxdb"
 
-    go metrics.Log(
-        metrics.DefaultRegistry,
-        time.Duration(metricsOutputDuration)*time.Second,
-        logger.GetLogger(),
-    )
+go influxdb.InfluxDB(
+    metrics.DefaultRegistry,
+    time.Duration(10)*time.Second,
+    "http://192.168.50.244:8086",
+    "database0",
+    "measurement0",
+    "",
+    "",
+    false,
+)
+
+go metrics.Log(
+    metrics.DefaultRegistry,
+    time.Duration(metricsOutputDuration)*time.Second,
+    logger.GetLogger(),
+)
 
 meter := metrics.GetOrRegisterMeter("foo", nil)
 meter.Mark(1)

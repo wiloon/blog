@@ -103,7 +103,7 @@ fmt.Println(rect1.width)
 
 Go语言提供了继承，但是采用了组合的语法，我们将其称为匿名组合，例如: 
 
-```golang
+```go
 type Base struct {
     name string
 }
@@ -138,7 +138,7 @@ func main() {
 组合的类型和被组合的类型包含同名成员时， 会不会有问题呢？可以参考下面的例子: 
 
 
-```golang
+```go
 type Base struct {
     name string 
     age int

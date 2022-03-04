@@ -66,14 +66,14 @@ $GOOS_$GOARCH 命名的,Mac 平台上这个目录名就是 darwin_amd64。
 
 名称以 _test.go 为后缀的代码文件,并且必须包含 Test 或者 Benchmark 名称前缀的函数。
 
-```golang
+```go
 func TestXXX( t *testing.T) {
 }
 ```
 
 名称以 Test 为名称前缀的函数,只能接受 *testing.T 的参数,这种测试函数是功能测试函数。
 
-```golang
+```go
 func BenchmarkXXX( b *testing.B) {
 }
 ```

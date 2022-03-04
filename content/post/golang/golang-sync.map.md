@@ -11,7 +11,7 @@ tags:
 ## "golang sync.Map"
 
 
-```golang
+```go
 func main() {
 	m := sync.Map{}
 	m.Store(1,1)

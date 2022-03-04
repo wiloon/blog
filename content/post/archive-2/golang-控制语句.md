@@ -11,7 +11,7 @@ tags:
 ---
 ## golang 控制语句/control, foreach, loop, switch, 循环
 
-```golang
+```go
 package main
 
 import (
