@@ -54,7 +54,21 @@ ss -l
 - closing
 
 >http://www.ttlsa.com/linux-command/ss-replace-netstat/
-  
+
+## Recv-Q, Send-Q
+LISTEN 状态：
+
+Recv-Q 表示当前 listen backlog 队列中的连接数目（等待用户调用 accept() 获取的、已完成 3 次握手的 socket 连接数量），而 Send-Q 表示了 listen socket 最大能容纳的 backlog ，即 min(backlog, somaxconn) 值。
+非 LISTEN 状态：Recv-Q 表示了 receive queue 中存在的字节数目；Send-Q 表示 send queue 中存在的字节数；
+
+    strace -s 128 ss -nat
+    // Recv-Q, 等待接收的下一个 tcp 段的序号 - 尚未从内核空间 copy 到用户空间的段最前面的一个序号
+    // Send-Q, 已加入发送队列中的 tcp 段的最后一个序号 - 已发送但尚未确认的最早一个序号
+
+>https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/%E5%85%B3%E4%BA%8E%20Recv-Q%20%E5%92%8C%20Send-Q%20%E7%9A%84%E8%AF%B4%E6%98%8E.md
+
+---
+
 ss 命令用于显示 socket 状态. 可以显示 PACKET sockets, TCP sockets, UDP sockets, DCCP sockets, RAW sockets, Unix domain sockets 等等统计. 它比其他工具展示等多tcp和state信息. 它是一个非常实用、快速、有效的跟踪IP连接和sockets的新工具.SS命令可以提供如下信息: 
 
 所有的 TCP sockets

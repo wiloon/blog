@@ -18,7 +18,7 @@ bind 0.0.0.0
 #参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip（127.0.0.1) 访问Redis
 protected-mode no
 port 6379
-#tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度,当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其Send-Q就是这个accept queue队列的最大值. 只有server端执行了accept后才会从这个队列中移除这个连接. 这个值的大小是受somaxconn影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的somaxconn值.建议修改为 2048
+#tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度,当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其 Send-Q 就是这个 accept queue 队列的最大值. 只有 server 端执行了 accept 后才会从这个队列中移除这个连接. 这个值的大小是受 somaxconn 影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的 somaxconn 值.建议修改为 2048
 tcp-backlog 511
 
 # timeout, 设置客户端连接时的超时时间,单位为秒。当客户端在这段时间内没有发出任何指令,那么关闭该连接
