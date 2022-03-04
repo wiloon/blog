@@ -64,6 +64,11 @@ Add the john account to the sales group
 sudo usermod -aG docker $USER
 ```
 
+## linux 用户 组
+groups
+
+**/etc/group文件包含所有组**
+
 禁止用户登录
   
 usermod -s /sbin/nologin user0
