@@ -21,15 +21,17 @@ return errors.New("string")
 ### 打印调用栈
 #### using runtime
 ```golang
-if p := recover(); p != nil {
-    logs.Error("message push panic: %v", p)
+defer func() {
+    if p := recover(); p != nil {
+        logger.Errorf("panic: %v", p)
+        //打印调用栈信息
+        buf := make([]byte, 2048)
+        n := runtime.Stack(buf, false)
+        stackInfo := fmt.Sprintf("%s", buf[:n])
+        logger.Errorf("panic stack info %s", stackInfo)
+    }
+}()
 
-    //打印调用栈信息
-    buf := make([]byte, 2048)
-    n := runtime.Stack(buf, false)
-    stackInfo := fmt.Sprintf("%s", buf[:n])
-    logs.Error("panic stack info %s", stackInfo)
-}
 ```
 
 #### using debug
