@@ -76,9 +76,13 @@ end note
 
 https://www.jianshu.com/p/ed0e979657f4
 
+theme: plain,sandstone,sketchy-outline
+
 ### 活动图
 ```puml
 @startuml
+!theme plain
+
 start
 
 if (foo?) then (yes)

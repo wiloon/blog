@@ -49,3 +49,7 @@ hugo server
 # 开个浏览器看一下页面
 google-chrome-stable http://localhost:1313/
 ```
+
+
+### hugo, plantuml
+>https://mogeko.me/posts/zh-cn/083/

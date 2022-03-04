@@ -2,16 +2,15 @@
 title: 'TCP 三次握手,  TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)'
 author: "-"
 date: 2016-08-10T04:25:26+00:00
-url: /?p=9172
-
+url: tcp
 categories:
-  - inbox
+  - network
 tags:
   - reprint
 ---
 ## 'TCP 三次握手,  TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)'
 ### TCP (Transmission Control Protocol)
-TCP工作在网络OSI的七层模型中的第四层——Transport层  
+TCP 工作在网络OSI的七层模型中的第四层 - Transport层  
 TCP标志位  
 在TCP层,有个FLAGS字段,这个字段有以下几个标识: SYN, FIN, ACK, PSH, RST, URG.  
 
@@ -77,18 +76,35 @@ http://blog.csdn.net/crystal0011/article/details/8954674
 http://www.voidcn.com/blog/chenyujin1314520/article/p-5999167.html
 
 https://github.com/chemdemo/chemdemo.github.io/blob/master/issues/tcp_notes.md
-
-
   
-    简析TCP的三次握手与四次分手
-  
+>https://xie.infoq.cn/article/84998c291eb69b50fad90a132?utm_source=rss&utm_medium=article
 
-
-
-
-
----
-
-
-https://xie.infoq.cn/article/84998c291eb69b50fad90a132?utm_source=rss&utm_medium=article
-
+### 三次握手, 四次挥手, plantuml
+```plantuml
+@startuml
+!theme plain
+== 建立连接 ==
+client -> server: SYN
+hnote over client : SYN-SEND
+server -> client: SYN+ACK
+hnote over server : SYN-RCVD
+client -> server: ACK
+hnote over client,server : ESTABLISHED
+== 数据传输 ==
+client -> server: DATA
+client -> server: DATA
+server -> client: DATA
+== 断开连接 ==
+client -> server: FIN
+hnote over client : FIN-WAIT-1
+server -> client: DATA
+server -> client: ACK
+hnote over server : CLOSE-WAIT
+hnote over client : FIN-WAIT-2
+server -> client: FIN
+hnote over server : LAST-ACK
+client -> server: ACK
+hnote over client : TIME-WAIT
+hnote over server : CLOSE
+@enduml
+```

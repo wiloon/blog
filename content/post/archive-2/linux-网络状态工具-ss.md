@@ -1,5 +1,5 @@
 ---
-title: 网络状态工具 ss
+title: 网络状态工具 ss command
 author: "-"
 date: 2019-01-08T13:44:55+00:00
 url: ss
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## Linux 网络状态工具 ss
+## 网络状态工具 ss command
 
 ss 是 iproute2 包附带的一个查询 socket 有关的统计信息的工具, 它的功能跟 netstat 类似, 比netstat更快速更高效.当服务器的socket连接数量变得非常大时，无论是使用 `netstat` 命令还是直接 `cat /proc/net/tcp`，执行速度都会很慢。ss快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，ss也可以正常运行，只是效率会变得稍慢。
 

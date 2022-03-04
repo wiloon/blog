@@ -64,7 +64,7 @@ getInputStream方法获得网络连接输入，同时返回一个InputStream对�
   
 getOutputStream方法连接的另一端将得到输入，同时返回一个OutputStream对象实例。注意: 其中getInputStream和getOutputStream方法均可能会产生一个IOException，它必须被捕获，因为它们返回的流对象，通常都会被另一个流对象使用。
   
-SOCKET连接过程
+### SOCKET连接过程
 
 根据连接启动的方式以及本地 socket 要连接的目标， socket 之间的连接过程可以分为三个步骤: 服务器监听，客户端请求，连接确认。
   
