@@ -14,13 +14,15 @@ tags:
 ## awk `[ɔk]`
 ### commands
 ```bash
-    cat dep-clean|awk -F '@' '{if(NF>2){print "\"""@"$2"\""":"$3} else {pint $1":"$2}}'
-    cat dep-clean|awk -F '@' '{if(NF<3){print "\""$1"\""":"$2}}'
-    cat dep-clean|awk -F '@' '{if(NF>2){print "\"""@"$2"\""":"$3} else if (NF<3) {print $1":"$2}}'
-    # kill all java process
-    ps -ef |grep java|awk '{print $2}'|xargs -t -n 1 kill -9
-    # 取本机ip >https://www.cnblogs.com/poloyy/p/12212868.html
-    ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'
+# 单独使用 awk, 不需要 cat
+awk  '{print $1}' /tmp/foo.txt
+cat dep-clean|awk -F '@' '{if(NF>2){print "\"""@"$2"\""":"$3} else {pint $1":"$2}}'
+cat dep-clean|awk -F '@' '{if(NF<3){print "\""$1"\""":"$2}}'
+cat dep-clean|awk -F '@' '{if(NF>2){print "\"""@"$2"\""":"$3} else if (NF<3) {print $1":"$2}}'
+# kill all java process
+ps -ef |grep java|awk '{print $2}'|xargs -t -n 1 kill -9
+# 取本机ip >https://www.cnblogs.com/poloyy/p/12212868.html
+ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'
 ```
 
 ### 变量
@@ -100,6 +102,10 @@ tail -n 10000 info.log | grep 'xxx.*Unknown.*LF'|awk -F 'Unk|:L' '{print substr(
 ### 统计
 
 ```bash
+# 求和
+cat data|awk '{sum+=$1} END {print "Sum = ", sum}'
+cat foo.txt |awk '{sum+=$1} END {print "sum = ", sum}'
+
 # 平均
 grep '1-min rate' *.log  |awk -F ' ' '{sum+=$7} END {print "Average = ", sum/NR}'
 #最大值

@@ -38,7 +38,7 @@ tags:
     cargo new hello-rust
     cargo run
     
-### vscode plugin
+### vscode plugin rust
 - rust-anlyzer（RA) 
 - Rust 语言服务器（RLS) 
 

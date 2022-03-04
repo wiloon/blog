@@ -1,5 +1,5 @@
 ---
-title: vscode basic
+title: vscode basic， vscode, visual studio code
 author: "-"
 date: 2018-09-01T03:34:42+00:00
 url: vscode
@@ -9,7 +9,6 @@ categories:
 tags:
   - reprint
 ---
-## vscode basic
 ## vscode basic， vscode, visual studio code
 
 ### debian install visual studio code
@@ -66,7 +65,12 @@ Controls the font family.
 
 还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', "微软雅黑", monospace 这样。
 
-### plugin
+### vscode plugin
+#### Filter Line
+按关键字过滤
+#### Word Count
+
+字数统计
 
 #### remote development
 
