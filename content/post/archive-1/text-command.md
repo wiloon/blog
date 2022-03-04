@@ -10,9 +10,8 @@ tags:
   - reprint
 ---
 ## 文本处理命令， text command
-## 文本 处理命令, text command
 
-0. 正则表达式（regular expression) 
+1. 正则表达式（regular expression) 
   
 元字符（如下图) 是正则表达式中含有的字符,在正则表达式中可以在字符串中使用元字符以匹配字符串的各种可能的情况。
 
