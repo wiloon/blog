@@ -65,7 +65,7 @@ Controls the font family.
 
 还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', "微软雅黑", monospace 这样。
 
-### vscode plugin
+## vscode plugin
 #### Filter Line
 按关键字过滤
 #### Word Count
@@ -85,6 +85,12 @@ markdown 语法检查
     ctrl+shift+i - 表格格式化
     ctrl+b: 粗体
     命令: Format Document: 格式化表格
+
+## vscode 扩展 离线安装
+- 下载 .vsix 文件
+- 安装
+
+    code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
 
 #### Settings Sync
 

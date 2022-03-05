@@ -75,3 +75,12 @@ Inode limits: 使用 overlay 存储驱动会导致过多的 inode 损耗。特�
 ---
 
 https://wiki.opskumu.com/docker/jing-xiang-cun-chu/docker-overlayfs
+
+### kernel does not support overlay fs: 'overlay' is not supported over xfs
+
+```bash
+[storage.options]
+# Storage options to be passed to underlying storage drivers
+mount_program = "/usr/bin/fuse-overlayfs"
+
+```

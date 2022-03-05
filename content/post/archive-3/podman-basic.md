@@ -8,7 +8,7 @@ tags:
   - remix
 
 categories:
-  - inbox
+  - container
 ---
 ## podman basic
 ### install

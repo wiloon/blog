@@ -21,3 +21,7 @@ linux "-xxx"
 site: 在特定域中进行搜索
 -site: 排除特定域
 ```
+
+### 文件类型
+
+    filetype: PDF

@@ -11,6 +11,7 @@ tags:
 ---
 ## buildah
 ```bash
+sudo pacman -S fuse-overlayfs
 sudo pacman -S buildah
 
 # buildah needs to run as root!!!
