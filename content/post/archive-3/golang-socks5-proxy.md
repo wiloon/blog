@@ -1,16 +1,16 @@
 ---
-title: golang socks5 proxy, http proxy
+title: Go SOCKS5 proxy, http proxy
 author: "-"
 date: 2020-02-23T15:45:35+00:00
-url: /?p=15622
+url: go/proxy
 categories:
-  - Uncategorized
+  - go
 
 tags:
   - reprint
 ---
-## golang socks5 proxy, http proxy
-## golang socks5 proxy
->https://github.com/wiloon/pingd-proxy
+## golang SOCKS5 proxy, http proxy
 
-https://golangnote.com/topic/258.html
+>https://segmentfault.com/a/1190000038247560
+>https://github.com/wiloon/pingd-proxy
+>https://golangnote.com/topic/258.html

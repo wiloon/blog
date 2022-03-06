@@ -16,8 +16,9 @@ https://podman.io/getting-started/installation
 ### archlinux
 ```bash
 pacman -S podman
-# 安装之后不需要重启系统
+# 正常情况，安装podman之后不需要重启系统, 但是如果有异常，比如 CNI 之类 的问题，可以考虑重启一下...
 ```
+
 ### ubuntu
     . /etc/os-release
     echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -30,11 +31,14 @@ pacman -S podman
 ### centos
     dnf install podman
 
+
 ### hello world
 测试一下podman 环境
 ```bash
 podman run --rm hello-world
 ```
+
+
 
 ### podman command
 ```bash
@@ -54,7 +58,13 @@ podman container restore <container_id>
 podman stop --latest
 podman rm --latest
 podman --log-level=debug pull dockerhub.azk8s.cn/library/golang
+# 显示虚悬镜像(dangling image)
+podman image ls -f dangling=true
+# 删除无效镜像
+podman image prune
 ```
+### 虚悬镜像(dangling image)
+为什么会有 `<none>` 这样命名的镜像？这些镜像 docker 称为 虚悬镜像，当镜像被新的镜像覆盖时候，老版本镜像名称会变成 `<none> `。
 
 ### env
 使用 env 命令来查看容器的环境变量
@@ -138,8 +148,10 @@ location = "docker-registries.wiloon.com"
     prefix = "docker.io"
     location = "xxxxxx.mirror.aliyuncs.com"
 
-### run
+## run
+
 限制cpu, 内存
+
 ```bash
 podman run \
 -d \
@@ -149,10 +161,11 @@ podman run \
 --memory=2g \
 --cpus=1 \
 image0_name
-
 ```
 
-### generate systemd script
+## systemd script
+
+generate systemd script
 
 ```bash
 export service_name=foo
@@ -306,3 +319,17 @@ https://github.com/containernetworking/plugins
     podman ps -a -f "status=exited"
 
 >https://docs.podman.io/en/latest/markdown/podman-ps.1.html
+
+## 导出镜像
+
+    podman save be96e19ac6ef >pingd-proxy.tar
+
+>wangyue.dev/docker/save
+
+### Netavark
+
+Netavark 是一个 用 rust 实现的 配置 linux 容器网络的工具。
+
+In addition to the existing CNI Out of the stack ,Podman Now it also supports based on  Netavark  and  Aardvark New network stack . The new stack features improved support for containers in multiple networks 、 improvement IPv6 Support , And improve performance . To ensure that there is no impact on existing users , used CNI The stack will keep the default value of the existing installation , The new installation will use Netvark.
+
+>https://github.com/containers/netavark
