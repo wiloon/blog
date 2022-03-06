@@ -62,3 +62,19 @@ alias /www/root/html/new_t/;
 原文: https://blog.csdn.net/u011510825/article/details/50531864
   
 版权声明: 本文为博主原创文章，转载请附上博文链接！
+
+
+## Nginx虚拟目录alias和root目录
+ 
+
+nginx是通过alias设置虚拟目录，在nginx的配置中，alias目录和root目录是有区别的：
+1）alias指定的目录是准确的，即location匹配访问的path目录下的文件直接是在alias目录下查找的；
+2）root指定的目录是location匹配访问的path目录的上一级目录,这个path目录一定要是真实存在root指定目录下的；
+3）使用alias标签的目录块中不能使用rewrite的break（具体原因不明）；另外，alias指定的目录后面必须要加上"/"符号！！
+4）alias虚拟目录配置中，location匹配的path目录如果后面不带"/"，那么访问的url地址中这个path目录后面加不加"/"不影响访问，访问时它会自动加上"/"；
+    但是如果location匹配的path目录后面加上"/"，那么访问的url地址中这个path目录必须要加上"/"，访问时它不会自动加上"/"。如果不加上"/"，访问就会失败！
+5）root目录配置中，location匹配的path目录后面带不带"/"，都不会影响访问。
+
+
+>https://www.cnblogs.com/kevingrace/p/6187482.html
+

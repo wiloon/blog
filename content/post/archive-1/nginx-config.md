@@ -239,7 +239,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   
 proxy_set_header Host $host;
   
-client_max_body_size 10m; #允许客户端请求的最大单文件字节数
+
   
 client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，
   
@@ -919,3 +919,10 @@ https://blog.51cto.com/liuqunying/1420556
 来源: 黑客派
   
 协议: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+
+
+### server_tokens off;
+隐藏版本号
+
+## client_max_body_size 10m; 
+允许客户端请求的最大单文件字节数

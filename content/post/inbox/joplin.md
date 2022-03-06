@@ -1,7 +1,7 @@
 ---
 title: "joplin"
 author: "-"
-date: ""
+date: "2021-03-06 14:53:35"
 url: ""
 categories:
   - inbox
@@ -35,41 +35,42 @@ web clipper 端口，
 Tools>Options>General>Text editor command>Path
 填写typora 可执行文件的位置。
 
-### docker server
+### joplin server
 >https://hub.docker.com/r/joplin/server
 ```bash
-podman run --rm --name joplin --env-file /data/joplin.env -p 22300:22300 joplin/server:2.7.3-beta
-podman run -d --name joplin --env-file /data/joplin.env -p 22300:22300 joplin/server:2.7.3-beta
+podman run -d --name joplin --env-file /data/joplin/joplin.env -v joplin-data:/home/joplin -p 22300:22300 joplin/server:2.7.4-beta
 ```
 ### joplin.env
 ```
-# =============================================================================
-# PRODUCTION CONFIG EXAMPLE
-# -----------------------------------------------------------------------------
-# By default it will use SQLite, but that's mostly to test and evaluate the
-# server. So you'll want to specify db connection settings to use Postgres.
-# =============================================================================
-#
-# APP_BASE_URL=https://example.com/joplin
-# APP_PORT=22300
-#
-# DB_CLIENT=pg
-# POSTGRES_PASSWORD=joplin
-# POSTGRES_DATABASE=joplin
-# POSTGRES_USER=joplin
-# POSTGRES_PORT=5432
-# POSTGRES_HOST=localhost
-
-# =============================================================================
-# DEV CONFIG EXAMPLE
-# -----------------------------------------------------------------------------
-# Example of local config, for development. In dev mode, you would usually use
-# SQLite so database settings are not needed.
-# =============================================================================
-#
-APP_BASE_URL=http://192.168.50.13:22300
+APP_BASE_URL=https://joplin.wiloon.com
 APP_PORT=22300
 ```
 
+### nginx config
+```bash
+server {
+    listen              443 ssl;
+    server_name         joplin.wiloon.com;
+    client_max_body_size 100m;
+    ssl_certificate     /etc/letsencrypt/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/privkey.pem;
+    ssl_protocols       TLSv1.2;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    
+    location / { try_files $uri $uri/ @joplin; }
+ 
+    location @joplin {
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_set_header Host $http_host;
+                proxy_redirect off;
+                proxy_pass http://192.168.50.90:22300;
+    }
+}
+
+```
+### 默认用户名/密码
+
+    admin@localhost/admin
 
 >https://github.com/laurent22/joplin
