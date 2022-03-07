@@ -28,9 +28,6 @@ ssh -o ConnectTimeout=10  <hostName>
 # -o, option
 ```
 
-## no matching host key type found. Their offer: ssh-rsa
-
-    ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa  root@192.168.50.1 -p 22
 
 Ubuntu缺省安装了openssh-client,所以在这里就不安装了，如果你的系统没有安装的话，再用apt-get安装上即可。
   
@@ -44,3 +41,22 @@ ssh-server配置文件位于/ etc/ssh/sshd_config，在这里可以定义SSH的�
 
 sudo /etc/init.d/ssh resar
 
+
+## no matching host key type found. Their offer: ssh-rsa
+
+    ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa  root@192.168.50.1 -p 22
+
+为什么会有这个错误
+根据 OpenSSH Release Notes
+
+Future deprecation notice
+
+It is now possible[1] to perform chosen-prefix attacks against the SHA-1 algorithm for less than USD$50K.
+
+In the SSH protocol, the “ssh-rsa” signature scheme uses the SHA-1 hash algorithm in conjunction with the RSA public key algorithm. OpenSSH will disable this signature scheme by default in the near future.
+
+Note that the deactivation of “ssh-rsa” signatures does not necessarily require cessation of use for RSA keys. In the SSH protocol, keys may be capable of signing using multiple algorithms. In particular, “ssh-rsa” keys are capable of signing using “rsa-sha2-256” (RSA/SHA256), “rsa-sha2-512” (RSA/SHA512) and “ssh-rsa” (RSA/SHA1). Only the last of these is being turned off by default.
+
+也就是说 8.8p1 版的 openssh 的 ssh 客户端默认禁用了 ssh-rsa 算法, 但是对方服务器只支持 ssh-rsa, 当你不能自己升级远程服务器的 openssh 版本或修改配置让它使用更安全的算法时, 在本地 ssh 针对这些旧的ssh server重新启用 ssh-rsa 也是一种权宜之法.
+
+>https://ttys3.dev/post/openssh-8-8-p1-no-matching-host-key-type-found-their-offer-ssh-rsa/

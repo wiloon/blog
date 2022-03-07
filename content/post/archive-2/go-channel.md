@@ -41,6 +41,8 @@ var dataChan <-chan []byte
 
 // 使用make初始化Channel,并且可以设置容量, channel 初始化, 初始化之后才能使用
 // 未设置容量的channel, 如果没有设置容量，或者容量设置为0, 说明Channel没有缓存，只有sender和receiver都准备好了后它们的通讯
+// 无缓冲的channel由于没有缓冲发送和接收需要同步.
+// channel无缓冲时，发送阻塞直到数据被接收，接收阻塞直到读到数据。
 dataChan := make(<-chan []byte)
 // 容量为100的 channel
 ch := make(chan int, 100)

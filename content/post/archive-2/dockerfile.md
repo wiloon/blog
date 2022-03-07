@@ -10,6 +10,26 @@ tags:
   - reprint
 ---
 ## dockerfile
+
+```bash
+FROM golang:1.17.8 AS build
+ENV GO111MODULE on
+ARG APP_NAME=rssx-api
+WORKDIR /workdir
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux GOPROXY=https://goproxy.io go build -a -o ${APP_NAME} main.go
+
+FROM alpine:3.15.0 AS prod
+ARG APP_NAME=rssx-api
+COPY --from=build /workdir/${APP_NAME} /data/${APP_NAME}
+COPY config.toml config.toml
+COPY config.toml /data/config.toml
+ENV APPLICATION_NAME ${APP_NAME}
+CMD "/data/${APPLICATION_NAME}"
+
+
+```
+
 ```
 FROM golang:1.12.4 AS build
 

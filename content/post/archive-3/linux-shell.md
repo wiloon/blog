@@ -10,7 +10,15 @@ tags:
   - reprint
 ---
 ## shell basic
+## 循环
+```bash
+#!/bin/bash  
 
+for i in {1..10}  
+do  
+echo $(expr $i \* 3 + 1);  
+done
+```
 ### 字符串分割
 
 ```bash
