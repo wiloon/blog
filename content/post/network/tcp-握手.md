@@ -1,5 +1,5 @@
 ---
-title: 'TCP 三次握手,  TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)'
+title: TCP 三次握手, tcp three way handshake,   四次挥手, TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)
 author: "-"
 date: 2016-08-10T04:25:26+00:00
 url: tcp
@@ -8,7 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 'TCP 三次握手,  TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)'
+## TCP 三次握手, tcp three way handshake,   四次挥手, TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)
 ### TCP (Transmission Control Protocol)
 TCP 工作在网络OSI的七层模型中的第四层 - Transport层  
 TCP标志位  
@@ -99,12 +99,12 @@ client -> server: FIN
 hnote over client : FIN-WAIT-1
 server -> client: DATA
 server -> client: ACK
-hnote over server : CLOSE-WAIT
+hnote over server : CLOSE_WAIT
 hnote over client : FIN-WAIT-2
 server -> client: FIN
 hnote over server : LAST-ACK
 client -> server: ACK
-hnote over client : TIME-WAIT
+hnote over client : TIME_WAIT
 hnote over server : CLOSE
 @enduml
 ```

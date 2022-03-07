@@ -392,17 +392,19 @@ Nginx的缓冲配置
   
 请求缓冲在Nginx请求处理中扮演了重要的角色。当收到一条请求时，Nginx将请求写入缓冲当中。缓冲中的数据成为Nginx的变量，比如$request_body。如果缓冲容量比请求容量小，那么多出来的请求会被写入硬盘，这时便会有I/O操作。Nginx提供了多个directive来修改请求缓冲。
 
-client_body_buffer_size
+### client_body_buffer_size
   
-这个directive设定了request body的缓冲大小。如果body超过了缓冲的大小，那么整个body或者部分body将被写入一个临时文件。如果Nginx被设置成使用文件缓冲而不使用内存缓冲，那么这个dirctive就无效。client_body_buffer_size在32位系统上默认是8k，在64位系统上默认是16k。可以在http, server 和 location模块中指定，如下: 
+这个参数设定了 request body 的缓冲大小。如果 body 超过了缓冲的大小，那么整个 body 或者部分 body 将被写入一个临时文件。如果 Nginx 被设置成使用文件缓冲而不使用内存缓冲，那么这个参数就无效。client_body_buffer_size 在 32 位系统上默认是8k，在 64 位系统上默认是16k。可以在 http, server 和 location 模块中指定，如下: 
 
+```
 server {
           
 client_body_buffer_size 8k;
   
 }
+```
   
-client_max_body_size
+### client_max_body_size
   
 这个directive设定Nginx可以处理的最大request body大小。如果收到的请求大于指定的大小，那么Nginx会回复HTTP 413错误（Request Entity too large) 。如果web服务器提供大文件上传的话，那么设置好这个directive很重要。
 

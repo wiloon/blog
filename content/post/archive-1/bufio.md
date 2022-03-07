@@ -1,16 +1,35 @@
 ---
-title: golang bufio
+title: Go bufio
 author: "-"
 date: 2015-01-16T03:17:33+00:00
-url: /?p=7246
+url: bufio
 categories:
-  - Uncategorized
+  - go
 
 tags:
   - reprint
+  - io
+
 ---
 ## golang bufio
-http://www.cnblogs.com/golove/p/3282667.html
+
+bufio 对 io 进行了包装, 提供了缓冲.
+
+bufio包实现了有缓冲的I/O。它包装一个io.Reader或io.Writer接口对象，创建另一个也实现了该接口，且同时还提供了缓冲和一些文本I/O的帮助函数的对象。
+
+简单的说就是bufio会把文件内容读取到缓存中（内存），然后再取读取需要的内容的时候，直接在缓存中读取，避免文件的i/o操作。同样，通过bufio写入内容，也是先写入到缓存中（内存），然后由缓存写入到文件。避免多次小内容的写入操作I/O。
+
+
+bufio.Read(p []byte) 的思路如下：
+
+1、当缓存区有内容的时，将缓存区内容全部填入p并清空缓存区
+2、当缓存区没有内容的时候且len(p)>len(buf),即要读取的内容比缓存区还要大，直接去文件读取即可
+3、当缓存区没有内容的时候且len(p)<len(buf),即要读取的内容比缓存区小，缓存区从文件读取内容充满缓存区，并将p填满（此时缓存区有剩余内容）
+4、以后再次读取时缓存区有内容，将缓存区内容全部填入p并清空缓存区（此时和情况1一样）
+
+>https://www.cnblogs.com/ricklz/p/13188188.html
+
+>http://www.cnblogs.com/golove/p/3282667.html
 
 // bufio 包实现了带缓存的 I/O 操作
 

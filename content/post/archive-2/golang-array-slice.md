@@ -23,7 +23,7 @@ var foo [5]int
 // 声明时没有指定数组的初始化值, 因此所有的元素都会被自动初始化为默认值 0。
 
 //Go 语言中的数组是值类型，因此还可以用 new 来创建
-var bar := new([5]int)
+bar := new([5]int)
 // new 返回类型的指针，因此 foo bar 的区别在于: foo 的类型为 [5]int，bar 的类型为 *[5]int。
 
 var a [4]int
@@ -63,11 +63,15 @@ for i, value := range arrayOrSlice {
 
 ## 切片/slice
 
-slice是一个引用类型,是一个动态的指向数组切片的指针。
-slice是一个不定长的,总是指向底层的数组array的数据结构。
-切片类型属于引用类型
+slice 切片类型是一个引用类型, 是一个动态的指向数组切片的指针。
+slice 是一个不定长的, 总是指向底层的数组array的数据结构。
+
 
 ```go
+// 切片声明需要指定元素组成的类型，但不需要指定存储元素的数量
+// 在切片声明后，会被初始化为nil(零值)，表示暂不存在的切片。如下:
+// []int{} 空切片指的是底层数组没有存储元素
+// var nums []int nil切片指的是底层数组是指向nil，没有申请内存空间的，在append的时候申请
 var al []int          //创建slice, 并初始化
 sl := make([]int,10)  //创建有10个元素的slice
 sl:=[]int{1,2,3}      //创建有初始化元素的slice
@@ -106,6 +110,7 @@ https://coolshell.cn/articles/21128.html
 
     dir1 := path[:sepIndex:sepIndex]
 
+### :分割操作符
 
 ---
  
@@ -441,3 +446,11 @@ fmt.Println(pointerArray)
 版权声明：本文为CSDN博主「weixin_39693437」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/weixin_39693437/article/details/111389778
 
+---
+
+slice 的底层数据结构是什么？给slice赋值，到底赋了什么内容？
+通过:操作得到的新slice和原slice是什么关系？新slice的长度和容量是多少？
+append在背后到底做了哪些事情？
+slice的扩容机制是什么？
+
+>https://segmentfault.com/a/1190000041181996

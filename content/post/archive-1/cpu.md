@@ -2,10 +2,9 @@
 title: CPU
 author: "-"
 date: 2015-06-30T02:32:13+00:00
-url: /?p=7989
-
+url: cpu
 categories:
-  - inbox
+  - cs
 tags:
   - reprint
 ---

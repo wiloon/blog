@@ -46,7 +46,7 @@ swap 的使用量
 空闲的物理内存的大小,我的机器内存总共8G,剩余3415M。
 
 ### buff
-Linux/Unix系统是用来存储,目录里面有什么内容,权限等的缓存;表示块设备(block device)所占用的缓存页,包括: 直接读写块设备、以及文件系统元数据(metadata)比如SuperBlock所使用的缓存页；
+块设备(block device)所占用的缓存页, 包括: 直接读写块设备、以及文件系统元数据 (metadata) 比如 SuperBlock 所使用的缓存页；
   
 buffers are only used for file metadata (inodes, etc) and data from raw block devices. It's accessed via block device and block number.
 

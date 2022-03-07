@@ -1,5 +1,5 @@
 ---
-title: git rebase,revert,reset
+title: git rebase, revert, reset
 author: "-"
 date: 2014-08-07T01:47:09+00:00
 url: git/revert
@@ -9,7 +9,6 @@ tags:
   - Git
 
 ---
-## git rebase,revert,reset
 ## git rebase, revert, reset
 回滚提示
 本地或者自己单独的仓库使用reset 或者revert都可以

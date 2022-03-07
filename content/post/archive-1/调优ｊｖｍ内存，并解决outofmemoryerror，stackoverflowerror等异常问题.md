@@ -120,9 +120,9 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded，这个是JDK6新添的�
 
 -XX:MaxDirectMemorySize=<size>
 
-Specifies the maximum amount of memory in bytes that the Java™ NIO library can allocate for direct memory buffers. The default is 64 megabytes, which corresponds to
+Specifies the maximum amount of memory in bytes that the Java NIO library can allocate for direct memory buffers. The default is 64 megabytes, which corresponds to
 
--XX:MaxDirectMemorySize=64m . The use of direct memory buffers can minimize the copying cost when doing I/O operations.
+-XX:MaxDirectMemorySize=64m . The use of direct memory buffers can minimize the copying cost when doing IO operations.
 
 http://arthur503.github.io/blog/2013/10/10/Java-OutOfMemoryError-and-StackOverflowError.html
 

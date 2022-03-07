@@ -9,24 +9,13 @@ categories:
 tags:
   - reprint
 ---
-## Java Image与BufferedImage
+## Java Image 与 BufferedImage
 
+Image是一个抽象类，BufferedImage是Image的实现。Image和BufferedImage的主要作用就是将一副图片加载到内存中。
 
+Java将一副图片加载到内存中的方法是:  
 
-  Image是一个抽象列，BufferedImage是Image的实现。
- Image和BufferedImage的主要作用就是将一副图片加载到内存中。
- Java将一副图片加载到内存中的方法是:  
-  
-  
-    
-      
-http://javapub.iteye.com/images/icon_star.png
-      
-    
-    
-    
-      
-        String imgPath = "C://demo.jpg";
+String imgPath = "C://demo.jpg";
       
       
         BufferedImage image = ImageIO.read(new FileInputStream(imgPath));
@@ -38,10 +27,6 @@ http://javapub.iteye.com/images/icon_star.png
   
   
     还有一个方法
-  
-http://javapub.iteye.com/images/icon_star.png
-      
-    
     
     
       

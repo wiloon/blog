@@ -59,7 +59,7 @@ batch.size是 producer 批量发送的基本单位,默认是 16384 Bytes, 即16k
 #### linger.ms
 单位: 毫秒
 lingger.ms是sender线程在检查batch是否ready时候,判断有没有过期的参数,默认大小是0ms
-producer会等待buffer的messages数目达到指定值或时间超过x毫秒,才发送数据。减少网络IO,节省带宽之用。原理就是把原本需要多次发送的小batch,通过引入延时的方式合并成大batch发送,减少了网络传输的压力,从而提升吞吐量。当然,也会引入延时.
+producer会等待 buffer 的 messages 数目达到指定值或时间超过 x 毫秒, 才发送数据。减少网络 IO, 节省带宽之用。原理就是把原本需要多次发送的小 batch, 通过引入延时的方式合并成大 batch 发送,减少了网络传输的压力, 从而提升吞吐量。当然, 也会引入延时.
 
 那么producer是按照batch.size大小批量发送消息呢,还是按照linger.ms的时间间隔批量发送消息呢？这里先说结论: 其实满足batch.size和ling.ms之一,producer便开始发送消息。
 

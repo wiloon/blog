@@ -103,13 +103,10 @@ LONGTEXT
 
 从最大值上讲：
 
-    - 在Innobase中,变长字段，是尽可能的存储到一个Page里，这样，如果使用到这些大的变长字段，会造成一个Page里能容纳的行
-    数很少，在查询时，虽然没查询这些大的字段，但也会加载到innodb buffer pool中，等于浪费的内存。
-    （buffer pool 的缓存是按page为单位）（不在一个page了会增加随机的IO）
+- 在 Innobase 中, 变长字段，是尽可能的存储到一个 Page 里，这样，如果使用到这些大的变长字段，会造成一个Page里能容纳的行数很少，在查询时，虽然没查询这些大的字段，但也会加载到 innodb buffer pool中，等于浪费的内存。
+    （buffer pool 的缓存是按 page 为单位）（不在一个page了会增加随机的IO）
      
-    - 在innodb-plugin中为了减少这种大的变长字段对内存的浪费，引入了大于20个字节的，都进行overflow存储，
-    而且希望不要存到相同的page中，为了增加一个page里能存储更多的行，提高buffer pool的利用率。 这也要求我们，
-    如果不是特别需要就不要读取那些变长的字段。 
+- 在innodb-plugin中为了减少这种大的变长字段对内存的浪费，引入了大于20个字节的，都进行 overflow 存储，而且希望不要存到相同的page中，为了增加一个page里能存储更多的行，提高buffer pool的利用率。 这也要求我们，如果不是特别需要就不要读取那些变长的字段。 
 
 　　那问题来了？ 为什么varchar(255+)存储上和text很相似了，但为什么还要有varchar, mediumtext, text这些类型？
 （从存储上来讲大于255的varchar可以说是转换成了text.这也是为什么varchar大于65535了会转成mediumtext)

@@ -272,7 +272,7 @@ leveldb的这种版本的控制,让我想到了双buffer切换,双buffer切换�
 
 比如我们的服务器上有一个字典库,每天我们需要更新这个字典库,我们可以新开一个buffer,将新的字典库加载到这个新buffer中,等到加载完毕,将字典的指针指向新的字典库。
 
-leveldb的version管理和双buffer切换类似,但是如果原version被某个iterator引用,那么这个version会一直保持,直到没有被任何一个iterator引用,此时就可以删除这个version。
+leveldb的 version 管理和双 buffer 切换类似,但是如果原 version 被某个 iterator 引用,那么这个version会一直保持,直到没有被任何一个iterator引用,此时就可以删除这个version。
 
 注: 博文参考了郎格科技博客: http://www.samecity.com/blog/Index.asp?SortID=12
 

@@ -11,13 +11,6 @@ tags:
 ---
 ## hbase BufferedMutator
 
-  
-    使用BufferedMutator
-  
-
-
-
-
 org.apache.hadoop.hbase.client.BufferedMutator主要用来对HBase的单个表进行操作。它和Put类的作用差不多,但是主要用来实现批量的异步写操作。
 
 BufferedMutator替换了HTable的setAutoFlush(false)的作用。

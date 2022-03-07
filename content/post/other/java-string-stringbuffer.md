@@ -10,7 +10,6 @@ tags:
 
 ---
 ## JAVA String, StringBuffer, StringBuilder
-## String, StringBuffer, StringBuilder
 
 JAVA平台提供了两个类: String 和 StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String类提供了数值不可改变的字符串。而StringBuffer类提供的字符串允许进行修改。当你知道字符数据要改变的时候你就可以使用 StringBuffer。典型地，你可以使用 StringBuffers 来动态构造字符数据。
 

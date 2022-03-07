@@ -92,7 +92,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                            | comments          |
 | :------------------------------ | :---------------- |
-| graphviz                        |                   |
+| graphviz                        | plantuml依赖的包, /opt/local/bin/dot              |
 | jdk-openjdk                     | latest openjdk    |
 | jdk8-openjdk                    | openjdk 8         |
 | openjdk8-src                    | openjdk 8 source  |

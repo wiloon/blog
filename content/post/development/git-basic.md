@@ -14,7 +14,7 @@ tags:
 
 ### git add
 
-git add 命令可将该文件添加到暂存区。
+git add 命令可将该文件添加到`暂存区`。
 
 ### config git editor
 
