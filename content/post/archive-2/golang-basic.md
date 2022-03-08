@@ -12,7 +12,7 @@ tags:
 
 Go是Google开发的一种静态强类型、编译型、并发型,并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫,罗勃·派克及肯·汤普逊于2007年9月开始设计Go,稍后Ian Lance Taylor、Russ Cox加入项目。Go是基于Inferno操作系统所开发的。
 Go 语言是静态类型的编程语言
-
+F
 ## version
 ### latest 
 1.17
@@ -498,3 +498,12 @@ interface
 
 >http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/
 
+
+## range
+
+```go
+for pos, char := range str {
+    ...
+}
+
+```

@@ -51,16 +51,21 @@ Go中的控制语句较精简,仅有if、for、select和switch。
 
 ### for 循环
   
-Go语言的For循环有3中形式,只有其中的一种使用分号。
+Go语言的For循环有3中形式, 只有其中的一种使用分号。
 
-    for init; condition; post { } 
-    // 和C 的for 一样
-  
-    for condition { } 
-    // 和while 一样
-  
-    for { } 
-    // 和 C 的 for(;;) 一样（死循环) 
+```go
+for init; condition; post {
+  // body
+ } 
+// 和C 的for 一样
+// 执行顺序 init > body > condition > body > condition ... post
+
+for condition { } 
+// 和while 一样
+
+for { } 
+// 和 C 的 for(;;) 一样（死循环) 
+```
 
 ### if
   

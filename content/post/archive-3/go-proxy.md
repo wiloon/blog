@@ -2,9 +2,9 @@
 title: go module proxy, goproxy, goproxy.io, goproxy.cn, athens
 author: "-"
 date: 2019-06-20T06:16:22+00:00
-url: /?p=14531
+url: go/proxy
 categories:
-  - Uncategorized
+  - go
 
 tags:
   - reprint
@@ -18,6 +18,8 @@ export GOPROXY=https://goproxy.cn
 ```
 
 ### athens
+
+    docker run -p '3000:3000' gomods/athens:latest
 
 ---
 

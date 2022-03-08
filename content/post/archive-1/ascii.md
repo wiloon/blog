@@ -2,14 +2,25 @@
 title: ASCII
 author: "-"
 date: 2014-03-05T05:09:49+00:00
-url: /?p=6341
+url: ascii
 categories:
-  - Uncategorized
+  - cs
 
 tags:
   - reprint
 ---
 ## ASCII
+
+|Dec|Hex|Char|
+|-|-|-|
+|48|30|0|
+|57|39|9|
+|65|41|A|
+|90|5A|Z|
+|97|61|a|
+|112|7A|z|
+
+
 ASCII字符集，最基本的包含了128个字符。其中前32个，0-31，即0×00-0x1F，都是不可见字符。这些字符，就叫做控制字符。
 
 这些字符没法打印出来，但是每个字符，都对应着一个特殊的控制功能的字符，简称功能字符或功能码Function Code。
@@ -28,10 +39,6 @@ ASCII字符集，最基本的包含了128个字符。其中前32个，0-31，即
 
 
   
-    ASCII字符集中的功能/控制字符 Function/Control Code/Character in ASCII v2011-10-12
+ASCII字符集中的功能/控制字符 Function/Control Code/Character in ASCII 
   
-
-
-
-  
-http://book.51cto.com/art/201202/318141.htm
+>http://book.51cto.com/art/201202/318141.htm
