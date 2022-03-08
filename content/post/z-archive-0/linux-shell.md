@@ -2,7 +2,7 @@
 title: 'shell, bash, csh, sh, ksh, dash, zsh'
 author: "-"
 date: 2011-12-04T01:55:39+00:00
-url: /?p=1747
+url: shell
 categories:
   - Linux
 

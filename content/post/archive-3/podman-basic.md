@@ -38,14 +38,13 @@ pacman -S podman
 podman run --rm hello-world
 ```
 
-
-
 ### podman command
 ```bash
 podman version
 podman info --debug
 
 podman ps
+# 按名字过滤
 podman ps -f  name=zookeeper
 podman ps -a --format "{{.ID}} {{.Names}}"
 podman ps -a

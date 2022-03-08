@@ -71,3 +71,11 @@ oVirt的定位是替代vmware vsphere（https://docs.vmware.com/cn/VMware-vSpher
 
 ## lint
 lint是最著名的C语言工具之一，一般由UNIX系统提供。与大多数C语言编译器相比，lint可以对程序进行更加广泛的错误分析，是一种更加严密的编译工具。最初，lint这个工具用来扫描C源文件并对源程序中不可移植的代码提出警告。但是现在大多数lint实用程序已经变得更加严密，它不但可以检查出可移植性问题，而且可以检查出那些虽然可移植并且完全合乎语法但却很可能是错误的特性。
+
+### KHTML
+KHTML是HTML网页排版引擎之一，由KDE所开发。
+KDE系统自KDE2版起，在档案及网页浏览器使用了KHTML引擎。该引擎以C++编程语言所写，并以LGPL授权，支援大多数网页浏览标准。由于微软的Internet Explorer的占有率相当高，不少以FrontPage制作的网页均包含只有IE才能读取的非标准语法，为了使KHTML引擎可呈现的网页达到最多，部分IE专属的语法也一并支援。
+KHTML拥有速度快捷的优点，但对错误语法的容忍度则比Mozilla产品所使用的Gecko引擎小。
+苹果电脑于2002年采纳了KHTML，作为开发Safari浏览器之用，并发布所修改的最新及过去版本源代码。后来发表了开放源代码的WebCore及WebKit引擎，它们均是KHTML的衍生产品，在开发网站列出引擎改变内容，并会传回至KDE计划。由于两个衍生产品各走不同路线，使两者源代码偏离，在与KDE交换更新会出现困难。其中一个原因，是苹果在对外公开源代码之前，以一年时间编修他们的KHTML。另外，苹果传送更新至KDE计划的方式，多是一口气把大量改动一起传送，KDE在整理资料也出现一定的困难，及后苹果表示会以CVS格式来传送。再者，苹果所作出的改动包括Mac OS X系统独有的事物，如Objective-C、KWQ等，在Linux及KHTML是没有的。但KDE方面仍透过这些改动，为KHTML加入新功能及加快其排版速度。
+
+>http://codante.org/blog/post/rendering-engine-trident-gecko-presto-khtml-webcore-webkit/

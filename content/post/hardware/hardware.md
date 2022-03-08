@@ -224,3 +224,9 @@ Hotspot 2.0
 强制门户
 WISPr
 
+## Kindle Voyage
+
+内存容量是4GB(用户可用内存约3GB) 东芝 4GB 闪存
+屏幕分辨率为1448×1072，像素度也达到了300ppi
+飞思卡尔半导体 MCIMX6L8DVN10AB 处理器
+三星 512 MB SDRAM

@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## shell basic
-## 循环
+## 循环, shell loop
 ```bash
 #!/bin/bash  
 
