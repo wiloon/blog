@@ -96,6 +96,8 @@ Go语言的变量声明方式与C和C++语言有明显的不同。对于纯粹�
 
 ```go
 var v1 int
+var foo, bar int
+var width, height = 100, 50
 var v2 string
 
 var v3 [10] int  // 数组

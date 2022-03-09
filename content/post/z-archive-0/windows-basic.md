@@ -51,12 +51,16 @@ netstat -an|find "61616"
     # /s 是代表删除所有子目录跟其中的档案。 
     # /q 是不要它在删除档案或目录时，不再问我 Yes or No 的动作。 
 
-### 清理c盘空间
+### 清理c盘空间, windows清理硬盘空间, windows清理磁盘空间
 #### 升级包
+```bash
+    # win11 没有这个目录
     rmdir C:\Windows\SoftwareDistribution.old
+    # 停止正在运行的自动更新服务；, win11 没有...
     net stop wuauserv
-    ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.old
+    ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.bak
     net start wuauserv
+```
 #### 旧版本的系统
     搜索>磁盘清理》清理系统文件
 ### netstat

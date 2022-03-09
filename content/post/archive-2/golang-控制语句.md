@@ -11,6 +11,9 @@ tags:
 ---
 ## golang 控制语句/control, foreach, loop, switch, 循环
 
+Go 中的控制语句较精简, 只有很少的几个控制结构, 仅有 if、for、select 和 switch, 没有 while 或者 do-while 循环。
+
+## multiple initialisation and increment
 ```go
 package main
 
@@ -19,35 +22,26 @@ import (
 )
 
 func main() {
-    for no, i := 10, 1; i <= 10 && no <= 19; i, no = i+1, no+1 { // multiple initialisation and increment
+  // multiple initialisation and increment
+    for no, i := 10, 1; i <= 10 && no <= 19; i, no = i+1, no+1 { 
         fmt.Printf("%d * %d = %d\n", no, i, no*i)
     }
 }
 ```
 
-As an example:
+## range
 
+```go
 for index,element := range someSlice {
-    
 // index is the index where we are
-    
 // element is the element from someSlice for where we are
-  
 }
   
-If you don't care about the index, you can use _:
-
+//If you don't care about the index, you can use _:
 for _,element := range someSlice {
-    
 // element is the element from someSlice for where we are
-  
 }
-  
-Go中的控制语句较精简,仅有if、for、select和switch。
-
-在Go语言中只有很少的几个控制结构,它没有while或者do-while循环。
-
-但是它有for、switch、if。而且switch接受像for那样可选的初始化语句
+```
 
 ### for 循环
   
@@ -58,7 +52,7 @@ for init; condition; post {
   // body
  } 
 // 和C 的for 一样
-// 执行顺序 init > body > condition > body > condition ... post
+// 执行顺序 init > body > condition > body > condition > body > condition > ... > post
 
 for condition { } 
 // 和while 一样

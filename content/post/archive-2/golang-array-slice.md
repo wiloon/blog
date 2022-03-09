@@ -73,13 +73,25 @@ slice 是一个不定长的, 总是指向底层的数组array的数据结构。
 // var nums []int nil切片指的是底层数组是指向nil，没有申请内存空间的，在append的时候申请
 var al []int          //创建slice, 并初始化
 sl := make([]int,10)  //创建有10个元素的 slice
-sl:=[]int{1,2,3}      //创建有初始化元素的slice
+sl := []int{1,2,3}      //创建有初始化元素的slice
 
 len(sl)
 cap(sl)
 
 通过内置函数append(slice []Type,elems …Type)追加元素
+
+// 将 arr 中从下标 startIndex 到 endIndex-1 下的元素创建为一个新的切片。
+s := arr[startIndex:endIndex] 
+// 默认 endIndex 时将表示一直到arr的最后一个元素。
+s := arr[startIndex:] 
+
 ```
+## 初始化切片 s，s 是数组 arr 的引用。
+```go
+s := arr[:] 
+```
+
+
 
 ### 清空slice
 ```go

@@ -2,14 +2,16 @@
 title: golang 各种数据类型转换
 author: "-"
 date: 2017-10-31T06:18:25+00:00
-url: go-convert
-
+url: go/convert
 categories:
-  - inbox
+  - go
 tags:
   - reprint
 ---
 ## golang 各种数据类型转换
+
+Conversions are expressions of the form T(x) where T is a type and x is an expression that can be converted to type T.
+
 ### array > slice
     arr := [3]int{1,2,3}
     sli := arr[:]

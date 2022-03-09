@@ -39,3 +39,8 @@ TASKKILL [/S system [/U username [/P [password]]]] { [/FI filter] [/PID processi
 TASKKILL /S system /F /IM notepad.exe /T TASKKILL /PID 1230 /PID 1241 /PID 1253 /T TASKKILL /F /IM QQ.exe
 
 http://netsecurity.51cto.com/art/201309/411766.htm
+
+## ntsd
+ntsd -c q -p PID
+
+win7 需要 安装  win sdk for win7

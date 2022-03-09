@@ -1,24 +1,23 @@
 ---
-title: git intro
+title: Git
 author: "-"
 date: 2019-07-26T08:07:52+00:00
 url: git
 categories:
-  - dev
-
+  - git
 tags:
   - reprint
 ---
-## git intro
+## Git
 ```puml
 @startuml
 !theme plain
-[Working Directory] as work
-[Staging Area/Index] as stage
+[Working Directory\n工作区] as work
+[Staging Area\nIndex\n暂存区] as stage
 work --> stage: add
-[Repository] as repo
+[Repository\nLocal Repository\n本地仓库] as repo
 stage --> repo: commit
-[Remote] as remote
+[Remote\n远程仓库] as remote
 repo --> remote: push
 work <-- remote: pull
 remote --> repo: fetch/clone
@@ -40,7 +39,7 @@ Git本地库中的索引Index就是一个二进制文件，默认存储在.git/i
 Tips：不要手动修改 .git 目录的内容  
 当执行git commit命令后，会将暂存区内容提交到仓库之中。在工作区下面有.git的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用merge或rebase将远程仓库副本合并到本地仓库。
 
-### 远程版本库(remote repository)
+### 远程仓库 (remote repository)
 与本地仓库概念基本一致，不同之处在于一个存在远程，可用于远程协作，一个却是存在于本地。通过push/pull可实现本地与远程的交互；
 
 ### 远端仓库， 远程仓库副本
