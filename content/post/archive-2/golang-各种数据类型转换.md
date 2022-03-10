@@ -123,7 +123,8 @@ int64, err := strconv.ParseInt(string, 10, 64)
 // int到string
 string:=strconv.Itoa(int)
 // int64到string
-string:=strconv.FormatInt(int64,10)
+var foo int64
+string:=strconv.FormatInt(foo,10)
 
 // int32 to string
  strconv.FormatInt(int64(i), 10)

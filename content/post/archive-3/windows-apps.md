@@ -70,6 +70,7 @@ https://chocolatey.org/packages
 |VcXsrc            |x server|
 |PowerToys||
 |截图工具|搜索 截图工具|
+|WizTree|硬盘占用分析|
  
 MobaXterm
 
@@ -80,9 +81,7 @@ xmind
 picpick
   
 hedisql
-  
-idea
-  
+
 firefox
   
 base64tools
@@ -106,16 +105,11 @@ puttyng
 rdm redis desktop manager
   
 visualbox
-  
-360
 
-chrome
 
-shougou
 
 avirnt
-
-wechat
+ 
 
 steam
 

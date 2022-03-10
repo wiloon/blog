@@ -1,5 +1,5 @@
 ---
-title: windows basic
+title: windows basic, win basic
 author: "-"
 date: 2011-10-14T05:20:22+00:00
 url: windows
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## windows basic
+## windows basic, win basic
 
 ### msdn i tell u
 >https://www.itellu.com/2021/06/22/win11-v2021-v1/
@@ -51,18 +51,7 @@ netstat -an|find "61616"
     # /s 是代表删除所有子目录跟其中的档案。 
     # /q 是不要它在删除档案或目录时，不再问我 Yes or No 的动作。 
 
-### 清理c盘空间, windows清理硬盘空间, windows清理磁盘空间
-#### 升级包
-```bash
-    # win11 没有这个目录
-    rmdir C:\Windows\SoftwareDistribution.old
-    # 停止正在运行的自动更新服务；, win11 没有...
-    net stop wuauserv
-    ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.bak
-    net start wuauserv
-```
-#### 旧版本的系统
-    搜索>磁盘清理》清理系统文件
+
 ### netstat
 ```bash
 netstat -ano|findstr 8080
@@ -123,3 +112,26 @@ windows设置>控制面板>更改账户类型>添加>
     tasklist | findstr <pid>
 
 https://blog.csdn.net/hongweigg/article/details/41517025
+
+### 清理c盘空间, windows清理硬盘空间, windows清理磁盘空间
+#### 升级包
+```bash
+    # win11 没有这个目录
+    rmdir C:\Windows\SoftwareDistribution.old
+    # 停止正在运行的自动更新服务；, win11 没有...
+    net stop wuauserv
+    ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.bak
+    net start wuauserv
+```
+#### 旧版本的系统
+    搜索>磁盘清理》清理系统文件
+
+#### win 11 虚拟内存, pagefile.sys
+
+搜索 性能选项
+    > 高级>虚拟内存>更改>重启
+
+#### hiberfil.sys
+
+    powercfg.exe /hibernate off
+    powercfg.exe /hibernate on
