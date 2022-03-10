@@ -559,3 +559,7 @@ git config –global http.sslVerify false
 
 ><https://www.jianshu.com/p/9000cd49822c>
 ><https://blog.csdn.net/CrazyZhang1990/article/details/42780285>
+
+
+### pre-commit
+.git/hook/pre-commit
