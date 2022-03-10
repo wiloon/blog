@@ -11,7 +11,7 @@ tags:
 ---
 ## GraphViz
 ```bash
-c
+pacman -S graphviz
 ```
 
 GraphViz是什么？
