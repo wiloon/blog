@@ -191,7 +191,7 @@ tags:
   logger.info("Today is {}, Temperature set to {}. Old temperature was {}.", objs);
 
 
-  4、日志系统绑定原理
+  4. 日志系统绑定原理
 
 
   在应用中，通过LoggerFactory类的静态getLogger()获取logger。通过查看该类的代码可以看出，最终是通过StaticLoggerBinder.SINGLETON.getLoggerFactory()方法获取LoggerFactory然后，在通过该具体的LoggerFactory来获取logger的。类org.slf4j.impl.StaticLoggerBinder并不在slf4j-api-1.5.2.jar包中，仔细查看每个与具体日志系统对应的jar包，就会发现，相应的jar包都有一个org.slf4j.impl.StaticLoggerBinder的实现，不同的实现返回与该日志系统对应的LoggerFactory，因此就实现了所谓的动态绑定，达到只要选取不同jar包就能简单灵活配置的目的。

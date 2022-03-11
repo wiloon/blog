@@ -52,7 +52,7 @@ A simple practice in C 或 C++ 程序中,建议把所有的常量、宏、系统
 使用预处理指令 #include 可以引用用户和系统头文件。它的形式有以下两种: 
 
 #include <file>
-这种形式用于引用系统头文件。它在(/usr/include)的标准列表中搜索名为 file 的文件。在编译源代码时,您可以通过 -I 选项把目录前置在该列表前。
+这种形式用于引用系统头文件。它在系统的标准列表中搜索名为 file 的文件。在编译源代码时,您可以通过 -I 选项把目录前置在该列表前。
 
 #include "file"
 
@@ -66,11 +66,15 @@ A simple practice in C 或 C++ 程序中,建议把所有的常量、宏、系统
 
 C中可以通过 `#include <stdio.h >` 和 `#include "stidio.h"`, 区别是: 
 
+##### #include <stdio.h>
+
+搜索路径: `/usr/include`, `/usr/local/include`
+
 #include <stdio.h>, 直接到系统指定目录去查找头文件。
 #include "stidio.h", 会先到当前目录查找头文件,如果没找到在到系统指定目录查找。
 gcc编译时查找头文件, 按照以下路径顺序查找: 
 
-1. gcc编译时,可以设置 -I 选项以指定头文件的搜索路径,如果指定多个路径,则按照顺序依次查找。比如,
+1. gcc 编译时,可以设置 -I 选项以指定头文件的搜索路径,如果指定多个路径,则按照顺序依次查找。比如,
 
     gcc -I /usr/local/include/node a.c
 

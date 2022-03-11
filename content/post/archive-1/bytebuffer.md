@@ -2,7 +2,7 @@
 title: java ByteBuffer
 author: "-"
 date: 2015-08-05T04:32:55+00:00
-url: /?p=8057
+url: ByteBuffer
 categories:
   - java
 tags:
