@@ -2,13 +2,30 @@
 title: MySQL basic
 author: "-"
 date: 2011-04-15T14:42:09+00:00
-url: MySQL-basic
+url: mysql
 categories:
-  - MySQL
+  - db
 tags:
-  - MySQL
+  - mysql
 ---
 ## MySQL basic
+## install
+```bash
+# client
+sudo pacman -S mariadb-clients
+# server + client
+sudo pacman -S mariadb
+
+```
+
+### mysqldump
+```bash
+mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=user_id='0'
+```
+## mysql GUI client for Linux
+
+    IDEA
+
 ### jdbc url
     jdbc:MySQL://localhost:3306/tmp
     # driver
@@ -34,13 +51,11 @@ MySQL管理员用户名: root
 登录MySQL: 
     MySQL -u root -p
 
-提示输入密码.... 输入密码后回车...
-
-//查看有哪些数据库
+### 查看有哪些数据库
   
 show databases;
 
-//创建新用户 wiloon ......
+### 创建新用户 wiloon ......
 
 ```sql
 CREATE USER wiloon IDENTIFIED BY '123456';
@@ -466,3 +481,4 @@ http://blog.sina.com.cn/s/blog_4d73c2c20100h8gp.html
 http://bbs.csdn.net/topics/350006598
 
 http://blog.chinaunix.net/uid-20382003-id-3022768.html
+>https://blog.csdn.net/weixin_40482816/article/details/87074689

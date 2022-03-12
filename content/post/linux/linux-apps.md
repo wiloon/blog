@@ -11,7 +11,7 @@ tags:
   - remix
 ---
 ## linux apps
-### application list
+## application list
     https://wiki.archlinux.org/index.php/List_of_applications
 
 ```bash
@@ -27,7 +27,7 @@ sudo pacman -S wine rdesktop pulseaudio
 sudo pacman -S powerdevil kmix kscreen ark
 ```
 
-### archlinux pacman
+## archlinux pacman
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
@@ -88,7 +88,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |filelight|图形化的磁盘空间管理工具|
 |okular|pdf reader|
 
-### pacman, development
+## pacman, development
 
 | name                            | comments          |
 | :------------------------------ | :---------------- |
@@ -109,7 +109,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | tmux                            |                   |
 
 
-### AUR
+## AUR
 
 | name                                  | comments                                                       |
 | :------------------------------------ | -------------------------------------------------------------- |
@@ -149,7 +149,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | vscodium-bin|vscode 社区版|
 |gtk-recordmydesktop|录屏|
 
-### KDE
+## KDE
 
 | name          | comments             |
 | ------------- | -------------------- |
@@ -160,7 +160,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | kscreen       | kde 多显示器管理工具 |
 | kcolorchooser | 颜色拾取             |
 
-### KDE widget
+## KDE widget
 
 | name               | comments                   |
 | ------------------ | -------------------------- |
@@ -169,7 +169,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | Plasma Week Number | 显示周数                   |
 | rsibreak           | 蕃茄钟, install via pacman |
 
-### ubuntu
+## ubuntu
 | Name             | Comments                                                    |
 | ---------------- | ----------------------------------------------------------- |
 | openjdk-8-jdk    |                                                             |
@@ -207,3 +207,9 @@ file-roller
 | ------- | -------- |
 | drill   |          |
 | openwrt |          |
+
+## other
+| Name    | Comments |
+| ------- | -------- |
+| datagrip   |          |
+|  |          |

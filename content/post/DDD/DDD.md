@@ -151,3 +151,4 @@ DDD的核心诉求就是将业务架构映射到系统架构上，在响应业�
 
 >https://developer.aliyun.com/article/2255?spm=a2c6h.12873639.0.0.4f0121d9i6g8vv
 
+>https://domain-driven-design.org/zh/ddd-concept-reference.html

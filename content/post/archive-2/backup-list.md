@@ -2,15 +2,25 @@
 title: backup list, 备份列表
 author: "-"
 date: 2017-07-30T03:44:01+00:00
-url: /?p=10956
+url: backup
 categories:
-  - Uncategorized
+  - 0
 
 tags:
   - reprint
 ---
 ## backup list, 备份列表
-### pc
+### PC - home
+  * maven setting
+  * heidisql config
+  * email
+  * fcitx 码表 
+      * /home/wiloon/.config/fcitx/table/*.mb
+  * idea.dic
+  * ~/bin
+  * Emacs configuration file: ~/.emacs
+  * IDEA settings.
+### PC - work
   * maven setting
   * heidisql config
   * email
