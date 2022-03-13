@@ -10,6 +10,10 @@ tags:
   - reprint
 ---
 ## fcitx
+## 繁体简体转换快捷键
+
+    addon里找 繁体简体转换，修改快捷键
+
 ### 配置文件
     vim ~/.config/fcitx/config
 ### 在线造词

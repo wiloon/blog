@@ -46,7 +46,7 @@ yarn global add http-server
     yarn list
 
 ### 更新某个包的版本
-    yarn upgrade vuetify@v2.3.23 
+    yarn upgrade vuetify@v2.3.23
     
 ### yarn 国内加速,修改镜像源
 #### 以下命令查看当前使用的镜像源

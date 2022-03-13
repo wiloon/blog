@@ -4,8 +4,7 @@ author: "-"
 date: 2012-07-08T15:05:01+00:00
 url: sqlite/datatype
 categories:
-  - DataBase
-
+  - db
 tags:
   - reprint
 ---
@@ -19,7 +18,8 @@ tags:
 - REAL: 浮点数字，存储为8-byte IEEE浮点数。
 - TEXT: 字符串文本。
 - BLOB: 二进制对象。
- 但实际上，sqlite3也接受如下的数据类型: 
+
+但实际上，sqlite3也接受如下的数据类型: 
 - smallint 16 位元的整数。
 - interger 32 位元的整数。
 - decimal(p,s) p 精确值和 s 大小的十进位整数，精确值p是指全部有几个数(digits)大小值，s是指小数点後有几位数。如果没有特别指定，则系统会设为 p=5; s=0 。

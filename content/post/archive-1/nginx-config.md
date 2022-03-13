@@ -928,3 +928,10 @@ https://blog.51cto.com/liuqunying/1420556
 
 ## client_max_body_size 10m; 
 允许客户端请求的最大单文件字节数
+
+## nginx 配置文件 单位
+
+Sizes can be specified in bytes, kilobytes (suffixes k and K) or megabytes (suffixes m and M), for example, “1024”, “8k”, “1m”.
+
+
+>http://nginx.org/en/docs/syntax.html

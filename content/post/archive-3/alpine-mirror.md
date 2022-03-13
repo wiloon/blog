@@ -15,6 +15,8 @@ tags:
   
 b. 将里面 dl-cdn.alpinelinux.org 的 改成 mirrors.aliyun.com ; 保存退出即可
 
+    sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
 ### alpine install telnet
 
 ```bash
@@ -43,3 +45,26 @@ apk add drill
 
 改为静态编译
 如果要使用动态链接函数编译的话，不要依赖 GLIBC （比如编译 Go 程序的时候指定 CGO_ENABLED=0 ） 或者在 alpine 中编译一个依赖 MUSL LIBC 的版本
+
+## golang cgo
+
+```bash
+FROM alpine:edge AS build
+RUN apk update
+RUN apk upgrade
+RUN apk add --update go=1.8.3-r0 gcc=6.3.0-r4 g++=6.3.0-r4
+WORKDIR /app
+ENV GOPATH /app
+ADD src /app/src
+RUN go get server # server is name of our application
+RUN CGO_ENABLED=1 GOOS=linux go install -a server
+
+FROM alpine:edge
+WORKDIR /app
+RUN cd /app
+COPY --from=build /app/bin/server /app/bin/server
+CMD ["bin/server"]
+
+```
+
+>https://megamorf.gitlab.io/2019/09/08/alpine-go-builds-with-cgo-enabled/

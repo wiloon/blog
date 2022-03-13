@@ -12,9 +12,9 @@ tags:
 ## Bcrypt
 https://www.jianshu.com/p/2b131bfc2f10
   
-Bcrypt是单向Hash加密算法，类似Pbkdf2算法 不可反向破解生成明文。
+Bcrypt 是单向Hash加密算法，类似 Pbkdf2 算法 不可反向破解生成明文。 每次输出的hashPass 都不一样，
   
-一、Bcrypt是怎么加密的？
+## Bcrypt是怎么加密的？
   
 Bcrypt有四个变量: 
 

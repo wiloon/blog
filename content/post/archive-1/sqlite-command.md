@@ -23,6 +23,11 @@ CREATE TABLE if not exists users (  id char(36) PRIMARY KEY NOT NULL,  name varc
 .tables
 # insert
 
+# alter table, rename
+alter table feed
+    rename to feeds;
+
+
 ```
 
 在列模式下，每条记录在一个单独的行中以数据列对齐的方式显示。列如: 

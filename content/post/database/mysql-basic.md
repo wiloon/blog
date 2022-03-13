@@ -17,6 +17,11 @@ sudo pacman -S mariadb-clients
 sudo pacman -S mariadb
 
 ```
+### 查看表结构:
+
+```sql
+desc table_name;
+```
 
 ### mysqldump
 ```bash
@@ -290,9 +295,7 @@ ALTER TABLE table_name ADD field_name field_type;
   
 alter table tbl_user add email varchar(2255);
   
-查看表结构:
 
-desc table_name;
   
 把字段 id 设成自增: auto_increment.
 
