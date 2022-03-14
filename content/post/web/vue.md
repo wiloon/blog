@@ -277,7 +277,7 @@ npm install --save vue vue-class-component
         suffix: 'v1'
         });
 
-        // 一旦激活就开始控制任何现有客户机（通常是与skipWaiting配合使用) 
+        // 一旦激活就开始控制任何现有客户机 (通常是与skipWaiting配合使用) 
         // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox-core_clientsClaim.mjs
         workbox.core.clientsClaim()
         // 跳过等待期

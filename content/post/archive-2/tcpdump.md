@@ -82,7 +82,7 @@ pacman -S tcpdump
 ### 命令选项
     -A: 以 ASCII 码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据
     -i any: 监听所有网络接口
-    -i eth0: 监听指定的网络接口（eth0) 
+    -i eth0: 监听指定的网络接口 (eth0) 
     -D: 列出所有可用的网络接口
     -n: 不解析主机名
     -nn: 不解析主机名和端口名
@@ -127,11 +127,11 @@ flags 是TCP包中的标志信息,一个包中有可以设置多个标志位
 | NONE   | A dot . | Placeholder, usually used for ACK.                        |
 
 ### seq, ack
-seq和ack号存在于TCP报文段的首部中,seq是序号,ack是确认号,大小均为4字节（注意与大写的ACK不同,ACK是6个控制位之一,大小只有一位, 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后,所有报文段都必须把 ACK 字段置为 1。) 
+seq和ack号存在于TCP报文段的首部中,seq是序号,ack是确认号,大小均为4字节 (注意与大写的ACK不同,ACK是6个控制位之一,大小只有一位, 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后,所有报文段都必须把 ACK 字段置为 1。) 
 
 ### seq: 
-Sequence Number是包的序号,用来解决网络包乱序（reordering) 问题。  
-sequence number: 表示的是我方（发送方) 这边,这个packet的数据部分的第一位应该在整个data stream中所在的位置。（注意这里使用的是"应该"。因为对于没有数据的传输,如ACK,虽然它有一个seq,但是这次传输在整个data stream中是不占位置的。所以下一个实际有数据的传输,会依旧从上一次发送ACK的数据包的seq开始) 
+Sequence Number是包的序号,用来解决网络包乱序 (reordering) 问题。  
+sequence number: 表示的是我方 (发送方) 这边,这个packet的数据部分的第一位应该在整个data stream中所在的位置。 (注意这里使用的是"应该"。因为对于没有数据的传输,如ACK,虽然它有一个seq,但是这次传输在整个data stream中是不占位置的。所以下一个实际有数据的传输,会依旧从上一次发送ACK的数据包的seq开始) 
 
 seq: 占 4 字节,序号范围[0,2^32-1],序号增加到 2^32-1 后,下个序号又回到 0。TCP 是面向字节流的,通过 TCP 传送的字节流中的每个字节都按顺序编号,而报头中的序号字段值则指的是本报文段数据的第一个字节的序号。
 
@@ -139,7 +139,7 @@ seq: 占 4 字节,序号范围[0,2^32-1],序号增加到 2^32-1 后,下个序号
 Acknowledgement Number就是ACK——用于确认收到,用来解决不丢包的问题。
 ack: 占 4 字节,期望收到对方下个报文段的第一个数据字节的序号。
 ### Window
-Advertised-Window,也就是著名的滑动窗口（Sliding Window) ,用于解决流控的。
+Advertised-Window,也就是著名的滑动窗口 (Sliding Window) ,用于解决流控的。
 
 ### data-seqno 
 数据包中的数据的顺序号, ack是下次期望的顺序号, window是接收缓存的窗口大小,
@@ -338,7 +338,7 @@ arp reply csam is-at CSAM
   
 第一行表示:rtsg发送了一个arp数据包(nt:向全网段发送,arp数据包) 以询问csam的以太网地址
   
-Csam（nt:可从下文看出来, 是Csam) 以她自己的以太网地址做了回应(在这个例子中, 以太网地址以大写的名字标识, 而internet
+Csam (nt:可从下文看出来, 是Csam) 以她自己的以太网地址做了回应(在这个例子中, 以太网地址以大写的名字标识, 而internet
   
 地址(即ip地址)以全部的小写名字标识).
 
@@ -1117,7 +1117,7 @@ tcpdump的简单选项介绍
 
 -s snaplen
   
-设置tcpdump的数据包抓取长度为snaplen, 如果不设置默认将会是68字节(而支持网络接口分接头(nt: NIT, 上文已有描述,可搜索'网络接口分接头'关键字找到那里)的SunOS系列操作系统中默认的也是最小值是96).68字节对于IP, ICMP(nt: Internet Control Message Protocol,因特网控制报文协议), TCP 以及 UDP 协议的报文已足够, 但对于名称服务(nt: 可理解为dns, nis等服务), NFS服务相关的数据包会产生包截短. 如果产生包截短这种情况, tcpdump的相应打印输出行中会出现"[|proto]"的标志（proto 实际会显示为被截短的数据包的相关协议层次). 需要注意的是, 采用长的抓取长度(nt: snaplen比较大), 会增加包的处理时间, 并且会减少tcpdump 可缓存的数据包的数量, 从而会导致数据包的丢失. 所以, 在能抓取我们想要的包的前提下, 抓取长度越小越好.把snaplen 设置为0 意味着让tcpdump自动选择合适的长度来抓取数据包.
+设置tcpdump的数据包抓取长度为snaplen, 如果不设置默认将会是68字节(而支持网络接口分接头(nt: NIT, 上文已有描述,可搜索'网络接口分接头'关键字找到那里)的SunOS系列操作系统中默认的也是最小值是96).68字节对于IP, ICMP(nt: Internet Control Message Protocol,因特网控制报文协议), TCP 以及 UDP 协议的报文已足够, 但对于名称服务(nt: 可理解为dns, nis等服务), NFS服务相关的数据包会产生包截短. 如果产生包截短这种情况, tcpdump的相应打印输出行中会出现"[|proto]"的标志 (proto 实际会显示为被截短的数据包的相关协议层次). 需要注意的是, 采用长的抓取长度(nt: snaplen比较大), 会增加包的处理时间, 并且会减少tcpdump 可缓存的数据包的数量, 从而会导致数据包的丢失. 所以, 在能抓取我们想要的包的前提下, 抓取长度越小越好.把snaplen 设置为0 意味着让tcpdump自动选择合适的长度来抓取数据包.
 
 -T type
   
@@ -1187,7 +1187,7 @@ tcpdump条件表达式
   
 type 修饰符指定id 所代表的对象类型, id可以是名字也可以是数字. 可选的对象类型有: host, net, port 以及portrange(nt: host 表明id表示主机, net 表明id是网络, port 表明id是端而portrange 表明id 是一个端口范围). 如, 'host foo', 'net 128.3', 'port 20', 'portrange 6000-6008'(nt: 分别表示主机 foo,网络 128.3, 端口 20, 端口范围 6000-6008). 如果不指定type 修饰符, id默认的修饰符为host.
 
-dir 修饰符描述id 所对应的传输方向, 即发往id 还是从id 接收（nt: 而id 到底指什么需要看其前面的type 修饰符) .可取的方向为: src, dst, src 或 dst, src并且dst.(nt:分别表示, id是传输源, id是传输目的, id是传输源或者传输目的, id是传输源并且是传输目的). 例如, 'src foo','dst net 128.3', 'src or dst port ftp-data'.(nt: 分别表示符合条件的数据包中, 源主机是foo, 目的网络是128.3, 源或目的端口为 ftp-data).如果不指定dir修饰符, id 默认的修饰符为src 或 dst.对于链路层的协议,比如SLIP(nt: Serial Line InternetProtocol, 串联线路网际网络协议), 以及linux下指定'any' 设备, 并指定'cooked'(nt | rt: cooked 含义未知, 需补充) 抓取类型, 或其他设备类型,可以用'inbound' 和 'outbount' 修饰符来指定想要的传输方向.
+dir 修饰符描述id 所对应的传输方向, 即发往id 还是从id 接收 (nt: 而id 到底指什么需要看其前面的type 修饰符) .可取的方向为: src, dst, src 或 dst, src并且dst.(nt:分别表示, id是传输源, id是传输目的, id是传输源或者传输目的, id是传输源并且是传输目的). 例如, 'src foo','dst net 128.3', 'src or dst port ftp-data'.(nt: 分别表示符合条件的数据包中, 源主机是foo, 目的网络是128.3, 源或目的端口为 ftp-data).如果不指定dir修饰符, id 默认的修饰符为src 或 dst.对于链路层的协议,比如SLIP(nt: Serial Line InternetProtocol, 串联线路网际网络协议), 以及linux下指定'any' 设备, 并指定'cooked'(nt | rt: cooked 含义未知, 需补充) 抓取类型, 或其他设备类型,可以用'inbound' 和 'outbount' 修饰符来指定想要的传输方向.
 
 proto 修饰符描述id 所属的协议. 可选的协议有: ether, fddi, tr, wlan, ip, ip6, arp, rarp, decnet, tcp以及 upd.(nt | rt: ether, fddi, tr, 具体含义未知, 需补充. 可理解为物理以太网传输协议, 光纤分布数据网传输协议,以及用于路由跟踪的协议. wlan, 无线局域网协议; ip,ip6 即通常的TCP/IP协议栈中所使用的ipv4以及ipv6网络层协议;arp, rarp 即地址解析协议,反向地址解析协议; decnet, Digital Equipment Corporation开发的, 最早用于PDP-11 机器互联的网络协议; tcp and udp, 即通常TCP/IP协议栈中的两个传输层协议).
 
@@ -1409,7 +1409,7 @@ lat(Local Area Transport, 区域传输协议, 由DEC公司开发的以太网主�
   
 mopdl, moprc, iso(nt: 未知, 需补充), stp(Spanning tree protocol, 生成树协议, 可用于防止网络中产生链接循环),
   
-ipx（nt: Internetwork Packet Exchange, Novell 网络中使用的网络层协议) , 或者
+ipx (nt: Internetwork Packet Exchange, Novell 网络中使用的网络层协议) , 或者
   
 netbeui(nt: NetBIOS Extended User Interface,可理解为, 网络基本输入输出系统接口扩展).
 
@@ -1419,7 +1419,7 @@ mopdl, moprc, iso, stp, ipx, 或者netbeui.
   
 必须要注意的是标识符也是关键字, 从而必须通过'\'来进行转义.
 
-(SNAP: 子网接入协议 （SubNetwork Access Protocol) )
+(SNAP: 子网接入协议  (SubNetwork Access Protocol) )
 
 在光纤分布式数据网络接口(其表达元形式可以是'fddi protocol arp'), 令牌环网(其表达元形式可以是'tr protocol arp'),
   
@@ -1693,7 +1693,7 @@ l1, l2, iih, lsp, snp, csnp, psnp
   
 中间系统的协议数据单元. OSI(Open Systems Interconnection)网络由终端系统, 中间系统构成.
   
-终端系统指路由器, 而终端系统指用户设备. 路由器形成的本地组称之为'区域'（Area) 和多个区域组成一个'域'（Domain) .
+终端系统指路由器, 而终端系统指用户设备. 路由器形成的本地组称之为'区域' (Area) 和多个区域组成一个'域' (Domain) .
   
 IS-IS 提供域内或区域内的路由. l1, l2, iih, lsp, snp, csnp, psnp 表示PDU的类型, 具体含义另需补充)
 
@@ -1890,7 +1890,7 @@ libcap主要用于网络嗅探
 Libpcap是 Packet Capture Libray 的英文缩写, 即数据包捕获的 C 函数库, 用于捕获网卡数据或分析 pcap 格式的抓包报文。Tcpdump 和 wireshark 均是以此为基础的。
 主要功能有: 网络报文抓取；网络报文的构建；抓包文件的分析；自定义BFP过滤。
 
-libpcap（Packet Capture Library）即数据包捕获函数库，是Unix/Linux平台下的网络数据包捕获函数库。它是一个独立于系统的用户层包捕获的API接口，为底层网络监测提供了一个可移植的框架。著名的软件TCPDUMP就是在libpcap的的基础上开发而成的
+libpcap (Packet Capture Library）即数据包捕获函数库，是Unix/Linux平台下的网络数据包捕获函数库。它是一个独立于系统的用户层包捕获的API接口，为底层网络监测提供了一个可移植的框架。著名的软件TCPDUMP就是在libpcap的的基础上开发而成的
 
 libpcap可以实现以下功能：
 - 数据包捕获：捕获流经网卡的原始数据包
@@ -1901,7 +1901,7 @@ libpcap可以实现以下功能：
 libpcap工作原理
 libpcap主要由两部份组成：网络分接口(Network Tap)和数据过滤器(Packet Filter)。
 
-网络分接口从网络设备驱动程序中收集数据拷贝（旁路机制），过滤器决定是否接收该数据包。Libpcap利用BSD Packet Filter(BPF)算法对网卡接收到的链路层数据包进行过滤。BPF算法的基本思想是在有BPF监听的网络中，网卡驱动将接收到的数据包复制一份交给BPF过滤器，过滤器根据用户定义的规则决定是否接收此数据包以及需要拷贝该数据包的那些内容，然后将过滤后的数据给与过滤器相关联的上层应用程序。如果没有定义规则，则把全部数据交给上层应用程序。
+网络分接口从网络设备驱动程序中收集数据拷贝 (旁路机制），过滤器决定是否接收该数据包。Libpcap利用BSD Packet Filter(BPF)算法对网卡接收到的链路层数据包进行过滤。BPF算法的基本思想是在有BPF监听的网络中，网卡驱动将接收到的数据包复制一份交给BPF过滤器，过滤器根据用户定义的规则决定是否接收此数据包以及需要拷贝该数据包的那些内容，然后将过滤后的数据给与过滤器相关联的上层应用程序。如果没有定义规则，则把全部数据交给上层应用程序。
 
 
 ————————————————
@@ -1919,7 +1919,7 @@ http://amits-notes.readthedocs.io/en/latest/networking/tcpdump.html
 http://www.01happy.com/linux-use-tcpdump-capture-network-packets/
   
 http://linuxwiki.github.io/NetTools/tcpdump.html
-    TCP 的那些事儿（上) 
+    TCP 的那些事儿 (上) 
 
 https://coolshell.cn/articles/11564.html/embed#?secret=zWlvvi8V4N
 http://www.informit.com/articles/article.aspx?p=170902&seqNum=4

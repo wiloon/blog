@@ -57,11 +57,11 @@ Scrum为软件开发提供了一个迭代增量的过程框架:
 
 在Scrum中，整个开发周期包括若干个小的迭代周期，这样的小迭代周期称为Sprint，每个Sprint的建议长度2到 4周。
   
-Product Owner(产品负责人)会创建一个具有优先级的需求列表，称之为Product Backlog（产品待办事项) 。产品待办事项的表现形式通常为User Story(用户故事)。
+Product Owner(产品负责人)会创建一个具有优先级的需求列表，称之为Product Backlog (产品待办事项) 。产品待办事项的表现形式通常为User Story(用户故事)。
   
-Scrum开发团队通过Sprint Planning（Sprint计划会) ，从Product Backlog中挑选最有价值的需求进行开发。经过Sprint计划会议上的分析、讨论和估算得到任务列表，称为为Sprint backlog 。
+Scrum开发团队通过Sprint Planning (Sprint计划会) ，从Product Backlog中挑选最有价值的需求进行开发。经过Sprint计划会议上的分析、讨论和估算得到任务列表，称为为Sprint backlog 。
   
-在一次Sprint中，团队通过Daily Scrum（每日展会) 回顾当天工作，发现问题持续改进。而Scrum Master负责帮助团队排除干扰，专注于Sprint的目标。
+在一次Sprint中，团队通过Daily Scrum (每日展会) 回顾当天工作，发现问题持续改进。而Scrum Master负责帮助团队排除干扰，专注于Sprint的目标。
   
 每次Sprint结束时，Scrum团队将交付潜在可交付的产品增量。
 
@@ -79,29 +79,29 @@ Scrum与敏捷的关系
 
 #### 三个角色
 
-产品负责人（Product Owner) : 即产品经理，即需求提出方，需求决定者，负责编写用户故事，排出优先级，并放入 Product Backlog。
+产品负责人 (Product Owner) : 即产品经理，即需求提出方，需求决定者，负责编写用户故事，排出优先级，并放入 Product Backlog。
   
-Scrum Master: 主要工作是去除那些影响团队交付冲刺目标的障碍。Scrum Master并非团队的领导（因为团队是自我组织的) ，而是一个负责屏蔽外界对开发团队的干扰的角色。
+Scrum Master: 主要工作是去除那些影响团队交付冲刺目标的障碍。Scrum Master并非团队的领导 (因为团队是自我组织的) ，而是一个负责屏蔽外界对开发团队的干扰的角色。
   
-Scrum团队: 负责交付产品的团队。一个团队通常由5至9名具有跨职能技能的人（设计者，开发者等) 组成，承担实际的开发工作。
+Scrum团队: 负责交付产品的团队。一个团队通常由5至9名具有跨职能技能的人 (设计者，开发者等) 组成，承担实际的开发工作。
   
 三个工件
   
-Product Backlog（产品待办事项列表) : 一个排序的列表,包含所有产品需要的东西,也是产品需求变动的唯一来源。Scrum Master负责产品待办事项列表的内容、可用性和优先级。
+Product Backlog (产品待办事项列表) : 一个排序的列表,包含所有产品需要的东西,也是产品需求变动的唯一来源。Scrum Master负责产品待办事项列表的内容、可用性和优先级。
 
-Sprint Backlog （冲刺待办事项列表) : 一组为当前 Sprint 选出的产品代办事项列表条目,外加交付产品增量和实现 Sprint 目标的计划。Sprint 代办事项列表是开发团队对于哪些功能要包含在下个增量中,以及交付那些功能所需工作的预计。冲刺订单上的任务一般不会被分派，而是由团队成员认领。
+Sprint Backlog  (冲刺待办事项列表) : 一组为当前 Sprint 选出的产品代办事项列表条目,外加交付产品增量和实现 Sprint 目标的计划。Sprint 代办事项列表是开发团队对于哪些功能要包含在下个增量中,以及交付那些功能所需工作的预计。冲刺订单上的任务一般不会被分派，而是由团队成员认领。
 
 Burn-Down Chart(燃尽图): 一个公开展示的图表，显示当前Spriny中未完成的任务数目，或在冲刺订单上未完成的订单项的数目。在燃尽图中，Y轴代表的是剩余工作量，X轴代表的是Sprint的工作日，反映工作量完成状况的趋势。
 
 四个活动
   
-Sprint Planning（冲刺计划会) : 每个Sprint都以Sprint计划会议作为开始， 这是一个固定时长的会议，在这个会议中,Scrum团队共同选择和理解在即将到来的Sprint中要完成的工作。
+Sprint Planning (冲刺计划会) : 每个Sprint都以Sprint计划会议作为开始， 这是一个固定时长的会议，在这个会议中,Scrum团队共同选择和理解在即将到来的Sprint中要完成的工作。
   
-Daily Scrum（每日站会) : 每日站会是Scrum过程进行每天的检查和调整的环节。团队回顾昨天的工作，进行调整并持续改进。
+Daily Scrum (每日站会) : 每日站会是Scrum过程进行每天的检查和调整的环节。团队回顾昨天的工作，进行调整并持续改进。
   
-Sprint Review（冲刺评审会) : Sprint结束时，,Scrum团队和相关⼈人员一起评审Sprint的产出，通常会演⽰示产品增量，讨论产品待办事项列表的状态，并进行适当调整。
+Sprint Review (冲刺评审会) : Sprint结束时，,Scrum团队和相关⼈人员一起评审Sprint的产出，通常会演⽰示产品增量，讨论产品待办事项列表的状态，并进行适当调整。
   
-Sprint Retrospective（冲刺回顾会) : Sprint结束后回顾团队在流程、沟通以及工具方面做得如何，团队识别出做得好和不好的地方,并找出潜在的改进事项,为将来的改进制定计划。
+Sprint Retrospective (冲刺回顾会) : Sprint结束后回顾团队在流程、沟通以及工具方面做得如何，团队识别出做得好和不好的地方,并找出潜在的改进事项,为将来的改进制定计划。
   
 五个价值观
   
@@ -115,7 +115,7 @@ Sprint Retrospective（冲刺回顾会) : Sprint结束后回顾团队在流程�
   
 勇气: 有勇气做出承诺，履行承诺，接受别人的尊重
   
-了解了这些内容，如果知道SPEM（Software and System Process Engineering Model) 这样的过程元模型的话，角色、工件和活动等概念正是元模型中的概念，Scrum本质上其实提供了是一种敏捷开发的过程框架。
+了解了这些内容，如果知道SPEM (Software and System Process Engineering Model) 这样的过程元模型的话，角色、工件和活动等概念正是元模型中的概念，Scrum本质上其实提供了是一种敏捷开发的过程框架。
 
 * * *
 

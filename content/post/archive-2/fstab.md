@@ -32,7 +32,7 @@ UUID=E854-F511  /boot   vfat    rw,relatime,fmask=0022,dmask=0022,codepage=437,i
 挂载时使用的参数，注意有些 参数是特定文件系统才有的。
   - defaults -  使用文件系统的默认挂载参数，例如 ext4 的默认参数为:rw, suid, dev, exec, auto, nouser, async.
   - rw - 以读写模式挂载文件系统。
-  - relatime - 实时更新 inode access 记录。只有在记录中的访问时间早于当前访问才会被更新。（与 noatime 相似，但不会打断如 mutt 或其它程序探测文件在上次访问后是否被修改的进程。），可以提升性能(参见 atime 参数)。
+  - relatime - 实时更新 inode access 记录。只有在记录中的访问时间早于当前访问才会被更新。 (与 noatime 相似，但不会打断如 mutt 或其它程序探测文件在上次访问后是否被修改的进程。），可以提升性能(参见 atime 参数)。
   - fmask - 设置文件的权限过滤, dmask和fmask是mount的选项，针对fat/ntfs文件系统，适用于fstab配置, 通过设置 fmask, dmask, uid, gid参数可以控制文件目录的默认权限以及所属用户和组。
   - dmask —— 设置目录的权限过滤
   - iocharset
@@ -65,9 +65,9 @@ Define the behavior when an error is encountered. (Either ignore errors and just
 
 定义遇到错误时的行为。
 
-（要么忽略错误，只是标记文件系统错误并继续，或者重新挂载文件系统为只读，或者panic并停止系统）
+ (要么忽略错误，只是标记文件系统错误并继续，或者重新挂载文件系统为只读，或者panic并停止系统）
 
-默认设置在文件系统超级块中，可以使用tune2fs（8）进行更改。
+默认设置在文件系统超级块中，可以使用tune2fs (8）进行更改。
 
 - `<dump>`
 dump 工具通过它决定何时作备份. dump 会检查其内容,并用数字来决定是否对这个文件系统进行备份。 允许的数字是 0 和 1 。0 表示忽略, 1 则进行备份。大部分的用户是没有安装 dump 的 ,对他们而言 `<dump>` 应设为 0。

@@ -66,29 +66,29 @@ foo /foo/
   
 1. interj. 令人反感的术语。
   
-2. 用于任何东西的一般的名称，特别是程序和文件（特别是草稿文件) 。
+2. 用于任何东西的一般的名称，特别是程序和文件 (特别是草稿文件) 。
   
 3. 用于语法例释的标准伪变量表中的第一个(bar, baz, qux, quux, corge,grault, garply, waldo, fred, plugh, xyzzy, thud). [JARGON]
   
-当连接'bar' 时通常可以追溯到二战时军中的俚语FUBAR (Fucked Up Beyond All Repair)，最后演变成了foobar。早期版本的Jargon File [JARGON]称这一变化是战后的修正，但现在看来更像是FUBAR 本身是'foo'的衍生词。可能是受到了德语'furchtbar'（可怕的)  的影响 - 也许最初形式是'foobar'。
+当连接'bar' 时通常可以追溯到二战时军中的俚语FUBAR (Fucked Up Beyond All Repair)，最后演变成了foobar。早期版本的Jargon File [JARGON]称这一变化是战后的修正，但现在看来更像是FUBAR 本身是'foo'的衍生词。可能是受到了德语'furchtbar' (可怕的)  的影响 - 也许最初形式是'foobar'。
   
-似乎'foo' 这个词在战前的漫画和卡通中可以找到历史。在1938年华纳兄弟卡通公司Robert Clampett 指导的"The Daffy Doc"，Daffy Duck 的早期版本，有一句口号"SILENCE IS FOO!"。'FOO'和'BAR' 也在Walt Kelly的连环漫画"Pogo"中出现。最早有文献记载的使用是在Bill Holman 的一个消防队员的超现实主义连环漫画"Smokey Stover" 中。在1930到1952年间该连环漫画出现在许多美国漫画中，包括"Everybody's"。它经常在汽车的车牌中包含单词"FOO"， 在背景画面中无意义的话中，如"He who foos last foos best"或"Many smoke but foo men chew"，Smokey 说"Where there's foo, there's fire"。Bill Holman，该漫画的作者，在其中充满了奇妙的笑话和个人发明，包括其它无意义的短语如"Notary Sojac"和"1506 nix nix"。依照华纳兄弟卡通公司[WBCC]的说法，Holman 是在一个中国小雕像的底部发现"foo" 这个词的。这是个似是而非的说法；中国的小雕像经常有避邪用的题字，这可能是中文'fu'（有时候音译为'foo') ，当发音正确时意为"幸福"（立在许多中餐馆侧面的狮子-狗型 守护神正确的称呼是"fu dogs") [PERS]。说英语的人认为Holman的'foo' 这个无意义的词毫无疑问的受到Yiddish 语的'feh' 和英语的'fooey' 以及'fool'的影响。[JARGON, FOLDOC]
+似乎'foo' 这个词在战前的漫画和卡通中可以找到历史。在1938年华纳兄弟卡通公司Robert Clampett 指导的"The Daffy Doc"，Daffy Duck 的早期版本，有一句口号"SILENCE IS FOO!"。'FOO'和'BAR' 也在Walt Kelly的连环漫画"Pogo"中出现。最早有文献记载的使用是在Bill Holman 的一个消防队员的超现实主义连环漫画"Smokey Stover" 中。在1930到1952年间该连环漫画出现在许多美国漫画中，包括"Everybody's"。它经常在汽车的车牌中包含单词"FOO"， 在背景画面中无意义的话中，如"He who foos last foos best"或"Many smoke but foo men chew"，Smokey 说"Where there's foo, there's fire"。Bill Holman，该漫画的作者，在其中充满了奇妙的笑话和个人发明，包括其它无意义的短语如"Notary Sojac"和"1506 nix nix"。依照华纳兄弟卡通公司[WBCC]的说法，Holman 是在一个中国小雕像的底部发现"foo" 这个词的。这是个似是而非的说法；中国的小雕像经常有避邪用的题字，这可能是中文'fu' (有时候音译为'foo') ，当发音正确时意为"幸福" (立在许多中餐馆侧面的狮子-狗型 守护神正确的称呼是"fu dogs") [PERS]。说英语的人认为Holman的'foo' 这个无意义的词毫无疑问的受到Yiddish 语的'feh' 和英语的'fooey' 以及'fool'的影响。[JARGON, FOLDOC]
   
-Holman的漫画描写了一台两轮消防车名叫Foomobile。 该系列漫画在1930 年代后流行极了，传说Indiana 的一个制造商甚至造出了一台可操作的 Foomobile。 按照美国漫画百科全书[EAC] 的说法，'Foo' 热横扫美国，在流行歌曲和超过500个'Foo 俱乐部' 中可以找到证据。作为流行的遗迹 'foo' 嵌入了流行文化（包括华纳兄弟卡通公司1938-39的the couple of appearances) 但它的起源被迅速遗忘了。[JARGON]
+Holman的漫画描写了一台两轮消防车名叫Foomobile。 该系列漫画在1930 年代后流行极了，传说Indiana 的一个制造商甚至造出了一台可操作的 Foomobile。 按照美国漫画百科全书[EAC] 的说法，'Foo' 热横扫美国，在流行歌曲和超过500个'Foo 俱乐部' 中可以找到证据。作为流行的遗迹 'foo' 嵌入了流行文化 (包括华纳兄弟卡通公司1938-39的the couple of appearances) 但它的起源被迅速遗忘了。[JARGON]
   
-二战后该术语在美国军队仍存留下来。在1944-45 年，术语'foo fighters'[FF] 被雷达操作员用来描述一种神秘的或伪造的轨迹。那后来被称为UFO（ 在1995年通过一个叫Better grunge-rock bands[BFF] 的词老的术语又重新露面) 。据信它和漫画Smokey Stover 有关[PERS]。
+二战后该术语在美国军队仍存留下来。在1944-45 年，术语'foo fighters'[FF] 被雷达操作员用来描述一种神秘的或伪造的轨迹。那后来被称为UFO ( 在1995年通过一个叫Better grunge-rock bands[BFF] 的词老的术语又重新露面) 。据信它和漫画Smokey Stover 有关[PERS]。
   
-战争中美国和英国军队经常交换俚语。Period sources报告说二战中'FOO' 变成了半传奇式的主题，英国军队的涂鸦或多或少等于美国的Kilroy [WORDS]。 英国军队走到哪里，都会涂上"FOO was here"或者类似的话。几本俚语字典断言FOO 来自前线巡查官，但这（像同时代的"FUBAR") 也许 是backronym[JARGON]。 40年后，Paul Dickson的优秀著作"Words"[WORDS]追踪"Foo"到了一个不明的英国海军杂志，引用如下: 
+战争中美国和英国军队经常交换俚语。Period sources报告说二战中'FOO' 变成了半传奇式的主题，英国军队的涂鸦或多或少等于美国的Kilroy [WORDS]。 英国军队走到哪里，都会涂上"FOO was here"或者类似的话。几本俚语字典断言FOO 来自前线巡查官，但这 (像同时代的"FUBAR") 也许 是backronym[JARGON]。 40年后，Paul Dickson的优秀著作"Words"[WORDS]追踪"Foo"到了一个不明的英国海军杂志，引用如下: 
   
 "Mr. Foo is a mysterious Second World War product, gifted with bitter omniscience and sarcasm."
   
 更早版本的Jargon File 暗示其用法的可能来自"FOO, Lampoons and Parody"，1958 年发行的一本漫画的标题，Charles 和Robert Crumb合作的一个项目。
   
-尽管Robert Crumb（在他后来十几年) 后来成了最重要最有影响力的地下 漫画作家，这次成功相当艰难；实际上，因为厌恶，兄弟俩后来烧掉了大部分的拷贝。标题FOO 用大号字印在封面上。然而，非常少的拷贝确实流
+尽管Robert Crumb (在他后来十几年) 后来成了最重要最有影响力的地下 漫画作家，这次成功相当艰难；实际上，因为厌恶，兄弟俩后来烧掉了大部分的拷贝。标题FOO 用大号字印在封面上。然而，非常少的拷贝确实流
   
 传了下来，Crumb '全集'的学生确定它参考的是较早的Smokey Stover 漫 画。Crumb的作品可能也受到1951-52年出版的的短命加拿大滑稽杂志"Foo"的影响[JARGON]。
   
-一个old-time成员报告说在1959年TMRC（MIT 的技术模型铁路俱乐部) 编译的"TMRC语言字典" 中有Foo 的词条。当前在线版本中的"Foo" 是唯一标记为红色的词，有如下内容[TMRC]: 
+一个old-time成员报告说在1959年TMRC (MIT 的技术模型铁路俱乐部) 编译的"TMRC语言字典" 中有Foo 的词条。当前在线版本中的"Foo" 是唯一标记为红色的词，有如下内容[TMRC]: 
   
 Foo: The sacred syllable (FOO MANI PADME HUM); to be spoken only when under obligation to commune with the Deity. Our first obligation is to keep the Foo Counters turning.
   

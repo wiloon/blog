@@ -38,9 +38,9 @@ content://media/internal/images 这个URI将返回设备上存储的所有图片
   
 content://contacts/people/ 这个URI将返回设备上的所有联系人信息
   
-content://contacts/people/45 这个URI返回单个结果（联系人信息中ID为45的联系人记录) 
+content://contacts/people/45 这个URI返回单个结果 (联系人信息中ID为45的联系人记录) 
 
-尽管这种查询字符串格式很常见,但是它看起来还是有点令人迷惑。为此,Android提供一系列的帮助类（在android.provider包下) ,里面包含了很多以类变量形式给出的查询字符串,这种方式更容易让我们理解一点,因此,如上面content://contacts/people/45这个URI就可以写成如下形式: 
+尽管这种查询字符串格式很常见,但是它看起来还是有点令人迷惑。为此,Android提供一系列的帮助类 (在android.provider包下) ,里面包含了很多以类变量形式给出的查询字符串,这种方式更容易让我们理解一点,因此,如上面content://contacts/people/45这个URI就可以写成如下形式: 
 
 Uri person = ContentUris.withAppendedId(People.CONTENT_URI, 45);
 

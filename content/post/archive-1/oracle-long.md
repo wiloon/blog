@@ -63,7 +63,7 @@ LONGxina对于超出一定长度的文本，基本只能用LONG类型来存储�
 5. 不能在SQL*Plus中通过查询其他表的方式来创建LONG类型列,如create table as select。
 
 
-6. 不能对LONG类型列加约束条件（NULL、NOT NULL、DEFAULT除外) ，如: 关键字列(PRIMARY KEY)不能是 LONG 数据类型。
+6. 不能对LONG类型列加约束条件 (NULL、NOT NULL、DEFAULT除外) ，如: 关键字列(PRIMARY KEY)不能是 LONG 数据类型。
 
 
 7. LONG类型列不能用在Select的以下子句中: where、group by、order by，以及带有distinct的select语句中。

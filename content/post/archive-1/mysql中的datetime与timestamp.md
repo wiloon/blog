@@ -26,19 +26,19 @@ datetime 以'YYYY-MM-DD HH:MM:SS'格式检索和显示DATETIME值。支持的范
 
 TIMESTAMP
 
-1.4个字节储存（Time stamp value is stored in 4 bytes) 
+1.4个字节储存 (Time stamp value is stored in 4 bytes) 
 
-2.值以UTC格式保存（ it stores the number of milliseconds) 
+2.值以UTC格式保存 ( it stores the number of milliseconds) 
 
 3.时区转化 ,存储时对当前的时区进行转换,检索时再转换回当前的时区。
 
 datetime
 
-1.8个字节储存（8 bytes storage) 
+1.8个字节储存 (8 bytes storage) 
 
-2.实际格式储存（Just stores what you have stored and retrieves the same thing which you have stored.) 
+2.实际格式储存 (Just stores what you have stored and retrieves the same thing which you have stored.) 
 
-3.与时区无关（It has nothing to deal with the TIMEZONE and Conversion.) 
+3.与时区无关 (It has nothing to deal with the TIMEZONE and Conversion.) 
 
 实例对比
 
@@ -46,7 +46,7 @@ datetime
 
 1.先插入一个数据insert into \`t8\` values(now(), now());
 
-2.改变客户端时区（东9区,日本时区) 。
+2.改变客户端时区 (东9区,日本时区) 。
 
 3.再次显示插入的数据,变化了,timestamp类型的数据 增加了 1个小时
   
@@ -54,7 +54,7 @@ datetime
 
 1.null 是否为空
 
-timestamp 默认允许为 "非空"（not null by default) , 如果你在定义"ts TIMESTAMP DEFAULT NULL" 是非法的。 可以指定为空 null ,"ts TIMESTAMP NULL" ,这时可以在添加语句改变默认值。
+timestamp 默认允许为 "非空" (not null by default) , 如果你在定义"ts TIMESTAMP DEFAULT NULL" 是非法的。 可以指定为空 null ,"ts TIMESTAMP NULL" ,这时可以在添加语句改变默认值。
 
 ts2 TIMESTAMP NULL DEFAULT 0,
   

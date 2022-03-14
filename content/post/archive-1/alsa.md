@@ -16,7 +16,7 @@ http://blog.chinaunix.net/uid-20564848-id-74727.html
 
 ALSA声卡驱动程序的配置
   
-对于声卡驱动程序，除了内核自带的驱动程序之外，您还可以使用Advanced Linux Sound Architecture（ALSA，http://www.alsa-project.org/) 提供的驱动程序。它支持一系列主流声卡，同时它和内核 的声音结构互相兼容，在某种程度上，可以说是内核的声卡驱动模块的补充。
+对于声卡驱动程序，除了内核自带的驱动程序之外，您还可以使用Advanced Linux Sound Architecture (ALSA，http://www.alsa-project.org/) 提供的驱动程序。它支持一系列主流声卡，同时它和内核 的声音结构互相兼容，在某种程度上，可以说是内核的声卡驱动模块的补充。
   
 ALSA的声卡驱动程序的一般命名规则是snd-card-<soundcard>。soundcard代表不同类型的声卡。例如，对于所有 的16位Soundblaster声卡，它们对应的驱动程序模块为snd-card-sb16。
   
@@ -42,11 +42,11 @@ post-install snd-card-sb16 amixer -c 0 sset 'Master',0 100%,100% unmute && amixe
   
 ALSA设备 OSS设备 次设备号
   
-/dev/snd/pcmC0D0 /dev/audio0（/dev /audio)  4
+/dev/snd/pcmC0D0 /dev/audio0 (/dev /audio)  4
   
-/dev/snd/pcmC0D0 /dev /dsp0（/dev/dsp)  3
+/dev/snd/pcmC0D0 /dev /dsp0 (/dev/dsp)  3
   
-/dev/snd/pcmC0D1 /dev /adsp（/dev/adsp)  12
+/dev/snd/pcmC0D1 /dev /adsp (/dev/adsp)  12
   
 /dev/snd/pcmC1D0 /dev/audio1 20
   
@@ -130,7 +130,7 @@ Asoundrc的官方说明文档: http://www.alsa-project.org/main/index.php/Asound
   
 1.2 工作环境
   
-我测试的软件版本是基于Alsa 1.0.14的版本，当前最新的版本是1.0.16 （2008-7) ，不过配置文件这一部分应该是差不多的，至少从文档上来看是这样。
+我测试的软件版本是基于Alsa 1.0.14的版本，当前最新的版本是1.0.16  (2008-7) ，不过配置文件这一部分应该是差不多的，至少从文档上来看是这样。
 
 2 理解配置文件
   

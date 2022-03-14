@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## go mod replace
-不过因为某些未知原因,并不是所有的包都能直接用go get获取到,这时我们就需要使用go modules的replace功能了。（当然大部分问题挂个梯子就能解决,但是我们也可以有其它选项) 
+不过因为某些未知原因,并不是所有的包都能直接用go get获取到,这时我们就需要使用go modules的replace功能了。 (当然大部分问题挂个梯子就能解决,但是我们也可以有其它选项) 
   
 使用replace替换package
 
@@ -52,15 +52,15 @@ replace google.golang.org/appengine v1.6.0 => github.com/golang/appengine v1.6.0
   
 replace应该在引入新的依赖后立即执行,以免go tools自动更新mod文件时使用了old package导致可能的失败
   
-package后面的version不可省略。（edit所有操作都需要版本tag) 
+package后面的version不可省略。 (edit所有操作都需要版本tag) 
   
-version不能是master或者latest,这两者go get可用,但是go mod edit不可识别,会报错。（不知道是不是bug,虽然文档里表示可以这么用,希望go1.12能做点完善措施) 
+version不能是master或者latest,这两者go get可用,但是go mod edit不可识别,会报错。 (不知道是不是bug,虽然文档里表示可以这么用,希望go1.12能做点完善措施) 
   
 基于以上原因,我们替换一个package的步骤应该是这样的: 
 
-首先go get new-package（如果你知道package的版本tag,那么这一步其实可以省略,如果想使用最新的版本而不想确认版本号,则需要这一步) 
+首先go get new-package (如果你知道package的版本tag,那么这一步其实可以省略,如果想使用最新的版本而不想确认版本号,则需要这一步) 
   
-然后查看go.mod,手动复制new-package的版本号（如果你知道版本号,则跳过,这一步十分得不人性化,也许以后会改进) 
+然后查看go.mod,手动复制new-package的版本号 (如果你知道版本号,则跳过,这一步十分得不人性化,也许以后会改进) 
   
 接着go mod tidy或者go build或者使用其他的go tools,他们会去获取new-package然后替换掉old-package
   

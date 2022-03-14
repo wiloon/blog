@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## nuc
-英特尔 「NUC」（Next Unit of Computing) 
+英特尔 「NUC」 (Next Unit of Computing) 
 
 nuc5i5ryh
   

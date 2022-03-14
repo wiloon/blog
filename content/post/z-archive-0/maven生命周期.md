@@ -27,7 +27,7 @@ Maven生命周期已经在另一篇博客中介绍过了(<http://www.cnblogs.com
   * deploy，在整合或者发布环境下执行，将最终版本的包拷贝到远程的repository，使得其他的开发者或者工程可以共享。
   * generate-sources，产生应用需要的任何额外的源代码，如xdoclet。
 
-如果要执行项目编译，那么直接输入: mvn compile即可，对于其他的阶段可以类推。阶段之间是存在依赖关系（dependency) 的，如test依赖test-compile。在执行mvn test时，会先运行mvn test-compile，然后才是mvn test。
+如果要执行项目编译，那么直接输入: mvn compile即可，对于其他的阶段可以类推。阶段之间是存在依赖关系 (dependency) 的，如test依赖test-compile。在执行mvn test时，会先运行mvn test-compile，然后才是mvn test。
 
 Maven强大的一个重要的原因是它有一个十分完善的生命周期模型(lifecycle)，这个生命周期可以从两方面来理解，第一，顾名思义，运行Maven的每个步骤都由它来定义的，这种预定义的默认行为使得我们使用Maven变得简单，相比而言，Ant的每个步骤都要你手工去定义。第二，这个模型是一种标准，在不同的项目中，使用Maven的接口是一样的，这样就不用去仔细理解每个项目的构建了，一般情况下，mvn clean install 这样的命令是通用的。我想，一定是吸收了许多项目的经验，Maven才能定义出如此完善的模型。
 

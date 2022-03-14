@@ -14,7 +14,7 @@ tags:
 authconfig --passminlen=8 --passmaxrepeat=3 --enablereqlower --enablerequpper --enablereqdigit --enablereqother --update
 ```
 
-基于RHEL的系统（RHEL CentOS Scientific) 
+基于RHEL的系统 (RHEL CentOS Scientific) 
   
 RHEL7,CentOS7,Scientific7
   

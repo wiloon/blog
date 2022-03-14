@@ -31,7 +31,7 @@ Android apktool是一个用来处理APK文件的工具,可以对APK进行反编�
 
 3) .解压apktool-install-windows-r04-brut1.tar.bz2到任意文件夹，然后解压apktool1.4.3.tar.bz2,把apktool.jar拷贝至apktool-install-windows-r04-brut1.tar.bz2解压所在的文件夹下，此时文件下有aapt.exe、apktool.bat及apktool.jar三个应用。
 
-4) .点击开始菜单，运行，输入CMD回车，用cd命令转到刚刚解压的D:\My Documents\Desktop\apktool-install-windows-r04-brut1所在的文件夹，输入apktool，出现如下命令即说明安装成功（以下信息，即apktool使用命令) 。
+4) .点击开始菜单，运行，输入CMD回车，用cd命令转到刚刚解压的D:\My Documents\Desktop\apktool-install-windows-r04-brut1所在的文件夹，输入apktool，出现如下命令即说明安装成功 (以下信息，即apktool使用命令) 。
 
 D:\My Documents\Desktop\apktool-install-windows-r04-brut1>apktool
   

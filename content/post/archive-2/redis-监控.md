@@ -14,7 +14,7 @@ tags:
 http://ghoulich.xninja.org/2016/12/08/how-to-use-latency-monitor-in-redis/
 
 
-Redis 2.8.13引入了一个新特性,叫做延迟监控（Latency Monitoring) ,它可以帮助用户检查和定位可能的延迟问题。延迟监控由下面的几个组件构成: 
+Redis 2.8.13引入了一个新特性,叫做延迟监控 (Latency Monitoring) ,它可以帮助用户检查和定位可能的延迟问题。延迟监控由下面的几个组件构成: 
 
 延迟挂钩: 这个组件会对延迟敏感的各种代码路径进行采样。
 时间序列: 这个组件会记录由各种事件造成的延迟飙升。
@@ -118,7 +118,7 @@ cluster info 、info
   
 cluster_enabled:1
   
-集群健康状态 （clusster_state):cluster_state不为OK则告警
+集群健康状态  (clusster_state):cluster_state不为OK则告警
   
 [root@tzgdevapp10 bin]# ./redis-cli -c -p 7000 cluster info
   
@@ -136,13 +136,13 @@ cluster_slots_ok:16384
   
 cluster_slots_fail:0
   
-集群的节点数 （cluster_known_nodes) : 集群中redis节点的个数
+集群的节点数  (cluster_known_nodes) : 集群中redis节点的个数
   
 [root@tzgdevapp10 bin]# ./redis-cli -c -p 7000 cluster info | grep -w cluster_known_nodes
   
 cluster_known_nodes:6
   
-文/疲马羁禽（简书作者) 
+文/疲马羁禽 (简书作者) 
   
 原文链接: http://www.jianshu.com/p/68485d5c7fb9
   

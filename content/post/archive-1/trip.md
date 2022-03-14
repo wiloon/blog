@@ -73,7 +73,7 @@ We made a boat trip to the island last week and had a good time.
   
 I will be on a trip to / journey to the south next summer holiday.
 
-4. tour 着重指旅行线路比较曲折，常表示"（周游各地的) 参观、访问、（巡回) 旅游、视察、购物、演出"等意思。可作动词和名词。例如: 
+4. tour 着重指旅行线路比较曲折，常表示" (周游各地的) 参观、访问、 (巡回) 旅游、视察、购物、演出"等意思。可作动词和名词。例如: 
   
 I will tour the world in the future.
   

@@ -19,7 +19,7 @@ Redmine建立在Ruby on Rails的框架之上，支持跨平台和多种数据库
 ### Erlang
 Erlang 是一种通用的面向并发的编程语言，它由瑞典电信设备制造商爱立信所辖的CS-Lab开发，目的是创造一种可以应对大规模并发活动的编程语言和运行环境。Erlang是一个结构化，动态类型编程语言，内建并行计算支持。最初是由爱立信专门为通信应用设计的，比如控制交换机或者变换协议等，因此非常适 合于构建分布式，实时软并行计算系统。 使用Erlang编写出的应用运行时通常由成千上万个轻量级进程组成，并通过消息传递相互通讯。进程间上下文切换对于Erlang来说仅仅只是一两个环节，比起C程序的线程切换要高效得多得多了。 使用Erlang来编写分布式应用要简单的多，因为它的分布式机制是透明的: 对于程序来说并不知道自己是在分布式运行。 Erlang运行时环境是一个虚拟机，有点像Java虚拟机，这样代码一经编译，同样可以随处运行。它的运行时系统甚至允许代码在不被中断 的情况下更新。另外如果你需要更高效的话，字节代码也可以编译成本地代码运行。 Yaws: 一个Erlang写的服务器，据说并发性能是apache的15倍Erlang得名于丹麦数学家及统计学家Agner Krarup Erlang，同时Erlang还可以表示Ericsson Language。
   
-Erlang问世于1987年，经过十年的发展，于1998年发布开源版本[2]。Erlang是运行于虚拟机的解释性语言，但是现在也包含有乌普萨拉大学高性能Erlang计划（HiPE) 开发的本地代码编译器，自R11B-4版本开始，Erlang也开始支持脚本式解释器。在编程范型上，Erlang属于多重范型编程语言，涵盖函数式、并发式及分布式。顺序执行的Erlang是一个及早求值, 单次赋值和动态类型的函数式编程语言。
+Erlang问世于1987年，经过十年的发展，于1998年发布开源版本[2]。Erlang是运行于虚拟机的解释性语言，但是现在也包含有乌普萨拉大学高性能Erlang计划 (HiPE) 开发的本地代码编译器，自R11B-4版本开始，Erlang也开始支持脚本式解释器。在编程范型上，Erlang属于多重范型编程语言，涵盖函数式、并发式及分布式。顺序执行的Erlang是一个及早求值, 单次赋值和动态类型的函数式编程语言。
   
 Erlang并非一门新语言，它出现于1987年，只是当时对并发、分布式需求还没有今天这么普遍，当时可谓英雄无用武之地。Erlang语言创始人Joe Armstrong当年在爱立信做电话网络方面的开发，他使用Smalltalk，可惜那个时候Smalltalk太慢，不能满足电话网络的高性能要求。但Joe实在喜欢Smalltalk，于是定购了一台Tektronix Smalltalk机器。但机器要两个月时间才到，Joe在等待中百无聊赖，就开始使用Prolog，结果等Tektronix到来的时候，他已经对Prolog更感兴趣，Joe当然不满足于精通Prolog，经过一段时间的试验，Joe给Prolog加上了并发处理和错误恢复，于是Erlang就诞生了。这也是为什么Erlang的语法和Prolog有不少相似之处，比如它们的List表达都是[Head | Tail]。
   
@@ -36,16 +36,16 @@ Trac使用Python编程语言开发。在2005年中以前，Trac以GPL发行；�
 互联网服务供应商 (Internet service provider)
 
 ### RTFM
-RTFM，是一个英文缩写，意思是: “去读那些他妈的手册”（Read The Fucking Manual) ，这句话通常用在回复那些只要查阅文件就可以解决，拿出来提问只是浪费别人时间的问题[1]。而为了避免这个缩写单词，因为用了“fuck”（他妈的) 这个单词而攻击性、火药味太重，RTFM也被解释成“去读那些愚蠢的手册”（Read The Foolish Manual) ；有的时候也解释成“去读那些友善的手册”（Read The Friendly Manual) 或“去读那些写得不错的手册”（Read The Fine Manual) 。另外，有时候就干脆把“F”拿掉，直接写成RTM（去读手册，Read The Manual) 。
+RTFM，是一个英文缩写，意思是: “去读那些他妈的手册” (Read The Fucking Manual) ，这句话通常用在回复那些只要查阅文件就可以解决，拿出来提问只是浪费别人时间的问题[1]。而为了避免这个缩写单词，因为用了“fuck” (他妈的) 这个单词而攻击性、火药味太重，RTFM也被解释成“去读那些愚蠢的手册” (Read The Foolish Manual) ；有的时候也解释成“去读那些友善的手册” (Read The Friendly Manual) 或“去读那些写得不错的手册” (Read The Fine Manual) 。另外，有时候就干脆把“F”拿掉，直接写成RTM (去读手册，Read The Manual) 。
 
 ### STFW
 STFW是Search The Fu**ing Web的意思
 
 ### MIS
-（管理信息系统--Management Information System) 系统
+ (管理信息系统--Management Information System) 系统
 
 ### WAF
-（Web 应用程序防火墙) 
+ (Web 应用程序防火墙) 
 
 ## 语义网
 语义网是对未来网络的一个设想,在这样的网络中,信息都被赋予了明确的含义,机器能够自动地处理和集成网上可用的信息.语义网使用XML来定义定制的标签格式以及用RDF的灵活性来表达数据,下一步需要的就是一种Ontology的网络语言(比如OWL)来描述网络文档中的术语的明确含义和它们之间的关系.
@@ -57,14 +57,14 @@ STFW是Search The Fu**ing Web的意思
 Darwin是由苹果公司于2000年所发布的一个开放源代码操作系统。Darwin是macOS和iOS操作环境的操作系统部分。
 
 ### oVirt
-（Open Virtualization Manager）是一款免费开源虚拟化软件，是RedHat商业版本虚拟化软件RHEV的开源版本。
+ (Open Virtualization Manager）是一款免费开源虚拟化软件，是RedHat商业版本虚拟化软件RHEV的开源版本。
 
 oVirt基于kvm，并整合使用了libvirt、gluster、patternfly、ansible等一系列优秀的开源软件。
 
-oVirt的定位是替代vmware vsphere（https://docs.vmware.com/cn/VMware-vSphere/index.html），oVirt目前已经成为了企业虚拟化环境可选的解决方案，另外相比OpenStack的庞大和复杂，oVirt在企业私有云建设中具备部署和维护使用简单的优势。利用oVirt管理KVM虚拟机和网络，企业可以快速的搭建起一个私有云环境。从这一点看来，oVirt的定位和另一个知名云计算项目OpenStack的定位是有些类似的。
+oVirt的定位是替代vmware vsphere (https://docs.vmware.com/cn/VMware-vSphere/index.html），oVirt目前已经成为了企业虚拟化环境可选的解决方案，另外相比OpenStack的庞大和复杂，oVirt在企业私有云建设中具备部署和维护使用简单的优势。利用oVirt管理KVM虚拟机和网络，企业可以快速的搭建起一个私有云环境。从这一点看来，oVirt的定位和另一个知名云计算项目OpenStack的定位是有些类似的。
 
-### 自动变量（Automatic Variable）
-在计算机编程领域，自动变量（Automatic Variable）指的是局部作用域变量，具体来说即是在控制流进入变量作用域时系统自动为其分配存储空间，并在离开作用域时释放空间的一类变量。在许多程序语言中，自动变量与术语“局部变量”（Local Variable）所指的变量实际上是同一种变量，所以通常情况下“自动变量”与“局部变量”是同义的。
+### 自动变量 (Automatic Variable）
+在计算机编程领域，自动变量 (Automatic Variable）指的是局部作用域变量，具体来说即是在控制流进入变量作用域时系统自动为其分配存储空间，并在离开作用域时释放空间的一类变量。在许多程序语言中，自动变量与术语“局部变量” (Local Variable）所指的变量实际上是同一种变量，所以通常情况下“自动变量”与“局部变量”是同义的。
 
 版权声明：本文为CSDN博主「前方一片光明」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/qq_26230421/article/details/106638046

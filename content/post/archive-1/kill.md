@@ -18,7 +18,7 @@ killall命令杀死同一进程组内的所有进程。其允许指定要终止�
 
 http://www.cnblogs.com/itech/archive/2012/03/05/2380794.html
 
-kill命令用于终止指定的进程（terminate a process) ，是Unix/Linux下进程管理的常用命令。通常，我们在需要终止某个或某些进程时，先使用ps/pidof/pstree/top等工具获取进程PID，然后使用kill命令来杀掉该进程。kill命令的另外一个用途就是向指定的进程或进程组发送信号（The  command kill sends the specified signal to the specified process or process group) ，或者确定进程号为PID的进程是否还在。比如，有许多程序都把 SIGHUP 信号作为重新读取配置文件的触发条件。
+kill命令用于终止指定的进程 (terminate a process) ，是Unix/Linux下进程管理的常用命令。通常，我们在需要终止某个或某些进程时，先使用ps/pidof/pstree/top等工具获取进程PID，然后使用kill命令来杀掉该进程。kill命令的另外一个用途就是向指定的进程或进程组发送信号 (The  command kill sends the specified signal to the specified process or process group) ，或者确定进程号为PID的进程是否还在。比如，有许多程序都把 SIGHUP 信号作为重新读取配置文件的触发条件。
   
 一 常用参数
   
@@ -26,19 +26,19 @@ kill命令用于终止指定的进程（terminate a process) ，是Unix/Linux下
   
 格式: kill -TERM <pid>
   
-发送SIGTERM信号到指定进程，如果进程没有捕获该信号，则进程终止（If no signal is specified, the TERM signal is sent.  The TERM signal will kill processes which do not catch this signal.) 
+发送SIGTERM信号到指定进程，如果进程没有捕获该信号，则进程终止 (If no signal is specified, the TERM signal is sent.  The TERM signal will kill processes which do not catch this signal.) 
 
 格式: kill -l
   
-列出所有信号名称（Print a list of signal names.  These are found in /usr/include/linux/signal.h) 。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。下面是常用的信号: 
+列出所有信号名称 (Print a list of signal names.  These are found in /usr/include/linux/signal.h) 。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。下面是常用的信号: 
 
 HUP    1    终端断线
-INT    2    中断（同 Ctrl + C) 
-QUIT   3    退出（同 Ctrl + \) 
+INT    2    中断 (同 Ctrl + C) 
+QUIT   3    退出 (同 Ctrl + \) 
 TERM   15   终止
 KILL   9    强制终止
-CONT   18   继续（与STOP相反， fg/bg命令) 
-STOP   19   暂停（同 Ctrl + Z) 
+CONT   18   继续 (与STOP相反， fg/bg命令) 
+STOP   19   暂停 (同 Ctrl + Z) 
 
 格式: kill -l <signame>
 显示指定信号的数值。
@@ -49,7 +49,7 @@ STOP   19   暂停（同 Ctrl + Z)
 
 格式: kill %<jobid>
 格式: kill -9 %<jobid>
-杀掉指定的任务（使用jobs命令可以列出) 
+杀掉指定的任务 (使用jobs命令可以列出) 
 
 格式: kill -QUIT <pid>
 
@@ -95,21 +95,21 @@ ps -A | grep httpd | grep -v grep | awk '{ print $1; }' | xargs -L 1 sudo kill -
 
 kill 命令
 
-用于终止指定的进程（terminate a process) ，是 Unix/Linux 下进程管理的常用命令。
+用于终止指定的进程 (terminate a process) ，是 Unix/Linux 下进程管理的常用命令。
 
 用途
 
 通常在需要终止某个或某些进程时，先使用 ps/pidof/pstree/top 等工具获取进程 pid，然后用 kill 杀掉进程。
   
-向指定的进程或进程组发送信号（The command kill sends the specified signal to the specified process or process group) ，或者确定进程号为 pid 的进程是否还在。例如，许多程序都把 HUP 信号作为重新读取配置文件的触发条件。
+向指定的进程或进程组发送信号 (The command kill sends the specified signal to the specified process or process group) ，或者确定进程号为 pid 的进程是否还在。例如，许多程序都把 HUP 信号作为重新读取配置文件的触发条件。
   
 命令格式
 
-kill <pid> kill -TERM <pid> 发送 TERM 信号到指定进程，如果进程没有捕获该信号，则进程终止（If no signal is specified, the TERM signal is sent. The TERM signal will kill processes which do not catch this signal.) 
+kill <pid> kill -TERM <pid> 发送 TERM 信号到指定进程，如果进程没有捕获该信号，则进程终止 (If no signal is specified, the TERM signal is sent. The TERM signal will kill processes which do not catch this signal.) 
 
 kill -l
 
-列出所有信号名称（Print a list of signal names. These are found in /usr/include/linux/signal.h) 。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。
+列出所有信号名称 (Print a list of signal names. These are found in /usr/include/linux/signal.h) 。只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。
 
 作者: cityhash123
   
@@ -277,9 +277,9 @@ https://blog.csdn.net/zhaoyue007101/article/details/7699259
 ## kill -9 都杀不掉的进程
 kill -9发送SIGKILL信号将其终止, 但是以下两种情况不起作用: 
   
-a、该进程处于"Zombie"状态（使用ps命令返回defunct的进程) 。此时进程已经释放所有资源,但还未得到其父进程的确认。"Zombie"进程要等到下次重启时才会消失,但它的存在不会影响系统性能。
+a、该进程处于"Zombie"状态 (使用ps命令返回defunct的进程) 。此时进程已经释放所有资源,但还未得到其父进程的确认。"Zombie"进程要等到下次重启时才会消失,但它的存在不会影响系统性能。
   
-b、 该进程处于"kernel mode"（核心态) 且在等待不可获得的资源。处于核心态的进程忽略所有信号处理,因此对于这些一直处于核心态的进程只能通过重启系统实现。进程在AIX 中会处于两种状态,即用户态和核心态。只有处于用户态的进程才可以用"kill"命令将其终止。
+b、 该进程处于"kernel mode" (核心态) 且在等待不可获得的资源。处于核心态的进程忽略所有信号处理,因此对于这些一直处于核心态的进程只能通过重启系统实现。进程在AIX 中会处于两种状态,即用户态和核心态。只有处于用户态的进程才可以用"kill"命令将其终止。
   
 https://blog.csdn.net/lemontree1945/article/details/79169178
 
@@ -297,7 +297,7 @@ kill $(ps -ef|grep process-foo |grep -v grep |awk '{print $2}')
 ## killall
 http://www.cnblogs.com/peida/archive/2012/12/21/2827366.html
  
-Linux系统中的killall命令用于杀死指定名字的进程（kill processes by name) 。我们可以使用kill命令杀死指定进程PID的进程,如果要找到我们需要杀死的进程,我们还需要在之前使用ps等命令再配合grep来查找进程,而killall把这两个过程合二为一,是一个很好用的命令。
+Linux系统中的killall命令用于杀死指定名字的进程 (kill processes by name) 。我们可以使用kill命令杀死指定进程PID的进程,如果要找到我们需要杀死的进程,我们还需要在之前使用ps等命令再配合grep来查找进程,而killall把这两个过程合二为一,是一个很好用的命令。
   
 1．命令格式: 
   

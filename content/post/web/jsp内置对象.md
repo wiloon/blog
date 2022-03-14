@@ -11,10 +11,10 @@ tags:
 ---
 ## jsp内置对象
 
-  定义: 可以不加声明就在JSP页面脚本（Java程序片和Java表达式) 中使用的成员变量
+  定义: 可以不加声明就在JSP页面脚本 (Java程序片和Java表达式) 中使用的成员变量
 
 
-  JSP共有以下9种基本内置组件（可与ASP的6种内部组件相对应) :  
+  JSP共有以下9种基本内置组件 (可与ASP的6种内部组件相对应) :  
   
   
   
@@ -42,7 +42,7 @@ tags:
   
   
   
-    4 int getContentLength() 返回请求体的长度（以字节数) 
+    4 int getContentLength() 返回请求体的长度 (以字节数) 
   
   
   
@@ -500,7 +500,7 @@ tags:
   
   
   
-    config对象是在一个Servlet初始化时，JSP引擎向它传递信息用的，此信息包括Servlet初始化时所要用到的参数（通过属性名和属性值构成) 以及服务器的有关信息（通过传递一个ServletContext对象) 
+    config对象是在一个Servlet初始化时，JSP引擎向它传递信息用的，此信息包括Servlet初始化时所要用到的参数 (通过属性名和属性值构成) 以及服务器的有关信息 (通过传递一个ServletContext对象) 
   
   
   

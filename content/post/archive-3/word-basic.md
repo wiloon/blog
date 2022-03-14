@@ -22,9 +22,9 @@ MS Word 中 hyphen后面跟数字, 在换行时会被拆开显示。
   
 · En dash (–)
 
-En dash 的 Unicode 编码是 U+2013，在 MS Word 里可以先输入 2013 再按 Alt + x，更简便的方法是利用 MS Word 的自动更正功能: 按空格，按两下「-」，再按空格，例如输入「this is - atest」，将转换为「this is – a test」（当然，要注意 en dash 前后一般是不留空格的) 。
+En dash 的 Unicode 编码是 U+2013，在 MS Word 里可以先输入 2013 再按 Alt + x，更简便的方法是利用 MS Word 的自动更正功能: 按空格，按两下「-」，再按空格，例如输入「this is - atest」，将转换为「this is – a test」 (当然，要注意 en dash 前后一般是不留空格的) 。
   
-En dash 在 Windows 里可以用 Alt + 0150 （即按下 Alt 键的同时依次按下 0150) 来输入，在 Mac 里可以用⌥+ - 来输入，在 TeX 里可以用 - 输入，在 HTML 里可以用 – 来输入。
+En dash 在 Windows 里可以用 Alt + 0150  (即按下 Alt 键的同时依次按下 0150) 来输入，在 Mac 里可以用⌥+ - 来输入，在 TeX 里可以用 - 输入，在 HTML 里可以用 – 来输入。
 
 · Em dash (—)
 
@@ -52,7 +52,7 @@ https://www.online-toolz.com/tools/text-unicode-entities-convertor.php
 
 利用ALT+X组合键可以在字符和UNICODE 之间切换，例如输入字符"李"，按ALT+X组合键，就会出现674E ，即李的UNICODE编码；或者输入 十六进制的674E,然后按下ALT+X组合键也可以出现"李"。
 
-利用这个同样可以查询ASCII编码。输入字符"a",按下ALT+X出现"0061"，后面两位十六进制61就是a的ASCII编码；或者输入61（或者0061) ，按下ALT+X也可以出现a。
+利用这个同样可以查询ASCII编码。输入字符"a",按下ALT+X出现"0061"，后面两位十六进制61就是a的ASCII编码；或者输入61 (或者0061) ，按下ALT+X也可以出现a。
   
 ————————————————
   

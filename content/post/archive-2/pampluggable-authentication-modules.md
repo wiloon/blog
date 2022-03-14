@@ -18,7 +18,7 @@ session: 会话类接口。实现从用户登录成功到退出的会话控制�
   
 password: 口令类接口。控制用户更改密码的全过程。也就是有些资料所说的升级用户验证标记。
 
-system-auth文件是PAM模块的重要配置文件,它主要负责用户登录系统的身份认证工作,不仅如此,其他的应用程序或服务可以通过include接口来调用它（该文件是system-auth-ac的软链接) 。此外password-auth配置文件也是与身份验证相关的重要配置文件,比如用户的远程登录验证(SSH登录)就通过它调用。而在Ubuntu、SuSE Linux等发行版中,PAM主要配置文件是common-auth、common-account、common-password、common-session这四个文件,所有的应用程序和服务的主要PAM配置都可以通过它们来调用。
+system-auth文件是PAM模块的重要配置文件,它主要负责用户登录系统的身份认证工作,不仅如此,其他的应用程序或服务可以通过include接口来调用它 (该文件是system-auth-ac的软链接) 。此外password-auth配置文件也是与身份验证相关的重要配置文件,比如用户的远程登录验证(SSH登录)就通过它调用。而在Ubuntu、SuSE Linux等发行版中,PAM主要配置文件是common-auth、common-account、common-password、common-session这四个文件,所有的应用程序和服务的主要PAM配置都可以通过它们来调用。
 
 http://www.infoq.com/cn/articles/linux-pam-one
 

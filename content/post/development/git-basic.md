@@ -71,7 +71,7 @@ git ls-files --others -i \
 git clean -Xn
 ```
 
-##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录（小心）
+##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录 (小心）
 
 ```bash
 git clean -Xdf
@@ -107,7 +107,7 @@ git push -u origin master
 git rm /xxx/xxx/xxx.xxx  
 git rm -r xxx/xxx
 
-### 将指定的提交（commit) 应用于其他分支
+### 将指定的提交 (commit) 应用于其他分支
 
     git cherry-pick <commitHash>
 
@@ -177,13 +177,13 @@ git checkout master
 
 #### 查看
 
-config 配置有system级别 global（用户级别)  和local（当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
+config 配置有system级别 global (用户级别)  和local (当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
 
     git config --list
     git config --system --list
     git config --global core.editor vim
 
-查看当前用户（global) 配置
+查看当前用户 (global) 配置
 
     git config --global  --list
 
@@ -239,7 +239,7 @@ git rm -f
 ## git fetch
 
 git fetch 命令用来拉取其它仓库的数据(objects and refs).
-默认情况下，git fetch取回**所有**分支（branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
+默认情况下，git fetch取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
     git fetch <远程主机名> <分支名>
 
@@ -267,13 +267,13 @@ git merge tmp
 git branch -d temp
 //如果不想保留temp分支 可以用这步删除
 
-（1) 如果直接使用git fetch，则步骤如下:
+ (1) 如果直接使用git fetch，则步骤如下:
 
 创建并更新本 地远程分支。即创建并更新origin/xxx 分支，拉取代码到origin/xxx分支上。
 在FETCH_HEAD中设定当前分支-origin/当前分支对应，如直接到时候git merge就可以将origin/abc合并到abc分支上。
-（2) git fetch origin
+ (2) git fetch origin
 只是手动指定了要fetch的remote。在不指定分支时通常默认为master
-（3) git fetch origin dev
+ (3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
 ## git pull
@@ -307,11 +307,11 @@ git checkout -b branch_name tag_name
 
 ## tag
 
-轻量标签（lightweight）与附注标签（annotated）。
+轻量标签 (lightweight）与附注标签 (annotated）。
 
-附注标签是存储在 Git 数据库中的一个完整对象， 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard （GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
+附注标签是存储在 Git 数据库中的一个完整对象， 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
 
-### 附注标签（annotated）
+### 附注标签 (annotated）
 在 Git 中创建附注标签十分简单。 最简单的方式是当你在运行 tag 命令时指定 -a 选项：
 
 ```bash
@@ -320,7 +320,7 @@ git tag -a v1.4 -m "my version 1.4"
 git tag -a v1.2 9fceb02
 ```
 
-### 轻量标签（lightweight）
+### 轻量标签 (lightweight）
 ```bash
 # list local tags
 git tag

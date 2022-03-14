@@ -91,7 +91,7 @@ COPY的语法与功能与ADD相同,只是不支持上面讲到的<src>是远程U
 
 ### WORKDIR
 
-WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录),该指令在Dockerfile文件中可以出现多次,如果使用相对路径则为相对于WORKDIR上一次的值,例如WORKDIR /a,WORKDIR b,RUN pwd最终输出的当前目录是/a/b。（RUN cd /a/b,RUN pwd是得不到/a/b的) 
+WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录),该指令在Dockerfile文件中可以出现多次,如果使用相对路径则为相对于WORKDIR上一次的值,例如WORKDIR /a,WORKDIR b,RUN pwd最终输出的当前目录是/a/b。 (RUN cd /a/b,RUN pwd是得不到/a/b的) 
 
 ### create file 
     RUN echo 'All of your\n\
@@ -109,7 +109,7 @@ Dockerfile中RUN，CMD和ENTRYPOINT都能够用于执行命令，下面是三者
 
 RUN命令执行命令并创建新的镜像层，通常用于安装软件包
 CMD命令设置容器启动后默认执行的命令及其参数，但CMD设置的命令能够被docker run命令后面的命令行参数替换
-ENTRYPOINT配置容器启动时的执行命令（不会被忽略，一定会被执行，即使运行 docker run时指定了其他命令）
+ENTRYPOINT配置容器启动时的执行命令 (不会被忽略，一定会被执行，即使运行 docker run时指定了其他命令）
 Shell格式和Exec格式运行命令
 我们可用两种方式指定 RUN、CMD 和 ENTRYPOINT 要运行的命令：Shell 格式和 Exec 格式：
 

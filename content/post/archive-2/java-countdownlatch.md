@@ -40,13 +40,13 @@ CyclicBarrier类似于CountDownLatch也是个计数器, 不同的是CyclicBarrie
 
 Semaphore
   
-信号量是一类经典的同步工具. 信号量通常用来限制线程可以同时访问的（物理或逻辑) 资源数量.
+信号量是一类经典的同步工具. 信号量通常用来限制线程可以同时访问的 (物理或逻辑) 资源数量.
   
 一个计数信号量。从概念上讲,信号量维护了一个许可集。如有必要,在许可可用前会阻塞每一个 acquire(),然后再获取该许可。每个 release() 添加一个许可,从而可能释放一个正在阻塞的获取者。但是,不使用实际的许可对象,Semaphore 只对可用许可的号码进行计数,并采取相应的行动。拿到信号量的线程可以进入代码,否则就等待。通过acquire()和release()获取和释放访问许可。
 
 Phaser
   
-一种可重用的同步屏障, 功能上类似于CyclicBarrier和CountDownLatch, 但使用上更为灵活. 非常适用于在多线程环境下同步协调分阶段计算任务（Fork/Join框架中的子任务之间需同步时, 优先使用Phaser) 
+一种可重用的同步屏障, 功能上类似于CyclicBarrier和CountDownLatch, 但使用上更为灵活. 非常适用于在多线程环境下同步协调分阶段计算任务 (Fork/Join框架中的子任务之间需同步时, 优先使用Phaser) 
   
 <http://www.wiloon.com/?p=11214>
 

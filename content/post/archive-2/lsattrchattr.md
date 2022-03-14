@@ -43,7 +43,7 @@ chattr -ai /etc/passed
 
 
   
-    （总结) Linux的chattr与lsattr命令详解
+     (总结) Linux的chattr与lsattr命令详解
   
 
 
@@ -82,7 +82,7 @@ chattr命令的用法: chattr [ -RVf ] [ -v version ] [ mode ] files…
   
     u: 与s相反,当设定为u时,数据内容其实还存在磁盘中,可以用于undeletion。
   
-    各参数选项中常用到的是a和i。a选项强制只可添加不可删除,多用于日志系统的安全设定。而i是更为严格的安全设定,只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力（标识) 的进程能够施加该选项。
+    各参数选项中常用到的是a和i。a选项强制只可添加不可删除,多用于日志系统的安全设定。而i是更为严格的安全设定,只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力 (标识) 的进程能够施加该选项。
 
 应用举例: 
 
@@ -106,7 +106,7 @@ https://linux.cn/article-5590-1.html
 
 
   
-    （总结) Linux的chattr与lsattr命令详解
+     (总结) Linux的chattr与lsattr命令详解
   
 
 

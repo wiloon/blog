@@ -1,5 +1,5 @@
 ---
-title: "redis-basic"
+title: "redis basic"
 author: "-"
 date: ""
 url: ""
@@ -8,7 +8,7 @@ categories:
 tags:
   - inbox
 ---
-## "redis-basic"
+## "redis basic"
 
 ### commands
     # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
@@ -55,13 +55,11 @@ Redis 启动监测程序监测自己的状态
     redis-cli --cluster del-node 127.0.0.1:7000 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
     ./redis-cli --cluster check 127.0.0.1:7000
 
-
 ### DEBUG SEGFAULT 
 Redis Debug Segfault 命令执行一个非法的内存访问从而让 Redis 崩溃，仅在开发时用于 BUG 调试。制造一次服务器当机。
 
     redis 127.0.0.1:6379> DEBUG SEGFAULT 
     redis-cli -p 7002 debug segfault
-
 
 ### java sdk
 - redisson
@@ -124,8 +122,6 @@ podman run \
 -v redis-data:/data/redis \
 redis:6.2.6 redis-server /etc/redis/redis.conf
 ```
-
-
 
 ```bash
 redis-server --version
@@ -231,7 +227,7 @@ redis-cli --cluster fix 192.168.163.132:6384 --cluster-search-multiple-owners
 # 添加集群主节点
 
 redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 
-说明: 为一个指定集群添加节点，需要先连到该集群的任意一个节点IP（192.168.163.132:6379) ，再把新节点加入。该2个参数的顺序有要求: 新加入的节点放前
+说明: 为一个指定集群添加节点，需要先连到该集群的任意一个节点IP (192.168.163.132:6379) ，再把新节点加入。该2个参数的顺序有要求: 新加入的节点放前
 # 添加集群从节点
 
 redis-cli --cluster add-node 192.168.163.132:6382 192.168.163.132:6379 --cluster-slave --cluster-master-id 117457eab5071954faab5e81c3170600d5192270
@@ -317,7 +313,6 @@ redis-cli -h 127.0.0.1 -p 6379 FLUSHDB
     BF.EXISTS newFilter bar
     BF.MADD myFilter foo bar baz
     BF.MEXISTS myFilter foo nonexist bar
-    
 
 ---
 
@@ -325,7 +320,6 @@ https://github.com/redis/redis
 
 ### Redis 响应延时问题排查
 https://xie.infoq.cn/article/1ccbd30d94ab781a4f85ab2fc?utm_source=rss&utm_medium=article
-
 
 ### RESP协议 
 什么是 RESP？

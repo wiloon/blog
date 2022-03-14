@@ -28,7 +28,7 @@ NetHogs是一个小型的'net top'工具,不像大多数工具那样拖慢每个
 
 监控总体带宽使用――nload、bmon、slurm、bwm-ng、cbm、speedometer和netload
   
-监控总体带宽使用（批量式输出) ――vnstat、ifstat、dstat和collectl
+监控总体带宽使用 (批量式输出) ――vnstat、ifstat、dstat和collectl
   
 每个 socket 连接的带宽使用――iftop、iptraf、tcptrack、pktstat、netwatch和trafshow
   
@@ -56,7 +56,7 @@ $ sudo apt-get install nload
 
 iftop可测量通过每一个 socket 连接传输的数据；它采用的工作方式有别于nload。iftop使用pcap库来捕获进出网络适配器的数据包,然后汇总数据包大小和数量,搞清楚总的带宽使用情况。
 
-虽然iftop报告每个连接所使用的带宽,但它无法报告参与某个套按字连接的进程名称/编号（ID) 。不过由于基于pcap库,iftop能够过滤流量,并报告由过滤器指定的所选定主机连接的带宽使用情况。
+虽然iftop报告每个连接所使用的带宽,但它无法报告参与某个套按字连接的进程名称/编号 (ID) 。不过由于基于pcap库,iftop能够过滤流量,并报告由过滤器指定的所选定主机连接的带宽使用情况。
 
 $ sudo iftop -n
   
@@ -81,11 +81,11 @@ $ sudo iptraf
   
 安装iptraf: 
 
-# Centos（基本软件库) 
+# Centos (基本软件库) 
   
 $ yum install iptraf
   
-# fedora或centos（带epel) 
+# fedora或centos (带epel) 
   
 $ yum install iptraf-ng -y
   
@@ -95,23 +95,23 @@ $ sudo apt-get install iptraf iptraf-ng
   
 4. nethogs
 
-nethogs是一款小巧的"net top"工具,可以显示每个进程所使用的带宽,并对列表排序,将耗用带宽最多的进程排在最上面。万一出现带宽使用突然激增的情况,用户迅速打开 nethogs,就可以找到导致带宽使用激增的进程。nethogs可以报告程序的进程编号（PID) 、用户和路径。
+nethogs是一款小巧的"net top"工具,可以显示每个进程所使用的带宽,并对列表排序,将耗用带宽最多的进程排在最上面。万一出现带宽使用突然激增的情况,用户迅速打开 nethogs,就可以找到导致带宽使用激增的进程。nethogs可以报告程序的进程编号 (PID) 、用户和路径。
 
 $ sudo nethogs
 
 安装nethogs: Ubuntu、Debian和Fedora用户可以从默认软件库获得。CentOS用户则需要Epel。
 
-# ubuntu或debian（默认软件库) 
+# ubuntu或debian (默认软件库) 
   
 $ sudo apt-get install nethogs
   
-# fedora或centos（来自epel) 
+# fedora或centos (来自epel) 
   
 $ sudo yum install nethogs -y
   
 5. bmon
 
-bmon（带宽监控器) 是一款类似nload的工具,它可以显示系统上所有网络接口的流量负载。输出结果还含有图表和剖面,附有数据包层面的详细信息。
+bmon (带宽监控器) 是一款类似nload的工具,它可以显示系统上所有网络接口的流量负载。输出结果还含有图表和剖面,附有数据包层面的详细信息。
 
 安装bmon: Ubuntu、Debian和Fedora用户可以从默认软件库来安装。CentOS用户则需要安装repoforge,因为Epel里面没有bmon。
 
@@ -119,7 +119,7 @@ bmon（带宽监控器) 是一款类似nload的工具,它可以显示系统上�
   
 $ sudo apt-get install bmon
   
-# fedora或centos（来自repoforge) 
+# fedora或centos (来自repoforge) 
   
 $ sudo yum install bmon
   
@@ -151,7 +151,7 @@ tcptrack类似iftop,使用pcap库来捕获数据包,并计算各种统计信息,
   
 $ sudo apt-get install tcptrack
   
-# fedora, centos（来自repoforge软件库) 
+# fedora, centos (来自repoforge软件库) 
   
 $ sudo yum install tcptrack
   
@@ -201,7 +201,7 @@ today    128.55 MiB |   41.00 MiB |  169.56 MiB |   24.97 kbit/s
   
 estimated       199 MiB |      63 MiB |     262 MiB |
   
-想实时监控带宽使用情况,请使用"-l"选项（实时模式) 。然后,它会显示入站数据和出站数据所使用的总带宽量,但非常精确地显示,没有关于主机连接或进程的任何内部详细信息。
+想实时监控带宽使用情况,请使用"-l"选项 (实时模式) 。然后,它会显示入站数据和出站数据所使用的总带宽量,但非常精确地显示,没有关于主机连接或进程的任何内部详细信息。
 
 $ vnstat -l -i eth0
   
@@ -219,13 +219,13 @@ vnstat支持许多选项,支持哪些选项方面的详细信息请参阅参考�
   
 $ sudo apt-get install vnstat
   
-# fedora或 centos（来自epel) 
+# fedora或 centos (来自epel) 
   
 $ sudo yum install vnstat
   
 9. bwm-ng
 
-bwm-ng（下一代带宽监控器) 是另一款非常简单的实时网络负载监控工具,可以报告摘要信息,显示进出系统上所有可用网络接口的不同数据的传输速度。
+bwm-ng (下一代带宽监控器) 是另一款非常简单的实时网络负载监控工具,可以报告摘要信息,显示进出系统上所有可用网络接口的不同数据的传输速度。
 
 $ bwm-ng
   
@@ -257,7 +257,7 @@ $ bwm-ng -o curses2
   
 $ sudo apt-get install bwm-ng
   
-# fedora或centos（来自epel) 
+# fedora或centos (来自epel) 
   
 $ sudo apt-get install bwm-ng
   
@@ -339,13 +339,13 @@ HH:MM:SS   KB/s in  KB/s out
   
 $ sudo apt-get install ifstat
   
-# fedora, centos（Repoforge) 
+# fedora, centos (Repoforge) 
   
 $ sudo yum install ifstat
   
 17. dstat
 
-dstat是一款用途广泛的工具（用python语言编写) ,它可以监控系统的不同统计信息,并使用批处理模式来报告,或者将相关数据记入到CSV或类似的文件。这个例子显示了如何使用dstat来报告网络带宽。
+dstat是一款用途广泛的工具 (用python语言编写) ,它可以监控系统的不同统计信息,并使用批处理模式来报告,或者将相关数据记入到CSV或类似的文件。这个例子显示了如何使用dstat来报告网络带宽。
 
 安装dstat
 
@@ -367,7 +367,7 @@ recv  send|     time
   
 18. collectl
 
-collectl以一种类似dstat的格式报告系统的统计信息；与dstat一样,它也收集关于系统不同资源（如处理器、内存和网络等) 的统计信息。这里给出的一个简单例子显示了如何使用collectl来报告网络使用/带宽。
+collectl以一种类似dstat的格式报告系统的统计信息；与dstat一样,它也收集关于系统不同资源 (如处理器、内存和网络等) 的统计信息。这里给出的一个简单例子显示了如何使用collectl来报告网络使用/带宽。
 
 $ collectl -sn -oT -i0.5
   

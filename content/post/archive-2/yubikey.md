@@ -14,11 +14,11 @@ tags:
 
 YubiKey 4 可以同时工作在三种模式:
 
-- OTP mode: 作为键盘设备（HID) :
+- OTP mode: 作为键盘设备 (HID) :
   
 Yubico OTP,
   
-第一次使用前需要把 KEY_ID,AES_KEY,SECRET 提交至验证服务器（Yubico提供或者自己搭建) ,之后应用程序每次通过服务器验证密码的可靠性（解码后SECRET对应、COUNT增大（防止重放攻击) ) 。
+第一次使用前需要把 KEY_ID,AES_KEY,SECRET 提交至验证服务器 (Yubico提供或者自己搭建) ,之后应用程序每次通过服务器验证密码的可靠性 (解码后SECRET对应、COUNT增大 (防止重放攻击) ) 。
 
 - Challenge-Response: 即可以通过 HID 接口给定一个输入, 输入 HMAC 的计算结果。输入需要本地代码实现。
   
@@ -38,7 +38,7 @@ CCID (SmartCard)
    
 OpenPGP card 和 PIV card, 可以用来安全地保存 RSA 私钥
   
-YubiKey还可以作为标准的 OpenPGP Smart Card 使用, 用来存储 PGP 私钥（设备中私钥是可写不可读的, 解密/签名操作在设备上完成) 。关于PGP Smart Card 的更多信息,可以参考这篇文章。
+YubiKey还可以作为标准的 OpenPGP Smart Card 使用, 用来存储 PGP 私钥 (设备中私钥是可写不可读的, 解密/签名操作在设备上完成) 。关于PGP Smart Card 的更多信息,可以参考这篇文章。
 
 以上提到的三个功能是可以同时使用的,相互之间并不冲突。
 

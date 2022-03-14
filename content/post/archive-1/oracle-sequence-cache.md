@@ -13,7 +13,7 @@ tags:
 http://blog.itpub.net/17203031/viewspace-717042/
 
 
-在Oracle中，我们没有MySQL和SQL Server可以使用的自增数据类型。大部分场景下，如果我们需要生成业务无关的（Business-Independent) 主键列，序列Sequence对象是我们最方便的选择。
+在Oracle中，我们没有MySQL和SQL Server可以使用的自增数据类型。大部分场景下，如果我们需要生成业务无关的 (Business-Independent) 主键列，序列Sequence对象是我们最方便的选择。
 
 
 定义Sequence是很简单的，如果最大程度利用默认值的话，我们只需要定义sequence对象的名字即可。在序列Sequence对象的定义中，Cache是一个可选择的参数。默认的Sequence对象是有cache选项的，默认取值为20。
@@ -138,7 +138,7 @@ Plan hash value: 3078288422
 1  rows processed
 
 
--第二次调用（篇幅原因，执行计划和部分统计量省略) 
+-第二次调用 (篇幅原因，执行计划和部分统计量省略) 
 
 SQL> select seq_nocache.nextval from dual;
 
@@ -419,7 +419,7 @@ NEXTVAL
 从redo size动作，我们猜测在nextval的时候存在数据字典的频繁更新风险。
 
 
-3. 潜在的行锁争用（row lock contention) 
+3. 潜在的行锁争用 (row lock contention) 
 
 
 我们猜测在nextval的时候，Oracle做了些什么。于是，我们选择10046事件，跟踪设置cache和不设置cache的两种sequence，在底层递归调用的行为。
@@ -637,7 +637,7 @@ kxsbbbfp=088cefdc  bln=22  avl=04  flg=05
 
 value=113487
 
-（有省略……) 
+ (有省略……) 
 
 
 =====================

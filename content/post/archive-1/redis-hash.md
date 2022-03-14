@@ -72,14 +72,14 @@ hgetall
 
 hgetall(key)
 
-返回名称为key的hash中所有的键（field) 及其对应的value
+返回名称为key的hash中所有的键 (field) 及其对应的value
 
 ### 内部编码
-ziplist（压缩列表) 
-当 哈希类型 元素个数 小于 hash-max-ziplist-entries 配置（默认 512 个) 、同时 所有值 都 小于 hash-max-ziplist-value 配置（默认 64 字节) 时,Redis 会使用 ziplist 作为 哈希 的 内部实现,ziplist 使用更加 紧凑的结构 实现多个元素的 连续存储,所以在 节省内存 方面比 hashtable 更加优秀。
+ziplist (压缩列表) 
+当 哈希类型 元素个数 小于 hash-max-ziplist-entries 配置 (默认 512 个) 、同时 所有值 都 小于 hash-max-ziplist-value 配置 (默认 64 字节) 时,Redis 会使用 ziplist 作为 哈希 的 内部实现,ziplist 使用更加 紧凑的结构 实现多个元素的 连续存储,所以在 节省内存 方面比 hashtable 更加优秀。
 
-hashtable（哈希表) 
-当 哈希类型 无法满足 ziplist 的条件时,Redis 会使用 hashtable 作为 哈希 的 内部实现,因为此时 ziplist 的 读写效率 会下降,而 hashtable 的读写 时间复杂度 为 O（1) 。
+hashtable (哈希表) 
+当 哈希类型 无法满足 ziplist 的条件时,Redis 会使用 hashtable 作为 哈希 的 内部实现,因为此时 ziplist 的 读写效率 会下降,而 hashtable 的读写 时间复杂度 为 O (1) 。
 
 作者: 零壹技术栈
 链接: https://juejin.cn/post/6844903693075103757

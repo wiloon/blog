@@ -181,7 +181,7 @@ WHERE c.addr=a.paddr and a.sid= and a.serial#= ;
               
               
               
-                然后采用kill （unix)  或 orakill（windows ) 。
+                然后采用kill  (unix)  或 orakill (windows ) 。
               
               
               
@@ -238,7 +238,7 @@ FROM V$LOCKED_OBJECT l,V$SESSION S WHERE l.SESSION_ID=S.SID;
                       
                       
                       
-                        alter system kill session 'sid,serial#'; （其中sid=l.session_id) 
+                        alter system kill session 'sid,serial#';  (其中sid=l.session_id) 
                       
                       
                       
@@ -285,5 +285,5 @@ ps -ef|grep spid
                               
                               
                               
-                                其中spid是这个进程的进程号，kill掉这个Oracle进程。（T006) 
+                                其中spid是这个进程的进程号，kill掉这个Oracle进程。 (T006) 
                               

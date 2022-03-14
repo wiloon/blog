@@ -15,7 +15,7 @@ forward 是服务器内部重定向，程序收到请求后重新定向到另一
 
 forward会将   request  state、bean、等信息带到下一个jsp页面；
 
-使用getAttribute（) 来取得前一个jsp所放的信息
+使用getAttribute () 来取得前一个jsp所放的信息
 
 
 redirect  是服务器收到请求后发送一个状态头给客户，客户将再次请求，就有两次网络通行的来往。

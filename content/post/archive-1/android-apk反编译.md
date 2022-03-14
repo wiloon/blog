@@ -23,7 +23,7 @@ Win7 Ultimate x64
 
 Ubuntu 12.04 x86_x64
 
-反编译工具包 下载 （2012-10-10更新) 
+反编译工具包 下载  (2012-10-10更新) 
   
 一、Apk反编译得到Java源代码
   
@@ -35,9 +35,9 @@ apk反编译工具dex2jar，是将apk中的classes.dex转化成jar文件
   
 dex2jar 和 jdgui 最新版本下载，分别见google code: 
 
-dex2jar（google code) 
+dex2jar (google code) 
 
-jdgui（google code) ，最新版本请见 官方
+jdgui (google code) ，最新版本请见 官方
   
 具体步骤: 
 
@@ -62,7 +62,7 @@ HelloAndroid源码在反编译前后的对照如下:
 
 首先还是要下载上述反编译工具包，其中最新的apktool，请到google code下载
 
-apktool（google code) 
+apktool (google code) 
   
 具体步骤: 
 
@@ -75,9 +75,9 @@ apktool（google code)
 
 上图中，apktool.bat 命令行解释: apktool.bat   d  -f    [apk文件 ]   [输出文件夹]
   
-反编译的文件如下（AndroidManifest.xml为例) : 
+反编译的文件如下 (AndroidManifest.xml为例) : 
 
-将反编译完的文件重新打包成apk，很简单，输入apktool.bat   b    abc123（你编译出来文件夹) 即可，命令如下: 
+将反编译完的文件重新打包成apk，很简单，输入apktool.bat   b    abc123 (你编译出来文件夹) 即可，命令如下: 
 
 
 打包apk后的文件在目录C:\HelloAndroid下，生成了两个文件夹: 
@@ -96,10 +96,10 @@ dist
 
 本文反编译工具包整理历史版本: 
   
-Android反编译工具包（升级)   （2012-10-10) 
+Android反编译工具包 (升级)    (2012-10-10) 
 
-Android反编译工具 （2012-08-21) 
+Android反编译工具  (2012-08-21) 
   
-android反编译工具 （2011-08-28) 
+android反编译工具  (2011-08-28) 
   
 本博客反编译方法，仅供参考学习使用，禁止用于非法和商业等用途，谢谢！

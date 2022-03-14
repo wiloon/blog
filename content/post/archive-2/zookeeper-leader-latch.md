@@ -109,11 +109,11 @@ http://ifeve.com/zookeeper-leader/embed/#?secret=mwCqdwnDV0
 
 
 ### Leader Election
-zookeeper 通过 Zab（Zookeeper Atomic Broadcast)  协议保持集群间的数据一致性。
+zookeeper 通过 Zab (Zookeeper Atomic Broadcast)  协议保持集群间的数据一致性。
 Zab 协议包括两个阶段: Leader Election 和 Atomic Broadcast 。
 
 Leader Election
-此阶段集群内会选举出一个 leader,余下机器则会成为 follower。leader 会通过 broadcast 通知所有 follower ,当大部分机（> 1/2) 器完成了与 leader 的状态同步后,Leader Election 阶段结束。
+此阶段集群内会选举出一个 leader,余下机器则会成为 follower。leader 会通过 broadcast 通知所有 follower ,当大部分机 (> 1/2) 器完成了与 leader 的状态同步后,Leader Election 阶段结束。
 
 当 leader 失去大多数 follower 时,集群会再次进入 Leader Election 阶段并选举出新的 leader ,使集群回到正确的状态。
 

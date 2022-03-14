@@ -43,7 +43,7 @@ Red Hat Enterprise Linux Release Dates
 ### 四种模式
   
 - private mode: 过滤掉所有来自其他 macvlan 接口的报文,因此不同 macvlan 接口之间无法互相通信
-- vepa(Virtual Ethernet Port Aggregator) mode:  需要主接口连接的交换机支持 VEPA/802.1Qbg 特性。所有发送出去的报文都会经过交换机,交换机作为再发送到对应的目标地址（即使目标地址就是主机上的其他 macvlan 接口) ,也就是 hairpin mode 模式,这个模式用在交互机上需要做过滤、统计等功能的场景。
+- vepa(Virtual Ethernet Port Aggregator) mode:  需要主接口连接的交换机支持 VEPA/802.1Qbg 特性。所有发送出去的报文都会经过交换机,交换机作为再发送到对应的目标地址 (即使目标地址就是主机上的其他 macvlan 接口) ,也就是 hairpin mode 模式,这个模式用在交互机上需要做过滤、统计等功能的场景。
 - bridge mode: 通过虚拟的交换机将主接口的所有 macvlan 接口连接在一起,这样的话,不同 macvlan 接口之间能够直接通信,不需要将报文发送到主机之外。这个模式下,主机外是看不到主机上 macvlan interface 之间通信的报文的。
 - passthru mode: 暂时没有搞清楚这个模式要解决的问题
   

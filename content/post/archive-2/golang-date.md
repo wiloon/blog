@@ -63,10 +63,10 @@ time.Now().UnixNano() / int64(time.Millisecond)
 
 ```go
 func main() {
-    fmt.Printf("时间戳（秒) : %v;\n", time.Now().Unix())
-    fmt.Printf("时间戳（纳秒) : %v;\n",time.Now().UnixNano())
-    fmt.Printf("时间戳（毫秒) : %v;\n",time.Now().UnixNano() / 1e6)
-    fmt.Printf("时间戳（纳秒转换为秒) : %v;\n",time.Now().UnixNano() / 1e9)
+    fmt.Printf("时间戳 (秒) : %v;\n", time.Now().Unix())
+    fmt.Printf("时间戳 (纳秒) : %v;\n",time.Now().UnixNano())
+    fmt.Printf("时间戳 (毫秒) : %v;\n",time.Now().UnixNano() / 1e6)
+    fmt.Printf("时间戳 (纳秒转换为秒) : %v;\n",time.Now().UnixNano() / 1e9)
 }
 ```
 
@@ -255,7 +255,7 @@ RFC3339详细定义了互联网上日期/时间的偏移量表示:
 这个代表了UTC时间的2017年12月08日零时
 
 2017-12-08T00:08:00.00+08:00
-这个代表了同一时刻的,东八区北京时间（CST) 表示的方法
+这个代表了同一时刻的,东八区北京时间 (CST) 表示的方法
 
 上面两个时间的时间戳是等价的。两个的区别,就是在本地时间后面增加了时区信息。Z表示零时区。+08:00表示UTC时间增加8小时。
 

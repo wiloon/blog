@@ -30,7 +30,7 @@ myView.invalidate();
   
 可以实现功能，刷新UI界面。但是这样是不行的，因为它违背了单线程模型: Android UI操作并不是线程安全的并且这些操作必须在UI线程中执行。
 
-方法二: （Thread+Handler)
+方法二:  (Thread+Handler)
 
 查阅了文档和apidemo后，发觉常用的方法是利用Handler来实现UI线程的更新的。
 
@@ -94,7 +94,7 @@ Thread.currentThread().interrupt();
   
 以上方法demo看:http://rayleung.javaeye.com/blog/411860
 
-方法三: （java习惯。Android平台中，这样做是不行的，这跟Android的线程安全有关) 
+方法三:  (java习惯。Android平台中，这样做是不行的，这跟Android的线程安全有关) 
 
 在Android平台中需要反复按周期执行方法可以使用Java上自带的TimerTask类，TimerTask相对于Thread来说对于资源消耗的更低，除了使用Android自带的AlarmManager使用Timer定时器是一种更好的解决方法。 我们需要引入import java.util.Timer; 和 import java.util.TimerTask;
 

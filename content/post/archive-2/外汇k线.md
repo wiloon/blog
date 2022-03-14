@@ -52,7 +52,7 @@ tags:
 
 长下影线下影线较之于实体3倍长度。由于样子像唐伞,强力的支撑着价格,因而得名。阳线表明一段时间出现大量抛压,之后又出现大量的买盘,使得价格高于开盘价报收。表明买方势力较为强大,预示着随后的上升。阴线表明买方势力不及卖方势力,价格低于开盘价报收,出现在高价圈时,预示着下跌,出现在低价圈时,预示着上涨。
 
-（摘自和讯网) http://www.icbc.com.cn/ICBCCollege/client/page/KnowledgeDetail.aspx?ItemID=634152388274733616
+ (摘自和讯网) http://www.icbc.com.cn/ICBCCollege/client/page/KnowledgeDetail.aspx?ItemID=634152388274733616
 
 
 百分比回撤的含义是什么？

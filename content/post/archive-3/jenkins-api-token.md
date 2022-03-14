@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## jenkins api token
-Jenkins REST API提供了API token，使得可以在程序中使用API token进行认证（而不是使用你真实的密码) 。
+Jenkins REST API提供了API token，使得可以在程序中使用API token进行认证 (而不是使用你真实的密码) 。
 
 API token可以在用户个人设置界面查看
 

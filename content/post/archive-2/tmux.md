@@ -16,7 +16,7 @@ tags:
     set-window-option -g mode-keys vi #可以设置为vi或emacs
     set-window-option -g utf8 on #开启窗口的UTF-8支持
 
-Tmux 是一个终端复用器（terminal multiplexer) 
+Tmux 是一个终端复用器 (terminal multiplexer) 
 
 窗格快捷键
 下面是一些窗格操作的快捷键。
@@ -45,9 +45,9 @@ sudo pacman -S tmux
 
 $    重命名当前Session
 
-c    创建新窗口（Window) 
+c    创建新窗口 (Window) 
 
-%    水平分割窗口（形成两个Pane) 
+%    水平分割窗口 (形成两个Pane) 
 
 "    垂直分割窗口
 

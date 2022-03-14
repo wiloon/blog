@@ -14,7 +14,7 @@ Xshell 是一个强大的安全终端模拟软件,它支持SSH1, SSH2, 以及Mic
   
 Xshell可以在Windows界面下用来访问远端不同系统下的服务器,从而比较好的达到远程控制终端的目的。Xshell 和SecureCRT的比较: 
   
-Screen不会闪屏,并且可以回滚,这个功能比较好用。Script的执行顺序可以调整,SecureCRT的这个功能相较而言比较死板,不过可以同时发送指令到多个session,这个功能较好。键盘映射的兼容性比较好,不需要自己去改映射,可以展现tunnel等。支持布局切换,像gnome-terminal。缺憾是对Unicode制表符支持不够好,内置的sftp不怎么符合用户的操作习惯（该公司有另外的xftp) 。许可相对便宜,对个人、教育用户是免费的。
+Screen不会闪屏,并且可以回滚,这个功能比较好用。Script的执行顺序可以调整,SecureCRT的这个功能相较而言比较死板,不过可以同时发送指令到多个session,这个功能较好。键盘映射的兼容性比较好,不需要自己去改映射,可以展现tunnel等。支持布局切换,像gnome-terminal。缺憾是对Unicode制表符支持不够好,内置的sftp不怎么符合用户的操作习惯 (该公司有另外的xftp) 。许可相对便宜,对个人、教育用户是免费的。
   
 XShell 和Putty& Pietty的比较: 
   

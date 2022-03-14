@@ -125,7 +125,7 @@ $? -  上一条命令执行结束后的返回值
 
 $$ -  当前bash shell的进程号
 
-    $$  Shell本身的PID（ProcessID）
+    $$  Shell本身的PID (ProcessID）
     $!  上一个后台进程的 进程号 (PID)
 
 >https://www.cnblogs.com/EasonJim/p/7750298.html

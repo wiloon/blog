@@ -12,11 +12,11 @@ tags:
 ## MIME
 媒体类型, **用途互联网邮件扩展**
 
-（**MIME**，**Multipurpose Internet Mail Extensions**) 
+ (**MIME**，**Multipurpose Internet Mail Extensions**) 
 
-是一个互联网标准, 它扩展了电子邮件标准，使其能够支持非ASCII字符、二进制格式附件等多种格式的邮件消息。HTTP协议中也使用了MIME的框架。MIME是通过标准化电子邮件报文的头部的附加域（fields) 而实现的；这些头部的附加域，描述新的报文类型的内容和组织形式。
+是一个互联网标准, 它扩展了电子邮件标准，使其能够支持非ASCII字符、二进制格式附件等多种格式的邮件消息。HTTP协议中也使用了MIME的框架。MIME是通过标准化电子邮件报文的头部的附加域 (fields) 而实现的；这些头部的附加域，描述新的报文类型的内容和组织形式。
 
-内容类型（Content-Type) ，这个头部领域用于指定消息的类型。一般以下面的形式出现。
+内容类型 (Content-Type) ，这个头部领域用于指定消息的类型。一般以下面的形式出现。
 
 type有下面的形式。
 
@@ -30,26 +30,26 @@ type有下面的形式。
 
 subtype用于指定type的详细形式。
 
-* text/plain（纯文本) 
-* text/html（HTML文档) 
-* application/xhtml+xml（XHTML文档) 
-* image/gif（GIF图像) 
-* image/jpeg（JPEG图像) 【PHP中为: image/pjpeg】
-* image/png（PNG图像) 【PHP中为: image/x-png】
-* video/mpeg（MPEG动画) 
-* application/octet-stream（任意的二进制数据) 
-* application/pdf（PDF文档) 
-* application/msword（Microsoft Word文件) 
-* message/rfc822（RFC 822形式) 
-* multipart/alternative（HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示) 
-* application/x-www-form-urlencoded（使用HTTP的POST方法提交的表单) 
-* multipart/form-data（同上，但主要用于表单提交时伴随文件上传的场合) 
+* text/plain (纯文本) 
+* text/html (HTML文档) 
+* application/xhtml+xml (XHTML文档) 
+* image/gif (GIF图像) 
+* image/jpeg (JPEG图像) 【PHP中为: image/pjpeg】
+* image/png (PNG图像) 【PHP中为: image/x-png】
+* video/mpeg (MPEG动画) 
+* application/octet-stream (任意的二进制数据) 
+* application/pdf (PDF文档) 
+* application/msword (Microsoft Word文件) 
+* message/rfc822 (RFC 822形式) 
+* multipart/alternative (HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示) 
+* application/x-www-form-urlencoded (使用HTTP的POST方法提交的表单) 
+* multipart/form-data (同上，但主要用于表单提交时伴随文件上传的场合) 
 
 parameter可以用来指定附加的信息，更多情况下是用于指定text/plain和text/htm等的文字编码方式的charset参数。MIME根据type制定了默认的subtype，当客户端不能确定消息的subtype的情况下，消息被看作默认的subtype进行处理。Text默认是text/plain，Application默认是application/octet-stream而Multipart默认情况下被看作multipart/mixed。
 
 ### 内容传输编码
 
-内容传输编码（Content-Transfer-Encoding) ，这个区域使指定ASCII以外的字符编码方式成为可能。形式如下: 
+内容传输编码 (Content-Transfer-Encoding) ，这个区域使指定ASCII以外的字符编码方式成为可能。形式如下: 
 
 Content-Transfer-Encoding: [mechanism]
 
@@ -77,7 +77,7 @@ Content-Transfer-Encoding: [mechanism]
 
 2. 传统的电子邮件是1982年定下技术规范的，文件是RFC 822。
 
-它的一个重要特点，就是规定电子邮件只能使用ASCII字符。这导致了三个结果: 1) 非英语字符都不能在电子邮件中使用；2) 电子邮件中不能插入二进制文件（如图片) ；3) 电子邮件不能有附件。
+它的一个重要特点，就是规定电子邮件只能使用ASCII字符。这导致了三个结果: 1) 非英语字符都不能在电子邮件中使用；2) 电子邮件中不能插入二进制文件 (如图片) ；3) 电子邮件不能有附件。
 
 这实际上无法接受的，因此到了1992年，工程师们决定扩展电子邮件的技术规范，提出一系列补充规范，这就是MIME的由来。
 
@@ -111,7 +111,7 @@ Content-Type: text/plain; charset="ISO-8859-1"
 
 这一行是极端重要的，它表明传递的信息类型和采用的编码。
 
-Content-Type 表明信息类型，缺省值为" text/plain"。它包含了主要类型（primary type) 和次要类型（subtype) 两个部分，两者之间用"/"分割。主要类型有9种，分别是application、audio、example、image、message、model、multipart、text、video。
+Content-Type 表明信息类型，缺省值为" text/plain"。它包含了主要类型 (primary type) 和次要类型 (subtype) 两个部分，两者之间用"/"分割。主要类型有9种，分别是application、audio、example、image、message、model、multipart、text、video。
 
 每一种主要类型下面又有许多种次要类型，常见的有: 
 

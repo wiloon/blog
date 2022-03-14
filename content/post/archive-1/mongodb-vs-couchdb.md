@@ -15,13 +15,13 @@ http://database.51cto.com/art/201103/249990.htm
 
 本文见于MongoDB官方网站,MongoDB与CouchDB很相似,他们都是文档型存储,数据存储格式都是JSON型的,都使用Javascript进行操作,都支持Map/Reduce。但是其实二者有着很多本质的区别,本文透过现象追寻本质,让你更好的理解MongoDB与CouchDB。
 
-**1.MVCC（Multiversion concurrency control) **
+**1.MVCC (Multiversion concurrency control) **
 
 MongoDB与CouchDB的一大区别就是CouchDB是一个MVCC的系统,而MongoDB是一个update-in-place的系统。这二者的区别就是,MongoDB进行写操作时都是即时完成写操作,写操作成功则数据就写成功了,而CouchDB一个支持多版本控制的系统,此类系统通常支持多个结点写,而系统会检测到多个系统的写操作之间的冲突并以一定的算法规则予以解决。
 
 **2.水平扩展性**
 
-在扩展性方面,CouchDB使用replication去做,而MongoDB的replication仅仅用来增强数据的可靠性,MongoDB在实现水平扩展性方面使用的是Sharding。（据说CouchDB也有开发分片功能的计划) 
+在扩展性方面,CouchDB使用replication去做,而MongoDB的replication仅仅用来增强数据的可靠性,MongoDB在实现水平扩展性方面使用的是Sharding。 (据说CouchDB也有开发分片功能的计划) 
 
 **3.数据查询操作**
 
@@ -29,7 +29,7 @@ MongoDB与CouchDB的一大区别就是CouchDB是一个MVCC的系统,而MongoDB�
 
 **4.原子性**
 
-这一点上两者比较一致,都支持针对行的原子性修改（concurrent modifications of single documents) ,但不支持更多的复杂事务操作。
+这一点上两者比较一致,都支持针对行的原子性修改 (concurrent modifications of single documents) ,但不支持更多的复杂事务操作。
 
 **5.数据可靠性**
 
@@ -41,7 +41,7 @@ MongoDB和CouchDB都支持Map/Reduce,不同的是MongoDB只有在数据统计操
 
 **7.使用 javascript**
 
-MongoDB和CouchDB都支持javascript,CouchDb用javascript来创建view。MongoDB使用JSON作为普通数据库操作的表达式。当然你也可以在操作中包含javascript语句。MongoDB还支持服务端的javascript脚本（running arbitrary javascript functions server-side) ,当然,MongoDB的Map/Reduce函数也是javascript格式的。
+MongoDB和CouchDB都支持javascript,CouchDb用javascript来创建view。MongoDB使用JSON作为普通数据库操作的表达式。当然你也可以在操作中包含javascript语句。MongoDB还支持服务端的javascript脚本 (running arbitrary javascript functions server-side) ,当然,MongoDB的Map/Reduce函数也是javascript格式的。
 
 **8.REST**
 

@@ -21,7 +21,7 @@ Containerd能支持多运行时，目前它内置了runc运行时，其他运行
 
 ## CRI-O
 
-CRI-O完整实现CRI接口功能，并且严格兼容OCI标准，CRI-O比Containerd更专注，它只服务于Kubernetes（而Containerd除支持Kubernetes CRI，还可用于Docker Swarm），从官网上我们可以了解到CRI-O项目的功能边界：
+CRI-O完整实现CRI接口功能，并且严格兼容OCI标准，CRI-O比Containerd更专注，它只服务于Kubernetes (而Containerd除支持Kubernetes CRI，还可用于Docker Swarm），从官网上我们可以了解到CRI-O项目的功能边界：
 支持多种image格式
 支持多种image下载方式
 容器镜像管理
@@ -43,9 +43,9 @@ kubeadm 是一个工具包，可帮助您以简单，合理安全和可扩展的
 
 kubeadm的目标是建立一个通过Kubernetes一致性测试Kubernetes Conformance tests的最小可行集群 ，但不会安装其他功能插件。
 
-它在设计上并未为您安装网络解决方案，需要用户自行安装第三方符合CNI的网络解决方案（如flanal，calico，canal等）。
+它在设计上并未为您安装网络解决方案，需要用户自行安装第三方符合CNI的网络解决方案 (如flanal，calico，canal等）。
 
-kubeadm可以在多种设备上运行，可以是Linux笔记本电脑，虚拟机，物理/云服务器或Raspberry Pi。这使得kubeadm非常适合与不同种类的配置系统（例如Terraform，Ansible等）集成。
+kubeadm可以在多种设备上运行，可以是Linux笔记本电脑，虚拟机，物理/云服务器或Raspberry Pi。这使得kubeadm非常适合与不同种类的配置系统 (例如Terraform，Ansible等）集成。
 
 kubeadm是一种简单的方式让新用户开始尝试Kubernetes，也可能是第一次让现有用户轻松测试他们的应用程序并缝合到一起的方式，也可以作为其他生态系统中的构建块，或者具有更大范围的安装工具。
 
@@ -69,7 +69,7 @@ CRI：遵循CRI规范，通过封装的两个服务(Remote Runtime Service 和 R
 ### kubectl
 
 可以使用 Kubectl 命令行工具管理 Kubernetes 集群
-kubectl 是 Kubernetes 的命令行工具（CLI），是 Kubernetes 用户和管理员必备的管理工具。
+kubectl 是 Kubernetes 的命令行工具 (CLI），是 Kubernetes 用户和管理员必备的管理工具。
 
 ### archlinux 安装  k8s
 

@@ -14,7 +14,7 @@ http://www.ttlsa.com/linux/resolv-conf-desc/
   
 resolv.conf是resolver类库使用的配置文件,每当一个程序需要通过域名来访问internet上面的其它主机时,需要利用该类库将域名转换成对应的IP,然后才可进行访问.
 
-resolv.conf文件的配置选项不多,从man文档中看了半天,不理解domain和search使用来干嘛的。这里做个解释,防止以后忘了（环境: ubuntu12.04) : 
+resolv.conf文件的配置选项不多,从man文档中看了半天,不理解domain和search使用来干嘛的。这里做个解释,防止以后忘了 (环境: ubuntu12.04) : 
 
 nameserver x.x.x.x该选项用来制定DNS服务器的,可以配置多个nameserver指定多个DNS。
 

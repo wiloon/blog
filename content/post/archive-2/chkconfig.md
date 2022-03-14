@@ -25,7 +25,7 @@ chkconfig postfix off
 
 https://www.cnblogs.com/panjun-Donet/archive/2010/08/10/1796873.html
 
-chkconfig命令主要用来更新（启动或停止) 和查询系统服务的运行级信息。谨记chkconfig不是立即自动禁止或激活一个服务,它只是简单的改变了符号连接。
+chkconfig命令主要用来更新 (启动或停止) 和查询系统服务的运行级信息。谨记chkconfig不是立即自动禁止或激活一个服务,它只是简单的改变了符号连接。
 
 使用语法: 
   
@@ -57,7 +57,7 @@ chkconfig在没有参数运行时,显示用法。如果加上服务名,那么就
         
 需要说明的是,level选项可以指定要查看的运行级而不一定是当前运行级。对于每个运行级,只能有一个启动脚本或者停止脚本。当切换运行级时,init不会重新启动已经启动的服务,也不会再次去停止已经停止的服务。
 
-    chkconfig --list [name]: 显示所有运行级系统服务的运行状态信息（on或off) 。如果指定了name,那么只显示指定的服务在不同运行级的状态。
+    chkconfig --list [name]: 显示所有运行级系统服务的运行状态信息 (on或off) 。如果指定了name,那么只显示指定的服务在不同运行级的状态。
     chkconfig --add name: 增加一项新的服务。chkconfig确保每个运行级有一项启动(S)或者杀死(K)入口。如有缺少,则会从缺省的init脚本自动建立。
     chkconfig --del name: 删除服务,并把相关符号连接从/etc/rc[0-6].d删除。
     chkconfig [--level levels] name: 设置某一服务在指定的运行级是被启动,停止还是重置。

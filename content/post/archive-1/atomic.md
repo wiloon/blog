@@ -20,7 +20,7 @@ Java从JDK1.5开始提供了java.util.concurrent.atomic包,方便程序员在多
   
 数组类型: AtomicIntegerArray、AtomicLongArray、AtomicReferenceArray
   
-属性原子修改器（Updater) : AtomicIntegerFieldUpdater、AtomicLongFieldUpdater、AtomicReferenceFieldUpdater
+属性原子修改器 (Updater) : AtomicIntegerFieldUpdater、AtomicLongFieldUpdater、AtomicReferenceFieldUpdater
 
 看到这么多类,你是否觉得很困惑,其实没什么,因为你只需要看懂一个,其余的方法和使用都是大同小异的,相关的类会介绍他们之间的区别在哪里,在使用中需要注意的地方即可。
 
@@ -34,7 +34,7 @@ public final native boolean compareAndSwapInt(Object paramObject, long paramLong
 
 参数1: 被操作的对象
 
-参数2: fieldoffset 被操作的域在对象中的偏移量,其实对比时是对比内存单元,所以需要属性的起始位置,而引用就是修改引用地址（根据OS、VM位数和参数配置决定宽度一般是4-8个字节) ,int就是修改相关的4个字节,而long就是修改相关的8个字节。
+参数2: fieldoffset 被操作的域在对象中的偏移量,其实对比时是对比内存单元,所以需要属性的起始位置,而引用就是修改引用地址 (根据OS、VM位数和参数配置决定宽度一般是4-8个字节) ,int就是修改相关的4个字节,而long就是修改相关的8个字节。
 
 获取偏移量也是通过unsafe的一个方法: objectFieldOffset(Fieldfield)来获取属性在对象中的偏移量；静态变量需要通过: staticFieldOffset(Field field)获取,调用的总方法是: fieldOffset(Fieldfield)
 
@@ -136,7 +136,7 @@ System.out.println("最终运行结果: " + TEST_INTEGER.get());
   
 ```
 
-代码例子中模拟多个线程并发对AtomicInteger进行增加1的操作,如果这个数据是普通类型,那么增加过程中出现的问题就是两个线程可能同时看到的数据都是同一个数据,增加完成后写回的时候,也是同一个数据,但是两个加法应当串行增加1,也就是加2的操作,甚至于更加特殊的情况是一个线程加到3后,写入,另一个线程写入了2,还越变越少,也就是不能得到正确的结果,在并发下,我们模拟计数器,要得到精确的计数器值,就需要使用它,我们希望得到的结果是11,可以拷贝代码进去运行后看到结果的确是11,虽然输出的顺序可能不一样,也同时可以证明线程的确是并发运行的（只是在输出的时候,征用System.out这个对象也不一定是谁先抢到) ,但是最终结果的确是11。
+代码例子中模拟多个线程并发对AtomicInteger进行增加1的操作,如果这个数据是普通类型,那么增加过程中出现的问题就是两个线程可能同时看到的数据都是同一个数据,增加完成后写回的时候,也是同一个数据,但是两个加法应当串行增加1,也就是加2的操作,甚至于更加特殊的情况是一个线程加到3后,写入,另一个线程写入了2,还越变越少,也就是不能得到正确的结果,在并发下,我们模拟计数器,要得到精确的计数器值,就需要使用它,我们希望得到的结果是11,可以拷贝代码进去运行后看到结果的确是11,虽然输出的顺序可能不一样,也同时可以证明线程的确是并发运行的 (只是在输出的时候,征用System.out这个对象也不一定是谁先抢到) ,但是最终结果的确是11。
 
 相信你对AtomicInteger的使用有一些了解了吧,要知道更多的方法使用,请参看这段代码中定义变量位置的注释,有关于AtomicInteger的相关方法的详细注释,可以直接跟踪进去看源码,注释中使用了简单的描述说明了方法的用途。
 
@@ -234,7 +234,7 @@ return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
   
 }
 
-可以看到这里使用了unsafe的compareAndSwapInt的方法,很明显this就是指AtomicInteger当前的这个对象（这个对象不用像上面说的它不能是static和final,它无所谓的) ,而valueOffset的定义是这样的: 
+可以看到这里使用了unsafe的compareAndSwapInt的方法,很明显this就是指AtomicInteger当前的这个对象 (这个对象不用像上面说的它不能是static和final,它无所谓的) ,而valueOffset的定义是这样的: 
 
 private static final long valueOffset;
       
@@ -334,7 +334,7 @@ OK,的确和我们上面所讲一致,那么此时我们又遇到了引用修改�
 
 此时我们需要使用的方式就不是简单的compareAndSet操作,因为它仅仅是考虑到物理上的并发,而不是在业务逻辑上去控制顺序,此时我们需要借鉴数据库的事务序列号的一些思想来解决,假如每个对象修改的次数可以记住,修改前先对比下次数是否一致再修改,那么这个问题就简单了,AtomicStampedReference类正是提供这一功能的,其实它仅仅是在AtomicReference类的再一次包装,里面增加了一层引用和计数器,其实是否为计数器完全由自己控制,大多数我们是让他自增的,你也可以按照自己的方式来标示版本号,下面一个例子是ABA问题的简单演示: 
 
-实例代码3（ABA问题模拟代码演示) : 
+实例代码3 (ABA问题模拟代码演示) : 
 
 ```java
   
@@ -418,7 +418,7 @@ System.out.println("已经改为原始值！");
 
 此时我们通过类来AtomicStampedReference解决这个问题: 
   
-实例代码4（AtomicStampedReference解决ABA问题) : 
+实例代码4 (AtomicStampedReference解决ABA问题) : 
 
 [code lang=text]
   
@@ -494,7 +494,7 @@ ATOMIC_MARKABLE_REFERENCE.compareAndSet("abc", "abc2", false, true);
 
 好了,reference的三个类的种类都介绍了,我们下面要开始说Atomic的数组用法,因为我们开始说到的都是一些简单变量和基本数据,操作数组呢？如果你来设计会怎么设计,Atomic的数组要求不允许修改长度等,不像集合类那么丰富的操作,不过它可以让你的数组上每个元素的操作绝对安全的,也就是它细化的力度还是到数组上的元素,为你做了二次包装,所以如果你来设计,就是在原有的操作上增加一个下标访问即可,我们来模拟一个Integer类型的数组,即: AtomicIntegerArray
 
-实例代码5（AtomicIntegerArrayTest.java) 
+实例代码5 (AtomicIntegerArrayTest.java) 
 
 ```java
   
@@ -622,7 +622,7 @@ return unsafe.getIntVolatile(array, rawIndex(i));
   
 }
   
-这里通过了unsafe获取基于volatile方式获取（可见性) 获取一个int类型的数据,而获取的位置是由rawIndex来确定,它的源码是: 
+这里通过了unsafe获取基于volatile方式获取 (可见性) 获取一个int类型的数据,而获取的位置是由rawIndex来确定,它的源码是: 
 
 private long rawIndex(int i) {
       
@@ -659,7 +659,7 @@ AtomicXXXFieldUpdater可以以一种线程安全的方式操作非线程安全�
 
 说了这么多,来个实例看看吧。
 
-### 实例代码6: （AtomicIntegerFieldUpdaterTest.java) 
+### 实例代码6:  (AtomicIntegerFieldUpdaterTest.java) 
 
 ```java
 import org.slf4j.Logger;

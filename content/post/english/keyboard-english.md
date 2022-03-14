@@ -35,9 +35,9 @@ tags:
     & and/和/兼 and/ampersand
     ^ 折音号 circumflex/caret
     ~ 波浪号 tilde
-    {} （左右）花括号/大括号 (left/right|open/close) braces
-    [] （左右）方括号/中括号 (left/right|open/close) brackets
-    () （左右）圆括号/小括号 (left/right|open/close) parentheses
+    {}  (左右）花括号/大括号 (left/right|open/close) braces
+    []  (左右）方括号/中括号 (left/right|open/close) brackets
+    ()  (左右）圆括号/小括号 (left/right|open/close) parentheses
     <> 尖括号 angle brackets
     < 大于号 less than
     > 小于号 greater than

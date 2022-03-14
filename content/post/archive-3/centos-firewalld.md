@@ -122,7 +122,7 @@ public (default, active)
 firewall-cmd --permanent --zone=public --remove-port=8080/tcp
 firewall-cmd --permanent --zone=public --remove-port=8080/udp
 
-# 阻止某个IP（123.57.22.204) 连接: 
+# 阻止某个IP (123.57.22.204) 连接: 
 
 firewall-cmd --permanent --add-rich-rule="rule family=ipv4 source address=123.57.22.204 reject"
 ```

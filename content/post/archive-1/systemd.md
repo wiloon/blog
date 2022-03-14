@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## systemd, systemctl basic, command
-Systemd 是 Linux 系统中最新的初始化系统（init），它主要的设计目标是克服 sysvinit 固有的缺点，提高系统的启动速度
+Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设计目标是克服 sysvinit 固有的缺点，提高系统的启动速度
 ### Systemd新特性：
 - 系统引导时实现服务并行启动
 - 按需启动守护进程
@@ -102,7 +102,7 @@ $ sudo systemctl halt
 # 待机: 
 systemctl suspend
 systemctl hibernate
-# 混合休眠模式（同时休眠到硬盘并待机) : 
+# 混合休眠模式 (同时休眠到硬盘并待机) : 
 systemctl hybrid-sleep
 
 # list all service
@@ -114,7 +114,7 @@ systemctl is-enabled SERVICE
 显示所有已启动的服务
 systemctl list-units --type=service
 
-systemctl is-active httpd.service （仅显示是否 Active)
+systemctl is-active httpd.service  (仅显示是否 Active)
 
 systemctl daemon-reload
 
@@ -134,14 +134,14 @@ systemctl status xxx
     Loaded行: 配置文件的位置,是否设为开机启动
     Active行: 表示正在运行
     Main PID行: 主进程ID
-    Status行: 由应用本身（这里是 httpd ) 提供的软件当前状态
+    Status行: 由应用本身 (这里是 httpd ) 提供的软件当前状态
     CGroup块: 应用的所有子进程
     日志块: 应用的日志
 
 http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
 
 ### Unit
-Systemd 可以管理所有系统资源。不同的资源统称为 Unit（单位) 。
+Systemd 可以管理所有系统资源。不同的资源统称为 Unit (单位) 。
 Unit 一共分成12种。
 
     Service unit: 系统服务

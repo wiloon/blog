@@ -42,4 +42,4 @@ Date b_date = new Date();(着这是util类型的)！
 
 ps.setDate(new java.sql.Date(b_date.getTime()));(这是插入数据库是的Date)!
 
-其中（new java.sql.Date(b_date.getTime()));是把java类型的Date转换成sql类型的Date
+其中 (new java.sql.Date(b_date.getTime()));是把java类型的Date转换成sql类型的Date

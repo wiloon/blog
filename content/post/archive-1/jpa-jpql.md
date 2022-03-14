@@ -272,7 +272,7 @@ inner join
   
 left join fetch/inner join fetch
 
-left out join/left join 等, 都是允许符合条件的右边表达式中的 Entiies 为空（ 需要显式使用 left join/left outer join 的情况会比较少。 ) 
+left out join/left join 等, 都是允许符合条件的右边表达式中的 Entiies 为空 ( 需要显式使用 left join/left outer join 的情况会比较少。 ) 
   
 例: 
   
@@ -324,7 +324,7 @@ System.out.println (" 订购产品名:  "+ orderItem.getProductname());
   
 }
 
-上面代码在执行 "select o from Order o inner join o.orderItems where o.ower.age=26 order by o.orderid" 时编译成的 SQL 如下（ 他不包含集合属性变量 (orderItems) 对应表的字段 )  : 
+上面代码在执行 "select o from Order o inner join o.orderItems where o.ower.age=26 order by o.orderid" 时编译成的 SQL 如下 ( 他不包含集合属性变量 (orderItems) 对应表的字段 )  : 
   
 select order0_.orderid as orderid6_, order0_.amount as amount6_, order0_.person_id as
   
@@ -554,7 +554,7 @@ select o from Order as o where o.ower in(select p from Person as p where p.age =
 
 setMaxResults 方法设置获取多少条记录
   
-setFirstResult 方法设置从结果集中的那个索引开始获取 （假如返回的记录有 3 条,容器会自动为记录编上索引,索引从 0 开始, 依次为 0 , 1 , 2 ) 
+setFirstResult 方法设置从结果集中的那个索引开始获取  (假如返回的记录有 3 条,容器会自动为记录编上索引,索引从 0 开始, 依次为 0 , 1 , 2 ) 
 
 例: 
   

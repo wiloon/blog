@@ -105,7 +105,7 @@ bind-key -T copy-mode-vi u send-keys halfpage-up
 其实本来还可以加 bind-key p run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"，不过还是 ctrl+shift+v 粘贴更方便，就不加了。
 
 御用文本编辑器・NeoVim
-Vim 要有开启 clipboard 编译选项，才支持剪贴板（大概) 。据说 Arch Linux 的 vim 就没开启！只能改装 gvim 包了。
+Vim 要有开启 clipboard 编译选项，才支持剪贴板 (大概) 。据说 Arch Linux 的 vim 就没开启！只能改装 gvim 包了。
 
 好在 NeoVim 支持，但需要额外的依赖，help clipboard 指出: 
 

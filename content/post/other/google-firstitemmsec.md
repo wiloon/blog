@@ -22,7 +22,7 @@ Get subscription list. Each subscription contains a "category" if the user had c
 
 获取预定列表。如果用户已创建了文件夹，每个预定包含一个"category"。它还有一个域，称为firstitemmsec ，以毫秒为单位，说明feed条目应该被提取的时间.
 
-firstitemmsec 起初难倒了我, 直到我添加了一个新的预定。我注意到，GOOGLE阅读器的feed条目可回溯一个月之长（可能是无限期的) 。因此，阅读器只能从你订阅的时间上判断，向你显示文章。
+firstitemmsec 起初难倒了我, 直到我添加了一个新的预定。我注意到，GOOGLE阅读器的feed条目可回溯一个月之长 (可能是无限期的) 。因此，阅读器只能从你订阅的时间上判断，向你显示文章。
 
 <http://anirudhsasikumar.net/blog/2009.11.04.html>
 

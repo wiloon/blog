@@ -35,7 +35,7 @@ tags:
  RTRIM(character_expression)
   
   
-    LEN(string_expression) 返回字符（不是字节) 个数，不包含尾随的英文空格
+    LEN(string_expression) 返回字符 (不是字节) 个数，不包含尾随的英文空格
  LEFT(character_expression, integer_expression) 尾随英文空格也可能被返回
  RIGHT(character_expression, integer_expression)
  SUBSTRING(expression, start, length) 第一个字符的位置是 1

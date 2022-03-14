@@ -50,7 +50,7 @@ pwgen -1
   
 pwgen -1 -s
 
-在密码中使用特殊字符（感叹号,逗号,引号,加号,减号,冒号等) 可以提高密码的安全等级。使用"-y"参数使生成的密码中至少包括一个特殊字符。
+在密码中使用特殊字符 (感叹号,逗号,引号,加号,减号,冒号等) 可以提高密码的安全等级。使用"-y"参数使生成的密码中至少包括一个特殊字符。
 
  view plain copy
   
@@ -100,7 +100,7 @@ passwordmaker与之前的pwgen和makepasswd不同。它本来是IE,Firefox等浏
   
 sudo apt-get install passwordmaker-cli
   
-在使用passwordmaker的时候,你需要输入一个域名（URL) 和主密码（master password) ,passwordmaker会利用这些输入的信息为这个URL生成一个独一无二的密码。
+在使用passwordmaker的时候,你需要输入一个域名 (URL) 和主密码 (master password) ,passwordmaker会利用这些输入的信息为这个URL生成一个独一无二的密码。
 
  view plain copy
   

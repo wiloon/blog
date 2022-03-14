@@ -18,7 +18,7 @@ http://topic.csdn.net/t/20061223/10/5250896.html
     我们知道ArrayList的内部是采用数组来存储元素的，由于java数组都是定长的，所以这个数组的大小一定是固定的，这个大小就是capacity。我们可以肯定capacity一定是大于或等于ArrayList的size，那么当size不断增加到了要超过capacity的时候，ArrayList就不得不重新创建新的capacity来容纳更多的元素，这时需要首先建立一个更长的数组，将原来的数组中的元素复制到新数组中，再删除原来的数组。可见当ArrayList越来越大时，这种操作的消耗也是越来越大的。
   
   
-    为了减少这种不必要的重建capacity的操作，当我们能肯定ArrayList大致有多大（或者至少会有多大) 时，我们可以先让ArrayList把capacity设为我们期望的大小，以避免多余的数组重建。
+    为了减少这种不必要的重建capacity的操作，当我们能肯定ArrayList大致有多大 (或者至少会有多大) 时，我们可以先让ArrayList把capacity设为我们期望的大小，以避免多余的数组重建。
   
   
     假设ArrayList自动把capacity设为10，每次重建时将长度递增原来的三分之二，那么当我们需要大约存储50个元素到ArrayList中时，就会大约需要重建数组4次，分别是在增加第11、第17、第26、第39个元素的时候进行的。如果我们一开始就让ArrayList的capacity为50，那么不需要任何数组重建就能完成所有插入操作了。

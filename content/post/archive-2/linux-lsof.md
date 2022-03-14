@@ -24,7 +24,7 @@ sudo lsof -p 1098
 ### 使用-i 6仅获取IPv6流量: 
     lsof -i 6
 
-### 仅显示 TCP 连接（同理可获得UDP连接) : 
+### 仅显示 TCP 连接 (同理可获得UDP连接) : 
     lsof  -iTCP
 
 #使用@host来显示指定到指定主机的连接
@@ -41,7 +41,7 @@ lsof  -i |  grep  -i LISTEN
 lsof  -i -sTCP:ESTABLISHED
 
 
-lsof（list open files) 是一个列出当前系统打开文件的工具。在linux环境下,任何事物都以文件的形式存在,通过文件不仅仅可以访问常规数据,还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP)  socket 等,系统在后台都为该应用程序分配了一个文件描述符,无论这个文件的本质如何,该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息,因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。
+lsof (list open files) 是一个列出当前系统打开文件的工具。在linux环境下,任何事物都以文件的形式存在,通过文件不仅仅可以访问常规数据,还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP)  socket 等,系统在后台都为该应用程序分配了一个文件描述符,无论这个文件的本质如何,该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息,因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。
 
 1．命令格式: 
 
@@ -67,7 +67,7 @@ lsof打开的文件可以是:
   
 7.符号链接
   
-8.网络文件（例如: NFS file、网络socket,unix域名socket) 
+8.网络文件 (例如: NFS file、网络socket,unix域名socket) 
   
 9.还有其它类型的文件,等等
   
@@ -89,7 +89,7 @@ lsof打开的文件可以是:
 
 -n <目录> 列出使用NFS的文件
 
--i <条件> 列出符合条件的进程。（4、6、协议、:端口、 @ip ) 
+-i <条件> 列出符合条件的进程。 (4、6、协议、:端口、 @ip ) 
 
 -u 列出UID号进程详情
 
@@ -125,7 +125,7 @@ COMMAND: 进程的名称
 
 PID: 进程标识符
 
-PPID: 父进程标识符（需要指定-R参数) 
+PPID: 父进程标识符 (需要指定-R参数) 
 
 USER: 进程所有者
 
@@ -133,93 +133,93 @@ PGID: 进程所属组
 
 FD: 文件描述符,应用程序通过文件描述符识别该文件。如cwd、txt等
 
-（1) cwd: 表示current work dirctory,即: 应用程序的当前工作目录,这是该应用程序启动的目录,除非它本身对这个目录进行更改
+ (1) cwd: 表示current work dirctory,即: 应用程序的当前工作目录,这是该应用程序启动的目录,除非它本身对这个目录进行更改
 
-（2) txt : 该类型的文件是程序代码,如应用程序二进制文件本身或共享库,如上列表中显示的 /sbin/init 程序
+ (2) txt : 该类型的文件是程序代码,如应用程序二进制文件本身或共享库,如上列表中显示的 /sbin/init 程序
 
-（3) lnn: library references (AIX);
+ (3) lnn: library references (AIX);
 
-（4) er: FD information error (see NAME column);
+ (4) er: FD information error (see NAME column);
 
-（5) jld: jail directory (FreeBSD);
+ (5) jld: jail directory (FreeBSD);
 
-（6) ltx: shared library text (code and data);
+ (6) ltx: shared library text (code and data);
 
-（7) mxx : hex memory-mapped type number xx.
+ (7) mxx : hex memory-mapped type number xx.
 
-（8) m86: DOS Merge mapped file;
+ (8) m86: DOS Merge mapped file;
 
-（9) mem: memory-mapped file;
+ (9) mem: memory-mapped file;
 
-（10) mmap: memory-mapped device;
+ (10) mmap: memory-mapped device;
 
-（11) pd: parent directory;
+ (11) pd: parent directory;
 
-（12) rtd: root directory;
+ (12) rtd: root directory;
 
-（13) tr: kernel trace file (OpenBSD);
+ (13) tr: kernel trace file (OpenBSD);
 
-（14) v86 VP/ix mapped file;
+ (14) v86 VP/ix mapped file;
 
-（15) 0: 表示标准输出
+ (15) 0: 表示标准输出
 
-（16) 1: 表示标准输入
+ (16) 1: 表示标准输入
 
-（17) 2: 表示标准错误
+ (17) 2: 表示标准错误
 
 一般在标准输出、标准错误、标准输入后还跟着文件状态模式: r、w、u等
 
-（1) u: 表示该文件被打开并处于读取/写入模式
+ (1) u: 表示该文件被打开并处于读取/写入模式
 
-（2) r: 表示该文件被打开并处于只读模式
+ (2) r: 表示该文件被打开并处于只读模式
 
-（3) w: 表示该文件被打开并处于
+ (3) w: 表示该文件被打开并处于
 
-（4) 空格: 表示该文件的状态模式为unknow,且没有锁定
+ (4) 空格: 表示该文件的状态模式为unknow,且没有锁定
 
-（5) -: 表示该文件的状态模式为unknow,且被锁定
+ (5) -: 表示该文件的状态模式为unknow,且被锁定
 
 同时在文件状态模式后面,还跟着相关的锁
 
-（1) N: for a Solaris NFS lock of unknown type;
+ (1) N: for a Solaris NFS lock of unknown type;
 
-（2) r: for read lock on part of the file;
+ (2) r: for read lock on part of the file;
 
-（3) R: for a read lock on the entire file;
+ (3) R: for a read lock on the entire file;
 
-（4) w: for a write lock on part of the file;（文件的部分写锁) 
+ (4) w: for a write lock on part of the file; (文件的部分写锁) 
 
-（5) W: for a write lock on the entire file;（整个文件的写锁) 
+ (5) W: for a write lock on the entire file; (整个文件的写锁) 
 
-（6) u: for a read and write lock of any length;
+ (6) u: for a read and write lock of any length;
 
-（7) U: for a lock of unknown type;
+ (7) U: for a lock of unknown type;
 
-（8) x: for an SCO OpenServer Xenix lock on part of the file;
+ (8) x: for an SCO OpenServer Xenix lock on part of the file;
 
-（9) X: for an SCO OpenServer Xenix lock on the entire file;
+ (9) X: for an SCO OpenServer Xenix lock on the entire file;
 
-（10) space: if there is no lock.
+ (10) space: if there is no lock.
 
 TYPE: 文件类型,如DIR、REG等,常见的文件类型
 
-（1) DIR: 表示目录
+ (1) DIR: 表示目录
 
-（2) CHR: 表示字符类型
+ (2) CHR: 表示字符类型
 
-（3) BLK: 块设备类型
+ (3) BLK: 块设备类型
 
-（4) UNIX:  UNIX 域 socket 
+ (4) UNIX:  UNIX 域 socket 
 
-（5) FIFO: 先进先出 (FIFO) 队列
+ (5) FIFO: 先进先出 (FIFO) 队列
 
-（6) IPv4: 网际协议 (IP)  socket 
+ (6) IPv4: 网际协议 (IP)  socket 
 
 DEVICE: 指定磁盘的名称
 
 SIZE: 文件的大小
 
-NODE: 索引节点（文件在磁盘上的标识) 
+NODE: 索引节点 (文件在磁盘上的标识) 
 
 NAME: 打开文件的确切名称
 

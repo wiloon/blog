@@ -34,7 +34,7 @@ tags:
     
     
     
-      3.truncate 调整high water mark 而delete不.truncate之后，TABLE的HWM退回到 INITIAL和NEXT的位置（默认) 
+      3.truncate 调整high water mark 而delete不.truncate之后，TABLE的HWM退回到 INITIAL和NEXT的位置 (默认) 
     
     
     
@@ -82,5 +82,5 @@ tags:
     
       当你不再需要该表时， 用 drop;
  当你仍要保留该表，但要删除所有记录时， 用 truncate;
- 当你要删除部分记录时（always with a WHERE clause), 用 delete.
+ 当你要删除部分记录时 (always with a WHERE clause), 用 delete.
   

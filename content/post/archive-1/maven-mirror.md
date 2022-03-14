@@ -13,7 +13,7 @@ tags:
 ## maven mirror, repository
 mirror和 repository
 
-1 Repository（仓库) 
+1 Repository (仓库) 
   
 1.1 Maven仓库主要有2种: 
 
@@ -63,7 +63,7 @@ mirror相当于一个拦截器，它会拦截maven对remote repository的相关�
 
 3.1 定义
 
-其实，mirror表示的是两个Repository之间的关系，在maven配置文件（setting.xml)里配置了<mirrors><mirror>……….</mirror></mirrors>，即定义了两个Repository之间的镜像关系。
+其实，mirror表示的是两个Repository之间的关系，在maven配置文件 (setting.xml)里配置了<mirrors><mirror>……….</mirror></mirrors>，即定义了两个Repository之间的镜像关系。
 
 3.2 目的
 

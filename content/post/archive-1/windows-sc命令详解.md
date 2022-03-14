@@ -34,15 +34,15 @@ Command
   
 下面列出SC可以使用的命令。
   
-config--改变一个服务的配置。（长久的) 
+config--改变一个服务的配置。 (长久的) 
   
 continue-对一个服务送出一个继续控制的要求。
   
 control--对一个服务送出一个控制。
   
-create--创建一个服务。（增加到注册表中) 
+create--创建一个服务。 (增加到注册表中) 
   
-delete--删除一个服务。（从注册表中删除) 
+delete--删除一个服务。 (从注册表中删除) 
   
 EnumDepend-列举服务的从属关系。
   
@@ -64,7 +64,7 @@ stop--对一个服务送出一个停止的要求。
   
 Servicename
   
-在注册表中为service key制定的名称。注意这个名称是不同于显示名称的（这个名称可以用net start和服务控
+在注册表中为service key制定的名称。注意这个名称是不同于显示名称的 (这个名称可以用net start和服务控
   
 制面板看到) ,而SC是使用服务键名来鉴别服务的。
   
@@ -94,7 +94,7 @@ Comments
   
 但是除了一个命令,sc query,这会导出该系统中当前正在运行的所有服务和驱动程序的状态。
   
-当你使用start命令时,你可以传递一些参数（arguments) 给服务的主函数,但是不是给服务进程的主函数。
+当你使用start命令时,你可以传递一些参数 (arguments) 给服务的主函数,但是不是给服务进程的主函数。
   
 二.SC create
   
@@ -118,7 +118,7 @@ type=--own, share, interact, kernel, filesys
   
 start=--boot, sys tem, auto, demand, disabled
   
-关于启动服务的类型,选项值包括驱动程序使用的类型,默认是demand（手动) 。
+关于启动服务的类型,选项值包括驱动程序使用的类型,默认是demand (手动) 。
   
 error=--normal, severe, critical, ignore
   

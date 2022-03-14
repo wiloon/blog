@@ -47,7 +47,7 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 根据解壳数据在解壳程序DEX文件中的不同分布,本文将提出两种Android Dex加壳的实现方案。
 
 
-（一) 解壳数据位于解壳程序文件尾部
+ (一) 解壳数据位于解壳程序文件尾部
 
 
 该种方式简单实用,合并后的DEX文件结构如下。
@@ -73,7 +73,7 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 3. 通过DexClassLoader动态加载a.apk。
 
 
-（二) 解壳数据位于解壳程序文件头
+ (二) 解壳数据位于解壳程序文件头
 
 
 该种方式相对比较复杂, 合并后DEX文件结构如下: 
@@ -85,7 +85,7 @@ http://blog.csdn.net/jiazhijun/article/details/8664778
 
 2. 计算解壳数据长度,并添加该长度到解壳DEX文件头末尾,并继续解壳数据到文件头末尾。
 
-（插入数据的位置为0x70处) 
+ (插入数据的位置为0x70处) 
 
 3. 修改解壳程序DEX头中checksum、signature、file_size、header_size、string_ids_off、type_ids_off、proto_ids_off、field_ids_off、
 

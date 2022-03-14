@@ -44,7 +44,7 @@ apk add drill
 解决办法：下面两个解决方法
 
 改为静态编译
-如果要使用动态链接函数编译的话，不要依赖 GLIBC （比如编译 Go 程序的时候指定 CGO_ENABLED=0 ） 或者在 alpine 中编译一个依赖 MUSL LIBC 的版本
+如果要使用动态链接函数编译的话，不要依赖 GLIBC  (比如编译 Go 程序的时候指定 CGO_ENABLED=0 ） 或者在 alpine 中编译一个依赖 MUSL LIBC 的版本
 
 ## golang cgo
 

@@ -17,9 +17,9 @@ Oracle 权限设置
   
 一、权限分类: 
   
-系统权限: 系统规定用户使用数据库的权限。（系统权限是对用户而言)。
+系统权限: 系统规定用户使用数据库的权限。 (系统权限是对用户而言)。
 
-实体权限: 某种权限用户对其它用户的表或视图的存取权限。（是针对表或视图而言的) 。
+实体权限: 某种权限用户对其它用户的表或视图的存取权限。 (是针对表或视图而言的) 。
 
 
 二、系统权限管理: 
@@ -111,7 +111,7 @@ SQL> select owner, table_name from all_tables; // 用户可以查询的表
   
 SQL> select table_name from user_tables;  // 用户创建的表
   
-SQL> select grantor, table_schema, table_name, privilege from all_tab_privs; // 获权可以存取的表（被授权的) 
+SQL> select grantor, table_schema, table_name, privilege from all_tab_privs; // 获权可以存取的表 (被授权的) 
   
 SQL> select grantee, owner, table_name, privilege from user_tab_privs;   // 授出权限的表(授出的权限)
 

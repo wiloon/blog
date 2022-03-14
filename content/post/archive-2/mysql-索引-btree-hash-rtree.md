@@ -101,7 +101,7 @@ SELECT TABLE1.FIELD1, TABLE2.FIELD2 FROM TABLE1 STRAIGHT_JOIN TABLE2 WHERE …
 
 SELECT SQL_BUFFER_RESULT * FROM TABLE1 WHERE …
 
-当我们查询的结果集中的数据比较多时,可以通过SQL_BUFFER_RESULT,选项强制将结果集放到临时表中,这样就可以很快地释放MySQL的表锁（这样其它的SQL语句就可以对这些记录进行查询了) ,并且可以长时间地为客户端提供大记录集。
+当我们查询的结果集中的数据比较多时,可以通过SQL_BUFFER_RESULT,选项强制将结果集放到临时表中,这样就可以很快地释放MySQL的表锁 (这样其它的SQL语句就可以对这些记录进行查询了) ,并且可以长时间地为客户端提供大记录集。
 
 3. 分组使用临时表 SQL_BIG_RESULT和SQL_SMALL_RESULT
 

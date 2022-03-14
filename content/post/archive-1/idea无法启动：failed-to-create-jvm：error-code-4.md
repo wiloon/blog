@@ -19,7 +19,7 @@ http://blog.csdn.net/twlkyao/article/details/24534505
 切换到IDE_HOME\bin\目录下,找到<product>.exe.vmoptions文件,尝试减少-Xmx和-XX:PermSize的值,建议以100M为单位,直到IDEA可以启动。
   
 2.开启64位模式
-IDEA提供idea64.exe的启动器,该启动器使用64位的JDK（需要单独安装) 。
+IDEA提供idea64.exe的启动器,该启动器使用64位的JDK (需要单独安装) 。
   
 3.使用<product>.bat启动
 
@@ -27,7 +27,7 @@ IDEA提供idea64.exe的启动器,该启动器使用64位的JDK（需要单独安
   
 4.强制使用64位的JDK
 
-.bat脚本默认使用32位的JDK（IDEA安装文件的jre 目录下) ,可以通过环境变量强制使用64位的JDK,变量的值取决于你使用的产品,IDEA_JDK for IntelliJ IDEA, WEBIDE_JDK for PhpStorm and WebStorm, PYCHARM_JDK for PyCharm, RUBYMINE_SDK for RubyMine. 参考选择合适的JDK。
+.bat脚本默认使用32位的JDK (IDEA安装文件的jre 目录下) ,可以通过环境变量强制使用64位的JDK,变量的值取决于你使用的产品,IDEA_JDK for IntelliJ IDEA, WEBIDE_JDK for PhpStorm and WebStorm, PYCHARM_JDK for PyCharm, RUBYMINE_SDK for RubyMine. 参考选择合适的JDK。
   
 5.卸载不常用的应用程序
 

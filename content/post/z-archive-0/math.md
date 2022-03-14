@@ -12,7 +12,7 @@ tags:
 ## Math
 http://blog.csdn.net/jiutianhe/article/details/41349649
   
-Section 1 linear 线性代数（矩阵为主) 
+Section 1 linear 线性代数 (矩阵为主) 
 
 1)  Vector 向量
 
@@ -20,7 +20,7 @@ Section 1 linear 线性代数（矩阵为主)
 
 3)  Matrix Decomposition 矩阵分解
 
-Section 2 analysis 数学分析（函数为主) 
+Section 2 analysis 数学分析 (函数为主) 
 
 1)  Function 函数
 

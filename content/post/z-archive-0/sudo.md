@@ -37,7 +37,7 @@ https://askubuntu.com/questions/70534/what-are-the-differences-between-su-sudo-s
     vipw /etc/passwd
 修改完毕后，保存退出
 
-sudo(substitute user do) 使得系统管理员可以授权特定用户或用户组作为 root 或他用户执行某些（或所有) 命令，同时还能够对命令及其参数提供审核跟踪。
+sudo(substitute user do) 使得系统管理员可以授权特定用户或用户组作为 root 或他用户执行某些 (或所有) 命令，同时还能够对命令及其参数提供审核跟踪。
 
 用户可以选择用 su 切换到 root 用户运行命令，但是这种方式会启动一个 root shell 并允许用户运行之后的所有的命令。而 sudo 可以针对单个命令、仅在需要时授予临时权限，减少因为执行错误命令损坏系统的可能性。sudo 也能以其他用户身份执行命令并且记录用户执行的命令，以及失败的权限申请。
 
@@ -147,7 +147,7 @@ Cmnd_Alias COMMAND_FLAG = command1, command2, command3
   
 User_Alias USER_FLAG = user1, user2, user3
   
-4) 配置Runas_Alias: 就是用户以什么身份执行（例如root，或者oracle) 的列表
+4) 配置Runas_Alias: 就是用户以什么身份执行 (例如root，或者oracle) 的列表
   
 Runas_Alias RUNAS_FLAG = operator1, operator2, operator3
   
@@ -209,7 +209,7 @@ root ALL=(ALL) ALL
   
 但这并不是最好的解决办法，例如管理员想授予一个普通用户关机的权限，这时使用上述的办法就不是很理想。这时您也许会想，我只让这个用户可以以 root身份执行shutdown命令就行了。完全没错，可惜在通常的Linux系统中无法实现这一功能，不过已经有了工具可以实现这样的功能—— sudo。
   
-sudo通过维护一个特权到用户名映射的数据库将特权分配给不同的用户，这些特权可由数据库中所列的一些不同的命令来识别。为了获得某一特权项，有资格的用户只需简单地在命令行输入sudo与命令名之后，按照提示再次输入口令（用户自己的口令，不是root用户口令) 。例如，sudo允许普通用户格式化磁盘，但是却没有赋予其他的root用户特权。
+sudo通过维护一个特权到用户名映射的数据库将特权分配给不同的用户，这些特权可由数据库中所列的一些不同的命令来识别。为了获得某一特权项，有资格的用户只需简单地在命令行输入sudo与命令名之后，按照提示再次输入口令 (用户自己的口令，不是root用户口令) 。例如，sudo允许普通用户格式化磁盘，但是却没有赋予其他的root用户特权。
   
 1. sudo工具由文件/etc/sudoers进行配置，该文件包含所有可以访问sudo工具的用户列表并定义了他们的特权。一个典型的/etc/sudoers条目如下: 
   
@@ -303,21 +303,21 @@ User liming may run the following commands on this host:
   
 -h 显示sudo命令的使用参数。
   
--v 因为sudo在第一次执行时或是在N分钟内没有执行（N预设为5) 会询问密码。这个参数是重新做一次确认，如果超过N分钟，也会问密码。
+-v 因为sudo在第一次执行时或是在N分钟内没有执行 (N预设为5) 会询问密码。这个参数是重新做一次确认，如果超过N分钟，也会问密码。
   
--k 将会强迫使用者在下一次执行sudo时询问密码（不论有没有超过N分钟) 。
+-k 将会强迫使用者在下一次执行sudo时询问密码 (不论有没有超过N分钟) 。
   
 -b 将要执行的命令放在背景执行。
   
 -p prompt 可以更改问密码的提示语，其中%u会替换为使用者的账号名称，%h会显示主机名称。
   
--u username/#uid 不加此参数，代表要以root的身份执行命令，而加了此参数，可以以username的身份执行命令（#uid为该username的UID) 。
+-u username/#uid 不加此参数，代表要以root的身份执行命令，而加了此参数，可以以username的身份执行命令 (#uid为该username的UID) 。
   
 -s 执行环境变量中的 SHELL 所指定的 Shell ，或是 /etc/passwd 里所指定的 Shell。
   
--H 将环境变量中的HOME（宿主目录) 指定为要变更身份的使用者的宿主目录。（如不加-u参数就是系统管理者root。) 
+-H 将环境变量中的HOME (宿主目录) 指定为要变更身份的使用者的宿主目录。 (如不加-u参数就是系统管理者root。) 
   
-要以系统管理者身份（或以-u更改为其他人) 执行的命令
+要以系统管理者身份 (或以-u更改为其他人) 执行的命令
 
 ## is not in the sudoers file
 首需要切换到root身份

@@ -22,7 +22,7 @@ UTC时区是根据GMT得来的"世界标准时间"，它的时间和GMT是相同
 
 CST可以指下列的时区: 
 
-澳洲中部时间，Central Standard Time (Australia)中部标准时区（北美洲) ，Central Standard Time (North America)北京时间，China Standard Time古巴标准时间，Cuba Standard Time，参见北美东部时区
+澳洲中部时间，Central Standard Time (Australia)中部标准时区 (北美洲) ，Central Standard Time (North America)北京时间，China Standard Time古巴标准时间，Cuba Standard Time，参见北美东部时区
 
 其中我们所在的时区背景时间 CST=UTC+8小时，也就是说，真实时间是0点的时候，背景时间是8点
 
@@ -38,7 +38,7 @@ https://zh.wikipedia.org/wiki/ISO_8601
 
 在浏览器中直接new一个date对象，因为我们处于UTC+0800的时区，所以控制台给我们打印出来的时间是GMT+0800的时间
 
-2016-01-07T00:00 代表UTC时区1月7日0时0分（在控制台中显示UTC+0800时区为8时0分) 
+2016-01-07T00:00 代表UTC时区1月7日0时0分 (在控制台中显示UTC+0800时区为8时0分) 
 
 2016-01-07T00:00 0800 代表UTC+0800时区1月7日0时0分，2016-01-07T00:00 -0800 代表UTC-0800时区1月7日0时0分，在控制台中显示分别如下
 

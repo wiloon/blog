@@ -32,7 +32,7 @@ H 打印线程信息,p指定pid,这两个参数的作用是显示进行pid下的
   
 #http://www.wiloon.com/?p=10225
 
-#-m mixed mode,不仅会输出Java堆栈信息,还会输出C/C++堆栈信息（比如Native方法) 
+#-m mixed mode,不仅会输出Java堆栈信息,还会输出C/C++堆栈信息 (比如Native方法) 
   
 #-m prints mixed mode (both Java and native C/C++ frames) stack trace.
 
@@ -210,7 +210,7 @@ at java.lang.Thread.run(Thread.java:595)
   
 临界区的设置,是为了保证其内部的代码执行的原子性和完整性。但是因为临界区在任何时间只允许线程串行通过,这 和我们多线程的程序的初衷是相反的。 如果在多线程的程序中,大量使用 synchronized,或者不适当的使用了它,会造成大量线程在临界区的入口等待,造成系统的性能大幅下降。如果在线程 DUMP中发现了这个情况,应该审查源码,改进程序。
   
-现在我们再来看现在线程为什么会进入 "Wait Set"。当线程获得了 Monitor,进入了临界区之后,如果发现线程继续运行的条件没有满足,它则调用对象（一般就是被 synchronized 的对象) 的 wait() 方法,放弃了 Monitor,进入 "Wait Set"队列。只有当别的线程在该对象上调用了 notify() 或者 notifyAll() , " Wait Set"队列中线程才得到机会去竞争,但是只有一个线程获得对象的 Monitor,恢复到运行态。在 "Wait Set"中的线程, DUMP中表现为:  in Object.wait(),类似于: 
+现在我们再来看现在线程为什么会进入 "Wait Set"。当线程获得了 Monitor,进入了临界区之后,如果发现线程继续运行的条件没有满足,它则调用对象 (一般就是被 synchronized 的对象) 的 wait() 方法,放弃了 Monitor,进入 "Wait Set"队列。只有当别的线程在该对象上调用了 notify() 或者 notifyAll() , " Wait Set"队列中线程才得到机会去竞争,但是只有一个线程获得对象的 Monitor,恢复到运行态。在 "Wait Set"中的线程, DUMP中表现为:  in Object.wait(),类似于: 
   
 Html代码
   
@@ -248,7 +248,7 @@ obj.wait();
   
 }
   
-线程的执行中,先用 synchronized 获得了这个对象的 Monitor（对应于 locked <0xef63beb8> ) 。当执行到 obj.wait(), 线程即放弃了 Monitor的所有权,进入 "wait set"队列（对应于 waiting on <0xef63beb8> ) 。
+线程的执行中,先用 synchronized 获得了这个对象的 Monitor (对应于 locked <0xef63beb8> ) 。当执行到 obj.wait(), 线程即放弃了 Monitor的所有权,进入 "wait set"队列 (对应于 waiting on <0xef63beb8> ) 。
   
 往往在你的程序中,会出现多个类似的线程,他们都有相似的 DUMP信息。这也可能是正常的。比如,在程序中,有多个服务线程,设计成从一个队列里面读取请求数据。这个队列就是 lock以及 waiting on的对象。当队列为空的时候,这些线程都会在这个队列上等待,直到队列有了数据,这些线程被 Notify,当然只有一个线程获得了 lock,继续执行,而其它线程继续等待。
 
@@ -314,7 +314,7 @@ which is held by "Thread-1"
   
 * 随着 CPU数目的增多,系统的性能反而下降。因为 CPU数目多,同 时运行的线程就越多,可能就会造成更频繁的线程上下文切换和系统态的 CPU开销,从而导致更糟糕的性能。
   
-上面的描述,都是一个 scalability（可扩展性) 很差的系统的表现。从整体的性能指标看,由于线程热锁的存在,程序的响应时间会变长,吞吐量会降低。
+上面的描述,都是一个 scalability (可扩展性) 很差的系统的表现。从整体的性能指标看,由于线程热锁的存在,程序的响应时间会变长,吞吐量会降低。
   
 那么,怎么去了解 "热锁 "出现在什么地方呢？一个重要的方法还是结合操作系统的各种工具观察系统资源使用状况,以及收集 Java线程的 DUMP信息,看线程都阻塞在什么方法上,了解原因,才能找到对应的解决方法。
   

@@ -64,7 +64,7 @@ tags:
 
 [*]   BSD Process Accounting version 3 file format
 
-选用的话前面所述的进程信息/统计信息将会以新的格式（V3) 写入，这格式包含进程ID和父进程。注意这个格式和以前的 v0/v1/v2 格式不兼容，所以你需要 升级相关工具来使用它。选不选均可。(选了才能用bootchart)
+选用的话前面所述的进程信息/统计信息将会以新的格式 (V3) 写入，这格式包含进程ID和父进程。注意这个格式和以前的 v0/v1/v2 格式不兼容，所以你需要 升级相关工具来使用它。选不选均可。(选了才能用bootchart)
 
 [*]open by fhandle syscalls
 

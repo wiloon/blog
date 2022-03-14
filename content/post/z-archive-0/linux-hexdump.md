@@ -19,7 +19,7 @@ hexdump命令一般用来查看"二进制"文件的十六进制编码，但实�
 
 ## 参数
 
-如果要看到较理想的结果，使用-C参数，显示结果分为三列（文件偏移量、字节的十六进制、ASCII字符) 。
+如果要看到较理想的结果，使用-C参数，显示结果分为三列 (文件偏移量、字节的十六进制、ASCII字符) 。
 
 格式: hexdump -C binfile
 
@@ -47,37 +47,37 @@ hexdump命令一般用来查看"二进制"文件的十六进制编码，但实�
   
 0000000: 2f65 7463 2f70 6173 7377 640a            /etc/passwd.
   
-[root@new55 ~]# echo /etc/passwd | hexdump -C      <== 规范的十六进制和ASCII码显示（Canonical hex+ASCII display ) 
+[root@new55 ~]# echo /etc/passwd | hexdump -C      <== 规范的十六进制和ASCII码显示 (Canonical hex+ASCII display ) 
   
 00000000  2f 65 74 63 2f 70 61 73  73 77 64 0a              |/etc/passwd.|
   
 0000000c
   
-[root@new55 ~]# echo /etc/passwd | hexdump -b      <== 单字节八进制显示（One-byte octal display) 
+[root@new55 ~]# echo /etc/passwd | hexdump -b      <== 单字节八进制显示 (One-byte octal display) 
   
 0000000 057 145 164 143 057 160 141 163 163 167 144 012
   
 000000c
   
-[root@new55 ~]# echo /etc/passwd | hexdump -c      <== 单字节字符显示（One-byte character display) 
+[root@new55 ~]# echo /etc/passwd | hexdump -c      <== 单字节字符显示 (One-byte character display) 
   
 0000000   /   e   t   c   /   p   a   s   s   w   d  n
   
 000000c
   
-[root@new55 ~]# echo /etc/passwd | hexdump -d      <== 双字节十进制显示（Two-byte decimal display) 
+[root@new55 ~]# echo /etc/passwd | hexdump -d      <== 双字节十进制显示 (Two-byte decimal display) 
   
 0000000   25903   25460   28719   29537   30579   02660
   
 000000c
   
-[root@new55 ~]# echo /etc/passwd | hexdump -o       <== 双字节八进制显示（Two-byte octal display) 
+[root@new55 ~]# echo /etc/passwd | hexdump -o       <== 双字节八进制显示 (Two-byte octal display) 
   
 0000000  062457  061564  070057  071541  073563  005144
   
 000000c
   
-[root@new55 ~]# echo /etc/passwd | hexdump -x       <== 双字节十六进制显示（Two-byte hexadecimal display) 
+[root@new55 ~]# echo /etc/passwd | hexdump -x       <== 双字节十六进制显示 (Two-byte hexadecimal display) 
   
 0000000    652f    6374    702f    7361    7773    0a64
   

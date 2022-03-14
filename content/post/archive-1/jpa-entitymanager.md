@@ -10,12 +10,12 @@ tags:
 
 ---
 ## JPA EntityManager
-1. 持久化上下文（Persistence Context ) 
+1. 持久化上下文 (Persistence Context ) 
 
 
-一个持久化单元（Persistence Unit ) 就是关于一组Entity 类的命名配置。持久化单元是一个静态的概念。
+一个持久化单元 (Persistence Unit ) 就是关于一组Entity 类的命名配置。持久化单元是一个静态的概念。
 
-一个持久化上下文（Persistence Context ) 就是一个受管的Entity 实例的集合。每一个持久化上下文都关联一个持久化单元,持久化上下文不可能脱离持久化单元独立存在。持久化上下文中的Entity 实例就是相关联的持久化单元中的若干Entity 的实例。持久化上下文是一个动态的概念。
+一个持久化上下文 (Persistence Context ) 就是一个受管的Entity 实例的集合。每一个持久化上下文都关联一个持久化单元,持久化上下文不可能脱离持久化单元独立存在。持久化上下文中的Entity 实例就是相关联的持久化单元中的若干Entity 的实例。持久化上下文是一个动态的概念。
 
 一个Entity 实例处于受管状态,其实质是: 该实例存在于某个持久化上下文中,并且可能被某个EntityManager 处理,也因为这个原因,所以我们说一个EntityManager 管理一个持久化上下文。
 
@@ -27,7 +27,7 @@ tags:
 
 通过将@PersistenceContext 注解标注在EntityManager 类型的字段上,这样得到的EntityManager 就是容器管理的EntityManager 。由于是容器管理的,所以我们不需要也不应该显式关闭注入的EntityManager 实例。
 
-容器管理的EntityManager 又细分为两种类型: 事务范围（Transaction ) 的和扩展的（Extended ) 。
+容器管理的EntityManager 又细分为两种类型: 事务范围 (Transaction ) 的和扩展的 (Extended ) 。
 
 若@PersistenceContext 未指定type 属性,或者指定为PersistenContextType.TRANSACTION ,则表示该EntityManager 是事务范围的；若指定为PersistenContextType.EXTENDED 的,则表示该EntityManager 是扩展的。
 
@@ -42,7 +42,7 @@ tags:
 由于在扩展的EntityManager 中,每次方法调用都是使用的相同的持久化上下文,所以前一次方法调用时产生的受管实体在下一个方法访问时仍然为受管实体。
 
 
-3. 应用程序管理的EntityManager（Application-Managed EntityManager) 
+3. 应用程序管理的EntityManager (Application-Managed EntityManager) 
 
 
 在JavaSE和JavaEE环境下创建应用程序管理的EntityManager的不同之处,并非创建EntityManager的方式不同,而是获得创建EntityManager的EntityManagerFactory的方式不同。
@@ -64,9 +64,9 @@ JavaEE 环境: 使用@PersistenceUnit(unitName="APU")标注EntityManagerFactory�
 
 JPA支持两种事务类型: 
 
-本地资源事务（RESOURCE_LOCAL) : 使用JDBC驱动管理的本地事务。
+本地资源事务 (RESOURCE_LOCAL) : 使用JDBC驱动管理的本地事务。
 
-Java事务API（JTA) : 可用于管理分布式事务,管理多数据源的情况。
+Java事务API (JTA) : 可用于管理分布式事务,管理多数据源的情况。
 
 容器管理的EntityManager总是使用JTA事务。应用程序管理的EntityManager可以使用本地资源事务,也可以使用JTA事务。
 
@@ -94,7 +94,7 @@ Java事务API（JTA) : 可用于管理分布式事务,管理多数据源的情�
 
 如果持久化上下文是在事务内部创建的,则持久化提供者自动将该持久化上下文关联到当前事务；
 
-如果持久化上下文不是在本事务内部创建的（比如在另一个已经结束的事务中创建的) ,则需要调用EntityManager.joinTransaction() 方法手动将持久化上下文与事务绑定。
+如果持久化上下文不是在本事务内部创建的 (比如在另一个已经结束的事务中创建的) ,则需要调用EntityManager.joinTransaction() 方法手动将持久化上下文与事务绑定。
 
 由于应用程序管理的EntityManager 不会自动传播,唯一与其他组件共享受管实例的方法是共享EntityManager 实例。并且在不同的事务当中使用EntityManager 时必须先要调用joinTransaction() 方法。
 
@@ -103,7 +103,7 @@ Java事务API（JTA) : 可用于管理分布式事务,管理多数据源的情�
 由于在同一个JTA 事务当中可以存在多个持久化上下文,所以当事务提交时,可能若干持久化上下文同时执行flush 操作,这样会存在隐性问题,比如,如果一个实例存在于多个持久化上下文中,flush 的结果会如何？结果是无法预料的。因此应该避免在同一事务中将一个实例加入多个持久化上下文。
 
 
-4. 本地资源事务（RESOURCE_LOCAL Transaction ) 
+4. 本地资源事务 (RESOURCE_LOCAL Transaction ) 
 
 
 本地资源事务是指通过调用EntityManager.getTransaction() 管理的事务。其实质是使用Connection 来管理事务。

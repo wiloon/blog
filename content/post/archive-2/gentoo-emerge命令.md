@@ -14,11 +14,11 @@ Gentoo的包管理工具称为portage。emerge是这个portage的字符界面管
 
 ebuild
 
-ebuild是Portage包管理程序的根本。它是一个纯文本文件,而每一个ebuild都会对应一个包（软件包) 。ebuild会告诉 portage要下载的文件、该包可运行的平台、如何编译它、它所依赖的ebuild和一些修补代码的patch。Portage内有一个ebuild大集合,称为Portage tree,是gentoo网站所提供的ebuild。它包含了大部份常用的包,并会不时更新。如果要使用的包不在其内,也可以手动加入。
+ebuild是Portage包管理程序的根本。它是一个纯文本文件,而每一个ebuild都会对应一个包 (软件包) 。ebuild会告诉 portage要下载的文件、该包可运行的平台、如何编译它、它所依赖的ebuild和一些修补代码的patch。Portage内有一个ebuild大集合,称为Portage tree,是gentoo网站所提供的ebuild。它包含了大部份常用的包,并会不时更新。如果要使用的包不在其内,也可以手动加入。
 
 USE标志
 
-USE标志的设置位于Gentoo系统的/etc/make.conf文档中,作用是使得Emerge在处理依赖关系的时候可以做到不安装不需要的软件包（例如安装Gnome的用户没有必要因为一个软件包的依赖关系而安装KDE与Qt) ,而安装指定的软件包（同样以Gnome举例,Gnome的用户基本上都会安装GTK+) ,把系统的设置专注化。
+USE标志的设置位于Gentoo系统的/etc/make.conf文档中,作用是使得Emerge在处理依赖关系的时候可以做到不安装不需要的软件包 (例如安装Gnome的用户没有必要因为一个软件包的依赖关系而安装KDE与Qt) ,而安装指定的软件包 (同样以Gnome举例,Gnome的用户基本上都会安装GTK+) ,把系统的设置专注化。
 
 Gentoo的emerge命令参数用法详解
 

@@ -30,7 +30,7 @@ apt-get install vsftpd
 修改/etc/vsftpd.conf
 
 
-listen=yes （独立的VSFTPD服务器) 
+listen=yes  (独立的VSFTPD服务器) 
 
 
 anonymous_enable=yes (允许匿名登陆)
@@ -57,24 +57,24 @@ anon_world_readable_only=YES (禁止匿名拥护下载具有全局读取权限�
 hide_ids=YES (目录中用户和组信息列取都显示为ftp)
 
 
-ls_recurse_enable=NO （禁止ls -R 递归查询) 
-dirmessage_enable=yes （切换目录时，显示目录下.message的内容) 
+ls_recurse_enable=NO  (禁止ls -R 递归查询) 
+dirmessage_enable=yes  (切换目录时，显示目录下.message的内容) 
 
 
 local_umask=022 (FTP上本地的文件权限，默认是077)
 
 
-connect_form_port_20=yes （启用FTP数据端口的数据连接) *
+connect_form_port_20=yes  (启用FTP数据端口的数据连接) *
 
 
-xferlog_enable=yes （激活上传和下传的日志) 
+xferlog_enable=yes  (激活上传和下传的日志) 
 
 
 xferlog_std_format=yes (使用标准的日志格式)
 
 
-ftpd_banner=XXXXX （欢迎信息) 
+ftpd_banner=XXXXX  (欢迎信息) 
 
 
-pam_service_name=vsftpd （验证方式) 
+pam_service_name=vsftpd  (验证方式) 
 

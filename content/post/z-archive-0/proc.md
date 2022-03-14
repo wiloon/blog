@@ -33,19 +33,19 @@ Linux如何select一个内存区域来分配一个新的页面？
 OSError：无法从python subprocess.call分配内存
 python subprocess.Popen错误与OSError：一段时间后不能分配内存
 Shell脚本循环在CygWin下耗尽内存
-在fork（）中重复的段？
+在fork (）中重复的段？
 这些内存区域仅为32位系统定义，而不在64位中定义。
 
-记住这些是我们正在讨论的内核可访问的main memory 。 在32 bit （4GB）系统中，内核与用户空间之间的分割为1:3 。 含义内核可以访问1GB和用户空间3GB。 内核的1GB分割如下：
+记住这些是我们正在讨论的内核可访问的main memory 。 在32 bit  (4GB）系统中，内核与用户空间之间的分割为1:3 。 含义内核可以访问1GB和用户空间3GB。 内核的1GB分割如下：
 
-Zone_DMA（0-16MB）： 永久映射到内核地址空间。
+Zone_DMA (0-16MB）： 永久映射到内核地址空间。
 出于兼容性原因，较旧的ISA设备只能处理较低的16MB主内存。
 
-Zone_Normal（16MB-896MB）： 永久映射到内核地址空间。
+Zone_Normal (16MB-896MB）： 永久映射到内核地址空间。
 许多内核操作只能使用ZONE_NORMAL所以它是性能最关键的区域，并且是内核主要分配的内存。
 
-ZONE_HIGH_MEM（896MB以上）： 没有永久映射到内核的地址空间。
-内核可以访问整个4GB的主内存。 内核的1GB通过Zone_DMA ＆ Zone_Normal和用户的3GB通过ZONE_HIGH_MEM 。 使用英特尔的Physical Address Extension (PAE) ，可以获得4个额外的位来寻址主存储器，产生36位，总共可以访问64GB的内存。 增量地址空间（36位地址 – 32位地址）是ZONE_HIGH_MEM用于映射到用户访问的主存储器（即2GB – 4GB之间）的位置。
+ZONE_HIGH_MEM (896MB以上）： 没有永久映射到内核的地址空间。
+内核可以访问整个4GB的主内存。 内核的1GB通过Zone_DMA ＆ Zone_Normal和用户的3GB通过ZONE_HIGH_MEM 。 使用英特尔的Physical Address Extension (PAE) ，可以获得4个额外的位来寻址主存储器，产生36位，总共可以访问64GB的内存。 增量地址空间 (36位地址 – 32位地址）是ZONE_HIGH_MEM用于映射到用户访问的主存储器 (即2GB – 4GB之间）的位置。
 
 阅读更多：
 

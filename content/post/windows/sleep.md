@@ -31,7 +31,7 @@ https://blog.csdn.net/YHFZXF/article/details/103408021
 
 
 
-但是无论是"更新驱动程序",还是"卸载设备"后重装安装显卡驱动（甚至借助DDU彻底卸载了显卡驱动,并且尝试了多个版本的显卡驱动) ,结果问题依旧。
+但是无论是"更新驱动程序",还是"卸载设备"后重装安装显卡驱动 (甚至借助DDU彻底卸载了显卡驱动,并且尝试了多个版本的显卡驱动) ,结果问题依旧。
 
 三、排除"屏幕保护程序"制造的假象
 
@@ -51,7 +51,7 @@ https://blog.csdn.net/YHFZXF/article/details/103408021
 
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785aaca0
 
-PS: 如何快速定位至注册表中某项鉴于修改注册表有风险,所以建议修改前备份注册表（备份注册表的方法) ,或者创建系统还原点,以便出现问题时恢复。
+PS: 如何快速定位至注册表中某项鉴于修改注册表有风险,所以建议修改前备份注册表 (备份注册表的方法) ,或者创建系统还原点,以便出现问题时恢复。
 
 在右侧窗格找到名为 Attributes 的 DWORD 值,双击该值打开编辑窗口。如图: 
 

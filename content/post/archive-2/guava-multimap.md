@@ -111,7 +111,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
   
 复制代码
   
-调用Multimap.get(key)会返回这个键对应的值的集合的视图（view) ,没有对应集合就返回空集合。对于ListMultimap来说,这个方法会返回一个List,对于SetMultimap来说,这个方法就返回一个Set。修改数据是通过修改底层Multimap来实现的。例如: 
+调用Multimap.get(key)会返回这个键对应的值的集合的视图 (view) ,没有对应集合就返回空集合。对于ListMultimap来说,这个方法会返回一个List,对于SetMultimap来说,这个方法就返回一个Set。修改数据是通过修改底层Multimap来实现的。例如: 
 
 复制代码
   
@@ -153,7 +153,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
    
  Multimap也支持一系列强大的视图功能: 
   
-1.asMap把自身Multimap<K, V>映射成Map<K, Collection<V>>视图。这个Map视图支持remove和修改操作,但是不支持put和putAll。严格地来讲,当你希望传入参数是不存在的key,而且你希望返回的是null而不是一个空的可修改的集合的时候就可以调用asMap().get(key)。（你可以强制转型asMap().get(key)的结果类型－对SetMultimap的结果转成Set,对ListMultimap的结果转成List型－但是直接把ListMultimap转成Map<K, List<V>>是不行的。) 
+1.asMap把自身Multimap<K, V>映射成Map<K, Collection<V>>视图。这个Map视图支持remove和修改操作,但是不支持put和putAll。严格地来讲,当你希望传入参数是不存在的key,而且你希望返回的是null而不是一个空的可修改的集合的时候就可以调用asMap().get(key)。 (你可以强制转型asMap().get(key)的结果类型－对SetMultimap的结果转成Set,对ListMultimap的结果转成List型－但是直接把ListMultimap转成Map<K, List<V>>是不行的。) 
   
 2.entries视图是把Multimap里所有的键值对以Collection<Map.Entry<K, V>>的形式展现。
   
@@ -167,7 +167,7 @@ System.out.println("scoreMultimap:"+scoreMultimap.keys());
   
 1.Multimap.get(key)一定返回一个非null的集合。但这不表示Multimap使用了内存来关联这些键,相反,返回的集合只是个允许添加元素的视图。
   
-2.如果你喜欢像Map那样当不存在键的时候要返回null,而不是Multimap那样返回空集合的话,可以用asMap()返回的视图来得到Map<K, Collection<V>>。（这种情况下,你得把返回的Collection<V>强转型为List或Set) 。
+2.如果你喜欢像Map那样当不存在键的时候要返回null,而不是Multimap那样返回空集合的话,可以用asMap()返回的视图来得到Map<K, Collection<V>>。 (这种情况下,你得把返回的Collection<V>强转型为List或Set) 。
   
 3.Multimap.containsKey(key)只有在这个键存在的时候才返回true。
   
@@ -259,6 +259,6 @@ ImmutableSetMultimap ImmutableMap ImmutableSet
 
 2.LinkedHashMultimap维持插入的顺序,以及键的插入顺序。
   
-要注意并不是所有的实现都正真实现了Map<K, Collection<V>>！（尤其是有些Multimap的实现为了最小话开销,使用了自定义的hash table) 
+要注意并不是所有的实现都正真实现了Map<K, Collection<V>>！ (尤其是有些Multimap的实现为了最小话开销,使用了自定义的hash table) 
   
 http://www.cnblogs.com/peida/p/Guava_Multimap.html

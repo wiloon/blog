@@ -10,7 +10,7 @@ tags:
 
 ---
 ## spring mvc annotation
-  * 参数处理（明确指定参数 匹配 自动转换类型)  
+  * 参数处理 (明确指定参数 匹配 自动转换类型)  
     >>普通属性和对象及属性: @RequestParam("id")注解，所以它将和id的URL参数绑定 
     
       * 

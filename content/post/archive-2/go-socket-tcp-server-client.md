@@ -18,7 +18,7 @@ Golang的主要 设计目标之一就是面向大规模后端服务程序,网络
 ### 模型
 从tcp socket诞生后,网络编程架构模型也几经演化,大致是: "每进程一个连接" –> "每线程一个连接" –> "Non-Block + I/O多路复用(linux epoll/windows iocp/freebsd darwin kqueue/solaris Event Port)"。伴随着模型的演化,服务程序愈加强大,可以支持更多的连接,获得更好的处理性能。
 
-目前主流web server一般均采用的都是"Non-Block + I/O多路复用"（有的也结合了多线程、多进程) 。不过I/O多路复用也给使用者带来了不小的复杂度,以至于后续出现了许多高性能的I/O多路复用框架, 比如libevent、libev、libuv等,以帮助开发者简化开发复杂性,降低心智负担。不过Go的设计者似乎认为I/O多路复用的这种通过回调机制割裂控制流的方式依旧复杂,且有悖于"一般逻辑"设计,为此Go语言将该"复杂性"隐藏在Runtime中了: Go开发者无需关注socket是否是 non-block的,也无需亲自注册文件描述符的回调,只需在每个连接对应的goroutine中以"block I/O"的方式对待socket处理即可,这可以说大大降低了开发人员的心智负担。一个典型的Go server端程序大致如下: 
+目前主流web server一般均采用的都是"Non-Block + I/O多路复用" (有的也结合了多线程、多进程) 。不过I/O多路复用也给使用者带来了不小的复杂度,以至于后续出现了许多高性能的I/O多路复用框架, 比如libevent、libev、libuv等,以帮助开发者简化开发复杂性,降低心智负担。不过Go的设计者似乎认为I/O多路复用的这种通过回调机制割裂控制流的方式依旧复杂,且有悖于"一般逻辑"设计,为此Go语言将该"复杂性"隐藏在Runtime中了: Go开发者无需关注socket是否是 non-block的,也无需亲自注册文件描述符的回调,只需在每个连接对应的goroutine中以"block I/O"的方式对待socket处理即可,这可以说大大降低了开发人员的心智负担。一个典型的Go server端程序大致如下: 
 
 //go-tcpsock/server.go
   
@@ -273,7 +273,7 @@ kern.ipc.somaxconn: 128
 
 3. 网络延迟较大,Dial阻塞并超时
 
-如果网络延迟较大,TCP握手过程将更加艰难坎坷（各种丢包) ,时间消耗的自然也会更长。Dial这时会阻塞,如果长时间依旧无法建立连接,则Dial也会返回" getsockopt: operation timed out"错误。
+如果网络延迟较大,TCP握手过程将更加艰难坎坷 (各种丢包) ,时间消耗的自然也会更长。Dial这时会阻塞,如果长时间依旧无法建立连接,则Dial也会返回" getsockopt: operation timed out"错误。
 
 在连接建立阶段,多数情况下,Dial是可以满足需求的,即便阻塞一小会儿。但对于某些程序而言,需要有严格的连接时间限定,如果一定时间内没能成功建立连接,程序可能会需要执行一段"异常"处理逻辑,为此我们就需要DialTimeout了。下面的例子将Dial的最长阻塞时间限制在2s内,超出这个时长,Dial将返回timeout error: 
 
@@ -301,7 +301,7 @@ log.Println("dial ok")
   
 }
 
-执行结果如下（需要模拟一个延迟较大的网络环境) : 
+执行结果如下 (需要模拟一个延迟较大的网络环境) : 
 
 $go run client3.go
   
@@ -514,7 +514,7 @@ $go run server2.go
   
 2015/11/17 13:38:02 read 5 bytes, content is 12345
   
-client端发送的内容长度为15个字节,Server端Read buffer的长度为10,因此Server Read第一次返回时只会读取10个字节；Socket中还剩余5个字节数据,Server再次Read时会把剩余数据读出（如: 情形2) 。
+client端发送的内容长度为15个字节,Server端Read buffer的长度为10,因此Server Read第一次返回时只会读取10个字节；Socket中还剩余5个字节数据,Server再次Read时会把剩余数据读出 (如: 情形2) 。
 
 4. Socket关闭
 
@@ -1012,7 +1012,7 @@ SetKeepAlivePeriod
   
 SetLinger
   
-SetNoDelay （默认no delay) 
+SetNoDelay  (默认no delay) 
   
 SetWriteBuffer
   

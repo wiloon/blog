@@ -62,7 +62,7 @@ topic各分区都存在已提交的offset时，从offset后开始消费；只要
 
 
   
-    auto.commit.enable（例如true，表示offset自动提交到Zookeeper) 
+    auto.commit.enable (例如true，表示offset自动提交到Zookeeper) 
  If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer. This committed offset will be used when the process fails as the position from which the new consumer will begin
   
 

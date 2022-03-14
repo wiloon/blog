@@ -19,8 +19,8 @@ tags:
 (4)Report Protocol Mode和Boot Protocol Mode。Bluetooth HID Hosts至少支持一种，Bluetooth HID Device则需要支持Report Protocol Mode，并且Report Protocol Mode是Bluetooth HID Device的默认Mode。 
 
 
-HOG （HID OVER GATT）
-蓝牙4.0的BLE（bluetooth low en）技术
+HOG  (HID OVER GATT）
+蓝牙4.0的BLE (bluetooth low en）技术
 
 >https://www.zhihu.com/question/23785524
 >https://developer.aliyun.com/article/376006

@@ -17,7 +17,7 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
   
 由于红黑树本质上就是一棵二叉查找树，所以在了解红黑树之前，咱们先来看下二叉查找树。
 
-二叉查找树（Binary Search Tree) ，也称有序二叉树（ordered binary tree) ,排序二叉树（sorted binary tree) ，是指一棵空树或者具有下列性质的二叉树: 
+二叉查找树 (Binary Search Tree) ，也称有序二叉树 (ordered binary tree) ,排序二叉树 (sorted binary tree) ，是指一棵空树或者具有下列性质的二叉树: 
 
 若任意结点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；
   
@@ -25,11 +25,11 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
   
 任意结点的左、右子树也分别为二叉查找树。
   
-没有键值相等的结点（no duplicate nodes) 。
+没有键值相等的结点 (no duplicate nodes) 。
   
-因为，一棵由n个结点，随机构造的二叉查找树的高度为lgn，所以顺理成章，一般操作的执行时间为O（lgn) .（至于n个结点的二叉树高度为lgn的证明，可参考算法导论 第12章 二叉查找树 第12.4节) 。
+因为，一棵由n个结点，随机构造的二叉查找树的高度为lgn，所以顺理成章，一般操作的执行时间为O (lgn) . (至于n个结点的二叉树高度为lgn的证明，可参考算法导论 第12章 二叉查找树 第12.4节) 。
 
-但二叉树若退化成了一棵具有n个结点的线性链后，则此些操作最坏情况运行时间为O（n) 。后面我们会看到一种基于二叉查找树-红黑树，它通过一些性质使得树相对平衡，使得最终查找、插入、删除的时间复杂度最坏情况下依然为O（lgn) 。
+但二叉树若退化成了一棵具有n个结点的线性链后，则此些操作最坏情况运行时间为O (n) 。后面我们会看到一种基于二叉查找树-红黑树，它通过一些性质使得树相对平衡，使得最终查找、插入、删除的时间复杂度最坏情况下依然为O (lgn) 。
 
 红黑树
   
@@ -41,7 +41,7 @@ https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/z
   
 2) 根结点是黑的。
   
-3) 每个叶结点（叶结点即指树尾端NIL指针或NULL结点) 是黑的。
+3) 每个叶结点 (叶结点即指树尾端NIL指针或NULL结点) 是黑的。
   
 4) 如果一个结点是红的，那么它的俩个儿子都是黑的。
   

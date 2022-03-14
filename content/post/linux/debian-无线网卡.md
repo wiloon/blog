@@ -27,7 +27,7 @@ iwconfig 和 iwpriv。iwconfig 用于配置一些比较 general 的功能，如 
   
 # iwconfig
 
-查看附近可用的无线接入点（AP) 
+查看附近可用的无线接入点 (AP) 
   
 # iwlist wlan0 scan
 

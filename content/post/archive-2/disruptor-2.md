@@ -32,7 +32,7 @@ http://www.cnblogs.com/haiq/p/4112689.html
   
 针对极高的性能目标而实现的极度优化和无锁的设计；
   
-以上的描述虽然简单地指出了 Disruptor 是什么,但对于它"能做什么"还不是那么直截了当。一般性地来说,当你需要在两个独立的处理过程(两个线程)之间交换数据时,就可以使用 Disruptor 。当然使用队列（如上面提到的 BlockingQueue) 也可以,只不过 Disruptor 做得更好。
+以上的描述虽然简单地指出了 Disruptor 是什么,但对于它"能做什么"还不是那么直截了当。一般性地来说,当你需要在两个独立的处理过程(两个线程)之间交换数据时,就可以使用 Disruptor 。当然使用队列 (如上面提到的 BlockingQueue) 也可以,只不过 Disruptor 做得更好。
 
 拿队列来作比较的做法弱化了对 Disruptor 有多强大的认识,如果想要对此有更多的了解,可以仔细看看 Disruptor 在其东家 LMAX 交易平台(也是实现者) 是如何作为核心架构来使用的,这方面就不做详述了,问度娘或谷哥都能找到。
 
@@ -42,13 +42,13 @@ http://www.cnblogs.com/haiq/p/4112689.html
 
 Ring Buffer
   
-如其名,环形的缓冲区。曾经 RingBuffer 是 Disruptor 中的最主要的对象,但从3.0版本开始,其职责被简化为仅仅负责对通过 Disruptor 进行交换的数据（事件) 进行存储和更新。在一些更高级的应用场景中,Ring Buffer 可以由用户的自定义实现来完全替代。
+如其名,环形的缓冲区。曾经 RingBuffer 是 Disruptor 中的最主要的对象,但从3.0版本开始,其职责被简化为仅仅负责对通过 Disruptor 进行交换的数据 (事件) 进行存储和更新。在一些更高级的应用场景中,Ring Buffer 可以由用户的自定义实现来完全替代。
   
 Sequence  Disruptor
   
-通过顺序递增的序号来编号管理通过其进行交换的数据（事件) ,对数据(事件)的处理过程总是沿着序号逐个递增处理。一个 Sequence 用于跟踪标识某个特定的事件处理者( RingBuffer/Consumer )的处理进度。虽然一个 AtomicLong 也可以用于标识进度,但定义 Sequence 来负责该问题还有另一个目的,那就是防止不同的 Sequence 之间的CPU缓存伪共享(Flase Sharing)问题。
+通过顺序递增的序号来编号管理通过其进行交换的数据 (事件) ,对数据(事件)的处理过程总是沿着序号逐个递增处理。一个 Sequence 用于跟踪标识某个特定的事件处理者( RingBuffer/Consumer )的处理进度。虽然一个 AtomicLong 也可以用于标识进度,但定义 Sequence 来负责该问题还有另一个目的,那就是防止不同的 Sequence 之间的CPU缓存伪共享(Flase Sharing)问题。
   
-（注: 这是 Disruptor 实现高性能的关键点之一,网上关于伪共享问题的介绍已经汗牛充栋,在此不再赘述) 。
+ (注: 这是 Disruptor 实现高性能的关键点之一,网上关于伪共享问题的介绍已经汗牛充栋,在此不再赘述) 。
   
 Sequencer
   
@@ -60,7 +60,7 @@ Sequence Barrier
   
 Wait Strategy
   
-定义 Consumer 如何进行等待下一个事件的策略。 （注: Disruptor 定义了多种不同的策略,针对不同的场景,提供了不一样的性能表现) 
+定义 Consumer 如何进行等待下一个事件的策略。  (注: Disruptor 定义了多种不同的策略,针对不同的场景,提供了不一样的性能表现) 
   
 Event
   

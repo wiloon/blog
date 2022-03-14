@@ -29,7 +29,7 @@ should use.... git push origin master
 ```bash
 git log
 git reflog
-# git reflog 可以查看所有分支的所有操作记录（包括（包括commit和reset的操作），包括已经被删除的commit记录，git log则不能察看已经删除了的commit记录。
+# git reflog 可以查看所有分支的所有操作记录 (包括 (包括commit和reset的操作），包括已经被删除的commit记录，git log则不能察看已经删除了的commit记录。
 git reset --soft xx版本号xxxx 
 git reset --hard xx版本号xxx
 git reset --soft HEAD~1 
@@ -45,7 +45,7 @@ git log --oneline --graph -4 --decorate
 ```
 
 #### git reset
-git reset并不会产生commits（不是不会产生，而是会产生 但是都是一样的）
+git reset并不会产生commits (不是不会产生，而是会产生 但是都是一样的）
 git reset可以看成不产生commits，它只是改变了当前HEAD指向的commits。
 
 ##### git reset --hard

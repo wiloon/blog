@@ -12,7 +12,7 @@ tags:
 ## git rebase, revert, reset
 回滚提示
 本地或者自己单独的仓库使用reset 或者revert都可以
-涉及到远程仓库（公用仓库）时，不要使用reset,而使用revert回滚
+涉及到远程仓库 (公用仓库）时，不要使用reset,而使用revert回滚
 
 ### git revert
 放弃一个或多个提交，并生成一个或多个新的提交来记录这些放弃操作。
@@ -23,7 +23,7 @@ tags:
 #### 撤销前前一次 commit
     git revert HEAD^
 #### 撤销指定的版本，撤销也会作为一次提交进行保存。      
-    git revert commit （比如：fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff）
+    git revert commit  (比如：fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff）
 
 ####                 
     git revert
@@ -112,12 +112,12 @@ edit命令表示你告诉了rebase，当在应用这个 commit 的时候，停�
 reword命令可以让你修改commit message。当你使用这个命令后，保存这个文件并退出，执行git rebase continue命令之后会再次打开一个文件，让你对这个commit的commit message进行修改，再次保存退出之后继续进行rebase
 
 #### drop
-drop命令表示你要丢弃这个commit以及它的修改。同样可以删除这一行来表示。（在git比较低的版本中，比如我使用的1.9.0版本中，只能通过删除那一行的方式来做，不支持drop命令）
+drop命令表示你要丢弃这个commit以及它的修改。同样可以删除这一行来表示。 (在git比较低的版本中，比如我使用的1.9.0版本中，只能通过删除那一行的方式来做，不支持drop命令）
 
 #### squash 和 fixup
-这两个命令都是用来将几个commit合并为一个的。其中，fixup命令，rebase的时候将会直接忽略掉它的commit message，而 squash 命令，则会在git rebase --continue之后打开一个文件，该文件中将会出现所有设置为squash的commit，这时删除掉多余的commit message，留下（或者修改）一行作为合并之后的commit的commit message。
+这两个命令都是用来将几个commit合并为一个的。其中，fixup命令，rebase的时候将会直接忽略掉它的commit message，而 squash 命令，则会在git rebase --continue之后打开一个文件，该文件中将会出现所有设置为squash的commit，这时删除掉多余的commit message，留下 (或者修改）一行作为合并之后的commit的commit message。
 
-到此为止，讲这个文件保存并退出，输入git status查看需要进行什么操作（比如需要解决冲突），之后执行git rebase --continue即可。
+到此为止，讲这个文件保存并退出，输入git status查看需要进行什么操作 (比如需要解决冲突），之后执行git rebase --continue即可。
 
 执行之后会根据你使用的命令的不同进行不同的操作，比如有的可以直接rebase有的则会打开一个文件让你进行一些操作，具体信息见上面的描述。
 

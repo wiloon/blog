@@ -12,9 +12,9 @@ tags:
 ## java Delegate
 委派，也可以叫做委托，从字面上来理解的话，应该是委托其他类做事情而自己不做或者只做一部分工作；而回调，就是调用自己的方法。 在 java 中，这两种机制很类似，你姑且可以认为它们就是一码事。 java 中，实现委派和回调都是通过接口来实现的。下面举个小例子吧！
 
-该例子是这样的（只是一个例子) : 
+该例子是这样的 (只是一个例子) : 
 
-ProfessionalWorker 、SparetimeWorker 负责发射 Rocket，Rocket 类通过接口 IRocketDelegate 委派（或者说是回调)  ProfessionalWorker 、SparetimeWorker自己发射。
+ProfessionalWorker 、SparetimeWorker 负责发射 Rocket，Rocket 类通过接口 IRocketDelegate 委派 (或者说是回调)  ProfessionalWorker 、SparetimeWorker自己发射。
 
 总之，Rocket不做具体的事情。看实例代码: 
 
@@ -228,7 +228,7 @@ startAtTime is call-back in SparetimeWorker !
 
 SparetimeWorker send Rocket fail !
 
-这就体现 Java 中的一句话 Don't call me,I'll call you. 其含义就是回调（或者委派/委托) 。
+这就体现 Java 中的一句话 Don't call me,I'll call you. 其含义就是回调 (或者委派/委托) 。
 
 android 中很多这样的用法，关于接口的好处还有很多，后续慢慢研究，记住一句话: 面向对象面向接口编程。
 

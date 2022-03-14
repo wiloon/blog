@@ -184,7 +184,7 @@ tmpl, err := template.ParseFiles("mb.txt") //建立一个模板，这里不需�
   
 ##文件模板，介绍ParseGlob
 
-ParseFiles接受一个字符串，字符串的内容是一个模板文件的路径（绝对路径or相对路径) 
+ParseFiles接受一个字符串，字符串的内容是一个模板文件的路径 (绝对路径or相对路径) 
   
 ParseGlob也差不多，是用正则的方式匹配多个文件
 

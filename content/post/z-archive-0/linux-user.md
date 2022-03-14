@@ -55,7 +55,7 @@ sudo passwd user0
 su -
 
 ### group
-/etc/group 的内容包括用户组（Group) 
+/etc/group 的内容包括用户组 (Group) 
 
 ## usermod
 Add the john account to the sales group
@@ -123,7 +123,7 @@ usermod -s /sbin/nologin user0
 -U 解除密码锁定。
 
 ```
-# 查看所有的组, /etc/group 的内容包括用户组（Group) 
+# 查看所有的组, /etc/group 的内容包括用户组 (Group) 
 cat /etc/group
 
 # Create a group named "test", groupadd [-g GID] GROUP
@@ -159,11 +159,11 @@ chage -l user0
 
 (su为switch user，即切换用户的简写)
 
-格式: su -l USERNAME（-l为login，即登陆的简写) 
+格式: su -l USERNAME (-l为login，即登陆的简写) 
 
 -l可以将l省略掉，所以此命令常写为su - USERNAME
 
-如果不指定USERNAME（用户名) ，默认即为root，所以切换到root的身份的命令即为: su -root或是直接 su -
+如果不指定USERNAME (用户名) ，默认即为root，所以切换到root的身份的命令即为: su -root或是直接 su -
 
 实例1: 普通用户user1知道root账户登录密码，要求用户user1在不注销登录的前提下查看/etc/shadow文件。
 
@@ -175,7 +175,7 @@ su - USERNAME切换用户后，同时切换到新用户的工作环境中
 
 su USERNAME切换用户后，不改变原用户的工作目录，及其他环境变量目录
 
-2. 删除用户（userdel命令) 
+2. 删除用户 (userdel命令) 
   
 语法: userdel [-r] [要删除的用户的名称]
   
@@ -185,15 +185,15 @@ su USERNAME切换用户后，不改变原用户的工作目录，及其他环境
 
  
 
-用户（User) 和用户组（Group) 的配置文件，是系统管理员最应该了解和掌握的系统基础文件之一，从另一方面来说，了解这些文件也是系统安全管理的重要组成部份；做为一个合格的系统管理员应该对用户和用户组配置文件透彻了解才行；
+用户 (User) 和用户组 (Group) 的配置文件，是系统管理员最应该了解和掌握的系统基础文件之一，从另一方面来说，了解这些文件也是系统安全管理的重要组成部份；做为一个合格的系统管理员应该对用户和用户组配置文件透彻了解才行；
 
-一、用户（User) 相关；
+一、用户 (User) 相关；
 
 谈到用户，就不得不谈用户管理，用户配置文件，以及用户查询和管理的控制工具；用户管理主要通过修改用户配置文件完成；用户管理控制工具最终目的也是为了修改用户配置文件。
 
 什么是用户查询和管理控制工具呢？用户查询和控制工具是查询、添加、修改和删除用户等系统管理工具，比如查询用户的id和finger命令，添加用 户的useradd 或adduser 、userdel 用户的删除 、设置密码的passwd命令 、修改用户usermod 等等；我们需要知道的是通过用户查询和控制工具所进行的动作的最终目的也是修改用户配置文件；所以我们进行用户管理的时候，直接修改用户配置文件一样可以 达到用户管理的目的；
 
-通过上面的解说，我们能实实在在的感觉到用户（User) 配置文件的重要性；其实用户和用户组在系统管理中是不可分割的，但为了说明问题，我们还是 得把用户（User) 的配置文件单列出来解说，其中包括/etc/passwd 和/etc/shadow 文件；在这之中，你还能了解UID的重要性；
+通过上面的解说，我们能实实在在的感觉到用户 (User) 配置文件的重要性；其实用户和用户组在系统管理中是不可分割的，但为了说明问题，我们还是 得把用户 (User) 的配置文件单列出来解说，其中包括/etc/passwd 和/etc/shadow 文件；在这之中，你还能了解UID的重要性；
 
 通过本标题，您可以了解或掌握的内容有: 了解/etc/passwd和/etc/shadow；什么UID ；
 
@@ -215,7 +215,7 @@ beinan:x:500:500:beinan sun:/home/beinan:/bin/bash
   
 linuxsir:x:501:502::/home/linuxsir:/bin/bash
   
-第一字段: 用户名（也被称为登录名) ；在上面的例子中，我们看到这两个用户的用户名分别是 beinan 和linuxsir；
+第一字段: 用户名 (也被称为登录名) ；在上面的例子中，我们看到这两个用户的用户名分别是 beinan 和linuxsir；
   
 第二字段: 口令；在例子中我们看到的是一个x，其实密码已被映射到/etc/shadow 文件中；
   
@@ -267,11 +267,11 @@ beinan:$VE.Mq2Xfc9Qi7EQ9JP8GKF8gH7PB1:13072:0:99999:7:::
   
 linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
   
-第一字段: 用户名（也被称为登录名) ，在/etc/shadow中，用户名和/etc/passwd 是相同的，这样就把passwd 和shadow中用的用户记录联系在一起；这个字段是非空的；
+第一字段: 用户名 (也被称为登录名) ，在/etc/shadow中，用户名和/etc/passwd 是相同的，这样就把passwd 和shadow中用的用户记录联系在一起；这个字段是非空的；
   
-第二字段: 密码（已被加密) ，如果是有些用户在这段是x，表示这个用户不能登录到系统；这个字段是非空的；用户组密码，这个段可以是空的或!，如果是空的或有!，表示没有密码,星号代表帐号被锁定,双叹号表示这个密码已经过期了.
+第二字段: 密码 (已被加密) ，如果是有些用户在这段是x，表示这个用户不能登录到系统；这个字段是非空的；用户组密码，这个段可以是空的或!，如果是空的或有!，表示没有密码,星号代表帐号被锁定,双叹号表示这个密码已经过期了.
   
-第三字段: 上次修改口令的时间；这个时间是从1970年01月01日算起到最近一次修改口令的时间间隔（天数) ，您可以通过passwd 来修改用户的密码，然后查看/etc/shadow中此字段的变化；
+第三字段: 上次修改口令的时间；这个时间是从1970年01月01日算起到最近一次修改口令的时间间隔 (天数) ，您可以通过passwd 来修改用户的密码，然后查看/etc/shadow中此字段的变化；
   
 第四字段: 两次修改口令间隔最少的天数；如果设置为0,则禁用此功能；也就是说用户必须经过多少天才能修改其口令；此项功能用处不是太大；默认值是通过/etc/login.defs文件定义中获取，PASS_MIN_DAYS 中有定义；
   
@@ -281,7 +281,7 @@ linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
   
 第七字段: 在口令过期之后多少天禁用此用户；此字段表示用户口令作废多少天后，系统会禁用此用户，也就是说系统会不能再让此用户登录，也不会提示用户过期，是完全禁用；
   
-第八字段: 用户过期日期；此字段指定了用户作废的天数（从1970年的1月1日开始的天数) ，如果这个字段的值为空，帐号永久可用；
+第八字段: 用户过期日期；此字段指定了用户作废的天数 (从1970年的1月1日开始的天数) ，如果这个字段的值为空，帐号永久可用；
   
 第九字段: 保留字段，目前为空，以备将来Linux发展之用；
 
@@ -293,11 +293,11 @@ beinan:$VE.Mq2Xfc9Qi7EQ9JP8GKF8gH7PB1:13072:0:99999:7:::
   
 linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
   
-第一字段: 用户名（也被称之为登录名) ，在例子中有峡谷两条记录，也表示有两个用户beinan和linuxsir
+第一字段: 用户名 (也被称之为登录名) ，在例子中有峡谷两条记录，也表示有两个用户beinan和linuxsir
   
 第二字段: 被加密的密码，如果有的用户在此字段中是x，表示这个用户不能登录系统，也可以看作是虚拟用户，不过虚拟用户和真实用户都是相对的，系统管理员随时可以对任何用户操作；
   
-第三字段: 表示上次更改口令的天数（距1970年01月01日) ，上面的例子能说明beinan和linuxsir这两个用户，是在同一天更改了用户密码，当然是通过passwd 命令来更改的，更改密码的时间距1970年01月01日的天数为13072；
+第三字段: 表示上次更改口令的天数 (距1970年01月01日) ，上面的例子能说明beinan和linuxsir这两个用户，是在同一天更改了用户密码，当然是通过passwd 命令来更改的，更改密码的时间距1970年01月01日的天数为13072；
   
 第四字段: 禁用两次口令修改之间最小天数的功能，设置为0
   
@@ -307,23 +307,23 @@ linuxsir:$IPDvUhXPR6J/VtPXvLyXxhLWPrnt/:13072:0:99999:7::13108:
   
 第七字段: 在口令过期之后多少天禁用此用户；此字段表示用户口令作废多少天后，系统会禁用此用户，也就是说系统会不能再让此用户登录，也不会提示用户过期，是完全禁用；在例子中，此字段两个用户的都是空的，表示禁用这个功能；
   
-第八字段: 用 户过期日期；此字段指定了用户作废的天数（从1970年的1月1日开始的天数) ，如果这个字段的值为空，帐号永久可用；在例子中，我们看到beinan这 个用户在此字段是空的，表示此用户永久可用；而linuxsir这个用户表示在距1970年01月01日后13108天后过期，算起来也就是2005年 11月21号过期；哈哈，如果有兴趣的的弟兄，自己来算算，大体还是差不多的;)；
+第八字段: 用 户过期日期；此字段指定了用户作废的天数 (从1970年的1月1日开始的天数) ，如果这个字段的值为空，帐号永久可用；在例子中，我们看到beinan这 个用户在此字段是空的，表示此用户永久可用；而linuxsir这个用户表示在距1970年01月01日后13108天后过期，算起来也就是2005年 11月21号过期；哈哈，如果有兴趣的的弟兄，自己来算算，大体还是差不多的;)；
   
 第九字段: 保留字段，目前为空，以备将来Linux发展之用；
 
 二、关于用户组；
 
-具有某种共同特征的用户集合起来就是用户组（Group) 。用户组（Group) 配置文件主要有 /etc/group和/etc/gshadow，其中/etc/gshadow是/etc/group的加密信息文件；在本标题下，您还能了解到什么是GID ；
+具有某种共同特征的用户集合起来就是用户组 (Group) 。用户组 (Group) 配置文件主要有 /etc/group和/etc/gshadow，其中/etc/gshadow是/etc/group的加密信息文件；在本标题下，您还能了解到什么是GID ；
 
 1. /etc/group 解说；
 
-/etc/group 文件是用户组的配置文件，内容包括用户和用户组，并且能显示出用户是归属哪个用户组或哪几个用户组，因为一个用户可以归属一个或多个不同的用户组；同一用 户组的用户之间具有相似的特征。比如我们把某一用户加入到root用户组，那么这个用户就可以浏览root用户家目录的文件，如果root用户把某个文件 的读写执行权限开放，root用户组的所有用户都可以修改此文件，如果是可执行的文件（比如脚本) ，root用户组的用户也是可以执行的；
+/etc/group 文件是用户组的配置文件，内容包括用户和用户组，并且能显示出用户是归属哪个用户组或哪几个用户组，因为一个用户可以归属一个或多个不同的用户组；同一用 户组的用户之间具有相似的特征。比如我们把某一用户加入到root用户组，那么这个用户就可以浏览root用户家目录的文件，如果root用户把某个文件 的读写执行权限开放，root用户组的所有用户都可以修改此文件，如果是可执行的文件 (比如脚本) ，root用户组的用户也是可以执行的；
 
 用户组的特性在系统管理中为系统管理员提供了极大的方便，但安全性也是值得关注的，如某个用户下有对系统管理有最重要的内容，最好让用户拥有独立的用户组，或者是把用户下的文件的权限设置为完全私有；另外root用户组一般不要轻易把普通用户加入进去，
 
 2. /etc/group 内容具体分析
 
-/etc/group 的内容包括用户组（Group) 、用户组口令、GID及该用户组所包含的用户（User) ，每个用户组一条记录；格式如下: 
+/etc/group 的内容包括用户组 (Group) 、用户组口令、GID及该用户组所包含的用户 (User) ，每个用户组一条记录；格式如下: 
 
 group_name:passwd:GID:user_list
   
@@ -339,11 +339,11 @@ group_name:passwd:GID:user_list
 
 我们举个例子: 
 
-root:x:0:root,linuxsir 注: 用户组root，x是密码段，表示没有设置密码，GID是0,root用户组下包括root、linuxsir以及GID为0的其它用户（可以通过/etc/passwd查看) ；；
+root:x:0:root,linuxsir 注: 用户组root，x是密码段，表示没有设置密码，GID是0,root用户组下包括root、linuxsir以及GID为0的其它用户 (可以通过/etc/passwd查看) ；；
   
-beinan:x:500:linuxsir 注: 用户组beinan，x是密码段，表示没有设置密码，GID是500,beinan用户组下包括linuxsir用户及GID为500的用户（可以通过/etc/passwd查看) ；
+beinan:x:500:linuxsir 注: 用户组beinan，x是密码段，表示没有设置密码，GID是500,beinan用户组下包括linuxsir用户及GID为500的用户 (可以通过/etc/passwd查看) ；
   
-linuxsir:x:502:linuxsir 注: 用户组linuxsir，x是密码段，表示没有设置密码，GID是502,linuxsir用户组下包用户linuxsir及GID为502的用户（可以通过/etc/passwd查看) ；
+linuxsir:x:502:linuxsir 注: 用户组linuxsir，x是密码段，表示没有设置密码，GID是502,linuxsir用户组下包用户linuxsir及GID为502的用户 (可以通过/etc/passwd查看) ；
   
 helloer:x:503: 注: 用户组helloer，x是密码段，表示没有设置密码，GID是503,helloer用户组下包括GID为503的用户，可以通过/etc/passwd查看；
   
@@ -361,7 +361,7 @@ helloer:x:502:503::/home/helloer:/bin/bash
 
 2. 关于GID ；
 
-GID和UID类似，是一个正整数或0，GID从0开始，GID为0的组让系统付予给root用户组；系统会预留一些较靠前的GID给系统虚拟用户 （也被称为伪装用户) 之用；每个系统预留的GID都有所不同，比如Fedora 预留了500个，我们添加新用户组时，用户组是从500开始的；而Slackware 是把前100个GID预留，新添加的用户组是从100开始；查看系统添加用户组默认的GID范围应该查看 /etc/login.defs 中的 GID_MIN 和GID_MAX 值；
+GID和UID类似，是一个正整数或0，GID从0开始，GID为0的组让系统付予给root用户组；系统会预留一些较靠前的GID给系统虚拟用户  (也被称为伪装用户) 之用；每个系统预留的GID都有所不同，比如Fedora 预留了500个，我们添加新用户组时，用户组是从500开始的；而Slackware 是把前100个GID预留，新添加的用户组是从100开始；查看系统添加用户组默认的GID范围应该查看 /etc/login.defs 中的 GID_MIN 和GID_MAX 值；
 
 我们可以对照/etc/passwd和/etc/group 两个文件；我们会发现有默认用户组之说；我们在 /etc/passwd 中的每条用户记录会发现用户默认的GID ；在/etc/group中，我们也会发现每个用户组下有多少个用户；在创建目录和文件时，会使用默认的用户组；我们还是举个例子；
 
@@ -395,7 +395,7 @@ drwxrwxr-x 2 linuxsir linuxsir 4.0K 10月 17 11:42 testdir
 
 3. /etc/gshadow 解说；
 
-/etc/gshadow是/etc/group的加密资讯文件，比如用户组（Group) 管理密码就是存放在这个文件。/etc/gshadow 和/etc/group是互补的两个文件；对于大型服务器，针对很多用户和组，定制一些关系结构比较复杂的权限模型，设置用户组密码是极有必要的。比如我 们不想让一些非用户组成员永久拥有用户组的权限和特性，这时我们可以通过密码验证的方式来让某些用户临时拥有一些用户组特性，这时就要用到用户组密码；
+/etc/gshadow是/etc/group的加密资讯文件，比如用户组 (Group) 管理密码就是存放在这个文件。/etc/gshadow 和/etc/group是互补的两个文件；对于大型服务器，针对很多用户和组，定制一些关系结构比较复杂的权限模型，设置用户组密码是极有必要的。比如我 们不想让一些非用户组成员永久拥有用户组的权限和特性，这时我们可以通过密码验证的方式来让某些用户临时拥有一些用户组特性，这时就要用到用户组密码；
 
 /etc/gshadow 格式如下，每个用户组独占一行；
   
@@ -459,9 +459,9 @@ drwxrwxr-x 2 beinan beinan 4096 10月 18 15:56 beinangrouptest
 
 1. 用户和用户组查询的方法；
 
-1) 通过查看用户（User) 和用户组的配置文件的办法来查看用户信息
+1) 通过查看用户 (User) 和用户组的配置文件的办法来查看用户信息
 
-我们已经用户（User) 和用户组（Group) 的配置文件已经有个基本的了解，通过查看用户（User) 和用户组的配置文件，我们就能做到对系统用户的了解，当然您也可以通过id 或finger 等工具来进行用户的查询等任务。
+我们已经用户 (User) 和用户组 (Group) 的配置文件已经有个基本的了解，通过查看用户 (User) 和用户组的配置文件，我们就能做到对系统用户的了解，当然您也可以通过id 或finger 等工具来进行用户的查询等任务。
 
 对于文件的查看，我们可以通过 more 或cat 来查看，比如 more /etc/passwd 或cat /etc/passwd ；其它工具也一样，能对文本查看就行，比如less 也好
 
@@ -475,7 +475,7 @@ drwxrwxr-x 2 beinan beinan 4096 10月 18 15:56 beinangrouptest
 
 2) 通过id和finger 工具来获取用户信息；
   
-除了直接查看用户（User) 和用户组（Group) 配置文件的办法除外，我们还有id和finger工具可用，我们一样通过命令行的操作，来完成 对用户的查询；id和finger，是两个各有测重的工具，id工具更测重用户、用户所归属的用户组、UID 和GID 的查看；而finger 测重用户资讯的查询，比如用户名（登录名) 、电话、家目录、登录SHELL类型、真实姓名、空闲时间等等；
+除了直接查看用户 (User) 和用户组 (Group) 配置文件的办法除外，我们还有id和finger工具可用，我们一样通过命令行的操作，来完成 对用户的查询；id和finger，是两个各有测重的工具，id工具更测重用户、用户所归属的用户组、UID 和GID 的查看；而finger 测重用户资讯的查询，比如用户名 (登录名) 、电话、家目录、登录SHELL类型、真实姓名、空闲时间等等；
 
 id 命令用法；
 
@@ -493,7 +493,7 @@ uid=500(beinan) gid=500(beinan) groups=500(beinan)
   
 uid=505(linuxsir) gid=502(linuxsir) groups=502(linuxsir),0(root),500(beinan)
   
-注: linuxsir的UID 是505,默认用户组是linuxsir ，默认用户组的GID 是502，归属于linuxsir（GID为502) 、root（GID为0) ，beinan（GID为500) ；
+注: linuxsir的UID 是505,默认用户组是linuxsir ，默认用户组的GID 是502，归属于linuxsir (GID为502) 、root (GID为0) ，beinan (GID为500) ；
   
 关于id的详细用法，我会在专门用户查询的文章来介绍；您可以通过man id 来查看用法，用起来还是比较简单的；
 
@@ -531,7 +531,7 @@ linuxsir linuxsir open tty1 22 Oct 18 13:39 linuxsir o +1-389-866-771
 
 [root@localhost ~]# finger beinan linuxsir
   
-Login: beinan 注: 用户名（也是登录名)  Name: beinan sun （用户名全称) 
+Login: beinan 注: 用户名 (也是登录名)  Name: beinan sun  (用户名全称) 
   
 Directory: /home/beinan 注: 家目录 Shell: /bin/bash 注: 所用SHELL类型
   
@@ -567,11 +567,11 @@ linuxsir : linuxsir root beinan
   
 注: 这是通过groups 同时查看了用户beinan和linuxsir所归属的组；
 
-2. 通过修改用户（User) 和用户组（Group) 配置文件的办法来添加；
+2. 通过修改用户 (User) 和用户组 (Group) 配置文件的办法来添加；
 
-由于我们已经在前面说过，可以通过修改配置文件的办法来管理用户，所以此主题应该包括此内容；当然通过用户及用户组管理工具（比如 adduser、userdel、usermod 、userinfo、groupadd 、groupdel 、groupmod等) 也是可以的，通过管理工具对用户的管理我们将要在专门一篇文章中介绍；
+由于我们已经在前面说过，可以通过修改配置文件的办法来管理用户，所以此主题应该包括此内容；当然通过用户及用户组管理工具 (比如 adduser、userdel、usermod 、userinfo、groupadd 、groupdel 、groupmod等) 也是可以的，通过管理工具对用户的管理我们将要在专门一篇文章中介绍；
 
-通过修改用户（User) 和用户组（Group) 配置文件的方法管理用户之用户的添加流程；
+通过修改用户 (User) 和用户组 (Group) 配置文件的方法管理用户之用户的添加流程；
 
 我们先以添加用户为例，对用户的删除和修改都比较简单；
 
@@ -699,7 +699,7 @@ drwxrwxr-x 2 lanhaitun lanhaitun 4.0K 10月 18 15:16 testdir
   
 通过上面一系列动作，我们会发现所创建的lanhaitun用户已经成功；
 
-2. 通过修改用户（User) 和用户组（Group) 配置文件的办法来修改用户或用户组；
+2. 通过修改用户 (User) 和用户组 (Group) 配置文件的办法来修改用户或用户组；
 
 我们可以修改/etc/passwd 和/etc/group 来达到修改用户和用户所归属的组，这个过程和添加新用户时差不多；比如我想修改lanhaitun的用户名全称、公司以及电话等信息；我们可以修改/etc/passwd 实现；
 
@@ -771,11 +771,11 @@ sinkingship @ 2007-02-01 18:31
 
 昨天在网上找了找资料，在ubuntu上用debootstrap装了个debian，小结一下过程: 
   
-（1) 装好debootstrap:
+ (1) 装好debootstrap:
   
 apt-get install debootstrap
   
-（2) 将要用来装debian的硬盘分区格式化好，挂载到任意目录，如/mnt/debinst/
+ (2) 将要用来装debian的硬盘分区格式化好，挂载到任意目录，如/mnt/debinst/
   
 如果想将来的debian系统不只是一个根分区/，而是把根目录下的一些目录从别的分区挂载过来，例如我们经常把/usr/local从别的分区挂过来，这一步就要挂好，例如，下面的命令就是交/usr/local从别的分区挂过来: 
   
@@ -783,7 +783,7 @@ mkdir /mnt/debinst/usr/local -p
   
 mount /dev/hdXX /mnt/debinst/usr/local
   
-（3) 用debootstrap在如/mnt/debinst/目录上建立一个基本系统，如: 
+ (3) 用debootstrap在如/mnt/debinst/目录上建立一个基本系统，如: 
   
 debootstrap sarge /mnt/debinst/ http://http.us.debian.org/debia
   
@@ -791,17 +791,17 @@ debootstrap会从网上下载一些文件，使/mnt/debist/成为一个chroot子
 
 这时，/mnt/debinst/已经是个基本系统了，还差一些配置、软件安装和一个可引导的内核。下面就来完成这些工作: 
   
-（4) 基本系统可能会缺一些设备文件，例如我安装的时候就缺少了一些块文件，如hdX，这可以从主系统中拷贝，如: 
+ (4) 基本系统可能会缺一些设备文件，例如我安装的时候就缺少了一些块文件，如hdX，这可以从主系统中拷贝，如: 
   
 cp /dev/hda* /mnt/debinst/dev/ -ap
   
-（5) chroot到基本系统中: 
+ (5) chroot到基本系统中: 
   
 chroot /mnt/debinst
   
-（6) 配置/etc/fstab，/etc/hostname，/etc/resolv.conf，/etc/network/interfaces，并把文件系统挂载上来。
+ (6) 配置/etc/fstab，/etc/hostname，/etc/resolv.conf，/etc/network/interfaces，并把文件系统挂载上来。
   
-如果挂载出错，很有可能是因为缺少设备文件，可按（4) 解决。各配置文件的样本可以在debian.org找到，我摘抄部分如下: 
+如果挂载出错，很有可能是因为缺少设备文件，可按 (4) 解决。各配置文件的样本可以在debian.org找到，我摘抄部分如下: 
   
 —————————————————————————————————————————————————-
   
@@ -899,9 +899,9 @@ iface lo inet loopback
 
 将上面的样本适当修改使其适合自己的情况就可以了。
 
-（7) 配置好apt，如果用ppp上网，现在就把ppp装上（否则重启后进入新的环境下就……) 。
+ (7) 配置好apt，如果用ppp上网，现在就把ppp装上 (否则重启后进入新的环境下就……) 。
   
-（8) 安装内核、引导程序。
+ (8) 安装内核、引导程序。
   
 apt-get install kernel-image-2.6.18.4-XXXX
   
@@ -909,7 +909,7 @@ apt-get install grub
   
 也可以不装grub，直接exit出来修改主系统的/boot/grub/menu.lst。这里注意一点，安装的如果是initrd的内核，在/boot/menu.lst一定要加上initrd。
   
-（9) reboot，进入新系安装其他软件。
+ (9) reboot，进入新系安装其他软件。
 
 /sbin/nologin
   

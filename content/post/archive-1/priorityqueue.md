@@ -15,11 +15,11 @@ http://java-er.com/blog/java-priority-queue/
 
 PriorityQueue是个基于优先级堆的极大优先级队列。
 
-此队列按照在构造时所指定的顺序对元素排序，既可以根据元素的自然顺序来指定排序（参阅 Comparable) ，
+此队列按照在构造时所指定的顺序对元素排序，既可以根据元素的自然顺序来指定排序 (参阅 Comparable) ，
   
 也可以根据 Comparator 来指定，这取决于使用哪种构造方法。优先级队列不允许 null 元素。
   
-依靠自然排序的优先级队列还不允许插入不可比较的对象（这样做可能导致 ClassCastException) 
+依靠自然排序的优先级队列还不允许插入不可比较的对象 (这样做可能导致 ClassCastException) 
 
 比如队列 1 3 5 10 2 自动会被排列 1 2 3 5 10
 
@@ -135,11 +135,11 @@ return e2 - e1;
 
 注意3:不允许使用 null 元素。
 
-注意4: 此实现为插入方法（offer、poll、remove() 和 add 方法) 提供 O(log(n)) 时间；
+注意4: 此实现为插入方法 (offer、poll、remove() 和 add 方法) 提供 O(log(n)) 时间；
 
 为 remove(Object) 和 contains(Object) 方法提供线性时间；
   
-为检索方法（peek、element 和 size) 提供固定时间。
+为检索方法 (peek、element 和 size) 提供固定时间。
 
 注意5:方法iterator()中提供的迭代器并不保证以有序的方式遍历优先级队列中的元素。
 
@@ -151,11 +151,11 @@ return e2 - e1;
 
 PriorityQueue()
   
-使用默认的初始容量（11) 创建一个 PriorityQueue，并根据其自然顺序来排序其元素（使用 Comparable) 。
+使用默认的初始容量 (11) 创建一个 PriorityQueue，并根据其自然顺序来排序其元素 (使用 Comparable) 。
   
 PriorityQueue(int initialCapacity)
   
-使用指定的初始容量创建一个 PriorityQueue，并根据其自然顺序来排序其元素（使用 Comparable) 。
+使用指定的初始容量创建一个 PriorityQueue，并根据其自然顺序来排序其元素 (使用 Comparable) 。
   
 PriorityQueue(int initialCapacity, Comparator comparator)
   
@@ -165,7 +165,7 @@ PriorityQueue(int initialCapacity, Comparator comparator)
 
 PriorityQueue的内部实现
   
-PriorityQueue对元素采用的是堆排序，头是按指定排序方式的最小元素。堆排序只能保证根是最大（最小) ，整个堆并不是有序的。
+PriorityQueue对元素采用的是堆排序，头是按指定排序方式的最小元素。堆排序只能保证根是最大 (最小) ，整个堆并不是有序的。
   
 方法iterator()中提供的迭代器可能只是对整个数组的依次遍历。也就只能保证数组的第一个元素是最小的。
   

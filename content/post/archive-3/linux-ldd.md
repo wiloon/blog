@@ -59,6 +59,6 @@ libc.so.6 => /lib64/libc.so.6 (0x0000003995800000)
 
 注解
 
-原理:  ldd不是个可执行程式，而只是个shell脚本； ldd显示可执行模块的dependency的工作原理，其实质是通过ld-linux.so（elf动态库的装载器) 来实现的。ld-linux.so模块会先于executable模块程式工作，并获得控制权，因此当上述的那些环境变量被设置时，ld-linux.so选择了显示可执行模块的dependency。
+原理:  ldd不是个可执行程式，而只是个shell脚本； ldd显示可执行模块的dependency的工作原理，其实质是通过ld-linux.so (elf动态库的装载器) 来实现的。ld-linux.so模块会先于executable模块程式工作，并获得控制权，因此当上述的那些环境变量被设置时，ld-linux.so选择了显示可执行模块的dependency。
 
 https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/ldd.html

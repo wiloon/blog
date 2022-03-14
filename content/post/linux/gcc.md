@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## GCC
-GCC（GNU Compiler Collection ) ，GCC是一系列编译器的集合, 是Linux操作系统的核心组件之一。是一套由 GNU 开发的编程语言编译器。它是一套GNU编译器套装以 GPL 及 LGPL 许可证所发行的自由软件，也是 GNU计划的关键部分，亦是自由的类Unix及苹果电脑 Mac OS X 操作系统的标准编译器。GCC 原名为 GNU C 语言编译器，因为它原本只能处理 C语言。GCC 很快地扩展，变得可处理 C++。之后也变得可处理 Fortran、Pascal、Objective-C、Java, 以及 Ada与其他语言。
+GCC (GNU Compiler Collection ) ，GCC是一系列编译器的集合, 是Linux操作系统的核心组件之一。是一套由 GNU 开发的编程语言编译器。它是一套GNU编译器套装以 GPL 及 LGPL 许可证所发行的自由软件，也是 GNU计划的关键部分，亦是自由的类Unix及苹果电脑 Mac OS X 操作系统的标准编译器。GCC 原名为 GNU C 语言编译器，因为它原本只能处理 C语言。GCC 很快地扩展，变得可处理 C++。之后也变得可处理 Fortran、Pascal、Objective-C、Java, 以及 Ada与其他语言。
 
 GCC最初名为GNU C Compiler，当时它只是一款C语言的编译器，不过随着后续迭代，它支持C++、Fortran、Go等语言，GCC也因此成为一个编译器集合。GCC有以下特点：
 

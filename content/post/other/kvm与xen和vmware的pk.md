@@ -31,7 +31,7 @@ tags:
     Xen选择了可维护这条道路，它将所有的I/O操作放到了Linux guest里面，也就是所谓的domain-0里面。重用Linux来做I/O, Xen的维护者就不用重写整个I/O协议栈了。但不幸的是，这样就牺牲了性能: 每一个中断都必需经过Xen的调度，才能切换到domain 0, 并且所有的东西都不得不经过一个附加层的映射。
   
   
-    并不是说Xen已经完全解决了可维护性这个问题: Xen domain 0 kernel仍然是古老的Linux 2.6.18（尽管2.6.25也已经可用了。【sudison注: 】现在Xen已经在通过domain 0 pv_ops在解决这个问题了) 
+    并不是说Xen已经完全解决了可维护性这个问题: Xen domain 0 kernel仍然是古老的Linux 2.6.18 (尽管2.6.25也已经可用了。【sudison注: 】现在Xen已经在通过domain 0 pv_ops在解决这个问题了) 
   
   
     那KVM是怎么处理的呢？像VMware一样，I/O是被放到hypervisor的上下文来执行的，所以性能上不会有损害。像Xen一样，KVM重用了整个Linux I/O协议栈，所以KVM的用户就自然就获得了最新的驱动和I/O协议栈的改进。

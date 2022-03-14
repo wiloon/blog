@@ -22,11 +22,11 @@ profile可以让我们定义一系列的配置信息,然后指定其激活条件
   
 对于使用Maven3,我们可以有多个地方定义profile。定义的地方不同,它的作用范围也不同。
 
-（1)     针对于特定项目的profile配置我们可以定义在该项目的pom.xml中。
+ (1)     针对于特定项目的profile配置我们可以定义在该项目的pom.xml中。
 
-（2)     针对于特定用户的profile配置,我们可以在用户的settings.xml文件中定义profile。该文件在用户家目录下的".m2"目录下。
+ (2)     针对于特定用户的profile配置,我们可以在用户的settings.xml文件中定义profile。该文件在用户家目录下的".m2"目录下。
 
-（3)     全局的profile配置。全局的profile是定义在Maven安装目录下的"conf/settings.xml"文件中的。
+ (3)     全局的profile配置。全局的profile是定义在Maven安装目录下的"conf/settings.xml"文件中的。
 
 4.3     profile中能定义的信息
   

@@ -251,7 +251,7 @@ return mapper.readValue(jsonStr, objClass);
 1. Java对象序列化为Json字符串: 
 
 
-执行100 0000次转换，各个类库的耗时如下: （以秒为单位) 
+执行100 0000次转换，各个类库的耗时如下:  (以秒为单位) 
 
 
 Gson 48.891s
@@ -265,12 +265,12 @@ FastJson 21.706
 2. Json字符串 反序列化为Java对象
 
 
-执行100 0000次转换，各个类库的耗时如下: （以秒为单位) 
+执行100 0000次转换，各个类库的耗时如下:  (以秒为单位) 
 
 
 Gson 39.280s
 
-Json-lib 使用该类库的方法进行转换时（测试代码见下面) ，抛出异常。其原因是Person类的属性: List<Person> friends，其List中的对象不是Person类型的对象，而是net.sf.ezmorph.bean.MorphDynaBean类型的对象。说明，Json-lib对嵌套的自定义类支持的很差，或许是我写的方法有问题。
+Json-lib 使用该类库的方法进行转换时 (测试代码见下面) ，抛出异常。其原因是Person类的属性: List<Person> friends，其List中的对象不是Person类型的对象，而是net.sf.ezmorph.bean.MorphDynaBean类型的对象。说明，Json-lib对嵌套的自定义类支持的很差，或许是我写的方法有问题。
 
 Jackson 26.427s
 

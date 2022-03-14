@@ -14,7 +14,7 @@ tags:
 
 org.apache.commons.lang.StringUtils
 
-StringUtils是apache commons lang库（http://commons.apache.org/lang)旗下的一个工具类,提供了很多有用的处理字符串的方法,本文不打算把所有的方法都介绍一遍,我会介绍一些精选的常用的给大家。
+StringUtils是apache commons lang库 (http://commons.apache.org/lang)旗下的一个工具类,提供了很多有用的处理字符串的方法,本文不打算把所有的方法都介绍一遍,我会介绍一些精选的常用的给大家。
 
 目前StringUtils有两个版本可用,分别是较新的org.apache.commons.lang3.StringUtils和较老的org.apache.commons.lang.StringUtils,他们有比较大的区别,前者需要JAVA 5,我想这个应该是我们希望使用的。
 
@@ -116,7 +116,7 @@ StringUtils.isBlank(someWhiteSpace); // true
 
 3) public static String[] split(String str,String separatorChars)
 
-当然,这个方法相对于String.split也是空指针安全的,当你尝试split一个null字符串的时候,将返回Null,一个Null的分隔符将按照空白字符分隔字符串,但是,还有一个理由让你可考虑使用StringUtils.split（) 方法,就是jdk自带的String.split由于支持正则表达式进行分隔,所以可能带来意想不到的后果,例如:
+当然,这个方法相对于String.split也是空指针安全的,当你尝试split一个null字符串的时候,将返回Null,一个Null的分隔符将按照空白字符分隔字符串,但是,还有一个理由让你可考虑使用StringUtils.split () 方法,就是jdk自带的String.split由于支持正则表达式进行分隔,所以可能带来意想不到的后果,例如:
 
 Java代码 收藏代码
 

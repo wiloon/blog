@@ -27,7 +27,7 @@ select TO_DAYS('2008-09-08')-TO_DAYS('2008-08-08')     --两日期相减
 SELECT   substring( '2009-06-17 10:00:00',   1,   10   )   --从datetime中提取"日期"
 
 
-（\***\***\***\***\***\***\***
+ (\***\***\***\***\***\***\***
 
 时间戳是从1970年1月1日开始到目标时间所经过的秒数.
   
@@ -36,7 +36,7 @@ SELECT   substring( '2009-06-17 10:00:00',   1,   10   )   --从datetime中提�
 
 一、MySQL 获得当前日期时间 函数
   
-1.1 获得当前日期+时间（date + time) 函数: now()
+1.1 获得当前日期+时间 (date + time) 函数: now()
   
 MySQL> select now();
 
@@ -66,7 +66,7 @@ current_timestamp()
 
 这些日期时间函数,都等同于 now()。鉴于 now() 函数简短易记,建议总是使用 now() 来替代上面列出的函数。
   
-1.2 获得当前日期+时间（date + time) 函数: sysdate()
+1.2 获得当前日期+时间 (date + time) 函数: sysdate()
   
 sysdate() 日期时间函数跟 now() 类似,不同之处在于: now() 在执行开始时值就得到了, sysdate() 在函数执行时动态得到值。看下面的例子就明白了: 
   
@@ -98,7 +98,7 @@ MySQL> select sysdate(), sleep(3), sysdate();
   
 sysdate() 日期时间函数,一般情况下很少用到。
   
-2. 获得当前日期（date) 函数: curdate()
+2. 获得当前日期 (date) 函数: curdate()
   
 MySQL> select curdate();
 
@@ -118,7 +118,7 @@ current_date()
   
 ,current_date
 
-3. 获得当前时间（time) 函数: curtime()
+3. 获得当前时间 (time) 函数: curtime()
   
 MySQL> select curtime();
 
@@ -154,7 +154,7 @@ MySQL> select utc_timestamp(), utc_date(), utc_time(), now()
 
 因为我国位于东八时区,所以本地时间 = UTC 时间 + 8 小时。UTC 时间在业务涉及多个国家和地区的时候,非常有用。
 
-二、MySQL 日期时间 Extract（选取)  函数。
+二、MySQL 日期时间 Extract (选取)  函数。
   
 1. 选取日期时间的各个部分: 日期、时间、年、季度、月、日、小时、分钟、秒、微秒
   
@@ -242,7 +242,7 @@ select dayofmonth(@dt); - 8
   
 select dayofyear(@dt); - 221
 
-日期 '2008-08-08' 是一周中的第 6 天（1 = Sunday, 2 = Monday, ..., 7 = Saturday) ；一月中的第 8 天；一年中的第 221 天。
+日期 '2008-08-08' 是一周中的第 6 天 (1 = Sunday, 2 = Monday, ..., 7 = Saturday) ；一月中的第 8 天；一年中的第 221 天。
   
 4. MySQL week... 函数: week(), weekofyear(), dayofweek(), weekday(), yearweek()
   
@@ -262,7 +262,7 @@ select yearweek(@dt); - 200831
 
 MySQL week() 函数,可以有两个参数,具体可看手册。 weekofyear() 和 week() 一样,都是计算"某天"是位于一年中的第几周。 weekofyear(@dt) 等价于 week(@dt,3)。
   
-MySQL weekday() 函数和 dayofweek() 类似,都是返回"某天"在一周中的位置。不同点在于参考的标准, weekday: (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)； dayofweek: （1 = Sunday, 2 = Monday, ..., 7 = Saturday) 
+MySQL weekday() 函数和 dayofweek() 类似,都是返回"某天"在一周中的位置。不同点在于参考的标准, weekday: (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)； dayofweek:  (1 = Sunday, 2 = Monday, ..., 7 = Saturday) 
   
 MySQL yearweek() 函数,返回 year(2008) + week 位置(31)。
   
@@ -372,7 +372,7 @@ MySQL date_sub() 日期时间函数 和 date_add() 用法一致,不再赘述。�
   
 3. MySQL 另类日期函数: period_add(P,N), period_diff(P1,P2)
   
-函数参数"P" 的格式为"YYYYMM" 或者 "YYMM",第二个参数"N" 表示增加或减去 N month（月) 。
+函数参数"P" 的格式为"YYYYMM" 或者 "YYMM",第二个参数"N" 表示增加或减去 N month (月) 。
   
 MySQL period_add(P,N): 日期加/减去N月。
   
@@ -422,13 +422,13 @@ select timediff('08:08:08', '00:00:00'); - 08:08:08
 
 四、MySQL 日期转换函数、时间转换函数
   
-1. MySQL （时间、秒) 转换函数: time_to_sec(time), sec_to_time(seconds)
+1. MySQL  (时间、秒) 转换函数: time_to_sec(time), sec_to_time(seconds)
   
 select time_to_sec('01:00:05'); - 3605
   
 select sec_to_time(3605); - '01:00:05'
 
-2. MySQL （日期、天数) 转换函数: to_days(date), from_days(days)
+2. MySQL  (日期、天数) 转换函数: to_days(date), from_days(days)
   
 select to_days('0000-00-00'); - 0
   
@@ -438,7 +438,7 @@ select from_days(0); - '0000-00-00'
   
 select from_days(733627); - '2008-08-08'
 
-3. MySQL Str to Date （字符串转换为日期) 函数: str_to_date(str, format)
+3. MySQL Str to Date  (字符串转换为日期) 函数: str_to_date(str, format)
   
 select str_to_date('08/09/2008', '%m/%d/%Y'); - 2008-08-09
   
@@ -452,7 +452,7 @@ select str_to_date('08.09.2008 08:09:30', '%m.%d.%Y %h:%i:%s'); - 2008-08-09 08:
 
 可以看到,str_to_date(str,format) 转换函数,可以把一些杂乱无章的字符串转换为日期格式。另外,它也可以转换为时间。"format" 可以参看 MySQL 手册。
   
-4. MySQL Date/Time to Str（日期/时间转换为字符串) 函数: date_format(date,format), time_format(time,format)
+4. MySQL Date/Time to Str (日期/时间转换为字符串) 函数: date_format(date,format), time_format(time,format)
   
 MySQL> select date_format('2008-08-08 22:23:00', '%W %M %Y');
 
@@ -540,7 +540,7 @@ select makedate(2001,32); - '2001-02-01'
 
 select maketime(12,15,30); - '12:15:30'
 
-五、MySQL 时间戳（Timestamp) 函数
+五、MySQL 时间戳 (Timestamp) 函数
   
 1. MySQL 获得当前时间戳函数: current_timestamp, current_timestamp()
   
@@ -556,7 +556,7 @@ MySQL> select current_timestamp, current_timestamp();
   
 +-------+-------+
 
-2. MySQL （Unix 时间戳、日期) 转换函数: 
+2. MySQL  (Unix 时间戳、日期) 转换函数: 
   
 unix_timestamp(),
   
@@ -582,7 +582,7 @@ select from_unixtime(1218169800); - '2008-08-08 12:30:00'
 
 select from_unixtime(1218169800, '%Y %D %M %h:%i:%s %x'); - '2008 8th August 12:30:00 2008'
 
-3. MySQL 时间戳（timestamp) 转换、增、减函数: 
+3. MySQL 时间戳 (timestamp) 转换、增、减函数: 
   
 timestamp(date) - date to timestamp
   
@@ -614,9 +614,9 @@ select timestampdiff(hour,'2008-08-08 12:00:00','2008-08-08 00:00:00'); - -12
 
 select datediff('2008-08-08 12:00:00', '2008-08-01 00:00:00'); - 7
 
-MySQL timestampdiff() 函数就比 datediff() 功能强多了,datediff() 只能计算两个日期（date) 之间相差的天数。
+MySQL timestampdiff() 函数就比 datediff() 功能强多了,datediff() 只能计算两个日期 (date) 之间相差的天数。
 
-六、MySQL 时区（timezone) 转换函数
+六、MySQL 时区 (timezone) 转换函数
   
 convert_tz(dt,from_tz,to_tz)
 

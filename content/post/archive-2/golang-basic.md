@@ -70,7 +70,7 @@ china mainland download
 # gopath bin
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-# 设置不走 proxy 的私有仓库,多个用逗号相隔（可选) 
+# 设置不走 proxy 的私有仓库,多个用逗号相隔 (可选) 
 export GOPRIVATE=*.corp.example.com
 export GOPRIVATE=git.wiloon.com
 
@@ -279,7 +279,7 @@ func Dim(x, y float64) float64
 
 ```bash
 # -a
-强行对所有涉及到的代码包（包含标准库中的代码包) 进行重新构建, 即使它们已经是最新的了。
+强行对所有涉及到的代码包 (包含标准库中的代码包) 进行重新构建, 即使它们已经是最新的了。
 # -installsuffix
 为了使当前的输出目录与默认的编译输出目录分离,可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实,如果使用了-race标记,这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix,那么在-installsuffix标记的值的后面会再被追加_race,并以此来作为实际使用的后缀。
 #### -x
@@ -416,9 +416,9 @@ import "github.com/mlowicki/foo"
 func main() {
     foo.Foo()
 }
-这样的程序会工作正常。但是（主函数）调用 foo.bar() 会在编译时报错 —— cannot refer to unexported name foo.bar(无法引用未导出的名称 foo.bar)。
+这样的程序会工作正常。但是 (主函数）调用 foo.bar() 会在编译时报错 —— cannot refer to unexported name foo.bar(无法引用未导出的名称 foo.bar)。
 
-如果 foo 不是 一个包名，那么 foo.bar 就是一个选择器表达式。它访问 foo 表达式的字段或方法。点之后的标识符被称为 selector（选择器）。关于首字母大写的规则并不适用于这里。它允许从定义了 foo 类型的包中选择未导出的字段或方法：
+如果 foo 不是 一个包名，那么 foo.bar 就是一个选择器表达式。它访问 foo 表达式的字段或方法。点之后的标识符被称为 selector (选择器）。关于首字母大写的规则并不适用于这里。它允许从定义了 foo 类型的包中选择未导出的字段或方法：
 
 package main
 import "fmt"

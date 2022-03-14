@@ -24,9 +24,9 @@ CGI(Common Gateway Interface)是能让web服务器和CGI脚本共同处理客户
 
 其中Web服务器负责管理连接,数据传输,网络交互等。至于CGI脚本就负责管理具体的业务逻辑。
 
-Web服务器的功能是将客户端请求（HTTP Request) 转换成CGI脚本请求,然后执行脚本,接着将CGI脚本回复转换为客户端的回复（HTTP Response) 。
+Web服务器的功能是将客户端请求 (HTTP Request) 转换成CGI脚本请求,然后执行脚本,接着将CGI脚本回复转换为客户端的回复 (HTTP Response) 。
 
-CGI的脚本请求有两部分: 请求元数据（request meta-variables) 和相关的消息体（message-body) 。
+CGI的脚本请求有两部分: 请求元数据 (request meta-variables) 和相关的消息体 (message-body) 。
 
 请求元数据
   
@@ -62,7 +62,7 @@ http://somehost.com/cgi-bin/somescript/this%2eis%2epath%3binfo
   
 对应的PATH_INFO就是/this.is.the.path;info
   
-QUERY_STRING 请求参数（GET的参数就是放在这个里面的) 
+QUERY_STRING 请求参数 (GET的参数就是放在这个里面的) 
   
 REMOTE_ADDR标识客户端的ip地址
   
@@ -96,7 +96,7 @@ SERVER_SOFTWARE发送给客户端的response的Web服务器的标识,比如nginx
   
 比如GET方法,CGI程序就会从环境变量QUERY_STRING中获取数据。
   
-POST呢？Web服务器会通过stdin（标准输入) 想CGI中传送数据的。而传送的数据长度就是放在CONTENT_LENGTH中的。
+POST呢？Web服务器会通过stdin (标准输入) 想CGI中传送数据的。而传送的数据长度就是放在CONTENT_LENGTH中的。
   
 对应于HTTP请求,QUERY_STRING存放http的GET参数,stdin存放HTTP的BODY参数
 
@@ -108,9 +108,9 @@ POST呢？Web服务器会通过stdin（标准输入) 想CGI中传送数据的。
 
 复用
   
-当然有人会问,cgi进程不能复用是个问题,为什么不呢,fastcgi出现就是解决了这个问题。它的一个进程可以处理多个请求。这样速度当然就升上去了。然后还有一种cgi是scgi（simple cgi) ,scgi和fastcgi相似,只能说它定义的协议更简单（所以才叫做simple) 。scgi的客户端是c写的,服务端是perl写的。
+当然有人会问,cgi进程不能复用是个问题,为什么不呢,fastcgi出现就是解决了这个问题。它的一个进程可以处理多个请求。这样速度当然就升上去了。然后还有一种cgi是scgi (simple cgi) ,scgi和fastcgi相似,只能说它定义的协议更简单 (所以才叫做simple) 。scgi的客户端是c写的,服务端是perl写的。
 
-就最常见的nginx+cgi+php来说,要明确一点php中$_SERVER中获取的信息实际都是从cgi中获取的,当然这个和nginx中获取的客户端信息是一致的。另外由于cgi是有客户端和服务端的区别的,因此很容易想到cgi客户端需要使用tcp与客户端连接,每个连接当然需要占用一个端口,因此还是会有端口限制的。所以从这个角度上说,并不是cgi开的越多越好（当然6w的端口限制是远远够的了) 。
+就最常见的nginx+cgi+php来说,要明确一点php中$_SERVER中获取的信息实际都是从cgi中获取的,当然这个和nginx中获取的客户端信息是一致的。另外由于cgi是有客户端和服务端的区别的,因此很容易想到cgi客户端需要使用tcp与客户端连接,每个连接当然需要占用一个端口,因此还是会有端口限制的。所以从这个角度上说,并不是cgi开的越多越好 (当然6w的端口限制是远远够的了) 。
 
 安全
   

@@ -21,7 +21,7 @@ Go 语言保留着C中值和指针的区别, 但是对于指针繁琐用法进�
 ## 指针地址和指针类型
 一个指针变量可以指向任何一个值的内存地址，它所指向的值的内存地址在 32 和 64 位机器上分别占用 4 或 8 个字节，占用字节的大小与所指向的值的大小无关。当一个指针被定义后没有分配到任何变量时，它的默认值为 nil。指针变量通常缩写为 ptr。
 
-每个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用在变量名前面添加&操作符（前缀）来获取变量的内存地址（取地址操作），格式如下：
+每个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用在变量名前面添加&操作符 (前缀）来获取变量的内存地址 (取地址操作），格式如下：
 ```go
 ptr := &v    // v 的类型为 T
 ```
@@ -130,9 +130,9 @@ func main() {
 
 当我们传一个参数值到被调用函数里面时, 实际上是传了这个值的一份copy,当在被调用函数中修改参数值的时候, 调用函数中相应实参不会发生任何变化, 因为数值变化只作用在copy上。
 
-传指针比较轻量级 (8 bytes), 只是传内存地址, 我们可以用指针传递体积大的结构体。如果用参数值传递的话, 在每次copy上面就会花费相对较多的系统开销（内存和时间) 。所以当你要传递大的结构体的时候,用指针是一个明智的选择。
+传指针比较轻量级 (8 bytes), 只是传内存地址, 我们可以用指针传递体积大的结构体。如果用参数值传递的话, 在每次copy上面就会花费相对较多的系统开销 (内存和时间) 。所以当你要传递大的结构体的时候,用指针是一个明智的选择。
 
-Go语言中string,slice,map这三种类型的实现机制类似指针,所以可以直接传递,而不用取地址后传递指针。（注: 若函数需改变slice的长度,则仍需要取地址传递指针) 
+Go语言中string,slice,map这三种类型的实现机制类似指针,所以可以直接传递,而不用取地址后传递指针。 (注: 若函数需改变slice的长度,则仍需要取地址传递指针) 
 
 要访问指针 p 指向的结构体中某个元素 x,不需要显式地使用 * 运算,可以直接 p.x ；
 
@@ -433,7 +433,7 @@ Go 语言规范中规定了可寻址(addressable)对象的定义：
 
 For an operand x of type T, the address operation &x generates a pointer of type *T to x. The operand must be addressable, that is, either a variable, pointer indirection, or slice indexing operation; or a field selector of an addressable struct operand; or an array indexing operation of an addressable array. As an exception to the addressability requirement, x may also be a (possibly parenthesized) composite literal. If the evaluation of x would cause a run-time panic, then the evaluation of &x does too.
 
-对于类型为 T 的操作数 x，地址操作符 &x 将生成一个类型为 *T 的指针指向 x。操作数必须可寻址，即，变量、间接指针、切片索引操作，或可寻址结构体的字段选择器，或可寻址数组的数组索引操作。作为可寻址性要求的例外，x 也可为（圆括号括起来的）复合字面量。如果对 x 的求值会引起运行时恐慌，那么对 &x 的求值也会引起恐慌。
+对于类型为 T 的操作数 x，地址操作符 &x 将生成一个类型为 *T 的指针指向 x。操作数必须可寻址，即，变量、间接指针、切片索引操作，或可寻址结构体的字段选择器，或可寻址数组的数组索引操作。作为可寻址性要求的例外，x 也可为 (圆括号括起来的）复合字面量。如果对 x 的求值会引起运行时恐慌，那么对 &x 的求值也会引起恐慌。
 
 For an operand x of pointer type *T, the pointer indirection *x denotes the variable of type T pointed to by x. If x is nil, an attempt to evaluate *x will cause a run-time panic.
 
@@ -459,7 +459,7 @@ package 级别的函数
 中间值(intermediate value):
 函数调用
 显式类型转换
-各种类型的操作（除了指针引用 pointer dereference 操作 *x):
+各种类型的操作 (除了指针引用 pointer dereference 操作 *x):
 channel receive operations
 sub-string operations
 sub-slice operations
@@ -495,7 +495,7 @@ go addressable 详解
 上次更新 2019-11-28
 
 许可协议 CC BY-NC-ND 4.0
-（如需转载，请在评论区留言您的博客地址或公众号名称等，留言后可无需等待确认）
+ (如需转载，请在评论区留言您的博客地址或公众号名称等，留言后可无需等待确认）
 
 原文链接 https://shockerli.net/post/golang-faq-cannot-take-the-address/
 

@@ -10,7 +10,7 @@ tags:
 
 ---
 ## pathmunge
-pathmunge是linux系统redhat系列版本系统变量/etc/profile中的函数，如果想要把某个二进制程序可以在所有的shell不用全路径运行，就需要将其所在的目录放在profile中，用过的命令正是pathmunge （目录命) 
+pathmunge是linux系统redhat系列版本系统变量/etc/profile中的函数，如果想要把某个二进制程序可以在所有的shell不用全路径运行，就需要将其所在的目录放在profile中，用过的命令正是pathmunge  (目录命) 
 
 
 pathmunge{

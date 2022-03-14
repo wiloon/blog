@@ -11,9 +11,9 @@ tags:
 ## "Vue 跨域"
 ## 缘起
 
-最近实验课上需要重构以前写过的一个项目（垃圾堆) ，需要添加发生邮件提醒的功能，记得以前写过一个PHP版的实现，所以想把PHP写的功能整理成一个服务，然后在前端调用。但是这个项目是JavaWeb，也就是说我需要面对跨域的问题。不过本篇文章，讲的并不是如何解决这样的跨域问题，而是我在找如何解决这个问题的路上遇到的坑。
+最近实验课上需要重构以前写过的一个项目 (垃圾堆) ，需要添加发生邮件提醒的功能，记得以前写过一个PHP版的实现，所以想把PHP写的功能整理成一个服务，然后在前端调用。但是这个项目是JavaWeb，也就是说我需要面对跨域的问题。不过本篇文章，讲的并不是如何解决这样的跨域问题，而是我在找如何解决这个问题的路上遇到的坑。
 
-其实，在前端工程化大行其道的现在，前后端已经分离开来，前端为了提高工作流效率往往自己开一个小型的服务器，就比如`webpack.devServer`。这样在前端调用后端接口的时候必然会面临跨域的问题， 如题，`Vue-cli 3.x + axios 跨域方案` 就是解决这里的跨域问题。这里的跨域是基于`webpack`的devServer的代理功能（proxy) 来实现开发环境中的跨域，也就是说本篇所讨论的并不能解决生产环境下的跨域问题，因为webpack.devServer是DevDependencies，一旦打包上线，这个proxy代理就会失效。但是这并不妨碍我们开发中使用跨域来提高开发效率和体验。
+其实，在前端工程化大行其道的现在，前后端已经分离开来，前端为了提高工作流效率往往自己开一个小型的服务器，就比如`webpack.devServer`。这样在前端调用后端接口的时候必然会面临跨域的问题， 如题，`Vue-cli 3.x + axios 跨域方案` 就是解决这里的跨域问题。这里的跨域是基于`webpack`的devServer的代理功能 (proxy) 来实现开发环境中的跨域，也就是说本篇所讨论的并不能解决生产环境下的跨域问题，因为webpack.devServer是DevDependencies，一旦打包上线，这个proxy代理就会失效。但是这并不妨碍我们开发中使用跨域来提高开发效率和体验。
 
 ## 开始填坑
 
@@ -23,7 +23,7 @@ tags:
 
 Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src`和`./public`文件夹，所以网上很多教程说`config`目录下的`vue.config.js`是说的vue-cli 2.x版本。那么对于Vue-cli 3.x版本，构建也很简单，直接在根目录里建一个`vue.config.js`配置文件就可以了，我们直接看`devServer.proxy`里的代码:
 
-我这里devServer的地址是: localhost:8080/，需要代理的地址是: localhost/index/phpinfo.php （我自己写的一个测试跨域用的php，返回一个'ok') 
+我这里devServer的地址是: localhost:8080/，需要代理的地址是: localhost/index/phpinfo.php  (我自己写的一个测试跨域用的php，返回一个'ok') 
 
 下面是根据上面的地址需要配置的proxy对象
 
@@ -45,7 +45,7 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
     # main.ts
     axios.defaults.baseURL = '/api'
 
-大部分教程到这里就停止了，但是我在这里做一个扩展，为了让读者理解这里的配置是如何起作用的（以下内容整理自`http-proxy-middleware`的[npm描述](https://github.com/chimurai/http-proxy-middleware#context-matching)里，`http-proxy-middleware`是一个npm模块，是proxy的底层原理实现) 。
+大部分教程到这里就停止了，但是我在这里做一个扩展，为了让读者理解这里的配置是如何起作用的 (以下内容整理自`http-proxy-middleware`的[npm描述](https://github.com/chimurai/http-proxy-middleware#context-matching)里，`http-proxy-middleware`是一个npm模块，是proxy的底层原理实现) 。
 
              foo://example.com:8042/over/there?name=ferret#nose
              _/   ______________/_________/ _________/ __/
@@ -53,11 +53,11 @@ Vue-cli3.x比Vue-cli2.x构建的项目要简化很多，根目录下只有`./src
            scheme     authority       path        query   fragment
     复制代码
 
-以我上面的配置为例，`'/index'`这个`key`在`http-proxy-middleware`中被称为`context`——用来决定哪些请求需要被`target`对应的主机地址（这里是`http://localhost/index`) 代理，它可以是 字符串，含有通配符的字符串，或是一个数组，分别对应于`path matching`(路径匹配)`wildcard path matching`(通配符路径匹配)`multiple path matching`(多路径匹配)，而这里的`path`指的就是上图所标识的path段。
+以我上面的配置为例，`'/index'`这个`key`在`http-proxy-middleware`中被称为`context`——用来决定哪些请求需要被`target`对应的主机地址 (这里是`http://localhost/index`) 代理，它可以是 字符串，含有通配符的字符串，或是一个数组，分别对应于`path matching`(路径匹配)`wildcard path matching`(通配符路径匹配)`multiple path matching`(多路径匹配)，而这里的`path`指的就是上图所标识的path段。
 
 简言之，这个key就是匹配`path`的，一旦匹配到符合的`path`，就会把请求转发的代理主机去，而代理主机的地址就是`target`字段对应的内容。
 
-那`pathRewrit`是什么意思呢？意如其名，路径重写。就是把模式（这里是`^/index`) 匹配到的`path`重写为对应的路径（这里是`''`，相当于删除了这个匹配到的路径) 。除了删除，还有在原有路径上添加一个基础路径，或是改写一个路径的方式，这可以参考`http-proxy-middleware`的[npm描述的option.pathRewrite章节](https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options) 。
+那`pathRewrit`是什么意思呢？意如其名，路径重写。就是把模式 (这里是`^/index`) 匹配到的`path`重写为对应的路径 (这里是`''`，相当于删除了这个匹配到的路径) 。除了删除，还有在原有路径上添加一个基础路径，或是改写一个路径的方式，这可以参考`http-proxy-middleware`的[npm描述的option.pathRewrite章节](https://github.com/chimurai/http-proxy-middleware#http-proxy-middleware-options) 。
 
 ### 在Vue中使用axios
 

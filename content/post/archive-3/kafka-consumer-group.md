@@ -25,28 +25,28 @@ Consumer Group 主要用于实现高伸缩性，高容错性的Consumer机制。
 Consumer会定期向kafka集群汇报自己消费数据的进度，这一过程叫做位移的提交。这一过程已经抛弃Zookeeper，因为Zookeeper只是一个协调服务组件，不能作为存储组件，高并发的读取势必造成Zk的压力。
 
 新版本位移提交是在kafka内部维护了一个内部Topic(_consumer_offsets)。
-在kafka内部日志目录下面，总共有50个文件夹，每一个文件夹包含日志文件和索引文件。日志文件主要是K-V结构，（group.id,topic,分区号）。
+在kafka内部日志目录下面，总共有50个文件夹，每一个文件夹包含日志文件和索引文件。日志文件主要是K-V结构， (group.id,topic,分区号）。
 假设线上有很多的consumer和ConsumerGroup，通过对group.id做Hash求模运算，这50个文件夹就可以分散同时位移提交的压力。
 ### bootstrap.servers
 Kafka 集群地址
 ### group.id
 ### key.deserializer
-每一个从 Kafka broker 拉取的记录本质上是一组 bytes，所以你必须指定如何解码这些 bytes。这个选项指定了记录中 key 的解码方式，这里我们使用了 StringDeserializer 从而可以把 bytes 解码为字符串（默认编码是 UTF-8）
+每一个从 Kafka broker 拉取的记录本质上是一组 bytes，所以你必须指定如何解码这些 bytes。这个选项指定了记录中 key 的解码方式，这里我们使用了 StringDeserializer 从而可以把 bytes 解码为字符串 (默认编码是 UTF-8）
 ### value.deserializer
 解码 value 部分
 ### consumer.poll(1000)
-新版本的Consumer的Poll方法使用了类似于Select I/O机制，因此所有相关事件（包括reblance，消息获取等）都发生在一个事件循环之中。
-1000是一个超时时间，一旦拿到足够多的数据（参数设置），consumer.poll(1000)会立即返回 ConsumerRecords<String, String> records。
+新版本的Consumer的Poll方法使用了类似于Select I/O机制，因此所有相关事件 (包括reblance，消息获取等）都发生在一个事件循环之中。
+1000是一个超时时间，一旦拿到足够多的数据 (参数设置），consumer.poll(1000)会立即返回 ConsumerRecords<String, String> records。
 如果没有拿到足够多的数据，会阻塞1000ms，但不会超过1000ms就会返回。
 ### session.timeout.ms
 coordinator检测失败的时间
 默认值是10s
-该参数是 Consumer Group 主动检测 (组内成员comsummer)崩溃的时间间隔。若设置10min，那么Consumer Group的管理者（group coordinator）可能需要10分钟才能感受到。
+该参数是 Consumer Group 主动检测 (组内成员comsummer)崩溃的时间间隔。若设置10min，那么Consumer Group的管理者 (group coordinator）可能需要10分钟才能感受到。
 
 ### max.poll.interval.ms
 处理逻辑最大时间
 这个参数是0.10.1.0版本后新增的，可能很多地方看不到喔。这个参数需要根据实际业务处理时间进行设置，一旦Consumer处理不过来，就会被踢出Consumer Group
-注意：如果业务平均处理逻辑为1分钟，那么max. poll. interval. ms需要设置稍微大于1分钟即可，但是session. timeout. ms可以设置小一点（如10s），用于快速检测Consumer崩溃。
+注意：如果业务平均处理逻辑为1分钟，那么max. poll. interval. ms需要设置稍微大于1分钟即可，但是session. timeout. ms可以设置小一点 (如10s），用于快速检测Consumer崩溃。
 ### max.poll.records  <=  吞吐量
 单次poll调用返回的最大消息数，如果处理逻辑很轻量，可以适当提高该值。
 一次从kafka中poll出来的数据条数,max.poll.records条数据需要在在session.timeout.ms这个时间内处理完
@@ -76,14 +76,14 @@ heartbeat 心跳主要用于沟通交流，及时返回请求响应。这个时�
 ### auto.commit.interval.ms
 自动提交的时间间隔
 ### auto.offset.reset
-该属性指定了消费者在读取一个没有偏移量或者偏移量无效（消费者长时间失效当前的偏移量已经过时并且被删除了）的分区的情况下，应该作何处理，默认值是latest，也就是从最新记录读取数据（消费者启动之后生成的记录），另一个值是earliest，意思是在偏移量无效的情况下，消费者从起始位置开始读取数据。
+该属性指定了消费者在读取一个没有偏移量或者偏移量无效 (消费者长时间失效当前的偏移量已经过时并且被删除了）的分区的情况下，应该作何处理，默认值是latest，也就是从最新记录读取数据 (消费者启动之后生成的记录），另一个值是earliest，意思是在偏移量无效的情况下，消费者从起始位置开始读取数据。
 ### max. poll. interval. ms <= 处理逻辑最大时间
 这个参数是0.10.1.0版本后新增的，可能很多地方看不到喔。这个参数需要根据实际业务处理时间进行设置，一旦Consumer处理不过来，就会被踢出Consumer Group
 。
-注意：如果业务平均处理逻辑为1分钟，那么max. poll. interval. ms需要设置稍微大于1分钟即可，但是session. timeout. ms可以设置小一点（如10s），用于快速检测Consumer崩溃。
+注意：如果业务平均处理逻辑为1分钟，那么max. poll. interval. ms需要设置稍微大于1分钟即可，但是session. timeout. ms可以设置小一点 (如10s），用于快速检测Consumer崩溃。
 ### session. timeout. ms <=  coordinator检测失败的时间
 默认值是10s
-该参数是 Consumer Group 主动检测 (组内成员comsummer)崩溃的时间间隔。若设置10min，那么Consumer Group的管理者（group coordinator）可能需要10分钟才能感受到。太漫长了是吧。
+该参数是 Consumer Group 主动检测 (组内成员comsummer)崩溃的时间间隔。若设置10min，那么Consumer Group的管理者 (group coordinator）可能需要10分钟才能感受到。太漫长了是吧。
 
 
 ### consumer.poll(Duration.ofMillis(timeoutMs));
@@ -112,7 +112,7 @@ heartbeat 心跳主要用于沟通交流，及时返回请求响应。这个时�
 
 其实对于这些基本概念的普及，网上资料实在太多了。我本不应该再画蛇添足了，但为了本文的完整性，我还是要花一些篇幅来重谈consumer group，至少可以说说我的理解。值得一提的是，由于我们今天基本上只探讨consumer group，对于单独的消费者不做过多讨论。
 
-什么是consumer group? 一言以蔽之，consumer group是kafka提供的可扩展且具有容错性的消费者机制。既然是一个组，那么组内必然可以有多个消费者或消费者实例(consumer instance)，它们共享一个公共的ID，即group ID。组内的所有消费者协调在一起来消费订阅主题(subscribed topics)的所有分区(partition)。当然，每个分区只能由同一个消费组内的一个consumer来消费。（网上文章中说到此处各种炫目多彩的图就会紧跟着抛出来，我这里就不画了，请原谅) 。个人认为，理解consumer group记住下面这三个特性就好了: 
+什么是consumer group? 一言以蔽之，consumer group是kafka提供的可扩展且具有容错性的消费者机制。既然是一个组，那么组内必然可以有多个消费者或消费者实例(consumer instance)，它们共享一个公共的ID，即group ID。组内的所有消费者协调在一起来消费订阅主题(subscribed topics)的所有分区(partition)。当然，每个分区只能由同一个消费组内的一个consumer来消费。 (网上文章中说到此处各种炫目多彩的图就会紧跟着抛出来，我这里就不画了，请原谅) 。个人认为，理解consumer group记住下面这三个特性就好了: 
 
 consumer group下可以有一个或多个consumer instance，consumer instance可以是一个进程，也可以是一个线程
   
@@ -250,7 +250,7 @@ Stable: rebalance完成！可以开始消费了~
 
 前面说过了，组成员崩溃和组成员主动离开是两个不同的场景。因为在崩溃时成员并不会主动地告知coordinator此事，coordinator有可能需要一个完整的session.timeout周期才能检测到这种崩溃，这必然会造成consumer的滞后。可以说离开组是主动地发起rebalance；而崩溃则是被动地发起rebalance。okay，直接上图: 
 
-3 组成员主动离组（member leave group)
+3 组成员主动离组 (member leave group)
 
 4 提交位移(member commit offset)
 

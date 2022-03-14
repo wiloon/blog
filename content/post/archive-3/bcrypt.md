@@ -86,9 +86,9 @@ hashed = B.crypt_raw(passwordb, saltb, rounds);
 
 随机盐即为 AxafsyVqK51p.s9WAEYWYe
 
-（salt = BCrypt.gensalt();中有描述）
+ (salt = BCrypt.gensalt();中有描述）
 
-可见，随机盐（AxafsyVqK51p.s9WAEYWYe），会在比较的时候，重新被取出。
+可见，随机盐 (AxafsyVqK51p.s9WAEYWYe），会在比较的时候，重新被取出。
 
 即，加密的hashPass中，前部分已经包含了盐信息。
 

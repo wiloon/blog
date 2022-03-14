@@ -44,7 +44,7 @@ WinProxy支持所有的Internet接入方式，包括Modem、CableModem、 DSL.IS
 
 5 WinRoute
 
-WinRoute除了具有代理服务器的功能外，还具有NAT（Network Address Translation，网络地址转换) 、防火墙、邮件服务器、DHCP服务器、DNS服务器等功能，能为用户提供一个功能强大的软网关。
+WinRoute除了具有代理服务器的功能外，还具有NAT (Network Address Translation，网络地址转换) 、防火墙、邮件服务器、DHCP服务器、DNS服务器等功能，能为用户提供一个功能强大的软网关。
 
 WinRoute有很多选项设置，涉及到网络配置的方方面面，但是它的帮助系统却不是很完善，由于 WinRoute具有DHCP服务器的功能，局域网内部的机器还可配置成由WinRoute动态分配IP地址。WinRoute的Commands选单比较简单，可以进行拨号、断线、收发电子邮件。总体来说，WinRoute的网络功能相当全面，是一个优秀的软网关；美中不足的就是它的用户界面显得有些简单，帮助系统不完善，从而增加了配置工作的难度。
 

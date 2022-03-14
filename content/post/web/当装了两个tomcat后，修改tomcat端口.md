@@ -18,7 +18,7 @@ http://zfsn.iteye.com/blog/669901
 
 在默认情况下，tomcat的端口是8080，如果出现8080端口号冲突，用如下方法可以修改Tomcat的端口号: 
 
-首先:  在Tomcat的根（安装) 目录下，有一个conf文件夹，双击进入conf文件夹，在里面找到Server.xml文件，打开该文件。
+首先:  在Tomcat的根 (安装) 目录下，有一个conf文件夹，双击进入conf文件夹，在里面找到Server.xml文件，打开该文件。
 
 其次: 在文件中找到如下文本: 
 <Connector port="8080" protocol="HTTP/1.1" maxThreads="150" connectionTimeout="20000" redirectPort="8443" />
@@ -33,11 +33,11 @@ http://zfsn.iteye.com/blog/669901
   
   
     修改了上面的以后，还要修改两处: 
- （1) 将 <Connector port="8009" enableLookups="false" redirectPort="8443" debug="0"
+  (1) 将 <Connector port="8009" enableLookups="false" redirectPort="8443" debug="0"
  protocol="AJP/1.3" />的8009改为其它的端口。
   
   
-    （2)  继续将<Server port="8005" shutdown="SHUTDOWN" debug="0">的8005改为其它的端口。
+     (2)  继续将<Server port="8005" shutdown="SHUTDOWN" debug="0">的8005改为其它的端口。
  经过以上3个修改，应该就可以了。
   
   

@@ -19,7 +19,7 @@ after lock screen the system does not invoke the method on destory
   
 分析: 1.看log日志,退出前有抛出异常,但查看该处代码发现异常已经被catch住,异常信息被打印出来而已。
   
-2.怀疑是每个Activity实现时,其父类BaseActivity有干坏事,则重新自定义了一个Activity不继承自父类,发现现象仍存在,该Activity仍闪退。（vinney,thanks) 
+2.怀疑是每个Activity实现时,其父类BaseActivity有干坏事,则重新自定义了一个Activity不继承自父类,发现现象仍存在,该Activity仍闪退。 (vinney,thanks) 
   
 3.发现每次MainActivity的自定义的exitApp()都被调用了,设置断点,发现是由onDestory()发起的,而onDestory()则是由系统调用的。
   
@@ -33,7 +33,7 @@ after lock screen the system does not invoke the method on destory
 
 有没有即使勾选了"不保留活动"但app内能解决的方法？可以,在MainActivity处的onDestory()不调用退出应用操作。可能重写finish(),当代码明确调用finish()后再执行退出应用操作。但仍会有个缺点即为Activity.onDestory()后,从二级界面按返回键回到MainActivity时,会有一段短暂的黑屏,然后才恢复的情况。
 
-安卓4.0之后的版本,在设置-辅助功能-开发人员工具中,多出很多选项,其中有一项是"不保留活动"（用户离开后即销毁整个活动) 的选项,默认是不开启的。
+安卓4.0之后的版本,在设置-辅助功能-开发人员工具中,多出很多选项,其中有一项是"不保留活动" (用户离开后即销毁整个活动) 的选项,默认是不开启的。
 
 该功能最初我一直以为是退出应用后或者关闭屏幕后关闭所有后台,应该不止我一个这么认为吧,其实不然。
 

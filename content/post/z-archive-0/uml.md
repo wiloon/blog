@@ -19,10 +19,10 @@ Component diagram shows components, provided and required interfaces, ports, and
 Component-based development is based on assumptions that previously constructed components could be reused and that components could be replaced by some other "equivalent" or "conformant" components, if needed.
 The artifacts that implement component are intended to be capable of being deployed and re-deployed independently, for instance to update an existing system.
 
-组件图适用于基于组件的开发模式（Component-Based Development, CBD），它通过组件，及组件的接口、端口来表达组件的构成及其关系。当我们使用 CBD 进行开发时，其实是对行为进行了抽象，一个组件提供了若干的行为，组件图通过接口、端口的方式来表达组件间的连接，很形象的表达出组件是可被替换的概念，一个组件可以被另一个提供了相同接口的组件替换。因此，当我们通过组件进行建模时，能够设计出一个扩展性良好的系统。
+组件图适用于基于组件的开发模式 (Component-Based Development, CBD），它通过组件，及组件的接口、端口来表达组件的构成及其关系。当我们使用 CBD 进行开发时，其实是对行为进行了抽象，一个组件提供了若干的行为，组件图通过接口、端口的方式来表达组件间的连接，很形象的表达出组件是可被替换的概念，一个组件可以被另一个提供了相同接口的组件替换。因此，当我们通过组件进行建模时，能够设计出一个扩展性良好的系统。
 
 使用场景
-组件图是用于描述系统的物理、逻辑结构的，他关注组件间的关联（使用什么接口，通过什么端口通讯），强调通过接口来描述组件行为，因此， 对于后端来说，组件图比较适用于 SOA 架构、**微服务**架构的表达，描述整个系统的结构以及子系统间的通讯方式，或者表达一些基础设施，比如脚手架，消息中间件等等。 对于前端来说，组件图适合在使用类似 react、vue 这样组件化的前端技术框架时，表达对组件的设计，比如一个页面会有个骨架组件，骨架组件包含了导航组件，列表组件等等。
+组件图是用于描述系统的物理、逻辑结构的，他关注组件间的关联 (使用什么接口，通过什么端口通讯），强调通过接口来描述组件行为，因此， 对于后端来说，组件图比较适用于 SOA 架构、**微服务**架构的表达，描述整个系统的结构以及子系统间的通讯方式，或者表达一些基础设施，比如脚手架，消息中间件等等。 对于前端来说，组件图适合在使用类似 react、vue 这样组件化的前端技术框架时，表达对组件的设计，比如一个页面会有个骨架组件，骨架组件包含了导航组件，列表组件等等。
 
 ```plantuml
 @startuml
@@ -62,7 +62,7 @@ foo ->> bar: async invoke
 >https://www.ibm.com/docs/zh/rsas/7.5.0?topic=diagrams-messages-in-uml
 >http://note.sdo.com/u/1187426958/n/6NHae~jmchewLX00k002BF
 
-标准建模语言UML的重要内容可以由哪五类图（共9种图形) 来定义，并简要说明这些图所描述的对象。
+标准建模语言UML的重要内容可以由哪五类图 (共9种图形) 来定义，并简要说明这些图所描述的对象。
     标准建模语言UML的重要内容可以由下列五类图(共9种图形)来定义:
 ### 用例图
 从用户角度描述系统功能,并指出各功能的操作者。

@@ -19,7 +19,7 @@ platform=win : 适用平台为windows
   
 installdataindex=defaultbrowser : 安装后设chrome为当前默认浏览器
   
-extra=stablechannel : 指定版本为稳定版（候选列表同上) 
+extra=stablechannel : 指定版本为稳定版 (候选列表同上) 
 
 作者: DevNull
   

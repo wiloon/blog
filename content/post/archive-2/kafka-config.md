@@ -54,7 +54,7 @@ properties props = new Properties();
 单位: 字节
 batch.size是 producer 批量发送的基本单位,默认是 16384 Bytes, 即16kB
 
-发往每个分区（Partition) 的消息缓存量（消息内容的字节数之和,不是条数) 。达到设置的数值时,就会触发一次网络请求,然后Producer客户端把消息批量发往服务器。
+发往每个分区 (Partition) 的消息缓存量 (消息内容的字节数之和,不是条数) 。达到设置的数值时,就会触发一次网络请求,然后Producer客户端把消息批量发往服务器。
 
 #### linger.ms
 单位: 毫秒
@@ -99,14 +99,14 @@ as max.block.ms before raising an exception.
 ### max.block.ms
 buffer.memory 写满之后x毫秒抛异常 TimeoutException
 
-配置控制了KafkaProducer.send（) 和KafkaProducer.partitionsFor（) 的阻塞时间,这些方法可以由于缓冲区已满或元数据不可用而被阻塞,用户提供的序列化器或分区器中的阻塞将不计入此超时时间 。
+配置控制了KafkaProducer.send () 和KafkaProducer.partitionsFor () 的阻塞时间,这些方法可以由于缓冲区已满或元数据不可用而被阻塞,用户提供的序列化器或分区器中的阻塞将不计入此超时时间 。
 
 
 The buffer.memory controls the total amount of memory available to the producer for buffering. If records are sent faster than they can be transmitted to the server then this buffer space will be exhausted. When the buffer space is exhausted additional send calls will block. The threshold for time to block is determined by max.block.ms after which it throws a TimeoutException.
 
 buffer.memory设置决定了Producer缓存区整个可用的内存。如果记录记录发送速度总是比推送到集群速度快,那么缓存区将被耗尽。当缓存区资源耗尽,消息发送send方法调用将被阻塞,阻塞的时间由max.block.ms设定,阻塞超过限定时间会抛出TimeoutException异常。
 
-默认值:  33554432（32MB) 
+默认值:  33554432 (32MB) 
 
 二、max.block.ms 参数
 The configuration controls how long KafkaProducer.send() and KafkaProducer.partitionsFor() will block.These methods can be blocked either because the buffer is full or metadata unavailable.
@@ -121,7 +121,7 @@ max.block.ms 参数决定KafkaProducer.send() 和 KafkaProducer.partitionsFor() 
 
 acks用来控制一个produce请求怎样才能算完成,准确的说,是有多少broker必须已经提交数据到log文件,并向leader发送ack,可以设置如下的值: 
   
-- 0, 意味着producer永远不会等待一个来自broker的ack继续发送下一条（批) 消息。,这就是0.7版本的行为。这个选项提供了最低的延迟,但是持久化的保证是最弱的,当server挂掉的时候会丢失一些数据。
+- 0, 意味着producer永远不会等待一个来自broker的ack继续发送下一条 (批) 消息。,这就是0.7版本的行为。这个选项提供了最低的延迟,但是持久化的保证是最弱的,当server挂掉的时候会丢失一些数据。
 - 1, 意味着在leader replica已经接收到数据后,producer会得到一个ack。这个选项提供了更好的持久性,因为在server确认请求成功处理后,client才会返回。如果刚写到leader上,还没来得及复制leader就挂了,那么消息才可能会丢失。
 - -1 ("all"),意味着在所有的ISR都接收到数据后,producer才得到一个ack。这个选项提供了最好的持久性,只要还有一个replica存活,那么数据就不会丢失。
 

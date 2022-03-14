@@ -16,7 +16,7 @@ STAR is an acronym for Situation, Task, Action, Result
 什么是STAR法则？
 
 The STAR (Situation, Task, Action, Result) format is a job interview technique used by interviewers to gather all the relevant information about a specific capability that the job requires. This interview format is said to have a higher degree of predictability of future on-the-job performance than the traditional interview.
-STAR法则是情境（situation）、任务（task）、行动（action）、结果（result）四项的缩写。STAR法则是一种常常被面试官使用的工具，用来收集面试者与工作相关的具体信息和能力。STAR法则比起传统的面试手法来说，可以更精确地预测面试者未来的工作表现。
+STAR法则是情境 (situation）、任务 (task）、行动 (action）、结果 (result）四项的缩写。STAR法则是一种常常被面试官使用的工具，用来收集面试者与工作相关的具体信息和能力。STAR法则比起传统的面试手法来说，可以更精确地预测面试者未来的工作表现。
 
 Situation: The interviewer wants you to present a recent challenge and situation in which you found yourself.
 情境：面试官希望你能描述一个最近遇到的挑战或情况。

@@ -14,7 +14,7 @@ http://jiajun.iteye.com/blog/810150
 
 一、JConsole是什么
       
-从Java 5开始 引入了 JConsole。JConsole 是一个内置 Java 性能分析器，可以从命令行或在 GUI shell 中运行。您可以轻松地使用 JConsole（或者，它更高端的 "近亲" VisualVM ) 来监控 Java 应用程序性能和跟踪 Java 中的代码。
+从Java 5开始 引入了 JConsole。JConsole 是一个内置 Java 性能分析器，可以从命令行或在 GUI shell 中运行。您可以轻松地使用 JConsole (或者，它更高端的 "近亲" VisualVM ) 来监控 Java 应用程序性能和跟踪 Java 中的代码。
   
 二、如何启动JConsole
   
@@ -22,13 +22,13 @@ http://jiajun.iteye.com/blog/810150
   
 如果从 GUI shell 启动，找到 JDK 安装路径，打开 bin 文件夹，双击 jconsole 。
       
-当分析工具弹出时（取决于正在运行的 Java 版本以及正在运行的 Java 程序数量) ，可能会出现一个对话框，要求输入一个进程的 URL 来连接，也可能列出许多不同的本地 Java 进程（有时包含 JConsole 进程本身) 来连接。如图所示: 
+当分析工具弹出时 (取决于正在运行的 Java 版本以及正在运行的 Java 程序数量) ，可能会出现一个对话框，要求输入一个进程的 URL 来连接，也可能列出许多不同的本地 Java 进程 (有时包含 JConsole 进程本身) 来连接。如图所示: 
 
 想分析那个程序就双击那个进程。
   
 三、如何设置JAVA程序运行时可以被JConsolse连接分析
   
-本地程序（相对于开启JConsole的计算机) ，无需设置任何参数就可以被本地开启的JConsole连接（Java SE 6开始无需设置，之前还是需要设置运行时参数 -Dcom.sun.management.jmxremote ) 
+本地程序 (相对于开启JConsole的计算机) ，无需设置任何参数就可以被本地开启的JConsole连接 (Java SE 6开始无需设置，之前还是需要设置运行时参数 -Dcom.sun.management.jmxremote ) 
   
 无认证连接 (下面的设置表示: 连接的端口为8999、无需认证就可以被连接)
   
@@ -42,7 +42,7 @@ Java代码 收藏代码
 
 如果考虑到安全因素，需要认证，需要安全连接，也是可以搞定的。参考: http://download.oracle.com/javase/6/docs/technotes/guides/management/agent.html#gdenv
   
-四、JConsole如何连接远程机器的JAVA程序（举例说明) 
+四、JConsole如何连接远程机器的JAVA程序 (举例说明) 
   
 1. 写一个简单的一直运行的JAVA程序，运行在某台机器上如(192.168.0.181)
   
@@ -98,9 +98,9 @@ GC的算法和参数对性能有显著的影响，注意垃圾回收次数、时
   
 线程
 
-    左下角显示所有的活动线程（如果线程过多，可以在下面的过滤栏中输入字符串过滤出你想要观察的线程) 。点击某个显示会显示这个线程的名称、状态、阻塞和等待的次数、堆栈的信息。
+    左下角显示所有的活动线程 (如果线程过多，可以在下面的过滤栏中输入字符串过滤出你想要观察的线程) 。点击某个显示会显示这个线程的名称、状态、阻塞和等待的次数、堆栈的信息。
     
-    统计图显示的是线程数目的峰值（红色) 和当前活动的线程（蓝色) 。
+    统计图显示的是线程数目的峰值 (红色) 和当前活动的线程 (蓝色) 。
     
 
 另外下面有个按钮"检测到死锁"，有时候会有用处。

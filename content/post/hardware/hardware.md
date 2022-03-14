@@ -58,7 +58,7 @@ TS流输入接口
 S/PDIF, I2S, PCM输入输出接口
 模拟立体声输出
 数字立体麦克风输入
-P授权（可选) 
+P授权 (可选) 
 Dolby Digital, Dolby Digital Plus
 DTS Digital Surround, DTS HD, DTS Express
 Real, DivX HD
@@ -75,7 +75,7 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 
 ## PC
 2015-09-05    
-华硕（ASUS) Z170M-PLUS 主板 （Intel Z170/LGA 1151)    
+华硕 (ASUS) Z170M-PLUS 主板  (Intel Z170/LGA 1151)    
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz   
 Kingston DDR4 2133 16GB(8Gx2条)  
 wifi: Intel Corporation Wireless 7260 (rev 5b)  
@@ -199,8 +199,8 @@ Wi-Fi 标准
 IEEE 802.11a/b/g/n/ac
 
 支持的速率	
-802.11ac：6.5 到 867Mbps（MCS0 到 MCS9，VHT20/40/80 NSS = 1 到 2）
-802.11n：6.5 Mbps 到 300Mbps （MCS0 到 MCS15）
+802.11ac：6.5 到 867Mbps (MCS0 到 MCS9，VHT20/40/80 NSS = 1 到 2）
+802.11n：6.5 Mbps 到 300Mbps  (MCS0 到 MCS15）
 802.11a/g：54、48、36、24、18、12、9 和 6 Mbps
 802.11b：11，5.5，2 和 1 Mbps
 

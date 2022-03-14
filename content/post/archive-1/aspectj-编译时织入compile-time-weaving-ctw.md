@@ -11,17 +11,17 @@ tags:
 
 ---
 ## AspectJ 编译时织入(Compile Time Weaving, CTW)
-本文主要介绍 AspectJ 编译时织入（Compile Time Weaving, CTW) 的技术，并附有详细示例代码。
+本文主要介绍 AspectJ 编译时织入 (Compile Time Weaving, CTW) 的技术，并附有详细示例代码。
 
-AspectJ 是一个 AOP 的具体实现框架。AOP（Aspect Oriented Programming) 即面向切面编程，可以通过预编译方式和运行期动态代理实现在不修改源代码的情况下给程序动态统一添加功能的一种技术。
+AspectJ 是一个 AOP 的具体实现框架。AOP (Aspect Oriented Programming) 即面向切面编程，可以通过预编译方式和运行期动态代理实现在不修改源代码的情况下给程序动态统一添加功能的一种技术。
 
-AspectJ不但可以通过预编译方式（CTW) 和运行期动态代理的方式织入切面，还可以在载入（Load Time Weaving, LTW) 时织入。
+AspectJ不但可以通过预编译方式 (CTW) 和运行期动态代理的方式织入切面，还可以在载入 (Load Time Weaving, LTW) 时织入。
 
 AspectJ 扩展了Java，定义了一些专门的AOP语法。官网上这样描述: 
 
 a seamless aspect-oriented extension to the Java programming language Java platform compatible easy to learn and use
 
-在网上，关于 Spring + AspectJ Annotation动态代理或者AspectJ 载入时织入（Load Time Weaving, LTW) 的文章特别多（其特点是: 前者需要用Java编写切面并加以注释，后者需要编写 aop.xml 文件并在启动 Java 时带上参数-javaagent) ，所以本文就不在涉及。
+在网上，关于 Spring + AspectJ Annotation动态代理或者AspectJ 载入时织入 (Load Time Weaving, LTW) 的文章特别多 (其特点是: 前者需要用Java编写切面并加以注释，后者需要编写 aop.xml 文件并在启动 Java 时带上参数-javaagent) ，所以本文就不在涉及。
 
 编译时织入是 AspectJ 的一个重要功能，因为 AspectJ 有一个专门的编译器用来生成遵守 Java 字节编码规范的 Class 文件。
 
@@ -33,7 +33,7 @@ a seamless aspect-oriented extension to the Java programming language Java platf
 
 我们可使用两个工具来方便我们开发 AspectJ 程序: 
 
-Eclipse 插件 AJDT（AspectJ Development Tools) ，方便我们在 eclipse 环境下编写切面（AspectJ) 并在编译源码时自动织入切面；[参考用法]
+Eclipse 插件 AJDT (AspectJ Development Tools) ，方便我们在 eclipse 环境下编写切面 (AspectJ) 并在编译源码时自动织入切面；[参考用法]
 
 AspectJ compiler Maven Plugin，Maven 的 AspectJ 编译插件，同样可以在编写源码时将切面织入到字节码。
 
@@ -362,7 +362,7 @@ mvn test-compile
 
 编译完成后就可以在 Eclipse 中执行单元测试检验成果了。
 
-为了有个更直观的印象，我们可以反编译类 SampleServiceImpl 来看看字节码中的切面织入情况。这里我们使用 jad 作为反编译工具，命令如下（在项目根目录即 pom.xml 文件所在目录执行) : 
+为了有个更直观的印象，我们可以反编译类 SampleServiceImpl 来看看字节码中的切面织入情况。这里我们使用 jad 作为反编译工具，命令如下 (在项目根目录即 pom.xml 文件所在目录执行) : 
 
 d:\path-to-jad\jad.exe -sjava -o -r -ff -d target\src target\classes\*\*\\*.class
 
@@ -420,4 +420,4 @@ return k;
 
 编写 aspect 文件有一定的难度；
 
-编译过程稍显复杂（借助工具可简化: Eclipse AJDT, maven aspectj插件等) 。
+编译过程稍显复杂 (借助工具可简化: Eclipse AJDT, maven aspectj插件等) 。

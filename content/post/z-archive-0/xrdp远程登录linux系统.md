@@ -200,7 +200,7 @@ xrdp安装配置方法
   
 如果是RedHat系发行版，可以到这里下载安装包
   
-xrdp依赖于pam和openssl-del，编译前需要先安装pam-devel和openssl-devel这两个包（不同发行版的包名称有一点不同) 
+xrdp依赖于pam和openssl-del，编译前需要先安装pam-devel和openssl-devel这两个包 (不同发行版的包名称有一点不同) 
   
 如果是RedHat系，设置好源直接yum install pam-devel openssl-devel
 
@@ -232,7 +232,7 @@ bitmap_compression=yes 位图压缩
   
 port=3389 监听端口
   
-crypt_level=low 加密程度（low为40位，high为128位，medium为双40位) 
+crypt_level=low 加密程度 (low为40位，high为128位，medium为双40位) 
   
 channel_code=1 不知道是什么
 

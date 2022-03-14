@@ -10,39 +10,39 @@ tags:
   - reprint
 ---
 ## ingress
-XM（Exotic Matter，外来能量) 
+XM (Exotic Matter，外来能量) 
   
-AP（Access Points，权限点数) 
+AP (Access Points，权限点数) 
   
 Portals
   
 直译为传送门或者据点，俗称Po
   
-处于一个Portal的40米范围内才可以与之交互（你周围那个圈就是40米半径的圆) 
+处于一个Portal的40米范围内才可以与之交互 (你周围那个圈就是40米半径的圆) 
   
-Hack（中译名为"入侵") Portal是主要的物资获取方式
+Hack (中译名为"入侵") Portal是主要的物资获取方式
 
-### Links/ Fields（连接/区域或场) 
+### Links/ Fields (连接/区域或场) 
 
 收集Keys才能建立Link
   
-持有一个Portal的Key才能从别的Portal向其发起Link（连接) （成功建立Link会消耗掉对应的Portal Key) 
+持有一个Portal的Key才能从别的Portal向其发起Link (连接)  (成功建立Link会消耗掉对应的Portal Key) 
   
-在几个Portals之间建立 Link构成三角形就是建成Control Field（控制区/场) 
+在几个Portals之间建立 Link构成三角形就是建成Control Field (控制区/场) 
   
 三角形，三角形，三角形。重要的事情说三遍，重点就是连成三角形
 
 ### 低等级升级方式
 
-在中立Portal上面部署（Deploy) 谐振器（Resonators) 以占据
+在中立Portal上面部署 (Deploy) 谐振器 (Resonators) 以占据
   
-在友方阵营占据Portal的空槽上部署（Deploy) 谐振器（Resonators) 
+在友方阵营占据Portal的空槽上部署 (Deploy) 谐振器 (Resonators) 
   
-建立大量的短距离Link和小的Control Field（控制区/场) 
+建立大量的短距离Link和小的Control Field (控制区/场) 
   
 给己方占据的Portal充能
   
-Hack（入侵) 敌方占据的Portal也可以获得AP，但请注意，敌方Portal会反击造成你的XM损失
+Hack (入侵) 敌方占据的Portal也可以获得AP，但请注意，敌方Portal会反击造成你的XM损失
 
 申请po
   
@@ -50,7 +50,7 @@ Hack（入侵) 敌方占据的Portal也可以获得AP，但请注意，敌方Por
 
 ### Portal Key
 
-Portal Key（钥匙) ，保存着对应Portal的信息。可以使用key进行充能或建立link。
+Portal Key (钥匙) ，保存着对应Portal的信息。可以使用key进行充能或建立link。
 
 虽然key被标注了等级，但是这实际上是对应Portal的等级。任何等级的agent都可以使用任何等级的key。
 

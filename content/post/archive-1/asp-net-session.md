@@ -41,7 +41,7 @@ http://blog.csdn.net/mr_smile2014/article/details/47452281
 
 1) JMS
   
-Java关于消息服务的标准是JMS，JMS即Java消息服务（Java Message Service) 应用程序接口是一个Java平台中关于面向消息中间件（MOM) 的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，类似于JDBC，需要不同的提供商进行各自的实现。实现JMS标准的软件可以作为Java下的消息中间件服务器。JMS 使您能够通过消息收发服务（有时称为消息中介程序或路由器) 从一个 JMS 客户机向另一个 JMS客户机发送消息。消息是 JMS中的一种类型对象，由两部分组成: 报头和消息主体。报头由路由信息以及有关该消息的元数据组成。消息主体则携带着应用程序的数据或有效负载。根据有效负载的类型来划分，可以将消息分为几种类型，它们分别携带: 简单文本(TextMessage)、可序列化的对象 (ObjectMessage)、属性集合 (MapMessage)、字节流 (BytesMessage)、原始值流 (StreamMessage)，还有无有效负载的消息 (Message)。
+Java关于消息服务的标准是JMS，JMS即Java消息服务 (Java Message Service) 应用程序接口是一个Java平台中关于面向消息中间件 (MOM) 的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，类似于JDBC，需要不同的提供商进行各自的实现。实现JMS标准的软件可以作为Java下的消息中间件服务器。JMS 使您能够通过消息收发服务 (有时称为消息中介程序或路由器) 从一个 JMS 客户机向另一个 JMS客户机发送消息。消息是 JMS中的一种类型对象，由两部分组成: 报头和消息主体。报头由路由信息以及有关该消息的元数据组成。消息主体则携带着应用程序的数据或有效负载。根据有效负载的类型来划分，可以将消息分为几种类型，它们分别携带: 简单文本(TextMessage)、可序列化的对象 (ObjectMessage)、属性集合 (MapMessage)、字节流 (BytesMessage)、原始值流 (StreamMessage)，还有无有效负载的消息 (Message)。
 
 ### AMQP
 

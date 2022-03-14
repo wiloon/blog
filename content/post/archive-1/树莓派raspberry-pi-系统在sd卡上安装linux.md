@@ -26,7 +26,7 @@ tips:
 
 错误: 接电启动树莓派,派上只有红色的Power灯亮,HDMI电视机上没有输出。
 
-原因: 在Linux上执行dd命令的时候,应该是把操作系统镜像写到SD卡（硬盘上) ,而不是写到某个硬盘分区上。of=/dev/sdb 误写成of=/dev/sdb1了。
+原因: 在Linux上执行dd命令的时候,应该是把操作系统镜像写到SD卡 (硬盘上) ,而不是写到某个硬盘分区上。of=/dev/sdb 误写成of=/dev/sdb1了。
 
 当时写完后,我还纳闷呢,怎么Linux  fdisk上这个SD卡还显示只有一个vfat分区,而不是多个Linux分区呢。
 
@@ -66,7 +66,7 @@ $ sudo -s
 
 <http://www.leiphone.com/raspberry-pi-hands-on.html>
 
-迷你Linux机器Raspberry Pi详解和关于其的用途（一)  : 配置,图片,烧SD卡,Python编程
+迷你Linux机器Raspberry Pi详解和关于其的用途 (一)  : 配置,图片,烧SD卡,Python编程
 
 <http://blog.sina.com.cn/s/blog_a16ed9d601017q72.html>
 

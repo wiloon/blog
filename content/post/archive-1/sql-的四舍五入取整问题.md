@@ -16,7 +16,7 @@ tags:
 经在sql server 2005测试，可以通过
 
 
-SELECT CAST('123.456' as decimal) 将会得到 123（小数点后面的将会被省略掉) 。
+SELECT CAST('123.456' as decimal) 将会得到 123 (小数点后面的将会被省略掉) 。
   
 如果希望得到小数点后面的两位。
   

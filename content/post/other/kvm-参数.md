@@ -33,7 +33,7 @@ tags:
 
 -drive file=debian.img,if=virtio,index=0,media=disk,format=qcow2,cache=writeback
   
-指定客户机使用的硬盘驱动器,if=virtio指定使用半虚拟化驱动,index=0指定该硬盘为接口的第一个驱动器,media=disk指定为硬盘驱动器,如果是光盘则为media=cdrom。format=qcow2为硬盘格式（raw/qcow2) ，以创建磁盘镜像时的格式为准。旧式指定第一个硬盘驱动器的参数为-hda debian.img,已经不再推荐使用。
+指定客户机使用的硬盘驱动器,if=virtio指定使用半虚拟化驱动,index=0指定该硬盘为接口的第一个驱动器,media=disk指定为硬盘驱动器,如果是光盘则为media=cdrom。format=qcow2为硬盘格式 (raw/qcow2) ，以创建磁盘镜像时的格式为准。旧式指定第一个硬盘驱动器的参数为-hda debian.img,已经不再推荐使用。
 
 -drive file=debian.iso,index=2,media=cdrom或者-hdc debian.iso
   

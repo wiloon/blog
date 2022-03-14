@@ -43,7 +43,7 @@ print?
 
 slurm [-hHz] [-csl] [-d delay] -i interface
 
-如果你想监视第一块网卡（eth0) ,使用下面的命令: 
+如果你想监视第一块网卡 (eth0) ,使用下面的命令: 
 
 [cpp][/cpp]
 

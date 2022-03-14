@@ -10,9 +10,9 @@ tags:
 ---
 ## LSM-Tree
 ## LSM-Tree, Log Structured Merge Tree
-LSM-Tree 能将离散的随机写请求都转换成批量的顺序写请求（WAL + Compaction），以此提高写性能。
+LSM-Tree 能将离散的随机写请求都转换成批量的顺序写请求 (WAL + Compaction），以此提高写性能。
 
-十多年前，谷歌发布了大名鼎鼎的"三驾马车"的论文，分别是 GFS(2003年)，MapReduce（2004年），BigTable（2006年），为开源界在大数据领域带来了无数的灵感，其中在 “BigTable” 的论文中很多很酷的方面之一就是它所使用的文件组织方式，这个方法更一般的名字叫 Log Structured-Merge Tree。在面对亿级别之上的海量数据的存储和检索的场景下，我们选择的数据库通常都是各种强力的NoSQL，比如 Hbase, Cassandra, Leveldb, RocksDB 等等，这其中前两者是 Apache 下面的顶级开源项目数据库，后两者分别是 Google 和 Facebook 开源的数据库存储引擎。而这些强大的 NoSQL 数据库都有一个共性，就是其底层使用的数据结构，都是仿照 "BigTable" 中的文件组织方式来实现的，也就是我们今天要介绍的 LSM-Tree。
+十多年前，谷歌发布了大名鼎鼎的"三驾马车"的论文，分别是 GFS(2003年)，MapReduce (2004年），BigTable (2006年），为开源界在大数据领域带来了无数的灵感，其中在 “BigTable” 的论文中很多很酷的方面之一就是它所使用的文件组织方式，这个方法更一般的名字叫 Log Structured-Merge Tree。在面对亿级别之上的海量数据的存储和检索的场景下，我们选择的数据库通常都是各种强力的NoSQL，比如 Hbase, Cassandra, Leveldb, RocksDB 等等，这其中前两者是 Apache 下面的顶级开源项目数据库，后两者分别是 Google 和 Facebook 开源的数据库存储引擎。而这些强大的 NoSQL 数据库都有一个共性，就是其底层使用的数据结构，都是仿照 "BigTable" 中的文件组织方式来实现的，也就是我们今天要介绍的 LSM-Tree。
 
 influxdb 使用的 TSM 存储引擎也是根据 LSM Tree 针对时间序列数据优化而来
 
@@ -23,7 +23,7 @@ LSM-Tree全称是 Log Structured Merge Tree，是一种分层，有序，面向�
 
 虽然这种结构的写非常简单高效，但其缺点是对读取特别是**随机读**很不友好，这也是为什么日志通常用在下面的两种简单的场景：
 
-1. 数据是被整体访问的，大多数数据库的 **WAL（write ahead log）** 也称 **预写log**，包括 mysql 的 Binlog 等
+1. 数据是被整体访问的，大多数数据库的 **WAL (write ahead log）** 也称 **预写log**，包括 mysql 的 Binlog 等
 2. 数据是通过文件的偏移量offset访问的，比如 Kafka。
 
 想要支持更复杂和高效的读取，比如按key查询和按range查询，就得需要做一步的设计，这也是LSM-Tree结构，除了利用磁盘顺序写之外，还划分了 **内存+磁盘** 多层的合并结构的原因，正是基于这种结构再加上不同的优化实现，才造就了在这之上的各种独具特点的 NoSQL 数据库，如 Hbase，Cassandra，Leveldb，RocksDB，MongoDB, TiDB 等。
@@ -52,7 +52,7 @@ SSTable合并类似于简单的归并排序：根据key值确定要merge的文�
 
 1，当收到一个写请求时，会先把该条数据记录在WAL Log里面，用作故障恢复。
 
-2，当写完WAL Log后，会把该条数据写入内存的SSTable里面（删除是墓碑标记，更新是新记录一条的数据），也称 Memtable. 注意为了维持有序性在内存里面可以采用红黑树或者跳跃表相关的数据结构。
+2，当写完WAL Log后，会把该条数据写入内存的SSTable里面 (删除是墓碑标记，更新是新记录一条的数据），也称 Memtable. 注意为了维持有序性在内存里面可以采用红黑树或者跳跃表相关的数据结构。
 
 3，当Memtable超过一定的大小后，会在内存里面冻结，变成不可变的Memtable，同时为了不阻塞写操作需要新生成一个Memtable继续提供服务。
 
@@ -107,9 +107,9 @@ B+Tree则是将数据拆分为固定大小的Block或Page, 一般是4KB大小，
 
 在数据的更新和删除方面，B+Tree可以做到原地更新和删除，这种方式对数据库事务支持更加友好，因为一个key只会出现一个Page页里面，但由于LSM-Tree只能追加写，并且在L0层key的rang会重叠，所以对事务支持较弱，只能在Segment Compaction的时候进行真正地更新和删除。
 
-因此LSM-Tree的优点是支持高吞吐的写（可认为是O（1）），这个特点在分布式系统上更为看重，当然针对读取普通的LSM-Tree结构，读取是O（N）的复杂度，在使用索引或者缓存优化后的也可以达到O（logN）的复杂度。
+因此LSM-Tree的优点是支持高吞吐的写 (可认为是O (1）），这个特点在分布式系统上更为看重，当然针对读取普通的LSM-Tree结构，读取是O (N）的复杂度，在使用索引或者缓存优化后的也可以达到O (logN）的复杂度。
 
-而B+tree的优点是支持高效的读（稳定的OlogN），但是在大规模的写请求下（复杂度O(LogN)），效率会变得比较低，因为随着insert的操作，为了维护B+树结构，节点会不断的分裂和合并。操作磁盘的随机读写概率会变大，故导致性能降低。
+而B+tree的优点是支持高效的读 (稳定的OlogN），但是在大规模的写请求下 (复杂度O(LogN)），效率会变得比较低，因为随着insert的操作，为了维护B+树结构，节点会不断的分裂和合并。操作磁盘的随机读写概率会变大，故导致性能降低。
 
 还有一点需要提到的是基于LSM-Tree分层存储能够做到写的高吞吐，带来的副作用是整个系统必须频繁的进行compaction，写入量越大，Compaction的过程越频繁。而compaction是一个compare & merge的过程，非常消耗CPU和存储IO，在高吞吐的写入情形下，大量的compaction操作占用大量系统资源，必然带来整个系统性能断崖式下跌，对应用系统产生巨大影响，当然我们可以禁用自动Major Compaction，在每天系统低峰期定期触发合并，来避免这个问题。
 
@@ -118,12 +118,12 @@ B+Tree则是将数据拆分为固定大小的Block或Page, 一般是4KB大小，
 总结
 本文主要介绍了LSM-Tree的相关内容，简单的说，其牺牲了部分读取的性能，通过批量顺序写来换取了高吞吐的写性能，这种特性在大数据领域得到充分了体现，最直接的例子就各种NoSQL在大数据领域的应用，学习和了解LSM-Tree的结构将有助于我们更加深入的去理解相关NoSQL数据库的实现原理，掌握隐藏在这些框架下面的核心知识。
 
-### 读放大（Read Amplification）
-LSM-Tree 的读操作需要从新到旧（从上到下）一层一层查找，直到找到想要的数据。这个过程可能需要不止一次 I/O。特别是 range query 的情况，影响很明显。
-### 空间放大（Space Amplification）
-因为所有的写入都是顺序写（append-only）的，不是 in-place update ，所以过期数据不会马上被清理掉。
+### 读放大 (Read Amplification）
+LSM-Tree 的读操作需要从新到旧 (从上到下）一层一层查找，直到找到想要的数据。这个过程可能需要不止一次 I/O。特别是 range query 的情况，影响很明显。
+### 空间放大 (Space Amplification）
+因为所有的写入都是顺序写 (append-only）的，不是 in-place update ，所以过期数据不会马上被清理掉。
 ### 写放大 Write Amplification
-RocksDB 和 LevelDB 通过后台的 compaction 来减少读放大（减少 SST 文件数量）和空间放大（清理过期数据），但也因此带来了写放大（Write Amplification）的问题。
+RocksDB 和 LevelDB 通过后台的 compaction 来减少读放大 (减少 SST 文件数量）和空间放大 (清理过期数据），但也因此带来了写放大 (Write Amplification）的问题。
 
 基于LSM树的KV系统的Merge操作造成的写放大
 levelDB等KV存储广泛采用了LSM树等结构进行存储组织，其特点就是靠上的level的数据会最终被merge sort到下层，由于多数level在磁盘文件中，这也就导致了同一KV数据的总写放大，放大的倍数就是大约是level的数目。和前边4中写放大不同的是，这种写放大并非写操作时马上就会发生写放大，而是写操作发生时会潜在的导致“未来会发生”写放大，所以这种写放大只会导致整体写代价提升，不会影响实时的延迟性能，只可能会影响磁盘带宽或者在SSD做存储设备时影响闪存耐久。FAST 16上有篇论文也专门分析了这种写放大。[8]

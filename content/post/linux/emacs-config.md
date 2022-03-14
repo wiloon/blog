@@ -12,7 +12,7 @@ tags:
 ## emacs 配置/config
 中文环境
   
-之后,在~/.Xresources（如果没有的话,自己建一个) ,加入下面内容: 
+之后,在~/.Xresources (如果没有的话,自己建一个) ,加入下面内容: 
   
 Xft.antialias: 1
   

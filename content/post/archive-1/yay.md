@@ -30,7 +30,7 @@ makepkg -si
 
 ### AUR mirror
 
-默认的仓库 （aur.archlinux.org） 非常慢， 可以走梯子加速，或者用国内的镜像
+默认的仓库  (aur.archlinux.org） 非常慢， 可以走梯子加速，或者用国内的镜像
 执行以下命令修改 aururl :
 ```bash
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save

@@ -19,11 +19,11 @@ MySQL的大小写敏感性 lower_case_table_names
 
 要避免这个问题，你最好在定义数据库命名规则的时候就全部采用小写字母加下划线的组合，而不使用任何的大写字母。
 
-或者也可以强制以 -O lower_case_table_names=1 参数启动 MySQLd（如果使用 -defaults-file=...\my.cnf 参数来读取指定的配置文件启动 MySQLd 的话，你需要在配置文件的 [MySQLd] 区段下增加一行 lower_case_table_names=1) 。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名) 。
+或者也可以强制以 -O lower_case_table_names=1 参数启动 MySQLd (如果使用 -defaults-file=...\my.cnf 参数来读取指定的配置文件启动 MySQLd 的话，你需要在配置文件的 [MySQLd] 区段下增加一行 lower_case_table_names=1) 。这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符 (这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名) 。
 
 当你更改这个选项时，你必须在启动 MySQLd 前首先将老的表名转换为小写字母。
 
-换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置:  lower_case_table_names=0 。否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样（在Windows下所有的大写字符都变成小写了) 。
+换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置:  lower_case_table_names=0 。否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样 (在Windows下所有的大写字符都变成小写了) 。
 
 
   
@@ -67,15 +67,15 @@ MySQL的大小写敏感性 lower_case_table_names
 
 
 
-MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower_case_table_names=1 参数启动 MySQLd（如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 MySQLd 的话，你需要在配置文件的 [MySQLd] 区段下增加一行 lower_case_table_names=1) 。
+MySQL的大小写敏感其实是根据用户的操作系统来的， 可以强制以 -O lower_case_table_names=1 参数启动 MySQLd (如果使用 -defaults-file=...\\my.cnf 参数来读取指定的配置文件启动 MySQLd 的话，你需要在配置文件的 [MySQLd] 区段下增加一行 lower_case_table_names=1) 。
   
-这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符（这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名) 。
+这样MySQL 将在创建与查找时将所有的表名自动转换为小写字符 (这个选项缺省地在 Windows 中为 1 ，在 Unix 中为 0。从 MySQL 4.0.2 开始，这个选项同样适用于数据库名) 。
   
 当你更改这个选项时，你必须在启动 MySQLd 前首先将老的表名转换为小写字母。
   
 换句话说，如果你希望在数据库里面创建表的时候保留大小写字符状态，则应该把这个参数置0:  lower_case_table_names=1 。
   
-否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样（在Windows下所有的大写字符都变成小写了) 。
+否则的话你会发现同样的sqldump脚本在不同的操作系统下最终导入的结果不一样 (在Windows下所有的大写字符都变成小写了) 。
   
 注意: 
   

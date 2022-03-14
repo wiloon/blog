@@ -93,7 +93,7 @@ DEPTNO AGGREGATED_ENAMES
   
 20 ADAMS,FORD,JONES
 
-可以看到，employee names基于deptno分组实现了串联，如前所述，有很多种方法实现聚合功能（文章最后提供相关链接) ，但是listagg更为简单，易用。
+可以看到，employee names基于deptno分组实现了串联，如前所述，有很多种方法实现聚合功能 (文章最后提供相关链接) ，但是listagg更为简单，易用。
 
 listagg 语法概述
 
@@ -101,7 +101,7 @@ listagg函数的语法结构如下:
   
 LISTAGG( [,]) WITHIN GROUP (ORDER BY ) [OVER (PARTITION BY )]
 
-listagg虽然是聚合函数，但可以提供分析功能（比如可选的OVER()子句) 。使用listagg中，下列中的元素是必须的: 
+listagg虽然是聚合函数，但可以提供分析功能 (比如可选的OVER()子句) 。使用listagg中，下列中的元素是必须的: 
 
 需要聚合的列或者表达式
   
@@ -139,7 +139,7 @@ DEPTNO EMPLOYEES ---- -------------------- 10 CLARK,KING,MILLER 20 SMITH,JONES,F
   
 listagg作为分析函数
 
-与许多的聚合函数类似，listagg通过加上over（) 子句可以实现分析功能，下面的例子将展示分析功能: SQL> SELECT deptno 2 , ename 3 , hiredate 4 , LISTAGG(ename, ',') 5 WITHIN GROUP (ORDER BY hiredate) 6 OVER (PARTITION BY deptno) AS employees 7 FROM emp;
+与许多的聚合函数类似，listagg通过加上over () 子句可以实现分析功能，下面的例子将展示分析功能: SQL> SELECT deptno 2 , ename 3 , hiredate 4 , LISTAGG(ename, ',') 5 WITHIN GROUP (ORDER BY hiredate) 6 OVER (PARTITION BY deptno) AS employees 7 FROM emp;
   
 DEPTNO ENAME HIREDATE EMPLOYEES ---- ---- ---- ------------- 10 CLARK 09/06/1981 CLARK,KING,MILLER 10 KING 17/11/1981 CLARK,KING,MILLER 10 MILLER 23/01/1982 CLARK,KING,MILLER 20 SMITH 17/12/1980 SMITH,JONES,FORD,SCOTT,ADAMS 20 JONES 02/04/1981 SMITH,JONES,FORD,SCOTT,ADAMS 20 FORD 03/12/1981 SMITH,JONES,FORD,SCOTT,ADAMS 20 SCOTT 19/04/1987 SMITH,JONES,FORD,SCOTT,ADAMS 20 ADAMS 23/05/1987 SMITH,JONES,FORD,SCOTT,ADAMS 30 ALLEN 20/02/1981 ALLEN,WARD,BLAKE,TURNER,MARTIN,JAMES 30 WARD 22/02/1981 ALLEN,WARD,BLAKE,TURNER,MARTIN,JAMES 30 BLAKE 01/05/1981 ALLEN,WARD,BLAKE,TURNER,MARTIN,JAMES 30 TURNER 08/09/1981 ALLEN,WARD,BLAKE,TURNER,MARTIN,JAMES 30 MARTIN 28/09/1981 ALLEN,WARD,BLAKE,TURNER,MARTIN,JAMES 30 JAMES 03/12/1981 ALLEN,WARD,BLAKE,TURNER,MARTIN,JAMES 14 rows selected. 切记: 分析函数不会丢失结果集的每一行，而字符串的聚合却并非如此。
   
@@ -167,7 +167,7 @@ SQL> SELECT deptno 2 , LISTAGG(ename) WITHIN GROUP (ORDER BY ename) AS employees
   
 DEPTNO EMPLOYEES ---- -------------------- 10 CLARKKINGMILLER 20 ADAMSFORDJONESSCOTTSMITH 30 ALLENBLAKEJAMESMARTINTURNERWARD 3 rows selected.
   
-唯一的限制是，分隔符要么是静态变量（如字母) ，要么是建立在分组字段上的确定性表达式，比如，不能使用ROWNUM作为分隔符，如下所示: 
+唯一的限制是，分隔符要么是静态变量 (如字母) ，要么是建立在分组字段上的确定性表达式，比如，不能使用ROWNUM作为分隔符，如下所示: 
 
 SQL> SELECT deptno 2 , LISTAGG(ename, '(' || ROWNUM || ')') 3 WITHIN GROUP (ORDER BY hiredate) AS employees 4 FROM emp 5 GROUP BY 6 deptno;
   
@@ -189,13 +189,13 @@ DEPTNO EMPLOYEES ---- -------------------- 10 CLARK(A); KING(A); MILLER 20 SMITH
   
 其它限制
 
-listagg聚合的结果列大小限制在varchar2类型的最大值内（比如4000) ，例如: 
+listagg聚合的结果列大小限制在varchar2类型的最大值内 (比如4000) ，例如: 
   
 SQL> SELECT LISTAGG(object_name) WITHIN GROUP (ORDER BY NULL) 2 FROM all_objects;
   
 FROM all_objects * ERROR at line 2: ORA-01489: result of string concatenation is too long
   
-这里没有clob或者更大的varchar2类型类代替，所以更大的字符串必须使用替代方案（比如COLLECTION或者用户自定义的PL/SQL函数) 
+这里没有clob或者更大的varchar2类型类代替，所以更大的字符串必须使用替代方案 (比如COLLECTION或者用户自定义的PL/SQL函数) 
   
 性能方面
 
@@ -250,9 +250,9 @@ SQL> SELECT grp 2 , WMSYS.WM_CONCAT(val) AS vals -<- WM_CONCAT ~= STRAGG 3 FROM 
   
 2000 rows selected. Elapsed: 00:00:19.45 Statistics -------------------- 1 recursive calls 0 db block gets 7206 consistent gets 0 physical reads 0 redo size 6039067 bytes sent via SQL\*Net to client 552 bytes received via SQL\*Net from client 5 SQL*Net roundtrips to/from client 1 sorts (memory) 0 sorts (disk) 2000 rows processed
   
-这个方法花费了三倍于listagg的时间（没有排序) ，用户自定义的函数会比这个PL/SQL函数效率更低（比如: 上下文切换) 
+这个方法花费了三倍于listagg的时间 (没有排序) ，用户自定义的函数会比这个PL/SQL函数效率更低 (比如: 上下文切换) 
 
-collect（without ordering) 
+collect (without ordering) 
   
 当10g发布的时候，我就立即使用collect函数和一个"collection-to-string"PL/SQL函数来替代STRAGG。不过10g版本中的collect没有排序功能。注；To_STRING的源码可以在相关文档中查到。
 
@@ -264,7 +264,7 @@ SQL> SELECT grp 2 , TO_STRING( 3 CAST(COLLECT(val) AS varchar2_ntt) 4 ) AS vals 
   
 collect (with ordering)
 
-公平起见，在collect中引入排序（11g中的一个新特性) ，如下；SQL> SELECT grp 2 , TO_STRING( 3 CAST(COLLECT(val ORDER BY val) AS varchar2_ntt) 4 ) AS vals 5 FROM t 6 GROUP BY 7 grp;
+公平起见，在collect中引入排序 (11g中的一个新特性) ，如下；SQL> SELECT grp 2 , TO_STRING( 3 CAST(COLLECT(val ORDER BY val) AS varchar2_ntt) 4 ) AS vals 5 FROM t 6 GROUP BY 7 grp;
   
 2000 rows selected. Elapsed: 00:00:07.08 Statistics -------------------- 10 recursive calls 0 db block gets 7197 consistent gets 0 physical reads 0 redo size 6039067 bytes sent via SQL\*Net to client 552 bytes received via SQL\*Net from client 5 SQL*Net roundtrips to/from client 1 sorts (memory) 0 sorts (disk) 2000 rows processed 这次，引入了排序后，collect方法确实比listagg慢多了。
   
@@ -276,11 +276,11 @@ SQL> SELECT grp 2 , vals 3 FROM ( 4 SELECT grp 5 , RTRIM(vals, ',') AS vals 6 , 
   
 2000 rows selected. Elapsed: 00:03:28.15 Statistics -------------------- 3991 recursive calls 0 db block gets 7092 consistent gets 494791 physical reads 0 redo size 6039067 bytes sent via SQL\*Net to client 553 bytes received via SQL\*Net from client 5 SQL*Net roundtrips to/from client 130 sorts (memory) 0 sorts (disk) 2000 rows processed
   
-这个例子执行了三分钟，统计信息显示发生了大量的I/O读，递归调用和内存排序，事实上，这个糟糕的表现主要是由于在查询中，大量的对临时表空间的读和写（尽管统计信息并未显示磁盘排序) 。
+这个例子执行了三分钟，统计信息显示发生了大量的I/O读，递归调用和内存排序，事实上，这个糟糕的表现主要是由于在查询中，大量的对临时表空间的读和写 (尽管统计信息并未显示磁盘排序) 。
 
 MODEL字符串聚合方法的执行计划如下: 
 
---------------------- | Id | Operation | Name | Rows | Bytes |TempSpc| --------------------- | 0 | SELECT STATEMENT | | | | | | 1 | SORT ORDER BY | | 1000K| 1934M| 1953M| |* 2 | VIEW | | 1000K| 1934M| | | 3 | SQL MODEL ORDERED | | 1000K| 9765K| | | 4 | WINDOW SORT | | 1000K| 9765K| 19M| | 5 | TABLE ACCESS FULL| T | 1000K| 9765K| | --------------------- Predicate Information (identified by operation id): ----------------- 2 - filter("RN"=1) 通过SQL的监控报告（使用DBMS_SQLTUNE.REPORT_SQL_MONITOR) 在SQL MODEL操作的第三步中，数据的排序使用4Gb的临时空间，在Gary Myers' Sydney Oracle Lab blog中也阐述了这个现象。
+--------------------- | Id | Operation | Name | Rows | Bytes |TempSpc| --------------------- | 0 | SELECT STATEMENT | | | | | | 1 | SORT ORDER BY | | 1000K| 1934M| 1953M| |* 2 | VIEW | | 1000K| 1934M| | | 3 | SQL MODEL ORDERED | | 1000K| 9765K| | | 4 | WINDOW SORT | | 1000K| 9765K| 19M| | 5 | TABLE ACCESS FULL| T | 1000K| 9765K| | --------------------- Predicate Information (identified by operation id): ----------------- 2 - filter("RN"=1) 通过SQL的监控报告 (使用DBMS_SQLTUNE.REPORT_SQL_MONITOR) 在SQL MODEL操作的第三步中，数据的排序使用4Gb的临时空间，在Gary Myers' Sydney Oracle Lab blog中也阐述了这个现象。
   
 性能总结
 

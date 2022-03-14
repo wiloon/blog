@@ -24,27 +24,27 @@ VSFTPD的菜鸟篇
 
 我所用的是LINUX AS+VSFTPD-1.2.0-4的系统架构，在这里说明的是如果对配置文件不是很熟悉，最好做个备份，以免误操作: 
 
-1． 匿名服务器的连接（独立的服务器) 
+1． 匿名服务器的连接 (独立的服务器) 
 
 在/etc/vsftpd.conf配置文件中添加如下几项: 
 
 Anonymous_enable=yes (允许匿名登陆)
 
-Dirmessage_enable=yes （切换目录时，显示目录下.message的内容) 
+Dirmessage_enable=yes  (切换目录时，显示目录下.message的内容) 
 
 Local_umask=022 (FTP上本地的文件权限，默认是077)
 
-Connect_form_port_20=yes （启用FTP数据端口的数据连接) *
+Connect_form_port_20=yes  (启用FTP数据端口的数据连接) *
 
-Xferlog_enable=yes （激活上传和下传的日志) 
+Xferlog_enable=yes  (激活上传和下传的日志) 
 
 Xferlog_std_format=yes (使用标准的日志格式)
 
-Ftpd_banner=XXXXX （欢迎信息) 
+Ftpd_banner=XXXXX  (欢迎信息) 
 
-Pam_service_name=vsftpd （验证方式) *
+Pam_service_name=vsftpd  (验证方式) *
 
-Listen=yes （独立的VSFTPD服务器) *
+Listen=yes  (独立的VSFTPD服务器) *
 
 功能: 只能连接FTP服务器，不能上传和下传
 
@@ -56,7 +56,7 @@ Listen=yes （独立的VSFTPD服务器) *
 
 Anon_upload_enable=yes (开放上传权限)
 
-Anon_mkdir_write_enable=yes （可创建目录的同时可以在此目录中上传文件) 
+Anon_mkdir_write_enable=yes  (可创建目录的同时可以在此目录中上传文件) 
 
 Write_enable=yes (开放本地用户写的权限)
 
@@ -68,17 +68,17 @@ Anon_other_write_enable=yes (匿名帐号可以有删除的权限)
 
 Anon_world_readable_only=no
 
-注: 要注意文件夹的属性，匿名帐户是其它（other) 用户要开启它的读写执行的权限
+注: 要注意文件夹的属性，匿名帐户是其它 (other) 用户要开启它的读写执行的权限
 
-（R) 读--下传 （W) 写--上传 （X) 执行--如果不开FTP的目录都进不去
+ (R) 读--下传  (W) 写--上传  (X) 执行--如果不开FTP的目录都进不去
 
-4．普通用户FTP服务器的连接（独立服务器) 
+4．普通用户FTP服务器的连接 (独立服务器) 
 
 在配置文件中添加如下信息即可: 
 
-Local_enble=yes （本地帐户能够登陆) 
+Local_enble=yes  (本地帐户能够登陆) 
 
-Write_enable=no （本地帐户登陆后无权删除和修改文件) 
+Write_enable=no  (本地帐户登陆后无权删除和修改文件) 
 
 功能: 可以用本地帐户登陆vsftpd服务器，有下载上传的权限
 
@@ -88,11 +88,11 @@ Write_enable=no （本地帐户登陆后无权删除和修改文件)
 
 设置所有的本地用户都执行chroot
 
-Chroot_local_user=yes （本地所有帐户都只能在自家目录) 
+Chroot_local_user=yes  (本地所有帐户都只能在自家目录) 
 
 设置指定用户执行chroot
 
-Chroot_list_enable=yes （文件中的名单可以调用) 
+Chroot_list_enable=yes  (文件中的名单可以调用) 
 
 Chroot_list_file=/任意指定的路径/vsftpd.chroot_list
 
@@ -104,33 +104,33 @@ Userlist_enable=yes (用userlistlai 来限制用户访问)
 
 Userlist_deny=no (名单中的人不允许访问)
 
-Userlist_file=/指定文件存放的路径/ （文件放置的路径) 
+Userlist_file=/指定文件存放的路径/  (文件放置的路径) 
 
 注: 开启userlist_enable=yes匿名帐号不能登陆
 
 7． 安全选项
 
-Idle_session_timeout=600(秒) （用户会话空闲后10分钟) 
+Idle_session_timeout=600(秒)  (用户会话空闲后10分钟) 
 
-Data_connection_timeout=120（秒)  （将数据连接空闲2分钟断) 
+Data_connection_timeout=120 (秒)   (将数据连接空闲2分钟断) 
 
-Accept_timeout=60（秒)  （将客户端空闲1分钟后断) 
+Accept_timeout=60 (秒)   (将客户端空闲1分钟后断) 
 
-Connect_timeout=60（秒)  （中断1分钟后又重新连接) 
+Connect_timeout=60 (秒)   (中断1分钟后又重新连接) 
 
-Local_max_rate=50000（bite)  （本地用户传输率50K) 
+Local_max_rate=50000 (bite)   (本地用户传输率50K) 
 
-Anon_max_rate=30000（bite)  （匿名用户传输率30K) 
+Anon_max_rate=30000 (bite)   (匿名用户传输率30K) 
 
-Pasv_min_port=50000 （将客户端的数据连接端口改在
+Pasv_min_port=50000  (将客户端的数据连接端口改在
 
 Pasv_max_port=60000 50000—60000之间) 
 
-Max_clients=200 （FTP的最大连接数) 
+Max_clients=200  (FTP的最大连接数) 
 
-Max_per_ip=4 （每IP的最大连接数) 
+Max_per_ip=4  (每IP的最大连接数) 
 
-Listen_port=5555 （从5555端口进行数据连接) 
+Listen_port=5555  (从5555端口进行数据连接) 
 
 8． 查看谁登陆了FTP,并杀死它的进程
 
@@ -186,11 +186,11 @@ Listen_port=33333
 
 就可以了啦！
 
-好了重头戏来了，这也是我为什么叫高手篇的缘故！^_^（大家不要扔鸡蛋哦！) 
+好了重头戏来了，这也是我为什么叫高手篇的缘故！^_^ (大家不要扔鸡蛋哦！) 
 
 3． 配置单独的虚拟FTP，使用虚拟FTP用户，并使建立的四个帐户中有不同的权限
 
-（两个有读目录的权限，一个有浏览、上传、下载的权限，一个有浏览、下载、删除和改文件名的权限) 
+ (两个有读目录的权限，一个有浏览、上传、下载的权限，一个有浏览、下载、删除和改文件名的权限) 
 
 A: 配置网卡
 
@@ -198,7 +198,7 @@ A: 配置网卡
 
 ifconfig eth0:1 211.131.4.253 netmask 255.255.255.0 up
 
-B: 写入/etc/sysconfig中（为了重起后IP地址不会丢失) 
+B: 写入/etc/sysconfig中 (为了重起后IP地址不会丢失) 
 
 cd /etc/sysconfig/network-scripts
 
@@ -284,7 +284,7 @@ chmod 700 /var/ftp/test
 
 在目录中添加test_file测试文件
 
-I: 进入vsftpd2.conf修改其中的信息（我加的是) 
+I: 进入vsftpd2.conf修改其中的信息 (我加的是) 
 
 Listen_yes
 
@@ -370,25 +370,25 @@ K: 修改vsftpd2.conf
 
 Anonymous_enable=yes (允许匿名登陆)
 
-Dirmessage_enable=yes （切换目录时，显示目录下.message的内容) 
+Dirmessage_enable=yes  (切换目录时，显示目录下.message的内容) 
 
 Local_umask=022 (FTP上本地的文件权限，默认是077)
 
-Connect_form_port_20=yes （启用FTP数据端口的数据连接) *
+Connect_form_port_20=yes  (启用FTP数据端口的数据连接) *
 
-Xferlog_enable=yes （激活上传和下传的日志) 
+Xferlog_enable=yes  (激活上传和下传的日志) 
 
 Xferlog_std_format=yes (使用标准的日志格式)
 
-Ftpd_banner=XXXXX （欢迎信息) 
+Ftpd_banner=XXXXX  (欢迎信息) 
 
-Pam_service_name=vsftpd （验证方式) *
+Pam_service_name=vsftpd  (验证方式) *
 
-Listen=yes （独立的VSFTPD服务器) *
+Listen=yes  (独立的VSFTPD服务器) *
 
 Anon_upload_enable=yes (开放上传权限)
 
-Anon_mkdir_write_enable=yes （可创建目录的同时可以在此目录中上传文件) 
+Anon_mkdir_write_enable=yes  (可创建目录的同时可以在此目录中上传文件) 
 
 Write_enable=yes (开放本地用户写的权限)
 
@@ -402,45 +402,45 @@ Ascii_download_enable=yes (启用下载的ASCII传输方式)
 
 Banner_file=/var/vsftpd_banner_file (用户连接后欢迎信息使用的是此文件中的相关信息)
 
-Idle_session_timeout=600(秒) （用户会话空闲后10分钟) 
+Idle_session_timeout=600(秒)  (用户会话空闲后10分钟) 
 
-Data_connection_timeout=120（秒)  （将数据连接空闲2分钟断) 
+Data_connection_timeout=120 (秒)   (将数据连接空闲2分钟断) 
 
-Accept_timeout=60（秒)  （将客户端空闲1分钟后断) 
+Accept_timeout=60 (秒)   (将客户端空闲1分钟后断) 
 
-Connect_timeout=60（秒)  （中断1分钟后又重新连接) 
+Connect_timeout=60 (秒)   (中断1分钟后又重新连接) 
 
-Local_max_rate=50000（bite)  （本地用户传输率50K) 
+Local_max_rate=50000 (bite)   (本地用户传输率50K) 
 
-Anon_max_rate=30000（bite)  （匿名用户传输率30K) 
+Anon_max_rate=30000 (bite)   (匿名用户传输率30K) 
 
-Pasv_min_port=50000 （将客户端的数据连接端口改在
+Pasv_min_port=50000  (将客户端的数据连接端口改在
 
 Pasv_max_port=60000 50000—60000之间) 
 
-Max_clients=200 （FTP的最大连接数) 
+Max_clients=200  (FTP的最大连接数) 
 
-Max_per_ip=4 （每IP的最大连接数) 
+Max_per_ip=4  (每IP的最大连接数) 
 
-Listen_port=5555 （从5555端口进行数据连接) 
+Listen_port=5555  (从5555端口进行数据连接) 
 
-Local_enble=yes （本地帐户能够登陆) 
+Local_enble=yes  (本地帐户能够登陆) 
 
-Write_enable=no （本地帐户登陆后无权删除和修改文件) 
+Write_enable=no  (本地帐户登陆后无权删除和修改文件) 
 
 这是一组
 
-Chroot_local_user=yes （本地所有帐户都只能在自家目录) 
+Chroot_local_user=yes  (本地所有帐户都只能在自家目录) 
 
-Chroot_list_enable=yes （文件中的名单可以调用) 
+Chroot_list_enable=yes  (文件中的名单可以调用) 
 
 Chroot_list_file=/任意指定的路径/vsftpd.chroot_list
 
-（前提是chroot_local_user=no) 
+ (前提是chroot_local_user=no) 
 
 这又是一组
 
-Userlist_enable=yes （在指定的文件中的用户不可以访问) 
+Userlist_enable=yes  (在指定的文件中的用户不可以访问) 
 
 Userlist_deny=yes
 
@@ -448,7 +448,7 @@ Userlist_file=/指定的路径/vsftpd.user_list
 
 又开始单的了
 
-Banner_fail=/路径/文件名 （连接失败时显示文件中的内容) 
+Banner_fail=/路径/文件名  (连接失败时显示文件中的内容) 
 
 Ls_recurse_enable=no
 
@@ -456,11 +456,11 @@ Async_abor_enable=yes
 
 One_process_model=yes
 
-Listen_address=10.2.2.2 （将虚拟服务绑定到某端口) 
+Listen_address=10.2.2.2  (将虚拟服务绑定到某端口) 
 
 Guest_enable=yes (虚拟用户可以登陆)
 
-Guest_username=所设的用户名 （将虚拟用户映射为本地用户) 
+Guest_username=所设的用户名  (将虚拟用户映射为本地用户) 
 
 User_config_dir=/任意指定的路径/为用户策略自己所建的文件夹
 
@@ -468,7 +468,7 @@ User_config_dir=/任意指定的路径/为用户策略自己所建的文件夹
 
 又是一组
 
-Chown_uploads=yes （改变上传文件的所有者为root) 
+Chown_uploads=yes  (改变上传文件的所有者为root) 
 
 Chown_username=root
 
@@ -480,7 +480,7 @@ Banned_email_file=//任意指定的路径/xx/
 
 又是单的
 
-Pasv_enable=yes （ 服务器端用被动模式) 
+Pasv_enable=yes  ( 服务器端用被动模式) 
 
 User_config_dir=/任意指定的路径//任意文件目录 (指定虚拟用户存放配置文件的路径)
 
@@ -496,7 +496,7 @@ User_config_dir=/任意指定的路径//任意文件目录 (指定虚拟用户�
 
 将local_enable=YES前的#去掉，使其可用，表示允许本地用户登录；增加listen_port=21配置项，设置监听端口为21；该步骤可选，不允许匿名用户登录，将anonymous_enable=YES的值改为NO，根据实际需要设置。
 
-重启vsftpd服务: service vsftpd restart。启动后，在进行测试，使用本地用户angel及其密码登录，成功。注意: 以上测试是在本机（或使用SSH登录后) 进行。
+重启vsftpd服务: service vsftpd restart。启动后，在进行测试，使用本地用户angel及其密码登录，成功。注意: 以上测试是在本机 (或使用SSH登录后) 进行。
 
 500 OOPS: cannot change directory
 

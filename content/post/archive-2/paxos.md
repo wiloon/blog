@@ -11,11 +11,11 @@ tags:
 ---
 ## Paxos
 # paxos
-  Paxos（Greek: Παξοί, pronounced Paksi in English ) 又名Paxi是希腊西南部一个风景如画的小岛。而Paxos算法则是现在很火的分布式一致性算法,为何以一个希腊小岛名字算法？Lamport这样解释道: 
+  Paxos (Greek: Παξοί, pronounced Paksi in English ) 又名Paxi是希腊西南部一个风景如画的小岛。而Paxos算法则是现在很火的分布式一致性算法,为何以一个希腊小岛名字算法？Lamport这样解释道: 
 
 I thought, and still think, that Paxos is an important algorithm.  Inspired by my success at popularizing the consensus problem by describing it with Byzantine generals, I decided to cast the algorithm in terms of a parliament on an ancient Greek island.  Leo Guibas suggested the name Paxos for the island.
 
-为描述 Paxos 算法,Lamport 虚拟了一个叫做 Paxos 的希腊城邦,这个岛按照议会民主制的政治模式制订法律,但是没有人愿意将自己的全部时间和精力放在这种事情上。所以无论是议员,议长或者传递纸条的服务员都不能承诺别人需要时一定会出现,也无法承诺批准决议或者传递消息的时间。但是这里假设没有拜占庭将军问题（Byzantine failure,即虽然有可能一个消息被传递了两次,但是绝对不会出现错误的消息) ；只要等待足够的时间,消息就会被传到。另外,Paxos 岛上的议员是不会反对其他议员提出的决议的[1]。
+为描述 Paxos 算法,Lamport 虚拟了一个叫做 Paxos 的希腊城邦,这个岛按照议会民主制的政治模式制订法律,但是没有人愿意将自己的全部时间和精力放在这种事情上。所以无论是议员,议长或者传递纸条的服务员都不能承诺别人需要时一定会出现,也无法承诺批准决议或者传递消息的时间。但是这里假设没有拜占庭将军问题 (Byzantine failure,即虽然有可能一个消息被传递了两次,但是绝对不会出现错误的消息) ；只要等待足够的时间,消息就会被传到。另外,Paxos 岛上的议员是不会反对其他议员提出的决议的[1]。
 
 **http://www.cnblogs.com/endsock/p/3480093.html**
 

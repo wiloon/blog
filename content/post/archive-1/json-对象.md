@@ -12,7 +12,7 @@ tags:
 ## json 对象
 http://www.cnblogs.com/tomxu/archive/2012/01/11/2311956.html
 
-深入理解JavaScript系列（9) : 根本没有"JSON对象"这回事！
+深入理解JavaScript系列 (9) : 根本没有"JSON对象"这回事！
 
 前言
   
@@ -24,13 +24,13 @@ http://www.cnblogs.com/tomxu/archive/2012/01/11/2311956.html
 
 英文原文: http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/
   
-我想给大家澄清一下一个非常普遍的误解，我认为很多JavaScript开发人员都错误地把JavaScript对象字面量（Object Literals) 称为JSON对象（JSON Objects) ，因为他的语法和JSON规范里描述的一样，但是该规范里也明确地说了JSON只是一个数据交换语言，只有我们将之用在string上下文的时候它才叫JSON。
+我想给大家澄清一下一个非常普遍的误解，我认为很多JavaScript开发人员都错误地把JavaScript对象字面量 (Object Literals) 称为JSON对象 (JSON Objects) ，因为他的语法和JSON规范里描述的一样，但是该规范里也明确地说了JSON只是一个数据交换语言，只有我们将之用在string上下文的时候它才叫JSON。
 
 序列化与反序列化
   
-2个程序（或服务器、语言等) 需要交互通信的时候，他们倾向于使用string字符串因为string在很多语言里解析的方式都差不多。复杂的数据结构经常需要用到，并且通过各种各样的中括号{}，小括号()，叫括号<>和空格来组成，这个字符串仅仅是按照要求规范好的字符。
+2个程序 (或服务器、语言等) 需要交互通信的时候，他们倾向于使用string字符串因为string在很多语言里解析的方式都差不多。复杂的数据结构经常需要用到，并且通过各种各样的中括号{}，小括号()，叫括号<>和空格来组成，这个字符串仅仅是按照要求规范好的字符。
 
-为此，我们为了描述这些复杂的数据结构作为一个string字符串，制定了标准的规则和语法。JSON只是其中一种语法，它可以在string上下文里描述对象，数组，字符串，数字，布尔型和null，然后通过程序间传输，并且反序列化成所需要的格式。YAML和XML（甚至request params) 也是流行的数据交换格式，但是，我们喜欢JSON，谁叫我们是JavaScript开发人员呢！
+为此，我们为了描述这些复杂的数据结构作为一个string字符串，制定了标准的规则和语法。JSON只是其中一种语法，它可以在string上下文里描述对象，数组，字符串，数字，布尔型和null，然后通过程序间传输，并且反序列化成所需要的格式。YAML和XML (甚至request params) 也是流行的数据交换格式，但是，我们喜欢JSON，谁叫我们是JavaScript开发人员呢！
 
 字面量
   
@@ -38,15 +38,15 @@ http://www.cnblogs.com/tomxu/archive/2012/01/11/2311956.html
 
 他们是固定的值，不是变量，让你从"字面上"理解脚本。 (Literals)
   
-字符串字面量是由双引号（") 或单引号（') 包围起来的零个或多个字符组成的。(Strings Literals)
+字符串字面量是由双引号 (") 或单引号 (') 包围起来的零个或多个字符组成的。(Strings Literals)
   
-对象字面量是由大括号（{}) 括起来的零个或多个对象的属性名-值对。(Object Literals)
+对象字面量是由大括号 ({}) 括起来的零个或多个对象的属性名-值对。(Object Literals)
   
 何时是JSON，何时不是JSON？
   
 JSON是设计成描述数据交换格式的，他也有自己的语法，这个语法是JavaScript的一个子集。
   
-{ "prop": "val" } 这样的声明有可能是JavaScript对象字面量也有可能是JSON字符串，取决于什么上下文使用它，如果是用在string上下文（用单引号或双引号引住，或者从text文件读取) 的话，那它就是JSON字符串，如果是用在对象字面量上下文中，那它就是对象字面量。
+{ "prop": "val" } 这样的声明有可能是JavaScript对象字面量也有可能是JSON字符串，取决于什么上下文使用它，如果是用在string上下文 (用单引号或双引号引住，或者从text文件读取) 的话，那它就是JSON字符串，如果是用在对象字面量上下文中，那它就是对象字面量。
 
 // 这是JSON字符串
   
@@ -62,7 +62,7 @@ var bar = { "prop": "val" };
   
 大家伙可能嗤之以鼻: 难道JavaScript代码不是一个大的字符串？
 
-当然是，所有的JavaScript代码和HTML（可能还有其他东西) 都是字符串，直到浏览器对他们进行解析。这时候.jf文件或者inline的JavaScript代码已经不是字符串了，而是被当成真正的JavaScript源代码了，就像页面里的innterHTML一样，这时候也不是字符串了，而是被解析成DOM结构了。
+当然是，所有的JavaScript代码和HTML (可能还有其他东西) 都是字符串，直到浏览器对他们进行解析。这时候.jf文件或者inline的JavaScript代码已经不是字符串了，而是被当成真正的JavaScript源代码了，就像页面里的innterHTML一样，这时候也不是字符串了，而是被解析成DOM结构了。
 
 再次说一下，这取决于上下文，在string上下文里使用带有大括号的JavaScript对象，那它就是JSON字符串，而如果在对象字面量上下文里使用的话，那它就是对象字面量。
 

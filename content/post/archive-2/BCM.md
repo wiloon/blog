@@ -15,7 +15,7 @@ http://club.autohome.com.cn/bbs/thread-c-2137-14886528-1.html
 
 车身控制器BCM(Body Control Module)
   
-与其相关的还有ABM（Air Bag Module) 与熟识的ABS模块系统,BCM主要涉及车体中灯,门,窗及车身防盗部分,与其他模块共同承担整车的性能与安全的实现,为驾驶带来更多的智能与舒适。
+与其相关的还有ABM (Air Bag Module) 与熟识的ABS模块系统,BCM主要涉及车体中灯,门,窗及车身防盗部分,与其他模块共同承担整车的性能与安全的实现,为驾驶带来更多的智能与舒适。
   
 BCM控制技术的方式
   

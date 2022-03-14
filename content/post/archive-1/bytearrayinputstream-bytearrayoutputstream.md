@@ -32,7 +32,7 @@ public class ByteArrayOutputStream extends OutputStream
 关闭 ByteArrayOutputStream 无效。此类中的方法在关闭此流后仍可被调用，而不会产生任何IOException。
 
 
-我的个人理解是ByteArrayOutputStream是用来缓存数据的（数据写入的目标（output stream原义) ) ，向它的内部缓冲区写入数据，缓冲区自动增长，当写入完成时可以从中提取数据。由于这个原因，ByteArrayOutputStream常用于存储数据以用于一次写入。
+我的个人理解是ByteArrayOutputStream是用来缓存数据的 (数据写入的目标 (output stream原义) ) ，向它的内部缓冲区写入数据，缓冲区自动增长，当写入完成时可以从中提取数据。由于这个原因，ByteArrayOutputStream常用于存储数据以用于一次写入。
 
 
 实例: 

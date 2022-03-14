@@ -12,7 +12,7 @@ tags:
 ## Eclipse Mosquitto
 Mosquitto介绍
   
-Eclipse Mosquitto是一个开源（EPL / EDL许可) 消息代理，它实现了MQTT协议版本3.1和3.1.1。Mosquitto重量轻，适用于从低功耗单板计算机到完整服务器的所有设备。
+Eclipse Mosquitto是一个开源 (EPL / EDL许可) 消息代理，它实现了MQTT协议版本3.1和3.1.1。Mosquitto重量轻，适用于从低功耗单板计算机到完整服务器的所有设备。
 
 MQTT协议提供了一种使用发布/订阅模型执行消息传递的轻量级方法。这使其适用于物联网消息传递，例如低功率传感器或移动设备，如电话，嵌入式计算机或微控制器。
 

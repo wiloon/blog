@@ -13,7 +13,7 @@ tags:
 ## Tapestry
 Tapestry并不是一种单纯的MVC框架，它更像MVC框架和模板技术的结合，它不仅包含了前端的MVC框架，还包含了一种视图层的模板技术，使用Tapestry完全可以与Servlet/JSP API分离，是一种非常优秀的设计。 通过使用Tapestry，开发者完全不需要使用JSP技术，用户只需要使用Tapestry提供的模板技术即可，Tapestry实现了视图逻辑和业务逻辑的彻底分离。
 
-Tapestry框架是一个位于java servlet容器和Tapestry应用程序之间的层。Tapestry不是一个独立运行的服务器；它是一个servlet的扩展，它运行于servlet容器（例如Tomcat) 或包含servlet容器的应用服务器中（如Jboss,Websphere，或者WebLogic) . Tapestry应用其实是由一系列页面组成，而每个页面是由可以复用的组件构成。
+Tapestry框架是一个位于java servlet容器和Tapestry应用程序之间的层。Tapestry不是一个独立运行的服务器；它是一个servlet的扩展，它运行于servlet容器 (例如Tomcat) 或包含servlet容器的应用服务器中 (如Jboss,Websphere，或者WebLogic) . Tapestry应用其实是由一系列页面组成，而每个页面是由可以复用的组件构成。
 
 
 Tapestry是一种基于java的Web应用程序框架。Tapestry采用了组件的概念。程序员可以应用现有的组建或自定义应用程序相关的组建来构建应用程序。相对与现有的其他Web应用程序框架而言，应用Tapestry会让程序员从烦琐的，不必要的底层代码中解放出来。[1]
@@ -73,7 +73,7 @@ Tapestry在解决开发问题上不是一个万能药；然而，它提供了一
 4. Tapestry不是JSP的一种使用方式，Tapestry和JSP只能够选择一种。
 
 
-5. Tapestry不是一个脚本环境，Tapestry使用一种组件对象模式（component object model) ，这并不是一种简单的脚本，而是用于生成高动态性高互交性的web页面。
+5. Tapestry不是一个脚本环境，Tapestry使用一种组件对象模式 (component object model) ，这并不是一种简单的脚本，而是用于生成高动态性高互交性的web页面。
 
 
 Tapestry基于Java Servlet API version 2.2，兼容于JDK 1.2以上版本，Tapestry通过变换多样的组件模式，将一个web application分离为一个联合组件。每一个组件都拥有其特殊的责任用于显示web页面或者响应HTML请求。

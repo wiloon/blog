@@ -81,7 +81,7 @@ grant 权限 on 数据库对象 to 用户 identified by "密码"
   
 grant all on \*.\* to dba1@'192.168.0.10'identified by "dbapasswd";
 
-//开放管理MySQL中具体数据库（testdb)的权限
+//开放管理MySQL中具体数据库 (testdb)的权限
   
 grant all privileges on testdb to dba1@'192.168.0.10'identified by "dbapasswd";
   
@@ -115,7 +115,7 @@ show grants for dba1@localhost;
   
 下面用实例来进行说明: 
 
-一、grant普通数据用户（test1)，查询、插入、更新、删除 数据库(test)中所有表数据的权利。
+一、grant普通数据用户 (test1)，查询、插入、更新、删除 数据库(test)中所有表数据的权利。
   
 grant select on test.* to test1@'%';
   
@@ -203,7 +203,7 @@ grant execute on function testdb.fn_add to 'dba'@'localhost'
 
 六、查看 MySQL 用户权限
   
-查看当前用户（自己) 权限: 
+查看当前用户 (自己) 权限: 
   
 show grants;
   

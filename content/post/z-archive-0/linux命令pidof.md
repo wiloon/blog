@@ -12,11 +12,11 @@ tags:
 ## Linux命令pidof
 Linux命令pidof - 找出正在运行程序的进程PID
 
-本文链接: <http://codingstandards.iteye.com/blog/841123>   （转载请注明出处) 
+本文链接: <http://codingstandards.iteye.com/blog/841123>    (转载请注明出处) 
 
 ## 用途说明
 
-pidof用于找出正在运行的程序的进程PID（find the process ID of a running program.) ，程序可以是一个二进制执行程序，也可以是一个shell脚本。如果是找出java程序的进程PID，pidof就无能为力了，可以使用ps -ef|grep java或jps -l来查看java进程的信息。通常找出进程PID的目的是确认程序是否在运行、或者为了把它杀掉、或者发送一个信号给它。
+pidof用于找出正在运行的程序的进程PID (find the process ID of a running program.) ，程序可以是一个二进制执行程序，也可以是一个shell脚本。如果是找出java程序的进程PID，pidof就无能为力了，可以使用ps -ef|grep java或jps -l来查看java进程的信息。通常找出进程PID的目的是确认程序是否在运行、或者为了把它杀掉、或者发送一个信号给它。
 
 ## 常用参数
 
@@ -26,7 +26,7 @@ pidof用于找出正在运行的程序的进程PID（find the process ID of a ru
 
 格式: pidof -s program
 
-找出program程序的进程PID，只列出一个。（Single shot - this instructs the program to only return one pid.) 
+找出program程序的进程PID，只列出一个。 (Single shot - this instructs the program to only return one pid.) 
 
 格式: pidof -x script
 

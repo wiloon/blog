@@ -22,7 +22,7 @@ http://www.jianshu.com/p/b42e8d3df449
 
 二、查看无线网卡的信息
   
-输入命令dmesg | grep usb查看无线网卡的信息,主要是看制造厂家（Manufacturer) 。比如,我的网卡信息是
+输入命令dmesg | grep usb查看无线网卡的信息,主要是看制造厂家 (Manufacturer) 。比如,我的网卡信息是
 
 usb 1-1.3: Manufacturer: Realtek
   
@@ -102,7 +102,7 @@ sudo nano /etc/wpa.conf
 
 network={
   
-[Tab] ssid="你的无线网络名称（ssid) "
+[Tab] ssid="你的无线网络名称 (ssid) "
   
 [Tab] key_mgmt=NONE
   
@@ -112,7 +112,7 @@ network={
 
 network={
   
-[Tab] ssid="你的无线网络名称（ssid) "
+[Tab] ssid="你的无线网络名称 (ssid) "
   
 [Tab] key_mgmt=NONE
   
@@ -124,7 +124,7 @@ network={
 
 network={
   
-[Tab] ssid="你的无线网络名称（ssid) "
+[Tab] ssid="你的无线网络名称 (ssid) "
   
 [Tab] key_mgmt=WPA-PSK
   
@@ -132,7 +132,7 @@ network={
   
 }
   
-注1: 所有符号都是半角符号（英文状态下的符号) ,"[Tab]"表示按一次Tab键
+注1: 所有符号都是半角符号 (英文状态下的符号) ,"[Tab]"表示按一次Tab键
 
 注2: 如果你不清楚wifi的加密模式,可以在安卓手机上用root explorer打开 /data/misc/wifi/wpa/wpa_supplicant.conf,查看wifi的信息。
 

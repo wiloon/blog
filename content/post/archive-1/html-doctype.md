@@ -26,7 +26,7 @@ HTML5 不基于 SGML，所以不需要引用 DTD。
     HTML Transitional DTD
   
   
-    Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素。如果您的读者使用了不支持层叠样式表（CSS) 的浏览器以至于您不得不使用 HTML 的呈现特性时，请使用此类型: 
+    Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素。如果您的读者使用了不支持层叠样式表 (CSS) 的浏览器以至于您不得不使用 HTML 的呈现特性时，请使用此类型: 
   
   
     ```html

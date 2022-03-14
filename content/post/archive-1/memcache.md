@@ -29,7 +29,7 @@ Memcached是以守护程序方式运行于一个或多个服务器中,随时会�
   
 Memcached是高性能的,分布式的内存对象缓存系统,用于在动态应用中减少数据库负载,提升访问速度。Memcached由Danga Interactive开发,用于提升LiveJournal.com访问速度的。LJ每秒动态页面访问量几千次,用户700万。Memcached将数据库负载大幅度降低,更好的分配资源,更快速访问。
   
-上网baidu了很多东西,几乎都差不多,而且基于java的说的很少,所有只有在研究了各个其他语言类的应用后再来尝试在java上进行简单的操作应用。先从memcached上进行说明,memcached的最新版是采用c语言进行开发和设计的,据说旧版的是采用perl语言开发的,而且它是一个应用软件来的,是作为缓存服务器的服务器端运行在服务器上的,需要使用特定的语言编写客户端与其进行通信来进行数据的缓存和获取。通常我们是把memcached安装运行在web服务器上,然后通过对需要的数据进行缓存,据我目前所知,所有数据的缓存设置和存取操作,以及数据的更新后替换操作全部需要程序来进行,而不是自动进行的（自动不知道能不能成功,呵呵) 。下面从一个实际的例子来应用memcached。
+上网baidu了很多东西,几乎都差不多,而且基于java的说的很少,所有只有在研究了各个其他语言类的应用后再来尝试在java上进行简单的操作应用。先从memcached上进行说明,memcached的最新版是采用c语言进行开发和设计的,据说旧版的是采用perl语言开发的,而且它是一个应用软件来的,是作为缓存服务器的服务器端运行在服务器上的,需要使用特定的语言编写客户端与其进行通信来进行数据的缓存和获取。通常我们是把memcached安装运行在web服务器上,然后通过对需要的数据进行缓存,据我目前所知,所有数据的缓存设置和存取操作,以及数据的更新后替换操作全部需要程序来进行,而不是自动进行的 (自动不知道能不能成功,呵呵) 。下面从一个实际的例子来应用memcached。
 
 如何要下载的话,到http://danga.com/memcached/下载memcached。
   
@@ -41,7 +41,7 @@ Ubuntu下安装Memcached
 
 Libevent是一个异步事件处理软件函式库,以BSD许可证释出。Memcached依赖Libevent,因此必须先编译安装Libevent。
   
-检测libevent 安装是否成功,输入: # ls -al /usr/lib | grep libevent  会出现如下结果（不同的机器可能有不同的输出) : 
+检测libevent 安装是否成功,输入: # ls -al /usr/lib | grep libevent  会出现如下结果 (不同的机器可能有不同的输出) : 
 
 yangfei@yangfei-laptop:~$ ls -al /usr/lib |grep libevent
   
@@ -155,11 +155,11 @@ connection_structures:    19                    服务器分配的连接构造�
   
 version:    1.2.6                                        memcache版本
   
-limit_maxbytes:    67108864                    分配给memcache的内存大小（字节) 
+limit_maxbytes:    67108864                    分配给memcache的内存大小 (字节) 
   
-cmd_get:    1645                                      get命令（获取) 总请求次数
+cmd_get:    1645                                      get命令 (获取) 总请求次数
   
-evictions:    0                                            为获取空闲内存而删除的items数（分配给memcache的空间用满后需
+evictions:    0                                            为获取空闲内存而删除的items数 (分配给memcache的空间用满后需
   
 要删除旧的items来得到空间分配给新的items) 
   
@@ -171,9 +171,9 @@ threads:    1                                             当前线程数
   
 get_misses:    82                                      总未命中次数
   
-pointer_size:    32                                    当前操作系统的指针大小（32位系统一般是32bit) 
+pointer_size:    32                                    当前操作系统的指针大小 (32位系统一般是32bit) 
   
-bytes_read:    490982                              总读取字节数（请求字节数) 
+bytes_read:    490982                              总读取字节数 (请求字节数) 
   
 uptime:    161                                           服务器已经运行的秒数
   
@@ -181,11 +181,11 @@ curr_connections:    18                             当前打开着的连接数
   
 pid:    2816                                               memcache服务器的进程ID
   
-bytes_written:    16517259                     总发送字节数（结果字节数) 
+bytes_written:    16517259                     总发送字节数 (结果字节数) 
   
 get_hits:    1563                                      总命中次数
   
-cmd_set:    54                                          set命令（保存) 总请求次数
+cmd_set:    54                                          set命令 (保存) 总请求次数
   
 curr_items:    28                                       服务器当前存储的items数量
   
@@ -285,7 +285,7 @@ Magent是一款开源的Memcached代理服务器软件,使用它可以搭建高�
   
 i.              Libevent
 
-在Linux环境下应用Memcache时,Memcache用到了libevent这个库,用于Socket的处理,所以还需要安装libevent。libevent的最新版本是libevent-1.4.13。（如果你的系统已经安装了libevent,可以不用安装) 。
+在Linux环境下应用Memcache时,Memcache用到了libevent这个库,用于Socket的处理,所以还需要安装libevent。libevent的最新版本是libevent-1.4.13。 (如果你的系统已经安装了libevent,可以不用安装) 。
 
 官网: http://www.monkey.org/~provos/libevent/
 
@@ -301,13 +301,13 @@ Memcache也可以安装在Windows服务器下,安装程序: memcached-1.2.1-win3
   
 1. magent的hash算法
 
-magent采用的是: Consistent Hashing原理,Consistent Hashing如下所示: 首先求出memcached服务器（节点) 的哈希值, 并将其配置到0～232的圆（continuum) 上。 然后用同样的方法求出存储数据的键的哈希值,并映射到圆上。然后从数据映射到的位置开始顺时针查找,将数据保存到找到的第一个服务器上。 如果超过232仍然找不到服务器,就会保存到第一台memcached服务器上。
+magent采用的是: Consistent Hashing原理,Consistent Hashing如下所示: 首先求出memcached服务器 (节点) 的哈希值, 并将其配置到0～232的圆 (continuum) 上。 然后用同样的方法求出存储数据的键的哈希值,并映射到圆上。然后从数据映射到的位置开始顺时针查找,将数据保存到找到的第一个服务器上。 如果超过232仍然找不到服务器,就会保存到第一台memcached服务器上。
 
 从上图的状态中添加一台memcached服务器。余数分布式算法由于保存键的服务器会发生巨大变化 而影响缓存的命中率,但Consistent Hashing中,只有在continuum上增加服务器的地点逆时针方向的第一台服务器上的键会受到影响。
 
 2. 部署示意图
 
-Java开发中的Memcache原理及实现（四) 原理与部署
+Java开发中的Memcache原理及实现 (四) 原理与部署
 
 
 3. 搭建memcache集群服务
@@ -318,7 +318,7 @@ Java开发中的Memcache原理及实现（四) 原理与部署
 
 ?  项目应用: 以深圳电信为例,其商呼系统如图部署三台机器做为集群,假设IP分别是: 10.11.15.31, 10.11.15.32, 10.11.15.33；
 
-?  每个前端安装memcached服务（大内存机器可以启动多个服务) ,如端口都为12001,每个前端都安装magent服务,端口都为12000,后端挂载全部机器的memcached服务,
+?  每个前端安装memcached服务 (大内存机器可以启动多个服务) ,如端口都为12001,每个前端都安装magent服务,端口都为12000,后端挂载全部机器的memcached服务,
 
 ?  启动参数示例: magent -p 12000 -s 10.11.15.31:12001 -s 10.11.15.32:12001 -s 10.11.15.33:12001,这里将三台机器都配置进来,如集集群增加了机器,只需要在启动参数里添加进来即可。所有前端配置都是相同的,任何一个前端只需访问本地端口的magent,这样的memcache集群对应用带来很大便利。
 
@@ -673,7 +673,7 @@ A simple, asynchronous, single-threaded memcached client written in java. 支持
   
 3)      xmemcached
   
-XMemcached同样是基于java nio的客户端,java nio相比于传统阻塞io模型来说,有效率高（特别在高并发下) 和资源耗费相对较少的优点。传统阻塞IO为了提高效率,需要创建一定数量的连接形成连接池,而nio仅需要一个连接即可（当然,nio也是可以做池化处理) ,相对来说减少了线程创建和切换的开销,这一点在高并发下特别明显。因此XMemcached与Spymemcached在性能都非常优秀,在某些方面（存储的数据比较小的情况下) Xmemcached比Spymemcached的表现更为优秀,具体可以看这个Java Memcached Clients Benchmark。
+XMemcached同样是基于java nio的客户端,java nio相比于传统阻塞io模型来说,有效率高 (特别在高并发下) 和资源耗费相对较少的优点。传统阻塞IO为了提高效率,需要创建一定数量的连接形成连接池,而nio仅需要一个连接即可 (当然,nio也是可以做池化处理) ,相对来说减少了线程创建和切换的开销,这一点在高并发下特别明显。因此XMemcached与Spymemcached在性能都非常优秀,在某些方面 (存储的数据比较小的情况下) Xmemcached比Spymemcached的表现更为优秀,具体可以看这个Java Memcached Clients Benchmark。
   
 2.  建议
   
@@ -1053,7 +1053,7 @@ memcached 1.2.0
 
 -n <bytes>    minimum space allocated for key+value+flags, default 48
 
-说明memcached安装成功。（应该是机器是64位的原因,所以将so文件放到了lib64下面,而不是lib下面,使得memcached找不到了so文件) 。
+说明memcached安装成功。 (应该是机器是64位的原因,所以将so文件放到了lib64下面,而不是lib下面,使得memcached找不到了so文件) 。
 
 下面,我们来启动一个Memcached的服务器端: 
 
@@ -1067,7 +1067,7 @@ memcached 1.2.0
 
 1. 下载memcache的windows稳定版,解压放某个盘下面,比如在c:\memcached
 
-2. 在终端（也即cmd命令界面) 下输入'c:\memcached\memcached.exe -d install'安装
+2. 在终端 (也即cmd命令界面) 下输入'c:\memcached\memcached.exe -d install'安装
 
 3. 再输入: 'c:\memcached\memcached.exe -d start'启动。NOTE: 以后memcached将作为windows的一个服务每次开机时自动启动。这样服务器端已经安装完毕了。
   

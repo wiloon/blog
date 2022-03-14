@@ -21,7 +21,7 @@ of data into a Java program from some generally external source. Output streams 
 of data from Java to some generally external target. (In special cases streams can also move
 bytes from one part of a Java program to another.)
 
-流是一个不确定长度的有序字节序列。输入流从外部资源将数据字节移动到Java程序中。输出流从Java程序中将数据字节移动到外部目标。（特殊的情况也可以将字节从java程序中一部分移动到另一部分) 
+流是一个不确定长度的有序字节序列。输入流从外部资源将数据字节移动到Java程序中。输出流从Java程序中将数据字节移动到外部目标。 (特殊的情况也可以将字节从java程序中一部分移动到另一部分) 
 
 流从哪里来？
 通常流来自于: 
@@ -29,7 +29,7 @@ bytes from one part of a Java program to another.)
 2. 文件
 3. java内部程序
 
-InputStream（输入流) : 
+InputStream (输入流) : 
 InputStream作为java中用于读取流中字节的顶层抽象类，定义了一些方法: 
 public abstract int read() throws IOException
 public int read(byte b[], int off, int len) throws IOException
@@ -37,28 +37,28 @@ public int read(byte b[]) throws IOException {
         return read(b, 0, b.length);
 }
 有三个read方法用来读取字节: 
-1. 第一个抽象方法交由子类来实现，读取一个无符号字节，由于java本身没有无符号字节的基本类型，所以用int作为返回值。当返回-1时表示到了流的结尾，这也是需要返回int的原因之一（因为带符号的byte有可能是-1) 
+1. 第一个抽象方法交由子类来实现，读取一个无符号字节，由于java本身没有无符号字节的基本类型，所以用int作为返回值。当返回-1时表示到了流的结尾，这也是需要返回int的原因之一 (因为带符号的byte有可能是-1) 
 
 2. 
 作用:  从流中读取字节数组，通常一个一个字节的读效率相当低下，可指定数组中开始的偏移位置off，长度len
 参数:  保存字节的字节数组、偏移量、长度。
-返回值:  实际读到的字节数（-1为末尾) 
+返回值:  实际读到的字节数 (-1为末尾) 
 默认的实现依赖于第一个抽象方法，就是循环调用读取一个无符号字节。所以效率不是很高，通常会有的子类以更高效的方式来重写。
 
 3. 
 作用:  从流中读取字节数组，通常一个一个字节的读效率相当低下。
 参数:  保存字节的字节数组
-返回值:  实际读到的字节数（-1为末尾) 
+返回值:  实际读到的字节数 (-1为末尾) 
 默认的实现依赖于第二个方法，仅仅是用read(b,0,b.length)来实现，重写这个方法的子类相对较少。
 
 public int available() throws IOException
 作用:  从流中立刻能够获取到的字节数。
-返回值:  能够读取到的字节数（没有会返回0，到流的末尾也会返回0) 
+返回值:  能够读取到的字节数 (没有会返回0，到流的末尾也会返回0) 
 
 public long skip(long bytesToSkip) throws IOException
-作用:  从流中跳过一定字节不读，通常跳过比读取后不处理快（比如文件流，只是指针的移动) 。
+作用:  从流中跳过一定字节不读，通常跳过比读取后不处理快 (比如文件流，只是指针的移动) 。
 参数:  期望跳过的字节数
-返回值: 实际跳过的字节数（遇到末尾返回-1) 
+返回值: 实际跳过的字节数 (遇到末尾返回-1) 
 
 public void close() throws IOException
 作用:  用完流之后，关闭流，但并不是所有的流都需要关闭，比如说System.in。
@@ -99,22 +99,22 @@ public boolean markSupported()
 public boolean markSupported()
 作用:  判断当前流是否支持标记
 返回值:  当前流是否支持标记
-如果当前流不支持标记，执行reset()方法将抛出一个IOException异常，而mark（) 方法不会做任何操作
+如果当前流不支持标记，执行reset()方法将抛出一个IOException异常，而mark () 方法不会做任何操作
 
 public synchronized void mark(int readLimit)
 作用:  将读取的位置标记在当前位置。
-参数:  最大可阅读超过标记位置的字节数（只要没有阅读超过readLimit字节数，就可以重置回去) 
+参数:  最大可阅读超过标记位置的字节数 (只要没有阅读超过readLimit字节数，就可以重置回去) 
 在同一时刻，只能有一个标记，再设置会覆盖
 java.io中只有BufferedInputStream和ByteArrayInputStream支持标记。但是其他的过滤流连接到这两个上也支持标记。
 
-OutputStream（输出流) : 
+OutputStream (输出流) : 
 OutputStream作为java中用于向流中写字节的顶层抽象类，定义了一些方法: 
 public abstract void write(int b) throws IOException
 public void write(byte[] data, int offset, int length) throws IOException
 public void write(byte[] data) throws IOException
 有三个write方法用来向流中写字节: 
 
-1. 第一个是抽象方法交由子类实现，向流中写入一个无符号字节（0-255) ，如果超过255只会取低八位的字节。
+1. 第一个是抽象方法交由子类实现，向流中写入一个无符号字节 (0-255) ，如果超过255只会取低八位的字节。
 
 2. 作用:  向流中写入字节数组，可以指定数组中起始的偏移位置和长度。
 参数:  写入的字符数组、起始的偏移位置、长度

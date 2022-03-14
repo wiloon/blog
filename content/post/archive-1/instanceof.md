@@ -71,7 +71,7 @@ http://rodney.cnblogs.com/archive/2005/08/18/instanceof.html
 
 ### instanceof 判断对象类型
 
-当在程序中执行向下转型操作时，如果父类对象不是子类对象的实例，就会发生ClassCastException异常，所以在执行向下转型之前需要养成一个良好习惯，就是判断父类对象是否为子类对象的实例。这个判断通常使用instanceof操作符来完成。可以使用instanceof操作符判断是否一个类实现了某个接口（接口会在10.6节中进行介绍) ，也可以用它来判断一个实例对象是否属于一个类。
+当在程序中执行向下转型操作时，如果父类对象不是子类对象的实例，就会发生ClassCastException异常，所以在执行向下转型之前需要养成一个良好习惯，就是判断父类对象是否为子类对象的实例。这个判断通常使用instanceof操作符来完成。可以使用instanceof操作符判断是否一个类实现了某个接口 (接口会在10.6节中进行介绍) ，也可以用它来判断一个实例对象是否属于一个类。
 
 instanceof的语法格式如下: 
 
@@ -87,7 +87,7 @@ ExampleClass: 某个类。
 
 下面来看一个向下转型与instanceof操作符结合的例子。
 
-例10.7 在项目中创建Parallelogram类和3个内部类Quadrangle、Square、Anything。其中Parallelogram类和Square继承Quadrangle类，在Parallelogram类的主方法中分别创建这些类的对象，然后使用instanceof操作符判断它们的类型并输出结果。（实例位置: 光盘\TM\sl\10\6) 
+例10.7 在项目中创建Parallelogram类和3个内部类Quadrangle、Square、Anything。其中Parallelogram类和Square继承Quadrangle类，在Parallelogram类的主方法中分别创建这些类的对象，然后使用instanceof操作符判断它们的类型并输出结果。 (实例位置: 光盘\TM\sl\10\6) 
 
 class Quadrangle{
   

@@ -28,7 +28,7 @@ tun/tap 驱动程序实现了虚拟网卡的功能，tun表示虚拟的是点对
   
 利用tun/tap 驱动，可以将tcp/ip协议栈处理好的网络分包传给任何一个使用tun/tap驱动的进程，由进程重新处理后再发到物理链路中。
   
-开源项目openvpn （ [http://openvpn.sourceforge.net][1]) 和Vtun( [http://vtun.sourceforge.net][2])都是利用tun/tap驱动实现的隧道封装。
+开源项目openvpn  ( [http://openvpn.sourceforge.net][1]) 和Vtun( [http://vtun.sourceforge.net][2])都是利用tun/tap驱动实现的隧道封装。
 
 安装uml-utilities和bridge-utils和,这两个工具分别含有_tunctl_和brctl命令
 

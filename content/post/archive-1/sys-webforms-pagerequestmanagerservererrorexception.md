@@ -48,7 +48,7 @@ google搜的结果前两页,不管中文英文都看过了,依然解决不了。
 二、
   
 Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was : 12031
- 原因是查询出的数据超出web.config中的最大大小（默认4MB) 
+ 原因是查询出的数据超出web.config中的最大大小 (默认4MB) 
   
 解决办法
 

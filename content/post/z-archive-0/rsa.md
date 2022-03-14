@@ -27,8 +27,8 @@ public class Encryptor {
     //...
 	}
 }
-转换模式（transformation) 的具体含义
-转换模式（transformation) 是 Cipher 实例化的一个核心参数。transformation 参数的格式是: 算法/工作模式/填充模式(algorithm/mode/padding)，如上述示例中AES/ECB/PKCS5Padding。
+转换模式 (transformation) 的具体含义
+转换模式 (transformation) 是 Cipher 实例化的一个核心参数。transformation 参数的格式是: 算法/工作模式/填充模式(algorithm/mode/padding)，如上述示例中AES/ECB/PKCS5Padding。
 
 算法(Algorithm)
 算法指的就是具体使用到的加解密算法的名称，且必须为英文字符串，如”AES”, “RSA”, “SHA-256” 等。

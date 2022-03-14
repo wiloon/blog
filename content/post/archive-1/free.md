@@ -23,7 +23,7 @@ Swap:            0B          0B          0B
 
 - Mem：表示物理内存统计。
 - total：表示物理内存总量( total = used + free + buff/cache )。
-- used：total - free - buff/cache, 表示总计分配给缓存（包含buffers 与cache ）使用的数量，但其中可能部分缓存并未实际使用。
+- used：total - free - buff/cache, 表示总计分配给缓存 (包含buffers 与cache ）使用的数量，但其中可能部分缓存并未实际使用。
 - free：未被分配的内存。
 - shared：共享内存。Memory used (mostly) by tmpfs (Shmem in /proc/meminfo)
 - buffers：kernel buffers, 系统分配但未被使用的buffers数量。

@@ -59,23 +59,23 @@ freetype、xtt和xfs可在X下用xlsfonts列出当前可用的X核心字体,xft�
 
 配置
   
-freetype 和xtt的配置很简单,只要在/etc/X11/XF86Config-4(XFree86)或/etc/X11/xorg.conf(xorg)文件中加入FontPath 您的字体目录然后加载相应的引擎模块即可,注意的一点是freetype和xtt都是用freetype1来渲染字体不能同时使用的,只能加载其中一个模块。添加新字体时只需要在你新加的字体目录中创建fonts.dir和fonts.scale文件即可,创建方法可使用mkfontdir和 mkfontscale或者ttmkfdir,据说mkfontdir和mkfontscale创建的fonts.dir和fonts.scale有问题,但我使用时好象没遇到过问题,如果不行的话就用ttmkfdir创建fonts.scale然后再复制一个fonts.scale为 fonts.dir,具体操作可以看看man pages,进入你新建的字体目录下执行mkfontdir和mkfontscale或者执行ttmkfdir && cp fonts.scale fonts.dir即可。（注: 如果你不知道将FontPath和LoadModule加在什么地方的话就别用X了哈) 
+freetype 和xtt的配置很简单,只要在/etc/X11/XF86Config-4(XFree86)或/etc/X11/xorg.conf(xorg)文件中加入FontPath 您的字体目录然后加载相应的引擎模块即可,注意的一点是freetype和xtt都是用freetype1来渲染字体不能同时使用的,只能加载其中一个模块。添加新字体时只需要在你新加的字体目录中创建fonts.dir和fonts.scale文件即可,创建方法可使用mkfontdir和 mkfontscale或者ttmkfdir,据说mkfontdir和mkfontscale创建的fonts.dir和fonts.scale有问题,但我使用时好象没遇到过问题,如果不行的话就用ttmkfdir创建fonts.scale然后再复制一个fonts.scale为 fonts.dir,具体操作可以看看man pages,进入你新建的字体目录下执行mkfontdir和mkfontscale或者执行ttmkfdir && cp fonts.scale fonts.dir即可。 (注: 如果你不知道将FontPath和LoadModule加在什么地方的话就别用X了哈) 
   
 xfs 的配置大同小异,xfs的配置文件为/etc/X11/fs/config。如果需要添加字体也需要创建fonts.dir和fonts.scale,创建方法同上,注意这儿字体目录不是添加在/etc/X11/XF86Config-4或/etc/X11/xorg.conf,而是将字体目录添加到 /etc/X11/fs/config中的catalogue那一行中,然后重启xfs服务/etc/init.d/xfs restart,不过你要注意在你的/etc/X11/XF86Config-4或/etc/X11/xorg.conf中是否加过了FontPath "Unix/:7100",如果没有的话自己手动加上吧。
   
 xft的配置稍微麻烦一些,配置文件为/etc/fonts/fonts.conf,有点累了,看看我的另外一篇文章" "吧。添加新字体的话执行一下fc-cache -fv 你的新字体目录即可。
   
-添加了新字体后,如果是xft可以用fc-list看看你新添加的字体应该已经列出来了（这个程序是基于console的,你在控制台就可以检查) ,如果是使用freetype、xtt或xfs的话你需要进入X然后执行xlsfonts检查是否列出了你新加的字体。
+添加了新字体后,如果是xft可以用fc-list看看你新添加的字体应该已经列出来了 (这个程序是基于console的,你在控制台就可以检查) ,如果是使用freetype、xtt或xfs的话你需要进入X然后执行xlsfonts检查是否列出了你新加的字体。
 
 使用
   
 用fvwm来检验效果是最好的了,你可以打开~/.fvwm/.fvwm2rc也可以在fvwm下打开fvwm的console模块进行试验,举个例子可以简单地加一个中文的菜单条目,然后配置菜单的样式。
   
-如果只试验freetype你可以编辑你的XF86Config-4或xorg.conf加载freetype,注释掉FontPath "unix/:7100",如果只试验xtt也是编辑它但不同的是加载xtt而不是freetype（如果有LoadModule freetype请注释掉) ,如果只试验xfs的话就只留下FontPath "unix/:7100"同时去掉加载freetype或xtt的行。
+如果只试验freetype你可以编辑你的XF86Config-4或xorg.conf加载freetype,注释掉FontPath "unix/:7100",如果只试验xtt也是编辑它但不同的是加载xtt而不是freetype (如果有LoadModule freetype请注释掉) ,如果只试验xfs的话就只留下FontPath "unix/:7100"同时去掉加载freetype或xtt的行。
   
-对于freetype、xtt或xfs的使用都是一样的,设置fvwm的菜单样式可以这样设置MenuStyle \* Font "-adobe-helvetica-medium-r-normal-12-\*-\*-\*-\*-\*-iso8859-1,-misc-simsun-medium -r-normal-12-\*-\*-\*-\*-\*-gbk-0,-\*-"（对于iso8859-1字符集的文字使用helvetica字体显示,对于 gbk-0字符集的文字使用simsun显示,其它的自动查找吧) 。
+对于freetype、xtt或xfs的使用都是一样的,设置fvwm的菜单样式可以这样设置MenuStyle \* Font "-adobe-helvetica-medium-r-normal-12-\*-\*-\*-\*-\*-iso8859-1,-misc-simsun-medium -r-normal-12-\*-\*-\*-\*-\*-gbk-0,-\*-" (对于iso8859-1字符集的文字使用helvetica字体显示,对于 gbk-0字符集的文字使用simsun显示,其它的自动查找吧) 。
   
-如果你要在fvwm中使用xft的话不用修改XF86Config- 4或xorg.conf,直接这样设置fvwm的菜单样式MenuStyle \* Font "xft:Tahoma:Medium:Size=12:encoding=iso8859-1",如果要显示中文则这样设置MenuStyle \* Font "StringEncoding=gbk-0:xft:SimSun:Medium:Size=12:encoding=iso10646-1",使用 xft实现刚才的功能（中英文使用不同的字体显示) 我一直没找到方法,如果你知道的话一定记得告诉我,在此谢过了。
+如果你要在fvwm中使用xft的话不用修改XF86Config- 4或xorg.conf,直接这样设置fvwm的菜单样式MenuStyle \* Font "xft:Tahoma:Medium:Size=12:encoding=iso8859-1",如果要显示中文则这样设置MenuStyle \* Font "StringEncoding=gbk-0:xft:SimSun:Medium:Size=12:encoding=iso10646-1",使用 xft实现刚才的功能 (中英文使用不同的字体显示) 我一直没找到方法,如果你知道的话一定记得告诉我,在此谢过了。
 
 http://blog.csdn.net/wesleyluo/article/details/7470362
 

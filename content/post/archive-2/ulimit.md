@@ -12,10 +12,10 @@ tags:
 ## ulimit, file-max, Linux下设置最大文件打开数nofile及nr_open
 # ulimit
 文件句柄数  
-直接参考ulimit的帮助文档（注意: 不是man ulimit,而是help ulimit,ulimit是内置命令,前者提供的是C语言的ulimit帮助) :   
+直接参考ulimit的帮助文档 (注意: 不是man ulimit,而是help ulimit,ulimit是内置命令,前者提供的是C语言的ulimit帮助) :   
 Modify shell resource limits.  
 Provides control over the resources available to the shell and processes it creates, on systems that allow such control.  
-可以看出,ulimit提供了对shell（或shell创建的进程) 可用资源的管理。除了打开文件数之外,可管理的资源有:   
+可以看出,ulimit提供了对shell (或shell创建的进程) 可用资源的管理。除了打开文件数之外,可管理的资源有:   
 最大写入文件大小、最大堆栈大小、core dump文件大小、cpu时间限制、最大虚拟内存大小等等,help ulimit会列出每个option限制的资源  
 
 ### 什么是 soft limit 和 hard limit
@@ -45,7 +45,7 @@ ulimit -Sn 2048
 ```
 
 #### 永久设置
-一条记录包含4列,分别是范围 domain（即生效的范围,可以是用户名、group名或*代表所有非root用户) ；t类型type: 即soft、hard,或者-代表同时设置soft和hard；项目item,即ulimit中的资源控制项目,名字枚举可以参考文件中的注释；最后就是value。比如将所有非root用户的nofile设置为100000
+一条记录包含4列,分别是范围 domain (即生效的范围,可以是用户名、group名或*代表所有非root用户) ；t类型type: 即soft、hard,或者-代表同时设置soft和hard；项目item,即ulimit中的资源控制项目,名字枚举可以参考文件中的注释；最后就是value。比如将所有非root用户的nofile设置为100000
 
 #### 编辑 vim /etc/security/limits.conf 在最后加入
 ```bash
@@ -73,7 +73,7 @@ losf命令虽然作用是"list open files",但用lsof | wc -l统计打开文件�
   
 子进程会共享file handler
   
-如果用lsof统计,必须使用精巧的过滤条件。更简单和准确的方法是,通过/proc目录查看。获取系统打开文件说,直接查看/proc/sys/file-nr,其中第一个数字就是打开的file数（file-nr说明参考: www.kernel.org/doc/Documen…) 。要查看一个进程的打开文件数,直接查看目录/proc/$pid/fd里的文件数即可: 
+如果用lsof统计,必须使用精巧的过滤条件。更简单和准确的方法是,通过/proc目录查看。获取系统打开文件说,直接查看/proc/sys/file-nr,其中第一个数字就是打开的file数 (file-nr说明参考: www.kernel.org/doc/Documen…) 。要查看一个进程的打开文件数,直接查看目录/proc/$pid/fd里的文件数即可: 
 
 ```bash
 lsof | wc -l
@@ -128,12 +128,12 @@ fs.file-max = 6553560  #重启生效或者用sysctl -p 加载配置文件.
 
 file-max是内核可分配的最大文件数,  
 nr_open是单个进程可分配的最大文件数,  
-所以在我们使用ulimit或limits.conf来设置时,如果要超过默认的1048576值时需要先增大nr_open值（sysctl -w fs.nr_open=100000000或者直接写入sysctl.conf文件) 
+所以在我们使用ulimit或limits.conf来设置时,如果要超过默认的1048576值时需要先增大nr_open值 (sysctl -w fs.nr_open=100000000或者直接写入sysctl.conf文件) 
 
 ### ulimit
-file-handles（即文件句柄) 
+file-handles (即文件句柄) 
   
-file discriptor（FD,即文件描述符)
+file discriptor (FD,即文件描述符)
 
 ```bash
 # 查看一个进程的limit设置: 
@@ -155,7 +155,7 @@ ulimit -n 65536
 * -a: 显示当前所有的 limit 信息。
 * -n: 显示可以打开最大文件描述符的数量。ulimit -n 128: 设置最大可以使用 128 个文件描述符。
 * -s: 线程栈大小,以 Kbytes 为单位. ulimit – s 512；限制线程栈的大小为 512 Kbytes.
-  * 操作系统栈大小（ulimit -s) : 这个配置只影响进程的初始线程；后续用pthread_create创建的线程都可以指定栈大小。
+  * 操作系统栈大小 (ulimit -s) : 这个配置只影响进程的初始线程；后续用pthread_create创建的线程都可以指定栈大小。
 * -H: 设置硬资源限制,一旦设置不能增加。 ulimit – Hs 64；限制硬资源,线程栈大小为 64K。
 * -S: 设置软资源限制,设置后可以增加,但是不能超过硬资源设置。 ulimit – Sn 32；限制软资源,32 个文件描述符。
   
@@ -365,7 +365,7 @@ ulimit修改后生效周期
 
 二 /etc/security/limits.conf
   
-网上还有缪传,ulimit -n设定的值不能超过limits.conf里设定的文件打开数（即soft nofile) 
+网上还有缪传,ulimit -n设定的值不能超过limits.conf里设定的文件打开数 (即soft nofile) 
   
 好吧,其实这要分两种情况,root用户是可以超过的,比如当前limits.conf设定如下: 
   
@@ -431,7 +431,7 @@ root soft nofile1610496root hard nofile1610496
 
 在命令上,ulimit通过-S和-H来区分soft和hard。如果没有指定-S或-H,在显示值时指的是soft,而在设置的时候指的是同时设置soft和hard值。
 
-但soft和hard的区别是什么是什么呢？下面这段解释较为准确（来自man 2 getrlimit ) 
+但soft和hard的区别是什么是什么呢？下面这段解释较为准确 (来自man 2 getrlimit ) 
 
 The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling for the soft limit: an unprivileged process may set only its soft limit to a value in the range from 0 up to the hard limit, and\*\* (irre‐versibly) \*\*lower its hard limit. A privileged process (under Linux: one with the CAP_SYS_RESOURCE capability) may make arbitrary changes to either limit value.
 
@@ -449,7 +449,7 @@ hard降低到比当前soft还小,那么soft也会随之降低。
   
 非root或root进程都可以将soft可以在[0-hard]的范围内任意增加或降低。
   
-非root进程可以降低hard,但不能增加hard。即nofile原来是1000,修改为了900,再修改为1000是不可能的。（这是一个单向的,有去无回的操作) 
+非root进程可以降低hard,但不能增加hard。即nofile原来是1000,修改为了900,再修改为1000是不可能的。 (这是一个单向的,有去无回的操作) 
   
 root进程可以任意修改hard值。
 
@@ -463,7 +463,7 @@ soft和hard在控制上其实并没有区别,都会限制资源的使用,但soft
 
 ulimit的值总是继承父进程的设置。
   
-ulimit命令可修改当前shell进程的设置。这也说明,为了保证下次生效,修改的地方要具有持久性（至少相当于目标进程而言) ,比如.bashrc,或进程的启动脚本) 
+ulimit命令可修改当前shell进程的设置。这也说明,为了保证下次生效,修改的地方要具有持久性 (至少相当于目标进程而言) ,比如.bashrc,或进程的启动脚本) 
   
 从第2点也可以推出,运行中的进程,不受ulimit的修改影响。
   

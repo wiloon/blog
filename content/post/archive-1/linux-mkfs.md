@@ -237,7 +237,7 @@ mke2fs命令是专门用于管理ext系列文件系统的一个专门的工具�
 mke2fs [options] [device]
 
 常用选项
--t fs-type:指定文件系统类型（如ext2，ext3，ext4等等) ，则会从/etc/mke2fs.conf文件中读取默认配置；
+-t fs-type:指定文件系统类型 (如ext2，ext3，ext4等等) ，则会从/etc/mke2fs.conf文件中读取默认配置；
 
 -b block-size: 设置硬盘的block大小。
 

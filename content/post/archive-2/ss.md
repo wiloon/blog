@@ -1,5 +1,5 @@
 ---
-title: 网络状态工具 ss command
+title: ss command
 author: "-"
 date: 2019-01-08T13:44:55+00:00
 url: ss
@@ -9,7 +9,9 @@ categories:
 tags:
   - reprint
 ---
-## 网络状态工具 ss command
+## ss command
+
+网络状态工具 
 
 ss 是 iproute2 包附带的一个查询 socket 有关的统计信息的工具, 它的功能跟 netstat 类似, 比netstat更快速更高效.当服务器的socket连接数量变得非常大时，无论是使用 `netstat` 命令还是直接 `cat /proc/net/tcp`，执行速度都会很慢。ss快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，ss也可以正常运行，只是效率会变得稍慢。
 
@@ -58,7 +60,7 @@ ss -l
 ## Recv-Q, Send-Q
 LISTEN 状态：
 
-Recv-Q 表示当前 listen backlog 队列中的连接数目（等待用户调用 accept() 获取的、已完成 3 次握手的 socket 连接数量），而 Send-Q 表示了 listen socket 最大能容纳的 backlog ，即 min(backlog, somaxconn) 值。
+Recv-Q 表示当前 listen backlog 队列中的连接数目 (等待用户调用 accept() 获取的、已完成 3 次握手的 socket 连接数量），而 Send-Q 表示了 listen socket 最大能容纳的 backlog ，即 min(backlog, somaxconn) 值。
 非 LISTEN 状态：Recv-Q 表示了 receive queue 中存在的字节数目；Send-Q 表示 send queue 中存在的字节数；
 
     strace -s 128 ss -nat
@@ -79,7 +81,7 @@ ss 命令用于显示 socket 状态. 可以显示 PACKET sockets, TCP sockets, U
   
 所有连接到 Xserver 的本地进程
   
-使用 state（例如: connected, synchronized, SYN-RECV, SYN-SENT,TIME-WAIT) 、地址、端口过滤
+使用 state (例如: connected, synchronized, SYN-RECV, SYN-SENT,TIME-WAIT) 、地址、端口过滤
   
 所有的 state FIN-WAIT-1 tcpsocket 连接以及更多
   

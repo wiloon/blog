@@ -14,7 +14,7 @@ tags:
 
 在Servlet应用中，有一个getRealPath(String str)的方法，这个方法尽管也可以动态地获得文件的路径，不秘直接手写绝对路径，但这也是一个不被建议使用的方法，那么，我们有什么方法可以更好地获得文件呢?
 
-那就是Class.getResource()与Class.getResourceAsStream()方法，但很多人还是不太懂它的用法，因为很多人（比如不久前的我) 都不知道应该传怎么样的参数给它，当然，有些人己经用得如火纯青，这些人是不需要照顾的，在此仅给不会或者还不是很熟的人解释一点点。
+那就是Class.getResource()与Class.getResourceAsStream()方法，但很多人还是不太懂它的用法，因为很多人 (比如不久前的我) 都不知道应该传怎么样的参数给它，当然，有些人己经用得如火纯青，这些人是不需要照顾的，在此仅给不会或者还不是很熟的人解释一点点。
 
 比如我们有以下目录
   
@@ -94,7 +94,7 @@ file2.txt
 
     String fileName = this.getClass().getClassLoader().getResource("文件名").getPath();//获取文件路径
     String fileUtl = this.getClass().getResource("文件名").getFile();
-    （在项目打成jar后的情况下getPath()与getFile()返回参数及用法的基本相同具体差异大研究) 
+     (在项目打成jar后的情况下getPath()与getFile()返回参数及用法的基本相同具体差异大研究) 
     示例路径结果: /E:/idea_work/sofn-qry-web/target/classes/CityJson.js
 
     //console read
@@ -107,12 +107,12 @@ file2.txt
 File directory = new File("");//参数为空
 String courseFile = directory.getCanonicalPath()//标准的路径 ;
 String author =directory.getAbsolutePath()//绝对路径;
-（在jdk1.1后就有了此方法获取文件路径的方式存在了) 
+ (在jdk1.1后就有了此方法获取文件路径的方式存在了) 
 示例路径结果: E:\idea_work\sofn-qry-web
 
 方式三: 
 java.net.URL uri = this.getClass().getResource("/");
-（获取到Class文件存放的路径) 
+ (获取到Class文件存放的路径) 
 示例路径结果: file:/E:/idea_work/sofn-qry-web/target/test-classes/
 
 
@@ -120,6 +120,6 @@ String property =System.getProperty("user.dir");
 方式四: 
 
 String property =System.getProperty("user.dir");
-（此方法可以得到该工程项目所有文件的相关路径及环境配置信息) 
+ (此方法可以得到该工程项目所有文件的相关路径及环境配置信息) 
 示例输出结果: 
 

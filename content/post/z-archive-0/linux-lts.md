@@ -11,7 +11,7 @@ tags:
 ---
 ## Archlinux 安装 linux-lts 内核
 
-春节期间在家折腾 k8s, 尝试安装 cri-o 的时候习惯性的先执行了 `pacman -Syu` （操作系统用的 archlinux ），然后再安装 cri-o, `pacman -S cri-o`, 理论上 cri-o 会默认在 sysctl 里配置 `bridge-nf-call-iptables = 1`，但是重启后发现 `bridge-nf-call-iptables = 1` 没生效，手动配置之后也不行，提示 br_netfilter 内核模块没加载， 手动加载 `modprobe br_netfilter` 又报错说找不到模块，看上去是前面更新系统的时候升级了内核，从 5.16.4.arch1-1 升到了 5.16.5.arch1-1，modprobe 还是到旧内核的目录找 br_netfilter 模块，简单Google了一下看到有人解决 modprobe 的问题建议用 LTS 的内核，又Google了一下 archlinux 换 LTS 内核，然后再 `pacman -S cri-o` 重启之后 sysctl 的配置果然没有问题了， 更换内核的过程记录如下。
+春节期间在家折腾 k8s, 尝试安装 cri-o 的时候习惯性的先执行了 `pacman -Syu`  (操作系统用的 archlinux ），然后再安装 cri-o, `pacman -S cri-o`, 理论上 cri-o 会默认在 sysctl 里配置 `bridge-nf-call-iptables = 1`，但是重启后发现 `bridge-nf-call-iptables = 1` 没生效，手动配置之后也不行，提示 br_netfilter 内核模块没加载， 手动加载 `modprobe br_netfilter` 又报错说找不到模块，看上去是前面更新系统的时候升级了内核，从 5.16.4.arch1-1 升到了 5.16.5.arch1-1，modprobe 还是到旧内核的目录找 br_netfilter 模块，简单Google了一下看到有人解决 modprobe 的问题建议用 LTS 的内核，又Google了一下 archlinux 换 LTS 内核，然后再 `pacman -S cri-o` 重启之后 sysctl 的配置果然没有问题了， 更换内核的过程记录如下。
 
 - 检查 /boot 目录是否已经挂载 `mount |grep boot`
 
@@ -33,12 +33,12 @@ tags:
 
 ### 长期支持, LTS, Long Term Support
 
-- 长期支持版本通常与应用程序或操作系统有关，LTS 会在较长的时间内获得安全、维护和（有时有）功能的更新。
+- 长期支持版本通常与应用程序或操作系统有关，LTS 会在较长的时间内获得安全、维护和 (有时有）功能的更新。
 - LTS 版本被认为是稳定的版本，它经历了广泛的测试，并且大多包含了多年积累的改进。
 - 需要注意的是，LTS 版本的软件不一定涉及功能更新，除非有一个更新的 LTS 版本。但是，LTS 版本的更新中会有必要的错误修复和安全修复。
 - LTS 版本被推荐给生产级的消费者、企业和商家，因为你可以获得多年的软件支持，而且软件更新不会破坏系统。
 
-如果你注意到任何软件的非 LTS 版本，它通常是具有新功能和较短支持时间跨度（例如 6-9 个月）的前沿版本，而 LTS 版本的支持时间为 3-5 年。
+如果你注意到任何软件的非 LTS 版本，它通常是具有新功能和较短支持时间跨度 (例如 6-9 个月）的前沿版本，而 LTS 版本的支持时间为 3-5 年。
 
 #### LTS 版本的优点
 

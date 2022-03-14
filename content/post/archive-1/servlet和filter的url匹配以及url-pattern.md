@@ -20,7 +20,7 @@ Servlet和filter是J2EE开发中常用的技术，使用方便，配置简单，
 
 <o:p></o:p>
 
-当一个请求发送到servlet容器的时候，容器先会将请求的url减去当前应用上下文的路径作为servlet的映射url，比如我访问的是http://localhost/test/aaa.html，我的应用上下文是test，容器会将http://localhost/test去掉，剩下的/aaa.html部分拿来做servlet的映射匹配。这个映射匹配过程是有顺序的，而且当有一个servlet匹配成功以后，就不会去理会剩下的servlet了（filter不同，后文会提到) 。其匹配规则和顺序如下: <o:p></o:p>
+当一个请求发送到servlet容器的时候，容器先会将请求的url减去当前应用上下文的路径作为servlet的映射url，比如我访问的是http://localhost/test/aaa.html，我的应用上下文是test，容器会将http://localhost/test去掉，剩下的/aaa.html部分拿来做servlet的映射匹配。这个映射匹配过程是有顺序的，而且当有一个servlet匹配成功以后，就不会去理会剩下的servlet了 (filter不同，后文会提到) 。其匹配规则和顺序如下: <o:p></o:p>
 
 1. 精确路径匹配。例子: 比如servletA 的url-pattern为 /test，servletB的url-pattern为 /* ，这个时候，如果我访问的url为http://localhost/test ，这个时候容器就会先 进行精确路径匹配，发现/test正好被servletA精确匹配，那么就去调用servletA，也不会去理会其他的servlet了。<o:p></o:p>
 
@@ -28,7 +28,7 @@ Servlet和filter是J2EE开发中常用的技术，使用方便，配置简单，
 
 3. 扩展匹配，如果url最后一段包含扩展，容器将会根据扩展选择合适的servlet。例子: servletA的url-pattern: *.action<o:p></o:p>
 
-4. 如果前面三条规则都没有找到一个servlet，容器会根据url选择对应的请求资源。如果应用定义了一个default servlet，则容器会将请求丢给default servlet（什么是default servlet？后面会讲) 。<o:p></o:p>
+4. 如果前面三条规则都没有找到一个servlet，容器会根据url选择对应的请求资源。如果应用定义了一个default servlet，则容器会将请求丢给default servlet (什么是default servlet？后面会讲) 。<o:p></o:p>
 
 根据这个规则表，就能很清楚的知道servlet的匹配过程，所以定义servlet的时候也要考虑url-pattern的写法，以免出错。<o:p></o:p>
 

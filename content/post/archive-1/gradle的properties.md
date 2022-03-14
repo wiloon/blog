@@ -92,7 +92,7 @@ http://hugozhu.myalert.info/2014/07/23/47-use-gradle-properties-to-set-alternati
   
 
 
-在合作开发中遇到的一个尴尬的问题是,IDEA最新版还不能很好的支持Gradle Plugin 0.12+,而Android Studio最新版则要求使用0.12+。大家又共用一个Git仓库。可能的解决方案是,从Git checkout出来的项目需要有一个基础的版本号,但是开发者可以在本地通过一处文件（不check in到git) 来重载版本号。
+在合作开发中遇到的一个尴尬的问题是,IDEA最新版还不能很好的支持Gradle Plugin 0.12+,而Android Studio最新版则要求使用0.12+。大家又共用一个Git仓库。可能的解决方案是,从Git checkout出来的项目需要有一个基础的版本号,但是开发者可以在本地通过一处文件 (不check in到git) 来重载版本号。
 
 # 解决方案 {#toc_1}
 
@@ -110,7 +110,7 @@ Gradle支持三种Properties, 这三种Properties的作用域和初始化阶段�
       1. 可在项目的build.gradle中声明和使用,本工程和子工程可见
       2. 不能在setting.gradle中访问
 
-如果有多处设置,加载次序如下（注意: gradle 2.0是这样的, 1.10~1.12有bug) , 后面的覆盖前面的设置
+如果有多处设置,加载次序如下 (注意: gradle 2.0是这样的, 1.10~1.12有bug) , 后面的覆盖前面的设置
 
   1. from gradle.properties located in project build dir.
   2. from gradle.properties located in gradle user home.
