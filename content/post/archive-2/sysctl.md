@@ -261,12 +261,21 @@ net.ipv6.conf.all.disable_ipv6
   
     The kernel.panic_on_rcu_stall sysctl is disabled by default. 
 ### fs.aio-nr
+当前aio请求数
 aio-nr shows the current system-wide number of asynchronous io requests.
+
+### fs.dentry-state
+保存目录缓存的状态，保存有六个值，只有前三个有效
+nr_dentry：当前已经分配的目录项数量
+nr_unused：还没有使用的目录项数量
+age_limit：当内存紧缺时，延迟多少秒后会回收目录项所占内存
 
 ### aio-max-nr
 异步 I/O 请求数的最大范围  
-aio-max-nr  
+aio-max-nr
 allows you to change the maximum value/proc/sys/fs/aio-nr can grow to.
+
+--整个系统可以打开的文件数的限制
 
 ### fs.epoll.max_user_watches
 允许并发请求的最大数量,一般是65536 (即64KB,对大部分程序来说已经足够了) 。
@@ -474,3 +483,36 @@ https://blog.51cto.com/qujunorz/1703295
 https://www.cnblogs.com/fczjuever/archive/2013/04/17/3026694.html  
 https://www.cnblogs.com/leonardchen/p/9635407.html  
 >https://feisky.gitbooks.io/sdn/content/linux/params.html
+
+
+### dquot-nr and dquot-max
+The file dquot-max shows the maximum number of cached disk quota entries.
+
+The file  dquot-nr  shows  the  number of allocated disk quota entries and the
+number of free disk quota entries.
+
+If the number of available cached disk quotas is very low and you have a large
+number of simultaneous system users, you might want to raise the limit.
+
+
+### file-nr
+这个是一个状态指示的文件，一共三个值，第一个代表全局已经分配的文件描述符数量，第二个代表自由的文件描述符（待重新分配的,已分配未使用文件句柄的数目），第三个代表总的文件描述符的数量。
+
+
+### inode-nr
+/proc/sys/fs/inode-nr shows data about inodes in RAM (kernel cache), first currently allocated ones, and then free ones. The kernel uses inodes for many things, not just files. For example, network sockets are identified by inodes too.
+
+See https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/sysctl/fs.txt :
+
+
+/proc/sys/fs/inode-nr
+              This file contains the first two values from inode-state.
+
+       /proc/sys/fs/inode-state
+              This file contains seven  numbers:  nr_inodes,  nr_free_inodes,  preshrink  and  four  dummy  values.
+              nr_inodes is the number of inodes the system has allocated.  This can be slightly more than inode-max
+              because Linux allocates them one page full at a time.  nr_free_inodes represents the number  of  free
+              inodes.  preshrink is non-zero when the nr_inodes > inode-max and the system needs to prune the inode
+              list instead of allocating more.
+
+

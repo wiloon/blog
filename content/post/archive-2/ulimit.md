@@ -2,15 +2,14 @@
 title: ulimit, file-max, Linux下设置最大文件打开数nofile及nr_open
 author: "-"
 date: 2017-02-20T01:15:40+00:00
-url: /?p=9840
-
+url: ulimit
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
 ---
-## ulimit, file-max, Linux下设置最大文件打开数nofile及nr_open
-# ulimit
+## ulimit, file-max, Linux 下设置最大文件打开数 nofile 及 nr_open
+
 文件句柄数  
 直接参考ulimit的帮助文档 (注意: 不是man ulimit,而是help ulimit,ulimit是内置命令,前者提供的是C语言的ulimit帮助) :   
 Modify shell resource limits.  
@@ -73,7 +72,7 @@ losf命令虽然作用是"list open files",但用lsof | wc -l统计打开文件�
   
 子进程会共享file handler
   
-如果用lsof统计,必须使用精巧的过滤条件。更简单和准确的方法是,通过/proc目录查看。获取系统打开文件说,直接查看/proc/sys/file-nr,其中第一个数字就是打开的file数 (file-nr说明参考: www.kernel.org/doc/Documen…) 。要查看一个进程的打开文件数,直接查看目录/proc/$pid/fd里的文件数即可: 
+如果用 lsof 统计, 必须使用精巧的过滤条件。更简单和准确的方法是, 通过 /proc 目录查看。获取系统打开文件说, 直接查看/proc/sys/file-nr, 其中第一个数字就是打开的file数 (file-nr说明参考: www.kernel.org/doc/Documen…) 。要查看一个进程的打开文件数,直接查看目录 /proc/$pid/fd 里的文件数即可: 
 
 ```bash
 lsof | wc -l
@@ -241,11 +240,11 @@ sudo systemctl daemon-reload
   
 sudo systemctl restart nginx.service
 
-到底最大文件数被什么限制了？too many open files错误到底可以通过什么参数控制？网上的很多文章说的大致步骤如下: 
+到底最大文件数被什么限制了？ too many open files 错误到底可以通过什么参数控制？网上的很多文章说的大致步骤如下: 
 
-shell级限制
+shell 级限制
   
-通过ulimit -n修改,如执行命令ulimit -n 1000,则表示将当前shell的当前用户所有进程能打开的最大文件数量设置为1000.
+通过 ulimit -n 修改,如执行命令ulimit -n 1000,则表示将当前shell的当前用户所有进程能打开的最大文件数量设置为1000.
 
 用户级限制
   

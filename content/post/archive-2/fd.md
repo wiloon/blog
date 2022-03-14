@@ -15,13 +15,13 @@ tags:
 对文件描述符的理解一般都是从处理 "too many open files" 开始的  
 
 ### 文件描述符, file descriptors & 文件描述符表
-文件描述符 (file descriptor, fd) 是linux内核对已打开文件的一个抽象标记(索引),所有I/O系统调用对已打开文件的操作都要用到它。这里的“文件”仍然是广义的,即除了普通文件和目录外,还包括管道、FIFO (命名管道) 、Socket、终端、设备, 链接等。
+文件描述符 (file descriptor, fd) 是linux内核对已打开文件的一个抽象标记(索引), 所有 I/O 系统调用对已打开文件的操作都要用到它。这里的 “文件” 仍然是广义的, 即除了普通文件和目录外, 还包括管道、FIFO (命名管道) 、Socket、终端、设备, 链接等。
  
-文件描述符是一个非负整数 (通常是小整数) ,并且0、1、2三个描述符总是默认分配给标准输入、标准输出和标准错误。这就是常用的 nohup ./my_script > my_script.log 2>&1 & 命令里2和1的由来。如果此时去打开一个新的文件,它的文件描述符会是3。POSIX标准要求每次打开文件时 (含socket) 必须使用当前进程中最小可用的文件描述符号码.
+文件描述符是一个非负整数 (通常是小整数) ,并且 0、1、2 三个描述符总是默认分配给标准输入、标准输出和标准错误。这就是常用的 `nohup ./my_script > my_script.log 2>&1 &` 命令里2和1的由来。如果此时去打开一个新的文件, 它的文件描述符会是3。POSIX 标准要求每次打开文件时 (含socket) 必须使用当前进程中最小可用的文件描述符号码.
 
 所有执行I/O操作的系统调用都通过文件描述符。
 
-另外，每个进程都会预留3个默认的 fd: stdin、stdout、stderr; 它们的值分别是 0、1，2
+每个进程都会预留3个默认的 fd: stdin(标准输入)、stdout(标准输出)、stderr(标准错误); 它们的值分别是 0, 1, 2
 
 Integer   value	Name	      symbolic constant	file stream
 0	        Standard input	  STDIN_FILENO	stdin
@@ -29,7 +29,7 @@ Integer   value	Name	      symbolic constant	file stream
 2	        Standard error	  STDERR_FILENO	stderr
 
 #### 文件描述符表, file descriptors table
-Linux系统中的每个进程会在其进程控制块 (PCB) 内维护属于自己的文件描述符表 (file descriptor table) 。表中每个条目包含两个域: 一是控制该描述符的标记域 (flags, O_APPEND 之类的flag) ,二是指向系统级别的打开文件表中对应条目的指针。那么打开文件表又是什么呢？
+Linux系统中的每个进程会在其进程控制块 (PCB) 内维护属于自己的文件描述符表 (file descriptor table). 表中每个条目包含两个域: 一是控制该描述符的标记域 (flags, O_APPEND 之类的flag) ,二是指向系统级别的打开文件表中对应条目的指针。那么打开文件表又是什么呢？
 
 #### 打开文件表, file table,open file table  & 文件句柄
 file table是全局唯一的表，由系统内核维护。这个表记录了所有进程打开的文件的状态(是否可读、可写等状态)，同时它也映射到inode table中的entry。

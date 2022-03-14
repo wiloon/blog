@@ -54,7 +54,10 @@ yay -S telegraf-bin
 [[inputs.system]]
 [[inputs.net]]
 [[inputs.netstat]]
+[[inputs.linux_sysctl_fs]]
 ```
+#### inputs.linux_sysctl_fs
+>https://www.kernel.org/doc/Documentation/sysctl/fs.txt
 
 ### hsperfdata
 https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata
@@ -206,3 +209,4 @@ echo 'blog,domain=wiloon post_count='''$post_count'''i,word_count='''$word_count
 
 ```
 >https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md
+
