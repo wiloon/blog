@@ -127,3 +127,4 @@ http://blog.leapoahead.com/2015/09/06/understanding-jwt/
 JWT(auth0): RS256非对称加密算法实现Token的签发、验证
 原文链接:  https://xie.infoq.cn/article/e55bb7e46be860902e39f9280?utm_source=rss&utm_medium=article
 
+>https://github.com/dgrijalva/jwt-go

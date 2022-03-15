@@ -9,6 +9,9 @@ tags:
   - reprint
 ---
 ## "JWT, session"
+
+>github.com/golang-jwt/jwt
+
 背景知识: 
 
 ### Authentication和Authorization的区别: 
