@@ -115,3 +115,7 @@ https://wiki.archlinux.org/index.php/KVM#How_to_use_KVM
 https://wiki.archlinux.org/index.php/Internet_sharing
   
 https://wiki.archlinux.org/index.php/QEMU#Installing_virtio_drivers
+
+
+## linux virtual machine manager
+virt-manager

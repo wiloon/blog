@@ -13,7 +13,7 @@ tags:
 ## 五种 Metrics 类型, gauges
 
 ### Counters
-Counter 就是计数器，Counter 只是用 Gauge 封装了 AtomicLong 。
+Counter 就是计数器，Counter 只是用 Gauge 封装了 AtomicLong.
 
 ### Gauges
 最简单的度量指标，只有一个简单的返回值，例如，我们想衡量一个待处理队列中任务的个数

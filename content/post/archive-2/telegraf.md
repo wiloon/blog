@@ -3,11 +3,13 @@ title: telegraf
 author: "-"
 date: 2019-02-16T11:08:43+00:00
 url: telegraf
-
 categories:
-  - inbox
+  - devops
 tags:
   - reprint
+  - remix
+
+
 ---
 ## telegraf
 ### archlinux install telegraf
@@ -67,7 +69,7 @@ https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata
 #### 配置文件 
     C:\Program Files\telegraf\telegraf.conf
     
-#### install as windows serivce, choco安装的telegraf默认安装成service了
+#### install as windows serivce, choco 安装的telegraf默认安装成service了
 https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/
 
     C:\"Program Files"\Telegraf\telegraf.exe --service install
@@ -130,7 +132,7 @@ mv telegraf-1.19.0/var/log/* /var/log
 mv telegraf-1.19.0/etc/* /etc
 
 #### 配置开机启动
-登录到openwrt web 管理页面, 点击菜单 System > Startup > Local Startup, 在exit0 上面插入一行, 填写以下命令
+登录到 openwrt web 管理页面, 点击菜单 System > Startup > Local Startup, 在exit0 上面插入一行, 填写以下命令
 
     /usr/bin/telegraf --config /etc/telegraf/telegraf.conf
 
@@ -166,7 +168,7 @@ podman run --name telegraf -d \
 
 ```
 
-运行在容器里的telegraf监控宿主机资源
+运行在容器里的 telegraf 监控宿主机资源
 https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/
 
 

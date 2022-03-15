@@ -87,6 +87,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 |ncdu|磁盘空间清理|
 |filelight|图形化的磁盘空间管理工具|
 |okular|pdf reader|
+|audacity|一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。|
 
 ## pacman, development
 

@@ -10,6 +10,12 @@ tags:
   - reprint
 ---
 ## su, sudo
+## sudo 提供密码
+
+    echo 'password' | sudo -S command
+
+>https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo
+
 ### sudo 免密码
 
 ```bash

@@ -1,5 +1,5 @@
 ---
-title: linux cat
+title: cat
 author: "-"
 date: 2012-06-21T01:17:40+00:00
 url: /?p=3553

@@ -8,6 +8,9 @@ categories:
 
 tags:
   - reprint
+  - remix
+
+
 ---
 ## systemd start script, 启动脚本
 ```bash
@@ -22,37 +25,11 @@ User=root
 Type=simple
 Restart=on-failure
 RestartSec=10
+LimitNOFILE=100000
 
 [Install]
 WantedBy=multi-user.target
 
-```
-```bash
-#!/bin/sh
-service_name="foo"
-echo "
-[Unit]
-Description=${service_name}
-[Service]
-WorkingDirectory=/data/${service_name}
-ExecStart=/data/${service_name}/${service_name}
-User=root
-Type=simple
-Restart=on-failure
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-" > /etc/systemd/system/${service_name}.service
-
-systemctl daemon-reload
-systemctl enable ${service_name}
-
-echo "commands:
-systemctl start ${service_name}
-systemctl status ${service_name}
-systemctl stop ${service_name}
-"
 ```
 
 ### systemd 添加开机启动运行shell脚本
@@ -172,6 +149,29 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 " > /etc/systemd/system/${service_name}.service 
+```
+
+### The mappings of systemd limits to ulimit
+
+```
+Directive        ulimit equivalent     Unit
+LimitCPU=        ulimit -t             Seconds      
+LimitFSIZE=      ulimit -f             Bytes
+LimitDATA=       ulimit -d             Bytes
+LimitSTACK=      ulimit -s             Bytes
+LimitCORE=       ulimit -c             Bytes
+LimitRSS=        ulimit -m             Bytes
+LimitNOFILE=     ulimit -n             Number of File Descriptors 
+LimitAS=         ulimit -v             Bytes
+LimitNPROC=      ulimit -u             Number of Processes 
+LimitMEMLOCK=    ulimit -l             Bytes
+LimitLOCKS=      ulimit -x             Number of Locks 
+LimitSIGPENDING= ulimit -i             Number of Queued Signals 
+LimitMSGQUEUE=   ulimit -q             Bytes
+LimitNICE=       ulimit -e             Nice Level 
+LimitRTPRIO=     ulimit -r             Realtime Priority  
+LimitRTTIME=     No equivalent
+
 ```
 
 编写systemd下服务脚本
@@ -398,3 +398,32 @@ https://blog.csdn.net/fu_wayne/article/details/38018825
 
 https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW
 >https://www.junmajinlong.com/linux/systemd/service_2/
+
+
+```bash
+#!/bin/sh
+service_name="foo"
+echo "
+[Unit]
+Description=${service_name}
+[Service]
+WorkingDirectory=/data/${service_name}
+ExecStart=/data/${service_name}/${service_name}
+User=root
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+" > /etc/systemd/system/${service_name}.service
+
+systemctl daemon-reload
+systemctl enable ${service_name}
+
+echo "commands:
+systemctl start ${service_name}
+systemctl status ${service_name}
+systemctl stop ${service_name}
+"
+```

@@ -1,5 +1,5 @@
 ---
-title: ulimit, file-max, Linux下设置最大文件打开数nofile及nr_open
+title: ulimit, file-max, Linux 下设置最大文件打开数 nofile, nr_open
 author: "-"
 date: 2017-02-20T01:15:40+00:00
 url: ulimit
@@ -7,15 +7,18 @@ categories:
   - linux
 tags:
   - reprint
+  - remix
+
 ---
-## ulimit, file-max, Linux 下设置最大文件打开数 nofile 及 nr_open
+## ulimit, file-max, Linux 下设置最大文件打开数 nofile, nr_open
 
 文件句柄数  
-直接参考ulimit的帮助文档 (注意: 不是man ulimit,而是help ulimit,ulimit是内置命令,前者提供的是C语言的ulimit帮助) :   
-Modify shell resource limits.  
-Provides control over the resources available to the shell and processes it creates, on systems that allow such control.  
-可以看出,ulimit提供了对shell (或shell创建的进程) 可用资源的管理。除了打开文件数之外,可管理的资源有:   
-最大写入文件大小、最大堆栈大小、core dump文件大小、cpu时间限制、最大虚拟内存大小等等,help ulimit会列出每个option限制的资源  
+直接参考 ulimit 的帮助文档 (注意: 不是 man ulimit, 而是 help ulimit, ulimit 是内置命令, 前者提供的是 C 语言的 ulimit 帮助 ) :  
+
+>Modify shell resource limits. Provides control over the resources available to the shell and processes it creates, on systems that allow such control.  
+
+可以看出, ulimit 提供了对 shell (或 shell 创建的进程) 可用资源的管理。除了打开文件数之外, 可管理的资源有:   
+最大写入文件大小、最大堆栈大小、core dump 文件大小、cpu 时间限制、 最大虚拟内存大小等等, help ulimit 会列出每个 option 限制的资源  
 
 ### 什么是 soft limit 和 hard limit
 A hard limit is the maximum allowed to a user, set by the superuser/root. This value is set in the file /etc/security/limits.conf. Think of it as an upper bound or ceiling or roof.
@@ -36,22 +39,22 @@ ulimit -H -n
 ulimit -Sn
 ulimit -S -n
 
-# set hard limit, 设置当前shell的最大文件数,shell退出时失效
+# set hard limit, 设置当前shell的最大文件数,shell 退出时失效
 ulimit -Hn 2048
 
-# set soft limit, 设置当前shell的最大文件数,shell退出时失效
+# set soft limit, 设置当前shell的最大文件数,shell 退出时失效
 ulimit -Sn 2048
 ```
 
 #### 永久设置
-一条记录包含4列,分别是范围 domain (即生效的范围,可以是用户名、group名或*代表所有非root用户) ；t类型type: 即soft、hard,或者-代表同时设置soft和hard；项目item,即ulimit中的资源控制项目,名字枚举可以参考文件中的注释；最后就是value。比如将所有非root用户的nofile设置为100000
+一条记录包含 4 列,分别是范围 domain (即生效的范围, 可以是用户名、group 名或 * 代表所有非 root 用户) ；t 类型 type: 即 soft、hard, 或者-代表同时设置 soft 和 hard；项目 item, 即 ulimit 中的资源控制项目,名字枚举可以参考文件中的注释；最后就是 value。比如将所有非 root 用户的 nofile 设置为 100000
 
 #### 编辑 vim /etc/security/limits.conf 在最后加入
 ```bash
-# 或者只加入, -"字符设定, 则hard和soft设定会同时被设定。
+# 或者只加入, -"字符设定, 则 hard 和 soft 设定会同时被设定。
  * - nofile 8192
 
-# 最前的 * 表示所有用户,可根据需要设置某一用户,例如
+# 最前的 * 表示所有用户, 可根据需要设置某一用户, 例如
 * soft nofile 4096
 * hard nofile 4096
 
@@ -66,29 +69,31 @@ cat /proc/<PID>/limits
 ```
 
 ### 查看当前系统打开的文件数量
-losf命令虽然作用是"list open files",但用lsof | wc -l统计打开文件数上非常不准确。主要原因是: 
 
-某些情况下,一行可能显示的是线程,而不是进程,对于多线程的情况,就会误以为一个文件被重复打开了很多次
+losf 命令虽然作用是 "list open files", 但用 lsof | wc -l 统计打开文件数上非常不准确。主要原因是: 
+
+某些情况下,一行可能显示的是线程, 而不是进程, 对于多线程的情况, 就会误以为一个文件被重复打开了很多次
   
 子进程会共享file handler
   
-如果用 lsof 统计, 必须使用精巧的过滤条件。更简单和准确的方法是, 通过 /proc 目录查看。获取系统打开文件说, 直接查看/proc/sys/file-nr, 其中第一个数字就是打开的file数 (file-nr说明参考: www.kernel.org/doc/Documen…) 。要查看一个进程的打开文件数,直接查看目录 /proc/$pid/fd 里的文件数即可: 
+如果用 lsof 统计, 必须使用精巧的过滤条件。更简单和准确的方法是, 通过 /proc 目录查看。 获取系统打开文件说, 直接查看 /proc/sys/file-nr, 其中第一个数字就是打开的file数 ( file-nr 说明参考: www.kernel.org/doc/Documen…) 。 要查看一个进程的打开文件数,直接查看目录 /proc/$pid/fd 里的文件数即可: 
 
 ```bash
 lsof | wc -l
 watch "lsof | wc -l"
 cat /proc/sys/file-nr
+
 # 查看某一进程的打开文件数量
 lsof -p pid | wc -l
 ls -l /proc/<PID>/fd |wc -l
 
-# ulimit不加参数
+# ulimit 不加参数
 # If no option is given, then -f is assumed. 进程可以创建文件的最大值
-# 默认会打印出unlimited
+# 默认会打印出 unlimited
 ```
 
 ### Java的nofile
-JDK的实现中,会直接将nofile的soft先改成了和hard一样的值
+JDK的实现中,会直接将 nofile 的 soft 先改成了和 hard 一样的值
   
     https://stackoverflow.com/questions/30487284/how-and-when-and-where-jvm-change-the-max-open-files-value-of-linux
 
@@ -157,8 +162,7 @@ ulimit -n 65536
   * 操作系统栈大小 (ulimit -s) : 这个配置只影响进程的初始线程；后续用pthread_create创建的线程都可以指定栈大小。
 * -H: 设置硬资源限制,一旦设置不能增加。 ulimit – Hs 64；限制硬资源,线程栈大小为 64K。
 * -S: 设置软资源限制,设置后可以增加,但是不能超过硬资源设置。 ulimit – Sn 32；限制软资源,32 个文件描述符。
-  
-    -c 最大的 core 文件的大小, 以 blocks 为单位。 ulimit – c unlimited； 对生成的 core 文件的大小不进行限制。
+- -c 最大的 core 文件的大小, 以 blocks 为单位。 ulimit – c unlimited； 对生成的 core 文件的大小不进行限制。
   
     -d 进程最大的数据段的大小,以 Kbytes 为单位。 ulimit -d unlimited；对进程的数据段大小不进行限制。
   
@@ -174,7 +178,7 @@ ulimit -n 65536
   
     -u 用户最大可用的进程数。 ulimit – u 64；限制用户最多可以使用 64 个进程。
   
-    -v 进程最大可用的虚拟内存,以 Kbytes 为单位。 ulimit – v 200000；限制最大可用的虚拟内存为 200000 Kbytes。
+- -v 进程最大可用的虚拟内存, 以 Kbytes 为单位。 ulimit – v 200000；限制最大可用的虚拟内存为 200000 Kbytes。
 
 Provides control over the resources available to the shell and to processes started by it, on systems that allow such control.
   
@@ -195,12 +199,12 @@ Provides control over the resources available to the shell and to processes star
 
 在centos 5/6 等版本中,资源限制的配置可以在 /etc/security/limits.conf 设置,针对root/user等各个用户或者*代表所有用户来设置。 当然,/etc/security/limits.d/ 中可以配置,系统是先加载limits.conf然后按照英文字母顺序加载limits.d目录下的配置文件,后加载配置覆盖之前的配置。 一个配置示例如下: 
 
-  * soft nofile 100000
-  * hard nofile 100000
-  * soft nproc 100000
-  * hard nproc 100000
-  * soft core 100000
-  * hard core 100000
+* soft nofile 100000
+* hard nofile 100000
+* soft nproc 100000
+* hard nproc 100000
+* soft core 100000
+* hard core 100000
 
 不过,在CentOS 7 / RHEL 7的系统中,使用Systemd替代了之前的SysV,因此 /etc/security/limits.conf 文件的配置作用域缩小了一些。limits.conf这里的配置,只适用于通过PAM认证登录用户的资源限制,它对systemd的service的资源限制不生效。登录用户的限制,与上面讲的一样,通过 /etc/security/limits.conf 和 limits.d 来配置即可。
 

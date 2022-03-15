@@ -1,5 +1,5 @@
 ---
-title: 秒的换算,ms(毫秒),μs(微秒),ns(纳秒),ps(皮秒)
+title: 秒的换算, ms(毫秒), μs(微秒), ns(纳秒), ps(皮秒)
 author: "-"
 date: 2016-12-13T06:58:01+00:00
 url: /?p=9546
@@ -9,9 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## 秒的换算,ms(毫秒),μs(微秒),ns(纳秒),ps(皮秒)
-http://blog.chinaunix.net/uid-28458801-id-4144886.html
-
+## 秒的换算, ms(毫秒), μs(微秒), ns(纳秒), ps(皮秒)
+>http://blog.chinaunix.net/uid-28458801-id-4144886.html
 
 ### 皮秒
     皮秒,符号ps (英语: picosecond ) 

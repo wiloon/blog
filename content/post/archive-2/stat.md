@@ -10,6 +10,9 @@ tags:
   - reprint
 ---
 ## linux 文件创建时间, 修改时间, stat
+
+stat命令，查看某个文件的inode信息, 除了文件名以外的所有文件信息，都存在inode之中。
+
 ### stat
 ### atime, mtime, ctime
 简名	 全名	     中文名	     含义

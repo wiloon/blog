@@ -260,9 +260,6 @@ net.ipv6.conf.all.disable_ipv6
   * debug.panic_on_rcu_stall
   
     The kernel.panic_on_rcu_stall sysctl is disabled by default. 
-### fs.aio-nr
-当前aio请求数
-aio-nr shows the current system-wide number of asynchronous io requests.
 
 ### fs.dentry-state
 保存目录缓存的状态，保存有六个值，只有前三个有效
@@ -276,6 +273,11 @@ aio-max-nr
 allows you to change the maximum value/proc/sys/fs/aio-nr can grow to.
 
 --整个系统可以打开的文件数的限制
+
+### fs.aio-nr
+当前aio请求数
+aio-nr shows the current system-wide number of asynchronous io requests.
+
 
 ### fs.epoll.max_user_watches
 允许并发请求的最大数量,一般是65536 (即64KB,对大部分程序来说已经足够了) 。
@@ -496,23 +498,26 @@ number of simultaneous system users, you might want to raise the limit.
 
 
 ### file-nr
-这个是一个状态指示的文件，一共三个值，第一个代表全局已经分配的文件描述符数量，第二个代表自由的文件描述符（待重新分配的,已分配未使用文件句柄的数目），第三个代表总的文件描述符的数量。
 
+    cat /proc/sys/fs/file-nr
+    2112                            0                                   2100000
+    全局已经分配的文件描述符(fd)数     已分配未使用文件描述符(fd)的数目      内核最大能分配的文件描述符(fd)数
+ 
 
-### inode-nr
-/proc/sys/fs/inode-nr shows data about inodes in RAM (kernel cache), first currently allocated ones, and then free ones. The kernel uses inodes for many things, not just files. For example, network sockets are identified by inodes too.
+### inode-nr, /proc/sys/fs/inode-nr
 
-See https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/sysctl/fs.txt :
+shows data about inodes in RAM (kernel cache), first currently allocated ones, and then free ones. The kernel uses inodes for many things, not just files. For example, network sockets are identified by inodes too.
 
+>https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/sysctl/fs.txt
 
-/proc/sys/fs/inode-nr
-              This file contains the first two values from inode-state.
+This file contains the first two values from inode-state.
 
-       /proc/sys/fs/inode-state
-              This file contains seven  numbers:  nr_inodes,  nr_free_inodes,  preshrink  and  four  dummy  values.
-              nr_inodes is the number of inodes the system has allocated.  This can be slightly more than inode-max
-              because Linux allocates them one page full at a time.  nr_free_inodes represents the number  of  free
-              inodes.  preshrink is non-zero when the nr_inodes > inode-max and the system needs to prune the inode
-              list instead of allocating more.
+### /proc/sys/fs/inode-state
+
+    This file contains seven  numbers:  nr_inodes,  nr_free_inodes,  preshrink  and  four  dummy  values.
+    nr_inodes is the number of inodes the system has allocated.  This can be slightly more than inode-max
+    because Linux allocates them one page full at a time.  nr_free_inodes represents the number  of  free
+    inodes.  preshrink is non-zero when the nr_inodes > inode-max and the system needs to prune the inode
+    list instead of allocating more.
 
 
