@@ -3,17 +3,16 @@ title: 协程, coroutine, goroutine
 author: "-"
 date: 2017-03-24T15:52:22+00:00
 url: goroutine
-
 categories:
-  - golang
+  - go
 tags:
   - reprint
 ---
 ## 协程, coroutine, goroutine
 
-Goroutine是Go中最基本的执行单元。事实上每一个Go程序至少有一个goroutine：主goroutine。当程序启动时，它会自动创建。
+Goroutine 是 Go 中最基本的执行单元。事实上每一个 Go 程序至少有一个 goroutine：主 goroutine。当程序启动时，它会自动创建。
 
-事实上goroutine采用了一种fork-join的模型。
+goroutine 采用了一种 fork-join 的模型。
 
 每个协程至少需要消耗 2KB 的空间
 
