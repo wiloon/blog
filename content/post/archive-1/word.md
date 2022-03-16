@@ -1,14 +1,15 @@
 ---
-title: word010中更新目录
+title: word basic
 author: "-"
 date: 2012-12-12T03:25:17+00:00
-url: /?p=4889
+url: word
 categories:
-  - Uncategorized
+  - office
 
 tags:
   - reprint
 ---
+## word basic
 ## word010中更新目录
 来源: 爱word
 

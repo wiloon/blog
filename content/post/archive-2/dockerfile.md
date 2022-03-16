@@ -54,6 +54,8 @@ CMD ["./xxx"]
 
 ### 环境变量
 
+设置环境变量 USERNAME 默认值为 admin，后面可以通过docker run -e USERNAME="XXXXXX"修改，这个环境变量在容器里也可以$USERNAME获取
+
 ENV 设置环境变量
   
 格式有两种: 
@@ -93,11 +95,13 @@ COPY的语法与功能与ADD相同,只是不支持上面讲到的<src>是远程U
 
 WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录),该指令在Dockerfile文件中可以出现多次,如果使用相对路径则为相对于WORKDIR上一次的值,例如WORKDIR /a,WORKDIR b,RUN pwd最终输出的当前目录是/a/b。 (RUN cd /a/b,RUN pwd是得不到/a/b的) 
 
-### create file 
-    RUN echo 'All of your\n\
-    multiline that you ever wanted\n\
-    into a dockerfile\n'\
-    >> /etc/example.conf
+### create file
+```bash
+RUN echo 'All of your\n\
+multiline that you ever wanted\n\
+into a dockerfile\n'\
+>> /etc/example.conf
+```
 
 <http://blog.wiloon.com/?p=11796>
 http://dockone.io/article/8196

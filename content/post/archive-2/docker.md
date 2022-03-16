@@ -8,6 +8,9 @@ categories:
 
 tags:
   - reprint
+  - remix
+
+
 ---
 ## docker basic, commands
 ### 批量删除镜像
@@ -168,7 +171,7 @@ docker run -it --rm ubuntu bash
 # -t, --tty=false           分配tty设备,该可以支持终端登录,默认为false
 # -t -a stdout              Outputs the container logs on the standard output
 # -P, --publish-all=false   Docker自动分配一个未被使用的端口
-# -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp)
+# -v, --volume=[]           Bind mount a volume(挂载目录 -v /root:/opt/temp), 跟mount一样，path 里如果有文件的话，挂载之后是看不到的。
 # -d, --detach=false        Run container in background and print container ID(后台运行)并返回容器ID；
 # --rm 容器退出后随之将其删除
 # bash: 放在镜像名后的是命令,这里我们希望有个交互式 Shell,因此用的是 bash

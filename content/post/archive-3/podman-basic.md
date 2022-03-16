@@ -6,13 +6,17 @@ url: podman
 tags:
   - podman
   - remix
-
 categories:
   - container
+
 ---
+
 ## podman basic
+
 ### install
-https://podman.io/getting-started/installation
+
+>https://podman.io/getting-started/installation
+
 ### archlinux
 ```bash
 pacman -S podman
@@ -20,6 +24,7 @@ pacman -S podman
 ```
 
 ### ubuntu
+
     . /etc/os-release
     echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
     curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
@@ -30,7 +35,6 @@ pacman -S podman
 
 ### centos
     dnf install podman
-
 
 ### hello world
 测试一下podman 环境
@@ -213,7 +217,7 @@ sudo dnf install -y @container-tools
 podman version
 ```
 
-### volume
+## volume
 
 ```bash
 podman volume ls

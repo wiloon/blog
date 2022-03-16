@@ -2,19 +2,29 @@
 title: linux 目录
 author: "-"
 date: 2012-02-05T10:42:19+00:00
-url: /?p=2252
+url: linux/path
 categories:
   - Linux
-
 tags:
   - reprint
 ---
 ## linux 目录
-https://my.oschina.net/njzjf/blog/317331
 
-/mnt 这个目录一般是用于存放挂载储存设备的挂载目录的，比如有cdrom 等目录。可以参看/etc/fstab的定义。有时我们可以把让系统开机自动挂载文件系统，把挂载点放在这里也是可以的。主要看/etc/fstab中怎么定义了；比如光驱可以挂载到/mnt/cdrom 。
+>https://my.oschina.net/njzjf/blog/317331
 
-/opt 表示的是可选择的意思，有些软件包也会被安装在这里，也就是自定义软件包，比如在Fedora Core 5.0中，OpenOffice就是安装在这里。有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 ./configure -prefix=/opt/目录 。
+## /bin
+
+软链 /usr/bin
+
+### /mnt 
+
+这个目录一般是用于存放挂载储存设备的挂载目录的，比如有cdrom 等目录。可以参看/etc/fstab的定义。有时我们可以把让系统开机自动挂载文件系统，把挂载点放在这里也是可以的。主要看/etc/fstab中怎么定义了；比如光驱可以挂载到/mnt/cdrom 。
+
+### /opt 
+
+表示的是可选择的意思，有些软件包也会被安装在这里，也就是自定义软件包，比如在 Fedora Core 5.0中，OpenOffice 就是安装在这里。有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 ./configure -prefix=/opt/目录 。
+
+/opt目录用来安装附加软件包，是用户级的程序目录，可以理解为D:/Software。安装到/opt目录下的程序，它所有的数据、库文件等等都是放在同个目录下面。opt有可选的意思，这里可以用于放置第三方大型软件（或游戏），当你不需要时，直接rm -rf掉即可。在硬盘容量不够时，也可将/opt单独挂载到其他磁盘上使用。
 
 /proc 操作系统运行时，进程 (正在运行中的程序) 信息及内核信息 (比如cpu、硬盘分区、内存信息等) 存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。
 
@@ -39,19 +49,30 @@ proc - 虚拟，存在linux内核镜像；保存所有内核参数以及系统�
 
 1 - 进程编号
 
-### usr
-在早期的Unix实现中, usr目录用于存放用户相关的数据相当于现在的/home 目录, /usr目录现在用于存放用户空间的程序和数据 
-usr并不是user用户的缩写，而是User System Resources 的缩写
+### /usr
+系统级的目录，可以理解为C:/Windows/。  
+在早期的Unix实现中, usr目录用于存放用户相关的数据相当于现在的/home 目录, /usr 目录现在用于存放用户空间的程序和数据 
+usr并不是user用户的缩写，而是 User System Resources 的缩写
+
+#### /usr/lib
+
+程序和核心模块的公共库  
+理解为C:/Windows/System32。
+
+#### /usr/local
+
+本地安装软件保存位置
+
+用户级的程序目录，可以理解为C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。
+这里主要存放那些手动安装的软件，即不是通过“新立得”或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下面。
+
+#### /usr/include
+
+存放C/C++头文件的目录
 
 bin - 几乎所有用户所用命令，另外存在与/bin，/usr/local/bin
 
 sbin - 系统管理员命令，与用户相关，例如，大部分服务器程序
-
-include - 存放C/C++头文件的目录
-
-lib - 固定的程序数据
-
-local - 本地安装软件保存位置
 
 man - 手工生成的目录
 
@@ -67,7 +88,18 @@ X386- 功能同X11R6，X11 发行版5 的系统文件
 
 boot - 引导加载器所需文件，系统所需图片保存于此
 
-lib - 根文件系统目录下程序和核心模块的公共库
+## /lib
+
+软链 /usr/lib
+
+## /lib64
+
+软链 /usr/lib
+
+## /snap
+
+软链 /var/lib/snapd/snap
+
 
 modules - 可加载模块，系统崩溃后重启所需模块
 
@@ -125,8 +157,6 @@ lost+found - 在文件系统修复时恢复的文件
 
 /mnt:/media: 光盘默认挂载点，通常光盘挂载于/mnt/cdrom下，也不一定，可以选择任意位置进行挂载。
 
-/opt: 给主机额外安装软件所摆放的目录。如: FC4使用的Fedora 社群开发软件，如果想要自行安装新的KDE 桌面软件，可以将该软件安装在该目录下。以前的 Linux 系统中，习惯放置在 /usr/local 目录下
-
 /proc: 此目录的数据都在内存中，如系统核心，外部设备，网络状态，由于数据都存放于内存中，所以不占用磁盘空间，比较重要的目录有/proc/cpuinfo、/proc/interrupts、/proc/dma、/proc/ioports、/proc/net/*等
 
 /root: 系统管理员root的家目录，系统第一个启动的分区为/，所以最好将/root和/放置在一个分区下。
@@ -139,12 +169,19 @@ lost+found - 在文件系统修复时恢复的文件
 
 /usr: 应用程序存放目录，/usr/bin存放应用程序，/usr/share存放共享数据，/usr/lib存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local:存放软件升级包。/usr/share/doc:系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间
 
-/var: 放置系统执行过程中经常变化的文件，如随时更改的日志文件/var/log，/var/log/message: 所有的登录文件存放目录，/var/spool/mail: 邮件存放的目录，/var/run:程序或服务启动后，其PID存放在该目录下。建议单独分区，设置较大的磁盘空间
+## /var
+
+放置系统执行过程中经常变化的文件，如随时更改的日志文件/var/log，/var/log/message: 所有的登录文件存放目录，/var/spool/mail: 邮件存放的目录，/var/run:程序或服务启动后，其PID存放在该目录下。建议单独分区，设置较大的磁盘空间
 
 其实转这个帖子就像探究一个问题，就是我们自行开发的软件应该放在哪个目录比较合适: 
 
-1. /home目录下 理由是我们在安装linux系统时给这个目录单独分区，空间大，所以放在这个目录下；
+1. /home 目录下 理由是我们在安装linux系统时给这个目录单独分区，空间大，所以放在这个目录下；
 
 2. /opt 目录下，大多数都这么搞；
 
 3. /usr 目录下
+
+二进制 /usr/local/bin/foo
+配置文件 /etc/foo/config.toml
+db      /var/lib/foo/foo.db
+日志    /var/log/foo/debug.log
