@@ -331,7 +331,7 @@ Enforcing
        
 |-httpd-8*[httpd] <==httpd 会产生很多子程序来负责网络服务喔！
 
-[root@www ~]# ps aux -Z |grep http
+    ps aux -Z |grep http
   
 root:system_r:httpd_t root 24089 0.2 1.2 22896 9256 ? Ss 16:06 0:00 /usr/sbin/httpd
   

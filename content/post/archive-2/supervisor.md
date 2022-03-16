@@ -105,7 +105,7 @@ supervisord -c /etc/supervisord.conf
   
 查看 supervisord 是否在运行: 
   
-ps aux | grep supervisord
+    ps aux | grep supervisord
   
 program 配置
   

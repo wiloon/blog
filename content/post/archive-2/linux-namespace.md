@@ -20,4 +20,4 @@ chroot内部的文件系统无法访问外部的内容。Linux Namespace在此�
   
 UTS Namespace
   
-IPC全称 Inter-Process Communication,是Unix/Linux下进程间通信的一种方式,IPC有共享内存、信号量、消息队列等方法。
+IPC全称 Inter-Process Communication, 是 Unix/Linux下进程间通信的一种方式, IPC 有共享内存、信号量、消息队列等方法。

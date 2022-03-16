@@ -121,23 +121,23 @@ kill -l
 
 经过搜集和整理相关的linux杀死进程的材料，在这里本人给大家推荐本篇文章，希望大家看后会有不少收获。
 
-  1. kill
+1. kill
+
+作用: 根据进程号杀死进程
+
+用法:  kill ［信号代码］ 进程ID
+
+举例: 
   
-    作用: 根据进程号杀死进程
+    ps auxf |grep httpd
   
-    用法:  kill ［信号代码］ 进程ID
-  
-    举例: 
-  
-    [root@localhost ~]# ps auxf |grep httpd
-  
-    注意: kill -9 来强制终止退出
-  
-    举例 [root@localhost ~]# ps aux |grep gaim
-  
-    或者 [root@localhost ~]# pgrep -l gaim 5031 gaim
-  
-    5031 gaim
+注意: kill -9 来强制终止退出
+
+举例 [root@localhost ~]# ps aux |grep gaim
+
+或者 [root@localhost ~]# pgrep -l gaim 5031 gaim
+
+5031 gaim
   
     [root@localhost ~]# kill -9 5031
   

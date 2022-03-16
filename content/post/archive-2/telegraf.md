@@ -69,7 +69,7 @@ https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata
 #### 配置文件 
     C:\Program Files\telegraf\telegraf.conf
     
-#### install as windows serivce, choco 安装的telegraf默认安装成service了
+#### install as windows serivce, choco 安装的 telegraf 默认会安装成 service
 https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/
 
     C:\"Program Files"\Telegraf\telegraf.exe --service install

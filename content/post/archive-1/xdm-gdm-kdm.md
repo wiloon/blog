@@ -86,7 +86,7 @@ X Window System的启动方法很多，最常用的还是上面得到的startx�
     这就是你能在屏幕上移动光标的原因，但由于目前还没有任何X client程序要求键盘和鼠标的输入。所以X server只是和鼠标一直移动而已。而其它的键盘或鼠标输入虽然都经过X server处理，但均被视为无作用(因为没有什么x clinet程序所接收)。这也是X启动的初期，按键盘或鼠标都没有反应的原因。但如果你能送信号给X server和X client的话，这下就有会作用了。比如: Ctrl+Alt+Backspace即是送给X Server的中断信号,当X启动到中途或者是执行时，只要按下这组合键，便会立即结束X server，跳回到command prompt terminal的状态。
   
   
-    7)接下来，在xinitrc唤起X server后，xinit会启动xterm程序。呵呵，xterm就是X Window terminal的缩写吧。它对X server而言是一个X Clietn程序而已。要求X server建立一个视窗，而且会告知X server在这个视窗中的鼠标和键盘的输入状态(Event)，因而启动xterm时便会视窗执行一个shell，内定的就是bash。当指标被移至视窗之内时，xterm便准备接受输入。键盘输入会被关到xterm中的shell就如同真的终端机输入一般。而从shell本身或其副程序的输出则借着 xterm显示在视窗上，xterm也接受输入，便得你能设置不同的程序操作参数和进行文本的一些操作，比如copy或paste.对于这些操作，你可以通过在xterm中执行ps auxw命令来观察到系统执行这些命令的详细步骤。
+7)接下来，在xinitrc唤起X server后，xinit会启动xterm程序。呵呵，xterm就是X Window terminal的缩写吧。它对X server而言是一个X Clietn程序而已。要求X server建立一个视窗，而且会告知X server在这个视窗中的鼠标和键盘的输入状态(Event)，因而启动xterm时便会视窗执行一个shell，内定的就是bash。当指标被移至视窗之内时，xterm便准备接受输入。键盘输入会被关到xterm中的shell就如同真的终端机输入一般。而从shell本身或其副程序的输出则借着 xterm显示在视窗上，xterm也接受输入，便得你能设置不同的程序操作参数和进行文本的一些操作，比如copy或paste.对于这些操作，你可以通过在xterm中执行ps auxw命令来观察到系统执行这些命令的详细步骤。
   
   
 ### 以xdm/gdm来启动你的X。
