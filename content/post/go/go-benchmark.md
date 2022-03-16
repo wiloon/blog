@@ -43,6 +43,10 @@ go test -bench .
 
 用例执行了 409231 次，每次花费约 2549 ns。总耗时约 1s, benchmark 的默认时间是 1s
 
+### 用正则过滤用例
+
+    go test -bench='Sort$' .
+
 ### CPU 核数
 BenchmarkFib-8 中的 -8 即 GOMAXPROCS，默认等于 CPU 核数。可以通过 -cpu 参数改变 GOMAXPROCS，-cpu 支持传入一个列表作为参数
 

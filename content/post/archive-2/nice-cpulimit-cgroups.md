@@ -143,10 +143,11 @@ cpulimit -l 50 -p 1234
   
 其中,1234是进程的 PID。
 
-### cgroups , control group  (cgroup,since linux 2.6.24) 
+### cgroups , control group  (cgroup,since linux 2.6.24)
+
     apt-get install cgroup-bin
 
-最后介绍,功能最为强大的控制组 (cgroups) 的用法。cgroups 是 Linux 内核提供的一种机制,利用它可以指定一组进程的资源分配。 具体来说,使用 cgroups,用户能够限定一组进程的 cpu 占用率、系统内存消耗、网络带宽,以及这几种资源的组合。
+cgroups 是 Linux 内核提供的一种机制, 利用它可以指定一组进程的资源分配。具体来说,使用 cgroups, 用户能够限定一组进程的 cpu 占用率、系统内存消耗、网络带宽,以及这几种资源的组合。
 
 对比nice和cpulimit,cgroups 的优势在于它可以控制一组进程,不像前者仅能控制单进程。同时,nice 和 cpulimit 只能限制 cpu 使用率,而 cgroups 则可以限制其他进程资源的使用。
 

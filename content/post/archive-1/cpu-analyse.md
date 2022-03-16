@@ -1,11 +1,10 @@
 ---
-title: cpu瓶颈分析
+title: cpu 占用分析
 author: "-"
 date: 2013-12-10T01:17:00+00:00
 url: /?p=6032
-
 categories:
-  - inbox
+  - cs
 tags:
   - reprint
 ---

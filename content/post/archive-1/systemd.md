@@ -138,7 +138,13 @@ systemctl status xxx
     CGroup块: 应用的所有子进程
     日志块: 应用的日志
 
-http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+```bash
+# 打印完整的控制台日志, 不加 -l 的话, 默认会截断.
+systemctl status service0 -l
+
+```
+
+>http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
 
 ### Unit
 Systemd 可以管理所有系统资源。不同的资源统称为 Unit (单位) 。
