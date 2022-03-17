@@ -15,11 +15,11 @@ Alien Arena 2011 7.50版本发布,这款开源的游戏新版本带来了以下�
   Alien Arena介绍:
 
 
->   一款免费开源的第一人称射击游戏(FPS),使用改动的id Tech2,行动和武器方面非常相似<雷神之锤II>,也拥有全部的跳跃技巧
+一款免费开源的第一人称射击游戏(FPS),使用改动的id Tech2,行动和武器方面非常相似<雷神之锤II>,也拥有全部的跳跃技巧
 
 
 
->   更多的介绍:http://zh.wikipedia.org/zh/Alien_Arena
+更多的介绍:http://zh.wikipedia.org/zh/Alien_Arena
 
 
   1 编译:

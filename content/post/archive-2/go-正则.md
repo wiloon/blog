@@ -11,12 +11,12 @@ tags:
 ---
 ## go regex, 正则
 ```go
-    nodes := []string{"foo.bar-000.x", "foo.t0.bar","foo.bar"}
-    reg := regexp.MustCompile(`foo\.(.[^\.]*)\.{0,1}.*`)
-    for _, v := range nodes {
-        result := reg.FindSubmatch([]byte(v))
-        fmt.Println("output: ", string(result[1]))
-    }
+nodes := []string{"foo.bar-000.x", "foo.t0.bar","foo.bar"}
+reg := regexp.MustCompile(`foo\.(.[^\.]*)\.{0,1}.*`)
+for _, v := range nodes {
+    result := reg.FindSubmatch([]byte(v))
+    fmt.Println("output: ", string(result[1]))
+}
 ```
 
         .                   匹配任意一个字符,如果设置 s = true,则可以匹配换行符

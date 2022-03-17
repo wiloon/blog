@@ -31,7 +31,7 @@ wpa-psk "xxxx"
 
 首先，一个基本的配置大概是下面这个样子: 
 
->  1 auto lo
+1 auto lo
  2 iface lo inet loopback
  3 
  4 # The primary network interface
@@ -55,7 +55,7 @@ wpa-psk "xxxx"
 
 再来看一个更复杂点的: 
 
->  12 auto eth0
+12 auto eth0
  13 iface eth0 inet static
  14     address 192.168.1.42
  15     network 192.168.1.0
@@ -76,7 +76,7 @@ wpa-psk "xxxx"
 
 继续，下面是一个物理网卡上多个接口的配置方法: 
 
->  23 auto eth0 eth0:1
+23 auto eth0 eth0:1
  24 iface eth0 inet static
  25     address 192.168.0.100
  26     network 192.168.0.0
@@ -92,7 +92,7 @@ wpa-psk "xxxx"
 
 下面是pre-up和post-down命令时间。这是一组命令 (pre-up、up、post-up、pre-down、down、post-down) ，分别定义在对应的时刻需要执行的命令。
 
->  34 auto eth0
+34 auto eth0
  35 iface eth0 inet dhcp
  36     pre-up [ -f /etc/network/local-network-ok ]
 
@@ -100,7 +100,7 @@ wpa-psk "xxxx"
 
 再更进一步的例子: 
 
->  37 auto eth0 eth1
+37 auto eth0 eth1
  38 iface eth0 inet static
  39     address 192.168.42.1
  40     netmask 255.255.255.0

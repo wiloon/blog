@@ -63,21 +63,21 @@ Dub Song在2000年12月发布了Dsniff的v2.3版本，该版本支持OpenBSD、L
 
 
 
->       嗅探发送的SMTP流量: 
+嗅探发送的SMTP流量: 
 
 
 
->       嗅探接收的POP流量: 
+嗅探接收的POP流量: 
 
 
 
 
 
->       <img src="http://hiphotos.baidu.com/sdusoul/pic/item/95cad1c8fc25a02b7f3e6fbb.jpg" alt="" width="300" height="287" />
+<img src="http://hiphotos.baidu.com/sdusoul/pic/item/95cad1c8fc25a02b7f3e6fbb.jpg" alt="" width="300" height="287" />
 
 
 
->       <img src="http://hiphotos.baidu.com/sdusoul/pic/item/a786c917229d0e35c93d6dbb.jpg" alt="" width="300" height="287" />
+<img src="http://hiphotos.baidu.com/sdusoul/pic/item/a786c917229d0e35c93d6dbb.jpg" alt="" width="300" height="287" />
 
 
 

@@ -313,426 +313,426 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
 
 
 
->     典型配置举例
+典型配置举例
 
 
 
 
 
->     以下配置主要针对分代垃圾回收算法而言。
+以下配置主要针对分代垃圾回收算法而言。
 
 
 
->     堆大小设置
+堆大小设置
 
 
 
->     年轻代的设置很关键
+年轻代的设置很关键
 
 
 
->     JVM中最大堆大小有三方面限制: 相关操作系统的数据模型 (32-bt还是64-bit) 限制；系统的可用虚拟内存限制；系统的可用物理内存限制。32位系统下，一般限制在1.5G~2G；64为操作系统对内存无限制。在Windows Server 2003 系统，3.5G物理内存，JDK5.0下测试，最大可设置为1478m。
+JVM中最大堆大小有三方面限制: 相关操作系统的数据模型 (32-bt还是64-bit) 限制；系统的可用虚拟内存限制；系统的可用物理内存限制。32位系统下，一般限制在1.5G~2G；64为操作系统对内存无限制。在Windows Server 2003 系统，3.5G物理内存，JDK5.0下测试，最大可设置为1478m。
 
 
 
->     典型设置: 
+典型设置: 
 
 
 
 
->       java -Xmx3550m -Xms3550m -Xmn2g –Xss128k
+java -Xmx3550m -Xms3550m -Xmn2g –Xss128k
 
 
 
->       -Xmx3550m: 设置JVM最大可用内存为3550M。
+-Xmx3550m: 设置JVM最大可用内存为3550M。
 
 
 
->       -Xms3550m: 设置JVM促使内存为3550m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。
+-Xms3550m: 设置JVM促使内存为3550m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。
 
 
 
->       -Xmn2g: 设置年轻代大小为2G。整个堆大小=年轻代大小 + 年老代大小 + 持久代大小。持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
+-Xmn2g: 设置年轻代大小为2G。整个堆大小=年轻代大小 + 年老代大小 + 持久代大小。持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
 
 
 
->       -Xss128k: 设置每个线程的堆栈大小。JDK5.0以后每个线程堆栈大小为1M，以前每个线程堆栈大小为256K。更具应用的线程所需内存大小进行调整。在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在3000~5000左右。
+-Xss128k: 设置每个线程的堆栈大小。JDK5.0以后每个线程堆栈大小为1M，以前每个线程堆栈大小为256K。更具应用的线程所需内存大小进行调整。在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在3000~5000左右。
 
 
 
 
 
->       java -Xmx3550m -Xms3550m -Xss128k -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxPermSize=16m -XX:MaxTenuringThreshold=0
+java -Xmx3550m -Xms3550m -Xss128k -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxPermSize=16m -XX:MaxTenuringThreshold=0
 
 
 
->       -XX:NewRatio=4:设置年轻代 (包括Eden和两个Survivor区) 与年老代的比值 (除去持久代) 。设置为4，则年轻代与年老代所占比值为1: 4，年轻代占整个堆栈的1/5
+-XX:NewRatio=4:设置年轻代 (包括Eden和两个Survivor区) 与年老代的比值 (除去持久代) 。设置为4，则年轻代与年老代所占比值为1: 4，年轻代占整个堆栈的1/5
 
 
 
->       -XX:SurvivorRatio=4: 设置年轻代中Eden区与Survivor区的大小比值。设置为4，则两个Survivor区与一个Eden区的比值为2:4，一个Survivor区占整个年轻代的1/6
+-XX:SurvivorRatio=4: 设置年轻代中Eden区与Survivor区的大小比值。设置为4，则两个Survivor区与一个Eden区的比值为2:4，一个Survivor区占整个年轻代的1/6
 
 
 
->       -XX:MaxPermSize=16m:设置持久代大小为16m。
+-XX:MaxPermSize=16m:设置持久代大小为16m。
 
 
 
->       -XX:MaxTenuringThreshold=0: 设置垃圾最大年龄。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象再年轻代的存活时间，增加在年轻代即被回收的概论。
+-XX:MaxTenuringThreshold=0: 设置垃圾最大年龄。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象再年轻代的存活时间，增加在年轻代即被回收的概论。
 
 
 
 
->     回收器选择
+回收器选择
 
 
 
->     JVM给了三种选择: 串行收集器、并行收集器、并发收集器，但是串行收集器只适用于小数据量的情况，所以这里的选择主要针对并行收集器和并发收集器。默认情况下，JDK5.0以前都是使用串行收集器，如果想使用其他收集器需要在启动时加入相应参数。JDK5.0以后，JVM会根据当前系统配置进行判断。
+JVM给了三种选择: 串行收集器、并行收集器、并发收集器，但是串行收集器只适用于小数据量的情况，所以这里的选择主要针对并行收集器和并发收集器。默认情况下，JDK5.0以前都是使用串行收集器，如果想使用其他收集器需要在启动时加入相应参数。JDK5.0以后，JVM会根据当前系统配置进行判断。
 
 
 
->     吞吐量优先的并行收集器
+吞吐量优先的并行收集器
 
 
 
->     如上文所述，并行收集器主要以到达一定的吞吐量为目标，适用于科学技术和后台处理等。
+如上文所述，并行收集器主要以到达一定的吞吐量为目标，适用于科学技术和后台处理等。
 
 
 
->     典型配置: 
+典型配置: 
 
 
 
 
->       java -Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20
+java -Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20
 
 
 
->       -XX:+UseParallelGC: 选择垃圾收集器为并行收集器。此配置仅对年轻代有效。即上述配置下，年轻代使用并发收集，而年老代仍旧使用串行收集。
+-XX:+UseParallelGC: 选择垃圾收集器为并行收集器。此配置仅对年轻代有效。即上述配置下，年轻代使用并发收集，而年老代仍旧使用串行收集。
 
 
 
->       -XX:ParallelGCThreads=20: 配置并行收集器的线程数，即: 同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。
+-XX:ParallelGCThreads=20: 配置并行收集器的线程数，即: 同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。
 
 
 
 
 
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20 -XX:+UseParallelOldGC
+java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20 -XX:+UseParallelOldGC
 
 
 
->       -XX:+UseParallelOldGC: 配置年老代垃圾收集方式为并行收集。JDK6.0支持对年老代并行收集。
+-XX:+UseParallelOldGC: 配置年老代垃圾收集方式为并行收集。JDK6.0支持对年老代并行收集。
 
 
 
 
 
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100
+java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100
 
 
 
->       -XX:MaxGCPauseMillis=100:设置每次年轻代垃圾回收的最长时间，如果无法满足此时间，JVM会自动调整年轻代大小，以满足此值。
+-XX:MaxGCPauseMillis=100:设置每次年轻代垃圾回收的最长时间，如果无法满足此时间，JVM会自动调整年轻代大小，以满足此值。
 
 
 
 
 
->       n java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100 -XX:+UseAdaptiveSizePolicy
+n java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC  -XX:MaxGCPauseMillis=100 -XX:+UseAdaptiveSizePolicy
 
 
 
->       -XX:+UseAdaptiveSizePolicy: 设置此选项后，并行收集器会自动选择年轻代区大小和相应的Survivor区比例，以达到目标系统规定的最低相应时间或者收集频率等，此值建议使用并行收集器时，一直打开。
+-XX:+UseAdaptiveSizePolicy: 设置此选项后，并行收集器会自动选择年轻代区大小和相应的Survivor区比例，以达到目标系统规定的最低相应时间或者收集频率等，此值建议使用并行收集器时，一直打开。
 
 
 
 
->     响应时间优先的并发收集器
+响应时间优先的并发收集器
 
 
 
->     如上文所述，并发收集器主要是保证系统的响应时间，减少垃圾收集时的停顿时间。适用于应用服务器、电信领域等。
+如上文所述，并发收集器主要是保证系统的响应时间，减少垃圾收集时的停顿时间。适用于应用服务器、电信领域等。
 
 
 
->     典型配置: 
+典型配置: 
 
 
 
 
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
+java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
 
 
 
->       -XX:+UseConcMarkSweepGC: 设置年老代为并发收集。测试中配置这个以后，-XX:NewRatio=4的配置失效了，原因不明。所以，此时年轻代大小最好用-Xmn设置。
+-XX:+UseConcMarkSweepGC: 设置年老代为并发收集。测试中配置这个以后，-XX:NewRatio=4的配置失效了，原因不明。所以，此时年轻代大小最好用-Xmn设置。
 
 
 
->       -XX:+UseParNewGC: 设置年轻代为并行收集。可与CMS收集同时使用。JDK5.0以上，JVM会根据系统配置自行设置，所以无需再设置此值。
+-XX:+UseParNewGC: 设置年轻代为并行收集。可与CMS收集同时使用。JDK5.0以上，JVM会根据系统配置自行设置，所以无需再设置此值。
 
 
 
 
 
->       java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection
+java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection
 
 
 
->       -XX:CMSFullGCsBeforeCompaction: 由于并发收集器不对内存空间进行压缩、整理，所以运行一段时间以后会产生"碎片"，使得运行效率降低。此值设置运行多少次GC以后对内存空间进行压缩、整理。
+-XX:CMSFullGCsBeforeCompaction: 由于并发收集器不对内存空间进行压缩、整理，所以运行一段时间以后会产生"碎片"，使得运行效率降低。此值设置运行多少次GC以后对内存空间进行压缩、整理。
 
 
 
->       -XX:+UseCMSCompactAtFullCollection: 打开对年老代的压缩。可能会影响性能，但是可以消除碎片
+-XX:+UseCMSCompactAtFullCollection: 打开对年老代的压缩。可能会影响性能，但是可以消除碎片
 
 
 
 
->     辅助信息
+辅助信息
 
 
 
->     JVM提供了大量命令行参数，打印信息，供调试使用。主要有以下一些: 
+JVM提供了大量命令行参数，打印信息，供调试使用。主要有以下一些: 
 
 
 
->     -XX:+PrintGC: 输出形式: [GC 118250K->113543K(130112K), 0.0094143 secs] [Full GC 121376K->10414K(130112K), 0.0650971 secs]
+-XX:+PrintGC: 输出形式: [GC 118250K->113543K(130112K), 0.0094143 secs] [Full GC 121376K->10414K(130112K), 0.0650971 secs]
 
 
 
->     -XX:+PrintGCDetails: 输出形式: [GC [DefNew: 8614K->781K(9088K), 0.0123035 secs] 118250K->113543K(130112K), 0.0124633 secs] [GC [DefNew: 8614K->8614K(9088K), 0.0000665 secs][Tenured: 112761K->10414K(121024K), 0.0433488 secs] 121376K->10414K(130112K), 0.0436268 secs]
+-XX:+PrintGCDetails: 输出形式: [GC [DefNew: 8614K->781K(9088K), 0.0123035 secs] 118250K->113543K(130112K), 0.0124633 secs] [GC [DefNew: 8614K->8614K(9088K), 0.0000665 secs][Tenured: 112761K->10414K(121024K), 0.0433488 secs] 121376K->10414K(130112K), 0.0436268 secs]
 
 
 
->     -XX:+PrintGCTimeStamps -XX:+PrintGC: PrintGCTimeStamps可与上面两个混合使用
+-XX:+PrintGCTimeStamps -XX:+PrintGC: PrintGCTimeStamps可与上面两个混合使用
  输出形式: 11.851: [GC 98328K->93620K(130112K), 0.0082960 secs]
 
 
 
->     -XX:+PrintGCApplicationConcurrentTime: 打印每次垃圾回收前，程序未中断的执行时间。可与上面混合使用。输出形式: Application time: 0.5291524 seconds
+-XX:+PrintGCApplicationConcurrentTime: 打印每次垃圾回收前，程序未中断的执行时间。可与上面混合使用。输出形式: Application time: 0.5291524 seconds
 
 
 
->     -XX:+PrintGCApplicationStoppedTime: 打印垃圾回收期间程序暂停的时间。可与上面混合使用。输出形式: Total time for which application threads were stopped: 0.0468229 seconds
+-XX:+PrintGCApplicationStoppedTime: 打印垃圾回收期间程序暂停的时间。可与上面混合使用。输出形式: Total time for which application threads were stopped: 0.0468229 seconds
 
 
 
->     -XX:PrintHeapAtGC: 打印GC前后的详细堆栈信息。输出形式: 
+-XX:PrintHeapAtGC: 打印GC前后的详细堆栈信息。输出形式: 
 
 
 
->     34.702: [GC {Heap before gc invocations=7:
+34.702: [GC {Heap before gc invocations=7:
 
 
 
->     def new generation   total 55296K, used 52568K [0x1ebd0000, 0x227d0000, 0x227d0000)
+def new generation   total 55296K, used 52568K [0x1ebd0000, 0x227d0000, 0x227d0000)
 
 
 
->     eden space 49152K,  99% used [0x1ebd0000, 0x21bce430, 0x21bd0000)
+eden space 49152K,  99% used [0x1ebd0000, 0x21bce430, 0x21bd0000)
 
 
 
->     from space 6144K,  55% used [0x221d0000, 0x22527e10, 0x227d0000)
+from space 6144K,  55% used [0x221d0000, 0x22527e10, 0x227d0000)
 
 
 
->     to   space 6144K,   0% used [0x21bd0000, 0x21bd0000, 0x221d0000)
+to   space 6144K,   0% used [0x21bd0000, 0x21bd0000, 0x221d0000)
 
 
 
->     tenured generation   total 69632K, used 2696K [0x227d0000, 0x26bd0000, 0x26bd0000)
+tenured generation   total 69632K, used 2696K [0x227d0000, 0x26bd0000, 0x26bd0000)
 
 
 
->     the space 69632K,   3% used [0x227d0000, 0x22a720f8, 0x22a72200, 0x26bd0000)
+the space 69632K,   3% used [0x227d0000, 0x22a720f8, 0x22a72200, 0x26bd0000)
 
 
 
->     compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
+compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
 
 
 
->     the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
+the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
 
 
 
->     ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
+ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
 
 
 
->     rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
+rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
 
 
 
->     34.735: [DefNew: 52568K->3433K(55296K), 0.0072126 secs] 55264K->6615K(124928K)Heap after gc invocations=8:
+34.735: [DefNew: 52568K->3433K(55296K), 0.0072126 secs] 55264K->6615K(124928K)Heap after gc invocations=8:
 
 
 
->     def new generation   total 55296K, used 3433K [0x1ebd0000, 0x227d0000, 0x227d0000)
+def new generation   total 55296K, used 3433K [0x1ebd0000, 0x227d0000, 0x227d0000)
 
 
 
->     eden space 49152K,   0% used [0x1ebd0000, 0x1ebd0000, 0x21bd0000)
+eden space 49152K,   0% used [0x1ebd0000, 0x1ebd0000, 0x21bd0000)
 
 
 
->     from space 6144K,  55% used [0x21bd0000, 0x21f2a5e8, 0x221d0000)
+from space 6144K,  55% used [0x21bd0000, 0x21f2a5e8, 0x221d0000)
 
 
 
->     to   space 6144K,   0% used [0x221d0000, 0x221d0000, 0x227d0000)
+to   space 6144K,   0% used [0x221d0000, 0x221d0000, 0x227d0000)
 
 
 
->     tenured generation   total 69632K, used 3182K [0x227d0000, 0x26bd0000, 0x26bd0000)
+tenured generation   total 69632K, used 3182K [0x227d0000, 0x26bd0000, 0x26bd0000)
 
 
 
->     the space 69632K,   4% used [0x227d0000, 0x22aeb958, 0x22aeba00, 0x26bd0000)
+the space 69632K,   4% used [0x227d0000, 0x22aeb958, 0x22aeba00, 0x26bd0000)
 
 
 
->     compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
+compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
 
 
 
->     the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
+the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
 
 
 
->     ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
+ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
 
 
 
->     rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
+rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
 
 
 
->     }
+}
 
 
 
->     , 0.0757599 secs]
+, 0.0757599 secs]
 
 
 
->     -Xloggc:filename:与上面几个配合使用，把相关日志信息记录到文件以便分析。
+-Xloggc:filename:与上面几个配合使用，把相关日志信息记录到文件以便分析。
 
 
 
->     常见配置汇总
+常见配置汇总
 
 
 
->     堆设置
+堆设置
 
 
 
->     -Xms:初始堆大小
+-Xms:初始堆大小
 
 
 
->     -Xmx:最大堆大小
+-Xmx:最大堆大小
 
 
 
->     -XX:NewSize=n:设置年轻代大小
+-XX:NewSize=n:设置年轻代大小
 
 
 
->     -XX:NewRatio=n:设置年轻代和年老代的比值。如:为3，表示年轻代与年老代比值为1: 3，年轻代占整个年轻代年老代和的1/4
+-XX:NewRatio=n:设置年轻代和年老代的比值。如:为3，表示年轻代与年老代比值为1: 3，年轻代占整个年轻代年老代和的1/4
 
 
 
->     -XX:SurvivorRatio=n:年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如: 3，表示Eden: Survivor=3: 2，一个Survivor区占整个年轻代的1/5
+-XX:SurvivorRatio=n:年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如: 3，表示Eden: Survivor=3: 2，一个Survivor区占整个年轻代的1/5
 
 
 
->     -XX:MaxPermSize=n:设置持久代大小
+-XX:MaxPermSize=n:设置持久代大小
 
 
 
->     收集器设置
+收集器设置
 
 
 
->     -XX:+UseSerialGC:设置串行收集器
+-XX:+UseSerialGC:设置串行收集器
 
 
 
->     -XX:+UseParallelGC:设置并行收集器
+-XX:+UseParallelGC:设置并行收集器
 
 
 
->     -XX:+UseParalledlOldGC:设置并行年老代收集器
+-XX:+UseParalledlOldGC:设置并行年老代收集器
 
 
 
->     -XX:+UseConcMarkSweepGC:设置并发收集器
+-XX:+UseConcMarkSweepGC:设置并发收集器
 
 
 
->     垃圾回收统计信息
+垃圾回收统计信息
 
 
 
->     -XX:+PrintGC
+-XX:+PrintGC
 
 
 
->       -XX:+PrintGCDetails
+-XX:+PrintGCDetails
 
 
 
->       -XX:+PrintGCTimeStamps
+-XX:+PrintGCTimeStamps
 
 
 
->       -Xloggc:filename
+-Xloggc:filename
 
 
 
->     并行收集器设置
+并行收集器设置
 
 
 
->     -XX:ParallelGCThreads=n:设置并行收集器收集时使用的CPU数。并行收集线程数。
+-XX:ParallelGCThreads=n:设置并行收集器收集时使用的CPU数。并行收集线程数。
 
 
 
->     -XX:MaxGCPauseMillis=n:设置并行收集最大暂停时间
+-XX:MaxGCPauseMillis=n:设置并行收集最大暂停时间
 
 
 
->     -XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比。公式为1/(1+n)
+-XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比。公式为1/(1+n)
 
 
 
->     并发收集器设置
+并发收集器设置
 
 
 
->     -XX:+CMSIncrementalMode:设置为增量模式。适用于单CPU情况。
+-XX:+CMSIncrementalMode:设置为增量模式。适用于单CPU情况。
 
 
 
->     -XX:ParallelGCThreads=n:设置并发收集器年轻代收集方式为并行收集时，使用的CPU数。并行收集线程数。
+-XX:ParallelGCThreads=n:设置并发收集器年轻代收集方式为并行收集时，使用的CPU数。并行收集线程数。
 
 
 
->     调优总结
+调优总结
 
 
 
->     年轻代大小选择
+年轻代大小选择
 
 
 
->     响应时间优先的应用: 尽可能设大，直到接近系统的最低响应时间限制 (根据实际情况选择) 。在此种情况下，年轻代收集发生的频率也是最小的。同时，减少到达年老代的对象。
+响应时间优先的应用: 尽可能设大，直到接近系统的最低响应时间限制 (根据实际情况选择) 。在此种情况下，年轻代收集发生的频率也是最小的。同时，减少到达年老代的对象。
 
 
 
->     吞吐量优先的应用: 尽可能的设置大，可能到达Gbit的程度。因为对响应时间没有要求，垃圾收集可以并行进行，一般适合8CPU以上的应用。
+吞吐量优先的应用: 尽可能的设置大，可能到达Gbit的程度。因为对响应时间没有要求，垃圾收集可以并行进行，一般适合8CPU以上的应用。
 
 
 
@@ -740,98 +740,96 @@ Java中，栈的大小通过-Xss来设置，当栈中存储数据比较多时，
   
 响应时间优先的应用: 年老代使用并发收集器，所以其大小需要小心设置，一般要考虑并发会话率和会话持续时间等一些参数。如果堆设置小了，可以会造成内存碎片、高回收频率以及应用暂停而使用传统的标记清除方式；如果堆大了，则需要较长的收集时间。最优化的方案，一般需要参考以下数据获得: 
 
+1. 并发垃圾收集信息
 
 
->     1. 并发垃圾收集信息
 
+2. 持久代并发收集次数
 
 
->     2. 持久代并发收集次数
 
+3. 传统GC信息
 
 
->     3. 传统GC信息
 
+4. 花在年轻代和年老代回收上的时间比例
 
 
->     4. 花在年轻代和年老代回收上的时间比例
 
+减少年轻代和年老代花费的时间，一般会提高应用的效率
 
 
->     减少年轻代和年老代花费的时间，一般会提高应用的效率
 
+吞吐量优先的应用
 
 
->     吞吐量优先的应用
 
+一般吞吐量优先的应用都有一个很大的年轻代和一个较小的年老代。原因是，这样可以尽可能回收掉大部分短期对象，减少中期的对象，而年老代尽存放长期存活对象。
 
 
->     一般吞吐量优先的应用都有一个很大的年轻代和一个较小的年老代。原因是，这样可以尽可能回收掉大部分短期对象，减少中期的对象，而年老代尽存放长期存活对象。
 
+较小堆引起的碎片问题
 
 
->     较小堆引起的碎片问题
 
+因为年老代的并发收集器使用标记、清除算法，所以不会对堆进行压缩。当收集器回收时，他会把相邻的空间进行合并，这样可以分配给较大的对象。但是，当堆空间较小时，运行一段时间以后，就会出现"碎片"，如果并发收集器找不到足够的空间，那么并发收集器将会停止，然后使用传统的标记、清除方式进行回收。如果出现"碎片"，可能需要进行如下配置: 
 
 
->     因为年老代的并发收集器使用标记、清除算法，所以不会对堆进行压缩。当收集器回收时，他会把相邻的空间进行合并，这样可以分配给较大的对象。但是，当堆空间较小时，运行一段时间以后，就会出现"碎片"，如果并发收集器找不到足够的空间，那么并发收集器将会停止，然后使用传统的标记、清除方式进行回收。如果出现"碎片"，可能需要进行如下配置: 
 
+1. -XX:+UseCMSCompactAtFullCollection: 使用并发收集器时，开启对年老代的压缩。
 
 
->     1. -XX:+UseCMSCompactAtFullCollection: 使用并发收集器时，开启对年老代的压缩。
 
+2. -XX:CMSFullGCsBeforeCompaction=0: 上面配置开启的情况下，这里设置多少次Full GC后，对年老代进行压缩
 
 
->     2. -XX:CMSFullGCsBeforeCompaction=0: 上面配置开启的情况下，这里设置多少次Full GC后，对年老代进行压缩
 
 
+JVM调优总结 (九) -新一代的垃圾回收算法
 
 
->       JVM调优总结 (九) -新一代的垃圾回收算法
 
+博客分类: 
 
 
->       博客分类: 
 
 
+java路上
 
 
->         java路上
 
 
+算法JVM多线程UP设计模式
 
 
->       算法JVM多线程UP设计模式
 
 
 
+垃圾回收的瓶颈
 
 
->       垃圾回收的瓶颈
 
+传统分代垃圾回收方式，已经在一定程度上把垃圾回收给应用带来的负担降到了最小，把应用的吞吐量推到了一个极限。但是他无法解决的一个问题，就是Full GC所带来的应用暂停。在一些对实时性要求很高的应用场景下，GC暂停所带来的请求堆积和请求失败是无法接受的。这类应用可能要求请求的返回时间在几百甚至几十毫秒以内，如果分代垃圾回收方式要达到这个指标，只能把最大堆的设置限制在一个相对较小范围内，但是这样有限制了应用本身的处理能力，同样也是不可接收的。
 
 
->       传统分代垃圾回收方式，已经在一定程度上把垃圾回收给应用带来的负担降到了最小，把应用的吞吐量推到了一个极限。但是他无法解决的一个问题，就是Full GC所带来的应用暂停。在一些对实时性要求很高的应用场景下，GC暂停所带来的请求堆积和请求失败是无法接受的。这类应用可能要求请求的返回时间在几百甚至几十毫秒以内，如果分代垃圾回收方式要达到这个指标，只能把最大堆的设置限制在一个相对较小范围内，但是这样有限制了应用本身的处理能力，同样也是不可接收的。
 
+分代垃圾回收方式确实也考虑了实时性要求而提供了并发回收器，支持最大暂停时间的设置，但是受限于分代垃圾回收的内存划分模型，其效果也不是很理想。
 
 
->       分代垃圾回收方式确实也考虑了实时性要求而提供了并发回收器，支持最大暂停时间的设置，但是受限于分代垃圾回收的内存划分模型，其效果也不是很理想。
 
+为了达到实时性的要求 (其实Java语言最初的设计也是在嵌入式系统上的) ，一种新垃圾回收方式呼之欲出，它既支持短的暂停时间，又支持大的内存空间分配。可以很好的解决传统分代方式带来的问题。
 
 
->       为了达到实时性的要求 (其实Java语言最初的设计也是在嵌入式系统上的) ，一种新垃圾回收方式呼之欲出，它既支持短的暂停时间，又支持大的内存空间分配。可以很好的解决传统分代方式带来的问题。
 
+增量收集的演进
 
 
->       增量收集的演进
 
+增量收集的方式在理论上可以解决传统分代方式带来的问题。增量收集把对堆空间划分成一系列内存块，使用时，先使用其中一部分 (不会全部用完) ，垃圾收集时把之前用掉的部分中的存活对象再放到后面没有用的空间中，这样可以实现一直边使用边收集的效果，避免了传统分代方式整个使用完了再暂停的回收的情况。
 
 
->       增量收集的方式在理论上可以解决传统分代方式带来的问题。增量收集把对堆空间划分成一系列内存块，使用时，先使用其中一部分 (不会全部用完) ，垃圾收集时把之前用掉的部分中的存活对象再放到后面没有用的空间中，这样可以实现一直边使用边收集的效果，避免了传统分代方式整个使用完了再暂停的回收的情况。
 
-
-
->       当然，传统分代收集方式也提供了并发收集，但是他有一个很致命的地方，就是把整个堆做为一个内存块，这样一方面会造成碎片 (无法压缩) ，另一方面他的每次收集都是对整个堆的收集，无法进行选择，在暂停时间的控制上还是很弱。而增量方式，通过内存空间的分块，恰恰可以解决上面问题。
+当然，传统分代收集方式也提供了并发收集，但是他有一个很致命的地方，就是把整个堆做为一个内存块，这样一方面会造成碎片 (无法压缩) ，另一方面他的每次收集都是对整个堆的收集，无法进行选择，在暂停时间的控制上还是很弱。而增量方式，通过内存空间的分块，恰恰可以解决上面问题。
 
 
 
@@ -870,325 +868,325 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 
 
 
->       回收步骤: 
+回收步骤: 
 
 
 
->       初始标记 (Initial Marking) 
+初始标记 (Initial Marking) 
 
 
 
->       G1对于每个region都保存了两个标识用的bitmap，一个为previous marking bitmap，一个为next marking bitmap，bitmap中包含了一个bit的地址信息来指向对象的起始点。
+G1对于每个region都保存了两个标识用的bitmap，一个为previous marking bitmap，一个为next marking bitmap，bitmap中包含了一个bit的地址信息来指向对象的起始点。
 
 
 
->       开始Initial Marking之前，首先并发的清空next marking bitmap，然后停止所有应用线程，并扫描标识出每个region中root可直接访问到的对象，将region中top的值放入next top at mark start (TAMS) 中，之后恢复所有应用线程。
+开始Initial Marking之前，首先并发的清空next marking bitmap，然后停止所有应用线程，并扫描标识出每个region中root可直接访问到的对象，将region中top的值放入next top at mark start (TAMS) 中，之后恢复所有应用线程。
 
 
 
->       触发这个步骤执行的条件为: 
+触发这个步骤执行的条件为: 
 
 
 
 
->             G1定义了一个JVM Heap大小的百分比的阀值，称为h，另外还有一个H，H的值为(1-h)*Heap Size，目前这个h的值是固定的，后续G1也许会将其改为动态的，根据jvm的运行情况来动态的调整，在分代方式下，G1还定义了一个u以及soft limit，soft limit的值为H-u*Heap Size，当Heap中使用的内存超过了soft limit值时，就会在一次clean up执行完毕后在应用允许的GC暂停时间范围内尽快的执行此步骤；
+G1定义了一个JVM Heap大小的百分比的阀值，称为h，另外还有一个H，H的值为(1-h)*Heap Size，目前这个h的值是固定的，后续G1也许会将其改为动态的，根据jvm的运行情况来动态的调整，在分代方式下，G1还定义了一个u以及soft limit，soft limit的值为H-u*Heap Size，当Heap中使用的内存超过了soft limit值时，就会在一次clean up执行完毕后在应用允许的GC暂停时间范围内尽快的执行此步骤；
 
 
 
->         在pure方式下，G1将marking与clean up组成一个环，以便clean up能充分的使用marking的信息，当clean up开始回收时，首先回收能够带来最多内存空间的regions，当经过多次的clean up，回收到没多少空间的regions时，G1重新初始化一个新的marking与clean up构成的环。
+在pure方式下，G1将marking与clean up组成一个环，以便clean up能充分的使用marking的信息，当clean up开始回收时，首先回收能够带来最多内存空间的regions，当经过多次的clean up，回收到没多少空间的regions时，G1重新初始化一个新的marking与clean up构成的环。
 
 
 
 
->       并发标记 (Concurrent Marking) 
+并发标记 (Concurrent Marking) 
 
 
 
->       按照之前Initial Marking扫描到的对象进行遍历，以识别这些对象的下层对象的活跃状态，对于在此期间应用线程并发修改的对象的以来关系则记录到remembered set logs中，新创建的对象则放入比top值更高的地址区间中，这些新创建的对象默认状态即为活跃的，同时修改top值。
+按照之前Initial Marking扫描到的对象进行遍历，以识别这些对象的下层对象的活跃状态，对于在此期间应用线程并发修改的对象的以来关系则记录到remembered set logs中，新创建的对象则放入比top值更高的地址区间中，这些新创建的对象默认状态即为活跃的，同时修改top值。
 
 
 
->       最终标记暂停 (Final Marking Pause) 
+最终标记暂停 (Final Marking Pause) 
 
 
 
->       当应用线程的remembered set logs未满时，是不会放入filled RS buffers中的，在这样的情况下，这些remebered set logs中记录的card的修改就会被更新了，因此需要这一步，这一步要做的就是把应用线程中存在的remembered set logs的内容进行处理，并相应的修改remembered sets，这一步需要暂停应用，并行的运行。
+当应用线程的remembered set logs未满时，是不会放入filled RS buffers中的，在这样的情况下，这些remebered set logs中记录的card的修改就会被更新了，因此需要这一步，这一步要做的就是把应用线程中存在的remembered set logs的内容进行处理，并相应的修改remembered sets，这一步需要暂停应用，并行的运行。
 
 
 
->       存活对象计算及清除 (Live Data Counting and Cleanup) 
+存活对象计算及清除 (Live Data Counting and Cleanup) 
 
 
 
->       值得注意的是，在G1中，并不是说Final Marking Pause执行完了，就肯定执行Cleanup这步的，由于这步需要暂停应用，G1为了能够达到准实时的要求，需要根据用户指定的最大的GC造成的暂停时间来合理的规划什么时候执行Cleanup，另外还有几种情况也是会触发这个步骤的执行的: 
+值得注意的是，在G1中，并不是说Final Marking Pause执行完了，就肯定执行Cleanup这步的，由于这步需要暂停应用，G1为了能够达到准实时的要求，需要根据用户指定的最大的GC造成的暂停时间来合理的规划什么时候执行Cleanup，另外还有几种情况也是会触发这个步骤的执行的: 
 
 
 
 
->             G1采用的是复制方法来进行收集，必须保证每次的"to space"的空间都是够的，因此G1采取的策略是当已经使用的内存空间达到了H时，就执行Cleanup这个步骤；
+G1采用的是复制方法来进行收集，必须保证每次的"to space"的空间都是够的，因此G1采取的策略是当已经使用的内存空间达到了H时，就执行Cleanup这个步骤；
 
 
 
->         对于full-young和partially-young的分代模式的G1而言，则还有情况会触发Cleanup的执行，full-young模式下，G1根据应用可接受的暂停时间、回收young regions需要消耗的时间来估算出一个yound regions的数量值，当JVM中分配对象的young regions的数量达到此值时，Cleanup就会执行；partially-young模式下，则会尽量频繁的在应用可接受的暂停时间范围内执行Cleanup，并最大限度的去执行non-young regions的Cleanup。
+对于full-young和partially-young的分代模式的G1而言，则还有情况会触发Cleanup的执行，full-young模式下，G1根据应用可接受的暂停时间、回收young regions需要消耗的时间来估算出一个yound regions的数量值，当JVM中分配对象的young regions的数量达到此值时，Cleanup就会执行；partially-young模式下，则会尽量频繁的在应用可接受的暂停时间范围内执行Cleanup，并最大限度的去执行non-young regions的Cleanup。
 
 
 
 
->       展望
+展望
 
 
 
->       以后JVM的调优或许跟多需要针对G1算法进行调优了。
+以后JVM的调优或许跟多需要针对G1算法进行调优了。
 
 
 
->       JVM调优工具
+JVM调优工具
 
 
 
->       Jconsole，jProfile，VisualVM
+Jconsole，jProfile，VisualVM
 
 
 
->       Jconsole : jdk自带，功能简单，但是可以在系统有一定负荷的情况下使用。对垃圾回收算法有很详细的跟踪。详细说明参考这里
+Jconsole : jdk自带，功能简单，但是可以在系统有一定负荷的情况下使用。对垃圾回收算法有很详细的跟踪。详细说明参考这里
 
 
 
->       JProfiler: 商业软件，需要付费。功能强大。详细说明参考这里
+JProfiler: 商业软件，需要付费。功能强大。详细说明参考这里
 
 
 
->       VisualVM: JDK自带，功能强大，与JProfiler类似。推荐。
+VisualVM: JDK自带，功能强大，与JProfiler类似。推荐。
 
 
 
->       如何调优
+如何调优
 
 
 
->       观察内存释放情况、集合类检查、对象树
+观察内存释放情况、集合类检查、对象树
 
 
 
->       上面这些调优工具都提供了强大的功能，但是总的来说一般分为以下几类功能
+上面这些调优工具都提供了强大的功能，但是总的来说一般分为以下几类功能
 
 
 
->       堆信息查看
+堆信息查看
 
 
 
->       <img src="http://dl.iteye.com/upload/picture/pic/51401/7b7ece1a-1596-3240-a37d-c3a7d06e2c01.png" alt="" width="411" height="323" />
+<img src="http://dl.iteye.com/upload/picture/pic/51401/7b7ece1a-1596-3240-a37d-c3a7d06e2c01.png" alt="" width="411" height="323" />
 
 
 
 
->         可查看堆空间大小分配 (年轻代、年老代、持久代分配) 
+可查看堆空间大小分配 (年轻代、年老代、持久代分配) 
 
 
 
->         提供即时的垃圾回收功能
+提供即时的垃圾回收功能
 
 
 
->         垃圾监控 (长时间监控回收情况) 
+垃圾监控 (长时间监控回收情况) 
 
 
 
 
->       <img src="http://dl.iteye.com/upload/picture/pic/51403/48059c43-43ff-3d91-8699-78e6ea8af8a6.png" alt="" width="617" height="244" />
+<img src="http://dl.iteye.com/upload/picture/pic/51403/48059c43-43ff-3d91-8699-78e6ea8af8a6.png" alt="" width="617" height="244" />
 
 
 
 
->         查看堆内类、对象信息查看: 数量、类型等
+查看堆内类、对象信息查看: 数量、类型等
 
 
 
 
->       <img src="http://dl.iteye.com/upload/picture/pic/51405/dc26b52b-62d5-320d-a627-6a88e6b57d8f.png" alt="" width="428" height="343" />
+<img src="http://dl.iteye.com/upload/picture/pic/51405/dc26b52b-62d5-320d-a627-6a88e6b57d8f.png" alt="" width="428" height="343" />
 
 
 
 
->         对象引用情况查看
+对象引用情况查看
 
 
 
 
->       有了堆信息查看方面的功能，我们一般可以顺利解决以下问题: 
+有了堆信息查看方面的功能，我们一般可以顺利解决以下问题: 
 
 
 
->       -年老代年轻代大小划分是否合理
+-年老代年轻代大小划分是否合理
 
 
 
->       -内存泄漏
+-内存泄漏
 
 
 
->       -垃圾回收算法设置是否合理
+-垃圾回收算法设置是否合理
 
 
 
->       线程监控
+线程监控
 
 
 
->       <img src="http://dl.iteye.com/upload/picture/pic/51407/4e7705f6-75f6-3549-8976-dce68396bbc8.png" alt="" width="592" height="437" />
+<img src="http://dl.iteye.com/upload/picture/pic/51407/4e7705f6-75f6-3549-8976-dce68396bbc8.png" alt="" width="592" height="437" />
 
 
 
 
->         线程信息监控: 系统线程数量。
+线程信息监控: 系统线程数量。
 
 
 
->         线程状态监控: 各个线程都处在什么样的状态下
+线程状态监控: 各个线程都处在什么样的状态下
 
 
 
 
->       <img src="http://dl.iteye.com/upload/picture/pic/51409/c9486ed8-90b4-3a46-96f3-7aaa97ace11f.png" alt="" width="491" height="434" />
+<img src="http://dl.iteye.com/upload/picture/pic/51409/c9486ed8-90b4-3a46-96f3-7aaa97ace11f.png" alt="" width="491" height="434" />
 
 
 
 
->         Dump线程详细信息: 查看线程内部运行情况
+Dump线程详细信息: 查看线程内部运行情况
 
 
 
->         死锁检查
+死锁检查
 
 
 
 
->       热点分析
+热点分析
 
 
 
->       <img src="http://dl.iteye.com/upload/picture/pic/51413/ece5e1f6-d7a6-3aa6-96d0-5f9d43f69808.png" alt="" width="618" height="212" />
+<img src="http://dl.iteye.com/upload/picture/pic/51413/ece5e1f6-d7a6-3aa6-96d0-5f9d43f69808.png" alt="" width="618" height="212" />
 
 
 
->           CPU热点: 检查系统哪些方法占用的大量CPU时间
+CPU热点: 检查系统哪些方法占用的大量CPU时间
 
 
 
->           内存热点: 检查哪些对象在系统中数量最大 (一定时间内存活对象和销毁对象一起统计) 
+内存热点: 检查哪些对象在系统中数量最大 (一定时间内存活对象和销毁对象一起统计) 
 
 
 
->       这两个东西对于系统优化很有帮助。我们可以根据找到的热点，有针对性的进行系统的瓶颈查找和进行系统优化，而不是漫无目的的进行所有代码的优化。
+这两个东西对于系统优化很有帮助。我们可以根据找到的热点，有针对性的进行系统的瓶颈查找和进行系统优化，而不是漫无目的的进行所有代码的优化。
 
 
 
->       快照
+快照
 
 
 
->       快照是系统运行到某一时刻的一个定格。在我们进行调优的时候，不可能用眼睛去跟踪所有系统变化，依赖快照功能，我们就可以进行系统两个不同运行时刻，对象 (或类、线程等) 的不同，以便快速找到问题
+快照是系统运行到某一时刻的一个定格。在我们进行调优的时候，不可能用眼睛去跟踪所有系统变化，依赖快照功能，我们就可以进行系统两个不同运行时刻，对象 (或类、线程等) 的不同，以便快速找到问题
 
 
 
->       举例说，我要检查系统进行垃圾回收以后，是否还有该收回的对象被遗漏下来的了。那么，我可以在进行垃圾回收前后，分别进行一次堆情况的快照，然后对比两次快照的对象情况。
+举例说，我要检查系统进行垃圾回收以后，是否还有该收回的对象被遗漏下来的了。那么，我可以在进行垃圾回收前后，分别进行一次堆情况的快照，然后对比两次快照的对象情况。
 
 
 
->       内存泄漏检查
+内存泄漏检查
 
 
 
->       内存泄漏是比较常见的问题，而且解决方法也比较通用，这里可以重点说一下，而线程、热点方面的问题则是具体问题具体分析了。
+内存泄漏是比较常见的问题，而且解决方法也比较通用，这里可以重点说一下，而线程、热点方面的问题则是具体问题具体分析了。
 
 
 
->       内存泄漏一般可以理解为系统资源 (各方面的资源，堆、栈、线程等) 在错误使用的情况下，导致使用完毕的资源无法回收 (或没有回收) ，从而导致新的资源分配请求无法完成，引起系统错误。
+内存泄漏一般可以理解为系统资源 (各方面的资源，堆、栈、线程等) 在错误使用的情况下，导致使用完毕的资源无法回收 (或没有回收) ，从而导致新的资源分配请求无法完成，引起系统错误。
 
 
 
->       内存泄漏对系统危害比较大，因为他可以直接导致系统的崩溃。
+内存泄漏对系统危害比较大，因为他可以直接导致系统的崩溃。
 
 
 
->       需要区别一下，内存泄漏和系统超负荷两者是有区别的，虽然可能导致的最终结果是一样的。内存泄漏是用完的资源没有回收引起错误，而系统超负荷则是系统确实没有那么多资源可以分配了 (其他的资源都在使用) 。
+需要区别一下，内存泄漏和系统超负荷两者是有区别的，虽然可能导致的最终结果是一样的。内存泄漏是用完的资源没有回收引起错误，而系统超负荷则是系统确实没有那么多资源可以分配了 (其他的资源都在使用) 。
 
 
 
->       年老代堆空间被占满
+年老代堆空间被占满
 
 
 
->       异常:  java.lang.OutOfMemoryError: Java heap space
+异常:  java.lang.OutOfMemoryError: Java heap space
 
 
 
->       说明: 
+说明: 
 
 
 
->       <img src="http://dl.iteye.com/upload/picture/pic/51415/49464252-97ea-3ce2-b433-d9088bafb70a.png" alt="" width="574" height="278" />
+<img src="http://dl.iteye.com/upload/picture/pic/51415/49464252-97ea-3ce2-b433-d9088bafb70a.png" alt="" width="574" height="278" />
 
 
 
->       这是最典型的内存泄漏方式，简单说就是所有堆空间都被无法回收的垃圾对象占满，虚拟机无法再在分配新空间。
+这是最典型的内存泄漏方式，简单说就是所有堆空间都被无法回收的垃圾对象占满，虚拟机无法再在分配新空间。
 
 
 
->       如上图所示，这是非常典型的内存泄漏的垃圾回收情况图。所有峰值部分都是一次垃圾回收点，所有谷底部分表示是一次垃圾回收后剩余的内存。连接所有谷底的点，可以发现一条由底到高的线，这说明，随时间的推移，系统的堆空间被不断占满，最终会占满整个堆空间。因此可以初步认为系统内部可能有内存泄漏。 (上面的图仅供示例，在实际情况下收集数据的时间需要更长，比如几个小时或者几天) 
+如上图所示，这是非常典型的内存泄漏的垃圾回收情况图。所有峰值部分都是一次垃圾回收点，所有谷底部分表示是一次垃圾回收后剩余的内存。连接所有谷底的点，可以发现一条由底到高的线，这说明，随时间的推移，系统的堆空间被不断占满，最终会占满整个堆空间。因此可以初步认为系统内部可能有内存泄漏。 (上面的图仅供示例，在实际情况下收集数据的时间需要更长，比如几个小时或者几天) 
 
 
 
->       解决: 
+解决: 
 
 
 
->       这种方式解决起来也比较容易，一般就是根据垃圾回收前后情况对比，同时根据对象引用情况 (常见的集合对象引用) 分析，基本都可以找到泄漏点。
+这种方式解决起来也比较容易，一般就是根据垃圾回收前后情况对比，同时根据对象引用情况 (常见的集合对象引用) 分析，基本都可以找到泄漏点。
 
 
 
->       持久代被占满
+持久代被占满
 
 
 
->       异常: java.lang.OutOfMemoryError: PermGen space
+异常: java.lang.OutOfMemoryError: PermGen space
 
 
 
->       说明: 
+说明: 
 
 
 
->       Perm空间被占满。无法为新的class分配存储空间而引发的异常。这个异常以前是没有的，但是在Java反射大量使用的今天这个异常比较常见了。主要原因就是大量动态反射生成的类不断被加载，最终导致Perm区被占满。
+Perm空间被占满。无法为新的class分配存储空间而引发的异常。这个异常以前是没有的，但是在Java反射大量使用的今天这个异常比较常见了。主要原因就是大量动态反射生成的类不断被加载，最终导致Perm区被占满。
 
 
 
->       更可怕的是，不同的classLoader即便使用了相同的类，但是都会对其进行加载，相当于同一个东西，如果有N个classLoader那么他将会被加载N次。因此，某些情况下，这个问题基本视为无解。当然，存在大量classLoader和大量反射类的情况其实也不多。
+更可怕的是，不同的classLoader即便使用了相同的类，但是都会对其进行加载，相当于同一个东西，如果有N个classLoader那么他将会被加载N次。因此，某些情况下，这个问题基本视为无解。当然，存在大量classLoader和大量反射类的情况其实也不多。
 
 
 
->       解决: 
+解决: 
 
 
 
->       1. -XX:MaxPermSize=16m
+1. -XX:MaxPermSize=16m
 
 
 
->       2. 换用JDK。比如JRocket。
+2. 换用JDK。比如JRocket。
 
 
 
->       堆栈溢出
+堆栈溢出
 
 
 
->       异常: java.lang.StackOverflowError
+异常: java.lang.StackOverflowError
 
 
 
->       说明: 这个就不多说了，一般就是递归没返回，或者循环调用造成
+说明: 这个就不多说了，一般就是递归没返回，或者循环调用造成
 
 
 
@@ -1203,173 +1201,173 @@ G1可谓博采众家之长，力求到达一种完美。他吸取了增量收集
 
 
 
->       说明: 
+说明: 
 
 
 
->       这个异常是由于操作系统没有足够的资源来产生这个线程造成的。系统创建线程时，除了要在Java堆中分配内存外，操作系统本身也需要分配资源来创建线程。因此，当线程数量大到一定程度以后，堆中或许还有空间，但是操作系统分配不出资源来了，就出现这个异常了。
+这个异常是由于操作系统没有足够的资源来产生这个线程造成的。系统创建线程时，除了要在Java堆中分配内存外，操作系统本身也需要分配资源来创建线程。因此，当线程数量大到一定程度以后，堆中或许还有空间，但是操作系统分配不出资源来了，就出现这个异常了。
 
 
 
->       分配给Java虚拟机的内存愈多，系统剩余的资源就越少，因此，当系统内存固定时，分配给Java虚拟机的内存越多，那么，系统总共能够产生的线程也就越少，两者成反比的关系。同时，可以通过修改-Xss来减少分配给单个线程的空间，也可以增加系统总共内生产的线程数。
+分配给Java虚拟机的内存愈多，系统剩余的资源就越少，因此，当系统内存固定时，分配给Java虚拟机的内存越多，那么，系统总共能够产生的线程也就越少，两者成反比的关系。同时，可以通过修改-Xss来减少分配给单个线程的空间，也可以增加系统总共内生产的线程数。
 
 
 
->       解决: 
+解决: 
 
 
 
->       1. 重新设计系统减少线程数量。
+1. 重新设计系统减少线程数量。
 
 
 
->       2. 线程数量不能减少的情况下，通过-Xss减小单个线程大小。以便能生产更多的线程。
+2. 线程数量不能减少的情况下，通过-Xss减小单个线程大小。以便能生产更多的线程。
 
 
 
->       垃圾回收的悖论
+垃圾回收的悖论
 
 
 
->       所谓"成也萧何败萧何"。Java的垃圾回收确实带来了很多好处，为开发带来了便利。但是在一些高性能、高并发的情况下，垃圾回收确成为了制约Java应用的瓶颈。目前JDK的垃圾回收算法，始终无法解决垃圾回收时的暂停问题，因为这个暂停严重影响了程序的响应时间，造成拥塞或堆积。这也是后续JDK增加G1算法的一个重要原因。
+所谓"成也萧何败萧何"。Java的垃圾回收确实带来了很多好处，为开发带来了便利。但是在一些高性能、高并发的情况下，垃圾回收确成为了制约Java应用的瓶颈。目前JDK的垃圾回收算法，始终无法解决垃圾回收时的暂停问题，因为这个暂停严重影响了程序的响应时间，造成拥塞或堆积。这也是后续JDK增加G1算法的一个重要原因。
 
 
 
->       当然，上面是从技术角度出发解决垃圾回收带来的问题，但是从系统设计方面我们就需要问一下了: 
+当然，上面是从技术角度出发解决垃圾回收带来的问题，但是从系统设计方面我们就需要问一下了: 
 
 
 
 
->             我们需要分配如此大的内存空间给应用吗？
+我们需要分配如此大的内存空间给应用吗？
 
 
 
->             我们是否能够通过有效使用内存而不是通过扩大内存的方式来设计我们的系统呢？    
+我们是否能够通过有效使用内存而不是通过扩大内存的方式来设计我们的系统呢？    
 
 
 
->         我们的内存中都放了什么
+我们的内存中都放了什么
 
 
 
->         内存中需要放什么呢？个人认为，内存中需要放的是你的应用需要在不久的将来再次用到到的东西。想想看，如果你在将来不用这些东西，何必放内存呢？放文件、数据库不是更好？这些东西一般包括: 
+内存中需要放什么呢？个人认为，内存中需要放的是你的应用需要在不久的将来再次用到到的东西。想想看，如果你在将来不用这些东西，何必放内存呢？放文件、数据库不是更好？这些东西一般包括: 
 
 
 
 
->           1. 系统运行时业务相关的数据。比如web应用中的session、即时消息的session等。这些数据一般在一个用户访问周期或者一个使用过程中都需要存在。
+1. 系统运行时业务相关的数据。比如web应用中的session、即时消息的session等。这些数据一般在一个用户访问周期或者一个使用过程中都需要存在。
 
 
 
->           2. 缓存。缓存就比较多了，你所要快速访问的都可以放这里面。其实上面的业务数据也可以理解为一种缓存。
+2. 缓存。缓存就比较多了，你所要快速访问的都可以放这里面。其实上面的业务数据也可以理解为一种缓存。
 
 
 
->           3.  线程。
+3.  线程。
 
 
 
 
->         因此，我们是不是可以这么认为，如果我们不把业务数据和缓存放在JVM中，或者把他们独立出来，那么Java应用使用时所需的内存将会大大减少，同时垃圾回收时间也会相应减少。
+因此，我们是不是可以这么认为，如果我们不把业务数据和缓存放在JVM中，或者把他们独立出来，那么Java应用使用时所需的内存将会大大减少，同时垃圾回收时间也会相应减少。
 
 
 
->         我认为这是可能的。
+我认为这是可能的。
 
 
 
->         解决之道
+解决之道
 
 
 
->         数据库、文件系统
+数据库、文件系统
 
 
 
->         把所有数据都放入数据库或者文件系统，这是一种最为简单的方式。在这种方式下，Java应用的内存基本上等于处理一次峰值并发请求所需的内存。数据的获取都在每次请求时从数据库和文件系统中获取。也可以理解为，一次业务访问以后，所有对象都可以进行回收了。
+把所有数据都放入数据库或者文件系统，这是一种最为简单的方式。在这种方式下，Java应用的内存基本上等于处理一次峰值并发请求所需的内存。数据的获取都在每次请求时从数据库和文件系统中获取。也可以理解为，一次业务访问以后，所有对象都可以进行回收了。
 
 
 
->         这是一种内存使用最有效的方式，但是从应用角度来说，这种方式很低效。
+这是一种内存使用最有效的方式，但是从应用角度来说，这种方式很低效。
 
 
 
->         内存-硬盘映射
+内存-硬盘映射
 
->         上面的问题是因为我们使用了文件系统带来了低效。但是如果我们不是读写硬盘，而是写内存的话效率将会提高很多。
->         数据库和文件系统都是实实在在进行了持久化，但是当我们并不需要这样持久化的时候，我们可以做一些变通——把内存当硬盘使。
->         内存-硬盘映射很好很强大，既用了缓存又对Java应用的内存使用又没有影响。Java应用还是Java应用，他只知道读写的还是文件，但是实际上是内存。
->         这种方式兼得的Java应用与缓存两方面的好处。memcached的广泛使用也正是这一类的代表。
->         同一机器部署多个JVM
->         这也是一种很好的方式，可以分为纵拆和横拆。纵拆可以理解为把Java应用划分为不同模块，各个模块使用一个独立的Java进程。而横拆则是同样功能的应用部署多个JVM。
->         通过部署多个JVM，可以把每个JVM的内存控制一个垃圾回收可以忍受的范围内即可。但是这相当于进行了分布式的处理，其额外带来的复杂性也是需要评估的。另外，也有支持分布式的这种JVM可以考虑，不要要钱哦: ) 
->         程序控制的对象生命周期
->         这种方式是理想当中的方式，目前的虚拟机还没有，纯属假设。即: 考虑由编程方式配置哪些对象在垃圾收集过程中可以直接跳过，减少垃圾回收线程遍历标记的时间。
->         这种方式相当于在编程的时候告诉虚拟机某些对象你可以在*时间后在进行收集或者由代码标识可以收集了 (类似C、C++) ，在这之前你即便去遍历他也是没有效果的，他肯定是还在被引用的。
->         这种方式如果JVM可以实现，个人认为将是一个飞跃，Java即有了垃圾回收的优势，又有了C、C++对内存的可控性。
->         线程分配
+上面的问题是因为我们使用了文件系统带来了低效。但是如果我们不是读写硬盘，而是写内存的话效率将会提高很多。
+数据库和文件系统都是实实在在进行了持久化，但是当我们并不需要这样持久化的时候，我们可以做一些变通——把内存当硬盘使。
+内存-硬盘映射很好很强大，既用了缓存又对Java应用的内存使用又没有影响。Java应用还是Java应用，他只知道读写的还是文件，但是实际上是内存。
+这种方式兼得的Java应用与缓存两方面的好处。memcached的广泛使用也正是这一类的代表。
+同一机器部署多个JVM
+这也是一种很好的方式，可以分为纵拆和横拆。纵拆可以理解为把Java应用划分为不同模块，各个模块使用一个独立的Java进程。而横拆则是同样功能的应用部署多个JVM。
+通过部署多个JVM，可以把每个JVM的内存控制一个垃圾回收可以忍受的范围内即可。但是这相当于进行了分布式的处理，其额外带来的复杂性也是需要评估的。另外，也有支持分布式的这种JVM可以考虑，不要要钱哦: ) 
+程序控制的对象生命周期
+这种方式是理想当中的方式，目前的虚拟机还没有，纯属假设。即: 考虑由编程方式配置哪些对象在垃圾收集过程中可以直接跳过，减少垃圾回收线程遍历标记的时间。
+这种方式相当于在编程的时候告诉虚拟机某些对象你可以在*时间后在进行收集或者由代码标识可以收集了 (类似C、C++) ，在这之前你即便去遍历他也是没有效果的，他肯定是还在被引用的。
+这种方式如果JVM可以实现，个人认为将是一个飞跃，Java即有了垃圾回收的优势，又有了C、C++对内存的可控性。
+线程分配
 
 Java的阻塞式的线程模型基本上可以抛弃了，目前成熟的NIO框架也比较多了。阻塞式IO带来的问题是线程数量的线性增长，而NIO则可以转换成为常数线程。因此，对于服务端的应用而言，NIO还是唯一选择。不过，JDK7中为我们带来的AIO是否能让人眼前一亮呢？我们拭目以待。
 
 ### 其他的JDK
->         本文说的都是Sun的JDK，目前常见的JDK还有JRocket和IBM的JDK。其中JRocket在IO方面比Sun的高很多，不过Sun JDK6.0以后提高也很大。而且JRocket在垃圾回收方面，也具有优势，其可设置垃圾回收的最大暂停时间也是很吸引人的。不过，系统Sun的G1实现以后，在这方面会有一个质的飞跃。
->         能整理出上面一些东西，也是因为站在巨人的肩上。下面是一些参考资料，供大家学习，大家有更好的，可以继续完善: ) 
+本文说的都是Sun的JDK，目前常见的JDK还有JRocket和IBM的JDK。其中JRocket在IO方面比Sun的高很多，不过Sun JDK6.0以后提高也很大。而且JRocket在垃圾回收方面，也具有优势，其可设置垃圾回收的最大暂停时间也是很吸引人的。不过，系统Sun的G1实现以后，在这方面会有一个质的飞跃。
+能整理出上面一些东西，也是因为站在巨人的肩上。下面是一些参考资料，供大家学习，大家有更好的，可以继续完善: ) 
 
 
 
->         · Java 理论与实践: 垃圾收集简史
+· Java 理论与实践: 垃圾收集简史
 
 
 
->         · Java SE 6 HotSpot[tm] Virtual Machine Garbage Collection Tuning
+· Java SE 6 HotSpot[tm] Virtual Machine Garbage Collection Tuning
 
 
 
->         · Improving Java Application Performance and Scalability by Reducing Garbage Collection Times and Sizing Memory Using JDK 1.4.1
+· Improving Java Application Performance and Scalability by Reducing Garbage Collection Times and Sizing Memory Using JDK 1.4.1
 
 
 
->         · Hotspot memory management whitepaper
+· Hotspot memory management whitepaper
 
 
 
->         · Java Tuning White Paper
+· Java Tuning White Paper
 
 
 
->         · Diagnosing a Garbage Collection problem
+· Diagnosing a Garbage Collection problem
 
 
 
->         · Java HotSpot VM Options
+· Java HotSpot VM Options
 
 
 
->         · A Collection of JVM Options
+· A Collection of JVM Options
 
 
 
->         · Garbage-First Garbage Collection
+· Garbage-First Garbage Collection
 
 
 
->         · Frequently Asked Questions about Garbage Collection in the HotspotTM JavaTM Virtual Machine
+· Frequently Asked Questions about Garbage Collection in the HotspotTM JavaTM Virtual Machine
 
 
 
->         · JProfiler试用手记
+· JProfiler试用手记
 
 
 
->         · Java6 JVM参数选项大全
+· Java6 JVM参数选项大全
 
 
 
->         · 《深入Java虚拟机》。虽然过去了很多年，但这本书依旧是经典。
+· 《深入Java虚拟机》。虽然过去了很多年，但这本书依旧是经典。
 
 
 
->         这里是本系列的最后一篇了，很高兴大家能够喜欢这系列的文章。期间也提了很多问题，其中有些是我之前没有想到的或者考虑欠妥的，感谢提出这些问题的朋友，我也学到的不少东西。
+这里是本系列的最后一篇了，很高兴大家能够喜欢这系列的文章。期间也提了很多问题，其中有些是我之前没有想到的或者考虑欠妥的，感谢提出这些问题的朋友，我也学到的不少东西。
 
 
 
