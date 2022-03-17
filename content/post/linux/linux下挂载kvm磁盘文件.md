@@ -36,5 +36,5 @@ and finally, google mode on (I'll google "offset 32256"):
 http://en.wikibooks.org/wiki/QEMU/Images#Mounting_an_image_on_the_host
 
 > Linux and other Unix-like hosts can mount images created with the raw format type using a loopback device. From a root login (or using sudo), mount a loopback with an offset of 32,256.
-> 
+
 > `mount -o loop,offset=32256 /path/to/image.img /mnt/mountpoint`

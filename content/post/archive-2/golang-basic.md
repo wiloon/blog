@@ -10,14 +10,14 @@ tags:
 ---
 ## go basic, golang basic
 
-Go是Google开发的一种静态强类型、编译型、并发型,并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫,罗勃·派克及肯·汤普逊于2007年9月开始设计Go,稍后Ian Lance Taylor、Russ Cox加入项目。Go是基于Inferno操作系统所开发的。
+Go 是 Google 开发的一种静态强类型、编译型、并发型, 并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫, 罗勃·派克及肯·汤普逊于 2007年9月开始设计 Go,稍后 Ian Lance Taylor、Russ Cox 加入项目。 Go是基于 Inferno 操作系统所开发的。
 Go 语言是静态类型的编程语言
 
 ## version
 ### latest 
-1.17
+1.18
 ### current 
-1.15
+1.17.7
 
 ## The Go Programming Language
 Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支持多种编程范式(函数式和面向对象)。

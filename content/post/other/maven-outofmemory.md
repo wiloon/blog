@@ -20,7 +20,7 @@ tags:
   
   
   
-    [INFO] Building jar: /home/dl9pf/svn/mindquarry/mindquarry-jcr/mindquarry-jcr-changes/target/mindquarry-migration-with-dependencies.jar
+[INFO] Building jar: /home/dl9pf/svn/mindquarry/mindquarry-jcr/mindquarry-jcr-changes/target/mindquarry-migration-with-dependencies.jar
  [INFO] ------------------------
  [ERROR] FATAL ERROR
  [INFO] ------------------------

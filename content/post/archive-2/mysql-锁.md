@@ -82,9 +82,9 @@ InnoDB 发音为"in-no-db"
 ## MySQL常用存储引擎的锁机制
 
 > MyISAM和MEMORY采用表级锁(table-level locking)
-> 
+
 > BDB采用页面锁(page-level locking)或表级锁,默认为页面锁
-> 
+
 > InnoDB支持行级锁(row-level locking)和表级锁,默认为行级锁
 
 * * *

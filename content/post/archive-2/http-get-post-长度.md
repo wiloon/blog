@@ -88,7 +88,7 @@ maxPostSize="0"
 
 URIEncoding="GBK"
 
->
+
 
 </Connector>
 

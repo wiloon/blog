@@ -582,7 +582,7 @@ case "$1" in
 > [ "x$fstype" != xnfs ] &&
     
 > echo "$path\t$res\t$fstype\t$opts\t$desc"
-> 
+
 > > /tmp/sharetab.$$
       
 > > /usr/bin/touch -r /etc/dfs/sharetab /tmp/sharetab.$$

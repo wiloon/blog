@@ -14,15 +14,15 @@ tags:
 After I finished the install of the "kvm ,qemu-kvm ,libvirt-bin,virtinst,virt-manager". I want to connect to my vms through the virt-manager .But I come to this error:
 
 > Unable to open a connection to the libvirt management daemon.
-> 
+
 > Libvirt URI is: qemu:///system
-> 
+
 > Verify that:
   
 > - The 'libvirtd' daemon has been started
-> 
+
 > And more details:
-> 
+
 > Unable to open connection to hypervisor URI 'qemu:///system':
   
 > unable to connect to '/var/run/libvirt/libvirt-sock', libvirtd may need to be started: Permission denied

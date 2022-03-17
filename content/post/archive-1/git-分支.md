@@ -44,7 +44,7 @@ Git创建Develop分支的命令:
 > # 切换到Master分支
   
 > git checkout master
-> 
+
 > # 对Develop分支进行合并
   
 > git merge -no-ff develop
@@ -58,9 +58,9 @@ Git创建Develop分支的命令:
 但是，除了常设分支以外，还有一些临时性分支，用于应对一些特定目的的版本开发。临时性分支主要有三种: 
 
 > * 功能 (feature) 分支
-> 
+
 > * 预发布 (release) 分支
-> 
+
 > * 修补bug (fixbug) 分支
 
 这三种分支都属于临时性需要，使用完以后，应该删除，使得代码库的常设分支始终只有Master和Develop。
@@ -80,7 +80,7 @@ Git创建Develop分支的命令:
 开发完成后，将功能分支合并到develop分支: 
 
 > git checkout develop
-> 
+
 > git merge -no-ff feature-x
 
 删除feature分支: 
@@ -100,9 +100,9 @@ Git创建Develop分支的命令:
 确认没有问题后，合并到master分支: 
 
 > git checkout master
-> 
+
 > git merge -no-ff release-1.2
-> 
+
 > # 对合并生成的新节点，做一个标签
   
 > git tag -a 1.2
@@ -110,7 +110,7 @@ Git创建Develop分支的命令:
 再合并到develop分支: 
 
 > git checkout develop
-> 
+
 > git merge -no-ff release-1.2
 
 最后，删除预发布分支: 
@@ -130,15 +130,15 @@ Git创建Develop分支的命令:
 修补结束后，合并到master分支: 
 
 > git checkout master
-> 
+
 > git merge -no-ff fixbug-0.1
-> 
+
 > git tag -a 0.1.1
 
 再合并到develop分支: 
 
 > git checkout develop
-> 
+
 > git merge -no-ff fixbug-0.1
 
 最后，删除"修补bug分支": 

@@ -64,7 +64,7 @@ error:Could not initialize SDL(No available video device) - exiting
 add the parameters
 
 > -vga std -k en-us -vnc :1
-> 
+
 > 物理机系统: Debian 7
   
 > 物理机IP: 192.168.1.100
@@ -72,7 +72,7 @@ add the parameters
 > vncserver : 1
   
 > 开启vnc端口1
-> 
+
 > 这样我就能在vncview中输入192.168.1.100:1
  
 

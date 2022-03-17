@@ -1,16 +1,17 @@
 ---
-title: GOGC
+title: Go gc
 author: "-"
 date: 2019-06-11T05:17:27+00:00
-url: /?p=14497
+url: go/gc
 categories:
-  - Uncategorized
+  - Go
 
 tags:
   - reprint
 ---
+## Go gc
+
 ## GOGC
-GOGC
   
 GOGC是Go运行时支持的最老的环境变量之一。它甚至比GOROOT还老
   
