@@ -165,6 +165,18 @@ Linux下显示系统进程的命令ps，最常用的有ps -ef 和ps aux。这两
 System Ｖ风格和BSD 风格，ps aux最初用到Unix Style中(BSD的格式)，而ps -ef被用在System V Style中，两者输出略有不同。现在的大部分Linux系统都是可以同时使用这两种方式的。
 >https://www.cnblogs.com/5201351/p/4206461.html
 
+## ps aux
+
+- RSS
+
+RSS:RSS is Resident Set Size, the non-swapped physical memory used by process.
+
+rss        RSS      resident set size, the non-swapped physical memory that a
+                    task has used (in kiloBytes). (alias rssize, rsz).
+
+版权声明：本文为CSDN博主「逝鸿」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_21127313/article/details/79877483
+
 >https://www.cnblogs.com/hunttown/p/5452253.html
 >http://elinux.org/Runtime_Memory_Measurement   
 >https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html  

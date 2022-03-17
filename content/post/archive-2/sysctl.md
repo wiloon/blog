@@ -190,13 +190,13 @@ net.ipv4.tcp_max_tw_buckets
 
 #表示本机向外发起TCP SYN连接超时重传的次数,不应该高于255；该值仅仅针对外出的连接,对于进来的连接由tcp_retries1控制。
   
-net.ipv4.tcp_syn_retries
+### net.ipv4.tcp_syn_retries
 
-#对于远端的连接请求SYN,内核会发送SYN + ACK数据报,以确认收到上一个 SYN连接请求包。
+对于远端的连接请求SYN, 内核会发送 SYN + ACK 数据报, 以确认收到上一个 SYN 连接请求包。
   
-这是所谓的三次握手.这里决定内核在放弃连接之前所送出的 SYN+ACK 数目.
+这是所谓的三次握手. 这里决定内核在放弃连接之前所送出的 SYN+ACK 数目.
   
-net.ipv4.tcp_synack_retries
+### net.ipv4.tcp_synack_retries
 
   * net.ipv4.tcp_syncookies
   

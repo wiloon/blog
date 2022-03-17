@@ -16,7 +16,9 @@ Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设�
 - 按需启动守护进程
 - 自动化的服务依赖关系管理
 - 同时采用socket式与D-Bus总线式激活服务
-- 系统状态快照  
+- 系统状态快照
+
+
 ### 查看配置文件位置
     systemctl status service0
 
@@ -29,6 +31,40 @@ After字段: 表示如果network.target或sshd-keygen.service需要启动,那么
 相应地,还有一个Before字段,定义sshd.service应该在哪些服务之前启动。
 
 注意,After和Before字段只涉及启动顺序,不涉及依赖关系。
+
+## [Service]区块
+
+用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下
+
+Type：定义启动时的进程行为。它有以下几种值。
+Type=simple：默认值，执行ExecStart指定的命令，启动主进程
+Type=forking：以 fork 方式从父进程创建子进程，创建后父进程会立即退出
+Type=oneshot：一次性进程，Systemd 会等当前服务退出，再继续往下执行
+Type=dbus：当前服务通过D-Bus启动
+Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行
+Type=idle：若有其他任务执行完毕，当前服务才会运行
+ExecStart：启动当前服务的命令
+ExecStartPre：启动当前服务之前执行的命令
+ExecStartPost：启动当前服务之后执行的命令
+ExecReload：重启当前服务时执行的命令
+ExecStop：停止当前服务时执行的命令
+ExecStopPost：停止当其服务之后执行的命令
+RestartSec：自动重启当前服务间隔的秒数
+Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog
+TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数
+Environment：指定环境变量
+EnvironmentFile: 指定文件，可定义多个环境变量，按分行方式存储。
+————————————————
+版权声明：本文为CSDN博主「Golden_Chen」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Golden_Chen/article/details/114689804
+
+### Environment, 环境变量
+
+```
+[Service]
+Environment="GODEBUG='gctrace=1'"
+Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
+```
 
 ### systemd-analyze
 # 查看启动耗时
@@ -255,3 +291,32 @@ Failed to start NetworkManager.service: Unit is masked.
 https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
 https://www.cnblogs.com/xingmuxin/p/11413784.html
 >https://blog.csdn.net/stpice/article/details/104569146
+
+### 配置文件
+
+1. 系统配置文件： /etc/systemd/system.conf
+2. 用户配置文件： /etc/systemd/user.conf
+
+systemd 用户实例不会继承类似 .bashrc 中定义的环境变量。systemd 用户实例有三种设置环境变量的方式：
+
+对于有 $HOME 目录的用户，可以在 ~/.config/systemd/user.conf 文件中使用 DefaultEnvironment 选项，这些设置只对当前用户的用户单元有效。
+在 /etc/systemd/user.conf 文件中使用 DefaultEnvironment 选项。这个配置在所有的用户单元中可见。
+在 /etc/systemd/system/user@.service.d/ 下增加配置文件设置。 这个配置在所有的用户单元中可见。
+在任何时候， 使用 systemctl --user set-environment 或 systemctl --user import-environment. 对设置之后启动的所有用户单元有效，但已经启动的用户单元不会生效。
+提示： 如果想一次设置多个环境变量，可以写一个配置文件，文件里面每一行定义一个环境变量，用 "key=value" 的键值对表示，然后在你的启动脚本里添加xargs systemctl --user set-environment < /path/to/file.conf。
+————————————————
+版权声明：本文为CSDN博主「Golden_Chen」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Golden_Chen/article/details/114689804
+
+
+
+## systemd资源控制
+
+>https://www.cnblogs.com/jimbo17/p/9107052.html
+>https://documentation.suse.com/zh-cn/sles/15-SP2/html/SLES-all/cha-tuning-cgroups.html
+
+
+```bash
+systemctl set-property user.slice MemoryAccounting=yes
+
+```

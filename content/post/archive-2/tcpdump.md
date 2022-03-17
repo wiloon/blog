@@ -114,17 +114,18 @@ pacman -S tcpdump
     -c count: 设置抓取到多少个包后就退出
 
 ### flags
+
 flags 是TCP包中的标志信息,一个包中有可以设置多个标志位
 
-| TCP    | Flag    | tcpdump Flag Meaning                                      |
-| ------ | ------- | ----------------------------------------------------      |
-| SYN    | S       | Syn packet, a session establishment request. 发起连接标志  |
-| ACK    | A       | Ack packet, acknowledge sender's data.                    |
-| FIN    | F       | Finish flag, indication of termination. 关闭连接标志       |
-| RESET  | R       | Reset, indication of immediate abort of conn. 异常关闭连接 |
-| PUSH   | P       | Push, immediate push of data from sender. 传送数据标志     |
-| URGENT | U       | Urgent, takes precedence over other data.                 |
-| NONE   | A dot . | Placeholder, usually used for ACK.                        |
+| TCP        | Flag    | tcpdump Flag Meaning                                      |
+| ------     | ------- | ----------------------------------------------------      |
+| SYN        | S       | Syn packet, a session establishment request. 发起连接标志  |
+| ACK        | A       | Ack packet, acknowledge sender's data.                    |
+| FIN        | F       | Finish flag, indication of termination. 关闭连接标志       |
+| RESET      | R       | Reset, indication of immediate abort of conn. 异常关闭连接 |
+| PUSH/PSH   | P       | Push, immediate push of data from sender. 传送数据标志     |
+| URGENT     | U       | Urgent, takes precedence over other data.                 |
+| NONE       | A dot . | Placeholder, usually used for ACK.                        |
 
 ### seq, ack
 seq和ack号存在于TCP报文段的首部中,seq是序号,ack是确认号,大小均为4字节 (注意与大写的ACK不同,ACK是6个控制位之一,大小只有一位, 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后,所有报文段都必须把 ACK 字段置为 1。) 
@@ -138,8 +139,10 @@ seq: 占 4 字节,序号范围[0,2^32-1],序号增加到 2^32-1 后,下个序号
 ### ack: 
 Acknowledgement Number就是ACK——用于确认收到,用来解决不丢包的问题。
 ack: 占 4 字节,期望收到对方下个报文段的第一个数据字节的序号。
+
 ### Window
-Advertised-Window,也就是著名的滑动窗口 (Sliding Window) ,用于解决流控的。
+
+Advertised-Window, 也就是著名的滑动窗口 (Sliding Window) ,用于解决流控的。
 
 ### data-seqno 
 数据包中的数据的顺序号, ack是下次期望的顺序号, window是接收缓存的窗口大小,

@@ -12,6 +12,13 @@ tags:
 ---
 ## ulimit, file-max, Linux 下设置最大文件打开数 nofile, nr_open
 
+- soft limit
+- hard limit
+- shell 级限制
+- 用户级限制
+- systemd 的 ulimit 配置
+
+
 文件句柄数  
 直接参考 ulimit 的帮助文档 (注意: 不是 man ulimit, 而是 help ulimit, ulimit 是内置命令, 前者提供的是 C 语言的 ulimit 帮助 ) :  
 
@@ -92,17 +99,17 @@ ls -l /proc/<PID>/fd |wc -l
 # 默认会打印出 unlimited
 ```
 
-### Java的nofile
-JDK的实现中,会直接将 nofile 的 soft 先改成了和 hard 一样的值
+### Java 的 nofile
+JDK 的实现中, 会直接将 nofile 的 soft 先改成了和 hard 一样的值
   
-    https://stackoverflow.com/questions/30487284/how-and-when-and-where-jvm-change-the-max-open-files-value-of-linux
+>https://stackoverflow.com/questions/30487284/how-and-when-and-where-jvm-change-the-max-open-files-value-of-linux
 
 
-ulimit 其实就是对单一程序的限制,进程级别的
+ulimit 其实就是对单一程序的限制, 进程级别的
 
-file-max是所有进程最大的文件数
+file-max 是所有进程最大的文件数
 
-nr_open是单个进程可分配的最大文件数
+nr_open 是单个进程可分配的最大文件数
 
 ## file-max 控制内核总共可以打开的文件数
 man proc,可得到file-max的描述: 
@@ -208,15 +215,15 @@ Provides control over the resources available to the shell and to processes star
 
 不过,在CentOS 7 / RHEL 7的系统中,使用Systemd替代了之前的SysV,因此 /etc/security/limits.conf 文件的配置作用域缩小了一些。limits.conf这里的配置,只适用于通过PAM认证登录用户的资源限制,它对systemd的service的资源限制不生效。登录用户的限制,与上面讲的一样,通过 /etc/security/limits.conf 和 limits.d 来配置即可。
 
-Systemd ulimit配置
+## Systemd ulimit 配置
   
-全局的配置
+### 全局的配置
   
 /etc/systemd/system.conf
   
 /etc/systemd/user.conf
   
-systemd.conf.d/*.conf中的配置会覆盖system.conf。
+systemd.conf.d/*.conf 中的配置会覆盖 system.conf。
 
 DefaultLimitCORE=infinity
   
@@ -224,11 +231,11 @@ DefaultLimitNOFILE=100000
   
 DefaultLimitNPROC=100000
 
-注意: 修改了system.conf后,需要重启系统才会生效。
+注意: 修改了system.conf 后,需要重启系统才会生效。
 
-针对单个Service,也可以设置,以nginx为例。
+针对单个Service, 也可以设置, 以 nginx 为例。
   
-编辑 /usr/lib/systemd/system/nginx.service 文件,或者 /usr/lib/systemd/system/nginx.service.d/my-limit.conf 文件,做如下配置: 
+编辑 /usr/lib/systemd/system/nginx.service 文件, 或者 /usr/lib/systemd/system/nginx.service.d/my-limit.conf 文件,做如下配置: 
 
 [Service]
   
@@ -244,25 +251,24 @@ sudo systemctl daemon-reload
   
 sudo systemctl restart nginx.service
 
-到底最大文件数被什么限制了？ too many open files 错误到底可以通过什么参数控制？网上的很多文章说的大致步骤如下: 
-
-shell 级限制
+ 
+## shell 级限制
   
-通过 ulimit -n 修改,如执行命令ulimit -n 1000,则表示将当前shell的当前用户所有进程能打开的最大文件数量设置为1000.
+通过 ulimit -n 修改,如执行命令 ulimit -n 1000, 则表示将当前shell的当前用户所有进程能打开的最大文件数量设置为1000.
 
-用户级限制
+## 用户级限制
   
-ulimit -n是设置当前shell的当前用户所有进程能打开的最大文件数量,但是一个用户可能会同时通过多个shell连接到系统,所以还有一个针对用户的限制,通过修改 /etc/security/limits.conf实现,例如,往limits.conf输入以下内容: 
+ulimit -n 是设置当前shell的当前用户所有进程能打开的最大文件数量,但是一个用户可能会同时通过多个shell连接到系统,所以还有一个针对用户的限制,通过修改 /etc/security/limits.conf实现,例如,往limits.conf输入以下内容: 
   
 root soft nofile 1000
   
 root hard nofile 1200
   
-soft nofile表示软限制,hard nofile表示硬限制,软限制要小于等于硬限制。上面两行语句表示,root用户的软限制为1000,硬限制为1200,即表示root用户能打开的最大文件数量为1000,不管它开启多少个shell。
+soft nofile 表示软限制, hard nofile 表示硬限制, 软限制要小于等于硬限制。上面两行语句表示,root用户的软限制为1000,硬限制为1200,即表示root用户能打开的最大文件数量为1000,不管它开启多少个shell。
 
-系统级限制
+## 系统级限制
   
-修改cat /proc/sys/fs/file-max
+修改 cat /proc/sys/fs/file-max
 
 但是呢,有很多很重要的细节,有很多错误的描述,一塌糊涂,因此特的在这里做一个说明。
   

@@ -18,9 +18,9 @@ CPU执行过的指令都遵循以下的流程: CPU首先依据指令指针取得
   
 1995年Intel发布Pentium Pro处理器时，加入了乱序执行核心(Out-of-order core, OOO core)。
   
-乱序执行也并不一定100%达到顺序执行代码的效果。有些时候确实需要程序员引入内存屏障来确保执行的先后顺序。
+乱序执行也并不一定100%达到顺序执行代码的效果。有些时候确实需要引入内存屏障来确保执行的先后顺序。
   
-http://www.infoq.com/cn/articles/x86-high-performance-programming-pipeline?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global
+>http://www.infoq.com/cn/articles/x86-high-performance-programming-pipeline?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global
 
 
 ### 乱序执行

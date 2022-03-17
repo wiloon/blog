@@ -10,7 +10,64 @@ tags:
 ---
 ## 'go 调试,  pprof, go tool trace'
 
-## CPU 性能分析
+做 Profiling 第一步就是怎么获取应用程序的运行情况数据。go 语言提供了 runtime/pprof 和 net/http/pprof 两个库
+
+## http api
+
+```go
+// pprof 的init函数会将pprof里的一些handler注册到http.DefaultServeMux上
+// 当不使用http.DefaultServeMux来提供http api时，可以查阅其init函数，自己注册handler
+import _ "net/http/pprof"
+
+go func() {
+    http.ListenAndServe("0.0.0.0:8080", nil)
+}()
+
+```
+
+     http://localhost:8080/debug/pprof/
+
+### cpu
+
+go tool pprof http://localhost:8080/debug/pprof/profile?seconds=60
+
+### mem
+
+go tool pprof http://localhost:6060/debug/pprof/heap
+
+### block
+
+go tool pprof http://localhost:8080/debug/pprof/block
+
+### mutex
+
+go tool pprof http://localhost:6060/debug/pprof/mutex
+
+## runtime/pprof
+
+```go
+// CPUProfile enables cpu profiling. Note: Default is CPU
+defer profile.Start(profile.CPUProfile).Stop()
+
+// GoroutineProfile enables goroutine profiling.
+// It returns all Goroutines alive when defer occurs.
+defer profile.Start(profile.GoroutineProfile).Stop()
+
+// BlockProfile enables block (contention) profiling.
+defer profile.Start(profile.BlockProfile).Stop()
+
+// ThreadcreationProfile enables thread creation profiling.
+defer profile.Start(profile.ThreadcreationProfile).Stop()
+
+// MemProfile changes which type of memory profiling to 
+// profile the heap.
+defer profile.Start(profile.MemProfile).Stop()
+
+// MutexProfile enables mutex profiling.
+defer profile.Start(profile.MutexProfile).Stop()
+
+```
+## CPU profiling
 
 CPU 性能分析(CPU profiling) 是最常见的性能分析类型。
 
@@ -40,15 +97,18 @@ go tool pprof cpu.pprof
 
 ### 火焰图, FlameGraph
 
+火焰图（Flame Graph）是 Bredan Gregg 创建的一种性能分析图表  
 从上往下是方法的调用栈, 横向长度代表 cpu 时长。
 
-## 内存性能分析
+## Memory profiling
+
 内存性能分析(Memory profiling) 记录堆内存分配时的堆栈信息，忽略栈内存分配信息。
 
 内存性能分析启用时，默认每1000次采样1次，这个比例是可以调整的。因为内存性能分析是基于采样的，因此基于内存分析数据来判断程序所有的内存使用情况是很困难的。
 Memory Profiling：内存分析，在应用程序进行堆分配时记录堆栈跟踪，用于监视当前和历史内存使用情况，以及检查内存泄漏
 
 ```go
+import 	"github.com/pkg/profile"
 func main() {
 	defer profile.Start(profile.MemProfile, profile.MemProfileRate(1)).Stop()
 	concat(100)
@@ -60,7 +120,9 @@ func main() {
 go tool pprof -http=:9999 /tmp/profile215959616/mem.pprof
 
 ```
-## 阻塞性能分析
+
+## block profiling
+
 阻塞性能分析(block profiling) 是 Go 特有的。
 
 阻塞性能分析用来记录一个协程等待一个共享资源花费的时间。在判断程序的并发瓶颈时会很有用。阻塞的场景包括：

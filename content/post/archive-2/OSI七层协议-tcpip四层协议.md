@@ -12,6 +12,7 @@ tags:
 ## OSI七层协议,  TCP/IP四层协议, osi 7层, tcp/ip 4层
 
 ## OSI七层协议和TCP/IP四层协议之比较
+
 ### TCP/IP四层协议
 
 1. 数据链路层, Data Link Layer: ARP, RARP, PPPoE (Ethernet 以太网协议,MAC 地址) , 数据链路层和物理层合并为网络接口层
@@ -20,9 +21,10 @@ tags:
 4. 应用层: Telnet,FTP,SMTP,SNMP
 
 ### OSI七层协议
+
 1. 物理层  Physical Layer: EIA/TIA-232, EIA/TIA-499, V.35, V.24, RJ45, Ethernet, 802.3, 8025, FDDI, NRZI, NRZ, B8ZS
 2. 数据链路层 Data Link Layer : Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM, IEEE 8025/802.2
-3. 网络层 Network Layer: IP,IPX,AppleTalk DDP
+3. 网络层 Network Layer: IP, IPX, AppleTalk DDP
 4. 传输层 Transport Layer: TCP, UDP, SPX, QUIC, SCTP (流控制传输协议)
 5. 会话层 Session Layer: RPC, SQL, NFS, NetBIOS, names, AppleTalk, ASP, DECnet, SCP
 6. 表示层 Presentation Layer :TIFF,GIF,JPEG,PICT,ASCII,EBCDIC,encryption,MPEG,MIDI,HTML

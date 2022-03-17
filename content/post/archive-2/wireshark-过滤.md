@@ -2,10 +2,9 @@
 title: Wireshark 过滤
 author: "-"
 date: 2016-01-05T07:47:07+00:00
-url: /?p=8635
+url: wireshark/filter
 categories:
-  - Uncategorized
-
+  - network
 tags:
   - reprint
 ---

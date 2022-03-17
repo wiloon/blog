@@ -15,6 +15,8 @@ channel 是 Go 中的一个核心类型, 你可以把它看成一个管道, 通�
 
 goroutine是Go语言的基本调度单位，而channels则是它们之间的通信机制。操作符`<-`用来指定管道的方向，发送或接收。如果未指定方向，则为双向管道。
 
+golang 的 channel 就是一个环形队列（ringbuffer）的实现。我们称 chan 为管理结构，channel 里面可以放任何类型的对象，我们称之为元素。
+
 
 ```go
 <-          // channel 的操作符是箭头
@@ -200,3 +202,4 @@ for integer := range intStream {
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 >https://colobu.com/2016/04/14/Golang-Channels/
+>https://zhuanlan.zhihu.com/p/299592156
