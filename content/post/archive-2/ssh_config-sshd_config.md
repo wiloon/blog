@@ -220,3 +220,14 @@ AllowUsers admin
 
 https://segmentfault.com/a/1190000014822400
 http://matt-u.iteye.com/blog/851158  
+
+## 客户端保持连接
+
+```bash
+vim ~/.ssh/config
+
+Host 192.168.*
+    ServerAliveInterval 120
+    User root
+
+```
