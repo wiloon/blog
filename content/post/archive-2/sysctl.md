@@ -170,7 +170,17 @@ net.ipv4.tcp_fin_timeout
 
 #表示从最后一个包结束后多少秒内没有活动,才发送keepalive包保持连接,默认7200s,理想可设为1800s,即如果非正常断开,1800s后可通过keepalive知道。
   
-net.ipv4.tcp_keepalive_time
+## net.ipv4.tcp_keepalive_time
+
+Idle time
+
+## /proc/sys/net/ipv4/tcp_keepalive_intvl
+
+Retry interval
+
+## /proc/sys/net/ipv4/tcp_keepalive_probes
+
+Ping amount
 
 ### net.ipv4.tcp_max_syn_backlog
   

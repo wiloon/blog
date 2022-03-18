@@ -468,7 +468,7 @@ client_header_buffer_size 1m;
   
 large_client_header_buffers
   
-这个directive指定request header缓冲的数量和大小。只有当默认的缓冲不够用时，它才能被使用。当请求处理完成后或者连接进入keep-alive状态时，它被释放。可以在http 和 server模块中定义。
+这个directive指定request header缓冲的数量和大小。只有当默认的缓冲不够用时，它才能被使用。当请求处理完成后或者连接进入 keep-alive 状态时，它被释放。可以在http 和 server模块中定义。
 
 http {
      
