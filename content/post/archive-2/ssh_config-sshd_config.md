@@ -3,14 +3,15 @@ title: ssh config, sshd config
 author: "-"
 date: 2018-02-11T15:40:49+00:00
 url: ssh/config
-
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
 ---
 ## ssh config, sshd config
+
 ## ssh config
+
 ### public key
     vim ~/.ssh/authorized_keys
 
@@ -35,17 +36,6 @@ ssh 连接服务器时agent里保存的密钥过多会遇到异常 Too Many Auth
 
 ```bash
 MaxAuthTries 20
-```
-
-### ssh client config, 服务端保持连接
-
-```bash
-vim /etc/ssh/sshd_config
-#添加
-# ClientAliveInterval指定了服务器端向客户端请求消息的时间间隔, 默认是0，不发送。而ClientAliveInterval 60表示每分钟发送一次，然后客户端响应，这样就保持长连接了。
-ClientAliveInterval 30
-# ClientAliveCountMax表示服务器发出请求后客户端没有响应的次数达到一定值，就自动断开
-ClientAliveCountMax 3
 ```
 
 Port 22  

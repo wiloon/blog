@@ -1,11 +1,11 @@
 ---
-title: ssh config
+title: ssh client config
 author: "-"
 date: 2020-04-18T12:36:57+00:00
 url: ssh/config
 
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
 ---
@@ -21,6 +21,41 @@ Host *
     ControlPersist 10m
     ForwardAgent yes # ssh agent forward
     User root # 默认用户
+```
+
+### ssh client config, 服务端保持连接
+
+## 避免SSH连接因超时闲置断开
+
+用SSH过程连接电脑时，经常遇到长时间不操作而被服务器踢出的情况，常见的提示如: 
+
+  Write failed: Broken pipe
+
+这是因为如果有一段时间在SSH连接上无数据传输，连接就会断开。解决此问题有两种方法。[1]
+
+## 方案一: 在客户端设置
+
+方法很简单，只需在客户端电脑上编辑 (需要root权限) /etc/ssh/ssh_config，并添加如下一行:
+  
+  ServerAliveInterval 60
+  
+此后该系统里的用户连接SSH时，每60秒会发一个KeepAlive请求，避免被踢。
+  
+## 方案二: 在服务器端设置
+  
+如果有相应的权限，也可以在服务器端设置，即编辑/etc/ssh/sshd_config，并添加:
+  
+  ClientAliveInterval 60
+  
+重启SSH服务器后该项设置会生效。每一个连接到此服务器上的客户端都会受其影响。应注意启用该功能后，安全性会有一定下降 (比如忘记登出时……)
+
+```bash
+vim /etc/ssh/sshd_config
+#添加
+# ClientAliveInterval指定了服务器端向客户端请求消息的时间间隔, 默认是0，不发送。而ClientAliveInterval 60表示每分钟发送一次，然后客户端响应，这样就保持长连接了。
+ClientAliveInterval 30
+# ClientAliveCountMax表示服务器发出请求后客户端没有响应的次数达到一定值，就自动断开
+ClientAliveCountMax 3
 ```
 
 #### 使用通配符 (wildcard)
