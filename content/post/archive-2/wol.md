@@ -1,22 +1,28 @@
 ---
-title: 网络唤醒 Wake On LAN
+title: 网络唤醒, Wake On LAN, WAL
 author: "-"
 date: 2019-02-02T06:47:47+00:00
 url: wol
-
 categories:
-  - inbox
+  - network
 tags:
   - reprint
----
-## 网络唤醒 Wake On LAN
+  - remix
 
-### 华硕BIOS
-    Advanced>APM Configuration>Power on by PCI-E/PCI
+
+---
+## 网络唤醒, Wake On LAN, WAL
+
+### 华硕BIOS设置
+    Advanced> APM Configuration> Power on by PCI-E/PCI
+
 ### archlinux, wol
 ```bash
 pacman -S wol
 wol -i 192.168.50.255 -p 9  1c:b7:2c:af:9a:6a
+# -i 192.168.50.255, 广播地址
+# -p 9， 端口9，大多数以太网卡都支持9,也可以尝试7或0
+# 1c:b7:2c:af:9a:6a， 被唤醒的 mac 地址
 ```
 
 #### ubuntu

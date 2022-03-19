@@ -1,5 +1,5 @@
 ---
-title: 'Oracle 导入/导出  imp/exp 备份 恢复 dump'
+title: Oracle 导入/导出  imp/exp 备份 恢复 dump
 author: "-"
 date: 2012-01-12T01:33:09+00:00
 url: /?p=2136
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## 'Oracle 导入/导出  imp/exp 备份 恢复 dump'
+## Oracle 导入/导出  imp/exp 备份 恢复 dump
 ```bash
 
 exp scott/123456@172.16.234.51/orcl file=d:export.dmp owner=(scott)

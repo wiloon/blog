@@ -3,7 +3,6 @@ title: ssh client config
 author: "-"
 date: 2020-04-18T12:36:57+00:00
 url: ssh/config
-
 categories:
   - linux
 tags:
@@ -26,6 +25,17 @@ Host *
 ### ssh client config, 服务端保持连接
 
 ## 避免SSH连接因超时闲置断开
+
+## 客户端保持连接
+
+```bash
+vim ~/.ssh/config
+
+Host 192.168.*
+    ServerAliveInterval 120
+    User root
+
+```
 
 用SSH过程连接电脑时，经常遇到长时间不操作而被服务器踢出的情况，常见的提示如: 
 

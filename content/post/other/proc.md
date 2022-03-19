@@ -1,5 +1,5 @@
 ---
-title: proc
+title: /proc
 author: "-"
 date: 2011-10-27T23:19:33+00:00
 url: proc
@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## proc
-在GUN/Linux操作系统中，/proc是一个位于内存中的伪文件系统(in-memory pseudo-file system)。该目录下保存的不是真正的文件和目录，而是一些“运行时”信息，如系统内存、磁盘io、设备挂载信息和硬件配置信息等。proc目录是一个控制中心，用户可以通过更改其中某些文件来改变内核的运行状态。proc目录也是内核提供给我们的查询中心，我们可以通过这些文件查看有关系统硬件及当前正在运行进程的信息。在Linux系统中，许多工具的数据来源正是proc目录中的内容。例如，lsmod命令就是cat /proc/modules命令的别名，lspci命令是cat /proc/pci命令的别名。
+## /proc
+在GUN/Linux操作系统中，/proc 是一个位于内存中的伪文件系统(in-memory pseudo-file system)。该目录下保存的不是真正的文件和目录，而是一些“运行时”信息，如系统内存、磁盘io、设备挂载信息和硬件配置信息等。proc目录是一个控制中心，用户可以通过更改其中某些文件来改变内核的运行状态。proc目录也是内核提供给我们的查询中心，我们可以通过这些文件查看有关系统硬件及当前正在运行进程的信息。在Linux系统中，许多工具的数据来源正是proc目录中的内容。例如，lsmod命令就是cat /proc/modules命令的别名，lspci命令是cat /proc/pci命令的别名。
 
 ### cat /proc/pagetypeinfo
 查看内存碎片情况

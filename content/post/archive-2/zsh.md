@@ -4,12 +4,19 @@ author: "-"
 date: 2017-04-06T04:56:02+00:00
 url: zsh
 categories:
-  - Uncategorized
-
+  - linux
 tags:
   - reprint
+  - remix
+
+
 ---
 ## zsh, oh-my-zsh
+
+## 查看 zsh 版本
+
+    zsh --version
+
 ### 不能自动补全
 
 ```bash

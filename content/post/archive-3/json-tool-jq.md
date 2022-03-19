@@ -10,10 +10,29 @@ tags:
   - reprint
 ---
 ## json tool, jq
+
+jq可以对json数据进行分片、过滤、映射和转换
+
+jq是用C编写，没有运行时依赖，所以几乎可以运行在任何系统上。预编译的二进制文件可以直接在Linux、OS X和windows系统上运行，当然在linux和OS X系统你需要赋与其可执行权限；在linux系统中也可以直接用yum安装。
+下载页面：
+https://stedolan.github.io/jq/download/
+
+## .
+
+最简单的表达式 `.`，格式化输出
+
+## [index]
+
+输出列表中的第一个元素，可以使用[index]：
+
+cat json.txt | jq '.[0]'
+
+## 管道符 |
+
 ### json格式化
 
 ```bash
-echo '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}'|jq .
+echo '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}' | jq .
 {
   "kind": "Service",
   "apiVersion": "v1",
@@ -27,3 +46,8 @@ echo '{"kind": "Service", "apiVersion": "v1", "status": {"loadBalancer": true}}'
 来源: 知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
+
+作者：软件测试技能栈
+链接：https://www.jianshu.com/p/6de3cfdbdb0e
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

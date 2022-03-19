@@ -1,18 +1,39 @@
 ---
-title: shell date
+title: date command
 author: "-"
 date: 2018-06-20T07:38:39+00:00
-url: /?p=12334
+url: date
+categories:
+  - linux
 tags:
   - command
+  - reprint
+  - remix
 
-categories:
-  - inbox
+
 ---
-## shell date
+## date command
+
+    date [OPTION]... [+FORMAT]
 
 ### 日期格式化
     date '+%Y-%m-%d %H:%M:%S'
+
+## 纳秒，毫秒
+使用 date +%s%N 可以获得一个纳秒级的unix时间戳(当前时间)，然后根据需要截取一部分即可得到毫秒级的精度
+```bash
+# 纳秒
+date +%s%N
+# 毫秒
+$(($(date +%s%N)/1000000))
+# 毫秒, 另外一种作废的不再建议使用的语法
+echo $[$(date +%s%N)/1000000]
+```
+
+## 参数
+
+    %s     seconds since 1970-01-01 00:00:00 UTC
+    %N     nanoseconds (000000000..999999999)
 
 ```bash
 # output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600
@@ -29,9 +50,8 @@ date -s 11/03/2009
 date -s 17:55:55
 ```
 
-http://jerrybear.blog.51cto.com/629421/393097
-  
-https://blog.csdn.net/BalterNotz/article/details/52949493
+>http://jerrybear.blog.51cto.com/629421/393097
+>https://blog.csdn.net/BalterNotz/article/details/52949493
 
 BASH SHELL中可以定义变量显示当前日期
 
@@ -108,3 +128,4 @@ date -d '1970-01-01 946684800 sec' +"%Y-%m-%d %T %z"
 ---
 
 https://blog.csdn.net/shanliangliuxing/article/details/16821175
+>https://man7.org/linux/man-pages/man1/date.1.html

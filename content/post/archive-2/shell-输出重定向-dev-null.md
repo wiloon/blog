@@ -2,7 +2,7 @@
 title: 输出重定向 Linux Shell 1>/dev/null 2>&1
 author: "-"
 date: 2018-08-31T02:21:50+00:00
-url: /?p=12625
+url: shell/dev/null
 categories:
   - linux
 
