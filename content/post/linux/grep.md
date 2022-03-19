@@ -5,14 +5,14 @@ date: 2011-08-20T20:00:03+00:00
 url: grep
 categories:
   - Linux
-
 tags:
   - reprint
 ---
 ## grep
+
 按行处理,输出文件中包含搜索字符串的所有行。  
 
-grep, Global Regular Expression Print
+grep: Global Regular Expression Print
 
 ```bash
 grep [OPTION...] PATTERNS [FILE...]
@@ -52,7 +52,7 @@ grep -r 'linux' *
 - -i: 忽略大小写
 - -A, –after-context=NUM print NUM lines of trailing context
 - -B <显示行数> -before-context=<显示行数> #除了显示符合样式的那一行之外，并显示该行之前的内容。
-- -C 显示file文件里匹配foo字串那行以及上下5行
+- -C 显示 file 文件里匹配 foo 字串那行以及上下5行
 - -r, -recursive, 搜索子目录
 - -l, -files-with-matches, 查询多文件时只输出包含匹配字符的文件名, 不打印匹配的文件内容。
 - -G, -basic-regexp BRE 模式，也是默认的模式
@@ -60,36 +60,28 @@ grep -r 'linux' *
 - -h, 查询多文件时不显示文件名。
 - -a, --text: 强制作为文本文件处理， 报错: Binary file [some_file] matches 的时候可以用。
 - -w pattern files : 只匹配整个单词，而不是字符串的一部分(如匹配'magic'，而不是'magical')
-
+- -q, --quiet, --silent, 不显示任何东西到 stdout
 
 ### grep正则
 
 <https://blog.csdn.net/yufenghyc/article/details/51078107>
 
-### grep与egrep的区别
-#### grep:
+### grep 与 egrep 的区别
+
+#### grep
   
     传统的 grep 程序, 在没有参数的情况下, 只输出符合 RE 字符串之句子. 常见参数如下:
   
     -v: 逆反模示, 只输出"不含" RE 字符串之句子.
-  
     -r: 递归模式, 可同时处理所有层级子目录里的文件.
-  
     -q: 静默模式, 不输出任何结果(stderr 除外. 常用以获取 return value, 符合为 true, 否则为false .)
-  
-
-  
     -w: 整词比对, 类似 <word> .
-  
     -n: 同时输出行号.
-  
     -c: 只输出符合比对的行数.
-  
     -l: 只输出符合比对的文件名称.
-  
     -o: 只输出符合 RE 的字符串. (gnu 新版独有, 不见得所有版本都支持.)
-  
     -E: 切换为 egrep . 
+
 #### egrep:
   
     为 grep 的扩充版本, 改良了许多传统 grep 不能或不便的操作. 比方说:
@@ -130,13 +122,9 @@ egrep 命令会显示包含该匹配行的文件，如果您指定了多于一�
 
   1. 行被限制在 2048 字节。 
   2. 段落(在 -p 标志下)当前限制在 5000 字符长。
-
   3. 不要在特殊文件上运行 grep 命令，因为它会产生不可预测的结果。
-
   4. 输入行不应该包含 NULL 字符。
-
   5. 输入文件应该以换行符结束。
-
   6. 尽管有些标志可以同时被指定，但是有些标志会覆盖其他的标志。例如，如果同时指定 -l 和 -n ，只有文件名写入到标准输出中去。
 
 -b 在每行前面加上找到该行的块号码。使用此标志有助于按照上下文查找磁盘块号码。-b 标志不能用于来自标准输入和管道的输入。

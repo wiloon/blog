@@ -12,6 +12,11 @@ tags:
 ---
 ## curl
 ## curl, [kɜrl]
+
+## options
+
+    -s, --silent, 不显示下载进度
+
 ### cookie
 #### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
 ```bash

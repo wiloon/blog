@@ -1,8 +1,8 @@
 ---
 title: git rebase, revert, reset
 author: "-"
-date: 2014-08-07T01:47:09+00:00
-url: git/revert
+date: 2022-01-25 03:34:33
+url: git/push
 categories:
   - Git
 tags:
@@ -10,9 +10,123 @@ tags:
 
 ---
 ## git rebase, revert, reset
+
 回滚提示
-本地或者自己单独的仓库使用reset 或者revert都可以
-涉及到远程仓库 (公用仓库）时，不要使用reset,而使用revert回滚
+本地或者自己单独的仓库使用 reset 或者 revert 都可以
+涉及到远程仓库 (公用仓库）时，不要使用 reset, 而使用 revert 回滚
+
+### git push 提交成功后如何撤销/回退
+
+```bash
+git log
+git reflog
+# git reflog 可以查看所有分支的所有操作记录 (包括 (包括commit和reset的操作），包括已经被删除的commit记录，git log 则不能察看已经删除了的 commit 记录。
+git reset --soft xx版本号xxxx 
+git reset --hard xx版本号xxx
+git reset --soft HEAD~1 
+git reset --hard HEAD~1
+git reset --hard HEAD^ 回退到上个版本
+git reset --hard commit_id 退到/进到 指定commit_id
+
+#简洁显示日志记录
+git log --pretty=oneline
+git log --oneline --graph -4 --decorate
+```
+
+#### git reset
+git reset 并不会产生 commits (不是不会产生，而是会产生但是都是一样的）
+git reset 可以看成不产生 commits，它只是改变了当前HEAD 指向的 commits。
+
+##### git reset --hard
+--hard 参数 会抛弃当前工作区的修改
+删除工作空间改动代码，撤销commit，撤销 git add .
+注意完成这个操作后，就恢复到了上一次的 commit 状态。
+
+```bash
+git reset --hard 提交id
+# HEAD 指向 第五次, 所以 reset 一下 HEAD 就好啦
+
+```
+直接会改变本地源码，不仅仅指向变化了，代码也回到了那个版本时的代码
+
+git commit --hard 是具有破坏性，是很危险的操作，它很容易导致数据丢失，如果我们真的进行了该操作想要找回丢失的数据，那么此时可以使用 git reflog 回到未来，找到丢失的commit。
+
+#### git reset --soft
+前者表示只是改变了 HEAD 的指向，本地代码不会变化，我们使用 git status 依然可以看到，同时也可以 git commit 提交
+不删除工作空间改动代码，撤销 commit，不撤销 `git add .`  
+--soft 这个版本的命令有“最小”影响，只改变一个符号引用的状态使其指向一个新提交，不会改变其索引和工作目录，
+
+因为当前分支的版本低于远程分支的版本，所以要想覆盖掉它，必须使用force
+git push origin 分支 --force ok，大功告成
+
+##### --mixed
+意思是：不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
+这个为默认参数,git reset --mixed HEAD^ 和 git reset HEAD^ 效果是一样的。
+
+```bash
+git push origin <分支名>
+会提示本地的版本落后于远端的版本；
+为覆盖掉远端的版本信息，使远端的仓库也回退相应版本，加上参数–force
+
+git push origin <分支名> --force
+```
+
+```bash
+# 将该分支的本不应该提交的commit撤销
+git reset HEAD^
+
+# 按需选择想要回到哪个版本
+# 回到HEAD
+git reset --soft HEAD
+
+# 回到HEAD的前一个版本
+git reset --soft HEAD^
+
+# 回到HEAD的前10个版本
+git reset --soft HEAD~5 
+
+# 利用id回到指定版本
+git reset --soft a06ef2f
+
+# 将撤销的代码暂存起来
+git stash
+
+# 切换到正确的分支
+git checkout feat/xxx
+
+# 重新应用缓存
+git stash pop
+
+# 在正确的分支进行提交操作
+git add . && git commit -m "update xxxx"
+```
+
+### git revert
+
+### git reset 和 git revert 的区别
+1. git revert 是用一次新的 commit 来回滚之前的 commit，git reset 是直接删除指定的 commit。
+2. 在回滚这一操作上看，效果差不多。但是在日后继续 merge 以前的老版本时有区别。因为 git revert 是用一次逆向的 commit“中和”之前的提交，因此日后合并老的 branch 时，导致这部分改变不会再次出现，但是 git reset 是之间把某些 commit 在某个branch 上删除，因而和老的 branch 再次 merge 时，这些被回滚的 commit 应该还会被引入。
+3. git reset 是把 HEAD 向后移动了一下，而 git revert 是 HEAD 继续前进，只是新的 commit 的内容和要 revert 的内容正好相反，能够抵消要被 revert 的内容。
+
+作者：鹅鹅鹅曲项向天歌呀
+链接：https://www.jianshu.com/p/491a14d414f6
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+### ps: 如何删除已经 push 的 idea 等不想要的文件?
+第一步:配置好.gitignore文件, 把idea加进去
+第二步: `git rm -r --cached .` (不要忘记点哦~)
+第三步: git add .(不要忘记点哦~)
+第四部:git commit -m "这里是备注"
+第五步:git push
+大功告成~~~
+
+作者：鹅鹅鹅曲项向天歌呀
+链接：https://www.jianshu.com/p/491a14d414f6
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
 
 ### git revert
 放弃一个或多个提交，并生成一个或多个新的提交来记录这些放弃操作。
@@ -51,6 +165,22 @@ git revert -n C D
 方法3
 git revert -n C..D  //git revert C..D
 类似方法1，revert从C到D之间的提交，假设中间还有很多提交时可以用这种
+
+### git reset
+
+git reset ** file0
+
+彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
+
+    git reset -hard file0
+
+    git reset -mixed: 此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
+    git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
+
+```bash
+    git reset --hard
+```
+
 
 ### git reset
 
@@ -153,3 +283,5 @@ git reset -hard head~3
 
 >https://www.jianshu.com/p/7e513b302d47
 >https://swumao.github.io/swumao/update/git/rebase/pick/edit/reword/drop/squash/fixup/2016/08/31/Git-rebase-%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAcommit.html
+
+

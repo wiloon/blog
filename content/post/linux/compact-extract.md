@@ -134,11 +134,12 @@ tar cvf FileName.tar DirName
 # 解包:
 tar xvf FileName.tar
 
-# 将目录logs打包压缩并分割成多个1M的文件
+# 将目录 logs 打包压缩并分割成多个1M的文件
 tar cjf - logs/ |split -b 1m - logs.tar.bz2.
 
 # 合并文件
 cat logs.tar.bz2.a* | tar xj
+
 # 指定操作目录
 tar -zcf ${package_path} -C ${war_path} .
 ```

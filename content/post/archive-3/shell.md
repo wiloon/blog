@@ -10,19 +10,48 @@ tags:
   - reprint
 ---
 ## shell basic, shell script
+## 字符串
 
+### 判断字符串是否相等
+
+```bash
+A="$1"
+B="$2"
+
+#判断字符串是否相等
+if [ "$A" = "$B" ];then
+echo "[ = ]"
+fi
+
+#判断字符串是否相等，与上面的=等价
+if [ "$A" == "$B" ];then
+echo "[ == ]"
+fi
+```
+
+## 退出 shell 脚本 
+
+exit 命令可以接受一个整数值作为参数，代表退出状态。如果不指定，默认状态值是 0。
+
+```bash
+#!/bin/bash
+echo "befor exit"
+exit 8
+echo "after exit"
+
+```
 ## $
 
 ### 特殊变量: Shell $0, $#, $*, $@, $?, $$和命令行参数
 
-    变量 含义
-    $0	当前脚本的文件名
-    $n	传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2/.
-    $#	传递给脚本或函数的参数个数。
-    $*	传递给脚本或函数的所有参数。
-    $@	传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
-    $?	上个命令的退出状态，或函数的返回值。
-    $$	当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
+    变量    含义
+    $0	    当前脚本的文件名
+    $n	    传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2/.
+    $#	    传递给脚本或函数的参数个数。
+    $*	    传递给脚本或函数的所有参数。
+    $@	    传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
+    $?	    上个命令的退出状态，或函数的返回值。
+    $$	    当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
 
 ### $(), $( Dollar Single Parentheses )
 Usage of the $ like ${HOME} gives the value of HOME. Usage of the $ like $(echo foo) means run whatever is inside the parentheses in a subshell and return that as the value.
@@ -255,22 +284,26 @@ https://my.oschina.net/u/2428064/blog/3045121
 
 ## string
 ### Replace
-用法
 
+用法
+```bash
 ${parameter/pattern/string}
+```
+
 使用
  
+```bash
 $ a=/data/wxnacy/data/log/log.txt
-$ echo ${a/data/User}           # 将第一个 data 替换为 User
+$ echo ${a/data/User}                # 将第一个 data 替换为 User
 /User/wxnacy/data/log/log.txt
 
-$ echo ${a//data/User}           # 将全部 data 替换为 User
+$ echo ${a//data/User}               # 将全部 data 替换为 User
 /User/wxnacy/User/log/log.txt
 
 $ echo ${a/#\/data/\/User}           # 匹配开头 /data 替换为 /User (/ 需要转义) 
 /User/wxnacy/data/log/log.txt
 
-$ echo ${a/%log.txt/User}           # 匹配结尾 log.txt 替换为 User
+$ echo ${a/%log.txt/User}            # 匹配结尾 log.txt 替换为 User
 /data/wxnacy/data/log/User
 其他方法
 
@@ -278,6 +311,7 @@ $ echo ${a/%log.txt/User}           # 匹配结尾 log.txt 替换为 User
  
 $ echo $a | sed -e "s/data/User/g"
 /User/wxnacy/User/log/log.txt
+```
 
 
 ### 16进制转换成10进制
@@ -447,8 +481,6 @@ dt=`date` #反引号内的字符串会当作shell执行 ，并且返回结果。
   
 echo "dt=${dt}"
   
-
-
 ### 逻辑与，或表达式
     与&&: 
     1) if [ $str=a -a $str=b ] 
@@ -458,16 +490,31 @@ echo "dt=${dt}"
     1) if [ $str=a -o $str=b ] 
     2) if [ $str=a ] || [  $str=b ]
 
+### 字符串长度 
 
+    ${\#}
+
+### 模式匹配截断
+>https://blog.csdn.net/K346K346/article/details/51819236
 ### 以-分隔取最后一段字符串
+
+模式匹配截断，用法${variable##pattern} 这种模式时，shell在variable中查找给定的模式pattern，如果是存在，就从命令行把variable中的内容去掉左边最长的匹配模式。不改变原变量。
+
+```bash
     a="foo-bar-foobar" && a="${a##*-}" && echo "${a}"
     # 输出
     foobar
+```
 
 ### 以-分隔去掉第一段
+
+模式匹配截断，用法${variable#pattern} 这种模式时，shell在variable中查找给定的模式pattern，如果找到，就从命令行把variable中的内容去掉左边最短的匹配模式。不改变原变量。
+
+```bash
     a="foo-bar-foobar" && a="${a#*-}" && echo "${a}"
     # 输出
     foo
+```
 
 ### 去掉最后一段
     a="foo-bar-foobar" && a="${a%-*}" && echo "${a}"
@@ -504,14 +551,7 @@ value=`pwd`
 
 
 
-### 判断字符串是否相等
 
-```bash
-#判断字符串是否相等
-if [ "$A" = "$B" ];then
-echo "[ = ]"
-fi
-```
 
 ### 检查目录是否存在
 ```bash
@@ -563,9 +603,9 @@ ${var:-newstring}
 
 ### 字符串比较 
     =       等于,如:if [ "$a" = "$b" ] 
-    ==       等于,如:if [ "$a" == "$b" ],与=等价 
+    ==      等于,如:if [ "$a" == "$b" ],与=等价 
         注意:==的功能在[[]]和[]中的行为是不同的,如下: 
-        1 [[ $a == z* ]]    # 如果$a以"z"开头(模式匹配)那么将为true 
+        1 [[ $a == z* ]]    # 如果$a以"z"开头(模式匹配)那么将为 true 
         2 [[ $a == "z*" ]] # 如果$a等于z*(字符匹配),那么结果为true 
         3 
         4 [ $a == z* ]      # File globbing 和word splitting将会发生 
@@ -622,11 +662,9 @@ ${var:-newstring}
 
 
 
-## grep
+## grep 操作的返回值
 
-grep操作的返回值: 
-  
-如果有匹配的字符串，返回值是0， 还会打印出匹配字符串的行。
+如果有匹配的字符串，返回值是 0， 还会打印出匹配字符串的行。
   
 如果没有匹配， 会返回1。
 

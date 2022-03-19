@@ -100,7 +100,7 @@ git push -u origin master
 
 ### 删除远程库
 
-    gitremote rm 仓库A
+    gitremote rm repo0
 
 ### 删除文件
 
@@ -113,12 +113,7 @@ git rm -r xxx/xxx
 
 <https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html>
 
-### 设置默认的分支名
 
-    git config --global init.defaultBranch <name>
-    git config --global init.defaultBranch main
-    # The just-created branch can be renamed via this command
-    git branch -m main
 
 ### 指定ssh 私钥
 
@@ -150,20 +145,6 @@ git checkout . #本地所有修改的。没有的提交的，都返回到原来�
 
 ><https://blog.csdn.net/leedaning/article/details/51304690>
 
-### git reset
-
-git reset ** file0
-
-彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
-
-    git reset -hard file0
-
-    git reset -mixed: 此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-    git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
-
-```bash
-    git reset --hard
-```
 
 ### 指定克隆深度
 
@@ -223,7 +204,7 @@ git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
 format ，可以定制记录的显示格式。 --pretty=format:"%h - %an, %ar : %s"
 --name-only参数仅显示受影响的文件名。如果你想看看每个文件发生了什么(删除，修改，添加)，请改用--name-status
 
-### 初始化的 Git 仓库
+### 初始化 Git 仓库
 
 git init
 git add README.md
@@ -350,9 +331,19 @@ git push origin :refs/tags/1.0.0
 ```
 >https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE
 
-### 分支, branch
+## 分支, branch
 
-最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比git checkout要更容易理解。
+最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比 git checkout 要更容易理解。
+
+### 设置默认的分支名
+
+```bash
+# 设置默认分支名，不设置的话，默认是 master
+git config --global init.defaultBranch <name>
+git config --global init.defaultBranch main
+# The just-created branch can be renamed via this command
+git branch -m main
+```
 
 ### 打印当前分支名
 
@@ -563,3 +554,22 @@ git config –global http.sslVerify false
 
 ### pre-commit
 .git/hook/pre-commit
+
+
+### create a new repository on the command line
+echo "# jetbrain-eap-installer" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
+git push -u origin main
+
+###  push an existing repository from the command line
+git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
+git branch -M main
+git push -u origin main
+
+## 删除大文件 
+
+>https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html
