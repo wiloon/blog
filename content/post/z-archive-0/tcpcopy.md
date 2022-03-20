@@ -113,29 +113,27 @@ iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
 ### 环境
 
 1. 测试用的 tcp 服务 tcp-echo-server 监听 2000 端口
-- 线上服务器, online source server, 192.168.50.10
+- 线上服务器, online source server, 192.168.50.101
   - 2000 端口提供服务
-- 测试服务器,目标服务器, target server, 192.168.50.101
+- 测试服务器,目标服务器, target server, 192.168.50.102
   - 2000 端口提供服务 (tcp-echo-server)
-- 辅助服务器, assistant server, 192.168.50.102
+- 辅助服务器, assistant server, 192.168.50.103
 
 
 ### 线上服务器安装 tcpcopy
 
 ```bash
 git clone https://github.com/session-replay-tools/tcpcopy.git
-cd tcpcopy=-[] 
+cd tcpcopy
 ./configure
 make
 make install
 ls /usr/local/tcpcopy
-
 ```
 
 ### 辅助服务器 (intercept) 安装 
 
 ```bash
-
 git clone https://github.com/session-replay-tools/intercept.git
 cd intercept
 ./configure
@@ -146,13 +144,13 @@ ls /usr/local/intercept
 
 ## 实时复制流量
 
-### 测试服务器, 192.168.50.101
+### 测试服务器, 192.168.50.102
 
 测试服务器添加一条路由规则，将响应包路由到辅助机
 
 ```bash
 # 添加一条路由规则
-ip route add 192.168.60.0/24 via 192.168.50.102 src 192.168.50.101 dev ens18
+ip route add 192.168.60.0/24 via 192.168.50.103 src 192.168.50.102 dev ens18
 # 192.168.60.0/24, tcpcopy 修改后的源端地址网段 (一个不存在的网段, 不会影响生产环境的数据)
 # via 192.168.50.102: 网关, 下一跳的路由IP, 辅助服务器的地址, 把响应包目标地址在 192.168.60.0/24 网段的包路由到 辅助机 192.168.50.102
 # src 192.168.50.101, 源端地址/测试服务器的地址
@@ -162,9 +160,9 @@ ip route add 192.168.60.0/24 via 192.168.50.102 src 192.168.50.101 dev ens18
 ./tcp-echo-server
 ```
 
-### 辅助服务器, 192.168.50.102
+### 辅助服务器, 192.168.50.103
 
-辅助服务器捕获`目标机/测试机`器发来的响应包
+辅助服务器捕获 `目标机/测试机` 器发来的响应包
 
 ```bash
 # ./intercept -F <filter> -i <device,>
@@ -174,9 +172,9 @@ ip route add 192.168.60.0/24 via 192.168.50.102 src 192.168.50.101 dev ens18
 # -d, daemon
 ```
 
-### 线上服务器, 192.168.50.10
+### 线上服务器, 192.168.50.101
 
-线上服务器捕获包 (2000 端口), 并修改目的及源地址, 并把包发送给目标服务器 ( 192.168.50.101 ), 等待辅助服务器(192.168.50.102)发送响应包
+线上服务器捕获包 (2000 端口), 并修改目的及源地址, 并把包发送给目标服务器 ( 192.168.50.102 ), 等待辅助服务器 (192.168.50.102) 发送响应包
 
 源地址会被修改成 192.168.60.x 网段的地址.
 
@@ -186,7 +184,7 @@ ip route add 192.168.60.0/24 via 192.168.50.102 src 192.168.50.101 dev ens18
 
 # intercept 要先启动, tcpcopy 要连接 intercep的 36524端口
 # ./tcpcopy -x localServerPort-targetServerIP:targetServerPort -s <intercept server,> [-c <ip range,>]
-/usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x
+/usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.102:2000 -s 192.168.50.103 -c 192.168.60.x
 /usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -d
 # -x 2000-192.168.50.101:2000, 复制 2000 端口的 tcp 流量, 发到测试服务器 192.168.50.101:2000
 # -s 192.168.50.102, 辅助服务器, 等辅助服务器回包
