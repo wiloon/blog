@@ -12,7 +12,7 @@ tags:
 
 ---
 ## telegraf
-### archlinux install telegraf
+### archlinux, telegraf
 ```bash
 yay -S telegraf-bin
 ```

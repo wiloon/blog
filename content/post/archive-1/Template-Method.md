@@ -2,10 +2,9 @@
 title: 设计模式 – 模板方法,Template Method
 author: "-"
 date: 2013-06-13T03:05:58+00:00
-url: /?p=5526
+url: design-pattern/template-method
 categories:
-  - Uncategorized
-
+  - design-pattern
 tags:
   - reprint
 ---

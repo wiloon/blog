@@ -10,6 +10,30 @@ tags:
   - reprint
 ---
 ## shell basic, shell script
+
+## 目录
+### 检查目录是否存在
+```bash
+# check if directory is exist
+if [ ! -d "$DIRECTORY" ]; then
+  # Control will enter here if $DIRECTORY doesn't exist.
+fi
+
+```
+
+## read
+
+read命令接收标准输入（键盘）的输入，或者其他文件描述符的输入。在得到输入之后，read命令把输入数据放入一个标准变量中。下面是read命令的基本形式:
+
+```bash
+# !/bin/bash                                 # 指定shell类型
+
+echo -n "Enter your name:"                   # 参数 -n 的作用是不换行，echo 默认换行
+read  name                                   # 把键盘输入放入变量name
+echo "hello $name,welcome to my program"     # 显示输入信息
+exit 0                                       # 返回一个零退出状态，退出shell程序
+```
+
 ## 字符串
 
 ### 判断字符串是否相等
@@ -551,17 +575,6 @@ value=`pwd`
 
 
 
-
-
-### 检查目录是否存在
-```bash
-# check if directory is exist
-if [ ! -d "$DIRECTORY" ]; then
-  # Control will enter here if $DIRECTORY doesn't exist.
-fi
-
-```
-
 ### shell变量
 定义变量时，变量名不加美元符号
 
@@ -642,7 +655,7 @@ ${var:-newstring}
     [-O file] 如果file存在且属有效用户ID则为真 
     [-G file] 如果file存在且属有效用户组则为真 
     [-L file] 如果file存在且是一个符号连接则为真 
-    [-N file] 如果file存在and has been mod如果ied since it was last read则为真 
+    [-N file] 如果file存在and has been mod如果ied since it was last read 则为真 
     [-S file] 如果file存在且是一个 socket 则为真 
     [file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 
     [file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 
@@ -1227,3 +1240,6 @@ https://wxnacy.com/2018/06/20/shell-replace/
 #!/bin/sh 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
 
 
+————————————————
+版权声明：本文为CSDN博主「Locutus」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：

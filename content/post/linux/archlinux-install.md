@@ -21,9 +21,8 @@ curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86
 ```
 
 - copy to ventoy usb partition
-- 用 ventoy u盘引导系统
+- 用 ventoy U盘引导系统
 - 启动 sshd
-
 
 systemctl start sshd
 
@@ -31,19 +30,22 @@ systemctl start sshd
 
 passwd
 
-- 登录， 然后进行后续操作
+- 登录, 然后进行后续操作
 
-todo: try archinstall, <https://github.com/archlinux/archinstall>
+## archinstall
+
+<https://github.com/archlinux/archinstall>
 
 ```bash
 pacman -Sy
 
 # ssh to 
 pacman -S archinstall
+# 执行 archinstall, 开始安装
 archinstall
 
 Select one of the above keyboard languages (by number or full name): us
-Select one of the above regions to download packages from (by number or full name): 11
+Select one of the above regions to download packages from (by number or full name): China
 Select one or more harddrives to use and configure (leave blank to skip this step): 1 
 Select what you wish to do with the selected block devices: 0
 Select which filesystem your main partition should use (by number or name): 2
