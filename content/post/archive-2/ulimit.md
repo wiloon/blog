@@ -118,6 +118,8 @@ JDK 的实现中, 会直接将 nofile 的 soft 先改成了和 hard 一样的值
 
     /proc/sys/fs/file-max
 
+file-max 似乎跟内存大小有关，16G 内存的机器，查到的默认值 是 9223372036854775807， 9京...
+
 系统级的限制打开文件数量(文件描述符数量)的配置  
 所有用户打开文件描述符的总和  
 控制内核总共可以打开的文件数  
@@ -139,7 +141,7 @@ echo  6553560 > /proc/sys/fs/file-max
 fs.file-max = 6553560  #重启生效或者用sysctl -p 加载配置文件.
 ```
 
-### fs.nr_open
+### fs.nr_open, /proc/sys/fs/nr_open
 
 file-max 是内核可分配的最大文件数,  
 nr_open 是单个进程可分配的最大文件数,  
