@@ -23,6 +23,8 @@ tags:
 
 ulimit 是用于获取或者修改 shell 和 shell 创建的进程的 资源限制的一个 linux 内置命令, 是系统调用 setrlimit 的封装.
 
+ulimit 控制的是 shell 级的限制  
+
 ## 格式
 
     ulimit [-SHabcdefiklmnpqrstuvxPT] [limit]
@@ -43,7 +45,7 @@ A soft limit is the effective value right now for that user. The user can increa
 
 hard limit 和 soft limit 都是对单个用户的限制, soft limit 设置的值不能大于 hard limit
 
-### 查看系统级的文件数限制
+### 示例
 ```bash
 ulimit -a
 # open files (-n) 1024
@@ -61,12 +63,24 @@ ulimit -Hn 2048
 
 # set soft limit, 设置当前shell的最大文件数,shell 退出时失效
 ulimit -Sn 2048
+
+# hard limit, soft limit 一起设置
+ulimit -n 65535
+# 查看某一个进程的 limit
+cat /proc/PID/limits
 ```
 
 #### 永久设置
 一条记录包含 4 列,分别是范围 domain (即生效的范围, 可以是用户名、group 名或 * 代表所有非 root 用户) ；t 类型 type: 即 soft、hard, 或者-代表同时设置 soft 和 hard；项目 item, 即 ulimit 中的资源控制项目,名字枚举可以参考文件中的注释；最后就是 value。比如将所有非 root 用户的 nofile 设置为 100000
 
 #### 编辑 vim /etc/security/limits.conf 在最后加入
+
+/etc/security/limits.d/ 中可以配置, 系统是先加载limits.conf然后按照英文字母顺序加载limits.d目录下的配置文件,后加载配置覆盖之前的配置。
+
+如果 limits.conf 里不做任何限制, 则重新登录进来后, ulimit -Sn 显示为 1024。
+
+不过,在CentOS 7 / RHEL 7, archlinux 等系统中,使用Systemd替代了之前的SysV, 因此 /etc/security/limits.conf 文件的配置作用域缩小了一些。limits.conf这里的配置,只适用于通过PAM认证登录用户的资源限制,它对systemd的service的资源限制不生效。登录用户的限制,与上面讲的一样,通过 /etc/security/limits.conf 和 limits.d 来配置即可。
+
 ```bash
 # 或者只加入, -"字符设定, 则 hard 和 soft 设定会同时被设定。
  * - nofile 8192
@@ -75,9 +89,19 @@ ulimit -Sn 2048
 * soft nofile 4096
 * hard nofile 4096
 
-# 设置某一个用户的 文件数
+# 用户级限制， 设置某一个用户的 文件数
 wiloon soft nofile 8192
 wiloon hard nofile 8192
+
+
+
+# 修改后重启生效
+
+# limits.conf, 其它设置
+* soft nproc 100000
+* hard nproc 100000
+* soft core 100000
+* hard core 100000
 ```
 
 ### 查看某一运行中进程的资源限制
@@ -152,22 +176,6 @@ file-handles (即文件句柄)
   
 file discriptor (FD,即文件描述符)
 
-```bash
-# 查看一个进程的limit设置: 
-cat /proc/PID/limits
-
-# shell
-ulimit -n 65536
-
-# user
-/etc/security/limits.conf
-* soft nofile 65535
-* hard nofile 65535
-
-# system max
-/proc/sys/fs/file-max
-```
-
 #### ulimit 参数
 * -a: 显示当前所有的 limit 信息。
 * -n: 显示可以打开最大文件描述符的数量。ulimit -n 128: 设置最大可以使用 128 个文件描述符。
@@ -176,21 +184,13 @@ ulimit -n 65536
 * -H: use the hard resource limit
 * -S: 设置软资源限制,设置后可以增加,但是不能超过硬资源设置。 ulimit – Sn 32；限制软资源,32 个文件描述符。
 - -c 最大的 core 文件的大小, 以 blocks 为单位。 ulimit – c unlimited； 对生成的 core 文件的大小不进行限制。
-  
-    -d 进程最大的数据段的大小,以 Kbytes 为单位。 ulimit -d unlimited；对进程的数据段大小不进行限制。
-  
-    -f 进程可以创建文件的最大值,以 blocks 为单位。 ulimit – f 2048；限制进程可以创建的最大文件大小为 2048 blocks。
-  
-    -l 最大可加锁内存大小,以 Kbytes 为单位。 ulimit – l 32；限制最大可加锁内存大小为 32 Kbytes。
-  
-    -m 最大内存大小,以 Kbytes 为单位。 ulimit – m unlimited；对最大内存不进行限制。
-  
-    -p 管道缓冲区的大小,以 Kbytes 为单位。 ulimit – p 512；限制管道缓冲区的大小为 512 Kbytes。
-  
-    -t 最大的 CPU 占用时间,以秒为单位。 ulimit – t unlimited；对最大的 CPU 占用时间不进行限制。
-  
-    -u 用户最大可用的进程数。 ulimit – u 64；限制用户最多可以使用 64 个进程。
-  
+- -d 进程最大的数据段的大小,以 Kbytes 为单位。 ulimit -d unlimited；对进程的数据段大小不进行限制。
+- -f 进程可以创建文件的最大值,以 blocks 为单位。 ulimit – f 2048；限制进程可以创建的最大文件大小为 2048 blocks。
+- -l 最大可加锁内存大小,以 Kbytes 为单位。 ulimit – l 32；限制最大可加锁内存大小为 32 Kbytes。
+- -m 最大内存大小,以 Kbytes 为单位。 ulimit – m unlimited；对最大内存不进行限制。
+- -p 管道缓冲区的大小,以 Kbytes 为单位。 ulimit – p 512；限制管道缓冲区的大小为 512 Kbytes。
+- -t 最大的 CPU 占用时间,以秒为单位。 ulimit – t unlimited；对最大的 CPU 占用时间不进行限制。
+- -u 用户最大可用的进程数。 ulimit – u 64；限制用户最多可以使用 64 个进程。
 - -v 进程最大可用的虚拟内存, 以 Kbytes 为单位。 ulimit – v 200000；限制最大可用的虚拟内存为 200000 Kbytes。
 
 Provides control over the resources available to the shell and to processes started by it, on systems that allow such control.
@@ -199,27 +199,11 @@ Provides control over the resources available to the shell and to processes star
   
 显然,对服务器来说,file-max, ulimit都需要设置,否则就可能出现文件描述符用尽的问题,为了让机器在重启之后仍然有效,强烈建立作以下配置,以确保file-max, ulimit的值正确无误: 
 
-2.系统默认的ulimit对文件打开数量的限制是1024,修改/etc/security/limits.conf并加入以下配置,永久生效
-
-```bash
-* soft nofile 65535
-* hard nofile 65535
-```
-
-修改完之后,重启即可生效
-
 在bash中,有个ulimit命令,提供了对shell及该shell启动的进程的可用资源控制。主要包括打开文件描述符数量、用户的最大进程数量、coredump文件的大小等。
 
-在centos 5/6 等版本中,资源限制的配置可以在 /etc/security/limits.conf 设置,针对root/user等各个用户或者*代表所有用户来设置。 当然,/etc/security/limits.d/ 中可以配置,系统是先加载limits.conf然后按照英文字母顺序加载limits.d目录下的配置文件,后加载配置覆盖之前的配置。 一个配置示例如下: 
 
-* soft nofile 100000
-* hard nofile 100000
-* soft nproc 100000
-* hard nproc 100000
-* soft core 100000
-* hard core 100000
 
-不过,在CentOS 7 / RHEL 7的系统中,使用Systemd替代了之前的SysV,因此 /etc/security/limits.conf 文件的配置作用域缩小了一些。limits.conf这里的配置,只适用于通过PAM认证登录用户的资源限制,它对systemd的service的资源限制不生效。登录用户的限制,与上面讲的一样,通过 /etc/security/limits.conf 和 limits.d 来配置即可。
+
 
 ## Systemd ulimit 配置
   
@@ -256,19 +240,8 @@ LimitNPROC=100000
 sudo systemctl daemon-reload
   
 sudo systemctl restart nginx.service
-
  
-## shell 级限制
 
-ulimit 控制的是 shell 级的限制  
-通过 ulimit -n 修改, 如执行命令 ulimit -n 1000, 则表示将当前 shell 的所有进程能打开的最大文件数量设置为1000.
-
-## 用户级限制
-  
-一个用户可能会同时通过多个shell连接到系统,所以还有一个针对用户的限制,通过修改 /etc/security/limits.conf实现,例如, 往 limits.conf 输入以下内容: 
-  
-    root soft nofile 1000
-    root hard nofile 1200
   
 soft nofile 表示软限制, hard nofile 表示硬限制, 软限制要小于等于硬限制。上面两行语句表示, root用户的软限制为1000, 硬限制为1200, 即表示root 用户能打开的最大文件数量为 1000, 不管它开启多少个shell。
 
@@ -351,38 +324,13 @@ root用户不受限制
 [root@br162 ~]# ulimit -n 1000002
   
 [root@br162 ~]#也是ok的,可见root是不受限制的。
-
-ulimit里的最大文件打开数量的默认值
   
-如果在limits.conf里没有设置,则默认值是1024,如果limits.con有设置,则默认值以limits.conf为准。例如我换了一台机器,登录进去,ulimit -n显示如下: 
-  
-[root@zk203 ~]# ulimit -n
-  
-2000
-  
-这是因为我的limits.conf里的文件打开数是2000,如下: 
-  
-[root@zk203 ~]# cat /etc/security/limits.conf
-  
-root soft nofile 2000
-  
-root hard nofile 2001
-  
-如果limits.conf里不做任何限制,则重新登录进来后,ulimit -n显示为1024。
-  
-[root@zk203 ~]# ulimit -n
-  
-1024
-
-ulimit修改后生效周期
-  
-修改后立即生效,重新登录进来后失效,因为被重置为limits.conf里的设定值
 
 二 /etc/security/limits.conf
   
-网上还有缪传,ulimit -n设定的值不能超过limits.conf里设定的文件打开数 (即soft nofile) 
+网上还有缪传,ulimit -n 设定的值不能超过limits.conf里设定的文件打开数 (即soft nofile) 
   
-好吧,其实这要分两种情况,root用户是可以超过的,比如当前limits.conf设定如下: 
+好吧,其实这要分两种情况,root用户是可以超过的, 比如当前limits.conf设定如下: 
   
 root soft nofile 2000
   
@@ -435,13 +383,7 @@ root soft nofile1610496root hard nofile1610496
 对于非root用户, /etc/security/limits.conf会限制ulimit -n,但是限制不了root用户
   
 对于非root用户,ulimit -n只能越设置越小,root用户则无限制
-  
-任何用户对ulimit -n的修改只在当前环境有效,退出后失效,重新登录新来后,ulimit -n由limits.conf决定
-  
-如果limits.conf没有做设定,则默认值是1024
-  
-当前环境的用户所有进程能打开的最大问价数量由ulimit -n决定
-
+ 
 ### soft, hard
 
 在命令上,ulimit通过-S和-H来区分soft和hard。如果没有指定-S或-H,在显示值时指的是soft,而在设置的时候指的是同时设置soft和hard值。
@@ -504,13 +446,10 @@ https://www.ibm.com/developerworks/cn/linux/l-cn-ulimit/
 
 http://smilejay.com/2016/06/centos-7-systemd-conf-limits/
 
-http://smilejay.com/2016/06/centos-7-systemd-conf-limits/embed/#?secret=ik43aqQV8y
-  
-https://zhangxugg-163-com.iteye.com/blog/1108402
-  
-https://www.cnblogs.com/zengkefu/p/5635153.html
-
-https://liqiang.io/post/what-is-soft-limit-and-hard-limit-for-ulimit-590cff7d
+>http://smilejay.com/2016/06/centos-7-systemd-conf-limits/embed/#?secret=ik43aqQV8y
+>https://zhangxugg-163-com.iteye.com/blog/1108402
+>https://www.cnblogs.com/zengkefu/p/5635153.html
+>https://liqiang.io/post/what-is-soft-limit-and-hard-limit-for-ulimit-590cff7d
 >https://unix.stackexchange.com/questions/80598/ulimit-rlimit-in-linux-are-they-the-same-thing
 >https://pubs.opengroup.org/onlinepubs/009695399/functions/ulimit.html
 >https://linux.die.net/man/2/setrlimit

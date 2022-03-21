@@ -379,6 +379,10 @@ Recall the previously mentioned SYN_RECV queue - your server is waiting for ACK 
   
     当nf_conntrack模块被装置且服务器上连接超过这个设定的值时,系统会主动丢掉新连接包,直到连接小于此设置值才会恢复。
 
+## /proc/net/nf_conntrack
+
+iptalbes会使用nf_conntrack模块跟踪连接，而这个连接跟踪的数量是有最大值的，当跟踪的连接超过这个最大值，就会导致连接失败。
+
 ## /proc/sys/net/ipv4/tcp_mem
   
     确定TCP栈应该如何反映内存使用,每个值的单位都是内存页 (通常是4KB) 。第一个值是内存使用的下限；第二个值是内存压力模式开始对缓冲区使用应用压力的上限；第三个值是内存使用的上限。在这个层次上可以将报文丢弃,从而减少对内存的使用。对于较大的BDP可以增大这些值 (注意, 其单位是内存页而不是字节) 。
