@@ -1,5 +1,5 @@
 ---
-title: 'archlinux AUR,  yay,  Yaourt'
+title: archlinux AUR, yay, Yaourt
 author: "-"
 date: 2015-06-28T07:02:07+00:00
 url: yay
@@ -11,7 +11,7 @@ tags:
 categories:
   - linux
 ---
-## 'archlinux AUR,  yay,  Yaourt'
+## archlinux AUR, yay, Yaourt
 Yaourt 已经不再维护
   
 yay 是下一个最好的 AUR 助手。它使用 Go 语言写成,宗旨是提供最少化用户输入的 pacman 界面、yaourt 式的搜索,而几乎没有任何依赖软件。

@@ -1240,6 +1240,19 @@ https://wxnacy.com/2018/06/20/shell-replace/
 #!/bin/sh 是指此脚本使用/bin/sh来解释执行，#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。 $bash $表示系统提示符，$ 表示此用户为普通用户，超级用户的提示符是＃，bash是shell的一种，是linux下最常用的一种shell，$bash的意思是执行一个子shell，此子shell为bash.
 
 
-————————————————
-版权声明：本文为CSDN博主「Locutus」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：
+## case, esac
+
+```bash
+printf "1. Goland\n2. WebStorm\nSelect IDEs (leave blank for Goland):"
+
+read -r ides
+
+code=""
+case $ides in
+    1) code=GO
+    ;;
+    2) code=WS
+    ;;
+esac
+
+```

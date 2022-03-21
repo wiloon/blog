@@ -290,10 +290,11 @@ git checkout -b branch_name tag_name
 
 轻量标签 (lightweight）与附注标签 (annotated）。
 
-附注标签是存储在 Git 数据库中的一个完整对象， 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
-
 ### 附注标签 (annotated）
-在 Git 中创建附注标签十分简单。 最简单的方式是当你在运行 tag 命令时指定 -a 选项：
+
+附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
+
+在运行 tag 命令时指定 -a 选项, 创建附注标签
 
 ```bash
 git tag -a v1.4 -m "my version 1.4"
@@ -324,10 +325,10 @@ git push origin <tagname>
 git push origin v1.0.0
 
 # delete tag
-git tag -d 1.0.0
+git tag -d v1.0.0
 
 # delete remote tag
-git push origin :refs/tags/1.0.0
+git push origin :refs/tags/v1.0.0
 ```
 >https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE
 
