@@ -35,12 +35,17 @@ CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl
 # 查看变量
 sysctl -a |grep tcp_syn_retrie
 ```
+
 ### 设置内核参数
 #### 临时设置
+
+重启之后会恢复为默认值。
+
 ```bash
 # 不加 -w 默认就是设置参数值 
 sudo sysctl net.core.rmem_max=2500000
 sudo sysctl -w net.core.rmem_max=2500000
+sudo sysctl -w "fs.file-max=2000500"
 ```
 
 ### 永久设置
@@ -48,11 +53,16 @@ sudo sysctl -w net.core.rmem_max=2500000
 ```bash
 net.core.rmem_max=2097152
 ```
-### 加载文件使其生效
+#### 重启或者加载文件使其生效
+
 ```bash
 # load one file
 sysctl -p /etc/sysctl.d/foo.conf
 sysctl --load=/etc/sysctl.d/foo.conf
+
+# load all
+sysctl -w
+
 ```
 
 ```bash
@@ -68,9 +78,10 @@ sysctl --system
 
 sysctl -w xxx_tcp_syn_retrie =0 时 不会生效。保持原值
 
-### fs.file-max
-    所有用户打开文件描述符的总和  
-    系统级文件描述符数限制。直接修改这个参数和<>中修改方法有相同的效果 (不过这些都是临时修改) 。一般修改/proc/sys/fs/file-max 后,应用程序需要把/proc/sys/fs/inode-max 设置为/proc/sys/fs/fs/file-max 值的3-4倍,否则可能导致inode数不够用。 
+- fs.file-max
+
+>wangyue.dev/ulimit
+
 ### kernel.core_uses_pid**
 
 即使core_pattern中没有设置%p,最后生成的core dump文件名仍会加上进程ID。
@@ -346,26 +357,29 @@ Recall the previously mentioned SYN_RECV queue - your server is waiting for ACK 
   
     number of mounts allowed per mount namespace
 
-  * fs.nfs.idmap_cache_timeout
+## fs.nfs.idmap_cache_timeout
   
     设置idmapper缓存项的最大寿命,单位是秒
   
     <http://blog.wiloon.com/?p=12603>
 
-  * fs.nfs.nfs_callback_tcpport
+## fs.nfs.nfs_callback_tcpport
 
-  * fs.nr_open
+## /proc/sys/fs/nr_open
   
     单个进程可分配的最大文件数
-  * fs.file_max
+    archlinux 默认值 1073741816
+    centos 默认值 1048576
+
+## fs.file_max
   
     内核可分配的最大文件数
 
-  * /proc/sys/net/nf_conntrack_max
+## /proc/sys/net/nf_conntrack_max
   
     当nf_conntrack模块被装置且服务器上连接超过这个设定的值时,系统会主动丢掉新连接包,直到连接小于此设置值才会恢复。
 
-  * /proc/sys/net/ipv4/tcp_mem
+## /proc/sys/net/ipv4/tcp_mem
   
     确定TCP栈应该如何反映内存使用,每个值的单位都是内存页 (通常是4KB) 。第一个值是内存使用的下限；第二个值是内存压力模式开始对缓冲区使用应用压力的上限；第三个值是内存使用的上限。在这个层次上可以将报文丢弃,从而减少对内存的使用。对于较大的BDP可以增大这些值 (注意, 其单位是内存页而不是字节) 。
 

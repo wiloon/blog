@@ -1,5 +1,5 @@
 ---
-title: ulimit, file-max, Linux 下设置最大文件打开数 nofile, nr_open
+title: ulimit, Linux 下设置最大文件打开数 nofile, nr_open
 author: "-"
 date: 2017-02-20T01:15:40+00:00
 url: ulimit
@@ -10,16 +10,26 @@ tags:
   - remix
 
 ---
-## ulimit, file-max, Linux 下设置最大文件打开数 nofile, nr_open
+## ulimit, Linux 下设置最大文件打开数 nofile, nr_open
 
+- ulimit
+- file-max
+- nr_open
 - soft limit
 - hard limit
 - shell 级限制
 - 用户级限制
 - systemd 的 ulimit 配置
 
+ulimit 是用于获取或者修改 shell 和 shell 创建的进程的 资源限制的一个 linux 内置命令, 是系统调用 setrlimit 的封装.
 
-文件句柄数  
+## 格式
+
+    ulimit [-SHabcdefiklmnpqrstuvxPT] [limit]
+
+执行的时候不加 [limit] 部分会打印当前值, 不加任何参数的话, 默认是 -f 
+
+## 文件句柄数  
 直接参考 ulimit 的帮助文档 (注意: 不是 man ulimit, 而是 help ulimit, ulimit 是内置命令, 前者提供的是 C 语言的 ulimit 帮助 ) :  
 
 >Modify shell resource limits. Provides control over the resources available to the shell and processes it creates, on systems that allow such control.  
@@ -104,31 +114,25 @@ JDK 的实现中, 会直接将 nofile 的 soft 先改成了和 hard 一样的值
   
 >https://stackoverflow.com/questions/30487284/how-and-when-and-where-jvm-change-the-max-open-files-value-of-linux
 
+## file-max, 控制内核总共可以打开的文件数
 
-ulimit 其实就是对单一程序的限制, 进程级别的
+    /proc/sys/fs/file-max
 
-file-max 是所有进程最大的文件数
+系统级的限制打开文件数量(文件描述符数量)的配置  
+所有用户打开文件描述符的总和  
+控制内核总共可以打开的文件数  
+一般修改 /proc/sys/fs/file-max 后, 应用程序需要把 /proc/sys/fs/inode-max 设置为 /proc/sys/fs/fs/file-max 值的 3-4 倍, 否则可能导致 inode 数不够用。
 
-nr_open 是单个进程可分配的最大文件数
+man proc, 可得到file-max的描述: 
+  
+    /proc/sys/fs/file-max
+  
+This file defines a system-wide limit on the number of open files for all processes. (See also setrlimit(2), which can be used by a process to set the per-process limit, RLIMIT_NOFILE, on the number of files it may open.) If you get lots of error messages about running out of file handles, try increasing this value
 
-## file-max 控制内核总共可以打开的文件数
-man proc,可得到file-max的描述: 
-  
-/proc/sys/fs/file-max
-  
-This file defines a system-wide limit on the number of open files for all processes. (See
-  
-also setrlimit(2), which can be used by a process to set the per-process limit,
-  
-RLIMIT_NOFILE, on the number of files it may open.) If you get lots of error messages
-  
-about running out of file handles, try increasing this value:
-
-即file-max是设置系统所有进程一共可以打开的文件数量 。同时一些程序可以通过setrlimit调用,设置每个进程的限制。如果得到大量使用完文件句柄的错误信息,是应该增加这个值。
-  
-也就是说,这项参数是系统级别的。
+即 file-max 是设置系统所有进程一共可以打开的文件数量。 同时一些程序可以通过 setrlimit 调用, 设置每个进程的限制。 如果遇到`文件描述符耗尽`的错误信息, 是应该增加这个值。
 
 ```bash
+#临时修改
 echo  6553560 > /proc/sys/fs/file-max
 
 # 或修改 /etc/sysctl.d/10-default.conf, 加入
@@ -137,9 +141,9 @@ fs.file-max = 6553560  #重启生效或者用sysctl -p 加载配置文件.
 
 ### fs.nr_open
 
-file-max是内核可分配的最大文件数,  
-nr_open是单个进程可分配的最大文件数,  
-所以在我们使用ulimit或limits.conf来设置时,如果要超过默认的1048576值时需要先增大nr_open值 (sysctl -w fs.nr_open=100000000或者直接写入sysctl.conf文件) 
+file-max 是内核可分配的最大文件数,  
+nr_open 是单个进程可分配的最大文件数,  
+所以在我们使用 ulimit 或 limits.conf 来设置时, 如果要超过默认的 1048576 值时需要先增大 nr_open 值 (sysctl -w fs.nr_open=100000000 或者直接写入 sysctl.conf 文件) 
 
 ### ulimit
 file-handles (即文件句柄) 
@@ -167,7 +171,7 @@ ulimit -n 65536
 * -n: 显示可以打开最大文件描述符的数量。ulimit -n 128: 设置最大可以使用 128 个文件描述符。
 * -s: 线程栈大小,以 Kbytes 为单位. ulimit – s 512；限制线程栈的大小为 512 Kbytes.
   * 操作系统栈大小 (ulimit -s) : 这个配置只影响进程的初始线程；后续用pthread_create创建的线程都可以指定栈大小。
-* -H: 设置硬资源限制,一旦设置不能增加。 ulimit – Hs 64；限制硬资源,线程栈大小为 64K。
+* -H: use the hard resource limit
 * -S: 设置软资源限制,设置后可以增加,但是不能超过硬资源设置。 ulimit – Sn 32；限制软资源,32 个文件描述符。
 - -c 最大的 core 文件的大小, 以 blocks 为单位。 ulimit – c unlimited； 对生成的 core 文件的大小不进行限制。
   
@@ -253,18 +257,18 @@ sudo systemctl restart nginx.service
 
  
 ## shell 级限制
-  
-通过 ulimit -n 修改,如执行命令 ulimit -n 1000, 则表示将当前shell的当前用户所有进程能打开的最大文件数量设置为1000.
+
+ulimit 控制的是 shell 级的限制  
+通过 ulimit -n 修改, 如执行命令 ulimit -n 1000, 则表示将当前 shell 的所有进程能打开的最大文件数量设置为1000.
 
 ## 用户级限制
   
-ulimit -n 是设置当前shell的当前用户所有进程能打开的最大文件数量,但是一个用户可能会同时通过多个shell连接到系统,所以还有一个针对用户的限制,通过修改 /etc/security/limits.conf实现,例如,往limits.conf输入以下内容: 
+一个用户可能会同时通过多个shell连接到系统,所以还有一个针对用户的限制,通过修改 /etc/security/limits.conf实现,例如, 往 limits.conf 输入以下内容: 
   
-root soft nofile 1000
+    root soft nofile 1000
+    root hard nofile 1200
   
-root hard nofile 1200
-  
-soft nofile 表示软限制, hard nofile 表示硬限制, 软限制要小于等于硬限制。上面两行语句表示,root用户的软限制为1000,硬限制为1200,即表示root用户能打开的最大文件数量为1000,不管它开启多少个shell。
+soft nofile 表示软限制, hard nofile 表示硬限制, 软限制要小于等于硬限制。上面两行语句表示, root用户的软限制为1000, 硬限制为1200, 即表示root 用户能打开的最大文件数量为 1000, 不管它开启多少个shell。
 
 ## 系统级限制
   
@@ -505,3 +509,6 @@ https://zhangxugg-163-com.iteye.com/blog/1108402
 https://www.cnblogs.com/zengkefu/p/5635153.html
 
 https://liqiang.io/post/what-is-soft-limit-and-hard-limit-for-ulimit-590cff7d
+>https://unix.stackexchange.com/questions/80598/ulimit-rlimit-in-linux-are-they-the-same-thing
+>https://pubs.opengroup.org/onlinepubs/009695399/functions/ulimit.html
+>https://linux.die.net/man/2/setrlimit

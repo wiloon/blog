@@ -276,7 +276,7 @@ SIGURG
   SIGURG, urgent, 紧急的。有"紧急"数据或out-of-band数据到达socket时产生.
 
 SIGXCPU
-  超过CPU时间资源限制. 这个限制可以由getrlimit/setrlimit来读取/改变。
+  超过CPU时间资源限制. 这个限制可以由 getrlimit/setrlimit 来读取/改变。
 
 SIGXFSZ
   当进程企图扩大文件以至于超过文件大小资源限制。
