@@ -3,12 +3,14 @@ title: shell basic, shell script
 author: "-"
 date: 2019-05-06T04:27:52+00:00
 url: shell
-
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
+
+
 ---
+
 ## shell basic, shell script
 
 ## 目录
@@ -35,6 +37,31 @@ exit 0                                       # 返回一个零退出状态，退
 ```
 
 ## 字符串
+### shell字符串大小写转换
+
+#### typeset
+
+typeset用于设置变量属性,如大小写,宽度,左右对齐等都可以用typeset来控制, 当用typeset改变一个变量的属性时,这种改变是永久的
+
+有两个选项 -l 代表小写 -u 代表大写。
+用法：
+typeset -u name
+name='asdasdas'
+echo $name
+
+typeset -l ame
+ame='asdasdas'
+echo $ame
+
+利用表达式
+
+echo 'hello' | tr 'a-z' 'A-Z'
+echo 'HELLO' | tr 'A-Z' 'a-z'
+
+————————————————
+版权声明：本文为CSDN博主「LLZK_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/LLZK_/article/details/66972407
+
 
 ### 判断字符串是否相等
 
@@ -520,6 +547,7 @@ echo "dt=${dt}"
 
 ### 模式匹配截断
 >https://blog.csdn.net/K346K346/article/details/51819236
+
 ### 以-分隔取最后一段字符串
 
 模式匹配截断，用法${variable##pattern} 这种模式时，shell在variable中查找给定的模式pattern，如果是存在，就从命令行把variable中的内容去掉左边最长的匹配模式。不改变原变量。

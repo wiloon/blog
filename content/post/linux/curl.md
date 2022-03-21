@@ -16,7 +16,15 @@ tags:
 ## options
 
     -s, --silent, 不显示下载进度
+    -C, --continue-at, 断点续传
 
+## 断点续传
+
+```bash
+# -C -, curl 自动检测续传位置
+curl -C - "http://foo.bar"
+
+```
 ### cookie
 #### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
 ```bash
