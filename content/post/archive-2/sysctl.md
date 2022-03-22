@@ -34,6 +34,7 @@ CentOS 5 supported the placement of sysctl directives in files under /etc/sysctl
 ```bash
 # 查看变量
 sysctl -a |grep tcp_syn_retrie
+sudo sysctl -a | egrep "rmem|wmem|adv_win|moderate"
 ```
 
 ### 设置内核参数
@@ -307,8 +308,7 @@ aio-nr shows the current system-wide number of asynchronous io requests.
   
     用户能够往epoll 内核事件表注册的事件总量。 它是指该用户打开的所有epoll实例总共能监听的事件数目,而不是单个epoll实例能监听的事件数目。往epoll内核事件表中注册一个事件,在32位系统上大概消耗90字节的内核空间,在64位系统上则消耗160字节的内核空间。所以,这个内核参数限制了epoll使用的内核内存总量。
 
-  * net.ipv4.tcp_rmem
-    它包含了3个值,分别指定一个socket的TCP读缓存区的最小值、默认值和最大值。
+
 
 ### net.core.somaxconn
 定义了系统中每一个端口最大的监听队列的长度,这是个全局的参数。  
@@ -387,13 +387,14 @@ iptalbes会使用nf_conntrack模块跟踪连接，而这个连接跟踪的数量
   
     确定TCP栈应该如何反映内存使用,每个值的单位都是内存页 (通常是4KB) 。第一个值是内存使用的下限；第二个值是内存压力模式开始对缓冲区使用应用压力的上限；第三个值是内存使用的上限。在这个层次上可以将报文丢弃,从而减少对内存的使用。对于较大的BDP可以增大这些值 (注意, 其单位是内存页而不是字节) 。
 
-### /proc/sys/net/ipv4/tcp_rmem
-  
+### /proc/sys/net/ipv4/tcp_rmem, net.ipv4.tcp_rmem
+
+它包含了3个值, 分别指定一个 socket 的 TCP 读缓存区的最小值、默认值和最大值。
 定义 tcp socket 使用的内存。第一个值是为 socket 接收缓冲区分配的最少字节数；第二个值是默认值 (该值会被 rmem_default 覆盖), 缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是接收缓冲区空间的最大字节数 (该值跟 net.core.rmem_max 取最大值生效) 。
 
 ### /proc/sys/net/ipv4/tcp_wmem
 
-    net.ipv4.tcp_rmem = 4096 87380 6291456
+    net.ipv4.tcp_wmem = 4096  16384 3661856
 
 定义 tcp socket 使用的内存。第一个值是为 socket 发送缓冲区分配的最少字节数；第二个值是默认值 (该值会被 wmem_default 覆盖), 缓冲区在系统负载不重的情况下可以增长到这个值；第三个值是发送缓冲区空间的最大字节数 (该值会被 wmem_max 覆盖) 。
 
@@ -549,3 +550,4 @@ This file contains the first two values from inode-state.
     list instead of allocating more.
 
 
+>https://sysctl-explorer.net/

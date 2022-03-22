@@ -16,7 +16,7 @@ Golang的主要 设计目标之一就是面向大规模后端服务程序,网络
 网络编程方面,我们最常用的就是tcp socket编程了,在posix标准出来后,socket在各大主流OS平台上都得到了很好的支持。关于tcp programming,最好的资料莫过于W. Richard Stevens 的网络编程圣经《UNIX网络 编程 卷1:  socket 联网API》 了,书中关于tcp socket接口的各种使用、行为模式、异常处理讲解的十分细致。Go是自带runtime的跨平台编程语言,Go中暴露给语言使用者的tcp socket api是建立OS原生tcp socket接口之上的。由于Go runtime调度的需要,golang tcp socket接口在行为特点与异常处理方面与OS原生接口有着一些差别。这篇博文的目标就是整理出关于Go tcp socket在各个场景下的使用方法、行为特点以及注意事项。
 
 ### 模型
-从tcp socket诞生后,网络编程架构模型也几经演化,大致是: "每进程一个连接" –> "每线程一个连接" –> "Non-Block + I/O多路复用(linux epoll/windows iocp/freebsd darwin kqueue/solaris Event Port)"。伴随着模型的演化,服务程序愈加强大,可以支持更多的连接,获得更好的处理性能。
+从tcp socket 诞生后, 网络编程架构模型也几经演化, 大致是: "每进程一个连接" –> "每线程一个连接" –> "Non-Block + I/O多路复用 (linux epoll/windows iocp/freebsd darwin kqueue/solaris Event Port)"。伴随着模型的演化,服务程序愈加强大,可以支持更多的连接,获得更好的处理性能。
 
 目前主流web server一般均采用的都是"Non-Block + I/O多路复用" (有的也结合了多线程、多进程) 。不过I/O多路复用也给使用者带来了不小的复杂度,以至于后续出现了许多高性能的I/O多路复用框架, 比如libevent、libev、libuv等,以帮助开发者简化开发复杂性,降低心智负担。不过Go的设计者似乎认为I/O多路复用的这种通过回调机制割裂控制流的方式依旧复杂,且有悖于"一般逻辑"设计,为此Go语言将该"复杂性"隐藏在Runtime中了: Go开发者无需关注socket是否是 non-block的,也无需亲自注册文件描述符的回调,只需在每个连接对应的goroutine中以"block I/O"的方式对待socket处理即可,这可以说大大降低了开发人员的心智负担。一个典型的Go server端程序大致如下: 
 

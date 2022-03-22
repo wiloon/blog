@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## golang 字符串/string
-### join
+### go, string, join
 ```go
 func main() {
     // 将字符串数组 拼接成 字符串
@@ -19,6 +19,18 @@ func main() {
     // 输出拼接好的字符串
     println(str)
 }
+
+
+package main
+ 
+import "strings"
+ 
+func main(){
+	a := "hahaha"
+	b := "hehehe"
+	c := strings.Join([]string{a,b},",")
+	println(c)
+
 ```
 ### 字符串截取
 

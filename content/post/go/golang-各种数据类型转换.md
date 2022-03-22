@@ -12,6 +12,12 @@ tags:
 
 Conversions are expressions of the form T(x) where T is a type and x is an expression that can be converted to type T.
 
+## string > duration
+
+```go
+d, e := time.ParseDuration("-1h")
+d, e := time.ParseDuration("1000ms")
+```
 ### array > slice
     arr := [3]int{1,2,3}
     sli := arr[:]

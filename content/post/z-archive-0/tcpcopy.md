@@ -56,7 +56,7 @@ make install
 ls /usr/local/intercept
 ```
 
-## 实时复制流量
+### 实时复制流量
 
 ### 测试服务器
 
@@ -112,11 +112,11 @@ iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
 ### 环境
 
 1. 测试用的 tcp 服务 tcp-echo-server 监听 2000 端口
-- 线上服务器, online source server, 192.168.50.101
+2. 线上服务器, online source server, 192.168.50.101
   - 2000 端口提供服务 (tcp-echo-server)
-- 测试服务器,目标服务器, target server, 192.168.50.102
+3. 测试服务器,目标服务器, target server, 192.168.50.102
   - 2000 端口提供服务 (tcp-echo-server)
-- 辅助服务器, assistant server, 192.168.50.103
+4. 辅助服务器, assistant server, 192.168.50.103
 
 
 ### 线上服务器安装 tcpcopy
@@ -141,7 +141,7 @@ make install
 ls /usr/local/intercept
 ```
 
-## 实时复制流量
+### 实时复制流量
 
 ### 测试服务器, 192.168.50.102
 
@@ -164,6 +164,7 @@ ip route add 192.168.60.0/24 via 192.168.50.103 src 192.168.50.102 dev ens18
 辅助服务器捕获 `目标机/测试机` 器发来的响应包
 
 ```bash
+# run intercept
 # ./intercept -F <filter> -i <device,>
 /usr/local/intercept/sbin/intercept -i ens18 -F 'tcp and src port 2000'
 /usr/local/intercept/sbin/intercept -i ens18 -F 'tcp and src port 2000' -d
@@ -185,7 +186,7 @@ ip route add 192.168.60.0/24 via 192.168.50.103 src 192.168.50.102 dev ens18
 # ./tcpcopy -x localServerPort-targetServerIP:targetServerPort -s <intercept server,> [-c <ip range,>]
 /usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.102:2000 -s 192.168.50.103 -c 192.168.60.x
 /usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -d
-# -x 2000-192.168.50.101:2000, 复制 2000 端口的 tcp 流量, 发到测试服务器 192.168.50.101:2000
+# -x 2000-192.168.50.102:2000, 复制 2000 端口的 tcp 流量, 发到测试服务器 192.168.50.102:2000
 # -s 192.168.50.102, 辅助服务器, 等辅助服务器回包
 # -c 192.168.60.x, 修改之后的源端地址网段
 # -d, daemon
@@ -223,7 +224,7 @@ https://blog.csdn.net/wangbin579/article/details/8949315
 >https://segmentfault.com/a/1190000039285429
 
 
-## 流量复制
+## 其它工具
 
 几款流量复制工具：
 

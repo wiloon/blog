@@ -1,5 +1,5 @@
 ---
-title: Linux中命令选项及参数， 括号中的可选、必选表示
+title: Linux 命令选项, 参数，括号, 可选, 必选
 author: "-"
 date: 2019-03-19T02:52:27+00:00
 url: /?p=13881
@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## Linux中命令选项及参数， 括号中的可选、必选表示
-https://blog.csdn.net/raoqin/article/details/8875089
+## Linux 命令选项, 参数，括号, 可选, 必选
+>https://blog.csdn.net/raoqin/article/details/8875089
 
   1. []: 内的内容意思是: 可写可不写
   

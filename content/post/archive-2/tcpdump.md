@@ -56,7 +56,7 @@ tcpdump -nn icmp
 ```bash
 # -e Print the link-level header on each dump line
 # -n 不将address转为name,抓包时不进行域名解析。Don't convert addresses (i.e., host addresses, port numbers, etc.) to names.
-# -nn:  不解析主机名和端口名
+# -nn: 不解析主机名和端口名
 
 #从 192.168 网段到 10 或者 172.16 网段的数据报
 tcpdump -nvX src net 192.168.0.0/16 and dat net 10.0.0.0/8 or 172.16.0.0/16
@@ -245,15 +245,10 @@ tcpdump 'ether[0] & 1 = 0 and ip[16] >= 224'
 
 tcpdump 'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'
   
-tcpdump 与wireshark
 
-Wireshark(以前是ethereal)是Windows下非常简单易用的抓包工具。但在Linux下很难找到一个好用的图形化抓包工具。
+    tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
   
-还好有Tcpdump。我们可以用Tcpdump + Wireshark 的完美组合实现: 在 Linux 里抓包,然后在Windows 里分析包。
-
-tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
-  
-(1)tcp: ip icmp arp rarp 和 tcp、udp、icmp这些选项等都要放到第一个参数的位置,用来过滤数据报的类型
+(1)tcp: ip icmp arp rarp 和 tcp、udp、icmp 这些选项等都要放到第一个参数的位置,用来过滤数据报的类型
   
 (2)-i eth1 : 只抓经过接口eth1的包
   
@@ -277,13 +272,13 @@ tcpdump 对截获的数据并没有进行彻底解码,数据包内的大部分�
 
 输出信息含义
   
-首先我们注意一下,基本上tcpdump总的的输出格式为: 系统时间 来源主机.端口 > 目标主机.端口 数据包参数
+首先我们注意一下,基本上 tcpdump 总的的输出格式为: 系统时间 来源主机.端口 > 目标主机.端口 数据包参数
 
 tcpdump 的输出格式与协议有关.以下简要描述了大部分常用的格式及相关例子.
 
 链路层头
   
-对于FDDI网络, '-e' 使tcpdump打印出指定数据包的'frame control' 域, 源和目的地址, 以及包的长度.(frame control域
+对于FDDI网络, '-e' 使 tcpdump 打印出指定数据包的'frame control' 域, 源和目的地址, 以及包的长度.(frame control域
   
 控制对包中其他域的解析). 一般的包(比如那些IP datagrams)都是带有'async'(异步标志)的数据包,并且有取值0到7的优先级;
   
