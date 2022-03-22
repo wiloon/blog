@@ -18,9 +18,3 @@ MySQL> select time_format(now(),'%H-%i-%S');
 select CONCAT('My', 'S', 'QL');
 
 ```
-
-### Oracle
-
-SQL> select to_char(sysdate,'yyyy-mm-dd') from dual;
-  
-SQL> select to_char(sysdate,'hh24-mi-ss') from dual;

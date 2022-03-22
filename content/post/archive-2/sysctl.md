@@ -3,7 +3,6 @@ title: sysctl
 author: "-"
 date: 2018-08-24T09:42:15+00:00
 url: sysctl
-
 categories:
   - linux
 tags:
@@ -400,19 +399,17 @@ iptalbes会使用nf_conntrack模块跟踪连接，而这个连接跟踪的数量
 
 ### net.core.rmem_max, /proc/sys/net/core/rmem_max
 
+    net.core.rmem_max=2500000
+
 This buffer holds packets that have been received by the kernel, but not yet read by the application (quic-go in this case). Once this buffer fills up, the kernel will drop any new incoming packet.
-
-sysctl -w net.core.rmem_max=2500000
-
-This command would increase the maximum receive buffer size to roughly 2.5 MB.
-
+ 
 最大的 TCP/UDP 数据接收窗口 (字节)  
 默认的接收数据包内存大小  
 这些文件用来设置所有 socket 的发送和接收缓存大小，所以既影响TCP，也影响UDP。
 默认的和最大的接收数据包内存大小  
-大多数的 Linux 中 rmem_max 和 wmem_max 被分配的值为 128 k，在一个低延迟的网络环境中，或者是 apps 比如 DNS、Web Server，这或许是足够的。尽管如此，如果延迟太大，默认的值可能就太小了
+大多数的 Linux 中 rmem_max 和 wmem_max 被分配的值为 128k，在一个低延迟的网络环境中，或者是 apps 比如 DNS、Web Server，这或许是足够的。尽管如此，如果延迟太大，默认的值可能就太小了
 
-需要设置 minimum size, initial size, and maximum size in bytes:
+同时设置 minimum size, initial size, and maximum size in bytes
 
 ```bash
 echo 'net.ipv4.tcp_rmem= 10240 87380 12582912' >> /etc/sysctl.conf
@@ -430,7 +427,7 @@ rmem_max 参数是整个系统的大小，不是单个socket的大小。
 
 >https://www.cnblogs.com/scaugsh/p/10254483.html
 
-如果指定了tcp_wmem，则net.core.wmem_default被tcp_wmem的覆盖。send Buffer在tcp_wmem的最小值和最大值之间自动调整。如果调用setsockopt()设置了socket选项SO_SNDBUF，将关闭发送端缓冲的自动调节机制，tcp_wmem将被忽略，SO_SNDBUF的最大值由net.core.wmem_max限制。
+如果指定了tcp_wmem，则net.core.wmem_default被tcp_wmem的覆盖。send Buffer在tcp_wmem的最小值和最大值之间自动调整。如果调用setsockopt()设置了socket选项SO_SNDBUF，将关闭发送端缓冲的自动调节机制，tcp_wmem将被忽略，SO_SNDBUF 的最大值由net.core.wmem_max限制。
 >https://zhuanlan.zhihu.com/p/89620832
 
 >https://stackoverflow.com/questions/31546835/tcp-receiving-window-size-higher-than-net-core-rmem-max
@@ -439,7 +436,11 @@ rmem_max 参数是整个系统的大小，不是单个socket的大小。
 默认的接收数据包内存大小
 
 ### wmem
-默认情况下Linux系统会自动调整这个buffer (net.ipv4.tcp_wmem）, 也就是不推荐程序中主动去设置SO_SNDBUF，除非明确知道设置的值是最优的。
+
+sysctl 中的 rmem 或者 wmem，如果是代码中指定的话对应着 SO_SNDBUF 或者 SO_RCVBUF, 从 TCP 的概念来看对应着发送窗口或者接收窗口。
+
+默认情况下 Linux 系统会自动调整这个 buffer (net.ipv4.tcp_wmem）, 也就是不推荐程序中主动去设置 SO_SNDBUF，除非明确知道设置的值是最优的。
+
 ### /proc/sys/net/core/wmem_max, /proc/sys/net/core/wmem_default
   
 最大的TCP数据发送窗口 (字节) 。
@@ -551,3 +552,4 @@ This file contains the first two values from inode-state.
 
 
 >https://sysctl-explorer.net/
+>https://www.infoq.cn/article/sFjkj1C5bz2kOXSxYbHO?utm_source=rss&utm_medium=article

@@ -30,7 +30,7 @@ SO_BACKLOG
 The `backlog` argument is the requested maximum number of pending connections on the socket.
 
 
-SO_RCVBUF ,SO_SNDBUF
+## SO_RCVBUF ,SO_SNDBUF
 
 每个TCP socket在内核中都有一个发送缓冲区和一个接收缓冲区,TCP的全双工的工作模式以及TCP的滑动窗口便是依赖于这两个独立的buffer以及此buffer的填充状态。接收缓冲区把数据缓存入内核,应用进程一直没有调用read进行读取的话,此数据会一直缓存在相应socket的接收缓冲区内。再啰嗦一点,不管进程是否读取socket,对端发来的数据都会经由内核接收并且缓存到socket的内核接收缓冲区之中。read所做的工作,就是把内核缓冲区中的数据拷贝到应用层用户的buffer里面,仅此而已。进程调用send发送的数据的时候,最简单情况 (也是一般情况) ,将数据拷贝进入socket的内核发送缓冲区之中,然后send便会在上层返回。换句话说,send返回之时,数据不一定会发送到对端去 (和write写文件有点类似) ,send仅仅是把应用层buffer的数据拷贝进socket的内核发送buffer中。后续我会专门用一篇文章介绍read和send所关联的内核动作。每个UDP socket都有一个接收缓冲区,没有发送缓冲区,从概念上来说就是只要有数据就发,不管对方是否可以正确接收,所以不缓冲,不需要发送缓冲区。
 
