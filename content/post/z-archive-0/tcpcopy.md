@@ -107,8 +107,8 @@ iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
 
 ```
 
-
 ## 常规环境
+
 ### 环境
 
 1. 测试用的 tcp 服务 tcp-echo-server 监听 2000 端口
@@ -117,7 +117,6 @@ iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
 3. 测试服务器,目标服务器, target server, 192.168.50.102
   - 2000 端口提供服务 (tcp-echo-server)
 4. 辅助服务器, assistant server, 192.168.50.103
-
 
 ### 线上服务器安装 tcpcopy
 
