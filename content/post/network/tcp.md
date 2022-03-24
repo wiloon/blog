@@ -50,7 +50,8 @@ SACK(Selective Acknowledgements) 选择ACK,用于处理segment不连续的情况
 ## WS(Window Scale) 
 在tcp头部,Window Size(16Bit)表面接收窗口大小,但是对于现代网络而言,这个值太小了。所以tcp通过选项来增加这个窗口的值。WS值的范围0～14,表示 Window Size(16Bit)数值先向左移动的位数。这样实际上窗口的大小可达31位。在程序网络设计时,有个SO_RECVBUF,表示设置接收缓冲的大小,然而需要注意的是,这个值和接收窗口的大小不完全相等,但是这个数值和接收窗口存在一定的关系,在内核配置的范围内,大小比较接近。
 
-TS(Timestamps) Timestamps在tcp选项中包括两个32位的timestamp: TSval(Timestamp value)和TSecr(Timestamp Echo Reply)。如果设置了TS这个选项,发送方发送时,将当前时间填入TSval,接收方回应时,将发送方的TSval填入TSecr即可(注意发送或接收都有设置TSval和TSecr )。TS 选项的存在有两个重要作用: 一是可以更加精确计算RTT(Round-Trip-Time),只需要在回应报文里面用当前时间减去TSecr即可；二是PAWS(Protection Against Wrapped Sequence number, 防止sequence回绕),什么意思呢？比如说,发送大量的数据: 0-10G,假设segment比较大为1G而且sequence比较小为5G,接收端接收1,3,4,5数据段正常接收,收到的发送时间分别1,3,4,5,第2 segment丢失了,由于SACK,导致2被重传,在接收6时,sequence由于回绕变成了1,这时收到的发送时间为6,然后又收到迷途的2,seq为2,发送时间为2,这个时间比6小,是不合法的,tcp直接丢弃这个迷途的报文。
+## TS(Timestamps) 
+Timestamps在tcp选项中包括两个32位的 timestamp: TSval(Timestamp value) 和 TSecr(Timestamp Echo Reply)。 如果设置了TS这个选项, 发送方发送时, 将当前时间填入TSval, 接收方回应时, 将发送方的TSval 填入 TSecr 即可(注意发送或接收都有设置TSval和TSecr )。TS 选项的存在有两个重要作用: 一是可以更加精确计算 RTT(Round-Trip-Time), 只需要在回应报文里面用当前时间减去 TSecr 即可；二是P AWS(Protection Against Wrapped Sequence number, 防止sequence回绕), 什么意思呢？比如说,发送大量的数据: 0-10G,假设segment比较大为1G而且sequence比较小为5G,接收端接收1,3,4,5数据段正常接收,收到的发送时间分别1,3,4,5,第2 segment丢失了,由于SACK,导致2被重传,在接收6时,sequence由于回绕变成了1,这时收到的发送时间为6,然后又收到迷途的2,seq为2,发送时间为2,这个时间比6小,是不合法的,tcp直接丢弃这个迷途的报文。
 
 UTO(User Timeout) UTO指的是发送SYN,收到ACK的超时时间,如果在UTO内没有收到,则认为对端已挂。 在网络程序设计的时候,为了探测对端是否存活,经常涉及心跳报文,通过tcp的keepalive和UTO机制也可以实现,两者的区别是,前者可以通过心跳报文实时知道对端是否存活,二后者只有等待下次调用发送或接收函数才可以断定:  1) SO_KEEPALIVE相关选项 设置SO_KEEPALIVE 选项,打开keepalive机制。 设置TCP_KEEPIDLE 选项,空闲时间间隔启动keepalive机制,默认为2小时。 设置TCP_KEEPINTVL选项,keepalive机制启动后,每隔多长时间发送一个keepalive报文。默认为75秒。 设置TCP_KEEPCNT选项,设置发送多少个keepalive数据包都没有正常响应,则断定对端已经崩溃。默认为9。 由于tcp有超时重传机制,如果对于ACK丢失的情况,keepalive机制将有可能失效。
 

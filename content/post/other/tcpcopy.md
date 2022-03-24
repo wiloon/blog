@@ -16,7 +16,7 @@ tags:
 
 >https://github.com/session-replay-tools/tcpcopy/issues/336
 
-云环境下，安全策略可能会干扰测试的进行。
+云环境下，安全策略可能会干扰测试的进行
 采用如下步骤可以规避麻烦：
 1. 测试机器和 intercept 部署到一台机器
 2. tcpcopy端 -c 参数采用 tcpcopy 所在的线上机器ip地址
@@ -62,7 +62,7 @@ ls /usr/local/intercept
 测试服务器不添加路由规则.
 
 ```bash
-# 启动测试服务并监听在 2000 端口
+# 启动测试服务并监听在 3000 端口
 ./tcp-echo-server -log-console=true -log-file=false -log-level=info -port=3000
 ```
 

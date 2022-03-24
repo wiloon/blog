@@ -92,7 +92,7 @@ pacman -S tcpdump
     -X: 以 HEX 和 ASCII 模式输出数据包的内容
     -XX: 与 -X 选项相同,同时还输出 ethernet 头
     -v, -vv, -vvv: 输出更多数据包的信息
-    -c: 获取到指定数目的数据包后就停止
+    -c: count 接受到 count 个数据包后退出.
     -s: 定义 snaplength (size) ,-s0 表示获取全部
     -S: 输出绝对序列号
     -e: 获取 ethernet 头信息
@@ -106,12 +106,11 @@ pacman -S tcpdump
     -tttt Print a timestamp, as hours, minutes, seconds, and fractions of a second since midnight, preceded by the date, on each dump line.
     -ttttt Print a delta (micro-second resolution) between current and first line on each dump line.
     -A 以ASCII码方式显示每一个数据包(不会显示数据包中链路层头部信息). 在抓取包含网页数据的数据包时, 可方便查看数据(nt: 即Handy for capturing web pages).
-    -c count tcpdump将在接受到count个数据包后退出.
     -x: 打印每个包的头部数据, 同时会以16进制打印出每个包的数据(但不包括连接层的头部)
     -xx: 打印每个包的头部数据, 同时会以16进制打印出每个包的数据, 其中包括数据链路层的头部
     -X: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据(但不包括连接层的头部)
     -XX: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据, 其中包括数据链路层的头部
-    -c count: 设置抓取到多少个包后就退出
+
 
 ### flags
 
