@@ -18,17 +18,16 @@ tags:
 
 云环境下，安全策略可能会干扰测试的进行。
 采用如下步骤可以规避麻烦：
-1. 测试机器和intercept部署到一台机器
-2. tcpcopy端-c参数采用tcpcopy所在的线上机器ip地址
-3. 在线上机器设置iptables黑洞来过滤掉测试服务器的响应包
-iptables -I INPUT -p tcp --sport 测试服务的端口 -j DROP -s 测试服务所在机器的ip地址
+1. 测试机器和 intercept 部署到一台机器
+2. tcpcopy端 -c 参数采用 tcpcopy 所在的线上机器ip地址
+3. 在线上机器设置iptables黑洞来过滤掉测试服务器的响应包 `iptables -I INPUT -p tcp --sport 测试服务的端口 -j DROP -s` 测试服务所在机器的ip地址
 4. 千万要注意在测试服务器不要设置路由了，否则会受到干扰
 
 ### 环境
 - 测试用的 tcp 服务 tcp-echo-server
 - 线上服务器, online source server, xxx.xxx.20.50
   - 2000 端口提供服务 (tcp-echo-server)
-- 测试服务器,目标服务器, target server, xxx.xxx.20.45
+- 测试服务器,目标服务器, target server, xxx.xxx.20.45， 192.168.50.102
   - 3000 端口提供服务 (tcp-echo-server), 不能跟 online server 用同一个端口
 - 辅助服务器, assistant server,  xxx.xxx.20.45, intercept 跟测试服务部署到同一个机器, 不使用单独的服务器
 
@@ -36,8 +35,8 @@ iptables -I INPUT -p tcp --sport 测试服务的端口 -j DROP -s 测试服务�
 
 ```bash
 git clone https://github.com/session-replay-tools/tcpcopy.git
-cd tcpcopy=-[] 
-./configure
+cd tcpcopy
+./configure --single
 make
 make install
 ls /usr/local/tcpcopy
@@ -50,7 +49,7 @@ ls /usr/local/tcpcopy
 
 git clone https://github.com/session-replay-tools/intercept.git
 cd intercept
-./configure
+./configure --single
 make
 make install
 ls /usr/local/intercept
@@ -58,16 +57,16 @@ ls /usr/local/intercept
 
 ### 实时复制流量
 
-### 测试服务器
+### 测试服务器 192.168.50.102
 
 测试服务器不添加路由规则.
 
 ```bash
-# 启动测试服务并监听在 3000 端口
-./tcp-echo-server -port 3000
+# 启动测试服务并监听在 2000 端口
+./tcp-echo-server -log-console=true -log-file=false -log-level=info -port=3000
 ```
 
-### 辅助服务器
+### 辅助服务器 192.168.50.102
 
 辅助服务器捕获`目标机/测试机`器发出的响应包
 
@@ -75,11 +74,14 @@ ls /usr/local/intercept
 # ./intercept -F <filter> -i <device,>
 /usr/local/intercept/sbin/intercept -i eth0 -F 'tcp and src port 3000'
 /usr/local/intercept/sbin/intercept -i eth0 -F 'tcp and src port 3000' -d
+
+/usr/local/intercept/sbin/intercept -i ens18 -F 'tcp and src port 3000'
+
 # -i eth0, 捕获网卡 eth0 ，基于 tcp 的, 源端口是 3000 的包, 测试服务运行在 3000 端口, 所以源端口是 3000
 # -d, daemon
 ```
 
-### 线上服务器
+### 线上服务器，192.168.50.101
 
 线上服务器捕获包 (2000 端口), 并修改目的及源地址, 并把包发送给目标服务器, 然后等待辅助服务器发送响应包
 
@@ -87,7 +89,7 @@ ls /usr/local/intercept
 
 ```bash
 # 线上服务监听在 2000 端口
-./tcp-echo-server -port 2000
+./tcp-echo-server -log-console=true -log-file=false -log-level=info -port=2000
 
 # intercept 要先启动, tcpcopy 要连接 intercep 的 36524 端口
 # ./tcpcopy -x localServerPort-targetServerIP:targetServerPort -s <intercept server,> [-c <ip range,>]
@@ -98,17 +100,22 @@ ls /usr/local/intercept
 # -c xxx.xxx.20.50, 修改之后的源端地址
 # -d, daemon
 
+# 新建 iptables 规则, 抛掉测试服务器的回包
+iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
+
+/usr/local/tcpcopy/sbin/tcpcopy -x 2000-192.168.50.102:3000 -s 192.168.50.102 -c 192.168.50.101
+sudo iptables -I INPUT -p tcp --sport 3000 -j DROP -s 192.168.50.102
+
 #./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -d  #全流量复制 
 #./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -r 20 -d #复制20%的流量 
 #./tcpcopy -x 2000-192.168.50.101:2000 -s 192.168.50.102 -c 192.168.60.x -n 2 -d #复制2倍流量
 
-# 新建 iptables 规则, 抛掉测试服务器的回包
-iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
+
 
 ```
 
-
 ## 常规环境
+
 ### 环境
 
 1. 测试用的 tcp 服务 tcp-echo-server 监听 2000 端口
@@ -117,7 +124,6 @@ iptables -I INPUT -p tcp --sport 7100 -j DROP -s 10.61.20.50
 3. 测试服务器,目标服务器, target server, 192.168.50.102
   - 2000 端口提供服务 (tcp-echo-server)
 4. 辅助服务器, assistant server, 192.168.50.103
-
 
 ### 线上服务器安装 tcpcopy
 

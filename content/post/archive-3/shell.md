@@ -13,6 +13,19 @@ tags:
 
 ## shell basic, shell script
 
+## 自动输入密码, Y
+
+```bash
+    echo "y"|sudo podman image prune
+```
+
+```bash
+#!/bin/bash
+sudo -S apt-get update << EOF 
+你的密码
+EOF
+```
+
 ## 目录
 ### 检查目录是否存在
 ```bash

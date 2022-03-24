@@ -14,6 +14,21 @@ tags:
 
     echo 'password' | sudo -S command
 
+```bash
+#!/bin/bash
+sudo -S apt-get update << EOF 
+你的密码
+EOF
+
+```
+
+-S参数的作用
+使用man命令查询sudo，对参数-S的说明如下：
+
+Write the prompt to the standard error and read the password from the standard input instead of using the terminal device. The password must be followed by a newline character.
+
+可见加上-S参数sudo才会从标准输入中读取密码，不加-S参数以上命令将起不到作用
+
 >https://askubuntu.com/questions/470383/how-to-avoid-being-prompted-for-a-password-by-sudo
 
 ### sudo 免密码
