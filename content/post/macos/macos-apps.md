@@ -1,16 +1,15 @@
 ---
 author: "-"
 date: "2021-06-16 13:14:17" 
-title: "macos apps"
-
+title: macos apps
 categories:
-  - inbox
+  - macos
 tags:
   - reprint
 ---
-## "macos apps"
+## macos apps
 
 | name                  | comments                                                     |
 | :-------------------- | :----------------------------------------------------------- |
-| Sketch              |  矢量绘图工具  |
+| Sketch                |  矢量绘图工具  |
 

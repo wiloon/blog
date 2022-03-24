@@ -1,16 +1,60 @@
 ---
-title: linux tr
+title: tr command
 author: "-"
 date: 2020-02-14T02:56:46+00:00
-url: /?p=15539
+url: tr
 categories:
-  - Uncategorized
-
+  - linux
 tags:
   - reprint
 ---
-## linux tr
-https://blog.csdn.net/jeffreyst_zb/article/details/8047065
+## tr command
+
+```bash
+echo 'hello' | tr '[:lower:]' '[:upper:]'
+echo 'HELLO' | tr '[:upper:]' '[:lower:]'
+
+```
+什么是tr命令？tr,translate的简写，translate的翻译：
+
+[trænsˈleit]
+
+vi. 翻译, 能被译出
+
+vt. 翻译, 解释, 转化, 转变为, 调动
+
+在这里用到的意思是转化，转变,转换，
+
+```
+  \NNN            character with octal value NNN (1 to 3 octal digits)
+  \\              backslash
+  \a              audible BEL
+  \b              backspace
+  \f              form feed
+  \n              new line
+  \r              return
+  \t              horizontal tab
+  \v              vertical tab
+  CHAR1-CHAR2     all characters from CHAR1 to CHAR2 in ascending order
+  [CHAR*]         in SET2, copies of CHAR until length of SET1
+  [CHAR*REPEAT]   REPEAT copies of CHAR, REPEAT octal if starting with 0
+  [:alnum:]       all letters and digits
+  [:alpha:]       all letters
+  [:blank:]       all horizontal whitespace
+  [:cntrl:]       all control characters
+  [:digit:]       all digits
+  [:graph:]       all printable characters, not including space
+  [:lower:]       all lower case letters
+  [:print:]       all printable characters, including space
+  [:punct:]       all punctuation characters
+  [:space:]       all horizontal or vertical whitespace
+  [:upper:]       all upper case letters
+  [:xdigit:]      all hexadecimal digits
+  [=CHAR=]        all characters which are equivalent to CHAR
+
+```
+
+>https://blog.csdn.net/jeffreyst_zb/article/details/8047065
 
 通过使用tr，您可以非常容易地实现 sed 的许多最基本功能。您可以将 tr 看作为 sed的 (极其) 简化的变体: 它可以用一个字符来替换另一个字符，或者可以完全除去一些字符。您也可以用它来除去重复字符。这就是所有 tr所能够做的。
 
@@ -438,3 +482,7 @@ tr -c '[:print:][:cntrl:]' '[?*]' < textfile > newfile
 要以单个"#"字符替换 <space> 字符类中的每个字符序列，请输入: 
   
 tr -s '[:space:]' '[#*]'
+
+
+>https://www.cnblogs.com/amosli/p/3488306.html
+

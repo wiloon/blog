@@ -177,10 +177,19 @@ net.ipv4.ip_local_port_range
 
 #本端断开的socket连接,TCP保持在FIN-WAIT-2状态的时间。对方可能会断开连接或一直不结束连接或不可预料的进程死亡。默认值为 60 秒。过去在2.2版本的内核中是 180 秒。您可以设置该值,但需要注意,如果您的机器为负载很重的web服务器,您可能要冒内存被大量无效数据报填满的风险,FIN-WAIT-2 sockets 的危险性低于 FIN-WAIT-1,因为它们最多只吃 1.5K 的内存,但是它们存在时间更长。
   
-net.ipv4.tcp_fin_timeout
+## net.ipv4.tcp_fin_timeout
 
-#表示从最后一个包结束后多少秒内没有活动,才发送keepalive包保持连接,默认7200s,理想可设为1800s,即如果非正常断开,1800s后可通过keepalive知道。
+tcp_fin_timeout (integer; default: 60; since Linux 2.2)
+This specifies how many seconds to wait for a final FIN packet before the socket is forcibly closed. This is
+strictly a violation of the TCP specification, but required to prevent denial-of-service attacks. In Linux 2.2,
+the default value was 180.
+
+tcp_fin_timeout : INTEGER
   
+默认值是 60
+  
+对于本端断开的socket连接,TCP保持在 FIN-WAIT-2 状态的时间。对方可能会断开连接或一直不结束连接或不可预料的进程死亡。默认值为 60 秒。过去在2.2版本的内核中是 180 秒。您可以设置该值﹐但需要注意﹐如果您的机器为负载很重的web服务器﹐您可能要冒内存被大量无效数据报填满的风险﹐FIN-WAIT-2 sockets 的危险性低于 FIN-WAIT-1 ﹐因为它们最多只吃 1.5K 的内存﹐但是它们存在时间更长。另外参考 tcp_max_orphans。(事实上做NAT的时候,降低该值也是好处显著的,我本人的网络环境中降低该值为30)
+
 ## net.ipv4.tcp_keepalive_time
 
 Idle time

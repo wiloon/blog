@@ -1,5 +1,5 @@
 ---
-title: TCP慢启动
+title: TCP慢启动, TCP slow start 
 author: "-"
 date: 2016-02-29T09:11:30+00:00
 url: /?p=8757
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## TCP慢启动
+## TCP慢启动, TCP slow start 
 
 TCP连接会随着时间进行自我调谐,起初会限制连接的最大速度,如果数据成功传输,会随着时间的推移提高传输的速度。这种调谐被称为TCP慢启动,用于防止因特网的突然过载和拥塞。
 

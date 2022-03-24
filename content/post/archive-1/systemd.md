@@ -3,7 +3,6 @@ title: systemd, systemctl basic, command
 author: "-"
 date: 2015-05-04T00:34:26+00:00
 url: systemd
-
 categories:
   - inbox
 tags:
@@ -83,12 +82,25 @@ Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
     # 生成一张启动详细信息矢量图, .svg可以用chrome打开
     sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
 
-### hostnamectl
-    # 显示当前主机的信息
-    $ hostnamectl
+### hostnamectl, 查看主机信息, 查看主机名, 查看机器名, 查 hostname
 
-    # 设置主机名。
-    $ sudo hostnamectl set-hostname rhel7
+```bash
+hostnamectl
+# 设置主机名
+sudo hostnamectl set-hostname rhel7
+
+hostnamectl
+  
+hostnamectl status
+  
+hostnamectl -static
+  
+hostnamectl -transient
+  
+hostnamectl -pretty
+  
+sudo hostnamectl set-hostname new-host-name
+```
 
 ### timedatectl
     # 查看当前时区设置

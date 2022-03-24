@@ -1,5 +1,5 @@
 ---
-title: TCP 三次握手, tcp three way handshake,   四次挥手, TCP 状态  (SYN, FIN, ACK, PSH, RST, URG)
+title: TCP 三次握手, tcp three way handshake, 四次挥手, TCP 状态 (SYN, FIN, ACK, PSH, RST, URG)
 author: "-"
 date: 2016-08-10T04:25:26+00:00
 url: tcp
@@ -79,7 +79,12 @@ https://github.com/chemdemo/chemdemo.github.io/blob/master/issues/tcp_notes.md
   
 >https://xie.infoq.cn/article/84998c291eb69b50fad90a132?utm_source=rss&utm_medium=article
 
-### 三次握手, 四次挥手, plantuml
+## 四次挥手
+
+断开连接的挥手动作是4次，其实就是两个来回，每一个来回关闭一个方向的数据传输。
+
+
+### tcp 三次握手, 四次挥手, plantuml
 ```plantuml
 @startuml
 !theme plain
@@ -96,11 +101,11 @@ client -> server: DATA
 server -> client: DATA
 == 断开连接 ==
 client -> server: FIN
-hnote over client : FIN-WAIT-1
+hnote over client : FIN_WAIT_1
 server -> client: DATA
 server -> client: ACK
 hnote over server : CLOSE_WAIT
-hnote over client : FIN-WAIT-2
+hnote over client : FIN_WAIT_2
 server -> client: FIN
 hnote over server : LAST-ACK
 client -> server: ACK
@@ -108,3 +113,9 @@ hnote over client : TIME_WAIT
 hnote over server : CLOSE
 @enduml
 ```
+
+连接在FINWAIT-2超时后并不会进入TIMEWAIT状态，也不会发送reset，而是直接消失。
+TIMEWAIT 持续 时间 60s
+
+>https://blog.csdn.net/dog250/article/details/81256550
+>https://datatracker.ietf.org/doc/html/rfc793

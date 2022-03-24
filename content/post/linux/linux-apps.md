@@ -31,6 +31,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
+|ncdu|磁盘空间清理|
 | neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
 | screenfetch           | 打印发行版的 logo                                                                            |
 | keepassxc             |                                                                                         |
@@ -84,7 +85,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | pycharm               |                                                                      |
 |cmake||
 |linux-lts|lts 内核|
-|ncdu|磁盘空间清理|
+
 |filelight|图形化的磁盘空间管理工具|
 |okular|pdf reader|
 |audacity|一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。|
@@ -109,11 +110,11 @@ sudo pacman -S powerdevil kmix kscreen ark
 | adobe-source-code-pro-fonts     | adobe 的编程字体  |
 | tmux                            |                   |
 
-
 ## AUR
 
 | name                                  | comments                                                       |
-| :------------------------------------ | -------------------------------------------------------------- |
+| :------------------------------------ | :------------------------------------------------------------- |
+| telegraf-bin                          |                                                                |
 | goland                                | yay -S goland goland-jre, 两个一起安装                         |
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
 | clion                                 | yay -S clion clion-jre                                                               |
@@ -137,7 +138,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | perl-goo-canvas                       | shutter 的画线插件                                             |
 | google-chrome-dev                     |                                                                |
 | intellij-idea-community-edition-jre   | idea with jre                                                  |
-| telegraf                              |                                                                |
 | tableplus                             | MySQL client                                                   |
 | procmon                               | 微软的进程监控工具                                             |
 | platformio                            | 物联网开发的开源生态系统                                       |

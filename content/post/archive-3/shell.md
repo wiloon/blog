@@ -55,8 +55,8 @@ echo $ame
 
 利用表达式
 
-echo 'hello' | tr 'a-z' 'A-Z'
-echo 'HELLO' | tr 'A-Z' 'a-z'
+echo 'hello' | tr '[:lower:]' '[:upper:]'
+echo 'HELLO' | tr '[:upper:]' '[:lower:]'
 
 ————————————————
 版权声明：本文为CSDN博主「LLZK_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
@@ -102,7 +102,8 @@ echo "after exit"
     $*	    传递给脚本或函数的所有参数。
     $@	    传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
     $?	    上个命令的退出状态，或函数的返回值。
-    $$	    当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
+    $$	    Shell本身的进程ID(PID, Process ID)。对于 Shell 脚本，就是这些脚本所在的进程ID。
+    $!      上一个后台进程的进程号 (PID)
 
 ### $(), $( Dollar Single Parentheses )
 Usage of the $ like ${HOME} gives the value of HOME. Usage of the $ like $(echo foo) means run whatever is inside the parentheses in a subshell and return that as the value.
@@ -700,9 +701,6 @@ ${var:-newstring}
 版权声明: 本文为CSDN博主「无知的蜗牛」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接: https://blog.csdn.net/weixin_37998647/java/article/details/79718821
 
-
-
-
 ## grep 操作的返回值
 
 如果有匹配的字符串，返回值是 0， 还会打印出匹配字符串的行。
@@ -710,19 +708,24 @@ ${var:-newstring}
 如果没有匹配， 会返回1。
 
 
-## if/else
+## shell, if/else
   
 和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如
 
+### if
 ```bash
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 ```
 
+### if else if else
+
+```bash
     if ... fi 语句；
     if ... else ... fi 语句；
     if ... elif ... else ... fi 语句
+```
 
 其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0 (表示真) ，则执行then后面的子命令，如果Exit Status非0 (表示假) ，则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例: 
 

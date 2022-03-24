@@ -609,3 +609,10 @@ https://imgchr.com/i/11bp8I
 https://s2.ax1x.com/2020/01/31/11v2WQ.md.png  
 https://imgchr.com/i/11v2WQ  
 https://s2.ax1x.com/2020/01/31/13pGXd.png  
+
+## 示例
+
+```bash
+iptables -A INPUT -s 192.168.44.111 -p tcp --tcp-flags SYN,FIN,RST FIN -j DROP
+
+```

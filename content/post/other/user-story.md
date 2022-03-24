@@ -1,5 +1,5 @@
 ---
-title: us
+title: us, 用户故事
 author: "-"
 date: 2012-03-19T01:58:10+00:00
 url: /?p=2578
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## us
+## us, 用户故事
 as a xxx, i would like to xxx so that xxx.
 
 As a "user", I want to "do sth", so that "sth"

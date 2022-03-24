@@ -97,7 +97,7 @@ libpcap的包捕获机制是在数据链路层增加一个旁路处理，不干�
 libpcap-mmap是对旧的libpcap实现的改进，新版本的libpcap基本都采用packet_mmap机制。PACKET_MMAP通过mmap，减少一次内存拷贝 (第4次拷贝没有了），减少了频繁的系统调用，大大提高了报文捕获的效率。
 
 ### PF_RING
-参考：PF_RING学习笔记
+
 我们看到之前 libpcap 有4次内存拷贝。
 libpcap_mmap 有3次内存拷贝。
 PF_RING 提出的核心解决方案便是减少报文在传输过程中的拷贝次数。
@@ -110,7 +110,7 @@ PF-RING ZC 实现了 DNA  (Direct NIC Access 直接网卡访问）技术，将�
 其缺点是，只有一个应用可以在某个时间打开DMA ring (请注意，现在的网卡可以具有多个RX / TX队列，从而就可以在每个队列上同时一个应用程序），换而言之，用户态的多个应用需要彼此沟通才能分发数据包。
 
 ### DPDK
-参考：DPDK解析-----DPDK，PF_RING对比
+参考：DPDK解析-----DPDK, PF_RING 对比
 DPDK — IGB_UIO，与 UIO Framework 进行交互的内核模块
 
 pf-ring zc和dpdk均可以实现数据包的零拷贝，两者均旁路了内核，但是实现原理略有不同。pf-ring zc通过zc驱动 (也在应用层）接管数据包，dpdk基于UIO实现。

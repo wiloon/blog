@@ -37,7 +37,7 @@ yay -S telegraf-bin
 [[outputs.influxdb]]
   urls = ["http://influxdb.wiloon.com:8086"]
 # 注意修改 database
-  database = "db0"
+  database = "monitor"
 
 [[inputs.cpu]]
   percpu = true
@@ -46,7 +46,6 @@ yay -S telegraf-bin
   report_active = false
 [[inputs.disk]]
   ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
-
 
 [[inputs.diskio]]
 [[inputs.kernel]]
