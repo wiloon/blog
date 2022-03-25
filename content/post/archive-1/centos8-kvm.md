@@ -23,7 +23,7 @@ Also install useful tools for virtual machine management.
 sudo dnf -y install libvirt-devel virt-top libguestfs-tools virt-install
 
 osinfo-query os
- 
+
 ```bash
 virt-install \
 --name roy-dev \
@@ -36,7 +36,6 @@ virt-install \
 --location=https://mirrors.163.com/fedora/releases/34/Server/x86_64/os/ \
 --extra-args="console=tty0 console=ttyS0,115200"
 ```
-
 
 
 >https://computingforgeeks.com/how-to-install-kvm-on-rhel-8/

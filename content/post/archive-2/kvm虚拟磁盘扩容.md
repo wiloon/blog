@@ -1,5 +1,5 @@
 ---
-title: KVM虚拟磁盘扩容, qemu-img resize
+title: KVM 虚拟磁盘扩容, qemu-img resize
 author: "-"
 date: 2018-03-24T13:35:19+00:00
 url: /?p=12049
@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## KVM虚拟磁盘扩容, qemu-img resize
-### kvm虚拟磁盘扩容
+## KVM 虚拟磁盘扩容, qemu-img resize
+### kvm 虚拟磁盘扩容
 
 磁盘扩容分为raw和qcow2两种扩容方式,命令相同,区别是后缀名
 
