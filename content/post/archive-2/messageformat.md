@@ -31,7 +31,7 @@ String str = "I'm not a {0}, age is {1,number,short}", height is {2,number,#.#};
 MessageFormat本身与语言环境无关,而与用户提供给MessageFormat的模式和用于已插入参数的子格式模式有关,以生成适用于不同语言环境的消息。
 
 
-MessageFormat模式（主要部分) : 
+MessageFormat模式 (主要部分) : 
 
 
 FormatElement:
@@ -51,7 +51,7 @@ date
 
 time
 
-choice（需要使用ChoiceFormat) 
+choice (需要使用ChoiceFormat) 
 
 
 FormatStyle:
@@ -70,7 +70,7 @@ currency
   
 percent
   
-SubformatPattern（子模式) 
+SubformatPattern (子模式) 
 
 
 还以str为例,在这个字符串中: 

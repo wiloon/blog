@@ -1,24 +1,23 @@
 ---
-title: 'MTR/traceroute  诊断网络问题'
+title: MTR/traceroute, 路由跟踪
 author: "-"
 date: 2017-02-17T08:32:04+00:00
-url: /?p=9832
-
+url: mtr
 categories:
-  - inbox
+  - network
 tags:
   - reprint
+  - remix
 ---
-## 'MTR/traceroute  诊断网络问题'
-https://meiriyitie.com/2015/05/26/diagnosing-network-issues-with-mtr/
+## MTR/traceroute, 路由跟踪
 
 使用 MTR 诊断网络问题
   
-MTR 是一款强大的网络诊断工具,网络管理员使用 MTR 可以诊断和隔离网络问题,并且为上游 ISP 提供有用的网络状态报告。
+MTR 是一款强大的网络诊断工具, 网络管理员使用 MTR 可以诊断和隔离网络问题,并且为上游 ISP 提供有用的网络状态报告。
 
-MTR 是传统 traceroute 命令的进化版,并且可以提供强大的数据样本,因为他集合了 traceroute 和 ping 这两个命令的精华。本文带您深入了解 MTR ,从数据如何生成,到如果正确理解报告样本并得出相应的结论。
+MTR 是传统 traceroute 命令的进化版, 并且可以提供强大的数据样本, 因为他集合了 traceroute 和 ping 这两个命令的精华。本文带您深入了解 MTR, 从数据如何生成, 到如果正确理解报告样本并得出相应的结论。
 
-关于网络诊断技术的基本理论请参考 network diagnostics .如果您怀疑您的 Linux 系统有其他问题,请参考 system diagnostics 。最后,我们假定您已经掌握了 getting started guide (入门指南) 。
+关于网络诊断技术的基本理论请参考 network diagnostics. 如果您怀疑您的 Linux 系统有其他问题,请参考 system diagnostics 。最后,我们假定您已经掌握了 getting started guide (入门指南) 。
 
 网络诊断相关的背景知识
   
@@ -27,32 +26,28 @@ MTR 是传统 traceroute 命令的进化版,并且可以提供强大的数据样
 相对于其他命令仅仅收集传输路径或响应时间,MTR 工具会收集更多的信息,比如 连接状态,连接可用性,以及传输路径中主机的响应性。由于这些额外的信息,我们建议您尽可能完整的展现 Internet 两个主机之间的网络连接信息。接下来我们讲述如何安装 MTR 软件,以及如何看懂这款软件的输出结果。
 
 ### 安装 MTR
-在 Debian 和 Ubuntu 系统中,使用如下命令更新系统,然后安装 MTR: 
 
 ```bash
+# debian/ubuntu
 apt-get update
 apt-get upgrade
 apt-get install mtr-tiny
+
+# CentOS/Fedora
+yum update
+yum install mtr
+
+# Arch Linux
+pacman -Sy
+pacman -S mtr
 ```
 
 ### 使用
 
 ```bash
 mtr 39.156.69.79
+mtr -report google.com
 ```
-
-在 CentOS 和 Fedora 系统中,使用如下命令更新系统,并安装 MTR: 
-
-yum update
-  
-yum install mtr
-  
-在 Arch Linux 系统中,按照如下命令更新系统并安装 MTR: 
-
-    pacman -Sy
-    pacman -S mtr
-  
-如果您的本机使用的是 Linux 系统,并且想用 MTR 测试网络状况,请按照如上教程安装。
 
 如果您的本机使用的 Mac OS X 系统,可以使用 Homebre 或 MacPorts 来安装 MTR。使用 Homebrew 安装 MTR: 
 
@@ -66,7 +61,7 @@ port install mtr
 
 因为 MTR 提供两个主机之间的网络路径图,您可以把它想象成一款定向工具。另外,因为地址位置或上游ISP路由器的原因,路径有时候可能会有很大的不同。所以我们建议您尽可能多的收集 MTR 的报告信息。
 
-如果您遇到网络方面的问题, Linode 的技术支持经常建议您收集双向的 MTR 报告（从 Linode 出发和到 Linode 的往返路径) 。这是因为有时候网络状况从一个方向不会出现错误,但是从另一个方向会出现丢包现象。当出现网络问题时候,双向 MTR 报告是十分有用的。
+如果您遇到网络方面的问题, Linode 的技术支持经常建议您收集双向的 MTR 报告 (从 Linode 出发和到 Linode 的往返路径) 。这是因为有时候网络状况从一个方向不会出现错误,但是从另一个方向会出现丢包现象。当出现网络问题时候,双向 MTR 报告是十分有用的。
 
 在本文中,运行 mtr 命令的主机称为 源主机,被查询的主机称为 目的主机。
 
@@ -90,21 +85,21 @@ mtr -rw 87.65.43.21
 
 mtr -rw 12.34.56.78
   
-请使用您的本地公网IP地址替换 12.34.56.78 。如果您不确定您的本地公网IP地址,您可以使用相关的第三方服务,如果 WhatIsMyIP.com。（译者著: 国内可以使用 ip.c、ip138.com 、ipip.net 等第三方服务) 
+请使用您的本地公网IP地址替换 12.34.56.78 。如果您不确定您的本地公网IP地址,您可以使用相关的第三方服务,如果 WhatIsMyIP.com。 (译者著: 国内可以使用 ip.c、ip138.com 、ipip.net 等第三方服务) 
 
 注
 
 我们使用 rw 参数是为了方便让 Linode 的技术支持看到更多的网络信息。
 
-r 产生报告信息（–report 的缩写) 
+r 产生报告信息 (–report 的缩写) 
 
-w 报告中带有 hostname 信息,Linode 技术支持可以看到每一跳的完整 hostname （–report-wide 的缩写) 
+w 报告中带有 hostname 信息,Linode 技术支持可以看到每一跳的完整 hostname  (–report-wide 的缩写) 
   
 在 Windows 系统下使用 MTR
   
 首先,Windows 下的 MTR 有 GUI 的,运行 WinMTR,输入目的地址,然后选择开始即可,您就会看到输出内容。
 
-另外,您还需要使用 Linux 版本的 MTR 来产生从 Linode 到您本地的返回线路网络状况。（因为目前 Linode 仅有Linux 的VPS,哈哈) 
+另外,您还需要使用 Linux 版本的 MTR 来产生从 Linode 到您本地的返回线路网络状况。 (因为目前 Linode 仅有Linux 的VPS,哈哈) 
 
 如何读懂 MTR 报告
   
@@ -140,7 +135,7 @@ HOST: example                  Loss%   Snt   Last   Avg  Best  Wrst StDev
   
 使用 mtr –report google.com 命令来输出这篇报告。使用 report 选项可以给 google.com 主机发送10个 ICMP 包,然后输出报告。如果我们不使用 –report 参数, mtr 会不断的动态运行。在动态模式下, mtr 的输出结果表述每个主机的往返时间。大多数情况下,使用 –report 参数就可以提供足够的数据了。
 
-在命令下面,就是 MTR 产生的输出报告 。在通常情况下, MTR需要几秒钟的时间来输出报告,但是偶尔可能需要更长的时间。MTR 报告是由一系列跳数组成的（在上述例子中是12跳) 。"跳"意味着节点,或路由器,数据包通过它们才能到达目的主机。在上面例子中,数据包经过本地网络的"内层"和"外层",然后到达 "68.85.118.13",然后再到一系列的域名主机。主机的域名是通过反向 DNS 查找确定的。如果您想忽略 rDNS 查找,您可以使用 –no-dns 参数,使用 –no-dns 参数后,报告结果如下: 
+在命令下面,就是 MTR 产生的输出报告 。在通常情况下, MTR需要几秒钟的时间来输出报告,但是偶尔可能需要更长的时间。MTR 报告是由一系列跳数组成的 (在上述例子中是12跳) 。"跳"意味着节点,或路由器,数据包通过它们才能到达目的主机。在上面例子中,数据包经过本地网络的"内层"和"外层",然后到达 "68.85.118.13",然后再到一系列的域名主机。主机的域名是通过反向 DNS 查找确定的。如果您想忽略 rDNS 查找,您可以使用 –no-dns 参数,使用 –no-dns 参数后,报告结果如下: 
 
 %  mtr  -no-dns -report google.com
   
@@ -170,15 +165,15 @@ HOST: deleuze                     Loss%   Snt   Last   Avg  Best  Wrst StDev
   
 当我们研究 MTR 报告时候,最好找出每一跳的任何问题。除了可以查看两个服务器之间的路径之外,MTR 在它的七列数据中提供了很多有价值的数据统计报告。 Loss% 列展示了数据包在每一跳的丢失率。 Snt 列记录的多少个数据包被送出。 使用 –report 参数默认会送出10个数据包。如果使用 –report-cycles=[number-of-packets] 选项,MTR 就会按照 [number-of-packets] 指定的数量发出 ICMP 数据包。
 
-Last, Avg, Best 和 Wrst 列都标识数据包往返的时间,使用的是毫秒（ ms ) 单位表示。 Last 表示最后一个数据包所用的时间, Avg 表示评价时间, Best 和 Wrst 表示最小和最大时间。在大多数情况下,平均时间（ Avg) 列需要我们特别注意。
+Last, Avg, Best 和 Wrst 列都标识数据包往返的时间,使用的是毫秒 ( ms ) 单位表示。 Last 表示最后一个数据包所用的时间, Avg 表示评价时间, Best 和 Wrst 表示最小和最大时间。在大多数情况下,平均时间 ( Avg) 列需要我们特别注意。
 
 最后一列 StDev 提供了数据包在每个主机的标准偏差。如果标准偏差越高,说明数据包在这个节点的延时越不相同。标准偏差会让您了解到平均延时是否是真的延时时间的中心点,或者测量数据受到某些问题的干扰。
 
-例如,如果标准偏差很大,说明数据包的延迟是不确定的。一些数据包延迟很小（例如: 25ms) ,另一些数据包延迟很大（例如: 350ms) 。当10个数据包全部发出后,得到的平均延迟可能是正常的,但是平均延迟是不能很好的反应实际情况的。如果标准偏差很高,使用最好和最坏的延迟来确定平均延迟是一个较好的方案。
+例如,如果标准偏差很大,说明数据包的延迟是不确定的。一些数据包延迟很小 (例如: 25ms) ,另一些数据包延迟很大 (例如: 350ms) 。当10个数据包全部发出后,得到的平均延迟可能是正常的,但是平均延迟是不能很好的反应实际情况的。如果标准偏差很高,使用最好和最坏的延迟来确定平均延迟是一个较好的方案。
 
 在大多数情况下,您可以把 MTR 的输出分成三大块。根据配置,第二或第三跳一般都是您的本地 ISP,倒数第二或第三跳一般为您目的主机的ISP。中间的节点是数据包经过的路由器。
 
-例如,我们在本地电脑运行 MTR,目的地是您的 Linode VPS,一般前三跳属于您的本地 ISP,后三跳属于 Linode 数据中心这边的。中间的条数是属于中间节点的。当您在本地运行 MTR,如果您在前几跳发现异常,请联系您本地的 ISP 服务提供商。相反,如果您在接近目的地的几跳发现问题,请联系您目的地的服务器提供商（例如: Linode) 。如果您的问题出现在中间几跳,很不幸,两边的服务提供商的能力有限,可能不能完全为您解决问题喽。
+例如,我们在本地电脑运行 MTR,目的地是您的 Linode VPS,一般前三跳属于您的本地 ISP,后三跳属于 Linode 数据中心这边的。中间的条数是属于中间节点的。当您在本地运行 MTR,如果您在前几跳发现异常,请联系您本地的 ISP 服务提供商。相反,如果您在接近目的地的几跳发现问题,请联系您目的地的服务器提供商 (例如: Linode) 。如果您的问题出现在中间几跳,很不幸,两边的服务提供商的能力有限,可能不能完全为您解决问题喽。
 
 分析 MTR 报告
   
@@ -378,7 +373,7 @@ HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
   
 10. ???                           0.0%    10    0.0   0.0   0.0   0.0   0.0
   
-当没有额外的路由信息时,将会显示问号（???) ,下面例子也一样: 
+当没有额外的路由信息时,将会显示问号 (???) ,下面例子也一样: 
 
 root@meiriyitie.com:~# mtr -report www.google.com
   
@@ -468,7 +463,7 @@ HOST: localhost                   Loss%   Snt   Last   Avg  Best  Wrst StDev
 
 超时
   
-在很多种情况下会发生超时现象。例如: 很多路由器可能会直接丢弃 ICMP 包,这时就会导致超时（???) 。
+在很多种情况下会发生超时现象。例如: 很多路由器可能会直接丢弃 ICMP 包,这时就会导致超时 (???) 。
   
 另外,也有可能在数据返回的路上出现了问题。
 
@@ -513,3 +508,5 @@ Understanding the Traceroute Command – Cisco Systems
 Wikipedia article on traceroute
 
 Traceroute by Exit109.com
+
+>https://meiriyitie.com/2015/05/26/diagnosing-network-issues-with-mtr/

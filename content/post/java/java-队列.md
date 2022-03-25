@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## java 队列, Queue, Deque
-名称 deque 是"double ended queue（双端队列) "的缩写，通常读为"deck"。
+名称 deque 是"double ended queue (双端队列) "的缩写，通常读为"deck"。
   
 大多数 Deque 实现对于它们能够包含的元素数没有固定限制，但此接口既支持有容量限制的双端队列，也支持没有固定大小限制的双端队列。
 

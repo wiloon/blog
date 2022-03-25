@@ -11,7 +11,7 @@ tags:
 ## "tcp sack"
 https://blog.csdn.net/wdscq1234/article/details/52503315
 
-TCP-IP详解: SACK选项（Selective Acknowledgment) 
+TCP-IP详解: SACK选项 (Selective Acknowledgment) 
  
 引入理由
 在文章TCP-IP详解: 超时重传机制中,有介绍到快速重传和超时重传都会面临到一个重传什么包的问题,因为发送端也不清楚丢失包后面传送的数据是否有成功的送到。主要原因还是对于TCP的确认系统,不是特别的好处理这种不连续确认的状况了,只有低于ACK number的片段都被收到才有进行ACK,out-of-order的片段只能是等待,同时,这个时间窗口是无法向右移动的。
@@ -52,7 +52,7 @@ Kind 5  Length  剩下的都是没有确认的segment的range了 比如说segmen
 
 再来将上面的例子
 
-客户端收到seg4的时候,发送seg3的ACK 会产生一个SACK的option（361~500) ,Server收到这个ACK后,就知道seg3丢失了,但是seg4已经收到了但是并没有确认,所以就只会重传seg3
+客户端收到seg4的时候,发送seg3的ACK 会产生一个SACK的option (361~500) ,Server收到这个ACK后,就知道seg3丢失了,但是seg4已经收到了但是并没有确认,所以就只会重传seg3
 
 
 SACK的产生,RFC2018

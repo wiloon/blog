@@ -26,7 +26,7 @@ http://www.jianshu.com/p/932bcdf2c89f
   
 2.组合索引,不是使用第一列索引,索引失效
   
-如果select from key1=1 and key2= 2;建立组合索引（key1,key2) ;
+如果select from key1=1 and key2= 2;建立组合索引 (key1,key2) ;
   
 select from key1 = 1;组合索引有效；
   

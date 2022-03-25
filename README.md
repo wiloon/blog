@@ -1,37 +1,4 @@
 # wiloon.com
-    date '+%Y-%m-%d %H:%M:%S' && ls -lR content/post |grep '\.md'|wc -l && ls -lR content/post |grep '\.md'|wc -m|xargs printf "%'3.0f\n"
+    date '+%Y-%m-%d %H:%M:%S' && ls -lR content/post |grep '\.md'|wc -l && find content/post -name '*.md' -exec wc -w '{}' \; > /tmp/foo.txt && awk '{sum+=$1} END {print sum}' /tmp/foo.txt
+    
 
-### history
-2021-12-16 14:38:27
-3105
-199,044
-
-2021-09-23 13:41:17
-3189
-236,885
-
----
-
-2021-05-09 17:17:17
-3224
-241802
-
-2021-06-01 13:20:40
-3211
-240603
-
-2021-07-30 23:48:55
-3229
-240913
-
-2021-08-12 10:24:30
-3206
-238,950
-
-2021-08-20 13:04:08
-3201
-238,478
-
-2021-08-25 09:14:50
-3200
-238,383

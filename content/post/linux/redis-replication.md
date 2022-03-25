@@ -16,8 +16,8 @@ beanlam
 发布于 2015-04-20
 本专栏与Redis相关的文章
 
-Redis Sentinel机制与用法（一) 
-Redis Sentinel机制与用法（二) 
+Redis Sentinel机制与用法 (一) 
+Redis Sentinel机制与用法 (二) 
 Jedis的JedisSentinelPool源代码分析
 Jedis的Sharded源代码分析
 Redis 主从 Replication 的配置

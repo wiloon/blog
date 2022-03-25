@@ -17,13 +17,13 @@ tags:
 ### service mesh
 
 下一代微服务架构
-Service Mesh（服务网格) 被认为是下一代微服务架构,Service Mesh并没有给我们带来新的功能,它是用于解决其他工具已经解决过的服务网络调用、限流、熔断和监控等问题, 只不过这次是在 Cloud Native 的 kubernetes 环境下的实现。
+Service Mesh (服务网格) 被认为是下一代微服务架构,Service Mesh并没有给我们带来新的功能,它是用于解决其他工具已经解决过的服务网络调用、限流、熔断和监控等问题, 只不过这次是在 Cloud Native 的 kubernetes 环境下的实现。
 
 Willian Morgan 对 Service Mesh 的解释。
 
 A Service Mesh is a dedicated infrastructure layer for handling service-to-service communication. It’s responsible for the reliable delivery of requests through the complex topology of services that comprise a modern, cloud native application. In practice, the Service Mesh is typically implemented as an array of lightweight network proxies that are deployed alongside application code, without the application needing to be aware.
 
-服务网格（Service Mesh）是处理服务间通信的基础设施层。它负责在现代的云原生应用的复杂的服务拓补中可靠的交付请求。在实践中，Service Mesh 通常以轻量级网络代理阵列的形式实现，这些代理与应用程序代码部署在一起，应用程序无需感知代理的存在。
+服务网格 (Service Mesh）是处理服务间通信的基础设施层。它负责在现代的云原生应用的复杂的服务拓补中可靠的交付请求。在实践中，Service Mesh 通常以轻量级网络代理阵列的形式实现，这些代理与应用程序代码部署在一起，应用程序无需感知代理的存在。
 
 
 Service Mesh 有如下几个特点：
@@ -50,7 +50,7 @@ Phil Calçado 在他的这篇博客 Pattern: Service Mesh 中详细解释了 Ser
 Service Mesh如何工作？
 下面以 Istio 为例讲解 Service Mesh 如何工作，后续文章将会详解 Istio 如何在 Kubernetes 中工作。
 
-Sidecar（Istio 中使用 Envoy 作为 sidecar 代理）将服务请求路由到目的地址，根据请求中的参数判断是到生产环境、测试环境还是 staging 环境中的服务（服务可能同时部署在这三个环境中），是路由到本地环境还是公有云环境？所有的这些路由信息可以动态配置，可以是全局配置也可以为某些服务单独配置。这些配置是由服务网格的控制平面推送给各个 sidecar 的，
+Sidecar (Istio 中使用 Envoy 作为 sidecar 代理）将服务请求路由到目的地址，根据请求中的参数判断是到生产环境、测试环境还是 staging 环境中的服务 (服务可能同时部署在这三个环境中），是路由到本地环境还是公有云环境？所有的这些路由信息可以动态配置，可以是全局配置也可以为某些服务单独配置。这些配置是由服务网格的控制平面推送给各个 sidecar 的，
 当 sidecar 确认了目的地址后，将流量发送到相应服务发现端点，在 Kubernetes 中是 service，然后 service 会将服务转发给后端的实例。
 Sidecar 根据它观测到最近请求的延迟时间，选择出所有应用程序的实例中响应最快的实例。
 Sidecar 将请求发送给该实例，同时记录响应类型和延迟数据。

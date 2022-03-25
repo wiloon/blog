@@ -1,5 +1,5 @@
 ---
-title: golang 控制语句/control, foreach, loop, switch,循环
+title: golang 控制语句/control, foreach, loop, switch, 循环
 author: "-"
 date: 2016-10-12T05:39:20+00:00
 url: /?p=9287
@@ -9,9 +9,12 @@ categories:
 tags:
   - reprint
 ---
-## golang 控制语句/control, foreach, loop, switch,循环
+## golang 控制语句/control, foreach, loop, switch, 循环
 
-```golang
+Go 中的控制语句较精简, 只有很少的几个控制结构, 仅有 if、for、select 和 switch, 没有 while 或者 do-while 循环。
+
+## multiple initialisation and increment
+```go
 package main
 
 import (
@@ -19,48 +22,44 @@ import (
 )
 
 func main() {
-    for no, i := 10, 1; i <= 10 && no <= 19; i, no = i+1, no+1 { //multiple initialisation and increment
+  // multiple initialisation and increment
+    for no, i := 10, 1; i <= 10 && no <= 19; i, no = i+1, no+1 { 
         fmt.Printf("%d * %d = %d\n", no, i, no*i)
     }
 }
 ```
 
-As an example:
+## range
 
+```go
 for index,element := range someSlice {
-    
 // index is the index where we are
-    
 // element is the element from someSlice for where we are
-  
 }
   
-If you don't care about the index, you can use _:
-
+//If you don't care about the index, you can use _:
 for _,element := range someSlice {
-    
 // element is the element from someSlice for where we are
-  
 }
-  
-Go中的控制语句较精简,仅有if、for、select和switch。
+```
 
-在Go语言中只有很少的几个控制结构,它没有while或者do-while循环。
-
-但是它有for、switch、if。而且switch接受像for那样可选的初始化语句
-
-### for循环
+### for 循环
   
-Go语言的For循环有3中形式,只有其中的一种使用分号。
+Go语言的For循环有3中形式, 只有其中的一种使用分号。
 
-    for init; condition; post { } 
-    // 和C 的for 一样
-  
-    for condition { } 
-    // 和while 一样
-  
-    for { } 
-    // 和C 的for(;;) 一样（死循环) 
+```go
+for init; condition; post {
+  // body
+ } 
+// 和C 的for 一样
+// 执行顺序 init > body > condition > body > condition > body > condition > ... > post
+
+for condition { } 
+// 和while 一样
+
+for { } 
+// 和 C 的 for(;;) 一样 (死循环) 
+```
 
 ### if
   
@@ -112,7 +111,7 @@ return "MyName"
   
 }
 
-此代码编译不通过,错误信息: function ends without a return statement,这是在设计Go时故意这样的,也可以说是一个Bug（可参见:https://code.google.com/p/go/issues/detail?id=65) ,这是一种编码风格,即在if语句块中去做return处理,而else中不处理,而是继续执行if-else后面的代码,这样能减少一个代码缩进,不需要在了解代码时去记住else语句块的处理。当然如果想必须这样写,也可以进行特殊处理,在函数的末行添加语句**panic("")**
+此代码编译不通过,错误信息: function ends without a return statement,这是在设计Go时故意这样的,也可以说是一个Bug (可参见:https://code.google.com/p/go/issues/detail?id=65) ,这是一种编码风格,即在if语句块中去做return处理,而else中不处理,而是继续执行if-else后面的代码,这样能减少一个代码缩进,不需要在了解代码时去记住else语句块的处理。当然如果想必须这样写,也可以进行特殊处理,在函数的末行添加语句**panic("")**
 
 在if中可以包含初始化语句,这是非常实用的。例如在文件处理,取字典项时需要判断是否执行操作成功,只有在成功时才能继续处理,这样就可以通过if-else处理。
 
@@ -360,7 +359,7 @@ cl = "Other Char"
   
 }
 
-下面是Switch写的一个示例（无实际意义) : 
+下面是Switch写的一个示例 (无实际意义) : 
 
 func Compare(a, b interface{}) (int, error) {
   

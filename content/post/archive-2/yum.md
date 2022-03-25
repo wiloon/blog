@@ -95,3 +95,7 @@ https://my.oschina.net/andyfeng/blog/601291
 http://gzmaster.blog.51cto.com/299556/72278
   
 http://www.cnblogs.com/kevingrace/p/6252659.html
+
+
+### rpm repo
+>https://www.rpmfind.net/linux/RPM/index.html

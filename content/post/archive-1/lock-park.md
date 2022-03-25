@@ -18,9 +18,9 @@ LockSupport.park() 和 unpark(),与object.wait()和notify()的区别？
   
 2. 实现机制不同。虽然LockSuport可以指定monitor的object对象,但和object.wait(),两者的阻塞队列并不交叉。object.notifyAll()不能唤醒LockSupport的阻塞Thread.
 
-阻塞和唤醒是对于线程来说的,LockSupport的park/unpark更符合这个语义,以"线程"作为方法的参数, 语义更清晰,使用起来也更方便。而wait/notify的实现使得"线程"的阻塞/唤醒对线程本身来说是被动的,要准确的控制哪个线程、什么时候阻塞/唤醒很困难, 要不随机唤醒一个线程（notify) 要不唤醒所有的（notifyAll) 。
+阻塞和唤醒是对于线程来说的,LockSupport的park/unpark更符合这个语义,以"线程"作为方法的参数, 语义更清晰,使用起来也更方便。而wait/notify的实现使得"线程"的阻塞/唤醒对线程本身来说是被动的,要准确的控制哪个线程、什么时候阻塞/唤醒很困难, 要不随机唤醒一个线程 (notify) 要不唤醒所有的 (notifyAll) 。
 
-LockSupport.park()（以下简称 park() ) 可能是 java.util.concurrent 包最重要的函数了,因为很多 java.util.concurrent 中的功能类都是利用 park() 来实现它们各自的阻塞。在 park() 之前 Java 也有过类似功能的函数——suspend(),相应的唤醒函数是 resume()。不过 suspend() 有个严重的问题是父线程有可能在调用 suspend() 之前子线程已经调用了 resume(),那么这个 resume() 并不会解除在它之后的 suspend(),因此父线程就会陷入永久的等待中。相比于 suspend(),park() 可以在以下几种情况解除线程的等待状态: 
+LockSupport.park() (以下简称 park() ) 可能是 java.util.concurrent 包最重要的函数了,因为很多 java.util.concurrent 中的功能类都是利用 park() 来实现它们各自的阻塞。在 park() 之前 Java 也有过类似功能的函数——suspend(),相应的唤醒函数是 resume()。不过 suspend() 有个严重的问题是父线程有可能在调用 suspend() 之前子线程已经调用了 resume(),那么这个 resume() 并不会解除在它之后的 suspend(),因此父线程就会陷入永久的等待中。相比于 suspend(),park() 可以在以下几种情况解除线程的等待状态: 
 
 在 park() 前曾经调用过该线程的 unpark() 进而获得了一次"继续执行的权利",此时调用 park() 会立即返回,并且消耗掉相应的"继续执行的权利"。
   
@@ -28,7 +28,7 @@ LockSupport.park()（以下简称 park() ) 可能是 java.util.concurrent 包最
   
 在 park() 进入等待状态之后,有其他线程以该线程为目标调用 interrupt()。
   
-在 park() 进入等待状态之后,有可能会没有理由地解除等待状态。（这也是为什么推荐在循环体中调用 park(),并在返回之后再次检查条件是否满足。) 
+在 park() 进入等待状态之后,有可能会没有理由地解除等待状态。 (这也是为什么推荐在循环体中调用 park(),并在返回之后再次检查条件是否满足。) 
   
 其中第一条就可以保证 park() 不会遇到和 suspend() 同样的问题。
 

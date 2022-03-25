@@ -2,33 +2,33 @@
 title: MySQL INNODB
 author: "-"
 date: 2017-04-11T06:46:30+00:00
-url: /?p=10053
+url: innodb
 categories:
-  - Uncategorized
+  - db
 
 tags:
   - reprint
 ---
 ## MySQL INNODB
-http://wulijun.github.io/2012/09/29/MySQL-innodb-intro.html
-  
-InnoDB是MySQL下使用最广泛的引擎,它是基于MySQL的高可扩展性和高性能存储引擎,从5.5版本开始,它已经成为了默认引擎。 InnODB引擎支持众多特性: 
 
-支持ACID,简单地说就是支持事务完整性、一致性；
+InnoDB 由 Innobase Oy 公司所开发, 发音为 "in-no-db"
+
+
+>http://wulijun.github.io/2012/09/29/MySQL-innodb-intro.html
   
-支持行锁,以及类似ORACLE的一致性读,多用户并发；
-  
-独有的聚集索引主键设计方式,可大幅提升并发读写性能；
-  
-支持外键；
-  
-支持崩溃数据自修复；
+InnoDB是MySQL下使用最广泛的引擎, 它是基于 MySQL 的高可扩展性和高性能存储引擎, 从5.5版本开始, 它已经成为了默认引擎。 InnODB 引擎支持众多特性: 
+
+- 支持ACID,简单地说就是支持事务完整性、一致性；
+- 支持行锁,以及类似ORACLE的一致性读,多用户并发；
+- 独有的聚集索引主键设计方式,可大幅提升并发读写性能；
+- 支持外键；
+- 支持崩溃数据自修复；
   
 InnoDB有这么多特性,比MyISAM来的优秀多了,还犹豫什么,果断的切换到InnoDB引擎吧 🙂
 
-修改InnoDB配置选项
+## InnoDB 配置
   
-可以选择官方版本,或者Percona的分支,如果不知道在哪下载,就google吧。安装完MySQL后,需要适当修改下my.cnf配置文件,针对InnoDB相关的选项做 一些调整,才能较好的运行InnoDB。
+可以选择官方版本, 或者 Percon a的分支, 如果不知道在哪下载, 就google吧。安装完MySQL后,需要适当修改下 my.cnf 配置文件, 针对 InnoDB 相关的选项做 一些调整, 才能较好的运行InnoDB。
 
 相关的选项有: 
 

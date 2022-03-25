@@ -34,7 +34,7 @@ M 年中的月份 Month July; Jul; 07
 
 d 月份中的天数 Number 10
 
-H 一天中的小时数（0-23)  Number 0
+H 一天中的小时数 (0-23)  Number 0
 
 m 小时中的分钟数 Number 30
 

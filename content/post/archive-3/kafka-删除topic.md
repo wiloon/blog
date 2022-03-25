@@ -28,7 +28,7 @@ step2:
 
 server.properties 设置 delete.topic.enable=true
 
-如果没有设置 delete.topic.enable=true，则调用kafka 的delete命令无法真正将topic删除，而是显示（marked for deletion) 
+如果没有设置 delete.topic.enable=true，则调用kafka 的delete命令无法真正将topic删除，而是显示 (marked for deletion) 
 
 step3: 
 
@@ -38,13 +38,13 @@ step3:
 
 step4: 
 
-删除kafka存储目录（server.properties文件log.dirs配置，默认为"/data/kafka-logs") 相关topic的数据目录。
+删除kafka存储目录 (server.properties文件log.dirs配置，默认为"/data/kafka-logs") 相关topic的数据目录。
 
-注意: 如果kafka 有多个 broker，且每个broker 配置了多个数据盘（比如 /data/kafka-logs,/data1/kafka-logs ...) ，且topic也有多个分区和replica，则需要对所有broker的所有数据盘进行扫描，删除该topic的所有分区数据。
+注意: 如果kafka 有多个 broker，且每个broker 配置了多个数据盘 (比如 /data/kafka-logs,/data1/kafka-logs ...) ，且topic也有多个分区和replica，则需要对所有broker的所有数据盘进行扫描，删除该topic的所有分区数据。
 
 一般而言，经过上面4步就可以正常删除掉topic和topic的数据。但是，如果经过上面四步，还是无法正常删除topic，则需要对kafka在zookeeer的存储信息进行删除。具体操作如下: 
 
-（注意: 以下步骤里面，kafka在zk里面的节点信息是采用默认值，如果你的系统修改过kafka在zk里面的节点信息，则需要根据系统的实际情况找到准确位置进行操作) 
+ (注意: 以下步骤里面，kafka在zk里面的节点信息是采用默认值，如果你的系统修改过kafka在zk里面的节点信息，则需要根据系统的实际情况找到准确位置进行操作) 
 
 step5: 
 

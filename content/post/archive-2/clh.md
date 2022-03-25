@@ -131,7 +131,7 @@ while(preNode.isLocked ) {
 
 public void unlock(CLHNode currentThread) {
           
-// 如果队列里只有当前线程,则释放对当前线程的引用（for GC) 。
+// 如果队列里只有当前线程,则释放对当前线程的引用 (for GC) 。
           
 if (!UPDATER.compareAndSet(this, currentThread, null)) {
               

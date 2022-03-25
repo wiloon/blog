@@ -37,7 +37,7 @@ MySQLslap是MySQL5.1之后自带的benchmark基准测试工具,类似Apache Benc
   
 4) -auto-generate-sql 代表用系统自己生成的SQL脚本来测试。
   
-5) -auto-generate-sql-load-type 代表要测试的是读还是写还是两者混合的（read,write,update,mixed) 
+5) -auto-generate-sql-load-type 代表要测试的是读还是写还是两者混合的 (read,write,update,mixed) 
   
 6) -number-of-queries 代表总共要运行多少次查询。每个客户端运行的查询数量可以用查询总数/并发数来计算。
   

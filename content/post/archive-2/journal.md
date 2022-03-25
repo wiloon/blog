@@ -13,6 +13,11 @@ tags:
 
 ## journal, journalctl, syslog
 
+```bash
+# -u 指定 unit
+journalctl -u file-server
+```
+
 Arch Linux 启用 systemd 后, 很多服务都被替换掉了, 当然syslog也不例外, 被 Systemd Journal 所替代。
 
 systemd 拥有强大的处理与系统日志记录功能。在使用其它工具时,日志往往被分散在整套系统当中,由不同的守护进程及进程负责处理,这意味着我们很难跨越多种应用程序对其内容进行解读。
@@ -97,11 +102,11 @@ SystemKeepFree=: 指定journal在添加新条目时需要保留的剩余空间�
   
 SystemMaxFileSize=: 控制单一journal文件大小,符合要求方可被转为持久存储。
   
-RuntimeMaxUse=: 指定易失性存储中的最大可用磁盘容量（/run文件系统之内) 。
+RuntimeMaxUse=: 指定易失性存储中的最大可用磁盘容量 (/run文件系统之内) 。
   
-RuntimeKeepFree=: 指定向易失性存储内写入数据时为其它应用保留的空间量（/run文件系统之内) 。
+RuntimeKeepFree=: 指定向易失性存储内写入数据时为其它应用保留的空间量 (/run文件系统之内) 。
   
-RuntimeMaxFileSize=: 指定单一journal文件可占用的最大易失性存储容量（/run文件系统之内) 。
+RuntimeMaxFileSize=: 指定单一journal文件可占用的最大易失性存储容量 (/run文件系统之内) 。
 
 分发
   

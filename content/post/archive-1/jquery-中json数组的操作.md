@@ -52,7 +52,7 @@ arrayObj.splice(deletePos,deleteCount); //删除从指定位置deletePos开始�
 
 arrayObj.slice(start, [end]); //以数组的形式返回数组的一部分,注意不包括 end 对应的元素,如果省略 end 将复制 start 之后的所有元素
 
-arrayObj.concat([item1[, item2[, . . . [,itemN]]]]); //将多个数组（也可以是字符串,或者是数组和字符串的混合) 连接为一个数组,返回连接好的新的数组
+arrayObj.concat([item1[, item2[, . . . [,itemN]]]]); //将多个数组 (也可以是字符串,或者是数组和字符串的混合) 连接为一个数组,返回连接好的新的数组
 
 **6、数组的拷贝**
 
@@ -62,7 +62,7 @@ arrayObj.concat(); //返回数组的拷贝数组,注意是一个新的数组,不
 
 **7、数组元素的排序**
 
-arrayObj.reverse(); //反转元素（最前的排到最后、最后的排到最前) ,返回数组地址
+arrayObj.reverse(); //反转元素 (最前的排到最后、最后的排到最前) ,返回数组地址
 
 arrayObj.sort(); //对数组元素排序,返回数组地址
 

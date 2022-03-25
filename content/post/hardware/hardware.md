@@ -1,5 +1,5 @@
 ---
-title: "hardware"
+title: hardware
 author: "-"
 date: "2021-01-13 08:49:13"
 url: ""
@@ -8,7 +8,6 @@ categories:
 tags:
   - inbox
 ---
-## "hardware"
 ## hardware
 
 https://www.passmark.com/
@@ -24,8 +23,7 @@ Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
 #### esim
 https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans
 
-### Dell U2412M
-1920x1200
+
 
 ### Sharp 
 3840*2160
@@ -60,7 +58,7 @@ TS流输入接口
 S/PDIF, I2S, PCM输入输出接口
 模拟立体声输出
 数字立体麦克风输入
-P授权（可选) 
+P授权 (可选) 
 Dolby Digital, Dolby Digital Plus
 DTS Digital Surround, DTS HD, DTS Express
 Real, DivX HD
@@ -75,15 +73,50 @@ Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2系列
 金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列
 
-### PC
+## PC
 2015-09-05    
-华硕（ASUS) Z170M-PLUS 主板 （Intel Z170/LGA 1151)    
+华硕 (ASUS) Z170M-PLUS 主板  (Intel Z170/LGA 1151)    
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz   
 Kingston DDR4 2133 16GB(8Gx2条)  
 wifi: Intel Corporation Wireless 7260 (rev 5b)  
     最高速度            300/867 Mbps
     Wi-Fi CERTIFIED*    802.11ac
-    
+
+### 显示输出
+- DVI
+- HDMI
+- VGA
+
+## Dell U2412M * 2
+1920x1200
+
+### 接口
+- DP
+- DVI
+- VGA
+
+## ViewSonic
+### 接口
+- DVI
+- VGA
+
+## 视频线
+- VGA > VGA: PC > ViewSonic
+- DVI > DVI: PC > Dell U2412M
+- HDMI > DP: PC > Dell U2412M
+
+## nuc8i5beh
+https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html
+
+    i5-8259U 
+    Intel® Iris® Plus Graphics 655
+    Memory Types DDR4-2400 1.2V SO-DIMM
+
+### 显示输出
+- HDMI > dvi
+- type-c > vga
+
+
 ### Pixelbook
 CPU: i5  
 MEM: 8G  
@@ -130,12 +163,7 @@ Bluetooth 4.0
     RAM: 128 MiB  
     mips, not mipsle  
 
-### nuc8i5beh
-https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html
 
-    i5-8259U 
-    Intel® Iris® Plus Graphics 655
-    Memory Types DDR4-2400 1.2V SO-DIMM
 
 ### Raspberry Pi 3 Model B+
 Broadcom BCM2837B0, Cortex-A53 (ARMv8) 64-bit SoC @ 1.4GHz
@@ -171,8 +199,8 @@ Wi-Fi 标准
 IEEE 802.11a/b/g/n/ac
 
 支持的速率	
-802.11ac：6.5 到 867Mbps（MCS0 到 MCS9，VHT20/40/80 NSS = 1 到 2）
-802.11n：6.5 Mbps 到 300Mbps （MCS0 到 MCS15）
+802.11ac：6.5 到 867Mbps (MCS0 到 MCS9，VHT20/40/80 NSS = 1 到 2）
+802.11n：6.5 Mbps 到 300Mbps  (MCS0 到 MCS15）
 802.11a/g：54、48、36、24、18、12、9 和 6 Mbps
 802.11b：11，5.5，2 和 1 Mbps
 
@@ -196,3 +224,9 @@ Hotspot 2.0
 强制门户
 WISPr
 
+## Kindle Voyage
+
+闪存: 东芝4GB (用户可用内存约3GB)
+屏幕: 分辨率为1448×1072，像素度也达到了300ppi
+飞思卡尔半导体 MCIMX6L8DVN10AB 处理器
+三星 512 MB SDRAM

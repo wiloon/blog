@@ -8,8 +8,62 @@ categories:
   - inbox
 tags:
   - reprint
+  - remix
 ---
 ## ssh-agent, forward
+
+## 临时运行
+
+直接执行的话不能导入 环境 变量, 只能看看 ssh-agent 能否正常运行
+
+```bash
+ssh-agent
+# 回显是这样的
+SSH_AUTH_SOCK=/tmp/ssh-XXXXXXmfJNRj/agent.43061; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=43062; export SSH_AGENT_PID;
+echo Agent pid 43062;
+```
+
+### 导入环境变量
+
+    eval $(ssh-agent)
+
+用 eval 可以把 SSH_AUTH_SOCK 等 环境 变量 临时导入当前 shell
+
+### archlinux 启动后自动启用 ssh-agent
+Start ssh-agent with systemd user
+
+```bash
+vim ~/.config/systemd/user/ssh-agent.service
+
+# content
+[Unit]
+Description=SSH key agent
+
+[Service]
+Type=simple
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target
+```
+
+### .pam_environment 没有的话就创建一个新文件
+```bash
+vim  ~/.pam_environment
+SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+```
+
+```bash
+# Then enable or start the service.
+systemctl --user enable ssh-agent
+systemctl --user start ssh-agent
+# 检查环境变量 SSH_AUTH_SOCK
+env | fgrep SSH_
+# 如果看不到SSH_AUTH_SOCK , 重启再试一下 
+```
 
 ### 查看 ssh agent 进程
     ps -ef | grep ssh-agent
@@ -30,17 +84,8 @@ ssh-add -l
 ### 测试密钥是否可用
     ssh -T git@github.com
 
-### 临时运行, 直接执行的话不能导入 环境 变量
-    ssh-agent
-#### 回显
-    SSH_AUTH_SOCK=/tmp/ssh-XXXXXXmfJNRj/agent.43061; export SSH_AUTH_SOCK;
-    SSH_AGENT_PID=43062; export SSH_AGENT_PID;
-    echo Agent pid 43062;
 
-### 导入环境变量
-    eval $(ssh-agent)
-
-ssh-agent 是用于管理SSH private keys的, 长时间持续运行的守护进程（daemon) . 唯一目的就是对解密的私钥进行高速缓存。
+ssh-agent 是用于管理SSH private keys的, 长时间持续运行的守护进程 (daemon) . 唯一目的就是对解密的私钥进行高速缓存。
 ssh-add 提示并将用户的使用的私钥添加到由ssh-agent 维护的列表中. 此后, 当使用公钥连接到远程 SSH 或 SCP 主机时,不再提示相关信息.
 使用步骤如下:
 
@@ -155,9 +200,9 @@ XiaoleideMacBook-Pro:ssh professor$ ssh-add -L
 
 #### 我们常用的SSH工作原理,通过publickey access: 
 - Step1,用户发起连接,携带者用户名
-- Step2,ssh守护进程（sshd) 在Server上查看authorized_keys文件,基于publickey构造一个口令盘问发送给SSH client 
+- Step2,ssh守护进程 (sshd) 在Server上查看authorized_keys文件,基于publickey构造一个口令盘问发送给SSH client 
 The ssh daemon on the server looks in the user's authorized_keys file, constructs a challenge based on the public key found there, and sends this challenge back to the user's ssh client.
-- Step3,SSH client收到后,在本地查询privatekey（默认id_rsa文件) ,此时如果有密码,会要求输入密码。
+- Step3,SSH client收到后,在本地查询privatekey (默认id_rsa文件) ,此时如果有密码,会要求输入密码。
 - Step4,ssh client通过privatekey构造一个响应。发送给sshd。注意: 这里并不会发送privatekey本身。
 - Step5,验证,授权成功
 
@@ -175,43 +220,10 @@ The ssh daemon on the server looks in the user's authorized_keys file, construct
   
 如果按照我们上面的配置,配置好了agent forwarding,它是如何工作的: 
   
-- Step1,基于上面的ssh到server1,用户在server1上开始发起到server2的链接（这一步和之前一样) 
+- Step1,基于上面的ssh到server1,用户在server1上开始发起到server2的链接 (这一步和之前一样) 
 - Step2: server2的sshd查询用户的authorized_keys文件,并像之前一样构造一个口令盘问发回给server1的ssh。下面神奇的事情就发生了: server1的ssh发送给自己的sshd,并再一次relay给我们pc的ssh。
 - Step3: 后面的步骤就是PC的ssh agent根据privatekey构造key response并串行的发到server2的sshd上。然后完成鉴权。
 - Step4: 如果需要在往Server3,4,N,仍然有效。
-
-### archlinux ssh-agent
-Start ssh-agent with systemd user
-
-```bash
-vim ~/.config/systemd/user/ssh-agent.service
-[Unit]
-Description=SSH key agent
-
-[Service]
-Type=simple
-Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
-ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
-
-[Install]
-WantedBy=default.target
-```
-
-### .pam_environment 没有的话就创建一个新文件
-```bash
-vim  ~/.pam_environment
-SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-
-```
-
-```bash
-# Then enable or start the service.
-systemctl --user enable ssh-agent
-systemctl --user start ssh-agent
-# 检查环境变量 SSH_AUTH_SOCK
-env | fgrep SSH_
-# 如果看不到SSH_AUTH_SOCK , 重启再试一下 
-```
 
 ---
 
@@ -220,3 +232,8 @@ https://www.fythonfang.com/blog/2017/12/27/ssh-agent-and-ssh-agent-forwarding
 https://wiki.archlinux.org/index.php/Systemd/User
 https://wiki.archlinux.org/index.php/SSH_keys
 https://www.jianshu.com/p/12de50582e63
+
+## win11 ssh-agent
+搜索 服务 
+启用并启动 openssh authentication agent 
+

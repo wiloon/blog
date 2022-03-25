@@ -9,6 +9,9 @@ tags:
   - reprint
 ---
 ## "JWT, session"
+
+>github.com/golang-jwt/jwt
+
 背景知识: 
 
 ### Authentication和Authorization的区别: 
@@ -27,11 +30,11 @@ JWT和session ID也会暴露于未经防范的重放攻击
 
 Local Storage
 
-无状态 JWT（Stateless JWT) : 包含 Session 数据的 JWT Token。Session 数据将被直接编码进 Token 内。
+无状态 JWT (Stateless JWT) : 包含 Session 数据的 JWT Token。Session 数据将被直接编码进 Token 内。
 
-有状态 JWT（Stateful JWT) : 包含 Session 引用或其 ID 的 JWT Token。Session 数据存储在服务端。
+有状态 JWT (Stateful JWT) : 包含 Session 引用或其 ID 的 JWT Token。Session 数据存储在服务端。
 
-Session token（又称 Session cookie) : 标准的、可被签名的 Session ID，例如各类 Web 框架（译者注: 包括 Laravel) 内已经使用了很久的 Session 机制。Session 数据同样存储在服务端。
+Session token (又称 Session cookie) : 标准的、可被签名的 Session ID，例如各类 Web 框架 (译者注: 包括 Laravel) 内已经使用了很久的 Session 机制。Session 数据同样存储在服务端。
 
 ————————————————
 
@@ -53,7 +56,7 @@ Session token（又称 Session cookie) : 标准的、可被签名的 Session ID�
 
 ##### 工作原理
 
-当 client通过用户名密码请求server并通过身份认证后，server就会生成身份认证相关的 session 数据，并且保存在内存或者内存数据库。并将对应的 sesssion_id返回给client，client会把保存session_id（可以加密签名下防止篡改) 在cookie。此后client的所有请求都会附带该session_id（毕竟默认会把cookie传给server) ，以确定server是否存在对应的session数据以及检验登录状态以及拥有什么权限，如果通过校验就该干嘛干嘛，否则重新登录。
+当 client通过用户名密码请求server并通过身份认证后，server就会生成身份认证相关的 session 数据，并且保存在内存或者内存数据库。并将对应的 sesssion_id返回给client，client会把保存session_id (可以加密签名下防止篡改) 在cookie。此后client的所有请求都会附带该session_id (毕竟默认会把cookie传给server) ，以确定server是否存在对应的session数据以及检验登录状态以及拥有什么权限，如果通过校验就该干嘛干嘛，否则重新登录。
 
 前端退出的话就清cookie。后端强制前端重新认证的话就清或者修改session。
 
@@ -81,7 +84,7 @@ cookie + session在跨域场景表现并不好
 
 ### JWT
 
-JSON Web Token（JWT) 是一种开放标准（RFC 7519) ，它定义了一种紧凑且独立的方式，可以将各方之间的信息作为JSON对象进行安全传输。该信息可以验证和信任，因为是经过数字签名的。
+JSON Web Token (JWT) 是一种开放标准 (RFC 7519) ，它定义了一种紧凑且独立的方式，可以将各方之间的信息作为JSON对象进行安全传输。该信息可以验证和信任，因为是经过数字签名的。
 
 JWT基本上由.分隔的三部分组成，分别是头部，有效载荷和签名。 一个简单的JWT的例子，如下所示: 
 
@@ -119,7 +122,7 @@ JWT 的 Header 通常包含两个字段，分别是: typ(type) 和 alg(algorithm
 
 JWT 中的 Payload 其实就是真实存储我们需要传递的信息的部分，例如正常我们会存储些用户 ID、用户名之类的。此外，还包含一些例如发布人、过期日期等的元数据。
 
-但是，这部分和 Header 部分不一样的地方在于这个地方可以加密，而不是简单得直接进行 BASE64 编码。但是这里我为了解释方便就直接使用 BASE64 编码，需要注意的是，这里的 BASE64 编码稍微有点不一样，切确得说应该是 Base64UrlEncoder，和 Base64 编码的区别在于会忽略最后的 padding（=号) ，然后 '-' 会被替换成'_'。
+但是，这部分和 Header 部分不一样的地方在于这个地方可以加密，而不是简单得直接进行 BASE64 编码。但是这里我为了解释方便就直接使用 BASE64 编码，需要注意的是，这里的 BASE64 编码稍微有点不一样，切确得说应该是 Base64UrlEncoder，和 Base64 编码的区别在于会忽略最后的 padding (=号) ，然后 '-' 会被替换成'_'。
 
 举个例子，例如我们的 Payload 是: 
 
@@ -176,15 +179,15 @@ secret 就设为: "secret", 那最后出来的签名应该是:
 
 ##### 工作原理
 
-1\.首先，前端通过Web表单将自己的用户名和密码发送到后端的接口。这一过程一般是一个HTTP POST请求。建议的方式是通过SSL加密的传输（https协议) ，从而避免敏感信息被嗅探。
+1\.首先，前端通过Web表单将自己的用户名和密码发送到后端的接口。这一过程一般是一个HTTP POST请求。建议的方式是通过SSL加密的传输 (https协议) ，从而避免敏感信息被嗅探。
 
-2\.后端核对用户名和密码成功后，将用户的id等其他信息作为JWT Payload（负载) ，将其与头部分别进行Base64编码拼接后签名，形成一个JWT。形成的JWT就是一个形同lll.zzz.xxx的字符串。
+2\.后端核对用户名和密码成功后，将用户的id等其他信息作为JWT Payload (负载) ，将其与头部分别进行Base64编码拼接后签名，形成一个JWT。形成的JWT就是一个形同lll.zzz.xxx的字符串。
 
 3\.后端将JWT字符串作为登录成功的返回结果返回给前端。前端可以将返回的结果保存在localStorage或sessionStorage上，退出登录时前端删除保存的JWT即可。
 
 4\.前端在每次请求时将JWT放入HTTP Header中的Authorization位。(解决XSS和XSRF问题)
 
-5\.后端检查是否存在，如存在验证JWT的有效性。例如，检查签名是否正确；检查Token是否过期；检查Token的接收方是否是自己（可选) 。
+5\.后端检查是否存在，如存在验证JWT的有效性。例如，检查签名是否正确；检查Token是否过期；检查Token的接收方是否是自己 (可选) 。
 
 6\.验证通过后后端使用JWT中包含的用户信息进行其他逻辑操作，返回相应结果。
 
@@ -199,9 +202,9 @@ secret 就设为: "secret", 那最后出来的签名应该是:
 
 ##### 安全性
 
-JWT签名旨在防止在客户端被篡改，但也可以对其进行加密，以确保token携带的claim 非常安全。JWT主要是直接存储在web存储（本地/session存储) 或cookies中。 JavaScript可以访问同一个域上的Web存储。这意味着你的JWT可能容易受到XSS（跨站脚本) 攻击。恶意JavaScript嵌入在页面上，以读取和破坏Web存储的内容。事实上，很多人主张，由于XSS攻击，一些非常敏感的数据不应该存放在Web存储中。一个非常典型的例子是确保你的JWT不将过于敏感/可信的数据进行编码，例如用户的社会安全号码。
+JWT签名旨在防止在客户端被篡改，但也可以对其进行加密，以确保token携带的claim 非常安全。JWT主要是直接存储在web存储 (本地/session存储) 或cookies中。 JavaScript可以访问同一个域上的Web存储。这意味着你的JWT可能容易受到XSS (跨站脚本) 攻击。恶意JavaScript嵌入在页面上，以读取和破坏Web存储的内容。事实上，很多人主张，由于XSS攻击，一些非常敏感的数据不应该存放在Web存储中。一个非常典型的例子是确保你的JWT不将过于敏感/可信的数据进行编码，例如用户的社会安全号码。
 
-最初，我提到JWT可以存储在cookie中。事实上，JWT在许多情况下被存储为cookie，并且cookies很容易受到CSRF（跨站请求伪造) 攻击。预防CSRF攻击的许多方法之一是确保你的cookie只能由你的域访问。作为开发人员，不管是否使用JWT，确保必要的CSRF保护措施到位以避免这些攻击。
+最初，我提到JWT可以存储在cookie中。事实上，JWT在许多情况下被存储为cookie，并且cookies很容易受到CSRF (跨站请求伪造) 攻击。预防CSRF攻击的许多方法之一是确保你的cookie只能由你的域访问。作为开发人员，不管是否使用JWT，确保必要的CSRF保护措施到位以避免这些攻击。
 
 现在，JWT和session ID也会暴露于未经防范的重放攻击。建立适合系统的重放防范技术，完全取决于开发者。解决这个问题的一个方法是确保JWT具有短期过期时间。虽然这种技术并不能完全解决问题。然而，解决这个挑战的其他替代方案是将JWT发布到特定的IP地址并使用浏览器指纹。
 
@@ -213,7 +216,7 @@ JWT签名旨在防止在客户端被篡改，但也可以对其进行加密，�
 
 RESTful API的原则之一是它应该是无状态的，这意味着当发出请求时，总会返回带有参数的响应，不会产生附加影响。用户的认证状态引入这种附加影响，这破坏了这一原则。保持API无状态，不产生附加影响，意味着维护和调试变得更加容易。
 
-另一个挑战是，由一个服务器提供API，而实际应用程序从另一个服务器调用它的模式是很常见的。为了实现这一点，我们需要启用跨域资源共享（CORS) 。Cookie只能用于其发起的域，相对于应用程序，对不同域的API来说，帮助不大。在这种情况下使用JWT进行身份验证可以确保RESTful API是无状态的，你也不用担心API或应用程序由谁提供服务。
+另一个挑战是，由一个服务器提供API，而实际应用程序从另一个服务器调用它的模式是很常见的。为了实现这一点，我们需要启用跨域资源共享 (CORS) 。Cookie只能用于其发起的域，相对于应用程序，对不同域的API来说，帮助不大。在这种情况下使用JWT进行身份验证可以确保RESTful API是无状态的，你也不用担心API或应用程序由谁提供服务。
 
 ##### 性能
 
@@ -236,7 +239,7 @@ JWT有5个claim:
     }
     复制代码
 
-编码时，JWT的大小将是SESSION ID（标识符) 的几倍，从而在每个HTTP请求中，JWT比SESSION ID增加更多的开销。而对于session，每个请求在服务器上需要查找和反序列化session。
+编码时，JWT的大小将是SESSION ID (标识符) 的几倍，从而在每个HTTP请求中，JWT比SESSION ID增加更多的开销。而对于session，每个请求在服务器上需要查找和反序列化session。
 
 JWT通过将数据保留在客户端的方式以空间换时间。你应用程序的数据模型是一个重要的影响因素，因为通过防止对服务器数据库不间断的调用和查询来减少延迟。需要注意的是不要在JWT中存储太多的claim，以避免发生巨大的，过度膨胀的请求。
 
@@ -289,7 +292,7 @@ JWT通过将数据保留在客户端的方式以空间换时间。你应用程�
     { name: '张三', iat: 1462881437 }
     复制代码
 
-其中iat是时间戳，即签名时的时间（注意: 单位是秒) 。
+其中iat是时间戳，即签名时的时间 (注意: 单位是秒) 。
 
 不过，一般我们不会使用decode方法，因为它只是简单的对claims部分的做base64解码。
 
@@ -333,7 +336,7 @@ JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be t
 
 你好，服务器 B，服务器 A 告诉我我可以 <...Claim...>，这是我的证据: < ... 密钥... >。
 
-举个例子，你有个文件服务，用户必须认证后才能下载文件，但文件本身存储在一台完全分离且无状态的「下载服务器」内。在这种情况下，你可能想要「应用服务器（服务器 A) 」颁发一次性的「下载 Tokens」，用户能够使用它去「下载服务器（服务器 B) 」获取需要的文件。
+举个例子，你有个文件服务，用户必须认证后才能下载文件，但文件本身存储在一台完全分离且无状态的「下载服务器」内。在这种情况下，你可能想要「应用服务器 (服务器 A) 」颁发一次性的「下载 Tokens」，用户能够使用它去「下载服务器 (服务器 B) 」获取需要的文件。
 
 以这种方式使用 JWT，具备几个明确的特性: 
 

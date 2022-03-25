@@ -99,7 +99,7 @@ Command (m for help): t   #选择分区类型
   
 Selected partition 1
   
-Hex code (type L to list codes): 83   #选择第83号分区类型（linux类型) 
+Hex code (type L to list codes): 83   #选择第83号分区类型 (linux类型) 
 
 Command (m for help): w  #保存到硬盘
   
@@ -149,7 +149,7 @@ mkfs -t ext4 -c /dev/xvdb1    #格式化硬盘
 
 以下内容转载自: http://lbyzx123.iteye.com/blog/835004
 
-关于硬盘分区: 主分区（包含扩展分区) 、逻辑分区,主分区最多有4个（包含扩展分区) 。
+关于硬盘分区: 主分区 (包含扩展分区) 、逻辑分区,主分区最多有4个 (包含扩展分区) 。
 
 因此我们在对硬盘分区时最好划分主分区连续,比如说: 主分区一、主分区二、扩展分区。
 

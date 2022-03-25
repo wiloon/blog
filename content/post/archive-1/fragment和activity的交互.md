@@ -20,7 +20,7 @@ fragment可以通过getActivity() 方法来获得Activity的实例，然后就�
 
 View listView = getActivity().findViewById(R.id.list);
   
-但是注意调用getActivity()时，fragment必须和activity关联（attached to an activity) ，否则将会返回一个null。
+但是注意调用getActivity()时，fragment必须和activity关联 (attached to an activity) ，否则将会返回一个null。
 
 
 相似的，activity也可以获得一个fragment的引用，从而调用fragment中的方法。
@@ -61,7 +61,7 @@ public void onArticleSelected(Uri articleUri);
 
 之后包含这个fragment的activity实现这个OnArticleSelectedListener接口，用覆写的onArticleSelected()方法将fragment A中发生的事通知fragment B。
 
-为了确保宿主activity实现这个接口，fragment A的onAttach() 方法（这个方法在fragment 被加入到activity中时由系统调用) 中通过将传入的activity强制类型转换，实例化一个OnArticleSelectedListener对象: 
+为了确保宿主activity实现这个接口，fragment A的onAttach() 方法 (这个方法在fragment 被加入到activity中时由系统调用) 中通过将传入的activity强制类型转换，实例化一个OnArticleSelectedListener对象: 
   
 public static class FragmentA extends ListFragment {
   
@@ -131,7 +131,7 @@ fragment在running的activity中可见。
 
 Paused
 
-另一个activity在前景运行，并且享有焦点，但是这个fragment所在的activity仍然可见（前景activity部分遮挡或者是半透明的) 。
+另一个activity在前景运行，并且享有焦点，但是这个fragment所在的activity仍然可见 (前景activity部分遮挡或者是半透明的) 。
 
 Stopped
 
@@ -150,7 +150,7 @@ Back Stack
 
 activity和fragment生命周期最重要的不同之处是它们如何存储在各自的back stack中。
 
-Activity停止时，是存在一个由系统维护的back stack中，但是当fragment停止（被remove) 时，需要程序员显示地调用addToBackStack() ，并且fragment是存在一个由宿主activity掌管的back stack中。
+Activity停止时，是存在一个由系统维护的back stack中，但是当fragment停止 (被remove) 时，需要程序员显示地调用addToBackStack() ，并且fragment是存在一个由宿主activity掌管的back stack中。
   
 Fragment和Activity的生命周期
 

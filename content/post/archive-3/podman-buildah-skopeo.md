@@ -11,7 +11,7 @@ tags:
 ---
 ## Podman, Buildah, Skopeo
 ### podman
-Podman是该工具套件的核心，用来替换Docker中了大多数子命令（RUN，PUSH，PULL等) 。Podman无需守护进程，使用用户命名空间来模拟容器中的root，无需连接到具有root权限的套接字保证容器的体系安全。
+Podman是该工具套件的核心，用来替换Docker中了大多数子命令 (RUN，PUSH，PULL等) 。Podman无需守护进程，使用用户命名空间来模拟容器中的root，无需连接到具有root权限的 socket 保证容器的体系安全。
   
 Podman专注于维护和修改OCI镜像的所有命令和功能，例如拉动和标记。它还允许我们创建，运行和维护从这些镜像创建的容器。
 
@@ -19,9 +19,9 @@ Podman专注于维护和修改OCI镜像的所有命令和功能，例如拉动�
 
 
 ### Buildah
-Buildah是套件中的Build工具，用来构建OCI镜像。虽然Podman也可以用户构建Docker镜像，但是构建速度超慢，并且默认情况下使用vfs存储驱动程序会消耗大量磁盘空间。 而buildah bud（使用Dockerfile构建) 非常快，并使用覆盖存储驱动程序，可以节约大量的空间。
+Buildah是套件中的Build工具，用来构建OCI镜像。虽然Podman也可以用户构建Docker镜像，但是构建速度超慢，并且默认情况下使用vfs存储驱动程序会消耗大量磁盘空间。 而buildah bud (使用Dockerfile构建) 非常快，并使用覆盖存储驱动程序，可以节约大量的空间。
 
-Buildah（https://buildah.io) 。Buildah 是 Red Hat 开发的一款工具，可以很好地与 Podman 配合使用。如果你已经安装了 Podman，可能会注意到 podman build 子命令，它实际上是经过包装的 Buildah。
+Buildah (https://buildah.io) 。Buildah 是 Red Hat 开发的一款工具，可以很好地与 Podman 配合使用。如果你已经安装了 Podman，可能会注意到 podman build 子命令，它实际上是经过包装的 Buildah。
 
 
 ### Skopeo
@@ -41,5 +41,5 @@ rkt——rkt(“rocket”)是由 CoreOS 开发的容器引擎。这里提到这�
 原文链接:  https://www.infoq.cn/article/pzvqukmvk5fh9elhipgb
 
 
-unc 的另一种替代品是 crun（https://github.com/containers/crun) 。这是 Red Hat 开发的一款工具，完全用 C 语言开发(runc 是用 Go 开发的)，所以它比 runc 更快，内存效率更高。因为它也是兼容 OCI 的运行时，所以你应该可以很容易上手。尽管它现在还不是很流行，但作为 RHEL 8.3 版本的技术预览，它将作为一个可选的 OCI 运行时，又因为它是 Red Hat 的产品，它可能最终会成为 Podman 或 CRI-O 的默认配置。
+unc 的另一种替代品是 crun (https://github.com/containers/crun) 。这是 Red Hat 开发的一款工具，完全用 C 语言开发(runc 是用 Go 开发的)，所以它比 runc 更快，内存效率更高。因为它也是兼容 OCI 的运行时，所以你应该可以很容易上手。尽管它现在还不是很流行，但作为 RHEL 8.3 版本的技术预览，它将作为一个可选的 OCI 运行时，又因为它是 Red Hat 的产品，它可能最终会成为 Podman 或 CRI-O 的默认配置。
 

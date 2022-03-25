@@ -13,25 +13,25 @@ tags:
 ### 证书和编码
 X.509证书,其核心是根据RFC 5280编码或数字签名的数字文档。
 
-实际上，术语X.509证书通常指的是IETF的PKIX证书和X.509 v3证书标准的CRL 文件，即如RFC 5280（通常称为PKIX for Public Key Infrastructure（X.509））中规定的。
+实际上，术语X.509证书通常指的是IETF的PKIX证书和X.509 v3证书标准的CRL 文件，即如RFC 5280 (通常称为PKIX for Public Key Infrastructure (X.509））中规定的。
 
 ### .CRT 扩展名
 .CRT = CRT扩展用于证书。 证书可以被编码为二进制DER或ASCII PEM。 CER和CRT扩展几乎是同义词。 最常见的于Unix 或类Unix系统。
 
 ### .cer
 .CER扩展名
- CER = .crt的替代形式（Microsoft Convention）您可以在微软系统环境下将.crt转换为.cer（.both DER编码的.cer，或base64 [PEM]编码的.cer）。
+ CER = .crt的替代形式 (Microsoft Convention）您可以在微软系统环境下将.crt转换为.cer (.both DER编码的.cer，或base64 [PEM]编码的.cer）。
 
 可参考：https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format
 
-.cer文件扩展名也被IE识别为 一个运行MS cryptoAPI命令的命令（特别是rundll32.exe cryptext.dll，CryptExtOpenCER），该命令显示用于导入和/或查看证书内容的对话框。 
+.cer文件扩展名也被IE识别为 一个运行MS cryptoAPI命令的命令 (特别是rundll32.exe cryptext.dll，CryptExtOpenCER），该命令显示用于导入和/或查看证书内容的对话框。 
 
 ### .KEY 扩展名
      .KEY = KEY扩展名用于公钥和私钥PKCS＃8。 键可以被编码为二进制DER或ASCII PEM。
 
 ---
 
-PEM是由RFC1421至1424定义的一种数据格式。其实前面的.cert和.key文件都是PEM格式的,只不过在有些系统中（比如Windows) 会根据扩展名不同而做不同的事。所以当你看到.pem文件时,它里面的内容可能是certificate也可能是key,也可能两个都有,要看具体情况。可以通过openssl查看。  
+PEM是由RFC1421至1424定义的一种数据格式。其实前面的.cert和.key文件都是PEM格式的,只不过在有些系统中 (比如Windows) 会根据扩展名不同而做不同的事。所以当你看到.pem文件时,它里面的内容可能是certificate也可能是key,也可能两个都有,要看具体情况。可以通过openssl查看。  
 
 X.509 - 是一种常见通用的证书标准,主要定义了证书中应该包含哪些内容.其详情可以参考RFC5280,SSL使用的就是这种证书标准.  
 X.509是常见通用的证书格式。所有的证书都符合为Public Key Infrastructure (PKI) 制定的 ITU-T X509 国际标准。  
@@ -47,7 +47,7 @@ X.509 PEM 编码(Base64)的后缀是:  .PEM .CER .CRT
 
 ### PEM 
 
-.PEM = PEM扩展用于不同类型的X.509v3文件，是以“ - BEGIN ...”前缀的ASCII（Base64）数据。
+.PEM = PEM扩展用于不同类型的X.509v3文件，是以“ - BEGIN ...”前缀的ASCII (Base64）数据。
 
 Privacy Enhanced Mail,打开看文本格式,以"-----BEGIN..."开头, "-----END..."结尾,内容是BASE64编码.
 查看PEM格式证书的信息:
@@ -156,7 +156,7 @@ unable to load certificate
 13978:error:0D07803A:asn1 encodingroutines:ASN1_ITEM_EX_D2I:nested asn1 error:tasn_dec.c:380:Type=X509
 
 2）转换证书格式
-转换可以将一种类型的编码证书存入另一种。（即PEM到DER转换）
+转换可以将一种类型的编码证书存入另一种。 (即PEM到DER转换）
 PEM到DER
 openssl x509 -in cert.crt -outform der-out cert.der
 DER到PEM
@@ -168,7 +168,7 @@ openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
 组合密钥和链的最简单的方法是将每个文件转换为PEM编码的证书，然后将每个文件的内容简单地复制到一个新文件中。这适用于组合文件以在Apache中使用的应用程序。
 
 4)证书提取
-一些证书将以组合形式出现。 一个文件可以包含以下任何一个：证书，私钥，公钥，签名证书，证书颁发机构（CA）和/或权限链。
+一些证书将以组合形式出现。 一个文件可以包含以下任何一个：证书，私钥，公钥，签名证书，证书颁发机构 (CA）和/或权限链。
 
  
 

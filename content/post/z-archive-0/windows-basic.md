@@ -1,5 +1,5 @@
 ---
-title: windows
+title: windows basic, win basic
 author: "-"
 date: 2011-10-14T05:20:22+00:00
 url: windows
@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## windows
-## windows basic
+## windows basic, win basic
+
 ### msdn i tell u
 >https://www.itellu.com/2021/06/22/win11-v2021-v1/
 
@@ -28,7 +28,7 @@ https://uupdump.net/
     netsh interface set interface "eth0" disabled
     netsh interface set interface "eth0" enabled
 
-### Windows 命令行（批处理文件) 延迟（sleep) 方法, 使用ping 的定时功能，精度1秒
+### Windows 命令行 (批处理文件) 延迟 (sleep) 方法, 使用ping 的定时功能，精度1秒
     ping -n 3 127.0.0.1>nul
 
 说明: 3为ping包发送次数，可作为延迟秒数进行使用，需要延迟几秒就设置几。   
@@ -51,14 +51,7 @@ netstat -an|find "61616"
     # /s 是代表删除所有子目录跟其中的档案。 
     # /q 是不要它在删除档案或目录时，不再问我 Yes or No 的动作。 
 
-### 清理c盘空间
-#### 升级包
-    rmdir C:\Windows\SoftwareDistribution.old
-    net stop wuauserv
-    ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.old
-    net start wuauserv
-#### 旧版本的系统
-    搜索>磁盘清理》清理系统文件
+
 ### netstat
 ```bash
 netstat -ano|findstr 8080
@@ -101,7 +94,7 @@ windows设置>控制面板>更改账户类型>添加>
 在Windows系统下IPconfig命令，后面带/release和 /renew参数可以实现从DHCP服务器重新获取IP地址: 
 
 #### ipconfig /release 
-释放当前网卡获取的IP地址，使用该命令后，网卡（IPv4地址) 此时IP地址为空。
+释放当前网卡获取的IP地址，使用该命令后，网卡 (IPv4地址) 此时IP地址为空。
 
 #### ipconfig /renew 
 为网卡重新从DHCP服务器上面获取新的IP地址。
@@ -109,6 +102,36 @@ windows设置>控制面板>更改账户类型>添加>
 ### 解除防ping
     https://blog.csdn.net/wudinaniya/article/details/80956158
 
----
+
+### netstat
+
+    netstat -ano -p UDP | find "0.0.0.0:53"
+
+### tasklist
+
+    tasklist | findstr <pid>
 
 https://blog.csdn.net/hongweigg/article/details/41517025
+
+### 清理c盘空间, windows清理硬盘空间, windows清理磁盘空间
+#### 升级包
+```bash
+    # win11 没有这个目录
+    rmdir C:\Windows\SoftwareDistribution.old
+    # 停止正在运行的自动更新服务；, win11 没有...
+    net stop wuauserv
+    ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.bak
+    net start wuauserv
+```
+#### 旧版本的系统
+    搜索>磁盘清理》清理系统文件
+
+#### win 11 虚拟内存, pagefile.sys
+
+搜索 性能选项
+    > 高级>虚拟内存>更改>重启
+
+#### hiberfil.sys
+
+    powercfg.exe /hibernate off
+    powercfg.exe /hibernate on

@@ -22,7 +22,7 @@ Debian 6 有内置的摄像头驱动.
   
 在菜单"应用程序"中可以打开程序。
   
-**    2) 使用应用程序茄子（cheese) **
+**    2) 使用应用程序茄子 (cheese) **
   
 输入命令: sudo apt-get install cheese
   

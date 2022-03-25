@@ -19,7 +19,7 @@ vmstat 2
 vmstat 2 1
 ```
 
-vmstat命令是最常见的Linux/Unix监控工具,可以展现给定时间间隔的服务器的状态值,包括服务器的CPU使用率,内存使用,虚拟内存交换情况,IO读写情况。相比top,vmstat可以看到整个机器的CPU,内存,IO的使用情况,而不是单单看到各个进程的CPU使用率和内存使用率(使用场景不一样)。
+vmstat命令是最常见的 Linux/Unix 监控工具, 可以展现给定时间间隔的服务器的状态值, 包括服务器的 CPU 使用率, 内存使用, 虚拟内存交换情况, IO读写情况。 相比 top, vmstat 可以看到整个机器的 CPU,内存,IO 的使用情况,而不是单单看到各个进程的 CPU 使用率和内存使用率(使用场景不一样)。
 
     -S: 输出信息的单位, (k: 1000, K:1024 , m: 1000000, M: 1048576) bytes, -S, --unit CHAR
     -a: 显示活动内页
@@ -46,7 +46,7 @@ swap 的使用量
 空闲的物理内存的大小,我的机器内存总共8G,剩余3415M。
 
 ### buff
-Linux/Unix系统是用来存储,目录里面有什么内容,权限等的缓存;表示块设备(block device)所占用的缓存页,包括: 直接读写块设备、以及文件系统元数据(metadata)比如SuperBlock所使用的缓存页；
+块设备(block device)所占用的缓存页, 包括: 直接读写块设备、以及文件系统元数据 (metadata) 比如 SuperBlock 所使用的缓存页；
   
 buffers are only used for file metadata (inodes, etc) and data from raw block devices. It's accessed via block device and block number.
 
@@ -60,10 +60,10 @@ Cache has file data blocks, and memory mapped information (i.e. files mapped wit
 - so
 每秒虚拟内存写入磁盘的大小,如果这个值大于0,同上。
 ### bi (block input)
-每秒读取的块数（读磁盘）
+每秒读取的块数 (读磁盘）
 bi 块设备每秒接收的块数量,这里的块设备是指系统上所有的磁盘和其他块设备,默认块大小是1024byte,我本机上没什么IO操作,所以一直是0,但是我曾在处理拷贝大量数据(2-3T)的机器上看过可以达到140000/s,磁盘写入速度差不多140M每秒
 ### bo (block output)
-每秒写入的块数（写磁盘）
+每秒写入的块数 (写磁盘）
 bo 块设备每秒发送的块数量,例如我们读取文件,bo就要大于0。bi和bo一般都要接近0,不然就是IO过于频繁,需要调整。
 ### in 中断
 in 每秒CPU的中断次数,包括时间中断
@@ -97,7 +97,7 @@ wa 等待IO CPU时间。
 -p, --partition DEVICE
 	显示指定磁盘分区统计信息
 -S, --unit CHAR
-	使用指定单位显示。CHAR 可取值有 k（1000）、K（1024）、m（1000000） 、M（1048576）。默认单位为 K（1024 Bytes）
+	使用指定单位显示。CHAR 可取值有 k (1000）、K (1024）、m (1000000） 、M (1048576）。默认单位为 K (1024 Bytes）
 -t, --timestamp
 	将时间戳附加到每行
 -w, --wide

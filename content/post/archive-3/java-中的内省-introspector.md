@@ -58,7 +58,7 @@ System.out.println("名字: " + invoke);
   
 }
   
-通过Introspector类获得Bean对象的 BeanInfo，然后通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ) ，通过这个属性描述器就可以获取某个属性对应的 getter/setter 方法，然后通过反射机制来调用这些方法。
+通过Introspector类获得Bean对象的 BeanInfo，然后通过 BeanInfo 来获取属性的描述器 ( PropertyDescriptor ) ，通过这个属性描述器就可以获取某个属性对应的 getter/setter 方法，然后通过反射机制来调用这些方法。
   
 public static void demo2() throws Exception {
       

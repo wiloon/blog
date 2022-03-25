@@ -12,11 +12,11 @@ tags:
 ## JUnit中按照顺序执行测试
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-MethodSorters.NAME_ASCENDING （推荐) 
+MethodSorters.NAME_ASCENDING  (推荐) 
   
 按方法名称的进行排序,由于是按字符的字典顺序,所以以这种方式指定执行顺序会始终保持一致；
   
-不过这种方式需要对测试方法有一定的命名规则,如 测试方法均以testNNN开头（NNN表示测试方法序列号 001-999) 
+不过这种方式需要对测试方法有一定的命名规则,如 测试方法均以testNNN开头 (NNN表示测试方法序列号 001-999) 
 
 JUnit中按照顺序执行测试方式
   

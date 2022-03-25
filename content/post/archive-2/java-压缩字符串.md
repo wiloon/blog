@@ -15,11 +15,8 @@ https://www.cnblogs.com/EasonJim/p/8256906.html
 说明: 
 
 1. 一般来说要实现压缩,那么返回方式一般是用byte[]数组。
-
 2. 研究发现byte[]数组在转成可读的String时,大小会还原回原来的。
-
 3. 如果采用压缩之后不可读的String时,互相转换大小会变小,唯一缺点就是转出的String不可读,需要再次解码之后才可读。
-
 4. 对于压缩一般最近常听的应该就是gzip这些。
 
 实现一: 
@@ -713,8 +710,8 @@ return arrayOfByte;
 
 参考: 
 
-https://www.cnblogs.com/dongzhongwei/p/5964758.html（以上内容部分转自此篇文章) 
+https://www.cnblogs.com/dongzhongwei/p/5964758.html (以上内容部分转自此篇文章) 
 
-http://www.blogjava.net/fastunit/archive/2008/04/25/195932.html（以上内容部分转自此篇文章) 
+http://www.blogjava.net/fastunit/archive/2008/04/25/195932.html (以上内容部分转自此篇文章) 
 
-http://blog.csdn.net/xyw591238/article/details/51720016（以上内容部分转自此篇文章) 
+http://blog.csdn.net/xyw591238/article/details/51720016 (以上内容部分转自此篇文章) 

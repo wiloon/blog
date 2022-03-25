@@ -18,9 +18,9 @@ http://hubingforever.blog.163.com/blog/static/17104057920129249497980/
   
 一、简介
   
-Android Lint是SDK Tools 16 (ADT 16)之后才引入的工具，通过它对Android工程源代码进行扫描和检查，可发现潜在的问题，以便程序员及早修正这个问题。Android Lint提供了命令行方式执行，还可与IDE（如Eclipse) 集成，并提供了html形式的输出报告。
+Android Lint是SDK Tools 16 (ADT 16)之后才引入的工具，通过它对Android工程源代码进行扫描和检查，可发现潜在的问题，以便程序员及早修正这个问题。Android Lint提供了命令行方式执行，还可与IDE (如Eclipse) 集成，并提供了html形式的输出报告。
   
-由于Android Lint在最初设计时就考虑到了independent于IDE,所以它可以很方便的与项目中的其他自动系统（配置/ Build / 测试等) 集成.
+由于Android Lint在最初设计时就考虑到了independent于IDE,所以它可以很方便的与项目中的其他自动系统 (配置/ Build / 测试等) 集成.
   
 Android Lint主要用于检查以下这些错误: 
   

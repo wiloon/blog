@@ -10,7 +10,7 @@ tags:
 
 ---
 ## Database – DDL,DML,DCL,TCL
-### DDL（Data Definition Language) 
+### DDL (Data Definition Language) 
 
 数据库定义语言statements are used to define the database structure or schema.
 
@@ -32,7 +32,7 @@ COMMENT
   
 RENAME
 
-### DML（Data Manipulation Language) 
+### DML (Data Manipulation Language) 
 
 数据操纵语言statements are used for managing data within schema objects.
 
@@ -60,7 +60,7 @@ EXPLAIN PLAN
   
 LOCK TABLE
 
-3.DCL（Data Control Language) 
+3.DCL (Data Control Language) 
   
 数据库控制语言 授权，角色控制等
   
@@ -68,7 +68,7 @@ GRANT 授权
   
 REVOKE 取消授权
 
-4.TCL（Transaction Control Language) 
+4.TCL (Transaction Control Language) 
   
 事务控制语言
   
@@ -80,13 +80,13 @@ SET TRANSACTION
 
 SQL主要分成四部分: 
   
-（1) 数据定义。（SQL DDL) 用于定义SQL模式、基本表、视图和索引的创建和撤消操作。
+ (1) 数据定义。 (SQL DDL) 用于定义SQL模式、基本表、视图和索引的创建和撤消操作。
   
-（2) 数据操纵。（SQL DML) 数据操纵分成数据查询和数据更新两类。数据更新又分成插入、删除、和修改三种操作。
+ (2) 数据操纵。 (SQL DML) 数据操纵分成数据查询和数据更新两类。数据更新又分成插入、删除、和修改三种操作。
   
-（3) 数据控制。包括对基本表和视图的授权，完整性规则的描述，事务控制等内容。
+ (3) 数据控制。包括对基本表和视图的授权，完整性规则的描述，事务控制等内容。
   
-（4) 嵌入式SQL的使用规定。涉及到SQL语句嵌入在宿主语言程序中使用的规则。
+ (4) 嵌入式SQL的使用规定。涉及到SQL语句嵌入在宿主语言程序中使用的规则。
 
 1.数据定义语言
 
@@ -94,7 +94,7 @@ DDL
 
 数据库模式定义语言DDL(Data Definition Language)，是用于描述数据库中要存储的现实世界实体的语言。一个数据库模式包含该数据库中所有实体的描述定义。这些定义包括结构定义、操作方法定义等。
 
-数据库模式定义语言并非程序设计语言，DDL数据库模式定义语言是SQL语言（结构化程序设计语言) 的组成部分。SQL语言包括三种主要程序设计语言类别的语句: 数据定义语言(DDL)，数据操作语言(DML)及数据控制语言(DCL)。
+数据库模式定义语言并非程序设计语言，DDL数据库模式定义语言是SQL语言 (结构化程序设计语言) 的组成部分。SQL语言包括三种主要程序设计语言类别的语句: 数据定义语言(DDL)，数据操作语言(DML)及数据控制语言(DCL)。
 
 DDL描述的模式，必须由计算机软件进行编译，转换为便于计算机存储、查询和操纵的格式，完成这个转换工作的程序称为模式编译器。
 

@@ -28,7 +28,7 @@ SQL Server中的标识列又称标识符列,习惯上又叫自增列。
   
 创建一个标识列,通常要指定三个内容:
   
-1. 类型（type) 
+1. 类型 (type) 
   
 在SQL Server 2000中,标识列类型必须是数值类型,如下: 
   
@@ -90,7 +90,7 @@ ADD ID int IDENTITY(1,1)
 
 3. 判段一个表是否具有标识列
 
-可以使用 OBJECTPROPERTY 函数确定一个表是否具有 IDENTITY（标识) 列,用法:
+可以使用 OBJECTPROPERTY 函数确定一个表是否具有 IDENTITY (标识) 列,用法:
   
 Select OBJECTPROPERTY(OBJECT_ID('表名'),'TableHasIdentity')
   

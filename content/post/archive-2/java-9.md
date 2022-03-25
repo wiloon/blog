@@ -18,11 +18,11 @@ jlink 工具
   
 Java 9中有代表性的项目: 
 
-Kulla项目（创建Java REPL) 
+Kulla项目 (创建Java REPL) 
 
-Valhalla项目（改进Java类型) 
+Valhalla项目 (改进Java类型) 
 
-Jigswa项目（增加模块化功能) 
+Jigswa项目 (增加模块化功能) 
 
 http://www.infoq.com/cn/news/2015/05/Java-9-On-Track-For-2016
   

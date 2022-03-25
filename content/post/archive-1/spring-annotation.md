@@ -17,7 +17,7 @@ tags:
 ### @Service
 @Service 用于标注业务层组件,对象名默认是类名 (头字母小写), 如果想自定义，可以@Service("foo")这样来指定，这种bean默认是单例的，如果想改变，可以使用@Service("foo") @Scope("prototype")来改变。
 
-@Controller用于标注控制层组件（如struts中的action) 
+@Controller用于标注控制层组件 (如struts中的action) 
 
 @Repository用于标注数据访问组件，即DAO组件
 

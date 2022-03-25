@@ -4,12 +4,16 @@ author: "-"
 date: 2017-01-12T04:50:30.000+00:00
 url: fcitx
 categories:
-- Uncategorized
+  - desktop
 
 tags:
   - reprint
 ---
 ## fcitx
+## 繁体简体转换快捷键
+
+    addon里找 繁体简体转换，修改快捷键
+
 ### 配置文件
     vim ~/.config/fcitx/config
 ### 在线造词
@@ -34,32 +38,29 @@ ctrl+7
 ### 五笔词库位置
 /home/wiloon/.config/fcitx/table/wbx.mb
 
-### 安装 fcitx
-    sudo pacman -S fcitx
-    #图形界面的配置程序: KDE 中的 kcm-fcitx
-    sudo pacman -S  kcm-fcitx
-
-#### gtk3 config tool, optional
+## 安装 fcitx
 ```bash
-sudo pacman -S fcitx-configtool
+sudo pacman -S fcitx  kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
+# kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
+# fcitx-im: 输入法模块
+# fcitx-table-extra: 输入法模块-五笔, 可能需要重启
+# fcitx-configtool: gtk3 config tool, optional
 ```
 
-### 输入法模块
-    sudo pacman -S fcitx-im
-
-### 五笔
-##### 可能需要重启
-        sudo pacman -S fcitx-table-extra
-
-        #edit .zshrc
+### vim .zshrc
 ```bash
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 ```
 
-        #start fcitx
-        fcitx
+### start fcitx
+fcitx 安装之后自己会设置开机启动, 这里临时手动启动一下看看配置有没有问题
+    fcitx
+
+### 切换输入法
+默认快捷键 ctrl + space
+
 
 ### 解决 emacs 中文输入问题
 

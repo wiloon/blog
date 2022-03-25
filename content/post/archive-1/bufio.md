@@ -1,16 +1,35 @@
 ---
-title: golang bufio
+title: Go bufio
 author: "-"
 date: 2015-01-16T03:17:33+00:00
-url: /?p=7246
+url: bufio
 categories:
-  - Uncategorized
+  - go
 
 tags:
   - reprint
+  - io
+
 ---
 ## golang bufio
-http://www.cnblogs.com/golove/p/3282667.html
+
+bufio 对 io 进行了包装, 提供了缓冲.
+
+bufio包实现了有缓冲的I/O。它包装一个io.Reader或io.Writer接口对象，创建另一个也实现了该接口，且同时还提供了缓冲和一些文本I/O的帮助函数的对象。
+
+简单的说就是bufio会把文件内容读取到缓存中 (内存），然后再取读取需要的内容的时候，直接在缓存中读取，避免文件的i/o操作。同样，通过bufio写入内容，也是先写入到缓存中 (内存），然后由缓存写入到文件。避免多次小内容的写入操作I/O。
+
+
+bufio.Read(p []byte) 的思路如下：
+
+1、当缓存区有内容的时，将缓存区内容全部填入p并清空缓存区
+2、当缓存区没有内容的时候且len(p)>len(buf),即要读取的内容比缓存区还要大，直接去文件读取即可
+3、当缓存区没有内容的时候且len(p)<len(buf),即要读取的内容比缓存区小，缓存区从文件读取内容充满缓存区，并将p填满 (此时缓存区有剩余内容）
+4、以后再次读取时缓存区有内容，将缓存区内容全部填入p并清空缓存区 (此时和情况1一样）
+
+>https://www.cnblogs.com/ricklz/p/13188188.html
+
+>http://www.cnblogs.com/golove/p/3282667.html
 
 // bufio 包实现了带缓存的 I/O 操作
 
@@ -20,7 +39,7 @@ type Reader struct { ... }
 
 // NewReaderSize 将 rd 封装成一个带缓存的 bufio.Reader 对象，
   
-// 缓存大小由 size 指定（如果小于 16 则会被设置为 16) 。
+// 缓存大小由 size 指定 (如果小于 16 则会被设置为 16) 。
   
 // 如果 rd 的基类型就是有足够缓存的 bufio.Reader 类型，则直接将
   
@@ -98,7 +117,7 @@ func (b *Reader) Discard(n int) (discarded int, err error)
   
 //
   
-// 如果未找到 delim 且遇到错误（通常是 io.EOF) ，则返回缓存中的所
+// 如果未找到 delim 且遇到错误 (通常是 io.EOF) ，则返回缓存中的所
   
 // 有数据和遇到的错误。
   
@@ -118,7 +137,7 @@ func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
   
 // ReadLine 通过调用 ReadSlice 方法实现，返回的也是缓存的切片。用于
   
-// 读取一行数据，不包括行尾标记（\n 或 \r\n) 。
+// 读取一行数据，不包括行尾标记 (\n 或 \r\n) 。
   
 //
   
@@ -278,7 +297,7 @@ type Writer struct { ... }
 
 // NewWriterSize 将 wr 封装成一个带缓存的 bufio.Writer 对象，
   
-// 缓存大小由 size 指定（如果小于 4096 则会被设置为 4096) 。
+// 缓存大小由 size 指定 (如果小于 4096 则会被设置为 4096) 。
   
 // 如果 wr 的基类型就是有足够缓存的 bufio.Writer 类型，则直接将
   
@@ -369,7 +388,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 // 和"单词匹配函数"，用户也可以自定义"匹配函数"。默认的"匹配函数"为"行匹配函
   
-// 数"，用于获取数据中的一行内容（不包括行尾标记) 
+// 数"，用于获取数据中的一行内容 (不包括行尾标记) 
   
 //
   
@@ -379,7 +398,7 @@ func NewReadWriter(r \*Reader, w \*Writer) *ReadWriter
   
 //
   
-// Scan 在遇到下面的情况时会终止扫描并返回 false（扫描一旦终止，将无法再继续) : 
+// Scan 在遇到下面的情况时会终止扫描并返回 false (扫描一旦终止，将无法再继续) : 
   
 // 1、遇到 io.EOF
   
@@ -415,7 +434,7 @@ func (s *Scanner) Split(split SplitFunc)
   
 // advance 返回 data 中已处理的数据的长度。token 返回找到的"匹配部分"，"匹配
   
-// 部分"可以是缓存的切片，也可以是自己新建的数据（比如 bufio.errorRune) 。"匹
+// 部分"可以是缓存的切片，也可以是自己新建的数据 (比如 bufio.errorRune) 。"匹
   
 // 配部分"将在 Scan 之后通过 Bytes 和 Text 反馈给用户。err 返回错误信息。
   
@@ -423,7 +442,7 @@ func (s *Scanner) Split(split SplitFunc)
   
 // 如果在 data 中无法找到一个完整的"匹配部分"则应返回 (0, nil, nil)，以便告诉
   
-// Scanner 向缓存中填充更多数据，然后再次扫描（Scan 会自动重新扫描) 。如果缓存已
+// Scanner 向缓存中填充更多数据，然后再次扫描 (Scan 会自动重新扫描) 。如果缓存已
   
 // 经达到最大容量还没有找到，则 Scan 会终止并返回 false。
   
@@ -459,7 +478,7 @@ func (s *Scanner) Scan() bool
   
 func (s *Scanner) Bytes() []byte
 
-// Text 将最后一次扫描出的"匹配部分"作为字符串返回（返回副本) 。
+// Text 将最后一次扫描出的"匹配部分"作为字符串返回 (返回副本) 。
   
 func (s *Scanner) Text() string
 
@@ -473,15 +492,15 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 // ScanRunes 是一个"匹配函数"，用来找出 data 中单个 UTF8 字符的编码。如果 UTF8 编
   
-// 码错误，则 token 会返回 "\xef\xbf\xbd"（即: U+FFFD) ，但只消耗 data 中的一个字节。
+// 码错误，则 token 会返回 "\xef\xbf\xbd" (即: U+FFFD) ，但只消耗 data 中的一个字节。
   
 // 这使得调用者无法区分"真正的U+FFFD字符"和"解码错误的返回值"。
   
 func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
-// ScanLines 是一个"匹配函数"，用来找出 data 中的单行数据并返回（包括空行) 。
+// ScanLines 是一个"匹配函数"，用来找出 data 中的单行数据并返回 (包括空行) 。
   
-// 行尾标记可以是 \n 或 \r\n（返回值不包含行尾标记) 
+// 行尾标记可以是 \n 或 \r\n (返回值不包含行尾标记) 
   
 func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
 
@@ -503,7 +522,7 @@ const input = "1,2,3,4,"
       
 scanner := bufio.NewScanner(strings.NewReader(input))
       
-// 定义匹配函数（查找逗号分隔的字符串) 
+// 定义匹配函数 (查找逗号分隔的字符串) 
       
 onComma := func(data []byte, atEOF bool) (advance int, token []byte, err error) {
           

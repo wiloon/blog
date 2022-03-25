@@ -10,13 +10,13 @@ tags:
   - reprint
 ---
 ## go regex, 正则
-```golang
-    nodes := []string{"foo.bar-000.x", "foo.t0.bar","foo.bar"}
-    reg := regexp.MustCompile(`foo\.(.[^\.]*)\.{0,1}.*`)
-    for _, v := range nodes {
-        result := reg.FindSubmatch([]byte(v))
-        fmt.Println("output: ", string(result[1]))
-    }
+```go
+nodes := []string{"foo.bar-000.x", "foo.t0.bar","foo.bar"}
+reg := regexp.MustCompile(`foo\.(.[^\.]*)\.{0,1}.*`)
+for _, v := range nodes {
+    result := reg.FindSubmatch([]byte(v))
+    fmt.Println("output: ", string(result[1]))
+}
 ```
 
         .                   匹配任意一个字符,如果设置 s = true,则可以匹配换行符
@@ -41,7 +41,7 @@ tags:
 
 复合: 
 
-        xy             匹配 xy（x 后面跟随 y) 
+        xy             匹配 xy (x 后面跟随 y) 
         x|y            匹配 x 或 y (优先匹配 x)
     
 
@@ -89,8 +89,8 @@ tags:
 
 位置标记: 
 
-        ^              如果标记 m=true 则匹配行首,否则匹配整个文本的开头（m 默认为 false) 
-        $              如果标记 m=true 则匹配行尾,否则匹配整个文本的结尾（m 默认为 false) 
+        ^              如果标记 m=true 则匹配行首,否则匹配整个文本的开头 (m 默认为 false) 
+        $              如果标记 m=true 则匹配行尾,否则匹配整个文本的结尾 (m 默认为 false) 
         \A             匹配整个文本的开头,忽略 m 标记
         \b             匹配单词边界
         \B             匹配非单词边界
@@ -101,17 +101,17 @@ tags:
 
 转义序列: 
 
-        \a             匹配响铃符    （相当于 \x07) 
+        \a             匹配响铃符     (相当于 \x07) 
                        注意: 正则表达式中不能使用 \b 匹配退格符,因为 \b 被用来匹配单词边界,
                        可以使用 \x08 表示退格符。
-        \f             匹配换页符    （相当于 \x0C) 
-        \t             匹配横向制表符（相当于 \x09) 
-        \n             匹配换行符    （相当于 \x0A) 
-        \r             匹配回车符    （相当于 \x0D) 
-        \v             匹配纵向制表符（相当于 \x0B) 
-        \123           匹配 8  進制编码所代表的字符（必须是 3 位数字) 
-        \x7F           匹配 16 進制编码所代表的字符（必须是 3 位数字) 
-        \x{10FFFF}     匹配 16 進制编码所代表的字符（最大值 10FFFF  ) 
+        \f             匹配换页符     (相当于 \x0C) 
+        \t             匹配横向制表符 (相当于 \x09) 
+        \n             匹配换行符     (相当于 \x0A) 
+        \r             匹配回车符     (相当于 \x0D) 
+        \v             匹配纵向制表符 (相当于 \x0B) 
+        \123           匹配 8  進制编码所代表的字符 (必须是 3 位数字) 
+        \x7F           匹配 16 進制编码所代表的字符 (必须是 3 位数字) 
+        \x{10FFFF}     匹配 16 進制编码所代表的字符 (最大值 10FFFF  ) 
         \Q...\E        匹配 \Q 和 \E 之间的文本,忽略文本中的正则语法
     
         \\             匹配字符 \
@@ -150,7 +150,7 @@ tags:
 
 * * *
 
-"字符类"取值如下（"字符类"包含"Perl类"、"ASCII类"、"Unicode类") : 
+"字符类"取值如下 ("字符类"包含"Perl类"、"ASCII类"、"Unicode类") : 
       
 x 单个字符
       
@@ -272,10 +272,10 @@ A-Z 字符范围(包含首尾字符)
     Hangul                  韩文
     Hanunoo                 哈鲁喏文
     Hebrew                  希伯来文
-    Hiragana                平假名（日语) 
+    Hiragana                平假名 (日语) 
     Inherited               继承前一个字符的脚本
     Kannada                 坎那达文
-    Katakana                片假名（日语) 
+    Katakana                片假名 (日语) 
     Kayah_Li                克耶字母
     Kharoshthi              卡罗须提文
     Khmer                   高棉文
@@ -283,7 +283,7 @@ A-Z 字符范围(包含首尾字符)
     Latin                   拉丁文
     Lepcha                  雷布查文
     Limbu                   林布文
-    Linear_B                B类线形文字（古希腊) 
+    Linear_B                B类线形文字 (古希腊) 
     Lycian                  利西亚文
     Lydian                  吕底亚文
     Malayalam               马拉雅拉姆文
@@ -301,7 +301,7 @@ A-Z 字符范围(包含首尾字符)
     Phoenician              腓尼基文
     Rejang                  拉让文
     Runic                   古代北欧文字
-    Saurashtra              索拉什特拉文（印度县城) 
+    Saurashtra              索拉什特拉文 (印度县城) 
     Shavian                 萧伯纳文
     Sinhala                 僧伽罗文
     Sundanese               巽他文
@@ -327,7 +327,7 @@ A-Z 字符范围(包含首尾字符)
 
 对于 [a-z] 这样的正则表达式,如果要在 [] 中匹配 - ,可以将 - 放在 [] 的开头或结尾,例如 [-a-z] 或 [a-z-]
 
-可以在 [] 中使用转义字符: \f、\t、\n、\r、\v、\377、\xFF、\x{10FFFF}、&#92;、\^、\$、&#46;、&#42;、&#43;、\?、{、}、(、)、&#91;、&#93;、&#124;（具体含义见上面的说明) 
+可以在 [] 中使用转义字符: \f、\t、\n、\r、\v、\377、\xFF、\x{10FFFF}、&#92;、\^、\$、&#46;、&#42;、&#43;、\?、{、}、(、)、&#91;、&#93;、&#124; (具体含义见上面的说明) 
 
 如果在正则表达式中使用了分组,则在执行正则替换的时候,"替换内容"中可以使用 $1、${1}、$name、${name} 这样的"分组引用符"获取相应的分组内容。其中 $0 代表整个匹配项,$1 代表第 1 个分组,$2 代表第 2 个分组,……。
 
@@ -405,12 +405,12 @@ text := `Hello 世界！123 Go.`
     fmt.Printf("%q\n", reg.FindAllString(text, -1))
     // ["Hello 世界！123 "]
     
-    // 查找行首以 H 开头,以空白结尾的字符串（非贪婪模式) 
+    // 查找行首以 H 开头,以空白结尾的字符串 (非贪婪模式) 
     reg = regexp.MustCompile(`(?U)^H.*\s`)
     fmt.Printf("%q\n", reg.FindAllString(text, -1))
     // ["Hello "]
     
-    // 查找以 hello 开头（忽略大小写) ,以 Go 结尾的字符串
+    // 查找以 hello 开头 (忽略大小写) ,以 Go 结尾的字符串
     reg = regexp.MustCompile(`(?i:^hello).*Go`)
     fmt.Printf("%q\n", reg.FindAllString(text, -1))
     // ["Hello 世界！123 Go"]
@@ -420,7 +420,7 @@ text := `Hello 世界！123 Go.`
     fmt.Printf("%q\n", reg.FindAllString(text, -1))
     // ["Go."]
     
-    // 查找从行首开始,以空格结尾的字符串（非贪婪模式) 
+    // 查找从行首开始,以空格结尾的字符串 (非贪婪模式) 
     reg = regexp.MustCompile(`(?U)^.* `)
     fmt.Printf("%q\n", reg.FindAllString(text, -1))
     // ["Hello "]

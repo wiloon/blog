@@ -98,7 +98,7 @@ Retention注解有一个属性value，是RetentionPolicy类型的，Enum Retenti
 那怎么来选择合适的注解生命周期呢？
 首先要明确生命周期长度 SOURCE < CLASS < RUNTIME ，所以前者能作用的地方后者一定也能作用。
 一般如果需要在运行时去动态获取注解信息，那只能用 RUNTIME 注解，比如@Deprecated使用RUNTIME注解
-如果要在编译时进行一些预处理操作，比如生成一些辅助代码（如 ButterKnife) ，就用 CLASS注解；
+如果要在编译时进行一些预处理操作，比如生成一些辅助代码 (如 ButterKnife) ，就用 CLASS注解；
 如果只是做一些检查性的操作，比如 @Override 和 @SuppressWarnings，使用SOURCE 注解。
 
 注解@Override用在方法上，当我们想重写一个方法时，在方法上加@Override，当我们方法的名字出错时，编译器就会报错
@@ -310,7 +310,7 @@ Utility's Author—>haoran_202 from com.magc
 
 
 
-  注解（Annotation)  为我们在代码中添加信息提供了一种形式化的方法，是我们可以在稍后 某个时刻方便地使用这些数据（通过 解析注解 来使用这些数据) 。
+  注解 (Annotation)  为我们在代码中添加信息提供了一种形式化的方法，是我们可以在稍后 某个时刻方便地使用这些数据 (通过 解析注解 来使用这些数据) 。
 
 注解的语法比较简单，除了@符号的使用以外，它基本上与java的固有语法一致，java内置了三种
 
@@ -350,7 +350,7 @@ import java.lang.annotation.RetentionPolicy;
    
 * ElemenetType.CONSTRUCTOR 构造器声明
    
-* ElemenetType.FIELD 域声明（包括 enum 实例) 
+* ElemenetType.FIELD 域声明 (包括 enum 实例) 
    
 * ElemenetType.LOCAL_VARIABLE 局部变量声明
    
@@ -360,7 +360,7 @@ import java.lang.annotation.RetentionPolicy;
    
 * ElemenetType.PARAMETER 参数声明
    
-* ElemenetType.TYPE 类，接口（包括注解类型) 或enum声明
+* ElemenetType.TYPE 类，接口 (包括注解类型) 或enum声明
    
 *
    
@@ -812,7 +812,7 @@ System.out.println("创建的社区:"+name.community());
 
 Java注解(Annotation)
   
-Annotation(注释)是JDK5.0及以后版本引入的。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。注释是以'@注释名'在代码中存在的，根据注释参数的个数，我们可以将注释分为: 标记注释、单值注释、完整注释三类。它们都不会直接影响到程序的语义，只是作为注释（标识) 存在，我们可以通过反射机制编程实现对这些元数据的访问。另外，你可以在编译时选择代码里的注释是否只存在于源代码级，或者它也能在class文件中出现。
+Annotation(注释)是JDK5.0及以后版本引入的。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。注释是以'@注释名'在代码中存在的，根据注释参数的个数，我们可以将注释分为: 标记注释、单值注释、完整注释三类。它们都不会直接影响到程序的语义，只是作为注释 (标识) 存在，我们可以通过反射机制编程实现对这些元数据的访问。另外，你可以在编译时选择代码里的注释是否只存在于源代码级，或者它也能在class文件中出现。
   
 元数据的作用
   

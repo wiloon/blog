@@ -11,19 +11,19 @@ tags:
 ## "gdb"
 
 GDB是什么
-GDB 全称"GNU symbolic debugger"，从名称上不难看出，它诞生于 GNU 计划（同时诞生的还有 GCC、Emacs 等) ，是 Linux 下常用的程序调试器。发展至今，GDB 已经迭代了诸多个版本，当下的 GDB 支持调试多种编程语言编写的程序，包括 C、C++、Go、Objective-C、OpenCL、Ada 等。实际场景中，GDB 更常用来调试 C 和 C++ 程序。
-Windows 操作系统中，人们更习惯使用一些已经集成好的开发环境（IDE) ，如 VS、VC、Dev-C++ 等，它们的内部已经嵌套了相应的调试器。
+GDB 全称"GNU symbolic debugger"，从名称上不难看出，它诞生于 GNU 计划 (同时诞生的还有 GCC、Emacs 等) ，是 Linux 下常用的程序调试器。发展至今，GDB 已经迭代了诸多个版本，当下的 GDB 支持调试多种编程语言编写的程序，包括 C、C++、Go、Objective-C、OpenCL、Ada 等。实际场景中，GDB 更常用来调试 C 和 C++ 程序。
+Windows 操作系统中，人们更习惯使用一些已经集成好的开发环境 (IDE) ，如 VS、VC、Dev-C++ 等，它们的内部已经嵌套了相应的调试器。
 
 GDB的吉祥物: 弓箭鱼
 图 1 GDB 的吉祥物: 弓箭鱼
 
 总的来说，借助 GDB 调试器可以实现以下几个功能: 
 程序启动时，可以按照我们自定义的要求运行程序，例如设置参数和环境变量；
-可使被调试程序在指定代码处暂停运行，并查看当前程序的运行状态（例如当前变量的值，函数的执行结果等) ，即支持断点调试；
+可使被调试程序在指定代码处暂停运行，并查看当前程序的运行状态 (例如当前变量的值，函数的执行结果等) ，即支持断点调试；
 程序执行过程中，可以改变某个变量的值，还可以改变代码的执行顺序，从而尝试修改程序中出现的逻辑错误。
 
 
-GDB（GNU Debugger) 是UNIX及UNIX-like下的强大调试工具，可以调试ada, c, c++, asm, minimal, d, fortran, objective-c, go, java,pascal等语言。
+GDB (GNU Debugger) 是UNIX及UNIX-like下的强大调试工具，可以调试ada, c, c++, asm, minimal, d, fortran, objective-c, go, java,pascal等语言。
 
 对于C程序来说，需要在编译时加上-g参数，保留调试信息，否则不能使用GDB进行调试。
 但如果不是自己编译的程序，并不知道是否带有-g参数，如何判断一个文件是否带有调试信息呢？

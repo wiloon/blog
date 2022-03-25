@@ -33,7 +33,7 @@ tags:
 ### proxy
 https://www.flysnow.org/2016/12/24/golang-http-proxy.html
 
-```golang
+```go
 package main
 
 import (

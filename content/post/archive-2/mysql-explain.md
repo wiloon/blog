@@ -11,9 +11,9 @@ tags:
 ---
 ## MySQL explain, 执行计划, Query Execution Plan
 # 执行计划, Query Execution Plan, explain
-关于explain命令相信大家并不陌生,具体用法和字段含义可以参考官网explain-output,这里需要强调rows是核心指标,绝大部分rows小的语句执行一定很快（有例外,下面会讲到) 。所以优化语句基本上都是在优化rows。
+关于explain命令相信大家并不陌生,具体用法和字段含义可以参考官网explain-output,这里需要强调rows是核心指标,绝大部分rows小的语句执行一定很快 (有例外,下面会讲到) 。所以优化语句基本上都是在优化rows。
 
-在日常工作中,我们会有时会开慢查询去记录一些执行时间比较久的SQL语句,找出这些SQL语句并不意味着完事了,些时我们常常用到explain这个命令来查看一个这些SQL语句的执行计划,查看该SQL语句有没有使用上了索引,有没有做全表扫描,这都可以通过explain命令来查看。所以我们深入了解MySQL的基于开销的优化器,还可以获得很多可能被优化器考虑到的访问策略的细节,以及当运行SQL语句时哪种策略预计会被优化器采用。（QEP: sql生成一个执行计划query Execution plan) 
+在日常工作中,我们会有时会开慢查询去记录一些执行时间比较久的SQL语句,找出这些SQL语句并不意味着完事了,些时我们常常用到explain这个命令来查看一个这些SQL语句的执行计划,查看该SQL语句有没有使用上了索引,有没有做全表扫描,这都可以通过explain命令来查看。所以我们深入了解MySQL的基于开销的优化器,还可以获得很多可能被优化器考虑到的访问策略的细节,以及当运行SQL语句时哪种策略预计会被优化器采用。 (QEP: sql生成一个执行计划query Execution plan) 
   
 MySQL> explain select * from servers;
   
@@ -69,7 +69,7 @@ MySQL> explain select \* from (select \* from ( select * from t1 where id=2602) 
     +—-+————-+————+——–+——————-+———+———+——+——+——-+
 
 ### partitions
-版本5.7以前,该项是explain partitions显示的选项,5.7以后成为了默认选项。该列显示的为分区表命中的分区情况。非分区表该字段为空（null) 。
+版本5.7以前,该项是explain partitions显示的选项,5.7以后成为了默认选项。该列显示的为分区表命中的分区情况。非分区表该字段为空 (null) 。
 
 ### type
 表示MySQL在表中找到所需行的方式,又称"访问类型"。
@@ -94,7 +94,7 @@ All rows with matching index values are read from this table for each combinatio
 
 第一句没理解透,先理解到多行匹配吧。
 
-触发条件: 触发联合索引最左原则（不知道的搜下) ,或者这个索引不是主键,也不是唯一索引（换句话说,如果这个在这个索引基础之上查询的结果多于一行) 。
+触发条件: 触发联合索引最左原则 (不知道的搜下) ,或者这个索引不是主键,也不是唯一索引 (换句话说,如果这个在这个索引基础之上查询的结果多于一行) 。
 
 如果使用那个索引只匹配到非常少的行,也是不错的。
 
@@ -102,7 +102,7 @@ ref can be used for indexed columns that are compared using the = or <=> operato
 
 在对已经建立索引列进行=或者<=>操作的时候,ref会被使用到。与eq_ref不同的是匹配到了多行
 
-##### 根据索引（非主键,非唯一索引) ,匹配到多行
+##### 根据索引 (非主键,非唯一索引) ,匹配到多行
 SELECT * FROM ref_table WHERE key_column=expr;
 
 ##### 多表关联查询,单个索引,多行匹配
@@ -150,12 +150,12 @@ SELECT * FROM ref_table,other_table
 ### Key
 查询真正使用到的索引,select_type为index_merge时,这里可能出现两个以上的索引,其他的select_type这里只会出现一个。
 
-key列显示MySQL实际决定使用的键（索引) 
+key列显示MySQL实际决定使用的键 (索引) 
 
 如果没有选择索引,键是NULL。要想强制MySQL使用或忽视possible_keys列中的索引,在查询中使用FORCE INDEX、USE INDEX或者IGNORE INDEX。
 
 ### key_len
-表示索引中使用的字节数,可通过该列计算查询中使用的索引的长度（key_len显示的值为索引字段的最大可能长度,并非实际使用长度,即key_len是根据表定义计算而得,不是通过表内检索出的) , 不损失精确性的情况下,长度越短越好
+表示索引中使用的字节数,可通过该列计算查询中使用的索引的长度 (key_len显示的值为索引字段的最大可能长度,并非实际使用长度,即key_len是根据表定义计算而得,不是通过表内检索出的) , 不损失精确性的情况下,长度越短越好
 
 
 ### rows
@@ -181,7 +181,7 @@ The column information is retrieved from the table using only information in the
 
 For InnoDB tables that have a user-defined clustered index, that index can be used even when Using index is absent from the Extra column. This is the case if type is index and key is PRIMARY.
 
-从表中仅使用索引树中的信息就能获取查询语句的列的信息, 而不必进行其他额外查找（seek) 去读取实际的行记录。当查询的列是单个索引的部分的列时, 可以使用此策略。（简单的翻译就是: 使用索引来直接获取列的数据,而不需回表) 。对于具有用户定义的聚集索引的 InnoDB 表, 即使从Extra列中没有使用索引, 也可以使用该索引。如果type是index并且Key是主键, 则会出现这种情况。
+从表中仅使用索引树中的信息就能获取查询语句的列的信息, 而不必进行其他额外查找 (seek) 去读取实际的行记录。当查询的列是单个索引的部分的列时, 可以使用此策略。 (简单的翻译就是: 使用索引来直接获取列的数据,而不需回表) 。对于具有用户定义的聚集索引的 InnoDB 表, 即使从Extra列中没有使用索引, 也可以使用该索引。如果type是index并且Key是主键, 则会出现这种情况。
 
 
 #### const

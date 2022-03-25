@@ -19,7 +19,7 @@ tags:
 
 先把当前时间格式化成相同格式的字符串,然后使用time的Before, After, Equal 方法即可.
 
-```golang
+```go
     time1 := "2015-03-20 08:50:29"
     time2 := "2015-03-21 09:04:25"
     //先把时间字符串格式化成相同的时间类型
@@ -50,29 +50,29 @@ Mon, 2 Jan 2006 15:04:05 MST
 ```
 
 ### unix nano > time
-```golang
+```go
 unixnano:=int64(1570603226000000000)
 t:=time.Unix(0,unixnano)
 fmt.Println(t)
 ```
 
 ### 毫秒, get microsecond, mill second
-```golang
+```go
 time.Now().UnixNano() / int64(time.Millisecond)
 ```
 
-```golang
+```go
 func main() {
-    fmt.Printf("时间戳（秒) : %v;\n", time.Now().Unix())
-    fmt.Printf("时间戳（纳秒) : %v;\n",time.Now().UnixNano())
-    fmt.Printf("时间戳（毫秒) : %v;\n",time.Now().UnixNano() / 1e6)
-    fmt.Printf("时间戳（纳秒转换为秒) : %v;\n",time.Now().UnixNano() / 1e9)
+    fmt.Printf("时间戳 (秒) : %v;\n", time.Now().Unix())
+    fmt.Printf("时间戳 (纳秒) : %v;\n",time.Now().UnixNano())
+    fmt.Printf("时间戳 (毫秒) : %v;\n",time.Now().UnixNano() / 1e6)
+    fmt.Printf("时间戳 (纳秒转换为秒) : %v;\n",time.Now().UnixNano() / 1e9)
 }
 ```
 
 ### days between two dates
 
-```golang
+```go
 func main() {
     // The leap year 2016 had 366 days.
     t1 := Date(2016, 1, 1)
@@ -88,14 +88,14 @@ func Date(year, month, day int) time.Time {
 
 ### date > string
 
-```golang
+```go
 // 格式化日期 - RFC3339
 time.Now().Format("2006-01-02T15:04:05Z07:00")
 time.Now().Format("2006-01-02-15-04-05")
 time.Now().Format("2006-01-02 15:04:05")
 ```
 
-```golang
+```go
     format:="2006-01-02 15:04:05"
     fmt.Println(time.Now().Format(format))
 
@@ -110,13 +110,13 @@ time.Now().Format("2006-01-02 15:04:05")
   
 但是在linux环境下,time.Parse()的默认时区是UTC,time.Format()的时区默认是本地, 使用ParseInLocation 解决时区问题
 
-```golang
+```go
 tm2, _ := time.Parse("01/02/2006", "02/08/2015")
 localTime, err := time.ParseInLocation("2006-01-02 15:04:05", "2017-12-03 22:01:02", time.Local)
 ```
 
 ### 时区
-```golang
+```go
  now := time.Now()
     local1, err1 := time.LoadLocation("") //等同于"UTC"
     if err1 != nil {
@@ -216,7 +216,7 @@ parsing time "8:41PM" as "Mon Jan _2 15:04:05 2006": cannot parse "8:41PM" as "M
 
 
 ### 字符串毫秒转时间格式
-```golang
+```go
 package main
 
 import (
@@ -255,7 +255,7 @@ RFC3339详细定义了互联网上日期/时间的偏移量表示:
 这个代表了UTC时间的2017年12月08日零时
 
 2017-12-08T00:08:00.00+08:00
-这个代表了同一时刻的,东八区北京时间（CST) 表示的方法
+这个代表了同一时刻的,东八区北京时间 (CST) 表示的方法
 
 上面两个时间的时间戳是等价的。两个的区别,就是在本地时间后面增加了时区信息。Z表示零时区。+08:00表示UTC时间增加8小时。
 

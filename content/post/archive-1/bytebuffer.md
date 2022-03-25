@@ -1,20 +1,21 @@
 ---
-title: 'java  ByteBuffer'
+title: java ByteBuffer
 author: "-"
 date: 2015-08-05T04:32:55+00:00
-url: /?p=8057
+url: ByteBuffer
 categories:
-  - Uncategorized
+  - java
 tags:
   - Java
 
 ---
-## 'java  ByteBuffer'
-ByteBuffer是NIO里用得最多的Buffer,它包含两个实现方式: HeapByteBuffer是基于Java堆的实现,而DirectByteBuffer则使用了unsafe的API进行了堆外的实现。这里只说HeapByteBuffer。
+## java ByteBuffer
+
+ByteBuffer 是 NIO 里用得最多的 Buffer, 它包含两个实现方式: HeapByteBuffer 是基于Java堆的实现, 而 DirectByteBuffer 则使用了 unsafe 的 API 进行了堆外的实现。这里只说 HeapByteBuffer。
 
 Buffer 类
   
-定义了一个可以线性存放primitive type数据的容器接口。Buffer主要包含了与类型（byte, char…) 无关的功能。
+定义了一个可以线性存放primitive type数据的容器接口。Buffer主要包含了与类型 (byte, char…) 无关的功能。
   
 值得注意的是Buffer及其子类都不是线程安全的。
 
@@ -60,7 +61,7 @@ Buffer rewind()
   
 把position设为0,limit不变,一般在把数据重写入Buffer前调用。
 
-Buffer对象有可能是只读的,这时,任何对该对象的写操作都会触发一个ReadOnlyBufferException。
+Buffer 对象有可能是只读的, 这时, 任何对该对象的写操作都会触发一个 ReadOnlyBufferException
   
 isReadOnly()方法可以用来判断一个Buffer是否只读。
 
@@ -110,9 +111,9 @@ int getInt() //从ByteBuffer中读出一个int值。
   
 ByteBuffer putInt(int value) // 写入一个int值到ByteBuffer中。
 
-读写其它类型的数据牵涉到字节序问题,ByteBuffer会按其字节序（大字节序或小字节序) 写入或读出一个其它
+读写其它类型的数据牵涉到字节序问题,ByteBuffer会按其字节序 (大字节序或小字节序) 写入或读出一个其它
   
-类型的数据（int,long…) 。字节序可以用order方法来取得和设置: 
+类型的数据 (int,long…) 。字节序可以用order方法来取得和设置: 
   
 ByteOrder order() //返回ByteBuffer的字节序。
   
@@ -392,13 +393,13 @@ buffer.clear();
   
 这个方法实际上也不会改变缓冲区的数据,而只是简单的重置了缓冲区的主要索引值.不必为了每次读写都创建新的缓冲区,那样做会降低性能.相反,要重用现在的缓冲区,在再次读取之前要清除缓冲区.
 
-4.从套接字通道(信道)读取数据
+4.从 socket 通道(信道)读取数据
   
 int bytesReaded=socketChannel.read(buffer);
   
 执行以上方法后,通道会从socket读取的数据填充此缓冲区,它返回成功读取并存储在缓冲区的字节数.在默认情况下,这至少会读取一个字节,或者返回-1指示数据结束.
 
-5.向套接字通道(信道)写入数据
+5.向 socket 通道(信道)写入数据
   
 socketChannel.write(buffer);
   
@@ -470,7 +471,7 @@ fc.read( buff);
 
 fc.flip();
 
-四、呈现给用户（三种方式) 
+四、呈现给用户 (三种方式) 
 
 1)String encoding = System.getProperty("file.encoding");
 
@@ -485,3 +486,105 @@ fc.rewind();
 https://my.oschina.net/flashsword/blog/159613
   
 http://blog.csdn.net/jamesliulyc/article/details/6606335
+
+
+## HeapByteBuffer, DirectByteBuffer
+https://www.zhihu.com/question/60892134/answer/182225677
+  
+https://zhuanlan.zhihu.com/p/27625923
+
+http://www.importnew.com/19191.html
+
+而本文要说的一个重点就是HeapByteBuffer与DirectByteBuffer,以及如何合理使用DirectByteBuffer。
+
+1. HeapByteBuffer 与 DirectByteBuffer, 在原理上, 前者可以看出分配的 buffer 是在 heap 区域的, 其实真正 flush 到远程的时候会先拷贝得到直接内存,再做下一步操作 (考虑细节还会到OS级别的内核区直接内存) , 其实发送静态文件最快速的方法是通过OS级别的 send_file, 只会经过 OS 一个内核拷贝, 而不会来回拷贝；在 NIO 的框架下,很多框架会采用 DirectByteBuffer 来操作,这样分配的内存不再是在java heap上,而是在C heap上,经过性能测试,可以得到非常快速的网络交互,在大量的网络交互下,一般速度会比HeapByteBuffer要快速好几倍。
+
+最基本的情况下
+
+分配HeapByteBuffer的方法是: 
+
+ByteBuffer.allocate(int capacity);参数大小为字节的数量
+  
+分配DirectByteBuffer的方法是: 
+
+ByteBuffer.allocateDirect(int capacity);//可以看到分配内存是通过unsafe.allocateMemory()来实现的,这个unsafe默认情况下java代码是没有能力可以调用到的,不过你可以通过反射的手段得到实例进而做操作,当然你需要保证的是程序的稳定性,既然叫unsafe的,就是告诉你这不是安全的,其实并不是不安全,而是交给程序员来操作,它可能会因为程序员的能力而导致不安全,而并非它本身不安全。
+
+http://blog.csdn.net/u011262847/article/details/76861974
+
+HeapByteBuffer
+  
+堆上的ByteBuffer对象,是调用ByteBuffer.allocate (n) 所分配出来的,底层是通过new出来的新对象,所以一定在堆上分配的存储空间,属于jvm所能够控制的范围。
+
+public static ByteBuffer allocate(int capacity) {
+          
+if (capacity < 0)
+              
+throw new IllegalArgumentException();
+          
+return new HeapByteBuffer(capacity, capacity);
+      
+}
+
+DirectByteBuffer
+  
+对于这种Bytebuffer的创建,我们可以看一下底层源码: 
+
+public static ByteBuffer allocateDirect(int capacity) {
+          
+return new DirectByteBuffer(capacity);
+      
+}
+
+同样是new出来的对象,我们也认为是在jvm堆上分配的存储空间
+
+但是我们可以查看到DirectByteBuffer底层的实现: 
+
+public native long allocateMemory(long var1);
+  
+...
+  
+long base = 0;
+          
+try {
+              
+base = unsafe.allocateMemory(size);
+          
+} catch (OutOfMemoryError x) {
+              
+Bits.unreserveMemory(size, cap);
+              
+throw x;
+          
+}
+          
+unsafe.setMemory(base, size, (byte) 0);
+  
+...
+
+关键的是,allocateMemory是一个native方法,并不是jvm能够控制的内存区域,通常称为堆外内存,一般是通过c/c++分配的内存 (malloc) 。
+
+也就是说,对于DirectByteBuffer所生成的ByteBuffer对象,一部分是在jvm堆内存上,一部分是操作系统上的堆内存上,那么为了操作堆外内存,一定在jvm堆上的对象有一个堆外内存的引用:
+
+public abstract class Buffer {
+
+    /**
+     * The characteristics of Spliterators that traverse and split elements
+     * maintained in Buffers.
+     */
+    static final int SPLITERATOR_CHARACTERISTICS =
+        Spliterator.SIZED | Spliterator.SUBSIZED | Spliterator.ORDERED;
+    
+    // Invariants: mark <= position <= limit <= capacity
+    private int mark = -1;
+    private int position = 0;
+    private int limit;
+    private int capacity;
+    
+    // Used only by direct buffers
+    // NOTE: hoisted here for speed in JNI GetDirectBufferAddress
+    long address;
+    
+
+在DirectByteBuffer的父类中,可以看到address的一个变量,这个就是表示堆外内存所分配对象的地址,如此一来,jvm堆上的对象就会有一个堆外内存的一个引用,之所以需要这样做,是为了提升堆io的效率。
+
+对于HeapByteBuffer,数据的分配存储都在jvm堆上,当需要和io设备打交道的时候,会将jvm堆上所维护的byte[]拷贝至堆外内存,然后堆外内存直接和io设备交互。如果直接使用DirectByteBuffer,那么就不需要拷贝这一步,将大大提升io的效率,这种称之为零拷贝 (zero-copy) 。

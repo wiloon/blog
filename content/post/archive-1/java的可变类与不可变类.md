@@ -151,7 +151,7 @@ boolean equals(Object another){ return true;}
   
 我覆盖了equals方法。这个实现会导致无论Monster实例内容如何，它们之间的比较永远返回true。
 
-所以当你是用equals方法判断对象的内容是否相等，请不要想当然。因为可能你认为相等，而这个类的作者不这样认为，而类的equals方法的实现是由他掌握的。如果你需要使用equals方法，或者使用任何基于散列码的集合（HashSet,HashMap,HashTable) ，请察看一下java doc以确认这个类的equals逻辑是如何实现的。
+所以当你是用equals方法判断对象的内容是否相等，请不要想当然。因为可能你认为相等，而这个类的作者不这样认为，而类的equals方法的实现是由他掌握的。如果你需要使用equals方法，或者使用任何基于散列码的集合 (HashSet,HashMap,HashTable) ，请察看一下java doc以确认这个类的equals逻辑是如何实现的。
 
 问题三: String到底变了没有？
 

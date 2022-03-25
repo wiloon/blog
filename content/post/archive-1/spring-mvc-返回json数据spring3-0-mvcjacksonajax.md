@@ -127,7 +127,7 @@ jackson-mapper-asl-1.9.2.jar
 
 **所以,将访问路径从http://localhost:8080/demo/type.htm改为http://localhost:8080/demo/type.json即可。
   
-（如果你只拦截htm开头的链接,可以在web.xml里新增一个url-pattern为*.json的servlet即可。) **
+ (如果你只拦截htm开头的链接,可以在web.xml里新增一个url-pattern为*.json的servlet即可。) **
 
 --------------
   

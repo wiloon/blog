@@ -115,7 +115,7 @@ Note: 关于 static 的作用与用法如果不了解，请参考:
   
 http://my.oschina.net/leejun2005/blog/193439#OSC_h3_1 为什么 main 方法是 public static void？
 
-http://my.oschina.net/leejun2005/blog/144349#OSC_h3_2 设计模式之: 聊聊 java 中的单例模式（Singleton) 
+http://my.oschina.net/leejun2005/blog/144349#OSC_h3_2 设计模式之: 聊聊 java 中的单例模式 (Singleton) 
 
 也就是说第一层括弧实际是定义了一个匿名内部类 (Anonymous Inner Class)，第二层括弧实际上是一个实例初始化块 (instance initializer block)，这个块在内部匿名类构造时被执行。这个块之所以被叫做"实例初始化块"是因为它们被定义在了一个类的实例范围内。
   
@@ -193,7 +193,7 @@ System.out.println(names.toString()); // [A0, A1, A2, A3, A4, A5, A6, A7, A8, A9
 
 在 Java 7 中你可以像 Ruby, Perl、Python 一样创建 collections 了。
 
-Note: （这些集合是不可变的) : 
+Note:  (这些集合是不可变的) : 
   
 List<String> list = new ArrayList<String>();
   
@@ -249,7 +249,7 @@ new HashMap(map);
   
 5. 执行效率问题
 
-当一种新的工具或者写法出现时，猿们都会来一句: 性能怎么样？（这和男生谈论妹纸第一句一般都是: "长得咋样？三围多少？"一个道理:)) 
+当一种新的工具或者写法出现时，猿们都会来一句: 性能怎么样？ (这和男生谈论妹纸第一句一般都是: "长得咋样？三围多少？"一个道理:)) 
   
 关于这个两种写法我这边笔记本上测试文艺写法、普通写法分别创建 10,000,000 个 Map 的结果是 1217、1064，相差 13%。
   
@@ -303,18 +303,18 @@ System.out.println(System.currentTimeMillis() - st); // 1064
   
 6. Refer:
 
-（1) Double Brace Initialization In Java! http://viralpatel.net/blogs/double-brace-initialization-in-java/
+ (1) Double Brace Initialization In Java! http://viralpatel.net/blogs/double-brace-initialization-in-java/
 
-（2) Double Brace Initialization Idiom and its Drawbacks http://java.dzone.com/articles/double-brace-initialization
+ (2) Double Brace Initialization Idiom and its Drawbacks http://java.dzone.com/articles/double-brace-initialization
 
-（3) Hidden Features of Java http://stackoverflow.com/questions/15496/hidden-features-of-java
+ (3) Hidden Features of Java http://stackoverflow.com/questions/15496/hidden-features-of-java
 
-（4) Java 大括号语法糖 http://my.oschina.net/trydofor/blog/79222
+ (4) Java 大括号语法糖 http://my.oschina.net/trydofor/blog/79222
 
-（5) Java 7 的新特性: http://code.joejag.com/2009/new-language-features-in-java-7/
+ (5) Java 7 的新特性: http://code.joejag.com/2009/new-language-features-in-java-7/
 
 http://www.iteye.com/news/11490-java-7?page=5
 
-（6) java map双括号初始化方式的问题 http://blog.csdn.net/liubo2012/article/details/8591956
+ (6) java map双括号初始化方式的问题 http://blog.csdn.net/liubo2012/article/details/8591956
 
-（7) Efficiency of Java "Double Brace Initialization"? http://stackoverflow.com/questions/924285/efficiency-of-java-double-brace-initialization
+ (7) Efficiency of Java "Double Brace Initialization"? http://stackoverflow.com/questions/924285/efficiency-of-java-double-brace-initialization

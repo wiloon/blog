@@ -20,7 +20,7 @@ tags:
 
 网上搜到的大部分答案说
 
-> 进入File Settings 里的 Appearance项,选中Override default fonts by ,把 Name 设置为 微软雅黑
+> 进入File Settings 里的 Appearance 项,选中Override default fonts by ,把 Name 设置为 微软雅黑
 
 之前默认的font是ubuntu,很好看,换成微软雅黑整个界面丑了不止一个档次！所以,如果只是想让源码中的中文能正常显示的话,只能另寻他路。
 
@@ -38,7 +38,7 @@ tags:
     
     
     
-      sudo mkdir /usr/share/fonts/truetype/yahei
+sudo mkdir /usr/share/fonts/truetype/yahei
 sudo cp yahei.ttf  /usr/share/fonts/truetype/yahei
 fc-cache -f -v
     

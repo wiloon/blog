@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## jquery validation
-**jQuery验证框架** **六、框架内建的验证方法( List of built-in Validation methods )** **[1]  required( ) **      返回: Boolean 说明: 让表单元素必须填写（选择) 。 如果表单元素为空(text input)或未选择(radio/checkbox)或选择了一个空值(select)。 作用于text inputs, selects, checkboxes and radio buttons. 当select提供了一个空值选项<option value="">Choose...</option>则强迫用户去选择一个不为空的值。
+**jQuery验证框架** **六、框架内建的验证方法( List of built-in Validation methods )** **[1]  required( ) **      返回: Boolean 说明: 让表单元素必须填写 (选择) 。 如果表单元素为空(text input)或未选择(radio/checkbox)或选择了一个空值(select)。 作用于text inputs, selects, checkboxes and radio buttons. 当select提供了一个空值选项<option value="">Choose...</option>则强迫用户去选择一个不为空的值。
   
     
       Js代码
@@ -34,7 +34,7 @@ tags:
     
   
 
-**[2]  required( dependency-expression ) **      返回: Boolean 参数 dependency-expression     类型: String    在form上下文中的一个表达式( String ),表单元素是否需要填写依赖于该表达式返回一个或多个元素。 说明: 让表单元素必须填写（选择) ,依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
+**[2]  required( dependency-expression ) **      返回: Boolean 参数 dependency-expression     类型: String    在form上下文中的一个表达式( String ),表单元素是否需要填写依赖于该表达式返回一个或多个元素。 说明: 让表单元素必须填写 (选择) ,依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
   
     
       Js代码
@@ -73,7 +73,7 @@ tags:
     
   
 
-**[3]  required( dependency-callback ) **      返回: Boolean 参数 dependency-callback     类型: Callback   该回函数以待验证表单元素作为其唯一的参数。当该回调函数返回true,则该表单元素是必须的。 说明: 让表单元素必须填写（选择) ,依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
+**[3]  required( dependency-callback ) **      返回: Boolean 参数 dependency-callback     类型: Callback   该回函数以待验证表单元素作为其唯一的参数。当该回调函数返回true,则该表单元素是必须的。 说明: 让表单元素必须填写 (选择) ,依赖于参数的返回值。 表达式中像#foo:checked, #foo:filled, #foo:visible这样的选择过滤器将经常用到。
   
     
       Js代码

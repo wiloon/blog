@@ -89,7 +89,7 @@ lazy-init="true">
   
 <bean id="postDao" parent="dao"
   
->
+
   
 <property name="lobHandler" ref="oracleLobHandler" />
   
@@ -109,7 +109,7 @@ lazy-init="true" />
   
 <bean id="postDao" parent="dao"
   
->
+
   
 <property name="lobHandler" ref="defaultLobHandler" />
   

@@ -47,8 +47,8 @@ swapoff /dev/vda2
 ```
 
 ### priority
-swap分区的优先级（priority）有啥用？
-在使用多个swap分区或者文件的时候，还有一个优先级的概念（Priority）。
+swap分区的优先级 (priority）有啥用？
+在使用多个swap分区或者文件的时候，还有一个优先级的概念 (Priority）。
 
 在swapon的时候，我们可以使用-p参数指定相关swap空间的优先级，值越大优先级越高，可以指定的数字范围是－1到32767。
 

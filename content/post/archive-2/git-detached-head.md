@@ -15,7 +15,7 @@ git checkout本质上是修改HEAD里面的内容来让它指向不同分支的,
 这个时候输入git status查看当前状态发现我没有在任何本地分支上也验证了刚才的猜想,而这时候我又作死的进行了commit操作,git提示我
 
 
-使用的是 git checkout < commit id>,即切换到指定的某一次提交,HEAD 就会处于 detached 状态（游离状态) 。
+使用的是 git checkout < commit id>,即切换到指定的某一次提交,HEAD 就会处于 detached 状态 (游离状态) 。
 HEAD 游离状态的利与弊
 HEAD 处于游离状态时,我们可以很方便地在历史版本之间互相切换,比如需要回到某次提交,直接 checkout 对应的 commit id 或者 tag 名即可。
 

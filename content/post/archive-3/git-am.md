@@ -12,7 +12,7 @@ tags:
 ## git-am
 https://blog.csdn.net/mliubing2532/article/details/7577905
 
-这篇文章主要介绍一下git-am 和 format-patch 的使用。 因为在git使用当中，会有很多时候别人（供应商或者其他的开发人员) 发过来一系列的patch，这些patch通常的是类似这样的名字: 
+这篇文章主要介绍一下git-am 和 format-patch 的使用。 因为在git使用当中，会有很多时候别人 (供应商或者其他的开发人员) 发过来一系列的patch，这些patch通常的是类似这样的名字: 
 
 0001-JFFS2-community-fix-with-not-use-OOB.patch
    
@@ -61,7 +61,7 @@ error: patch failed: android/mediascanner.cpp:452 error: android/mediascanner.cp
   
 这样你就需要先看看patch， 然后改改错误的这个文件，让这个patch能够patch上去。
 
-你有一堆patch， 名字是上面提到的那一堆patch， 你把他们放在~/patch-set/目录下（路径随意) 
+你有一堆patch， 名字是上面提到的那一堆patch， 你把他们放在~/patch-set/目录下 (路径随意) 
   
  
 

@@ -15,6 +15,7 @@ tags:
 sudo pacman -S sysstat
 sudo yum install sysstat
 
+iostat 1
 iostat -x 1
 ```
 
@@ -37,7 +38,7 @@ iostat -x 1
     svctm:          平均每次设备I/O操作的服务时间 (毫秒)。即 delta(use)/delta(rio+wio)
     %util:          一秒中有百分之多少的时间用于 I/O 操作,或者说一秒中有多少时间 I/O 队列是非空的。即 delta(use)/s/1000 (因为use的单位为毫秒)
 
-Linux系统中的 iostat是I/O statistics（输入/输出统计) 的缩写,iostat工具将对系统的磁盘操作活动进行监视。它的特点是汇报磁盘活动统计情况,同时也会汇报出CPU使用情况。同vmstat一样,iostat也有一个弱点,就是它不能对某个进程进行深入分析,仅对系统的整体情况进行分析。iostat属于sysstat软件包。可以用yum install sysstat 直接安装。
+Linux系统中的 iostat是I/O statistics (输入/输出统计) 的缩写,iostat工具将对系统的磁盘操作活动进行监视。它的特点是汇报磁盘活动统计情况,同时也会汇报出CPU使用情况。同vmstat一样,iostat也有一个弱点,就是它不能对某个进程进行深入分析,仅对系统的整体情况进行分析。iostat属于sysstat软件包。可以用yum install sysstat 直接安装。
 
 ### 命令格式: 
     iostat[参数][时间][次数]
@@ -373,21 +374,21 @@ sda7             12.48        19.52       163.22  301047254 2517559596
   
 说明: 
 
-tps: 该设备每秒的传输次数（Indicate the number of transfers per second that were issued to the device.) 。"一次传输"意思是"一次I/O请求"。多个逻辑请求可能会被合并为"一次I/O请求"。"一次传输"请求的大小是未知的。
+tps: 该设备每秒的传输次数 (Indicate the number of transfers per second that were issued to the device.) 。"一次传输"意思是"一次I/O请求"。多个逻辑请求可能会被合并为"一次I/O请求"。"一次传输"请求的大小是未知的。
 
-kB_read/s: 每秒从设备（drive expressed) 读取的数据量；
+kB_read/s: 每秒从设备 (drive expressed) 读取的数据量；
 
-kB_wrtn/s: 每秒向设备（drive expressed) 写入的数据量；
+kB_wrtn/s: 每秒向设备 (drive expressed) 写入的数据量；
 
 kB_read: 读取的总数据量；kB_wrtn: 写入的总数量数据量；
 
 这些单位都为Kilobytes。
 
-上面的例子中,我们可以看到磁盘sda以及它的各个分区的统计数据,当时统计的磁盘总TPS是22.73,下面是各个分区的TPS。（因为是瞬间值,所以总TPS并不严格等于各个分区TPS的总和) 
+上面的例子中,我们可以看到磁盘sda以及它的各个分区的统计数据,当时统计的磁盘总TPS是22.73,下面是各个分区的TPS。 (因为是瞬间值,所以总TPS并不严格等于各个分区TPS的总和) 
 
  
 
-实例7: 查看设备使用率（%util) 、响应时间（await) 
+实例7: 查看设备使用率 (%util) 、响应时间 (await) 
 
 命令: 
 

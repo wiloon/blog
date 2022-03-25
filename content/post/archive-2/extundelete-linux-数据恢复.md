@@ -40,7 +40,7 @@ Linux下高效数据恢复软件extundelete应用实战 推荐
   
 由此可知,根目录的inode值为2。
 
-在利用extundelete恢复文件时并不依赖特定文件格式,首先extundelete会通过文件系统的inode信息（根目录的inode一般为2) 来获得当前文件系统下所有文件的信息,包括存在的和已经删除的文件,这些信息包括文件名和inode。然后利用inode信息结合日志去查询该inode所在的block位置,包括直接块,间接块等信息。最后利用dd命令将这些信息备份出来,从而恢复数据文件。
+在利用extundelete恢复文件时并不依赖特定文件格式,首先extundelete会通过文件系统的inode信息 (根目录的inode一般为2) 来获得当前文件系统下所有文件的信息,包括存在的和已经删除的文件,这些信息包括文件名和inode。然后利用inode信息结合日志去查询该inode所在的block位置,包括直接块,间接块等信息。最后利用dd命令将这些信息备份出来,从而恢复数据文件。
 
 四、 安装extundelete
 
@@ -70,7 +70,7 @@ extundelete -help
 
 extundelete [options] [action] device-file
   
-其中参数（options) 有: 
+其中参数 (options) 有: 
 
 -version, -[vV],显示软件版本号。
 
@@ -84,7 +84,7 @@ extundelete [options] [action] device-file
 
 -before dtime,时间参数,表示在某段时间之前被删的文件或目录。
 
-动作（action) 有: 
+动作 (action) 有: 
 
 -inode ino,显示节点"ino"的信息。
 

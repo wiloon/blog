@@ -10,6 +10,6 @@ tags:
   - reprint
 ---
 ## Zipkin
-Zipkin 是一个基于 Java 开发的、开源的、分布式实时数据跟踪系统（Distributed Tracking System）  
+Zipkin 是一个基于 Java 开发的、开源的、分布式实时数据跟踪系统 (Distributed Tracking System）  
 
 >https://zipkin.io/

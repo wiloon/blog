@@ -24,7 +24,7 @@ mavenjunit项目管理配置管理Apache
   
 [版本还是要自己指定的.]
   
-2. Dependency Scope （依赖范围) 
+2. Dependency Scope  (依赖范围) 
   
 因此,Maven考虑了6中可能的scope供选择: 
   
@@ -34,7 +34,7 @@ mavenjunit项目管理配置管理Apache
   
 - runtime: 表示编译时不需要,但测试和运行时需要,最终打包时会包含进去。
   
-- test: 只用于测试阶段（测试的编译和测试的运行) ,典型的就是junit的jar。
+- test: 只用于测试阶段 (测试的编译和测试的运行) ,典型的就是junit的jar。
   
 - system: 和provided类似,但要求jar是你的系统里已有的,不会在repository里找,如rt.jar,tools.jar这些。
   

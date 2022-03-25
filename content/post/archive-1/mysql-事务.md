@@ -26,16 +26,16 @@ tags:
     原一隔持
   
   
-    1) 原子性（Atomic) : 即事务是不可分割的最小工作单元，事务内的操作，要么全部执行，要么全部不执行。
+    1) 原子性 (Atomic) : 即事务是不可分割的最小工作单元，事务内的操作，要么全部执行，要么全部不执行。
   
   
-    2) 一致性（Consistency) : 事务在完成时，必须是所有的数据都保持一致状态。
+    2) 一致性 (Consistency) : 事务在完成时，必须是所有的数据都保持一致状态。
   
   
-    在事务执行前数据库的数据处于正确的状态，而事务执行完成后数据库的数据还是处于正确的状态，即数据完整性约束没有被破坏；如银行转帐，A转帐给B，必须保证A的钱一定转给B，一定不会出现A的钱转了但B没收到，否则数据库的数据就处于不一致（不正确) 的状态。
+    在事务执行前数据库的数据处于正确的状态，而事务执行完成后数据库的数据还是处于正确的状态，即数据完整性约束没有被破坏；如银行转帐，A转帐给B，必须保证A的钱一定转给B，一定不会出现A的钱转了但B没收到，否则数据库的数据就处于不一致 (不正确) 的状态。
   
   
-    3) 隔离性（Isolation) : 一个事务的执行不能被其他事务所影响。
+    3) 隔离性 (Isolation) : 一个事务的执行不能被其他事务所影响。
   
   
     并发事务执行之间无影响，在一个事务内部的操作对其他事务是不产生影响，这需要事务隔离级别来指定隔离性；
@@ -44,7 +44,7 @@ tags:
     事务必须是互相隔离的，防止并发读写同一个数据的情况发生 。
   
   
-    4) 持久性（Durable) : 一个事务一旦提交，事物的操作便永久性的保存在DB中。即使此时再执行回滚操作也不能撤消所做的更改。
+    4) 持久性 (Durable) : 一个事务一旦提交，事物的操作便永久性的保存在DB中。即使此时再执行回滚操作也不能撤消所做的更改。
   
   
   
@@ -59,7 +59,7 @@ tags:
       本地事务: 就是普通事务，能保证单台数据库上的操作的ACID，被限定在一台数据库上；
     
     
-      分布式事务: 涉及两个或多个数据库源的事务，即跨越多台同类或异类数据库的事务（由每台数据库的本地事务组成的) ，分布式事务旨在保证这些本地事务的所有操作的ACID，使事务可以跨越多台数据库；
+      分布式事务: 涉及两个或多个数据库源的事务，即跨越多台同类或异类数据库的事务 (由每台数据库的本地事务组成的) ，分布式事务旨在保证这些本地事务的所有操作的ACID，使事务可以跨越多台数据库；
     
   
   
@@ -70,7 +70,7 @@ tags:
       JDBC事务: 就是数据库事务类型中的本地事务，通过Connection对象的控制来管理事务；
     
     
-      JTA事务: JTA指Java事务API(Java Transaction API)，是Java EE数据库事务规范， JTA只提供了事务管理接口，由应用程序服务器厂商（如WebSphere Application Server) 提供实现，JTA事务比JDBC更强大，支持分布式事务。
+      JTA事务: JTA指Java事务API(Java Transaction API)，是Java EE数据库事务规范， JTA只提供了事务管理接口，由应用程序服务器厂商 (如WebSphere Application Server) 提供实现，JTA事务比JDBC更强大，支持分布式事务。
     
   
   
@@ -117,7 +117,7 @@ tags:
     
     
     
-      Java事务的类型有三种: JDBC事务、JTA（Java Transaction API) 事务、容器事务。
+      Java事务的类型有三种: JDBC事务、JTA (Java Transaction API) 事务、容器事务。
     
     
     
@@ -125,7 +125,7 @@ tags:
     
     
     
-      JDBC 事务是用 Connection 对象控制的。JDBC Connection 接口（ java.sql.Connection ) 提供了两种事务模式: 自动提交和手工提交。 java.sql.Connection 提供了以下控制事务的方法: 
+      JDBC 事务是用 Connection 对象控制的。JDBC Connection 接口 ( java.sql.Connection ) 提供了两种事务模式: 自动提交和手工提交。 java.sql.Connection 提供了以下控制事务的方法: 
     
     
     
@@ -141,7 +141,7 @@ tags:
     
     
     
-      2、JTA（Java Transaction API) 事务
+      2、JTA (Java Transaction API) 事务
     
     
     
@@ -161,15 +161,15 @@ tags:
     
     
     
-      J2EE应用程序用 JNDI 查询数据源。一旦应用程序找到了数据源对象，它就调用 javax.sql.DataSource.getConnection（)  以获得到数据库的连接。
+      J2EE应用程序用 JNDI 查询数据源。一旦应用程序找到了数据源对象，它就调用 javax.sql.DataSource.getConnection ()  以获得到数据库的连接。
     
     
     
-      XA 连接与非 XA 连接不同。一定要记住 XA 连接参与了 JTA 事务。这意味着 XA 连接不支持 JDBC 的自动提交功能。同时，应用程序一定不要对 XA 连接调用 java.sql.Connection.commit（)  或者 java.sql.Connection.rollback（)  .
+      XA 连接与非 XA 连接不同。一定要记住 XA 连接参与了 JTA 事务。这意味着 XA 连接不支持 JDBC 的自动提交功能。同时，应用程序一定不要对 XA 连接调用 java.sql.Connection.commit ()  或者 java.sql.Connection.rollback ()  .
     
     
     
-      相反，应用程序应该使用 UserTransaction.begin（) 、 UserTransaction.commit（)  和 serTransaction.rollback（)  .
+      相反，应用程序应该使用 UserTransaction.begin () 、 UserTransaction.commit ()  和 serTransaction.rollback ()  .
     
     
     
@@ -181,7 +181,7 @@ tags:
     
     
     
-      容器事务主要是J2EE应用服务器提供的，容器事务大多是基于JTA完成，这是一个基于JNDI的，相当复杂的API实现。相对编码实现JTA事务管理， 我们可以通过EJB容器提供的容器事务管理机制（CMT) 完成同一个功能，这项功能由J2EE应用服务器提供。这使得我们可以简单的指定将哪个方法加入事 务，一旦指定，容器将负责事务管理任务。这是我们土建的解决方式，因为通过这种方式我们可以将事务代码排除在逻辑编码之外，同时将所有困难交给J2EE容 器去解决。使用EJB CMT的另外一个好处就是程序员无需关心JTA API的编码，不过，理论上我们必须使用EJB.
+      容器事务主要是J2EE应用服务器提供的，容器事务大多是基于JTA完成，这是一个基于JNDI的，相当复杂的API实现。相对编码实现JTA事务管理， 我们可以通过EJB容器提供的容器事务管理机制 (CMT) 完成同一个功能，这项功能由J2EE应用服务器提供。这使得我们可以简单的指定将哪个方法加入事 务，一旦指定，容器将负责事务管理任务。这是我们土建的解决方式，因为通过这种方式我们可以将事务代码排除在逻辑编码之外，同时将所有困难交给J2EE容 器去解决。使用EJB CMT的另外一个好处就是程序员无需关心JTA API的编码，不过，理论上我们必须使用EJB.
     
     
     
@@ -416,7 +416,7 @@ tags:
     
     
     
-      http://www.cjsdn.net/doc/jdk50/java/sql/ResultSet.html（插入、更新、删除RS和数据库中的行) 
+      http://www.cjsdn.net/doc/jdk50/java/sql/ResultSet.html (插入、更新、删除RS和数据库中的行) 
   
 
 MySQL 事务
@@ -665,7 +665,7 @@ LOCK IN SHARE MODE同FOR UPDATE，但是允许其他session的SELECT语句执行
   
 当MySQL/InnoDB检查到死锁时，它会强制一个事务rollback并触发一条错误消息
   
-对InnoDB而言，所选择的rollback的事务是完成工作最少的事务（所修改的行最少) 
+对InnoDB而言，所选择的rollback的事务是完成工作最少的事务 (所修改的行最少) 
   
 Java代码 收藏代码
   

@@ -22,9 +22,9 @@ tags:
 
 不等号和等号: > ≥ < ≤ ≠ = 大于>: is greater than
   
-大于等于（不小于) ≥: is more than or equal to / is no less than
+大于等于 (不小于) ≥: is more than or equal to / is no less than
   
-小于<: is less than 小于等于（不大于) ≤: is less than or equal to / is no more than 不等于≠: is not equal to 等于=: equals 例句:  1、12+36=48: Twelve plus thirty-six is forty-eight. 2、10-4=6: Ten minus four is six. / Ten minus four equals four. 3、5×5=25: Five times five is twenty-five. 4、20÷4=5: Twenty divided by four is five. 5、5>1: Five is greater than one.
+小于<: is less than 小于等于 (不大于) ≤: is less than or equal to / is no more than 不等于≠: is not equal to 等于=: equals 例句:  1、12+36=48: Twelve plus thirty-six is forty-eight. 2、10-4=6: Ten minus four is six. / Ten minus four equals four. 3、5×5=25: Five times five is twenty-five. 4、20÷4=5: Twenty divided by four is five. 5、5>1: Five is greater than one.
   
 6. 7+4≥10: Seven plus four is equal to or greater than ten.
   

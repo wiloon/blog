@@ -72,11 +72,11 @@ rm tc1_mqtt -r
   
 #define STATE_UPDATE_INTERVAL 10000 //功率上报间隔，单位ms
   
-#define MQTT_CLIENT_SUB_TOPIC "cmnd/%s" //命令控制接收topic，%s取ZTC_NAME（默认tc1_{{MAC地址}}) ，PS: 请勿修改此处，可修改ZTC_NAME
+#define MQTT_CLIENT_SUB_TOPIC "cmnd/%s" //命令控制接收topic，%s取ZTC_NAME (默认tc1_{{MAC地址}}) ，PS: 请勿修改此处，可修改ZTC_NAME
   
-#define MQTT_CLIENT_PUB_TOPIC "stat/%s" //状态信息topic，%s取ZTC_NAME（默认tc1_{{MAC地址}}) ，PS: 请勿修改此处，可修改ZTC_NAME
+#define MQTT_CLIENT_PUB_TOPIC "stat/%s" //状态信息topic，%s取ZTC_NAME (默认tc1_{{MAC地址}}) ，PS: 请勿修改此处，可修改ZTC_NAME
   
-#define USER_CONFIG_VERSION 3 //修改为与上次固件不同，触发重新加载信息（线刷可忽略) 
+#define USER_CONFIG_VERSION 3 //修改为与上次固件不同，触发重新加载信息 (线刷可忽略) 
 
 #容器bash
   

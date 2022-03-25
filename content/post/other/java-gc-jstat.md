@@ -31,7 +31,7 @@ jstat -compiler pid: Statistics of the behavior of the HotSpot Just-in-Time comp
       
 jstat -gc pid: Statistics of the behavior of the garbage collected heap.可以显示gc的信息，查看gc的次数，及时间。其中最后五项，分别是young gc的次数，young gc的时间，full gc的次数，full gc的时间，gc的总时间。
       
-jstat -gccapacity:可以显示，VM内存中三代（young,old,perm) 对象的使用和占用大小，如: PGCMN显示的是最小perm的内存使用量，PGCMX显示的是perm的内存最大使用量，PGC是当前新生成的perm内存占用量，PC是但前perm内存占用量。其他的可以根据这个类推， OC是old内纯的占用量。
+jstat -gccapacity:可以显示，VM内存中三代 (young,old,perm) 对象的使用和占用大小，如: PGCMN显示的是最小perm的内存使用量，PGCMX显示的是perm的内存最大使用量，PGC是当前新生成的perm内存占用量，PC是但前perm内存占用量。其他的可以根据这个类推， OC是old内纯的占用量。
       
 jstat -gcnew pid:new对象的信息。
       
@@ -107,7 +107,7 @@ FGCT Full garbage collection time.
   
 GCT Total garbage collection time.
 
-如: [root@localhost bin]# jstat -gcutil 25332 1000 10 （25332是java的进程号，ps -ef | grep java) 
+如: [root@localhost bin]# jstat -gcutil 25332 1000 10  (25332是java的进程号，ps -ef | grep java) 
 
 分代概念: 
 
@@ -117,15 +117,15 @@ Young(Nursery)，年轻代。研究表明大部分对象都是朝生暮死，随
 
 复制算法优点是只访问活跃对象，缺点是复制成本高。因为年轻代只有少量的对象能熬到垃圾收集，因此只需少量的复制成本。而且复制收集器只访问活跃对象，对那些占了最大比率的死对象视而不见，充分发挥了它遍历空间成本低的优点。
 
-Young（年轻代) 
+Young (年轻代) 
 
-年 轻代分三个区。一个Eden区，两个Survivor区。大部分对象在Eden区中生成。当Eden区满时，还存活的对象将被复制到Survivor区 （两个中的一个) ，当这个Survivor区满时，此区的存活对象将被复制到另外一个Survivor区，当这个Survivor去也满了的时候，从第一 个Survivor区复制过来的并且此时还存活的对象，将被复制"年老区(Tenured)"。需要注意，Survivor的两个区是对称的，没先后关 系，所以同一个区中可能同时存在从Eden复制过来 对象，和从前一个Survivor复制过来的对象，而复制到年老区的只有从第一个Survivor去过来的对象。而且，Survivor区总有一个是空 的。
+年 轻代分三个区。一个Eden区，两个Survivor区。大部分对象在Eden区中生成。当Eden区满时，还存活的对象将被复制到Survivor区  (两个中的一个) ，当这个Survivor区满时，此区的存活对象将被复制到另外一个Survivor区，当这个Survivor去也满了的时候，从第一 个Survivor区复制过来的并且此时还存活的对象，将被复制"年老区(Tenured)"。需要注意，Survivor的两个区是对称的，没先后关 系，所以同一个区中可能同时存在从Eden复制过来 对象，和从前一个Survivor复制过来的对象，而复制到年老区的只有从第一个Survivor去过来的对象。而且，Survivor区总有一个是空 的。
 
-Tenured（年老代) 
+Tenured (年老代) 
 
 年老代存放从年轻代存活的对象。一般来说年老代存放的都是生命期较长的对象。
 
-Perm（持久代) 
+Perm (持久代) 
 
 用 于存放静态文件，如今Java类、方法等。持久代对垃圾回收没有显著影响，但是有些应用可能动态生成或者调用一些class，例如mybatis等， 在这种时候需要设置一个比较大的持久代空间来存放这些运行过程中新增的类。持久代大小通过-XX:MaxPermSize=进行设置。
 

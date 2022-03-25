@@ -2,9 +2,9 @@
 title: nftable, nft  basic, commands
 author: "-"
 date: 2018-10-05T06:43:04+00:00
-url: /?p=12735
+url: nft
 categories:
-  - Uncategorized
+  - network
 
 tags:
   - reprint
@@ -31,7 +31,7 @@ family 参数是可选的,如果不指定 family,默认是 IPv4
 #### 增加链,add chain: 
 ```bash
 nft add chain [<family>]  <chain-name> { type <type> hook <hook> priority <value> \; [policy <policy>] }
-nft add chain filter input { type filter hook input priority 0 \; } # 要和hook（钩子) 相关连
+nft add chain filter input { type filter hook input priority 0 \; } # 要和hook (钩子) 相关连
 ```
 
 #### 增加规则, add rule:

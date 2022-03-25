@@ -55,7 +55,7 @@ setfacl -R -m u:1000:rwx /nas/data
 
 在nfs服务端,对共享目录添加facl文件权限给与客户端要执行读写操作的用户一样的UID文件权限；如下: 
   
-客户端用户 yufu 要对 服务端的 /dai 共享目录具有读写权限,那么: 查看yufu 的uid 执行 :  id yufu （查看uid为1000) 
+客户端用户 yufu 要对 服务端的 /dai 共享目录具有读写权限,那么: 查看yufu 的uid 执行 :  id yufu  (查看uid为1000) 
 
 到nfs服务端,给 /dai 目录添加facl文件权限给这个用户ID执行如下操作: 
    

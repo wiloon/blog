@@ -20,7 +20,7 @@ LinuxCC++C#Web
   
 我使用过的Linux命令之sz - 下载文件，无需ftp/sftp
   
-本文链接: http://codingstandards.iteye.com/blog/827637   （转载请注明出处) 
+本文链接: http://codingstandards.iteye.com/blog/827637    (转载请注明出处) 
 
 用途说明
   
@@ -29,15 +29,15 @@ sz命令是利用ZModem协议来从Linux服务器传送文件到本地，一次�
 
 常用参数
   
--a 以文本方式传输（ascii) 。
+-a 以文本方式传输 (ascii) 。
 
--b 以二进制方式传输（binary) 。
+-b 以二进制方式传输 (binary) 。
 
--e 对控制字符转义（escape) ，这可以保证文件传输正确。
+-e 对控制字符转义 (escape) ，这可以保证文件传输正确。
 
 -c command
 
--i command 在接收端（本地) 执行命令，但我没有尝试成功。
+-i command 在接收端 (本地) 执行命令，但我没有尝试成功。
 
 
 如果能够确定所传输的文件是文本格式的，使用 sz -a files

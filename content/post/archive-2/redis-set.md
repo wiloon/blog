@@ -81,10 +81,10 @@ f) 把set中在其他set中不存在的member存储到新的set
 
 内部编码
 集合类型 的 内部编码 有两种: 
-intset（整数集合) 
-当集合中的元素都是 整数 且 元素个数 小于 set-max-intset-entries 配置（默认 512 个) 时,Redis 会选用 intset 来作为 集合 的 内部实现,从而 减少内存 的使用。
+intset (整数集合) 
+当集合中的元素都是 整数 且 元素个数 小于 set-max-intset-entries 配置 (默认 512 个) 时,Redis 会选用 intset 来作为 集合 的 内部实现,从而 减少内存 的使用。
 
-hashtable（哈希表) 
+hashtable (哈希表) 
 当集合类型 无法满足 intset 的条件时,Redis 会使用 hashtable 作为集合的 内部实现。
 
 

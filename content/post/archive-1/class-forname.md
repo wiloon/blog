@@ -14,8 +14,8 @@ tags:
 ### Class类简介: 
  Java程序在运行时,Java运行时系统一直对所有的对象进行所谓的运行时类型标识。这项信息纪录了每个对象所属的类。虚拟机通常使用运行时类型信息选准正确方法去执行,用来保存这些类型信息的类是Class类。Class类封装一个对象和接口运行时的状态,当装载类时,Class类型的对象自动创建。
       Class 没有公共构造方法。Class 对象是在加载类时由Java 虚拟机以及通过调用类加载器中的 defineClass 方法自动构造的,因此不能显式地声明一个Class对象。 
-      虚拟机为每种类型管理一个独一无二的Class对象。也就是说,每个类（型) 都有一个Class对象。运行程序时,Java虚拟机(JVM)首先检查是否所要加载的类对应的Class对象是否已经加载。如果没有加载,JVM就会根据类名查找.class文件,并将其Class对象载入。
-      基本的 Java 类型（boolean、byte、char、short、int、long、float 和 double) 和关键字 void 也都对应一个 Class 对象。 
+      虚拟机为每种类型管理一个独一无二的Class对象。也就是说,每个类 (型) 都有一个Class对象。运行程序时,Java虚拟机(JVM)首先检查是否所要加载的类对应的Class对象是否已经加载。如果没有加载,JVM就会根据类名查找.class文件,并将其Class对象载入。
+      基本的 Java 类型 (boolean、byte、char、short、int、long、float 和 double) 和关键字 void 也都对应一个 Class 对象。 
       每个数组属于被映射为 Class 对象的一个类,所有具有相同元素类型和维数的数组都共享该 Class 对象。
       一般某个类的Class对象被载入内存,它就用来创建这个类的所有对象。
 
@@ -38,12 +38,12 @@ tags:
 
 1. getName() 
 
-一个Class对象描述了一个特定类的属性,Class类中最常用的方法getName以 String 的形式返回此 Class 对象所表示的实体（类、接口、数组类、基本类型或 void) 名称。
+一个Class对象描述了一个特定类的属性,Class类中最常用的方法getName以 String 的形式返回此 Class 对象所表示的实体 (类、接口、数组类、基本类型或 void) 名称。
 
 2. newInstance()
 
 Class还有一个有用的方法可以为类创建一个实例,这个方法叫做newInstance()。例如: 
-    x.getClass.newInstance(),创建了一个同x一样类型的新实例。newInstance()方法调用默认构造器（无参数构造器) 初始化新建对象。
+    x.getClass.newInstance(),创建了一个同x一样类型的新实例。newInstance()方法调用默认构造器 (无参数构造器) 初始化新建对象。
 
 3. getClassLoader() 
 
@@ -53,7 +53,7 @@ Class还有一个有用的方法可以为类创建一个实例,这个方法叫�
     返回表示数组组件类型的 Class。
 
    5、getSuperclass() 
-    返回表示此 Class 所表示的实体（类、接口、基本类型或 void) 的超类的 Class。
+    返回表示此 Class 所表示的实体 (类、接口、基本类型或 void) 的超类的 Class。
 
    6、isArray() 
     判定此 Class 对象是否表示一个数组类。
@@ -109,7 +109,7 @@ the Class object for the classwith the specified name.
 
 从官方给出的API文档中可以看出:
 
-Class.forName(className)实际上是调用Class.forName(className,true, this.getClass().getClassLoader())。第二个参数,是指Class被loading后是不是必须被初始化。可以看出,使用Class.forName（className) 加载类时则已初始化。
+Class.forName(className)实际上是调用Class.forName(className,true, this.getClass().getClassLoader())。第二个参数,是指Class被loading后是不是必须被初始化。可以看出,使用Class.forName (className) 加载类时则已初始化。
 
 所以Class.forName(className)可以简单的理解为: 获得字符串参数中指定的类,并初始化该类。
 
@@ -313,11 +313,11 @@ Java的反射机制
 
 Java中反射机制和Class.forName、实例对象.class(属性)、实例对象getClass()的区别
 
-i、加载是指将编译后的java类文件（也就是.class文件) 中的二进制数据读入内存,并将其放在运行时数据区的方法区内,然后再堆区创建一个Java.lang.Class对象,用来封装类在方法区的数据结构。即加载后最终得到的是Class对象,并且更加值得注意的是: 该Java.lang.Class对象是单实例的,无论这个类创建了多少个对象,他的Class对象时唯一的！！！！。 而 加载并获取该Class对象可以通过三种途径: 
+i、加载是指将编译后的java类文件 (也就是.class文件) 中的二进制数据读入内存,并将其放在运行时数据区的方法区内,然后再堆区创建一个Java.lang.Class对象,用来封装类在方法区的数据结构。即加载后最终得到的是Class对象,并且更加值得注意的是: 该Java.lang.Class对象是单实例的,无论这个类创建了多少个对象,他的Class对象时唯一的！！！！。 而 加载并获取该Class对象可以通过三种途径: 
 
-Class.forName（类的全路径) 、实例对象.class(属性)、实例对象getClass()。关于他们的区别将在下面讲到！！！
+Class.forName (类的全路径) 、实例对象.class(属性)、实例对象getClass()。关于他们的区别将在下面讲到！！！
 
-另外 ,类加载时类中的静态代码块会得到执行（详见前一篇博客: Class.forName()加载JDBC驱动) 
+另外 ,类加载时类中的静态代码块会得到执行 (详见前一篇博客: Class.forName()加载JDBC驱动) 
 
 ii、在 连接和初始化阶段,其实静态变量经过了两次赋值: 第一次是静态变量类型的默认值；第二次是我们真正赋给静态变量的值。
 
@@ -327,13 +327,13 @@ Java中反射机制和Class.forName、实例对象.class(属性)、实例对象g
 
 Java中反射机制和Class.forName、实例对象.class(属性)、实例对象getClass()的区别
 
-Java中反射机制和Class.forName、实例对象.class(属性)、实例对象getClass()的区别在这里可以看出;接口的两重性: 可以把接口当做类（因为在接口中有静态变量时,他可以被初始化) ；接口就是接口,和类无关（接口中 没有构造方法,所以不能被初始化) 
+Java中反射机制和Class.forName、实例对象.class(属性)、实例对象getClass()的区别在这里可以看出;接口的两重性: 可以把接口当做类 (因为在接口中有静态变量时,他可以被初始化) ；接口就是接口,和类无关 (接口中 没有构造方法,所以不能被初始化) 
 
 二、Class.forName、实例对象.class(属性)、实例对象getClass()的区别
 
 1. 相同点: 
 
-通过这几种方式,得到的都是Java.lang.Class对象（这个是上面讲到的 类在加载时获得的最终产物) 
+通过这几种方式,得到的都是Java.lang.Class对象 (这个是上面讲到的 类在加载时获得的最终产物) 
 
 例如: 
 
@@ -378,7 +378,7 @@ System.out.println(Class.forName("demo.A").newInstance());
 
 class demo.A
 
-class demo.A （这里也可以得到一个类的Class对象是唯一的) 
+class demo.A  (这里也可以得到一个类的Class对象是唯一的) 
 
 .......................................
 
@@ -402,7 +402,7 @@ demo.A@61de33
 
 从JVM的角度看,我们使用关键字new创建一个类的时候,这个类可以没有被加载。但是使用Class对象的newInstance()方法的时候,就必须保证: 1、这个 类已经加载；2、这个类已经连接了。而完成上面两个步骤的正是Class的静态方法forName()所完成的,这个静态方法调用了启动类加载器,即加载 java API的那个加载器。
 
-现在可以看出,Class对象的newInstance()（这种用法和Java中的工厂模式有着异曲同工之妙) 实际上是把new这个方式分解为两步,即首先调用Class加载方法加载某个类,然后实例化。 这样分步的好处是显而易见的。我们可以在调用class的静态加载方法forName时获得更好的灵活性,提供给了一种降耦的手段。
+现在可以看出,Class对象的newInstance() (这种用法和Java中的工厂模式有着异曲同工之妙) 实际上是把new这个方式分解为两步,即首先调用Class加载方法加载某个类,然后实例化。 这样分步的好处是显而易见的。我们可以在调用class的静态加载方法forName时获得更好的灵活性,提供给了一种降耦的手段。
 
 最后用最简单的描述来区分new关键字和newInstance()方法的区别: 
 
@@ -411,19 +411,19 @@ newInstance: 弱类型。低效率。只能调用无参构造。
 new: 强类型。相对高效。能调用任何public构造。
 
 
-Class.forName（String driverClassName) 加载JDBC驱动程序时,底层都做了些什么？？？
+Class.forName (String driverClassName) 加载JDBC驱动程序时,底层都做了些什么？？？
 
 实质是: 
 
 
-Class.forName（"com.MySQL.jdbc.Driver") 是 强制JVM将com.MySQL.jdbc.Driver这个类加载入内存,并将其注册到DriverManager类,然后根据DriverManager.getConnection（url,user,pwd) 中的url找到相应的驱动类,最后调用该该驱动类的connect(url, info)来获得connection对象。
+Class.forName ("com.MySQL.jdbc.Driver") 是 强制JVM将com.MySQL.jdbc.Driver这个类加载入内存,并将其注册到DriverManager类,然后根据DriverManager.getConnection (url,user,pwd) 中的url找到相应的驱动类,最后调用该该驱动类的connect(url, info)来获得connection对象。
 
 
 JDBC的驱动管理机制的 具体底层代码分析如下: 
 
 
 1. 分析JDBC的驱动程序管理部分的实现代码: 
-在 JDBC的层次上,sun主要定义了1个接口Driver和两个类: DirverManager和DriverInfo。每个JDBC驱动程序必须实现 Driver接口（在MySQL的Connector/J驱动中,这个叫做com.MySQL.jdbc.Driver) 。而DriverManager 则负责管理所有的Driver对象,包含注册Driver；选择合适的Driver来建立到某个数据库的连接；以及进行一些Driver的信息管理等。 DriverInfo非常简单,用于保存Driver的信息,只有3个成员变量,Driver,DriverClass和 DriverClassName,意义非常明显。
+在 JDBC的层次上,sun主要定义了1个接口Driver和两个类: DirverManager和DriverInfo。每个JDBC驱动程序必须实现 Driver接口 (在MySQL的Connector/J驱动中,这个叫做com.MySQL.jdbc.Driver) 。而DriverManager 则负责管理所有的Driver对象,包含注册Driver；选择合适的Driver来建立到某个数据库的连接；以及进行一些Driver的信息管理等。 DriverInfo非常简单,用于保存Driver的信息,只有3个成员变量,Driver,DriverClass和 DriverClassName,意义非常明显。
 
 
 先看一下在DriverManager.java中的关键代码: 
@@ -551,7 +551,7 @@ public Driver() throws SQLException {
 复制代码
 
 
-可 以看到,有一段static代码,调用了DriverManager的registerDriver方法。这其实就解释了 Class.forName（"com.MySQL.jdbc.Driver") 能够完成MySQL驱动注册的问题。因为forName会导致这段 static代码被调用,从而间接调用了registerDriver,完成注册过程。
+可 以看到,有一段static代码,调用了DriverManager的registerDriver方法。这其实就解释了 Class.forName ("com.MySQL.jdbc.Driver") 能够完成MySQL驱动注册的问题。因为forName会导致这段 static代码被调用,从而间接调用了registerDriver,完成注册过程。
 
 
 com.MySQL.jdbc.Driver 从com.MySQL.jdbc.NonRegisteringDriver继承而来,实际上是NonReisteringDriver完成了 java.sql.Driver接口的实现工作。转移目标,分析NonRegisteringDriver的connect函数。

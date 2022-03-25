@@ -13,7 +13,7 @@ categories:
 ## Java RandomAccessFile, MappedByteBuffer, mmap
 RandomAccessFile
 
-RandomAccessFile是用来访问那些保存数据记录的文件的,你就可以用seek( )方法来访问记录,并进行读写了。这些记录的大小不必相同；但是其大小和位置必须是可知的。但是该类仅限于操作文件。
+RandomAccessFile是用来访问那些保存数据记录的文件的,你就可以用 seek() 方法来访问记录,并进行读写了。这些记录的大小不必相同；但是其大小和位置必须是可知的。但是该类仅限于操作文件。
 
 RandomAccessFile不属于InputStream和OutputStream类系的。实际上,除了实现DataInput和DataOutput接口之外(DataInputStream和DataOutputStream也实现了这两个接口),它和这两个类系毫不相干,甚至不使用InputStream和OutputStream类中已经存在的任何功能；它是一个完全独立的类,所有方法(绝大多数都只属于它自己)都是从零开始写的。这可能是因为RandomAccessFile能在文件里面前后移动,所以它的行为与其它的I/O类有些根本性的不同。总而言之,它是一个直接继承Object的,独立的类。
 
@@ -72,9 +72,9 @@ rf.close();
 
 ### 内存映射文件, mmap, FileChannel
 
-内存映射文件能让你创建和修改那些因为太大而无法放入内存的文件。有了内存映射文件,你就可以认为文件已经全部读进了内存,然后把它当成一个非常大的数组来访问。这种解决办法能大大简化修改文件的代码。
+内存映射文件能让你创建和修改那些因为太大而无法放入内存的文件。有了内存映射文件, 你就可以认为文件已经全部读进了内存, 然后把它当成一个非常大的数组来访问。这种解决办法能大大简化修改文件的代码。
   
-fileChannel.map(FileChannel.MapMode mode, long position, long size)将此通道的文件区域直接映射到内存中。注意,你必须指明,它是从文件的哪个位置开始映射的,映射的范围又有多大；也就是说,它还可以映射一个大文件的某个小片断。
+fileChannel.map(FileChannel.MapMode mode, long position, long size) 将此通道的文件区域直接映射到内存中。注意, 你必须指明, 它是从文件的哪个位置开始映射的, 映射的范围又有多大；也就是说,它还可以映射一个大文件的某个小片断。
   
 MappedByteBuffer是ByteBuffer的子类,因此它具备了ByteBuffer的所有方法,但新添了force()将缓冲区的内容强制刷新到存储设备中去、load()将存储设备中的数据加载到内存中、isLoaded()位置内存中的数据是否与存储设置上同步。这里只简单地演示了一下put()和get()方法,除此之外,你还可以使用asCharBuffer( )之类的方法得到相应基本类型数据的缓冲视图后,可以方便的读写基本类型数据。
 
@@ -190,13 +190,13 @@ System.out.println(file.readFloat());
     
 //以下演示文件复制操作
     
-System.out.println("——————文件复制（从file到fileCopy) ——————");
+System.out.println("——————文件复制 (从file到fileCopy) ——————");
     
 file.seek(0);
     
 RandomAccessFile fileCopy=new RandomAccessFile("fileCopy","rw");
     
-int len=(int)file.length();//取得文件长度（字节数) 
+int len=(int)file.length();//取得文件长度 (字节数) 
     
 byte[] b=new byte[len];
     

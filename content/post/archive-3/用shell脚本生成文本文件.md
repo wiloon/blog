@@ -2,14 +2,21 @@
 title: 用shell脚本生成文本文件, shell 创建文件 
 author: "-"
 date: 2020-01-01T16:26:14+00:00
-url: /?p=15286
+url: shell/file/create
 categories:
-  - Uncategorized
+  - linux
 
 tags:
   - reprint
 ---
-## 用shell脚本生成文本文件, shell 创建文件 
+## 用shell脚本生成文本文件, shell 创建文件
+
+## sudo
+
+```bash
+echo "nohup ${app_path}/goland/default/bin/goland.sh >/dev/null 2>&1 &" | sudo tee /usr/local/bin/goland > /dev/null
+```
+
 在Linux上写shell脚本的一个很重要的意图是自动化。假如我们希望自动生成一个具有特定内容的文本文件，应该怎么实现呢？
 
 我用过两个方法，下面分别举例说明。为了更通用，这两个例子中的文本内容都是多行的。
@@ -23,7 +30,7 @@ My name is Shengbin." > readme.txt
 
 这种方法其实就是把echo的输出重定向到了文件。echo会原样保留换行符，所以多行也是支持的。
 
-### 使用cat命令
+### 使用 cat 命令
 
 ```bash
 cat > readme.txt << EOF
@@ -38,7 +45,7 @@ EOF
 
 区分单引号与双引号
   
-Shell中双引号之间的内容会被进行变量展开和命令执行，如果想原样保留文本字符串，应该使用单引号（这种单双引号的区分在别的语言里也有，如PHP、Perl之类的脚本语言) 。
+Shell中双引号之间的内容会被进行变量展开和命令执行，如果想原样保留文本字符串，应该使用单引号 (这种单双引号的区分在别的语言里也有，如PHP、Perl之类的脚本语言) 。
 
 例如: 
 

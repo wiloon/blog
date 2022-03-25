@@ -56,7 +56,7 @@ jobjectArray obejctIntArray = env->NewObjectArray(dimion ,intArrayClass , NULL);
 
 类描述符
 
-    类描述符是类的完整名称（包名+类名) ,将原来的 . 分隔符换成 / 分隔符。
+    类描述符是类的完整名称 (包名+类名) ,将原来的 . 分隔符换成 / 分隔符。
            例如: 在java代码中的java.lang.String类的类描述符就是java/lang/String
     
        其实,在实践中,我发现可以直接用该类型的域描述符取代,也是可以成功的。

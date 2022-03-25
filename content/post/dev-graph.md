@@ -176,13 +176,12 @@ epoll--poll
 epoll--select
 [零拷贝] as zero_copy
 [IO] as io
-[缓存IO] as buffered_io
+
 [页缓存] as page_cache
 [文件系统] as file_system
 [直接I/O] as direct_io
 [mmap]
 [splice]
-[用户态和内核态切换] as user_kernal_switch
 [上下文切换] as context_switch
 [fd]
 [ext4]
@@ -209,15 +208,13 @@ consistency--paxos
 cap--partition_tolerance
 netty--zero_copy
 io--page_cache
-io--buffered_io
+
 page_cache--file_system
 io--zero_copy
 io--direct_io
 zero_copy--direct_io
 zero_copy--mmap
 zero_copy--splice
-buffered_io--user_kernal_switch
-user_kernal_switch--context_switch
 file_system--fd
 file_system--ext4
  

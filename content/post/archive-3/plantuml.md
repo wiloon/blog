@@ -76,9 +76,13 @@ end note
 
 https://www.jianshu.com/p/ed0e979657f4
 
+theme: plain,sandstone,sketchy-outline
+
 ### 活动图
 ```puml
 @startuml
+!theme plain
+
 start
 
 if (foo?) then (yes)
@@ -130,10 +134,10 @@ Class101 <|.. Class102
 ```
 ### 线路径
 添加隐藏行a -[hidden]- b
-延长线a --- b的长度（更多破折号，更长的线) 
-指定行的首选方向（a -left- b) 
-交换关联结束（a -- b→b -- a) 
-更改定义的顺序（订单 重要......有时候) 
+延长线a --- b的长度 (更多破折号，更长的线) 
+指定行的首选方向 (a -left- b) 
+交换关联结束 (a -- b→b -- a) 
+更改定义的顺序 (订单 重要......有时候) 
 添加空白节点，背景/边框颜色设置为透明
 
 ### 部署图

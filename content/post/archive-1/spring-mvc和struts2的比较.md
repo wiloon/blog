@@ -106,7 +106,7 @@ Web层面的框架学习了三个Struts1和2，SpringMVC，那他们之间肯定
 
 框架的出现很大程度就是为了提升开发效率，解决纯手工代码带来的不便，因此Struts1优于jsp毫无疑问；Struts2和SpringMVC出现的较晚，都是吸取了Struts1的经验教训而来。那Struts2和SpringMVC哪个的开发效率要更高一些呢？根据大家在网上的体会所得: 
 
-由高到低: SpringMVC> Struts2（存疑) 
+由高到低: SpringMVC> Struts2 (存疑) 
 
 Springmvc可以认为已经100%零配置，但是Struts2并没有实现这点，SpringMVC高于Struts2具体理由公说公有理婆说婆有理，关于这两者的开发效率由于每个人对两者的熟悉程度不同，因此导致了不同的结果。在我看来，更愿意使用SpringMVC，如果项目中用到了Spring，那就更棒了。
 
@@ -207,7 +207,7 @@ Jsp当然是入门，如果这个都不懂，谈学习成本也毫无意义，�
         
         
         
-          我们用struts2时采用的传统的配置文件的方式，并没有使用传说中的0配置。spring3 mvc可以认为已经100%零配置了（除了配置spring mvc-servlet.xml外) 。
+          我们用struts2时采用的传统的配置文件的方式，并没有使用传说中的0配置。spring3 mvc可以认为已经100%零配置了 (除了配置spring mvc-servlet.xml外) 。
         
         
         
@@ -215,7 +215,7 @@ Jsp当然是入门，如果这个都不懂，谈学习成本也毫无意义，�
         
         
         
-          1. 机制: spring mvc的入口是servlet，而struts2是filter（这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊) ，这样就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。
+          1. 机制: spring mvc的入口是servlet，而struts2是filter (这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊) ，这样就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。
         
         
         

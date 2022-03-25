@@ -10,11 +10,11 @@ tags:
 
 ---
 ## 命令行 创建多模块的Maven项目(父模块,子模块)
-我们都知道,我们常常将一个复杂的java应用拆分成多个java子应用。由于maven的出现,这种拆分就更加容易了,因为我们通过maven可以创建多个关联模块的项目（Multiple Module Projects) 。由一个总的模块,下面包含多个子模块（子模块还可以包含子模块) 。
+我们都知道,我们常常将一个复杂的java应用拆分成多个java子应用。由于maven的出现,这种拆分就更加容易了,因为我们通过maven可以创建多个关联模块的项目 (Multiple Module Projects) 。由一个总的模块,下面包含多个子模块 (子模块还可以包含子模块) 。
 
 一、通过在Maven命令行创建。
 
-1. 创建父模块（总的POM)  - cms-validator
+1. 创建父模块 (总的POM)  - cms-validator
   
 使用命令mvn archetype:create -DgroupId=com.ebay.tools.cms.validator -DartifactId=cms-validator
   
@@ -32,7 +32,7 @@ cd cms-validator
   
 使用命令mvn archetype:create -DgroupId=com.ebay.tools.cms.validator.rest -DartifactId=validator-rest
   
-创建一个maven（子) 项目。
+创建一个maven (子) 项目。
 
 3. 创建一个web子模块:  validator-web
   

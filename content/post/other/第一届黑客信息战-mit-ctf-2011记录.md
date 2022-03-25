@@ -40,11 +40,11 @@ tags:
 
 地点: MIT
 
-人物: 韩国网安内核牛+haoqi+我 + 其他12个组（～45人) 
+人物: 韩国网安内核牛+haoqi+我 + 其他12个组 (～45人) 
 
 比赛规格: 
 
-• 13组小队（MIT，BU，UMASS，NE…) 
+• 13组小队 (MIT，BU，UMASS，NE…) 
 
 • 一个组一个VM (ubuntu 10.10 + 最新apache+MySQL+wordpress) 分别运行在同一个虚拟机服务器上但是不同IP和Domain。
 
@@ -56,7 +56,7 @@ tags:
 
 任务目标: 
 
-1. 获取其他组的flag (128位String) 这个flag 散落在VM的各个角落（文件或数据库里) 
+1. 获取其他组的flag (128位String) 这个flag 散落在VM的各个角落 (文件或数据库里) 
 
 2. 保护自己的wordpress 和 plugins 都能正常运行，保护自己的flag 没有被更改过
 

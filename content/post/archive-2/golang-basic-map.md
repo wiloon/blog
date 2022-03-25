@@ -50,7 +50,7 @@ golang没有内置Set类型
   
 https://github.com/emirpasic/gods#hashset
 
-```golang
+```go
 package main
 
 import "github.com/emirpasic/gods/sets/hashset"
@@ -75,7 +75,7 @@ func main() {
   
 golang set: https://studygolang.com/articles/8231
 
-```golang
+```go
 
 # create map
 serials:= make(map[string]uint8)
@@ -83,14 +83,14 @@ serials:= make(map[string]uint8)
 
 check if a map contains a key
 
-```golang
+```go
 
 if val, ok := dict["foo"]; ok {
     //do something here
 }
 ```
 
-```golang
+```go
 
 package main
 
@@ -110,7 +110,7 @@ fmt.Println(x["key"][1])
 
 ### 遍历
 
-```golang
+```go
 for k, v := range m { 
  fmt.Printf("k=%v, v=%v\n", k, v) 
  } 
@@ -128,7 +128,7 @@ var m map[string]string // 声明一个hashmap,还不能直接使用,必须使�
   
 m = make(map[string]string) // 初始化一个map
   
-m = make(map[string]string, 3) // 初始化一个map并附带一个可选的初始bucket（非准确值,只是有提示意义) 
+m = make(map[string]string, 3) // 初始化一个map并附带一个可选的初始bucket (非准确值,只是有提示意义) 
 
 m := map[string]string{} // 声明并初始化
 
@@ -202,7 +202,7 @@ https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map
   
 there is not a simpler/nicer way.
 
-```golang
+```go
 package main
 
 func main() {
@@ -214,7 +214,7 @@ func main() {
 }
 ```
 
-文/icexin（简书作者) 
+文/icexin (简书作者) 
   
 原文链接: http://www.jianshu.com/p/32b839e99289
   

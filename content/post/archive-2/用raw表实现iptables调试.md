@@ -1,28 +1,28 @@
 ---
-title: iptables调试, raw表, LOG
+title: iptables 调试, raw表, LOG
 author: "-"
 date: 2018-04-09T16:04:45+00:00
-url: /?p=12128
+url: iptables/log
 categories:
-  - Uncategorized
+  - network
 
 tags:
   - reprint
+  - remix
 ---
 ## iptables调试, raw表, LOG
+
 ### 启用iptables的日志
 
 ```bash
 iptables -t nat -A POSTROUTING -p icmp  -s 192.168.50.215 -j LOG --log-prefix 'iptable-log: '
 iptables -t nat -I PREROUTING -p tcp -s 192.168.50.115 --dport 80 -j LOG --log-prefix 'iptable-log: '
 
-#配置日志级别
+# 配置日志级别
 iptables -t raw -I OUTPUT -d 10.254.51.153 -j LOG --log-level 7 --log-prefix "raw out: "
 ```
 
-iptables有5个链: PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING,4个表: filter, nat, mangle, raw
-
-raw表使用PREROUTING和OUTPUT两个链,因此raw可以覆盖所有包。在raw表中支持一个特殊的目标:TRACE,使内核记录下每条匹配该包的对应iptables规则信息。使用raw表内的TRACE target即可实现对iptables规则的跟踪调试。
+raw 表使用 PREROUTING 和 OUTPUT 两个链, 因此 raw 可以覆盖所有包。在raw表中支持一个特殊的目标:TRACE,使内核记录下每条匹配该包的对应iptables规则信息。使用raw表内的TRACE target即可实现对iptables规则的跟踪调试。
 
 配置
   

@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## IPtables中SNAT、DNAT和MASQUERADE的含义
-IPtables中可以灵活的做各种网络地址转换（NAT) ，网络地址转换主要有两种: SNAT和DNAT。
+IPtables中可以灵活的做各种网络地址转换 (NAT) ，网络地址转换主要有两种: SNAT和DNAT。
 
 SNAT是source networkaddress translation的缩写，即源地址目标转换。比如，多个PC机使用ADSL路由器共享上网，每个PC机都配置了内网IP，PC机访问外部网络的时候，路由器将数据包的报头中的源地址替换成路由器的ip，当外部网络的服务器比如网站web服务器接到访问请求的时候，他的日志记录下来的是路由器的ip地址，而不是pc机的内网ip，这是因为，这个服务器收到的数据包的报头里边的"源地址"，已经被替换了，所以叫做SNAT，基于源地址的地址转换。
 

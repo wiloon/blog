@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## Zmodem
-Zmodem: Zmodem采用了串流式（streaming) 传输方式，传输速度较快，而且还具有自动改变区段大小和断点续传、快速错误侦测等功能。这是目前最流行的文件传输协议
+Zmodem: Zmodem采用了串流式 (streaming) 传输方式，传输速度较快，而且还具有自动改变区段大小和断点续传、快速错误侦测等功能。这是目前最流行的文件传输协议
 
 SecureCRT默认上传下载目录
 
@@ -28,9 +28,9 @@ rz -be file
   
 参数解释: 
 
--b 以二进制方式传输（binary) 。
+-b 以二进制方式传输 (binary) 。
 
--e 对控制字符转义（escape) ，这可以保证文件传输正确。
+-e 对控制字符转义 (escape) ，这可以保证文件传输正确。
 
 参考网址: http://chenpeng.info/html/3473
 

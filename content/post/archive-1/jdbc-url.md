@@ -41,7 +41,7 @@ JDBC URL: jdbc:MySQL://<host>:<port>/<database_name>
 
 MySQL Connector/J Driver 允许在URL中添加额外的连接属性jdbc:MySQL://<host>:<port>/<database_name>?property1=value1&property2=value2
 
-常用的有两个，一个是gjt（Giant Java Tree) 组织提供的MySQL驱动，其JDBC Driver名称（JAVA类名) 为: org.gjt.mm.MySQL.Driver
+常用的有两个，一个是gjt (Giant Java Tree) 组织提供的MySQL驱动，其JDBC Driver名称 (JAVA类名) 为: org.gjt.mm.MySQL.Driver
 
 
 详情请参见网站: http://www.gjt.org/
@@ -66,10 +66,10 @@ jdbc:MySQL://[host:port],[host:port].../[database][?参数名1][=参数值1][&�
 参数名称 参数说明 缺省值 最低版本要求
 
 
-user 数据库用户名（用于连接数据库)  所有版本
+user 数据库用户名 (用于连接数据库)  所有版本
 
 
-password 用户密码（用于连接数据库)  所有版本
+password 用户密码 (用于连接数据库)  所有版本
 
 
 useUnicode 是否使用Unicode字符集，如果参数characterEncoding设置为gb2312或gbk，本参数值必须设置为true false 1.1g
@@ -96,7 +96,7 @@ initialTimeout autoReconnect设置为true时，两次重连之间的时间间隔
 connectTimeout 和数据库服务器建立socket连接时的超时，单位: 毫秒。 0表示永不超时，适用于JDK 1.4及更高版本 0 3.0.1
 
 
-socketTimeout socket操作（读写) 超时，单位: 毫秒。 0表示永不超时 0 3.0.1
+socketTimeout socket操作 (读写) 超时，单位: 毫秒。 0表示永不超时 0 3.0.1
 
 
 对应中文环境，通常MySQL连接URL可以设置为: 
@@ -121,7 +121,7 @@ http://blog.csdn.net/ring0hx/article/details/6152528
 
 Microsoft SQL Server
 
-Microsoft SQL Server JDBC Driver （一般用来连接 SQLServer 2000) 
+Microsoft SQL Server JDBC Driver  (一般用来连接 SQLServer 2000) 
 
 驱动程序包名: msbase.jar mssqlserver.jar msutil.jar
 

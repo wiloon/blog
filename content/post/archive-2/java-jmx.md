@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## java jmx
-在 Java 程序的运行过程中,对 JVM 和系统的监测一直是 Java 开发人员在开发过程所需要的。一直以来,Java 开发人员必须通过一些底层的 JVM API,比如 JVMPI 和 JVMTI 等,才能监测 Java 程序运行过程中的 JVM 和系统的一系列情况,这种方式一直以来被人所诟病,因为这需要大量的 C 程序和 JNI 调用,开发效率十分低下。于是出现了各种不同的专门做资源管理的程序包。为了解决这个问题,Sun 公司也在其 Java SE 5 版本中,正式提出了 Java 管理扩展（Java Management Extensions,JMX) 用来管理检测 Java 程序（同时 JMX 也在 J2EE 1.4 中被发布) 。
+在 Java 程序的运行过程中,对 JVM 和系统的监测一直是 Java 开发人员在开发过程所需要的。一直以来,Java 开发人员必须通过一些底层的 JVM API,比如 JVMPI 和 JVMTI 等,才能监测 Java 程序运行过程中的 JVM 和系统的一系列情况,这种方式一直以来被人所诟病,因为这需要大量的 C 程序和 JNI 调用,开发效率十分低下。于是出现了各种不同的专门做资源管理的程序包。为了解决这个问题,Sun 公司也在其 Java SE 5 版本中,正式提出了 Java 管理扩展 (Java Management Extensions,JMX) 用来管理检测 Java 程序 (同时 JMX 也在 J2EE 1.4 中被发布) 。
   
 JMX 的提出,让 JDK 中开发自检测程序成为可能,也提供了大量轻量级的检测 JVM 和运行中对象 / 线程的方式,从而提高了 Java 语言自己的管理监测能力。
 
@@ -53,7 +53,7 @@ jcmd <PID> ManagementAgent.stop
   
 2. -Dcom.sun.management.jmxremote.ssl=false 指定了 JMX 是否启用 ssl
   
-3. -Dcom.sun.management.jmxremote.authenticate=false   指定了JMX 是否启用鉴权（需要用户名,密码鉴权) 
+3. -Dcom.sun.management.jmxremote.authenticate=false   指定了JMX 是否启用鉴权 (需要用户名,密码鉴权) 
   
 4. -Djava.rmi.server.hostname : 这个是配置 server 的 IP 的
 

@@ -14,7 +14,7 @@ https://github.com/polaris1119/The-Golang-Standard-Library-by-Example/blob/maste
 
 strconv — 字符串和基本数据类型之间转换
 
-这里的基本数据类型包括: 布尔、整型（包括有/无符号、二进制、八进制、十进制和十六进制) 和浮点型等。
+这里的基本数据类型包括: 布尔、整型 (包括有/无符号、二进制、八进制、十进制和十六进制) 和浮点型等。
 
 2.3.1 strconv 包转换错误处理
 
@@ -96,7 +96,7 @@ n, err := strconv.ParseInt("128", 10, 8)
 
 另外,ParseInt 返回的是 int64,这是为了能够容纳所有的整型,在实际使用中,可以根据传递的 bitSize,然后将结果转为实际需要的类型。
 
-转换的基本原理（以 "128" 转 为 10 进制 int 为例) : 
+转换的基本原理 (以 "128" 转 为 10 进制 int 为例) : 
 
 s := "128"
   
@@ -120,9 +120,9 @@ func FormatInt(i int64, base int) string // 有符号整型转字符串
   
 func Itoa(i int) string
   
-其中,Itoa 内部直接调用 FormatInt(i, 10) 实现的。base 参数可以取 2~36（0-9,a-z) 。
+其中,Itoa 内部直接调用 FormatInt(i, 10) 实现的。base 参数可以取 2~36 (0-9,a-z) 。
 
-转换的基本原理（以 10 进制的 127 转 string 为例)  : 
+转换的基本原理 (以 10 进制的 127 转 string 为例)  : 
 
 const digits = "0123456789abcdefghijklmnopqrstuvwxyz"
   
@@ -152,9 +152,9 @@ return string(a[1:])
   
 即将整数每一位数字对应到相应的字符,存入字符数组中,最后字符数组转为字符串即为结果。
 
-具体实现时,当 base 是 2 的幂次方时,有优化处理（移位和掩码) ；十进制也做了优化。
+具体实现时,当 base 是 2 的幂次方时,有优化处理 (移位和掩码) ；十进制也做了优化。
 
-标准库还提供了另外两个函数: AppendInt 和 AppendUint,这两个函数不是将整数转为字符串,而是将整数转为字符数组 append 到目标字符数组中。（最终,我们也可以通过返回的 []byte 得到字符串) 
+标准库还提供了另外两个函数: AppendInt 和 AppendUint,这两个函数不是将整数转为字符串,而是将整数转为字符数组 append 到目标字符数组中。 (最终,我们也可以通过返回的 []byte 得到字符串) 
 
 除了使用上述方法将整数转为字符串外,经常见到有人使用 fmt 包来做这件事。如: 
 
@@ -226,7 +226,7 @@ func AppendFloat(dst []byte, f float64, fmt byte, prec int, bitSize int)
   
 函数的命名和作用跟上面讲解的其他类型一致。
 
-关于 FormatFloat 的 fmt 参数, 在第一章第三节格式化IO中有详细介绍。而 prec 表示有效数字（对 fmt='b' 无效) ,对于 'e', 'E' 和 'f',有效数字用于小数点之后的位数；对于 'g' 和 'G',则是所有的有效数字。例如: 
+关于 FormatFloat 的 fmt 参数, 在第一章第三节格式化IO中有详细介绍。而 prec 表示有效数字 (对 fmt='b' 无效) ,对于 'e', 'E' 和 'f',有效数字用于小数点之后的位数；对于 'g' 和 'G',则是所有的有效数字。例如: 
 
 strconv.FormatFloat(1223.13252, 'e', 3, 32) // 结果: 1.223e+03
   
@@ -240,7 +240,7 @@ strconv.ParseFloat(s, 64)
   
 另外,fmt='b' 时,得到的字符串是无法通过 ParseFloat 还原的。
 
-特别地（不区分大小写) ,+inf/inf,+infinity/infinity,-inf/-infinity 和 nan 通过 ParseFloat 转换分别返回对应的值（在 math 包中定义) 。
+特别地 (不区分大小写) ,+inf/inf,+infinity/infinity,-inf/-infinity 和 nan 通过 ParseFloat 转换分别返回对应的值 (在 math 包中定义) 。
 
 同样的,基于性能的考虑,应该使用 FormatFloat 而不是 fmt.Sprintf。
 
@@ -256,7 +256,7 @@ fmt.Println(`This is "studygolang.com" website`)
 
 fmt.Println("This is \"studygolang.com\" website")
   
-除了这两种方法,strconv 包还提供了函数这做件事（Quote 函数) 。我们称 "studygolang.com" 这种用双引号引起来的字符串为 Go 语言字面值字符串（Go string literal) 。
+除了这两种方法,strconv 包还提供了函数这做件事 (Quote 函数) 。我们称 "studygolang.com" 这种用双引号引起来的字符串为 Go 语言字面值字符串 (Go string literal) 。
 
 上面的一句话可以这么做: 
 

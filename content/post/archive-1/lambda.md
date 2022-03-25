@@ -11,20 +11,20 @@ tags:
 ---
 ## Lambda 表达式
 # Lambda
-"Lambda 表达式"是一个匿名函数,它可以包含表达式和语句,并且可用于创建委托或表达式目录树类型。 所有 Lambda 表达式都使用 Lambda 运算符 =>,该运算符读为"goes to"。该 Lambda 运算符的左边是输入参数（如果有) ,右边包含表达式或语句块。Lambda 表达式 x => x * x 读作"x goes to x times x"。
+"Lambda 表达式"是一个匿名函数,它可以包含表达式和语句,并且可用于创建委托或表达式目录树类型。 所有 Lambda 表达式都使用 Lambda 运算符 =>,该运算符读为"goes to"。该 Lambda 运算符的左边是输入参数 (如果有) ,右边包含表达式或语句块。Lambda 表达式 x => x * x 读作"x goes to x times x"。
 
 ### 函数式接口functional interface, @FunctionalInterface
-函数式接口(Functional Interface)是Java 8对一类特殊类型的接口的称呼。 这类接口只定义了唯一的抽象方法的接口（除了隐含的Object对象的公共方法) , 因此最开始也就做SAM类型的接口（Single Abstract Method) 。
+函数式接口(Functional Interface)是Java 8对一类特殊类型的接口的称呼。 这类接口只定义了唯一的抽象方法的接口 (除了隐含的Object对象的公共方法) , 因此最开始也就做SAM类型的接口 (Single Abstract Method) 。
 
-为什么会单单从接口中定义出此类接口呢？ 原因是在 Java Lambda 的实现中, 开发组不想再为Lambda表达式单独定义一种特殊的Structural函数类型,称之为箭头类型（arrow type) , 依然想采用Java既有的类型系统(class, interface, method等), 原因是增加一个结构化的函数类型会增加函数类型的复杂性,破坏既有的Java类型,并对成千上万的Java类库造成严重的影响。 权衡利弊, 因此最终还是利用SAM 接口作为 Lambda表达式的目标类型。
+为什么会单单从接口中定义出此类接口呢？ 原因是在 Java Lambda 的实现中, 开发组不想再为Lambda表达式单独定义一种特殊的Structural函数类型,称之为箭头类型 (arrow type) , 依然想采用Java既有的类型系统(class, interface, method等), 原因是增加一个结构化的函数类型会增加函数类型的复杂性,破坏既有的Java类型,并对成千上万的Java类库造成严重的影响。 权衡利弊, 因此最终还是利用SAM 接口作为 Lambda表达式的目标类型。
 
 JDK中已有的一些接口本身就是函数式接口,如Runnable。 JDK 8中又增加了java.util.function包, 提供了常用的函数式接口。
 
 函数式接口代表的一种契约, 一种对某个特定函数类型的契约。 在它出现的地方,实际期望一个符合契约要求的函数。 Lambda表达式不能脱离上下文而存在,它必须要有一个明确的目标类型,而这个目标类型就是某个函数式接口。
 
-### 方法引用（method reference) 
-双冒号 "::" 是 Java 8 引入 Lambda 表达式后的一种用法,表示方法引用（method reference) ,可以更加简洁的实例化接口
-双冒号表达式返回的是一个 函数式接口对象 （用 @FunctionalInterface 注解的 interface 类型) 的实例,如下: 
+### 方法引用 (method reference) 
+双冒号 "::" 是 Java 8 引入 Lambda 表达式后的一种用法,表示方法引用 (method reference) ,可以更加简洁的实例化接口
+双冒号表达式返回的是一个 函数式接口对象  (用 @FunctionalInterface 注解的 interface 类型) 的实例,如下: 
 ```java
 @Test
 public void test0() {
@@ -42,7 +42,7 @@ public interface Consumer<T> {
 ```
 
 ### 方法引用 Method Reference
-双冒号（::) 运算符在 Java 8 中被用作方法引用（method reference) ,方法引用是与 lambda 表达式相关的一个重要特性。
+双冒号 (::) 运算符在 Java 8 中被用作方法引用 (method reference) ,方法引用是与 lambda 表达式相关的一个重要特性。
 它提供了一种不执行方法的方法: 双冒号的方式只是指明方法引用,具体执行还是传统的方式。
 方法引用需要兼容函数式接口组成的目标类型上下文: 也就是说被引用的方法的参数和 函数式接口 的参数类型必须一致。
 具体使用方式有以下几种
@@ -262,9 +262,9 @@ super::methodName
 通过使用 super,可以引用方法的超类版本。除此以外,还可以捕获 this 指针
 
 this::equals 等价于 Lambda 表达式 x -> this.equals(x)
-引用特定类型的任意对象的实例方法 （较少用) 
+引用特定类型的任意对象的实例方法  (较少用) 
 ClassName::methodName 
-若类型的实例方法是泛型的,就需要在::分隔符前提供类型参数,或者（多数情况下) 利用目标类型推导出其类型。
+若类型的实例方法是泛型的,就需要在::分隔符前提供类型参数,或者 (多数情况下) 利用目标类型推导出其类型。
 静态方法引用和引用特定类型的任意对象的实例方法拥有一样的语法。编译器会根据实际情况做出决定。
 一般我们不需要指定方法引用中的参数类型,因为编译器往往可以推导出结果,但如果需要我们也可以显式在::分隔符之前提供参数类型信息。
 
@@ -307,7 +307,7 @@ class GenericMethodRefDemo {
 构造方法引用
 构造方法引用又分构造方法引用和数组构造方法引用
 
-构造方法引用 （也可以称作构造器引用) 
+构造方法引用  (也可以称作构造器引用) 
 ClassName::new 
 构造函数本质上是静态方法,只是方法名字比较特殊,使用前提是该类必须有无参构造函数
 

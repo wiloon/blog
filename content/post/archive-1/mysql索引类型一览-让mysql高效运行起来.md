@@ -26,7 +26,7 @@ CREATE INDEX indexName ON mytable(username(length));
   
 ALTER TABLE tbl_name ADD PRIMARY KEY (column_list);
 
-- 这条语句创建索引的值必须是唯一的（除了NULL外,NULL可能会出现多次) 。
+- 这条语句创建索引的值必须是唯一的 (除了NULL外,NULL可能会出现多次) 。
   
 ALTER TABLE tbl_name ADD UNIQUE index_name (column_list): 
 
@@ -56,7 +56,7 @@ Seq_in_index: 索引中的列序列号,从1开始
   
 Column_name: 列名称
   
-Collation: 列以什么方式存储在索引中。在MySQL中,有值'A'（升序) 或NULL（无分类) 。
+Collation: 列以什么方式存储在索引中。在MySQL中,有值'A' (升序) 或NULL (无分类) 。
   
 Cardinality: 索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数,所以即使对于小型表,该值也没有必要是精确的。基数越大,当进行联合时,MySQL使用该索引的机会就越大。
   
@@ -66,7 +66,7 @@ Packed: 指示关键字如何被压缩。如果没有被压缩,则为NULL。
   
 Null: 如果列含有NULL,则含有YES。如果没有,则该列含有NO。
   
-Index_type: 用过的索引方法（BTREE, FULLTEXT, HASH, RTREE) 。
+Index_type: 用过的索引方法 (BTREE, FULLTEXT, HASH, RTREE) 。
   
 Comment: 更多评注。
 
@@ -128,7 +128,7 @@ username VARCHAR(16) NOT NULL
 
 MySQL索引类型包括: 
   
-（1) 普通索引
+ (1) 普通索引
   
 这是最基本的索引,它没有任何限制。它有以下几种创建方式: 
   
@@ -158,7 +158,7 @@ INDEX [indexName] (username(length))
   
 DROP INDEX [indexName] ON mytable;
 
-（2) 唯一索引
+ (2) 唯一索引
   
 它与前面的普通索引类似,不同的就是: 索引列的值必须唯一,但允许有空值。如果是组合索引,则列值的组合必须唯一。它有以下几种创建方式: 
   
@@ -182,7 +182,7 @@ UNIQUE [indexName] (username(length))
   
 );
 
-（3) 主键索引
+ (3) 主键索引
   
 它是一种特殊的唯一索引,不允许有空值。一般是在建表的时候同时创建主键索引: 
 
@@ -198,7 +198,7 @@ PRIMARY KEY(ID)
 
 当然也可以用 ALTER 命令。记住: 一个表只能有一个主键。
 
-（4) 组合索引
+ (4) 组合索引
   
 为了形象地对比单列索引和组合索引,为表添加多个字段: 
 
@@ -242,7 +242,7 @@ SELECT * FROM mytable WHREE age=20 AND city="郑州"
   
 SELECT * FROM mytable WHREE city="郑州"
 
-（5) 建立索引的时机
+ (5) 建立索引的时机
   
 到这里我们已经学会了建立索引,那么我们需要在什么情况下建立索引呢？一般来说,在WHERE和JOIN中出现的列需要建立索引,但也不完全如此,因为MySQL只对<,<=,=,>,>=,BETWEEN,IN,以及某些时候的LIKE才会使用索引。例如: 
 
@@ -264,7 +264,7 @@ SELECT * FROM mytable WHEREt Name like'%admin'
   
 因此,在使用LIKE时应注意以上的区别。
 
-（6) 索引的不足之处
+ (6) 索引的不足之处
   
 上面都在说使用索引的好处,但过多的使用索引将会造成滥用。因此索引也会有它的缺点: 
   
@@ -274,7 +274,7 @@ SELECT * FROM mytable WHEREt Name like'%admin'
   
 索引只是提高效率的一个因素,如果你的MySQL有大数据量的表,就需要花时间研究建立最优秀的索引,或优化查询语句。
 
-（7) 使用索引的注意事项
+ (7) 使用索引的注意事项
   
 使用索引时,有以下一些技巧和注意事项: 
   

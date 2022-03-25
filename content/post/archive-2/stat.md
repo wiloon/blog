@@ -10,6 +10,9 @@ tags:
   - reprint
 ---
 ## linux 文件创建时间, 修改时间, stat
+
+stat命令，查看某个文件的inode信息, 除了文件名以外的所有文件信息，都存在inode之中。
+
 ### stat
 ### atime, mtime, ctime
 简名	 全名	     中文名	     含义
@@ -62,7 +65,7 @@ atime=access time
   
 mtime=modifiy time
 
-因为这是一个新的文件（filetime.txt) ,没做过内容、属性的更改,也没读过这个文件,所以三者（访问时间、修改时间、状态改动时间) 的时间是一致的,这时文件的修改时间与这三个时间是一样的,是没有疑问的。
+因为这是一个新的文件 (filetime.txt) ,没做过内容、属性的更改,也没读过这个文件,所以三者 (访问时间、修改时间、状态改动时间) 的时间是一致的,这时文件的修改时间与这三个时间是一样的,是没有疑问的。
 
 1. 访问时间,读一次这个文件的内容,这个时间就会更新。比如对这个文件运用 more、cat等命令。ls、stat命令都不会修改文件的访问时间。
   
@@ -72,11 +75,11 @@ mtime=modifiy time
 
 另个除了可以通过stat来查看文件的mtime,ctime,atime等属性,也可以通过ls命令来查看,具体如下:
   
-ls -lc filename 列出文件的 ctime （最后更改时间) 
+ls -lc filename 列出文件的 ctime  (最后更改时间) 
   
-ls -lu filename 列出文件的 atime（最后存取时间) 
+ls -lu filename 列出文件的 atime (最后存取时间) 
   
-ls -l filename 列出文件的 mtime （最后修改时间) 
+ls -l filename 列出文件的 mtime  (最后修改时间) 
 
 在linux中stat函数中,用st_atime表示文件数据最近的存取时间(last accessed time)；用st_mtime表示文件数据最近的修改时间(last modified time)；使用st_ctime表示文件inode数据最近的修改时间(last i-node's status changed time)。
 

@@ -15,27 +15,27 @@ tags:
 一、什么是反射: 
 反射的概念是由Smith在1982年首次提出的，主要是指程序可以访问、检测和修改它本身状态或行为的一种能力。这一概念的提出很快引发了计算机科学领域关于应用反射性的研究。它首先被程序语言的设计领域所采用,并在Lisp和面向对象方面取得了成绩。其中LEAD/LEAD++ 、OpenC++ 、MetaXa和OpenJava等就是基于反射机制的语言。最近，反射机制也被应用到了视窗系统、操作系统和文件系统中。
 
-反射本身并不是一个新概念，尽管计算机科学赋予了反射概念新的含义。在计算机科学领域，反射是指一类应用，它们能够自描述和自控制。也就是说，这类应用通过采用某种机制来实现对自己行为的描述（self-representation) 和监测（examination) ，并能根据自身行为的状态和结果，调整或修改应用所描述行为的状态和相关的语义。
+反射本身并不是一个新概念，尽管计算机科学赋予了反射概念新的含义。在计算机科学领域，反射是指一类应用，它们能够自描述和自控制。也就是说，这类应用通过采用某种机制来实现对自己行为的描述 (self-representation) 和监测 (examination) ，并能根据自身行为的状态和结果，调整或修改应用所描述行为的状态和相关的语义。
 
 二、什么是Java中的类反射: 
   
 Reflection 是 Java 程序开发语言的特征之一，它允许运行中的 Java 程序对自身进行检查，或者说"自审"，并能直接操作程序的内部属性和方法。Java 的这一能力在实际应用中用得不是很多，但是在其它的程序设计语言中根本就不存在这一特性。例如，Pascal、C 或者 C++ 中就没有办法在程序中获得函数定义相关的信息。
   
-Reflection 是 Java 被视为动态（或准动态) 语言的关键，允许程序于执行期 Reflection APIs 取得任何已知名称之 class 的內部信息，包括 package、type parameters、superclass、implemented interfaces、inner classes, outer class, fields、constructors、methods、modifiers，並可于执行期生成instances、变更 fields 內容或唤起 methods。
+Reflection 是 Java 被视为动态 (或准动态) 语言的关键，允许程序于执行期 Reflection APIs 取得任何已知名称之 class 的內部信息，包括 package、type parameters、superclass、implemented interfaces、inner classes, outer class, fields、constructors、methods、modifiers，並可于执行期生成instances、变更 fields 內容或唤起 methods。
 
 三、Java类反射中所必须的类: 
   
 Java的类反射所需要的类并不多，它们分别是: Field、Constructor、Method、Class、Object，下面我将对这些类做一个简单的说明。
   
-Field类: 提供有关类或接口的属性的信息，以及对它的动态访问权限。反射的字段可能是一个类（静态) 属性或实例属性，简单的理解可以把它看成一个封装反射类的属性的类。
+Field类: 提供有关类或接口的属性的信息，以及对它的动态访问权限。反射的字段可能是一个类 (静态) 属性或实例属性，简单的理解可以把它看成一个封装反射类的属性的类。
   
 Constructor类: 提供关于类的单个构造方法的信息以及对它的访问权限。这个类和Field类不同，Field类封装了反射类的属性，而Constructor类则封装了反射类的构造方法。
   
-Method类: 提供关于类或接口上单独某个方法的信息。所反映的方法可能是类方法或实例方法（包括抽象方法) 。 这个类不难理解，它是用来封装反射类方法的一个类。
+Method类: 提供关于类或接口上单独某个方法的信息。所反映的方法可能是类方法或实例方法 (包括抽象方法) 。 这个类不难理解，它是用来封装反射类方法的一个类。
   
 Class类: 类的实例表示正在运行的 Java 应用程序中的类和接口。枚举是一种类，注释是一种接口。每个数组属于被映射为 Class 对象的一个类，所有具有相同元素类型和维数的数组都共享该 Class 对象。
   
-Object类: 每个类都使用 Object 作为超类。所有对象（包括数组) 都实现这个类的方法。
+Object类: 每个类都使用 Object 作为超类。所有对象 (包括数组) 都实现这个类的方法。
 
 四、Java的反射类能做什么: 
   
@@ -185,7 +185,7 @@ e.printStackTrace();
   
 这个例子很简单,只是用getConstructors()方法获取了反射类的构造方法的集合，并用Constructor类的getParameterTypes()获取该构造方法的参数。
 
-下面我们再来获取一下反射类的父类（超类) 和接口
+下面我们再来获取一下反射类的父类 (超类) 和接口
   
 import java.io.*;
   
@@ -213,7 +213,7 @@ for(int i=0; i<theInterfaces.length; i++)
   
 System.out.println(theInterfaces[i].getName());
   
-//获取反射类的父类（超类) 
+//获取反射类的父类 (超类) 
   
 Class theSuperclass = c.getSuperclass();
   
@@ -223,7 +223,7 @@ System.out.println(theSuperclass.getName());
   
 }
   
-这个例子也很简单，只是用Class类的getInterfaces()方法获取反射类的所有接口，由于接口可以有多个，所以它返回一个Class数组。用getSuperclass()方法来获取反射类的父类（超类) ，由于一个类只能继承自一个类，所以它返回一个Class对象。
+这个例子也很简单，只是用Class类的getInterfaces()方法获取反射类的所有接口，由于接口可以有多个，所以它返回一个Class数组。用getSuperclass()方法来获取反射类的父类 (超类) ，由于一个类只能继承自一个类，所以它返回一个Class对象。
 
 下面我们来获取一下反射类的方法
   
@@ -438,9 +438,9 @@ JAVA反射机制主要提供了以下功能:
   
 2.在运行时构造任意一个类的对象
   
-3.在运行时判断任意一个类所具有的成员变量和方法（通过反射甚至可以调用private方法) 
+3.在运行时判断任意一个类所具有的成员变量和方法 (通过反射甚至可以调用private方法) 
   
-4.在运行时调用任意一个对象的方法（\*****注意: 前提都是在运行时，而不是在编译时) 
+4.在运行时调用任意一个对象的方法 (\*****注意: 前提都是在运行时，而不是在编译时) 
   
 Java 反射相关的API简介: 
   
@@ -470,7 +470,7 @@ Class类十分的特殊，它和一般的类一样继承自Object，其实体用
   
 对象，
   
-Class是Reflection起源，针对任何你想探勘的class（类) ，唯有现为他产生一个Class
+Class是Reflection起源，针对任何你想探勘的class (类) ，唯有现为他产生一个Class
   
 的对象，接下来才能经由后者唤起为数十多个的反射API。
 
@@ -496,17 +496,17 @@ Class cl=str.getClass();
   
 想生成对象的实体，在反射动态机制中有两种方法，一个针对无变量的构造方法，一个针对带参数的
   
-构造方法,如果想调用带参数的构造方法，就比较的麻烦，不能直接调用Class类中的newInstance（) 
+构造方法,如果想调用带参数的构造方法，就比较的麻烦，不能直接调用Class类中的newInstance () 
   
 ，而是调用Constructor类中newInstance()方法，首先准备一个Class[]作为Constructor的参数类型。
   
 然后调用该Class对象的getConstructor()方法获得一个专属的Constructor的对象，最后再准备一个
   
-Object[]作为Constructor对象昂的newInstance（) 方法的实参。
+Object[]作为Constructor对象昂的newInstance () 方法的实参。
   
-在这里需要说明的是 只有两个类拥有newInstance（) 方法，分别是Class类和Constructor类
+在这里需要说明的是 只有两个类拥有newInstance () 方法，分别是Class类和Constructor类
   
-Class类中的newInstance（) 方法是不带参数的，而Constructro类中的newInstance（) 方法是带参数的
+Class类中的newInstance () 方法是不带参数的，而Constructro类中的newInstance () 方法是带参数的
   
 需要提供必要的参数。
   
@@ -526,17 +526,17 @@ System.out.println(object);
   
 --运行时调用Method
   
-这个动作首先准备一个Class[]{}作为getMethod（String name，Class[]) 方法的参数类型，接下来准备一个
+这个动作首先准备一个Class[]{}作为getMethod (String name，Class[]) 方法的参数类型，接下来准备一个
   
-Obeject[]放置自变量，然后调用Method对象的invoke（Object obj，Object[]) 方法。
+Obeject[]放置自变量，然后调用Method对象的invoke (Object obj，Object[]) 方法。
   
 注意，在这里调用
   
 --运行时调用Field内容
   
-变更Field不需要参数和自变量，首先调用Class的getField（) 并指定field名称，获得特定的Field对象后
+变更Field不需要参数和自变量，首先调用Class的getField () 并指定field名称，获得特定的Field对象后
   
-便可以直接调用Field的 get（Object obj) 和set(Object obj,Object value)方法
+便可以直接调用Field的 get (Object obj) 和set(Object obj,Object value)方法
   
 java 代码
   
@@ -552,7 +552,7 @@ public class ReflectTester {
 
 /**
   
-* 在这个类里面存在有copy（) 方法，根据指定的方法的参数去 构造一个新的对象的拷贝
+* 在这个类里面存在有copy () 方法，根据指定的方法的参数去 构造一个新的对象的拷贝
   
 * 并将他返回
   
@@ -608,13 +608,13 @@ Method getMethod=classType.getMethod(getName, new Class[]{});
   
 Method setMethod=classType.getMethod(setName, new Class[]{field.getType()});
 
-//调用源对象的getXXX（) 方法
+//调用源对象的getXXX () 方法
   
 Object value=getMethod.invoke(obj, new Object[]{});
   
 System.out.println(fieldName+" :"+value);
 
-//调用拷贝对象的setXXX（) 方法
+//调用拷贝对象的setXXX () 方法
   
 setMethod.invoke(objectCopy,new Object[]{value});
 

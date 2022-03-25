@@ -12,12 +12,12 @@ tags:
 ## Java tls, JSSE
 Java JSSE Java Secure Socket Extension
   
-JDK 中的 JSSE（javax.net.ssl) ,提供了对 SSL 和 TLS 的支持
+JDK 中的 JSSE (javax.net.ssl) ,提供了对 SSL 和 TLS 的支持
   
-SSL/TLS 协议（RFC2246 RFC4346) 处于 TCP/IP 协议与各种应用层协议之间,为数据通讯提供安全支持。
+SSL/TLS 协议 (RFC2246 RFC4346) 处于 TCP/IP 协议与各种应用层协议之间,为数据通讯提供安全支持。
 
-  1. SSL/TLS 记录协议（SSL/TLS Record Protocol) ,它建立在可靠的传输层协议（如 TCP) 之上,为上层协议提供数据封装、压缩、加密等基本功能。
-  2. SSL/TLS 握手协议（SSL/TLS Handshake Protocol) ,它建立在 SSL/TLS 记录协议之上,用于在实际的数据传输开始前,通讯双方进行身份认证、协商加密算法、交换加密密钥等初始化协商功能。
+  1. SSL/TLS 记录协议 (SSL/TLS Record Protocol) ,它建立在可靠的传输层协议 (如 TCP) 之上,为上层协议提供数据封装、压缩、加密等基本功能。
+  2. SSL/TLS 握手协议 (SSL/TLS Handshake Protocol) ,它建立在 SSL/TLS 记录协议之上,用于在实际的数据传输开始前,通讯双方进行身份认证、协商加密算法、交换加密密钥等初始化协商功能。
 
 从协议使用方式来看,又可以分成两种类型: 
   
@@ -25,9 +25,9 @@ SSL/TLS 协议（RFC2246 RFC4346) 处于 TCP/IP 协议与各种应用层协议�
   
 2.SSL/TLS 双向认证,就是双方都会互相认证,也就是两者之间将会交换证书。基本的过程和单向认证完全一样,只是在协商阶段多了几个步骤.
 
-对称算法（symmetric cryptography) : 就是需要双方使用一样的 key 来加密解密消息算法,常用密钥算法有 Data Encryption Standard（DES) 、triple-strength DES（3DES) 、Rivest Cipher 2 （RC2) 和 Rivest Cipher 4（RC4) 。因为对称算法效率相对较高,因此 SSL 会话中的敏感数据都用通过密钥算法加密。
+对称算法 (symmetric cryptography) : 就是需要双方使用一样的 key 来加密解密消息算法,常用密钥算法有 Data Encryption Standard (DES) 、triple-strength DES (3DES) 、Rivest Cipher 2  (RC2) 和 Rivest Cipher 4 (RC4) 。因为对称算法效率相对较高,因此 SSL 会话中的敏感数据都用通过密钥算法加密。
 
-非对称算法（asymmetric cryptography) : 就是 key 的组成是公钥私钥对 （key-pair) ,公钥传递给对方私钥自己保留。公钥私钥算法是互逆的,一个用来加密,另一个可以解密。常用的算法有 Rivest Shamir Adleman（RSA) 、Diffie-Hellman（DH) 。非对称算法计算量大比较慢,因此仅适用于少量数据加密,如对密钥加密,而不适合大量数据的通讯加密。
+非对称算法 (asymmetric cryptography) : 就是 key 的组成是公钥私钥对  (key-pair) ,公钥传递给对方私钥自己保留。公钥私钥算法是互逆的,一个用来加密,另一个可以解密。常用的算法有 Rivest Shamir Adleman (RSA) 、Diffie-Hellman (DH) 。非对称算法计算量大比较慢,因此仅适用于少量数据加密,如对密钥加密,而不适合大量数据的通讯加密。
 
 jks 是 java 的 key store 文件格式. java 提供 keytool 工具操作jks.
   
@@ -128,7 +128,7 @@ JSSE使用Truststore和Keystore文件来提供客户端和服务器之间的安�
 
 keystore和key
   
-key,存放了数字证书（包括公钥和发布者的数字签名) ,以及私钥
+key,存放了数字证书 (包括公钥和发布者的数字签名) ,以及私钥
 
 生成JKS格式的KeyStore
 
@@ -154,7 +154,7 @@ keytool -genkey -alias sslclient -keysize 2048 -validity 3650 -keyalg RSA -dname
 
   1. 导出公钥证书
   
-    将key以数字证书的形式从keystore中导出,数字证书（包括公钥和发布者的数字签名) 
+    将key以数字证书的形式从keystore中导出,数字证书 (包括公钥和发布者的数字签名) 
   
     下面的命令可以导出自签公钥证书
 

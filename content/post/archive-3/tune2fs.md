@@ -14,7 +14,7 @@ tune2fs命令
 
 一.简介: 
 
-tune2fs用来调整和查看ext2/ext3（现在有ext4了) 文件系统的文件系统参数，Windows平台如果出现意外断电死机情况，下次开机一般都会出现系统自检。Linux系统当然也有文件系统自检，而且是可以通过tune2fs命令，自行定义自检周期及方式。
+tune2fs用来调整和查看ext2/ext3 (现在有ext4了) 文件系统的文件系统参数，Windows平台如果出现意外断电死机情况，下次开机一般都会出现系统自检。Linux系统当然也有文件系统自检，而且是可以通过tune2fs命令，自行定义自检周期及方式。
 
 二.用法: 
 
@@ -36,7 +36,7 @@ tune2fs用来调整和查看ext2/ext3（现在有ext4了) 文件系统的文件�
   
 -r reserved-blocks-count 调整系统保留空间
   
--o [^]mount-option[,...] Set or clear the indicated default mount options in the filesystem. 设置或清除默认挂载的文件系统选项（这一条是我需要的。) 
+-o [^]mount-option[,...] Set or clear the indicated default mount options in the filesystem. 设置或清除默认挂载的文件系统选项 (这一条是我需要的。) 
 
 三.例如: 
 

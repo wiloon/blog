@@ -3,20 +3,21 @@ title: systemd, systemctl basic, command
 author: "-"
 date: 2015-05-04T00:34:26+00:00
 url: systemd
-
 categories:
   - inbox
 tags:
   - reprint
 ---
 ## systemd, systemctl basic, command
-Systemd 是 Linux 系统中最新的初始化系统（init），它主要的设计目标是克服 sysvinit 固有的缺点，提高系统的启动速度
+Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设计目标是克服 sysvinit 固有的缺点，提高系统的启动速度
 ### Systemd新特性：
 - 系统引导时实现服务并行启动
 - 按需启动守护进程
 - 自动化的服务依赖关系管理
 - 同时采用socket式与D-Bus总线式激活服务
-- 系统状态快照  
+- 系统状态快照
+
+
 ### 查看配置文件位置
     systemctl status service0
 
@@ -29,6 +30,40 @@ After字段: 表示如果network.target或sshd-keygen.service需要启动,那么
 相应地,还有一个Before字段,定义sshd.service应该在哪些服务之前启动。
 
 注意,After和Before字段只涉及启动顺序,不涉及依赖关系。
+
+## [Service]区块
+
+用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下
+
+Type：定义启动时的进程行为。它有以下几种值。
+Type=simple：默认值，执行ExecStart指定的命令，启动主进程
+Type=forking：以 fork 方式从父进程创建子进程，创建后父进程会立即退出
+Type=oneshot：一次性进程，Systemd 会等当前服务退出，再继续往下执行
+Type=dbus：当前服务通过D-Bus启动
+Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行
+Type=idle：若有其他任务执行完毕，当前服务才会运行
+ExecStart：启动当前服务的命令
+ExecStartPre：启动当前服务之前执行的命令
+ExecStartPost：启动当前服务之后执行的命令
+ExecReload：重启当前服务时执行的命令
+ExecStop：停止当前服务时执行的命令
+ExecStopPost：停止当其服务之后执行的命令
+RestartSec：自动重启当前服务间隔的秒数
+Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog
+TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数
+Environment：指定环境变量
+EnvironmentFile: 指定文件，可定义多个环境变量，按分行方式存储。
+————————————————
+版权声明：本文为CSDN博主「Golden_Chen」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Golden_Chen/article/details/114689804
+
+### Environment, 环境变量
+
+```
+[Service]
+Environment="GODEBUG='gctrace=1'"
+Environment="ANOTHER_SECRET=JP8YLOc2bsNlrGuD6LVTq7L36obpjzxd"
+```
 
 ### systemd-analyze
 # 查看启动耗时
@@ -47,12 +82,25 @@ After字段: 表示如果network.target或sshd-keygen.service需要启动,那么
     # 生成一张启动详细信息矢量图, .svg可以用chrome打开
     sudo systemd-analyze plot > /home/wiloon/tmp/boot3.svg
 
-### hostnamectl
-    # 显示当前主机的信息
-    $ hostnamectl
+### hostnamectl, 查看主机信息, 查看主机名, 查看机器名, 查 hostname
 
-    # 设置主机名。
-    $ sudo hostnamectl set-hostname rhel7
+```bash
+hostnamectl
+# 设置主机名
+sudo hostnamectl set-hostname rhel7
+
+hostnamectl
+  
+hostnamectl status
+  
+hostnamectl -static
+  
+hostnamectl -transient
+  
+hostnamectl -pretty
+  
+sudo hostnamectl set-hostname new-host-name
+```
 
 ### timedatectl
     # 查看当前时区设置
@@ -102,7 +150,7 @@ $ sudo systemctl halt
 # 待机: 
 systemctl suspend
 systemctl hibernate
-# 混合休眠模式（同时休眠到硬盘并待机) : 
+# 混合休眠模式 (同时休眠到硬盘并待机) : 
 systemctl hybrid-sleep
 
 # list all service
@@ -114,7 +162,7 @@ systemctl is-enabled SERVICE
 显示所有已启动的服务
 systemctl list-units --type=service
 
-systemctl is-active httpd.service （仅显示是否 Active)
+systemctl is-active httpd.service  (仅显示是否 Active)
 
 systemctl daemon-reload
 
@@ -134,14 +182,20 @@ systemctl status xxx
     Loaded行: 配置文件的位置,是否设为开机启动
     Active行: 表示正在运行
     Main PID行: 主进程ID
-    Status行: 由应用本身（这里是 httpd ) 提供的软件当前状态
+    Status行: 由应用本身 (这里是 httpd ) 提供的软件当前状态
     CGroup块: 应用的所有子进程
     日志块: 应用的日志
 
-http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+```bash
+# 打印完整的控制台日志, 不加 -l 的话, 默认会截断.
+systemctl status service0 -l
+
+```
+
+>http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
 
 ### Unit
-Systemd 可以管理所有系统资源。不同的资源统称为 Unit（单位) 。
+Systemd 可以管理所有系统资源。不同的资源统称为 Unit (单位) 。
 Unit 一共分成12种。
 
     Service unit: 系统服务
@@ -249,3 +303,32 @@ Failed to start NetworkManager.service: Unit is masked.
 https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
 https://www.cnblogs.com/xingmuxin/p/11413784.html
 >https://blog.csdn.net/stpice/article/details/104569146
+
+### 配置文件
+
+1. 系统配置文件： /etc/systemd/system.conf
+2. 用户配置文件： /etc/systemd/user.conf
+
+systemd 用户实例不会继承类似 .bashrc 中定义的环境变量。systemd 用户实例有三种设置环境变量的方式：
+
+对于有 $HOME 目录的用户，可以在 ~/.config/systemd/user.conf 文件中使用 DefaultEnvironment 选项，这些设置只对当前用户的用户单元有效。
+在 /etc/systemd/user.conf 文件中使用 DefaultEnvironment 选项。这个配置在所有的用户单元中可见。
+在 /etc/systemd/system/user@.service.d/ 下增加配置文件设置。 这个配置在所有的用户单元中可见。
+在任何时候， 使用 systemctl --user set-environment 或 systemctl --user import-environment. 对设置之后启动的所有用户单元有效，但已经启动的用户单元不会生效。
+提示： 如果想一次设置多个环境变量，可以写一个配置文件，文件里面每一行定义一个环境变量，用 "key=value" 的键值对表示，然后在你的启动脚本里添加xargs systemctl --user set-environment < /path/to/file.conf。
+————————————————
+版权声明：本文为CSDN博主「Golden_Chen」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Golden_Chen/article/details/114689804
+
+
+
+## systemd资源控制
+
+>https://www.cnblogs.com/jimbo17/p/9107052.html
+>https://documentation.suse.com/zh-cn/sles/15-SP2/html/SLES-all/cha-tuning-cgroups.html
+
+
+```bash
+systemctl set-property user.slice MemoryAccounting=yes
+
+```

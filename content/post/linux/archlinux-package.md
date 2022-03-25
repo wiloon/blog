@@ -26,5 +26,5 @@ Akonadi 框架为应用程序提供中心数据库来统一保存、索引和获
 
 提供友好文本名称和背后分配的端口号以及协议类型之间的映射
 
-互联网号码分配局（英語：Internet Assigned Numbers Authority，缩写IANA）
+互联网号码分配局 (英語：Internet Assigned Numbers Authority，缩写IANA）
 

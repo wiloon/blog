@@ -13,7 +13,7 @@ tags:
 
 UUID是什么?
 
-UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字,它保证对在同一时空中的所有机器都是唯一的。按照开放软件基金会(OSF)制定的标准计算,用到了以太网卡地址、纳秒级时间、芯片ID码和许多可能的数字。由以下几部分的组合: 当前日期和时间(UUID的第一个部分与时间有关,如果你在生成一个UUID之后,过几秒又生成一个UUID,则第一个部分不同,其余相同),时钟序列,全局唯一的IEEE机器识别号（如果有网卡,从网卡获得,没有网卡以其他方式获得) ,UUID的唯一缺陷在于生成的结果串会比较长。
+UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字,它保证对在同一时空中的所有机器都是唯一的。按照开放软件基金会(OSF)制定的标准计算,用到了以太网卡地址、纳秒级时间、芯片ID码和许多可能的数字。由以下几部分的组合: 当前日期和时间(UUID的第一个部分与时间有关,如果你在生成一个UUID之后,过几秒又生成一个UUID,则第一个部分不同,其余相同),时钟序列,全局唯一的IEEE机器识别号 (如果有网卡,从网卡获得,没有网卡以其他方式获得) ,UUID的唯一缺陷在于生成的结果串会比较长。
 
 A universally unique identifier (UUID) is an identifier standard used in software construction, standardized by the Open Software Foundation (OSF) as part of the Distributed Computing Environment (DCE). The intent of UUIDs is to enable distributed systems to uniquely identify information without significant central coordination. In this context the word unique should be taken to mean "practically unique" rather than "guaranteed unique". Since the identifiers have a finite size it is possible for two differing items to share the same identifier. The identifier size and generation process need to be selected so as to make this sufficiently improbable in practice. Anyone can create a UUID and use it to identify something with reasonable confidence that the same identifier will never be unintentionally created by anyone to identify something else. Information labeled with UUIDs can therefore be later combined into a single database without needing to resolve name conflicts.
 
@@ -29,7 +29,7 @@ UUID具有以下涵义:
 
 经由一定的算法机器生成
   
-为了保证UUID的唯一性,规范定义了包括网卡MAC地址、时间戳、名字空间（Namespace) 、随机或伪随机数、时序等元素,以及从这些元素生成UUID的算法。UUID的复杂特性在保证了其唯一性的同时,意味着只能由计算机生成。
+为了保证UUID的唯一性,规范定义了包括网卡MAC地址、时间戳、名字空间 (Namespace) 、随机或伪随机数、时序等元素,以及从这些元素生成UUID的算法。UUID的复杂特性在保证了其唯一性的同时,意味着只能由计算机生成。
 
 非人工指定,非人工识别
   
@@ -37,7 +37,7 @@ UUID是不能人工指定的,除非你冒着UUID重复的风险。UUID的复杂�
 
 在特定的范围内重复的可能性极小
   
-UUID的生成规范定义的算法主要目的就是要保证其唯一性。但这个唯一性是有限的,只在特定的范围内才能得到保证,这和UUID的类型有关（参见UUID的版本) 。
+UUID的生成规范定义的算法主要目的就是要保证其唯一性。但这个唯一性是有限的,只在特定的范围内才能得到保证,这和UUID的类型有关 (参见UUID的版本) 。
 
 UUID是16字节128位长的数字,通常以36字节的字符串表示,示例如下: 
 
@@ -45,7 +45,7 @@ UUID是16字节128位长的数字,通常以36字节的字符串表示,示例如�
 
 其中的字母是16进制表示,大小写无关。
   
-GUID（Globally Unique Identifier) 是UUID的别名；但在实际应用中,GUID通常是指微软实现的UUID。
+GUID (Globally Unique Identifier) 是UUID的别名；但在实际应用中,GUID通常是指微软实现的UUID。
 
 UUID的版本
 
@@ -57,13 +57,13 @@ UUID具有多个版本,每个版本的算法不同,应用范围也不同。
 
 UUID Version 1: 基于时间的UUID
   
-基于时间的UUID通过计算当前时间戳、随机数和机器MAC地址得到。由于在算法中使用了MAC地址,这个版本的UUID可以保证在全球范围的唯一性。但与此同时,使用MAC地址会带来安全性问题,这就是这个版本UUID受到批评的地方。如果应用只是在局域网中使用,也可以使用退化的算法,以IP地址来代替MAC地址－－Java的UUID往往是这样实现的（当然也考虑了获取MAC的难度) 。
+基于时间的UUID通过计算当前时间戳、随机数和机器MAC地址得到。由于在算法中使用了MAC地址,这个版本的UUID可以保证在全球范围的唯一性。但与此同时,使用MAC地址会带来安全性问题,这就是这个版本UUID受到批评的地方。如果应用只是在局域网中使用,也可以使用退化的算法,以IP地址来代替MAC地址－－Java的UUID往往是这样实现的 (当然也考虑了获取MAC的难度) 。
 
 UUID Version 2: DCE安全的UUID
   
-DCE（Distributed Computing Environment) 安全的UUID和基于时间的UUID算法相同,但会把时间戳的前4位置换为POSIX的UID或GID。这个版本的UUID在实际中较少用到。
+DCE (Distributed Computing Environment) 安全的UUID和基于时间的UUID算法相同,但会把时间戳的前4位置换为POSIX的UID或GID。这个版本的UUID在实际中较少用到。
 
-UUID Version 3: 基于名字的UUID（MD5) 
+UUID Version 3: 基于名字的UUID (MD5) 
   
 基于名字的UUID通过计算名字和名字空间的MD5散列值得到。这个版本的UUID保证了: 相同名字空间中不同名字生成的UUID的唯一性；不同名字空间中的UUID的唯一性；相同名字空间中相同名字的UUID重复生成是相同的。
 
@@ -71,13 +71,13 @@ UUID Version 4: 随机UUID
   
 根据随机数,或者伪随机数生成UUID。这种UUID产生重复的概率是可以计算出来的,但随机的东西就像是买彩票: 你指望它发财是不可能的,但狗屎运通常会在不经意中到来。
 
-UUID Version 5: 基于名字的UUID（SHA1) 
+UUID Version 5: 基于名字的UUID (SHA1) 
   
-和版本3的UUID算法类似,只是散列值计算使用SHA1（Secure Hash Algorithm 1) 算法。
+和版本3的UUID算法类似,只是散列值计算使用SHA1 (Secure Hash Algorithm 1) 算法。
 
 UUID的应用
 
-从UUID的不同版本可以看出,Version 1/2适合应用于分布式计算环境下,具有高度的唯一性；Version 3/5适合于一定范围内名字唯一,且需要或可能会重复生成UUID的环境下；至于Version 4,我个人的建议是最好不用（虽然它是最简单最方便的) 。
+从UUID的不同版本可以看出,Version 1/2适合应用于分布式计算环境下,具有高度的唯一性；Version 3/5适合于一定范围内名字唯一,且需要或可能会重复生成UUID的环境下；至于Version 4,我个人的建议是最好不用 (虽然它是最简单最方便的) 。
   
 通常我们建议使用UUID来标识对象或持久化数据,但以下情况最好不使用UUID: 
   
@@ -85,7 +85,7 @@ UUID的应用
   
 人工维护的非系统生成对象。比如系统中的部分基础数据。
   
-对于具有名称不可重复的自然特性的对象,最好使用Version 3/5的UUID。比如系统中的用户。如果用户的UUID是Version 1的,如果你不小心删除了再重建用户,你会发现人还是那个人,用户已经不是那个用户了。（虽然标记为删除状态也是一种解决方案,但会带来实现上的复杂性。) 
+对于具有名称不可重复的自然特性的对象,最好使用Version 3/5的UUID。比如系统中的用户。如果用户的UUID是Version 1的,如果你不小心删除了再重建用户,你会发现人还是那个人,用户已经不是那个用户了。 (虽然标记为删除状态也是一种解决方案,但会带来实现上的复杂性。) 
 
 UUID生成器
 
@@ -97,7 +97,7 @@ UUID: 特殊的License,有源码。
   
 Java 5以上版本中自带的UUID生成器: 好像只能生成Version 3/4的UUID。
 
-此外,Hibernate中也有一个UUID生成器,但是,生成的不是任何一个（规范) 版本的UUID,强烈不建议使用。
+此外,Hibernate中也有一个UUID生成器,但是,生成的不是任何一个 (规范) 版本的UUID,强烈不建议使用。
 
 第一次看到UUID这个东西,是在Ubuntu系统中看到/boot/grub/grub.cfg中对kernel的配置: 
   
@@ -105,7 +105,7 @@ linux   /boot/vmlinuz-2.6.31-14-generic root=UUID=c74288db-c35e-4d7e-a1e8-82d6e8
   
 后来在分区表/etc/fstab中也有出现UUID。
 
-获取设备的UUID的方法（Linux系统中) :
+获取设备的UUID的方法 (Linux系统中) :
 
 1) # blkid /dev/sda1 (不是root用户需要sudo)
   
@@ -267,7 +267,7 @@ client := &Client{id: uuid.NewV4().String(), socket: conn, send: make(chan []byt
 
 http://javag.iteye.com/blog/127753
   
-UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字,它保证对在同一时空中的所有机器都是唯一的。按照开放软件基金会(OSF)制定的标准计算,用到了以太网卡地址、纳秒级时间、芯片ID码和许多可能的数字。由以下几部分的组合: 当前日期和时间(UUID的第一个部分与时间有关,如果你在生成一个UUID之后,过几秒又生成一个UUID,则第一个部分不同,其余相同),时钟序列,全局唯一的IEEE机器识别号（如果有网卡,从网卡获得,没有网卡以其他方式获得) ,UUID的唯一缺陷在于生成的结果串会比较长。
+UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字,它保证对在同一时空中的所有机器都是唯一的。按照开放软件基金会(OSF)制定的标准计算,用到了以太网卡地址、纳秒级时间、芯片ID码和许多可能的数字。由以下几部分的组合: 当前日期和时间(UUID的第一个部分与时间有关,如果你在生成一个UUID之后,过几秒又生成一个UUID,则第一个部分不同,其余相同),时钟序列,全局唯一的IEEE机器识别号 (如果有网卡,从网卡获得,没有网卡以其他方式获得) ,UUID的唯一缺陷在于生成的结果串会比较长。
   
 在Java中生成UUID主要有以下几种方式:
 

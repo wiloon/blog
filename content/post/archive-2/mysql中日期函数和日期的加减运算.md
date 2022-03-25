@@ -159,7 +159,7 @@ MySQL> select SECOND('10:05:03');
 
 PERIOD_ADD(P,N)
   
-增加N个月到阶段P（以格式YYMM或YYYYMM)。以格式YYYYMM返回值。注意阶段参数P不是日期值。
+增加N个月到阶段P (以格式YYMM或YYYYMM)。以格式YYYYMM返回值。注意阶段参数P不是日期值。
   
 MySQL> select PERIOD_ADD(9801,2);
   
@@ -181,7 +181,7 @@ SUBDATE(date,INTERVAL expr type)
   
 这些功能执行日期运算。对于MySQL 3.22,他们是新的。ADDDATE()和SUBDATE()是DATE_ADD()和DATE_SUB()的同义词。
   
-在MySQL 3.23中,你可以使用+和-而不是DATE_ADD()和DATE_SUB()。（见例子) date是一个指定开始日期的
+在MySQL 3.23中,你可以使用+和-而不是DATE_ADD()和DATE_SUB()。 (见例子) date是一个指定开始日期的
   
 DATETIME或DATE值,expr是指定加到开始日期或从开始日期减去的间隔值一个表达式,expr是一个字符串；它可以以
   

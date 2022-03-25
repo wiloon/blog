@@ -25,8 +25,8 @@ tags:
 Parent Poms Features
 通过继承spring-boot-starter-parent，默认具备了如下功能：
 
-Java版本（Java8）
-源码的文件编码方式（UTF-8）
+Java版本 (Java8）
+源码的文件编码方式 (UTF-8）
 依赖管理
 打包支持
 动态识别资源

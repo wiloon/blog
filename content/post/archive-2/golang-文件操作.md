@@ -10,7 +10,18 @@ tags:
 ---
 ## golang file,文件操作
 
-```golang
+## 文件大小
+```go
+func main() {
+	fi,err:=os.Stat("water")
+	if err ==nil {
+		fmt.Println("file size is ",fi.Size(),err)
+	}
+}
+
+```
+
+```go
 package main
 
 import (
@@ -178,7 +189,7 @@ import (
 
 ### 写文件
 
-```golang
+```go
 /***************************** 第一种方式: 使用 io.WriteString 写入文件***/
 if checkFileIsExist(filename) { //如果文件存在
 f, err1 = os.OpenFile(filename, os.O_APPEND, 0666) //打开文件
@@ -245,7 +256,7 @@ return result, nil
 
 #### 第一个是使用流处理方式代码如下
 
-```golang
+```go
 func ReadFile(filePath string, handle func(string)) error {
 f, err := os.Open(filePath)
 defer f.Close()

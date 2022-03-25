@@ -13,13 +13,13 @@ tags:
 
 
 ### Client Hello
-握手第一步是客户端向服务端发送 Client Hello 消息,这个消息里包含了一个客户端生成的随机数 Random1、客户端支持的加密套件（Support Ciphers) 和 SSL Version 等信息。通过 Wireshark 抓包,我们可以看到如下信息: 
+握手第一步是客户端向服务端发送 Client Hello 消息,这个消息里包含了一个客户端生成的随机数 Random1、客户端支持的加密套件 (Support Ciphers) 和 SSL Version 等信息。通过 Wireshark 抓包,我们可以看到如下信息: 
 
 Wireshark 抓包的用法可以参考这篇文章: https://segmentfault.com/a/1190000018746027
 
 Server Hello
   
-第二步是服务端向客户端发送 Server Hello 消息,这个消息会从 Client Hello 传过来的 Support Ciphers 里确定一份加密套件,这个套件决定了后续加密和生成摘要时具体使用哪些算法,另外还会生成一份随机数 Random2。注意,至此客户端和服务端都拥有了两个随机数（Random1+ Random2) ,这两个随机数会在后续生成对称秘钥时用到。
+第二步是服务端向客户端发送 Server Hello 消息,这个消息会从 Client Hello 传过来的 Support Ciphers 里确定一份加密套件,这个套件决定了后续加密和生成摘要时具体使用哪些算法,另外还会生成一份随机数 Random2。注意,至此客户端和服务端都拥有了两个随机数 (Random1+ Random2) ,这两个随机数会在后续生成对称秘钥时用到。
 
 Certificate
   
@@ -87,7 +87,7 @@ Application Data
 https://github.com/denji/golang-tls
 
 ### RTT
-Round Trip Time  也就是一个数据包从发出去到回来的时间。  
+Round Trip Time, 也就是一个数据包从发出去到回来的时间。  
 >https://coolshell.cn/articles/11609.html#TCP%E7%9A%84RTT%E7%AE%97%E6%B3%95
 
 TCP的RTT算法
@@ -95,10 +95,10 @@ TCP的RTT算法
 
 设长了,重发就慢,丢了老半天才重发,没有效率,性能差；
 设短了,会导致可能并没有丢就重发。于是重发的就快,会增加网络拥塞,导致更多的超时,更多的超时导致更多的重发。
-而且,这个超时时间在不同的网络的情况下,根本没有办法设置一个死的值。只能动态地设置。 为了动态地设置,TCP引入了RTT——Round Trip Time,也就是一个数据包从发出去到回来的时间。这样发送端就大约知道需要多少的时间,从而可以方便地设置Timeout——RTO（Retransmission TimeOut) 
+而且,这个超时时间在不同的网络的情况下,根本没有办法设置一个死的值。只能动态地设置。 为了动态地设置,TCP引入了RTT——Round Trip Time,也就是一个数据包从发出去到回来的时间。这样发送端就大约知道需要多少的时间,从而可以方便地设置Timeout——RTO (Retransmission TimeOut) 
 
 https://www.zhihu.com/question/39244840
-不包括数据发射（即将数据推送到数据链路上) 的时间。即,RTT为数据完全发送完（完成最后一个比特推送到数据链路上) 到收到确认信号的时间。
+不包括数据发射 (即将数据推送到数据链路上) 的时间。即,RTT为数据完全发送完 (完成最后一个比特推送到数据链路上) 到收到确认信号的时间。
 
 《计算机网络自顶向下方法》中的一个插图能清晰地说明问题: 
 t1为发送第一个比特的时刻

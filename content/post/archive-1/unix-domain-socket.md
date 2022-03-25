@@ -23,7 +23,7 @@ http://blog.chinaunix.net/uid-20511624-id-1659107.html
   
 Socket接口是TCP/IP网络的API，Socket接口定义了许多函数或例程，程式员能够用他们来研发TCP/IP网络上的应用程式。要学Internet上的TCP/IP网络编程，必须理解Socket接口。
   
-Socket接口设计者最先是将接口放在Unix操作系统里面的。假如了解 Unix 系统的输入和输出的话，就很容易了解 Socket 了。网络的 Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该Socket实现的。常用的Socket类型有两种: 流式Socket （SOCK_STREAM) 和数据报式Socket（SOCK_DGRAM) 。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。
+Socket接口设计者最先是将接口放在Unix操作系统里面的。假如了解 Unix 系统的输入和输出的话，就很容易了解 Socket 了。网络的 Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该Socket实现的。常用的Socket类型有两种: 流式Socket  (SOCK_STREAM) 和数据报式Socket (SOCK_DGRAM) 。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。
   
 Socket 建立
   
@@ -31,7 +31,7 @@ Socket 建立
   
 int socket(int domain, int type, int protocol);
   
-domain指明所使用的协议族，通常为PF_INET，表示互连网协议族（TCP/IP协议族) ；type参数指定socket的类型:  SOCK_STREAM 或SOCK_DGRAM，Socket接口还定义了原始Socket（SOCK_RAW) ，允许程式使用低层协议；protocol通常赋值"0"。 Socket()调用返回一个整型socket描述符，您能够在后面的调用使用他。
+domain指明所使用的协议族，通常为PF_INET，表示互连网协议族 (TCP/IP协议族) ；type参数指定socket的类型:  SOCK_STREAM 或SOCK_DGRAM，Socket接口还定义了原始Socket (SOCK_RAW) ，允许程式使用低层协议；protocol通常赋值"0"。 Socket()调用返回一个整型socket描述符，您能够在后面的调用使用他。
   
 Socket描述符是个指向内部数据结构的指针，他指向描述符表入口。调用Socket函数时，socket执行体将建立一个Socket，实际上"建立一个Socket"意味着为一个Socket数据结构分配存储空间。Socket执行体为您管理描述符表。
   
@@ -57,7 +57,7 @@ char sa_data[14]; /* 14 字节的协议地址 */
   
 };
   
-sa_family一般为AF_INET，代表Internet（TCP/IP) 地址族；sa_data则包含该socket的IP地址和端口号。
+sa_family一般为AF_INET，代表Internet (TCP/IP) 地址族；sa_data则包含该socket的IP地址和端口号。
   
 另外更有一种结构类型: 
   
@@ -113,7 +113,7 @@ Listen函数使socket处于被动的监听模式，并为该socket建立一个�
   
 int listen(int sockfd， int backlog);
   
-Sockfd 是Socket系统调用返回的socket 描述符；backlog指定在请求队列中允许的最大请求数，进入的连接请求将在队列中等待accept()他们（参考下文) 。Backlog对队列中等待服务的请求的数目进行了限制，大多数系统缺省值为20。假如一个服务请求到来时，输入队列已满，该socket将拒绝连接请求，客户将收到一个出错信息。
+Sockfd 是Socket系统调用返回的socket 描述符；backlog指定在请求队列中允许的最大请求数，进入的连接请求将在队列中等待accept()他们 (参考下文) 。Backlog对队列中等待服务的请求的数目进行了限制，大多数系统缺省值为20。假如一个服务请求到来时，输入队列已满，该socket将拒绝连接请求，客户将收到一个出错信息。
   
 当出现错误时listen函数返回-1，并置相应的errno错误码。
   
@@ -121,7 +121,7 @@ accept()函数让服务器接收客户的连接请求。在建立好输入队列
   
 int accept(int sockfd, void \*addr, int \*addrlen);
   
-sockfd是被监听的socket描述符，addr通常是个指向sockaddr_in变量的指针，该变量用来存放提出连接请求服务的主机的信息（某台主机从某个端口发出该请求) ；addrten通常为一个指向值为sizeof(struct sockaddr_in)的整型指针变量。出现错误时accept函数返回-1并置相应的errno值。
+sockfd是被监听的socket描述符，addr通常是个指向sockaddr_in变量的指针，该变量用来存放提出连接请求服务的主机的信息 (某台主机从某个端口发出该请求) ；addrten通常为一个指向值为sizeof(struct sockaddr_in)的整型指针变量。出现错误时accept函数返回-1并置相应的errno值。
   
 首先，当accept函数监控的 socket收到连接请求时，socket执行体将建立一个新的socket，执行体将这个新socket和请求连接进程的地址联系起来，收到服务请求的初始socket仍能够继续在以前的 socket上监听，同时能够在新的socket描述符上进行数据传输操作。
   
@@ -133,7 +133,7 @@ Send()函数原型为:
   
 int send(int sockfd, const void *msg, int len, int flags);
   
-Sockfd是您想用来传输数据的socket描述符；msg是个指向要发送数据的指针；Len是以字节为单位的数据的长度；flags一般情况下置为0（关于该参数的用法可参照man手册) 。
+Sockfd是您想用来传输数据的socket描述符；msg是个指向要发送数据的指针；Len是以字节为单位的数据的长度；flags一般情况下置为0 (关于该参数的用法可参照man手册) 。
   
 Send()函数返回实际上发送出的字节数，可能会少于您希望发送的数据。在程式中应该将send()的返回值和欲发送的字节数进行比较。当send()返回值和len不匹配时，应该对这种情况进行处理。
   
@@ -389,7 +389,7 @@ char *\*h_addr_list; /* 一个以0结尾的数组，包含该主机的任何地�
   
 阻塞和非阻塞
   
-阻塞函数在完成其指定的任务以前不允许程式调用另一个函数。例如，程式执行一个读数据的函数调用时，在此函数完成读操作以前将不会执行下一程式语句。当服务器运行到accept语句时，而没有客户连接服务请求到来，服务器就会停止在accept语句上等待连接服务请求的到来。这种情况称为阻塞（blocking) 。而非阻塞操作则能够立即完成。比如，假如您希望服务器仅仅注意检查是否有客户在等待连接，有就接受连接，否则就继续做其他事情，则能够通过将Socket配置为非阻塞方式来实现。非阻塞socket在没有客户在等待时就使accept调用立即返回。
+阻塞函数在完成其指定的任务以前不允许程式调用另一个函数。例如，程式执行一个读数据的函数调用时，在此函数完成读操作以前将不会执行下一程式语句。当服务器运行到accept语句时，而没有客户连接服务请求到来，服务器就会停止在accept语句上等待连接服务请求的到来。这种情况称为阻塞 (blocking) 。而非阻塞操作则能够立即完成。比如，假如您希望服务器仅仅注意检查是否有客户在等待连接，有就接受连接，否则就继续做其他事情，则能够通过将Socket配置为非阻塞方式来实现。非阻塞socket在没有客户在等待时就使accept调用立即返回。
   
 #include
   
@@ -547,7 +547,7 @@ close(sockfd);
 ```
 Unix/Linux环境下的Socket编程
   
-网络的Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。 Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该 Socket实现的。常用的Socket类型有两种: 流式Socket （SOCK_STREAM) 和数据报式Socket（SOCK_DGRAM) 。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。
+网络的Socket数据传输是一种特别的I/O，Socket也是一种文档描述符。 Socket也具备一个类似于打开文档的函数调用Socket()，该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该 Socket实现的。常用的Socket类型有两种: 流式Socket  (SOCK_STREAM) 和数据报式Socket (SOCK_DGRAM) 。流式是一种面向连接的Socket，针对于面向连接的TCP服务应用；数据报式Socket是一种无连接的Socket，对应于无连接的UDP服务应用。
   
 Socket描述符是个指向内部数据结构的指针，他指向描述符表入口。调用Socket函数时，socket执行体将建立一个Socket，实际上"建立一个Socket"意味着为一个Socket数据结构分配存储空间。Socket执行体为您管理描述符表。两个网络程式之间的一个网络连接包括五种信息: 通信协议、本地协议地址、本地主机端口、远端主机地址和远端协议端口。Socket数据结构中包含这五种信息。
   
@@ -561,7 +561,7 @@ char sa_data[14]; /* 14 字节的协议地址 */
   
 };
   
-sa_family一般为AF_INET，代表Internet（TCP/IP) 地址族；sa_data则包含该socket的IP地址和
+sa_family一般为AF_INET，代表Internet (TCP/IP) 地址族；sa_data则包含该socket的IP地址和
   
 端口号。
   
@@ -615,11 +615,11 @@ Bind()函数在成功被调用时返回0；出现错误时返回"-1"并将errno�
   
 Listen函数使socket处于被动的监听模式，并为该socket建立一个输入数据队列，将到达的服务请求
   
-保存在此队列中，直到程式处理他们。 int listen(int sockfd， int backlog); Sockfd 是Socket系统调用返回的socket 描述符；backlog指定在请求队列中允许的最大请求数，进入的连接请求将在队列中等待accept()他们（参考下文) 。Backlog对队列中等待服务的请求的数目进行了限制，大多数系统缺省值为20。假如一个服务请求到来时，输入队列已满，该 socket将拒绝连接请求，客户将收到一个出错信息。当出现错误时listen函数返回-1，并置相应的errno错误码。
+保存在此队列中，直到程式处理他们。 int listen(int sockfd， int backlog); Sockfd 是Socket系统调用返回的socket 描述符；backlog指定在请求队列中允许的最大请求数，进入的连接请求将在队列中等待accept()他们 (参考下文) 。Backlog对队列中等待服务的请求的数目进行了限制，大多数系统缺省值为20。假如一个服务请求到来时，输入队列已满，该 socket将拒绝连接请求，客户将收到一个出错信息。当出现错误时listen函数返回-1，并置相应的errno错误码。
 
 accept()函数让服务器接收客户的连接请求。在建立好输入队列后，服务器就调用accept函数，然后
   
-睡眠并等待客户的连接请求。int accept(int sockfd, void \*addr, int \*addrlen); sockfd是被监听的socket描述符，addr通常是个指向sockaddr_in变量的指针，该变量用来存放提出连接请求服务的主机的信息（某台主机从某个端口发出该请求) ；addrlen通常为一个指向值为sizeof(struct sockaddr_in)的整型指针变量。出现错误时accept函数返回-1并置相应的errno值。当accept函数监控的socket收到连接请求时，socket执行体将建立一个新的socket，执行体将这个新socket和请求连接进程的地址联系起来，收到服务请求的初始socket仍能够继续在以前的 socket上监听，同时能够在新的socket描述符上进行数据传输操作。
+睡眠并等待客户的连接请求。int accept(int sockfd, void \*addr, int \*addrlen); sockfd是被监听的socket描述符，addr通常是个指向sockaddr_in变量的指针，该变量用来存放提出连接请求服务的主机的信息 (某台主机从某个端口发出该请求) ；addrlen通常为一个指向值为sizeof(struct sockaddr_in)的整型指针变量。出现错误时accept函数返回-1并置相应的errno值。当accept函数监控的socket收到连接请求时，socket执行体将建立一个新的socket，执行体将这个新socket和请求连接进程的地址联系起来，收到服务请求的初始socket仍能够继续在以前的 socket上监听，同时能够在新的socket描述符上进行数据传输操作。
   
 数据传输
   
@@ -648,7 +648,7 @@ Recvfrom()函数返回接收到的字节数或当出现错误时返回-1，并�
 何数据操作: close(sockfd); 也能够调用shutdown()函数来关闭该socket。该函数允许您只停止在某个方向上的数据传输，而一个方向上的数据传输继续进行。如您能够关闭某socket的写操作而允许继续在该socket上接受数据，直至读入任何数据。Sockfd 是需要关闭的socket的描述符。参数 how允许为shutdown操作选择以下几种方式: 0---不允许继续接收数据 1---不允许继续发送数据 2---不允许继续发送和接收数据，均为允许则调用close () shutdown在操作成功时返回0，在出现错误时返回-1并置相应errno。
 
 
-socket API原本是为网络通讯设计的，但后来在socket的框架上发展出一种IPC机制，就是UNIXDomain Socket。虽然网络socket也可用于同一台主机的进程间通讯（通过loopback地址127.0.0.1) ，但是UNIX Domain Socket用于IPC更有效率: 不需要经过网络协议栈，不需要打包拆包、计算校验和、维护序号和应答等，只是将应用层数据从一个进程拷贝到另一个进程。这是因为，IPC机制本质上是可靠的通讯，而网络协议是为不可靠的通讯设计的。UNIX Domain Socket也提供面向流和面向数据包两种API接口，类似于TCP和UDP，但是面向消息的UNIX Domain Socket也是可靠的，消息既不会丢失也不会顺序错乱。
+socket API原本是为网络通讯设计的，但后来在socket的框架上发展出一种IPC机制，就是UNIXDomain Socket。虽然网络socket也可用于同一台主机的进程间通讯 (通过loopback地址127.0.0.1) ，但是UNIX Domain Socket用于IPC更有效率: 不需要经过网络协议栈，不需要打包拆包、计算校验和、维护序号和应答等，只是将应用层数据从一个进程拷贝到另一个进程。这是因为，IPC机制本质上是可靠的通讯，而网络协议是为不可靠的通讯设计的。UNIX Domain Socket也提供面向流和面向数据包两种API接口，类似于TCP和UDP，但是面向消息的UNIX Domain Socket也是可靠的，消息既不会丢失也不会顺序错乱。
 
 UNIX Domain Socket是全双工的，API接口语义丰富，相比其它IPC机制有明显的优越性，目前已成为使用最广泛的IPC机制，比如X Window服务器和GUI程序之间就是通过UNIX Domain Socket通讯的。
 
@@ -660,13 +660,13 @@ UNIX Domain Socket与网络socket编程最明显的不同在于地址格式不�
 
 http://blog.csdn.net/htttw/article/details/7519971
   
-本文绝大部分是参考《Linux程序设计(第4版)》的第15章套接字
+本文绝大部分是参考《Linux程序设计(第4版)》的第15章 socket 
   
 服务器端的步骤如下: 
 
 1. socket:       建立一个socket
 
-2. bind:           将这个socket绑定在某个文件上（AF_UNIX) 或某个端口上（AF_INET) ，我们会分别介绍这两种。
+2. bind:           将这个socket绑定在某个文件上 (AF_UNIX) 或某个端口上 (AF_INET) ，我们会分别介绍这两种。
 
 3. listen:         开始监听
 
@@ -680,10 +680,10 @@ http://blog.csdn.net/htttw/article/details/7519971
 
 1. socket:       建立一个socket
   
-2. connect:    主动连接服务器端的某个文件（AF_UNIX) 或某个端口（AF_INET) 
+2. connect:    主动连接服务器端的某个文件 (AF_UNIX) 或某个端口 (AF_INET) 
 
 
-3. read/write: 如果服务器同意连接（accept) ，则读取或发送数据到服务器端
+3. read/write: 如果服务器同意连接 (accept) ，则读取或发送数据到服务器端
 
 4. close:         通信完成后关闭socket
   
@@ -692,7 +692,7 @@ http://blog.csdn.net/htttw/article/details/7519971
 Makefile: 
 
 
-[plain][/plain] 
+ 
 
 all: tcp_client.c tcp_server.c
   
@@ -865,7 +865,7 @@ int socket(int domain, int type, int protocol)
 
 domain: 指定socket所属的域，常用的是AF_UNIX或AF_INET
 
-AF_UNIX表示以文件方式创建socket，AF_INET表示以端口方式创建socket（我们会在后面详细讲解AF_INET) 
+AF_UNIX表示以文件方式创建socket，AF_INET表示以端口方式创建socket (我们会在后面详细讲解AF_INET) 
   
 type: 指定socket的类型，可以是SOCK_STREAM或SOCK_DGRAM
 
@@ -982,4 +982,4 @@ connect()函数成功时返回0，出错时返回-1
 
 int close(int fd)
 
-close是一个通用函数（和read，write一样) ，不仅可以关闭文件描述符，还可以关闭socket描述符
+close是一个通用函数 (和read，write一样) ，不仅可以关闭文件描述符，还可以关闭socket描述符

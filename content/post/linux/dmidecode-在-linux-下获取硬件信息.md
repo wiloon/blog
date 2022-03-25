@@ -26,7 +26,7 @@ emerge -av dmidecode # Gentoo
   
 ```
 
-不带选项执行 `dmidecode` 通常会输出所有的硬件信息，以下是在笔者机器上执行 dmidecode 后所得到的结果（部分) : 
+不带选项执行 `dmidecode` 通常会输出所有的硬件信息，以下是在笔者机器上执行 dmidecode 后所得到的结果 (部分) : 
 
 # dmidecode 2.10
 SMBIOS 2.3 present.

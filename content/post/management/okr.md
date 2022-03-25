@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## "OKR"
-## OKR（Objectives and Key Results)
+## OKR (Objectives and Key Results)
 
 [https://www.infoq.cn/profile/1218094/publish](https://www.infoq.cn/profile/1218094/publish "https://www.infoq.cn/profile/1218094/publish")
 
@@ -33,15 +33,15 @@ tags:
 * 分不清楚优先级 / 价值，总是被低优先级 / 价值的事情干扰
 * 被紧急的事情占用了太多时间，重要的事情没时间做
 
-《管理 3.0》（Jurgen Appelo) 中"激励员工"是其六大支柱之一，Jurgen 把内在动力总结为 10 个因素，我们称为"冠军蛙"CHAMP-FROGS: 
+《管理 3.0》 (Jurgen Appelo) 中"激励员工"是其六大支柱之一，Jurgen 把内在动力总结为 10 个因素，我们称为"冠军蛙"CHAMP-FROGS: 
 
-* Curiosity（好奇) : 思考的需要
-* Honor（荣誉) : 受团队尊重的需要
-* Acceptance（认可) : 被认同的需要
-* Mastery（能力) : 感到胜任的需要
-* Power（权力) : 有影响的需要
-* Freedom（自由) : 感受到独立的需要
-* Relatedness（关系) : 朋友的需要
-* Order（有序) : 稳定环境的需要
-* Goal（目的) : 意义的需要
-* Status（地位) : 社会地位的需要
+* Curiosity (好奇) : 思考的需要
+* Honor (荣誉) : 受团队尊重的需要
+* Acceptance (认可) : 被认同的需要
+* Mastery (能力) : 感到胜任的需要
+* Power (权力) : 有影响的需要
+* Freedom (自由) : 感受到独立的需要
+* Relatedness (关系) : 朋友的需要
+* Order (有序) : 稳定环境的需要
+* Goal (目的) : 意义的需要
+* Status (地位) : 社会地位的需要

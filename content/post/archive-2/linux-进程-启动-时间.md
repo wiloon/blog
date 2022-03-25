@@ -16,7 +16,7 @@ ps -p PID -o lstart
 
 http://www.linuxidc.com/Linux/2012-12/76143.htm
 
-在Linux下,如果需要查看进程的启动时间, 常用ps aux命令,但是ps aux命令的缺陷在于只能显示时间到年、日期、或者时间, 无法具体到年月日时分秒。如果需要查看某个进程的具体启动时间, 使用 ps -p PID -o lstart, 其中,PID为某个进程的进程ID号。
+在Linux下,如果需要查看进程的启动时间, 常用 ps aux 命令,但是 ps aux 命令的缺陷在于只能显示时间到年、日期、或者时间, 无法具体到年月日时分秒。如果需要查看某个进程的具体启动时间, 使用 ps -p PID -o lstart, 其中,PID为某个进程的进程ID号。
 
 如下所示, 显示系统中所有httpd进程的具体启动时间。
 

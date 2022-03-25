@@ -34,7 +34,7 @@ WAL(Write-Ahead-Log)预写日志是HBase的RegionServer在处理数据插入和�
 
 客户端往RegionServer端提交数据的时候,会先写WAL日志,只有当WAL日志写成功以后,客户端才会被告诉提交数据成功,如果写WAL失败会告知客户端提交失败,换句话说这其实是一个数据落地的过程。
   
-在一个RegionServer上的所有的Region都共享一个HLog,一次数据的提交是先写WAL,写入成功后,再写memstore。当memstore值到达一定是,就会形成一个个StoreFile（理解为HFile格式的封装,本质上还是以HFile的形式存储的) 。
+在一个RegionServer上的所有的Region都共享一个HLog,一次数据的提交是先写WAL,写入成功后,再写memstore。当memstore值到达一定是,就会形成一个个StoreFile (理解为HFile格式的封装,本质上还是以HFile的形式存储的) 。
 
 HLog类
 

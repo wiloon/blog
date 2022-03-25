@@ -24,7 +24,7 @@ java中Exception分为两类,一类是CheckException一类是UncheckException。
 
 一、CheckException和UnCheckException的区别: 
 
-1. 在编译的时候,java编译器会强制你处理CheckException,处理的方式有两种: 一种是抛出异常；另一种是捕获异常（常见的有ClassNotFoundException等) 。而对于UncheckException编译去则不需要你做任何处理,只是在运行时出现了该类异常,则会被抛出（常见的有: NullPointException,ArrayIndexOutofBoundException等) 。
+1. 在编译的时候,java编译器会强制你处理CheckException,处理的方式有两种: 一种是抛出异常；另一种是捕获异常 (常见的有ClassNotFoundException等) 。而对于UncheckException编译去则不需要你做任何处理,只是在运行时出现了该类异常,则会被抛出 (常见的有: NullPointException,ArrayIndexOutofBoundException等) 。
 
 2. Checked exception用来指示一种调用方能够直接处理的异常情况。而Runtime exception则用来指示一种调用方本身无法处理或恢复的程序错误。
 
@@ -34,9 +34,9 @@ throws是用来声明一个方法可能抛出的所有异常信息,而throw则�
 
 2.分别介绍
 
-throws: 用于声明异常,例如,如果一个方法里面不想有任何的异常处理,则在没有任何代码进行异常处理的时候,必须对这个方法进行声明有可能产生的所有异常（其实就是,不想自己处理,那就交给别人吧,告诉别人我会出现什么异常,报自己的错,让别人处理去吧) 。
+throws: 用于声明异常,例如,如果一个方法里面不想有任何的异常处理,则在没有任何代码进行异常处理的时候,必须对这个方法进行声明有可能产生的所有异常 (其实就是,不想自己处理,那就交给别人吧,告诉别人我会出现什么异常,报自己的错,让别人处理去吧) 。
 
-格式是: 方法名（参数) throws 异常类1,异常类2,.....
+格式是: 方法名 (参数) throws 异常类1,异常类2,.....
 
 Java代码
   
@@ -64,7 +64,7 @@ System.out.println("出发操作: "+m.div(10,2));
   
 }
   
-throw: 就是自己进行异常处理,处理的时候有两种方式,要么自己捕获异常（也就是try catch进行捕捉) ,要么声明抛出一个异常（就是throws 异常~~) 。注意: throw一旦进入被执行,程序立即会转入异常处理阶段,后面的语句就不再执行,而且所在的方法不再返回有意义的值！
+throw: 就是自己进行异常处理,处理的时候有两种方式,要么自己捕获异常 (也就是try catch进行捕捉) ,要么声明抛出一个异常 (就是throws 异常~~) 。注意: throw一旦进入被执行,程序立即会转入异常处理阶段,后面的语句就不再执行,而且所在的方法不再返回有意义的值！
 
 
 Java代码

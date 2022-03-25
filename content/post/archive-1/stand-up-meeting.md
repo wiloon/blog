@@ -10,9 +10,9 @@ tags:
   - reprint
 ---
 ## Daily Scrum, stand-up meeting, 站会
-日常站立会议（daily stand-up meeting) 是每天早上举行的短期会议。该活动起源于敏捷开发方法,在Scrum开发中很常见。日常站立会议一般用时五到十五分钟,有时候指代站立的早晨点名或每日例会。
+日常站立会议 (daily stand-up meeting) 是每天早上举行的短期会议。该活动起源于敏捷开发方法,在Scrum开发中很常见。日常站立会议一般用时五到十五分钟,有时候指代站立的早晨点名或每日例会。
 
-日常站立会议（daily stand-up meeting) 的目的是让每个团队成员回答以下三个问题: 
+日常站立会议 (daily stand-up meeting) 的目的是让每个团队成员回答以下三个问题: 
 
 1) What did I do yesterday? 你昨天做了什么？
   

@@ -19,9 +19,9 @@ Disruptor是一个用于在线程间通信的高效低延时的消息组件,它�
 
 虽然disruptor模式使用起来很简单,但是建立多个消费者以及它们之间的依赖关系需要的样板代码太多了。为了能快速又简单适用于99%的场景,我为Disruptor模式准备了一个简单的领域特定语言。例如,为建立一个消费者的"四边形模式": 
 
-（从Trisha Gee's excellent series explaining the disruptor pattern偷来的图片) 
+ (从Trisha Gee's excellent series explaining the disruptor pattern偷来的图片) 
 
-在这种情况下,只要生产者（P1) 将元素放到ring buffer上,消费者C1和C2就可以并行处理这些元素。但是消费者C3必须一直等到C1和C2处理完之后,才可以处理。在现实世界中的对应的案例就像: 在处理实际的业务逻辑（C3) 之前,需要校验数据（C1) ,以及将数据写入磁盘（C2) 。
+在这种情况下,只要生产者 (P1) 将元素放到ring buffer上,消费者C1和C2就可以并行处理这些元素。但是消费者C3必须一直等到C1和C2处理完之后,才可以处理。在现实世界中的对应的案例就像: 在处理实际的业务逻辑 (C3) 之前,需要校验数据 (C1) ,以及将数据写入磁盘 (C2) 。
 
 用原生的Disruptor语法来创建这些消费者的话代码如下: 
 
@@ -57,7 +57,7 @@ ProducerBarrier producerBarrier =
   
 ringBuffer.createProducerBarrier(consumer3);
   
-在以上这段代码中,我们不得不创建那些个handler（就是那些个MyBatchHandler实例) ,外加消费者屏障,BatchConsumer实例,然后在他们各自的线程中处理这些消费者。DSL能帮我们完成很多创建工作,最终的结果如下: 
+在以上这段代码中,我们不得不创建那些个handler (就是那些个MyBatchHandler实例) ,外加消费者屏障,BatchConsumer实例,然后在他们各自的线程中处理这些消费者。DSL能帮我们完成很多创建工作,最终的结果如下: 
 
 Executor executor = Executors.newCachedThreadPool();
   

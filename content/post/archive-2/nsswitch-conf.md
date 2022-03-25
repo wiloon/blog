@@ -20,7 +20,7 @@ http://lsscto.blog.51cto.com/779396/904078
   
 原创作品,允许转载,转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。http://songzai.blog.51cto.com/52048/59678
   
-nsswitch.conf是SUN公司开发的一种扩充（name services switch) 
+nsswitch.conf是SUN公司开发的一种扩充 (name services switch) 
   
 DESCRIPTION
   

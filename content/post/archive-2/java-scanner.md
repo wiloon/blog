@@ -70,7 +70,7 @@ Process finished with exit code 0
 
 二、如果说Scanner使用简便,不如说Scanner的构造器支持多种方式,构建Scanner的对象很方便。
 
-可以从字符串（Readable) 、输入流、文件等等来直接构建Scanner对象,有了Scanner了,就可以逐段（根据正则分隔式) 来扫描整个文本,并对扫描后的结果做想要的处理。
+可以从字符串 (Readable) 、输入流、文件等等来直接构建Scanner对象,有了Scanner了,就可以逐段 (根据正则分隔式) 来扫描整个文本,并对扫描后的结果做想要的处理。
 
 三、Scanner默认使用空格作为分割符来分隔文本,但允许你指定新的分隔符
 

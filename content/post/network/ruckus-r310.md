@@ -29,8 +29,8 @@ LED状态灯
 我们拿一台 Ruckus 2942 AP 来讲解。这个型号已经停产,而且是单频 2.4GHz AP,但是 LED 灯的状态和含义都是相同的。真正的原因是我不想重新做图,懒。
 
 OPT- 没用,永远不亮。有些新的型号已经取消了OPT灯
-WLAN- 现在基本上都是双频AP,所以不再有WLAN灯,取而代之的是2.4G和5G灯。有以下几种状态（胖AP只会出现前3种) : 
-灭- 表示WLAN服务没有启用（默认情况下WLAN服务是关闭的) 
+WLAN- 现在基本上都是双频AP,所以不再有WLAN灯,取而代之的是2.4G和5G灯。有以下几种状态 (胖AP只会出现前3种) : 
+灭- 表示WLAN服务没有启用 (默认情况下WLAN服务是关闭的) 
 橙色长亮- 表示WLAN服务已经开启,但是没有客户端连接到Radio
 绿色长亮- 表示WLAN服务已经开启,并且已经有客户端连接到Radio
 绿色慢闪- 表示AP是Mesh AP,WLAN服务已经开启,但是没有客户端连接到Radio
@@ -39,12 +39,12 @@ DIR- 控制器管理状态灯,有以下几种状态:
 灭- AP是胖AP,没有被控制器管理
 绿色长亮- AP是瘦AP,并且已经和控制器同步
 绿色快闪 AP是瘦AP,正在和控制器同步,或者正在更新固件
-绿色慢闪 AP是瘦AP,正在寻找控制器（如果一直处于这种状态,就要检查网络连通性) 
+绿色慢闪 AP是瘦AP,正在寻找控制器 (如果一直处于这种状态,就要检查网络连通性) 
 AIR- Mesh上行链路状态灯,有些型号的双频AP没有AIR灯,用5G灯来充当AIR灯的功能: 
 
 灭- AP是Root AP,或者Mesh被禁用
 绿色长亮- Mesh上行链路良好
-绿色快闪- Mesh上行链路不佳（此时需要检查干扰情况,或者调整AP的位置和间距) 
+绿色快闪- Mesh上行链路不佳 (此时需要检查干扰情况,或者调整AP的位置和间距) 
 绿色慢闪- Mesh上行链路不存在,AP没有找到Root AP
 红色 AP硬件损坏
 NOTE1: Mesh技术介绍 http://baike.baidu.com/view/1215700.htm
@@ -73,7 +73,7 @@ Configuration–>Device可以更改AP的用户名和密码:
 
 
 更改AP的IP地址/设置PPPoE拨号
-Configuration–>Internet可以更改AP的IP地址。作为胖AP,IP地址当然要static,不过你也可以让AP直接PPPoE拨号（9.3以上的固件版本支持PPPoE) ,把它当路由器来用。
+Configuration–>Internet可以更改AP的IP地址。作为胖AP,IP地址当然要static,不过你也可以让AP直接PPPoE拨号 (9.3以上的固件版本支持PPPoE) ,把它当路由器来用。
 
 
 设置Radio
@@ -95,7 +95,7 @@ Configuration–>Radio 2.4G 或者 Radio 5G,分别设置2个频段的Radio参数
 
 点击Rate Limiting右边的按钮,可以按每客户端做上行和下行限速。点击Access Control右边的按钮,可以创建L2 MAC访问控制列表。
 
-关键的地方来了,设置包转发模式Packet Forward。默认的包转发模式是桥接Bridge,也就是说,把AP当作一个支持VLAN的2层交换机来用。Access VLAN右边的文本框中,填写这个SSID需要绑定的VLAN,相当于在交换机上配置access端口。默认是1,也就是把AP当作一个傻交换机来用,相当于你在交换机上啥也不做（交换机端口默认就是access vlan 1) 。按照我的经验,很多人都对这个部分感到很困惑。如果要深入的讲,需要另写一篇长文。所以还是算了。
+关键的地方来了,设置包转发模式Packet Forward。默认的包转发模式是桥接Bridge,也就是说,把AP当作一个支持VLAN的2层交换机来用。Access VLAN右边的文本框中,填写这个SSID需要绑定的VLAN,相当于在交换机上配置access端口。默认是1,也就是把AP当作一个傻交换机来用,相当于你在交换机上啥也不做 (交换机端口默认就是access vlan 1) 。按照我的经验,很多人都对这个部分感到很困惑。如果要深入的讲,需要另写一篇长文。所以还是算了。
 
 NOTE: 对于Ruckus设备,AC也好,AP也好,只要有设置 Access VLAN的地方,如果是1,就说明在上行端口不封装802.1q Tag；如果是大于1的任何数值,就说明在上行端口需要封装802.1q Tag
 
@@ -107,7 +107,7 @@ NOTE: 对于Ruckus设备,AC也好,AP也好,只要有设置 Access VLAN的地方,
 注意,这里的Access VLAN我填了30。其实,如果你只有1个SSID,这里填1也是可以的,但是这台AP的DHCP Server会影响到有线网络的其它主机,所以最好不要填1。
 
 设置路由模式的WLAN/SSID
-下面我用5G的Wireless9来创建一个路由模式的SSID。如下图,在Packet Forward下拉菜单中选择“Local Subnet NAT and Route to WAN”,下面就会自动出现Local Subnet菜单。然后在Local Subnet菜单中,绑定刚才建立的Local Subnet（即3层接口) 。
+下面我用5G的Wireless9来创建一个路由模式的SSID。如下图,在Packet Forward下拉菜单中选择“Local Subnet NAT and Route to WAN”,下面就会自动出现Local Subnet菜单。然后在Local Subnet菜单中,绑定刚才建立的Local Subnet (即3层接口) 。
 
 
 高级设置
@@ -125,7 +125,7 @@ NOTE: 一般的Ruckus中高端AP都有2个以太网端口,你需要先看右边�
 设置交换机以太网端口
 交换机连接AP的那个以太网端口同样要设置Trunk,但要注意的是,它还要设置Native VLAN/PVLAN。例如,我们之前创建了一个VLAN10的SSID,还创建了一个VLAN20的SSID。同时,AP本身还有一个管理IP在VLAN100。那么交换机端口需要做以下配置: 
 
-Cisco交换机端口配置（默认allow vlan all,建议配置vlan修剪) : 
+Cisco交换机端口配置 (默认allow vlan all,建议配置vlan修剪) : 
 interface ...
   switchport mode trunk
   switchport trunk native vlan 100
@@ -143,7 +143,7 @@ vlan 20 tag ...
 Ruckus胖AP同样支持网页认证,Configuration–>Hotspot,设置Portal和Radius的各项参数: 
 
 
-More Options可以设置一些认证的高级参数,例如MAC地址认证,宽限期（在宽限期内,如果用户下线再上线,不需要重新认证) : 
+More Options可以设置一些认证的高级参数,例如MAC地址认证,宽限期 (在宽限期内,如果用户下线再上线,不需要重新认证) : 
 
 
 Walled Garden围墙花园,设置用户在完成认证之前可以访问的网络资源。围墙花园必须设置,必须允许Radius Server和Portal Server的IP或域名,如果还有短信认证,还要允许短信网关的IP: 
@@ -166,7 +166,7 @@ Maintenance–>Upgrade,选择Local本地升级,点击浏览按钮选择固件,�
 NOTE: 9.5以前的版本,如果通过网页升级AP,有可能会失败。不过这个Bug已经被修复,所以我就不用介绍怎样通过CLI升级AP了。
 
 Ruckus AP固件平台介绍
-Ruckus AP是胖瘦一体的,而且还是多平台的。通过更换固件在不同的平台间切换。请看下图,3.x.x.x.x的版本号是SCG/SZ平台的固件（不支持胖AP) ,9.x.x.x.x的版本号是ZD平台的固件（支持胖AP) ,100.x.x.x.x是ZD/SCG/SZ通用的固件（支持胖AP) ,200.x.x.x.x是Unleash（25台AP以内不需要控制器,可以自组网) 平台的固件。
+Ruckus AP是胖瘦一体的,而且还是多平台的。通过更换固件在不同的平台间切换。请看下图,3.x.x.x.x的版本号是SCG/SZ平台的固件 (不支持胖AP) ,9.x.x.x.x的版本号是ZD平台的固件 (支持胖AP) ,100.x.x.x.x是ZD/SCG/SZ通用的固件 (支持胖AP) ,200.x.x.x.x是Unleash (25台AP以内不需要控制器,可以自组网) 平台的固件。
 
 
 重启/Reset AP

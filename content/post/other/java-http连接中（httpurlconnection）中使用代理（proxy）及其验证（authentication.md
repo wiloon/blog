@@ -1,5 +1,5 @@
 ---
-title: Java Http连接中（HttpURLConnection) 中使用代理（Proxy) 及其验证（Authentication) 
+title: Java Http连接中 (HttpURLConnection) 中使用代理 (Proxy) 及其验证 (Authentication) 
 author: "-"
 date: 2012-09-27T02:11:49+00:00
 url: /?p=4338
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## Java Http连接中（HttpURLConnection) 中使用代理（Proxy) 及其验证（Authentication)
+## Java Http连接中 (HttpURLConnection) 中使用代理 (Proxy) 及其验证 (Authentication)
 ```java
 
 System.setProperty("http.proxyHost", "www.proxy.com");
@@ -18,11 +18,11 @@ System.setProperty("http.proxyPort", "8080");
 
 ```
 
-使用Java的HttpURLConnection类可以实现HttpClient的功能，而不需要依赖任何其他类库。所有有时候大家就直接使用它来完成一些简单（或复杂) 的功能。但是你活在伟大的{print G.F.W}后面，如果你需要访问的网站被墙了，那HttpURLConnection类就会出现连接超时的错误。这时候就需要给他设置代理（Proxy) 了。
+使用Java的HttpURLConnection类可以实现HttpClient的功能，而不需要依赖任何其他类库。所有有时候大家就直接使用它来完成一些简单 (或复杂) 的功能。但是你活在伟大的{print G.F.W}后面，如果你需要访问的网站被墙了，那HttpURLConnection类就会出现连接超时的错误。这时候就需要给他设置代理 (Proxy) 了。
 
 
   
-          设置代理（Proxy) 可以有两种方式: 
+          设置代理 (Proxy) 可以有两种方式: 
   
   
     1、通过设置系统属性(System.setPropery(String key, String value)的方式

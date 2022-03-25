@@ -16,7 +16,7 @@ https://colobu.com/2015/10/09/Linux-Signals/
 当信号发送到某个进程中时，操作系统会中断该进程的正常流程，并进入相应的信号处理函数执行操作，完成后再回到中断的地方继续执行。
 如果目标进程先前注册了某个信号的处理程序(signal handler),则此处理程序会被调用，否则缺省的处理程序被调用。
 
-```golang
+```go
 signals := make(chan os.Signal)
   signal.Notify(signals, os.Interrupt, os.Kill, syscall.SIGTERM)
   // ...

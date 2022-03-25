@@ -15,7 +15,7 @@ Ubuntu(Debian)的aptitude与apt-get的区别和联系
 
 起初GNU/Linux系统中只有.tar.gz。用户 必须自己编译他们想使用的每一个程序。在Debian出现之後，人们认为有必要在系统 中添加一种机 制用来管理 安装在计算机上的软件包。人们将这套系统称为dpkg。至此着名的‘package’首次在GNU/Linux上出现。不久之後红帽子也开始着 手建立自己的包管理系统 ‘rpm’。
 
-GNU/Linux的创造者们很快又陷入了新的窘境。他们希望通过一种快捷、实用而且高效的方式来安装软件包。这些软件包可以自动处理相互之间 的依赖关系，并且在升级过程中维护他们的配置文件 。Debian又一次充当了开路先锋的角色。她首创了APT（Advanced Packaging Tool) 。这一工具後来被Conectiva 移植到红帽子系统中用于对rpm包的管理。在其他一些发行版中我们也能看到她的身影。
+GNU/Linux的创造者们很快又陷入了新的窘境。他们希望通过一种快捷、实用而且高效的方式来安装软件包。这些软件包可以自动处理相互之间 的依赖关系，并且在升级过程中维护他们的配置文件 。Debian又一次充当了开路先锋的角色。她首创了APT (Advanced Packaging Tool) 。这一工具後来被Conectiva 移植到红帽子系统中用于对rpm包的管理。在其他一些发行版中我们也能看到她的身影。
 
 “同时，apt是一个很完整和先进的软件包管理程序，使用它可以让你，又简单，又准确的找到你要的的软件包， 并且安装或卸载都很简洁。 它还可以让你的所有软件都更新到最新状态，而且也可以用来对ubuntu 进行升级。”
 
@@ -27,11 +27,11 @@ GNU/Linux的创造者们很快又陷入了新的窘境。他们希望通过一�
 
 * apt-get update——在修改/etc/apt/sources.list或者/etc/apt/preferences之後运行该命令。此外您需要定期运行这一命令以确保您的软件包列表是最新的。
 
-* apt-get install packagename——安装一个新软件包（参见下文的aptitude ) 
+* apt-get install packagename——安装一个新软件包 (参见下文的aptitude ) 
 
-* apt-get remove packagename——卸载一个已安装的软件包（保留配置文件) 
+* apt-get remove packagename——卸载一个已安装的软件包 (保留配置文件) 
 
-* apt-get –purge remove packagename——卸载一个已安装的软件包（删除配置文件) 
+* apt-get –purge remove packagename——卸载一个已安装的软件包 (删除配置文件) 
 
 * dpkg –force-all –purge packagename 有些软件很难卸载，而且还阻止了别的软件的应用 ，就可以用这个，不过有点冒险。
 
@@ -61,7 +61,7 @@ GNU/Linux的创造者们很快又陷入了新的窘境。他们希望通过一�
 
 * dpkg -L package——列出软件包中的所有文件。
 
-* apt-file search filename——查找包含特定文件的软件包（不一定是已安装的) ，这些文件的文件名中含有指定的字符串。apt-file是一个独立的软件包。您必须先使用apt-get install来安装它，然後运行apt-file update。如果apt-file search filename输出的内容太多，您可以尝试使用apt-file search filename | grep -w filename（只显示指定字符串作为完整的单词出现在其中的那些文件名) 或者类似方法，例如: apt-file search filename | grep /bin/（只显示位于诸如/bin或/usr/bin这些文件夹中的文件，如果您要查找的是某个特定的执行文件的话，这样做是有帮助的) 。
+* apt-file search filename——查找包含特定文件的软件包 (不一定是已安装的) ，这些文件的文件名中含有指定的字符串。apt-file是一个独立的软件包。您必须先使用apt-get install来安装它，然後运行apt-file update。如果apt-file search filename输出的内容太多，您可以尝试使用apt-file search filename | grep -w filename (只显示指定字符串作为完整的单词出现在其中的那些文件名) 或者类似方法，例如: apt-file search filename | grep /bin/ (只显示位于诸如/bin或/usr/bin这些文件夹中的文件，如果您要查找的是某个特定的执行文件的话，这样做是有帮助的) 。
 
 ＊ apt-get autoclean——定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，您可以释放大量的磁盘空间。如果您的需求十分迫切，可以使用apt-get clean以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。大多数情况下您不会再用到这些.debs文件，因此如果您为磁盘空间不足而感到焦头烂额，这个办法也许值得一试。
 
@@ -88,7 +88,7 @@ apt-get remove –purge torcs
 额外的软件包
 deborphan和debfoster工具可以找出已经安装在系统上的不会被用到的软件包。
 提高命令行方式下的工作效率
-您可以通过定义别名（alias) 来提高这些命令的输入速度。例如，您可以在您的*~/.bashrc*文件中添加下列内容
+您可以通过定义别名 (alias) 来提高这些命令的输入速度。例如，您可以在您的*~/.bashrc*文件中添加下列内容
 
 alias acs=’apt-cache search’
 alias agu=’sudo apt-get update’
@@ -121,8 +121,8 @@ aptitude autoclean 仅删除过期的包文件
 有的问题 apt-get 解决不了，必须使用 aptitude 解决，有的问题，用 aptitude 解决不了，必须使用 apt-get
 
 
-aptitude 解决得更好的地方:  install, remove, reinstall（apt-get无此功能) , show（apt-get无此功能) , search（apt-get无此功能) , hold（apt-get无此功能) , unhold（apt-get无此功能) , 
-apt-get 解决得更好的地方:  source（aptitude无此功能) , build-dep （低版本的aptitude没有build-dep功能) 
+aptitude 解决得更好的地方:  install, remove, reinstall (apt-get无此功能) , show (apt-get无此功能) , search (apt-get无此功能) , hold (apt-get无此功能) , unhold (apt-get无此功能) , 
+apt-get 解决得更好的地方:  source (aptitude无此功能) , build-dep  (低版本的aptitude没有build-dep功能) 
 apt-get 跟 aptitude 没什么区别的地方: update, upgrade (apt-get upgrade=aptitude safe-upgrade, apt-get dist-upgrade=aptitude full-upgrgade)
 
 

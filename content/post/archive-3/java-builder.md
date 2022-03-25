@@ -40,7 +40,7 @@ public Student(int id, String name, float height, float weight) {}
   
 public Student(int id, String name, float height) {} //只填身高
   
-public Student(int id, String name, float weight) {} //只填体重（签名重复，无法重载) 
+public Student(int id, String name, float weight) {} //只填体重 (签名重复，无法重载) 
   
 虽然最后两个构造方法参数名不同，但是它们类型相同，方法签名也就相同，因此没办法重载，只能保留一个。
 
@@ -78,7 +78,7 @@ self.age = age
           
 self.sex = sex
   
-其中 self 和 Java 中的 this 类似，指代当前对象。我们将必须的参数写在前面，将可选参数写在后面（通过给参数赋默认值的方式来表示该参数是可选参数) 。
+其中 self 和 Java 中的 this 类似，指代当前对象。我们将必须的参数写在前面，将可选参数写在后面 (通过给参数赋默认值的方式来表示该参数是可选参数) 。
 
 当我们创建 Person 对象时，可以有以下几种写法: 
 
@@ -100,7 +100,7 @@ Python 在语言层面已经有了很优雅的解决方法，而 Java 语言层�
 
 但是，这种方式相当于将对象的创建过程拆分成了很多步骤，对象在这个创建过程中暴露给了外界，却又尚未创建完毕，导致其处于一种不连续的状态，在多线程环境下存在风险。
 
-此外，很多时候我们需要创建不可变的对象（immutable object) ，这种方法由于允许随时改变对象的属性，因此没办法保证对象的不可变。
+此外，很多时候我们需要创建不可变的对象 (immutable object) ，这种方法由于允许随时改变对象的属性，因此没办法保证对象的不可变。
 
 为了解决这一问题，就有了 Builder 模式。
 
@@ -241,7 +241,7 @@ Customer customer = new Customer.Builder("Tom", 13999999999L, "北京市XXX")
 
 协变返回类型
   
-协变返回类型（Covariant Return Type) ，指的是当一个类被继承之后，该类中方法的返回类型变成子类对应的类型，这个改变后的返回类型就叫协变返回类型。
+协变返回类型 (Covariant Return Type) ，指的是当一个类被继承之后，该类中方法的返回类型变成子类对应的类型，这个改变后的返回类型就叫协变返回类型。
 
 以 Java 中的 Object.clone() 方法为例，该方法在 Object 类中返回的类型是 Object 类型。我们知道，所有类都继承自 Object 类，所以我们在定义类时可以覆写类中的 clone() 方法: 
 
@@ -330,7 +330,7 @@ return (Builder) super.age(age);
 
 使用泛型模拟子类的自身类型
   
-我们可以利用 Java 中的泛型，来模拟子类的自身类型（self-type) 。
+我们可以利用 Java 中的泛型，来模拟子类的自身类型 (self-type) 。
 
 也就是说，我们想要在定义父类 Builder 时所指定的返回类型，可以在该类被继承时，自动变成子类的自身类型。
 

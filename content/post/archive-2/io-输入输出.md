@@ -39,8 +39,8 @@ Unix 5种I/O模型
 
 非阻塞式I/O；
 
-I/O复用（select,poll,epoll...) ；
+I/O复用 (select,poll,epoll...) ；
 
-信号驱动式I/O（SIGIO) ；
+信号驱动式I/O (SIGIO) ；
 
-异步I/O（POSIX的 aio 系列函数
+异步I/O (POSIX的 aio 系列函数

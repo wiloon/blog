@@ -37,7 +37,7 @@ PE文件种类如下表所示：
 驱动程序系列	SYS, VXD
 对象文件系列	OBJ
 
-在Windows下所谓PE文件即Portable Executable，意为可移植的可执行的文件。常见的.EXE、.DLL、.OCX、.SYS、.COM都是PE文件。PE文件有一个共同特点：前两个字节为4D 5A（MZ）。如果一个文件前两个字节不是4D 5A则其肯定不是可执行文件。比如用16进制文本编辑器打开一个“.xls”文件其前两个字节为：0XD0 0XCF；打开一个“.pdf”其前两个字节为：0X25 0X50。
+在Windows下所谓PE文件即Portable Executable，意为可移植的可执行的文件。常见的.EXE、.DLL、.OCX、.SYS、.COM都是PE文件。PE文件有一个共同特点：前两个字节为4D 5A (MZ）。如果一个文件前两个字节不是4D 5A则其肯定不是可执行文件。比如用16进制文本编辑器打开一个“.xls”文件其前两个字节为：0XD0 0XCF；打开一个“.pdf”其前两个字节为：0X25 0X50。
 ————————————————
 版权声明：本文为CSDN博主「Apollon_krj」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/Apollon_krj/article/details/77069342
@@ -45,9 +45,9 @@ PE文件种类如下表所示：
 >https://www.ascotbe.com/2020/03/23/PortableExecutable/
 
 
-### ELF（Executable Linkable Format）
+### ELF (Executable Linkable Format）
 
-ELF（Executable Linkable Format）：linux下的可执行文件格式，按照ELF格式编写的文件包括：.so、.a等
+ELF (Executable Linkable Format）：linux下的可执行文件格式，按照ELF格式编写的文件包括：.so、.a等
 
 ### Mach-O
 Mach-O：IOS／MacOS下可执行文件格式，平时常见的.app或者ipa只是zip压缩包并非可执行文件，可执行文件在压缩包中。在mac下使用file命令打印任意可执行文件便可以看到如下内容：

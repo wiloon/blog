@@ -47,6 +47,6 @@ http://my.eoe.cn/1177576/archive/10575.html
 
 
 
-APK Protect(http://www.apkprotect.com/)是一个在线对APK程序进行加密的网站,可以支持Java和C+ +语言的保护,能达到反调试、反编译的效果,操作过程简单易用: 仅需上传你的APK,选择加密项目,等待服务器加密（通常一两个小时左右) 后即可下载加壳的APK,然后再签名上传到应用市场即可。经测试,通过APK Protect加密的APK变得非常难以破解,从而保护了APK。
+APK Protect(http://www.apkprotect.com/)是一个在线对APK程序进行加密的网站,可以支持Java和C+ +语言的保护,能达到反调试、反编译的效果,操作过程简单易用: 仅需上传你的APK,选择加密项目,等待服务器加密 (通常一两个小时左右) 后即可下载加壳的APK,然后再签名上传到应用市场即可。经测试,通过APK Protect加密的APK变得非常难以破解,从而保护了APK。
 
 from eoe.cn

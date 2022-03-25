@@ -104,8 +104,8 @@ timestamp.toLocalDateTime();
 ### Java8中计算日期时间差
 在Java8中,我们可以使用以下类来计算日期时间差异: 
   
-1. Period:  主要是Period类方法getYears（) ,getMonths（) 和getDays（) 来计算.
-2. Duration:  提供了使用基于时间的值（如秒,纳秒) 测量时间量的方法。
+1. Period:  主要是Period类方法getYears () ,getMonths () 和getDays () 来计算.
+2. Duration:  提供了使用基于时间的值 (如秒,纳秒) 测量时间量的方法。
 3. ChronoUnit:  ChronoUnit类可用于在单个时间单位内测量一段时间,例如天数或秒。
 
 #### java 8中的周期类Period
@@ -130,7 +130,7 @@ public static void calculateTimeDifferenceByPeriod(int year, Month month, int da
 ```
 
 #### Duration类
-Duration与Period相对应,Period用于处理日期,而Duration计算时间差还可以处理具体的时间,也是通过调用其静态的between方法,该方法的签名是between(Temporal startInclusive, Temporal endExclusive),因此可以传入两个Instant的实例（Instant实现了Temporal接口) ,并可以以毫秒（toMillis) 、秒（getSeconds) 等多种形式表示得到的时间差
+Duration与Period相对应,Period用于处理日期,而Duration计算时间差还可以处理具体的时间,也是通过调用其静态的between方法,该方法的签名是between(Temporal startInclusive, Temporal endExclusive),因此可以传入两个Instant的实例 (Instant实现了Temporal接口) ,并可以以毫秒 (toMillis) 、秒 (getSeconds) 等多种形式表示得到的时间差
 
 ```java
 public static void calculateTimeDifferenceByDuration() {
@@ -152,7 +152,7 @@ Java 8新的时间日期库的20个使用示例
 
 Published: 17 Mar 2015 Category: java
   
-除了lambda表达式,stream以及几个小的改进之外,Java 8还引入了一套全新的时间日期API,在本篇教程中我们将通过几个简单的任务示例来学习如何使用Java 8的这套API。Java对日期,日历及时间的处理一直以来都饱受诟病,尤其是它决定将java.util.Date定义为可修改的以及将SimpleDateFormat实现成非线程安全的。看来Java已经意识到需要为时间及日期功能提供更好的支持了,这对已经习惯使用Joda时间日期库的社区而言也是件好事。关于这个新的时间日期库的最大的优点就在于它定义清楚了时间日期相关的一些概念,比方说,瞬时时间（Instant) ,持续时间（duration) ,日期（date) ,时间（time) ,时区（time-zone) 以及时间段（Period) 。同时它也借鉴了Joda库的一些优点,比如将人和机器对时间日期的理解区分开的。Java 8仍然延用了ISO的日历体系,并且与它的前辈们不同,java.time包中的类是不可变且线程安全的。新的时间及日期API位于java.time包中,下面是里面的一些关键的类: 
+除了lambda表达式,stream以及几个小的改进之外,Java 8还引入了一套全新的时间日期API,在本篇教程中我们将通过几个简单的任务示例来学习如何使用Java 8的这套API。Java对日期,日历及时间的处理一直以来都饱受诟病,尤其是它决定将java.util.Date定义为可修改的以及将SimpleDateFormat实现成非线程安全的。看来Java已经意识到需要为时间及日期功能提供更好的支持了,这对已经习惯使用Joda时间日期库的社区而言也是件好事。关于这个新的时间日期库的最大的优点就在于它定义清楚了时间日期相关的一些概念,比方说,瞬时时间 (Instant) ,持续时间 (duration) ,日期 (date) ,时间 (time) ,时区 (time-zone) 以及时间段 (Period) 。同时它也借鉴了Joda库的一些优点,比如将人和机器对时间日期的理解区分开的。Java 8仍然延用了ISO的日历体系,并且与它的前辈们不同,java.time包中的类是不可变且线程安全的。新的时间及日期API位于java.time包中,下面是里面的一些关键的类: 
 
 Instant——它代表的是时间戳
   
@@ -231,7 +231,7 @@ today 2014-01-14 and date1 2014-01-14 are same date
 
 示例5 在Java 8中如何检查重复事件,比如说生日
 
-在Java中还有一个与时间日期相关的实际任务就是检查重复事件,比如说每月的帐单日,结婚纪念日,每月还款日或者是每年交保险费的日子。如果你在一家电商公司工作的话,那么肯定会有这么一个模块,会去给用户发送生日祝福并且在每一个重要的假日给他们捎去问候,比如说圣诞节,感恩节,在印度则可能是万灯节（Deepawali) 。如何在Java中判断是否是某个节日或者重复事件？使用MonthDay类。这个类由月日组合,不包含年信息,也就是说你可以用它来代表每年重复出现的一些日子。当然也有一些别的组合,比如说YearMonth类。它和新的时间日期库中的其它类一样也都是不可变且线程安全的,并且它还是一个值类（value class) 。我们通过一个例子来看下如何使用MonthDay来检查某个重复的日期: 
+在Java中还有一个与时间日期相关的实际任务就是检查重复事件,比如说每月的帐单日,结婚纪念日,每月还款日或者是每年交保险费的日子。如果你在一家电商公司工作的话,那么肯定会有这么一个模块,会去给用户发送生日祝福并且在每一个重要的假日给他们捎去问候,比如说圣诞节,感恩节,在印度则可能是万灯节 (Deepawali) 。如何在Java中判断是否是某个节日或者重复事件？使用MonthDay类。这个类由月日组合,不包含年信息,也就是说你可以用它来代表每年重复出现的一些日子。当然也有一些别的组合,比如说YearMonth类。它和新的时间日期库中的其它类一样也都是不可变且线程安全的,并且它还是一个值类 (value class) 。我们通过一个例子来看下如何使用MonthDay来检查某个重复的日期: 
 
 LocalDate dateOfBirth = LocalDate.of(2010, 01, 14);
   
@@ -601,7 +601,7 @@ ZonedDateTime – 这是一个带时区的完整时间,它根据UTC/格林威治
   
 时区指的是地球上共享同一标准时间的地区。每个时区都有一个唯一标识符,同时还有一个地区/城市(Asia/Tokyo)的格式以及从格林威治时间开始的一个偏移时间。比如说,东京的偏移时间就是+09:00。
   
-OffsetDateTime类实际上包含了LocalDateTime与ZoneOffset。它用来表示一个包含格林威治时间偏移量（+/-小时: 分,比如+06:00或者 -08: 00) 的完整的日期（年月日) 及时间（时分秒,纳秒) 。
+OffsetDateTime类实际上包含了LocalDateTime与ZoneOffset。它用来表示一个包含格林威治时间偏移量 (+/-小时: 分,比如+06:00或者 -08: 00) 的完整的日期 (年月日) 及时间 (时分秒,纳秒) 。
   
 DateTimeFormatter类用于在Java中进行日期的格式化与解析。与SimpleDateFormat不同,它是不可变且线程安全的,如果需要的话,可以赋值给一个静态变量。DateTimeFormatter类提供了许多预定义的格式器,你也可以自定义自己想要的格式。当然了,根据约定,它还有一个parse()方法是用于将字符串转换成日期的,如果转换期间出现任何错误,它会抛出DateTimeParseException异常。类似的,DateFormatter类也有一个用于格式化日期的format()方法,它出错的话则会抛出DateTimeException异常。
   
@@ -761,7 +761,7 @@ LocalDate.parse("2016-01-31");
   
     时间格式: 
 
-//世界标准时间,其中T表示时分秒的开始（或者日期与时间的间隔) ,Z表示这是一个世界标准时间
+//世界标准时间,其中T表示时分秒的开始 (或者日期与时间的间隔) ,Z表示这是一个世界标准时间
   
 2017-12-13T01:47:07.081Z
 

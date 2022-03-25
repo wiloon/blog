@@ -23,7 +23,7 @@ List<String> result = Arrays.asList(str.split(","));
 String str = "a, b, c";
 List<String> result = Splitter.on(",").trimResults().splitToList(str);
 
-方法 3:  利用Apache Commons的StringUtils （只是用了split)
+方法 3:  利用Apache Commons的StringUtils  (只是用了split)
 String str = "a,b,c";
 List<String> result = Arrays.asList(StringUtils.split(str,","));
 

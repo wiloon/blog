@@ -16,7 +16,7 @@ Java语言中goto是保留关键字，没有goto语句，也没有任何使用go
 
 Java中也可在特定情况下，通过特定的手段，来实现goto的功能。显然Java不愿意开发者随意跳转程序。下面解释两个特定: 
 
-特定情况: 只有在循环体内，比如for、while语句（含do...while语句) 中。
+特定情况: 只有在循环体内，比如for、while语句 (含do...while语句) 中。
 
 特定手段: 语句标签和循环控制关键字break、continue，语法格式是: break/continue 语句标签。
 
@@ -158,7 +158,7 @@ default:
 
 }
 
-switch(intval){...}语句中，小括号中intvar是一个整数条件因子变量，这个变量只能为: byte、char、short、int和enum（枚举类型) 几种类型，本质上都是整形数字。intval是匹配的条件因子值，当匹配时，执行其下的语句。其中所有的break语句都是可选的。当执行了break语句后，就跳出整个switch语句，否则，还会继续往下匹配别的条件。当intvar不能匹配所有的给定条件值时候，就执行default语句，如果没有default语句，则跳出switch语句。
+switch(intval){...}语句中，小括号中intvar是一个整数条件因子变量，这个变量只能为: byte、char、short、int和enum (枚举类型) 几种类型，本质上都是整形数字。intval是匹配的条件因子值，当匹配时，执行其下的语句。其中所有的break语句都是可选的。当执行了break语句后，就跳出整个switch语句，否则，还会继续往下匹配别的条件。当intvar不能匹配所有的给定条件值时候，就执行default语句，如果没有default语句，则跳出switch语句。
 
 switch语句的条件因子变量只能作为整型数字或者字符型、枚举类型，这个限制太严格了，使得switch语句的实际用途不是很大。
 

@@ -136,7 +136,7 @@ script-security 3 execve
   
 如果没有这个的话,会有个很神奇的现象,就是账号可以传过来,但是密码获取不到,可以在登录日志里查看日志！！！
 
-如果客户端需要记住账号/密码,可以在客户端配置里设置: （Tunnelblick试过不好使) 
+如果客户端需要记住账号/密码,可以在客户端配置里设置:  (Tunnelblick试过不好使) 
 
 auth-user-pass login.conf
   

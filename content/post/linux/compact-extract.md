@@ -11,11 +11,11 @@ tags:
 
 ---
 ## compact/extract 压缩/解压
-### 解压多个文件
+## 解压多个文件
     ls *.gz|xargs -t -n1 gunzip
     gunzip *.gz
 
-### .rar
+## .rar
     # 解压
     unrar x foo.rar
     # 压缩
@@ -23,7 +23,7 @@ tags:
     # 解压
     rar a FileName.rar
 
-### .gz
+## .gz
     # 压缩
     gzip FileName
     # 解压1
@@ -35,7 +35,7 @@ tags:
 ```bash
 gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
 ```
-### .7z
+## .7z
 ```bash
     yum install p7zip
     pacman -S p7zip
@@ -44,7 +44,7 @@ gunzip -c /data/tmp/foo.tar.gz | tar xf - -C /data/server/bar
     7z x filename.7z
 ```
 
-### .zip
+## .zip
 ```bash
 pacman -S zip unzip
 ```
@@ -92,7 +92,7 @@ find . -maxdepth 1 -mtime -4 -type f  -name "*.zip"|xargs -t -n1 unzip
 unzip /path/to/source.zip -d /path/to/target/path
 ```
 
-### Zstandard, zstd
+## Zstandard, zstd
 ```bash
 # zstd 不能压缩目录, -r参数会把目录里的文件压缩成单独的文件
 
@@ -123,15 +123,9 @@ zstd -T0 foo.txt
 # --rm 压缩后删除原文件
 ```
 
-### .tar
+## .tar
 Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的CPU以及时间去打包文件，他仅仅只是一个打包工具，并不负责压缩。  
 **(注: tar只是打包，没有压缩功能！)**
-
-#### 向已有的 tar 包里增加文件
-这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
-```bash
-tar -rf all.tar *.gif
-```
 
 ```bash
 # 打包:
@@ -140,13 +134,20 @@ tar cvf FileName.tar DirName
 # 解包:
 tar xvf FileName.tar
 
-# 将目录logs打包压缩并分割成多个1M的文件
+# 将目录 logs 打包压缩并分割成多个1M的文件
 tar cjf - logs/ |split -b 1m - logs.tar.bz2.
 
 # 合并文件
 cat logs.tar.bz2.a* | tar xj
+
 # 指定操作目录
 tar -zcf ${package_path} -C ${war_path} .
+```
+
+### 向已有的 tar 包里增加文件
+这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
+```bash
+tar -rf all.tar *.gif
 ```
 
 #### tar参数
@@ -157,7 +158,7 @@ tar -zcf ${package_path} -C ${war_path} .
     -j : 是否同时具有 bzip2 的属性？亦即是否需要用 bzip2 压缩？
     -v : 压缩的过程中显示文件！这个常用，在后台执行时不建议用!
     -f, --file=ARCHIVE : 指定文件或设备,如果不加这个参数 tar 默认会去找环境变量里配置的 TAPE, 注意，在 f 之后要立即接文件名,不要再加其它参数, 例如使用『 tar -zcvfP tfile sfile』就是错误的写法，要写成 『 tar -zcvPf tfile sfile』才对
-    -p : 使用原文件的原来属性（属性不会依据使用者而变)  
+    -p : 使用原文件的原来属性 (属性不会依据使用者而变)  
     -P : 可以使用绝对路径来压缩！ 
     -N : 比后面接的日期(yyyy/mm/dd)还要新的才会被打包进新建的文件中！ 
     --exclude FILE: 在压缩的过程中，不要将 FILE 打包！  
@@ -248,7 +249,7 @@ unrar x /media/data/homes-backup.rar homes-backup/
 
 一.tar命令
 
-tar可以为文件和目录创建档案。利用tar，用户可以为某一特定文件创建档案（备份文件) ，也可以在档案中改变文件，或者向档案中加入新的文件。tar 最初被用来在磁带上创建档案，现在，用户可以在任何设备上创建档案，如软盘。利用tar命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文 件或将几个文件组合成为一个文件以便于网络传输是非常有用的。Linux上的tar是GNU版本的。
+tar可以为文件和目录创建档案。利用tar，用户可以为某一特定文件创建档案 (备份文件) ，也可以在档案中改变文件，或者向档案中加入新的文件。tar 最初被用来在磁带上创建档案，现在，用户可以在任何设备上创建档案，如软盘。利用tar命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文 件或将几个文件组合成为一个文件以便于网络传输是非常有用的。Linux上的tar是GNU版本的。
 
 语法: tar [主选项+辅选项] 文件或者目录
 
@@ -268,7 +269,7 @@ x 从档案文件中释放文件。
 
 辅助选项: 
 
-b 该选项是为磁带机设定的。其后跟一数字，用来说明区块的大小，系统预设值为20（20*512 bytes) 。
+b 该选项是为磁带机设定的。其后跟一数字，用来说明区块的大小，系统预设值为20 (20*512 bytes) 。
 
 f 使用档案文件或设备，这个选项通常是必选的。
 
@@ -469,7 +470,7 @@ tar -xZf all.tar.z
 
 lha请到: http://www.infor.kanazawa-it.ac.jp/…/lhaunix/下载！
 
-> 解压后请将lha拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以) : 
+> 解压后请将lha拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) : 
 
 > [root@www2 tmp]# cp lha /usr/bin/
 
@@ -486,7 +487,7 @@ lha请到: http://www.infor.kanazawa-it.ac.jp/…/lhaunix/下载！
 
 > sEx请到:  http://sourceforge.net/projects/sex下载！
 
-> 解压后请将sEx拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以) : 
+> 解压后请将sEx拷贝到/usr/bin目录 (其他由$PATH环境变量指定的目录也可以) : 
 
 > [root@www2 tmp]# cp sEx /usr/bin/
 

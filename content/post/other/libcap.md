@@ -11,15 +11,14 @@ tags:
 ---
 ## linux报文高速捕获技术对比--napi/libpcap/afpacket/pfring/dpdk/xdp
 
-
 1. 传统linux网络协议栈流程和性能分析
 Linux网络协议栈是处理网络数据包的典型系统，它包含了从物理层直到应用层的全过程。
 
 
 数据包到达网卡设备。
-网卡设备依据配置进行DMA操作。（第1次拷贝：网卡寄存器->内核为网卡分配的缓冲区ring buffer）
+网卡设备依据配置进行DMA操作。 (第1次拷贝：网卡寄存器->内核为网卡分配的缓冲区ring buffer）
 网卡发送中断，唤醒处理器。
-驱动软件从ring buffer中读取，填充内核skbuff结构（第2次拷贝：内核网卡缓冲区ring buffer->内核专用数据结构skbuff）
+驱动软件从ring buffer中读取，填充内核skbuff结构 (第2次拷贝：内核网卡缓冲区ring buffer->内核专用数据结构skbuff）
 数据报文达到内核协议栈，进行高层处理。
 socket系统调用将数据从内核搬移到用户态。(第3次拷贝：内核空间->用户空间)
 研究者们发现，Linux内核协议栈在数据包的收发过程中，内存拷贝操作的时间开销占了整个处理过程时间开销的65%，此外层间传递的系统调用时间也占据了8%～10%。
@@ -85,38 +84,38 @@ libpcap的包捕获机制是在数据链路层增加一个旁路处理，不干�
 
 
 数据包到达网卡设备。
-网卡设备依据配置进行DMA操作。（第1次拷贝：网卡寄存器->内核为网卡分配的缓冲区ring buffer）
+网卡设备依据配置进行DMA操作。 (第1次拷贝：网卡寄存器->内核为网卡分配的缓冲区ring buffer）
 网卡发送中断，唤醒处理器。
-驱动软件从ring buffer中读取，填充内核skbuff结构（第2次拷贝：内核网卡缓冲区ring buffer->内核专用数据结构skbuff）
+驱动软件从ring buffer中读取，填充内核skbuff结构 (第2次拷贝：内核网卡缓冲区ring buffer->内核专用数据结构skbuff）
 接着调用netif_receive_skb函数：
-5.1 如果有抓包程序，由网络分接口进入BPF过滤器，将规则匹配的报文拷贝到系统内核缓存 （第3次拷贝）。BPF为每一个要求服务的抓包程序关联一个filter和两个buffer。BPF分配buffer 且通常情况下它的额度是4KB the store buffer 被使用来接收来自适配器的数据； the hold buffer被使用来拷贝包到应用程序。
+5.1 如果有抓包程序，由网络分接口进入BPF过滤器，将规则匹配的报文拷贝到系统内核缓存  (第3次拷贝）。BPF为每一个要求服务的抓包程序关联一个filter和两个buffer。BPF分配buffer 且通常情况下它的额度是4KB the store buffer 被使用来接收来自适配器的数据； the hold buffer被使用来拷贝包到应用程序。
 5.2 处理数据链路层的桥接功能；
 5.3 根据skb->protocol字段确定上层协议并提交给网络层处理，进入网络协议栈，进行高层处理。
-6. libpcap绕过了Linux内核收包流程中协议栈部分的处理，使得用户空间API可以直接调用套接字PF_PACKET从链路层驱动程序中获得数据报文的拷贝，将其从内核缓冲区拷贝至用户空间缓冲区（第4次拷贝）
+6. libpcap绕过了Linux内核收包流程中协议栈部分的处理，使得用户空间API可以直接调用 socket PF_PACKET从链路层驱动程序中获得数据报文的拷贝，将其从内核缓冲区拷贝至用户空间缓冲区 (第4次拷贝）
 
 3.2 libpcap-mmap
-libpcap-mmap是对旧的libpcap实现的改进，新版本的libpcap基本都采用packet_mmap机制。PACKET_MMAP通过mmap，减少一次内存拷贝（第4次拷贝没有了），减少了频繁的系统调用，大大提高了报文捕获的效率。
+libpcap-mmap是对旧的libpcap实现的改进，新版本的libpcap基本都采用packet_mmap机制。PACKET_MMAP通过mmap，减少一次内存拷贝 (第4次拷贝没有了），减少了频繁的系统调用，大大提高了报文捕获的效率。
 
 ### PF_RING
-参考：PF_RING学习笔记
+
 我们看到之前 libpcap 有4次内存拷贝。
 libpcap_mmap 有3次内存拷贝。
 PF_RING 提出的核心解决方案便是减少报文在传输过程中的拷贝次数。
 
 我们可以看到，相对与 libpcap_mmap 来说，pfring 允许用户空间内存直接和 rx_buffer 做 mmap。
-这又减少了一次拷贝（libpcap_mmap 的第2次拷贝：rx_buffer->skb）
+这又减少了一次拷贝 (libpcap_mmap 的第2次拷贝：rx_buffer->skb）
 
-PF-RING ZC 实现了 DNA （Direct NIC Access 直接网卡访问）技术，将用户内存空间映射到 rx_buffer。通过这样的方式，减少了一次拷贝（libpcap的第3次拷贝，每个BPF过滤器有一个拷贝）。这就是零拷贝。
+PF-RING ZC 实现了 DNA  (Direct NIC Access 直接网卡访问）技术，将用户内存空间映射到 rx_buffer。通过这样的方式，减少了一次拷贝 (libpcap的第3次拷贝，每个BPF过滤器有一个拷贝）。这就是零拷贝。
 
-其缺点是，只有一个应用可以在某个时间打开DMA ring（请注意，现在的网卡可以具有多个RX / TX队列，从而就可以在每个队列上同时一个应用程序），换而言之，用户态的多个应用需要彼此沟通才能分发数据包。
+其缺点是，只有一个应用可以在某个时间打开DMA ring (请注意，现在的网卡可以具有多个RX / TX队列，从而就可以在每个队列上同时一个应用程序），换而言之，用户态的多个应用需要彼此沟通才能分发数据包。
 
 ### DPDK
-参考：DPDK解析-----DPDK，PF_RING对比
+参考：DPDK解析-----DPDK, PF_RING 对比
 DPDK — IGB_UIO，与 UIO Framework 进行交互的内核模块
 
-pf-ring zc和dpdk均可以实现数据包的零拷贝，两者均旁路了内核，但是实现原理略有不同。pf-ring zc通过zc驱动（也在应用层）接管数据包，dpdk基于UIO实现。
+pf-ring zc和dpdk均可以实现数据包的零拷贝，两者均旁路了内核，但是实现原理略有不同。pf-ring zc通过zc驱动 (也在应用层）接管数据包，dpdk基于UIO实现。
 
-一、UIO+mmap 实现零拷贝（zero copy）
+一、UIO+mmap 实现零拷贝 (zero copy）
 参考：The Userspace I/O HOWTO
 
 
@@ -136,24 +135,24 @@ UIO 也实现了poll()系统调用，你可以使用select()来等待中断的�
 
 二、UIO+PMD 减少中断和CPU上下文切换
 
-DPDK的UIO驱动屏蔽了硬件发出中断，然后在用户态采用主动轮询的方式，这种模式被称为PMD（Poll Mode Driver）。
+DPDK的UIO驱动屏蔽了硬件发出中断，然后在用户态采用主动轮询的方式，这种模式被称为PMD (Poll Mode Driver）。
 
-与DPDK相比，pf-ring（no zc）使用的是NAPI polling和应用层polling，而pf-ring zc与DPDK类似，仅使用应用层polling。
+与DPDK相比，pf-ring (no zc）使用的是NAPI polling和应用层polling，而pf-ring zc与DPDK类似，仅使用应用层polling。
 
 三、HugePages 减少TLB miss
 
-在操作系统引入MMU（Memory Management Unit）后，CPU读取内存的数据需要两次访问内存。第一次要查询页表将逻辑地址转换为物理地址，然后访问该物理地址读取数据或指令。
+在操作系统引入MMU (Memory Management Unit）后，CPU读取内存的数据需要两次访问内存。第一次要查询页表将逻辑地址转换为物理地址，然后访问该物理地址读取数据或指令。
 
 为了减少页数过多，页表过大而导致的查询时间过长的问题，便引入了TLB(Translation Lookaside Buffer)，可翻译为地址转换缓冲器。TLB是一个内存管理单元，一般存储在寄存器中，里面存储了当前最可能被访问到的一小部分页表项。
 
-引入TLB后，CPU会首先去TLB中寻址，由于TLB存放在寄存器中，且其只包含一小部分页表项，因此查询速度非常快。若TLB中寻址成功（TLB hit），则无需再去RAM中查询页表；若TLB中寻址失败（TLB miss），则需要去RAM中查询页表，查询到后，会将该页更新至TLB中。
+引入TLB后，CPU会首先去TLB中寻址，由于TLB存放在寄存器中，且其只包含一小部分页表项，因此查询速度非常快。若TLB中寻址成功 (TLB hit），则无需再去RAM中查询页表；若TLB中寻址失败 (TLB miss），则需要去RAM中查询页表，查询到后，会将该页更新至TLB中。
 
 而DPDK采用HugePages ，在x86-64下支持2MB、1GB的页大小，大大降低了总页个数和页表的大小，从而大大降低TLB miss的几率，提升CPU寻址性能。
 
 四、其它优化
 
-SNA（Shared-nothing Architecture），软件架构去中心化，尽量避免全局共享，带来全局竞争，失去横向扩展的能力。NUMA体系下不跨Node远程使用内存。
-SIMD（Single Instruction Multiple Data），从最早的mmx/sse到最新的avx2，SIMD的能力一直在增强。DPDK采用批量同时处理多个包，再用向量编程，一个周期内对所有包进行处理。比如，memcpy就使用SIMD来提高速度。
+SNA (Shared-nothing Architecture），软件架构去中心化，尽量避免全局共享，带来全局竞争，失去横向扩展的能力。NUMA体系下不跨Node远程使用内存。
+SIMD (Single Instruction Multiple Data），从最早的mmx/sse到最新的avx2，SIMD的能力一直在增强。DPDK采用批量同时处理多个包，再用向量编程，一个周期内对所有包进行处理。比如，memcpy就使用SIMD来提高速度。
 cpu affinity
 
 3.6 XDP
@@ -180,12 +179,12 @@ DDoS防御
 复杂网络采样
 高速交易平台
 4. 无锁队列技术
-在报文捕获的流程中，无锁队列是一个很重要的数据结构。生产者（网卡）写数据和消费者（用户态程序）读数据，不加锁，能极大提升效率。
+在报文捕获的流程中，无锁队列是一个很重要的数据结构。生产者 (网卡）写数据和消费者 (用户态程序）读数据，不加锁，能极大提升效率。
 
 无锁队列实现主要依赖的技术有：
 
 CAS原子指令操作
-CAS（Compare and Swap，比较并替换）原子指令，用来保障数据的一致性。
+CAS (Compare and Swap，比较并替换）原子指令，用来保障数据的一致性。
 指令有三个参数，当前内存值 V、旧的预期值 A、更新的值 B，当且仅当预期值 A和内存值 V相同时，将内存值修改为 B并返回true，否则什么都不做，并返回false。
 
 内存屏障

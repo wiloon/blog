@@ -12,7 +12,7 @@ tags:
 ## 进入safepoint时如何让Java线程全部阻塞
 http://blog.csdn.net/iter_zc/article/details/41892567
 
-在这篇聊聊JVM（六) 理解JVM的safepoint 中说了safepoint的基本概念，VM thread在进行GC前，必须要让所有的Java线程阻塞，从而stop the world，开始标记。JVM采用了主动式阻塞的方式，Java线程不是随时都可以进入阻塞，需要运行到特定的点，叫safepoint，在这些点的位置Java线程可以被全部阻塞，整个堆的状态是一个暂时稳定的状态，OopMap指出了这个时刻，寄存器和栈内存的哪些具体的地址是引用，从而可以快速找到GC roots来进行对象的标记操作。
+在这篇聊聊JVM (六) 理解JVM的safepoint 中说了safepoint的基本概念，VM thread在进行GC前，必须要让所有的Java线程阻塞，从而stop the world，开始标记。JVM采用了主动式阻塞的方式，Java线程不是随时都可以进入阻塞，需要运行到特定的点，叫safepoint，在这些点的位置Java线程可以被全部阻塞，整个堆的状态是一个暂时稳定的状态，OopMap指出了这个时刻，寄存器和栈内存的哪些具体的地址是引用，从而可以快速找到GC roots来进行对象的标记操作。
 
 那么当Java线程运行到safepoint的时候，JVM如何让Java线程挂起呢？这是一个复杂的操作。很多文章里面说了JIT编译模式下，编译器会把很多safepoint检查的操作插入到编译偶的指令中，比如下面的指令来自内存篇: JVM内存回收理论与实现
   
@@ -137,12 +137,12 @@ safepoint机制可以stop the world，不仅仅是在GC的时候用，有很多�
 //
 ```
 
-可以看到JVM在阻塞全部Java线程之前，Java线程可能处在不同的状态，这篇聊聊JVM（五) 从JVM角度理解线程 说了JVM里面定义的线程所有的状态。
+可以看到JVM在阻塞全部Java线程之前，Java线程可能处在不同的状态，这篇聊聊JVM (五) 从JVM角度理解线程 说了JVM里面定义的线程所有的状态。
 
 1. 当线程在解释模式下执行的时候，让JVM发出请求之后，解释器会把指令跳转到检查safepoint的状态，比如检查某个内存页位置，从而让线程阻塞 
 2. 当Java线程正在执行native code的时候，这种情况最复杂，篇幅也写的最多。当VM thread看到一个Java线程在执行native code，它不需要等待这个Java线程进入阻塞状态，因为当Java线程从执行native code返回的时候，Java线程会去检查safepoint看是否要block(When returning from the native code, a Java thread must check the safepoint _state to see if we must block)
 
-后面说了一大堆关于如何让读写safepoint state和thread state按照严格顺序执行(serialized)，主要用两种做法，一种是加内存屏障(Memeory barrier)，一种是调用mprotected系统调用去强制Java的写操作按顺序执行（The VM thread performs a sequence of mprotect OS calls which forces all previous writes from all Java threads to be serialized. This is done in the os::serialize_thread_states() call) 
+后面说了一大堆关于如何让读写safepoint state和thread state按照严格顺序执行(serialized)，主要用两种做法，一种是加内存屏障(Memeory barrier)，一种是调用mprotected系统调用去强制Java的写操作按顺序执行 (The VM thread performs a sequence of mprotect OS calls which forces all previous writes from all Java threads to be serialized. This is done in the os::serialize_thread_states() call) 
 
 JVM采用的后者，因为内存屏障是一个很重的操作，要强制刷新CPU缓存，所以JVM采用了serialation page的方式。
 
@@ -186,18 +186,18 @@ __ load_contents(sync_state, G3_scratch);
   
 __ cmp(G3_scratch, SafepointSynchronize::_not_synchronized);
 
-这段代码首先将当前线程（不妨称为thread A) 状态置为_thread_in_native_trans状态，然后读sync_state，看是否有线程准备进行GC，有则将当前线程block，等待GC线程进行GC。
+这段代码首先将当前线程 (不妨称为thread A) 状态置为_thread_in_native_trans状态，然后读sync_state，看是否有线程准备进行GC，有则将当前线程block，等待GC线程进行GC。
   
-由于读sync_state的过程不是原子的，存在一个可能的场景是thread A刚读到sync_stated，且其值是_not_synchronized，这时thread A被抢占，CPU调度给了准备发起GC的线程（不妨称为thread B) ，该线程将sync_stated设置为了_synchronizing，然后读其他线程的状态，看其他线程是否都已经处于block状态或者_thread_in_native状态，是的话该线程就可以开始GC了，否则它还需要等待。
+由于读sync_state的过程不是原子的，存在一个可能的场景是thread A刚读到sync_stated，且其值是_not_synchronized，这时thread A被抢占，CPU调度给了准备发起GC的线程 (不妨称为thread B) ，该线程将sync_stated设置为了_synchronizing，然后读其他线程的状态，看其他线程是否都已经处于block状态或者_thread_in_native状态，是的话该线程就可以开始GC了，否则它还需要等待。
 
-如果thread A在写线程状态与读sync_state这两个动作之间缺少membar指令，那么上述过程就有可能出现一个场景，就是thread A读到了sync_stated为_not_synchronized，而thread B还没有看到thread A的状态变为_thread_in_native_trans。这样thread B就会认为thread A已经具备GC条件（因为处于_thread_in_native状态) ，如果其他线程此时也都准备好了，那thread B就会开始GC了。而thread A由于读到的sync_state是_not_synchronized，因此它不会block，而是会开始执行java代码，这样就会导致GC出错，进而系统崩溃。
+如果thread A在写线程状态与读sync_state这两个动作之间缺少membar指令，那么上述过程就有可能出现一个场景，就是thread A读到了sync_stated为_not_synchronized，而thread B还没有看到thread A的状态变为_thread_in_native_trans。这样thread B就会认为thread A已经具备GC条件 (因为处于_thread_in_native状态) ，如果其他线程此时也都准备好了，那thread B就会开始GC了。而thread A由于读到的sync_state是_not_synchronized，因此它不会block，而是会开始执行java代码，这样就会导致GC出错，进而系统崩溃。
 
 主要原因就是读写safepoint state和thread state是不是原子的，需要同步操作，采用了serialization page是一个轻量级的同步方法。
 
 关于serialation page具体的实现可以看这篇 关于memory_serialize_page的一些疑问 我看了之后的理解是相比与内存屏障每次写一个内存位置就要刷新CPU缓存的方式，serialization page采用了一个内存页的方式，每个线程顺序写一个位置，算法要保证多个线程不会写到同一个位置。然后VM thread把这个内存页设置为只读，把线程的状态刷新到相应的内存位置，然后再设置为可写。这样一是避免了刷新CPU缓存的操作，另外是一次可以批量处理多个线程。
 
   1. 当JVM以JIT编译模式运行的时候，就是最初说的在编译后代码插入一个检查全局的safepoint polling page，VM thread把它设置为不可读，让Java线程挂起 
-  2. 当线程本来就是阻塞状态的时候，采用了safe region的方式，处于safe region的代码只有等到被允许的时候才能离开safe region，看这篇聊聊JVM（六) 理解JVM的safepoint
+  2. 当线程本来就是阻塞状态的时候，采用了safe region的方式，处于safe region的代码只有等到被允许的时候才能离开safe region，看这篇聊聊JVM (六) 理解JVM的safepoint
 
   3. 当线程处在状态转化的时候，线程会去检查safepoint状态，如果要阻塞，就自己阻塞了
 
@@ -346,7 +346,7 @@ GC的标记阶段需要stop the world，让所有Java线程挂起，这样JVM才
 
 在解释器执行方式下，JVM会设置一个2字节的dispatch tables,解释器执行的时候会经常去检查这个dispatch tables，当有safepoint请求的时候，就会让线程去进行safepoint检查。
 
-聊聊JVM（五) 从JVM角度理解线程 说了JVM中的线程类型，其中提到VMThread。VMThread会一直等待直到VMOperationQueue中有操作请求出现，比如GC请求。而VMThread要开始工作必须要等到所有的Java线程进入到safepoint。JVM维护了一个数据结构，记录了所有的线程，所以它可以快速检查所有线程的状态。当有GC请求时，所有进入到safepoint的Java线程会在一个Thread_Lock锁阻塞，直到当JVM操作完成后，VM释放Thread_Lock，阻塞的Java线程才能继续运行。
+聊聊JVM (五) 从JVM角度理解线程 说了JVM中的线程类型，其中提到VMThread。VMThread会一直等待直到VMOperationQueue中有操作请求出现，比如GC请求。而VMThread要开始工作必须要等到所有的Java线程进入到safepoint。JVM维护了一个数据结构，记录了所有的线程，所以它可以快速检查所有线程的状态。当有GC请求时，所有进入到safepoint的Java线程会在一个Thread_Lock锁阻塞，直到当JVM操作完成后，VM释放Thread_Lock，阻塞的Java线程才能继续运行。
 
 GC stop the world的时候，所有运行Java code的线程被阻塞，如果运行native code线程不去和Java代码交互，那么这些线程不需要阻塞。VM操作相关的线程也不会被阻塞。
 

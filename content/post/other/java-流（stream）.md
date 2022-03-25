@@ -22,15 +22,15 @@ IO流的分类:
 
 2. 根据数据的流向来分: 
   
-输出流: 是用来写数据的，是由程序（内存) ->外界设备
+输出流: 是用来写数据的，是由程序 (内存) ->外界设备
   
-输入流: 是用来读数据的，是由外界设备->程序（内存) 
+输入流: 是用来读数据的，是由外界设备->程序 (内存) 
   
 如何区分: 一般来说输入流带有Input，输出流带有Output
 
 3. 根据流数据的格式来分: 
 - 字节流: 处理声音或者图片等二进制的数据的流，比如InputStream
-- 字符流: 处理文本数据（如txt文件) 的流，比如InputStreamReader
+- 字符流: 处理文本数据 (如txt文件) 的流，比如InputStreamReader
   
 如何区分: 可用高低端流来区分，所有的低端流都是字节流，所有的高端流都是字符流
 
@@ -218,7 +218,7 @@ return;
    
 }
 
-OutputStream os = new FileOutputStream(file); // 创建输出流（前提是文件存在) 
+OutputStream os = new FileOutputStream(file); // 创建输出流 (前提是文件存在) 
    
 os.write(new Date().toString().getBytes()); // 将当前时间写入文件
    

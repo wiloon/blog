@@ -31,7 +31,7 @@ Default Server: name.cao.com.cn
 
 Address: 192.168.1.9
 
->
+
 
 在符号">"后面输入要查询的IP地址域名，并回车即可。如果要退出该命令，输入"exit"，并回车即可。
 

@@ -1,5 +1,5 @@
 ---
-title: Git commands, git 常用命令
+title: Git basic commands, git 常用命令
 author: "-"
 date: 2022-01-29 10:33:11
 url: git
@@ -10,11 +10,11 @@ tags:
     - remix
 
 ---
-## Git commands, git 常用命令
+## Git basic commands, git 常用命令
 
 ### git add
 
-git add 命令可将该文件添加到暂存区。
+git add 命令可将该文件添加到`暂存区`。
 
 ### config git editor
 
@@ -71,7 +71,7 @@ git ls-files --others -i \
 git clean -Xn
 ```
 
-##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录（小心）
+##### 清除文件或文件夹， -f 选项强制删除，-d 删除目录 (小心）
 
 ```bash
 git clean -Xdf
@@ -100,20 +100,20 @@ git push -u origin master
 
 ### 删除远程库
 
-    gitremote rm 仓库A
+    gitremote rm repo0
 
-### 将指定的提交（commit) 应用于其他分支
+### 删除文件
+
+git rm /xxx/xxx/xxx.xxx  
+git rm -r xxx/xxx
+
+### 将指定的提交 (commit) 应用于其他分支
 
     git cherry-pick <commitHash>
 
 <https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html>
 
-### 设置默认的分支名
 
-    git config --global init.defaultBranch <name>
-    git config --global init.defaultBranch main
-    # The just-created branch can be renamed via this command
-    git branch -m main
 
 ### 指定ssh 私钥
 
@@ -145,20 +145,6 @@ git checkout . #本地所有修改的。没有的提交的，都返回到原来�
 
 ><https://blog.csdn.net/leedaning/article/details/51304690>
 
-### git reset
-
-git reset ** file0
-
-彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
-
-    git reset -hard file0
-
-    git reset -mixed: 此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-    git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
-
-```bash
-    git reset --hard
-```
 
 ### 指定克隆深度
 
@@ -172,13 +158,13 @@ git checkout master
 
 #### 查看
 
-config 配置有system级别 global（用户级别)  和local（当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
+config 配置有system级别 global (用户级别)  和local (当前仓库) 三个 设置先从system-》global-》local  底层配置会覆盖顶层配置 分别使用--system/global/local 可以定位到配置文件
 
     git config --list
     git config --system --list
     git config --global core.editor vim
 
-查看当前用户（global) 配置
+查看当前用户 (global) 配置
 
     git config --global  --list
 
@@ -218,7 +204,7 @@ git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
 format ，可以定制记录的显示格式。 --pretty=format:"%h - %an, %ar : %s"
 --name-only参数仅显示受影响的文件名。如果你想看看每个文件发生了什么(删除，修改，添加)，请改用--name-status
 
-### 初始化的 Git 仓库
+### 初始化 Git 仓库
 
 git init
 git add README.md
@@ -234,7 +220,7 @@ git rm -f
 ## git fetch
 
 git fetch 命令用来拉取其它仓库的数据(objects and refs).
-默认情况下，git fetch取回**所有**分支（branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
+默认情况下，git fetch取回**所有**分支 (branch) 的更新。如果只想取回特定分支的更新，可以指定分支名。  
 
     git fetch <远程主机名> <分支名>
 
@@ -262,13 +248,13 @@ git merge tmp
 git branch -d temp
 //如果不想保留temp分支 可以用这步删除
 
-（1) 如果直接使用git fetch，则步骤如下:
+ (1) 如果直接使用git fetch，则步骤如下:
 
 创建并更新本 地远程分支。即创建并更新origin/xxx 分支，拉取代码到origin/xxx分支上。
 在FETCH_HEAD中设定当前分支-origin/当前分支对应，如直接到时候git merge就可以将origin/abc合并到abc分支上。
-（2) git fetch origin
+ (2) git fetch origin
 只是手动指定了要fetch的remote。在不指定分支时通常默认为master
-（3) git fetch origin dev
+ (3) git fetch origin dev
 指定远程remote和FETCH_HEAD，并且只拉取该分支的提交。
 
 ## git pull
@@ -302,9 +288,28 @@ git checkout -b branch_name tag_name
 
 ## tag
 
+轻量标签 (lightweight）与附注标签 (annotated）。
+
+### 附注标签 (annotated）
+
+附注标签是存储在 Git 数据库中的一个完整对象, 它们是可以被校验的，其中包含打标签者的名字、电子邮件地址、日期时间， 此外还有一个标签信息，并且可以使用 GNU Privacy Guard  (GPG）签名并验证。通常会建议创建附注标签，这样你可以拥有以上所有信息。
+
+在运行 tag 命令时指定 -a 选项, 创建附注标签
+
+```bash
+git tag -a v1.4 -m "my version 1.4"
+# 对历史提交打标签
+git tag -a v1.2 9fceb02
+```
+
+### 轻量标签 (lightweight）
 ```bash
 # list local tags
 git tag
+git tag -l "v1.8.5*"
+
+# 显示提交信息
+git show v0.0.1
 
 # list remote tags
 git ls-remote --tags origin
@@ -315,19 +320,31 @@ git checkout tag_name
 # add a tag
 git tag v1.0.0
 
-# commit tag
+# 共享标签, 提交标签, commit tag
+git push origin <tagname>
 git push origin v1.0.0
 
 # delete tag
-git tag -d 1.0.0
+git tag -d v1.0.0
 
 # delete remote tag
-git push origin :refs/tags/1.0.0
+git push origin :refs/tags/v1.0.0
 ```
+>https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE
 
-### 分支, branch
+## 分支, branch
 
-最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比git checkout要更容易理解。
+最新版本的Git提供了新的git switch命令来切换分支, 使用新的git switch命令，比 git checkout 要更容易理解。
+
+### 设置默认的分支名
+
+```bash
+# 设置默认分支名，不设置的话，默认是 master
+git config --global init.defaultBranch <name>
+git config --global init.defaultBranch main
+# The just-created branch can be renamed via this command
+git branch -m main
+```
 
 ### 打印当前分支名
 
@@ -439,15 +456,11 @@ $ git push origin test:master // 提交本地test分支作为远程的master分�
 $ git push origin test:test // 提交本地test分支作为远程的test分支
 
 # 删除远程分支: 
-
 git push --delete origin devel
 To git@github.com:zrong/quick-cocos2d-x.git - [deleted] devel
 
 git status -s
 git add .
-
-git rm
-git tm -rf
 
 git commit -m "***"
 git push git@localhost:ET.git master
@@ -497,10 +510,7 @@ $ git submodule add <https://github.com/maonx/vimwiki-assets.git> assets
 卸载电脑原先的Git，安装32位Git。
 或者卸载监控软件
 
-### git remove
 
-git rm /xxx/xxx/xxx.xxx  
-git rm xxx/xxx
 
 ### git restore
 
@@ -541,3 +551,26 @@ git config –global http.sslVerify false
 
 ><https://www.jianshu.com/p/9000cd49822c>
 ><https://blog.csdn.net/CrazyZhang1990/article/details/42780285>
+
+
+### pre-commit
+.git/hook/pre-commit
+
+
+### create a new repository on the command line
+echo "# jetbrain-eap-installer" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
+git push -u origin main
+
+###  push an existing repository from the command line
+git remote add origin git@github.com:wiloon/jetbrain-eap-installer.git
+git branch -M main
+git push -u origin main
+
+## 删除大文件 
+
+>https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html

@@ -34,6 +34,6 @@ Oozie调度器,可以通过DashBoard来提交和监控Workflow、Coordinator以�
   
 支持对Metastore的浏览,可以访问Hive的元数据以及对应的HCatalog。
   
-另外,还有对Job的支持,Sqoop,ZooKeeper以及DB（MySQL,SQLite,Oracle等) 的支持。
+另外,还有对Job的支持,Sqoop,ZooKeeper以及DB (MySQL,SQLite,Oracle等) 的支持。
   
 下面就通过集成部署,来预览相关功能。

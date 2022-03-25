@@ -14,9 +14,9 @@ http://colobu.com/2014/10/28/secrets-of-java-8-functional-interface/
 
 @FunctionalInterface
   
-函数式接口(Functional Interface)是Java 8对一类特殊类型的接口的称呼。 这类接口只定义了唯一的抽象方法的接口（除了隐含的Object对象的公共方法) , 因此最开始也就做SAM类型的接口（Single Abstract Method) 。
+函数式接口(Functional Interface)是Java 8对一类特殊类型的接口的称呼。 这类接口只定义了唯一的抽象方法的接口 (除了隐含的Object对象的公共方法) , 因此最开始也就做SAM类型的接口 (Single Abstract Method) 。
 
-为什么会单单从接口中定义出此类接口呢？ 原因是在Java Lambda的实现中, 开发组不想再为Lambda表达式单独定义一种特殊的Structural函数类型,称之为箭头类型（arrow type) , 依然想采用Java既有的类型系统(class, interface, method等), 原因是增加一个结构化的函数类型会增加函数类型的复杂性,破坏既有的Java类型,并对成千上万的Java类库造成严重的影响。 权衡利弊, 因此最终还是利用SAM 接口作为 Lambda表达式的目标类型。
+为什么会单单从接口中定义出此类接口呢？ 原因是在Java Lambda的实现中, 开发组不想再为Lambda表达式单独定义一种特殊的Structural函数类型,称之为箭头类型 (arrow type) , 依然想采用Java既有的类型系统(class, interface, method等), 原因是增加一个结构化的函数类型会增加函数类型的复杂性,破坏既有的Java类型,并对成千上万的Java类库造成严重的影响。 权衡利弊, 因此最终还是利用SAM 接口作为 Lambda表达式的目标类型。
 
 JDK中已有的一些接口本身就是函数式接口,如Runnable。 JDK 8中又增加了java.util.function包, 提供了常用的函数式接口。
 
@@ -248,9 +248,9 @@ InterfaceWithDefaultMethod仍然是一个函数式接口。
   
 如果存在一个一个方法m, 满足: 
 
-m的签名（subsignature) 是M中每一个方法签名的子签名（signature) 
+m的签名 (subsignature) 是M中每一个方法签名的子签名 (signature) 
   
-m的返回值类型是M中的每一个方法的返回值类型的替代类型（return-type-substitutable) 
+m的返回值类型是M中的每一个方法的返回值类型的替代类型 (return-type-substitutable) 
   
 那么I就是一个函数式接口。
   

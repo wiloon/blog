@@ -13,7 +13,7 @@ tags:
 epoll 通过使用红黑树(RB-tree)搜索被监视的文件描述符(file descriptor)。
 
 ### 用户空间与内核空间 
-现在操作系统都是采用虚拟存储器,那么对32位操作系统而言,它的寻址空间（虚拟存储空间) 为4G（2的32次方) 。操作系统的核心是内核,独立于普通的应用程序,可以访问受保护的内存空间,也有访问底层硬件设备的所有权限。为了保证用户进程不能直接操作内核（kernel) ,保证内核的安全,操心系统将虚拟空间划分为两部分,一部分为内核空间,一部分为用户空间。针对linux操作系统而言,将最高的1G字节（从虚拟地址0xC0000000到0xFFFFFFFF) ,供内核使用,称为内核空间,而将较低的3G字节（从虚拟地址0x00000000到0xBFFFFFFF) ,供各个进程使用,称为用户空间。
+现在操作系统都是采用虚拟存储器,那么对32位操作系统而言,它的寻址空间 (虚拟存储空间) 为4G (2的32次方) 。操作系统的核心是内核,独立于普通的应用程序,可以访问受保护的内存空间,也有访问底层硬件设备的所有权限。为了保证用户进程不能直接操作内核 (kernel) ,保证内核的安全,操心系统将虚拟空间划分为两部分,一部分为内核空间,一部分为用户空间。针对linux操作系统而言,将最高的1G字节 (从虚拟地址0xC0000000到0xFFFFFFFF) ,供内核使用,称为内核空间,而将较低的3G字节 (从虚拟地址0x00000000到0xBFFFFFFF) ,供各个进程使用,称为用户空间。
 
 ### 进程切换
 为了控制进程的执行,内核必须有能力挂起正在CPU上运行的进程,并恢复以前挂起的某个进程的执行。这种行为被称为进程切换。因此可以说,任何进程都是在操作系统内核的支持下运行的,是与内核紧密相关的。
@@ -28,15 +28,15 @@ epoll 通过使用红黑树(RB-tree)搜索被监视的文件描述符(file descr
 6. 恢复处理机上下文。
 
 ### 进程的阻塞
-正在执行的进程,由于期待的某些事件未发生,如请求系统资源失败、等待某种操作的完成、新数据尚未到达或无新工作做等,则由系统自动执行阻塞原语(Block),使自己由运行状态变为阻塞状态。可见,进程的阻塞是进程自身的一种主动行为,也因此只有处于运行态的进程（获得CPU) ,才可能将其转为阻塞状态。当进程进入阻塞状态,是不占用CPU资源的。
+正在执行的进程,由于期待的某些事件未发生,如请求系统资源失败、等待某种操作的完成、新数据尚未到达或无新工作做等,则由系统自动执行阻塞原语(Block),使自己由运行状态变为阻塞状态。可见,进程的阻塞是进程自身的一种主动行为,也因此只有处于运行态的进程 (获得CPU) ,才可能将其转为阻塞状态。当进程进入阻塞状态,是不占用CPU资源的。
 
 ### 文件描述符fd
-文件描述符（File descriptor) 是计算机科学中的一个术语,是一个用于表述指向文件的引用的抽象化概念。
+文件描述符 (File descriptor) 是计算机科学中的一个术语,是一个用于表述指向文件的引用的抽象化概念。
 
 文件描述符在形式上是一个非负整数。实际上,它是一个索引值,指向内核为每一个进程所维护的该进程打开文件的记录表。当程序打开一个现有文件或者创建一个新文件时,内核向进程返回一个文件描述符。在程序设计中,一些涉及底层的程序编写往往会围绕着文件描述符展开。但是文件描述符这一概念往往只适用于UNIX、Linux这样的操作系统。
 
 ### 缓存 I/O
-缓存 I/O 又被称作标准 I/O,大多数文件系统的默认 I/O 操作都是缓存 I/O。在 Linux 的缓存 I/O 机制中,操作系统会将 I/O 的数据缓存在文件系统的页缓存（ page cache ) 中,也就是说,数据会先被拷贝到操作系统内核的缓冲区中,然后才会从操作系统内核的缓冲区拷贝到应用程序的地址空间。
+缓存 I/O 又被称作标准 I/O,大多数文件系统的默认 I/O 操作都是缓存 I/O。在 Linux 的缓存 I/O 机制中,操作系统会将 I/O 的数据缓存在文件系统的页缓存 ( page cache ) 中,也就是说,数据会先被拷贝到操作系统内核的缓冲区中,然后才会从操作系统内核的缓冲区拷贝到应用程序的地址空间。
 
 缓存 I/O 的缺点: 
   
@@ -44,26 +44,26 @@ epoll 通过使用红黑树(RB-tree)搜索被监视的文件描述符(file descr
 
 ### IO模式
   
-刚才说了,对于一次IO访问（以read举例) ,数据会先被拷贝到操作系统内核的缓冲区中,然后才会从操作系统内核的缓冲区拷贝到应用程序的地址空间。所以说,当一个read操作发生时,它会经历两个阶段: 
+刚才说了,对于一次IO访问 (以read举例) ,数据会先被拷贝到操作系统内核的缓冲区中,然后才会从操作系统内核的缓冲区拷贝到应用程序的地址空间。所以说,当一个read操作发生时,它会经历两个阶段: 
   
 1. 等待数据准备 (Waiting for the data to be ready)
 2. 将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)
 
 正式因为这两个阶段,linux系统产生了下面五种网络模式的方案。
   
-- 阻塞 I/O（blocking IO) 
-- 非阻塞 I/O（nonblocking IO) 
-- I/O 多路复用（ IO multiplexing) 
-- 异步 I/O（asynchronous IO) 
-- 信号驱动 I/O（ signal driven IO) 
+- 阻塞 I/O (blocking IO) 
+- 非阻塞 I/O (nonblocking IO) 
+- I/O 多路复用 ( IO multiplexing) 
+- 异步 I/O (asynchronous IO) 
+- 信号驱动 I/O ( signal driven IO) 
 
 
 注: 由于signal driven IO在实际中并不常用,所以我这只提及剩下的四种IO Model。
 
-### 阻塞 I/O（blocking IO)  BIO,Blocking I/O
+### 阻塞 I/O (blocking IO)  BIO,Blocking I/O
 在linux中,默认情况下所有的socket都是blocking
 
-当用户进程调用了recvfrom 这个系统调用,kernel就开始了IO的第一个阶段: 准备数据（对于网络IO来说,很多时候数据在一开始还没有到达。比如,还没有收到一个完整的UDP包。这个时候kernel就要等待足够的数据到来) 。这个过程需要等待,也就是说数据被拷贝到操作系统内核的缓冲区中是需要一个过程的。而在用户进程这边,整个进程会被阻塞（当然,是进程自己选择的阻塞) 。当kernel一直等到数据准备好了,它就会将数据从kernel中拷贝到用户内存,然后kernel返回结果,用户进程才解除block的状态,重新运行起来。
+当用户进程调用了recvfrom 这个系统调用,kernel就开始了IO的第一个阶段: 准备数据 (对于网络IO来说,很多时候数据在一开始还没有到达。比如,还没有收到一个完整的UDP包。这个时候kernel就要等待足够的数据到来) 。这个过程需要等待,也就是说数据被拷贝到操作系统内核的缓冲区中是需要一个过程的。而在用户进程这边,整个进程会被阻塞 (当然,是进程自己选择的阻塞) 。当kernel一直等到数据准备好了,它就会将数据从kernel中拷贝到用户内存,然后kernel返回结果,用户进程才解除block的状态,重新运行起来。
 
 所以,blocking IO的特点就是在IO执行的两个阶段都被block了。
 
@@ -74,14 +74,14 @@ linux下,可以通过设置socket使其变为non-blocking。
 
 所以,nonblocking IO的特点是用户进程需要不断的主动询问kernel数据好了没有。
 
-### I/O 多路复用（ IO multiplexing) 
+### I/O 多路复用 ( IO multiplexing) 
 IO multiplexing就是我们说的select,poll,epoll,有些地方也称这种IO方式为event driven IO。select/epoll的好处就在于单个process就可以同时处理多个网络连接的IO。它的基本原理就是select,poll,epoll这个function会不断的轮询所负责的所有socket,当某个socket有数据到达了,就通知用户进程。
 
 clipboard.png
 
 当用户进程调用了select,那么整个进程会被block,而同时,kernel会"监视"所有select负责的socket,当任何一个socket中的数据准备好了,select就会返回。这个时候用户进程再调用read操作,将数据从kernel拷贝到用户进程。
 
-所以,I/O 多路复用的特点是通过一种机制一个进程能同时等待多个文件描述符,而这些文件描述符（套接字描述符) 其中的任意一个进入读就绪状态,select()函数就可以返回。
+所以,I/O 多路复用的特点是通过一种机制一个进程能同时等待多个文件描述符,而这些文件描述符 ( socket 描述符) 其中的任意一个进入读就绪状态,select()函数就可以返回。
 
 这个图和blocking IO的图其实并没有太大的不同,事实上,还更差一些。因为这里需要使用两个system call (select 和 recvfrom),而blocking IO只调用了一个system call (recvfrom)。但是,用select的优势在于它可以同时处理多个connection。
 
@@ -95,7 +95,7 @@ Epoll API
 
 Epoll API实现了与poll类似的功能: 监测多个文件描述符上是否可以执行I/O操作。支持边缘触发ET和水平触发LT,相比poll支持监测数量更多的文件描述符。
   
-poll_create: 创建Epoll实例,并返回Epoll实例关联的文件描述符。（最新的epoll_create1扩展了epoll_create的功能) 
+poll_create: 创建Epoll实例,并返回Epoll实例关联的文件描述符。 (最新的epoll_create1扩展了epoll_create的功能) 
 
 create_ctl: 注册关注的文件描述符。注册于同一epoll实例的一组文件描述符被称为epoll set,可以通过进程对应的/proc/[pid]/fdinfo目录查看。
 
@@ -119,11 +119,11 @@ Epoll事件分发接口可以使用ET和LT两种模式。两种模式的差别�
 
 
 ### I/O 多路复用之 select、poll、epoll详解
-select,poll,epoll 都是IO多路复用的机制。I/O多路复用就是通过一种机制,一个进程可以监视多个描述符,一旦某个描述符就绪（一般是读就绪或者写就绪) ,能够通知程序进行相应的读写操作。但select,poll,epoll本质上都是同步I/O,因为他们都需要在读写事件就绪后自己负责进行读写,也就是说这个读写过程是阻塞的,而异步I/O则无需自己负责进行读写,异步I/O的实现会负责把数据从内核拷贝到用户空间。（这里啰嗦下) 
+select,poll,epoll 都是IO多路复用的机制。I/O多路复用就是通过一种机制,一个进程可以监视多个描述符,一旦某个描述符就绪 (一般是读就绪或者写就绪) ,能够通知程序进行相应的读写操作。但select,poll,epoll本质上都是同步I/O,因为他们都需要在读写事件就绪后自己负责进行读写,也就是说这个读写过程是阻塞的,而异步I/O则无需自己负责进行读写,异步I/O的实现会负责把数据从内核拷贝到用户空间。 (这里啰嗦下) 
 
 #### select
 int select (int n, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
-select 函数监视的文件描述符分3类,分别是 writefds、readfds、和exceptfds。调用后select函数会阻塞,直到有描述副就绪（有数据 可读、可写、或者有except) ,或者超时（timeout指定等待时间,如果立即返回设为null即可) ,函数返回。当select函数返回后,可以 通过遍历fdset,来找到就绪的描述符。
+select 函数监视的文件描述符分3类,分别是 writefds、readfds、和exceptfds。调用后select函数会阻塞,直到有描述副就绪 (有数据 可读、可写、或者有except) ,或者超时 (timeout指定等待时间,如果立即返回设为null即可) ,函数返回。当select函数返回后,可以 通过遍历fdset,来找到就绪的描述符。
 
 select目前几乎在所有的平台上支持,其良好跨平台支持也是它的一个优点。
 select 的一个缺点在于单个进程能够监视的文件描述符的数量存在**最大限制**, 在Linux上一般为1024,可以通过修改宏定义甚至重新编译内核的方式提升这一限制, 但是这样也会造成效率的降低。
@@ -137,16 +137,16 @@ struct pollfd {
     short events; /* requested events to watch */
     short revents; /* returned events witnessed */
 };
-pollfd 结构包含了要监视的 event 和发生的event,不再使用select“参数-值”传递的方式。同时,pollfd并没有最大数量限制（但是数量过大后性能也是会下降) 。 和select函数一样,poll返回后,需要轮询pollfd来获取就绪的描述符。
+pollfd 结构包含了要监视的 event 和发生的event,不再使用select“参数-值”传递的方式。同时,pollfd并没有最大数量限制 (但是数量过大后性能也是会下降) 。 和select函数一样,poll返回后,需要轮询pollfd来获取就绪的描述符。
 
 从上面看,select和poll都需要在返回后,通过**遍历文件描述符**来获取已经就绪的socket。事实上,同时连接的大量客户端在一时刻可能只有很少的处于就绪状态,因此随着监视的描述符数量的增长,其效率也会线性下降。
 
 #### epoll
 epoll的原理就是: 
-你把要监控读写的文件交给内核（epoll_add)
-设置你关心的事件（epoll_ctl) ,比如读事件
-然后等（epoll_wait) ,此时,如果没有哪个文件有你关心的事件,则休眠,直到有事件,被唤醒
-然后返回那些事件实现并发,还需要配合非阻塞的读写。这样就可以一下搜集一大把文件（套接字) ,然后一下读写一大把文件（不会因为某个文件慢而阻塞) ,这样来实现并发。
+你把要监控读写的文件交给内核 (epoll_add)
+设置你关心的事件 (epoll_ctl) ,比如读事件
+然后等 (epoll_wait) ,此时,如果没有哪个文件有你关心的事件,则休眠,直到有事件,被唤醒
+然后返回那些事件实现并发,还需要配合非阻塞的读写。这样就可以一下搜集一大把文件 ( socket ) ,然后一下读写一大把文件 (不会因为某个文件慢而阻塞) ,这样来实现并发。
 
 epoll的优势在于,由接收数据的OS来负责通知你有数据可以操作,因为OS是知道什么时候有数据的。
 仍然用快递例子来说,ePoll的优势就是,你可以随便做其他的事情,当有快递来的时候,他给你打电话让你来拿,你空了的时候下来拿就好了。
@@ -169,7 +169,7 @@ int epoll_wait(int epfd, struct epoll_event * events, int maxevents, int timeout
 函数是对指定描述符fd执行op操作。
 - epfd: 是epoll_create()的返回值。
 - op: 表示op操作,用三个宏来表示: 添加EPOLL_CTL_ADD,删除EPOLL_CTL_DEL,修改EPOLL_CTL_MOD。分别添加、删除和修改对fd的监听事件。
-- fd: 是需要监听的fd（文件描述符) 
+- fd: 是需要监听的fd (文件描述符) 
 - epoll_event: 是告诉内核需要监听什么事,struct epoll_event结构如下: 
 
 struct epoll_event {
@@ -178,19 +178,19 @@ struct epoll_event {
 };
 
 //events可以是以下几个宏的集合: 
-EPOLLIN : 表示对应的文件描述符可以读（包括对端SOCKET正常关闭) ；
+EPOLLIN : 表示对应的文件描述符可以读 (包括对端SOCKET正常关闭) ；
 EPOLLOUT: 表示对应的文件描述符可以写；
-EPOLLPRI: 表示对应的文件描述符有紧急的数据可读（这里应该表示有带外数据到来) ；
+EPOLLPRI: 表示对应的文件描述符有紧急的数据可读 (这里应该表示有带外数据到来) ；
 EPOLLERR: 表示对应的文件描述符发生错误；
 EPOLLHUP: 表示对应的文件描述符被挂断；
 EPOLLET:  将EPOLL设为边缘触发(Edge Triggered)模式,这是相对于水平触发(Level Triggered)来说的。
 EPOLLONESHOT: 只监听一次事件,当监听完这次事件之后,如果还需要继续监听这个socket的话,需要再次把这个socket加入到EPOLL队列里
 #### int epoll_wait(int epfd, struct epoll_event * events, int maxevents, int timeout);
 等待epfd上的io事件,最多返回maxevents个事件。
-参数events用来从内核得到事件的集合,maxevents告之内核这个events有多大,这个maxevents的值不能大于创建epoll_create()时的size,参数timeout是超时时间（毫秒,0会立即返回,-1将不确定,也有说法说是永久阻塞) 。该函数返回需要处理的事件数目,如返回0表示已超时。
+参数events用来从内核得到事件的集合,maxevents告之内核这个events有多大,这个maxevents的值不能大于创建epoll_create()时的size,参数timeout是超时时间 (毫秒,0会立即返回,-1将不确定,也有说法说是永久阻塞) 。该函数返回需要处理的事件数目,如返回0表示已超时。
 
 ### 工作模式
-epoll对文件描述符的操作有两种模式: LT（level trigger) 和ET（edge trigger) 。LT模式是默认模式,LT模式与ET模式的区别如下: 
+epoll对文件描述符的操作有两种模式: LT (level trigger) 和ET (edge trigger) 。LT模式是默认模式,LT模式与ET模式的区别如下: 
 LT模式: 当epoll_wait检测到描述符事件发生并将此事件通知应用程序,应用程序可以不立即处理该事件。下次调用epoll_wait时,会再次响应应用程序并通知此事件。
 ET模式: 当epoll_wait检测到描述符事件发生并将此事件通知应用程序,应用程序必须立即处理该事件。如果不处理,下次调用epoll_wait时,不会再次响应应用程序并通知此事件。
 
@@ -200,7 +200,7 @@ LT(level triggered)是缺省的工作方式,并且同时支持block和no-block s
 2. ET模式
 ET(edge-triggered)是高速工作方式,只支持no-block socket。在这种模式下,当描述符从未就绪变为就绪时,内核通过epoll告诉你。然后它会假设你知道文件描述符已经就绪,并且不会再为那个文件描述符发送更多的就绪通知,直到你做了某些操作导致那个文件描述符不再为就绪状态了(比如,你在发送,接收或者接收请求,或者发送接收的数据少于一定量时导致了一个EWOULDBLOCK 错误) 。但是请注意,如果一直不对这个fd作IO操作(从而导致它再次变成未就绪),内核不会发送更多的通知(only once)
 
-ET模式在很大程度上减少了epoll事件被重复触发的次数,因此效率要比LT模式高。epoll工作在ET模式的时候,必须使用非阻塞套接口,以避免由于一个文件句柄的阻塞读/阻塞写操作把处理多个文件描述符的任务饿死。
+ET模式在很大程度上减少了epoll事件被重复触发的次数,因此效率要比LT模式高。epoll工作在ET模式的时候,必须使用非阻塞 socket ,以避免由于一个文件句柄的阻塞读/阻塞写操作把处理多个文件描述符的任务饿死。
 
 3. 总结
 假如有这样一个例子: 
@@ -385,7 +385,7 @@ IO的效率不会随着监视fd的数量的增长而下降。epoll不同于selec
 进程切换
 维基百科-文件描述符
 Linux 中直接 I/O 机制的介绍
-IO - 同步,异步,阻塞,非阻塞 （亡羊补牢篇) 
+IO - 同步,异步,阻塞,非阻塞  (亡羊补牢篇) 
 Linux中select poll和epoll的区别
 IO多路复用之select总结
 IO多路复用之poll总结
@@ -396,9 +396,9 @@ Kqueue专用于FreeBSD系统,只能用于UFS文件系统
 
 kqueue类似epoll,支持每个进程中有多个上下文(兴趣集)。
 
-kqueue设计的目的并非是为了替代基于套接字事件复用技术的select()/poll(),而是提供一般化的机制来处理多种操作系统事件。
+kqueue设计的目的并非是为了替代基于 socket 事件复用技术的select()/poll(),而是提供一般化的机制来处理多种操作系统事件。
 
-kqueue API由两个函数调用（ kqueue()与kevent()) 和一个辅助设置事件的宏组成。
+kqueue API由两个函数调用 ( kqueue()与kevent()) 和一个辅助设置事件的宏组成。
 ————————————————
 版权声明: 本文为CSDN博主「白夜行515」的原创文章,遵循CC 4.0 BY-SA版权协议,转载请附上原文出处链接及本声明。
 原文链接: https://blog.csdn.net/baiye_xing/article/details/76360247
@@ -469,7 +469,7 @@ http://man7.org/linux/man-pages/man7/epoll.7.html
 https://github.com/tokio-rs/mio
 ### libevent介绍
 
-Libevent 是一个用C语言编写的、轻量级的开源高性能事件通知库,主要有以下几个亮点: 事件驱动（ event-driven) ,高性能;轻量级,专注于网络,不如 ACE 那么臃肿庞大；源代码相当精炼、易读；跨平台,支持 Windows、 Linux、 *BSD 和 Mac Os；支持多种 I/O 多路复用技术, epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O,定时器和信号等事件；注册事件优先级。
+Libevent 是一个用C语言编写的、轻量级的开源高性能事件通知库,主要有以下几个亮点: 事件驱动 ( event-driven) ,高性能;轻量级,专注于网络,不如 ACE 那么臃肿庞大；源代码相当精炼、易读；跨平台,支持 Windows、 Linux、 *BSD 和 Mac Os；支持多种 I/O 多路复用技术, epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O,定时器和信号等事件；注册事件优先级。
 Libevent 已经被广泛的应用,作为底层的网络库；比如 memcached、 Vomit、 Nylon、 Netchat等等。
 
 

@@ -23,28 +23,7 @@ New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled Tru
 net start sshd
 Set-Service sshd -StartupType Automatic
 
-### 启用openssh authentication agent
-计算机管理>服务>openssh authentication agent > 启动>启动类型>自动 
 
-### win10, wsl2, keepassxc
-修改sshd 配置/etc/ssh/ssh_config, 开启转发
-
-    ForwardAgent yes
-    # 重启sshd生效
-    systemctl restart sshd
-
-修改~/.zshrc
-
-    export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-    ss -a | grep -q $SSH_AUTH_SOCK
-    if [ $? -ne 0   ]; then
-                rm -f $SSH_AUTH_SOCK
-                    ( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"/mnt/d/workspace/apps/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
-    fi
-
-
-### systemd user service
->wangyue.dev/ssh-agent
 
 
 https://github.com/rupor-github/wsl-ssh-agent

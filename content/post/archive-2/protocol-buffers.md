@@ -84,7 +84,7 @@ protoc -I=$SRC_DIR --java_out=$DST_DIR $SRC_DIR/proto0.proto
 
 ### protobuf > json
 
-```golang
+```go
 import  "github.com/golang/protobuf/jsonpb"
 ```
 

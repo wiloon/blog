@@ -11,7 +11,7 @@ tags:
 ---
 ## POP3、SMTP、IMAP和Exchange
   
-    POP3协议允许电子邮件客户端下载服务器上的邮件,但是在客户端的操作（如移动邮件、标记已读等) ,不会反馈到服务器上,比如通过客户端收取了邮箱中的3封邮件并移动到其他文件夹,邮箱服务器上的这些邮件是没有同时被移动的 。
+    POP3协议允许电子邮件客户端下载服务器上的邮件,但是在客户端的操作 (如移动邮件、标记已读等) ,不会反馈到服务器上,比如通过客户端收取了邮箱中的3封邮件并移动到其他文件夹,邮箱服务器上的这些邮件是没有同时被移动的 。
   
   
     而IMAP提供webmail 与电子邮件客户端之间的双向通信,客户端的操作都会反馈到服务器上,对邮件进行的操作,服务器上的邮件也会做相应的动作。
@@ -46,7 +46,7 @@ tags:
       
       
 ### IMAP协议   
-互联网信息访问协议（IMAP) 是一种优于POP的新协议。和POP一样,IMAP也能下载邮件、从服务器中删除邮件或询问是否有新邮件,IMAP克服了POP的一些缺点。例如,它可以决定客户机请求邮件服务器提交所收到邮件的方式,请求邮件服务器只下载所选中的邮件而不是全部邮件。客户机可先阅读邮件信息的标题和发送者的名字再决定是否下载这个邮件。通过用户的客户机电子邮件程序,IMAP可让用户在服务器上创建并管理邮件文件夹或邮箱、删除邮件、查询某封信的一部分或全部内容,完成所有这些工作时都不需要把邮件从服务器下载到用户的个人计算机上。支持种IMAP的常用邮件客户端有: ThunderMail,Foxmail,Microsoft Outlook等。
+互联网信息访问协议 (IMAP) 是一种优于POP的新协议。和POP一样,IMAP也能下载邮件、从服务器中删除邮件或询问是否有新邮件,IMAP克服了POP的一些缺点。例如,它可以决定客户机请求邮件服务器提交所收到邮件的方式,请求邮件服务器只下载所选中的邮件而不是全部邮件。客户机可先阅读邮件信息的标题和发送者的名字再决定是否下载这个邮件。通过用户的客户机电子邮件程序,IMAP可让用户在服务器上创建并管理邮件文件夹或邮箱、删除邮件、查询某封信的一部分或全部内容,完成所有这些工作时都不需要把邮件从服务器下载到用户的个人计算机上。支持种IMAP的常用邮件客户端有: ThunderMail,Foxmail,Microsoft Outlook等。
       
       
       
@@ -60,7 +60,7 @@ tags:
       
         Exchange Server 是一个设计完备的邮件服务器产品, 提供了通常所需要的全部邮件服务功能。除了常规的 SMTP/POP 协议服务之外,它还支持 IMAP4 、LDAP 和 NNTP 协议。Exchange Server 服务器有两种版本,标准版包括 Active Server、网络新闻服务和一系列与其他邮件系统的接口；企业版除了包括标准版的功能外,还包括与 IBM OfficeVision、X.400、VM 和 SNADS 通信的电子邮件网关,Exchange Server 支持基于Web 浏览器的邮件访问。
  Microsoft Exchange Online 是一个电子邮件、日程和联系人云解决方案。它提供和Microsoft Exchange Server相同的技术方案。
- Microsoft Exchange Server使用RPC protocol, MAPI/RPC（Microsoft Outlook client)  ,支持Exchange ActiveSync（安全和 Exchange server同步邮件、联系人和其它数据) ,支持ActiveSync push e-mail, 这些功能已经使用到iPhone和Android 等设备。
+ Microsoft Exchange Server使用RPC protocol, MAPI/RPC (Microsoft Outlook client)  ,支持Exchange ActiveSync (安全和 Exchange server同步邮件、联系人和其它数据) ,支持ActiveSync push e-mail, 这些功能已经使用到iPhone和Android 等设备。
       
     
     

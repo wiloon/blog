@@ -16,11 +16,11 @@ Android 中的BroadCastReceiver
 
 作者: 阿福
   
-BroadCastReceiver 简介 （末尾有源码) 
+BroadCastReceiver 简介  (末尾有源码) 
   
 BroadCastReceiver 源码位于:  framework/base/core/java/android.content.BroadcastReceiver.java
 
-广播接收者（ BroadcastReceiver ) 用于接收广播 Intent ，广播 Intent 的发送是通过调用 Context.sendBroadcast() 、 Context.sendOrderedBroadcast() 来实现的。通常一个广播 Intent 可以被订阅了此 Intent 的多个广播接收者所接收。
+广播接收者 ( BroadcastReceiver ) 用于接收广播 Intent ，广播 Intent 的发送是通过调用 Context.sendBroadcast() 、 Context.sendOrderedBroadcast() 来实现的。通常一个广播 Intent 可以被订阅了此 Intent 的多个广播接收者所接收。
 
 广播是一种广泛运用的在应用程序之间传输信息的机制 。而 BroadcastReceiver 是对发送出来的广播进行过滤接收并响应的一类组件；
 
@@ -108,7 +108,7 @@ registerReceiver( mBatteryInfoReceiver , intentFilter);
   
 BroadcastReceiver 里不能做一些比较耗时的操作 , 否侧会弹出 ANR(Application No
   
-Response) 的对话框 . 。（如图) : 
+Response) 的对话框 . 。 (如图) : 
 
 怎么用好 BroadcastReceiver ？
   

@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## SonarQube
-SonarQube（曾用名Sonar（声纳) [1]) 是一个开源的代码质量管理系统。
+SonarQube (曾用名Sonar (声纳) [1]) 是一个开源的代码质量管理系统。
 
 Sonar是一个用于代码质量管理的开源平台，用于管理源代码的质量，可以从七个维度检测代码质量
 
@@ -52,7 +52,7 @@ sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具规范代�
   
 sonar可以通过PMD,CheckStyle,Findbugs等等代码规则检测工具检测出潜在的bug
   
-7.糟糕的设计（原文Spaghetti Design，意大利面式设计) 
+7.糟糕的设计 (原文Spaghetti Design，意大利面式设计) 
   
 通过sonar可以找出循环，展示包与包、类与类之间的相互依赖关系
   
@@ -248,7 +248,7 @@ sonar作为Linux服务并开机自启动
 
 /usr/bin/sonar $*
 
-SonarQube开机自启动（Ubuntu, 32位) : 
+SonarQube开机自启动 (Ubuntu, 32位) : 
   
 sudo ln -s $SONAR_HOME/bin/linux-x86-32/sonar.sh /usr/bin/sonar
   
@@ -256,7 +256,7 @@ sudo chmod 755 /etc/init.d/sonar
   
 sudo update-rc.d sonar defaults
   
-SonarQube开机自启动（RedHat, CentOS, 64位) : 
+SonarQube开机自启动 (RedHat, CentOS, 64位) : 
   
 sudo ln -s $SONAR_HOME/bin/linux-x86-64/sonar.sh /usr/bin/sonar
   

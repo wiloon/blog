@@ -10,7 +10,7 @@ tags:
 
 ---
 ## HBase
-HBase是一个开源的非关系型分布式数据库（NoSQL) ，该技术来源于 Fay Chang 所撰写的Google论文"Bigtable: 一个结构化数据的分布式存储系统"。l就像Bigtable利用了Google文件系统（File System) 所提供的分布式数据存储一样，HBase在Hadoop之上提供了类似于Bigtable的能力。HBase是Apache的Hadoop项目的子项目。HBase不同于一般的关系数据库，它是一个适合于非结构化数据存储的数据库。另一个不同的是HBase基于列的而不是基于行的模式。
+HBase是一个开源的非关系型分布式数据库 (NoSQL) ，该技术来源于 Fay Chang 所撰写的Google论文"Bigtable: 一个结构化数据的分布式存储系统"。l就像Bigtable利用了Google文件系统 (File System) 所提供的分布式数据存储一样，HBase在Hadoop之上提供了类似于Bigtable的能力。HBase是Apache的Hadoop项目的子项目。HBase不同于一般的关系数据库，它是一个适合于非结构化数据存储的数据库。另一个不同的是HBase基于列的而不是基于行的模式。
 
 HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。
   

@@ -1,41 +1,49 @@
 ---
-title: git intro
+title: Git
 author: "-"
 date: 2019-07-26T08:07:52+00:00
 url: git
 categories:
-  - dev
-
+  - git
 tags:
   - reprint
 ---
-## git intro
+## Git
 ```puml
 @startuml
-
+!theme plain
+[Working Directory\n工作区] as work
+[Staging Area\nIndex\n暂存区] as stage
+work --> stage: add
+[Repository\nLocal Repository\n本地仓库] as repo
+stage --> repo: commit
+[Remote\n远程仓库] as remote
+repo --> remote: push
+work <-- remote: pull
+remote --> repo: fetch/clone
+repo --> work: checkout
+repo --> work: merge
 @enduml
 ```
-### 工作区 (working directory)
+### 工作区 (Working Directory)
 也称工作目录、工作副本  
 我们日常开发操作是在工作区中进行的。  
 工作区的内容会包含提交到暂存区和版本库(当前提交点)的内容，同时也包含自己的修改内容。
-### 暂存区 (stage area, 又称为索引区index)
+### 暂存区 (stage, Staging Area, Index )
 也称缓存区  
 逻辑上处于工作区和本地仓库之间，主要作用是标记修改内容，暂存区里的内容默认将在下一次提交时记录到本地仓库中。  
 Git本地库中的索引Index就是一个二进制文件，默认存储在.git/index路径下。  
 修改提交版本库前的一个过渡阶段。查看GIT自带帮助手册的时候，通常以index来表示暂存区。在工作目录下有一个.git的目录，里面有个index文件，存储着关于暂存区的内容。git add命令将工作区内容添加到暂存区。
-### 本地仓库(local repository)， （.git）
-在工作区中有个隐藏目录.git，这就是 Git 本地仓库的数据库。工作区中的项目文件实际上就是从这里签出（checkout）而得到的，修改后的内容最终提交后记录到本地仓库中。
+### 本地仓库 (Repository, local repository)，  (.git）
+在工作区中有个隐藏目录.git，这就是 Git 本地仓库的数据库。工作区中的项目文件实际上就是从这里签出 (checkout）而得到的，修改后的内容最终提交后记录到本地仓库中。
 Tips：不要手动修改 .git 目录的内容  
 当执行git commit命令后，会将暂存区内容提交到仓库之中。在工作区下面有.git的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用merge或rebase将远程仓库副本合并到本地仓库。
 
-
-
-### 远程版本库(remote repository)
+### 远程仓库 (remote repository)
 与本地仓库概念基本一致，不同之处在于一个存在远程，可用于远程协作，一个却是存在于本地。通过push/pull可实现本地与远程的交互；
 
 ### 远端仓库， 远程仓库副本
-团队协作往往需要指定远端仓库（一般是一个，也可以有多个），团队成员通过跟远端仓库交互来实现团队协作。  
+团队协作往往需要指定远端仓库 (一般是一个，也可以有多个），团队成员通过跟远端仓库交互来实现团队协作。  
 存在于本地的远程仓库缓存。如需更新，可通过git fetch/pull命令获取远程仓库内容。使用fech获取时，并未合并到本地仓库，此时可使用git merge实现远程仓库副本与本地仓库的合并。git pull 根据配置的不同，可为git fetch + git merge 或 git fetch + git rebase。
 
 ### 理解 git fetch, git pull 
@@ -88,7 +96,7 @@ git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指�
 HEAD就是当前活跃分支的游标, HEAD可以指向分支中的任意一个节点，HEAD在Git内部用于追踪当前位置。
 ### HEAD和head
 你可以认为 HEAD(大写)是"current branch"(当下的分支)。当你用git checkout切换分支的时候，HEAD 修订版本重新指向新的分支。有的时候HEAD会指向一个没有分支名字的修订版本，这种情况叫”detached HEAD“
-head(小写)是commit对象的引用，每个head都有一个名字（分支名字或者标签名字等等），但是默认情况下，每个叫master的repository都会有一个head, 一个repository可以包含任意数量的head。在任何时候，只要这个head被选择成为”current head“，那么这个head就成了HEAD,总是大写
+head(小写)是commit对象的引用，每个head都有一个名字 (分支名字或者标签名字等等），但是默认情况下，每个叫master的repository都会有一个head, 一个repository可以包含任意数量的head。在任何时候，只要这个head被选择成为”current head“，那么这个head就成了HEAD,总是大写
 
 
 

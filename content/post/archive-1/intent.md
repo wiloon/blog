@@ -18,7 +18,7 @@ Android中提供了Intent机制来协助应用间的交互与通讯，Intent负�
   
 通过广播方法(比如 Context.sendBroadcast(),Context.sendOrderedBroadcast(), Context.sendStickyBroadcast()) 发给broadcast receivers。
   
-Intent属性的设置，包括以下几点: （以下为XML中定义，当然也可以通过Intent类的方法来获取和设置) 
+Intent属性的设置，包括以下几点:  (以下为XML中定义，当然也可以通过Intent类的方法来获取和设置) 
 
 【putExtra("A",B)中，AB为键值对，第一个参数为键名，第二个参数为键对应的值。顺便提一下，如果想取出Intent对象中的这些值，需要在你的另一个Activity中用getXXXXXExtra方法，注意需要使用对应类型的方法，参数为键名】
 

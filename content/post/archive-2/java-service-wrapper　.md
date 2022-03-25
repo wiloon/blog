@@ -52,7 +52,7 @@ JavaServiceWrapper以守护进程或windows服务的方式运行java程序。JSW
   
 |- bin
 
-步骤2: 搭建项目结构: 新建项目发布目录（假设为agent) ,然后将src下的conf和bin复制到agent下,并且将conf和bin下的文件重命名,去掉\`.in\`后缀。然后将bin/wrapper.exe复制到agent/bin/下,再将lib复制到agent下,得到目录结构如下
+步骤2: 搭建项目结构: 新建项目发布目录 (假设为agent) ,然后将src下的conf和bin复制到agent下,并且将conf和bin下的文件重命名,去掉\`.in\`后缀。然后将bin/wrapper.exe复制到agent/bin/下,再将lib复制到agent下,得到目录结构如下
 
 agent
   
@@ -80,7 +80,7 @@ agent
   
 wrapper.java.command=jre/bin/java
 
-# 配置CLASSPATH路径（并不会修改全局的环境变量) 
+# 配置CLASSPATH路径 (并不会修改全局的环境变量) 
   
 # 若原有项目还依赖其他jar包,均需要添加进来
   
@@ -92,7 +92,7 @@ wrapper.java.classpath.2=.
   
 wrapper.java.library.path.1=../lib
 
-# 配置服务的main class（就是原有项目的程序入口类) 
+# 配置服务的main class (就是原有项目的程序入口类) 
   
 wrapper.app.parameter.1=agent.Daemon
 

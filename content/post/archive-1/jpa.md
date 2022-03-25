@@ -10,7 +10,7 @@ tags:
 
 ---
 ## JPA
-（1) 、JPA介绍: 
+ (1) 、JPA介绍: 
 
 JPA全称为Java Persistence API ,Java持久化API是Sun公司在Java EE 5规范中提出的Java持久化接口。JPA吸取了目前Java持久化技术的优点,旨在规范、简化Java对象的持久化工作。使用JPA持久化对象,并不是依赖于某一个ORM框架。
 
@@ -75,7 +75,7 @@ JPA的主要目标之一就是提供更加简单的编程模型: 在JPA框架下
   
 4 可媲美JDBC的查询能力
   
-JPA的查询语言是面向对象而非面向数据库的,它以面向对象的自然语法构造查询语句,可以看成是Hibernate HQL的等价物。JPA定义了独特的JPQL（Java Persistence Query Language) ,JPQL是EJB QL的一种扩展,它是针对实体的一种查询语言,操作对象是实体,而不是关系数据库的表,而且能够支持批量更新和修改、JOIN、GROUP BY、HAVING 等通常只有 SQL 才能够提供的高级查询特性,甚至还能够支持子查询。
+JPA的查询语言是面向对象而非面向数据库的,它以面向对象的自然语法构造查询语句,可以看成是Hibernate HQL的等价物。JPA定义了独特的JPQL (Java Persistence Query Language) ,JPQL是EJB QL的一种扩展,它是针对实体的一种查询语言,操作对象是实体,而不是关系数据库的表,而且能够支持批量更新和修改、JOIN、GROUP BY、HAVING 等通常只有 SQL 才能够提供的高级查询特性,甚至还能够支持子查询。
   
 5 支持面向对象的高级特性
   

@@ -54,7 +54,7 @@ JVM监测、故障排除、分析工具,主要以图形化界面的方式提供�
 
 ### appletviewer
 
-小程序浏览器,一种执行HTML文件上的Java小程序的Java浏览器。（chrome, firefox 不再支持NPAPI) 
+小程序浏览器,一种执行HTML文件上的Java小程序的Java浏览器。 (chrome, firefox 不再支持NPAPI) 
 
 ### extcheck
 
@@ -88,17 +88,17 @@ Java反编译工具,主要用于根据Java字节码文件反汇编为Java源代�
 
 ### javapackager
 
-JavaFX包装器,用于执行与封装或签名JavaFX应用有关的任务。javafxpackager在JDK1.8的时候更名为javapackager包含在 jdk 里,可以用于常规 Java 独立应用程序的打包（包括打包 jre 和附带一个启动器) 
+JavaFX包装器,用于执行与封装或签名JavaFX应用有关的任务。javafxpackager在JDK1.8的时候更名为javapackager包含在 jdk 里,可以用于常规 Java 独立应用程序的打包 (包括打包 jre 和附带一个启动器) 
 
 ### javaws
 
 Java Web Start,使您可以从Web下载和运行Java应用程序,下载、安装、运行、更新Java应用程序都非常简单方便。
   
-Java Web Start是帮助客户机端应用程序开发的一个新技术,该技术的独特之处在于将你关心客户机是如何启动（从Web浏览器或是桌面) 中解放出来。并且,该技术提供了一个使Web服务器能独立发布和更新客户机代码的集合部署方案。
+Java Web Start是帮助客户机端应用程序开发的一个新技术,该技术的独特之处在于将你关心客户机是如何启动 (从Web浏览器或是桌面) 中解放出来。并且,该技术提供了一个使Web服务器能独立发布和更新客户机代码的集合部署方案。
   
-Java Web Start是一个软件技术,它包含了applet的可移植性、Servlet和Java Server Pages（JSP) 的可维护性以及象XML和HTML这样的标记语言的简易性。它是基于Java的应用程序,允许从标准的Web服务器启动、部署和更新功能完成的Java 2客户机应用程序。
+Java Web Start是一个软件技术,它包含了applet的可移植性、Servlet和Java Server Pages (JSP) 的可维护性以及象XML和HTML这样的标记语言的简易性。它是基于Java的应用程序,允许从标准的Web服务器启动、部署和更新功能完成的Java 2客户机应用程序。
   
-Java Web Start自身是一个Java应用程序,所以该软件是平台独立的,并且支持Java2平台的任何客户机系统都支持该软件。当客户机应用程序启动时,Java Web Start自动执行更新,在从原来的高速缓存装入应用程序的同时,从Web下载罪行的版本。Java Web Start还提供了一个Java应用程序管理器（Java Application Manager) 实用程序,即提供了多种选项,如清除下载的应用程序的高速缓存、指定多种JRE的使用,设置HTTP代理、还允许最终用户组织他们的Java应用程序。
+Java Web Start自身是一个Java应用程序,所以该软件是平台独立的,并且支持Java2平台的任何客户机系统都支持该软件。当客户机应用程序启动时,Java Web Start自动执行更新,在从原来的高速缓存装入应用程序的同时,从Web下载罪行的版本。Java Web Start还提供了一个Java应用程序管理器 (Java Application Manager) 实用程序,即提供了多种选项,如清除下载的应用程序的高速缓存、指定多种JRE的使用,设置HTTP代理、还允许最终用户组织他们的Java应用程序。
 
 ### jdb
 
@@ -135,7 +135,7 @@ Java可用性代理调试守护进程(Java Serviceability Agent Debug Daemon),
   
 和与之对应的"ASCII编码和(或)Unicode转义"之间的相互转换。
   
-native2ascii简介: native2ascii是sun java sdk提供的一个工具。用来将别的文本类文件（比如_.txt,_.ini,_.properties,_.java等等) 编码转为Unicode编码。为什么要进行转码,原因在于程序的国际化。Unicode编码的定义: Unicode（统一码、万国码、单一码) 是一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码,以满足跨语言、跨平台进行文本转换、处理的要求。1990年开始研发,1994年正式公布。随着计算机工作能力的增强,Unicode也在面世以来的十多年里得到普及。（声明: Unicode编码定义来自互联网) 。
+native2ascii简介: native2ascii是sun java sdk提供的一个工具。用来将别的文本类文件 (比如_.txt,_.ini,_.properties,_.java等等) 编码转为Unicode编码。为什么要进行转码,原因在于程序的国际化。Unicode编码的定义: Unicode (统一码、万国码、单一码) 是一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码,以满足跨语言、跨平台进行文本转换、处理的要求。1990年开始研发,1994年正式公布。随着计算机工作能力的增强,Unicode也在面世以来的十多年里得到普及。 (声明: Unicode编码定义来自互联网) 。
 
 ### orbd
 

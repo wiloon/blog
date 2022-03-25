@@ -10,39 +10,41 @@ tags:
   - reprint
 ---
 ## golang  方法, 接口, 继承
-http://www.cnblogs.com/chenny7/p/4497969.html
+>http://www.cnblogs.com/chenny7/p/4497969.html
 
-Go语言没有沿袭传统面向对象编程中的诸多概念，比如继承、虚函数、构造函数和析构函数、隐藏的this指针等。
+Go语言没有沿袭传统面向对象编程中的诸多概念，比如继承、虚函数、构造函数和析构函数、隐藏的 this 指针等。
 
-方法
+## go 方法
   
-Go 语言中同时有函数和方法。方法就是一个包含了接受者（receiver) 的函数，receiver可以是内置类型或者结构体类型的一个值或者是一个指针。所有给定类型的方法属于该类型的方法集。
+Go 语言中同时有函数和方法。方法就是一个包含了接收器 (receiver) 的函数，receiver 可以是内置类型或者结构体类型的一个值或者是一个指针。所有给定类型的方法属于该类型的方法集。
 
-如下面的这个例子，定义了一个新类型Integer，它和int一样，只是为它内置的int类型增加了个新方法Less()
+如下面的这个例子，定义了一个新类型Integer，它和int一样，只是为它内置的int类型增加了个新方法 Less()
 
-复制代码
-  
+### 接收器——方法作用的目标
+接收器的格式如下：
+
+```go
+func (接收器变量 接收器类型) 方法名(参数列表) (返回参数) {
+    函数体
+}
+```
+
+```go
 type Integer int
 
 func (a Integer) Less(b Integer) bool {
-      
-return a < b
-  
+    return a < b
 }
 
 func main() {
-      
-var a Integer = 1
 
+var a Integer = 1
     if a.Less(2) {
         fmt.Println("less then 2")
-    }   
-    
-
+    }
 }
-  
-复制代码
-  
+```
+
 可以看出，Go语言在自定义类型的对象中没有C++/Java那种隐藏的this指针，而是在定义成员方法时显式声明了其所属的对象。
 
 method的语法如下: 
@@ -74,9 +76,7 @@ a.Add(3)
 fmt.Println("a =", a) // a = 4
   
 }
-  
-复制代码
-  
+ 
 如果Add方法不使用指针，则a返回的结果不变，这是因为Go语言函数的参数也是基于值传递。
 
 注意: 当方法的接受者是指针时，即使用值类型调用那么方法内部也是对指针的操作。
@@ -96,14 +96,14 @@ func main() {
 rect1 := NewRect(1,2,10,20)
       
 fmt.Println(rect1.width)
-  
+
 }
 
 ### 匿名组合, 继承
 
 Go语言提供了继承，但是采用了组合的语法，我们将其称为匿名组合，例如: 
 
-```golang
+```go
 type Base struct {
     name string
 }
@@ -138,7 +138,7 @@ func main() {
 组合的类型和被组合的类型包含同名成员时， 会不会有问题呢？可以参考下面的例子: 
 
 
-```golang
+```go
 type Base struct {
     name string 
     age int
@@ -200,7 +200,7 @@ fmt.Println(a, b) // [1 3 3] [1 3 3]
 
 接口
   
-Interface 是一组抽象方法（未具体实现的方法/仅包含方法名参数返回值的方法) 的集合，如果实现了 interface 中的所有方法，即该类/对象就实现了该接口。
+Interface 是一组抽象方法 (未具体实现的方法/仅包含方法名参数返回值的方法) 的集合，如果实现了 interface 中的所有方法，即该类/对象就实现了该接口。
 
 Interface 的声明格式: 
 
@@ -320,7 +320,7 @@ a = s
   
 复制代码
 
-interface的变量里面可以存储任意类型的数值（该类型实现了interface) ，那么我们怎么反向知道这个interface变量里面实际保存了的是哪个类型的对象呢？目前常用的有两种方法: switch测试、Comma-ok断言。
+interface的变量里面可以存储任意类型的数值 (该类型实现了interface) ，那么我们怎么反向知道这个interface变量里面实际保存了的是哪个类型的对象呢？目前常用的有两种方法: switch测试、Comma-ok断言。
 
 switch测试如下: 
 
@@ -413,7 +413,7 @@ list[2] = Person{"Dennis", 70}
 
 反射
 
-所谓反射（reflect) 就是能检查程序在运行时的状态。
+所谓反射 (reflect) 就是能检查程序在运行时的状态。
 
 使用reflect一般分成三步，下面简要的讲解一下: 要去反射是一个类型的值(这些值都实现了空interface)，首先需要把它转化成reflect对象(reflect.Type或者reflect.Value，根据不同的情况调用不同的函数)。这两种获取方式如下: 
 

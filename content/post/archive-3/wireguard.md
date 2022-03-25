@@ -11,12 +11,12 @@ tags:
   - reprint
 ---
 ## wireguard
-## server install
+## install
 #### archlinux
 archlinux 如果使用的是新版本的内核的话，就不需要单独安装 wireguard 了， wireguard 已经被集成进了内核。
 
     pacman -Syu
-    # 安装 wireguard管理工具
+    # 安装 wireguard 管理工具
     pacman -S wireguard-tools
 
     lsmod | grep wireguard
@@ -80,7 +80,7 @@ ip link set wg0 up
     sudo ip addr add 192.168.53.2/24 dev wg0
     sudo wg set wg0 private-key ./privatekey
 
-    # 配置监听端口，监听peer A发起的连接请求，仅作为客户端使用时，可以不配置监听,忽略此步骤
+    # 配置监听端口，监听 peer A 发起的连接请求，仅作为客户端使用时，可以不配置监听, 忽略此步骤
     sudo wg set wg0 listen-port 9000 allowed-ips 0.0.0.0/0 peer_B 
     
     # 所有的ip包都 会被 发往 peer_A
@@ -169,7 +169,7 @@ mtu: auto
 对端/endpoint: xxx.wiloon.com:51xxx
 路由的ip地址: 0.0.0.0/0
 
-### IOS
+### IOS client
 1. Create from scratch
 2. Name/名称: <foo>
 3. Generate keypair/生成密钥对
@@ -183,21 +183,39 @@ mtu: auto
 11. 节点配置:
 12. Public key/公钥: <服务端/对端公钥>
 13. Preshared key/预共享密钥: 不填
-14. Endpoint/对端: foo.bar.com:51901
+14. Endpoint/对端: foo.bar.com:12345
 15. Allowed IPs/路由的IP地址(段): 0.0.0.0/0
 16. Exclude private IPs: yes
 17. 连接保活间隔(单位:秒): 不填
 
-### chromeos>crostini
-使用android版本的wireguard  
-chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
+### chromeos > crostini
+使用 android 版本的 wireguard   
+chromeos 从 google play 安装wireguard,连接成功后，vpn全局生效包括crostini里的linux也可以使用vpn通道
 
+### win 11
+
+- 新建空隧道
+  - 名称: pingd
+  - 公钥: 自动生成的本端公钥
+
+```
+[Interface]
+PrivateKey = privateKey0
+Address = 192.168.53.8/32
+DNS = 192.168.50.1
+
+[Peer]
+PublicKey = publicKey0
+AllowedIPs = 192.168.50.0/24, 192.168.53.0/24
+Endpoint = foo.bar.com:51900
+
+```
 
 ---
 
 ### crostini
 ~~crostini 不支持wireguard 类型的网络设备， 不能直接使用wireguard, 需要安装tunsafe~~
-~~<https://tunsafe.com/user-guide/linux>~~  
+~~<https://tunsafe.com/user-guide/linux>~~
 
 ### ~~tunsafe  安装~~
     /etc/wireguard/wg0.conf
@@ -218,7 +236,7 @@ chromeos从 google play 安装wireguard,连接成功后，vpn全局生效包括c
     DNS = 192.168.50.1
     BlockDNS = true
 
-    # 设置虚拟网卡的内网地址（可选子网掩码) 
+    # 设置虚拟网卡的内网地址 (可选子网掩码) 
     Address = 192.168.53.3/24
     ;/l.4r5t3677777777
     [Peer]

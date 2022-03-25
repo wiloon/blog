@@ -14,9 +14,9 @@ https://blog.csdn.net/jasonchen_gbd/article/details/79080576
 
   1. SysRq介绍
   
-    我第一次接触到SysRq是由于硬件同事调试时突然发现串口打印了HELP信息,还以为软件出问题了,我就去了解了一下SysRq。而我真正用上SysRq是为了破解一个禁止了所有命令的系统……（很有帮助哈哈) 。
+    我第一次接触到SysRq是由于硬件同事调试时突然发现串口打印了HELP信息,还以为软件出问题了,我就去了解了一下SysRq。而我真正用上SysRq是为了破解一个禁止了所有命令的系统…… (很有帮助哈哈) 。
 
-SysRq是Linux提供的一个"Magic System Request Key",它可以在系统出现故障的时候协助恢复和调试系统。只要你的虚拟终端或串口还可以接收键盘输入（系统还能响应键盘的按键中断) ,SysRq就可用,你可以借助它来查看当时的内存、进程状态等信息,而不是直接强行拔掉电源重启系统。
+SysRq是Linux提供的一个"Magic System Request Key",它可以在系统出现故障的时候协助恢复和调试系统。只要你的虚拟终端或串口还可以接收键盘输入 (系统还能响应键盘的按键中断) ,SysRq就可用,你可以借助它来查看当时的内存、进程状态等信息,而不是直接强行拔掉电源重启系统。
 
 SysRq能做的事情看HELP就知道了: 
 
@@ -36,7 +36,7 @@ unraw(r) sync(s) show-task-states(t) unmount(u) show-blocked-tasks(w) dump-ftrac
   
 另外内核中有一个宏定义SYSRQ_DEFAULT_ENABLE,表示系统默认情况下是否启用SysRq功能键。当然,不管这个值是不是yes,你都可以通过proc文件系统来开启或关闭SysRq键: 
   
-查看当前SysRq是否被开启（0表示关闭) : 
+查看当前SysRq是否被开启 (0表示关闭) : 
 
 # cat /proc/sys/kernel/sysrq
 
@@ -68,7 +68,7 @@ SysRq支持的所有功能列表及相应的handler见drivers/tty/sysrq.c中静�
 
 那么如何产生一个SysRq键呢？
 
-在Ubuntu下,图形界面环境不能使用SysRq,需进入文本虚拟终端环境（Ctrl+Alt+F1从图形桌面切换到虚拟终端,Alt+F7可切回来) ,然后同时按下Alt和Print Screen键以及相应的字母键。
+在Ubuntu下,图形界面环境不能使用SysRq,需进入文本虚拟终端环境 (Ctrl+Alt+F1从图形桌面切换到虚拟终端,Alt+F7可切回来) ,然后同时按下Alt和Print Screen键以及相应的字母键。
   
 在嵌入式设备上,通过串口工具也可以触发SysRq,如果使用SecureCRT,则同时按下Alt和Print Screen键,会出现上述HELP,然后紧接着按下某个字母。如果使用teraTerm,则点击菜单中的Control->Send Break,会出现上述HELP,然后紧接着按下某个字母。
   
@@ -80,7 +80,7 @@ echo c > /proc/sysrq-trigger
 
   1. SysRq有什么用
   
-    从上述HELP信息就能看出来SysRq都能干什么,在Documentation/sysrq.txt中也有详细介绍。例如,在系统卡住或出现其他异常但还没完全死掉（没有panic或触发watchdog) 时,可以人为地制造OOM或panic,看看当前内核在干什么。下面这篇文章对SysRq的使用场景有较全面的介绍和举例,贴在这里供参考: 
+    从上述HELP信息就能看出来SysRq都能干什么,在Documentation/sysrq.txt中也有详细介绍。例如,在系统卡住或出现其他异常但还没完全死掉 (没有panic或触发watchdog) 时,可以人为地制造OOM或panic,看看当前内核在干什么。下面这篇文章对SysRq的使用场景有较全面的介绍和举例,贴在这里供参考: 
   
     https://www.ibm.com/developerworks/cn/linux/l-cn-sysrq/
 
