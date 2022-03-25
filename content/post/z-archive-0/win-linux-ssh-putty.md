@@ -1,5 +1,5 @@
 ---
-title: win linux ssh putty
+title: ip-guard, [0x7FFFBB83E044] ANOMALY: use of REX.w is meaningless (default operand size is 64)
 author: "-"
 date: 2011-10-19T02:49:26+00:00
 url: /?p=1190
@@ -9,16 +9,17 @@ categories:
 tags:
   - reprint
 ---
-## win linux ssh putty
-win: 用 PuTTYgen 生成rsa key
+## ip-guard, [0x7FFFBB83E044] ANOMALY: use of REX.w is meaningless (default operand size is 64)
 
-linux:   在 /home/xxx/.ssh/ 里创建文件  authorized_keys
+HKEY_LOCAL_MACHINE\SOFTWARE\TEC\Ocular.3\agent\config 
+字符串类型, key: hookapi_filterproc_external
+value: cmd.exe;wsl.exe
 
-修改权限
+## foo.reg
+```
+Windows Registry Editor Version 5.00
 
-chmod o-r authorized_keys
+[HKEY_LOCAL_MACHINE\SOFTWARE\TEC\Ocular.3\agent\config]
+"hookapi_filterproc_external"="cmd.exe;wsl.exe"
 
-chmod g-r authorized_keys
-
-win: 运行pageant, 添加私钥
-
+```
