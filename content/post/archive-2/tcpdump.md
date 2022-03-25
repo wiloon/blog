@@ -16,13 +16,13 @@ tcpdump工作在数据链路层
 
 ### 指定主机
 ```bash
-    tcpdump host 192.168.1.1
-    ### 指定源地址
-    tcpdump -i eth0 src host 192.168.1.1
-    ### 指定目的地址
-    tcpdump -i eth1 dst host 192.168.1.1
-    tcpdump -n -i eth0 host 192.168.1.2 and 192.168.1.3
-    tcpdump -n -i eth0 host 192.168.1.2 or 192.168.1.3 or 192.168.1.4
+tcpdump host 192.168.1.1
+### 指定源地址
+tcpdump -i eth0 src host 192.168.1.1
+### 指定目的地址
+tcpdump -i eth1 dst host 192.168.1.1
+tcpdump -n -i eth0 host 192.168.1.2 and 192.168.1.3
+tcpdump -n -i eth0 host 192.168.1.2 or 192.168.1.3 or 192.168.1.4
 # -i any 任意网卡
 tcpdump  -ni any port 443 -w https.pcap
 ```
@@ -43,11 +43,12 @@ tcpdump -nn -i wlp1s0  src host 192.168.50.115 and '! tcp port 22'
 
 ### 协议过滤
 ```bash
+# protocol name: arp, ip, tcp, udp, icmp
 tcpdump -i eth1 <protocol name>
 
 tcpdump -nn icmp
 
-# protocol name: arp, ip, tcp, udp, icmp
+
 ```
 
 ### 保存到文件, 然后用  Wireshark 分析 
@@ -1940,3 +1941,4 @@ http://www.cnblogs.com/maifengqiang/p/3863168.html
   
 http://dngood.blog.51cto.com/446195/1084796  
 https://mozillazg.com/2018/01/tcpdump-common-useful-examples-cookbook.html  
+>https://www.cnblogs.com/jiujuan/p/9017495.html

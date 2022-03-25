@@ -53,3 +53,5 @@ https://bigeagle.me/2012/05/yubikey/
 https://bigeagle.me/2016/02/yubikey-4/
   
 https://blog.blahgeek.com/yubikey-intro/
+>https://bitbili.net/yubikey_5_nfc_functions.html
+

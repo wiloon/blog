@@ -83,16 +83,29 @@ SELECT @@SESSION.sql_mode;
 ### podmn
 
 ```bash
-    podman run -d \
-    --name mariadb \
-    -p 3306:3306 \
-    -v /etc/localtime:/etc/localtime:ro \
-    -v MySQL-config:/etc/MySQL/conf.d \
-    -v MySQL-data:/var/lib/MySQL \
-    -e MySQL_ROOT_PASSWORD=password0 \
-    mariadb:latest \
-    --character-set-server=utf8mb4 \
-    --collation-server=utf8mb4_unicode_ci
+# mysql
+podman run -d \
+--name mysql \
+-p 3306:3306 \
+-v /etc/localtime:/etc/localtime:ro \
+-v mysql-config:/etc/mysql/conf.d \
+-v mysql-data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=rootroot \
+mysql:5.7.37-debian \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_unicode_ci
+
+#marial db
+podman run -d \
+--name mariadb \
+-p 3306:3306 \
+-v /etc/localtime:/etc/localtime:ro \
+-v MySQL-config:/etc/MySQL/conf.d \
+-v MySQL-data:/var/lib/MySQL \
+-e MySQL_ROOT_PASSWORD=password0 \
+mariadb:latest \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_unicode_ci
 
     # docker client
     podman run -it \
