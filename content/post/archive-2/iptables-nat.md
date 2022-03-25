@@ -2,10 +2,9 @@
 title: iptables nat
 author: "-"
 date: 2018-11-22T13:58:38+00:00
-url: /?p=12911
+url: iptables/nat
 categories:
-  - Uncategorized
-
+  - network
 tags:
   - reprint
 ---
@@ -33,7 +32,7 @@ dnat 目的地址转换,改变数据包的目的地址
   
 masquerade IP伪装,只适用于ADSL等动态拨号上网的IP伪装,如果主机IP是静态分配的,就用snat
 
-### ip包大致的流向 DNAT, podman
+### ip 包大致的流向 DNAT, podman
 
 * nat表prerouting链 - nat替换目标地址
 * 路由判断

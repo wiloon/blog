@@ -18,8 +18,7 @@ tags:
 ## sshd config, /etc/sshsshd_config
 
 ### PermitRootLogin
-是否允许 root 登录。可用值如下: 
-默认值是"prohibit-password"
+是否允许 root 登录。默认值是"prohibit-password", 其它可用值如下: 
 
 - prohibit-password, 新版本的 sshd 的默认值: 禁止root用户使用密码和基于键盘交互的认证。
 - without-password 废弃的值，新版本的 sshd 使用了更符合直觉的名字 prohibit-password。

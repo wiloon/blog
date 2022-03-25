@@ -93,3 +93,12 @@ add the parameters
 -usb enable the USB driver (will be the default soon)
   
 -usbdevice name add the host or guest USB device 'name'
+
+## KVM中解决鼠标移动问题
+kvm 加 参数
+
+```bash
+  
+-usb -usbdevice tablet
+  
+```

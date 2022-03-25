@@ -236,8 +236,11 @@ var x = "Mozilla";
 var empty = "";
 
 ### 替换地址栏url
+```js
       let stateObj = { foo: "bar" };
       window.history.pushState(stateObj, '', 'foo');
+      // 
+```
 
 console.log("Mozilla is " + x.length + " code units long");
 

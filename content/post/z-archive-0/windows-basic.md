@@ -10,7 +10,14 @@ tags:
   - reprint
 ---
 ## windows basic, win basic
+## win10 开机启动
 
+```
+win + r
+shell:startup
+将该应用的快捷方式从文件位置复制并粘贴到“启动”文件夹中。
+
+```
 ### msdn i tell u
 >https://www.itellu.com/2021/06/22/win11-v2021-v1/
 

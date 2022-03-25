@@ -143,7 +143,7 @@ opt lease 864000 # 10 day DHCP lease time in seconds
         
         
         
-          当然，你需要给无线网卡指定一个地址 (静态地址，不会变的) ，为了达到开机启动就设置好的目的，你需要编辑/etc/network/interfaces: 
+          当然，你需要给无线网卡指定一个地址 (静态地址，不会变的) ，为了达到开机启动就设置好的目的，你需要编辑 /etc/network/interfaces: 
         
         
         

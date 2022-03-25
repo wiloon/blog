@@ -88,7 +88,7 @@ http://www.zsythink.net/wp-content/uploads/2017/02/021217\_0051\_6.png
 
 ### 查看定义规则的详细信息
 ```bash
-iptables -t nat -vnL  --line-number
+iptables -t nat -vnL --line-number
 iptables -t nat -vnL PREROUTING --line-number
 ```
 
@@ -114,7 +114,7 @@ iptables -F
 
 # 插入一条， 插入位置 10
 iptables -t nat -I  VY 10  -p tcp -m set --match-set vlist dst -j REDIRECT --to-ports 1081
-iptables -t mangle -I  POSTROUTING 1  -p tcp    ! --sport 22 -j LOG --log-prefix 'ipt-log-m-p1: '
+iptables -t mangle -I POSTROUTING 1  -p tcp    ! --sport 22 -j LOG --log-prefix 'ipt-log-m-p1: '
 --dport num 匹配目标端口号
 --sport num 匹配来源端口号
 
