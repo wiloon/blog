@@ -2,8 +2,7 @@
 title: Fedora
 author: "-"
 date: 2011-12-14T13:42:00+00:00
-url:   - Fedora
-
+url: fedora
 categories:
   - linux
 tags:
