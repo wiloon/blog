@@ -116,11 +116,8 @@ ansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1"
 --skip-tags
 --start-at-task
 --step # one-step-at-a-time: confirm each task before running
-
 ```
 
-http://sapser.github.io/ansible/2014/07/21/ansible-playbook
-  
-https://stackoverflow.com/questions/18195142/safely-limiting-ansible-playbooks-to-a-single-machine
-  
-http://liuzhengwei521.blog.51cto.com/4855442/1962382
+>http://sapser.github.io/ansible/2014/07/21/ansible-playbook
+>https://stackoverflow.com/questions/18195142/safely-limiting-ansible-playbooks-to-a-single-machine
+>http://liuzhengwei521.blog.51cto.com/4855442/1962382

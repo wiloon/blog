@@ -11,12 +11,12 @@ tags:
 
 
 ---
-## libvirt
+## libvirt, virsh
 
 ## archlinux
 
 ```bash
-sudo pacman -S libvirt 
+sudo pacman -S libvirt
 systemctl status libvirtd.service
 systemctl enable libvirtd --now
 
@@ -31,12 +31,12 @@ virsh net-start default
 user = "root"
 group = "root"
 ```
+
 ## restart libvirtd
 ```bash
 systemctl restart libvirtd
 
 ```
-
 
 ```bash
 virt-install \
@@ -88,6 +88,8 @@ virsh undefine <虚拟机名称>                         # 对于运行中的持
                                                   # 对于非活动的虚拟机，undefine后virsh将无法感知其存在
                                                   # undefine后磁盘依然存在，只是删除虚拟机的配置文件/etc/libvirt/qemu
 virsh undefine <虚拟机名称> --remove-all-storage    # 删除虚拟机并删除所有磁盘文件
+virsh define <虚拟机xml文件>                 # 从xml文件定义define新的domain，不会自动启动
+virsh dumpxml <虚拟机名称>                   # 查看虚拟机xml文件
 
 virsh help                                  # 查看帮助信息
 virsh version                               # 查看qemu版本
@@ -110,14 +112,14 @@ virsh autostart <虚拟机名称> --disable       # 禁止开机启动
 virsh dominfo <虚拟机名称>                   # 查看虚拟机domain信息
 virsh domblklist <虚拟机名称>                # 列出虚拟机所有块存储设备
 virsh console <虚拟机名称>                   # 控制台连接虚拟机
-virsh dumpxml <虚拟机名称>                   # 查看虚拟机xml文件
+
 virsh edit <虚拟机名称>                      # 编辑虚拟机xml文件
 virsh managedsave <虚拟机名称>               # 保存状态save并关闭虚拟机，下次启动会恢复到之前保存的状态
 virsh start <虚拟机名称>                     # 启动并恢复managedsave保存的状态
 virsh reset <虚拟机名称>                     # 对虚拟机执行强制重启，类似重置电源按钮
 virsh create <虚拟机xml文件>                 # 从xml文件中创建domain，创建完成后会自动启动；
                                             # 一个xml对应一个domain虚拟机
-virsh define <虚拟机xml文件>                 # 从xml文件定义define新的domain，不会自动启动
+
 
 
 
@@ -154,8 +156,33 @@ virt-install <命令行>  # 通过命令行指定来创建虚拟机
 virsh attach-disk <虚拟机名称> 
 virsh attach-device <虚拟机名称> /etc/libvirt/qemu/test2-add.xml --persistent        # 从XML文件附加设备
 virsh detach-device <虚拟机名称> /etc/libvirt/qemu/test2-add.xml --persistent        # 卸载设备   
+
+
+
 ```
 
 
 >https://linux.die.net/man/1/virt-install
 
+
+### 虚拟机改名
+
+```bash
+cd /etc/libvirt/qemu
+virsh dumpxml  kvm_client00 > kvm_00.xml
+vim kvm_00.xml
+virsh undefine foo
+virsh define /etc/libvirt/qemukvm_00.xml 
+```
+
+>http://www.cnblogs.com/5201351/p/4464350.html
+
+## 调整内存
+
+```bash
+virsh shutdown vm0
+sudo virsh setmaxmem vm0 16G
+virsh start vm0
+virsh setmem vm0 16G
+
+```

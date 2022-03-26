@@ -13,12 +13,18 @@ tags:
 
 ### 安装 nftables
 
+#### archlinux
 ```bash
 sudo pacman -S nftables
 sudo systemctl start nftables
 sudo systemctl enable nftables
 ```
 
+#### centos 8
+```bash
+systemctl disable --now firewalld
+
+```
 ### 增
 #### 增加表, Adding tables: 
 ```bash
@@ -44,8 +50,8 @@ nft insert rule nat post ip protocol icmp icmp type echo-request accept
 
 ### 查
 ```bash
-nft list ruleset     # 列出所有规则
-nft list tables # 列出所有表
+nft list ruleset # 列出所有规则
+nft list tables  # 列出所有表
 # 列出每个族的表
 nft list tables ip
 nft list table ip foo # 列出foo表的内容
@@ -53,7 +59,7 @@ nft list table ip foo # 列出foo表的内容
 nft list chain filter input # 列出filter表input链
 
 # 列出handle
-nft list table filter -n -a
+nft -a list table filter
 ```
 
 ### 删

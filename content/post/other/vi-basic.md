@@ -5,10 +5,11 @@ date: 2012-06-21T04:20:00.000+00:00
 url: vim
 categories:
   - Linux
-
 tags:
   - reprint
+
 ---
+
 ## vi/vim basic, command
 
 ## 在vi中添加文本
@@ -25,6 +26,7 @@ tags:
     ^v char 插入时忽略char的指定意义，这是为了插入特殊字符
 
 ### vim 编辑二进制文件
+
 ```bash
 # 注意用-b，否则后面会有0a
 vim -b test.bin
@@ -42,7 +44,8 @@ vim -b test.bin
 :set fileencoding
 ```
 
-如果你只是想查看其它编码格式的文件或者想解决用 Vim 查看文件乱码的问题，那么你可以在 ~/.vimrc 文件中添加以下内容: 
+如果你只是想查看其它编码格式的文件或者想解决用 Vim 查看文件乱码的问题，那么你可以在 ~/.vimrc 文件中添加以下内容:
+
 ```bash
 vim ~/.vimrc
 
@@ -51,6 +54,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 ```
+
 这样，就可以让vim自动识别文件编码 (可以自动识别UTF-8或者GBK编码的文件) ，其实就是依照 fileencodings提供的编码列表尝试，如果没有找到合适的编码，就用latin-1(ASCII)编码打开。
 
 ### 上移一行
@@ -58,7 +62,7 @@ set encoding=utf-8
 
 ### install
 #### debian install nvim
-https://vra.github.io/2019/03/13/ubuntu-install-neovim/
+>https://vra.github.io/2019/03/13/ubuntu-install-neovim/
 
     sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:neovim-ppa/stable
@@ -69,9 +73,8 @@ https://vra.github.io/2019/03/13/ubuntu-install-neovim/
     sudo apt install -y neovim
     # after install, type 'nvim' to open neovim 
 
-
 ### vim g 和 % 区别
-#### g 全局的  
+#### g 全局的
 替换行中出现的每一个pattern
 
     s/pattern/replacement/     

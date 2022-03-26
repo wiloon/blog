@@ -12,9 +12,9 @@ tags:
 
 https://www.passmark.com/
 
-### QNAP TS453Bmini
+## QNAP TS453Bmini
 
-### pixel3
+## pixel3
 5.5 英寸显示屏, 2160 x 1080) 柔性 OLED 屏幕 (443ppi), 18:9
 后置摄像头1220 万像素
 Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
@@ -25,10 +25,10 @@ https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans
 
 
 
-### Sharp 
+## Sharp 
 3840*2160
 
-### 斐讯N1
+## 斐讯N1
 CPU: Amlogic S905, ARM Cortex-A53 四核 up to 2.0GHz
 GPU: ARM Mali™-450, 5core
 ETH: RTL8211F 100/1000M
@@ -66,9 +66,9 @@ Real, DivX HD
 工艺
 28nm HKMG
 
-### Back-UPS Pro 550
+## Back-UPS Pro 550
 
-### Dell wyse 5070
+## Dell wyse 5070
 Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2系列
 金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列
@@ -117,18 +117,18 @@ https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.
 - type-c > vga
 
 
-### Pixelbook
+## Pixelbook
 CPU: i5  
 MEM: 8G  
 DISK: 128G  
 display: 2400x1600
 
-### Pixel2
+## Pixel2
 
-### Intel® Compute Stick STK1AW32SC
+## Intel® Compute Stick STK1AW32SC
 Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz  
 
-### board
+## board
     cpu: Intel(R) Celeron(R) CPU 1037U @ 1.80GHz
     MEM: DDR3
     wlan: BCM94313HMG2L
@@ -136,7 +136,7 @@ Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz
         Single spatial stream up to a 72 Mbps data rate
         https://www.broadcom.cn/products/wireless/wireless-lan-bluetooth/bcm43013
 
-### Netgear R7800
+## Netgear R7800
     CPU: Qualcomm Atheros IPQ8065 ARMv7 32bit
     IEEE® 802.11 b/g/n 2.4 GHz–256 QAM support
     IEEE® 802.11 a/n/ac 5.0 GHz
@@ -148,7 +148,7 @@ Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz
     2.4G QCA9984
     有线网络 QCA8337
 
-### Dell Latitude 3450
+## Dell Latitude 3450
 https://www.dell.com/support/manuals/zh-cn/latitude-3450-laptop/lat_14_3450_om-v1/specifications?guid=guid-42d27b81-8d57-4219-9b9b-0c51cfa756b5&lang=en-us
 https://www.dell.com/support/home/zh-cn/product-support/product/latitude-3450-laptop/drivers
 Network adapter	10/100/1000 Mbps Ethernet LAN on Motherboard (LOM)

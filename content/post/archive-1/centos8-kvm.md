@@ -37,7 +37,6 @@ virt-install \
 --extra-args="console=tty0 console=ttyS0,115200"
 ```
 
-
 >https://computingforgeeks.com/how-to-install-kvm-on-rhel-8/
 >https://computingforgeeks.com/how-to-mount-vm-virtual-disk-on-kvm-hypervisor/
 

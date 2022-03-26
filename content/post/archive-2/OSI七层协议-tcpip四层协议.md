@@ -1,5 +1,5 @@
 ---
-title: OSI七层协议,  TCP/IP四层协议, osi 7层, tcp/ip 4层
+title: OSI 七层协议, TCP/IP 四层协议, osi 7层, tcp/ip 4层
 author: "-"
 date: 2016-04-24T02:07:00+00:00
 url: osi
@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 
-## OSI七层协议,  TCP/IP四层协议, osi 7层, tcp/ip 4层
+## OSI 七层协议, TCP/IP 四层协议, osi 7层, tcp/ip 4层
 
 ## OSI七层协议和TCP/IP四层协议之比较
 
