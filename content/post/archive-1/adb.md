@@ -1,25 +1,137 @@
 ---
-title: CouchDB
+title: archlinux, adb
 author: "-"
-date: 2021-03-06 15:35:53
-draft: true
-url: CouchDB
+date: 2015-05-30T00:06:20+00:00
+url: /?p=7731
 categories:
-  - db
-
+  - Uncategorized
 tags:
-  - reprint
+  - Arch Linux
+
 ---
-## CouchDB
+## archlinux, adb
+```bash
+pacman -S android-tools
+```
 
-CouchDB是用Erlang开发的面向文档的数据库系统，2010年7月14日发布了1.0版本。CouchDB不是一个传统的关系数据库，而是面向文档的数据库，其数据存储方式有点类似lucene的index文件格式，CouchDB最大的意义在于它是一个面向web应用的新一代存储系统，事实上，CouchDB的口号就是：下一代的Web应用存储系统。
+装了个64位的Archlinux,发现adb用不了,运行adb提示没有这个文件或目录,进入到sdk的platform-tools目录下去运行还是不行。
 
-CouchDB 可以安装在大部分 POSIX 系统上，包括 Linux® 和 Mac OS X。Version 2.2.0开始正式支持Windows (x64)。CouchDB 可以从源文件安装，也可以使用包管理器安装 (比如在 Mac OS X 上使用 MacPorts）。
+运行一下file命令
 
-CouchDB 是一个顶级 Apache Software Foundation 开源项目，根据 Apache 许可 V2.0 发布。这个开源许可允许在其他软件中使用这些源代码，并根据需要进行修改，但前提是遵从版权需知和免责声明。与许多其他开源许可一样，这个许可允许用户根据需求使用、修改和分发该软件。不一定由同一个许可包含所有修改，因为我们仅维护一个 Apache 代码使用许可需知。
+file adb
+  
+adb: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.8, stripped
 
+可以看到adb是一个32位的linux程序。
+  
+那么首先就需要装32的glibc了,在archlinux的官网包搜索里面搜索glibc
 
-————————————————
-版权声明：本文为CSDN博主「格一物」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/ory001/article/details/121331968
+4 packages found.
+  
+Arch
+  
+Repo
+  
+Name
+  
+Version
+  
+Description
+  
+Last Updated
+  
+Flag Date
+  
+x86_64
+  
+Core
+  
+glibc
+  
+2.16.0-4
+  
+GNU C Library
+  
+2012-08-29
 
+x86_64
+  
+Extra
+  
+kdesdk-kmtrace
+  
+4.9.1-1
+  
+A KDE tool to assist with malloc debugging using glibc´s "mtrace" functionality
+  
+2012-09-05
+
+x86_64
+  
+Multilib
+  
+lib32-glibc
+  
+2.16.0-4
+  
+GNU C Library for multilib
+  
+2012-08-30
+
+x86_64
+  
+Extra
+  
+nss-mdns
+  
+0.10-5
+  
+glibc plugin providing host name resolution via mDNS
+  
+2012-02-21
+
+4 packages found.
+  
+看到了32的glibc,但是在Multilib仓里面,这个仓默认是没有打开的
+
+编辑/etc/pacman.conf文件,将下面几行前面的注释去掉
+
+[multilib]
+  
+SigLevel = PackageRequired
+  
+Include = /etc/pacman.d/mirrorlist
+  
+然后运行pacman -Sy同步包数据库
+
+再运行pacman -S lib32-glibc安装32位的glibc
+  
+再运行adb
+
+    adb devices
+  
+adb: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+  
+同理搜索ncurses可以看到需安装lib32-ncurses
+
+# pacman -S lib32-ncurses
+
+再运行adb
+
+# adb devices
+
+adb: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory
+  
+再搜索可以看到需安装lib32-libstdc++5
+
+# pacman -S lib32-libstdc++5
+
+再运行adb
+
+# adb devices
+
+List of devices attached
+  
+10C61F9CD8B1 device
+
+正常了。

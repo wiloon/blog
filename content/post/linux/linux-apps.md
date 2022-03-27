@@ -31,7 +31,8 @@ sudo pacman -S powerdevil kmix kscreen ark
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
-|ncdu|磁盘空间清理|
+| ncdu                  | 磁盘空间清理                                                                              |
+| qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
 | neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
 | screenfetch           | 打印发行版的 logo                                                                            |
 | keepassxc             |                                                                                         |
@@ -42,7 +43,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | libreoffice-fresh     |                                                                                         |
 | ark                   | kde dolphin extract zip,gz                                                              |
 | wine                  | 需要开启 Multilib 仓库                                                                    |
-| qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
 | simplescreenrecorder  | 录屏                                                                                    |
 | openvpn               |                                                                                         |
 | rdesktop              |                                                                                         |

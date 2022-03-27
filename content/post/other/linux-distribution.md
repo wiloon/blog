@@ -9,10 +9,12 @@ tags:
   - reprint
 ---
 ## linux distribution, 发行版
-- Debian
+
+- Archlinux
+- Gentoo
+- Alpine
 - Ubuntu
-- Redhat
 - Centos
 - Fedora
-- Gentoo
-- Archlinux
+- Debian
+- Redhat

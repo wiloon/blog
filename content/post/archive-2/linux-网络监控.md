@@ -360,13 +360,13 @@ $ sudo apt-get install ifstat
   
 $ sudo yum install ifstat
   
-17. dstat
+## dstat
 
 dstat是一款用途广泛的工具 (用python语言编写) ,它可以监控系统的不同统计信息,并使用批处理模式来报告,或者将相关数据记入到CSV或类似的文件。这个例子显示了如何使用dstat来报告网络带宽。
 
 安装dstat
 
-$ dstat -nt
+    dstat -nt
   
 -net/total- --system--
   

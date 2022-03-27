@@ -204,11 +204,9 @@ Ping amount
 
 ### net.ipv4.tcp_max_syn_backlog
   
-对于那些依然还未获得客户端确认的连接请求,需要保存在队列中最大数目。默认值是1024,可提高到2048。
-  
-    指定listen监听队列里,能够转移至ESTABLISHED或者SYN_RCVD状态的socket的最大数目。
+对于那些依然还未获得客户端确认的连接请求, 需要保存在队列中最大数目。默认值是1024, 指定 listen 监听队列里,能够转移至 ESTABLISHED 或者S YN_RCVD 状态的 socket 的最大数目。
 
-#系统在同时所处理的最大timewait sockets 数目。如果超过此数的话,time-wait socket 会被立即砍除并且显示警告信息。
+系统在同时所处理的最大 timewait sockets 数目。如果超过此数的话, time-wait socket 会被立即砍除并且显示警告信息。
   
 #Bug-to-bug compatibility with some broken printers.
       
@@ -256,17 +254,14 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 
 ### net.ipv4.tcp_timestamps
 
-  * net.ipv4.tcp_tw_recycle
+## net.ipv4.tcp_tw_recycle
   
     打开快速 TIME-WAIT sockets 回收。能够更快地回收TIME-WAIT socket 。除非得到技术专家的建议或要求,请不要随意修改这个值。
-  * /proc/sys/net/ipv4/tcp_tw_reuse
+## /proc/sys/net/ipv4/tcp_tw_reuse
   
-    表示是否允许将处于TIME-WAIT状态的socket (TIME-WAIT的端口) 用于新的TCP连接 。
-  
-    表示是否允许重新应用处于TIME-WAIT状态的socket用于新的TCP连接。
-  
+表示是否允许将处于 TIME-WAIT 状态的 socket (TIME-WAIT的端口) 用于新的TCP连接 。
+
     0: 关闭
-  
     1: 打开
 
 arp通知链操作
@@ -319,16 +314,15 @@ aio-nr shows the current system-wide number of asynchronous io requests.
 
 
 ### net.core.somaxconn
+
 定义了系统中每一个端口最大的监听队列的长度,这是个全局的参数。  
-对于一个TCP连接,Server与Client需要通过三次握手来建立网络连接.当三次握手成功后,
-我们可以看到端口的状态由LISTEN转变为ESTABLISHED,接着这条链路上就可以开始传送数据了.
-每一个处于监听(Listen)状态的端口,都有自己的监听队列.监听队列的长度,与如下两方面有关:
+对于一个TCP连接, Server与Client需要通过三次握手来建立网络连接. 当三次握手成功后, 我们可以看到端口的状态由 LISTEN 转变为ESTABLISHED, 接着这条链路上就可以开始传送数据了. 每一个处于监听(Listen)状态的端口, 都有自己的监听队列. 监听队列的长度, 与如下两方面有关:
 - somaxconn参数.
-- 使用该端口的程序中listen()函数.
+- 使用该端口的程序中 listen() 函数.
 
 1. 关于somaxconn参数:
 
-定义了系统中每一个端口最大的监听队列的长度,这是个全局的参数,默认值为128,具体信息为:
+定义了系统中每一个端口最大的监听队列的长度,这是个全局的参数,默认值为128, 具体信息为:
 
 Purpose:
 
@@ -352,7 +346,7 @@ Increase this parameter on busy Web servers to handle peak connection rates.
 
 看下FREEBSD的解析: 
 
-限制了接收新 TCP 连接侦听队列的大小。对于一个经常处理新连接的高负载 web服务环境来说,默认的 128 太小了。大多数环境这个值建议增加到 1024 或者更多。 服务进程会自己限制侦听队列的大小(例如 sendmail(8) 或者 Apache),常常在它们的配置文件中有设置队列大小的选项。大的侦听队列对防止拒绝服务 DoS 攻击也会有所帮助。
+限制了接收新 TCP 连接侦听队列的大小。对于一个经常处理新连接的高负载 web 服务环境来说,默认的 128 太小了。大多数环境这个值建议增加到 1024 或者更多。 服务进程会自己限制侦听队列的大小(例如 sendmail(8) 或者 Apache),常常在它们的配置文件中有设置队列大小的选项。大的侦听队列对防止拒绝服务 DoS 攻击也会有所帮助。
 
 
 Let's consider a TCP-handshake.. tcp_max_syn_backlog represents the maximal number of connections in SYN_RECV queue. I.e. when your server received SYN, sent SYN-ACK and haven't received ACK yet. This is a separate queue of so-called "request sockets" - reqsk in code (i.e. not fully-fledged sockets, "request sockets" occupy less memory. In this state we can save some memory and not yet allocate a full socket because the full connection may not be at all in the future if ACK will not arrive). The value of this queue is affected (see this post) by listen()'s backlog argument and limited by tcp_max_syn_backlog in kernel.
@@ -414,8 +408,8 @@ This buffer holds packets that have been received by the kernel, but not yet rea
  
 最大的 TCP/UDP 数据接收窗口 (字节)  
 默认的接收数据包内存大小  
-这些文件用来设置所有 socket 的发送和接收缓存大小，所以既影响TCP，也影响UDP。
-默认的和最大的接收数据包内存大小  
+用来设置所有 socket 的发送和接收缓存大小，所以既影响TCP，也影响UDP。
+ 
 大多数的 Linux 中 rmem_max 和 wmem_max 被分配的值为 128k，在一个低延迟的网络环境中，或者是 apps 比如 DNS、Web Server，这或许是足够的。尽管如此，如果延迟太大，默认的值可能就太小了
 
 同时设置 minimum size, initial size, and maximum size in bytes
@@ -455,10 +449,9 @@ sysctl 中的 rmem 或者 wmem，如果是代码中指定的话对应着 SO_SNDB
 最大的TCP数据发送窗口 (字节) 。
 默认的和最大的发送数据包内存的大小
 
-  * /proc/sys/net/core/netdev_max_backlog
+## /proc/sys/net/core/netdev_max_backlog
   
-    在每个网络接口接收数据包的速率比内核处理这些包的速率快时,允许送到队列的数据包的最大数目。
-
+在每个网络接口接收数据包的速率比内核处理这些包的速率快时,允许送到队列的数据包的最大数目。
 
 ## bridge-nf
 bridge-nf使得netfilter可以对Linux网桥上的IPv4/ARP/IPv6包过滤。比如，设置net.bridge.bridge-nf-call-iptables＝1后，二层的网桥在转发包时也会被iptables的FORWARD规则所过滤，这样有时会出现L3层的iptables rules去过滤L2的帧的问题 (见这里）。

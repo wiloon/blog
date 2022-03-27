@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## less
+
 ### make Vim behave like "tail -f"?
 
 ```bash

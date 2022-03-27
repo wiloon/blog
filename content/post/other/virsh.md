@@ -17,10 +17,10 @@ tags:
 
 ```bash
 sudo pacman -S libvirt
-systemctl status libvirtd.service
+systemctl status libvirtd
 systemctl enable libvirtd --now
 
-pacman -S dnsmasq
+pacman -S dnsmasq dmidecode
 virsh net-list --all
 virsh net-start default
 ```
@@ -38,6 +38,17 @@ systemctl restart libvirtd
 
 ```
 
+```bash
+virt-install \
+--name=win10 --ram 2048 --vcpus=2 \
+--disk path=/root/vm/win10.raw,format=raw,bus=virtio \
+--os-variant=win10 \
+--network network:default \
+--graphics vnc,port=5900,listen=0.0.0.0 \
+--noautoconsole \
+--import
+
+```
 ```bash
 virt-install \
 --name=foo --ram 2048 --vcpus=1 \
@@ -72,18 +83,18 @@ vncviewer 10.1.10.2:1
 --network bridge    #指定桥接网卡
    model            #网卡模式，这里也是使用性能更好的virtio
 --graphics          #图形参数
-————————————————
-版权声明：本文为CSDN博主「tom马」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/mshxuyi/article/details/98305715
+
 
 ```
 
 ## 命令
 ```bash
+virt-install --osinfo list
 virsh list                                  # 查看活动虚拟机状态
 virsh list --all                            # 查看所有虚拟机状态, 包括已经关闭的
 virsh start <虚拟机名称>                     # 启动一个之前已经定义define过的虚拟机（domain)
 virsh shutdown <虚拟机名称>                  # 关闭虚拟机,类似虚拟机内执行关机
+virsh destroy <虚拟机名称>                   # 强制关闭虚拟机，类似于断电
 virsh undefine <虚拟机名称>                         # 对于运行中的持久性虚拟机，将状态转换为暂时的，关机后virsh无法感知其存在
                                                   # 对于非活动的虚拟机，undefine后virsh将无法感知其存在
                                                   # undefine后磁盘依然存在，只是删除虚拟机的配置文件/etc/libvirt/qemu
@@ -102,7 +113,7 @@ virsh sysinfo                               # 查看hypervisro信息
 
 
 virsh reboot <虚拟机名称>                    # 重启虚拟机
-virsh destroy <虚拟机名称>                   # 强制关闭虚拟机，类似于断电
+
 virsh suspend <虚拟机名称>                   # 挂起虚拟机，将当前状态保存在内存中
 virsh resume <虚拟机名称>                    # 恢复虚拟机挂起状态，从内存中恢复虚拟机状态
 virsh save <虚拟机名称> <img镜像文件名>        # 暂停虚拟机，将虚拟机状态保存在磁盘镜像文件中
@@ -186,3 +197,8 @@ virsh start vm0
 virsh setmem vm0 16G
 
 ```
+
+
+————————————————
+版权声明：本文为CSDN博主「tom马」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/mshxuyi/article/details/98305715

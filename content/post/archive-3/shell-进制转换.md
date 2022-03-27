@@ -4,33 +4,28 @@ author: "-"
 date: 2020-03-24T02:21:01+00:00
 url: /?p=15812
 categories:
-  - Uncategorized
+  - linux
 
 tags:
   - reprint
+  - shell
+
+
 ---
 ## shell 进制转换
-一、16进制转换成10进制
+## 16进制转换成10进制
   
+```bash
 printf %d 0xF
-  
-或者
-  
 echo $((16#F))
+```
+ 
+## 10进制转换成16进制
   
-15
-
-二、10进制转换成16进制
-  
+```bash
 printf %x 15
-  
-f
-  
-或者
-  
 echo "obase=16;15"|bc
-  
-F
+```
 
 三、10进制转换成8进制
   

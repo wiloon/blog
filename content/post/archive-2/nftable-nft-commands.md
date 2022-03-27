@@ -25,6 +25,22 @@ sudo systemctl enable nftables
 systemctl disable --now firewalld
 
 ```
+
+
+### 查
+```bash
+nft list ruleset # 列出所有规则
+nft list tables  # 列出所有表
+# 列出每个族的表
+nft list tables ip
+nft list table ip foo # 列出foo表的内容
+
+nft list chain filter input # 列出filter表input链
+
+# 列出handle
+nft -a list table filter
+```
+
 ### 增
 #### 增加表, Adding tables: 
 ```bash
@@ -46,20 +62,6 @@ nft add rule  <chain-name> ip daddr 8.8.8.8 counter
 nft add rule filter input tcp dport 22 accept
 
 nft insert rule nat post ip protocol icmp icmp type echo-request accept
-```
-
-### 查
-```bash
-nft list ruleset # 列出所有规则
-nft list tables  # 列出所有表
-# 列出每个族的表
-nft list tables ip
-nft list table ip foo # 列出foo表的内容
-
-nft list chain filter input # 列出filter表input链
-
-# 列出handle
-nft -a list table filter
 ```
 
 ### 删

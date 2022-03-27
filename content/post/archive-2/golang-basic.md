@@ -511,3 +511,6 @@ for pos, char := range str {
 }
 
 ```
+
+## 创建长度为0的slice时发生了什么
+
