@@ -574,3 +574,9 @@ git push -u origin main
 ## 删除大文件 
 
 >https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html
+
+## 按修改次数排序
+
+```bash
+git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -20
+```

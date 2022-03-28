@@ -173,7 +173,7 @@ struct linger {
 1) l_onoff = 0,l_linger被忽略,同默认行为 2) l_onoff 非0,l_linger为0,close清空发送缓冲,并发送RST,然后返回,这中情况下,可以避免TIME_WAIT状态的产生。 3) l_onoff非0,l_linger大于0,close将使内核推延一段时间。如果缓冲有数据,进程将进入睡眠状态,直到数据发送完毕并收到对方的ACK或者滞留超时(close返回EWOULDBLOCK),缓冲去数据丢失。(如果是非阻塞,则直接返回EWOULDBLOCK) shutdown使用可以避免关闭时还有数据的处理。
 
 ## tcp 状态机
-tcp在每个时刻都存在于一个特定的状态(CLOSED状态为假想状态),这里的状态和netstat显示的状态是一致的,各个状态以及状态转换如下:  TCP状态机 TIME_WAIT 也称为 2MSL(Maximum Segment Lifetime) 状态, 它可以保证对端发送最后的 FIN (重发的), 能够响应ACK, 另外一个含是, 保证端口在2MSL 端口不被重发使用。 在服务端编程的时候, 我们通常会使用 SO_REUSEADDR 这个选项, 这样可以避免如果服务端进入 TIME_WAIT 状态后, 可以及时重启。 FIN_WAIT_2 状态是在发送 FIN, 接收到ACK时, 进入的状态, 如果对端没有发送 FIN 那么, 将无法进入 TIME_WAIT 状态, 这时对端一直是CLOSE_WAIT 状态,当服务器出现大量的 FIN_WAIT_2 或 CLOSE_WAIT 状态时, 一般都是被动关闭那端忘记了调用close函数关闭socket。
+tcp在每个时刻都存在于一个特定的状态(CLOSED状态为假想状态),这里的状态和netstat显示的状态是一致的,各个状态以及状态转换如下:  TCP状态机 TIME_WAIT 也称为 2MSL(Maximum Segment Lifetime) 状态, 它可以保证对端发送最后的 FIN (重发的), 能够响应ACK, 另外一个含是, 保证端口在 2MSL 端口不被重发使用。 在服务端编程的时候, 我们通常会使用 SO_REUSEADDR 这个选项, 这样可以避免如果服务端进入 TIME_WAIT 状态后, 可以及时重启。 FIN_WAIT_2 状态是在发送 FIN, 接收到ACK时, 进入的状态, 如果对端没有发送 FIN 那么, 将无法进入 TIME_WAIT 状态, 这时对端一直是CLOSE_WAIT 状态,当服务器出现大量的 FIN_WAIT_2 或 CLOSE_WAIT 状态时, 一般都是被动关闭那端忘记了调用close函数关闭socket。
 
 ##  TCP数据传输
 滑动窗口 在tcp头部,窗口大小占用16位,再加上WS选项,实际上可以达31位。已经建立连接的TCP双方,都维护两个窗口,分别为接收窗口和接收窗口。
@@ -224,3 +224,16 @@ https://xie.infoq.cn/article/760f379a3e3f2694b5e994ffd?utm_source=rss&utm_medium
 >https://developer.aliyun.com/article/720202
 
 RWIN (receivers advertised window size)
+
+## MSL, Maximum Segment Lifetime
+
+MSL是 Maximum Segment Lifetime 英文的缩写，中文可以译为“报文最大生存时间”，他是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。因为tcp报文（segment）是ip数据报（datagram）的数据部分，具体称谓请参见《数据在网络各层中的称呼》一文，而ip头中有一个TTL域，TTL是time to live的缩写，中文可以译为“生存时间”，这个生存时间是由源主机设置初始值但不是存的具体时间，而是存储了一个ip数据报可以经过的最大路由数，每经过一个处理他的路由器此值就减1，当此值为0则数据报将被丢弃，同时发送ICMP报文通知源主机。RFC 793中规定MSL为2分钟，实际应用中常用的是30秒，1分钟和2分钟等。
+
+2MSL 即两倍的 MSL，TCP 的 TIME_WAIT 状态也称为 2MSL 等待状态，当 TCP 的一端发起主动关闭，在发出最后一个 ACK 包后，即第3次握手完成后发送了第四次握手的 ACK 包后就进入了 TIME_WAIT 状态，必须在此状态上停留两倍的MSL时间，等待 2MSL 时间主要目的是怕最后一个 ACK 包对方没收到，那么对方在超时后将重发第三次握手的FIN包，主动关闭端接到重发的FIN包后可以再发一个ACK应答包。在TIME_WAIT 状态时两端的端口不能使用，要等到 2MSL 时间结束才可继续使用。当连接处于2MSL等待阶段时任何迟到的报文段都将被丢弃。不过在实际应用中可以通过设置 SO_REUSEADDR 选项达到不必等待 2MSL 时间结束再使用此端口。
+
+
+TTL与MSL是有关系的但不是简单的相等的关系，MSL要大于等于TTL。
+
+————————————————
+版权声明：本文为CSDN博主「xiaofei0859」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/xiaofei0859/article/details/6044694
