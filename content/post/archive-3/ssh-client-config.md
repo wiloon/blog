@@ -22,11 +22,11 @@ Host *
     User root # 默认用户
 ```
 
-### ssh client config, 服务端保持连接
+## ssh client config, 保持连接
 
-## 避免SSH连接因超时闲置断开
+避免SSH连接因超时闲置断开
 
-## 客户端保持连接
+## ssh 客户端保持连接
 
 ```bash
 vim ~/.ssh/config

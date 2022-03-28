@@ -1,5 +1,5 @@
 ---
-title: linux 文件创建时间, 修改时间, stat
+title: stat command
 author: "-"
 date: 2017-03-25T02:32:27+00:00
 url: stat
@@ -9,16 +9,17 @@ categories:
 tags:
   - reprint
 ---
-## linux 文件创建时间, 修改时间, stat
+## stat command
 
-stat命令，查看某个文件的inode信息, 除了文件名以外的所有文件信息，都存在inode之中。
+stat命令，查看某个文件的 inode 信息, 除了文件名以外的所有文件信息，都存在inode之中。
 
-### stat
+### stat, linux 文件创建时间, 修改时间
 ### atime, mtime, ctime
-简名	 全名	     中文名	     含义
-atime	access time	访问时间	文件中的数据库最后被访问的时间
-mtime	modify time	修改时间	文件内容被修改的最后时间
-ctime	change time	变化时间	文件的元数据发生变化。比如权限,所有者等
+
+    简名	 全名	       中文名	   含义
+    atime	access time	访问时间	文件中的数据库最后被访问的时间
+    mtime	modify time	修改时间	文件内容被修改的最后时间
+    ctime	change time	变化时间	文件的元数据发生变化。比如权限,所有者等
 
 在windows下,一个文件有: 创建时间、修改时间、访问时间。
   
@@ -56,6 +57,26 @@ Tue Aug 4 15:13:44 HKT 2009
     Modify: 2021-07-04 19:17:15.563865369 +0800
     Change: 2021-07-04 19:17:15.563865369 +0800
     Birth:  2021-07-04 19:17:15.563865369 +0800
+
+- File: 文件名
+- size: 文件大小, File size in bytes.
+Blocks: 文件所占用Block的块数
+IO Block: 文件IO Block的大小
+regular file: 文件的类型
+Device: 设备号 以八进制和十进制显示
+Inode: inode号
+Links: 硬链接数量
+Access : 访问权限
+Uid : 拥有者ID userid
+Gid : 所在的组的ID
+Access: 最后访问时间
+Modify: 文件内容最后修改时间
+-Change: 文件属性最后修改时间
+
+作者：BlackChen
+链接：https://www.jianshu.com/p/d7acd00945cd
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 说明: Access访问时间(存取时间)。Modify修改时间。Change状态改动时间。可以stat *查看这个目录所有文件的状态。
   

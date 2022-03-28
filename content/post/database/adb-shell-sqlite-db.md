@@ -22,7 +22,7 @@ select * from tag;
 
 #com.wiloon.android.rsslab 是包名.
 
-### #RssLab 是数据库名.
+RssLab 是数据库名.
 
 #tag: 表名
 

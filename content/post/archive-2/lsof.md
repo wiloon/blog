@@ -15,6 +15,11 @@ tags:
 ## lsof
 List all open files on the system
 
+## lsof 输出的字段
+```bash
+COMMAND     PID   TID TASKCMD               USER   FD      TYPE             DEVICE  SIZE/OFF       NODE NAME
+```
+
 ## 查看一个进程打开了哪些文件
 ```bash
 #PID: 1098

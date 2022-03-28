@@ -1,11 +1,10 @@
 ---
-title: ls
+title: ls command
 author: "-"
 date: 2019-12-25T09:23:54+00:00
 url: ls
 categories:
   - linux
-
 tags:
   - reprint
 ---
@@ -22,6 +21,8 @@ ls命令就是list的缩写
 
 - -i 打印出文件的 inode
 - -R 同时列出所有子目录层
+- -L 当文件是软链接时, 直接显示被链接的文件的信息
+- -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出
 
 ls 命令默认会按照文件名字母序排序
   

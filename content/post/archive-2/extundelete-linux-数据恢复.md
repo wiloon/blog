@@ -60,7 +60,7 @@ e2fsprogs和e2fsprogs-libs安装非常简单,这里不做介绍。下面是extun
   
 成功安装extundelete后,会在系统中生成一个extundelete可执行文件。extundelete的使用非常简单,读者可以通过"extundelete -help"获得此软件的使用方法。
 
-五、extundelete用法详解
+五、extundelete 用法详解
 
 extundelete安装完成后,就可以执行数据恢复操作了,本节详细介绍下extundelete每个参数的含义。extundelete用法如下: 
 
@@ -76,7 +76,7 @@ extundelete [options] [action] device-file
 
 -help,显示软件帮助信息。
 
--superblock,显示超级块信息。
+-superblock, 显示超级块信息。
 
 -journal,显示日志信息。
 
