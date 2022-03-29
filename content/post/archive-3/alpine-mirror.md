@@ -25,7 +25,7 @@ apk add busybox-extras
 busybox-extras telnet localhost 6900
 
 apk add drill
-
+apk add tcpdump
 ```
 
     apk add curl
@@ -68,3 +68,5 @@ CMD ["bin/server"]
 ```
 
 >https://megamorf.gitlab.io/2019/09/08/alpine-go-builds-with-cgo-enabled/
+>https://pkgs.alpinelinux.org/packages
+

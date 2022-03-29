@@ -48,6 +48,7 @@ https://chocolatey.org/packages
 | Name             | Comments |
 | ---------------- | -------- |
 |WizTree|硬盘占用分析|
+|Process Hacker|代替任务管理器|
 |chrome||
 |rufus|创建启动盘,iso to usb |
 |搜狗五笔||

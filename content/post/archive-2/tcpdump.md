@@ -3,16 +3,46 @@ title: tcpdump
 author: "-"
 date: 2015-10-26T01:40:42+00:00
 url: tcpdump
-
 categories:
   - network
 tags:
   - reprint
 ---
 ## tcpdump
-用简单的话来定义tcpdump,就是: dump the traffic on a network,根据使用者的定义对网络上的数据包进行截获的包分析工具。 tcpdump可以将网络中传送的数据包的"头"完全截获下来提供分析。它支持针对网络层、协议、主机、网络或端口的过滤,并提供and、or、not等逻辑语句来帮助你去掉无用的信息。
+
+用简单的话来定义tcpdump,就是: dump the traffic on a network, 根据使用者的定义对网络上的数据包进行截获的包分析工具。 tcpdump 可以将网络中传送的数据包的"头"完全截获下来提供分析。它支持针对网络层、协议、主机、网络或端口的过滤,并提供 and、or、not 等逻辑语句来帮助你去掉无用的信息。
 
 tcpdump工作在数据链路层
+
+## 示例
+```bash
+# tcpdump 默认读取第一个网络接口上所有流过的数据包。
+tcpcump
+```
+
+## 过滤 tcp flag
+
+TCP 协议头中flags 域的可用取值: tcp-fin, tcp-syn, tcp-rst, tcp-push, tcp-ack, tcp-urg
+
+```bash
+# 只捕获TCP SYN包：
+tcpdump -i <interface> "tcp[tcpflags] & (tcp-syn) != 0"
+
+# 只捕获TCP ACK包：
+tcpdump -i <interface> "tcp[tcpflags] & (tcp-ack) != 0"
+
+# 只捕获TCP FIN包：
+tcpdump -i <interface> "tcp[tcpflags] & (tcp-fin) != 0"
+
+# 之捕获TCP SYN或ACK包：
+tcpdump -r <interface> "tcp[tcpflags] & (tcp-syn|tcp-ack) != 0"
+tcpdump -nn -i eth0 dst host 172.16.0.213 and 'tcp[tcpflags] & (tcp-rst) != 0'
+
+# 打印 TCP 会话中的的开始和结束数据包, 并且数据包的源或目的不是本地网络上的主机 .(nt: localnet, 实际使用时要真正替换成本地网络的名字))
+tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'
+```
+
+>https://blog.csdn.net/cbbbc/article/details/48897363
 
 ### 指定主机
 ```bash
@@ -45,13 +75,11 @@ tcpdump -nn -i wlp1s0  src host 192.168.50.115 and '! tcp port 22'
 ```bash
 # protocol name: arp, ip, tcp, udp, icmp
 tcpdump -i eth1 <protocol name>
-
 tcpdump -nn icmp
-
-
 ```
 
-### 保存到文件, 然后用  Wireshark 分析 
+### 保存到文件, 然后用  Wireshark 分析
+
     tcpdump -i eth1 src port 25 -w foo.cap
 
 ```bash
@@ -59,10 +87,10 @@ tcpdump -nn icmp
 # -n 不将address转为name,抓包时不进行域名解析。Don't convert addresses (i.e., host addresses, port numbers, etc.) to names.
 # -nn: 不解析主机名和端口名
 
-#从 192.168 网段到 10 或者 172.16 网段的数据报
+# 从 192.168 网段到 10 或者 172.16 网段的数据报
 tcpdump -nvX src net 192.168.0.0/16 and dat net 10.0.0.0/8 or 172.16.0.0/16
 
-#sample
+# sample
 tcpdump -X -n -i enp0s3 host 192.168.1.1 and tcp
 
 # 指定网卡
@@ -112,7 +140,6 @@ pacman -S tcpdump
     -X: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据(但不包括连接层的头部)
     -XX: 打印每个包的头部数据, 同时会以16进制和 ASCII 码形式打印出每个包的数据, 其中包括数据链路层的头部
 
-
 ### flags
 
 flags 是TCP包中的标志信息,一个包中有可以设置多个标志位
@@ -150,23 +177,8 @@ Advertised-Window, 也就是著名的滑动窗口 (Sliding Window) ,用于解决
 ### urgent
 表明数据包中是否有紧急指针. Options是选项.
 
+---
 
-实用命令实例
-  
-默认启动
-
-tcpdump
-  
-普通情况下,直接启动tcpdump将监视第一个网络接口上所有流过的数据包。
-  
-监视指定网络接口的数据包
-
-监视指定主机的数据包
-
-打印所有进入或离开sundown的数据包.
-
-tcpdump host sundown
-  
 也可以指定ip,例如截获所有210.27.48.1 的主机收到的和发出的所有的数据包
 
 tcpdump host helios and ( hot or ace )
@@ -215,10 +227,6 @@ tcpdump ip and not net localnet
   
 监视指定协议的数据包
 
-打印TCP会话中的的开始和结束数据包, 并且数据包的源或目的不是本地网络上的主机.(nt: localnet, 实际使用时要真正替换成本地网络的名字))
-
-    tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'
-  
 打印所有源或目的端口是80, 网络层协议为IPv4, 并且含有数据,而不是SYN,FIN以及ACK-only等不含数据的数据包.(ipv6的版本的表达式可做练习)
 
 tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
@@ -244,7 +252,6 @@ tcpdump 'ether[0] & 1 = 0 and ip[16] >= 224'
 (nt: 'echo reuqest' 与 'echo reply' 这两种类型的ICMP数据包通常由ping程序产生))
 
 tcpdump 'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'
-  
 
     tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
   
@@ -1879,10 +1886,6 @@ icmp-routersolicit, icmp-timx-ceed, icmp-paramprob, icmp-tstamp, icmp-tstamprepl
   
 icmp-ireq, icmp-ireqreply, icmp-maskreq, icmp-maskreply.
 
-以下为TCP 协议头中flags 域的可用取值:tcp-fin, tcp-syn, tcp-rst, tcp-push,
-  
-tcp-ack, tcp-urg.
-
 ### Libpcap
 libcap主要用于网络嗅探  
 Libpcap是 Packet Capture Libray 的英文缩写, 即数据包捕获的 C 函数库, 用于捕获网卡数据或分析 pcap 格式的抓包报文。Tcpdump 和 wireshark 均是以此为基础的。
@@ -1900,7 +1903,6 @@ libpcap工作原理
 libpcap主要由两部份组成：网络分接口(Network Tap)和数据过滤器(Packet Filter)。
 
 网络分接口从网络设备驱动程序中收集数据拷贝 (旁路机制），过滤器决定是否接收该数据包。Libpcap利用BSD Packet Filter(BPF)算法对网卡接收到的链路层数据包进行过滤。BPF算法的基本思想是在有BPF监听的网络中，网卡驱动将接收到的数据包复制一份交给BPF过滤器，过滤器根据用户定义的规则决定是否接收此数据包以及需要拷贝该数据包的那些内容，然后将过滤后的数据给与过滤器相关联的上层应用程序。如果没有定义规则，则把全部数据交给上层应用程序。
-
 
 ————————————————
 版权声明：本文为CSDN博主「ptmozhu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
