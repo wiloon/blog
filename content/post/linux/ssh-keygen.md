@@ -1,18 +1,39 @@
 ---
-title: rsa ssh keygen
+title: ssh-keygen
 author: "-"
 date: 2011-11-24T04:41:17+00:00
 url: ssh-keygen
 categories:
   - Linux
-
 tags:
   - reprint
+  - security
+
+
 ---
-## rsa ssh keygen
-在~/.ssh目录下生成私钥id_rsa和公钥id_rsa.pub文件
+## ssh-keygen
+
+ssh-keygen是用于为SSH创建新的身份验证密钥对的工具。此类密钥对用于自动登录，单点登录和验证主机。目前广泛的用在linux服务验证、git身份验证上。
+
+执行ssh-keygen可以生成一个密钥对 ,这个密钥对称为公钥文件和私钥 文件 ,例如：
+
+使用rsa算法： id_rsa(密钥),id_rsa.pub(公钥)
+使用dsa算法：id_dsa(密钥),id_dsa.pub(公钥)
+
+
+-t 选择加密算法
+ssh-keygen目前支持三种加密算法:rsa,dsa,ecdsa, 默认使用的是rsa，ssh-keygen程序是交互式的， 
+
+
+在 ~/.ssh 目录下生成私钥 id_rsa 和公钥 id_rsa.pub 文件
 
 ```bash
+# 优先使用 ed25519
+ssh-keygen -t ed25519 -f foo -C "bar"
+# -t ed25519,  使用加密算法 ed25519
+# -f foo, 生成的密钥文件名, 不指定文件名的话, ed25519 算法默认的文件名是 id_ed25519 
+# -C "bar" 在公钥文件中添加注释，即为这个公钥“起个别名”（不是 id，可以更改）。
+
 ssh-keygen -t rsa
 ssh-keygen -t rsa -b 4096
 ssh-keygen -t ecdsa -b 521
@@ -101,3 +122,7 @@ Host *.d0.karan.org
   
 
 
+作者：Martain
+链接：https://www.jianshu.com/p/75bf863c4ab6
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

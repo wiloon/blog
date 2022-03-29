@@ -14,7 +14,7 @@ tags:
 
 ### git add
 
-git add 命令可将该文件添加到`暂存区`。
+git add 命令可将该文件添加到 `暂存区`。
 
 ### config git editor
 
@@ -273,6 +273,8 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 
 ```bash
 git pull
+# verbos
+git pull -v
 git pull origin master
 git pull origin branch0
 ```
@@ -580,3 +582,20 @@ git push -u origin main
 ```bash
 git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -20
 ```
+
+## fatal: refusing to merge unrelated histories
+
+两个分支是两个不同的版本，具有不同的提交历史
+
+```bash
+#允许不相关历史提，强制合并：
+git pull --allow-unrelated-histories
+
+```
+
+原因："git merge" used to allow merging two branches that have no common base by default, which led to a brand new history of an existing project created and then get pulled by an unsuspecting maintainer, which allowed an unnecessary parallel history merged into the existing project. The command has been taught not to allow this by default, with an escape hatch "--allow-unrelated-histories" option to be used in a rare event that merges histories of two projects that started their lives independently（stackoverflow）.
+
+作者：勿以浮沙筑高台
+链接：https://www.jianshu.com/p/536080638cc9
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

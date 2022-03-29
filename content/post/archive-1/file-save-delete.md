@@ -1,5 +1,5 @@
 ---
-title: 文件存储和删除的底层过程
+title: 文件存储和删除的过程
 author: "-"
 date: 2015-04-23T02:28:19+00:00
 url: /?p=7485
@@ -9,7 +9,7 @@ tags:
   - Office
 
 ---
-## 文件存储和删除的底层过程
+## 文件存储和删除的过程
 
 >https://blog.csdn.net/MyySophia/article/details/107696414
 

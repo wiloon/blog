@@ -22,16 +22,29 @@ pacman -h
 
 # -Q 的 help
 pacman -Q -h
+
+pacman -Q  boost-libs    #Display version
+pacman -Ql boost-libs    #Display file list provided by local package
+pacman -Qk boost-libs    #Check the local package database
+pacman -Qo /path/to/file #Check if the file is owned by any package
+
 # 查看文件属于哪个包
 pacman -Qo /etc/profile
+
 # 检查包对应的文件有没有缺失
 pacman -Qk filesystem
+
 # 打印详细信息,比如 文件 是否有修改 修改时间, 大小 , md5
 pacman -Qkk filesystem
-#安装下载的abs包，或新编译的abc包
+
+# 安装下载的 gvim 包，或新编译的 gvim 包
 pacman -U /var/cache/pacman/pkg/gvim-8.2.4106-1-x86_64.pkg.tar.zst
-# 降级软件包, 去 archive时手动下载 https://archive.archlinux.org/packages/, 然后 pacman -U 安装
+
+
 ```
+
+## 降级软件包
+去 archive 时手动下载 https://archive.archlinux.org/packages/, 然后 pacman -U 安装
 
 ### (invalid or corrupted package (PGP signature))
 
@@ -49,8 +62,8 @@ pacman-key --list-sigs Master
 pacman-key --delete 91FFE0700E80619CEB73235CA88E23E377514E00
 pacman-key --populate archlinux
 
-### 在仓库里搜索有关abc的包
-    pacman -Ss abc
+### 在仓库里搜索有关 foo 的包
+    pacman -Ss foo
 
 ### downgrade one package
     yay -S downgrade

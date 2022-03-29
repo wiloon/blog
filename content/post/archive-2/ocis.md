@@ -2,10 +2,9 @@
 title: owncloud,cozy, nextcloud
 author: "-"
 date: 2019-01-26T05:27:32+00:00
-url: /?p=13451
+url: Gofi
 categories:
-  - other
-
+  - cloud
 tags:
   - reprint
 ---
@@ -15,7 +14,7 @@ tags:
 
 ```bash
 nohup ./gofi-linux-amd64 &
-
+podman run -d         --name=gofi         -p 80:8080         -v gofi-app:/app         sloaix/gofi:latest
 ```
 ### owncloud
 

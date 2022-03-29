@@ -2,19 +2,19 @@
 title: SHA, Secure Hash Algorithm
 author: "-"
 date: 2018-06-24T03:29:52+00:00
-url: /?p=12356
+url: SHA
 categories:
-  - Uncategorized
-
+  - security
 tags:
   - reprint
 ---
 ## SHA, Secure Hash Algorithm
+
 安全散列算法 (英语: Secure Hash Algorithm,缩写为SHA) 
   
 安全散列算法SHA (Secure Hash Algorithm) 是美国国家安全局  (NSA)  设计,美国国家标准与技术研究院 (NIST)  发布的一系列密码散列函数,包括 SHA-1、SHA-224、SHA-256、SHA-384 和 SHA-512 等变体。主要适用于数字签名标准 (DigitalSignature Standard DSS) 里面定义的数字签名算法 (Digital Signature Algorithm DSA) 
 
-Hash是什么,它的作用
+Hash 是什么,它的作用
   
 先举个例子。我们每个活在世上的人,为了能够参与各种社会活动,都需要一个用于识别自己的标志。也许你觉得名字或是身份证就足以代表你这个人,但是这种代表性非常脆弱,因为重名的人很多,身份证也可以伪造。最可靠的办法是把一个人的所有基因序列记录下来用来代表这个人,但显然,这样做并不实际。而指纹看上去是一种不错的选择,虽然一些专业组织仍然可以模拟某个人的指纹,但这种代价实在太高了。
 

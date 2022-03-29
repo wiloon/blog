@@ -1,5 +1,5 @@
 ---
-title: 批处理获取当前时间
+title: windows bat, 批处理获取当前时间
 author: "-"
 date: 2013-02-20T11:31:47+00:00
 url: /?p=5211
@@ -8,12 +8,9 @@ categories:
 
 tags:
   - reprint
+  - bat
 ---
 ## 批处理获取当前时间
-
-  
-  
-
 
   rem CODE BY t0nsha
  rem 关于提取date,time输出结果的一个批处理
