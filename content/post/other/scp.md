@@ -10,7 +10,11 @@ tags:
 
 ---
 ## scp
-scp 可以在 2个 linux 主机间复制文件；
+scp 可以在两个 linux 主机间复制文件；
+
+## 在 a 主机上执行命令,把文件 从 b 主机复制到 c 主机
+
+    scp root@10.1.0.2:/testdir/ssh/test root@10.1.0.3:/testdir/ssh/
 
 ```bash
 # 命令格式: 

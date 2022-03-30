@@ -52,6 +52,10 @@ cat /root/id_rsa.pub >> /root/.ssh/authorized_keys
 
 ```
 
+## 推送公钥到服务器
+
+   ssh-copy-id -i ~/.ssh/id_rsa.pub root@10.1.0.2
+
 ### print SHA256 fingerprint
     ssh-keygen -lf /path/to/ssh/key
 

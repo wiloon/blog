@@ -9,6 +9,10 @@ categories:
 tags:
   - reprint
 ---
+## 查看 sshd 运行参数
+
+    sshd -T | sort
+
 ## sshd 日志
 
 ```bash

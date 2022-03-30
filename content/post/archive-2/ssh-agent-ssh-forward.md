@@ -115,6 +115,19 @@ ssh-add 提示并将用户的使用的私钥添加到由 ssh-agent 维护的列�
     ssh-add ~/.ssh/id_rsa
 
 ### 开启 ssh forward
+#### 用户级
+
+```bash
+vim ~/.ssh/config
+# content
+Host *
+ControlMaster auto
+ControlPath   ~/.ssh/master-%r@%h:%p
+ControlPersist 10m
+ForwardAgent yes
+User root
+```
+
 #### vim /etc/ssh/ssh_config
     Host *
             ForwardAgent yes
@@ -234,3 +247,34 @@ https://www.jianshu.com/p/12de50582e63
 Get-Service ssh-agent
 
 ```
+
+## ssh agent forward
+1. 本地 ssh-agent 已经在运行
+
+    echo "$SSH_AUTH_SOCK"
+
+2. 密钥已经加载到了 ssh-agent
+
+    ssh-add -l
+
+3. 服务器允许入站连接上的 SSH 代理转发, 将 AllowAgentForwarding 的值设置为 yes，表示允许进行代理转发， openssh中AllowAgentForwarding默认值即为yes，所以，如果配置没有修改过，保持默认即可。
+
+```bash
+vim /etc/ssh/sshd_config
+    AllowAgentForwarding yes
+```
+
+4. 本地 ssh 配置 ForwardAgent yes
+
+```bash
+host *
+        ForwardAgent yes
+
+```
+
+5. 代理机 ssh 配置 ForwardAgent yes
+6. 跳板机可能需要有 ssh-agent (待验证)
+
+>https://corvo.myseu.cn/2020/10/16/2020-10-16-OpenSSH%E7%B3%BB%E5%88%97(%E6%89%A9%E5%B1%95%E4%B8%89)-%E5%85%B3%E4%BA%8Eforward%20agent%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%B0%83%E8%AF%95/
+>https://www.zsythink.net/archives/2422
+

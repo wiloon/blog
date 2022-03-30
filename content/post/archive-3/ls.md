@@ -8,13 +8,17 @@ categories:
 tags:
   - reprint
 ---
-## ls
+## ls command
 ```bash
 find $PWD | xargs ls -ld
 ls -lrth
 
 # -l 默认按文件名排序
 ls -l 
+
+# 只列出目录
+ls -d foo*
+ls -dl foo*
 ```
 
 ls命令就是list的缩写

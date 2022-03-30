@@ -40,17 +40,6 @@ systemctl restart libvirtd
 
 ```bash
 virt-install \
---name=win10 --ram 2048 --vcpus=2 \
---disk path=/root/vm/win10.raw,format=raw,bus=virtio \
---os-variant=win10 \
---network network:default \
---graphics vnc,port=5900,listen=0.0.0.0 \
---noautoconsole \
---import
-
-```
-```bash
-virt-install \
 --name=foo --ram 2048 --vcpus=1 \
 --disk path=/root/tmp/foo.raw,size=10,format=raw,bus=virtio \
 --cdrom=/root/tmp/archlinux-2022.03.01-x86_64.iso \
@@ -136,10 +125,10 @@ virsh create <虚拟机xml文件>                 # 从xml文件中创建domain�
 
 
 
-virsh snapshot-create-as <虚拟机名称> --name <快照名称>  # 从命令行创建快照
-virsh snapshot-create <虚拟机名称>                   # 从xml文件创建快照
-virsh snapshot-list <虚拟机名称>                     # 查看虚拟机快照列表
-virsh snapshot-parent <虚拟机名称> --current         # 查看当前快照的上一级快照
+virsh snapshot-create-as <虚拟机名称> --name <快照名称>   # 从命令行创建快照
+virsh snapshot-create <虚拟机名称>                       # 从xml文件创建快照
+virsh snapshot-list <虚拟机名称>                         # 查看虚拟机快照列表
+virsh snapshot-parent <虚拟机名称> --current             # 查看当前快照的上一级快照
 virsh snapshot-edit <虚拟机名称> --snapshotname <快照名>    # 编辑快照
 virsh snapshot-revert <虚拟机名称> --snapshotname <快照名>  # 恢复快照
 virsh snapshot-delete <虚拟机名称> --snapshotname <快照名>  # 删除快照
@@ -202,3 +191,15 @@ virsh setmem vm0 16G
 ————————————————
 版权声明：本文为CSDN博主「tom马」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/mshxuyi/article/details/98305715
+
+## centos6
+```bash
+virt-install \
+--name=centos6 --ram 2048 --vcpus=2 \
+--disk path=/home/michael/centos6.raw,size=20,format=raw,bus=virtio \
+--cdrom=/home/michael/CentOS-6.10-x86_64-minimal.iso \
+--network network:default \
+--graphics vnc,port=5901,listen=0.0.0.0 \
+--noautoconsole
+
+```

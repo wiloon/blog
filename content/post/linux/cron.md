@@ -12,29 +12,33 @@ tags:
 ---
 ## cron, crond, crontab, linux 定时任务, cronie
 ### 安装 cron
+
 ```bash
 # archlinux 
 pacman -S cronie
 
-# 查看cron是否已经 安装
+# 查看 cron 是否已经安装
 # centos
 yum list installed |grep cron
-yum install cronie    # vixie-cron 已经不再维护, 建议安装cronie
-
+yum install cronie    # vixie-cron 已经不再维护, 建议安装 cronie
 ```
+
+### 查看 crond 状态
+```bash
+# check status
+systemctl status crond
+service crond status
+# cron log path
+/var/log/cron
+```
+
 ### 创建定时任务
+
 ```bash
 crontab -e # 执行后会跳转到vi (依赖环境变量配置,默认一般是vi)
 # vi状态下插入一行, 每三分钟插入一行数据到/tmp/foo.txt
 */3 * * * * echo "foo" >> /tmp/foo.txt
 #3分钟之后查看文件  /tmp/foo.txt 应该已经有数据了.
-```
-### 查看crond 状态
-```bash
-# check status
-service crond status
-# cron log path
-/var/log/cron
 ```
 
 ```bash
