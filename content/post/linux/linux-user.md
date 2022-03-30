@@ -19,8 +19,9 @@ wyue:x:513:513::/home/wyue:/bin/bash
 ### 用户
 
 ```bash
-# create user
+# create user, 创建 /home/user0, 默认 bash
 sudo useradd -m user0
+
 sudo useradd -m -s /bin/bash user0
 # create group and user
 sudo useradd -m -s /bin/bash -g group0 user0

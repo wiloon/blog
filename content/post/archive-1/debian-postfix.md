@@ -88,7 +88,7 @@ su - user1
 
 cd /home/user1/Maildir/new
 
-### try to send email from gmail to user1@wiloon.com
+try to send email from gmail to user1@wiloon.com
 
 
 dovecot

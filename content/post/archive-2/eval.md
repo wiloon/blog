@@ -1,19 +1,18 @@
 ---
-title: linux shell eval
+title: eval command
 author: "-"
 date: 2018-05-11T01:05:54+00:00
 url: eval
-
 categories:
   - linux
 tags:
   - reprint
 ---
-## linux shell eval
+## eval command
 
 语法: eval cmdLine
   
-eval 会对后面的 cmdLine 进行两遍扫描, 如果第一遍扫描后, cmdLine是个普通命令, 则执行此命令；如果 cmdLine 中含有变量的间接引用, 则保证间接引用的语义。
+eval 会对后面的 cmdLine 进行两遍扫描, 如果第一遍扫描后, cmdLine 是个普通命令, 则执行此命令；如果 cmdLine 中含有变量的间接引用, 则保证间接引用的语义。
 
 举例如下: 
   
@@ -38,12 +37,11 @@ set 11 22 33 44
 得到的结果为44
 
 1. eval命令将会首先扫描命令行进行所有的替换, 然后再执行命令。该命令使用于那些一次扫描无法实现其功能的变量。该命令对变量进行两次扫描。这些需要进行两次扫描的变量有时候被称为复杂变量。
-
 2. eval也可以用于回显简单变量, 不一定时复杂变量。
 
 NAME=ZONE
 
-eval echo $NAME等价于 echo $NAME
+eval echo $NAME 等价于 echo $NAME
 
 3. 两次扫描
 

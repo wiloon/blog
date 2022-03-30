@@ -1,20 +1,20 @@
 ---
-title: ssh-agent, forward
+title: ssh-agent, ssh agent, ssh forward
 author: "-"
 date: 2018-05-11T01:04:23+00:00
 url: ssh-agent
-
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
   - remix
+  - ssh
 ---
-## ssh-agent, forward
+## ssh-agent, ssh agent, ssh forward
 
 ## 临时运行
 
-直接执行的话不能导入 环境 变量, 只能看看 ssh-agent 能否正常运行
+直接执行的话不能导入环境变量, 只是测试一下 ssh-agent 能否正常运行
 
 ```bash
 ssh-agent
@@ -28,9 +28,10 @@ echo Agent pid 43062;
 
     eval $(ssh-agent)
 
-用 eval 可以把 SSH_AUTH_SOCK 等 环境 变量 临时导入当前 shell
+用 eval 可以把 SSH_AUTH_SOCK 等环境变量临时导入当前 shell
 
 ### archlinux 启动后自动启用 ssh-agent
+
 Start ssh-agent with systemd user
 
 ```bash
@@ -67,15 +68,24 @@ env | fgrep SSH_
 
 ### 查看 ssh agent 进程
     ps -ef | grep ssh-agent
+    echo "$SSH_AUTH_SOCK"
 ### ssh agent
 
 ### 查看 缓存的密钥
 ```bash
 #查看本地SSH agent 缓存的密钥
 ssh-add -L
-# 查看缓存的私钥 sha256值
+# 查看缓存的私钥 sha256 值
 ssh-add -l
 ```
+
+## kill ssh-agent
+
+    kill $SSH_AGENT_PID
+
+## 把密钥添加到 ssh-agent
+
+    ssh-add /path/to/private_key
 
 ### 环境变量
     echo $SSH_AGENT_PID
@@ -84,26 +94,11 @@ ssh-add -l
 ### 测试密钥是否可用
     ssh -T git@github.com
 
+ssh-agent 是用于管理 SSH private keys 的, 长时间持续运行的守护进程 (daemon) . 唯一目的就是对解密的私钥进行高速缓存.
+ssh-add 提示并将用户的使用的私钥添加到由 ssh-agent 维护的列表中. 此后, 当使用公钥连接到远程 SSH 或 SCP 主机时, 不再提示相关信息.
 
-ssh-agent 是用于管理SSH private keys的, 长时间持续运行的守护进程 (daemon) . 唯一目的就是对解密的私钥进行高速缓存。
-ssh-add 提示并将用户的使用的私钥添加到由ssh-agent 维护的列表中. 此后, 当使用公钥连接到远程 SSH 或 SCP 主机时,不再提示相关信息.
-使用步骤如下:
+>http://xstarcd.github.io/wiki/shell/fork_exec_source.html
 
-```bash  
-eval `ssh-agent`
-ssh-add Path/to/your private_key files
-ssh-keygen -f ~/.ssh/id_rsa -p
-```
-
-注音: 使用的是反引号 backquote (`), 位于波浪号 tilde (~)下面, 不是单引号 quote (').
-  
-当登出主机后,使用下列命令,以清楚缓存的key list:
-    
-kill $SSH_AGENT_PID
-
-如果使用 csh ortcsh, 可将上述命令放到.logout 文件中 ;如果使用bash, 可将命令放到.bash_logout 文件中.
-
-http://xstarcd.github.io/wiki/shell/fork_exec_source.html
 ## ssh-agent
     # vim ~/.bashrc
 
@@ -118,21 +113,17 @@ http://xstarcd.github.io/wiki/shell/fork_exec_source.html
     eval "$(ssh-agent -s)"
     # Add the SSH key to the ssh-agent
     ssh-add ~/.ssh/id_rsa
-### check ssh agent
-    echo "$SSH_AUTH_SOCK"
-    ssh-add -L
-    ssh-add -l
 
-
-### 开启ssh forward
+### 开启 ssh forward
 #### vim /etc/ssh/ssh_config
     Host *
             ForwardAgent yes
 
-### 重启sshd
+修改配置文件之后记得重启 sshd
+
     sudo systemctl restart sshd
 
----
+## ssh agent forward
 
 https://www.jianshu.com/p/12de50582e63
 
@@ -196,33 +187,30 @@ XiaoleideMacBook-Pro:ssh professor$ ssh-add -L
 好了,问题解决。
 
 ### SSH, SSH agent & SSH agent Forwarding
-这里,必须需要说下这三者的联系。
+这里, 必须需要说下这三者的联系。
 
-#### 我们常用的SSH工作原理,通过publickey access: 
-- Step1,用户发起连接,携带者用户名
-- Step2,ssh守护进程 (sshd) 在Server上查看authorized_keys文件,基于publickey构造一个口令盘问发送给SSH client 
-The ssh daemon on the server looks in the user's authorized_keys file, constructs a challenge based on the public key found there, and sends this challenge back to the user's ssh client.
-- Step3,SSH client收到后,在本地查询privatekey (默认id_rsa文件) ,此时如果有密码,会要求输入密码。
-- Step4,ssh client通过privatekey构造一个响应。发送给sshd。注意: 这里并不会发送privatekey本身。
-- Step5,验证,授权成功
+#### 我们常用的 SSH 工作原理, 通过 publickey access
+1. 用户发起连接, 携带者用户名
+2. ssh 守护进程 (sshd) 在 Server 上查看 authorized_keys 文件, 基于 publickey 构造一个口令盘问发送给 SSH client, The ssh daemon on the server looks in the user's authorized_keys file, constructs a challenge based on the public key found there, and sends this challenge back to the user's ssh client.
+3. SSH client 收到后, 在本地查询 privatekey (默认id_rsa文件), 此时如果有密码, 会要求输入密码。
+4. ssh client 通过 privatekey 构造一个响应(私钥签名)。发送给 ssh server。 注意: 这里并不会发送 privatekey 本身。
+5. ssh server 验证, 授权成功
 
-### SSH agent是干嘛的
-如果每次我们都SSH到某个server,我们如果privatekey有密码,如果没有ssh agent,每次我们都会需要被告知要输入密码。有了ssh Agent,就不需要了。因为它负责管理key。
+### SSH agent 是干嘛的
+如果每次我们都 SSH 到某个 server, 我们如果 privatekey 有密码, 如果没有 ssh agent, 每次我们都会需要被告知要输入密码。有了ssh Agent,就不需要了。 因为它负责管理 key。
 
-与上面相比,唯一的区别在第三步和第四步: 
+与上面相比, 唯一的区别在第三步和第四步: 
   
-根据privatekey构造响应的操作有ssh-agent来做了。ssh client没有和privatekey有联系。所以后面的访问,都是ssh-agent来管理,又因为我们之前输入过密码,ssh-agent仍然记录这个状态,所以之后就不用再输入密码了。
-  
-可谓一劳永逸。
+根据 privatekey 构造响应的操作有 ssh-agent 来做了。ssh client 没有和 privatekey 有联系。所以后面的访问, 都是 ssh-agent 来管理, 又因为我们之前输入过密码, ssh-agent 仍然记录这个状态, 所以之后就不用再输入密码了。
 
 ### ssh agent forwarding
-简单来说,agent forwarding运行一串的ssh连接。将sshd的口令盘问直接发送到最初始的ssh client,而不需要任何中间集群的认证。
+简单来说,agent forwarding 运行一串的 ssh 连接。将 sshd 的口令盘问直接发送到最初始的  ssh client, 而不需要任何中间集群的认证。
   
-如果按照我们上面的配置,配置好了agent forwarding,它是如何工作的: 
+如果按照我们上面的配置, 配置好了agent forwarding,它是如何工作的: 
   
 - Step1,基于上面的ssh到server1,用户在server1上开始发起到server2的链接 (这一步和之前一样) 
-- Step2: server2的sshd查询用户的authorized_keys文件,并像之前一样构造一个口令盘问发回给server1的ssh。下面神奇的事情就发生了: server1的ssh发送给自己的sshd,并再一次relay给我们pc的ssh。
-- Step3: 后面的步骤就是PC的ssh agent根据privatekey构造key response并串行的发到server2的sshd上。然后完成鉴权。
+- Step2: server2 的 sshd 查询用户的 authorized_keys 文件, 并像之前一样构造一个口令盘问发回给 server1 的 ssh。下面神奇的事情就发生了: server1 的 ssh 发送给自己的 sshd, 并再一次relay 给我们 pc 的 ssh。
+- Step3: 后面的步骤就是 PC 的ssh agent根据privatekey构造key response并串行的发到server2的sshd上。然后完成鉴权。
 - Step4: 如果需要在往Server3,4,N,仍然有效。
 
 ---
@@ -237,3 +225,12 @@ https://www.jianshu.com/p/12de50582e63
 搜索 服务 
 启用并启动 openssh authentication agent 
 
+
+## win 10 ssh-agent
+
+```bash
+# run in powershell
+# 查看 ssh-agent
+Get-Service ssh-agent
+
+```

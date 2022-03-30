@@ -22,6 +22,17 @@ Host *
     User root # 默认用户
 ```
 
+#### 使用通配符 (wildcard)
+
+```bash
+host 192.168.*
+    user root
+
+host name0
+    hostname 192.168.1.1
+    user root
+```
+
 ## ssh client config, 保持连接
 
 避免SSH连接因超时闲置断开
@@ -68,18 +79,7 @@ ClientAliveInterval 30
 ClientAliveCountMax 3
 ```
 
-#### 使用通配符 (wildcard)
 
-```bash
-vim .ssh/config
-
-host 192.168.*
-    user root
-
-host name0
-    hostname 192.168.1.1
-    user root
-```
 
 
 #### Session Multiplexing
@@ -87,7 +87,7 @@ host name0
 
 
 
-### ssh agent forward
+- ssh agent forward
 <https://blog.wiloon.com/?p=16034>
 
 ### 指定源端口

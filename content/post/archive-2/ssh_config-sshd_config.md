@@ -31,7 +31,7 @@ ssh-keygen -f "/home/wiloonwy/.ssh/known_hosts" -R "192.168.50.99"
 ```
 ### /etc/ssh/sshd_config
 #### 服务端鉴权重试最大次数
-ssh 连接服务器时agent里保存的密钥过多会遇到异常 Too Many Authentication Failures, 可以调整服务器sshd 配置
+ssh 连接服务器时 agent 里保存的密钥过多会遇到异常 Too Many Authentication Failures, 可以调整服务器 sshd 配置
 
 ```bash
 MaxAuthTries 20
@@ -54,6 +54,7 @@ ssh_config和sshd_config都是ssh服务器的配置文件,二者区别在于,前
   
 ### 编辑 /etc/ssh/ssh_config 文件
 
+```bash
 # Site-wide defaults for various options
 Host *  
 ForwardAgent no     
@@ -70,13 +71,10 @@ IdentityFile ~/.ssh/identity
 Port 22 
 Cipher blowfish
 EscapeChar ~
+```
 
 下面对上述选项参数逐进行解释: 
 
-# Site-wide defaults for various options
-
-带"#"表示该句为注释不起作,该句不属于配置文件原文,意在说明下面选项均为系统初始默认的选项。说明一下,实际配置文件中也有很多选项前面加有"#"注释,虽然表示不起作用,其实是说明此为系统默认的初始化设置。
-  
 Host *
   
 "Host"只对匹配后面字串的计算机有效,"_"表示所有的计算机。从该项格式前置一些可以看出,这是一个类似于全局的选项,表示下面缩进的选项都适用于该设置,可以指定某计算机替换_号使下面选项只针对该算机器生效。
