@@ -5,7 +5,6 @@ date: 2015-09-08T06:40:32+00:00
 url: java/metrics
 categories:
   - java
-
 tags:
   - reprint
 ---
@@ -14,28 +13,33 @@ tags:
 ## Metrics 类型
 
 ### Counters
-Counter 就是计数器, Counter 只是用 Gauge 封装了 AtomicLong.
+
+Counter 就是计数器, Counter 只是用 Gauge 封装了 AtomicLong
 
 ### Gauges
+
 最简单的度量指标，只有一个简单的返回值，例如，我们想衡量一个待处理队列中任务的个数
 
 ### Meters
 
-Meter度量一系列事件发生的速率(rate)，例如 TPS, Meters 会统计最近 1分钟，5分钟，15分钟，还有全部时间的速率。
+Meter度量一系列事件发生的速率 (rate)，例如 TPS, Meters 会统计最近 1分钟，5分钟，15分钟，还有全部时间的速率。
 
 ### Histograms
 
-Histogram 统计数据的分布情况。比如最小值，最大值，中间值，还有中位数，75百分位, 90百分位, 95百分位, 98百分位, 99百分位, 和 99.9百分位的值(percentiles)。
+Histogram 统计数据的分布情况。比如最小值，最大值，中间值，还有中位数，75百分位, 90百分位, 95百分位, 98百分位, 99百分位, 和 99.9百分位的值 (percentiles)。
 
 ### Timers
-Timer其实是 Histogram 和 Meter 的结合， histogram 某部分代码/调用的耗时， meter统计TPS
+
+Timer其实是 Histogram 和 Meter 的结合， histogram 某部分代码/调用的耗时， meter 统计 TPS
   
-### 其他  
+### 其他
+
 除此之外，Metrics还提供了 HealthCheck 用来检测某个某个系统是否健康，例如数据库连接是否正常。还有Metrics Annotation，可以很方便地实现统计某个方法，某个值的数据。感兴趣的可以点进链接看看。
 
 https://mvnrepository.com/artifact/io.dropwizard.metrics/metrics-core
 
 ### gradle dependency
+
     compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: '3.1.2'
 
 ```java

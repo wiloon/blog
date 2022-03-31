@@ -60,7 +60,6 @@ https://github.com/nvm-sh/nvm
     # list registory
     npm config get registry
     # set registry
-    npm install -g mirror-config-china --registry=http://registry.npm.taobao.org
     npm config set registry https://registry.npm.taobao.org
     # 恢复
     npm config set registry https://registry.npmjs.org

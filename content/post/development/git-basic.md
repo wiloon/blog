@@ -12,6 +12,9 @@ tags:
 ---
 ## Git basic commands, git 常用命令
 
+## 连通性测试
+    ssh -T git@github.com
+
 ### git add
 
 git add 命令可将该文件添加到 `暂存区`。
@@ -33,7 +36,7 @@ You can change the most recent commit message using the git commit --amend comma
 
 In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
-### 修改最近的第n次 commit message
+### 修改最近的第 n 次 commit message
 
 ```bash
 # 数字代表显示倒数第几次, #-i, --interactive
@@ -77,7 +80,7 @@ git clean -Xn
 git clean -Xdf
 ```
 
-><https://ruby-china.org/topics/17951>
+>https://ruby-china.org/topics/17951
 
 ## git remote
 
