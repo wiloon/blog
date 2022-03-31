@@ -2,9 +2,9 @@
 title: 协程, Coroutine
 author: "-"
 date: 2015-02-04T02:27:10+00:00
-url: /?p=7303
+url: Coroutine
 categories:
-  - Uncategorized
+  - Coroutine
 
 tags:
   - reprint
