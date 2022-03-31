@@ -1,5 +1,5 @@
 ---
-title: Android hybrid
+title: 协程, Coroutine
 author: "-"
 date: 2015-02-04T02:27:10+00:00
 url: /?p=7303
@@ -9,29 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## Android hybrid
-http://lin-xi.diandian.com/post/2013-12-08/40060383406
+## 协程, Coroutine
 
-http://blog.csdn.net/offbye/article/details/32321791
+协程的概念很早就提出来了， 但是直到最近几年才某些语言 如 Lua, Golang中得到广泛应用。
 
-http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/
 
-http://blog.jobbole.com/45670/
-
-http://www.infoq.com/cn/articles/hybrid-app-development-combat
-
-http://weizhifeng.net/a-primer-on-hybrid-apps-for-ios.html
-
-http://www.infoq.com/cn/news/2014/12/supersonic-hybrid-apps-dev
-
-http://mobile.51cto.com/web-412307_all.htm
-
-http://www.zhihu.com/question/20997457
-
-http://mobile.51cto.com/web-412307_all.htm
-
-http://mobile.51cto.com/hot-274040.htm
-
-http://www.zwmob.com/newsview-86.html
-
-http://www.infoq.com/cn/news/2014/12/supersonic-hybrid-apps-dev
