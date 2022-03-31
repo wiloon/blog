@@ -2,7 +2,7 @@
 title: Lua
 author: "-"
 date: 2013-02-13T09:39:46+00:00
-url: /?p=5144
+url: lua
 categories:
   - Development
   - Linux
@@ -15,7 +15,7 @@ http://zh.wikipedia.org/zh-cn/Lua
 
 <http://baike.baidu.com/view/416116.htm>
 
-**Lua** ( /ˈluːə/，近似读音 (卤锕) ) 程序设计语言是一个简洁、轻量、可扩展的脚本语言，是葡萄牙语中"Luna" (月亮) 的意思。
+**Lua** ( /ˈluːə/ ) 程序设计语言是一个简洁、轻量、可扩展的脚本语言，是葡萄牙语中"Luna" (月亮) 的意思。
 
 Lua的目标是成为一个很容易**嵌入**其它语言中使用的语言。大多数程序员也认为它的确做到了这一点。
 

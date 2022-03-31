@@ -118,7 +118,7 @@ receive 操作符
 用法：
 
 ```go
-// 上例中的Handler.stopCh就是一个例子，stopCh并不需要传递任何数据
+// 上例中的Handler.stopCh就是一个例子，stopCh 并不需要传递任何数据
 // 只是要给所有协程发送退出的信号
 type Handler struct {
     stopCh chan struct{}

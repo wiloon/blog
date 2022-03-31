@@ -22,8 +22,16 @@ npm --prefix /path/to/project run build
 ### node-gyp
 gyp是为Chromium项目创建的项目生成工具，可以从平台无关的配置生成平台相关的Visual Studio、Xcode、Makefile的项目文件。这样一来我们就不需要花额外的时间处理每个平台不同的项目配置以及项目之间的依赖关系。
 ### commands
-    npm cache clean
-    npm cache clean --force
+```bash
+npm cache clean
+npm cache clean --force
+
+# 检查更新
+npm outdated
+### 更新依赖
+npm update webpack
+```
+
 ### install npm
 ### archlinux
 ```bash
@@ -117,10 +125,7 @@ https://developer.aliyun.com/mirror/NPM
     npm install xxx -g
 ### 安装指定版本
     npm install xxx@1.2.0
-### 检查更新
-    npm outdated
-### 更新依赖到指定版本
-    npm update webpack@4.7.0 
+
 ### report
     npm run build --report
 --save和--save-dev区别

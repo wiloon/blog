@@ -1,17 +1,16 @@
 ---
-title: goroutine退出, waitgroup, channel
+title: goroutine 退出, waitgroup, channel
 author: "-"
 date: 2016-10-12T07:10:06+00:00
-url: /?p=9291
+url: goroutine/exit
 categories:
-  - golang
-
+  - Go
 tags:
   - reprint
 ---
-## 如何优雅地等待所有的 goroutine退出
+## 如何优雅地等待所有的 goroutine 退出
 
-### WaitGroup
+## WaitGroup
 
 sync包中的 Waitgroup 结构,是Go语言为我们提供的多个goroutine之间同步的好刀。下面是官方文档对它的描述: 
 
@@ -63,13 +62,13 @@ func goroutine1(wg *sync.WaitGroup) {
 }
 ```
 
-### 通过Channel传递退出信号
+### 通过 Channel 传递退出信号
 
 goroutine 和 channel 是 Go 语言非常棒的特色,它们提供了一种非常轻便易用的并发能力。但是当您的应用进程中有很多goroutine的时候,如何在主流程中等待所有的 goroutine 退出呢？
 
 通过 Channel 传递退出信号
   
-Go的一大设计哲学就是: 通过Channel共享数据,而不是通过共享内存共享数据。主流程可以通过channel向任何goroutine发送停止信号,就像下面这样: 
+Go 的一大设计哲学就是: 通过 Channel 共享数据, 而不是通过共享内存共享数据。主流程可以通过 channel 向任何 goroutine 发送停止信号, 就像下面这样
 ```go
 
 func run(done chan int) {

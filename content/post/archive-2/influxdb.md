@@ -84,7 +84,7 @@ LevelDB 不支持热备份,它的变种 RocksDB 和 HyperLevelDB 实现了这个
 
 最严重的问题是由于 InfluxDB 通过 shard 来组织数据,每一个 shard 对应的就是一个 LevelDB 数据库,而由于 LevelDB 的底层存储是大量 SSTable 文件,所以当用户需要存储长时间的数据,例如几个月或者一年的时候,会产生大量的 shard,从而消耗大量文件描述符,将系统资源耗尽。
 
-BoltDB
+## BoltDB
   
 之后 InfluxDB 采用了 BoltDB 作为数据存储引擎。BoltDB 是基于 LMDB 使用 Go 语言开发的数据库。同 LevelDB 类似的是,都可以用于存储 key 有序的 K-V 数据。
 
