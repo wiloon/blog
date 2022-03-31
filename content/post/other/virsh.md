@@ -84,13 +84,12 @@ virsh list --all                            # 查看所有虚拟机状态, 包�
 virsh start <虚拟机名称>                     # 启动一个之前已经定义define过的虚拟机（domain)
 virsh shutdown <虚拟机名称>                  # 关闭虚拟机,类似虚拟机内执行关机
 virsh destroy <虚拟机名称>                   # 强制关闭虚拟机，类似于断电
-virsh undefine <虚拟机名称>                         # 对于运行中的持久性虚拟机，将状态转换为暂时的，关机后virsh无法感知其存在
-                                                  # 对于非活动的虚拟机，undefine后virsh将无法感知其存在
-                                                  # undefine后磁盘依然存在，只是删除虚拟机的配置文件/etc/libvirt/qemu
+virsh undefine <虚拟机名称>                  # 对于运行中的持久性虚拟机，将状态转换为暂时的，关机后virsh无法感知其存在
+                                            # 对于非活动的虚拟机，undefine后virsh将无法感知其存在
+                                            # undefine后磁盘依然存在，只是删除虚拟机的配置文件/etc/libvirt/qemu
 virsh undefine <虚拟机名称> --remove-all-storage    # 删除虚拟机并删除所有磁盘文件
 virsh define <虚拟机xml文件>                 # 从xml文件定义define新的domain，不会自动启动
 virsh dumpxml <虚拟机名称>                   # 查看虚拟机xml文件
-
 virsh help                                  # 查看帮助信息
 virsh version                               # 查看qemu版本
 virsh help <特定命令>                       # 查看特定命令帮助信息

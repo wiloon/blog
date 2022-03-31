@@ -73,6 +73,13 @@ logrotate -f /etc/logrotate.d/nginx
 
 ```
 
+```bash
+crontab -e
+
+* * */1 * * /usr/sbin/logrotate -s /var/lib/logrotate/logrotate.status /etc/logrotate.d/tcpcopy
+
+```
+
 ### /etc/crontab
     01 * * * * root run-parts /etc/cron.hourly
     02 4 * * * root run-parts /etc/cron.daily
