@@ -360,12 +360,11 @@ https://tip.golang.org/doc/go1.17
 
 ### Go 程序是怎样跑起来的
 >https://zhuanlan.zhihu.com/p/71993748
-### go程序启动过程
+### go 程序启动过程
 >https://juejin.cn/post/6942509882281033764
 
 
 ## golang install
-
 
 GOPATH:
 

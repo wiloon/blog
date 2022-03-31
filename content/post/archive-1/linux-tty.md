@@ -17,7 +17,7 @@ categories:
 ```bash
     tty  
 ```
-### 看tty都被哪些进程打开了
+### 看 tty 都被哪些进程打开了
     lsof /dev/pts/1
 ### 往tty里面直接写数据跟写标准输出是一样的效果
     echo foo > /dev/pts/1
