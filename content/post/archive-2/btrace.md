@@ -40,7 +40,7 @@ public class MethodDuration_redis{
 
 ```
 
-### 找到java进程并执行btrace
+### 找到 java 进程并执行 btrace
 
 ```bash
 # 打印java进程

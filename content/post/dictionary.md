@@ -94,3 +94,4 @@ KHTML拥有速度快捷的优点，但对错误语法的容忍度则比Mozilla�
 
 >http://codante.org/blog/post/rendering-engine-trident-gecko-presto-khtml-webcore-webkit/
 
+

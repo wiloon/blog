@@ -2,14 +2,14 @@
 title: golang defer
 author: "-"
 date: 2015-04-08T01:00:55+00:00
-url: /?p=7441
+url: go/defer
 categories:
-  - Uncategorized
-
+  - Go
 tags:
   - reprint
 ---
 ## golang defer
+
 不要在for循环直接用defer
   
 https://studygolang.com/articles/12061

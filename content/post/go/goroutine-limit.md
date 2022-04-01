@@ -19,6 +19,7 @@ tags:
 可以利用信道 channel 的缓冲区大小来实现：
 
  
+```go
 // main_chan.go
 func main() {
 	var wg sync.WaitGroup
@@ -35,5 +36,6 @@ func main() {
 	}
 	wg.Wait()
 }
+```
 
 >https://geektutu.com/post/hpg-concurrency-control.html

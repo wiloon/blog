@@ -12,7 +12,7 @@ tags:
 ## golang程序在windows上,注册为服务
 https://blog.csdn.net/yang8023tao/article/details/53332984
 
-```java
+```go
   
 package main
 
