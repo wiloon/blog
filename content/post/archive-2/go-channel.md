@@ -28,7 +28,7 @@ ChannelType = ( "chan" | "chan" "<-" | "<-" "chan" ) ElementType .
 // 可选的<-代表channel的方向(是数据的流向)。如果没有指定方向，那么Channel就是双向的，既可以接收数据，也可以发送数据。
 
 
-var foo <-chan T        // 可以接收和发送类型为 T 的数据
+var foo chan T        // 可以接收和发送类型为 T 的数据
 var foo chan<- float64  // 只可以用来发送 float64 类型的数据
 var foo <-chan int      // 只可以用来接收 int 类型的数据
 // <-总是优先和最左边的类型结合。(The <- operator associates with the leftmost chan possible)
