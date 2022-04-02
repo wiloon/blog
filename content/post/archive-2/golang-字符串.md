@@ -9,7 +9,30 @@ tags:
   - reprint
 ---
 ## golang 字符串/string
+
+## 判断字符串开头
+
+```go
+import (
+    "fmt"
+    "strings"
+)
+
+func main() {
+
+    myString := "www.topgoer.com"
+
+    // Option 1: (Recommended)
+    if strings.HasPrefix(myString, "www") {
+        fmt.Println("Hello to you too")
+    } else {
+        fmt.Println("Goodbye")
+    }
+}
+
+```
 ### go, string, join
+
 ```go
 func main() {
     // 将字符串数组 拼接成 字符串

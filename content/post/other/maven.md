@@ -3,20 +3,24 @@ title: mvn, maven basic
 author: "-"
 date: 2011-09-29T04:34:14+00:00
 url: maven/basic
+categories:
+  - java
 tags:
   - maven
-
-categories:
-  - inbox
 ---
 ## mvn, maven basic
+
 ### download
+
 >https://maven.apache.org/download.cgi
+
 ### setting>mirror
+
     https://developer.aliyun.com/mirror/maven
     https://repo.maven.apache.org/maven2
 
 ### Maven 参数
+
     -D 传入属性参数
     -P 使用pom中指定的配置
     -e 显示maven运行出错的信息
@@ -26,6 +30,7 @@ categories:
     -q for only error
 
 ### 参数>properties
+
 对应一个变量值，pom.xml里面配置的有，那么如果你在命令行中 以 -Dmy.filter.value=1 的格式去配置mvn命令，那么将覆盖你pom中的值。
     mvn clean -Ptrip-app,daily package -Dmy.filter.value=1 -Dttidapk.ttids=21xx00
 

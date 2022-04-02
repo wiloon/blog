@@ -10,6 +10,16 @@ tags:
   - reprint
 ---
 ## Nginx config, 配置, nginx.conf
+
+```
+server {
+    listen       19999;
+    location / {
+        proxy_pass http://192.168.122.153:19999;
+    }
+}
+
+```
 ### location>proxy_redirect
 proxy_redirect：修改后端服务器返回的响应头部中的location货refresh，与proxy_pass配合使用：
 ### location>proxy_ssl_session_reuse on | off;
