@@ -11,6 +11,7 @@ tags:
 ## jdk, openjdk
 
 <http://openjdk.java.net/projects/jdk/>
+>https://jdk.java.net/
 
 ## archlinux
 
@@ -72,6 +73,7 @@ AdoptOpenJDK 是一个由OpenJDK构建，并以免费软件的形式提供社区
     https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux/
 
 #### jdk 8
+
 <https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/8/jdk/x64/linux/OpenJDK8U-jdk_x64_linux_hotspot_8u312b07.tar.gz>
 
 open a terminal.
@@ -96,7 +98,6 @@ udo update-alternatives -config java
 
 ---
 
-<https://jdk.java.net/archive/>  
 <https://wiki.archlinux.org/index.php/java>  
 <https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/>  
 
