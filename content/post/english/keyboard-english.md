@@ -2,10 +2,9 @@
 title: 键盘上特殊符号的英文读法
 author: "-"
 date: 2011-09-17T06:23:35+00:00
-url: /?p=800
+url: keyboard
 categories:
   - English
-
 tags:
   - reprint
 ---
@@ -17,7 +16,7 @@ tags:
     . 点号 dot/period/point
     : 冒号 colon
     ; 分号 semicolon
-    ” 双引号 quotation marks/double quote
+    " 双引号 quotation marks/double quote
     ‘ 单引号/撇号 apostrophe/single quote
     ` 反引号，重音号 backquote/grave accent
     * 星号 asterisk/star
@@ -35,9 +34,9 @@ tags:
     & and/和/兼 and/ampersand
     ^ 折音号 circumflex/caret
     ~ 波浪号 tilde
-    {}  (左右）花括号/大括号 (left/right|open/close) braces
-    []  (左右）方括号/中括号 (left/right|open/close) brackets
-    ()  (左右）圆括号/小括号 (left/right|open/close) parentheses
+    {}  (左/右) 花括号/大括号 (left/right|open/close) braces
+    []  (左/右) 方括号/中括号 (left/right|open/close) brackets
+    ()  (左/右) 圆括号/小括号 (left/right|open/close) parentheses
     <> 尖括号 angle brackets
     < 大于号 less than
     > 小于号 greater than

@@ -11,6 +11,14 @@ tags:
 ---
 ## kill, killall, signal
 
+## kill by key
+```bash
+ps -ef |grep java
+ps -ef |grep java|awk '{print $2}'|xargs -t -n 1 kill -9
+ps -ef |grep java
+
+```
+
 ### killall 命令
 killall命令杀死同一进程组内的所有进程。其允许指定要终止的进程的名称，而非PID。
   

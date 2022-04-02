@@ -14,14 +14,14 @@ JAVA自身支持调试功能，并提供了一个简单的调试工具－－JDB�
 
 JAVA的调试方法如下:     
 首先设置JVM，并设置参数，使之工作在DEBUG模式下，加入参数: -Xdebug -Xrunjdwp,transport=dt_socket,server=y,address=5432,suspend=n,onthrow=java.io.IOException,launch=/sbin/echo    
--Xdebug是通知JVM工作在DEBUG模式下  
--Xrunjdwp是通知JVM使用(java debug wire protocol)来运行调试环境。该参数同时了一系列的调试选项:   
-transport指定了调试数据的传送方式，dt_socket是指用SOCKET模式，另有dt_shmem指用共享内存方式，其中，dt_shmem只适用于Windows平台。  
-server参数是指是否支持在server模式的JVM中.    
-onthrow指明，当产生该类型的Exception时，JVM就会中断下来，进行调式。该参数可选。  
-launch指明，当JVM被中断下来时，执行的可执行程序。该参数可选  
-suspend指明，是否在调试客户端建立起来后，再执行JVM。  
-onuncaught(=y或n)指明出现uncaught exception 后，是否中断JVM的执行.  
+-Xdebug 是通知JVM工作在DEBUG模式下  
+-Xrunjdwp 是通知JVM使用(java debug wire protocol)来运行调试环境。该参数同时了一系列的调试选项:   
+transport 指定了调试数据的传送方式，dt_socket是指用SOCKET模式，另有dt_shmem指用共享内存方式，其中，dt_shmem只适用于Windows平台。  
+server 参数是指是否支持在server模式的JVM中.    
+onthrow 指明，当产生该类型的Exception时，JVM就会中断下来，进行调式。该参数可选。  
+launch 指明，当JVM被中断下来时，执行的可执行程序。该参数可选  
+suspend 指明，是否在调试客户端建立起来后，再执行JVM。  
+onuncaught(=y或n) 指明出现uncaught exception 后，是否中断JVM的执行.  
 
 启动调试工具。  
 最简单的调试工具就是上面提到的JDB，以上述调试用JVM为例，可以用下面的命运行启动JDB:   

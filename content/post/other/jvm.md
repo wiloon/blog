@@ -11,7 +11,7 @@ tags:
 ---
 ## java, JVM flags, params, 参数, xms xmx xmn xss
 ### -Xms, -XX:InitialHeapSize
-单位是Byte，但同时也支持使用速记符号，比如“k”或者“K”代表“kilo”，“m”或者“M”代表“mega”，“g”或者“G”代表“giga”。
+单位是 Byte，但同时也支持使用速记符号，比如“k”或者“K”代表“kilo”，“m”或者“M”代表“mega”，“g”或者“G”代表“giga”。
 JVM初始分配的堆内存大小，默认物理内存的1/64(<1GB)
 
 ### -Xmx, -XX:MaxHeapSize

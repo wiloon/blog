@@ -16,7 +16,7 @@ log4j-api:log4j2 定义的API
 log4j-core:log4j2 上述API的实现
 ```xml
 <properties>
-    <log4j.version>2.17.1</log4j.version>
+    <log4j.version>2.17.2</log4j.version>
 </properties>
 
 <dependency>

@@ -13,7 +13,7 @@ tags:
 
 ```xml
 <properties>
-    <slf4j.version>1.7.30</slf4j.version>
+    <slf4j.version>1.7.36</slf4j.version>
 </properties>
 
 <dependencies>

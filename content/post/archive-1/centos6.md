@@ -11,6 +11,8 @@ tags:
 ---
 ## centos6
 
+默认安装系统盘是 LVM 
+
 ## 静态ip
 ```bash
 ifconfig
