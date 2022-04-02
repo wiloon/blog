@@ -219,12 +219,12 @@ CFS调度器, cfs_sched_class: 完全公平调度器,采用完全公平调度算
 IDLE-Task调度器, idle_sched_class: 空闲调度器,每个CPU都会有一个idle线程,当没有其他进程可以调度时,调度运行idle线程；
 Linux内核提供了一些调度策略供用户程序来选择调度器,其中Stop调度器和IDLE-Task调度器,仅由内核使用,用户无法进行选择: 
 
-SCHED_DEADLINE: 限期进程调度策略,使task选择Deadline调度器来调度运行；
-SCHED_RR: 实时进程调度策略,时间片轮转,进程用完时间片后加入优先级对应运行队列的尾部,把CPU让给同优先级的其他进程；
-SCHED_FIFO: 实时进程调度策略,先进先出调度没有时间片,没有更高优先级的情况下,只能等待主动让出CPU；
-SCHED_NORMAL: 普通进程调度策略,使task选择CFS调度器来调度运行；
-SCHED_BATCH: 普通进程调度策略,批量处理,使task选择CFS调度器来调度运行；
-SCHED_IDLE: 普通进程调度策略,使task以最低优先级选择CFS调度器来调度运行；
+SCHED_DEADLINE: 限期进程调度策略, 使task选择Deadline调度器来调度运行；
+SCHED_RR: 实时进程调度策略, 时间片轮转, 进程用完时间片后加入优先级对应运行队列的尾部, 把CPU让给同优先级的其他进程；
+SCHED_FIFO: 实时进程调度策略, 先进先出调度没有时间片, 没有更高优先级的情况下, 只能等待主动让出CPU；
+SCHED_NORMAL: 普通进程调度策略, 使task选择CFS调度器来调度运行；
+SCHED_BATCH: 普通进程调度策略, 批量处理, 使task选择 CFS 调度器来调度运行；
+SCHED_IDLE: 普通进程调度策略, 使task以最低优先级选择 CFS 调度器来调度运行；
 
 ### runqueue 运行队列
 每个CPU都有一个运行队列,每个调度器都作用于运行队列；
