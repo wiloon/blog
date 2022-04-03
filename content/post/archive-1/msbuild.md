@@ -22,7 +22,7 @@ tags:
 
 MSBuild内付于.Net Framework 2.0中,VS Studio 2005使用的Build就是MSBuild。MSBuild类似于Java的Ant或是.NET移植版本NAnt,都允许开发人员撰写XML文件来指定Build的流程。不过MSBuild和Ant/NAnt不太一样的地方是,MSBuild比较偏向传统的Make工具,但是MSBuild改正了许多传统Make工具的缺点。由于MSBuild在网络上有许多的信息,因此,我在这里并不是讨论MSBuild的技术面,而是想谈谈MSBuild有趣的地方。
 
-MSBuild在VS Studio中应该是作为C#/VB.NET等项目的Build工具（应该是因为我没有VS Studio 2005) ,因此,MSBuild主要是作为.NET程序语言项目的Build工具。但是MSBuild在理论上应该是可以作为Windows平台上通用的Build工具,而不只限于.NET程序语言项目。这当然是因为MSBuild允许开发人员使用XML撰写Build流程,此外,MSBuild也允许开发人员调用外部工具。因此,MSBuild也应该可以让Win32的开发工具用来作为通用的Build工具,例如Delphi,C++Builder,甚至是PHP等。
+MSBuild在VS Studio中应该是作为C#/VB.NET等项目的Build工具 (应该是因为我没有VS Studio 2005) ,因此,MSBuild主要是作为.NET程序语言项目的Build工具。但是MSBuild在理论上应该是可以作为Windows平台上通用的Build工具,而不只限于.NET程序语言项目。这当然是因为MSBuild允许开发人员使用XML撰写Build流程,此外,MSBuild也允许开发人员调用外部工具。因此,MSBuild也应该可以让Win32的开发工具用来作为通用的Build工具,例如Delphi,C++Builder,甚至是PHP等。
 
 那么使用MSBuild作为Build工具有什么好处? 比如说Delphi和C++Builder都有自己的Build工具,那为什么还要使用MSBuild? 其实一个非常简单的答案就是Delphi For Win32,C++Builder,Delphi.NET,C#Builder以及未来的Delphi For Win64等就可以提供一个通用的Build机制和Build工具。
 

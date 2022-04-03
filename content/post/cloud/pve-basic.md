@@ -10,11 +10,13 @@ tags:
   - VM
   - remix
 
-
 ---
 ## "pve basic"
 
 ### 创建安装盘 U盘
+
+>wiloon.com/ventoy
+
     dd bs=1M conv=fdatasync if=./proxmox-ve_*.iso of=/dev/XYZ
 
 ### 更新源
@@ -53,7 +55,7 @@ Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
     create vm > 
         general > name: foo
         general > advanced
-        general > start at boot
+            advanced > start at boot
 
         next
 
@@ -67,7 +69,7 @@ Datacenter>nuc8>local(nuc8)>ISO Images>-->Upload
 
 
 
-create vm > system > qemu agent: select
+    create vm > system > qemu agent: select
 
 ### create vm from template
 - right click and select "clone"
@@ -89,7 +91,7 @@ Qemu 代理即 qemu-guest-agent，是一个运行在虚拟机里面的程序 qem
 
 1. 正确关闭虚拟机，而不是依赖ACPI命令或Windows策略
 
-2. 在进行备份时冻结来宾文件系统（在Windows上，使用卷tem影复制服务VSS) 。
+2. 在进行备份时冻结来宾文件系统 (在Windows上，使用卷tem影复制服务VSS) 。
 
 ### 改ip
      vi /etc/network/interfaces
@@ -118,7 +120,7 @@ bridge ports: 支持同时添加多个网口，用空格分隔
 登录pve01选择要备份的虚拟机
 点击子菜单中的备份按钮
 点击立即备份按钮
-设置备份到的存储（local的备份路径为: /var/lib/vz/dump) 
+设置备份到的存储 (local的备份路径为: /var/lib/vz/dump) 
 设置模式: 停止
 设置压缩: 无
 等待备份完毕
@@ -129,7 +131,7 @@ WinSCP下载地址: WinSCP官网
 
 登录pve01节点
 
-切换远程目录至备份目录（local存储的备份目录为: /var/lib/vz/dump) 找到虚拟机备份文件右键点击下载
+切换远程目录至备份目录 (local存储的备份目录为: /var/lib/vz/dump) 找到虚拟机备份文件右键点击下载
 
 使用二进制方式下载vma备份文件至本机目录
 
@@ -140,13 +142,13 @@ WinSCP下载地址: WinSCP官网
 本地目录切换至刚下载备份的目录
 右键点击vma备份文件选择上传
 
-输入上传路径/var/lib/vz/dump/.（local存储的备份目录为: /var/lib/vz/dump) 并使用二进制方式上传
+输入上传路径/var/lib/vz/dump/. (local存储的备份目录为: /var/lib/vz/dump) 并使用二进制方式上传
 
 等待上传完毕
 
 五、恢复虚拟机
 登录pve02节点
-切换至相应的上传存储（local) 
+切换至相应的上传存储 (local) 
 点击子菜单中的内容菜单
 选择刚上传的vma备份文件
 点击恢复按钮

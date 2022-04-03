@@ -10,7 +10,6 @@ tags:
 
 ---
 ## JAVA String, StringBuffer, StringBuilder
-## String, StringBuffer, StringBuilder
 
 JAVA平台提供了两个类: String 和 StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String类提供了数值不可改变的字符串。而StringBuffer类提供的字符串允许进行修改。当你知道字符数据要改变的时候你就可以使用 StringBuffer。典型地，你可以使用 StringBuffers 来动态构造字符数据。
 
@@ -19,8 +18,8 @@ JAVA平台提供了两个类: String 和 StringBuffer，它们可以储存和操
 Character 是进行单个字符操作的，
 
 - String 字符串常量 对一串字符进行操作。不可变类。
-- StringBuffer 也是对一串字符进行操作，但是可变类。字符串变量（线程安全) 
-- StringBuilder 字符串变量（非线程安全) 
+- StringBuffer 也是对一串字符进行操作，但是可变类。字符串变量 (线程安全) 
+- StringBuilder 字符串变量 (非线程安全) 
 
 ### String
   
@@ -56,7 +55,7 @@ StringBuffer 上的主要操作是 append 和 insert 方法，可重载这些方
 
 
   java.lang.StringBuilde
- java.lang.StringBuilder一个可变的字符序列是5.0新增的。此类提供一个与 StringBuffer 兼容的 API，但不保证同步。该类被设计用作 StringBuffer 的一个简易替换，用在字符串缓冲区被单个线程使用的时候（这种情况很普遍) 。如果可能，建议优先采用该类，因为在大多数实现中，它比 StringBuffer 要快。两者的方法基本相同。
+ java.lang.StringBuilder一个可变的字符序列是5.0新增的。此类提供一个与 StringBuffer 兼容的 API，但不保证同步。该类被设计用作 StringBuffer 的一个简易替换，用在字符串缓冲区被单个线程使用的时候 (这种情况很普遍) 。如果可能，建议优先采用该类，因为在大多数实现中，它比 StringBuffer 要快。两者的方法基本相同。
 
     StringBuffer:
  是一个可变对象,当对他进行修改的时候不会像String那样重新建立对象它只能通过构造函数来建立,

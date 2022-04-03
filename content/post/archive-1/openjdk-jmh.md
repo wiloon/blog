@@ -28,7 +28,7 @@ JMH 是一个由 OpenJDK/Oracle 里面那群开发了 Java 编译器的大牛们
 
 想定量地知道某个函数需要执行多长时间，以及执行时间和输入 n 的相关性
   
-一个函数有两种不同实现（例如实现 A 使用了 FixedThreadPool，实现 B 使用了 ForkJoinPool) ，不知道哪种实现性能更好
+一个函数有两种不同实现 (例如实现 A 使用了 FixedThreadPool，实现 B 使用了 ForkJoinPool) ，不知道哪种实现性能更好
   
 尽管 JMH 是一个相当不错的 Micro Benchmark Framework，但很无奈的是网上能够找到的文档比较少，而官方也没有提供比较详细的文档，对使用造成了一定的障碍。但是有个好消息是官方的 Code Sample 写得非常浅显易懂，推荐在需要详细了解 JMH 的用法时可以通读一遍——本文则会介绍 JMH 最典型的用法和部分常用选项。
 

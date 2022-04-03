@@ -2,11 +2,11 @@
 title: windows apps, win apps
 author: "-"
 date: 2019-03-28T02:03:39+00:00
-url: /?p=13970
+url: windows/apps
 keys: win apps, windows apps
 
 categories:
-  - inbox
+  - windows
 tags:
   - reprint
 ---
@@ -47,6 +47,8 @@ https://chocolatey.org/packages
 
 | Name             | Comments |
 | ---------------- | -------- |
+|WizTree|硬盘占用分析|
+|Process Hacker|代替任务管理器|
 |chrome||
 |rufus|创建启动盘,iso to usb |
 |搜狗五笔||
@@ -68,6 +70,9 @@ https://chocolatey.org/packages
 |x410              | windows x server   |
 |T-Clock           | 可以显示周数的任务栏时钟, 格式模板: "mm-dd HH:nn \nW Wi ddd", https://github.com/White-Tiger/T-Clock |
 |VcXsrc            |x server|
+|PowerToys||
+|截图工具|搜索 截图工具|
+
  
 MobaXterm
 
@@ -78,9 +83,7 @@ xmind
 picpick
   
 hedisql
-  
-idea
-  
+
 firefox
   
 base64tools
@@ -104,16 +107,11 @@ puttyng
 rdm redis desktop manager
   
 visualbox
-  
-360
 
-chrome
 
-shougou
 
 avirnt
-
-wechat
+ 
 
 steam
 

@@ -14,7 +14,7 @@ http://www.cnblogs.com/amboyna/archive/2007/09/25/904804.html
 
 http://jnotnull.iteye.com/blog/262379
 
-迭代器（Iterator) 
+迭代器 (Iterator) 
 
 迭代器是一种设计模式,它是一个对象,它可以遍历并选择序列中的对象,而开发人员不需要了解该序列的底层结构。迭代器通常被称为"轻量级"对象,因为创建它的代价小。
 

@@ -20,7 +20,7 @@ jsp/servlet 标准不要求一个web容器支持分布式应用，
   
 为了负载均衡或者fail-over,web容器可以迁移一个session到其他的jvm.
   
-session的passivation是指非活动的session被写入持久设备（比如硬盘) 。
+session的passivation是指非活动的session被写入持久设备 (比如硬盘) 。
   
 activate自然就是相反的过程。在分布式环境中切换的属性必须实现serializable接口。
 

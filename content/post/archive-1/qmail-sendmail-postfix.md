@@ -87,7 +87,7 @@ Sendmail
     
     
       大规模应用例子
- 国内若干个大型emailISP（如163.net/tom.com/163.com及sohu等) 过去都使用qmail,后来全部更换成postfix。
+ 国内若干个大型emailISP (如163.net/tom.com/163.com及sohu等) 过去都使用qmail,后来全部更换成postfix。
     
     
     
@@ -135,7 +135,7 @@ Sendmail
     
     
       可配置性
- sendmail 使用m4语法,单一的主配置文件（sendmail.cf) 是三个mta中最难使用的,但是如果熟悉使用的话却能实现复杂的功能。
+ sendmail 使用m4语法,单一的主配置文件 (sendmail.cf) 是三个mta中最难使用的,但是如果熟悉使用的话却能实现复杂的功能。
     
     
     
@@ -143,11 +143,11 @@ Sendmail
     
     
     
-      postfix也使用单一的主配置文件（main.cf) ,同时还有对应master主服务进程的配置文件master.cf,但使用的是简明易懂的key = value 格式。
+      postfix也使用单一的主配置文件 (main.cf) ,同时还有对应master主服务进程的配置文件master.cf,但使用的是简明易懂的key = value 格式。
     
     
     
-      总体而言,qmail的配置文件较易管理（格式最简单) 但配置文件多（10个以上) ,而postfix的格式简单只有2个配置文件,并配备强大的postconf工具,sendmail的配置文件最复杂。
+      总体而言,qmail的配置文件较易管理 (格式最简单) 但配置文件多 (10个以上) ,而postfix的格式简单只有2个配置文件,并配备强大的postconf工具,sendmail的配置文件最复杂。
     
     
     

@@ -32,9 +32,9 @@ DataX特点?
   
 数据传输过程在单进程内完成,全内存操作,不读写磁盘,也没有IPC
   
-开放式的框架,开发者可以在极短的时间开发一个新插件以快速支持新的数据库/文件系统。（具体参见《DataX插件开发指南》) 
+开放式的框架,开发者可以在极短的时间开发一个新插件以快速支持新的数据库/文件系统。 (具体参见《DataX插件开发指南》) 
 
-DataX结构模式（框架+插件) 
+DataX结构模式 (框架+插件) 
 
 Job: 一道数据同步作业
   
@@ -60,7 +60,7 @@ sqlserverreader: 支持从sqlserver数据库获取数据。
   
 oraclereader : 支持从oracle数据库获取数据。
   
-streamreader: 支持从stream流获取数据（常用于测试) 
+streamreader: 支持从stream流获取数据 (常用于测试) 
   
 httpreader : 支持从http URL获取数据。
 
@@ -72,7 +72,7 @@ MySQLwriter: 支持向MySQL写入数据。
   
 oraclewriter: 支持向oracle写入数据。
   
-streamwriter: 支持向stream流写入数据。（常用于测试) 
+streamwriter: 支持向stream流写入数据。 (常用于测试) 
 
 您可以按需选择使用或者独立开发您自己的插件 (具体参见《DataX插件开发指南》)
 

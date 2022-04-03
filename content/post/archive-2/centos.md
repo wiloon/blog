@@ -114,13 +114,13 @@ yum localinstall http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.
   
 以上源对CentOS等系统完全兼容,但各软件库之间并不能保证完全兼容没有冲突。如果您需要使用以上源,您需要安装yum-priorities插件。安装yum-priorities插件后,您可以给各个源设置优先级priority。一般设置官方标准源优先级为1,最高,第三方推荐>10
 
-priority=N （N为1到99的正整数,数值越小越优先) 
+priority=N  (N为1到99的正整数,数值越小越优先) 
 
 [base], [addons], [updates], [extras] … priority=1
   
 [CentOSplus],[contrib] … priority=2
   
-其他第三的软件源为: priority=N （推荐N>10) 
+其他第三的软件源为: priority=N  (推荐N>10) 
 
 #vi CentOS-Base.repo
 

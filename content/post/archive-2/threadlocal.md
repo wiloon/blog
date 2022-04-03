@@ -31,7 +31,7 @@ ThreadLocal是线程的局部变量, 也就是说这个变量是线程独有的�
 
 #### TreadLocal的四个方法: 
 void set(Object val),设置当前线程的线程局部变量的值
-Object get（) 返回当前线程所对用的线程局部变量。
+Object get () 返回当前线程所对用的线程局部变量。
 void remove() 将当前线程局部变量的值删除,目的是为了减少内存的占用,线程结束后,局部变量自动被GC
 Object initValue() 返回该线程局部变量的初始值,使用protected修饰,显然是为了让子类覆盖而设计的。
 
@@ -47,7 +47,7 @@ Object initValue() 返回该线程局部变量的初始值,使用protected修饰
 
 问: 那么是不是说ThreadLocal的实例以及其值存放在栈上呢？
 
-其实不是,因为ThreadLocal实例实际上也是被其创建的类持有（更顶端应该是被线程持有) 。而ThreadLocal的值其实也是被线程实例持有。
+其实不是,因为ThreadLocal实例实际上也是被其创建的类持有 (更顶端应该是被线程持有) 。而ThreadLocal的值其实也是被线程实例持有。
 
 它们都是位于堆上,只是通过一些技巧将可见性修改成了线程可见。
 
@@ -189,7 +189,7 @@ t.threadLocals = new ThreadLocalMap(this, firstValue);
 
 问: 那么是不是说ThreadLocal的实例以及其值存放在栈上呢？
   
-其实不是,因为ThreadLocal实例实际上也是被其创建的类持有（更顶端应该是被线程持有) 。而ThreadLocal的值其实也是被线程实例持有。
+其实不是,因为ThreadLocal实例实际上也是被其创建的类持有 (更顶端应该是被线程持有) 。而ThreadLocal的值其实也是被线程实例持有。
 
 它们都是位于堆上,只是通过一些技巧将可见性修改成了线程可见。
 
@@ -362,10 +362,10 @@ ThreadLocal内部的ThreadLocalMap键为弱引用,会有内存泄漏的风险。
 魔数0x61c88647与碰撞解决#
 机智的读者肯定发现ThreadLocalMap并没有使用链表或红黑树去解决hash冲突的问题,而仅仅只是使用了数组来维护整个哈希表,那么重中之重的散列性要如何保证就是一个很大的考验
 ThreadLocalMap通过结合三个巧妙的设计去解决这个问题: 
-1.Entry的key设计成弱引用,因此key随时可能被GC（也就是失效快) ,尽量多的面对空槽
+1.Entry的key设计成弱引用,因此key随时可能被GC (也就是失效快) ,尽量多的面对空槽
 2.(单个ThreadLocal时)当遇到碰撞时,通过线性探测的开放地址法解决冲突问题
 3.(多个ThreadLocal时)引入了神奇的0x61c88647,增强其的散列性,大大减少碰撞几率
-之所以不用累加而用该值,笔者认为可能跟其找最近的空槽有关（跳跃查找比自增1查找用来找空槽可能更有效一些,因为有了更多可选择的空间spreading out) ,同时也跟其良好的散列性有关
+之所以不用累加而用该值,笔者认为可能跟其找最近的空槽有关 (跳跃查找比自增1查找用来找空槽可能更有效一些,因为有了更多可选择的空间spreading out) ,同时也跟其良好的散列性有关
 0x61c88647与黄金比例、Fibonacci 数有关,读者可参见What is the meaning of 0x61C88647 constant in ThreadLocal.java
 
 >https://stackoverflow.com/questions/38994306/what-is-the-meaning-of-0x61c88647-constant-in-threadlocal-java
@@ -389,7 +389,7 @@ ThreadLocalMap通过结合三个巧妙的设计去解决这个问题:
 ThreadLocalMap 采用开放地址法原因
 
 ThreadLocal 中看到一个属性 HASH_INCREMENT = 0x61c88647 ,0x61c88647 是一个神奇的数字,让哈希码能均匀的分布在2的N次方的数组里, 即 Entry[] table,关于这个神奇的数字google 有很多解析,这里就不重复说了
-ThreadLocal 往往存放的数据量不会特别大（而且key 是弱引用又会被垃圾回收,及时让数据量更小) ,这个时候开放地址法简单的结构会显得更省空间,同时数组的查询效率也是非常高,加上第一点的保障,冲突概率也低
+ThreadLocal 往往存放的数据量不会特别大 (而且key 是弱引用又会被垃圾回收,及时让数据量更小) ,这个时候开放地址法简单的结构会显得更省空间,同时数组的查询效率也是非常高,加上第一点的保障,冲突概率也低
 
 
 https://juejin.cn/post/6844903974454329358

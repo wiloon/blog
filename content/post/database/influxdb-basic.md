@@ -5,7 +5,7 @@ date: 2017-08-02T06:50:39+00:00
 url: influxdb
 
 categories:
-  - inbox
+  - db
 tags:
   - reprint
 ---
@@ -66,7 +66,7 @@ influx -database 'db0' -execute "select field0,\"field1\" from measurement0 wher
 # 使用 tz('Etc/GMT-8') 后,过滤条件中的time>'xxx' 填写东8区时间.
 ```
 
-### 安装,influxdb install & config
+### 安装, influxdb install & config
 ### dnf
 
 ```bash
@@ -245,6 +245,10 @@ DROP MEASUREMENT "kernel"
 
 ### select
 ```sql
+select * from ping where time > now()-1s
+
+select average_response_ms from ping where time > now()-1s and url='192.168.53.8'
+
 select "database",id,retentionPolicy,seriesCreate,writeReq from "shard" WHERE time>now()-20s AND "database"='database0' AND retentionPolicy='default' AND writeReq>0
 
 select * from "database0"."rentention-policies-0"."measurement0"

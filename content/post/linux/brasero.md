@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## Brasero
-**Brasero**是类Unix系统下的一个自由的光盘刻录程序，作为cdrtools，growisofs以及libburn（可选) 的图形化前端（使用GTK+) 。
+**Brasero**是类Unix系统下的一个自由的光盘刻录程序，作为cdrtools，growisofs以及libburn (可选) 的图形化前端 (使用GTK+) 。
 
 Brasero是Ubuntu和Xubuntu的GNOME桌面下的默认CD/DVD应用程序。
 

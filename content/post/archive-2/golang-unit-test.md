@@ -1,15 +1,112 @@
 ---
-title: golang unit test
+title: Go unit test, 单体测试
 author: "-"
 date: 2016-07-13T00:45:41+00:00
-url: /?p=9130
+url: go/test
 categories:
-  - Uncategorized
+  - Go
 
 tags:
   - reprint
+  - test
 ---
-## golang unit test
+## Go unit test, 单体测试
+
+Go 语言推荐测试文件和源代码文件放在一块，测试文件以 _test.go 结尾。比如，当前 package 有 calc.go 一个文件，我们想测试 calc.go 中的 Add 和 Mul 函数，那么应该新建 calc_test.go 作为测试文件。
+
+### calc_test.go
+
+```go
+
+package main
+
+import "testing"
+
+func TestAdd(t *testing.T) {
+	if ans := Add(1, 2); ans != 3 {
+		t.Errorf("1 + 2 expected be 3, but %d got", ans)
+	}
+
+	if ans := Add(-10, -20); ans != -30 {
+		t.Errorf("-10 + -20 expected be -30, but %d got", ans)
+	}
+}
+```
+
+测试用例名称一般命名为 Test 加上待测试的方法名。
+测试用的参数有且只有一个，在这里是 t *testing.T。
+基准测试(benchmark)的参数是 *testing.B，TestMain 的参数是 *testing.M 类型。
+
+运行 `go test`，该 package 下所有的测试用例都会被执行。
+
+`go test -v`，-v 参数会显示每个用例的测试结果，另外 `-cover` 参数可以查看覆盖率。
+
+如果只想运行其中的一个用例，例如 TestAdd，可以用 -run 参数指定，该参数支持通配符 *，和部分正则表达式，例如 ^、$。
+
+ 
+$ go test -run TestAdd -v
+=== RUN   TestAdd
+--- PASS: TestAdd (0.00s)
+PASS
+ok      example 0.007s
+
+### 子测试(Subtests)
+
+```go
+// calc_test.go
+
+func TestMul(t *testing.T) {
+	t.Run("pos", func(t *testing.T) {
+		if Mul(2, 3) != 6 {
+			t.Fatal("fail")
+		}
+
+	})
+	t.Run("neg", func(t *testing.T) {
+		if Mul(2, -3) != -6 {
+			t.Fatal("fail")
+		}
+	})
+}
+
+```
+
+之前的例子测试失败时使用 t.Error/t.Errorf，这个例子中使用 t.Fatal/t.Fatalf，区别在于前者遇错不停，还会继续执行其他的测试用例，后者遇错即停。
+
+
+### table-driven tests
+```go
+//  calc_test.go
+func TestMul(t *testing.T) {
+	cases := []struct {
+		Name           string
+		A, B, Expected int
+	}{
+		{"pos", 2, 3, 6},
+		{"neg", 2, -3, -6},
+		{"zero", 2, 0, 0},
+	}
+
+	for _, c := range cases {
+		t.Run(c.Name, func(t *testing.T) {
+			if ans := Mul(c.A, c.B); ans != c.Expected {
+				t.Fatalf("%d * %d expected %d, but %d got",
+					c.A, c.B, c.Expected, ans)
+			}
+		})
+	}
+}
+
+```
+### 帮助函数(helpers)
+
+### setup 和 teardown
+### Benchmark 基准测试
+
+
+---
+
+
 测试文件用 "_test" 结尾,测试的函数用Test开头
 
 fibonacci.go
@@ -32,7 +129,7 @@ fibonacci_test.go
   
 函数中通过调用testing.T 的Error,Errorf,FailNow,Fatal,FatalIf方法,说明测试不通过,调用Log方法来记录测试信息
 
-```golang
+```go
 package gotest
 
 import (
@@ -249,3 +346,7 @@ PASS
 BenchmarkFibonacci20 50000 44367 ns/op
   
 ok lib 2.677s
+
+
+>https://geektutu.com/post/quick-go-test.html
+

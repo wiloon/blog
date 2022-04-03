@@ -2,12 +2,15 @@
 title: nginx tcp proxy with tls
 author: "-"
 date: 2017-11-10T05:48:19+00:00
-url: /?p=11399
+url: nginx/steam
 categories:
-  - Uncategorized
+  - network
 
 tags:
   - reprint
+  - nginx
+
+
 ---
 ## nginx tcp proxy with tls
 ```bash

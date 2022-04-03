@@ -117,11 +117,11 @@ api
 public native long staticFieldOffset(Field f);
 //获取一个静态类中给定字段的对象指针
 public native Object staticFieldBase(Field f);
-//判断是否需要初始化一个类，通常在获取一个类的静态属性的时候（因为一个类如果没初始化，它的静态属性也不会初始化) 使用。 当且仅当ensureClassInitialized方法不生效时返回false。
+//判断是否需要初始化一个类，通常在获取一个类的静态属性的时候 (因为一个类如果没初始化，它的静态属性也不会初始化) 使用。 当且仅当ensureClassInitialized方法不生效时返回false。
 public native boolean shouldBeInitialized(Class<?> c);
-//检测给定的类是否已经初始化。通常在获取一个类的静态属性的时候（因为一个类如果没初始化，它的静态属性也不会初始化) 使用。
+//检测给定的类是否已经初始化。通常在获取一个类的静态属性的时候 (因为一个类如果没初始化，它的静态属性也不会初始化) 使用。
 public native void ensureClassInitialized(Class<?> c);
-//定义一个类，此方法会跳过JVM的所有安全检查，默认情况下，ClassLoader（类加载器) 和ProtectionDomain（保护域) 实例来源于调用者
+//定义一个类，此方法会跳过JVM的所有安全检查，默认情况下，ClassLoader (类加载器) 和ProtectionDomain (保护域) 实例来源于调用者
 public native Class<?> defineClass(String name, byte[] b, int off, int len, ClassLoader loader, ProtectionDomain protectionDomain);
 //定义一个匿名类
 public native Class<?> defineAnonymousClass(Class<?> hostClass, byte[] data, Object[] cpPatches);
@@ -163,7 +163,7 @@ public native void fullFence();
 
 
 系统相关
-//返回系统指针的大小。返回值为4（32位系统) 或 8（64位系统) 。
+//返回系统指针的大小。返回值为4 (32位系统) 或 8 (64位系统) 。
 public native int addressSize();  
 //内存页的大小，此值为2的幂次方。
 public native int pageSize();

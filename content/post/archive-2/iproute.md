@@ -1,5 +1,5 @@
 ---
-title: iproute2 > 路由表, ip route2 routing table
+title: iproute2 basic
 author: "-"
 date: 2018-03-25T01:20:23+00:00
 url: /?p=12054
@@ -9,23 +9,31 @@ categories:
 tags:
   - reprint
 ---
-## iproute2 > 路由表, ip route2 routing table
+## iproute2 basic
 
 ### install
    apt install iproute2
 
 
+### 查看IP地址
 ```bash
-  
-#Delete all IPv4 addresses on interface wlp3s0
+# 显示所有网络地址
+ip address show
+# 简写
+ip addr
+# 再简写
+ip a
+```
+
+```bash
+# Delete all IPv4 addresses on interface wlp3s0
 sudo ip -f inet addr del dev wlp3s0
   
 #为网络接口分配IPv4地址
 #使用这些命令配置网络接口的IPv4地址。
 sudo ip addr add 10.0.0.1/24 dev eth1
 
-#查端口
-  
+# 查端口
 ss -ntlp | grep ",1234,"
 
 sudo ip link set down eth1
@@ -33,11 +41,9 @@ sudo ip link set down eth1
 sudo ip link set up eth1
 
 #查所有网卡的ip
-  
 ip addr show
 
 #查看所有网卡
-  
 ip link show
 
 #查看某一个网卡的ip
@@ -85,12 +91,7 @@ ip link
 ip link show dev eth0
 ```
 
-### 显示IP地址
-```bash
-ip address show #除显示所有网络地址
-ip addr
-ip a
-```
+
 
 ### 路由
 title: iproute2 > 路由表, routing table
@@ -251,3 +252,4 @@ https://segmentfault.com/a/1190000000638244
 https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
 https://www.cnblogs.com/LiuYanYGZ/p/12368421.html
 http://linux-ip.net/html/routing-tables.html
+>http://linux-ip.net/gl/ip-cref/ip-cref.html

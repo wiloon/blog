@@ -13,7 +13,7 @@ tags:
 ## inline script 和外链script
   1. 性能
 
-从性能角度来说,inline script 和外链script （`<script src="xxx" />`)  各有优势。
+从性能角度来说,inline script 和外链script  (`<script src="xxx" />`)  各有优势。
   
 假设你的script只有很少的几行,写在html内确实省去了一个请求。
   
@@ -39,7 +39,7 @@ tags:
 
 再回到楼主的问题, 是否可以或者应该合并到一处？
   
-* 是完全可以的,`$(function(){})` 里面的`function`会在`DOMReady`之后才运行,所以放在哪里都可以（甚至在你要操作的DOM HTML前面) 
+* 是完全可以的,`$(function(){})` 里面的`function`会在`DOMReady`之后才运行,所以放在哪里都可以 (甚至在你要操作的DOM HTML前面) 
   
 * 是否应该？如果模板是有很多个小模块构成,对应的js文件也尽量和模板放在一起,做模块化的管理。
 

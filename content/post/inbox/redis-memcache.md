@@ -65,7 +65,7 @@ memcache是一个内存缓存，key的长度小于250字符，单个item存储�
 数据一致性不同
 Redis只使用单核，而Memcached可以使用多核，所以平均每一个核上Redis在存储小数据时比Memcached性能更高。而在100k以上的数据中，Memcached性能要高于Redis，虽然Redis最近也在存储大数据的性能上进行优化，但是比起Memcached，还是稍有逊色。 
 redis使用的是单线程模型，保证了数据按顺序提交。
-memcache需要使用cas保证数据一致性。CAS（Check and Set) 是一个确保并发一致性的机制，属于“乐观锁”范畴；原理很简单: 拿版本号，操作，对比版本号，如果一致就操作，不一致就放弃任何操作 
+memcache需要使用cas保证数据一致性。CAS (Check and Set) 是一个确保并发一致性的机制，属于“乐观锁”范畴；原理很简单: 拿版本号，操作，对比版本号，如果一致就操作，不一致就放弃任何操作 
 cpu利用
 redis单线程模型只能使用一个cpu，可以开启多个redis进程
 

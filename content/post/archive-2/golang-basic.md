@@ -3,29 +3,28 @@ title: go basic, golang basic
 author: "-"
 date: 2016-07-01T08:06:08+00:00
 url: go
-
 categories:
-  - inbox
+  - golang
 tags:
   - reprint
 ---
 ## go basic, golang basic
-## go, golang, basic
-Go是Google开发的一种静态强类型、编译型、并发型,并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫,罗勃·派克及肯·汤普逊于2007年9月开始设计Go,稍后Ian Lance Taylor、Russ Cox加入项目。Go是基于Inferno操作系统所开发的。
+
+Go 是 Google 开发的一种静态强类型、编译型、并发型, 并具有垃圾回收功能的编程语言。 罗伯特·格瑞史莫, 罗勃·派克及肯·汤普逊于 2007年9月开始设计 Go,稍后 Ian Lance Taylor、Russ Cox 加入项目。 Go是基于 Inferno 操作系统所开发的。
 Go 语言是静态类型的编程语言
 
 ## version
 ### latest 
-1.17
+1.18
 ### current 
-1.15
+1.17.7
 
 ## The Go Programming Language
 Go 语言虽然是静态编译型语言,但是它却拥有脚本化的语法,支持多种编程范式(函数式和面向对象)。
 
 ### hello world
 
-```golang
+```go
 package main
 import "fmt"
 func main() {
@@ -71,7 +70,7 @@ china mainland download
 # gopath bin
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-# 设置不走 proxy 的私有仓库,多个用逗号相隔（可选) 
+# 设置不走 proxy 的私有仓库,多个用逗号相隔 (可选) 
 export GOPRIVATE=*.corp.example.com
 export GOPRIVATE=git.wiloon.com
 
@@ -84,8 +83,8 @@ export GOBIN=/path/to/go/bin
 ```
 
 ### internal package
-Go语言1.4版本增加了 Internal packages 特征用于控制包的导入,即internal package只能被特定的包导入。
-内部包的规范约定: 导出路径包含internal关键字的包,只允许internal的父级目录及父级目录的子包导入,其它包无法导入。
+Go语言 1.4 版本增加了 Internal packages 特征用于控制包的导入, 即internal package只能被特定的包导入。
+内部包的规范约定: 导出路径包含internal关键字的包, 只允许internal的父级目录及父级目录的子包导入, 其它包无法导入。
 
 ### 变量
 变量是几乎所有编程语言中最基本的组成元素。从根本上说,变量相当于是对一块数据存储空间的命名,程序可以通过定义一个变量来申请一块数据存储空间,之后可以通过引用变量名来使用这块存储空间。
@@ -95,8 +94,10 @@ Go语言中的变量使用方式与C语言接近,但具备更大的灵活性。
 #### 变量声明
 Go语言的变量声明方式与C和C++语言有明显的不同。对于纯粹的变量声明,Go语言引入了关键字var,而类型信息放在变量名之后,示例如下:
 
-```golang
+```go
 var v1 int
+var foo, bar int
+var width, height = 100, 50
 var v2 string
 
 var v3 [10] int  // 数组
@@ -113,7 +114,7 @@ var v7 map[string]intvar v8 func(a int) int   // map,key为string类型,value为
 ### 变量初始化
 对于声明变量时需要进行初始化的场景,var关键字可以保留,但不再是必要的元素,如下: 
 
-```golang
+```go
 var v1 int = 10 // 正确的使用方式1
 var v2 = 10 // 正确的使用方式2,编译器可以自动推导出v2的类型
 v3 := 10 // 正确的使用方式3,编译器可以自动推导出v3的类型
@@ -151,7 +152,7 @@ _, _, nickName := "May", "Chan", "Chibi Maruko"
 
 ## 常量
 
-```golang
+```go
 const (
 c0 = iota // iota被重设为0 // c0 == 0
 c1 = iota // c1 == 1
@@ -239,13 +240,9 @@ c = 1 << iota // c == 4
   
 )
 
-### goroutine
-
-<http://www.wiloon.com/?p=9101>
-
 ### 读环境变量
 
-```golang
+```go
 func main(){
     var JAVAHOME string
     JAVAHOME = os.Getenv("JAVA_HOME")
@@ -282,7 +279,7 @@ func Dim(x, y float64) float64
 
 ```bash
 # -a
-强行对所有涉及到的代码包（包含标准库中的代码包) 进行重新构建,即使它们已经是最新的了。
+强行对所有涉及到的代码包 (包含标准库中的代码包) 进行重新构建, 即使它们已经是最新的了。
 # -installsuffix
 为了使当前的输出目录与默认的编译输出目录分离,可以使用这个标记。此标记的值会作为结果文件的父目录名称的后缀。其实,如果使用了-race标记,这个标记会被自动追加且其值会为race。如果我们同时使用了-race标记和-installsuffix,那么在-installsuffix标记的值的后面会再被追加_race,并以此来作为实际使用的后缀。
 #### -x
@@ -295,6 +292,8 @@ func Dim(x, y float64) float64
 查看编译的代码包名称
 # -o
 指定输出文件 路径/文件名 `go build -o /tmp/foo foo.go`
+# glibc 静态编译
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '-s -w --extldflags "-static -fpic"' -o "$binPath" "$name.go"
 ```
 
 ```bash
@@ -316,14 +315,15 @@ go install 被设计为“用于构建和安装二进制文件”， go get 则�
 
 go install 编译出的可执行文件以其所在目录名(DIR)命名
   
-go install将可执行文件安装到与src同级别的bin目录下,bin目录由go install自动创建
+go install 将可执行文件安装到与src同级别的bin目录下,bin目录由go install自动创建
   
-go install将可执行文件依赖的各种package编译后,放在与src同级别的pkg目录下.
-  
-参考资料: 
+go install 将可执行文件依赖的各种package编译后,放在与src同级别的pkg目录下.
 
-http://tonybai.com/2012/08/17/hello-go/
+>http://tonybai.com/2012/08/17/hello-go/
 
+```bash
+go install github.com/wiloon/pingd-proxy@v0.0.1
+```
 
 ### 一个函数可以作为参数传递给另一个函数
 
@@ -360,12 +360,11 @@ https://tip.golang.org/doc/go1.17
 
 ### Go 程序是怎样跑起来的
 >https://zhuanlan.zhihu.com/p/71993748
-### go程序启动过程
+### go 程序启动过程
 >https://juejin.cn/post/6942509882281033764
 
 
 ## golang install
-
 
 GOPATH:
 
@@ -399,3 +398,118 @@ GOPATH=C:\workspace\myproject\golang\lib;C:\workspace\myproject\golang\gox
 ### os.Exit()
 
 Conventionally, code zero indicates success, non-zero an error
+
+### 选择器
+
+在 Go 语言中，表达式 foo.bar 可能表示两件事。如果 foo 是一个包名，那么表达式就是一个所谓的限定标识符，用来引用包 foo 中的导出的标识符。由于它只用来处理导出的标识符，bar 必须以大写字母开头(译注：如果首字母大写，则可以被其他的包访问；如果首字母小写，则只能在本包中使用）：
+
+package foo
+import "fmt"
+func Foo() {
+    fmt.Println("foo")
+}
+func bar() {
+    fmt.Println("bar")
+}
+
+package main
+import "github.com/mlowicki/foo"
+func main() {
+    foo.Foo()
+}
+这样的程序会工作正常。但是 (主函数）调用 foo.bar() 会在编译时报错 —— cannot refer to unexported name foo.bar(无法引用未导出的名称 foo.bar)。
+
+如果 foo 不是 一个包名，那么 foo.bar 就是一个选择器表达式。它访问 foo 表达式的字段或方法。点之后的标识符被称为 selector (选择器）。关于首字母大写的规则并不适用于这里。它允许从定义了 foo 类型的包中选择未导出的字段或方法：
+
+package main
+import "fmt"
+type T struct {
+    age byte
+}
+func main() {
+    fmt.Println(T{age: 30}.age)
+}
+该程序打印：30
+
+
+>https://studygolang.com/articles/14628
+
+## 复合字面量
+
+```go
+var numbers = [1, 2, 3, 4]
+var thing = {name: "Raspberry Pi", generation: 2, model: "B"}
+// 复合字面量: name: "Raspberry Pi", generation: 2, model: "B"
+```
+```go
+
+type location struct {
+    lat, long float64
+}
+
+opportunity := location{lat: -1.9462, long: 354.4734}
+// 复合字面量: lat: -1.9462, long: 354.4734
+fmt.Println(opportunity)
+
+insight := location{lat: 4.5, long: 135.9}
+fmt.Println(insight)
+
+```
+
+```go
+spirit := location{-14.5684, 175.472636}
+// 复合字面量: -14.5684, 175.472636
+fmt.Println(spirit)
+
+```
+
+>https://studygolang.com/articles/12913
+>https://livebook.manning.com/concept/go/composite-literal
+
+
+ 
+ ### is pointer to interface, not interface
+
+ 执行下面代码会出现”type *net.Conn is pointer to interface, not interface)“错误，原因是因为”net.Conn”是interface而不是struct，不能用指针方式传递。
+
+1	func connHandler(client *net.Conn) {
+2		// do something
+3	}
+4	
+5	func somefunc() {
+6		// ...
+7		client, _ := listener.Accept()
+8		connHandler(&client)
+9	}
+GO语言中interface是一种特殊的数据结构，包含两部分内容：
+
+一个指向方法表的指针
+一个指向实际数据的指针
+interface
+
+因为这种特殊的数据结构所以interface的指针指向的结构既没有实际数据也没有对应方法，那么就无法直接访问所需的内容，鉴于此原因我推测GO语言的开发者直接屏蔽掉了指向interface指针的用法。这种情况的正确如下：
+
+1	func connHandler(client net.Conn) {
+2		// do something
+3	}
+4	
+5	func somefunc() {
+6		// ...
+7		client, _ := listener.Accept()
+8		connHandler(client)
+9	}
+
+>http://www.singleye.net/2017/11/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%99%B7%E9%98%B1/
+
+
+## range
+
+```go
+for pos, char := range str {
+    ...
+}
+
+```
+
+## 创建长度为0的slice时发生了什么
+

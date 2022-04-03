@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## lsattr, chattr, 管理文件和目录属性
+
 为了允许添加数据,防止更改或者删除等,文件和文件夹可以设定了特定的控制属性。例如,你可以在关键的系统文件或者文件夹中启用属性,然后没有任何用户,包括root,可以删除或者修改它,比如不允许使用像dump这样的命令等备份工具去备份一个特定的文件或者文件夹,等等。这些属性只可以在ext2,ext3或者ext4文件系统中的文件和文件夹上设定。
 
 ```bash
@@ -43,7 +44,7 @@ chattr -ai /etc/passed
 
 
   
-    （总结) Linux的chattr与lsattr命令详解
+     (总结) Linux的chattr与lsattr命令详解
   
 
 
@@ -82,7 +83,7 @@ chattr命令的用法: chattr [ -RVf ] [ -v version ] [ mode ] files…
   
     u: 与s相反,当设定为u时,数据内容其实还存在磁盘中,可以用于undeletion。
   
-    各参数选项中常用到的是a和i。a选项强制只可添加不可删除,多用于日志系统的安全设定。而i是更为严格的安全设定,只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力（标识) 的进程能够施加该选项。
+    各参数选项中常用到的是a和i。a选项强制只可添加不可删除,多用于日志系统的安全设定。而i是更为严格的安全设定,只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力 (标识) 的进程能够施加该选项。
 
 应用举例: 
 
@@ -106,7 +107,7 @@ https://linux.cn/article-5590-1.html
 
 
   
-    （总结) Linux的chattr与lsattr命令详解
+     (总结) Linux的chattr与lsattr命令详解
   
 
 

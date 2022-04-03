@@ -30,7 +30,7 @@ set smartcase
 ### 正则表达式
 Vim查找支持正则表达式,例如/vim$匹配行尾的"vim"。 需要查找特殊字符需要转义,例如/vim\$匹配"vim$"。
 
-注意查找回车应当用\n,而替换为回车应当用\r（相当于<CR>) 。
+注意查找回车应当用\n,而替换为回车应当用\r (相当于<CR>) 。
   
 将会查找所有的"foo","FOO","Foo"等字符串。
   
@@ -38,7 +38,7 @@ Vim查找支持正则表达式,例如/vim$匹配行尾的"vim"。 需要查找�
 
 查找当前单词
   
-在normal模式下按下*即可查找光标所在单词（word) , 要求每次出现的前后为空白字符或标点符号。例如当前为foo, 可以匹配foo bar中的foo,但不可匹配foobar中的foo。 这在查找函数名、变量名时非常有用。
+在normal模式下按下*即可查找光标所在单词 (word) , 要求每次出现的前后为空白字符或标点符号。例如当前为foo, 可以匹配foo bar中的foo,但不可匹配foobar中的foo。 这在查找函数名、变量名时非常有用。
 
 按下g*即可查找光标所在单词的字符序列,每次出现前后字符无要求。 即foo bar和foobar中的foo均可被匹配到。
 
@@ -60,7 +60,7 @@ Vim查找支持正则表达式,例如/vim$匹配行尾的"vim"。 需要查找�
 #### 删除以 "#" 开头的行
     :%s/^#.*$//g
 
-会在全局范围(%)查找foo并替换为bar,所有出现都会被替换（g) 。
+会在全局范围(%)查找foo并替换为bar,所有出现都会被替换 (g) 。
 
 #### 作用范围
 作用范围分为当前行、全文、选区等等。
@@ -86,7 +86,7 @@ Vim查找支持正则表达式,例如/vim$匹配行尾的"vim"。 需要查找�
 
 #### 替换标志
   
-上文中命令结尾的g即是替换标志之一,表示全局global替换（即替换目标的所有出现) 。 还有很多其他有用的替换标志: 
+上文中命令结尾的g即是替换标志之一,表示全局global替换 (即替换目标的所有出现) 。 还有很多其他有用的替换标志: 
 
 空替换标志表示只替换从光标位置开始,目标的第一次出现: 
 
@@ -96,7 +96,7 @@ i表示大小写不敏感查找,I表示大小写敏感:
 
     :%s/foo/bar/i
 
-#### 等效于模式中的\c（不敏感) 或\C（敏感) 
+#### 等效于模式中的\c (不敏感) 或\C (敏感) 
 
     :%s/foo\c/bar
   
@@ -122,7 +122,7 @@ highlight IncSearch ctermbg=black ctermfg=yellow
   
 highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE
   
-上述配置指定 Search 结果的前景色（foreground) 为黑色,背景色（background) 为灰色； 渐进搜索的前景色为黑色,背景色为黄色；光标处的字符加下划线。
+上述配置指定 Search 结果的前景色 (foreground) 为黑色,背景色 (background) 为灰色； 渐进搜索的前景色为黑色,背景色为黄色；光标处的字符加下划线。
 
 更多的CTERM颜色可以查阅: http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 
@@ -192,7 +192,7 @@ Vim Wikia - 查找与替换: http://vim.wikia.com/wiki/Search_and_replace
   
 用 Vim 打造 IDE 环境: https://harttle.land/2015/11/04/vim-ide.html
   
-本文采用 知识共享署名 4.0 国际许可协议（CC-BY 4.0) 进行许可。转载请注明来源:  https://harttle.land/2016/08/08/vim-search-in-file.html 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 harttle@harttle.com。
+本文采用 知识共享署名 4.0 国际许可协议 (CC-BY 4.0) 进行许可。转载请注明来源:  https://harttle.land/2016/08/08/vim-search-in-file.html 欢迎对文中引用进行考证,欢迎指出任何不准确和模糊之处。可以在下面评论区评论,也可以邮件至 harttle@harttle.com。
 
 ---
 

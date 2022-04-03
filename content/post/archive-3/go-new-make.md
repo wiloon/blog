@@ -239,3 +239,11 @@ foo1 和 foo2 是同样的类型，都是 Foo 类型的值，foo1 是通过 var 
 new(T) 返回 T 的指针 *T 并指向 T 的零值。
   
 make(T) 返回的初始化的 T，只能用于 slice，map，channel。
+
+
+make和new都是golang用来分配内存的內建函数，且在堆上分配内存，make 即分配内存，也初始化内存。new只是将内存清零(值类型清零之后所有的内存都是0值，引用类型清零之后是一个空指针 nil)，并没有初始化内存。
+make返回的还是引用类型本身；而new返回的是指向类型的指针。
+make只能用来分配及初始化类型为slice，map，channel的数据；new可以分配任意类型的数据。
+
+
+>https://segmentfault.com/a/1190000018967149

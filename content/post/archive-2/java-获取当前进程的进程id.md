@@ -22,7 +22,7 @@ logger.info("PID:{}", pid);
   
 ```
 
-之前并不知道Java中如何能够获取当前进程（也就是包含当前Java程序的JVM所在进程) 的进程ID,还以为要通过JNI或者通过Runtime.exec执行shell命令等方式才能获取到当前进程的进程ID,今天在偶然中看到一种在Java程序里,获取当前进程ID的方法,记录下来,以后应该会用到: ) 
+之前并不知道Java中如何能够获取当前进程 (也就是包含当前Java程序的JVM所在进程) 的进程ID,还以为要通过JNI或者通过Runtime.exec执行shell命令等方式才能获取到当前进程的进程ID,今天在偶然中看到一种在Java程序里,获取当前进程ID的方法,记录下来,以后应该会用到: ) 
   
 首先,从JDK1.5之后,Java开始提供包: java.lang.management
 

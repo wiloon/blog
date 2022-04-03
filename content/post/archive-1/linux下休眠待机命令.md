@@ -60,7 +60,7 @@ standby mem disk
 
 [root@fsc feng]# echo "mem">/sys/power/state
 
-/sys/power/state是个文本文档,一个"mem"的导向就能使系统挂起到内存（待机) 或硬盘（休眠) ,实在太神奇了,一定要深入学习了解一下其中原因！
+/sys/power/state是个文本文档,一个"mem"的导向就能使系统挂起到内存 (待机) 或硬盘 (休眠) ,实在太神奇了,一定要深入学习了解一下其中原因！
 
 —————————————–
 
@@ -104,7 +104,7 @@ kernel /boot/vmlinuz root=/dev/sda1 resume=/dev/sda2 vga=0×314 …
 
 —————————————-
 
-Linux休眠和挂起（2008新版) 
+Linux休眠和挂起 (2008新版) 
 
 from http://blog.chinaunix.net/u/20515/showart_637851.html
 
@@ -138,7 +138,7 @@ Hibernate
 
 ()Default resume partition
 
-（如果有多个 swap 交换区,需要设定默认使用的swap。用 fdisk -l 确定) 
+ (如果有多个 swap 交换区,需要设定默认使用的swap。用 fdisk -l 确定) 
 
 ACPI Support
 

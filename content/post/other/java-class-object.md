@@ -14,9 +14,9 @@ Java程序在运行时，Java运行时系统一直对所有的对象进行所谓
         
 Class 没有公共构造方法。Class 对象是在加载类时由 Java 虚拟机以及通过调用类加载器中的 defineClass 方法自动构造的，因此不能显式地声明一个Class对象。
         
-虚拟机为每种类型管理一个独一无二的Class对象。也就是说，每个类（型) 都有一个Class对象。运行程序时，Java虚拟机(JVM)首先检查是否所要加载的类对应的Class对象是否已经加载。如果没有加载，JVM就会根据类名查找.class文件，并将其Class对象载入。
+虚拟机为每种类型管理一个独一无二的Class对象。也就是说，每个类 (型) 都有一个Class对象。运行程序时，Java虚拟机(JVM)首先检查是否所要加载的类对应的Class对象是否已经加载。如果没有加载，JVM就会根据类名查找.class文件，并将其Class对象载入。
         
-基本的 Java 类型（boolean、byte、char、short、int、long、float 和 double) 和关键字 void 也都对应一个 Class 对象。
+基本的 Java 类型 (boolean、byte、char、short、int、long、float 和 double) 和关键字 void 也都对应一个 Class 对象。
         
 每个数组属于被映射为 Class 对象的一个类，所有具有相同元素类型和维数的数组都共享该 Class 对象。
         
@@ -48,13 +48,13 @@ Class cl3 = Double[].class;
       
 1. getName()
       
-一个Class对象描述了一个特定类的属性，Class类中最常用的方法getName以 String 的形式返回此 Class 对象所表示的实体（类、接口、数组类、基本类型或 void) 名称。
+一个Class对象描述了一个特定类的属性，Class类中最常用的方法getName以 String 的形式返回此 Class 对象所表示的实体 (类、接口、数组类、基本类型或 void) 名称。
       
 2. newInstance()
       
 Class还有一个有用的方法可以为类创建一个实例，这个方法叫做newInstance()。例如: 
       
-x.getClass.newInstance()，创建了一个同x一样类型的新实例。newInstance()方法调用默认构造器（无参数构造器) 初始化新建对象。
+x.getClass.newInstance()，创建了一个同x一样类型的新实例。newInstance()方法调用默认构造器 (无参数构造器) 初始化新建对象。
       
 3. getClassLoader()
       
@@ -66,7 +66,7 @@ x.getClass.newInstance()，创建了一个同x一样类型的新实例。newInst
       
 5. getSuperclass()
       
-返回表示此 Class 所表示的实体（类、接口、基本类型或 void) 的超类的 Class。
+返回表示此 Class 所表示的实体 (类、接口、基本类型或 void) 的超类的 Class。
       
 6. isArray()
       

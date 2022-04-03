@@ -35,7 +35,7 @@ Apache CXF 则是由 XFire 和 Celtix 两个现有的项目进行了重组。
   
 4. Axis2 不是
   
-5. Axis2 支持更多的 data bindings，包括 XMLBeans、JiBX、JaxMe 和 JaxBRI，以及它原生的 data binding（ADB) 。
+5. Axis2 支持更多的 data bindings，包括 XMLBeans、JiBX、JaxMe 和 JaxBRI，以及它原生的 data binding (ADB) 。
   
 6. Apache CXF 目前仅支持 JAXB 和 Aegis，并且默认是 JAXB 2.0，与 XFire 默认是支持 Aegis 不同，XMLBeans、JiBX 和 Castor 将在 CXF 2.1 版本中得到支持，目前版本是 2.0.2
   

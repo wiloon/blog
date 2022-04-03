@@ -3,27 +3,27 @@ title: ssh config, sshd config
 author: "-"
 date: 2018-02-11T15:40:49+00:00
 url: ssh/config
-
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
 ---
 ## ssh config, sshd config
+
 ## ssh config
+
 ### public key
     vim ~/.ssh/authorized_keys
 
 ## sshd config, /etc/sshsshd_config
 
 ### PermitRootLogin
-是否允许 root 登录。可用值如下: 
-默认值是"prohibit-password"
+是否允许 root 登录。默认值是"prohibit-password", 其它可用值如下: 
 
 - prohibit-password, 新版本的 sshd 的默认值: 禁止root用户使用密码和基于键盘交互的认证。
 - without-password 废弃的值，新版本的 sshd 使用了更符合直觉的名字 prohibit-password。
 - forced-commands-only 表示只有在指定了 command 选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。
-- yes 允许root用户以任何认证方式登录（貌似也就两种认证方式: 用户名密码认证,公钥认证)
+- yes 允许root用户以任何认证方式登录 (貌似也就两种认证方式: 用户名密码认证,公钥认证)
 
 ### WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
 ```bash
@@ -31,21 +31,10 @@ ssh-keygen -f "/home/wiloonwy/.ssh/known_hosts" -R "192.168.50.99"
 ```
 ### /etc/ssh/sshd_config
 #### 服务端鉴权重试最大次数
-ssh 连接服务器时agent里保存的密钥过多会遇到异常 Too Many Authentication Failures, 可以调整服务器sshd 配置
+ssh 连接服务器时 agent 里保存的密钥过多会遇到异常 Too Many Authentication Failures, 可以调整服务器 sshd 配置
 
 ```bash
 MaxAuthTries 20
-```
-
-### ssh client config, 服务端保持连接
-
-```bash
-vim /etc/ssh/sshd_config
-#添加
-# ClientAliveInterval指定了服务器端向客户端请求消息的时间间隔, 默认是0，不发送。而ClientAliveInterval 60表示每分钟发送一次，然后客户端响应，这样就保持长连接了。
-ClientAliveInterval 30
-# ClientAliveCountMax表示服务器发出请求后客户端没有响应的次数达到一定值，就自动断开
-ClientAliveCountMax 3
 ```
 
 Port 22  
@@ -59,12 +48,13 @@ port用来设置sshd监听的端口,为了安全起见,建议更改默认的22�
 
 linux ssh_config和sshd_config配置文件
 
-现在远程管理linux系统基本上都要使用到ssh,原因很简单: telnet、FTP等传输方式是以明文传送用户认证信息,本质上是不安全的,存在被网络窃听的危险。SSH（Secure Shell) 目前较可靠,是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题,透过SSH可以对所有传输的数据进行加密,也能够防止DNS欺骗和IP欺骗。
+现在远程管理linux系统基本上都要使用到ssh,原因很简单: telnet、FTP等传输方式是以明文传送用户认证信息,本质上是不安全的,存在被网络窃听的危险。SSH (Secure Shell) 目前较可靠,是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题,透过SSH可以对所有传输的数据进行加密,也能够防止DNS欺骗和IP欺骗。
 
 ssh_config和sshd_config都是ssh服务器的配置文件,二者区别在于,前者是针对客户端的配置文件,后者则是针对服务端的配置文件。两个配置文件都允许你通过设置不同的选项来改变客户端程序的运行方式。下面列出来的是两个配置文件中最重要的一些关键词,每一行为"关键词&值"的形式,其中"关键词"是忽略大小写的。
   
 ### 编辑 /etc/ssh/ssh_config 文件
 
+```bash
 # Site-wide defaults for various options
 Host *  
 ForwardAgent no     
@@ -81,23 +71,20 @@ IdentityFile ~/.ssh/identity
 Port 22 
 Cipher blowfish
 EscapeChar ~
+```
 
 下面对上述选项参数逐进行解释: 
 
-# Site-wide defaults for various options
-
-带"#"表示该句为注释不起作,该句不属于配置文件原文,意在说明下面选项均为系统初始默认的选项。说明一下,实际配置文件中也有很多选项前面加有"#"注释,虽然表示不起作用,其实是说明此为系统默认的初始化设置。
-  
 Host *
   
 "Host"只对匹配后面字串的计算机有效,"_"表示所有的计算机。从该项格式前置一些可以看出,这是一个类似于全局的选项,表示下面缩进的选项都适用于该设置,可以指定某计算机替换_号使下面选项只针对该算机器生效。
   
 ### ForwardAgent no
-连接是否经过验证代理（如果存在) 转发给远程计算机。
+连接是否经过验证代理 (如果存在) 转发给远程计算机。
   
 ForwardX11 no
   
-"ForwardX11"设置X11连接是否被自动重定向到安全的通道和显示集（DISPLAY set) 。
+"ForwardX11"设置X11连接是否被自动重定向到安全的通道和显示集 (DISPLAY set) 。
   
 RhostsAuthentication no
   
@@ -167,11 +154,11 @@ ServerKeyBits 1024
   
 LoginGraceTime 600
   
-"LoginGraceTime"设置如果用户不能成功登录,在切断连接之前服务器需要等待的时间（以秒为单位) 。
+"LoginGraceTime"设置如果用户不能成功登录,在切断连接之前服务器需要等待的时间 (以秒为单位) 。
   
 KeyRegenerationInterval 3600
   
-"KeyRegenerationInterval"设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙) 。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。
+"KeyRegenerationInterval"设置在多少秒之后自动重新生成服务器的密匙 (如果使用密匙) 。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。
   
 PermitRootLogin no
   
@@ -230,3 +217,4 @@ AllowUsers admin
 
 https://segmentfault.com/a/1190000014822400
 http://matt-u.iteye.com/blog/851158  
+

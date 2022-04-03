@@ -18,7 +18,7 @@ https://www.cnblogs.com/hongten/archive/2013/03/27/hongten_windows_cms.html
 
 例如: 将Ping命令的加长包输出到D盘的ping.txt文本文件。
   
-1. 在D:目录下创建文本文件ping.txt（这步可以省略，偶尔提示无法创建文件时需要) 
+1. 在D:目录下创建文本文件ping.txt (这步可以省略，偶尔提示无法创建文件时需要) 
   
 2. 在提示符下输入ping www.idoo.org.ru －t > D:ping.txt
   

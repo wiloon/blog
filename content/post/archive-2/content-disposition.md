@@ -11,18 +11,18 @@ tags:
 ---
 ## Content-disposition
 
-Content-disposition 是 MIME 协议的扩展,MIME 协议指示 MIME 用户代理如何显示附加的文件。
-Content-Disposition 响应头指示回复的内容该以何种形式展示,是以内联的形式（即网页或者页面的一部分) ,还是以附件的形式下载并保存到本地。  
+Content-disposition 是 MIME 协议的扩展, MIME 协议指示 MIME 用户代理如何显示附加的文件。
+Content-Disposition 响应头指示回复的内容该以何种形式展示, 是以内联的形式 (即网页或者页面的一部分) , 还是以附件的形式下载并保存到本地。  
 
 
-在 HTTP 场景中,第一个参数或者是 inline（默认值,表示回复中的消息体会以页面的一部分或者整个页面的形式展示) ,或者是 attachment（意味着消息体应该被下载到本地；大多数浏览器会呈现一个"保存为"的对话框,将 filename 的值预填为下载后的文件名,假如它存在的话) 。
+在 HTTP 场景中, 第一个参数或者是 inline  (默认值,表示回复中的消息体会以页面的一部分或者整个页面的形式展示) ,或者是 attachment (意味着消息体应该被下载到本地；大多数浏览器会呈现一个"保存为"的对话框,将 filename 的值预填为下载后的文件名, 假如它存在的话) 。
 
     Content-Disposition: inline
     Content-Disposition: attachment
     Content-Disposition: attachment; filename="filename.jpg"
 
 
-当 Internet Explorer 接收到头时,它会激活**文件下载**对话框,它的文件名框自动填充了头中指定的文件名。（请注意,这是设计导致的；无法使用此功能将文档保存到用户的计算机上,而不向用户询问保存位置。) 
+当 Internet Explorer 接收到头时,它会激活**文件下载**对话框,它的文件名框自动填充了头中指定的文件名。 (请注意,这是设计导致的；无法使用此功能将文档保存到用户的计算机上,而不向用户询问保存位置。) 
 
 服务端向客户端游览器发送文件时,如果是浏览器支持的文件类型,一般会默认使用浏览器打开,比如txt、jpg等,会直接在浏览器中显示,如果需要提示用户保存,就要利用Content-Disposition进行一下处理,关键在于一定要加上attachment: 
 

@@ -2,18 +2,17 @@
 title: Wireshark 过滤
 author: "-"
 date: 2016-01-05T07:47:07+00:00
-url: /?p=8635
+url: wireshark/filter
 categories:
-  - Uncategorized
-
+  - network
 tags:
   - reprint
 ---
 ## Wireshark 过滤
 ### port
-#### 显示来源或目的TCP端口号为25的封包。
+#### 按端口过滤
     tcp.port == 25
-#### 显示目的TCP端口号为25的封包。
+#### 按目标端口过滤
     tcp.dstport == 25
 #### 显示来自10.230网段的封包。
     ip.src == 10.230.0.0/16

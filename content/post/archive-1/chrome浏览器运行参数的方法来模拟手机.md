@@ -20,7 +20,7 @@ http://www.weste.net/2014/3-26/96040.html
 
 1. 打开Chrome浏览器,需要32以后版本的。笔者使用的是Chrome 33版本。
 
-2. 打开"开发者工具",快捷键（F12或者Ctrl+Shift+i) 。
+2. 打开"开发者工具",快捷键 (F12或者Ctrl+Shift+i) 。
 
 \
 
@@ -34,4 +34,4 @@ http://www.weste.net/2014/3-26/96040.html
 
 5. 然后就在地址栏里面输入网址吧！看看模拟的效果怎么样？
 
-谷歌Chrome浏览器模拟手机浏览器的方法（修改启动参数的方法) : http://www.weste.net/2013/5-25/91691.html
+谷歌Chrome浏览器模拟手机浏览器的方法 (修改启动参数的方法) : http://www.weste.net/2013/5-25/91691.html

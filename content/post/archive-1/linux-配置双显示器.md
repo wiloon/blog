@@ -132,7 +132,7 @@ wiloon@debian:~$ xrandr -output VGA1 -mode 1680x1050
 
 Screen 0: minimum 320 x 200, current 1280 x 768, maximum 1280 x 1280 VGA connected (normal left inverted right x axis y axis) 1280x1024      75.0 +   69.8     59.9 1024x768       75.1     70.1     60.0 800x600        72.2     75.0     60.3 640x480        75.0     72.8     65.4     60.0 720x400        70.1 LVDS connected 1024x768+0+0 (normal left inverted right x axis y axis) 246mm x 184mm 1024x768       50.0*+   60.0     40.0 800x600        60.3 640x480        60.0     59.9
 
-系统默认显示分辨率为 1280x1280，而在左右扩展双屏情况下VGA和LVDS支持的最小分辨率加在一起都超过这个数字，当然会导致 X 进入超低分辨率了。如果感兴趣，可以用以下命令尝试把外接显示器打开并设置为右侧扩展屏幕（不用sudo) 来验证一下: 
+系统默认显示分辨率为 1280x1280，而在左右扩展双屏情况下VGA和LVDS支持的最小分辨率加在一起都超过这个数字，当然会导致 X 进入超低分辨率了。如果感兴趣，可以用以下命令尝试把外接显示器打开并设置为右侧扩展屏幕 (不用sudo) 来验证一下: 
 
 xrandr -output VGA -auto -right-of LVDS 系统会出错，提升说屏幕大小超出限制。
 
@@ -140,19 +140,19 @@ xrandr -output VGA -auto -right-of LVDS 系统会出错，提升说屏幕大小�
 
 xrandr 命令行可以很方便地切换双屏，常用方式如下，其他的可以自己探索: 
 
-xrandr -output VGA -same-as LVDS -auto 打开外接显示器(最高分辨率)，与笔记本液晶屏幕显示同样内容（克隆) 
+xrandr -output VGA -same-as LVDS -auto 打开外接显示器(最高分辨率)，与笔记本液晶屏幕显示同样内容 (克隆) 
 
-xrandr -output VGA -same-as LVDS -mode 1024x768 打开外接显示器(分辨率为1024x768)，与笔记本液晶屏幕显示同样内容（克隆) 
+xrandr -output VGA -same-as LVDS -mode 1024x768 打开外接显示器(分辨率为1024x768)，与笔记本液晶屏幕显示同样内容 (克隆) 
 
 xrandr -output VGA -right-of LVDS -auto 打开外接显示器(最高分辨率)，设置为右侧扩展屏幕
 
 xrandr -output VGA -off 关闭外接显示器
 
-xrandr -output VGA -auto -output LVDS -off 打开外接显示器，同时关闭笔记本液晶屏幕（只用外接显示器工作) 
+xrandr -output VGA -auto -output LVDS -off 打开外接显示器，同时关闭笔记本液晶屏幕 (只用外接显示器工作) 
 
 xrandr -output VGA -off -output LVDS -auto 关闭外接显示器，同时打开笔记本液晶屏幕 (只用笔记本液晶屏)
 
-（最后两种情况请小心操作，不要误把两个屏幕都关掉了。。。。) 
+ (最后两种情况请小心操作，不要误把两个屏幕都关掉了。。。。) 
 
 ## Adding undetected resolutions {#Adding_undetected_resolutions}
 

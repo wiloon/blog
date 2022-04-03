@@ -16,10 +16,10 @@ log4j是apache基金会的一个项目,日志记录器(Logger)是日志处理的
 
     TRACE<DEBUG<INFO<WARN<ERROR<FATAL
 
-日志记录器（Logger) 的行为是分等级的。如下表所示: 
+日志记录器 (Logger) 的行为是分等级的。如下表所示: 
   
 分为OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、ALL或者您定义的级别。  
-Log4j建议只使用四个级别，优先级从高到低分别是ERROR、WARN、INFO、DEBUG。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定义了INFO级别，则应用程序中所有DEBUG级别的日志信息将不被打印出来。程序会打印高于或等于所设置级别的日志，设置的日志等级越高，打印出来的日志就越少。如果设置级别为INFO，则优先级高于等于INFO级别（如: INFO、WARN、ERROR) 的日志信息将可以被输出,小于该级别的如DEBUG将不会被输出。
+Log4j建议只使用四个级别，优先级从高到低分别是ERROR、WARN、INFO、DEBUG。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定义了INFO级别，则应用程序中所有DEBUG级别的日志信息将不被打印出来。程序会打印高于或等于所设置级别的日志，设置的日志等级越高，打印出来的日志就越少。如果设置级别为INFO，则优先级高于等于INFO级别 (如: INFO、WARN、ERROR) 的日志信息将可以被输出,小于该级别的如DEBUG将不会被输出。
 
 http://blog.sina.com.cn/s/blog_9c7ba64d01012z02.html
 
@@ -66,7 +66,7 @@ Log4j 日志级别
   
 分类: 
   
-log4j（1) 
+log4j (1) 
   
 版权声明: 本文为博主原创文章，未经博主允许不得转载。
   
@@ -74,21 +74,21 @@ log4j（1)
   
 
 
-DEBUG Level: 指出细粒度信息事件对调试应用程序是非常有帮助的,就是输出debug的信息.
+DEBUG Level: 细粒度信息事件对调试应用程序是非常有帮助.
   
-INFO level: 表明消息在粗粒度级别上突出强调应用程序的运行过程,就是输出提示信息.
+INFO level: 在粗粒度级别上突出强调应用程序的运行过程.
   
-WARN level: 表明会出现潜在错误的情形,就是显示警告信息.
+WARN level: 会出现潜在错误的情形, 警告信息.
   
-ERROR level: 指出虽然发生错误事件,但仍然不影响系统的继续运行.就是显示错误信息.
+ERROR level: 虽然发生错误事件,但仍然不影响系统的继续运行.错误信息.
   
-FATAL level: 指出每个严重的错误事件将会导致应用程序的退出.
+FATAL level: 严重的错误事件将会导致应用程序的退出.
   
 ALL level: 是最低等级的,用于打开所有日志记录.
   
 OFF level: 是最高等级的,用于关闭所有日志记录.
 
-log4j建议只使用五个级别,级别顺序(由低到高): DEBUG < INFO < WARN < ERROR < FATAL
+log4j 建议只使用五个级别,级别顺序(由低到高): DEBUG < INFO < WARN < ERROR < FATAL
 
 windows下控制台效率比较差,输出的多了,非常影响服务器性能.
   

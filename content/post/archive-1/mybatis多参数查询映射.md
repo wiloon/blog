@@ -16,7 +16,7 @@ tags:
   
 为此我对这个问题进行了总结，希望对像我这样的新手有一定的帮助。
 
-（一) 单个参数
+ (一) 单个参数
   
 public List<XXBean> getXXBeanList(String xxCode);
 
@@ -28,7 +28,7 @@ select 字段... from XXX where code = #{xxCode}
 
 其中方法名和ID一致，#{}中的参数名与方法中的参数名一直， 我这里采用的是XXXBean是采用的短名字, select 后的字段列表要和bean中的属性名一致， 如果不一致的可以用 as 来补充。
 
-（二) 多参数
+ (二) 多参数
   
 public List<XXXBean> getXXXBeanList(String xxId, String xxCode);
 
@@ -40,7 +40,7 @@ select 字段... from XXX where id=#{0} code = #{1}
 
 由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始
 
-（三) Map封装多参数
+ (三) Map封装多参数
 
 public List<XXXBean> getXXXBeanList(HashMap map);
 
@@ -52,7 +52,7 @@ select 字段... from XXX where id=#{xxId} code = #{xxCode}
 
 其中hashmap是mybatis自己配置好的直接使用就行。map中key的名字是那个就在#{}使用那个，map如何封装就不用了我说了吧。
 
-（四) List封装IN
+ (四) List封装IN
   
 public List<XXXBean> getXXXBeanList(List<String> list);
 

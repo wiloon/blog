@@ -14,11 +14,11 @@ http://www.10tiao.com/html/308/201702/2650076434/1.html
   
 http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html
 
-X-Forwarded-For等http头字段与Tomcat的 Remote IP Valve（Valve源码分析之六) 
+X-Forwarded-For等http头字段与Tomcat的 Remote IP Valve (Valve源码分析之六) 
   
 2017-02-18 16:28 feiying 0 0 阅读 297
   
-Proxies Valve是代理Valve,其作用是可以对负载均衡代理服务器的IP地址与原request的IP地址做请求转换,让服务器端真正识别原IP地址（如果服务器端有需要的话) ；
+Proxies Valve是代理Valve,其作用是可以对负载均衡代理服务器的IP地址与原request的IP地址做请求转换,让服务器端真正识别原IP地址 (如果服务器端有需要的话) ；
 
 本文主要讨论这种地址转换是如何做的；
 
@@ -76,7 +76,7 @@ remoteIpHeader
   
 Name of the HTTP Header read by this valve that holds the list of traversed IP addresses starting from the requesting client. If not specified, the default of x-forwarded-for is used.
 
-X-Forwarded-For属性（可以更改为其它的属性) 
+X-Forwarded-For属性 (可以更改为其它的属性) 
 
 internalProxies
   
@@ -88,7 +88,7 @@ proxiesHeader
   
 Name of the HTTP header created by this valve to hold the list of proxies that have been processed in the incoming remoteIpHeader. If not specified, the default of x-forwarded-by is used.
 
-x-forwarded-by 属性（可以更改为其它的属性) 
+x-forwarded-by 属性 (可以更改为其它的属性) 
 
 requestAttributesEnabled
   
@@ -108,7 +108,7 @@ internalProxies 是对x-forwarded-for 中出现的IP进行过滤,并不会加入
 
 而这个trustedProxies 也是对x-forwarded-for 中出现的IP进行过滤,但会加入httphttp头的x-forwarded-by 中；
 
-从字面意思理解,internalProxies 可以理解为内部的代理地址（貌似是一个内部的过滤匹配或者是内部的proxy协议转换,没什么价值) ,
+从字面意思理解,internalProxies 可以理解为内部的代理地址 (貌似是一个内部的过滤匹配或者是内部的proxy协议转换,没什么价值) ,
 
 而trustedProxies是可信的代理服务器的IP地址,是需要进行记录的
 

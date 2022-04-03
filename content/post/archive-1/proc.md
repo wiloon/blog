@@ -24,7 +24,7 @@ SET QUOTED_IDENTIFIER { ON | OFF }
 
 当 SET QUOTED_IDENTIFIER 为 ON 时，由双引号分隔的所有字符串都被解释为对象标识符。因此，加引号的标识符不必遵守 Transact-SQL 标识符规则。它们可以是保留关键字，并且可以包含 Transact-SQL 标识符中通常不允许的字符。不能使用双引号分隔文字字符串表达式，而必须用单引号括住文字字符串。如果单引号 (') 是文字字符串的一部分，则可以由两个单引号 ('') 表示。当对数据库中的对象名使用保留关键字时，SET QUOTED_IDENTIFIER 必须为 ON。
 
-当 SET QUOTED_IDENTIFIER 为 OFF（默认值) 时，表达式中的文字字符串可以由单引号或双引号分隔。如果文字字符串由双引号分隔，则可以在字符串中包含嵌入式单引号，如省略号。
+当 SET QUOTED_IDENTIFIER 为 OFF (默认值) 时，表达式中的文字字符串可以由单引号或双引号分隔。如果文字字符串由双引号分隔，则可以在字符串中包含嵌入式单引号，如省略号。
 
 当在计算列或索引视图上创建或操作索引时，SET QUOTED_IDENTIFIER 必须为 ON。如果 SET QUOTED_IDENTIFIER 为 OFF，则计算列或索引视图上带索引的表上的 CREATE、UPDATE、INSERT 和 DELETE 语句将失败。有关计算列上的索引视图和索引所必需的 SET 选项设置的更多信息，请参见 SET 中的"使用 SET 语句时的注意事项"。
 

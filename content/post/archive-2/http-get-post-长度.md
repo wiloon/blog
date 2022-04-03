@@ -58,7 +58,7 @@ Microsoft Internet Information Server(IIS)
 
 理论上讲,POST是没有大小限制的。HTTP协议规范也没有进行大小限制,起限制作用的是服务器的处理程序的处理能力。
 
-如: 在Tomcat下取消POST大小的限制（Tomcat默认2M) ；
+如: 在Tomcat下取消POST大小的限制 (Tomcat默认2M) ；
 
 打开tomcat目录下的conf目录,打开server.xml 文件,修改
 
@@ -88,7 +88,7 @@ maxPostSize="0"
 
 URIEncoding="GBK"
 
->
+
 
 </Connector>
 

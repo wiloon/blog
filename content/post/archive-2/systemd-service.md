@@ -8,8 +8,30 @@ categories:
 
 tags:
   - reprint
+  - remix
+
+
 ---
 ## systemd start script, 启动脚本
+```bash
+vim /etc/systemd/system/foo.service
+
+[Unit]
+Description=foo
+[Service]
+WorkingDirectory=/data/foo
+ExecStart=/data/foo/foo
+User=root
+Type=simple
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=100000
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
 ### systemd 添加开机启动运行shell脚本
 systemd 添加开机启动运行shell脚本
   
@@ -29,9 +51,9 @@ ExecStart=/bin/sh /home/root/cs.sh
 [Install]
 
 WantedBy=multi-user.target
-# -------->你要安排在哪个服务后面才启动（如依赖的服务) 
+# -------->你要安排在哪个服务后面才启动 (如依赖的服务) 
 Requires=pulseaudio.service
-#  --------->你要安排在哪个服务后面才启动（如依赖的服务) 
+#  --------->你要安排在哪个服务后面才启动 (如依赖的服务) 
 After=pulseaudio.service
 ```
 
@@ -129,13 +151,36 @@ WantedBy=multi-user.target
 " > /etc/systemd/system/${service_name}.service 
 ```
 
+### The mappings of systemd limits to ulimit
+
+```
+Directive        ulimit equivalent     Unit
+LimitCPU=        ulimit -t             Seconds      
+LimitFSIZE=      ulimit -f             Bytes
+LimitDATA=       ulimit -d             Bytes
+LimitSTACK=      ulimit -s             Bytes
+LimitCORE=       ulimit -c             Bytes
+LimitRSS=        ulimit -m             Bytes
+LimitNOFILE=     ulimit -n             Number of File Descriptors 
+LimitAS=         ulimit -v             Bytes
+LimitNPROC=      ulimit -u             Number of Processes 
+LimitMEMLOCK=    ulimit -l             Bytes
+LimitLOCKS=      ulimit -x             Number of Locks 
+LimitSIGPENDING= ulimit -i             Number of Queued Signals 
+LimitMSGQUEUE=   ulimit -q             Bytes
+LimitNICE=       ulimit -e             Nice Level 
+LimitRTPRIO=     ulimit -r             Realtime Priority  
+LimitRTTIME=     No equivalent
+
+```
+
 编写systemd下服务脚本
   
-Red Hat Enterprise Linux 7（RHEL 7) 已经将服务管理工具从SysVinit和Upstart迁移到了systemd上,相应的服务脚本也需要改变。前面的版本里,所有的启动脚本都是放在/etc/rc.d/init.d/ 目录下。这些脚本都是bash脚本,可以让系统管理员控制这些服务的状态,通常,这些脚本中包含了start,stop,restart这些方法,以提供系统自动调用这些方法。但是在RHEL 7中当中已经完全摒弃了这种方法,而采用了一种叫unit的配置文件来管理服务。
+Red Hat Enterprise Linux 7 (RHEL 7) 已经将服务管理工具从SysVinit和Upstart迁移到了systemd上,相应的服务脚本也需要改变。前面的版本里,所有的启动脚本都是放在/etc/rc.d/init.d/ 目录下。这些脚本都是bash脚本,可以让系统管理员控制这些服务的状态,通常,这些脚本中包含了start,stop,restart这些方法,以提供系统自动调用这些方法。但是在RHEL 7中当中已经完全摒弃了这种方法,而采用了一种叫unit的配置文件来管理服务。
 
 Systemd下的unit文件
   
-Unit文件专门用于systemd下控制资源,这些资源包括服务(service)、套接字(socket)、设备(device)、挂载点(mount point)、自动挂载点(automount point)、交换文件或分区(a swap file or partition)…
+Unit文件专门用于systemd下控制资源,这些资源包括服务(service)、 socket (socket)、设备(device)、挂载点(mount point)、自动挂载点(automount point)、交换文件或分区(a swap file or partition)…
   
 所有的unit文件都应该配置[Unit]或者[Install]段.由于通用的信息在[Unit]和[Install]中描述,每一个unit应该有一个指定类型段,例如[Service]来对应后台服务类型unit.
 
@@ -162,7 +207,7 @@ snapshot : 与 targetunit 相似,快照本身不做什么,唯一的目的就是�
 
     /etc/systemd/system/*     ――――  供系统管理员和用户使用
     /run/systemd/system/*     ――――  运行时配置文件
-    /usr/lib/systemd/system/*   ――――  安装程序使用（如RPM包安装) 
+    /usr/lib/systemd/system/*   ――――  安装程序使用 (如RPM包安装) 
     
 - After	本服务在哪些服务启动之后启动，仅定义启动顺序，不定义服务依赖关系，即使要求先启动的服务启动失败，本服务也依然会启动
 - ConditionPathExists, AssertPathExists	要求给定的绝对路径文件已经存在，否则不做任何事(condition)或进入failed状态(assert)，可在路径前使用!表示条件取反，即不存在时才启动服务。
@@ -215,7 +260,7 @@ Also=NetworkManager-dispatcher.service
 ### Unit主要包含以下内容: 
 - Description: 对本service的描述。
 - Before, After: 定义启动顺序,Before=xxx.service,代表本服务在xxx.service启动之前启动。After=xxx.service,代表本服务在xxx之后启动。
-- Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序（启动顺序是另外控制的) ,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败（Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
+- Requires: 这个单元启动了,那么它"需要"的单元也会被启动; 它"需要"的单元被停止了,它自己也活不了。但是请注意,这个设定并不能控制某单元与它"需要"的单元的启动顺序 (启动顺序是另外控制的) ,即 Systemd 不是先启动 Requires 再启动本单元,而是在本单元被激活时,并行启动两者。于是会产生争分夺秒的问题,如果 Requires 先启动成功,那么皆大欢喜; 如果 Requires 启动得慢,那本单元就会失败 (Systemd 没有自动重试) 。所以为了系统的健壮性,不建议使用这个标记,而建议使用 Wants 标记。可以使用多个 Requires。
 - RequiresOverridable: 跟 Requires 很像。但是如果这条服务是由用户手动启动的,那么 RequiresOverridable 后面的服务即使启动不成功也不报错。跟 Requires 比增加了一定容错性,但是你要确定你的服务是有等待功能的。另外,如果不由用户手动启动而是随系统开机启动,那么依然会有 Requires 面临的问题。
 - Requisite: 强势版本的 Requires。要是这里需要的服务启动不成功,那本单元文件不管能不能检测等不能等待都立刻就会失败。
 - Wants: 推荐使用。本单元启动了,它"想要"的单元也会被启动。但是启动不成功,对本单元没有影响。
@@ -236,7 +281,7 @@ notify,idle类型比较少见,不介绍。
        ------多个命令用分号隔开,多行用 \ 跨行。
 - ExecStartPre, ExecStartPost: ExecStart执行前后所调用的命令。
 - ExecStop: 定义停止服务时所执行的命令,定义服务退出前所做的处理。如果没有指定,使用systemctl stop xxx命令时,服务将立即被终结而不做处理。如果未设置此选项，那么当此服务被停止时， 该服务的所有进程都将会根据 KillSignal= 的设置被立即全部杀死。
-- Restart: 定义服务何种情况下重启（启动失败,启动超时,进程被终结) 。可选选项: no, on-success, on-failure,on-watchdog, on-abort
+- Restart: 定义服务何种情况下重启 (启动失败,启动超时,进程被终结) 。可选选项: no, on-success, on-failure,on-watchdog, on-abort
 - SuccessExitStatus: 参考ExecStart中返回值,定义何种情况算是启动成功。
 
     eg: SuccessExitStatus=1 2 8 SIGKILL
@@ -245,7 +290,7 @@ notify,idle类型比较少见,不介绍。
 Install主要包含以下内容: 
 - WantedBy: 何种情况下,服务被启用。
 
-    eg: WantedBy=multi-user.target（多用户环境下启用) 
+    eg: WantedBy=multi-user.target (多用户环境下启用) 
 - Alias: 别名
 
 multi-user.target
@@ -353,3 +398,32 @@ https://blog.csdn.net/fu_wayne/article/details/38018825
 
 https://www.pocketdigi.com/20180131/1593.html/embed#?secret=rpemgAP8dW
 >https://www.junmajinlong.com/linux/systemd/service_2/
+
+
+```bash
+#!/bin/sh
+service_name="foo"
+echo "
+[Unit]
+Description=${service_name}
+[Service]
+WorkingDirectory=/data/${service_name}
+ExecStart=/data/${service_name}/${service_name}
+User=root
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+" > /etc/systemd/system/${service_name}.service
+
+systemctl daemon-reload
+systemctl enable ${service_name}
+
+echo "commands:
+systemctl start ${service_name}
+systemctl status ${service_name}
+systemctl stop ${service_name}
+"
+```

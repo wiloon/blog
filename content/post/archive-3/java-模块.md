@@ -62,6 +62,7 @@ exports:  到package级
     java --module-path . --module app
     
 ### 目录 结构
+
     ├── out
     │   ├── app
     │   │   ├── com
@@ -110,9 +111,9 @@ module-info.java一般包含以下信息:
 
 四种模块类型:
   
-命名的模块（也称为应用程序模块) 包含上述module-info.java
+命名的模块 (也称为应用程序模块) 包含上述module-info.java
   
-平台模块（类似于前者，但这些都是随JDK一起发货) 
+平台模块 (类似于前者，但这些都是随JDK一起发货) 
   
 自动模块是在模块路径上提供的那些旧JAR
   

@@ -24,7 +24,7 @@ interface: eth*2, wlan*1
 设置Wi-Fi链路层,这样无线客户端可以与电脑的"软件接入点"建立连接,从而同电脑进行通信。
 配置电脑上的网络, 使电脑可以在 Internet 和无线客户端之间有效地转发IP包。
 
-hostapd能够使得无线网卡切换为master模式,模拟AP（路由器) 功能
+hostapd能够使得无线网卡切换为master模式,模拟AP (路由器) 功能
 
 ### systemd-networkd config
 ```bash
@@ -76,7 +76,7 @@ interface=wlp2s0b1
 bridge=br0
 # 驱动接口类型
 driver=nl80211
-# 国家或地区代码（ISO/IEC 3166-1) 
+# 国家或地区代码 (ISO/IEC 3166-1) 
 country_code=CN
 # 热点名
 ssid=test2

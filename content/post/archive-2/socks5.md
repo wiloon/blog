@@ -84,7 +84,7 @@ proxychains4 bash
   
 curl git push origin master
 
-privoxy 的默认监听端口是8118（可以在刚在的配置文件里面改listen-address) ,所以直接配置http_proxy和https_proxy即可
+privoxy 的默认监听端口是8118 (可以在刚在的配置文件里面改listen-address) ,所以直接配置http_proxy和https_proxy即可
 
 https://program-think.blogspot.com/2014/12/gfw-privoxy.html
   

@@ -34,13 +34,13 @@ http://www.blogjava.net/flysky19/articles/93280.html
 
 java读取文件的两种方法: java.io和java.lang.ClassLoader什么时候使用java.io,什么时候使用java.lang.ClassLoader呢？
 
-（注: 要是之前读xml文件时清晰知道java读取文件有这两种方法就好了！可以少走很多去理解相对路径的弯路！) 
+ (注: 要是之前读xml文件时清晰知道java读取文件有这两种方法就好了！可以少走很多去理解相对路径的弯路！) 
 
 自己的总结: 
   
 *java.io:相对于当前用户目录的相对路径读取；注重与磁盘文件打交道或者纯java project中使用。
   
-（虽然ClassLoader方式更通用,但是如果不是javaEE环境,要定位到classpath路径下去读文件是不合理的。) 
+ (虽然ClassLoader方式更通用,但是如果不是javaEE环境,要定位到classpath路径下去读文件是不合理的。) 
 
 *java.lang.ClassLoader:相对于classpath的相对路径读取；建议在javaEE环境中都使用这种方式。
 
@@ -142,7 +142,7 @@ ClassLoader类的getResource(String name),getResourceAsStream(String name)等方
   
 通过查看ClassLoader类及其相关类的源代码,我发现,它实际上还是使用了URI形式的绝对路径。通过得
 
-到当前classpath的URI形式的绝对路径,构建了相对路径的URI形式的绝对路径。（这个实际上是猜想,因为JDK内部调用了SUN的源代码,而这些代码不属于JDK,不是开源的。) 
+到当前classpath的URI形式的绝对路径,构建了相对路径的URI形式的绝对路径。 (这个实际上是猜想,因为JDK内部调用了SUN的源代码,而这些代码不属于JDK,不是开源的。) 
 
 四、相对路径本质上还是绝对路径
   

@@ -88,7 +88,7 @@ su - user1
 
 cd /home/user1/Maildir/new
 
-### try to send email from gmail to user1@wiloon.com
+try to send email from gmail to user1@wiloon.com
 
 
 dovecot
@@ -263,7 +263,7 @@ smtpd_sasl_auth_enable = yes
 smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, permit
 broken_sasl_auth_clients = yes
 
-10. 重起postfix（sudo service postfix restart) 和dovecot（sudo service dovecot restart) 。不出意外的话，已经可以通过foxmail正常收发邮件了 
+10. 重起postfix (sudo service postfix restart) 和dovecot (sudo service dovecot restart) 。不出意外的话，已经可以通过foxmail正常收发邮件了 
 
 注:  
   

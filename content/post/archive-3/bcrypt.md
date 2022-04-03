@@ -12,9 +12,9 @@ tags:
 ## Bcrypt
 https://www.jianshu.com/p/2b131bfc2f10
   
-Bcrypt是单向Hash加密算法，类似Pbkdf2算法 不可反向破解生成明文。
+Bcrypt 是单向Hash加密算法，类似 Pbkdf2 算法 不可反向破解生成明文。 每次输出的hashPass 都不一样，
   
-一、Bcrypt是怎么加密的？
+## Bcrypt是怎么加密的？
   
 Bcrypt有四个变量: 
 
@@ -86,9 +86,9 @@ hashed = B.crypt_raw(passwordb, saltb, rounds);
 
 随机盐即为 AxafsyVqK51p.s9WAEYWYe
 
-（salt = BCrypt.gensalt();中有描述）
+ (salt = BCrypt.gensalt();中有描述）
 
-可见，随机盐（AxafsyVqK51p.s9WAEYWYe），会在比较的时候，重新被取出。
+可见，随机盐 (AxafsyVqK51p.s9WAEYWYe），会在比较的时候，重新被取出。
 
 即，加密的hashPass中，前部分已经包含了盐信息。
 

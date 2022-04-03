@@ -40,7 +40,7 @@ Linux下高效数据恢复软件extundelete应用实战 推荐
   
 由此可知,根目录的inode值为2。
 
-在利用extundelete恢复文件时并不依赖特定文件格式,首先extundelete会通过文件系统的inode信息（根目录的inode一般为2) 来获得当前文件系统下所有文件的信息,包括存在的和已经删除的文件,这些信息包括文件名和inode。然后利用inode信息结合日志去查询该inode所在的block位置,包括直接块,间接块等信息。最后利用dd命令将这些信息备份出来,从而恢复数据文件。
+在利用extundelete恢复文件时并不依赖特定文件格式,首先extundelete会通过文件系统的inode信息 (根目录的inode一般为2) 来获得当前文件系统下所有文件的信息,包括存在的和已经删除的文件,这些信息包括文件名和inode。然后利用inode信息结合日志去查询该inode所在的block位置,包括直接块,间接块等信息。最后利用dd命令将这些信息备份出来,从而恢复数据文件。
 
 四、 安装extundelete
 
@@ -60,7 +60,7 @@ e2fsprogs和e2fsprogs-libs安装非常简单,这里不做介绍。下面是extun
   
 成功安装extundelete后,会在系统中生成一个extundelete可执行文件。extundelete的使用非常简单,读者可以通过"extundelete -help"获得此软件的使用方法。
 
-五、extundelete用法详解
+五、extundelete 用法详解
 
 extundelete安装完成后,就可以执行数据恢复操作了,本节详细介绍下extundelete每个参数的含义。extundelete用法如下: 
 
@@ -70,13 +70,13 @@ extundelete -help
 
 extundelete [options] [action] device-file
   
-其中参数（options) 有: 
+其中参数 (options) 有: 
 
 -version, -[vV],显示软件版本号。
 
 -help,显示软件帮助信息。
 
--superblock,显示超级块信息。
+-superblock, 显示超级块信息。
 
 -journal,显示日志信息。
 
@@ -84,7 +84,7 @@ extundelete [options] [action] device-file
 
 -before dtime,时间参数,表示在某段时间之前被删的文件或目录。
 
-动作（action) 有: 
+动作 (action) 有: 
 
 -inode ino,显示节点"ino"的信息。
 

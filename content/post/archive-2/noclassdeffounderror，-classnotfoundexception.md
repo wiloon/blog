@@ -36,7 +36,7 @@ but no definition for the class with the specified name could be found.
   
 从规范说明看, java.lang.ClassNotFoundException 异常抛出的根本原因是类文件找不到。
 
-另外,从两个异常的定义看,java.lang.NoClassDefFoundError 是一种 unchecked exception（也称 runtime exception) ,而 java.lang.ClassNotFoundException 是一种 checked exception。（区分不了这两类异常？看这里 checked exception vs unchecked exception) 
+另外,从两个异常的定义看,java.lang.NoClassDefFoundError 是一种 unchecked exception (也称 runtime exception) ,而 java.lang.ClassNotFoundException 是一种 checked exception。 (区分不了这两类异常？看这里 checked exception vs unchecked exception) 
 
 ———-
 
@@ -44,7 +44,7 @@ but no definition for the class with the specified name could be found.
 
 就我个人而言,在这两个异常里,平时碰到最多的是 java.lang.ClassNotFoundException。从异常的名字看,很容易理解这个异常产生的原因是缺少了 .class 文件,比如少引了某个 jar,解决方法通常需要检查一下 classpath 下能不能找到包含缺失 .class 文件的 jar。
 
-但是,很多人在碰到 java.lang.NoClassDefFoundError 异常时也会下意识的去检查是不是缺少了 .class 文件,比如 SO 上的这位提问者（java.lang.NoClassDefFoundError: Could not initialize class XXX) – "明明 classpath 下有那个 jar 为什么还报这个异常"。而实际上,这个异常的来源根本不是因为缺少 .class 文件。而碰到这个异常的解决办法,一般需要检查这个类定义中的初始化部分（如类属性定义、static 块等) 的代码是否有抛异常的可能,如果是 static 块,可以考虑在其中将异常捕获并打印堆栈等,或者直接在对类进行初始化调用（如 new Foobar()) 时作 try catch。
+但是,很多人在碰到 java.lang.NoClassDefFoundError 异常时也会下意识的去检查是不是缺少了 .class 文件,比如 SO 上的这位提问者 (java.lang.NoClassDefFoundError: Could not initialize class XXX) – "明明 classpath 下有那个 jar 为什么还报这个异常"。而实际上,这个异常的来源根本不是因为缺少 .class 文件。而碰到这个异常的解决办法,一般需要检查这个类定义中的初始化部分 (如类属性定义、static 块等) 的代码是否有抛异常的可能,如果是 static 块,可以考虑在其中将异常捕获并打印堆栈等,或者直接在对类进行初始化调用 (如 new Foobar()) 时作 try catch。
 
 ———-
 
@@ -82,6 +82,6 @@ Foo foo = new Foo();
 
 —-
 
-总结,记住他们是两个不同的异常类,在碰到具体某个异常时,从名字并联系它的 message 信息（如 "Could not initialize class ") 就很容易锁定问题来源。
+总结,记住他们是两个不同的异常类,在碰到具体某个异常时,从名字并联系它的 message 信息 (如 "Could not initialize class ") 就很容易锁定问题来源。
 
 完。

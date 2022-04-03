@@ -38,7 +38,7 @@ tags:
     2.幂等的意味着对同一URL的多个请求应该返回同样的结果。这里我再解释一下幂等 这个概念: 
   
   
-    幂等 （idempotent、idempotence) 是一个数学或计算机学概念，常见于抽象代数中。
+    幂等  (idempotent、idempotence) 是一个数学或计算机学概念，常见于抽象代数中。
  幂等有以下几种定义: 
  对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。比如绝对值运算就是一个例子，在实数集中，有abs(a) =abs(abs(a)) 。
  对于双目运算，则要求当参与运算的两个值是等值的情况下，如果满足运算结果与参与运算的两个值相等，则称该运算幂等，如求两个数的最大值的函数，有在在实数集中幂等，即max(x,x)  =  x 。
@@ -56,7 +56,7 @@ tags:
     上面大概说了一下HTTP规范中，GET和POST的一些原理性的问题。但在实际的做的时候，很多人却没有按照HTTP规范去做，导致这个问题的原因有很多，比如说: 
   
   
-    1.很多人贪方便，更新资源时用了GET，因为用POST必须要到FORM（表单) ，这样会麻烦一点。
+    1.很多人贪方便，更新资源时用了GET，因为用POST必须要到FORM (表单) ，这样会麻烦一点。
   
   
     2.对资源的增，删，改，查操作，其实都可以通过GET/POST完成，不需要用到PUT和DELETE。
@@ -68,7 +68,7 @@ tags:
     * 简单解释一下MVC: MVC本来是存在于Desktop程序中的，M是指数据模型，V是指用户界面，C则是控制器。使用MVC的目的是将M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式。
   
   
-    以上3点典型地描述了老一套的风格（没有严格遵守HTTP规范) ，随着架构的发展，现在出现REST(Representational State Transfer)，一套支持HTTP规范的新风格，这里不多说了，可以参考《RESTful Web Services》。
+    以上3点典型地描述了老一套的风格 (没有严格遵守HTTP规范) ，随着架构的发展，现在出现REST(Representational State Transfer)，一套支持HTTP规范的新风格，这里不多说了，可以参考《RESTful Web Services》。
   
   
     二 表现形式区别
@@ -95,7 +95,7 @@ tags:
     <request-body>]
   
   
-    在HTTP请求中，第一行必须是一个请求行（request line) ，用来说明请求类型、要访问的资源以及使用的HTTP版本。紧接着是一个首部（header) 小节，用来说明服务器要使用的附加信息。在首部之后是一个空行，再此之后可以添加任意的其他数据[称之为主体（body) ]。
+    在HTTP请求中，第一行必须是一个请求行 (request line) ，用来说明请求类型、要访问的资源以及使用的HTTP版本。紧接着是一个首部 (header) 小节，用来说明服务器要使用的附加信息。在首部之后是一个空行，再此之后可以添加任意的其他数据[称之为主体 (body) ]。
   
   
     GET与POST方法实例: 
@@ -113,14 +113,14 @@ tags:
  Content-Type: application/x-www-form-urlencoded
  Content-Length: 40
  Connection: Keep-Alive
- （--此处空一行--) 
+  (--此处空一行--) 
  name=Professional%20Ajax&publisher=Wiley
   
   
     有了以上对HTTP请求的了解和示例，我们再来看两种提交方式的区别: 
   
   
-    （1) GET提交，请求的数据会附在URL之后（就是把数据放置在HTTP协议头中) ，以?分割URL和传输数据，多个参数用&连接；例如: login.action?name=hyddd&password=idontknow&verify=%E4%BD%A0 %E5%A5%BD。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如:  %E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII。
+     (1) GET提交，请求的数据会附在URL之后 (就是把数据放置在HTTP协议头中) ，以?分割URL和传输数据，多个参数用&连接；例如: login.action?name=hyddd&password=idontknow&verify=%E4%BD%A0 %E5%A5%BD。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如:  %E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII。
   
   
     POST提交: 把提交的数据放置在是HTTP包的包体中。上文示例中红色字体标明的就是实际的传输数据
@@ -150,10 +150,10 @@ tags:
     .POST的安全性要比GET的安全性高。注意: 这里所说的安全性和上面GET提到的"安全"不是同个概念。上面"安全"的含义仅仅是不作数据修改，而这 里安全的含义是真正的Security的含义，比如: 通过GET提交数据，用户名和密码将明文出现在URL上，因为(1)登录页面有可能被浏览器缓存， (2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了，除此之外，使用GET提交数据还可能会造成Cross-site request forgery攻击, post 的安全性也只是相对的, post也是明文传输,用firebug, developer tool等插件就能观察到.
   
   
-    （4) Http get,post,soap协议都是在http上运行的
- 1) get: 请求参数是作为一个key/value对的序列（查询字符串) 附加到URL上的
- 查询字符串的长度受到web浏览器和web服务器的限制（如IE最多支持2048个字符) ，不适合传输大型数据集同时，它很不安全
- 2) post: 请求参数是在http标题的一个不同部分（名为entity body) 传输的，这一部分用来传输表单信息，因此必须将Content-type设置为:application/x-www-form-urlencoded。post设计用来支持web窗体上的用户字段，其参数也是作为key/value对传输。
+     (4) Http get,post,soap协议都是在http上运行的
+ 1) get: 请求参数是作为一个key/value对的序列 (查询字符串) 附加到URL上的
+ 查询字符串的长度受到web浏览器和web服务器的限制 (如IE最多支持2048个字符) ，不适合传输大型数据集同时，它很不安全
+ 2) post: 请求参数是在http标题的一个不同部分 (名为entity body) 传输的，这一部分用来传输表单信息，因此必须将Content-type设置为:application/x-www-form-urlencoded。post设计用来支持web窗体上的用户字段，其参数也是作为key/value对传输。
  但是: 它不支持复杂数据类型，因为post没有定义传输数据结构的语义和规则。
  3) soap: 是http post的一个专用版本，遵循一种特殊的xml消息格式
  Content-type设置为: text/xml   任何数据都可以xml化
@@ -167,7 +167,7 @@ tags:
  [<response-body>]
   
   
-    在响应中唯一真正的区别在于第一行中用状态信息代替了请求信息。状态行（status line) 通过提供一个状态码来说明所请求的资源情况。
+    在响应中唯一真正的区别在于第一行中用状态信息代替了请求信息。状态行 (status line) 通过提供一个状态码来说明所请求的资源情况。
   
   
     HTTP响应实例: 
@@ -329,7 +329,7 @@ tags:
     
     
     
-      超文本传输协议（HTTP) 的设计目的是保证客户机与服务器之间的通信。
+      超文本传输协议 (HTTP) 的设计目的是保证客户机与服务器之间的通信。
     
     
     
@@ -341,7 +341,7 @@ tags:
     
     
     
-      举例: 客户端（浏览器) 向服务器提交 HTTP 请求；服务器向客户端返回响应。响应包含关于请求的状态信息以及可能被请求的内容。
+      举例: 客户端 (浏览器) 向服务器提交 HTTP 请求；服务器向客户端返回响应。响应包含关于请求的状态信息以及可能被请求的内容。
   
   
     
@@ -367,7 +367,7 @@ tags:
     
     
     
-      请注意，查询字符串（名称/值对) 是在 GET 请求的 URL 中发送的: 
+      请注意，查询字符串 (名称/值对) 是在 GET 请求的 URL 中发送的: 
     
     
     /test/demo_form.asp?name1=value1&name2=value2
@@ -403,7 +403,7 @@ tags:
     
     
     
-      请注意，查询字符串（名称/值对) 是在 POST 请求的 HTTP 消息主体中发送的: 
+      请注意，查询字符串 (名称/值对) 是在 POST 请求的 HTTP 消息主体中发送的: 
     
     
     POST /test/demo_form.asp HTTP/1.1
@@ -463,7 +463,7 @@ name1=value1&name2=value2
         
         
         
-          数据会被重新提交（浏览器应该告知用户数据会被重新提交) 。
+          数据会被重新提交 (浏览器应该告知用户数据会被重新提交) 。
         
       
       
@@ -529,7 +529,7 @@ name1=value1&name2=value2
         
         
         
-          是的。当发送数据时，GET 方法向 URL 添加数据；URL 的长度是受限制的（URL 的最大长度是 2048 个字符) 。
+          是的。当发送数据时，GET 方法向 URL 添加数据；URL 的长度是受限制的 (URL 的最大长度是 2048 个字符) 。
         
         
         

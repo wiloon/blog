@@ -42,7 +42,7 @@ MySQL日志:
   
 在MySQL数据库中，错误日志功能是默认开启的。并且，错误日志无法被禁止。默认情况下，错误日志存储在MySQL数据库的数据文件中。错误日志文件通常的名称为hostname.err。其中，hostname表示服务器主机名。
   
-错误日志信息可以自己进行配置的，错误日志所记录的信息是可以通过log-error和log-warnings来定义的，其中log-err是定义是否启用错误日志的功能和错误日志的存储位置，log-warnings是定义是否将警告信息也定义至错误日志中。默认情况下错误日志大概记录以下几个方面的信息: 服务器启动和关闭过程中的信息（未必是错误信息，如MySQL如何启动InnoDB的表空间文件的、如何初始化自己的存储引擎的等等) 、服务器运行过程中的错误信息、事件调度器运行一个事件时产生的信息、在从服务器上启动服务器进程时产生的信息。
+错误日志信息可以自己进行配置的，错误日志所记录的信息是可以通过log-error和log-warnings来定义的，其中log-err是定义是否启用错误日志的功能和错误日志的存储位置，log-warnings是定义是否将警告信息也定义至错误日志中。默认情况下错误日志大概记录以下几个方面的信息: 服务器启动和关闭过程中的信息 (未必是错误信息，如MySQL如何启动InnoDB的表空间文件的、如何初始化自己的存储引擎的等等) 、服务器运行过程中的错误信息、事件调度器运行一个事件时产生的信息、在从服务器上启动服务器进程时产生的信息。
   
 下面我们来定义MySQL错误日志的功能: 
   
@@ -168,11 +168,11 @@ Log_error=DIR/[filename]
   
 130813 15:30:54 InnoDB: The InnoDB memory heap is disabled #禁用了InnoDB memory的堆功能。
   
-130813 15:30:54 InnoDB: Mutexes and rw_locks use GCC atomic builtins #Mutexes（互斥量) 和rw_locks（行级锁) 是GCC编译的是InnoDB内置的。
+130813 15:30:54 InnoDB: Mutexes and rw_locks use GCC atomic builtins #Mutexes (互斥量) 和rw_locks (行级锁) 是GCC编译的是InnoDB内置的。
   
 130813 15:30:54 InnoDB: Compressed tables use zlib 1.2.3 #默认压缩工具是zlib
   
-130813 15:30:55 InnoDB: Initializing buffer pool, size = 128.0M #InnoDB引擎的缓冲池（buffer pool) 的值大小
+130813 15:30:55 InnoDB: Initializing buffer pool, size = 128.0M #InnoDB引擎的缓冲池 (buffer pool) 的值大小
   
 130813 15:30:55 InnoDB: Completed initialization of buffer pool
   
@@ -254,7 +254,7 @@ MySQL> SHOW GLOBAL VARIABLES LIKE '%log%';
   
 | innodb_mirrored_log_groups | 1 |
   
-| log | OFF #是否开启日志 （若开启则表示开启所有的日志功能)  |
+| log | OFF #是否开启日志  (若开启则表示开启所有的日志功能)  |
   
 | log_bin | ON |
   
@@ -356,7 +356,7 @@ MySQL> SHOW GLOBAL VARIABLES LIKE '%log%';
   
 | slow_query_log | OFF #定义慢查询日志的
   
-| slow_query_log_file |/mydata/data/stu18-slow.log #输出方式为file（文件) 时定义慢查询日志的位置
+| slow_query_log_file |/mydata/data/stu18-slow.log #输出方式为file (文件) 时定义慢查询日志的位置
   
 启动和设置慢查询日志: 
   
@@ -378,7 +378,7 @@ log-slow-queries [= DIR/[filename] ]
   
 时间默认超过多少的称为慢查询日志？
   
-一般都是通过long_query_time选项来设置这个时间值，时间以秒为单位，可以精确到微秒。如果查询时间超过了这个时间值（默认为10秒) ，这个查询语句将被记录到慢查询日志中。查看服务器默认时间值方式如下: 
+一般都是通过long_query_time选项来设置这个时间值，时间以秒为单位，可以精确到微秒。如果查询时间超过了这个时间值 (默认为10秒) ，这个查询语句将被记录到慢查询日志中。查看服务器默认时间值方式如下: 
   
 MySQL> SHOW GLOBAL VARIABLES LIKE 'long%';
   
@@ -402,11 +402,11 @@ MySQL> set globalslow_query_log=1; #开启慢查询日志
   
 Query OK, 0 rowsaffected (0.35 sec)
   
-MySQL> setsession long_query_time=0.001; #更改时间（当前session中，退出则重置) 
+MySQL> setsession long_query_time=0.001; #更改时间 (当前session中，退出则重置) 
   
 Query OK, 0 rowsaffected (0.00 sec)
   
-MySQL> set globallong_query_time=0.001; #更改时间（全局中，重启服务则重置) 
+MySQL> set globallong_query_time=0.001; #更改时间 (全局中，重启服务则重置) 
   
 MySQL> SHOWVARIABLES LIKE 'long%'; #查询定义时间
   
@@ -490,7 +490,7 @@ selectuser,host,password from user where user="root";
   
 事务日志: 
   
-事务日志（InnoDB特有的日志) 可以帮助提高事务的效率。使用事务日志，存储引擎在修改表的数据时只需要修改其内存拷贝，再把改修改行为记录到持久在硬盘上的事务日志中，而不用每次都将修改的数据本身持久到磁盘。事务日志采用追加的方式，因此写日志的操作是磁盘上一小块区域内的顺序I/O，而不像随机I/O需要在磁盘的多个地方移动磁头，所以采用事务日志的方式相对来说要快得多。事务日志持久以后，内存中被修改的数据在后台可以慢慢的刷回到磁盘。目前大多数的存储引擎都是这样实现的，我们通常称之为预写式日志，修改数据需要写两次磁盘。
+事务日志 (InnoDB特有的日志) 可以帮助提高事务的效率。使用事务日志，存储引擎在修改表的数据时只需要修改其内存拷贝，再把改修改行为记录到持久在硬盘上的事务日志中，而不用每次都将修改的数据本身持久到磁盘。事务日志采用追加的方式，因此写日志的操作是磁盘上一小块区域内的顺序I/O，而不像随机I/O需要在磁盘的多个地方移动磁头，所以采用事务日志的方式相对来说要快得多。事务日志持久以后，内存中被修改的数据在后台可以慢慢的刷回到磁盘。目前大多数的存储引擎都是这样实现的，我们通常称之为预写式日志，修改数据需要写两次磁盘。
   
 如果数据的修改已经记录到事务日志并持久化，但数据本身还没有写回磁盘，此时系统崩溃，存储引擎在重启时能够自动恢复这部分修改的数据。具有的恢复方式则视存储引擎而定。
   
@@ -554,7 +554,7 @@ MySQL> showglobal variables like "%log%";
   
 sql_log_bin ={ON|OFF} #用于控制会话级别二进制日志功能的开启或关闭。默认为ON，表示启用记录功能。用户可以在会话级别修改此变量的值，但其必须具有SUPER权限。
   
-binlog_cache_size =32768 #默认值32768 Binlog Cache用于在打开了二进制日志（binlog) 记录功能的环境，是MySQL 用来提高binlog的记录效率而设计的一个用于短时间内临时缓存binlog数据的内存区域。一般来说，如果我们的数据库中没有什么大事务，写入也不是特别频繁，2MB～4MB是一个合适的选择。但是如果我们的数据库大事务较多，写入量比较大，可与适当调高binlog_cache_size。同时，我们可以通过binlog_cache_use 以及 binlog_cache_disk_use来分析设置的binlog_cache_size是否足够，是否有大量的binlog_cache由于内存大小不够而使用临时文件（binlog_cache_disk_use) 来缓存了。
+binlog_cache_size =32768 #默认值32768 Binlog Cache用于在打开了二进制日志 (binlog) 记录功能的环境，是MySQL 用来提高binlog的记录效率而设计的一个用于短时间内临时缓存binlog数据的内存区域。一般来说，如果我们的数据库中没有什么大事务，写入也不是特别频繁，2MB～4MB是一个合适的选择。但是如果我们的数据库大事务较多，写入量比较大，可与适当调高binlog_cache_size。同时，我们可以通过binlog_cache_use 以及 binlog_cache_disk_use来分析设置的binlog_cache_size是否足够，是否有大量的binlog_cache由于内存大小不够而使用临时文件 (binlog_cache_disk_use) 来缓存了。
   
 binlog_stmt_cache_size= 32768 #当非事务语句使用二进制日志缓存，但是超出binlog_stmt_cache_size时，使用一个临时文件来存放这些语句。
   
@@ -932,9 +932,9 @@ SET TIMESTAMP=1381249596/*!*/; #预设信息(环境设定)
   
 删除二进制日志信息: 
   
-二进制日志会记录大量的信息（其中包含一些无用的信息) 。如果很长时间不清理二进制日志，将会浪费很多的磁盘空间。但是，删除之后可能导致数据库崩溃时无法进行恢复，所以若要删除二进制日志首先将其和数据库备份一份，其中也只能删除备份前的二进制日志，新产生的日志信息不可删(可以做即时点还原)。也不可在关闭MySQL服务器之后直接删除因为这样可能会给数据库带来错误的。若非要删除二进制日志需要做如下操作: 导出备份数据库和二进制日志文件进行压缩归档存储。删除二进制文件的方法如下: 
+二进制日志会记录大量的信息 (其中包含一些无用的信息) 。如果很长时间不清理二进制日志，将会浪费很多的磁盘空间。但是，删除之后可能导致数据库崩溃时无法进行恢复，所以若要删除二进制日志首先将其和数据库备份一份，其中也只能删除备份前的二进制日志，新产生的日志信息不可删(可以做即时点还原)。也不可在关闭MySQL服务器之后直接删除因为这样可能会给数据库带来错误的。若非要删除二进制日志需要做如下操作: 导出备份数据库和二进制日志文件进行压缩归档存储。删除二进制文件的方法如下: 
   
-1. 删除所有的二进制日志（不可效仿) : 
+1. 删除所有的二进制日志 (不可效仿) : 
   
 使用RESET MASTER语句可以删除所有的二进制日志。该语句的形式如下: 
   

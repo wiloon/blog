@@ -20,19 +20,19 @@ tags:
   
 <http://wiki.nftables.org/wiki-nftables/index.php/Main_Page>
 
-nftables 作为新一代的防火墙策略框架,是从内核 3.13 版本引入的新的数据包过滤框架,nftables是一个致力于替换现有的{ip,ip6,arp,eb}tables框架（也就是大家熟知的iptables) 的项目,而且提供了类似tc的带宽限速能力
+nftables 作为新一代的防火墙策略框架,是从内核 3.13 版本引入的新的数据包过滤框架,nftables是一个致力于替换现有的{ip,ip6,arp,eb}tables框架 (也就是大家熟知的iptables) 的项目,而且提供了类似tc的带宽限速能力
   
 nftables 引入了一个新的命令行工具nft,取代了之前的iptables、ip6iptables、ebtables等各种工具,是用户空间的管理工具。
 
 netfilter
   
-netfilter是Linux内核的包过滤框架,它提供了一系列的钩子（Hook) 供其他模块控制包的流动。这些钩子包括
+netfilter是Linux内核的包过滤框架,它提供了一系列的钩子 (Hook) 供其他模块控制包的流动。这些钩子包括
   
 NF_IP_PRE_ROUTING: 刚刚通过数据链路层解包进入网络层的数据包通过此钩子,它在路由之前处理
   
-NF_IP_LOCAL_IN: 经过路由查找后,送往本机（目的地址在本地) 的包会通过此钩子
+NF_IP_LOCAL_IN: 经过路由查找后,送往本机 (目的地址在本地) 的包会通过此钩子
   
-NF_IP_FORWARD: 不是本地产生的并且目的地不是本地的包（即转发的包) 会通过此钩子
+NF_IP_FORWARD: 不是本地产生的并且目的地不是本地的包 (即转发的包) 会通过此钩子
   
 NF_IP_LOCAL_OUT: 所有本地生成的发往其他机器的包会通过该钩子
   

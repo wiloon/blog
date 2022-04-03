@@ -39,7 +39,7 @@ jdbc的优化:
   
 善用哑查询。在仅想得到表信息等而不需要返回记录的情况下,使用"select * from tableName where 1=0"这样的哑查询就能免于遍历；
   
-善用预处理（PreparedStatement,PreparedCall) 。PreparedStatement不但具有一次编译重复使用的优势,而且因为jdbc默认将参数以字符串形式传给数据库,而用PreparedStatement设参数则可以显式地指定数据类型,避免参数传递和来回转换的负担；
+善用预处理 (PreparedStatement,PreparedCall) 。PreparedStatement不但具有一次编译重复使用的优势,而且因为jdbc默认将参数以字符串形式传给数据库,而用PreparedStatement设参数则可以显式地指定数据类型,避免参数传递和来回转换的负担；
   
 Java代码
   
@@ -59,7 +59,7 @@ pstmt.addBatch();
   
 pstmt.executeBatch();
   
-合理选择excute方法,杀鸡就用鸡刀。execute(String sql)方法返回一个boolean值,它执行任意复杂的sql语句,可以产生多个结果集。如果有结果产生返回 true,如果没有结果集产生或仅是一个更新记数则返回 false。它产生的结果集可以通过getResultSet()和getMoreResults()获得,更新记数可通过getUpdateCount()获得。显然execute(String sql)方法的使用要复杂一些,因此如果只是简单的查询或更新操作请使用executeQuery(String sql)和executeUpdate(String sql)方法。executeUpdate(String sql)能执行INSERT,UPDATE,DELETE语句,及DDL和DML命令（此时返回值为0) ；
+合理选择excute方法,杀鸡就用鸡刀。execute(String sql)方法返回一个boolean值,它执行任意复杂的sql语句,可以产生多个结果集。如果有结果产生返回 true,如果没有结果集产生或仅是一个更新记数则返回 false。它产生的结果集可以通过getResultSet()和getMoreResults()获得,更新记数可通过getUpdateCount()获得。显然execute(String sql)方法的使用要复杂一些,因此如果只是简单的查询或更新操作请使用executeQuery(String sql)和executeUpdate(String sql)方法。executeUpdate(String sql)能执行INSERT,UPDATE,DELETE语句,及DDL和DML命令 (此时返回值为0) ；
   
 批执行更高效。stmt.addBatch(String sql); stmt.executeBatch();
   
@@ -93,7 +93,7 @@ connection.close();
   
 }
   
-及时显式地关闭rs、stmt和conn（conn可以交由连接池管理) ；
+及时显式地关闭rs、stmt和conn (conn可以交由连接池管理) ；
   
 使用数据库系统的强大查询功能去组织数据。这样程序运行是和数据库服务的交互次数少,数据库返回给程序的记录条数少的多,所以性能有很大的提高；
   

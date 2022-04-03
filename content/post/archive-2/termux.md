@@ -48,7 +48,7 @@ Termux维护着适合Android的库,并自带包管理器apt
 
 到手机设置中开启 Termux 的存储权限,否则在Termux终端无法访问内部存储
   
-修改Termux的源地址 （特别是国内用户) 
+修改Termux的源地址  (特别是国内用户) 
   
 和Linux类似,Termux有自己的软件源,安装Termux后默认的软件源是Termux官网,即 http://termux.net,可打开源列表查看。
 
@@ -92,7 +92,7 @@ Termux终端中使用ssh访问远程服务器与Linux终端中使用ssh别无二
 
 SSH验证的基本原理
   
-SSH的英文全称为Secure Shell,是IETF（Internet Engineering Task Force) 的Network Working Group所制定的一族协议,其目的是要在非安全网络上提供安全的远程登录和其他安全网络服务。用于在主机之间建立起安全连接, 并加密传输内容, 以达到安全的远程访问, 操作以及数据传输的目的.
+SSH的英文全称为Secure Shell,是IETF (Internet Engineering Task Force) 的Network Working Group所制定的一族协议,其目的是要在非安全网络上提供安全的远程登录和其他安全网络服务。用于在主机之间建立起安全连接, 并加密传输内容, 以达到安全的远程访问, 操作以及数据传输的目的.
 
 SSH协议目前有SSH1和SSH2两个主流版本,SSH2协议兼容SSH1,强烈建议使用SSH2版本。目前实现SSH1和SSH2协议的主要软件有OpenSSH 和SSH Communications Security Corporation公司的SSH Communications 软件。前者是OpenBSD组织开发的一款免费的SSH软件,后者是商业软件,因此在linux、FreeBSD、OpenBSD 、NetBSD等免费类UNIX系统种,通常都使用OpenSSH作为SSH协议的实现软件。
 
@@ -102,13 +102,13 @@ SSH支持两种认证方式: 密码认证和密钥认证。两种认证方式的
   
 密码认证: 
 
-客户端向服务端发起登录请求,服务端将自己的公钥返回给客户端
+客户端向服务端发起登录请求, 服务端将自己的公钥返回给客户端
   
-客户端输入登录口令,口令经服务端公钥加密后发送到服务端
+客户端输入登录口令, 口令经服务端公钥加密后发送到服务端
   
 服务端接收到加密口令后使用私钥解密,如果密码正确则登录成功
   
-这里第一步（即服务端返回公钥) 就是我们日常使用ssh过程中看到的类似下面内容的过程: 
+这里第一步 (即服务端返回公钥) 就是我们日常使用ssh过程中看到的类似下面内容的过程: 
 
 The authenticity of host 'host (12.18.429.21)' can't be established.
   
@@ -154,13 +154,13 @@ sshd
   
     下面介绍另一个非常有用的命令行工具 - Aria2。Aria2是一个轻量级的命令行下载程序,类似wget但支持更多的通信协议,功能更加强大。>>前往Aria2主页
   
-    Termux资源库中有aria2安装包,我们可以像在Linux上一样通过apt install aria2轻松在Android设备上安装aria2,当然这种方式安装的aria2运行在Termux终端环境下,不能独立运行。用户可选择从Google Play下载封装了aria2的应用程序来代替命令行安装。此外用户还可以下载aria2的Android编译版放置在Termux环境中或系统环境中（应该需要root 权限) 来使设备支持aria2。>>前往Github下载预编译版
+    Termux资源库中有aria2安装包,我们可以像在Linux上一样通过apt install aria2轻松在Android设备上安装aria2,当然这种方式安装的aria2运行在Termux终端环境下,不能独立运行。用户可选择从Google Play下载封装了aria2的应用程序来代替命令行安装。此外用户还可以下载aria2的Android编译版放置在Termux环境中或系统环境中 (应该需要root 权限) 来使设备支持aria2。>>前往Github下载预编译版
   
     Aria2的使用方法在上一篇文章 "使用Aria2完成下载任务" 中已经进行说明,这里不再赘述。本节主要补充一个更适合Android上使用aria2的GUI界面,毕竟文章 "使用Aria2完成下载任务" 中介绍的两个主流GUI界面都是基于WEB开发的,在小屏的Android设备上使用起来还是有诸多不便。本节的主角是 Transdroid。
 
 什么是Transdroid
   
-Transdroid 是国外某大神开发的Torrent下载管理软件（当然是Android版) ,软件以简洁友好据称,主要帮助用户在Android设备上管理PC或服务器上的下载任务。
+Transdroid 是国外某大神开发的Torrent下载管理软件 (当然是Android版) ,软件以简洁友好据称,主要帮助用户在Android设备上管理PC或服务器上的下载任务。
 
 当前下载列表
 
@@ -184,7 +184,7 @@ Transdroid on Github: https://github.com/erickok/transdroid
   
 Transdroid支持的下载器有很多,包括Aria2。按文章 "使用Aria2完成下载任务"的步骤配置并启动aria2命令后即可使用Transdroid连接aria2进行管理,设置方法和使用WebUI大同小异。只需要注意配置Transdroid时使用正确的ip和端口即可。
 
-如果aria2运行在其他设备,如PC或服务器上（下文称"下载机") ,需在Transdroid中正确填写PC或服务器的IP,并确保防火墙允许其他设备从aria2运行的端口访问aria2下载机。局域网内,一般防火墙设置得当则Android设备能无障碍访问下载机的下载任务信息。如果想随时随地通过Android设备管理下载机上的下载任务,你还需要为你的局域网设置端口映射,参考 Setting up µTorrent - Allow access from anywhere
+如果aria2运行在其他设备,如PC或服务器上 (下文称"下载机") ,需在Transdroid中正确填写PC或服务器的IP,并确保防火墙允许其他设备从aria2运行的端口访问aria2下载机。局域网内,一般防火墙设置得当则Android设备能无障碍访问下载机的下载任务信息。如果想随时随地通过Android设备管理下载机上的下载任务,你还需要为你的局域网设置端口映射,参考 Setting up µTorrent - Allow access from anywhere
 
 在本节中主要是介绍在Android设备上使用Aria2进行下载,并使用Transdroid进行下载管理,因此Transdroid和Aria2运行在一个设备上,不存在防火墙和端口映射的问题,直接在Transdroid中设置好即可。Aria2+Transdroid完全能够代替其他手机版下载软件,并且表现完美。唯一的问题是aria2依托于Termux终端环境,终端关闭,Aria2下载服务也就关闭了。因此,要在Android中使用Aria2获得友好下载体验,要同时打开Termux终端运行aria2服务和Transdroid下载管理程序。
 

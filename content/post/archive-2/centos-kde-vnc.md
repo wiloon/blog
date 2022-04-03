@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## centos, kde, vnc
-转自: http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html（侵删) 
+转自: http://digitalocean.youhuima.cc/centos-7-kde-vnc-remote.html (侵删) 
 
 VPS远程操作用的最多的是SSH,有时候一些特殊需求也要用到远程图形化操作,比如使用在VPS上使用浏览器访问网站。本文以Digitalocean VPS为例分享如何安装KDE和VNC实现远程图形界面访问。如果要购买Digitalocean VPS,建议使用Digitalocean优惠码,可以节省不少银子。
 
@@ -37,13 +37,13 @@ yum groupinstall "KDE Plasma Workspaces"
   
 这个配置文件只是一个模版,是不会被调用的。需要按照如下步骤复制1份或多份并修改相应的参数来对应不同的VNC viewer客户端。下面以root用户为例。
 
-复制一份配置文件,"@"后的1表示该配置文件对应的远程连接端口号为5901（5900+1) : 
+复制一份配置文件,"@"后的1表示该配置文件对应的远程连接端口号为5901 (5900+1) : 
   
 cp /lib/systemd/system/vncserver@.service /lib/systemd/system/vncserver@:1.service
   
 远程连接端口号默认为5900+n,n为VNC服务端设置的连接序号,上面的序号就是配置文件名称里".service"前的1。其它的以此类推。
 
-修改新配置文件: 将（有两处) 改为登录用户root,VNC远程连接后将是root权限。 如果是非root用户就直接用用户名替换即可。
+修改新配置文件: 将 (有两处) 改为登录用户root,VNC远程连接后将是root权限。 如果是非root用户就直接用用户名替换即可。
   
 修改前: 
   
@@ -123,7 +123,7 @@ vncserver -kill :1
   
 官方下载vnc viewer的地址: https://www.realvnc.com/download/viewer/windows/
 
-VNC viewer的基本无需额外设置,点击菜单file-> new connection,然后VNC server地址填写格式: IP:5901 （端口号依据上面配置文件设置的序号加上5900即可) 。
+VNC viewer的基本无需额外设置,点击菜单file-> new connection,然后VNC server地址填写格式: IP:5901  (端口号依据上面配置文件设置的序号加上5900即可) 。
 
 上面就是在Digitalocean VPS上安装KDE图形界面和VNC实现远程图像化操作的整个步骤,希望对您有用。这个步骤适用于任何centos 7的VPS,比如vultr、linode、阿里云、腾讯云等热门云主机或VPS。
 

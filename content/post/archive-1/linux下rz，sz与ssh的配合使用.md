@@ -21,23 +21,23 @@ linuxsshwindows文件传输工具服务器工具
   
 与ssh有关的两个命令可以提供很方便的操作: 
   
-sz: 将选定的文件发送（send) 到本地机器
+sz: 将选定的文件发送 (send) 到本地机器
   
 rz: 运行该命令会弹出一个文件选择窗口,从本地选择文件上传到服务器(receive)
 
 rz,sz是便是Linux/Unix同Windows进行ZModem文件传输的命令行工具
 
-windows端需要支持ZModem的telnet/ssh客户端（比如SecureCRT) 
+windows端需要支持ZModem的telnet/ssh客户端 (比如SecureCRT) 
 
 运行命令rz,即是接收文件,SecureCRT就会弹出文件选择对话框,选好文件之后关闭对话框,文件就会上传到当前目录
 
-注意: 单独用rz会有两个问题: 上传中断、上传文件变化（md5不同) ,解决办法是上传是用rz -be,并且去掉弹出的对话框中"Upload files as ASCII"前的勾选。
+注意: 单独用rz会有两个问题: 上传中断、上传文件变化 (md5不同) ,解决办法是上传是用rz -be,并且去掉弹出的对话框中"Upload files as ASCII"前的勾选。
   
 -b binary 用binary的方式上传下载,不解释字符为ascii
   
 -e 强制escape 所有控制字符,比如Ctrl+x,DEL等
 
-运行命令sz file1 file2就是发文件到windows上（保存的目录是可以配置)  比ftp命令方便多了,而且服务器不用再开FTP服务了
+运行命令sz file1 file2就是发文件到windows上 (保存的目录是可以配置)  比ftp命令方便多了,而且服务器不用再开FTP服务了
 
 PS: Linux上rz/sz这两个小工具安装 lrzsz-x.x.xx.rpm 即可
 
@@ -69,15 +69,15 @@ Linux下和Windows之间的文件传输工具rz/sz(lrz/lsz) 介绍
 
 【为什么要用rz/sz】
 
-普通Linux和Windows之间的文件共享方法,主要有建立nfs实现文件共享,和tftp之类的方法,但是都很麻烦,而如果只是小文件（几十 K,几百K) ,那么直接用rz/sz,就显得极其地方便了。大文件的话,还是要考虑上面说得,其他的共享方法了,毕竟,rz/sz速度只有10K左右,传大文件会累死人的。。。
+普通Linux和Windows之间的文件共享方法,主要有建立nfs实现文件共享,和tftp之类的方法,但是都很麻烦,而如果只是小文件 (几十 K,几百K) ,那么直接用rz/sz,就显得极其地方便了。大文件的话,还是要考虑上面说得,其他的共享方法了,毕竟,rz/sz速度只有10K左右,传大文件会累死人的。。。
 
 【如何使用】
 
-（1) 在Windows下,用SecureCRT（或者Windows自带的超级终端) 连接Com端口到开发板,或者ssh等协议连接到Linux服务器上。
+ (1) 在Windows下,用SecureCRT (或者Windows自带的超级终端) 连接Com端口到开发板,或者ssh等协议连接到Linux服务器上。
 
-（2) 在Linux端,安装了rz/sz (lrz/lsz)工具后（嵌入式开发中,多数已经将编译好的rz/sz工具放到rootfs中了,普通的Linux系统,如果没有,可以下载源码,自己安装) ,就可以直接运行rz/sz,实现和Windows之间的文件传输了: 
+ (2) 在Linux端,安装了rz/sz (lrz/lsz)工具后 (嵌入式开发中,多数已经将编译好的rz/sz工具放到rootfs中了,普通的Linux系统,如果没有,可以下载源码,自己安装) ,就可以直接运行rz/sz,实现和Windows之间的文件传输了: 
 
-A、从windows中拷贝/下载文件到Linux（开发板) : 
+A、从windows中拷贝/下载文件到Linux (开发板) : 
 
 运行rz后,会自动弹出WIndows下的文件选择对话框,选择对应文件后,添加,然后确定,就开始传输,将windows中的文件,拷贝到Linux中了。
 

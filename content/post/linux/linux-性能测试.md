@@ -32,7 +32,7 @@ top
 top命令显示处理器的活动状况。缺省情况下，显示占用CPU最多的任务，并且每隔5秒钟做一次刷新。
   
 
-Process priority的数值决定了CPU处理进程的顺序。LIUNX内核会根据需要调整该数值的大小。nice value局限于priority。priority的值不能低于nice value（nice value值越低，优先级越高) 。您不可以直接修改Process priority的值，但是可以通过调整nice level值来间接地改变Process priority值，然而这一方法并不是所有时候都可用。如果某个进程运行异常的慢，可以通过降低nice level为该进程分配更多的CPU。
+Process priority的数值决定了CPU处理进程的顺序。LIUNX内核会根据需要调整该数值的大小。nice value局限于priority。priority的值不能低于nice value (nice value值越低，优先级越高) 。您不可以直接修改Process priority的值，但是可以通过调整nice level值来间接地改变Process priority值，然而这一方法并不是所有时候都可用。如果某个进程运行异常的慢，可以通过降低nice level为该进程分配更多的CPU。
 
 iostat
 

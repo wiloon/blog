@@ -58,7 +58,7 @@ let popValue = array.pop(); // 弹出
   
 console.log(array) // [1, 2, 3]
 
-array.splice(0, 1); // 删除元素（index, deleteCount) 
+array.splice(0, 1); // 删除元素 (index, deleteCount) 
   
 console.log(array) // [2, 3]
 

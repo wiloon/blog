@@ -39,7 +39,10 @@ NamePolicy=kernel database onboard slot path
 - mac
 基于网卡的 "ID_NET_NAME_MAC" 属性值(来自于网卡的固定MAC地址)设置网卡的名称。
 
----
+
+### windows mac address
+
+windows 的无线网卡不支持直接修改 mac 地址，虽然可以通过修改注册表实现修改但是mac地址第二位只能修改为 2, 6, A, E 其中的一个， 改成其它值都不会生效。
 
 https://wiki.archlinux.org/index.php/MAC_address_spoofing
 https://wiki.archlinux.org/index.php/MAC_address_spoofing_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)  

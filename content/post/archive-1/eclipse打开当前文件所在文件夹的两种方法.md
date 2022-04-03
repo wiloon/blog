@@ -26,7 +26,7 @@ EasyExplorer 从 http://sourceforge.net/projects/easystruts
 
 他最简单的工作方式就是: 直接将该jar文件放置在eclipse的 plugin 目录下 ，然后重启eclipse平台就可以在右键中看到East Explorer菜单项，就可以打开资源所在的目录了。
 
-但是，缺点就是新下载的插件PlugIn放在了原始的Eclipse的PlugIn目录下，一大堆，乱死你: （
+但是，缺点就是新下载的插件PlugIn放在了原始的Eclipse的PlugIn目录下，一大堆，乱死你:  (
 
 利用EasyExplorer插件可以在Eclipse用Explorer打开资源文件所在的文件夹。其它配置是在这里Windows => Preferences => Easy Explore => Target => explorer.exe {0}
 
@@ -45,7 +45,7 @@ Explorer.exe的参数如下: 大家可以根据自己的喜好进行设定:
   
 /e表示以"资源管理器"方式打开一个新的窗口，通常打开的也是Windows安装分区的根目录。
   
-/root,[path]表示打开指定的文件夹，/root表示只显示指定文件夹下面的文件（夹) ，不显示其它磁盘分区和文件夹；[path]表示指定的路径。
+/root,[path]表示打开指定的文件夹，/root表示只显示指定文件夹下面的文件 (夹) ，不显示其它磁盘分区和文件夹；[path]表示指定的路径。
   
 如果不加/root参数，而只用[path]参数，则可以显示其它磁盘分区和文件夹中的内容。另外，[path]还可以指定网络共享文件夹。
   

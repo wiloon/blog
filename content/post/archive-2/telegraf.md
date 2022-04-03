@@ -3,14 +3,16 @@ title: telegraf
 author: "-"
 date: 2019-02-16T11:08:43+00:00
 url: telegraf
-
 categories:
-  - inbox
+  - devops
 tags:
   - reprint
+  - remix
+
+
 ---
 ## telegraf
-### archlinux install telegraf
+### archlinux, telegraf
 ```bash
 yay -S telegraf-bin
 ```
@@ -34,7 +36,8 @@ yay -S telegraf-bin
   omit_hostname = false
 [[outputs.influxdb]]
   urls = ["http://influxdb.wiloon.com:8086"]
-  database = "db0"
+# 注意修改 database
+  database = "monitor"
 
 [[inputs.cpu]]
   percpu = true
@@ -44,7 +47,6 @@ yay -S telegraf-bin
 [[inputs.disk]]
   ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
 
-
 [[inputs.diskio]]
 [[inputs.kernel]]
 [[inputs.mem]]
@@ -53,7 +55,10 @@ yay -S telegraf-bin
 [[inputs.system]]
 [[inputs.net]]
 [[inputs.netstat]]
+[[inputs.linux_sysctl_fs]]
 ```
+#### inputs.linux_sysctl_fs
+>https://www.kernel.org/doc/Documentation/sysctl/fs.txt
 
 ### hsperfdata
 https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata
@@ -63,7 +68,7 @@ https://github.com/njwhite/telegraf/tree/master/plugins/inputs/hsperfdata
 #### 配置文件 
     C:\Program Files\telegraf\telegraf.conf
     
-#### install as windows serivce, choco安装的telegraf默认安装成service了
+#### install as windows serivce, choco 安装的 telegraf 默认会安装成 service
 https://docs.influxdata.com/telegraf/v1.14/administration/windows_service/
 
     C:\"Program Files"\Telegraf\telegraf.exe --service install
@@ -126,7 +131,7 @@ mv telegraf-1.19.0/var/log/* /var/log
 mv telegraf-1.19.0/etc/* /etc
 
 #### 配置开机启动
-登录到openwrt web 管理页面, 点击菜单 System > Startup > Local Startup, 在exit0 上面插入一行, 填写以下命令
+登录到 openwrt web 管理页面, 点击菜单 System > Startup > Local Startup, 在exit0 上面插入一行, 填写以下命令
 
     /usr/bin/telegraf --config /etc/telegraf/telegraf.conf
 
@@ -162,10 +167,47 @@ podman run --name telegraf -d \
 
 ```
 
-运行在容器里的telegraf监控宿主机资源
+运行在容器里的 telegraf 监控宿主机资源
 https://www.jacobtomlinson.co.uk/monitoring/2016/06/23/running-telegraf-inside-a-container/
 
 
-### wireguard
+### wireguard, telegraf
     https://github.com/influxdata/telegraf/blob/master/plugins/inputs/wireguard/README.md
       
+### exec
+
+```bash
+[[inputs.exec]]
+  ## Commands array
+  commands = [
+    "/data/blog/count.sh"
+  ]
+
+  ## Timeout for each command to complete.
+  timeout = "60s"
+
+  ## measurement name suffix (for separating different commands)
+  name_suffix = "_collector"
+
+  ## Data format to consume.
+  ## Each data format has its own unique set of configuration options, read
+  ## more about them here:
+  ## https://github.com/influxdata/telegraf/blob/master/docs/DATA_FORMATS_INPUT.md
+  data_format = "influx"
+```
+
+
+#### count.sh
+```bash
+#!/bin/sh
+cd /data/blog/wiloon.com
+git pull>/dev/null
+post_count=$(ls -lR content/post |grep '\.md'|wc -l)
+word_count=$(ls -lR content/post |grep '\.md'|wc -m)
+
+echo 'blog,domain=wiloon post_count='''$post_count'''i,word_count='''$word_count'''i'
+
+
+```
+>https://github.com/influxdata/telegraf/blob/release-1.21/plugins/inputs/exec/README.md
+

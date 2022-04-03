@@ -32,11 +32,11 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
   
 -n requests Number of requests to perform
   
-//在测试会话中所执行的请求个数（本次测试总共要访问页面的次数) 。默认时,仅执行一个请求。
+//在测试会话中所执行的请求个数 (本次测试总共要访问页面的次数) 。默认时,仅执行一个请求。
 
 -c concurrency Number of multiple requests to make
   
-//一次产生的请求个数（并发数) 。默认是一次一个。
+//一次产生的请求个数 (并发数) 。默认是一次一个。
 
 -t timelimit Seconds to max. wait for responses
   
@@ -44,11 +44,11 @@ ab -n 1 -c 1 -p abpost.txt -T 'application/json' "http://127.0.0.1:8080/"
 
 -p postfile File containing data to POST
   
-//包含了需要POST的数据的文件,文件格式如"p1=1&p2=2".使用方法是 -p 111.txt 。 （配合-T) 
+//包含了需要POST的数据的文件,文件格式如"p1=1&p2=2".使用方法是 -p 111.txt 。  (配合-T) 
 
 -T content-type Content-type header for POSTing
   
-//POST数据所使用的Content-type头信息,如 -T "application/x-www-form-urlencoded" 。 （配合-p) 
+//POST数据所使用的Content-type头信息,如 -T "application/x-www-form-urlencoded" 。  (配合-p) 
 
 -v verbosity How much troubleshooting info to print
   
@@ -118,7 +118,7 @@ ApacheBench用法详解:
 
 如果是Win系统下,打开cmd命令行窗口,cd到apache安装目录的bin目录下；
 
--n后面的4000代表总共发出4000个请求；-c后面的1000表示采用1000个并发（模拟1000个人同时访问) ,后面的网址表示测试的目标URL。
+-n后面的4000代表总共发出4000个请求；-c后面的1000表示采用1000个并发 (模拟1000个人同时访问) ,后面的网址表示测试的目标URL。
 
  
 
@@ -146,7 +146,7 @@ http://nanchengru.com/2015/01/apache-ab%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%
 
 
   
-    （总结) Web性能压力测试工具之ApacheBench（ab) 详解
+     (总结) Web性能压力测试工具之ApacheBench (ab) 详解
   
 
 

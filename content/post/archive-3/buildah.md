@@ -11,6 +11,7 @@ tags:
 ---
 ## buildah
 ```bash
+sudo pacman -S fuse-overlayfs
 sudo pacman -S buildah
 
 # buildah needs to run as root!!!
@@ -19,6 +20,7 @@ buildah images
 
 ### buildah bud -f Dockerfile -t <tag0> .
 buildah bud -f Dockerfile -t fedora-httpd .
+buildah push registry.wiloon.com/pingd-proxy:v0.0.1
 
 # list all containers
 buildah containers

@@ -23,21 +23,21 @@ HTTP Header中的ETag
   
 Etag[1] 是URL的Entity Tag,用于标示URL对象是否改变,区分不同语言和Session等等。具体内部含义是使服务器控制的,就像Cookie那样。
   
-HTTP协议规格说明定义ETag为"被请求变量的实体值"。另一种说法是,ETag是一个可以与Web资源关联的记号（token) 。典型的Web资源可以一个Web页,但也可能是JSON或XML文档。服务器单独负责判断记号是什么及其含义,并在HTTP响应头中将其传送到客户端,以下是服务器端返回的格式: ETag:"50b1c1d4f775c61:df3"客户端的查询更新格式是这样的: If-None-Match : W / "50b1c1d4f775c61:df3"如果ETag没改变,则返回状态304然后不返回,这也和Last-Modified一样。测试Etag主要在断点下载时比较有用。
+HTTP协议规格说明定义ETag为"被请求变量的实体值"。另一种说法是,ETag是一个可以与Web资源关联的记号 (token) 。典型的Web资源可以一个Web页,但也可能是JSON或XML文档。服务器单独负责判断记号是什么及其含义,并在HTTP响应头中将其传送到客户端,以下是服务器端返回的格式: ETag:"50b1c1d4f775c61:df3"客户端的查询更新格式是这样的: If-None-Match : W / "50b1c1d4f775c61:df3"如果ETag没改变,则返回状态304然后不返回,这也和Last-Modified一样。测试Etag主要在断点下载时比较有用。
   
 性能
   
-聪明的服务器开发者会把ETags和GET请求的"If-None-Match"头一起使用,这样可利用客户端（例如浏览器) 的缓存。因为服务器首先产生ETag,服务器可在稍后使用它来判断页面是否已经被修改。本质上,客户端通过将该记号传回服务器要求服务器验证其（客户端) 缓存。
+聪明的服务器开发者会把ETags和GET请求的"If-None-Match"头一起使用,这样可利用客户端 (例如浏览器) 的缓存。因为服务器首先产生ETag,服务器可在稍后使用它来判断页面是否已经被修改。本质上,客户端通过将该记号传回服务器要求服务器验证其 (客户端) 缓存。
   
 其过程如下: 
   
-客户端请求一个页面（A) 。 服务器返回页面A,并在给A加上一个ETag。 客户端展现该页面,并将页面连同ETag一起缓存。 客户再次请求页面A,并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag,并判断出该页面自上次客户端请求之后还未被修改,直接返回响应304（未修改——Not Modified) 和一个空的响应体。
+客户端请求一个页面 (A) 。 服务器返回页面A,并在给A加上一个ETag。 客户端展现该页面,并将页面连同ETag一起缓存。 客户再次请求页面A,并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag,并判断出该页面自上次客户端请求之后还未被修改,直接返回响应304 (未修改——Not Modified) 和一个空的响应体。
   
 优势
   
 1. 有些URL是多语言的网页,相同的URL会返回不同的东西。还有不同的Session有不同的Cookie也就有不同的内容。这种情况下如果过 Proxy,Proxy就无法区分导致串门,只能简单的取消cache功能。Etag解决了这个问题,因为它能区分相同URL不同的对象。
   
-2. 老的HTTP标准里有个Last-Modified+If-Modified-Since表明URL对象是否改变。Etag也具有这种功能,因为对象改变也造成Etag改变,并且它的控制更加准确。Etag有两种用法 If-Match/If-None-Match,就是如果服务器的对象和客户端的对象ID（不) 匹配才执行。这里的If-Match/If-None- Match都能一次提交多个Etag。If-Match可以在Etag未改变时断线重传。If-None-Match可以刷新对象（在有新的Etag时返回) 。
+2. 老的HTTP标准里有个Last-Modified+If-Modified-Since表明URL对象是否改变。Etag也具有这种功能,因为对象改变也造成Etag改变,并且它的控制更加准确。Etag有两种用法 If-Match/If-None-Match,就是如果服务器的对象和客户端的对象ID (不) 匹配才执行。这里的If-Match/If-None- Match都能一次提交多个Etag。If-Match可以在Etag未改变时断线重传。If-None-Match可以刷新对象 (在有新的Etag时返回) 。
   
 3. Etag中有种Weak Tag,值为 W/"xxxxx"。他声明Tag是弱匹配的,只能做模糊匹配,在差异达到一定阀值时才起作用。
   

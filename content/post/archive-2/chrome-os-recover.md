@@ -18,7 +18,7 @@ open chrome and install Chromebook Recovery Utility
   
 在出现错误的 Chromebook 上: 
 
-如果您在这台 Chromebook 上连接了任何设备（例如鼠标或外部硬盘) ,请将其取下。
+如果您在这台 Chromebook 上连接了任何设备 (例如鼠标或外部硬盘) ,请将其取下。
   
 进入恢复模式: 
   

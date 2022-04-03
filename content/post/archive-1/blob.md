@@ -17,10 +17,10 @@ tags:
   在计算机中，BLOB常常是数据库中用来存储二进制文件的字段类型。
 
 
-  BLOB是一个大文件，典型的BLOB是一张图片或一个声音文件，由于它们的尺寸，必须使用特殊的方式来处理（例如: 上传、下载或者存放到一个数据库) 。
+  BLOB是一个大文件，典型的BLOB是一张图片或一个声音文件，由于它们的尺寸，必须使用特殊的方式来处理 (例如: 上传、下载或者存放到一个数据库) 。
 
 
-  根据Eric Raymond的说法，处理BLOB的主要思想就是让文件处理器（如数据库管理器) 不去理会文件是什么，而是关心如何去处理它。
+  根据Eric Raymond的说法，处理BLOB的主要思想就是让文件处理器 (如数据库管理器) 不去理会文件是什么，而是关心如何去处理它。
 
 
   但也有专家强调，这种处理大数据对象的方法是把双刃剑，它有可能引发一些问题，如存储的二进制文件过大，会使数据库的性能下降。在数据库中存放体积较大的多媒体对象就是应用程序处理BLOB的典型例子。 
@@ -67,7 +67,7 @@ tags:
   
   
     Blob是指二进制大对象也就是英文Binary Large Object的所写，而Clob是指大字符对象也就是英文Character Large Object的所写。由此可见这辆个类型都是用来存储大量数据而设计的，其中BLOB是用来存储大量二进制数据的；CLOB用来存储大量文本数据。
- 那么有人肯定要问既然已经有VARCHAR和VARBINARY两中类型，为什么还要再使用另外的两种类型呢？其实问题很简单，VARCHAR和VARBINARY两种类型是有自己的局限性的。首先说这两种类型的长度还是有限的不可以超过一定的限额，以VARCHAR再ORA中为例长度不可以超过4000；那么有人又要问了，LONGVARCHAR类型作为数据库中的一种存储字符的类型可以满足要求，存储很长的字符，那为什么非要出现CLOB类型呢？其实如果你用过LONGVARCHAR类型就不难发现，该类型的一个重要缺陷就是不可以使用LIKE这样的条件检索。（稍候将介绍在CLOB中如何实现类似LIKE的模糊查找) 另外除了上述的问题外，还又一个问题，就是在数据库中VARCHAR和VARBINARY的存取是将全部内容从全部读取或写入，对于100K或者说更大数据来说这样的读写方式，远不如用流进行读写来得更现实一些。
+ 那么有人肯定要问既然已经有VARCHAR和VARBINARY两中类型，为什么还要再使用另外的两种类型呢？其实问题很简单，VARCHAR和VARBINARY两种类型是有自己的局限性的。首先说这两种类型的长度还是有限的不可以超过一定的限额，以VARCHAR再ORA中为例长度不可以超过4000；那么有人又要问了，LONGVARCHAR类型作为数据库中的一种存储字符的类型可以满足要求，存储很长的字符，那为什么非要出现CLOB类型呢？其实如果你用过LONGVARCHAR类型就不难发现，该类型的一个重要缺陷就是不可以使用LIKE这样的条件检索。 (稍候将介绍在CLOB中如何实现类似LIKE的模糊查找) 另外除了上述的问题外，还又一个问题，就是在数据库中VARCHAR和VARBINARY的存取是将全部内容从全部读取或写入，对于100K或者说更大数据来说这样的读写方式，远不如用流进行读写来得更现实一些。
  在JDBC中有两个接口对应数据库中的BLOB和CLOB类型，java.sql.Blob和java.sql.Clob。和你平常使用数据库一样你可以直接通过ResultSet.getBlob()方法来获取该接口的对象。与平时的查找唯一不同的是得到Blob或Clob的对象后，我们并没有得到任何数据，但是我们可以这两个接口中的方法得到数据
  例如: 
  Blob b=resultSet.getBlob(1);
@@ -84,7 +84,7 @@ tags:
  在这里我要说明一下，这个方法其实并不安全，如果你很细心的话，那很容易就能发现getByte()和getSubString()两个方法中的第二个参数都是int类型的，而BLOB和CLOB是用来存储大量数据的。而且Bolb.length()和Clob.length()的返回值都是long类型的，所以很不安全。这里不建议使用。但为什么要在这里提到这个方法呢？稍候告诉你答案，这里你需要记住使用数据块是一种方法。 
     
     
-      在存储的时候也同样的在PreparedStatement和CallableStatememt中，以参数的形式使用setBlob()和setClob方法把Blob和Clob对象作为参数传递给SQL。这听起来似乎很简单对吧，但是并非我们想象的这样，很不幸由于这两个类型的特殊，JDBC并没有提供独立于数据库驱动的Blob和Clob建立对象。因此需要自己编写与驱动有关的代码，但这样又牵掣到移植性。怎样才是解决办法呢？这就要用到前面说过的思想了使用数据块进行写操作。同样用PreparedStatement和CallableStatememt类，但参数的设置可以换为setAsciiStream、setBinaryStream、setCharacterStream、setObject（当然前3个同样存在长度的问题) 
+      在存储的时候也同样的在PreparedStatement和CallableStatememt中，以参数的形式使用setBlob()和setClob方法把Blob和Clob对象作为参数传递给SQL。这听起来似乎很简单对吧，但是并非我们想象的这样，很不幸由于这两个类型的特殊，JDBC并没有提供独立于数据库驱动的Blob和Clob建立对象。因此需要自己编写与驱动有关的代码，但这样又牵掣到移植性。怎样才是解决办法呢？这就要用到前面说过的思想了使用数据块进行写操作。同样用PreparedStatement和CallableStatememt类，但参数的设置可以换为setAsciiStream、setBinaryStream、setCharacterStream、setObject (当然前3个同样存在长度的问题) 
  下面给大家个例子以方便大家理解
  public void insertFile(File f)  throws Exception{
  FileInputStream fis=new FileInputStream(f,Connection conn);
@@ -150,7 +150,7 @@ tags:
     
     
     
-      另外似乎前面还提到过LIKE检索的问题。LONGVARCHAR类型中不可以用LIKE查找（至少ORA中不可以使用，其他的数据库我没有试过) ，在ORA中我们可以使用这样一个函数dbms_lob.instr来代替LIKE来个例子吧
+      另外似乎前面还提到过LIKE检索的问题。LONGVARCHAR类型中不可以用LIKE查找 (至少ORA中不可以使用，其他的数据库我没有试过) ，在ORA中我们可以使用这样一个函数dbms_lob.instr来代替LIKE来个例子吧
     
     
     

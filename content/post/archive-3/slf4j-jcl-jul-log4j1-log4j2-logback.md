@@ -12,11 +12,12 @@ tags:
 ## slf4j、jcl、jul、log4j1、log4j2、logback
 
 ### slf4j > log4j2.x
-log4j-slf4j-impl slf4j到log4j2的桥梁
+
+log4j-slf4j-impl slf4j 到 log4j2 的桥梁
 
 ### 直接依赖log4j1.x的换成log4j2输出, log4j1.x > slf4j
   * 排除掉log4j jar包
-  * 引入依赖包 log4j-over-slf4j（实现log4j1桥接到slf4j) 
+  * 引入依赖包 log4j-over-slf4j (实现log4j1桥接到slf4j) 
 
 ```xml
 <dependency>

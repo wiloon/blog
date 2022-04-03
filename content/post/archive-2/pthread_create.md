@@ -46,7 +46,7 @@ pthread.h是UNIX环境创建线程函数头文件
 ```c
 #include<pthread.h>
   
-int pthread_create(pthread_t *restrict tidp,const pthread_attr_t  *restrict_attr,void  *（ *start_rtn)(void *),void  *restrict arg);
+int pthread_create(pthread_t *restrict tidp,const pthread_attr_t  *restrict_attr,void  * ( *start_rtn)(void *),void  *restrict arg);
   
 extern int pthread_create (pthread_t *__restrict __newthread,
                         const pthread_attr_t *__restrict __attr,
@@ -141,7 +141,7 @@ $ ./a.out
 
 向线程函数传递参数分为两种: 
 
-（1) 线程函数只有一个参数的情况: 直接定义一个变量通过应用传给线程函数。
+ (1) 线程函数只有一个参数的情况: 直接定义一个变量通过应用传给线程函数。
 
 例子: 
 

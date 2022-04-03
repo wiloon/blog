@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
   
 public static void getObjectValue(Object object) throws Exception {
   
-//我们项目的所有实体类都继承BaseDomain （所有实体基类: 该类只是串行化一下) 
+//我们项目的所有实体类都继承BaseDomain  (所有实体基类: 该类只是串行化一下) 
   
 //不需要的自己去掉即可
   
@@ -54,7 +54,7 @@ if (field.getGenericType().toString().equals(
   
 * 这里需要说明一下: 他是根据拼凑的字符来找你写的getter方法的
   
-* 在Boolean值的时候是isXXX（默认使用ide生成getter的都是isXXX) 
+* 在Boolean值的时候是isXXX (默认使用ide生成getter的都是isXXX) 
   
 * 如果出现NoSuchMethod异常 就说明它找不到那个gettet方法 需要做个规范
   

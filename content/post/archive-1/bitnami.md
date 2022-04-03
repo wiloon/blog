@@ -14,6 +14,6 @@ tags:
 
 如果仅看以上介绍,您可能觉得BitNami 并没有什么值得期待的地方,事实上,BitNami 可谓博大精深,一起来看看BitNami 可以为我们提供哪些精彩的服务吧。
 
-首先,BitNami 提供多个国外著名开源软件傻瓜化安装包（BitNami Stack) ,针对其中的每个软件都提供了Native（本地安装) 、VM virtual（可供 VMWare 和 VirtualBox加载使用的最小化linux操作系统和相应BitNami Stack) 、Cloud（支持运行于Amazon EC2) 三个大分支。其中Native（本地安装) 又包含了Windows、Linux、Mac x86、Mac PPC四个小分支,VM virtual则包括openSUSE 11.3、Ubuntu 10.10两个小分支。
+首先,BitNami 提供多个国外著名开源软件傻瓜化安装包 (BitNami Stack) ,针对其中的每个软件都提供了Native (本地安装) 、VM virtual (可供 VMWare 和 VirtualBox加载使用的最小化linux操作系统和相应BitNami Stack) 、Cloud (支持运行于Amazon EC2) 三个大分支。其中Native (本地安装) 又包含了Windows、Linux、Mac x86、Mac PPC四个小分支,VM virtual则包括openSUSE 11.3、Ubuntu 10.10两个小分支。
 
-目前,已经发布了包括: SugarCRM、Redmine、Drupal、Wordpress、Joomla在内的28个BitNami Stack。其次,BitNami 提供多个供多个与开发架构包（BitNami Infrastructure Stacks) : WAMP/LAMP/MAMP/WAPP/LAPP/MAPP/Ruby/JRuby/Django/Tomcat/JBoss/BitNami。
+目前,已经发布了包括: SugarCRM、Redmine、Drupal、Wordpress、Joomla在内的28个BitNami Stack。其次,BitNami 提供多个供多个与开发架构包 (BitNami Infrastructure Stacks) : WAMP/LAMP/MAMP/WAPP/LAPP/MAPP/Ruby/JRuby/Django/Tomcat/JBoss/BitNami。

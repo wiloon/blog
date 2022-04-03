@@ -16,7 +16,7 @@ https://blog.csdn.net/test1280/article/details/75268255
   
 首先我们要了解下啥是填充模式。
 
-在分组加密算法中（例如DES) ,我们首先要将原文进行分组,然后每个分组进行加密,然后组装密文。
+在分组加密算法中 (例如DES) ,我们首先要将原文进行分组,然后每个分组进行加密,然后组装密文。
 
 其中有一步是分组。
 
@@ -28,9 +28,9 @@ https://blog.csdn.net/test1280/article/details/75268255
 
 例如,有一个17字节的数据,BlockSize是8字节,怎么分组？
 
-我们可以对原文进行填充（padding) ,将其填充到8字节的整数倍！
+我们可以对原文进行填充 (padding) ,将其填充到8字节的整数倍！
 
-假设使用PKCS#5进行填充（以下都是以PKCS#5为示例) ,BlockSize是8字节（64bit) : 
+假设使用PKCS#5进行填充 (以下都是以PKCS#5为示例) ,BlockSize是8字节 (64bit) : 
 
 待加密数据原长度为1字节: 
   
@@ -172,11 +172,11 @@ If the original data is an integer multiple of N bytes, then an extra block of b
 
 PKCS#5在填充方面,是PKCS#7的一个子集: 
 
-PKCS#5只是对于8字节（BlockSize=8) 进行填充,填充内容为0x01-0x08；
+PKCS#5只是对于8字节 (BlockSize=8) 进行填充,填充内容为0x01-0x08；
 
 但是PKCS#7不仅仅是对8字节填充,其BlockSize范围是1-255字节。
 
-所以,PKCS#5可以向上转换为PKCS#7,但是PKCS#7不一定可以转换到PKCS#5（用PKCS#7填充加密的密文,用PKCS#5解出来是错误的) 。
+所以,PKCS#5可以向上转换为PKCS#7,但是PKCS#7不一定可以转换到PKCS#5 (用PKCS#7填充加密的密文,用PKCS#5解出来是错误的) 。
 
 PKCS#5 padding is identical to PKCS#7 padding, except that it has only been defined for block ciphers that use a 64-bit (8 byte) block size. In practice the two can be used interchangeably
   

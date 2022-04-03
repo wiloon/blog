@@ -14,7 +14,7 @@ tags:
 http://zh.wikipedia.org/zh-cn/Jakarta%E9%A1%B9%E7%9B%AE
 Jakarta项目是在Apache软件基金会营运的开放源代码开发项目之一。开发着面向对象编程语言Java的程序库，框架等。
 Jakarta是Apache组织下的一套Java解决方案的开源软件的名称，它包括了很多子项目。Tomcat、Ant、Struts等等现在是Apache下的开源项目，也曾是Jakarta的关联项目。
-Jakarta的名称是想把与Jakarta关系非常深的爪哇岛关联起来。编程语言Java的命名源自这个岛的名字（印尼语: Jawa、英语: Java) ，而城市雅加达（Jakarta) 正是这个岛上的第一大城市，也是印度尼西亚的首府。
+Jakarta的名称是想把与Jakarta关系非常深的爪哇岛关联起来。编程语言Java的命名源自这个岛的名字 (印尼语: Jawa、英语: Java) ，而城市雅加达 (Jakarta) 正是这个岛上的第一大城市，也是印度尼西亚的首府。
 
 子项目
 其中，Jakarta项目所包括的相关工具、库以及框架等罗列如下: 

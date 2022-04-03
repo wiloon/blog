@@ -14,7 +14,7 @@ tags:
   http://www.jb51.net/article/22081.htm
 
 
-  获取页面某一元素的绝对X,Y坐标,可以用offset()方法: （body属性设置margin :0;padding:0;) 
+  获取页面某一元素的绝对X,Y坐标,可以用offset()方法:  (body属性设置margin :0;padding:0;) 
 
 
 

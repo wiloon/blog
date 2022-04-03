@@ -26,10 +26,10 @@ dd of=foo.bin bs=1k seek=5120 count=0
 
 参数
 
-if=FILE      : 指定输入文件，若不指定则从标注输入读取。这里指定为/dev/zero是Linux的一个伪文件，它可以产生连续不断的null流（二进制的0）
+if=FILE      : 指定输入文件，若不指定则从标注输入读取。这里指定为/dev/zero是Linux的一个伪文件，它可以产生连续不断的null流 (二进制的0）
 of=FILE      : 指定输出文件，若不指定则输出到标准输出
 bs=BYTES     : 每次读写的字节数，可以使用单位K、M、G等等。另外输入输出可以分别用ibs、obs指定，若使用bs，则表示是ibs和obs都是用该参数
-count=BLOCKS : 读取的block数，block的大小由ibs指定（只针对输入参数）
+count=BLOCKS : 读取的block数，block的大小由ibs指定 (只针对输入参数）
 
 dd 的主要选项: 
 
@@ -261,7 +261,7 @@ dd if=/dev/cdrom of=/root/cd.iso
 
 dd if=/dev/zero of=/swapfile bs=1024 count=262144
   
-创建一个足够大的文件（此处为256M) 
+创建一个足够大的文件 (此处为256M) 
   
 mkswap /swapfile
   
@@ -308,7 +308,7 @@ dd if=/dev/zero of=/root/1Gb.file bs=1024 count=1000000
 
 dd if=/dev/sda of=/dev/sda
   
-当硬盘较长时间（比如1，2年) 放置不使用后，磁盘上会产生magnetic flux point。当磁头读到这些区域时会遇到困难，并可能导致I/O错误。当这种情况影响到硬盘的第一个扇区时，可能导致硬盘报废。上边的命令有可能使这些数据起死回生。且这个过程是安全，高效的。
+当硬盘较长时间 (比如1，2年) 放置不使用后，磁盘上会产生magnetic flux point。当磁头读到这些区域时会遇到困难，并可能导致I/O错误。当这种情况影响到硬盘的第一个扇区时，可能导致硬盘报废。上边的命令有可能使这些数据起死回生。且这个过程是安全，高效的。
 
 >http://www.linuxso.com/command/dd.html
 >https://blog.csdn.net/beswkwangbo/article/details/46375795

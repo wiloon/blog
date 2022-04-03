@@ -12,7 +12,7 @@ tags:
 ## 'go,  time.Tick, tick immediately'
 How to get time.Tick to tick immediately
 
-```golang
+```go
 ticker := time.NewTicker(period)
 for ; true; <-ticker.C {
     ...

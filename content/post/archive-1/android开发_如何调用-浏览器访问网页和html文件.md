@@ -36,7 +36,7 @@ startActivity(intent);
   
 1. 指定android自带的浏览器访问
 
-（ "com.android.browser": packagename   ；"com.android.browser.BrowserActivity": 启动主activity) 
+ ( "com.android.browser": packagename   ；"com.android.browser.BrowserActivity": 启动主activity) 
   
 Intent intent= new Intent();
   
@@ -50,7 +50,7 @@ intent.setClassName("com.android.browser","com.android.browser.BrowserActivity")
   
 startActivity(intent);
 
-2. 启动其他浏览器（当然该浏览器必须安装在机器上) 
+2. 启动其他浏览器 (当然该浏览器必须安装在机器上) 
   
 只要修改以下相应的packagename 和 主启动activity即可调用其他浏览器
 

@@ -64,9 +64,9 @@ ReservedOSMemory: Native heap,JNI
 
 (MaxProcessMemory<固定值> – Xms<初始化值,最小值> – XX:PermSize<初始化值,最小值> – 100m<估算值>) / Xss = Number of threads<最大值>
 
-在本地(32bit windows)试了试,可达的线程的最大值差不多就是这个数,它不受物理内存的限制,会利用虚拟内存,从任务管理器看到memory已经是5500 m左右了（开了两个jvm) ,我机器的物理内存是2g,也不知道这个准不准,后来还抛出了"unable to create new native thread"的兄弟"Exception in thread "CompilerThread0" java.lang.OutOfMemoryError: requested 471336 bytes for Chunk::new. Out of swap space?"。
+在本地(32bit windows)试了试,可达的线程的最大值差不多就是这个数,它不受物理内存的限制,会利用虚拟内存,从任务管理器看到memory已经是5500 m左右了 (开了两个jvm) ,我机器的物理内存是2g,也不知道这个准不准,后来还抛出了"unable to create new native thread"的兄弟"Exception in thread "CompilerThread0" java.lang.OutOfMemoryError: requested 471336 bytes for Chunk::new. Out of swap space?"。
 
-本地测完了后,就该轮到dev环境了,linux2.6,64bit,双核,8G（虚拟机) ,总的物理内存是16g。在上面整了一下,创建到了15000多个线程的时候挂掉了。此时其他application也不能创建新的线程,而且db也报错了,操作系统不能fork新的线程了。这应该是操作系统的哪里限制了新线程的创建,
+本地测完了后,就该轮到dev环境了,linux2.6,64bit,双核,8G (虚拟机) ,总的物理内存是16g。在上面整了一下,创建到了15000多个线程的时候挂掉了。此时其他application也不能创建新的线程,而且db也报错了,操作系统不能fork新的线程了。这应该是操作系统的哪里限制了新线程的创建,
 
 ·         max thread,linux2.6似乎是32000
 
@@ -120,7 +120,7 @@ max memory size         (kbytes, -m) unlimited
 
 stack size              (kbytes, -s) 10240
 
-最后发现只有max user processes 和virtual memory对总的线程数有影响,我把max user processes降到2048后,发现此时只能创建 2000左右个线程了(Xms64m, Xss1m),进一步地把virtual memory下调到2048000K发现能创建的就更少了1679（Xms64m, Xss1m) ,而它只会对当前shell起作用,而多个application server应该是不同的shell,所以他是打酱油的。另外两个参数好像就是来做做俯卧撑的,操作系统stack size是不应该会有什么影响,我们把它上调到102400,还是可以创建2000左右的线程数（max user processes) ,因为java有自己的线程模型,它的栈的大小是用Xss来控制的。Max memory size不知道是啥东西,照理说如果是最大内存应该不会只在旁边做俯卧撑,那这个参数到底是春哥还是曾哥,查了一下man ulimit,有下面解释
+最后发现只有max user processes 和virtual memory对总的线程数有影响,我把max user processes降到2048后,发现此时只能创建 2000左右个线程了(Xms64m, Xss1m),进一步地把virtual memory下调到2048000K发现能创建的就更少了1679 (Xms64m, Xss1m) ,而它只会对当前shell起作用,而多个application server应该是不同的shell,所以他是打酱油的。另外两个参数好像就是来做做俯卧撑的,操作系统stack size是不应该会有什么影响,我们把它上调到102400,还是可以创建2000左右的线程数 (max user processes) ,因为java有自己的线程模型,它的栈的大小是用Xss来控制的。Max memory size不知道是啥东西,照理说如果是最大内存应该不会只在旁边做俯卧撑,那这个参数到底是春哥还是曾哥,查了一下man ulimit,有下面解释
 
 -a     All current limits are reported
 

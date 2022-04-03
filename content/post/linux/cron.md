@@ -12,29 +12,33 @@ tags:
 ---
 ## cron, crond, crontab, linux 定时任务, cronie
 ### 安装 cron
+
 ```bash
 # archlinux 
 pacman -S cronie
 
-# 查看cron是否已经 安装
+# 查看 cron 是否已经安装
 # centos
 yum list installed |grep cron
-yum install cronie    # vixie-cron 已经不再维护, 建议安装cronie
-
+yum install cronie    # vixie-cron 已经不再维护, 建议安装 cronie
 ```
+
+### 查看 crond 状态
+```bash
+# check status
+systemctl status crond
+service crond status
+# cron log path
+/var/log/cron
+```
+
 ### 创建定时任务
+
 ```bash
 crontab -e # 执行后会跳转到vi (依赖环境变量配置,默认一般是vi)
 # vi状态下插入一行, 每三分钟插入一行数据到/tmp/foo.txt
 */3 * * * * echo "foo" >> /tmp/foo.txt
 #3分钟之后查看文件  /tmp/foo.txt 应该已经有数据了.
-```
-### 查看crond 状态
-```bash
-# check status
-service crond status
-# cron log path
-/var/log/cron
 ```
 
 ```bash
@@ -156,15 +160,15 @@ _/1 * * * * ls >> /tmp/ls.txt
   
 这个格式的前一部分是对时间的设定，后面一部分是要执行的命令，如果要执行的命令太多，可以把这些命令写到一个脚本里面，然后在这里直接调用这个脚本就可 以了，调用的时候记得写出命令的完整路径。时间的设定我们有一定的约定，前面五个_号代表五个数字，数字的取值范围和含义如下: 
 
-分钟（0-59) 
+分钟 (0-59) 
   
-小时（0-23) 
+小时 (0-23) 
   
-日期（1-31) 
+日期 (1-31) 
   
-月份（1-12) 
+月份 (1-12) 
   
-星期（0-6) //0代表星期天
+星期 (0-6) //0代表星期天
   
 除了数字还有几个个特殊的符号就是"_"、"/"和"-"、","，_代表所有的取值范围内的数字，"/"代表每的意思,"*/5″表示每5个单位，"-"代表从某个数字到某个数字,","分开几个离散的数字。以下举几个例子说明问题: 
 
@@ -230,7 +234,7 @@ Day : 日期，1 ~ 31
   
 Month : 月份，1 ~ 12 或 jan、feb…
   
-DayOfWeek? : 0（星期日) ~ 6（星期六) ，或 mon、tue…
+DayOfWeek? : 0 (星期日) ~ 6 (星期六) ，或 mon、tue…
   
 Command : 所要执行的指令，中间以 ; 来分隔多个指令。
 

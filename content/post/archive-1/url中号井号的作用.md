@@ -31,13 +31,13 @@ href="#"   #可以改成你要连接的地址   点击就链接到你的网址
 
 不管第一个井号后面跟的是什么参数,只要是在井号后面的参数一律看成是位置标识符。
 
-比如这样一个链接（_http://example.com/?color=#ffff&shape=circle_) ,后面跟的参数是颜色和形状,但是服务器却并不能理解URL中的含义。服务器接收到的只是: _http://example.com/?color=_
+比如这样一个链接 (_http://example.com/?color=#ffff&shape=circle_) ,后面跟的参数是颜色和形状,但是服务器却并不能理解URL中的含义。服务器接收到的只是: _http://example.com/?color=_
 
 **4. 改变井号后面的参数不会触发页面的重新加载但是会留下一个历史记录**
 
 仅改变井号后面的内容,只会使浏览器滚动到相应的位置,并不会重现加载页面。
 
-比如从_http://www.httpwatch.com/features.htm#filter_到_http://www.httpwatch.com/features.htm#print_,浏览器并不会去重新请求页面,但是此操作会在浏览器的历史记录中添加一次记录,即你可以通过返回按钮回答上次的位置。这个特性对Ajax来说特别的有用,可以通过设置不同井号值,来表示不同的访问状态,并返回不同的内容给用户。（注: 在IE6和IE7下井号的改变不会增加历史记录。) 
+比如从_http://www.httpwatch.com/features.htm#filter_到_http://www.httpwatch.com/features.htm#print_,浏览器并不会去重新请求页面,但是此操作会在浏览器的历史记录中添加一次记录,即你可以通过返回按钮回答上次的位置。这个特性对Ajax来说特别的有用,可以通过设置不同井号值,来表示不同的访问状态,并返回不同的内容给用户。 (注: 在IE6和IE7下井号的改变不会增加历史记录。) 
 
 **5、可以通过javascript使用window.location.hash来改变井号后面的值**
 

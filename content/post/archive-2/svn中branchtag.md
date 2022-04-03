@@ -20,11 +20,11 @@ svnbranchmergetortoisesvnurl测试
   
 在SVN中Branch/tag在一个功能选项中,在使用中也往往产生混淆。
 
-在实现上,branch和tag,对于svn都是使用copy实现的,所以他们在默认的权限上和一般的目录没有区别。至于何时用tag,何时用branch,完全由人主观的根据规范和需要来选择,而不是强制的（比如cvs) 。
+在实现上,branch和tag,对于svn都是使用copy实现的,所以他们在默认的权限上和一般的目录没有区别。至于何时用tag,何时用branch,完全由人主观的根据规范和需要来选择,而不是强制的 (比如cvs) 。
 
 一般情况下,
   
-tag,是用来做一个milestone的,不管是不是release,都是一个可用的版本。这里,应该是只读的。更多的是一个显示用的,给人一个可读（readable) 的标记。
+tag,是用来做一个milestone的,不管是不是release,都是一个可用的版本。这里,应该是只读的。更多的是一个显示用的,给人一个可读 (readable) 的标记。
   
 branch,是用来做并行开发的,这里的并行是指和trunk进行比较。
 

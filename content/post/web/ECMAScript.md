@@ -17,7 +17,7 @@ https://blog.fundebug.com/2017/09/11/object-assign/
 ES6提供了Object.assign()，用于合并/复制对象的属性。
 
 ### 箭头函数
-ES6标准新增了一种新的函数: Arrow Function（箭头函数) 。
+ES6标准新增了一种新的函数: Arrow Function (箭头函数) 。
 
 为什么叫Arrow Function？因为它的定义用的就是一个箭头: 
 

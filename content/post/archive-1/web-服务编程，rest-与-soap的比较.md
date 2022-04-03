@@ -14,11 +14,11 @@ REST 简介
 
 在开始我们的正式讨论之前,让我们简单看一下 REST 的定义。
 
-REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述互联系统架构风格的名词。为什么称为 REST？Web 本质上由各种各样的资源组成,资源由 URI 唯一标识。浏览器（或者任何其它类似于浏览器的应用程序) 将展示出该资源的一种表现方式,或者一种表现状态。如果用户在该页面中定向到指向其它资源的链接,则将访问该资源,并表现出它的状态。这意味着客户端应用程序随着每个资源表现状态的不同而发生状态转移,也即所谓 REST。
+REST (Representational State Transfer) 是 Roy Fielding 提出的一个描述互联系统架构风格的名词。为什么称为 REST？Web 本质上由各种各样的资源组成,资源由 URI 唯一标识。浏览器 (或者任何其它类似于浏览器的应用程序) 将展示出该资源的一种表现方式,或者一种表现状态。如果用户在该页面中定向到指向其它资源的链接,则将访问该资源,并表现出它的状态。这意味着客户端应用程序随着每个资源表现状态的不同而发生状态转移,也即所谓 REST。
 
 关于 REST 本身,本文就不再这里过多地讨论,读者可以参考 developerWorks 上其它介绍 REST 的文章。本文的重点在于通过 REST 与 SOAP Web 服务的对比,帮助读者更深刻理解 REST 架构风格的特点,优势。
 
-应用场景介绍（在线用户管理) 
+应用场景介绍 (在线用户管理) 
 
 本文将借助于一个应用场景,通过基于 REST 和 SOAP Web 服务的不同实现,来对两者进行对比。该应用场景的业务逻辑会尽量保持简单且易于理解,以有助于把我们的重心放在 REST 和 SOAP Web 服务技术特质对比上。
 
@@ -26,7 +26,7 @@ REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述�
 
 这是一个在线的用户管理模块,负责用户信息的创建,修改,删除,查询。用户的信息主要包括: 
 
-  * 用户名（唯一标志在系统中的用户) 
+  * 用户名 (唯一标志在系统中的用户) 
   * 头衔
   * 公司
   * EMAIL
@@ -38,7 +38,7 @@ REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述�
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/1.jpg" alt="REST" width="393" height="345" />
 
-如图 1 所示,客户端 1（Client1) 与客户端 2（Client2) 对于信息的存取具有不同的权限,客户端 1 可以执行所有的操作,而客户端 2 只被允许执行用户查询（Query User) 与用户列表查询（Query User List) 。关于这一点,我们在对 REST Web 服务与 SOAP Web 服务安全控制对比时会具体谈到。下面我们将分别向您介绍如何使用 REST 和 SOAP 架构实现 Web 服务。
+如图 1 所示,客户端 1 (Client1) 与客户端 2 (Client2) 对于信息的存取具有不同的权限,客户端 1 可以执行所有的操作,而客户端 2 只被允许执行用户查询 (Query User) 与用户列表查询 (Query User List) 。关于这一点,我们在对 REST Web 服务与 SOAP Web 服务安全控制对比时会具体谈到。下面我们将分别向您介绍如何使用 REST 和 SOAP 架构实现 Web 服务。
 
 
 使用 REST 实现 Web 服务
@@ -47,7 +47,7 @@ REST（Representational State Transfer) 是 Roy Fielding 提出的一个描述�
 
 设计
 
-我们将采用遵循 REST 设计原则的 ROA（Resource-Oriented Architecture,面向资源的体系架构) 进行设计。ROA 是什么？简单点说,ROA 是一种把实际问题转换成 REST 式 Web 服务的方法,它使得 URI、HTTP 和 XML 具有跟其他 Web 应用一样的工作方式。
+我们将采用遵循 REST 设计原则的 ROA (Resource-Oriented Architecture,面向资源的体系架构) 进行设计。ROA 是什么？简单点说,ROA 是一种把实际问题转换成 REST 式 Web 服务的方法,它使得 URI、HTTP 和 XML 具有跟其他 Web 应用一样的工作方式。
 
 在使用 ROA 进行设计时,我们需要把真实的应用需求转化成 ROA 中的资源,基本上遵循以下的步骤: 
 
@@ -199,7 +199,7 @@ private static void printUserByURI(String uri) {
 
 服务器端实现
 
-清单 4 给出的是服务器端对于用户资源类（UserResourc) 的实现,其核心的功能是响应有关用户资源的 HTTP GET/PUT/DELETE 请求,而这些请求响应逻辑正对应了 UserRestHelper 类中关于用户资源类的 HTTP 请求。
+清单 4 给出的是服务器端对于用户资源类 (UserResourc) 的实现,其核心的功能是响应有关用户资源的 HTTP GET/PUT/DELETE 请求,而这些请求响应逻辑正对应了 UserRestHelper 类中关于用户资源类的 HTTP 请求。
   
 **清单 4. 服务器端实现**
 
@@ -273,7 +273,7 @@ private Document createDocument(User user) {
 
 
 
-UserResource 类是对用户资源类的抽象,包括了对该资源的创建修改（put 方法) ,读取（handleGet 方法 ) 和删除（delete 方法) ,被创建出来的 UserResource 类实例被 Restlet 框架所托管,所有操纵资源的方法会在相应的 HTTP 请求到达后被自动回调。
+UserResource 类是对用户资源类的抽象,包括了对该资源的创建修改 (put 方法) ,读取 (handleGet 方法 ) 和删除 (delete 方法) ,被创建出来的 UserResource 类实例被 Restlet 框架所托管,所有操纵资源的方法会在相应的 HTTP 请求到达后被自动回调。
 
 另外,在服务端,还需要实现代表用户列表资源的资源类 UserListResource,它的实现与 UserResource 类似,响应 HTTP GET 请求,读取当前系统内的所有用户信息,形成如清单 1 所示的用户列表资源 Representation,然后返回该结果给客户端。具体的实现请读者参见本文所附的代码示例。
 
@@ -401,11 +401,11 @@ RESTful Web 服务使用标准的 HTTP 方法优势,从大的方面来讲: 标�
 
 同时,使用标准 HTTP 方法实现的 RRESTful Web 服务也带来了 HTTP 方法本身的一些优势: 
 
-  * **_无状态性（Stateless) _**
+  * **_无状态性 (Stateless) _**
 
 HTTP 协议从本质上说是一种无状态的协议,客户端发出的 HTTP 请求之间可以相互隔离,不存在相互的状态依赖。基于 HTTP 的 ROA,以非常自然的方式来实现无状态服务请求处理逻辑。对于分布式的应用而言,任意给定的两个服务请求 Request 1 与 Request 2, 由于它们之间并没有相互之间的状态依赖,就不需要对它们进行相互协作处理,其结果是: Request 1 与 Request 2 可以在任何的服务器上执行,这样的应用很容易在服务器端支持负载平衡 (load-balance)。
 
-  * **_安全操作与幂指相等特性（Safety /Idempotence) _**
+  * **_安全操作与幂指相等特性 (Safety /Idempotence) _**
 
 HTTP 的 GET、HEAD 请求本质上应该是安全的调用,即: GET、HEAD 调用不会有任何的副作用,不会造成服务器端状态的改变。对于服务器来说,客户端对某一 URI 做 n 次的 GET、HAED 调用,其状态与没有做调用是一样的,不会发生任何的改变。
 
@@ -431,7 +431,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
 
 一般代理服务器的实现根据 (URI, HTTP Method) 两元组来决定 HTTP 请求的安全合法性。
 
-当发现类似于（http://localhost:8182/v1/users/{username},DELETE) 这样的请求时,予以拒绝。
+当发现类似于 (http://localhost:8182/v1/users/{username},DELETE) 这样的请求时,予以拒绝。
 
 对于 SOAP,如果我们想借助于既有的代理服务器进行安全控制,会比较尴尬,如下图: 
   
@@ -439,7 +439,7 @@ HTTP 这些标准方法在原则上保证你的分布式系统具有这些特性
   
 <img src="http://www.ibm.com/developerworks/cn/webservices/0907_rest_soap/images/5.jpg" alt="REST" width="569" height="206" />
 
-所有的 SOAP 消息经过代理服务器,只能看到（`http://localhost:8182/v1/soap/servlet/messagerouter`, HTTP POST) 这样的信息,如果代理服务器想知道当前的 HTTP 请求具体做的是什么,必须对 SOAP 的消息体解码,这样的话,意味着要求第三方的代理服务器需要理解当前的 SOAP 消息语义,而这种 SOAP 应用与代理服务器之间的紧耦合关系是不合理的。
+所有的 SOAP 消息经过代理服务器,只能看到 (`http://localhost:8182/v1/soap/servlet/messagerouter`, HTTP POST) 这样的信息,如果代理服务器想知道当前的 HTTP 请求具体做的是什么,必须对 SOAP 的消息体解码,这样的话,意味着要求第三方的代理服务器需要理解当前的 SOAP 消息语义,而这种 SOAP 应用与代理服务器之间的紧耦合关系是不合理的。
 
 关于缓存
 

@@ -99,7 +99,7 @@ new一个Timer类，Timer的构造函数里会起一个单独的线程来执行�
 
 调用timer的cancle方法
   
-把timer线程设置成daemon线程，（new Timer(true)创建daemon线程) ，在jvm里，如果所有用户线程结束，那么守护线程也会被终止，不过这种方法一般不用。
+把timer线程设置成daemon线程， (new Timer(true)创建daemon线程) ，在jvm里，如果所有用户线程结束，那么守护线程也会被终止，不过这种方法一般不用。
   
 当所有任务执行结束后，删除对应timer对象的引用，线程也会被终止。
   

@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## linux version, Linux 查看版本, 发行版, 内核版本, uname
-## linux version, Linux 查看版本, 发行版,内核版本, uname
+
 
 ```bash
 # 查看内核版本

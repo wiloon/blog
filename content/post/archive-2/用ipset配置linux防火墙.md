@@ -73,7 +73,7 @@ https://fixatom.com/block-ip-with-ipset/
 
 iptables是在linux内核里配置防火墙规则的用户空间工具,它实际上是netfilter框架的一部分.可能因为iptables是netfilter框架里最常见的部分,所以这个框架通常被称为iptables,iptables是linux从2.4版本引入的防火墙解决方案.
   
-ipset是 Linux 防火墙iptables的一个伴随工具。是iptables的扩展,它允许你创建匹配整个地址sets（地址集合)  的规则。而不像普通的iptables链是线性的存储和过滤,ip集合存储在带索引的数据结构中,这种结构即时集合比较大也可以进行高效的查找.
+ipset是 Linux 防火墙iptables的一个伴随工具。是iptables的扩展,它允许你创建匹配整个地址sets (地址集合)  的规则。而不像普通的iptables链是线性的存储和过滤,ip集合存储在带索引的数据结构中,这种结构即时集合比较大也可以进行高效的查找.
 
 除了一些常用的情况,比如阻止一些危险主机访问本机,从而减少系统资源占用或网络拥塞,IPsets也具备一些新防火墙设计方法,并简化了配置.
 
@@ -85,7 +85,7 @@ ipset比传统的iptables拥有显著的性能提升和扩展特性,比如将单
 
 在许多的linux发布中ipset是一个简单的安装包,大家可以通过自己的linux发行版提供的包管理工具进行安装。
 
-需要理解的重点时,同iptables一样,ipset是由用户空间的工具和内核空间的模块两部分组成,所以你需要将这两部分都准备好。你也需要"ipset-aware"这个iptables 模块,这个模块用来增加 rules that match against sets。（……) 
+需要理解的重点时,同iptables一样,ipset是由用户空间的工具和内核空间的模块两部分组成,所以你需要将这两部分都准备好。你也需要"ipset-aware"这个iptables 模块,这个模块用来增加 rules that match against sets。 (……) 
 
 首先我们使用自己的linux发行版的包管理工具对ipset进行搜索。在ubuntu上安装需要安装ipset 和 xtables-addons-source 包,然后,运行module-assistant auto-install xtables-addons,等待大约30秒后ipset就可以使用了。
 
@@ -145,11 +145,11 @@ src 表示源地址,dst表示目标地址。如果同时使用 src 和 dst 表�
   
 Set Types
   
-每一个集合都是特定类型的,它不但定义了什么类型的值可以储存在里面(IP addresses, networks, ports and so on),而且定义了如何匹配数据包（换言之,数据包的那一部分需要被检查和如何检查) 。除了一些最通用的集合类型,比如检查ip地址,也提供了一些其他的集合类型,比如检查端口,地址和端口同时检查,mac地址和ip地址同时检查等。
+每一个集合都是特定类型的,它不但定义了什么类型的值可以储存在里面(IP addresses, networks, ports and so on),而且定义了如何匹配数据包 (换言之,数据包的那一部分需要被检查和如何检查) 。除了一些最通用的集合类型,比如检查ip地址,也提供了一些其他的集合类型,比如检查端口,地址和端口同时检查,mac地址和ip地址同时检查等。
   
 每一种集合类型都有自己的规则,这些规则表示集合的类型,范围,它包含的值得分布。不同的集合类型使用不同的类型索引,并且在不同的情况下被优化。需要根据不同的现实情况选择集合类型。
   
-最灵活的集合类型是iphash,它可以存储任意的ip地址和nethash（IP/mask) 。请参考ipset的man手册来了解所有的集合类型。
+最灵活的集合类型是iphash,它可以存储任意的ip地址和nethash (IP/mask) 。请参考ipset的man手册来了解所有的集合类型。
   
 setlist是一个特别的集合类型,它允许组织多个集合到一个集合里面。比如你需要一个单独的集合既包含ip地址又包含网络信息。
   
@@ -183,9 +183,9 @@ ipset的另一个优势是集合可以动态的修改,即使iptables的规则正
   
 Excluding WAN, VPN and Other Routed Networks from the NAT—the Right Way
 
-Outbound NAT (SNAT 或 IP 伪装)允许私有局域网内的主机访问internet.iptables NAT规则匹配私网内访问internat的包,并用网关地址替换包的源地址（使数据包看起来像是从网关发送的,从而隐藏网关后面的主机) 。
+Outbound NAT (SNAT 或 IP 伪装)允许私有局域网内的主机访问internet.iptables NAT规则匹配私网内访问internat的包,并用网关地址替换包的源地址 (使数据包看起来像是从网关发送的,从而隐藏网关后面的主机) 。
 
-NAT自动跟踪活动的连接,所以它能将返回的包发送给正确的内网主机（通过将数据包的目的地址修改为内部主机地址) 。
+NAT自动跟踪活动的连接,所以它能将返回的包发送给正确的内网主机 (通过将数据包的目的地址修改为内部主机地址) 。
 
 下面是一个简单的outbound NAT规则,10.0.0.0/24是内部局域网: 
 
@@ -201,11 +201,11 @@ iptables -t nat -A POSTROUTING \
   
 -o eth0 -j MASQUERADE
 
-该规则假设eth0是外部接口,该规则会匹配所有离开这个接口的包。与前面的规则不同的是,其他内网的数据包通过其它接口访问公网时不会匹配这条规则（比如OpenVPN的连接) 。
+该规则假设eth0是外部接口,该规则会匹配所有离开这个接口的包。与前面的规则不同的是,其他内网的数据包通过其它接口访问公网时不会匹配这条规则 (比如OpenVPN的连接) 。
 
 虽然许多连接是通过不同的接口路由,但并不能假设所有的链接都是这样。一个例子是基于KAME的IPsec VPN连接(比如 Openswan)就不是使用虚拟接口。
 
-不适用上面的接口匹配技术的另一种情况是如果向外的接口（连接到Internet的接口) 连接 路由到其他私有网络的中间网络,而不是连接到Internet。
+不适用上面的接口匹配技术的另一种情况是如果向外的接口 (连接到Internet的接口) 连接 路由到其他私有网络的中间网络,而不是连接到Internet。
 
 通过匹配物理接口来设计的防火墙规则可以使用在一些人为限制方面,并且依赖网络拓扑。
 
@@ -229,7 +229,7 @@ iptables -t nat -A POSTROUTING \
   
 -j MASQUERADE
 
-如我们所见,ipset 简单的实现了精确匹配。该规则伪装所有来自(10.0.0.0/24)的数据包,而不处理其他在routed_nets集合中的网络的包。由于该配置完全基于网络地址,所以你完全不用担心其他特殊的网络连接（比如VPN) ,也不用担心物理接口和网络拓扑。
+如我们所见,ipset 简单的实现了精确匹配。该规则伪装所有来自(10.0.0.0/24)的数据包,而不处理其他在routed_nets集合中的网络的包。由于该配置完全基于网络地址,所以你完全不用担心其他特殊的网络连接 (比如VPN) ,也不用担心物理接口和网络拓扑。
 
 Limiting Certain PCs to Have Access Only to Certain Public Hosts
 
@@ -369,7 +369,7 @@ ipset -F
   
 ipset -X
 
-如果集合正在被使用,意味着其它的iptables规则正在引用该集合,就不能对集合进行销毁（ipset -X),所以为了在任何状态下都完成reset,iptables链必须首先清除。
+如果集合正在被使用,意味着其它的iptables规则正在引用该集合,就不能对集合进行销毁 (ipset -X),所以为了在任何状态下都完成reset,iptables链必须首先清除。
 
 Conclusion
 

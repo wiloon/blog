@@ -13,6 +13,7 @@ tags:
 
 ### install
     pacman -S lrzsz
+    yum install lrzsz
 
 ### konsole
     Edit>Zmodem upload ( ctrl + alt + U )
@@ -65,40 +66,40 @@ zssh > rz //接住对应的文件
 
 在SecureCRT下的传输协议有ASCII、Xmodem、Ymodem、Zmodem4种。
 
-（1) ASCII: 这是最快的传输协议,但只能传送文本文件。
+ (1) ASCII: 这是最快的传输协议,但只能传送文本文件。
 
-（2) Xmodem: 这种古老的传输协议速度较慢,但由于使用了CRC错误侦测方法,传输的准确率可高达99.6%。
+ (2) Xmodem: 这种古老的传输协议速度较慢,但由于使用了CRC错误侦测方法,传输的准确率可高达99.6%。
 
-（3) Ymodem: 这是Xmodem的改良版,使用了1024位区段传送,速度比Xmodem要快。
+ (3) Ymodem: 这是Xmodem的改良版,使用了1024位区段传送,速度比Xmodem要快。
 
-（4) Zmodem: Zmodem采用了串流式（streaming) 传输方式,传输速度较快,而且还具有自动改变区段大小和断点续传、快速错误侦测等功能。这是目前最流行的文件传输协议。
+ (4) Zmodem: Zmodem采用了串流式 (streaming) 传输方式,传输速度较快,而且还具有自动改变区段大小和断点续传、快速错误侦测等功能。这是目前最流行的文件传输协议。
 
 SecureCRT可以使用linux下的zmodem协议来快速的传送文件. 在传送之前先设置好上传和下载的目录: 
 options->session options ->Terminal->Xmodem/Zmodem 下
 
 Zmodem传输数据会使用到2个命令: 
 
-  sz: 将选定的文件发送（send) 到本地机器
+  sz: 将选定的文件发送 (send) 到本地机器
 
   rz: 运行该命令会弹出一个文件选择窗口,从本地选择文件上传到服务器(receive)
 sz命令
 用途说明: sz命令是利用ZModem协议来从Linux服务器传送文件到本地,一次可以传送一个或多个文件。相对应的从本地上传文件到Linux服务器,可以使用rz命令。
 
 常用参数
--a 以文本方式传输（ascii) 。
+-a 以文本方式传输 (ascii) 。
 
--b 以二进制方式传输（binary) 。
+-b 以二进制方式传输 (binary) 。
 
--e 对控制字符转义（escape) ,这可以保证文件传输正确。
+-e 对控制字符转义 (escape) ,这可以保证文件传输正确。
 
 如果能够确定所传输的文件是文本格式的,使用 sz -a files
 
 如果是二进制文件,使用 sz -be files
 
 rz命令
--b 以二进制方式,默认为文本方式。（Binary (tell it like it is) file transfer override.) 
+-b 以二进制方式,默认为文本方式。 (Binary (tell it like it is) file transfer override.) 
 
--e 对所有控制字符转义。（Force sender to escape all control characters; normally XON, XOFF, DLE, CR-@-CR, and Ctrl-X are escaped.) 
+-e 对所有控制字符转义。 (Force sender to escape all control characters; normally XON, XOFF, DLE, CR-@-CR, and Ctrl-X are escaped.) 
 
 如果要保证上传的文件内容在服务器端保存之后与原始文件一致,最好同时设置这两个标志,如下所示方式使用: 
 

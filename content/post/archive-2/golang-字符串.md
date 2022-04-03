@@ -5,12 +5,34 @@ date: 2017-02-17T01:13:08+00:00
 url: go/string
 categories:
   - golang
-
 tags:
   - reprint
 ---
 ## golang 字符串/string
-### join
+
+## 判断字符串开头
+
+```go
+import (
+    "fmt"
+    "strings"
+)
+
+func main() {
+
+    myString := "www.topgoer.com"
+
+    // Option 1: (Recommended)
+    if strings.HasPrefix(myString, "www") {
+        fmt.Println("Hello to you too")
+    } else {
+        fmt.Println("Goodbye")
+    }
+}
+
+```
+### go, string, join
+
 ```go
 func main() {
     // 将字符串数组 拼接成 字符串
@@ -20,10 +42,22 @@ func main() {
     // 输出拼接好的字符串
     println(str)
 }
+
+
+package main
+ 
+import "strings"
+ 
+func main(){
+	a := "hahaha"
+	b := "hehehe"
+	c := strings.Join([]string{a,b},",")
+	println(c)
+
 ```
 ### 字符串截取
 
-```golang
+```go
 s := "abcdefg"
 s = string([]byte(s)[:3])
 fmt.Println(s) //得到 "abc"
@@ -39,7 +73,7 @@ last3  := s[len(s)-3:]
 
 ### 字符串比较
 
-```golang
+```go
 fmt.Println("go"=="go")
 fmt.Println("GO"=="go")
 
@@ -52,7 +86,7 @@ fmt.Println(strings.EqualFold("GO","go"))
 Compare函数,区分大小写,比自建方法"=="的速度要快
 
 ### 测试字符串是否为空
-```golang
+```go
 if len(mystring) > 0 { }
 if mystring != "" { }
 ```

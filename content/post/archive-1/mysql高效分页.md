@@ -28,7 +28,7 @@ SELECT * FROM `content` WHERE id <=
   
 (SELECT id FROM `content` ORDER BY id desc LIMIT ".($page-1)*$pagesize.", 1) ORDER BY id desc LIMIT $pagesize
 
-为什么会这样呢？因为子查询是在索引上完成的，而普通的查询时在数据文件上完成的，通常来说，索引文件要比数据文件小得多，所以操作起来也会更有效率。（via) 通过explain SQL语句发现: 子查询使用了索引！
+为什么会这样呢？因为子查询是在索引上完成的，而普通的查询时在数据文件上完成的，通常来说，索引文件要比数据文件小得多，所以操作起来也会更有效率。 (via) 通过explain SQL语句发现: 子查询使用了索引！
 
 id select_type table type possible_keys key key_len ref rows Extra
   

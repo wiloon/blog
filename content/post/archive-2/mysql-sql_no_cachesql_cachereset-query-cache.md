@@ -16,7 +16,7 @@ http://blog.51cto.com/janephp/1318705
 
 减少碎片: 
   
-合适的query_cache_min_res_unit可以减少碎片,这个参数最合适的大小和应用程序查询结果的平均大小直接相关,可以通过内存实际消耗（query_cache_size - Qcache_free_memory) 除以Qcache_queries_in_cache计算平均缓存大小。
+合适的query_cache_min_res_unit可以减少碎片,这个参数最合适的大小和应用程序查询结果的平均大小直接相关,可以通过内存实际消耗 (query_cache_size - Qcache_free_memory) 除以Qcache_queries_in_cache计算平均缓存大小。
   
 可以通过Qcache_free_blocks来观察碎片,这个值反应了剩余的空闲块,如果这个值很多,但是
   
@@ -40,7 +40,7 @@ select picname, smallimg from pics where user_id = xxx;
   
 优化前
 
-执行查询语句（为了查看真实执行时间,强制不使用缓存,为了防止在测试时因为读取了缓存造成对时间上的差别) 
+执行查询语句 (为了查看真实执行时间,强制不使用缓存,为了防止在测试时因为读取了缓存造成对时间上的差别) 
 
 select SQL_NO_CACHE picname, smallimg from pics where user_id=17853;
   
@@ -176,13 +176,13 @@ MySQL> select sql_cache id,name from test3 where id < 2;
   
 注意: 查询缓存的使用还需要配合相应得服务器参数的设置。
 
-二、覆盖索引（偷懒整理一下,来自百度百科) 
+二、覆盖索引 (偷懒整理一下,来自百度百科) 
 
 理解方式一: 就是select的数据列只用从索引中就能够取得,不必读取数据行,换句话说查询列要被所建的索引覆盖。
 
-理解方式二: 索引是高效找到行的一个方法,但是一般数据库也能使用索引找到一个列的数据,因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据；当能通过读取索引就可以得到想要的数据,那就不需要读取行了。一个索引包含了（或覆盖了) 满足查询结果的数据就叫做覆盖索引。
+理解方式二: 索引是高效找到行的一个方法,但是一般数据库也能使用索引找到一个列的数据,因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据；当能通过读取索引就可以得到想要的数据,那就不需要读取行了。一个索引包含了 (或覆盖了) 满足查询结果的数据就叫做覆盖索引。
 
-理解方式三: 是非聚集复合索引的一种形式,它包括在查询里的Select、Join和Where子句用到的所有列（即建索引的字段正好是覆盖查询条件中所涉及的字段,也即,索引包含了查询正在查找的数据) 。
+理解方式三: 是非聚集复合索引的一种形式,它包括在查询里的Select、Join和Where子句用到的所有列 (即建索引的字段正好是覆盖查询条件中所涉及的字段,也即,索引包含了查询正在查找的数据) 。
 
 作用: 
 
@@ -190,15 +190,15 @@ MySQL> select sql_cache id,name from test3 where id < 2;
 
 Innodb的辅助索引叶子节点包含的是主键列,所以主键一定是被索引覆盖的。
 
-（1) 例如,在sakila的inventory表中,有一个组合索引(store_id,film_id),对于只需要访问这两列的查 询,MySQL就可以使用索引,如下: 
+ (1) 例如,在sakila的inventory表中,有一个组合索引(store_id,film_id),对于只需要访问这两列的查 询,MySQL就可以使用索引,如下: 
 
 MySQL> EXPLAIN SELECT store_id, film_id FROM sakila.inventory\G
   
-（2) 再比如说在文章系统里分页显示的时候,一般的查询是这样的: 
+ (2) 再比如说在文章系统里分页显示的时候,一般的查询是这样的: 
 
 SELECT id, title, content FROM article ORDER BY created DESC LIMIT 10000, 10;
   
-通常这样的查询会把索引建在created字段（其中id是主键) ,不过当LIMIT偏移很大时,查询效率仍然很低,改变一下查询: 
+通常这样的查询会把索引建在created字段 (其中id是主键) ,不过当LIMIT偏移很大时,查询效率仍然很低,改变一下查询: 
 
 SELECT id, title, content FROM article
   
@@ -208,6 +208,6 @@ SELECT id FROM article ORDER BY created DESC LIMIT 10000, 10
   
 ) AS page USING(id)
   
-此时,建立复合索引"created, id"（只要建立created索引就可以吧,Innodb是会在辅助索引里面存储主键值的) ,就可以在子查询里利用上Covering Index,快速定位id,查询效率嗷嗷的
+此时,建立复合索引"created, id" (只要建立created索引就可以吧,Innodb是会在辅助索引里面存储主键值的) ,就可以在子查询里利用上Covering Index,快速定位id,查询效率嗷嗷的
 
 注: 本文是参考《MySQL性能优化案例 - 覆盖索引》 的一篇文章借题发挥,参考了原文的知识点,自己做了一点的发挥和研究,原文被多次转载,不知作者何许人也,也不知出处在哪个,如需原文请自行搜索。

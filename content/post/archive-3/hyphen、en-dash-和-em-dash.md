@@ -18,4 +18,4 @@ https://cherysunzhang.com/2016/08/using-hyphen-and-dash-correctly/
 
 因为大部分的编程语言都限制只能够使用 ASCII，所以在编写代码时所使用的表示负数或数字相减的符号即是 hyphen-minus，以及在变量名称中使用的连接符号。
 
-另外，Unicode 中还有一个类似的 full hyphen-minus（－) 。
+另外，Unicode 中还有一个类似的 full hyphen-minus (－) 。

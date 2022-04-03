@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## goroutine pool
-```golang
+```go
 type worker struct {
     Func func()
 }
@@ -45,7 +45,7 @@ func main() {
 }
 ```
 
-```golang
+```go
 package pool
 
 type PayloadProcessor func(payload interface{})

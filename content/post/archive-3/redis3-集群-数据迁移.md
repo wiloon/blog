@@ -524,7 +524,7 @@ CLUSTER REPLICATE <master-node-id>
 
 在某种情况下，你想让集群的复制节点从一个master迁移到另一个master的原因可能是: 集群的抗崩溃能力总是跟集群中master 拥有的平均slave数量成正比。
   
-比 如，如果一个集群中每个master只有一个slave，当master和slave都挂掉的时候这个集群就崩溃了。因为此时有一些哈希槽无法找到了。虽然网络分裂会把一堆节点从集群中孤立出来（这样你一下就会知道集群出问题了) ，但是其他的更常见的硬件或者软件的问题并不会在多台机器上同时发生，所以很 可能在你的这个集群（平均每个master只有一个slave) 有一个slave在早上4点挂掉，然后他的master在随后的早上6点挂掉。这样依然会 导致集群崩溃。
+比 如，如果一个集群中每个master只有一个slave，当master和slave都挂掉的时候这个集群就崩溃了。因为此时有一些哈希槽无法找到了。虽然网络分裂会把一堆节点从集群中孤立出来 (这样你一下就会知道集群出问题了) ，但是其他的更常见的硬件或者软件的问题并不会在多台机器上同时发生，所以很 可能在你的这个集群 (平均每个master只有一个slave) 有一个slave在早上4点挂掉，然后他的master在随后的早上6点挂掉。这样依然会 导致集群崩溃。
 
 我们可以通过给每个master都再多加一个slave节点来改进系统的可靠性，但是这样很昂贵。复制迁移允许只给某些master增加slave。比方说你的集群有20个节点，10个master，每个master都有1个slave。然后你增加3个 slave到集群中并把他们分配给某几个master节点，这样某些master就会拥有多于1个slave。
 
@@ -534,7 +534,7 @@ CLUSTER REPLICATE <master-node-id>
 
 集群在迁移的时候会尝试去迁移拥有最多slave数量的master旗下的slave。
   
-想利用复制迁移特性来增加系统的可用性，你只需要增加一些slave节点给单个master（哪个master节点并不重要) 。
+想利用复制迁移特性来增加系统的可用性，你只需要增加一些slave节点给单个master (哪个master节点并不重要) 。
   
 复制迁移是由配置项cluster-migration-barrier控制的
   
@@ -592,7 +592,7 @@ CLUSTER REPLICATE <master-node-id>
 
 CLUSTERINFO 打印集群的信息
 
-CLUSTERNODES 列出集群当前已知的所有节点（node) ，以及这些节点的相关信息。
+CLUSTERNODES 列出集群当前已知的所有节点 (node) ，以及这些节点的相关信息。
 
 节点
 
@@ -606,7 +606,7 @@ CLUSTERSAVECONFIG 将节点的配置文件保存到硬盘里面。
 
 槽(slot)
 
-CLUSTERADDSLOTS <slot> [slot ...] 将一个或多个槽（slot) 指派（assign) 给当前节点。
+CLUSTERADDSLOTS <slot> [slot ...] 将一个或多个槽 (slot) 指派 (assign) 给当前节点。
 
 CLUSTERDELSLOTS <slot> [slot ...] 移除一个或多个槽对当前节点的指派。
 
@@ -618,7 +618,7 @@ CLUSTERSETSLOT <slot> MIGRATING <node_id> 将本节点的槽 slot迁移到 node_
 
 CLUSTERSETSLOT <slot> IMPORTING <node_id> 从node_id指定的节点中导入槽 slot到本节点。
 
-CLUSTERSETSLOT <slot> STABLE 取消对槽 slot的导入（import) 或者迁移（migrate) 。
+CLUSTERSETSLOT <slot> STABLE 取消对槽 slot的导入 (import) 或者迁移 (migrate) 。
 
 键
 

@@ -12,7 +12,7 @@ tags:
 ## gopacket, pcap, libpcap
 gopacket 是 google 出品的 抓取网络数据包的库
 
-Windows 平台下有 Wireshark 抓包工具，其底层抓包库是 npcap（以前是 winpcap）；
+Windows 平台下有 Wireshark 抓包工具，其底层抓包库是 npcap (以前是 winpcap）；
 
 Linux 平台下有 Tcpdump，其抓包库是 libpcap；
 
@@ -28,3 +28,8 @@ sudo pacman -S libpcap
 >https://zhuanlan.zhihu.com/p/361737169
 >https://github.com/google/gopacket
 >https://pkg.go.dev/github.com/google/gopacket?utm_source=godoc
+
+
+### bpf filter
+
+    dst host 192.168.50.10

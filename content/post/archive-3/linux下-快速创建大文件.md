@@ -14,7 +14,7 @@ https://www.jianshu.com/p/5a2b2a0b6468
 
 dd命令
   
-生成一个1000M的test文件，文件内容为全0（因从/dev/zero中读取，/dev/zero为0源) 。但是这样为实际写入硬盘，文件产生速度取决于硬盘读写速度，如果想要产生超大文件，速度很慢。
+生成一个1000M的test文件，文件内容为全0 (因从/dev/zero中读取，/dev/zero为0源) 。但是这样为实际写入硬盘，文件产生速度取决于硬盘读写速度，如果想要产生超大文件，速度很慢。
 
 [root@izwz94jtz9hbdq165vpxpxz www]# dd if=/dev/zero of=test1 bs=1M count=1000
    

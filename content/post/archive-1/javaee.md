@@ -14,7 +14,7 @@ http://www.iteye.com/topic/153734
 
 1.MVC的各个部分都有那些技术来实现?如何实现?
   
-答: MVC是Model－View－Controller的简写。"Model" 代表的是应用的业务逻辑（通过JavaBean，EJB组件实现) ， "View" 是应用的表示面（由JSP页面产生) ，"Controller" 是提供应用的处理过程控制（一般是一个Servlet) ，通过这种设计模型把应用逻辑，处理过程和显示逻辑分成不同的组件实现。这些组件可以进行交互和重用。
+答: MVC是Model－View－Controller的简写。"Model" 代表的是应用的业务逻辑 (通过JavaBean，EJB组件实现) ， "View" 是应用的表示面 (由JSP页面产生) ，"Controller" 是提供应用的处理过程控制 (一般是一个Servlet) ，通过这种设计模型把应用逻辑，处理过程和显示逻辑分成不同的组件实现。这些组件可以进行交互和重用。
 
 2.J2EE是什么？
   
@@ -46,7 +46,7 @@ JAXP(Java API for XML Parsing) 定义了在Java中使用DOM, SAX, XSLT的通用�
   
 JAXM(Java API for XML Messaging) 是为SOAP通信提供访问方法和传输机制的API。
   
-WSDL是一种 XML 格式，用于将网络服务描述为一组端点，这些端点对包含面向文档信息或面向过程信息的消息进行操作。这种格式首先对操作和消息进行抽象描述，然后将其绑定到具体的网络协议和消息格式上以定义端点。相关的具体端点即组合成为抽象端点（服务) 。
+WSDL是一种 XML 格式，用于将网络服务描述为一组端点，这些端点对包含面向文档信息或面向过程信息的消息进行操作。这种格式首先对操作和消息进行抽象描述，然后将其绑定到具体的网络协议和消息格式上以定义端点。相关的具体端点即组合成为抽象端点 (服务) 。
   
 SOAP即简单对象访问协议(Simple Object Access Protocol)，它是用于交换XML编码信息的轻量级协议。
   
@@ -108,20 +108,20 @@ B/S 信息流向可变化, B-B B-C B-G等信息、流向的变化, 更像交易�
 
 7.什么是JNDI
   
-答: （Java Naming & Directory Interface) JAVA命名目录服务。主要提供的功能是: 提供一个目录系统，让其它各地的应用程序在其上面留下自己的索引，从而满足快速查找和定位分布式应用程序的功能。
+答:  (Java Naming & Directory Interface) JAVA命名目录服务。主要提供的功能是: 提供一个目录系统，让其它各地的应用程序在其上面留下自己的索引，从而满足快速查找和定位分布式应用程序的功能。
 
 http://www.wiloon.com/?p=1970
 
 
 8.什么是JMS
   
-答: （Java Message Service) JAVA消息服务。主要实现各个应用程序之间的通讯。包括点对点和广播
+答:  (Java Message Service) JAVA消息服务。主要实现各个应用程序之间的通讯。包括点对点和广播
 
 http://www.wiloon.com/?p=3063
 
 9.什么是JTA
   
-答: （Java Transaction API) JAVA事务服务。提供各种分布式事务服务。应用程序只需调用其提供的接口即可。
+答:  (Java Transaction API) JAVA事务服务。提供各种分布式事务服务。应用程序只需调用其提供的接口即可。
 
 10.开发中都用到了那些设计模式?用在什么场合?
   
@@ -143,5 +143,5 @@ http://www.wiloon.com/?p=3063
 
 ### RMI
   
-RMI 指的是远程方法调用 (Remote Method Invocation)。它是一种机制，能够让在某个 Java 虚拟机上的对象调用另一个 Java 虚拟机中的对象上的方法。可以用此方法调用的任何对象必须实现该远程接口。调用这样一个对象时，其参数为 "marshalled" 并将其从本地虚拟机发送到远程虚拟机（该远程虚拟机的参数为 "unmarshalled") 上。该方法终止时，将编组来自远程机的结果并将结果发送到调用方的虚拟机。如果方法调用导致抛出异常，则该异常将指示给调用方。
+RMI 指的是远程方法调用 (Remote Method Invocation)。它是一种机制，能够让在某个 Java 虚拟机上的对象调用另一个 Java 虚拟机中的对象上的方法。可以用此方法调用的任何对象必须实现该远程接口。调用这样一个对象时，其参数为 "marshalled" 并将其从本地虚拟机发送到远程虚拟机 (该远程虚拟机的参数为 "unmarshalled") 上。该方法终止时，将编组来自远程机的结果并将结果发送到调用方的虚拟机。如果方法调用导致抛出异常，则该异常将指示给调用方。
 

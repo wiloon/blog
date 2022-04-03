@@ -15,14 +15,14 @@ https://raw.githubusercontent.com/redis/redis/6.0/redis.conf
 
 ```bash
 bind 0.0.0.0
-#参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip（127.0.0.1) 访问Redis
+#参数是为了禁止外网访问redis,如果启用了,则只能够通过lookback ip (127.0.0.1) 访问Redis
 protected-mode no
 port 6379
-#tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度,当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其Send-Q就是这个accept queue队列的最大值. 只有server端执行了accept后才会从这个队列中移除这个连接. 这个值的大小是受somaxconn影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的somaxconn值.建议修改为 2048
+#tcp-backlog, 此参数确定了TCP连接中已完成队列(完成三次握手之后)的长度,当然此值必须不大于Linux系统定义的/proc/sys/net/core/somaxconn值,默认是511,而Linux的默认参数值是128。当系统并发量大并且客户端速度缓慢的时候,可以将这二个参数一起参考设定,了解了下tcp的三次握手进行中的一些queue的知识. 参考下图我们可以看到在server接收到syn的时候会进入到一个syn queue队列, 当server端最终收到ack时转换到accept queue队列. 上面终端显示在listen状态下的连接, 其 Send-Q 就是这个 accept queue 队列的最大值. 只有 server 端执行了 accept 后才会从这个队列中移除这个连接. 这个值的大小是受 somaxconn 影响的, 因为是取的它们两者的最小值, 所以如果要调大的话必需修改内核的 somaxconn 值.建议修改为 2048
 tcp-backlog 511
 
 # timeout, 设置客户端连接时的超时时间,单位为秒。当客户端在这段时间内没有发出任何指令,那么关闭该连接
-# 0是关闭此设置
+# 0 是关闭此设置
 timeout
 #tcp keepalive参数。如果设置不为0,就使用配置tcp的SO_KEEPALIVE值,使用keepalive有两个好处:检测挂掉的对端。降低中间设备出问题而导致网络看似连接却已经与对端断开的问题。在Linux内核中,设置了keepalive,redis会定时给对端发送ack。检测到对端关闭需要两倍的设置值。
 tcp-keepalive 0
@@ -56,7 +56,7 @@ loglevel notice
 # dbid is a number between 0 and 'databases'-1
 # 
 # 设置数据库数量。默认会使用 0 数据库,也可以使用  SELECT <dbid> 指令为每个连接选择不同的数据库,
-# 其中 dbid 的取值在 0 和 （'databases' 设置值) -1 之间
+# 其中 dbid 的取值在 0 和  ('databases' 设置值) -1 之间
 # 不同的数据库使用不同的内存空间, 互不影响, 不同的库里可以有相同的key
 # 在redis 集群模式, 不支持多库.
 databases 16
@@ -73,13 +73,13 @@ databases 16
 #   如果指定的秒数和数据库写操作次数都满足了就将数据库保存。  
 #  
 #   下面是保存操作的实例:   
-#   900秒（15分钟) 内至少1个key值改变（则进行数据库保存--持久化)   
-#   300秒（5分钟) 内至少10个key值改变（则进行数据库保存--持久化)   
-#   60秒（1分钟) 内至少10000个key值改变（则进行数据库保存--持久化)   
+#   900秒 (15分钟) 内至少1个key值改变 (则进行数据库保存--持久化)   
+#   300秒 (5分钟) 内至少10个key值改变 (则进行数据库保存--持久化)   
+#   60秒 (1分钟) 内至少10000个key值改变 (则进行数据库保存--持久化)   
 #  
 #   注释: 注释掉"save"这一行配置项就可以让保存数据库功能失效。  
 #  
-#   你也可以通过增加一个只有一个空字符串的配置项（如下面的实例) 来去掉前面的"save"配置。  
+#   你也可以通过增加一个只有一个空字符串的配置项 (如下面的实例) 来去掉前面的"save"配置。  
 #  
 #   save ""  
 # Snapshotting can be completely disabled with a single empty string argument
@@ -92,8 +92,8 @@ save 60 10000
 
 # 配置redis 数据文件的目录, 配置了dir之后, node.conf, rdb, aof文件都 会保存到这个目录 下.
 dir
-# 缺省情况下,如果 RDB 快照被启用（至少有一个存储点) 时,若后台保存快照失败,Redis 将拒绝接受写入。
-# 这将会促使用户发现（以一种强硬的方式) 数据持久化到磁盘出问题了,否则,很有可能没人会注意到这一点,最终带来灾难性的后果。
+# 缺省情况下,如果 RDB 快照被启用 (至少有一个存储点) 时,若后台保存快照失败,Redis 将拒绝接受写入。
+# 这将会促使用户发现 (以一种强硬的方式) 数据持久化到磁盘出问题了,否则,很有可能没人会注意到这一点,最终带来灾难性的后果。
 stop-writes-on-bgsave-error yes
 
 # 当导出 .rdb 数据库时,是否对字符串对象采用 LZF 进行压缩。
@@ -102,7 +102,7 @@ stop-writes-on-bgsave-error yes
 rdbcompression yes
 
 # 从 RDB 5 版开始,CRC64 和校验被添加到了 .rdb 文件的末尾。
-# 这样做可以使 .rdb 文件变得更加不容易损坏,但相应地,在文件保存和加载的时候也会消耗更多服务器性能（大概10%) 。
+# 这样做可以使 .rdb 文件变得更加不容易损坏,但相应地,在文件保存和加载的时候也会消耗更多服务器性能 (大概10%) 。
 # 所以,如果你想要追求最佳的服务器性能,你可以将它关闭掉。
 #
 # RDB files created with checksum disabled have a checksum of zero that will
@@ -165,13 +165,13 @@ appendfilename "foo.aof"
 appendfsync everysec
 # no-appendfsync-on-rewrite
 # no,是最安全的方式,不会丢失数据,但是要忍受阻塞的问题。
-# yes, 这就相当于将appendfsync设置为no,这说明并没有执行磁盘操作,只是写入了缓冲区,因此这样并不会造成阻塞（因为没有竞争磁盘) ,但是如果这个时候redis挂掉,就会丢失数据。丢失多少数据呢？在linux的操作系统的默认设置下,最多会丢失30s的数据。
+# yes, 这就相当于将appendfsync设置为no,这说明并没有执行磁盘操作,只是写入了缓冲区,因此这样并不会造成阻塞 (因为没有竞争磁盘) ,但是如果这个时候redis挂掉,就会丢失数据。丢失多少数据呢？在linux的操作系统的默认设置下,最多会丢失30s的数据。
 no-appendfsync-on-rewrite no
-# 当AOF文件大小的增长率大于该配置项时自动开启重写（这里指超过原大小的100%) 。
+# 当AOF文件大小的增长率大于该配置项时自动开启重写 (这里指超过原大小的100%) 。
 auto-aof-rewrite-percentage 100
 # 当AOF文件大小大于该配置项时自动开启重写
 auto-aof-rewrite-min-size 64mb
-# 指定当发生AOF文件末尾截断时,加载文件还是报错退出,Redis启动并加载AOF时,可能发现AOF文件的末尾被截断了。如果Redis所在的机器运行崩溃,就可能导致该现象。特别是在不使用 data=ordered 选项挂载ext4文件系统时。（但是Redis本身崩溃而操作系统正常运行则不会出现该情况) 当发生了末尾截断,Redis可以选择直接报错退出,或者继续执行并恢复尽量多的数据（默认选项) 。配置项 aof-load-truncated 用于控制此行为。
+# 指定当发生AOF文件末尾截断时,加载文件还是报错退出,Redis启动并加载AOF时,可能发现AOF文件的末尾被截断了。如果Redis所在的机器运行崩溃,就可能导致该现象。特别是在不使用 data=ordered 选项挂载ext4文件系统时。 (但是Redis本身崩溃而操作系统正常运行则不会出现该情况) 当发生了末尾截断,Redis可以选择直接报错退出,或者继续执行并恢复尽量多的数据 (默认选项) 。配置项 aof-load-truncated 用于控制此行为。
 
 #yes : 末尾被截断的 AOF 文件将会被加载,并打印日志通知用户。
 #no : 服务器将报错并拒绝启动。
@@ -179,7 +179,7 @@ auto-aof-rewrite-min-size 64mb
 #这时用户需要使用redis-check-aof 工具修复AOF文件,再重新启动。
 
 aof-load-truncated yes
-# 为了防止某个脚本执行时间过长导致Redis无法提供服务（比如陷入死循环) ,Redis提供了lua-time-limit参数限制脚本的最长运行时间,默认为5秒钟。当脚本运行时间超过这一限制后,Redis将开始接受其他命令但不会执行（以确保脚本的原子性,因为此时脚本并没有被终止) ,而是会返回“BUSY”错误。
+# 为了防止某个脚本执行时间过长导致Redis无法提供服务 (比如陷入死循环) ,Redis提供了lua-time-limit参数限制脚本的最长运行时间,默认为5秒钟。当脚本运行时间超过这一限制后,Redis将开始接受其他命令但不会执行 (以确保脚本的原子性,因为此时脚本并没有被终止) ,而是会返回“BUSY”错误。
 lua-time-limit 5000
 # 开实例的集群模式
 cluster-enabled yes
@@ -192,7 +192,7 @@ cluster-slave-validity-factor 10
 # cluster-migration-barrier <count>: 主节点需要的最小从节点数,只有达到这个数,才会将多余的从节点迁移给其它孤立的主节点使用。
 cluster-migration-barrier 1
 # 默认情况下当集群中16384个槽,有任何一个没有指派到节点时,整个集群是不可用的。对应在线上,如果某个主节点宕机,而又没有从节点的话,是不允许对外提供服务的。建议将该参数设置为no,避免某个主节点的故障导致其它主节点不可用。
-# yes: 默认情况下,其中一台主（如果没有做slave)  down 机后,集群会显示不可用状态。
+# yes: 默认情况下,其中一台主 (如果没有做slave)  down 机后,集群会显示不可用状态。
 # no: 当 cluster-require-full-coverage 配置成 no 的时候,表示当负责一个槽的主库下线且没有相应的从库进行故障恢复时,集群仍然可用。
 cluster-require-full-coverage no
 # slowlog-log-slower-than, 对执行时间大于多少微秒(microsecond,1秒 = 1,000,000 微秒)的查询进行记录。

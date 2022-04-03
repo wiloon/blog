@@ -24,7 +24,7 @@ http://www.smallhead.cn/knowledge/422.html
   2. Cordova和Phonegap的关系就类似于WebKit与Chrome或者Safari的关系。
   3. PhoneGap还包括一些额外的商用组件,例如PhoneGap Build和Adobe Shadow。
 
-然而如果不从概念上讲,其实Adobe的PhoneGap产品和Apache的Cordova项目维护的是共同的一份源代码组件(现在是这个状况)。也就是说如果你问我使用Cordova还是PhoneGap,我只能说这两个东西我都在用（而实质上我用的是一个东西,只不过两个名号而已) 。所以当我们使用PhoneGap开发的时候无论是Cordova和PhoneGap其实都一样,但是心理要明白,在概念上Phonegap其实是Cordova的个例产品,PhoneGap是基于Cordova之上的加上云端打包和Adobe Shadow的系列产品综合。就我个人理解,PhoneGap的范围大于Cordova。
+然而如果不从概念上讲,其实Adobe的PhoneGap产品和Apache的Cordova项目维护的是共同的一份源代码组件(现在是这个状况)。也就是说如果你问我使用Cordova还是PhoneGap,我只能说这两个东西我都在用 (而实质上我用的是一个东西,只不过两个名号而已) 。所以当我们使用PhoneGap开发的时候无论是Cordova和PhoneGap其实都一样,但是心理要明白,在概念上Phonegap其实是Cordova的个例产品,PhoneGap是基于Cordova之上的加上云端打包和Adobe Shadow的系列产品综合。就我个人理解,PhoneGap的范围大于Cordova。
 
 以下是迷惑解答: 
 

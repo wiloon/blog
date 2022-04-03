@@ -5,10 +5,12 @@ date: -001-11-30T00:00:00+00:00
 draft: true
 url: /?p=15716
 categories:
-  - Uncategorized
+  - java
 
 tags:
   - reprint
 ---
 ## multi-release JAR (MR JAR)
-https://in.relation.to/2017/02/13/building-multi-release-jars-with-maven/
+
+>https://openjdk.java.net/jeps/238
+>https://in.relation.to/2017/02/13/building-multi-release-jars-with-maven/

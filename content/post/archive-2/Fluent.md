@@ -50,7 +50,7 @@ List<User> userList = userService.query(user, UserService.QUERY_TYPE_NORMAL);
   
 我说,你的办法看起来不错,不过有时候按你的办法做,我的构造方法会变得臃肿无比,比如出现十多个参数；
 
-另外还有一个问题,假如说,我的查询条件是简单的（我只需要根据年龄查询) ,那么其它的参数都要写成null,类似这样子: 
+另外还有一个问题,假如说,我的查询条件是简单的 (我只需要根据年龄查询) ,那么其它的参数都要写成null,类似这样子: 
 
 User user = new User(null, 18, null, null, null, null, ……);
   
@@ -140,7 +140,7 @@ Queries: Return a result and do not change the observable state of the system (a
 
 Commands: Change the state of a system but do not return a value.
 
-对于Fluent Interface而言,它的接口调用既改变了对象的状态,又返回了对象（this或其他) ,并不属于上面的两种类型。
+对于Fluent Interface而言,它的接口调用既改变了对象的状态,又返回了对象 (this或其他) ,并不属于上面的两种类型。
 
 文章未经特殊标明皆为本人原创,未经许可不得用于任何商业用途,转载请保持完整性并注明来源链接《四火的唠叨》
 

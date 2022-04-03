@@ -2,18 +2,18 @@
 title: selinux
 author: "-"
 date: 2017-08-01T08:16:10+00:00
-url: /?p=10971
+url: selinux
 categories:
-  - Uncategorized
-
+  - linux
 tags:
   - reprint
+  - security
+
+
 ---
 ## selinux
-http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux
-  
-https://my.oschina.net/oaoa/blog/185833
 
+## 临时关闭selinux
 ```bash
 # 查询selinux 状态
 sestatus
@@ -21,17 +21,17 @@ sestatus
 setenforce 0
 ```
 
-关闭 SELinux
+## 永久关闭 SELinux
   
-emacs /etc/selinux/config
+vim /etc/selinux/config
 
-#SELINUX=enforcing
-  
-#SELINUXTYPE=targeted
-  
-SELINUX=disabled
+把 `#SELINUX=enforcing` 改成 `SELINUX=disabled`
 
-https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html
+>https://www.ibm.com/developerworks/cn/linux/l-secure-linux-ru/index.html
+>http://okeeper.leanote.com/post/CentOS7%E4%B8%AD%E5%85%B3%E9%97%ADselinux 
+>https://my.oschina.net/oaoa/blog/185833
+
+---
 
 SELinux 初探
   
@@ -331,7 +331,7 @@ Enforcing
        
 |-httpd-8*[httpd] <==httpd 会产生很多子程序来负责网络服务喔！
 
-[root@www ~]# ps aux -Z |grep http
+    ps aux -Z |grep http
   
 root:system_r:httpd_t root 24089 0.2 1.2 22896 9256 ? Ss 16:06 0:00 /usr/sbin/httpd
   

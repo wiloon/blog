@@ -50,7 +50,7 @@ System.getProperty("java.library.path");
 
 3) Windows目录
 
-4) 系统目录（system32) 
+4) 系统目录 (system32) 
 
 5) 系统环境变量path指定目录
 

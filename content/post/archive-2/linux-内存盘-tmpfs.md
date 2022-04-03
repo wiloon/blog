@@ -24,7 +24,7 @@ Windows下有一种叫法叫做内存盘,Linux自然也有,看了Linux中ramdisk
 
 关于tmpfs和VM
   
-linux的内存（VM) ,包括ram和swap两部分。
+linux的内存 (VM) ,包括ram和swap两部分。
 
 ram就是你的物理内存,swap就是在装系统的时候划分的swap分区(在win下叫做页面文件,默认位于C:\pagefiles.sys)。
   

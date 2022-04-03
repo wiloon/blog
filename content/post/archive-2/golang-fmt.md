@@ -1,5 +1,5 @@
 ---
-title: golang fmt/print
+title: golang fmt/Println
 author: "-"
 date: 2016-10-14T00:09:01+00:00
 url: /?p=9293
@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## golang fmt/print
-```golang
+## golang fmt/Println
+```go
 fmt.Printf("ab %d %d %d cd\n", 1, 2, 3)
 ```
 
@@ -19,17 +19,23 @@ fmt包实现了格式化的I/O函数,这点类似Ｃ语言中的printf和scanf,�
 占位符: 
 
 ### 通用占位符: 
-- %v 值的默认格式。当打印结构体时,"加号"标记（%+v) 会添加字段名
-- %#v相应值的Go语法表示, 打印结构体名, 类json格式
-- %+v打印键值对
-- %T 相应值的类型的Go语法表示
-- %% 字面上的百分号,并非值的占位符
-- %d 十进制表示
+- %v  值的默认格式。当打印结构体时,"加号"标记 (%+v) 会添加字段名
+- %#v 相应值的 Go 语法表示, 打印结构体名, 类json格式
+- %+v 打印键值对
+- %T  相应值的类型的 Go 语法表示
+- %%  字面上的百分号, 并非值的占位符
+- %d  十进制表示
+- %c  the character represented by the corresponding Unicode code point
+- %x	base 16, with lower-case letters for a-f
+- %X	base 16, with upper-case letters for A-F
+- %p	address of 0th element in base 16 notation, with leading 0x
+- %t	the word true or false, (bool)
+
+>https://pkg.go.dev/fmt
 
 用法如下: 
 
-view plain copy
-  
+```go
 package main
 
 import (
@@ -65,6 +71,7 @@ fmt.Printf("%T\n", *s) // main.Sample
 fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1)  注: 暂时还没有明白其用法
   
 }
+```
 
 布尔值: 
   
@@ -98,9 +105,9 @@ fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1)  注: 暂时还没有明白其用�
   
 %f 有小数点而无指数,例如 123.456
   
-%g 根据情况选择 %e 或 %f 以产生更紧凑的（无末尾的0) 输出
+%g 根据情况选择 %e 或 %f 以产生更紧凑的 (无末尾的0) 输出
   
-%G 根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0) 输出
+%G 根据情况选择 %E 或 %f 以产生更紧凑的 (无末尾的0) 输出
   
 字符串和bytes的slice表示: 
 
@@ -116,7 +123,7 @@ fmt.Printf("%%\n", s.a) // % %!(EXTRA int=1)  注: 暂时还没有明白其用�
 
 %p 十六进制表示,前缀 0x
   
-这里没有 'u' 标记。若整数为无符号类型,他们就会被打印成无符号的。类似地,这里也不需要指定操作数的大小（int8,int64) 。
+这里没有 'u' 标记。若整数为无符号类型,他们就会被打印成无符号的。类似地,这里也不需要指定操作数的大小 (int8,int64) 。
 
 对于％ｖ来说默认的格式是: 
 
@@ -134,7 +141,7 @@ chan: %p
   
 pointer: %p
   
-由此可以看出,默认的输出格式可以使用%v进行指定,除非输出其他与默认不同的格式,否则都可以使用%v进行替代（但是不推荐使用) 
+由此可以看出,默认的输出格式可以使用%v进行指定,除非输出其他与默认不同的格式,否则都可以使用%v进行替代 (但是不推荐使用) 
 
 对于复合对象,里面的元素使用如下规则进行打印: 
 
@@ -196,19 +203,19 @@ fmt.Printf("%_._s\n", 1, 2, c) //as,利用'*'支持宽度和精度的输入,并�
   
 其他标志: 
 
-  * 总打印数值的正负号；对于%q（%+q) 保证只输出ASCII编码的字符。
+  * 总打印数值的正负号；对于%q (%+q) 保证只输出ASCII编码的字符。
   
     – 左对齐
   
-    备用格式: 为八进制添加前导 0（%#o) ,为十六进制添加前导 0x（%#x) 或0X（%#X) ,为 %p（%#p) 去掉前导 0x；对于 %q,若 strconv.CanBackquote
+    备用格式: 为八进制添加前导 0 (%#o) ,为十六进制添加前导 0x (%#x) 或0X (%#X) ,为 %p (%#p) 去掉前导 0x；对于 %q,若 strconv.CanBackquote
   
-    返回 true,就会打印原始（即反引号围绕的) 字符串；如果是可打印字符,%U（%#U) 会写出该字符的Unicode编码形式（如字符 x 会被打印成 U+0078 'x') 。
+    返回 true,就会打印原始 (即反引号围绕的) 字符串；如果是可打印字符,%U (%#U) 会写出该字符的Unicode编码形式 (如字符 x 会被打印成 U+0078 'x') 。
   
-    ' ' （空格) 为数值中省略的正负号留出空白（% d) ；以十六进制（% x, % X) 打印字符串或切片时,在字节之间用空格隔开
+    ' '  (空格) 为数值中省略的正负号留出空白 (% d) ；以十六进制 (% x, % X) 打印字符串或切片时,在字节之间用空格隔开
   
     0 填充前导的0而非空格；对于数字,这会将填充移到正负号之后
 
-```golang
+```go
 func main() {
 a := 123
 fmt.Printf("%+10d\n", a)  //+123
@@ -260,7 +267,7 @@ fmt.Printf("%[2]d, %[1]d\n", 11, 22) //22, 11,先输出第二个值,再输出第
   
 格式化错误: 
 
-如果给占位符提供了无效的实参（如将一个字符串提供给％d) ,便会出现格式化错误．所有的错误都始于"%!",有时紧跟着单个字符（占位符) ,并以小括号括住的描述结尾。
+如果给占位符提供了无效的实参 (如将一个字符串提供给％d) ,便会出现格式化错误．所有的错误都始于"%!",有时紧跟着单个字符 (占位符) ,并以小括号括住的描述结尾。
 
 view plain copy
   
@@ -290,7 +297,7 @@ Scanf、Fscanf 和 Sscanf 根据格式字符串解析实参,类似于 Printf。�
   
 标记 # 和 + 没有实现
   
-在输入Scanf中,宽度可以理解成输入的文本（％5s表示输入５个字符) ,而Scanf没有精度这种说法（没有%5.2f,只有 %5f) 
+在输入Scanf中,宽度可以理解成输入的文本 (％5s表示输入５个字符) ,而Scanf没有精度这种说法 (没有%5.2f,只有 %5f) 
   
 函数: 
   
@@ -458,7 +465,7 @@ view plain copy
   
 type Formatter interface {
   
-// Format 用来处理当对象遇到 c 标记时的输出方式（c 相当于 %s 中的 s) 
+// Format 用来处理当对象遇到 c 标记时的输出方式 (c 相当于 %s 中的 s) 
   
 // f 用来获取占位符的宽度、精度、扩展标记等信息,同时实现最终的输出
   
@@ -474,7 +481,7 @@ view plain copy
   
 type GoStringer interface {
   
-// GoString 获取对象的 Go 语法文本形式（以 %#v 格式输出的文本) 
+// GoString 获取对象的 Go 语法文本形式 (以 %#v 格式输出的文本) 
   
 GoString() string
   
@@ -526,7 +533,7 @@ Width() (wid int, ok bool)
   
 Precision() (prec int, ok bool)
 
-// Flag 返回标记 c（一个字符) 是否已被设置。
+// Flag 返回标记 c (一个字符) 是否已被设置。
   
 Flag(c int) bool
   

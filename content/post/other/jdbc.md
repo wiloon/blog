@@ -13,7 +13,7 @@ tags:
 
 JDBC 是阻塞的、同步的
 
-jdbc（java database connection) 就是java数据库链接的api，是java标准类库的扩展，用它可以应用sql访问数据库，完成对数据库的查找，更新。
+jdbc (java database connection) 就是java数据库链接的api，是java标准类库的扩展，用它可以应用sql访问数据库，完成对数据库的查找，更新。
   
 与其它数据库编程环境相比，jdbc有java语言的特性，使用jdbc开发的程序可以跨平台运行，而且不受数据库供应商的限制。
 
@@ -28,11 +28,11 @@ jdbc（java database connection) 就是java数据库链接的api，是java标准
 三、需要一套简单的机制，以使得第三方驱动程序可以向驱动管理器注册。
 
 ### jdbc的典型用法
-在传统的客户服务器模式中， 通常在服务器端配置数据库，jdbc驱动程序部署在客户。发展到后来的三层 ， 甚至更高层的应用模式时，客户端不直接调用数据库，而是调用服务器上的中间层，再由中间层完成数据库查询操作。这种三层模式的优点是: 它将可视化表示（位于客户端) 从业务逻辑（中间件层) 和原始数据（位于数据库) 中分离出来。因此，我们就可以从不同的客户端，如java应用，applet或web表单，访问相通的数据库和相通的业务规则。
+在传统的客户服务器模式中， 通常在服务器端配置数据库，jdbc驱动程序部署在客户。发展到后来的三层 ， 甚至更高层的应用模式时，客户端不直接调用数据库，而是调用服务器上的中间层，再由中间层完成数据库查询操作。这种三层模式的优点是: 它将可视化表示 (位于客户端) 从业务逻辑 (中间件层) 和原始数据 (位于数据库) 中分离出来。因此，我们就可以从不同的客户端，如java应用，applet或web表单，访问相通的数据库和相通的业务规则。
   
-客户端和中间层之间的通信可以通过http（web浏览器用作客户端时) ，rmi（当使用应用或applet) 或其他机制来完成。jdbc负责在中间层和后台数据库之间进行通讯。
+客户端和中间层之间的通信可以通过http (web浏览器用作客户端时) ，rmi (当使用应用或applet) 或其他机制来完成。jdbc负责在中间层和后台数据库之间进行通讯。
   
-JDBC（Java Data Base Connectivity,java数据库连接) 是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC为工具/数据库开发人员提供了一个标准的API，据此可以构建更高级的工具和接口，使数据库开发人员能够用纯 Java API 编写数据库应用程序，同时，JDBC也是个商标名。
+JDBC (Java Data Base Connectivity,java数据库连接) 是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC为工具/数据库开发人员提供了一个标准的API，据此可以构建更高级的工具和接口，使数据库开发人员能够用纯 Java API 编写数据库应用程序，同时，JDBC也是个商标名。
 
 有了JDBC，向各种关系数据发送SQL语句就是一件很容易的事。换言之，有了JDBC API，就不必为访问Sybase数据库专门写一个程序，为访问Oracle数据库又专门写一个程序，或为访问Informix数据库又编写另一个程序等等，程序员只需用JDBC API写一个程序就够了，它可向相应数据库发送SQL调用。同时，将Java语言和JDBC结合起来使程序员不必为不同的平台编写不同的应用程序，只须写一遍程序就可以让它在任何平台上运行，这也是Java语言"编写一次，处处运行"的优势。
 
@@ -40,7 +40,7 @@ Java数据库连接体系结构是用于Java应用程序连接数据库的标准
 Java 具有坚固、安全、易于使用、易于理解和可从网络上自动下载等特性，是编写数据库应用程序的杰出语言。所需要的只是 Java应用程序与各种不同数据库之间进行对话的方法。而 JDBC 正是作为此种用途的机制。
 
   
-JDBC 扩展了 Java 的功能。例如，用 Java 和 JDBC API 可以发布含有 applet 的网页，而该 applet 使用的信息可能来自远程数据库。企业也可以用 JDBC 通过 Intranet 将所有职员连到一个或多个内部数据库中（即使这些职员所用的计算机有 Windows、 Macintosh 和UNIX 等各种不同的操作系统) 。随着越来越多的程序员开始使用Java 编程语言，对从 Java 中便捷地访问数据库的要求也在日益增加。
+JDBC 扩展了 Java 的功能。例如，用 Java 和 JDBC API 可以发布含有 applet 的网页，而该 applet 使用的信息可能来自远程数据库。企业也可以用 JDBC 通过 Intranet 将所有职员连到一个或多个内部数据库中 (即使这些职员所用的计算机有 Windows、 Macintosh 和UNIX 等各种不同的操作系统) 。随着越来越多的程序员开始使用Java 编程语言，对从 Java 中便捷地访问数据库的要求也在日益增加。
   
   
   
@@ -76,29 +76,29 @@ JDBC 是个"低级"接口，也就是说，它用于直接调用 SQL 命令。�
 
 随着人们对 JDBC 的兴趣日益增涨，越来越多的开发人员一直在使用基于 JDBC 的工具，以使程序的编写更加容易。程序员也一直在编写力图使最终用户对数据库的访问变得更为简单的应用程序。例如应用程序可提供一个选择数据库任务的菜单。任务被选定后，应用程序将给出提示及空白供填写执行选定任务所需的信息。所需信息输入应用程序将自动调用所需的 SQL 命令。在这样一种程序的协助下，即使用户根本不懂 SQL 的语法，也可以执行数据库任务。
   
-目前，Microsoft 的 ODBC API 可能是使用最广的、用于访问关系数据库的编程接口。它能在几乎所有平台上连接几乎所有的数据库。为什么 Java 不使用 ODBC？对这个问题的回答是: Java 可以使用 ODBC，但最好是在 JDBC 的帮助下以 JDBC-ODBC 桥的形式使用，这一点我们稍后再说。现在的问题已变成: "为什么需要 JDBC"？答案是显然的: ODBC 不适合直接在 Java 中使用，因为它使用 C 语言接口。从Java 调用本地 C 代码在安全性、实现、坚固性和程序的自动移植性方面都有许多缺点。从 ODBC C API 到 Java API 的字面翻译是不可取的。例如，Java 没有指针，而 ODBC 却对指针用得很广泛（包括很容易出错的指针"void *") 。您可以将 JDBC 想象成被转换为面向对象接口的 ODBC，而面向对象的接口对 Java 程序员来说较易于接受。
+目前，Microsoft 的 ODBC API 可能是使用最广的、用于访问关系数据库的编程接口。它能在几乎所有平台上连接几乎所有的数据库。为什么 Java 不使用 ODBC？对这个问题的回答是: Java 可以使用 ODBC，但最好是在 JDBC 的帮助下以 JDBC-ODBC 桥的形式使用，这一点我们稍后再说。现在的问题已变成: "为什么需要 JDBC"？答案是显然的: ODBC 不适合直接在 Java 中使用，因为它使用 C 语言接口。从Java 调用本地 C 代码在安全性、实现、坚固性和程序的自动移植性方面都有许多缺点。从 ODBC C API 到 Java API 的字面翻译是不可取的。例如，Java 没有指针，而 ODBC 却对指针用得很广泛 (包括很容易出错的指针"void *") 。您可以将 JDBC 想象成被转换为面向对象接口的 ODBC，而面向对象的接口对 Java 程序员来说较易于接受。
 
-ODBC 很难学。它把简单和高级功能混在一起，而且即使对于简单的查询，其选项也极为复杂。相反，JDBC 尽量保证简单功能的简便性，而同时在必要时允许使用高级功能。启用"纯 Java "机制需要象 JDBC 这样的 Java API。如果使用ODBC，就必须手动地将 ODBC 驱动程序管理器和驱动程序安装在每台客户机上。如果完全用 Java 编写 JDBC 驱动程序则 JDBC 代码在所有 Java 平台上（从网络计算机到大型机) 都可以自 动安装、移植并保证安全性。
+ODBC 很难学。它把简单和高级功能混在一起，而且即使对于简单的查询，其选项也极为复杂。相反，JDBC 尽量保证简单功能的简便性，而同时在必要时允许使用高级功能。启用"纯 Java "机制需要象 JDBC 这样的 Java API。如果使用ODBC，就必须手动地将 ODBC 驱动程序管理器和驱动程序安装在每台客户机上。如果完全用 Java 编写 JDBC 驱动程序则 JDBC 代码在所有 Java 平台上 (从网络计算机到大型机) 都可以自 动安装、移植并保证安全性。
 
-总之，JDBC API 对于基本的 SQL 抽象和概念是一种自然的 Java 接口。它建立在 ODBC 上而不是从零开始。因此，熟悉 ODBC 的程序员将发现 JDBC 很容易使用。JDBC 保留了 ODBC 的基本设计特征；事实上，两种接口都基于 X/Open SQL CLI（调用级接口) 。它们之间最大的区别在于: JDBC 以 Java 风格与优点为基础并进行优化，因此更加易于使用。
+总之，JDBC API 对于基本的 SQL 抽象和概念是一种自然的 Java 接口。它建立在 ODBC 上而不是从零开始。因此，熟悉 ODBC 的程序员将发现 JDBC 很容易使用。JDBC 保留了 ODBC 的基本设计特征；事实上，两种接口都基于 X/Open SQL CLI (调用级接口) 。它们之间最大的区别在于: JDBC 以 Java 风格与优点为基础并进行优化，因此更加易于使用。
 
 目前，Microsoft 又引进了 ODBC 之外的新 API: RDO、 ADO 和OLE DB。这些设计在许多方面与 JDBC 是相同的，即它们都是面向对象的数据库接口且基于可在 ODBC 上实现的类。但在这些接口中，我们未看见有特别的功能使我们要转而选择它们来替代 ODBC，尤其是在 ODBC 驱动程序已建立起较为完善的市场的情况下。它们最多也就是在 ODBC 上加了一种装饰而已。
 
-JDBC API 既支持数据库访问的两层模型（C/S) ，同时也支持三层模型（B/S) 。在两层模型中，Java applet或应用程序将直接与数据库进行对话。这将需要一个JDBC驱动程序来与所访问的特定数据库管理系统进行 通讯。用户的SQL语句被送往数据库中，而其结果将被送回给用户。数据库可以位于另一台计算机上，用户通过网络连接到上面。这就叫做客户机/服务器配置，其中用户的计算机为客户机，提供数据库的计算机为服务器。网络可以是 Intranet（它可将公司职员连接起来) ，也可以是 Internet。
+JDBC API 既支持数据库访问的两层模型 (C/S) ，同时也支持三层模型 (B/S) 。在两层模型中，Java applet或应用程序将直接与数据库进行对话。这将需要一个JDBC驱动程序来与所访问的特定数据库管理系统进行 通讯。用户的SQL语句被送往数据库中，而其结果将被送回给用户。数据库可以位于另一台计算机上，用户通过网络连接到上面。这就叫做客户机/服务器配置，其中用户的计算机为客户机，提供数据库的计算机为服务器。网络可以是 Intranet (它可将公司职员连接起来) ，也可以是 Internet。
 
 在三层模型中，命令先是被发送到服务的"中间层"，然后由它将SQL 语句发送给数据库。数据库对 SQL 语句进行处理并将结果送回到中间层，中间层再将结果送回给用户。MIS 主管们都发现三层模型很吸引人，因为可用中间层来控制对公司数据的访问和可作的的更新的种类。中间层的另一个好处是，用户可以利用易于使用的高级API，而中间层将把它转换为相应的低级调用。最后，许多情况下三层结构可提供一些性能上的好处。
 
-到目前为止，中间层通常都用 C 或 C++ 这类语言来编写，这些语言执行速度较快。然而，随着最优化编译器（它把 Java 字节代码转换为高效的特定于机器的代码) 的引入，用 Java 来实现中间层将变得越来越实际。这将是一个很大的进步，它使人们可以充分利用 Java 的诸多优点（如坚固、多线程和安全等特征) 。JDBC 对于从Java的中间层来访问数据库非常重要。
+到目前为止，中间层通常都用 C 或 C++ 这类语言来编写，这些语言执行速度较快。然而，随着最优化编译器 (它把 Java 字节代码转换为高效的特定于机器的代码) 的引入，用 Java 来实现中间层将变得越来越实际。这将是一个很大的进步，它使人们可以充分利用 Java 的诸多优点 (如坚固、多线程和安全等特征) 。JDBC 对于从Java的中间层来访问数据库非常重要。
 
-结构化查询语言 （SQL)  是访问关系数据库的标准语言。困难之处在于: 虽然大多数的 DBMS （数据库管理系统) 对其基本功能都使用了标准形式的 SQL，但它们却不符合最近为更高级的功能定义的标准 SQL 语法或语义。例如，并非所有的数据库都支持储存程序或外部连接，那些支持这一功能的数据库又相互不一致。人们希望 SQL 中真正标准的那部份能够进行扩展以包括越来越多的功能。但同时 JDBC API 又必须支持现有的 SQL。
+结构化查询语言  (SQL)  是访问关系数据库的标准语言。困难之处在于: 虽然大多数的 DBMS  (数据库管理系统) 对其基本功能都使用了标准形式的 SQL，但它们却不符合最近为更高级的功能定义的标准 SQL 语法或语义。例如，并非所有的数据库都支持储存程序或外部连接，那些支持这一功能的数据库又相互不一致。人们希望 SQL 中真正标准的那部份能够进行扩展以包括越来越多的功能。但同时 JDBC API 又必须支持现有的 SQL。
 
-JDBC API 解决这个问题的一种方法是允许将任何查询字符串一直传到所涉及的 DBMS 驱动程序上。这意味着应用程序可以使用任意多的 SQL 功能，但它必须冒这样的风险: 有可能在某些 DBMS 上出错。事实上，应用程序查询甚至不一定要是 SQL，或者说它可以是个为特定的 DBMS 设计的 SQL 的专用派生物（例如，文档或图象查询) 。
+JDBC API 解决这个问题的一种方法是允许将任何查询字符串一直传到所涉及的 DBMS 驱动程序上。这意味着应用程序可以使用任意多的 SQL 功能，但它必须冒这样的风险: 有可能在某些 DBMS 上出错。事实上，应用程序查询甚至不一定要是 SQL，或者说它可以是个为特定的 DBMS 设计的 SQL 的专用派生物 (例如，文档或图象查询) 。
 
 JDBC 处理 SQL 一致性问题的第二种方法是提供 ODBC 风格的转义子句，这将在后续部分中讨论。转义语法为几个常见的 SQL 分歧提供了一种标准的 JDBC 语法。例如，对日期文字和已储存过程的调用都有转义语法。
 
 对于复杂的应用程序，JDBC 用第三种方法来处理 SQL 的一致性问题它利用 DatabaseMetaData 接口来提供关于 DBMS 的描述性信息，从而使应用程序能适应每个 DBMS 的要求和功能。
 
-由于 JDBC API 将用作开发高级数据库访问工具和 API 的基础 API，因此它还必须注意其所有上层建筑的一致性。"符合JDBC标准TM" 代表用户可依赖的 JDBC 功能的标准级别。要使用这一说明，驱动程序至少必须支持 ANSI SQL-2 Entry Level（ANSI SQL-2 代表美国国家标准局 1992 年所采用的标准。Entry Level代表SQL功能的特定清单) 。驱动程序开发人员可用 JDBC API 所带的测试工具包来确定他们的驱动程序是否符合这些标准。
+由于 JDBC API 将用作开发高级数据库访问工具和 API 的基础 API，因此它还必须注意其所有上层建筑的一致性。"符合JDBC标准TM" 代表用户可依赖的 JDBC 功能的标准级别。要使用这一说明，驱动程序至少必须支持 ANSI SQL-2 Entry Level (ANSI SQL-2 代表美国国家标准局 1992 年所采用的标准。Entry Level代表SQL功能的特定清单) 。驱动程序开发人员可用 JDBC API 所带的测试工具包来确定他们的驱动程序是否符合这些标准。
 
 "符合 JDBC 标准TM" 表示提供者的 JDBC 实现已经通过了JavaSoft 提供的一致性测试。这些一致性测试将检查 JDBC API中定义的所有类和方法是否都存在，并尽可能地检查程序是否具有SQL Entry Level 功能。当然，这些测试并不完全，而且 JavaSoft 目前也无意对各提供者的实现进行标级。但这种一致性定义的确可对JDBC实现提供一定的可信度。随着越来越多的数据库提供者、连接提供者、Internet 提供者和应用程序编程员对 JDBC API 的接受，JDBC 也正迅速成为 Java 数据库访问的标准。
 
@@ -160,7 +160,7 @@ DriverManager.getConnection 方法返回一个打开的连接，你可以使用�
 
 
 
-我们写了创建 COFFEES 表的 SQL 语句。现在我们在它外面加上引号（使它成为字符串) ，并且字符串赋值给变量 createTableCoffees，在以后的 JDBC 代码中我们可以使用此变量。正如看到的，DBMS 并不在意分行，但对 Java 语言来，String 对象分行是通不过编译的。因而，我们可以用加号 (+) 把每一行的串连接。
+我们写了创建 COFFEES 表的 SQL 语句。现在我们在它外面加上引号 (使它成为字符串) ，并且字符串赋值给变量 createTableCoffees，在以后的 JDBC 代码中我们可以使用此变量。正如看到的，DBMS 并不在意分行，但对 Java 语言来，String 对象分行是通不过编译的。因而，我们可以用加号 (+) 把每一行的串连接。
 
 
 
@@ -176,7 +176,7 @@ String createTableCoffees = "CREATE TABLE COFFEES " +
 
 
 
-我们在 CREATE TABLE 语句中使用的数据类型是通用的 SQL 类型（也称 JDBC 类型) 它们在类 java.sql.Types 中定义。DBMSs 通常使用这些标准的类型，因此，当你要尝试一些 JDBC 应用程序时，你可以直接使用 CreateCoffees.java 应用程序，它使用了 CREATE TABLE 语句。如果你的 DBMS 使用了它的自己的本地的类型名字，我们为你供应其它的应用程序，我们将在后面详细解释。
+我们在 CREATE TABLE 语句中使用的数据类型是通用的 SQL 类型 (也称 JDBC 类型) 它们在类 java.sql.Types 中定义。DBMSs 通常使用这些标准的类型，因此，当你要尝试一些 JDBC 应用程序时，你可以直接使用 CreateCoffees.java 应用程序，它使用了 CREATE TABLE 语句。如果你的 DBMS 使用了它的自己的本地的类型名字，我们为你供应其它的应用程序，我们将在后面详细解释。
 
 
 
@@ -224,7 +224,7 @@ stmt.executeUpdate(createTableCoffees);
 执行语句
 
 
-我们使用 executeUpdate 方法是因为在 createTableCoffees 中的 SQL 语句是 DDL （数据定义语言) 语句。创建表，改变表，删除表都是 DDL 语句的例子，要用 executeUpdate 方法来执行。你也可以从它的名字里看出，方法 executeUpdate 也被用于执行更新表 SQL 语句。实际上，相对于创建表来说，executeUpdate 用于更新表的时间更多，因为表只需要创建一次，但经常被更新。
+我们使用 executeUpdate 方法是因为在 createTableCoffees 中的 SQL 语句是 DDL  (数据定义语言) 语句。创建表，改变表，删除表都是 DDL 语句的例子，要用 executeUpdate 方法来执行。你也可以从它的名字里看出，方法 executeUpdate 也被用于执行更新表 SQL 语句。实际上，相对于创建表来说，executeUpdate 用于更新表的时间更多，因为表只需要创建一次，但经常被更新。
 
 
 
@@ -439,7 +439,7 @@ Connection 对象代表与数据库的连接。连接过程包括所执行的 SQ
 打开连接
 
 
-与数据库建立连接的标准方法是调用DriverManager.getConnection方法。该方法接受含有某个URL的字符串。DriverManager类（即所谓的JDBC管理层) 将尝试找到可与那个URL所代表的数据库进行连接的驱动程序。DriverManager类存有已注册的Driver类的清单。当调用方法getConnection时，它将检查清单中的每个驱动程序，直到找到可与URL中指定的数据库进行连接的驱动程序为止。Driver的方法connect使用这个URL来建立实际的连接。
+与数据库建立连接的标准方法是调用DriverManager.getConnection方法。该方法接受含有某个URL的字符串。DriverManager类 (即所谓的JDBC管理层) 将尝试找到可与那个URL所代表的数据库进行连接的驱动程序。DriverManager类存有已注册的Driver类的清单。当调用方法getConnection时，它将检查清单中的每个驱动程序，直到找到可与URL中指定的数据库进行连接的驱动程序为止。Driver的方法connect使用这个URL来建立实际的连接。
 
 
 
@@ -451,17 +451,17 @@ Connection 对象代表与数据库的连接。连接过程包括所执行的 SQ
 
 
 
-String url = "jdbc: odbc: wombat"； Connection con = DriverManager.getConnection（url， "freely"， "ec") ；
+String url = "jdbc: odbc: wombat"； Connection con = DriverManager.getConnection (url， "freely"， "ec") ；
 
 
 一般用法的URL
 
 
-由于URL常引起混淆，我们将先对一般URL作简单说明，然后再讨论JDBCURL。URL（统一资源定位符) 提供在Internet上定位资源所需的信息。可将它想象为一个地址。URL的第一部份指定了访问信息所用的协议，后面总是跟着冒号。常用的协议有"ftp"（代表"文件传输协议") 和"http"（代表"超文本传输协议") 。如果协议是"file"，表示资源是在某个本地文件系统上而非在Internet上（下例用于表示我们所描述的部分；它并非URL的组成部分) 。
+由于URL常引起混淆，我们将先对一般URL作简单说明，然后再讨论JDBCURL。URL (统一资源定位符) 提供在Internet上定位资源所需的信息。可将它想象为一个地址。URL的第一部份指定了访问信息所用的协议，后面总是跟着冒号。常用的协议有"ftp" (代表"文件传输协议") 和"http" (代表"超文本传输协议") 。如果协议是"file"，表示资源是在某个本地文件系统上而非在Internet上 (下例用于表示我们所描述的部分；它并非URL的组成部分) 。
 
 
 
-URL的其余部份（冒号后面的) 给出了数据资源所处位置的有关信息。如果协议是file，则URL的其余部份是文件的路径。对于ftp和http协议，URL的其余部份标识了主机并可选地给出某个更详尽的地址路径。例如，以下是JavaSoft主页的URL。该URL只标识了主机，从该主页开始浏览，就可以进到许多其它的网页中，其中之一就是JDBC主页。
+URL的其余部份 (冒号后面的) 给出了数据资源所处位置的有关信息。如果协议是file，则URL的其余部份是文件的路径。对于ftp和http协议，URL的其余部份标识了主机并可选地给出某个更详尽的地址路径。例如，以下是JavaSoft主页的URL。该URL只标识了主机，从该主页开始浏览，就可以进到许多其它的网页中，其中之一就是JDBC主页。
 
 
 JDBC URL
@@ -471,7 +471,7 @@ JDBC URL提供了一种标识数据库的方法，可以使相应的驱动程序
 
 
 
-由于JDBC URL要与各种不同的驱动程序一起使用，因此这些约定应非常灵活。首先，它们应允许不同的驱动程序使用不同的方案来命名数据库。例如，odbc子协议允许（但并不是要求) URL含有属性值。
+由于JDBC URL要与各种不同的驱动程序一起使用，因此这些约定应非常灵活。首先，它们应允许不同的驱动程序使用不同的方案来命名数据库。例如，odbc子协议允许 (但并不是要求) URL含有属性值。
 
 
 
@@ -479,7 +479,7 @@ JDBC URL提供了一种标识数据库的方法，可以使相应的驱动程序
 
 
 
-最后，JDBC URL应允许某种程度的间接性。也就是说，JDBC URL可指向逻辑主机或数据库名，而这种逻辑主机或数据库名将由网络命名系统动态地转换为实际的名称。这可以使系统管理员不必将特定主机声明为JDBC名称的一部份。网络命名服务（例如DNS、NIS和DCE) 有多种，而对于使用哪种命名服务并无限制。 JDBC URL的标准语法如下所示。它由三部分组成，各部分间用冒号分隔。
+最后，JDBC URL应允许某种程度的间接性。也就是说，JDBC URL可指向逻辑主机或数据库名，而这种逻辑主机或数据库名将由网络命名系统动态地转换为实际的名称。这可以使系统管理员不必将特定主机声明为JDBC名称的一部份。网络命名服务 (例如DNS、NIS和DCE) 有多种，而对于使用哪种命名服务并无限制。 JDBC URL的标准语法如下所示。它由三部分组成，各部分间用冒号分隔。
 
 
 
@@ -487,15 +487,15 @@ JDBC URL的三个部分可分解如下:
 
 
 
-（1) jdbc协议: JDBC URL中的协议总是jdbc。
+ (1) jdbc协议: JDBC URL中的协议总是jdbc。
 
 
 
-（2) <子协议>: 驱动程序名或数据库连接机制（这种机制可由一个或多个驱动程序支持) 的名称。子协议名的典型示例是"odbc"，该名称是为用于指定ODBC风格的数据资源名称的URL专门保留的。例如，为了通过JDBC-ODBC桥来访问某个数据库，可以用如下所示的URL: jdbc: odbc: book。本例中，子协议为"odbc"，子名称"book"是本地ODBC数据资源。如果要用网络命名服务（这样JDBC URL中的数据库名称不必是实际名称) ，则命名服务可以作为子协议。例如，可用如下所示的URL: jdbc: dcenaming: accounts。本例中，该URL指定了本地DCE命名服务应该将数据库名称"accounts"解析为更为具体的可用于连接真实数据库的名称。
+ (2) <子协议>: 驱动程序名或数据库连接机制 (这种机制可由一个或多个驱动程序支持) 的名称。子协议名的典型示例是"odbc"，该名称是为用于指定ODBC风格的数据资源名称的URL专门保留的。例如，为了通过JDBC-ODBC桥来访问某个数据库，可以用如下所示的URL: jdbc: odbc: book。本例中，子协议为"odbc"，子名称"book"是本地ODBC数据资源。如果要用网络命名服务 (这样JDBC URL中的数据库名称不必是实际名称) ，则命名服务可以作为子协议。例如，可用如下所示的URL: jdbc: dcenaming: accounts。本例中，该URL指定了本地DCE命名服务应该将数据库名称"accounts"解析为更为具体的可用于连接真实数据库的名称。
 
 
 
-（3) <子名称>: 种标识数据库的方法。子名称可以依不同的子协议而变化。它还可以有子名称的子名称（含有驱动程序编程员所选的任何内部语法) 。使用子名称的目的是为定位数据库提供足够的信息。前例中，因为ODBC将提供其余部份的信息，因此用"book"就已足够。然而，位于远程服务器上的数据库需要更多的信息。例如，如果数据库是通过Internet来访问的，则在JDBC URL中应将网络地址作为子名称的一部份包括进去，且必须遵循如下所示的标准URL命名约定: //主机名: 端口/子协议。
+ (3) <子名称>: 种标识数据库的方法。子名称可以依不同的子协议而变化。它还可以有子名称的子名称 (含有驱动程序编程员所选的任何内部语法) 。使用子名称的目的是为定位数据库提供足够的信息。前例中，因为ODBC将提供其余部份的信息，因此用"book"就已足够。然而，位于远程服务器上的数据库需要更多的信息。例如，如果数据库是通过Internet来访问的，则在JDBC URL中应将网络地址作为子名称的一部份包括进去，且必须遵循如下所示的标准URL命名约定: //主机名: 端口/子协议。
 
 
 
@@ -505,7 +505,7 @@ JDBC URL的三个部分可分解如下:
 "odbc"子协议
 
 
-子协议odbc是一种特殊情况。它是为用于指定ODBC风格的数据资源名称的URL而保留的，并具有下列特性: 允许在子名称（数据资源名称) 后面指定任意多个属性值。odbc子协议的完整语法为: 
+子协议odbc是一种特殊情况。它是为用于指定ODBC风格的数据资源名称的URL而保留的，并具有下列特性: 允许在子名称 (数据资源名称) 后面指定任意多个属性值。odbc子协议的完整语法为: 
 
 
 
@@ -531,19 +531,19 @@ JDBC提供了三个类，用于向数据库发送SQL语句。Connection接口中
 
 
 
-（1) Statement: 由方法createStatement所创建。Statement对象用于发送简单的SQL语句。
+ (1) Statement: 由方法createStatement所创建。Statement对象用于发送简单的SQL语句。
 
 
 
-（2) PreparedStatement: 由方法prepareStatement所创建。PreparedStatement对象用于发送带有一个或多个输入参数（IN参数) 的SQL语句。PreparedStatement拥有一组方法，用于设置IN参数的值。执行语句时，这些IN参数将被送到数据库中。PreparedStatement的实例扩展了Statement，因此它们都包括了Statement的方法。PreparedStatement对象有可能比Statement对象的效率更高，因为它已被预编译过并存放在那以供将来使用。
+ (2) PreparedStatement: 由方法prepareStatement所创建。PreparedStatement对象用于发送带有一个或多个输入参数 (IN参数) 的SQL语句。PreparedStatement拥有一组方法，用于设置IN参数的值。执行语句时，这些IN参数将被送到数据库中。PreparedStatement的实例扩展了Statement，因此它们都包括了Statement的方法。PreparedStatement对象有可能比Statement对象的效率更高，因为它已被预编译过并存放在那以供将来使用。
 
 
 
-（3) CallableStatement: 由方法prepareCall所创建。CallableStatement对象用于执行SQL储存程序─一组可通过名称来调用（就象函数的调用那样) 的SQL语句。CallableStatement对象从PreparedStatement中继承了用于处理IN参数的方法，而且还增加了用于处理OUT参数和INOUT参数的方法。
+ (3) CallableStatement: 由方法prepareCall所创建。CallableStatement对象用于执行SQL储存程序─一组可通过名称来调用 (就象函数的调用那样) 的SQL语句。CallableStatement对象从PreparedStatement中继承了用于处理IN参数的方法，而且还增加了用于处理OUT参数和INOUT参数的方法。
 
 
 
-不过通常来说createStatement方法用于简单的SQL语句（不带参数) 、prepareStatement方法用于带一个或多个IN参数的SQL语句或经常被执行的简单SQL语句，而prepareCall方法用于调用已储存过程。
+不过通常来说createStatement方法用于简单的SQL语句 (不带参数) 、prepareStatement方法用于带一个或多个IN参数的SQL语句或经常被执行的简单SQL语句，而prepareCall方法用于调用已储存过程。
 
 
 事务
@@ -567,11 +567,11 @@ JDBC提供了三个类，用于向数据库发送SQL语句。Connection接口中
 
 
 
-假设第一个事务被还原后，第二个事务所读取的更改值将是无效的，那么是否可允许这种冲突？JDBC用户可用以下代码来指示DBMS允许在值被提交前读取该值（"dirty读取") ，其中con是当前连接:  con.setTransactionIsolation（TRANSACTION_READ_UNCOMMITTED) ；
+假设第一个事务被还原后，第二个事务所读取的更改值将是无效的，那么是否可允许这种冲突？JDBC用户可用以下代码来指示DBMS允许在值被提交前读取该值 ("dirty读取") ，其中con是当前连接:  con.setTransactionIsolation (TRANSACTION_READ_UNCOMMITTED) ；
 
 
 
-事务隔离级别越高，为避免冲突所花的精力也就越多。Connection接口定义了五级，其中最低级别指定了根本就不支持事务，而最高级别则指定当事务在对某个数据库进行操作时，任何其它事务不得对那个事务正在读取的数据进行任何更改。通常，隔离级别越高，应用程序执行的速度也就越慢（由于用于锁定的资源耗费增加了，而用户间的并发操作减少了) 。在决定采用什么隔离级别时，开发人员必须在性能需求和数据一致性需求之间进行权衡。当然，实际所能支持的级别取决于所涉及的DBMS的功能。
+事务隔离级别越高，为避免冲突所花的精力也就越多。Connection接口定义了五级，其中最低级别指定了根本就不支持事务，而最高级别则指定当事务在对某个数据库进行操作时，任何其它事务不得对那个事务正在读取的数据进行任何更改。通常，隔离级别越高，应用程序执行的速度也就越慢 (由于用于锁定的资源耗费增加了，而用户间的并发操作减少了) 。在决定采用什么隔离级别时，开发人员必须在性能需求和数据一致性需求之间进行权衡。当然，实际所能支持的级别取决于所涉及的DBMS的功能。
 
 
 
@@ -592,23 +592,23 @@ DriverManager类包含一列Driver类，它们已通过调用方法DriverManager
 
 
 
-（1) 调用方法Class.forName
+ (1) 调用方法Class.forName
 
 
 
-这将显式地加载驱动程序类。由于这与外部设置无关，因此推荐使用这种加载驱动程序的方法。以下代码加载类acme.db.Driver: Class.forName（"acme.db.Driver") 。
+这将显式地加载驱动程序类。由于这与外部设置无关，因此推荐使用这种加载驱动程序的方法。以下代码加载类acme.db.Driver: Class.forName ("acme.db.Driver") 。
 
 
 
-如果将acme.db.Driver编写为加载时创建实例，并调用以该实例为参数的DriverManager.registerDriver（本该如此) ，则它在DriverManager的驱动程序列表中，并可用于创建连接。
+如果将acme.db.Driver编写为加载时创建实例，并调用以该实例为参数的DriverManager.registerDriver (本该如此) ，则它在DriverManager的驱动程序列表中，并可用于创建连接。
 
 
 
-（2) 将驱动程序添加到Java.lang.System的属性jdbc.drivers中
+ (2) 将驱动程序添加到Java.lang.System的属性jdbc.drivers中
 
 
 
-这是一个由DriverManager类加载的驱动程序类名的列表，由冒号分隔: 初始化DriverManager类时，它搜索系统属性jdbc.drivers，如果用户已输入了一个或多个驱动程序，则DriverManager类将试图加载它们。以下代码说明程序员如何在~/.hotJava/properties中输入三个驱动程序类（启动时，HotJava将ivers=foo.bah.Driver: wombat.sql.Driver: bad.test.ourDriver；
+这是一个由DriverManager类加载的驱动程序类名的列表，由冒号分隔: 初始化DriverManager类时，它搜索系统属性jdbc.drivers，如果用户已输入了一个或多个驱动程序，则DriverManager类将试图加载它们。以下代码说明程序员如何在~/.hotJava/properties中输入三个驱动程序类 (启动时，HotJava将ivers=foo.bah.Driver: wombat.sql.Driver: bad.test.ourDriver；
 
 
 
@@ -634,15 +634,15 @@ DriverManager类包含一列Driver类，它们已通过调用方法DriverManager
 
 
 
-首先DriverManager试图按注册的顺序使用每个驱动程序（jdbc.drivers中列出的驱动程序总是先注册) 。它将跳过代码不可信任的驱动程序，除非加载它们的源与试图打开连接的代码的源相同。它通过轮流在每个驱动程序上调用方法Driver.connect，并向它们传递用户开始传递给方法DriverManager.getConnection的URL来对驱动程序进行测试，然后连接第一个认出该URL的驱动程序。这种方法初看起来效率不高，但由于不可能同时加载数十个驱动程序，因此每次连接实际只需几个过程调用和字符串比较。
+首先DriverManager试图按注册的顺序使用每个驱动程序 (jdbc.drivers中列出的驱动程序总是先注册) 。它将跳过代码不可信任的驱动程序，除非加载它们的源与试图打开连接的代码的源相同。它通过轮流在每个驱动程序上调用方法Driver.connect，并向它们传递用户开始传递给方法DriverManager.getConnection的URL来对驱动程序进行测试，然后连接第一个认出该URL的驱动程序。这种方法初看起来效率不高，但由于不可能同时加载数十个驱动程序，因此每次连接实际只需几个过程调用和字符串比较。
 
 
 
-以下代码是通常情况下用驱动程序（例如JDBC-ODBC桥驱动程序) 建立连接所需所有步骤的示例: 
+以下代码是通常情况下用驱动程序 (例如JDBC-ODBC桥驱动程序) 建立连接所需所有步骤的示例: 
 
 
 
-Class.forName（"sun.jdbc.odbc.JdbcOdbcDriver") ；//加载驱动程序 String url = "jdbc: odbc: fred"； DriverManager.getConnection（url，"userID"，"passwd") ；
+Class.forName ("sun.jdbc.odbc.JdbcOdbcDriver") ；//加载驱动程序 String url = "jdbc: odbc: fred"； DriverManager.getConnection (url，"userID"，"passwd") ；
 
 
 
@@ -653,7 +653,7 @@ Class.forName（"sun.jdbc.odbc.JdbcOdbcDriver") ；//加载驱动程序 String u
 综述
 
 
-Statement对象用于将SQL语句发送到数据库中。实际上有三种Statement对象，它们都作为在给定连接上执行SQL语句的包容器: Statement、PreparedStatement（它从Statement继承而来) 和CallableStatement（它从PreparedStatement继承而来) 。它们都专用于发送特定类型的SQL语句: Statement对象用于执行不带参数的简单SQL语句；PreparedStatement对象用于执行带或不带IN参数的预编译SQL语句；CallableStatement对象用于执行对数据库已存储过程的调用。 Statement接口提供了执行语句和获取结果的基本方法；PreparedStatement接口添加了处理IN参数的方法；而CallableStatement添加了处理OUT参数的方法。
+Statement对象用于将SQL语句发送到数据库中。实际上有三种Statement对象，它们都作为在给定连接上执行SQL语句的包容器: Statement、PreparedStatement (它从Statement继承而来) 和CallableStatement (它从PreparedStatement继承而来) 。它们都专用于发送特定类型的SQL语句: Statement对象用于执行不带参数的简单SQL语句；PreparedStatement对象用于执行带或不带IN参数的预编译SQL语句；CallableStatement对象用于执行对数据库已存储过程的调用。 Statement接口提供了执行语句和获取结果的基本方法；PreparedStatement接口添加了处理IN参数的方法；而CallableStatement添加了处理OUT参数的方法。
 
 
 创建Statement对象
@@ -663,7 +663,7 @@ Statement对象用于将SQL语句发送到数据库中。实际上有三种State
 
 
 
-Connection con = DriverManager.getConnection（url，"sunny"，"") ； Statement stmt = con.createStatement（) ；
+Connection con = DriverManager.getConnection (url，"sunny"，"") ； Statement stmt = con.createStatement () ；
 
 
 
@@ -671,7 +671,7 @@ Connection con = DriverManager.getConnection（url，"sunny"，"") ； Statement
 
 
 
-ResultSet rs = stmt.executeQuery（"SELECT a，b，c FROM Table2") ；
+ResultSet rs = stmt.executeQuery ("SELECT a，b，c FROM Table2") ；
 
 
 使用Statement对象执行语句
@@ -681,11 +681,11 @@ Statement接口提供了三种执行SQL语句的方法: executeQuery、executeUp
 
 
 
-方法executeQuery用于产生单个结果集的语句，例如SELECT语句。方法executeUpdate用于执行INSERT、UPDATE或DELETE语句以及SQL DDL（数据定义语言) 语句，例如CREATE TABLE和DROP TABLE。INSERT、UPDATE或DELETE语句的效果是修改表中零行或多行中的一列或多列。executeUpdate的返回值是一个整数，指示受影响的行数（即更新计数) 。对于CREATE TABLE或DROP TABLE等不操作行的语句，executeUpdate的返回值总为零。
+方法executeQuery用于产生单个结果集的语句，例如SELECT语句。方法executeUpdate用于执行INSERT、UPDATE或DELETE语句以及SQL DDL (数据定义语言) 语句，例如CREATE TABLE和DROP TABLE。INSERT、UPDATE或DELETE语句的效果是修改表中零行或多行中的一列或多列。executeUpdate的返回值是一个整数，指示受影响的行数 (即更新计数) 。对于CREATE TABLE或DROP TABLE等不操作行的语句，executeUpdate的返回值总为零。
 
 
 
-执行语句的所有方法都将关闭所调用的Statement对象的当前打开结果集（如果存在) 。这意味着在重新执行Statement对象之前，需要完成对当前ResultSet对象的处理。应注意，继承了Statement接口中所有方法的PreparedStatement接口都有自己的executeQuery、executeUpdate和execute方法。Statement对象本身不包含SQL语句，因而必须给Statement.execute方法提供SQL语句作为参数。PreparedStatement对象并不需要SQL语句作为参数提供给这些方法，因为它们已经包含预编译SQL语句。
+执行语句的所有方法都将关闭所调用的Statement对象的当前打开结果集 (如果存在) 。这意味着在重新执行Statement对象之前，需要完成对当前ResultSet对象的处理。应注意，继承了Statement接口中所有方法的PreparedStatement接口都有自己的executeQuery、executeUpdate和execute方法。Statement对象本身不包含SQL语句，因而必须给Statement.execute方法提供SQL语句作为参数。PreparedStatement对象并不需要SQL语句作为参数提供给这些方法，因为它们已经包含预编译SQL语句。
 
 
 
@@ -711,7 +711,7 @@ Statement对象将由Java垃圾收集程序自动关闭。而作为一种好的�
 使用方法execute
 
 
-execute方法应该仅在语句能返回多个ResultSet对象、多个更新计数或ResultSet对象与更新计数的组合时使用。当执行某个已存储过程或动态执行未知SQL字符串（即应用程序程序员在编译时未知) 时，有可能出现多个结果的情况，尽管这种情况很少见。例如，用户可能执行一个已存储过程，并且该已存储过程可执行更新，然后执行选择，再进行更新，再进行选择，等等。通常使用已存储过程的人应知道它所返回的内容。
+execute方法应该仅在语句能返回多个ResultSet对象、多个更新计数或ResultSet对象与更新计数的组合时使用。当执行某个已存储过程或动态执行未知SQL字符串 (即应用程序程序员在编译时未知) 时，有可能出现多个结果的情况，尽管这种情况很少见。例如，用户可能执行一个已存储过程，并且该已存储过程可执行更新，然后执行选择，再进行更新，再进行选择，等等。通常使用已存储过程的人应知道它所返回的内容。
 
 
 
@@ -723,11 +723,11 @@ execute方法应该仅在语句能返回多个ResultSet对象、多个更新计�
 
 
 
-当SQL语句的结果不是结果集时，则方法getResultSet将返回null。这可能意味着结果是一个更新计数或没有其它结果。在这种情况下，判断null真正含义的唯一方法是调用方法getUpdateCount，它将返回一个整数。这个整数为调用语句所影响的行数；如果为-1则表示结果是结果集或没有结果。如果方法getResultSet已返回null（表示结果不是ResultSet对象) ，则返回值-1表示没有其它结果。也就是说，当下列条件为真时表示没有结果（或没有其它结果) : 
+当SQL语句的结果不是结果集时，则方法getResultSet将返回null。这可能意味着结果是一个更新计数或没有其它结果。在这种情况下，判断null真正含义的唯一方法是调用方法getUpdateCount，它将返回一个整数。这个整数为调用语句所影响的行数；如果为-1则表示结果是结果集或没有结果。如果方法getResultSet已返回null (表示结果不是ResultSet对象) ，则返回值-1表示没有其它结果。也就是说，当下列条件为真时表示没有结果 (或没有其它结果) : 
 
 
 
-（（stmt.getResultSet（) ==null) &&（stmt.getUpdateCount（) ==-1) ) 
+ ( (stmt.getResultSet () ==null) && (stmt.getUpdateCount () ==-1) ) 
 
 
 
@@ -739,7 +739,7 @@ execute方法应该仅在语句能返回多个ResultSet对象、多个更新计�
 
 
 
-（（stmt.getMoreResults（) ==false) &&（stmt.getUpdateCount（) ==-1) ) 
+ ( (stmt.getMoreResults () ==false) && (stmt.getUpdateCount () ==-1) ) 
 
 
 访问
@@ -816,7 +816,7 @@ JSP设计
 
 
 
-上述的开发工具综合应用介绍了基于Java开发电子商务应用系统的全过程，包括应用开发平台搭建、业务流程分析、JavaBean封装和JSP开发等内容，其中JSP开发中涉及到了通用SQL（查询和插入数据库表) 和游标操作（生成实际采购表) ，基本可以完成任何网络数据库应用的需求。本实例基本上可以将前面介绍的基于Java的电子商务开发技术串接起来，指导读者进行电子商务应用开发。
+上述的开发工具综合应用介绍了基于Java开发电子商务应用系统的全过程，包括应用开发平台搭建、业务流程分析、JavaBean封装和JSP开发等内容，其中JSP开发中涉及到了通用SQL (查询和插入数据库表) 和游标操作 (生成实际采购表) ，基本可以完成任何网络数据库应用的需求。本实例基本上可以将前面介绍的基于Java的电子商务开发技术串接起来，指导读者进行电子商务应用开发。
 
 
 
@@ -835,7 +835,7 @@ JSP设计
 JavaSoft框架
 
 
-JavaSoft提供三种JDBC产品组件，它们是Java开发工具包（JDK) 的组成部份: JDBC驱动程序管理器、JDBC驱动程序测试工具包和JDBC-ODBC桥。
+JavaSoft提供三种JDBC产品组件，它们是Java开发工具包 (JDK) 的组成部份: JDBC驱动程序管理器、JDBC驱动程序测试工具包和JDBC-ODBC桥。
 
 
 
@@ -847,7 +847,7 @@ JDBC驱动程序测试工具包为使JDBC驱动程序运行您的程序提供一
 
 
 
-JDBC-ODBC桥使ODBC驱动程序可被用作JDBC驱动程序。它的实现为JDBC的快速发展提供了一条途径，其长远目标提供一种访问某些不常见的DBMS（如果对这些不常见的DBMS未实现JDBC) 的方法。
+JDBC-ODBC桥使ODBC驱动程序可被用作JDBC驱动程序。它的实现为JDBC的快速发展提供了一条途径，其长远目标提供一种访问某些不常见的DBMS (如果对这些不常见的DBMS未实现JDBC) 的方法。
 
 
 JDBC驱动程序的类型
@@ -857,15 +857,15 @@ JDBC驱动程序的类型
 
 
 
-（1) JDBC-ODBC桥加ODBC驱动程序
+ (1) JDBC-ODBC桥加ODBC驱动程序
 
 
 
-JavaSoft桥产品利用ODBC驱动程序提供JDBC访问。注意，必须将ODBC二进制代码（许多情况下还包括数据库客户机代码) 加载到使用该驱动程序的每个客户机上。因此，这种类型的驱动程序最适合于企业网（这种网络上客户机的安装不是主要问题) ，或者是用Java编写的三层结构的应用程序服务器代码。
+JavaSoft桥产品利用ODBC驱动程序提供JDBC访问。注意，必须将ODBC二进制代码 (许多情况下还包括数据库客户机代码) 加载到使用该驱动程序的每个客户机上。因此，这种类型的驱动程序最适合于企业网 (这种网络上客户机的安装不是主要问题) ，或者是用Java编写的三层结构的应用程序服务器代码。
 
 
 
-（2) 本地API
+ (2) 本地API
 
 
 
@@ -873,7 +873,7 @@ JavaSoft桥产品利用ODBC驱动程序提供JDBC访问。注意，必须将ODBC
 
 
 
-（3) JDBC网络纯Java驱动程序
+ (3) JDBC网络纯Java驱动程序
 
 
 
@@ -881,7 +881,7 @@ JavaSoft桥产品利用ODBC驱动程序提供JDBC访问。注意，必须将ODBC
 
 
 
-（4) 本地协议纯Java驱动程序
+ (4) 本地协议纯Java驱动程序
 
 
 
@@ -891,7 +891,7 @@ JavaSoft桥产品利用ODBC驱动程序提供JDBC访问。注意，必须将ODBC
 JDBC驱动程序的获取
 
 
-目前已有几十个（1) 类的驱动程序，即可与Javasoft桥联合使用的ODBC驱动程序的驱动程序。有大约十多个属于种类（2) 的驱动程序是以DBMS的本地API为基础编写的。只有几个属于种类（3) 的驱动程序，其首批提供者是SCO、OpenHorizon、Visigenic和WebLogic。此外，JavaSoft和数据库连接的领先提供者Intersolv还合作研制了JDBC-ODBC桥和JDBC驱动程序测试工具包。
+目前已有几十个 (1) 类的驱动程序，即可与Javasoft桥联合使用的ODBC驱动程序的驱动程序。有大约十多个属于种类 (2) 的驱动程序是以DBMS的本地API为基础编写的。只有几个属于种类 (3) 的驱动程序，其首批提供者是SCO、OpenHorizon、Visigenic和WebLogic。此外，JavaSoft和数据库连接的领先提供者Intersolv还合作研制了JDBC-ODBC桥和JDBC驱动程序测试工具包。
 
 
 
@@ -911,7 +911,7 @@ On Wednesday, September 18, at Oracle CodeOne Oracle announced that Oracle will 
 
 
 ### R2DBC
-pring 官方在 Spring 5 发布了响应式 Web 框架 Spring WebFlux 之后急需能够满足异步响应的数据库交互 API 。 由于缺乏标准和驱动，Pivotal（Spring 官方） 团队开始研究反应式关系型数据库连接（Reactive Relational Database Connectivity），并提出了 R2DBC 规范 API 以评估可行性并讨论数据库厂商是否有兴趣支持反应式的异步非阻塞驱动程序。最开始只有 PostgreSQL 、H2、MSSQL 三家，现在 MySQL 也加入了进来。R2DBC 最新版本是0.8.1.RELEASE。除了驱动实现外还提供了 R2DBC 连接池 和 R2DBC 代理。除此之外还支持云原生应用。
+pring 官方在 Spring 5 发布了响应式 Web 框架 Spring WebFlux 之后急需能够满足异步响应的数据库交互 API 。 由于缺乏标准和驱动，Pivotal (Spring 官方） 团队开始研究反应式关系型数据库连接 (Reactive Relational Database Connectivity），并提出了 R2DBC 规范 API 以评估可行性并讨论数据库厂商是否有兴趣支持反应式的异步非阻塞驱动程序。最开始只有 PostgreSQL 、H2、MSSQL 三家，现在 MySQL 也加入了进来。R2DBC 最新版本是0.8.1.RELEASE。除了驱动实现外还提供了 R2DBC 连接池 和 R2DBC 代理。除此之外还支持云原生应用。
 
 ---
 

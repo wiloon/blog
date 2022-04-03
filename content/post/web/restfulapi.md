@@ -12,12 +12,12 @@ tags:
 
 http://www.ruanyifeng.com/blog/2014/05/restful_api.html
 
-路径（Endpoint) 
-路径又称"终点"（endpoint) ，表示API的具体网址。
+路径 (Endpoint) 
+路径又称"终点" (endpoint) ，表示API的具体网址。
 
-在RESTful架构中，每个网址代表一种资源（resource) ，所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的"集合"（collection) ，所以API中的名词也应该使用复数。
+在RESTful架构中，每个网址代表一种资源 (resource) ，所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的"集合" (collection) ，所以API中的名词也应该使用复数。
 
-举例来说，有一个API提供动物园（zoo) 的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。
+举例来说，有一个API提供动物园 (zoo) 的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。
 
 https://api.example.com/v1/zoos
 https://api.example.com/v1/animals
@@ -27,13 +27,13 @@ https://api.example.com/v1/employees
 HTTP动词
 对于资源的具体操作类型，由HTTP动词表示。
 
-常用的HTTP动词有下面五个（括号里是对应的SQL命令) 。
+常用的HTTP动词有下面五个 (括号里是对应的SQL命令) 。
 
-GET（SELECT) : 从服务器取出资源（一项或多项) 。
-POST（CREATE) : 在服务器新建一个资源。
-PUT（UPDATE) : 在服务器更新资源（客户端提供改变后的完整资源) 。
-PATCH（UPDATE) : 在服务器更新资源（客户端提供改变的属性) 。
-DELETE（DELETE) : 从服务器删除资源。
+GET (SELECT) : 从服务器取出资源 (一项或多项) 。
+POST (CREATE) : 在服务器新建一个资源。
+PUT (UPDATE) : 在服务器更新资源 (客户端提供改变后的完整资源) 。
+PATCH (UPDATE) : 在服务器更新资源 (客户端提供改变的属性) 。
+DELETE (DELETE) : 从服务器删除资源。
 还有两个不常用的HTTP动词。
 
 HEAD: 获取资源的元数据。

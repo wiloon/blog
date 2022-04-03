@@ -51,13 +51,13 @@ apt-get是一条linux命令，适用于deb包管理式的操作系统，主要�
 
 apt-get update
   
-安装一个新软件包（参见下文的aptitude) 
+安装一个新软件包 (参见下文的aptitude) 
 
 apt-get upgrade
 
 apt-get install packagename
   
-卸载一个已安装的软件包（保留配置文档) 
+卸载一个已安装的软件包 (保留配置文档) 
 
 
   
@@ -65,7 +65,7 @@ apt-get install packagename
 
 apt-get -purge remove packagename
 
-卸载一个已安装的软件包（删除配置文档) 
+卸载一个已安装的软件包 (删除配置文档) 
 
 dpkg -force-all -purge packagename
 
@@ -121,7 +121,7 @@ dpkg -S file
 
 apt-file search filename
 
-查找包含特定文档的软件包（不一定是已安装的) ，这些文档的文档名中含有指定的字符串。apt-file是个单独的软件包。您必须先使用apt-get install来安装他，然後运行apt-file update。假如apt-file search filename输出的内容太多，您能够尝试使用apt-file search filename | grep -w filename（只显示指定字符串作为完整的单词出现在其中的那些文档名) 或类似方法，例如: apt-file search filename | grep /bin/（只显示位于诸如/bin或/usr/bin这些文档夹中的文档，假如您要查找的是某个特定的执行文档的话，这样做是有帮助的) 。
+查找包含特定文档的软件包 (不一定是已安装的) ，这些文档的文档名中含有指定的字符串。apt-file是个单独的软件包。您必须先使用apt-get install来安装他，然後运行apt-file update。假如apt-file search filename输出的内容太多，您能够尝试使用apt-file search filename | grep -w filename (只显示指定字符串作为完整的单词出现在其中的那些文档名) 或类似方法，例如: apt-file search filename | grep /bin/ (只显示位于诸如/bin或/usr/bin这些文档夹中的文档，假如您要查找的是某个特定的执行文档的话，这样做是有帮助的) 。
 
 ＊ apt-get autoclean
 

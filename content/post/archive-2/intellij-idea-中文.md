@@ -34,7 +34,7 @@ IDE本身的中文乱码
   
 进入IDE Settings里的File Encodings项,把IDE Encoding项设置成UTF-8。确定。
   
-进入IDE Settings里的Appearance项,选中Override default fonts by,把Name设置为你喜欢的字体（我使用的是Yahei Consolas Hybrid) ,Size根据自己喜好设置（我一般设为 14) 。确定。
+进入IDE Settings里的Appearance项,选中Override default fonts by,把Name设置为你喜欢的字体 (我使用的是Yahei Consolas Hybrid) ,Size根据自己喜好设置 (我一般设为 14) 。确定。
   
 以上应该可以保证中文显示没有问题了。
 
@@ -44,7 +44,7 @@ IDE本身的中文乱码
   
 首先要确定你正在编辑的文件是UTF-8编码的,有很多文件可能默认是ANSI编码。
 
-至于中文重叠那是因为你所选用的默认中文字体不对,一直以来我写代码都是用的consolas,但是这个字体不支持中文,Intellij IDEA 12中如果使用默认的中文字体（不知道是哪个字体) 就会重叠在一起,在网上找了好久,终于找到一个神一般的字体Yahei Consolas Hybrid,即微软雅黑和consolas的混合！
+至于中文重叠那是因为你所选用的默认中文字体不对,一直以来我写代码都是用的consolas,但是这个字体不支持中文,Intellij IDEA 12中如果使用默认的中文字体 (不知道是哪个字体) 就会重叠在一起,在网上找了好久,终于找到一个神一般的字体Yahei Consolas Hybrid,即微软雅黑和consolas的混合！
 
 于是乎,File->Settings IDE Settings->Editor->Color & Fonts->Font,设置字体为Yahei Consolas Hybrid即可。
 
@@ -56,7 +56,7 @@ IDE本身的中文乱码
 
 Intellij IDEA 12 设置字体
   
-在此路径（win7) "C:\Users\你的计算机名.IntelliJIdea12\config\colors"找到Darcula1.xml文件。
+在此路径 (win7) "C:\Users\你的计算机名.IntelliJIdea12\config\colors"找到Darcula1.xml文件。
   
 用记事本打开Darcula1.xml文件,把第8行改为然后重启IntelliJ IDEA 12.0,中文字符问题解决,
   

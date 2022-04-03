@@ -12,15 +12,15 @@ tags:
 ## Arch Linux 自动连接可用无线网络
 本文来自依云's Blog，转载请注明。
 
-Arch Linux 连接网络可以使用其官方开发的 netctl 系列命令行工具。要想在开机（以及从挂起/休眠状态唤醒) 时自动连接到可用的无线网络，以下是设置步骤。
+Arch Linux 连接网络可以使用其官方开发的 netctl 系列命令行工具。要想在开机 (以及从挂起/休眠状态唤醒) 时自动连接到可用的无线网络，以下是设置步骤。
 
 首先，你得告诉 Arch Linux 你知道哪些无线热点。Arch Linux 不会自动帮你破解别人的 Wi-Fi 密码的。就算 Wi-Fi 热点没有加密，你不说 Arch Linux 怎么知道它应当连接到那个热点呢，也许那是个钓鱼用的热点也说不定哦。
 
-cd 到 /etc/netctl 目录下，可以看到 examples 目录下有一堆示例配置。复制你所需要的配置文件到上一层目录（/etc/netctl) 。比如绝大多数 Wi-Fi 热点使用的是 WPA 加密，那就复制 examples/wireless-wpa 文件。目标文件名比较随意，起个方便自己的名字就行，比如 work、home 之类的。复制完成之后记得 chmod 600 禁止非 root 用户访问，因为配置文件里会包含你的 Wi-Fi 热点密码。
+cd 到 /etc/netctl 目录下，可以看到 examples 目录下有一堆示例配置。复制你所需要的配置文件到上一层目录 (/etc/netctl) 。比如绝大多数 Wi-Fi 热点使用的是 WPA 加密，那就复制 examples/wireless-wpa 文件。目标文件名比较随意，起个方便自己的名字就行，比如 work、home 之类的。复制完成之后记得 chmod 600 禁止非 root 用户访问，因为配置文件里会包含你的 Wi-Fi 热点密码。
 
-然后编辑配置文件，修改 ESSID 和 Key 为你的 Wi-Fi 热点 ID 和密码就可以了。之所以要先更改权限再编辑，是因为某些编辑器（如 Vim) 会生成同权限的备份文件；那里有可能也会包含密码。可以放多份配置文件在这里，netctl-auto 默认会去找一个可用的连接。有多个可用的时候不太清楚它会连上哪一个，可以使用更复杂的配置文件来指定优先级（参见 examples/wireless-wpa-configsection 示例配置) 。
+然后编辑配置文件，修改 ESSID 和 Key 为你的 Wi-Fi 热点 ID 和密码就可以了。之所以要先更改权限再编辑，是因为某些编辑器 (如 Vim) 会生成同权限的备份文件；那里有可能也会包含密码。可以放多份配置文件在这里，netctl-auto 默认会去找一个可用的连接。有多个可用的时候不太清楚它会连上哪一个，可以使用更复杂的配置文件来指定优先级 (参见 examples/wireless-wpa-configsection 示例配置) 。
 
-配置文件写好之后，当然是启动相应的服务啦。Arch Linux 一贯的传统是不启动不必要的服务，除非用户说要启动之。netctl-auto 的 systemd 服务名是 netctl-auto@interface.service（当然 .service 后缀还是可以省略的) 。interface 部分写你的无线网络接口的名字，可以通过 ip link、ifconfig、iwconfig 等命令看到。我禁用了 systemd 的可预测网络接口名称，所以我的无线网络接口名唤 wlan0。我使用如下命令启动服务: 
+配置文件写好之后，当然是启动相应的服务啦。Arch Linux 一贯的传统是不启动不必要的服务，除非用户说要启动之。netctl-auto 的 systemd 服务名是 netctl-auto@interface.service (当然 .service 后缀还是可以省略的) 。interface 部分写你的无线网络接口的名字，可以通过 ip link、ifconfig、iwconfig 等命令看到。我禁用了 systemd 的可预测网络接口名称，所以我的无线网络接口名唤 wlan0。我使用如下命令启动服务: 
   
 $ sudo systemctl start netctl-auto@wlan0.service
   

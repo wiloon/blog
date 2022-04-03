@@ -98,7 +98,7 @@ data: Array[Int] = Array(1, 2, 3, 4, 5)
 
 3. scala> val distData = sc.parallelize(data) //将data处理成RDD
 
-distData: spark.RDD[Int] = spark.ParallelCollection@7a0ec850 （显示出的类型为RDD) 
+distData: spark.RDD[Int] = spark.ParallelCollection@7a0ec850  (显示出的类型为RDD) 
 
 4. scala> distData.reduce(_+_) //在RDD上进行运算，对data里面元素进行加和
 
@@ -130,7 +130,7 @@ scala> distFile.map(_.size).reduce(_+_)
 
 res3: Int = 79
   
-textFile可以通过设置第二个参数来指定slice个数（slice与Hadoop里的split/block概念对应，一个task处理一个slice) 。Spark默认将Hadoop上一个block对应为一个slice，但可以调大slice的个数，但不能比block的个数小，这就需要知道HDFS上一个文件的block数目，可以通过50070的dfs的jsp来查看。
+textFile可以通过设置第二个参数来指定slice个数 (slice与Hadoop里的split/block概念对应，一个task处理一个slice) 。Spark默认将Hadoop上一个block对应为一个slice，但可以调大slice的个数，但不能比block的个数小，这就需要知道HDFS上一个文件的block数目，可以通过50070的dfs的jsp来查看。
 
 对于SequenceFile，可以使用SparkContext的sequenceFile[K,V]方法生成RDD，其中K和V肯定要是SequenceFile存放时的类型了，也就是必须是Writable的子类。Spark也允许使用native types去读取，如sequenceFile[Int, String]。
 

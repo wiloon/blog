@@ -2,10 +2,9 @@
 title: redis sort set, 有序集, zset
 author: "-"
 date: 2017-02-13T08:48:39+00:00
-url: /?p=9803
+url: redis/sort-set
 categories:
-  - cache
-
+  - redis
 tags:
   - reprint
 ---
@@ -157,15 +156,15 @@ O(log(N)+M)
   
 返回值: 返回分数在指定范围内的成员列表。
 
-### ZRANK, 返回指定成员的排名(位置值, 0表示第一个成员) - 正序
+### ZRANK, 返回指定成员的排名 (位置值, 0表示第一个成员) - 正序
     ZRANK key member
-    返回有序集key中成员member的排名。其中有序集成员按score值递增(从小到大)顺序排列。
+    返回有序集 key 中成员 member 的排名。其中有序集成员按 score 值递增(从小到大)顺序排列。
     O(log(N))
-    时间复杂度中的N表示Sorted-Set中成员的数量。
+    时间复杂度中的 N 表示 Sorted-Set 中成员的数量。
 
-Sorted-Set中的成员都是按照分数从低到高的顺序存储,该命令将返回参数中指定成员的位置值,其中0表示第一个成员,它是Sorted-Set中分数最低的成员。
+Sorted-Set 中的成员都是按照分数从低到高的顺序存储, 该命令将返回参数中指定成员的位置值, 其中 0 表示第一个成员, 它是 Sorted-Set中分数最低的成员。
   
-返回值: 如果该成员存在,则返回它的位置索引值。否则返回nil。
+返回值: 如果该成员存在,则返回它的位置索引值。否则返回 nil。
 
 ### ZREVRANK, 返回指定成员的排名(位置值,0表示第一个成员) - 倒序
 
@@ -189,7 +188,7 @@ Sorted-Set中的成员都是按照分数从低到高的顺序存储,该命令将
   
     返回值: 被删除的成员数量。
 
-### ZREMRANGEBYSCORE, 移除有序集中,指定分数（score) 区间内的所有成员
+### ZREMRANGEBYSCORE, 移除有序集中,指定分数 (score) 区间内的所有成员
 
   * ZREMRANGEBYSCORE key min max
   
@@ -213,16 +212,14 @@ Sorted-Set中的成员都是按照分数从低到高的顺序存储,该命令将
 
 
 ### ziplist, skiplist
-sorted set和ziplist的关系
-Redis中的sorted set, 是在skiplist、dict和ziplist基础上构建起来的:
+sorted set 和 ziplist 的关系
+Redis中的sorted set, 是在 skiplist、dict 和 ziplist 基础上构建起来的:
 
-当数据较少时, sorted set 是由一个ziplist来实现的。
-当数据多的时候,sorted set 是由一个叫 zset 的数据结构来实现的, 这个zset包含一个 dict + 一个 skiplist。 dict用来查询数据(member)到分数(score) 的对应关系,而 skiplist 用来根据分数或者（分数or排名) 范围查询数据。这样 skiplist 中只需要通过指针来获取对应分数的键 member, 而不用管键到底占了多大空间, 把它交给dict去存储。
+当数据较少时, sorted set 是由一个 ziplist 来实现的。
+当数据多的时候, sorted set 是由一个叫 zset 的数据结构来实现的, 这个 zset 包含一个 dict 加一个 skiplist。 dict 用来查询数据(member) 到分数 (score) 的对应关系, 而 skiplist 用来根据分数或者 (分数or排名) 范围查询数据。这样 skiplist 中只需要通过指针来获取对应分数的键 member, 而不用管键到底占了多大空间, 把它交给dict去存储。
 
 
-https://redis.readthedocs.io/en/2.4/sorted_set.html
-  
-http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html
-
-https://elsef.com/2019/12/06/%E5%85%B3%E4%BA%8EZipList/
+>https://redis.readthedocs.io/en/2.4/sorted_set.html
+>http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html
+>https://elsef.com/2019/12/06/%E5%85%B3%E4%BA%8EZipList/
 

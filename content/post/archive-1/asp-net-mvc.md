@@ -10,9 +10,9 @@ tags:
   - reprint
 ---
 ## '配置文件  HOCON'
-HOCON（Human-Optimized Config Object Notation) 是一个易于使用的配置文件格式。
+HOCON (Human-Optimized Config Object Notation) 是一个易于使用的配置文件格式。
   
-是由typesafe（开发scala和play framework的公司) 主导的项目
+是由typesafe (开发scala和play framework的公司) 主导的项目
   
 它被用于 Sponge 以及利用 Sponge API 的独立插件以储存重要的数据，比如配置或者玩家数据。HOCON 文件通常以 .conf 作为后缀名。
 
@@ -34,7 +34,7 @@ yellow-thing: "Sponge"
 
 使用 HOCON
   
-HOCON 要比 JSON（JavaScript Object Notation) 更灵活，因为书写一个合法的 HOCON 的方式要更多。下面是两个合法的 HOCON 的例子。
+HOCON 要比 JSON (JavaScript Object Notation) 更灵活，因为书写一个合法的 HOCON 的方式要更多。下面是两个合法的 HOCON 的例子。
 
 示例一: 
 
@@ -56,7 +56,7 @@ level = 30
   
 }
   
-在实际使用中，最好遵守你正在编辑的 HOCON 的格式约定。当你在编辑 Sponge 以及利用 Sponge API 的独立插件的 HOCON 配置文件的时候，除了值（Value) 之外，其他的内容如无特殊要求，请不要动。
+在实际使用中，最好遵守你正在编辑的 HOCON 的格式约定。当你在编辑 Sponge 以及利用 Sponge API 的独立插件的 HOCON 配置文件的时候，除了值 (Value) 之外，其他的内容如无特殊要求，请不要动。
 
 调试你的配置
   

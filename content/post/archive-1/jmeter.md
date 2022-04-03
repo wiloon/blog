@@ -16,7 +16,7 @@ Aggregate Report 是 JMeter 常用的一个 Listener，中文被翻译为"聚合
 
 如果大家都是做Web应用的性能测试，例如只有一个登录的请求，那么在Aggregate Report中，会显示一行数据，共有10个字段，含义分别如下。
 
-Label: 每个 JMeter 的 element（例如 HTTP Request) 都有一个 Name 属性，这里显示的就是 Name 属性的值
+Label: 每个 JMeter 的 element (例如 HTTP Request) 都有一个 Name 属性，这里显示的就是 Name 属性的值
 
 #Samples: 表示你这次测试中一共发出了多少个请求，如果模拟10个用户，每个用户迭代10次，那么这里显示100
 
@@ -36,7 +36,7 @@ Max: 最大响应时间
 
 Error%: 本次测试中出现错误的请求的数量/请求的总数
 
-Throughput: 吞吐量——默认情况下表示每秒完成的请求数（Request per Second) ，当使用了 Transaction Controller 时，也可以表示类似 LoadRunner 的 Transaction per Second 数
+Throughput: 吞吐量——默认情况下表示每秒完成的请求数 (Request per Second) ，当使用了 Transaction Controller 时，也可以表示类似 LoadRunner 的 Transaction per Second 数
 
 KB/Sec: 每秒从服务器端接收到的数据量，相当于LoadRunner中的Throughput/Sec
 
@@ -47,13 +47,13 @@ KB/Sec: 每秒从服务器端接收到的数据量，相当于LoadRunner中的Th
   
 2．线程组: 代表一定数量的并发用户，它可以用来模拟并发用户发送请求。实际的请求内容在Sampler中定义，它被线程组包含。可以在"测试计划->添加->线程组"来建立它，然后在线程组面板里有几个输入栏: 线程数、Ramp-Up Period(in seconds)、循环次数，其中Ramp-Up Period(in seconds)表示在这时间内创建完所有的线程。如有8个线程，Ramp-Up = 200秒，那么线程的启动时间间隔为200/8=25秒，这样的好处是: 一开始不会对服务器有太大的负载。线程组是为模拟并发负载而设计。
   
-3. 取样器（Sampler) : 模拟各种请求。所有实际的测试任务都由取样器承担，存在很多种请求。如: HTTP 、ftp请求等等。
+3. 取样器 (Sampler) : 模拟各种请求。所有实际的测试任务都由取样器承担，存在很多种请求。如: HTTP 、ftp请求等等。
   
-4. 监听器: 负责收集测试结果，同时也被告知了结果显示的方式。功能是对取样器的请求结果显示、统计一些数据（吞吐量、KB/S……) 等。
+4. 监听器: 负责收集测试结果，同时也被告知了结果显示的方式。功能是对取样器的请求结果显示、统计一些数据 (吞吐量、KB/S……) 等。
   
 6. 断言: 用于来判断请求响应的结果是否如用户所期望，是否正确。它可以用来隔离问题域，即在确保功能正确的前提下执行压力测试。这个限制对于有效的测试是非常有用的。
   
-7. 定时器: 负责定义请求（线程) 之间的延迟间隔，模拟对服务器的连续请求。
+7. 定时器: 负责定义请求 (线程) 之间的延迟间隔，模拟对服务器的连续请求。
   
 5. 逻辑控制器: 允许自定义JMeter发送请求的行为逻辑，它与Sampler结合使用可以模拟复杂的请求序列。
   
@@ -61,7 +61,7 @@ KB/Sec: 每秒从服务器端接收到的数据量，相当于LoadRunner中的Th
   
 9. 前置处理器和后置处理器负责在生成请求之前和之后完成工作。前置处理器常常用来修改请求的设置，后置处理器则常常用来处理响应的数据。
   
-二、Jmeter报告 （转载) 
+二、Jmeter报告  (转载) 
   
 http://www.cnblogs.com/jackei/archive/2006/11/13/558720.html
 
@@ -71,7 +71,7 @@ Aggregate Report 是 JMeter 常用的一个 Listener，中文被翻译为"聚合
   
 如果大家都是做Web应用的性能测试，例如只有一个登录的请求，那么在Aggregate Report中，会显示一行数据，共有10个字段，含义分别如下。
   
-Label: 每个 JMeter 的 element（例如 HTTP Request) 都有一个 Name 属性，这里显示的就是 Name 属性的值
+Label: 每个 JMeter 的 element (例如 HTTP Request) 都有一个 Name 属性，这里显示的就是 Name 属性的值
   
 #Samples: 表示你这次测试中一共发出了多少个请求，如果模拟10个用户，每个用户迭代10次，那么这里显示100
   
@@ -91,7 +91,7 @@ Max: 最大响应时间
   
 Error%: 本次测试中出现错误的请求的数量/请求的总数
   
-Throughput: 吞吐量——默认情况下表示每秒完成的请求数（Request per Second) ，当使用了 Transaction Controller 时，也可以表示类似 LoadRunner 的 Transaction per Second 数
+Throughput: 吞吐量——默认情况下表示每秒完成的请求数 (Request per Second) ，当使用了 Transaction Controller 时，也可以表示类似 LoadRunner 的 Transaction per Second 数
   
 KB/Sec: 每秒从服务器端接收到的数据量，相当于LoadRunner中的Throughput/Sec
 
@@ -107,17 +107,17 @@ Byte: "字节"，一个字节就是8比特。
   
 3. Mbps (million bits per second 兆位/秒) 代表每秒传输1，000，000比特。该缩写用来描述数据传输速度。例如: 4Mbps=每秒钟传输4M比特。
   
-数据传输速率的单位，字母b（bit) 是比特和字母 B （Byte) 是字节。
+数据传输速率的单位，字母b (bit) 是比特和字母 B  (Byte) 是字节。
   
-4. 吞吐量与带宽的区分: 吞吐量和带宽是很容易搞混的一个词，两者的单位都是Mbps.先让我们来看两者对应的英语，吞吐量:throughput ; 带宽: Max net bitrate 。当我们讨论通信链路的带宽时，一般是指链路上每秒所能传送的比特数。我们可以说以太网的带宽是10Mbps。但是，我们需要区分链路上的可用带宽（带宽) 与实际链路中每秒所能传送的比特数（吞吐量) 。我们倾向于用"吞吐量"一次来表示一个系统的测试性能。这样，因为实现受各种低效率因素的影响，所以由一段带宽为10Mbps的链路连接的一对节点可能只达到2Mbps的吞吐量。这样就意味着，一个主机上的应用能够以2Mbps的速度向另外的一个主机发送数据。
+4. 吞吐量与带宽的区分: 吞吐量和带宽是很容易搞混的一个词，两者的单位都是Mbps.先让我们来看两者对应的英语，吞吐量:throughput ; 带宽: Max net bitrate 。当我们讨论通信链路的带宽时，一般是指链路上每秒所能传送的比特数。我们可以说以太网的带宽是10Mbps。但是，我们需要区分链路上的可用带宽 (带宽) 与实际链路中每秒所能传送的比特数 (吞吐量) 。我们倾向于用"吞吐量"一次来表示一个系统的测试性能。这样，因为实现受各种低效率因素的影响，所以由一段带宽为10Mbps的链路连接的一对节点可能只达到2Mbps的吞吐量。这样就意味着，一个主机上的应用能够以2Mbps的速度向另外的一个主机发送数据。
   
-5. 方差和标准差都是用来描述一组数据的波动性的（集中还是分散) ，标准差的平方就是方差。方差越大，数据的波动越大。
+5. 方差和标准差都是用来描述一组数据的波动性的 (集中还是分散) ，标准差的平方就是方差。方差越大，数据的波动越大。
   
-三．利用BadBoy生成测试计划（测试脚本) 
+三．利用BadBoy生成测试计划 (测试脚本) 
   
 badBoy可以非常容易的生成web的测试脚本。类似与LoadRunner的使用，输入站点的URL，点击Record开始录制。File –> Export to Jmeter ，导出为Jmeter认识的测试脚本。
   
-四．一个简单的测试示例思路（目前自己思路，不断改进) 
+四．一个简单的测试示例思路 (目前自己思路，不断改进) 
 
 a． 需要的"测试脚本"，对应web的应用使用badboy生成测试脚本。直接导入Jmeter，进行配置。
 
@@ -151,11 +151,11 @@ Min : 最小响应时间 ，Max : 最大的响应时间
   
 Error% : 错误响应的概率。即无法响应的概率。
   
-ThroughPut : 吞吐量 - 默认情况下表示每秒完成的请求数（Request per Second) 。
+ThroughPut : 吞吐量 - 默认情况下表示每秒完成的请求数 (Request per Second) 。
   
 KB/Sec : 每秒从服务器端接收到的数据量。
   
-五．Jmeter常见问题 （转载)  http://www.51testing.com/?uid-128005-action-viewspace-itemid-84094
+五．Jmeter常见问题  (转载)  http://www.51testing.com/?uid-128005-action-viewspace-itemid-84094
   
 说明: 这些问答是从网上转载的，自己修改了其中的一些内容，如果大家兴趣，可以将大家在使用Jmeter的时候碰到的问题写下来，我们一起补充到这个问答里面，共同努力完善jmeter的资料。
   
@@ -165,7 +165,7 @@ KB/Sec : 每秒从服务器端接收到的数据量。
 
 2. JMeter的作用？
   
-JMeter可以用于测试静态或者动态资源的性能（文件、Servlets、Perl脚本、java对象、数据库和查询、ftp服务器或者其他的资源) 。JMeter用于模拟在服务器、网络或者其他对象上附加高负载以测试他们提供服务的受压能力，或者分析他们提供的服务在不同负载条件下的总性能情况。你可以用JMeter提供的图形化界面分析性能指标或者在高负载情况下测试服务器/脚本/对象的行为。
+JMeter可以用于测试静态或者动态资源的性能 (文件、Servlets、Perl脚本、java对象、数据库和查询、ftp服务器或者其他的资源) 。JMeter用于模拟在服务器、网络或者其他对象上附加高负载以测试他们提供服务的受压能力，或者分析他们提供的服务在不同负载条件下的总性能情况。你可以用JMeter提供的图形化界面分析性能指标或者在高负载情况下测试服务器/脚本/对象的行为。
 
 3. 怎样能看到jmeter提供的脚本范例？
   
@@ -241,11 +241,11 @@ SSL (Https)的默认端口是443。
 
 20. 在Regular expression_r Extractor会看到Template的值是$1$,这个值是什么意思呢？
   
-$1$是指取第一个（) 里面的值。如果Regular expression_r的数值有多个，用这种方法可以避免不必要的麻烦。
+$1$是指取第一个 () 里面的值。如果Regular expression_r的数值有多个，用这种方法可以避免不必要的麻烦。
 
 21. Regular expression_r中的(.*)是什么意思？
   
-那是一个正则表达式（regular expression_r) 。'.'等同于sql语言中的'?',表示可有可无。'\*'表示0个或多个。'()'表示需要取值。(.\*)表达任意长度的字符串。
+那是一个正则表达式 (regular expression_r) 。'.'等同于sql语言中的'?',表示可有可无。'\*'表示0个或多个。'()'表示需要取值。(.\*)表达任意长度的字符串。
 
 22. 在读取Regular expression_r时要注意什么？
   
@@ -293,7 +293,7 @@ $1$是指取第一个（) 里面的值。如果Regular expression_r的数值有�
   
 是的。JMeter完全模拟用户操作，所以操作记录会全部写入DB.在运行失败时，可能会产生错误数据，这就取决于脚本检查是否严谨，否则错误数据也会进入DB，给程序运行带来很多麻烦。
   
-六．Jmeter测试心得（转载)  http://www.javaeye.com/topic/211216
+六．Jmeter测试心得 (转载)  http://www.javaeye.com/topic/211216
 
 企业应用开发过程中，性能测试是很重要的一个环节，在这个环节中Apache的JMeter以它开源、100%纯Java、操作方便等优点发挥着很大的作用。
   
@@ -335,7 +335,7 @@ ${__CSVRead(data.txt,1)}${__CSVRead(data.txt,next)}-读取本行的第二列值�
   
 试验证明JMeter应该做好了同步，在多线程环境下上面的调用方法没有问题；
   
-最后，修改JMeter的线程数会加快数据生成的速度，原理是当并发线程在20左右的时候会达到最大的吞吐量（request/分) ，
+最后，修改JMeter的线程数会加快数据生成的速度，原理是当并发线程在20左右的时候会达到最大的吞吐量 (request/分) ，
   
 所以应该设定线程数20左右。
 
@@ -345,7 +345,7 @@ JMeter提供了log函数输出log，但是有时候并不好用，比如我想�
   
 ${__log(${__CSVRead(data.txt,1)})}这样的写法是错误的，JMeter会抛出异常，该怎么办呢？
   
-答案是巧用监听器（Listener) 来输出想看到的数据，结果显示为树的那个监听器，
+答案是巧用监听器 (Listener) 来输出想看到的数据，结果显示为树的那个监听器，
   
 它可以让你查看每个sampler的请求数据和响应数据，在请求数据中就有你想看到的信息。
 
@@ -357,13 +357,13 @@ ${__log(${__CSVRead(data.txt,1)})}这样的写法是错误的，JMeter会抛出�
   
 ?如果想让多个线程在同一时刻同时请求，那么用Synchronizing Timer来做集合点。
   
-?为了节省系统资源，使用非窗口模式运行JMeter（jmeter -n -t test.jmx) 
+?为了节省系统资源，使用非窗口模式运行JMeter (jmeter -n -t test.jmx) 
   
-?如果模拟并发用户过多，比如200线程，那么可以分散到多台机器上运行Jmeter（比如4台电脑，每台50线程) 
+?如果模拟并发用户过多，比如200线程，那么可以分散到多台机器上运行Jmeter (比如4台电脑，每台50线程) 
   
 更多功能请参照使用手册
   
-中文手册（未完成) http://wiki.javascud.org/pages/viewpage.action?pageId=5566
+中文手册 (未完成) http://wiki.javascud.org/pages/viewpage.action?pageId=5566
 
 6. 在winnt系统上，使用perfmon来帮助Jmeter采集服务器的系统资源数据，可以配置log输出这些数据作为性能瓶颈分析时使用。
   

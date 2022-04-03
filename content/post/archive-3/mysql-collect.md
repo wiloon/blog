@@ -20,7 +20,7 @@ phpmyadmin截图
   
 各种COLLATE的区别
   
-COLLATE通常是和数据编码（CHARSET) 相关的，一般来说每种CHARSET都有多种它所支持的COLLATE，并且每种CHARSET都指定一种COLLATE为默认值。例如Latin1编码的默认COLLATE为latin1_swedish_ci，GBK编码的默认COLLATE为gbk_chinese_ci，utf8mb4编码的默认值为utf8mb4_general_ci。
+COLLATE通常是和数据编码 (CHARSET) 相关的，一般来说每种CHARSET都有多种它所支持的COLLATE，并且每种CHARSET都指定一种COLLATE为默认值。例如Latin1编码的默认COLLATE为latin1_swedish_ci，GBK编码的默认COLLATE为gbk_chinese_ci，utf8mb4编码的默认值为utf8mb4_general_ci。
   
 这里顺便讲个题外话，MySQL中有utf8和utf8mb4两种编码，在MySQL中请大家忘记**utf8**，永远使用**utf8mb4**。这是MySQL的一个遗留问题，MySQL中的utf8最多只能支持3bytes长度的字符编码，对于一些需要占据4bytes的文字，MySQL的utf8就不支持了，要使用utf8mb4才行。
   

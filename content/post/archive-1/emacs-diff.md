@@ -471,8 +471,6 @@ tags:
 
 ### 合并文件
 
-### 比较文件目录
-
 ### 与版本控制系统(VC) 一块儿工作
 
 <http://caobeixingqiu.is-programmer.com/posts/6783.html>

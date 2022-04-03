@@ -2,15 +2,16 @@
 title: linux apps
 author: "-"
 date: 2018-09-23T05:52:02+00:00
-url: linux-apps
+url: linux/apps
 
 categories:
-  - inbox
+  - linux
 tags:
   - reprint
+  - remix
 ---
 ## linux apps
-### application list
+## application list
     https://wiki.archlinux.org/index.php/List_of_applications
 
 ```bash
@@ -26,21 +27,23 @@ sudo pacman -S wine rdesktop pulseaudio
 sudo pacman -S powerdevil kmix kscreen ark
 ```
 
-### archlinux pacman
+## archlinux pacman
 
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
+| ncdu                  | 磁盘空间清理                                                                              |
+|Netdata|系统资源监控|
+| qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
 | neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
-| screenfetch           | 发行版的logo                                                                            |
+| screenfetch           | 打印发行版的 logo                                                                            |
 | keepassxc             |                                                                                         |
 | sqlectron-gui         |                                                                                         |
 | hyper                 |                                                                                         |
-| code                  | visual studio code                                                                      |
+| code                  | visual studio code, vscode                                                                      |
 | rsibreak              | 番茄钟                                                                                  |
 | libreoffice-fresh     |                                                                                         |
 | ark                   | kde dolphin extract zip,gz                                                              |
-| wine                  | 需要开启Multilib仓库                                                                    |
-| qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
+| wine                  | 需要开启 Multilib 仓库                                                                    |
 | simplescreenrecorder  | 录屏                                                                                    |
 | openvpn               |                                                                                         |
 | rdesktop              |                                                                                         |
@@ -83,14 +86,16 @@ sudo pacman -S powerdevil kmix kscreen ark
 | pycharm               |                                                                      |
 |cmake||
 |linux-lts|lts 内核|
-|ncdu|磁盘空间清理|
-|filelight|图形化的磁盘空间管理工具|
 
-### pacman, development
+|filelight|图形化的磁盘空间管理工具|
+|okular|pdf reader|
+|audacity|一款免费的音频处理软件。它是在linux下发展起来的，一款遵循GNU协议的免费软件。有着傻瓜式的操作界面和专业的音频处理效果。|
+
+## pacman, development
 
 | name                            | comments          |
 | :------------------------------ | :---------------- |
-| graphviz                        |                   |
+| graphviz                        | plantuml依赖的包, /opt/local/bin/dot              |
 | jdk-openjdk                     | latest openjdk    |
 | jdk8-openjdk                    | openjdk 8         |
 | openjdk8-src                    | openjdk 8 source  |
@@ -106,11 +111,11 @@ sudo pacman -S powerdevil kmix kscreen ark
 | adobe-source-code-pro-fonts     | adobe 的编程字体  |
 | tmux                            |                   |
 
-
-### AUR, yay:
+## AUR
 
 | name                                  | comments                                                       |
-| :------------------------------------ | -------------------------------------------------------------- |
+| :------------------------------------ | :------------------------------------------------------------- |
+| telegraf-bin                          |                                                                |
 | goland                                | yay -S goland goland-jre, 两个一起安装                         |
 | webstorm-jre                          | yay -S webstorm webstorm-jre                                   |
 | clion                                 | yay -S clion clion-jre                                                               |
@@ -134,7 +139,6 @@ sudo pacman -S powerdevil kmix kscreen ark
 | perl-goo-canvas                       | shutter 的画线插件                                             |
 | google-chrome-dev                     |                                                                |
 | intellij-idea-community-edition-jre   | idea with jre                                                  |
-| telegraf                              |                                                                |
 | tableplus                             | MySQL client                                                   |
 | procmon                               | 微软的进程监控工具                                             |
 | platformio                            | 物联网开发的开源生态系统                                       |
@@ -144,8 +148,10 @@ sudo pacman -S powerdevil kmix kscreen ark
 | feishu                                | 飞书                                                           |
 |libiconv |编码转换|
 |hardinfo-git|HardInfo是一个Linux系统信息查看软件。它可以显示有关的硬件，软件，并进行简单的性能基准测试。|
+| vscodium-bin|vscode 社区版|
+|gtk-recordmydesktop|录屏|
 
-### KDE
+## KDE
 
 | name          | comments             |
 | ------------- | -------------------- |
@@ -156,7 +162,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | kscreen       | kde 多显示器管理工具 |
 | kcolorchooser | 颜色拾取             |
 
-### KDE widget
+## KDE widget
 
 | name               | comments                   |
 | ------------------ | -------------------------- |
@@ -165,7 +171,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | Plasma Week Number | 显示周数                   |
 | rsibreak           | 蕃茄钟, install via pacman |
 
-### ubuntu
+## ubuntu
 | Name             | Comments                                                    |
 | ---------------- | ----------------------------------------------------------- |
 | openjdk-8-jdk    |                                                             |
@@ -183,6 +189,12 @@ sudo pacman -S powerdevil kmix kscreen ark
 |rar||
 |unrar||
 
+#### ubuntu install chrome
+
+```bash
+curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
 ### xfce4
 file-roller
 
@@ -197,3 +209,9 @@ file-roller
 | ------- | -------- |
 | drill   |          |
 | openwrt |          |
+
+## other
+| Name    | Comments |
+| ------- | -------- |
+| datagrip   |          |
+|  |          |

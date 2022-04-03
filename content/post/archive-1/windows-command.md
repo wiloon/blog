@@ -46,19 +46,19 @@ tasklist
     tasklist -fi "username ne NT authority\system" -fi "status eq running" 列出系统中正在运行的非SYSTEM状态的所有进程
   
   
-    tasklist -fi "pid eq 2860" -svc列出pid是2860的这个进程中的服务 （有问题的进程调用哪些服务) 
+    tasklist -fi "pid eq 2860" -svc列出pid是2860的这个进程中的服务  (有问题的进程调用哪些服务) 
   
   
-    tasklist -fi "pid eq 2860" -m列出pid是2860的这个进程加载的dll模块（有问题的进程调用哪些DLL文件) 
+    tasklist -fi "pid eq 2860" -m列出pid是2860的这个进程加载的dll模块 (有问题的进程调用哪些DLL文件) 
   
   
     tasklist -fi "pid eq 2860" -v列出pid是2860的这个进程的详细信息
   
   
-    tasklist -fi "servicers eq spooler"列出对应服务是spooler的进程（哪些进程在使用这个有问题的服务) 
+    tasklist -fi "servicers eq spooler"列出对应服务是spooler的进程 (哪些进程在使用这个有问题的服务) 
   
   
-    tasklist -fi "modules eq MSVCP60.DLL"列出调用MSVCP60.DLL的进程（哪些进程在使用这个有问题的DLL) 
+    tasklist -fi "modules eq MSVCP60.DLL"列出调用MSVCP60.DLL的进程 (哪些进程在使用这个有问题的DLL) 
   
   
     Taskkill -pid 2860/Taskkill -im qq.exe 关掉进程
@@ -80,13 +80,13 @@ tasklist
     命令格式: ntsd -c q -p pid
   
   
-    命令范例:  ntsd -c q -p 1332 （结束explorer.exe进程) 
+    命令范例:  ntsd -c q -p 1332  (结束explorer.exe进程) 
   
   
     2、利用进程名结束进程
   
   
-    命令格式: ntsd -c q -pn ***.exe （***.exe 为进程名,exe不能省) 
+    命令格式: ntsd -c q -pn ***.exe  (***.exe 为进程名,exe不能省) 
   
   
     命令范例: ntsd -c q -pn explorer.exe

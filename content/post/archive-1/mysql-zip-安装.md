@@ -10,6 +10,15 @@ tags:
 
 ---
 ## MySQL install
+
+## debian install MySQL server
+```bash
+
+sudo apt-get install MySQL-server
+
+```
+
+
 **一、下载MySQL安装包**
 
 安装包名称: MySQL-5.6.12-win32.zip

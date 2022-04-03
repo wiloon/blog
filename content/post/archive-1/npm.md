@@ -10,16 +10,28 @@ categories:
   - inbox
 ---
 ## npm basic
-### 指定 package.json 路径 
+## 编译
+
 ```bash
-# 其中path / to / project是你的package.json中定义了“build”命令的目录。
+npm run build
+
+### 指定 package.json 路径 
+# /path/to/project 是包含 package.json 的目录。
 npm --prefix /path/to/project run build
 ```
 ### node-gyp
 gyp是为Chromium项目创建的项目生成工具，可以从平台无关的配置生成平台相关的Visual Studio、Xcode、Makefile的项目文件。这样一来我们就不需要花额外的时间处理每个平台不同的项目配置以及项目之间的依赖关系。
 ### commands
-    npm cache clean
-    npm cache clean --force
+```bash
+npm cache clean
+npm cache clean --force
+
+# 检查更新
+npm outdated
+### 更新依赖
+npm update webpack
+```
+
 ### install npm
 ### archlinux
 ```bash
@@ -48,7 +60,6 @@ https://github.com/nvm-sh/nvm
     # list registory
     npm config get registry
     # set registry
-    npm install -g mirror-config-china --registry=http://registry.npm.taobao.org
     npm config set registry https://registry.npm.taobao.org
     # 恢复
     npm config set registry https://registry.npmjs.org
@@ -74,7 +85,7 @@ https://developer.aliyun.com/mirror/NPM
     npm cache clean
 
 ### npm uninstall
-    # 删除 node_modules 目录下面的包（package) 
+    # 删除 node_modules 目录下面的包 (package) 
     npm uninstall lodash
     # 从 package.json 文件中删除依赖，需要在命令后添加参数 --save
     npm uninstall --save lodash
@@ -113,10 +124,7 @@ https://developer.aliyun.com/mirror/NPM
     npm install xxx -g
 ### 安装指定版本
     npm install xxx@1.2.0
-### 检查更新
-    npm outdated
-### 更新依赖到指定版本
-    npm update webpack@4.7.0 
+
 ### report
     npm run build --report
 --save和--save-dev区别
@@ -124,12 +132,12 @@ https://developer.aliyun.com/mirror/NPM
 
 nodejs的出现，可以算是前端里程碑式的一个事件，它让前端攻城狮们摆脱了浏览器的束缚，踏上了一个更加宽广的舞台。前端的可能性，从此更加具有想象空间。
 
-随着一系列基于nodejs的应用/工具的出现，工作中与nodejs打交道的机会越来越多。无论在node应用的开发，还是使用中，包管理都扮演着一个很重要的作用。NPM（node package manager) ，作为node的包管理工具，极大地便利了我们的开发工作，很有必要了解一下。
+随着一系列基于nodejs的应用/工具的出现，工作中与nodejs打交道的机会越来越多。无论在node应用的开发，还是使用中，包管理都扮演着一个很重要的作用。NPM (node package manager) ，作为node的包管理工具，极大地便利了我们的开发工作，很有必要了解一下。
 
 ### NPM是什么
-NPM（node package manager) ，通常称为node包管理器。顾名思义，它的主要功能就是管理node包，包括: 安装、卸载、更新、查看、搜索、发布等。
+NPM (node package manager) ，通常称为node包管理器。顾名思义，它的主要功能就是管理node包，包括: 安装、卸载、更新、查看、搜索、发布等。
 
-npm的背后，是基于couchdb的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是: 将开发者从繁琐的包管理工作（版本、依赖等) 中解放出来，更加专注于功能的开发。
+npm的背后，是基于couchdb的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是: 将开发者从繁琐的包管理工作 (版本、依赖等) 中解放出来，更加专注于功能的开发。
 
 npm官网: https://npmjs.org/
 npm官方文档: https://npmjs.org/doc/README.html
@@ -150,7 +158,7 @@ npm包安装模式
 
 在具体介绍npm包的管理之前，我们首先得来了解一下npm包的两种安装模式。
 
-本地安装 vs 全局安装（重要) 
+本地安装 vs 全局安装 (重要) 
 
 node包的安装分两种: 本地安装、全局安装。两者的区别如下，后面会通过简单例子说明
 
@@ -160,7 +168,7 @@ node包的安装分两种: 本地安装、全局安装。两者的区别如下�
   
 npm install pkg – 本地安装
 
-运行如下命令，就会在当前目录下安装grunt-cli（grunt命令行工具) 
+运行如下命令，就会在当前目录下安装grunt-cli (grunt命令行工具) 
 
 npm install grunt-cli
   
@@ -338,7 +346,7 @@ npm config edit
   
 关于package.json
 
-这货在官网似乎没有详细的描述，其实就是包的描述信息啦。假设当我们下载了node应用，这个node应用依赖于A、B、C三个包，如果没有package.json，我们需要人肉安装这个三个包（如果对版本有特定要求就更悲剧了) : 
+这货在官网似乎没有详细的描述，其实就是包的描述信息啦。假设当我们下载了node应用，这个node应用依赖于A、B、C三个包，如果没有package.json，我们需要人肉安装这个三个包 (如果对版本有特定要求就更悲剧了) : 
 
 npm install Anpm install Bnpm install C
   
@@ -350,9 +358,9 @@ package.json字段简介
 
 字段相当多，但最重要的的是下面几个
 
-name: package的名字（由于他会成为url的一部分，所以 non-url-safe 的字母不会通过，也不允许出现"."、"_") ，最好先在http://registry.npmjs.org/上搜下你取的名字是否已经存在
+name: package的名字 (由于他会成为url的一部分，所以 non-url-safe 的字母不会通过，也不允许出现"."、"_") ，最好先在http://registry.npmjs.org/上搜下你取的名字是否已经存在
   
-version: package的版本，当package发生变化时，version也应该跟着一起变化，同时，你声明的版本需要通过semver的校验（semver可自行谷歌) 
+version: package的版本，当package发生变化时，version也应该跟着一起变化，同时，你声明的版本需要通过semver的校验 (semver可自行谷歌) 
   
 dependencies: package的应用依赖模块，即别人要使用这个package，至少需要安装哪些东西。应用依赖模块会安装到当前模块的node_modules目录下。
   
@@ -376,7 +384,7 @@ b、"1.x.x"是什么意思呢，继续自行领悟
   
 版本书写要求
 
-版本可以v开头，比如 v1.0.1（v只是可选) 
+版本可以v开头，比如 v1.0.1 (v只是可选) 
   
 1.0.1-7，这里的7是所谓的"构建版本号"，不理是神马，反正版本大于1.0.1
   
@@ -390,13 +398,13 @@ b、"1.x.x"是什么意思呢，继续自行领悟
 
 Windows平台下的Node.js安装
 
-在过去，Node.js一直不支持在Windows平台下原生编译，需要借助Cygwin或MinGW来模拟POSIX系统，才能编译安装。幸运的是2011年6月微软开始与Joyent合作移植Node.js到Windows平台上（http://www.infoq.com/cn/news/2011/06/node-exe ) ，这次合作的成果最终呈现在0.6.x的稳定版的发布上。这次的版本发布使得Node.js在Windows平台上的性能大幅度提高，使用方面也更容易和轻巧，完全摆脱掉Cygwin或MinGW等实验室式的环境，并且在某些细节方面，表现出比Linux下更高的性能，细节参见http://www.infoq.com/news/2011/11/Nodejs-Windows。
+在过去，Node.js一直不支持在Windows平台下原生编译，需要借助Cygwin或MinGW来模拟POSIX系统，才能编译安装。幸运的是2011年6月微软开始与Joyent合作移植Node.js到Windows平台上 (http://www.infoq.com/cn/news/2011/06/node-exe ) ，这次合作的成果最终呈现在0.6.x的稳定版的发布上。这次的版本发布使得Node.js在Windows平台上的性能大幅度提高，使用方面也更容易和轻巧，完全摆脱掉Cygwin或MinGW等实验室式的环境，并且在某些细节方面，表现出比Linux下更高的性能，细节参见http://www.infoq.com/news/2011/11/Nodejs-Windows。
 
-在Windows（Windows7) 平台下，我将介绍二种安装Node.js的方法，即普通和文艺安装方法。
+在Windows (Windows7) 平台下，我将介绍二种安装Node.js的方法，即普通和文艺安装方法。
 
 普通的安装方法
 
-普通安装方法其实就是最简单的方法了，对于大多Windows用户而言，都是不太喜欢折腾的人，你可以从这里（http://nodejs.org/dist/v0.6.1/node-v0.6.1.msi ) 直接下载到Node.js编译好的msi文件。然后双击即可在程序的引导下完成安装。
+普通安装方法其实就是最简单的方法了，对于大多Windows用户而言，都是不太喜欢折腾的人，你可以从这里 (http://nodejs.org/dist/v0.6.1/node-v0.6.1.msi ) 直接下载到Node.js编译好的msi文件。然后双击即可在程序的引导下完成安装。
 
 在命令行中直接运行: 
 

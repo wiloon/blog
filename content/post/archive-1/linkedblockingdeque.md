@@ -48,7 +48,7 @@ BlockingDeque bDeque = new LinkedBlockingDeque(20);
   
 for (int i = 0; i < 30; i++) {
   
-// 将指定元素添加到此阻塞栈中，如果没有可用空间，将一直等待（如果有必要) 。
+// 将指定元素添加到此阻塞栈中，如果没有可用空间，将一直等待 (如果有必要) 。
   
 bDeque.putFirst(i);
   

@@ -13,7 +13,7 @@ tags:
 
 ```xml
 <properties>
-    <slf4j.version>1.7.30</slf4j.version>
+    <slf4j.version>1.7.36</slf4j.version>
 </properties>
 
 <dependencies>
@@ -36,7 +36,7 @@ tags:
   http://ugibb510.iteye.com/blog/458482
 
 
-  SLF4J，（Simple Logging Facade for Java) ，不是具体的日志解决方案，它只服务于各种各样的日志系统。按照官方的说法，SLF4J是一个用于日志系统的简单Facade，允许最终用户在部署其应用时使用其所希望的日志系统。
+  SLF4J， (Simple Logging Facade for Java) ，不是具体的日志解决方案，它只服务于各种各样的日志系统。按照官方的说法，SLF4J是一个用于日志系统的简单Facade，允许最终用户在部署其应用时使用其所希望的日志系统。
 
 
   实际上，SLF4J所提供的核心API是一些接口以及一个LoggerFactory的工厂类。从某种程度上，SLF4J有点类似JDBC，不过比JDBC更简单，在JDBC中，你需要指定驱动程序，而在使用SLF4J的时候，不需要在代码中或配置文件中指定你打算使用那个具体的日志系统。如同使用JDBC基本不用考虑具体数据库一样，SLF4J提供了统一的记录日志的接口，只要按照其提供的方法记录即可，最终日志的格式、记录级别、输出方式等通过具体日志系统的配置来实现，因此可以在应用中灵活切换日志系统。
@@ -51,7 +51,7 @@ tags:
   2、举例
 
 
-  （1) 代码
+   (1) 代码
 
 
   ```java
@@ -119,7 +119,7 @@ tags:
   
 
 
-  （2) 使用SLF4J提供的simple log
+   (2) 使用SLF4J提供的simple log
 
 
   将以下jar包加入到项目中，然后执行
@@ -143,7 +143,7 @@ tags:
   32 [main] WARN Wombat - Temperature(60) has risen above 50 degrees.
 
 
-  （3) 使用SLF4J提供的simple log
+   (3) 使用SLF4J提供的simple log
 
 
   将以下jar包加入到项目中，然后执行
@@ -176,7 +176,7 @@ tags:
   警告: Temperature(60) has risen above 50 degrees.
 
 
-  （4) 配置很简单吧
+   (4) 配置很简单吧
 
 
   从以上事例可以看出，配置SLF4J使用那种日志系统是非常简单的一件事，只要将与你打算使用的日志系统对应的jar包加入到项目中，SLF4J就会自动选择使用你加入的那种日志系统。这种方法被称之为动态绑定。当然，该日志系统的相关类库是不能少，例如，如果你打算使用log4j，那么还需要log4j的类库，可能还有配置配置log4j.properties。
@@ -191,7 +191,7 @@ tags:
   logger.info("Today is {}, Temperature set to {}. Old temperature was {}.", objs);
 
 
-  4、日志系统绑定原理
+  4. 日志系统绑定原理
 
 
   在应用中，通过LoggerFactory类的静态getLogger()获取logger。通过查看该类的代码可以看出，最终是通过StaticLoggerBinder.SINGLETON.getLoggerFactory()方法获取LoggerFactory然后，在通过该具体的LoggerFactory来获取logger的。类org.slf4j.impl.StaticLoggerBinder并不在slf4j-api-1.5.2.jar包中，仔细查看每个与具体日志系统对应的jar包，就会发现，相应的jar包都有一个org.slf4j.impl.StaticLoggerBinder的实现，不同的实现返回与该日志系统对应的LoggerFactory，因此就实现了所谓的动态绑定，达到只要选取不同jar包就能简单灵活配置的目的。
@@ -542,11 +542,11 @@ compile("org.apache.logging.log4j:log4j-api:$log4j_version",
   
 )
 
-每一个Java程序员都知道日志对于任何一个Java应用程序，尤其是服务端程序是至关重要的，而很多程序员也已经熟悉各种不同的日志库如java.util.logging、Apache log4j、logback。但如果你还不知道SLF4J（Simple logging facade for Java) 的话，那么是时候去在你项目中学习使用SLF4J了。
+每一个Java程序员都知道日志对于任何一个Java应用程序，尤其是服务端程序是至关重要的，而很多程序员也已经熟悉各种不同的日志库如java.util.logging、Apache log4j、logback。但如果你还不知道SLF4J (Simple logging facade for Java) 的话，那么是时候去在你项目中学习使用SLF4J了。
 
 在这篇文章中，我们将学习为什么使用SLF4J比log4j或者java.util.logging要优秀。自从上次我写Java程序员的10个日志技巧已经有一段时间了，我已经不记得我写的关于日志的一切了。
 
-不管怎样，让我们回到这个话题，SLF4J不同于其他日志类库，与其它有很大的不同。SLF4J(Simple logging Facade for Java)不是一个真正的日志实现，而是一个抽象层（ abstraction layer) ，它允许你在后台使用任意一个日志类库。如果是在编写供内外部都可以使用的API或者通用类库，那么你真不会希望使用你类库的客户端必须使用你选择的日志类库。
+不管怎样，让我们回到这个话题，SLF4J不同于其他日志类库，与其它有很大的不同。SLF4J(Simple logging Facade for Java)不是一个真正的日志实现，而是一个抽象层 ( abstraction layer) ，它允许你在后台使用任意一个日志类库。如果是在编写供内外部都可以使用的API或者通用类库，那么你真不会希望使用你类库的客户端必须使用你选择的日志类库。
 
 如果一个项目已经使用了log4j，而你加载了一个类库，比方说 Apache Active MQ——它依赖于于另外一个日志类库logback，那么你就需要把它也加载进去。但如果Apache Active MQ使用了SLF4J，你可以继续使用你的日志类库而无语忍受加载和维护一个新的日志框架的痛苦。
 
@@ -628,7 +628,7 @@ slf4j-log4j12</artifactId>
   
 </dependency>
   
-还有，如果你对于使用变量参数版本（variable argument version ) 的日志方法感兴趣的话，那么就导入SLF4J 1.7的版本吧。
+还有，如果你对于使用变量参数版本 (variable argument version ) 的日志方法感兴趣的话，那么就导入SLF4J 1.7的版本吧。
 
 总结
 
@@ -638,9 +638,9 @@ slf4j-log4j12</artifactId>
   
 SLF4J提供了基于占位符的日志方法，这通过去除检查isDebugEnabled(), isInfoEnabled()等等，提高了代码可读性。
   
-通过使用SLF4J的日志方法，你可以延迟构建日志信息（Srting) 的开销，直到你真正需要，这对于内存和CPU都是高效的。
+通过使用SLF4J的日志方法，你可以延迟构建日志信息 (Srting) 的开销，直到你真正需要，这对于内存和CPU都是高效的。
   
-作为附注，更少的暂时的字符串意味着垃圾回收器（Garbage Collector) 需要做更好的工作，这意味着你的应用程序有为更好的吞吐量和性能。
+作为附注，更少的暂时的字符串意味着垃圾回收器 (Garbage Collector) 需要做更好的工作，这意味着你的应用程序有为更好的吞吐量和性能。
   
 这些好处只是冰山一角，你将在开始使用SL4J和阅读其中代码的时候知道更多的好处。我强烈建议，任何一个新的Java程序员，都应该使用SLF4J做日志而不是使用包括Log4J在内的其他日志API。
   

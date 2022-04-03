@@ -58,9 +58,7 @@ yum -y install httpd
 #local install
 sudo yum localinstall influxdb-1.2.4.x86_64.rpm
 
-#卸载
-yum remove httpd
-yum -y remove httpd
+
 
 
 #yum mirror
@@ -69,6 +67,17 @@ yum -y remove httpd
 yum update --exclude=kernel* --exclude=php*
 https://www.howtoing.com/exclude-packages-from-yum-update
 ```
+
+## 卸载
+```bash
+# 默认会卸载依赖包
+yum remove httpd
+yum -y remove httpd
+
+# 不卸载依赖
+rpm -e --nodeps foo
+```
+
 ### Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
     # 查看哪个包提供 applydeltarpm
     yum provides '*/applydeltarpm'  
@@ -95,3 +104,7 @@ https://my.oschina.net/andyfeng/blog/601291
 http://gzmaster.blog.51cto.com/299556/72278
   
 http://www.cnblogs.com/kevingrace/p/6252659.html
+
+
+### rpm repo
+>https://www.rpmfind.net/linux/RPM/index.html

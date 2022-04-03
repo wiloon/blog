@@ -88,6 +88,9 @@ iconv -f 原本的编码格式 -t 要转换成的编码 文件名 -o 新文件�
 2、例如：
 iconv -f gb2312 -t utf8 a.txt -o utf8.txt
 
+## linux 查看硬盘温度
+sudo hddtemp /dev/sda
+
 ---
 
 https://blog.csdn.net/q_l_s/article/details/54897684  

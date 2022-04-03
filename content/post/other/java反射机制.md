@@ -58,13 +58,13 @@ class Foo {
 
 ```
 
-Reflection 是Java被视为动态（或准动态) 语言的一个关键性质。这个机制允许程序在运行时透过Reflection APIs取得任何一个已知名称的class的内部信息，包括其modifiers（诸如public, static 等等) 、superclass（例如Object) 、实现之interfaces（例如Cloneable) ，也包括fields和methods的所有信息，并可于运行时改变fields内容或唤起methods。本文借由实例，大面积示范Reflection APIs。
+Reflection 是Java被视为动态 (或准动态) 语言的一个关键性质。这个机制允许程序在运行时透过Reflection APIs取得任何一个已知名称的class的内部信息，包括其modifiers (诸如public, static 等等) 、superclass (例如Object) 、实现之interfaces (例如Cloneable) ，也包括fields和methods的所有信息，并可于运行时改变fields内容或唤起methods。本文借由实例，大面积示范Reflection APIs。
 
-有时候我们说某个语言具有很强的动态性，有时候我们会区分动态和静态的不同技术与作法。我们朗朗上口动态绑定（dynamic binding) 、动态链接（dynamic linking) 、动态加载（dynamic loading) 等。然而"动态"一词其实没有绝对而普遍适用的严格定义，有时候甚至像对象导向当初被导入编程领域一样，一人一把号，各吹各的调。
+有时候我们说某个语言具有很强的动态性，有时候我们会区分动态和静态的不同技术与作法。我们朗朗上口动态绑定 (dynamic binding) 、动态链接 (dynamic linking) 、动态加载 (dynamic loading) 等。然而"动态"一词其实没有绝对而普遍适用的严格定义，有时候甚至像对象导向当初被导入编程领域一样，一人一把号，各吹各的调。
 
 一般而言，开发者社群说到动态语言，大致认同的一个定义是: "程序运行时，允许改变程序结构或变量类型，这种语言称为动态语言"。从这个观点看，Perl，Python，Ruby是动态语言，C++，Java，C#不是动态语言。
 
-尽管在这样的定义与分类下Java不是动态语言，它却有着一个非常突出的动态相关机制: Reflection。这个字的意思是"反射、映象、倒影"，用在Java身上指的是我们可以于运行时加载、探知、使用编译期间完全未知的classes。换句话说，Java程序可以加载一个运行时才得知名称的class，获悉其完整构造（但不包括methods定义) ，并生成其对象实体、或对其fields设值、或唤起其methods1。这种"看透class"的能力（the ability of the program to examine itself) 被称为introspection（内省、内观、反省) 。Reflection和introspection是常被并提的两个术语。
+尽管在这样的定义与分类下Java不是动态语言，它却有着一个非常突出的动态相关机制: Reflection。这个字的意思是"反射、映象、倒影"，用在Java身上指的是我们可以于运行时加载、探知、使用编译期间完全未知的classes。换句话说，Java程序可以加载一个运行时才得知名称的class，获悉其完整构造 (但不包括methods定义) ，并生成其对象实体、或对其fields设值、或唤起其methods1。这种"看透class"的能力 (the ability of the program to examine itself) 被称为introspection (内省、内观、反省) 。Reflection和introspection是常被并提的两个术语。
 
 Java如何能够做出上述的动态特性呢？这是一个深远话题，本文对此只简单介绍一些概念。整个篇幅最主要还是介绍Reflection APIs，也就是让读者知道如何探索class的结构、如何对某个"运行时才获知名称的class"生成一份实体、为其fields设值、调用其methods。本文将谈到java.lang.Class，以及java.lang.reflect中的Method、Field、Constructor等等classes。
 
@@ -72,7 +72,7 @@ Java如何能够做出上述的动态特性呢？这是一个深远话题，本�
   
 众所周知Java有个Object class，是所有Java classes的继承根源，其内声明了数个应该在所有Java class中被改写的methods: hashCode()、equals()、clone()、toString()、getClass()等。其中getClass()返回一个Class object。
 
-Class class十分特殊。它和一般classes一样继承自Object，其实体用以表达Java程序运行时的classes和interfaces，也用来表达enum、array、primitive Java types（boolean, byte, char, short, int, long, float, double) 以及关键词void。当一个class被加载，或当加载器（class loader) 的defineClass()被JVM调用，JVM 便自动产生一个Class object。如果您想借由"修改Java标准库源码"来观察Class object的实际生成时机（例如在Class的constructor内添加一个println()) ，不能够！因为Class并没有public constructor（见图1) 。本文最后我会拨一小块篇幅顺带谈谈Java标准库源码的改动办法。
+Class class十分特殊。它和一般classes一样继承自Object，其实体用以表达Java程序运行时的classes和interfaces，也用来表达enum、array、primitive Java types (boolean, byte, char, short, int, long, float, double) 以及关键词void。当一个class被加载，或当加载器 (class loader) 的defineClass()被JVM调用，JVM 便自动产生一个Class object。如果您想借由"修改Java标准库源码"来观察Class object的实际生成时机 (例如在Class的constructor内添加一个println()) ，不能够！因为Class并没有public constructor (见图1) 。本文最后我会拨一小块篇幅顺带谈谈Java标准库源码的改动办法。
 
 Class是Reflection故事起源。针对任何您想探勘的class，唯有先为它产生一个Class object，接下来才能经由后者唤起为数十多个的Reflection APIs。这些APIs将在稍后的探险活动中一一亮相。
 
@@ -132,7 +132,7 @@ Class c2 = c1.getSuperclass();
   
 Class.forName()
   
-（最常被使用) 
+ (最常被使用) 
   
 Class c1 = Class.forName ("java.lang.String");
   
@@ -218,13 +218,13 @@ private transient int size = 0;
   
 }
   
-图3: 将一个Java class 大卸八块，每块相应于一个或一组Reflection APIs（图4) 。
+图3: 将一个Java class 大卸八块，每块相应于一个或一组Reflection APIs (图4) 。
 
 Java classes 各成份所对应的Reflection APIs
   
 图3的各个Java class成份，分别对应于图4的Reflection API，其中出现的Package、Method、Constructor、Field等等classes，都定义于java.lang.reflect。
   
-Java class 内部模块（参见图3) 
+Java class 内部模块 (参见图3) 
   
 Java class 内部模块说明
   
@@ -250,7 +250,7 @@ class导入哪些classes
 
 (3) modifier
   
-class（或methods, fields) 的属性
+class (或methods, fields) 的属性
 
 int getModifiers()
   
@@ -282,7 +282,7 @@ TypeVariable []
   
 (6) base class
   
-base class（只可能一个) 
+base class (只可能一个) 
   
 getSuperClass()
   
@@ -330,19 +330,19 @@ Method[]
   
 (11) fields
   
-字段（成员变量) 
+字段 (成员变量) 
   
 getDeclaredFields()不论 public 或private 或其它access level，皆可获得。另有功能近似之取得函数。
   
 Field[]
   
-图4: Java class大卸八块后（如图3) ，每一块所对应的Reflection API。本表并非
+图4: Java class大卸八块后 (如图3) ，每一块所对应的Reflection API。本表并非
   
 Reflection APIs 的全部。
 
 Java Reflection API 运用示例
   
-图5示范图4提过的每一个Reflection API，及其执行结果。程序中出现的tName()是个辅助函数，可将其第一自变量所代表的"Java class完整路径字符串"剥除路径部分，留下class名称，储存到第二自变量所代表的一个hashtable去并返回（如果第二自变量为null，就不储存而只是返回) 。
+图5示范图4提过的每一个Reflection API，及其执行结果。程序中出现的tName()是个辅助函数，可将其第一自变量所代表的"Java class完整路径字符串"剥除路径部分，留下class名称，储存到第二自变量所代表的一个hashtable去并返回 (如果第二自变量为null，就不储存而只是返回) 。
 
 #001 Class c = null;
   
@@ -360,7 +360,7 @@ c = Class.forName(args[0]);
   
 #008 System.out.println("package "+p.getName()+";");
 
-执行结果（例) : 
+执行结果 (例) : 
   
 package java.util;
   
@@ -402,9 +402,9 @@ package java.util;
   
 #018 }
   
-#019 classRef.remove(c.getName()); //不必记录自己（不需import 自己) 
+#019 classRef.remove(c.getName()); //不必记录自己 (不需import 自己) 
 
-执行结果（例) : 
+执行结果 (例) : 
   
 import java.util.ListIterator;
   
@@ -436,11 +436,11 @@ import java.io.ObjectInputStream;
   
 #008 System.out.print(tName(c.getName(), null)); //class 名称
 
-执行结果（例) : 
+执行结果 (例) : 
   
 public class LinkedList
   
-图5-3: 找出class或interface 的名称，及其属性（modifiers) 。
+图5-3: 找出class或interface 的名称，及其属性 (modifiers) 。
 
 #001 TypeVariable[] tv;
   
@@ -462,7 +462,7 @@ public class LinkedList
   
 #011 }
 
-执行结果（例) : 
+执行结果 (例) : 
   
 public abstract interface Map
   
@@ -480,7 +480,7 @@ public abstract interface Map
   
 #005 tName(supClass.getName(),classRef));
 
-执行结果（例) : 
+执行结果 (例) : 
   
 public class LinkedList
   
@@ -504,7 +504,7 @@ extends AbstractSequentialList,
   
 #008 System.out.print(tName(cite.getName(), null)+", ");
 
-执行结果（例) : 
+执行结果 (例) : 
   
 public class LinkedList
   
@@ -528,7 +528,7 @@ implements List, Queue, Cloneable, Serializable,
   
 #007 System.out.println(ctmp.getName());
 
-执行结果（例) : 
+执行结果 (例) : 
   
 LinkedList$Entry
   
@@ -564,7 +564,7 @@ LinkedList$ListItr
   
 #014 }
 
-执行结果（例) : 
+执行结果 (例) : 
   
 public java.util.LinkedList(Collection)
   
@@ -574,7 +574,7 @@ public java.util.LinkedList()
 
 #004 System.out.println(cn[i].toGenericString());
 
-执行结果（例) : 
+执行结果 (例) : 
   
 public java.util.LinkedList(java.util.Collection)
   
@@ -612,7 +612,7 @@ public java.util.LinkedList()
   
 #015 }
 
-执行结果（例) : 
+执行结果 (例) : 
   
 public Object get(int)
   
@@ -644,7 +644,7 @@ public int java.util.LinkedList.size()
   
 #008 }
 
-执行结果（例) : 
+执行结果 (例) : 
   
 private transient LinkedList$Entry header;
   

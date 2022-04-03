@@ -20,6 +20,7 @@ NIO Buffer Characteristics
 How to Read from NIO Buffer
 How to Write to NIO Buffer
 Java NIO 读写文件实例程序
+
 Channel
 Java NIO中，channel用于数据的传输。类似于传统IO中的流的概念。channel的两端是buffer和一个entity，不同于IO中的流，channel是双向的，既可以写入，也可以读取。而流则是单向的，所以channel更加灵活。我们在读取数据或者写入数据的时候，都必须经过channel和buffer，也就是说，我们在读取数据的时候，先利用channel将IO设备中的数据读取到buffer，然后从buffer中读取，我们在写入数据的时候，先将数据写入到buffer，然后buffer中的数据再通过channel传到IO设备中。
 

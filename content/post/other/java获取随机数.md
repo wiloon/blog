@@ -25,7 +25,7 @@ int nextInt()
   
 int nextInt(int n)
   
-返回一个伪随机数，它是从此随机数生成器的序列中取出的、在 0（包括) 和指定值（不包括) 之间均匀分布的 int值。
+返回一个伪随机数，它是从此随机数生成器的序列中取出的、在 0 (包括) 和指定值 (不包括) 之间均匀分布的 int值。
   
 在Java中我们可以使用java.util.Random类来产生一个随机数发生器。它有两种形式的构造函数，分别是Random()和Random(long seed)。Random()使用当前时间即System.currentTimeMillis()作为发生器的种子，Random(long seed)使用指定的seed作为发生器的种子。
 
@@ -43,7 +43,7 @@ Random random = new Random(100);//指定种子数100
 
 random调用不同的方法，获得随机数。
   
-如果2个Random对象使用相同的种子（比如都是100) ，并且以相同的顺序调用相同的函数，那它们返回值完全相同。如下面代码中两个Random对象的输出完全相同
+如果2个Random对象使用相同的种子 (比如都是100) ，并且以相同的顺序调用相同的函数，那它们返回值完全相同。如下面代码中两个Random对象的输出完全相同
 
 ```java
    

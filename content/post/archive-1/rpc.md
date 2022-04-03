@@ -12,7 +12,7 @@ tags:
 ## RPC，Webservice，RMI，JMS
 https://github.com/www1350/javaweb/issues/56
 
-RPC（Remote Procedure Call Protocol) 
+RPC (Remote Procedure Call Protocol) 
 
 RPC使用C/S方式，采用http协议,发送请求到服务器，等待服务器返回结果。这个请求包括一个参数集和一个文本集，通常形成"classname.methodname"形式。优点是跨语言跨平台，C端、S端有更大的独立性，缺点是不支持对象，无法在编译器检查错误，只能在运行期检查。
 
@@ -32,32 +32,32 @@ Employee getEmployeeByName(String fullName)
 
 首先，要解决通讯的问题，主要是通过在客户端和服务器之间建立TCP连接，远程过程调用的所有交换的数据都在这个连接里传输。连接可以是按需连接，调用结束后就断掉，也可以是长连接，多个远程过程调用共享同一个连接。
   
-第二，要解决寻址的问题，也就是说，A服务器上的应用怎么告诉底层的RPC框架，如何连接到B服务器（如主机或IP地址) 以及特定的端口，方法的名称名称是什么，这样才能完成调用。比如基于Web服务协议栈的RPC，就要提供一个endpoint URI，或者是从UDDI服务上查找。如果是RMI调用的话，还需要一个RMI Registry来注册服务的地址。
+第二，要解决寻址的问题，也就是说，A服务器上的应用怎么告诉底层的RPC框架，如何连接到B服务器 (如主机或IP地址) 以及特定的端口，方法的名称名称是什么，这样才能完成调用。比如基于Web服务协议栈的RPC，就要提供一个endpoint URI，或者是从UDDI服务上查找。如果是RMI调用的话，还需要一个RMI Registry来注册服务的地址。
   
-第三，当A服务器上的应用发起远程过程调用时，方法的参数需要通过底层的网络协议如TCP传递到B服务器，由于网络协议是基于二进制的，内存中的参数的值要序列化成二进制的形式，也就是序列化（Serialize) 或编组（marshal) ，通过寻址和传输将序列化的二进制发送给B服务器。
+第三，当A服务器上的应用发起远程过程调用时，方法的参数需要通过底层的网络协议如TCP传递到B服务器，由于网络协议是基于二进制的，内存中的参数的值要序列化成二进制的形式，也就是序列化 (Serialize) 或编组 (marshal) ，通过寻址和传输将序列化的二进制发送给B服务器。
   
-第四，B服务器收到请求后，需要对参数进行反序列化（序列化的逆操作) ，恢复为内存中的表达方式，然后找到对应的方法（寻址的一部分) 进行本地调用，然后得到返回值。
+第四，B服务器收到请求后，需要对参数进行反序列化 (序列化的逆操作) ，恢复为内存中的表达方式，然后找到对应的方法 (寻址的一部分) 进行本地调用，然后得到返回值。
   
 第五，返回值还要发送回服务器A上的应用，也要经过序列化的方式发送，服务器A接到后，再反序列化，恢复为内存中的表达方式，交给A服务器上的应用
   
 image
   
-（图片来源: https://www.cs.rutgers.edu/~pxk/417/notes/03-rpc.html) 
+ (图片来源: https://www.cs.rutgers.edu/~pxk/417/notes/03-rpc.html) 
 
 为什么RPC呢？就是无法在一个进程内，甚至一个计算机内通过本地调用的方式完成的需求，比如比如不同的系统间的通讯，甚至不同的组织间的通讯。由于计算能力需要横向扩展，需要在多台机器组成的集群上部署应用，
 
 RPC的协议有很多，比如最早的CORBA，Java RMI，Web Service的RPC风格，Hessian，Thrift，甚至Rest API。
 
 ### 关于Netty
-而Netty框架不局限于RPC，更多的是作为一种网络协议的实现框架，比如HTTP，由于RPC需要高效的网络通信，就可能选择以Netty作为基础。除了网络通信，RPC还需要有比较高效的序列化框架，以及一种寻址方式。如果是带会话（状态) 的RPC调用，还需要有会话和状态保持的功能。
+而Netty框架不局限于RPC，更多的是作为一种网络协议的实现框架，比如HTTP，由于RPC需要高效的网络通信，就可能选择以Netty作为基础。除了网络通信，RPC还需要有比较高效的序列化框架，以及一种寻址方式。如果是带会话 (状态) 的RPC调用，还需要有会话和状态保持的功能。
 
-大体上来说，Netty就是提供一种事件驱动的，责任链式（也可以说是流水线) 的网络协议实现方式。网络协议包含很多层次，很多部分组成，如传输层协议，编码解码，压缩解压，身份认证，加密解密，请求的处理逻辑，怎么能够更好的复用，扩展，业界通用的方法就是责任链，
+大体上来说，Netty就是提供一种事件驱动的，责任链式 (也可以说是流水线) 的网络协议实现方式。网络协议包含很多层次，很多部分组成，如传输层协议，编码解码，压缩解压，身份认证，加密解密，请求的处理逻辑，怎么能够更好的复用，扩展，业界通用的方法就是责任链，
 
-一个请求应答网络交互通常包含两条链，一条链（Upstream) 是从传输层，经过一系列步骤，如身份认证，解密，日志，流控，最后到达业务层，一条链（DownStream) 是业务层返回后，又经过一系列步骤，如加密等，又回到传输层。
+一个请求应答网络交互通常包含两条链，一条链 (Upstream) 是从传输层，经过一系列步骤，如身份认证，解密，日志，流控，最后到达业务层，一条链 (DownStream) 是业务层返回后，又经过一系列步骤，如加密等，又回到传输层。
   
-这样每一层都有一个处理接口，都可以进行不同的操作，比如身份认证，加解密，日志，流控，将不同的处理实现像拼积木那样插接起来就可以实现一个网络协议了（快速开发) 。每一层都有自己的实现，上层不需要关注面向网络的操作（可维护) 。Netty已经提供了很多实现。
+这样每一层都有一个处理接口，都可以进行不同的操作，比如身份认证，加解密，日志，流控，将不同的处理实现像拼积木那样插接起来就可以实现一个网络协议了 (快速开发) 。每一层都有自己的实现，上层不需要关注面向网络的操作 (可维护) 。Netty已经提供了很多实现。
 
-当然Netty还有许多好处，比如对非阻塞IO（NIO) 的支持，比如在链上传递时最大程度的减少buffer的copy（高性能) 。
+当然Netty还有许多好处，比如对非阻塞IO (NIO) 的支持，比如在链上传递时最大程度的减少buffer的copy (高性能) 。
 
 作者: 用心阁
   
@@ -71,7 +71,7 @@ Web Service提供的服务是基于web容器的，底层使用http协议，类�
 
 首先客户端从服务器的到WebService的WSDL，同时在客户端声称一个代理类(Proxy Class) 这个代理类负责与WebService
 
-服务器进行Request 和Response 当一个数据（XML格式的) 被封装成SOAP格式的数据流发送到服务器端的时候，就会生成一个进程对象并且把接收到这个Request的SOAP包进行解析，然后对事物进行处理，处理结束以后再对这个计算结果进行SOAP
+服务器进行Request 和Response 当一个数据 (XML格式的) 被封装成SOAP格式的数据流发送到服务器端的时候，就会生成一个进程对象并且把接收到这个Request的SOAP包进行解析，然后对事物进行处理，处理结束以后再对这个计算结果进行SOAP
 
 包装，然后把这个包作为一个Response发送给客户端的代理类(Proxy Class)，同样地，这个代理类也对这个SOAP包进行解析处理，继而进行后续操作。这就是WebService的一个运行过程。
 
@@ -99,13 +99,13 @@ Apache Axis2
 
 SOA
 
-SOA分为广义的SOA和狭义的SOA，广义的SOA是指一种新的企业应用架构和企业IT基础架构，它可以使企业实现跨应用，跨部门，跨企业甚至跨 行业之间的离散系统实现互连。（注意: 这里所指的服务并不单单是Web Service,它可以是以Web Service实现 ，也可以以业务方式实现，甚至是书面口头承诺实现) 。而狭义的SOA是指一种软件架构，它可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部 署、组合和使用。服务层是SOA的基础，可以直接被应用调用，从而有效控制系统中与软件代理交互的人为依赖性。
+SOA分为广义的SOA和狭义的SOA，广义的SOA是指一种新的企业应用架构和企业IT基础架构，它可以使企业实现跨应用，跨部门，跨企业甚至跨 行业之间的离散系统实现互连。 (注意: 这里所指的服务并不单单是Web Service,它可以是以Web Service实现 ，也可以以业务方式实现，甚至是书面口头承诺实现) 。而狭义的SOA是指一种软件架构，它可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部 署、组合和使用。服务层是SOA的基础，可以直接被应用调用，从而有效控制系统中与软件代理交互的人为依赖性。
   
-目前Web Service越来越流行，并成为实现SOA的一种手段。Web Service使应用功能通过标准化接口（WSDL) 提供，使用标准化语言（XML) 进行描述，并可基于标准化传输方式（HTTP和JMS) 、采用标准化 协议（SOAP) 进行调用，并使用XML SCHEMA方式对数据进行描述。你也可以不采用Web服务来创建SOA应用，但是这种标准的重要性日益增加、应用日趋普遍。
+目前Web Service越来越流行，并成为实现SOA的一种手段。Web Service使应用功能通过标准化接口 (WSDL) 提供，使用标准化语言 (XML) 进行描述，并可基于标准化传输方式 (HTTP和JMS) 、采用标准化 协议 (SOAP) 进行调用，并使用XML SCHEMA方式对数据进行描述。你也可以不采用Web服务来创建SOA应用，但是这种标准的重要性日益增加、应用日趋普遍。
 
 ESB企业服务总线
 
-ESB是企业服务总线（Enterprise Service Bus) 的缩写，是中间件技术与Web Service等技术结合的产物，也是SOA系统中的核心基础设施。ESB就是一个服务的中介，形成服务使用者->ESB服务Proxy->服务提供者的生物链，中介的作用在不同应用中各有不同: 
+ESB是企业服务总线 (Enterprise Service Bus) 的缩写，是中间件技术与Web Service等技术结合的产物，也是SOA系统中的核心基础设施。ESB就是一个服务的中介，形成服务使用者->ESB服务Proxy->服务提供者的生物链，中介的作用在不同应用中各有不同: 
 
 解耦中介 : 客户对实际服务提供者的身份、物理位置、传输协议和接口定义都是不知道也不关心的，交互集成代码提取到了业务逻辑之外，由ESB平台进行中央的宣告式定义。ESB平台实现协议转换 (WebService，Http，JMS...)，消息转换 (转换、充实、过滤)，消息路由 (同步/异步、发布/订阅、基于内容路由、分支与聚合...)。
   
@@ -123,7 +123,7 @@ ESB在发展过程中有从原有的消息中间件转化为ESB产品的，这�
   
 image
   
-ESB 需要某种形式的服务路由目录（service routing directory) 来路由服务请求。然而，SOA 可能还有单独的业务服务目录（business service directory) ，其最基本的形式可能是设计时服务目录，用于在组织的整个开发活动中实现服务的重用。Web 服务远景在业务服务目录和服务路由目录的角色中都放置了一个 UDDI 目录，因而使得可以动态发现和调用服务。这样的目录可以视为 ESB 的一部分；然而，在这样的解决方案变得普遍之前，业务服务目录可能与 ESB 是分离的。
+ESB 需要某种形式的服务路由目录 (service routing directory) 来路由服务请求。然而，SOA 可能还有单独的业务服务目录 (business service directory) ，其最基本的形式可能是设计时服务目录，用于在组织的整个开发活动中实现服务的重用。Web 服务远景在业务服务目录和服务路由目录的角色中都放置了一个 UDDI 目录，因而使得可以动态发现和调用服务。这样的目录可以视为 ESB 的一部分；然而，在这样的解决方案变得普遍之前，业务服务目录可能与 ESB 是分离的。
 
 http://www.cnblogs.com/zengxlf/p/3193529.html
 
@@ -138,9 +138,9 @@ http://www.cnblogs.com/zengxlf/p/3193529.html
 
 ### JMS和RMI
 
-采用JMS 服务，对象是在物理上被异步从网络的某个JVM 上直接移动到另一个JVM 上（是消息通知机制) 
+采用JMS 服务，对象是在物理上被异步从网络的某个JVM 上直接移动到另一个JVM 上 (是消息通知机制) 
 
-而RMI 对象是绑定在本地JVM 中，只有函数参数和返回值是通过网络传送的（是请求应答机制) 。
+而RMI 对象是绑定在本地JVM 中，只有函数参数和返回值是通过网络传送的 (是请求应答机制) 。
 
 RMI一般都是同步的，也就是说，当client调用Server的一个方法的时候，需要等到对方的返回，才能继续执行client端，这个过程调用本地方法感觉上是一样的，这也是RMI的一个特点。
 
@@ -158,11 +158,11 @@ webservice没有这个限制，webservice是在http协议上传递xml文本文�
 
 Webservice专注于远程服务调用，jms专注于信息交换。
 
-大多数情况下Webservice是两系统间的直接交互（Consumer <--> Producer) ，而大多数情况下jms是三方系统交互（Consumer <- Broker -> Producer) 。当然，JMS也可以实现request-response模式的通信，只要Consumer或Producer其中一方兼任broker即可。
+大多数情况下Webservice是两系统间的直接交互 (Consumer <--> Producer) ，而大多数情况下jms是三方系统交互 (Consumer <- Broker -> Producer) 。当然，JMS也可以实现request-response模式的通信，只要Consumer或Producer其中一方兼任broker即可。
 
-JMS可以做到异步调用完全隔离了客户端和服务提供者，能够抵御流量洪峰； WebService服务通常为同步调用，需要有复杂的对象转换，相比SOAP，现在JSON，rest都是很好的http架构方案；（举一个例子，电子商务的分布式系统中，有支付系统和业务系统，支付系统负责用户付款，在用户在银行付款后需要通知各个业务系统，那么这个时候，既可以用同步也可以用异步，使用异步的好处就能抵御网站暂时的流量高峰，或者能应对慢消费者。) 
+JMS可以做到异步调用完全隔离了客户端和服务提供者，能够抵御流量洪峰； WebService服务通常为同步调用，需要有复杂的对象转换，相比SOAP，现在JSON，rest都是很好的http架构方案； (举一个例子，电子商务的分布式系统中，有支付系统和业务系统，支付系统负责用户付款，在用户在银行付款后需要通知各个业务系统，那么这个时候，既可以用同步也可以用异步，使用异步的好处就能抵御网站暂时的流量高峰，或者能应对慢消费者。) 
 
-JMS是java平台上的消息规范。一般jms消息不是一个xml，而是一个java对象，很明显，jms没考虑异构系统，说白了，JMS就没考虑非java的东西。但是好在现在大多数的jms provider（就是JMS的各种实现产品) 都解决了异构问题。相比WebService的跨平台各有千秋吧。
+JMS是java平台上的消息规范。一般jms消息不是一个xml，而是一个java对象，很明显，jms没考虑异构系统，说白了，JMS就没考虑非java的东西。但是好在现在大多数的jms provider (就是JMS的各种实现产品) 都解决了异构问题。相比WebService的跨平台各有千秋吧。
 
 http://www.tuicool.com/articles/2qAzqq
 
@@ -204,9 +204,9 @@ REST可以看着是http协议的一种直接应用，默认基于json作为传�
 1. RPC: RPC本身没有规范,但基本的工作机制是一样的，即: serialization/deserialization + stub + skeleton, 宽泛的讲，只要能实现远程调用，都是RPC，如: rmi, .net-remoting, ws/soap/rest, hessian, xmlrpc, thrift, potocolbuffer
 ### RMI, Remote Method Invocation
 RMI 是一种PRC. java的RMI就是java平台上的RPC技术方案。  
-RMI是远程方法调用（Remote Method Invocation) 的简称，其是一种计算机之间利用远程对象互相调用实现双方通讯的一种通讯机制，它能够让一个Java虚拟机上的对象调用另一个Java虚拟机上对象的方法。Java RMI在JDK1.1中实现的，其它可以被看作是RPC的Java版本。但是传统RPC并不能很好地应用于分布式对象系统。而Java RMI 则支持存储于不同地址空间的程序级对象之间彼此进行通信，实现远程对象之间的无缝远程调用。
+RMI是远程方法调用 (Remote Method Invocation) 的简称，其是一种计算机之间利用远程对象互相调用实现双方通讯的一种通讯机制，它能够让一个Java虚拟机上的对象调用另一个Java虚拟机上对象的方法。Java RMI在JDK1.1中实现的，其它可以被看作是RPC的Java版本。但是传统RPC并不能很好地应用于分布式对象系统。而Java RMI 则支持存储于不同地址空间的程序级对象之间彼此进行通信，实现远程对象之间的无缝远程调用。
 
-RMI相对于其它比较复杂的RPC要简单的多（比如 Thrift、Grpc、Protoff等) ，本文仅仅简单阐述了其组成、实现原理图、代码示例。如果想深入学习和了解，可以自行解读源码或参照其它解读文档。
+RMI相对于其它比较复杂的RPC要简单的多 (比如 Thrift、Grpc、Protoff等) ，本文仅仅简单阐述了其组成、实现原理图、代码示例。如果想深入学习和了解，可以自行解读源码或参照其它解读文档。
   
 局限性
   
@@ -226,13 +226,13 @@ RMI TCP connection
 to feed a remote JMX client (in your case Java VisualVM) with data from JVM.    
 https://stackoverflow.com/questions/40793580/what-is-rmi-tcp-connection
 
-### JMS（Java Messaging Service) 
+### JMS (Java Messaging Service) 
 
-JMS是Java的消息服务，JMS的客户端之间可以通过JMS服务进行异步的消息传输。JMS支持两种消息模型: Point-to-Point（P2P) 和Publish/Subscribe（Pub/Sub) ，即点对点和发布订阅模型。
+JMS是Java的消息服务，JMS的客户端之间可以通过JMS服务进行异步的消息传输。JMS支持两种消息模型: Point-to-Point (P2P) 和Publish/Subscribe (Pub/Sub) ，即点对点和发布订阅模型。
 
-3. JMS 是 java 平台上的消息规范。一般jms消息不是一个xml，而是一个java对象，很明显，jms没考虑异构系统，说白了，JMS就没考虑非java的东西。但是好在现在大多数的jms provider（就是JMS的各种实现产品) 都解决了异构问题。
+3. JMS 是 java 平台上的消息规范。一般jms消息不是一个xml，而是一个java对象，很明显，jms没考虑异构系统，说白了，JMS就没考虑非java的东西。但是好在现在大多数的jms provider (就是JMS的各种实现产品) 都解决了异构问题。
 4. soap 专注于远程服务调用，jms专注于信息交换。
-5. 大多数情况下soap是两系统间的直接交互（Consumer <-> Producer) ，而大多数情况下jms是三方系统交互（Consumer <- Broker -> Producer) 。当然，JMS也可以实现request-response模式的通信，只要Consumer或Producer其中一方兼任broker即可。
+5. 大多数情况下soap是两系统间的直接交互 (Consumer <-> Producer) ，而大多数情况下jms是三方系统交互 (Consumer <- Broker -> Producer) 。当然，JMS也可以实现request-response模式的通信，只要Consumer或Producer其中一方兼任broker即可。
 6. 多数情况下，ws是同步的，jms是异步。虽然，ws也可以是异步的，而jms也可以是同步的。
 
 ## JAX-RPC

@@ -85,7 +85,7 @@ ansible-playbook foo.yml -e h=192.168.0.2
 ansible-playbook foo.yml -e "host=192.168.0.2 app=foo"
 ```
 
-ansible的playbook就如同salt的state,一个playbook就是一个YAML文件,所以playbook文件一般都以.yml结尾,写playbook不需要复杂的YAML语法,所以也不用单独去学YAML语法。此外playbook和模板文件（template模块) 还使用jinja2语法语法实现高级功能（后面逐一讲到) ,不光这里,jinja2语法很多地方都会用到,比如python大部分web框架的模板系统,所以可以去单独学一下。
+ansible的playbook就如同salt的state,一个playbook就是一个YAML文件,所以playbook文件一般都以.yml结尾,写playbook不需要复杂的YAML语法,所以也不用单独去学YAML语法。此外playbook和模板文件 (template模块) 还使用jinja2语法语法实现高级功能 (后面逐一讲到) ,不光这里,jinja2语法很多地方都会用到,比如python大部分web框架的模板系统,所以可以去单独学一下。
   
 一个playbook文件由一个或多个play组成,每个play定义了在一个或多个远程主机上执行的一系列的task,其中每个task一般就是调用一个ansible的模块,如调用copy模块复制文件到远程主机或调用shell模块执行命令。
 
@@ -116,11 +116,8 @@ ansible-playbook /etc/ansible/xxx.yml --limit 192.168.xxx.xxx --tags "tag0,tag1"
 --skip-tags
 --start-at-task
 --step # one-step-at-a-time: confirm each task before running
-
 ```
 
-http://sapser.github.io/ansible/2014/07/21/ansible-playbook
-  
-https://stackoverflow.com/questions/18195142/safely-limiting-ansible-playbooks-to-a-single-machine
-  
-http://liuzhengwei521.blog.51cto.com/4855442/1962382
+>http://sapser.github.io/ansible/2014/07/21/ansible-playbook
+>https://stackoverflow.com/questions/18195142/safely-limiting-ansible-playbooks-to-a-single-machine
+>http://liuzhengwei521.blog.51cto.com/4855442/1962382

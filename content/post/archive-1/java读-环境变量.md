@@ -14,7 +14,7 @@ http://ling091.iteye.com/blog/354052
 
 读取环境变量时可以使用 System.getProperty 或 System.getenv 方法。
 
-System.getProperty 方法（ JDK1.4 ) 用来读取针对 JVM 的属性，如程序当前的运行路径、路径分隔符、 Java 版本等， ( 见 System.getProperty() 参数大全 ) ，它也可以读取在运行程序时设置的自定义属性。
+System.getProperty 方法 ( JDK1.4 ) 用来读取针对 JVM 的属性，如程序当前的运行路径、路径分隔符、 Java 版本等， ( 见 System.getProperty() 参数大全 ) ，它也可以读取在运行程序时设置的自定义属性。
   
 * 获取一个JVM已定义属性
   
@@ -40,7 +40,7 @@ String myvar = System.getProperty("myvar");
   
 String myothervar = System.getProperty("myothervar");
 
-如果要读取操作系统的环境变量（如 Path 、 TEMP 或 TMP 、 JAVA_HOME 等。) 则可以使用 System.getenv 方法，但是由于某些原因，该方法被去掉了，直到 JDK1.5 后，该方法又被加进去 [3] 。
+如果要读取操作系统的环境变量 (如 Path 、 TEMP 或 TMP 、 JAVA_HOME 等。) 则可以使用 System.getenv 方法，但是由于某些原因，该方法被去掉了，直到 JDK1.5 后，该方法又被加进去 [3] 。
 
 * 获取一个系统环境变量
 

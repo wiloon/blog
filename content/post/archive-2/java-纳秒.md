@@ -17,7 +17,7 @@ http://hold-on.iteye.com/blog/1943436
      原因: 
     
 
-System.currentTimeMillis() 起始时间是基于 1970.1.1 0:00:00 这个确定的时间的,而System.nanoTime()是基于cpu核心的时钟周期来计时,它的开始时间是不确定的。（有篇文章说是更加cpu核心的启动时间开始计算的) 
+System.currentTimeMillis() 起始时间是基于 1970.1.1 0:00:00 这个确定的时间的,而System.nanoTime()是基于cpu核心的时钟周期来计时,它的开始时间是不确定的。 (有篇文章说是更加cpu核心的启动时间开始计算的) 
 
 但是在多核处理器上,由于每个核心的开始时间不确定,但是在多核处理器上,
 

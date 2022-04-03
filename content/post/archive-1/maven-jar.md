@@ -235,7 +235,7 @@ maven-shade-plugin</artifactId>
 
 上一篇Eclipse Fat jar 插件地址
   
-下一篇Java 高手之路笔记（1) 
+下一篇Java 高手之路笔记 (1) 
 
  
 

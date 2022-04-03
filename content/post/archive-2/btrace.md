@@ -5,13 +5,12 @@ date: 2018-06-02T03:42:52+00:00
 url: btrace
 categories:
   - java
-  - remix
-
 tags:
   - reprint
+  - remix
 ---
 ## Java诊断工具 - btrace
-## Java诊断工具 – btrace
+
 ### 下载最新的版本
 
 https://github.com/btraceio/btrace/releases
@@ -41,7 +40,7 @@ public class MethodDuration_redis{
 
 ```
 
-### 找到java进程并执行btrace
+### 找到 java 进程并执行 btrace
 
 ```bash
 # 打印java进程
@@ -54,9 +53,9 @@ BTrace 是检查和解决线上的问题的杀器，BTrace 可以通过编写脚
 
 原理
 
-总体来说，BTrace 是基于动态字节码修改技术(Hotswap)来实现运行时 java 程序的跟踪和替换。大体的原理可以用下面的公式描述：Client(Java compile api + attach api) + Agent（脚本解析引擎 + ASM + JDK6 Instumentation） + Socket其实 BTrace 就是使用了 java attach api 附加 agent.jar ，然后使用脚本解析引擎+asm来重写指定类的字节码，再使用 instrument 实现对原有类的替换。
+总体来说，BTrace 是基于动态字节码修改技术(Hotswap)来实现运行时 java 程序的跟踪和替换。大体的原理可以用下面的公式描述：Client(Java compile api + attach api) + Agent (脚本解析引擎 + ASM + JDK6 Instumentation） + Socket其实 BTrace 就是使用了 java attach api 附加 agent.jar ，然后使用脚本解析引擎+asm来重写指定类的字节码，再使用 instrument 实现对原有类的替换。
 
-BTrace是sun公司推出的一款Java 动态、安全追踪（监控) 工具,可以在不用重启的情况下监控系统运行情况,方便的获取程序运行时的数据信息,如方法参数、返回值、全局变量和堆栈信息等,并且做到最少的侵入,占用最少的系统资源。
+BTrace是sun公司推出的一款Java 动态、安全追踪 (监控) 工具,可以在不用重启的情况下监控系统运行情况,方便的获取程序运行时的数据信息,如方法参数、返回值、全局变量和堆栈信息等,并且做到最少的侵入,占用最少的系统资源。
 
 由于Btrace会把脚本逻辑直接侵入到运行的代码中,所以在使用上做很多限制: 
   

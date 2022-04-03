@@ -1,58 +1,28 @@
 ---
-title: android.intent.action.MAIN 与 android.intent.category.LAUNCHER
+title: 文件系统，block组，block，bmap，inode，inode table，imap
 author: "-"
 date: 2014-04-14T08:06:08+00:00
-url: /?p=6547
+url: imap
 categories:
   - Uncategorized
 
 tags:
   - reprint
 ---
-## android.intent.action.MAIN 与 android.intent.category.LAUNCHER
-先看看网路上的说法: 
+## 文件系统，block组，block，bmap，inode，inode table，imap
 
-android.intent.action.MAIN决定应用程序最先启动的
+文件系统 imap：inode 节点位图(inodemap)管理空闲inode
 
-Activity android.intent.category.LAUNCHER决定应用程序是否显示在程序列表里
+摘取自骏马金龙的第4章ext文件系统机制原理剖析
 
-通过实验后，发现有问题？
+在写文件(Linux中一切皆文件)时需要为其分配一个inode号。
 
-MAIN 与 LAUNCHER 并不是单纯的各管各的事情；
+其实，在格式化创建文件系统后，所有的inode号都已计算好（创建文件系统时会为每个块组计算好该块组拥有哪些inode号），因此产生了问题：要为文件分配哪一个inode号呢？又如何知道某一个inode号是否已经被分配了呢？
 
-个人认为正确的说法是
+既然是"是否被占用"的问题，使用位图是最佳方案，像bmap记录block的占用情况一样。标识inode号是否被分配的位图称为inodemap简称为imap。这时要为一个文件分配inode号只需扫描imap即可知道哪一个inode号是空闲的。
 
-我测试的结果是，如果一个应用没有LAUNCHER则该apk仍能安装到设备上，但是在桌面中图标中看不到。如果给那个Activity 设定了LAUNCHER，且同时设定了Main,则这个Activity就可出现在程序图标中；如果没有Main，则不知启动哪个Activity，故也不会有图标出现。可见，Main指的是，点击图标后启动哪个Activity。当然，Main可以给多个Activity设定，但只设定Main不设定LAUNCHER，仍然无法进入activity。
+这样理解更容易些，类似bmap块位图一样，inode号是预先规划好的。inode号分配后，文件删除也会释放inode号。分配和释放的inode号，像是在一个地图上挖掉一块，用完再补回来一样。
 
-可见，Main和LAUNCHER同时设定才有意义，如果多个activity同时设定，则会出现两个图标，分别先进入不同的activity.如下图: Lift_cycles 01 与 Lift_cycles 02
+imap存在着和bmap和inode table一样需要解决的问题：如果文件系统比较大，imap本身就会很大，每次存储文件都要进行扫描，会导致效率不够高。同样，优化的方式是将文件系统占用的block划分成块组，每个块组有自己的imap范围。
 
-```html``` 
-
-<activity android:name=".Life_CyclesActivity"
-
-android:label="Lift_cycles 01">
-
-<intent-filter>
-
-
-
-<category android:name="android.intent.category.LAUNCHER" />
-
-</intent-filter>
-
-</activity>
-
-<activity android:name="Life_CyclesActivity02"
-
-android:label="Lift_cycles 02">
-
-<intent-filter>
-
-
-
-<category android:name="android.intent.category.LAUNCHER" />
-
-</intent-filter>
-
-</activity>
-
+>https://www.jianshu.com/p/4a07b2c26879

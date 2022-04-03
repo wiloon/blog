@@ -16,7 +16,7 @@ tags:
   
 使用 cpulimit 命令不断的暂停进程,以控制进程所占用处理能力不超过特定限制。
   
-使用linux内建的control groups（控制组) 功能,它提供了限制进程资源消耗的机制。
+使用linux内建的control groups (控制组) 功能,它提供了限制进程资源消耗的机制。
 
 模拟高cpu占用率
   
@@ -27,7 +27,7 @@ https://caffinc.github.io/2016/03/cpu-load-generator/
     # 不带后缀,查看当前nice值 
     nice
 
-下面介绍一下nice命令的使用方法,nice命令可以修改进程的优先级,这样就可以让进程运行得不那么频繁。 这个功能在运行cpu密集型的后台进程或批处理作业时尤为有用。 nice值的取值范围是[-20,19],-20表示最高优先级,而19表示最低优先级。 Linux进程的默认nice值为0。使用nice命令（不带任何参数时) 可以将进程的nice值设置为10。这样调度器就会将此进程视为较低优先级的进程,从而减少cpu资源的分配。
+下面介绍一下nice命令的使用方法,nice命令可以修改进程的优先级,这样就可以让进程运行得不那么频繁。 这个功能在运行cpu密集型的后台进程或批处理作业时尤为有用。 nice值的取值范围是[-20,19],-20表示最高优先级,而19表示最低优先级。 Linux进程的默认nice值为0。使用nice命令 (不带任何参数时) 可以将进程的nice值设置为10。这样调度器就会将此进程视为较低优先级的进程,从而减少cpu资源的分配。
 
 下面来看一个例子,我们同时运行两个 matho-primes 进程,一个使用nice命令来启动运行,而另一个正常启动运行: 
 
@@ -37,7 +37,7 @@ matho-primes 0 9999999999 > /dev/null &
   
 再运行top命令。
 
-看到没,正常运行的进程（nice值为0) 获得了更多的cpu运行时间,相反的,用nice命令运行的进程占用的cpu时间会较少（nice值为10) 。
+看到没,正常运行的进程 (nice值为0) 获得了更多的cpu运行时间,相反的,用nice命令运行的进程占用的cpu时间会较少 (nice值为10) 。
 
 在实际使用中,如果你要运行一个CPU密集型的程序,那么最好用nice命令来启动它,这样就可以保证其他进程获得更高的优先级。 也就是说,即使你的服务器或者台式机在重载的情况下,也可以快速响应。
 
@@ -95,7 +95,7 @@ session required /lib/security/pam_limits.so
 
 注释: 
 
-如果要改nice值的话（就是改优先级) ,可以用上述一样的命令: 
+如果要改nice值的话 (就是改优先级) ,可以用上述一样的命令: 
 
 renice -n (nice值) -p (process进程值) :改单一进程优先级；
 
@@ -143,16 +143,17 @@ cpulimit -l 50 -p 1234
   
 其中,1234是进程的 PID。
 
-### cgroups , control group （cgroup,since linux 2.6.24) 
+### cgroups , control group  (cgroup,since linux 2.6.24)
+
     apt-get install cgroup-bin
 
-最后介绍,功能最为强大的控制组（cgroups) 的用法。cgroups 是 Linux 内核提供的一种机制,利用它可以指定一组进程的资源分配。 具体来说,使用 cgroups,用户能够限定一组进程的 cpu 占用率、系统内存消耗、网络带宽,以及这几种资源的组合。
+cgroups 是 Linux 内核提供的一种机制, 利用它可以指定一组进程的资源分配。具体来说,使用 cgroups, 用户能够限定一组进程的 cpu 占用率、系统内存消耗、网络带宽,以及这几种资源的组合。
 
 对比nice和cpulimit,cgroups 的优势在于它可以控制一组进程,不像前者仅能控制单进程。同时,nice 和 cpulimit 只能限制 cpu 使用率,而 cgroups 则可以限制其他进程资源的使用。
 
 对 cgroups 善加利用就可以控制好整个子系统的资源消耗。就拿 CoreOS 作为例子,这是一个专为大规模服务器部署而设计的最简化的 Linux 发行版本,它的 upgrade 进程就是使用 cgroups 来管控。这样,系统在下载和安装升级版本时也不会影响到系统的性能。
 
-下面做一下演示,我们将创建两个控制组（cgroups) ,并对其分配不同的 cpu 资源。这两个控制组分别命名为"cpulimited"和"lesscpulimited"。
+下面做一下演示,我们将创建两个控制组 (cgroups) ,并对其分配不同的 cpu 资源。这两个控制组分别命名为"cpulimited"和"lesscpulimited"。
 
 使用 cgcreate 命令来创建控制组,如下所示: 
 
@@ -162,7 +163,7 @@ sudo cgcreate -g cpu:/lesscpulimited
   
 其中"-g cpu"选项用于设定 cpu 的使用上限。除 cpu 外,cgroups 还提供 cpuset、memory、blkio 等控制器。cpuset 控制器与 cpu 控制器的不同在于,cpu 控制器只能限制一个 cpu 核的使用率,而 cpuset 可以控制多个 cpu 核。
 
-cpu 控制器中的 cpu.shares 属性用于控制 cpu 使用率。它的默认值是 1024,我们将 lesscpulimited 控制组的 cpu.shares 设为1024（默认值) ,而 cpulimited 设为512,配置后内核就会按照2: 1的比例为这两个控制组分配资源。
+cpu 控制器中的 cpu.shares 属性用于控制 cpu 使用率。它的默认值是 1024,我们将 lesscpulimited 控制组的 cpu.shares 设为1024 (默认值) ,而 cpulimited 设为512,配置后内核就会按照2: 1的比例为这两个控制组分配资源。
 
 要设置 cpulimited 组的 cpu.shares 为 512,输入以下命令: 
 
@@ -188,13 +189,13 @@ sudo cgexec -g cpu:cpulimited /usr/local/bin/matho-primes 0 9999999999 > /dev/nu
 
 看到没,两个控制组的 cpu 的占用率比例仍然为2: 1。其中,cpulimited 控制组中的两个 matho-primes 进程获得的cpu 时间基本相当,而另一组中的 matho-primes 进程显然获得了更多的运行时间。
 
-更多的使用方法,可以在 Red Hat 上查看详细的 cgroups 使用说明。（当然CentOS 7也有) 
+更多的使用方法,可以在 Red Hat 上查看详细的 cgroups 使用说明。 (当然CentOS 7也有) 
 
 使用Scout来监控cpu占用率
   
 监控cpu占用率最为简单的方法是什么？Scout 工具能够监控能够自动监控进程的cpu使用率和内存使用情况。
 
-Scout的触发器（trigger) 功能还可以设定 cpu 和内存的使用门限,超出门限时会自动产生报警。
+Scout的触发器 (trigger) 功能还可以设定 cpu 和内存的使用门限,超出门限时会自动产生报警。
 
 从这里可以获取 Scout 的试用版。
 

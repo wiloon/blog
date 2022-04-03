@@ -62,7 +62,7 @@ committed: represents the amount of memory (in bytes) that is guaranteed to be a
 
 max: represents the maximum amount of memory (in bytes) that can be used for memory management. Its value may be undefined. The maximum amount of memory may change over time if defined. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory).
 
-reserved memory 是指JVM 通过mmap PROT_NONE 申请的虚拟地址空间,在页表中已经存在了记录（entries) ,保证了其他进程不会被占用,会page faults, committed memory 是JVM向操做系统实际分配的内存（malloc/mmap) ,mmaped PROT_READ | PROT_WRITE,仍然会page faults 但是跟 reserved 不同,完全内核处理像什么也没发生一样。 used memory 是JVM实际存储了数据（Java对象) 的大小,当used~=committed的时候,heap就会grow up,-Xmx设置了上限。
+reserved memory 是指JVM 通过mmap PROT_NONE 申请的虚拟地址空间,在页表中已经存在了记录 (entries) ,保证了其他进程不会被占用,会page faults, committed memory 是JVM向操做系统实际分配的内存 (malloc/mmap) ,mmaped PROT_READ | PROT_WRITE,仍然会page faults 但是跟 reserved 不同,完全内核处理像什么也没发生一样。 used memory 是JVM实际存储了数据 (Java对象) 的大小,当used~=committed的时候,heap就会grow up,-Xmx设置了上限。
 
 PROT_NONE can be used to implement guard pages, Microsoft has the same concept (MSDN).
 
@@ -76,7 +76,7 @@ Thus useful in implementing protection for areas such as network interfacing, vi
 
 内存溢出就是你要求分配的java虚拟机内存超出了系统能给你的,系统不能满足需求,于是产生溢出。
 
-内存泄漏是指你向系统申请分配内存进行使用(new),可是使用完了以后却不归还(delete),结果你申请到的那块内存你自己也不能再访问,该块已分配出来的内存也无法再使用,随着服务器内存的不断消耗,而无法使用的内存越来越多,系统也不能再次将它分配给需要的程序,产生泄露。一直下去,程序也逐渐无内存使用,就会溢出。（内存泄露vs内存溢出) 
+内存泄漏是指你向系统申请分配内存进行使用(new),可是使用完了以后却不归还(delete),结果你申请到的那块内存你自己也不能再访问,该块已分配出来的内存也无法再使用,随着服务器内存的不断消耗,而无法使用的内存越来越多,系统也不能再次将它分配给需要的程序,产生泄露。一直下去,程序也逐渐无内存使用,就会溢出。 (内存泄露vs内存溢出) 
 
 【内存空间的划分】
 
@@ -84,11 +84,11 @@ Sun JDK实现时遵照JVM规范,将内存空间划分为方法区、堆、JVM方
 
   * 方法区: 
 
-存放要加载的类or接口的信息（名称、修饰符等) 、类的static变量、final常量、Field信息、方法信息（元数据) 。通过Class对象获取的相关数据就来自该区域。 -见 Class类
+存放要加载的类or接口的信息 (名称、修饰符等) 、类的static变量、final常量、Field信息、方法信息 (元数据) 。通过Class对象获取的相关数据就来自该区域。 -见 Class类
 
-Sun JDK中这块区域对应Permanet Generation（持久代) ,默认最小值为16MB,最大值为64MB,可通过-XX:PermSize及-XX:MaxPermSize来设置最小值和最大值。
+Sun JDK中这块区域对应Permanet Generation (持久代) ,默认最小值为16MB,最大值为64MB,可通过-XX:PermSize及-XX:MaxPermSize来设置最小值和最大值。
 
-  * 堆（Heap Memory) : 
+  * 堆 (Heap Memory) : 
 
 存放对象实例及数组值,Heap中对象所占用的内存由GC进行回收,在32位系统上最大为2G,64位系统上无限制。可通过-Xms和-Xmx控制,-Xms为JVM启动时申请的最小Heap内存,-Xmx为JVM可申请的最大Heap内存。
 
@@ -98,7 +98,7 @@ Sun JDK中这块区域对应Permanet Generation（持久代) ,默认最小值为
 
 -想到 ThreadLocal
 
-方法栈空间不足时,抛出StackOverflowError错误（如不合理的递归调用) ,在Sun JDK中可通过-Xss设置大小。
+方法栈空间不足时,抛出StackOverflowError错误 (如不合理的递归调用) ,在Sun JDK中可通过-Xss设置大小。
 
 
 【Heap Memory详解】
@@ -177,9 +177,9 @@ gc()有何用？
 
 finalize()有何用？
 
-gc 只能清除在堆上分配的内存(纯java语言的所有对象都在堆上使用new分配内存),而不能清除栈上分配的内存（当使用JNI技术时,可能会在栈上分配内存,例如java调用c程序,而该c程序使用malloc分配内存时) 。因此,如果某些对象被分配了栈上的内存区域,那gc就管不着了,对栈上的对象进行内存回收就要靠finalize()。
+gc 只能清除在堆上分配的内存(纯java语言的所有对象都在堆上使用new分配内存),而不能清除栈上分配的内存 (当使用JNI技术时,可能会在栈上分配内存,例如java调用c程序,而该c程序使用malloc分配内存时) 。因此,如果某些对象被分配了栈上的内存区域,那gc就管不着了,对栈上的对象进行内存回收就要靠finalize()。
   
-举个例子来说,当java 调用非java方法时（这种方法可能是c或是c++的) ,在非java代码内部也许调用了c的malloc()函数来分配内存,而且除非调用那个了 free() 否则不会释放内存(因为free()是c的函数),这个时候要进行释放内存的工作,gc是不起作用的,因而需要在finalize()内部的一个固有方法调用free()。
+举个例子来说,当java 调用非java方法时 (这种方法可能是c或是c++的) ,在非java代码内部也许调用了c的malloc()函数来分配内存,而且除非调用那个了 free() 否则不会释放内存(因为free()是c的函数),这个时候要进行释放内存的工作,gc是不起作用的,因而需要在finalize()内部的一个固有方法调用free()。
   
 finalize的工作原理应该是这样的: 一旦垃圾收集器准备好释放对象占用的存储空间,它首先调用finalize(),而且只有在下一次垃圾收集过程中,才会真正回收对象的内存.所以如果使用finalize(),就可以在垃圾收集期间进行一些重要的清除或清扫工作.
 

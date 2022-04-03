@@ -16,7 +16,7 @@ Hsqldb是一个开放源代码的JAVA数据库，其具有标准的SQL语法和J
 
 ### 服务器模式
 
-  Server模式提供了最大的可访问性。应用程序（客户端) 通过Hsqldb的JDBC驱动连接服务器。在服务器模式中，服务器在运行的时候可以被指定为最多10个数据库。根据客户端和服务器之间通信协议的不同，Server模式可以分为以下三种: 
+  Server模式提供了最大的可访问性。应用程序 (客户端) 通过Hsqldb的JDBC驱动连接服务器。在服务器模式中，服务器在运行的时候可以被指定为最多10个数据库。根据客户端和服务器之间通信协议的不同，Server模式可以分为以下三种: 
 
 
   1、 Hsqldb Serve
@@ -34,7 +34,7 @@ Hsqldb是一个开放源代码的JAVA数据库，其具有标准的SQL语法和J
   新建文本文件保存上面命令，文件名可以随意，将后缀名改成bat，然后直接执行批处理文件即可。在以后介绍的执行启动工具的命令采用同样方法。
 
 
-  上面启动服务器的命令启动了带有一个（默认为一个数据库) 数据库的服务器，这个数据库是一个名为"mydb.*"文件，这些文件就是mydb.Properties、mydb.script、mydb.log等文件。其中demoDB是mydb的别名，可在连接数据库时使用。
+  上面启动服务器的命令启动了带有一个 (默认为一个数据库) 数据库的服务器，这个数据库是一个名为"mydb.*"文件，这些文件就是mydb.Properties、mydb.script、mydb.log等文件。其中demoDB是mydb的别名，可在连接数据库时使用。
 
 
   2、 Hsqldb Web Server
@@ -43,13 +43,13 @@ Hsqldb是一个开放源代码的JAVA数据库，其具有标准的SQL语法和J
   这种模式只能用在通过HTTP协议访问数据库服务器主机，采用这种模式唯一的原因是客户端或服务器端的防火墙对数据库对网络连接强加了限制。其他情况下，这种模式不推荐被使用。
 
 
-  运行web服务器的时候，只要将刚才命令行中的主类（main class) 替换成: org.hsqldb.WebServer
+  运行web服务器的时候，只要将刚才命令行中的主类 (main class) 替换成: org.hsqldb.WebServer
 
 
   3、 Hsqldb Servlet
 
 
-  这种模式和Web Server一样都采用HTTP协议，当如Tomcat或Resin等servlet引擎（或应用服务器) 提供数据库的访问时，可以使用这种模式。但是Servlet模式不能脱离servlet引擎独立启动。为了提供数据库的连接，必须将HSQLDB.jar中的hsqlServlet类放置在应用服务器的相应位置。
+  这种模式和Web Server一样都采用HTTP协议，当如Tomcat或Resin等servlet引擎 (或应用服务器) 提供数据库的访问时，可以使用这种模式。但是Servlet模式不能脱离servlet引擎独立启动。为了提供数据库的连接，必须将HSQLDB.jar中的hsqlServlet类放置在应用服务器的相应位置。
 
 
   Web Server和Servlet模式都只能在客户端通过JDBC驱动来访问。Servlet模式只能启动一个单独的数据库。请注意做为应用程序服务器的数据库引擎通常不使用这种模式。
@@ -108,7 +108,7 @@ Hsqldb是一个开放源代码的JAVA数据库，其具有标准的SQL语法和J
   Connection c = DriverManager.getConnection("jdbc:hsqldb:mem:dbName", "sa", "");
 
 
-  你也可以在server.properties中指定相同的URL来运行一个Memory-Only（仅处于内存中) 服务器实例。
+  你也可以在server.properties中指定相同的URL来运行一个Memory-Only (仅处于内存中) 服务器实例。
 
 
   注意事项: 当一个服务器实例启动或者建立一个in-process数据库连接的时候，如果指定的路径没有数据库存在，那么就会创建一个新的空的数据库。这个特点的副作用就是让那些新用户产生疑惑。在指定连接已存在的数据库路径的时候，如果出现了什么错误的话，就会建立一个指向新数据库的连接。为了解决这个问题，你可以指定一个连接属性ifexists=true只允许和已存在的数据库建立连接而避免创建新的数据库，如果数据库不存在的话，getConnection()方法将会抛出异常。
@@ -140,7 +140,7 @@ Hsqldb是一个开放源代码的JAVA数据库，其具有标准的SQL语法和J
       
       
       
-        Hsqldb2.2 支持多线程,提供更改的高性能，提供并发事物控制模型（mvcc) 。
+        Hsqldb2.2 支持多线程,提供更改的高性能，提供并发事物控制模型 (mvcc) 。
       
       
       

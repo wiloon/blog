@@ -28,13 +28,13 @@ sleep 是 Thread 类的静态方法, sleep() 使当前线程进入停滞状态 (
   
 Thread.sleep 不会导致锁行为的改变，如果当前线程是拥有锁的，那么Thread.sleep不会让线程释放锁。
   
-所以当在一个 Synchronized 块中调用 Sleep() 方法时，线程虽然休眠了，但是对象的锁并没有被释放，其他线程无法访问这个对象（即使睡着也持有对象锁) 。
+所以当在一个 Synchronized 块中调用 Sleep() 方法时，线程虽然休眠了，但是对象的锁并没有被释放，其他线程无法访问这个对象 (即使睡着也持有对象锁) 。
   
 在 sleep() 休眠时间期满后，该线程不一定会立即执行， 这是因为其它线程可能正在运行而且没有被调度为放弃执行，除非此线程具有更高的优先级。
   
 如果能够帮助你记忆的话，可以简单认为和锁相关的方法都定义在 Object 类中，因此调用 Thread.sleep 是不会影响锁的相关行为。
 
-wait() 方法是 Object 类里的方法； 当一个线程执行到 wait() 方法时，它就进入到一个和该对象相关的等待池中，同时失去（释放) 了对象的锁（暂时失去锁，wait(long timeout)超时时间到后还需要返还对象锁) 
+wait() 方法是 Object 类里的方法； 当一个线程执行到 wait() 方法时，它就进入到一个和该对象相关的等待池中，同时失去 (释放) 了对象的锁 (暂时失去锁，wait(long timeout)超时时间到后还需要返还对象锁) 
   
 wait() 使用 notify 或者 notifyAll 或者指定睡眠时间来唤醒当前等待池中的线程。
   
@@ -42,7 +42,7 @@ wiat() 必须放在 synchronized block 中，否则会在 program runtime 时扔
 
 wait() 是从 Java 1.0 开始就存在的老牌"等待"函数，在 Java 1.5 以前是最主要的一类用于线程间进行同步的方法。
 
-wait() 的使用方法相对比较 "怪异"。首先调用 wait() 的线程需要获得一个用于线程间共享的对象的 "锁" （在 Java 术语中称为"监视器") ，然后调用 wait() 会首先**释放**这把锁，并将当前线程暂停，只有在其他进程通过调用共享对象的 notify() 或者 notifyAll() 时才会醒来。但是醒来之后也不是说立即就会得到执行，只是线程会重新加入对锁对象的竞争，只有竞争胜出之后才会获得运行权。
+wait() 的使用方法相对比较 "怪异"。首先调用 wait() 的线程需要获得一个用于线程间共享的对象的 "锁"  (在 Java 术语中称为"监视器") ，然后调用 wait() 会首先**释放**这把锁，并将当前线程暂停，只有在其他进程通过调用共享对象的 notify() 或者 notifyAll() 时才会醒来。但是醒来之后也不是说立即就会得到执行，只是线程会重新加入对锁对象的竞争，只有竞争胜出之后才会获得运行权。
 
 典型的使用 wait() 函数的代码是这样的
 ```java
@@ -78,11 +78,11 @@ lock.notify(); // step.3
 
 Thread.sleep 和 Object.wait 都会暂停当前的线程，对于CPU资源来说，不管是哪种方式暂停的线程，都表示它暂时不再需要CPU的执行时间。OS会将执行时间分配给其它线程。 区别是， 调用 wait 后， 需要别的线程执行 notify/notifyAll 才能够重新获得CPU执行时间。
 
-线程的状态参考 Thread.State 的定义。 新创建的但是没有执行（还没有调用start()) 的线程处于"新建"，或者说 Thread.State.NEW 状态。
+线程的状态参考 Thread.State 的定义。 新创建的但是没有执行 (还没有调用start()) 的线程处于"新建"，或者说 Thread.State.NEW 状态。
   
-Thread.State.BLOCKED （阻塞)  表示线程正在获取锁时, 因为锁不能获取到而被迫暂停执行下面的指令, 一直等到这个锁被别的线程释放。 BLOCKED 状态下线程， OS 调度机制需要决定下一个能够获取锁的线程是哪个，这种情况下，就是产生锁的争用，无论如何这都是很耗时的操作。
+Thread.State.BLOCKED  (阻塞)  表示线程正在获取锁时, 因为锁不能获取到而被迫暂停执行下面的指令, 一直等到这个锁被别的线程释放。 BLOCKED 状态下线程， OS 调度机制需要决定下一个能够获取锁的线程是哪个，这种情况下，就是产生锁的争用，无论如何这都是很耗时的操作。
 
-从操作系统的角度讲，os 会维护一个 ready queue（就绪的线程队列) 。  并且在某一时刻 cpu 只 为ready queue 中位于队列头部的线程服务。
+从操作系统的角度讲，os 会维护一个 ready queue (就绪的线程队列) 。  并且在某一时刻 cpu 只 为ready queue 中位于队列头部的线程服务。
   
 但是当前正在被服务的线程可能觉得 cpu 的服务质量不够好，于是提前退出，这就是 yield
 
@@ -90,7 +90,7 @@ sleep() 使当前线程进入停滞状态，所以执行 sleep() 的线程在指
   
 sleep() 可使优先级低的线程得到执行的机会， 当然也可以让同优先级和高优先级的线程有执行的机会； yield() 只能使同优先级的线程有执行的机会。
 
-但是 wait() 和 sleep() 都可以通过 interrupt() 方法打断线程的暂停状态，从而使线程立刻抛出 InterruptedException （但不建议使用该方法) 。
+但是 wait() 和 sleep() 都可以通过 interrupt() 方法打断线程的暂停状态，从而使线程立刻抛出 InterruptedException  (但不建议使用该方法) 。
 
 ### yield()
 理论上，yield意味着放手，放弃，投降。一个调用 yield() 方法的线程告诉虚拟机它乐意让其他线程占用自己的位置。这表明该线程没有在做一些紧急的事情。注意，这仅是一个暗示，并不能保证不会产生任何影响。
@@ -276,11 +276,11 @@ Waiting for the finalization of a thread
 
 In some situations, we will have to wait for the finalization of a thread. For example, we may have a program that will begin initializing the resources it needs before proceeding with the rest of the execution. We can run the initialization tasks as threads and wait for its finalization before continuing with the rest of the program. For this purpose, we can use the join() method of the Thread class. When we call this method using a thread object, it suspends the execution of the calling thread until the object called finishes its execution.
 
-解释一下，是主线程等待子线程的终止。也就是说主线程的代码块中，如果碰到了t.join()方法，此时主线程需要等待（阻塞) ，等待子线程结束了(Waits for this thread to die.),才能继续执行t.join()之后的代码块。
+解释一下，是主线程等待子线程的终止。也就是说主线程的代码块中，如果碰到了t.join()方法，此时主线程需要等待 (阻塞) ，等待子线程结束了(Waits for this thread to die.),才能继续执行t.join()之后的代码块。
 
  
 
- oin方法实现是通过wait（小提示: Object 提供的方法) 。 当main线程调用t.join时候，main线程会获得线程对象t的锁（wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，直到该对象唤醒main线程 ，比如退出后。这就意味着main 线程调用t.join时，必须能够拿到线程t对象的锁。
+ oin方法实现是通过wait (小提示: Object 提供的方法) 。 当main线程调用t.join时候，main线程会获得线程对象t的锁 (wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，直到该对象唤醒main线程 ，比如退出后。这就意味着main 线程调用t.join时，必须能够拿到线程t对象的锁。
 
 join() 一共有三个重载版本，分别是无参、一个参数、两个参数: 
 
@@ -297,7 +297,7 @@ join() 一共有三个重载版本，分别是无参、一个参数、两个参�
 
 while(isAlive())是为了防止子线程伪唤醒(spurious wakeup)，只要子线程没有TERMINATED的，父线程就需要继续等下去。
 
-(4) join() 和 sleep() 一样，可以被中断（被中断时，会抛出 InterrupptedException 异常) ；不同的是，join() 内部调用了 wait()，会出让锁，而 sleep() 会一直保持锁。
+(4) join() 和 sleep() 一样，可以被中断 (被中断时，会抛出 InterrupptedException 异常) ；不同的是，join() 内部调用了 wait()，会出让锁，而 sleep() 会一直保持锁。
 
 join使用时注意几点: 
 1. join与start调用顺序问题

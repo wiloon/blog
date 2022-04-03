@@ -1,16 +1,16 @@
 ---
-title: golang sync.RWMutex, sync.Mutex
+title: golang sync.RWMutex, sync.Mutex, 锁
 author: "-"
 date: 2018-04-13T02:31:40+00:00
-url: /?p=12143
+url: go/mutex
 categories:
-  - Uncategorized
+  - golang
 
 tags:
   - reprint
 ---
-## golang sync.RWMutex, sync.Mutex
-golang中sync包实现了两种锁 Mutex （互斥锁) 和RWMutex（读写锁) ,其中RWMutex是基于Mutex实现的,只读锁的实现使用类似引用计数器的功能．
+## golang sync.RWMutex, sync.Mutex, 锁
+golang 中 sync 包实现了两种锁 Mutex  (互斥锁) 和 RWMutex  (读写锁) , 其中 RWMutex 是基于 Mutex 实现的, 只读锁的实现使用类似引用计数器的功能．
 
   * Mutex: 互斥锁
   * RWMutex: 读写锁
@@ -33,15 +33,15 @@ func (rw *RWMutex) RUnlock()
       
 func (rw *RWMutex) Unlock()
 
-其中Mutex为互斥锁,Lock()加锁,Unlock()解锁,使用Lock()加锁后,便不能再次对其进行加锁,直到利用Unlock()解锁对其解锁后,才能再次加锁．适用于读写不确定场景,即读写次数没有明显的区别,并且只允许只有一个读或者写的场景,所以该锁叶叫做全局锁．
+其中 Mutex 为互斥锁, Lock() 加锁, Unlock() 解锁,使用 Lock() 加锁后, 便不能再次对其进行加锁, 直到利用 Unlock() 解锁对其解锁后, 才能再次加锁．适用于读写不确定场景, 即读写次数没有明显的区别, 并且只允许只有一个读或者写的场景, 所以该锁叶叫做全局锁．
 
-func (m *Mutex) Unlock()用于解锁m,如果在使用Unlock()前未加锁,就会引起一个运行错误．
+func (m *Mutex) Unlock() 用于解锁 m, 如果在使用 Unlock() 前未加锁,就会引起一个运行错误．
 
 已经锁定的Mutex并不与特定的goroutine相关联,这样可以利用一个goroutine对其加锁,再利用其他goroutine对其解锁．
 
 正常运行例子: 
 
-```golang
+```go
 package main  
 
 import (  
@@ -62,7 +62,7 @@ func main() {
 
 当Unlock()在Lock()之前使用时,便会报错
 
-```golang
+```go
 package main  
 
 import (  
@@ -83,7 +83,7 @@ func main() {
 
 当在解锁之前再次进行加锁,便会死锁状态
 
-```golang
+```go
 package main  
 
 import (  
@@ -110,7 +110,7 @@ func (rw *RWMutex) Lock()写锁,如果在添加写锁之前已经有其他的读
     
 func (rw *RWMutex) Unlock()写锁解锁,如果没有进行写锁定,则就会引起一个运行时错误．
 
-```golang
+```go
 package main  
 
 import (  
@@ -133,7 +133,7 @@ func (rw *RWMutex) RLock() 读锁,当有写锁时,无法加载读锁,当只有�
 
 func (rw *RWMutex)RUnlock()读锁解锁,RUnlock 撤销单次 RLock 调用,它对于其它同时存在的读取器则没有效果。若 rw 并没有为读取而锁定,调用 RUnlock 就会引发一个运行时错误(注: 这种说法在go1.3版本中是不对的,例如下面这个例子)。
 
-```golang
+```go
 package main  
 
 import (  
@@ -156,7 +156,7 @@ func main() {
 
 分析: go1.3版本中出现这种情况的原因分析,通过阅读源码可以很清晰的得到结果
 
-```golang
+```go
 func (rw *RWMutex) RUnlock() {  
     if raceenabled {  
         _ = rw.w.state  
@@ -178,7 +178,7 @@ func (rw *RWMutex) RUnlock() {
 
 当RUnlock多于RLock多个时,便会报错,进入死锁．实例如下: 
 
-```golang
+```go
 package main  
 
 import (  
@@ -206,6 +206,6 @@ fatal error: all goroutines are asleep - deadlock!
   
 总结: 
 
-所以在go1.3版本中,运行过程中允许RUnLock早于RLock一个,也只能早于１个（注: 虽然代码允许,但是强烈不推荐使用) ,并且在早于之后必须利用RLock进行加锁才可以继续使用
+所以在go1.3版本中,运行过程中允许RUnLock早于RLock一个,也只能早于１个 (注: 虽然代码允许,但是强烈不推荐使用) ,并且在早于之后必须利用RLock进行加锁才可以继续使用
 
 https://blog.csdn.net/chenbaoke/article/details/41957725

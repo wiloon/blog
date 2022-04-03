@@ -12,7 +12,7 @@ tags:
 ## JavaEE 7
 <http://www.iteye.com/news/27980>
 
-甲骨文公司在2013年6月中旬正式发布了JavaEE 7（JSR 342) 。
+甲骨文公司在2013年6月中旬正式发布了JavaEE 7 (JSR 342) 。
 
 该版本特性主要集中在以下3个方面: 
 
@@ -64,13 +64,13 @@ JavaEE 7提供了一个完整、全面、集成的堆栈来帮助你构建企业
 
 349: Bean Validation 1.1
 
-352: Batch Applications for the Java Platform 1.0（新添加) 
+352: Batch Applications for the Java Platform 1.0 (新添加) 
 
-353: Java API for JSON Processing 1.0（新添加) 
+353: Java API for JSON Processing 1.0 (新添加) 
 
-356: Java API for WebSocket 1.0（新添加) 
+356: Java API for WebSocket 1.0 (新添加) 
 
-236: Concurrency Utilities for Java EE 1.0（新添加) 
+236: Concurrency Utilities for Java EE 1.0 (新添加) 
 
 下面是9个维护版本的JSR: 
 
@@ -104,7 +104,7 @@ GlassFish Server 4.0开源版本
 
 NetBeans 7.3.1
 
-GlassFish Tools for Kepler（技术预览版) 
+GlassFish Tools for Kepler (技术预览版) 
 
 Maven Coordinates
 
@@ -112,13 +112,13 @@ Maven Coordinates
 
 Java EE 7白皮书
 
-Java EE 7教程（html、pdf) 
+Java EE 7教程 (html、pdf) 
 
 第一个示例应用
 
 Java EE 7实践实验室
 
-Javadocs （在线、下载) 
+Javadocs  (在线、下载) 
 
 规范
 

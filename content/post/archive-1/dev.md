@@ -10,6 +10,11 @@ tags:
   - reprint
 ---
 ## dev
+
+- archlinux dev env init
+- windows dev env
+
+
 #### 语言
 - Java, jdk8
 - Golang
@@ -93,3 +98,18 @@ tags:
 - mariadb
 - chronograf
 
+### windows dev env
+    # install latest version of powershell
+    https://github.com/PowerShell/PowerShell/releases/tag/v7.1.0
+
+    # 以admin启动powershell, 执行以下命令
+    choco install golang
+    choco install nodejs-lts
+    choco install python2
+
+## archlinux
+
+```bash
+pacman -S vim git maven jdk-openjdk go nodejs npm nethogs
+
+```

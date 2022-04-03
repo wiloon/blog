@@ -24,7 +24,7 @@ ip 命令管理的功能很多, 和 network namespace 有关的操作都是在�
 
 ip netns 命令创建的 network namespace 会出现在 /var/run/netns/ 目录下,如果需要管理其他不是 ip netns 创建的 network namespace,只要在这个目录下创建一个指向对应 network namespace 文件的链接就行。
 
-有了自己创建的 network namespace,我们还需要看看它里面有哪些东西。对于每个 network namespace 来说,它会有自己独立的网卡、路由表、ARP 表、iptables 等和网络相关的资源。ip 命令提供了 ip netns exec 子命令可以在对应的 network namespace 中执行命令,比如我们要看一下这个 network namespace 中有哪些网卡。更棒的是,要执行的可以是任何命令,不只是和网络相关的（当然,和网络无关命令执行的结果和在外部执行没有区别) 。比如下面例子中,执行 bash 命令了之后,后面所有的命令都是在这个 network namespace 中执行的,好处是不用每次执行命令都要把 ip netns exec NAME 补全,缺点是你无法清楚知道自己当前所在的 shell,容易混淆。
+有了自己创建的 network namespace,我们还需要看看它里面有哪些东西。对于每个 network namespace 来说,它会有自己独立的网卡、路由表、ARP 表、iptables 等和网络相关的资源。ip 命令提供了 ip netns exec 子命令可以在对应的 network namespace 中执行命令,比如我们要看一下这个 network namespace 中有哪些网卡。更棒的是,要执行的可以是任何命令,不只是和网络相关的 (当然,和网络无关命令执行的结果和在外部执行没有区别) 。比如下面例子中,执行 bash 命令了之后,后面所有的命令都是在这个 network namespace 中执行的,好处是不用每次执行命令都要把 ip netns exec NAME 补全,缺点是你无法清楚知道自己当前所在的 shell,容易混淆。
 
 ip netns exec 后面跟着 namespace 的名字,比如这里的 net1,然后是要执行的命令,只要是合法的 shell 命令都能运行,比如上面的 ip addr 或者 bash。
 

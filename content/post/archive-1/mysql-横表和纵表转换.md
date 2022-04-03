@@ -10,7 +10,7 @@ tags:
 
 ---
 ## MySQL 横表和纵表转换
-（1) 表tb1有如下数据: 
+ (1) 表tb1有如下数据: 
 
  姓名                     语文                        数学                    物理
 
@@ -54,7 +54,7 @@ select * from(
  order by name
 
 
-（2) tb2表有如下数据: 
+ (2) tb2表有如下数据: 
 
 
 name              subject                  score

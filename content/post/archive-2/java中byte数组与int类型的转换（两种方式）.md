@@ -1,5 +1,5 @@
 ---
-title: java中byte数组与int类型的转换（两种方式) 
+title: java中byte数组与int类型的转换 (两种方式) 
 author: "-"
 date: 2015-10-12T08:58:05+00:00
 url: /?p=8392
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## java中byte数组与int类型的转换（两种方式)
+## java中byte数组与int类型的转换 (两种方式)
 http://blog.csdn.net/zhouyong0/article/details/8078619
 
 java中byte数组与int类型的转换,在网络编程中这个算法是最基本的算法,我们都知道,在socket传输中,发送、者接收的数据都是 byte数组,但是int类型是4个byte组成的,如何把一个整形int转换成byte数组,同时如何把一个长度为4的byte数组转换为int类型。下面有两种方式。

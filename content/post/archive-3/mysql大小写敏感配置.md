@@ -40,7 +40,7 @@ lower_case_table_names = 0 或 lower_case_table_names = 1
 
 ### 解决MySQL查询不区分大小写
 
-MySQL默认的字符检索策略: utf8_general_ci，表示不区分大小写；utf8_general_cs表示区分大小写，utf8_bin表示二进制比较，同样也区分大小写 。（注意: 在MySQL5.6.10版本中，不支持utf8_genral_cs！！！！) 
+MySQL默认的字符检索策略: utf8_general_ci，表示不区分大小写；utf8_general_cs表示区分大小写，utf8_bin表示二进制比较，同样也区分大小写 。 (注意: 在MySQL5.6.10版本中，不支持utf8_genral_cs！！！！) 
 
 创建表时，直接设置表的collate属性为utf8_general_cs或者utf8_bin；如果已经创建表，则直接修改字段的Collation属性为utf8_general_cs或者utf8_bin。
 

@@ -10,11 +10,11 @@ tags:
 
 ---
 ## MySQL coalesce
-coalesce函数表示可以返回参数中的第一个非空表达式,当你有N个参数时选取第一个非空值（从左到右) 。
+coalesce函数表示可以返回参数中的第一个非空表达式,当你有N个参数时选取第一个非空值 (从左到右) 。
 
 实例一: 
 
-select coalesce（null,"carrot","apple") 
+select coalesce (null,"carrot","apple") 
 
 返回结果: carrot
 

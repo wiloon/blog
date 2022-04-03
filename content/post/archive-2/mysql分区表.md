@@ -93,7 +93,7 @@ MySQL的分区适用于一个表的所有数据和索引,不能只对表数据�
 
 在分区表达式中,不允许子查询
 
-  5. 如何判断当前MySQL是否支持分区？（MySQL5.6之前,MySQL5.6将这个变量去掉了,默认自动开启。) 
+  5. 如何判断当前MySQL是否支持分区？ (MySQL5.6之前,MySQL5.6将这个变量去掉了,默认自动开启。) 
   
     命令: show variables like '%partition%' 运行结果:
   
@@ -121,7 +121,7 @@ MySQL的分区适用于一个表的所有数据和索引,不能只对表数据�
   
     hash分区表: 根据用户提供的分区表达式的返回值来进行分布存储数据。
   
-    key分区表: 根据数据库提供的哈希函数来进行分区。说明 在MySQL5.1版本中,RANGE,LIST,HASH分区要求分区键必须是INT类型,或者通过表达式返回INT类型。但KEY分区的时候,可以使用其他类型的列（BLOB,TEXT类型除外) 作为分区键。
+    key分区表: 根据数据库提供的哈希函数来进行分区。说明 在MySQL5.1版本中,RANGE,LIST,HASH分区要求分区键必须是INT类型,或者通过表达式返回INT类型。但KEY分区的时候,可以使用其他类型的列 (BLOB,TEXT类型除外) 作为分区键。
   
     columns分区: 可以直接使用非整型的数据进行分区但只能在range和list上使用
   
@@ -206,7 +206,7 @@ MySQL> create table emp1(
   
 
 
-MySQL5.5中引入的分区类型,解决了5.5版本之前range分区和list分区只支持整数分区的问题。 Columns分区可以细分为 range columns分区和 list columns分区,他们都支持整数,日期时间,字符串三大数据类型。（不支持text和blob类型作为分区键)  columns分区还支持多列分区（这里不详细展开) 。
+MySQL5.5中引入的分区类型,解决了5.5版本之前range分区和list分区只支持整数分区的问题。 Columns分区可以细分为 range columns分区和 list columns分区,他们都支持整数,日期时间,字符串三大数据类型。 (不支持text和blob类型作为分区键)  columns分区还支持多列分区 (这里不详细展开) 。
 
 columns分区: MySQL5.6可以直接使用非整型的数据进行分区但只能在range和list上使用。
 
@@ -336,7 +336,7 @@ V = Power(2,Ceiling(Log(2,num)))
   
 Step 2. 设置N=F(column_list)&(V-1)
   
-例如: 刚才V=4,store_id=234对应的N值,N = 234&（4-1)  =2
+例如: 刚才V=4,store_id=234对应的N值,N = 234& (4-1)  =2
   
 Step 3. 当N>=num,设置V=Ceiling(V/2),N=N&(V-1)
   
@@ -344,7 +344,7 @@ Step 3. 当N>=num,设置V=Ceiling(V/2),N=N&(V-1)
   
 假设上面算出来的N=5,那么V=Ceiling(4/2)=2,N=5&(2-1)=1,即在第一个分区。
 
-线性Hash的优点和不足 优点: 在分区维护（增加,删除,合并,拆分分区) 时,MySQL能够处理得更加迅速。 缺点: 与常规Hash分区相比,线性Hash各个分区之间的数据分布不太均衡。
+线性Hash的优点和不足 优点: 在分区维护 (增加,删除,合并,拆分分区) 时,MySQL能够处理得更加迅速。 缺点: 与常规Hash分区相比,线性Hash各个分区之间的数据分布不太均衡。
 
 
   
@@ -486,7 +486,7 @@ Extra:
   
 上面的结果: partitions:p1 表示数据在p1分区进行检索。
 
-[参考资料] 《深入MySQL数据库开发、优化与管理维护（第2版) 》
+[参考资料] 《深入MySQL数据库开发、优化与管理维护 (第2版) 》
   
 《高性能MySQL》
 

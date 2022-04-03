@@ -53,7 +53,7 @@ restart() {
   1. start_service() 为注册服务到procd中,如果自己的应用程序没有配置文件,只要实现start_service()就好, procd_set_param设置设置好多参数,command为自己的应用路径, respawn可以检测自己的应用,如果挂掉可以重启,也可以设置重启间隔,其它参数可以自己查阅。 
   2. stop_service() 这个时procd kill自己的应用程序后调用的,若果你的应用程序关掉后,需要一些清理工作,需要实现这个。
 
-  3. service_triggers() 如果自己的应用需要关联一个配置文件test,（需要放在/etc/config/目录下) ,可以跟踪文件的修改情况,如果这个文件有改变,就调用reload_service().在service_triggers也可以添加跟踪网络的修改,也可以同时跟踪多个配置文件。
+  3. service_triggers() 如果自己的应用需要关联一个配置文件test, (需要放在/etc/config/目录下) ,可以跟踪文件的修改情况,如果这个文件有改变,就调用reload_service().在service_triggers也可以添加跟踪网络的修改,也可以同时跟踪多个配置文件。
 
   4. reload_service() 配置文件改变后,需要调用这个函数,可以根据自己需要实现功能。
 

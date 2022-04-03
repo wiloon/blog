@@ -34,23 +34,23 @@ Docker的overlay存储驱动利用了很多OverlayFS特性来构建和管理镜�
 
 ### overlay和overlay2
   
-OverlayFS（overlay) 的镜像分层与共享
+OverlayFS (overlay) 的镜像分层与共享
   
 OverlayFS使用两个目录,把一个目录置放于另一个之上,并且对外提供单个统一的视角。这两个目录通常被称作层,这个分层的技术被称作union mount。术语上,下层的目录叫做lowerdir,上层的叫做upperdir。对外展示的统一视图称作merged。
   
 下图展示了Docker镜像和Docker容器是如何分层的。镜像层就是lowerdir,容器层是upperdir。暴露在外的统一视图就是所谓的merged。
 
 
-OverlayFS 是类似 AUFS 的现代联合文件系统（union filesystem) ,但是速度更快,实现更简单。针对 OverlayFS 提供了两个存储驱动: 最初的 overlay,以及更新更稳定的 overlay2。
+OverlayFS 是类似 AUFS 的现代联合文件系统 (union filesystem) ,但是速度更快,实现更简单。针对 OverlayFS 提供了两个存储驱动: 最初的 overlay,以及更新更稳定的 overlay2。
 Note: 如果你使用 OverlayFS,使用 overlay2 而不是 overlay 驱动,因为 overlay2 在 inode 利用率上更高效。要使用新的驱动,你需要系统内核版本 4.0 或者更高版本,除非你是使用 RHEL 或者 CentOS 用户,此时需要内核版本在 3.10.0-514 或更高版本。
 
 先决条件
 除了上述的系统内核版本,使用 OverlayFS 还需要以下条件: 
 因为 inode 以及后续的 Docker 版本兼容问题,不推荐使用 overlay,满足条件下优先使用 overlay2
 以下文件系统支持: 
-ext4（只支持 RHEL 7.1) 
-xfs（RHEL 7.2 或更高版本) ,d_type=true 必须开启。使用 xfs_info 验证 ftype 选项是否为 1。
-修改 Docker 存储驱动会使已存在的容器和镜像不可访问,可以提前使用 docker save 保存镜像或推送到 Docker Hub（也可以是内部私有镜像仓库) ,防止镜像丢失
+ext4 (只支持 RHEL 7.1) 
+xfs (RHEL 7.2 或更高版本) ,d_type=true 必须开启。使用 xfs_info 验证 ftype 选项是否为 1。
+修改 Docker 存储驱动会使已存在的容器和镜像不可访问,可以提前使用 docker save 保存镜像或推送到 Docker Hub (也可以是内部私有镜像仓库) ,防止镜像丢失
 mkfs -t xfs -n ftype=1 /PATH/TO/DEVICE  # 开启 d_type 选项
 xfs_info /PATH/TO/DEVICE | grep ftype   # 验证是否已支持
 配置 overlay 或 overlay2 驱动
@@ -59,7 +59,7 @@ xfs_info /PATH/TO/DEVICE | grep ftype   # 验证是否已支持
   "storage-driver": "overlay2"
 }
 overlay2 驱动是如何工作的
-OverlayFS 层（layers)  在单个 Linux 主机上分为两个目录,并且将它们呈现为单个目录。这些目录统称为层（layers) ,统一过程称为联合挂载（union mount) 。OverlayFS 把下层目录称为 lowerdir,上层目录称为 upperdir,统一视图通过称为 merged 自身目录暴露。
+OverlayFS 层 (layers)  在单个 Linux 主机上分为两个目录,并且将它们呈现为单个目录。这些目录统称为层 (layers) ,统一过程称为联合挂载 (union mount) 。OverlayFS 把下层目录称为 lowerdir,上层目录称为 upperdir,统一视图通过称为 merged 自身目录暴露。
 overlay 驱动仅适用单个 lower OverlayFS 层,因此需要通过硬链接来实现多层镜像,overlay2 驱动原生支持 128 个 lower OverlayFS 层。这个功能为与层相关的命令如 docker build 和 docker commit 提供了更好的性能,并且在后备文件系统上消耗更少的 inode。
 
 OverlayFS 和 Docker 性能
@@ -75,3 +75,12 @@ Inode limits: 使用 overlay 存储驱动会导致过多的 inode 损耗。特�
 ---
 
 https://wiki.opskumu.com/docker/jing-xiang-cun-chu/docker-overlayfs
+
+### kernel does not support overlay fs: 'overlay' is not supported over xfs
+
+```bash
+[storage.options]
+# Storage options to be passed to underlying storage drivers
+mount_program = "/usr/bin/fuse-overlayfs"
+
+```

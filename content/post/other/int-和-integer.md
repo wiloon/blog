@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## int 和 Integer
-**Java** 提供两种不同的类型: 引用类型和原始类型（或内置类型) 。Int是java的原始数据类型，Integer是java为int提供的封装类。Java为每个原始类型提供了封装类(Wrapper)。
+**Java** 提供两种不同的类型: 引用类型和原始类型 (或内置类型) 。Int是java的原始数据类型，Integer是java为int提供的封装类。Java为每个原始类型提供了封装类(Wrapper)。
   
 原始类型   封装类
   

@@ -9,11 +9,11 @@ tags:
   - timer
 ---
 ## 'golang 定时器, timer, ticker'
-Go 可以借助 time.After/time.Ticker 来实现延迟/定时触发器,主要原理是借助无缓冲channel无数据时读取操作会阻塞当前协程,Go会在给定的时间后向channel中写入一些数据（当前时间) ,故阻塞的协程可以恢复运行,达到延迟或定时执行的功能。
+Go 可以借助 time.After/time.Ticker 来实现延迟/定时触发器,主要原理是借助无缓冲channel无数据时读取操作会阻塞当前协程,Go会在给定的时间后向channel中写入一些数据 (当前时间) ,故阻塞的协程可以恢复运行,达到延迟或定时执行的功能。
 
 ## time.Ticker
 ticker只要定义完成,从此刻开始计时,不需要任何其他的操作,每隔固定时间都会触发。
-```golang
+```go
     ticker := time.NewTicker(500 * time.Millisecond)
     go func() {
         for t := range ticker.C {
@@ -33,7 +33,7 @@ ticker只要定义完成,从此刻开始计时,不需要任何其他的操作,�
 ### timer
 使用timer定时器,超时后需要重置,才能继续触发。
 
-```golang
+```go
  d := time.Duration(time.Second*2)
 
         t := time.NewTimer(d)
@@ -92,11 +92,11 @@ fmt.Println("the 4")
 
 //打印the 1后,获得了一个空管道,这个管道1秒后会有数据进来
 
-//打印the 2,（这里可以做更多事情) 
+//打印the 2, (这里可以做更多事情) 
 
 //打印the 3
 
-//等待,直到可以取出管道的数据（取出数据的时间与获得tc管道的时间正好差1秒钟) 
+//等待,直到可以取出管道的数据 (取出数据的时间与获得tc管道的时间正好差1秒钟) 
 
 //打印the 4
 

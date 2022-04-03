@@ -1,5 +1,5 @@
 ---
-title: 'kvm  GPU VFIO OVMF'
+title: 'kvm GPU VFIO OVMF'
 author: "-"
 date: 2017-09-08T14:49:12+00:00
 url: /?p=11145

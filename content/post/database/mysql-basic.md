@@ -2,13 +2,35 @@
 title: MySQL basic
 author: "-"
 date: 2011-04-15T14:42:09+00:00
-url: MySQL-basic
+url: mysql
 categories:
-  - MySQL
+  - db
 tags:
-  - MySQL
+  - mysql
 ---
 ## MySQL basic
+## install
+```bash
+# client
+sudo pacman -S mariadb-clients
+# server + client
+sudo pacman -S mariadb
+
+```
+### 查看表结构:
+
+```sql
+desc table_name;
+```
+
+### mysqldump
+```bash
+mysqldump -h 192.168.50.100 -uroot -p --databases rssx --tables user --where=user_id='0'
+```
+## mysql GUI client for Linux
+
+    IDEA
+
 ### jdbc url
     jdbc:MySQL://localhost:3306/tmp
     # driver
@@ -34,13 +56,11 @@ MySQL管理员用户名: root
 登录MySQL: 
     MySQL -u root -p
 
-提示输入密码.... 输入密码后回车...
-
-//查看有哪些数据库
+### 查看有哪些数据库
   
 show databases;
 
-//创建新用户 wiloon ......
+### 创建新用户 wiloon ......
 
 ```sql
 CREATE USER wiloon IDENTIFIED BY '123456';
@@ -83,16 +103,29 @@ SELECT @@SESSION.sql_mode;
 ### podmn
 
 ```bash
-    podman run -d \
-    --name mariadb \
-    -p 3306:3306 \
-    -v /etc/localtime:/etc/localtime:ro \
-    -v MySQL-config:/etc/MySQL/conf.d \
-    -v MySQL-data:/var/lib/MySQL \
-    -e MySQL_ROOT_PASSWORD=password0 \
-    mariadb:latest \
-    --character-set-server=utf8mb4 \
-    --collation-server=utf8mb4_unicode_ci
+# mysql
+podman run -d \
+--name mysql \
+-p 3306:3306 \
+-v /etc/localtime:/etc/localtime:ro \
+-v mysql-config:/etc/mysql/conf.d \
+-v mysql-data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=rootroot \
+mysql:5.7.37-debian \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_unicode_ci
+
+#marial db
+podman run -d \
+--name mariadb \
+-p 3306:3306 \
+-v /etc/localtime:/etc/localtime:ro \
+-v MySQL-config:/etc/MySQL/conf.d \
+-v MySQL-data:/var/lib/MySQL \
+-e MySQL_ROOT_PASSWORD=password0 \
+mariadb:latest \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_unicode_ci
 
     # docker client
     podman run -it \
@@ -245,7 +278,7 @@ SELECT  * FROM  table  order by time desc LIMIT  n;
 
 alter table tb_name modify id int auto_increment primary key;
 
-##export one table
+## export one table
 
 MySQLdump -uroot -p DBName TableName> foo.sql
 
@@ -275,9 +308,7 @@ ALTER TABLE table_name ADD field_name field_type;
   
 alter table tbl_user add email varchar(2255);
   
-查看表结构:
 
-desc table_name;
   
 把字段 id 设成自增: auto_increment.
 
@@ -466,3 +497,47 @@ http://blog.sina.com.cn/s/blog_4d73c2c20100h8gp.html
 http://bbs.csdn.net/topics/350006598
 
 http://blog.chinaunix.net/uid-20382003-id-3022768.html
+>https://blog.csdn.net/weixin_40482816/article/details/87074689
+
+## MySQL 查看版本,version
+MySQL -V
+  
+MySQL Ver 14.14 Distrib 5.5.32, for debian-linux-gnu (x86_64) using readline 6.2
+
+# MySQL函数
+
+select version();
+
+### 在MySQL中: MySQL> status;
+
+MySQL> status;
+
+    MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686)Connection id: 416
+      
+    SSL: Not in use
+      
+    Current pager: stdout
+      
+    Using outfile: "
+      
+    Using delimiter: ;
+      
+    Server version: 3.23.56-log
+      
+    Protocol version: 10
+      
+    Connection: Localhost via UNIX socket
+      
+    Client characterset: latin1
+      
+    Server characterset: latin1
+      
+    UNIX socket: /tmp/MySQL_3311.sock
+      
+    Uptime: 62 days 21 hours 21 min 57 secThreads: 1 Questions: 584402560 Slow queries: 424 Opens: 59664208 Flush tables: 1 Open tables: 64 Queries per second avg: 107.551
+
+### MySQL -help
+
+MySQL –help | grep Distrib
+  
+MySQL Ver 14.7 Distrib 4.1.10a, for redhat-linux-gnu (i686) 

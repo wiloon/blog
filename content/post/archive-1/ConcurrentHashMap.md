@@ -256,14 +256,14 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 根据计算出来的 hashcode 寻址，如果就在桶上那么直接返回值。
 如果是红黑树那就按照树的方式获取值。
 就不满足那就按照链表的方式遍历获取值。
-1.8 在 1.7 的数据结构上做了大的改动，采用红黑树之后可以保证查询效率（O(logn)），甚至取消了 ReentrantLock 改为了 synchronized，这样可以看出在新版的 JDK 中对 synchronized 优化是很到位的。
+1.8 在 1.7 的数据结构上做了大的改动，采用红黑树之后可以保证查询效率 (O(logn)），甚至取消了 ReentrantLock 改为了 synchronized，这样可以看出在新版的 JDK 中对 synchronized 优化是很到位的。
 
 ---
 
 #### ConcurrentHashMap的内部结构
 ConcurrentHashMap 为了提高本身的并发能力,在内部采用了一个叫做Segment的结构,一个Segment其实就是一个类Hash Table的结构,Segment内部维护了一个链表数组
 
-从上面的结构我们可以了解到,ConcurrentHashMap定位一个元素的过程需要进行两次Hash操作,第一次Hash定位到Segment,第二次Hash定位到元素所在的链表的头部,因此,这一种结构的带来的副作用是Hash的过程要比普通的HashMap要 长,但是带来的好处是写操作的时候可以只对元素所在的Segment进行加锁即可,不会影响到其他的Segment,这样,在最理想的情况 下,ConcurrentHashMap可以最高同时支持Segment数量大小的写操作（刚好这些写操作都非常平均地分布在所有的Segment上) , 所以,通过这一种结构,ConcurrentHashMap的并发能力可以大大的提高。
+从上面的结构我们可以了解到,ConcurrentHashMap定位一个元素的过程需要进行两次Hash操作,第一次Hash定位到Segment,第二次Hash定位到元素所在的链表的头部,因此,这一种结构的带来的副作用是Hash的过程要比普通的HashMap要 长,但是带来的好处是写操作的时候可以只对元素所在的Segment进行加锁即可,不会影响到其他的Segment,这样,在最理想的情况 下,ConcurrentHashMap可以最高同时支持Segment数量大小的写操作 (刚好这些写操作都非常平均地分布在所有的Segment上) , 所以,通过这一种结构,ConcurrentHashMap的并发能力可以大大的提高。
 ### volatile
 
 和 HashMap 非常类似，唯一的区别就是其中的核心数据如 value ，以及链表都是 volatile 修饰的，保证了获取时的可见性。
@@ -298,7 +298,7 @@ static final class Segment<K,V> extends ReentrantLock implements Serializable {
 
 count: Segment中元素的数量
   
-modCount: 对table的大小造成影响的操作的数量（比如put或者remove操作) 
+modCount: 对table的大小造成影响的操作的数量 (比如put或者remove操作) 
   
 threshold: 阈值,Segment里面元素的数量超过这个值依旧就会对Segment进行扩容
   
@@ -530,7 +530,7 @@ unlock();
   
 }
   
-首先对Segment的put操作是加锁完成的,然后在第五行,如果Segment中元素的数量超过了阈值（由构造函数中的loadFactor算出) 这需要进行对Segment扩容,并且要进行rehash,关于rehash的过程大家可以自己去了解,这里不详细讲了。
+首先对Segment的put操作是加锁完成的,然后在第五行,如果Segment中元素的数量超过了阈值 (由构造函数中的loadFactor算出) 这需要进行对Segment扩容,并且要进行rehash,关于rehash的过程大家可以自己去了解,这里不详细讲了。
 
 第8和第9行的操作就是getFirst的过程,确定链表头部的位置。
 

@@ -9,7 +9,7 @@ tags:
   - reprint
 ---
 ## golang bytes.buffer
-```golang
+```go
 buf := bytes.NewBuffer([]byte{})
 ```
 
@@ -44,7 +44,7 @@ buf5:=bytes.NewBuffer([]byte{})
 
 如果 buffer 在 new 的时候是空的也没关系，因为可以用 Write 来写入，写在尾部
 
-## 写入到缓冲器（缓冲器变大) 使用 Write 方法，将一个 byte 类型的 slice 放到缓冲器的尾部
+## 写入到缓冲器 (缓冲器变大) 使用 Write 方法，将一个 byte 类型的 slice 放到缓冲器的尾部
 `func (b *Buffer) Write(p []byte) (n int, err error)`
 
 ```go

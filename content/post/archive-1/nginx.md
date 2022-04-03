@@ -4,13 +4,12 @@ author: "-"
 date: 2013-07-17T04:40:17+00:00
 url: /?p=5670
 categories:
-  - Uncategorized
-
+  - web
 tags:
   - reprint
 ---
 ## Nginx
-Nginx 是俄罗斯人编写的十分轻量级的 HTTP 服务器,Nginx,它的发音为"engine X",是一个高性能的HTTP和反向代理服务器,同时也是一个 IMAP/POP3/SMTP 代理服务器。Nginx 是由俄罗斯人 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的。Igor Sysoev 在建立的项目时,使用基于 BSD 许可。
+Nginx 是十分轻量级的 HTTP 服务器, Nginx, 它的发音为"engine X",是一个高性能的 HTTP 和反向代理服务器, 同时也是一个 IMAP/POP3/SMTP 代理服务器。Nginx 是由俄罗斯人 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的。Igor Sysoev 在建立的项目时,使用基于 BSD 许可。
 
 Nginx 以事件驱动的方式编写,所以有非常好的性能,同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd 的性能,同时还没有 Lighttpd 的内存泄漏问题,而且 Lighttpd 的 mod_proxy 也有一些问题并且很久没有更新。
 
@@ -26,11 +25,11 @@ Nginx 在启动后,会有一个 master 进程和多个 worker 进程。master �
   
 在 Nginx 启动后,如果我们要操作 Nginx,要怎么做呢？从上文中我们可以看到,master 来管理 worker 进程,所以我们只需要与 master 进程通信就行了。master 进程会接收来自外界发来的信号,再根据信号做不同的事情。所以我们要控制 Nginx,只需要通过 kill 向 master 进程发送信号就行了。比如kill -HUP pid,则是告诉 Nginx,从容地重启 Nginx,我们一般用这个信号来重启 Nginx,或重新加载配置,因为是从容地重启,因此服务是不中断的。master 进程在接收到 HUP 信号后是怎么做的呢？首先 master 进程在接到信号后,会先重新加载配置文件,然后再启动新的 worker 进程,并向所有老的 worker 进程发送信号,告诉他们可以光荣退休了。新的 worker 在启动后,就开始接收新的请求,而老的 worker 在收到来自 master 的信号后,就不再接收新的请求,并且在当前进程中的所有未处理完的请求处理完成后,再退出。当然,直接给 master 进程发送信号,这是比较老的操作方式,Nginx 在 0.8 版本之后,引入了一系列命令行参数,来方便我们管理。比如,./nginx -s reload,就是来重启 Nginx,./nginx -s stop,就是来停止 Nginx 的运行。如何做到的呢？我们还是拿 reload 来说,我们看到,执行命令时,我们是启动一个新的 Nginx 进程,而新的 Nginx 进程在解析到 reload 参数后,就知道我们的目的是控制 Nginx 来重新加载配置文件了,它会向 master 进程发送信号,然后接下来的动作,就和我们直接向 master 进程发送信号一样了。
 
-worker 进程之间是平等的,每个进程,处理请求的机会也是一样的。当我们提供 80 端口的 http 服务时,一个连接请求过来,每个进程都有可能处理这个连接,怎么做到的呢？首先,每个 worker 进程都是从 master 进程 fork 过来,在 master 进程里面,先建立好需要 listen 的 socket（listenfd) 之后,然后再 fork 出多个 worker 进程。所有 worker 进程的 listenfd 会在新连接到来时变得可读,为保证只有一个进程处理该连接,所有 worker 进程在注册 listenfd 读事件前抢 accept_mutex,抢到互斥锁的那个进程注册 listenfd 读事件,在读事件里调用 accept 接受该连接。当一个 worker 进程在 accept 这个连接之后,就开始读取请求,解析请求,处理请求,产生数据后,再返回给客户端,最后才断开连接,这样一个完整的请求就是这样的了。我们可以看到,一个请求,完全由 worker 进程来处理,而且只在一个 worker 进程中处理。
+worker 进程之间是平等的,每个进程,处理请求的机会也是一样的。当我们提供 80 端口的 http 服务时,一个连接请求过来,每个进程都有可能处理这个连接,怎么做到的呢？首先,每个 worker 进程都是从 master 进程 fork 过来,在 master 进程里面,先建立好需要 listen 的 socket (listenfd) 之后,然后再 fork 出多个 worker 进程。所有 worker 进程的 listenfd 会在新连接到来时变得可读,为保证只有一个进程处理该连接,所有 worker 进程在注册 listenfd 读事件前抢 accept_mutex,抢到互斥锁的那个进程注册 listenfd 读事件,在读事件里调用 accept 接受该连接。当一个 worker 进程在 accept 这个连接之后,就开始读取请求,解析请求,处理请求,产生数据后,再返回给客户端,最后才断开连接,这样一个完整的请求就是这样的了。我们可以看到,一个请求,完全由 worker 进程来处理,而且只在一个 worker 进程中处理。
 
 对于每个 worker 进程来说,独立的进程,不需要加锁,所以省掉了锁带来的开销,同时在编程以及问题查找时,也会方便很多。其次,采用独立的进程,可以让互相之间不会影响,一个进程退出后,其它进程还在工作,服务不会中断,master 进程则很快启动新的 worker 进程。当然,worker 进程的异常退出,肯定是程序有 bug 了,异常退出,会导致当前 worker 上的所有请求失败,不过不会影响到所有请求,所以降低了风险。
 
-Nginx 也是可以作为客户端来请求其它 server 的数据的（如 upstream 模块) 
+Nginx 也是可以作为客户端来请求其它 server 的数据的 (如 upstream 模块) 
 
 centos install nginx
   

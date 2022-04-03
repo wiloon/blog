@@ -18,7 +18,7 @@ https://colobu.com/2016/06/07/simple-golang-tls-examples/
 
 #### server
 
-```golang
+```go
 package main
 
 import (
@@ -77,7 +77,7 @@ func handleConn(conn net.Conn) {
 
 #### client
 
-```golang
+```go
 package main
 
 import (

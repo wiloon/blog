@@ -52,7 +52,7 @@ Compare sorted files FILE1 and FILE2 line by line.
      二,中文说明如下: 
     
 
-功能说明: 比较两个已排过序的文件。（使用sort排序) 
+功能说明: 比较两个已排过序的文件。 (使用sort排序) 
   
 语法: comm [-123][-help][-version][第1个文件][第2个文件]
   

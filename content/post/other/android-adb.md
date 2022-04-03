@@ -48,12 +48,12 @@ adb shell
   在SDK的Tools文件夹下包含着Android模拟器操作的重要命令ADB，ADB的全称为Android Debug Bridge，就是调试桥的作用，借助这个工具，我们可以管理设备或手机模拟器的状态 ，还可以进行以下的操作: 
 
 
-  （1) 快速更新设备或手机模拟器中的代码，如应用或Android系统升级；
- （2) 在设备上运行Shell命令；
- （3) 管理设备或手机模拟器上的预定端口；
+   (1) 快速更新设备或手机模拟器中的代码，如应用或Android系统升级；
+  (2) 在设备上运行Shell命令；
+  (3) 管理设备或手机模拟器上的预定端口；
 
 
-  （4) 在设备或手机模拟器上复制或粘贴文件。
+   (4) 在设备或手机模拟器上复制或粘贴文件。
 
 
   ADB的工作方式比较特殊采用监听Socket TCP 5554等端口的方式让IDE和Qemu通信，默认情况下ADB会daemon相关的网络端口，所以当我们运行Eclipse时ADB进程就会自动运行，在Eclipse中通过DDMS来调试Android程序；也可以通过手动方式调用，以下为一些常用的操作供参考。
@@ -78,7 +78,7 @@ adb shell
   3.卸载已经安装的应用
 
 
-  （1) 方法1: 
+   (1) 方法1: 
 
 
        adb uninstall [-k] <package>。
@@ -87,7 +87,7 @@ adb shell
   其中package表示需要卸载的应用的包的名字，k表示是否保留应用的配置信息和cache数据。
 
 
-  （2) 手动删除。
+   (2) 手动删除。
  adb shell
  cd /data/app
  rm app.apk
@@ -127,7 +127,7 @@ adb shell
   adb forward tcp:7100 tcp:8100
 
 
-  同样地，可以使用ADB来建立命名为抽象的UNIX域套接口，上述过程如下所示:
+  同样地，可以使用ADB来建立命名为抽象的UNIX域 socket ，上述过程如下所示:
 
 
   adb forward tcp:7100 local:logd
@@ -151,7 +151,7 @@ adb shell
   adb push <local> <remote>
 
 
-  在这些命令中， <local> 和<remote> 分别指通向自己的发展机（本地) 和模拟器/设备实例（远程) 上的目标文件/目录的路径。
+  在这些命令中， <local> 和<remote> 分别指通向自己的发展机 (本地) 和模拟器/设备实例 (远程) 上的目标文件/目录的路径。
 
 
   下面是一个例子: :
@@ -533,7 +533,7 @@ adb shell
     
     
       
-        安装Android为（可以模拟器/设施的数据文件.apk指定完整的路径) 
+        安装Android为 (可以模拟器/设施的数据文件.apk指定完整的路径) 
       
     
     

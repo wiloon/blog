@@ -20,7 +20,7 @@ Maven对于新手来说,最痛苦的一件事莫过于包之间的冲突,由于M
 
 举例
   
-A依赖于B及C,而B又依赖于X、Y,而C依赖于X、M,则A除引B及C的依赖包下,还会引入X,Y,M的依赖包（一般情况下了,Maven可通过<scope>等若干种方式控制传递依赖) 。
+A依赖于B及C,而B又依赖于X、Y,而C依赖于X、M,则A除引B及C的依赖包下,还会引入X,Y,M的依赖包 (一般情况下了,Maven可通过<scope>等若干种方式控制传递依赖) 。
   
 这里有一个需要特别注意的,即B和C同时依赖于X,假设B依赖于X的1.0版本,而C依赖于X的2.0版本,A究竟依赖于X的1.0还是2.0版本呢？
   
@@ -164,7 +164,7 @@ asm</artifactId>
 
 第三板斧:查看运行期类来源的JAR包
 
-有时,你以为解决了,但是偏偏还是报类包冲突（典型症状是java.lang.ClassNotFoundException或Method不兼容等异常) ,这时你可以设置一个断点,在断点处通过下面这个我做的工具类来查看Class所来源的JAR包: 
+有时,你以为解决了,但是偏偏还是报类包冲突 (典型症状是java.lang.ClassNotFoundException或Method不兼容等异常) ,这时你可以设置一个断点,在断点处通过下面这个我做的工具类来查看Class所来源的JAR包: 
 
 package com.ridge.util;
 
@@ -260,7 +260,7 @@ return result.toString();
 
 }
   
-随便写一个测试,设置好断点,在执行到断点处按alt+F8动态执行代码（intelij idea) ,假设我们输入: 
+随便写一个测试,设置好断点,在执行到断点处按alt+F8动态执行代码 (intelij idea) ,假设我们输入: 
   
 Java代码 收藏代码
 
@@ -270,6 +270,6 @@ ClassLocationUtils.where(org.objectweb.asm.ClassVisitor.class)
 
 这就是org.objectweb.asm.ClassVisitor类在运行期对应的JAR包,如果这个JAR包版本不是你期望你,就说明是你的IDE缓存造成的,这时建议你Reimport一下maven列表就可以了,如下所示(idea): 
 
-Reimport一下,IDE会强制根据新的pom.xml设置重新分析并加载依赖类包,以得到和pom.xml设置相同的依赖。（这一步非常重要哦,经常项目组pom.xml是相同的,但是就是有些人可以运行,有些人不能运行,俗称人品问题,其实都是IDE的缓存造成的了
+Reimport一下,IDE会强制根据新的pom.xml设置重新分析并加载依赖类包,以得到和pom.xml设置相同的依赖。 (这一步非常重要哦,经常项目组pom.xml是相同的,但是就是有些人可以运行,有些人不能运行,俗称人品问题,其实都是IDE的缓存造成的了
   
 idea清除缓存,为了提高效率不建议采用reimport重新起开启项目的方式,建议采用idea自带的功能,File->Invalidate Caches 功能直接完成清除idea cache

@@ -32,7 +32,7 @@ set MAVEN_DEBUG_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=
   
 - -Xrunjdwp: 启动调试协议JDWP，全称是Java Debug Wire Protocol，它定义了JPDA front-end和JPDA back-end之间通讯信息的二进制格式。这里的通讯信息主要包括两种: 调试器发送给JVM的请求信息和JVM发送给调试器的调试信息。有如下子项: 
       
-+ -transport: JPDA front-end和back-end之间的传输方法。dt_socket表示使用套接字传输。
++ -transport: JPDA front-end和back-end之间的传输方法。dt_socket表示使用 socket 传输。
       
 + -server: y/n 该jvm是被调试者还是调试器
       

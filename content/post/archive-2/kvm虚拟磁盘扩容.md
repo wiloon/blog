@@ -1,5 +1,5 @@
 ---
-title: KVM虚拟磁盘扩容, qemu-img resize
+title: KVM 虚拟磁盘扩容, qemu-img resize
 author: "-"
 date: 2018-03-24T13:35:19+00:00
 url: /?p=12049
@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## KVM虚拟磁盘扩容, qemu-img resize
-### kvm虚拟磁盘扩容
+## KVM 虚拟磁盘扩容, qemu-img resize
+### kvm 虚拟磁盘扩容
 
 磁盘扩容分为raw和qcow2两种扩容方式,命令相同,区别是后缀名
 
@@ -46,7 +46,7 @@ tmpfs 246M 0 246M 0% /dev/shm
 
 /dev/vda1 477M 33M 419M 8% /boot
 
-（1) 因为新增加的空间还没有划分使用,所以要继续分区: 
+ (1) 因为新增加的空间还没有划分使用,所以要继续分区: 
 
 [root@localhost ~]# fdisk /dev/vda
 
@@ -137,7 +137,7 @@ the next reboot or after you run partprobe(8) or kpartx(8)
 
 Syncing disks.
 
-（2) 然后再把这个/dev/vda3 加入到lvm里面去: 
+ (2) 然后再把这个/dev/vda3 加入到lvm里面去: 
 
 [root@localhost ~]# ls /dev/vda3 //如果没有这个分区,需要重启一下
 
@@ -223,7 +223,7 @@ tmpfs 246M 0 246M 0% /dev/shm
 
 如果提示 This image format does not support resize, 检查一下你qemu-img create的时候,是否有加 preallocation=metadata 选项,如果有,就不能resize了。
 
-（3) 另外,如果是增加磁盘,思路是
+ (3) 另外,如果是增加磁盘,思路是
   
 创建磁盘:  qemu-img create -f qcow2 /data/daixuan1_2.qcow2 5G
   

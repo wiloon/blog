@@ -1,5 +1,5 @@
 ---
-title: KVM的-nographic与-display选项
+title: KVM 的-nographic与-display选项
 author: "-"
 date: 2019-03-31T02:18:40+00:00
 url: /?p=14053
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## KVM的-nographic与-display选项
+## KVM 的-nographic与-display选项
 
 KVM的-nographic与-display选项
 http://openwares.net/2014/03/10/kvm_nographic_display/

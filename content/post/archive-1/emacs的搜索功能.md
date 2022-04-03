@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## Emacs的搜索功能
-（转自: http://www.80×86.cn/blog/blogview.asp?logID=569) 
+ (转自: http://www.80×86.cn/blog/blogview.asp?logID=569) 
 
 Emacs入门指南(3)   [ Date: 2006-03-15 12:04:44 AM | Author: 80x86 | From: Original | Sunny | Emotion Index: +2 ]
 

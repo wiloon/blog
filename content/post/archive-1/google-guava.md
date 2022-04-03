@@ -2,11 +2,11 @@
 title: Google Guava
 author: "-"
 date: 2014-11-12T07:44:06+00:00
-url: /?p=7009
+url: guava
 categories:
-  - Uncategorized
+  - java
 tags:
-  - Java
+  - guava
 
 ---
 ## Google Guava
@@ -64,28 +64,26 @@ com.google.common.util.concurrent: 多线程工具包。
 
 **二.  集合类: **集合类库是 Guava 对 JDK 集合类的扩展， 这是 Guava 项目最完善和为人所知的部分。
 
-1. Immutable collections（不变的集合) :  防御性编程， 不可修改的集合，并且提高了效率。
-  
+1. Immutable collections (不变的集合) :  防御性编程， 不可修改的集合，并且提高了效率。
 2. New collection types(新集合类型): JDK collections 没有的一些集合类型，主要有: multisets，multimaps，tables， bidirectional maps等等
+3. Powerful collection utilities (强大的集合工具类) :  java.util.Collections 中未包含的常用操作工具类
   
-3. Powerful collection utilities（强大的集合工具类) :  java.util.Collections 中未包含的常用操作工具类
-  
-4. Extension utilities（扩展工具类) : 给 Collection 对象添加一个装饰器? 实现迭代器? 我们可以更容易使用这些方法。
+4. Extension utilities (扩展工具类) : 给 Collection 对象添加一个装饰器? 实现迭代器? 我们可以更容易使用这些方法。
 
 **三. ** **缓存**: 本地缓存，可以很方便的操作缓存对象，并且支持各种缓存失效行为模式。
 
-### 四.  Functional idioms（函数式) :
+### 四.  Functional idioms (函数式) :
 简洁, Guava实现了Java的函数式编程，可以显著简化代码。
 
-**五. Concurrency（并发) : **强大,简单的抽象,让我们更容易实现简单正确的并发性代码。
+**五. Concurrency (并发) : **强大,简单的抽象,让我们更容易实现简单正确的并发性代码。
 
-1. ListenableFuture（可监听的Future) : Futures,用于异步完成的回调。
+1. ListenableFuture (可监听的Future) : Futures,用于异步完成的回调。
   
 2. Service: 控制事件的启动和关闭，为你管理复杂的状态逻辑。
 
 **六. Strings:** 一个非常非常有用的字符串工具类: 提供 splitting，joining， padding 等操作。
 
-**七. Primitives:** 扩展 JDK 中未提供的对原生类型（如int、char等) 的操作， 包括某些类型的无符号的变量。
+**七. Primitives:** 扩展 JDK 中未提供的对原生类型 (如int、char等) 的操作， 包括某些类型的无符号的变量。
 
 **八. Ranges:** Guava 一个强大的 API，提供 Comparable 类型的范围处理， 包括连续和离散的情况。
 

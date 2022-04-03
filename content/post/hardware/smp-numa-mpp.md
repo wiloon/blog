@@ -29,9 +29,9 @@ zhipingxi 2017-09-29 13:50:15  2236  收藏 5
 
 共享存储型多处理机有两种模型
 
-均匀存储器存取（Uniform-Memory-Access，简称UMA) 模型
+均匀存储器存取 (Uniform-Memory-Access，简称UMA) 模型
 
-非均匀存储器存取（Nonuniform-Memory-Access，简称NUMA) 模型
+非均匀存储器存取 (Nonuniform-Memory-Access，简称NUMA) 模型
 
 
 SMP(Symmetric Multi-Processor)
@@ -114,14 +114,14 @@ NUMA架构的优势
 系统的性能很大程度上依赖于cpu 硬件架构的支持。这里记录一下cpu 常见的三大架构的区别
 
 ### SMP
-SMP （Symmetric Multiprocessing)  , 对称多处理器. 顾名思义, 在SMP中所有的处理器都是对等的, 它们通过总线连接共享同一块物理内存，这也就导致了系统中所有资源(CPU、内存、I/O等)都是共享的，当我们打开服务器的背板盖，如果发现有多个cpu的槽位，但是却连接到同一个内存插槽的位置，那一般就是smp架构的服务器，日常中常见的pc啊，笔记本啊，手机还有一些老的服务器都是这个架构，其架构简单，但是拓展性能非常差，从linux 上也能看到:
+SMP  (Symmetric Multiprocessing)  , 对称多处理器. 顾名思义, 在SMP中所有的处理器都是对等的, 它们通过总线连接共享同一块物理内存，这也就导致了系统中所有资源(CPU、内存、I/O等)都是共享的，当我们打开服务器的背板盖，如果发现有多个cpu的槽位，但是却连接到同一个内存插槽的位置，那一般就是smp架构的服务器，日常中常见的pc啊，笔记本啊，手机还有一些老的服务器都是这个架构，其架构简单，但是拓展性能非常差，从linux 上也能看到:
 
 ls /sys/devices/system/node/# 如果只看到一个node0 那就是smp架构
   
 可以看到只有仅仅一个node，经过大神们的测试发现，2至4个CPU比较适合smp架构。
 
 ### NUMA
-NUMA （ Non-Uniform Memory Access) ，非均匀访问存储模型，这种模型的是为了解决smp扩容性很差而提出的技术方案，如果说smp 相当于多个cpu 连接一个内存池导致请求经常发生冲突的话，numa 就是将cpu的资源分开，以node 为单位进行切割，每个node 里有着独有的core ，memory 等资源，这也就导致了cpu在性能使用上的提升，但是同样存在问题就是2个node 之间的资源交互非常慢，当cpu增多的情况下，性能提升的幅度并不是很高。所以可以看到很多明明有很多core的服务器却只有2个node区。
+NUMA  ( Non-Uniform Memory Access) ，非均匀访问存储模型，这种模型的是为了解决smp扩容性很差而提出的技术方案，如果说smp 相当于多个cpu 连接一个内存池导致请求经常发生冲突的话，numa 就是将cpu的资源分开，以node 为单位进行切割，每个node 里有着独有的core ，memory 等资源，这也就导致了cpu在性能使用上的提升，但是同样存在问题就是2个node 之间的资源交互非常慢，当cpu增多的情况下，性能提升的幅度并不是很高。所以可以看到很多明明有很多core的服务器却只有2个node区。
 
 ### MPP
 MPP (Massive Parallel Processing) ，这个其实可以理解为刀片服务器，每个刀扇里的都是一台独立的smp架构服务器，且每个刀扇之间均有高性能的网络设备进行交互，保证了smp服务器之间的数据传输性能。相比numa 来说更适合大规模的计算，唯一不足的是，当其中的smp 节点增多的情况下，与之对应的计算管理系统也需要相对应的提高。
@@ -167,11 +167,11 @@ NUMA简介
 
 为什么要有NUMA
   
-在NUMA架构出现前，CPU欢快的朝着频率越来越高的方向发展。受到物理极限的挑战，又转为核数越来越多的方向发展。如果每个core的工作性质都是share-nothing（类似于map-reduce的node节点的作业属性) ，那么也许就不会有NUMA。由于所有CPU Core都是通过共享一个北桥来读取内存，随着核数如何的发展，北桥在响应时间上的性能瓶颈越来越明显。于是，聪明的硬件设计师们，先到了把内存控制器（原本北桥中读取内存的部分) 也做个拆分，平分到了每个die上。于是NUMA就出现了！
+在NUMA架构出现前，CPU欢快的朝着频率越来越高的方向发展。受到物理极限的挑战，又转为核数越来越多的方向发展。如果每个core的工作性质都是share-nothing (类似于map-reduce的node节点的作业属性) ，那么也许就不会有NUMA。由于所有CPU Core都是通过共享一个北桥来读取内存，随着核数如何的发展，北桥在响应时间上的性能瓶颈越来越明显。于是，聪明的硬件设计师们，先到了把内存控制器 (原本北桥中读取内存的部分) 也做个拆分，平分到了每个die上。于是NUMA就出现了！
 
 NUMA是什么
   
-NUMA中，虽然内存直接attach在CPU上，但是由于内存被平均分配在了各个die上。只有当CPU访问自身直接attach内存对应的物理地址时，才会有较短的响应时间（后称Local Access) 。而如果需要访问其他CPU attach的内存的数据时，就需要通过inter-connect通道访问，响应时间就相比之前变慢了（后称Remote Access) 。所以NUMA（Non-Uniform Memory Access) 就此得名。
+NUMA中，虽然内存直接attach在CPU上，但是由于内存被平均分配在了各个die上。只有当CPU访问自身直接attach内存对应的物理地址时，才会有较短的响应时间 (后称Local Access) 。而如果需要访问其他CPU attach的内存的数据时，就需要通过inter-connect通道访问，响应时间就相比之前变慢了 (后称Remote Access) 。所以NUMA (Non-Uniform Memory Access) 就此得名。
 
 
 

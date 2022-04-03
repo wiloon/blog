@@ -3,16 +3,17 @@ title: jdk, openjdk
 author: "-"
 date: 2017-04-21T00:26:31+00:00
 url: jdk
-
 categories:
-  - inbox
+  - java
 tags:
   - reprint
 ---
 ## jdk, openjdk
-<http://openjdk.java.net/projects/jdk/>
 
-### archlinux
+<http://openjdk.java.net/projects/jdk/>
+>https://jdk.java.net/
+
+## archlinux
 
 ```bash
 sudo pacman -S jdk-openjdk
@@ -26,9 +27,9 @@ sudo archlinux-java set java-11-openjdk
 ### 切换jdk版本
 
 ```bash
-    archlinux-java help
-    archlinux-java status
-    archlinux-java set  java-14-openjdk
+archlinux-java help
+archlinux-java status
+archlinux-java set  java-14-openjdk
 ```
 
 ### 查看当前 java 版本
@@ -38,17 +39,23 @@ java -version
 sudo archlinux-java status
 ```
 
-### ubuntu
+## ubuntu
 
-    sudo apt install openjdk-8-jdk
-    sudo apt install openjdk-8-source
-    sudo apt install openjdk-16-jdk
-    sudo apt install openjdk-16-source
+```bash
+sudo apt install openjdk-8-jdk
+sudo apt install openjdk-8-source
+sudo apt install openjdk-17-jdk
+sudo apt install openjdk-17-source
 
-    # 切换jdk
-    sudo update-java-alternatives -l
-    sudo update-java-alternatives -s <jname>
-    sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
+# 默认目录
+ls -l /usr/lib/jvm/
+
+# 查看
+sudo update-java-alternatives -l
+# 切换jdk
+sudo update-alternatives --config java
+
+```
 
 ## 手动安装
 
@@ -66,6 +73,7 @@ AdoptOpenJDK 是一个由OpenJDK构建，并以免费软件的形式提供社区
     https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/16/jdk/x64/linux/
 
 #### jdk 8
+
 <https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/8/jdk/x64/linux/OpenJDK8U-jdk_x64_linux_hotspot_8u312b07.tar.gz>
 
 open a terminal.
@@ -90,7 +98,6 @@ udo update-alternatives -config java
 
 ---
 
-<https://jdk.java.net/archive/>  
 <https://wiki.archlinux.org/index.php/java>  
 <https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/>  
 

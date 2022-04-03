@@ -10,15 +10,16 @@ tags:
   - reprint
 ---
 ## golang开发目录结构
+
 https://github.com/golang-standards/project-layout
 
 在实际的项目中发现大家的目录结构都比较凌乱，基本每个人都有每个人的风格，一个项目在不断地变大，一些新的文件或目录又不断地被添加进来，从这里面去找到自己需要的信息的成本越来越高，一个统一的通用的目录结构非常有必要。
 
-以下内容来自于github上的这个项目（https://github.com/golang-sta...) 
+以下内容来自于github上的这个项目 (https://github.com/golang-sta...) 
 
 /cmd
   
-main函数文件（比如 /cmd/myapp.go) 目录，这个目录下面，每个文件在编译之后都会生成一个可执行的文件。
+main函数文件 (比如 /cmd/myapp.go) 目录，这个目录下面，每个文件在编译之后都会生成一个可执行的文件。
 
 不要把很多的代码放到这个目录下面，这里面的代码尽可能简单。
 

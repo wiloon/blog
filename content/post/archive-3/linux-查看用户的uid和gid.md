@@ -16,7 +16,7 @@ tags:
 
 命令格式
 
-[plain] view plain copy
+ view plain copy
   
 id [选项]... [用户名]
   
@@ -42,7 +42,7 @@ id [选项]... [用户名]
   
 使用案例
 
-[plain] view plain copy
+ view plain copy
   
 heihaier@heihaier-desktop:~$ id root
   
@@ -52,7 +52,7 @@ uid=0(root) gid=0(root) groups=0(root)
   
 /etc/password 文件格式
   
-[plain] view plain copy
+ view plain copy
   
 root:x:0:0:root:/root:/bin/bash
 
@@ -64,7 +64,7 @@ x 密码: 字符x表示密码被加密保存在 /etc/shadow 文件中。
   
 0 用户ID(UID): 每个用户必需指定UID。UID 0 是保留给 root 用户的。UID 1~99是保留给其它预定义用户的。 UID 100~999是保留给系统用户的。
   
-0 组ID(GID): 主组ID（保存在 /etc/group 文件中) 。
+0 组ID(GID): 主组ID (保存在 /etc/group 文件中) 。
   
 root 用户ID信息: 用户备注信息。
   
@@ -74,7 +74,7 @@ root 用户ID信息: 用户备注信息。
   
 使用案例
   
-[plain] view plain copy
+ view plain copy
   
 heihaier@heihaier-desktop:~$ sudo cat /etc/passwd | grep root
   

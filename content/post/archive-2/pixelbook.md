@@ -5,11 +5,12 @@ date: 2018-02-04T09:22:37+00:00
 url: /?p=11818
 categories:
   - Uncategorized
-
 tags:
   - reprint
 ---
+
 ## pixelbook, chromeos, developer mode,crouton
+
 developer mode
   
 https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to

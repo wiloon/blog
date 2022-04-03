@@ -2,10 +2,9 @@
 title: iptables nat
 author: "-"
 date: 2018-11-22T13:58:38+00:00
-url: /?p=12911
+url: iptables/nat
 categories:
-  - Uncategorized
-
+  - network
 tags:
   - reprint
 ---
@@ -23,7 +22,7 @@ nat表需要的三个链:
   
 3. OUTPUT:定义对本地产生的数据包的目的NAT规则。
 
-需要用到的几个动作选项: （真实环境中用大写) 
+需要用到的几个动作选项:  (真实环境中用大写) 
   
 redirect 将数据包重定向到另一台主机的某个端口,通常用实现透明代理和对外开放内网某些服务。
   
@@ -33,7 +32,7 @@ dnat 目的地址转换,改变数据包的目的地址
   
 masquerade IP伪装,只适用于ADSL等动态拨号上网的IP伪装,如果主机IP是静态分配的,就用snat
 
-### ip包大致的流向 DNAT, podman
+### ip 包大致的流向 DNAT, podman
 
 * nat表prerouting链 - nat替换目标地址
 * 路由判断

@@ -72,7 +72,7 @@ Shard 这个概念并不对普通用户开放,实际上是 InfluxDB 将连续一
 
 存储引擎
   
-从 LevelDB（LSM Tree) ,到 BoltDB（mmap B+树) ,现在是自己实现的 TSM Tree 的算法,类似 LSM Tree,针对 InfluxDB 的使用做了特殊优化。
+从 LevelDB (LSM Tree) ,到 BoltDB (mmap B+树) ,现在是自己实现的 TSM Tree 的算法,类似 LSM Tree,针对 InfluxDB 的使用做了特殊优化。
 
 LevelDB
   
@@ -84,7 +84,7 @@ LevelDB 不支持热备份,它的变种 RocksDB 和 HyperLevelDB 实现了这个
 
 最严重的问题是由于 InfluxDB 通过 shard 来组织数据,每一个 shard 对应的就是一个 LevelDB 数据库,而由于 LevelDB 的底层存储是大量 SSTable 文件,所以当用户需要存储长时间的数据,例如几个月或者一年的时候,会产生大量的 shard,从而消耗大量文件描述符,将系统资源耗尽。
 
-BoltDB
+## BoltDB
   
 之后 InfluxDB 采用了 BoltDB 作为数据存储引擎。BoltDB 是基于 LMDB 使用 Go 语言开发的数据库。同 LevelDB 类似的是,都可以用于存储 key 有序的 K-V 数据。
 
@@ -106,7 +106,7 @@ WAL 文件名类似 _000001.wal,数字递增,每达到 2MB 时,会关闭此文�
   
 可以指定将 WAL 从内存刷新到磁盘上的时间,例如30s,这样会提高写入性能,同时有可能会丢失这30s内的数据。
   
-每一个 WAL 中的条目遵循 TLV 的格式,1字节用于表示类型（points,new fields,new series,delete) ,4字节表示 block 的长度,后面则是具体压缩后的 block 内容。WAL 文件中得内容在内存中会进行缓存,并且不会压缩,每一个 point 的 key 为 measurement, tagset 以及 unique field,每一个 field 按照自己的时间顺序排列。
+每一个 WAL 中的条目遵循 TLV 的格式,1字节用于表示类型 (points,new fields,new series,delete) ,4字节表示 block 的长度,后面则是具体压缩后的 block 内容。WAL 文件中得内容在内存中会进行缓存,并且不会压缩,每一个 point 的 key 为 measurement, tagset 以及 unique field,每一个 field 按照自己的时间顺序排列。
 
 查询操作将会去 WAL 以及索引中查询,WAL 在内存中缓存有一个读写锁进行控制。删除操作会将缓存中的key删除,同时在 WAL 文件中进行记录并且在内存的索引中进行删除标记。
 
@@ -208,7 +208,7 @@ InfluxDB 从 0.12 版本开始将不再开源其 cluster 源码,而是被用做�
 
 就单机来说,在磁盘占用、cpu使用率、读写速度方面都让人眼前一亮。如果数据量级不是非常大的情况下,单节点的 InfluxDB 就可以承载数十万每秒的写入,是一个比较合适的选择。
 
-另一方面,从 0.12 版本开始不再开源其集群代码（虽然之前的集群部分就比较烂) ,如果考虑到之后进行扩展的话,需要进行二次开发。
+另一方面,从 0.12 版本开始不再开源其集群代码 (虽然之前的集群部分就比较烂) ,如果考虑到之后进行扩展的话,需要进行二次开发。
 
 作者: fatedier
   

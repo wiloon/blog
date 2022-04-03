@@ -1,16 +1,16 @@
 ---
-title: time
+title: time command
 author: "-"
 date: 2018-02-13T04:33:45+00:00
-url: /?p=11884
+url: time
 categories:
-  - Uncategorized
+  - linux
 
 tags:
   - reprint
 ---
-## time
-【命令】time — 执行命令并计时
+## time command
+time — 执行命令并计时
 
 【格式】time [-p] command [arguments...]
 

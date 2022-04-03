@@ -12,7 +12,7 @@ tags:
 ---
 ## archlinux install
 
-## download iso
+- download iso
 
 <http://mirrors.163.com/archlinux/iso>
 
@@ -20,20 +20,32 @@ tags:
 curl -O http://mirrors.163.com/archlinux/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso
 ```
 
-todo: try archinstall, <https://github.com/archlinux/archinstall>
+- copy to ventoy usb partition
+- 用 ventoy U盘引导系统
+- 启动 sshd
+
+    systemctl start sshd
+
+- 设置 root 密码
+
+    passwd
+
+- 登录, 然后进行后续操作
+
+## archinstall
+
+<https://github.com/archlinux/archinstall>
 
 ```bash
-boot with iso
 pacman -Sy
-passwd
-systemctl start sshd
-ip a
+
 # ssh to 
 pacman -S archinstall
+# 执行 archinstall, 开始安装
 archinstall
 
 Select one of the above keyboard languages (by number or full name): us
-Select one of the above regions to download packages from (by number or full name): 11
+Select one of the above regions to download packages from (by number or full name): China
 Select one or more harddrives to use and configure (leave blank to skip this step): 1 
 Select what you wish to do with the selected block devices: 0
 Select which filesystem your main partition should use (by number or name): 2
@@ -50,6 +62,11 @@ Select which mode to configure for ens18 or leave blank for DHCP: 0
 Enter a valid timezone (examples: Europe/Stockholm, US/Eastern) or press enter to use UTC: Asia/Shanghai
 Would you like to use automatic time synchronization (NTP) with the default time servers? [Y/n]: y
 
+# package
+vscode git keepassxc chromium wqy-microhei 
+
+# init
+systemctl enable sshd
 
 
 This is your chosen configuration:

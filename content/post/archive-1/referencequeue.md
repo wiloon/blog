@@ -217,7 +217,7 @@ hashMap.size->1
   
 5 在google guava的简单描述
 
-在google guava中，实现了一个类似在第4中所对应的操作。同时对于反向操作，通过继承一个指定的对象(可以理解为weakReference和callback的组合对象)，当value值被gc之后，即可以直接在回调中处理业务即可，不需要自己来监控queue。（见FinalizableReference)
+在google guava中，实现了一个类似在第4中所对应的操作。同时对于反向操作，通过继承一个指定的对象(可以理解为weakReference和callback的组合对象)，当value值被gc之后，即可以直接在回调中处理业务即可，不需要自己来监控queue。 (见FinalizableReference)
 
 转载请标明出处:i flym
   

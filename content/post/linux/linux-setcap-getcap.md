@@ -48,7 +48,7 @@ Linux是一种安全操作系统，它给普通用户尽可能低的权限，而
   
 大的威胁。UNIX系统中的SUID问题就是由这种信任状模型造成的。例如，一个普通用户需要使用ping命令。这是一个SUID命令，会以root的权
   
-限运行。而实际上这个程序只是需要RAW套接字建立必要ICMP数据包，除此之外的其它root权限对这个程序都是没有必要的。如果程序编写不好，就可能
+限运行。而实际上这个程序只是需要RAW socket 建立必要ICMP数据包，除此之外的其它root权限对这个程序都是没有必要的。如果程序编写不好，就可能
   
 被攻击者利用，获得系统的控制权。
 
@@ -60,7 +60,7 @@ Linux是一种安全操作系统，它给普通用户尽可能低的权限，而
   
 Capabilities的主要思想在于分割root用户的特权，即将root的特权分割成不同的能力，每种能力代表一定的特权操作。例如: 能力CAP_SYS_MODULE表示用户能够加载(或卸载)内核模块的特权操作，而CAP_SETUID表示用户能够修改进程用户身份的特权操作。在Capbilities中系统将根据进程拥有的能力来进行特权操作的访问控制。
       
-在Capilities中，只有进程和可执行文件才具有能力，每个进程拥有三组能力集，分别称为cap_effective, cap_inheritable, cap_permitted(分别简记为:pE,pI,pP)，其中cap_permitted表示进程所拥有的最大能力集；cap_effective表示进程当前可用的能力集，可以看做是cap_permitted的一个子集；而cap_inheitable则表示进程可以传递给其子进程的能力集。系统根据进程的cap_effective能力集进行访问控制，cap_effective为cap_permitted的子集，进程可以通过取消cap_effective中的某些能力来放弃进程的一些特权。可执行文件也拥有三组能力集，对应于进程的三组能力集，分别称为cap_effective, cap_allowed 和 cap_forced（分别简记为fE,fI,fP) ，其中，cap_allowed表示程序运行时可从原进程的cap_inheritable中集成的能力集，cap_forced表示运行文件时必须拥有才能完成其服务的能力集；而cap_effective则表示文件开始运行时可以使用的能力。
+在Capilities中，只有进程和可执行文件才具有能力，每个进程拥有三组能力集，分别称为cap_effective, cap_inheritable, cap_permitted(分别简记为:pE,pI,pP)，其中cap_permitted表示进程所拥有的最大能力集；cap_effective表示进程当前可用的能力集，可以看做是cap_permitted的一个子集；而cap_inheitable则表示进程可以传递给其子进程的能力集。系统根据进程的cap_effective能力集进行访问控制，cap_effective为cap_permitted的子集，进程可以通过取消cap_effective中的某些能力来放弃进程的一些特权。可执行文件也拥有三组能力集，对应于进程的三组能力集，分别称为cap_effective, cap_allowed 和 cap_forced (分别简记为fE,fI,fP) ，其中，cap_allowed表示程序运行时可从原进程的cap_inheritable中集成的能力集，cap_forced表示运行文件时必须拥有才能完成其服务的能力集；而cap_effective则表示文件开始运行时可以使用的能力。
 
      Linux内核从2.2版本开始，就加进的Capabilities的概念与机制，并随着版本升高逐步得到改进。在linux中，root权限被分割成一下29中能力: 
     
@@ -91,7 +91,7 @@ CAP_NET_BROADCAST:允许网络广播和多播访问
   
 CAP_NET_ADMIN:允许执行网络管理任务
   
-CAP_NET_RAW:允许使用原始套接字
+CAP_NET_RAW:允许使用原始 socket 
   
 CAP_IPC_LOCK:允许锁定共享内存片段
   
@@ -127,7 +127,7 @@ cap_chown=eip是将chown的能力以cap_effective(e),cap_inheritable(i),cap_perm
 
 从Linux中第一次启动Wireshark的时候，可能会觉得奇怪，为什么看不到任何一个网卡，比如eth0之类的。这是因为，直接访问这些设备需要 root权限。然后，我就用root权限去用了。当然，这是一个不好的做法。比如Gentoo中就会提示: WIRESHARK CONTAINS OVER ONE POINT FIVE MILLION LINES OF SOURCE CODE. DO NOT RUN THEM AS ROOT.
 
-     那怎么办呢？Wireshark的leader Gerald Combs指出，现在多数Linux发行版都开始实现对raw网络设备使用文件系统权限（能力)  ，可以用这个途径从普通用户启动Wireshark。
+     那怎么办呢？Wireshark的leader Gerald Combs指出，现在多数Linux发行版都开始实现对raw网络设备使用文件系统权限 (能力)  ，可以用这个途径从普通用户启动Wireshark。
     
 
 4.具体步骤: 

@@ -50,7 +50,7 @@ mybatis-spring</artifactId>
    
 </dependency>
   
-3. 移出项目中的ibatis相关配置及文件（与spring集成为样例) : 
+3. 移出项目中的ibatis相关配置及文件 (与spring集成为样例) : 
 
 <bean id="sqlMapClient" class="com.common.sqlmap.DynSqlMapClientFactoryBean"> <property name="configLocations">  <value>classpath:common-sqlmap-config.xml</value>
       
@@ -96,7 +96,7 @@ mybatis的SQL映射文件可以从原来ibatis的SQL映射文件拷贝过来，�
   
 2. sqlMap 变为 mapper
   
-3. mapper标签命名空间namespace最好是全类名，这样方便扫描配置使用（通过MapperScannerConfigurer) 
+3. mapper标签命名空间namespace最好是全类名，这样方便扫描配置使用 (通过MapperScannerConfigurer) 
   
 4. typeAlias标签在mybatis的已不支持，可放入公共配置文件的typeAliases标签中
   
@@ -132,7 +132,7 @@ Mapper XML 文件 http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html
 
 6. 删除dao的实现类及配置
 
-升级mybatis后是可以不需要dao的实现类的，使用MapperScannerConfigurer扫描加载（见步骤4中的配置) ，等价升级完dao在service中的使用后，删除dao实现类。
+升级mybatis后是可以不需要dao的实现类的，使用MapperScannerConfigurer扫描加载 (见步骤4中的配置) ，等价升级完dao在service中的使用后，删除dao实现类。
 
 注意: dao接口中的方法不支持方法重载，等价升级完dao在service中的使用要注意dao的参数问题，如果接口是多参数，可以转换接口参数为map或对参数使用注解。
 

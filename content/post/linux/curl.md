@@ -12,6 +12,19 @@ tags:
 ---
 ## curl
 ## curl, [kɜrl]
+
+## options
+
+    -s, --silent, 不显示下载进度
+    -C, --continue-at, 断点续传
+
+## 断点续传
+
+```bash
+# -C -, curl 自动检测续传位置
+curl -C - "http://foo.bar"
+
+```
 ### cookie
 #### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
 ```bash
@@ -48,13 +61,13 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
     curl -H "Content-Type: application/json"  \
     -d "user=nickwolfe&password=12345" http://www.yahoo.com/login.cgi
 
-### use proxy
-#### 用 -x 参数 
+## use proxy
+### 用 -x 参数 
 ```bash
 -x, --proxy [protocol://]host[:port]
 curl -x http://127.0.0.1:8899 http://www.baidu.com
 ```
-#### 或者在环境变量里设置proxy
+#### 或者在环境变量里设置 proxy
 ```bash
 http_proxy=http://127.0.0.1:1080 curl -v http://www.baidu.com
 
@@ -67,6 +80,7 @@ curl -v http://www.baidu.com
 ```bash
 curl -x socks5h://localhost:8001 http://www.google.com/
 curl -x socks5://localhost:8888 http://google.com
+# socks5(本地解析hostname), socks5h(由socks server解析hostname)
 ```
 
 ### url encoding
@@ -100,7 +114,13 @@ curl --resolve 'test.com:9443:127.0.0.1' https://test.com:9443/hello
 curl -x 123.45.67.89:1080 -o page.html http://www.yahoo.com
 
 # 下载文件
+# 指定文件名
 curl -o foo.txt http://foo.com/foo.txt
+# 从 URL里取文件名
+curl -O http://foo.com/foo.txt
+# 从 Content-Disposition 里取文件名
+curl -O -J  "http://localhost:63005/file-server?name=foo.txt"
+
 curl -v --socks5-hostname 127.0.0.1:1080 https://www.google.com/
 
 # --connect-timeout <seconds>

@@ -16,7 +16,7 @@ FOR XML PATH 有的人可能知道有的人可能不知道，其实它就是将�
 
 一.FOR XML PATH 简单介绍
 
-那么还是首先来介绍一下FOR XML PATH ，假设现在有一张兴趣爱好表（hobby) 用来存放兴趣爱好，表结构如下: 
+那么还是首先来介绍一下FOR XML PATH ，假设现在有一张兴趣爱好表 (hobby) 用来存放兴趣爱好，表结构如下: 
 
 接下来我们来看应用FOR XML PATH的查询结果语句如下: 
 
@@ -140,7 +140,7 @@ SELECT '{'+STR(hobbyID)+'}','[ '+hName+' ]' FROM @hobby FOR XML PATH(")
 
 二.一个应用场景与FOR XML PATH应用
 
-首先呢！我们在增加一张学生表，列分别为（stuID,sName,hobby) ,stuID代表学生编号，sName代表学生姓名，hobby列存学生的爱好！那么现在表结构如下: 
+首先呢！我们在增加一张学生表，列分别为 (stuID,sName,hobby) ,stuID代表学生编号，sName代表学生姓名，hobby列存学生的爱好！那么现在表结构如下: 
 
 这时，我们的要求是查询学生表，显示所有学生的爱好的结果集，代码如下: 
 

@@ -3,14 +3,14 @@ title: maven plugin, maven-compiler-plugin
 author: "-"
 date: 2014-12-30T05:56:31+00:00
 url: maven/plugin
+categories:
+  - java
 tags:
   - Maven
-
-categories:
-  - inbox
 ---
 ## maven plugin, maven-compiler-plugin
-## maven config, maven-compiler-plugin
+
+用于编译 java 源码, 3.0 以后的版本 默认用 javax.tools.JavaCompiler 编译 
 
 maven-compiler-plugin 3.6 和更高版本提供了一种新方法
 
@@ -29,7 +29,7 @@ maven-compiler-plugin 3.6 和更高版本提供了一种新方法
 
 ```xml
 <properties>
-    <maven.compiler.release>16</maven.compiler.release>
+    <maven.compiler.release>17</maven.compiler.release>
 </properties>
 <!-- ... -->
 <plugins>
@@ -41,20 +41,20 @@ maven-compiler-plugin 3.6 和更高版本提供了一种新方法
 </plugins>
 ```
 
-maven-compiler-plugin 从3.6开始可以只配置 `<maven.compiler.release>`, 来替代 `maven.compiler.source` and `maven.compiler.target`
+maven-compiler-plugin 从 3.6 开始可以只配置  `<maven.compiler.release>`, 来替代 `maven.compiler.source` and `maven.compiler.target`
 maven-compiler-plugin 会从 <properties> 里读取 `maven.compiler.release`, 可以不配置到 plugin>configuration 下
 
 "maven.compiler.release" as an replacement for source and target
 
 >http://blog.csdn.net/zhaoyongnj2012/article/details/23970451
 
-在maven的默认配置中,对于jdk的配置是1.4版本,那么创建/导入maven工程过程中,工程中未指定jdk版本。
+在maven的默认配置中, 对于 jdk 的配置是 1.4 版本,那么创建/导入 maven 工程过程中, 工程中未指定 jdk版本。
 
-对工程进行maven的update,就会出现工程依赖的JRE System Library会自动变成JavaSE-1.4。
+对工程进行maven 的update, 就会出现工程依赖的 JRE System Library 会自动变成JavaSE-1.4。
   
 解决方案1: 修改maven的默认jdk配置
 
-maven的conf\setting.xml文件中找到jdk配置的地方,修改如下: 
+maven 的 conf\setting.xml 文件中找到jdk配置的地方,修改如下: 
 
 
 ```xml
@@ -62,8 +62,6 @@ maven的conf\setting.xml文件中找到jdk配置的地方,修改如下:
 <profile>
   
 <id>jdk1.6</id>
-  
-
   
 true</activeByDefault>
   
@@ -89,7 +87,7 @@ true</activeByDefault>
 打开项目中pom.xml文件,修改如下: 
 
 
-```html 
+```xml 
   
 <build>
   
@@ -115,3 +113,4 @@ maven-compiler-plugin</artifactId>
   
 </build>
 
+```

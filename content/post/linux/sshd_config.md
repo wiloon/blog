@@ -9,6 +9,16 @@ categories:
 tags:
   - reprint
 ---
+## 查看 sshd 运行参数
+
+    sshd -T | sort
+
+## sshd 日志
+
+```bash
+journalctl -u sshd -f
+
+```
 ## sshd config
 
 AddressFamily
@@ -85,3 +95,4 @@ https://blog.csdn.net/zhu_xun/article/details/18304441
 http://www.jinbuguo.com/openssh/sshd_config.html
   
 http://daemon369.github.io/ssh/2015/03/21/using-ssh-config-file
+

@@ -26,9 +26,13 @@ pacman -Syu
 yay 不能在root下执行, 需要新建个用户
 <http://blog.wiloon.com/?p=911>
 
-pacman -S sudo emacs
-chmod u+w /etc/sudoers
-vim /etc/sudoers
+/etc/sudoer.d/wiloon.conf
+
+    wiloon ALL=(ALL) NOPASSWD: ALL
+
+ln -s /usr/bin/vim /usr/bin/vi
+visudo
+
     wiloon ALL=(ALL) NOPASSWD: ALL
 
 ### install and enable sshd
@@ -41,15 +45,15 @@ systemctl enable sshd
 ### ntp, chrony
 <http://blog.wiloon.com/?p=10869>
 
-### 监控, telegraf
-### install apps
+- 监控, telegraf
+### install app
 
-### zsh, oh-my-zsh
+- zsh, oh-my-zsh
     install and switch to zsh - oh-my-zsh
   
 <http://blog.wiloon.com/zsh>
 
-### 安装图形界面 kde 或 xfce4
+- 安装图形界面 kde 或 xfce4
 #### install kde
 <http://blog.wiloon.com/kde>
 
@@ -78,11 +82,11 @@ sudo pacman -S ttf-inconsolata
 sudo pacman -S chromium
 yay -S google-chrome
 
-### yay
+- yay
 <http://blog.wiloon.com/?p=7953>
 
 ### 输入法
-#### fcitx
+- fcitx
 <http://blog.wiloon.com/?p=9650>
 
 #### 输入法ibus

@@ -31,7 +31,7 @@ wpa-psk "xxxx"
 
 首先，一个基本的配置大概是下面这个样子: 
 
->  1 auto lo
+1 auto lo
  2 iface lo inet loopback
  3 
  4 # The primary network interface
@@ -47,15 +47,15 @@ wpa-psk "xxxx"
 
 第1行跟第5行说明lo接口跟eth0接口会在系统启动时被自动配置；
 
-第2行将lo接口设置为一个本地回环（loopback) 地址；
+第2行将lo接口设置为一个本地回环 (loopback) 地址；
 
-第6行指出eth0接口具有一个静态的（static) IP配置；
+第6行指出eth0接口具有一个静态的 (static) IP配置；
 
 第7行-第11行分别设置eth0接口的ip、网络号、掩码、广播地址和网关。
 
 再来看一个更复杂点的: 
 
->  12 auto eth0
+12 auto eth0
  13 iface eth0 inet static
  14     address 192.168.1.42
  15     network 192.168.1.0
@@ -76,7 +76,7 @@ wpa-psk "xxxx"
 
 继续，下面是一个物理网卡上多个接口的配置方法: 
 
->  23 auto eth0 eth0:1
+23 auto eth0 eth0:1
  24 iface eth0 inet static
  25     address 192.168.0.100
  26     network 192.168.0.0
@@ -90,9 +90,9 @@ wpa-psk "xxxx"
 
 30行到33行在eth0上配置了另外一个地址，这种配置方法在配置一块网卡多个地址的时候很常见: 有几个地址就配置几个接口。冒号后面的数字可以随便写的，只要几个配置的名字不重复就可以。
 
-下面是pre-up和post-down命令时间。这是一组命令（pre-up、up、post-up、pre-down、down、post-down) ，分别定义在对应的时刻需要执行的命令。
+下面是pre-up和post-down命令时间。这是一组命令 (pre-up、up、post-up、pre-down、down、post-down) ，分别定义在对应的时刻需要执行的命令。
 
->  34 auto eth0
+34 auto eth0
  35 iface eth0 inet dhcp
  36     pre-up [ -f /etc/network/local-network-ok ]
 
@@ -100,7 +100,7 @@ wpa-psk "xxxx"
 
 再更进一步的例子: 
 
->  37 auto eth0 eth1
+37 auto eth0 eth1
  38 iface eth0 inet static
  39     address 192.168.42.1
  40     netmask 255.255.255.0
@@ -114,7 +114,7 @@ wpa-psk "xxxx"
 
 第42行和第45行是假定在这两块网卡上分别执行的命令，你可以把它们替换成你想要的任何玩意 : ) 
 
-手册上说，这种方法主要是用来检测两块网卡的MAC地址交换（If their MAC addresses get swapped) ，其实就是两块网卡名互换了，这种情况在debian系统上再常见不过了，主要是因为内核识别网卡的顺序发生了变化。这个问题可以用下面 的这种方法来避免。
+手册上说，这种方法主要是用来检测两块网卡的MAC地址交换 (If their MAC addresses get swapped) ，其实就是两块网卡名互换了，这种情况在debian系统上再常见不过了，主要是因为内核识别网卡的顺序发生了变化。这个问题可以用下面 的这种方法来避免。
 
 > 46 auto eth0 eth1
 47 mapping eth0 eth1
@@ -130,7 +130,7 @@ wpa-psk "xxxx"
 
 第48行中的get-mac-address.sh也在/usr/share/doc/ifupdown/examples/目录里，也同样要加可执行权限。这个脚本的作用，就是获得每块网卡的MAC地址。
 
-这段配置首先配置了两个逻辑接口（这个名词的定义请参见debian参考手册) lan和internet，然后根据网卡的MAC地址，将逻辑接口映射（mapped) 到物理接口上去。
+这段配置首先配置了两个逻辑接口 (这个名词的定义请参见debian参考手册) lan和internet，然后根据网卡的MAC地址，将逻辑接口映射 (mapped) 到物理接口上去。
 
 再来看下面这段配置: 
 
@@ -149,7 +149,7 @@ wpa-psk "xxxx"
 
 ### wlan
 
-# The wireless network interface （配置无线网络接口) 
+# The wireless network interface  (配置无线网络接口) 
 
 # 开机自动激活wlan0接口
 

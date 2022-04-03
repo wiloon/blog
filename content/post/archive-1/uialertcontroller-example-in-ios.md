@@ -20,7 +20,7 @@ http://lavasoft.blog.51cto.com/62575/43735
 
 二、语法
 
-在Java中，assert关键字是从JAVA SE 1.4 引入的，为了避免和老版本的Java代码中使用了assert关键字导致错误，Java在执行的时候默认是不启动断言检查的（这个时候，所有的断言语句都将忽略！) ，如果要开启断言检查，则需要用开关-enableassertions或-ea来开启。
+在Java中，assert关键字是从JAVA SE 1.4 引入的，为了避免和老版本的Java代码中使用了assert关键字导致错误，Java在执行的时候默认是不启动断言检查的 (这个时候，所有的断言语句都将忽略！) ，如果要开启断言检查，则需要用开关-enableassertions或-ea来开启。
 
 assert关键字语法很简单，有两种用法: 
 

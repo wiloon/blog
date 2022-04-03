@@ -119,17 +119,17 @@ URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=18,xft:WenQuanYi Zen
 
 终端软件有很多,gnome有gnome terminal,kde有konsole,还有xfce-terminal,xterm,rxvt, aterm, eterm等等,这里我选择的是rxvt-unicode。主要因为我们所需要的终端,需要具有以下的特性: 
 
-快速（rxvt-unicode基于rxvt,rxvt基于xterm,xterm的快速是毋庸置疑的) ；
+快速 (rxvt-unicode基于rxvt,rxvt基于xterm,xterm的快速是毋庸置疑的) ；
   
-支持utf8,否则不能正确显示简体和繁体中文（从rxvt-unicode的名字就可以看出来了) ；
+支持utf8,否则不能正确显示简体和繁体中文 (从rxvt-unicode的名字就可以看出来了) ；
   
-易配置,更换系统时只需要保留配置文件就能恢复（rxvt-unicode配置可以写在~/.Xdefaults或者~/.Xresources中) ；
+易配置,更换系统时只需要保留配置文件就能恢复 (rxvt-unicode配置可以写在~/.Xdefaults或者~/.Xresources中) ；
   
-支持透明,因为我们需要eyecandy来防止审美疲劳（rxvt-unicode不光支持伪透明,也可以做到真透明,不过我没有试过) 。
+支持透明,因为我们需要eyecandy来防止审美疲劳 (rxvt-unicode不光支持伪透明,也可以做到真透明,不过我没有试过) 。
   
-符合上面条件的,以我所知,就只有rxvt-unicode（如果我错了请纠正我) 。除了这些特性,rxvt-unicode还具有以下特性: 
+符合上面条件的,以我所知,就只有rxvt-unicode (如果我错了请纠正我) 。除了这些特性,rxvt-unicode还具有以下特性: 
 
-可以以server/client模式启动,更加节省系统资源（urxvtcd) ;
+可以以server/client模式启动,更加节省系统资源 (urxvtcd) ;
   
 显示彩色man page。
 

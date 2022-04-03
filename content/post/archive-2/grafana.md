@@ -20,7 +20,7 @@ podman run \
 -p 3100:3000 \
 -v grafana-storage:/var/lib/grafana \
 -v /etc/localtime:/etc/localtime:ro \
-grafana/grafana:8.1.4
+grafana/grafana:8.4.4
 
 # in pod
 podman run \

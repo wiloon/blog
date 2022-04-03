@@ -67,7 +67,9 @@ bin/kafka-console-producer.sh \
     --state
 
 ## topic
+
 ### list topic, 查看 kafka topic 列表,使用--list参数
+
 ```bash
 # kafka 3.0
 bin/kafka-topics.sh --list --bootstrap-server 192.168.50.169:9092
@@ -76,6 +78,7 @@ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
 
 ### 查看topic详细信息, 如: 分区数, replication
+
 ```bash
 # kafka 3.0.0
 bin/kafka-topics.sh --describe --topic topic0 --bootstrap-server 192.168.50.169:9092
@@ -90,6 +93,7 @@ replication-factor: 副本数, partitions: 分区数
 topic名中有. 或 _ 会提示:  WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
 
 ### create topic
+
 ```bash
 # kafka 3.0.0
 bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic0 --bootstrap-server 192.168.50.169:9092
@@ -302,7 +306,7 @@ podman run  -d --name kafka \
 ```
 
 ### server.properties
-    advertised.host.name: 是注册到zookeeper,client要访问的broker地址。（可能producer也是拿这个值,没有验证) 
+    advertised.host.name: 是注册到zookeeper,client要访问的broker地址。 (可能producer也是拿这个值,没有验证) 
     
     如果advertised.host.name没有设,会用host.name的值注册到zookeeper,如果host.name也没有设,则会使用JVM拿到的本机hostname注册到zk。
     

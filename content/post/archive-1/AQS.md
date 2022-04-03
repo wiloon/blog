@@ -12,19 +12,19 @@ tags:
 ## AbstractQueuedSynchronizer， AQS
 http://blog.zhangjikai.com/2017/04/15/%E3%80%90Java-%E5%B9%B6%E5%8F%91%E3%80%91%E8%AF%A6%E8%A7%A3-AbstractQueuedSynchronizer/
 
-队列同步器 AbstractQueuedSynchronizer（以下简称 AQS) ，是用来构建锁或者其他同步组件的基础框架。它使用一个 int 成员变量来表示同步状态，通过 CAS 操作对同步状态进行修改，确保状态的改变是安全的。通过内置的 FIFO （First In First Out) 队列来完成资源获取线程的排队工作。更多关于 Java 多线程的文章可以转到 [这里][1]
+队列同步器 AbstractQueuedSynchronizer (以下简称 AQS) ，是用来构建锁或者其他同步组件的基础框架。它使用一个 int 成员变量来表示同步状态，通过 CAS 操作对同步状态进行修改，确保状态的改变是安全的。通过内置的 FIFO  (First In First Out) 队列来完成资源获取线程的排队工作。更多关于 Java 多线程的文章可以转到 [这里][1]
 
 AQS 和 synchronized
   
-在介绍 AQS 的使用之前，需要首先说明一点，AQS 同步和 synchronized 关键字同步（以下简称 synchronized 同步) 是采用的两种不同的机制。首先看下 synchronized 同步，synchronized 关键字经过编译之后，会在同步块的前后分别形成 monitorenter 和 monitorexit 这两个字节码指令，这两个字节码需要关联到一个监视对象，当线程执行 monitorenter 指令时，需要首先获得获得监视对象的锁，这里监视对象锁就是进入同步块的凭证，只有获得了凭证才可以进入同步块，当线程离开同步块时，会执行 monitorexit 指令，释放对象锁。
+在介绍 AQS 的使用之前，需要首先说明一点，AQS 同步和 synchronized 关键字同步 (以下简称 synchronized 同步) 是采用的两种不同的机制。首先看下 synchronized 同步，synchronized 关键字经过编译之后，会在同步块的前后分别形成 monitorenter 和 monitorexit 这两个字节码指令，这两个字节码需要关联到一个监视对象，当线程执行 monitorenter 指令时，需要首先获得获得监视对象的锁，这里监视对象锁就是进入同步块的凭证，只有获得了凭证才可以进入同步块，当线程离开同步块时，会执行 monitorexit 指令，释放对象锁。
 
-在 AQS 同步中，使用一个 int 类型的变量 state 来表示当前同步块的状态。以独占式同步（一次只能有一个线程进入同步块) 为例，state 的有效值有两个 0 和 1，其中 0 表示当前同步块中没有线程，1 表示同步块中已经有线程在执行。当线程要进入同步块时，需要首先判断 state 的值是否为 0，假设为 0，会尝试将 state 修改为 1，只有修改成功了之后，线程才可以进入同步块。注意上面提到的两个条件: 
+在 AQS 同步中，使用一个 int 类型的变量 state 来表示当前同步块的状态。以独占式同步 (一次只能有一个线程进入同步块) 为例，state 的有效值有两个 0 和 1，其中 0 表示当前同步块中没有线程，1 表示同步块中已经有线程在执行。当线程要进入同步块时，需要首先判断 state 的值是否为 0，假设为 0，会尝试将 state 修改为 1，只有修改成功了之后，线程才可以进入同步块。注意上面提到的两个条件: 
 
-state 为 0，证明当前同步块中没有线程在执行，所以当前线程可以尝试获得进入同步块的凭证，而这里的凭证就是是否成功将 state 修改为 1（在 synchronized 同步中，我们说的凭证是对象锁，但是对象锁的最终实现是否和这种方式类似，没有找到相关的资料) 
+state 为 0，证明当前同步块中没有线程在执行，所以当前线程可以尝试获得进入同步块的凭证，而这里的凭证就是是否成功将 state 修改为 1 (在 synchronized 同步中，我们说的凭证是对象锁，但是对象锁的最终实现是否和这种方式类似，没有找到相关的资料) 
   
 成功将 state 修改为 1，通过使用 CAS 操作，我们可以确保即便有多个线程同时修改 state，也只有一个线程会修改成功。关于 CAS 的具体解释会在后面提到。
   
-当线程离开同步块时，会修改 state 的值，将其设为 0，并唤醒等待的线程。所以在 AQS 同步中，我们说线程获得了锁，实际上是指线程成功修改了状态变量 state，而线程释放了锁，是指线程将状态变量置为了可修改的状态（在独占式同步中就是置为了 0) ，让其他线程可以再次尝试修改状态变量。在下面的表述中，我们说线程获得和释放了锁，就是上述含义， 这与 synchronized 同步中说的获得和释放锁的含义不同，需要区别理解。
+当线程离开同步块时，会修改 state 的值，将其设为 0，并唤醒等待的线程。所以在 AQS 同步中，我们说线程获得了锁，实际上是指线程成功修改了状态变量 state，而线程释放了锁，是指线程将状态变量置为了可修改的状态 (在独占式同步中就是置为了 0) ，让其他线程可以再次尝试修改状态变量。在下面的表述中，我们说线程获得和释放了锁，就是上述含义， 这与 synchronized 同步中说的获得和释放锁的含义不同，需要区别理解。
 
 基本使用
   
@@ -66,7 +66,7 @@ boolean releaseShared(int) 共享式释放锁
   
 Collection getQueuedThreads() 获得同步队列中等待的线程集合
   
-自定义组件通过使用同步器提供的模板方法来实现自己的同步语义。下面我们通过两个示例，看下如何借助于 AQS 来实现锁的同步语义。我们首先实现一个独占锁（排它锁) ，独占锁就是说在某个时刻内，只能有一个线程持有独占锁，只有持有锁的线程释放了独占锁，其他线程才可以获取独占锁。下面是具体实现: 
+自定义组件通过使用同步器提供的模板方法来实现自己的同步语义。下面我们通过两个示例，看下如何借助于 AQS 来实现锁的同步语义。我们首先实现一个独占锁 (排它锁) ，独占锁就是说在某个时刻内，只能有一个线程持有独占锁，只有持有锁的线程释放了独占锁，其他线程才可以获取独占锁。下面是具体实现: 
 
 import java.util.concurrent.TimeUnit;
   
@@ -420,9 +420,9 @@ setState(resourceCount);
           
 protected int tryAcquireShared(int reduceCount) {
               
-// 使用尝试获得资源，如果成功修改了状态变量（获得了资源) 
+// 使用尝试获得资源，如果成功修改了状态变量 (获得了资源) 
               
-// 或者资源的总量小于 0（没有资源了) ，则返回。
+// 或者资源的总量小于 0 (没有资源了) ，则返回。
               
 for (; ; ) {
                   
@@ -602,7 +602,7 @@ Thread-6
   
 CAS 操作
   
-CAS（Compare and Swap) ，比较并交换，通过利用底层硬件平台的特性，实现原子性操作。CAS 操作涉及到3个操作数，内存值 V，旧的期望值 A，需要修改的新值 B。当且仅当预期值 A 和 内存值 V 相同时，才将内存值 V 修改为 B，否则什么都不做。CAS 操作类似于执行了下面流程
+CAS (Compare and Swap) ，比较并交换，通过利用底层硬件平台的特性，实现原子性操作。CAS 操作涉及到3个操作数，内存值 V，旧的期望值 A，需要修改的新值 B。当且仅当预期值 A 和 内存值 V 相同时，才将内存值 V 修改为 B，否则什么都不做。CAS 操作类似于执行了下面流程
 
 if(oldValue == memory[valueAddress]) {
       
@@ -610,7 +610,7 @@ memory[valueAddress] = newValue;
   
 }
   
-在上面的流程中，其实涉及到了两个操作，比较以及替换，为了确保程序正确，需要确保这两个操作的原子性（也就是说确保这两个操作同时进行，中间不会有其他线程干扰) 。现在的 CPU 中，提供了相关的底层 CAS 指令，即 CPU 底层指令确保了比较和交换两个操作作为一个原子操作进行（其实在这一点上还是有排他锁的. 只是比起用synchronized, 这里的排他时间要短的多.) ，Java 中的 CAS 函数是借助于底层的 CAS 指令来实现的。更多关于 CPU 底层实现的原理可以参考 这篇文章。我们来看下 Java 中对于 CAS 函数的定义: 
+在上面的流程中，其实涉及到了两个操作，比较以及替换，为了确保程序正确，需要确保这两个操作的原子性 (也就是说确保这两个操作同时进行，中间不会有其他线程干扰) 。现在的 CPU 中，提供了相关的底层 CAS 指令，即 CPU 底层指令确保了比较和交换两个操作作为一个原子操作进行 (其实在这一点上还是有排他锁的. 只是比起用synchronized, 这里的排他时间要短的多.) ，Java 中的 CAS 函数是借助于底层的 CAS 指令来实现的。更多关于 CPU 底层实现的原理可以参考 这篇文章。我们来看下 Java 中对于 CAS 函数的定义: 
 
 /**
    
@@ -668,7 +668,7 @@ private static final Unsafe unsafe = getUnsafe();
       
 private static final long offset;
       
-// 获得 count 属性在 CASIntTest 中的偏移量（内存地址偏移) 
+// 获得 count 属性在 CASIntTest 中的偏移量 (内存地址偏移) 
       
 static {
           
@@ -734,7 +734,7 @@ int previous = count;
   
 unsafe.compareAndSwapInt(this, offset, previous, previous + 1);
   
-在没有线程竞争的条件下，该代码执行的结果是将 count 变量的值加 1（多个线程竞争可能会有线程执行失败) ，但是在 compareAndSwapInt 函数中，我们并没有传入 count 变量，那么函数是如何修改的 count 变量值？其实我们往 compareAndSwapInt 函数中传入了 count 变量在堆内存中的地址，函数直接修改了 count 变量所在内存区域。count 属性在堆内存中的地址是由 CASIntTest 实例的起始内存地址和 count 属性相对于起始内存的偏移量决定的。其中对象属性在对象中的偏移量通过 objectFieldOffset 函数获得，函数原型如下所示。该函数接受一个 Filed 类型的参数，返回该 Filed 属性在对象中的偏移量。
+在没有线程竞争的条件下，该代码执行的结果是将 count 变量的值加 1 (多个线程竞争可能会有线程执行失败) ，但是在 compareAndSwapInt 函数中，我们并没有传入 count 变量，那么函数是如何修改的 count 变量值？其实我们往 compareAndSwapInt 函数中传入了 count 变量在堆内存中的地址，函数直接修改了 count 变量所在内存区域。count 属性在堆内存中的地址是由 CASIntTest 实例的起始内存地址和 count 属性相对于起始内存的偏移量决定的。其中对象属性在对象中的偏移量通过 objectFieldOffset 函数获得，函数原型如下所示。该函数接受一个 Filed 类型的参数，返回该 Filed 属性在对象中的偏移量。
 
 /**
    
@@ -932,11 +932,11 @@ return unsafe.compareAndSwapInt(node, waitStatusOffset, expect, update);
   
 同步队列
   
-AQS 依赖内部的同步队列（一个 FIFO的双向队列) 来完成同步状态的管理，当前线程获取同步状态失败时，同步器会将当前线程以及等待状态等信息构造成一个节点（Node) 并将其加入同步队列，同时会阻塞当前线程，当同步状态释放时，会把队列中第一个等待节点线程唤醒（下图中的 Node1) ，使其再次尝试获取同步状态。同步队列的结构如下所示: 
+AQS 依赖内部的同步队列 (一个 FIFO的双向队列) 来完成同步状态的管理，当前线程获取同步状态失败时，同步器会将当前线程以及等待状态等信息构造成一个节点 (Node) 并将其加入同步队列，同时会阻塞当前线程，当同步状态释放时，会把队列中第一个等待节点线程唤醒 (下图中的 Node1) ，使其再次尝试获取同步状态。同步队列的结构如下所示: 
 
 图片来自 http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer
 
-Head 节点本身不保存等待线程的信息，它通过 next 变量指向第一个保存线程等待信息的节点（Node1) 。当线程被唤醒之后，会删除 Head 节点，而唤醒线程所在的节点会设置为 Head 节点（Node1 被唤醒之后，Node1会被置为 Head 节点) 。下面我们看下 JDK 中同步队列的实现。
+Head 节点本身不保存等待线程的信息，它通过 next 变量指向第一个保存线程等待信息的节点 (Node1) 。当线程被唤醒之后，会删除 Head 节点，而唤醒线程所在的节点会设置为 Head 节点 (Node1 被唤醒之后，Node1会被置为 Head 节点) 。下面我们看下 JDK 中同步队列的实现。
 
 Node 类
   
@@ -1052,13 +1052,13 @@ this.thread = thread;
   
 在 Node 类中定义了四种等待状态: 
 
-CANCELED:  1，因为等待超时 （timeout) 或者中断（interrupt) ，节点会被置为取消状态。处于取消状态的节点不会再去竞争锁，也就是说不会再被阻塞。节点会一直保持取消状态，而不会转换为其他状态。处于 CANCELED 的节点会被移出队列，被 GC 回收。
+CANCELED:  1，因为等待超时  (timeout) 或者中断 (interrupt) ，节点会被置为取消状态。处于取消状态的节点不会再去竞争锁，也就是说不会再被阻塞。节点会一直保持取消状态，而不会转换为其他状态。处于 CANCELED 的节点会被移出队列，被 GC 回收。
   
-SIGNAL:  -1，表明当前的后继结点正在或者将要被阻塞（通过使用 LockSupport.pack 方法) ，因此当前的节点被释放（release) 或者被取消时（cancel) 时，要唤醒它的后继结点（通过 LockSupport.unpark 方法) 。
+SIGNAL:  -1，表明当前的后继结点正在或者将要被阻塞 (通过使用 LockSupport.pack 方法) ，因此当前的节点被释放 (release) 或者被取消时 (cancel) 时，要唤醒它的后继结点 (通过 LockSupport.unpark 方法) 。
   
 CONDITION:  -2，表明当前节点在条件队列中，因为等待某个条件而被阻塞。
   
-PROPAGATE:  -3，在共享模式下，可以认为资源有多个，因此当前线程被唤醒之后，可能还有剩余的资源可以唤醒其他线程。该状态用来表明后续节点会传播唤醒的操作。需要注意的是只有头节点才可以设置为该状态（This is set (for head node only) in doReleaseShared to ensure propagation continues, even if other operations have since intervened.) 。
+PROPAGATE:  -3，在共享模式下，可以认为资源有多个，因此当前线程被唤醒之后，可能还有剩余的资源可以唤醒其他线程。该状态用来表明后续节点会传播唤醒的操作。需要注意的是只有头节点才可以设置为该状态 (This is set (for head node only) in doReleaseShared to ensure propagation continues, even if other operations have since intervened.) 。
   
 0: 新创建的节点会处于这种状态
   
@@ -1122,7 +1122,7 @@ return node;
   
 }
   
-addWaiter 方法会首先调用 if 方法，来判断能否成功将节点添加到队列尾部，如果添加失败，再调用 enq 方法（使用循环不断重试) 进行添加，下面是 enq 方法的实现: 
+addWaiter 方法会首先调用 if 方法，来判断能否成功将节点添加到队列尾部，如果添加失败，再调用 enq 方法 (使用循环不断重试) 进行添加，下面是 enq 方法的实现: 
 
 private Node enq(final Node node) {
       
@@ -1130,7 +1130,7 @@ for (;;) {
           
 Node t = tail;
           
-// 同步队列采用的懒初始化（lazily initialized) 的方式，
+// 同步队列采用的懒初始化 (lazily initialized) 的方式，
           
 // 初始时 head 和 tail 都会被设置为 null，当一次被访问时
           
@@ -1174,7 +1174,7 @@ for (;;) {
               
 final Node p = node.predecessor();
               
-// 如果当前节点的前继节点是 head，就使用自旋（循环) 的方式不断请求锁
+// 如果当前节点的前继节点是 head，就使用自旋 (循环) 的方式不断请求锁
               
 if (p == head && tryAcquire(arg)) {
                   
@@ -1314,7 +1314,7 @@ return false;
   
 }
   
-在独占模式下释放锁时，是没有其他线程竞争的，所以处理会简单一些。首先尝试释放锁，如果失败就直接返回（失败不是因为多线程竞争，而是线程本身就不拥有锁) 。如果成功的话，会检查 h 的状态，然后调用 unparkSuccessor 方法来唤醒后续线程。下面是 unparkSuccessor 的实现: 
+在独占模式下释放锁时，是没有其他线程竞争的，所以处理会简单一些。首先尝试释放锁，如果失败就直接返回 (失败不是因为多线程竞争，而是线程本身就不拥有锁) 。如果成功的话，会检查 h 的状态，然后调用 unparkSuccessor 方法来唤醒后续线程。下面是 unparkSuccessor 的实现: 
 
 private void unparkSuccessor(Node node) {
       
@@ -1360,7 +1360,7 @@ LockSupport.unpark(s.thread);
   
 }
   
-在 unparkSuccessor 方法中，如果发现头节点的后继结点为 null 或者处于 CANCELED 状态，会从尾部往前找（在节点存在的前提下，这样一定能找到) 离头节点最近的需要唤醒的节点，然后唤醒该节点。
+在 unparkSuccessor 方法中，如果发现头节点的后继结点为 null 或者处于 CANCELED 状态，会从尾部往前找 (在节点存在的前提下，这样一定能找到) 离头节点最近的需要唤醒的节点，然后唤醒该节点。
 
 共享锁获取和释放
   
@@ -1386,7 +1386,7 @@ return false;
   
 }
   
-releases 是要释放的共享资源数量，其中 tryReleaseShared 的方法由我们自己重写，该方法的主要功能就是修改共享资源的数量（state + releases) ，因为可能会有多个线程同时释放资源，所以实现的时候，一般采用循环加 CAS 操作的方式，如下面的形式: 
+releases 是要释放的共享资源数量，其中 tryReleaseShared 的方法由我们自己重写，该方法的主要功能就是修改共享资源的数量 (state + releases) ，因为可能会有多个线程同时释放资源，所以实现的时候，一般采用循环加 CAS 操作的方式，如下面的形式: 
 
 protected boolean tryReleaseShared(int releases) {
       
@@ -1408,7 +1408,7 @@ return true;
   
 }
   
-当共享资源数量修改了之后，会调用 doReleaseShared 方法，该方法主要唤醒同步队列中的第一个等待节点（head.next) ，下面是具体实现: 
+当共享资源数量修改了之后，会调用 doReleaseShared 方法，该方法主要唤醒同步队列中的第一个等待节点 (head.next) ，下面是具体实现: 
 
 private void doReleaseShared() {
       
@@ -1470,13 +1470,13 @@ unparkSuccessor(h);
                   
 /_
                    
-* ws 等于 0，说明无需唤醒后继结点（后续节点已经被唤醒或者当前节点没有被阻塞的后继结点) ，
+* ws 等于 0，说明无需唤醒后继结点 (后续节点已经被唤醒或者当前节点没有被阻塞的后继结点) ，
                    
 * 也就是这一次的调用其实并没有执行唤醒后继结点的操作。就类似于我只需要一张优惠券，
                    
 * 但是我的两个朋友，他们分别给我了一张，因此我就剩余了一张。然后我就将这张剩余的优惠券
                    
-* 送（传播) 给其他人使用，因此这里将节点置为可传播的状态（PROPAGATE) 
+* 送 (传播) 给其他人使用，因此这里将节点置为可传播的状态 (PROPAGATE) 
                    
 */
                   
@@ -1810,7 +1810,7 @@ node.next = node; // help GC
   
 删除节点的前置节点为头节点，则对该节点执行 unparkSuccessor 操作
   
-删除节点为中间节点，结果如下图所示。下图中（1) 表示同步队列的初始状态，假设删除 node2， node1 是正常节点（非 CANCELED) ，（2) 就是删除 node2 后同步队列的状态，此时 node1 节点的后继已经变为 node3，也就是说当 node1 变为 head 之后，会直接唤醒 node3。当另外的一个节点中断之后再次执行 cancelAcquire，在执行下面的代码时，会使同步队列的状态由（2) 变为（3) ，此时 node2 已经没有外界指针了，可以被回收了。如果一直没有另外一个节点中断，也就是同步队列一直处于（2) 状态，那么需要等 node3 被回收之后，node2 才可以被回收。
+删除节点为中间节点，结果如下图所示。下图中 (1) 表示同步队列的初始状态，假设删除 node2， node1 是正常节点 (非 CANCELED) ， (2) 就是删除 node2 后同步队列的状态，此时 node1 节点的后继已经变为 node3，也就是说当 node1 变为 head 之后，会直接唤醒 node3。当另外的一个节点中断之后再次执行 cancelAcquire，在执行下面的代码时，会使同步队列的状态由 (2) 变为 (3) ，此时 node2 已经没有外界指针了，可以被回收了。如果一直没有另外一个节点中断，也就是同步队列一直处于 (2) 状态，那么需要等 node3 被回收之后，node2 才可以被回收。
 
 Node pred = node.prev;
   
@@ -1912,11 +1912,11 @@ ReentrantLock的lock-unlock流程详解
   
 深入JVM锁机制2-Lock
   
-深度解析Java 8: JDK1.8 AbstractQueuedSynchronizer的实现分析（上) 
+深度解析Java 8: JDK1.8 AbstractQueuedSynchronizer的实现分析 (上) 
   
 AbstractQueuedSynchronizer源码分析
   
-聊聊并发（十二) —AQS分析
+聊聊并发 (十二) —AQS分析
   
 AbstractQueuedSynchronizer (AQS)
   

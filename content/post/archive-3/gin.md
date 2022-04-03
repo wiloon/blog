@@ -12,7 +12,7 @@ tags:
 ## gin
 https://github.com/gin-gonic/gin#quick-start
 
-```golang
+```go
 package main
 
 import (

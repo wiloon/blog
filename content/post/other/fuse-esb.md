@@ -10,7 +10,7 @@ tags:
   - reprint
 ---
 ## Fuse ESB
-Fuse ESB 学习笔记（一) 构建
+Fuse ESB 学习笔记 (一) 构建
 
 红薯 发表于 9-28 16:46
   
@@ -24,11 +24,11 @@ Fuse的SOA功能套件并不是独立开发，而是基于Apache的相关开源�
 
 首先从Fuse的ESB产品开始学习，之前需要准备的知识有: 
 
-Maven2（越来越多的开源项目都在采用MVN作为构建工具，逐渐替代ANT成为开源项目构建事实标准了，想玩开源，还是先老老实实的搞懂它吧) 
+Maven2 (越来越多的开源项目都在采用MVN作为构建工具，逐渐替代ANT成为开源项目构建事实标准了，想玩开源，还是先老老实实的搞懂它吧) 
   
-OSGi（目前有两个比较成熟的实现，一个是Eclipse的Equinox，另一个是Apache的Felix。实现微内核架构和模块 化，Fuse ESB最新版本是基于ServiceMix 4这个版本的，从这个版本开始，ServiceMix已经将核心从JBI规范的实现转为使用OSGi实现ESB功能) 
+OSGi (目前有两个比较成熟的实现，一个是Eclipse的Equinox，另一个是Apache的Felix。实现微内核架构和模块 化，Fuse ESB最新版本是基于ServiceMix 4这个版本的，从这个版本开始，ServiceMix已经将核心从JBI规范的实现转为使用OSGi实现ESB功能) 
   
-Spring DM（降低OSGi的企业应用门槛，和Spring进行整合，目前已经作为Eclipse RT的高级项目从springframework.org迁移到了eclipse.org，代号为Virgo) 
+Spring DM (降低OSGi的企业应用门槛，和Spring进行整合，目前已经作为Eclipse RT的高级项目从springframework.org迁移到了eclipse.org，代号为Virgo) 
   
 这些都是Fuse ESB的基础技术，没有掌握的同学请先自行补课
 
@@ -54,12 +54,12 @@ ServiceMix是标准的Maven项目，在根目录下直接就可以找到父pom.x
 
 下边简单说明一下fuse esb里边几个在开发和部署时常用的目录功能: 
 
-bin（启动或终止esb服务的命令行工具) 
+bin (启动或终止esb服务的命令行工具) 
   
-data（运行时所产生的OSGi bundle的缓存、日志等存放目录) 
+data (运行时所产生的OSGi bundle的缓存、日志等存放目录) 
   
-deploy（用于部署。把自己开发bc等包复制到该目录，可以自动部署) 
+deploy (用于部署。把自己开发bc等包复制到该目录，可以自动部署) 
   
-etc（配置文件的集中存放地，其中可以配置OSGi框架启动时所加载的bundle等。自定义的配置文件也放在这里) 
+etc (配置文件的集中存放地，其中可以配置OSGi框架启动时所加载的bundle等。自定义的配置文件也放在这里) 
 
 <http://www.oschina.net/question/12_11603>

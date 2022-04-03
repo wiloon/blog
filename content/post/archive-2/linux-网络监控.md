@@ -2,17 +2,34 @@
 title: linux 网络监控, NetHogs
 author: "-"
 date: 2015-11-04T02:03:53+00:00
-url: /?p=8449
+url: network/monitor
 categories:
-  - Uncategorized
-
+  - network
 tags:
   - reprint
 ---
 ## linux 网络监控, NetHogs
+
+- NetHogs
+- iftop
+- slurm
+
+
+## nethogs 
+
+```bash
+sudo pacman -S nethogs
+
+```
+
+```bash
+# 刷新频率 5秒
+nethogs -d 5
+
+```
 https://linux.cn/article-2808-1.html
 
-NetHogs 是一个开源的命令行工具(类似于Linux的top命令),用来按进程或程序实时统计网络带宽使用率.
+NetHogs 是一个开源的命令行工具 (类似于Linux的top命令), 用来按进程或程序实时统计网络带宽使用率.
 
 来自NetHogs项目网站:
 
@@ -28,9 +45,9 @@ NetHogs是一个小型的'net top'工具,不像大多数工具那样拖慢每个
 
 监控总体带宽使用――nload、bmon、slurm、bwm-ng、cbm、speedometer和netload
   
-监控总体带宽使用（批量式输出) ――vnstat、ifstat、dstat和collectl
+监控总体带宽使用 (批量式输出) ――vnstat、ifstat、dstat和collectl
   
-每个套接字连接的带宽使用――iftop、iptraf、tcptrack、pktstat、netwatch和trafshow
+每个 socket 连接的带宽使用――iftop、iptraf、tcptrack、pktstat、netwatch和trafshow
   
 每个进程的带宽使用――nethogs
   
@@ -54,9 +71,9 @@ $ sudo apt-get install nload
   
 2. iftop
 
-iftop可测量通过每一个套接字连接传输的数据；它采用的工作方式有别于nload。iftop使用pcap库来捕获进出网络适配器的数据包,然后汇总数据包大小和数量,搞清楚总的带宽使用情况。
+iftop可测量通过每一个 socket 连接传输的数据；它采用的工作方式有别于nload。iftop使用pcap库来捕获进出网络适配器的数据包,然后汇总数据包大小和数量,搞清楚总的带宽使用情况。
 
-虽然iftop报告每个连接所使用的带宽,但它无法报告参与某个套按字连接的进程名称/编号（ID) 。不过由于基于pcap库,iftop能够过滤流量,并报告由过滤器指定的所选定主机连接的带宽使用情况。
+虽然iftop报告每个连接所使用的带宽,但它无法报告参与某个套按字连接的进程名称/编号 (ID) 。不过由于基于pcap库,iftop能够过滤流量,并报告由过滤器指定的所选定主机连接的带宽使用情况。
 
 $ sudo iftop -n
   
@@ -81,11 +98,11 @@ $ sudo iptraf
   
 安装iptraf: 
 
-# Centos（基本软件库) 
+# Centos (基本软件库) 
   
 $ yum install iptraf
   
-# fedora或centos（带epel) 
+# fedora或centos (带epel) 
   
 $ yum install iptraf-ng -y
   
@@ -95,23 +112,23 @@ $ sudo apt-get install iptraf iptraf-ng
   
 4. nethogs
 
-nethogs是一款小巧的"net top"工具,可以显示每个进程所使用的带宽,并对列表排序,将耗用带宽最多的进程排在最上面。万一出现带宽使用突然激增的情况,用户迅速打开 nethogs,就可以找到导致带宽使用激增的进程。nethogs可以报告程序的进程编号（PID) 、用户和路径。
+nethogs是一款小巧的"net top"工具,可以显示每个进程所使用的带宽,并对列表排序,将耗用带宽最多的进程排在最上面。万一出现带宽使用突然激增的情况,用户迅速打开 nethogs,就可以找到导致带宽使用激增的进程。nethogs可以报告程序的进程编号 (PID) 、用户和路径。
 
 $ sudo nethogs
 
 安装nethogs: Ubuntu、Debian和Fedora用户可以从默认软件库获得。CentOS用户则需要Epel。
 
-# ubuntu或debian（默认软件库) 
+# ubuntu或debian (默认软件库) 
   
 $ sudo apt-get install nethogs
   
-# fedora或centos（来自epel) 
+# fedora或centos (来自epel) 
   
 $ sudo yum install nethogs -y
   
 5. bmon
 
-bmon（带宽监控器) 是一款类似nload的工具,它可以显示系统上所有网络接口的流量负载。输出结果还含有图表和剖面,附有数据包层面的详细信息。
+bmon (带宽监控器) 是一款类似nload的工具,它可以显示系统上所有网络接口的流量负载。输出结果还含有图表和剖面,附有数据包层面的详细信息。
 
 安装bmon: Ubuntu、Debian和Fedora用户可以从默认软件库来安装。CentOS用户则需要安装repoforge,因为Epel里面没有bmon。
 
@@ -119,7 +136,7 @@ bmon（带宽监控器) 是一款类似nload的工具,它可以显示系统上�
   
 $ sudo apt-get install bmon
   
-# fedora或centos（来自repoforge) 
+# fedora或centos (来自repoforge) 
   
 $ sudo yum install bmon
   
@@ -151,7 +168,7 @@ tcptrack类似iftop,使用pcap库来捕获数据包,并计算各种统计信息,
   
 $ sudo apt-get install tcptrack
   
-# fedora, centos（来自repoforge软件库) 
+# fedora, centos (来自repoforge软件库) 
   
 $ sudo yum install tcptrack
   
@@ -201,7 +218,7 @@ today    128.55 MiB |   41.00 MiB |  169.56 MiB |   24.97 kbit/s
   
 estimated       199 MiB |      63 MiB |     262 MiB |
   
-想实时监控带宽使用情况,请使用"-l"选项（实时模式) 。然后,它会显示入站数据和出站数据所使用的总带宽量,但非常精确地显示,没有关于主机连接或进程的任何内部详细信息。
+想实时监控带宽使用情况,请使用"-l"选项 (实时模式) 。然后,它会显示入站数据和出站数据所使用的总带宽量,但非常精确地显示,没有关于主机连接或进程的任何内部详细信息。
 
 $ vnstat -l -i eth0
   
@@ -219,13 +236,13 @@ vnstat支持许多选项,支持哪些选项方面的详细信息请参阅参考�
   
 $ sudo apt-get install vnstat
   
-# fedora或 centos（来自epel) 
+# fedora或 centos (来自epel) 
   
 $ sudo yum install vnstat
   
 9. bwm-ng
 
-bwm-ng（下一代带宽监控器) 是另一款非常简单的实时网络负载监控工具,可以报告摘要信息,显示进出系统上所有可用网络接口的不同数据的传输速度。
+bwm-ng (下一代带宽监控器) 是另一款非常简单的实时网络负载监控工具,可以报告摘要信息,显示进出系统上所有可用网络接口的不同数据的传输速度。
 
 $ bwm-ng
   
@@ -257,7 +274,7 @@ $ bwm-ng -o curses2
   
 $ sudo apt-get install bwm-ng
   
-# fedora或centos（来自epel) 
+# fedora或centos (来自epel) 
   
 $ sudo apt-get install bwm-ng
   
@@ -339,17 +356,17 @@ HH:MM:SS   KB/s in  KB/s out
   
 $ sudo apt-get install ifstat
   
-# fedora, centos（Repoforge) 
+# fedora, centos (Repoforge) 
   
 $ sudo yum install ifstat
   
-17. dstat
+## dstat
 
-dstat是一款用途广泛的工具（用python语言编写) ,它可以监控系统的不同统计信息,并使用批处理模式来报告,或者将相关数据记入到CSV或类似的文件。这个例子显示了如何使用dstat来报告网络带宽。
+dstat是一款用途广泛的工具 (用python语言编写) ,它可以监控系统的不同统计信息,并使用批处理模式来报告,或者将相关数据记入到CSV或类似的文件。这个例子显示了如何使用dstat来报告网络带宽。
 
 安装dstat
 
-$ dstat -nt
+    dstat -nt
   
 -net/total- --system--
   
@@ -367,7 +384,7 @@ recv  send|     time
   
 18. collectl
 
-collectl以一种类似dstat的格式报告系统的统计信息；与dstat一样,它也收集关于系统不同资源（如处理器、内存和网络等) 的统计信息。这里给出的一个简单例子显示了如何使用collectl来报告网络使用/带宽。
+collectl以一种类似dstat的格式报告系统的统计信息；与dstat一样,它也收集关于系统不同资源 (如处理器、内存和网络等) 的统计信息。这里给出的一个简单例子显示了如何使用collectl来报告网络使用/带宽。
 
 $ collectl -sn -oT -i0.5
   
@@ -414,3 +431,179 @@ ntop和darkstat是面向Linux系统的其中两个基本的基于Web的网络监
 五款好玩又好用的Linux网络测试和监控工具
   
 10个实用的 Linux 网络和监控命令
+
+
+## linux 网络 监控 iftop
+
+在类Unix系统中可以使用top查看系统资源、进程、内存占用等信息。查看网络状态可以使用netstat、nmap等工具。若要查看实时的网络流量，监控TCP/IP连接等，则可以使用iftop。
+  
+### iftop是什么？
+iftop是类似于top的实时流量监控工具。
+  
+官方网站: http://www.ex-parrot.com/~pdw/iftop/
+  
+二、iftop有什么用？
+  
+iftop可以用来监控网卡的实时流量 (可以指定网段) 、反向解析IP、显示端口信息等
+
+界面上面显示的是类似刻度尺的刻度范围，为显示流量图形的长条作标尺用的。
+  
+中间的这两个左右箭头，表示的是流量的方向，2行显示时，进和出的流量是分开计算的，一行显示时是加在一起计算的;单独显示进或出时就是单独的进或出的流量。
+  
+右侧的三列数值: 
+  
+第一列是: 在此次刷新之前2s或10s或40s的平均流量 (按B设置秒数) ;
+  
+第二列是: 在此次刷新之前10秒钟的总流量的一半;
+  
+第三列是: 在此次刷新之前40秒钟的总流量的1/5;
+  
+中间的列表，默认没有排序情况下，把10秒平均通信量大的排在前面。
+  
+界面最下面的三行显示的分别是发送、接收、总计的流量，右侧值分别是总流量 (过滤后的，没过滤就是全部的) 、在此次刷新之前40秒内的峰值流量、最近2秒的平均传输速率、最近10秒的平均传输速率、最近40秒的平均传输速率。
+
+### 常用的参数: 
+
+/usr/local/iftop
+  
+/sbin/iftop help //查看帮助命令
+  
+-i设定监测的网卡，如: # iftop -i eth1
+  
+-B 以bytes为单位显示流量(默认是bits)，如: # iftop -B
+  
+-n使host信息默认直接都显示IP，如: # iftop -n
+  
+-N使端口信息默认直接都显示端口号，如: # iftop -N
+  
+-F 显示特定网段的进出流量，如# iftop -F 10.10.1.0/24或# iftop -F 10.10.1.0/255.255.255.0
+  
+-h (display this message) 没明白啥意思呢。。。hehe
+  
+-p使用这个参数后，中间的列表显示的本地主机信息，出现了本机以外的IP信息;
+  
+-b使流量图形条默认就显示;
+  
+-f这个暂时还不太会用，过滤计算包用的;
+  
+-P使host信息及端口信息默认就都显示;
+  
+-m设置界面最上边的刻度的最大值，刻度分五个大段显示，例: # iftop -m 100M
+  
+-c指定具体的设定文件，暂时没用过;
+
+### 进入iftop画面后的一些操作命令(注意大小写): 
+
+按h切换是否显示帮助;
+  
+按n切换显示本机的IP或主机名;
+  
+按s切换是否显示本机的host信息;
+  
+按d切换是否显示远端目标主机的host信息;
+  
+按t切换显示格式为2行/1行/只显示发送流量/只显示接收流量;
+  
+按N切换显示端口号或端口服务名称;
+  
+按S切换是否显示本机的端口信息;
+  
+按D切换是否显示远端目标主机的端口信息;
+  
+按p切换是否显示端口信息;
+  
+按P切换暂停/继续显示;
+  
+按b切换是否显示平均流量图形条;
+  
+按B切换计算2秒或10秒或40秒内的平均流量;
+  
+按T切换是否显示每个连接的总流量;
+  
+按l打开屏幕过滤功能，输入要过滤的字符，比如ip,按回车后，屏幕就只显示这个IP相关的流量信息;
+  
+按L切换显示画面上边的刻度;刻度不同，流量图形条会有变化;
+  
+按j或按k可以向上或向下滚动屏幕显示的连接记录;
+  
+按1或2或3可以根据右侧显示的三列流量数据进行排序;
+  
+按 按>根据远端目标主机的主机名或IP排序;
+  
+按o切换是否固定只显示当前的连接;
+  
+按f可以编辑过滤代码，这是翻译过来的说法，我还没用过这个！
+  
+按!可以使用shell命令，这个没用过！没搞明白啥命令在这好用呢！
+  
+按q退出监控。
+
+TX: 发送流量
+  
+RX: 接收流量
+  
+TOTAL: 总流量
+  
+Cumm: 运行iftop到目前时间的总流量
+  
+peak: 流量峰值
+  
+rates: 分别表示过去 2s 10s 40s 的平均流量
+
+按1或2或3可以根据右侧显示的三列流量数据进行排序;
+
+按<根据左边的本机名或IP排序;
+
+按>根据远端目标主机的主机名或IP排序;
+  
+按T切换是否显示每个连接的总流量;
+  
+按t切换显示格式为2行/1行/只显示发送流量/只显示接收流量;
+
+Linux流量监控工具 - iftop (最全面的iftop教程)
+  
+ 
+
+>https://www.vpser.net/manage/iftop.html/embed#?secret=MdTvcxHN5f
+
+
+## slurm 实时网络流量监控
+
+虽然GNOME的系统监视器可以查看到网络状态，但是像slurm这样的命令行工具，占用资源少，查看方便，用起来到是别有一番风味。slurm 最初是给FreeBSD的做端口状态监视器，功能概述: 
+
+显示实时流量吐吞状态
+
+视图显示可选择
+
+可以监视任何网络接口
+
+显示关于接口的详细信息
+
+安装slurm到Ubuntu
+
+
+print?
+
+```bash
+
+sudo aptitude install slurm
+
+```
+
+这样安装就完成了
+
+Slurm 语法
+
+[cpp][/cpp]
+
+print?
+
+slurm [-hHz] [-csl] [-d delay] -i interface
+
+如果你想监视第一块网卡 (eth0) ,使用下面的命令: 
+
+[cpp][/cpp]
+
+print?
+
+slurm -i eth0

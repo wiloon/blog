@@ -30,7 +30,7 @@ Compaction作用 | 副作用
 
 22
 
-为了换取后续查询的低延迟,除了短时间的读放大之外,Compaction对写入也会有很大的影响。我们首先假设一个现象: 当写请求非常多,导致不断生成HFile,但compact的速度远远跟不上HFile生成的速度,这样就会使HFile的数量会越来越多,导致读性能急剧下降。为了避免这种情况,在HFile的数量过多的时候会限制写请求的速度: 在每次执行MemStore flush的操作前,如果HStore的HFile数超过hbase.hstore.blockingStoreFiles （默认7) ,则会阻塞flush操作hbase.hstore.blockingWaitTime时间,在这段时间内,如果compact操作使得HStore文件数下降到回这个值,则停止阻塞。另外阻塞超过时间后,也会恢复执行flush操作。这样做就可以有效地控制大量写请求的速度,但同时这也是影响写请求速度的主要原因之一。
+为了换取后续查询的低延迟,除了短时间的读放大之外,Compaction对写入也会有很大的影响。我们首先假设一个现象: 当写请求非常多,导致不断生成HFile,但compact的速度远远跟不上HFile生成的速度,这样就会使HFile的数量会越来越多,导致读性能急剧下降。为了避免这种情况,在HFile的数量过多的时候会限制写请求的速度: 在每次执行MemStore flush的操作前,如果HStore的HFile数超过hbase.hstore.blockingStoreFiles  (默认7) ,则会阻塞flush操作hbase.hstore.blockingWaitTime时间,在这段时间内,如果compact操作使得HStore文件数下降到回这个值,则停止阻塞。另外阻塞超过时间后,也会恢复执行flush操作。这样做就可以有效地控制大量写请求的速度,但同时这也是影响写请求速度的主要原因之一。
 
 可见,Compaction会使得数据读取延迟一直比较平稳,但付出的代价是大量的读延迟毛刺和一定的写阻塞。
 
@@ -53,13 +53,13 @@ HBase中可以触发compaction的因素有很多,最常见的因素有这么三�
   
 选择合适的文件进行合并是整个compaction的核心,因为合并文件的大小以及其当前承载的IO数直接决定了compaction的效果。最理想的情况是,这些文件承载了大量IO请求但是大小很小,这样compaction本身不会消耗太多IO,而且合并完成之后对读的性能会有显著提升。然而现实情况可能大部分都不会是这样,在0.96版本和0.98版本,分别提出了两种选择策略,在充分考虑整体情况的基础上选择最佳方案。无论哪种选择策略,都会首先对该Store中所有HFile进行一一排查,排除不满足条件的部分文件: 
 
-  1. 排除当前正在执行compact的文件及其比这些文件更新的所有文件（SequenceId更大)  
-  2. 排除某些过大的单个文件,如果文件大小大于hbase.hzstore.compaction.max.size（默认Long最大值) ,则被排除,否则会产生大量IO消耗
+  1. 排除当前正在执行compact的文件及其比这些文件更新的所有文件 (SequenceId更大)  
+  2. 排除某些过大的单个文件,如果文件大小大于hbase.hzstore.compaction.max.size (默认Long最大值) ,则被排除,否则会产生大量IO消耗
 
 经过排除的文件称为候选文件,HBase接下来会再判断是否满足major compaction条件,如果满足,就会选择全部文件进行合并。判断条件有下面三条,只要满足其中一条就会执行major compaction: 
 
   1. 用户强制执行major compaction 
-  2. 长时间没有进行compact（CompactionChecker的判断条件2) 且候选文件数小于hbase.hstore.compaction.max（默认10) 
+  2. 长时间没有进行compact (CompactionChecker的判断条件2) 且候选文件数小于hbase.hstore.compaction.max (默认10) 
 
   3. Store中含有Reference文件,Reference文件是split region产生的临时文件,只是简单的引用文件,一般必须在compact过程中删除
 
@@ -69,9 +69,9 @@ RatioBasedCompactionPolicy
 
 从老到新逐一扫描所有候选文件,满足其中条件之一便停止扫描: 
 
-（1) 当前文件大小 < 比它更新的所有文件大小总和 * ratio,其中ratio是一个可变的比例,在高峰期时ratio为1.2,非高峰期为5,也就是非高峰期允许compact更大的文件。那什么时候是高峰期,什么时候是非高峰期呢？用户可以配置参数hbase.offpeak.start.hour和hbase.offpeak.end.hour来设置高峰期
+ (1) 当前文件大小 < 比它更新的所有文件大小总和 * ratio,其中ratio是一个可变的比例,在高峰期时ratio为1.2,非高峰期为5,也就是非高峰期允许compact更大的文件。那什么时候是高峰期,什么时候是非高峰期呢？用户可以配置参数hbase.offpeak.start.hour和hbase.offpeak.end.hour来设置高峰期
 
-（2) 当前所剩候选文件数 <= hbase.store.compaction.min（默认为3) 
+ (2) 当前所剩候选文件数 <= hbase.store.compaction.min (默认为3) 
 
 停止扫描后,待合并文件就选择出来了,即为当前扫描文件+比它更新的所有文件
 
@@ -90,7 +90,7 @@ ExploringCompactionPolicy
 HBase实现中有一个专门的线程CompactSplitThead负责接收compact请求以及split请求,而且为了能够独立处理这些请求,这个线程内部构造了多个线程池: largeCompactions、smallCompactions以及splits等,其中splits线程池负责处理所有的split请求,largeCompactions和smallCompaction负责处理所有的compaction请求,其中前者用来处理大规模compaction,后者处理小规模compaction。这里需要明白三点: 
 
   1. 上述设计目的是为了能够将请求独立处理,提供系统的处理性能。 
-  2. 哪些compaction应该分配给largeCompactions处理,哪些应该分配给smallCompactions处理？是不是Major Compaction就应该交给largeCompactions线程池处理？不对。这里有个分配原则: 待compact的文件总大小如果大于值throttlePoint（可以通过参数hbase.regionserver.thread.compaction.throttle配置,默认为2.5G) ,分配给largeCompactions处理,否则分配给smallCompactions处理。
+  2. 哪些compaction应该分配给largeCompactions处理,哪些应该分配给smallCompactions处理？是不是Major Compaction就应该交给largeCompactions线程池处理？不对。这里有个分配原则: 待compact的文件总大小如果大于值throttlePoint (可以通过参数hbase.regionserver.thread.compaction.throttle配置,默认为2.5G) ,分配给largeCompactions处理,否则分配给smallCompactions处理。
 
   3. largeCompactions线程池和smallCompactions线程池默认都只有一个线程,用户可以通过参数hbase.regionserver.thread.compaction.large和hbase.regionserver.thread.compaction.small进行配置
 
