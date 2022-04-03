@@ -68,10 +68,9 @@ virsh 是用于管理虚拟化环境中的客户机和 Hypervisor 的命令行�
 
 virt-manager 是虚拟机管理器 (Virtual Machine Manager)  这个应用程序的缩写,也是管理工具的软件包名称。virt-manager 是用于管理虚拟机的图形化的桌面用户接口。
 
- 
 **libvirt，virt-manager,virsh**: 由于qemu-kvm的效率及通用性问题，有组织开发了 libvirt 用于虚拟机的管理，带有一套基于文本的虚拟机的管理工具 virsh，以及一套用户渴望的图形界面管理工具 virt-manager。libvirt 是用 python 语言写的通用的API，不仅可以管理 KVM， 也可用于管理XEN
 
-### 内核版本是 2.6.22 或更新版本内建 KVM 模块，可以使用下面命令来检查你的内核版本是否支持KVM :
+### 内核版本是 2.6.22 或更新版本内建 KVM 模块，可以使用下面命令来检查你的内核版本是否支持KVM
 
 modprobe -l kvm*
 

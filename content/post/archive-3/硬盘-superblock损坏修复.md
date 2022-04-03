@@ -7,6 +7,8 @@ categories:
   - linux
 tags:
   - reprint
+  - filesystem
+
 ---
 ## Superblock, 超级块
 
@@ -17,6 +19,7 @@ Superblock 记录整个文件系统的整体信息，包括inode与数据块的�
 >http://www.linfo.org/superblock
 
 ## 硬盘 SuperBlock 损坏修复
+
 ### 找到super block 备份
 
 ```bash

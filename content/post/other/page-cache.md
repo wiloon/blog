@@ -29,6 +29,7 @@ tags:
 radix树：又名基数树，它使用键值 (key-value）对的形式来保存数据，并且可以通过键快速查找到其对应的值。内核以文件读写操作中的数据 偏移量 作为键，以数据偏移量所在的 页缓存 作为值，存储在 address_space 结构的 page_tree 字段中。
 
 ### buffer cache, 块缓存
+
 Buffer cache 也叫块缓冲，是对物理磁盘上的一个磁盘块进行的缓冲，其大小为通常为1k，磁盘块也是磁盘的组织单位。设立 buffer cache 的目的是为在程序多次访问同一磁盘块时，减少访问时间。系统将磁盘块首先读入 buffer cache，如果 cache 空间不够时，会通过一定的策略将一些过时或多次未被访问的 buffer cache 清空。程序在下一次访问磁盘时首先查看是否在 buffer cache 找到所需块，命中可减少访问磁盘时间。不命中时需重新读入 buffer cache。对 buffer cache 的写分为两种，一是直接写，这是程序在写 buffer cache 后也写磁盘，要读时从 buffer cache 上读，二是后台写，程序在写完 buffer cache后并不立即写磁盘，因为有可能程序在很短时间内又需要写文件，如果直接写，就需多次写磁盘了。这样效率很低，而是过一段时间后由后台写，减少了多次访磁盘的时间。
 
 Buffer cache 是由物理内存分配，Linux 系统为提高内存使用率，会将空闲内存全分给 buffer cache ，当其他程序需要更多内存时，系统会减少 cache 大小。

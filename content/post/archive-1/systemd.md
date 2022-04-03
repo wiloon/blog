@@ -17,14 +17,16 @@ Systemd 是 Linux 系统中最新的初始化系统 (init），它主要的设�
 - 同时采用socket式与D-Bus总线式激活服务
 - 系统状态快照
 
-
 ### 查看配置文件位置
+
     systemctl status service0
 
 配置文件主要放在/usr/lib/systemd/system 目录,也可能在/etc/systemd/system目录
 
 ### 配置文件
-####  [Unit] 区块: 启动顺序与依赖关系。
+
+#### [Unit]: 启动顺序与依赖关系
+
 After字段: 表示如果network.target或sshd-keygen.service需要启动,那么sshd.service应该在它们之后启动。
 
 相应地,还有一个Before字段,定义sshd.service应该在哪些服务之前启动。
@@ -260,12 +262,12 @@ Unit 一共分成12种。
  systemctl list-dependencies nginx.service
  systemctl list-dependencies --all nginx.service
 
- ### 
- /etc/systemd/system/
- /usr/lib/systemd/system/
- /etc/systemd/system/multi-user.target.wants/v2ray.service
+/etc/systemd/system/
+/usr/lib/systemd/system/
+/etc/systemd/system/multi-user.target.wants/v2ray.service
 
 ### systemctl mask和systemctl disable
+
 systemctl mask和systemctl disable的区别一般很难注意到，因为我大部分时候只会使用systemctl disable，并不会用到systemctl mask。在一次遇到问题的时候，需要使用systemctl mask来禁用服务，下边具体说明。
 
 systemctl enable的作用

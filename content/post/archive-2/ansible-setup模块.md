@@ -5,11 +5,11 @@ date: 2018-01-10T09:46:37+00:00
 url: /?p=11704
 categories:
   - Uncategorized
-
 tags:
   - reprint
 ---
 ## Ansible setup模块
+
 https://www.ipcpu.com/2016/01/ansible-setup-when/
 
 Ansible入门setup模块和条件判断

@@ -1,15 +1,16 @@
 ---
-title: 文件系统，block组，block，bmap，inode，inode table，imap
+title: 文件系统
 author: "-"
 date: 2014-04-14T08:06:08+00:00
 url: imap
 categories:
-  - Uncategorized
-
+  - OS
 tags:
   - reprint
 ---
 ## 文件系统，block组，block，bmap，inode，inode table，imap
+
+## imap
 
 文件系统 imap：inode 节点位图(inodemap)管理空闲inode
 
