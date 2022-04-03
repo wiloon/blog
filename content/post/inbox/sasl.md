@@ -208,14 +208,11 @@ http://blog.csdn.net/id19870510/article/details/8232509
 
 http://just4coding.com/2014/11/06/sasl/
 
-
-
-### 关于sasl
-华叔 - 2010年12月1日 - 1 评论
+### 关于 sasl
 
 sasl(Simple Authentication and Security Layer)是一个用于网络通信协议的安全验证框架，它可以使网络协议在互相验证的阶段可以有多种验证方式可以选择。
 
-现在实现sasl的协议主要有imap,smtp,pop,xmpp,subersion,….。举个smtp的例子说明一下sasl的验证流程:
+现在实现sasl的协议主要有 imap, smtp, pop, xmpp, subersion,….。举个smtp的例子说明一下sasl的验证流程:
 
 250-mail.example.com Hello pc.example.org [192.168.1.42], pleased to meet you
 250-AUTH DIGEST-MD5 CRAM-MD5 LOGIN PLAIN

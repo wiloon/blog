@@ -1,5 +1,5 @@
 ---
-title: Dovecot
+title: Dovecot, 邮件服务器
 author: "-"
 date: 2013-05-10T13:45:52+00:00
 url: /?p=5443
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## Dovecot
+## Dovecot, 邮件服务器
 dovecot 是一个开源的 IMAP 和 POP3 邮件服务器，支持 Linux/Unix 系统。
 
 POP / IMAP 是 MUA 从邮件服务器中读取邮件时使用的协议。其中，与 POP3 是从邮件服务器中下载邮件比起来，IMAP4 则是将邮件留在服务器端直接对邮件进行管理、操作。而Dovecot 是一个比较新的软件，由 Timo Sirainen 开发，最初发布于 2002年7月。作者将安全性考虑在第一，所以 Dovecot 在安全性方面比较出众。另外，Dovecot 支持多种认证方式，所以在功能方面也比较符合一般的应用。

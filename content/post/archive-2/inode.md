@@ -100,8 +100,6 @@ sudo dumpe2fs -h /dev/hda | grep "Inode size"
 
 ls -i example.txt
 
-
-
 #### 目录文件
 
 Unix/Linux系统中,目录 (directory) 也是一种文件。打开目录,实际上就是打开目录文件。
@@ -182,7 +180,8 @@ linux的文件名是保存在目录文件上的,
 发表日期:  2011年12月 4日
 https://www.ruanyifeng.com/blog/2011/12/inode.html
 
-### 目录  
+### 目录
+
 在Linux操作系统中,目录就是目录文件。目录项中存放文件名和一个指向inode的指针。  
 一个目录项主要包括了文件名和inode,索引节点号是指向inode表( system inode table )中对应的索引节点的。  
 https://unix.stackexchange.com/questions/117325/where-are-filenames-stored-on-a-filesystem

@@ -378,9 +378,9 @@ https://blog.wiloon.com/?p=5626&embed=true#?secret=1NahDK0zlm
 
 client_max_body_size 20m; 20m为允许最大上传的大小。
    
-use epoll;
+## use epoll;
    
-在Linux操作系统下，nginx使用epoll事件模型，得益于此，nginx在Linux操作系统下效率相当高。同时Nginx在OpenBSD或FreeBSD操作系统上采用类似于epoll的高效事件模型kqueue。nginx同时是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
+在 Linux 操作系统下，nginx 使用 epoll 事件模型，得益于此，nginx在Linux操作系统下效率相当高。同时 Nginx 在 OpenBSD 或 FreeBSD 操作系统上采用类似于 epoll 的高效事件模型 kqueue。nginx 同时是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
 
 multi_accept 告诉nginx收到一个新连接通知后接受尽可能多的连接。
 

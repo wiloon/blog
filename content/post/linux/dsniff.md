@@ -2,15 +2,15 @@
 title: Dsniff
 author: "-"
 date: 2012-01-08T05:31:08+00:00
-url: /?p=2110
+url: dsniff
 categories:
   - Linux
   - Network
-
 tags:
   - reprint
 ---
 ## Dsniff
+
 Dsniff是一个著名的网络嗅探工具包。其开发者Dug Song早在1999年12月，以密歇根大学CITI研究室 (Center for Information Technology Integration) 的研究成果为基础，开发了这个后来具有很大影响力的网络安全工具包。Dug Song开发Dsniff的本意是揭示网络通信的不安全性，借助这个工具包，网络管理员可以对自己的网络进行审计，也包括渗透测试。但万事总有其两面 性，Dsniff所带来的负面作用也是"巨大"的，首先它是可以自由获取的，任何拥有这个工具包的人都可能做"非正当"的事，其次，Dsniff里面的某 些工具，充分揭示了一些安全协议的"不安全性"，例如针对SSH1和SSL的MITM (Man-In-The-Middle) 攻击工具—SSHmitm和 Webmitm。SSH1和SSL都是建立网络通信加密通道的机制，向来被认为是很安全的，但人们在具体使用时，往往因为方便性上的考虑而忽视了某些环 节，造成实事上的不安全。所以说，最大的不安全性，往往并不在于对安全的一无所知，而在于过于相信自己的安全。
 
 Dub Song在2000年12月发布了Dsniff的v2.3版本，该版本支持OpenBSD、Linux、Solaris系统平台。目前，最新版本是 2001年3月发布的v2.4b1的Beta版
@@ -40,9 +40,9 @@ Dub Song在2000年12月发布了Dsniff的v2.3版本，该版本支持OpenBSD、L
   * 发起主动欺骗的工具，包括: arpspoof、dnsspoof、macof
   * 其它工具，包括tcpkill、tcpnice
 
-#### **dsniff**
+#### dsniff
 
-**dsniff**是一个密码侦测工具，他能够自动分析端口上收到的某些协议的数据包，并获取相应的密码。 dnisff支持的协议有FTP, Telnet, SMTP, HTTP, POP, poppass, NNTP, IMAP, SNMP, LDAP, Rlogin, RIP, OSPF, PPTP MS-CHAP, NFS, VRRP, YP/NIS, SOCKS, X11, CVS, IRC, AIM, ICQ, Napster, PostgreSQL, Meeting Maker, Citrix ICA, Symantec pcAnywhere, NAI Sniffer, Microsoft SMB, Oracle SQL*Net, Sybase and Microsoft SQL。
+dsniff 是一个密码侦测工具，他能够自动分析端口上收到的某些协议的数据包，并获取相应的密码。 dnisff 支持的协议有 FTP, Telnet, SMTP, HTTP, POP, poppass, NNTP, IMAP, SNMP, LDAP, Rlogin, RIP, OSPF, PPTP MS-CHAP, NFS, VRRP, YP/NIS, SOCKS, X11, CVS, IRC, AIM, ICQ, Napster, PostgreSQL, Meeting Maker, Citrix ICA, Symantec pcAnywhere, NAI Sniffer, Microsoft SMB, Oracle SQL*Net, Sybase and Microsoft SQL。
 
 > **dsniff** [**-c**] [**-d**] [**-m**] [**-n**] [**-i **_interface_] [**-s **_snaplen_] [**-f **_services_] [**-t **_trigger[,...]_]] [**-r**|**-w** _savefile_] [_expression_]     **注意**: 这里所有的expression都是代表TCPDUMP的表达式，指定对哪些数据包进行攻击
 

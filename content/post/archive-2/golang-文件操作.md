@@ -111,7 +111,8 @@ func isExist(fileName string) bool {
 
 ```
 
-### 判断是文件还是目录 
+### 判断是文件还是目录
+
     f, _ := os.Stat("a.txt")
     f.IsDir()
 

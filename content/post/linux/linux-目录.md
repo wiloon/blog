@@ -10,17 +10,17 @@ tags:
 ---
 ## linux 目录
 
->https://my.oschina.net/njzjf/blog/317331
+<https://my.oschina.net/njzjf/blog/317331>
 
 ## /bin
 
-软链 /usr/bin
+In Arch Linux the /bin is a symlink to /usr/bin
 
-### /mnt 
+### /mnt
 
-这个目录一般是用于存放挂载储存设备的挂载目录的，比如有cdrom 等目录。可以参看/etc/fstab的定义。有时我们可以把让系统开机自动挂载文件系统，把挂载点放在这里也是可以的。主要看/etc/fstab中怎么定义了；比如光驱可以挂载到/mnt/cdrom 。
+这个目录一般是用于存放挂载储存设备的挂载目录的，比如有cdrom 等目录。可以参看 /etc/fstab 的定义。有时我们可以把让系统开机自动挂载文件系统，把挂载点放在这里也是可以的。主要看/etc/fstab中怎么定义了；比如光驱可以挂载到/mnt/cdrom 。
 
-### /opt 
+### /opt
 
 表示的是可选择的意思，有些软件包也会被安装在这里，也就是自定义软件包，比如在 Fedora Core 5.0中，OpenOffice 就是安装在这里。有些我们自己编译的软件包，就可以安装在这个目录中；通过源码包安装的软件，可以通过 ./configure -prefix=/opt/目录 。
 
@@ -49,11 +49,6 @@ proc - 虚拟，存在linux内核镜像；保存所有内核参数以及系统�
 
 1 - 进程编号
 
-### /usr
-系统级的目录，可以理解为C:/Windows/。  
-在早期的Unix实现中, usr目录用于存放用户相关的数据相当于现在的/home 目录, /usr 目录现在用于存放用户空间的程序和数据 
-usr并不是user用户的缩写，而是 User System Resources 的缩写
-
 #### /usr/lib
 
 程序和核心模块的公共库  
@@ -70,7 +65,7 @@ usr并不是user用户的缩写，而是 User System Resources 的缩写
 
 存放C/C++头文件的目录
 
-bin - 几乎所有用户所用命令，另外存在与/bin，/usr/local/bin
+bin - 
 
 sbin - 系统管理员命令，与用户相关，例如，大部分服务器程序
 
@@ -99,7 +94,6 @@ boot - 引导加载器所需文件，系统所需图片保存于此
 ## /snap
 
 软链 /var/lib/snapd/snap
-
 
 modules - 可加载模块，系统崩溃后重启所需模块
 
@@ -137,10 +131,20 @@ tmp - 临时文件目录，系统启动后的临时文件存放在/var/tmp
 
 lost+found - 在文件系统修复时恢复的文件
 
-/: 根目录，一般根目录下只存放目录，不要存放文件，/etc、/bin、/dev、/lib、/sbin应该和根目录放置在一个分区中
+## /
 
-/bin:/usr/bin:可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等。
+根目录，一般根目录下只存放目录，不要存放文件，/etc、/bin、/dev、/lib、/sbin 应该和根目录放置在一个分区中
 
+## /usr/bin
+
+
+/bin下存放一些普通的基本命令, /bin下的命令管理员和一般的用户都可以使用。 
+几乎所有用户所用命令，另外存在与/bin，/usr/local/bin  
+可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等。
+
+/usr/bin 是你在后期安装的一些软件的运行脚本。主要放置一些应用软体工具的必备执行档例如c++、g++、gcc、chdrv、diff、dig、du、eject、elm、free、gnome*、 gzip、htpasswd、kfm、ktop、last、less、locale、m4、make、man、mcopy、ncftp、 newaliases、nslookup passwd、quota、smb*、wget等。
+    
+    
 /boot: 放置linux系统启动时用到的一些文件。/boot/vmlinuz为linux的内核文件，以及/boot/gurb。建议单独分区，分区大小100M即可
 
 /dev: 存放linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备，常用的是挂载光驱mount /dev/cdrom /mnt。
@@ -161,13 +165,32 @@ lost+found - 在文件系统修复时恢复的文件
 
 /root: 系统管理员root的家目录，系统第一个启动的分区为/，所以最好将/root和/放置在一个分区下。
 
-/sbin:/usr/sbin:/usr/local/sbin: 放置系统管理员使用的可执行命令，如fdisk、shutdown、mount等。与/bin不同的是，这几个目录是给系统管理员root使用的命令，一般用户只能"查看"而不能设置和使用。
+## /sbin:/usr/sbin:/usr/local/sbin
 
+In Arch Linux the /sbin is a symlink to /usr/bin
+
+### traditional saying
+
+放置系统管理员使用的/基本的系统命令/可执行命令，如fdisk、shutdown、mount等, 用于启动系统，修复系统, 与 /bin 不同的是，这几个目录是给系统管理员 root 使用的命令，一般用户只能 "查看" 而不能设置和使用。
+
+/usr/sbin   放置一些用户安装的系统管理的必备程式例如:dhcpd、httpd、imap、in.*d、inetd、lpd、named、netconfig、nmbd、samba、sendmail、squid、swap、tcpd、tcpdump等。
+    如果新装的系统，运行一些很正常的诸如: shutdown，fdisk的命令时，悍然提示: bash:command not found。那么
+    首先就要考虑root 的$PATH里是否已经包含了这些环境变量。
+    可以查看PATH，如果是: PATH=$PATH:$HOME/bin则需要添加成如下: 
+    PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin
+  
 /tmp: 一般用户或正在执行的程序临时存放文件的目录,任何人都可以访问,重要数据不可放置在此目录下
 
 /srv: 服务启动之后需要访问的数据目录，如www服务需要访问的网页数据存放在/srv/www内
 
-/usr: 应用程序存放目录，/usr/bin存放应用程序，/usr/share存放共享数据，/usr/lib存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local:存放软件升级包。/usr/share/doc:系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间
+## /usr
+
+系统级的目录，可以理解为C:/Windows/。
+
+在早期的 Unix 实现中, usr目录用于存放用户相关的数据相当于现在的 /home 目录, /usr 目录现在用于存放用户空间的程序和数据
+usr并不是 user用户的缩写，而是 User System Resources 的缩写
+
+存放应用程序，/usr/bin 存放应用程序，/usr/share 存放共享数据，/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local:存放软件升级包。/usr/share/doc:系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间
 
 ## /var
 
@@ -185,3 +208,22 @@ lost+found - 在文件系统修复时恢复的文件
 配置文件 /etc/foo/config.toml
 db      /var/lib/foo/foo.db
 日志    /var/log/foo/debug.log
+
+<https://blog.csdn.net/kkdelta/article/details/7708250>
+
+
+
+而/usr/bin,/usr/sbin与/sbin /bin目录的区别在于:
+
+/bin,/sbin目录是在系统启动后挂载到根文件系统中的，所以/sbin,/bin目录必须和根文件系统在同一分区；
+
+/usr/bin,usr/sbin可以和根文件系统不在一个分区。
+    
+/usr/sbin存放的一些非必须的系统命令；/usr/bin存放一些用户命令，如led(控制LED灯的)。
+    
+转下一位网友的解读，个人认为诠释得很到位: 
+    
+    /bin 是系统的一些指令。bin为binary的简写主要放置一些系统的必备执行档例如:cat、cp、chmod df、dmesg、gzip、kill、ls、mkdir、more、mount、rm、su、tar等。
+    /sbin一般是指超级用户指令。主要放置一些系统管理的必备程式例如:cfdisk、dhcpcd、dump、e2fsck、fdisk、halt、ifconfig、ifup、 ifdown、init、insmod、lilo、lsmod、mke2fs、modprobe、quotacheck、reboot、rmmod、 runlevel、shutdown等。
+
+

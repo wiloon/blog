@@ -27,7 +27,9 @@ EOF
 ```
 
 ## 目录
+
 ### 检查目录是否存在
+
 ```bash
 # check if directory is exist
 if [ ! -d "$DIRECTORY" ]; then

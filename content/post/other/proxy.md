@@ -1,15 +1,15 @@
 ---
-title: 9大代理服务器软件的比较与分析
+title: 代理服务器
 author: "-"
 date: 2012-01-17T04:37:47+00:00
-url: /?p=2144
+url: proxy
 categories:
-  - Network
-
+  - web
 tags:
   - reprint
 ---
-## 9大代理服务器软件的比较与分析
+## 代理服务器
+
 代理服务器不仅可以为局域网内的PC提供代理服务，还可以为基于Windows网络的用户提供代理服务。而且代理服务的实现十分简单，它只需在局域网的一台服务器上运行相应的服务器端软件即可。目前代理服务器软件产品主要有: Microsoft Proxy，Microsoft ISA，WinProxy、WinGate、winRoute、SyGate、CCProxy、SuperProxy等；而在UNIX/Linux系统主要采用Squid和Netscape Proxy等服务器软件作为代理。
 
 ### squid
