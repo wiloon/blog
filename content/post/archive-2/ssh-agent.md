@@ -46,7 +46,7 @@ ssh-add 提示并将用户的使用的私钥添加到由ssh-agent 维护的列�
 
 ```bash  
 eval `ssh-agent`
-ssh-add Path/to/your private_key files
+ssh-add Path/to/your/private_key files
 ssh-keygen -f ~/.ssh/id_rsa -p
 ```
 
