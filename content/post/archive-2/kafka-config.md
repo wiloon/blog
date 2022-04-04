@@ -97,6 +97,7 @@ as max.block.ms before raising an exception.
 
 
 ### max.block.ms
+
 buffer.memory 写满之后x毫秒抛异常 TimeoutException
 
 配置控制了KafkaProducer.send () 和KafkaProducer.partitionsFor () 的阻塞时间,这些方法可以由于缓冲区已满或元数据不可用而被阻塞,用户提供的序列化器或分区器中的阻塞将不计入此超时时间 。

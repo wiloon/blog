@@ -15,20 +15,23 @@ https://www.passmark.com/
 ## QNAP TS453Bmini
 
 ## pixel3
+
 5.5 英寸显示屏, 2160 x 1080) 柔性 OLED 屏幕 (443ppi), 18:9
 后置摄像头1220 万像素
 Qualcomm® Snapdragon™ 845, 2.5Ghz + 1.6Ghz，64 位八核
 内存, 4GB LPDDR4x RAM
 2915 毫安时的电池
-#### esim
+
+### esim
+
 https://support.google.com/pixelphone/answer/9449293?hl=zh-Hans
 
+## Sharp
 
-
-## Sharp 
 3840*2160
 
 ## 斐讯N1
+
 CPU: Amlogic S905, ARM Cortex-A53 四核 up to 2.0GHz
 GPU: ARM Mali™-450, 5core
 ETH: RTL8211F 100/1000M
@@ -69,12 +72,14 @@ Real, DivX HD
 ## Back-UPS Pro 550
 
 ## Dell wyse 5070
+
 Intel® Celeron® J4105 Processor (4M Cache, up to 2.50 GHz), TDP 10 W
 威刚(ADATA) 120GB SSD固态硬盘 M.2接口(SATA协议) SP580M2系列
 金士顿(Kingston) DDR4 2666 8GB 笔记本内存条 骇客神条 Impact系列
 
 ## PC
-2015-09-05    
+
+2015-09-05
 华硕 (ASUS) Z170M-PLUS 主板  (Intel Z170/LGA 1151)    
 Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz   
 Kingston DDR4 2133 16GB(8Gx2条)  
@@ -83,29 +88,36 @@ wifi: Intel Corporation Wireless 7260 (rev 5b)
     Wi-Fi CERTIFIED*    802.11ac
 
 ### 显示输出
+
 - DVI
 - HDMI
 - VGA
 
 ## Dell U2412M * 2
+
 1920x1200
 
 ### 接口
+
 - DP
 - DVI
 - VGA
 
 ## ViewSonic
+
 ### 接口
+
 - DVI
 - VGA
 
 ## 视频线
+
 - VGA > VGA: PC > ViewSonic
 - DVI > DVI: PC > Dell U2412M
 - HDMI > DP: PC > Dell U2412M
 
 ## nuc8i5beh
+
 https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.html
 
     i5-8259U 
@@ -113,11 +125,12 @@ https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc8i5beh.
     Memory Types DDR4-2400 1.2V SO-DIMM
 
 ### 显示输出
+
 - HDMI > dvi
 - type-c > vga
 
-
 ## Pixelbook
+
 CPU: i5  
 MEM: 8G  
 DISK: 128G  
@@ -126,9 +139,12 @@ display: 2400x1600
 ## Pixel2
 
 ## Intel® Compute Stick STK1AW32SC
-Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz  
+
+- cpu: Intel(R) Atom(TM) x5-Z8300 CPU @ 1.44GHz  
+- mac: 00:21:5C:D5:FB:9C
 
 ## board
+
     cpu: Intel(R) Celeron(R) CPU 1037U @ 1.80GHz
     MEM: DDR3
     wlan: BCM94313HMG2L

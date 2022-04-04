@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## 交叉编译
+
 http://baike.baidu.com/view/650389.htm
   
 交叉编译是在一个平台上生成另一个平台上的可执行代码。这里需要注意的是所谓 平台，实际上包含两个概念: 体系结构 (Architecture) 、操作系统 (Operating System) 。同一个体系结构可以运行不同的操作系统；同样，同一个操作系统也可以在不同的体系结构上运行。举例来说，我们常说的x86 Linux平台实际上是Intel x86体系结构和Linux for x86操作系统的统称；而x86 WinNT平台实际上是Intel x86体系结构和Windows NT for x86操作系统的简称。

@@ -157,13 +157,9 @@ virsh attach-disk <虚拟机名称>
 virsh attach-device <虚拟机名称> /etc/libvirt/qemu/test2-add.xml --persistent        # 从XML文件附加设备
 virsh detach-device <虚拟机名称> /etc/libvirt/qemu/test2-add.xml --persistent        # 卸载设备   
 
-
-
 ```
 
-
 >https://linux.die.net/man/1/virt-install
-
 
 ### 虚拟机改名
 
@@ -187,12 +183,12 @@ virsh setmem vm0 16G
 
 ```
 
-
 ————————————————
 版权声明：本文为CSDN博主「tom马」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/mshxuyi/article/details/98305715
 
 ## centos6
+
 ```bash
 virt-install \
 --name=centos6 --ram 2048 --vcpus=2 \

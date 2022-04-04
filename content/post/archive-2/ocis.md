@@ -9,19 +9,23 @@ tags:
   - reprint
 ---
 ## owncloud,cozy, nextcloud
+
 ## Gofi
->https://gofi.calmlyfish.com/zh/
+
+<https://gofi.calmlyfish.com/zh/>
 
 ```bash
 nohup ./gofi-linux-amd64 &
 podman run -d         --name=gofi         -p 80:8080         -v gofi-app:/app         sloaix/gofi:latest
 ```
+
 ### owncloud
 
 podman pull owncloud/ocis
 podman run --rm -ti -p 9200:9200 -e OCIS_INSECURE=true owncloud/ocis
 
 ### Cozy Cloud
+
 Cozy Cloud是一个开源的个人私有云,可以用于阅读电子邮件,或者管理和同步联系人、文件或日历,同时会有相关的应用商店和社区作为素材库,它可以将所有Web服务都放在同一个私有的个人平台,通过此平台,用户的网页应用和设备可以轻松地进行数据分享。
 
 语言: Go

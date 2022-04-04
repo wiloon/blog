@@ -1,18 +1,18 @@
 ---
 title: linux apps
 author: "-"
-date: 2018-09-23T05:52:02+00:00
+date: 2022-04-04 17:43:03
 url: linux/apps
-
 categories:
   - linux
 tags:
-  - reprint
   - remix
 ---
 ## linux apps
+
 ## application list
-    https://wiki.archlinux.org/index.php/List_of_applications
+
+<https://wiki.archlinux.org/index.php/List_of_applications>
 
 ```bash
 # apps
@@ -32,7 +32,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | name                  | comments                                                                                |
 | :-------------------- | :-------------------------------------------------------------------------------------- |
 | ncdu                  | 磁盘空间清理                                                                              |
-|Netdata|系统资源监控|
+| netdata               |系统资源监控|
 | qalculate-gtk         | 全宇宙最好用的计算器                                                                    |
 | neofetch              | 系统信息显示命令行脚本,Neofetch 和 ScreenFetch 或者 Linux_Logo 很像，但是它可以高度定制          |
 | screenfetch           | 打印发行版的 logo                                                                            |
@@ -172,6 +172,7 @@ sudo pacman -S powerdevil kmix kscreen ark
 | rsibreak           | 蕃茄钟, install via pacman |
 
 ## ubuntu
+
 | Name             | Comments                                                    |
 | ---------------- | ----------------------------------------------------------- |
 | openjdk-8-jdk    |                                                             |
@@ -189,13 +190,15 @@ sudo pacman -S powerdevil kmix kscreen ark
 |rar||
 |unrar||
 
-#### ubuntu install chrome
+### ubuntu install chrome
 
 ```bash
 curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
+
 ### xfce4
+
 file-roller
 
 ### downlaod tar
@@ -205,12 +208,14 @@ file-roller
 | Ventoy | 各种iso安装盘引导工具 |
 
 ### openwrt
+
 | Name    | Comments |
 | ------- | -------- |
 | drill   |          |
 | openwrt |          |
 
 ## other
+
 | Name    | Comments |
 | ------- | -------- |
 | datagrip   |          |

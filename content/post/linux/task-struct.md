@@ -626,7 +626,7 @@ int lock_depth;     /* BKL lock depth */
 #endif  
  (6) 、FPU使用计数 
 unsigned char fpu_counter;  
- (7) 、 blktrace是一个针对Linux内核中块设备I/O层的跟踪工具。 
+ (7) 、 blktrace 是一个针对Linux内核中块设备I/O层的跟踪工具。
 #ifdef CONFIG_BLK_DEV_IO_TRACE  
     unsigned int btrace_seq;  
 #endif  

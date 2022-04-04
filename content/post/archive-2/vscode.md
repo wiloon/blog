@@ -66,50 +66,59 @@ Controls the font family.
 还可以 Consolas, 'Courier New', monospace,DengXian 和 Consolas, 'Courier New', "微软雅黑", monospace 这样。
 
 ## vscode plugin
-#### Filter Line
+
+### Filter Line
+
 按关键字过滤
-#### Word Count
+
+### Word Count
 
 字数统计
 
-#### remote development
+### remote development
 
-windows 编辑 wsl 文件 
+windows 编辑 wsl 文件
 
-#### markdownlint
+### markdownlint
 
 markdown 语法检查
 
-#### Markdown All in One
+### Markdown All in One
 
     ctrl+shift+i - 表格格式化
     ctrl+b: 粗体
     命令: Format Document: 格式化表格
 
 ## vscode 扩展 离线安装
+
 - 下载 .vsix 文件
 - 安装
 
     code --install-extension jsynowiec.vscode-insertdatestring-2.3.1.vsix
 
-#### Settings Sync
+### Settings Sync
 
 配置同步
-#### Markdown Preview Github Styling
 
-#### REST Client
+### Markdown Preview Github Styling
+
+### REST Client
+
 vscode 发http请求
 同一个文档 中不同的请求用 "###" 分隔
 
 ### Insert Date String
+
 插入当前日期时间
 
 #### vscode > PlantUML
+
 config plant uml rander server
 File>Preferences>Extensions>PlantUML config>Rander: server
 File>Preferences>Extensions>PlantUML config>Server: http://plantuml.wiloon.com
 
 ### hexdump
+
 hex viewer
 
 ### 显示空格

@@ -1,5 +1,5 @@
 ---
-title: 'huawei vpn, sslvpn, secoclient in archlinux, 华为SSLVPN客户端'
+title: huawei vpn, sslvpn, secoclient in archlinux, 华为SSLVPN客户端
 author: "-"
 date: 2020-02-01T03:59:45+00:00
 url: secoclient
@@ -9,7 +9,7 @@ categories:
 tags:
   - reprint
 ---
-## 'huawei vpn, sslvpn, secoclient  in archlinux. 华为SSLVPN客户端'
+## huawei vpn, sslvpn, secoclient in archlinux, 华为SSLVPN客户端
 
 ### 下载安装包
 

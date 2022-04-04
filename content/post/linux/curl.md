@@ -11,6 +11,7 @@ tags:
 
 ---
 ## curl
+
 ## curl, [kɜrl]
 
 ## options
@@ -25,32 +26,42 @@ tags:
 curl -C - "http://foo.bar"
 
 ```
+
 ### cookie
+
 #### cookie, 发送请求时附带 cookie, cookie 值从登录请求返回的 `Set-Cookie:` 里取
+
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt "http://localhost:8080/user/login"
 curl -v --cookie "JSESSIONID=C62172C780C581AE8212836C5F4A13EB" "http://localhost:8080/get"
 ```
 
-#### 保存cookie 到文件 
+#### 保存cookie 到文件
+
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login"
 ```
+
 #### 从文件读取cookie
+
 ```bash
 curl -v --cookie cookie.txt "http://localhost:8080/get"
 curl -v -b cookie.txt "http://localhost:8080/get"
 ```
 
 #### 完整版本
+
 ```bash
 curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://localhost:8080/user/login" && curl -v -b cookie.txt "http://localhost:8080/get"
 ```
 >https://stackoverflow.com/questions/30760213/save-cookies-between-two-curl-requests/37127263
 
 ### 追踪重定向 -L
+
     curl -L xxx
+
 ### post request
+
 可以用 -X POST 来声明请求方法，用 -d 参数传送参数, 使用 -d 时, 默认为POST请求, -X POST 可以省略
 
     curl -d "user=admin&passwd=12345678" http://127.0.0.1:8080/login
@@ -58,16 +69,21 @@ curl -v -d "name=admin&password=admin" -b cookie.txt -c cookie.txt "http://local
     curl -i -XPOST 'http://localhost:8186/write?db=db0' --data-binary @foo  
 
 ### with header
+
     curl -H "Content-Type: application/json"  \
     -d "user=nickwolfe&password=12345" http://www.yahoo.com/login.cgi
 
 ## use proxy
-### 用 -x 参数 
+
+### 用 -x 参数
+
 ```bash
 -x, --proxy [protocol://]host[:port]
 curl -x http://127.0.0.1:8899 http://www.baidu.com
 ```
+
 #### 或者在环境变量里设置 proxy
+
 ```bash
 http_proxy=http://127.0.0.1:1080 curl -v http://www.baidu.com
 
@@ -76,7 +92,9 @@ export http_proxy=http://127.0.0.1:1080
 curl -v http://www.baidu.com
 
 ```
+
 #### socks5 proxy
+
 ```bash
 curl -x socks5h://localhost:8001 http://www.google.com/
 curl -x socks5://localhost:8888 http://google.com

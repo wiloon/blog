@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## 'CentOS firewalld, firewall-cmd'
+
 Firewalld 使用区域和服务的概念。根据您将要配置的区域和服务，您可以控制允许或阻止与系统之间的流量。
 可以使用 firewall-cmd 命令行实用程序配置和管理 Firewalld  。
 在 CentOS 8 中， nftables 替代了 iptables，作为 firewalld 守护程序的默认防火墙后端。

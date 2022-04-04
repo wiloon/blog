@@ -10,10 +10,13 @@ tags:
   - reprint
 ---
 ## jdk tool, java tool, jvm tool
+
 ### jcmd
+
 Java 命令行(Java Command),用于向正在运行的JVM发送诊断命令请求。
 
 ### jmc
+
 Java任务控制工具(Java Mission Control),主要用于HotSpot JVM的生产时间监测、分析、诊断。
   
 <https://blog.wiloon.com/?p=9724>

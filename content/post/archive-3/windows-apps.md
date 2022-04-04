@@ -41,8 +41,8 @@ https://chocolatey.org/packages
 
 ### 录屏
 
-    https://www.v1tx.com/post/best-screen-recorder/
-    
+>https://www.v1tx.com/post/best-screen-recorder/
+
 - apps
 
 | Name             | Comments |

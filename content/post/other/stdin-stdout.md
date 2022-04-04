@@ -10,7 +10,9 @@ tags:
   - reprint
 ---
 ## STDIN STDOUT, STDERR
+
 Unix/Linux/BSD 都有三个特别文件，分别
+
 1) 标准输入 即 STDIN , 在 /dev/stdin ,
    一般指键盘输入, shell里代号是 0
 2) 标准输出 STDOUT, 在 /dev/stdout,
@@ -19,15 +21,15 @@ Unix/Linux/BSD 都有三个特别文件，分别
    也是指终端(terminal), 不同的是, 错误信息送到这里
    shell里代号是 2
 
-
 stdout和stderr
-有人说stdio是带缓冲的，stderr是不带缓冲的，这并不是指fd=1和fd=2这两个设备文件，这两个设备是字符设备，本身没有缓存。并且你看一个进程的1和2两个fd指向的其实是同一个终端设备文件：
+有人说stdio是带缓冲的，stderr是不带缓冲的，这并不是指fd=1和fd=2这两个设备文件，这两个设备是字符设备，本身没有缓存。并且你看一个进程的1和2两个fd指向的其实是同一个终端设备文件
 
-[root@ubuntu]arm-code:$ ls -l /proc/8669/fd/
-total 0
-lrwx------ 1 root root 64  4月 25 20:57 0 -> /dev/pts/7
-lrwx------ 1 root root 64  4月 25 20:57 1 -> /dev/pts/7
-lrwx------ 1 root root 64  4月 25 20:57 2 -> /dev/pts/7
+ls -l /proc/8669/fd/
+
+    total 0
+    lrwx------ 1 root root 64  4月 25 20:57 0 -> /dev/pts/7
+    lrwx------ 1 root root 64  4月 25 20:57 1 -> /dev/pts/7
+    lrwx------ 1 root root 64  4月 25 20:57 2 -> /dev/pts/7
 
 所以，细想一下就知道，向1或2两个fd写东西，在内核里走的是完全相同的路径，不可能存在一会儿缓存一会儿不缓存的情况。
 

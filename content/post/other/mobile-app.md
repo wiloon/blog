@@ -10,7 +10,6 @@ tags:
   - reprint
 ---
 ## mobile apps, ios apps, android apps, app list, apk
-## mobile appa, app list, apk, ios
 
 todo: 用列表代替表格,方便编辑
 

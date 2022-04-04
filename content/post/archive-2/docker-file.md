@@ -2,13 +2,13 @@
 title: dockerfile
 author: "-"
 date: 2018-12-22T13:02:46+00:00
-url: /?p=13180
+url: dockerfile
 categories:
-  - Uncategorized
-
+  - docker
 tags:
   - reprint
 ---
+
 ## dockerfile
 
 ```bash
@@ -26,7 +26,6 @@ COPY config.toml config.toml
 COPY config.toml /data/config.toml
 ENV APPLICATION_NAME ${APP_NAME}
 CMD "/data/${APPLICATION_NAME}"
-
 
 ```
 
@@ -96,6 +95,7 @@ COPY的语法与功能与ADD相同,只是不支持上面讲到的<src>是远程U
 WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录),该指令在Dockerfile文件中可以出现多次,如果使用相对路径则为相对于WORKDIR上一次的值,例如WORKDIR /a,WORKDIR b,RUN pwd最终输出的当前目录是/a/b。 (RUN cd /a/b,RUN pwd是得不到/a/b的) 
 
 ### create file
+
 ```bash
 RUN echo 'All of your\n\
 multiline that you ever wanted\n\
@@ -106,19 +106,28 @@ into a dockerfile\n'\
 <http://blog.wiloon.com/?p=11796>
 http://dockone.io/article/8196
 
-
-### Dockerfile RUN，CMD，ENTRYPOINT命令区别
+## Dockerfile RUN，CMD，ENTRYPOINT命令区别
 
 Dockerfile中RUN，CMD和ENTRYPOINT都能够用于执行命令，下面是三者的主要用途：
 
+## RUN
+
 RUN命令执行命令并创建新的镜像层，通常用于安装软件包
-CMD命令设置容器启动后默认执行的命令及其参数，但CMD设置的命令能够被docker run命令后面的命令行参数替换
-ENTRYPOINT配置容器启动时的执行命令 (不会被忽略，一定会被执行，即使运行 docker run时指定了其他命令）
-Shell格式和Exec格式运行命令
+
+## CMD
+
+CMD命令设置容器启动后默认执行的命令及其参数，但CMD设置的命令能够被 docker run 命令后面的命令行参数替换
+
+## ENTRYPOINT
+
+ENTRYPOINT配置容器启动时的执行命令 (不会被忽略，一定会被执行，即使运行 docker run 时指定了其他命令）
+
+## Shell格式和Exec格式运行命令
+
 我们可用两种方式指定 RUN、CMD 和 ENTRYPOINT 要运行的命令：Shell 格式和 Exec 格式：
 
-Shell格式：<instruction> <command>。例如：apt-get install python3
-Exec格式：<instruction> ["executable", "param1", "param2", ...]。例如： ["apt-get", "install", "python3"]
+Shell格式：`<instruction> <command>`。例如：apt-get install python3
+Exec格式：`<instruction>` ["executable", "param1", "param2", ...]。例如： ["apt-get", "install", "python3"]
 CMD 和 ENTRYPOINT 推荐使用 Exec 格式，因为指令可读性更强，更容易理解。RUN 则两种格式都可以。
 
 Run命令
@@ -245,3 +254,18 @@ ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
 RUN echo "upstream php-upstream { server ${PHP_UPSTREAM_CONTAINER}:${PHP_UPSTREAM_PORT}; }" > /etc/nginx/conf.d/upstream.conf
 这里的变量用的就是 ARG 而不是 ENV了,因为这条命令运行在 Dockerfile 当中的, 像这种临时使用一下的变量没必要存环境变量的值就很适合使用 ARG
+
+## 调试用的 shell 脚本
+
+脚本第一行用的是 /bin/sh, 并不是每一个镜像都有 bash
+
+```bash
+#!/bin/sh
+
+for i in {1..10}
+do
+  echo "$i"
+  date
+  sleep 10
+done
+```

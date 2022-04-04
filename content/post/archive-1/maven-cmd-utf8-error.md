@@ -10,13 +10,14 @@ tags:
 
 ---
 ## maven cmd utf8 error
+
 unmappable character for encoding GBK
 
-
+```xml
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-</properties>```
-
+</properties>
+```
 
 http://stackoverflow.com/questions/3017695/how-to-configure-encoding-in-maven

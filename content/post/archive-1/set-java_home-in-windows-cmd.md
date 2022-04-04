@@ -10,6 +10,7 @@ tags:
 
 ---
 ## Set JAVA_HOME in windows cmd
+
 http://kooyee.iteye.com/blog/525068
 
 set JAVA_HOME=jrepath

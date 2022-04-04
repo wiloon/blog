@@ -36,7 +36,6 @@ Buffer cache 是由物理内存分配，Linux 系统为提高内存使用率，�
 
 buffer cache 的内存，是块设备的读写缓冲区，更靠近存储设备，或者直接就是 disk 的缓冲区。
 
-
 ### page cache 和 Buffer cache 的区别
 
 磁盘的操作有逻辑级 (文件系统）和物理级 (磁盘块），这两种Cache就是分别缓存逻辑和物理级数据的。

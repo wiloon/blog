@@ -181,8 +181,20 @@ the $[ syntax was an early syntax that was deprecated in favor of $((, since the
 >https://www.runoob.com/w3cnote/linux-shell-brackets-features.html
 >https://dev.to/rpalo/bash-brackets-quick-reference-4eh6
 
-
 ## 循环, shell loop
+
+```bash
+#!/bin/sh
+
+for i in 1 2 3 4 5
+do
+  echo "$i"
+  date
+  sleep 10
+done
+
+```
+
 ```bash
 #!/bin/bash  
 
@@ -191,6 +203,7 @@ do
 echo $(expr $i \* 3 + 1);  
 done
 ```
+
 ### 字符串分割
 
 ```bash

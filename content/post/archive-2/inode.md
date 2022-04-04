@@ -13,24 +13,11 @@ tags:
 ---
 ## inode
 
-inode (发音: eye-node) 译成中文就是索引节点, 它用来存放档案及目录的基本信息, 包含时间、档名、使用者及群组等。
+inode (发音: eye-node) 译成中文就是索引节点, 它用来存放文件和目录的基本信息, 包含时间、档名、使用者，群组，权限， 一个文件占用一个inode,同时记录此文件的数据所在的 block 号码；
 
 >http://www.ruanyifeng.com/blog/2011/12/inode.html
 
 inode是什么？
-
-理解inode, 要从文件储存说起。
-
-## Sector, 扇区
-文件储存在硬盘上, 硬盘的最小存储单位叫做"扇区" (Sector)。每个扇区储存 512 字节 (相当于0.5KB) 。
-
-操作系统读取硬盘的时候,不会一个个扇区地读取,这样效率太低,而是一次性连续读取多个扇区, 即一次性读取一个"块" (block) 。这种由多个扇区组成的"块",是文件存取的最小单位。"块"的大小,最常见的是4KB, 即连续八个 sector组成一个 block。
-
-文件数据都储存在"块"中,那么很显然,我们还必须找到一个地方储存文件的元信息,比如文件的创建者、文件的创建日期、文件的大小等等。 这种储存文件元信息的区域就叫做inode,中文译名为"索引节点"。
-
-每一个文件都有对应的inode,里面包含了与该文件有关的一些信息。
-
-https://www.jianshu.com/p/d60a2b44e78e
 
 inode是一个重要概念, 是理解 Unix/Linux 文件系统和硬盘储存的基础。
 
@@ -66,8 +53,9 @@ inode包含文件的元信息, 具体来说有以下内容
 - 链接数, 即有多少文件名指向这个inode
 - 文件数据block的位置
 
-### 可以用stat命令,查看某个文件的inode信息: 
-    stat example.txt
+### 可以用stat命令,查看某个文件的inode信息
+
+    stat foo.txt
 
 总之,除了文件名以外的所有文件信息, 都存在inode之中。至于为什么没有文件名,下文会有详细解释。
 
@@ -188,3 +176,4 @@ https://unix.stackexchange.com/questions/117325/where-are-filenames-stored-on-a-
 
 >https://zhuanlan.zhihu.com/p/143430585
 >https://www.h5w3.com/84540.html
+>https://www.jianshu.com/p/d60a2b44e78e

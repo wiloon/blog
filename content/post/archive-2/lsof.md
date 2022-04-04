@@ -138,7 +138,6 @@ lsoflist open files. 是一个列出当前系统打开文件的工具。在linux
 9. X: for an SCO OpenServer Xenix lock on the entire file;
 10. space: if there is no lock.
 
-
 ### TYPE: 文件类型,如DIR、REG等,常见的文件类型
 
 1. DIR: 表示目录

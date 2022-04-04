@@ -71,7 +71,7 @@ Fri Jul 15 18:44:30 CST 2011
 Filesystem Size Used Avail Use% Mounted on
   
 /dev/mapper/rootvg-lv01
-                         
+
 97G 9.2G 83G 10% /
   
 /dev/sda1 99M 15M 80M 16% /boot
@@ -84,7 +84,7 @@ tmpfs 2.0G 937M 1.1G 46% /dev/shm
   
 tmpfs有以下特点: 
   
-1.tmpfs 是一个文件系统,而不是块设备；您只是安装它,它就可以使用了。
+1.tmpfs 是一个文件系统, 而不是块设备；您只是安装它, 它就可以使用了。
   
 2.动态文件系统的大小。
   

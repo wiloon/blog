@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## 'The precompilation target directory  cann ot be in the same tree as the source application directory'
+
 ASPNETCOMPILER : error ASPRUNTIME: The precompilation target directory (D:appsjenkinsHomejobsxxxworkspacexxxPrecompiledWebxxx) cann
   
 ot be in the same tree as the source application directory (D:appsjenkinsHomejobsxxxworkspacexxx). [D:appsjenkinsHomejobsxxx

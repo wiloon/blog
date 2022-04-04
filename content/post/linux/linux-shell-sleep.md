@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## linux shell sleep,wait
+
 sleep 5
   
 等待 秒

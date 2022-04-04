@@ -1,5 +1,5 @@
 ---
-title: NAS, raid
+title: NAS, RAID
 author: "-"
 date: 2015-05-02T00:45:20+00:00
 url: /?p=7551
@@ -9,8 +9,8 @@ categories:
 tags:
   - reprint
 ---
-## NAS, raid
-# NAS, RAID
+## NAS, RAID
+
 http://www.zhihu.com/question/19786074
 
 NAS - Network Attached Storage:  是一种存储类型,说白了就是主机通过Ethernet网络访问存储数据的一种类型存储。
@@ -23,13 +23,13 @@ SAN  (storage area network) storage: 主机通过Fibre Channel访问存储数据
   
 NFS和SMB都是基于文件系统访问的运行在ethernet网络的协议,NFS用于Unix操作系统平台 (比如: AIX,HP-UX,各种Linux) 的访问协议；SMB协议用于windows系统平台的文件系统访问协议。
   
-而iSCSI又称为IP-SAN,是一种基于ethernet网络下的SCSI-3协议,它是基于块设备(block)的数据访问协议。
+而iSCSI又称为IP-SAN, 是一种基于ethernet网络下的SCSI-3协议,它是基于块设备(block)的数据访问协议。
   
-NAS storage支持NFS、SMB、iSCSI协议
+NAS storage 支持 NFS、SMB、iSCSI 协议
 
-更传统的性能更高,但是成本也更高的是基于Fibre Channel的SCSI-3访问协议,它是基于块设备(block)的数据访问协议
+更传统的性能更高,但是成本也更高的是基于 Fibre Channel 的 SCSI-3 访问协议, 它是基于块设备 (block)的数据访问协议
   
-SAN storage使用基于Fibre Channel的SCSI-3访问协议
+SAN storage 使用基于 Fibre Channel 的 SCSI-3 访问协议
 
 NFS是一种网络文件系统,也可以理解为网络文件传输协议。就是定义文件数据如何在网络中传输,通过怎样的协议去访问网络端的文件。
 

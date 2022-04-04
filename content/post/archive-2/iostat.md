@@ -24,7 +24,8 @@ iostat -x 1
     -x     Display extended statistics; 显示详细信息
 
 ### 字段
-    rrqm/s:          每秒进行 merge 的读操作数目。即 delta(rmerge)/s
+
+    rrqm/s:         每秒进行 merge 的读操作数目。即 delta(rmerge)/s
     wrqm/s:         每秒进行 merge 的写操作数目。即 delta(wmerge)/s
     r/s:            每秒完成的读 I/O 设备次数。即 delta(rio)/s
     w/s:            每秒完成的写 I/O 设备次数。即 delta(wio)/s
@@ -40,13 +41,15 @@ iostat -x 1
 
 Linux系统中的 iostat是I/O statistics (输入/输出统计) 的缩写,iostat工具将对系统的磁盘操作活动进行监视。它的特点是汇报磁盘活动统计情况,同时也会汇报出CPU使用情况。同vmstat一样,iostat也有一个弱点,就是它不能对某个进程进行深入分析,仅对系统的整体情况进行分析。iostat属于sysstat软件包。可以用yum install sysstat 直接安装。
 
-### 命令格式: 
+### 命令格式
+
     iostat[参数][时间][次数]
 
-### 命令功能: 
+### 命令功能
+
     通过iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。
 
-3．命令参数: 
+3．命令参数:
   
 -C 显示CPU使用情况
   
@@ -68,15 +71,15 @@ Linux系统中的 iostat是I/O statistics (输入/输出统计) 的缩写,iostat
 
 -V 显示版本信息
 
-4．使用实例: 
+4．使用实例:
 
 实例1: 显示所有设备负载情况
 
-命令: 
+命令:
 
 iostat
 
-输出: 
+输出:
   
 [root@CT1186 ~]# iostat
   
@@ -104,9 +107,9 @@ sda6              2.20         0.18        31.22    2837260  481488056
   
 sda7             12.48        39.04       326.45  602094508 5035104240
   
-说明: 
+说明:
 
-cpu属性值说明: 
+cpu属性值说明:
 
 %user: CPU处在用户模式下的时间百分比。
 
@@ -120,13 +123,9 @@ cpu属性值说明:
 
 %idle: CPU空闲时间百分比。
 
- 
-
 备注: 如果%iowait的值过高,表示硬盘存在I/O瓶颈,%idle值高,表示CPU较空闲,如果%idle值高但系统响应慢时,有可能是CPU等待分配内存,此时应加大内存容量。%idle值如果持续低于10,那么系统的CPU处理能力相对较低,表明系统中最需要解决的资源是CPU。
 
- 
-
-disk属性值说明: 
+disk属性值说明:
 
 rrqm/s:  每秒进行 merge 的读操作数目。即 rmerge/s
 
@@ -154,19 +153,15 @@ svctm: 平均每次设备I/O操作的服务时间 (毫秒)。
 
 %util:  一秒中有百分之多少的时间用于 I/O 操作,即被io消耗的cpu百分比
 
- 
-
 备注: 如果 %util 接近 100%,说明产生的I/O请求太多,I/O系统已经满负荷,该磁盘可能存在瓶颈。如果 svctm 比较接近 await,说明 I/O 几乎没有等待时间；如果 await 远大于 svctm,说明I/O 队列太长,io响应太慢,则需要进行必要优化。如果avgqu-sz比较大,也表示有当量io在等待。
-
- 
 
 实例2: 定时显示所有信息
 
-命令: 
+命令:
 
 iostat 2 3
 
-输出: 
+输出:
   
 [root@CT1186 ~]# iostat 2 3
   
@@ -238,19 +233,17 @@ sda6              4.00         0.00        84.00          0        168
   
 sda7              0.00         0.00         0.00          0          0
   
-说明: 
+说明:
 
 每隔 2秒刷新显示,且显示3次
 
- 
-
 实例3: 显示指定磁盘信息
 
-命令: 
+命令:
 
 iostat -d sda1
 
-输出: 
+输出:
 
 [root@CT1186 ~]# iostat -d sda1
   
@@ -260,17 +253,15 @@ Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
   
 sda1              0.00         0.00         0.00       2658        536
   
-说明: 
-
- 
+说明:
 
 实例4: 显示tty和Cpu信息
 
-命令: 
+命令:
 
 iostat -t
 
-输出: 
+输出:
   
 [root@CT1186 ~]# iostat -t
   
@@ -300,17 +291,15 @@ sda6              2.20         0.18        31.22    2837260  481488712
   
 sda7             12.48        39.04       326.44  602094508 5035113248
   
-说明: 
-
- 
+说明:
 
 实例5: 以M为单位显示所有信息
 
-命令: 
+命令:
 
 iostat -m
 
-输出: 
+输出:
   
 [root@CT1186 ~]# iostat -m
   
@@ -338,17 +327,15 @@ sda6              2.20         0.00         0.02       1385     235102
   
 sda7             12.48         0.02         0.16     293991    2458553
   
-说明: 
-
- 
+说明:
 
 实例6: 查看TPS和吞吐量信息
 
-命令: 
+命令:
 
 iostat -d -k 1 1
 
-输出: 
+输出:
   
 [root@CT1186 ~]# iostat -d -k 1 1
   
@@ -372,7 +359,7 @@ sda6              2.20         0.09        15.61    1418630  240744712
   
 sda7             12.48        19.52       163.22  301047254 2517559596
   
-说明: 
+说明:
 
 tps: 该设备每秒的传输次数 (Indicate the number of transfers per second that were issued to the device.) 。"一次传输"意思是"一次I/O请求"。多个逻辑请求可能会被合并为"一次I/O请求"。"一次传输"请求的大小是未知的。
 
@@ -384,17 +371,15 @@ kB_read: 读取的总数据量；kB_wrtn: 写入的总数量数据量；
 
 这些单位都为Kilobytes。
 
-上面的例子中,我们可以看到磁盘sda以及它的各个分区的统计数据,当时统计的磁盘总TPS是22.73,下面是各个分区的TPS。 (因为是瞬间值,所以总TPS并不严格等于各个分区TPS的总和) 
+上面的例子中,我们可以看到磁盘sda以及它的各个分区的统计数据,当时统计的磁盘总TPS是22.73,下面是各个分区的TPS。 (因为是瞬间值,所以总TPS并不严格等于各个分区TPS的总和)
 
- 
+实例7: 查看设备使用率 (%util) 、响应时间 (await)
 
-实例7: 查看设备使用率 (%util) 、响应时间 (await) 
-
-命令: 
+命令:
 
 iostat -d -x -k 1 1
 
-输出: 
+输出:
   
 [root@CT1186 ~]# iostat -d -x -k 1 1
   
@@ -418,7 +403,7 @@ sda6              0.00     1.71  0.01  2.19     0.09    15.61    14.29     0.03 
   
 sda7              0.08    28.56  0.25 12.24    19.52   163.22    29.28     0.27   21.46   5.00   6.25
   
-说明: 
+说明:
 
 rrqm/s:   每秒进行 merge 的读操作数目.即 delta(rmerge)/s
 
@@ -446,8 +431,6 @@ svctm:  平均每次设备I/O操作的服务时间 (毫秒).即 delta(use)/delta
 
 %util:  一秒中有百分之多少的时间用于 I/O 操作,或者说一秒中有多少时间 I/O 队列是非空的,即 delta(use)/s/1000 (因为use的单位为毫秒)
 
- 
-
 如果 %util 接近 100%,说明产生的I/O请求太多,I/O系统已经满负荷,该磁盘可能存在瓶颈。
 
 idle小于70% IO压力就较大了,一般读取速度有较多的wait。
@@ -462,9 +445,7 @@ svctm 一般要小于 await (因为同时等待的请求的等待时间被重复
 
 队列长度(avgqu-sz)也可作为衡量系统 I/O 负荷的指标,但由于 avgqu-sz 是按照单位时间的平均值,所以不能反映瞬间的 I/O 洪水。
 
- 
-
-形象的比喻: 
+形象的比喻:
   
 r/s+w/s 类似于交款人的总数
   
@@ -486,15 +467,13 @@ I/O 操作率 (%util)类似于收款台前有人排队的时间比例
   
 每秒发出的I/0请求很多,但是平均队列就4,表示这些请求比较均匀,大部分处理还是比较及时。
 
- 
-
 实例8: 查看cpu状态
 
-命令: 
+命令:
 
 iostat -c 1 3
 
-输出: 
+输出:
   
 [root@CT1186 ~]#  iostat -c 1 3
   
@@ -512,10 +491,8 @@ avg-cpu:  %user   %nice %system %iowait  %steal   %idle
   
 7.62    0.00    5.12    0.50    0.00   86.75
 
- 
-
-http://www.cnblogs.com/peida/archive/2012/12/28/2837345.html
+<http://www.cnblogs.com/peida/archive/2012/12/28/2837345.html>
   
-http://lirenke.net/2015/01/07/io-model-dd-cmd/
+<http://lirenke.net/2015/01/07/io-model-dd-cmd/>
   
-http://guozengxin.me/2013/08/24/linux-dd-introduction/
+<http://guozengxin.me/2013/08/24/linux-dd-introduction/>

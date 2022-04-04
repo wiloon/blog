@@ -431,6 +431,7 @@ Hugo's built in web server supports live reload. As pages are saved on the serve
 Use the following commands as the basis for your workflow.
 
 ```
+
 ## purge old files. hugo will recreate the public directory.
 ##
 $ rm -rf public

@@ -5,7 +5,6 @@ date: 2014-03-05T05:09:49+00:00
 url: ascii
 categories:
   - cs
-
 tags:
   - reprint
 ---

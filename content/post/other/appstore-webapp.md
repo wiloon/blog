@@ -10,10 +10,10 @@ tags:
   - reprint
 ---
 ## 苹果真的要在 AppStore 里封杀 WebApp 吗?
-## 苹果真的要在 应用商店 里封杀 WebApp 吗?
+
 >http://fins.iteye.com/blog/1685886
 
-  苹果真的要在 AppStore 里封杀 WebApp 吗 ? 
+  苹果真的要在 AppStore 里封杀 WebApp 吗 ?
   
     最近几个月, 苹果AppStore似乎加强了对WebApp的管控, 很多过去能上架的 使用WebApp+Native壳的应用陆陆续续的都被拒了.
   
