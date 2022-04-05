@@ -67,4 +67,10 @@ IOPS (Input/Output Per Second) 即每秒的输入输出量 (或读写次数) ,�
 
  A typical size is 8 sectors to the cluster
 
+块和簇
+由于扇区的空间比较小且数目众多，在寻址时比较困难，所以操作系统就将多个的扇区组合在一起，形成一个更大的单位，再对这个单位进行整体的操作。这个单位，在Windows下，FAT，FAT32和NTFS 文件系统中叫做簇（cluster）；在Linux下如Ext4等文件系统中叫做块（block）。每个簇或者块可以包括2、4、8、16、32、64…2的n次方个扇区。
+————————————————
+版权声明：本文为CSDN博主「晚安丶」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/william_munch/article/details/84347788
+
 <https://www.cnblogs.com/liwei0526vip/p/4998614.html>

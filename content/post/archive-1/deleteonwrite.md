@@ -8,8 +8,7 @@ categories:
 tags:
   - reprint
 ---
-## 反向工程–Visio 2007自动生成ER图
-http://www.forthxu.com/blog/article/40.html
+## Linux下删除正在进行读写操作的文件
 
 多进程环境下，打开同一个文件，进行读写操作过程中，如果其中一个进程删除这个文件，那么，另外正在读写这个文件会发生什么呢？
 
@@ -42,6 +41,6 @@ rm 命令用的是 unlink() 系统调用
 
 文件 在相应目录中已经被删除，但是由于有其他进程打开这一文件后还未关闭，操作系统其实还为这些进程保留了磁盘上被打开的文件内容。
 
-
->https://zhuanlan.zhihu.com/p/25650525
->https://zhuanlan.zhihu.com/p/25600743
+<https://zhuanlan.zhihu.com/p/25650525>  
+<https://zhuanlan.zhihu.com/p/25600743>  
+<http://www.forthxu.com/blog/article/40.html>  

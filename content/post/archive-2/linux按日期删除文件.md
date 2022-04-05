@@ -10,6 +10,7 @@ tags:
 
 ---
 ## 按日期删除文件
+
 ```bash
 # 列出30天前的日志
 find /data/logs -mtime +30 -type f -name "*.*"
@@ -20,8 +21,9 @@ find /data/logs -mtime +30 -type f -name "*.*" -exec rm -f {} \;
 find /文件路径 -name "*.log" -mtime +2 -exec rm {} \;
 ```
 
-### 说明: 
-  1. 文件路径是目标文件所在路径； 
+### 说明
+
+  1. 文件路径是目标文件所在路径
   2. -name 设定目标文件名,建议采用,否则可能误删其他文件；
   3. -ctime 文件最后一次修改时间,后面只能用整数,单位为天,同时, 还有 atime, mtime(修改时间), amin, cmin, mmin 等时间参数可选, 具体请查看帮助
      + -mtime: File's data was last modified n_24 hours ago.

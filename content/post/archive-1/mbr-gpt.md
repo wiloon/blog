@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## mbr gpt
+
 http://www.rodsbooks.com/linux-fs-code/
 
 硬盘分区表扫盲: MBR和GPT表,你在用哪一样？

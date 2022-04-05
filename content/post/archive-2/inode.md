@@ -13,9 +13,14 @@ tags:
 ---
 ## inode
 
+>An inode stores all the information about a regular file, directory, or other file system
+object, except its data and name.
+
+每个文件都对应一个 inode，inode 存储了除文件名和文件内容之外的所有信息。
+
 inode (发音: eye-node) 译成中文就是索引节点, 它用来存放文件和目录的基本信息, 包含时间、档名、使用者，群组，权限， 一个文件占用一个inode,同时记录此文件的数据所在的 block 号码；
 
->http://www.ruanyifeng.com/blog/2011/12/inode.html
+<http://www.ruanyifeng.com/blog/2011/12/inode.html>
 
 inode是什么？
 
@@ -33,7 +38,13 @@ inode是一个重要概念, 是理解 Unix/Linux 文件系统和硬盘储存的�
 
 理解inode,要从文件储存说起。
 
-文件储存在硬盘上, 硬盘的最小存储单位叫做"扇区" (Sector) 。每个扇区储存 512 字节 (相当于0.5KB) 。
+## 扇区 (Sector)
+
+文件储存在硬盘上, 硬盘的最小存储单位叫做"扇区" (Sector) 。每个扇区储存 512 字节。（现在新的硬盘每个扇区有4K）
+
+注意：硬盘的最小存储单位就是扇区了，而且硬盘本身并没有block的概念。
+
+文件系统不是一个扇区一个扇区的来读数据，太慢了，所以有了block（块）的概念，它是一个块一个块的读取的，block才是文件存取的最小单位。
 
 操作系统读取硬盘的时候, 不会一个个扇区地读取, 这样效率太低, 而是一次性连续读取多个扇区, 即一次性读取一个"块" (block) 。这种由多个扇区组成的"块", 是文件存取的最小单位。"块"的大小,最常见的是4KB, 即连续八个 sector 组成一个 block。
 
@@ -110,7 +121,7 @@ ls -l /etc
 
 ## 硬链接, hard link
 
-硬链接在硬盘中是同一个inode存在，在目录文件中多了一个目录和该inode对应。
+硬链接在硬盘中是同一个 inode 存在，在目录文件中多了一个目录和该inode对应。links 数 增加， link 数可以用命令 stat 查看，如 stat foo.txt
 
 ### 硬链接特性
 
@@ -133,7 +144,7 @@ ln命令可以创建硬链接:
 
 ### 软链接, 符号链接, symbolic link, symlink
 
-除了硬链接以外, 还有一种特殊情况。
+除了硬链接，linux 系统还提供了一种符号链接。符号链接并不增加目标文件 i 节点的链接数。符号链接本身也是一个文件，其中存储了目标文件的完整路径，类似于windows系统中的快捷方式。符号链接与硬链接的另一个区别是符号链接可以对目录建立链接，而硬链接不能对目录建立链接。因为如果允许对目录建立硬链接，有可能形成链接环。
 
 文件 A 和文件 B 的 inode 号码虽然不一样, 但是文件 A 的内容是文件B的路径。 读取文件 A 时, 系统会自动将访问者导向文件 B 。 因此, 无论打开哪一个文件, 最终读取的都是文件 B 。 这时, 文件 A 就称为文件 B 的 "软链接" ( soft link ) 或者" 符号链接 ( symbolic link ) 。
 

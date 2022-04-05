@@ -30,15 +30,19 @@ tags:
    或是当程序提示有该词组时,按 CTRL_DEL 删除。
 
 ### 调整词顺序
+
 ctrl+6
 
 ### 删除词
+
 ctrl+7
 
 ### 五笔词库位置
+
 /home/wiloon/.config/fcitx/table/wbx.mb
 
 ## 安装 fcitx
+
 ```bash
 sudo pacman -S fcitx  kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 # kcm-fcitx: 图形界面的配置程序: KDE 中的 kcm-fcitx
@@ -48,6 +52,7 @@ sudo pacman -S fcitx  kcm-fcitx fcitx-configtool fcitx-im fcitx-table-extra
 ```
 
 ### vim .zshrc
+
 ```bash
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx

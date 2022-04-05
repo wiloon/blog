@@ -288,7 +288,7 @@ inode 的特色点：
 系统读取文件时需要先找到 inode,并分析 inode 所记录的权限与用户是否符合,若符合才能够开始实际读取 block 的内容
 系统将 inode 记录 block 号码的区域定义为12个直接，一个间接, 一个双间接与一个三间接记录区,如下图所示：
 
-## imap
+## imap, bmap
 
 文件系统 imap：inode 节点位图(inodemap)管理空闲inode
 
@@ -300,7 +300,7 @@ inode 的特色点：
 
 既然是"是否被占用"的问题，使用位图是最佳方案，像bmap记录block的占用情况一样。标识inode号是否被分配的位图称为inodemap简称为imap。这时要为一个文件分配inode号只需扫描imap即可知道哪一个inode号是空闲的。
 
-这样理解更容易些，类似bmap块位图一样，inode号是预先规划好的。inode号分配后，文件删除也会释放inode号。分配和释放的inode号，像是在一个地图上挖掉一块，用完再补回来一样。
+这样理解更容易些，类似 bmap 块位图 一样，inode号是预先规划好的。inode号分配后，文件删除也会释放inode号。分配和释放的inode号，像是在一个地图上挖掉一块，用完再补回来一样。
 
 imap存在着和bmap和inode table一样需要解决的问题：如果文件系统比较大，imap本身就会很大，每次存储文件都要进行扫描，会导致效率不够高。同样，优化的方式是将文件系统占用的block划分成块组，每个块组有自己的imap范围。
 
@@ -456,3 +456,12 @@ block 当中
 
 挂载(安装)文件系统
 ​ 文件系统加入到Linux的根文件系统的目录树结构上，这样文件系统上面的文件才能被访问。
+
+## 文件系统存取文件
+
+1. 根据文件名，通过 Directory 的对应 关系，找到文件对应 的 inode number
+2. 再根据  inode 读取到文件的 inode table.
+3. 再根据 inode table 中的 pointer 读取到相应 的block
+
+inode number 在单个磁盘分区中是唯一的.
+

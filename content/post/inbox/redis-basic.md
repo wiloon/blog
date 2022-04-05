@@ -11,13 +11,16 @@ tags:
 ## "redis basic"
 
 ### commands
+
     # OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
     OBJECT ENCODING key0
 
 #### 延迟时间
+
      redis-cli --latency -h 192.168.50.100 -p 6379
 
 ### sort
+
 https://segmentfault.com/a/1190000002806846
 
 基本使用
@@ -34,6 +37,7 @@ SORT mylist DESC
 如果mylist包含的元素是string类型的，想要按字典顺序排列这个列表，那么就要用到ALPHA描述符，如下所示: 
 
 #### watchdog
+
     CONFIG SET watchdog-period 500
 
 用户通过命令 CONFIG SET 开启软件看门狗
@@ -46,6 +50,7 @@ Redis 启动监测程序监测自己的状态
 时间间隔以毫秒为单位。在上面的例子中，我指定了，当服务器检测到 500 毫秒或更大的延迟的时候，才记录延迟事件。最小的时间间隔是 200 毫秒。
 
 ### cluster
+
     ./redis-cli -p 7000 cluster nodes
     ./redis-cli -p 7000 CLUSTER FAILOVER
     redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
@@ -55,24 +60,29 @@ Redis 启动监测程序监测自己的状态
     redis-cli --cluster del-node 127.0.0.1:7000 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
     ./redis-cli --cluster check 127.0.0.1:7000
 
-### DEBUG SEGFAULT 
+### DEBUG SEGFAULT
+
 Redis Debug Segfault 命令执行一个非法的内存访问从而让 Redis 崩溃，仅在开发时用于 BUG 调试。制造一次服务器当机。
 
     redis 127.0.0.1:6379> DEBUG SEGFAULT 
     redis-cli -p 7002 debug segfault
 
 ### java sdk
+
 - redisson
 - jedis
 
 ### 查看版本等信息
+
     info
 
 ### version
+
     current: 5.0.5
     latest: 6.2
 
 ### URLs
+
     https://redis.io/
     https://github.com/redis/redis
 
@@ -86,6 +96,7 @@ yum install redis
 ```
 
 #### rpm
+
 download redis rpm from https://pkgs.org/download/redis
 
 下载Redis的依赖包: libjemalloc
@@ -96,10 +107,13 @@ download redis rpm from https://pkgs.org/download/redis
 rpm -ivh jemalloc-3.6.0-1.el6.art.x86_64.rpm
 rpm -ivh redis-2.8.20-3.el6.art.x86_64.rpm
 ```
+
 ### ubuntu
+
     sudo apt-get install redis-server
 
 ### podman, 单机 redis
+
 ```bash
 # default config
 podman run \
@@ -126,14 +140,21 @@ redis:6.2.6 redis-server /etc/redis/redis.conf
 ```bash
 redis-server --version
 ```
+
 ### list all keys
+
     keys *
+
 ### delete key
+
 del key1 key2
 
 ### unlink
+
     unlink key [key ...]
+
 ### 判断key是否存在
+
 exists key_name
 
 ### 查看key的类型

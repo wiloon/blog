@@ -10,6 +10,7 @@ tags:
   - reprint
 ---
 ## bios boot partition
+
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks/zh-cn
 
 ```bash

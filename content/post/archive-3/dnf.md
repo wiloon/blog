@@ -17,12 +17,15 @@ tags:
 "update" is just a deprecated alias for "upgrade", they do exactly the same thing.
 
 ### 安装
+
     dnf install rsync
-    
+
 ### 删除
+
     dnf remove nano 或 # dnf erase nano
 
 ### 删除无用孤立的软件包
+
 用处: 当没有软件再依赖它们时，某一些用于解决特定软件依赖的软件包将会变得没有存在的意义，该命令就是用来自动移除这些没用的孤立软件包。  
 
     dnf autoremove

@@ -150,11 +150,13 @@ bin/kafka-topics.sh --create --partitions 3 --replication-factor 3 --topic topic
     --to-datetime 2017-08-04T14:30:00.000
 
 ### 查看kafka版本
-到kafka/libs 目录下查看kafka包的文件名,如: 
+
+到kafka/libs 目录下查看kafka包的文件名,如:
 
 kafka_2.10-0.8.2-beta.jar, where 2.10 is Scala version and 0.8.2-beta is Kafka version.
 
 ### config kafka server
+
 edit config/server.properties
 
 broker.id=0
@@ -164,6 +166,7 @@ listeners=PLAINTEXT://:9092
 zookeeper.connect=localhost:2181
 
 ### 删除topic
+
     bin/kafka-topics.sh --topic t0 --delete --zookeeper test-zookeeper-1
 
     #edit bin/kafka-server-start.sh, change memory setting KAFKA_HEAP_OPTS

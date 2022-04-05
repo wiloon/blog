@@ -118,14 +118,16 @@ func isExist(fileName string) bool {
 
 ### move file
 
-    func main() {
-    	oldLocation := "/var/www/html/test.txt"
-    	newLocation := "/var/www/html/src/test.txt"
-    	err := os.Rename(oldLocation, newLocation)
-    	if err != nil {
-    		log.Fatal(err)
-    	}
-    }
+```go
+func main() {
+	oldLocation := "/var/www/html/test.txt"
+	newLocation := "/var/www/html/src/test.txt"
+	err := os.Rename(oldLocation, newLocation)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+```
 
 ### 判断文件是否存在
 
