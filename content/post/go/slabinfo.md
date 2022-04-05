@@ -18,7 +18,7 @@ tags:
 
 此处以Normal区域进行分析，第二列值为100，表示当前系统中normal区域，可用的连续两页的内存大小为100*2*PAGE_SIZE；第三列值为52，表示当前系统中normal区域，可用的连续四页的内存大小为52*2^2*PAGE_SIZE
 
-cat /proc/buddyinfo 
+cat /proc/buddyinfo
 Node 0, zone      DMA     23     15      4      5      2      3      3      2      3      1      0 
 Node 0, zone   Normal    149    100     52     33     23      5     32      8     12      2     59 
 Node 0, zone  HighMem     11     21     23     49     29     15      8     16     12      2    142 
